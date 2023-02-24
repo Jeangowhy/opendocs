@@ -1,0 +1,7 @@
+# https://help.github.com/articles/ignoring-files/
+
+my age
+*sublime-workspace
+
+*.swp
+
