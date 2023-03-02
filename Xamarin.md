@@ -7,7 +7,6 @@
 - [XAML Hot Reload for Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/hot-reload)
 - [XAML Namespaces in Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/namespaces)
 - [XAML Code Samples](https://docs.microsoft.com/en-us/samples/browse/?languages=csharp%2Cxaml)
-- []()
 
 
 XAML - Extensible Application Markup Language 是实现 MVVM - Model View ViewModel 数据驱动编程模式非常好的工具，这是一种能将 UI 和代码很好地解耦的设计模式。在 MVVM 做得比较好的框架，比如 React/Angular/Vue 都是大量用户在使用，可见这是多么成功的编程模式。
@@ -1663,10 +1662,10 @@ XAML 中绑定数据设置 IsGroupingEnabled true 分组，绑定数据源的 Gr
 - SeparatorColor    Color类型，设置列表分割条的颜色。
 - SeparatorVisibility   枚举类型，None 不显示分割条。
 
-- Horizo​​ntalScrollBarVisibility 
+- Horizo  ntalScrollBarVisibility 
 - VerticalScrollBarVisibility 
 
-	ScrollBarVisibility 枚举值，设置水平或垂直滚动​​条何时可见：
+	ScrollBarVisibility 枚举值，设置水平或垂直滚动  条何时可见：
 
 	- Default 默认值，平台的默认滚动条行为。
 	- Always 指示滚动条将可见，即使内容适合视图。
@@ -1805,7 +1804,10 @@ Binding 可以指定绑定的路径，如下面的 Year 或 Day，解析时根�
 	}
 <!-- ``` -->
 
-注意，实现 INotifyPropertyChanged 接口，绑定机制会自动添加 PropertyChanged 事件的处理函数跟踪属性变化，同时触发事件时传入的属性名字 "DateTime" 必需和视图中要绑定的属性一致，否则 Xamarin.Forms 的数据绑定机制不会认为是数据属性有更新，比如，将其误写成 "DateTIme"，这样就是很难发现的错误，编译器检查不了。
+注意，实现 INotifyPropertyChanged 接口，绑定机制会自动添加 PropertyChanged 事件的处理函数
+跟踪属性变化，同时触发事件时传入的属性名字 "DateTime" 必需和视图中要绑定的属性一致，否则 
+Xamarin.Forms 的数据绑定机制不会认为是数据属性有更新，比如，将其误写成 "DateTIme"，
+这样就是很难发现的错误，编译器检查不了。
 
 <!-- ```xml -->
 	<Label Text="{Binding DateTime, StringFormat='{0:T}'}"

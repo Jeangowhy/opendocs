@@ -3952,99 +3952,130 @@ IDA 标记一个函数 `__unwind` 字样，`__try` 和 `__except` 这样的代�
 
 
 # 🚩 GDB Guide
-- GDB: The GNU Project Debugger https://www.gnu.org/software/gdb/documentation/
-- GDB Text User Interface https://sourceware.org/gdb/onlinedocs/gdb/TUI.html
-- A Sample GDB Session https://sourceware.org/gdb/current/onlinedocs/gdb/Sample-Session.html
-- Debugging Remote Programs https://sourceware.org/gdb/current/onlinedocs/gdb/Remote-Debugging.html
-- The Art of Debugging with GDB, DDD, and Eclipse https://2lib.org/book/688564/c29aad
-- Software Development, Design and Coding https://2lib.org/book/3420268/ea9617
-- 软件调试的艺术: Linux/Unix平台软件调试权威著作 https://2lib.org/book/5640379/db64ac
-- The Debugger's Handbook https://2lib.org/book/487559/76e000
-- How debuggers work https://eli.thegreenplace.net/2011/01/27/how-debuggers-work-part-2-breakpoints
-- Computer Science Lab http://www.computersciencelab.com/index.htm
-- Intel® 64 and IA-32 Architectures Software Developer Manuals https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html
-- [Computer Organization & Systems] This CS107 gdb Reference Card https://web.stanford.edu/class/cs107/resources/gdb_refcard.pdf
+- [GDB: The GNU Project Debugger](https://www.gnu.org/software/gdb/documentation/)
+- [GDB Text User Interface](https://sourceware.org/gdb/onlinedocs/gdb/TUI.html)
+- [A Sample GDB Session](https://sourceware.org/gdb/current/onlinedocs/gdb/Sample-Session.html)
+- [Debugging Remote Programs](https://sourceware.org/gdb/current/onlinedocs/gdb/Remote-Debugging.html)
+- [The Art of Debugging with GDB, DDD, and Eclipse](https://2lib.org/book/688564/c29aad)
+- [Software Development, Design and Coding](https://2lib.org/book/3420268/ea9617)
+- [软件调试的艺术: Linux/Unix平台软件调试权威著作](https://2lib.org/book/5640379/db64ac)
+- [The Debugger's Handbook](https://2lib.org/book/487559/76e000)
+- [How debuggers work](https://eli.thegreenplace.net/2011/01/27/how-debuggers-work-part-2-breakpoints)
+- [Computer Science Lab](http://www.computersciencelab.com/index.htm)
+- [Intel® 64 and IA-32 Architectures Software Developer Manuals](https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html)
+- [[Computer Organization & Systems] This CS107 gdb Reference Card](https://web.stanford.edu/class/cs107/resources/gdb_refcard.pdf)
 
 根据前面的指导搭建好开发环境，安装 GCC 编译套件还有调试工具后，先要掌握 GDB 调试工具的使用。
 
-调试技术，首先要有一个具有调试功能程序，它基于编译技术，可以实现将可执行程序中保存的二进制指令反向汇编成汇编指令，只要知道程序是基于什么 CPU 架构，并且可执行程序文件的格式符合调试器的要求，就可以被正确解析。
+调试技术，首先要有一个具有调试功能程序，它基于编译技术，可以实现将可执行程序中保存的二进制指令
+反向汇编成汇编指令，只要知道程序是基于什么 CPU 架构，并且可执行程序文件的格式符合调试器的要求，
+就可以被正确解析。
 
-然后调试器通过获取操作系统提供一定的权限，实现对被调试程序的读写，并按需要插入调试用的代码，以实现调试功能。
+然后调试器通过获取操作系统提供一定的权限，实现对被调试程序的读写，并按需要插入调试用的代码，
+以实现调试功能。
 
-被调试的程序会以另一个进程运行，并且调试器附着于被调试程序之上，以控制其代码的执行，当调试器 detach 进程后，就意味调试行为的结束。
+被调试的程序会以另一个进程运行，并且调试器附着于被调试程序之上，以控制其代码的执行，当调试器 
+detach 进程后，就意味调试行为的结束。
 
-具体实现在不同的系统上可能会相差很大，Unix 类操作系统，如 Linux 下 GDB 调试器就使用 ptrace 系统调用，通过这个功能众多且相当复杂的工具，能允许一个进程读写、控制另一个进程的运行，而且可以监视和渗入到进程内部。
+具体实现在不同的系统上可能会相差很大，Unix 类操作系统，如 Linux 下 GDB 调试器就使用 ptrace 
+系统调用，通过这个功能众多且相当复杂的工具，能允许一个进程读写、控制另一个进程的运行，而且可以
+监视和渗入到进程内部。
 
-在 Windows 系统上，通过 CreateProcess API 创建被调试的进程，并设置 DEBUG_PROCESS 或 DEBUG_ONLY_THIS_PROCESS 标识，还有其它用于调试的 API，如 IsDebuggerPresent 当前进程可以用来判断是否处于调试状态。
+Windows 系统上，通过 CreateProcess API 创建被调试的进程，并设置 DEBUG_PROCESS 或 
+DEBUG_ONLY_THIS_PROCESS 标识，还有其它用于调试的 API，如 IsDebuggerPresent 当前进程
+可以用来判断是否处于调试状态。
 
-除了系统提供的 Debugging API 之外，CPU 硬件本身提供用于调试的功能更加重要。比如，调试中单步执行的功能，对应 CPU 标志寄存器的 TF - Trap Flag。当该标志置位，CPU 每执行一条指令就会引发一次中断，CPU 会随后自动将 TF 清 0。
+除了系统提供的 Debugging API 之外，CPU 硬件本身提供用于调试的功能更加重要。比如，单步执行，
+对应 CPU 标志寄存器的 TF - Trap Flag。当该标志置位，CPU 每执行一条指令就会引发一次中断，
+CPU 会随后自动将 TF 清 0。
 
-Intel x86 架构 CPU 提供了 INT3 中断指令，指令码为 0xCC 刚好一个字节，它最常见的用途是触发一个中断。因为是通过软件触发的，所以称为软中断，soft interupts，这种指令也称为 trap instruction。另外通过 INT n 可以触发 256 种陷阱门，前 32 个由 CPU 自己保留。
+Intel x86 架构 CPU 提供了 INT3 中断指令，指令码为 0xCC 刚好一个字节，它最常见的用途是
+触发一个中断。因为是通过软件触发的，所以称为软中断，soft interupts，这种指令也称为陷阱指令 
+trap instruction。另外通过 INT n 可以触发 256 种陷阱门，前 32 个由 CPU 自己保留。
 
-Intel's Architecture software developer's manual 中有详细的说明，INT3 指令主要目的就是用来调用异常处理例程的。这个单字节形式的指令非常有用，可以用来替换任何指令的第一个字节，而不会覆盖到其它的操作码，只需要备份一个字节数据。
+Intel's Architecture software developer's manual 中有详细的说明，INT3 指令主要目的
+就是用来调用异常处理例程的。这个单字节形式的指令非常有用，可以用来替换任何指令的第一个字节，而
+不会覆盖到其它的操作码，只需要备份一个字节数据。
 
-以下两表包含了 INT 中断指令的各种形式，后一表解析了操作数和编码，即 Op/En 简写表示 Instruction Operand Encoding：
+以下两表包含了 INT 中断指令的各种形式，后一表解析了操作数和编码，Op/En 简写表示：
 
-    INT n/INTO/INT3/INT1—Call to Interrupt Procedure
-    | Opcode | Instruction | Op/En | 64-Bit Mode | Compat/Leg Mode |        Description         |
-    |--------|-------------|-------|-------------|-----------------|----------------------------|
-    | CC     | INT3        | ZO    | Valid       | Valid           | 产生断点陷阱               |
-    | CD ib  | INT imm8    | I     | Valid       | Valid           | 附带中断向量的软中断       |
-    | CE     | INTO        | ZO    | Invalid     | Valid           | 溢出陷阱，如果溢出标志置位 |
-    | F1     | INT1        | ZO    | Valid       | Valid           | Generate debug trap.       |
+INT n/INTO/INT3/INT1—Call to Interrupt Procedure
 
-    Instruction Operand Encoding
-    | Op/En | Operand 1 | Operand 2 | Operand 3 | Operand 4 |
-    |-------|-----------|-----------|-----------|-----------|
-    | ZO    | NA        | NA        | NA        | NA        |
-    | I     | imm8      | NA        | NA N      | A         |
+| Opcode | Instruction | Op/En | 64-Bit Mode | Compat/Leg Mode |        Description         |
+|--------|-------------|-------|-------------|-----------------|----------------------------|
+| CC     | INT3        | ZO    | Valid       | Valid           | 产生断点陷阱                 |
+| CD ib  | INT imm8    | I     | Valid       | Valid           | 附带中断向量的软中断          |
+| CE     | INTO        | ZO    | Invalid     | Valid           | 溢出陷阱，如果溢出标志置位      |
+| F1     | INT1        | ZO    | Valid       | Valid           | Generate debug trap.       |
+
+Instruction Operand Encoding
+
+| Op/En | Operand 1 | Operand 2 | Operand 3 | Operand 4 |
+|-------|-----------|-----------|-----------|-----------|
+| ZO    | NA        | NA        | NA        | NA        |
+| I     | imm8      | NA        | NA N      | A         |
 
 Intel 架构的开发者手册现在已经出版到 4 卷：
 
-- Volume 1: 描述 Intel® 64 和 IA-32 架构 CPU 的编程环境，包括 x86 体系的发展历史。
-- Volume 2: 包含完整的指令集，描述指令格式，提供指令参考，分为 2A、2B、2C、2D 分卷。
-- Volume 3: 包含完整的系统编译指导，描述 Intel® 64 和 IA-32 架构的操作系统环境支持，包括内存管理、保护、任务管理、中断异常处理、多核心支持、热量和电源管理、调试、性能监视、系统管理模式、VMX 虚拟机扩展指令、Intel® Virtualization Technology (Intel® VT)、Intel® Software Guard Extensions (Intel® SGX)，同样分为 3A、3B、3C、3D 分卷。
-- Volume 4: 描述支持 IA-32 和 Intel® 64 处理器架构的特定型号的寄存器。
+01. Volume 1: 描述 Intel® 64 和 IA-32 架构 CPU 的编程环境，包括 x86 体系的发展历史。
+02. Volume 2: 包含完整的指令集，描述指令格式，提供指令参考，分为 2A、2B、2C、2D 分卷。
+03. Volume 3: 包含完整的系统编译指导，描述 Intel® 64 和 IA-32 架构的操作系统环境支持，
+    包括内存管理、保护、任务管理、中断异常处理、多核心支持、热量和电源管理、调试、性能监视、系统
+    管理模式、VMX 虚拟机扩展指令、Intel® Virtualization Technology (Intel® VT)、
+    Intel® Software Guard Extensions (Intel® SGX)，同样分为 3A、3B、3C、3D 分卷。
+04. Volume 4: 描述支持 IA-32 和 Intel® 64 处理器架构的特定型号的寄存器。
 
-官网上提供合集，或分卷文件 PDF，或下载单独分卷共 10 个文件，因为文档是不断修正的，有些内容则是后来补充的，所以部分 Volume 2 的分卷有可能比 Volume 3 的要新。建议使用 Four-Volume Set 即四个分卷四个文件，按主题组织方便查阅。如果是全集一个文件，内容太多不好定位，60MB 超大文件也不好处理。
+官网上提供合集，或分卷文件 PDF，或下载单独分卷共 10 个文件，因为文档是不断修正的，有些内容则
+是后来补充的，所以部分 Volume 2 的分卷有可能比 Volume 3 的要新。建议使用 Four-Volume Set
+即四个分卷四个文件，按主题组织方便查阅。如果是全集一个文件，内容太多不好定位，60MB 超大文件
+也不好处理。
 
 早期的参考资料是 Intel 80386 Programmer's Reference Manual 1986。
 
 
 使用 gdb 调试程序，需要从以下几个方面来入手：
 
-- Breakpoints 断点让程序在关键位置中断，并提供时机让调试者跟踪具体代码。
-- Watchpoints 监视点让调试者获知已设置关键内容，提供了一个很好的信息反馈途径。
-- Variables and Expressions 通过变量与表达式获取更直观的结果。
-- Backtrace 调用栈反向追踪，获取代码调用跳转层次关系。
-- Stack Frames 调用栈层信息，获取指定一个调用形成 frame 数据。
-- Controlling Execution 提供了许多命令控制程序的执行，如单步 s，单指令 si，下一步 n 等等。
-- Examining Memory 内存检查可以实现对任意指定地址、数量的内存区域进行反汇编、数据检查，并按不同的进制格式显示。
+01. Breakpoints 断点让程序在关键位置中断，并提供时机让调试者跟踪具体代码。
+02. Watchpoints 监视点让调试者获知已设置关键内容，提供了一个很好的信息反馈途径。
+03. Variables and Expressions 通过变量与表达式获取更直观的结果。
+04. Backtrace 调用栈反向追踪，获取代码调用跳转层次关系。
+05. Stack Frames 调用栈层信息，获取指定一个调用形成 frame 数据。
+06. Controlling Execution 提供了许多命令控制程序的执行，如单步 s，单指令 si，下一步 n 等等。
+07. Examining Memory 内存检查可以实现对任意指定地址、数量的内存区域进行反汇编、数据检查，
+    并按不同的进制格式显示。
 
 GDB 调试命令参考，使用 help command 查询命令帮助信息。
 
-最基本的 gdb 使用是参考官方文档的 Sample Session，里面包含最基本调试界面的使用，所以命令都可以通过 help command 去查询使用方法，命令在没有歧义的前提下，可以省略表达。如查询断点命令的使用 `help break` 或者 `h b`。
+最基本的 gdb 使用是参考官方文档的 Sample Session，里面包含最基本调试界面的使用，命令使用方法
+可以通过 help command 命令去查询，在没有歧义的前提下，命令可以用省略方式表达。如查询断点命令的
+使用 `help break` 或者 `h b`，后面这种是省略表达方式。
 
-大多数命令都有相应的简短表达，如 `run` 命令相应等价 `r` 简短形式，直接按回车执行上次的命令，使用 TAB 可以自动完成命令输入：
+大多数命令都有相应的简短表达，如 `run` 命令相应等价 `r` 简短形式，直接按回车执行上次的命令，
+使用 TAB 可以自动完成命令输入：
 
-- `run` 运行命令，可以传入任意参数，如 `run 1st 2nd 3rd 4th`，或者将标准输出重定向 `run > out.txt`。
-- `Ctrl-c` 快捷键结束机器，打断 GDB 当前的指令，如果 QEMU 模拟多 CPU，这会结束它们。
-- `quit` 退出，结构调试。
-- `dir` 添加目录到源代码搜索目录列表，等价命令行参数 -directory=directory。
+01. `run` 运行命令，可以传入任意参数，如 `run 1st 2nd 3rd 4th`，或者将标准输出重定向
+    `run > out.txt`。
+02. `Ctrl-c` 快捷键结束机器，打断 GDB 当前的指令，如果 QEMU 模拟多 CPU，这会结束它们。
+03. `quit` 退出，结构调试。
+04. `dir` 添加目录到源代码搜索目录列表，等价命令行参数 -directory=directory。
+05. `symbol-file file` 切换调试符号文件，当 GDB 附加到 QEMU 模拟器时，不知道进程的边界，
+    就需要用它来指定使用什么符号，对于实验一般使用内核符号文件 obj/kern/kernel。QEMU 将每个
+    虚拟 CPU 当作一个 GDB 的线程，可以使用所有 GDB 线程相关命令来操作 QEMU 的虚拟 CPU。
+06. `thread n` GDB 强制每刻只关注一个线程或 CPU，通过这个命令可以关注 n 号线程，数值从 0 开始。
 
-- `symbol-file file` 切换调试符号文件，当 GDB 附加到 QEMU 模拟器时，不知道进程的边界，就需要用它来指定使用什么符号，对于实验一般使用内核符号文件 obj/kern/kernel。QEMU 将每个虚拟 CPU 当作一个 GDB 的线程，可以使用所有 GDB 线程相关命令来操作 QEMU 的虚拟 CPU。
-- `thread n` GDB 强制每刻只关注一个线程或 CPU，通过这个命令可以关注 n 个线程，数值从 0 开始。
-
-要结束调试，直接使用 `quit` 命令。如果不想收到 A debugging session is active 这样的提示，则需要先通过 `detach` 将已经挂接的程序退出来。
+要结束调试，直接使用 `quit` 命令。如果不想收到 A debugging session is active 这样的提示，
+则需要先通过 `detach` 将已经挂接的程序退出来。
 
 
 ## 🗝 Text User Interface
 
 *Text User Interface*
 
-使用命令行参数 --tui 或 GDB 命令 `tui enabled` 激活 Text User Interface 界面，这是一个比纯字符界面更好用的仿 GUI 界面。
+使用命令行参数 --tui 或 GDB 命令 `tui enabled` 激活 Text User Interface 界面，这是一个
+比纯字符界面更好用的仿 GUI 界面。
 
-要使用 TUI 界面功能，需要在编译 GDB 时配置启用 --enable-tui 模块编译选项，才支持开启 TUI 调试界面。
+要使用 TUI 界面功能，需要在编译 GDB 时配置启用 --enable-tui 模块编译选项，才支持开启 TUI 
+调试界面。
 
 TUI 是非常好用的字符用户界面，可以使用快捷键：
 
@@ -4081,7 +4112,8 @@ TUI 是非常好用的字符用户界面，可以使用快捷键：
 
 *Before debuggging* 在开始调试程序之前，需要掌握一些基本知识。
 
-注意 GCC 编译时加 -g 参数产生的额外调试，-O 是优化选项，会剔除调试信息，除非是使用 -Og 调试体验优化。
+注意 GCC 编译时加 -g 参数产生的额外调试，-O 是优化选项，会剔除调试信息，除非是使用 -Og 调试
+体验优化。
 
 有了额外的调试符号能让 gdb 调试工作方便地开展：
 
@@ -4094,15 +4126,47 @@ TUI 是非常好用的字符用户界面，可以使用快捷键：
 - `-gstabs` 生成 stabs 格式调试信息，但是不包括 gdb 专用的额外调试信息。
 - `-gstabs+` 生成 stabs+ 格式调试信息，并且包含 gdb 专用的额外调试信息。
 
-GCC 调试体验优化 `-Og` 在保持 -O0 快速编译和良好调试体验的同时，提供合理的优化级别，禁用了其中会干扰调试的标志。用于生成可调试代码，包含在 -O0 优化级别中，某些被禁用的收集调试信息的编译器通道。
+GCC 调试体验优化 `-Og` 在保持 -O0 快速编译和良好调试体验的同时，提供合理的优化级别，禁用其中
+会干扰调试的标志。用于生成可调试代码，包含在 -O0 优化级别中，某些被禁用的收集调试信息的编译器通道。
 
-有了 Symbol Table 调试符号表信息后，GDB 就可以通过它来找到二进制程序文件中的指令与源代码的关系。这时，加载的源文件就可以在调试过程中对应起来。比如，使用列表命令 list，它可以列出指定行号的源代码内容。
+有了 Symbol Table 调试符号表信息后，GDB 通过它来找到二进制程序文件中的指令与源代码的关系。
+这时，加载的源文件就可以在调试过程中对应起来。比如，使用 list 命令可以列出指定行号的源代码内容。
 
-如果没有调试符号表，那么 GDB 就找不到程序中的指令对应的代码，即使用有源代码文件也关联不起来。也就无法使用单步执行 step 或单步跳过 next 这种调试运行方式，因为 GDB 找不到代码文件对应所在行的源代码，无法在正确的位置设置断点。只能执行指令，stepi 或 nexti。
+如果没有调试符号表，那么 GDB 就找不到程序中的指令对应的代码，即使用有源代码文件也关联不起来。
+也就无法使用单步执行 step 或单步跳过 next 这种调试运行方式，因为 GDB 找不到代码文件对应所在
+行的源代码，无法在正确的位置设置断点。只能执行指令，stepi 或 nexti。
+
+另外，编译出来的可执行程序一般都会依赖动态链接库，至少依赖操作系统的动态库，如果任何依赖库丢失，
+或者不会被定位，就可能导致程序无法启动：
+
+    During startup program exited with code 0xc000007b.
+
+可以使用 ldd 或者 dumpbin 工具查询程序中导入的动态库信息：
+
+    ldd ELF_Format
+    dumpbin -imports COFF_PE
+
+Windows 系统 DLL 加载流程按照如下顺序进行：
+
+- 内存中已经加载有同名 DLL，则直接使用；
+- 系统 KnownDLLs 列表记录中有同名 DLL，系统直接使用已知 DLL 的拷贝；
+- 如果依赖其他 DLL，系统会优先按照名字搜索并加载被依赖的 DLL。
+
+默认系统安全 DLL 搜索模式下，按照如下顺序搜索 DLL：
+
+- 应用程序目录，可通过 GetModuleFileName 获得，程序启动后为固定值。
+- Windows 系统目录，一般为 C:\Windows\system32
+- Windows 目录，一般为 C:\Windows
+- 进程当前工作目录，通过 GetCurrentDirectory 和 SetCurrentDirectory 进行读写。
+- PATH 环境变量中的目录，如果多个目录包含同名 DLL，则靠前的优先使用。
+
 
 GDB 8.1 开始，提供新的 starti 命令，它运行程序并在第一条指令处中断。
 
-GDB 反汇编命令 disassemble 在不知道函数边界，即函数在内存中的起止位置时，也无法进行反汇编。这时就需要指定内存边界进行反汇编，或者使用内存检查命令 Examine 来进行任意位置的指令查看功能，例如 `x/5i $pc-1` 将程序计数器所指位置的 5 条指令打印出来。注意，这种指令不一定是程序真正运行的指令，内存检查命令是只尝试将指定位置的内容按指定的形式打印出来。
+GDB 反汇编命令 disassemble 在不知道函数边界，即函数在内存中的起止位置时，也无法进行反汇编。
+这时就需要指定内存边界进行反汇编，或者使用内存检查命令 Examine 来进行任意位置的指令查看功能，
+例如 `x/5i $pc-1` 将程序计数器所指位置的 5 条指令打印出来。注意，这种指令不一定是程序真正
+运行的指令，内存检查命令是只尝试将指定位置的内容按指定的形式打印出来。
 
 >(gdb) disas $pc-2,$pc+32
 Dump of assembler code from 0x4018bf to 0x4018e1:
@@ -4118,11 +4182,18 @@ Dump of assembler code from 0x4018bf to 0x4018e1:
    0x004018dc:  cmp    $0xbb40e64e,%eax
 End of assembler dump.
 
-比如，使用 gcc -s 命令就是生成清理过调试符号的程序文件，Stripped binaries，GDB 就不知道怎么处理与源代码的关系了。
+比如，使用 gcc -s 命令就是生成清理过调试符号的程序文件，Stripped binaries，GDB 就不知道
+怎么处理与源代码的关系了。
 
-GDB 官方手册有一章节 Debugging Optimized Code，讲了 Inline Functions 和 Tail Call Frames 的优化问题。在优化编译的情况下，内联函数的代码会被拷贝到调用它的地方，而不是通过 call 指令来调用。而尾调用是指，原本 B 函数刚好在其返回前调 C 函数，在无优化的情况下，就是在一条 ret 指令之前放置了一个 call 指令来调用 C 函数。而优化后的尾调用将不使用 call 指令而使用 jump 指令替代。节省了一个 call 指令的复杂调用，避免了堆栈数据的出入处理，和 stack frame 的处理。
+GDB 官方手册有一章节 Debugging Optimized Code，讲了 Inline Functions 和 
+Tail Call Frames 的优化问题。在优化编译的情况下，内联函数的代码会被拷贝到调用它的地方，
+而不是通过 call 指令来调用。而尾调用是指，原本 B 函数刚好在其返回前调 C 函数，在无优化的情况下，
+就是在一条 ret 指令之前放置了一个 call 指令来调用 C 函数。而优化后的尾调用将不使用 call 指令，
+而使用 jump 指令替代。节省了一个 call 指令的复杂调用，避免了堆栈数据的出入处理，和
+stack frame 的处理。
 
-只能以单指令的方式执行调试，以下演示如何单步执行调试，并设置自动显示 $pc 寄存器的值，以确定当前运行的位置：
+只能以单指令的方式执行调试，以下演示如何单步执行调试，并设置自动显示 $pc 寄存器的值，以确定
+当前运行的位置：
 
 > (gdb) display $pc
 > 1: $pc = (void (*)()) 0x4014e3
@@ -4146,11 +4217,15 @@ GDB 官方手册有一章节 Debugging Optimized Code，讲了 Inline Functions 
 > 1: $pc = (void (*)()) 0x4018c0
 > (gdb) undisplay 1
 
-在没有源代码和调试符号的情况下调试程序是一种复杂的工作，称为逆向工程 Reverse Engineering，是一种细分的领域。
+在没有源代码和调试符号的情况下调试程序是一种复杂的工作，称为逆向工程 Reverse Engineering，
+是一种细分的领域。
 
-在逆向工作中，通常会有 Patching Programs 的需要，使用 `set write on` 打开编辑功能，或者运行时打开通过命令行参数 -write 打开。
+在逆向工作中，通常会有 Patching Programs 的需要，使用 `set write on` 打开编辑功能，
+或者运行时打开通过命令行参数 -write 打开。
 
-根据不同的操作系统，可执行程序文件也有不同的格式，Windows 使用 PE 格式，而 Linux 通常使用 ELF 格式。对应有 dumpbin 和 readelf 这些工具来获取程序文件中的信息。也可以使用 objdump 工具来执行反汇编，查询各种信息，包括文件中的符号表，文件头信息等。
+根据不同的操作系统，可执行程序文件也有不同的格式，Windows 使用 PE 格式，而 Linux 通常
+使用 ELF 格式。对应有 dumpbin 和 readelf 这些工具来获取程序文件中的信息。也可以使用
+objdump 工具来执行反汇编，查询各种信息，包括文件中的符号表，文件头信息等。
 
 > objdump -f -t build\ostrich.exe
 > build\ostrich.exe:     file format pei-i386
@@ -4177,17 +4252,25 @@ Local exec file:
         0x77aa1000 - 0x77bb9ef2 is .text in C:\Windows\SYSTEM32\ntdll.dll
         ...
 
-这些工具只能获取到一个 Entry point，但这只是一个虚拟内存空间的入口地址。程序真正的入口地址需要在装入内存后，才会确定下来。虚拟入口地址可以在编译器中设置，编译生成的程序就有对应的虚拟入口地址。
+这些工具只能获取到一个 Entry point，但这只是一个虚拟内存空间的入口地址。程序真正的入口地址
+需要在装入内存后，才会确定下来。虚拟入口地址可以在编译器中设置，编译生成的程序就有对应的虚拟
+入口地址。
 
-即使确定下来，这个入口也不是 C/C++ 程序的 main 函数，而是基类库的地址。基础代码需要做一些与操作系统协调的工作，完成后再调用 main 函数，运行程序主体。
+即使确定下来，这个入口也不是 C/C++ 程序的 main 函数，而是基类库的地址。基础代码需要做一些
+与操作系统协调的工作，完成后再调用 main 函数，运行程序主体。
 
 有个省力气的好办法，就是直接使用技术先进的工具，如 IDA、VisualGDB 等等。
 
-当然，程序的入口也是有特征的，不同编译器及操作系统，决定了程序入口需要执行一些固有的系统调用。MSVC 开发的程序，在调试时总是从 main 或 WinMain 函数开始，但它们不是程序的第一条指令执行处。在它们被调用前，编译器生成的准备期执行初始化的代码已经做了很多事情。
+当然，程序的入口也是有特征的，不同编译器及操作系统，决定了程序入口需要执行一些固有的系统调用。
+MSVC 开发的程序，在调试时总是从 main 或 WinMain 函数开始，但它们不是程序的第一条指令执行处。
+在它们被调用前，编译器生成的准备期执行初始化的代码已经做了很多事情。
 
-操作系统加载程序时，会根据执行文件内的数据分配相关资源，读取执行文件中的代码和数据到合适的内存单元，为其准备好运行环境。然后才是执行入口代码，入口代码其实并不是 main 或 WinMain，通常是根据编译时设置所使用的 C Runtime 基础代码库决定。
+操作系统加载程序，会根据执行文件内的数据分配相关资源，读取执行文件中的代码和数据到合适的内存单元，
+为其准备好运行环境。然后才是执行入口代码，入口代码其实并不是 main 或 WinMain，通常是根据编译时
+设置所使用的 C Runtime 基础代码库决定。
 
-在 Windows 平台运行的程序大概分为类，控制台程序和窗体程序，给链接程序指定参数后，会根据程序类型选择链接的入口函数：
+在 Windows 平台运行的程序大概分为类，控制台程序和窗体程序，给链接程序指定参数后，会根据程序
+类型选择链接的入口函数：
 
 |      链接方式      |    程序类型    | C Runtime 库入口点 |    入口函数    |
 |--------------------|----------------|--------------------|----------------|
@@ -4199,9 +4282,13 @@ Local exec file:
 
 MSVC 编译器可以指定 /NOENTRY 创建没有入口的纯资源 DLL。
 
-以  mainCRTStartup 为例，编译器将 CRT 初始化和终止的库代码插入到程序中，对 C Runtime 库初始化，初始化的一个重要任务就是初始化 CRT 堆，在此之前不能使用 CRT 的分配内存函数。完成初始化后，再调用程序入口函数执行程序。
+以 mainCRTStartup 为例，编译器将 CRT 初始化和终止的库代码插入到程序中，对 C Runtime 库
+初始化，初始化的一个重要任务就是初始化 CRT 堆，在此之前不能使用 CRT 的分配内存函数。完成
+初始化后，再调用程序入口函数执行程序。
 
-运行库包含了 C Runtime 库入口点代码，设置链接选项后，链接需要其中对应的一个库文件，否则就会出现链接程序找不到入口的错误。一般来说，环境变量正确设置，MSVC 会自动根据编译、链接参数正确选择 C Runtime 运行库。但是，使用命令行的编译方式有时不能正确使用运行库，这就需要手动指定其中一个。
+运行库包含了 C Runtime 库入口点代码，设置链接选项后，链接需要其中对应的一个库文件，否则就会
+出现链接程序找不到入口的错误。一般来说，环境变量正确设置，MSVC 会自动根据编译、链接参数正确选择
+C Runtime 运行库。但是，使用命令行的编译方式有时不能正确使用运行库，这就需要手动指定其中一个。
 
 MSVC 6.0 程序执行 main 函数之前要先调用的函数如下：
 
@@ -4217,34 +4304,40 @@ MSVC 6.0 程序执行 main 函数之前要先调用的函数如下：
 入栈内作为函数的参数。
 
 
-编译器为了支持 C++ 特性，如重载，使用名称变形 `name mangling` 技术。通过反查函数修饰名字 Decorated Name 也能知道对应的原始名字是什么。
+编译器为了支持 C++ 特性，如重载，使用名称变形 `name mangling` 技术。通过反查函数修饰名字
+Decorated Name 也能知道对应的原始名字是什么。
 
-C++ 编译时函数名修饰约定规则根据不同的函数调用约定制定，在 `__stdcall` 调用约定规则下，函数名修饰规则如下：
+C++ 编译时函数名修饰约定规则根据不同的函数调用约定制定，在 `__stdcall` 调用约定规则下，
+函数名修饰规则如下：
 
-- 以**?**标识函数名的开始，后跟函数名；
-- 函数名后面以 **@@YG**、**@@YA** 和 **@@YI** 标识 **__stdcall**、**__cdecl** 和 **__fastcall** 调用约定，后跟参数表；
-- 参数表以字母代号表示，如 D 表示字符类型参数；
-- 参数表的第一项为该函数的返回值类型，其后依次为参数的数据类型，指针标识在其所指数据类型前；
-- 参数表后以**@Z**标识整个名字的结束，如果该函数无参数无返回，则以**Z**标识结束。
+01. 以**?**标识函数名的开始，后跟函数名；
+02. 函数名后面以 **@@YG**、**@@YA** 和 **@@YI** 标识 **__stdcall**、**__cdecl** 
+    和 **__fastcall** 调用约定，后跟参数表；
+03. 参数表以字母代号表示，如 D 表示字符类型参数；
+04. 参数表的第一项为该函数的返回值类型，其后依次为参数的数据类型，指针标识在其所指数据类型前；
+05. 参数表后以**@Z**标识整个名字的结束，如果该函数无参数无返回，则以**Z**标识结束。
 
-| 字母代码 |                               对应数据类型                              |
-|----------|-------------------------------------------------------------------------|
-| X        | void                                                                    |
-| D        | char                                                                    |
-| E        | unsigned char                                                           |
-| F        | short                                                                   |
-| H        | int                                                                     |
-| I        | unsigned int                                                            |
-| J        | long                                                                    |
-| K        | unsigned long                                                           |
-| M        | float                                                                   |
-| N        | double                                                                  |
-| _N       | bool                                                                    |
-| PA       | 表示指针，后面的代号表明数据类型，每一个连续相同类型指针以一个**0**代替 |
-| PB       | const指针                                                               |
-| U        | struct                                                                  |
+| 字母代码 |  对应数据类型 |
+|----------|---------------|
+| X        | void          |
+| D        | char          |
+| E        | unsigned char |
+| F        | short         |
+| H        | int           |
+| I        | unsigned int  |
+| J        | long          |
+| K        | unsigned long |
+| M        | float         |
+| N        | double        |
+| _N       | bool          |
+| PA       | 指针          |
+| PB       | const指针     |
+| U        | struct        |
 
-对于 C++ 类成员函数，其调用方式是 **thiscall**。函数的名字修饰与非成员的 C++ 函数稍有不同，首先就是在函数名字和參数表之间插入 **@class** 字 符标记。其次是參数表的開始标识不同：
+PA 表示指针，后面的代号表明数据类型，每一个连续相同类型指针以一个**0**代替。
+
+对于 C++ 类成员函数，其调用方式是 **thiscall**。函数的名字修饰与非成员的 C++ 函数稍有不同，
+首先就是在函数名字和參数表之间插入 **@class** 字 符标记。其次是參数表的開始标识不同：
 
 - 公有 public 成员函数的标识是 **@@QEA**(@@QAE ???)；
 - 保护 protected 成员函数的标识是 **@@IAE**；
@@ -4252,7 +4345,8 @@ C++ 编译时函数名修饰约定规则根据不同的函数调用约定制定�
 - 假设函数声明使用了 **const** 关键字，则对应的标识应分别为 **@@QBE**，**@@IBE** 和 **@@ABE**；
 - 如果参数类型是类实例的引用，则使用 **AAV1**，const 引用则为 **ABV1**；
 
-例如，**?Test@LibTest@@QEAAXXZ** 表示一个类成员函数，名称为 LibTest::Test，结束位置的 Z 表示函数没有参数没有返回值。**@@QEA** 表明是一个公有函数，
+例如，**?Test@LibTest@@QEAAXXZ** 表示一个类成员函数，名称为 LibTest::Test，结束位置的
+Z 表示函数没有参数没有返回值。**@@QEA** 表明是一个公有函数，
 
     public: void __cdecl LibTest::Test(void) __ptr64
 
@@ -4261,7 +4355,8 @@ C++ 编译时函数名修饰约定规则根据不同的函数调用约定制定�
 
 *Examining the Symbol Table*，info 是一个多用命令，可以用它来查询各种各校的信息。
 
-载入 Symbol Table 后，就可以用它来查询指定代码行的相关机器代码信息，或者从机器代码地址中得到相应的源代码信息。
+载入 Symbol Table 后，就可以用它来查询指定代码行的相关机器代码信息，或者从机器代码地址中得到
+相应的源代码信息。
 
 可以给它指定 LINENUM，FILE:LINENUM，FUNCTION，FILE:FUNCTION 或具体地址来查询信息：
 
@@ -4322,7 +4417,8 @@ C++ 编译时函数名修饰约定规则根据不同的函数调用约定制定�
       --readnow          Fully read symbol files on first access.
       --write            Set writing into executable and core files.
 
-GDB 支持远程调试和本地调式两种工作模式，在本地调试模式中，可以指定要调试的程序，或者已经运行中的程序进程 PID：
+GDB 支持远程调试和本地调式两种工作模式，在本地调试模式中，可以指定要调试的程序，或者已经运行中
+的程序进程 PID：
 
 > gdb program
 gdb program core
@@ -4331,24 +4427,34 @@ gdb -p 1234
 
 调试信息主要来自编译器编译程序时生成的信息，或者使用核心转储文件 (core dumped)。
 
-当程序运行过程中出现错误停止运行，会产生 core 文件，又叫核心转储 (core dumped)，它是程序运行状态的内存映象。使用 gdb 调试 core 文件，可以帮助我们快速定位程序出现段错误的位置。
+当程序运行过程中出现错误停止运行，会产生 core 文件，又叫核心转储 (core dumped)，它是程序
+运行状态的内存映象。使用 gdb 调试 core 文件，可以帮助我们快速定位程序出现段错误的位置。
 
-核心转储的 Core Memory 是指磁心贮存器，旧式的线圈内存，主要是由王安 Wang Laboratories 在 1950 年主导发明的一种技术，并成为当时的标准存储技术，技术领先长达 20 多年。如今 ，半导体工业澎勃发展，已经没有人用磁心贮存器了。不过，作为当时领先的技术，现在许多情况下，还是把记忆体叫作 Core。
+核心转储的 Core Memory 是指磁心贮存器，旧式的线圈内存，主要是由王安 Wang Laboratories 
+在 1950 年主导发明的一种技术，并成为当时的标准存储技术，技术领先长达 20 多年。如今，半导体工业
+澎勃发展，已经没有人用磁心贮存器了。不过，作为当时领先的技术，现在许多情况下，还是把记忆体叫作 Core。
 
-当程序访问的内存超出了系统给定的内存空间，就会产生 Segmentation fault，因此，段错误产生的情况主要有： 
+当程序访问的内存超出了系统给定的内存空间，就会产生 Segmentation fault，因此，段错误产生的
+情况主要有： 
 
 - 访问不存在的内存地址； 
 - 访问系统保护的内存地址； 
 - 数组访问越界等。
 
-GDB 允许在一个会话中运行和调试多个程序。此外，某些系统上的 GDB 可能允许您同时运行多个程序，甚至在不同的远程系统上同时调试多个程序。在最常见的情况下，可以在多个进程中的每个进程中有多个执行线程，这些线程从多个可执行文件启动，运行在不同的机器上。
+GDB 允许在一个会话中运行和调试多个程序。此外，某些系统上的 GDB 可能允许您同时运行多个程序，
+甚至在不同的远程系统上同时调试多个程序。在最常见的情况下，可以在多个进程中的每个进程中有多个
+执行线程，这些线程从多个可执行文件启动，运行在不同的机器上。
 
-而 inferior 就是 GDB 用来表示每个程序执行的状态的对象，它通常代表一个进程。但是，也适用于没有进程的目标。Inferior 可以在进程运行之前创建，也可以在进程退出后保留。每个 Inferior 也会有自己唯一 ID，但不同于进程 ID 的唯一标识符。通常有自己独特的地址空间，尽管，一些嵌入式目标可能有几个 inferior 在同一个地址空间的不同部分运行。每个 inferior 可能轮流在其内部运行多个线程。
+而 inferior 就是 GDB 用来表示每个程序执行的状态的对象，它通常代表一个进程。但是，也适用于
+没有进程的目标。Inferior 可以在进程运行之前创建，也可以在进程退出后保留。每个 Inferior 也
+会有自己唯一 ID，但不同于进程 ID 的唯一标识符。通常有自己独特的地址空间，尽管，一些嵌入式
+目标可能有几个 inferior 在同一个地址空间的不同部分运行。每个 inferior 可能轮流在其内部
+运行多个线程。
 
 - `info inferiors` 查询当前 gdb 管理中的受调试程序。
 - `info connections` 打印 gdb 目前管理中的目标连接。
 
-进入 GDB 后，可以使用 exec 命令来加载待调试的目标程序，并使用 file 命令来加载调试符号表 symbol table。
+进入 GDB 后，可以使用 exec 命令来加载待调试的目标程序，并使用 file 命令来加载调试符号表。
 
 开始执行程序时有一组命令用来控制执行，部分命令可以指定循环次数：
 
@@ -4365,19 +4471,22 @@ GDB 运行时可以选择加载配置文件：
 
 >gdb -n -x .gdbinit
 
-- `-symbols file` or `-s file` 从文件装入调试用的 symbol table。
-- `-exec file` or `-e file` 将文件作为可执行文件加载，以便在适当时执行，并与核心转储文件相结合进行纯数据检查。
-- `-se file` 将文件作为可执行程序并从中读取 symbol table。
-- `-core file` or `-c file` 加载 core dump 内存转储文件。
-- `-pid number` or `-p number` 连接到运行中的进程以调戏它，相当于使用 attach 命令。
-- `-directory directory` or `-d directory` 将目录添加到搜索路径列表中，以定位源代码或脚本文件。
-- `-write` 打开可执行程序及 Core Dump 文件的读写功能，用于给程序打补丁 Patching Programs。
-
-- `-command file` or `-x file` 执行文件中的 GDB 命令。
-- `-eval-command` or `-ex command` 执行单条 gdb 命令，可多次使用以执行多条命令。
-- `-init-command file` or `-ix file` 在加载 .gdbinit 文件之后以及 inferior 之前，执行命令脚本。
-- `gdb -ex 'target sim' -ex 'load' -x setbreakpoints -ex 'run' a.out` 示范执行单条命令和命令脚本。
-- `source [-s] [-v] FILE` 加载脚本文件并执行，-s 在搜索路径中的脚本文件，-v 打印命令回响。
+01. `-symbols file` or `-s file` 从文件装入调试用的 symbol table。
+02. `-exec file` or `-e file` 将文件作为可执行文件加载，以便在适当时执行，并与核心转储
+    文件相结合进行纯数据检查。
+03. `-se file` 将文件作为可执行程序并从中读取 symbol table。
+04. `-core file` or `-c file` 加载 core dump 内存转储文件。
+05. `-pid number` or `-p number` 连接到运行中的进程以调戏它，相当于使用 attach 命令。
+06. `-directory directory` or `-d directory` 将目录添加到搜索路径列表中，以定位源代码
+    或脚本文件。
+07. `-write` 打开可执行程序及 Core Dump 文件的读写功能，用于给程序打补丁 Patching Programs。
+08. `-command file` or `-x file` 执行文件中的 GDB 命令。
+09. `-eval-command` or `-ex command` 执行单条 gdb 命令，可多次使用以执行多条命令。
+10. `-init-command file` or `-ix file` 在加载 .gdbinit 文件之后以及 inferior 之前，
+    执行命令脚本。
+11. `gdb -ex 'target sim' -ex 'load' -x setbreakpoints -ex 'run' a.out` 示范
+    执行单条命令和命令脚本。
+12. `source [-s] [-v] FILE` 加载脚本文件并执行，-s 在搜索路径中的脚本文件，-v 打印命令回响。
 
 进入 gdb 界面后，也可以对搜索目录列表进行配置，或者加载待调试文件及符号文件：
 
@@ -4385,7 +4494,7 @@ GDB 运行时可以选择加载配置文件：
 - `dir dirname ...` 添加目录到搜索路径列表中。
 - `dir` 重置搜索目录路径列表，默认值为 *$cdir;$cwd*。
 - `info source` 运行调试后，查询当前加载的源代码文件。
-- `info files` 显示当前正在调试的目标的整个堆栈，包括程序文件、核心转储文件，和进程（如果有），以及符号文件名。
+- `info files` 显示当前正在调试的目标的整个堆栈，包括程序文件、核心转储文件、进程以及符号文件名。
 
 搜索路径列表使用 : 或 ; 作为分隔符，在 Windows 平台下使用后者，因为冒号用作路径。
 
@@ -4397,7 +4506,8 @@ GDB 运行时可以选择加载配置文件：
 
 ## 🗝 Patching Programs
 
-GDB 可以用于给程序打补丁，执行通过命令行参数`-write` 或命令 `set write on` 打开可执行程序及 Core Dump 文件的读写功能。在逆向工作中，通常会有 Patching Programs 的需要。
+GDB 可以用于给程序打补丁，执行通过命令行参数`-write` 或命令 `set write on` 打开可执行程序
+及 Core Dump 文件的读写功能。在逆向工作中，通常会有 Patching Programs 的需要。
 
 测试中发生 `set write on` 或通过命令行参数 -write 启用不生效，依然 Cannot access memory。
 
@@ -4416,7 +4526,8 @@ int main(void){
 }
 ```
 
-使用 GDB 设置命令来修改数据，先在 main 函数打好断点，执行调试后再写入数据，可以直接指定地址，也可以通过符号获取相应的地址：
+使用 GDB 设置命令来修改数据，先在 main 函数打好断点，执行调试后再写入数据，可以直接指定地址，
+也可以通过符号获取相应的地址：
 
 > (gdb) b main
 > Breakpoint 1 at 0x4016fd: file example.cpp, line 1.
@@ -4475,7 +4586,8 @@ int main(void){
 
 ## 🗝 Breakpoints
 
-*Breakpoints* 断点设置，包含 watchpoints 和 catchpoints，如函数或指定文件行位置，指令寄存器 $eip 等于指定的地址时会中断程序运行：
+*Breakpoints* 断点设置，包含 watchpoints 和 catchpoints，如函数或指定文件行位置，
+指令寄存器 $eip 等于指定的地址时会中断程序运行：
 
     break [PROBE_MODIFIER] [LOCATION] [thread THREADNUM] [if CONDITION]
 
@@ -4507,13 +4619,19 @@ int main(void){
 - `tbreak args` 单次有效的断点，击中断点后会自动删除。
 - `thbreak args` 单次有效的硬件辅助断点，击中断点后自动删除。
 
-硬件辅助断点主要是为 EPROM/ROM 调试设备使用，SPARClite DSU 和部分 x86 嵌入式设备可以提供陷阱门，如访问特定数据时或调试寄存器指定地址的指令。缺点是，硬件资源有限，像 DSU 同时只提供两个数据中断。
+硬件辅助断点主要是为 EPROM/ROM 调试设备使用，SPARClite DSU 和部分 x86 嵌入式设备可以提供
+陷阱门，如访问特定数据时或调试寄存器指定地址的指令。缺点是，硬件资源有限，像 DSU 同时只提供两个
+数据中断。
 
-正则表达式使用的是类似 grep 工具使用的规则，如丝 `foo*` 匹配所有包含 fo 并且后有任意个 o 的函数。有一个隐含的原因。要仅匹配以 foo 开头的函数，使用 `^foo.*`。调试 C++ 程序时，rbreak 设置非类成员的重载函数的断点很有用。
+正则表达式使用的是类似 grep 工具使用的规则，如丝 `foo*` 匹配所有包含 fo 开头，并且后有任意个
+字符 o 的函数。要仅匹配以 foo 开头的函数，使用 `^foo.*`。调试 C++ 程序时，rbreak 设置非
+类成员的重载函数的断点很有用。
 
-断点可以打在 ELF 可执行程序文件的入口点 `b _start`，这个入口是编译器、链接程序生成程序时就指定的，但是这不一定是入口函数。
+断点可以打在 ELF 可执行程序文件的入口点 `b _start`，这个入口是编译器、链接程序生成程序时
+就指定的，但是这不一定是入口函数。
 
-另外，说说 x86 的 segment:offset 这种实地址表达方式，这种非常规地址表达在 gdb 中并不支持，需要指定一个线性地址。
+另外，说说 x86 的 segment:offset 这种实地址表达方式，这种非常规地址表达在 gdb 中并不支持，
+需要指定一个线性地址。
 
 断点条件设置格式参考：
 
@@ -4521,7 +4639,8 @@ int main(void){
 
 当断点位置到达时，就执行条件表达式，成立时中断。
 
-对于已经设置的断点可以使用 info b 命令来检查，或者透过 `clear` 来清除断点，d 或 `delete` 删除所有断点。    
+对于已经设置的断点可以使用 info b 命令来检查，或者透过 `clear` 来清除断点，d 或 `delete` 
+删除所有断点。    
     
     (gdb) info b
     (gdb) clear 26
@@ -4535,7 +4654,9 @@ int main(void){
     delete tracepoints -- Delete specified tracepoints.
     delete tvariable -- Delete one or more trace state variables.
 
-Setting watchpoints 设置监视点，当监视的值变动时就会中断执行，不需要指定具体的中断地址。根据不同的系统，这可能是软件或硬件中断实现。在单步执行时，每次都需要进行表达式值，这可能很浪费时间。但是，在不知道程序的哪个部分是祸根的境地，是有价值的。
+Setting watchpoints 设置监视点，当监视的值变动时就会中断执行，不需要指定具体的中断地址。
+根据不同的系统，这可能是软件或硬件中断实现。在单步执行时，每次都需要进行表达式值，这可能很
+浪费时间。但是，在不知道程序的哪个部分是祸根的境地，是有价值的。
 
 在 HP-UX, Linux 和部分 x86 机器上，GDB 支持硬件监视点，这不会导致运行变慢。
 
@@ -4544,11 +4665,15 @@ Setting watchpoints 设置监视点，当监视的值变动时就会中断执行
 - `awatch expr` 设置一个监视表达式，当程序读写时 GDB 会中断程序执行。
 - `info watchpoints` 查询已经设置的监视点。
 
-监视点 Watchpoint 是很重要的一种调试工具，它不同于断点，它只会在代码执行到监视点时或监视的表达式内容有变化时中断，将监视内容自动打印出来，供调试者参考。
+监视点 Watchpoint 是很重要的一种调试工具，它不同于断点，它只会在代码执行到监视点时或监视的
+表达式内容有变化时中断，将监视内容自动打印出来，供调试者参考。
 
-监视点的设定不依赖于断点的位置，但是与变量的作用域有关，也就是说，要设置监视点必须在程序运行时才可设置。设置监视点的命令有 3 个，watch 监视，rwatch 读监视以及 awatch 表达式监视，可以使用 `apropos watch` 命令查询所有关监视点的命令。
+监视点的设定不依赖于断点的位置，但是与变量的作用域有关，也就是说，要设置监视点必须在程序运行时
+才可设置。设置监视点的命令有 3 个，watch 监视，rwatch 读监视以及 awatch 表达式监视，可以
+使用 `apropos watch` 命令查询所有关监视点的命令。
 
-例如，以下简单设置监视的目标为寄存器和内存某个地址的内容，监视 EIP，那么每次执行指令后都会将相应的值打印出来：
+例如，以下简单设置监视的目标为寄存器和内存某个地址的内容，监视 EIP，那么每次执行指令后都会将
+相应的值打印出来：
 
     watch $eip
     watch *0xf000e05c
@@ -4560,16 +4685,21 @@ Setting watchpoints 设置监视点，当监视的值变动时就会中断执行
 
 监视变量 var 并在值改变、被读取时中断。监视内存地址，注意使用 * 号，当该地址的内容变化、被读取时中断。
 
-还可以监视指定类型的指针，`(int *)` 表示一个整形数据指针，当该地址的中的 int 指针指向的内容变化、被读取时中断，使用 -l 选项，会同时监视表达式本身以及表达式指向的内容。
+还可以监视指定类型的指针，`(int *)` 表示一个整形数据指针，当该地址的中的 int 指针指向的内容
+变化、被读取时中断，使用 -l 选项，会同时监视表达式本身以及表达式指向的内容。
 
-还可以设置观测点来实现程序中断，观测点有 watch 指定的表达式有变化就中断, rwatch 指定表达式被读取时中断, awwatch 指定表达式被赋值或有写入动作时中断。
+还可以设置观测点来实现程序中断，观测点有 watch 指定的表达式有变化就中断, rwatch 指定表达式
+被读取时中断, awwatch 指定表达式被赋值或有写入动作时中断。
 
-目前，awatch 和 rwatch 命令只能设置硬件监视点，因为不通过每个指令的检测就不能发现那些不改变数据的访问行为。但 GDB 没有实现，因为在不支持硬件监视点的时候使用，就可能出现提示。如果设置太多监视点，就会提示不能插入监视点。
+目前，awatch 和 rwatch 命令只能设置硬件监视点，因为不通过每个指令的检测就不能发现那些不改变
+数据的访问行为。但 GDB 没有实现，因为在不支持硬件监视点的时候使用，就可能出现提示。如果设置
+太多监视点，就会提示不能插入监视点。
 
     Expression cannot be implemented with read/access watchpoint.
     Hardware watchpoint num: Could not insert watchpoint
 
-Setting catchpoints 设置捕获点可以让调试器在特定的程序事件中断执行，如 C++ 异常机制，加载共享库行为等等。
+Setting catchpoints 设置捕获点可以让调试器在特定的程序事件中断执行，如 C++ 异常机制，加载
+共享库行为等等。
 
 - `catch event` 在以下事件发生时中断：
     - C++ 异常机制动作 `throw`, `catch`；
@@ -4580,13 +4710,17 @@ Setting catchpoints 设置捕获点可以让调试器在特定的程序事件中
 
 目前，GDB 在 C++ 异常处理有限制 (catch throw 和 catch catch) :
 
-- 交互式调用函数，GDB 会在函数完成执行时交出控制权。但如果调用抛出异常，这可能导致控制权不能正常返回，使用程序卡死，或继承运行直到击中断点，或 GDB 捕获到一个在监听的系统信号。即使用设置了捕获点，因为在交互调用时它是禁用的。
-- 不可以交互地抛出异常。
-- 不可以交互地设置异常处理器。
+01. 交互式调用函数，GDB 会在函数完成执行时交出控制权。但如果调用抛出异常，这可能导致控制权不能
+    正常返回，使用程序卡死，或继承运行直到击中断点，或 GDB 捕获到一个在监听的系统信号。即
+    设置了捕获点，因为在交互调用时它是禁用的。
+02. 不可以交互地抛出异常。
+03. 不可以交互地设置异常处理器。
 
-异常捕获并非最好的调试方式，知道异常抛出的位置，就可以在异常处理程序执行前中断它。这样就可以查看堆栈，而不是圈入乱麻之中。如果是在异常处理程序中下断点，这就自找麻烦，很难发现是哪里抛出了异常。
+异常捕获并非最好的调试方式，知道异常抛出的位置，就可以在异常处理程序执行前中断它。这样就可以查看
+堆栈，而不是圈入乱麻之中。如果是在异常处理程序中下断点，这就自找麻烦，很难发现是哪里抛出了异常。
 
-要想在异常处理被执行前中断，需要知道异常的实现。GNU C++ 中的异常是通过 `__raise_exception` 函数实现的，应该在此设置断点：
+要想在异常处理被执行前中断，需要知道异常的实现。GNU C++ 中的异常是通过 `__raise_exception` 
+函数实现的，应该在此设置断点：
 
 ```c
 /* addr is where the exception identifier is stored.
@@ -4600,9 +4734,11 @@ void __raise_exception (void **addr, void *id);
 - `info break [n]`
 - `info watchpoints [n]`
 
-Break conditions 中断条件只有在下断点时设置的条件满足时才会中断程序的执行。这与使用断言进行程序验证相反，断言只有条件不成立时停止执行。
+Break conditions 中断条件只有在下断点时设置的条件满足时才会中断程序的执行。这与使用断言进行
+程序验证相反，断言只有条件不成立时停止执行。
 
-条件也可以在 watchpoints 使用，watch 命令可以使用 if，但 catch 命令不可以。通常，监视点不需要设置条件，监视点会侦测表达式的值是否是感兴趣的那个值。
+条件也可以在 watchpoints 使用，watch 命令可以使用 if，但 catch 命令不可以。通常，监视点
+不需要设置条件，监视点会侦测表达式的值是否是感兴趣的那个值。
 
 条件中断可以有副作用，可以调用程序的函数。
 
@@ -4610,9 +4746,13 @@ Break conditions 中断条件只有在下断点时设置的条件满足时才会
 - `condition bnum` 移除相应断点、监视点、捕获点的中断条件。
 - `ignore bnum count` 设置忽略计数，如果 count 值为 n，则断点会在程序到达它 n + 1 次时停止。。
 
-GDB 会对表达式中使用到的符号进行检测，但不会执行表达式，包括 break 命令中的 if 条件表达式也不会在设置时执行。
+GDB 会对表达式中使用到的符号进行检测，但不会执行表达式，包括 break 命令中的 if 条件表达式也
+不会在设置时执行。
 
-断点条件的一种特殊情况是，仅当断点达到一定次数时才停止。这非常有用，用断点的忽略计数可以实现。每个断点都有一个忽略计数，它是一个整数。如果，程序到达的断点的忽略计数为正，就会进行递减，然后继续，不会对条件进判断，只有到达 0 值时才会检查中断条件。使用 `$foo-- <= 0` 这样的中断条件就可以模拟忽略计数器的作用。
+断点条件的一种特殊情况是，仅当断点达到一定次数时才停止。这非常有用，用断点的忽略计数可以实现。
+每个断点都有一个忽略计数，它是一个整数。如果，程序到达的断点的忽略计数为正，就会进行递减，然后继续。
+不会对条件进判断，只有到达 0 值时才会检查中断条件。使用 `$foo-- <= 0` 这样的中断条件就可以
+模拟忽略计数器的作用。
 
 
 Breakpoint command lists 给指定的中断指定一组要执行的命令，击中相应中断时执行：
@@ -5136,15 +5276,15 @@ hello_d.exe                   296 Console                    1      2,716 K
 
 
 ## ⚡ Cross-Compiling
-- GCC Cross-Compiler - OSDev Wiki https://wiki.osdev.org/GCC_Cross-Compiler
-- GNU Arm Embedded Toolchain https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm
-- gcc-arm-none-eabi package in Ubuntu https://launchpad.net/ubuntu/+source/gcc-arm-none-eabi
-- GNU Arm Embedded Toolchain https://launchpad.net/gcc-arm-embedded/+download
-- binutils-arm-none-eabi https://packages.debian.org/jessie/gcc-arm-none-eabi
-- 清华大学开源软件镜像站 https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/_toolchain
-- CGDB Manual 0.7.1 http://cgdb.github.io/docs/cgdb.html
-- Code::Blocks Binary releases with MinGW https://www.codeblocks.org/downloads/binaries/
-- MSYS2 https://www.msys2.org/docs/what-is-msys2/
+- [GCC Cross-Compiler - OSDev Wiki](https://wiki.osdev.org/GCC_Cross-Compiler)
+- [GNU Arm Embedded Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
+- [gcc-arm-none-eabi package in Ubuntu](https://launchpad.net/ubuntu/+source/gcc-arm-none-eabi)
+- [GNU Arm Embedded Toolchain](https://launchpad.net/gcc-arm-embedded/+download)
+- [binutils-arm-none-eabi](https://packages.debian.org/jessie/gcc-arm-none-eabi)
+- [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/_toolchain)
+- [CGDB Manual 0.7.1](http://cgdb.github.io/docs/cgdb.html)
+- [Code::Blocks Binary releases with MinGW](https://www.codeblocks.org/downloads/binaries/)
+- [MSYS2](https://www.msys2.org/docs/what-is-msys2/)
 
 在谈论交叉编译时，主要涉及 CPU 架构和操作系统两方面问题，当然还涉及到当前工作平台：
 

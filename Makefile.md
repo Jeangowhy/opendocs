@@ -654,11 +654,15 @@ clean:
 - https://github.com/dotnet/dotnet-api-docs
 - https://github.com/dotnet/corefx
 
-Visual Sutdio 执行调试就卡住，虽然没有卡死但没有几分钟都不能进入调试状态，这可能是使用网络加载调试符号导致的问题。
+Visual Sutdio 执行调试就卡住，虽然没有卡死但没有几分钟都不能进入调试状态，这可能是使用网络
+加载调试符号导致的问题。
 
-设置：工具 -> 选项 -> 调试 -> 符号 -> Microsoft 符号服务器，不要勾选，并且设置为“仅加载指定的模块”。调试分类下面勾选：使用托管兼容模式，使用本机兼容模式。
+设置：工具 -> 选项 -> 调试 -> 符号 -> Microsoft 符号服务器，不要勾选，并且设置为
+“仅加载指定的模块”。调试分类下面勾选：使用托管兼容模式，使用本机兼容模式。
 
-MSBuild Tools 是独立于 Visual Studio 的构建工具，可以通过命令调用执行程序构建。执行脚本前，先执行 MSVC 环境配置批处理脚本，根据需要设置平台类型，如 x86 或 x64，然后再配合执行 CMake -G 生成构建脚本：
+MSBuild Tools 是独立于 Visual Studio 的构建工具，可以通过命令调用执行程序构建。执行脚本前，
+先执行 MSVC 环境配置批处理脚本，根据需要设置平台类型，如 x86 或 x64，然后再配合执行 CMake -G 
+生成构建脚本：
 
 ```sh
 > "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/Common7/Tools/VsDevCmd.bat"
@@ -667,17 +671,23 @@ MSBuild Tools 是独立于 Visual Studio 的构建工具，可以通过命令调
 > cmake .. -G "Sublime Text 2 - Ninja"
 ```
 
-MSBuild project whose settings are stored in an XML project file that has the extension *.vcxproj*. The project file may also import *.props* files and *.targets* files where settings can be stored.
+MSBuild project whose settings are stored in an XML project file that has the 
+extension *.vcxproj*. The project file may also import *.props* files and 
+*.targets* files where settings can be stored.
 
-The first thing to notice is that the top-level elements appear in a particular order. For example:
+The first thing to notice is that the top-level elements appear in a particular 
+order. For example:
 
-1. Most of the property groups and item definition groups occur after the import for Microsoft.Cpp.Default.props.
+01. Most of the property groups and item definition groups occur after the import 
+    for Microsoft.Cpp.Default.props.
 
-2. All targets are imported at the end of the file.
+02. All targets are imported at the end of the file.
 
-3. There are multiple property groups, each with a unique label, and they occur in a particular order.
+03. There are multiple property groups, each with a unique label, and they 
+    occur in a particular order.
 
-安装最新的 MSBuild 2020 竟然没有提供 Microsoft.Cpp.Default.props，可以使用 2017/2019 版本，这是一个基础配置文件，一般 C++ 项目都需要引用它。
+安装最新的 MSBuild 2020 竟然没有提供 Microsoft.Cpp.Default.props，可以使用 2017/2019 
+版本，这是一个基础配置文件，一般 C++ 项目都需要引用它。
 
     C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.Cpp.ToolsetLocation.props
 
@@ -691,14 +701,21 @@ The first thing to notice is that the top-level elements appear in a particular 
 
 XML 项目文件的主要节点：
 
-1. *Properties*  Properties are key/value pairs that you can use to configure builds.
-2. *Items*   General concepts behind the MSBuild file format and how the pieces fit together.
-3. *Targets* Group of tasks in a particular order of the build process to be called on the command line.
-4. *Tasks* a unit of executable code that can be used by MSBuild to perform atomic build operations.
+01. *Properties*  Properties are key/value pairs that you can use to configure
+     builds.
+02. *Items*   General concepts behind the MSBuild file format and how the pieces
+     fit together.
+03. *Targets* Group of tasks in a particular order of the build process to be
+     called on the command line.
+04. *Tasks* a unit of executable code that can be used by MSBuild to perform
+     atomic build operations.
 
-Because MSBuild properties are name-value pairs that have just one string value, they are often described as *scalar*. Because MSBuild item types are lists of items, they are often described as *vector*. 
+Because MSBuild properties are name-value pairs that have just one string value, 
+they are often described as *scalar*. Because MSBuild item types are lists of 
+items, they are often described as *vector*. 
 
-Property 和 Item 都用来向任务节点传递信息的基础节点，可以设置条件，保存数据，在整个工程文件中可以引用。
+Property 和 Item 都用来向任务节点传递信息的基础节点，可以设置条件，保存数据，在整个工程文件中
+可以引用。
 
 ```xml
 <ItemGroup>  
@@ -717,9 +734,11 @@ Property 和 Item 都用来向任务节点传递信息的基础节点，可以�
 </Target>  
 ```
 
-通过命令行指定属性，如 *msbuild.exe MyProj.proj /p:Configuration=DEBUG*。可以直接访问环境变量，如 *$(PATH)*。
+通过命令行指定属性，如 *msbuild.exe MyProj.proj /p:Configuration=DEBUG*。可以直接
+访问环境变量，如 *$(PATH)*。
 
-Target 可以设置依赖关系，可以指定初始构建目标和默认构建目标，也可以使用 Import 节点导入其它工程文件的目标。执行命令时，可以指定默认的构建目标，如 *msbuild /target:Comile;Link*。
+Target 可以设置依赖关系，可以指定初始构建目标和默认构建目标，也可以使用 Import 节点导入
+其它工程文件的目标。执行命令时，可以指定默认的构建目标，如 *msbuild /target:Comile;Link*。
 
 通过设置 BeforeTargets 和 AfterTargets 可以让目标于指定目标之前或之前运行。
 
@@ -748,19 +767,23 @@ Target 可以设置依赖关系，可以指定初始构建目标和默认构建�
 
 MSBuild determines the target build order as follows:
 
-1. *InitialTargets* targets are run.
-
-2. Targets specified on the command line by the */target* switch are run. If you specify no targets on the command line, then the *DefaultTargets* targets are run. If neither is present, then the first target encountered is run.
-
-3. The Condition attribute of the target is evaluated. If the Condition attribute is present and evaluates to false, the target isn't executed and has no further effect on the build.
-
-4. Before a target is executed, its *DependsOnTargets* targets are run.
-
-5. Before a target is executed, any target that lists it in a *BeforeTargets* attribute is run.
-
-6. Before a target is executed, its Inputs attribute and *Outputs* attribute are compared. If MSBuild determines that any output files are out of date with respect to the corresponding input file or files, then MSBuild executes the target. Otherwise, MSBuild skips the target.
-
-7. After a target is executed or skipped, any target that lists it in an *AfterTargets* attribute is run.
+01. *InitialTargets* targets are run.
+02. Targets specified on the command line by the */target* switch are run.
+    If you specify no targets on the command line, then the *DefaultTargets* 
+    targets are run. 
+    If neither is present, then the first target encountered is run.
+03. The Condition attribute of the target is evaluated. 
+    If the Condition attribute is present and evaluates to false, 
+    the target isn't executed and has no further effect on the build.
+04. Before a target is executed, 
+    05. its *DependsOnTargets* targets are run.
+    06. any target that lists it in a *BeforeTargets* attribute is run.
+    07. its Inputs attribute and *Outputs* attribute are compared. 
+        If MSBuild determines that any output files are out of date with 
+        respect to the corresponding input file or files, then MSBuild 
+        executes the target. Otherwise, MSBuild skips the target.
+08. After a target is executed or skipped, any target that lists it in 
+    an *AfterTargets* attribute is run.
 
 一个 vcxproj 项目配置文件大概结构如下：
 
@@ -785,7 +808,9 @@ MSBuild determines the target build order as follows:
 
 Target 节点之外的 Item 节点必须具有以下操作之一: Include、Update 或 Remove。
 
-Item 可以包含 Include, Exclude 属性信息外，还可能包含元数据，设置子节点。列表默认使用分号作分隔符号，也使用数据时可以指定分隔符号 `@(ItemListName, '<separator>')`。可以使用 Item Functions 对数据进行处理：
+Item 可以包含 Include, Exclude 属性信息外，还可能包含元数据，设置子节点。列表默认使用分号
+作分隔符号，也使用数据时可以指定分隔符号 `@(ItemListName, '<separator>')`。可以使用 
+Item Functions 对数据进行处理：
 
 ```xml
 <ItemGroup>  
@@ -865,16 +890,23 @@ A C# demo.vcxproj
 MSBuild Advanced Concepts - Batching & Transforms
 https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/msbuild/msbuild-batching
 
-MSBuild has the ability to perform dependency analysis on the inputs and outputs of a build target. If it is determined that the inputs or outputs of the target are up-to-date, the target will be skipped and the build will procede. Target elements use the Inputs and Outputs attributes to specify the items to inspect during dependency analysis.
+MSBuild has the ability to perform dependency analysis on the inputs and 
+outputs of a build target. If it is determined that the inputs or outputs 
+of the target are up-to-date, the target will be skipped and the build will
+procede. Target elements use the Inputs and Outputs attributes to specify 
+the items to inspect during dependency analysis.
 
-MSBuild has the ability to divide item lists into different categories, or batches, based on item metadata, and run a task one time with each batch. 
+MSBuild has the ability to divide item lists into different categories, 
+or batches, based on item metadata, and run a task one time with each batch. 
 
 1. Dividing an item list into batches
 2. Dividing several item lists into batches
 3. Batching one item at a time
 4. Filtering item lists
 
-The following table describes the metadata assigned to every item upon creation. In each example, the following item declaration was used to include the file *C:\MyProject\Source\Program.cs* in the project.
+The following table describes the metadata assigned to every item upon creation. 
+In each example, the following item declaration was used to include the 
+file *C:\MyProject\Source\Program.cs* in the project.
 
 ```xml
 <ItemGroup>  
@@ -1266,21 +1298,21 @@ MSBuild Well-known Item Metadata
 
 工程中可以指定使用 MSVC 工具集版本号，或者使用默认值。
 
-PlatformToolset 与 MSBuild 版本关系，以及编译器预计处理版本号 `_MSC_VER` 宏的对应关系如下表：
+平台工具集与 MSBuild 版本关系，以及编译器预计处理版本号 `_MSC_VER` 宏的对应关系如下表：
 
 |    Visual Studio    |  MSVC | PlatformToolset |   MSC_VER   |
 |---------------------|-------|-----------------|-------------|
-| VS2022              | v17.x | v143            | 1930        |
-| VS2019              | v16.x | v142            | 1920 - 1929 |
-| VS2017              | v15.x | v141            | 1910 - 1916 |
-| VS2015              | v14.x | v140            | 1900        |
-| VS2013              | v12.x | v120            | 1800        |
-| VS2012              | v11.x | v110            | 1700        |
-| VS2010              | v10.x | v100            | 1600        |
-| VS2008              | v9.x  | v90             | 1500        |
-| VS2005              | v8.x  | v80             | 1400        |
-| VS2003              | v7.1  | v71             | 1310        |
-| VS2002              | v7.0  | v70             | 1300        |
+| Visual Studio 2022  | v17.x | v143            | 1930        |
+| Visual Studio 2019  | v16.x | v142            | 1920 - 1929 |
+| Visual Studio 2017  | v15.x | v141            | 1910 - 1916 |
+| Visual Studio 2015  | v14.x | v140            | 1900        |
+| Visual Studio 2013  | v12.x | v120            | 1800        |
+| Visual Studio 2012  | v11.x | v110            | 1700        |
+| Visual Studio 2010  | v10.x | v100            | 1600        |
+| Visual Studio 2008  | v9.x  | v90             | 1500        |
+| Visual Studio 2005  | v8.x  | v80             | 1400        |
+| Visual Studio 2003  | v7.1  | v71             | 1310        |
+| Visual Studio 2002  | v7.0  | v70             | 1300        |
 | Visual Studio 98    | v6.x  | v60             | 1200        |
 | Visual Studio 97    | v5.x  | v50             | 1100        |
 | Visual C++ 4.2      | v4.2  |                 | 1020        |
@@ -1293,8 +1325,9 @@ PlatformToolset 与 MSBuild 版本关系，以及编译器预计处理版本号 
 
 参考 MSVC C++ binary compatibility 2015-2022 或：
 
-- https://dev.to/yumetodo/list-of-mscver-and-mscfullver-8nd
+- https://learn.microsoft.com/en-us/cpp/preprocessor/predefined-macros
 - https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros
+- https://dev.to/yumetodo/list-of-mscver-and-mscfullver-8nd
 - https://docs.microsoft.com/en-us/cpp/overview/visual-cpp-language-conformance
 
 
@@ -2381,10 +2414,13 @@ int main(int argc, char** argv) {
 
 
 # 🚩 MSYS2 & Pacman
-- MSYS2 https://www.msys2.org/docs/what-is-msys2/
-- Pacman Base Packages https://packages.msys2.org/base
+- [MSYS2](https://www.msys2.org/docs/what-is-msys2/)
+- [Pacman Wiki](https://wiki.archlinux.org/title/Pacman)
+- [Pacman Base Packages](https://packages.msys2.org/base)
 
-Msys 2.0 目前维护比较好的一套编译工具及 Windows 应用程序构建环境，它本身基于 Cygwin 构建，结合了 Arch Linux 的 pacman 依赖管理工具，使用它可以很方便地安装需要的组件，比如 ARM 嵌入式开发需要使用 GCC 交叉编译，那么就可以通过 pacman 安装现有的编译套件。
+Msys 2.0 目前维护比较好的一套编译工具及 Windows 应用程序构建环境，它本身基于 Cygwin 构建，
+结合了 Arch Linux 的 pacman 依赖管理工具，使用它可以很方便地安装需要的组件，比如 ARM 嵌入式
+开发需要使用 GCC 交叉编译，那么就可以通过 pacman 安装现有的编译套件。
 
 ```sh
 usage:  pacman <operation> [...]
@@ -2453,7 +2489,8 @@ HoldPkg = pacman
 Architecture = x86_64
 ```
 
-同一个包安装多个版本后，会在 var\lib\pacman\local 产生多个条目，运行 pacman 会提示重复数据，可以使用以下 Python 脚本移除旧版本的记录：
+同一个包安装多个版本后，会在 var\lib\pacman\local 产生多个条目，运行 pacman 会提示重复数据，
+可以使用以下 Python 脚本移除旧版本的记录：
 
 ```py
 import glob
@@ -2479,7 +2516,9 @@ for file in glob.glob("var/lib/pacman/local/*/desc"):
 print("var/lib/pacman/local: duplicated database entry removed.")
 ```
 
-使用 MSYS2 提供的 32-bit 和 64-bit 编译工具套件，选择就有很多种，还有 ARM 等交叉编译工具。在 msys2/msys64/opt 和 msys2\msys64\usr 目录下各有一套编译工具，此外，还有 clang32，clang64，mingw32 和 mingw64 等整合的编译工具，根据需要安装使用，注意使用时不能搞混。 
+使用 MSYS2 提供的 32-bit 和 64-bit 编译工具套件，选择就有很多种，还有 ARM 等交叉编译工具。
+在 msys2/msys64/opt 和 msys2\msys64\usr 目录下各有一套编译工具，此外，还有 clang32，
+clang64，mingw32 和 mingw64 等整合的编译工具，根据需要安装使用，注意使用时不能搞混。 
 
 MSYS2 目录结构及相关的平台构架，运行库关系：
 
@@ -2504,10 +2543,16 @@ MSVCRT 的特点还包括：
 - It isn't C99 compatible, for example the printf() function family, but...
 - mingw-w64 provides replacement functions to make things C99 compatible in many cases
 - It doesn't support the UTF-8 locale
-- Binaries linked with MSVCRT should not be mixed with UCRT ones because the internal structures and data types are different. (More strictly, object files or static libraries built for different targets shouldn't be mixed. DLLs built for different CRTs can be mixed as long as they don't share CRT objects, e.g. FILE* , across DLL boundaries.) Same rule is applied for MSVC compiled binaries because MSVC uses UCRT by default (if not changed).
+- Binaries linked with MSVCRT should not be mixed with UCRT ones because the
+  internal structures and data types are different. (More strictly, object files
+  or static libraries built for different targets shouldn't be mixed. DLLs built
+  for different CRTs can be mixed as long as they don't share CRT objects, e.g. 
+  FILE* , across DLL boundaries.) Same rule is applied for MSVC compiled binaries
+  because MSVC uses UCRT by default (if not changed).
 
 
-MSYS2 各个编译器套件及其编译的文件安装包都使用的名称前缀来区别，如下，可以使用 pacman 工具松查询可用的工具包，如 pacman -Ss mingw-w64-i686 获取 32-bit 相关的工具，包含编译工具：
+MSYS2 各个编译器套件及其编译的文件安装包都使用的名称前缀来区别，如下，可以使用 pacman 工具
+查询可用的工具包，如 pacman -Ss mingw-w64-i686 获取 32-bit 相关的工具，包含编译工具：
 
 |    Name    |      Package prefix      |
 |------------|--------------------------|
@@ -2519,7 +2564,11 @@ MSYS2 各个编译器套件及其编译的文件安装包都使用的名称前�
 | CLANG32    | mingw-w64-clang-i686-    |
 | CLANGARM64 | mingw-w64-clang-aarch64- |
 
-可以直接安装一组工具，也可以单独安装某些部分，每个 Base Package 都包含一系列的工具包 Binary Packages，并且相关工具通常会用一个 Group 来管理，安装时指定一个组名即可，注意 Base Package 可以和包重名：
+可以直接安装一组工具，也可以单独安装某些部分，每个 Base Package 都包含一系列的工具包 Binary 
+Packages，并且相关工具通常会用一个 Group 来管理，安装时指定一个组名即可，注意 Base Package 
+可以和包重名。
+
+以下是 -S 同步命令的使用参考：
 
 ```sh
 # Package: gcc
@@ -3273,9 +3322,11 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
 - MODULE 在使用 dyld 的系统有效，如果不支持 dyld，则被当作 SHARED 对待。
 - EXCLUDE_FROM_ALL 参数的意思是这个库不会被默认构建，除非有其他的组件依赖或者手工构建。
 
-共享库和静态库是两种常见的库类型，而 MODULE 库通常是一些插件，运行时候使用 dlopen-like 的功能进行动态加载。通常不进行链接，不作为 target_link_libraries() 命令的右侧参数使用。
+共享库和静态库是两种常见的库类型，而 MODULE 库通常是一些插件，运行时候使用 dlopen-like 
+功能进行动态加载。通常不进行链接，不作为 target_link_libraries() 命令的右侧参数使用。
 
-如果一个库不导出任何未托管符号，如 Windows 资源 DLL, C++/CLI DLL 等，就不能是动态共享库，因为共享库目的就是导出符号供客户使用。
+如果一个库不导出任何未托管符号，如 Windows 资源 DLL, C++/CLI DLL 等，就不能是动态共享库，
+因为共享库目的就是导出符号供客户使用。
 
 使用全局标志变量 BUILD_SHARED_LIBS 也可以影响 CMake 构建库的行为，设置为 ON 时就会构建共享库：
 
@@ -5955,12 +6006,21 @@ dumpbin 还可以查看汇编代码、查看程序依赖的 DLL 模块，查看 
 | vcvarsamd64_x86.bat | @call "%~dp0vcvarsall.bat" x64_x86 %* | 在 64 位系统下生成 32 位程序 |
 | vcvarsall.bat       |                                       | 配置脚本主文件               |
 
-批处理文件中，`%~dp0` 表示从当前文件的路径中提取目录部分，`%~nx0` 表示批处理本身的名字。呵呵，怪诞的 BAT 批处理，M$ 的血统就是要将简单的事件搞复杂。
+批处理文件中，`%~dp0` 表示从当前文件的路径中提取目录部分，`%~nx0` 表示批处理本身的名字。呵呵，
+怪诞的 BAT 批处理，M$ 的血统就是要将简单的事件搞复杂。
 
 
-C 运行时库（CRT）的 Microsoft 实现的引用，有时称为通用 CRT。C 运行时库 (CRT) 是集成了 ISO C99 标准库的 C++ 标准库。 实现 CRT 的 Visual C++ 库支持用于 .NET 开发的本机代码开发以及本机和托管混合代码。 所有版本的 CRT 都支持多线程开发。 大多数的库都支持通过静态链接将库直接链接到代码中，或通过动态链接让代码使用常用 DLL 文件。
+C 运行时库（CRT）的 Microsoft 实现的引用，有时称为通用 CRT。C 运行时库 (CRT) 是集成了 
+ISO C99 标准库的 C++ 标准库。 实现 CRT 的 Visual C++ 库支持用于 .NET 开发的本机代码
+开发以及本机和托管混合代码。 所有版本的 CRT 都支持多线程开发。 大多数的库都支持通过静态链接
+将库直接链接到代码中，或通过动态链接让代码使用常用 DLL 文件。
 
-从 Visual Studio 2015 开始，CRT 已被重构为新的二进制文件。 通用 CRT (UCRT) 包含通过标准 C99 CRT 库导出的函数和全局函数。 UCRT 现为 Windows 组件，并作为 Windows 10 的一部分提供。 静态库、DLL 导入库和 UCRT 的头文件现在 Windows 10 SDK 中提供。 安装 Visual C++ 时，Visual Studio 安装程序将安装使用 UCRT 所需 Windows 10 SDK 的子集。 可以在 Visual Studio 2015 及更高版本支持的任何 Windows 版本上使用 UCRT。 可以使用 vcredist 重新分发它，以便支持 Windows 10 以外的 Windows 版本。
+从 Visual Studio 2015 开始，CRT 已被重构为新的二进制文件。 通用 CRT (UCRT) 包含通过标准
+C99 CRT 库导出的函数和全局函数。 UCRT 现为 Windows 组件，并作为 Windows 10 的一部分提供。 
+静态库、DLL 导入库和 UCRT 的头文件现在 Windows 10 SDK 中提供。 安装 Visual C++ 时，
+Visual Studio 安装程序将安装使用 UCRT 所需 Windows 10 SDK 的子集。可以在 VS 2015 及
+更高版本支持的任何 Windows 版本上使用 UCRT。可以使用 vcredist 重新分发它，以便支持
+Windows 10 以外的 Windows 版本。
 
 下表列出了实现 UCRT 的库。
 
@@ -5971,7 +6031,8 @@ C 运行时库（CRT）的 Microsoft 实现的引用，有时称为通用 CRT。
 | /MD  | `_MD`, `_DLL`           | ucrt.lib     | ucrtbase.dll  | UCRT 的 DLL 导入库。         |
 | /MDd | `_DEBUG`, `_MD`, `_DLL` | ucrtd.lib    | ucrtbased.dll | UCRT 调试版本的 DLL 导入库。 |
 
-vcruntime 库包含 Visual C++ CRT 实现特定的代码，例如异常处理和调试支持、运行时检查和类型信息、实现的详细信息和某些扩展的库函数。 此库特定于所用编译器的版本。
+vcruntime 库包含 Visual C++ CRT 实现特定的代码，例如异常处理和调试支持、运行时检查和类型信息、
+实现的详细信息和某些扩展的库函数。 此库特定于所用编译器的版本。
 
 此表列出了实现 vcruntime 库的库。
 
@@ -5982,7 +6043,10 @@ vcruntime 库包含 Visual C++ CRT 实现特定的代码，例如异常处理和
 | `/MD`  | `_MD`, `_DLL`           | vcruntime.lib     | vcruntime[ver].dll  | vcruntime 的 DLL 导入库。       |
 | `/MDd` | `_DEBUG`, `_MD`, `_DLL` | vcruntimed.lib    | vcruntime[ver]d.dll | vcruntime 调试版的 DLL 导入库。 |
 
-初始化 CRT 的代码是几个库中的一个，根据 CRT 库是采用静态或动态链接还是本机、托管或混合代码而定。 此代码处理 CRT 启动、内部逐线程数据初始化和终止。 它特定于所用编译器的版本。 此库始终采用动态链接，即使使用动态链接的 UCRT 也是如此。
+初始化 CRT 的代码是几个库中的一个，根据 CRT 库是采用静态或动态链接还是本机、托管或混合代码而定。
+此代码处理 CRT 启动、内部逐线程数据初始化和终止。 它特定于所用编译器的版本。 此库始终采用动态链接，
+即使使用动态链接的 UCRT 也是如此。
+
 此表列出了实现 CRT 初始化和终止的库。
 
 |    选项   |       预处理器指令      |      库      |                          特征                          |
@@ -5996,7 +6060,8 @@ vcruntime 库包含 Visual C++ CRT 实现特定的代码，例如异常处理和
 | /clr:pure |                         | msvcurt.lib  | 纯托管 CRT 的已弃用静态库。                            |
 | /clr:pure |                         | msvcurtd.lib | 纯托管 CRT 调试版本的已弃用静态库。 不可再发行。       |
 
-如果从没有编译器选项给链接程序指定 C++ 运行时库，则链接程序将使用静态链接的 CRT 库：libcmt.lib、libvcruntime.lib 和 libucrt.lib。
+如果从没有编译器选项给链接程序指定 C++ 运行时库，则链接程序将使用静态链接的 CRT 库：
+libcmt.lib、libvcruntime.lib 和 libucrt.lib。
 
 C++ 标准库列表：
 
@@ -6007,21 +6072,25 @@ C++ 标准库列表：
 | /MTd | `_DEBUG`, `_MT`         | libcpmtd.lib | 多线程, 静态链接                           |
 | /MDd | `_DEBUG`, `_MD`, `_DLL` | msvcprtd.lib | 多线程动态链接（MSVCP[ver]D.DLL 的导入库） |
 
-当构建项目的发行版时，默认情况下，将链接其中一个基本 C 运行时库（libcmt.lib、msvcmrt.lib、msvcrt.lib），具体取决于你选择的编译器选项（多线程、DLL、/clr)。 如果在代码中包含其中一个 C++ 标准库标头文件，则将在编译时通过 Visual C++ 自动链接 C++ 标准库。 
+当构建项目的发行版时，默认情况下，将链接其中一个基本 C 运行时库，libcmt、msvcmrt、msvcrt 之一。
+具体取决于你选择的编译器选项（多线程、DLL、/clr)。 如果在代码中包含其中一个 C++ 标准库标头文件，
+则将在编译时通过 Visual C++ 自动链接 C++ 标准库。 
 
     LNK2038: 检测到“RuntimeLibrary”的不匹配项值“MT_StaticRelease”不匹配值“MD_DynamicRelease”。
 
     LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
 
 
-如果工程与依赖库的配置不一致就会出现类似这样的错误，意思是当前工程使用的是静态链接的 MD 发行配置，而依赖库使用的是动态链接的 MT 发行配置。
+如果工程与依赖库的配置不一致就会出现类似这样的错误，意思是当前工程使用的是静态链接的 MD 发行配置，
+而依赖库使用的是动态链接的 MT 发行配置。
 
 - /MDd  多线程 DLL 对应 MD_DynamicDebug
 - /MD   多线程 DLL 对应 MD_DynamicRelease
 - /MT   多线程静态链接库 MD_StaticRelease
 - /MTd  多线程静态链接库 MD_StaticDebug
 
-在 CMake 脚本中可以配置编译参数，当然不一定有效，有可能受到工程中引用到的其它脚本影响，在 CMakeCache 文件可以看到各种编译参数配置：
+在 CMake 脚本中可以配置编译参数，当然不一定有效，有可能受到工程中引用到的其它脚本影响，
+在 CMakeCache 文件可以看到各种编译参数配置：
 
 ```sh
 set(CMAKE_CXX_FLAGS "/MT")
@@ -6031,18 +6100,30 @@ add_compile_options(/MT)
 add_definitions("/MT")
 ```
 
-编译不同的 Windows 程序用到的 C Runtime 运行库，指定错误的程序类型会导致莫名的符号无定义、重号重复定义、找不到入口函数或其它怪异的编译错误。
+编译不同的 Windows 程序用到的 C Runtime 运行库，指定错误的程序类型会导致莫名的符号无定义、
+重号重复定义、找不到入口函数或其它怪异的编译错误。
 
 如果应用程序使用多个 CRT 版本，将存在什么问题？
 
-每个可执行映像（EXE 或 DLL）可以具有其自己静态链接的 CRT，或可以动态链接到 CRT。 静态包括在某个映像中或某个映像动态加载的 CRT 版本取决于构建 该 CRT 时采用的工具和库。 单个进程可能会加载多个 EXE 和 DLL 映像，每个都有其自己的 CRT。 每个 CRT 可能使用不同的分配器，可能具有不同的内部结构布局，可能使用不同的存储排列方式。 这意味着，分配的内存、CRT 资源或跨 DLL 边界传递的类可能会导致内存管理、内部静态使用情况或布局解释方面的问题。 例如，如果在一个 DLL 中分配类，但将其传递给另一个 DLL 或由另一个 DLL 删除，那么使用了哪个 CRT 释放器？ 导致的错误程度可以从微小到立即致命，因此强烈建议不要直接传输此类资源。
+每个可执行映像（EXE 或 DLL）可以具有其自己静态链接的 CRT，或可以动态链接到 CRT。 静态包括在
+某个映像中或某个映像动态加载的 CRT 版本取决于构建 该 CRT 时采用的工具和库。 单个进程可能会
+加载多个 EXE 和 DLL 映像，每个都有其自己的 CRT。 每个 CRT 可能使用不同的分配器，可能具有
+不同的内部结构布局，可能使用不同的存储排列方式。 这意味着，分配的内存、CRT 资源或跨 DLL 边界
+传递的类可能会导致内存管理、内部静态使用情况或布局解释方面的问题。
 
-你可以使用应用程序二进制接口 (ABI) 技术避免这些问题，因为此技术被设计成稳定且版本可控。 设计 DLL 导出接口以按值传递信息，或致力于调用方传入而非本地分配并返回给调用方的内存。 使用封送技术复制可执行映像之间的结构化数据。 本地封装资源并仅允许通过向客户端公开的句柄或函数操作。
+例如，如果在一个 DLL 中分配类，但将其传递给另一个 DLL 或由另一个 DLL 删除，那么使用了哪个
+CRT 释放器？ 导致的错误程度可以从微小到立即致命，因此强烈建议不要直接传输此类资源。
 
-如果进程中的所有映像全都使用相同的 CRT 动态加载版本，则也有可能避免这些问题。 若要确保所有组件都使用相同的 CRT 的 DLL 版本，请使用 /MD 选项，并使用相同的编译器工具集和属性设置进行构建。
+你可以使用应用程序二进制接口 (ABI) 技术避免这些问题，因为此技术被设计成稳定且版本可控。 
+设计 DLL 导出接口以按值传递信息，或致力于调用方传入而非本地分配并返回给调用方的内存。 
+使用封送技术复制可执行映像之间的结构化数据。 本地封装资源并仅允许通过向客户端公开的句柄或函数操作。
+
+如果进程中的所有映像全都使用相同的 CRT 动态加载版本，则也有可能避免这些问题。 若要确保所有
+组件都使用相同的 CRT 的 DLL 版本，请使用 /MD 选项，并使用相同的编译器工具集和属性设置进行构建。
 
 
-在 Windows 平台运行的程序大概分为类，控制台程序和窗体程序，给链接程序指定参数后，会根据程序类型选择链接的入口函数：
+在 Windows 平台运行的程序大概分为类，控制台程序和窗体程序，给链接程序指定参数后，会根据程序
+类型选择链接的入口函数：
 
 |      链接方式      |    程序类型    | C Runtime 库入口点 |    入口函数    |
 |--------------------|----------------|--------------------|----------------|
@@ -6054,13 +6135,19 @@ add_definitions("/MT")
 
 MSVC 编译器可以指定 /NOENTRY 创建没有入口的纯资源 DLL。
 
-以  mainCRTStartup 为例，编译器将 CRT 初始化和终止的库代码插入到程序中，对 C Runtime 库初始化，初始化的一个重要任务就是初始化 CRT 堆，在此之前不能使用 CRT 的分配内存函数。完成初始化后，再调用程序入口函数执行程序。
+以  mainCRTStartup 为例，编译器将 CRT 初始化和终止的库代码插入到程序中，对 C Runtime 
+库初始化，初始化的一个重要任务就是初始化 CRT 堆，在此之前不能使用 CRT 的分配内存函数。完成
+初始化后，再调用程序入口函数执行程序。
 
-运行库包含了 C Runtime 库入口点代码，设置链接选项后，链接需要其中对应的一个库文件，否则就会出现链接程序找不到入口的错误。一般来说，环境变量正确设置，MSVC 会自动根据编译、链接参数正确选择 C Runtime 运行库。但是，使用命令行的编译方式有时不能正确使用运行库，这就需要手动指定其中一个。
+运行库包含了 C Runtime 库入口点代码，设置链接选项后，链接需要其中对应的一个库文件，否则就会
+出现链接程序找不到入口的错误。一般来说，环境变量正确设置，MSVC 会自动根据编译、链接参数正确
+选择 C Runtime 运行库。但是，使用命令行的编译方式有时不能正确使用运行库，这就需要手动指定其中一个。
 
-因为链接方式使用了 */SUBSYSTEM:CONSOLE*，很多程序运行时会自带一个控制台，即使是有图形界面。因为 Windows 控制台程序和图形界面不冲突，可以在同一个程序同时使用。
+因为链接方式使用了 */SUBSYSTEM:CONSOLE*，很多程序运行时会自带一个控制台，即使是有图形界面。
+因为 Windows 控制台程序和图形界面不冲突，可以在同一个程序同时使用。
 
-而完全使用图形界面，隐藏控制台，即不使用控制台子系统，就意味着程序需要提供 *WinMain* 作为入口。但是，程序为了保证兼容，还是会保留 *main*，并且通过 *WinMain* 来调用标准的 C/C++ 程序入口。
+而完全使用图形界面，隐藏控制台，即不使用控制台子系统，就意味着程序需要提供 *WinMain* 作为入口。
+但是，程序为了保证兼容，还是会保留 *main*，并且通过 *WinMain* 来调用标准的 C/C++ 程序入口。
 
 入口函数原型：
 
@@ -6272,7 +6359,8 @@ CL.EXE 是 32-bit Microsoft C and C++ 编译链接程序，生成 COFF - Common 
 
 编译时通常指定 /c 只进行编译阶段，并在链接阶段，联合 LINK.EXE 增量链接程序生成最后输出。
 
-例如 /DLL 表示链接为动态链接库，生成程序时使用 /SUBSYSTEM 指定生成程序类型，如 /SUBSYSTEM:WINDOWS 表示生成 GUI 程序，这样就不会有黑框，即字符界面窗口：
+例如 /DLL 表示链接为动态链接库，生成程序时使用 /SUBSYSTEM 指定生成程序类型，
+如 /SUBSYSTEM:WINDOWS 表示生成 GUI 程序，这样就不会有黑框，即字符界面窗口：
 
 |          Subsystem           |             Minimum              |             Default              |
 |------------------------------|----------------------------------|----------------------------------|
@@ -7348,18 +7436,26 @@ LLVM IR 文件 link 操作
 - [Tiny C 编译器](https://bellard.org/tcc/)
 - Code::Blocks Binary releases with MinGW https://www.codeblocks.org/downloads/binaries/
 
-GNU 编译器套件 GNU Compiler Collection 包括 C、C++、Objective-C、Fortran、Java、Ada 和 Go 语言的前端，也包括了这些语言的库，如 libstdc++、libgcj 等等。GCC 的初衷是为GNU操作系统专门编写的一款编译器。GNU 系统是彻底的自由软件。此处，自由的含义是它尊重用户的自由。
+GNU 编译器套件 GNU Compiler Collection 包括 C、C++、Objective-C、Fortran、Java、Ada 和
+Go 语言的前端，也包括了这些语言的库，如 libstdc++、libgcj 等等。GCC 的初衷是为GNU操作系统专门
+编写的一款编译器。GNU 系统是彻底的自由软件。此处，自由的含义是它尊重用户的自由。
 
-对于后缀为 `.c` 的文件 gcc 把它当作是 C 程序，而 g++ 当作是 c++ 程序。后缀为 `.cpp` 的，两者都会认为是 C++ 程序，虽然 C++ 是 C 的超集，但是两者对语法的要求是有区别的。在编译阶段，g++ 会调用 gcc，对于 C++ 代码，两者是等价的，但是因为 gcc 命令不能自动和 C++ 程序使用的库联接，所以通常用 g++ 来完成链接，为了统一起见，干脆编译链接统统用 g++。
+对于后缀为 `.c` 的文件 gcc 把它当作是 C 程序，而 g++ 当作是 c++ 程序。后缀为 `.cpp` 的，
+两者都会认为是 C++ 程序，虽然 C++ 是 C 的超集，但是两者对语法的要求是有区别的。在编译阶段，
+g++ 会调用 gcc，对于 C++ 代码，两者是等价的，但是因为 gcc 命令不能自动和 C++ 程序使用的库
+联接，所以通常用 g++ 来完成链接，为了统一起见，干脆编译链接统统用 g++。
 
 此外，TCC - Tiny C Compiler 是一个小巧的编译器，用来研究编译原理是不错的目标。
 
 MinGW 就是 GCC 的 Windows 移植版。
 
-MinGW - Minimalist GNU on Windows 是将经典的开源 C/C++ 语言编译器 GCC 移植到了 Windows 平台下，并且包含了 Win32API ，因此可以将源代码编译为可在 Windows 中运行的可执行程序。而且还可以使用一些 Windows 不具备的，Linux 平台下的开发工具。
+MinGW - Minimalist GNU on Windows 是将经典的开源 C/C++ 语言编译器 GCC 移植到了 Windows
+平台下，并且包含了 Win32API ，因此可以将源代码编译为可在 Windows 中运行的可执行程序。而且还可以
+使用一些 Windows 不具备的，Linux 平台下的开发工具。
 
-MinGW 包含 32-bit 和 64-bit 两种，MinGW-w64 可以编译生成 64-bit 或 32-bit 可执行程序，使用 `-m32` 选项。
-正因为如此，MinGW 32-bit 版本现已被 MinGW-w64 所取代，且 MinGW 也早已停止了更新，内置的 GCC 停滞在了 4.8.1 版本，而 MinGW-w64 内置的 GCC 则持续更新。
+MinGW 包含 32-bit 和 64-bit 两种，MinGW-w64 可以编译生成 64-bit 或 32-bit 可执行程序，
+使用 `-m32` 选项。正因为如此，MinGW 32-bit 版本现已被 MinGW-w64 所取代，且 MinGW 也早已
+停止了更新，内置的 GCC 停滞在了 4.8.1 版本，而 MinGW-w64 内置的 GCC 则持续更新。
 
 使用 MinGW-w64 的优势：
 
@@ -7369,13 +7465,14 @@ MinGW 包含 32-bit 和 64-bit 两种，MinGW-w64 可以编译生成 64-bit 或 
 - MinGW-w64 使用 Windows 的 C 语言运行库，因此，可以编译出无 DLL 依赖的 Windows 程序。
 - 许多开源 IDE 集成 MinGW-w64，如 CodeBlocks，使它拥有友好的图形化界面。
 
-MinGW-w64 是稳定可靠的、持续更新的 C/C++ 编译器，使用它可以免去很多麻烦，不用担心跟不上时代，也不用担心编译器本身有bug，可以放心的去编写程序。
+MinGW-w64 是稳定可靠的、持续更新的 C/C++ 编译器，使用它可以免去很多麻烦，不用担心跟不上时代，
+也不用担心编译器本身有bug，可以放心的去编写程序。
 
-GCC 有多个 Windows 移植版本，比较出名的就是 MinGW 和 TDM-GCC，最新版本 MinGW-W64 GCC-8.1.0：
+GCC 有多个 Windows 移植版本，比较出名的就是 MinGW 和 TDM-GCC，如 MinGW-W64 GCC-8.1.0：
 
-- MinGW：http://www.mingw.org/
-- TDM-GCC: http://tdm-gcc.tdragon.net/download
-- Cygwin：http://www.cygwin.com/
+- [MinGW](http://www.mingw.org/)
+- [TDM-GCC:](http://tdm-gcc.tdragon.net/download)
+- [Cygwin](http://www.cygwin.com/)
 
 MinGW Distro 是提供了一个开箱即用的打包,提供最新的 MinGW 17.1 包含以下常用部件:
 
@@ -7565,20 +7662,28 @@ gcc -o hello a.out --verbose
 ld -e main -lc -o hello a.out
 ```
 
-链接程序默认使用 `_start` 符号作为程序入口，C 语言中使用 main，如果直接使用 ld 命令链接程序时不指定入口就会报以下的错误。另外，需要给链接程序指明需要使用到的链接库，否则会报错符号未定义，因为代码中调用的外部符号需要在链接时重新定位才能从正确的地址调用 API。上面命令行中的 `-lc` 表示引用 GCC 默认提供的 libc.a 动态链接库，指定库文件名时省略前缀的 lib 和后缀名，如果依赖其它动态库，就需要通过 `-L` 参数指定要搜索的目录。
+链接程序默认使用 `_start` 符号作为程序入口，C 语言中使用 main，如果直接使用 ld 命令链接程序时
+不指定入口就会报以下的错误。另外，需要给链接程序指明需要使用到的链接库，否则会报错符号未定义，
+因为代码中调用的外部符号需要在链接时重新定位才能从正确的地址调用 API。
+
+上面命令行中的 `-lc` 表示引用 GCC 默认提供的 libc.a 动态链接库，指定库文件名时省略 lib 前缀
+和后缀名，如果依赖其它动态库，就需要通过 `-L` 参数指定要搜索的目录。
 
 ```sh
 ld: warning: cannot find entry symbol _start; defaulting to 0000000000401000
 hello.c:(.text+0x15): undefined reference to printf
 ```
 
-链接 C++ 程序一般都会乃至标准库，如果使用 gcc 命令来执行 C++ 程序的编译链接工具，也应该指定 -lstdc++ 引入基础库：
+链接 C++ 程序一般都会乃至标准库，如果使用 gcc 命令来执行 C++ 程序的编译链接工具，也应该指定
+ -lstdc++ 引入基础库：
 
     ld -o model model.o -LC:\mingw\lib -lstdc++
 
-LD 链接时，一般先指定目标文件，然后再指定依赖的库，从左到右扫描输入的依赖库，其它库之间也有依赖关系时，也按这个规则处理，将库放在被依赖的库前面。
+LD 链接时，一般先指定目标文件，然后再指定依赖的库，从左到右扫描输入的依赖库，其它库之间也有
+依赖关系时，也按这个规则处理，将库放在被依赖的库前面。
 
-在链接过程中，还会加入 glibc 辅助运行库（C RunTime Library）几个目标文件，分别执行程序启动、初始化、构造、析构和结束清理，它们通常会被 gcc 命令自动链接到应用程序中。
+在链接过程中，还会加入 glibc 辅助运行库（C RunTime Library）几个目标文件，分别执行程序
+启动、初始化、构造、析构和结束清理，它们通常会被 gcc 命令自动链接到应用程序中。
 
 Linux 平台下它们的链接顺序是：
 
@@ -7586,7 +7691,9 @@ Linux 平台下它们的链接顺序是：
 
 crt1.o 中包含程序的入口函数 `_start` 以及两个未定义的符号 `__libc_start_main` 和 `main`，由 `_start` 负责调用 `__libc_start_main` 初始化 libc，然后调用我们源代码中定义的 `main` 函数。
 
-由于类似于全局静态对象这样的代码需要在 `main` 函数之前执行，crti.o 和 crtn.o 负责辅助启动这些代码。而 GCC 中也有相应的 crtbegin.o 和 crtend.o 两个文件，用于配合 glibc 来实现 C++ 的全局构造和析构。
+由于类似于全局静态对象这样的代码需要在 `main` 函数之前执行，crti.o 和 crtn.o 负责辅助启动
+这些代码。而 GCC 中也有相应的 crtbegin.o 和 crtend.o 两个文件，用于配合 glibc 来实现 C++
+的全局构造和析构。
 
 为了观察执行命令时的具体过程，可以使用 -v 命令行参数启动细节显示：
 
@@ -7595,7 +7702,8 @@ gcc -v hello.cpp
 g++ -v hello.cpp
 ```
 
-其实这一切 `gcc` 命令会自动帮你处理好，如果自行调用这些命令，就需要知道它们是如何工作的，就是编译所有源代码 -> 生成目标文件 -> 链接所有目标文件 -> 符号重定位 -> 生成可执行程序。
+其实这一切 `gcc` 命令会自动帮你处理好，如果自行调用这些命令，就需要知道它们是如何工作的，
+就是编译所有源代码 -> 生成目标文件 -> 链接所有目标文件 -> 符号重定位 -> 生成可执行程序。
 
     +---------------+  +--------+  +------+
     |Assembly source|--|        |--|object|-+
@@ -7613,7 +7721,9 @@ g++ -v hello.cpp
     | Header Files |-------+               |Resource Files|
     +--------------+                       +--------------+
 
-编译得到的目标文件是什么呢？其实它就是包含二进制代码的文件，只不过还不能直接执行，因为它包含一些符号需要经过重定位后才能正确执行。这些符号可以是源代码中的一些函数，或需要调用的一些系统 API，可以通过 `file a.out` 命令查看文件类型信息:
+编译得到的目标文件是什么呢？其实它就是包含二进制代码的文件，只不过还不能直接执行，因为它包含
+一些符号需要经过重定位后才能正确执行。这些符号可以是源代码中的一些函数，或需要调用的一些系统 API，
+可以通过 `file a.out` 命令查看文件类型信息:
 
 ```sh
 a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
@@ -7621,7 +7731,10 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 
 可以使用 `ldd` 命令查看可执行程序依赖的动态库，或使用 `readelf` 想看 Linux 可执行程序的文件信息。
 
-生成的目标文件包含的信息可以通过 `objdump` 查看，包括反汇编、符号定义、符号重定位等。只是列表其中的符号定义，可以使用 `nm` 命令。应该看到输出的文件格式信息为 `elf32-i386`，这表示运行于 i386 架构上的 Linux 可执行文件。如果是 `elf64-x86-64` 表示使用的是 x86_64 架构运行的代码，表明正在使用的编译器是 64-bit 版本，应该安装 32-bit 版本编译出 elf32-i386 格式可执行程序。
+生成的目标文件包含的信息可以通过 `objdump` 查看，包括反汇编、符号定义、符号重定位等。只是列表
+其中的符号定义，可以使用 `nm` 命令。应该看到输出的文件格式信息为 `elf32-i386`，这表示运行于
+ i386 架构上的 Linux 可执行文件。如果是 `elf64-x86-64` 表示使用的是 x86_64 架构运行的代码，
+ 表明正在使用的编译器是 64-bit 版本，应该安装 32-bit 版本编译出 elf32-i386 格式可执行程序。
 
 
 
@@ -11290,9 +11403,11 @@ vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如�
 - [MinGW-w64 GCC for Windows](https://zhuanlan.zhihu.com/p/76613134)
 - [Advanced MinGW DLL Topics](https://www.transmissionzero.co.uk/computing/advanced-mingw-dll-topics/)
 
-在编译动态链接的程序时，要区别动态链接库 DLL 和导入库 LIB 的概念，程序要完成编译就需要相关的导入库 lib 文件，导入库只记录了在动态链接库导出的符号，编译得到程序要运行就需要导入库关联的 DLL 文件。
+在编译动态链接的程序时，要区别动态链接库 DLL 和导入库 LIB 的概念，程序要完成编译就需要相关的
+导入库 lib 文件，导入库只记录了在动态链接库导出的符号，编译得到程序要运行就需要导入库关联的 DLL 文件。
 
-在编译静态链接的程序时，只需要导入库，并且静态导入库 lib 文件包含了符号定义和实现代码，程序和静态库链接后运行就不需要依赖 DLL 文件。
+在编译静态链接的程序时，只需要导入库，并且静态导入库 lib 文件包含了符号定义和实现代码，程序和
+静态库链接后运行就不需要依赖 DLL 文件。
 
 在 Windows 下用 MinGW 编译 DLL：
 
@@ -11314,9 +11429,11 @@ vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如�
 
     gcc -o add_basic.dll -s -shared add_basic.c -Wl,--subsystem,windows-
 
-其中 `-Wl,--subsystem,windows` 不是必要的参数，因为不是编译窗口程序。注意 `-s` 选项，它清理导出的 DLL 符号，通过在发布 DLL 时使用。
+其中 `-Wl,--subsystem,windows` 不是必要的参数，因为不是编译窗口程序。注意 `-s` 选项，
+它清理导出的 DLL 符号，通过在发布 DLL 时使用。
 
-对于动态链接库，用户在程序中使用时，为了程序能正确链接，就需要`导入库` Import Library，即链接程序中使用的 `.lib` 文件。
+对于动态链接库，用户在程序中使用时，为了程序能正确链接，就需要`导入库` Import Library，
+即链接程序中使用的 `.lib` 文件。
 
 下面，试着写一个程序来调用动态链接库的 Add(a, b) 方法：
 
@@ -11511,25 +11628,37 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
 
 ## Exporting Undecorated stdcall Functions
 
-导出函数意味着 stdcall 调用转换，即 `int Add(int, int)` 这样的函数签名会导出变成 `Add@8` 类似格式，`@` 符号后面跟着的数字表示参数占据的空间，而 Microsoft’s Visual C++ 还会使用其它前缀，如下划线 `_Add@8`。正因为 MSVC 和 MinGW 不同编译器之间的转换不一致，当开发出来的 DLL 被多用户使用时，他们使用什么编译器就受到约束了。
+导出函数意味着 stdcall 调用转换，即 `int Add(int, int)` 这样的函数签名会导出变成 `Add@8`
+类似格式，`@` 符号后面跟着的数字表示参数占据的空间，而 Visual C++ 还会使用其它前缀，
+如下划线 `_Add@8`。正因为 MSVC 和 MinGW 不同编译器之间的转换不一致，当开发出来的 DLL 被
+多用户使用时，他们使用什么编译器就受到约束了。
 
-解决办法就是避免导出时，编译器对函数的重命名，传递 `--kill-at` 选项给链接程序，同时，需要重建导入库 import library，否则用户不能正确链接特殊处理过的导出函数。此时，`--out-implib` 创建的导入库无效，需要使用 `dlltool.exe` 工具，还有模块定义文件，它包含了函数正确的导出名字：
+解决办法就是避免导出时，编译器对函数的重命名，传递 `--kill-at` 选项给链接程序，同时，需要
+重建导入库 import library，否则用户不能正确链接特殊处理过的导出函数。此时，`--out-implib`
+创建的导入库无效，需要使用 `dlltool.exe` 工具，还有模块定义文件，它包含了函数正确的导出名字：
 
     >gcc -o AddLib.dll add.o -shared -s -Wl,--subsystem,windows,--output-def,AddLib.def
     >gcc -o AddLib.dll add.o -shared -s -Wl,--subsystem,windows,--kill-at
     >dlltool --kill-at -d AddLib.def -D AddLib.dll -l libaddlib.a
 
-上面的命令首先会创建修饰过函数名称的 DLL，使用了 `--output-def,AddLib.def` 链接参数生成模块定义文件，它包含了修饰过的函数名称。
+上面的命令首先会创建修饰过函数名称的 DLL，使用了 `--output-def,AddLib.def` 链接参数生成
+模块定义文件，它包含了修饰过的函数名称。
 
-第二步还是创建 DLL，但是传入了 `--kill-at` 链接参数，导出的函数名是未修饰过的，这一步不能创建模块定义文件。
+第二步还是创建 DLL，但是传入了 `--kill-at` 链接参数，导出的函数名是未修饰过的，这一步不能
+创建模块定义文件。
 
-最后，基于模块定义文件创建导入库，如果你关心不同编译器的表现，这一步会很有趣。事实上，Win32 API 函数都是以这种方式导出的，没有任何修饰。
+最后，基于模块定义文件创建导入库，如果你关心不同编译器的表现，这一步会很有趣。事实上，Win32 API
+函数都是以这种方式导出的，没有任何修饰。
 
 ## Exporting C++ functions and variables
 
-在 C++ DLL 的导出符号中，不同编译器之间是不通用的，甚至同一个编译器不同版本也不通用。因为 C++ 的复杂性，要处理异常、虚函数实现、或 STL 类型的不同内存模型等等。为了明确不兼容，编译器还会使用名称变形 `name mangling` 来处理导出符号。
+在 C++ DLL 的导出符号中，不同编译器之间是不通用的，甚至同一个编译器不同版本也不通用。
+因为 C++ 的复杂性，要处理异常、虚函数实现、或 STL 类型的不同内存模型等等。为了明确不兼容，
+编译器还会使用名称变形 `name mangling` 来处理导出符号。
 
-导出全局符号，函数和变量，C/C++ 的做法都是一样的，不同的是 C 语言导出全局变量时，可以作为 C++ 对象实例导出，导出函数时可以重载。还可以导出 C++ 的类对象，这个导出的类对象所有静态方法和成员不区分 public、protected、private 访问修饰。
+导出全局符号，函数和变量，C/C++ 的做法都是一样的，不同的是 C 语言导出全局变量时，可以作为
+C++ 对象实例导出，导出函数时可以重载。还可以导出 C++ 的类对象，这个导出的类对象所有静态方法
+和成员不区分 public、protected、private 访问修饰。
 
 示例 Point 头文件：
 
@@ -11621,11 +11750,13 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
     >gcc pointTest.cpp -I include/ -L lib/ -l point -o testPoint.exe
 
 
-打包归档命令 ar 将所有 .o 文件打包为静态库，r 将文件插入静态库中，c 创建静态库，不管库是否存在，s 写入一个目标文件索引到库中，或者更新一个存在的目标文件索引。
+打包归档命令 ar 将所有 .o 文件打包为静态库，r 将文件插入静态库中，c 创建静态库，不管库是否存在，
+s 写入一个目标文件索引到库中，或者更新一个存在的目标文件索引。
 
 这时创建了导入库 libpoint.a，这是可选的，因为除了链接程序，还有其它方法调用 DLL 中的 API。
 
-使用 `objdump -p` 命令查看导出符号，可以我发现类似 `_ZN5Point4setXEi`、`_ZlsRSoRK5Point` 这样的符号。使用 c++filt 这个 Demangle 工具可以将导出的 C++ 符号还原：
+使用 `objdump -p` 命令查看导出符号，可以我发现类似 `_ZN5Point4setXEi`、`_ZlsRSoRK5Point`
+这样的符号。使用 c++filt 这个 Demangle 工具可以将导出的 C++ 符号还原：
 
     >c++filt -n _ZlsRSoRK5Point
     operator<<(std::basic_ostream<char, std::char_traits<char> >&, Point const&)
@@ -11779,7 +11910,9 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
     # target_link_libraries( PointTest libpoint.a )
 
 
-作为小巧、功能强大的 SublimeText，用它来编写 C++ 工程是组好的选择，工程文件配置如下，Ctrl-Shift-B 调用设置好的命令，先执行 CMake 生成 MinGW Makefiles 编译脚本，再执行 Make 或 Make install 生成动态链接库，然后生成 PointTest 程序：
+作为小巧、功能强大的 SublimeText，用它来编写 C++ 工程是组好的选择，工程文件配置如下，
+Ctrl-Shift-B 调用设置好的命令，先执行 CMake 生成 MinGW Makefiles 编译脚本，再执行
+Make 或 Make install 生成动态链接库，然后生成 PointTest 程序：
 
     {
         "build_systems":
@@ -11842,9 +11975,11 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
 
 ## Creating JNI DLLs
 
-MinGW 创建的 DLL 可以和 Java Native Interface 一起使用，JNI 调用 Win32 函数使用 stdcall 调用约定，这种调用表示函数参数入栈顺序从右到左。
+MinGW 创建的 DLL 可以和 Java Native Interface 一起使用，JNI 调用 Win32 函数使用 
+stdcall 调用约定，这种调用表示函数参数入栈顺序从右到左。
 
-因为不同的语言想到交互时，需要有一致的函数调用和返回行为，C 语言作为一种历史悠久的编程语言，它的函数调用方式称为标准调用 stdcall，其它常见方式如下：
+因为不同的语言想到交互时，需要有一致的函数调用和返回行为，C 语言作为一种历史悠久的编程语言，
+它的函数调用方式称为标准调用 stdcall，其它常见方式如下：
 
 |   调用约定   | 清理堆栈 |                              说明                              |
 |--------------|----------|----------------------------------------------------------------|
@@ -11854,7 +11989,8 @@ MinGW 创建的 DLL 可以和 Java Native Interface 一起使用，JNI 调用 Wi
 | `__thiscall` | 被调函数 | 参数从右到左 push 入栈，this 指针通过 ECX 传递                 |
 | `__declspec` | 被调函数 | 用于 DLL 导出函数，如 `__declspec(dllexport)`                  |
 
-JVM 希望调用的 DLL 函数名是未修饰的，或者按 `_[function name]@[size of arguments]` 这样的格式修饰。错误的调用类似以下结果：
+JVM 希望调用的 DLL 函数名是未修饰的，或者按 `_[function name]@[size of arguments]` 
+这样的格式修饰。错误的调用类似以下结果：
 
     >java Hello
     Exception in thread "main" java.lang.UnsatisfiedLinkError: Hello.add(II)I
@@ -11924,7 +12060,8 @@ JVM 希望调用的 DLL 函数名是未修饰的，或者按 `_[function name]@[
     >java Hello
     8 + 5 = 13
 
-在 CMake 编写脚本时，发现并不能正确使用 --kill-at，必须在 target_link_options 命令中使用 `LINKER:` 才能正确将参数传入链接程序：
+在 CMake 编写脚本时，发现并不能正确使用 --kill-at，必须在 target_link_options 命令中
+使用 `LINKER:` 才能正确将参数传入链接程序：
 
     target_link_options( hello PUBLIC --kill-at)
     target_link_options( hello PUBLIC LINKER:--kill-at)
@@ -11938,7 +12075,9 @@ JVM 希望调用的 DLL 函数名是未修饰的，或者按 `_[function name]@[
 
 MinGW 编译的 DLL 与 .NET 一起使用要比 JNI 简单，因为不必按 JNI 规定格式进行设置。 
 
-C# 提供 P/Invoke 即 Platform Invoke 平台调用，调用非托管 DLL 中的函数，和关键字 DllImport 一起使用。 实际上，NET 基类库中定义的类型内部调用 Kernel32.dll、User32.dll、gdi32.dll 等非托管 DLL 中导出的函数。
+C# 提供 P/Invoke 即 Platform Invoke 平台调用，调用非托管 DLL 中的函数，和关键字 
+DllImport 一起使用。实际上，NET 基类库中定义的类型内部调用 Kernel32.dll、User32.dll、
+gdi32.dll 等非托管 DLL 中导出的函数。
 
 使用 DllImport 将 DLL 导出的 stdcall 函数声明为 `extern` 即可：
 
@@ -11995,13 +12134,15 @@ C# 提供 P/Invoke 即 Platform Invoke 平台调用，调用非托管 DLL 中的
     for Microsoft (R) Windows (R) 2005 Framework version 2.0.50727
     Copyright (C) Microsoft Corporation 2001-2005. All rights reserved.
 
-在 Visual Studio 中设置平台目标，在工程属性的 build 选项卡，这样就可以在 64-bit 系统编译 32 bit 目标程序，同样，可以指定 platform 为 x64。
+在 Visual Studio 中设置平台目标，在工程属性的 build 选项卡，这样就可以在 64-bit 系统编译
+32 bit 目标程序，同样，可以指定 platform 为 x64。
 
 
 
 ## Using MinGW DLLs with VB6 and VBA
 
-MinGW 编译的 DLL 可以和 Visual Basic 6 或 VBA 一起使用，只要调用约定为 stdcall 方式，不支持 cdecl 或其它调用约定，并且使用 `--kill-at` 编译选项：
+MinGW 编译的 DLL 可以和 Visual Basic 6 或 VBA 一起使用，只要调用约定为 stdcall 方式，
+不支持 cdecl 或其它调用约定，并且使用 `--kill-at` 编译选项：
 
     >gcc -o AddLib.dll add.o -shared -s -Wl,--subsystem,windows,--kill-at
 
@@ -12013,9 +12154,11 @@ MinGW 编译的 DLL 可以和 Visual Basic 6 或 VBA 一起使用，只要调用
         Call MsgBox(MyAddFunction(4, 5))
     End Sub
 
-注意，VB 关键字 `Alias` 导出了 DLL 中的函数，并起了个别名。Visual Basic 只支持 ANSI 而不支持 Unicode。
+注意，VB 关键字 `Alias` 导出了 DLL 中的函数，并起了个别名。Visual Basic 只支持 ANSI 而
+不支持 Unicode。
 
-如果在 VBA 中，还需要标记 PtrSafe，以确保可以在 64 bit 的 Microsoft Office 上运行，为了向后兼容 Office 2010，可以进行条件判断：
+如果在 VBA 中，还需要标记 PtrSafe，以确保可以在 64 bit 的 Microsoft Office 上运行，
+为了向后兼容 Office 2010，可以进行条件判断：
 
     #If VBA7 Then
         Private Declare PtrSafe Function MyAddFunction Lib "AddLib.dll" Alias "Add" (ByVal a As Long, ByVal b As Long) As Long
@@ -12033,9 +12176,12 @@ MinGW 编译的 DLL 可以和 Visual Basic 6 或 VBA 一起使用，只要调用
 
 ## Setting the DLL base address
 
-DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程的内存空间是一个`虚拟空间` virtual address space。程序中使用的 DLL 很多，当任意 DLL 的地址出现覆盖时，就不可能按 DLL 的基址去加载，而需要重定位 relocated 加载到不同的地址。这涉及到加载器的硬编码补丁操作，比较消耗资源。
+DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程的内存空间是一个`虚拟空间`
+virtual address space。程序中使用的 DLL 很多，当任意 DLL 的地址出现覆盖时，就不可能按 DLL
+的基址去加载，而需要重定位 relocated 加载到不同的地址。这涉及到加载器的硬编码补丁操作，比较消耗资源。
 
-默认 MinGW 链接程序基于 DLL 名字的哈希分散选择基址，这一般不会有什么问题。也可以通过 `--image-base` 链接参数设置基础：
+默认 MinGW 链接程序基于 DLL 名字的哈希分散选择基址，这一般不会有什么问题。也可以通过
+`--image-base` 链接参数设置基础：
 
     >gcc -o AddLib.dll obj/add.o -shared -s ^
          -Wl,--subsystem,windows,--out-implib,libaddlib.a,--image-base,0x10000000
@@ -12089,9 +12235,13 @@ DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程
 
 运行时加载 DLL 对于插件开发是非常有用的。
 
-这里演示 `void __cdecl DoPlugin();` 导出函数，模拟插件的运行机制，程序中只需要调用 DoPlugin 就可以让插件运行起来。
+这里演示 `void __cdecl DoPlugin();` 导出函数，模拟插件的运行机制，程序中只需要调用 
+DoPlugin 就可以让插件运行起来。
 
-需要用到 kernel32.dll 中的 Windows API `LoadLibrary` ，调用此函数将 DLL 加载到进程的地址空间中。Windows 系统自动对 DLL 的加载进行计数。加载成功计数增加一，返回一个模块句柄 HMODULE 也即是 DLL 加载到的内存地址信息。然后，通过 `GetProcAddress` 函数获取 DLL 导出函数的地址，继续使用 `AddLib.dll` 演示如何在运行时调用 `Add` 导出函数。
+需要用到 kernel32.dll 中的 Windows API `LoadLibrary` ，调用此函数将 DLL 加载到
+进程的地址空间中。Windows 系统自动对 DLL 的加载进行计数。加载成功计数增加一，返回一个模块
+句柄 HMODULE 也即是 DLL 加载到的内存地址信息。然后，通过 `GetProcAddress` 函数获取 DLL 
+导出函数的地址，继续使用 `AddLib.dll` 演示如何在运行时调用 `Add` 导出函数。
 
     #include <windows.h>
     #include <stdio.h>
@@ -12230,7 +12380,11 @@ DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程
     mkdir -p cmake-build && cd cmake-build
     cmake .. -G"Unix Makefiles"
 
-注意，不同编译的器连接库是没办法通过的，甚至同一套编译器不同版本编译出来的动态链接库也不能通用。所以要使用同版本的 MinGW 编译出来链接库，除了使用 CMke 这个被逼着使用的东西，在 GCC 中可以选择更通用的 GUN make。也可以像我一样直接撸命令，以下是 Sublime 下使用的编译配置文件，直接保存到 Preferences - Browser Packages - User 目录下，命名就取 `MinGW.sublime-build`，sublime 会自动读取这个编译配置文件，使用快捷键 Ctrl-B 就可以调出编译命令：
+注意，不同编译的器连接库是没办法通过的，甚至同一套编译器不同版本编译出来的动态链接库也不能通用。
+所以要使用同版本的 MinGW 编译出来链接库，除了使用 CMke 这个被逼着使用的东西，在 GCC 中可以
+选择更通用的 GUN make。也可以像我一样直接撸命令，以下是 Sublime 下使用的编译配置文件，直接
+保存到 Preferences - Browser Packages - User 目录下，命名就取 `MinGW.sublime-build`，
+sublime 会自动读取这个编译配置文件，使用快捷键 Ctrl-B 就可以调出编译命令：
 
     {
         "env": {
@@ -12270,7 +12424,9 @@ DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程
         }
     }
 
-或者在 Sublime Text 的工程文件中配置构建命令，如下 demo.sublime-project，注意 working_dir 设置的当前工作目录一定要存在，否则命令不能执行，${project_path} 表示工程文件所在目录：
+或者在 Sublime Text 的工程文件中配置构建命令，如下 demo.sublime-project，注意 
+working_dir 设置的当前工作目录一定要存在，否则命令不能执行，${project_path} 表示
+工程文件所在目录：
 
     {
         "build_systems":
@@ -12307,15 +12463,24 @@ DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程
         }
     }
 
-**注意：安装了多个 MinGW 版本的机器，在编写编译脚本时，第一步要搞清楚脚本执行时，调用的是那一个版本，否则用错编译器一定会出现莫名的错误。比如，设置了链接依赖库，却报错找不到符号定义。**
+**注意：安装了多个 MinGW 版本的机器，在编写编译脚本时，第一步要搞清楚脚本执行时，调用的是
+那一个版本，否则用错编译器一定会出现莫名的错误。比如，设置了链接依赖库，却报错找不到符号定义。**
 
-配置中加入 PATH 的路径有两个主要作用，一是为了运行编译出来的程序能找到 OpenCV 的 DLL 文件，二是为了正确调用编译器，包括从安装多个版本中指定正确的一个。另外注意，GCC 中的 ld 链接程序默认会自动查找引用引用库目录中 `.lib` 扩展名的文件。如果，编译 OpenCV 生成的文件是 `.dll.a` 这样古怪的名字，那么就找不到了。
+配置中加入 PATH 的路径有两个主要作用，一是为了运行编译出来的程序能找到 OpenCV 的 DLL 文件，
+二是为了正确调用编译器，包括从安装多个版本中指定正确的一个。另外注意，GCC 中的 ld 链接程序默认
+会自动查找引用引用库目录中 `.lib` 扩展名的文件。如果，编译 OpenCV 生成的文件是 `.dll.a` 
+这样古怪的名字，那么就找不到了。
 
-在 Windows 和 Linux 系统上，程序的编译链接都有动态和静态两种方式，动态链接 `.dll` 文件和 `.so` 文件是在程序执行时使用的，而 `.lib` 引用库文件是在程序编译阶段用来定位符号用的。如何是静态链接，会使用到 `.a` 静态链接库，静态链接生成的程序文件运行时就不需要依赖动态链接库了。
+在 Windows 和 Linux 系统上，程序的编译链接都有动态和静态两种方式，动态链接 `.dll` 文件
+和 `.so` 文件是在程序执行时使用的，而 `.lib` 引用库文件是在程序编译阶段用来定位符号用的。
+如何是静态链接，会使用到 `.a` 静态链接库，静态链接生成的程序文件运行时就不需要依赖动态链接库了。
 
-一般来说 Linux 中的库文件名还可以这样 `libQt5Widgets.a` 在引用时只需要取 Qt5Widgets 这部分，ld 查找的目录顺序是 `/var/lib` -> `/usr/lib` -> `LD_LIBRARY_PATH` 环境变量指定的目录 -> 命令行指定的 `-LPATH_TO_LIB` 目录。
+一般来说 Linux 中的库文件名还可以这样 `libQt5Widgets.a` 在引用时只需要取 Qt5Widgets 
+这部分，ld 查找的目录顺序是 `/var/lib` -> `/usr/lib` -> `LD_LIBRARY_PATH` 环境变量
+指定的目录 -> 命令行指定的 `-LPATH_TO_LIB` 目录。
 
-如果遇到以下提示，请不要傻傻地去设置环境变量，这可以是因为 MinGW 使用的是 mingw32-make.exe 导致 CMake 检测不到，复制一份改名 make.exe：
+如果遇到以下提示，请不要傻傻地去设置环境变量，这可以是因为 MinGW 使用的是 mingw32-make.exe
+导致 CMake 检测不到，复制一份改名 make.exe：
 
     CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
     CMake Error: CMAKE_CXX_COMPILER not set, after EnableLanguage
@@ -12324,7 +12489,8 @@ DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程
 
     C:\MinGW\x86_64-w64-mingw32\include
 
-现在你应该有一个可执行文件，但它需要依赖 OpenCV 的动态链接库，指定可以访问到的一个路径。运行它给出一个图像位置作为参数，即：
+现在你应该有一个可执行文件，但它需要依赖 OpenCV 的动态链接库，指定可以访问到的一个路径。运行它
+给出一个图像位置作为参数，即：
 
     set path=C:\OpenCV\build\bin
     ./DisplayImage lena.jpg
@@ -12340,9 +12506,13 @@ DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程
 - [WOFF File Format 2.0](https://www.w3.org/TR/WOFF2/)
 - [The FreeType Project](https://www.freetype.org/)
 
-OpenCV 默认不支持渲染中文字符，不支持 utf-8，cv::putText() 函数仅支持对 ASCII，这是一个很小的字符编码，想要支持中文或者其他字符的渲染就需要支持 Unicode 的字符集。其实早期的 OpenCV 是字符 Unicode 字符渲染的，采用的是 FreeType 库实现的，但由于 FreeFype 是 GPL 版权发布的库，和 OpenCV 版权并不一致。
+OpenCV 默认不支持渲染中文字符，不支持 utf-8，cv::putText() 函数仅支持对 ASCII，这是一个
+很小的字符编码，想要支持中文或者其他字符的渲染就需要支持 Unicode 的字符集。其实早期的 OpenCV
+是字符 Unicode 字符渲染的，采用的是 FreeType 库实现的，由于 FreeFype 是 GPL 版权发布的库，
+和 OpenCV 版权并不一致。
 
-opencv_contrib 提供的 freetype 模块并不支持独门构建，但可以到 FreeType 官方下载完整的源代码进行编译：
+opencv_contrib 提供的 freetype 模块并不支持独门构建，但可以到 FreeType 官方下载完整的
+源代码进行编译：
 
     cmake_minimum_required(VERSION 3.18)
     project( freetype )

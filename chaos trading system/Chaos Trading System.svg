@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="274" viewBox="0 0 300 274">
+  <defs>
+    <filter id="随机交易系统_Trading_System" x="39" y="0" width="222" height="48" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="组_9" data-name="组 9" transform="translate(-38 -7)">
+    <text id="Chaos_Trading_System" data-name="Chaos Trading System" transform="translate(38 41)" fill="#fce657" font-size="14" font-family="MicrosoftYaHeiUI, Microsoft YaHei UI"><tspan x="75.495" y="14">Chaos Trading System</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 38, 7)" filter="url(#随机交易系统_Trading_System)">
+      <text id="随机交易系统_Trading_System-2" data-name="随机交易系统 Trading System" transform="translate(48 6)" fill="#7d2d6f" font-size="24" font-family="MicrosoftYaHeiUI-Bold, Microsoft YaHei UI" font-weight="700"><tspan x="30" y="24">混沌交易系统</tspan></text>
+    </g>
+    <g id="组_7" data-name="组 7" transform="translate(0 9)">
+      <g id="矩形_5" data-name="矩形 5" transform="translate(50 92)" fill="#fbfbfb" stroke="#d3b8b8" stroke-width="1">
+        <rect width="288" height="180" rx="7" stroke="none"/>
+        <rect x="0.5" y="0.5" width="287" height="179" rx="6.5" fill="none"/>
+      </g>
+      <g id="组_1" data-name="组 1" transform="translate(2 18.75)">
+        <g id="矩形_1" data-name="矩形 1" transform="translate(69 96.25)" fill="#ffd4d4" stroke="#e9e1e1" stroke-linecap="round" stroke-width="1">
+          <rect width="61" height="34" rx="8" stroke="none"/>
+          <rect x="-0.5" y="-0.5" width="62" height="35" rx="8.5" fill="none"/>
+        </g>
+        <text id="认知" transform="translate(69 104.25)" fill="#7d2d6f" font-size="14" font-family="YuGothicUI-Bold, Yu Gothic UI"><tspan x="16.5" y="15" font-weight="700">认知</tspan></text>
+      </g>
+      <g id="组_6" data-name="组 6" transform="translate(95 18.75)">
+        <g id="矩形_1-4" data-name="矩形 1" transform="translate(69 96.25)" fill="#ffd4d4" stroke="#e9e1e1" stroke-linecap="round" stroke-width="1">
+          <rect width="61" height="34" rx="8" stroke="none"/>
+          <rect x="-0.5" y="-0.5" width="62" height="35" rx="8.5" fill="none"/>
+        </g>
+        <text id="反馈" transform="translate(69 104.25)" fill="#7d2d6f" font-size="14" font-family="YuGothicUI-Bold, Yu Gothic UI" font-weight="700"><tspan x="16.5" y="15">反馈</tspan></text>
+      </g>
+      <g id="组_8" data-name="组 8" transform="translate(188 18.75)">
+        <g id="矩形_1-2" data-name="矩形 1" transform="translate(69 96.25)" fill="#ffd4d4" stroke="#e9e1e1" stroke-linecap="round" stroke-width="1">
+          <rect width="61" height="34" rx="8" stroke="none"/>
+          <rect x="-0.5" y="-0.5" width="62" height="35" rx="8.5" fill="none"/>
+        </g>
+        <text id="交易" transform="translate(69 104.25)" fill="#7d2d6f" font-size="14" font-family="YuGothicUI-Bold, Yu Gothic UI" font-weight="700"><tspan x="16.5" y="15">交易</tspan></text>
+      </g>
+      <g id="组_2" data-name="组 2" transform="translate(68 88)">
+        <g id="矩形_1-3" data-name="矩形 1" transform="translate(69 96)" fill="#7d2d6f" stroke="#707070" stroke-width="1">
+          <rect width="115" height="61" rx="8" stroke="none"/>
+          <rect x="0.5" y="0.5" width="114" height="60" rx="7.5" fill="none"/>
+        </g>
+        <text id="交易系统" transform="translate(84 111)" fill="#e9e1e1" font-size="20" font-family="YuGothicUI-Regular, Yu Gothic UI"><tspan x="2.5" y="22">交易系统</tspan></text>
+      </g>
+      <path id="路径_2" data-name="路径 2" d="M9,0l9,16H12.847V27.931H5V16H0Z" transform="translate(153.107 172.11) rotate(137)" fill="#fce657"/>
+      <path id="路径_5" data-name="路径 5" d="M9,0l9,16H12.847V27.931H5V16H0Z" transform="translate(258.794 148.517) rotate(39)" fill="#fce657"/>
+      <path id="路径_7" data-name="路径 7" d="M9,0l9,16H12.847V27.931H5V16H0Z" transform="translate(226.035 141.035) rotate(-90)" fill="#fce657"/>
+      <path id="路径_8" data-name="路径 8" d="M9,0l9,16H12.847V27.931H5V16H0Z" transform="translate(133.035 141.035) rotate(-90)" fill="#fce657"/>
+    </g>
+  </g>
+</svg>

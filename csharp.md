@@ -1755,7 +1755,6 @@ WPF - Windows Presentation Foundation 为开发人员提供了一个统一的编
 
 # =🚩 WinForm Application Startup
 - [Creating Event Handlers in Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/creating-event-handlers-in-windows-forms)
-- []()
 
 通过命令创建的 WinForms 模板程序：
 
@@ -2004,34 +2003,245 @@ System.Windows.Controls 命名空间在 PresentationFramework.dll中。
 - [WPF Data Binding](https://docs.microsoft.com/zh-cn/dotnet/desktop-wpf/data/data-binding-overview)
 - [WPF Threading Model](https://docs.microsoft.com/zh-cn/dotnet/framework/wpf/advanced/threading-model)
 - [WPF Samples](https://github.com/microsoft/WPF-Samples)
-- []()
+- https://github.com/dotnet/wpf
+- https://github.com/dotnet/dotnet-api-docs
+- https://learn.microsoft.com/zh-cn/visualstudio/xaml-tools/creating-a-ui-by-using-xaml-designer-in-visual-studio
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/graphics-multimedia/animation-overview
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/wpf-architecture
 
-这里介绍通过命令创建的 WPF 和 WinForms 模板程序：
+这里以下面两条命令创建的 WPF 和 WinForms 模板程序开始：
 
     dotnet new wpf
     dotnet new winforms
 
-这两种 Windows GUI 项目有相似的 csproj 配置，差别在于使用了不同开发框架和开发模式。 WPF 使用 UI 和代码分享的开发模式，WinForms 是全代码的旧方式。
+这两种 Windows GUI 项目有相似的 csproj 配置，差别在于使用了不同开发框架和开发模式。 WPF 
+使用 UI 和代码分享的开发模式，WinForms 是全代码的旧方式。
 
-先来认识 WPF - Windows Presentation Foundation 程序 的核心是一个与分辨率无关且基于矢量的呈现引擎，旨在充分利用现代图形硬件。 WPF 通过一套完善的应用程序开发功能对该核心进行了扩展，这些功能包括可扩展应用程序标记语言 XAML、控件、数据绑定、布局、二维和三维图形、动画、样式、模板、文档、媒体、文本和版式。 WPF 属于 .NET，因此可以生成整合 .NET API 其他元素的应用程序。
+它们属于两套界面渲染方式。WinForm 是传统 GDI 绘制方式的封装。 WPF 是基于 DirecX 渲染的界面，
+也脱离了对传统 Windows 控件的依赖，没有历史包袱，理论上可以展现更炫酷的界面。全新 UI 描述语言，
+特别是可以通过模板的嵌套实现复杂的元素，通过 style 实现类似 CSS 样式定义的功能。通过完善的数据
+绑定机制实现业务逻辑可以专心对数据而不是界面进行开发。数据绑定模式 MVVM 是 Web 中流行的开发模式。
 
-WPF 作为大部分位于 System.Windows 命名空间中的 .NET 类型的一个子集存在。你可以使用最喜欢的 .NET 编程语言（如 C# 或 Visual Basic）来完成实例化类、设置属性、调用方法以及处理事件等操作。
+XAML - Extensible Application Markup Language 是实现 MVVM - Model View ViewModel
+数据驱动编程模式非常好的工具，这是一种能将 UI 和代码很好地解耦的设计模式。做得较好的 MVVM 框架，
+比如 React/Angular/Vue 都是大量用户在使用，可见这是多么成功的编程模式。
 
-WPF 还包括增强属性和事件的其他编程构造： 依赖项属性 和 路由事件。
+目前，WPF、 UWP、 Xamarin 等一众框架都基于 XAML 技术，Xamarin.Forms 4.1+ 支持热重载
+XAML Hot Reload，需要 Visual Studio 2019 支持，但是不能执重载事件处理关系的更改。
 
-WPF 有四个关键类，实现了 WPF 编程中可用的大量公共元素功能：
+https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/media/wpf-architect1.png
 
-| 基础对象 | 功能要点 |
-| :------ | :------ |
-| UIElement | WPF 核心级实现的基类，其它 UI 实现是在此元素和基本表示特性上生成的。 |
-| ContentElement    | 为内容元素提供 WPF 核心级基类。 内容元素设计用于流样式显示，它们使用面向标记的直观布局模型和精心设计的简单对象模型。 |
-| FrameworkElement  | 提供 WPF 元素的属性、事件和方法的 WPF 框架级别集。 此类表示所提供的 WPF 框架级别实现基于 UIElement 定义的 WPF 核心级别 API。 |
-| FrameworkContentElement，  | 是 ContentElement 基类的 WPF 框架级别的实现和扩展。 增加了针对下列各项的支持：附加输入 API（包括工具提示和上下文菜单）、演示图板、用于数据绑定的数据上下文、格式支持和逻辑树帮助程序 API。 |
+Winform 本质上就是在 MFC 上增加一层 .Net API。2006 年开始就只有几个人在维护，基本上不增加
+任何新功能，只是做 bug fix。WinForm 用的是 Windows 以前那一套每个控件都是一个窗口的设计，
+而 WPF 本身只有一个窗口，Visual Tree 上绘制所有控件，它还可以有效利用 GPU。
+
+先来认识 WPF - Windows Presentation Foundation 程序的核心，是一个与分辨率无关且基于矢量的
+呈现引擎，旨在充分利用现代图形硬件。 WPF 通过一套完善的应用程序开发功能对该核心进行了扩展，这些
+功能包括可扩展应用程序标记语言 XAML、控件、数据绑定、布局、二维和三维图形、动画、样式、模板、文档、媒体、
+文本和版式。 WPF 属于 .NET，因此可以生成整合 .NET API 其他元素的应用程序。
+
+WPF 主要优势在动画和 3D 上，缺点也明显，平台局限性、不能用于旧系统：
+
+1. XAML 可视化设计可以让设计师直接加入开发团队、降低沟通成本。
+2. XAML 图形绘制功能非常强大，可以轻易绘制出复杂的图标、图画。
+3. WPF 支持“滤镜”功能，可以像 Photoshop 那样为对象添加各种效果。
+4. WPF 原生支持动面开发，设计师、程序员都能够使用 XAML 或 C# 轻松开发制作出炫丽的动画效果。
+5. WWF 原生支持 3D 效果，甚至可以将其他 3D 建模工具创建的模型导入进来使用。
+6. Blend 作为专门的设计工具让 WPF 如虎添翼，帮助不了解编程的设计师快速上手，建立图形或动画的原型。
+
+从 WPF 的实现原理上看，这个产品的野心是挺大的，一方面想摆脱旧有 WinForms 的各种约束，一方面又
+期待着能基于 DirectX 搞游戏开发。曾经的 Silverlight 已经成为弃子，所以，大公司的产品有大坑。
+时代变了，WPF 框架设计很好很彻底，但 Web 成为了跨平台首选。React、Vue、Angular 哪个比不 WPF，
+哪个不比 WPF 香[doge]。自家还有最新的 WinUI 3 Preview。
+
+微软买来的 Xamarin 也似乎没有在微软带领下发扬光大，桌面开发领域，微软背上了沉重的技术债务。
+
+抛开以上问题，就 WPF 本身而言，尚有值得研究内容。从以往的 UI 框架发展来看，UI 是浮云，而 XAML
+这里面潜藏的数据结构与处理技术才是一切的核心啊！
+
+XAML 绘图本身就是矢量的，支持各式各样的填充和效果，还可以添加滤镜。
+
+XAML 矢量图是借助 Expression Studio 中的 Design 和 Blend 两个工具绘制。Blend 可以直接
+绘制 XAML 图形；Design 可以像 Photoshop 或者 Fireworks 那样绘制图形，再由设计者决定导出
+PNG 或 XAML 格式。
+
+可以使用 Blend for Visual Studio 社区版自带的可视化界面开发工具。简单来说，Blend 就是一个
+基于 XAML 数据可视化开发工具，与流行的节点化编程工具不同，Blend 使用的是基于数据绑定与平面设计
+相结合的开发模式。在设计视图中，可以添加一些可视的图形控件，也可以添加一些功能性 XML 节点。
+
+WPF 的基本图形派生自 System.Windows.Shapes 命名空间 Shape 基类，包括以下几个：
+
+1. **Line**：直线段，可以设置其笔触（Stroke）。
+2. **Rectangle**：矩形，既有笔触，又有填充（Fill）。
+3. **Ellipse**：椭圆，长、宽相等的椭圆即为正圆，既有笔触又有填充。
+4. **Polygon**：多边形，由多条直线段围成的闭合区域，既有笔触又有填充。
+5. **Polyline**：折线（不闭合），由多条首尾相接的直线段组成。
+6. **Path**：路径（闭合区域），基本图形中功能最强大的一个，可由若干直线、圆弧、贝塞尔曲线组成。
+
+其中，Rectangle 和 Ellipse 是两种可以通过资产面板添加到设计视图的图形控件。而路径需要通过 Pen
+或 Pencil 工具绘制。因为 WFP 是完全基于 DirecX 绘图的框架，可以直接使用笔画工具在设计视图上绘制
+任意的路径曲线。
+
+在资产面板上按不同的分类罗列，可以将图形控件，或者其它功能性节点添加到 XAML 设计视图中。
+
+概括来说，Blend 提供的设计界面操作真的谈不上非常好用，只能说功能呆滞，不仅会报错，还会卡死。甚至
+曲线控制点的平滑属性都不能控制，需要用户记住 SVG 绘图指令，以备不时之需要：
+
+- **M** = moveto(M X,Y) ：将画笔移动到指定的坐标位置
+- **L** = lineto(L X,Y) ：画直线到指定的坐标位置
+- **H** = horizontal lineto(H X)：画水平线到指定的X坐标位置
+- **V** = vertical lineto(V Y)：画垂直线到指定的Y坐标位置
+- **C** = curveto(C X1,Y1,X2,Y2,ENDX,ENDY)：三次贝赛曲线，前两个是控制点坐标
+- **S** = smooth curveto(S X2,Y2,ENDX,ENDY)
+- **Q** = quadratic Belzier curve(Q X,Y,ENDX,ENDY)：二次贝赛曲线
+- **T** = smooth quadratic Belzier curveto(T ENDX,ENDY)：映射
+- **A** = elliptical Arc(A RX,RY,XROTATION,FLAG1,FLAG2,X,Y)：弧线
+- **Z** = closepath()：关闭路径
+
+对象与时间线面板显示的树状结构就是 Visual Tree，与 XAML 中的数据节点对应。在树状结构中选择一个
+对象后，其属性会在属性面板显示。时间线另一个功能就是用来管理动画资源，**Storyboard** 情节概要，
+是动画制作中使用术语，在 XAML 中是一种动画资源。
+
+动画的本质是时间与变化的组合，通过记录某一时间段下控件的属性变化数据，并且在程序执行时回放，这就是
+最基本的动画技术。
+
+时间线 Timeline，它所做的工作就是，将记录到的数据以关键帧的形式保存起来。可以为 WFP 窗口创建
+多个 Storyboard，以记录多个基于关键帧的动画。
+
+动画即时间线，时间线即动画。所有动画对象都是记录时间线数据的对象，以最常用的故事板为例，继承关系：
+
+    Object → DispatcherObject → DependencyObject → Freezable → Animatable 
+        → Timeline → TimelineGroup → ParallelTimeline → Storyboard
+https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.media.animation.storyboard
+
+通过 Storyboard 可以控制的动画的：播放 Begin()、暂停 Pause()、恢复 Resume()、查找 Seek()、
+停止 Stop() 和删除 Remove()。
+
+关键帧对象类型定义在 System.Windows.Media.Animation 命名空间，根据控件属性数据的类型不同，
+关键帧也有不同的类型，Animatable 抽象类提供动画接口支持。例如，很大一部分是让一个属性在起始值和
+结束值之间变化，这种动画对应 DoubleAnimation，它可以设置一个 Duration，在指定的时间段内，
+属性值从 From 到 To 之间变换。
+
+1. **From**： 起始值，在动画开始的时候将目标属性设置为该值；
+2. **To**： 结束值，动画结束是目标属性为改值；
+3. **By**： 偏移值：动画结束的时候目标属性为"初始值+偏移值"；
+
+根本上说，双值动画是一种简化的插值方法，Interpolation，复杂一点的是缓动函数 Easing Functions，
+或者称缓动曲线插值算法。通常，动画的两个关键帧之间还有补帧，它们需要通过插值来获得一个确定的状态。
+https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/graphics-multimedia/easing-functions
+
+WPF 系统内置四种插值算法：
+
+1. 线性：补帧均匀变化；
+2. 离散：补帧是由离散数据确定的，没有过渡效果；
+3. 样条：使用贝塞尔曲线实现更精确的加速和减速控制；
+4. 缓动：使用缓动函数曲线实现弹性变化；
+
+作为专攻动画的 WPF 框架，不再有类似 WinForm 中的 Timer 控件，资产工具箱中也没有 Timer 控件。
+System.Windows.Threading 命名空间下的 DispatcherTimer 类是替代方案，这个定时器和 UI 
+运行在同一线程上。与系统定时器不同，System.Timers.Timer 这种定时器和 UI 并不在同一个线程，
+会触发无效操作。
+
+    System.InvalidOperationException:“调用线程无法访问此对象，因为另一个线程拥有该对象。”
+
+因为 WPF 中只有 UI 线程才能操作 UI 元素，非 UI 线程要访问 UI 时就会报异常。其他线程必须通过
+Invoke、委托（安全性）等方式，Winform 可以开启/关闭“只允许UI线程修改UI”。
+
+```C#
+    // Loaded += MainWindow_Loaded;
+    private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+    {
+        DispatcherTimer timer = new DispatcherTimer();
+        timer.Tick += Timer_Tick;
+        timer.Interval = TimeSpan.FromMilliseconds( 1000 );
+        timer.Start();
+    }
+
+    private void Timer_Tick(object? sender, EventArgs e)
+    //  void Timer_Elapsed(object sender, ElapsedEventArgs e)
+    {
+        Title = e.ToString();
+    }
+```
+
+- https://www.codeproject.com/Articles/31971/Understanding-SynchronizationContext-Part-I
+- https://www.codeproject.com/Articles/32113/Understanding-SynchronizationContext-Part-II
+- https://www.codeproject.com/Articles/32119/Understanding-SynchronizationContext-Part-III
 
 
-XAML 是一种基于 XML 的标记语言，像 HTML 一样以声明形式实现应用程序的外观。 通常用它创建窗口、对话框、页和用户控件，并填充控件、形状和图形。
+状态面板
 
-模板创建的 App.xaml 和配套的 App.xaml.cs 就是程序的入口，它们对应了一个 System.Windows.Application 实例，其属性 `StartupUri` 指示了程序运行的第一个窗体对象，同时可以设置 `Startup` 指定一个启动时要执行的事件，可以不设置 `StartupUri` 而通过指定的启动事件来实例化窗体。
+图形控件的属性面板及属性组织：
+
+1. **Brushes** 画笔：设置图形控件的外观，可以使用纯色、渐变色、背景图或系统预置色。
+2. **Layout** 布局：设置控件的大小、位置、边界等基础排版属性。
+3. **Visibility** 外观：设置可见性，透明度，以及滤镜效果，如模糊效果 BlurEffect。
+4. **Automatic** 自动化：设置快捷键、提示信息、控件状态等等。
+5. **Public** 公共属性：设置 Cursor、有效性，以及数据绑定相关的 DataContext。
+6. **Transform** 仿射变换：这是图形学中通用的变换方法，包括平移、旋转、缩放、切变、翻转等等。
+7. **Misc** 杂项：其它未分类属性，包括 BindingGroup、ContexMenu，或 Style 等等。
+
+在属性面板中创建样式后，可以右键菜单“转到源”打开并编辑样式，也可以直接在对象与时间线面板中，使用
+右键菜单 Edit Template - Apply Resource 创建样式定义。定义好的样式包含了以上这些属性设置，
+可以复用在其它控件上。
+
+此外，还有事件处理相关的属性，在 Blend 的属性面板中，有专用于设置事件处理函数的列表。
+
+
+WPF 作为大部分位于 System.Windows 命名空间中的 .NET 类型的一个子集存在。你可以使用最喜欢的 
+.NET 编程语言（如 C# 或 Visual Basic）来完成实例化类、设置属性、调用方法以及处理事件等操作。
+
+WPF 可视化组件以 Visual 基类派生出关键子类，实现了 WPF 编程中可用的大量公共元素功能：
+https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.media.visual
+
+01. **UIElement** WPF 核心级实现的基类，其它 UI 实现是在此元素和基本表示特性上生成的。 
+02. **ContentElement**    为内容元素提供 WPF 核心级基类。 内容元素设计用于流样式显示，
+    它们使用面向标记的直观布局模型和精心设计的简单对象模型。 
+03. **FrameworkElement**  提供 WPF 元素的属性、事件和方法的 WPF 框架级别集。 此类表示所
+    提供的 WPF 框架级别实现基于 UIElement 定义的 WPF 核心级别 API。 
+04. **FrameworkContentElement**，  是 ContentElement 基类的 WPF 框架级别的实现和扩展。
+     增加了针对下列各项的支持：附加输入 API（包括工具提示和上下文菜单）、演示图板、用于数据绑定的
+     数据上下文、格式支持和逻辑树帮助程序 API。 
+05. **Viewport3D** 由 Viewport3DVisual 在指定的二维视区边界内呈现 Visual3D 子对象。
+
+Visual 对象是一个核心 WPF 对象，它的主要作用是提供呈现支持。 用户界面控件派生自 Visual 类，
+并使用该类来保存它们的呈现数据。 Visual 对象为以下项提供支持：
+
+01. 输出显示：呈现视觉对象的持久、序列化的绘图内容。
+02. 转换：针对视觉对象执行转换。
+03. 剪裁：为视觉对象提供剪裁区域支持。
+04. 命中测试：确定坐标或几何形状是否包含在视觉对象的边界内。
+05. 边框计算：确定视觉对象的边框。
+
+Visual 对象角色的关键之一是，了解**即时模式**和**保留模式**图形系统之间的区别。GDI 或 GDI+
+应用程序使用即时模式图形系统，这意味着 WinForms 应用程序由于某项操作（如重设窗口大小）或者对象
+的可视化外观发生变化而失效的工作区部分，将由程序负责重新绘制。
+
+相比之下，WPF 使用保留模式系统。 这意味着具有可视化外观的应用程序对象定义一组序列化绘图数据。 
+在定义了绘图数据之后，系统会响应所有的重新绘制请求来呈现应用程序对象。 甚至在运行时，用户可以
+修改或创建应用程序对象，并仍依赖于系统响应绘制请求。 保留模式图形系统中有一个强大功能，即绘图信息
+总是由应用程序保持为序列化状态，但是呈现功能仍由系统负责。
+
+使用保留模式图形的最大好处之一就是，WPF 可以高效优化需要在应用程序中重绘的内容。
+
+
+## ==⚡ XAML & Code-Behind
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/xaml-in-wpf
+
+WPF 图形界面应用有两个最基本的概念 Markup & Code-Behind：
+
+- 代码：这是一个应用程序最基本的构成，代码经过编译器的处理，会转换成 .Net CLR 平台上可运行的程序；
+- XAML：基于 XML 格式化表达程序图形界面的类型，及其它层次结构，本质就是程序代码要使用到的数据；
+
+从以上两个概念出发，WPF 图形框架可以看作是一个负责协调 XMAL 数据与 GUI 类库层次结构，以及事件
+处理程序、动画效果的开发工具。WPF 还包括增强属性和事件的其他编程构造： 依赖项属性 和 路由事件。
+
+XAML 是一种基于 XML 的标记语言，像 HTML 一样以声明形式实现应用程序的外观。 通常用它创建窗口、
+对话框、页和用户控件，并填充控件、形状和图形。
+
+模板创建的 App.xaml 和配套的 App.xaml.cs 是程序的入口，对应 System.Windows.Application
+实例，其属性 `StartupUri` 指示了程序运行的第一个窗体对象，同时可以设置 `Startup` 指定一个
+启动时要执行的事件，可以不设置 `StartupUri` 而通过指定的启动事件来实例化窗体。
 
     <Application x:Class="wpf.App"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -2043,7 +2253,7 @@ XAML 是一种基于 XML 的标记语言，像 HTML 一样以声明形式实现�
         </Application.Resources>
     </Application>
 
-`Startup` 指定一个启动事件代码就写在 App.xaml.cs 文件内，比如指定 `Startup="App_OnStartup"`：
+启动事件的代码就写在 App.xaml.cs 文件内，比如 `Startup="App_OnStartup"`：
 
     using System;
     using System.Collections.Generic;
@@ -2086,7 +2296,7 @@ MainWindow.xaml:
             xmlns:local="clr-namespace:wpf"
             mc:Ignorable="d"
             Title="MainWindow" Height="450" Width="800">
-        <Grid>
+        <Grid x:Name="my_grid" >
 
         </Grid>
     </Window>
@@ -2122,7 +2332,9 @@ MainWindow.xaml.cs:
         }
     }
 
-整个 WPF 程序有两种开发模式，XAML 的标签化 UI 编辑模式，可以在 Visual Studio 中拖放对象组件。另一种是代码编写模式，用来实现程序逻辑。WPF 通过 XAML 实现了 UI 和代码的分享。这种软件开发模式明显优于 WinForms 旧式的纯代码开发。
+整个 WPF 程序有两种开发模式，XAML 的标签化 UI 编辑模式，可以在 Visual Studio 中拖放对象组件。
+另一种是代码编写模式，用来实现程序逻辑。WPF 通过 XAML 实现了 UI 和代码的分享。这种软件开发模式
+明显优于 WinForms 旧式的纯代码开发。
 
 比如，在 MainWindow.xaml 添加一个按钮控件对象:
 
@@ -2137,62 +2349,329 @@ MainWindow.xaml.cs:
         MessageBox.Show("Hello, Windows Presentation Foundation!");
     }
 
-当构造函数调用 InitializeComponent 方法时，就会将标记定义的 UI 控件与背后的代码合并在一起，它生成应用程序为您正确初始化 UI 组件的实现代码，包括将按钮的 Click 事件与事件处理程序关联。这就是 Markup & Code-Behind，用标记定义控件，用背后的代码自动实现。
+当构造函数调用 InitializeComponent 方法时，就会将标记定义的 UI 控件与背后的代码合并在一起，
+它生成应用程序为您正确初始化 UI 组件的实现代码，包括将按钮的 Click 事件与事件处理程序关联。这
+就是 Markup & Code-Behind，用标记定义控件，用背后的代码自动实现。
+
+使用代码编程，第一个问题是要解决如何获取 XAML 文档中定义的对象。
+
+FrameworkElement 是控件所继承的基类，并且具有 Resources 属性。 因此可以将本地资源字典添加
+到任何 FrameworkElement，它提供 `FindResource()` 查找和引用资源，还提供 `FindName()`
+方法，根据名称来查找 XAML 文档节点定义的其它对象。
+
+假设一个 XAML 在 Window.Resources 本地资源中定义了故事板对象，那么就可以按以下操作获取引用。
+要获取故事板的状态，可以注册事件处理函数来获取其状态数据。
+
+```C#
+    Storyboard sb = this.FindResource("Storyboard2") as Storyboard;
+    if (null != sb)
+    {
+        sb.Begin();
+    }
+```
+
+更好的方法是使用代码生成工具为 XAML 节点定义的内部成员，通过翻查 obj 目录下的生成代码，可以发现
+XAML 中定义的每个节点都有一个相应的声明为 internal 的成员引用它，成员名称即是 XAML 节点定义的
+名称。比如，前面 XAML 中的 my_grid，就可以直接使用 this.my_grid 引用它。
 
 
-接下来就是深入各个编程细节的实现，罗列以下项目，但又不仅限于此：
-
-- 控制
-- 输入和命令
-- 布局
-- 数据绑定
-- 图形
-- 动画
-- 媒体
-- 文本和版式
-- 自定义 WPF 应用
+## ==⚡ Data Bindding
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/getting-started/whats-new?view=netframeworkdesktop-4.8
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/getting-started/walkthrough-my-first-wpf-desktop-application
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/data/data-binding-overview
+- https://www.cnblogs.com/KnightsWarrior/archive/2010/08/27/1809739.html
 
 
-## ==⚡ WPF Routing Events
+MVVM 编程模式的一个实现方式就是 INotifyPropertyChanged 接口，属性变换通知机制可以在属性数据
+被修改时触发一个事件通知，绑定到 PropertyChanged 的事件处理函数就有机会响应，数据变更这一行为
+就变成了触发一个事件，通常这个事件会用来更新用户界面，即 MVVM 编程模式中称作视图 View 的部分。
+View 通常通过 XAML 文件中定义的 `BindingContext` 绑定 ViewModel 的实例为其提供数据。
+
+随着编程技术的发展，“属性”这一概念也由 Attribute 转变为 Property，从简单的数据转换成为“财产”。
+并且，逻辑上加入了控制权：
+
+```C#
+private string MyAttribute;
+
+public string MyProperty
+{
+    get
+    {
+        return MyProperty;
+    }
+    set
+    {
+        if (value != null)
+        {
+            MyProperty = value;
+        }
+        else
+        {
+            MyProperty = "Knights Warrior!";
+        }
+    }
+}
+```
+
+在 WPF 框架的类结构中，几乎所有的控件都间接继承自 DependencyObject 类型，并通过
+DependencyProperty 给属性引入依赖管理机制，定义一个依赖属性，就要向此机构注册它。
+当依赖属性被修改后，即触发 OnPropertyChanged 事件通知，示范如下：
+
+- https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.dependencyobject
+- https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.dependencyproperty
+- https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.propertymetadata
+
+```C#
+public class SampleDPClass : DependencyObject
+{
+    public static readonly DependencyProperty SampleProperty;
+
+    static SampleDPClass()
+    {
+        SampleProperty = DependencyProperty.Register("agent", typeof(string), typeof(SampleDPClass),
+            new PropertyMetadata("Knights Warrior!", OnValueChanged));
+    }
+
+    private static void OnValueChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
+    {
+        // ...
+    }
+
+    public string agent
+    {
+        get { return (string)GetValue(SampleProperty); }
+        set { SetValue(SampleProperty, value); }
+    }
+}
+```
+
+数据保存在 DependencyProperty 内部的一个 IDictionary 字典中，一条记录中的键(Key)就是
+该属性的 HashCode，而值(Value)则是已注册好的 DependencyProperty。
+
+为了方便获取方法的名称并传递给依赖者，可以使用 System.Runtime.CompilerServices 命名空间下
+提供的一系列编译获取信息的标注，其中就有：
+
+- **CallerMemberNameAttribute** 获取方法调用方的方法或属性名称。
+
+绑定允许用户更改数据，然后将该数据传播回源对象。或者，可能不希望允许用户更新源数据。可以设置
+Binding.Mode 来控制数据流。
+
+完成一个绑定，需要有 Source、Binding Object 和 Target 三方，不同类型的数据流控制方式：
+
+- **OneWay** 大多数属性默认绑定，源属性的更改会自动更新目标属性，但目标属性的更改不会传播回源属性。
+- **TwoWay** 交互式控件默认绑定，更改源属性或目标属性时会自动更新另一方，如 TextBox.Text 和 CheckBox.IsChecked。
+- **OneWayToSource** 绑定与 OneWay 绑定相反；当目标属性更改时，它会更新源属性。
+
+用于确定依赖属性绑定在默认情况下是单向还是双向的编程方法是：
+
+- 使用 DependencyProperty.GetMetadata 获取属性元数据，
+- 然后检查 FrameworkPropertyMetadata.BindsTwoWayByDefault 属性的布尔值。
+
+静态绑定在第一次生成界面时，并且永远不会发生更改。
+
+以下是一个 StaticResource 数据绑定示范：
+
+- 在 Resources 属性中定义数据源；
+- 设置 DockPanel 的 DataContext 属性，创建数据绑定；
+- 然后将数据源绑定到 Button 节点的 Background 属性上。
+
+```xml
+    <DockPanel xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:c="clr-namespace:SDKSample">
+        <DockPanel.Resources>
+            <c:MyData x:Key="myDataSource"/>
+        </DockPanel.Resources>
+        <DockPanel.DataContext>
+            <Binding Source="{StaticResource myDataSource}"/>
+        </DockPanel.DataContext>
+        <Button Background="{Binding Path=ColorName}" Width="150" Height="30">
+            I am bound to be RED!
+        </Button>
+    </DockPanel>
+```
+
+
+
+## ==⚡ Triggers & Routed Events
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/getting-started/whats-new
+- https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/routed-events-overview
+- https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.frameworkelement.triggers
+- https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.eventtrigger
+
+
+触发器，Trigger，即按条件应用属性值或执行操作的一类对象，可以直接在 XAML 中可以供设计人员使用，
+这是一个不需要需编写代码也能做不少事的工具。注意 Blend for Visual Studio 社区版需要使用代码
+方式添加触发器。
+
+FrameworkElement.Triggers 获取直接在此元素上或在子元素中建立的触发器的集合。
+
+Trigger 对象具有 Setters, EnterActions, ExitActions 等属性，这些属性根据特定属性的
+状态应用更改或操作。EventTrigger 对象在发生指定的路由事件时启动一组 Actions。
+
+以下是一些常用到触发器的对象类型：
+
+01. 所有控件触发（FrameworkElement.Triggers）
+02. 样式触发（Styles.Triggers）
+03. 控件模板触发（ControlTemplate.Triggers）
+04. 数据模板触发（DataTemplate.Triggers）
+
+例如，当鼠标指针位于某个用户界面 (UI) 控件上时，可能需要使用 EventTrigger 来启动一组动画。 
+EventTrigger 没有状态终止的概念，因此一旦引发事件的条件不再成立，操作将不会撤消。
+
+```xml
+    <Window.Triggers>
+        <EventTrigger SourceName="cmdStart" RoutedEvent="Button.Click">
+            <BeginStoryboard Name="fadeStoryboardBegin">
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="grid" Storyboard.TargetProperty="Opacity"
+                                     From="1" To="0" Duration="0:0:3"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger SourceName="cmdPause" RoutedEvent="Button.Click">
+            <PauseStoryboard BeginStoryboardName="fadeStoryboardBegin" />
+            <BeginStoryboard Storyboard="{DynamicResource Storyboard2}"  />
+        </EventTrigger>
+        <EventTrigger SourceName="cmdResume" RoutedEvent="Button.Click">
+            <ResumeStoryboard BeginStoryboardName="fadeStoryboardBegin" />
+        </EventTrigger>
+        <EventTrigger SourceName="cmdStop" RoutedEvent="Button.Click">
+            <StopStoryboard BeginStoryboardName="fadeStoryboardBegin" />
+        </EventTrigger>
+        <EventTrigger SourceName="cmdSeek" RoutedEvent="Button.Click">
+            <SeekStoryboard BeginStoryboardName="fadeStoryboardBegin" Offset="0:0:2" />
+        </EventTrigger>
+    </Window.Triggers>
+
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <Button x:Name="cmdStart" Content="Start" Click="cmdStart_Click"/>
+        <Button x:Name="cmdPause" Content="Pause" Click="cmdPause_Click"/>
+        <Button x:Name="cmdResume" Content="Resume"/>
+        <Button x:Name="cmdStop" Content="Stop" />
+        <Button x:Name="cmdSeek" Content="Seek" />
+    </StackPanel>
+```
+
+通常，可选择在每个按钮的 Triggers 集合中放置事件触发器。然而，对于动画这种方法不能工作。
+解决方法是在一个地方定义所有事件触发器，例如，在顶级元素的 Triggers 集合中。这样，就可以
+在用户界面中将按钮移到不同的位置，而不会禁用他们的功能。
+
+使用 EventTrigger.SourceName 属性关联事件触发器，只要此属性和按钮的 Name 属性相匹配，
+触发器就会应用到恰当的按钮上。
+
+注意，BeginStoryboard 要播放其它故事板，必须为动作指定目标的名称，Name 属性要与。
+其他触发器通过 BeginStoryboardName 属性指定相同名称，连接到相同的故事板。
+
+如果要触发其它已经定义好的故事板动画，可以通过 BeginStoryboard 的 Storyboard 属性绑定。
+
+
+“路由事件”，可以从功能或实现的角度来理解它。
+
+- 功能定义：路由事件是一种可以针对元素树中的多个侦听器调用处理程序的事件。
+- 实现定义：路由事件是一个 CLR 事件，由 RoutedEvent 类的实例提供支持并由 WPF 事件系统处理。
+
+请思考下面的简单元素树：
+
+```xml
+<Border Height="50" Width="300" BorderBrush="Gray" BorderThickness="1">
+  <StackPanel Background="LightGray" Orientation="Horizontal" Button.Click="CommonClickHandler">
+    <Button Name="YesButton" Width="Auto" Content="Yes" />
+    <Button Name="NoButton" Width="Auto" Content="No" />
+    <Button Name="CancelButton" Width="Auto" Content="Cancel" />
+  </StackPanel>
+</Border>
+```
+
+在这个简化的元素树中，Click 事件的源是某个 Button 元素，而所单击的 Button 是有机会处理该
+事件的第一个元素。 但是，如果附加到 Button 的所有处理程序均未处理该事件，则该事件向上浮升到
+元素树中的父级（即 StackPanel），还可能会浮升到 Border，然后会到达元素树的根节点。
+
+换言之，此 Click 事件的事件路由为：
+
+    Button-->StackPanel-->Border-->...
+
+
+路由事件是一个 CLR 事件，它由 RoutedEvent 类的实例提供支持并向 WPF 事件系统注册。 从注册
+中获取的 RoutedEvent 实例，通常保留为特定类的 public static readonly 字段成员，该类
+注册路由事件并因此“拥有”路由事件。 与同名 CLR 事件（有时称为“包装器”事件）的连接是通过替代
+CLR 事件的 add 和 remove 实现来完成的。路由事件的支持和连接机制在概念上与以下机制相似：
+依赖属性是一个 CLR 属性，该属性由 DependencyProperty 类提供支持并向 WPF 属性系统注册。
+
+以下示例演示自定义 Tap 路由事件的声明，其中包括注册和公开 RoutedEvent 标识符字段以及对
+ Tap CLR 事件进行 add 和 remove 实现。
+
+```C#
+    public static readonly RoutedEvent TapEvent = EventManager.RegisterRoutedEvent(
+        "Tap", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(MyButtonSimple));
+
+    // Provide CLR accessors for the event
+    public event RoutedEventHandler Tap
+    {
+            add { AddHandler(TapEvent, value); }
+            remove { RemoveHandler(TapEvent, value); }
+    }
+```
+
+XAML 定义了一种语言组件和称为 attached-events 的事件类型。 通过附加事件的概念，你能够
+向任意元素（而不是实际定义或继承事件的元素）添加特定事件的处理程序。 在这种情况下，对象既
+不会引发事件，目标处理实例也不会定义或“拥有”事件。
+
+
+
+
+## ==⚡ 3D Animation in WPF
+- [Getting started with 3D in WPF](http://www.barth-dev.de/getting-started-3d-wpf/)
+
 
 
 ## ==⚡ Host WinForms with WindowsFormsHost
 - [WindowsFormsHost 元素的布局注意事项](https://docs.microsoft.com/zh-cn/previous-versions/dotnet/netframework-4.0/ms744952(v=vs.100))
 
-WinForms 是第一个 .NET UI 框架，和 WPF 是两个不同的 UI 框架。 双方组件不能直接借用，如果确实需要，那么可以考虑使用 WindowsFormsHost 作为 WinForms 组件寄主。
+WinForms 是第一个 .NET UI 框架，和 WPF 是两个不同的 UI 框架。 双方组件不能直接借用，如果
+确实需要，那么可以考虑使用 WindowsFormsHost 作为 WinForms 组件寄主。
 
 - 在 Windows Forms 项目通过 ElementHost 控件来使用 WPF UIElement；
 - 在 WPF 项目通过 WindowsFormsHost 来使用 Windows Forms 控件；
 
-Windows Forms 中的布局是与设备相关的，很可能是静态的。 通常，使用以硬件像素为单位指定的维度，在窗体上以绝对方式来定位 Windows Forms控件。 不过，Windows Forms不支持某些动态布局功能，如下表汇总所示。
+Windows Forms 中的布局是与设备相关的，很可能是静态的。 通常，使用以硬件像素为单位指定的维度，
+在窗体上以绝对方式来定位 Windows Forms控件。 不过，Windows Forms不支持某些动态布局功能，
+如下表汇总所示。
 
-- 自动调整大小
+- 自动调整大小 AutoSize
 
-    某些 Windows Forms控件可以调整自身大小，以便恰当地显示内容。 有关更多信息，请参见 AutoSize 属性概述。
+    某些 Windows Forms 控件可以调整自身大小，以便恰当地显示内容。
 
-- 锚定和停靠
+- 锚定和停靠 Control.Anchor 和 Control.Dock
 
-    Windows Forms控件支持基于父容器进行定位和大小调整。 有关更多信息，请参见 Control.Anchor 和 Control.Dock。
+    Windows Forms控件支持基于父容器进行定位和大小调整。
 
 - 自动缩放
 
-    容器控件基于输出设备的分辨率或默认容器的字号（单位为像素）来调整自身及其子控件的大小。 有关更多信息，请参见 Windows 窗体中的自动缩放。
+    容器控件基于输出设备的分辨率或默认容器的字号（单位为像素）来调整自身及其子控件的大小。
 
 - 布局容器
 
     FlowLayoutPanel 和 TableLayoutPanel 控件根据其内容来排列子控件以及设定自身大小。
 
-通常，无法将 Windows Forms控件缩放及转换到 WPF 中可能的范围。 
+通常，无法将 Windows Forms 控件缩放及转换到 WPF 中可能的范围。 
 
-某些情况下，Windows Forms 控件无法调整大小，或者大小只能调整为特定的尺寸。 例如，Windows Forms ComboBox 控件仅支持由控件的字号定义的单一高度。 在元素可以垂直拉伸的 WPF 动态布局中，承载的 ComboBox 控件不会如预期那样拉伸。
+某些情况下，Windows Forms 控件无法调整大小，或者大小只能调整为特定的尺寸。 例如，ComboBox 
+控件仅支持由控件的字号定义的单一高度。 在元素可以垂直拉伸的 WPF 动态布局中，承载的 ComboBox 
+控件不会如预期那样拉伸。
 
-Windows Forms 控件不能旋转或扭曲。 如果应用扭曲或旋转变换，WindowsFormsHost 元素会引发 LayoutError 事件。 如果未处理 LayoutError 事件，会引发 InvalidOperationException。
+Windows Forms 控件不能旋转或扭曲。 如果应用扭曲或旋转变换，WindowsFormsHost 元素会引发 
+LayoutError 事件。 如果未处理 LayoutError 事件，会引发 InvalidOperationException。
 
-某些情况下，Windows Forms 控件不支持按比例缩放。 尽管该控件的整体尺寸将会缩放，但其子控件和组件元素可能不会如预期那样调整大小。 此限制取决于每个 Windows Forms控件支持缩放的程度。 此外，您不能将 Windows Forms 控件缩小至 0 像素大小。
+某些情况下，Windows Forms 控件不支持按比例缩放。 尽管该控件的整体尺寸将会缩放，但其子控件和
+组件元素可能不会如预期那样调整大小。 此限制取决于每个 Windows Forms控件支持缩放的程度。此外，
+不能将 Windows Forms 控件缩小至 0 像素大小。
 
-Windows Forms 控件支持自动缩放，其中的窗体会基于字号自动调整自身及其控件的大小。 在 WPF 用户界面中，更改字号不会改变整个布局的大小，不过个别元素可能会动态调整大小。
+Windows Forms 控件支持自动缩放，其中的窗体会基于字号自动调整自身及其控件的大小。 在 WPF 
+用户界面中，更改字号不会改变整个布局的大小，不过个别元素可能会动态调整大小。
 
-Z Index 在 WPF 用户界面中，您可以更改元素的 z 顺序以控制重叠行为。 由于承载的 Windows Forms 控件是在单独的 HWND 中绘制的，所以它始终绘制在 WPF 元素的顶部。
+Z Index 在 WPF 用户界面中，您可以更改元素的 z 顺序以控制重叠行为。 由于承载的 Windows Forms
+控件是在单独的 HWND 中绘制的，所以它始终绘制在 WPF 元素的顶部。
 
 
 MainWindow.cs
@@ -8954,13 +9433,15 @@ ApplyFormatInEditMode 设置用于指定在显示值进行编辑时需应用格�
 
 ## ==⚡ Data Bindding 数据绑定
 
-Razor 组件通过名为 @bind 的 HTML 元素特性提供了数据绑定功能，该特性具有字段、属性或 Razor 表达式值。
+Razor 组件通过名为 @bind 的 HTML 元素特性提供了数据绑定功能，该特性具有字段、属性或 Razor 
+表达式值。
 
 下面的示例将 CurrentValue 属性绑定到文本框的值，当文本框失去焦点时，该属性的值会更新。
 
 可以使用 @bind:event 指定 oninput 事件，在文本框的值更改时激发更新。
 
-数据绑定使用 @bind:format 处理 DateTime 格式字符串。 目前无法使用其他格式表达式，如货币或数字格式。
+数据绑定使用 @bind:format 处理 DateTime 格式字符串。 目前无法使用其他格式表达式，如货币或
+数字格式。
 
     <input @bind="CurrentValue" />
     <input @bind="CurrentValue" @bind:event="oninput" />
@@ -8986,7 +9467,8 @@ Razor 组件通过名为 @bind 的 HTML 元素特性提供了数据绑定功能�
         private string CurrentValue { get; set; }
     }
 
-通过 @bind-{ATTRIBUTE}:event 语法使用 @bind-{ATTRIBUTE} 可绑定除 value 之外的元素属性。 在下面的示例中，当 paragraphStyle 值更改时，段落的样式会更新：
+通过 @bind-{ATTRIBUTE}:event 语法使用 @bind-{ATTRIBUTE} 可绑定除 value 之外的元素属性。
+ 在下面的示例中，当 paragraphStyle 值更改时，段落的样式会更新：
 
     @page "/binding-example"
 
@@ -9014,7 +9496,8 @@ Razor 组件通过名为 @bind 的 HTML 元素特性提供了数据绑定功能�
 用户在页面中将该元素的值更新为 123.45，并更改元素焦点，元素的值会还原为 123。
 
 
-在组件的绑定中，涉及子级和父级组件的关系时，会涉及事件的处理。在子组件中，可以使用 EventCallback 向父组件公开绑定数据的更改。使用 @bind-{PROPERTY} 可以将属性值从父组件向下绑定到子组件。
+在组件的绑定中，涉及子级和父级组件的关系时，会涉及事件的处理。在子组件中，可以使用 EventCallback
+向父组件公开绑定数据的更改。使用 @bind-{PROPERTY} 可以将属性值从父组件向下绑定到子组件。
 
 以下子组件 ChildComponent 具有 Year 组件参数和配套的 YearChanged 回调：
 
@@ -9030,9 +9513,11 @@ Razor 组件通过名为 @bind 的 HTML 元素特性提供了数据绑定功能�
         public EventCallback<int> YearChanged { get; set; }
     }
 
-以下父组件使用 ChildComponent 并将 ParentYear 参数通过 @bind-Year 从父级绑定到子组件上的 Year 参数。
+以下父组件使用 ChildComponent 并将 ParentYear 参数通过 @bind-Year 从父级绑定到子组件上的
+Year 参数。
 
-利用 onclick 事件用于触发父组件的 ChangeTheYear 方法来更新 ParentYear，然后按 @bind-Year 绑定将更新值传递到子组件，子组件自动执行配套的 YearChanged 更新子组件。
+利用 onclick 事件用于触发父组件的 ChangeTheYear 方法来更新 ParentYear，然后按 @bind-Year
+绑定将更新值传递到子组件，子组件自动执行配套的 YearChanged 更新子组件。
 
     @page "/ParentComponent"
 
@@ -9056,22 +9541,29 @@ Razor 组件通过名为 @bind 的 HTML 元素特性提供了数据绑定功能�
         }
     }
 
-Year 参数是可绑定的，因为它具有与 Year 参数类型相匹配的配套 YearChanged 事件。按照约定，以下两种写法在本质上等效：
+Year 参数是可绑定的，因为它具有与 Year 参数类型相匹配的配套 YearChanged 事件。按照约定，
+以下两种写法在本质上等效：
 
     <ChildComponent @bind-Year="ParentYear" />
     <ChildComponent @bind-Year="ParentYear" @bind-Year:event="YearChanged" />
 
-通常，可以通过包含 @bind-{PROPRETY}:event 特性将属性绑定到对应的事件处理程序。 例如，可以使用以下两个特性将属性 MyProp 绑定到 MyEventHandler：
+通常，可以通过包含 @bind-{PROPRETY}:event 特性将属性绑定到对应的事件处理程序。 例如，可以
+使用以下两个特性将属性 MyProp 绑定到 MyEventHandler：
 
     <MyComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
 
-你需要注意组件名是否正确，是否通过 using 引用的组件所在的目录，检查 `_Imports.razor`，错误可能导致 Razor 无法推断绑定的属性。
+你需要注意组件名是否正确，是否通过 using 引用的组件所在的目录，检查 `_Imports.razor`，错误
+可能导致 Razor 无法推断绑定的属性。
 
 
 
-Blazor 提供了级联参数组件 CascadingValue 和 CascadingParameter 级联属性注解实现跨多层级的数据传送。CascadingValue 用来激活级联参数，然后在子级使用 CascadingParameter 来注解属性以获取级联传送的参数。
+Blazor 提供了级联参数组件 CascadingValue 和 CascadingParameter 级联属性注解实现跨
+多层级的数据传送。CascadingValue 用来激活级联参数，然后在子级使用 CascadingParameter
+来注解属性以获取级联传送的参数。
 
-可以通过参数 Name 指定传递过程使用的名称，在 CascadingParameter 指定接收参数时使用相同的 Name 即可以获取到数据。当然 Name 是可选的参数，CascadingParameter 也可以通过类型推导来获取数据。示例中，如果 CascadingValue 不指定 Name，那么，ComponentA 中由 Name 获取数据。
+可以通过参数 Name 指定传递过程使用的名称，在 CascadingParameter 指定接收参数时使用相同的 
+Name 即可以获取到数据。当然 Name 是可选的参数，CascadingParameter 也可以通过类型推导来
+获取数据。示例中，如果 CascadingValue 不指定 Name，那么，ComponentA 中由 Name 获取数据。
 
 下面示例定义三个组件，ComponentB 只作为跨层展示。
 
@@ -9117,10 +9609,15 @@ Blazor 提供了级联参数组件 CascadingValue 和 CascadingParameter 级联�
         private string _name = "Abo";
     }
 
-级联参数只能由父级向子级传递数据，要从子级向父级传递数据，还是要通过回调委托。只需要将该回调也通过 CascadingValue 传递出去，需要向上传递数据的子级负责调用即可。传递的方法有多种，但是无论哪种都需要在调用父组件的 StateHasChanged 来强制刷新。
+级联参数只能由父级向子级传递数据，要从子级向父级传递数据，还是要通过回调委托。只需要将该回调也
+通过 CascadingValue 传递出去，需要向上传递数据的子级负责调用即可。传递的方法有多种，但是
+无论哪种都需要在调用父组件的 StateHasChanged 来强制刷新。
 
 
-此外，可以利用事件订阅模式设计一个 EventBus 来进行中心化的事件通信。EventBus 需要实现一个注册方法 Add，用来登记那些对某事件感兴的订阅者提供的事件委托，配套 Remove 方法用来移除事件委托。EventBus 还要实现一个分派方法 Dispatch，供事件发起方分发事件。这里实现了一个简化版 EventBus，对每种事件同时只能有一个订阅者可以接收到事件派发，只保留最后注册的事件委托有效。
+此外，可以利用事件订阅模式设计一个 EventBus 来进行中心化的事件通信。EventBus 需要实现一个
+注册方法 Add，用来登记那些对某事件感兴的订阅者提供的事件委托，配套 Remove 方法用来移除
+事件委托。EventBus 还要实现一个分派方法 Dispatch，供事件发起方分发事件。这里实现了一个
+简化版 EventBus，对每种事件同时只能有一个订阅者可以接收到事件派发，只保留最后注册的事件委托有效。
 
     using System;
     using System.Collections.Generic;
@@ -9245,7 +9742,9 @@ Blazor 提供了级联参数组件 CascadingValue 和 CascadingParameter 级联�
         }
     }
 
-在 tick() 方法中，虽然有多个途径更新数据，但是由于代码的运行是需要服务端的协同，所以即使使用 Sleep 延时，最终获取到的也是 DataPopup 对象传递的数据。StateHasChanged 的调用顺序也没有什么关系。
+在 tick() 方法中，虽然有多个途径更新数据，但是由于代码的运行是需要服务端的协同，所以即使使用
+ Sleep 延时，最终获取到的也是 DataPopup 对象传递的数据。StateHasChanged 的调用顺序也没有
+ 什么关系。
 
 
 
@@ -9682,47 +10181,75 @@ Swagger 流的核心是 Swagger 规范，默认情况下是名为 swagger.json �
 - [ASP.NET Core 和 Entity Framework 6 入门](https://docs.microsoft.com/zh-cn/aspnet/core/data/entity-framework-6?view=aspnetcore-3.1)
 - [ASP.NET Core MVC with EF Core](https://docs.microsoft.com/zh-cn/aspnet/core/data/ef-mvc/?view=aspnetcore-3.1)
 - [Razor Pages with EF Core](https://docs.microsoft.com/zh-cn/aspnet/core/data/ef-rp/intro?view=aspnetcore-3.1)
-- []()
 
-Entity Framework Core 是适用于 .NET 的新式对象数据库映射器。 它支持 LINQ 查询、更改跟踪、更新和架构迁移。 EF Core 适用于很多数据库，包括 SQL 数据库（本地和 Azure）、SQLite、MySQL、PostgreSQL 和 Azure Cosmos DB。
+Entity Framework Core 是适用于 .NET 的新式对象数据库映射器。 它支持 LINQ 查询、更改跟踪、
+更新和架构迁移。 EF Core 适用于很多数据库，包括 SQL 数据库（本地和 Azure）、SQLite、MySQL、
+PostgreSQL 和 Azure Cosmos DB。
 
-数据库读取的数据以数据模型对象的方式存在，即 MVC 中 Model 部分，ASP.NET Code 使用自带的 Entity Framework Core， EF Core 是对象关系映射 ORM - Object Relation Mapping 框架。同其它 ORM，如，NHibernate，Hibernate 一样，可以简化需要编写的数据访问代码，它可以将关系数据表的记录映射为对象。
+数据库读取的数据以数据模型对象的方式存在，即 MVC 中 Model 部分，ASP.NET Code 使用自带的 
+Entity Framework Core， EF Core 是对象关系映射 ORM - Object Relation Mapping 框架。
+同其它 ORM，如，NHibernate，Hibernate 一样，可以简化需要编写的数据访问代码，它可以将关系
+数据表的记录映射为对象。
 
-若要使用 Entity Framework 6，则项目必须面向 .NET Framework 进行编译，因为 EF6 不支持 .NET Core。 如果需要跨平台功能，需升级到 Entity Framework Core。
+若要使用 Entity Framework 6，则项目必须面向 .NET Framework 进行编译，因为 EF6 不支持
+ .NET Core。 如果需要跨平台功能，需升级到 Entity Framework Core。
 
-在 ASP.NET Core 应用程序中使用 EF6 的推荐方法是：将 EF6 上下文和模型类放入面向 .NET Framework 的类库项目中。 添加对 ASP.NET Core 项目中的类库的引用。
+在 ASP.NET Core 应用程序中使用 EF6 的推荐方法是：将 EF6 上下文和模型类放入面向 
+.NET Framework 的类库项目中。 添加对 ASP.NET Core 项目中的类库的引用。
 
-EF6 实现丰富的 ORM 功能，EF Core 则完全进行了重写，包含许多 EF6 没有的新功能，但还是缺少 EF6 中最高级的一些映射功能。
+EF6 实现丰富的 ORM 功能，EF Core 则完全进行了重写，包含许多 EF6 没有的新功能，但还是缺少 
+EF6 中最高级的一些映射功能。
 
-- 不依赖于任何 EF 类型的 POCO (Plain Old CLR Object) 实体类的映射
-- 自动更改跟踪
-- 标识解析和工作单元
-- 预先、延迟和显式加载
-- 使用 LINQ（语言集成查询）转换强类型查询
-- 丰富的映射功能，可支持：
+01. 不依赖于任何 EF 类型的 POCO (Plain Old CLR Object) 实体类的映射
+02. 自动更改跟踪
+03. 标识解析和工作单元
+04. 预先、延迟和显式加载
+05. 使用 LINQ（语言集成查询）转换强类型查询
+06. 丰富的映射功能，可支持：
     - 一对一、一对多和多对多关系
     - 继承（每个层次结构一张表、每个类型一张表和每个具体类一张表）
     - 复杂类型
     - 存储过程
     - 通过可视化设计器创建实体模型。
-- 通过编写代码创建实体模型的“Code First”体验。
-- 既可从现有数据库生成模型，然后手动编辑，也可从头开始创建模型，然后用于生成新的数据库。
-- 与 .NET Framework 应用程序模型（包括 ASP.NET）集成，并通过数据绑定与 WPF 和 WinForms 集成。
-- 基于 ADO.NET 的数据库连接和可用于连接到 SQL Server、Oracle、MySQL、SQLite、PostgreSQL、DB2 等的众多提供程序。
+07. 通过编写代码创建实体模型的“Code First”体验。
+08. 既可从现有数据库生成模型，然后手动编辑，也可从头开始创建模型，然后用于生成新的数据库。
+09. 与 .NET Framework 应用程序，WPF 和 WinForms 通过数据绑定集成。
+10. 基于 ADO.NET 连接到 SQL Server、Oracle、MySQL、SQLite、PostgreSQL、DB2 等的众多提供程序。
 
-DbContext 这个类是 EF Code First 的核心，在高层次上是数据库抽象。数据库包含了表，每个表又包含了行和列。DbContext 有泛型集合属性，每个属性的类型是 DbSet<TRowType>对应于每个表。集合中的每个对象指的是一个实体，代表相应表中的一行。
+DbContext 这个类是 EF Code First 的核心，在高层次上是数据库抽象。数据库包含了表，每个表又
+包含了行和列。DbContext 有泛型集合属性，每个属性的类型是 DbSet<TRowType>对应于每个表。集合
+中的每个对象指的是一个实体，代表相应表中的一行。
 
-一旦这个结构布局好了，那么你就能够通过LINQ查询来查询底层的数据库了。如果你将一个全新的 TRowType 类的实例添加到父集合中，然后使用 DbContext API 保存更改，那么这个新的对象就会变成相应表中的一行，该对象的每个属性的值就会变成该行相应的列值。此外，EF 有能力表示其他的数据库工件，比如存储过程和函数。数据库结构的进化是很重要的一个问题，在大多数情况，随着应用程序的变化，你需要添加列和表，EF 是通过 Migration 迁移功能来解决这个问题的。这个能力允许你通过 C# 代码更改数据库结构，除了添加和删除表和列之外，还可以添加索引。Migration 可以没有数据损失地进化数据库模式。你将会看到，EF 会暴露你需要使用 C# 访问的一切数据而不需要编写 SQL，并且像对待你整个应用程序代码的一部分来对待数据库。
+一旦这个结构布局好了，那么你就能够通过LINQ查询来查询底层的数据库了。如果你将一个全新的 TRowType 
+类的实例添加到父集合中，然后使用 DbContext API 保存更改，那么这个新的对象就会变成相应表中的一行，
+该对象的每个属性的值就会变成该行相应的列值。此外，EF 有能力表示其他的数据库工件，比如存储过程和函数。
+数据库结构的进化是很重要的一个问题，在大多数情况，随着应用程序的变化，你需要添加列和表，EF 是通过
+Migration 迁移功能来解决这个问题的。这个能力允许你通过 C# 代码更改数据库结构，除了添加和删除表
+和列之外，还可以添加索引。Migration 可以没有数据损失地进化数据库模式。你将会看到，EF 会暴露你需要
+使用 C# 访问的一切数据而不需要编写 SQL，并且像对待你整个应用程序代码的一部分来对待数据库。
 
-Entity Framework 架构构建在 DAO.NET provider 架构之上。当开发者使用 C# 创建一个 LINQ 查询时，EF 框架引擎会连接一个 provider，将它转换成实际的 SQL 语句，最后发往数据库执行。任何给定的 provider 都是连接 Entity Framework 和一个特定的 RDBMS 的桥梁。一旦该 provider 执行了最终的 SQL 命令，结果就被 EF 对象化到 .NET 对象中，Data reader 就是为了这个目。理解 EF 构建于 ADO.NET 之上非常重要，因此，EF 也使用了诸如 connection，command，和 data reader 的概念。
+Entity Framework 架构构建在 DAO.NET provider 架构之上。当开发者使用 C# 创建一个 LINQ 
+查询时，EF 框架引擎会连接一个 provider，将它转换成实际的 SQL 语句，最后发往数据库执行。
+任何给定的 provider 都是连接 Entity Framework 和一个特定的 RDBMS 的桥梁。一旦该 provider 
+执行了最终的 SQL 命令，结果就被 EF 对象化到 .NET 对象中，Data reader 就是为了这个目。
+理解 EF 构建于 ADO.NET 之上非常重要，因此，EF 也使用了诸如 connection，command，和 
+data reader 的概念。
 
-数据持久化，也就是插入，更新和删除功能，插入时，开发者将一个实体类的实例添加到数据库上下文中。相似地，之前添加到上下文中的实例被标记为 changed 或 deleted，就会产生对数据库即将执行更新和删除的语句。EF 会检查上下文中的每个对象，再次使用 provider 来创建 RDBMS 特定的 insert, update 或 delete 命令。
+数据持久化，也就是插入，更新和删除功能，插入时，开发者将一个实体类的实例添加到数据库上下文中。
+相似地，之前添加到上下文中的实例被标记为 changed 或 deleted，就会产生对数据库即将执行更新和
+删除的语句。EF 会检查上下文中的每个对象，再次使用 provider 来创建 RDBMS 特定的 insert, 
+update 或 delete 命令。
 
-Entity Framework 概念数据模型和持久化，首先来理解 EDM - Entity Data Model 以及 EF 如何使用它管理数据库操作，概念数据模型是 EF 的核心。要使用 EF 必须创建概念数据模型。EDM 定义了我们的概念模型类，这些类之间的关系，以及这些模型到数据库模式之间的映射。
+Entity Framework 概念数据模型和持久化，首先来理解 EDM - Entity Data Model 以及 EF 
+如何使用它管理数据库操作，概念数据模型是 EF 的核心。要使用 EF 必须创建概念数据模型。EDM 定义了
+我们的概念模型类，这些类之间的关系，以及这些模型到数据库模式之间的映射。
 
-一旦创建了 EDM 就可以对概念模型执行所有的 CRUD 操作，EF 会将所有的这些对象查询翻译成数据库查询 SQL。一旦这些查询执行了，EF 就会将返回的结果转成概念模型对象实例。EF 会使用存储在 EDM 中的映射信息来执行对象查询到 SQL 查询，以及相关的数据到概念模型的翻译。
+一旦创建了 EDM 就可以对概念模型执行所有的 CRUD 操作，EF 会将所有的这些对象查询翻译成数据库
+查询 SQL。一旦这些查询执行了，EF 就会将返回的结果转成概念模型对象实例。EF 会使用存储在 EDM 
+中的映射信息来执行对象查询到 SQL 查询，以及相关的数据到概念模型的翻译。
 
-一旦我创建了 EDM，我就有了应用程序中可以使用的所有的实体。然而，我还需要一个东西来让我在这些实体上执行各种操作。它就是 EF 中的 ObjectContext 类。要执行 CRUD 操作，必须使用 ObjectContext 类。 
+一旦我创建了 EDM，我就有了应用程序中可以使用的所有的实体。然而，我还需要一个东西来让我在这些
+实体上执行各种操作。它就是 EF 中的 ObjectContext 类。执行 CRUD 操作，必须使用 ObjectContext。 
 
 ObjectContext 类是 EF 中的主要对象，它负责：
 
@@ -9730,22 +10257,30 @@ ObjectContext 类是 EF 中的主要对象，它负责：
 - 提供执行CRUD操作的支持
 - 追踪模型的更改，目的在于在数据库中更新模型
 
-可以理解成管理 EDM 中所有实体的东西，让我们为这些实体执行所有的数据库操作。当我们想要保存一个新的或者更改的对象到数据库时，我们必须调用 ObjectContext 类中的 SaveChanges 方法。
+可以理解成管理 EDM 中所有实体的东西，让我们为这些实体执行所有的数据库操作。当我们想要保存一个新
+的或者更改的对象到数据库时，我们必须调用 ObjectContext 类中的 SaveChanges 方法。
 
 Entity Framework 基本有二种开发模式：
 
 - Database First
 
-    数据库逆向工程，这是一种用于已存在数据库模式的方法，也就是数据库结构的逆向工程，通过数据库结构生成代码。使用这种方法，EDM - Entity Data Model 即实体数据模型对象是从数据库模式中生成的，这种方法最适合于使用了已经存在的数据库的应用。
+    数据库逆向工程，这是一种用于已存在数据库模式的方法，也就是数据库结构的逆向工程，通过数据库
+    结构生成代码。使用这种方法，EDM - Entity Data Model 即实体数据模型对象是从数据库模式中
+    生成的，这种方法最适合于使用了已经存在的数据库的应用。
 
 - Code First 或 Model First
 
-    编写模型代码建立 EDM 或使用 Visual Studio 提供的 EDM 可视化设计器来设计模型，依据这些类定义创建数据库。这种方法最适合于那些高度以领域为中心并且领域模型类创建优先的应用程序。这里需要的数据库只是为了这些领域模型的持久化机制。
+    编写模型代码建立 EDM 或使用 Visual Studio 提供的 EDM 可视化设计器来设计模型，依据这
+    些类定义创建数据库。这种方法最适合于那些高度以领域为中心并且领域模型类创建优先的应用程序。
+    这里需要的数据库只是为了这些领域模型的持久化机制。
 
 
 ### ===✒ ASP.Net Codegenerator 基架工具
 
-使用 dotnet aspnet-codegenerator 运行 ASP.NET Core 基架引擎，有了这个工具，它只需要从命令行搭建基架，不必使用 Visual Studio 搭建基架。要生成数据库上下文类型实现需要使用 EF CLI 工具，安装相应的 Design 类来生成代码。要使用数据库，还需要安装相应的数据接口，InMemory 是内存数据库，没有数据库服务器时可以它用来做测试用。根据需要安装这些数据库工具和类库：
+使用 dotnet aspnet-codegenerator 运行 ASP.NET Core 基架引擎，有了这个工具，它只需要
+从命令行搭建基架，不必使用 Visual Studio 搭建基架。要生成数据库上下文类型实现需要使用 EF CLI 
+工具，安装相应的 Design 类来生成代码。要使用数据库，还需要安装相应的数据接口，InMemory 是
+内存数据库，没有数据库服务器时可以它用来做测试用。根据需要安装这些数据库工具和类库：
 
     dotnet tool install --global dotnet-ef
 
@@ -9780,13 +10315,16 @@ Entity Framework 基本有二种开发模式：
 - razorpage 搭建 Razor Pages 的基架
 - view  搭建视图的基架
 
-使用生成器来创建控制器或 Razor Page，注意 -m Model 指定的类必需已经存在，而 -dc DbContext 会根据指定的名称生成：
+使用生成器来创建控制器或 Razor Page，注意 -m Model 指定的类必需已经存在，而 -dc DbContext 
+会根据指定的名称生成：
 
     dotnet aspnet-codegenerator controller -name=Hello --model=MO --dataContext=DBC --layout=_Layout -async -api -sqlite -namespace=myWebApp
     dotnet aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieContext -outDir Pages/Movies
 
 
-数据模型及生成的的 DbContext 类参考，代码重新组织放一起，使用 Attribute 可以修改映射关系，比如 [Table("users", Schema = "minispro")] 映射指定数据库和表。考虑到数据表中，存在 null 字段，在 C# 中需要设置 nullable 属性以免读取出错：
+数据模型及生成的的 DbContext 类参考，代码重新组织放一起，使用 Attribute 可以修改映射关系，
+比如 [Table("users", Schema = "minispro")] 映射指定数据库和表。考虑到数据表中，存在 null 
+字段，在 C# 中需要设置 nullable 属性以免读取出错：
 
     using System;
     using Microsoft.EntityFrameworkCore;
@@ -13920,7 +14458,11 @@ class Test
 
 可空值类型分为值类型、引用类型。
 
-Nullable reference types are available beginning with C# 8.0, in code that has opted in to a nullable aware context. Nullable reference types, the null static analysis warnings, and the null-forgiving operator are optional language features. All are turned off by default. A nullable context is controlled at the project level using build settings, or in code using pragmas.
+Nullable reference types are available beginning with C# 8.0, in code that has 
+opted in to a nullable aware context. Nullable reference types, the null static 
+analysis warnings, and the null-forgiving operator are optional language features.
+All are turned off by default. A nullable context is controlled at the project 
+level using build settings, or in code using pragmas.
 
 通过注解激活 nullable：
 
@@ -13946,7 +14488,9 @@ bool? flag = null;
 int?[] arr = new int?[10];
 ```
 
-Beginning with C# 7.0, you can use the *is* operator with a type pattern to both examine an instance of a nullable value type for null and retrieve a value of an underlying type:
+Beginning with C# 7.0, you can use the *is* operator with a type pattern to 
+both examine an instance of a nullable value type for null and retrieve a 
+value of an underlying type:
 
 ```C#
 int? a = 42;
@@ -13962,7 +14506,8 @@ else
 }
 ```
 
-You always can use the following read-only properties to examine and get a value of a nullable value type variable:
+You always can use the following read-only properties to examine and get a 
+value of a nullable value type variable:
 
 - `Nullable<T>.HasValue` indicates whether an instance of a nullable value type has a value of its underlying type.
 - `Nullable<T>.Value` gets the value of an underlying type if *HasValue* is *true*. If *HasValue* is *false*, the Value property throws an *InvalidOperationException*.

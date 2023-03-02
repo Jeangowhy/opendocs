@@ -1352,75 +1352,15 @@ Leader 出故障挂掉了，其他 Follower 将会在 Timeout 时间后恢复备
 Raft 在实际应用场景中的一致性更多的是体现在不同节点之间的数据一致性，客户端发送请求到任何一个节点都能收到一致的返回，当一个节点出故障后，其他节点仍然能以已有的数据正常进行。在选主之后的复制日志就是为了达到这个目的，制造出来的冗余数据可以抗伪造。
 
 
-## 👉 ZooKeeper 分布式服务协调器
-- https://zookeeper.apache.org/doc/r3.5.5/zookeeperOver.html
-
-在微服务横行的当下，分布式算法也被大量应用于各种工具中，如 Java 平台中的 Spring Cloud 微服务工具包中的各种工具。
-
-其中 ZooKeeper 是一个开放源码的分布式应用程序协调服务，其本身提供中心化的服务，是 Google Chubby 分布式的文件系统的一个开源实现，是 Hadoop 和 Hbase 的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。
-
-    ZooKeeper: A Distributed Coordination Service for Distributed Applications
-
-Google 的技术有多牛，看它的的员工就可以了解大概，据悉，每年约有 250 ~ 350 万人申请 Google 的职位，而这之中，平均只有 0.13% 约 4000 人最终拿到 offer。大部分员工都来自斯坦福大学，加州大学伯克利分校，卡耐基梅隆大学，麻省理工学院。
-
-Paxos 算法存在活锁的问题，即当有多个 proposer 交错提交时，有可能互相排斥导致没有一个 proposer 能提交成功。
-
-而 ZooKeeper 以 Fast Paxos 算法为基础，它做了一些优化，通过选举产生一个 leader，只有它才能提交 proposer，具体算法可见 Fast Paxos。
-
-Zookeeper 中的角色：
-
-- 领导者 leader：负责进行投票的发起和决议，更新系统状态。
-- 跟随者 follower：用于接收客户端请求并给客户端返回结果，在选主过程中进行投票。
-- 观察者 observer：可以接受客户端连接，将写请求转发给 leader，但是observer 不参加投票的过程，只是为了扩展系统，提高读取的速度。
-
-Zookeeper设计目的
-
-- `最终一致性`：不论 Client 连接到哪个 Server，展示给它都是同一个视图，这是最重要的性能。 
-- `可靠性`：具有简单、健壮、良好的性能，如果消息被到一台服务器接受，那么它将被所有的服务器接受。 
-- `实时性`：保证客户端在一个间隔内获得服务器的更新、失效的信息，如果需要最新数据，应该在读数据之前调用 `sync()` 接口。
-- `等待无关` wait-free：慢的或者失效的 Client 请求不得干预快速的请求，使得每个 Client 都能有效的等待。 
-- `原子性`：更新只能成功或者失败，没有中间状态。 
-- `顺序性`：指如果在一台服务器上消息 a 在消息 b 前发布，则在所有 Server 上消息 a 都在消息 b 前被发布。
-
-Follower 角色主要有四个功能： 
-
-- 向 Leader 发送消息，PING、REQUEST、ACK、REVALIDATE；
-- 接收 Leader 消息并进行处理；
-- 接收 Client 的请求，如果为写请求，发送给 Leader 进行投票；
-- 返回 Client 结果。 
-
-
-Follower 的消息循环处理如下几种来自 Leader 的消息： 
-
-- `PING`： 心跳消息；
-- `PROPOSAL`：Leader 发起的提案，要求 Follower 投票；
-- `COMMIT`：服务器端最新一次提案的信息；
-- `UPTODATE`：表明同步完成；
-- `REVALIDATE`：根据 Leader 的 REVALIDATE 结果决定关闭待重新生效的 session 还是允许其接受消息；
-- `SYNC`：返回 SYNC 结果到客户端，这个消息最初由客户端发起，用来强制得到最新的更新。
-
-                                          
-
 
 
 # 🚩 Hyperledger Fabric
-- [Hyperledger Fabric](https://github.com/hyperledger/fabric)
-- [Hyperledger Fabric CA](https://github.com/hyperledger/fabric-ca)
+- [What's news](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/whatis.html)
 - [Hyperledger Fabric Wiki](https://wiki.hyperledger.org/display/fabric)
-- [Samples for Hyperledger Fabric](https://github.com/hyperledger/fabric-samples)
 - [Hyperledger Fabric v2.x docs](https://hyperledger-fabric.readthedocs.io/en/release-2.2/whatsnew.html)
-- [hyperledger Project Lifecycle](https://toc.hyperledger.org/governing-documents/project-lifecycle.html)
+- [Hyperledger Project Lifecycle](https://toc.hyperledger.org/governing-documents/project-lifecycle.html)
+- [Hyperledger Introduction](https://hyperledger-fabric.readthedocs.io/en/release-2.5/whatis.html)
 - [Blockchain 关键概念介绍](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/blockchain.html)
-- [流程和数据设计](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/developapps/architecture.html)
-- [Fabric 交易流程](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/txflow.html)
-- [Fabric CA User’s Guide](https://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html)
-- [Fabric SDKs](https://wiki.hyperledger.org/display/fabric/Hyperledger+Fabric+SDKs)
-- [Fabric Node SDK 文档](https://hyperledger.github.io/fabric-sdk-node/)
-- [Fabric Java SDK 文档](https://hyperledger.github.io/fabric-gateway-java/)
-- [Fabric Client SDK for Go](https://github.com/hyperledger/fabric-sdk-go)
-- [Fabric SDK Node.js](https://github.com/hyperledger/fabric-sdk-node)
-- [Fabric SDK Java](https://github.com/hyperledger/fabric-gateway-java)
-- [Fabric SDK Py](https://github.com/hyperledger/fabric-sdk-py)
 
 Hyperledger Fabric 是一个企业级分布式账本平台，提供模块化和多功能性适用于广泛的行业用例集。
 通过即插即用组件体系结构适应企业的多样性，如共识、隐私和会员服务。
@@ -1433,22 +1373,25 @@ Hyperledger Project 由 Linux 基金会创办于 2015 年 10 月，是一个开�
 致力于提供可协同开发以区块链为底层的分布式账本。旗下的 Fabric 由其核心成员之一 IBM “捐赠”。
 Fabric 项目由 Go 语言编写，目标为打造一个提供分布式账本解决方案的联盟链平台。
 
-Key Concepts
 
-01. Hyperledger Fabric Model
-02. Blockchain network
-03. Identity
-04. Membership Service Provider (MSP)
-05. Policies
-06. Peers
-07. Ledger
-08. The Ordering Service
-09. Smart Contracts and Chaincode
-10. Fabric chaincode lifecycle
-11. Private data
-12. Channel capabilities
-13. Security Model
+[Hyperledger Fabric Key Concepts](https://hyperledger-fabric.readthedocs.io/en/release-2.5/key_concepts.html)
 
+01. [Introduction](https://hyperledger-fabric.readthedocs.io/en/release-2.5/blockchain.html)
+02. [Hyperledger Fabric Model](https://hyperledger-fabric.readthedocs.io/en/release-2.5/fabric_model.html)
+03. [How Fabric networks are structured](https://hyperledger-fabric.readthedocs.io/en/release-2.5/network/network.html)
+04. [Identity](https://hyperledger-fabric.readthedocs.io/en/release-2.5/identity/identity.html)
+05. [Membership Service Provider (MSP)](https://hyperledger-fabric.readthedocs.io/en/release-2.5/membership/membership.html)
+06. [Policies](https://hyperledger-fabric.readthedocs.io/en/release-2.5/policies/policies.html)
+    - [Policies in Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.5/policies.html)
+07. [Peers](https://hyperledger-fabric.readthedocs.io/en/release-2.5/peers/peers.html)
+08. [Ledger](https://hyperledger-fabric.readthedocs.io/en/release-2.5/ledger/ledger.html)
+09. [The Ordering Service](https://hyperledger-fabric.readthedocs.io/en/release-2.5/orderer/ordering_service.html)
+10. [Smart Contracts and Chaincode](https://hyperledger-fabric.readthedocs.io/en/release-2.5/smartcontract/smartcontract.html)
+11. [Fabric chaincode lifecycle](https://hyperledger-fabric.readthedocs.io/en/release-2.5/chaincode_lifecycle.html)
+12. [Private data](https://hyperledger-fabric.readthedocs.io/en/release-2.5/private-data/private-data.html)
+13. [Channel capabilities](https://hyperledger-fabric.readthedocs.io/en/release-2.5/capabilities_concept.html)
+14. [Security Model](https://hyperledger-fabric.readthedocs.io/en/release-2.5/security_model.html)
+15. [Use Cases](https://hyperledger-fabric.readthedocs.io/en/release-2.5/usecases.html)
 
 Fabric 应用构架组成：
 
@@ -1480,6 +1423,171 @@ Fabric Application Stack
     |           Prerequisite software             |
     +=============================================+
 
+
+区块链技术本质是信任，Code is law，代码即法律！为了在一个充满陌生因素的网络中实现这一点，需要
+共识算法来让网络的参与者对某一项事务达成一致，并以不可篡改的分布式账本记录下来。
+
+Blockchain 的基本构成要素：
+
+- **A Distributed Ledger** 区块链的核心是分布式账本，记录网络中发生的交易；
+- **Smart Contracts** 智能合约实现**一致性的信息更新**，更新过程也被账本记录下来；
+- **Consensus** 共识，即信任机器，保证交易同步到网络中所有分布式账本中；
+
+分布式即去中心化，**distributed** =  **decentralized**，因为交易数据会在网络中多个参与者
+之间进行复制，以共识为前提，保证交易记录一致有效，并且不可篡改，众多的参与者各自都在维护中合作。
+
+区块链划分，通常包括公链、联盟链和私有链。更为严谨的定义，即 permissionless（or public）chain
+和 permissioned chain。两者的本质还是 SMR（state-machine replication）状态机复制，这是
+分布式系统中最重要的一个概念。
+
+公有链是指任何人都可以参与区块链数据的维护和读取、任何人都能发送交易且交易能获得有效确认、任何人
+都能参与其中共识过程、不受单个中央机构控制、数据完全开放透明（如比特币系统、以太坊系统等）。
+公有链被认为是完全去中心化的。大部分公有链环境下，主要通过共识算法、激励或者惩罚机制、对等网络的
+数据同步保证最终一致性。
+
+私链是指，其写入权限仅在一个组织手里的区块链。读取权限或者对外开放，或者被任意程度地进行了限制。
+相关的应用囊括数据库管理、审计、甚至一个公司，尽管在有些情况下希望它能有公共的可审计性，但在很多
+的情形下，公共的可读性并非是必须的。
+
+私链特性：
+
+1. 交易速度快，因为就算少量的节点也都具有很高的信任度，并不需要每个节点来验证一个交易。
+2. 隐私性好，私有链在区块链上的数据受到隐私政策保护。
+3. 交易成本低，可以进行完全免费或者至少说是非常廉价的交易。
+为了解决缺乏隐私和机密性的问题来满足企业业务需求，区块链平台采用了多种方法。所有方法都需要权衡利弊。
+
+加密数据是提供保密性的一种方法；然而，在利用 PoW 达成共识的非许可网络中，加密数据位于每个节点上。
+如果有足够的时间和计算资源，加密可能会被破解。对于许多企业业务而言，不能接受信息可能受损的风险。
+
+联盟链（consortium blockchain）由机构间根据自行商定的协议建立而成。成员节点参与区块链运行需要
+根据规则获得访问和编写的权限。联盟链由成员节点共同维护，提供成员管理，认证，授权，监控，审计等功能。
+
+Fabric 与其他一些区块链系统的不同之处在于，它是私有的，加入网络需要经过许可。 Fabric 网络的成员
+不是一个允许未知身份参与网络的开放式无权限系统，这种网络需要“工作证明”等协议来验证交易并保护。
+
+Fabric 采用的是可信的会员服务提供商 Membership Service Provider（MSP）注册制度。通过依赖
+参与者的身份，私有区块链可以使用更传统的崩溃容错（CFT）或拜占庭容错（BFT）共识协议，而不需要
+昂贵经济代价的挖矿行为。同时降低了参与者故意通过智能合约引入恶意代码的风险。首先，参与者彼此了解
+对方以及所有的操作，无论是提交交易、修改网络配置还是部署智能合约，都根据网络中已经确定的背书策略
+和相关交易类型被记录在区块链上。与完全匿名相比，很容易识别犯罪方，并根据治理模式的条款进行处理。
+
+
+零知识证明 Zero Knowledge Proof (ZKP) 是解决数据隐私的方法，这项研究最早始于 1985 年，由
+MIT 教授 Shafi Goldwasser， Silvio Micali 和 密码学大师 Charles 在其论文中提出，
+The Knowledge Complexity of Interactive Proof-Systems。
+
+正是零知识证明这个伟大概念的提出，并逐步成为了现代密码学理论的根基之一，而 Shafi Goldwasser 
+和 Silvio Micali 也于 2012 年获得了有“计算机界诺贝尔奖”之称的图灵奖。零知识证明系统所要完成
+的任务是「证明某一个事实并且不泄露知识」，这个过程就是零知识证明。
+
+听起来还是有些晦涩难懂？讲个简单的例子：
+
+劫匪相得到进入山洞的咒语，就抓住了阿里巴巴进行拷问。但是聪明的阿里巴巴知道，如果把咒语告诉了劫匪，
+那么他也就彻底没有了价值，肯定会将他杀掉，死活不说，那么也会杀掉他，于是他想到一个好办法，即能不
+泄露咒语，又能让劫匪相信他知道咒语。
+
+阿里巴巴说：“你们离我一箭远，然后用弓箭指着我，当你们举右手我会念咒语打开石门，当你们举左手我会
+念咒语关上石门，如果我逃跑或没有做到，证明我不知道咒语，你们可以一箭杀掉我。”劫匪同意了这个提议，
+多次尝试后阿里巴巴都成功按照指示让石门打开或关上了，但是由于有一定距离，他们听不清楚咒语到底是什么，
+就这样，阿里巴巴没有透露任何消息就向劫匪证明了他的真实性。
+
+自从这个概念被提出来后，人们就将其应用到了各个领域，比如身份认证系统、存证系统、数据共享、水印检测，
+密钥交换等等，在隐私数据越来越受到大家关注的今天，零知识证明在隐私数据保护的应用中大放异彩。
+
+
+Fabric 将智能合约称之为“链码”，chaincode，作为受信任的分布式应用程序，从区块链中获得信任，
+在节点中达成基本共识，它是区块链应用的业务逻辑。
+
+智能合约有三个关键点，尤其是应用于平台时：
+
+- 多个智能合约在网络中同时运行，
+- 它们可以动态部署（很多情况下任何人都可以部署），
+- 应用代码应视为不被信任的，甚至可能是恶意的。
+
+大多数现有的具有智能合约能力的区块链平台遵循 **order-execute** 架构，其中共识协议：
+
+- 验证并将交易排序，然后将它们传播到所有的节点，
+- 每个节点按顺序执行交易。
+
+Fabric 针对交易引入了一种新的架构，称为**执行-排序-验证**模型，解决了**顺序执行**模型面临的
+弹性、灵活性、可伸缩性、性能和机密性问题，它将交易流分为三个步骤：
+
+- **execute**：执行一个交易并检查其正确性，从而给它背书，
+- **order**：通过（可插拔的）共识协议将交易排序，
+- **validate**：提交交易到账本前先根据特定应用程序的背书策略验证交易。
+
+这种设计与顺序执行模式完全不同，Fabric 在交易顺序达成最终一致前执行交易。
+
+Fabric 中特定应用程序的背书策略，可以指定需要哪些节点或多少节点，来保证给定的智能合约正确执行。
+因此，每个交易只需要由满足交易的背书策略所必需的节点的子集来执行（背书）。这样可以并行执行，从而
+提高系统的整体性能和规模。第一阶段也消除了任何非确定性，因为在排序之前可以过滤掉不一致的结果。
+
+因为 Fabric 已经消除了非确定性，Fabric 是第一个能使用标准编程语言的区块链技术。
+
+
+Fabric 设计了排序服务以支持**可插拔式共识**，交易的排序委托给模块化组件以达成共识，该组件在逻辑
+上与执行交易和维护帐本的节点解耦。具体来说，就是**排序服务**。由于共识是模块化的，可以根据特定部署或
+解决方案的信任假设来定制其实现。这种模块化架构允许平台依赖完善的工具包进行 CFT 或 BFT 的排序。
+
+- 崩溃容错 Crash Fault Tolerance (CFT) 容忍分布式节点中存在故障，但不能容忍搞破坏。
+- 拜占庭容错 Byzantine fault-tolerant (BFT) 同时可以容忍节点故障以及部分节点搞破坏。
+
+Fabric 目前提供了一种基于 Raft 协议的 etcd 库实现的 CFT 排序服务。etcd 是轻量、专用、强一致性、
+分布式、可靠的关键值存储，用于存储分布式系统中最关键的数据，使用 Raft 共识算法来保持数据一致性。
+
+- https://github.com/etcd-io/etcd
+- [`etcd` library](https://coreos.com/etcd/) 
+- [Raft protocol](https://raft.github.io/raft.pdf)
+
+另外，请注意，这些并不相互排斥。一个 Fabric 网络中可以有多种排序服务以支持不同的应用或应用需求。
+
+Fabric 代码库当前嵌入的共识插件如下：
+
+- **Solo**: A single node orderer, useful for development, testing and proof of concepts.
+- **Kafka**: Several ordering nodes relay transactions into an Apache Kafka system, 
+             pull transactions back in the same order and then cut them into 
+             identical blocks via synchronization messages also sent through Kafka.
+- **Raft**: Several ordering nodes run the Raft protocol by embedding the Raft library of etcd.
+
+除了官方的 Fabric 共识实现之外，还有一个 Fabric 分支实现了名为 SmartBFT 的 BFT 库。
+
+- https://github.com/SmartBFT-Go/fabric
+- https://github.com/SmartBFT-Go/consensus
+
+
+排序服务在 Fabric 网络的排序节点中运行，和 Peer 节点一样，所有排序节点都必须属于已存在的组织。
+**组织** Orgnization 是 Fabric 网络的管理单元。
+
+组织拥有成员服务提供者（MSP），而 CA（Certificate Authority）专门为组织创建证书和 MSP。
+成员服务提供者（MSP）是 Fabric 的一个组件，旨在提供抽象的成员操作。具体的，MSP 将分发证书、
+验证证书和用户授权背后的所有加密机制和协议抽象出来。MSP 可以定义它们自己的身份概念。同样还可以
+定义管理(身份验证)和认证(签名生成和验证)这些身份的规则。
+
+一个 Fabric 区块链网络可以由一个或多个 MSP 管理。这提供了成员操作的模块和不同成员标准和架构
+之间的互操作性。
+
+
+Fabric 2.0 中使用 Kafka 消息系统来实现交易消息的排序，最新版本从 Kafka 迁移到了 Raft 共识。
+Orderer v3: Kafka consesus remove (#3533)
+
+- orderer/consensus/kafka/chain.go
+- fabric\docs\source\kafka.rst
+- fabric\docs\source\kafka_raft_migration.md
+- https://github.com/hyperledger/fabric-rfcs/blob/main/text/orderer-v3.md
+- https://hyperledger-fabric.readthedocs.io/zh_CN/latest/raft_configuration.html
+- https://hyperledger-fabric.readthedocs.io/zh_CN/latest/kafka.html
+- https://hyperledger-fabric.readthedocs.io/zh_CN/latest/kafka_raft_migration.html
+- https://hyperledger-fabric.readthedocs.io/zh_CN/latest/pluggable_endorsement_and_validation.html
+- [The ABCs of Kafka in Hyperledger Fabric](https://codeburst.io/the-abcs-of-kafka-in-hyperledger-fabric-81e6dc18da56)
+
+旧版本中 kafka 共识当中，每个排序节点是消息的生产者，同时也是消费者。每个 channel 对应一个 topic，
+并且为了保证顺序性，只设置了一个 patition。
+
+
+## 👉 Fabric Installation
+- [Hyperledger Fabric](https://github.com/hyperledger/fabric)
+- [Hyperledger Fabric CA](https://github.com/hyperledger/fabric-ca)
+- [Samples for Hyperledger Fabric](https://github.com/hyperledger/fabric-samples)
 
 Linux 或者 Windows WSL 软件环境要求：
 
@@ -1523,6 +1631,20 @@ Docker 服务运行时，会创建 /var/run/docker.sock 网络套接文件，客
 
     dial unix /var/run/docker.sock: connect: permission denied
 
+Docker Daemon 守护进程负责监听 Docker Client 请求，用户通过命令行与服务端通信，进行 Docker
+相关操作。
+
+UNIX 域套接字是默认方式，会通过 /var/run/docker.sock 文件与本地进程之间的通讯。这种方式相比于
+网络套接字效率更高，但局限性就是只能被本地的客户端访问。
+
+Windows 系统中监听的是 npipe:////./pipe/docker_engine 命名管道。
+
+通过配置，可以改变网络通信来实现 Docker Client 和 daemon 之间的通信。服务端指定 -H IP:PORT
+监听 TCP 端口，Docker 默认网络端口为 2375，TLS 方式默认端口为 2376。
+
+客户端通过指定的 IP 和端口访问服务端：`docker -H IP:PORT`，从而在服务端的服务器上创建容器。
+
+
 在 Windows 10 上，应该使用本地 Docker 发行版，并且可以使用 PowerShell。但是仍需要可用的
 uname 命令以便成功运行二进制命令。可以通过 Git 来得到它，但是只支持 64 位的版本。
 
@@ -1556,10 +1678,13 @@ Hyperledger Fabric 提供了一个可选的证书授权服务，可以选择使�
 
 ```sh
 # curl -sSL https://bit.ly/2ysbOFE | bash -s -- <fabric_version> <fabric-ca_version>
-# export PATH=<path to download location>/bin:$PATH
 # curl -sSL https://bit.ly/2ysbOFE | bash -s
 # curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.2.0 1.4.7
 curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh | bash -s
+
+# export PATH=path/to/fabric/bin:$PATH
+# echo "export PATH=path/to/fabric/bin:\$PATH" >> ~/.profile
+# source ~/.profile
 
 Clone hyperledger/fabric-samples repo
 
@@ -1631,6 +1756,400 @@ printHelp() {
     hyperledger/fabric-ca        1.5       93f19fa873cb   7 months ago   76.5MB
     hyperledger/fabric-ca        1.5.5     93f19fa873cb   7 months ago   76.5MB
     hyperledger/fabric-ca        latest    93f19fa873cb   7 months ago   76.5MB
+
+
+## 👉 Network 网络概念及命令使用
+- [Samples for Hyperledger Fabric](https://github.com/hyperledger/fabric-samples)
+- [Fabric 网络测试](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/test_network.html)
+- [Fabric Documentation i18n](https://github.com/hyperledger/fabric-docs-i18n)
+- [Fabric CA User’s Guide](https://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html)
+- [BDoS: Blockchain Denial-of-Service Attacks](https://arxiv.org/pdf/1912.07497.pdf)
+- [区块链毕业设计必读论文](http://blog.hubwiz.com/2020/03/15/block-paper-14/)
+- [Policies in Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.5/policies.html)
+
+在示范项目仓库``fabric-samples``中，提供了一个 `test-network` 项目，它用来对 Fabric v2.0
+网络进行测试，供学习了解基本的 Fabric 网络概念。有了 Fabric 网络，才可以进行各种实验测试。
+
+代码库中提供了 network.sh 脚本来部署测试网络，有经验的开发人员可以使用 `test-network` 项目
+测试其智能合约和应用程序。该测试网络在 Fabric v2.0 中引入作为旧版本的 first-network 示例的
+长期替代。
+
+该示例网络使用 Docker Compose 部署了一个 Fabric 网络。这些节点隔离在 Docker Compose 网络中，
+测试网络没有配置 channel 以连接到其他正在运行的 fabric 节点。
+
+然后，通过执行以下命令来启动、关闭 Fabric 网络，以下命令需要进入测试网络的目录下运行：
+
+```sh
+> cd fabric-samples/test-network
+> ./network.sh -h
+# Usage:
+#   network.sh <Mode> [Flags]
+#     Modes:
+#       up - Bring up Fabric orderer and peer nodes. No channel is created
+#       up createChannel - Bring up fabric network with one channel
+#       createChannel - Create and join a channel after the network is created
+#       deployCC - Deploy a chaincode to a channel (defaults to asset-transfer-basic)
+#       down - Bring down the network
+
+> ./network.sh up
+> ./network.sh down
+```
+
+使用 `./network.sh up` 命令创建一个由两个对等节点和一个排序节点组成的 Fabric 网络。 没有创建
+任何 channel，虽然脚本提供这个功能。如果命令执行成功，可以使用 docker 查询到节点的日志信息：
+
+```sh
+$ docker ps --all --format "table {{.ID}}\t{{.Command}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
+CONTAINER ID   COMMAND                  NAMES                      IMAGE                               STATUS
+2a558cea798e   "/bin/bash"              cli                        hyperledger/fabric-tools:latest     Up 35 seconds
+f0d20f53b828   "peer node start"        peer0.org1.example.com     hyperledger/fabric-peer:latest      Up 36 seconds
+09aaa8b7ab73   "orderer"                orderer.example.com        hyperledger/fabric-orderer:latest   Up 36 seconds
+048dba3424f3   "peer node start"        peer0.org2.example.com     hyperledger/fabric-peer:latest      Up 36 seconds
+```
+
+默认情况下，使用 Fabric 自带的 cryptogen 工具来生成证书以建立网络。生产环境中可以通过证书颁发
+机构建立网络，它们是对等的工具，只是 CA 服务是一种动态的证书生产环境。开发、测试阶段不需要部署 CA，
+使用证书生成工具生成证书更简便。当然在生产环境中也可以不使用 CA 服务器，继续使用 `cryptogen`。
+
+Fabric CA 是证书授权中心 Certificate Authority (CA)，包含客户、服务端。
+
+- `fabric-ca-client` 客户端命令用来管理身份（包括属性管理）和证书（包括回复和撤销）。
+- `fabric-ca-server` 服务端命令用来初始化和启动服务进程，以便于管理一个或多个 CA。
+
+证书的默认签名算法为 ECDSA，Hash 算法为 SHA-256。
+
+Fabric 设计中考虑了三种类型的证书：
+
+- 登记证书（Enrollment Certificate）颁发给注册用户或节点等实体，代表网络中身份。一般长期有效。
+- 交易证书（Transaction Certificate）颁发给用户，控制每个交易的权限，实现匿名性。短期有效。
+- 保障通信链路安全的 TLS 证书，验证远端实体身份，防止窃听。
+
+目前，在实现上，主要通过 ECert 来对实体身份进行检验，通过检查签名来实现权限管理。TCert 功能暂未
+实现，用户可以使用 idemix 机制来实现部分匿名性。
+
+Fabric CA 数字证书认证中心，它提供了如下功能：
+
+- 用户信息的注册
+- 数字证书的发行
+- 数字证书的延期与吊销
+
+并且，Fabric CA 服务端提供了 RESTful 接口供客户端工具和 HFC SDK 访问。
+
+
+Fabric 基于微服务构架开发，Service Discovery CLI 发现服务使用 YAML 配置文件来对包括证书和
+私钥路径以及成员服务提供者身份证（MSP ID）在内的属性进行维持。
+
+发现服务使用 `discover` 命令提供以下四种操作，发现对端、以及链码背书人：
+
+- peers [<flags>]    Discover peers
+- config [<flags>]    Discover channel config
+- endorsers [<flags>]    Discover chaincode endorsers
+- saveConfig    Save the config passed by flags into the file specified by --configFile
+
+`peer channel` 命令用于执行 peer 节点上的管理通道相关的操作，比如加入通道，或者列出当前节点
+加入的通道。
+
+`configtxlator` 命令用于转换 fabric 数据结构，protobuf 与 JSON 之间进行转换，并创建配置更新。
+该命令可以启动 REST 服务器，并通过 HTTP 公开，可以直接用作命令行工具。
+
+`configtxgen` 命令用于创建和查看 channel 配置相关构件，生成内容取决于 `configtx.yaml` 配置文件。
+
+命令中的 tx 表示的是 Transaction 交易的意思。
+
+管理员可以通过 `peer node` 命令来启动 Peer 节点，将节点中的所有通道重置为创世区块，或者将某个
+通道回滚到给定区块号。
+
+```sh
+# Available peer node commands:
+  peer node start --peer-chaincodedev   # Starts the node.
+  peer node reset [flags]   # Resets the node.
+  peer node pause [flags]   # Pauses a channel on the peer.
+  peer node resume -c ch1   # Resumes a channel on the peer.
+  peer node rollback -c ch1 -b 150  # Rolls back a channel.
+  peer node unjoin -c ch1   # Unjoin the peer from a channel.
+  peer node rebuild-dbs     # Rebuilds databases.
+  peer node upgrade-dbs     # Upgrades databases.
+```
+
+节点重置会将 peer 节点中的所有通道重置为创世块，即通道中的第一个区块。 重置命令还会记录文件系统中
+每个通道重置前的高度。 在 peer 节点执行重置后启动时，peer 节点将为每个通道获取因重置命令而移除的
+区块，从其他 peer 节点或排序节点获取，并提交这些区块直到重置前的高度。所有通道达到重置前的高度之前，
+peer 节点不会背书任何交易。
+
+从指定的区块号回滚通道时，节点必须是离线的。当节点在回滚之后启动时，它将会从排序节点或者其他 Peer 
+节点获取回滚过程中删除的区块，并重建区块存储和状态数据库。
+
+以开发者模式启动 Peer 节点。一般来说链码容器由 Peer 节点启动和维护。但是在链码的开发者模式下，
+链码通过用户来编译和启动，这个模式在链码开发阶段很有帮助。
+
+
+命令参考文档：
+
+- fabric\docs\source\command_ref.rst
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peercommand.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchaincode.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerlifecycle.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchannel.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peersnapshot.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerversion.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peernode.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/osnadminchannel.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxgen.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxlator.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/cryptogen.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/ledgerutil.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html
+
+
+
+节点 Node 是 Fabric 网络中的实体，根据功能差异分为多种节点类型：
+
+- CA 证书服务节点，可选，为 Fabric 网络成员提供数字证书身份证。
+- peer 对端节点，布署链码实现对区块链的操作。
+- orderer 排序节点对交易进行排序，批量打包，生成区块发给 Peer 节点。
+- 客户端节点，最终用户与 Fabric 网络交互，实现对区块链的操作。
+
+- **Endorser Peer** 背书节点对客户端发送交易提案时进行签名背书。
+- **Leader Peer** 主节点负责与排序节点通信，获取区块及在本组织进行同步。主节点的产生可以动态选举或者指定。
+- **Committer Peer** 记账节点对区块及区块交易进行验证，验证通过后将区块写入账本中。
+- **Anchor Peer** 锚节点主要负责与其他组织的锚节点进行通信。
+
+背书(Endorsement)是指特定 Peer 节点执行交易，并向生成交易提案的客户端应用程序返回 YES/NO 响应
+的过程。背书节点是动态的角色在链码实例化时设置背书策略(Endorsement policy)，指定哪些节点对交易
+背书才有效。只有在背书时是背书节点，其他时刻是普通节点。背书策略和 Channel 两个概念的引入，使得
+Hyperledger Fabric 区别于其它区块链应用，如 Ethereum or Bitcoin。
+
+
+在最基本的层面上，背书策略，是一组定义如何做出决策和取得具体成果的结构规则。为此，策略通常描述
+**谁**和**什么**。例如个人对**资产**的访问或权利。我们可以看到，政策在我们的日常生活中被用来保护
+对我们有价值的资产，包括汽车租赁、健康、住房等等。
+
+例如，保险单定义了保险支付的条件、条款、限额和到期日。保单由投保人和保险公司同意，并规定了各方的权利
+和责任。
+
+
+Fabric 当前有两种策略：
+
+1. **SignaturePolicy**: This policy type is the most powerful, and
+   specifies the policy as a combination of evaluation rules for MSP
+   Principals. It supports arbitrary combinations of *AND*, *OR*, and
+   *NOutOf*, allowing the construction of extremely powerful rules like:
+   "An admin of org A and 2 other admins, or 11 of 20 org admins".
+2. **ImplicitMetaPolicy**: This policy type is less flexible than
+   SignaturePolicy, and is only valid in the context of configuration.
+   It aggregates the result of evaluating policies deeper in the
+   configuration hierarchy, which are ultimately defined by
+   SignaturePolicies. It supports good default rules like "A majority of
+   the organization admin policies".
+
+Peer 节点上部署 chaincode，它对账本进行读写操作。Peer 节点可以充当多种角色，如背书者 endorser，
+提交者 committer。
+
+一个 Fabric 区块链网络中可以有一个或多个 Peer 节点，以及一个或多个 Orderer 节点。
+
+Orderer 排序节点们共同提供排序服务，排序服务以插件形式实现可插拔式共识。目前，已经提供多种共识选择，
+从一个中心化的服务，Solo，用于开发和测试，到分布式协议，如 Kafka。
+
+
+Fabric 引入了通道概念，一般情况下，一个 Fabric 区块链网路的子链结构为“1个通道+ 1个账本+ N个成员”。
+创建通道是为了限制信息传播的范围，和某一个账本关联，每个交易都和唯一的通道关联。这会明确地定义哪些实体，
+组织及其成员，会关注这个交易。
+
+设想一个标准的资产交换中的交易机制，该场景包含两个客户端 A 和 B，分别代表萝卜的买卖双方。他们在
+Fabric 网络上通过 peerA 和 peerB 节点来发送交易和与账本交互。
+
+- [Fabric 交易流程](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/txflow.html)
+- [商业票据 - 流程和数据设计](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/developapps/architecture.html)
+
+假设该流程中：
+
+- Fabric 网络已经设置了一个通道，并且该通道正常运行。
+- 应用程序的用户已经使用组织的 CA 注册和登记完成，并且拿到了用于在网络中用确认身份的加密材料。
+- 链码中的逻辑定义了萝卜的交易和定价规则，并且设置一个背书策略：每一笔交易都必须被 peerA 和 peerB 都签名。
+- 链码（包含了萝卜商店初始状态的键值对）已经安装在 Peer 节点上并在通道上完成了实例化。
+
+那么，当 A 客户发起一笔交易时，将按以下逻辑执行：
+
+1. A 客户发起交易 **Client A initiates a transaction**
+2. 验证签名并执行交易 **Endorsing peers verify signature & execute the transaction**
+3. 检查提案响应 **Proposal responses are inspected**
+4. 封装背书结果 **Target peer assembles endorsements into a transaction**
+5. 确认有效交易 **Transaction is validated and committed**
+6. 更新分布式账本  **Ledger updated**
+
+
+![Fabric 交易流程泳道图](https://hyperledger-fabric.readthedocs.io/en/release-1.4/_images/flow-4.png)
+<!-- fabric\docs\source\images\flow-4.png -->
+
+Fabric 交易流程图如图所示，复述以上交易过程如下：
+
+- A 客户端发起交易，SDK 构建交易提案（proposal）并发送给一个或多个背书节点。
+
+- 背书节点模拟执行交易及签名。
+
+    背书节点（endorser）收到交易提案后，验证签名并确定提交者是否有权执行操作。背书节点将交易提案
+    的参数作为输入，在当前状态 Key-Value 数据库上执行交易，生成包含执行返回值、读操作集和写操作集
+    的交易结果（此时不会更新账本）。交易结果集、背书节点的签名和背书结果（支持/拒绝）作为提案的结果
+    返回给客户端。
+
+    读写集：
+    对于交易 k 读取的每个密钥，将对 (k,s(k).version) 添加到 readset。
+    对于交易 k 修改为新值的每个键 v'，(k,v') 都会添加对 writeset。
+    请注意，背书在此步骤中不会更改其状态，由交易模拟生成的更新不会影响状态！
+
+- 客户端把交易发送到排序服务节点。
+
+    客户端收到背书（Endorser）节点返回的信息后，判断提案结果是否一致，以及是否参照指定的背书策略
+    执行，如果没有足够的背书，则中止处理；否则，A 客户端把数据打包到一起组成一个交易并签名，发送给
+    Orderers。
+
+- 排序节点进行共识排序，生成新区块，并发送给记账节点 (Committer) 节点确认交易。
+
+    Orderers 对接收到的交易进行共识排序，然后按照区块生成策略，将一批交易打包到一起，生成新的区块，
+    发送给记账节点验证生成区块中的每笔交易，检查交易依赖的输入输出是否符合当前区块链的状态，完成后
+    将区块追加到本地的区块链，并修改世界状态。
+
+
+
+## 👉 Fabric SDKs
+- [Fabric SDKs](https://wiki.hyperledger.org/display/fabric/Hyperledger+Fabric+SDKs)
+- [Fabric Node SDK 文档](https://hyperledger.github.io/fabric-sdk-node/)
+- [Fabric Java SDK 文档](https://hyperledger.github.io/fabric-gateway-java/)
+- [Fabric Client SDK for Go](https://github.com/hyperledger/fabric-sdk-go)
+- [Fabric SDK Node.js](https://github.com/hyperledger/fabric-sdk-node)
+- [Fabric SDK Java](https://github.com/hyperledger/fabric-gateway-java)
+- [Fabric SDK Py](https://github.com/hyperledger/fabric-sdk-py)
+
+
+
+# 🚩 ZooKeeper 分布式服务协调器
+- https://zookeeper.apache.org/doc/r3.5.5/zookeeperOver.html
+
+在微服务横行的当下，分布式算法也被大量应用于各种工具中，如 Java 平台中的 Spring Cloud 微服务
+工具包中的各种工具。
+
+其中 ZooKeeper 是一个开放源码的分布式应用程序协调服务，其本身提供中心化的服务，是 Google Chubby
+分布式的文件系统的一个开源实现，是 Hadoop 和 Hbase 的重要组件。它是一个为分布式应用提供一致性
+服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。
+
+    ZooKeeper: A Distributed Coordination Service for Distributed Applications
+
+Paxos 算法存在活锁的问题，即当有多个 proposer 交错提交时，有可能互相排斥导致没有一个 proposer
+能提交成功。
+
+而 ZooKeeper 以 Fast Paxos 算法为基础，它做了一些优化，通过选举产生一个 leader，只有它才能
+提交 proposer，具体算法可见 Fast Paxos。
+
+Zookeeper 中的角色：
+
+- 领导者 leader：负责进行投票的发起和决议，更新系统状态。
+- 跟随者 follower：用于接收客户端请求并给客户端返回结果，在选主过程中进行投票。
+- 观察者 observer：可以接受客户端连接，将写请求转发给 leader，但是 observer 不参加投票的过程，
+  只是为了扩展系统，提高读取的速度。
+
+Zookeeper设计目的
+
+- `最终一致性`：不论 Client 连接到哪个 Server，展示给它都是同一个视图，这是最重要的性能。 
+- `可靠性`：具有简单、健壮、良好的性能，如果消息被到一台服务器接受，那么它将被所有的服务器接受。 
+- `实时性`：保证客户端在一个间隔内获得服务器的更新、失效的信息，如果需要最新数据，应该在读数据之前调用 `sync()` 接口。
+- `等待无关` wait-free：慢的或者失效的 Client 请求不得干预快速的请求，使得每个 Client 都能有效的等待。 
+- `原子性`：更新只能成功或者失败，没有中间状态。 
+- `顺序性`：指如果在一台服务器上消息 a 在消息 b 前发布，则在所有 Server 上消息 a 都在消息 b 前被发布。
+
+Follower 角色主要有四个功能： 
+
+- 向 Leader 发送消息，PING、REQUEST、ACK、REVALIDATE；
+- 接收 Leader 消息并进行处理；
+- 接收 Client 的请求，如果为写请求，发送给 Leader 进行投票；
+- 返回 Client 结果。 
+
+
+Follower 的消息循环处理如下几种来自 Leader 的消息： 
+
+- `PING`： 心跳消息；
+- `PROPOSAL`：Leader 发起的提案，要求 Follower 投票；
+- `COMMIT`：服务器端最新一次提案的信息；
+- `UPTODATE`：表明同步完成；
+- `REVALIDATE`：根据 Leader 的 REVALIDATE 结果决定关闭待重新生效的 session 还是允许其接受消息；
+- `SYNC`：返回 SYNC 结果到客户端，这个消息最初由客户端发起，用来强制得到最新的更新。
+
+
+
+# 🚩 Apache Kafka 消息系统
+- [Apache Kafka](https://kafka.apache.org)
+- [Kafka 简介](https://www.cnblogs.com/qingyunzong/p/9004509.html)
+- [Kafka 入门一篇](https://zhuanlan.zhihu.com/p/74063251)
+- [Kafka 背景及架构介绍](https://www.infoq.cn/article/kafka-analysis-part-1)
+- [Kafka是怎么做到那么快？怎样高效读写数据？](https://juejin.cn/post/6974256806654640135)
+- [再过半小时，你就能明白kafka的工作原理了](https://zhuanlan.zhihu.com/p/68052232)
+
+
+Kafka 最初由 Linkedin 公司开发，是一个分布式、分区的、多副本的、多订阅者，基于 zookeeper 协调的
+分布式日志系统，常见可以用于 web/nginx 日志、访问日志，消息服务等等。Linkedin 于 2010 年将其
+贡献给了 Apache 基金会，并成为顶级开源项目。许多公司将它作为多种类型的数据管道和消息系统使用。
+
+Kafka 是一种分布式的，基于发布 / 订阅的消息系统。主要设计目标如下：
+
+01. 消息持久化实现时间复杂度为 O(1)，即使对 TB 级以上数据也能保证常数时间复杂度的访问性能。
+02. 高吞吐率。即使在非常廉价的商用机器上也能做到单机支持每秒 100K 条以上消息的传输。
+03. 支持服务器间消息分区，及分布式消费，同时保证每个 Partition 内的消息顺序传输。
+04. 同时支持离线数据处理和实时数据处理。
+05. Scale out：支持在线水平扩展。
+
+Kafka 读取特定消息的时间复杂度为 O(1)，即与文件大小无关，Kafka 为什么这么快，理由如下：
+
+01. Partition 并行处理。
+02. 顺序写磁盘，充分利用磁盘特性。
+03. 利用了现代操作系统分页存储 Page Cache 来利用内存提高 I/O 效率。
+04. 采用了零拷贝技术。
+05. 消息生产者持久化数据到 broker，采用 mmap 文件映射，实现顺序的快速写入。
+06. 消息消费者从 broker 读取数据，采用 sendfile 读取到 OS 内核缓冲区，NIO buffer 进行网络发送，减少 CPU 消耗。
+
+由于不同 Partition 可位于不同机器，因此可以充分利用集群优势，实现机器间的并行处理。另一方面，由于
+Partition 在物理上对应一个文件夹，即使多个 Partition 位于同一个节点，也可通过配置让同一节点上的
+不同 Partition 置于不同的磁盘上，从而实现磁盘间的并行处理，充分发挥多磁盘的优势。
+
+任何发布到 Partition 的消息都会被追加到 Partition 数据文件的尾部，这样的顺序写磁盘操作让 Kafka
+的效率非常高。经验证，顺序写磁盘效率比随机写内存还要高，这是 Kafka 高吞吐率的一个很重要的保证。
+
+Kafka 基础概念：
+
+- 概念一：客户端有两种基本类型：生产者（Producer）和消费者（Consumer）。
+- 概念二：主题（Topic）与分区（Partition）
+- 概念三：Broker 和集群（Cluster）
+- 概念四：多集群
+
+作为一个消息系统，消息的生成和消费是两种基本行为，生产者（发布者）创建消息，而消费者（订阅者）负责
+消费 or 读取消息。此外还有用来做数据集成的 Kafka Connect API 和流式处理的 Kafka Streams 等
+高阶客户端，但这些高阶客户端底层仍然是生产者和消费者 API，它们只不过是在上层做了封装。
+
+消息以主题（Topic）来分类，每一个主题都对应一个「消息队列」，这有点儿类似于数据库中的表。如果把所有
+同类的消息都塞入到一个“中心”队列中，势必缺少可伸缩性，无论是生产者/消费者数目的增加，还是消息数量
+的增加，都可能耗尽系统的性能或存储。
+
+一个 Kafka 服务器也称为 Broker，它接受生产者发送的消息并存入磁盘；Broker 同时服务消费者拉取
+分区消息的请求，返回目前已经提交的消息。使用特定的机器硬件，一个 Broker 每秒可以处理成千上万的
+分区和百万量级的消息。
+
+若干个 Broker 组成一个集群（Cluster），其中某一个会成为集群控制器（Cluster Controller），
+它负责管理集群，包括分配分区到 Broker、监控 Broker 故障等。集群内，一个分区由一个 Broker 负责，
+这个 Broker 也称为这个分区的 Leader；当然一个分区可以被复制到多个 Broker 上来实现冗余，当存在
+Broker 故障时可以将其分区重新分配到其他 Broker 来负责。
+
+随着业务发展，我们往往需要多集群，通常处于下面几个原因：
+
+01. 基于数据的隔离；
+02. 基于安全的隔离；
+03. 多数据中心（容灾）
+
+当构建多个数据中心时，往往需要实现消息互通。举个例子，假如用户修改了个人资料，那么后续的请求无论被
+哪个数据中心处理，这个更新需要反映出来。又或者，多个数据中心的数据需要汇总到一个总控中心来做数据分析。
+
+上面说的分区复制冗余机制只适用于同一个 Kafka 集群内部，对于多个 Kafka 集群消息同步可以使用 Kafka
+提供的 MirrorMaker 工具。本质上来说，MirrorMaker 只是一个 Kafka 消费者和生产者，并使用一个
+队列连接起来而已。它从一个集群中消费消息，然后往另一个集群生产消息。
+
 
 
 
@@ -1869,8 +2388,7 @@ Docker 映像由层组成，映像层从上到下列出，最早的层在顶部�
 
 
 
-
-## Go Docker 部署示例
+## 👉 Go Docker 部署示例
 - [Alpine 系统入门教程](https://www.cnblogs.com/yeqing112/p/10773500.html)
 - [Containerize an application](https://docs.docker.com/get-started/02_our_app/)
 - [Docker CLI (docker)](https://docs.docker.com/engine/reference/commandline/container_ls/)

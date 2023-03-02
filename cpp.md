@@ -121,55 +121,81 @@ C++ 进阶：
 - Design Patterns in Modern C++ Reusable Approaches for OO Software Design By Dmitri Nesteruk
 
 
-C Primer 和 C Primer plus 这是目前市场上，最适合自学的 C 语言书籍。你可以在书中找到所有 C 语言编程概念的详细解释。这本书为每一个单独的概念提供了简短的例子，帮助读者更好理解。比如，指针这一章节就体现了这个特点。指针章节是本书编写最出色的章节之一。指针用来标识内存中的具体位置并且存放相应内存地址。书中参照了最新的ANSI标准C99。对于初级程序员来说，本书对学习基本概念大有帮助。这些概念在其他语言（比如：PHP和JAVA中）也有所应用。
+C Primer 和 C Primer plus 这是目前市场上，最适合自学的 C 语言书籍。你可以在书中找到所有 C
+语言编程概念的详细解释。这本书为每一个单独的概念提供了简短的例子，帮助读者更好理解。比如，指针这
+一章节就体现了这个特点。指针章节是本书编写最出色的章节之一。指针用来标识内存中的具体位置并且存放
+相应内存地址。书中参照了最新的ANSI标准C99。对于初级程序员来说，本书对学习基本概念大有帮助。这些
+概念在其他语言（比如：PHP和JAVA中）也有所应用。
 
-《C专家编程》 你是准备进一步提高编程技巧的C语言专家吗？《C专家编程》就是为你准备的，它可以帮助程序员理解高级的C语言概念，强调程序员常用的一些最佳C语言技巧。这本书写得十分有趣，展现了作者在SUN系统（SUN SYSTEM）中的丰富经验。还定义了一些传统的编程方式，比如使用不同的声明方式。同时，还提供了很多实用的编程实践提示，比如，指针和数组之间的差别。
+《C专家编程》 你是准备进一步提高编程技巧的C语言专家吗？《C专家编程》就是为你准备的，它可以帮助程序员
+理解高级的 C 语言概念，强调程序员常用的一些最佳 C 语言技巧。这本书写得十分有趣，展现了作者在 SUN
+系统中的丰富经验。还定义了一些传统的编程方式，比如使用不同的声明方式。同时，还提供了很多实用的编程
+实践提示，比如，指针和数组之间的差别。
 
 《C和指针》
 
-本书通过对指针的基础知识和高级特性的探讨，帮助程序员把指针的强大功能融入到自己的程序中去。全书共18章，覆盖了数据、语句、操作符和表达式、指针、函数、数组、字符串、结构和联合等几乎所有重要的C编程话题。 适合C语言初学者和初级c程序员阅读，也可作为计算机专业学生学习C语言的参考。 　　
+本书通过对指针的基础知识和高级特性的探讨，帮助程序员把指针的强大功能融入到自己的程序中去。全书 18 章，
+覆盖了数据、语句、操作符和表达式、指针、函数、数组、字符串、结构和联合等几乎所有重要的C编程话题。 适合
+C 语言初学者阅读，也可作为计算机专业学生学习 C 语言的参考。 　　
 
 《你必须知道的495个C语言问题》
 
-本书以问答的形式组织内容，讨论了学习或使用C语言的过程中经常遇到的一些问题。书中列出了C用户经常问的400多个经典问题，涵盖了初始化、数组、指针、字符串、内存分配、库函数、C预处理器等各个方面的主题，并分别给出了解答，而且结合代码示例阐明要点。
+本书以问答的形式组织内容，讨论了学习或使用C语言的过程中经常遇到的一些问题。书中列出了C用户经常
+问的400多个经典问题，涵盖了初始化、数组、指针、字符串、内存分配、库函数、C预处理器等各个方面的主题，
+并分别给出了解答，而且结合代码示例阐明要点。
 
 本书结构清晰，讲解透彻，是各高校相关专业C语言课程很好的教学参考书，也是各层次C程序员的优秀实践指南。
 
 《Essential C++》 
 
-这是一本内容不多但很实用的C++入门书籍，强调快速上手与理解C++编程。本书主要围绕一系列逐渐复杂的程序问题，以及用以解决这些问题的语言特性展开讲解。你不只学到C++的函数和结构，也会学习到它们的设计目的和基本原理。
+这是一本内容不多但很实用的C++入门书籍，强调快速上手与理解C++编程。本书主要围绕一系列逐渐复杂的
+程序问题，以及用以解决这些问题的语言特性展开讲解。你不只学到C++的函数和结构，也会学习到它们的
+设计目的和基本原理。
 
 《C++ Primer》
 
-本书对C++基本概念、技术、以及现代C++编程风格进行了全面而且权威的阐述，是C++初学者的最佳指南；本书可以帮助你编写实用的程序，而无需首先精通每个语言细节。对于中高级程序员，本书也是不可或缺的参考书。
+本书对C++基本概念、技术、以及现代C++编程风格进行了全面而且权威的阐述，是C++初学者的最佳指南；
+本书可以帮助你编写实用的程序，而无需首先精通每个语言细节。对于中高级程序员，本书也是不可或缺
+的参考书。
 
 《Effective C++》和《More effective C++》
 
-作者Scott Meyers。你应该熟读它们，并清楚地理解每个项目。该书围绕55条准则，每一条都介绍了一个可让你写出更好的C++程序代码的方法，并以特别设计过的例子详加讨论。
+作者Scott Meyers。你应该熟读它们，并清楚地理解每个项目。该书围绕55条准则，每一条都介绍了一个可
+让你写出更好的C++程序代码的方法，并以特别设计过的例子详加讨论。
 
 《Exceptional C++（C++编程剖析）》和《More exceptional C++》
 
-这两本书中都包含了40个C++编程问题，这些问题会让你磨练自己的技能，最终成为优秀的C++程序员。这些问题是Herb Sutter精心挑选，与ISO/ANSI C++官方标准相一致，帮助程序员在设计、架构和编码过程中保持良好的风格，从而使编写的C++软件更健壮、更高效。
+这两本书中都包含了40个C++编程问题，这些问题会让你磨练自己的技能，最终成为优秀的C++程序员。这些
+问题是 Herb Sutter 精心挑选，与ISO/ANSI C++官方标准相一致，帮助程序员在设计、架构和编码过程
+中保持良好的风格，从而使编写的C++软件更健壮、更高效。
 
 《The C++ standard library（C++标准程序库）》
 
-这是标准模板库字典，你可以在本书中找到STL相关的一切知识。本书焦点放在标准模板库、检查容器、迭代器、函数对象和STL算法上。每一个元素都有深刻的呈现，包括其介绍、设计、运用实例、细节解说、陷阱、意想不到的危险，以及相关类别和函数等。
+这是标准模板库字典，你可以在本书中找到STL相关的一切知识。本书焦点放在标准模板库、检查容器、迭代器、
+函数对象和STL算法上。每一个元素都有深刻的呈现，包括其介绍、设计、运用实例、细节解说、陷阱、意想不到
+的危险，以及相关类别和函数等。
 
 《Effective STL》
 
-这是Scott Meyers的第三本C++专著，也是学习STL最权威的书籍。作者对书中的50个指导方针都作了详尽的分析，并配以示例。通过这些规则，C++开发者可以最大限度地使用STL。
+这是Scott Meyers的第三本C++专著，也是学习STL最权威的书籍。作者对书中的50个指导方针都作了详尽
+的分析，并配以示例。通过这些规则，C++开发者可以最大限度地使用STL。
 
 《Generic programming and the STL（泛型编程与STL）》
 
-本书阐述了泛型程序设计的核心理念：concepts（概念）、modeling（模型）和refinement（改善），并为你展示这些观念如何导出STL的基础概念：iterators（迭代器）、containers（容器）和function objects（函数对象）。按照本书所述，你可以把STL想象成一个由concepts组成的library，你将学习到STL正式结构并理解其强大的优势。
+本书阐述了泛型程序设计的核心理念：concepts（概念）、modeling（模型）和refinement（改善），
+并为你展示这些观念如何导出STL的基础概念：iterators（迭代器）、containers（容器）和 
+function objects（函数对象）。按照本书所述，你可以把STL想象成一个由concepts组成的library，
+你将学习到STL正式结构并理解其强大的优势。
 
 《Modern C++ design（现代C++设计）》
 
-作者Andrei Alexandrescu为C++程序员打开了一个新的局面。本书提供了一些针对软件设计的前沿方法，如联合设计模式、泛型编程，使程序员可以编写有表现力的、灵活的、高度可重用的代码。
+作者Andrei Alexandrescu为C++程序员打开了一个新的局面。本书提供了一些针对软件设计的前沿方法，
+如联合设计模式、泛型编程，使程序员可以编写有表现力的、灵活的、高度可重用的代码。
 
 《Inside the C++ object model（深度探索C++对象模型）》
 
-本书专注于C++面向对象程序设计的底层机制，包括结构式语意、临时性对象的生成、封装、继承，以及虚拟——虚拟函数和虚拟继承，帮助你理解程序的底层实现，以便写出更高效的代码。
+本书专注于C++面向对象程序设计的底层机制，包括结构式语意、临时性对象的生成、封装、继承，以及虚拟——
+虚拟函数和虚拟继承，帮助你理解程序的底层实现，以便写出更高效的代码。
 
 
 
@@ -177,6 +203,9 @@ C Primer 和 C Primer plus 这是目前市场上，最适合自学的 C 语言�
 # =🚩 Professional C++, 5th Edition
 - [Compiler support for C++20](https://en.cppreference.com/w/cpp/compiler_support/20)
 - [Professional C++, 5th Edition](https://www.wiley.com/en-us/Professional+C%2B%2B%2C+5th+Edition-p-9781119695400)
+- [Thriving in a Crowded and Changing World: C++ 2006–2020](https://www.stroustrup.com/hopl20main-p5-p-bfc9cd4--final.pdf)
+- ISO/IEC 14882:2011 Programming Language C++
+- ISO/IEC 14882:2020 Programming Language C++
 
 《C++20高级编程-第5版》经典，且内容丰富，不仅有 C++ 基础知识，也有很多 C++ 高级功能，特别是
 C++20 的新特性。目前介绍 C++ 基础知识的书籍很多，但介绍 C++20 新特性的书籍却不多，而既介绍
@@ -200,77 +229,139 @@ C++头 文件，附录 C 则简要介绍 UML。
 节选自《C++20高级编程(第5版) 》一书译者序
 
 这本书的第五版不是简单地在以前的版本上打个小补丁出来卖钱，而是彻底地根据 C++20 重写了。特别明显的，
-就是模块（module）的引入。作为 C++20 中最具革命性的新特性，你从最基本的 Hello World 程序就能
+就是模块（modules）的引入。作为 C++20 中最具革命性的新特性，你从最基本的 Hello World 程序就能
 看到跟传统的 C++ 程序的不同；而后面讨论较新特性的时候，也莫不如此，几乎处处都能看到这个新特性的影子。
 类似地，另外一些较新的 C++ 新特性（如 [[nodiscard]]、string_view 和结构化绑定），也较早得到介绍，
 并在书中多次出现。如果你新学 C++ 的话，这本书可以让你不带历史包袱地看到一门现代的高性能编程语言。如果你
 之前学过 C++ 的话，它也可以让你细细品味现代 C++ 带来的不同，特别是模块引入后对代码组织产生的巨大影响。
 
+作者 Marc Gregoire 是一名软件工程师，毕业于比利时鲁汶大学，拥有计算机科学工程硕士学位。之后，
+他在鲁汶大学又获得人工智能专业的优等硕士学位。完成学业后，他开始为软件咨询公司 Ordina Belgium
+工作。他曾在 Siemens 和 Nokia Siemens Networks 为大型电信运营商提供有关在 Solaris 上运行
+关键 2G 和 3G 软件的咨询服务。这份工作要求与来自南美、美国、欧洲、中东、非洲和亚洲的国际团队合作。
+Marc 目前担任 Nikon Metrology www.nikonmetrology.com 的软件架构师；Nikon Metrology
+是 Nikon 的一个部门，是精密光学仪器、X 光机等设备和 X 光、CT 和 3D 扫描解决方案的领先供应商。
+Marc 的主要技术专长是 C/C++，特别是 Microsoft VC++ 和 MFC 框架。他还擅长在 Windows 和
+Linux 平台上开发 24×7 运行的 C++ 程序，例如 KNX/EIB 家庭自动化监控软件。除了 C/C++ 之外，
+Marc 还喜欢 C#。
+
+2007年4月，他凭借 Visual C++ 方面的专业技能，获得了微软年度MVP称号。Marc 还是比利时 C++ 
+用户组 www.becpp.org 的创始人，是 C++ Standard Library Quick Reference 第 1、2 版
+的共同作者，以及多家出版社出版的多种书籍的技术编辑，是 C++ 大会 CppCon 的活跃演讲者。
+
+
+在 C++20 中，最重要的两个特性是“模块 (Modules)”和“协程 (Coroutine)”。
+
+据悉，模块（Modules）是由谷歌的 Richard Smith 提出的，它是针对头文件的改进，并在支持更大构建
+的同时有助于隔离宏的影响。
+
+正如 Sutter 最近指出的那样，C++20 标志着”大约 35 年来，C++ 首次添加了新特性，用户可以在其中
+定义命名的封装边界“。
+
+“到现在为止，我们有了三种这样的语言特性，让程序员可以（a）将一个用户定义的名称（b）给予某个隐藏
+自身实现的事物，从而创建自己“语言的力量”。它们是：变量（封装了当前值）、函数（封装代码和行为）和类
+（封装两者以同时提供一堆状态和函数）。”
+
+协程（Coroutine）则表示一个函数的泛化。C++ 协程的提案中解释说：“常规函数总是在起始处开始，然后
+在结束处退出，而协程还可以中止执行，之后在中断的位置继续执行。”
+
+
+History of Programming Languages (HOPL) 编程语言历史是 ACM（Association of Computing Machines）
+国际计算机协会旗下的一个会议，约每十五年举办一次。
+
+Thriving in a Crowded and Changing World: C++ 2006–2020 这篇是 Bjarne 为 2021 年
+HOPL IV 会议准备的论文，也是他的第三篇 HOPL 论文。
+
+在这三篇前后间隔近三十年的论文里，Bjarne 记录了 C++ 的完整历史，从 1979 年到 2020 年。
+这篇 HOPL4 论文尤其重要，因为它涵盖了 C++98 之后的所有 C++ 版本，从 C++11 直到 C++20。
+其它更早期的论文有：
+
+- 2007 年出版的 Evolving a Language in and for the Real World: C++ 1991–2006
+- 1994 年出版的 The Design and Evolution of C++
+
+Bjarne 认为 C++20 对整个 C++ 社群而言会有极大帮助的特性有两个：
+
+第一个特性是概念（Concepts），它是对范式编程中接口的精确规范，旨在提升范式编程的易行性与灵活性。
+因此，我们将看到更多的范式编程，代码呈现形式也将会有所变化。大家会获得更好的错误提示信息，并且可以
+更少地使用模板元编程。当然，编译速度也会更快。
+
+另一个重要新特性是模块（Modules）。如果使用它整理代码，我们可以将代码编译速度大为提高，比如说快 5
+倍以上，这一点非常重要。如此一来，大家就能够更迅速地完成编译而不需要在编译的间隙去喝咖啡打发时间了。
+同时，你也将消除更多的程序缺陷，因为你的代码将显得更加规整。
+
+
 
 PROFESSIONAL C++ 5th Edition
-INTRODUCTION xlvii
+
+INTRODUCTION                                                               xlvii
 
 ▸ PART I INTRODUCTION TO PROFESSIONAL C++
 
-    CHAPTER 1 A Crash Course in C++ and the Standard Library 3
-    CHAPTER 2 Working with Strings and String Views 87
-    CHAPTER 3 Coding with Style 111
+    CHAPTER 1  A Crash Course in C++ and the Standard Library              3
+    CHAPTER 2  Working with Strings and String Views                       87
+    CHAPTER 3  Coding with Style                                           111
 
 ▸ PART II PROFESSIONAL C++ SOFTWARE DESIGN
 
-    CHAPTER 4 Designing Professional C++ Programs 137
-    CHAPTER 5 Designing with Objects 169
-    CHAPTER 6 Designing for Reuse 187
+    CHAPTER 4  Designing Professional C++ Programs                         137
+    CHAPTER 5  Designing with Objects                                      169
+    CHAPTER 6  Designing for Reuse                                         187
 
 ▸ PART III C++ CODING THE PROFESSIONAL WAY
 
-    CHAPTER 7 Memory Management 211
-    CHAPTER 8 Gaining Proficiency with Classes and Objects 249
-    CHAPTER 9 Mastering Classes and Objects 283
-    CHAPTER 10 Discovering Inheritance Techniques 337
-    CHAPTER 11 Odds and Ends 397
-    CHAPTER 12 Writing Generic Code with Templates 421
-    CHAPTER 13 Demystifying C++ I/O 465
-    CHAPTER 14 Handling Errors 495
-    CHAPTER 15 Overloading C++ Operators 535
-    CHAPTER 16 Overview of the C++ Standard Library 573
-    CHAPTER 17 Understanding Iterators and the Ranges Library 603
-    CHAPTER 18 Standard Library Containers 627
+    CHAPTER 7  Memory Management                                           211
+    CHAPTER 8  Gaining Proficiency with Classes and Objects                249
+    CHAPTER 9  Mastering Classes and Objects                               283
+    CHAPTER 10 Discovering Inheritance Techniques                          337
+    CHAPTER 11 Odds and Ends                                               397
+    CHAPTER 12 Writing Generic Code with Templates                         421
+    CHAPTER 13 Demystifying C++ I/O                                        465
+    CHAPTER 14 Handling Errors                                             495
+    CHAPTER 15 Overloading C++ Operators                                   535
+    CHAPTER 16 Overview of the C++ Standard Library                        573
+    CHAPTER 17 Understanding Iterators and the Ranges Library              603
+    CHAPTER 18 Standard Library Containers                                 627
     CHAPTER 19 Function Pointers, Function Objects, and Lambda Expressions 699
-    CHAPTER 20 Mastering Standard Library Algorithms 725
-    CHAPTER 21 String Localization and Regular Expressions 763
-    CHAPTER 22 Date and Time Utilities 793
-    CHAPTER 23 Random Number Facilities 809
-    CHAPTER 24 Additional Library Utilities 821
+    CHAPTER 20 Mastering Standard Library Algorithms                       725
+    CHAPTER 21 String Localization and Regular Expressions                 763
+    CHAPTER 22 Date and Time Utilities                                     793
+    CHAPTER 23 Random Number Facilities                                    809
+    CHAPTER 24 Additional Library Utilities                                821
 
 ▸ PART IV MASTERING ADVANCED FEATURES OF C++
 
-    CHAPTER 25 Customizing and Extending the Standard Library 833
-    CHAPTER 26 Advanced Templates 877
-    CHAPTER 27 Multithreaded Programming with C++ 915
+    CHAPTER 25 Customizing and Extending the Standard Library              833
+    CHAPTER 26 Advanced Templates                                          877
+    CHAPTER 27 Multithreaded Programming with C++                          915
 
 ▸ PART V C++ SOFTWARE ENGINEERING
 
-    CHAPTER 28 Maximizing Software Engineering Methods 971
-    CHAPTER 29 Writing Efficient C++ 993
-    CHAPTER 30 Becoming Adept at Testing 1021
-    CHAPTER 31 Conquering Debugging 1045
-    CHAPTER 32 Incorporating Design Techniques and Frameworks 1083
-    CHAPTER 33 Applying Design Patterns 1105
-    CHAPTER 34 Developing Cross-Platform and Cross-Language Applications 1137
+    CHAPTER 28 Maximizing Software Engineering Methods                     971
+    CHAPTER 29 Writing Efficient C++                                       993
+    CHAPTER 30 Becoming Adept at Testing                                   1021
+    CHAPTER 31 Conquering Debugging                                        1045
+    CHAPTER 32 Incorporating Design Techniques and Frameworks              1083
+    CHAPTER 33 Applying Design Patterns                                    1105
+    CHAPTER 34 Developing Cross-Platform and Cross-Language Applications   1137
 
 ▸ PART VI APPENDICES
 
-    APPENDIX A C++ Interviews 1165
-    APPENDIX B Annotated Bibliography 1191
-    APPENDIX C Standard Library Header Files 1203
-    APPENDIX D Introduction to UML 1213
-    INDEX 1219
+    APPENDIX A C++ Interviews                                              1165
+    APPENDIX B Annotated Bibliography                                      1191
+    APPENDIX C Standard Library Header Files                               1203
+    APPENDIX D Introduction to UML                                         1213
+    INDEX                                                                  1219
 
 
-# =🚩 Hello World from C to C++
+# =🚩 Hello World from C to C++20
 - http://www.cplusplus.com/reference/cstdio/
 - http://www.cplusplus.com/reference/iostream/cout/
+- [MSYS2](https://www.msys2.org/docs/what-is-msys2/)
+- [Pacman Wiki](https://wiki.archlinux.org/title/Pacman)
+- [Pacman Base Packages](https://packages.msys2.org/base)
+- [Installing GCC](https://gcc.gnu.org/install/index.html)
+- [MinGW-w64](https://www.mingw-w64.org/downloads/)
+- [LLVM Project](https://github.com/llvm/llvm-project/releases)
 
 Hello World! for C
 
@@ -286,6 +377,7 @@ Hello World! for C++
 
     #include <iostream>
     #include <cstdio>  // C++ style for stdio.h
+
     using namespace std;
 
     int main(int argv, char **args)
@@ -294,11 +386,1456 @@ Hello World! for C++
         return 0;
     }
 
+模块化是 C++20 最重要的两个特性之一，另一个是协程 (Coroutine)。模块化引入可以解决从 C 语言中
+继承下来的 include 机制存在的问题：
+
+- 模糊的模块边界；
+- 循环处理导致编译效率低下；
+- 宏展开会导致符号污染，也就是命令空间污染问题；
+
+Hello World! for C++20
+
+    // MyProgram.cpp
+    ///////////////////////////////////////////////////////////////////////////
+    import Example;
+    // import std.core;   // require VS 2022
+    // import <iostream>; // require VS 2019
+    #include <iostream>   // this is alway ok
+
+    using namespace std;
+
+    int main()
+    {
+       cout << "The result of f() is " << Example_NS::f() << endl; // 42
+       // int i = Example_NS::f_internal(); // C2039
+       // int j = ANSWER; //C2065
+    }
+
+    // Example.ixx
+    ///////////////////////////////////////////////////////////////////////////
+    export module Example;
+
+    #define ANSWER 42
+
+    namespace Example_NS
+    {
+       int f_internal() {
+            return ANSWER;
+          }
+
+       export int f() {
+          return f_internal();
+       }
+    }
+
+从 C 开始，标准库头文件就使用 .h 文件，但是在 C++ 引入 Standard Library 并不需要指定扩展名。
+比如 <iostream> 以及其它标准库，都定义在 std namespace 或者子命名空间内。
+
+但是，C++ 依然为 C 标准库保留了两种形式，
+
+- 首先，是推荐使用的无扩展名的版本，如 <cstdio>，所有这些标准库都定义在 std 命名空间中。
+- 其次，是旧版本，像 C 语言中一样使用 .h 后缀扩展名，它们没有定义命名空间。
+
+比如，引入 <stdio.h> 这个标准库，它就是不使用 namespaces 特性的库。
+
+需要注意的是，C++20 的模块方式下，所有 C 标准库不保证可以通过 import 导入，为了安全起见，应该
+使用 include 导入指令，而不是 import 导入。
+
+
+要编译使用了 modules 特性的 C++ Hello World 是相当有门槛的，至少在目前阶段来说，大部分编译器
+没都没支持到模块化，即使用是最新的编译器，对 C++ 模块化支持也是部分功能的支持。
+
+GCC 12.2 和 Clang 13.0.0 都不支持 std::format 模块功能。或者更确切地说，他们的标准库实现
+不支持它。Clang 14.0.0 的 libc++ 或者 GCC 13 libstdc++ 支持，但仍标记为不完整的功能。
+
+目前标准库还未曾实现模块化，也就不能使用 import 导入标准库，否则报错：
+
+    cannot be imported because it is not known to be a header unit
+
+Standard Library Header Units 即标准库的标头单元，标头单元是头文件和 C++ 20 模块中间步骤。
+
+标头单元和头文件之间的一个重要区别是，标头单元不受标头单元之外的宏定义的影响。 也就是说，不能定义
+导致标头单元行为不同的预处理器符号，避免宏定义产生符号污染。导入标头单元时，就已经编译了标头单元。
+这与处理文件的方式 #include 不同。 包含的文件可能会受到头文件外部的宏定义的影响，因为在编译包含
+它的源文件时，头文件会经过预处理器。
+
+必须将头文件转换为标头单元，才能导入该头文件。GCC 使用 -x c++-system-header 参数生成标头单元，
+生成文件在 gcm.cache 目录下。模块引入要严格遵守 modules 之间的依赖关系，被依赖的一定要放在前面。
+
+但是，只要编译器还不支持 std::format()，就可以使用免费提供的 {fmt} 库作为替换。下载到 {fmt}
+库文件，将其中的 include/fmt 和 src 目录复制为项目中的 fmt 和 src 子目录。然后，根据需要
+引入 `fmt/core.h`, `fmt/format.h`, `fmt/format-inl.h`, `src/format.cc` 等等文件。
+
+- https://fmt.dev/ 
+- https://github.com/fmtlib/fmt
+- [C++ iostream 的用途与局限](https://www.cnblogs.com/Solstice/archive/2011/07/17/2108715.html)
+
+> C++ iostream 的主要作用是让初学者有一个方便的命令行输入输出试验环境，在真实的项目中很少用到 
+> iostream，因此不必把精力花在深究 iostream 的格式化与 manipulator。iostream 的设计初衷
+> 是提供一个可扩展的类型安全的 IO 机制，但是后来莫名其妙地加入了 locale 和 facet 等累赘。
+> 其整个设计复杂不堪，多重+虚拟继承的结构也很巴洛克，性能方面几无亮点。iostream 在实际项目中的
+> 用处非常有限，为此投入过多学习精力实在不值。
+
+C 语言的 stdio 库函数安全性问题比较严重，C99 增加了 snprintf() 等能够指定输出缓冲区大小的函数，
+输出方面的安全性问题已经得到解决；输入方面似乎没有太大进展，还要靠程序员自己动手。另外，扩展性不够，
+因为直接使用 FILE* 输入输出数据流，用户数据类型需要额外的处理。
+
+C++ 设计 iostream 的初衷包括克服 C stdio 的缺点，提供一个高效的可扩展的类型安全的 I/O 机制。
+“可扩展”有两层意思，一是可以扩展到用户自定义类型，而是通过继承 iostream 来定义自己的 stream，
+“类型可扩展”和“类型安全”都是通过函数重载来实现的，也解决了旧有的安全性(security)方面的问题。
+
+但是，C++ 添加了太多额外的功能，总想着考虑周全，这使得它变得非常沉重。其中一就是本地化功能，
+The Standard C++ Locale by Nathan C. Myers，所以在需要 I/O 性能优化的应用中慎用。
+
+参考第三 key-value db：
+
+- [Google leveldb](http://code.google.com/p/leveldb)
+- [Kyoto Cabinet](http://fallabs.com/kyotocabinet/)
+
+
+
+## ==⚡ GCC Clang & C++20
+- [Bjarne Cxx HOPL4 paper - C++20：方向之争](https://github.com/Cpp-Club/Cxx_HOPL4_zh/blob/main/09.md)
+- [P1103R3 Merging Modules](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1103r3.pdf)
+- [探索c++底层编译原理](https://www.cnblogs.com/zhangshinan/p/12971792.html)
+- [C/C++编译构建相关问题](https://www.cnblogs.com/hongyugao/p/15499494.html)
+- [Support for C++20 Modules](https://www.jetbrains.com/help/clion/support-for-c-20-modules.html)
+- [C++ 20 协程 concept ranges modules](https://www.bilibili.com/video/BV1kV411h78u/)
+- [C++20 modules with GCC11](https://blog.feabhas.com/2021/08/c20-modules-with-gcc11/)
+- [C++20 新特性: modules 及实现现状](https://zhuanlan.zhihu.com/p/350136757)
+- [Invoking GCC - 3.23 C++ Modules](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html)
+- [LLVM Project](https://github.com/llvm/llvm-project/releases)
+- [C Support in Clang](https://clang.llvm.org/c_status.html)
+- [C++ Support in Clang](https://clang.llvm.org/cxx_status.html)
+- [Clang 17 - Modules](https://clang.llvm.org/docs/Modules.html)
+- [Clang 17 - Standard C++ Modules](https://clang.llvm.org/docs/StandardCPlusPlusModules.html)
+- [Clang CLI reference](https://clang.llvm.org/docs/ClangCommandLineReference.html)
+
+C++ 作为向后兼容 C 语言的一种系统底层高级编程语言，它的编译流程也基本和 C 语言的编译流程一致。
+C 语言在贝尔实验室刚诞生时，由于当时的计算机资源相当有限，其内存无法完全表示大型源文件的语法树。
+所以，为了能够编译大型项目，Dennis Ritchie 采用了分开编译源文件，最后链接形成可执行文件的
+编译单元化思想，让大文件的编译成为可能。
+
+早期的 C 语言编译器也并不像现代的编译器做一个单独的可执行程序，Dennis Ritchie 为 PDP-11
+编写的 C 语言编译器由七个可执行文件组成：cc/cpp/as/ld/c0/c1/c2。编译的步骤为:
+
+01. 预编译：cpp 预处理器首先处理 #define，#Include 等指令，以及展开宏定义；
+02. 编译：cc c0 c1 c2 编译器将源代码转化汇编代码；
+03. 汇编：as 汇编程序将汇编代码转化为目标文件，并生成符号表，包括无定义的符号；
+04. 链接：ld 连接器将多个源文件链接成可执行文件，处理上一步留下的无定义符号链接问题；
+
+现在的编译器也很多是由单独功能的程序模块组成的编译工具链，如 GCC 编译器编译 C++ 程序分步骤流程：
+
+- 预处理： gcc -E
+- 编译： gcc -S
+- 汇编： gcc -c 
+- 链接： gcc -o 指定输出
+
+预处理程序 preprocessor 是 C++ 编程中相当重要的一个阶段，它相当于是一个代码生成器，通过宏定义
+的展开，可以实现复杂的程序结构。C++20 从头文件引用转换到模块引用，其中一个问题就是头文件的预处理。
+
+当下，Clang 作为一个优秀的编译器前端与 LLVM 编译器架构一起发扬光大，无论是对 C/C++ 规范的支持
+，编译速度，还是错误信息的友好度都是业界领先。无论是在工程，还是平时使用，Clang 都是一个可以作为
+第一选择的编译器。
+
+C/C++ Support in Clang
+
+|     Language Standard     |    Flag    |   Available in Clang?   |
+|---------------------------|------------|-------------------------|
+| C89                       | -std=c89   | Yes                     |
+| C99                       | -std=c99   | Almost certainly        |
+| C11                       | -std=c11   | Probably                |
+| C17                       | -std=c17   | Maybe?                  |
+| C2x                       | -std=c2x   | Partial                 |
+| C++98 / C++03             | -std=c++98 | Yes (other than export) |
+| C++11                     | -std=c++11 | Clang 3.3               |
+| C++14                     | -std=c++14 | Clang 3.4               |
+| C++17                     | -std=c++17 | Clang 5                 |
+| C++20                     | -std=c++20 | Partial                 |
+| C++2b (tentatively C++23) | -std=c++2b | Partial                 |
+
+C++20 是有史以来最大的 C++ 版本更新，但是不知什么原因它又没有完全完工，是疫情版完成了后续的工作，
+C++23 “Pandemic Edition” is complete。要使用最新的功能，需要 GCC 11 或 CLang 12 版本。
+GCC 10.9 开始基础运行库命名为 libc++，早期的版本则默认为 libstdc，可以按需要安装指定版本。
+
+虽然 C++20 开始引入模块化概念，但目前来说仍然不成熟，它需要解决的问题包含：
+
+01. **Rewrite the world’s code**: 不向后兼容（历史包袱）扔掉头文件就需要重写整个工业基础库。
+02. **Versioning**: 模块没有版本概念，开发者必须依赖语言底层的版本控制机制。
+03. **Namespaces**: 与某些语言不同，模块并不暗示任何命名空间的概念，不同模块存在同名冲突。
+04. **Binary distribution of modules**: 头文件，特别是 C++ 的头文件暴露了语言的全部复杂性。
+    在体系结构、编译器版本和供应商之间，在技术上保持稳定的二进制模块格式不可行。
+
+C++20 Modules 编译器支持度：
+
+|           C++20 feature           |     GCC      |    Clang    |
+|-----------------------------------|--------------|-------------|
+| Modules  P1103R3                  | 11 (partial) | 8 (partial) |
+| Standard Library Modules  P2465R3 | -            | -            |
+
+或者使用 VS 2022，当然，VS 2019（MSVC 16.8）已经开始支持模块，安装“用于 v142 生成工具的
+ C++ 模块（实验性）”，即可以获得模块化的标准库。
+
+标头单元是头文件的二进制表示形式，各家编译器使用不同扩展名。标头单元文件是预编译内容的缓存文件，
+相当于编译出来的 object，链接的时候直接可用，比起头文件的嵌套处理快速多了。
+[P1838R0: Modules User-Facing Lexicon and File Extension](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2020/p1838r0.pdf)
+
+| Compilers  | HeaderUnits |              Notes              |     Module File Extension      |
+|------------|-------------|---------------------------------|--------------------------------|
+| Clang/LLvm | .pcm        | BMI - Binary Module Interface   | .cppm                          |
+| GCC        | .gcm        | CMI - Compiled Module Interface | .pcm .gcm .gcmu .gcms          |
+| MSVC       | .ifc        | IFC                             | .cpp .cppm .ixx .mpp .mxx .cmi |
+
+暂且将有点软的格式词库 Industry Foundation Class（IFC），其格式规范旨在定义一种用于在
+高抽象级别上描述 C++ 程序或程序片段语义的二进制格式，然后降为机器代码或类似代码。
+
+格式化工具库的支持目前只有 MSVC 16.10 完全支持，Clang 14 使用 -stdlib=libc++ 支持，相对
+落后一点的 GCC 12.2 还不支持：
+
+|                     C++20 feature                      | GCC |      Clang       |
+|--------------------------------------------------------|-----|------------------|
+| P2418R2 DR: non-const-formattable types to std::format |  13 | 15               |
+| P2216R3 DR: std::format() improvements                 |  13 | 14* (partial) 15 |
+| P0645R10 Text formatting                               |  13 | 14*              |
+
+- [Text formatting in C++ using libc++](https://blog.llvm.org/posts/2022-08-14-libc++-format/)
+- https://gcc.gnu.org/onlinedocs/libstdc++/manual/status.html#status.iso.2020
+- https://libcxx.llvm.org/Status/Cxx20.html
+- https://github.com/fmtlib/fmt
+
+而标准库模块化方面，GCC 和 Clang 都没有提供，VS 2019 16.10 版本以上则可以支持。
+
+Clang 15 支持规范标准：
+
+|          Flag          |                   Language Standard                    |
+|------------------------|--------------------------------------------------------|
+| 'c++98' or 'c++03'     | ISO C++ 1998 with amendments                           |
+| 'gnu++98' or 'gnu++03' | ISO C++ 1998 with amendments and GNU extensions        |
+| 'c++11'                | ISO C++ 2011 with amendments                           |
+| 'gnu++11'              | ISO C++ 2011 with amendments and GNU extensions        |
+| 'c++14'                | ISO C++ 2014 with amendments                           |
+| 'gnu++14'              | ISO C++ 2014 with amendments and GNU extensions        |
+| 'c++17'                | ISO C++ 2017 with amendments                           |
+| 'gnu++17'              | ISO C++ 2017 with amendments and GNU extensions        |
+| 'c++20'                | ISO C++ 2020 DIS                                       |
+| 'gnu++20'              | ISO C++ 2020 DIS with GNU extensions                   |
+| 'c++2b'                | Working draft for ISO C++ 2023 DIS                     |
+| 'gnu++2b'              | Working draft for ISO C++ 2023 DIS with GNU extensions |
+
+
+
+以下使用 Homebrew 安装的 clang version 15.0.7，以及 GCC 12.2.0。
+
+Clang 模块的一些定义规则：
+
+- 模块文件使用 .cppm 扩展名，不像 GCC 可以使用支持的多个扩展名；
+- 模块代码中以 `module;` 打头，但是 `export module` 语句要在 include 指令后面；
+- 使用 --precompile 指令预编译模块时，输出名称要和源文件名一致；
+
+模块定义以及测试参考如下，使用 Clang 编译时，一定要保存为 .cppm 文件。如果使用 GCC 编译，
+则宽松很多，保存为 .cc 或 .cxx .cpp 都是可以的，并且也不要求导出模块名称与文件名一致。不过，
+为了一致，还是保持一致的模块名与文件名为好。
+
+```C++
+    // hello.cppm
+    module;
+    export module hello;
+
+    #define ANSWER 20
+
+    namespace NS
+    {
+       int f_internal() {
+          return ANSWER;
+       }
+
+       export int f() {
+          return f_internal();
+       }
+    }
+
+    // hello.cpp
+    import HelloWorld;
+    #include <iostream>
+
+    using namespace std;
+
+    int main() {
+        cout << "Hello? c++" << NS::f() << endl;
+    }
+```
+
+Clang 编译命令参考，编译标头单元文件需要 Clang 15：
+
+```sh
+clang++ -std=c++20 --precompile ../hello.cppm -o hello.pcm
+clang++ -std=c++20 -fprebuilt-module-path=. hello.pcm ../hello.cpp -o Hello; ./Hello
+
+clang++ -std=c++20 -stdlib=libc++ -fprebuilt-module-path=. hello.pcm ../hello.cpp -o Hello; ./Hello
+clang++ -std=c++20 -stdlib=libc++ -fexperimental-library -ohello hello.cpp; ./hello
+
+clang++ -std=c++20 -xc++-user-header --precompile some.cppm -o iostream.pcm
+clang++ -std=c++20 -xc++-system-header --precompile iostream -o iostream.pcm
+
+clang++ -std=c++20 -fmodule-header foo.h -o foo.pcm
+clang++ -std=c++20 -fmodule-file=foo.pcm use.cpp
+
+clang++ -std=c++20 -fmodule-header=system -xc++-header iostream -o iostream.pcm
+clang++ -std=c++20 -fmodule-file=iostream.pcm use.cpp
+```
+
+因为当前 GCC 或 Clang 还未提供标准库模块化支持，导入标准库时，就需要手动编译标头单元文件。
+与用户定义的命名模块类似，使用 --precompile 编译标头单元文件生成 BMI，但是还需要额外指令，
+以下任选一种：
+
+- 通过 -xc++-system-header 或 -xc++-user-header 指定输入文件是头文件。
+- 通过 -fmodule-header={user,system} 选项为 .h 或 .hh 文件生成 BMI。
+
+默认值为 -fmodule-header=user，即相当于 MSVC 中使用 /headerUnit:quote 类似，按用户搜索
+路径定位标头文件。可以多次使用 -fmodule-file 以指定多个 BMI 文件。
+
+
+GCC 在文件扩展名上的设计选择是，不支持新的拓展名，只支持原有的 .cc, .cxx, .cpp 等等拓展名。
+目前 GCC 12.2 还没有提供 <format> 标准库，使用 {fmt} 库替代。
+
+GCC 编译命令参考，使用 PowerShell：
+
+```sh
+    # GCC 12.2.0
+    $cclv = "C:\mingw-w64\llvm-mingw-20220906-msvcrt-x86_64\bin\aarch64-w64-mingw32-g++.exe"
+    $cclu = "C:\mingw-w64\llvm-mingw-20220906-ucrt-x86_64\bin\aarch64-w64-mingw32-g++.exe"
+    $ccv = "C:\mingw-w64\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\bin\g++.exe"
+    $ccu = "C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin\g++.exe"
+    $env:Path += ";C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin;"
+
+    &$ccu -std=c++20 -fmodules-ts -xc++-system-header iostream  -xc++-system-header vector
+    &$ccu -std=c++20 -fmodules-ts ../hello.cc ../hello.cpp -o hello ; ./hello
+    
+    # GCC 11 surport to generates a gcm from header
+    # then you can use: import "header.h";
+    g++-12 -c -std=c++20 -fmodule-header header.h 
+
+    g++-12 -std=c++20 -fmodules-ts ../hello.cc ../hello.cpp -o hello ; ./hello
+```
+
+Windows 系统上，可以安装最新版本 MinGW-w64 编译工具以使用 GCC 12.2。Windows WSL 系统下
+可以使用 Homebrew 管理工具安装最新的 GCC 12。
+
+    $ which g++-12
+    ~/homebrew/bin/g++-12
+
+    $ strings /lib/x86_64-linux-gnu/libc.so.6 | grep GLIBC
+    ...
+    GLIBC_2.30
+    GLIBC_PRIVATE
+    GNU C Library (Ubuntu GLIBC 2.31-0ubuntu9.9) stable release version 2.31.
+
+但是，这个版本的 Link Time Optimization (LTO) 插件依赖更新的 GLIBC 2.33，没有更新到位
+就会导致链接失败。libLTO 插件作为 LLVM 的一部分，也是模块间优化 intermodular optimization， 
+一种用于代码链接阶段的优化技术。LTO 是优化代码的一系列编译器优化技术的集合，不同于其他的优化技术，
+LTO 聚焦于分析整个程序代码。
+
+    ~/homebrew/Cellar/gcc/12.2.0/libexec/gcc/x86_64-pc-linux-gnu/12/liblto_plugin.so: 
+    error loading plugin: 
+        /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.33' not found
+        (required by liblto_plugin.so)
+
+另外，新 DWARF 5 调试数据格式于 2017 年发布，以取代已有十年历史的 DWARF 4。DWARF 5 支持
+更好的数据压缩、各种性能改进、围绕优化代码的更好的调试处理，以及对 DWARF4 的其他增强。DWARF 5
+本身已经开发了五年，详细信息请参见 DWARFstd.org。但是新的技术就需要新的运行库依赖，这可能导致
+编译器工作失败的原因。
+
+GCC 支持 -gdwarf-5 开关来生成与 DWARF5 兼容的调试信息，但默认值仍然是 DWARF4，新的版本是
+“仅实验性的”。使用 readelf -w 可以查询文件中的所有 DWARF 信息区段。
+
+- [Introduction to the DWARF Debugging Format](https://dwarfstd.org/doc/Debugging%20using%20DWARF-2012.pdf)
+- [DWARF Debugging Information Format Version 5](https://dwarfstd.org/doc/DWARF5.pdf)
+
+WSL 软件仓库没有提供最新版，只好从源代码构建，根据网络速度选择下载 gz 或更大压缩率的 xz：
+
+    wget http://ftp.gnu.org/gnu/libc/glibc-2.33.tar.gz
+    wget http://ftp.gnu.org/gnu/libc/glibc-2.33.tar.xz
+    tar -vxzf glibc-2.33.tar.gz
+
+    mkdir ~/glibc-2.33-install
+    mkdir build 
+    cd build
+    ~/glibc-2.33/configure --prefix=~/glibc-2.33-install
+    make
+    make install
+
+Linux 系统安装软件的基本流程是：configure → make → make install。配置文件是一个可执行脚本，
+其中 -–prefix 选项是配置安装的路径，如果不配置该选项，默认安装行为如下：
+
+- 可执行文件放在 /usr/local/bin
+- 库文件放在 /usr/local/lib
+- 配置文件默认放在 /usr/local/etc
+- 其它的资源文件放在 /usr/local/share
+
+通过指定配置 -–prefix，可以把所有资源文件放在指定路径下，统一管理，此选项方便卸载软件或移植软件。
+
+- [LLVM Link Time Optimization: Design and Implementation](https://www.llvm.org/docs/LinkTimeOptimization.html)
+- [The GNU C Library (glibc)](https://www.gnu.org/software/libc/)
+
+GCC 上不能使用 fromat 标准库，可以使用 {fmt} 库，Professional C++ 5th 的入门教程中提供了
+一个头文件参考，只是引入了 {fmt} 的格式化函数、错误对象，以及格式化扩展接口。fmtlib 源代码中，
+src 目录包含的 fmt.cc 是一个全局模块，它引用了 C++ 标准库，也引用 {fmt} 库：
+
+```C++
+#pragma once
+#define FMT_HEADER_ONLY
+#include "fmt/format.h"
+namespace std
+{
+    using fmt::format;
+    using fmt::format_error;
+    using fmt::formatter;
+}
+```
+
+可以按前面提到的方法，将此头文件编译成标头单元，这样就只可以使用 import "fmt.h" 这样的方式使用。
+引入外部依赖时，需要乃至三个 GCC 参数，-I -L -l 分别添加头文件、库文件搜索目录，以及库文件引用。
+
+    g++ ../hello.cpp -Ipath/to/3rd/fmtlib/include
+    g++ -c -std=c++20 -fmodules-ts -fmodule-header ../fmt.h -I/fmtlib/include
+
+[{fmt} Format String Syntax 格式字符串语法参考](https://fmt.dev/latest/syntax.html)
+[{fmt} Formatting & Printing Library](https://hackingcpp.com/cpp/libs/fmt.html)
+
+    replacement_field ::=  "{" [arg_id] [":" (format_spec | chrono_format_spec)] "}"
+    arg_id            ::=  integer | identifier
+    integer           ::=  digit+
+    digit             ::=  "0"..."9"
+    identifier        ::=  id_start id_continue*
+    id_start          ::=  "a"..."z" | "A"..."Z" | "_"
+    id_continue       ::=  id_start | digit
+
+    format_spec ::=  [[fill]align][sign]["#"]["0"][width]["." precision]["L"][type]
+    fill        ::=  <a character other than '{' or '}'>
+    align       ::=  "<" | ">" | "^"
+    sign        ::=  "+" | "-" | " "
+    width       ::=  integer | "{" [arg_id] "}"
+    precision   ::=  integer | "{" [arg_id] "}"
+    type        ::=  "a" | "A" | "b" | "B" | "c" | "d" | "e" | "E" | "f" | "F" | "g" | "G" |
+                     "o" | "p" | "s" | "x" | "X"
+
+    chrono_format_spec ::=  [[fill]align][width]["." precision][chrono_specs]
+    chrono_specs       ::=  [chrono_specs] conversion_spec | chrono_specs literal_char
+    conversion_spec    ::=  "%" [modifier] chrono_type
+    literal_char       ::=  <a character other than '{', '}' or '%'>
+    modifier           ::=  "E" | "O"
+    chrono_type        ::=  "a" | "A" | "b" | "B" | "c" | "C" | "d" | "D" | "e" | "F" |
+                            "g" | "G" | "h" | "H" | "I" | "j" | "m" | "M" | "n" | "p" |
+                            "q" | "Q" | "r" | "R" | "S" | "t" | "T" | "u" | "U" | "V" |
+                            "w" | "W" | "x" | "X" | "y" | "Y" | "z" | "Z" | "%"
+
+std::format 格式化参考：
+
+```C++
+    std::format("Hello {} in C++{}", "std::format", 20);
+    // Hello std::format in C++20
+    std::format("{0:#08b}, {0:#08o}, {0:08}, {0:#08x}", 16);
+    // lower: 0b010000, 00000020, 00000016, 0x000010
+    std::format("{0:#08B}, {0:#08o}, {0:08}, {0:#08X}", 15);
+    // upper: 0B001111, 00000017, 00000015, 0X00000F
+    std::format("{:#<8} {:*>8} {:-^5}", "Hello", "world", '!');
+    // Align: Hello### ***world --!--
+
+    // to output the result to an arbitrary output iterator,
+    std::format_to(std::ostream_iterator<char>(std::cout, ""),
+        "Hello {} in C++{}\n", "std::format", 20);
+
+    // to determine the output size, len = 27
+    std::cout << std::formatted_size("Hello {} in C++{}\n", "std::format", 20);
+
+    // or limit the size of the output. got: "Hello std"
+    std::format_to(std::ostream_iterator<char>(std::cout, ""),
+        11, "Hello {} in C++{}\n", "std::format", 20);
+
+    // std::format is specified to produce a compilation error, 
+    // which is implemented in the library itself using C++20 consteval functions.
+    std::cout << std::format("{0:#08B}, {0:#08o}, {0:08}, {0:#08X}", "15");
+```
+
+扩展格式化接口，实现自定义类型格式化输出：
+
+```C++
+    #include <format>
+    #include <iostream>
+
+    enum class Color { R, G, B};
+
+    template <>
+    struct std::formatter<Color> : std::formatter<const char*> 
+    {
+      static constexpr const char* colors[] = { "red", "green", "blue" };
+
+      auto format(Color c, auto& ctx) const -> decltype(ctx.out())
+      {
+        using base = formatter<const char*>;
+        return base::format(colors[static_cast<int>(c)], ctx);
+      }
+    };
+
+    int main()
+    {
+      std::cout << std::format("Hello {} in C++{}", "std::format", 20) << std::endl;
+      std::cout<< std::format("{:#<9}\n{:#^9}\n{:#>9}\n", Color::R, Color::G, Color::B);
+    }
+```
+
+LLVM 子项目 libc++ 目前只支持类 Linux 平台，Windows 平台上只能借用 MSVC 或者 MingGW 提供
+的 C++ 运行库。官方文档表示 Clang 不是 MSVC 的替代品，而是补充。通过 -fuse-ld=<linker name>
+可以指定以下任何一种支持的链接程序：
+
+01. GNU ld
+02. GNU gold
+03. LLVM’s lld
+04. MSVC’s link.exe
+
+Link-time optimization 原生支持持链接期优化，使用 gold 时通过链接程序插件支持。
+
+Clang 支持以下两种 C++ standard library 实现，使用 -stdlib 参数的设置：
+
+01. LLVM’s libc++，此库旨在成为从 C++11 开始的 C++ 标准完整实现，-stdlib=libc++ 。
+02. GCC’s libstdc++，Clang 支持 libstdc++4.8.3 及更高版本，-stdlib=libstdc++。
+
+另外，Clang 版本需要和 Visual Sutio 版本匹配，版本不匹配会出现编译或链接问题。Visual Studio
+2022 安装包本身也提供了 Clang 15 编译器。如果已经手动下载安装了 LLVM Clang 14 则可以搭配
+VS 2019 使用，注意 x86 或者 x86_64 也对应，两者版本不匹配就会出现编译问题。
+
+    STL1000, "Unexpected compiler version, expected Clang 15.0.0 or newer."
+
+另外，-fprebuilt-module-path 目录设置为 . 可能引起无法打开当前目录的问题，需要指定绝对路径：
+
+    LINK : fatal error LNK1104: 无法打开文件“.”
+
+在 Windows 下使用 Powershell 执行编译命令时，可以会出现 clang 找不到基础运行库的问题。需要
+使用 Visual Studio 提供的运行时，使用 VC 环境脚本可以提供环境配置。需要注意，PowerShell 没有
+@call 这个指令。使用 cmd /k 调用脚本后，不会保留环境配置信息。只能进入 cmd 环境下执行编译命令。
+
+当然，可以使用 cmd /c 执行环境配置脚本后，将配置信息通过 SET 指令打印出来，再使用 PowerShell
+进行二次处理，也可以实现一定的自动配置功能，但这已经失去了方便使用的的原则。
+
+这就需要使用开发环境提供的一个专用模块 “Microsoft.VisualStudio.DevShell.dll”，用它来初始化
+PowerShell VC 编译环境。可以安装 Windows Terminal 终端工具，方便运行编译环境。
+
+```sh
+    # fatal error: 'iostream' file not found
+
+    # cmd /c vcvars32.bat > null 2>&1 && SET
+    
+    # Developer Command Prompt for VS 2019
+    cmd.exe /k "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=x64 -host_arch=x64
+    # Developer PowerShell for VS 2019
+    powershell.exe -NoExit -Command "&{Import-Module """C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"""; Enter-VsDevShell 40c012a9 -SkipAutomaticLocation -DevCmdArguments """-arch=x64 -host_arch=x64"""}"
+    powershell.exe -noe -c "&{Import-Module """C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"""; Enter-VsDevShell 40c012a9}"
+
+    # Developer Command Prompt for VS 2019
+    %comspec% /k "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat"
+    # Developer PowerShell for VS 2022
+    powershell.exe -noe -c "&{Import-Module """C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"""; Enter-VsDevShell d11e5b8c}"
+```
+
+命令行直接以新进程方式运行，如果要在 PowerShell 执行，就需要使用反引号对参数中的双引号进行转义。
+
+    powershell.exe -c "&{Import-Module `"`"`"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll`"`"`"; Enter-VsDevShell d11e5b8c}"
+
+以下是 Windows 系统，Visual Studio 2019 社区版，MinGW-w64 GCC 12.2 以及 LLVM Clang 14，
+等三大编译器的 Sublime 构建配置参考，MSVC 部分放在下一节内容：
+
+```json
+{
+    "env": {
+        "PATH": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\\bin;%PATH%",
+        "VS2019": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64",
+        "ccv": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\\bin\\g++.exe",
+        "ccu": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\\bin\\g++.exe",
+    },
+    "shell_cmd": "\"%ccv%\" --help || \"%ccu\" --help",
+    "file_regex": "^\\.?\\.?/?(.*?):([0-9]*):([0-9]*): (.+)",
+    "working_dir": "${file_path}",
+    "selector": "source.c++, source.c",
+    "encoding":"GBK",
+    "quiet": true,
+    "variants":[
+        {
+            "name":"G++ (-std=c++20) Active File",
+            "shell_cmd":"mkdir build || cd build && %ccu% -g -std=c++20 -fmodules-ts \"$file\" -o $file_base_name && ${file_base_name} && Echo done "
+        },
+        {
+            "name":"G++ (-std=c++20) Active Modules",
+            "shell_cmd":"mkdir build || cd build && %ccu% -g -std=c++20 -fmodules-ts ../*.cpp ../*.cc ../*.cxx -o $file_base_name && ${file_base_name} && Echo done "
+        },
+        {
+            "name":"Clang++ (-std=c++20) Active File",
+            "shell_cmd":"cmd /c \"%VS2019% && mkdir build || cd build && clang++ -g -std=c++20 \"$file\" -o $file_base_name.exe && ${file_base_name} && Echo done \" "
+        },
+        {
+            "name":"Clang++ (-std=c++20) Active Modules",
+            "shell_cmd":"cmd /c \"%VS2019% && mkdir build || cd build && powershell /c \"clang++ -std=c++20 --precompile (dir ../*.cppm); clang++ -g -std=c++20 -fprebuilt-module-path=\"$file_path/build\" (dir *.pcm) (dir ../*.cpp) -o $file_base_name.exe \" && ${file_base_name} && Echo done \" "
+        },
+    ]
+}
+```
+
+## ==⚡ MSVC & C++20
+
+Visual Studio 2019 默认没有支持 C++20，也未完全支持模块。编写和使用自己的模块通常效果很好，
+但导入标准库标头就不能做到开箱即用。VS 2019 16.8 版本才开始支持 P1103R3 Modules。
+
+首先，需要修改项目配置，启用 C++20 规范或草案，使用右键菜单设置项目属性：
+
+- C/C++ ➪ Language ➪ C++ Language Standard 
+    - ISO C++20 Standard (/std:c++20) 
+    - Preview - Features from the Latest C++ Working Draft (/std:c++latest)
+
+为了实现标准库可以作为模块导入，需要做一点标头单元的处理工作，将需要引用的标准库统一放置在一个
+全局头文件中，比如 HeaderUnits.h，它包含所有标准库的导入：
+
+```C++
+    // HeaderUnits.h
+    #pragma once
+    import <iostream>;
+    import <format>;
+    import <vector>;
+    import <optional>;
+    import <utility>;
+    // ...
+```
+
+Visual Studio 2019 项目的解决方案浏览器中，执行以下操作，通过右键设置 HeaderUnits.h 属性，
+在 Configuration Properties 面板中按以下步骤设置：
+
+- General ➪ Item Type  ➪  C/C++ Compiler 设置好并应用设置；
+- C/C++ ➪ Advanced ➪
+    - Compile as C++ Header Unit (/exportHeader)
+    - Compile as C++ Module Internal Partition (/internalPartition)
+
+经过以上设置，MSBuild 工程文件中会有相应更新：
+
+```xml
+  <ItemGroup>
+    <ClCompile Include="../modules/HeaderUnits.h">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsHeaderUnit</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsHeaderUnit</CompileAs>
+    </ClCompile>
+    <ClCompile Include="../modules/hello.cpp" />
+  </ItemGroup>
+```
+
+如果没出现相应的 C++ Header Unit 高级主编译选项，那么就需要更新到最新版本。标头单元编译功能需要
+Visual Studio 2019 version 16.10 以上版本支持，MSVC 编译器版本号为 19.29。
+
+然后，重新编译项目，/exportHeader (Create header units) 选项会让编译器生成标头单元文件。
+编译器会为标头单元生成相应的 IFC (.ifc) 文件，这里生成的是 HeaderUnits.h.ifc。
+
+标头单元**header unit**是头文件的二进制表示，MSVC 使用 .ifc 扩展名表示标头单元文件，以及
+编译好的命名模块 (.ixx, .cppm, .h, .hpp)。
+
+如果使用模块实现分区，也称为内部分区 Module Internal Partition，可以设置 /internalPartition。
+
+编译生成成标头单元文件后，使用 /headerUnit 来引用它，将标头单元文件与头文件关联起来：
+
+> **`/headerUnit`** *`header-filename`*=*`ifc-filename`*\
+> **`/headerUnit:quote`** \[*`header-filename`*=*`ifc-filename`*\]\
+> **`/headerUnit:angle`** \[*`header-filename`*=*`ifc-filename`*\]
+
+> **`/sourceDependencies-`**\
+> **`/sourceDependencies`** *filename*\
+> **`/sourceDependencies`** *directory*
+
+后缀 quote 和 angle 分别表示查找已编译的标头单元文件的两种规则，分别是按 `#include "file"`
+和 `#include <file>` 一样的规则查找。没有后缀则在当前目录下，或者按指定的 ifc 文件路径查找。
+
+MSVC 提供多个标头单元编译方法：
+
+01. Build a shared header unit project，使用一个静态库工程引用需要使用的标头单元，
+    这种方法可以更精细控制导入库的标头单元。
+    https://learn.microsoft.com/en-us/cpp/build/walkthrough-import-stl-header-units?view=msvc-160
+02. 将单个头文件编译为标头单元，即上面介绍的操作方法，适用于少量头文件的处理。
+    https://learn.microsoft.com/en-us/cpp/build/walkthrough-header-units?view=msvc-160#approach1
+03. Automatically scan for and build header units. 自动扫描头文件并编译标头单元，需要
+    对项目源代码做描述。项目需要做如下配置：
+    - All Configurations → C/C++ → General
+    - → Scan Sources for Module Dependencies (YES)
+    - → Translate Includes to Imports (/translateInclude)
+    https://learn.microsoft.com/en-us/cpp/build/walkthrough-header-units?view=msvc-160#approach2
+04. VS 2019 16.11 版本支持使用 /std:c++20 直接将 include 的头文件编译为标头单元而无需改动源代码。
+
+标头单元配置文件 header-units.json 有两个目的：
+
+- 在指定 /translateInclude 编译选项时用来确定那些头文件需要转译成标头单元。
+- 最小化复制符号以提高编译命令生成的吞吐量。
+
+
+为了查看 Visual Studio 编译过程的细节信息，可以打开选项设置为诊断输出模式：
+
+- Tools ➪ Options... ➪ Projects and Solutions ➪ Build And Run ➪ 
+    - MSBuild project build output verbosity ➪ Diagnostic
+
+或者使用 msbuild 命令进行构建，：
+
+    msbuild ..\msvc\demo.vcxproj -t:Rebuild -property:platform=x86
+
+编译标头单元的 MSVC 命令行就如以下那样使用了非常复杂的、繁多的参数，但是构建一个标头单元配置文件
+需要使用 /sourceDependencies:directives 编译指令，此指令需要在标头单元文件 .ifc 文件生成
+之前使用。
+
+然后，再使用一个名称类似的指令 /sourceDependencies，它会根据源代码级别依赖，将标准库头文件
+编译为标头单元，同时生成依赖信息文件，.ifc.d.json。
+
+得到标头单元文件后，再使用 /headerUnit 指令将其与源头文件或标准库文件关联起来，最后与程序源代码
+编译生成可执行程序。
+
+```sh
+    # VCToolsInstallDir
+    $VCDIR = "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133"
+    $iostream = $VCDIR+"\include\iostream"
+    $format = $VCDIR+"\include\format"
+
+    # gen header-units.json
+    CL.exe /nologo /c /std:c++20 /translateInclude /sourceDependencies:directives "Debug" /exportHeader ./HeaderUnits.h
+
+    CL.exe /nologo /c /EHsc /MDd /std:c++20 /sourceDependencies:directives "Debug\iostream.module.json" /exportHeader "$iostream"
+
+    CL.exe /nologo /c /EHsc /MDd /std:c++20 /sourceDependencies:directives "Debug\format.module.json" /exportHeader "$format"
+
+
+    # gen header units ifc files
+    CL.exe /nologo /c /EHsc /MDd /std:c++20 /ifcOutput "Debug\iostream.ifc" /sourceDependencies "Debug\iostream.ifc.d.json" /Fo"Debug\iostream.obj" /exportHeader "$iostream"
+
+    CL.exe /nologo /c /EHsc /MDd /std:c++20 /ifcOutput "Debug\format.ifc" /sourceDependencies "Debug\format.ifc.d.json" /Fo"Debug\format.obj" /exportHeader "$format"
+
+    CL.exe /nologo /c /headerUnit "$($VCDIR)\include\iostream=Debug\iostream.ifc" /headerUnit "$($VCDIR)\include\format=Debug\format.ifc" /EHsc /MDd /std:c++20 /ifcOutput "Debug\HeaderUnits.h.ifc" /Fo"Debug\HeaderUnits.h.obj" /sourceDependencies "Debug\HeaderUnits.h.ifc.d.json" /exportHeader  HeaderUnits.h
+
+    # Compile app and Link
+    CL.exe /nologo /headerUnit HeaderUnits.h=msvc\Debug\HeaderUnits.h.ifc /headerUnit "$($VCDIR)\include\iostream=Debug\iostream.ifc" /headerUnit "$($VCDIR)\include\format=Debug\format.ifc" /EHsc /MDd /std:c++20 ../modules/hello.cpp /Fo:"Debug\\"
+
+    # Or
+    CL.exe /nologo /c /headerUnit HeaderUnits.h=msvc\Debug\HeaderUnits.h.ifc /headerUnit "$($VCDIR)\include\iostream=Debug\iostream.ifc" /headerUnit "$($VCDIR)\include\format=Debug\format.ifc" /EHsc /MDd /std:c++20 ../modules/hello.cpp /Fo:"Debug\hello.obj"
+
+    link.exe /nologo /ERRORREPORT:QUEUE /OUT:"Debug\demo.exe" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /SUBSYSTEM:CONSOLE Debug\hello.obj
+```
+
+很遗憾的是，按编译流程日志执行，最后链接时会出现 LNK2019 外部符号无定义的问题，即导入库失败：
+
+    std::char_traits<char> >::sentry::sentry()
+    std::char_traits<char> >::sentry::~sentry(void)
+    std::basic_ostream<char,struct std::char_traits<char> >::sentry::operator bool(void)
+    std::_Container_base12::_Orphan_all(void)
+    std::_Adjust_manually_vector_aligned()
+    std::vformat()
+    std::_Format_arg_index()
+    std::_Format_arg_index::_Type()
+
+
+C++23 标准库引入了两个命名模块 std 和 std.compat：
+
+01. `std` 导出 C++ standard library 命令空间，包含 std::vector、std::sort 等等，
+    同时也包含 C 语言的 <cstdio> 或 <cstdlib> 等标准库，提供 std::printf() 等全局空间函数，
+    此外，还支持 stdio.h 这样的头文件包含的 C 全局命名空间的函数；
+02. `std.compat` 导出导出 std 中的所有内容，并添加 C 运行时的全局名称空间对应项，例如 
+    :printf, ::fopen, ::size_t, ::strlen 等等。此模块引用 C 运行时全局名称空间中的函数、
+    类型的代码库更加容易。
+
+
+Visual Studio 2022 17.5 开始，可以通过 import std 或 std.compat 导入 C++23 标准库，
+命令参考如下，先编译命名模块等到标头单元文件，然后在程序代码中导入并使用标准库：
+
+    cl /std:c++latest /EHsc /nologo /W4 /MTd /c "$($env:VCToolsInstallDir)\modules\std.ixx" "$($env:VCToolsInstallDir)\modules\std.compat.ixx"
+    cl /std:c++latest /EHsc /nologo /W4 /MTd importExample.cpp std.obj
+
+```C++
+    // requires /std:c++latest (Visual Studio 2022 17.5)
+
+    import std;
+    import std.compat;
+
+    int main()
+    {
+        std::cout << "Import the STL library for best performance\n";
+        std::vector<int> v{5, 5, 5};
+        for (const auto& e : v)
+        {
+            std::cout << e;
+        }
+    }
+```
+
+MSVC 编译工具参考说明，/EHsc 和 /MTd 这两个很重要，它们决定了会链接什么动态运行库：
+
+|     Switch     |                        Meaning                        |
+|----------------|-------------------------------------------------------|
+| /std:c++latest | latest C++ language standard and library.             |
+| /std:c++20     | C++20 language standard and library.                  |
+| /EHsc          | 使用 C++ 异常处理，除了 extern "C" 标记以外。               |
+| /MTd           | Use the static multithreaded debug run-time library.  |
+| /MDd           | Use the dynamic multithreaded debug run-time library. |
+| /c             | Compile without linking.                              |
+| /link          | 给 LINK.EXE 传递参数                                    |
+| /translateInclude | Translate Includes to Imports                      |
+| /scanDependencies | List module dependencies in standard form          |
+| /sourceDependencies | List all source-level dependencies               |
+| /sourceDependencies:directives | List module and header unit dependencies |
+
+
+通过 Sublime 构建工具调用 MSVC 编译 C++20 程序，配置参考如下：
+
+```json
+{
+    "env": {
+        "msvc19":"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat",
+        "msvc22":"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat",
+        "VCToolsInstallDir": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.35.32215\\",
+        "cc20":"cl /std:c++20 /EHsc /MTd",
+        "ccla":"cl /std:c++latest /W4 /EHsc /MTd",
+    },
+    "shell_cmd": "cmd /c \"\"%msvc19%\" && \"%msvc22%\"\"",
+    "file_regex": "^(...*?)\\(([0-9]*)\\):([0-9]*)",
+    "working_dir": "${file_path}",
+    "selector": "source.c++, source.c, source.ixx",
+    "encoding":"GBK",
+    "quiet": true,
+    "variants":[
+        { "name":"Visual Studio 2019", "shell_cmd": "cmd /c \"\"%msvc19%\" && cl /help\"" },
+        { "name":"Visual Studio 2022", "shell_cmd": "cmd /c \"\"%msvc22%\" && cl /help\"" },
+        {
+            "name":"MSVC v16.x (/std:c++20) ACTIVE FILE",
+            "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build || cd build && %cc20% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
+        },
+        {
+            "name":"MSVC v16.x (/std:c++latest) ACTIVE FILE",
+            "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build || cd build && %ccla% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
+        },
+        {
+            "name":"MSVC v16.x (/std:c++20)",
+            "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build || cd build && %cc20% ..\\*.cpp ..\\*.ixx /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
+        },
+        {
+            "name":"MSVC v17.x (/std:c++20) ACTIVE FILE",
+            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %cc20% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
+        },
+        {
+            "name":"MSVC v17.x (/std:c++latest) ACTIVE FILE",
+            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %ccla% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
+        },
+        {
+            "name":"MSVC v17.x (/std:c++latest)",
+            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %ccla% ..\\*.cpp ..\\*.ixx /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
+        },
+        {
+            "name":"MSVC v17.x (build named module: std & std.compat)",
+            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %ccla% /c \"%VCToolsInstallDir%\\modules\\std.ixx\" \"%VCToolsInstallDir%\\modules\\std.compat.ixx\"\" && echo Done"
+        },
+    ]
+}
+```
+
+01. https://learn.microsoft.com/en-us/cpp/build/walkthrough-header-units
+02. https://learn.microsoft.com/en-us/cpp/cpp/tutorial-import-stl-named-module
+03. https://learn.microsoft.com/en-us/cpp/cpp/tutorial-named-modules-cpp
+04. https://learn.microsoft.com/en-us/cpp/preprocessor/predefined-macros
+05. https://docs.microsoft.com/en-us/cpp/overview/visual-cpp-language-conformance
+06. https://learn.microsoft.com/en-us/visualstudio/releases/2019/release-notes
+07. [/exportHeader](https://learn.microsoft.com/en-us/cpp/build/reference/module-exportheader)
+08. [/headerUnit](https://learn.microsoft.com/en-us/cpp/build/reference/headerunit)
+09. [/headerName](https://learn.microsoft.com/en-us/cpp/build/reference/headername)
+10. [Overview of modules in C++](https://learn.microsoft.com/en-us/cpp/cpp/modules-cpp)
+11. [Visual C++ 中生成和导入标头单元](https://learn.microsoft.com/zh-cn/cpp/build/walkthrough-header-units)
+12. [Microsoft C++ Docs](https://github.com/MicrosoftDocs/cpp-docs/)
+13. [WSL](https://github.com/Microsoft/WSL/)
+14. [Windows Console](https://github.com/Microsoft/Terminal/)
+15. [Hyper-V](https://github.com/MicrosoftDocs/Virtualization-Documentation)
+16. [Windows Terminal](https://github.com/Microsoft/Terminal/)
+17. https://github.com/sirredbeard/Awesome-WSL
+
+
+
+
+# =🚩 Declarations & Definitions 声明、初始化
+- 前端要以正确的姿势学习编译原理(https://zhuanlan.zhihu.com/p/36301857)
+- [AST Explorer 抽象语法树浏览器](https://astexplorer.net/)
+- [编程语言关系网](http://programming-languages.herokuapp.com/)
+- https://en.cppreference.com/w/cpp/types/is_pod
+- https://github.com/PeterFeicht/cppreference-doc
+- https://github.com/myfreeer/cppreference2mshelp/releases
+- https://github.com/crea7or/cppreference2mshelp/blob/master/cppreference.chm
+- https://winworldpc.com/product/visual-c/5x#Microsoft_Visual_Studio_97_(5.x)
+
+介绍一个好用的 C++ 参考网站，不是 cplusplus.com 而是 cppreference.com，这个站点查询库函数
+和一些示例很方便，包含标准 C++98、C++03、C++11、C++14、C++17、C++20 特性的介绍，也提供离线版本，
+网站已经被打包成 chm 下载，有中英文齐全。
+
+## ==⚡ Declarations 声明与内存空间联系
+
+声明 Declarations 就是告诉编译器准备一个内存用于存放声明指定类型的数据，编译准备好内存空间后还
+需要代码对这块内容进行初始化。 定义 Definitions 这个词一般用在类上，实现类的过程就是在定义类，
+有定义的类就可以通过声明类对象来使用它。对于内置基础数据类型，如 char、int、long、float 等等。
+编译所准备的内存空间就是用来存放相应的数据。而对于类对象，编译所准备的这块内存空间则是用来存放指针，
+指针所指的内存地址才是类的数据结构实际的存放空间。如果没有初始化，基础数据类型变量的值是不可以预测的，
+类对象指针所指也一样不可预测。
+
+在计算机硬件体系层面上，编译器可以选择将数据存放到内存 Memory 或CPU内部的寄存器 Register，现代
+的的编译器会自动优化将重度使用的数据存放到寄存器中。在系统软件基础层面上，数据存放可以是在堆或栈内。
+
+Heap & Stack，堆和栈是两个特殊的内存空间，stack 栈内存用于函数参数或局部变量的内存分配。
+Heap 则主要用在动态内存分配上，通过 C 语言的动态内存分配函数管理，主要有 malloc、calloc、free 等，
+C++ 相应有 new,delete 操作符。存放空间的不同决定了数据在程序运行时的存活周期，因此这也称之为
+存储期 Storage duration，总体上有以下几种：
+
+    automatic   - 自动存储期，如代码块变量，在代码块开始时有效结束时就被销毁。不含 static, extern, thread_local 声明。
+    static      - 静态存储期，整个程序运行期都有效，直到结束程序，并且在整个程序中只一个份数据。 static 或 extern 声明。
+    thread      - 线程存储期，整个程序子线程内有效，直到线程结束，数据也只有一份。通过 thread_local 结合 static，extern 声明。 (since C++11) 
+    dynamic     - 动态存储期，在C语言中也叫 allocated，由代码进行操作，通过内存管理函数管理或 new, delete 操作。
+
+要指定存储类型，需要在声明变量时相应使用以下关键字，寄存器方式在新的编译器已经废弃不再使用了，auto 是默认的方式，在C++11也有。
+
+    auto            - automatic 存储期 (until C++11) 默认声明方式
+    register        - automatic 存储期 (deprecated) (until C++17) 块作用域中使用，如函数参数
+    static          - static 存储期 / thread 存储期 / internal linkage 
+    extern          - static 存储期 / thread 存储期 / external linkage 
+    thread_local    - thread 存储期 (since C++11) C11 标准使用 _Thread_local
+
+关于链接方式 linkage，编译器编译时是分单元进行编译的，可以简单理解为一个源代码文件就是一个单元，
+对那些在相同作用域下标识符，不需要进行链接 no linkage，程序就可以正确使用。对于那些需要在当前
+作用域外，在当前编译单元内的标识符，如 static 函数及变量，编译需要进行内部链接 internal linkage
+才能使用标识符被程序正确使用。对于引用自其它单元的标识符，如引用其它文件的 non-static 变量，
+或 extern 声明变量，编译器需要做外部链接 external linkage。
+
+不指定存储期的声明情况下，默认以 auto 方法声明块作用内的变量或对象标识符，以 extern 声明函数，
+以 extern 声明文件作用域内的对象。
+
+声明标识符后，一般接着就介初始化过程，内置类型的初始化较简单，用变量或字面常量进行初始化都是可以的，
+甚至不初始化也是没有强制要求的，只是声明引用时强制要求初始化。
+
+## ==⚡ Initialization 初始化的细节
+
+C++ 初始化是个复杂的过程，局部静态变量会在代码块执行时初始化，非局部变量 Non-local variables
+涉及到：
+
+- 编译器编译时进行的静态初始化 Static initialization，包含：
+    - 零值初始化 Zero initialization
+    - 常量初始化 Constant initialization
+- 完成静态初始化后，再继续执行程序，进行动态初始化 Dynamic initialization，又细分三种情况。 
+    - 一种是无序的 Unordered，主要针对没有显式异化的 explicitly specialized 静态模板
+      数据成员及模板变量 variable templates (since C++14)，这类初始化顺序是不可测的。
+    - 另一种是偏序化 Partially-ordered，先定义先初始化。
+    - 除此外就是有序的 Ordered dynamicc initialization。
+
+另外在动态初始化之前，还可能做一些编译期不能完成的静态初始化。
+
+关于偏序化，举个例子，现有以下 A,B,C,D 四种异化模板函数，细化度依次增加，那么给 fun 传入一个
+整形指针，会执行哪个异化模板函数呢？
+
+    #include <iostream>
+
+    template<class T> void fun(T i){ std::cout << "fun 1" << std::endl; }           // A
+    template<class T> void fun(T *i){ std::cout << "fun 2" << std::endl; }          // B
+    template<       > void fun(int *i){ std::cout << "fun 3" << std::endl; }        // C
+    template<       > void fun(const int *i){ std::cout << "fun 4" << std::endl; }  // D
+
+    int main()
+    {
+        int *i = 0;
+        fun(i); // fun 3
+    }
+
+因重载导致调用模糊不清的情况，编译器会根据细化程序来选择最适合的一个，这个选择过程就是偏序化。
+这里没有选择细化度最高的 D 是因为整形指针需要做隐式转换到整形常量指针，这个优先级别比其它的
+选择更低。而如果将 C 的定义提到 B 前面，编译器则会选择执行 B 。
+
+早期 C++ 不能在类中，在定义数据成员时直接对其初始化，而是通过构造函数进行初始化。但是 C++11 
+标准下能这样写了，虽然在一定程度上这样写破坏了类的抽象性，但是却能带来一定的便利。但这也是抽象
+出来共有的属性啊，并且这样写后也可以通过构造函数中初始化的值会覆盖掉声明时初始化的值。
+
+类对象的初始化就比较复杂，初始化可以在声明语句中发生，也可以在构造函数的成员初始化列表 根据对象
+类型结构差异的不同大体分为以下几种情况，只有在对象没有相应的初始化功能时去执行默认初始化：
+
+    * 值初始化   Value initialization (C++03) std::string s{}; 
+    * 拷贝初始化 Copy initialization          std::string s = "hello"; 
+    * 直接初始化 Direct initialization        std::string s("hello"); 
+    * 列表初始化 List initialization (C++11)  std::string s{'a', 'b', 'c'}; 
+    * 聚集初始化 Aggregate initialization     char a[3] = {'a', 'b'}; 
+    * 引用初始化 Reference initialization     char& c = a[0]; 
+
+前面提到的零值初始化有多种情况，如值初始化数据为零值的特殊情况，聚集初始化数据为零的特殊情况。
+没有常量初始化的静态变量会预先零值初始化。
+
+    static T object ;
+    char array [ n ] = "";
+    T () ; 
+    T t = {} ;
+    T {} ; (since C++11) extended initializer lists
+
+默认初始化 Default initialization 发生在 automatic, static, thread-local 存储期
+声明并且没有指定初始化的情况，包含使用 new 带空圆括号或不带圆括号的情况。基类或者非静态数据成员
+没有出现在构造器初始化列表中也会进行默认初始化。
+
+    T object;
+    new T; (until c++03)
+    new T (); (until c++03)
+
+拷贝初始化 Copy initialization 就是通过拷贝现有对象的数据来实现的。
+第(3) (4)组分别指函数调用时和返回时会进行的拷贝初始化，因为是传值，对象传入函数时是传入的拷贝，
+返回时局部对象 orther会被销毁。
+第(5)组是异常处理中抛出异常以及捕捉异常时发生的拷贝初始化。
+第(6)组是将对象拷贝一组副本初始化对象数组，这种方式也是聚集初始化的一种特殊列子。
+
+    T object = other;     (1)  
+    T object = {other} ;  (2) (until C++11) 
+    f(other)              (3)
+    return other;         (4)
+
+    throw object; 
+    catch (T object)      (5)
+    
+    T array[N] = {other}; (6)
+
+直接初始化 Direct initialization 则直接提供初始参数，形式如下，
+第(3),(4)组分别是 functional cast 和 static cast 转型纯右值 prvalue 后的初始化，
+第(5)组是 new 动态初始化形式，
+第(6)组提到的是构造函数初始化列表的形式，
+第(7)组是C++11中实现的闭包 lambda 形式，[arg] 称为变量捕获列表，这里只是拷贝变量 arg：
+
+    T object ( arg ); 
+    T object ( arg1, arg2, ... ); (1)
+
+    T object { arg }; 
+    T object { arg1, arg2, ... }; (2) (since C++11) 
+     
+    T ( other ) 
+    T ( arg1, arg2, ... );        (3)
+    
+    static_cast< T >( other )     (4)
+    new T(args, ...)              (5)
+    Class::Class() : member(args, ...) {... (6)  
+    [arg](){...                   (7) (since C++11)
+
+聚集初始化 Aggregate initialization 也可以叫花括号列表初始化 braced-init-list。
+所谓聚集 Aggregate 就是指数组或者是 class,struct,union 类型，
+但不能有 private 或 protected 的非静态成员，
+也不能有 virtual, private, protected 继承，
+也不能有虚成员函数，
+也不能有默认成员初始化即定义成员同时进行初始化的情况，
+也不能有用户定义的构造器，
+继承的也不可以，编译提供的默认构造器和析构函数除外。
+所以聚集初始化中 T 和花括号部分都要满足聚集数据类型条件。
+
+    T object = {arg1, arg2, ...}; (1)
+    T object {arg1, arg2, ...};   (2) (since C++11) 
+
+值初始化 Value initialization 使用空初始值 empty initializer 来初始化变量，默认构造函数
+会被调用，如果定义了用户构造函数那么默认构造函数也要一并定义。
+
+注意 T object(); 这种表达，比默认初始化 T object; 多了圆括号，这并不是初始化，而是构造函数
+调用返回一个 T 实例对象。在 C++11 标准前，正确的表达应该是 T object = T(); 这样的表达方式，
+先是值初始化一个临时对象，然后再执行拷贝初始化 object，大多数编译器都会优化这种情况。
+
+    T();            (1)  
+    new T ();       (2)
+    Class::Class(...) : member() { ... } (3)  
+    T object {};    (4) (since C++11) 
+    T{};            (5) (since C++11) 
+    new T {};       (6) (since C++11) 
+    Class::Class(...) : member{} { ... } (7) (since C++11) 
+
+新的 C++ 为基础数据类型提供了初始化函数，所以以下这样的写法是可以的：
+
+    int a (1);
+    int a = int (2);
+
+
+# =🚩 const 的用法
+
+C++ 中 const 关键字用来告诉编译器一个常量信息，不允许修改，但是具体用法不同，意义有多种区别。
+
+- 可以定义常量，具有不可变性。可以节省空间，避免不必要的内存分配。
+
+    编译器通常不为普通 const 常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译
+    期间的常量，没有了存储与读内存的操作，使得它的效率也很高。
+
+    所以 Effective C++ & More Effective C++ 书中提到 Use const whenever possible 
+    尽可能使用 const！
+
+        // 定义常量，Pi 不是变量，值不可修改
+        const doulbe Pi=3.14159;
+
+        // const pointer, const data
+        const char * const p = "Hello";
+
+    const 定义常量从汇编的角度来看，只是给出了对应的内存地址，而不像 #define 给出的是立即数。
+    所以，const 定义的常量在程序运行过程中只有一份拷贝，而 #define 定义的常量在内存中有若干
+    个拷贝。
+
+- 为函数重载提供了一个参考，const 修饰符定义常成员可以作为重载参考。
+
+        class A
+        {
+            void f(int i);
+            void f(int i) const;
+        };
+
+    定义 non-mutable 成员函数或叫做常成员函数，不改变对象的成员变量. 也不能调用类中任何非 
+    const 成员函数。对于 const 类对象/指针/引用，也只能调用类的 const 成员函数。
+
+- 便于进行类型检查，给编译器提供信息，消除了一些隐患。保护数据，防止意外修改，增强程序的健壮性。
+
+        void f(const int i)
+        {
+            // 编译器得知道 i 是一个常量，不允许修改。
+        }
+
+具体用法示范，可以参考：
+
+Core C++ A Software Engineering Approach - Chapter 9 More on the const Keyword
+
+修饰一个指针或引用，表示指向一个不可修改的常量：
+
+    const double *p1 = &pi;
+    const double &r1 = pi;
+
+修饰一个指针符号，表示只指向 pi 而不能再指向其它：
+
+    double* const p1 = &pi;
+
+注意 const 关键字的位置，说实在的，C++ 这种复杂性真让人头痛！
+
+在声明中使用时，出现多种容易混淆的情况，可以记住一条规则：const 关键字修饰其左侧的对象！
+
+识别 const 到底是修饰指针还是指针所指的对象，有人沿着 * 号划一条线进行分辨：
+
+- 如果是 const * 则用来修饰指针所指向的变量，即指针本身是变量；
+- 如果是 * const 则是修饰指针本身，即指针本身是常量。
+
+但更根本的方法，认识 * 单元操作符是从右到左结合，而且优先级低于，下标运算符这类一级优先符号。
+所以，除非使用了圆括号，* 右侧的标识符号将定义为指针。如果右侧是 const 关键字，就是定义常指针。
+如果 const 跑到前头那就是定义标识符号为一个常量了。
+
+修饰一个数组，可采用如下格式，前者数据元素为常量，后者数组本身为常量，都不能修改元素的值：
+
+```C++,ignore
+    #include <iostream>
+
+    int main() {
+        int const a[5]={1, 2, 3, 4, 5};
+        const int b[5]={1, 2, 3, 4, 5};
+        // a[0] = 1; read-only
+        // b[0] = 1; read-only
+
+        float c = 3.14;
+        float * const d = &c;
+        const float * const e = &c;
+        *d = 6.28;
+        // *e = 6.28; read-only
+        std::cout << "const variable, pointer, array or elements";
+    }
+```
+
+用在函数上：
+
+    void f1(const int& x);     // x is not changed by the function
+    void f2(const int x);      // redundant: x is passed by value anyway
+    void f3(int* const y);     // redundant: y is passed by value
+    void f4(int * const *y);   // ok, pointer is passed by pointer
+    void f4(const int *&y);    // ok: pointer is passed by reference
+
+    int Array::getInt (int i) const     // Array object does not change
+
+修饰函数返回值，表示返回一个不可修改的常量：
+
+    const int * mallocA(){  ///const data,non-const pointer
+        int *a = new int(2);
+        return a;
+    }
+
+    int main()
+    {
+        const int *a = mallocA();
+        int *b = mallocA();  //  error: invalid conversion from 'const int*' to 'int*'
+        return 0;
+    }
+
+
+Effective C++ & More Effective C++ 总结了以下用法：
+
+```C++,ignore
+    char *p              = "Hello";  // non-const pointer, non-const data5
+    const char *p        = "Hello";  // non-const pointer, const data
+    char * const p       = "Hello";  // const pointer, non-const data
+    const char * const p = "Hello";  // const pointer, const data
+
+
+    class Widget { ... };
+    void f1(const Widget *pw);      // f1 takes a pointer to a
+                                    // constant Widget object
+    void f2(Widget const *pw);      // so does f2
+
+
+    class String {
+    public:
+      ...
+      // operator[] for non-const objects
+      char& operator[](int position)
+      { return data[position]; }
+
+      // operator[] for const objects
+      const char& operator[](int position) const
+      { return data[position]; }
+    private:
+      char *data;
+    };
+```
+
+和常量转型有关的是 const_cast。
+
+
+FAQ 11.13 Does int& const x make sense?
+
+No, it doesn't. Since a reference is always bound to the same referent, 
+the const is superfluous and possibly confusing.
+
+```C++,ignore
+    class Fred { };
+    void f(Fred& const a);                               <-- 1
+    void g(const Fred& const a);                         <-- 2
+    void sample(Fred& a)
+    {
+      Fred& const b = a;                                 <-- 3
+      const Fred& const c = a;                           <-- 4
+    }
+```
+
+(1) Wrong; should be f(Fred& a);
+(2) Wrong; should be g(const Fred& a);
+(3) Wrong; should be Fred& b = a;
+(4) Wrong; should be const Fred& c = a;
+
+
+# ==⚡ constexpr (since C++11)
+- https://en.cppreference.com/w/cpp/language/constexpr
+- https://en.cppreference.com/w/cpp/language/constant_expression
+
+C++11 标准中，定义变量时可以用常量表达式 constexpr 修饰，从而使该变量获得在编译阶段即可计算出
+结果的能力。
+
+值得一提的是，使用 constexpr 修改普通变量时，变量必须经过初始化且初始值必须是一个常量表达式：
+
+```C++,ignore
+    #include <iostream>
+    using namespace std;
+    int main()
+    {
+        constexpr int num = 1 + 2 + 3;
+        int url[num] = {1,2,3,4,5,6};
+        couts<< url[1] << endl;
+        return 0;
+    }
+```
+
+constexpr 还可以用于修饰函数的返回值，这样的函数又称为“常量表达式函数”。
+
+一个函数要想成为常量表达式函数，必须满足如下 4 个条件：
+
+1) 函数体只能包含一条 return 返回语句，using、typedef 以及 static_assert 断言语句除外。
+2) 该函数必须有返回值，即函数的返回值类型不能是 void。
+3) 函数在使用之前，必须有对应的定义语句。
+4) return 返回的表达式必须是常量表达式。
+
+```C++,ignore
+    constexpr int double(int x);
+
+    constexpr int double(int x) {
+        return 2 * x;
+    }
+```
+
+constexpr 可以修饰模板函数，但由于模板中类型的不确定性，因此模板函数实例化后的函数是否符合
+常量表达式函数的要求也是不确定的。
+
+C++11 标准规定，如果 constexpr 修饰的模板函数实例化结果不满足常量表达式函数的要求，
+则 constexpr 会被自动忽略，即该函数就等同于一个普通函数。
+
+
+# ==⚡ consteval constinit (since C++20)
+- https://en.cppreference.com/w/cpp/language/consteval
+- https://en.cppreference.com/w/cpp/language/constinit
+- https://en.cppreference.com/w/cpp/language/lambda
+- https://learn.microsoft.com/zh-cn/cpp/cpp/lambda-expressions-constexpr?view=msvc-170
+- https://en.cppreference.com/w/cpp/language/siof
+
+
+C++20 新增两个常量声明修饰符号，consteval 与 constinit。前者只能参与函数的声明，后者只能
+参与变量的声明。引入这些常量修饰符号，目的是让代码语义更清晰明了。
+
+Bjarne Stroustrup 和 Gabriel Dos Reis 于 2003 年向 C++ 标准委员会提出了一种用于
+编译期求值的更好的机制，目标如下：
+
+01. 让编译时计算达到类型安全
+02. 通过将计算移至编译时，提升运行效率
+03. 支持嵌入式编程
+04. 直接支持元编程（而非模板元编程）
+05. 让编译时编程和“普通编程”类似
+
+提议实现：允许在常量表达式中使用以 constexpr 为前缀的函数，还允许常量表达式使用简单的用户
+自定义类型，即字面值常量，这些字面值常量是一种所有运算都是 constexpr 的类型。
+
+此提案从 C++11 规范开始得到支持：
+
+01. C++11 引入 constexpr 关键字，可修饰变量、函数，但是要求函数必须是纯函数；
+02. C++14 允许 constexpr 函数使用局部变量，同时实现对其他函数的支持；
+03. C++17 将 constexpr 关键字引⼊到 if 语句，允许 constexpr lambda；
+04. C++20 允许将字面值类型用做模板参数。
+
+纯函数 (Pure Function) 即： 在相同的输入值時，产生相同的输出。函数的輸出和輸入值以外的其他
+隐藏信息或狀態無關，也和由 I/O 设备产生的外部輸出无关。 
+
+C++20 完整地支持了 constexpr，从早期 const 到现代的 4 个常量修饰符呈的实现，经过了几十年。
+C++20 也是最接近最初语言设计模板的版本。
+
+01. 但是 constexpr 设计其实也不够严谨，为了明确编译期常量求值又引入了 consteval；
+02. 由于 constexpr 仅能实现编译时常量求值，为了解决编译时常量初始化，又引入了 constinit。
+
+
+```C++,ignore
+    const char *g() { return "dynamic initialization"; }
+    constexpr const char *f(bool p) { return p ? "constant initializer" : g(); }
+     
+    constinit const char *c = f(true); // OK
+    // constinit const char *d = f(false); // error
+```
+
+动态初始化的一个广为人知的缺陷是 static initialization order fiasco。
+
+静态初始化顺序失败是指不同翻译单元中具有静态存储持续时间的对象的初始化顺序不明确。如果一个翻译单元
+中的对象依赖于另一个已初始化的翻译单元的对象，则如果编译器决定以错误的顺序初始化它们，则可能发生
+崩溃。例如，在命令行上指定 .cpp 文件的顺序可能会改变此顺序。首次使用时构造习语可用于避免静态初始化
+顺序失败，并确保所有对象都以正确的顺序初始化。在单个翻译单元中，失败并不适用，因为对象是从上到下
+初始化的。
+
+consteval 只能用于函数的声明，即 immediate function，此函数求值时必须返回一个编译期常量。
+
+```C++,ignore
+    consteval int sqr(int n)
+    {
+        return n*n;
+    }
+    constexpr int r = sqr(100); // OK
+     
+    int x = 100;
+    int r2 = sqr(x);            // Error: Call does not produce a constant
+     
+    consteval int sqrsqr(int n)
+    {
+        return sqr(sqr(n));     // Not a constant expression at this point, but OK
+    }
+     
+    constexpr int dblsqr(int n)
+    {
+        return 2 * sqr(n);      // Error: Enclosing function is not consteval
+                                // and sqr(n) is not a constant
+    }
+```
+
+# ==⚡ const volatile
+- [cv (const and volatile) type qualifiers](https://en.cppreference.com/w/cpp/language/cv)
+
+C++ 类型系统中，除函数类型或引用类型之外，其它的任何类型（包括不完整类型）有三种不同的类型修饰：
+
+- const T 表示不可改写的常量，否则会引发编译期错误；
+- volatile T 表示
+- const volatile T.
+
+“编译器一般不为const变量分配内存，而是将它保存在符号表中，这使得它成为一个编译期间的值，
+没有了存储与读内存的操作。”
+
+volatile 的作用是“告诉编译器，是随时可能发生变化的，每次使用它的时候必须从内存中取值”。
+                                                  — — 《C语言深度解剖》
+
+一，const, volatile 含义
+
+（1）const 含义是“请做为常量使用”，而并非“放心吧，那肯定是个常量”。
+（2）volatile 的含义是“请不要做自以为是的优化，这个值可能变掉的”，而并非“你可以修改这个值”。
+
+二，const, volatile 的作用以及起作用的阶段
+
+（1）const 只在编译期保证没有代码修改数据，在运行期无用。
+（2）volatile 在编译期指示编译器不要做自以为是的优化；在运行期，每次读取都从内存中取值。
+
+补充：
+编译期 -- C 编译器将源代码转化为汇编，再转化为机器码的过程；
+运行期 -- 机器码在CPU中执行的过程。
+
+三，const, volatile 同时修饰一个变量
+
+（1）合法性：两者并不冲突，volatile 并非是 non-const，所以可以和 const 一起修饰一个变量。
+（2）同时修饰一个变量的含义：表示一个变量在程序编译期不能被修改且不能被优化；在程序运行期，
+    变量值可修改，但每次用到该变量的值都要从内存中读取，以防止意外错误。
+
+
+# =🚩 Coroutine 协程
+- [[渡劫 C++ 协程] 实现序列生成器](https://www.bilibili.com/video/BV1ug411d7Xy)
+
+
+
 # =🚩 C Standard Library header
 - [The GNU C Library](https://www.gnu.org/software/libc/manual/html_mono/libc.html)
 - https://www.runoob.com/cprogramming/c-macro-errno.html
 
-C 语言是一种通用的、面向过程式的计算机程序设计语言。1972 年，为了移植与开发 UNIX 操作系统，丹尼斯·里奇在贝尔电话实验室设计开发了 C 语言。以下这些 C 标准库就是基石：
+C 语言是一种通用的、面向过程式的计算机程序设计语言。1972 年，为了移植与开发 UNIX 操作系统，
+丹尼斯·里奇在贝尔电话实验室设计开发了 C 语言。以下这些 C 标准库就是基石：
+
+|---------------|--------------|-------------|------------|
+|   C headers                                             |
+| <assert.h>    | <limits.h>   | <stdarg.h>  | <string.h> |
+| <ctype.h>     | <locale.h>   | <stddef.h>  | <time.h>   |
+| <errno.h>     | <math.h>     | <stdio.h>   | <wchar.h>  |
+| <float.h>     | <setjmp.h>   | <stdlib.h>  | <wctype.h> |
+| <iso646.h>    | <signal.h>   |             |            |
+|---------------|--------------|-------------|------------|
+| Headers added in C++11                                  |
+| <complex.h>   | <inttypes.h> | <stdbool.h> | <tgmath.h> |
+| <fenv.h>      | <stdalign.h> | <stdint.h>  | <uchar.h>  |
+|---------------|--------------|-------------|------------|
+| Headers added in C++23                                  |
+| <stdatomic.h> |              |             |            |
+|---------------|--------------|-------------|------------|
+
+C headers
+
+- [cassert.h](https://en.cppreference.com/w/cpp/header/cassert)
+- [climits.h](https://en.cppreference.com/w/cpp/header/climits)
+- [cstdarg.h](https://en.cppreference.com/w/cpp/header/cstdarg)
+- [cstring.h](https://en.cppreference.com/w/cpp/header/cstring)
+- [cctype.h](https://en.cppreference.com/w/cpp/header/cctype)
+- [clocale.h](https://en.cppreference.com/w/cpp/header/clocale)
+- [cstddef.h](https://en.cppreference.com/w/cpp/header/cstddef)
+- [ctime.h](https://en.cppreference.com/w/cpp/header/ctime)
+- [cerrno.h](https://en.cppreference.com/w/cpp/header/cerrno)
+- [cmath.h](https://en.cppreference.com/w/cpp/header/cmath)
+- [cstdio.h](https://en.cppreference.com/w/cpp/header/cstdio)
+- [cwchar.h](https://en.cppreference.com/w/cpp/header/cwchar)
+- [cfloat.h](https://en.cppreference.com/w/cpp/header/cfloat)
+- [csetjmp.h](https://en.cppreference.com/w/cpp/header/csetjmp)
+- [cstdlib.h](https://en.cppreference.com/w/cpp/header/cstdlib)
+- [cwctype.h](https://en.cppreference.com/w/cpp/header/cwctype)
+- [ciso646.h](https://en.cppreference.com/w/cpp/header/ciso646)
+- [csignal.h](https://en.cppreference.com/w/cpp/header/csignal)
+
+Headers added in C++11
+
+- [ccomplex.h](https://en.cppreference.com/w/cpp/header/ccomplex)
+- [cinttypes.h](https://en.cppreference.com/w/cpp/header/cinttypes)
+- [cstdbool.h](https://en.cppreference.com/w/cpp/header/cstdbool)
+- [ctgmath.h](https://en.cppreference.com/w/cpp/header/ctgmath)
+- [cfenv.h](https://en.cppreference.com/w/cpp/header/cfenv)
+- [cstdalign.h](https://en.cppreference.com/w/cpp/header/cstdalign)
+- [cstdint.h](https://en.cppreference.com/w/cpp/header/cstdint)
+- [cuchar.h](https://en.cppreference.com/w/cpp/header/cuchar)
+
+Headers added in C++23
+
+- [stdatomic.h](https://en.cppreference.com/w/cpp/header/stdatomic.h)
 
 | 头文件           | 功能            |
 | :----------   | :----------   |
@@ -332,7 +1869,7 @@ C 语言是一种通用的、面向过程式的计算机程序设计语言。197
 |`<wchar.h>`    | (since C95) 多字节宽度字符工具 |
 |`<wctype.h>`   | (since C95) 宽字符类型与映射工具 |
 
-有兴趣了解源代码，可以从以下位置获取 The GNU C Library (glibc)，只建议有需要才去翻：
+可以从以下位置获取 The GNU C Library (glibc)，只建议有需要才去翻：
 
     # http://www.gnu.org/software/libc/
     git clone git://sourceware.org/git/glibc.git
@@ -342,6 +1879,203 @@ C 语言是一种通用的、面向过程式的计算机程序设计语言。197
 MSVC 编译器也提供源代码，标准库代码在 VC 安装目录 \VC\crt\src。
 
 偶尔看看恶心的肠子肚子有利于看透美女的本质！
+
+
+# =🚩 C++ Standard Library header
+- https://en.cppreference.com/w/cpp/standard_library
+
+
+| C++ library headers                                                                       |
+|-------------------------------------------------------------------------------------------|
+| <algorithm>    | <iomanip>            | <list>     | <queue>            | <string>        |
+| <bitset>       | <ios>                | <locale>   | <set>              | <strstream>     |
+| <complex>      | <iosfwd>             | <map>      | <sstream>          | <typeinfo>      |
+| <deque>        | <iostream>           | <memory>   | <stack>            | <utility>       |
+| <exception>    | <istream>            | <new>      | <stdexcept>        | <valarray>      |
+| <fstream>      | <iterator>           | <numeric>  | <streambuf>        | <vector>        |
+| <functional>   | <limits>             | <ostream>  |                    |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers added in C++11                                                                    |
+| <array>        | <condition_variable> | <mutex>    | <scoped_allocator> | <type_traits>   |
+| <atomic>       | <forward_list>       | <random>   | <system_error>     | <typeindex>     |
+| <chrono>       | <future>             | <ratio>    | <thread>           | <unordered_map> |
+| <codecvt>      | <initializer_list>   | <regex>    | <tuple>            | <unordered_set> |
+|-------------------------------------------------------------------------------------------|
+| Headers added in C++14                                                                    |
+| <shared_mutex> |                      |            |                    |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers added in C++17                                                                    |
+| <any>          | <filesystem>         | <optional> | <string_view>      | <variant>       |
+| <execution>    | <memory_resource>    |            |                    |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers added in C++20                                                                    |
+| <barrier>      | <concepts>           | <latch>    | <semaphore>        | <stop_token>    |
+| <bit>          | <coroutine>          | <numbers>  | <source_location>  | <syncstream>    |
+| <charconv>     | <format>             | <ranges>   | <span>             | <version>       |
+| <compare>      |                      |            |                    |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers added in C++23                                                                    |
+| <expected>     | <flat_set>           | <mdspan>   | <spanstream>       | <stdfloat>      |
+| <flat_map>     | <generator>          | <print>    | <stacktrace>       |                 |
+|-------------------------------------------------------------------------------------------|
+| C++ headers for C library facilities                                                      |
+| <cassert>      | <clocale>            | <cstdarg>  | <cstring>          |                 |
+| <cctype>       | <cmath>              | <cstddef>  | <ctime>            |                 |
+| <cerrno>       | <csetjmp>            | <cstdio>   | <cwchar>           |                 |
+| <cfloat>       | <csignal>            | <cstdlib>  | <cwctype>          |                 |
+| <climits>      |                      |            |                    |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers removed in C++20                                                                  |
+| <ciso646>      |                      |            |                    |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers add in C++11                                                                      |
+| <cfenv>        | <cinttypes>          | <cstdint>  | <cuchar>           |                 |
+|-------------------------------------------------------------------------------------------|
+| Headers added in C++11, deprecated in C++17, and removed in C++20                         |
+| <ccomplex>     | <cstdalign>          | <cstdbool> | <ctgmath>          |                 |
+
+
+C++ library headers
+
+- [*algorithm*](https://en.cppreference.com/w/cpp/header/algorithm)
+- [*iomanip*](https://en.cppreference.com/w/cpp/header/iomanip)
+- [*list*](https://en.cppreference.com/w/cpp/header/list)
+- [*queue*](https://en.cppreference.com/w/cpp/header/queue)
+- [*string*](https://en.cppreference.com/w/cpp/header/string)
+- [*bitset*](https://en.cppreference.com/w/cpp/header/bitset)
+- [*ios*](https://en.cppreference.com/w/cpp/header/ios)
+- [*locale*](https://en.cppreference.com/w/cpp/header/locale)
+- [*set*](https://en.cppreference.com/w/cpp/header/set)
+- [*strstream*](https://en.cppreference.com/w/cpp/header/strstream)
+- [*complex*](https://en.cppreference.com/w/cpp/header/complex)
+- [*iosfwd*](https://en.cppreference.com/w/cpp/header/iosfwd)
+- [*map*](https://en.cppreference.com/w/cpp/header/map)
+- [*sstream*](https://en.cppreference.com/w/cpp/header/sstream)
+- [*typeinfo*](https://en.cppreference.com/w/cpp/header/typeinfo)
+- [*deque*](https://en.cppreference.com/w/cpp/header/deque)
+- [*iostream*](https://en.cppreference.com/w/cpp/header/iostream)
+- [*memory*](https://en.cppreference.com/w/cpp/header/memory)
+- [*stack*](https://en.cppreference.com/w/cpp/header/stack)
+- [*utility*](https://en.cppreference.com/w/cpp/header/utility)
+- [*exception*](https://en.cppreference.com/w/cpp/header/exception)
+- [*istream*](https://en.cppreference.com/w/cpp/header/istream)
+- [*new*](https://en.cppreference.com/w/cpp/header/new)
+- [*stdexcept*](https://en.cppreference.com/w/cpp/header/stdexcept)
+- [*valarray*](https://en.cppreference.com/w/cpp/header/valarray)
+- [*fstream*](https://en.cppreference.com/w/cpp/header/fstream)
+- [*iterator*](https://en.cppreference.com/w/cpp/header/iterator)
+- [*numeric*](https://en.cppreference.com/w/cpp/header/numeric)
+- [*streambuf*](https://en.cppreference.com/w/cpp/header/streambuf)
+- [*vector*](https://en.cppreference.com/w/cpp/header/vector)
+- [*functional*](https://en.cppreference.com/w/cpp/header/functional)
+- [*limits*](https://en.cppreference.com/w/cpp/header/limits)
+- [*ostream*](https://en.cppreference.com/w/cpp/header/ostream)
+
+Headers added in C++11
+
+- [*array*](https://en.cppreference.com/w/cpp/header/array)
+- [*condition_variable*](https://en.cppreference.com/w/cpp/header/condition_variable)
+- [*mutex*](https://en.cppreference.com/w/cpp/header/mutex)
+- [*scoped_allocator*](https://en.cppreference.com/w/cpp/header/scoped_allocator)
+- [*type_traits*](https://en.cppreference.com/w/cpp/header/type_traits)
+- [*atomic*](https://en.cppreference.com/w/cpp/header/atomic)
+- [*forward_list*](https://en.cppreference.com/w/cpp/header/forward_list)
+- [*random*](https://en.cppreference.com/w/cpp/header/random)
+- [*system_error*](https://en.cppreference.com/w/cpp/header/system_error)
+- [*typeindex*](https://en.cppreference.com/w/cpp/header/typeindex)
+- [*chrono*](https://en.cppreference.com/w/cpp/header/chrono)
+- [*future*](https://en.cppreference.com/w/cpp/header/future)
+- [*ratio*](https://en.cppreference.com/w/cpp/header/ratio)
+- [*thread*](https://en.cppreference.com/w/cpp/header/thread)
+- [*unordered_map*](https://en.cppreference.com/w/cpp/header/unordered_map)
+- [*codecvt*](https://en.cppreference.com/w/cpp/header/codecvt)
+- [*initializer_list*](https://en.cppreference.com/w/cpp/header/initializer_list)
+- [*regex*](https://en.cppreference.com/w/cpp/header/regex)
+- [*tuple*](https://en.cppreference.com/w/cpp/header/tuple)
+- [*unordered_set*](https://en.cppreference.com/w/cpp/header/unordered_set)
+
+Headers added in C++14
+
+- [*shared_mutex*](https://en.cppreference.com/w/cpp/header/shared_mutex)
+
+Headers added in C++17
+
+- [*any*](https://en.cppreference.com/w/cpp/header/any)
+- [*filesystem*](https://en.cppreference.com/w/cpp/header/filesystem)
+- [*optional*](https://en.cppreference.com/w/cpp/header/optional)
+- [*string_view*](https://en.cppreference.com/w/cpp/header/string_view)
+- [*variant*](https://en.cppreference.com/w/cpp/header/variant)
+- [*execution*](https://en.cppreference.com/w/cpp/header/execution)
+- [*memory_resource*](https://en.cppreference.com/w/cpp/header/memory_resource)
+
+Headers added in C++20
+
+- [*barrier*](https://en.cppreference.com/w/cpp/header/barrier)
+- [*concepts*](https://en.cppreference.com/w/cpp/header/concepts)
+- [*latch*](https://en.cppreference.com/w/cpp/header/latch)
+- [*semaphore*](https://en.cppreference.com/w/cpp/header/semaphore)
+- [*stop_token*](https://en.cppreference.com/w/cpp/header/stop_token)
+- [*bit*](https://en.cppreference.com/w/cpp/header/bit)
+- [*coroutine*](https://en.cppreference.com/w/cpp/header/coroutine)
+- [*numbers*](https://en.cppreference.com/w/cpp/header/numbers)
+- [*source_location*](https://en.cppreference.com/w/cpp/header/source_location)
+- [*syncstream*](https://en.cppreference.com/w/cpp/header/syncstream)
+- [*charconv*](https://en.cppreference.com/w/cpp/header/charconv)
+- [*format*](https://en.cppreference.com/w/cpp/header/format)
+- [*ranges*](https://en.cppreference.com/w/cpp/header/ranges)
+- [*span*](https://en.cppreference.com/w/cpp/header/span)
+- [*version*](https://en.cppreference.com/w/cpp/header/version)
+- [*compare*](https://en.cppreference.com/w/cpp/header/compare)
+
+Headers added in C++23
+
+- [*expected*](https://en.cppreference.com/w/cpp/header/expected)
+- [*flat_set*](https://en.cppreference.com/w/cpp/header/flat_set)
+- [*mdspan*](https://en.cppreference.com/w/cpp/header/mdspan)
+- [*spanstream*](https://en.cppreference.com/w/cpp/header/spanstream)
+- [*stdfloat*](https://en.cppreference.com/w/cpp/header/stdfloat)
+- [*flat_map*](https://en.cppreference.com/w/cpp/header/flat_map)
+- [*generator*](https://en.cppreference.com/w/cpp/header/generator)
+- [*print*](https://en.cppreference.com/w/cpp/header/print)
+- [*stacktrace*](https://en.cppreference.com/w/cpp/header/stacktrace)
+
+C++ headers for C library facilities
+
+- [*cassert*](https://en.cppreference.com/w/cpp/header/cassert)
+- [*clocale*](https://en.cppreference.com/w/cpp/header/clocale)
+- [*cstdarg*](https://en.cppreference.com/w/cpp/header/cstdarg)
+- [*cstring*](https://en.cppreference.com/w/cpp/header/cstring)
+- [*cctype*](https://en.cppreference.com/w/cpp/header/cctype)
+- [*cmath*](https://en.cppreference.com/w/cpp/header/cmath)
+- [*cstddef*](https://en.cppreference.com/w/cpp/header/cstddef)
+- [*ctime*](https://en.cppreference.com/w/cpp/header/ctime)
+- [*cerrno*](https://en.cppreference.com/w/cpp/header/cerrno)
+- [*csetjmp*](https://en.cppreference.com/w/cpp/header/csetjmp)
+- [*cstdio*](https://en.cppreference.com/w/cpp/header/cstdio)
+- [*cwchar*](https://en.cppreference.com/w/cpp/header/cwchar)
+- [*cfloat*](https://en.cppreference.com/w/cpp/header/cfloat)
+- [*csignal*](https://en.cppreference.com/w/cpp/header/csignal)
+- [*cstdlib*](https://en.cppreference.com/w/cpp/header/cstdlib)
+- [*cwctype*](https://en.cppreference.com/w/cpp/header/cwctype)
+- [*climits*](https://en.cppreference.com/w/cpp/header/climits)
+
+Headers removed in C++20
+
+- [*ciso646*](https://en.cppreference.com/w/cpp/header/ciso646)
+
+Headers added in C++11
+
+- [*cfenv*](https://en.cppreference.com/w/cpp/header/cfenv)
+- [*cinttypes*](https://en.cppreference.com/w/cpp/header/cinttypes)
+- [*cstdint*](https://en.cppreference.com/w/cpp/header/cstdint)
+- [*cuchar*](https://en.cppreference.com/w/cpp/header/cuchar)
+
+Headers added in C++11, deprecated in C++17, and removed in C++20
+
+- [*ccomplex*](https://en.cppreference.com/w/cpp/header/ccomplex)
+- [*cstdalign*](https://en.cppreference.com/w/cpp/header/cstdalign)
+- [*cstdbool*](https://en.cppreference.com/w/cpp/header/cstdbool)
+- [*ctgmath*](https://en.cppreference.com/w/cpp/header/ctgmath)
 
 
 # =🚩 va_list Variable Argument lists
@@ -370,7 +2104,7 @@ va_start 的作用是初始化，va_start 指的是初始化为未知参数列�
 
 参数列表化示范：
 
-```cpp
+```C++,ignore
 #include <cstdarg>
 #include <iostream>
  
@@ -415,7 +2149,7 @@ C++11 introduced serveral contructor-related enhancements including:
 - Class member initializers
 - Delegating controctors
 
-```cpp
+```C++,ignore
 class Foo {
   public:
     Foo() = default; // No need to initialize data members in the initializer list.
@@ -443,7 +2177,7 @@ Constructors are allowed to call other constructors from the same class. This pr
 
 To have one constructor call another, simply call the constructor in the member initializer list. This is one case where calling another constructor directly is acceptable. Applied to our example above:
 
-```cpp
+```C++,ignore
 class Foo
 {
 private:
@@ -472,7 +2206,7 @@ public:
 
 无类型的模板参数中使用 auto 自动从参数中获取类型 (since C++17)。
 
-```cpp
+```C++,ignore
 // Syntax 
 auto variable initializer       (1) (since C++11) 
 auto function -> return type    (2) (since C++11) 
@@ -510,45 +2244,45 @@ Until C++11, auto had the semantic of a storage duration specifier.
 
 The example showing output using one of the implementations where typeinfo::name prints full type names; filter through c++filt -t if using gcc or similar.
 
-```cpp
-#include <iostream>
-#include <cmath>
-#include <typeinfo>
- 
-template<class T, class U>
-auto add(T t, U u) -> decltype(t + u) // the return type is the type of operator+(T, U)
-{
-    return t + u;
-}
- 
-auto get_fun(int arg) -> double (*)(double) // same as: double (*get_fun(int))(double)
-{
-    switch (arg)
+```C++,ignore
+    #include <iostream>
+    #include <cmath>
+    #include <typeinfo>
+     
+    template<class T, class U>
+    auto add(T t, U u) -> decltype(t + u) // the return type is the type of operator+(T, U)
     {
-        case 1: return std::fabs;
-        case 2: return std::sin;
-        default: return std::cos;
+        return t + u;
     }
-}
- 
-int main()
-{
-    auto a = 1 + 2;
-    std::cout << "type of a: " << typeid(a).name() << '\n';
-    auto b = add(1, 1.2);
-    std::cout << "type of b: " << typeid(b).name() << '\n';
-    auto c = {1, 2};
-    std::cout << "type of c: " << typeid(c).name() << '\n';
- 
-    auto my_lambda = [](int x) { return x + 3; };
-    std::cout << "my_lambda: " << my_lambda(5) << '\n';
- 
-    auto my_fun = get_fun(2);
-    std::cout << "type of my_fun: " << typeid(my_fun).name() << '\n';
-    std::cout << "my_fun: " << my_fun(3) << '\n';
- 
-//  auto int x; // error as of C++11: "auto" is no longer a storage-class specifier
-}
+     
+    auto get_fun(int arg) -> double (*)(double) // same as: double (*get_fun(int))(double)
+    {
+        switch (arg)
+        {
+            case 1: return std::fabs;
+            case 2: return std::sin;
+            default: return std::cos;
+        }
+    }
+     
+    int main()
+    {
+        auto a = 1 + 2;
+        std::cout << "type of a: " << typeid(a).name() << '\n';
+        auto b = add(1, 1.2);
+        std::cout << "type of b: " << typeid(b).name() << '\n';
+        auto c = {1, 2};
+        std::cout << "type of c: " << typeid(c).name() << '\n';
+     
+        auto my_lambda = [](int x) { return x + 3; };
+        std::cout << "my_lambda: " << my_lambda(5) << '\n';
+     
+        auto my_fun = get_fun(2);
+        std::cout << "type of my_fun: " << typeid(my_fun).name() << '\n';
+        std::cout << "my_fun: " << my_fun(3) << '\n';
+     
+    //  auto int x; // error as of C++11: "auto" is no longer a storage-class specifier
+    }
 ```
 
 
@@ -568,7 +2302,7 @@ my_fun: 0.14112
 ## ==⚡ Range-based for loop (since C++11)
 https://en.cppreference.com/w/cpp/language/range-for
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <vector>
  
@@ -604,49 +2338,7 @@ int main() {
 ```
 
 
-# ==⚡ constexpr (since C++11)
-
-C++11 标准中，定义变量时可以用常量表达式 constexpr 修饰，从而使该变量获得在编译阶段即可计算出结果的能力。
-
-值得一提的是，使用 constexpr 修改普通变量时，变量必须经过初始化且初始值必须是一个常量表达式：
-
-```cpp
-#include <iostream>
-using namespace std;
-int main()
-{
-    constexpr int num = 1 + 2 + 3;
-    int url[num] = {1,2,3,4,5,6};
-    couts<< url[1] << endl;
-    return 0;
-}
-```
-
-constexpr 还可以用于修饰函数的返回值，这样的函数又称为“常量表达式函数”。
-
-一个函数要想成为常量表达式函数，必须满足如下 4 个条件：
-
-1) 函数体只能包含一条 return 返回语句，using、typedef 以及 static_assert 断言语句除外。
-2) 该函数必须有返回值，即函数的返回值类型不能是 void。
-3) 函数在使用之前，必须有对应的定义语句。
-4) return 返回的表达式必须是常量表达式。
-
-```cpp
-//常量表达式函数的声明
-constexpr int display(int x);
-
-//常量表达式函数的定义
-constexpr int display(int x) {
-    return 1 + 2 + x;
-}
-```
-
-constexpr 可以修饰模板函数，但由于模板中类型的不确定性，因此模板函数实例化后的函数是否符合常量表达式函数的要求也是不确定的。
-
-C++11 标准规定，如果 constexpr 修饰的模板函数实例化结果不满足常量表达式函数的要求，则 constexpr 会被自动忽略，即该函数就等同于一个普通函数。
-
-
-# ==⚡ Lambda expressions (since C++11)
+## ==⚡ Lambda expressions (since C++11)
 - https://en.cppreference.com/w/cpp/language/lambda
 - https://docs.microsoft.com/zh-cn/cpp/cpp/lambda-expressions-in-cpp
 - Under the hood of lambdas and std::function https://shaharmike.com/cpp/lambdas-and-functions/
@@ -717,7 +2409,7 @@ closure 的类型是隐藏的，每次创建一个 closure，编译器都会创�
 
 示例：
 
-```cpp
+```C++,ignore
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -747,7 +2439,7 @@ int main()
 
 对比引入 lambda 之前的写法：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -775,7 +2467,7 @@ int main(){
 
 在类定义中使用 lambda：
 
-```cpp
+```C++,ignore
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -838,7 +2530,7 @@ In your code you are relying on implicit conversion from int to uint8_t which is
 
 If you are sure you want to make this conversion you should use explicit casting.
 
-```cpp
+```C++,ignore
 uint8_t x8bit[2] = 
 {
     static_cast<uint8_t>(mv->dst_x & 0xff), 
@@ -853,14 +2545,14 @@ Some compilers still allow narrowing conversions and only show a warning but it'
  
 C 语言通常将 NULL 定义为 0 值的空指针，当尝试将 NULL 指针赋值给变量时，会隐式转换到变量的数据类型，如下：
 
-```cpp
+```C++,ignore
 #define NULL ((void *)0)
 int *i = NULL;
 ```
 
 而如果换做一个 C++ 编译器来编译的话是要出错的，因为 C++ 是强类型的，空指针是不能隐式转换成其他指针类型的。所以 C++ 中引入 0 值来表示空指针，编译器提供的头文件会这样定义 NULL：
 
-```cpp
+```C++,ignore
 #ifdef __cplusplus
     #define NULL 0
 #else
@@ -872,7 +2564,7 @@ int *i = NULL;
 
 考虑一个重载函数的情况，fun 有一个重载接收整形指针，但是当发生空指针传入时，fun(int) 这种形式的重载被调用，这与程序员的意图相违背。
 
-```cpp
+```C++,ignore
 int *i = 0; // ok
 int *j = (void *)0; // error: invalid conversion from 'void*' to 'int*' [-fpermissive]
 int fun(int i) { }
@@ -881,7 +2573,7 @@ int fun(int *i){ }
 
 在没有 C++11 的 nullptr 的时候，Imperfect C++ 上面有一个实现：
 
-```cpp
+```C++,ignore
 const class nullptr_t
 {
     public:
@@ -909,7 +2601,7 @@ C++ 11 新出 enum class 解决 enum 两个问题：
 
 如果要将 enum class 当成整型或字符型使用，就需要显式转换类型。
 
-```cpp
+```C++,ignore
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -937,7 +2629,7 @@ C++11 has introduced enum classes (also called scoped enumerations), that makes 
 To define enum class we use class keyword after enum keyword. 
 Syntax: 
  
-```cpp
+```C++,ignore
 // Declaration
 enum class EnumName{ Value1, Value2, ... ValueN};
 
@@ -1012,7 +2704,7 @@ auto color_integer = magic_enum::enum_integer(color);
 ## ==⚡ for-each (since C++17)
 https://en.cppreference.com/w/cpp/algorithm/for_each
 
-```cpp
+```C++,ignore
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -1058,40 +2750,40 @@ A *variant* is permitted to hold the same type more than once, and to hold diffe
 
 Consistent with the behavior of unions during aggregate initialization, a default-constructed *variant* holds a value of its first alternative, unless that alternative is not default-constructible (in which case the *variant* is not default-constructible either). The helper class *std::monostate* can be used to make such variants default-constructible.
 
-```C++
-#include <variant>
-#include <string>
-#include <cassert>
- 
-int main()
-{
-    std::variant<int, float> v, w;
-    v = 12; // v contains int
-    int i = std::get<int>(v);
-    w = std::get<int>(v);
-    w = std::get<0>(v); // same effect as the previous line
-    w = v; // same effect as the previous line
- 
-//  std::get<double>(v); // error: no double in [int, float]
-//  std::get<3>(v);      // error: valid index values are 0 and 1
- 
-    try {
-      std::get<float>(w); // w contains int, not float: will throw
+```C++,ignore
+    #include <variant>
+    #include <string>
+    #include <cassert>
+     
+    int main()
+    {
+        std::variant<int, float> v, w;
+        v = 12; // v contains int
+        int i = std::get<int>(v);
+        w = std::get<int>(v);
+        w = std::get<0>(v); // same effect as the previous line
+        w = v; // same effect as the previous line
+     
+    //  std::get<double>(v); // error: no double in [int, float]
+    //  std::get<3>(v);      // error: valid index values are 0 and 1
+     
+        try {
+          std::get<float>(w); // w contains int, not float: will throw
+        }
+        catch (const std::bad_variant_access&) {}
+     
+        using namespace std::literals;
+     
+        std::variant<std::string> x("abc");
+        // converting constructors work when unambiguous
+        x = "def"; // converting assignment also works when unambiguous
+     
+        std::variant<std::string, void const*> y("abc");
+        // casts to void const * when passed a char const *
+        assert(std::holds_alternative<void const*>(y)); // succeeds
+        y = "xyz"s;
+        assert(std::holds_alternative<std::string>(y)); // succeeds
     }
-    catch (const std::bad_variant_access&) {}
- 
-    using namespace std::literals;
- 
-    std::variant<std::string> x("abc");
-    // converting constructors work when unambiguous
-    x = "def"; // converting assignment also works when unambiguous
- 
-    std::variant<std::string, void const*> y("abc");
-    // casts to void const * when passed a char const *
-    assert(std::holds_alternative<void const*>(y)); // succeeds
-    y = "xyz"s;
-    assert(std::holds_alternative<std::string>(y)); // succeeds
-}
 ```
 
 
@@ -1101,54 +2793,54 @@ int main()
 
 虽然 C++11 已经引入元组，但是直到 C++17 才支持元组的列表初始化表达：
 
-```C++
-std::tuple<int, int> foo_tuple() 
-{
-  return {1.0, -1};  // Error until C++17
-  return std::make_tuple(1.0, -1); // Always works
-}
+```C++,ignore
+    std::tuple<int, int> foo_tuple() 
+    {
+      return {1.0, -1};  // Error until C++17
+      return std::make_tuple(1.0, -1); // Always works
+    }
 ```
 
 在函数中利用元组来返回多值是常规用法，使用 *std::tie()* 对元组进行解构，或者使用 *std::get()* 获取元组中的数据，C++17 支持结构化绑定：
 
-```C++
-#include <tuple>
-#include <iostream>
-#include <string>
-#include <stdexcept>
- 
-std::tuple<double, char, std::string> get_student(int id)
-{
-    if (id == 0) return std::make_tuple(3.8, 'A', "Lisa Simpson");
-    if (id == 1) return std::make_tuple(2.9, 'C', "Milhouse Van Houten");
-    if (id == 2) return std::make_tuple(1.7, 'D', "Ralph Wiggum");
-    throw std::invalid_argument("id");
-}
- 
-int main()
-{
-    auto student0 = get_student(0);
-    std::cout << "ID: 0, "
-              << "GPA: " << std::get<0>(student0) << ", "
-              << "grade: " << std::get<1>(student0) << ", "
-              << "name: " << std::get<2>(student0) << '\n';
- 
-    double gpa1;
-    char grade1;
-    std::string name1;
-    std::tie(gpa1, grade1, name1) = get_student(1);
-    std::cout << "ID: 1, "
-              << "GPA: " << gpa1 << ", "
-              << "grade: " << grade1 << ", "
-              << "name: " << name1 << '\n';
- 
-    // C++17 structured binding:
-    auto [ gpa2, grade2, name2 ] = get_student(2);
-    std::cout << "ID: 2, "
-              << "GPA: " << gpa2 << ", "
-              << "grade: " << grade2 << ", "
-              << "name: " << name2 << '\n';
-}
+```C++,ignore
+    #include <tuple>
+    #include <iostream>
+    #include <string>
+    #include <stdexcept>
+     
+    std::tuple<double, char, std::string> get_student(int id)
+    {
+        if (id == 0) return std::make_tuple(3.8, 'A', "Lisa Simpson");
+        if (id == 1) return std::make_tuple(2.9, 'C', "Milhouse Van Houten");
+        if (id == 2) return std::make_tuple(1.7, 'D', "Ralph Wiggum");
+        throw std::invalid_argument("id");
+    }
+     
+    int main()
+    {
+        auto student0 = get_student(0);
+        std::cout << "ID: 0, "
+                  << "GPA: " << std::get<0>(student0) << ", "
+                  << "grade: " << std::get<1>(student0) << ", "
+                  << "name: " << std::get<2>(student0) << '\n';
+     
+        double gpa1;
+        char grade1;
+        std::string name1;
+        std::tie(gpa1, grade1, name1) = get_student(1);
+        std::cout << "ID: 1, "
+                  << "GPA: " << gpa1 << ", "
+                  << "grade: " << grade1 << ", "
+                  << "name: " << name1 << '\n';
+     
+        // C++17 structured binding:
+        auto [ gpa2, grade2, name2 ] = get_student(2);
+        std::cout << "ID: 2, "
+                  << "GPA: " << gpa2 << ", "
+                  << "grade: " << grade2 << ", "
+                  << "name: " << name2 << '\n';
+    }
 ```
 
 Output:
@@ -1167,52 +2859,52 @@ The class *any* describes a type-safe container for single values of any type.
 1) An object of class any stores an instance of any type that satisfies the constructor requirements or is empty, and this is referred to as the state of the class any object. The stored instance is called the contained object. Two states are equivalent if they are either both empty or if both are not empty and if the contained objects are equivalent.
 2) The non-member any_cast functions provide type-safe access to the contained object.
 
-```C++
-#include <any>
-#include <iostream>
- 
-int main()
-{
-    std::cout << std::boolalpha;
- 
-    // any type
-    std::any a = 1;
-    std::cout << a.type().name() << ": " << std::any_cast<int>(a) << '\n';
-    a = 3.14;
-    std::cout << a.type().name() << ": " << std::any_cast<double>(a) << '\n';
-    a = true;
-    std::cout << a.type().name() << ": " << std::any_cast<bool>(a) << '\n';
- 
-    // bad cast
-    try
+```C++,ignore
+    #include <any>
+    #include <iostream>
+     
+    int main()
     {
+        std::cout << std::boolalpha;
+     
+        // any type
+        std::any a = 1;
+        std::cout << a.type().name() << ": " << std::any_cast<int>(a) << '\n';
+        a = 3.14;
+        std::cout << a.type().name() << ": " << std::any_cast<double>(a) << '\n';
+        a = true;
+        std::cout << a.type().name() << ": " << std::any_cast<bool>(a) << '\n';
+     
+        // bad cast
+        try
+        {
+            a = 1;
+            std::cout << std::any_cast<float>(a) << '\n';
+        }
+        catch (const std::bad_any_cast& e)
+        {
+            std::cout << e.what() << '\n';
+        }
+     
+        // has value
         a = 1;
-        std::cout << std::any_cast<float>(a) << '\n';
+        if (a.has_value())
+        {
+            std::cout << a.type().name() << '\n';
+        }
+     
+        // reset
+        a.reset();
+        if (!a.has_value())
+        {
+            std::cout << "no value\n";
+        }
+     
+        // pointer to contained data
+        a = 1;
+        int* i = std::any_cast<int>(&a);
+        std::cout << *i << "\n";
     }
-    catch (const std::bad_any_cast& e)
-    {
-        std::cout << e.what() << '\n';
-    }
- 
-    // has value
-    a = 1;
-    if (a.has_value())
-    {
-        std::cout << a.type().name() << '\n';
-    }
- 
-    // reset
-    a.reset();
-    if (!a.has_value())
-    {
-        std::cout << "no value\n";
-    }
- 
-    // pointer to contained data
-    a = 1;
-    int* i = std::any_cast<int>(&a);
-    std::cout << *i << "\n";
-}
 ```
 
 Possible output:
@@ -1241,45 +2933,45 @@ The object does not contain a value in the following conditions:
 - The object is initialized with/assigned from a value of type *std::nullopt_t* or an *optional* object that does not contain a value.
 - The member function *reset()* is called.
 
-```C++
-#include <optional>
-// ...
+```C++,ignore
+    #include <optional>
+    // ...
 
-std::optional<uint32_t> graphicsFamily;
-std::cout << std::boolalpha << graphicsFamily.has_value() << std::endl; // false
+    std::optional<uint32_t> graphicsFamily;
+    std::cout << std::boolalpha << graphicsFamily.has_value() << std::endl; // false
 
-graphicsFamily = 0;
-std::cout << std::boolalpha << graphicsFamily.has_value() << std::endl; // true
+    graphicsFamily = 0;
+    std::cout << std::boolalpha << graphicsFamily.has_value() << std::endl; // true
 ```
 
 在 C++17 之前，使用 nullptr 来表示未设置的指针，现在可以使用 optional 来替代这种用法：
 
-```C++
-#include <iostream>
-#include <optional>
-#include <string>
+```C++,ignore
+    #include <iostream>
+    #include <optional>
+    #include <string>
 
-struct Animal {
-    std::string name;
-};
+    struct Animal {
+        std::string name;
+    };
 
-struct Person {
-    std::string name;
-    std::optional<Animal> pet;
-};
+    struct Person {
+        std::string name;
+        std::optional<Animal> pet;
+    };
 
-int main() {
-    Person person;
-    person.name = "John";
+    int main() {
+        Person person;
+        person.name = "John";
 
-    if (person.pet) {
-        std::cout << person.name << "'s pet's name is " <<
-            person.pet->name << std::endl;
+        if (person.pet) {
+            std::cout << person.name << "'s pet's name is " <<
+                person.pet->name << std::endl;
+        }
+        else {
+            std::cout << person.name << " is alone." << std::endl;
+        }
     }
-    else {
-        std::cout << person.name << " is alone." << std::endl;
-    }
-}
 ```
 
 
@@ -1288,7 +2980,7 @@ int main() {
 
 decltype specifier
 
-```cpp
+```C++,ignore
 decltype ( entity )     (1) (since C++11)
 decltype ( expression ) (2) (since C++11)
 decltype(auto) variable initializer (4) (since C++14) 
@@ -1297,7 +2989,7 @@ decltype(auto) function (5) (since C++14)
 
 从表达式或实体中获取类型：
 
-```cpp
+```C++,ignore
 #include <type_traits>
  
 struct A { double x; };
@@ -1378,7 +3070,7 @@ C 语言没有 new，C++ 引入 new 后可以动态分配内存，结合 delete 
 
 示例：
 
-```cpp
+```C++,ignore
 #include <cstdlib>
 #include <cstdio>
 #include <thread>
@@ -1759,7 +3451,7 @@ C++ 使用引用变量的概念，和指针的可以运算不同，引用可以�
 
 引用不能为空引用吗？
 
-```cpp
+```C++,ignore
 int *np = nullptr;
 int &nr = *np;
 // if (&nr) 
@@ -1776,7 +3468,7 @@ MSVC 编译器可能会增加了容错性，而 GCC 在处理引用时减少判�
 
 如果函数的参数列表中定义的是变量，那么传入参数时，被传入的变量将会复制副本交给函数进行处理。从这一点来说，传递指针和传递变量的方式本质是一样的，就是将被传入的那个量复制一份交给函数处理。而指针之所以依然可以函数内部操作变量的原始值，是因复制的指针其所指向的地址还是原始变量。而如果是复制的变量，虽然值还是原始值，但地址已经不是原始地址。
 
-```cpp
+```C++,ignore
 #include <iostream>
 using namespace std;
 void swap(int& x, int& y) throw()
@@ -1825,7 +3517,7 @@ C/C++ 中所有的表达式和变量要么是左值，要么是右值。通俗�
 
 其它示例：
 
-```cpp
+```C++,ignore
 typedef int&  lref;
 typedef int&& rref;
 int n;
@@ -1870,7 +3562,7 @@ double&& rrd3 = i3;            // rrd3 refers to temporary with value 2.0
 
 示例：
 
-```cpp
+```C++,ignore
 #include <utility>
 #include <sstream>
 struct S {
@@ -1950,7 +3642,13 @@ int main()
         int b;
         b=a;
 
-    没有精度丢失，无损转换可以由编译器进行隐式转换，没有 warning，如宽化转换 char -> int，int -> long long，int -> float，float -> double，int -> double 等，编译器允许直接转换。
+    没有精度丢失，无损转换可以由编译器进行隐式转换，没有 warning，如宽化转换 
+
+    char -> int，
+    int -> long long，
+    int -> float，
+    float -> double，
+    int -> double
 
 - C 风格显式转换（C style explicit conversion）
  
@@ -1968,9 +3666,29 @@ int main()
 - 其一是类型的窄化转化，会导致数据位数的丢失；
 - 其二是在类继承链中，将父类对象的地址（指针）强制转化成子类的地址（指针），这就是所谓的下行转换。
 
-下行表示沿着继承链向下走，向子类的方向走。类似地，上行转换的表示沿继承链向上走，向父类的方向走。一般结论，上行转换一般是安全的，下行转换很可能是不安全的。
+下行表示沿着继承链向下走，向子类的方向走。类似地，上行转换的表示沿继承链向上走，向父类的方向走。
+一般结论，上行转换一般是安全的，下行转换很可能是不安全的。
 
-针对类指针的问题，C++ 特别设计了更加细致的转换方法，分别有：
+
+## ==⚡ Named casts 具名类型转换
+- [Thriving in a Crowded and Changing World: C++ 2006–2020](https://github.com/Cpp-Club/Cxx_HOPL4_zh/blob/main/02.md)
+
+C++98 的主要语言特性是：
+
+01. **模板** 无约束的、图灵完备的、对泛型编程的编译期支持。
+02. **异常** 一套在单独（不可见的）路径上返回错误值的机制，由调用方栈顶上的“在别处”的代码处理。
+03. **dynamic_cast** 和 **typeid** 一种非常简单的运行期反射形式（“运行期类型识别”，又名 RTTI）。
+04. **namespace** 允许程序员在编写由几个独立部分组成的较大程序时避免名称冲突。
+05. **条件语句内的声明** 让写法更紧凑和限制变量作用域。
+06. **具名类型转换** （static_cast、reinterpret_cast 和 const_cast）：消除了 C 风格的
+    类型转换中的二义性，并使显式类型转换更加显眼。
+07. **bool** 一种被证明非常有用和流行的布尔类型；C 和 C++ 曾经使用整数作为布尔变量和常量。
+
+C++98 中最重要的技术之一是资源获取即初始化 RAII（Resource Acquisition Is Initialization）。
+就是每个资源都应该有一个所有者，它由作用域对象表示：构造函数获取资源、析构函数隐式地释放它。
+
+
+针对 C 风格的类型转换中的二义性的问题，C++ 特别设计了 4 种更显眼的转换方法：
 
     static_cast <new_type>( expression )
     dynamic_cast <new_type>( expression )
@@ -1982,7 +3700,12 @@ int main()
     double pi = 3.14159265;
     int i = static_cast<int>(pi);
 
-动态转换确保类指针的转换是合适完整的，它有两个重要的约束条件，其一是要求 new_type 为指针或引用，其二是下行转换时要求基类是多态的，即基类中包含至少一个虚函数。
+动态转换是一个运行期操作，依赖于存储在虚拟函数表中的数据。它通用、易用，并且与其他语言类似的功能
+一样高效。然而，dynamic_cast 变得非常不受欢迎，因为它的实现往往是复杂的，特殊情况下手动编码
+可能更高效（可以说这导致 dynamic_cast 违反了零开销原则）。
+
+因为动态转换需要使用虚函数表，它有两个重要的约束条件，其一是要求 new_type 为指针或引用，其二
+是下行转换时要求基类是多态的，即基类中包含至少一个虚函数。
 
     #include <iostream>
     using namespace std;
@@ -2005,9 +3728,10 @@ int main()
 
     class CBase { virtual void dummy() {} };
 
-可以看到编译器将父类经过 dynamic_cast 转成子类的指针设置为空指针，这正是 dynamic_cast 提升安全性的功能，dynamic_cast 可以识别出不安全的下行转换，但并不抛出异常，而是将转换的结果设置成 null（空指针）。
+可以看到，使用 dynamic_cast 将父类转成子类将得到空指针，这正是其提升安全性的功能，可以识别出
+不安全的下行转换，但并不抛出异常，而是将转换的结果设置成 null（空指针）。
 
-补充一个特殊情况，当待转换指针是 void * 或者转换目标指针是 void * 时，dynamic_cast 总是认为是安全的：
+补充一个特殊情况，当待转换指针或者转换目标指针是 `void *` 时，dynamic_cast 总是认为是安全的：
 
     #include <iostream>
     using namespace std;
@@ -2026,7 +3750,8 @@ int main()
         // pv now points to an object of type B
     }
 
-可见 dynamic_cast 认为空指针的转换安全的，但这里 A 和 B 必须是多态的，包含虚函数，若不是，则会编译报错。
+可见 dynamic_cast 认为空指针的转换安全的，但这里 A 和 B 必须是多态的，包含虚函数，若不是，
+则会编译报错。
 
 
 重解释转换是最“不安全”的，两个没有任何关系的类指针之间转换都可以用这个转换实现，举个例子：
@@ -2037,7 +3762,8 @@ int main()
     A * a = new A;
     B * b = reinterpret_cast<B*>(a); //correct!
 
-更厉害的是，reinterpret_cast 可以把整型数转换成地址（指针），这种转换在系统底层的操作，有极强的平台依赖性，移植性不好。
+更厉害的是，reinterpret_cast 可以把整型数转换成地址（指针），这种转换在系统底层的操作，
+有极强的平台依赖性，移植性不好。
 
     // int i = (int *)0x197ad0;
     int* x = reinterpret_cast<int*>(0x197ad0);
@@ -2069,73 +3795,75 @@ int main()
 
 切记，这个转换并不转换原常量本身，即 c 还是常量，只是返回的结果 cc 是变量。
 
+总结：
 
-总结
-
-- C 风格转换是“万能的转换”，但需要程序员把握转换的安全性，编译器无能为力；
-- static_cast 最接近于 C 风格转换，但在无关类指针转换时，编译器会报错，提升了安全性；
-- dynamic_cast 要求转换类型必须是指针或引用，且在下行转换时要求基类是多态的，如果发现下行转换不安全，dynamic_cast 返回一个 null 指针，dynamic_cast 总是认为 void * 之间的转换是安全的；
-- reinterpret_cast 可以对无关类指针进行转换，甚至可以直接将整型值转成指针，这种转换是底层的，有较强的平台依赖性，可移植性差；
-- const_cast 可以将常量转成非常量，但不会破坏原常量的 const 属性，只是返回一个去掉 const 的变量。
-
+01. C 风格转换是“万能的转换”，但需要程序员把握转换的安全性，编译器无能为力；
+02. static_cast 最接近于 C 风格转换，但在无关类指针转换时，编译器会报错，提升了安全性；
+03. dynamic_cast 要求转换类型必须是指针或引用，且在下行转换时要求基类是多态的，如果发现下行
+    转换不安全，则返回一个 `null` 指针。对于无类型指针 `void *` 之间的转换总是安全的；
+04. reinterpret_cast 可以对无关类指针进行转换，甚至可以直接将整型值转成指针，这是底层转换，
+    有较强的平台依赖性，可移植性差；
+05. const_cast 可以将常量转成非常量，但不会破坏原常量的常量属性，只是去掉 const 修饰。
 
 
 ## ==⚡ Implicit Conversion 隐式转换
 
 隐式转型是非常易容让人困惑的特性，以下代码演示了隐式转形是如何自动调用构造函数的：
 
-```cpp
-#include <iostream>
-#include <string>
+```C++,ignore
+    #include <iostream>
+    #include <string>
 
-using namespace std;
+    using namespace std;
 
-// Declarations
-class House;
-class Grace
-{
-public:
-    Grace(House);
-    string name = "Grace";
-};
-
-
-// Implementations
-class House 
-{
-
-};
-
-Grace::Grace(House h)
-{
-    cout << "Grace(House)" << endl;
-}
-
-class Curious
-{
-public:
-    void autoConstruct(Grace baby)
+    // Declarations
+    class House;
+    class Grace
     {
-        cout << "baby name: " << baby.name << "\n";
+    public:
+        Grace(House);
+        string name = "Grace";
+    };
+
+
+    // Implementations
+    class House 
+    {
+
+    };
+
+    Grace::Grace(House h)
+    {
+        cout << "Grace(House)" << endl;
     }
-};
 
-int main(void)
-{
-    House h;
-    Grace g(h);
-    Curious test;
-    test.autoConstruct(h);
+    class Curious
+    {
+    public:
+        void autoConstruct(Grace baby)
+        {
+            cout << "baby name: " << baby.name << "\n";
+        }
+    };
 
-    return EXIT_SUCCESS;
-}
+    int main(void)
+    {
+        House h;
+        Grace g(h);
+        Curious test;
+        test.autoConstruct(h);
+
+        return EXIT_SUCCESS;
+    }
 ```
 
 在执行 autoConstruct(h) 函数时，它收到一个 House 类型的参数，但是它声明接收 Grace，奇怪！
 
-编译器也知道这些，但是它还掌握更多更完整的信息，知道 House 是 Grace 构造函数的参数，并且完全匹配参数列表，可以调用构造函数来构造出 aotoConstruct() 函数需要的参数类型。
+编译器也知道这些，但是它还掌握更多更完整的信息，知道 House 是 Grace 构造函数的参数，并且完全
+匹配参数列表，可以调用构造函数来构造出 aotoConstruct() 函数需要的参数类型。
 
-当一个构造函数只有一个参数，而且该参数又不是本类的 const 引用时，这种构造函数称为转换构造函数 conversion constructor function。转换构造函数的作用是将一个其他类型的数据转换成一个类的对象｡
+当一个构造函数只有一个参数，而且该参数又不是本类的 const 引用时，这种构造函数称为转换构造函数
+conversion constructor function。转换构造函数的作用是将一个其他类型的数据转换成一个类的对象｡
 
 
 
@@ -2287,7 +4015,7 @@ After linking, these symbols specify the start and end of the embedded file. The
 
 The code to actually use the embedded file should now be reasonably obvious:
 
-```cpp
+```C++,ignore
 #include <stdio.h>
 
 extern char _binary_data_txt_start;
@@ -2306,15 +4034,25 @@ One important and subtle thing to note is that the symbols added to the object f
 
 # =🚩 include_next vs include
 
-`#include_next` 是 GNU 的一个扩展，和 #include 指令一样用来包含一个头文件，它们的不同地方是包含的路径不一样。假设，有个 demo.h 头文件，在包含 include 目录列表中的多个目录都有一个，那么 include_next 就会引入目录列表靠后面的头文件。
+`#include_next` 是 GNU 的一个扩展，和 #include 指令一样用来包含一个头文件，它们的不同地方
+是包含的路径不一样。假设，有个 demo.h 头文件，在包含 include 目录列表中的多个目录都有一个，
+那么 include_next 就会引入目录列表靠后面的头文件。
 
 还有一点是 `#include_next` 是不区分 `<>` 和 `""` 的包含形式的。
 
-引人这条指令是为了解决升级引起多个头文件副本的问题，假如，你要创建一个新的头文件，而这个新的头文件和现在已有的头文件有相同的名字，而且你想用你的这个新的头文件，那么你要做的就是把这个新的头文件放在 #include 指令的搜索路径的前面，即是在旧的头文件的前面，新的头文件首先被搜索到，这样你就可以使用你这个新的头文件。
+引人这条指令是为了解决升级引起多个头文件副本的问题，假如，你要创建一个新的头文件，而这个新的
+头文件和现在已有的头文件有相同的名字，而且你想用你的这个新的头文件，那么你要做的就是把这个新的
+头文件放在 #include 指令的搜索路径的前面，即是在旧的头文件的前面，新的头文件首先被搜索到，
+这样你就可以使用你这个新的头文件。
 
-但是你在另一个源代码文件中想使用旧的头文件了，那怎么办！有个办法就是使用绝对路径来搜索，那么就不存在这样的问题了。问题出在，如果我们把头文件的位置移动了，移到了其它的目录里了，那我们就得在相应的源码文件中修改这个包含的绝对路径，如果一个源码文件还好，但如果是大型工程的话，修改的地方多了就容易出问题。
+但是你在另一个源代码文件中想使用旧的头文件了，那怎么办！有个办法就是使用绝对路径来搜索，那么就
+不存在这样的问题了。问题出在，如果我们把头文件的位置移动了，移到了其它的目录里了，那我们就得在
+相应的源码文件中修改这个包含的绝对路径，如果一个源码文件还好，但如果是大型工程的话，修改的地方
+多了就容易出问题。
 
-又进一步说，如果你这个新的头文件引用了旧的头文件，而这个新的头文件如果没有使用只编译一次的预处理语句包含即 #ifndef，#endif 等，那么就会陷入一个无限的递归包含中，这个新的头文件就会无限的包含自己，就会出现一个致命的错误。如果我们使用 #include_next 就会避免这样的问题。
+又进一步说，如果你这个新的头文件引用了旧的头文件，而这个新的头文件如果没有使用只编译一次的预处理
+语句包含即 #ifndef，#endif 等，那么就会陷入无限的递归包含中，这个新的头文件就会无限包含自己，
+就会出现一个致命的错误。如果我们使用 #include_next 就会避免这样的问题。
 
 在标准的 C 中，这没有一个办法来解决上面的问题的，因此 GNU 就引人了这个指令 #include_next。
  
@@ -2325,7 +4063,9 @@ One important and subtle thing to note is that the symbols added to the object f
 
     -I /usr/local/include
 
-这个路径下面有个 signal.h 的头文件，在系统的 '/usr/include' 下也有一个，我们知道 -I 选项的路径首先搜索。如果直接使用 include 就会包含进 /usr/local/include/signal.h 头文件，而使用 include_next 就可以包含 /usr/include/signal.h：
+这个路径下面有个 signal.h 的头文件，在系统的 '/usr/include' 下也有一个，我们知道 -I 选项的
+路径首先搜索。如果直接使用 include 就会包含进 /usr/local/include/signal.h 头文件，而使用 
+include_next 就可以包含 /usr/include/signal.h：
 
     #include <signal.h>
     #include_next <signal.h>
@@ -2342,27 +4082,40 @@ STL 有六大组件类型：
 
 - 容器 Containers
 
-    STL 容器是一种类模板 Class Template，主要分为`关联式容器` Associated containers 和`序列式容器` Sequence containers，存放各种数据结构，如 Vector，List，Deque，Set，Map。就体积而言，这一部分很像冰山载海面的比率。
+    STL 容器是一种类模板 Class Template，主要分为`关联式容器` Associated containers 
+    和`序列式容器` Sequence containers，存放各种数据结构，如 Vector，List，Deque，Set，Map。
+    体积而言，这一部分很像冰山载海面的比率。
 
 - 算法 Algorithms
 
-    各种常用算法，如Sort，Search，Copy，Erase。从实现的角度来看，STL 算法是一种函数模板 Function Templates。
+    各种常用算法，如 Sort，Search，Copy，Erase。从实现的角度来看，STL 算法是一种函数模板
+    Function Templates。
 
 - 迭代器 Iterators
 
-    扮演容器与算法之间的胶合剂，是所谓的泛型指针，共有五种，以及其它衍生变化。从实现的角度来看，迭代器是一种将 `Operators*`, `Operator->`, `Operator++`, `Operator–` 等相关操作予以重载的 Class Template。所有 STL 容器都附带有自己专属的迭代器。是的，只有容器设计者才知道如何遍历自己的元素，原生指针 Native pointer 也是一种迭代器。
+    扮演容器与算法之间的胶合剂，是所谓的泛型指针，共有五种，以及其它衍生变化。从实现的角度来看，
+    迭代器是一种将 `Operators*`, `Operator->`, `Operator++`, `Operator–` 等相关操作
+    予以重载的 Class Template。所有 STL 容器都附带有自己专属的迭代器。是的，只有容器设计者才
+    知道如何遍历自己的元素，原生指针 Native pointer 也是一种迭代器。
 
 - 仿函数 Functors
 
-    **行为类似函数，可作为算法的某种策略 Policy。**从实现的角度来看，仿函数是一种重载了 `Operator()` 的 Class 或 Class Template。一般函数指针可视为狭义的仿函数。
+    **行为类似函数，可作为算法的某种策略 Policy。**从实现的角度来看，仿函数是一种重载了
+     `Operator()` 的 Class 或 Class Template。一般函数指针可视为狭义的仿函数。
 
 - 适配器 Adapters
 
-    **一种用来修饰容器 Containers 或仿函数 Functors 或迭代器 Iterators 接口的东西，**例如：STL 提供的 Queue 和 Stack，虽然看似容器，其实只能算是一种容器配接器，因为它们的底部完全借助 Deque，所有操作由底层 Deque 供应。改变 Functor 接口者，称为 Function Adapter；改变 Container 接口者，称为 Container Adapter；改变 Iterator 接口者，称为 Iterator Adapter。配接器的实现技术很难一言蔽之，必须逐一分析。
+    **一种用来修饰容器 Containers 或仿函数 Functors 或迭代器 Iterators 接口的东西，**
+    例如：STL 提供的 Queue 和 Stack，虽然看似容器，其实只能算是一种容器配接器，因为它们的底部
+    完全借助 Deque，所有操作由底层 Deque 供应。
+    改变 Functor 接口者，称为 Function Adapter；
+    改变 Container 接口者，称为 Container Adapter；
+    改变 Iterator 接口者，称为 Iterator Adapter。
 
 - 分配器 Allocators
 
-    负责空间配置与管理，从实现的角度来看，配置器是一个实现了动态空间配置、空间管理、空间释放的 Class Template。
+    负责空间配置与管理，从实现的角度来看，配置器是一个实现了动态空间配置、空间管理、空间释放的 
+    Class Template。
 
 C++ STL 中最基本以及最常用的类或容器 string、vector、set、list、map 等等。
 
@@ -2381,7 +4134,8 @@ C++ STL 中最基本以及最常用的类或容器 string、vector、set、list�
 - `multiset` collection of keys, sorted by keys
 - `multimap` collection of key-value pairs, sorted by keys
 
-(since C++11) 提供无序关联容器 Unordered associative containers 实现松散哈希 hashed 数据结构，实现快速查找，时间复杂度平均为常数 O(1)，最差为 O(n)。
+(since C++11) 提供无序关联容器 Unordered associative containers 实现松散哈希 hashed 
+数据结构，实现快速查找，时间复杂度平均为常数 O(1)，最差为 O(n)。
 
 - `unordered_set` collection of unique keys, hashed by keys
 - `unordered_map` collection of key-value pairs, hashed by keys, keys are unique
@@ -2397,11 +4151,13 @@ Container adaptors provide a different interface for sequential containers.
 
 
 
-## ==⚡ template 模板泛型
-- https://www.runoob.com/cplusplus/cpp-templates.html
+## ==⚡ Template 模板泛型
 - [C++ 模板和 C# 泛型之间的区别](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/generics/differences-between-cpp-templates-and-csharp-generics)
-- C++ Primer, 5th Edition - 16. Templates and Generic Programming
-- C++ Primer 笔记——模板与泛型编程 https://www.cnblogs.com/zoneofmine/p/7401494.html
+- [C++ Primer 笔记——模板与泛型编程](https://www.cnblogs.com/zoneofmine/p/7401494.html)
+- [Constraints and concepts (since C++20)](https://en.cppreference.com/w/cpp/language/constraints)
+- [Requires expression (since C++20)](https://en.cppreference.com/w/cpp/language/requires)
+- [Concepts library (since C++20)](https://en.cppreference.com/w/cpp/concepts)
+- [C++模板的图灵完备](https://sighingnow.github.io/编程语言/template_turing_completeness.html)
 
 C++ Primer Chapter 16. Templates and Generic Programming
 
@@ -2411,42 +4167,144 @@ C++ Primer Chapter 16. Templates and Generic Programming
 - Section 16.4 Variadic Templates
 - Section 16.5 Template Specializations
 
+Profession C++, chapter 12 Writing Generic Code with Templates 
+
+➤ How to write class templates
+➤ How the compiler processes templates
+➤ How to organize template source code
+➤ How to use non-type template parameters
+➤ How to write templates of individual class methods
+➤ How to customize class templates for specific types
+➤ How to combine templates and inheritance
+➤ How to write alias templates
+➤ How to write function templates
+➤ How to make function templates friends of class templates
+➤ How to use the abbreviated function template syntax
+➤ How to use variable templates
+➤ How to use concepts to specify requirements for template arguments
+
+Profession C++, chaper 26 Advanced Templates
+
+➤ The different kinds of template parameters
+➤ How to use partial specialization
+➤ How to write recursive templates
+➤ What variadic templates are
+➤ How to write type-safe variable argument functions using variadic templates
+➤ What constexpr if statements are
+➤ How to use fold expressions
+➤ What metaprogramming is and how to use it
+➤ What type traits can be used for
+
+C++ 不仅仅提供 OOP 编程，同时还提供模板编程，这是代码复用工具。也是 C++ 基础的泛型编程方式，
+泛型即泛化类型。严格来说，模板编程不是 OOP 特性，但可以结合 OOP 发挥强大的功能。通常 C++ 开发者
+将模板看作是 C++ 编程最难的部分。
+
+程序员在使用模板类时最常犯的错误是：将模板类视为某种数据类型。
+
+可能因所谓的类型参量化(parameterized types)这样的术语导致了这种误解。模板当然不是数据类型，
+模板就是模板，恰如其名：编译器使用模板，通过更换模板参数来创建数据类型。这个过程就是模板实例化
+(Instantiation)。根据模板创建得到的类型称之为特化(specialization)。模板实例化取决于编译器
+能够找到可用代码来创建特例，称之为实例化要素，point of instantiation。
+
+要按模板来创建特例，编译器不但要看到模板的声明，还要看到模板的定义。模板实例化过程是迟钝的，即
+只能用函数的定义来实现实例化。模板编译是 Two-Phase Translation 方式，第一轮是模板语法
+检查，但是忽略模板参数。如果 static assertion 不依赖模板参数，还会检查是否通过静态断言。
+第二轮是特化阶段，会再次检查模板里所有代码的正确性，尤其是那些依赖模板参数的部分。
+
+例如，以下模板函数 max()，定义好一个模板，编译器编译时遇到模板定义时，并没有像遇到 class 那样
+生成类型的内存布局。而是要等到模板的使用者通过指定模板参数调用时，编译器才知道如何进行特化：
+
+```C++,ignore
+    template<typename T>
+    T max(T a,T b) {
+      return b < a ? a : b;
+    }
+    // Specialization: int max(int a, int b)
+    std::cout << max(7,42) << std::endl;
+    // Specialization: string max(string a, string b)
+    std::cout << max("math","mathematics") << std::endl;
+```
+
+由于模板的编译和链接过程与普通 C++ 类型代码处理上的差异，就不能按正常方式编写代码：声明写在头文件，
+定义在单独的编译单元文件。这种组织方式在使用模板时却行不通。
+
+编译阶段发现一个符号没有定义只有声明时，编译器会假设它的定义在其他文件中，就会留一个”占位“给链接器，
+让它去填充真正的符号地址。但是模板是比较特殊的，需要在编译阶段进行实例化，即需要进行模板参数类型推断，
+实例化模板，当然也就需要知道模板的定义。如果此时使用分立编码，傅单独的编译单元文件，编译器编译就
+找不到模板的定义，自然也就不能进行特化。可以参考一下 STL 源文件，像 vector 等就是把类的声明和
+定义都放在同一个文件中。
+
+
+C++20 引入了一个新概念，真的是概念，它的名字就叫 `concept`，其实是一个语法糖，和 Java 语言的
+泛型约束等价。本质模板参数约束条件，是一个 bool 值条件。
+
+```C++
+    // template < template-parameter-list >
+    // concept concept-name attr(optional) = constraint-expression;
+    
+    // concept usage:
+    template<class T, class U>
+    concept Derived = std::is_base_of<U, T>::value;
+```
+
+其中，constraint-expression 是一个可以被 eval 为 bool 的表达式或者编译期函数。使用时，
+constraint-expression 会根据 template-parameter-list 传入的类型，执行编译期计算，
+判断使用该 concept 的模板定义是否满足。如果不满足，则编译期会给定一个具有明确语义的错误，
+即这个 concept 没有匹配成功。概念约束行为在编译期完成，因此 concept 是 zero-cost 表达式。
+
+Standard library concepts 提供了通用的约束条件。
+
+
 模板中使用的关键字 *typename* 和 *class* 没有区别，相同含义，可以互换使用。
 
-注意：inline and constexpr 模板函数的关键字要放在摸板型列表之后，返回类型之前，不能放在 *template* 关键字之前。
+注意：inline and constexpr 关键字要放在摸板列表之后，返回类型之前，不能放在 *template* 关键字之前。
 
-模板的实例化：编译器用模板产生指定的类或函数的特定类型版本，产生模板的特定类型实例的过程称为实例化。需要和类对象的实例化区别开来。
+模板的实例化：编译器用模板产生指定的类或函数的特定类型版本，产生模板的特定类型实例的过程称为实例化。
+需要和类对象的实例化区别开来。
 
 从函数调用时的实参确定模板实参的类型和值的过程叫做模板实参推断。
 
-当编译器遇到一个模板定义的时候，它并不生成代码。只有当我们实例化模板的一个特定版本时，编译器才会生成代码。为了生成一个实例化版本，编译器需要掌握函数模板或类模板成员函数的定义。所以模板的头文件通常既包括声明也包括定义。
+当编译器遇到一个模板定义的时候，它并不生成代码。只有当我们实例化模板的一个特定版本时，编译器才会
+生成代码。为了生成一个实例化版本，编译器需要掌握函数模板或类模板成员函数的定义。所以模板的头文件
+通常既包括声明也包括定义。
 
-与函数模板不同，编译器不能为类模板推断模板参数类型，所以必须在模板名后的尖括号中提供额外信息。每个类模板的每个实例都形成一个独立的类。默认情况下，一个类模板的成员函数只有当程序用到它时才进行实例化。
+与函数模板不同，编译器不能为类模板推断模板参数类型，所以必须在模板名后的尖括号中提供额外信息。每个
+类模板的每个实例都形成一个独立的类。默认情况下，一个类模板的成员函数只有当程序用到它时才进行实例化。
 
-如果一个类模板包含一个非模板友元，则友元可以访问所有模板实例。如果友元自身是模板，类可以授权给所有友元模板实例，也可以只授权给特定实例。
+如果一个类模板包含一个非模板友元，则友元可以访问所有模板实例。如果友元自身是模板，类可以授权给所有
+友元模板实例，也可以只授权给特定实例。
 
 当希望通知编译器一个名字表示类型时，必须使用关键字 *typename*，而不能使用 *class*。
 
-```cpp
-template <typename T>
-void test(const T& t)
-{
-    typename T::value_type *p;
-}
+```C++,ignore
+    template <typename T>
+    void test(const T& t)
+    {
+        typename T::value_type *p;
+    }
 ```
 
 
-泛型编程 Generic 这个概念最早就是来源于 C++ 当初设计 STL 时所引入的模板 Template 概念，而为什么要引入模板呢，因为 STL 要完成这样一个目标：
+泛型编程 Generic 这个概念最早就是来源于 C++ 当初设计 STL 时所引入的模板 Template 概念，而
+为什么要引入模板呢，因为 STL 要完成这样一个目标：
 
 设计一套通用的，不依赖类型的，高效的的算法和数据结构，例如 std::sort 和 std::list。
 
-关于通用性，运行时多态 Polymorphism 可以做到，高级语言的继承 Inheritance 机制，接口 Interface 机制，但是 C++ 作为一门相对底层的语言，对运行效率的要求是很严格的，而运行时多态会影响效率。例如成员函数只有在运行时才知道调用哪个，所以设计 STL 的人就创造了一种编译时多态技术，即模板。
+关于通用性，运行时多态 Polymorphism 可以做到，高级语言的继承机制，接口机制，但是 C++ 作为一门
+相对底层的语言，对运行效率的要求是很严格的，而运行时多态会影响效率。例如成员函数只有在运行时才知道
+调用哪个，所以设计 STL 的人就创造了一种编译时多态技术，即模板。
 
-那什么又是编译时多态呢，简单点说就是让编译器帮我确定类型，我写程序时只要标记下这里我要用某种类型的对象，至于具体是什么类型我不关心，你编译器帮我确定，编译完成后在运行时绝对是类型确定的，这样就大大提高了运行效率，反之对编译就增加了很多工作，而且生成的目标代码也会大大增加。
+那什么又是编译时多态呢，简单点说就是让编译器帮我确定类型，写程序时只要标记下这里要用某种类型的对象，
+至于具体是什么类型我不关心，你编译器帮我确定，编译完成后在运行时绝对是类型确定的，这样就大大提高了
+运行效率，反之对编译就增加了很多工作，而且生成的目标代码也会大大增加。
 
-所以对 C++ 来说，所谓泛型 Generics，并不是说编译器不知道类型，而是针对程序员来说的，这也正是通用性的体现。C++ 的模板在刚出来的时候并没有想到会演化成今天这样，其他高级语言，如 Java，C# 在使用的时候带给了程序员极大的便利，就考虑支持这样一种功能，但是也仅仅是借用了 C++ 的模板理念，而没有完全照抄模板的实现方法，所以对于大部分程序员来说，只要使用起来差不多，并不关心实现。
+所以对 C++ 来说，所谓泛型 Generics，并不是说编译器不知道类型，而是针对程序员来说的，这也正是
+通用性的体现。C++ 的模板在刚出来的时候并没有想到会演化成今天这样，其他高级语言，如 Java，C# 
+在使用的时候带给了程序员极大的便利，就考虑支持这样一种功能，但是也仅仅是借用了 C++ 的模板理念，
+而没有完全照抄模板的实现方法，所以对于大部分程序员来说，只要使用起来差不多，并不关心实现。
 
-所以最后总结下，泛型是只是一个概念，具体实现有 C++ 的模板，Java 的泛型等，但实现方法大不相同，只是提供给语言使用者相同的使用方法而已。
+所以最后总结下，泛型是只是一个概念，具体实现有 C++ 的模板，Java 的泛型等，但实现方法大不相同，
+只是提供给语言使用者相同的使用方法而已。
 
 C++ 模板与 Java 泛型的比较：
 
@@ -2457,7 +4315,9 @@ C++ 模板与 Java 泛型的比较：
 - C++ 的每个 reified generic type 都有一份独立的代码，Java 只有一份 type erased 之后的代码。
 - C++ 的 type check 在编译时完成，Java 的 type check 在编译期和运行期都要做一些工作。
 
-总的来说 C++ 的 template 会生成更大的二进制代码，但会执行的比较快，但大个的二进制代码可能会导致更多的 I/O，所以也不一定完全是优势。Java 生成的代码只有一份，运行时会有一些 type cast 开销，但可以在运行时支持新类型，比如用 ClassLoader 动态加载进来的类。
+总的来说 C++ 的 template 会生成更大的二进制代码，但会执行的比较快，但大个的二进制代码可能会导致
+更多的 I/O，所以也不一定完全是优势。Java 生成的代码只有一份，运行时会有一些 type cast 开销，但
+可以在运行时支持新类型，比如用 ClassLoader 动态加载进来的类。
 
 C++ 模板和 C# 泛型之间的主要差异：
 
@@ -2468,9 +4328,16 @@ C++ 模板和 C# 泛型之间的主要差异：
 - C# 不允许将类型参数用作泛型类型的基类。
 - C# 不允许类型参数具有默认类型。
 - C# 泛型类型参数本身不能是泛型，但是构造类型可以用作泛型。 C++ 允许使用模板参数。
-- C++ 允许在模板中使用可能并非对所有类型参数有效的代码，随后针对用作类型参数的特定类型检查此代码。 C# 要求类中编写的代码可处理满足约束的任何类型。 例如，在 C++ 中可以编写一个函数，此函数对类型参数的对象使用算术运算符 + 和 -，在实例化具有不支持这些运算符的类型的模板时，此函数将产生错误。 C# 不允许此操作；唯一允许的语言构造是可以从约束中推断出来的构造。
+- C++ 允许在模板中使用可能并非对所有类型参数有效的代码，随后针对用作类型参数的特定类型检查此代码。
+- C# 要求类中编写的代码可处理满足约束的任何类型。
 
-在语法层次，C# 泛型是参数化类型的一个更简单的方法，而不具有 C++ 模板的复杂性。 此外，C# 不试图提供 C++ 模板所具有的所有功能。 在实现层次，主要区别在于 C# 泛型类型的替换在运行时执行，从而为实例化对象保留了泛型类型信息。
+例如，在 C++ 中可以编写一个函数，此函数对类型参数的对象使用算术运算符 + 和 -，在实例化具有不支持
+这些运算符的类型的模板时，此函数将产生错误。 C# 不允许此操作；唯一允许的语言构造是可以从约束中推断
+出来的构造。
+
+在语法层次，C# 泛型是参数化类型的一个更简单的方法，而不具有 C++ 模板的复杂性。 此外，C# 不试图
+提供 C++ 模板所具有的所有功能。 在实现层次，主要区别在于 C# 泛型类型的替换在运行时执行，从而为
+实例化对象保留了泛型类型信息。
 
 
 模板函数定义的一般形式如下所示：
@@ -2488,122 +4355,124 @@ C++ 的模板定义的是一类具有相似行为的对象：
 - `alias template` an alias to a family of types (since C++11) 
 - `variable template` a family of variables (since C++14) 
 
-Templates are parametrized by one or more template parameters, of three kinds: type template parameters, non-type template parameters, and template template parameters.
+Templates are parametrized by one or more template parameters, of three kinds: 
+type template parameters, non-type template parameters, and template template 
+parameters.
 
 
 函数模板示例：
 
-```cpp
-#include <iostream>
-#include <string>
- 
-using namespace std;
- 
-// Define a Function Template
-template <typename T>
-inline T const& Max (T const& a, T const& b) 
-{ 
-    return a < b ? b:a; 
-} 
+```C++,ignore
+    #include <iostream>
+    #include <string>
+     
+    using namespace std;
+     
+    // Define a Function Template
+    template <typename T>
+    inline T const& Max (T const& a, T const& b) 
+    { 
+        return a < b ? b:a; 
+    } 
 
-int main ()
-{
-    int i = 39;
-    int j = 20;
-    // Instantiating a Function Template
-    cout << "Max(i, j): " << Max(i, j) << endl; 
- 
-    double f1 = 13.5; 
-    double f2 = 20.7; 
-    cout << "Max(f1, f2): " << Max(f1, f2) << endl; 
- 
-    string s1 = "Hello"; 
-    string s2 = "World"; 
-    cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
- 
-   return 0;
-}
+    int main ()
+    {
+        int i = 39;
+        int j = 20;
+        // Instantiating a Function Template
+        cout << "Max(i, j): " << Max(i, j) << endl; 
+     
+        double f1 = 13.5; 
+        double f2 = 20.7; 
+        cout << "Max(f1, f2): " << Max(f1, f2) << endl; 
+     
+        string s1 = "Hello"; 
+        string s2 = "World"; 
+        cout << "Max(s1, s2): " << Max(s1, s2) << endl; 
+     
+       return 0;
+    }
 ```
 
 
 类模板示例：
 
-```cpp
-#include <iostream>
-#include <vector>
-#include <cstdlib>
-#include <string>
-#include <stdexcept>
+```C++,ignore
+    #include <iostream>
+    #include <vector>
+    #include <cstdlib>
+    #include <string>
+    #include <stdexcept>
 
-using namespace std;
+    using namespace std;
 
-template <class T>
-class Stack 
-{
-private:
-    vector<T> elems;
-
-public:
-    Stack<T>& push(T const&);
-    T pop();
-    T top() const;
-    bool empty() const {
-        return elems.empty();
-    }
-    int size() const {
-        return elems.size();
-    }
-};
-
-template<class T>
-Stack<T>& Stack<T>::push(T const& elem)
-{
-    elems.push_back(elem);
-    return *this;
-}
-
-template<class T>
-T Stack<T>::pop()
-{
-    if (elems.empty())
+    template <class T>
+    class Stack 
     {
-        throw out_of_range("Stack<T>::pop() with empty stack");
-    }
-    T back = elems.back();
-    elems.pop_back();
-    return back;
-}
+    private:
+        vector<T> elems;
 
-template <class T>
-T Stack<T>::top() const
-{
-    if (elems.empty())
+    public:
+        Stack<T>& push(T const&);
+        T pop();
+        T top() const;
+        bool empty() const {
+            return elems.empty();
+        }
+        int size() const {
+            return elems.size();
+        }
+    };
+
+    template<class T>
+    Stack<T>& Stack<T>::push(T const& elem)
     {
-        throw out_of_range("Stack<T>::top() with empty stack");
+        elems.push_back(elem);
+        return *this;
     }
-    return elems.back();
-}
 
-int main()
-{
-    try
+    template<class T>
+    T Stack<T>::pop()
     {
-        Stack<int> iStack;
-        Stack<string> sStack;
-
-        iStack.push(7).push(8);
-        cout << iStack.pop() << endl;
-        cout << iStack.top() << endl;
-
-        sStack.push("hello").push("world");
-        cout << sStack.pop() << endl << sStack.pop()  << endl;
-        sStack.pop();
-    } catch (exception const& ex)
-    {
-        cerr << "Exception: " << ex.what() << endl;
-        return -1;
+        if (elems.empty())
+        {
+            throw out_of_range("Stack<T>::pop() with empty stack");
+        }
+        T back = elems.back();
+        elems.pop_back();
+        return back;
     }
-}
+
+    template <class T>
+    T Stack<T>::top() const
+    {
+        if (elems.empty())
+        {
+            throw out_of_range("Stack<T>::top() with empty stack");
+        }
+        return elems.back();
+    }
+
+    int main()
+    {
+        try
+        {
+            Stack<int> iStack;
+            Stack<string> sStack;
+
+            iStack.push(7).push(8);
+            cout << iStack.pop() << endl;
+            cout << iStack.top() << endl;
+
+            sStack.push("hello").push("world");
+            cout << sStack.pop() << endl << sStack.pop()  << endl;
+            sStack.pop();
+        } catch (exception const& ex)
+        {
+            cerr << "Exception: " << ex.what() << endl;
+            return -1;
+        }
+    }
 ```
 
 
@@ -2614,20 +4483,21 @@ int main()
 - https://docs.microsoft.com/zh-cn/cpp/standard-library/multimap-class
 - https://preshing.com/20110603/hash-table-performance-tests/
 
-```cpp
-// Defined in header <map>   
-template<
-    class Key,
-    class T,
-    class Compare = std::less<Key>,
-    class Allocator = std::allocator<std::pair<const Key, T> >
-> class map; // (1)  
+```C++,ignore
+    // Defined in header <map>   
+    template<
+        class Key,
+        class T,
+        class Compare = std::less<Key>,
+        class Allocator = std::allocator<std::pair<const Key, T> >
+    > class map; // (1)  
 
-namespace pmr {
-    template <class Key, class T, class Compare = std::less<Key>>
-    using map = std::map<Key, T, Compare, std::pmr::polymorphic_allocator<std::pair<const Key,T>>>
-}            // (2) (since C++17) 
+    namespace pmr {
+        template <class Key, class T, class Compare = std::less<Key>>
+        using map = std::map<Key, T, Compare, std::pmr::polymorphic_allocator<std::pair<const Key,T>>>
+    }            // (2) (since C++17) 
 ```
+
 Map 是 C++ 标准容器，提供了很好 Key-Value 一对一的关系。
 
 通常是红黑树算法结构实现，red-black trees，Keys 通过 Compare() 方法排序，搜索、移除、插入操作对数复杂度。
@@ -2664,7 +4534,7 @@ C++ 标准库 map 类为：
 
 构造函数用法；
 
-```cpp
+```C++,ignore
 map<char, int> mapchar;
 map<char, string> mapchar;
 map<int, char> mapint；
@@ -2675,7 +4545,7 @@ map<string, int> mapstring;
 
 添加数据；
 
-```cpp
+```C++,ignore
 map<int ,string> maplive;  
 maplive.insert(pair<int,string>(102,"aclive"));
 maplive.insert(map<int,string>::value_type(321,"hai"));
@@ -2684,7 +4554,7 @@ maplive[112]="April";
 
 std::map 重载了赋值运算符：
 
-```cpp
+```C++,ignore
 map& operator=( const map& other ); // (1)  
 map& operator=( map&& other );      // (2) (since C++11) (until C++17)
 map& operator=( map&& other ) noexcept();    // (2) (since C++17) 
@@ -2754,7 +4624,7 @@ map& operator=( std::initializer_list<value_type> ilist );  // (3) (since C++11)
 
 示例程序：
 
-```cpp
+```C++,ignore
 #include <map>
 #include <iostream>
 
@@ -2814,14 +4684,14 @@ int main( )
 
 注意，map 取值主要有 at 和下标 [] 两种操作，(C++11) 引入的 at 会作下标检查。map 可使用类似数组下标的方式访问元素。multimap 不可以这样访问元素，它需要通过迭代器访问：
 
-```cpp
+```C++,ignore
 m1_Iter = m1.find(2);
 cout << "The number of element in map with a key 2 is: " << m1_Iter->second << endl;
 ```
 
 ## ===✒ std::map::insert()
 
-```cpp
+```C++,ignore
 std::pair<iterator,bool> insert( const value_type& value ); (1)  
 template< class P >
 std::pair<iterator,bool> insert( P&& value ); (2) (since C++11) 
@@ -2844,7 +4714,7 @@ iterator insert(const_iterator hint, node_type&& nh); (8) (since C++17)
 
 返回 key 关联的条目，否则返回 end()。返回条目即 Key-value，通过 first 和 second 成员引用。
 
-```cpp
+```C++,ignore
 iterator find( const Key& key ); // (1)  
 const_iterator find( const Key& key ) const; // (2)  
 template< class K > iterator find( const K& x ); // (3) (since C++14) 
@@ -2856,7 +4726,7 @@ template< class K > const_iterator find( const K& x ) const; // (4) (since C++14
 
 Example
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 #include <map>
@@ -2899,12 +4769,11 @@ int main()
 
 Output:
 
-```sh
-Item::Item() 0x751a00
-Item::Item() 0x752a80
-a: Default#0
-Not found!
-```
+    Item::Item() 0x751a00
+    Item::Item() 0x752a80
+    a: Default#0
+    Not found!
+
 
 ## ===✒ std::multimap
 - https://en.cppreference.com/w/cpp/container/multimap
@@ -2929,34 +4798,34 @@ Everywhere the standard library uses the Compare requirements, equivalence is de
 
 *std::multimap* meets the requirements of *Container*, *AllocatorAwareContainer*, *AssociativeContainer* and *ReversibleContainer*.
 
-```C++
-#include <iostream>
-#include <map>
- 
-struct Point { double x, y; };
-struct PointCmp {
-    bool operator()(const Point& lhs, const Point& rhs) const { 
-        return lhs.x < rhs.x; // NB. ignores y on purpose
-    }
-};
- 
-int main() {
-    std::multimap<int, int> m = {{1,1}, {2,2}, {3,3}, {4,4}, {3,3}, {2,2}, {1,1}};
-    for(auto& p: m) std::cout << p.first << ' ' << p.second << '\n';
- 
-    // custom comparison
-    std::multimap<Point, double, PointCmp> mag{
-        { {5, 12}, 13 },
-        { {3, 4}, 5 },
-        { {8, 15}, 17 },
-        { {3, -3}, -1 },
+```C++,ignore
+    #include <iostream>
+    #include <map>
+     
+    struct Point { double x, y; };
+    struct PointCmp {
+        bool operator()(const Point& lhs, const Point& rhs) const { 
+            return lhs.x < rhs.x; // NB. ignores y on purpose
+        }
     };
- 
-  for(auto p : mag)
-      std::cout << "The magnitude of (" << p.first.x
-                << ", " << p.first.y << ") is "
-                << p.second << '\n';
-}
+     
+    int main() {
+        std::multimap<int, int> m = {{1,1}, {2,2}, {3,3}, {4,4}, {3,3}, {2,2}, {1,1}};
+        for(auto& p: m) std::cout << p.first << ' ' << p.second << '\n';
+     
+        // custom comparison
+        std::multimap<Point, double, PointCmp> mag{
+            { {5, 12}, 13 },
+            { {3, 4}, 5 },
+            { {8, 15}, 17 },
+            { {3, -3}, -1 },
+        };
+     
+      for(auto p : mag)
+          std::cout << "The magnitude of (" << p.first.x
+                    << ", " << p.first.y << ") is "
+                    << p.second << '\n';
+    }
 ```
 
 Output:
@@ -3256,7 +5125,7 @@ C++ `<string>` 提供以下类型定义：
 
 基础泛型字符串 std::basic_string 提供了以下通常的类型：
 
-```cpp
+```C++,ignore
 // Defined in header <string> 
 // Type Definition 
 std::string    std::basic_string<char> 
@@ -3267,7 +5136,7 @@ std::u32string std::basic_string<char32_t>
 
 另外一种泛型字符串 std::basic_string_view 提供经量化字符串对象，只提供读取功能，以下是对应的泛型实例：
 
-```cpp
+```C++,ignore
 // Defined in header <string> 
 // Type Definition 
 std::string_view    std::basic_string_view<char> 
@@ -3284,7 +5153,7 @@ std::u32string_view std::basic_string_view<char32_t>
 
 下面的声明和初始化创建了一个 "Hello" 字符串。由于在数组的末尾存储了 NULL-terminated 空字符，所以字符数组的大小比单词 "Hello" 的字符数多一个。
 
-```cpp
+```C++,ignore
 char greeting[6] = {'H', 'e', 'l', 'l', 'o', ''};
 char greeting[] = "Hello";
 ```
@@ -3293,7 +5162,7 @@ char greeting[] = "Hello";
 
 示例：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
  
@@ -3317,7 +5186,7 @@ int main ()
 
 C 风格函数：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <cstring>
  
@@ -3345,7 +5214,7 @@ int main ()
 
 C++ 字符串对象：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
  
@@ -3495,7 +5364,7 @@ Search
 
 C++11 开始提个一个全局的 to_string 方法：
 
-```cpp
+```C++,ignore
 // Defined in header <string>   
 std::string to_string( int value ); (1) (since C++11) 
 std::string to_string( long value ); (2) (since C++11) 
@@ -3524,7 +5393,7 @@ Converts a numeric value to std::string.
 
 C++11 之前只能自己写，我目前发现的史上最优雅的一个实现是这样的：
     
-```cpp
+```C++,ignore
 void split(const string& s, vector<string>& tokens, const string& delimiters = " ")
 {
     string::size_type lastPos = s.find_first_not_of(delimiters, 0);
@@ -3708,7 +5577,7 @@ Defined in header `<iostream>`
 
 The following typedefs for common character types are provided:
 
-```cpp
+```C++,ignore
 typedef basic_ios<char>                ios;
 typedef basic_ios<wchar_t>            wios;
  
@@ -3893,7 +5762,7 @@ C++ 两个 I/O 库，现代的基于流的 Stream-based I/O，以及兼容的 C-
 
 文件读写操作示范：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <fstream>
 
@@ -3911,7 +5780,7 @@ int main () {
 
 binary 文件读取：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -3941,7 +5810,7 @@ int main () {
 
 文本文件读写：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -4005,7 +5874,7 @@ int main()
 
 用于文件内容读取，并快速连接字符串：
 
-```cpp
+```C++,ignore
 string Read(string fileName)
 {
     string line;
@@ -4093,7 +5962,7 @@ String operations
 
 C++ 的 `<cstdio>` 头文件定义替代 C 的 `<stdio.h>`：
 
-```cpp
+```C++,ignore
 int printf( const char* format, ... ); (1)  
 int fprintf( std::FILE* stream, const char* format, ... ); (2)  
 int sprintf( char* buffer, const char* format, ... ); (3)  
@@ -4117,7 +5986,7 @@ Formatting library (C++20)，对没错老妖怪这时才提供格式化函数库
 
 示范，利用字符串打印函数 `_vsnprintf` 实现一个 format 函数：
 
-```cpp
+```C++,ignore
 // #include <boost/format.hpp>
 // #include <format> // C++20
 
@@ -4251,7 +6120,7 @@ setiosflags() 算子实际上是一个库函数，它以一些标志作为参数
 
 关于流操纵算子的使用，来看下面的程序。
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -4344,145 +6213,6 @@ setf 和 unsetf 函数用到的flag，与 setiosflags 和 resetiosflags 用到�
 
 
 
-# =🚩 const 的用法
-
-C++ 中 const 关键字用来告诉编译器一个常量信息，不允许修改，但是具体用法不同，意义有多种区别。
-
-- 可以定义常量，具有不可变性。可以节省空间，避免不必要的内存分配。
-
-    编译器通常不为普通 const 常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高。所以 Effective C++ & More Effective C++ 书中提到 Use const whenever possible 尽可能使用 const！
-
-        // 定义常量，Pi 不是变量，值不可修改
-        const doulbe Pi=3.14159;
-
-        // const pointer, const data
-        const char * const p = "Hello";
-
-    const 定义常量从汇编的角度来看，只是给出了对应的内存地址，而不像 #define 一样给出的是立即数。所以，const 定义的常量在程序运行过程中只有一份拷贝，而 #define 定义的常量在内存中有若干个拷贝。
-
-- 为函数重载提供了一个参考，const 修饰符定义常成员可以作为重载参考。
-
-        class A
-        {
-            void f(int i);
-            void f(int i) const;
-        };
-
-    定义 non-mutable 成员函数或叫做常成员函数，不改变对象的成员变量. 也不能调用类中任何非 const 成员函数。对于 const 类对象/指针/引用，也只能调用类的 const 成员函数。
-
-- 便于进行类型检查，使编译器对处理内容有更多了解，消除了一些隐患。可以保护被修饰的东西，防止意外的修改，增强程序的健壮性。
-
-        void f(const int i)
-        {
-            // 编译器得知道 i 是一个常量，不允许修改。
-        }
-
-- 便于进行类型检查，使编译器对处理内容有更多了解，消除了一些隐患。
-
-
-具体用法示范，可以参考 Core C++ A Software Engineering Approach - Chapter 9 More on the const Keyword：
-
-修饰一个指针或引用，表示指向一个不可修改的常量：
-
-    const double *p1 = &pi;
-    const double &r1 = pi;
-
-修饰一个指针符号，表示只指向 pi 而不能再指向其它：
-
-    double* const p1 = &pi;
-
-注意 const 关键字的位置，说实在的，C++ 这种复杂性真让人头痛！
-
-识别 const 到底是修饰指针还是指针所指的对象，有人沿着 * 号划一条线进行分辨：
-
-- 如果是 const * 则用来修饰指针所指向的变量，即指针本身是变量；
-- 如果是 * const 则是修饰指针本身，即指针本身是常量。
-
-但更根本的方法，认识 * 单元操作符是从右到左结合，而且优先级低于，下标运算符这类一级优先符号。所以，除非使用了圆括号，* 右侧的标识符号将定义为指针。如果右侧是 const 关键字，就是定义常指针。如果 const 跑到前头那就是定义标识符号为一个常量了。
-
-修饰一个数组，可采用如下格式：
-
-    int const a[5]={1, 2, 3, 4, 5};
-    const int a[5]={1, 2, 3, 4, 5};
-
-用在函数上：
-
-    void f1(const int& x);     // x is not changed by the function
-    void f2(const int x);      // redundant: x is passed by value anyway
-    void f3(int* const y);     // redundant: y is passed by value
-    void f4(int * const *y);   // ok, pointer is passed by pointer
-    void f4(const int *&y);    // ok: pointer is passed by reference
-
-    int Array::getInt (int i) const     // Array object does not change
-
-修饰函数返回值，表示返回一个不可修改的常量：
-
-    const int * mallocA(){  ///const data,non-const pointer
-        int *a = new int(2);
-        return a;
-    }
-
-    int main()
-    {
-        const int *a = mallocA();
-        int *b = mallocA();  //  error: invalid conversion from 'const int*' to 'int*'
-        return 0;
-    }
-
-
-Effective C++ & More Effective C++ 总结了以下用法：
-
-    char *p              = "Hello";  // non-const pointer, non-const data5
-    const char *p        = "Hello";  // non-const pointer, const data
-    char * const p       = "Hello";  // const pointer, non-const data
-    const char * const p = "Hello";  // const pointer, const data
-
-
-    class Widget { ... };
-    void f1(const Widget *pw);      // f1 takes a pointer to a
-                                    // constant Widget object
-    void f2(Widget const *pw);      // so does f2
-
-
-    class String {
-    public:
-      ...
-      // operator[] for non-const objects
-      char& operator[](int position)
-      { return data[position]; }
-
-      // operator[] for const objects
-      const char& operator[](int position) const
-      { return data[position]; }
-    private:
-      char *data;
-    };
-
-和常量转型有关的是 const_cast。
-
-
-FAQ 11.13 Does int& const x make sense?
-
-No, it doesn't. Since a reference is always bound to the same referent, the const is superfluous and possibly
-confusing.
-
-```cpp
-class Fred { };
-void f(Fred& const a);                               <-- 1
-void g(const Fred& const a);                         <-- 2
-void sample(Fred& a)
-{
-  Fred& const b = a;                                 <-- 3
-  const Fred& const c = a;                           <-- 4
-}
-```
-
-(1) Wrong; should be f(Fred& a);
-(2) Wrong; should be g(const Fred& a);
-(3) Wrong; should be Fred& b = a;
-(4) Wrong; should be const Fred& c = a;
-
-
 # =🚩 operators 运算符重载
 - https://www.runoob.com/cplusplus/input-output-operators-overloading.html
 
@@ -4552,7 +6282,7 @@ C++ 允许在同一作用域中的某个函数和运算符指定多个定义，�
 
 示范实现 <<、>>、[] 以及 () 强制类型转换运算符重载：
 
-```cpp
+```C++,ignore
 #include <string>
 #include <cstdarg>
 #include <iostream>
@@ -4641,41 +6371,41 @@ int main(int argc, char *argv[])
 - 先定义一个函数类型 BoolType，这里不需要调用它，只需要它起到类型定义的作用；
 - 重载一个类型转换运算符 cast operator，通过函数引用或 NULL 来充当布尔值的 True 或 False 两种状态；
 
-```C++
-#include <iostream>
+```C++,ignore
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-class Test {
-    // A bool-like type that cannot be converted to integer or pointer types
-    typedef bool (Test::*BoolType)(std::size_t);
+    class Test {
+        // A bool-like type that cannot be converted to integer or pointer types
+        typedef bool (Test::*BoolType)(std::size_t);
 
-    int _i;
-public:
-    Test(int i): _i(i) {}
+        int _i;
+    public:
+        Test(int i): _i(i) {}
 
-    bool checkSize(std::size_t size) 
+        bool checkSize(std::size_t size) 
+        {
+            cout << "    bool checkSize(std::size_t size);" << endl;
+            return size > 0;
+        }
+
+        operator BoolType() const 
+        {
+            cout << "    operator BoolType() const;" << endl;
+            return _i > 0? &Test::checkSize : NULL;
+        }
+    };
+
+    int main()
     {
-        cout << "    bool checkSize(std::size_t size);" << endl;
-        return size > 0;
+        Test t(1);
+        if(t){
+            cout << "    True" << endl;
+        }else{
+            cout << "    False" << endl;
+        }
     }
-
-    operator BoolType() const 
-    {
-        cout << "    operator BoolType() const;" << endl;
-        return _i > 0? &Test::checkSize : NULL;
-    }
-};
-
-int main()
-{
-    Test t(1);
-    if(t){
-        cout << "    True" << endl;
-    }else{
-        cout << "    False" << endl;
-    }
-}
 ```
 
 输出：
@@ -4694,7 +6424,7 @@ FAQ 23.05 Why do subscript operators usually come in pairs?
 
 而 non-const 版本返回一般引用，没有 const 约束。相反，由于常量下标运算符通过常量引用返回元素，类似于 b[3]的内容不能出现在赋值运算符的左侧。
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <stdexcept>
 
@@ -4745,7 +6475,7 @@ FAQ 24.01 What should assignment operators return?
 
 Assignment operators should generally return `*this` by reference. This means that they adhere to the same convention used by the built-in types by allowing assignment to be used as an expression rather than simply as a statement. This allows assignment to be cascaded into larger expressions. An example follows.
 
-```cpp
+```C++,ignore
 #include <iostream>
 using namespace std;
 class Fred {
@@ -4794,7 +6524,7 @@ One way to enforce these rules is to implement constructive binary operators usi
 
 例如，下面的代码使用 operator+= 实现 operator+ 运算符。
 
-```cpp
+```C++,ignore
 class Fred {
 public:
   friend Fred operator+ (const Fred& a, const Fred& b) throw();
@@ -4817,7 +6547,7 @@ FAQ 23.07 How are the prefix and postfix versions of operator++ distinguished?
 
 编译器是怎么区分自增、自减运算符使用中的前后位置的呢？
 
-```cpp
+```C++,ignore
 #include <iostream>
 
 using namespace std;
@@ -4851,7 +6581,7 @@ FAQ 23.09 How can a Matrix-like class have a subscript operator that takes more 
 
 方括号运算符通常只接收一个下标参数，这是习惯用法。对于矩阵，操作它的元素有一个坐标，需要指定多个参数来定位。重载圆括号运算是个不错的主意：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <stdexcept>
 
@@ -4950,7 +6680,7 @@ int main()
 
 声明时注意花括号后面的分号，类型声明它就是一条语句，就像声明函数一样：
 
-```cpp
+```C++,ignore
 // Declarations
 class Grace
 {
@@ -5001,7 +6731,7 @@ C++ 提供构造函数来处理对象的初始化，从内存删除对象时调�
 
 初始化表达与赋值表达式的区别：初始化发生在类对象定义时指定的 = 号，在其它位置出现的 = 号都是赋值操作，而非初始化。
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -5096,7 +6826,7 @@ Output:
 
 所谓局部类 local class 就是定义在一个函数内部的类，这个类只能在这个函数内部使用，例子：
 
-```cpp
+```C++,ignore
 int main()
 {
     class c4
@@ -5115,7 +6845,7 @@ int main()
 
 所谓嵌套类，即在类内部定义的类，根据类的访问修饰符决定外部代码是否可以访问：
 
-```cpp
+```C++,ignore
 #include <cstdio>
 #include <typeinfo>
 
@@ -5179,41 +6909,41 @@ int main()
 
 C++ 使用 public protected private 三级访问控制权，结构体默认 public 访问权，类默认 private 访问权。
 
-```C++
-#include <iostream>
+```C++,ignore
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-class Base
-{
-private:
-    int nPrivate;
-public:
-    int nPublic;
-protected:
-    int nProtected;
-};
-
-class Derived: public Base // public 继承
-{
-    void AccessTest()
+    class Base
     {
-        nPublic = 1;    // Ok 可以访问 public 继承的基类 protected 成员
-        nProtected = 1; // Ok 可以访问 public 继承的基类 protected 成员
-        //nPrivate = 1; // No 不能访问 public 继承的基类 private 成员
-        Derived d;
-        // d.nProtected = 1; // Ok 可以从外部访问 public 成员
-        // d.nProtected = 1; // No 不能从外部访问 protected 成员
-        // d.nPrivate = 1;   // No 不能从外部访问 private 成员
-    }
-};
+    private:
+        int nPrivate;
+    public:
+        int nPublic;
+    protected:
+        int nProtected;
+    };
 
-int main()
-{
-    Derived s;
-    s.AccessTest();
-    return 0;
-}
+    class Derived: public Base // public 继承
+    {
+        void AccessTest()
+        {
+            nPublic = 1;    // Ok 可以访问 public 继承的基类 protected 成员
+            nProtected = 1; // Ok 可以访问 public 继承的基类 protected 成员
+            //nPrivate = 1; // No 不能访问 public 继承的基类 private 成员
+            Derived d;
+            // d.nProtected = 1; // Ok 可以从外部访问 public 成员
+            // d.nProtected = 1; // No 不能从外部访问 protected 成员
+            // d.nPrivate = 1;   // No 不能从外部访问 private 成员
+        }
+    };
+
+    int main()
+    {
+        Derived s;
+        s.AccessTest();
+        return 0;
+    }
 ```
 
 Table 14.1 Varieties of Inheritance 展示了各种基本继承关系中父类成员在子类中的访问权：
@@ -5250,7 +6980,7 @@ Table 14.1 Varieties of Inheritance 展示了各种基本继承关系中父类�
 
 类、成员、函数友元用法示范：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 
@@ -5334,7 +7064,7 @@ int main(void)
 
 在类外部环境中，即 main 函数中只有 B 类及子类 X 可以访问 apple() 方法。C++ 中没有 super 或 parent 等关键字，想要调父类方法，只能以两个冒号指定父类名称及方法名 B::apple() 这种方式调用。
 
-```cpp
+```C++,ignore
 #include <iostream>
 
 class B {
@@ -5397,9 +7127,12 @@ int main()
 
 C++ 中有几个常让初学者搞不清晰的术语，通过虚函数表的解析就十分明确：
 
-- Overload 重载，是指在*同作用域*定义*同名*，但*签名不同*的函数，签名包括了参数类型、参数顺序，是否有 const 和 volatile 关键字。
-- Override 覆盖，是指在*不同作用域*即在子类中定义和基类*同名*而且*同参数*、*同返回值*的函数，以覆盖*基类虚函数*，与虚函数表关联。
-- Overwrite 重写，也叫重定义，是指在*不同作用域*定义和基类*同名*的函数，以实现在作用域上屏蔽同名函数。
+01. **Overload** 重载，是指在*同作用域*定义*同名*，但*签名不同*的函数，签名包括了参数类型、
+    参数顺序，是否有 const 和 volatile 关键字。
+02. **Override** 覆盖，是指在*不同作用域*即在子类中定义和基类*同名*而且*同参数*、*同返回值*
+    的函数，以覆盖*基类虚函数*，与虚函数表关联。
+03. **Overwrite** 重写，也叫重定义，是指在*不同作用域*定义和基类*同名*的函数，以实现在作用域
+    上屏蔽同名函数。
 
 注意，签名包括函数名称、参数类型及顺序，后缀关键字如 const 和 volatile，但是不包括返回值！重载解析中不考虑返回类型，而且在不同的作用域里声明的函数也不算是重载。
 
@@ -5430,7 +7163,7 @@ C++11 规范引入了 *override* 和 *final* 关键字，主要作用是提示�
 
 在声明函数时，使用 *override* 关键字就是用来提示编译器，检查覆盖是否正确：
 
-```cpp
+```C++,ignore
 struct A
 {
     virtual void foo();
@@ -5463,7 +7196,7 @@ struct C : B
 
 在此例中，一个名为 x 的 double 覆盖了一个名为 x 的 int。
 
-```cpp
+```C++,ignore
 int x; // global variable
 void someFunc()
 {
@@ -5482,7 +7215,7 @@ void someFunc()
 
 在这种情况下，几乎总是要绕过 C++ 对“通过继承得到的名字”的缺省的覆盖机制。那就是使用 Scope operator :: 直接指定作用域，或者使用 using declarations 来解决。
 
-```cpp
+```C++,ignore
 class Base {
 private:
     int x;
@@ -5523,7 +7256,7 @@ int main()
 - [c++ Patterns](https://cpppatterns.com)
 - Design Patterns in Modern C++ Reusable Approaches for Object-Oriented Software Design by Dmitri Nesteruk
 - Hands-On Design Patterns With C++ by Fedor G. Pikus - CH8 The Curiously Recurring Template Pattern
-- 奇异递归模板模式(Curiously Recurring Template Pattern) https://zhuanlan.zhihu.com/p/54945314
+- [奇异递归模板模式 CRTP](https://zhuanlan.zhihu.com/p/54945314)
 - https://zh.cppreference.com/w/cpp/memory/enable_shared_from_this
 - https://eli.thegreenplace.net/2013/12/05/the-cost-of-dynamic-virtual-calls-vs-static-crtp-dispatch-in-c
 
@@ -5532,31 +7265,67 @@ int main()
 以下是简单的示范，使用 struct 是因为它默认的访问权为 public，方便写代码，而 class 默认访问权为
  private。
 
-```cpp
-// static polymorphism demo
-template <class impl>
-class base : public impl { 
-public: void op() { impl::op(); }};
+```C++,ignore
+    // static polymorphism via Curiously Recurring Template Pattern
+    template <class impl>
+    class base : public impl { 
+    public: 
+        void op() { impl::op(); }
+    };
 
-struct impl { void op() {  std::cout<< "work here\n"; }};
+    struct impl { 
+        void op() { std::cout<< "work here\n"; }
+    };
 
-base<impl>().op();
+    //base<impl>().op();
 ```
 
-这是一种编程模式，基于模板参数作为基类的混入模式 Mixin Types。
+CRTP 是一种编程模式，基于模板参数作为基类的混入模式 Mixin Types，包含以下两点：
 
-奇异递归模板模式 CRTP - Curiously Recurring Template Pattern，更一般地被称作 F-bound polymorphism。
+- 基类定义为模板类，派生子继承自这个模板类；
+- 将派生类作为基类的模板参数使用；
 
-CRTP 是 C++ 模板编程时的一种惯用法：把派生类作为基类的模板参数，它在 C++ 中主要有两种用途：
+奇异递归模板模式 CRTP，更早期被称作 F-bound polymorphism，是 C++ 模板编程的一种惯用法：
+把派生类作为基类的模板参数，它在 C++ 中主要有两种用途：
 
 - 实现 Static Polymorphism
 - 添加方法同时精简代码
 
-通过 CRTP 实现类似于虚函数的效果，同时又没有虚函数调用开销，因为虚函数调用是 Dynamic Binding，需要通过虚函数指针查找虚函数表进行调用。同时类的对象的体积相比使用虚函数也会减少，因为不需要存储虚函数指针，但是缺点是无法动态绑定。
+通过 CRTP 实现类似于虚函数的效果，同时又没有虚函数调用开销，因为虚函数调用是 Dynamic Binding，
+需要通过虚函数指针查找虚函数表进行调用。同时类的对象的体积相比使用虚函数也会减少，因为不需要存储虚
+函数指针。既然称之为静态多态，所以它的缺点就是无法动态绑定。
+
+```C++,ignore
+    #include <iostream>
+
+    using namespace std;
+
+    template<typename impl>
+    class base : public impl {
+    public:
+        void show_type(){ impl::show_type(); }
+    };
+
+    struct Box {
+        void show_type(){ std::cout << "Box" << endl; }
+    };
+
+    struct Cylinder {
+        void show_type(){ std::cout << "Cylinder" << endl; }
+    };
+
+    // Why? error C2059: Syntax error:“)”
+    // base<Box>().show_type();
+
+    int main() {
+        base<Box>().show_type();
+        base<Cylinder>().show_type();
+    }
+```
 
 用以下示范代码演示 CRTP 的形式，关键是使用模板基类：
 
-```cpp
+```C++,ignore
 // F-bound polymorphism
 template <typename Child>
 struct Base
@@ -5592,155 +7361,180 @@ int main()
 }
 ```
 
-注意这里使用的静态转型，和典型的派生类使用的 *dynamic_cast* 不同，因为这里需要的是静态绑定，使用 *static_cast* 转型就好了，将此视为一种意义暗示。
+注意这里使用的静态转型，和典型的派生类使用的 *dynamic_cast* 不同，因为这里需要的是静态绑定，
+使用 *static_cast* 转型就好了，将此视为一种意义暗示。
 
-动态强制转换通常用在运行时，用来保证将派生类正确转型。但在这里不需要这种保证：基类被设计为通过其模板参数继承，编译期绑定。
+动态强制转换通常用在运行时，用来保证将派生类正确转型。但在这里不需要这种保证：基类被设计为通过
+其模板参数继承，编译期绑定。
 
 另外，基类中将默认构造函数定义为 private 防止子类继承时，传入不合规范的其它类型。
 
-事实上，派生类的构造函数必须调用基类的构造函数，即使代码中没有显式调用它，编译器也会默认进行调用。由于基类中的构造函数是私有的，除了友元类之外，不可能访问它，而唯一的友元类是模板类！因此，如果派生类与模板类不同，则代码不会编译，这真是妙用。
+事实上，派生类的构造函数必须调用基类的构造函数，即使代码中没有显式调用它，编译器也会默认进行调用。
+由于基类中的构造函数是私有的，除了友元类之外，不可能访问它，而唯一的友元类是模板类！因此，如果派生类
+与模板类不同，则代码不会编译，这真是妙用。
 
-还有一个容易忽略的问题，派生类中的方法可能会覆盖相同名称的基类方法。正如 Effective C++ 3rd Item 33: Avoid hiding inherited names 解释的那样，因为这些方法不是虚拟的。因此，您需要注意，基类和派生类中的名称不能相同。
+还有一个容易忽略的问题，派生类中的方法可能会覆盖相同名称的基类方法。
+
+正如 Effective C++ 3rd Item 33: Avoid hiding inherited names 解释的那样，因为这些方法
+不是虚拟的。因此，您需要注意，基类和派生类中的名称不能相同。
 
 
 下面演示如何用奇异递归模板模式来简化接口。
 
 假设有一系列传感器，有数据的读写能力，现在希望增加一个数据处理能力，对原始数据进行系数化缩放。
+如果按传统的继承，就要给每个传感器都定义一个 `scale()` 或者增加一层继承，并添加数据处理功能。
 
-如果，按传统的继承，是不是要给每个传感器都定义一个 scale() 方法？或者增加一层继承，并添加数据处理功能。
+但是，使用 CRTP 编程模式真的不要太方便了，直接在模板基类设置一个 scale() 方法就解决了，
+这操作很有函数式编程的灵活性。但是，这种绕一圈调用本身的方法，缺点是接口定义不够直观。
 
-但是，使用 CRTP 编程模式真的不要太方便了，直接在模板基类设置一个 scale() 方法就解决了，这操作很有函数式编程的灵活性。但是，这种绕一圈调用本身的方法，缺点是接口定义不够直观。
-
-```cpp
-template <typename T>
-struct NumericalFunctions
-{
-    void scale(double multiplicator)
+```C++,ignore
+    template <typename T>
+    struct NumericalFunctions
     {
-        T& underlying = static_cast<T&>(*this);
-        underlying.setValue(underlying.getValue() * multiplicator);
-    }
-    void square()
-    {
-        T& underlying = static_cast<T&>(*this);
-        underlying.setValue(underlying.getValue() * underlying.getValue());
-    }
-    void setToOpposite()
-    {
-        scale(-1);
+        void scale(double multiplicator)
+        {
+            T& underlying = static_cast<T&>(*this);
+            underlying.setValue(underlying.getValue() * multiplicator);
+        }
+        void square()
+        {
+            T& underlying = static_cast<T&>(*this);
+            underlying.setValue(underlying.getValue() * underlying.getValue());
+        }
+        void setToOpposite()
+        {
+            scale(-1);
+        };
     };
-};
 
-class Sensitivity : public NumericalFunctions<Sensitivity>
-{
-public:
-    double getValue() const { return 0; };
-    void setValue(double value) { };
-    // rest of the sensitivity's rich interface...
-};
+    class Sensitivity : public NumericalFunctions<Sensitivity>
+    {
+    public:
+        double getValue() const { return 0; };
+        void setValue(double value) { };
+        // rest of the sensitivity's rich interface...
+    };
 
-class Sens: public Sensitivity {};
+    class Sens: public Sensitivity {};
 
-int main()
-{
-    Sens st;
-    st.setValue(1l);
-}
+    int main()
+    {
+        Sens st;
+        st.setValue(1l);
+    }
 ```
 
 为何不用非成员的模板函数呢？这是因为会增加额外的代码，至少它的参数更多了，至少要有一个参数，如下：
 
-```cpp
-template <typename T>
-void scale(T& object, double multiplicator)
-{
-    object.setValue(object.getValue() * multiplicator);
-}
+```C++,ignore
+    template <typename T>
+    void scale(T& object, double multiplicator)
+    {
+        object.setValue(object.getValue() * multiplicator);
+    }
 ```
 
 标准库的 std::enable_shared_from_this 模板类使用了类似的技术。
 
-假如在 C++ 要在一个已被 shareptr 管理的类型对象内获取并返回 this，为了防止被管理的对象已被智能指针释放，而导致 this 成为悬空指针，可能会考虑以 share_ptr 的形式返回 this 指针。
+假如在 C++ 要在一个已被 shareptr 管理的类型对象内获取并返回 this，为了防止被管理的对象已被
+智能指针释放，而导致 this 成为悬空指针，可能会考虑以 share_ptr 的形式返回 this 指针。
 
-让需要返回 this 指针的类，继承 std::enable_shared_from_this 模板类，同时模板参数为该类的类型：
+让需要返回 this 指针的类继承 std::enable_shared_from_this 模板类，同时模板参数为该类的类型：
 
-```cpp
-struct Good: std::enable_shared_from_this<Good>
-{
-    std::shared_ptr<Good> getptr() {
-        return shared_from_this();
-    }
-};
+```C++,ignore
+    struct Good: std::enable_shared_from_this<Good>
+    {
+        std::shared_ptr<Good> getptr() {
+            return shared_from_this();
+        }
+    };
 ```
 
 参考 enable_shared_from_this 代码：
 
-```cpp
-template<class T>
-class enable_shared_from_this {
-protected:
-    constexpr enable_shared_from_this() { }
-    enable_shared_from_this(enable_shared_from_this const&) { }
-    enable_shared_from_this& operator=(enable_shared_from_this const&) {
-        return *this;
-    }
+```C++,ignore
+    template<class T>
+    class enable_shared_from_this {
+    protected:
+        constexpr enable_shared_from_this() { }
+        enable_shared_from_this(enable_shared_from_this const&) { }
+        enable_shared_from_this& operator=(enable_shared_from_this const&) {
+            return *this;
+        }
 
-public:
-    shared_ptr<T> shared_from_this() { return self_; }
-    shared_ptr<T const> shared_from_this() const { return self_; }
+    public:
+        shared_ptr<T> shared_from_this() { return self_; }
+        shared_ptr<T const> shared_from_this() const { return self_; }
 
-private:
-    weak_ptr<T> self_;
+    private:
+        weak_ptr<T> self_;
 
-    friend shared_ptr<T>;
-};
+        friend shared_ptr<T>;
+    };
 ```
 
 
-
-## ==⚡ Virtual & Polymorphism 虚拟与多态机制
+## ==⚡ Virtual & Polymorphism 虚与多态机制
 - Polymorphism in C++ https://www.tutorialspoint.com/cplusplus/cpp_polymorphism.htm
 - Hands-On Design Patterns With C++ by Fedor G. Pikus - Chapter 1: An Introduction to Inheritance and Polymorphism
 
-C++ 语言中虚函数（virtual function）是在面向对象编程语言中的一个非常重要的概念，虚函数的目的就在于实现多态性。
+C++ 语言中虚函数（virtual function）是在面向对象编程语言中的一个非常重要的概念，虚函数的目的
+就在于实现多态性。
 
-虚函数的一个重要用法是期待子类对父类的虚拟成员函数进行重载，这种情况下，*virtual* 关键字就意味着“overridable”。当你用一个基类指针指向或引用它的继承类对象的时候，用这个指针或引用去调用虚函数时，实际调用的是继承类的版本。
+虚函数的一个重要用法是期待子类对父类的虚拟成员函数进行重载，这种情况下，*virtual* 关键字就意味着
+“overridable”。当你用一个基类指针指向或引用它的继承类对象的时候，用这个指针或引用去调用虚函数时，
+实际调用的是继承类的版本。
 
-Effective C++ 提到条款 37: 决不要重新定义继承而来的非虚函数，这是有道理的，统一的约定让代码逻辑更清晰。
+Effective C++ 提到条款 37: 决不要重新定义继承而来的非虚函数，这是有道理的，统一的约定让代码
+逻辑更清晰。
 
-因为重载、虚拟、多态机制的存在，编译期编译器在选择要调用的函数版本时有两种方式，Static & Dynamic Binding。那些可以在编译期确定下来的调用，就执行静态绑定 Static Binding，这种方式效率更高，不必在运行时再选择具体要执行的函数版本。
+因为重载、虚拟、多态机制的存在，编译期编译器可以选择调用的函数版本，那些可以在编译期确定下来的调用，
+就执行静态绑定 Static Binding，这种方式效率更高，不必在运行时再选择具体要执行的函数版本。那些
+不能在编译期确定的调用就需要使用 Dynamic Binding，即所谓动态联编，是指在程序的运行阶段动态地
+选择执行合适的成员函数，
 
-而所谓动态联编，是指在程序的运行阶段动态地选择合适的成员函数，那些不能在编译期确定的调用就需要使用 Dynamic Binding。
-
-多态 Polymorphism 本意就是多种状态，即哪个函数版本会被调用取决于 Dynamic Binding 使用方式。当然，动态绑定只是其中一种实现多态的方法，使用静态绑定也可以实现多态。
+多态 Polymorphism 本意就是多种状态，即哪个函数版本会被调用取决于 Dynamic Binding 使用方式。
+当然，动态绑定只是其中一种实现多态的方法，使用静态绑定也可以实现多态。
 
 Dynamic Binding 使用条件：
 
-1）为基类定义类虚函数；
-2）派生子类并实现虚拟函数；
-3）使用基类指针指向子类型的对象，并通过它调用虚函数；
+1. **virtual** 为基类定义类虚函数，表示其 overridable；
+2. 在派生子类实现虚拟函数；
+3. 使用**基类指针**指向子类型的对象，或者通过引用来调用虚函数；
 
 虚函数常识：
 
 1）为什么类的静态成员函数不能为虚函数？
 
-虚函数就意味动态绑定，也就是可以在派生类中覆盖，这与静态成员函数的定义（在内存中只有一份拷贝，通过类名或对象引用访问静态成员）本身就是相矛盾的。
+    虚函数就意味动态绑定，也就是可以在派生类中覆盖，这与静态成员函数的定义本身就是相矛盾的。
+    静态成员在内存中只有一份拷贝，通过类名或对象引用访问静态成员。
 
 2）为什么构造函数不能为虚函数？
 
-因为如果构造函数为虚函数的话，它将会在执行期间被构造，而执行期则意味已经完成对象构造过程，这也是冲突的。构造函数所完成的工作就是为了建立合适的对象，因此在没有构建好的对象上不可能执行多态的工作。在继承体系中，构造的顺序是先构造基类，再构造派生类，其目的就在于确保对象能够成功地构建。构造函数同时承担着虚函数表的建立，如果它本身都是虚函数的话，如何确保 vtbl 的构建成功呢？
+    因为如果构造函数为虚函数的话，它将会在执行期间被构造，而执行期则意味已经完成对象构造过程，
+    这也是冲突的。构造函数所完成的工作就是为了建立合适的对象，因此在没有构建好的对象上不可能
+    执行多态的工作。在继承体系中，构造的顺序是先构造基类，再构造派生类，其目的就在于确保对象
+    能够成功地构建。构造函数同时承担着虚函数表的建立，如果它本身都是虚函数的话，如何确保 vtbl 
+    的构建成功呢？
 
 3）虚析构函数如何执行？
 
-C++ 开发的时候，用来做基类的类的析构函数一般都是虚函数。当基类中有虚函数的时候，析构函数也要定义为虚析构函数。如果不定义虚析构函数，当删除一个指向派生类对象的指针时，会调用基类的析构函数，而派生类的析构函数未被调用，造成内存泄露。
+    C++ 开发的时候，用来做基类的类的析构函数一般都是虚函数。当基类中有虚函数的时候，析构函数
+    也要定义为虚析构函数。如果不定义虚析构函数，当删除一个指向派生类对象的指针时，会调用基类的
+    析构函数，而派生类的析构函数未被调用，造成内存泄露。
 
-注意：new 和 delete 是表达式，是静态的成员函数，不能是虚函数。C++ Primer 演示了通过重载类的 operator new, operator delete 来达到类似效果，new Expression versus operator new Function。
+注意：new 和 delete 是表达式，是静态的成员函数，不能是虚函数。C++ Primer 演示了通过重载类的
+operator new, operator delete 来达到类似效果，new Expression versus operator new Function。
 
 只需要在声明函数时使用 *virtual* 关键字，定义函数体时不需要，子类声明中也可以不使用。
 
-虚函数是通过一张虚函数表来实现的，简称 V-Table，它是一块连续的内存，每个内存单元中记录一个 JMP 指令的地址。编译器会为每个有虚函数的类创建一个虚函数表，该虚函数表将被该类的所有对象共享，类的每个虚函数成员占据虚函数表中的一行。
+虚函数是通过一张虚函数表来实现的，简称 V-Table，它是一块连续的内存，每个内存单元中记录一个 JMP 
+指令的地址。编译器会为每个有虚函数的类创建一个虚函数表，该虚函数表将被该类的所有对象共享，类的每个
+虚函数成员占据虚函数表中的一行。
 
-在这个表中，主要是一个类的虚函数的地址表。这张表解决了继承、覆盖的问题，保证其真实反应实际的函数。在有虚函数的类的实例中，分配了指向这个表的指针的内存。所以，当用父类的指针来操作一个子类的时候，这张虚函数表就指明了实际所应该调用的函数。
+在这个表中，主要是一个类的虚函数的地址表。这张表解决了继承、覆盖的问题，保证其真实反应实际的函数。
+在有虚函数的类的实例中，分配了指向这个表的指针的内存。所以，当用父类的指针来操作一个子类的时候，
+这张虚函数表就指明了实际所应该调用的函数。
 
 
 虚拟机制的基本用法：
@@ -5750,37 +7544,50 @@ C++ 开发的时候，用来做基类的类的析构函数一般都是虚函数�
 - 虚继承，例如：`class derive : virtual public base {};`
 - 虚解构函数，例如： `virtual ~Shape() throw();`
 
-使用 *virtual* 关键字和纯说明符 *=0* 将方法定义为纯虚函数，*Pure Virtual Functions*，意思是指这个函数为 NULL 指针，除非在类中提供实现定义。所属的类将会变为抽象类，通常作为接口使用，所以纯虚函数一般在子类中提供实现，而不是在其本身，当然可以这样做。
+使用 *virtual* 关键字和纯说明符 *=0* 将方法定义为纯虚函数，*Pure Virtual Functions*，
+意思是指这个函数为 NULL 指针，除非在类中提供实现定义。所属的类将会变为抽象类，通常作为接口使用，
+所以纯虚函数在子类中必需提供实现，而不是在其本身，当然可以这样做。
 
-纯说明符或抽象重写说明符只允许在虚函数上使用，它只起形式上的作用，告诉编译系统“这是纯虚函数”。
+纯虚说明符或抽象重写说明符只允许在虚函数上使用，它只起形式上的作用，告诉编译系统“这是纯虚函数”。
 
-类声明只要有纯虚函数就会成为抽象类，但是抽象类中除了包含纯虚函数外，还可以提供其它成员函数（虚函数或普通函数）和成员变量。例如，定义 protected 成员函数专供子类使用。
+类声明只要有纯虚函数就会成为抽象类，但是抽象类中除了包含纯虚函数外，还可以提供其它成员函数
+（虚函数或普通函数）和成员变量。例如，定义 protected 成员函数专供子类使用。
 
 只有类中的虚函数才能被声明为纯虚函数，普通成员函数和顶层函数均不能声明为纯虚函数。
 
-包含纯虚函数的类称为抽象类 *Abstract Class*，之所以说它抽象，是因为它无法实例化，也就无法创建对象。因为作为接口使用，抽象类就是父类，也称为 ABC (Abstract Base Class)。
+包含纯虚函数的类称为抽象类 *Abstract Class*，之所以说它抽象，是因为它无法实例化，也就无法
+创建对象。因为作为接口使用，抽象类就是父类，也称为 ABC (Abstract Base Class)。
 
-在大多数 OOP 语言中，都有接口的概念，通常也会有相应的关键字 *interface* 来定义一个接口，使用 *implements* 关键字来实现接口。本质上，接口是一种约定规范，目录是为子类提供一个统一的规范。从这一点来说，即使用没有 *interface* 关键字，使用 *class* 也可以定义一个具有实质意义的接口。
+在大多数 OOP 语言中，都有接口的概念，通常也会有相应的关键字 *interface* 来定义一个接口，
+使用 *implements* 关键字来实现接口。本质上，接口是一种约定规范，目的是为子类提供一个统一的规范。
+从这一点来说，即使用没有 *interface* 关键字，使用 *class* 也可以定义一个具有实质意义的接口。
 
-某些类，主要是接口这样的类，在现实角度和逻辑角度都不需要实例化（不需要创建它的对象实例），它的存在目的就是提供一个形式上的接口，让子类按同一规范来实现，C++ 抽象类的目的也就是提供接口定义。
+某些类，主要是接口这样的类，在现实角度和逻辑角度都不需要实例化（不需要创建它的对象实例），
+它的存在目的就是提供一个形式上的接口，让子类按同一规范来实现，C++ 抽象类的目的也就是提供接口定义。
 
-一般上，多继承机制会带来复杂的问题，一个类继承多个基类本身就是复杂的结构。但是一个类可以有多个接口，这是很正确的做法。接口相当于定义了一套行为，实现相应的接口就具有这套行为规范的能力。像鸵鸟困局这样的问题也可以很好地解决，像 Golang 语言那样使用接口组合来扩展类的能力。
+一般上，多继承机制会带来复杂的问题，一个类继承多个基类本身就是复杂的结构。实现多个接口就不一样，
+这是很正确的做法。接口相当于定义了一套行为，实现相应的接口就具有这套行为规范的能力。像鸵鸟困局
+这样的问题也可以很好地解决，像 Golang 语言那样使用接口组合来扩展类的能力。
 
-以继承为特点的 OOP 只是编程世界的一种抽象方式，在 Golang 的世界里没有继承，只有组合和接口，并且是松散的接口结构，不强制声明实现接口。
+以继承为特点的 OOP 只是编程世界的一种抽象方式，在 Golang 的世界里没有继承，只有组合和接口，
+并且是松散的接口结构，不强制声明实现接口。
 
-If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
+    If it looks like a duck, swims like a duck, and quacks like a duck, 
+    then it probably is a duck.
 
 翻译过来就是：如果某个东西长得像鸭子，像鸭子一样游泳，像鸭子一样嘎嘎叫，那它就可以被看成是一只鸭子。
 
 结合到 GO 语言，也就是说那些实现了鸭子某个 interface 全部方法的 struct 对象就是鸭子。
 
-单一继承关系解决了 is-a 也就是定义问题，因此可以把子类当做父类来对待。但对于父类不同但又具有某些共同行为的数据，单一继承就不能解决了，C++ 采取了多继承这种复杂的方式。。
+单一继承关系解决了 is-a 也就是定义问题，因此可以把子类当做父类来对待。但对于父类不同但又具有某些
+共同行为的数据，单一继承就不能解决了，C++ 采取了多继承这种复杂的方式。。
 
-所以，在 C++ 编程中，Multiple and Virtual Inheritance，Virtual Functions 的关系处理是逃不掉的，这是高级内容。
+所以，在 C++ 编程中，Multiple and Virtual Inheritance，Virtual Functions 的关系处理是
+逃不掉的，这是高级内容。
 
 以下代码可以用来测试构造函数和析构的执行顺序：
 
-```cpp
+```C++,ignore
 ```
     #include <iostream>
 
@@ -5811,64 +7618,76 @@ Output:
 - FAQ 20.05 What happens when a destructor is executed?
 - FAQ 20.06 What is the purpose of a copy constructor?
 
-析构器会自动调用所有成员对象和所有立即非虚拟基类的析构函数。首先，析构函数体执行，然后以成员对象在类主体中出现的相反顺序调用成员对象的析构函数，然后调用立即基类的析构函数，以继承它们时在类声明中出现的反向顺序进行。
+析构器会自动调用所有成员对象和所有立即非虚拟基类的析构函数。首先，析构函数体执行，然后以成员对象在
+类主体中出现的相反顺序调用成员对象的析构函数，然后调用立即基类的析构函数，以继承它们时在类声明中
+出现的反向顺序进行。
 
-虚拟基类是特殊的，它们的析构函数在大多数派生类的析构函数末尾调用。这是因为，虚拟继承机制改变了原有的构造器执行顺序，在继承列表中的基类中，按虚基类优先，从左到右，从顶级到底层的顺序执行。总之，virtual 继承出现的位置，其基类就会优先执行构造过程。
+虚拟基类是特殊的，它们的析构函数在大多数派生类的析构函数末尾调用。这是因为，虚拟继承机制改变了原有
+的构造器执行顺序，在继承列表中的基类中，按虚基类优先，从左到右，从顶级到底层的顺序执行。
+
+总之，virtual 继承出现的位置，其基类就会优先执行构造过程。
 
 可以在以上代码的 MI 和 MIV 继承列表中差别，只是后者将继承 Z 的方式改为 virtual 进行测试。
 
-使用虚继承后，导致编译器通过继承列表先找到 Z 的顶层基类即 X -> Y -> Z 这样的优先顺序执行构造过程，然后到 A -> B -> C 。
+使用虚继承后，导致编译器通过继承列表先找到 Z 的顶层基类即 X -> Y -> Z 这样的优先顺序执行构造，
+然后到 A -> B -> C 。
 
-原本是优先处理 C 的继承链，从其顶层基类开始，按 A -> B -> C 这样的顺序执行构造过程，然后再到 X -> Y -> Z。
+原本是优先处理 C 的继承链，从其顶层基类开始，按 A -> B -> C 这样的顺序执行构造过程，然后
+再到 X -> Y -> Z。
 
-参考 The C++ Programming Language 3rd/4th 两个版本中关于 Class Hierarchies 的两个示范代码：
+参考 The C++ Programming Language 3rd/4th 两个版本中关于 Class Hierarchies 的两个
+示范代码：
 
-```js
-class A {                  /*no constructor*/ };
-class B { public: B();     /*default constructor*/ };
-class C { public: C(int) ; /*no default constructor*/ };
-class D : virtual public A, virtual public B, virtual public C
-{
-    D() { /* ... */ } // error: no default constructor for C
-    D(int i) : C(i) { /* ... */ }; // ok 
-};
-// The C++ Programming Language, Third Edition
-// 15.2.4.1 Programming Virtual Bases [hier.vbase.prog]
+```C++,ignore
+    class A {                  /*no constructor*/ };
+    class B { public: B();     /*default constructor*/ };
+    class C { public: C(int) ; /*no default constructor*/ };
+    class D : virtual public A, virtual public B, virtual public C
+    {
+        D() { /* ... */ } // error: no default constructor for C
+        D(int i) : C(i) { /* ... */ }; // ok 
+    };
+    // The C++ Programming Language, Third Edition
+    // 15.2.4.1 Programming Virtual Bases [hier.vbase.prog]
 
-struct V 
-{
-    V(int i); // no default constructor
-};
-struct A 
-{
-    A(); // default constructor
-};
-struct B : virtual V, virtual A 
-{
-    B() : V{1} { /* ... */ }; // default constructor ; must initialize base V
-};
-class C : virtual V 
-{
-public:
-    C(int i) : V{i} { /* ... */ }; // must initialize base V
-};
-class D : virtual public B, virtual public C {
-    // implicitly gets the virtual base V from B and C
-    // implicitly gets virtual base A from B
-public:
-    D() { /* ... */ } // error : no default constructor for C or V
-    D(int i) :C{i} { /* ... */ }; // error : no default constructor for V
-    D(int i, int j) :V{i}, C{j} { /* ... */ } // OK
-};
-// The C++ Programming Language, Forth Edition
-// 21.3.5.1 Constructing Virtual Bases
+    struct V 
+    {
+        V(int i); // no default constructor
+    };
+    struct A 
+    {
+        A(); // default constructor
+    };
+    struct B : virtual V, virtual A 
+    {
+        B() : V{1} { /* ... */ }; // default constructor ; must initialize base V
+    };
+    class C : virtual V 
+    {
+    public:
+        C(int i) : V{i} { /* ... */ }; // must initialize base V
+    };
+    class D : virtual public B, virtual public C {
+        // implicitly gets the virtual base V from B and C
+        // implicitly gets virtual base A from B
+    public:
+        D() { /* ... */ } // error : no default constructor for C or V
+        D(int i) :C{i} { /* ... */ }; // error : no default constructor for V
+        D(int i, int j) :V{i}, C{j} { /* ... */ } // OK
+    };
+    // The C++ Programming Language, Forth Edition
+    // 21.3.5.1 Constructing Virtual Bases
 ```
 
-这两个示范代码都是在说多继承中的构造过程问题，要使用一个多继承层次结构成功执行构造，就必需满足所有基类相应的构造函数被成功执行。
+这两个示范代码都是在说多继承中的构造过程问题，要使用一个多继承层次结构成功执行构造，就必需满足
+所有基类相应的构造函数被成功执行。
 
-而这个过程中，C++ 构造器会执行一些*默认构造函数*，即没有参数的构造函数。如果没有定义任何构造函数，那么编译器会隐含提供一个，这个隐含的动作就是 compiler-synthesized。除非代码中定义了任何一个构造函数，此时隐含提供的默认构造函数就不存在了。
+而这个过程中，C++ 构造器会执行一些*默认构造函数*，即没有参数的构造函数。如果没有定义任何构造函数，
+那么编译器会隐含提供一个，这个隐含的动作就是 compiler-synthesized。除非代码中定义了任何一个
+构造函数，此时隐含提供的默认构造函数就不存在了。
 
-这就是说，像 struct V 这样的定义了一个带整数参数的构造函数，就不能对它调用默认构造函数，即需要显式指定要执行的构造函数。
+这就是说，像 struct V 这样的定义了一个带整数参数的构造函数，就不能对它调用默认构造函数，即需要
+显式指定要执行的构造函数。
 
 而 struct A 显式定义了默认构造函数，所以编译器会和调用隐含的默认构造函数一样，在需要时自动调用它。
 
@@ -5886,7 +7705,7 @@ public:
 
 虚继承与多继承示范代码片段：
 
-```cpp
+```C++,ignore
 // Virtual Inheritance
 class Base {};
 class Derived : virtual public Base {};
@@ -5922,7 +7741,7 @@ class SingingWaiter : public Waiter, public Singer {...};
 
 以下展示了二义性问题，以及显式转型处理方式：
 
-```cpp
+```C++,ignore
 SingingWaiter ed;
 HumanBeing * ph = &ed; // error: ambiguous
 ed.Show(); // error: ambigous
@@ -5970,7 +7789,7 @@ Table 14.1 Varieties of Inheritance 展示了各种基本继承关系中父类�
 
 加入虚继承，就需要修改原有代码，即使用在 C++ 的编译规则上也做了调整。如果是在工业上，这是潜在的工作量，和回收返工操作没什么不同：
 
-```cpp
+```C++,ignore
 class Singer : virtual public HumanBeing {...};
 class Waiter : public virtual HumanBeing {...};
 class SingingWaiter: public Singer, public Waiter {...};
@@ -5998,7 +7817,7 @@ class SingingWaiter: public Singer, public Waiter {...};
 
 这个规则的调整，是因为在虚继承关系中，如果 SingingWaiter 直接基类都在其构造器中的初始化列表中执行虚基类的构造器，那么会出现多个路径通向虚基类的构造器，这与虚继承的设计规则相违背。
 
-```cpp
+```C++,ignore
 SingingWaiter(const Worker & man, int p = 0, int v = Singer::other)
 : Waiter(man,p), Singer(man,v) {} // flawed
 
@@ -6016,7 +7835,7 @@ SingingWaiter(const Worker & man, int p = 0, int v = Singer::other)
 
 参考以下示范代码，VMan1 和 VMan2 对直接基类 HumanBeing 初始化是很正常的，而 MI 或 XMan 在虚继承形式下也可以对远端的虚基类进行初始化：
 
-```cpp
+```C++,ignore
 class HumanBeing 
 {
 public:
@@ -6066,7 +7885,7 @@ public:
 
 因此，使用默认参数是个好方法：
 
-```cpp
+```C++,ignore
 class HumanBeing {
 public:
     // Default constructor removes responsibility:
@@ -6107,7 +7926,7 @@ public:
 
 以下示范代码中，表示了编译器隐含的操作，它会在顶层基类内存开始地址处放置一个虚函数表指针：
 
-```cpp
+```C++,ignore
 class Base
 {
 public:
@@ -6655,7 +8474,7 @@ standard-layout 类型，C++标准中的是这样定义的：
 
 Classes versus Structs
 
-```cpp
+```C++,ignore
 struct MyStruct
 {
     int myInt = 0; // this defaults to public
@@ -6758,7 +8577,7 @@ C++ FAQs 提出一个问题，该不该在虚函数重写版本中抛出异常�
 
 用鸵鸟困局演示 Ostrich / Bird dilemma，假设 Bird::fly() 这个基类方法不抛出异常：
 
-```cpp
+```C++,ignore
 #include <iostream>
 
 using namespace std;
@@ -6795,7 +8614,7 @@ void Bird::fly() throw()
 
 基于基类的约定，fly() 成员函数不会抛出异常。
 
-```cpp
+```C++,ignore
 class CannotFly { };
 class Ostrich : public Bird {
 public:
@@ -6851,7 +8670,7 @@ FAQ 19.10 What does it mean that friends aren't virtual?
 
 注意，在整个继承层次结构中，只有基类声明了友元 operator<< 操作符，子类没有，但是 operator<< 可以访问子类的虚所保护成员或私有成员。
 
-```cpp
+```C++,ignore
 #include <iostream>
 
 using namespace std;
@@ -6916,7 +8735,7 @@ int main()
 
 应该使用 inline virtual functions 作为解构函数，避免子类解构时自动调用父类解构函数，以下示范代码定义了 `inline Base::~Base()`，编译器会自动为子类合成这个解构函数，而不是在 `Derived::~Derived()` 额外调用一次。
 
-```cpp
+```C++,ignore
 #include <iostream>
 using namespace std;
 
@@ -6961,7 +8780,7 @@ C++ FAQs 常见问题：当基类的构造函数或解构函数调用虚函数�
 
 这个问题很明显，构造函数就是保证使用类实例之前构造内存中的数据结构的。在构造器中调用的虚函数只可以是本身实现的，而不是子类重写的，因为它们还没有完成构造。解构过程和构造过程完全相反，在基类解构前，先要确定子类完全解构。
 
-```cpp
+```C++,ignore
 #include <iostream>
 using namespace std;
 
@@ -7039,7 +8858,7 @@ FAQ 21.09 在子类中也可以使用 Scope operator :: 来调用虚函数，它
 
 注意，虚函数返回的是经过 auto_ptr 智能指针包装的对象，在 C++11 后，这个智能指针已经被 unique_ptr 取代。使用智能指针的好处是可以自动进行内存管理，注意代码中的注解。
 
-```cpp
+```C++,ignore
 #include <new>
 #include <memory>
 #include <iostream>
@@ -7129,7 +8948,7 @@ int main()
 
 另外，除了断言，静态断言 static_assert (C11)，它需要在编译期完成条件判断是否为 false。
 
-```cpp
+```C++,ignore
 static_assert(2 + 2 == 4, "2+2 isn't 4");      // well-formed
 static_assert(sizeof(int) < sizeof(char),
             "this program requires that int is less than char"); // compile-time error
@@ -7230,7 +9049,7 @@ std::exception 异常类层次结构：
 - 使用基类的 what() 方法返回异常信息。
 - 使用 catch(...) 捕捉所有异常。
 
-```cpp
+```C++,ignore
   class exception
   {
   public:
@@ -7280,7 +9099,7 @@ Defaulted Function 需要用于特殊的成员函数（默认构造函数，复�
 
 Because C++ supports an alternative that is almost always better: The “resource acquisition is initialization” *RAII* technique. The basic idea is to represent a resource by a local object, so that the local object’s destructor will release the resource. That way, the programmer cannot forget to release the resource. For example:
 
-```cpp
+```C++,ignore
 // wrap a raw C file handle and put the resource acquisition and release
 // in the C++ type's constructor and destructor, respectively
 class File_handle {
@@ -7306,7 +9125,7 @@ void f(const char* fn)
 
 异常捕捉代码块的几个用法：
 
-```cpp
+```C++,ignore
 // 1) Catch-clause that declares a named formal parameter 
 try { /* */ } catch (const std::exception& e) { /* */ }
 // 2) Catch-clause that declares an unnamed parameter 
@@ -7317,7 +9136,7 @@ try { /* */ } catch (...) { /* */ }
 
 示例：
 
-```cpp
+```C++,ignore
 try {
     f();
 } catch (const std::overflow_error& e) {
@@ -7333,7 +9152,7 @@ try {
 
 此外，为了处理构造函数初始化列表中发生的异常，必须为构造函数编写 function try block：
 
-```cpp
+```C++,ignore
 struct S {
     std::string m;
     S(const std::string& arg) try : m(arg, 100) {
@@ -7347,7 +9166,7 @@ try 关键字要放在构造函数初始化列表开始的分号前面，catch �
 
 也可以将 function-try-block 应用于 main() 函数：
 
-```cpp
+```C++,ignore
 int main() try
 {
   A a;
@@ -7379,7 +9198,7 @@ Likewise, function-try-block of the main() function does not catch the exception
 
 C++ 不会隐式转换 char 为 int，注意以下这个异常测试程序：
 
-```cpp
+```C++,ignore
 #include <iostream> 
 using namespace std; 
 
@@ -7451,7 +9270,7 @@ Open Situation B:
 
 注意，catch 中指定标识符为引用，否则会选择原始异常对象的信息：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 #include <stdexcept>
@@ -7554,7 +9373,7 @@ C++11 异常规范中抛弃了 *throw()* 而提出的一个新的关键字 *noex
 
 不抛出异常的表达有三种语法格式：
 
-```cpp
+```C++,ignore
 // Syntax 
 noexcept (1)  
 noexcept(expression) (2)  
@@ -7572,7 +9391,7 @@ The noexcept-specification is a part of the function type and may appear as part
 
 The noexcept-specification is not a part of the function type (just like dynamic exception specification) and can only appear as a part of a lambda declarator or a top-level function declarator when declaring functions, variables, non-static data members of type function, pointer to function, reference to function, or pointer to member function, and also when declaring a parameter or a return type in one of those declarations that in turn happens to be a pointer or reference to function. It cannot appear in a typedef or type alias declaration.
 
-```cpp
+```C++,ignore
 void f() noexcept; // the function f() does not throw
 void (*fp)() noexcept(false); // fp points to a function that may throw
 void g(void pfa() noexcept);  // g takes a pointer to function that doesn't throw
@@ -7586,7 +9405,7 @@ The throw-expression throw NULL; is not matched by a pointer catch clause, becau
 
 If a catch-clause for a derived class is placed after the catch-clause for a base class, the derived catch-clause will never be executed.
 
-```cpp
+```C++,ignore
 try {
     f();
 } catch (const std::exception& e) {
@@ -7600,7 +9419,7 @@ try {
 
 When rethrowing exceptions, the second form must be used to avoid object slicing in the (typical) case where exception objects use inheritance:
 
-```cpp
+```C++,ignore
 try {
     std::string("abc").substr(10); // throws std::length_error
 } catch(const std::exception& e) {
@@ -7631,7 +9450,7 @@ dynamic exception specification
     - 1) Non-throwing dynamic exception specification (until C++17) 
     - 1) Same as noexcept(true) (since C++17) 
 
-```cpp
+```C++,ignore
 void f() throw(int); // OK: function declaration
 void (*fp)() throw (int); // OK: pointer to function declaration
 void g(void pfa() throw(int)); // OK: pointer to function parameter declaration
@@ -7648,7 +9467,7 @@ If the function throws an exception of the type not listed in its exception spec
 
 Example 抛出未声明异常对象：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <exception>
 #include <cstdlib>
@@ -7696,7 +9515,7 @@ Output:
 
 call_once, once_flag, ONCE_FLAG_INIT
 
-```cpp
+```C++,ignore
 // Defined in header <threads.h>   
 void call_once( once_flag* flag, void (*func)(void) ); (1) (since C11) 
 typedef /* unspecified */ once_flag (2) (since C11) 
@@ -7711,7 +9530,7 @@ The POSIX equivalent of this function is `pthread_once`.
 
 Example
 
-```cpp
+```C++,ignore
 #include <stdio.h>
 #include <threads.h>
  
@@ -7755,7 +9574,7 @@ Atomic operations library - Memory synchronization ordering (C++11)
 - *atomic_thread_fence* generic memory order-dependent fence synchronization primitive (*function*)
 - *atomic_signal_fence* fence between a thread and a signal handler executed in the same thread (*function*)
 
-```cpp
+```C++,ignore
 // Defined in header <atomic>   
 enum memory_order {
     memory_order_relaxed,
@@ -7779,7 +9598,7 @@ The default behavior of all atomic operations in the library provides for sequen
 
 全局静态初始化也可以用来实现单例模式：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 #include <map>
@@ -7829,7 +9648,7 @@ int main()
 
 虽然可以通过断言来实现类似的效果，它只会在尝试构造多实例时抛出断言错误信息，并且可以在 Release 构建中禁用：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 #include <map>
@@ -7891,7 +9710,7 @@ C++11 规定了 local static 在多线程条件下的初始化行为，要求编
 
 Effective C++ 基于 C++11 提出一种优雅的单例模式实现，使用函数内的 local static 对象。这样，只有当第一次访问 getInstance() 方法时才创建实例。这种方法也被称为 Meyers' Singleton。C++0x 之后该实现是线程安全的，C++0x 之前仍需加锁，C++0x 是 C++11 早期称谓。
 
-```cpp
+```C++,ignore
 // version 1.2
 class Singleton
 {
@@ -7917,38 +9736,38 @@ C++ 的单态模式的实现，为了防止默认构造函数被调用，可以�
 
 可以借助虚继承与友元的方式来实现单态模式，声明一个基类 Skeleton 并设置构造函数为 private 以及声明友元类 Singleton。友元类 Singleton 则虚继承 Skeleton。这样 Singleton 可以执行基类的构造器来实例化，如果其它类尝试继承 Singleton 或 Skeleton，那么在实例化时将会编译出错，因为其它类没有友元的特权，不能调用私有构造函数不能实例化。
 
-```cpp
-#include <iostream>
+```C++,ignore
+    #include <iostream>
 
-// Declaration & implementation combined together
-class Skeleton {
-    Skeleton() { std::cout << "Skeleton run ......" << std::endl; }
-    friend class Singleton;
-};
+    // Declaration & implementation combined together
+    class Skeleton {
+        Skeleton() { std::cout << "Skeleton run ......" << std::endl; }
+        friend class Singleton;
+    };
 
-// Declaration part
-class Singleton: virtual Skeleton {
-public:
-    static Singleton instance();
-    static Singleton *_instance;
-};
+    // Declaration part
+    class Singleton: virtual Skeleton {
+    public:
+        static Singleton instance();
+        static Singleton *_instance;
+    };
 
-// Implementation part
-Singleton *Singleton::_instance = NULL;
-Singleton Singleton::instance(){
-    if( _instance ) return *_instance;
-    _instance = new Singleton();
-    std::cout << "_instance @ " << _instance << std::endl;
-    return *_instance;
-}
+    // Implementation part
+    Singleton *Singleton::_instance = NULL;
+    Singleton Singleton::instance(){
+        if( _instance ) return *_instance;
+        _instance = new Singleton();
+        std::cout << "_instance @ " << _instance << std::endl;
+        return *_instance;
+    }
 
-class X: public Singleton { };
-int main()
-{
-    Singleton s, y = Singleton::instance();
-    // X x; // error: 'Skeleton::Skeleton()' is private
-    return &s == &y? 1:0;
-}
+    class X: public Singleton { };
+    int main()
+    {
+        Singleton s, y = Singleton::instance();
+        // X x; // error: 'Skeleton::Skeleton()' is private
+        return &s == &y? 1:0;
+    }
 ```
 
 实例展示了类声明 Declaration 及实现 Implementation 是如何拆分或整合的。注意 Skeleton 这个类声明和实现是放在一起的，只有一个构造波函数，花括号的代码就是默认构造函数的实现。
@@ -7961,145 +9780,6 @@ Singleton 这个类则将类的声明和实现分离，注意声明部分的花�
 
 声明和实现混合的方式越来越广泛，许多开源库都只提供 .hpp 头文件，里面就包含了实现代码。
 
-
-
-# =🚩 Declarations & Definitions 声明、初始化与对象模型
-- 前端要以正确的姿势学习编译原理 - https://zhuanlan.zhihu.com/p/36301857
-- AST Explorer 抽象语法树浏览器 https://astexplorer.net/
-- 编程语言关系网 http://programming-languages.herokuapp.com/
-- https://en.cppreference.com/w/cpp/types/is_pod
-- https://github.com/PeterFeicht/cppreference-doc
-- https://github.com/myfreeer/cppreference2mshelp/releases
-- https://github.com/crea7or/cppreference2mshelp/blob/master/cppreference.chm
-- https://winworldpc.com/product/visual-c/5x#Microsoft_Visual_Studio_97_(5.x)
-
-介绍一个好用的 C++ 参考网站，不是 cplusplus.com 而是 cppreference.com，这个站点查询库函数和一些示例很方便，包含标准 C++98、C++03、C++11、C++14、C++17、C++20 特性的介绍，也提供离线版本，网站已经被打包成 chm 下载，有中英文齐全。
-
-## ==⚡ Declarations 声明与内存空间联系
-
-声明 Declarations 就是告诉编译器准备一个内存用于存放声明指定类型的数据，编译准备好内存空间后还需要代码对这块内容进行初始化。 定义 Definitions 这个词一般用在类上，实现类的过程就是在定义类，有定义的类就可以通过声明类对象来使用它。对于内置基础数据类型，如 char、int、long、float 等等，编译所准备的内存空间就是用来存放相应的数据。而对于类对象，编译所准备的这块内存空间则是用来存放指针，指针所指的内存地址才是类的数据结构实际的存放空间。如果没有初始化，基础数据类型变量的值是不可以预测的，类对象指针所指也一样不可预测。
-
-在计算机硬件体系层面上，编译器可以选择将数据存放到内存 Memory 或CPU内部的寄存器 Register，现代的的编译器会自动优化将重度使用的数据存放到寄存器中。在系统软件基础层面上，数据存放可以是在堆栈 Heap & Stack 内。堆栈是两个特殊的内存空间，栈 stack 也叫栈堆用于函数参数或局部变量的内存分配上。堆 Heap 则主要用在动态内存分配上，通过C语言的动态内存分配函数管理，主要有 malloc、calloc、free 等，C++相应有新增的 new,delete 操作符。存放空间的不同决定了数据在程序运行时的存活周期，因此这也称之为存储期 Storage duration，总体上有以下几种：
-
-    automatic   - 自动存储期，如代码块变量，在代码块开始时有效结束时就被销毁。不含 static, extern, thread_local 声明。
-    static      - 静态存储期，整个程序运行期都有效，直到结束程序，并且在整个程序中只一个份数据。 static 或 extern 声明。
-    thread      - 线程存储期，整个程序子线程内有效，直到线程结束，数据也只有一份。通过 thread_local 结合 static，extern 声明。 (since C++11) 
-    dynamic     - 动态存储期，在C语言中也叫 allocated，由代码进行操作，通过内存管理函数管理或 new, delete 操作。
-
-要指定存储类型，需要在声明变量时相应使用以下关键字，寄存器方式在新的编译器已经废弃不再使用了，auto 是默认的方式，在C++11也有。
-
-    auto            - automatic 存储期 (until C++11) 默认声明方式
-    register        - automatic 存储期 (deprecated) (until C++17) 块作用域中使用，如函数参数
-    static          - static 存储期 / thread 存储期 / internal linkage 
-    extern          - static 存储期 / thread 存储期 / external linkage 
-    thread_local    - thread 存储期 (since C++11) C11 标准使用 _Thread_local
-
-关于链接方式 linkage，编译器编译时是分单元进行编译的，可以简单理解为一个源代码文件就是一个单元，对那些在相同作用域下标识符，不需要进行链接 no linkage，程序就可以正确使用。对于那些需要在当前作用域外，在当前编译单元内的标识符，如 static 函数及变量，编译需要进行内部链接 internal linkage 才能使用标识符被程序正确使用。对于引用自其它单元的标识符，如引用其它文件的 non-static 变量，或 extern 声明变量，编译器需要做外部链接 external linkage。
-
-不指定存储期的声明情况下，默认以 auto 方法声明块作用内的变量或对象标识符，以 extern 声明函数，以 extern 声明文件作用域内的对象。
-
-声明标识符后，一般接着就介初始化过程，内置类型的初始化较简单，用变量或字面常量进行初始化都是可以的，甚至不初始化也是没有强制要求的，只是声明引用时强制要求初始化。
-
-## ==⚡ Initialization 初始化的细节
-
-C++ 初始化是个复杂的过程，局部静态变量会在代码块执行时初始化，对于非局部变量 Non-local variables 涉及到：
-
-- 编译器编译时进行的静态初始化 Static initialization，包含零值初始化 Zero initialization 和常量初始化 Constant initialization。
-- 完成静态初始化后再继续动态初始化 Dynamic initialization，这部分需要在程序执行时进行，又可以细分三种情况。 
-
-    - 一种是无序的 Unordered，主要针对没有显式异化的 explicitly specialized 静态模板数据成员及模板变量 variable templates (since C++14)，这类初始化顺序是不可测的。
-    - 另一种是偏序化 Partially-ordered，先定义先初始化。
-    - 除此外就是有序的 Ordered dynamicc initialization。
-
-另外在动态初始化之前，还可能做一些编译期不能完成的静态初始化。关于偏序化，举个例子，现有以下 A,B,C,D 四种异化模板函数，细化度依次增加，那么给 fun 传入一个整形指针，会执行哪个异化模板函数呢？
-
-    #include <iostream>
-
-    template<class T> void fun(T i){ std::cout << "fun 1" << std::endl; }           // A
-    template<class T> void fun(T *i){ std::cout << "fun 2" << std::endl; }          // B
-    template<       > void fun(int *i){ std::cout << "fun 3" << std::endl; }        // C
-    template<       > void fun(const int *i){ std::cout << "fun 4" << std::endl; }  // D
-
-    int main()
-    {
-        int *i = 0;
-        fun(i); // fun 3
-    }
-
-因重载导致调用模糊不清的情况，编译器会根据细化程序来选择最适合的一个，这个选择过程就是偏序化。这里没有选择细化度最高的 D 是因为整形指针需要做隐式转换到整形常量指针，这个优先级别比其它的选择更低。而如果将 C 的定义提到 B 前面，编译器则会选择执行 B 。
-
-早期 C++ 不能在类中，在定义数据成员时直接对其初始化，而是通过构造函数进行初始化。但是 C++11 标准下能这样写了，虽然在一定程度上这样写破坏了类的抽象性，但是却能带来一定的便利。但这也是抽象出来共有的属性啊，并且这样写后也可以通过构造函数中初始化的值会覆盖掉声明时初始化的值。
-
-类对象的初始化就比较复杂，初始化可以在声明语句中发生，也可以在构造函数的成员初始化列表 根据对象类型结构差异的不同大体分为以下几种情况，只有在对象没有相应的初始化功能时去执行默认初始化：
-
-    * 值初始化   Value initialization (C++03) std::string s{}; 
-    * 拷贝初始化 Copy initialization          std::string s = "hello"; 
-    * 直接初始化 Direct initialization        std::string s("hello"); 
-    * 列表初始化 List initialization (C++11)  std::string s{'a', 'b', 'c'}; 
-    * 聚集初始化 Aggregate initialization     char a[3] = {'a', 'b'}; 
-    * 引用初始化 Reference initialization     char& c = a[0]; 
-
-前面提到的零值初始化有多种情况，如值初始化数据为零值的特殊情况，聚集初始化数据为零的特殊情况。没有常量初始化的静态变量会预先零值初始化。
-
-    static T object ;
-    char array [ n ] = "";
-    T () ; 
-    T t = {} ;
-    T {} ; (since C++11) extended initializer lists
-
-默认初始化 Default initialization 发生在 automatic, static, thread-local 存储期声明并且没有指定初始化的情况，包含使用 new 带空圆括号或不带圆括号的情况。基类或者非静态数据成员没有出现在构造器初始化列表中也会进行默认初始化。
-
-    T object;
-    new T; (until c++03)
-    new T (); (until c++03)
-
-拷贝初始化 Copy initialization 就是通过拷贝现有对象的数据来实现的。第(3) (4)组分别指函数调用时和返回时会进行的拷贝初始化，因为是传值，对象传入函数时是传入的拷贝，返回时局部对象 orther 会被销毁。第(5)组是异常处理中抛出异常以及捕捉异常时发生的拷贝初始化。第(6)组是将对象拷贝一组副本初始化对象数组，这种方式也是聚集初始化的一种特殊列子。
-
-    T object = other;     (1)  
-    T object = {other} ;  (2) (until C++11) 
-    f(other)              (3)
-    return other;         (4)
-
-    throw object; 
-    catch (T object)      (5)
-    
-    T array[N] = {other}; (6)
-
-直接初始化 Direct initialization 则直接提供初始参数，形式如下，第(3),(4)组分别是 functional cast 和 static cast 转型纯右值 prvalue 后的初始化，第(5)组是 new 动态初始化形式，第(6)组提到的是构造函数初始化列表的形式，第(7)组是C++11中实现的闭包 lambda 形式，[arg] 称为变量捕获列表，这里只是拷贝变量 arg：
-
-    T object ( arg ); 
-    T object ( arg1, arg2, ... ); (1)
-
-    T object { arg }; 
-    T object { arg1, arg2, ... }; (2) (since C++11) 
-     
-    T ( other ) 
-    T ( arg1, arg2, ... );        (3)
-    
-    static_cast< T >( other )     (4)
-    new T(args, ...)              (5)
-    Class::Class() : member(args, ...) {... (6)  
-    [arg](){...                   (7) (since C++11)
-
-聚集初始化 Aggregate initialization 也可以叫花括号列表初始化 braced-init-list。所谓聚集 Aggregate 就是指数组或者是 class,struct,union 类型但不能有 private 或 protected 的非静态成员，也不能有 virtual, private, protected 继承，也不能有虚成员函数，也不能有默认成员初始化即定义成员同时进行初始化的情况，也不能有用户定义的构造器，继承的也不可以，编译提供的默认构造器和析构函数除外。所以聚集初始化中 T 和花括号部分都要满足聚集数据类型条件。
-
-    T object = {arg1, arg2, ...}; (1)
-    T object {arg1, arg2, ...};   (2) (since C++11) 
-
-值初始化 Value initialization 使用空初始值 empty initializer 来初始化变量，默认构造函数会被调用，如果定义了用户构造函数那么默认构造函数也要一并定义。注意 T object(); 这种表达，比默认初始化 T object; 多了圆括号，这并不是初始化，而是构造函数调用返回一个 T 实例对象。在 C++11 标准前，正确的表达应该是 T object = T(); 这样的表达方式，先是值初始化一个临时对象，然后再执行拷贝初始化 object，大多数编译器都会优化这种情况。
-
-    T();            (1)  
-    new T ();       (2)
-    Class::Class(...) : member() { ... } (3)  
-    T object {};    (4) (since C++11) 
-    T{};            (5) (since C++11) 
-    new T {};       (6) (since C++11) 
-    Class::Class(...) : member{} { ... } (7) (since C++11) 
-
-新的C++为基础数据类型提供了初始化函数，所以以下这样的写法是可以的：
-
-    int a (1);
-    int a = int (2);
 
 
 
@@ -8150,15 +9830,15 @@ ANSI 显示方式控制码
 
 Linux 系统中，可以使用 printf 打印控制字符：
 
-```c
-#include "stdio.h"
+```C++,ignore
+    #include "stdio.h"
 
-int main(void)
-{
-    printf("\033[1;45;33m HELLO_WORLD \033[0m\n");
-    printf("\033[5;46;37m HELLO_WORLD \033[0m\n");
-    return 0;
-}
+    int main(void)
+    {
+        printf("\033[1;45;33m HELLO_WORLD \033[0m\n");
+        printf("\033[5;46;37m HELLO_WORLD \033[0m\n");
+        return 0;
+    }
 ```
 
 如果是 Windows 系统，可以直接使用命令 `system("color 02")` 则屏幕变成黑底蓝字。
@@ -8179,59 +9859,59 @@ Window console 对 ANSI 控制码的支持不是很好。
     7 = 白色      F = 亮白色
 
 
-```c
-HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-SetConsoleTextAttribute(handle, foreColor | backColor);
-SetConsoleTextAttribute(h, FOREGROUND_INTENSITY | FOREGROUND_INTENSITY);
+```C++,ignore
+    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(handle, foreColor | backColor);
+    SetConsoleTextAttribute(h, FOREGROUND_INTENSITY | FOREGROUND_INTENSITY);
 
-const string UNDERLINE = "\x1B[4m";
-const string RESET = "\x1B[0m";
-Console.WriteLine($"Some {UNDERLINE}underlined{RESET} text");
+    const string UNDERLINE = "\x1B[4m";
+    const string RESET = "\x1B[0m";
+    Console.WriteLine($"Some {UNDERLINE}underlined{RESET} text");
 
-const string RED = "\x1B[31m";
-Console.WriteLine($"Some {UNDERLINE}underlined{RESET} and {RED}red{RESET} text");
+    const string RED = "\x1B[31m";
+    Console.WriteLine($"Some {UNDERLINE}underlined{RESET} and {RED}red{RESET} text");
 ```
 
 示范：
 
-```c
-// This is the ColoredText program which demonstrates
-// how to change the text color in a console-mode program.
+```C++,ignore
+    // This is the ColoredText program which demonstrates
+    // how to change the text color in a console-mode program.
 
-#include <stdio.h>     // needed for printf()
-#include <windows.h>   // needed for HANDLE, SetConsoleTextAttribute()
+    #include <stdio.h>     // needed for printf()
+    #include <windows.h>   // needed for HANDLE, SetConsoleTextAttribute()
 
-int main()
-{
-    HANDLE    hStdout = GetStdHandle( STD_OUTPUT_HANDLE );
+    int main()
+    {
+        HANDLE    hStdout = GetStdHandle( STD_OUTPUT_HANDLE );
 
-    printf( "First line\n" );
+        printf( "First line\n" );
 
-    SetConsoleTextAttribute( hStdout, FOREGROUND_RED );  // dim red
+        SetConsoleTextAttribute( hStdout, FOREGROUND_RED );  // dim red
 
-    printf( "Second line\n" );
+        printf( "Second line\n" );
 
-    SetConsoleTextAttribute( hStdout,
-                             FOREGROUND_RED | FOREGROUND_INTENSITY );
-                                                         // brighter red
+        SetConsoleTextAttribute( hStdout,
+                                 FOREGROUND_RED | FOREGROUND_INTENSITY );
+                                                             // brighter red
 
-    printf( "Third line\n" );
+        printf( "Third line\n" );
 
-    SetConsoleTextAttribute( hStdout,
-                             FOREGROUND_BLUE | FOREGROUND_INTENSITY );
+        SetConsoleTextAttribute( hStdout,
+                                 FOREGROUND_BLUE | FOREGROUND_INTENSITY );
 
-    printf( "Fourth line\n" );
+        printf( "Fourth line\n" );
 
-    SetConsoleTextAttribute( hStdout,
-                             FOREGROUND_RED
-                           | FOREGROUND_BLUE
-                           | FOREGROUND_GREEN
-                           | FOREGROUND_INTENSITY );   // bright white
+        SetConsoleTextAttribute( hStdout,
+                                 FOREGROUND_RED
+                               | FOREGROUND_BLUE
+                               | FOREGROUND_GREEN
+                               | FOREGROUND_INTENSITY );   // bright white
 
-    printf( "Fifth line\n" );
+        printf( "Fifth line\n" );
 
-    return 0;
-}
+        return 0;
+    }
 ```
 
 
@@ -8432,7 +10112,12 @@ MinGW-w64 编译器版本选择方法：
 - 64-bit 系统选择 x86_64
 - 线程模型选择 win32 没有 C ++ 11 多线程特性，无法使用 std::mutex 等
 - 线程模型选择 posix 支持 C ++ 11 多线程特性，OpenCV 需要使用此线程模式
-- 异常处理模型 32-bit 系统推荐 dwarf，64-bit 系统推荐 SEH 更有效率。SJLJ - SetJump LongJump，前者设还原点，后者跳到还原点，这是一种古老的技术，稳定但性能不佳。SEH 是 Borland 公司的专利，微软买了其专利使用权，它利用了 FS 段寄存器，将还原点压入，收到异常时弹出。
+- 异常处理模型 32-bit 系统推荐 dwarf，64-bit 系统推荐 SEH 更有效率。
+
+SJLJ - SetJump LongJump，前者设还原点，后者跳到还原点，这是一种古老的技术，稳定但性能不佳。
+SEH 调用系统机制处理异常，它利用了 FS 段寄存器，将还原点压入，收到异常时弹出。
+DWARF：一种带调试信息(DWARF- 2（DW2）EH)的包, 所以比一般的包尺寸大，仅支持 32 位系统。
+
 
 std::thread::thread 原型：
 
@@ -8562,7 +10247,7 @@ Period 是 ratio 类型，用来表示时间单位，比如 second milisecond �
 
 线程创建后进入运行状态，在线程销毁之前必须，应该在主线程中调用 join() 方法进入阻塞状态，等待线程内的 func 函数工作完成并返回，或者分离线程，否则 std::terminate 会被执行。在子线程中抛出异常时，std::terminate 也会执行。
 
-```cpp
+```C++,ignore
 #include <thread>
 #include <string>
 #include <functional>
@@ -8593,7 +10278,7 @@ int main()
 - std::cref 函数模板返回一个常量引用包装器 `std::reference_wrapper<const T>`
 - std::bind 函数模板返回一个 forwarding call 包装器，调用它等价于调用被包装的函数。
 
-```cpp
+```C++,ignore
 #include <functional>
 #include <iostream>
  
@@ -8846,7 +10531,7 @@ Boost C++ 库 Smart Pointers 提供了许多可以用在各种场合的智能指
 
 以下代码显示左值引用与右值引用：
 
-```cpp
+```C++,ignore
 #include <iostream>  // for std::cout & std::endl
 #include <utility>   // for std::move()
 #include <string>    // for std::string
@@ -8978,7 +10663,7 @@ std::move 和 std::forward 是 C++11 中的特性，用于解决 C++98/C++0x 中
 
 Move Constructors 和 Move Assignment Operators 是 C++11 基于移动语义引入的两项提供效率的技术。
 
-```cpp
+```C++,ignore
 class-name ( class-name && )    (1) (since C++11)
 class-name ( class-name && ) = default; (2) (since C++11)
 class-name ( class-name && ) = delete;  (3) (since C++11)
@@ -8990,7 +10675,7 @@ class-name & class-name :: operator= ( class-name && ) = delete;    (3) (since C
 
 以下为 Move 类实现移动构造函数：
 
-```cpp
+```C++,ignore
 // C++ program with declaring the move constructor
 #include <iostream>
 #include <vector>
@@ -9128,7 +10813,7 @@ C++11 借鉴了 boost 库里面的智能指针 `<memory>` 头文件定义：
 
 要销毁独占智能指针管理的任何可能存在的对象，只需要调用 reset()。
 
-```cpp
+```C++,ignore
 template< class T, class Deleter = std::default_delete<T> > class unique_ptr;
 template < class T, class Deleter > class unique_ptr<T[], Deleter>;
 ```
@@ -9156,7 +10841,7 @@ std::unique_ptr 有两个版本：
 
 各种方法的重载原型：
 
-```cpp
+```C++,ignore
 pointer get() const;  (since C++11) 
 pointer release();  (since C++11) 
 void swap(unique_ptr& other);  (since C++11) 
@@ -9177,7 +10862,7 @@ void reset( std::nullptr_t p = nullptr ); // (since C++17)
 
 get 方法并不夺取所有权，而是以观察者身体使用数据：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <string>
 #include <memory>
@@ -9192,7 +10877,7 @@ int main()
 
 搭配使用还有 std::make_unique 它使用独占指针来包装对象：
 
-```cpp
+```C++,ignore
 // Defined in header <memory>   
 template< class T, class... Args >
 unique_ptr<T> make_unique( Args&&... args );
@@ -9213,7 +10898,7 @@ Constructs an object of type T and wraps it in a std::unique_ptr.
 
 智能指针 shared_ptr、make_unique 数组创建方法： 
 
-```cpp
+```C++,ignore
 std::unique_ptr<int[]> ptr1{ new int[5]{1,2,3,4,5} };
 shared_ptr<vector<int>> ptr3 = make_shared<vector<int>>();
 auto ptr2 = std::make_unique<std::array<int, 5>>(std::array<int, 5>{1, 2, 3, 4, 5});
@@ -9221,7 +10906,7 @@ auto ptr2 = std::make_unique<std::array<int, 5>>(std::array<int, 5>{1, 2, 3, 4, 
 
 说回已经被遗弃的 std::auto_ptr，以下代码演示其最大弊端，就是不能通过编译检测发现 auto_ptr 删除所有权问题：
 
-```cpp
+```C++,ignore
 #include <new>
 #include <memory>
 #include <iostream>
@@ -9277,7 +10962,7 @@ auto_prt 采用"Copy"语义，期望实现"Move"语义的实现有以下三大�
 
 unique_ptr 示范：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -9406,7 +11091,7 @@ std::weak_ptr 要与 std::shared_ptr 一起使用，可以将 weak_ptr 看做是
 
 当 shared_ptr 管理的资源被释放时，weak_ptr 会自动变成 nullptr。
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <memory>
  
@@ -9442,7 +11127,7 @@ int main()
 
 共享指针示范：
 
-```cpp
+```C++,ignore
 #include <iostream>
 #include <memory>
 #include <thread>
