@@ -9643,12 +9643,21 @@ Python 里无接口类型，定义接口只是一个人为规定，在编程过�
 
 
 ## ==⚡ MRO & Multiple Inheritance
-- The Python 2.3 Method Resolution Order By Michele Simionato https://www.python.org/download/releases/2.3/mro/
+- [The Python 2.3 Method Resolution Order By Michele Simionato](https://www.python.org/download/releases/2.3/mro/)
 
-多承继方法查找问题：如果继承多个父类中，都定了相同的函数，那么选用哪一个？这就是 MRO - Method Resolution Order 算法要做的事。
+多承继方法查找问题：如果继承多个父类中，都定了相同的函数，那么选用哪一个？这就是 MRO - 
+Method Resolution Order 中 C3 算法要做的事，C3 即三个约束条件。
 
-- Python 和 C++ 一样，使用多继承，可以继承多个父类，Java 和 C# 单继承，不存在这种问题；
-- Python 类对象如果继承了多个类，那么其寻找方法的方式有两种，分别是：Depth-first 深度优先【经典类】和广度优先【新式类】；
+C3 算法保证了三件事情：
+
+1. 单调性：任意两个类的相对顺序和自己所有父类的 MRO 顺序一致，即父集与子集关系。
+2. 一致性：任意两个类的顺序和继承图里所有直接继承自这两个类的声明顺序一致。
+3. 有序性：如果两个类不具有直接的继承关系，那么找到两个类的最小公共子类，这个最小公共子类的多继承顺序靠前的分支上的类具有高优先级。
+
+
+Python 和 C++ 一样，使用多继承，可以继承多个父类，Java 和 C# 单继承，不存在这种问题。
+Python 类对象如果继承了多个类，那么其寻找方法的方式有两种，分别是：Depth-first 
+深度优先【经典类】和广度优先【新式类】；
 
 多继承必然会遇到棱形法则关系处理 Multiple Inheritance: The Diamond Rule，以下示意图摘自 PEP 253 -- Subtyping Built-in Types by Guido van Rossum，即 Python 创始人:
 
@@ -9701,6 +9710,7 @@ class B(Y, Z): pass
 class C(A, B): pass
 class D(C, B): pass
 print(D.__mro__)
+print(D.mro())
 
 # Cannot create a consistent MRO for bases B, C
 # class D(B, C): pass
@@ -9732,7 +9742,8 @@ print(D.__mro__)
       => B => Y => Z
       => object
 
-
+如果 B 没有继续 Y，那么区别就会在：在搜索 A -> X 之后，就会搜索 Y。
+对于广度优先搜索，画菱形继承图，顺时针画圈找。
 
 当前类或者父类继承了 object 类，那么该类便是【新式类】，否则便是【经典类】，即新式类使用广度优先搜索算法，参考 Python 2.2 更新文档。
 

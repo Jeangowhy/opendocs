@@ -1,10 +1,3 @@
-# =🚩Sentences marker
-
-External linkage pertains to entities declared extern, functions, class types 
-and their members (including static members), and variables, and all templates 
-thereof, that are not already internal by the rules above, and all enums. 
-
-This sounds very esoteric, so let’s pin it down with some concrete examples:
 
 
 # =🚩 Big forest

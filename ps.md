@@ -2029,7 +2029,8 @@ Alias           % -> ForEach-Object
 Alias           ? -> Where-Object
 Alias           ac -> Add-Content                         
 ```
-xsub0
+
+
 ## ⚡ ArrayList & Hashtable & PSCustomObject
 - [7. Expressions](lang-spec/chapter-07.md)
 - [9. Arrays](lang-spec/chapter-09.md)
@@ -2041,6 +2042,7 @@ xsub0
 - [Everything about PSCustomObject](everything-about-pscustomobject.md)
 - [Everything about hashtables](deep-dives\everything-about-hashtable.md)
 - [Everything about arrays](deep-dives\everything-about-arrays.md)
+- https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-09?view=powershell-7.3
 
 PowerShell 提供了 3 个特殊的运算符 @{...}、 @(...) 和 $(...)，分别是 Hashtable 字面量、数组运算符和子表达式运算符：
 
@@ -2059,6 +2061,42 @@ $A = 22,5,10,8,12,9,80
 $B = ,7
 # As a result, $C contains four values: 5, 6, 7, and 8.
 $C = 5..8
+```
+
+数组有序，而 Hashtable 无序！
+
+二维数组如下：
+
+```sh
+$Marshmallows = @(
+  ("Pink","Yellow","Orange","Green","Blue"),
+  ("Hearts","Stars","Moons","Clovers","Diamonds")
+)
+$Marshmallows[1][3]
+# Clovers
+
+$Marshmallows = @(
+  @("Pink","Yellow","Orange","Green","Blue"),
+  @("Hearts","Stars","Moons","Clovers","Diamonds")
+)
+$Marshmallows[1][3]
+```
+
+而这种就很奇怪，与设想很不一致。元素换行最后一行还不能使用逗号。可以使用分号，但它们依然是一维的：
+
+```sh
+$Marshmallows = @(
+  (1, "Yellow");
+  (2, "Stars");
+)
+$Marshmallows[1][0]
+
+$Marshmallows = @(
+  (1, "Yellow")
+  (2, "Stars")
+)
+$Marshmallows[1][0]
+# Y
 ```
 
 HashTable 可以转换为 PSCustomObject 类型，并且它们的字段访问方式相似，可以通过成员操作符号访问，比方括号的方式更方便，并且也支持变量作为成员名称：

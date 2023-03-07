@@ -2,6 +2,56 @@
 
 [TOC]
 
+## 🟡 Wonderful Games 优秀游戏项目
+
+Samorost 3
+- https://www.bilibili.com/read/cv10215849/
+- https://www.bilibili.com/video/BV16b411Y7XR
+“蘑菇社”在捷克 https://zhuanlan.zhihu.com/p/34352981
+Samorost 3 Main Theme https://music.163.com/#/song?id=409830322
+银河历险记 3 是一款探险及谜题类游戏，由机械迷城 (Machinarium)和植物精灵 (Botanicula)的优秀
+创造者出品。它是 Amanita Design 目前为止最为不凡的体验，同时也可以说是热门独立游戏银河历险记
+和银河历险记 2 的续集。画面或相像风格和宫崎骏的《风之谷》比较相似。
+
+2003 年推出的初代《银河历险记》其实是 Jakub 的毕业设计项目。彼时就读于布拉格艺术、建筑和设计学院
+（Academy of Arts, Architecture and Design）的 Jakub “想创造一些可交互的项目”。因为技术
+不在行，他选择的载体是操作简单、上手容易，且盛行一时的Flash。
+
+除了音乐、音效是交给一位朋友操刀，Jakub 一手包办了其他开发内容。断断续续制作了一年多后，他将完成品
+免费发布在了一个朋友的网站上。没想到，最后涌入的玩家彻底挤爆了网站服务器， Jakub 这才意识到自己的
+游戏这么受欢迎。
+
+
+战鼓啪嗒砰（PATAPON）
+https://www.bilibili.com/read/cv4536493
+https://www.bilibili.com/video/BV1KC4y1s7pW/
+战鼓啪打碰！黑脸大眼仔诞生记 https://www.bilibili.com/read/cv14569111
+Patapon3 Overhaul 更新预览 https://www.bilibili.com/read/cv12335671
+
+《PATAPON》的横空出世，颠覆了当时所有音游玩家的概念。这严格意义上可以说是一款“节奏游戏”，但远不止于
+节奏元素，在此基础上还融合了收集、策略、动作、养成的玩法。用原始部落文明的世界观，将这些元素完美的
+结合在了一起。
+
+一个古老的种族在对抗怪兽的战争中失败了，战士们死的死伤的伤，他们居住的故乡在战斗中化为灰烬，生还者
+为了重建自己的家园，赶走怪兽和敌人，而走上了召集同伴的艰苦道路。玩家扮演的神明大人与举着自己种族
+标志大旗的号召者相互配合，在废墟中找到受伤的伙伴，逃避大龙的追击，赶走敌人的余党回到村子里面，
+他们建立新的村庄，用自己的智慧召唤出新的伙伴，神枪、弓手和盾兵等，伙伴们为了共同的目标，齐心合力
+赶走敌人重建家园。
+
+《PATAPON》特别适合推荐给那些对节奏感很有自信的人，游戏让玩家控制部队下达的每一个命令，都离不开节奏
+的运用。圈方角叉四个按键对应四种声音，通过这四个声音的不同组合就可以为部队下达前进、攻击、警戒、后退、
+蓄力、祈祷五个命令。这些命令只要用上两次，就会深刻的印在玩家的脑子中，相信玩过的所有玩家在十多年后，
+依然会记得那句“啪塔啪塔啪塔砰”。 
+
+《PATAPON》是音乐游戏，也是角色扮演游戏。玩家除了进行推进流程的每一场战斗之外，还需要去收集素材来
+升级装备和兵种，“战斗-刷素材-升级兵种/装备”的思路，正是同时期在 PSP 上大火的《怪物猎人 携带版》
+等一系列共斗游戏中配备的玩法。喜闻乐见的玩法加上音游的元素，在制作人小谷浩之神来之笔的创意下结合
+的淋漓尽致。更别说那大胆而又创新的 2D 剪影的美术风格，《PATAPON》在每一个地方都做到了让玩家眼前
+一亮后拍手叫绝的程度。如此的成功，让游戏在后续推出了二代和三代，每一代都为《PATAPON》起到了强化
+的作用甚至是变革的作用。
+
+
+
 ## 🟡 Godot Docs 官方文档阅读指南
 - [动画师救生手册 - 动画十二原则](https://www.bilibili.com/video/BV1x54y1e7J9)
 - [GAMES101-现代计算机图形学入门 - 闫令琪](https://www.bilibili.com/video/BV1X7411F744/)
@@ -10,10 +60,11 @@
 - [GAMES102-几何建模与处理基础 - 刘利刚](https://www.bilibili.com/video/BV1NA411E7Yr/)
 - [GAMES103-基于物理的计算机动画入门 - 王华民](https://www.bilibili.com/video/BV12Q4y1S73g/)
 - [GAMES105-计算机角色动画基础 - 刘利斌](https://www.bilibili.com/video/BV1GG4y1p7fF/)
+- [GAMES105-计算机角色动画基础 - 刘利斌](https://games-105.github.io/)
 - [GAMES104-现代游戏引擎：从入门到实践 - 王希](https://www.bilibili.com/video/BV1J3411n7WT/)
 - [GAMES201-高级物理引擎实战指南 - 胡渊鸣](https://www.bilibili.com/video/BV1ZK411H7Hc)
 - [CSD 15-462 Computer Graphics - Carnegie Mellon University](https://www.cs.cmu.edu/afs/cs/academic/class/15462-f11/www/)
-- [CMU - 15-462/662 Computer Graphics - Keenan Crane](https://www.bilibili.com/video/BV1QZ4y1K7ga/)
+- [CMU 15-462/662 Computer Graphics - Keenan Crane](https://www.bilibili.com/video/BV1QZ4y1K7ga/)
 - [龚大的上帝视角看GPU教程](https://www.bilibili.com/video/BV1P44y1V7bu/)
 - [The Book of Shaders by Patricio Gonzalez Vivo & Jen Lowe](https://thebookofshaders.com/?lan=ch)
 - [Godot Download](https://godotengine.org/download/windows)
@@ -11433,6 +11484,23 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 - https://threejs.org/examples/#webgl_animation_skinning_additive_blending
 - [spine-godot Runtime](http://esotericsoftware.com/spine-godot)
 - [Spine Runtimes - spine-godot](https://github.com/EsotericSoftware/spine-runtimes)
+- [GAMES105-计算机角色动画基础 - 刘利斌](https://www.bilibili.com/video/BV1GG4y1p7fF/)
+- [GAMES105-计算机角色动画基础 - 刘利斌](https://games-105.github.io/)
+- [北京大学智能学院 - 刘利斌](https://www.cis.pku.edu.cn/info/1362/2389.htm)
+
+角色动画是计算机图形学中一个非常独特的方向，其研究目标在于寻找自动化的方法让图形世界中的各种角色
+活动起来，生成自然生动、真实可信的姿态与动作。在电影、游戏、VR/AR、数字人等等诸多领域中，只要有虚拟
+角色出现的地方就一定有角色动画技术的身影。
+
+计算机角色动画大致可分为两大主要的研究方向：
+
+- 基于数据和关键帧的动画
+- 基于物理仿真与运动控制的动画。
+
+其中前者为目前角色动画的主流方法，有大量成熟的算法和工具被业界广为使用；而后者通常被认为在
+可扩展性和可交互性方面具有优势，并且随着近年来技术的发展以及VR/AR等强交互场景带来的需求而
+得到越来越多的重视。
+
 
 官方文档提供的第三人称射击游戏示范项目 Third Person Shooter demo 是学习动画混合的好例子。
 
