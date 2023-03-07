@@ -1,5 +1,5 @@
 
-# 🚩 Intro & Installation
+# =🚩 Intro & Installation
                                                       [contents] [index] *intro*
 + http://luabinaries.sourceforge.net/
 + http://luabinaries.sourceforge.net/download.html
@@ -99,7 +99,7 @@ C# 编写，游戏前端发布后，发现 bug 或者发布新逻辑，都需要
 
 
 
-# 🚩 Lua Features
+# =🚩 Lua Features
                                                    [contents] [index] *features*
 + [The Evolution of Lua](http://www.lua.org/doc/hopl.pdf)
 - http://www.lua.org/versions.html
@@ -342,14 +342,14 @@ a={1,2,3,4,"five","elephant", "mouse"}
 for i,v in pairs(a) do print(i,v) end
 ```
 
-# 🚩 Quick Lua Tour
+# =🚩 Quick Lua Tour
                                                        [contents] [index] *tour*
 + https://github.com/rjpcomputing/luaforwindows
 
 参考 Lua for Windows v5.1\examples\quickluatour.lua
 
 
-## -- Example -- hello.lua
+## =-- Example -- hello.lua
                                                   [contents] [index] *hello.lua*
 
 ```lua
@@ -359,7 +359,7 @@ for i,v in pairs(a) do print(i,v) end
 io.write("Hello world, from ",_VERSION,"!\n")
 ```
 
-## -- Example -- globals.lua
+## =-- Example -- globals.lua
                                                 [contents] [index] *globals.lua*
 
 
@@ -389,7 +389,7 @@ end
 dump(_G,"")
 ```
 
-## -- Example -- bisect.lua
+## =-- Example -- bisect.lua
                                                  [contents] [index] *bisect.lua*
 
 
@@ -438,7 +438,7 @@ solve(f,1,2)
 ```
 
 
-## -- Example -- sieve.lua
+## =-- Example -- sieve.lua
                                                   [contents] [index] *sieve.lua*
 
 
@@ -479,13 +479,13 @@ end
 ```
 
 
-## -- Example -- account.lua OOP
+## =-- Example -- account.lua OOP
                                                 [contents] [index] *account.lua*
 - [A multiple-inheritance class library for Lua.](https://github.com/LuaDist/classlib)
 
 Table 是 Lua 实现面向对象编程的一咱手段，通过扩展成员方法，配合 setmetatable 等函数实现。
 
-```lua
+```lua,ignore
 -- account.lua
 -- from PiL 1, Chapter 16 - Object-Oriented Programming
 -- http://www.lua.org/pil/16.html
@@ -527,7 +527,7 @@ b:withdraw(100.00)
 --]]
 ```
 
-## -- Example -- File I/O
+## =-- Example -- File I/O
                                                   [contents] [index] *ex-fileio*
 ```lua
 -- [§6.8] -  Input and Output Facilities
@@ -549,7 +549,7 @@ io.write("--  Lua Version: ", _VERSION)
 io.close(file)
 ```
 
-## -- Example -- CLI & shell
+## =-- Example -- CLI & shell
                                                      [contents] [index] *ex-cli*
 ```lua
 -- [ch7] Lua Standalone
@@ -564,7 +564,7 @@ os.exit(0) -- return lasterror code
 ```
 
 
-## -- Example 2   -- Comments.
+## =-- Example 2   -- Comments.
                                                         [contents] [index] *ex2*
 
     -- Single line comments in Lua start with double hyphen.
@@ -576,7 +576,7 @@ os.exit(0) -- return lasterror code
     -- And of course this example produces no
     -- output, since it's all comments!
 
-## -- Example 3   -- Variables.
+## =-- Example 3   -- Variables.
                                                         [contents] [index] *ex3*
 
     -- Variables hold values which have types, variables don't have types.
@@ -599,7 +599,7 @@ os.exit(0) -- return lasterror code
     table
     function
 
-## -- Example 5   -- More Variable names.
+## =-- Example 5   -- More Variable names.
                                                         [contents] [index] *ex5*
 
     -- The underscore is typically used to start special values
@@ -616,7 +616,7 @@ os.exit(0) -- return lasterror code
 
     Lua 5.1
 
-## -- Example 7   -- Keywords.
+## =-- Example 7   -- Keywords.
                                                         [contents] [index] *ex7*
 
     -- Lua reserved words are: and, break, do, else, elseif,
@@ -633,7 +633,7 @@ os.exit(0) -- return lasterror code
 
     3
 
-## -- Example 8   -- Strings.
+## =-- Example 8   -- Strings.
                                                         [contents] [index] *ex8*
 
     -- [§3.1] -  Lexical Conventions
@@ -657,7 +657,7 @@ os.exit(0) -- return lasterror code
     with 'single'
     and "double" quoted strings inside.
 
-## -- Example 9   -- Assignments.
+## =-- Example 9   -- Assignments.
                                                         [contents] [index] *ex9*
 
     -- Multiple assignments are valid.
@@ -672,7 +672,7 @@ os.exit(0) -- return lasterror code
 
     1       2       three   four    5
 
-## -- Example 10   -- More Assignments.
+## =-- Example 10   -- More Assignments.
                                                        [contents] [index] *ex10*
 
     -- Multiple assignments allows one line to swap two variables.
@@ -687,7 +687,7 @@ os.exit(0) -- return lasterror code
     1       2
     2       1
 
-## -- Example 13   -- More Output.
+## =-- Example 13   -- More Output.
                                                        [contents] [index] *ex13*
 
     -- io.write writes to stdout but without new line.
@@ -703,7 +703,7 @@ os.exit(0) -- return lasterror code
 
     Hello from Lua!Hello from Lua!
 
-## -- Example 14   -- Tables.
+## =-- Example 14   -- Tables.
                                                        [contents] [index] *ex14*
 
 
@@ -722,7 +722,7 @@ os.exit(0) -- return lasterror code
     table: 00924648 table: 00924378 table: 00924670
 ```
 
-## -- Example 15   -- More Tables.
+## =-- Example 15   -- More Tables.
                                                        [contents] [index] *ex15*
 
 
@@ -746,7 +746,7 @@ os.exit(0) -- return lasterror code
     360     2a
 ```
 
-## -- Example 18   -- if elseif else statement
+## =-- Example 18   -- if elseif else statement
                                                        [contents] [index] *ex18*
 
 
@@ -764,7 +764,7 @@ os.exit(0) -- return lasterror code
 
     c isn't 1 or 2, c is 3
 
-## -- Example 19   -- Conditional assignment.
+## =-- Example 19   -- Conditional assignment.
                                                        [contents] [index] *ex19*
 
     -- value = test and x or y
@@ -788,7 +788,7 @@ os.exit(0) -- return lasterror code
     one
     one
 
-## -- Example 20   -- while statement.
+## =-- Example 20   -- while statement.
                                                        [contents] [index] *ex20*
 
 
@@ -803,7 +803,7 @@ os.exit(0) -- return lasterror code
 
     2 3 4 5
 
-## -- Example 21   -- repeat until statement.
+## =-- Example 21   -- repeat until statement.
                                                        [contents] [index] *ex21*
 
 
@@ -822,7 +822,7 @@ os.exit(0) -- return lasterror code
     4
     5
 
-## -- Example 22   -- for statement. 
+## =-- Example 22   -- for statement. 
                                                        [contents] [index] *ex22*
 
     -- Numeric iteration form.
@@ -841,7 +841,7 @@ os.exit(0) -- return lasterror code
     1234
     14
 
-## -- Example 23   -- More for statement. 
+## =-- Example 23   -- More for statement. 
                                                        [contents] [index] *ex23*
 
     -- Sequential iteration form.
@@ -856,7 +856,7 @@ os.exit(0) -- return lasterror code
     3       3
     4       4
 
-## -- Example 24   -- Printing tables. 
+## =-- Example 24   -- Printing tables. 
                                                        [contents] [index] *ex24*
 
     -- Simple way to print tables.
@@ -876,7 +876,7 @@ os.exit(0) -- return lasterror code
     6       elephant
     7       mouse
 
-## -- Example 25   -- break statement. -- break is used to exit a loop.
+## =-- Example 25   -- break statement. -- break is used to exit a loop.
                                                        [contents] [index] *ex25*
 
 
@@ -895,7 +895,7 @@ os.exit(0) -- return lasterror code
 
     10
 
-## -- Example 26   -- Functions. 
+## =-- Example 26   -- Functions. 
                                                        [contents] [index] *ex26*
 
     -- Define a function without parameters or return value.
@@ -912,7 +912,7 @@ os.exit(0) -- return lasterror code
 
     My first lua function was called
 
-## -- Example 28   -- More functions.
+## =-- Example 28   -- More functions.
                                                        [contents] [index] *ex28*
 
     -- Define function with multiple parameters and multiple return values.
@@ -929,7 +929,7 @@ os.exit(0) -- return lasterror code
 
     1       2       three   My first lua function with multiple return values       1       true
 
-## -- Example 29   -- Variable scoping and functions.
+## =-- Example 29   -- Variable scoping and functions.
                                                        [contents] [index] *ex29*
 
     -- All variables are global in scope by default.
@@ -952,7 +952,7 @@ os.exit(0) -- return lasterror code
     global variable  local variable
     global variable global
 
-## -- Example 30   -- Formatted printing.
+## =-- Example 30   -- Formatted printing.
                                                        [contents] [index] *ex30*
 
     -- An implementation of printf.
@@ -969,7 +969,7 @@ os.exit(0) -- return lasterror code
 
     Hello there from Lua 5.1 on 08/21/18 12:37:03
 
-## -- Example 32   -- Standard Libraries - math.
+## =-- Example 32   -- Standard Libraries - math.
                                                        [contents] [index] *ex32*
 
 
@@ -988,7 +988,7 @@ os.exit(0) -- return lasterror code
 
     3       3.1415926535898
 
-## -- Example 33   -- Standard Libraries - string.
+## =-- Example 33   -- Standard Libraries - string.
                                                        [contents] [index] *ex33*
 
 
@@ -1004,7 +1004,7 @@ os.exit(0) -- return lasterror code
 
     LOWER   aaaaa   3       4
 
-## -- Example 35   -- Standard Libraries - input/output.
+## =-- Example 35   -- Standard Libraries - input/output.
                                                        [contents] [index] *ex35*
 
 
@@ -1020,7 +1020,7 @@ os.exit(0) -- return lasterror code
 
     nil     file doesn't exist: No such file or directory   2
 
-## -- Example 36   -- Standard Libraries - operating system facilities.
+## =-- Example 36   -- Standard Libraries - operating system facilities.
                                                        [contents] [index] *ex36*
 
 
@@ -1035,7 +1035,7 @@ os.exit(0) -- return lasterror code
 
     08/21/18 12:40:09
 
-## -- Example 37   -- External Libraries.
+## =-- Example 37   -- External Libraries.
                                                        [contents] [index] *ex37*
 
     -- Lua has support for external modules using the 'require' function
@@ -1061,7 +1061,7 @@ os.exit(0) -- return lasterror code
             找不到指定的模块。
 
 
-# 🚩 Skynet 
+# =🚩 Skynet 
                                                                         *skynet*
 + [Skynet](https://github.com/cloudwu/skynet)
 + https://github.com/cloudwu/skynet/wiki
@@ -1108,7 +1108,7 @@ CPU 时间给其他进程处理消息。
 
 
 
-# 🚩 Lua Sources
+# =🚩 Lua Sources
                                                  [contents] [index] *lua-source*
 + [The Implementation of Lua 5.0](http://www.lua.org/doc/jucs05.pdf)
 + [The Evolution of Lua](http://www.lua.org/doc/hopl.pdf)
@@ -1275,7 +1275,7 @@ Lua 5.0 是一个非常重要的版本升级，它的核心功能包括：
         - [luac srouce](lua-5.1/luac.c)         196 lines
 
 
-## ⚡ TObject vs TValue - Datatypes
+## =⚡ TObject vs TValue - Datatypes
                                               [contents] [index] *lua-datatypes*
 + [§2.1]   - Values and Types
 + [Lua objects](lua-5.1/lobject.c)
@@ -1361,7 +1361,7 @@ checktype() 宏函数来进行类型检测。
 旧版本中将调试用的 CallInfo 直接作为 Value 结构的字段，而在新版本中则移除，用在 lua_State 或
 lua_Debug 结构中。
 
-```cpp
+```cpp,ignore
 // Lua 4.0 Objects
 typedef union {
   struct TString *ts;   /* LUA_TSTRING, LUA_TUSERDATA */
@@ -1472,7 +1472,7 @@ GCObject 就是一个由 CommonHeader 宏函数展开的结构，也是一个链
                                                       union Closure...  
 
 
-## ⚡ Lua Table
+## =⚡ Lua Table and Direction
                                                   [contents] [index] *lua-table*
 + [§2.4]   - Metatables and Metamethods
 + [§3.4.7] - The Length Operator
@@ -1484,7 +1484,7 @@ GCObject 就是一个由 CommonHeader 宏函数展开的结构，也是一个链
 Table 是 Lua 中唯一的结构化数据类型，Lua 有些内部任务需要 Table 的实现，它是 Lua 核心数据类型。
 
 Lua 4.0 版本的 Table 是严格的 Hash 散列表，使用 Hash + Node 结构体实现，Hash 结构体作为链表
-使用，Node 结构体作为 Key-Value 存储使用，。
+使用，Node 结构体作为 Key-Value 键值对存储使用，。
 
 Lua 5.0 版本后，Hash 从 Value 结构体中独立出来，并增加了新功能，与数组合体实现为 Table 结构，
 并使用 TValue 和 Node 分别表示数组，原来的 Hash 类型取消，功能溶合到 Table 类型。
@@ -1518,6 +1518,9 @@ Lua 没有实现其它语言中常用的数组类型，Table 除了作为 Hash �
     local x = t.x -- t['x']
     local handred = t[1]
     local length  = #t
+
+    a = {1,2,3,4,["five"]=5,"elephant", "mouse"}
+    for i,v in pairs(a) do print(i,"-",v) end
 ```
 
 混合结构的好处包括：
@@ -1614,7 +1617,7 @@ tables can be 100% without performance penalties.
 > techniques. Communi cations of the ACM, 16(2):105--109, 1973.
 
 
-## ⚡ Function & Closures
+## =⚡ Function & Closures
                                                    [contents] [index] *closures*
 + [§4.4] -  C Closures
 + [Prototypes & closures](lua-5.1/lfunc.c)  174 lines  函数前缀 luaF_
@@ -1728,7 +1731,7 @@ typedef union Closure {
 
 
 
-## ⚡ Coroutine
+## =⚡ Coroutine
                                                   [contents] [index] *coroutine*
 - [§2.6]   - Coroutines
 - [§6.2]   - Coroutine Manipulation
@@ -1824,7 +1827,7 @@ and this running coroutine suspends its execution only when it explicitly
 requests to be suspended.
 
 
-## ⚡ Garbage Collect
+## =⚡ Garbage Collect
                                                         [contents] [index]  *gc*
 + [§2.5] - Garbage Collection
 + [Lua设计与实现](https://github.com/lichuang/Lua-Source-Internal)
@@ -1940,7 +1943,7 @@ globalstate.currentwhite 为其中一种。这样在回收时，如果当前对�
 
 
 
-## ⚡ Debug Interface
+## =⚡ Debug Interface
                                                 [contents] [index] *lua-debug*
 + [§4.9]   - The Debug Interface
 + [§6.10]  - The Debug Library
@@ -1972,7 +1975,7 @@ Lua 并没有提供调试工具，但是通过 functions and *hooks* 提个了�
 Lua 提供最基本的调试接口内容是 [lua_Debug] 结构体，它负责携带可供调用的信息，有关函数或活动记录
 的不同信息。[lua_getstack] 负责填充私密部分，其它信息通过调用 [lua_getinfo] 填充。
 
-```cpp
+```cpp,ignore
 struct lua_Debug {
   int event;
   const char *name;           /* (n) */
@@ -2031,7 +2034,7 @@ This function returns 0 on error (for instance, an invalid option in `what`).
 
 部分相关 C API 原型：
 
-```cpp
+```cpp,ignore
 lua_Hook lua_gethook (lua_State *L);
 // Returns the current hook function.
 void lua_sethook (lua_State *L, lua_Hook f, int mask, int count);
@@ -2095,7 +2098,7 @@ line hook 和 count hook 只在执行一个 Lua function 时有效。
 Lua 5.4 新增了一个 db_setcstacklimit 
 
 
-## ⚡ Script & Chunk
+## =⚡ Script & Chunk
                                                  [contents] [index] *lua-script*
 + [ch5] - The Auxiliary Library
 
@@ -2156,7 +2159,7 @@ string.dump (function [, strip])
 假设模块文件 mod.lua 定义如下，使用了一条全局语句来读取传入脚本的参数，在使用 loadfile 这类函数
 加载脚本时可以传入参数，而使用 dofile 它会直接执行脚本：
 
-```lua
+```lua,ignore
 function foo(...)
     print("foo()", ...)
 end
@@ -2237,6 +2240,7 @@ load() 还用来读取 binary chunk，配置 luac 命令工具将 Lua 源码文�
 加载出错问题。
 
 使用脚本自动编译脚本为字节码：
+
 ```lua
 function luacguess()
     local guess = _VERSION:gsub('Lua (%d).(%d)',"luac%1%2")
@@ -2268,7 +2272,7 @@ end
 ```
 
 
-## ⚡ Library & Module
+## =⚡ Library & Module
                                                 [contents] [index] *lua-library*
 + [ch4] - The Application Program Interface
 + [ch5] - The Auxiliary Library
@@ -2307,10 +2311,10 @@ remote repositories, and multiple local rocks trees.
 Basic example
 
 ```sh
-# Add a rockspec to your default configured upload server:
+# =Add a rockspec to your default configured upload server:
 luarocks-admin add lpeg-0.9-1.rockspec
 
-# you can specify which repository to use with the --server flag:
+# =you can specify which repository to use with the --server flag:
 luarocks-admin add --server=dev my_rock-scm-1.rockspec
 ```
 
@@ -2365,7 +2369,7 @@ C 语言的子模块只从父模块动态链接库中加载，函数名称不支
 
 以下脚本可以打印当前已经加载的模块信息：
 
-```lua
+```lua,ignore
 local found = {[package.loaded]=true}
 function traverse(t, p)
     for i,v in pairs(t) do
@@ -2405,7 +2409,7 @@ traverse(package.loaded, '|')
 调用 loadlib 加载指定 DLL 导出函数则不要求一致。
 
 
-```cpp
+```cpp,ignore
 typedef struct luaL_Reg {
   const char *name;
   lua_CFunction func;
@@ -2418,7 +2422,7 @@ typedef int (*lua_CFunction) (lua_State *L);
 
 以 Table 函数库为例，[Table Manipulation](lua-5.1/ltablib.c)
 
-```cpp
+```cpp,ignore
 #include "lua.h"
 
 #include "lauxlib.h"
@@ -2448,7 +2452,7 @@ LUALIB_API int luaopen_table (lua_State *L) {
 
 全局状态机负责打开和关闭 Lua 状态，还有线程管理，对应函数有 [lua_newstate] [lua_close] 等等：
 
-```c
+```c,ignore
     void lua_close (lua_State *L);
 
     lua_State *lua_newstate (lua_Alloc f, void *ud);
@@ -2459,7 +2463,7 @@ LUALIB_API int luaopen_table (lua_State *L) {
 
 以下为一个 DLL 测试代码：
 
-```c
+```c,ignore
 // cl test.c /link /DLL /out:test.dll winmm.lib
 // package.loadlib([[c:\path\to\winmm.dll]], 'luaopen_winmm')
 
@@ -2478,10 +2482,10 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
 ```
 
 
-## ⚡ Lexical Analyzer
+## =⚡ Lexical Analyzer
                                           [contents] [index]  *Lexical-Analyzer*
 
-## ⚡ Lua Parser
+## =⚡ Lua Parser
                                                 [contents] [index]  *Lua-Parser*
 
 Lua 将源程序编译成为字节码，然后交由虚拟机解释执行。对于每一个函数，Lua 编译器将创建一个原型(prototype)，
@@ -2493,7 +2497,7 @@ Lua 将源程序编译成为字节码，然后交由虚拟机解释执行。对�
 
 
 
-## ⚡ OpCodes & LVM
+## =⚡ OpCodes & LVM
                                                        [contents] [index]  *lvm*
 - https://the-ravi-programming-language.readthedocs.io/en/latest/lua_bytecode_reference.html
 
@@ -2650,7 +2654,7 @@ Lua 5.1 升级到 5.4.0，作码数量则从 38 个增加到了 82 个，并且�
 iABC iABx iAsBx 三选一变成五选一，操作模式决定了指令可以使用什么样的操作数。其中 A 表示目的操作
 数寄存器，作为结果存储是必要部分，B 和 C 表示源操作数寄存器，可以替换成立即数 Bx 或 sBx。
 
-```cpp
+```cpp,ignore
     enum OpMode {iABC, iABx, iAsBx};            /* Lua 5.1.0 */
     enum OpMode {iABC, iABx, iAsBx, iAx};       /* Lua 5.2.0 */
     enum OpMode {iABC, iABx, iAsBx, iAx, isJ};  /* Lua 5.4.0 */
@@ -2749,7 +2753,7 @@ OP_VARARG    /* A B     R(A), R(A+1), ..., R(A+B-1) = vararg                 */
 ```
 
 
-# 🚩 Lua 5.3 Reference Manual
+# =🚩 Lua 5.3 Reference Manual
 - http://www.lua.org/manual/5.3/
 
 The reference manual is the official definition of the Lua language.
@@ -2763,7 +2767,7 @@ Copyright © 2015-2020 Lua.org, PUC-Rio. Freely available under the terms of
 the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 
 
-## ⚡ Contents
+## =⚡ Contents
                                                              [index]  *contents*
 
     🚩 Intro & Installation                                              [intro]
@@ -2921,7 +2925,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 
 
 
-## ⚡ Index
+## =⚡ Index
                                                              [contents]  *index*
 - ⛏ Lua functions                                               [Lua-functions]
      [basic]        [os]
@@ -2936,7 +2940,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 - ⛏ Standard library                                         [standard-library]
 - ⛏ constants                                                       [constants]
 
-### ⛏ Lua functions
+### =⛏ Lua functions
                                                                  *Lua-functions*
 |----------------------|    |-------------------|   |----------------------|
 |----------------------|    |-------------------|   |----------------------|
@@ -3003,7 +3007,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
                                                     |utf8.len|              
                                                     |utf8.offset|           
 
-### ⛏ Metamethods
+### =⛏ Metamethods
                                                                    *metamethods*
     |__add|                 |__idiv|               |__name|     
     |__band|                |__index|              |__newindex| 
@@ -3017,7 +3021,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
     |__gc|                          
 
 
-### ⛏ Environment variables
+### =⛏ Environment variables
                                                          *environment-variables*
 |LUA_CPATH|             
 |LUA_CPATH_5_3|         
@@ -3027,7 +3031,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 |LUA_PATH_5_3|          
 
 
-### ⛏ C API
+### =⛏ C API
                                                                          *C-API*
 |lua_Alloc|              |lua_isboolean|              |lua_rawgetp|       
 |lua_CFunction|          |lua_iscfunction|            |lua_rawlen|        
@@ -3074,7 +3078,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 |lua_insert|             |lua_rawgeti|                |lua_yieldk|        
 
 
-### ⛏ Auxiliary library
+### =⛏ Auxiliary library
                                                              *auxiliary-library*
 |luaL_Buffer|           |luaL_checkversion|       |luaL_optinteger|    
 |luaL_Reg|              |luaL_dofile|             |luaL_optlstring|    
@@ -3100,7 +3104,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 |luaL_checkudata|       |luaL_opt|                                 
 
 
-### ⛏ Standard library
+### =⛏ Standard library
                                                               *standard-library*
 |luaopen_base|          |luaopen_os|            
 |luaopen_coroutine|     |luaopen_package|       
@@ -3109,7 +3113,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 |luaopen_math|          |luaopen_utf8|          
 
 
-### ⛏ Constants
+### =⛏ Constants
                                                                      *constants*
 
 |LUA_ERRERR|            |LUA_OK|              |LUA_RIDX_GLOBALS|     
@@ -3137,7 +3141,7 @@ the <A HREF="http://www.lua.org/license.html">Lua license</A>.
 Last update: Tue Aug 25 13:45:14 UTC 2020
 
 
-## ⚡ 1 -  Introduction
+## =⚡ 1 -  Introduction
                                                         [contents] [index] *ch1*
 
 Lua is a powerful, efficient, lightweight, embeddable scripting language.
@@ -3179,12 +3183,12 @@ Lua's web site. For a detailed introduction to programming in Lua,
 see Roberto's book, *Programming in Lua*.
 
 
-## ⚡ 2 -  Basic Concepts
+## =⚡ 2 -  Basic Concepts
                                                         [contents] [index] *ch2*
 This section describes the basic concepts of the language.
 
 
-### ⛏ 2.1 -  Values and Types
+### =⛏ 2.1 -  Values and Types
                                                        [contents] [index] *§2.1*
 Lua is a *dynamically typed language*. This means that variables do not have 
 types; only values do. There are no type definitions in the language.
@@ -3300,7 +3304,7 @@ The library function  [type] returns a string describing the type of a given val
 
 
 
-### ⛏ 2.2 -  Environments and the Global Environment
+### =⛏ 2.2 -  Environments and the Global Environment
                                                        [contents] [index] *§2.2*
 
 As will be discussed in [§3.2] and [§3.3.3], any reference to a free name (that is,
@@ -3337,7 +3341,7 @@ to load a chunk with a different environment.
 
 
 
-### ⛏ 2.3 -  Error Handling
+### =⛏ 2.3 -  Error Handling
                                                        [contents] [index] *§2.3*
 Because Lua is an embedded extension language, all Lua actions start from C code 
 in the host program calling a function from the Lua library. (When you use Lua 
@@ -3370,7 +3374,7 @@ runtime errors. It is not called for memory-allocation errors nor for errors whi
 
 
 
-### ⛏ 2.4 -  Metatables and Metamethods
+### =⛏ 2.4 -  Metatables and Metamethods
                                                        [contents] [index] *§2.4*
 Every value in Lua can have a *metatable*. This *metatable* is an ordinary Lua 
 table that defines the behavior of the original value under certain special 
@@ -3646,7 +3650,7 @@ use other fields in metatables for their own purposes.
 
 
 
-### ⛏ 2.5 -  Garbage Collection
+### =⛏ 2.5 -  Garbage Collection
                                                        [contents] [index] *§2.5*
 Lua performs automatic memory management.
 This means that
@@ -3702,7 +3706,7 @@ You can also use these functions to control
 the collector directly (e.g., stop and restart it).
 
 
-### ⛏ 2.5.1 - Garbage-Collection Metamethods
+### =⛏ 2.5.1 - Garbage-Collection Metamethods
                                               [contents] [index] *__gc* *§2.5.1*
 You can set garbage-collector metamethods for tables and, using the C API,
 for full userdata (see  [§2.4]).
@@ -3766,7 +3770,7 @@ these marks have no effect.
 
 
 
-### ⛏ 2.5.2 - Weak Tables
+### =⛏ 2.5.2 - Weak Tables
                                                      [contents] [index] *§2.5.2*
 A *weak table* is a table whose elements are *weak references*.
 A weak reference is ignored by the garbage collector.
@@ -3832,7 +3836,7 @@ it may not be properly cleared until the next cycle.
 
 
 
-### ⛏ 2.6 -  Coroutines
+### =⛏ 2.6 -  Coroutines
                                                        [contents] [index] *§2.6*
 Lua supports coroutines, also called *collaborative multithreading*.
 A coroutine in Lua represents an independent thread of execution.
@@ -3939,7 +3943,7 @@ see functions  [lua_newthread],  [lua_resume], and  [lua_yield].
 
 
 
-## ⚡ 3 -  The Language
+## =⚡ 3 -  The Language
                                                         [contents] [index] *ch3*
 This section describes the lexis, the syntax, and the semantics of Lua.
 In other words,
@@ -3960,7 +3964,7 @@ The complete syntax of Lua can be found in  [§9]
 at the end of this manual.
 
 
-### ⛏ 3.1 -  Lexical Conventions
+### =⛏ 3.1 -  Lexical Conventions
                                                        [contents] [index] *§3.1*
 Lua is a free-form language. It ignores spaces (including new lines) and comments
 between lexical elements (tokens), except as delimiters between names and keywords.
@@ -4106,7 +4110,7 @@ comments are frequently used to disable code temporarily.
 
 
 
-### ⛏ 3.2 -  Variables
+### =⛏ 3.2 -  Variables
                                                        [contents] [index] *§3.2*
 Variables are places that store values. There are three kinds of variables in Lua:
 
@@ -4154,14 +4158,14 @@ chunks are compiled, `_ENV` is never a global name (see  [§2.2]).
 
 
 
-### ⛏ 3.3 -  Statements
+### =⛏ 3.3 -  Statements
                                                        [contents] [index] *§3.3*
 Lua supports an almost conventional set of statements, similar to those in 
 Pascal or C. This set includes assignments, control structures, function calls, 
 and variable declarations.
 
 
-### ⛏ 3.3.1 - Blocks
+### =⛏ 3.3.1 - Blocks
                                                      [contents] [index] *§3.3.1*
 A block is a list of statements, which are executed sequentially:
 
@@ -4214,7 +4218,7 @@ of another block (see  [§3.3.4]).
 
 
 
-### ⛏ 3.3.2 - Chunks
+### =⛏ 3.3.2 - Chunks
                                                      [contents] [index] *§3.3.2*
 The unit of compilation of Lua is called a *chunk*.
 Syntactically, a chunk is simply a block:
@@ -4246,7 +4250,7 @@ Lua automatically detects the file type and acts accordingly (see  [load]).
 
 
 
-### ⛏ 3.3.3 - Assignment
+### =⛏ 3.3.3 - Assignment
                                                      [contents] [index] *§3.3.3*
 Lua allows multiple assignments.
 Therefore, the syntax for assignment
@@ -4315,7 +4319,7 @@ can be changed via metatables (see  [§2.4]).
 
 
 
-### ⛏ 3.3.4 - Control Structures
+### =⛏ 3.3.4 - Control Structures
                                                      [contents] [index] *§3.3.4*
 The control structures if, while, and repeat have the usual meaning and
 familiar syntax:
@@ -4401,7 +4405,7 @@ because now return is the last statement in its (inner) block.
 
 
 
-### ⛏ 3.3.5 - For Statement
+### =⛏ 3.3.5 - For Statement
                                                      [contents] [index] *§3.3.5*
 
 The for statement has two forms: one numerical and one generic.
@@ -4504,7 +4508,7 @@ Note the following:
     variables before breaking or exiting the loop.
 
 
-### ⛏ 3.3.6 - Function Calls as Statements
+### =⛏ 3.3.6 - Function Calls as Statements
                                                      [contents] [index] *§3.3.6*
 To allow possible side-effects, function calls can be executed as statements:
 
@@ -4517,7 +4521,7 @@ in  [§3.4.10].
 
 
 
-### ⛏ 3.3.7 - Local Declarations
+### =⛏ 3.3.7 - Local Declarations
                                                      [contents] [index] *§3.3.7*
 Local variables can be declared anywhere inside a block. The declaration can 
 include an initial assignment:
@@ -4538,7 +4542,7 @@ The visibility rules for local variables are explained in  [§3.5].
 
 
 
-### ⛏ 3.4 -  Expressions
+### =⛏ 3.4 -  Expressions
                                                        [contents] [index] *§3.4*
 The basic expressions in Lua are the following:
 
@@ -4611,7 +4615,7 @@ Any expression enclosed in parentheses always results in only one value. Thus,
 not return any values.)
 
 
-### ⛏ 3.4.1 - Arithmetic Operators
+### =⛏ 3.4.1 - Arithmetic Operators
                                                      [contents] [index] *§3.4.1*
 Lua supports the following arithmetic operators:
 
@@ -4660,7 +4664,7 @@ they return the unique representable integer that is equal modulo *2⁶⁴* to
 the mathematical result.)
 
 
-### ⛏ 3.4.2 - Bitwise Operators
+### =⛏ 3.4.2 - Bitwise Operators
                                                      [contents] [index] *§3.4.2*
 Lua supports the following bitwise operators:
 
@@ -4683,7 +4687,7 @@ result in zero (as all bits are shifted out).
 
 
 
-### ⛏ 3.4.3 - Coercions and Conversions
+### =⛏ 3.4.3 - Coercions and Conversions
                                                      [contents] [index] *§3.4.3*
 Lua provides some automatic conversions between some types and representations 
 at run time. Bitwise operators always convert float operands to integers. 
@@ -4728,7 +4732,7 @@ function from the string library (see  [string.format]).
 
 
 
-### ⛏ 3.4.4 - Relational Operators
+### =⛏ 3.4.4 - Relational Operators
                                                      [contents] [index] *§3.4.4*
 Lua supports the following relational operators:
 
@@ -4787,7 +4791,7 @@ nor equal to, nor greater than any value (including itself).
 
 
 
-### ⛏ 3.4.5 - Logical Operators
+### =⛏ 3.4.5 - Logical Operators
                                                      [contents] [index] *§3.4.5*
 The logical operators in Lua are and, or, and not.
 Like the control structures (see  [§3.3.4]),
@@ -4822,7 +4826,7 @@ Here are some examples:
 
 
 
-### ⛏ 3.4.6 - Concatenation
+### =⛏ 3.4.6 - Concatenation
                                                      [contents] [index] *§3.4.6*
 The string concatenation operator in Lua is
 denoted by two dots (`'..'`).
@@ -4832,7 +4836,7 @@ Otherwise, the `__concat` metamethod is called (see  [§2.4]).
 
 
 
-### ⛏ 3.4.7 - The Length Operator
+### =⛏ 3.4.7 - The Length Operator
                                                      [contents] [index] *§3.4.7*
 The length operator is denoted by the unary prefix operator `#`.
 
@@ -4887,7 +4891,7 @@ any value but strings through the `__len` metamethod (see  [§2.4]).
 
 
 
-### ⛏ 3.4.8 - Precedence
+### =⛏ 3.4.8 - Precedence
                                                      [contents] [index] *§3.4.8*
 Operator precedence in Lua follows the table below,
 from lower to higher priority:
@@ -4915,7 +4919,7 @@ All other binary operators are left associative.
 
 
 
-### ⛏ 3.4.9 - Table Constructors
+### =⛏ 3.4.9 - Table Constructors
                                                      [contents] [index] *§3.4.9*
 Table constructors are expressions that create tables.
 Every time a constructor is evaluated, a new table is created.
@@ -4975,7 +4979,7 @@ as a convenience for machine-generated code.
 
 
 
-### ⛏ 3.4.10 - Function Calls
+### =⛏ 3.4.10 - Function Calls
                                                     [contents] [index] *§3.4.10*
 A function call in Lua has the following syntax:
 
@@ -5040,7 +5044,7 @@ So, none of the following examples are tail calls:
 
 
 
-### ⛏ 3.4.11 - Function Definitions
+### =⛏ 3.4.11 - Function Definitions
                                                     [contents] [index] *§3.4.11*
 The syntax for function definition is
 
@@ -5060,7 +5064,7 @@ The following syntactic sugar simplifies function definitions:
 
 The statements with equalvalent form
 
-```lua
+```lua,ignore
      function f () body end
      f = function () body end
 
@@ -5172,7 +5176,7 @@ is syntactic sugar for
 
 
 
-### ⛏ 3.5 -  Visibility Rules
+### =⛏ 3.5 -  Visibility Rules
                                                        [contents] [index] *§3.5*
 
 Lua is a lexically scoped language.
@@ -5232,7 +5236,7 @@ while all of them share the same `x`.
 
 
 
-## ⚡ 4 -  The Application Program Interface
+## =⚡ 4 -  The Application Program Interface
                                                         [contents] [index] *ch4*
 This section describes the C API for Lua, that is, the set of C functions available
 to the host program to communicate with Lua. All API functions and related types 
@@ -5272,7 +5276,7 @@ which creates a Lua state from scratch and returns a pointer
 to the *main thread* in the new state.
 
 
-### ⛏ 4.1 -  The Stack
+### =⛏ 4.1 -  The Stack
                                                        [contents] [index] *§4.1*
 Lua uses a *virtual stack* to pass values to and from C.
 Each element in this stack represents a Lua value
@@ -5308,7 +5312,7 @@ and index *-n* represents the first element.
 
 
 
-### ⛏ 4.2 -  Stack Size
+### =⛏ 4.2 -  Stack Size
                                                        [contents] [index] *§4.2*
 When you interact with the Lua API,
 you are responsible for ensuring consistency.
@@ -5335,7 +5339,7 @@ you should use  [lua_checkstack].
 
 
 
-### ⛏ 4.3 -  Valid and Acceptable Indices
+### =⛏ 4.3 -  Valid and Acceptable Indices
                                                        [contents] [index] *§4.3*
 Any function in the API that receives stack indices
 works only with *valid indices* or *acceptable indices*.
@@ -5379,7 +5383,7 @@ which behaves like a nil value.
 
 
 
-### ⛏ 4.4 -  C Closures
+### =⛏ 4.4 -  C Closures
                                                        [contents] [index] *§4.4*
 When a C function is created,
 it is possible to associate some values with it,
@@ -5401,7 +5405,7 @@ produces an acceptable but invalid index.
 
 
 
-### ⛏ 4.5 -  Registry
+### =⛏ 4.5 -  Registry
                                                        [contents] [index] *§4.5*
 Lua provides a *registry*,
 a predefined table that can be used by any C code to
@@ -5440,7 +5444,7 @@ the main thread of the state.
 the global environment.
 
 
-### ⛏ 4.6 -  Error Handling in C
+### =⛏ 4.6 -  Error Handling in C
                                                        [contents] [index] *§4.6*
 Internally, Lua uses the C `longjmp` facility to handle errors.
 (Lua will use exceptions if you compile it as C++;
@@ -5496,7 +5500,7 @@ the panic function must first check the available space (see  [§4.2]).
 
 
 
-### ⛏ 4.7 -  Handling Yields in C
+### =⛏ 4.7 -  Handling Yields in C
                                                        [contents] [index] *§4.7*
 Internally, Lua uses the C `longjmp` facility to yield a coroutine.
 Therefore, if a C function `foo` calls an API function
@@ -5627,7 +5631,7 @@ of the original function.
 
 
 
-### ⛏ 4.8 -  Functions and Types
+### =⛏ 4.8 -  Functions and Types
                                                        [contents] [index] *§4.8*
 Here we list all functions and types from the C API in
 alphabetical order.
@@ -5653,7 +5657,7 @@ and errors running a `__gc` metamethod;
 `'v'` means the function may raise an error on purpose.
 
 
-#### lua_absindex
+**#### lua_absindex
                                                                   *lua_absindex*
                                                                      [-0, +0, -]
 ```cpp
@@ -5666,7 +5670,7 @@ into an equivalent absolute index
 
 
 
-#### lua_Alloc
+**#### lua_Alloc
                                                                      *lua_Alloc*
 ```cpp
 typedef void * (*lua_Alloc) (void *ud,
@@ -5743,7 +5747,7 @@ it seems to be a safe assumption.)
 
 
 
-#### lua_arith
+**#### lua_arith
                                                                      *lua_arith*
                                                                [-(2|1), +1, *e*]
 ```cpp
@@ -5778,7 +5782,7 @@ The value of `op` must be one of the following constants:
 ⛏ *LUA_OPSHR*:  performs right shift (`>>`)
 
 
-#### lua_atpanic
+**#### lua_atpanic
                                                                    *lua_atpanic*
                                                                      [-0, +0, -]
 ```cpp
@@ -5789,7 +5793,7 @@ Sets a new panic function and returns the old one (see  [§4.6]).
 
 
 
-#### lua_call
+**#### lua_call
                                                                       *lua_call*
                                                     [-(nargs+1), +nresults, *e*]
 ```cpp
@@ -5849,7 +5853,7 @@ This is considered good programming practice.
 
 
 
-#### lua_callk
+**#### lua_callk
                                                                      *lua_callk*
                                                   [-(nargs + 1), +nresults, *e*]
 ```cpp
@@ -5865,7 +5869,7 @@ but allows the called function to yield (see  [§4.7]).
 
 
 
-#### lua_CFunction
+**#### lua_CFunction
                                                                  *lua_CFunction*
 ```cpp
 typedef int (*lua_CFunction) (lua_State *L);
@@ -5915,7 +5919,7 @@ of numeric arguments and returns their average and their sum:
 
 
 
-#### lua_checkstack
+**#### lua_checkstack
                                                                 *lua_checkstack*
                                                                      [-0, +0, -]
 ```cpp
@@ -5935,7 +5939,7 @@ it is left unchanged.
 
 
 
-#### lua_close
+**#### lua_close
                                                                      *lua_close*
                                                                      [-0, +0, -]
 ```cpp
@@ -5953,7 +5957,7 @@ will probably need to close states as soon as they are not needed.
 
 
 
-#### lua_compare
+**#### lua_compare
                                                                    *lua_compare*
                                                                    [-0, +0, *e*]
 ```cpp
@@ -5977,7 +5981,7 @@ The value of `op` must be one of the following constants:
 ⛏ *LUA_OPLE*:  compares for less or equal (`<=`)
 
 
-#### lua_concat
+**#### lua_concat
                                                                     *lua_concat*
                                                                    [-n, +1, *e*]
 ```cpp
@@ -5994,7 +5998,7 @@ Concatenation is performed following the usual semantics of Lua
 
 
 
-#### lua_copy
+**#### lua_copy
                                                                       *lua_copy*
                                                                      [-0, +0, -]
 ```cpp
@@ -6008,7 +6012,7 @@ Values at other positions are not affected.
 
 
 
-#### lua_createtable
+**#### lua_createtable
                                                                *lua_createtable*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -6027,7 +6031,7 @@ Otherwise you can use the function  [lua_newtable].
 
 
 
-#### lua_dump
+**#### lua_dump
                                                                       *lua_dump*
                                                                      [-0, +0, -]
 ```cpp
@@ -6063,7 +6067,7 @@ This function does not pop the Lua function from the stack.
 
 
 
-#### lua_error
+**#### lua_error
                                                                      *lua_error*
                                                                    [-1, +0, *v*]
 ```cpp
@@ -6078,7 +6082,7 @@ and therefore never returns
 
 
 
-#### lua_gc
+**#### lua_gc
                                                                         *lua_gc*
                                                                    [-0, +0, *m*]
 ```cpp
@@ -6131,7 +6135,7 @@ see  [collectgarbage].
 
 
 
-#### lua_getallocf
+**#### lua_getallocf
                                                                  *lua_getallocf*
                                                                      [-0, +0, -]
 ```lua
@@ -6144,7 +6148,7 @@ opaque pointer given when the memory-allocator function was set.
 
 
 
-#### lua_getfield
+**#### lua_getfield
                                                                   *lua_getfield*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -6161,7 +6165,7 @@ Returns the type of the pushed value.
 
 
 
-#### lua_getextraspace
+**#### lua_getextraspace
                                                              *lua_getextraspace*
                                                                      [-0, +0, -]
 ```cpp
@@ -6184,7 +6188,7 @@ but you can recompile Lua with a different size for this area.
 
 
 
-#### lua_getglobal
+**#### lua_getglobal
                                                                  *lua_getglobal*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -6196,7 +6200,7 @@ Returns the type of that value.
 
 
 
-#### lua_geti
+**#### lua_geti
                                                                       *lua_geti*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -6213,7 +6217,7 @@ Returns the type of the pushed value.
 
 
 
-#### lua_getmetatable
+**#### lua_getmetatable
                                                               *lua_getmetatable*
                                                                  [-0, +(0|1), -]
 ```cpp
@@ -6227,7 +6231,7 @@ the function returns 0 and pushes nothing on the stack.
 
 
 
-#### lua_gettable
+**#### lua_gettable
                                                                   *lua_gettable*
                                                                    [-1, +1, *e*]
 ```cpp
@@ -6249,7 +6253,7 @@ Returns the type of the pushed value.
 
 
 
-#### lua_gettop
+**#### lua_gettop
                                                                     *lua_gettop*
                                                                      [-0, +0, -]
 ```cpp
@@ -6263,7 +6267,7 @@ in particular, 0 means an empty stack.
 
 
 
-#### lua_getuservalue
+**#### lua_getuservalue
                                                               *lua_getuservalue*
                                                                      [-0, +1, -]
 ```cpp
@@ -6278,7 +6282,7 @@ Returns the type of the pushed value.
 
 
 
-#### lua_insert
+**#### lua_insert
                                                                     *lua_insert*
                                                                      [-1, +1, -]
 ```cpp
@@ -6292,7 +6296,7 @@ because a pseudo-index is not an actual stack position.
 
 
 
-#### lua_Integer
+**#### lua_Integer
                                                                    *lua_Integer*
 ```cpp
 typedef ... lua_Integer;
@@ -6314,7 +6318,7 @@ with the minimum and the maximum values that fit in this type.
 
 
 
-#### lua_isboolean
+**#### lua_isboolean
                                                                  *lua_isboolean*
                                                                      [-0, +0, -]
 ```cpp
@@ -6326,7 +6330,7 @@ and 0 otherwise.
 
 
 
-#### lua_iscfunction
+**#### lua_iscfunction
                                                                *lua_iscfunction*
                                                                      [-0, +0, -]
 ```lua
@@ -6338,7 +6342,7 @@ and 0 otherwise.
 
 
 
-#### lua_isfunction
+**#### lua_isfunction
                                                                 *lua_isfunction*
                                                                      [-0, +0, -]
 ```lua
@@ -6350,7 +6354,7 @@ Returns 1 if the value at the given index is a function
 
 
 
-#### lua_isinteger
+**#### lua_isinteger
                                                                  *lua_isinteger*
                                                                      [-0, +0, -]
 ```cpp
@@ -6363,7 +6367,7 @@ and 0 otherwise.
 
 
 
-#### lua_islightuserdata
+**#### lua_islightuserdata
                                                            *lua_islightuserdata*
                                                                      [-0, +0, -]
 ```cpp
@@ -6375,7 +6379,7 @@ and 0 otherwise.
 
 
 
-#### lua_isnil
+**#### lua_isnil
                                                                      *lua_isnil*
                                                                      [-0, +0, -]
 ```cpp
@@ -6387,7 +6391,7 @@ and 0 otherwise.
 
 
 
-#### lua_isnone
+**#### lua_isnone
                                                                     *lua_isnone*
                                                                      [-0, +0, -]
 ```cpp
@@ -6399,7 +6403,7 @@ and 0 otherwise.
 
 
 
-#### lua_isnoneornil
+**#### lua_isnoneornil
                                                                *lua_isnoneornil*
                                                                      [-0, +0, -]
 ```cpp
@@ -6412,7 +6416,7 @@ and 0 otherwise.
 
 
 
-#### lua_isnumber
+**#### lua_isnumber
                                                                   *lua_isnumber*
                                                                      [-0, +0, -]
 ```cpp
@@ -6425,7 +6429,7 @@ and 0 otherwise.
 
 
 
-#### lua_isstring
+**#### lua_isstring
                                                                   *lua_isstring*
                                                                      [-0, +0, -]
 ```cpp
@@ -6438,7 +6442,7 @@ and 0 otherwise.
 
 
 
-#### lua_istable
+**#### lua_istable
                                                                    *lua_istable*
                                                                      [-0, +0, -]
 ```cpp
@@ -6450,7 +6454,7 @@ and 0 otherwise.
 
 
 
-#### lua_isthread
+**#### lua_isthread
                                                                   *lua_isthread*
                                                                      [-0, +0, -]
 ```cpp
@@ -6462,7 +6466,7 @@ and 0 otherwise.
 
 
 
-#### lua_isuserdata
+**#### lua_isuserdata
                                                                 *lua_isuserdata*
                                                                      [-0, +0, -]
 ```cpp
@@ -6474,7 +6478,7 @@ Returns 1 if the value at the given index is a userdata
 
 
 
-#### lua_isyieldable
+**#### lua_isyieldable
                                                                *lua_isyieldable*
                                                                      [-0, +0, -]
 ```cpp
@@ -6486,7 +6490,7 @@ and 0 otherwise.
 
 
 
-#### lua_KContext
+**#### lua_KContext
                                                                   *lua_KContext*
 ```cpp
 typedef ... lua_KContext;
@@ -6501,7 +6505,7 @@ Otherwise, it is defined as `ptrdiff_t`.
 
 
 
-#### lua_KFunction
+**#### lua_KFunction
                                                                  *lua_KFunction*
 ```cpp
 typedef int (*lua_KFunction) (lua_State *L, int status, lua_KContext ctx);
@@ -6511,7 +6515,7 @@ Type for continuation functions (see  [§4.7]).
 
 
 
-#### lua_len
+**#### lua_len
                                                                        *lua_len*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -6525,7 +6529,7 @@ The result is pushed on the stack.
 
 
 
-#### lua_load
+**#### lua_load
                                                                       *lua_load*
                                                                      [-0, +1, -]
 ```cpp
@@ -6584,7 +6588,7 @@ Other upvalues are initialized with nil.
 
 
 
-#### lua_newstate
+**#### lua_newstate
                                                                   *lua_newstate*
                                                                      [-0, +0, -]
 ```cpp
@@ -6602,7 +6606,7 @@ passes to the allocator in every call.
 
 
 
-#### lua_newtable
+**#### lua_newtable
                                                                   *lua_newtable*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -6614,7 +6618,7 @@ It is equivalent to `lua_createtable(L, 0, 0)`.
 
 
 
-#### lua_newthread
+**#### lua_newthread
                                                                  *lua_newthread*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -6634,7 +6638,7 @@ like any Lua object.
 
 
 
-#### lua_newuserdata
+**#### lua_newuserdata
                                                                *lua_newuserdata*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -6648,7 +6652,7 @@ The host program can freely use this memory.
 
 
 
-#### lua_next
+**#### lua_next
                                                                       *lua_next*
                                                                [-1, +(2|0), *e*]
 ```cpp
@@ -6691,7 +6695,7 @@ the table during its traversal.
 
 
 
-#### lua_Number
+**#### lua_Number
                                                                     *lua_Number*
 ```cpp
 typedef ... lua_Number;
@@ -6706,7 +6710,7 @@ but that can be changed to a single float or a long double.
 
 
 
-#### lua_numbertointeger
+**#### lua_numbertointeger
                                                            *lua_numbertointeger*
 ```cpp
 int lua_numbertointeger (lua_Number n, lua_Integer *p);
@@ -6727,7 +6731,7 @@ This macro may evaluate its arguments more than once.
 
 
 
-#### lua_pcall
+**#### lua_pcall
                                                                      *lua_pcall*
                                                 [-(nargs + 1), +(nresults|1), -]
 ```cpp
@@ -6791,7 +6795,7 @@ For such errors, Lua does not call the message handler
 with the function being called).
 
 
-#### lua_pcallk
+**#### lua_pcallk
                                                                     *lua_pcallk*
                                                 [-(nargs + 1), +(nresults|1), -]
 ```cpp
@@ -6808,7 +6812,7 @@ but allows the called function to yield (see  [§4.7]).
 
 
 
-#### lua_pop
+**#### lua_pop
                                                                        *lua_pop*
                                                                      [-n, +0, -]
 ```cpp
@@ -6819,7 +6823,7 @@ Pops `n` elements from the stack.
 
 
 
-#### lua_pushboolean
+**#### lua_pushboolean
                                                                *lua_pushboolean*
                                                                      [-0, +1, -]
 ```cpp
@@ -6830,7 +6834,7 @@ Pushes a boolean value with value `b` onto the stack.
 
 
 
-#### lua_pushcclosure
+**#### lua_pushcclosure
                                                               *lua_pushcclosure*
                                                                    [-n, +1, *m*]
 ```cpp
@@ -6864,7 +6868,7 @@ In that case, it never raises a memory error.
 
 
 
-#### lua_pushcfunction
+**#### lua_pushcfunction
                                                              *lua_pushcfunction*
                                                                      [-0, +1, -]
 ```lua
@@ -6883,7 +6887,7 @@ and return its results (see  [lua_CFunction]).
 
 
 
-#### lua_pushfstring
+**#### lua_pushfstring
                                                                *lua_pushfstring*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -6921,7 +6925,7 @@ including the slot for its result.
 
 
 
-#### lua_pushglobaltable
+**#### lua_pushglobaltable
                                                            *lua_pushglobaltable*
                                                                      [-0, +1, -]
 ```cpp
@@ -6932,7 +6936,7 @@ Pushes the global environment onto the stack.
 
 
 
-#### lua_pushinteger
+**#### lua_pushinteger
                                                                *lua_pushinteger*
                                                                      [-0, +1, -]
 ```cpp
@@ -6943,7 +6947,7 @@ Pushes an integer with value `n` onto the stack.
 
 
 
-#### lua_pushlightuserdata
+**#### lua_pushlightuserdata
                                                          *lua_pushlightuserdata*
                                                                      [-0, +1, -]
 ```cpp
@@ -6963,7 +6967,7 @@ light userdata with the same C address.
 
 
 
-#### lua_pushliteral
+**#### lua_pushliteral
                                                                *lua_pushliteral*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -6975,7 +6979,7 @@ but should be used only when `s` is a literal string.
 
 
 
-#### lua_pushlstring
+**#### lua_pushlstring
                                                                *lua_pushlstring*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -6995,7 +6999,7 @@ Returns a pointer to the internal copy of the string.
 
 
 
-#### lua_pushnil
+**#### lua_pushnil
                                                                    *lua_pushnil*
                                                                      [-0, +1, -]
 ```cpp
@@ -7006,7 +7010,7 @@ Pushes a nil value onto the stack.
 
 
 
-#### lua_pushnumber
+**#### lua_pushnumber
                                                                 *lua_pushnumber*
                                                                      [-0, +1, -]
 ```cpp
@@ -7017,7 +7021,7 @@ Pushes a float with value `n` onto the stack.
 
 
 
-#### lua_pushstring
+**#### lua_pushstring
                                                                 *lua_pushstring*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -7038,7 +7042,7 @@ If `s` is `NULL`, pushes nil and returns `NULL`.
 
 
 
-#### lua_pushthread
+**#### lua_pushthread
                                                                 *lua_pushthread*
                                                                      [-0, +1, -]
 ```cpp
@@ -7050,7 +7054,7 @@ Returns 1 if this thread is the main thread of its state.
 
 
 
-#### lua_pushvalue
+**#### lua_pushvalue
                                                                  *lua_pushvalue*
                                                                      [-0, +1, -]
 ```cpp
@@ -7062,7 +7066,7 @@ onto the stack.
 
 
 
-#### lua_pushvfstring
+**#### lua_pushvfstring
                                                               *lua_pushvfstring*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -7076,7 +7080,7 @@ instead of a variable number of arguments.
 
 
 
-#### lua_rawequal
+**#### lua_rawequal
                                                                   *lua_rawequal*
                                                                      [-0, +0, -]
 ```cpp
@@ -7091,7 +7095,7 @@ Also returns 0 if any of the indices are not valid.
 
 
 
-#### lua_rawget
+**#### lua_rawget
                                                                     *lua_rawget*
                                                                      [-1, +1, -]
 ```cpp
@@ -7103,7 +7107,7 @@ Similar to  [lua_gettable], but does a raw access
 
 
 
-#### lua_rawgeti
+**#### lua_rawgeti
                                                                    *lua_rawgeti*
                                                                      [-0, +1, -]
 ```cpp
@@ -7120,7 +7124,7 @@ Returns the type of the pushed value.
 
 
 
-#### lua_rawgetp
+**#### lua_rawgetp
                                                                    *lua_rawgetp*
                                                                      [-0, +1, -]
 ```cpp
@@ -7138,7 +7142,7 @@ Returns the type of the pushed value.
 
 
 
-#### lua_rawlen
+**#### lua_rawlen
                                                                     *lua_rawlen*
                                                                      [-0, +0, -]
 ```cpp
@@ -7155,7 +7159,7 @@ for other values, it is 0.
 
 
 
-#### lua_rawset
+**#### lua_rawset
                                                                     *lua_rawset*
                                                                    [-2, +0, *m*]
 ```cpp
@@ -7167,7 +7171,7 @@ Similar to  [lua_settable], but does a raw assignment
 
 
 
-#### lua_rawseti
+**#### lua_rawseti
                                                                    *lua_rawseti*
                                                                    [-1, +0, *m*]
 ```cpp
@@ -7185,7 +7189,7 @@ that is, it does not invoke the `__newindex` metamethod.
 
 
 
-#### lua_rawsetp
+**#### lua_rawsetp
                                                                    *lua_rawsetp*
                                                                    [-1, +0, *m*]
 ```cpp
@@ -7204,7 +7208,7 @@ that is, it does not invoke `__newindex` metamethod.
 
 
 
-#### lua_Reader
+**#### lua_Reader
                                                                     *lua_Reader*
 ```cpp
 typedef const char * (*lua_Reader) (lua_State *L,
@@ -7226,7 +7230,7 @@ The reader function may return pieces of any size greater than zero.
 
 
 
-#### lua_register
+**#### lua_register
                                                                   *lua_register*
                                                                    [-0, +0, *e*]
 ```cpp
@@ -7243,7 +7247,7 @@ It is defined as a macro:
 
 
 
-#### lua_remove
+**#### lua_remove
                                                                     *lua_remove*
                                                                      [-1, +0, -]
 ```cpp
@@ -7257,7 +7261,7 @@ because a pseudo-index is not an actual stack position.
 
 
 
-#### lua_replace
+**#### lua_replace
                                                                    *lua_replace*
                                                                      [-1, +0, -]
 ```cpp
@@ -7271,7 +7275,7 @@ and then pops the top element.
 
 
 
-#### lua_resume
+**#### lua_resume
                                                                     *lua_resume*
                                                                      [-?, +?, -]
 ```cpp
@@ -7314,7 +7318,7 @@ this parameter can be `NULL`.
 
 
 
-#### lua_rotate
+**#### lua_rotate
                                                                     *lua_rotate*
                                                                      [-0, +0, -]
 ```cpp
@@ -7334,7 +7338,7 @@ because a pseudo-index is not an actual stack position.
 
 
 
-#### lua_setallocf
+**#### lua_setallocf
                                                                  *lua_setallocf*
                                                                      [-0, +0, -]
 ```cpp
@@ -7346,7 +7350,7 @@ with user data `ud`.
 
 
 
-#### lua_setfield
+**#### lua_setfield
                                                                   *lua_setfield*
                                                                    [-1, +0, *e*]
 ```cpp
@@ -7364,7 +7368,7 @@ for the "newindex" event (see  [§2.4]).
 
 
 
-#### lua_setglobal
+**#### lua_setglobal
                                                                  *lua_setglobal*
                                                                    [-1, +0, *e*]
 ```cpp
@@ -7376,7 +7380,7 @@ sets it as the new value of global `name`.
 
 
 
-#### lua_seti
+**#### lua_seti
                                                                       *lua_seti*
                                                                    [-1, +0, *e*]
 ```cpp
@@ -7394,7 +7398,7 @@ for the "newindex" event (see  [§2.4]).
 
 
 
-#### lua_setmetatable
+**#### lua_setmetatable
                                                               *lua_setmetatable*
                                                                      [-1, +0, -]
 ```cpp
@@ -7406,7 +7410,7 @@ sets it as the new metatable for the value at the given index.
 
 
 
-#### lua_settable
+**#### lua_settable
                                                                   *lua_settable*
                                                                    [-2, +0, *e*]
 ```cpp
@@ -7425,7 +7429,7 @@ for the "newindex" event (see  [§2.4]).
 
 
 
-#### lua_settop
+**#### lua_settop
                                                                     *lua_settop*
                                                                      [-?, +?, -]
 ```cpp
@@ -7440,7 +7444,7 @@ If `index` is 0, then all stack elements are removed.
 
 
 
-#### lua_setuservalue
+**#### lua_setuservalue
                                                               *lua_setuservalue*
                                                                      [-1, +0, -]
 ```cpp
@@ -7452,7 +7456,7 @@ the new value associated to the full userdata at the given index.
 
 
 
-#### lua_State
+**#### lua_State
                                                                      *lua_State*
 ```cpp
 typedef struct lua_State lua_State;
@@ -7471,7 +7475,7 @@ which creates a Lua state from scratch.
 
 
 
-#### lua_status
+**#### lua_status
                                                                     *lua_status*
                                                                      [-0, +0, -]
 ```cpp
@@ -7494,7 +7498,7 @@ You can resume threads with status  [LUA_OK]
 
 
 
-#### lua_stringtonumber
+**#### lua_stringtonumber
                                                             *lua_stringtonumber*
                                                                      [-0, +1, -]
 ```cpp
@@ -7515,7 +7519,7 @@ true if the conversion succeeds.)
 
 
 
-#### lua_toboolean
+**#### lua_toboolean
                                                                  *lua_toboolean*
                                                                      [-0, +0, -]
 ```cpp
@@ -7530,7 +7534,7 @@ use  [lua_isboolean] to test the value's type.)
 
 
 
-#### lua_tocfunction
+**#### lua_tocfunction
                                                                *lua_tocfunction*
                                                                      [-0, +0, -]
 ```cpp
@@ -7543,7 +7547,7 @@ otherwise, returns `NULL`.
 
 
 
-#### lua_tointeger
+**#### lua_tointeger
                                                                  *lua_tointeger*
                                                                      [-0, +0, -]
 ```cpp
@@ -7554,7 +7558,7 @@ Equivalent to  [lua_tointegerx] with `isnum` equal to `NULL`.
 
 
 
-#### lua_tointegerx
+**#### lua_tointegerx
                                                                 *lua_tointegerx*
                                                                      [-0, +0, -]
 ```cpp
@@ -7574,7 +7578,7 @@ indicates whether the operation succeeded.
 
 
 
-#### lua_tolstring
+**#### lua_tolstring
                                                                  *lua_tolstring*
                                                                    [-0, +0, *m*]
 ```cpp
@@ -7606,7 +7610,7 @@ will be valid after the corresponding Lua value is removed from the stack.
 
 
 
-#### lua_tonumber
+**#### lua_tonumber
                                                                   *lua_tonumber*
                                                                      [-0, +0, -]
 ```lua
@@ -7617,7 +7621,7 @@ Equivalent to  [lua_tonumberx] with `isnum` equal to `NULL`.
 
 
 
-#### lua_tonumberx
+**#### lua_tonumberx
                                                                  *lua_tonumberx*
                                                                      [-0, +0, -]
 ```lua
@@ -7637,7 +7641,7 @@ indicates whether the operation succeeded.
 
 
 
-#### lua_topointer
+**#### lua_topointer
                                                                  *lua_topointer*
                                                                      [-0, +0, -]
 ```cpp
@@ -7656,7 +7660,7 @@ Typically this function is used only for hashing and debug information.
 
 
 
-#### lua_tostring
+**#### lua_tostring
                                                                   *lua_tostring*
                                                                    [-0, +0, *m*]
 ```cpp
@@ -7667,7 +7671,7 @@ Equivalent to  [lua_tolstring] with `len` equal to `NULL`.
 
 
 
-#### lua_tothread
+**#### lua_tothread
                                                                   *lua_tothread*
                                                                      [-0, +0, -]
 ```cpp
@@ -7681,7 +7685,7 @@ otherwise, the function returns `NULL`.
 
 
 
-#### lua_touserdata
+**#### lua_touserdata
                                                                 *lua_touserdata*
                                                                      [-0, +0, -]
 ```cpp
@@ -7696,7 +7700,7 @@ Otherwise, returns `NULL`.
 
 
 
-#### lua_type
+**#### lua_type
                                                                       *lua_type*
                                                                      [-0, +0, -]
 ```cpp
@@ -7720,7 +7724,7 @@ and
 
 
 
-#### lua_typename
+**#### lua_typename
                                                                   *lua_typename*
                                                                      [-0, +0, -]
 ```cpp
@@ -7732,7 +7736,7 @@ which must be one the values returned by  [lua_type].
 
 
 
-#### lua_Unsigned
+**#### lua_Unsigned
                                                                   *lua_Unsigned*
 ```cpp
 typedef ... lua_Unsigned;
@@ -7742,7 +7746,7 @@ The unsigned version of  [lua_Integer].
 
 
 
-#### lua_upvalueindex
+**#### lua_upvalueindex
                                                               *lua_upvalueindex*
                                                                      [-0, +0, -]
 ```cpp
@@ -7754,7 +7758,7 @@ the running function (see  [§4.4]).
 
 
 
-#### lua_version
+**#### lua_version
                                                                    *lua_version*
                                                                      [-0, +0, -]
 ```cpp
@@ -7771,7 +7775,7 @@ returns the address of the version running the call.
 
 
 
-#### lua_Writer
+**#### lua_Writer
                                                                     *lua_Writer*
 ```cpp
 typedef int (*lua_Writer) (lua_State *L,
@@ -7795,7 +7799,7 @@ calling the writer again.
 
 
 
-#### lua_xmove
+**#### lua_xmove
                                                                      *lua_xmove*
                                                                      [-?, +?, -]
 ```cpp
@@ -7810,7 +7814,7 @@ and pushes them onto the stack `to`.
 
 
 
-#### lua_yield
+**#### lua_yield
                                                                      *lua_yield*
                                                                    [-?, +?, *e*]
 ```cpp
@@ -7825,7 +7829,7 @@ the function calling `lua_yield`.
 
 
 
-#### lua_yieldk
+**#### lua_yieldk
                                                                     *lua_yieldk*
                                                                    [-?, +?, *e*]
 ```cpp
@@ -7881,7 +7885,7 @@ or it is called from a thread that is not running inside a resume
 
 
 
-### ⛏ 4.9 -  The Debug Interface
+### =⛏ 4.9 -  The Debug Interface
                                                        [contents] [index] *§4.9*
 Lua has no built-in debugging facilities. Instead, it offers a special interface
 by means of functions and *hooks*.
@@ -7890,7 +7894,7 @@ kinds of debuggers, profilers, and other tools
 that need "inside information" from the interpreter.
 
 
-#### lua_Debug
+**#### lua_Debug
                                                                      *lua_Debug*
 ```cpp
 typedef struct lua_Debug {
@@ -7986,7 +7990,7 @@ The fields of  [lua_Debug] have the following meaning:
     (always true for C functions).
 
 
-#### lua_gethook
+**#### lua_gethook
                                                                    *lua_gethook*
                                                                      [-0, +0, -]
 ```cpp
@@ -7997,7 +8001,7 @@ Returns the current hook function.
 
 
 
-#### lua_gethookcount
+**#### lua_gethookcount
                                                               *lua_gethookcount*
                                                                      [-0, +0, -]
 ```cpp
@@ -8008,7 +8012,7 @@ Returns the current hook count.
 
 
 
-#### lua_gethookmask
+**#### lua_gethookmask
                                                                *lua_gethookmask*
                                                                      [-0, +0, -]
 ```cpp
@@ -8019,7 +8023,7 @@ Returns the current hook mask.
 
 
 
-#### lua_getinfo
+**#### lua_getinfo
                                                                    *lua_getinfo*
                                                         [-(0|1), +(0|1|2), *e*]
 ```cpp
@@ -8079,7 +8083,7 @@ This function returns 0 on error (for instance, an invalid option in `what`).
 
 
 
-#### lua_getlocal
+**#### lua_getlocal
                                                                   *lua_getlocal*
                                                                  [-0, +(0|1), -]
 ```cpp
@@ -8118,7 +8122,7 @@ the number of active local variables.
 
 
 
-#### lua_getstack
+**#### lua_getstack
                                                                   *lua_getstack*
                                                                      [-0, +0, -]
 ```cpp
@@ -8140,7 +8144,7 @@ it returns 0.
 
 
 
-#### lua_getupvalue
+**#### lua_getupvalue
                                                                 *lua_getupvalue*
                                                                  [-0, +(0|1), -]
 ```cpp
@@ -8168,7 +8172,7 @@ They are numbered in an arbitrary order.
 
 
 
-#### lua_Hook
+**#### lua_Hook
                                                                       *lua_Hook*
 ```cpp
 typedef void (*lua_Hook) (lua_State *L, lua_Debug *ar);
@@ -8213,7 +8217,7 @@ calling  [lua_yield] with `nresults` equal to zero
 
 
 
-#### lua_sethook
+**#### lua_sethook
                                                                    *lua_sethook*
                                                                      [-0, +0, -]
 ```cpp
@@ -8258,7 +8262,7 @@ A hook is disabled by setting `mask` to zero.
 
 
 
-#### lua_setlocal
+**#### lua_setlocal
                                                                   *lua_setlocal*
                                                                  [-(0|1), +0, -]
 ```cpp
@@ -8279,7 +8283,7 @@ Parameters `ar` and `n` are as in function  [lua_getlocal].
 
 
 
-#### lua_setupvalue
+**#### lua_setupvalue
                                                                 *lua_setupvalue*
                                                                  [-(0|1), +0, -]
 ```cpp
@@ -8300,7 +8304,7 @@ Parameters `funcindex` and `n` are as in function  [lua_getupvalue].
 
 
 
-#### lua_upvalueid
+**#### lua_upvalueid
                                                                  *lua_upvalueid*
                                                                      [-0, +0, -]
 ```cpp
@@ -8323,7 +8327,7 @@ but `n` cannot be greater than the number of upvalues.
 
 
 
-#### lua_upvaluejoin
+**#### lua_upvaluejoin
                                                                *lua_upvaluejoin*
                                                                      [-0, +0, -]
 ```cpp
@@ -8335,7 +8339,7 @@ Make the `n1`-th upvalue of the Lua closure at index `funcindex1`
 refer to the `n2`-th upvalue of the Lua closure at index `funcindex2`.
 
 
-## ⚡ 5 -  The Auxiliary Library
+## =⚡ 5 -  The Auxiliary Library
                                                         [contents] [index] *ch5*
 The *auxiliary library* provides several convenient functions
 to interface C with Lua.
@@ -8375,13 +8379,13 @@ Functions called `luaL_check*`
 always raise an error if the check is not satisfied.
 
 
-### ⛏ 5.1 -  Functions and Types
+### =⛏ 5.1 -  Functions and Types
                                                        [contents] [index] *§5.1*
 Here we list all functions and types from the auxiliary library
 in alphabetical order.
 
 
-#### luaL_addchar
+**#### luaL_addchar
                                                                   *luaL_addchar*
                                                                    [-?, +?, *m*]
 ```cpp
@@ -8393,7 +8397,7 @@ Adds the byte `c` to the buffer `B`
 
 
 
-#### luaL_addlstring
+**#### luaL_addlstring
                                                                *luaL_addlstring*
                                                                    [-?, +?, *m*]
 ```cpp
@@ -8407,7 +8411,7 @@ The string can contain embedded zeros.
 
 
 
-#### luaL_addsize
+**#### luaL_addsize
                                                                   *luaL_addsize*
                                                                      [-?, +?, -]
 ```cpp
@@ -8420,7 +8424,7 @@ buffer area (see  [luaL_prepbuffer]).
 
 
 
-#### luaL_addstring
+**#### luaL_addstring
                                                                 *luaL_addstring*
                                                                    [-?, +?, *m*]
 ```cpp
@@ -8433,7 +8437,7 @@ to the buffer `B`
 
 
 
-#### luaL_addvalue
+**#### luaL_addvalue
                                                                  *luaL_addvalue*
                                                                    [-1, +?, *m*]
 ```cpp
@@ -8452,7 +8456,7 @@ which is the value to be added to the buffer.
 
 
 
-#### luaL_argcheck
+**#### luaL_argcheck
                                                                  *luaL_argcheck*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8467,7 +8471,7 @@ If it is not, raises an error with a standard message (see  [luaL_argerror]).
 
 
 
-#### luaL_argerror
+**#### luaL_argerror
                                                                  *luaL_argerror*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8487,7 +8491,7 @@ This function never returns.
 
 
 
-#### luaL_Buffer
+**#### luaL_Buffer
                                                                    *luaL_Buffer*
 ```cpp
 typedef struct luaL_Buffer luaL_Buffer;
@@ -8530,7 +8534,7 @@ was initialized, plus the final string on its top.
 
 
 
-#### luaL_buffinit
+**#### luaL_buffinit
                                                                  *luaL_buffinit*
                                                                      [-0, +0, -]
 ```cpp
@@ -8544,7 +8548,7 @@ the buffer must be declared as a variable
 
 
 
-#### luaL_buffinitsize
+**#### luaL_buffinitsize
                                                              *luaL_buffinitsize*
                                                                    [-?, +?, *m*]
 ```cpp
@@ -8558,7 +8562,7 @@ Equivalent to the sequence
 
 
 
-#### luaL_callmeta
+**#### luaL_callmeta
                                                                  *luaL_callmeta*
                                                                [-0, +(0|1), *e*]
 ```cpp
@@ -8578,7 +8582,7 @@ this function returns false (without pushing any value on the stack).
 
 
 
-#### luaL_checkany
+**#### luaL_checkany
                                                                  *luaL_checkany*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8590,7 +8594,7 @@ of any type (including nil) at position `arg`.
 
 
 
-#### luaL_checkinteger
+**#### luaL_checkinteger
                                                              *luaL_checkinteger*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8603,7 +8607,7 @@ and returns this integer cast to a  [lua_Integer].
 
 
 
-#### luaL_checklstring
+**#### luaL_checklstring
                                                              *luaL_checklstring*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8621,7 +8625,7 @@ so all conversions and caveats of that function apply here.
 
 
 
-#### luaL_checknumber
+**#### luaL_checknumber
                                                               *luaL_checknumber*
                                                                    [-0, +0, *v*]
 ```lua
@@ -8633,7 +8637,7 @@ and returns this number.
 
 
 
-#### luaL_checkoption
+**#### luaL_checkoption
                                                               *luaL_checkoption*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8662,7 +8666,7 @@ to use strings instead of numbers to select options.)
 
 
 
-#### luaL_checkstack
+**#### luaL_checkstack
                                                                *luaL_checkstack*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8676,7 +8680,7 @@ raising an error if the stack cannot grow to that size.
 
 
 
-#### luaL_checkstring
+**#### luaL_checkstring
                                                               *luaL_checkstring*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8692,7 +8696,7 @@ so all conversions and caveats of that function apply here.
 
 
 
-#### luaL_checktype
+**#### luaL_checktype
                                                                 *luaL_checktype*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8704,7 +8708,7 @@ See  [lua_type] for the encoding of types for `t`.
 
 
 
-#### luaL_checkudata
+**#### luaL_checkudata
                                                                *luaL_checkudata*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8717,7 +8721,7 @@ returns the userdata address (see  [lua_touserdata]).
 
 
 
-#### luaL_checkversion
+**#### luaL_checkversion
                                                              *luaL_checkversion*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8733,7 +8737,7 @@ are using the same address space.
 
 
 
-#### luaL_dofile
+**#### luaL_dofile
                                                                    *luaL_dofile*
                                                                    [-0, +?, *e*]
 ```cpp
@@ -8752,7 +8756,7 @@ or true in case of errors.
 
 
 
-#### luaL_dostring
+**#### luaL_dostring
                                                                  *luaL_dostring*
                                                                      [-0, +?, -]
 ```cpp
@@ -8771,7 +8775,7 @@ or true in case of errors.
 
 
 
-#### luaL_error
+**#### luaL_error
                                                                     *luaL_error*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -8793,7 +8797,7 @@ as `return luaL_error(*args*)`.
 
 
 
-#### luaL_execresult
+**#### luaL_execresult
                                                                *luaL_execresult*
                                                                    [-0, +3, *m*]
 ```cpp
@@ -8806,7 +8810,7 @@ process-related functions in the standard library
 
 
 
-#### luaL_fileresult
+**#### luaL_fileresult
                                                                *luaL_fileresult*
                                                                [-0, +(1|3), *m*]
 ```cpp
@@ -8819,7 +8823,7 @@ file-related functions in the standard library
 
 
 
-#### luaL_getmetafield
+**#### luaL_getmetafield
                                                              *luaL_getmetafield*
                                                                [-0, +(0|1), *m*]
 ```cpp
@@ -8834,7 +8838,7 @@ pushes nothing and returns `LUA_TNIL`.
 
 
 
-#### luaL_getmetatable
+**#### luaL_getmetatable
                                                              *luaL_getmetatable*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -8848,7 +8852,7 @@ Returns the type of the pushed value.
 
 
 
-#### luaL_getsubtable
+**#### luaL_getsubtable
                                                               *luaL_getsubtable*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -8864,7 +8868,7 @@ and false if it creates a new table.
 
 
 
-#### luaL_gsub
+**#### luaL_gsub
                                                                      *luaL_gsub*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -8881,7 +8885,7 @@ Pushes the resulting string on the stack and returns it.
 
 
 
-#### luaL_len
+**#### luaL_len
                                                                       *luaL_len*
                                                                    [-0, +0, *e*]
 ```cpp
@@ -8896,7 +8900,7 @@ Raises an error if the result of the operation is not an integer.
 
 
 
-#### luaL_loadbuffer
+**#### luaL_loadbuffer
                                                                *luaL_loadbuffer*
                                                                      [-0, +1, -]
 ```cpp
@@ -8910,7 +8914,7 @@ Equivalent to  [luaL_loadbufferx] with `mode` equal to `NULL`.
 
 
 
-#### luaL_loadbufferx
+**#### luaL_loadbufferx
                                                               *luaL_loadbufferx*
                                                                      [-0, +1, -]
 ```cpp
@@ -8933,7 +8937,7 @@ The string `mode` works as in function  [lua_load].
 
 
 
-#### luaL_loadfile
+**#### luaL_loadfile
                                                                  *luaL_loadfile*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -8944,7 +8948,7 @@ Equivalent to  [luaL_loadfilex] with `mode` equal to `NULL`.
 
 
 
-#### luaL_loadfilex
+**#### luaL_loadfilex
                                                                 *luaL_loadfilex*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -8974,7 +8978,7 @@ it does not run it.
 
 
 
-#### luaL_loadstring
+**#### luaL_loadstring
                                                                *luaL_loadstring*
                                                                      [-0, +1, -]
 ```cpp
@@ -8994,7 +8998,7 @@ it does not run it.
 
 
 
-#### luaL_newlib
+**#### luaL_newlib
                                                                    *luaL_newlib*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -9016,7 +9020,7 @@ not a pointer to it.
 
 
 
-#### luaL_newlibtable
+**#### luaL_newlibtable
                                                               *luaL_newlibtable*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -9036,7 +9040,7 @@ not a pointer to it.
 
 
 
-#### luaL_newmetatable
+**#### luaL_newmetatable
                                                              *luaL_newmetatable*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -9058,7 +9062,7 @@ with `tname` in the registry.
 
 
 
-#### luaL_newstate
+**#### luaL_newstate
                                                                  *luaL_newstate*
                                                                      [-0, +0, -]
 ```cpp
@@ -9078,7 +9082,7 @@ or `NULL` if there is a memory allocation error.
 
 
 
-#### luaL_openlibs
+**#### luaL_openlibs
                                                                  *luaL_openlibs*
                                                                    [-0, +0, *e*]
 ```cpp
@@ -9089,7 +9093,7 @@ Opens all standard Lua libraries into the given state.
 
 
 
-#### luaL_opt
+**#### luaL_opt
                                                                       *luaL_opt*
                                                                    [-0, +0, *e*]
 ```lua
@@ -9111,7 +9115,7 @@ Note that it evaluates the expression `dflt` only if needed.
 
 
 
-#### luaL_optinteger
+**#### luaL_optinteger
                                                                *luaL_optinteger*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -9129,7 +9133,7 @@ Otherwise, raises an error.
 
 
 
-#### luaL_optlstring
+**#### luaL_optlstring
                                                                *luaL_optlstring*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -9158,7 +9162,7 @@ so all conversions and caveats of that function apply here.
 
 
 
-#### luaL_optnumber
+**#### luaL_optnumber
                                                                 *luaL_optnumber*
                                                                    [-0, +0, *v*]
 ```lua
@@ -9173,7 +9177,7 @@ Otherwise, raises an error.
 
 
 
-#### luaL_optstring
+**#### luaL_optstring
                                                                 *luaL_optstring*
                                                                    [-0, +0, *v*]
 ```cpp
@@ -9187,7 +9191,7 @@ argument is absent or is nil, returns `d`. Otherwise, raises an error.
 
 
 
-#### luaL_prepbuffer
+**#### luaL_prepbuffer
                                                                *luaL_prepbuffer*
                                                                    [-?, +?, *m*]
 ```cpp
@@ -9198,7 +9202,7 @@ Equivalent to  [luaL_prepbuffsize] with the predefined size *LUAL_BUFFERSIZE*.
 
 
 
-#### luaL_prepbuffsize
+**#### luaL_prepbuffsize
                                                              *luaL_prepbuffsize*
                                                                    [-?, +?, *m*]
 ```cpp
@@ -9214,7 +9218,7 @@ it to the buffer.
 
 
 
-#### luaL_pushresult
+**#### luaL_pushresult
                                                                *luaL_pushresult*
                                                                    [-?, +1, *m*]
 ```cpp
@@ -9226,7 +9230,7 @@ the top of the stack.
 
 
 
-#### luaL_pushresultsize
+**#### luaL_pushresultsize
                                                            *luaL_pushresultsize*
                                                                    [-?, +1, *m*]
 ```cpp
@@ -9237,7 +9241,7 @@ Equivalent to the sequence  [luaL_addsize],  [luaL_pushresult].
 
 
 
-#### luaL_ref
+**#### luaL_ref
                                                                       *luaL_ref*
                                                                    [-1, +0, *m*]
 ```cpp
@@ -9264,7 +9268,7 @@ from any reference returned by  [luaL_ref].
 
 
 
-#### luaL_Reg
+**#### luaL_Reg
                                                                       *luaL_Reg*
 ```cpp
 typedef struct luaL_Reg {
@@ -9280,7 +9284,7 @@ in which both `name` and `func` are `NULL`.
 
 
 
-#### luaL_requiref
+**#### luaL_requiref
                                                                  *luaL_requiref*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -9302,7 +9306,7 @@ Leaves a copy of the module on the stack.
 
 
 
-#### luaL_setfuncs
+**#### luaL_setfuncs
                                                                  *luaL_setfuncs*
                                                                  [-nup, +0, *m*]
 ```cpp
@@ -9322,7 +9326,7 @@ These values are popped from the stack after the registration.
 
 
 
-#### luaL_setmetatable
+**#### luaL_setmetatable
                                                              *luaL_setmetatable*
                                                                      [-0, +0, -]
 ```cpp
@@ -9335,7 +9339,7 @@ in the registry (see  [luaL_newmetatable]).
 
 
 
-#### luaL_Stream
+**#### luaL_Stream
                                                                    *luaL_Stream*
 ```cpp
 typedef struct luaL_Stream {
@@ -9371,7 +9375,7 @@ to signal that the handle is closed.
 
 
 
-#### luaL_testudata
+**#### luaL_testudata
                                                                 *luaL_testudata*
                                                                    [-0, +0, *m*]
 ```cpp
@@ -9384,7 +9388,7 @@ it returns `NULL` instead of raising an error.
 
 
 
-#### luaL_tolstring
+**#### luaL_tolstring
                                                                 *luaL_tolstring*
                                                                    [-0, +1, *e*]
 ```cpp
@@ -9406,7 +9410,7 @@ and uses the result of the call as its result.
 
 
 
-#### luaL_traceback
+**#### luaL_traceback
                                                                 *luaL_traceback*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -9422,7 +9426,7 @@ to start the traceback.
 
 
 
-#### luaL_typename
+**#### luaL_typename
                                                                  *luaL_typename*
                                                                      [-0, +0, -]
 ```cpp
@@ -9433,7 +9437,7 @@ Returns the name of the type of the value at the given index.
 
 
 
-#### luaL_unref
+**#### luaL_unref
                                                                     *luaL_unref*
                                                                      [-0, +0, -]
 ```cpp
@@ -9451,7 +9455,7 @@ If `ref` is  [LUA_NOREF] or  [LUA_REFNIL], [luaL_unref] does nothing.
 
 
 
-#### luaL_where
+**#### luaL_where
                                                                     *luaL_where*
                                                                    [-0, +1, *m*]
 ```cpp
@@ -9477,7 +9481,7 @@ This function is used to build a prefix for error messages.
 
 
 
-## ⚡ 6 -  Standard Libraries
+## =⚡ 6 -  Standard Libraries
                                                         [contents] [index] *ch6*
 The standard Lua libraries provide useful functions
 that are implemented directly through the C API.
@@ -9529,7 +9533,7 @@ and *luaopen_debug* (for the debug library).
 These functions are declared in *lualib.h*.
 
 
-### ⛏ 6.1 -  Basic Functions
+### =⛏ 6.1 -  Basic Functions
                                                        [contents] [index] *§6.1*
 The basic library provides core functions to Lua.
 If you do not include this library in your application,
@@ -9537,7 +9541,7 @@ you should check carefully whether you need to provide
 implementations for some of its facilities.
 
 
-#### assert (v [, message])
+**#### assert (v [, message])
                                                                         *assert*
 
 Calls  [error] if
@@ -9549,7 +9553,7 @@ when absent, it defaults to `"assertion failed!`"
 
 
 
-#### collectgarbage ([opt [, arg]])
+**#### collectgarbage ([opt [, arg]])
                                                                 *collectgarbage*
 
 This function is a generic interface to the garbage collector.
@@ -9600,7 +9604,7 @@ It performs different functions according to its first argument, `opt`:
     (i.e., not stopped).
 
 
-#### dofile ([filename])
+**#### dofile ([filename])
                                                                         *dofile*
 Opens the named file and executes its contents as a Lua chunk.
 When called without arguments,
@@ -9611,7 +9615,7 @@ to its caller (that is, `dofile` does not run in protected mode).
 
 
 
-#### error (message [, level])
+**#### error (message [, level])
                                                                          *error*
 Terminates the last protected function called
 and returns `message` as the error object.
@@ -9630,7 +9634,7 @@ to the message.
 
 
 
-#### `_G`
+**#### `_G`
                                                                             *_G*
 
 A global variable (not a function) that holds the global environment (see [§2.2]).
@@ -9639,7 +9643,7 @@ environment, nor vice versa.
 
 
 
-#### getmetatable (object)
+**#### getmetatable (object)
                                                                   *getmetatable*
 
 If `object` does not have a metatable, returns nil. Otherwise, if the object's 
@@ -9648,7 +9652,7 @@ Otherwise, returns the metatable of the given object.
 
 
 
-#### ipairs (t)
+**#### ipairs (t)
                                                                         *ipairs*
 Returns three values (an iterator function, the table `t`, and 0)
 so that the construction
@@ -9662,7 +9666,7 @@ up to the first nil value.
 
 
 
-#### load (chunk [, chunkname [, mode [, env]]])
+**#### load (chunk [, chunkname [, mode [, env]]])
                                                                           *load*
 
 Loads a chunk.
@@ -9714,7 +9718,7 @@ the interpreter.
 
 
 
-#### loadfile ([filename [, mode [, env]]])
+**#### loadfile ([filename [, mode [, env]]])
                                                                       *loadfile*
 
 Similar to  [load], but gets the chunk from file `filename`
@@ -9722,7 +9726,7 @@ or from the standard input, if no file name is given.
 
 
 
-#### next (table [, index])
+**#### next (table [, index])
                                                                           *next*
 
 Allows a program to traverse all fields of a table.
@@ -9750,7 +9754,7 @@ In particular, you may clear existing fields.
 
 
 
-#### pairs (t)
+**#### pairs (t)
                                                                          *pairs*
 
 If `t` has a metamethod `__pairs`,
@@ -9773,7 +9777,7 @@ the table during its traversal.
 
 
 
-#### pcall (f [, arg1, ···])
+**#### pcall (f [, arg1, ···])
                                                                          *pcall*
 
 Calls function `f` with the given arguments in *protected mode*.
@@ -9787,7 +9791,7 @@ In case of any error, `pcall` returns false plus the error message.
 
 
 
-#### print (···)
+**#### print (···)
                                                                          *print*
 Receives any number of arguments and prints their values to `stdout`,
 using the  [tostring] function to convert each argument to a string.
@@ -9797,14 +9801,14 @@ For complete control over the output, use  [string.format] and  [io.write].
 
 
 
-#### rawequal (v1, v2)
+**#### rawequal (v1, v2)
                                                                       *rawequal*
 Checks whether `v1` is equal to `v2`, without invoking the `__eq` metamethod.
 Returns a boolean.
 
 
 
-#### rawget (table, index)
+**#### rawget (table, index)
                                                                         *rawget*
 Gets the real value of `table[index]`, without invoking the `__index` metamethod.
 `table` must be a table;
@@ -9812,7 +9816,7 @@ Gets the real value of `table[index]`, without invoking the `__index` metamethod
 
 
 
-#### rawlen (v)
+**#### rawlen (v)
                                                                         *rawlen*
 Returns the length of the object `v`, which must be a table or a string,
 without invoking the `__len` metamethod.
@@ -9820,7 +9824,7 @@ Returns an integer.
 
 
 
-#### rawset (table, index, value)
+**#### rawset (table, index, value)
                                                                         *rawset*
 Sets the real value of `table[index]` to `value`,
 without invoking the `__newindex` metamethod.
@@ -9833,7 +9837,7 @@ This function returns `table`.
 
 
 
-#### select (index, ···)
+**#### select (index, ···)
                                                                         *select*
 
 If `index` is a number,
@@ -9844,7 +9848,7 @@ and `select` returns the total number of extra arguments it received.
 
 
 
-#### setmetatable (table, metatable)
+**#### setmetatable (table, metatable)
                                                                   *setmetatable*
 
 Sets the metatable for the given table.
@@ -9858,7 +9862,7 @@ This function returns `table`.
 
 
 
-#### tonumber (e [, base])
+**#### tonumber (e [, base])
                                                                       *tonumber*
 
 When called with no `base`, `tonumber` tries to convert its argument to a number.
@@ -9884,7 +9888,7 @@ the function returns nil.
 
 
 
-#### tostring (v)
+**#### tostring (v)
                                                                       *tostring*
 Receives a value of any type and
 converts it to a string in a human-readable format.
@@ -9899,7 +9903,7 @@ and uses the result of the call as its result.
 
 
 
-#### type (v)
+**#### type (v)
                                                                           *type*
 Returns the type of its only argument, coded as a string.
 The possible results of this function are strings,
@@ -9914,7 +9918,7 @@ and `"userdata`".
 
 
 
-#### `_VERSION`
+**#### `_VERSION`
                                                                       *_VERSION*
 
 A global variable (not a function) that
@@ -9923,7 +9927,7 @@ The current value of this variable is `"Lua 5.3`".
 
 
 
-#### xpcall (f, msgh [, arg1, ···])
+**#### xpcall (f, msgh [, arg1, ···])
                                                                         *xpcall*
 
 This function is similar to [pcall],
@@ -9933,14 +9937,14 @@ except that it sets a new message handler `msgh`.
 
 
 
-### ⛏ 6.2 -  Coroutine Manipulation
+### =⛏ 6.2 -  Coroutine Manipulation
                                                        [contents] [index] *§6.2*
 This library comprises the operations to manipulate coroutines,
 which come inside the table *coroutine*.
 See  [§2.6] for a general description of coroutines.
 
 
-#### coroutine.create (f)
+**#### coroutine.create (f)
                                                               *coroutine.create*
 
 Creates a new coroutine, with body `f`.
@@ -9949,7 +9953,7 @@ Returns this new coroutine, an object with type `"thread"`.
 
 
 
-#### coroutine.isyieldable ()
+**#### coroutine.isyieldable ()
                                                          *coroutine.isyieldable*
 
 
@@ -9960,7 +9964,7 @@ it is not inside a non-yieldable C function.
 
 
 
-#### coroutine.resume (co [, val1, ···])
+**#### coroutine.resume (co [, val1, ···])
                                                               *coroutine.resume*
 
 Starts or continues the execution of coroutine `co`.
@@ -9978,7 +9982,7 @@ If there is any error, `resume` returns false plus the error message.
 
 
 
-#### coroutine.running ()
+**#### coroutine.running ()
                                                              *coroutine.running*
 
 
@@ -9987,7 +9991,7 @@ true when the running coroutine is the main one.
 
 
 
-#### coroutine.status (co)
+**#### coroutine.status (co)
                                                               *coroutine.status*
 
 
@@ -10002,7 +10006,7 @@ or if it has stopped with an error.
 
 
 
-#### coroutine.wrap (f)
+**#### coroutine.wrap (f)
                                                                 *coroutine.wrap*
 
 Creates a new coroutine, with body `f`.
@@ -10016,7 +10020,7 @@ In case of error, propagates the error.
 
 
 
-#### coroutine.yield (···)
+**#### coroutine.yield (···)
                                                                *coroutine.yield*
 
 Suspends the execution of the calling coroutine.
@@ -10026,14 +10030,14 @@ Any arguments to `yield` are passed as extra results to `resume`.
 
 
 
-### ⛏ 6.3 -  Modules
+### =⛏ 6.3 -  Modules
                                                        [contents] [index] *§6.3*
 The package library provides basic facilities for loading modules in Lua.
 It exports one function directly in the global environment: [require].
 Everything else is exported in a table *package*.
 
 
-#### require (modname)
+**#### require (modname)
                                                                        *require*
 
 Loads the given module.
@@ -10082,7 +10086,7 @@ then `require` raises an error.
 
 
 
-#### package.config
+**#### package.config
                                                                 *package.config*
 
 A string describing some compile-time configurations for packages.
@@ -10108,7 +10112,7 @@ This string is a sequence of lines:
     Default is `'-'`.
 
 
-#### package.cpath
+**#### package.cpath
                                                                  *package.cpath*
 
 The path used by  [require] to search for a C loader.
@@ -10121,7 +10125,7 @@ or a default path defined in `luaconf.h`.
 
 
 
-#### package.loaded
+**#### package.loaded
                                                                 *package.loaded*
 
 A table used by  [require] to control which
@@ -10137,7 +10141,7 @@ table used by  [require].
 
 
 
-#### package.loadlib (libname, funcname)
+**#### package.loadlib (libname, funcname)
                                                                *package.loadlib*
 
 Dynamically links the host program with the C library `libname`.
@@ -10171,7 +10175,7 @@ plus other Unix systems that support the `dlfcn` standard).
 
 
 
-#### package.path
+**#### package.path
                                                                   *package.path*
 
 The path used by  [require] to search for a Lua loader.
@@ -10186,7 +10190,7 @@ is replaced by the default path.
 
 
 
-#### package.preload
+**#### package.preload
                                                                *package.preload*
 
 A table to store loaders for specific modules
@@ -10199,7 +10203,7 @@ table used by  [require].
 
 
 
-#### package.searchers
+**#### package.searchers
                                                              *package.searchers*
 
 A table used by  [require] to control how to load modules.
@@ -10275,7 +10279,7 @@ The first searcher returns no extra value.
 
 
 
-#### package.searchpath (name, path [, sep [, rep]])
+**#### package.searchpath (name, path [, sep [, rep]])
                                                             *package.searchpath*
 
 Searches for the given `name` in the given `path`.
@@ -10313,7 +10317,7 @@ or nil plus an error message if none succeeds.
 
 
 
-### ⛏ 6.4 -  String Manipulation
+### =⛏ 6.4 -  String Manipulation
                                                        [contents] [index] *§6.4*
 This library provides generic functions for string manipulation,
 such as finding and extracting substrings, and pattern matching.
@@ -10336,7 +10340,7 @@ can be written as `s:byte(i)`.
 The string library assumes one-byte character encodings.
 
 
-#### string.byte (s [, i [, j]])
+**#### string.byte (s [, i [, j]])
                                                                    *string.byte*
 Returns the internal numeric codes of the characters `s[i]`,
 `s[i+1]`, ..., `s[j]`.
@@ -10350,7 +10354,7 @@ Numeric codes are not necessarily portable across platforms.
 
 
 
-#### string.char (···)
+**#### string.char (···)
                                                                    *string.char*
 Receives zero or more integers.
 Returns a string with length equal to the number of arguments,
@@ -10362,7 +10366,7 @@ Numeric codes are not necessarily portable across platforms.
 
 
 
-#### string.dump (function [, strip])
+**#### string.dump (function [, strip])
                                                                    *string.dump*
 Returns a string containing a binary representation (a *binary chunk*)
 of the given function, so that a later  [load] on this string returns
@@ -10381,7 +10385,7 @@ in a way adequate to your needs.)
 
 
 
-#### string.find (s, pattern [, init [, plain]])
+**#### string.find (s, pattern [, init [, plain]])
                                                                    *string.find*
 
 Looks for the first match of
@@ -10406,7 +10410,7 @@ after the two indices.
 
 
 
-#### string.format (formatstring, ···)
+**#### string.format (formatstring, ···)
                                                                  *string.format*
 
 
@@ -10455,7 +10459,7 @@ the string argument should not contain embedded zeros.
 
 
 
-#### string.gmatch (s, pattern)
+**#### string.gmatch (s, pattern)
                                                                  *string.gmatch*
 Returns an iterator function that,
 each time it is called,
@@ -10493,7 +10497,7 @@ work as an anchor, as this would prevent the iteration.
 
 
 
-#### string.gsub (s, pattern, repl [, n])
+**#### string.gsub (s, pattern, repl [, n])
                                                                    *string.gsub*
 Returns a copy of `s` in which all (or the first `n`, if given)
 occurrences of the `pattern` (see  [§6.4.1]) have been
@@ -10562,7 +10566,7 @@ Here are some examples:
 
 
 
-#### string.len (s)
+**#### string.len (s)
                                                                     *string.len*
 Receives a string and returns its length.
 The empty string `""` has length 0.
@@ -10571,7 +10575,7 @@ so `"a\000bc\000"` has length 5.
 
 
 
-#### string.lower (s)
+**#### string.lower (s)
                                                                   *string.lower*
 Receives a string and returns a copy of this string with all
 uppercase letters changed to lowercase.
@@ -10580,7 +10584,7 @@ The definition of what an uppercase letter is depends on the current locale.
 
 
 
-#### string.match (s, pattern [, init])
+**#### string.match (s, pattern [, init])
                                                                   *string.match*
 Looks for the first *match* of
 `pattern` (see  [§6.4.1]) in the string `s`.
@@ -10595,7 +10599,7 @@ its default value is 1 and can be negative.
 
 
 
-#### string.pack (fmt, v1, v2, ···)
+**#### string.pack (fmt, v1, v2, ···)
                                                                    *string.pack*
 Returns a binary string containing the values `v1`, `v2`, etc.
 packed (that is, serialized in binary form)
@@ -10603,7 +10607,7 @@ according to the format string `fmt` (see  [§6.4.2]).
 
 
 
-#### string.packsize (fmt)
+**#### string.packsize (fmt)
                                                                *string.packsize*
 
 
@@ -10614,7 +10618,7 @@ The format string cannot have the variable-length options
 
 
 
-#### string.rep (s, n [, sep])
+**#### string.rep (s, n [, sep])
                                                                     *string.rep*
 Returns a string that is the concatenation of `n` copies of
 the string `s` separated by the string `sep`.
@@ -10628,13 +10632,13 @@ with a single call to this function.)
 
 
 
-#### string.reverse (s)
+**#### string.reverse (s)
                                                                 *string.reverse*
 Returns a string that is the string `s` reversed.
 
 
 
-#### string.sub (s, i [, j])
+**#### string.sub (s, i [, j])
                                                                     *string.sub*
 Returns the substring of `s` that
 starts at `i`  and continues until `j`;
@@ -10660,7 +10664,7 @@ the function returns the empty string.
 
 
 
-#### string.unpack (fmt, s [, pos])
+**#### string.unpack (fmt, s [, pos])
                                                                  *string.unpack*
 
 
@@ -10673,7 +10677,7 @@ this function also returns the index of the first unread byte in `s`.
 
 
 
-#### string.upper (s)
+**#### string.upper (s)
                                                                   *string.upper*
 Receives a string and returns a copy of this string with all
 lowercase letters changed to uppercase.
@@ -10682,7 +10686,7 @@ The definition of what a lowercase letter is depends on the current locale.
 
 
 
-### ⛏ 6.4.1 - Patterns
+### =⛏ 6.4.1 - Patterns
                                                      [contents] [index] *§6.4.1*
 Patterns in Lua are described by regular strings,
 which are interpreted as patterns by the pattern-matching functions
@@ -10694,7 +10698,7 @@ This section describes the syntax and the meaning
 (that is, what they match) of these strings.
 
 
-#### Character Class:
+**#### Character Class:
 
 A *character class* is used to represent a set of characters.
 The following combinations are allowed in describing a character class:
@@ -10766,7 +10770,7 @@ In particular, the class `[a-z]` may not be equivalent to `%l`.
 
 
 
-#### Pattern Item:
+**#### Pattern Item:
 
 A *pattern item* can be
 
@@ -10822,7 +10826,7 @@ they were the character `'\0'`.
 
 
 
-#### Pattern:
+**#### Pattern:
 
 A *pattern* is a sequence of pattern items.
 A caret `'^'` at the beginning of a pattern anchors the match at the
@@ -10835,7 +10839,7 @@ At other positions,
 
 
 
-#### Captures:
+**#### Captures:
 
 A pattern can contain sub-patterns enclosed in parentheses;
 they describe *captures*.
@@ -10858,7 +10862,7 @@ string `"flaaap"`, there will be two captures: 3 and 5.
 
 
 
-### ⛏ 6.4.2 - Format Strings for Pack and Unpack
+### =⛏ 6.4.2 - Format Strings for Pack and Unpack
                                                      [contents] [index] *§6.4.2*
 The first argument to  [string.pack], [string.packsize], and  [string.unpack]
 is a format string, which describes the layout of the structure being created 
@@ -10925,7 +10929,7 @@ All padding is filled with zeros by  [string.pack]
 (and ignored by  [string.unpack]).
 
 
-### ⛏ 6.5 -  UTF-8 Support
+### =⛏ 6.5 -  UTF-8 Support
                                                        [contents] [index] *§6.5*
 This library provides basic support for UTF-8 encoding.
 It provides all its functions inside the table *utf8*.
@@ -10943,7 +10947,7 @@ As in the string library,
 negative indices count from the end of the string.
 
 
-#### utf8.char (···)
+**#### utf8.char (···)
                                                                      *utf8.char*
 Receives zero or more integers,
 converts each one to its corresponding UTF-8 byte sequence
@@ -10951,7 +10955,7 @@ and returns a string with the concatenation of all these sequences.
 
 
 
-#### utf8.charpattern
+**#### utf8.charpattern
                                                               *utf8.charpattern*
 The pattern (a string, not a function) `"[\0-\x7F\xC2-\xF4][\x80-\xBF]*"`
 (see  [§6.4.1]), which matches exactly one UTF-8 byte sequence,
@@ -10959,7 +10963,7 @@ assuming that the subject is a valid UTF-8 string.
 
 
 
-#### utf8.codes (s)
+**#### utf8.codes (s)
                                                                     *utf8.codes*
 Returns values so that the construction
 
@@ -10974,7 +10978,7 @@ It raises an error if it meets any invalid byte sequence.
 
 
 
-#### utf8.codepoint (s [, i [, j]])
+**#### utf8.codepoint (s [, i [, j]])
                                                                 *utf8.codepoint*
 Returns the codepoints (as integers) from all characters in `s`
 that start between byte position `i` and `j` (both included).
@@ -10983,7 +10987,7 @@ It raises an error if it meets any invalid byte sequence.
 
 
 
-#### utf8.len (s [, i [, j]])
+**#### utf8.len (s [, i [, j]])
                                                                       *utf8.len*
 Returns the number of UTF-8 characters in string `s`
 that start between positions `i` and `j` (both inclusive).
@@ -10993,7 +10997,7 @@ returns a false value plus the position of the first invalid byte.
 
 
 
-#### utf8.offset (s, n [, i])
+**#### utf8.offset (s, n [, i])
                                                                    *utf8.offset*
 Returns the position (in bytes) where the encoding of the `n-th` character of `s`
 (counting from position `i`) starts.
@@ -11016,7 +11020,7 @@ This function assumes that `s` is a valid UTF-8 string.
 
 
 
-### ⛏ 6.6 -  Table Manipulation
+### =⛏ 6.6 -  Table Manipulation
                                                        [contents] [index] *§6.6*
 This library provides generic functions for table manipulation.
 It provides all its functions inside the table *table*.
@@ -11028,7 +11032,7 @@ All functions ignore non-numeric keys
 in the tables given as arguments.
 
 
-#### table.concat (list [, sep [, i [, j]]])
+**#### table.concat (list [, sep [, i [, j]]])
                                                                   *table.concat*
 
 Given a list where all elements are strings or numbers,
@@ -11039,7 +11043,7 @@ If `i` is greater than `j`, returns the empty string.
 
 
 
-#### table.insert (list, [pos,] value)
+**#### table.insert (list, [pos,] value)
                                                                   *table.insert*
 
 Inserts element `value` at position `pos` in `list`, shifting up the elements
@@ -11049,7 +11053,7 @@ so that a call `table.insert(t,x)` inserts `x` at the end of list `t`.
 
 
 
-#### table.move (a1, f, e, t [,a2])
+**#### table.move (a1, f, e, t [,a2])
                                                                     *table.move*
 
 Moves elements from table `a1` to table `a2`,
@@ -11065,7 +11069,7 @@ Returns the destination table `a2`.
 
 
 
-#### table.pack (···)
+**#### table.pack (···)
                                                                     *table.pack*
 Returns a new table with all arguments stored into keys 1, 2, etc.
 and with a field `"n"` with the total number of arguments.
@@ -11073,7 +11077,7 @@ Note that the resulting table may not be a sequence.
 
 
 
-#### table.remove (list [, pos])
+**#### table.remove (list [, pos])
                                                                   *table.remove*
 
 Removes from `list` the element at position `pos`,
@@ -11093,7 +11097,7 @@ of list `l`.
 
 
 
-#### table.sort (list [, comp])
+**#### table.sort (list [, comp])
                                                                     *table.sort*
 
 Sorts list elements in a given order, *in-place*, from `list[1]` to `list[#list]`.
@@ -11114,7 +11118,7 @@ may have their relative positions changed by the sort.
 
 
 
-#### table.unpack (list [, i [, j]])
+**#### table.unpack (list [, i [, j]])
                                                                   *table.unpack*
 Returns the elements from the given list. This function is equivalent to
 
@@ -11128,7 +11132,7 @@ By default, `i` is 1 and `j` is `#list`.
 
 
 
-### ⛏ 6.7 -  Mathematical Functions
+### =⛏ 6.7 -  Mathematical Functions
                                                        [contents] [index] *§6.7*
 This library provides basic mathematical functions. It provides all its functions 
 and constants inside the table *math*. Functions with the annotation 
@@ -11138,25 +11142,25 @@ and  [math.modf]) return an integer when the result fits in the range of an
 integer, or a float otherwise.
 
 
-#### math.abs (x)
+**#### math.abs (x)
                                                                       *math.abs*
 Returns the absolute value of `x`. (integer/float)
 
 
 
-#### math.acos (x)
+**#### math.acos (x)
                                                                      *math.acos*
 Returns the arc cosine of `x` (in radians).
 
 
 
-#### math.asin (x)
+**#### math.asin (x)
                                                                      *math.asin*
 Returns the arc sine of `x` (in radians).
 
 
 
-#### math.atan (y [, x])
+**#### math.atan (y [, x])
                                                                      *math.atan*
 
 Returns the arc tangent of `y/x` (in radians), but uses the signs of both 
@@ -11169,52 +11173,52 @@ returns the arc tangent of `y`.
 
 
 
-#### math.ceil (x)
+**#### math.ceil (x)
                                                                      *math.ceil*
 Returns the smallest integral value larger than or equal to `x`.
 
 
 
-#### math.cos (x)
+**#### math.cos (x)
                                                                       *math.cos*
 Returns the cosine of `x` (assumed to be in radians).
 
 
 
-#### math.deg (x)
+**#### math.deg (x)
                                                                       *math.deg*
 
 Converts the angle `x` from radians to degrees.
 
 
 
-#### math.exp (x)
+**#### math.exp (x)
                                                                       *math.exp*
 Returns the value *eˣ* (where `e` is the base of natural logarithms).
 
 
 
-#### math.floor (x)
+**#### math.floor (x)
                                                                     *math.floor*
 Returns the largest integral value smaller than or equal to `x`.
 
 
 
-#### math.fmod (x, y)
+**#### math.fmod (x, y)
                                                                      *math.fmod*
 Returns the remainder of the division of `x` by `y`
 that rounds the quotient towards zero. (integer/float)
 
 
 
-#### math.huge
+**#### math.huge
                                                                      *math.huge*
 
 The float value `HUGE_VAL`, a value larger than any other numeric value.
 
 
 
-#### math.log (x [, base])
+**#### math.log (x [, base])
                                                                       *math.log*
 Returns the logarithm of `x` in the given base.
 The default for `base` is *e*
@@ -11222,54 +11226,54 @@ The default for `base` is *e*
 
 
 
-#### math.max (x, ···)
+**#### math.max (x, ···)
                                                                       *math.max*
 Returns the argument with the maximum value,
 according to the Lua operator `<`. (integer/float)
 
 
 
-#### math.maxinteger
+**#### math.maxinteger
                                                                *math.maxinteger*
 An integer with the maximum value for an integer.
 
 
 
-#### math.min (x, ···)
+**#### math.min (x, ···)
                                                                       *math.min*
 Returns the argument with the minimum value,
 according to the Lua operator `<`. (integer/float)
 
 
 
-#### math.mininteger
+**#### math.mininteger
                                                                *math.mininteger*
 An integer with the minimum value for an integer.
 
 
 
-#### math.modf (x)
+**#### math.modf (x)
                                                                      *math.modf*
 Returns the integral part of `x` and the fractional part of `x`.
 Its second result is always a float.
 
 
 
-#### math.pi
+**#### math.pi
                                                                        *math.pi*
 
 The value of *&pi;*.
 
 
 
-#### math.rad (x)
+**#### math.rad (x)
                                                                       *math.rad*
 
 Converts the angle `x` from degrees to radians.
 
 
 
-#### math.random ([m [, n]])
+**#### math.random ([m [, n]])
                                                                    *math.random*
 
 When called without arguments, returns a pseudo-random float with uniform 
@@ -11285,7 +11289,7 @@ pseudo-random generator function provided by C.
 
 
 
-#### math.randomseed (x)
+**#### math.randomseed (x)
                                                                *math.randomseed*
 
 Sets `x` as the "seed"for the pseudo-random generator:
@@ -11293,26 +11297,26 @@ equal seeds produce equal sequences of numbers.
 
 
 
-#### math.sin (x)
+**#### math.sin (x)
                                                                       *math.sin*
 Returns the sine of `x` (assumed to be in radians).
 
 
 
-#### math.sqrt (x)
+**#### math.sqrt (x)
                                                                      *math.sqrt*
 Returns the square root of `x`.
 (You can also use the expression `x^0.5` to compute this value.)
 
 
 
-#### math.tan (x)
+**#### math.tan (x)
                                                                       *math.tan*
 Returns the tangent of `x` (assumed to be in radians).
 
 
 
-#### math.tointeger (x)
+**#### math.tointeger (x)
                                                                 *math.tointeger*
 
 If the value `x` is convertible to an integer,
@@ -11321,7 +11325,7 @@ Otherwise, returns nil.
 
 
 
-#### math.type (x)
+**#### math.type (x)
                                                                      *math.type*
 Returns `"integer"` if `x` is an integer,
 "`float"` if it is a float,
@@ -11329,7 +11333,7 @@ or nil if `x` is not a number.
 
 
 
-#### math.ult (m, n)
+**#### math.ult (m, n)
                                                                       *math.ult*
 Returns a boolean,
 true if and only if integer `m` is below integer `n` when
@@ -11339,7 +11343,7 @@ they are compared as unsigned integers.
 
 
 
-### ⛏ 6.8 -  Input and Output Facilities
+### =⛏ 6.8 -  Input and Output Facilities
                                                        [contents] [index] *§6.8*
 The I/O library provides two different styles for file manipulation. 
 
@@ -11367,21 +11371,21 @@ computation of the error message and error code in case of errors may be not
 thread safe, because they rely on the global C variable `errno`.
 
 
-#### io.close ([file])
+**#### io.close ([file])
                                                                       *io.close*
 
 Equivalent to `file:close()`. Without a `file`, closes the default output file.
 
 
 
-#### io.flush ()
+**#### io.flush ()
                                                                       *io.flush*
 
 Equivalent to `io.output():flush()`.
 
 
 
-#### io.input ([file])
+**#### io.input ([file])
                                                                       *io.input*
 When called with a file name, it opens the named file (in text mode), and sets its 
 handle as the default input file. When called with a file handle, it simply sets 
@@ -11394,7 +11398,7 @@ code.
 
 
 
-#### io.lines ([filename, ···])
+**#### io.lines ([filename, ···])
                                                                       *io.lines*
 Opens the given file name in read mode and returns an iterator function that works 
 like `file:lines(···)` over the opened file. When the iterator function detects 
@@ -11412,7 +11416,7 @@ code.
 
 
 
-#### io.open (filename [, mode])
+**#### io.open (filename [, mode])
                                                                        *io.open*
 This function opens a file, in the mode specified in the string `mode`. In case
 of success, it returns a new file handle.
@@ -11431,13 +11435,13 @@ The `mode` string can be any of the following:
 
 
 
-#### io.output ([file])
+**#### io.output ([file])
                                                                      *io.output*
 Similar to  [io.input], but operates over the default output file.
 
 
 
-#### io.popen (prog [, mode])
+**#### io.popen (prog [, mode])
                                                                       *io.popen*
 This function is system dependent and is not available on all platforms.
 
@@ -11448,20 +11452,20 @@ write data to this program (if `mode` is `"w"`).
 
 
 
-#### io.read (···)
+**#### io.read (···)
                                                                        *io.read*
 Equivalent to `io.input():read(···)`.
 
 
 
-#### io.tmpfile ()
+**#### io.tmpfile ()
                                                                     *io.tmpfile*
 In case of success, returns a handle for a temporary file. This file is opened 
 in update mode and it is automatically removed when the program ends.
 
 
 
-#### io.type (obj)
+**#### io.type (obj)
                                                                        *io.type*
 Checks whether `obj` is a valid file handle.
 Returns the string `"file"` if `obj` is an open file handle,
@@ -11470,13 +11474,13 @@ or nil if `obj` is not a file handle.
 
 
 
-#### io.write (···)
+**#### io.write (···)
                                                                       *io.write*
 Equivalent to `io.output():write(···)`.
 
 
 
-#### file:close ()
+**#### file:close ()
                                                                     *file:close*
 Closes `file`.
 Note that files are automatically closed when
@@ -11490,13 +11494,13 @@ returned by  [os.execute].
 
 
 
-#### file:flush ()
+**#### file:flush ()
                                                                     *file:flush*
 Saves any written data to `file`.
 
 
 
-#### file:lines (···)
+**#### file:lines (···)
                                                                     *file:lines*
 Returns an iterator function that, each time it is called, reads the file 
 according to the given formats. When no format is given, uses `"l"` as a default.
@@ -11516,7 +11520,7 @@ instead of returning an error code.
 
 
 
-#### file:read (···)
+**#### file:read (···)
                                                                      *file:read*
 Reads the file `file`,
 according to the given formats, which specify what to read.
@@ -11568,7 +11572,7 @@ The formats `"l"` and `"L"` should be used only for text files.
 
 
 
-#### file:seek ([whence [, offset]])
+**#### file:seek ([whence [, offset]])
                                                                      *file:seek*
 Sets and gets the file position,
 measured from the beginning of the file,
@@ -11596,7 +11600,7 @@ end of the file, and returns its size.
 
 
 
-#### file:setvbuf (mode [, size])
+**#### file:setvbuf (mode [, size])
                                                                   *file:setvbuf*
 Sets the buffering mode for an output file.
 There are three available modes:
@@ -11621,7 +11625,7 @@ The default is an appropriate size.
 
 
 
-#### file:write (···)
+**#### file:write (···)
                                                                     *file:write*
 Writes the value of each of its arguments to `file`.
 The arguments must be strings or numbers.
@@ -11634,20 +11638,22 @@ Otherwise it returns nil plus a string describing the error.
 
 
 
-### ⛏ 6.9 - Operating System Facilities
+### =⛏ 6.9 - Operating System Facilities
                                                        [contents] [index] *§6.9*
 This library is implemented through table *os*.
 
 
-#### os.clock ()
+**#### os.clock ()
                                                                       *os.clock*
+
 Returns an approximation of the amount in seconds of CPU time
 used by the program.
 
 
 
-#### os.date ([format [, time]])
+**#### os.date ([format [, time]])
                                                                        *os.date*
+
 Returns a string or a table containing date and time,
 formatted according to the given string `format`.
 
@@ -11687,8 +11693,9 @@ because of its reliance on C function `gmtime` and C function `localtime`.
 
 
 
-#### os.difftime (t2, t1)
+**#### os.difftime (t2, t1)
                                                                    *os.difftime*
+
 Returns the difference, in seconds,
 from time `t1` to time `t2`
 (where the times are values returned by  [os.time]).
@@ -11697,17 +11704,19 @@ this value is exactly `t2`*-*`t1`.
 
 
 
-#### os.execute ([command])
+**#### os.execute ([command])
                                                                     *os.execute*
+
 This function is equivalent to the ISO C function `system`.
 It passes `command` to be executed by an operating system shell.
-Its first result is true
-if the command terminated successfully,
+Its first result is true if the command terminated successfully,
 or nil otherwise.
-After this first result
-the function returns a string plus a number,
+After this first result the function returns a string plus a number,
 as follows:
 
+    local ok, state, code = os.execute("uname")
+
+state is one of:
 
 ⛏ `"exit"`: 
     the command terminated normally;
@@ -11723,8 +11732,9 @@ When called without a `command`,
 
 
 
-#### os.exit ([code [, close]])
+**#### os.exit ([code [, close]])
                                                                        *os.exit*
+
 Calls the ISO C function `exit` to terminate the host program.
 If `code` is true, the returned status is `EXIT_SUCCESS`;
 if `code` is false, the returned status is `EXIT_FAILURE`;
@@ -11737,15 +11747,17 @@ closes the Lua state before exiting.
 
 
 
-#### os.getenv (varname)
+**#### os.getenv (varname)
                                                                      *os.getenv*
+
 Returns the value of the process environment variable `varname`,
 or nil if the variable is not defined.
 
 
 
-#### os.remove (filename)
+**#### os.remove (filename)
                                                                      *os.remove*
+
 Deletes the file (or empty directory, on POSIX systems) with the given name.
 If this function fails, it returns nil,
 plus a string describing the error and the error code.
@@ -11753,8 +11765,9 @@ Otherwise, it returns true.
 
 
 
-#### os.rename (oldname, newname)
+**#### os.rename (oldname, newname)
                                                                      *os.rename*
+
 Renames the file or directory named `oldname` to `newname`.
 If this function fails, it returns nil,
 plus a string describing the error and the error code.
@@ -11762,8 +11775,9 @@ Otherwise, it returns true.
 
 
 
-#### os.setlocale (locale [, category])
+**#### os.setlocale (locale [, category])
                                                                   *os.setlocale*
+
 Sets the current locale of the program.
 `locale` is a system-dependent string specifying a locale;
 `category` is an optional string describing which category to change:
@@ -11790,8 +11804,9 @@ because of its reliance on C function `setlocale`.
 
 
 
-#### os.time ([table])
+**#### os.time ([table])
                                                                        *os.time*
+
 Returns the current time when called without arguments,
 or a time representing the local date and time specified by the given table.
 This table must have fields `year`, `month`, and `day`,
@@ -11821,8 +11836,9 @@ and the number returned by `time` can be used only as an argument to
 
 
 
-#### os.tmpname ()
+**#### os.tmpname ()
                                                                     *os.tmpname*
+
 Returns a string with a file name that can
 be used for a temporary file.
 The file must be explicitly opened before its use
@@ -11846,7 +11862,7 @@ which automatically removes the file when the program ends.
 
 
 
-### ⛏ 6.10 -  The Debug Library
+### =⛏ 6.10 -  The Debug Library
                                                       [contents] [index] *§6.10*
 This library provides
 the functionality of the debug interface ( [§4.9]) to Lua programs.
@@ -11869,7 +11885,7 @@ thread to operate over.
 The default is always the current thread.
 
 
-#### debug.debug ()
+**#### debug.debug ()
                                                                    *debug.debug*
 Enters an interactive mode with the user,
 running each string that the user enters.
@@ -11885,7 +11901,7 @@ within any function and so have no direct access to local variables.
 
 
 
-#### debug.gethook ([thread])
+**#### debug.gethook ([thread])
                                                                  *debug.gethook*
 
 
@@ -11896,7 +11912,7 @@ and the current hook count
 
 
 
-#### debug.getinfo ([thread,] f [, what])
+**#### debug.getinfo ([thread,] f [, what])
                                                                  *debug.getinfo*
 
 
@@ -11935,7 +11951,7 @@ about the  [print] function.
 
 
 
-#### debug.getlocal ([thread,] f, local)
+**#### debug.getlocal ([thread,] f, local)
                                                                 *debug.getlocal*
 
 
@@ -11967,20 +11983,20 @@ In that case, `getlocal` returns only the name of function parameters.
 
 
 
-#### debug.getmetatable (value)
+**#### debug.getmetatable (value)
                                                             *debug.getmetatable*
 Returns the metatable of the given `value`
 or nil if it does not have a metatable.
 
 
 
-#### debug.getregistry ()
+**#### debug.getregistry ()
                                                              *debug.getregistry*
 Returns the registry table (see  [§4.5]).
 
 
 
-#### debug.getupvalue (f, up)
+**#### debug.getupvalue (f, up)
                                                               *debug.getupvalue*
 
 
@@ -11995,7 +12011,7 @@ represent variables with no known names
 
 
 
-#### debug.getuservalue (u)
+**#### debug.getuservalue (u)
                                                             *debug.getuservalue*
 Returns the Lua value associated to `u`.
 If `u` is not a full userdata,
@@ -12003,7 +12019,7 @@ returns nil.
 
 
 
-#### debug.sethook ([thread,] hook, mask [, count])
+**#### debug.sethook ([thread,] hook, mask [, count])
                                                                  *debug.sethook*
 
 
@@ -12039,7 +12055,7 @@ and level 1 is the hook function).
 
 
 
-#### debug.setlocal ([thread,] level, local, value)
+**#### debug.setlocal ([thread,] level, local, value)
                                                                 *debug.setlocal*
 
 This function assigns the value `value` to the local variable
@@ -12056,7 +12072,7 @@ variable indices and names.
 
 
 
-#### debug.setmetatable (value, table)
+**#### debug.setmetatable (value, table)
                                                             *debug.setmetatable*
 
 
@@ -12065,7 +12081,7 @@ Returns `value`.
 
 
 
-#### debug.setupvalue (f, up, value)
+**#### debug.setupvalue (f, up, value)
                                                               *debug.setupvalue*
 
 This function assigns the value `value` to the upvalue
@@ -12076,7 +12092,7 @@ Otherwise, it returns the name of the upvalue.
 
 
 
-#### debug.setuservalue (udata, value)
+**#### debug.setuservalue (udata, value)
                                                             *debug.setuservalue*
 
 Sets the given `value` as
@@ -12088,7 +12104,7 @@ Returns `udata`.
 
 
 
-#### debug.traceback ([thread,] [message [, level]])
+**#### debug.traceback ([thread,] [message [, level]])
                                                                *debug.traceback*
 
 
@@ -12104,7 +12120,7 @@ to start the traceback
 
 
 
-#### debug.upvalueid (f, n)
+**#### debug.upvalueid (f, n)
                                                                *debug.upvalueid*
 
 
@@ -12121,7 +12137,7 @@ will return identical ids for those upvalue indices.
 
 
 
-#### debug.upvaluejoin (f1, n1, f2, n2)
+**#### debug.upvaluejoin (f1, n1, f2, n2)
                                                              *debug.upvaluejoin*
 
 Make the `n1`-th upvalue of the Lua closure `f1`
@@ -12129,7 +12145,7 @@ refer to the `n2`-th upvalue of the Lua closure `f2`.
 
 
 
-## ⚡ 7 -  Lua Standalone
+## =⚡ 7 -  Lua Standalone
                                                         [contents] [index] *ch7*
 Although Lua has been designed as an extension language, to be embedded in a host
 C program, it is also frequently used as a standalone language. An interpreter 
@@ -12256,7 +12272,7 @@ If `lua` is in your `PATH`, then
 is a more portable solution.
 
 
-## ⚡ 8 -  Incompatibilities with the Previous Version
+## =⚡ 8 -  Incompatibilities with the Previous Version
                                                         [contents] [index] *ch8*
 Here we list the incompatibilities that you may find when moving a program from 
 Lua 5.2 to Lua 5.3. You can avoid some incompatibilities by compiling Lua with
@@ -12279,7 +12295,7 @@ Lua versions.
 The standard paths in the official distribution may change between versions.
 
 
-### ⛏ 8.1 -  Changes in the Language
+### =⛏ 8.1 -  Changes in the Language
                                                        [contents] [index] *§8.1*
 
 ⛏ The main difference between Lua 5.2 and Lua 5.3 is the introduction of an 
@@ -12308,7 +12324,7 @@ The standard paths in the official distribution may change between versions.
     (It was an experimental feature in Lua 5.2.)
 
 
-### ⛏ 8.2 -  Changes in the Libraries
+### =⛏ 8.2 -  Changes in the Libraries
                                                        [contents] [index] *§8.2*
 
 ⛏ The `bit32` library has been deprecated. It is easy to require a compatible 
@@ -12344,7 +12360,7 @@ The standard paths in the official distribution may change between versions.
     compute that second result from the fractional part of the first result.)
 
 
-### ⛏ 8.3 -  Changes in the API
+### =⛏ 8.3 -  Changes in the API
                                                        [contents] [index] *§8.3*
 
 ⛏ Continuation functions now receive as arguments what they needed to get 
@@ -12364,7 +12380,7 @@ The standard paths in the official distribution may change between versions.
 
 
 
-## ⚡ Lua 5.1 - ch7 Incompatibilities with the Previous Version
+## =⚡ Lua 5.1 - ch7 Incompatibilities with the Previous Version
                                                  [contents] [index] *lua5.1-ch7*
 
 Here we list the incompatibilities that you may find when moving a program
@@ -12375,7 +12391,7 @@ However,
 all these compatibility options will be removed in the next version of Lua.
 
 
-### 7.1 - Changes in the Language
+### =7.1 - Changes in the Language
                                                  [contents] [index] *lua5.1-7.1*
 
 
@@ -12393,7 +12409,7 @@ all these compatibility options will be removed in the next version of Lua.
 
 
 
-### 7.2 - Changes in the Libraries
+### =7.2 - Changes in the Libraries
                                                   [contents] [index] *lua5.1-7.2*
 
 
@@ -12432,7 +12448,7 @@ all these compatibility options will be removed in the next version of Lua.
 
 
 
-### 7.3 - Changes in the API
+### =7.3 - Changes in the API
                                                  [contents] [index] *lua5.1-7.3*
 
 
@@ -12460,7 +12476,7 @@ all these compatibility options will be removed in the next version of Lua.
 
 
 
-## ⚡ Lua 5.2 - ch8 Incompatibilities with the Previous Version
+## =⚡ Lua 5.2 - ch8 Incompatibilities with the Previous Version
                                                  [contents] [index] *lua5.2-ch8*
 
 Here we list the incompatibilities that you may find when moving a program
@@ -12474,7 +12490,7 @@ have been removed in Lua 5.2.
 
 
 
-### 8.1 - Changes in the Language
+### =8.1 - Changes in the Language
                                                  [contents] [index] *lua5.2-8.1*
 
 ⛏ The concept of `environment` changed.
@@ -12514,7 +12530,7 @@ have been removed in Lua 5.2.
 
 
 
-### 8.2 - Changes in the Libraries
+### =8.2 - Changes in the Libraries
                                                  [contents] [index] *lua5.2-8.2*
 
 ⛏ Function `module` is deprecated.
@@ -12560,7 +12576,7 @@ have been removed in Lua 5.2.
 
 
 
-### 8.3 - Changes in the API
+### =8.3 - Changes in the API
                                                  [contents] [index] *lua5.2-8.3*
 
 ⛏ Pseudoindex `LUA_GLOBALSINDEX` was removed.
@@ -12608,7 +12624,7 @@ have been removed in Lua 5.2.
 
 
 
-## ⚡ Lua 5.4 - 8 Incompatibilities with the Previous Version
+## =⚡ Lua 5.4 - 8 Incompatibilities with the Previous Version
                                                  [contents] [index] *lua5.4-ch8*
 
 
@@ -12650,7 +12666,7 @@ change between versions.
 
 
 
-### 8.1 - Incompatibilities in the Language
+### =8.1 - Incompatibilities in the Language
                                                  [contents] [index] *lua5.4-8.1*
 
 
@@ -12692,7 +12708,7 @@ change between versions.
 
 
 
-### 8.2 - Incompatibilities in the Libraries
+### =8.2 - Incompatibilities in the Libraries
                                                 [contents] [index]  *lua5.4-8.2*
 
 
@@ -12725,7 +12741,7 @@ you can wrap the call into parentheses, to adjust its number of results to one.
 
 
 
-### 8.3 - Incompatibilities in the API
+### =8.3 - Incompatibilities in the API
                                                  [contents] [index] *lua5.4-8.3*
 
 
@@ -12765,7 +12781,7 @@ you can wrap the call into parentheses, to adjust its number of results to one.
 
 
 
-## ⚡ 9 - The Complete Syntax of Lua
+## =⚡ 9 - The Complete Syntax of Lua
                                                         [contents] [index] *ch9*
 Here is the complete syntax of Lua in extended BNF. As usual in extended BNF, 
 {A} means 0 or more As, and [A] means an optional A. (For operator precedences, 

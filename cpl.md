@@ -2355,32 +2355,41 @@ int strindex(char s[], char t[])
 
 前面小节讲述了函数的基本组织结构，接下来是其它相关的重要概念。
 
-首先，需要了解作用域的概念，Scope 即范围，在编程语言中，指用来约束变量起作用的一个范围概念。每个函数，第个语句块，即花括号内都是一个作用域。作用域内部声明的变量，在作用域外部不能访问，包括静态变量。
+首先，需要了解作用域的概念，Scope 即范围，在编程语言中，指用来约束变量起作用的一个范围概念。
+每个函数，第个语句块，即花括号内都是一个作用域。作用域内部声明的变量，在作用域外部不能访问，
+包括静态变量。
 
 变量按其存储组织方式的不同，可以分为以下几种类型：
 
 - `auto` - automatic duration and **no linkage**
-- `register` - automatic duration and **no linkage**; address of this variable cannot be taken
+- `register` - automatic duration and **no linkage**; address of this variable cannot be taken.
 - `static` - static duration and **internal linkage** (unless at block scope)
 - `extern` - static duration and **external linkage** (unless already declared internal)
 
 稍为注意一下变量的链接性，Linkage 表明一个符号，可以是变量或函数，是不可以被外部作用域引用的能力。
 
-- `no linkage` 表示符号只可以在基声明的作用域内使用，包括函数参数、所有非 extern 代码块作用域变量，包括 static 修饰的。
-- `internal linkage` 表示符号只可以在当前编译单元内可用，文件范围的静态符号，包括变量或函数。
-- `external linkage` 表示符号可以在整个工程中使用，即对所有编译单元有效，包括非静态函数、所有 extern 修饰的变量(除非先前声明为静态)，所有文件作用域的非静态变量。
+01. `no linkage` 符号只可在基声明的作用域内使用，包括函数参数、所有非 extern 代码块作用域变量，static 修饰的。
+02. `internal linkage` 表示符号只可以在当前编译单元内可用，文件范围的静态符号，包括变量或函数。
+03. `external linkage` 表示符号可以在整个工程中使用，即对所有编译单元有效，包括非静态函数、
+    所有 extern 修饰的变量(除非先前声明为静态)，所有文件作用域的非静态变量。
 
-特别说明一下，内部链接 `internal linkage` 只有作为一个单独编译单位时才会发生作用，比如在 alloc.c 中定义全局 static 变量，然后在编译命令中添加上这个文件，和主程序一并编译：
+特别说明一下，内部链接 `internal linkage` 只有作为一个单独编译单位时才会发生作用，比如
+在 alloc.c 中定义全局 static 变量，然后在编译命令中添加上这个文件，和主程序一并编译：
 
     gcc -o main alloc.c main.c
 
-这样才是内部链接，如果是通过 main.c 的 `#include` 指令引用 alloc.c 则作为同一个编译单元，所以主程序中是可以访问到 static 全局变量的。
+这样才是内部链接，如果是通过 main.c 的 `#include` 指令引用 alloc.c 则作为同一个编译单元，
+所以主程序中是可以访问到 static 全局变量的。
 
-在函数内部定义的局部变量通常也称为自动变量，除非前缀了 static 或 register 这样的关键字。之所以称为自动变量，是因为编译在编译期自动在栈内存中处理好了变量的分配和回收。
+在函数内部定义的局部变量通常也称为自动变量，除非前缀了 static 或 register 这样的关键字。
+之所以称为自动变量，是因为编译在编译期自动在栈内存中处理好了变量的分配和回收。
 
-在 CPU 内部，有一个 Stack 数据结构的硬件实现，包含 POP 和 PUSH 这样的操作指令，还有 ESP 寄存器，它指向程序当前栈顶地址。
+在 CPU 内部，有一个 Stack 数据结构的硬件实现，包含 POP 和 PUSH 这样的操作指令，还有 ESP 
+寄存器，它指向程序当前栈顶地址。
 
-程序在编译阶段就需要确定一个可执行文件的结构，也称为程序映像文件，基本需要包括 `.bss`、`.data`、`.text` 这些段信息，这几个是最基本的程序映像的组成，具体参数 Windows 平台的 PE 程序格式，和 Linux 平台的 ELF 程序格式文件。
+程序在编译阶段就需要确定一个可执行文件的结构，也称为程序映像文件，基本需要包括一些段信息： 
+`.bss`、`.data`、`.text`，这几个是最基本的程序映像的组成，具体参数 Windows 平台的 PE 
+程序格式，和 Linux 平台的 ELF 程序格式文件。
 
 - .bss 即 Block Started by Symbol，通常是指用来存放程序中未初始化的全局变量的一块内存区域，属于静态内存分配。
 - .data 即数据段 data segment 通常是指用来存放程序中已初始化的全局变量的一块内存区域，属于静态内存分配。

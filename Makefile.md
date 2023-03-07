@@ -1,5 +1,5 @@
 
-# 🚩 Makefile 自动化编译
+# 🐣 Makefile 自动化编译
 - http://www.ruanyifeng.com/blog/2015/02/make.html
 - https://www.gnu.org/software/make/manual/make.html
 - http://erlang.org/doc/man/make.html#emakefile
@@ -322,7 +322,7 @@ Make Control Functions
 就会将模块编译生成脚本定义目标文件。
 
 
-# 🚩 NMake 微软自动化构建工具
+# 🐣 NMake 微软自动化构建工具
 - NMAKE Reference https://docs.microsoft.com/en-us/cpp/build/reference/nmake-reference?view=msvc-160
 - Use the Microsoft C++ toolset from the command line https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-160
 
@@ -430,7 +430,7 @@ targets... : dependents...
 bounce.exe leap.exe : jump.obj
    echo Building...
 
-## is evaluated as:
+## 🐤🐥 is evaluated as:
 bounce.exe : jump.obj
    echo Building...
 
@@ -442,7 +442,7 @@ bounce.exe : jump.obj
 bounce.exe : up.obj
    echo Building bounce.exe...
 
-## is evaluated as:
+## 🐤🐥 is evaluated as:
 bounce.exe : jump.obj up.obj
    echo Building bounce.exe...
 
@@ -460,7 +460,7 @@ bounce.exe : jump.obj
 
 bounce.exe : up.obj
 
-## is evaluated as:
+## 🐤🐥 is evaluated as:
 bounce.exe : jump.obj up.obj
    echo Building bounce.exe...
 
@@ -470,7 +470,7 @@ bounce.exe :: jump.obj
 
 bounce.exe :: up.obj
 
-## is evaluated as:
+## 🐤🐥 is evaluated as:
 bounce.exe : jump.obj
    echo Building bounce.exe...
 
@@ -645,7 +645,7 @@ clean:
 ```
 
 
-# 🚩 MSBuild Concepts & vcxproj
+# 🐣 MSBuild Concepts & vcxproj
 - https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/msbuild/msbuild-concepts
 - https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2015/msbuild/task-writing
 - https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure
@@ -1574,7 +1574,7 @@ Console.WriteLine(text);
 ```
 
 
-# 🚩 Ninja 快速构建工具
+# 🐣 Ninja 快速构建工具
 - [Ninja - a speedy and small build system](https://ninja-build.org/)
 - [The Ninja build system v1.10.0](https://ninja-build.org/manual.html)
 
@@ -1684,7 +1684,7 @@ Ninja 文件由记录的序列组成，而记录要么是一个路径，要么�
 
 
 
-# 🚩 VCpkg 开源库管理工具
+# 🐣 VCpkg 开源库管理工具
 - [Manage C and C++ libraries on Windows](https://github.com/Microsoft/vcpkg/)
 - [Tips for VCpkg](https://vvingerfly.github.io/2018/05-08-Tips4vcpkg/)
 - Vcpkg Vs Conan: Best Package Manager For C++? https://matgomes.com/vcpkg-vs-conan-for-cpp/
@@ -2413,7 +2413,7 @@ int main(int argc, char** argv) {
 注意 add_options() 返回一个 OptionAdder，它重载了 operator()，可以进行链式表达，后续添加选项就很方便。
 
 
-# 🚩 MSYS2 & Pacman
+# 🐣 MSYS2 & Pacman
 - [MSYS2](https://www.msys2.org/docs/what-is-msys2/)
 - [Pacman Wiki](https://wiki.archlinux.org/title/Pacman)
 - [Pacman Base Packages](https://packages.msys2.org/base)
@@ -2615,7 +2615,7 @@ pacman -S mingw-w64-clang-x86_64-cmake
 
 
 
-# 🚩 CMake 编译脚本生成工具
+# 🐣 CMake 编译脚本生成工具
 - [CMake Tutorial – Getting Started](https://www.johnlamp.net/cmake-tutorial-1-getting-started.html)
 - [CMake Manual](https://cmake.org/cmake/help/v3.18/)
 - [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
@@ -2627,21 +2627,33 @@ pacman -S mingw-w64-clang-x86_64-cmake
 - CMake 指定编译器 https://www.bookset.io/read/CMake-Cookbook/content-chapter1-1.6-chinese.md
 - Undocumented command line flags (-H, -B) https://cmake.org/pipermail/cmake-developers/2018-January/030521.html
 
+What is CMake？
+
+CMake 是一个翻译工具，将 CMakeLists.txt 脚本翻译成其它自动构建工具的脚本，如织 make、
+ninja、nmake 等等。
+
+CMake 是跨平台编译工具，比 make 更为高级，通过编写 `CMakeLists.txt` 文件，然后用 cmake 
+命令将其转化为 make 所需要的 `makefile` 文件，最后用 `make -G` 命令生成指定编译平台的脚本
+或工程文件。
+
 Why CMake？
 
-先回答上面的问题：被逼的！这三个字是认真的。
+被逼的！这三个字是认真的。
 
-不管 CMake - Cross platform Make 是否是一个优秀的构建工具，不管你是否认同 CMake，都无法否认 CMake 目前是 C++ 的 defacto build system。
+不管 CMake - Cross platform Make 是否是一个优秀的构建工具，不管你是否认同 CMake，都无法
+否认 CMake 目前是 C++ 的 defacto build system。
 
-CMake 是跨平台编译工具，比 make 更为高级，通过编写 `CMakeLists.txt` 文件，然后用 cmake 命令将其转化为 make 所需要的 `makefile` 文件，最后用 `make -G` 命令生成指定编译平台的脚本或工程文件。
 
 CMake 输入的脚本文件有两种扩展名，但有三种组织方式：
 
-- 入口脚本 `CMakeLists.txt`，通常在项目的顶层目录，用来生成构建脚本系统，包含此脚本的子目录可以 add_subdirectory 添加；
-- Scripts `<script>.cmake`，独立脚本执行简单任务并不生成构建脚本，可以使用 -P 选项传入 cmake 命令执行；
-- Modules `<module>.cmake`，模块脚本，可以由独立脚本或入口脚本 include() 命令包括；
+01. - 入口脚本 `CMakeLists.txt`，通常在项目的顶层目录，用来生成构建脚本系统，包含此脚本的
+    子目录可以 add_subdirectory 添加；
+02. - Scripts `<script>.cmake`，独立脚本执行简单任务并不生成构建脚本，可以使用 -P 选项传入
+     cmake 命令执行；
+03. - Modules `<module>.cmake`，模块脚本，可以由独立脚本或入口脚本 include() 命令引用；
 
-目前 CMake 已经支持 Ninja、GCC 等编译平台，同时也支持生成 Visual Studio、 Xcode、CodeBlocks、Sublime Text 等 IDE 的工程文件。支持 cmake 和 cmake-gui 两种工作方式。
+目前 CMake 已经支持 Ninja、GCC 等编译平台，同时也支持生成 Visual Studio、 Xcode、CodeBlocks、
+Sublime Text 等 IDE 的工程文件。支持 cmake 和 cmake-gui 两种工作方式。
 
 ```sh
 cmake.exe -Ssrc -Bbuild
@@ -2653,7 +2665,8 @@ cmake --build . --config Release
 cmake --install . --prefix /prefix/path/to/install
 ```
 
-其中 -H 和 -B 官方文档未记录的 CLI 选项。 -H 表示在指定当前目录中搜索根 CMakeLists.txt 文件。 -B 告诉 CMake 在指定的目录中生成所有编译脚本文件。
+其中 -H 和 -B 官方文档未记录的 CLI 选项。 -H 表示在指定当前目录中搜索根 CMakeLists.txt 文件。
+-B 告诉 CMake 在指定的目录中生成所有编译脚本文件。
 
 来看看 CMake 命令的基本使用，通常会将脚本生成文件放到 build 目录下统一管理：
 
@@ -2689,12 +2702,10 @@ cmake --install . --prefix /prefix/path/to/install
     ... depend
     ... edit_cache
     ... rebuild_cache
-    ... freetype
-    ... src/freetype.obj
-    ... src/freetype.i
-    ... src/freetype.s
 
-生成目标的 Makefile 脚本后，还没有脱离 CMake 环境，执行 make 时还是需要调用 cmake 执行命令行工具，cmake_progress_start 这个命令行工具也没有文档说明，看名字应该是启动编译时初始化工作，然后才是 make 执行 CMakeFiles/Makefile2：
+生成目标的 Makefile 脚本后，还没有脱离 CMake 环境，执行 make 时还是需要调用 cmake 执行
+命令行工具，cmake_progress_start 这个命令行工具也没有文档说明，看名字应该是启动编译时初始化
+工作，然后才是 make 执行 CMakeFiles/Makefile2：
 
     # The main all target
     all: cmake_check_build_system
@@ -2713,13 +2724,17 @@ CMake 提供的命名行工具还不少，例如生成摘要：
     >cmake -E sha512sum cmake_install.cmake
     de7e06db2e5a535896689db776fc72a25abf6xd...  cmake_install.cmake
 
-目前已存在多种 Make 工具，GNU Make ，QT 的 qmake ，微软的 nmake，BSD Make，Makepp 等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile，这将是一件让人抓狂的工作。而 CMake 就是为了解决这种工作而开发出来让人抓狂的工具！
+目前已存在多种 Make 工具，GNU Make ，QT 的 qmake ，微软的 nmake，BSD Make，Makepp 等等。
+这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。如果使用 Make 工具，
+就得为每一种标准写一次 Makefile，这将是一件让人抓狂的工作。而 CMake 就是为了解决这种工作而开发
+出来让人抓狂的工具！
 
-cmake 命令提供了相关的文档，可以使用命令打印到文件中。例如，以下命令会将所有 CMake 的模块文档保存到 cmake_modules.rst 文件中：
+cmake 命令提供了相关的文档，可以使用命令打印到文件中。例如，以下命令会将所有 CMake 的模块文档
+保存到 cmake_modules.rst 文件中：
 
     >cmake --help-modules cmake_modules.rst
 
-reStructuredText 这种文件可以理解为是 Markdown 文件的精简版。
+reStructuredText 这种文件可以理解为是 Markdown 文件的加强版。
 
 
 CMake 提供 5 个工具：
@@ -2735,7 +2750,9 @@ CMake 提供 5 个工具：
     - `CMake-GUI` 图形界面的 cmake
     - `ccmake` CMake curses interface
 
-在当前目标下执行 `cmake path_to_cmakelists_txt` 命令，就会根据指定的列表文件生成编译脚本，也可以直接在源代码目录中执行这个命令，除非列表文件指定了禁止在源目录生成。当前目录和指定的 CMakeLists.txt 所在的目录是就 path-to-build 和 path-to-source 也对应 cmake-gui 两个目录。
+在当前目标下执行 `cmake path_to_cmakelists_txt` 命令，就会根据指定的列表文件生成编译脚本，
+也可以直接在源代码目录中执行这个命令，除非列表文件指定了禁止在源目录生成。当前目录和指定的 
+CMakeLists.txt 所在的目录是就 path-to-build 和 path-to-source 也对应 cmake-gui 两个目录。
 
 CMake 强大的功能按以下类别进行划分，这也是主要的学习内容：
 
@@ -2761,32 +2778,31 @@ CMake 强大的功能按以下类别进行划分，这也是主要的学习内�
 |`cpack-generators`             | 打包生成器，Archive、NSIS、NuGet、RPM、WIX 等等 |
 
 
-以下是和当前工程有关的变量：
+以下是和当前工程、项目有关的变量：
+https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html
+
+    CMAKE_HOME_DIRECTORY
+    CMAKE_BINARY_DIR
+    PROJECT_BINARY_DIR
+    CMAKE_CURRENT_SOURCE_DIR
+
+    PROJECT_DESCRIPTION
+    PROJECT_HOMEPAGE_URL
+    PROJECT_NAME
+    PROJECT_SOURCE_DIR
+    PROJECT_VERSION
 
     <PROJECT-NAME>_BINARY_DIR
     <PROJECT-NAME>_DESCRIPTION
     <PROJECT-NAME>_HOMEPAGE_URL
     <PROJECT-NAME>_SOURCE_DIR
     <PROJECT-NAME>_VERSION
-    <PROJECT-NAME>_VERSION_MAJOR
-    <PROJECT-NAME>_VERSION_MINOR
-    <PROJECT-NAME>_VERSION_PATCH
-    <PROJECT-NAME>_VERSION_TWEAK
-    PROJECT_BINARY_DIR
-    PROJECT_DESCRIPTION
-    PROJECT_HOMEPAGE_URL
-    PROJECT_NAME
-    PROJECT_SOURCE_DIR
-    PROJECT_VERSION
-    PROJECT_VERSION_MAJOR
-    PROJECT_VERSION_MINOR
-    PROJECT_VERSION_PATCH
-    PROJECT_VERSION_TWEAK
+
 
 因此 CMake 的编译基本步骤如下：
 
 - 在当前目录为 cmake 配置 CMakeLists.txt;
-- 在当前目录执行 `cmake .` 命令生成 make 使用的 makefile;
+- 在当前目录执行 `cmake .` 命令生成 makefile 脚本供 make 等工具使用;
 - 执行 make 进行编译；
 
 CMake 与控制台交互的命令除 message 输出消息，还可以使用 execute_process 执行 shell 命令：
@@ -2828,7 +2844,7 @@ CMake 与控制台交互的命令除 message 输出消息，还可以使用 exec
 总结一下，读取环境变量时用 `$ENV`，写入和判断时用 `ENV{JAVA_HOME}` 它指代变量名。
 
 
-## CMake & Sublime Text
+## 🐤🐥 CMake & Sublime Text
 - https://www.sublimetext.com/docs/3/build_systems.html
 - https://docs.sublimetext.io/reference/projects.html
 - https://docs.sublimetext.io/guide/usage/file-management/projects.html
@@ -2943,49 +2959,50 @@ CMkae 和 Sublime Text 可以很好地搭配工作，使用以下编译配置方
 }
 ```
 
-可以创建代码片段，保存到 \Packages\User\cmake.sublime-snippet，在文本文件或 CMakelist.txt 脚本中使用 *cmake* 就可以输入模板内容：
+将以下代码片段保存到 \Packages\User\cmake.sublime-snippet，在文本文件或 CMakelist.txt
+脚本中使用 *cmake* 就可以输入模板内容：
 
 ```XML
-<snippet>
-    <description>cmake - My Fancy Snippet</description>
-    <content><![CDATA[
-cmake_minimum_required(VERSION 3.18.0 FATAL_ERROR)
+    <snippet>
+        <description>cmake - My Fancy Snippet</description>
+        <content><![CDATA[
+    cmake_minimum_required(VERSION 3.18.0 FATAL_ERROR)
 
-project(${1:demo} VERSION 0.1.0 LANGUAGES CXX C)
+    project(${1:demo} VERSION 0.1.0 LANGUAGES CXX C)
 
-add_executable(${2:project} main.cpp)
-]]></content>
-    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>cmake</tabTrigger>
-    <!-- Optional: Set a scope to limit where the snippet will trigger -->
-    <scope>text.plain, source.cmake</scope>
-</snippet>
+    add_executable(${2:project} main.cpp)
+    ]]></content>
+        <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+        <tabTrigger>cmake</tabTrigger>
+        <!-- Optional: Set a scope to limit where the snippet will trigger -->
+        <scope>text.plain, source.cmake</scope>
+    </snippet>
 ```
 
 类似地，创建 C++ 程序模板，保存到 %AppData%\Sublime Text 3\Packages 目录下：
 
 ```XML
-<snippet>
-    <description>cpp - My Fancy Snippet</description>
-    <content><![CDATA[
-#include <iostream>
+    <snippet>
+        <description>cpp - My Fancy Snippet</description>
+        <content><![CDATA[
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-int main(int argc, char *argv[]) try
-{
-    cout << "${1:Hello World!}" << endl;
-}
-catch (const char *err)
-{
-    cout << "${2:Error}: " << err << endl;
-}
-]]></content>
-    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-    <tabTrigger>cpp</tabTrigger>
-    <!-- Optional: Set a scope to limit where the snippet will trigger -->
-    <scope>text.plain, source.c++</scope>
-</snippet>
+    int main(int argc, char *argv[]) try
+    {
+        cout << "${1:Hello World!}" << endl;
+    }
+    catch (const char *err)
+    {
+        cout << "${2:Error}: " << err << endl;
+    }
+    ]]></content>
+        <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+        <tabTrigger>cpp</tabTrigger>
+        <!-- Optional: Set a scope to limit where the snippet will trigger -->
+        <scope>text.plain, source.c++</scope>
+    </snippet>
 ```
 
 使用控制台查询所有代码片段文件：
@@ -2993,7 +3010,7 @@ catch (const char *err)
     sublime.find_resources('*.sublime-snippet') 
 
 
-## CMake Tutorial
+## 🐤🐥 CMake Tutorial
 - CMake Tutorial https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 
 CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并且方括号之间可以有任意等号：
@@ -3054,6 +3071,8 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
     # target_compile_definitions()
     # target_compile_options()
 
+    # Add a dependency between top-level targets.
+    add_dependencies(Tutorial [<target-dependency>]...)
     target_link_libraries(Tutorial PUBLIC MathFunctions)
     
     # add the binary tree to the search path for include files
@@ -3215,13 +3234,380 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
 
 
 
-## Build System
+## 🐤🐥 Compilers Settings
+- https://www.bookset.io/read/CMake-Cookbook/content-chapter1-1.6-chinese.md
+- https://cmake.org/cmake/help/v3.5/manual/cmake-toolchains.7.html
+- https://cmake.org/cmake/help/v3.5/manual/cmake-buildsystem.7.html
+- https://cmake.org/cmake/help/v3.5/manual/cmake-generators.7.html
+- https://cmake.org/cmake/help/v3.5/manual/cmake-generator-expressions.7.html
+- https://cmake.org/cmake/help/v3.5/manual/cmake-compile-features.7.html
+- https://cmake.org/cmake/help/v3.5/variable/CMAKE_BUILD_TYPE.html
+
+试试 MinGW 生成器创建 Sublime 工程：
+
+    cmake path_to_cmakelists.txt -G "Sublime Text 2 - MinGW Makefiles"
+    cmake -G "Sublime Text 2 - MinGW Makefiles" path_to_cmakelists.txt 
+
+CMake 3.22.2 支持的生成器，生成器即生成编译脚本的工具：
+
+- Visual Studio 工程
+- Borland Makefiles
+- NMake Makefiles
+- NMake Makefiles JOM
+- MSYS Makefiles
+- MinGW Makefiles
+- Green Hills MULTI
+- Unix Makefiles
+- Ninja
+- Ninja Multi-Config
+- Watcom WMake
+- CodeBlocks 工程
+- CodeLite 工程
+- Eclipse CDT4 工程
+- Kate 工程
+- Sublime Text 工程
+
+CMake 目前支持的编译系统：
+
+- `AppleClang`: Apple Clang for Xcode versions 4.4+.
+- `Clang`: Clang compiler versions 2.9+.
+- `GNU`: GNU compiler versions 4.4+.
+- `MSVC`: Microsoft Visual Studio versions 2010+.
+- `SunPro`: Oracle SolarisStudio versions 12.4+.
+- `Intel`: Intel compiler versions 12.1+.
+- `NVIDIA CUDA`: NVIDIA nvcc compiler 7.5+.
+
+如何选择一个特定的编译器？例如，如果想使用 Intel 或 Portland Group 编译器怎么办？CMake 
+将语言的编译器存储在 `CMAKE_<LANG>_COMPILER` 变量中，其中 `<LANG>`是受支持的任何一种语言，
+比如 CXX、C 或 Fortran。用户可以通过环境变量和脚本两种方式设置此变量。
+
+配置时，CMake 会进行一系列平台测试，以确定哪些编译器可用，以及它们是否适合当前的项目。一个合适的
+编译器不仅取决于我们所使用的平台，还取决于我们想要使用的生成器。CMake 执行的第一个测试基于项目
+语言的编译器的名称。例如，cc 是一个可用的 C 编译器，那么它将用作 C 项目的默认编译器。
+
+GNU/Linux 系统上，使用 Unix Makefile 生成器或 Ninja 时, GCC 家族中的编译器就是默认的 
+C++、C 和 Fortran 的默认选择。
+
+Windows 系统上，选择 Visual Studio 生成器，并且默认的 C++ 和 C 编译器是 MSVC。如果选择 
+MinGW 或 MSYS Makefile 作为生成器，则默认使用 MinGW 编译器。
+
+除了在生成器名称中指定 Platform architecture，还可以通过 -A 参数指定，在脚本中，脚本中 
+`CMAKE_GENERATOR_PLATFORM` 变量也可以指定平台构架。默认构架为 `Win32`，具体项目类型的
+架构选项参考 cmake --help-full 帮助信息：
+
+* ``cmake -G "Visual Studio 15 2017" -A Win32``
+* ``cmake -G "Visual Studio 15 2017" -A x64``
+* ``cmake -G "Visual Studio 15 2017" -A ARM``
+* ``cmake -G "Visual Studio 15 2017" -A ARM64``
+
+要使用指定的编译，首先是通过指定生成器来大概确定用什么类型的编译器，默认是 MSVC，可以选择 
+MinGW 等编译器。
+
+正确的方法是通过生成器来确定默认的编译，一般使用 Ninja 或 MinGW Makefiles 生成器，默认
+就是使用 GCC 编译器，CMake 会根据配置环境、环境变量的设置来选择默认编译器。
+
+例如，执行了 MSVC vcvars64.bat 环境配置脚本后再生成构建脚本时就会选择 MSVC 作为默认编译器，
+否则 CMake 会使用搜索到的可用编译器：
+
+    cmake -S. -Bb -G "Sublime Text 2 - Ninja"
+    cmake -S. -Bb -G "Sublime Text 2 - MinGW Makefiles"
+
+然后，要指定编译具体位置时才使用脚本指定，并且要指定可执行程序的全名。
+
+对于 C/C++ 语言的编译器选择，可以导出环境变量或在 CMakeLists.txt 中 project 指令前指定
+编译器：
+
+```sh
+# Environment Variables
+export CC=/usr/bin/clang++
+export CXX=/usr/bin/clang++
+
+# CMakeLists.txt 
+#set within user supplied toolchain file
+
+# use GCC
+SET(CMAKE_C_COMPILER gcc.exe)
+SET(CMAKE_CXX_COMPILER g++.exe)
+set(CMAKE_C_COMPILER /full/path/to/gcc --arg1 --arg2)
+
+# use MSVC
+set(CMAKE_C_COMPILER cl.exe)
+set(CMAKE_CXX_COMPILER cl.exe)
+set(CMAKE_RC_COMPILER rc.exe)
+```
+
+还可以使用 CLI 命令行中的 -D 选项定义符号，但是可能检测失败，例如：
+https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_COMPILER.html
+
+    cmake ... -DCMAKE_C_COMPILER='gcc;--arg1;--arg2'
+    cmake -S. -Bbuild -DCMAKE_CXX_COMPILER=g++.exe -DCMAKE_C_COMPILER=gcc.exe
+
+定义项目时，可以指定项目支持的语言，如 C、CXX、Fortran 等。默认情况下，如果没有提供语言选项，
+则启用 C 和 CXX。指定“无语言”，或使用“语言”关键字并列出任何语言，以跳过启用任何语言。
+
+也可以根据 vcpkg 等依赖包管理工具提供的配置脚本来决定所使用的编译器：
+
+    -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+
+在使用 Ninja 生成器的项目上使用 MSVC 编译器可能会导致 CMake 的 simple test program 
+测试程序编译失败：Detecting C compiler ABI info - failed。
+
+CMake 会通过编译一段测试程序对编译器进行 ABI 信息测试，期间可能会收到以下错误信息。所谓 ABI，
+是指应用程序二进制接口（Application Binary Interface, ABI）。
+
+    > cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON
+    >cmake -H. -S. -Bbuild -DCMAKE_VERBOSE_MAKEFILE=ON -G "Sublime Text 2 - Ninja"
+    -- The C compiler identification is GNU 10.2.0
+    -- The CXX compiler identification is MSVC 19.26.28806.0
+    -- Detecting C compiler ABI info
+    -- Detecting C compiler ABI info - done
+    -- Check for working C compiler: C:/mingw/bin/cc.exe - skipped
+    -- Detecting C compile features
+    -- Detecting C compile features - done
+    -- Detecting CXX compiler ABI info
+    -- Detecting CXX compiler ABI info - failed
+    -- Check for working CXX compiler: MSVC/14.26.28801/bin/Hostx64/x64/cl.exe
+    -- Check for working CXX compiler: MSVC/14.26.28801/bin/Hostx64/x64/cl.exe - broken
+    CMake Error at C:/CMake/share/cmake-3.18/Modules/CMakeTestCXXCompiler.cmake:59 (message):
+      The C++ compiler
+
+        "MSVC/14.26.28801/bin/Hostx64/x64/cl.exe"
+
+      is not able to compile a simple test program.
+
+      It fails with the following output:
+      ...
+        LINK : fatal error LNK1104: 无法打开文件“kernel32.lib”
+        LINK : fatal error LNK1104: 无法打开文件“LIBCMT.lib”
+          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+
+
+查看错误信息文件提供的内容，了解的问题原因，可能是没有调用 MSVC 环境变量初始化脚本导致库文件
+不能正确定位，也有可能是 vcpkg 需要使用 PowerShell 但不能在环境变量中搜索到它。只需要将 vcpkg 
+自动下载好的 PowerShell 路径设置好即可：
+
+    C:\vcpkg\downloads\tools\powershell-core-7.2.1-windows
+
+这里使用了生成器，会为 Ninja 脚本默认设置 GCC 编译器，可以看到检测结果中显示指定了 MSVC C++ 
+编译器，需要根据测试出现的错误信息来解决问题。找不到符号或库文件，通常有可能是库文件目录配置引起。
+
+执行脚本前，先执行 MSVC 环境配置批处理脚本，根据需要设置平台类型，如 x86 或 x64，然后再执行
+CMake -G 生成构建脚本：
+
+    > "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Auxiliary/Build/vcvars64.bat" x86
+    > cmake .. -G "Sublime Text 2 - Ninja"
+
+虽然可以在 CMake 脚本中调用批处理文件，但是环境变量设置并不能返回供 CMake 后续使用：
+
+    execute_process(COMMAND "vcvars64.bat" "x64")
+
+在 CMAKE 中指定 C/C++ 使用的标准，可以直接设置编译器变量，或针对某个 target 设置属性：
+
+    set(CMAKE_C_STANDARD 99)
+    set(CMAKE_C_STANDARD_REQUIRED True)
+    set(CMAKE_C_FLAGS "-std=c99 -ffunction-sections -fdata-sections")
+
+    add_executable(demoApp demo.c)
+    set_property(TARGET demoApp PROPERTY C_STANDARD 99)
+
+变量说明：
+
+- *CXX_STANDARD* 会设置想要的 C++ 标准，98/11/14/17/20。
+- *CXX_EXTENSIONS* 告诉 CMake，是否只启用 ISO C++ 标准的编译器标志，OFF 不使用特定编译器的扩展。
+- *CXX_STANDARD_REQUIRED* 如只使用所选标准的版本没有找到，CMake 将停止配置并出现错误，设置为 OFF 会降级顺序查找可用版本。
+
+使用 C++ 11 标准，可以通过不同方式设置：
+
+    # 设置C++标准为 C++ 11
+    set(CMAKE_CXX_STANDARD 11)
+
+    # 检查c++编译器标志，设置c++11支持变量
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
+    CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
+
+    # 使用变量设置编译标志
+    if(COMPILER_SUPPORTS_CXX11)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    elseif(COMPILER_SUPPORTS_CXX0X)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+    else()
+        message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
+    endif()
+
+注意，一定要写在 project 指令之前，否则无效，并且会在生成的脚本中固定。
+
+CMake 提供 --system-information 来查询当前系统的所有信息，要查看这个信息，请尝试以下操作：
+
+    $ cmake --system-information information.txt
+
+输出文件中可以看到 CMAKE_CXX_COMPILER、CMAKE_C_COMPILER 和 CMAKE_Fortran_COMPILER
+的默认值，以及默认标志。
+
+CMake 提供了额外的变量来与编译器交互：
+
+1. - `CMAKE_<LANG>_COMPILER_LOADED`: 如果为项目启用相应的语言，则将设置为 TRUE。
+2. - `CMAKE_<LANG>_COMPILER_ID`: 编译器标识字符串，编译器供应商所特有。例如，GCC 编译器
+    集合的 ID 就是 GNU。AppleClang 用于 macOS 上的 Clang，还有 MSVC 编译器。
+    注意，不能保证为所有编译器或语言定义此变量。
+3. - `CMAKE_COMPILER_IS_GNU<LANG>`: 如果语言是 GNU 编译器集合的一部分，则将此逻辑变量
+    设置为 TRUE。注意变量名的 LANG 部分遵循 GNU 约定：C 语言为 CC, C++ 语言为 CXX, 
+    Fortran 语言为 G77。
+4. - `CMAKE_<LANG>_COMPILER_VERSION`: 此变量包含一个字符串，该字符串给定语言的编译器版本。
+    版本信息在 major[.minor[.patch[.tweak]]] 中给出。
+
+下面的示例 CMakeLists.txt 可以显示编译器相关信息：
+
+    cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+    project(recipe-06 LANGUAGES C CXX)
+    message(STATUS "Is the C++ compiler loaded? ${CMAKE_CXX_COMPILER_LOADED}")
+    if(CMAKE_CXX_COMPILER_LOADED)
+        message(STATUS "The C++ compiler ID is: ${CMAKE_CXX_COMPILER_ID}")
+        message(STATUS "Is the C++ from GNU? ${CMAKE_COMPILER_IS_GNUCXX}")
+        message(STATUS "The C++ compiler version is: ${CMAKE_CXX_COMPILER_VERSION}")
+    endif()
+    message(STATUS "Is the C compiler loaded? ${CMAKE_C_COMPILER_LOADED}")
+    if(CMAKE_C_COMPILER_LOADED)
+        message(STATUS "The C compiler ID is: ${CMAKE_C_COMPILER_ID}")
+        message(STATUS "Is the C from GNU? ${CMAKE_COMPILER_IS_GNUCC}")
+        message(STATUS "The C compiler version is: ${CMAKE_C_COMPILER_VERSION}")
+    endif()
+
+CMake 交叉编译的配置，以 Linux 交叉编译工具链为例，典型的配置如下：
+
+    set(CMAKE_SYSTEM_NAME Linux)
+    set(CMAKE_SYSTEM_PROCESSOR arm)
+
+    set(CMAKE_SYSROOT /home/devel/rasp-pi-rootfs)
+    set(CMAKE_STAGING_PREFIX /home/devel/stage)
+
+    set(tools /home/devel/gcc-4.7-linaro-rpi-gnueabihf)
+    set(CMAKE_C_COMPILER ${tools}/bin/arm-linux-gnueabihf-gcc)
+    set(CMAKE_CXX_COMPILER ${tools}/bin/arm-linux-gnueabihf-g++)
+
+    set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+    set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+    set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+    set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+
+相关变量说明：
+
+- `CMAKE_SYSTEM_NAME` 配置 target platform，即编译生成的程序会在此系统平台上执行。
+- `CMAKE_SYSTEM_PROCESSOR` 配置 target architecture 编译生成的程序会在此 CPU 架构上运行。
+- `CMAKE_SYSROOT` 系统根目录，可选项。
+- `CMAKE_STAGING_PREFIX` 指定主机上安装路径，可选项。注意 CMAKE_INSTALL_PREFIX 总是运行时的安装路径前缀，即使在交叉编译。
+- `CMAKE_<LANG>_COMPILER` 设置编译器完整路径，或者可以通过环境变量 PATH 搜索到的编译器命令。
+
+如果 CMake 没有从编译器中提取足够的信息，则可以使用 CMakeForceCompiler 模块绕过某些检查。
+
+Cross Compiling using Clang：
+
+    set(CMAKE_SYSTEM_NAME Linux)
+    set(CMAKE_SYSTEM_PROCESSOR arm)
+
+    set(triple arm-linux-gnueabihf)
+
+    set(CMAKE_C_COMPILER clang)
+    set(CMAKE_C_COMPILER_TARGET ${triple})
+    set(CMAKE_CXX_COMPILER clang++)
+    set(CMAKE_CXX_COMPILER_TARGET ${triple})
+
+类似地，一些编译器不提供自己的补充实用程序（如链接器），而是提供一种方法来指定编译器驱动程序要
+用到的外部工具链位置。可以在工具链文件中设置 `CMAKE_<LANG>_COMPILER_EXTERNAL_TOOLCHAIN` 
+变量，以将路径传递给编译器驱动程序。
+
+
+## 🐤🐥 Cmake Build Type
+
+CMake 可以配置构建类型，例如：Debug、Release 等，并且可以通过以下变量为编译器设置相关的选项或属性：
+
+    $ cmake .. -G"Visual Studio 12 2017 Win64" -D CMAKE_CONFIGURATION_TYPES="Release;Debug"
+    $ cmake -H. -Bbuild -DCMAKE_BUILD_TYPE Release
+    $ cmake --build . --config Release
+    $ cmake --install . --prefix /prefix/path/to/install
+
+控制生成构建系统使用的配置变量是 CMAKE_BUILD_TYPE，默认值为空，CMake 识别的值为:
+
+- *Debug*：用于在没有优化的情况下，使用带有调试符号构建库或可执行文件。
+- *Release*：用于构建的优化的库或可执行文件，不包含调试符号。
+- *RelWithDebInfo*：用于构建较少的优化库或可执行文件，包含调试符号。
+- *MinSizeRel*：用于不增加目标代码大小的优化方式，来构建库或可执行文件。
+
+有多个配置的属性变量，命名规则是 `SOME_VAR_<CONFIG>`，比如 `CMAKE_C_FLAGS_<CONFIG>` 为 C 语言编译器配置指定参数，还有 `CMAKE_CXX_FLAGS_<CONFIG>`，编译配置使用大写字母，如 CMAKE_CXX_FLAGS_[DEBUG|RELEASE|RELWITHDEBINFO|MINSIZEREL]。
+
+示例中，展示如何为项目设置 Release 构建类型，并打印 CMake 设置的相应编译标志：
+
+    cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+    project(recipe-07 LANGUAGES C CXX)
+
+    if(NOT CMAKE_BUILD_TYPE)
+        set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+    endif()
+    message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
+    message(STATUS "C flags, Debug configuration: ${CMAKE_C_FLAGS_DEBUG}")
+    message(STATUS "C flags, Release configuration: ${CMAKE_C_FLAGS_RELEASE}")
+    message(STATUS "C flags, Release configuration with Debug info: ${CMAKE_C_FLAGS_RELWITHDEBINFO}")
+    message(STATUS "C flags, minimal Release configuration: ${CMAKE_C_FLAGS_MINSIZEREL}")
+    message(STATUS "C++ flags, Debug configuration: ${CMAKE_CXX_FLAGS_DEBUG}")
+    message(STATUS "C++ flags, Release configuration: ${CMAKE_CXX_FLAGS_RELEASE}")
+    message(STATUS "C++ flags, Release configuration with Debug info: ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+    message(STATUS "C++ flags, minimal Release configuration: ${CMAKE_CXX_FLAGS_MINSIZEREL}")
+
+要注意的是，CMAKE_BUILD_TYPE 变量被设置为缓存变量，可以通过缓存进行编辑。
+
+
+一般编译方式有 Debug 和 Release 两种，当然还可以指定其它的构建类型。
+
+```sh
+SET(CMAKE_CXX_FLAGS_DEBUG "/nologo /MDd /W3 /ZI /FD /Od /DEBUG /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /D _AFXDLL /Fp\"demo_d.pch\"")
+SET(CMAKE_CXX_FLAGS_RELEASE "/Ox /MD /W3 /O2 /D WIN32 /D NDEBUG /D _WINDOWS /D _AFXDLL /D _MBCS /Zi /D NDEBUG /Fp\"demo.pch\"")
+set(CMAKE_DEBUG_POSTFIX "_d") 
+set(CMAKE_RELEASE_POSTFIX "_r") 
+
+# set (CMAKE_BUILD_TYPE "Release")
+
+if(CMAKE_BUILD_TYPE MATCHES "Debug")
+    message(STATUS "CMAKE_BUILD_TYPE => ${CMAKE_BUILD_TYPE}")
+    set(CMAKE_EXE_LINKER_FLAGS "/subsystem:windows /machine:x64 /out:../bin/demod.exe")
+elseif(CMAKE_BUILD_TYPE MATCHES "Release")
+    message(STATUS "CMAKE_BUILD_TYPE -> ${CMAKE_BUILD_TYPE}")
+    set(CMAKE_EXE_LINKER_FLAGS "/subsystem:windows /incremental:no /pdb:demo.pdb /machine:x64 /out:../bin/demo.exe")
+endif(CMAKE_BUILD_TYPE MATCHES "Debug")
+
+# set(EXECUTABLE_OUTPUT_PATH "../bin")
+# set(LIBRARY_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/lib")
+```
+
+
+方式一：显示指定
+
+    mkdir Release  
+    cd Release  
+    cmake -DCMAKE_BUILD_TYPE=Release ..  
+    make  
+
+或者
+
+    mkdir Debug  
+    cd Debug  
+    cmake -DCMAKE_BUILD_TYPE=Debug ..  
+    make  
+
+方式二：在CMakeLists.txt中设置
+
+    SET(CMAKE_BUILD_TYPE "Debug”)
+    SET(CMAKE_BUILD_TYPE "Release")
+
+
+## 🐤🐥 Build System
 - https://cmake.org/cmake/help/v3.5/manual/cmake-buildsystem.7.html
 - https://cmake.org/cmake/help/latest/command/project.html
 - https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html
 - https://cmake.org/cmake/help/latest/command/target_link_libraries.html
 
-每个 CMake 工程都可以通过 project 命令指定名称，并指定所使用的语言，当然后这是可选的，CMake 也可能自动探测：
+每个 CMake 工程都可以通过 project 命令指定名称，并指定所使用的语言，当然后这是可选的，CMake 
+也可能自动探测：
 
     project(<PROJECT-NAME> [<language-name>...])
     project(<PROJECT-NAME>
@@ -3230,17 +3616,23 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
             [HOMEPAGE_URL <url-string>]
             [LANGUAGES <language-name>...])
 
-每个 CMake 工程可以包含多个按目录层级组织的 CMakeLists.txt 脚本，可以通过 add_subdirectory 命令包含引用。这个命令用于向当前工程添加存放脚本源文件的子目录，并可以指定中间二进制和目标二进制存放的位置。EXCLUDE_FROM_ALL 参数的含义是将这个目录从编译过程中排除，可能就需要工程构建完成后，再进入子目录单独进行构建。当然，你也可以通过定义依赖来解决此类问题。
+每个 CMake 工程可以包含多个按目录层级组织的 CMakeLists.txt 脚本，可以通过 add_subdirectory 
+命令包含引用。这个命令用于向当前工程添加存放脚本源文件的子目录，并可以指定中间二进制和目标二进制
+存放的位置。EXCLUDE_FROM_ALL 参数的含义是将这个目录从编译过程中排除，可能就需要工程构建完成后，
+再进入子目录单独进行构建。当然，你也可以通过定义依赖来解决此类问题。
 
     subdirs(dir1 dir2...) # Deprecated since version 3.0
     add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])
 
-不论是 subdirs 还是 add_subdirectory 命令是否指定编译输出目录，我们都可以通过 SET 指令重新定义 `EXECUTABLE_OUTPUT_PATH` 和 `LIBRARY_OUTPUT_PATH` 变量来指定最终的目标二进制的位置：
+不论是 subdirs 还是 add_subdirectory 命令是否指定编译输出目录，我们都可以通过 SET 指令
+重新定义 `EXECUTABLE_OUTPUT_PATH` 和 `LIBRARY_OUTPUT_PATH` 变量来指定最终的目标
+二进制的位置：
 
     set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
     set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
-每个构建脚本都奔构建目标来的，CMake 的目标 Target 是一个抽象，对应生成可执行文件或是类库，也可以是自定义的。如果是类库，那么可以指定静态 STATIC 或动态 SHARED 等：
+每个构建脚本都奔构建目标来的，CMake 的目标 Target 是一个抽象，对应生成可执行文件或是类库，
+也可以是自定义的。如果是类库，那么可以指定静态 STATIC 或动态 SHARED 等：
 
     add_library(archive archive.cpp zip.cpp lzma.cpp)
 
@@ -3251,7 +3643,8 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
     add_executable(zipapp zipapp.cpp)
     target_link_libraries(zipapp archive)
 
-脚本中的程序可以通过 target_link_libraries 依赖 add_library 定义的库，CMake 会按依赖关系的先后进行编译。
+脚本中的程序可以通过 target_link_libraries 依赖 add_library 定义的库，CMake 会按依赖
+关系的先后进行编译。
 
 当一个编译目标需要依赖多个源文件时，有多种方法，一个个文件罗列是最原始的：
 
@@ -3299,11 +3692,15 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
                           <PRIVATE|PUBLIC|INTERFACE> <item>...
                          [<PRIVATE|PUBLIC|INTERFACE> <item>...]...)
 
-推荐使用可以指定 target 的 target_link_libraries，link_libraries 必需在 add_executable() 或 add_library() 之前设置要链接的库。指定的 target 必需是工程内通过 add_library() 定义的库，或者是 IMPORTED 库。 
+要给 target 设置要链接的库，必需在 add_executable() 或 add_library() 之前设置。指定的
+target 必需是工程内通过 add_library() 定义的库，或者是 IMPORTED 库。 
 
-使用 PUBLIC, PRIVATE 和 INTERFACE 关键字可以在一条命令中指定链接依赖和链接接口，在 PUBLIC 指定的链接库或目标会成为链接接口的一部分，而 PRIVATE 后指定的链接或目标则不会。在 INTERFACE 后指定的库会添加到链接接口，但不会用于连接 `<target>`。
+使用 PUBLIC, PRIVATE 和 INTERFACE 关键字可以在一条命令中指定链接依赖和链接接口，在 
+PUBLIC 指定的链接库或目标会成为链接接口的一部分，而 PRIVATE 后指定的链接或目标则不会。
+在 INTERFACE 后指定的库会添加到链接接口，但不会用于连接 `<target>`。
 
-类似地，target 前缀的命令表示只为指定的编译目标提供链接库，而且这个目标要已经使用 `add_executable()` 或 `add_library()` 定义。
+类似地，target 前缀的命令表示只为指定的编译目标提供链接库，而且这个目标要已经使用 
+`add_executable()` 或 `add_library()` 定义。
 
     add_executable(<name> [WIN32] [MACOSX_BUNDLE]
                    [EXCLUDE_FROM_ALL]
@@ -3313,7 +3710,8 @@ CMake 脚本使用 # 添加注解，多行注解再使用两个方括号，并�
                 [EXCLUDE_FROM_ALL]
                 [source1] [source2 ...])
 
-添加库目标或可执行程序时，可以指定 IMPORTED，即工程外部的库或程序，这样不会产生一个 target rule 目标规则。
+添加库目标或可执行程序时，可以指定 IMPORTED，即工程外部的库或程序，这样不会产生一个 
+target rule 目标规则。
 
 生成共享库的 add_library 命令格式如下：
 
@@ -3370,9 +3768,11 @@ CMake 会根据的生成库的设置，为编译链接程序提供和种链接�
 - INTERFACE_COMPILE_DEFINITIONS
 - INTERFACE_COMPILE_OPTIONS
 
-库的使用者必需正确地使用它们进行编译并链接，每个在 target_link_libraries() 命令指定目标都需要处理这些用法需求内容。
+库的使用者必需正确地使用它们进行编译并链接，每个在 target_link_libraries() 命令指定目标
+都需要处理这些用法需求内容。
 
-以下脚本中，指定了 PRIVATE BUILDING_WITH_LZMA，因此不会成为链接接口的一部分，也就不会添加到 INTERFACE_COMPILE_DEFINITIONS 列表中。
+以下脚本中，指定了 PRIVATE BUILDING_WITH_LZMA，因此不会成为链接接口的一部分，也就不会
+添加到 INTERFACE_COMPILE_DEFINITIONS 列表中。
 
     set(srcs archive.cpp zip.cpp)
     if (LZMA_FOUND)
@@ -3390,9 +3790,12 @@ CMake 会根据的生成库的设置，为编译链接程序提供和种链接�
     # executable sources are compiled with -DUSING_ARCHIVE_LIB.
     target_link_libraries(consumer archive)
 
-接口库 Interface Libraries 是一种特殊的库形式，像 Eigen 数学库，它只提供头文件，不用进行源代码编译，不产生库文件，也没库目录位置。
+接口库 Interface Libraries 是一种特殊的库形式，像 Eigen 数学库，它只提供头文件，不用进行
+源代码编译，不产生库文件，也没库目录位置。
 
-从 CMake 3.19 开始，INTERFACE library 目标可选地包含源代码，包含源文件的接口库将作为生成的构建系统中的目标。它不编译源代码，但可能包含用于生成其他源代码的自定义命令。此外，IDE 将显示源文件作为交互式阅读和编辑目标的一部分。
+从 CMake 3.19 开始，INTERFACE library 目标可选地包含源代码，包含源文件的接口库将作为生成
+的构建系统中的目标。它不编译源代码，但可能包含用于生成其他源代码的自定义命令。此外，IDE 将显示
+源文件作为交互式阅读和编辑目标的一部分。
 
 只提供头文件的接口库 INTERFACE libraries 示范：
 
@@ -3418,7 +3821,8 @@ CMake 会根据的生成库的设置，为编译链接程序提供和种链接�
       DESTINATION include/Eigen
     )
 
-include_directories 和 target_include_directories() 都可以为编译的目标提供头文件目录，但推荐使用后者，它可以指定具体的目标，`add_executable()` 或 `add_library()` 定义的目标：
+include_directories 和 target_include_directories() 都可以为编译的目标提供头文件目录，
+但推荐使用后者，它可以指定具体的目标，`add_executable()` 或 `add_library()` 定义的目标：
 
     include_directories([AFTER|BEFORE] [SYSTEM] dir1 [dir2 ...])
 
@@ -3431,7 +3835,8 @@ include_directories 和 target_include_directories() 都可以为编译的目标
         $<INSTALL_INTERFACE:include/mylib>  # <prefix>/include/mylib
     )
 
-这个命令会将设置的目录赋值给 INCLUDE_DIRECTORIES 列表，也可以使用 set_property() 命令来设置属性。
+这个命令会将设置的目录赋值给 INCLUDE_DIRECTORIES 列表，也可以使用 set_property() 命令来
+设置属性。
 
 还有两条和链接库目录有关的命令：
 
@@ -3441,7 +3846,8 @@ include_directories 和 target_include_directories() 都可以为编译的目标
       <INTERFACE|PUBLIC|PRIVATE> [items1...]
       [<INTERFACE|PUBLIC|PRIVATE> [items2...] ...])
 
-两者的差别就在于 target_link_directories 只为指定的编译目标提供链接库目录，供链接程序查找依赖文件。
+两者的差别就在于 target_link_directories 只为指定的编译目标提供链接库目录，供链接程序查找
+依赖文件。
 
 来看看 set_property、get_property 两个命令的使用格式：
 
@@ -3469,7 +3875,8 @@ include_directories 和 target_include_directories() 都可以为编译的目标
                  PROPERTY <name>
                  [SET | DEFINED | BRIEF_DOCS | FULL_DOCS])
 
-这是两个通用方法，可以给各种对象设置属性，例如给目标对象设置属性，以下分别展示了读写 INCLUDE_DIRECTORIES 属性的两种命令，注意属性是区分大小写的：
+这是两个通用方法，可以给各种对象设置属性，例如给目标对象设置属性，以下分别展示了读写 
+INCLUDE_DIRECTORIES 属性的两种命令，注意属性是区分大小写的：
 
     set_property(TARGET ${LIB_NAME} PROPERTY 
         INCLUDE_DIRECTORIES "c:/OpenCV/include c:/Qt/include")
@@ -3490,12 +3897,14 @@ include_directories 和 target_include_directories() 都可以为编译的目标
 - set_target_properties
 - set_tests_properties
 
-## Importing & Exporting
+## 🐤🐥 Importing & Exporting
 - https://cmake.org/cmake/help/latest/guide/importing-exporting/index.html
 
-导入目标即标记为 *IMPORTED* 的库或可执行程序，是从逻辑上将 CMake 工程外部、保存磁盘文件的导入到工程内部，所以 add_library() 或 add_executable() 不会产生构建文件。
+导入目标即标记为 *IMPORTED* 的库或可执行程序，是从逻辑上将 CMake 工程外部、保存磁盘文件的
+导入到工程内部，所以 add_library() 或 add_executable() 不会产生构建文件。
 
-以下示范导入可执行程序，并为其设置自定义命令，myexe 命令会被相应的导入目标指定的 IMPORTED_LOCATION 路径替换：
+以下示范导入可执行程序，并为其设置自定义命令，myexe 命令会被相应的导入目标指定的 
+IMPORTED_LOCATION 路径替换：
 
     add_executable(myexe IMPORTED)
     set_property(TARGET myexe PROPERTY
@@ -3540,7 +3949,8 @@ include_directories 和 target_include_directories() 都可以为编译的目标
 
 以上是单独使用导入功能，但是只有将它与导出功能一起使用才是最方便的。
 
-通过 install(TARGETS) 和 install(EXPORT) 命令可以在安装库目标的同时，产生用于协助导入目标的脚本，这样编译的库会更容易被其它 CMake 工程导入使用。
+通过 install(TARGETS) 和 install(EXPORT) 命令可以在安装库目标的同时，产生用于协助
+导入目标的脚本，这样编译的库会更容易被其它 CMake 工程导入使用。
 
 假定一个数学函数库，头文件 MathFunctions.h 内容如下：
 
@@ -3585,7 +3995,8 @@ include_directories 和 target_include_directories() 都可以为编译的目标
 
 脚本包含发 GNUInstallDirs 模块，以使用各个和平台相关的路径变量。
 
-要为其提供更好的导入导出，首先，使用 install(TARGETS) 命令安装目标的同时设置导出导出名称 *MathFunctionsTargets* 以及目录信息：
+要为其提供更好的导入导出，首先，使用 install(TARGETS) 命令安装目标的同时设置导出导出名称 
+*MathFunctionsTargets* 以及目录信息：
 
     install(TARGETS MathFunctions
             EXPORT MathFunctionsTargets
@@ -3597,7 +4008,8 @@ include_directories 和 target_include_directories() 都可以为编译的目标
 
     install(FILES MathFunctions.h DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-现在，MathFunctions 库的头文件会被安装到指定位置，接下来使用 install(EXPORT) 命令来安装导出目标 MathFunctionsTargets 的细节：
+现在，MathFunctions 库的头文件会被安装到指定位置，接下来使用 install(EXPORT) 命令来安装
+导出目标 MathFunctionsTargets 的细节：
 
     install(EXPORT MathFunctionsTargets
             FILE MathFunctionsTargets.cmake
@@ -3607,7 +4019,9 @@ include_directories 和 target_include_directories() 都可以为编译的目标
 
 这个命令会产生 MathFunctionsTargets.cmake 脚本，后续通过它来导入前面导出那些目标。
 
-指定命令空间 NAMESPACE 选项，对应的内容 MathFunctions:: 会写入导出脚本中，而双冒号也提示了 CMake 这是一个 IMPORTED 目标，后续会被其它工程导入使用。通过这种脚本编写，CMake 可以在找不到库时给出诊断信息：
+指定命令空间 NAMESPACE 选项，对应的内容 MathFunctions:: 会写入导出脚本中，而双冒号也
+提示了 CMake 这是一个 IMPORTED 目标，后续会被其它工程导入使用。通过这种脚本编写，CMake 
+可以在找不到库时给出诊断信息：
 
     # Create imported target MathFunctions::MathFunctions
     add_library(MathFunctions::MathFunctions STATIC IMPORTED)
@@ -3626,17 +4040,20 @@ include_directories 和 target_include_directories() 都可以为编译的目标
 
 
 
-## Installation
+## 🐤🐥 Installation
 - https://cmake.org/cmake/help/latest/command/install.html
 - https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html
 
-安装命令 install()  用于将文件或编译的目标复制到指定位置。指定在安装时运行的规则，可以用来安装多种类型内容，可以包括目标二进制、动态库、静态库以及文件、目录结构、脚本等。
+安装命令 install()  用于将文件或编译的目标复制到指定位置。指定在安装时运行的规则，可以用来安装
+多种类型内容，可以包括目标二进制、动态库、静态库以及文件、目录结构、脚本等。
 
 比如，将目标 Tutorial 拷贝到 DESTINATION 指定的 bin 目录：
 
     install(TARGETS Tutorial DESTINATION bin)
 
-安装命令会在构建目录下产生 cmake_install.cmake 脚本，所有安装命令产生的脚本内容都会保存到此文件，供 CMake 的 CPack 工具使用。也可以使用 *cmake -P file* 手动调用脚本，此脚本接受多个变量：
+安装命令会在构建目录下产生 cmake_install.cmake 脚本，所有安装命令产生的脚本内容都会保存到
+此文件，供 CMake 的 CPack 工具使用。也可以使用 *cmake -P file* 手动调用脚本，此脚本接受
+多个变量：
 
 - *COMPONENT* 设置此变量以安装单一的 CPack 组件，否则是完全安装。
 - *BUILD_TYPE*  设置构建配置类型，如 Release/Debug 这两种常用的构建配置类型。
@@ -3647,7 +4064,10 @@ include_directories 和 target_include_directories() 都可以为编译的目标
     cmake -DCOMPONENT=Development -P cmake_install.cmake
     cmake -DBUILD_TYPE=Debug -P cmake_install.cmake
 
-执行编译生成库文件或可以执行文件后，就可以执行安装命令 `make install` 或者 `cmake --install <dir>` 来触发安装过程，install() 相关脚本就会执行。
+生成库文件或可以执行文件后，就可以执行安装命令来触发安装过程，install() 相关脚本就会执行。
+
+    cmake --install <dir>
+    make install
 
 CMake --install 命令行参考：
 
@@ -3660,7 +4080,8 @@ CMake --install 命令行参考：
       --strip            = Performing install/strip.
       -v --verbose       = Enable verbose output.
 
-INSTALL 有一个非常有用的变量 CMAKE_INSTALL_PREFIX，用来设置安装路径的前缀，作为类似于 configure 脚本的 –prefix 参数。可以在运行 cmake 命令时指定一个路径前缀：
+INSTALL 有一个非常有用的变量 CMAKE_INSTALL_PREFIX，用来设置安装路径的前缀，作为类似于
+configure 脚本的 –prefix 参数。可以在运行 cmake 命令时指定一个路径前缀：
 
     cmake .. -DCMAKE_INSTALL_PREFIX=/opt/the/prefix
     cmake --install . --prefix "/home/my/install/dir"
@@ -3668,7 +4089,7 @@ INSTALL 有一个非常有用的变量 CMAKE_INSTALL_PREFIX，用来设置安装
     cmake --build .\build_gcc --config Debug
     cmake --install .\build_gcc --config Debug
 
-先指定生成的 cmake_install.cmake 脚本文件所在目录，然后通过参数 --config 指定 Debug 或 Release 等配置类型。
+先指定生成的 cmake_install.cmake 脚本文件所在目录，然后通过参数 --config 指定编译的配置。
 
 命令语法参考：
 
@@ -3789,377 +4210,8 @@ INSTALL 有一个非常有用的变量 CMAKE_INSTALL_PREFIX，用来设置安装
 
 
 
-## Compilers Settings
-- https://www.bookset.io/read/CMake-Cookbook/content-chapter1-1.6-chinese.md
-- https://cmake.org/cmake/help/v3.5/manual/cmake-toolchains.7.html
-- https://cmake.org/cmake/help/v3.5/manual/cmake-buildsystem.7.html
-- https://cmake.org/cmake/help/v3.5/manual/cmake-generators.7.html
-- https://cmake.org/cmake/help/v3.5/manual/cmake-generator-expressions.7.html
-- https://cmake.org/cmake/help/v3.5/manual/cmake-compile-features.7.html
-- https://cmake.org/cmake/help/v3.5/variable/CMAKE_BUILD_TYPE.html
 
-试试 MinGW 生成器创建 Sublime 工程：
-
-    cmake path_to_cmakelists.txt -G "Sublime Text 2 - MinGW Makefiles"
-    cmake -G "Sublime Text 2 - MinGW Makefiles" path_to_cmakelists.txt 
-
-CMake 3.22.2 支持的生成器：
-
-      Visual Studio 17 2022        = Generates Visual Studio 2022 project files.
-                                     Use -A option to specify architecture.
-    * Visual Studio 16 2019        = Generates Visual Studio 2019 project files.
-                                     Use -A option to specify architecture.
-      Visual Studio 15 2017 [arch] = Generates Visual Studio 2017 project files.
-                                     Optional [arch] can be "Win64" or "ARM".
-      Visual Studio 14 2015 [arch] = Generates Visual Studio 2015 project files.
-                                     Optional [arch] can be "Win64" or "ARM".
-      Visual Studio 12 2013 [arch] = Generates Visual Studio 2013 project files.
-                                     Optional [arch] can be "Win64" or "ARM".
-      Visual Studio 11 2012 [arch] = Generates Visual Studio 2012 project files.
-                                     Optional [arch] can be "Win64" or "ARM".
-      Visual Studio 10 2010 [arch] = Deprecated.  Generates Visual Studio 2010
-                                     project files.  Optional [arch] can be
-                                     "Win64" or "IA64".
-      Visual Studio 9 2008 [arch]  = Generates Visual Studio 2008 project files.
-                                     Optional [arch] can be "Win64" or "IA64".
-      Borland Makefiles            = Generates Borland makefiles.
-      NMake Makefiles              = Generates NMake makefiles.
-      NMake Makefiles JOM          = Generates JOM makefiles.
-      MSYS Makefiles               = Generates MSYS makefiles.
-      MinGW Makefiles              = Generates a make file for use with
-                                     mingw32-make.
-      Green Hills MULTI            = Generates Green Hills MULTI files
-                                     (experimental, work-in-progress).
-      Unix Makefiles               = Generates standard UNIX makefiles.
-      Ninja                        = Generates build.ninja files.
-      Ninja Multi-Config           = Generates build-<Config>.ninja files.
-      Watcom WMake                 = Generates Watcom WMake makefiles.
-      CodeBlocks - MinGW Makefiles = Generates CodeBlocks project files.
-      CodeBlocks - NMake Makefiles = Generates CodeBlocks project files.
-      CodeBlocks - NMake Makefiles JOM
-                                   = Generates CodeBlocks project files.
-      CodeBlocks - Ninja           = Generates CodeBlocks project files.
-      CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
-      CodeLite - MinGW Makefiles   = Generates CodeLite project files.
-      CodeLite - NMake Makefiles   = Generates CodeLite project files.
-      CodeLite - Ninja             = Generates CodeLite project files.
-      CodeLite - Unix Makefiles    = Generates CodeLite project files.
-      Eclipse CDT4 - NMake Makefiles
-                                   = Generates Eclipse CDT 4.0 project files.
-      Eclipse CDT4 - MinGW Makefiles
-                                   = Generates Eclipse CDT 4.0 project files.
-      Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
-      Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
-      Kate - MinGW Makefiles       = Generates Kate project files.
-      Kate - NMake Makefiles       = Generates Kate project files.
-      Kate - Ninja                 = Generates Kate project files.
-      Kate - Unix Makefiles        = Generates Kate project files.
-      Sublime Text 2 - MinGW Makefiles
-                                   = Generates Sublime Text 2 project files.
-      Sublime Text 2 - NMake Makefiles
-                                   = Generates Sublime Text 2 project files.
-      Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
-      Sublime Text 2 - Unix Makefiles
-                                   = Generates Sublime Text 2 project files.
-
-CMake 目前支持的编译系统：
-
-- `AppleClang`: Apple Clang for Xcode versions 4.4+.
-- `Clang`: Clang compiler versions 2.9+.
-- `GNU`: GNU compiler versions 4.4+.
-- `MSVC`: Microsoft Visual Studio versions 2010+.
-- `SunPro`: Oracle SolarisStudio versions 12.4+.
-- `Intel`: Intel compiler versions 12.1+.
-- `NVIDIA CUDA`: NVIDIA nvcc compiler 7.5+.
-
-如何选择一个特定的编译器？例如，如果想使用 Intel 或 Portland Group 编译器怎么办？CMake 将语言的编译器存储在 `CMAKE_<LANG>_COMPILER` 变量中，其中 `<LANG>`是受支持的任何一种语言，比如 CXX、C 或 Fortran。用户可以通过环境变量和脚本两种方式设置此变量。
-
-配置时，CMake 会进行一系列平台测试，以确定哪些编译器可用，以及它们是否适合当前的项目。一个合适的编译器不仅取决于我们所使用的平台，还取决于我们想要使用的生成器。CMake 执行的第一个测试基于项目语言的编译器的名称。例如，cc 是一个可用的 C 编译器，那么它将用作 C 项目的默认编译器。
-
-GNU/Linux 系统上，使用 Unix Makefile 生成器或 Ninja 时, GCC 家族中的编译器就是默认的 C++、C 和 Fortran 的默认选择。
-
-Windows 系统上，选择 Visual Studio 生成器，并且默认的 C++ 和 C 编译器是 MSVC。如果选择 MinGW 或 MSYS Makefile 作为生成器，则默认使用 MinGW 编译器。
-
-除了在生成器名称中指定 Platform architecture，还可以通过 -A 参数指定，在脚本中，脚本中 `CMAKE_GENERATOR_PLATFORM` 变量也可以指定平台构架。默认构架为 `Win32`，具体项目类型的架构选项参考 cmake --help-full 帮助信息：
-
-* ``cmake -G "Visual Studio 15 2017" -A Win32``
-* ``cmake -G "Visual Studio 15 2017" -A x64``
-* ``cmake -G "Visual Studio 15 2017" -A ARM``
-* ``cmake -G "Visual Studio 15 2017" -A ARM64``
-
-要使用指定的编译，首先是通过指定生成器来大概确定用什么类型的编译器，默认是 MSVC，可以选择 MinGW 等编译器。
-
-正确的方法是通过生成器来确定默认的编译，一般使用 Ninja 或 MinGW Makefiles 生成器，默认就是使用 GCC 编译器，CMake 会根据配置环境、环境变量的设置来选择默认编译器。例如，执行了 MSVC vcvars64.bat 环境配置脚本后再生成构建脚本时就会选择 MSVC 作为默认编译器，否则 CMake 会使用搜索到的可用编译器：
-
-    cmake -S. -Bb -G "Sublime Text 2 - Ninja"
-    cmake -S. -Bb -G "Sublime Text 2 - MinGW Makefiles"
-
-然后，要指定编译具体位置时才使用脚本指定，并且要指定可执行程序的全名。
-
-对于 C/C++ 语言的编译器选择，可以导出环境变量或在 CMakeLists.txt 中 project 指令前指定编译器：
-
-```sh
-# Environment Variables
-export CC=/usr/bin/clang++
-export CXX=/usr/bin/clang++
-
-# CMakeLists.txt 
-
-# use GCC
-SET(CMAKE_C_COMPILER gcc.exe)
-SET(CMAKE_CXX_COMPILER g++.exe)
-
-# use MSVC
-set(CMAKE_C_COMPILER cl.exe)
-set(CMAKE_CXX_COMPILER cl.exe)
-set(CMAKE_RC_COMPILER rc.exe)
-```
-
-使用 CLI 命令行中的 -D 选项定义符号也是可以的，例如：
-
-    cmake -D CMAKE_CXX_COMPILER=clang++ ..
-    cmake -S. -Bbuild -DCMAKE_CXX_COMPILER=g++.exe -DCMAKE_C_COMPILER=gcc.exe
-
-定义项目时，可以指定项目支持的语言，如 C、CXX、Fortran 等。默认情况下，如果没有提供语言选项，则启用 C 和 CXX。指定“无语言”，或使用“语言”关键字并列出任何语言，以跳过启用任何语言。
-
-在使用 Ninja 生成器的项目上使用 MSVC 编译器可能会导致 CMake 的 simple test program 测试程序编译失败：Detecting C compiler ABI info - failed。
-
-CMake 会通过编译一段测试程序对编译器进行 ABI 信息测试，期间可能会收到以下错误信息。所谓 ABI，是指应用程序二进制接口（Application Binary Interface, ABI）。
-
-    > cmake -H. -B_build -DCMAKE_VERBOSE_MAKEFILE=ON
-    >cmake -H. -S. -Bbuild -DCMAKE_VERBOSE_MAKEFILE=ON -G "Sublime Text 2 - Ninja"
-    -- The C compiler identification is GNU 10.2.0
-    -- The CXX compiler identification is MSVC 19.26.28806.0
-    -- Detecting C compiler ABI info
-    -- Detecting C compiler ABI info - done
-    -- Check for working C compiler: C:/mingw/bin/cc.exe - skipped
-    -- Detecting C compile features
-    -- Detecting C compile features - done
-    -- Detecting CXX compiler ABI info
-    -- Detecting CXX compiler ABI info - failed
-    -- Check for working CXX compiler: C:/MSVC2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe
-    -- Check for working CXX compiler: C:/MSVC2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe - broken
-    CMake Error at C:/CMake/share/cmake-3.18/Modules/CMakeTestCXXCompiler.cmake:59 (message):
-      The C++ compiler
-
-        "C:/MSVC2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe"
-
-      is not able to compile a simple test program.
-
-      It fails with the following output:
-      ...
-        LINK : fatal error LNK1104: 无法打开文件“kernel32.lib”
-        LINK : fatal error LNK1104: 无法打开文件“LIBCMT.lib”
-          'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
-
-
-查看错误信息文件提供的内容，了解的问题原因，可能是没有调用 MSVC 环境变量初始化脚本导致库文件不能正确定位，也有可能是 vcpkg 需要使用 PowerShell 但不能在环境变量中搜索到它。只需要将 vcpkg 自动下载好的 PowerShell 路径设置好即可：
-
-    C:\vcpkg\downloads\tools\powershell-core-7.2.1-windows
-
-这里使用了生成器，会为 Ninja 脚本默认设置 GCC 编译器，可以看到检测结果中显示指定了 MSVC C++ 编译器，需要根据测试出现的错误信息来解决问题。如果是找不到符号或库文件，通常有可能是库文件目录配置引起。
-
-执行脚本前，先执行 MSVC 环境配置批处理脚本，根据需要设置平台类型，如 x86 或 x64，然后再执行 CMake -G 生成构建脚本：
-
-    > "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Auxiliary/Build/vcvars64.bat" x86
-    > cmake .. -G "Sublime Text 2 - Ninja"
-
-虽然可以在 CMake 脚本中调用批处理文件，但是环境变量设置并不能返回供 CMake 后续使用：
-
-    execute_process(COMMAND "vcvars64.bat" "x64")
-
-在 CMAKE 中指定 C/C++ 使用的标准，可以直接设置编译器变量，或针对某个 target 设置属性：
-
-    set(CMAKE_C_STANDARD 99)
-    set(CMAKE_C_STANDARD_REQUIRED True)
-    set(CMAKE_C_FLAGS "-std=c99 -ffunction-sections -fdata-sections")
-
-    add_executable(demoApp demo.c)
-    set_property(TARGET demoApp PROPERTY C_STANDARD 99)
-
-变量说明：
-
-- *CXX_STANDARD* 会设置想要的 C++ 标准，98/11/14/17/20。
-- *CXX_EXTENSIONS* 告诉 CMake，是否只启用 ISO C++ 标准的编译器标志，OFF 不使用特定编译器的扩展。
-- *CXX_STANDARD_REQUIRED* 指定是否只使用所选标准的版本，设置为 ON，如果这个版本不可用，CMake 将停止配置并出现错误，设置为 OFF 会降级顺序查找可用版本。
-
-使用 C++ 11 标准，可以通过不同方式设置：
-
-    # 设置C++标准为 C++ 11
-    set(CMAKE_CXX_STANDARD 11)
-
-    # 检查c++编译器标志，设置c++11支持变量
-    include(CheckCXXCompilerFlag)
-    CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
-    CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
-
-    # 使用变量设置编译标志
-    if(COMPILER_SUPPORTS_CXX11)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-    elseif(COMPILER_SUPPORTS_CXX0X)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
-    else()
-        message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
-    endif()
-
-注意，一定要写在 project 指令之前，否则无效，并且会在生成的脚本中固定。
-
-CMake 提供 --system-information 来查询当前系统的所有信息，要查看这个信息，请尝试以下操作：
-
-    $ cmake --system-information information.txt
-
-输出文件中可以看到 CMAKE_CXX_COMPILER、CMAKE_C_COMPILER 和 CMAKE_Fortran_COMPILER 的默认值，以及默认标志。
-
-CMake 提供了额外的变量来与编译器交互：
-
-- `CMAKE_<LANG>_COMPILER_LOADED`: 如果为项目启用相应的语言，则将设置为 TRUE。
-- `CMAKE_<LANG>_COMPILER_ID`: 编译器标识字符串，编译器供应商所特有。例如，GCC 编译器集合的 ID 就是 GNU。AppleClang 用于 macOS 上的 Clang, MSVC 用于 Microsoft Visual Studio 编译器。注意，不能保证为所有编译器或语言定义此变量。
-- `CMAKE_COMPILER_IS_GNU<LANG>`: 如果语言是 GNU 编译器集合的一部分，则将此逻辑变量设置为 TRUE。注意变量名的 LANG 部分遵循 GNU 约定：C 语言为 CC, C++ 语言为 CXX, Fortran 语言为 G77。
-- `CMAKE_<LANG>_COMPILER_VERSION`: 此变量包含一个字符串，该字符串给定语言的编译器版本。版本信息在 major[.minor[.patch[.tweak]]] 中给出。
-
-下面的示例 CMakeLists.txt 可以显示编译器相关信息：
-
-    cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-    project(recipe-06 LANGUAGES C CXX)
-    message(STATUS "Is the C++ compiler loaded? ${CMAKE_CXX_COMPILER_LOADED}")
-    if(CMAKE_CXX_COMPILER_LOADED)
-        message(STATUS "The C++ compiler ID is: ${CMAKE_CXX_COMPILER_ID}")
-        message(STATUS "Is the C++ from GNU? ${CMAKE_COMPILER_IS_GNUCXX}")
-        message(STATUS "The C++ compiler version is: ${CMAKE_CXX_COMPILER_VERSION}")
-    endif()
-    message(STATUS "Is the C compiler loaded? ${CMAKE_C_COMPILER_LOADED}")
-    if(CMAKE_C_COMPILER_LOADED)
-        message(STATUS "The C compiler ID is: ${CMAKE_C_COMPILER_ID}")
-        message(STATUS "Is the C from GNU? ${CMAKE_COMPILER_IS_GNUCC}")
-        message(STATUS "The C compiler version is: ${CMAKE_C_COMPILER_VERSION}")
-    endif()
-
-CMake 交叉编译的配置，以 Linux 交叉编译工具链为例，典型的配置如下：
-
-    set(CMAKE_SYSTEM_NAME Linux)
-    set(CMAKE_SYSTEM_PROCESSOR arm)
-
-    set(CMAKE_SYSROOT /home/devel/rasp-pi-rootfs)
-    set(CMAKE_STAGING_PREFIX /home/devel/stage)
-
-    set(tools /home/devel/gcc-4.7-linaro-rpi-gnueabihf)
-    set(CMAKE_C_COMPILER ${tools}/bin/arm-linux-gnueabihf-gcc)
-    set(CMAKE_CXX_COMPILER ${tools}/bin/arm-linux-gnueabihf-g++)
-
-    set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
-    set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-    set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-    set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
-
-相关变量说明：
-
-- `CMAKE_SYSTEM_NAME` 配置 target platform，即编译生成的程序会在此系统平台上执行。
-- `CMAKE_SYSTEM_PROCESSOR` 配置 target architecture 编译生成的程序会在此 CPU 架构上运行。
-- `CMAKE_SYSROOT` 系统根目录，可选项。
-- `CMAKE_STAGING_PREFIX` 指定主机上安装路径，可选项。注意 CMAKE_INSTALL_PREFIX 总是运行时的安装路径前缀，即使在交叉编译。
-- `CMAKE_<LANG>_COMPILER` 设置编译器完整路径，或者可以通过环境变量 PATH 搜索到的编译器命令。
-
-如果 CMake 没有从编译器中提取足够的信息，则可以使用 CMakeForceCompiler 模块绕过某些检查。
-
-Cross Compiling using Clang：
-
-    set(CMAKE_SYSTEM_NAME Linux)
-    set(CMAKE_SYSTEM_PROCESSOR arm)
-
-    set(triple arm-linux-gnueabihf)
-
-    set(CMAKE_C_COMPILER clang)
-    set(CMAKE_C_COMPILER_TARGET ${triple})
-    set(CMAKE_CXX_COMPILER clang++)
-    set(CMAKE_CXX_COMPILER_TARGET ${triple})
-
-类似地，一些编译器不提供自己的补充实用程序（如链接器），而是提供一种方法来指定编译器驱动程序要用到的外部工具链位置。可以在工具链文件中设置 `CMAKE_<LANG>_COMPILER_EXTERNAL_TOOLCHAIN` 变量，以将路径传递给编译器驱动程序。
-
-## Cmake Build Type
-
-CMake 可以配置构建类型，例如：Debug、Release 等，并且可以通过以下变量为编译器设置相关的选项或属性：
-
-    $ cmake .. -G"Visual Studio 12 2017 Win64" -D CMAKE_CONFIGURATION_TYPES="Release;Debug"
-    $ cmake -H. -Bbuild -DCMAKE_BUILD_TYPE Release
-    $ cmake --build . --config Release
-    $ cmake --install . --prefix /prefix/path/to/install
-
-控制生成构建系统使用的配置变量是 CMAKE_BUILD_TYPE，默认值为空，CMake 识别的值为:
-
-- *Debug*：用于在没有优化的情况下，使用带有调试符号构建库或可执行文件。
-- *Release*：用于构建的优化的库或可执行文件，不包含调试符号。
-- *RelWithDebInfo*：用于构建较少的优化库或可执行文件，包含调试符号。
-- *MinSizeRel*：用于不增加目标代码大小的优化方式，来构建库或可执行文件。
-
-有多个配置的属性变量，命名规则是 `SOME_VAR_<CONFIG>`，比如 `CMAKE_C_FLAGS_<CONFIG>` 为 C 语言编译器配置指定参数，还有 `CMAKE_CXX_FLAGS_<CONFIG>`，编译配置使用大写字母，如 CMAKE_CXX_FLAGS_[DEBUG|RELEASE|RELWITHDEBINFO|MINSIZEREL]。
-
-示例中，展示如何为项目设置 Release 构建类型，并打印 CMake 设置的相应编译标志：
-
-    cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-    project(recipe-07 LANGUAGES C CXX)
-
-    if(NOT CMAKE_BUILD_TYPE)
-        set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
-    endif()
-    message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
-
-    message(STATUS "C flags, Debug configuration: ${CMAKE_C_FLAGS_DEBUG}")
-    message(STATUS "C flags, Release configuration: ${CMAKE_C_FLAGS_RELEASE}")
-    message(STATUS "C flags, Release configuration with Debug info: ${CMAKE_C_FLAGS_RELWITHDEBINFO}")
-    message(STATUS "C flags, minimal Release configuration: ${CMAKE_C_FLAGS_MINSIZEREL}")
-    message(STATUS "C++ flags, Debug configuration: ${CMAKE_CXX_FLAGS_DEBUG}")
-    message(STATUS "C++ flags, Release configuration: ${CMAKE_CXX_FLAGS_RELEASE}")
-    message(STATUS "C++ flags, Release configuration with Debug info: ${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
-    message(STATUS "C++ flags, minimal Release configuration: ${CMAKE_CXX_FLAGS_MINSIZEREL}")
-
-要注意的是，CMAKE_BUILD_TYPE 变量被设置为缓存变量，可以通过缓存进行编辑。
-
-
-一般编译方式有 Debug 和 Release 两种，当然还可以指定其它的构建类型。
-
-```sh
-SET(CMAKE_CXX_FLAGS_DEBUG "/nologo /MDd /W3 /ZI /FD /Od /DEBUG /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /D _AFXDLL /Fp\"demo_d.pch\"")
-SET(CMAKE_CXX_FLAGS_RELEASE "/Ox /MD /W3 /O2 /D WIN32 /D NDEBUG /D _WINDOWS /D _AFXDLL /D _MBCS /Zi /D NDEBUG /Fp\"demo.pch\"")
-set(CMAKE_DEBUG_POSTFIX "_d") 
-set(CMAKE_RELEASE_POSTFIX "_r") 
-
-# set (CMAKE_BUILD_TYPE "Release")
-
-if(CMAKE_BUILD_TYPE MATCHES "Debug")
-    message(STATUS "CMAKE_BUILD_TYPE => ${CMAKE_BUILD_TYPE}")
-    set(CMAKE_EXE_LINKER_FLAGS "/subsystem:windows /machine:x64 /out:../bin/demod.exe")
-elseif(CMAKE_BUILD_TYPE MATCHES "Release")
-    message(STATUS "CMAKE_BUILD_TYPE -> ${CMAKE_BUILD_TYPE}")
-    set(CMAKE_EXE_LINKER_FLAGS "/subsystem:windows /incremental:no /pdb:demo.pdb /machine:x64 /out:../bin/demo.exe")
-endif(CMAKE_BUILD_TYPE MATCHES "Debug")
-
-# set(EXECUTABLE_OUTPUT_PATH "../bin")
-# set(LIBRARY_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/lib")
-```
-
-
-方式一：显示指定
-
-    mkdir Release  
-    cd Release  
-    cmake -DCMAKE_BUILD_TYPE=Release ..  
-    make  
-
-或者
-
-    mkdir Debug  
-    cd Debug  
-    cmake -DCMAKE_BUILD_TYPE=Debug ..  
-    make  
-
-方式二：在CMakeLists.txt中设置
-
-    SET(CMAKE_BUILD_TYPE "Debug”)
-    SET(CMAKE_BUILD_TYPE "Release")
-
-
-
-## Find Modules: FindPackage
+## 🐤🐥 Find Modules: FindPackage
 - https://cmake.org/cmake/help/latest/command/find_package.html
 - https://cmake.org/cmake/help/latest/command/find_library.html
 - https://cmake.org/cmake/help/latest/command/find_program.html
@@ -4530,7 +4582,7 @@ find_package 采用两种模式搜索库：
     #]=======================================================================]
 
 
-## Shell Commands
+## 🐤🐥 Shell Commands
 - https://cmake.org/cmake/help/latest/command/execute_process.html
 
 Execute one or more child processes.
@@ -4609,26 +4661,27 @@ cmake -E tar cz test.tar.gz somefiles
 ```
 
 
-## CMake Macro & Function
+## 🐤🐥 CMake Macro & Function
 - https://cmake.org/cmake/help/latest/command/macro.html
 - https://cmake.org/cmake/help/latest/command/function.html
 - https://cmake.org/cmake/help/latest/command/cmake_parse_arguments.html
 
 
-函数和宏非常像，调用不分大小写，同样可以使用 cmake_language(CALL foo) 调用，但函数中 ARGN, ARGC, ARGV 或 ARGV0, ARGV1, … 这些是真的变量。
+函数和宏非常像，调用不分大小写，同样可以使用 cmake_language(CALL foo) 调用，但函数中 
+ARGN, ARGC, ARGV 或 ARGV0, ARGV1, … 这些是真的变量。但是宏内只会替换相应的值。
 
 内置变量说明：
 
 - `ARGC` 参数个数；
 - `ARGV` 所有参数变量列表；
-- `ARGN` 参数声明列表之外的所有传入参数；
-- `ARGV#` 带数字序号访问指定的参数，序号从 0 开始；
+- `ARGN` 参数声明列表中非命名的所有传入参数；
+- `ARGV#` 带数字序号访问指定的参数，# 为序号，从 0 开始；
 
 但是宏内，它们不是变量，只是预处理替换的字符串，不能按以下方式使用：
 
-    if(ARGV1) # ARGV1 is not a variable
-    if(DEFINED ARGV2) # ARGV2 is not a variable
-    if(ARGC GREATER 2) # ARGC is not a variable
+    if(ARGV1)           # ARGV1 is not a variable
+    if(DEFINED ARGV2)   # ARGV2 is not a variable
+    if(ARGC GREATER 2)  # ARGC is not a variable
     foreach(loop_var IN LISTS ARGN) # ARGN is not a variable
 
 应该这样：
@@ -4639,6 +4692,8 @@ cmake -E tar cz test.tar.gz somefiles
 
     set(list_var "${ARGN}")
     foreach(loop_var IN LISTS list_var)
+      <commands>
+    endforeach()
 
 还有函数中可用的属性：
 
@@ -4647,7 +4702,7 @@ cmake -E tar cz test.tar.gz somefiles
 - CMAKE_CURRENT_FUNCTION_LIST_FILE 定义当前函数的列表文件路径；
 - CMAKE_CURRENT_FUNCTION_LIST_LINE 定义当前函数的代码行号；
 
-使用函数、宏定义
+使用函数、宏定义：
 
     macro(<name> [<arg1> ...])
       <commands>
@@ -4657,40 +4712,43 @@ cmake -E tar cz test.tar.gz somefiles
       <commands>
     endfunction()
 
-定义宏或函数 `<name>` 可以带参数列表 `<arg1>, …`，macro 命令和 endmacro() 配对使用，同样，function、endfunction() 配对使用，名称不区分大小写。但是参数大小写要匹配，否则替换时变量内容不能正确获取。
+定义宏或函数 `<name>` 可以带参数列表 `<arg1>, …`，macro 命令和 function 命令都和配对的
+结束符号使用，名称不区分大小写。但是参数大小写要匹配，否则替换时变量内容不能正确获取。
 
-函数体内的命令 `<commands>` 会被记录下来，直到函数被调用时才执行。
+所谓命名参数，即函数、宏定义的参数列表中指定名字的变量，而传入参数可能比列表中的命名参数还要多，
+那么其它未曾命名的参数就可以通过 **ARGN** 引用，这是一个列表。
 
-当调用函数时，记录下来的命令会先经过参数的替换，如，将实际参数值 ${arg1} 替换到命令中，并调用命令。
+函数体内的命令 `<commands>` 会被记录下来，直到函数被调用时才执行。调用函数时，记录下来的命令
+会先经过参数的替换，如，将实际参数值 ${arg1} 替换到命令中，并调用命令。
 
 示范：
 
-```sh
-function(add_sfml_executable NAME)
-    message("NAME:" ${NAME})
-    message("NAME:" ${SFML_LIBRARIES})
-    add_executable(${NAME} ${ARGN})
-    target_link_libraries(${NAME} ${SFML_LIBRARIES} opengl32 winmm )
-    target_link_libraries(${NAME} ${SFML_DEPENDENCIES} )    
-endfunction()
+```sh,ignore
+    function(add_sfml_executable NAME)
+        message("NAME:" ${NAME})
+        message("NAME:" ${SFML_LIBRARIES})
+        add_executable(${NAME} ${ARGN})
+        target_link_libraries(${NAME} ${SFML_LIBRARIES} opengl32 winmm )
+        target_link_libraries(${NAME} ${SFML_DEPENDENCIES} )    
+    endfunction()
 
-add_sfml_executable(sfml_sprite "examples/sprite.cpp")
+    add_sfml_executable(sfml_sprite "examples/sprite.cpp")
 
 
-function(foo)
-  bar(BOB ARGN)
-  bar(JANE ${ARGV} WHITE)
-endfunction()
+    function(foo)
+      bar(BOB ARGN)
+      bar(JANE ${ARGV} WHITE)
+    endfunction()
 
-macro(bar hello world)
-    MESSAGE(STATUS ARGV=${ARGV})
-    MESSAGE(STATUS ARGN=${ARGN})
-    MESSAGE(STATUS ARGV0=${ARGV0})
-    MESSAGE(STATUS ARGV1=${ARGV1})
-    MESSAGE(STATUS ARGV2=${ARGV2})
-endmacro()
+    macro(bar hello world)
+        MESSAGE(STATUS ARGV=${ARGV})
+        MESSAGE(STATUS ARGN=${ARGN})
+        MESSAGE(STATUS ARGV0=${ARGV0})
+        MESSAGE(STATUS ARGV1=${ARGV1})
+        MESSAGE(STATUS ARGV2=${ARGV2})
+    endmacro()
 
-foo(TOM JERRY SUSAN BERN)
+    foo(TOM JERRY SUSAN BERN)
 ```
 
 
@@ -4732,7 +4790,7 @@ foo(TOM JERRY SUSAN BERN)
 
 官方文档示范脚本：
 
-```sh
+```sh,ignore
 macro(my_install)
     set(options OPTIONAL FAST)
     set(oneValueArgs DESTINATION RENAME)
@@ -4759,7 +4817,7 @@ After the *cmake_parse_arguments* call the macro will have set or undefined the 
 
 VulkanTutorial 项目示范脚本：
 
-```sh
+```sh,ignore
 function (add_chapter CHAPTER_NAME)
   cmake_parse_arguments (CHAPTER "" "SHADER" "LIBS;TEXTURES;MODELS" ${ARGN})
 
@@ -4795,7 +4853,7 @@ add_chapter (22_descriptor_sets
 ```
 
 
-## Set Options & File Download
+## 🐤🐥 Set Options & File Download
 - https://cmake.org/cmake/help/latest/command/file.html
 
 使用 set 指令配置的选项参数可以在执行 Cmake 命令时传入参数，比如 Spine 动画制作软件配置的脚本：
@@ -4914,7 +4972,7 @@ Cmake 提供的 file 命令进行文件处理，读写或者远程上传、下�
 - *CMAKE_CURRENT_LIST_DIR* 当前列表目录，即被包含的 CMakeLists.txt 脚本所在目录；
 - *CMAKE_CURRENT_SOURCE_DIR* 当前脚本处理的源代码目录；
 
-```sh
+```sh,ignore
 set(DEPS_DIR "${PROJECT_SOURCE_DIR}/dependencies/")
 function(install_deps Directory FileName URL)
     set(DEP_DIR ${DEPS_DIR}/${Directory})
@@ -4961,7 +5019,7 @@ add_subdirectory(${DEPS_DIR}/glfw-3.3.6)
 
 Spine 运行时项目的编译脚本配置很完善，会检测当前是否已需要下载 SFML 框架，参考脚本片段：
 
-```sh
+```sh,ignore
 #
 # First download and extract SFML 2.4.1 for the respective OS we are on
 #
@@ -5075,7 +5133,7 @@ CMAKE_CURRENT_LIST_DIR 变量指向当前 Cmake 命令正在处理的脚本所�
     set(DEPS_DIR "${PROJECT_SOURCE_DIR}/spine-sfml/dependencies/")
 
 
-## add_executable() add_library() add_custom_target() 
+## 🐤🐥 add_executable() add_library() add_custom_target() 
 - https://cmake.org/cmake/help/latest/command/add_custom_target.html
 - https://cmake.org/cmake/help/latest/command/add_executable.html
 - https://cmake.org/cmake/help/latest/command/add_library.html
@@ -5138,7 +5196,7 @@ add_library(<name> <type> IMPORTED [GLOBAL])
 add_library(<name> ALIAS <target>)
 ```
 
-## target_compile_definitions target_compile_options
+## 🐤🐥 target_compile_definitions target_compile_options
 
 给目标添加编译符号定义：
 
@@ -5169,7 +5227,7 @@ add_definitions(-DFOO -DBAR ...) 函数可以添加任意符号选项。
 INTERFACE PUBLIC PRIVATE 指的是 [items...] 选项可以传播的范围，PUBLIC and INTERFACE 会传播 target 的 INTERFACE_COMPILE_DEFINITIONS 属性，PRIVATE and PUBLIC 会传播 target 的 COMPILE_DEFINITIONS  属性。
 
 
-## target_link_options & set_target_properties
+## 🐤🐥 target_link_options & set_target_properties
 - https://cmake.org/cmake/help/latest/command/target_link_options.html
 - https://cmake.org/cmake/help/latest/command/set_target_properties.html
 
@@ -5207,7 +5265,7 @@ set_target_properties(target1 target2 ...
 
 
 
-## add_dependencies & target_link_libraries 
+## 🐤🐥 add_dependencies & target_link_libraries 
 - https://cmake.org/cmake/help/latest/command/link_libraries.html
 - https://cmake.org/cmake/help/latest/command/target_link_libraries.html
 - https://cmake.org/cmake/help/latest/command/add_dependencies.html
@@ -5239,29 +5297,243 @@ add_dependencies(<target> [<target-dependency>]...)
 
 对于编译时遇到的依赖问题，很多时候我们只需要一句 target_link_libraries 就可以搞定。
 
-但是 add_dependencies 可以解决编译时间的前后依赖，当项目中两个 targets 有依赖关系，需要在另一个编译完成后才能执行另一个目标的编译。这时候，就只有通过 add_dependencies 实现等待目标 target 编译的动作，自动检查下层依赖库是否已经生成。没有的话先编译下层依赖库，然后再编译上层 target，最后再 link depend target。
+但是 add_dependencies 可以解决编译时间的前后依赖，当项目中两个 targets 有依赖关系，需要在
+另一个编译完成后才能执行另一个目标的编译。这时候，就只有通过 add_dependencies 实现等待目标 
+target 编译的动作，自动检查下层依赖库是否已经生成。没有的话先编译下层依赖库，然后再编译上层 
+target，最后再 link depend target。
 
 为了等待指定的文件完成编译，可以添加自定义目标，如：
 
-    AddDemo(018_Emf03  "CH18 Metafiles/Emf03/Emf03.c"
-            "CH18 Metafiles/Emf03/Emf03.emf")
+    add_executable(app  "main.c" "meta.emf")
     add_custom_command(
-            OUTPUT "${EXECUTABLE_OUTPUT_PATH}/Emf03.emf"
-            COMMAND ${CMAKE_COMMAND} -E copy "${CMAKE_CURRENT_SOURCE_DIR}/CH18 Metafiles/Emf03/Emf03.emf" "${EXECUTABLE_OUTPUT_PATH}"
-            COMMENT "Copying Emf03.emf to exe directory"
-            DEPENDS "CH18 Metafiles/Emf03/Emf03.emf")
-    add_custom_target(custom_target_emf03 ALL
-            DEPENDS "${EXECUTABLE_OUTPUT_PATH}/Emf03.emf")
-    add_dependencies(018_Emf03 custom_target_emf03)
+            OUTPUT "${EXECUTABLE_OUTPUT_PATH}/meta.emf"
+            COMMAND ${CMAKE_COMMAND} -E copy "meta.emf" "${EXECUTABLE_OUTPUT_PATH}"
+            COMMENT "Copying meta.emf to exe directory"
+            DEPENDS "meta/meta.emf")
+    add_custom_target(custom_target_meta ALL
+            DEPENDS "${EXECUTABLE_OUTPUT_PATH}/meta.emf")
+    add_dependencies(app custom_target_meta)
 
 
+## 🐤🐥 target_sources & C++2023
+- https://cmake.org/cmake/help/git-stage/command/target_sources.html
+- https://crascit.com/2016/01/31/enhanced-source-file-handling-with-target_sources
+- https://cmake.org/cmake/help/book/mastering-cmake/chapter/Modules.html
 
-## generator expressions 生成器表达式
+CMake 3.1 新的关联目标源代码功，它能更好地支持 CMake 项目：
+
+1. 它可以产生更清晰、更简洁的 CMakeLists.txt 项目文件
+2. 依赖信息 (dependency information) 可以在依赖实际发生的目录层次中得以指定
+3. 源文件可以成为目标接口的一部分
+4. 源文件可以添加到第三方项目的目标中，而无需修改第三方项目文件
+
+在 target_sources() 出现前，CMake 通过 add_executable() 或 add_library() 命令直接
+列出源文件来定义目标。
+
+    add_executable(myApp src1.cpp src2.cpp)
+
+当源文件的数量越来越大，并且它们分布在多个子目录中（可能嵌套到多个级别）时，这就会变得很难处理。
+这样还导致必须（在 CMakeLists.txt 文件中）重复目录结构，这首先降低了将源文件结构化为目录的好处。
+
+因此，许多开发人员做出的改进是，在子目录中用变量中建立源文件列表，并通过 include() 引入该变量。
+而引入 target_sources 命令后，流程可以更简洁：
+
+    target_sources(myLib
+        PRIVATE
+            foo.cpp
+            foo_p.cpp
+            foo_p.h
+        PUBLIC
+            foo.h  # poor PUBLIC example, see discussion below for why
+    )
+
+    find_library(BARRY_LIB barry)
+    # This call requires CMake 3.13 or later, see next section
+    target_link_libraries(myLib PUBLIC ${BARRY_LIB})
+
+    target_compile_definitions(myLib PUBLIC USE_BARRY)
+    target_include_directories(myLib PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+
+CMake 3.23 更新功能 FILE_SET 可以使用 CXX_MODULES 支持 C++20 的模块。
+当前 CMake 对 C++20 模块这个不成熟的方案支持度还不够高，可用 add_custom_target 来编译模块。
+https://vladiant.github.io/blog/2022/09/24/cmake-cpp-modules
+
+    cmake_minimum_required(VERSION 3.23)
+    project(simple CXX)
+    set(CMAKE_CXX_STANDARD 20)
+    add_library(simple)
+
+    target_sources(simple
+       PRIVATE
+       FILE_SET cxx_modules TYPE CXX_MODULES FILES
+       A.cpp B.cpp
+    )
+
+New in version 3.1. Add sources to a target.
+New in version 3.20: <target> can be a custom target.
+New in version 3.23: FILE_SET
+
+    target_sources(<target>
+      <INTERFACE|PUBLIC|PRIVATE> [items1...]
+      [<INTERFACE|PUBLIC|PRIVATE> [items2...] ...])
+
+Specifies sources to use when building a target and/or its dependents. 
+The named <target> must have been created by a command such as 
+
+    add_executable()
+    add_library()
+    add_custom_target()
+
+and must not be an ALIAS target. The <items> may use generator expressions.
+
+    # WRONG: starts with generator expression, but relative path used
+    target_sources(MyTarget PRIVATE "$<$<CONFIG:Debug>:dbgsrc.cpp>")
+    
+    # CORRECT: absolute path used inside the generator expression
+    target_sources(MyTarget PRIVATE "$<$<CONFIG:Debug>:${CMAKE_CURRENT_SOURCE_DIR}/dbgsrc.cpp>")
+
+File Sets - New in version 3.23.
+
+    target_sources(<target>
+      [<INTERFACE|PUBLIC|PRIVATE>
+       [FILE_SET <set> [TYPE <type>] [BASE_DIRS <dirs>...] [FILES <files>...]]...
+      ]...)
+
+Adds a file set to a target, or adds files to an existing file set. 
+Targets have zero or more named file sets. Each file set has a name, 
+a type, a scope of INTERFACE, PUBLIC, or PRIVATE, one or more base directories, 
+and files within those directories. The acceptable types include:
+
+- HEADERS
+
+    Sources intended to be used via a language's #include mechanism.
+
+- CXX_MODULES
+
+    Note Experimental. Gated by CMAKE_EXPERIMENTAL_CXX_MODULE_CMAKE_API
+    Sources which contain C++ interface module or partition units 
+    (i.e., those using the export keyword). 
+    This file set type may not have an INTERFACE scope except on IMPORTED targets.
+
+- CXX_MODULE_HEADER_UNITS
+
+    Note Experimental. Gated by CMAKE_EXPERIMENTAL_CXX_MODULE_CMAKE_API
+    C++ header sources which may be imported by other C++ source code. 
+    This file set type may not have an INTERFACE scope except on IMPORTED targets.
+
+    The optional default file sets are named after their type. 
+    The target may not be a custom target or FRAMEWORK target.
+
+    Files in a PRIVATE or PUBLIC file set are marked as source files for 
+    the purposes of IDE integration. Additionally, files in HEADERS file sets 
+    have their HEADER_FILE_ONLY property set to TRUE. 
+    Files in an INTERFACE or PUBLIC file set can be installed with the 
+    install(TARGETS) command, and exported with the install(EXPORT) 
+    and export() commands.
+
+    Each target_sources(FILE_SET) entry starts with INTERFACE, PUBLIC, or 
+    PRIVATE and accepts the following arguments:
+
+- FILE_SET <set>
+
+    The name of the file set to create or add to. It must contain only letters, 
+    numbers and underscores. Names starting with a capital letter are reserved 
+    for built-in file sets predefined by CMake. The only predefined set names 
+    are those matching the acceptable types. All other set names must not start 
+    with a capital letter or underscore.
+
+- TYPE <type>
+
+    Every file set is associated with a particular type of file. Only types 
+    specified above may be used and it is an error to specify anything else. 
+    As a special case, if the name of the file set is one of the types, the 
+    type does not need to be specified and the TYPE <type> arguments can be 
+    omitted. For all other file set names, TYPE is required.
+
+- BASE_DIRS <dirs>...
+
+    An optional list of base directories of the file set. Any relative path 
+    is treated as relative to the current source directory 
+    (i.e. CMAKE_CURRENT_SOURCE_DIR). If no BASE_DIRS are specified when the 
+    file set is first created, the value of CMAKE_CURRENT_SOURCE_DIR is added. 
+    This argument supports generator expressions.
+
+    No two base directories for a file set may be sub-directories of each other. 
+    This requirement must be met across all base directories added to a file set, 
+    not just those within a single call to target_sources().
+
+- FILES <files>...
+
+    An optional list of files to add to the file set. Each file must be in 
+    one of the base directories, or a subdirectory of one of the base directories. 
+    This argument supports generator expressions.
+    If relative paths are specified, they are considered relative to 
+
+    CMAKE_CURRENT_SOURCE_DIR at the time target_sources() is called. 
+    An exception to this is a path starting with $<. Such paths are treated as 
+    relative to the target's source directory after evaluation of generator expressions.
+
+    The following target properties are set by target_sources(FILE_SET), but 
+    they should not generally be manipulated directly:
+
+For file sets of type HEADERS:
+
+    HEADER_SETS
+    INTERFACE_HEADER_SETS
+    HEADER_SET
+    HEADER_SET_<NAME>
+    HEADER_DIRS
+    HEADER_DIRS_<NAME>
+
+For file sets of type CXX_MODULES:
+
+    CXX_MODULE_SETS
+    INTERFACE_CXX_MODULE_SETS
+    CXX_MODULE_SET
+    CXX_MODULE_SET_<NAME>
+    CXX_MODULE_DIRS
+    CXX_MODULE_DIRS_<NAME>
+
+For file sets of type CXX_MODULE_HEADER_UNITS:
+
+    CXX_MODULE_HEADER_UNIT_SETS
+    INTERFACE_CXX_MODULE_HEADER_UNIT_SETS
+    CXX_MODULE_HEADER_UNIT_SET
+    CXX_MODULE_HEADER_UNIT_SET_<NAME>
+    CXX_MODULE_HEADER_UNIT_DIRS
+    CXX_MODULE_HEADER_UNIT_DIRS_<NAME>
+
+Target properties related to include directories are also modified by 
+target_sources(FILE_SET) as follows:
+
+INCLUDE_DIRECTORIES
+
+    If the TYPE is HEADERS or CXX_MODULE_HEADER_UNITS, and the scope of 
+    the file set is PRIVATE or PUBLIC, all of the BASE_DIRS of the file set 
+    are wrapped in $<BUILD_INTERFACE> and appended to this property.
+
+INTERFACE_INCLUDE_DIRECTORIES
+
+    If the TYPE is HEADERS or CXX_MODULE_HEADER_UNITS, and the scope of 
+    the file set is INTERFACE or PUBLIC, all of the BASE_DIRS of the file set 
+    are wrapped in $<BUILD_INTERFACE> and appended to this property.
+
+
+## 🐤🐥 generator expressions 生成器表达式
 - https://cmake.org/cmake/help/latest/manual/cmake-generator-expressions.7.html
 
-生成器表达式 Generator expressions 可以在许多目标属性上下文中使用，如 LINK_LIBRARIES, INCLUDE_DIRECTORIES, COMPILE_DEFINITIONS 等等。也可以使用命令来填充这些属性，如 target_link_libraries(), target_include_directories(), target_compile_definitions() 等等。
+生成器表达式 Generator expressions 可以在许多目标属性上下文中使用，如：
 
-它们通常用于条件链接、条件编译，或有条件的目录引用等等。这些条件可能基于构建配置，目标属性，平台信息或其它。
+    LINK_LIBRARIES, 
+    INCLUDE_DIRECTORIES, 
+    COMPILE_DEFINITIONS
+
+    target_link_libraries(), 
+    target_include_directories(), 
+    target_compile_definitions()
+
+它们通常用于条件链接、条件编译，或有条件的目录引用等等。这些条件可能基于构建配置，目标属性，
+平台信息或其它。
 
 生成器表达式语法 `$<...>`，可以进行嵌套使用。
 
@@ -5408,7 +5680,7 @@ Variable Queries
 
 
 
-## Sring 处理
+## 🐤🐥 Sring 处理
 - https://cmake.org/cmake/help/latest/command/string.html
 
 CMake 字符串处理能力很强大，包括正则表达式工具，可以用来查找、替换，也可以生成指定特征的字符串：
@@ -5462,7 +5734,7 @@ CMake 字符串处理能力很强大，包括正则表达式工具，可以用�
              EQUAL <json-string1> <json-string2>)
 
 
-## List 列表处理
+## 🐤🐥 List 列表处理
 - https://cmake.org/cmake/help/latest/command/list.html
 
 列表是 CMake 中常用的命令，列表在 CMake 无处不在，可以配合 foreacch 命令使用：
@@ -5500,7 +5772,7 @@ CMake 字符串处理能力很强大，包括正则表达式工具，可以用�
     list(APPEND list_${name_suffix} "other value") # Appends to a list 'list_b'.
 
 
-## if 条件判断
+## 🐤🐥 if 条件判断
 - https://cmake.org/cmake/help/latest/command/if.html
 
 语法：
@@ -5513,7 +5785,10 @@ CMake 字符串处理能力很强大，包括正则表达式工具，可以用�
         #...
     endif()
 
-可用的判断方式有 EQUAL, LESS, LESS_EQUAL, GREATER, GREATER_EQUAL, STREQUAL, STRLESS, STRLESS_EQUAL, STRGREATER, STRGREATER_EQUAL, VERSION_EQUAL, VERSION_LESS, VERSION_LESS_EQUAL, VERSION_GREATER, VERSION_GREATER_EQUAL, MATCHES，还有布尔值判断 NOT, AND, OR。
+可用的判断方式有 EQUAL, LESS, LESS_EQUAL, GREATER, GREATER_EQUAL, STREQUAL, 
+STRLESS, STRLESS_EQUAL, STRGREATER, STRGREATER_EQUAL, VERSION_EQUAL, 
+VERSION_LESS, VERSION_LESS_EQUAL, VERSION_GREATER, VERSION_GREATER_EQUAL, 
+MATCHES，还有布尔值判断 NOT, AND, OR。
 
 Basic Expressions
 
@@ -5521,11 +5796,15 @@ Basic Expressions
     if(<variable>)
     if(<string>)
 
-如果常量 constant 的值是真值常量时为条件成立： 1, ON, YES, TRUE, Y, 或者 non-zero number 。如果值是假值常量则不成立： 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, 空字符串或后缀为 -NOTFOUND。
+如果常量 constant 的值是真值常量时为条件成立： 1, ON, YES, TRUE, Y, 或者 non-zero number。
+如果值是假值常量则不成立： 0, OFF, NO, FALSE, N, IGNORE, NOTFOUND, 空字符串或后缀为 
+-NOTFOUND。
 
-如果变量 variable 的值不是一个真值常量则条件成立，不则不成立，包括未定义变量。注意，macro 参数不是变量，而 Environment variables 不能用于测试，所以 if(ENV{some_var}) 这样的表达总是是不成立。
+如果变量 variable 的值不是一个真值常量则条件成立，不则不成立，包括未定义变量。注意，macro 参数
+不是变量，而 Environment variables 不能用于测试，所以 if(ENV{some_var}) 这样的表达总是不成立。
 
-对于双引号的字符串 string，条件总是不成立，除非字符串值是真值常量，或者 Policy CMP0054 策略没有设置为 NEW 并且字符串的值恰好是受 CMP0054 行为影响的变量名。
+对于双引号的字符串 string，条件总是不成立，除非字符串值是真值常量，或者 Policy CMP0054 策略
+没有设置为 NEW 并且字符串的值恰好是受 CMP0054 行为影响的变量名。
 
 以下代码中的条件判断等价 if(var1)，变量扩展后得到 var1，最后 OFF 导致不成立：
 
@@ -5629,7 +5908,7 @@ version format is major[.minor[.patch[.tweak]]], omitted components are treated 
     endif()
 
 
-## foreach 循环处理
+## 🐤🐥 foreach 循环处理
 - https://cmake.org/cmake/help/latest/command/foreach.html
 
 语法：
@@ -5730,8 +6009,14 @@ version format is major[.minor[.patch[.tweak]]], omitted components are treated 
 
 
 
-## add_custom_command
+## 🐤🐥 add_custom_command
 - https://cmake.org/cmake/help/latest/command/add_custom_command.html
+- https://cmake.org/cmake/help/latest/manual/cmake-commands.7.html
+- https://cmake.org/cmake/help/latest/command/build_command.html
+
+Deprecated Commands 
+
+    load_command()
 
 向构建过程添加自定义构造规则，执行自定义命令，add_custom_command 有两种使用方式:
 
@@ -5801,7 +6086,7 @@ version format is major[.minor[.patch[.tweak]]], omitted components are treated 
 
 
 
-## CMake Ctest
+## 🐤🐥 CMake Ctest
 - [CppUnit 单元测试](http://sourceforge.net/projects/cppunit)
 - [Boost 单元测试框架](https://www.ibm.com/developerworks/cn/aix/library/au-ctools1_boost/index.html)
 - [Google C++ Testing Framework 简介](https://www.ibm.com/developerworks/cn/aix/library/au-googletestingframework.html)
@@ -5945,7 +6230,7 @@ CppUnit 是 XUnit 中的一员，XUnit 是一个大家族，还包括 JUnit 和 
 
 
 
-# 🚩 MSVC CL.EXE 编译器
+# 🐣 MSVC CL.EXE 编译器
 - [MSVC 构建参考手册](https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference)
 - [CL.EXE 选项参考](https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-by-category)
 - [LINK.EXE 选项参考](https://docs.microsoft.com/en-us/cpp/build/reference/linker-options)
@@ -6400,7 +6685,7 @@ MSVC 编译命令基本语法：
 |    2008 | 9.x       | 15.x      |          1500 |
 
 
-## MSVC & DLL
+## 🐤🐥 MSVC & DLL
 - [Exporting a class from a DLL for multiple instantiations](http://www.mingw.org/wiki/exporting_a_class_from_a_dll_for_multiple_instantiations)
 - [Decorated Names](https://docs.microsoft.com/en-us/cpp/build/reference/decorated-names?view=vs-2019)
 - [VC Listing file type](https://docs.microsoft.com/en-us/cpp/build/reference/fa-fa-listing-file?view=vs-2019)
@@ -6631,7 +6916,7 @@ MSVC 和 MinGW 编译的 DLL 互用，两个编译器的应用程序二进制接
 
 
 
-## Ninja & MSVC
+## 🐤🐥 Ninja & MSVC
 - [TN011: Using MFC as Part of a DLL](https://docs.microsoft.com/en-us/cpp/mfc/tn011-using-mfc-as-part-of-a-dll?view=vs-2019)
 - [TN033: DLL Version of MFC](https://docs.microsoft.com/en-us/cpp/mfc/tn033-dll-version-of-mfc?view=vs-2019)
 
@@ -6801,7 +7086,7 @@ add_subdirectory(dynamicLib)
 
 
 
-## RC VERSIONINFO
+## 🐤🐥 RC VERSIONINFO
 - [Versioninfo Resource](https://docs.microsoft.com/en-us/windows/win32/menurc/versioninfo-resource)
 - [Version Information API](https://docs.microsoft.com/en-us/windows/win32/menurc/version-information)
 - [VS_FIXEDFILEINFO structure](https://docs.microsoft.com/en-us/windows/win32/api/verrsrc/ns-verrsrc-vs_fixedfileinfo)
@@ -6872,7 +7157,7 @@ add_subdirectory(dynamicLib)
     add_library(${TARGET_NAME} SHARED ${PUBLIC_HEADERS} ${PRIVATE_HEADERS} ${SOURCES} ${MY_VERSIONINFO_RC })
 
 
-## CL.EXE 选项列表
+## 🐤🐥 CL.EXE 选项列表
 - [MSVC 构建参考手册](https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference)
 - [CL.EXE 选项参考](https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-by-category)
 - [LINK.EXE 选项参考](https://docs.microsoft.com/en-us/cpp/build/reference/linker-options)
@@ -7218,7 +7503,7 @@ Linking
 | /Zg             | ⛔ 生成函数原型，Visual Studio 2015 移除了                  |
 
 
-## Link.EXE 选项
+## 🐤🐥 Link.EXE 选项
 - [MSVC 构建参考手册](https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-building-reference)
 - [CL.EXE 选项参考](https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-by-category)
 - [LINK.EXE 选项参考](https://docs.microsoft.com/en-us/cpp/build/reference/linker-options)
@@ -7335,7 +7620,7 @@ Controls the optimizations that LINK performs during a build.
 
 
 
-# 🚩 CLANG
+# 🐣 CLANG
 - [结构化编译器前端 Clang 介绍](https://developer.ibm.com/zh/articles/os-cn-clang/)
 - [Clang: a C language family frontend for LLVM](https://clang.llvm.org/)
 
@@ -7420,7 +7705,7 @@ LLVM IR 文件 link 操作
 
 
 
-# 🚩 GCC - GNU Compiler Collection
+# 🐣 GCC - GNU Compiler Collection
 - [GCC - the GNU Compiler Collection](https://gcc.gnu.org/)
 - [GCC Releases](http://gcc.gnu.org/releases.html)
 - [GCC 5 Release Series](https://gcc.gnu.org/gcc-5/)
@@ -7561,7 +7846,7 @@ MinGW Distro 是提供了一个开箱即用的打包,提供最新的 MinGW 17.1 
 | -std=iso9899:2017   | ✅       | ✅       | ❌       | ✓ ISO 2017 C (2018)，同 `-std=c17`                         |
 | -std=iso9899:2018   | ✅       | ✅       | ❌       | ✓ ISO 2017 C (2018)，同 `-std=c17`                         |
 
-## GCC CLI 命令
+## 🐤🐥 GCC CLI 命令
 - ld Linux man page https://www.man7.org/linux/man-pages/man1/ld.1.html
 - https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
 - https://gcc.gnu.org/onlinedocs/gcc/Environment-Variables.html
@@ -7738,7 +8023,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 
 
 
-## GCC Warning
+## 🐤🐥 GCC Warning
 
 ❌ warning: no return statement in function returning non-void [-Wreturn-type]
 
@@ -7749,7 +8034,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 使用了过时的符号定义，更正使用最新的替代符号。
 
 
-## GCC Error
+## 🐤🐥 GCC Error
 
 ❌ error: 'xxx' was not declared in this scope
 
@@ -7772,7 +8057,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 
 这里的问题就很隐秘，因为自己的程序中使用的 libpng 是使用 Anaconda 中的 zlib 编译的，而在编译程序时使用了另一个 zlib 版本，这就是版本不一致导致的引用未定义符号。
 
-## gcc options
+## 🐤🐥 gcc options
 
     Usage: gcc [options] file...
     Options:
@@ -7853,7 +8138,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
                                   behavior.  Same as -Wplacement-new=.
       -Wplacement-new=<0,2>       Warn for placement new expressions with undefined
                                   behavior.
-## Fortran options
+## 🐤🐥 Fortran options
 
     The following options are specific to just the language Fortran:
       -J<directory>               Put MODULE files in 'directory'.
@@ -8025,7 +8310,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
       -std=gnu                    Conform to nothing in particular.
       -std=legacy                 Accept extensions to support legacy code.
 
-## golang options
+## 🐤🐥 golang options
 
     The following options are specific to just the language Go:
       -fgo-c-header=<file>        Write Go struct definitions to file as C code.
@@ -8063,7 +8348,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
     The following options are specific to just the language ObjC++:
       -fobjc-call-cxx-cdtors      Generate special Objective-C methods to
                                   initialize/destroy non-POD C++ ivars, if needed.
-## language-related
+## 🐤🐥 language-related
 
     The following options are language-related:
       --all-warnings              Same as -Wall.  Use the latter option instead.
@@ -9355,7 +9640,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
                                   transformation.
       avoid-fma-max-bits          Maximum number of bits for which we avoid
                                   creating FMAs.
-## warning messages
+## 🐤🐥 warning messages
 
     The following options control compiler warning messages:
       --extra-warnings            Same as -Wextra.  Use the latter option instead.
@@ -9457,7 +9742,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
       -Wunused-value              Warn when an expression value is unused.
       -Wvector-operation-performance Warn when a vector operation is compiled
                                   outside the SIMD.
-## optimization options
+## 🐤🐥 optimization options
 
     The following options control optimizations:
       -O<number>                  Set optimization level to <number>.
@@ -9810,7 +10095,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
       -fwrapv                     Assume signed arithmetic overflow wraps around.
       -fwrapv-pointer             Assume pointer overflow wraps around.
 
-## target specific options
+## 🐤🐥 target specific options
 
     The following options are target specific:
       -m128bit-long-double        sizeof(long double) is 16.
@@ -10144,7 +10429,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
       Known TLS dialects (for use with the -mtls-dialect= option):
         gnu gnu2
 
-## language-independent options
+## 🐤🐥 language-independent options
 
     The following options are language-independent:
       --debug                     Same as -g.  Use the latter option instead.
@@ -10539,7 +10824,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
       -quiet                      Do not display functions compiled or elapsed time.
       -version                    Display the compiler's version.
 
-## as options
+## 🐤🐥 as options
 
     Usage: as [option...] [asmfile...]
     Options:
@@ -10688,7 +10973,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
     Overview: http://gcc.gnu.org/onlinedocs/gccint/Collect2.html
     Report bugs: <http://www.cnblogs.com/nlsoft>
 
-## ld options
+## 🐤🐥 ld options
 
     Usage: ld.exe [options] file...
     Options:
@@ -11021,7 +11306,7 @@ a.out: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped
 
 
 
-# 🚩 WSL - Windows Subsystem for Linux
+# 🐣 WSL - Windows Subsystem for Linux
 - [WSL Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 - [WSL VSCode](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
 - [VSCode Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
@@ -11196,7 +11481,7 @@ DrvFs 是 WSL 提供的文件驱动器映射系统，通过它可以装饰各个
     fi
 
 
-## SSH 登录设置
+## 🐤🐥 SSH 登录设置
 
 在 Windows WSL 系统上启用 SSH 服务，先适当修改配置文件，更改端口 Port 22 改成 Port，或启用密码验证 PasswordAuthentication，并创建密钥对：
 
@@ -11229,7 +11514,7 @@ $ sudo service ssh restart
 
 
 
-## GUI - X Windows 图形协议
+## 🐤🐥 GUI - X Windows 图形协议
 - [X Window 系统的窗口显示原理](https://www.ibm.com/developerworks/cn/linux/l-cn-xwin/)
 - [The Xlib Manual](https://tronche.com/gui/x/xlib/)
 - [Dear imgui](https://github.com/ocornut/imgui)
@@ -11353,7 +11638,7 @@ vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如�
 
 
 
-## paltform relialy preprocessor
+## 🐤🐥 paltform relialy preprocessor
 - https://stackoverflow.com/questions/5919996/how-to-detect-reliably-mac-os-x-ios-linux-windows-in-c-preprocessor
 
 平台依赖预处理示例：
@@ -11398,13 +11683,24 @@ vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如�
 可以参考 Qt 的 qglobal.h 头文件。
 
 
-# 🚩 DLL with MinGW
+# 🐣 DLL with MinGW
 - [Building Windows DLLs with MinGW](https://www.transmissionzero.co.uk/computing/building-dlls-with-mingw/)
 - [MinGW-w64 GCC for Windows](https://zhuanlan.zhihu.com/p/76613134)
 - [Advanced MinGW DLL Topics](https://www.transmissionzero.co.uk/computing/advanced-mingw-dll-topics/)
+- [A.1 — Static and dynamic libraries](https://www.learncpp.com/cpp-tutorial/a1-static-and-dynamic-libraries/)
+- [Dynamic linking best practices(https://begriffs.com/posts/2021-07-04-shared-libraries.html)
+
+动态库和静态库在不同平台下的几点差别：
+
+- static library 也称 archive，Linux 和 Windows 系统分别使用 .a 和 .lib 文件。
+- dynamic library 也称为 shared library，Linux 和 Windows 系统上分别为 .so 和 .dll 文件；
+- 因为动态库需要在编译期向程序导入符号信息，又需要一个导入库 import library：
+    - Windows 的导入库使用一个小型静态库 (.lib)记录这些信息。
+    - Linux 系统上，动态库和导入库都是 .so 文件。
 
 在编译动态链接的程序时，要区别动态链接库 DLL 和导入库 LIB 的概念，程序要完成编译就需要相关的
-导入库 lib 文件，导入库只记录了在动态链接库导出的符号，编译得到程序要运行就需要导入库关联的 DLL 文件。
+导入库 lib 文件，导入库只记录了在动态链接库导出的符号，编译得到程序要运行就需要导入库关联的
+DLL 文件。
 
 在编译静态链接的程序时，只需要导入库，并且静态导入库 lib 文件包含了符号定义和实现代码，程序和
 静态库链接后运行就不需要依赖 DLL 文件。
@@ -11473,7 +11769,7 @@ vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如�
 - Loading and unloading DLLs at runtime.
 
 
-## Dll Information
+## 🐤🐥 Dll Information
 
 使用 GNU binutils objdump 查看 DLL 导出函数符号：
 
@@ -11544,7 +11840,7 @@ vim 的替换 substitute 命令 `:s` 用来查找和替换字符串，语法如�
             1000 .text
             1000 .tls
 
-## The DllMain function.
+## 🐤🐥 The DllMain function.
 
 DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
 
@@ -11574,10 +11870,11 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
       return TRUE;
     }
 
-## Using a module definition file.
+## 🐤🐥 Using a module definition file.
 - [Import library & export file](https://docs.microsoft.com/en-us/cpp/build/reference/building-an-import-library-and-export-file?view=vs-2019)
 
-除了 `__declspec(dllexport)` 标记一个导出函数，更方便的做法是使用模块定义文件 module definition file，它可以定义 DLL 中导出的变量、函数等等，如下 `AddLib.def`：
+除了 `__declspec(dllexport)` 标记一个导出函数，更方便的做法是使用模块定义文件 
+module definition file，它可以定义 DLL 中导出的变量、函数等等，如下 `AddLib.def`：
 
     LIBRARY AddLib.dll
     EXPORTS
@@ -11626,7 +11923,7 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
     >gcc -o AddLib.dll add.o AddLib.def -shared -s -Wl,--subsystem,windows,--out-implib,libaddlib.a
 
 
-## Exporting Undecorated stdcall Functions
+## 🐤🐥 Exporting Undecorated stdcall Functions
 
 导出函数意味着 stdcall 调用转换，即 `int Add(int, int)` 这样的函数签名会导出变成 `Add@8`
 类似格式，`@` 符号后面跟着的数字表示参数占据的空间，而 Visual C++ 还会使用其它前缀，
@@ -11650,7 +11947,7 @@ DllMain 是 DLL 入口函数，在加载或卸载时被系统调用：
 最后，基于模块定义文件创建导入库，如果你关心不同编译器的表现，这一步会很有趣。事实上，Win32 API
 函数都是以这种方式导出的，没有任何修饰。
 
-## Exporting C++ functions and variables
+## 🐤🐥 Exporting C++ functions and variables
 
 在 C++ DLL 的导出符号中，不同编译器之间是不通用的，甚至同一个编译器不同版本也不通用。
 因为 C++ 的复杂性，要处理异常、虚函数实现、或 STL 类型的不同内存模型等等。为了明确不兼容，
@@ -11973,7 +12270,7 @@ Make 或 Make install 生成动态链接库，然后生成 PointTest 程序：
 
 
 
-## Creating JNI DLLs
+## 🐤🐥 Creating JNI DLLs
 
 MinGW 创建的 DLL 可以和 Java Native Interface 一起使用，JNI 调用 Win32 函数使用 
 stdcall 调用约定，这种调用表示函数参数入栈顺序从右到左。
@@ -12071,7 +12368,7 @@ JVM 希望调用的 DLL 函数名是未修饰的，或者按 `_[function name]@[
     Can't load IA 32-bit .dll on a AMD 64-bit platform
 
 
-## P/Invoking MinGW DLLs in .NET
+## 🐤🐥 P/Invoking MinGW DLLs in .NET
 
 MinGW 编译的 DLL 与 .NET 一起使用要比 JNI 简单，因为不必按 JNI 规定格式进行设置。 
 
@@ -12139,7 +12436,7 @@ gdi32.dll 等非托管 DLL 中导出的函数。
 
 
 
-## Using MinGW DLLs with VB6 and VBA
+## 🐤🐥 Using MinGW DLLs with VB6 and VBA
 
 MinGW 编译的 DLL 可以和 Visual Basic 6 或 VBA 一起使用，只要调用约定为 stdcall 方式，
 不支持 cdecl 或其它调用约定，并且使用 `--kill-at` 编译选项：
@@ -12174,7 +12471,7 @@ MinGW 编译的 DLL 可以和 Visual Basic 6 或 VBA 一起使用，只要调用
 
 
 
-## Setting the DLL base address
+## 🐤🐥 Setting the DLL base address
 
 DLL 的基址 base address 是 Windows 系统加载 DLL 的默认地址，进程的内存空间是一个`虚拟空间`
 virtual address space。程序中使用的 DLL 很多，当任意 DLL 的地址出现覆盖时，就不可能按 DLL
@@ -12231,7 +12528,7 @@ virtual address space。程序中使用的 DLL 很多，当任意 DLL 的地址�
     LoaderFlags             00000000
     NumberOfRvaAndSizes     00000010
 
-## Loading and unloading DLLs at runtime
+## 🐤🐥 Loading and unloading DLLs at runtime
 
 运行时加载 DLL 对于插件开发是非常有用的。
 
@@ -12299,7 +12596,7 @@ DoPlugin 就可以让插件运行起来。
     7 + 41 = 48
 
 
-# 🚩 CMake OpenCV
+# 🐣 CMake OpenCV
 
 使用 OpenCV 创建一个简单的程序 DisplayImage.cpp，如下所示。
 
@@ -12498,7 +12795,7 @@ working_dir 设置的当前工作目录一定要存在，否则命令不能执�
 
 
 
-# 🚩 OpenCV freetype 模块单独构建
+# 🐣 OpenCV freetype 模块单独构建
 - [CMake 构建静态库与动态库](https://www.cnblogs.com/52php/p/5681755.html)
 - [OpenCV freetype 模块启用支持并中文](https://cloud.tencent.com/developer/article/1353734)
 - [OpenCV 渲染中文字符](https://mangoroom.cn/opencv/opencv-puttext-chinese-characters.html)

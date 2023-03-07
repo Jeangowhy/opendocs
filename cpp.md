@@ -1,3 +1,12 @@
+# =🚩Sentences marker
+
+External linkage pertains to entities declared extern, functions, class types 
+and their members (including static members), and variables, and all templates 
+thereof, that are not already internal by the rules above, and all enums. 
+
+This sounds very esoteric, so let’s pin it down with some concrete examples:
+
+
 # =🚩 Big forest
 - [初识 Rust](https://wudaijun.com/2020/02/rust-basic/)
 - [Cppreference Archives](https://en.cppreference.com/w/Cppreference:Archives)
@@ -204,6 +213,7 @@ function objects（函数对象）。按照本书所述，你可以把STL想象�
 - [Compiler support for C++20](https://en.cppreference.com/w/cpp/compiler_support/20)
 - [Professional C++, 5th Edition](https://www.wiley.com/en-us/Professional+C%2B%2B%2C+5th+Edition-p-9781119695400)
 - [Thriving in a Crowded and Changing World: C++ 2006–2020](https://www.stroustrup.com/hopl20main-p5-p-bfc9cd4--final.pdf)
+- [C++20: Module Interface & Implementation Unit](https://www.modernescpp.com/index.php/c-20-module-interface-unit-and-module-implementation-unit)
 - ISO/IEC 14882:2011 Programming Language C++
 - ISO/IEC 14882:2020 Programming Language C++
 
@@ -249,6 +259,7 @@ Marc 还喜欢 C#。
 用户组 www.becpp.org 的创始人，是 C++ Standard Library Quick Reference 第 1、2 版
 的共同作者，以及多家出版社出版的多种书籍的技术编辑，是 C++ 大会 CppCon 的活跃演讲者。
 
+https://www.modernescpp.com/images/blog/Cpp20/ModuleInterfaceUnitModuleImplementationUnit/TimelineCpp20.png
 
 在 C++20 中，最重要的两个特性是“模块 (Modules)”和“协程 (Coroutine)”。
 
@@ -510,11 +521,20 @@ The Standard C++ Locale by Nathan C. Myers，所以在需要 I/O 性能优化的
 - [Clang 17 - Modules](https://clang.llvm.org/docs/Modules.html)
 - [Clang 17 - Standard C++ Modules](https://clang.llvm.org/docs/StandardCPlusPlusModules.html)
 - [Clang CLI reference](https://clang.llvm.org/docs/ClangCommandLineReference.html)
+- [Modules in C++20 and CMake](https://www.steinzone.de/wordpress/modules-in-c20-and-cmake/)
+- [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html)
+- [import CMake; C++20 Modules](https://www.kitware.com/import-cmake-c20-modules/)
 
 C++ 作为向后兼容 C 语言的一种系统底层高级编程语言，它的编译流程也基本和 C 语言的编译流程一致。
 C 语言在贝尔实验室刚诞生时，由于当时的计算机资源相当有限，其内存无法完全表示大型源文件的语法树。
 所以，为了能够编译大型项目，Dennis Ritchie 采用了分开编译源文件，最后链接形成可执行文件的
 编译单元化思想，让大文件的编译成为可能。
+
+是从编译器角度来看编译单元，translation unit 或者 compilation unit，这是非常重要的一个概念，
+即一个源文件经过预处理后，再经过编译后产生的一个目标文件，将 .cpp 编译成 .o 文件，编译单元中定义
+的符号与其它编译单元之间具有一种连接属性。长期以来，internal linkage 和 external linkage 是
+两种基本的连接属性，C++11 又引入了线程本地存储连接，C++20 则是引入了模块连接。
+
 
 早期的 C 语言编译器也并不像现代的编译器做一个单独的可执行程序，Dennis Ritchie 为 PDP-11
 编写的 C 语言编译器由七个可执行文件组成：cc/cpp/as/ld/c0/c1/c2。编译的步骤为:
@@ -533,6 +553,9 @@ C 语言在贝尔实验室刚诞生时，由于当时的计算机资源相当有
 
 预处理程序 preprocessor 是 C++ 编程中相当重要的一个阶段，它相当于是一个代码生成器，通过宏定义
 的展开，可以实现复杂的程序结构。C++20 从头文件引用转换到模块引用，其中一个问题就是头文件的预处理。
+
+- [Advanced C and C++ Compiling' by Milan Stevanovic](https://github.com/jerryhjc/C-linking)
+- [Advanced C and C++ Compiling Codes](https://github.com/apress/adv-c-cpp-compiling)
 
 当下，Clang 作为一个优秀的编译器前端与 LLVM 编译器架构一起发扬光大，无论是对 C/C++ 规范的支持
 ，编译速度，还是错误信息的友好度都是业界领先。无论是在工程，还是平时使用，Clang 都是一个可以作为
@@ -622,7 +645,99 @@ Clang 15 支持规范标准：
 | 'c++2b'                | Working draft for ISO C++ 2023 DIS                     |
 | 'gnu++2b'              | Working draft for ISO C++ 2023 DIS with GNU extensions |
 
+另外，Clang LSP 语言服务默认没有启用 C++20 规范，可以通过以下方式启用以识别新的关键字：
 
+    For compile_flags.txt only -std=c++20 seems to work.
+
+    For .clangd it seems it should be:
+
+    CompileFlags:
+      Add: [-std=c++20, -xc++]
+
+0. [Clangd Configuration](https://clangd.llvm.org/config.html)
+0. [How to setup clangd for C++ 20?](https://neovim.discourse.group/t/how-to-setup-clangd-for-c-20/1744)
+1. [聊聊 C++20 核心语言特性之 modules](https://www.bilibili.com/video/BV1PD4y1x7kd)
+2. [C++20 modules with GCC11](https://blog.feabhas.com/2021/08/c20-modules-with-gcc11/)
+3. [C++20 modules with GCC11 Codes](https://github.com/feabhas/Cpp20-Modules-getting-started)
+4. [GCC Wiki CXX Modules](https://gcc.gnu.org/wiki/cxx-modules)
+5. [Understanding C++ Modules: Part 1: Hello Modules, and Module Units](https://vector-of-bool.github.io/2019/03/10/modules-1.html)
+6. [Understanding C++ Modules: Part 2: export, import, visible, and reachable](https://vector-of-bool.github.io/2019/03/31/modules-2.html)
+7. [Understanding C++ Modules: Part 3: Linkage and Fragments](https://vector-of-bool.github.io/2019/10/07/modules-3.html)
+
+
+新规范的 import 关键字用法有多种形式：
+
+```C++
+    import <iostream>; // import header unit
+    import "module.h"; // import header file
+    import module;     // import module unit
+    import module.submodule;
+    import module:partition;
+    import :partiion;
+```
+
+注意，第二种，导入头文件和 include 功能非常类似，都可以实现插入代码到当前编译单元。但是，不同的
+是，如果在一个模块中使用 `import "module.h";`，那么这个头文件不可以访问到当前模块中定义的宏。
+模块中还可以使用 `module :private;` 进行私有化控制，避免外部访问私有区块。
+
+模块定义关键字 `module` 及 `export` 的用法，默认情况下模块及实现可以在同一代码文件中定义，也
+可以像传统 C/C++ 代码那样，声明与实现分离在 .h 和 .cpp 文件中，以加速编译流程。
+
+    and you want to import; you first need to compile it, e.g.
+
+    $ g++ -c -std=c++20 -fmodule-header header.h 
+    This generates a header.h.gcm file. The header can now be imported using the directive
+
+    import "header.h";
+
+与模块相关的每个文件称为模块单元，Module Unit，可以分离接口与实现，分别在两个单元中编写。主模块
+使用 export module 声明导出的模块名，而实现模块中则不使用 export：
+
+```C++
+    // 01. A Primary Module Interface Unit (PMIU)
+    module;                   // global module fragment [optional]
+    #include <xtensor.hpp>
+    export module my_module;  // module declartion 
+
+    // 02. A Module Implementation Unit
+    // An implementation unit contains the line:
+    module my_module;
+
+    export :my_partition;
+    module :private; // Private Module Partition (optional)
+```
+
+全局模块片段（Global module fragments）用来处理 C++20 规范之前那些不支持模块的代码、头文件，
+这些代码实际被隐式的当作全局模块片段处理，在全局模块片段声明后 include 这些头文件。
+
+子模块 submodule 并不是命名空间上的划分，而只是名称上分类管理，也就是将“模块”的边界自由度交给
+开发者进行管理。同义为同一模块的不同文件，会作为一个模块编译。
+
+Clang 解析模块名使用的正则表达式是 `[a-zA-Z_][a-zA-Z_0-9\.]*`，即模块名中的点其实就是名称
+的一部分，只是看着像子模块而已。Clang 文档中将模块分成 4 种形式：
+
+01. Primary module interface unit `export module module_name;`
+02. Module implementation unit `module module_name;`
+03. Module interface partition unit `export module module_name:partition_name;`
+04. Internal module partition unit `module module_name:partition_name;`
+
+模块分块单元则是 import module:partition; 这样的格式定义。模块分区可以精细地控制模块定义中要
+导出的部分，方便将大模块拆解成小的分区，如 `export :partition;`。
+
+从实践角度看，namespace 语义并没什么改变，导出模块中的符号定义在什么命名空间下，使用时，就需要
+通过相应的命名空间来访问导出的符号。使用 export 导出符号有以下方式：
+
+01. 可以分为单符号导出： export function, variable ...
+02. 可以导出类型定义： export class { ... }。
+03. 或者花括号代码块导出，方便导出代码块内的所有符号定义： export {...}
+04. 可以导出整个命名空间，和导出代码块类似： export namespace { ... }
+
+使用 import 和 export 的约束：
+
+1. `export module` must appear once per module
+2. `export import` is only allowed for interface partitions
+3. `export` is not allowed in implementation units
+4. `import` 是一个特殊关键字，在其它语句前使用就是导入模块，否则它就是一个标识符。
 
 以下使用 Homebrew 安装的 clang version 15.0.7，以及 GCC 12.2.0。
 
@@ -632,11 +747,29 @@ Clang 模块的一些定义规则：
 - 模块代码中以 `module;` 打头，但是 `export module` 语句要在 include 指令后面；
 - 使用 --precompile 指令预编译模块时，输出名称要和源文件名一致；
 
-模块定义以及测试参考如下，使用 Clang 编译时，一定要保存为 .cppm 文件。如果使用 GCC 编译，
-则宽松很多，保存为 .cc 或 .cxx .cpp 都是可以的，并且也不要求导出模块名称与文件名一致。不过，
-为了一致，还是保持一致的模块名与文件名为好。
+Clang 模块文件一般要保存为 .cppm 文件，根据模块文件的用途选择：
 
-```C++
+- Importable module unit: .cppm, .ccm, .cxxm, .c++m 
+- Implementation unit: .cpp, .cc, .cxx, .c++
+
+如果使用 GCC 编译，则宽松很多，保存为 .cc 或 .cxx .cpp 都可以，并且也不要求导出模块名称与
+文件名一致。不过，为了一致，还是保持一致的模块名与文件名为好，最好连命名空间也保持一致。否则就是
+Module implementation units are spooky beasts！不要人为模糊导入、导出，使模块边界模糊化。
+
+Clang 作为和 GCC 兼容的编译器，它也可以通过 -c 指令来指示编译使用什么语言规范来解析输入的文件。
+但是，使用非规范文件扩展名并编译模块 BMI 文件时，像在 GCC 中那样指定 -xc++ 并不起作用，而需要
+指定 `-xc++-module` 才能让 Clang 编译生成 BMI。
+[Clang 17.0.0 Docs Index](https://clang.llvm.org/docs/genindex.html)
+[Clang 15.0.0 documentation](https://releases.llvm.org/15.0.0/tools/clang/docs/index.html)
+
+Clang 模块定义语法参考：
+
+    [export] module module_name[:partition_name];
+
+
+模块定义以及测试参考如下：
+
+```C++,ignore
     // hello.cppm
     module;
     export module hello;
@@ -655,26 +788,42 @@ Clang 模块的一些定义规则：
     }
 
     // hello.cpp
-    import HelloWorld;
+    import hello;
     #include <iostream>
 
     using namespace std;
 
     int main() {
-        cout << "Hello? c++" << NS::f() << endl;
+        cout << "Hello c++" << NS::f() << endl;
     }
+```
+
+Clang 文档中给出了传统编译模式与模块化模式的编译流程图，可以清晰地了解模块化背后的编译工序：
+
+```sh
+    # The traditional compilation processes for headers are like:
+    src1.cpp -+> clang++ src1.cpp --> src1.o ---,
+    hdr1.h  --'                                 +-> clang++ src1.o src2.o ->  executable
+    hdr2.h  --,                                 |
+    src2.cpp -+> clang++ src2.cpp --> src2.o ---'
+
+    # And the compilation process for module units are like:
+                  src1.cpp ----------------------------------------+> clang++ src1.cpp -------> src1.o -,
+    (header unit) hdr1.h    -> clang++ hdr1.h ...    -> hdr1.pcm --'                                    +-> clang++ src1.o mod1.o src2.o ->  executable
+                  mod1.cppm -> clang++ mod1.cppm ... -> mod1.pcm --,--> clang++ mod1.pcm ... -> mod1.o -+
+                  src2.cpp ----------------------------------------+> clang++ src2.cpp -------> src2.o -'
 ```
 
 Clang 编译命令参考，编译标头单元文件需要 Clang 15：
 
 ```sh
-clang++ -std=c++20 --precompile ../hello.cppm -o hello.pcm
-clang++ -std=c++20 -fprebuilt-module-path=. hello.pcm ../hello.cpp -o Hello; ./Hello
+clang++ -std=c++20 --precompile ../mod.cppm -o mod.pcm
+clang++ -std=c++20 -fprebuilt-module-path=. mod.pcm ../hello.cpp -o Hello; ./Hello
 
-clang++ -std=c++20 -stdlib=libc++ -fprebuilt-module-path=. hello.pcm ../hello.cpp -o Hello; ./Hello
-clang++ -std=c++20 -stdlib=libc++ -fexperimental-library -ohello hello.cpp; ./hello
+clang++ -std=c++20 -stdlib=libc++ -fprebuilt-module-path="." mod.pcm ../hello.cpp
+clang++ -std=c++20 -stdlib=libc++ -fexperimental-library hello.cpp
 
-clang++ -std=c++20 -xc++-user-header --precompile some.cppm -o iostream.pcm
+clang++ -std=c++20 -xc++-user-header --precompile mod.cppm -o mod.pcm
 clang++ -std=c++20 -xc++-system-header --precompile iostream -o iostream.pcm
 
 clang++ -std=c++20 -fmodule-header foo.h -o foo.pcm
@@ -693,12 +842,90 @@ clang++ -std=c++20 -fmodule-file=iostream.pcm use.cpp
 
 默认值为 -fmodule-header=user，即相当于 MSVC 中使用 /headerUnit:quote 类似，按用户搜索
 路径定位标头文件。可以多次使用 -fmodule-file 以指定多个 BMI 文件。
+https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fmodule-file
+
+有三种方法可以指定 BMIs 文件路径，-fmodule-file 还可以映射模块名到 BMI：
+
+    -fprebuilt-module-path=<path/to/direcotry>.
+    -fmodule-file=<path/to/BMI>.
+    -fmodule-file=<module-name>=<path/to/BMI>.
+
+当导入 M 模块就会在指定目录下查找 M.pcm 文件，导入分区模块 M:P 就会查找 M-P.pcm 文件。除非
+使用 -fmodule-file 进行映射，这种方式节省了文件查找的时间。注意，模块之间的依赖对应的是 .pcm
+文件的依赖。
+
+使用分离式模块文件组织方式时，export 的用法在不同编译器之间有差异，模块中不能使用多条相同的 
+export module 语句，会导致模块初始化多重执行。
+<!-- 而 Clang 则相反，需要在模块的声明文件、实现 文件上同时使用 export module。 -->
+
+Clang 对模块分区文件名称有要求，假设模块接口单元 BMI 文件名为 module_name.pcm，那么对应的
+模块分区 BMI 文件名就应该是 module_name-partition_name.pcm，注意后缀 `partition_name`。
+
+    multiple definition of `initializer for module mod';
+
+```C++
+    // interface unit mod.ixx
+    export module mod;
+
+    // implementation unit mod.cpp
+    export module mod; // Clang
+    module mod; // GCC or MSVC
+```
+
+    clang++ -std=c++20 M.cppm --precompile -fmodule-file=M-interface_part.pcm -fmodule-file=M-impl_part.pcm -o M.pcm
+
+    clang++ -std=c++20 -xc++-module ..\mod-math1.cppm --precompile
+    clang++ -std=c++20 -xc++-module ..\mod-math2.cppm --precompile
+    clang++ -std=c++20 -xc++-module ..\mod.cppm -fprebuilt-module-path=".\" --precompile
+    clang++ -std=c++20 mod-math2.pcm mod-math1.pcm mod.pcm ..\app.cpp
+
+    clang++ -std=c++20 -xc++-module ..\mod.math1.ixx --precompile
+    clang++ -std=c++20 -xc++-module ..\mod.math2.ixx --precompile
+    clang++ -std=c++20 -xc++-module ..\mod.ixx -fprebuilt-module-path=".\" --precompile
+    clang++ -std=c++20 mod.math2.pcm mod.math1.pcm mod.pcm ..\app.cpp
+
+    clang++ -std=c++20 -xc++-module ..\mod.ixx --precompile -fmodule-file="mod-math1.pcm" -fmodule-file="mod-math2.pcm" -o mod.pcm
+
+    clang++ -std=c++20 M.cppm --precompile -fmodule-file=M-interface_part.pcm -fmodule-file=M-impl_part.pcm -o M.pcm
 
 
 GCC 在文件扩展名上的设计选择是，不支持新的拓展名，只支持原有的 .cc, .cxx, .cpp 等等拓展名。
-目前 GCC 12.2 还没有提供 <format> 标准库，使用 {fmt} 库替代。
+gcc 和 g++ 命令分别处理 C 语言和 C++ 语言，它们会根据输入文件的扩展名确定编译使用的语言规范，
+但是 GCC 提供了一个语言选项，在使用“特殊”扩展名时，用来指定什么什么语言规范解析文件内容：
 
-GCC 编译命令参考，使用 PowerShell：
+> g++ ..\xoption.xpp
+..\xoption.xpp: file not recognized: file format not recognized
+collect2: error: ld returned 1 exit status
+> g++ -x c++ ..\xoption.xpp; .\a.exe
+Test gcc -x c++
+
+[Overall Options (Using the GCC)](https://gcc.gnu.org/onlinedocs/gcc/Overall-Options.html)
+
+    -x language
+    Specify explicitly the language for the following input files 
+    (rather than letting the compiler choose a default based on the file name suffix).
+    This option applies to all following input files until the next -x option. 
+    Possible values for language are:
+
+    c  c-header  cpp-output
+    c++  c++-header  c++-system-header c++-user-header c++-cpp-output
+    objective-c  objective-c-header  objective-c-cpp-output
+    objective-c++ objective-c++-header objective-c++-cpp-output
+    assembler  assembler-with-cpp
+    ada
+    d
+    f77  f77-cpp-input f95  f95-cpp-input
+    go
+
+    -x none
+    Turn off any specification of a language, so that subsequent files are 
+    handled according to their file name suffixes 
+    (as they are if -x has not been used at all).
+
+
+GCC 编译命令参考如下，使用 PowerShell。GCC 可以一条命令中编译模块、主程序代码文件，自动生成 GCM
+文件并保存到 gcm.cache 目录下。也可以分部操作，先编译模块得到 object 文件，最后一起链接，这种
+方式通常用于大型项目，避免那些不需要更新的模块被重复编译，以节点编译时间：
 
 ```sh
     # GCC 12.2.0
@@ -706,16 +933,22 @@ GCC 编译命令参考，使用 PowerShell：
     $cclu = "C:\mingw-w64\llvm-mingw-20220906-ucrt-x86_64\bin\aarch64-w64-mingw32-g++.exe"
     $ccv = "C:\mingw-w64\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\bin\g++.exe"
     $ccu = "C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin\g++.exe"
-    $env:Path += ";C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin;"
+    $env:Path = ";C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin;"+$env:Path
 
+    &$ccu -std=c++20 -fmodules-ts -xc++-user-header -Ipath/to/search hello.h
     &$ccu -std=c++20 -fmodules-ts -xc++-system-header iostream  -xc++-system-header vector
     &$ccu -std=c++20 -fmodules-ts ../hello.cc ../hello.cpp -o hello ; ./hello
+    g++-12 -std=c++20 -fmodules-ts ../hello.cc ../hello.cpp -o hello ; ./hello
     
     # GCC 11 surport to generates a gcm from header
     # then you can use: import "header.h";
     g++-12 -c -std=c++20 -fmodule-header header.h 
 
-    g++-12 -std=c++20 -fmodules-ts ../hello.cc ../hello.cpp -o hello ; ./hello
+    g++ -c -xc++ -std=c++20 -fmodules-ts modules_ixx/*.ixx
+    g++ -c -xc++ -std=c++20 -fmodules-ts modules_ixx/hello.ixx
+    g++ -c -xc++ -std=c++20 -fmodules-ts modules_ixx/world.ixx
+    g++ -c -std=c++20 -fmodules-ts modules_ixx/app.cpp 
+    g++ app.o hello.o world.o -o App
 ```
 
 Windows 系统上，可以安装最新版本 MinGW-w64 编译工具以使用 GCC 12.2。Windows WSL 系统下
@@ -779,7 +1012,11 @@ Linux 系统安装软件的基本流程是：configure → make → make install
 
 GCC 上不能使用 fromat 标准库，可以使用 {fmt} 库，Professional C++ 5th 的入门教程中提供了
 一个头文件参考，只是引入了 {fmt} 的格式化函数、错误对象，以及格式化扩展接口。fmtlib 源代码中，
-src 目录包含的 fmt.cc 是一个全局模块，它引用了 C++ 标准库，也引用 {fmt} 库：
+src 目录包含的 fmt.cc 是一个全局模块，它引用了 C++ 标准库，也引用 {fmt} 库。
+
+全局模块片段 global module fragment 用来解决 import 头文件时无法和传统头文件引入效果的问题。
+通过在 fmt.cc 模块内 include 标准库头文件，就可以和传统的引入标准库一样的效果。
+
 
 ```C++
 #pragma once
@@ -798,6 +1035,18 @@ namespace std
 
     g++ ../hello.cpp -Ipath/to/3rd/fmtlib/include
     g++ -c -std=c++20 -fmodules-ts -fmodule-header ../fmt.h -I/fmtlib/include
+
+<!--
+    &$ccu -c -std=c++20 -fmodule-header -IC:\download\demo\3rd\fmtlib\include -IC:\download\demo\3rd\fmtlib\src C:\download\demo\3rd\fmtlib\src\fmt.cc 
+
+    g++ -std=c++20 -fmodules-ts -xc++-user-header -Ipath/to/search hello.h
+
+    $ccv = "C:\mingw-w64\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\bin\g++.exe"
+    $ccu = "C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin\g++.exe"
+    &$ccu -std=c++20 -fmodules-ts -Ic:/download/demo/3rd/fmtlib/include  (dir C:\download\demo\3rd\fmtlib\src\*.cc) ../hello.cpp 
+ -->
+
+目前 GCC 12.2 还没有提供 <format> 标准库，使用 {fmt} 库替代。
 
 [{fmt} Format String Syntax 格式字符串语法参考](https://fmt.dev/latest/syntax.html)
 [{fmt} Formatting & Printing Library](https://hackingcpp.com/cpp/libs/fmt.html)
@@ -831,7 +1080,7 @@ namespace std
 
 std::format 格式化参考：
 
-```C++
+```C++,ignore
     std::format("Hello {} in C++{}", "std::format", 20);
     // Hello std::format in C++20
     std::format("{0:#08b}, {0:#08o}, {0:08}, {0:#08x}", 16);
@@ -859,7 +1108,7 @@ std::format 格式化参考：
 
 扩展格式化接口，实现自定义类型格式化输出：
 
-```C++
+```C++,ignore
     #include <format>
     #include <iostream>
 
@@ -941,41 +1190,803 @@ PowerShell VC 编译环境。可以安装 Windows Terminal 终端工具，方便
 
     powershell.exe -c "&{Import-Module `"`"`"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll`"`"`"; Enter-VsDevShell d11e5b8c}"
 
+
+
+## ==⚡ Cmake vs. Xmake who is Ninja
+
+
+CMake 3.23 更新功能 FILE_SET 可以使用 CXX_MODULES 支持 C++20 的模块。
+CMake 对 C++20 模块这个不成熟的方案支持度还不够高，可用 add_custom_target 来编译模块。
+Ninja 1.10.2 在编译时，即使用 GCC 生成的 GCM 文件也会报错。
+
+Xmake 则称支持 C++20 模块，这是一个基于 lua 脚本语言开发的构建工具。现在 Xmake 支持远程编译，
+分布式编译，内置本地缓存，远程缓存。Xmake 的设计模式是直接构建，不依赖 makefile 和 make 工具，
+自动处理头文件依赖，并且默认开启多任务来加速构建，构建、打包、安装流程化处理。
+
+Xmake 是个人维护的一个开源项目，主程序用 C 语言开发，基于 Luajit 二次开发。源代码目录结构：
+
+- core/src 即为主程序的源代码，包管理工具 tbox，包仓库 xrepo，依赖 lua，luajit。
+- xmake 目录即为构建工具的框架代码，也就是用户使用的 xmake 构建工具实现逻辑。
+- tests 目录包含一些测试、示范工程。
+
+可以使用多种脚本方式安装，或者手动下载：
+
+```sh
+    # https://github.com/xmake-io/xmake
+    # * 官方自建仓库 [xmake-repo](https://github.com/xmake-io/xmake-repo) (tbox >1.6.1)
+    # * 官方包管理器 [Xrepo](https://github.com/xmake-io/xrepo)
+    curl -fsSL https://xmake.io/shget.text | bash
+    wget https://xmake.io/shget.text -O - | bash
+    Invoke-Expression (Invoke-Webrequest 'https://xmake.io/psget.text' -UseBasicParsing).Content
+```
+
+可以简单理解 xmake 为下面的综合体
+
+    Xmake ~= Make/Ninja + CMake/Meson + Vcpkg/Conan + distcc + ccache
+
+- [Ninjia: inputs may not also have inputs](https://github.com/ninja-build/ninja/issues/1962)
+- [Bug 105467 - Dependency file produced by C++ modules causes Ninja errors](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105467)
+- [xmake](https://xmake.io/#/getting_started)
+- [Xmake C++20 Module](https://xmake.io/#/guide/project_examples?id=c20-module)
+- [xmake v2.3.2 发布, 带来和ninja一样快的构建速度](https://codeantenna.com/a/8WLxrtmOMk)
+
+```sh
+# https://xmake.io/#/guide/quickstart
+# https://github.com/xmake-io/xrepo
+# https://github.com/xmake-io/xmake-docs
+# https://github.com/xmake-io/xrepo-docs
+# And xmake will generate some files for c language project:
+# hello
+# ├── src
+# │   └── main.c
+# └── xmake.lua
+$ xmake create -l c -P ./hello
+$ cd hello
+$ xmake
+$ xmake run hello
+```
+
+xmake 会自动探测当前主机平台，默认自动生成对应的目标程序。Xmake 支持 Wasm (WebAssembly) 和
+Mysys2、MinGW 等等平台。编译 WebAssembly 程序（内部会使用emcc工具链），在切换此平台之前，
+需要先进入 Emscripten 工具链环境，确保 emcc 等编译器可用。
+
+xmake 除了支持 Msys2/MingW, MingW for macOS/linux 之外，还支持 llvm-mingw 工具链，
+可以切换 arm/arm64 架构来编译。注意配合 --sdk 来指定编译器工具的所在。
+
+自动选择或指定编译器或链接程序，手动指定编译及相关参数示范如下：
+
+```sh
+$ xmake f -p linux [-a i386|x86_64]
+$ xmake f -p linux --sdk=/user/toolsdk --cc=armv7-linux-clang --cxx=armv7-linux-clang++
+$ xmake f -p linux --sdk=/user/toolsdk --ld=armv7-linux-clang++ --sh=armv7-linux-clang++ --ar=armv7-linux-ar
+$ xmake f --cxx=clang++@/home/xxx/c++mips.exe
+$ xmake f -p linux --sdk=/usr/toolsdk --includedirs=/usr/toolsdk/xxx/include --linkdirs=/usr/toolsdk/xxx/lib --links=pthread
+$ xmake f -p linux --sdk=/usr/toolsdk --cflags="-DTEST -I/xxx/xxx" --ldflags="-lpthread"
+
+$ xmake f -p wasm
+$ xmake f -p mingw --sdk=/usr/local/i386-mingw32-4.3.0/ [-a i386|x86_64|arm|arm64]
+$ xmake f -p mingw -m debug --debugger=gdb --sdk=C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2
+
+$ xmake f --toolchain=llvm -m debug --debugger=gdb --sdk=c:\llvm
+$ xmake -r --verbose
+$ xmake run -d hello
+```
+
+当然，可以指定编译器全路径。
+
+    --cc    用于指定 c 编译器，
+    --cxx   用于指定 c++ 编译器
+    --ld    指定可执行程序链接器
+    --sh    指定共享库程序链接器
+    --ar    指定生成静态库的归档器。
+
+注：如果存在 CC/CXX 环境变量的话，会优先使用当前环境变量中指定的值。
+注：如果存在 LD/SH/AR 环境变量的话，会优先使用当前环境变量中指定的值。
+
+如果指定的编译器名不是那些 xmake 内置可识别的名字（带有gcc, clang等字样），那么编译器工具检测
+就会失败。这个时候就可以通过配置命令指定，如示例，在指定编译器为 c++mips.exe 的同时，告诉 xmake，
+它跟 clang++ 用法和参数选项基本相同。
+
+如果 sdk 里面还有额外的其他 include/lib 目录不在标准的结构中，导致交叉编译找不到库和头文件，
+那么通过 --includedirs 和 --linkdirs 追加搜索路径，然后通过 --links 添加额外的链接库。
+
+注：如果要指定多个搜索目录，使用 : 或者 ; 来分割，也就是不同主机平台的路径分隔符，linux/macos 
+和 Windows 两类系统分别使用 : 和 ;。
+
+设置编译和链接选项  --cflags, --cxxflags，--ldflags，--shflags和--arflags额外配置一些编译和链接选项。
+
+    --cflags    指定 c 编译参数
+    --cxxflags  指定 c++ 编译参数
+    --cxflags   指定 c/c++ 编译参数
+    --asflags   指定汇编器编译参数
+    --ldflags   指定可执行程序链接参数
+    --shflags   指定动态库程序链接参数
+    --arflags   指定静态库的生成参数
+
+- [Configuration](https://xmake.io/#/guide/configuration)
+- [xmake 从入门到精通10：多个子工程目标的依赖配置](https://tboox.org/cn/2019/12/13/quickstart-10-target-deps/)
+- [xmake 从入门到精通11：如何组织构建大型工程](https://tboox.org/cn/2020/04/11/quickstart-11-subprojects/)
+- [xmake v2.2.2, 让C/C++拥有包依赖自动构建](https://tboox.org/cn/2018/10/13/xmake-update-v2.2.2-package-deps/)
+- [Project target](https://xmake.io/#/manual/project_target)
+- [Global Interfaces](https://xmake.io/#/manual/global_interfaces)
+- [Proejct examples](https://xmake.io/#/zh-cn/guide/project_examples)
+- xmake\tests\projects\c++\modules\packages\xmake.lua
+
+
+xmake 使用 `.mpp` 文件作为默认的 C++20 模块，也支持 `.ixx`, `.cppm`, `.mxx` 。
+虽然 xmake 文档说 C++20 Modules 已经完全支持 gcc11/clang/msvc 等编译器，并会对模块依赖
+进行分析以实现最大化的并行编译。
+
+```py
+set_languages("c++20")
+target("class")
+    set_kind("binary")
+    add_files("src/*.cpp", "src/*.mpp")
+
+add_rules("mode.debug", "mode.release")
+
+target("test")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    set_languages("c++20")
+    set_policy("build.c++.modules", true)
+```
+
+使用 GCC 编译时，会用到 -fmodule-mapper，这是 CMI 文件映射服务，用于帮助编译器确实 CMI 
+文件与模块之间的影射关系，也用于按需求生成 CMI。映射功能处于起步阶段，旨在进行构建系统交互的实验。
+但是在 MinGW 平台上，会出现 error: failed reading mapper。
+https://github.com/xmake-io/xmake/issues/3185
+https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Module-Mapper.html
+
+一个临时办法就是使用 os 对象直接调用 GCC 编译器，os shell 调用方法有两组：
+
+- **os.exe()** 或 **os.exec()** 打印命令输出内容；
+- **os.run()** 或 **os.runv()** 只打印命令输出报错信息；
+
+```lua
+add_rules("mode.debug", "mode.release")
+set_languages("c++20")
+
+target("modules-ixx")
+    set_kind("binary")
+    -- add_files("*.cpp", "*.ixx")
+    add_files("*.cpp")
+    add_linkdirs("$(buildir)")
+    set_targetdir("$(buildir)")
+
+    if (is_plat("mingw")) then
+        add_cxxflags("-fmodules-ts")
+        add_ldflags("$(buildir)/hello.o", {force = true})
+        add_ldflags("$(buildir)/world.o", {force = true})
+    else
+        -- Unworking in MinGW GCC
+        -- add_cxxflags("-fmodules-ts", { tools = "gcc" })
+        -- add_cxxflags("-o modules-ixx", { tools = "gcc" })
+        set_policy("build.c++.modules", true)
+    end
+
+    -- $env:Path = ";C:\mingw-w64\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\bin;"+$env:Path
+    -- g++ -c -xc++ -std=c++20 -fmodules-ts modules_ixx/*.ixx
+    -- g++ -c -xc++ -std=c++20 -fmodules-ts modules_ixx/hello.ixx
+    -- g++ -c -xc++ -std=c++20 -fmodules-ts modules_ixx/world.ixx
+    -- g++ -c -std=c++20 -fmodules-ts modules_ixx/app.cpp 
+    -- g++ app.o hello.o world.o -o App
+
+    before_build(function (target, opt)
+        if (not is_plat("mingw")) then
+            return
+        end
+        -- os.cd("$(buildir)")
+        os.exec("g++ --version")
+        local opts = {stdout = "build/here.log", stderr="build/herr.log"}
+        local args = {"-c", "-xc++", "-std=c++20", "-fmodules-ts", "../modules_ixx/*.ixx"}
+        local a, b, c = os.execv("g++", args)
+        os.mv("*.o", "build/")
+        print("==> before build:", target:name())
+    end)
+
+    after_build(function (target, opt)
+        print("==>", "xmake run "..target._NAME)
+        -- xmake\xmake\core\base\os.lua
+        -- os.runv("xmake run ".. target._NAME)
+        os.exec("xmake run ".. target:name())
+    end)
+```
+
+虽然代码文档中显示可以使用以下 add_cxxflags() 可以将参数只绑定到指定的编译器上，但是 MinGW 
+GCC 上并没有效果，另外，添加指定参数也不会覆盖默认参数设置。
+
+还有，不能同时指定多个模块文件，因为 xmake 使用 -o 指定输出。
+也并无提供 remove flags api，倒是 target:remove_files 这样的方法提供了。
+
+    -- @see https://github.com/xmake-io/xmake/issues/3022
+    --
+    -- e.g.
+    -- for all: add_cxxflags("-g")
+    -- only for clang: add_cxxflags("clang::-stdlib=libc++")
+    -- only for clang and multiple flags: add_cxxflags("-stdlib=libc++", "-DFOO", {tools = "clang"})
+
+私认为，一个持续了 7 年的项目不应该如此，尽管是个人在维护的项目，这可能与开发环境或测试只使用了 
+Linux 类系统有关。如果我要开发一个类似的项目，大概会叫做 compiler configuration wizard
+CCW “逆时针”构建工具。
+
+
+xmake 的 taget 概念定义等价一个子工程，每个子工程对应只能生成一个唯一的目标文件：可执行程序、
+静态库或者动态库等。
+
+- 目标通用配置：全局块配置
+- 目标间的依赖设置：add_links("foo") 或者 
+- 级联依赖继承 
+
+配置移到 target 域的外面，也就是根作用域中去设置，这样对当前 xmake.lua 以及所有子 xmake.lua
+中的 target 都会生效。
+
+```lua
+add_links("tbox")
+add_linkdirs("lib")
+add_includedirs("include")
+add_defines("FOOBAR")
+add_deps("dep1", "dep2", {inherit = false})
+
+-- includes("subdirs")
+includes("subdirs/xmake.lua")
+includes("test/*/xmake.lua")
+includes("test/**/xmake.lua")
+
+target("test1")
+    set_kind("binary")
+    -- set_kind("static") static library
+    -- set_kind("shared") dynamic library
+    add_files("src/test1/*.c")
+    add_includedirs("inc") -- 默认私有头文件目录不会被继承
+    add_includedirs("inc1", {public = true}) -- 此处的头文件相关目录也会被继承
+    
+target("test2")
+    set_kind("binary")
+    add_files("src/test2/*.c")    
+```
+
+以上这两 target 都需要链接 tbox 库，放置在外层根域设置，test1 和 test2 都能加上对应 links。
+那如果某个 target 依赖另外一个 tatget 生成的静态库，或者依赖彼此的配置内容，设置方法如下：
+
+- add_linkdirs 和 add_links 指定为对应 target 的输出目录，然后链接上。
+- add_deps 依赖指定 target 的配置，继承设置：linkdirs, links, includedirs 以及 defines
+- 继承关系是支持级联的，target 默认自动导出设置，可以禁用默认的继承行为：{inherit = false}。
+
+上述配置中，test1 和 test2 都会用到 lib 目录下的 tbox，并且需要获取到库的头文件路径，库路径
+和链接。test1 目标和另外两个库目标之间是有编译顺序依赖的，如果 test1 先编译就会提示链接库找不到。
+并且，现在有了依赖关系，xmake 在编译的时候，会自动处理这些 target 之间的编译顺序，保证不会出现
+链接的时候，依赖库还没有生成的问题。
+
+通过 add_deps() 可以关联上指定的目标，并不要求有目录层级关系约束。使用 includes 来加载文件路径
+层级关系，所有跟路径相关的配置接口，比如 add_files, add_includedirs 等都是相对于当前子工程
+xmake.lua 脚本所在的目录。所以只要添加的文件不跨模块，那么设置起来只需要考虑当前的相对路径就行了。
+
+注意：includes 这个接口属于全局接口，不隶属于任何 target，所以请不要在 target 内部调用。支持
+模式匹配进行批量导入。
+
+
+目前对于 target 的编译链接 flags 相关接口设置，都是支持继承属性的，可以人为控制是否需要导出
+给其他 target 来依赖继承，目前支持的属性有：
+
+|    属性   |                            描述                            |
+|-----------|------------------------------------------------------------|
+| private   | 作为当前 target 的私有配置，不会被依赖的其他 target 所继承 |
+| public    | 当前 target 和子 target 都会被设置                         |
+| interface | 仅被依赖的子 target 所继承设置，当前 target 不参与             |
+
+借鉴了 cmake，目前 xmake 只要跟 target 相关的所有编译链接设置接口，都是支持可见性导出的，
+例如：add_includedirs, add_defines, add_cflags 等等。
+
+
+
+```lua
+target("test")
+    -- Add source files in the project source directory
+    add_files("$(projectdir)/src/*.c")
+
+    -- Add a header file search path under the build directory
+    add_includedirs("$(buildir)/inc")
+
+    on_run(function (target)
+        -- Copy the header file in the current script directory to the output directory
+        os.cp("$(scriptdir)/xxx.h", "$(buildir)/inc")
+    end)
+
+target("user_var")
+    -- xmake f --var=val
+    add_defines("-DTEST=$(var)")
+```
+
+工程示范，hello-xmake 工程依赖子项目：hello 和 world，前者是静态库，后者是动态库：
+
+    hello-xmake
+    │     xmake.lua
+    ├─hello
+    │  │  xmake.lua
+    │  └─src
+    │          main.c
+    ├─src
+    │      main.c
+    └─world
+        │  xmake.lua
+        └─src
+                main.c
+
+    xmake f -p mingw -m debug --debugger=gdb --sdk=C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2
+    xmake f -p mingw -m debug --debugger=gdb --sdk=C:\\mingw
+    xmake -r
+    xmake run hello-xmake
+
+    xmake f --toolchain=llvm -m debug --debugger=gdb --sdk=c:\llvm
+    xmake -r
+    xmake run hello-xmake
+
+为简化文件的输出路径，使用内置变量 $(projectdir) ，它表示项目全局根目录，或者以下两个方法：
+
+- set_objectdir Set output directories for object files
+- set_targetdir Set output directories for target files
+
+```lua
+-- base xmake.lua
+add_rules("mode.debug", "mode.release")
+
+includes("hello/xmake.lua")
+includes("world/xmake.lua")
+
+target("hello-xmake")
+    set_kind("binary")
+    add_files("src/*.c")
+    add_links("hello")
+    add_links("world")
+    add_linkdirs("$(buildir)")
+
+-- world xmake.lua
+target("world") -- target("hello-xmake")
+    set_kind("shared")
+    add_files("src/*.c")
+    set_targetdir("$(buildir)")
+
+-- world xmake.lua
+target("hello")
+    set_kind("static")
+    add_files("src/*.c")
+    set_targetdir("$(buildir)")
+```
+
+动态库和静态库在不同平台下的几点差别：
+[A.1 — Static and dynamic libraries](https://www.learncpp.com/cpp-tutorial/a1-static-and-dynamic-libraries/)
+[Dynamic linking best practices(https://begriffs.com/posts/2021-07-04-shared-libraries.html)
+[LLVM Command Guide](https://llvm.org/docs/CommandGuide/index.html)
+[Building a Dynamic Library](https://mottosso.gitbooks.io/clang/content/building_a_dynamic_library.html)
+
+- static library 也称 archive，Linux 和 Windows 系统分别使用 .a 和 .lib 文件。
+- dynamic library 也称为 shared library，Linux 和 Windows 系统上分别为 .so 和 .dll 文件；
+- 因为动态库需要在编译期向程序导入符号信息，又需要一个导入库 import library：
+    - Windows 的导入库使用一个小型静态库 (.lib)记录这些信息。
+    - Linux 系统上，动态库和导入库都是 .so 文件。
+
+Windows 系统上编写 DLL，其导出符号有两种定义方式，DEF 文件导出和 `_declspec` 导出。动态库代码
+参考写法，这需要使用 clang++ 编译，如果使用 clang 将其作为 C 语言编译，可能不会生成 .lib 文件：
+
+```C++
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
+    __declspec(dllexport)
+    const char* world()
+    {
+        return "world!\n";
+    }
+    
+#ifdef __cplusplus
+}
+#endif
+```
+
+其中 `extern "C"` 是 C++ 中用来定义一个 external linkage，同时避免导出符号因 C++ 方式
+重载机制进行 Name mangling。Clang 编译器可能要求比 GCC 较严格，即没有导出标记，GCC 也能导出。
+但是，Clang 不能，有可能是 xmake 的问题，手动执行命令可以正常导出，但在 xmake.lua 脚本不行。
+
+    clang -c -Qunused-arguments -m64 -g -O0 -fexceptions -fcxx-exceptions -o world\src\main.c.obj world\src\main.c
+    llvm-ar cr build\world.lib world\src\main.c.obj
+
+    clang++ -o build\world.dll world\src\main.c -shared -m64 -g
+
+链接需要这个导入库，可以使用 llvm-lib 工具生成导入库。这是一个 Library Manager (LIB.exe) 
+兼容的工具 https://msdn.microsoft.com/en-us/library/7ykb2k5f 
+
+使用 dumpbin 工具可以查看 dll 文件中导出的函数符号：
+
+> dumpbin.exe /exports .\build\world.dll
+
+Rule 是和文件类型关联的一套规则，rule() 方法定义一套规则，在内部用 `set_extensions` 方法
+将此规则与指定文件类型关联。所有 `add_files` 添加到 Target 中的文件都会受到规则的影响。Xmake
+内部定义了一系列规则，用户也可以创建自己的规则以实现特定的编译流程。但是，一旦使用 `add_rules`
+将规则附加到 Target，其默认的编译流程就会受到影响，所以需要明显自定义规则意味什么。
+
+xmake.lua 文件相当于一个 Project 对象，内部可以定义 Targets 或者 Rules，API 参考：
+
+    print("is_os windows:", is_os("windows"))
+    print("is_kind binary:",is_plat("binary"))
+    print("is_arch x64:",   is_arch("x86_64"))
+    print("is_mode debug:", is_mode("debug"))
+    print("is_plat mingw:", is_plat("mingw"))
+    print("is_config runtime or luajit:", is_config("runtime", "luajit"))
+    print("get_config debugger:", get_config("debugger"))
+
+- **target:compiler("cxx")** 获取文件类型对应的编译器对象，但却不能荻是什么编译器。
+- **target:linker()** 获取的链接程序也类似，只是不用传入参数。
+- **target:platform()** 获取平台对象，提供 name() 或 arch() 等信息。
+- **target:toolchain()** 平台与工具链关联，例如 :toolchain("llvm") 获取工具链，如果存在。
+- **target:toolchains()** Target 可以获取工具链集合。
+- **target:tool(toolkind)** 获取工具对象，对应 toolchain.tool() 方法。
+- **target:has_tool(toolkind, ...)** 判断是否存在指定语言的“工具们”。
+
+这个 has_tool 方法就和上面的注解一样古怪，它需要指定一个语言类型，然后再指定编译工具。
+
+Platform 是一个混乱的信息集合，不仅仅是关于操作系统、CPU 的信息，还会和编译器相关，如 mingw。
+工具链可以获取 name() 和 sdkdir() 信息，以及具体的工具类型信息 toolkind，如 cc、cxx、cpp、
+ld、sh、ar、as 等等。参考 toolchain.tool(toolchains, toolkind, opt)
+
+以下脚本，通过 before_build 逻辑的重写，克服了前面 Clang 不会生成 .lib 导入库的问题。
+
+```lua
+target("world")
+    set_kind("shared")
+    -- set_kind("binary")
+    -- add_cxflags("-xc++")
+    -- add_files("src/*.c")
+    add_files("src/*.cpp")
+    set_targetdir("$(buildir)")
+    -- add_rules("cppfront")
+
+    -- xmake\core\src\demo\xmake.lua:51
+    -- copy target to the build directory
+    after_build(function (target, opt)
+        if not os.isfile(target:targetfile()) then
+            print("=== Not a file ", target:targetfile())
+            return
+        end
+        local extension = is_plat("windows", "llvm","mingw") and ".exe" or ""
+        print("==> after build", target._NAME, target:targetfile(), extension)
+        os.cp(target:targetfile(), "$(buildir)/"..target:targetfile().. extension)
+    end)
+
+    before_build(function (target, opt)
+        local pt = target:platform()
+        local tc = target:toolchain("llvm")
+        print({
+            platform = pt:name(), architecture = pt:arch(),
+            toolchain = tc and tc:name(),
+            sdkdir = tc and tc:sdkdir(),
+            cpp = tc and tc:tool("cpp"),
+            cxx = tc and tc:tool("cxx"),
+            has_cc_lang = target:has_tool("cc", "clang"),
+            has_cc_gcc = target:has_tool("cc", "gcc"),
+        })
+        if not target:has_tool("cc", "clang") then
+            print("== Is not LLVM", plat)
+            return
+        end
+        print("==> before_build", target._NAME, "$(platform)")
+        os.exec("clang++ -o build\\world.dll ${scriptdir}\\src\\main.cpp -shared -m64 -g ")
+        -- os.run("touch here")
+    end)
+```
+
+- [Custom build rule](https://xmake.io/#/manual/custom_rule)
+- xmake-docs\manual\custom_rule.md
+- https://tboox.org/cn/2017/09/28/xmake-sourcecode-arch/
+- xmake\xmake\core\base\interpreter.lua@api_define
+- xmake\xmake\core\project\project.lua
+- xmake\xmake\core\project\target.lua@apis
+- xmake\xmake\core\project\rule.lua@apis
+- xmake\xmake\core\platform\platform.lua
+- xmake\xmake\core\tool\toolchain.lua
+- xmake\xmake\core\tool\compiler.lua
+- xmake\xmake\core\tool\linker.lua
+- xmake\xmake\actions\build\kinds\object.lua
+- xmake\xmake\actions\build\build.lua
+- xmake\xmake\rules\c++\modules\xmake.lua
+
+当一般的配置设置不能满足需要时，可以使用 lua 脚本对自定义规则和 Target 进行深度定制，它们包含
+以下这些基本的事件流程，参考源代码中的定义，API 分为多种，其中脚本事件相关部分参考如下：
+
+    on_load -> after_load -> on_config -> before_build -> on_build -> after_build
+
+Xmake 2.1.5 版本后，可以在第一个参数设置平台过滤，只有匹配的平台才会执行相应的脚本方法。
+
+        -- rule.on_xxx                      -- target.on_xxx
+        "rule.on_run"                       "target.on_run"
+        ,   "rule.on_load"                  ,   "target.on_load"
+        ,   "rule.on_config"                ,   "target.on_config"
+        ,   "rule.on_link"                  ,   "target.on_link"
+        ,   "rule.on_build"                 ,   "target.on_build"
+        ,   "rule.on_build_file"            ,   "target.on_build_file"
+        ,   "rule.on_build_files"           ,   "target.on_build_files"
+        ,   "rule.on_clean"                 ,   "target.on_clean"
+        ,   "rule.on_package"               ,   "target.on_package"
+        ,   "rule.on_install"               ,   "target.on_install"
+        ,   "rule.on_uninstall"             ,   "target.on_uninstall"
+        ,   "rule.on_linkcmd"               -- target.before_xxx
+        ,   "rule.on_buildcmd"              ,   "target.before_run"
+        ,   "rule.on_buildcmd_file"         ,   "target.before_link"
+        ,   "rule.on_buildcmd_files"        ,   "target.before_build"
+        -- rule.before_xxx                  ,   "target.before_build_file"
+        ,   "rule.before_run"               ,   "target.before_build_files"
+        ,   "rule.before_load"              ,   "target.before_clean"
+        ,   "rule.before_link"              ,   "target.before_package"
+        ,   "rule.before_build"             ,   "target.before_install"
+        ,   "rule.before_build_file"        ,   "target.before_uninstall"
+        ,   "rule.before_build_files"       -- target.after_xxx
+        ,   "rule.before_clean"             ,   "target.after_run"
+        ,   "rule.before_package"           ,   "target.after_load"
+        ,   "rule.before_install"           ,   "target.after_link"
+        ,   "rule.before_uninstall"         ,   "target.after_build"
+        ,   "rule.before_linkcmd"           ,   "target.after_build_file"
+        ,   "rule.before_buildcmd"          ,   "target.after_build_files"
+        ,   "rule.before_buildcmd_file"     ,   "target.after_clean"
+        ,   "rule.before_buildcmd_files"    ,   "target.after_package"
+        -- rule.after_xxx                   ,   "target.after_install"
+        ,   "rule.after_run"                ,   "target.after_uninstall"
+        ,   "rule.after_load"
+        ,   "rule.after_link"
+        ,   "rule.after_build"
+        ,   "rule.after_build_file"
+        ,   "rule.after_build_files"
+        ,   "rule.after_clean"
+        ,   "rule.after_package"
+        ,   "rule.after_install"
+        ,   "rule.after_uninstall"
+        ,   "rule.after_linkcmd"
+        ,   "rule.after_buildcmd"
+        ,   "rule.after_buildcmd_file"
+        ,   "rule.after_buildcmd_files"
+
+命名规范参考手册说明 xmake-docs\manual\specification.md
+Target API 参考手册 xmake-docs\manual\target_instance.md
+条件判断 xmake-docs\manual\conditions.md
+
+|   Interfaces  |                  Description                  | version  |
+|---------------|-----------------------------------------------|----------|
+| [is_os]       | windows linux android macosx ios              | >= 2.0.1 |
+| [is_arch]     | x86_64 i386 armv7 arm64 armv7s ...            | >= 2.0.1 |
+| [is_plat]     | windows linux macosx android iphoneos watchos | >= 2.0.1 |
+| [is_host]     | windows linux macosx                          | >= 2.1.4 |
+| [is_subhost]  | msys cygwin                                   | >= 2.1.4 |
+| [is_mode]     | debug release profile ...                     | >= 2.0.1 |
+| [is_kind]     | static shared binary                          | >= 2.0.1 |
+| [is_config]   | Is the given config values?                   | >= 2.2.2 |
+| [has_config]  | Is the given configs enabled?                 | >= 2.2.2 |
+| [has_package] | Is the given dependent package enabled?       | >= 2.2.3 |
+
+
+用户变量可以使用 xmake f --var=val 进行配置，脚本中直接可使用变量 "$(var)"，内建变量如下：
+xmake-docs\manual\builtin_variables.md
+
+|   Interface   |                Description                 | Versions |
+|---------------|--------------------------------------------|----------|
+| $(os)         | Get the OS of the current build platform   | >= 2.0.1 |
+| $(host)       | Get native OS                              | >= 2.0.1 |
+| $(tmpdir)     | Get Temporary Directory                    | >= 2.0.1 |
+| $(curdir)     | Get current directory                      | >= 2.0.1 |
+| $(buildir)    | Get the build output directory             | >= 2.0.1 |
+| $(scriptdir)  | Get Project Description Script Directory   | >= 2.1.1 |
+| $(globaldir)  | Get Global Configuration Directory         | >= 2.0.1 |
+| $(configdir)  | Get Local Project Configuration Directory  | >= 2.0.1 |
+| $(programdir) | xmake installation script directory        | >= 2.1.5 |
+| $(projectdir) | Get the project root directory             | >= 2.0.1 |
+| $(shell)      | Execute external shell command             | >= 2.0.1 |
+| $(env)        | Get external environment variables         | >= 2.1.5 |
+| $(reg)        | Get the value of the Windows registry item | >= 2.1.5 |
+
+内置模块及 OS 操作参考 
+
+- xmake-docs\manual\builtin_modules.md
+- xmake\xmake\core\base\os.lua
+
+命令行界面输出可以使用 dark 主题，输出内容彩色显示，可以设置为 plain 去掉控制台的颜色属性。
+
+    xmake g --theme=plain
+    xmake g --theme=emoji
+    xmake g --clean
+
+
+各家编译器会使用不同的预定义符号，通过这些特殊符号可以区别代码当前处理什么编译环境之下：
+
+- [Pre-defined Compiler Macros Wiki](https://sourceforge.net/p/predef/wiki/Compilers/)
+- [Guide to predefined macros in C++ compilers (gcc, clang, msvc etc.)](https://blog.kowalczyk.info/article/j/guide-to-predefined-macros-in-c-compilers-gcc-clang-msvc-etc..html)
+
+CMake 构建工具生成的测试程序 CMakeCXXCompilerId.cpp 也会包含这些特殊宏定义，测试程序使用它们
+来对当前系统的编译环境进行检测，里面包含了各种系统的检测。
+
+```C++
+    #if defined (_MSC_VER)
+    // code specific to Visual Studio compiler
+    #endif
+
+    #if defined(__GNUC__) && (__GNUC___ > 5 || (__GNUC__ == 5 && __GNUC_MINOR__ >= 1))
+    // this is gcc 5.1 or greater
+    #endif
+
+    // clang
+    // __clang_major__ __clang_minor__ __clang_patchlevel__
+
+    // Checking for OS (platform)
+    // 
+    // Linux and Linux-derived           __linux__
+    // Android                           __ANDROID__ (implies __linux__)
+    // Linux (non-Android)               __linux__ && !__ANDROID__
+    // Darwin (Mac OS X and iOS)         __APPLE__
+    // Akaros (http://akaros.org)        __ros__
+    // Windows                           _WIN32
+    // Windows 64 bit                    _WIN64 (implies _WIN32)
+    // NaCL                              __native_client__
+    // AsmJS                             __asmjs__
+    // Fuschia                           __Fuchsia__
+
+    // Checking the compiler:
+    // 
+    // Visual Studio       _MSC_VER
+    // gcc                 __GNUC__
+    // clang               __clang__
+    // emscripten          __EMSCRIPTEN__ (for asm.js and webassembly)
+    // MinGW 32            __MINGW32__
+    // MinGW-w64 32bit     __MINGW32__
+    // MinGW-w64 64bit     __MINGW64__
+```
+
+Sublime 工程文件中配置构建工具可以很方便地调用 Clang/GCC/MSVC 编译 C++20 程序，配置参考如下。
 以下是 Windows 系统，Visual Studio 2019 社区版，MinGW-w64 GCC 12.2 以及 LLVM Clang 14，
-等三大编译器的 Sublime 构建配置参考，MSVC 部分放在下一节内容：
+等三大编译器的 Sublime 构建配置参考。需要注意，Clang 中没有专门处理模块的依赖关系，所以这种情况下，
+编译可能不通过：
 
 ```json
 {
-    "env": {
-        "PATH": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\\bin;%PATH%",
-        "VS2019": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64",
-        "ccv": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\\bin\\g++.exe",
-        "ccu": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\\bin\\g++.exe",
+    "folders":
+    [
+        {"path": ".", },
+    ],
+    "settings":
+    {
+        "LSP": { "clangd": {"enabled": true, }, },
     },
-    "shell_cmd": "\"%ccv%\" --help || \"%ccu\" --help",
-    "file_regex": "^\\.?\\.?/?(.*?):([0-9]*):([0-9]*): (.+)",
-    "working_dir": "${file_path}",
-    "selector": "source.c++, source.c",
-    "encoding":"GBK",
-    "quiet": true,
-    "variants":[
+    "build_systems":
+    [
         {
-            "name":"G++ (-std=c++20) Active File",
-            "shell_cmd":"mkdir build || cd build && %ccu% -g -std=c++20 -fmodules-ts \"$file\" -o $file_base_name && ${file_base_name} && Echo done "
+            "name":"GCC & Clang",
+            "env": {
+                "PATH": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\\bin;%PATH%",
+                "VS2019": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64",
+                "ccv": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-msvcrt-rt_v10-rev2\\bin\\g++.exe",
+                "ccu": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\\bin\\g++.exe",
+                "fmtlib": "/3rd/fmtlib/include",
+            },
+            "shell_cmd": "\"%ccv%\" --help || \"%ccu\" --help",
+            "file_regex": "^\\.?\\.?/?(.*?):([0-9]*):([0-9]*): (.+)",
+            // "working_dir": "${project_path:${folder}}",
+            "working_dir": "${file_path}",
+            "selector": "source.c++, source.c",
+            "encoding":"GBK",
+            "quiet": true,
+            "variants":[
+                { "name":"Clean build", "shell_cmd": "del /q /s build\\*.*", },
+                {
+                    "name":"G++ (-std=c++20) Active File",
+                    "shell_cmd":"mkdir build & cd build && %ccu% -g -x c++ -std=c++20 -I\"${project_path}%fmtlib%\" -fmodules-ts \"$file\" -o $file_base_name && ${file_base_name} && Echo done ",
+                },
+                {
+                    "name":"G++ (-std=c++20) Active Modules (.cc .cxx)",
+                    "shell_cmd":"mkdir build & cd build && %ccu% -g -x c++ -std=c++20 -I\"${project_path}%fmtlib%\" -fmodules-ts ../*.cpp ../*.ixx ../*.cc ../*.cxx -o $file_base_name && ${file_base_name} && Echo done ",
+                },
+                {
+                    "name":"G++ (-std=c++20) Active Modules (.ixx)",
+                    "shell_cmd":"mkdir build & cd build && %ccu% -g -x c++ -std=c++20 -I\"${project_path}%fmtlib%\" -fmodules-ts ../*.cpp ../*.ixx -o $file_base_name && ${file_base_name} && Echo done ",
+                },
+                {
+                    "name":"Clang++ (-std=c++20) Active File",
+                    "shell_cmd":"cmd /c \"%VS2019% && mkdir build & cd build && clang++ -I\"${project_path}%fmtlib%\" -g -std=c++20 \"$file\" -o $file_base_name.exe && ${file_base_name} && Echo done \" ",
+                },
+                {
+                    "name":"Clang++ (-std=c++20) Active Modules (.cppm)",
+                    "shell_cmd":"cmd /c \"%VS2019% && mkdir build & cd build && powershell /c \"clang++ -std=c++20 --precompile (dir ../*.cppm) ; echo ===== ; clang++ -g -std=c++20 -I\"${project_path}%fmtlib%\" -fprebuilt-module-path=\"$file_path/build\" (dir *.pcm) (dir ../*.cpp) -o $file_base_name.exe \" && ${file_base_name} && Echo done \" ",
+                },
+                {
+                    "name":"Clang++ (-std=c++20) Active Modules (.ixx)",
+                    "shell_cmd":"cmd /c \"%VS2019% && mkdir build & cd build && powershell /c \"clang++ -xc++-module -std=c++20 --precompile (dir ../*.ixx) ; echo ===== ; clang++ -g -std=c++20 -I\"${project_path}%fmtlib%\" -fprebuilt-module-path=\"$file_path/build\"  (dir *.pcm) (dir ../*.cpp) -o $file_base_name.exe \" && ${file_base_name} && Echo done \" ",
+                },
+            ],
         },
         {
-            "name":"G++ (-std=c++20) Active Modules",
-            "shell_cmd":"mkdir build || cd build && %ccu% -g -std=c++20 -fmodules-ts ../*.cpp ../*.cc ../*.cxx -o $file_base_name && ${file_base_name} && Echo done "
+            "name":"Xmake",
+            "env": {
+                "PATH": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2\\bin;%PATH%",
+                "VS2019": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat\" -arch=x64 -host_arch=x64",
+                "CCU": "C:\\mingw-w64\\x86_64-12.2.0-release-win32-seh-ucrt-rt_v10-rev2",
+                "CLANG": "C:\\LLVM",
+                "fmtlib": "/3rd/fmtlib/include",
+                "plain": "xmake g --theme=plain",
+                "emoji": "xmake g --theme=emoji",
+            },
+            "shell_cmd": "xmake --help",
+            "file_regex": "^\\.?\\.?/?(.*?):([0-9]*):([0-9]*): (.+)",
+            "working_dir": "${project_path:${folder}}",
+            "selector": "source.lua",
+            "encoding":"GBK",
+            "quiet": true,
+            "variants":[
+                {   "name": "Theme: dark", "shell_cmd": "xmake g --theme=dark"},
+                {   "name": "Theme: default", "shell_cmd": "xmake g --theme=default"},
+                {   "name": "Theme: emoji", "shell_cmd": "xmake g --theme=emoji"},
+                { 
+                    "name":"Clean & set plain text", 
+                    "shell_cmd": "del /q /s build\\*.* & del /q /s .xmake\\*.*", 
+                },
+                {
+                    "name":"Use GCC",
+                    "shell_cmd":"%plain% && xmake f -y -m debug -p mingw --sdk=%CCU% --debugger=gdb & xmake -b -v",
+                },
+                {
+                    "name":"Use Clang",
+                    "shell_cmd":"%plain% && xmake f -y -m debug --toolchain=llvm --sdk=%CLANG% --debugger=gdb & xmake -b -v",
+                },
+                {
+                    "name":"Use MSVC",
+                    "shell_cmd":"%plain% && xmake f -y -m debug -p windows --debugger=gdb & xmake -b -v ",
+                },
+            ],
         },
         {
-            "name":"Clang++ (-std=c++20) Active File",
-            "shell_cmd":"cmd /c \"%VS2019% && mkdir build || cd build && clang++ -g -std=c++20 \"$file\" -o $file_base_name.exe && ${file_base_name} && Echo done \" "
+            "name":"MSVC Compiler",
+            "env": {
+                "msvc19":"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat",
+                "msvc22":"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat",
+                "VCToolsInstallDir": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.35.32215\\",
+                "cc20":"cl /std:c++20 /EHsc /MTd",
+                "ccla":"cl /std:c++latest /W4 /EHsc /MTd",
+            },
+            "shell_cmd": "cmd /c \"\"%msvc19%\" && \"%msvc22%\"\"",
+            "file_regex": "^\\.?\\.?\\\\?(.*?)\\(([0-9]+)\\): (.*)",
+            "working_dir": "${file_path}",
+            "selector": "source.c++, source.c, source.ixx",
+            "encoding":"GBK",
+            "quiet": true,
+            "variants":[
+                { "name":"Visual Studio 2019", "shell_cmd": "cmd /c \"\"%msvc19%\" && cl /help\"", },
+                { "name":"Visual Studio 2022", "shell_cmd": "cmd /c \"\"%msvc22%\" && cl /help\"", },
+                {
+                    "name":"MSVC v16.x (/std:c++20) ACTIVE FILE",
+                    "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build & cd build && %cc20% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} ",
+                },
+                {
+                    "name":"MSVC v16.x (/std:c++latest) ACTIVE FILE",
+                    "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build & cd build && %ccla% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} ",
+                },
+                {
+                    "name":"MSVC v16.x (/std:c++20)",
+                    "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build & cd build && %cc20% ..\\*.ixx ..\\*.cpp /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} ",
+                },
+                {
+                    "name":"MSVC v17.x (/std:c++20) ACTIVE FILE",
+                    "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build & cd build && %cc20% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} ",
+                },
+                {
+                    "name":"MSVC v17.x (/std:c++latest) ACTIVE FILE",
+                    "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build & cd build && %ccla% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} ",
+                },
+                {
+                    "name":"MSVC v17.x (/std:c++latest)",
+                    "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build & cd build && %ccla% ..\\*.ixx ..\\*.cpp /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} ",
+                },
+                {
+                    "name":"MSVC v17.x (build named module: std & std.compat)",
+                    "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build & cd build && %ccla% /c \"%VCToolsInstallDir%\\modules\\std.ixx\" \"%VCToolsInstallDir%\\modules\\std.compat.ixx\"\" && echo Done",
+                },
+            ],
         },
-        {
-            "name":"Clang++ (-std=c++20) Active Modules",
-            "shell_cmd":"cmd /c \"%VS2019% && mkdir build || cd build && powershell /c \"clang++ -std=c++20 --precompile (dir ../*.cppm); clang++ -g -std=c++20 -fprebuilt-module-path=\"$file_path/build\" (dir *.pcm) (dir ../*.cpp) -o $file_base_name.exe \" && ${file_base_name} && Echo done \" "
-        },
-    ]
+    ],
 }
 ```
 
@@ -1033,7 +2044,7 @@ Visual Studio 2019 version 16.10 以上版本支持，MSVC 编译器版本号为
 标头单元**header unit**是头文件的二进制表示，MSVC 使用 .ifc 扩展名表示标头单元文件，以及
 编译好的命名模块 (.ixx, .cppm, .h, .hpp)。
 
-如果使用模块实现分区，也称为内部分区 Module Internal Partition，可以设置 /internalPartition。
+如果使用模块实现分区，也称为内部分区 Internal Partition，可以设置 /internalPartition。
 
 编译生成成标头单元文件后，使用 /headerUnit 来引用它，将标头单元文件与头文件关联起来：
 
@@ -1129,6 +2140,131 @@ MSVC 提供多个标头单元编译方法：
     std::_Format_arg_index()
     std::_Format_arg_index::_Type()
 
+用户模块的编译和导入就没那么复杂了，因为不需要处理标准库的细节关联：
+
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c math1.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c math2.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c mod.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module app.cpp math1.obj math2.obj mod.obj
+
+虽然，MSVC 也不像 Clang 那样要求模块文件名与模块名保持一致，但保持一致的名称直的是个好习惯。
+生成的 .ifc 会随模块名称命名，而不是模块的文件名：
+
+```C++,ignore
+    // Module mod.ixx
+    export module mod;
+
+    export import mod.math1;
+    export import mod.math2;
+
+    // Submodule mod.math1
+    // math1.ixx
+    export module mod.math1; 
+
+    export int add(int fir, int sec) {
+        return fir + sec;
+    }
+
+    // Submodule mod.math2
+    // math2.ixx
+    export module mod.math2;
+
+    export {
+        int mul(int fir, int sec) {
+            return fir * sec;
+        }
+    }
+     
+    // app.cpp
+    import std.core;
+    import mod;
+
+    int main() 
+    {
+        std::cout << std::endl;
+        std::cout << "add(1, 2): " << add(1, 2) << std::endl;
+        std::cout << "mul(3, 4): " << mul(3, 4) << std::endl;
+    }
+```
+
+接口与实现分离式的模块如下，处理方式基本一致：
+
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c mod.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c mod.cpp
+    cl.exe /std:c++latest /EHsc /MD /experimental:module app.cpp mod.obj
+
+```C++,ignore
+    // interface unit mod.ixx
+    module;
+    export module mod;
+
+    export namespace mod 
+    {
+        const char* helloworld();
+    }
+
+    // implementation unit mod.cpp
+    module mod;
+
+    namespace mod 
+    {
+        const char* helloworld()
+        {
+            return "Hello World!";
+        }
+    }
+
+    // app.cpp
+    #include <iostream>
+    import mod;
+
+    int main() {
+        std::cout << mod::helloworld() << std::endl;
+    }
+```
+
+对于模块分区，Module partitions，就需要在接口单元中导出分区 `export import :partition;`。
+而分区单元中，就需要 `export module interface:partition` 标记为上级模块的子分区。 
+
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c ..\math1.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c ..\math2.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module /c ..\mod.ixx
+    cl.exe /std:c++latest /EHsc /MD /experimental:module mod.obj ..\app.cpp
+
+```C++,ignore
+    // Module mod.ixx
+    export module mod;
+
+    export import :math1;
+    export import :math2;
+
+    // math1.ixx partition mod:math1
+    export module mod:math1;
+
+    export int add(int fir, int sec) {
+        return fir + sec;
+    }
+
+    // math2.ixx partition mod:math2
+    export module mod:math2;
+
+    export {
+        int mul(int fir, int sec) {
+            return fir * sec;
+        }
+    }
+
+    // app.cpp
+    import mod;
+    #include <iostream>
+
+    int main() 
+    {
+        std::cout << std::endl;
+        std::cout << "add(1, 2): " << add(1, 2) << std::endl;
+        std::cout << "mul(3, 4): " << mul(3, 4) << std::endl;
+    }
+```
 
 C++23 标准库引入了两个命名模块 std 和 std.compat：
 
@@ -1179,58 +2315,25 @@ MSVC 编译工具参考说明，/EHsc 和 /MTd 这两个很重要，它们决定
 | /sourceDependencies | List all source-level dependencies               |
 | /sourceDependencies:directives | List module and header unit dependencies |
 
+Module grammar 参考：
 
-通过 Sublime 构建工具调用 MSVC 编译 C++20 程序，配置参考如下：
+    module-name:
+        module-name-qualifier-seqopt identifier
 
-```json
-{
-    "env": {
-        "msvc19":"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\VsDevCmd.bat",
-        "msvc22":"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat",
-        "VCToolsInstallDir": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.35.32215\\",
-        "cc20":"cl /std:c++20 /EHsc /MTd",
-        "ccla":"cl /std:c++latest /W4 /EHsc /MTd",
-    },
-    "shell_cmd": "cmd /c \"\"%msvc19%\" && \"%msvc22%\"\"",
-    "file_regex": "^(...*?)\\(([0-9]*)\\):([0-9]*)",
-    "working_dir": "${file_path}",
-    "selector": "source.c++, source.c, source.ixx",
-    "encoding":"GBK",
-    "quiet": true,
-    "variants":[
-        { "name":"Visual Studio 2019", "shell_cmd": "cmd /c \"\"%msvc19%\" && cl /help\"" },
-        { "name":"Visual Studio 2022", "shell_cmd": "cmd /c \"\"%msvc22%\" && cl /help\"" },
-        {
-            "name":"MSVC v16.x (/std:c++20) ACTIVE FILE",
-            "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build || cd build && %cc20% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
-        },
-        {
-            "name":"MSVC v16.x (/std:c++latest) ACTIVE FILE",
-            "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build || cd build && %ccla% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
-        },
-        {
-            "name":"MSVC v16.x (/std:c++20)",
-            "shell_cmd": "cmd /c \"\"%msvc19%\" && mkdir build || cd build && %cc20% ..\\*.cpp ..\\*.ixx /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
-        },
-        {
-            "name":"MSVC v17.x (/std:c++20) ACTIVE FILE",
-            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %cc20% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
-        },
-        {
-            "name":"MSVC v17.x (/std:c++latest) ACTIVE FILE",
-            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %ccla% ${file} /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
-        },
-        {
-            "name":"MSVC v17.x (/std:c++latest)",
-            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %ccla% ..\\*.cpp ..\\*.ixx /link /OUT:${file_base_name}.exe\" && cd build && ${file_base_name} "
-        },
-        {
-            "name":"MSVC v17.x (build named module: std & std.compat)",
-            "shell_cmd": "cmd /c \"\"%msvc22%\" && mkdir build || cd build && %ccla% /c \"%VCToolsInstallDir%\\modules\\std.ixx\" \"%VCToolsInstallDir%\\modules\\std.compat.ixx\"\" && echo Done"
-        },
-    ]
-}
-```
+    module-name-qualifier-seq:
+        identifier .
+        module-name-qualifier-seq identifier .
+
+    module-partition:
+        : module-name
+
+    module-declaration:
+        exportopt module module-name module-partitionopt attribute-specifier-seqopt ;
+
+    module-import-declaration:
+        exportopt import module-name attribute-specifier-seqopt ;
+        exportopt import module-partition attribute-specifier-seqopt ;
+        exportopt import header-name attribute-specifier-seqopt ;
 
 01. https://learn.microsoft.com/en-us/cpp/build/walkthrough-header-units
 02. https://learn.microsoft.com/en-us/cpp/cpp/tutorial-import-stl-named-module
@@ -1249,7 +2352,24 @@ MSVC 编译工具参考说明，/EHsc 和 /MTd 这两个很重要，它们决定
 15. [Hyper-V](https://github.com/MicrosoftDocs/Virtualization-Documentation)
 16. [Windows Terminal](https://github.com/Microsoft/Terminal/)
 17. https://github.com/sirredbeard/Awesome-WSL
+18. [C++20: Structure Modules](https://www.modernescpp.com/index.php/c-20-divide-modules)
+19. [C++20: Module Interface & Implementation Unit](https://www.modernescpp.com/index.php/c-20-module-interface-unit-and-module-implementation-unit)
 
+
+## ==⚡ C++20 Coroutines 协程
+- [[渡劫 C++ 协程] 实现序列生成器](https://www.bilibili.com/video/BV1ug411d7Xy)
+- [C++20 Coroutines](https://blog.feabhas.com/2021/09/c20-coroutines/)
+- [Bjarne Cxx HOPL4 paper - C++20：方向之争](https://github.com/Cpp-Club/Cxx_HOPL4_zh/blob/main/09.md)
+- [Thriving in a Crowded and Changing World: C++ 2006–2020](https://www.stroustrup.com/hopl20main-p5-p-bfc9cd4--final.pdf)
+
+协程（Coroutine）表示一个函数的泛化。C++ 协程的提案中解释说：“常规函数总是在起始处开始，然后
+在结束处退出，而协程还可以中止执行，之后在中断的位置继续执行。”
+
+从机器硬件原理上看，所有代码都在 CPU 的控制下执行，最基本的执行单元是机器指令。高级语言编写的代码，
+即使是一条简单的赋值语句，都会编译成多条机器指令，所以它是有可能被分成次执行的，这一次在高级语言中
+都是透明的。CPU 会处理好时间片的安排，让程序正确地执行下去。
+
+而协程提供的是这样的一种编程能力：让函数可以被主动地中断执行。
 
 
 
@@ -1773,8 +2893,6 @@ volatile 的作用是“告诉编译器，是随时可能发生变化的，每�
     变量值可修改，但每次用到该变量的值都要从内存中读取，以防止意外错误。
 
 
-# =🚩 Coroutine 协程
-- [[渡劫 C++ 协程] 实现序列生成器](https://www.bilibili.com/video/BV1ug411d7Xy)
 
 
 
@@ -9700,15 +10818,22 @@ C++ 中 static 对象的初始化：
 - non-local static 对象（函数外）
 - local static 对象（函数内）
 
-C++ 规定，non-local static 对象的初始化发生在 main 函数执行之前。也即 main 函数之前的单线程启动阶段，所以不存在线程安全问题。但 C++ 没有规定多个 non-local static 对象的初始化顺序，尤其是来自多个编译单元的 non-local static 对象，他们的初始化顺序是随机的。
+C++ 规定，non-local static 对象的初始化发生在 main 函数执行之前。即 main 函数之前的单线程
+启动阶段，所以不存在线程安全问题。但 C++ 没有规定多个 non-local static 对象的初始化顺序，
+尤其是来自多个编译单元的 non-local static 对象，他们的初始化顺序是随机的。
 
-对于 local static 对象，其初始化发生在控制流第一次执行到该对象的初始化语句时，多个线程的控制流可能同时到达其初始化语句。
+对于 local static 对象，其初始化发生在控制流第一次执行到该对象的初始化语句时，多个线程的控制流
+可能同时到达其初始化语句。
 
-在 C++11 之前，在多线程环境下 local static 对象的初始化并不是线程安全的。这个问题在 C++11 语言规范中解决了，C++11 规定，在一个线程开始 local static 对象的初始化后到完成初始化前，其他线程执行到这个 local static 对象的初始化语句就会等待，直到该local static 对象初始化完成。
+在 C++11 之前，在多线程环境下 local static 对象的初始化并不是线程安全的。这个问题在 C++11 
+语言规范中解决了，C++11 规定，在一个线程开始 local static 对象的初始化后到完成初始化前，
+其他线程执行到这个 local static 对象的初始化语句就会等待，直到该local static 对象初始化完成。
 
 C++11 规定了 local static 在多线程条件下的初始化行为，要求编译器保证了内部静态变量的线程安全性。
 
-Effective C++ 基于 C++11 提出一种优雅的单例模式实现，使用函数内的 local static 对象。这样，只有当第一次访问 getInstance() 方法时才创建实例。这种方法也被称为 Meyers' Singleton。C++0x 之后该实现是线程安全的，C++0x 之前仍需加锁，C++0x 是 C++11 早期称谓。
+Effective C++ 基于 C++11 提出一种优雅的单例模式实现，使用函数内的 local static 对象。这样，
+只有当第一次访问 getInstance() 方法时才创建实例。这种方法也被称为 Meyers' Singleton。C++0x 
+之后该实现是线程安全的，C++0x 之前仍需加锁，C++0x 是 C++11 早期称谓。
 
 ```C++,ignore
 // version 1.2
