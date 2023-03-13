@@ -1,21 +1,3 @@
-# 🌟 Next 次世代
-- 底特律：化身为人 Detroit: Become Human https://www.bilibili.com/video/BV1Gp411R7kk
-- B站 2021小宇宙新星计划 https://www.bilibili.com/blackboard/activity-S49Oq1tKaF.html
-- B站 2020小宇宙新星计划 https://www.bilibili.com/blackboard/activity-5lyQ_R-_b.html
-- 小森平的免費下載音效 https://taira-komori.jpn.org/freesoundtw.html
-- 听说你想做游戏？ https://www.bilibili.com/medialist/play/33075498
-
-新世界大潮袭来，人们还沉浸在充满诱惑的生活中，为了满足无止境的物质追求，都不愿意为高仰的育儿成本买单，全球各国都出现的断崖式的人口下跌。
-
-而科技也你像极贪婪的人类，把触角伸展到了各个角落。元宇宙、基因编辑、人造物种、人工智能……
-
-然而，随着时间不断推进，人类在最有希望的人工智能的实践中遇阻，并且被证明不可行，满足不了未来世界对科技的需要，实现不了在全世界进行更大规模的劳动力解放。
-
-从原始社会茹毛饮血，到农业社会的耕作，到工业社会的机器化，再到电气化信息化，持续的社会进步看似给人类带来了无尽的享受和无限的可能。但其实，DNA里埋藏的阴暗面即有一个巨大的缺陷，图谋不轨的叛变者不再满足于利用原始的畜力、或者是新的能源动力，他们谋划者另一个终极的能源——大脑智力！
-
-而就在一家名为 Next Metaverse 的科技公司内，一场阴谋正在萌芽，它将会彻底改变人类的世界。
-
-元宇宙这个词源于 1992 年尼尔·斯蒂芬森的《雪崩》，这本书描述了一个平行于现实世界的虚拟世界，Metaverse，所有现实生活中的人都有一个网络分身 Avatar。
 
 
 # 🌟 Unreal Engine 4 入门

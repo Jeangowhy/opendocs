@@ -9,5 +9,7 @@
 
 *sublime-workspace
 
-/.bin/
-/.build/
+/*.html
+.bin
+.build
+.mscbackup

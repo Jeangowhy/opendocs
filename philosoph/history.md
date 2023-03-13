@@ -89,6 +89,7 @@ On the Exposition of Words' Meaning by Comparison between Zuo Zhuan and Records 
 
 # 东周列国志
 - https://www.zhonghuadiancang.com/wenxueyishu/dongzhoulieguozhi/
+- [【史图馆】波兰球中国历史第二版](https://www.bilibili.com/video/BV1fB4y1M7pf/)
 
 《東周列國志》是一部長篇歷史章回小说，為明末余邵鱼、馮夢龍所撰，清代的蔡元放编評。是一部在中國除了
 《三国演义》之外流传最广、影响最大的通俗历史演义。內容涵蓋春秋、戰國時代約500餘年的東周時期歷史，
@@ -272,3 +273,4 @@ foreach ($item in $contents){
 }
 rm out.tmp
 ```
+

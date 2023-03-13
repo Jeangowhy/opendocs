@@ -1525,12 +1525,36 @@ Fabric 中特定应用程序的背书策略，可以指定需要哪些节点或�
 因为 Fabric 已经消除了非确定性，Fabric 是第一个能使用标准编程语言的区块链技术。
 
 
+组织拥有成员服务提供者（MSP），而 CA（Certificate Authority）专门为组织创建证书和 MSP。
+成员服务提供者（MSP）是 Fabric 的一个组件，旨在提供抽象的成员操作。具体的，MSP 将分发证书、
+验证证书和用户授权背后的所有加密机制和协议抽象出来。MSP 可以定义它们自己的身份概念。同样还可以
+定义管理(身份验证)和认证(签名生成和验证)这些身份的规则。
+
+一个 Fabric 区块链网络可以由一个或多个 MSP 管理。这提供了成员操作的模块和不同成员标准和架构
+之间的互操作性。
+
+
+排序服务是 Fabric 网络的中心，在排序节点中运行，和 Peer 节点一样，所有排序节点都必须属于
+已存在的组织。**组织** Orgnization 是 Fabric 网络的管理单元。
+
 Fabric 设计了排序服务以支持**可插拔式共识**，交易的排序委托给模块化组件以达成共识，该组件在逻辑
 上与执行交易和维护帐本的节点解耦。具体来说，就是**排序服务**。由于共识是模块化的，可以根据特定部署或
 解决方案的信任假设来定制其实现。这种模块化架构允许平台依赖完善的工具包进行 CFT 或 BFT 的排序。
 
-- 崩溃容错 Crash Fault Tolerance (CFT) 容忍分布式节点中存在故障，但不能容忍搞破坏。
-- 拜占庭容错 Byzantine fault-tolerant (BFT) 同时可以容忍节点故障以及部分节点搞破坏。
+共识机制算法可以按容错方式分为以下两类：
+
+- **崩溃容错** Crash Fault Tolerance (CFT) 容忍分布式节点中存在故障，但不能容忍搞破坏。
+- **拜占庭容错** Byzantine fault-tolerant (BFT) 同时可以容忍节点故障以及部分节点搞破坏。
+
+|            共识算法            | 容错性 | 确定性 | 选主策略 |
+|--------------------------------|--------|--------|----------|
+| Paxos                          | CFT    | YES    | 选举     |
+| Raft                           | CFT    | YES    | 选举     |
+| PBFT - Practical BFT           | BFT    | YES    | 选举     |
+| PoW - Proof of Work            | BFT    | No     | 证明     |
+| PoS - Proof of Stake           | BFT    | No     | 证明     |
+| DPoS - Delegate Proof of Stake | BFT    | No     | 证明     |
+| Ripple                         |        |        |          |
 
 Fabric 目前提供了一种基于 Raft 协议的 etcd 库实现的 CFT 排序服务。etcd 是轻量、专用、强一致性、
 分布式、可靠的关键值存储，用于存储分布式系统中最关键的数据，使用 Raft 共识算法来保持数据一致性。
@@ -1538,6 +1562,8 @@ Fabric 目前提供了一种基于 Raft 协议的 etcd 库实现的 CFT 排序�
 - https://github.com/etcd-io/etcd
 - [`etcd` library](https://coreos.com/etcd/) 
 - [Raft protocol](https://raft.github.io/raft.pdf)
+- [Fabric 1.4共识机制](https://www.cnblogs.com/i-dandan/p/11367623.html)
+- [分布式系统协议 Paxos Raft ZAB](https://zhuanlan.zhihu.com/p/147691282)
 
 另外，请注意，这些并不相互排斥。一个 Fabric 网络中可以有多种排序服务以支持不同的应用或应用需求。
 
@@ -1554,21 +1580,23 @@ Fabric 代码库当前嵌入的共识插件如下：
 - https://github.com/SmartBFT-Go/fabric
 - https://github.com/SmartBFT-Go/consensus
 
-
-排序服务在 Fabric 网络的排序节点中运行，和 Peer 节点一样，所有排序节点都必须属于已存在的组织。
-**组织** Orgnization 是 Fabric 网络的管理单元。
-
-组织拥有成员服务提供者（MSP），而 CA（Certificate Authority）专门为组织创建证书和 MSP。
-成员服务提供者（MSP）是 Fabric 的一个组件，旨在提供抽象的成员操作。具体的，MSP 将分发证书、
-验证证书和用户授权背后的所有加密机制和协议抽象出来。MSP 可以定义它们自己的身份概念。同样还可以
-定义管理(身份验证)和认证(签名生成和验证)这些身份的规则。
-
-一个 Fabric 区块链网络可以由一个或多个 MSP 管理。这提供了成员操作的模块和不同成员标准和架构
-之间的互操作性。
+Raft 在 v1.4.1 版本中引入的一种基于 etcd 的崩溃容错（CFT）排序服务，遵循“领导者和追随者”模型，
+其中领导者在通道中的 orderer 节点之间动态选出，这个节点集合称为“consenter set”，该领导者将
+消息复制到跟随者节点。由于系统可以承受节点（包括领导节点）的丢失，只要大多数排序节点还健在，即“仲裁”。
+换句话说，如果一个通道中有三个节点，它可以承受一个节点的丢失（剩下两个节点）。
 
 
 Fabric 2.0 中使用 Kafka 消息系统来实现交易消息的排序，最新版本从 Kafka 迁移到了 Raft 共识。
 Orderer v3: Kafka consesus remove (#3533)
+
+Fabric Kafka 共识算法，简单来说，就是通过 Kafka 集群实现对所有交易信息进行排序，如果系统存在
+多个 channel，则对每个 channel 分别排序。
+
+Kafka 将消息分类保存为多个 topic，并细分为多个 partition，消息被连续追加写入 partition，
+形成操作系统文件目录结构。一个 topic 可以被多个 consumers 订阅。Partition 相当一个 FIFO
+消息管道，一端由 producer 写入消息，另一端由 consumer 取走消息。注意，这里的取走消息只是移动
+consumer 的位置指针，提供操作效率。
+
 
 - orderer/consensus/kafka/chain.go
 - fabric\docs\source\kafka.rst
@@ -1588,6 +1616,7 @@ Orderer v3: Kafka consesus remove (#3533)
 - [Hyperledger Fabric](https://github.com/hyperledger/fabric)
 - [Hyperledger Fabric CA](https://github.com/hyperledger/fabric-ca)
 - [Samples for Hyperledger Fabric](https://github.com/hyperledger/fabric-samples)
+- [Hyperledger Fabric i18n](https://github.com/hyperledger/fabric-docs-i18n)
 
 Linux 或者 Windows WSL 软件环境要求：
 
@@ -1596,7 +1625,7 @@ Linux 或者 Windows WSL 软件环境要求：
 - 安装 Git，如果还没安装，下载最新版本的 git，否则运行 curl 命令有问题。
 - 安装 cURL，如果尚未安装 cURl 或在服务器上运行 curl 命令出错时请下载最新版本的 cURL 工具。
 - 安装 Docker 和 Docker Compose。
-- 可选安装 jq，这是一个轻量的 JSON 字符串处理命令工具。
+- 安装 jq，这是一个轻量的 JSON 字符串处理命令工具。
 
 请确保 docker 服务处于运行状态，后面拉取 FABRIC_IMAGES: peer orderer ccenv tools baseos
 等映像文件需要。下边的命令适用于 Linux 系统：
@@ -1758,150 +1787,118 @@ printHelp() {
     hyperledger/fabric-ca        latest    93f19fa873cb   7 months ago   76.5MB
 
 
-## 👉 Network 网络概念及命令使用
-- [Samples for Hyperledger Fabric](https://github.com/hyperledger/fabric-samples)
-- [Fabric 网络测试](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/test_network.html)
-- [Fabric Documentation i18n](https://github.com/hyperledger/fabric-docs-i18n)
-- [Fabric CA User’s Guide](https://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html)
-- [BDoS: Blockchain Denial-of-Service Attacks](https://arxiv.org/pdf/1912.07497.pdf)
-- [区块链毕业设计必读论文](http://blog.hubwiz.com/2020/03/15/block-paper-14/)
-- [Policies in Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.5/policies.html)
+## 👉 Network Architecture 网络构架
+- https://hyperledger-fabric.readthedocs.io/zh_CN/latest/network/network.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/network/network.html
+- [Hyperledger fabric 基础介绍](https://cloud.tencent.com/developer/article/1622427)
+- [Hyperledger Fabric 系统架构详解](https://www.pseudoyu.com/zh/2021/03/20/blockchain_hyperledger_fabric_structure/)
 
-在示范项目仓库``fabric-samples``中，提供了一个 `test-network` 项目，它用来对 Fabric v2.0
-网络进行测试，供学习了解基本的 Fabric 网络概念。有了 Fabric 网络，才可以进行各种实验测试。
+以下是一个称之为 N 的基本 Fabric Network 框架图，和最新版本会有些出入：
 
-代码库中提供了 network.sh 脚本来部署测试网络，有经验的开发人员可以使用 `test-network` 项目
-测试其智能合约和应用程序。该测试网络在 Fabric v2.0 中引入作为旧版本的 first-network 示例的
-长期替代。
+![Fabric network](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/_images/network.diagram.1.png)
 
-该示例网络使用 Docker Compose 部署了一个 Fabric 网络。这些节点隔离在 Docker Compose 网络中，
-测试网络没有配置 channel 以连接到其他正在运行的 fabric 节点。
+Fabric Network 包含的节点有：
 
-然后，通过执行以下命令来启动、关闭 Fabric 网络，以下命令需要进入测试网络的目录下运行：
+- CA 证书服务节点，CA1、CA2、CA3、CA4，是可选服务，为 Fabric 网络成员提供数字证书身份证。
+- Channels 一个或多个通道，每个通道对应一个账本主体，账本由区块链和 World state 组成。
 
-```sh
-> cd fabric-samples/test-network
-> ./network.sh -h
-# Usage:
-#   network.sh <Mode> [Flags]
-#     Modes:
-#       up - Bring up Fabric orderer and peer nodes. No channel is created
-#       up createChannel - Bring up fabric network with one channel
-#       createChannel - Create and join a channel after the network is created
-#       deployCC - Deploy a chaincode to a channel (defaults to asset-transfer-basic)
-#       down - Bring down the network
+    构架图中显示，此网络创建了 C1 和 C2 两个通道，它们对应的账本为 L1 和 L2。
+    由组织管理的通道配置决定了对应通道的行为方式，CC1 和 CC2 分别配置 C1 和 C2。
 
-> ./network.sh up
-> ./network.sh down
-```
+- Peers 任意数量的对端节点，Fabric 网络的基本节点，Peer 节点是存储区块链账本副本的网络组件。
 
-使用 `./network.sh up` 命令创建一个由两个对等节点和一个排序节点组成的 Fabric 网络。 没有创建
-任何 channel，虽然脚本提供这个功能。如果命令执行成功，可以使用 docker 查询到节点的日志信息：
+    当一个 Peer 节点 P1 加入了通道 C1。物理上 P1 会存储账本 L1 的副本。P1 和 O4 可以使用
+    通道 C1 来进行通信。可以想象 L1 会被物理地存储在 P1 上，但是 逻辑上 是存储在通道 C1 上。
 
-```sh
-$ docker ps --all --format "table {{.ID}}\t{{.Command}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
-CONTAINER ID   COMMAND                  NAMES                      IMAGE                               STATUS
-2a558cea798e   "/bin/bash"              cli                        hyperledger/fabric-tools:latest     Up 35 seconds
-f0d20f53b828   "peer node start"        peer0.org1.example.com     hyperledger/fabric-peer:latest      Up 36 seconds
-09aaa8b7ab73   "orderer"                orderer.example.com        hyperledger/fabric-orderer:latest   Up 36 seconds
-048dba3424f3   "peer node start"        peer0.org2.example.com     hyperledger/fabric-peer:latest      Up 36 seconds
-```
+    P1 节点维护了 C1 的账本 L1 的副本。
+    P2 节点维护了 C1 的账本 L1 和 C2 的账本 L2 的副本。
+    P3 节点维护了 C2 的账本 L2 的副本。
 
-默认情况下，使用 Fabric 自带的 cryptogen 工具来生成证书以建立网络。生产环境中可以通过证书颁发
-机构建立网络，它们是对等的工具，只是 CA 服务是一种动态的证书生产环境。开发、测试阶段不需要部署 CA，
-使用证书生成工具生成证书更简便。当然在生产环境中也可以不使用 CA 服务器，继续使用 `cryptogen`。
+- 网络配置，这个网络是根据在 NC4 中指定的配置规则来进行管理的，整个网络由组织 R1 和 R4 管理。
+- 排序服务，即是管理者，又是共识服务，以插件形式实现可插拔式共识。
 
-Fabric CA 是证书授权中心 Certificate Authority (CA)，包含客户、服务端。
+    此网络只配置了一个排序服务节点 O4，作为这个网络 N 的一个网络管理员节点，并且使用系统通道。
 
-- `fabric-ca-client` 客户端命令用来管理身份（包括属性管理）和证书（包括回复和撤销）。
-- `fabric-ca-server` 服务端命令用来初始化和启动服务进程，以便于管理一个或多个 CA。
+    排序服务同时也支持应用通道 C1 和 C2，来对交易进行排序、加入区块然后分发。每个组织都有一个
+    首选的 CA。
 
-证书的默认签名算法为 ECDSA，Hash 算法为 SHA-256。
+- Organizations 组织，是多个节点的管理单元。
 
-Fabric 设计中考虑了三种类型的证书：
+    图中有 R1、R2、R3 和 R4 四个组织，他们共同决定，并且达成了一个协议，设置并开发一个
+    Hyperledger Fabric 网络。R4 被分配作为网络的初始者，它有权设置网络的初始版本。
+    R4 不会在网络中去进行任何的业务交易。
 
-- 登记证书（Enrollment Certificate）颁发给注册用户或节点等实体，代表网络中身份。一般长期有效。
-- 交易证书（Transaction Certificate）颁发给用户，控制每个交易的权限，实现匿名性。短期有效。
-- 保障通信链路安全的 TLS 证书，验证远端实体身份，防止窃听。
+    R1 和 R2 在整个网络中有进行私有通信的需求，R2 和 R3 也是。
+    R1 组织有一个客户端的应用能够在通道 C1 中进行业务的交易。
+    R2 组织有一个客户端应用可以在通道 C1 和 C2 中进行类似的工作。
+    R3 组织可以在通道 C2 中做这样的工作。
 
-目前，在实现上，主要通过 ECert 来对实体身份进行检验，通过检查签名来实现权限管理。TCert 功能暂未
-实现，用户可以使用 idemix 机制来实现部分匿名性。
+    通道 C1 根据在通道配置 CC1 中指定的规则来管理，这个通道由组织 R1 和 R2 管理。
+    通道 C2 根据在通道配置 CC2 中指定的规则来管理，这个通道由组织 R2 和 R3 管理。
 
-Fabric CA 数字证书认证中心，它提供了如下功能：
+    当一个排序服务启动后就形成了一个网络。在示例网络 N 中，排序服务 O4 由一个单独的节点组成，
+    根据 NC4 这个网络配置来进行配置。在网络层面上，CA4 证书颁发机构被用来向管理员和 R4
+    组织的网络节点分配身份信息。通过 R4 组织更新网络配置，又可以使 R1 组织也成为管理员。
 
-- 用户信息的注册
-- 数字证书的发行
-- 数字证书的延期与吊销
+    R1 组织变成了管理员，就和 R4 在网络中具有了相同的权限。跟着 R1 加入网络的还有 CA1 
+    证书颁发机构，它用来标识 R1 组织的用户。
 
-并且，Fabric CA 服务端提供了 RESTful 接口供客户端工具和 HFC SDK 访问。
+    尽管排序节点 O4 是运行在 R4 的基础设施上的，如果 R1 能够访问到的话就可以共享管理的权限。
+    也就是说 R1 或者 R4 可以更新 NC4 这个网络配置来允许组织 R2 进行网络维护中的部分功能。
+    通过这种方式，尽管 R4 运行着排序服务，但是 R1 在其中也具有着全部的管理员权限，R2 具有
+    有限的创建新联盟的权限。
 
+- Components 联盟，组织共同体。
 
-Fabric 基于微服务构架开发，Service Discovery CLI 发现服务使用 YAML 配置文件来对包括证书和
-私钥路径以及成员服务提供者身份证（MSP ID）在内的属性进行维持。
+    尽管这个网络当前可以被 R1 和 R4 管理，但是只有这些还是不够。需要定义一个联盟，这个词表示
+    “具有着共同命运的一个群组”，也就是在一个区块链网络中合理地选择出来的一些组织。
 
-发现服务使用 `discover` 命令提供以下四种操作，发现对端、以及链码背书人：
+    网络管理员定义了一个包含两个成员的联盟 X1，包含组织 R1 和 R2。这个联盟的定义存储在 NC4 
+    网络配置中，会在接下来的网络开发中被使用。CA1 和 CA2 是这两个组织对应的证书颁发机构。
 
-- peers [<flags>]    Discover peers
-- config [<flags>]    Discover channel config
-- endorsers [<flags>]    Discover chaincode endorsers
-- saveConfig    Save the config passed by flags into the file specified by --configFile
+    由于 NC4 的配置方式，只有 R1 和 R4 能够创建新的联盟。构架图中标示了一个新的联盟 X1，
+    它定义了 R1 和 R2 是它的联盟组织。注意，一个网络可以包含任意个联盟，一个联盟可以包含
+    任意数量的组织，这里仅包含了两个组织作为一个最简单的配置。
 
-`peer channel` 命令用于执行 peer 节点上的管理通道相关的操作，比如加入通道，或者列出当前节点
-加入的通道。
+    为什么联盟这么重要？我们能够看到联盟定义了网络中的一部分组织，他们共享了彼此能够交易的需求，
+    在这个示例中就是 R1 和 R2 能够进行交易。这对于一组有着共同的目标的组织来说是有意义的。
+    使用联盟 X1 创建通道，这对于 Fabric 区块链是非常重要的部分。
 
-`configtxlator` 命令用于转换 fabric 数据结构，protobuf 与 JSON 之间进行转换，并创建配置更新。
-该命令可以启动 REST 服务器，并通过 HTTP 公开，可以直接用作命令行工具。
+- Apps & Smart contrasts 应用程序和智能合约
 
-`configtxgen` 命令用于创建和查看 channel 配置相关构件，生成内容取决于 `configtx.yaml` 配置文件。
+    Farbaric 智能合约即是链码，chaincode，它是智能合约的实现，可以使用多种语言编译智能合约。
+    智能合约，首先它是一种合约，其次它在区块网络中将合约转换为可执行的程序。
 
-命令中的 tx 表示的是 Transaction 交易的意思。
+    **智能合约**：用可执行的代码定义了不同组织之间的规则的可执行程序。
+    **应用程序**：基于区块链开发的应用，它调用智能合约来生成被记录到账本上的交易。
 
-管理员可以通过 `peer node` 命令来启动 Peer 节点，将节点中的所有通道重置为创世区块，或者将某个
-通道回滚到给定区块号。
+    在各业务彼此进行交互之前，必须先定义一套通用的合约，其中包括通用术语、数据、规则、概念定义
+    和流程。将这些合约放在一起，就构成了管理交易各方之间所有交互的业务模型。
 
-```sh
-# Available peer node commands:
-  peer node start --peer-chaincodedev   # Starts the node.
-  peer node reset [flags]   # Resets the node.
-  peer node pause [flags]   # Pauses a channel on the peer.
-  peer node resume -c ch1   # Resumes a channel on the peer.
-  peer node rollback -c ch1 -b 150  # Rolls back a channel.
-  peer node unjoin -c ch1   # Unjoin the peer from a channel.
-  peer node rebuild-dbs     # Rebuilds databases.
-  peer node upgrade-dbs     # Upgrades databases.
-```
+    使用区块链网络，我们可以将这些合约转换为可执行程序（业内称为智能合约），从而实现了各种各样
+    的新可能性。
 
-节点重置会将 peer 节点中的所有通道重置为创世块，即通道中的第一个区块。 重置命令还会记录文件系统中
-每个通道重置前的高度。 在 peer 节点执行重置后启动时，peer 节点将为每个通道获取因重置命令而移除的
-区块，从其他 peer 节点或排序节点获取，并提交这些区块直到重置前的高度。所有通道达到重置前的高度之前，
-peer 节点不会背书任何交易。
+    通道在一群组织之间提供了一种完全独立的通信机制。当链码定义被提交到通道上时，该通道上所有
+    应用程序都可以使用此链码中的智能合约。
 
-从指定的区块号回滚通道时，节点必须是离线的。当节点在回滚之后启动时，它将会从排序节点或者其他 Peer 
-节点获取回滚过程中删除的区块，并重建区块存储和状态数据库。
+    智能合约开发完之后，比如 S5，组织 R1 中的管理员必须要把它安装到节点 P1 上。安装完成之后，
+    P1 就完全了解了 S5。特别地，P1 能够看到 S5 的实现逻辑（用来访问账本 L1 的程序代码）。
 
-以开发者模式启动 Peer 节点。一般来说链码容器由 Peer 节点启动和维护。但是在链码的开发者模式下，
-链码通过用户来编译和启动，这个模式在链码开发阶段很有帮助。
+    当一个组织在一个通道中有多个 Peer 节点时，可以选择在哪个节点安装智能合约，而不需要每个
+    Peer 节点上都安装。
+
+    尽管链码会被安装在组织的 Peer 节点上，但是它是在一个通道范围内被管理和维护的。每个组织
+    需要批准一个链码定义，和一系列参数来定义在一个通道中链码应该被如何使用。一个组织必须要
+    批准一个链码定义，才能使用已经安装的智能合约来查询账本和为交易背书。
+
+    此例子中，只有一个单独的 Peer 节点 P1，一个组织中的管理员 R1 必须要批准 S5 的链码定义。
+    现在通道 C1 拥有了一个账本，并且 Peer 节点安装了智能合约，我们可以连接客户端应用来使用
+    由 Peer 节点提供的服务了。
 
 
-命令参考文档：
-
-- fabric\docs\source\command_ref.rst
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peercommand.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchaincode.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerlifecycle.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchannel.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peersnapshot.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerversion.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peernode.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/osnadminchannel.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxgen.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxlator.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/cryptogen.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/ledgerutil.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html
-- https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html
-
-
+Fabric Channel 通道机制来保障交易的安全和隐私性，每一个通道本质上相当于一个独立的账本，也是
+一个独立的区块链，有着不同的世界状态，网络中的一个节点可以同时加入多个通道。这种机制可以很好地
+划分不同的业务场景，也不用担心交易信息泄漏问题。
 
 节点 Node 是 Fabric 网络中的实体，根据功能差异分为多种节点类型：
 
@@ -2012,7 +2009,269 @@ Fabric 交易流程图如图所示，复述以上交易过程如下：
 
 
 
-## 👉 Fabric SDKs
+## 👉 Network 网络概念及命令使用
+- [Samples for Hyperledger Fabric](https://github.com/hyperledger/fabric-samples)
+- [Fabric 网络测试](https://hyperledger-fabric.readthedocs.io/zh_CN/latest/test_network.html)
+- [Fabric Documentation i18n](https://github.com/hyperledger/fabric-docs-i18n)
+- [Fabric CA User’s Guide](https://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html)
+- [BDoS: Blockchain Denial-of-Service Attacks](https://arxiv.org/pdf/1912.07497.pdf)
+- [区块链毕业设计必读论文](http://blog.hubwiz.com/2020/03/15/block-paper-14/)
+- [Policies in Hyperledger Fabric](https://hyperledger-fabric.readthedocs.io/en/release-2.5/policies.html)
+
+在示范项目仓库``fabric-samples``中，提供了一个 `test-network` 项目，它用来对 Fabric v2.0
+网络进行测试，供学习了解基本的 Fabric 网络概念。有了 Fabric 网络，才可以进行各种实验测试。
+
+代码库中提供了 network.sh 脚本来部署测试网络，有经验的开发人员可以使用 `test-network` 项目
+测试其智能合约和应用程序。该测试网络在 Fabric v2.0 中引入作为旧版本的 first-network 示例的
+长期替代。
+
+该示例网络使用 Docker Compose 部署了一个 Fabric 网络。这些节点隔离在 Docker Compose 网络中，
+测试网络没有配置 channel 以连接到其他正在运行的 fabric 节点。
+
+然后，通过执行以下命令来启动、关闭 Fabric 网络，以下命令需要进入测试网络的目录下运行：
+
+- 启动测试网络，使用 docker ps 命令观察网络中的节点。
+- 关闭测试网络，停止 Docker 中部署的 Fabric 网络服务。
+- 创建并配置通道，并部署链码到通道上，测试交易。
+
+
+```sh
+> cd fabric-samples/test-network
+> ./network.sh -h
+Usage:
+  network.sh <Mode> [Flags]
+    Modes:
+      up - Bring up Fabric orderer and peer nodes. No channel is created
+      up createChannel - Bring up fabric network with one channel
+      createChannel - Create and join a channel after the network is created
+      deployCC - Deploy a chaincode to a channel (defaults to asset-transfer-basic)
+      down - Bring down the network
+
+    Flags:
+    Used with network.sh up, network.sh createChannel:
+    -ca <use CAs> -  Use Certificate Authorities to generate network crypto material
+    -c <channel name> - Name of channel to create (defaults to "mychannel")
+    -s <dbtype> - Peer state database to deploy: goleveldb (default) or couchdb
+    -r <max retry> - CLI times out after certain number of attempts (defaults to 5)
+    -d <delay> - CLI delays for a certain number of seconds (defaults to 3)
+    -verbose - Verbose mode
+
+    Used with network.sh deployCC
+    -c <channel name> - Name of channel to deploy chaincode to
+    -ccn <name> - Chaincode name.
+    -ccl <language> - Programming language of the chaincode to deploy: go, java, javascript, typescript
+    -ccv <version>  - Chaincode version. 1.0 (default), v2, version3.x, etc
+    -ccs <sequence>  - Chaincode definition sequence. Must be an integer, 1 (default), 2, 3, etc
+    -ccp <path>  - File path to the chaincode.
+    -ccep <policy>  - (Optional) Chaincode endorsement policy using signature policy syntax. The default policy requires an endorsement from Org1 and Org2
+    -cccg <collection-config>  - (Optional) File path to private data collections configuration file
+    -cci <fcn name>  - (Optional) Name of chaincode initialization function. When a function is provided, the execution of init will be requested and the function will be invoked.
+
+    -h - Print this message
+
+ Possible Mode and flag combinations
+   up -ca -r -d -s -verbose
+   up createChannel -ca -c -r -d -s -verbose
+   createChannel -c -r -d -verbose
+   deployCC -ccn -ccl -ccv -ccs -ccp -cci -r -d -verbose
+
+ Examples:
+   network.sh up createChannel -ca -c mychannel -s couchdb -i 2.0.0
+   network.sh createChannel -c channelName
+   network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript/ -ccl javascript
+   network.sh deployCC -ccn mychaincode -ccp ./user/mychaincode -ccv 1 -ccl javascript
+```
+
+使用 `./network.sh up` 命令创建一个由两个对等节点和一个排序节点组成的 Fabric 网络。 没有创建
+任何 channel，虽然脚本提供这个功能。如果命令执行成功，可以使用 docker 查询到节点的日志信息：
+
+```sh
+$ docker ps --all --format "table {{.ID}}\t{{.Command}}\t{{.Names}}\t{{.Image}}\t{{.Status}}"
+CONTAINER ID   COMMAND                  NAMES                      IMAGE                               STATUS
+2a558cea798e   "/bin/bash"              cli                        hyperledger/fabric-tools:latest     Up 35 seconds
+f0d20f53b828   "peer node start"        peer0.org1.example.com     hyperledger/fabric-peer:latest      Up 36 seconds
+09aaa8b7ab73   "orderer"                orderer.example.com        hyperledger/fabric-orderer:latest   Up 36 seconds
+048dba3424f3   "peer node start"        peer0.org2.example.com     hyperledger/fabric-peer:latest      Up 36 seconds
+```
+
+以下创建两个通道，可以指定通道名称，`network.sh` 脚本默认创建 `mychannel` 通道，通道不能重名。
+通道是网络构架的一个部分，但它没有相应的节点，所有 peer 节点都需要通过 channel 来传递交易信息。
+注意通道名的字符约束，不要使用特殊符号，使用小写字母，并限制在 250 个字符内。
+
+  - contains only lower case ASCII alphanumerics, dots '.', and dashes '-'
+  - is shorter than 250 characters
+  - starts with a letter
+
+然后，布署示范工程 Asset transfer basic sample 中提供的链码，进行测试。这个资产转移操作示范
+项目使用各种语言开发，包含链码和 App 两个部分。其中包含 Go 语言版本，布署时需要下载 Go 依赖模块，
+包括 contract API，然后是编译链码，国内网络状况可能注定这是一个非常自虐的过程。
+
+另外两个选择是使用 Java 或者 Node 12 环境下的 TypeScript，这两种方式的依赖处理可能要轻松点。
+推荐使用 TypeScript 这种强类型脚本，替代语法上更灵活的 JavaScript。使用脚本就需要安装 Node 
+以及项目的模块依赖，这或者是掌握多种语言或工具的好处吧。
+
+- fabric\docs\source\test_network.md
+- fabric-samples\test-network\README.md
+- fabric-samples\asset-transfer-basic\README.md
+
+这个基础示范项目中演示了：
+
+- Connecting a client application to a Fabric blockchain network.
+- Submitting smart contract transactions to update ledger state.
+- Evaluating smart contract transactions to query ledger state.
+- Handling errors in transaction invocation.
+
+```sh
+./network.sh createChannel -c channel1
+./network.sh createChannel -c channel2
+./network.sh createChannel -c mychannel
+
+# ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+# cd ../asset-transfer-basic/application-gateway-go
+# go run .
+
+# To run the Typescript sample application
+# https://nodejs.org/en/download/
+sudo apt update && sudo apt upgrade
+apt list | grep nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+nvm install v16.13.1
+nvm install --lts v12
+
+cd ./asset-transfer-basic/application-gateway-typescript
+npm install
+npm start
+./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-typescript -ccl typescript
+
+./network.sh deployCC -ccl typescript
+
+peer channel list
+```
+
+创建通道后，使用 `peer channel list` 命令查询，注意，未曾配置 core.yaml 之前，查询会出错。
+
+    [main] InitCmd -> Fatal error when initializing core config : 
+    error when reading core config file: 
+    Config File "core" Not Found in "[/mnt/c/fabric-samples/test-network]"
+
+
+
+
+默认情况下，使用 Fabric 自带的 cryptogen 工具来生成证书以建立网络。生产环境中可以通过证书颁发
+机构建立网络，它们是对等的工具，只是 CA 服务是一种动态的证书生产环境。开发、测试阶段不需要部署 CA，
+使用证书生成工具生成证书更简便。当然在生产环境中也可以不使用 CA 服务器，继续使用 `cryptogen`。
+
+所有节点的证书文件都会存放在 organizations 目录。
+
+Fabric CA 是证书授权中心 Certificate Authority (CA)，包含客户、服务端。
+
+- `fabric-ca-client` 客户端命令用来管理身份（包括属性管理）和证书（包括回复和撤销）。
+- `fabric-ca-server` 服务端命令用来初始化和启动服务进程，以便于管理一个或多个 CA。
+
+证书的默认签名算法为 ECDSA，Hash 算法为 SHA-256。
+
+Fabric 设计中考虑了三种类型的证书：
+
+- 登记证书（Enrollment Certificate）颁发给注册用户或节点等实体，代表网络中身份。一般长期有效。
+- 交易证书（Transaction Certificate）颁发给用户，控制每个交易的权限，实现匿名性。短期有效。
+- 保障通信链路安全的 TLS 证书，验证远端实体身份，防止窃听。
+
+目前，在实现上，主要通过 ECert 来对实体身份进行检验，通过检查签名来实现权限管理。TCert 功能暂未
+实现，用户可以使用 idemix 机制来实现部分匿名性。
+
+Fabric CA 数字证书认证中心，它提供了如下功能：
+
+- 用户信息的注册
+- 数字证书的发行
+- 数字证书的延期与吊销
+
+并且，Fabric CA 服务端提供了 RESTful 接口供客户端工具和 HFC SDK 访问。
+
+
+Fabric 基于微服务构架开发，Service Discovery CLI 发现服务使用 YAML 配置文件来对包括证书和
+私钥路径以及成员服务提供者身份证（MSP ID）在内的属性进行维持。
+
+发现服务使用 `discover` 命令提供以下四种操作，发现对端、以及链码背书人：
+
+- peers [<flags>]    Discover peers
+- config [<flags>]    Discover channel config
+- endorsers [<flags>]    Discover chaincode endorsers
+- saveConfig    Save the config passed by flags into the file specified by --configFile
+
+`configtxlator` 命令用于转换 fabric 数据结构，protobuf 与 JSON 之间进行转换，并创建配置更新。
+该命令可以启动 REST 服务器，并通过 HTTP 公开，可以直接用作命令行工具。
+
+`configtxgen` 命令用于创建和查看 channel 配置相关构件，生成内容取决于 `configtx.yaml` 配置文件。
+
+命令中的 tx 表示的是 Transaction 交易的意思。
+
+1. fabric\docs\source\command_ref.rs
+2. fabric\docs\source\commands\peercommand.md
+3. fabric\docs\source\commands\peernode.md
+4. fabric\docs\source\commands\peerchannel.md
+5. fabric\docs\source\commands\peerchaincode.md
+
+`peer` 命令提供 chaincode、channel、node 的操作，这是最常用的一个命令：
+
+    Available Commands:
+      chaincode   Operate a chaincode: install|instantiate|invoke|package|query|signpackage|upgrade|list.
+      channel     Operate a channel: create|fetch|join|joinbysnapshot|joinbysnapshotstatus|list|update|signconfigtx|getinfo.
+      help        Help about any command
+      lifecycle   Perform _lifecycle operations
+      node        Operate a peer node: start|reset|rollback|pause|resume|rebuild-dbs|unjoin|upgrade-dbs.
+      snapshot    Manage snapshot requests: submitrequest|cancelrequest|listpending
+      version     Print fabric peer version.
+
+`peer channel` 命令用于执行 peer 节点上的管理通道相关的操作，比如加入通道，或者列出当前节点
+加入的通道。
+
+`peer node` 命令可以管理 Peer 节点，如启动节点，将节点中的所有通道重置为创世区块，或者将某个
+通道回滚到给定区块号。
+
+```sh
+# Available peer node commands:
+  peer node start --peer-chaincodedev   # Starts the node.
+  peer node reset [flags]   # Resets the node.
+  peer node pause [flags]   # Pauses a channel on the peer.
+  peer node resume -c ch1   # Resumes a channel on the peer.
+  peer node rollback -c ch1 -b 150  # Rolls back a channel.
+  peer node unjoin -c ch1   # Unjoin the peer from a channel.
+  peer node rebuild-dbs     # Rebuilds databases.
+  peer node upgrade-dbs     # Upgrades databases.
+```
+
+节点重置会将 peer 节点中的所有通道重置为创世块，即通道中的第一个区块。 重置命令还会记录文件系统中
+每个通道重置前的高度。 在 peer 节点执行重置后启动时，peer 节点将为每个通道获取因重置命令而移除的
+区块，从其他 peer 节点或排序节点获取，并提交这些区块直到重置前的高度。所有通道达到重置前的高度之前，
+peer 节点不会背书任何交易。
+
+从指定的区块号回滚通道时，节点必须是离线的。当节点在回滚之后启动时，它将会从排序节点或者其他 Peer 
+节点获取回滚过程中删除的区块，并重建区块存储和状态数据库。
+
+以开发者模式启动 Peer 节点。一般来说链码容器由 Peer 节点启动和维护。但是在链码的开发者模式下，
+链码通过用户来编译和启动，这个模式在链码开发阶段很有帮助。
+
+
+命令参考文档：
+
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peercommand.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchaincode.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerlifecycle.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerchannel.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peersnapshot.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerversion.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/peernode.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/osnadminchannel.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxgen.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/configtxlator.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/cryptogen.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/ledgerutil.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/discovery-cli.html
+- https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html
+
+
+
+## 👉 Fabric SDKs 应用开发
 - [Fabric SDKs](https://wiki.hyperledger.org/display/fabric/Hyperledger+Fabric+SDKs)
 - [Fabric Node SDK 文档](https://hyperledger.github.io/fabric-sdk-node/)
 - [Fabric Java SDK 文档](https://hyperledger.github.io/fabric-gateway-java/)
@@ -2020,6 +2279,7 @@ Fabric 交易流程图如图所示，复述以上交易过程如下：
 - [Fabric SDK Node.js](https://github.com/hyperledger/fabric-sdk-node)
 - [Fabric SDK Java](https://github.com/hyperledger/fabric-gateway-java)
 - [Fabric SDK Py](https://github.com/hyperledger/fabric-sdk-py)
+- [Fabric Go SDK 事件分析](https://www.pseudoyu.com/zh/2021/09/01/blockchain_hyperledger_fabric_gosdk_event/)
 
 
 
@@ -2543,9 +2803,9 @@ exec 执行正在运行的容器内的命令。
 - ABT 开发者指南 https://docs.arcblock.io/abtnode/zh/developer
 - ABT 节点技术预览版入门 https://www.arcblock.io/blog/zh/post/2020/05/19/abt-node-technical-preview-introduction
 - ArcBlock WhitePaper https://www.arcblock.io/zh/whitepaper/
-- MIT Silvio Micali 教授提出可扩展的新共识算法 Algorand https://www.8btc.com/article/121880
 - Gitpod 浏览器扩展 https://github.com/gitpod-io/gitpod
 - 区块链核心概念 https://docs.arcblockio.cn/forgecli/zh/5-manipulate-wallets-accounts
+- MIT Silvio Micali 教授提出可扩展的新共识算法 Algorand https://www.8btc.com/article/121880
 - 普林斯顿大学开设的公开课 Bitcoin and Cryptocurrency Technologies https://www.coursera.org/learn/cryptocurrency
 
 名字解析：

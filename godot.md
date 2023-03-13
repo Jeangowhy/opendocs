@@ -3,52 +3,198 @@
 [TOC]
 
 ## 🟡 Wonderful Games 优秀游戏项目
+1. 底特律：化身为人 Detroit: Become Human https://www.bilibili.com/video/BV1Gp411R7kk
+2. B站 2021小宇宙新星计划 https://www.bilibili.com/blackboard/activity-S49Oq1tKaF.html
+3. B站 2020小宇宙新星计划 https://www.bilibili.com/blackboard/activity-5lyQ_R-_b.html
+4. 小森平的免費下載音效 https://taira-komori.jpn.org/freesoundtw.html
+5. 听说你想做游戏？ https://www.bilibili.com/medialist/play/33075498
+6. 有哪些不容错过的独立游戏？ https://www.zhihu.com/question/372299414
+6. 到底什么才是独立游戏？ https://www.bilibili.com/video/BV1y741147vx
+6. 有哪些冒险类（AVG）游戏能称得上殿堂级？ https://www.zhihu.com/question/21311720
 
-Samorost 3
-- https://www.bilibili.com/read/cv10215849/
-- https://www.bilibili.com/video/BV16b411Y7XR
-“蘑菇社”在捷克 https://zhuanlan.zhihu.com/p/34352981
-Samorost 3 Main Theme https://music.163.com/#/song?id=409830322
-银河历险记 3 是一款探险及谜题类游戏，由机械迷城 (Machinarium)和植物精灵 (Botanicula)的优秀
-创造者出品。它是 Amanita Design 目前为止最为不凡的体验，同时也可以说是热门独立游戏银河历险记
-和银河历险记 2 的续集。画面或相像风格和宫崎骏的《风之谷》比较相似。
+我的游戏计划种子：
 
-2003 年推出的初代《银河历险记》其实是 Jakub 的毕业设计项目。彼时就读于布拉格艺术、建筑和设计学院
-（Academy of Arts, Architecture and Design）的 Jakub “想创造一些可交互的项目”。因为技术
-不在行，他选择的载体是操作简单、上手容易，且盛行一时的Flash。
+- ✨千年农夫
+- ✨游戏三国
+- ✨Next 次世代
 
-除了音乐、音效是交给一位朋友操刀，Jakub 一手包办了其他开发内容。断断续续制作了一年多后，他将完成品
-免费发布在了一个朋友的网站上。没想到，最后涌入的玩家彻底挤爆了网站服务器， Jakub 这才意识到自己的
-游戏这么受欢迎。
+    新世界大潮袭来，人们还沉浸在充满诱惑的生活中，为了满足无止境的物质追求，都不愿意为高仰的
+    育儿成本买单，全球各国都出现的断崖式的人口下跌。
+
+    而科技也你像极贪婪的人类，把触角伸展到了各个角落。元宇宙、基因编辑、人造物种、人工智能……
+
+    然而，随着时间不断推进，人类在最有希望的人工智能的实践中遇阻，并且被证明不可行，满足不了
+    未来世界对科技的需要，实现不了在全世界进行更大规模的劳动力解放。
+
+    从原始社会茹毛饮血，到农业社会的耕作，到工业社会的机器化，再到电气化信息化，持续的社会进步
+    看似给人类带来了无尽的享受和无限的可能。但其实，DNA里埋藏的阴暗面即有一个巨大的缺陷，图谋
+    不轨的叛变者不再满足于利用原始的畜力、或者是新的能源动力，他们谋划着终极能源——大脑智力！
+
+    而就在一家名为 Next Metaverse 的科技公司内，一场阴谋正在萌芽，它将会彻底改变人类的世界。
+
+    元宇宙这个词源于 1992 年尼尔·斯蒂芬森的《雪崩》，这本书描述了一个平行于现实世界的虚拟世界，
+    Metaverse，所有现实生活中的人都有一个网络分身 Avatar。
 
 
-战鼓啪嗒砰（PATAPON）
-https://www.bilibili.com/read/cv4536493
-https://www.bilibili.com/video/BV1KC4y1s7pW/
-战鼓啪打碰！黑脸大眼仔诞生记 https://www.bilibili.com/read/cv14569111
-Patapon3 Overhaul 更新预览 https://www.bilibili.com/read/cv12335671
+- 🌟优秀作品陈列
 
-《PATAPON》的横空出世，颠覆了当时所有音游玩家的概念。这严格意义上可以说是一款“节奏游戏”，但远不止于
-节奏元素，在此基础上还融合了收集、策略、动作、养成的玩法。用原始部落文明的世界观，将这些元素完美的
-结合在了一起。
+    《山河旅探》 奥秘之家开发的一款国风横轴本格推理探案游戏，冒险游戏AVG。
+    凡有接触，必留痕迹。世间绝无真正完美之犯罪，唯有未被发现之线索。
+    清末民初--古代与现代、东方与西方多种文化交融碰撞的风云年代，化身故事主人公的你，被卷入
+    一场无法避免的阴谋案件之中。看似并无关联的种种事件，背后却是一个巨大的悬案旋涡和身份之谜。
+    谎言是经过伪装的事实，而你能否抽丝剥茧，从堆叠的案件中推导出最后的真相？
+    https://www.bilibili.com/video/BV1Ve411V7oU
+    https://www.taptap.cn/app/219381
+    https://www.biligame.com/detail/?id=107466
+    冒险解谜游戏（Adventure Game）的灵感也许来源于互动小说（Interactive Fiction）。
+    你可以对剧情的路线进行一定选择，但这也是除了不停地按键、点击之外，你唯一可以做的事情。
 
-一个古老的种族在对抗怪兽的战争中失败了，战士们死的死伤的伤，他们居住的故乡在战斗中化为灰烬，生还者
-为了重建自己的家园，赶走怪兽和敌人，而走上了召集同伴的艰苦道路。玩家扮演的神明大人与举着自己种族
-标志大旗的号召者相互配合，在废墟中找到受伤的伙伴，逃避大龙的追击，赶走敌人的余党回到村子里面，
-他们建立新的村庄，用自己的智慧召唤出新的伙伴，神枪、弓手和盾兵等，伙伴们为了共同的目标，齐心合力
-赶走敌人重建家园。
+    《山海旅人》 The Rewinder (2021-09-10) 云山小雨工作室
+    2D 中国风妖怪类冒险解谜游戏。游戏将民俗，中国传统妖怪文化（黑白无常，牛头马面等）融入到
+    解谜元素中以创造独特的游戏体验。
+    https://indienova.com/g/rewinder
 
-《PATAPON》特别适合推荐给那些对节奏感很有自信的人，游戏让玩家控制部队下达的每一个命令，都离不开节奏
-的运用。圈方角叉四个按键对应四种声音，通过这四个声音的不同组合就可以为部队下达前进、攻击、警戒、后退、
-蓄力、祈祷五个命令。这些命令只要用上两次，就会深刻的印在玩家的脑子中，相信玩过的所有玩家在十多年后，
-依然会记得那句“啪塔啪塔啪塔砰”。 
 
-《PATAPON》是音乐游戏，也是角色扮演游戏。玩家除了进行推进流程的每一场战斗之外，还需要去收集素材来
-升级装备和兵种，“战斗-刷素材-升级兵种/装备”的思路，正是同时期在 PSP 上大火的《怪物猎人 携带版》
-等一系列共斗游戏中配备的玩法。喜闻乐见的玩法加上音游的元素，在制作人小谷浩之神来之笔的创意下结合
-的淋漓尽致。更别说那大胆而又创新的 2D 剪影的美术风格，《PATAPON》在每一个地方都做到了让玩家眼前
-一亮后拍手叫绝的程度。如此的成功，让游戏在后续推出了二代和三代，每一代都为《PATAPON》起到了强化
-的作用甚至是变革的作用。
+- 🌟Hades 哈迪斯
+    https://www.supergiantgames.com/games/hades/
+    https://www.bilibili.com/video/BV1b7411h7Gm/
+    Supergiant Games 一家充满了艺术气息的游戏公司 https://www.bilibili.com/video/BV1yD4y197AX
+    Supergiant Games - Hades 开发纪录片 https://www.bilibili.com/video/BV1GM411z7Te
+    为什么你一定要玩 Supergiant 的游戏？ https://www.bilibili.com/video/BV1Px411H7uB/ 
+
+    In the ancient Greek myth of Sisyphus, a poor soul is doomed to forever 
+    push a boulder uphill without rest. Each time he’d push it up, it would 
+    roll back down again and he’d have to start anew. But what if that 
+    Herculean climb uphill was actually awesome combat against a randomized 
+    variety of enemies as you fight your way out of Hell, with a wide range 
+    of godly powers that grow and combine in interesting ways as you progress?
+
+    哈迪斯之子扎格罗伊斯（Zagreus）穿越迷宫般的地下世界，走向凡人王国的自由之旅从等距视角展开，
+    你在经过的每一个随机排列的房间里，都会看到成群色彩斑斓的不死生物，充满危险。幸运的是，扎格
+    是一名熟练的战士，能够挥舞六种不同的武器，每种武器都有四种不同的变体。这些无间道武器中的
+    每一个都是为了补充某种游戏风格。
+
+
+- 🌟Word Game: Episode 0 文字游戏
+    https://team9.co/portfolio_page/create-your-own-game-workshop/
+    https://store.steampowered.com/app/1507970/Word_Game_Episode_0/
+    《文字遊戲》原聲帶 https://store.steampowered.com/app/1838950
+    https://www.bilibili.com/video/BV13K411A7LZ/
+    https://www.bilibili.com/video/BV1544y1e7WR/
+    https://www.bilibili.com/video/BV1AS4y167KD
+
+    拆解文字，搬动宿命！
+
+    Word game is literally a game of words. Player controls "I" to find clues 
+    between lines, delete words to change the meaning of sentences, or shift 
+    words to rewrite facts. “I” must be wise and brave enough complete the 
+    mission of words. May the best "I” win!
+
+    Word Game: Episode 0 是 Team9 开发的一款中文文字游戏，Text-Based Role-Playing Game，
+    传承了经典的文字版 MUD 游戏的同时，又加入的文字动画，并且结合了 Text Art 和 3D 场景，
+    是脑洞大开的纯文字 RPG 游戏，让我再次领略中华文化的博大精深。
+
+    Team9 成立於 2018 年，团队规模人数两位数，成員涵括設計、影像、程式、行銷及文字領域的創作者。
+    從《文字遊戲》出發，團隊專注探究日常事物的本質及核心，致力於打造純粹、深度且創新的數位內容及
+    生活產品，並藉此建構一個又一個獨特的世界。穿梭各式介面，模糊虛實邊界，帶給受眾耳目一新的體驗。
+
+
+- 🌟现金流游戏 Cashflow 
+    https://www.richdad.com/
+    https://www.bilibili.com/video/BV1RR4y147bP
+    https://www.bilibili.com/video/BV1xu41117Jd/
+    读完《富爸爸 穷爸爸》之后，我买了这套现金流游戏，然后组织小伙伴们玩过几次。
+
+    不得不承认，这个游戏还是挺牛逼的，有玩过之后一时间自闭了的（毕竟现实生活比游戏难度大的多），
+    有玩过之后迅速在两个小时之内体会到了自己糟糕的财务状况的……
+
+    在此，把这本书和这个游戏搭配着，推荐给大家。
+
+    圈里除了德州扑克以外最流行的现金流游戏，帮你提升财商，铺开巨富之路。
+
+
+
+- 🌟Samorost 3
+    - https://www.bilibili.com/read/cv10215849/
+    - https://www.bilibili.com/video/BV16b411Y7XR
+    “蘑菇社”在捷克 https://zhuanlan.zhihu.com/p/34352981
+    Samorost 3 Main Theme https://music.163.com/#/song?id=409830322
+    银河历险记 3 是一款探险及谜题类游戏，由机械迷城 (Machinarium)和植物精灵 (Botanicula)的优秀
+    创造者出品。它是 Amanita Design 目前为止最为不凡的体验，同时也可以说是热门独立游戏银河历险记
+    和银河历险记 2 的续集。画面或相像风格和宫崎骏的《风之谷》比较相似。
+
+    2003 年推出的初代《银河历险记》其实是 Jakub 的毕业设计项目。彼时就读于布拉格艺术、建筑和设计学院
+    （Academy of Arts, Architecture and Design）的 Jakub “想创造一些可交互的项目”。因为技术
+    不在行，他选择的载体是操作简单、上手容易，且盛行一时的Flash。
+
+    除了音乐、音效是交给一位朋友操刀，Jakub 一手包办了其他开发内容。断断续续制作了一年多后，他将完成品
+    免费发布在了一个朋友的网站上。没想到，最后涌入的玩家彻底挤爆了网站服务器， Jakub 这才意识到自己的
+    游戏这么受欢迎。
+
+
+
+- 🌟This war of mine 这是我的战争
+    https://www.bilibili.com/video/BV1v44y137f5
+    https://www.bilibili.com/video/BV1g7411J74R
+    https://zhuanlan.zhihu.com/p/146105377
+    　　《这是我的战争》别称《我的这一战》，是 11 bit 工作室所制作的黑暗求生游戏，与一般的战争游戏不同，
+    玩家控制的并不是士兵，而是一群在战火中求生存的平民，开发商给出的理念是让玩家从另一个角度去看待战争。
+
+    　　战争是游戏常用的故事背景，因为它能为玩家提供最直接的游戏目标：杀死敌人获胜。但历史告诉我们，
+    任何战争，最大的受害者永远是平民。而市面上无数的军事游戏，几乎没有一款对这些无辜的平民的处境进行
+    描绘，而本作将填补这一空白。
+
+    玩家扮演平民，在战火连连的城市中生存。玩家得在城市废墟中寻找食物、武器、零件等任何可以利用的物品。
+    当然，大部分城市废墟也有其他的幸存者，幸存者有友善的，有邪恶的。有些幸存者完全不把玩家放在眼里的，
+    玩家可以选择帮助或者无视那些幸存者，同那些幸存者交易物资，玩家也可以杀死那些幸存者掠夺他们的资源，
+    唯一限制玩家的只有自己心中的道德约束。
+
+    三十年前，二十世纪最惨烈，最无人性的围城战在萨拉热窝爆发。当时的萨拉热窝人，如何在战争中艰难求生；
+    围城战中，留下了哪些感人的故事；这场战争，又带给了他们什么？
+
+    萨拉热窝围城战役是波斯尼亚战争的一部分，是现代战争史上最长的围城战役。波斯尼亚与黑塞哥维那首都
+    萨拉热窝从1992年4月5日至1996年2月29日遭到南斯拉夫人民军与塞族共和国军围困，共计 1,425 天。
+    萨拉热窝围城战役时间超过斯大林格勒战役三倍，比列宁格勒围城战还要长一年之久。
+
+    在围城战期间，塞族武装发动多次进攻，占领了萨拉热窝外围郊区，旋即在这片地区展开种族清洗。 而保卫
+    萨拉热窝的波黑军队只有 3 万人，而且极度缺乏重武器，只有约 20 门大炮和几辆坦克，以及一些防控和
+    反坦克导弹。
+
+
+
+- 🌟战鼓啪嗒砰（PATAPON）
+
+    https://www.bilibili.com/read/cv4536493
+    https://www.bilibili.com/video/BV1KC4y1s7pW/
+    战鼓啪打碰！黑脸大眼仔诞生记 https://www.bilibili.com/read/cv14569111
+    Patapon3 Overhaul 更新预览 https://www.bilibili.com/read/cv12335671
+
+    《PATAPON》的横空出世，颠覆了当时所有音游玩家的概念。这严格意义上可以说是一款“节奏游戏”，但远不止于
+    节奏元素，在此基础上还融合了收集、策略、动作、养成的玩法。用原始部落文明的世界观，将这些元素完美的
+    结合在了一起。
+
+    一个古老的种族在对抗怪兽的战争中失败了，战士们死的死伤的伤，他们居住的故乡在战斗中化为灰烬，生还者
+    为了重建自己的家园，赶走怪兽和敌人，而走上了召集同伴的艰苦道路。玩家扮演的神明大人与举着自己种族
+    标志大旗的号召者相互配合，在废墟中找到受伤的伙伴，逃避大龙的追击，赶走敌人的余党回到村子里面，
+    他们建立新的村庄，用自己的智慧召唤出新的伙伴，神枪、弓手和盾兵等，伙伴们为了共同的目标，齐心合力
+    赶走敌人重建家园。
+
+    《PATAPON》特别适合推荐给那些对节奏感很有自信的人，游戏让玩家控制部队下达的每一个命令，都离不开节奏
+    的运用。圈方角叉四个按键对应四种声音，通过这四个声音的不同组合就可以为部队下达前进、攻击、警戒、后退、
+    蓄力、祈祷五个命令。这些命令只要用上两次，就会深刻的印在玩家的脑子中，相信玩过的所有玩家在十多年后，
+    依然会记得那句“啪塔啪塔啪塔砰”。 
+
+    《PATAPON》是音乐游戏，也是角色扮演游戏。玩家除了进行推进流程的每一场战斗之外，还需要去收集素材来
+    升级装备和兵种，“战斗-刷素材-升级兵种/装备”的思路，正是同时期在 PSP 上大火的《怪物猎人 携带版》
+    等一系列共斗游戏中配备的玩法。喜闻乐见的玩法加上音游的元素，在制作人小谷浩之神来之笔的创意下结合
+    的淋漓尽致。更别说那大胆而又创新的 2D 剪影的美术风格，《PATAPON》在每一个地方都做到了让玩家眼前
+    一亮后拍手叫绝的程度。如此的成功，让游戏在后续推出了二代和三代，每一代都为《PATAPON》起到了强化
+    的作用甚至是变革的作用。
+
+    天美工作室实习员工开发的《曲中剑》也有类似的玩法，不过此手游重心在于音乐，音游结合国风武侠元素。
+    https://www.bilibili.com/video/BV1414y1s7z6
+    https://www.bilibili.com/read/cv18420756
+
 
 
 
