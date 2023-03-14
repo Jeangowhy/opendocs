@@ -1,3 +1,23 @@
+# FL Studio 基本概念
+
+每个水果工程有以下四个最基本的结构：
+
+1. Pattern 节奏形，通过通道列表或者钢琴卷帘进行编辑，可以有任意个节奏形；
+2. Channel Rack 通道列表，通道用于加载音色库插件、MIDI Out 或者音效合成器，或设置简单的节奏形；
+3. Piano Roll 钢琴卷帘，直接向通道中添加音符，相当于拼合的五线谱；
+4. Play List 节奏形播放列表，规划节奏形，形成完整的音乐。
+
+钢琴卷帘可以对音符的属性，力度（velocity），释放（Release），时值、位置进行调整，不像 MuseScore
+这样的打谱软件的约束那么多，水果也可以通过规范化（Normalized）将音符限制为规范的音符时值。
+
+水果的播放模式有两种：
+
+1. Pat 播放当前的节奏形，Pattern；
+2. Song 完整的音乐播放，即播放在 Play List 中规划好的节奏形。
+
+
+
+
 # MIDI Out 分轨
 1. - https://support.image-line.com/redirect/MIDI_Out
 2. - https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/plugins/MIDI%20Out.htm
@@ -91,7 +111,7 @@ EDIROL Orchestra 弦乐音色插件提供了预置的乐曲组合，在 Orchestr
 10. Flute Ensemble      长笛合奏
 11. Marching Band       铜管乐队/军乐
 
-# musescore arpeggios & glissandi
+# MuseScore arpeggios & glissandi
 https://musescore.org/en/handbook/3/arpeggios-and-glissandi
 MuseScore 3中添加滑音和琶音 https://www.bilibili.com/video/BV1xa411S7vX/
 

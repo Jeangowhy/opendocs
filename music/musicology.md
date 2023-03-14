@@ -111,6 +111,27 @@
 音乐的六要素是：节奏 Rhythm、结构 Texture、曲式 Form、旋律 Melody、音色 Tone Color、调性 Tonality。 
 
 而音乐专业基本素养在于对音符、和弦的准确听辩能力，与准确的复现表达能力！
+
+相对音感 vs. 绝对音感，实验表示 8 岁以下经过训练可以 100% 获取绝对音感，而成人只有 50% 的可能。
+Use it or lost it！好的消息是，有音调的语言区域有 30% 加成！普通话有四声调，粤语有有九声六调！
+
+    ❶ 阴平/阴入：诗 xi 色 xig
+    ❷ 阴上：史 xi
+    ❸ 阴去/中入：试 xi 锡 ség
+    ❹ 阳平：时 si
+    ❺ 阳上：市xi
+    ❻ 阳去/阳入：是 xi 食 xig
+
+相对音感听音过程：先给出一个标准音比如 A，然后听音程，先听主音和标准音 A 的距离，比如大概低了 3 
+个半音关系，然后脑补这个音和标准音 A 放一起时是尖锐的音程还是和谐的音程，如果是尖锐的那就是小三度，
+这个主音是 #F，如果比较和谐那就是大三度，这个主音是 F。专业的这个过程也会很快，然且会带有直感。
+
+但绝对音感是没这个过程的，绝对音感的人听音就和听你念字母一样：哦，弹的是 A 和 B 和弦。
+True pitch 如何练习绝对音准的？ https://www.bilibili.com/video/BV1oK411F78P/
+Perfect Pitch: The World's Greatest Ear Part 5 - Music Notation! 
+https://www.bilibili.com/video/BV12x411V7s7
+https://www.bilibili.com/video/BV1Sb411m7MX/
+
 两手学不会弹钢琴？弹钢琴双手配合就是大脑的协调，合双手、脑先行。但对于刚接触钢琴不久的人来说，
 双手会很难做到协调配合，需要从简到难逐步练习。
 
@@ -467,6 +488,7 @@ C Chord Harmonized Progressions
 Chords related to C https://www.scales-chords.com/chord/piano/C
 the Circle of Fifths https://www.circleoffifths.com
 the Circle of Fifths https://blog.logrocket.com/interactive-svg-circle-of-fifths/
+ReelMix 2016: day one morning https://earshotcreative.com/2016/09/reelmix-2016-live-blog-of-day-one/
 循环五度圈 https://www.bilibili.com/video/BV1ZY411h76U/
 
 循环五度圈根据和弦级数编制，内圈是小周，外圈是大调。和弦关系：逆时针五度，顺时针四度。
@@ -665,7 +687,9 @@ TVB版电视剧《射雕英雄传》主题曲《铁血丹心》的简谱，由�
 
 # 青城山下白素贞
 青城山下白素贞 民乐合奏＆空灵鼓 https://www.bilibili.com/video/BV11a4y1j7uG 
-青城山下白素贞 南一 https://www.bilibili.com/video/BV1Gf4y1r72f/
+青城山下白素贞 古琴 https://www.bilibili.com/video/BV1Gf4y1r72f/
+青城山下白素贞 钢琴 https://www.bilibili.com/video/BV1gR4y1t7UD/
+蜗牛与黄鹂鸟 左宏元 https://www.bilibili.com/video/BV1d64y1Q7i3
 
 新白娘子传奇电视剧插曲《青城山下白素贞》，作词：贡敏，作曲：左宏元，国风五声调式。
 
