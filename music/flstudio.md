@@ -3,19 +3,45 @@
 每个水果工程有以下四个最基本的结构：
 
 1. Pattern 节奏形，通过通道列表或者钢琴卷帘进行编辑，可以有任意个节奏形；
-2. Channel Rack 通道列表，通道用于加载音色库插件、MIDI Out 或者音效合成器，或设置简单的节奏形；
+2. Channel Rack 通道列表，通道用于加载音色库插件、MIDI Out 或者音效合成器等，或设置简单的节奏形；
 3. Piano Roll 钢琴卷帘，直接向通道中添加音符，相当于拼合的五线谱；
-4. Play List 节奏形播放列表，规划节奏形，形成完整的音乐。
+4. Playlist 节奏形播放列表，规划节奏形，形成完整的音乐，可以创建多个 Arrangement。
 
 钢琴卷帘可以对音符的属性，力度（velocity），释放（Release），时值、位置进行调整，不像 MuseScore
 这样的打谱软件的约束那么多，水果也可以通过规范化（Normalized）将音符限制为规范的音符时值。
+
+Playlist 中编辑的对象称为 Clips，有节奏形、音频采样、包络络线三种类型：
+
+1. Audio clip source
+2. Pattern clip source
+3. Automation clip source
+
+包络线是形象的称呼，它就自动化工具，通过曲线的方式控制 MIDI 事件、调整音频采样等等。
+可以给控制器创建包络线，比如，给一个音频采样通道的 Volume 旋钮创建包络线，使用右键菜单
+Create automation clip。Playlist 中编辑包络线，使用右键添加曲线控制点，用左键移动它。
+也可以在播放列表中 Audio clip 的左上角弹出菜单创建 Panning 或 Volume 包络线。
+
+工程可能包含有很多包络线，在播放列表中选择包络线时，Channel Rack 对应的通道也是选中状态。
+
+FL Studio The Playlist https://www.bilibili.com/video/BV1bx41137Uw/
 
 水果的播放模式有两种：
 
 1. Pat 播放当前的节奏形，Pattern；
 2. Song 完整的音乐播放，即播放在 Play List 中规划好的节奏形。
 
+Mixer 混音台是音乐制作最后处理阶段使用的工具，可以使用各种效果器进行修饰。例如，使用 NewTone
+效果器对音准进行修正。NewTone 在日常编曲中有其他的作用，比如扒旋律或者 Bass 的 MIDI
+人声矫正插件NewTone https://www.bilibili.com/video/BV148411e7bR/
 
+控制器连接有两种方式：
+
+1. Per-Project Links (targeted, saved with project)
+2. Global Links (roving, remembered permanently)
+
+MIDI 乐器的输入与 FL 面板旋钮控制器连接后，不能断开，可以绑定到另外的旋钮。绑定的 MIDI 输入可以
+录制下来，记录为 events 曲线，可以对曲线进行调整以实现自定义的控制。
+https://www.image-line.com/fl-studio-learning/fl-studio-online-manual/html/automation_linking.htm
 
 
 # MIDI Out 分轨
@@ -110,6 +136,9 @@ EDIROL Orchestra 弦乐音色插件提供了预置的乐曲组合，在 Orchestr
 09. Flute Quartet       长笛四重奏
 10. Flute Ensemble      长笛合奏
 11. Marching Band       铜管乐队/军乐
+
+MIDI Out 提供了多个控制页面，可以在这些页面上定义控制，以模拟 MIDI 乐器向插件发出控制信号。
+
 
 # MuseScore arpeggios & glissandi
 https://musescore.org/en/handbook/3/arpeggios-and-glissandi

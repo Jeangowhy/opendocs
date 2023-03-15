@@ -5366,10 +5366,97 @@ func _input(event):
             set_pitch_scale(get_pitch_scale() + 0.01)
 ```
 
+音频使用 decibel (dB) 分呗为计量单位，因为声音在空间传播是以太的（全空间扩散），非线性的
+功率变化需要使用对数来计算。所以，分呗是一个相对值，无法表示 0 音量无声状态：
+
+    20 × log 10(P/P0)
+
+每 6 dB 增益的变化量对应的声音振幅增加倍或减半，比如增加 6 dB 音量对应的功能就增加一倍，
+而减小 6 dB 音量对应的功能变化就是减小到原来的一半。
+
+    For every 6 dB, sound amplitude doubles or halves. 
+    12 dB represents a factor of 4, 
+    18 dB a factor of 8, 
+    20 dB a factor of 10, 
+    40 dB a factor of 100, etc.
+
+人耳所能接收声音频率范围大约为 20Hz - 20KHz，但在不同的实际应用中，音频的频率范围是不同的。
+多媒体系统中捕获声音的常用标准采样频率定为 44.1kHz、22.05kHz 和 11.025kHz。
+
+Audio Spectrum 示范工程演示了如何通过 Fast Fourier transform (FFT)得到的频谱数据制作
+音乐可视化效果。FFT 快速傅里叶变换可以将信号从时域变换为频域，通俗地说，就是将随时间变化的信号
+（包含了各种频率的分量）变换为相应的与频率关系的数据，也就是一张频谱。
+
+要使用频谱，先要给 Audio Bus 添加一个 AudioEffectSpectrumAnalyzer 效果器，音频总线上的
+效果器配置内容会写入默认的 default_bus_layout.tres 资源文件。默认 FFT 数据大小为 1024，
+即 1024 个频率分量。
+
+AudioBusLayout 配置中可以添加任意个音频通道，audio bus 也叫做 audio channel，每条总线
+本身又包含通道，这些通道用于存放效果器。最后，汇流到总线 Master 总线上的音频才会在硬件上播放。
+
+SpectrumAnalyzer 效果器实现了 FFT 算法，可以将音频播放器，如 AudioStreamPlayer 发送到
+声卡的音频信号实现地转换为频域信号。配合 AudioServer API 可以获取到效果器中的 FFT 数据。
+频率平均线性振幅这个数值在千分之几的范围，使用全局函数 linear_to_db()，旧版为 linear2db()，
+可以将线性的振幅转换为 dB，使其适合在图形上表现出来。另外，插值函数 lerp() 不会对超出范围的值
+进行钳位，需要手动使用 clamp 函数。
+
+```py
+float linear_to_db(lin: float)
+Variant clamp(value: Variant, min: Variant, max: Variant)
+Variant lerp(from: Variant, to: Variant, weight: Variant)
+
+# AudioEffectSpectrumAnalyzerInstance
+enum  MagnitudeMode:
+                    MAGNITUDE_AVERAGE = 0
+                    MAGNITUDE_MAX = 1
+            Vector2 get_magnitude_for_frequency_range(from_hz: float, to_hz: float, mode: MagnitudeMode = 1)
+
+# AudioServer
+                int get_bus_channels(bus_idx: int) const
+                int get_bus_effect_count(bus_idx: int)
+        AudioEffect get_bus_effect(bus_idx: int, effect_idx: int)
+AudioEffectInstance get_bus_effect_instance(bus_idx: int, effect_idx: int, channel: int = 0)
+```
+
+Audio Spectrum 示范工程只有一个脚本文件，工作流程如下：
+
+1. 获取频谱实例：get_bus_effect_instance(0, 0)
+2. 获取一个频率区间对应的振幅：get_magnitude_for_frequency_range(prev_hz, hz)
+3. 将频率对应的振幅表现为柱状图表的高度变化，先将线性振幅变换为 dB 值。
+
+```py
+extends Node2D
+
+const VU_COUNT = 16
+const FREQ_MAX = 11050.0
+
+const WIDTH = 400
+const HEIGHT = 100
+
+const MIN_DB = 60
+
+var spectrum
+
+func _draw():
+    @warning_ignore(integer_division)
+    var w = WIDTH / VU_COUNT
+    var prev_hz = 0
+    for i in range(1, VU_COUNT+1):
+        var hz = i * FREQ_MAX / VU_COUNT;
+        var magnitude: float = spectrum.get_magnitude_for_frequency_range(prev_hz, hz).length()
+        var energy = clamp((MIN_DB + linear2db(magnitude)) / MIN_DB, 0, 1)
+        var height = energy * HEIGHT
+        draw_rect(Rect2(w * i, HEIGHT - height, w, height), Color.WHITE)
+        prev_hz = hz
 
 
+func _process(_delta):
+    update()
 
 
+func _ready():
+    spectrum = AudioServer.get_bus_effect_instance(0, 0)
+```
 
 
 
@@ -5410,9 +5497,6 @@ Godot 4 可以像 Blender 那样通过快捷键执行平移、缩放、旋转操
 -  Begin Move Transformation，设置和 Blender 一样 `G`；
 -  Begin Scale Transformation，设置和 Blender 一样 `S`；
 -  Begin Roation Transformation，设置和 Blender 一样 `R`；
-
-
-
 
 
 
@@ -17601,6 +17685,133 @@ Godot 4.x 引入的多个关键字，或关键字功能的提升：
 ```
 
 
+### 🟠🔵 Subtitle 字幕插件 - RegExp 正则表达式应用
+1. True Pitch Training - Visualizer https://github.com/Jeangowhy/Godot-Tour/tree/4.x/Visualizer
+2. [Movie Maker mode arrives in Godot 4.0](https://godotengine.org/article/movie-maker-mode-arrives-in-godot-4)
+3. [Creating movies](https://docs.godotengine.org/en/latest/tutorials/animation/creating_movies.html)
+4. [BBCode in RichTextLabel](https://docs.godotengine.org/en/3.5/tutorials/ui/bbcode_in_richtextlabel.html)
+
+正则表达式，Regular Expression，是一种领域特定语言 domain-specific language (DSL)。
+专用于字符串处理，比起通用编程语言，它的功能并不具有通用性，即无法实现所有功能。只专用于字符串
+的处理编程方面。
+
+模式匹配是字符串查找、分割的基本操作，通过编制模式字符串，比如 \d 表示匹配一个数字，\w 表示匹配
+一个字符，\d+ 或者 \w+ 表示匹配多个连续的数字、字符，通过一系列灵活的模式符号可以实现各种字符
+处理功能需求。
+
+例如，以下使用正式表达式来实现一个 Godot 字幕工具。Godot 4.x 支持视频制作，可以设置工程配置
+Editor - Movie Writer 中设置导出的视频各种参数：
+
+1. FPS 视频帧率
+2. Mix Rate 声音采样频率
+3. MjPEG Quality 画面质量
+
+注意，通过脚本处理的字幕可能无法正常导出到视频中，可以使用 FFMPEG 工具将字幕内嵌到视频中：
+
+    ffmpeg -i .\True-Pitch-L2.avi -vf subtitles=true-pitch-L1.srt -b 1800k true-pitch-L2_srt.mp4
+
+
+```py
+#!/usr/bin/env -S godot -s
+class_name MyMainLoop
+extends SceneTree
+
+var subtitle = """[center]
+1 
+00:00:09,070 --> 00:00:12,080
+Answer is [color=yellow]A4[/color]
+
+2 
+00:00:18,070 --> 00:00:21,080
+Answer is [color=yellow]F4[/color]
+
+3 
+00:00:28,070 --> 00:00:32,080
+Answer is [color=yellow]C4[/color]
+
+4 
+00:00:38,070 --> 00:00:41,080
+Answer is [color=yellow]B4[/color]
+
+5 
+00:00:48,070 --> 00:00:51,080
+Answer is [color=yellow]G4[/color]
+
+6 
+00:00:58,070 --> 00:01:01,080
+Answer is [color=yellow]E4[/color]
+
+7 
+00:01:08,070 --> 00:01:11,080
+Answer is [color=yellow]C5[/color]
+
+8 
+00:01:17,070 --> 00:01:21,080
+Answer is [color=yellow]D4[/color]
+"""
+
+enum { FRESH, PRESENTED }
+
+var subtitles = []
+var subtitle_state = FRESH
+var current = 0
+var CRLF = "\r\n\r\n" if OS.get_name() in ["Windows", "UWP"] else "\n\n"
+
+func _parse_subtitle(subtitle):
+    var reg = RegEx.new()
+    reg.compile("\\n?(\\d+)\\s+?")
+    var res = reg.search(subtitle)
+    if res == null:
+        return {id = -1}
+    var id = res.get_strings()[1]
+    reg.compile("\\n(\\d+:\\d+:\\d+).(\\d+) --> (\\d+:\\d+:\\d+).(\\d+)")
+    res = reg.search(subtitle)
+    if res == null:
+        return {id = id}
+    var its = res.get_strings()
+    var start: float = Time.get_unix_time_from_datetime_string(its[1]) + its[2].to_int()/1000.0
+    var end: float = Time.get_unix_time_from_datetime_string(its[3]) + its[4].to_int()/1000.0
+    var dur: float = end - start
+    var txt = subtitle.substr(res.get_end()).strip_edges()
+    return {id = id, text = txt, start = start, duration = dur, end = end}
+
+
+func _init():
+    assert(1 == "1 ".to_int(), "parse int, ignore whitespace")
+    assert(12 == "12d ".to_int(), "parse int, ignore whitespace")
+    assert(1200 == "12:00d ".to_int(), "parse int, ignore whitespace")
+    assert(1210 == "12-10string ".to_int(), "parse int, ignore whitespace")
+
+    var reg = RegEx.new()
+    # reg.compile("^\\[\\w+")
+    reg.compile("\\n(\\d+)\\s+?")
+    var res = reg.search_all(subtitle)
+    print_debug("match size: ", res.size())
+    for it in res:
+        print_debug("%s [%d,%d]" % [it.get_strings(), it.get_start(), it.get_end()])
+
+    for it in subtitle.split(CRLF):
+        var st = _parse_subtitle(it)
+        print_debug("it [%s]" % st)
+        subtitles.append(st)
+
+
+# func _iteration(delta): # GD3
+# func _idle(delta): # GD3
+# func _physics_process(delta):
+func _process(delta):
+    var now = Time.get_ticks_msec()
+    if subtitles[current].end * 100 < now:
+        current += 1
+        subtitle_state = FRESH
+    if current >= subtitles.size():
+        quit()
+        return
+    if subtitle_state == FRESH and subtitles[current].start * 100 < now:
+        subtitle_state = PRESENTED
+        print_debug(subtitles[current].text)
+        print_debug("now ticks: ", now)
+```
 
 
 ### 🟠🔵 MySprite 精灵类派生演示

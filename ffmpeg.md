@@ -434,6 +434,117 @@ Set a metadata key/value pair.
 
     -metadata[:metadata_specifier] key=value (output,per-metadata)’
 
+## 音频处理
+https://www.thepaper.cn/newsDetail_forward_17481539
+
+使用FFmpeg删除视频中的音频
+
+很多人想要知道如何从录制的视频中删除音轨，比如马路噪音或者背景噪音。
+
+删除音频最简单的方法是：只将视频复制到一个新的文件中，-an 表示不要复制音频。
+这个方法之所以简单，是因为它无需将视频重新编码。下面是删除音频的命令行：
+
+    ffmpeg.exe -i videoWithAudio.mp4 -c:v copy -an videoWithoutAudio.mp4
+
+使用 -c:v copy 命令将视频复制到 videoWithoutAudio.mp4
+
+FFmpeg 中的 map 命令来删除特定音轨。
+
+    -map input_file_index:stream_type_specifier:stream_index
+
+然后，你可以通过 -map 0:a:1（从0开始计数）从视频中选择第二个音轨。
+同样，-map 0 是指选择第一个输入文件中的所有数据（包括音频和视频），所以你需要先选择所有数据，然后取消选择音频。
+
+    ffmpeg.exe -i videoWithAudio.mp4 -map 0 -map 0:a:1 -copy videoOutput.mp4
+
+如果电影中有 5 个音轨，除了第一个，其他你都想选择，参数前加负号，-map -0:a:0 这一命令。
+FFmpeg 在选择时就会忽略第一个音轨。
+
+可以通过如下方式，使用反向的 map 来达到相同的效果。
+
+    ffmpeg -i videoWithAudio.mp4 -map 0 -map -0:a videoWithoutAudio.mp4
+
+添加音频命令行如下所示：
+
+    ffmpeg -i video.mp4 -i audio.mp3 -c copy -map 0:v:0 -map 1:a:0  videoWithAudio.mp4
+
+使用 map 命令将视频和音频分别从不同的文件中复制到同一个输出文件。
+
+-map 0:v:0 选择了第 0 个输入文件（视频输入）的第 0 个轨道。
+–map 1:a:0 选择了第一个输入文件（音频输入）的第0个轨道。
+
+不用重新编码，-c copy 同时复制音轨和视轨到输出文件。
+如果你想要重新编码，可以选择合适的音视频编解码器，配置相应的编码质量。
+
+
+## 字幕
+https://crifan.github.io/media_process_ffmpeg/website/subtitle/embed/
+
+SRT字幕通常以srt作为后缀，作为外挂字幕，多数主流播放器都支持直接加载并显示SRT字幕，具体细节看参考SubRip (.SRT) subtitles support in players。
+该格式是基于纯文本的格式，使用CR+LF作为换行符（Windows下常用换行符，Unix 使用LF作为换行符）。每个SRT文件包含至少一个字幕段。
+
+每个字幕段有四部分构成：
+
+1. 字幕序号
+2. 字幕显示的起始时间
+3. 字幕内容（可多行）
+4. 空白行（表示本字幕段的结束）
+
+其中字幕序号一般是顺序增加的，表示字幕是一系列连续的序列。但该数值在字幕显示中不起任何作用，只是起着标记和标识的作用，方便分配翻译行数用。字幕序号的值可以随意，1和100都一样，并不会影响字幕的显示。但字幕序号也是字幕段的一部分，所以不能没有或者删去，否则在播放时，将出现错误。
+
+字幕显示起始时间的格式如下：
+
+    hour:minute:second.millisecond --> hour:minute:second.millisecond
+    hour:minute:second,millisecond --> hour:minute:second,millisecond
+
+后面还可以附加用于指定字幕显示位置的信息，以像素为单位，格式如下：
+
+     X1:number Y1:number X2:number Y2:number
+
+一个典型的 SRT 文件如下（截取自阿凡达中英字幕）：
+
+    3
+    00:00:39,770 --> 00:00:41,880
+    在经历了一场人生巨变之后
+    When I was lying there in the VA hospital ...
+
+    4
+    00:00:42,550 --> 00:00:44,690
+    我被送进了退伍军人管理局医院
+    ... with a big hole blown through the middle of my life,
+
+    5
+    00:00:45,590 --> 00:00:48,120
+    那段时间我经常会梦到自己在飞翔
+    ... I started having these dreams of flying.
+
+多数SRT支持一些特定格式化，比如斜体、粗体、下划线以及字体颜色。使用时需要基于HTML的标签，具体用法如下：
+
+    <font color=red>颜色</font>
+    <i>字体斜体</i>
+    <u>字体下加划线</u>
+    <br>换行
+    <b>字体加粗</b>
+
+这些 HTML 可嵌套。当然某些播放器还对 SRT 做了扩展，可以支持 ASS/SSA 中部分格式化代码。
+
+
+内嵌字幕
+
+    ffmpeg -i input.mp4 -vf subtitles=subtitle.srt output.mp4
+
+如果原视频有字幕流，ffmpeg 可能会自动选择原视频中的字幕流，而自定义的字幕文件根本没有被加载。
+
+使用 ffmpeg 可以将 ass/vtt/lyric 转换为 srt 文件，命令如下：
+
+    ffmpeg -i a.ass b.srt
+    ffmpeg -i c.vtt d.srt
+    ffmpeg -i e.lyric f.srt
+
+使用 ffplay 现在字幕需要使用 subtitles filter，具体命令如下：
+
+    ./ffplay test.mp4 -vf subtitles=test.srt
+
 
 ## 视频拼接
 
@@ -565,6 +676,8 @@ VLC example: http://betterlogic.com/roger/2010/07/how-to-use-vlc-as-a-free-open-
     ffmpeg -f dshow -i video="screen-capture-recorder" -r 15 -pixel_format yuv422 -vcodec libx264 -s 1920x1080 -preset:v ultrafast -tune:v zerolatency screen.mkv
 
     ffmpeg -f gdigrab -t 30 -framerate 15 -i desktop -f dshow -i audio="virtual-audio-capturer" -b:v 3M -pixel_format yuv422 -vcodec libx264 -s 1920x1080 -y screen.flv
+
+    ffmpeg -f gdigrab -framerate 30 -i desktop -b:v 3M -pixel_format yuv422 -vcodec libx264 -y screen.flv
 
 参数说明：
 
