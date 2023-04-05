@@ -12,6 +12,8 @@
 6. 到底什么才是独立游戏？ https://www.bilibili.com/video/BV1y741147vx
 6. 有哪些冒险类（AVG）游戏能称得上殿堂级？ https://www.zhihu.com/question/21311720
 
+成也文化败也文化——江南百景图发展史 https://www.bilibili.com/video/BV12U4y1X7az/
+
 我的游戏计划种子：
 
 - ✨千年农夫
@@ -54,6 +56,43 @@
     解谜元素中以创造独特的游戏体验。
     https://indienova.com/g/rewinder
 
+- 🌟侠客风云传
+    曾经国产游戏的天花板，为何屡屡面临倒闭威胁？ https://www.bilibili.com/video/BV1eb411Z77Z/
+    《侠客风云传》高画质剧情流程攻略 https://www.bilibili.com/video/BV1ay4y1y7aq
+    游戏：《侠客风云传》
+    英文名：《Tale of Wuxia》
+    平台：PC Steam
+    《侠客风云传》是河洛工作室开发的一款单机角色扮演游戏，于2015年7月28日上市。游戏同时结合了
+    养成要素和RPG要素。百年前，一个不知来历的江湖小虾米行遍江湖，辛苦收集了传说中的十四天书，
+    得以开启“圣堂”。在圣堂中，他以一套野球拳，力挫当代十大高手。圣堂一战后，小虾米前辈却从此消失。
+    后人为了纪念他，特别在洛阳城建立了一座英雄雕像供人景仰。时至二十年前，一个名为天龙教的门派
+    自西域崛起，教主天王，二教主龙王，宣扬着“止戈为武”的理念，济弱扶危，教众迅速增长。
+    天龙教的壮大，引起了中原武林的注意，江湖开始谣传，天王与龙王之绝世武功乃得自于两人意外
+    发现的圣堂秘籍。于是，小虾米的传奇与圣堂之谜再度自人们口中传开，觊觎的暗潮日益起伏。
+
+- 🌟Little Nightmares II 小小梦魇 2 
+    
+    游戏发布时间线：极小梦魇、小小梦魇和小小梦魇2。
+    《小小噩梦2》的玩家受众是极具针对性的，除了系列粉丝，它一定会得到喜爱《地狱边境 Limbo》、
+    《Inside》类游戏玩家的青睐和认可。都是弱动作、重氛围的黑暗色调的横版冒险独立游戏。
+
+    极小梦魇与后两作联系较小，大致内容是：孩子们通过热气球被送到了 THE NEST（安乐窝）。
+    主角，也就是一代小黄衣持有人，被监管者囚禁在这，在逃跑过程中，救下了SIX，但最终与安乐窝的老大
+    THE PRETENDER (伪装者)掉入大海，同归于尽，SIX 成功逃脱，此时 SIX 并没有穿上小黄衣。
+    另外两个 BOSS 分别为 The Craftsman (工匠)、The Butler (管家)。
+
+    SIX 从 THE NEST 逃离后，闯入了 THE HUNTER 的森林，并且被他发现，展开追击。
+    SIX 逃入地洞，从另一端出来，在月光下，看到了坐在树上的 MONO，驻足观望，可能是太久没有
+    遇到同类了吧，MONO 也发现了注视着自己的 SIX。
+
+    突然 THE HUNTER 出现，抓走了 SIX。然后开启小小梦魇 2 的内容。
+
+    七宗罪将罪行由重到浅分为傲慢、嫉妒、愤怒、懒惰、贪婪、暴食和淫欲。
+    SIX 名字取自 THE SIXTH SIN，即 Gluttony (暴食)，游戏表现了 SIX 对于食物的渴望。
+    MONO 的性格与 SIX 的性格在面对梦魇时态度完全相反，SIX 是不断逃避。
+
+    游戏精心打造的细节都渲染出了游戏的终极恐惧 —— 死亡。正如上一作那样，如果你解不开谜题，
+    或是在潜行环节中出错，你很可能就会被某个怪物抓住，然后遭受可怕的命运。
 
 - 🌟Hades 哈迪斯
     https://www.supergiantgames.com/games/hades/
@@ -5013,6 +5052,7 @@ Godot 文档关于玩家控制器设计的内容几乎没有，只有两个页�
 - [Resources](https://docs.godotengine.org/en/latest/tutorials/scripting/resources.html)
 - [Background loading](https://docs.godotengine.org/en/latest/tutorials/io/background_loading.html)
 - [Exporting packs, patches, and mods](https://docs.godotengine.org/en/latest/tutorials/export/exporting_pcks.html)
+【Godot4.0】利用await写一个异步资源管理器 https://godoter.cn/d/28-godot40await
 
 Godot 使用 res:// 和 user:// 两个文件路径协议，前者表示工程内部资源路径，后者表示用户操作系统
 资源路径。游戏存档、用户配置等就需要使用后者，可以使用 OS.get_executable_path() 提供的路径将，
@@ -16822,12 +16862,13 @@ GDScript 脚本解析器根据这种语法来处理脚本，按规则解析后�
 
 
 ### 🟠🔵 Threads & Coroutines
-- https://docs.godotengine.org/en/stable/classes/class_@gdscript.html
-- https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html
-- https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_basics.html
-- https://docs.godotengine.org/en/latest/tutorials/scripting/c_sharp/c_sharp_differences.html#await-keyword
-- [Using multiple threads](https://docs.godotengine.org/en/stable/tutorials/performance/threads/using_multiple_threads.html)
-- [Add 'await' operator to GDScript](https://github.com/godotengine/godot/pull/32034)
+1. https://docs.godotengine.org/en/stable/classes/class_@gdscript.html
+2. https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html
+3. https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_basics.html
+4. https://docs.godotengine.org/en/latest/tutorials/scripting/c_sharp/c_sharp_differences.html#await-keyword
+5. [Using multiple threads](https://docs.godotengine.org/en/stable/tutorials/performance/threads/using_multiple_threads.html)
+6. [Add 'await' operator to GDScript](https://github.com/godotengine/godot/pull/32034)
+7. 【Godot4.0】利用await写一个异步资源管理器 https://godoter.cn/d/28-godot40await
 
 操作系统以进程 Process 作为资源分配和管理的基本单位，以线程 Thread 为代码执行的基本单位。而协程
 Coroutines 是线程内模拟多线程的并发处理问题能力的一种并发技术。
@@ -17699,7 +17740,7 @@ Godot 4.x 引入的多个关键字，或关键字功能的提升：
 一个字符，\d+ 或者 \w+ 表示匹配多个连续的数字、字符，通过一系列灵活的模式符号可以实现各种字符
 处理功能需求。
 
-例如，以下使用正式表达式来实现一个 Godot 字幕工具。Godot 4.x 支持视频制作，可以设置工程配置
+例如，以下使用正式表达式来实现一个 Godot 字幕工具。Godot 4.x 支持视频制作，可以在工程配置
 Editor - Movie Writer 中设置导出的视频各种参数：
 
 1. FPS 视频帧率
@@ -17710,6 +17751,9 @@ Editor - Movie Writer 中设置导出的视频各种参数：
 
     ffmpeg -i .\True-Pitch-L2.avi -vf subtitles=true-pitch-L1.srt -b 1800k true-pitch-L2_srt.mp4
 
+Godot 中渲染视频时，使用 process(delta) 是无法正确处理时间延时问题，也就是时间流逝速度不一致。
+使用 `_physics_process(delta)` 就可以解决这个问题，它是物理系统中使用的固定时间周期，delta
+单位是秒。
 
 ```py
 #!/usr/bin/env -S godot -s

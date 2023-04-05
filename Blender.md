@@ -88,8 +88,7 @@
 
 
 
-
-## 👉 爬树生物 - 作者: Daniel Bystedt
+👉 爬树生物 - 作者: Daniel Bystedt
 https://dbystedt.wordpress.com/
 https://www.blendercn.org/blender-2-8专题
 http://www.bgteach.com/open/course/47
@@ -174,25 +173,25 @@ Table of contents :
 
 # 🚩 Blender 3D 应用领域
 
-## 👉 环境设计 ENVIRONMENT DESIGN
+👉 环境设计 ENVIRONMENT DESIGN
 
 环境设计又称“环境艺术设计”，是一种新兴的艺术设计门类。包含的学科相当广泛，主要由：建筑设计、室内设计、公共艺术设计、景观设计等内容组成。在内容上几乎包含了除平面和广告艺术设计之外其他所有的艺术设计，环境设计以建筑学为基础，有其独特的侧重点。与建筑学相比，环境设计更注重建筑的室内外环境艺术气氛的营造；与城市规划设计相比，则环境设计更注重规划细节的落实与完善；与园林设计相比，则更注重局部与整体的关系。环境艺术设计是“文化”、“艺术”与“技术”的有机结合体。专业培养目标是通过建筑基础、装饰材料与建筑模型、室内设计、环境规划与设计、计算机辅助设计等专业或主干课程，培养具有现代环境艺术设计的基本理论、知识、和设计能力的专门人才。学生毕业后可从事室内外环境设计、建筑改造设计、展示设计等实践或研究、教学工作。
 
 环境设计专业高度强调艺术意识、创意能力、动手能力、整合能力、沟通能力、国际视野，以较全面的设计课程教学来奠定坚实的专业基本功，以多元的专业课程设置来构建学生综合应用能力。艺术意识通过多方面课程进行培养：艺术哲学、艺术史、绘画、工艺美术史、田野考察与研究、摄影等；创意能力、动手能力、整合能力、沟通能力的培养则贯彻在设计基础课到设计专业课、实践课的各个环节，由浅入深、由小到大。该专业紧扣社会及科技发展的前沿，结合学校、学院的优势学科及实验条件，突出形成两大特色：体验设计、绿色设计。除了常规的专业课程，特别加强学生在体验设计理论、体验设计技术、绿色设计理论、绿色设计技术方面的知识，突出培养能从事主题体验设计、策划的人才，突出培养能从事城市更新设计的人才。加强实践环节的教学，安排较为充足的实习时间，紧密结合市场需求，强调学生在接触专业设计课程之后，有效地利用各种机会进行艺术设计的实践活动，学院建有稳定的实习基地，为学生实践实习活动提供保障。
 
-## 👉 游戏开发
+👉 游戏开发
 
 结合 Unity 或 Unreal Engine 等游戏引擎做开发，通过游戏引擎平台提供的打包能力，将作品打包成不同平台运行的程序。
 
-## 👉 VR 娱乐体验
+👉 VR 娱乐体验
 
-## 👉 工业设计
+👉 工业设计
 
-## 👉 商业包装
+👉 商业包装
 
 各种产品的宣传短片制作，如 KFC 的广告等。
 
-## 👉 CG 电影制作
+👉 CG 电影制作
 
 Blender 基金会支持的 Mango Open Movie 工程制作发布的开源 CG 电影，交由国际团队协同联合制作，没有任何好莱坞动画工作室参于，主要特点是完全使用免费开源的自由软件创作。比如，用 Blender 进行 3D 图形、合成和视频编辑任务，用 GIMP 和 Inkscape 作图和绘画，在 OpenEXR 中渲染输出，用 Python 写脚本，在 SVN 中储存数据等等。
 
@@ -288,7 +287,7 @@ Blender 基金会支持的 Mango Open Movie 工程制作发布的开源 CG 电�
 	https://www.bilibili.com/video/av50719080
 
 
-### ⚡ 钢铁之泪 Tears of Steel (2012)
+⚡ 钢铁之泪 Tears of Steel (2012)
 
 	导演: Ian Hubert
 	编剧: Ian Hubert
@@ -309,6 +308,7 @@ Tears of Steel 是 Blender 基金会所支持的开源电影，片长12分钟左
 首先我们要说说什么是开源电影，所谓开源（OpenSouce），就是说，你可以任意查看、修改制作它的软件，甚至是作品本身。（当然，开源也并不意味着完全没有版权，相反地，在开源世界中，对于版权的定义往往十分清晰，想要详细了解的，可以自行搜索DMCA数字千年版权法）开源电影会在创作共用版权下发布，采用P2P传播，没有DRM，允许Remix和共享——我们经常在国产MP4或是家电商场的电视里看到播放的一部样片《Big Buck Bunny 大雄兔》，就是该基金会之前制作的另一部开源电影。因为版权上的宽容，所以被各种抠逼公司用来做自带示例视频。
 
 对于开源电影来说，你可以免费下载到制作它所使用的全部软件乃至修改这些软件，看到制作的全部过程，或者是下载到电影制作的原始工程文件进行参考学习。
+
 
 我们来看看本电影制作时所用的软件：
 
@@ -587,6 +587,13 @@ MD 提供了 5 种工作模式：
 2. HardOps
 1. MESHmachine
 
+- Curve
+
+	Add-ons » Add Curve » Sapling Tree Gen 
+	https://docs.blender.org/manual/en/3.3/addons/add_curve/sapling.html
+	Add-ons » Add Curve » Ivy Gen 
+	https://docs.blender.org/manual/en/3.3/addons/add_curve/ivy_gen.html
+
 - Interface
 
 	- 3D Viewport Pie Menus 将快捷菜单转换为饼图菜单插件
@@ -756,9 +763,12 @@ Blender 2.80 硬表面建模插件 Hard Ops 概述 https://www.bilibili.com/vide
 Blender 3d Hard Ops 9 官方超精细建模教程 https://www.bilibili.com/video/av77995834
 https://masterxeon1001.com/2019/03/06/hard-ops-0098-release-notes/
 
-用于硬表面建模的套件，具有强大的布尔建模功能，可以方便的制作复杂的机械模型，以类似工业建模软件的流程完成 ploygon 模型的制作。
+用于硬表面建模的套件，具有强大的布尔建模功能，可以方便的制作复杂的机械模型，以类似工业建
+模软件的流程完成 ploygon 模型的制作。
 
-Hard Ops 9 与 BoxCutter 是一对完美的建模组件，俩者也有二合一的旗舰版，Hard Ops 为了与 BoxCutter 的整合，具了解官方花了 5000 多个小时研究开发，当然单独的 Hard Ops 工具也为我们提供了一流的建模体验。
+Hard Ops 9 与 BoxCutter 是一对完美的建模组件，俩者也有二合一的旗舰版，Hard Ops 为了
+与 BoxCutter 的整合，具了解官方花了 5000 多个小时研究开发，当然单独的 Hard Ops 工具
+也为我们提供了一流的建模体验。
 
 
 在对象浏览模式下，无选中物体时 Q 键打开快捷菜单为选项菜单，选中物体时为编辑菜单，如 Array 直接添加修改器:
@@ -958,6 +968,20 @@ blenrig绑定使用blender默认的约束和驱动来构建，为了能够访问
 	- Asset Browser
 	- Spreadsheet
 	- Preferences
+
+
+## 👉 Quick Favorites & Menu Search
+
+Quick Favorites 和 Menu Search 是 Blender 提供的菜单快捷访问方式。
+
+使用快捷键 F3 打开菜单搜索面板，输入菜单名称，可以进行模糊搜索。例如：View ▶ Frame Selected
+菜单用于剧中显示当前选择的对象，就可以搜索 `fs.`，后面的句点是它的快捷键。
+
+Quick Favorites	(Q) 用于记录用户喜好的快捷菜单列表，在不同工作模式下，使用独立的列表。
+Menu Search 中搜索到的菜单命令可以添加到喜好列表中，通过右键菜单操作。
+
+例如，Toggle Local View 用于切换对象的局部视图，将它添加到喜好列表中，需要使用时，
+就可以按下 Q 键打开快捷菜单，比起通过菜单定位的方式更快捷。
 
 
 ## 👉 User Library 用户资产管理
@@ -2382,6 +2406,8 @@ By Distance 方式，设置一个合适的距离作为重叠顶点的判断依�
 
 	桥接循环边 使用面连接多组循环边。
 
+Blender水母动画 https://www.bilibili.com/video/BV1b24y1W79k
+对边线进行 Subdivide 细分，可以使用 Fractial 分型功能以产生水母触须的随机起伏。
 
 
 ### ⚡ Face Tools 面片
@@ -2722,10 +2748,39 @@ Alt-N 弹出编辑自定义拆边法向菜单
 
 曲线和曲面是 Blender 物体的特殊类型。它们用数学函数表示，而不是用一系列点之间的线性插值表示。
 
-贝塞尔曲线和 NURBS 曲线、曲面，这些都是最基础的建模工具，用一组控制点形成的控制多边形来定义模型。
+贝塞尔曲线和 NURBS 曲面或路径，这些都是最基础的建模工具，用一组控制点来控制、定义模型。
+和曲面相比，曲线的一个特点是线条绘制的灵活性更佳，并且可以贴近其它几何体的表面绘制曲线。
+和蜡笔贝塞尔曲线的控制更加精确，使用的顶点数量也更少，不像蜡笔中的笔迹充满大量顶点。所以，
+曲线常用来勾线，绘制模型的轮廓线，然后再对轮廓线进入深入加工。
 
-使用曲线代替多边形网格的主要优点是，曲线由更少的数据定义，因此可以在建模时使用更少的内存和存储空间
-来生成结果。然而，这种处理表面的过程方法会增加对渲染时间的需求。
+在对象模式下，通过菜单 Object - Convert 可以将曲线转换为其它类型，比如 Mesh，然后再使用
+网格工具进行建模，例如 Poly Build 可以逐面地添加进行建模。Mesh Merge 工具可以按距离
+合并顶点以优化曲线。对选中的顶点，可以转化为边线，或填充成面片：Vertex - New Edge/Face。
+或者使用边线工具：Bridge Edge Loops，桥接循环边，将选中的两条边点对点地连接并填充面片。
+
+使用雕刻工具得到的精细模型包含的片面非常多，因为称为高模，但实际使用时需要进行减面、精简，
+以方便动画制作，这就可以使用以上提到的这些工具。
+
+Mirror 和 Shrinkwrap 修改器在减面建模过程中经常使用，它们分别进行对称建模，将面片缩裹
+到高模表面。激活缩裹修改器的 On Cage 模式可以将新的面片中的顶点附着到高模表面。
+
+另外还有 Surface Deform 修改器，可以用来做变形，可以配合 Shrinkwrap 一起使用。例如，
+将一堵墙贴在一个球体表面，如果直接给墙体添加 Shrinkwrap 修改器，则会使墙坍塌或分散在
+球体表面。需要给墙体添加 Surface Deform 修改器，然后再将修改器绑定到一个平面上。同时
+给平面添加 Shrinkwrap 修改器，使墙体随平面进行变形，而平面则缩裹到球体表面。
+
+注意，变形修改器的绑定操作时机不同，会有不同效果。如在平面的 Shrinkwrap 修改器激活后再绑定，
+此时由于平面已经变形贴近到球体表面，墙体的 Surface Deform 修改器再执行绑定时将以当前的
+状态作为参照，再禁止 Shrinkwrap 修改器时，平面就会恢复原样，这个变形过程就会反映到墙体上。
+
+注意墙体要与平面对齐，平面细分超精细，变形就越平滑。为了方便墙体与平面保持一致的变换，可以设置
+平面为墙体的父对象：选择墙体再加选平面，Ctrl P 打开父级设置菜单，选择 Object (Keep Transform)。
+Blender 内置插件 Copy Attributes Menu，在选中多个对象时，可以拷贝活动对象的属性到其它对象。
+Surface deform和shrinkwrap修改器的运用 https://www.bilibili.com/video/BV1nb411473s/
+Projecting High-Res Models by Shrinkwrap https://www.bilibili.com/video/BV1P44y1x7gy/
+
+使用曲线代替多边形网格的主要优点是，曲线由更少的数据定义，因此可以在建模时使用更少的内存和
+存储空间来生成结果。然而，这种处理表面的过程方法会增加对渲染时间的需求。
 
 某些建模技术只能使用曲线，如沿路径挤出轮廓。另一方面，当使用曲线时，顶点级控制更加困难，如果需要
 精细控制， 网格编辑可能是更好的建模选择。
@@ -3255,11 +3310,12 @@ Blender内置的绘画模式叫 纹理绘制 ，它是特别为了在 UV/图像�
 
 
 ## 👉 Geometry Node Editor
-- https://docs.blender.org/manual/zh-hans/2.93/editors/geometry_node.html
-- https://docs.blender.org/manual/zh-hans/2.93/modeling/geometry_nodes/index.html
-- [嫩芽生长动画(几何节点)](https://www.bilibili.com/video/BV13P4y1V75T)
-- [几何节点生成无限种立面样式组合](https://www.bilibili.com/video/BV1yY41137UF)
-- [Blender 几何节点 - 电弧效果](https://www.bilibili.com/video/BV1PZ4y1973s/)
+1. https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html
+2. https://docs.blender.org/manual/zh-hans/2.93/editors/geometry_node.html
+3. https://docs.blender.org/manual/zh-hans/2.93/modeling/geometry_nodes/index.html
+4. [嫩芽生长动画(几何节点)](https://www.bilibili.com/video/BV13P4y1V75T)
+5. [几何节点生成无限种立面样式组合](https://www.bilibili.com/video/BV1yY41137UF)
+6. [Blender 几何节点 - 电弧效果](https://www.bilibili.com/video/BV1PZ4y1973s/)
 
 几何节点编辑器用于编辑由 *几何节点修改器* 使用的节点编组，也就是几何节点树的编辑器。该节点编组可
 定义许多操作，以修改一个物体的几何信息。这是非常特殊的一个修改器，是程序化几何生成器。从实现上来看，
@@ -3478,7 +3534,58 @@ Pick Instance 输入为 0 表示不做选择，即选择所有，可以使用 **
 材质处理节点对使用不同材质的面片进行处理。
 
 
-#### ⚡ Function Nodes
+### ⚡ Blender 3.5 毛发几何节点
+1. Hair Nodes https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/hair/index.html
+2. Blender 3.5 Release Notes https://www.blender.org/download/releases/3-5/
+3. 快速上手 Blender 3.5 毛发几何节点 https://www.bilibili.com/video/BV1hs4y1D7oq/
+4. Blender New Hair Sysetm by Noggi https://www.bilibili.com/video/BV13B4y1e7sE/
+
+
+自 Blender 3.3 引入 curves-based hair system，新版本的毛发系统已对集成到几何节点。
+通过 Asset Browser 访问毛发预置资产，使用这些毛发资产相当于给毛发对象添加修改器。
+往场景中添加一个 Curve - Empth Hair 对象，它会自动附加到最后选择的几何体上。
+进入毛发雕刻模式，雕刻出毛发，然后将毛发资产拖动到毛发对象上，会自动创建几何节点修改器，
+并且将资产预置的节点添加到节点编辑器中，也可以在几何节点编辑器中添加毛发资产节点。
+
+注意，几何体也可以接收毛发资产的节点修改器配置。
+
+Hair Nodes 对应了 26 个毛发资产：
+
+- Deformation
+	01. Blend Hair Curves
+	02. Displace Hair Curves
+	03. Frizz Hair Curves
+	04. Hair Curves Noise
+	05. Roll Hair Curves
+	06. Rotate Hair Curves
+	07. Shrinkwrap Hair Curves
+	08. Smooth Hair Curves
+	09. Straighten Hair Curves
+	10. Trim Hair Curves
+- Generation 毛发生成、复制、插值生成
+	01. Duplicate Hair Curves
+	02. Generate Hair Curves
+	03. Interpolate Hair Curves
+- Guides 引导毛发成束
+	01. Braid Hair Curves
+	02. Clump Hair Curves
+	03. Create Guide Index Map
+	04. Curl Hair Curves
+- Read
+	01. Curve Info
+	02. Curve Root
+	03. Curve Segment
+	04. Curve Tip
+	05. Hair Attachment Info
+- Utility
+	01. Attach Hair Curves to Surface
+	02. Redistribute Curve Points
+	03. Restore Curve Segment Length
+- Write
+	01. Set Hair Curve Profile
+
+
+### ⚡ Function Nodes
 
 Attribute Nodes 属性处理节点：
 
@@ -3786,8 +3893,9 @@ UV Nodes 贴图坐标处理：
 02. UV Unwrap Node
 
 
-# 🚩 Modifiers 模型修改器
+# 🚩 Modifiers 修改器
 - https://docs.blender.org/manual/zh-hans/3.0/modeling/modifiers/index.html
+- https://docs.blender.org/manual/en/latest/grease_pencil/modifiers/index.html
 
 通过模型对象的属性栏使用修改器，扳手图标 Properties - Modifier Properties
 
@@ -3815,6 +3923,7 @@ Hook Modifier，给一个模型设置一个挂钩后，场景中就相应添加�
 大多数情况下，只使用纹理的灰度，但在某些情况下，如置换修改器 Displace Modifier 的一些模式，可能
 会利用整个 RGB 颜色组件。
 
+曲面模型对象修改器：
 
 - 修改 Modify
 
@@ -3866,7 +3975,7 @@ Hook Modifier，给一个模型设置一个挂钩后，场景中就相应添加�
 	- Smooth Laplacian 拉普拉斯平滑修改器
 	- Surface Deform 表面变形修改器
 	- Wrap 弯绕修改器
-	- Wave 波浪修改器
+	- Wave 波浪修改器：给几何对象添加波浪运动效果。
 
 - 模拟 Simulate
 	
@@ -3880,6 +3989,39 @@ Hook Modifier，给一个模型设置一个挂钩后，场景中就相应添加�
 	- Partical System 粒子系统修改器
 	- Smoke 烟雾修改器
 	- Soft Body 软体修改器
+
+Grease Pencil 修改器：
+
+- Generate
+	01. Array Modifier
+	02. Build Modifier
+	03. Dot Dash Modifier
+	04. Envelope Modifier
+	05. Length Modifier
+	06. Line Art Modifier
+	07. Mirror Modifier
+	08. Multiple Strokes
+	09. Outline Modifier
+	10. Simplify Modifier
+	11. Subdivide Modifier
+- Deform
+	01. Armature Modifier
+	02. Hook Modifier
+	03. Lattice Modifier
+	04. Noise Modifier
+	05. Offset Modifier
+	06. Shrinkwrap Modifier
+	07. Smooth Modifier
+	08. Thickness Modifier
+	09. Color
+	10. Hue/Saturation Modifier
+	11. Opacity Modifier
+	12. Tint Modifier
+- Modify
+	01. Texture Mapping Modifier
+	02. Time Offset Modifier
+	03. Vertex Weight Angle Modifier
+	04. Vertex Weight Proximity Modifier
 
 
 
@@ -4031,7 +4173,10 @@ Lattice Modifier。
 这包括使用 Ctrl-A 应用其缩放，因为这将获得与在编辑模式下缩放晶格乃至物体相同的结果。
 
 
-### ⚡ Twist 扭曲模型
+## 👉 Wave 波浪修改器
+https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/wave.html
+
+## 👉 Twist 扭曲模型
 
 打开 blender 创建一个球体。
 
@@ -4062,8 +4207,28 @@ Simple Deform Modifier，将变形角度增加到 360 度.然后添加一个 Arr
 
 
 # 🚩 Sculpting & Painting 模型雕刻与绘制
-[Blender 2.81 头发制作小教程](https://www.bilibili.com/read/cv4981401)
-[Blender实用案例训练 ep.9 制作头发小技巧（非雕刻）](https://www.bilibili.com/read/cv5466422)
+1. [Blender 2.81 头发制作小教程](https://www.bilibili.com/read/cv4981401)
+2. [Blender实用案例训练 ep.9 制作头发小技巧（非雕刻）](https://www.bilibili.com/read/cv5466422)
+3. Blender 3.5 Vector Displacement Map https://www.bilibili.com/video/BV1wo4y1i7bZ/
+4. Cycle Bake (Emit) VDM https://www.bilibili.com/video/BV1HL411Z7SF/
+5. VDM for the sculpting draw brush https://projects.blender.org/blender/blender/pulls/104481
+6. Blender VDM 矢量位移置换 https://www.bilibili.com/video/BV1ZD4y1w736/
+6. http://docs.pixologic.com/user-guide/3d-modeling/exporting-your-model/vector-displacement-maps/
+6. https://80.lv/articles/case-study-vector-displacement-mapping-in-real-time/
+6. Shin Min Jeong 3D角色建模 https://www.bilibili.com/video/BV1tP4y1Y7SD/
+
+Blender 3.5 支持 VDM 矢量位移置换，可以直接将模形在雕刻模式置换出来，创建和使用 VDM：
+
+- 使用 Cycle 渲染引擎的 Bake (Emit) 将模块的发光图烘焙出来，并保存为 EXR/PNG 纹理贴图；
+- 在雕刻模式下，将发光纹理贴图加载到雕刻工具的 Texture 属性，并设置：
+	- Mapping = Area Plane
+	- Vector Displacement 勾选状态
+	- Stroke Method = Anchored 或者 Drag Dot
+
+使用高动态的 EXR 图像文件时，分辨率在 512x512 水平就足够，大尺寸占用空间很大。
+
+VDM 贴图中，越是亮色表示在锚定模式下雕刻时，就越先浮雕出来。
+
 
 3D 视图的雕刻模式和绘制模式使用笔刷 Brush 直接在网格上绘制，这种新方法是一种艺术性的建模方式，
 以下多种模式使用网格绘制功能:
@@ -4279,19 +4444,26 @@ Textures Nodes 启用节点编辑后，图像就需要在节点编辑器中设�
 而是会根据笔刷的位置自动选择顶点，像捏泥人一样建模。
 
 搭配多级精度修改器 Multi-Resolution Modifier 可以让你像表面细分修改器那样细分网格，同时又可以
-实现多级精度的模型雕刻。
+实现多级精度的模型雕刻。多级精度修改器可用来动态地细分网格。细分的越多，需要的计算量也就越大。当拥有
+干净拓扑的基础网格时，多级精度雕刻将有所帮助。
 
-多级精度修改器可用来动态地细分网格。细分的越多，需要的计算量也就越大。当拥有干净拓扑的基础网格时，
-多级精度雕刻将有所帮助。
+当使用多级精度修改器雕刻时，我们可以在不同的细分级别中进行雕刻，这意味着我们可以在低级别细分
+雕刻一些粗糙的轮廓，然后在更高的细分级别下雕刻出更多细节。同时，又会保留低级别的顶点信息，当返回
+到细分低级别时又可以纠正一些错误，使用其影响高级别细分中效果。
 
-当使用多级精度修改器雕刻时，我们可以在不同的细分级别中进行雕刻，这意味着我们可以在细分级别 1 中雕刻
-一些细节，并在细分级别2中添加更多细节，并返回到细分级别1纠正一些错误。虽然此工作流程经常被使用，
-但多级精度修改器仍有一些局限。你可能会遇到一些网格失真问题。作为建议，在增加更多细分之前添加尽可能多
-的细节。在多级精度雕刻中进行二次雕刻，Clay 笔刷是更合适的选择。
+虽然，多级细分的工作流程经常被使用，但仍有一些局限。你可能会遇到一些网格失真问题。作为建议，
+在增加更多细分之前添加尽可能多的细节。在多级精度雕刻中进行二次雕刻，Clay 笔刷是更合适的选择。
 
 
 使用 Mask 遮罩避免不需需改的位置有改动，也就是说，遮罩区域越黑，雕刻对该部分产生的效果就越小。
 遮罩笔刷绘制遮罩过程种可以使用 Ctrl 临时激活擦除模式，按下 Shift 将会激活遮罩光滑模式。
+
+记住，Ctrl 通常是用来反转一个工具的作用，比如，*Draw* 工具会向法线方法扩张曲面，按下 Ctrl
+再雕刻时，就会逆着法向收缩曲面。进入雕刻时，可以将对象着色方式改为 Flat，这是默认的几何体着色
+方式，相比 Smooth 方法，平坦着色更能看到曲面的朝向，而平滑着色方式通常用于完成后的模形。
+
+雕刻工具的笔刷大小，即蓝色圆圈的大小以及力度决定了每次下笔时的效果，施力方向通常以法线为准，
+并且与笔刷蓝色圆圈所表示的平面正交。
 
 除了遮罩，还可以使用 H 定义隐藏区，完全避免指定区域的改动，Shift-H 框选不不需要隐藏的部分，
 Alt-H 取消隐藏。
@@ -4362,11 +4534,11 @@ Sculpting 雕刻模式快捷键:
 
 - 绘制笔刷 *Draw* X
 
-	根据绘制的画笔描边中包含的顶点的平均法线向内或向外移动顶点。
+	根据绘制的画笔描边中包含的顶点的平均法线向内或向外移动顶点，产生隆起的效果。
 
 - 粘土笔刷 *Clay* C
 
-	类似于 绘制笔刷 ，但包括了用于调整画笔作用的平面的设置。它的作用类似于 压平笔刷 和 绘制笔刷 的组合。
+	它的作用类似于 压平笔刷 和 绘制笔刷 的组合，包括了用于调整画笔作用的平面的设置。
 
 - 粘土带笔刷 *Clay Strips*
 
@@ -4374,7 +4546,9 @@ Sculpting 雕刻模式快捷键:
 
 - 层笔刷 *Layer* L
 
-	除了置换层的高度有上限外，此笔刷与 绘制笔刷 类似。该笔刷可以绘制出层状表现的实体。该笔刷不会在它自身上面绘制;笔刷笔划与自身相交。释放鼠标按钮并开始新笔划将重置深度并在上一笔划的基础之上绘制。
+	除了置换层的高度有上限外，此笔刷与 绘制笔刷 类似。该笔刷可以绘制出层状表现的实体。
+	该笔刷不会在它自身上面绘制;笔刷笔划与自身相交。释放鼠标按钮并开始新笔划将重置深度
+	并在上一笔划的基础之上绘制。
 
 - 膨胀/萎缩笔刷 *Inflate/Deflate* I
 
@@ -4386,7 +4560,7 @@ Sculpting 雕刻模式快捷键:
 
 - 折痕笔刷 *Crease* Shift-C 
 
-	通过推动或拉动网格创建尖锐的凹痕或脊线，同时将顶点夹在一起。
+	通过推动或拉动网格创建尖锐的凹痕或脊线，同时将顶点夹在一起，雕刻出沟槽的效果。
 
 - 平滑笔刷 *Smooth* S
 
@@ -4394,7 +4568,8 @@ Sculpting 雕刻模式快捷键:
 
 - 压平/对比笔刷 *Flatten/Contrast* Shift-T
 
-	压平笔刷 默认位于画笔区域内顶点上方/下方平均高度的“区域平面”。然后将顶点拉向该平面。 压平笔刷 反转是 对比笔刷，它将顶点向上或向下推离画笔平面。
+	压平笔刷 默认位于画笔区域内顶点上方/下方平均高度的“区域平面”。然后将顶点拉向该平面。
+	压平笔刷 反转是 对比笔刷，它将顶点向上或向下推离画笔平面。
 
 - 填充/加深笔刷 *Fill/Deepen*
 
@@ -4766,18 +4941,66 @@ Track 追踪面板
 
 
 
-# 🚩 Grease Pencil 2D绘图蜡笔
-- Grease Pencil https://docs.blender.org/manual/en/3.0/grease_pencil/index.html
-- [Grease Pencil Fundamentals](https://cloud.blender.org/p/grease-pencil-fundamentals/)
-- [Grease Pencil Blender 2.8 Free Samples](https://cloud.blender.org/p/gallery/5b642e25bf419c1042056fc6)
-- GP Magic Cube 示范 https://www.bilibili.com/video/BV16J411z7ph
-- GP 绘制三维头部模型 https://www.bilibili.com/video/BV18t411a7eV/
-- GP 《幽灵公主》YAKURU制作 https://www.bilibili.com/video/BV16K411u7ok
-- 中国画风格 https://www.bilibili.com/video/BV1F44y1r75Y
+# 🚩 NPR 非真实渲染
+1. 水彩风格 by Gakut https://www.bilibili.com/video/BV1F44y1r75Y
+2. 三维水墨金鱼《戏》 五天晴 https://www.bilibili.com/video/BV1kT411F7HU/
+3. 三维水墨教程 五天晴 https://www.bilibili.com/video/BV14M4y1k7pD/
+4. 王希孟你也太会画了吧？！ https://www.bilibili.com/video/BV1gT4y1k7qL/
+5. 《千里江山图》 北宋 王希孟 https://www.ltfc.net/img/5be396f78ed7f411e26a464a
+6. 《清明上河图》 明 仇英 台北故宫博物院 https://g2.ltfc.net/view/SUHA/608986e1d14344504828dffb
+7. 清明上河图 明 仇英 辽宁省博物馆 https://g2.ltfc.net/view/SUHA/609672f536bd622e5d1ee9bf
+8. 清院本清明上河图卷 清 陈枚 台北故宫博物院 https://g2.ltfc.net/view/SUHA/609678bfe2d4222ecd8c2f7f
 
-Blender 3.0 升级后，Grease Pencil 的绘画效果更好了，相比 2.83 或 2.93 好了不只一个档次。不再有笔迹的采样不连续的问题，笔刷效果更好看了，而且不会像旧版本一样快速绘画就会有直线问题。但是同时也要求有更好的硬件，最好搭配 RTX 级别显卡。
 
-操作流畅性来说，是不能和 SAI 那样轻便的工具比较的，流畅程序不是一个级别，即使和 Krita 或 Adobe SketchBook 比也要差多了。
+清院本清明上河图卷
+清  陈枚  台北故宫博物院
+
+材质尺寸：
+绢本 长卷 设色 35.6x1152厘米
+
+简要介绍：
+绘十八世纪的以苏州城为主要特色的城市风貌，由清画家陈枚、孙祜、金昆、戴洪、陈志道合绘。画卷人物鞍马用工笔设色、山水树石系用青绿画法、建筑舟船用界画法、浮云流水用白描画法等。
+
+款识题跋：
+款识：乾隆元年（1736年）十二月十五日奉勅，臣陈枚、孙祜、金昆、戴洪、程志道恭画。
+
+钤印：
+作者印：臣枚、臣孙祜。
+收传印：清内府诸收藏玺。
+
+图片拼接脚本，利用 IrfanView 看图工具：
+
+```sh
+	$v = (dir *.jpg).Length / 4 - 1
+	foreach ($i in 0..$v) {
+	    $list = ((dir "$($i)_*.jpg")|% {"$($_.Name)"}) -join ","
+	    & "C:\Program Files\IrfanView\i_view64.exe" /panorama=`(2,$list`) /convert=a$i.png
+	}
+	sleep 3
+	$list = (dir "a*.png") -join ","
+	& "C:\Program Files\IrfanView\i_view64.exe" /panorama=`(1,$list`) /convert=a.png
+```
+
+
+## 👉 Grease Pencil 2D绘图蜡笔
+1. Grease Pencil https://docs.blender.org/manual/en/3.0/grease_pencil/index.html
+2. [Grease Pencil Fundamentals](https://cloud.blender.org/p/grease-pencil-fundamentals/)
+3. [Grease Pencil Blender 2.8 Free Samples](https://cloud.blender.org/p/gallery/5b642e25bf419c1042056fc6)
+4. GP Magic Cube 示范 https://www.bilibili.com/video/BV16J411z7ph
+5. GP 绘制三维头部模型 https://www.bilibili.com/video/BV18t411a7eV/
+6. GP 《幽灵公主》YAKURU制作 https://www.bilibili.com/video/BV16K411u7ok
+7. Grease pencil Tutorial by Dedouze https://www.bilibili.com/video/BV19y4y1r741/
+7. PS水墨画笔刷 https://sheyingps.com/2020/12/0ea28775ce.html
+7. Character turnaround sheet by Pcaggegi https://www.bilibili.com/video/BV1ZA411b7rg/
+7. Line Art Modifier https://docs.blender.org/manual/en/latest/grease_pencil/modifiers/generate/line_art.html
+7. Grease Pencil Blender Reel 2022 https://www.bilibili.com/video/BV1oT411L7Z2/
+
+
+Blender 3.0 升级后，Grease Pencil 的绘画效果更好了，相比 2.83 或 2.93 好了不只一个档次。
+不再有笔迹的采样不连续的问题，笔刷效果更好看了，而且不会像旧版本一样快速绘画就会有直线问题。
+
+操作流畅性来说，是不能和 SAI 那样轻便的工具比较的，流畅程序不是一个级别，即使和 Krita 或 
+Autodesk SketchBook 比也要差多了。
 
 官方教程 Grease Pencil Fundamentals：
 
@@ -4795,71 +5018,68 @@ Blender 3.0 升级后，Grease Pencil 的绘画效果更好了，相比 2.83 或
 	12 - Annotate
 
 
-蜡笔是一种特别类型的 Blender 物体，可以在三维空间里进行绘制。也可用于制作传统的二维动画，剪纸动画，动态图形(MG)或者用作故事板工具等。蜡笔 的主要目的是提供一个完全沉浸在 3D 环境中的 2D 动画工具。为了使用蜡笔获得最佳效果，强烈建议使用 绘图板。
+蜡笔物体使用 layer 记录笔迹顶点数据，是三维空间中绘制的顶点。可用于制作传统的二维动画，剪纸动画，
+动态图形(Motion Graphics)或者用作故事板工具等。蜡笔工具的主要目的是提供一个 3D 环境中的 2D 
+动画工具。为了使用蜡笔获得最佳效果，强烈建议使用 绘图板。
 
-如果学习二维动画，一个非常棒的参考是 Richard Williams Animation Masterclass 2008 年发行的动画师生存手册，The Animators Survival Kit Animated，里面系统的展示了动画技术成就。
+如果学习二维动画，一个非常棒的参考是 Richard Williams Animation Masterclass 2008 年
+发行的动画师生存手册，The Animators Survival Kit Animated，里面系统的展示了动画技术成就。
 
-给摄像机设置背景图可以模拟绘画的纸张纹理，先选择摄像机，再勾选属性面板 Object Data -> Background Images 选项，并指定纹理图片，然后按 ~ 选择摄像机视图就可以看到背景图。另外，设置渲染引擎属性，勾选 Film -> Transparent 可以渲染带透明层的图像。设置好 Compositing 进行后期处理，将背景图与 2D 绘画内容融合：
+给摄像机设置背景图可以模拟绘画的纸张纹理，设置摄像机属性：Object Data -> Background Images，
+指定纹理图片，然后按 ~ 选择摄像机视图就可以看到背景图。设置渲染引擎属性：Film -> Transparent，
+可以渲染带透明层的图像。设置好 Compositing 进行后期处理，将背景图与 2D 绘画内容融合：
 
 - 打开 Compositor 进行后期处理，勾选顶部的 Use Nodes 激活节点编辑器；
 - 默认的节点有两个，Render Layers -> Composite。
 - 在 Image 之间的连接增加一个 *Alpha Over* 节点进行透明通道合成处理；
-- 增加 *Image* 节点，并指定背景图片，然后连接一个 *Scale* 节点设置绽放为 1 x 1。
+- 增加 *Image* 节点，并指定背景图片，然后连接一个 *Scale* 节点设置缩放为 1 x 1。
 - 将 Scale 的图像输出连接到 Alpha Over 的 Image 端口上。
 - 按 F12 进行渲染，就可以看到融合的图像，如果绘画内容被背景覆盖，那么就交换 Alpha Over 的输入图像位置。
 - 按住 Ctrl 拖动其中一个端口的连线到另一个端口即可以交换连接。 
 
+Object Mode 菜单中提供多种蜡笔添加方式，Add - Grease Pencil 菜单项说明：
 
-蜡笔绘制的是矢量图形，笔迹有 3 种基本组件：
+- **Blank** 内容空白的蜡笔对象；
+- **Stroke** 包含一条笔迹的蜡笔对象；
+- **Monkey** 包含一个猴头的蜡笔对象；
+- **Object Line Art** 给指定对象生成轮廓线；
+- **Scene Line Art** 给场景中所有对象生成轮廓线；
+- **Collection Line Art** 给指定集合中的对象生成轮廓线；
 
-- Point，点是蜡笔物体编辑时用的主要元素是点。 其代表在3D空间中的单个点。 每个点都存储定义笔画最终外观的所有属性，即纹理的位置，厚度，alpha，压力和 UV 方向。
-- Edit Line 编辑线，点总是以直线相连，在编辑模式下编辑或在线框视图中查看笔画时显示。 不会出现在渲染图像上，并形成最终的笔画。
-- Stroke 笔触，笔画是使用特定的蜡笔材质渲染出的点和编辑线图像。 (蜡笔材质在笔画层次关联。)
+Line Art 修改器是用于生成几何体线框的工具，类似 Freestyle Line 工具。创建蜡笔对象后，
+添加 Line Art 修改器，属性设置：
 
-笔画颜色有两种模式：
+1. **Source Type** 指定要生成轮廓线的对象类型。
+2. **Layer** 指定生成的线稿保存的图层。
+3. **Material** 线稿使用的材质。
 
-- Material 材质决定画笔颜色模式，只能通过材质指定颜色；
-- Vertex Color 顶点颜色模式，可以直接选择画笔颜色；
+在默认的线稿配置中，Edges Type 使用 Contour 方式，即产生轮廓线。另外，折痕阈值 140 度角，
+Crease threshold，小于这个角度的边角就当作折痕处理，即产生轮廓线。折痕角是两个相邻面之间的角度。
 
-默认提供的画笔材质只有四种：
+折痕在曲面建模中也有应用，使用修改器细分几何体时，Edge - Edge Crease 命令可以用来卡边，
+使细分的边线贴近折痕边。
 
-- Solid Stroke 实心笔迹；
-- Squares Stroke 方块笔刷；
-- Solid Fild 填充区笔迹；
-- Dots Stroke 点状笔迹；
+线稿可以通过 Bake 面板烘焙到指定的蜡笔图层，注意，烘焙动作会删除图层原有内容。烘焙得到的线稿
+就是可编辑的蜡笔对象中的笔迹。
 
-笔刷材质总是和画笔关联的，画笔改变材质后，线条也会随之改变。而画好的线条和材质是关联的，修改材质会反映在线条上。
+几何体上线稿的生成与摄像机的位置有关，那些曲面法线与视线垂直的位置就是轮廓线产生的位置。
+比如一个球体和一个盒子，球体边缘位置与盒子可以被观察到的连线就会有相应的轮廓线。笔刷材质
+为 Dots 或者 Squares 时，只会在几何体顶点位置打点而不是绘线。
 
-画笔材质主要由笔触线条和填充两部分构成，要定制画笔就要从这两部分入手。喷枪和铅笔使用的是 Dots Stroke，利用紧密的点云来模拟笔迹。但不能直接通过 Dot Stroke 材质来模拟这两种笔刷的效果，需要复制这两种笔刷再进行参数修改。Blender 内置的其它几个笔刷会根据用户选择的材质，或笔刷颜色模式进行绘图，除非使用 Pin Mode 固定画笔材质或颜色模式。
+如果材质使用了填充，则会填充将摄像机能够看见部分。
 
-定制笔刷材质：
+蜡笔绘制的是矢量图形，可以看作是贝塞尔曲线，笔迹有 3 种基本组件：
 
-- Mode Type 只有三种可选的笔刷模式，Line、Dots、Squares，以上四种材质基于这些模式定义的。
-- Style 风格选择，默认是 Solid 实心风格，可以指定线条和填充颜色，另一个是纹理风格 Texture。
+- **Point**，点是蜡笔物体编辑时用的主要元素，代表在3D空间中构成笔迹的单个顶点。 
+	每个点都存储定义笔画最终外观的所有属性，即纹理的位置，厚度，alpha，压力和 UV 方向。
+- **Edit Line** 编辑线，两个顶点之间总是以直线相连，编辑或在线框视图中查看笔画时显示。 
+	不会出现在渲染图像上，并形成最终的笔画。
+- **Stroke** 笔触，笔画是使用特定的蜡笔材质渲染出的点和编辑线图像。 (蜡笔材质在笔画层次关联。)
 
-指定纹理风格后，可以指定一个纹理图片当作笔刷的纹理，它相当于纸张的材质。此外可以指定一个 Base Color，设置 Blend 的百分比，即可以与纹理图案的颜色进行混合。
+在编辑模式下，可以对蜡笔的点、线或整个笔迹进行编辑，也可以使用蜡笔雕刻工具进行处理。
+删除蜡笔图层，或者关键帧，或者删除所以笔迹的顶点都可以清空内容。
 
-定制笔刷：
-
-- Advanced -> Hardness 硬度设置越接近 100%，绘画时的笔迹大小就越接近 Radius 指定的大小。硬度越小，边缘融合就越平滑。
-- Aspect X/Y 笔触外观比例比值差距越大，线条边缘也会越模糊，在 1% 的比例下，线条会呈现绒毛状态。
-- Angle/Factor 角度控制哪个方向下的笔迹最粗，0° 表示水平方向，Factor 为强度系数，为 0 表示无效果。
-- Stroke -> Randomize 设置各种随机强度，比如 Pressure 设置为 100% 表示笔迹的压力是完全随机的，Jitter 的弯曲抖动的随机性。
-
-在 Blender 2.93 版本上，还可以对颜色进行随机化处理，Hue/Saturation/Value 三个变量。并且可以根据笔迹所在的层级，即每次下笔都是一个随机值，或者根据绘图板压力随机变化。这些随机化可以定制出效果非常好的笔画，可以用来模拟水彩效果。
-
-在绘图模式下，有几种绘图选项：
-
-- *Draw on Back* 启用时，将在图层中所有笔划的下方绘制新笔划。例如，如果要在字符的线条笔划下方使用填充材质进行绘制，且笔划位于同一层上。
-- *Add Weight Data* 启用时，将根据当前顶点组和权重将权重数据添加到新笔划中。如果未选择顶点组，则不会添加权重数据。
-- *Additive Drawing* 使用绘图工具创建新框架并添加笔划时，上一个/活动框架中的笔划将作为新框架的基础。使用添加图形擦除现有笔划时，将添加一个新的关键帧。
-- *AutoMerge* 将新笔划与活动层中以前绘制的笔划的开始或结束连接起来。
-- *Multiframe* 允许同时在多个帧上绘制。
-
-
-在对象数据属性面板中，蜡笔物体都有一个 2D 图层列表 Layers，用于分组和排列笔画 List view。 任何笔画只能从属于单个 2D 图层。列表中始终只有一个活动层(选定的一个)。 绘制时，新笔画将添加到活动层里。每个图层遮罩方式 Mask Layer、洋葱皮 Onion Skining，及显示和锁定状态。设置为遮罩方式后，列表下面的图形为基准，上面的遮罩层内容不会超出下面的遮罩层内容范围。
-
-每个图层都可以设置图层颜色的混合模式 Color Blend Modes：
+每个蜡笔图层都可以设置图层颜色的混合模式 Color Blend Modes：
 
 - *Regular* 正常模式；
 - *Overlay* 叠加，反转下层的像素，再乘于两倍上面图层像素值，再加上下层的原值，再除以 255，再乘下层的原值，再除以 255 得到较暗的效果，但比相乘要亮；
@@ -4868,11 +5088,264 @@ Blender 3.0 升级后，Grease Pencil 的绘画效果更好了，相比 2.83 或
 - *Multiply* 相乘，与下面的混合图层像素相乘再除以 255，白色部分保持，黑色部分保持黑色；
 - *Divide* 除去，这种模式会将上下图层的像素相乘，再除于 255，产生较暗的效果； 
 
+默认情况下，视窗中图层的视图顺序为从上到下。每个图层都对应于摄影表编辑器 Dope Sheet 中的一个通道(在蜡笔模式下)。图层也可以与修改器一起使用，仅影响部分绘图。在 Dope Sheet 编辑器中，选择 Grease Pencil 模式即可查看蜡笔对象的帧动画。
 
-默认情况下,视窗中图层的视图顺序为从上到下。每个图层都对应于摄影表编辑器 Dope Sheet 中的一个通道(在蜡笔模式下)。图层也可以与修改器一起使用，仅影响部分绘图。在 Dope Sheet 编辑器中，选择 Grease Pencil 模式即可查看蜡笔对象的帧动画。
+Onion Skinning 洋葱皮显示当前帧之前和之后的关键帧鬼影，给动画制作者当前动画序列的前后帧关系参考。
 
-Onion Skinning 洋葱皮工具可以显示当前帧之前和之后的关键帧鬼影，给动画制作者当前动画序列的前后帧关系参考。
 
+## 👉 Grease Pencil 笔刷与材质
+
+画笔各种属性的关系：
+
+1. Brushes：笔刷是一种渲染程序模型，决定笔触呈现出的外观，例如 Airbrush、Ink Pen、Pencil。
+2. Strokes：笔触是蜡笔对象基本的图形单元，笔触绘制后得到构成笔迹的一组数据。
+3. Material：笔刷材质，可以设置 Line Type、Stroke Style，填充色和 Base Color。
+
+笔画颜色有两种设置模式 Paint Mode：
+
+- Material 材质决定画笔颜色模式，只能通过材质指定颜色；
+- Vertex Color Attribute 顶点颜色模式，可以直接选择画笔颜色；
+
+笔刷材质 Line Type 可以设置为 Line、Dot、Square 等基础图形，样式可以设置 Texture 方式，
+笔触纹理图像与基础色进行混合，显示为 Line Type 指定的形状。
+
+填充样式可以设置为 Solid（纯色）、Gradient、Texture，后两种与填充色 Base Color 进行混合。
+可以给蜡笔对象创建多个 Material Slot 以使用多种材质设置，笔迹一旦绘制，就记录笔刷材质关系，
+后续通过编辑材质就可以再次修改内容。
+
+如果在绘制过程中需要频繁切换图层或材质，可以使用 Y、U 快捷键进行操作。
+
+注意，3D 视图着色模式要设置为 Rendered 或者 Material Preview 方式才会显示蜡笔的色彩。
+
+而使用顶点颜色绘画模式下，颜色会记录到顶点属性数据集，Vertex Color 面板中可以设置 Mode 和 
+Mix Factor，默认混合系数为 1，表示完全为顶点颜色，后续也不能再通过材质来修改笔迹内容。
+尽管如此，颜色属性模式下，材质是否启用 Strke 或 Fill 有影响。当顶点颜色混合系数小于 1，
+寻么，后续修改材质属性时，就可以改变现有的笔迹外观。
+
+顶点颜色是顶点属性数据的一种，在图形学 API 中，列如 OpenGL 向 GPU 传递的顶点数据中，除了
+坐标信号，还会包含顶点颜色等数据。
+
+
+2D Animation 模板默认提供的笔刷材质有四种：
+
+- Solid Stroke 实心笔迹；
+- Squares Stroke 方块笔刷；
+- Solid Fild 填充区笔迹；
+- Dots Stroke 点状笔迹；
+
+Blender 3.3 提供的内置笔刷：
+
+1. Airbrush 喷枪
+2. Ink Pen 墨水笔
+3. Ink Pen Rough 粗墨水笔
+4. Marker Bold Pen 马克记号笔
+5. Marker Chisel 方头马克笔
+6. Pen 实心圆珠笔
+7. Pencil 硬铅笔
+8. Pencil Soft 软铅笔
+
+笔刷材质总是和画笔关联的，画笔改变材质后，线条也会随之改变。而画好的线条和材质是关联的，
+修改材质会反映在线条上。可以创建自定义笔刷，配置各种笔刷参数，修改参数不会影响现有的笔迹。
+有些 Blender 玩家通过几何节点创建水墨笔刷效果，通过曲线进行程序化建模，使用曲线绘制水墨画。
+
+不同的笔刷可以更换不同的材质，不同蜡笔的笔刷有不同的效果，并且材质属性又会影响绘图效果。
+
+蜡笔材质是一种特殊的着色器，用于定义笔划和填充曲面的外观，笔刷材质和 3D 模型使用的
+不是同一套材质模型，蜡笔材质主要是设置 Stroke 和 Fill 属性。不能使用材质节点编辑器
+对其进行自定义。
+
+不同的绘制笔刷，如铅笔、钢笔、马克笔等具有不同的绘画效果，你可以创建若干笔刷，每一个笔刷
+使用独特的设置，从而在绘制时得到不同的艺术效果。Blender 内置的笔刷数量有限，不及 Krita
+这样的开源软件丰富，可以去定制或借用别人的笔刷。
+
+在进入绘图模式后，选择画笔/填充工具后，或其它矢量图形工具，可以在侧栏工具面板中对笔刷进行设置。
+笔刷材质主要设置：笔触 Stroke 和填充 Fill 属性，材质如何绘制到场景中还受笔刷的各种参数影响。
+如笔刷的大小半径 Radius/ 强度 Strength/ 采样量 Input Sample，笔触的稳定度 Stabilize，
+随机性 Randomize/ 收笔处理 Post-Processing，还有笔刷的压力设置。
+
+Windows Ink 触屏的压感支持接口在 Preferences - Input - Tablet 中设置。
+
+笔刷使用的材质可以在属性面板中设置，笔刷材质有个圆形色块图标表明这是一个填充材质，材质图标
+带有 3 个点的表明是一个描边材质，只设置了笔触颜色 Stroke 而没有设置填充 Fill。材质图标为
+实心圆表示使用了 Fill 填充色。
+
+填充方式 Fill Style 可以设置一个颜色 Solid 或渐变色 Gradient，或外部导入的纹理图片。
+图像编辑器 Pack 命令可将纹理文件可以内嵌到 blend 文件：Image Editor - Image - Pack。
+
+使用渐变色填充时，只有两个颜色，使用 Blend 指定混合比例，1 表示完全使用 Base Color。
+渐变方式有 Linear 和 Radial 两种，但是很难在绘画模式下控制渐变方向。
+
+蜡笔**编辑模式**，可以对渐变方向进行调整，编辑模式下也可以修改等笔迹的半径、变换，还可以
+对笔迹曲线的顶点进行挤出，Extrude，3D 化曲线。可以在材质属性面板中重新设置笔迹所使用的材质，
+或者根据材质选择所有的笔迹。
+
+如果使用顶点颜色，并且设置了 Fill 模式，那么顶点色就会替代 Base Color，按指定系数混合。
+
+材质中还有两个额外选项：
+
+01. Holdout 阻隔，将当前笔划作为遮罩使用，过滤掉当前笔迹后方笔迹的颜色，形成透明区。
+02. Self Overlap 自遮挡，禁止与 alpha 材质的镂空、重叠自相交。
+	Disables stencil and overlap self-intersections with alpha materials.
+
+蜡笔材质 Holdout 在多个蜡笔对象之间有效，同一个蜡笔对象内，比较的是笔迹的前后顺序，
+不同蜡笔对象之间比较它们在 3D 空间的深度。相对于图层遮罩，只能在同一个蜡笔对象内使用。
+
+蜡笔**雕刻模式**，可以对笔迹的颜色强度、顶点随机性、平滑性、半径等进行调整。
+
+画笔材质主要由笔触线条和填充两部分构成，要定制画笔就要从这两部分入手。喷枪和铅笔使用的是 
+Dots Stroke，利用紧密的点云来模拟笔迹。但不能直接通过 Dot Stroke 材质来模拟这两种
+笔刷的效果，需要复制这两种笔刷再进行参数修改。Blender 内置的几个笔刷会根据用户选择的材质，
+或笔刷颜色模式进行绘图，除非使用 Pin Mode 固定画笔材质或颜色模式。
+
+笔刷材质定制与纹理图像：
+
+- Mode Type 只有三种可选的笔刷模式，Line、Dots、Squares，以上四种材质基于这些模式定义的。
+- Style 风格选择，默认是 Solid 实心风格，可以指定线条和填充颜色，另一个是纹理风格 Texture。
+
+使用纹理风格，可以指定一个纹理图片当作笔刷的纹理。此外可以指定一个 Base Color，设置 Blend
+混合百分比，即可以与纹理图案的颜色按比例进行混合。纹理图像可以用于笔触，也可以用于填充，这两种
+使用方式有些差别。首先 Blender 会按**电子布告**方式呈现笔触上的纹理，即二维的纹理图像始终面向
+观察者。而填充中使用纹理图形则不是这样，因为填充意味隐含着一个填充平面，这个平面会上填充的纹理
+符合 3D 对象的空间变换，所以在同平面角度下看不到填充的纹理图像。
+
+而笔触上的纹理图形始终可见，这就会在 2D 笔刷上产生一种厚度感，在 Alignment = Fixed 
+对齐方式下，笔刷纹理就不会随视图角度的变换而出来翻转的现象。在给叶片这样的模型时，可以一笔笔
+地画出轮廓，如果画笔使用了纹理，那么就会有厚度感。如果是使用填充方式，则叶片就没有因纹理朝向
+带来的厚度感，但依然可以使用带有线条状的纹理图像来实现叶片的绒毛效果。
+
+不使纹理的笔刷，只要半径足够大，也会因为笔迹朝向观察者而产生厚度感，只有使用区域填充才不会。
+
+
+笔刷参数定制在 Advanced 和 Stroke 两个下拉列表中，或者在侧栏工具 Brush Settings 中设置：
+
+- Input Samples 画笔输入采样系数，10 级为最大采样，笔迹越贴近输入值，产生的采样数据也最多。
+- Hardness 硬度设置越接近 100%，绘画时的笔迹大小就越接近 Radius 指定的大小。硬度越小，边缘融合就越平滑。
+- Aspect X/Y 笔触外观比例比值差距越大，线条边缘也会越模糊，在 1% 的比例下，线条会呈现绒毛状态。
+- Angle/Factor 角度控制哪个方向下的笔迹最粗，0° 表示水平方向，Factor 为强度系数，为 0 表示无效果。
+- Randomize 设置各种随机强度，比如 Pressure 设置为 100% 表示笔迹的压力是完全随机的，Jitter 的弯曲抖动的随机性。
+
+在 Blender 2.93 版本上，还可以对颜色进行随机化处理，Hue/Saturation/Value 三个变量。
+并且可以根据笔迹所在的层级，即每次下笔都是一个随机值，或者根据绘图板压力随机变化。这些随机化
+可以定制出效果非常好的笔画，可以用来模拟水彩效果。
+
+蜡笔对象可以有光照，但是与几何体中使用的光照不同，蜡笔对的的光照只是在原有色彩的基础上增亮而已。
+使用 Object Properties ‣ Visibility ‣ Use Light 启用蜡笔对象的光照，或者对图层逐个控制。
+
+
+Blender 官方资源网站上提供了一套由 Daniel 配置的多彩笔刷，纹理贴图可以用 Krita 创建。
+纹理贴图可以使用带透明通道的 PNG 图像，一般同使用黑色表示形状，配合材质的 Blend 过滤纹理颜色。
+用户笔刷通过复制内置笔刷创建，然后修改属性配置、材质选项等等，通过 Active Tool 属性面板操作，
+点击 Brushes 预览框中的复制按键，然后点击 Brush Setting 面板中的材质选项的数字按钮创建
+新材质，也可以在材质面板中创建。新创建笔刷后，需要给蜡笔对象添加材质插槽，并添加新创建的材质。
+
+杂草笔刷配置参考，包含材质配置、笔刷设置：
+
+- Stroke Line Type = Dots
+- Stroke Style = Texture 使用杂草纹理 
+- Texture Blend = 1.0 完全由材质或顶点颜色进行混合着色，不使用纹理中的颜色
+- Alignment = Fixed 笔迹不会因视角改变面发生对齐变化
+
+- Strength = 0.7 适当强调保持边缘清晰
+- Input Samples = 0.0 减少重复，避免每株草因过度连续而覆盖
+- Hardness = 1.0 保持边缘清晰
+- Randomize Radius = 0.6 半径随机范围产生杂乱感
+- Randomize UV = 0.3 设置朝向随机范围产生杂乱感，Jitter 可以实现更混乱的效果
+- Hue/Saturation/Value 根据需要设置色度、饱和度、明亮度的随机范围
+
+使用纹理的笔刷材质，Line Type = Line 时，笔迹通常为断断续续的纹理图像，并不像名称那样成为线条。
+对于水墨类笔刷则要调低强度。在线条模式下，可以设置 UV Factor 来改变纹理像素的大小。
+
+Brush Pack_v2_Blender2-90 or above by Daniel Martinez Lara (Pepeland) By 
+Daniel Martinez Lara (Pepeland) 
+https://pillar.blender.cloud/p/grease-pencil-fundamentals/resources
+https://cloud.blender.org/p/gallery/5f235cc297f8815e74ffb90b
+Water color flower in Grease Pencil https://www.bilibili.com/video/BV1F44y1r75Y?p=7
+
+
+## 👉 Grease Pencil 绘画平面与笔触定位
+
+在绘图模式下拉列表右侧，有几种绘图选项 Drawing Options：
+
+01. *Draw Strokes on Back* 启用时，新绘画的笔迹会位于旧笔迹的后面，即避免覆盖旧笔迹。
+02. *AutoMerge* 新笔划起点与当前图层的旧笔迹起止点够近时，就将它连接起来成为一条笔迹曲线。
+03. *Add Weight Data* 启用并且创建顶点组，笔迹顶点将在当前顶点组中记录权重 Weight = 1。
+04. *Additive Drawing* 增长式绘画，配合 Auto Keying 功能使用，使用绘图工具或擦除工具时，
+	会将上一个关键帧或活动帧中的笔迹复制到新的帧，作为新帧的基础内容。
+05. *Multiframe* 允许同时在多个帧上绘制，配合时间线进行动作制作。
+
+另外，画笔放置方式和绘画平面决定了绘制内容如何在 3D 空间，默认绘画平面是 3D Viewport，
+绘画平面与相机视图正交。默认的放置点为蜡笔对象的 Origin，选择 Surface 绘画到模型的曲面上，
+并指定 offset 表面距离。指定 Stroke 放置方式，会按画笔的指定点进行连接，例如 First Point
+表示由起笔位置现有笔迹决定新笔迹的放置位置：
+
+1. Stroke Placement
+	- **Origin** Strokes are placed at Grease Pencil object origin.
+	- **3D Cursor** Strokes are placed at 3D cursor.
+	- **Surface** Strokes will stick on mesh surfaces.
+	- **Stroke** Strokes will stick on other strokes.
+2. Drawing Planes
+	- **Front** Strokes are drawn on the plane determined by the XZ axes.
+	- **Side** Strokes are drawn on the plane determined by the YZ axes.
+	- **Top** Strokes are drawn on the plane determined by the XY axes.
+	- **View** Strokes are drawn with the current 3D Viewport orientation.
+	- **Cursor** Strokes are drawn with the current 3D cursor orientation.
+
+在对象数据属性面板中，蜡笔物体都有一个 2D 图层列表 Layers，用于分组和排列笔画 List view。 
+任何笔画只能从属于单个 2D 图层。列表中始终只有一个活动层(选定的一个)。绘制时，新笔画将添加到
+活动层里。图层列表中，可以设置图层遮罩、洋葱皮 Onion Skining，及显示状态和锁定状态。一个图层
+作为其它图层的遮罩层使用时，那么这个层有笔迹的部分就会叠加被遮罩层的内容，空白区就不会显示内容。
+当然，可以反转遮罩。一个层激活遮罩功能后，可以在 Mask List 中设置多个遮罩层。
+
+图层遮罩有个特点，2D 图层都是 3D 空间中投影得到的，在调整摄像机视角时，遮罩层也一样在进行变换，
+但只要遮罩层的内容（笔触与填充）与被遮罩的内容重叠，就可以显示出来，而不管遮罩层是在上还是在下。
+这是非常有用的一个特性，例如，可以用来制作伪 3D 脸部，视角在变换时遮罩超出的区域的部分可以很好
+地使用 2D 图形模拟出 3D 效果，在 Spine 这种二维动画工具应用非常多。
+
+使用蜡笔绘画 3D 模型是有些困难的，因为着笔点和提笔点的空间位置不好确定，不像 2D 空间绘画，
+有明确的二维坐标，三维中多了一维：深度。笔画放置有**3D Cursor**和**Surface**两种方式，
+可以使用它们提高画笔定位的精确度，它们在蜡笔绘画中的作用就是提供深度参考值，也就是绘画平面
+会经过 3D Cursor 或者画笔与曲面的交点。
+
+同时，配置绘画平面的设置，以提高三维空间的绘画准确度。除了全局坐标轴提供的参考平面，3D Cursor
+本身也有一个参考平面，但是使用 View 平面是最方便调整的，用户可以随时通过旋转来改变它。另外，
+激活 Local View 可以将视图的旋转操作围绕着蜡笔对象中心点进行。
+
+在三维空间中，笔迹的覆盖关系按其在图层的绘画顺序确定，默认状态是后面绘画的笔迹覆盖旧笔迹，
+新的笔迹在 3D 空间上在旧笔迹的更远处，激活**Draw Strokes on Back**则反转绘画顺序。
+对于现有的笔迹，需要在编辑模式下调整它们的绘画顺序，菜单操作：Stroke - Arrange。
+
+比如，荷花的花瓣类似椭圆曲面，那么就可以在场景中创建一个挤压后的球体曲面作为绘画参照体，笔触
+设置为**Surface**放置方式，这样就可以直接在球体表面约绘画荷花的花瓣。Blender 内置插件
+Sapling Tree Gen 可以用来生成树干模型，这也可以用于蜡笔绘画的参照物。
+
+使用 2D Animation 模板时，会隐藏 3D Cursor，显示设置：Viewport Overlays - 3D Cursor。
+
+默认的 View Layer 属性配置下，几何体与蜡笔对象组合渲染过程中，蜡笔对象始终会遮盖几何体，因为
+缺失了几何体的位置深度数据。需要打开视图层的 Z 通道数据：View Layer - Passes - Data - Z。
+
+默认的蜡笔对象的渲染顺序按 Z-Depth 深度数据比较，蜡笔对象数据面板中，要将 Stroke Depth Order
+由默认值 2D Layers 改为 3D Location 即可使用深度信息来确定笔迹的绘图顺序。使用以下方式添加
+的蜡笔对象可能无法设置深度排序方式：
+
+- **Object Line Art** 给指定对象生成轮廓线；
+- **Scene Line Art** 给场景中所有对象生成轮廓线；
+- **Collection Line Art** 给指定集合中的对象生成轮廓线；
+
+默认的 2D Layers 深度比较方式不会考虑笔迹的三维空间位置，它们总是按其在图层中的堆叠顺序决定
+哪个笔迹被覆盖，而与其三维空间位置无关。2D Layers 深度方式下，可以使用多个蜡笔对象，蜡笔对象
+之间会进行 3D 位置的比较。
+
+
+1. 水墨场景 by Aubiz https://www.bilibili.com/video/BV1wd4y1A7Pb/
+2. 几何表面绘制蜡笔 https://www.bilibili.com/video/BV1bW4y157X4/
+
+注意，Stroke Placement 方式设置可能导致 Blender 卡顿。例如，Surface 方式，但绘画时
+笔触又没有到达相应的几何体表面。又或者，使用 Stroke 方式，但绘画时没有触及其它笔迹，这就
+导致 Blender 找不到相应的参考物体，产生卡顿。
+
+
+
+## 👉 Grease Pencil 各种模式介绍
 
 蜡笔对象有四种主要工作模式，各模式介绍如下：
 
@@ -4883,43 +5356,83 @@ Onion Skinning 洋葱皮工具可以显示当前帧之前和之后的关键帧�
 - *Weight Paint Mode* 权重绘制模式
 - *Object Mode*  对象模式
 
-*绘画模式*是最基本的，所有蜡笔对象都可以通过绘图获得，通过雕刻或编辑改变对象的呈现形状。雕刻模式 类似于编辑模式，但使用一个非常不同的工作流程，使用类似捏泥人的方法修改笔画，而不是处理单个元素，点或线。
+蜡笔绘画模式下的工具栏有一系列规则形状工具，如直线、矩形、圆形等等，还有以下常用工具：
 
-蜡笔绘图是 2D 空间，在三维场景中要先确定一个绘图平面 Drawing Plane，进入绘画模式后可以在视图中上位置选择绘图平面，比如 Front(X-Z) 就将所笔画的绘制锁定到同一个平面，也可以选择 View 即当前视图的投射平面作为绘图平面。
+**Draw tool** 绘画工具。
+**Fill tool** 填充工具。
+**Erase tool** 橡皮工具，用于擦除现有笔迹，使用绘画工具时直接按下 Ctrl 触发此工具。
+**Tint tool** 着色工具，利用顶点颜色，将材质基础颜色与选定颜色混合，Ctrl 触发顶点色擦除模式。
+**Cutter tool** 用于裁剪交叠的笔迹，要圈选到笔迹的顶点才会有效果。
 
-有时，你可能无意中在 3D 空间中的不同平面位置绘制了笔画，但它们从某个平面或从摄像机视图看起来是正确的。 你可以使用重投影笔画，从特定视角展平所有选定的笔画。进入蜡笔编辑模式，选择需要重投影的笔画，执行 Grease Pencil - Clean Up - Reproject Strokes，那么当前视图看到的画笔图案就会重新投影到指定的平面上。笔画投射后将保持在选中的平面上，并且在当前视图上看起来的形状是一样的。
+蜡笔绘制模式下，工具栏中的 Fill 填充工具需要配合启用了 Fill 属性的材质才能起到填充效果。
+填充工具需要在封闭的笔迹上操作，Edit Mode - Stroke - Close 将笔迹首尾连接起来。执行
+填充时，会在原有封闭的笔迹上创建新的笔迹，并且使用材质 Fill 属性指定的颜色或纹理进行填充，
+又或者使用顶点颜色进行填充。
 
-*雕刻模式*与*编辑模式*的相似之处在于，它用于更改图形的形状，但雕刻模式使用了完全不同的工作流：不是处理单个元素（点和编辑线），而是使用笔刷更改模型的区域。换句话说，不是选择一组点，而是雕刻模式在笔刷影响区域操纵图形，对笔迹进行推拉挤压。
+**绘画模式**是最基本的，所有蜡笔对象都可以通过绘图获得，通过雕刻或编辑改变对象的呈现形状。
+**雕刻模式**类似编辑模式，但使用一个非常不同的工作流程，使用类似捏泥人的方法修改笔画，
+而不是处理单个元素，点或线。
 
-*编辑模式*下，将蜡笔的笔迹当作 3D 场景中的一个对象进行处理，提供的许多实用工具，可以对笔迹进行挤出、绽放、移动、旋转、切变、弯曲等操作，还有对笔迹进行图层间的移动。
+蜡笔绘图是 2D 空间，在三维场景中要先确定一个绘图平面 Drawing Plane，进入绘画模式后，
+可以在视图中上位置选择绘图平面，比如 Front(X-Z) 就将所笔画的绘制锁定到同一个平面，
+默认绘画平面是 View，即当前视图的投射平面作为绘图平面。
 
-通过编辑工具给 2D 的绘图元素增加立体感是常用的手段，将原来 2D 平面化的对象挤出百度感，并作为 3D 场景中的物体来使用。例如，先绘制 2D 的花瓣，按球面弯曲进行造型，这样就具有 3D 的效果。
+编辑模式可以对笔迹进行重新投射：Grease Pencil - Clean Up - Reproject Strokes，
+画笔曲线的顶点重新投影到指定的平面上。再次投身的平面如果是正交的，笔迹的顶点就会成为一个直线。
 
-*顶点绘制模式*是在油笔对象上绘制颜色的一种简单方法，通过直接操纵点/顶点的颜色，而不是仅使用材质基色。可以使用选区遮罩 Selection Mask，只在选择中的顶点、笔迹上绘画，也可以选择被其它笔迹交叉的部分进行绘画。
+3D 空间中的不同平面位置绘制的笔画，它们从某个平面或从摄像机视图看起来是正确的，笔画重投影
+可以将现有的笔迹投射到正确的绘画平面上。进入蜡笔编辑模式，选择需要重投影的笔画。笔画投射后
+将保持在选中的平面上，并且在当前视图上看起来的形状是一样的。
+
+*雕刻模式*与*编辑模式*的相似之处在于，它用于更改图形的形状，但雕刻模式使用了完全不同的工作流：
+不是处理单个元素（点和编辑线），而是使用笔刷更改模型的区域。换句话说，不是选择一组点。雕刻模式
+在笔刷影响区域操纵图形，对笔迹进行推拉挤压。蜡笔对象的雕刻与几何体雕刻工具有此不同，蜡笔雕刻
+工具可以说极其简化，只能对笔迹顶点的强度、随机性、平滑度、半径（粗细）进行调整，一般是在同平面
+上进行的操作，可以 Grab 或 Push 工具将顶点推出其它平面上，形成三维的曲线。操作之前，需要在
+编辑模式下选中要雕刻的笔迹或顶点。
+
+使用雕刻模式的克隆工具可以快速复制笔迹，需要先使用 Select Box 选择要复制的笔迹，按 Ctrl-C
+将其复制到粘贴板，然后再点击指定位置克隆出来。克隆出来的笔迹保持与原笔迹一样的空间朝向，不会
+因为用户调整视角而改变。
+
+*编辑模式*将蜡笔的笔迹当作 3D 场景中的一个对象进行处理，提供的许多实用工具，可以对笔迹
+进行挤出、缩放、移动、旋转、切变、弯曲等操作，还有对笔迹进行图层间的移动。
+
+通过编辑工具给 2D 的绘图元素增加立体感是常用的手段，将原来 2D 平面化的对象挤出立体感，并作为
+3D 场景中的物体来使用。例如，先绘制 2D 的花瓣，按球面弯曲进行造型，这样就具有 3D 的效果。
+
+
+*顶点绘制模式*是在油笔对象上绘制顶点颜色的一种简单方法，通过绘制顶点的颜色属性就可以改变
+笔迹的颜色，以及填充区的颜色，从而影响笔刷材质基色。使用选区遮罩 Selection Mask，
+只在选择中的顶点、笔迹上绘画，也可以选择被其它笔迹交叉的部分进行绘画。
 
 - C 进入圆形选择工具，涂抹要选择笔迹，然后回车确认选区；
 - D 使用画笔；
 - 鼠标右键调出色板；
 
-*权重绘制模式*将权重分配给点主要用于在剪纸动画中操纵笔画，蜡笔中的顶点称为点，属性面板中顶点组用于定义对笔画的相对骨骼影响。
 
-权重绘制是一种以非常直观的方式保留大量重量信息的方法。选定的蜡笔物体显示为带有彩虹色谱的浅色阴影。颜色可视化与活动顶点组中的每个点关联的权重。默认情况下，蓝色表示未加权，红色表示完全加权。
+在三维视口中，构成笔迹的顶点可以转换为三维空间，可以基于当前视图设置，将活动层上的蜡笔草图转换
+为几何体。目前，将使用所有点，因此可能需要简化或细分所创建几何图形的部分以供标准使用。草图可以
+在**对象模式**下转换为曲线，曲线又可以再转换为曲面。
 
-通过使用权重笔刷在其上绘制，可以为物体的点指定权重。开始在笔画上绘画会自动向活动顶点组添加权重(如果需要，可以创建新的顶点组)。
+蜡笔的**对象模式**提供了两种基础功能，Object ‣ Convert 菜单提供转换操作：
 
-在三维视口中，通过将绘制时记录的点（构成笔划）转换为三维空间，可以基于当前视图设置将活动层上的草图转换为几何图形。目前，将使用所有点，因此可能需要简化或细分所创建几何图形的部分以供标准使用。草图当前可以在*对象模式*下转换为曲线。
+01. Convert to Geometry 将笔迹曲线转换为几何体；
+	- Path 将笔迹转换为 NURBS 3D 路径。
+	- Bézier Curve 将笔迹转换为贝塞尔曲线。
+	- Polygon Curve 将笔迹转换为多边形曲线。
+02. Trace Image to Grease Pencil 描边黑白双色图像得到蜡笔对象，配合 Image Empty 使用；
 
+一个非常好的例子就是通过蜡笔进行树干的建模：
 
-蜡笔材质使用一种特殊的着色器，用于定义笔划和填充曲面的外观。蜡笔的笔刷设置的材质属性决定了绘图效果，可以在工具设置中更换笔刷及其材质，笔刷材质和 3D 模型使用的不是同一套材质，不可以互相套用。
+01. 使用蜡笔的线条绘制树干的基本形态；
+02. 在对象模式下，Convert - Path 将蜡笔转换为 NURBS 3D 路径；
+03. 在路径对象数据属性面板中，修改 Geometry，设置 Profile 得到合适的切面，Depth 调整粗细；
+04. 编辑模式下，使用 Radius 工具调整顶点的半径，树干半径通常自下往上逐增，合理使用比例化编辑工具；
+05. 在对象模式下，将路径转换为 Mesh 得到最终的几何体；
 
-不同的绘制笔刷，如铅笔、钢笔、马克笔等具有不同的绘画效果，你可以创建若干笔刷，每一个笔刷使用独特的设置，从而在绘制时得到不同的艺术效果。Blender 内置的笔刷数量有限，不及 OpenToonz 这样的开源软件丰富，可以去定制或借用别人的笔刷。
-
-在进入绘图模式后，选择画笔/填充工具后，或其它矢量图形工具，就可以在侧栏工具面板中对笔刷进行设置。笔刷材质主要设置笔触 Stroke 和填充 Fill 属性，至于材质如何绘制到场景中还受笔刷的各种参数影响。如笔刷的大小半径 Radius/ 强度 Strength/ 采样量 Input Sample，笔触的稳定度 Stabilize/ 随机性 Randomize/ 收笔处理 Post-Processing，还有笔刷的压力设置。
-
-Windows Ink 触屏的压感支持接口在 Preferences - Input - Tablet 中设置。
-
-笔刷使用的材质可以在属性面板中设置，笔刷材质有个圆形色块图标表明这是一个填充材质，一个带有几个点的圆圈表明是一个描边材质，它们分别只设置了笔触颜色 Stroke 和填充物 Fill。填充方式 Fill Style 可以设置一个颜色 Solid 或渐变色 Gradient，也可以是外部导入的纹理图片 Texture。使用图像编辑器的 Pack 命令即可将纹理文件可以打包到 blend 文件一起保存，菜单位置 Image Editor - Image - Pack。
-
+编辑模式下，Grease Pencil - Separate 菜单提供的命令可以分离选中笔迹或图层，得到新的蜡笔对象。
+蜡笔绘图建模 https://www.bilibili.com/video/BV1J84y1v71a/
 
 部分编辑快捷键：
 
@@ -4951,13 +5464,15 @@ Windows Ink 触屏的压感支持接口在 Preferences - Input - Tablet 中设�
 
 - Alt-LMB 创建边缘笔画，闭合目标区域。 边缘笔画，一种用于闭合开放性形状的临时线条，填充的区域有较大的缝隙时使用。
 - Ctrl-LMB 暂时激活自由线工具。例如，可以手动填充一些工具难以填充的小区域。
-
 - 使用 Shift 创建完美圆弧，使用 Alt 从中心点开始创建圆弧，使用 M 翻转。
 
+内置二维猴头： Add - Grease Pencil - Monkey，名字叫做"苏珊娜"，是 Blender 的吉祥物，
+可以作为标准测试的蜡笔对象。与蜡笔对象一并添加的还有相应添加画笔材质，在属性材质面板查看
+Materials Properties。有肤色相关的 Skin 前缀的三个颜色材质，还有眼睛相关的 Eyes、 Pupils，
+可以在此设置画笔材质的笔触外观 Stroke 和填充类型 Fill，填充有固色 Solid、 渐变 Gradient、 
+棋盘 Checker Board、 纹理图 Texture。
 
-可以通过对象菜单绘制一个二维的猴头 Add - Grease Pencil - Monkey。 这只猴子的名字叫做 "苏珊娜" 而且是 Blender 的吉祥物，二维的苏珊娜作为标准测试非常的有用。场景中，除了添加 Suzenne 二维对象，还会相应添加画笔材质，在属性材质面板查看 Materials Properties。有肤色相关的 Skin 前缀的三个颜色材质，还有眼睛相关的 Eyes、 Pupils，可以在此设置画笔材质的笔触外观 Stroke 和填充类型 Fill，填充有固色 Solid、 渐变 Gradient、 棋盘 Checker Board、 纹理图 Texture。
-
-Draw 绘画模式下，View - Tool Settings 打开工具设置面板就可以设置画笔的类型、材质、压力及敏感度曲线。
+绘画模式下，View - Tool Settings 打开工具设置面板就可以设置画笔的类型、材质、压力及敏感度曲线。
 
 在蜡笔对象的编辑模式下，提供了 3 种选择模式，对应热键 1, 2, 3：
 
@@ -4965,67 +5480,6 @@ Draw 绘画模式下，View - Tool Settings 打开工具设置面板就可以设
 - All Stroke Point 选取整个笔画，笔画的所有点。
 - 两者间的点 选取其他笔画之间的所有点。
 
-
-在 Blender 中，蜡笔的主要目标是提供一个完全沉浸在 3D 环境中的 2D 动画工具，蜡笔对象可以通过多种方式进行动画处理：
-
-- 作为整个物体移动及时改变他们的位置、方向或大小；
-- 逐帧绘制 每次绘制一帧(传统动画)；
-- 将它们变形 为它们的点设置动画；
-- 继承动画，使用物体根据另一个物体的移动(例如其父对象、挂钩、骨架等)而移动。例如，可用于剪纸动画。
-
-使用 Dope Sheet -> Grease Pencil 视图管理 2D 动画关键帧，注意与 Timeline 的关键帧区别开来，这里使用传统的 2D 动画技术做一个弹跳小球动画。 
-
-首先，从新的 2D 动画模板开始。该模板已创建了蜡笔物体，激活了洋葱蒙皮并激活了相机视图，准备好让您快速开始动画绘制。
-
-- 将时间轴中的动画范围设置为 1 到 24。
-- 在 3D 视图中，使用绘制工具在左上角绘制一个球(extreme，极限帧)。
-- 移动到第 12 帧，并在底部中心中绘制一个挤压的球(breakdown，间断帧)。
-- 移动到第 24 帧，并在 3D 视图的右上角绘制一个球(extreme，极限帧)。
-- 继续绘制所有您想要的中间帧，使用 Onion Skinning 洋葱皮作为参考。
-- 测试动画，请按 Spacebar 进行播放。
-
-2D 传统动画使用了关键帧 Keyframes 和洋葱皮 Onion Skinning。每次在蜡笔物体绘制模式下创建描边时，都会在活动通道上的当前帧处添加新关键帧。摄影表中的通道对应于 蜡笔 物体的活动 2D 图层。
-
-在蜡笔对象的编辑模式下，激活 Multiframe 多帧允许您同时在多个动画关键帧上编辑，雕刻或刷权重。 这点非常有用，可避免在动画制作时一次一帧地执行重复性任务，例如在动画中重新定位图形。
-
-用法：
-- 选择需要的关键帧来进行同时编辑或雕刻。
-- 使用切换按钮(淡化线图标)激活3D视图标题中的多帧工具。
-- 激活后，您可以：
-	- 选择所有选定的关键帧中的点并制作您的版本。
-	- 开始雕刻。雕刻笔刷将会作用于所有选中帧上的笔画。
-	- 开始刷权重。权重绘制笔刷将会作用于所有选中帧上的笔画。
-
-使用衰减，启用后，对笔画的影响将从当前帧按照 曲线部件 定义的方式开始下降。
-
-
-可以给蜡笔对象添加修改器，有四类修改器 Modify、Generate、Deform、
-Color，列如用于修改功能的 Time Offset Modifier 可以用来指定要循环播放的帧范围。
-
-用于变形的修改器作用很大，比如加一个 Noise modifier 可以将静态的帧加上噪声波动补出几帧，包括颜色也有波动效果。
-
-专用于变形的两个修改和对应的主控对象：
-
-- Lattice -> Lattice Modifier  晶格对象与晶格变形修改器；
-- Armature -> Armature Modifier 骨骼对象与骨骼变形修改器；
-
-晶格对象 Lattice 通常称为外部变形笼，晶格由三维不可渲染的顶点网格组成，相当于集成多个 Hook Modifier。其主要用途是使用晶格修改器对其控制的对象应用变形。如果对象的父对象为晶格变形笼，则会自动应用晶格修改器。
-
-晶格变形的一些应用场景：
-
-- 那些具有极多顶点的模型，如果直接修改是不可能的，晶格变换可以有效地实现复杂模型的变形。
-- 从晶格修改器获得的平滑变形可能很难手动实现。
-- 多个对象可以使用同一晶格，从而允许您一次编辑多个对象。
-- 与所有修改器一样，它是非破坏性的。
-- 晶格不会影响网格曲面的纹理坐标。
-
-在物体模式下，将晶格对象缩放、移动以适当围绕的应变物体，修改晶格的分辨率，格子越多控制越精细，适度就好。然后选择应变物体，再选择晶格对象，按 Ctrl-P 执行 Set Parent to -> Lattice Deform，再给模型设置晶格控制器并指定晶格对象以实现控制。在编辑模式下，修改晶格对象，对晶格的任何缩放、移动以及顶点的修改，都将导致物体形变。这包括使用 Ctrl-A 应用其缩放，因为这将获得与在编辑模式下缩放晶格乃至物体相同的结果。
-
-给模型设置晶格修改器时，勾选 Outside 可以对晶格对象表面的部分进行变形。指定 Vertex Groups 可以限定作用的顶点范围，顶点组来自应变对象。
-
-可以使用 Proportional Editing 对晶格进行比例化操作，快捷键 O，使用滚轮调整操作区大小。
-
-尝试了一下将晶格对象绑定到骨骼，但是并不能使用骨架姿态来控制晶格，只在对象模式下的操作有影响。
 
 蜡笔修改器
 
@@ -5049,7 +5503,7 @@ Color，列如用于修改功能的 Time Offset Modifier 可以用来指定要�
 	- Opacity 不透明度编辑
 	- Tint 染色修改器
 
-蜡笔视觉效果
+蜡笔视觉效果 Visual Effects
 
 - Blur 模糊视效
 - Colorize 着色视效
@@ -5061,6 +5515,461 @@ Color，列如用于修改功能的 Time Offset Modifier 可以用来指定要�
 - Shadow 阴影视效
 - Swirl 漩涡视效
 - Wave Distortion 波浪扭曲视效
+
+
+## 👉 Grease Pencil Animation
+
+Grease Pencil 对象动画有多种方式：
+
+- Moving as a whole object (Changing their position, orientation or size in time;)
+- Drawing frame by frame (traditional animation).
+- Deforming them (Animating their points)
+- Inherited animation (by its parent, hook, armature, etc. cut-out animation)
+
+蜡笔工具提供一个完全沉浸在 3D 环境中的 2D 动画工具，有多种方式进行动画制作：
+
+- 作为整个物体移动及时改变他们的位置、方向或大小；
+- 逐帧绘制 每次绘制一帧(传统动画)；
+- 将它们变形 为它们的点设置动画；
+- 继承其它对象的动画，使物体根据另一个物体移动(例如其父对象、挂钩、骨架等)，例如剪纸动画。
+
+蜡笔绘画工具是基于曲线（贝塞尔）实现的绘画笔迹，可以和骨骼系统结合，通过骨骼来控制曲线的运动。
+
+**Interpolate tool** 笔迹插值工具，在关键帧之间产生新的 breakdown keyframe。
+
+笔迹插值工具在两个关键帧之间产生插值笔划，并产生相应的分解关键帧 breakdown keyframe。
+需要游标位于两个关键帧之间时操作，单击并拖动，到指定的插值百分值，将添加一个新的细分关键帧。
+比如，在第一帧绘制一个 S 符号，在第三帧绘制一个 Y 符号，注意笔数要一致，然后在第二帧进行
+插值，拖动到插值百分比为 50%，即产生一个介于 S 和 Y 之间的符号。
+
+使用 Dope Sheet -> Grease Pencil 视图管理 2D 动画关键帧，注意与 Timeline 的关键帧
+区别开来，这里使用传统的 2D 动画技术做一个弹跳小球动画。 
+
+首先，从新的 2D 动画模板开始，该模板已创建了蜡笔物体，激活了洋葱蒙皮，并激活了相机视图。
+
+- 在 Timeline 编辑器中，设置时间轴中的动画范围 Start = 1，End = 24。
+- 在 3D 视图中，使用绘制工具在左上角绘制一个球 (extreme，极限帧)。
+- 移动到第 12 帧，并在底部中心中绘制一个挤压的球 (breakdown，间断帧)。
+- 移动到第 24 帧，并在 3D 视图的右上角绘制一个球 (extreme，极限帧)。
+- 继续绘制所有您想要的中间帧，使用 Onion Skinning 洋葱皮作为参考。
+- 测试动画，请按 Spacebar 进行播放。
+
+
+2D 传统动画使用了关键帧 Keyframes 和洋葱皮 Onion Skinning。每次在蜡笔物体绘制模式下创建
+描边时，都会在活动通道上的当前帧处添加新关键帧。摄影表中的蜡笔物体通道对应于活动 2D 图层。
+洋葱皮产生当前关键前后的关联帧鬼影，作为绘画时的轮廓参考，可以在多个位置打开洋葱皮功能，如
+蜡笔图层、材质属性、时间轴或摄影表。
+
+在蜡笔对象的属性面板中，Onion Skinning，可以设置显式模式、前后关键帧的数量。
+
+在蜡笔对象的编辑模式下，激活 Multiframe 多帧允许您同时在多个动画关键帧上编辑，雕刻或刷权重。
+这点非常有用，可避免在动画制作时一次一帧地执行重复性任务，例如在动画中重新定位图形。
+
+蜡笔绘画模式下，使用 Draw - Animation 菜单，可以为当前活动图层或所有图层增删动画关键帧。
+使用 Interpolate Secquence 可以在两个关键帧之间生成插值序列帧，游标要在两个关键帧之间。
+
+使用 Multiframe 多帧编辑模式，首先要选择好需要编辑的关键帧，激活 3D 视图标题中的多帧工具。
+在多帧编辑模式下，会显示已经选择的关键帧的轮廓，绿色、蓝色对应前、后关键帧，相当于洋葱皮功能。
+
+激活 Multiframe 多帧编辑模式后，可以：
+
+- 开始编辑，配合 Proportional Editing 工具使用。
+- 开始雕刻，雕刻笔刷将会作用于所有选中帧上的笔画。
+- 开始刷权重，权重绘制笔刷将会作用于所有选中帧上的笔画。
+
+使用衰减工具可以修改多个关键帧内容，只要蜡笔图层内容位于作用区块内，对笔画的影响将从当前帧
+按照曲线定义的方式开始作用于已经选择的关键帧。使用鼠标操作 Proportional Editing，可以
+用滚轮调整作用区域的大小。
+
+
+可以给蜡笔对象添加修改器，有四类修改器 Modify、Generate、Deform、Color。
+
+例如，用于修改功能的 Time Offset Modifier 可以用来指定要循环播放的帧范围。
+用于变形的修改器作用很大，比如 Noise modifier 可以在静态的帧加上噪声波动
+补出几帧，包括颜色也有波动效果。
+
+专用于变形的两个修改和对应的主控对象：
+
+- Lattice -> Lattice Modifier  晶格对象与晶格变形修改器；
+- Armature -> Armature Modifier 骨骼对象与骨骼变形修改器；
+
+晶格对象 Lattice 通常称为外部变形笼，晶格由三维不可渲染的顶点网格组成，相当于集成多个
+Hook Modifier。其主要用途是使用晶格修改器对其控制的对象应用变形。如果对象的父对象为
+晶格变形笼，则会自动应用晶格修改器。
+
+晶格变形的一些应用场景：
+
+- 那些具有极多顶点的模型，如果直接修改是不可能的，晶格变换可以有效地实现复杂模型的变形。
+- 从晶格修改器获得的平滑变形可能很难手动实现。
+- 多个对象可以使用同一晶格，从而允许您一次编辑多个对象。
+- 与所有修改器一样，它是非破坏性的。
+- 晶格不会影响网格曲面的纹理坐标。
+
+在物体模式下，将晶格对象缩放、移动以适当围绕的应变物体，修改晶格的分辨率，格子越多控制越精细，
+适度就好。选择应变物体，再选择晶格对象，按 Ctrl-P 执行 Set Parent to -> Lattice Deform，
+再给模型设置晶格控制器并指定晶格对象以实现控制。在编辑模式下，修改晶格对象，对晶格的任何缩放、
+移动以及顶点的修改，都将导致物体形变。这包括使用 Ctrl-A 应用其缩放，因为这将获得与编辑模式下
+缩放晶格乃至物体相同的结果。
+
+给模型设置晶格修改器时，勾选 Outside 可以对晶格对象表面的部分进行变形。Vertex Groups 
+可以限定作用的顶点范围，顶点组来自应变对象。
+
+尝试了一下将晶格对象绑定到骨骼，但是并不能使用骨架姿态来控制晶格，只在对象模式下的操作有影响。
+
+
+*权重绘制模式*将权重分配给点主要用于在剪纸动画，或者骨骼控制的动画中操纵笔迹。蜡笔对象使用
+贝塞尔曲线来建模笔迹，曲线中的顶点不仅存储颜色信息，还有权重信息。蜡笔对象数据属性面板中，
+顶点组用于定义对笔画的相对骨骼影响。
+
+Blender 的权重系统是通用的动画控制技术，一般都与顶点组配合使用。Vertex Groups 位于对象
+数据属性面板中，可以将选择中的顶点分配到一个顶点组中，Assign 表示给这些选中的顶点设置 Weigth 属性中指定的权重值。Vertex Groups 不仅用来管理顶点的分组，同时还记录分组内的顶点的权重数据。
+
+权重绘制是一种非常直观的方式，用来记录大量顶点权重信息。在权重绘制模式下，必定选择一个顶点组
+进行权重刷制。顶点用不同的颜色来表示不同的权重，从 0 到 1，颜色对应蓝、青、绿、黄、红。顶点颜色
+可视化表明了它在活动顶点组中所记录的权重数据。默认情况下，蓝色表示未加权，红色表示完全加权。
+
+通过使用权重笔刷在其上绘制，可以为物体的点指定权重。开始在笔画上绘画会自动向活动顶点组添加权重，
+如果需要，可以创建新的顶点组。设置弱一点的 Strength 属性，可以慢慢地将顶点权重刷成指定值。
+在刷权重的过程中，有数值变化的顶点会自动添加当前的活动顶点组中。
+
+权重数据有多使用场合，典型的就是使用骨骼动画系统时，将模型的顶点组与某块骨骼关联起来，那么
+骨骼就会根据顶点组中记录的权重数据，按权重记录的比率值控制顶点的运动。
+
+和权重有关的蜡笔修改器：
+https://docs.blender.org/manual/en/latest/grease_pencil/modifiers/index.html
+Vertex Weight Proximity Modifier 教程 https://www.bilibili.com/video/BV1bU4y147Pu/
+
+	01. Armature Modifier
+	02. Vertex Weight Angle 修改器基于预定角度设定顶点组的权重，Angle 对应最大权重的角度。
+	03. Vertex Weight Proximity 根据蜡笔对象顶点与目标之间的距离设定顶点组内的顶点权重。
+
+Vertex Weight Proximity 修改器中的 Lowest 和 Highest 代表最小权重、最大权重对应的距离。
+几何体也有此修改器，参数有些不同，可以设置邻近模式：Proximity Mode。
+物体距离模式：使用修改后的网格物体和目标物体之间的距离作为受影响顶点组中所有顶点的权重。
+几何距离模式：使用每个顶点与目标物体或其几何体之间的距离。
+
+而蜡笔对象的 Vertex Weight Proximity 修改器多了 Influence Filters 参数，这是蜡笔对象
+的修改器通用属性，用于约束修改器作用的目标，如蜡笔图层、材质、顶点组、自定义曲线。默认不用设置，
+修改器作用于蜡笔对象的所有笔迹。如果设置了条件，所有过滤器条件值同时满足的目标才会受修改器影响。
+
+蜡笔对象绑定骨骼与几何体绑定骨骼操作相同，首先，添加一个**Armature**对象，然后添加骨骼块
+以及构成合适的骨架。注意各个骨骼的名称，在给蜡笔对象创建顶点组时，骨骼只影响和它同名的顶点组。
+然后给蜡笔对象添加一个**Armature**修改器，并设置其 Object 属性为前面添加的骨架对象。另外，
+可以指定 Vertex Group 属性，以明确哪些顶点会受骨架的影响。
+
+绑定骨架后，就要刷顶点权重，可以先选择好骨架，再按住 Shift 加选网格体，然后进入权重绘制模式。
+使用笔刷绘制权重时，就会自动给模型添加顶点组，并顶点组名称与当前活动的骨骼同名。
+
+与几何体权重绘制模式不同，蜡笔对象的权重绘制模式没有提供 Masking 和顶点选择功能，绘制复杂的
+蜡笔对象可能处理起来有点麻烦，可以考虑预先手工分配顶点组及权重，然后再绘制权重，减弱或增强它。
+
+
+
+
+## 👉 Freestyle Line-Arts
+1. Freestyle Rendering https://docs.blender.org/manual/en/latest/render/freestyle/index.html
+2. [Blender 2.82 Freestyle API](https://docs.blender.org/api/2.82/freestyle.html)
+3. [Blender NPR - Freestyle Level Up](https://www.bilibili.com/video/BV11t411e74e)
+4. 来几个freestyle花式线稿 https://www.bilibili.com/video/BV1sE411F7zB
+5. 卡通渲染 https://www.bilibili.com/video/BV1VW411E7XQ/
+
+Freestyle 渲染引擎是基于边线的非真实感绘制技术 NPR - Non-Photorealistic Rendering，
+可以结合卡通着色器节点 Toon BSDF 渲染成动画输出。NPR 也叫艺术渲染，将模型渲染成插图或
+动画镜头就是一种应用方向。
+
+Blender 使用 Compositor 来合成卡通渲染，简化步骤：
+
+1. 亮面、暗面提取：设置 View Layer 属性面板，勾选 Passes 直通选项下的 Diffuse Color 和 Shadow 为合成器的 Render Layers 打开漫反射光和阴影图层，这样就可以对模型的光面和暗面进行后续处理。
+2. 线稿提取：在渲染属性面板为复制的图层打开 Render -> Freestyle 功能。然后勾选图层面板中的 As Render Pass 以生成线稿供合成器使用，透明线稿的图像就在 Freestyle 端口输出，另外还要勾选上 Culling 以将背部线条剔除。
+3. 线稿设置：图层启用 Freestyle 渲染方式后，就可以在图层面板中对线稿进行配置。
+
+在 Compositor 中使用 Viewer 节点预览图层输出内容，将 DiffCol 端口连接到 Viewer -> Image 
+端口查看物体漫反射颜色信息，按 F12 渲染以生成各种图层。
+
+添加 Mix 节点，将亮面和暗面混合起来，使用 Multiply 即正片叠底模式，调整一下 Fac 系数，使暗面
+有一个合适亮度。合成的图像和线稿图层输出的 Freestyle 通过 Alpha Over 节点叠加起来，将线稿
+叠在其它图像的上面。
+
+虽然，Culling 可以将背部大量线条剔除，但是还是会有少量线条在特定的角度中会出现部分遮挡的情况，
+这时线条被遮挡的部分就会跑出来，需要里进行细致的调整。一般只要打开 Visibility -> Visible 
+可见性条件即可以解决这类问题。还可以使用 Passes -> Data -> Z 深度数据来处理，在 Render Layers 
+节点的 Depth 端口输出深度数据。
+
+Freestyle 渲染功能打开后，还可以在图层属性面板中使用 Filter 来选择要输出什么内容，例如，
+Filter -> Freestyle 勾选后只输出线稿，而不渲染输出模型的面。
+
+Render: Freestyle SVG Exporter 内置插件还可以导出线稿为 SVG 文件，启用插件后，
+在渲染属性面板勾选 Freestyle SVG Export，然后在视图层属性面板找 SVG Exporter 面板设置。
+
+默认图层只有 View Layer，可以复制两个分别用于亮面、暗的线稿的渲染。
+
+在编辑模式下，和 Freestyle 有关的菜单项：
+
+- Edge -> Edge Crease 边线折痕 介于 0.0 到 1.0 之间的值，用于 Freestyle 线稿渲染。
+- Edge -> Mark Freestyle Edge 将选中的边线标记为 Freestyle 线稿的线条。
+- Edge -> Clear Freestyle Edge 清除线稿标记。
+
+标记过的线条会处于绿色高亮的状态中，在图层属性面板中，勾选 Freestyle Line Set 下的 Edge Type -> Edge Mark 即可以渲染输出已经标记的线条。这种手动标记线条的方式，和绘画中创建线稿的方式差别非常大。
+
+图层启用 Freestyle 渲染方式后，会默认添加 LineSet 线条集，每个线条集设置的是线条检测参数，对匹配的线条应用 Freestyle Line Style 配置的样式进行渲染。可以设置多套线条集，配置好选择过滤条件，还有线条的渲染样式。
+
+默认的 Edge Types 设置：
+
+- Edge Crease 折痕，模型面相交的边线，两个面的夹角是检测中用到的重要参数。
+- Silhouette 物体内部轮廓。
+- Border 边界线。
+
+使用 Inclusive + Logical OR 检测条件，即包含所有 Edge Types 列表中勾选的边线类型，只要被检测的连线满足其中一种类型即可。
+
+Edge Types 下的边线类型选项分为两列，左边为边线类型，每种类型右侧有个专用的排除按钮。并且提供两组按钮，左边可以选择 Inclusive 或 Exclusive 来包含或排除那些经过 Logical Or 或 Logical And 运算得到的边线，这就像是一个真值表。
+
+例如，场景中的对象有 Silhouette 和 Contour 两种边线，也有一条标记边线 Edge Mark。在 LineSet 配置中，勾选这三种边线。
+
+如果选择 Logical And 运算，那么只有这三种线在同一条边重复才是逻辑真，那么选中的就是这个同属于 Silhoutte/Contour/Edge Mark 的边线。
+
+如果选中 Logical Or 对这三者进行运算，结果就是这三种边线的并集。而每种边线类型的右侧的排除按钮，就相当一个 Logical Not，只对此边线类型进行求补集。
+
+
+Freestyle 根据网格和深度 Z-depth 信息在选择的边缘绘画，可以定义各种线条样式一模拟手绘效果。
+
+列如，设置线稿风格的 Thickness，添加一个 Along Stroke 修改器，即沿着线条的方向进行修改，使用 Multiply 混合模式，并且使用 Curve 映射方式，然后调整曲线来控制线稿的大小随着线条的方向进行变化。还可以再添加 Noise 修改器，给线条粗细增加随机效果。
+
+要使用 Freestyle 渲染，在渲染引擎属性面板激活 Properties ‣ Render ‣ Freestyle。然后所有 Freestyle 设置都会出现在视图层属性面板，Freestyle Line Set/Style 等。
+
+每个视图层有且只有一个视图映射，它可以包含多个线条集 Line Set，也保存边缘检测设置，如 Crease Angle, Culling toggle, Face Smoothness toggle, Material Boundaries toggle, Sphere Radius, Kr Derivative Epsilon 高级选项等。
+
+Freestyle 通过线条样式定义的颜色、Alpha、粗细等对关联的线条集进行渲染。每一线条使用一个线条样式定义，每个样式定义可以在不同的线条集中使用。一个线条集 Line Set 定义用于渲染的线条类型和线条选项，用于探测和匹配场景中的线条。
+
+启用 Freestyle 渲染：Properties ‣ Render ‣ Freestyle，通过面板 View Layer properties 设置 Freestyle 选项。
+
+工作流程：
+
+- 开始 3D 场景；
+- 应用渲染层选项 *Render Layer Options* 进行特征边缘探测；
+- 生成包含特征边的视图映射 View map；
+- 应用线条集选项 *Line Set Options* 进行挑选，连结和分割；
+- 连结特征边；
+- 应用线条样式选项 *Line Style Options* 进行样式处理；
+- 生成绘画笔触；
+- 应用渲染选项 *Render Options* 渲染笔触；
+- 输出 2D 线条画。
+
+
+已知的局限性
+
+- 高内存消耗，一次加载视图层的网格对象；
+- 只支持面向网格对象；
+- 面与面相交出无法检测到边缘；
+- Freestyle 渲染结构不含 Z depth 深度信息；
+- 不支持全景相机。
+
+
+View Map Cache 选项用于重用先前计算的视图映射，以供后续渲染。当输入三维场景的网格几何结构被改变时，缓存将自动更新。此功能提供了一个主要的性能提升，就是在 Freestyle 的动画渲染时，当相机空间网格的几何结构是静态的，如同重复，则依然以直线化选项进行渲染。
+
+
+
+## 👉 Edge Dectection 线条检测
+
+要正确选择需要渲染的线稿，线条检测必须准确识别。Freestyle 检测到特征边缘后，就经过 Line Set 设定的条件进行选择过滤，最终对选出的线条进行绘制成稿。这里涉及的选择运算主要是集合论的方法，对各种集合进行 Logical Not/Or/And 运算。
+
+控制方式 Control Method 用于检测实际上已渲染的边缘，并且将从头到尾地执行控制，有两种方式：
+
+- Python 脚本方式，复杂但强大；
+- 参数编辑器方式，简单但局限；
+
+选择脚本方式，可以在 Style modules 中加载多个样式脚本。Blender 自带 Japanese big brush, cartoon, blueprint, thickness-with-depth 等等实现，在安装目录中：
+
+	\scripts\freestyle\styles
+
+编写一个样式模块涉及 Python 脚本编程，需要参考 Blender API 文档，以下是编写样式模块的 5 中操作：
+
+- Selection Operators.select()
+- Chaining Operators.chain(), Operators.bidirectional_chain()
+- Splitting Operators.sequential_split(), Operators.recursive_split()
+- Sorting Operators.sort()
+- Stroke creation Operators.create()
+
+模块输入是检测到的特征边缘，即包含 ViewEdge 的 ViewMap，模块输出是样式化的线条，也叫笔触 Strokes，模块以流水线方式对输入的边缘进行处理。
+
+Selection 操作根据用户定义从 ViewMap 挑选 ViewEdge，根据用户定义再对 ViewEdge 的子集进行 Chaining 连结，可以后续分割再连结。挑选的边缘连结后再排序 Sorting，这个决定了哪条线在上，哪条线在下，最后应用样式创建笔触，并输出。
+
+ViewEdges, Chains 和 Strokes 都是一维元素 1D，可以是多条相连的线段 polyline，连结的顶点则是零维 0D。
+
+
+视图层属性面板中，View Layer ‣ Freestyle 提供的设置，除了设置探测控制方式 Control Method 外，还有一些检测相关选项：
+
+- View Map Cache
+
+	沟线以重用先前计算的视图映射，以供后续渲染。当输入三维场景的网格几何结构被改变时，缓存将自动更新。
+
+	此功能提供了一个主要的性能提升，就是在 Freestyle 的动画渲染时，且相机空间网格的几何结构是静态的如同重复，则依然以直线化选项进行渲染。
+
+	尽管 View Map Cache 是在视图层属性面板设置的，但是缓存供所有场景使用，因此在不同场景的更新都是更新同一个缓存。
+
+- As Render Pass 直通渲染
+
+	这是 2.83 版本新增功能，用来直接生成透明线稿，渲染结果却看不到线稿。此时，通过合成编辑器 Compositor 就可以查看，点击 Use Nodes 激活合成器的节点，注意 Render Layers 节点有个 Freestyle 输出端口，透明线稿的图像就在这里输出。可以添加一个 Viewer 输出节点，连接上 Freestyle 输出即可看到线稿图像。
+
+	如果使用 Cycles 渲染引擎，还可以在视图层属性面板中设置过滤器 Filter，只勾选 Freestyle 就可以输出不含有其它内容的线稿。配合 Cycles 引擎属性面板中的 Film - Transparent 选项可以输出透明底的线稿。
+
+- Face Smoothness 勾选以在计数边缘是考虑面平滑着色
+
+- Crease Angle 
+
+	折痕夹角阈值，如果两个相邻的面形成的夹角小于指定阈值，则表示可以选中进行渲染，在线集 Line Set 中定义的边缘类型选择匹配时将呈现两面夹角的的边缘，该值也影响轮廓边缘类型选择。
+
+- Culling 背面剔除
+
+	忽略视图之外的边，以节省硬件资源，但某些情况可能会导致结果质量下降。
+
+- Advanced Options 高级选项
+
+	- Sphere Radius 球体半径
+
+		对脊线/沟线/外形暗示的曲率计算有影响，曲线每个顶点上的曲率会按指定的球体半径平均化，增大半径可以减少噪点提高细节。
+
+- KR Derivative Epsilon 极小 Kr 导数
+
+	对用来挑选外形暗示边缘 Suggestive Contour 的曲率变化率进行控制，增大值会从平滑区开始减少渲染线条。
+
+
+
+视图层属性面板中，Freestyle Line Set 包含了 Line Set 线条集，每个线条集设置的是线条检测参数，在 Selection By 展示的选择方式有五类。点击变成高亮的蓝色表示这一组选择条件得到的结果有效，这些生效的选择方式得到选择结果还要进行 Logical And 运算，最后汇总得到结果：
+
+- Visibility
+
+	通过可见性选择渲染，可见或不可见，或通过 QI Range 指定遮挡边缘的面数量在指定范围的边线，QI 为量化隐性 Quantitative Invisibility。
+
+- Edge Types 通过边线类型选择；
+
+- Face Marks
+
+	通过标记边线选择，选择 Inclusive 或 Exclusive 以包含或排除满足 One Face 或 Two Faces 条件的边线。One Face 表示匹配那些单个或两个相邻面作标记的边线，Both Faces 匹配那些相邻的双面都作标记的边线。
+
+	要标记面，在编辑模式中执行菜单 Face - Face Data - Mark Freestyle Face。
+
+	以一个 Cube 为例，将相邻的两个面标记，那么满足 One Face 的边就有七条，两个面 8 条边，减去其中公共边一条。满足 Two Faces 条件的就只有这条公共边，如果标记三个相邻面，那么，满足 Two Faces 条件的有三条了。
+
+- Collection 通过指定集合来选择，可以先包含或排除指定集合；
+- Image Border 通过图像边界选择；
+
+
+边条类型 Edge Types 中分为两类展示各种边线类型：
+
+- Silhouette 轮廓线
+
+	物体内部轮廓线由物体的各边线构成。
+
+- Border 网格边界
+
+	网格边界是物体分隔内外部空间的线条，是区分那些区域属于此对象的重要依据，国界就是 Border 这个词。比如，一个空心圆的面，边界线有两条，一条是圆周线，另一条是内部空心的圆周线。
+
+- Contour 外形轮廓
+
+	外形轮廓，相比 Silhouette 轮廓线，外形只关注物体在视角上投影的轮廓，不含物体的其它边线。
+
+- Ridge & Valle 脊线&沟线
+
+	脊线和沟线曾经是两种线，Concave & Convex，后来改进后是根据物体边线曲率 Curvature 的变化推断的同一种线条。
+
+- Suggestive Contour 外形暗示
+
+	外形暗示是非常有用，它是视角上形成的边线，比如看面前的台阶，注意和眼睛高度差不多的那一级就像是一条线，这就视觉暗示作用。
+
+- External Contour 重叠外形
+
+	物体有外形，当两个物体在某个视角处于重叠时，两者的外形也重叠，这个重叠的外形的轮廓就是重叠外形。
+
+- Crease 折痕
+
+	Crease 折痕，模型面相交的边线，两个面的夹角是检测中用到的重要参数。
+
+- Edge Mark 标记边线
+
+	用边线标记明显的物体外形，在模型编辑模式下，通过右键菜单标记选择的边 Mark Freestyle Line，再到 Freestyle Line Set 属性面板中设置需要渲染标记边线，Face Marks - Inclusive，还 /Both Faces，再渲染即可以看到标记线输出。
+
+- Material Boundaries 材质边界
+
+	材质边界线是物体上两种材质相交的位置形成的一条边界。
+
+
+
+## 👉 Freestyle Line Style 
+
+Line Set 设置的边线检测参数决定了场景中那些线条需要渲染，Line Style 的设置决定了线条会渲染成什么样子，什么颜色。
+
+渲染引擎属性面板 Freestyle 中又两个选项设置渲染线条的粗细：
+
+- Line Thickness Mode 模式设置
+	- Absolute 绝对模式
+	- Relative 相对模式
+- Line Thickness 线条粗细，指定绝对像素大小。
+
+在相对模式下，线条会进行缩放，480P 垂直分辨率时为 1x，720P 垂直分辨率就为 1.5x，960P 垂直分辨率就为 2x。
+
+
+材质属性面板种提供两个选项设置，Properties ‣ Material ‣ Freestyle Line：
+
+- Line Color 为材质指定线条颜色；
+- Priority 指定在材质边界 Material Boundaries 比较线条色彩时的优先级；
+
+
+视图层属性面板 Freestyle Line Style 提供了六类样属性设置：
+
+- Strokes 基本笔触设置，如连笔、断笔、前后排序、封线口等；
+- Color 设置线条底色和修改器；
+- Alpha 笔触透明控制；
+- Thickness 对笔触的粗细及位置等进行控制，笔触可以描在边线的中心、内则、外侧或相对位置；
+- Geometry 笔触几何修改；
+- Texture 设置笔触纹理；
+
+
+
+Color/Alpha/Thickness 三种属性基本共用了一套修改器，利用属性映射关系产生颜色变化、透明度变换、粗细变化效果：
+
+- Along Stroke 顺行修改器
+- Crease Angle 折痕角度
+- Curvature 3D 曲率 3D
+- Distance from Camera 到相机距离
+- Distance from Object 到对象距离
+- Material 材质修改器
+- Noise 噪波修改器
+- Tangent 正切修改器
+- Calligraphy 书法修改器 Thickness 专用
+
+
+以 Distance from Camera/Object 修改器为例，它们可以从物体到相机或物体位置的距离作为一个映射值，并设置到修改的对象上。
+
+添加 Distance from Camera 修改器，适当调整参数：
+
+- Range Min 物体到相机的最小距离，比如 10m；
+- Range Max 物体到相机最大的距离，比如 15m；
+
+或者选中对象后，直接按 Fill Range by Selection 按钮，它会自动检测对象远端和近端到相机的距离并自动填入。
+
+比如设置底色，这两个距离映射为色带上的颜色，物体对应距离的颜色就在色带对应位置上；又如设置 Alpha 透明通道，这两个值的范围就映射为 0 - 255 的 Alpha 值设置到物体相应距离的位置上。设置粗细度，这两个距离映射为对应的 Value Min/Max，距离远的就是 Value Max 指定的粗细，距离近的笔画就是 Value Min 中指定的粗细度，Value Min 指定的值可以大于 Value Max 的值。
+
+
+材质修改器这个很特别，可以将物体材质的各种属性数据映射到笔触上，根据材质的设置可以得到非常丰富的效果。
+设置了笔触选项 Split by Material，在各材质间就不会有模糊效果。
+
+
+几何体修改使用的是另一套修改器；
+
+- 2D Offset 二维偏移
+- 3D Transform 三维变换
+- Backbone Stretcher 骨架伸展
+- Guiding Lines 引导线
+- Perlin Noise 1D 一维柏林噪波
+- Perlin Noise 2D 二维柏林噪波
+- Polygonization 多边化
+- Sampling 采样修改器
+- Simplification 简化修改器
+- Sinus Displacement 凹槽置换修改器
+- Spatial Noise 立体噪波
+- Tip Remover 拔梢器 
+
+
 
 
 
@@ -5126,11 +6035,11 @@ Dope Sheet/Timeline 动画视图快捷键：
 
 注意，只是单纯视觉上而非功能上，区分常规关键帧类型和其他不同的动画事件或状态(极端，间断或其他中间状态)，可以在它们上应用不同的颜色以进行可视化，快捷键 R。
 
-- Keyframe	(白/黄色菱形) 常规关键帧。
-- Breakdown	(青色小菱形) 间断状态，如用于不同关键姿态间的过渡。
-- Move Hold	(深灰色/橙色菱形) 惯性延续，一个可以在一个保持姿势附近添加少量动作的关键帧。 在动画摄影表中，它还会在它们之间显示一个条块。
-- Extreme	(红色大菱形) 极端状态，或者其他需要的用途。
-- Jitter	(绿色小菱形) 抖动，填充或烘焙关键帧，用于在其他帧上插帧，或用于其他所需目的。
+1. **Keyframe**  (白/黄色菱形) 常规关键帧。
+2. **Breakdown** (青色小菱形) 间断状态，如用于不同关键姿态间的过渡。
+3. **Move Hold** (深灰色/橙色菱形) 惯性延续，一个可以在一个保持姿势附近添加少量动作的关键帧。 在动画摄影表中，它还会在它们之间显示一个条块。
+4. **Extreme** (红色大菱形) 极端状态，或者其他需要的用途。
+5. **Jitter** (绿色小菱形) 抖动，填充或烘焙关键帧，用于在其他帧上插帧，或用于其他所需目的。
 
 对于 Move Hold 关键帧，如果连续出现，在 Timeline 中会显示一条黄色色带，两个 Move Hold 关键帧之间的都是可以删除的，并不影响动画效果，因为动作一起在两端的关键帧之间持续。
 
@@ -5693,13 +6602,13 @@ Shape Keys 面板下拉菜单提供的其它专用功能：
 - Blender2.8 官方教程 角色绑定 https://www.bilibili.com/video/BV1QZ4y1W7U3?p=34
 - 动画 https://docs.blender.org/manual/zh-hans/3.0/animation/introduction.html
 
-Blender 中的骨架就像一个真实的骨架那样，骨架是由许多骨骼连接组成。这些骨骼可以控制表面附着网格或者相关联的任何东西一起旋转移动。骨架 Armature 用于绑定用，而绑定相当于木偶的控制器通过牵线来控制网格物体的变形。
+Blender 中的骨架就像一个真实的骨架那样，骨架是由许多骨骼连接组成。这些骨骼可以控制表面附着
+网格或者相关联的任何东西一起旋转移动。骨架 Armature 和网格绑定后，就可以用骨架姿势控制网格，
+骨骼相当于控制器，类似于通过牵线来控制木偶。骨架存在的目的是用于驱动模型实现角色的 Pose 姿态，
+进而得到角色动画，这无论是游戏开发或者电影制片都是非常重要的。
 
-骨架存在的目的是用于驱动模型实现角色的 Pose 姿态，进而得到角色动画，这无论是游戏开发或者电影制片都是非常重要的。
-
-骨架是由骨骼构成的，骨骼的设置就是为了获得一个完整的骨架，要是骨架实用还需要经过姿态调整、蒙皮、骨架属性设置等。
-
-要创建一个绑定骨架的模型，就需要创建一个 *Armature* 对象，并添加合适的骨架，再添加模型并绑定到骨架，即蒙皮。
+骨架是由骨骼构成的，骨骼的设置就是为了获得一个完整的骨架，骨架需要姿态调整、蒙皮、骨架属性设置等。
+要给模型绑定骨架，就需要创建 *Armature* 对象，添加骨骼建立骨架，再添加模型并绑定到骨架，即蒙皮。
 
 骨架对象类型特点:
 
@@ -5708,16 +6617,22 @@ Blender 中的骨架就像一个真实的骨架那样，骨架是由许多骨骼
 - 它可以被连结到其它场景, 同样的骨架数据可以被多个物体使用。
 - 在姿态模式 Pose Mode 下才可以对骨架的骨骼进行调整。
 
-骨架是为姿势设计的, 无论是静态或动态场景, 它们有一个特别的姿态叫静置位置 Rest Position，在编辑模式下看到骨架就就是处于静置位置。 骨骼有默认的形状/位置/旋转/缩放，可以在编辑模式修改。一般在物体模式和姿态模式下看到的骨架是当前的姿势，除非你启用了骨架面板的静置位置 Armature - Rest Position 按钮，把它恢复到初始姿势。
+骨架是为姿势设计的, 无论是静态或动态场景, 它们有一个特别的姿态叫静置位置 Rest Position，
+编辑模式下看到的骨架就是处于静置位置。 骨骼有默认的形状/位置/旋转/缩放，可以在编辑模式修改。
+一般在物体模式和姿态模式下看到的骨架是当前的姿势，除非你启用了骨架面板的静置位置按钮，将它恢复
+到初始姿势：Armature - Rest Position。
 
 每根骨骼都可以设置约束器，以限制或约束骨骼的运动，通过对象约束属性面板操作。
 
-骨骼是骨架的基本要素，骨架里的骨头一般可分为两种类型，分别对应是否勾选了骨骼属性面板的 Bone Properites -> Deform 选项：
+骨骼是骨架的基本要素，骨架里的骨头一般可分为两种类型，分别对应是否勾选了骨骼属性面板的选项
+Bone Properites -> Deform ：
 
 - *Deforming Bones* 变形骨骼通过直接参与改变与骨骼相关联的顶点组位置来使他们跟随变形骨骼做出类似的变换
 - *Control Bones* 控制骨骼相当于切换开关，他们变换时控制着其他骨骼或物体如何动作。
 
-例如，控制骨骼可以作为滑动开关控制，当控制骨骼位于左侧时，变换时它可以指示其他骨骼以特定方式进行反应，当控制骨骼位于右侧时当其变换时骨骼或物体以一些完全不同方式反应。控制骨骼不直接用于改变顶点的位置，因此，控制骨骼通常没有与自身直接相关联的顶点。
+例如，控制骨骼可以作为滑动开关控制，当控制骨骼位于左侧时，变换时它可以指示其他骨骼以特定方式
+进行反应，当控制骨骼位于右侧时当其变换时骨骼或物体以一些完全不同方式反应。控制骨骼不直接用于
+改变顶点的位置，因此，控制骨骼通常没有与自身直接相关联的顶点。
 
 骨骼有 3 个基本元素，在编辑模式下可以选择和编辑骨骼基本元素，点击主体就可以选中整个骨骼对象:
 
@@ -5725,26 +6640,42 @@ Blender 中的骨架就像一个真实的骨架那样，骨架是由许多骨骼
 - body 本体部分是骨骼的主体。
 - tip or tail 结束节点，顶端或尾端。
 
-首端和尾端也叫关节 Joint，它们各自的位置定义了骨骼。它们都有半径属性, 但只在封套变形模式下有用。 在编辑模式选择默认的骨架，在这个模式你可以选择首端 root 和尾端 tip, 像操作网格顶点一样移动它们。骨骼有一个 Roll 扭转轴，可以勾选面板的轴向显示选项 Properties - Object Data - Viewport Display - Axes 以显示局部坐标轴。 Y 轴总是从根部沿着骨骼指向尾端，所以 Y 轴都叫骨骼的 Roll 扭转轴。
+首端和尾端也叫关节 Joint，它们各自的位置定义了骨骼。它们都有半径属性, 但只在封套变形模式下有用。
+在编辑模式选择默认的骨架，在这个模式你可以选择首端 root 和尾端 tip, 像操作网格顶点一样移动它们。
+骨骼有一个 Roll 扭转轴，Y 轴总是从根部沿着骨骼指向尾端，所以 Y 轴都叫骨骼的 Roll 扭转轴。
+勾选面板选项以显示局部坐标轴：Properties - Object Data - Viewport Display - Axes
 
-骨骼头尾可以相连，每个骨骼可以通过骨骼关系菜单的父级 Parenting 连接多个子骨骼，形成骨骼链 Chains of Bones 结构 parent/children/siblings，骨架可以零散的骨骼构成也可以由骨骼链构成。典型的骨骼链就是手掌的骨骼结构，把手指关节看作子骨骼，掌心骨看作父骨骼，那么掌心到各个手指的骨骼连接就构成了条 5 条骨骼链。
+骨骼头尾可以相连，每个骨骼可以通过骨骼关系菜单的父级 Parenting 连接多个子骨骼，形成骨骼链结构
+Chains of Bones， 骨架可以零散的骨骼构成也可以由骨骼链构成。典型的骨骼链就是手掌的骨骼结构，
+把手指关节看作子骨骼，掌心骨看作父骨骼，那么掌心到各个手指的骨骼连接就构成了条 5 条骨骼链。
 
-骨骼链之间，可以有位置的约束 Connected 连接状态，也可以没有连接位置的约束 Free 游离状态，比如事故导致手指断了。
+骨骼链之间，可以有位置的约束 Connected 连接状态，也可以没有连接位置的约束 Free 游离状态，
+比如事故导致手指断了。
 
-骨骼链在后面使用的姿势 Posing 中是一个特别重要的话题，特别是在正向运动学和反向运动学 Forward/Inverse Kinematics 姿势技术。简单讲正向运动学就如同大脑指挥手的动作，先是骨骼动作的传导是由身体中心向手指末端进行的。而反向运动学以相反的方式进行，由手指先确定目标位置，再往肩部传递运动。反向运动 IK 由一个目标点去确定运动，再反求自身整个物体的运动。
+骨骼链在后面使用的姿势 Posing 中是一个特别重要的话题，特别是在正向运动学和反向运动学姿势技术，
+Forward/Inverse Kinematics。简单讲正向运动学就如同大脑指挥手的动作，先是骨骼动作的传导是
+由身体中心向手指末端进行的。而反向运动学以相反的方式进行，由手指先确定目标位置，再往肩部传递运动。
+反向运动 IK 由一个目标点去确定运动，再反求自身整个物体的运动。
 
-简单来说 IK 就是自身的运动被末端带动的，IK 允许你通过摆放骨骼链中的最后一个骨骼来将其他骨骼自动调整位置。 它简化了动画过程，方便了姿态 Poses 的调整，可以用较少的努力制作更高级的动画。
+简单来说 IK 就是自身的运动被末端带动的，IK 允许你通过摆放骨骼链中的最后一个骨骼来自动调整
+将其他骨骼位置。 它简化了动画过程，方便了姿态 Poses 的调整，可以用较少的努力制作更高级的动画。
 
-一根变形骨骼控制着附着在骨骼的网格顶点组，就像当你移动手指时你的手指肌肉和皮肤跟随你的手指骨。骨骼通过封套技术 Envelope Technique 定义其影响的强度或几何范围。在编辑模式 Edit Mode 和姿势模式 Pose Mode 可以看到它的影响范围, 这取决于：
+一根变形骨骼控制着附着在骨骼的网格顶点组，就像当你移动手指时你的手指肌肉和皮肤跟随你的手指骨。
+骨骼通过封套技术 Envelope Technique 定义其影响的强度或几何范围。在编辑模式 Edit Mode 
+和姿势模式 Pose Mode 可以看到它的影响范围, 这取决于：
 
 - 距离属性 Envelope Distance
 - 首端和尾端的半径 Radius Head/Tail
 
 这些可以在骨骼属性面板查看修改，Properties - Bone Properties - Deforem。
 
-复杂的骨架需要使用分层管理，骨架编辑模式或姿态模式下，选中的骨骼可以分配到指定的层，按快捷键 M，或通过 Pose、Armature 菜单执行 Change Bone Layers，然后指定一个层。骨架操作分层，为每个骨架提供 32 个分层，通过属性面板 Object Data -> Skeleton 查看，要显示哪一层的骨骼就点击相应的色块，按住 Shift 点击可以多选。色块带有空心圆表示已经分配有骨骼，带有实心圆表示当前选中的骨髓所在层。
+复杂的骨架需要使用分层管理，骨架编辑模式或姿态模式下，选中的骨骼可以分配到指定的层，按快捷键 M，
+或通过 Pose、Armature 菜单执行 Change Bone Layers，然后指定一个层。骨架操作分层，为每个
+骨架提供 32 个分层，通过属性面板 Object Data -> Skeleton 查看，要显示哪一层的骨骼，就点击
+相应的色块，按住 Shift 可以多选。色块有空心圆表示已经分配有骨骼，实心圆表示当前选中的骨髓所在层。
 
-在骨架的姿态模式下，还可以将选中的骨骼分配到骨骼组。通过 Object Data -> Bone Groups 属性面板操作，点击 + 号按钮添加一个组，点击 Assign 将选中的骨骼分配到选中的组，还可以给骨骼分组设置一个标记色。
+在骨架的姿态模式下，还可以将选中的骨骼分配到骨骼组。通过属性面板操作：Object Data -> Bone Groups，
+点击 + 号按钮添加一个组，点击 Assign 将选中的骨骼分配到选中的组，还可以给骨骼分组设置一个标记色。
 
 
 ### ⚡ Skinning & Animation 蒙皮与动画
@@ -5756,32 +6687,44 @@ Blender 中的骨架就像一个真实的骨架那样，骨架是由许多骨骼
 - Skeleton-Aware Networks for Deep Motion Retargeting https://deepmotionediting.github.io/retargeting
 - Quck tutorial on retargeting animations in UE4 https://www.bilibili.com/video/BV1TA411x7tz
 
-创建好骨骼链是制作动画的一个基本工序，接下来还需要给骨架蒙皮，也就是将模型绑定到骨架上。除非你想制造一个骷髅之舞这样的动画，不然总会需要在你的骨骼上添加一些血肉！链接一个骨架到模型物体以产生变换或变形的这个过程被称为蒙皮，这个名称很贴切。
+创建好骨骼链是制作动画的一个基本工序，接下来还需要给骨架蒙皮，也就是将模型绑定到骨架上。
+除非你想制造一个骷髅之舞这样的动画，不然总会需要在你的骨骼上添加一些血肉！链接一个骨架
+到模型物体以产生变换或变形的这个过程被称为蒙皮，这个名称很贴切。
 
 有点教材也译作装配((Rigging)，或许这是角色创建过程中最具技术含量、最为复杂的环节。
 
-链接一个骨架到物体产生变换和变形的过程被称为蒙皮，这就是蒙皮动作，蒙皮也可以作为名词理解，蒙皮就用来模拟皮肤的模型，将连接到骨架，并随着骨架运动模拟真实的动画角色。
+链接一个骨架到物体产生变换和变形的过程被称为蒙皮，这就是蒙皮动作，蒙皮也可以作为名词理解，
+蒙皮就用来模拟皮肤的模型，将连接到骨架，并随着骨架运动模拟真实的动画角色。
 
 Blender 有两种主要的蒙皮类型：
 
 - 使用简单的模型绑定，通过父级/约束物体至骨骼，然后，在姿态模式下变换骨骼，它们的子物体也跟着变换，是一个标准的父子关系，这种模式的子物体从不产生形变。
-- 给整个网格添加骨架修改器 Deform	- Armature Modifier，然后，这些物体的一部分对应骨骼里面的一些骨骼。这样，才能真正使物体的几何形状形变，即修改它的顶点/控制点的相对位置。
+- 给网格体添加骨架修改器 Deform - Armature Modifier，然后，这些物体的一部分对应骨骼里面的一些骨骼。这样，才能真正使物体的几何形状形变，即修改它的顶点/控制点的相对位置。
 
-可以利用 Retargeting 重新定向技术是从现实世界获取或捕获运动数据并应用于绑定，可通过插件和导入获得，这是高端 CG 工厂常用方法。
+Retargeting 重新定向技术是从现实世界获取或捕获运动数据并应用于绑定，可通过插件和导入获得，
+这是高端 CG 工厂常用方法。
 
 Armature Deform Parent 父级骨架变形是创建并设置骨架修改器的一种方式。
 
-有了骨架后，首先要做的就是将骨架与模型对齐，将各个骨骼移动到模型对应部位的中心。比如，脊椎骨骼就应该放置到身体躯干的中心，而大腿骨骼就应该放置到大腿的中心。按 N 打开 Tool -> Options -> X-Axis Mirror 对称操作，方便对称地调整手臂、大腿等骨骼。 
+有了骨架后，首先要做的就是将骨架与模型对齐，将各个骨骼移动到模型对应部位的中心。比如，脊椎骨骼
+就应该放置到身体躯干的中心，而大腿骨骼就应该放置到大腿的中心。
 
-对齐好骨架后，就要建立骨架变形父子关系，在姿态模式下选择将受到骨架影响的所有子对象，最后选择骨架对象本身。一旦选择了所有子对象和骨架，请按 Ctrl-P ，然后在弹出菜单中设置父级到选择骨架变形 Set Parent To - Armature Deform。
+按 N 打开 Tool -> Options -> X-Axis Mirror 对称操作，方便对称地调整手臂、大腿等骨骼。 
+
+对齐好骨架后，就要建立骨架变形父子关系，在姿态模式下选择将受到骨架影响的所有子对象，最后选择
+骨架对象本身。选择了所有子对象和骨架后，设置父级到选择骨架变形，按 Ctrl-P 然后选择弹出菜单：
+Set Parent To - Armature Deform。
 
 骨架将是所有其他子物体的父物体，每个物体子将具有与骨架相关联的骨架修改器(Object 字段)。
 
-在 Object Mode 选择骨架对象后，就可以切换到姿态模式 Pose Mode 以调整骨架得到需要的角色 Pose。也可以使用 Ctrl+Tab 与网格元素之间快速切换。
+在 Object Mode 选择骨架对象后，就可以切换到姿态模式 Pose Mode 以调整骨架得到需要的角色 
+Pose。也可以使用 Ctrl+Tab 与网格元素之间快速切换。
 
 姿态模式下可以调用骨骼以测试模式对应骨骼的控制下如何表现得像一张皮肤。
 
-接下来的步骤就是使用 Timeline 或 Nonlinear Animation 给骨架设置角色动画。给角色调整姿势其实就是给骨架设置动画，也就是添加动画数据，在姿态模式下，选中 Armature -> Pose 中的骨架，Timeline 视图可以记录下姿态的关键帧动画数据。
+接下来的步骤就是使用 Timeline 或 Nonlinear Animation 给骨架设置角色动画。给角色调整姿势
+其实就是给骨架设置动画，也就是添加动画数据，在姿态模式下，选中 Armature -> Pose 中的骨架，
+Timeline 视图可以记录下姿态的关键帧动画数据。
 
 在 Armature 对象内部，即便是最简单的 Single Bone 对象，它内部也会包含以下三个基本的内容：
 
@@ -5808,17 +6751,29 @@ Armature Deform Parent 父级骨架变形是创建并设置骨架修改器的一
 - 设置修改器的绑定方式为 Bind To Vertex Groups，模型顶点组与骨骼关联，使得特定顶点组的顶点受控于指定的骨骼。
 - 根据模型与骨架的对齐关系，将就近某一骨骼的顶点编组，顶点组命令与相应的骨骼名相同。
 
-给 Armature 修改器设置 Bind To Vertex Groups 绑定方式，那么给定名称的骨骼将变形属于同名顶点组的顶点。例如，名为 forearm 的骨骼只会影响 forearm 顶点组中的顶点。一块骨骼对给定顶点的影响由相关组中该顶点的权重控制，这是一种比骨骼封套更精确的方法。
+Armature 修改器设置 Bind To Vertex Groups 绑定方式，那么骨骼将变形应用于同名顶点组的顶点。
+例如，名为 forearm 的骨骼只会影响 forearm 顶点组中的顶点。骨骼对给定顶点的影响强度由相关顶点组
+中该顶点的权重控制，这是一种比骨骼封套更精确的方法。
 
-如查设置骨架修改器的绑定方式为骨包膜 Bind To Bone Envelopes，那么就根据骨骼的包络线封套半径和距离定义的覆盖范围来决定哪些顶点受哪个骨骼控制。
+如查设置骨架修改器的绑定方式为骨包膜 Bind To Bone Envelopes，那么就根据骨骼的包络线封套半径
+和距离定义的覆盖范围来决定哪些顶点受哪个骨骼控制。
 
-可以给 Armature 修改器设置 Vertex Group 属性，当该修改器的结果与其他修改器的结果混合时，其权重将用于确定该修改器结果的影响。只有在同一对象上至少有两个这样的修改器且激活了多个修改器时才有意义。
+可以给 Armature 修改器设置 Vertex Group 属性，当该修改器的结果与其他修改器的结果混合时，
+其权重将用于确定该修改器结果的影响。在同一对象上至少有两个这样的修改器且激活了多个修改器时才有意义。
 
-如果模型要修改权重，首先选择要刷权重的模型，进入权重模式 Weight Paint。通过属性面板 Object Data Properties -> Vertex Groups 选择要刷权重的顶点组。修改笔刷的属性，按 T 显示画笔工具栏，按 N 显示侧栏工具，在 Tool 面板中设置笔刷权重，绘制在模型上的颜色越红表示权重越大，越蓝权重越小，绿色表示中间值。权重为 1 即红色表示完全控制，权重为 0 即蓝色表示完全不控制。
+如果模型要修改权重，首先选择要刷权重的模型，进入权重模式 Weight Paint，选择要刷权重的顶点组：
+Object Data Properties -> Vertex Groups。修改笔刷的属性，按 T 显示画笔工具栏，按 N 显示
+侧栏工具，在 Tool 面板中设置笔刷权重，绘制在模型上的颜色越红表示权重越大，越蓝权重越小，绿色表示
+中间值。权重为 1 即红色表示完全控制，权重为 0 即蓝色表示完全不控制。
 
 要管理顶点分组，需要在模型编辑模式下操作。
 
-绑定骨架后，要刷顶点权重，可以先选择好骨架后，再按住 Shift 加选网格体，然后进入权重绘制模式。这种情况下，按住 Ctrl 选择骨骼，即选择相应的顶点组，然后左键点击绘制权重。即使骨骼被模式覆盖看不见，也不影响右键选择操作。
+绑定骨架后，要刷顶点权重，可以先选择好骨架，再按住 Shift 加选网格体，然后进入权重绘制模式。
+这种情况下，按住 Ctrl 选择骨骼，即选择相应的顶点组，然后左键点击绘制权重。即使骨骼被模型
+覆盖看不见，也不影响右键选择操作。
+
+使用笔刷绘制权重时，就会自动给模型添加顶点组，并顶点组名称与当前活动的骨骼同名。
+
 
 
 骨骼的姿态模式或编辑模式下，Pose、Armature 菜单提供了许多工具：
@@ -5858,16 +6813,27 @@ Blender 支持使用 Pose Library 来管理姿态资产 Pose Asset，即包含�
 - 保护骨骼处于选中状态，按 I 添加关键帧；
 - 再选另一个姿态资产，重复以上操作，将关键帧记录到往后几帧的时间上，这样就会产生两个姿态的补间动画；
 
-在新的 Blender 3.0 中还引入了资产浏览，更方便动画资产的管理，可以在 Object Data 属性面板中，点击书本图标，将旧式的 Pose Library 转换为新的可以在资产浏览器中使用的格式。启用新的 Pose Library 动画插件，就可以在 3D 视图中的侧栏面板中调出姿态库，并且可以通过资产浏览器给 Pose Asset 设置图标，以更清晰便捷地展示。
+在新的 Blender 3.0 中还引入了资产浏览，更方便动画资产的管理，可以在 Object Data 属性面板中，
+点击书本图标，将旧式的 Pose Library 转换为新的可以在资产浏览器中使用的格式。启用 Pose Library
+动画插件，就可以在 3D 视图中的侧栏面板中调出姿态库，并且可以通过资产浏览器给 Pose Asset 设置图标，
+以更清晰便捷地展示。
 
 
-其实，直接给骨骼调整姿态是非常繁琐的工作，需要使用一些专用工具，Blender 提供了内置的 Rigify 插件，使用 Mixamo 这样的动画绑定插件也可以提高工作效率。大型工作室还会使用动作捕捉设置进行处理，然后对采集到的运动数据做 Motion Retargeting 匹配到模型的骨架上。
+其实，直接给骨骼调整姿态是非常繁琐的工作，需要使用一些专用工具，Blender 提供了内置的 Rigify
+插件，使用 Mixamo 这样的动画绑定插件也可以提高工作效率。大型工作室还会使用动作捕捉设置进行处理，
+然后对采集到的运动数据做 Motion Retargeting 匹配到模型的骨架上。
 
-调整好的动画应该尽量复用，以提高其价值，利用动画重定向技术 Animation Retargeting 可以将现有的动画应用到不同的角色。比如，有一个翻越护栏的动画，通过将动作动画重定向到其它模型的骨架上，这样就避免大量重复的工作。
+调整好的动画应该尽量复用，以提高其价值，利用动画重定向技术 Animation Retargeting 可以
+将现有的动画应用到不同的角色。比如，有一个翻越护栏的动画，通过将动作动画重定向到其它模型的骨架上，
+这样就避免大量重复的工作。
 
-在大型游戏中，每个角色可以公用很多动画，可以节约制作成本、调试修改维护时间，也节约了内存、包体大小。Unity 和 UE4 原理都差不多，都是基于一个人体骨骼作为标准化的中转。Unity 给定了一个 Humanoid 类型的动画系统，也就是类人形的骨架。
+在大型游戏中，每个角色可以公用很多动画，可以节约制作成本、调试修改维护时间，也节约了内存、包体大小。
+Unity 和 UE4 原理都差不多，都是基于一个人体骨骼作为标准化的中转。Unity 给定了一个 Humanoid 
+类型的动画系统，也就是类人形的骨架。
 
-在 Blender 中复用动画，就需要确保骨架结构的一致，然后再将骨架与模型的顶点组关联起来，就可以达到动画复用的目的。这个过程中，动画数据和模型顶点组的权重数据一样重要，任何一部分不一致都需要进行细调。Blender 导出模型时，需要和相应的骨架一并导出，这样才会有相应的顶点组数据。
+在 Blender 中复用动画，就需要确保骨架结构的一致，然后再将骨架与模型的顶点组关联起来，就可以
+达到动画复用的目的。这个过程中，动画数据和模型顶点组的权重数据一样重要，任何一部分不一致都需要
+进行细调。Blender 导出模型时，需要和相应的骨架一并导出，这样才会有相应的顶点组数据。
 
 
 Set Parent 菜单项功能解析：
@@ -6077,7 +7043,7 @@ Inverse Kinematics 约束器面板参考：
 
 直接使用 Rigify 插件提供现成的骨骼进行绑定是不错的选择，启用 Blender 内置的 Rigify 插件后，它可以提供现成的 Human (Meta Rig) 和常见的鸟类、马、猫、狼、鲨鱼等动物骨架结构。
 
-骨架大小可以缩放以匹配模型大小，在工具栏中设置 Transform Orientations -> Cursor 可以 Cursor 标记为绽放中心，使用 Shift-S 设置 Cursor 位置为世界中心，这样可以避免骨架原点偏移。调整骨架后还会需要重新计算扭转，在编辑模式下先按 A 全选所有骨头，再按 Shift-N 弹出 Recalculate Roll 菜单，比如选择 Global +Y 坐标以重新计算骨骼的纵向扭转角度。
+骨架大小可以缩放以匹配模型大小，在工具栏中设置 Transform Orientations -> Cursor 可以 Cursor 标记为缩放中心，使用 Shift-S 设置 Cursor 位置为世界中心，这样可以避免骨架原点偏移。调整骨架后还会需要重新计算扭转，在编辑模式下先按 A 全选所有骨头，再按 Shift-N 弹出 Recalculate Roll 菜单，比如选择 Global +Y 坐标以重新计算骨骼的纵向扭转角度。
 
 启用 Rigify 插件后，在骨架对象的属性面板 Object Data Properties 还会提供多个 Rigify 工具，包括：
 
@@ -6138,7 +7104,7 @@ Rigify 还提供了一个精简的人体骨架 Basic Humen (Meta-Rig)：
 
 生成 Rig 绑定时常见问题：
 
-- 如果出现尺寸过大或过小，可能是骨骼缩放问题，可以在对象模式下 Ctrl-A 应用缩放，将对象的绽放归置为 1。
+- 如果出现尺寸过大或过小，可能是骨骼缩放问题，可以在对象模式下 Ctrl-A 应用缩放，将对象的缩放归置为 1。
 - 如果出现 Disjoint 骨骼，可以使用 Cursor 工具来对位，先选择关节，按 Shift-S 执行 Cursor to Selected 对齐到选择的对象。再选择未连接的关节，执行 Armature -> Snap -> Selection to Cursor 对齐。
 
 创建控制器绑定后，可以将原本的 Meta-rigs 参照骨架隐藏。因为不需要通过它来调整模型状态，生成的 Rig 绑定对象包含了骨架，但是可以再次修改原始骨架，并重新生成 Rig 控制器。
@@ -6655,9 +7621,15 @@ Note
 
 # 🚩 Render 渲染流程
 
-一个 3D 场景的构建至少需要三个关键的构件：模型，材质和光照，渲染就是将这些组织好的材料固定下来输出图片或视频。模型是现实世界的物体的结构模拟，材质决定模型物理属性，光照使得模型的物理属性作用于光线，产生视觉效果。
+一个 3D 场景的构建至少需要三个关键的构件：模型，材质和光照，渲染就是将这些组织好的材料固定
+下来输出图片或视频。模型是现实世界的物体的结构模拟，材质决定模型物理属性，光照使得模型的物理
+属性作用于光线，产生视觉效果。
 
-Blender 提供效果真实的 Cycles 产品级渲染，基于物理的光线路径跟踪器。
+Blender 提供三种渲染引擎：
+
+1. Cycles 产品级渲染：基于光线追踪的照片级效果，基于物理的光线路径跟踪器。
+2. Eevee 实时快速渲染，基于光栅化的实时渲染引擎，可以利用各种反射光探针提升光照效果。
+3. Workbench 建模或动画快速渲染引擎，可以用于 Grease Pencil 模型渲染。
 
 此外还提供实时渲染引擎 Eevee 和 Workbench Engine 来加速项目的制作。Workbench 是一个针对建模和动画期间的预览进行了快速渲染优化的渲染引擎。 其目的并不是为项目执行最终像素级渲染输出，主要任务是在 3D 视图中时显示正在处理的场景。
 
@@ -7615,300 +8587,6 @@ Cycle 引擎支持全景相机，使用 Equirectangular 等距柱状投影就可
 - Fisheye Equidistant 等距投射鱼眼镜头
 - Fisheye Equisolid 等角投射鱼眼镜头
 - Mirror Ball 镜像球
-
-
-## 👉 Freestyle Line-Arts
-- Freestyle Rendering https://docs.blender.org/manual/en/latest/render/freestyle/index.html
-- [Blender 2.82 Freestyle API](https://docs.blender.org/api/2.82/freestyle.html)
-- [Blender NPR - Freestyle Level Up](https://www.bilibili.com/video/BV11t411e74e)
-- 来几个freestyle花式线稿 https://www.bilibili.com/video/BV1sE411F7zB
-- 卡通渲染 https://www.bilibili.com/video/BV1VW411E7XQ/
-
-Freestyle 渲染引擎是基于边线的非真实感绘制技术 NPR - Non-Photorealistic Rendering，可以结合卡通着色器节点 Toon BSDF 渲染成动画输出。NPR 也叫艺术渲染，将模型渲染成技术插图或或动画镜头就是一种应用方向。
-
-Blender 使用 Compositor 来合成卡通渲染，简化步骤：
-
-1. 亮面、暗面提取：设置 View Layer 属性面板，勾选 Passes 直通选项下的 Diffuse Color 和 Shadow 为合成器的 Render Layers 打开漫反射光和阴影图层，这样就可以对模型的光面和暗面进行后续处理。
-2. 线稿提取：在渲染属性面板为复制的图层打开 Render -> Freestyle 功能。然后勾选图层面板中的 As Render Pass 以生成线稿供合成器使用，透明线稿的图像就在 Freestyle 端口输出，另外还要勾选上 Culling 以将背部线条剔除。
-3. 线稿设置：图层启用 Freestyle 渲染方式后，就可以在图层面板中对线稿进行配置。
-
-在 Compositor 中使用 Viewer 节点预览图层输出内容，将 DiffCol 端口连接到 Viewer -> Image 端口查看物体漫反射颜色信息，按 F12 渲染以生成各种图层。
-
-添加 Mix 节点，将亮面和暗面混合起来，使用 Multiply 即正片叠底模式，调整一下 Fac 系数，使用暗面有一个合适亮度。合成的图像和线稿图层输出的 Freestyle 通过 Alpha Over 节点叠加起来，将线稿叠在其它图像的上面。
-
-虽然，Culling 可以将背部大量线条剔除，但是还是会有少量线条在特定的角度中会出现部分遮挡的情况，这时线条被遮挡的部分就会跑出来，需要里进行细致的调整。一般只要打开 Visibility -> Visible 可见性条件即可以解决这类问题。还可以使用 Passes -> Data -> Z 深度数据来处理，在 Render Layers 节点的 Depth 端口输出深度数据。
-
-打开 Freestyle 渲染功能后，还可以在图层属性面板中使用 Filter 来选择要输出什么内容，例如，只勾选 Filter -> Freestyle 就只输出终稿，而不渲染输出模型的面。使用内置插件 Render: Freestyle SVG Exporter 还可以导出线稿为 SVG 文件，启用插件后，在渲染属性面板勾选 Freestyle SVG Export，然后在视图层属性面板找 SVG Exporter 面板设置。
-
-默认图层只有 View Layer，可以复制两个分别用于亮面、暗的线稿的渲染。
-
-在编辑模式下，和 Freestyle 有关的菜单项：
-
-- Edge -> Edge Crease 边线折痕 介于 0.0 到 1.0 之间的值，用于 Freestyle 线稿渲染。
-- Edge -> Mark Freestyle Edge 将选中的边线标记为 Freestyle 线稿的线条。
-- Edge -> Clear Freestyle Edge 清除线稿标记。
-
-标记过的线条会处于绿色高亮的状态中，在图层属性面板中，勾选 Freestyle Line Set 下的 Edge Type -> Edge Mark 即可以渲染输出已经标记的线条。这种手动标记线条的方式，和绘画中创建线稿的方式差别非常大。
-
-图层启用 Freestyle 渲染方式后，会默认添加 LineSet 线条集，每个线条集设置的是线条检测参数，对匹配的线条应用 Freestyle Line Style 配置的样式进行渲染。可以设置多套线条集，配置好选择过滤条件，还有线条的渲染样式。
-
-默认的 Edge Types 设置：
-
-- Edge Crease 折痕，模型面相交的边线，两个面的夹角是检测中用到的重要参数。
-- Silhouette 物体内部轮廓。
-- Border 边界线。
-
-使用 Inclusive + Logical OR 检测条件，即包含所有 Edge Types 列表中勾选的边线类型，只要被检测的连线满足其中一种类型即可。
-
-Edge Types 下的边线类型选项分为两列，左边为边线类型，每种类型右侧有个专用的排除按钮。并且提供两组按钮，左边可以选择 Inclusive 或 Exclusive 来包含或排除那些经过 Logical Or 或 Logical And 运算得到的边线，这就像是一个真值表。
-
-例如，场景中的对象有 Silhouette 和 Contour 两种边线，也有一条标记边线 Edge Mark。在 LineSet 配置中，勾选这三种边线。
-
-如果选择 Logical And 运算，那么只有这三种线在同一条边重复才是逻辑真，那么选中的就是这个同属于 Silhoutte/Contour/Edge Mark 的边线。
-
-如果选中 Logical Or 对这三者进行运算，结果就是这三种边线的并集。而每种边线类型的右侧的排除按钮，就相当一个 Logical Not，只对此边线类型进行求补集。
-
-
-Freestyle 根据网格和深度 Z-depth 信息在选择的边缘绘画，可以定义各种线条样式一模拟手绘效果。
-
-列如，设置线稿风格的 Thickness，添加一个 Along Stroke 修改器，即沿着线条的方向进行修改，使用 Multiply 混合模式，并且使用 Curve 映射方式，然后调整曲线来控制线稿的大小随着线条的方向进行变化。还可以再添加 Noise 修改器，给线条粗细增加随机效果。
-
-要使用 Freestyle 渲染，在渲染引擎属性面板激活 Properties ‣ Render ‣ Freestyle。然后所有 Freestyle 设置都会出现在视图层属性面板，Freestyle Line Set/Style 等。
-
-每个视图层有且只有一个视图映射，它可以包含多个线条集 Line Set，也保存边缘检测设置，如 Crease Angle, Culling toggle, Face Smoothness toggle, Material Boundaries toggle, Sphere Radius, Kr Derivative Epsilon 高级选项等。
-
-Freestyle 通过线条样式定义的颜色、Alpha、粗细等对关联的线条集进行渲染。每一线条使用一个线条样式定义，每个样式定义可以在不同的线条集中使用。一个线条集 Line Set 定义用于渲染的线条类型和线条选项，用于探测和匹配场景中的线条。
-
-启用 Freestyle 渲染：Properties ‣ Render ‣ Freestyle，通过面板 View Layer properties 设置 Freestyle 选项。
-
-工作流程：
-
-- 开始 3D 场景；
-- 应用渲染层选项 *Render Layer Options* 进行特征边缘探测；
-- 生成包含特征边的视图映射 View map；
-- 应用线条集选项 *Line Set Options* 进行挑选，连结和分割；
-- 连结特征边；
-- 应用线条样式选项 *Line Style Options* 进行样式处理；
-- 生成绘画笔触；
-- 应用渲染选项 *Render Options* 渲染笔触；
-- 输出 2D 线条画。
-
-
-已知的局限性
-
-- 高内存消耗，一次加载视图层的网格对象；
-- 只支持面向网格对象；
-- 面与面相交出无法检测到边缘；
-- Freestyle 渲染结构不含 Z depth 深度信息；
-- 不支持全景相机。
-
-
-View Map Cache 选项用于重用先前计算的视图映射，以供后续渲染。当输入三维场景的网格几何结构被改变时，缓存将自动更新。此功能提供了一个主要的性能提升，就是在 Freestyle 的动画渲染时，当相机空间网格的几何结构是静态的，如同重复，则依然以直线化选项进行渲染。
-
-
-
-## 👉 Edge Dectection 线条检测
-
-要正确选择需要渲染的线稿，线条检测必须准确识别。Freestyle 检测到特征边缘后，就经过 Line Set 设定的条件进行选择过滤，最终对选出的线条进行绘制成稿。这里涉及的选择运算主要是集合论的方法，对各种集合进行 Logical Not/Or/And 运算。
-
-控制方式 Control Method 用于检测实际上已渲染的边缘，并且将从头到尾地执行控制，有两种方式：
-
-- Python 脚本方式，复杂但强大；
-- 参数编辑器方式，简单但局限；
-
-选择脚本方式，可以在 Style modules 中加载多个样式脚本。Blender 自带 Japanese big brush, cartoon, blueprint, thickness-with-depth 等等实现，在安装目录中：
-
-	\scripts\freestyle\styles
-
-编写一个样式模块涉及 Python 脚本编程，需要参考 Blender API 文档，以下是编写样式模块的 5 中操作：
-
-- Selection Operators.select()
-- Chaining Operators.chain(), Operators.bidirectional_chain()
-- Splitting Operators.sequential_split(), Operators.recursive_split()
-- Sorting Operators.sort()
-- Stroke creation Operators.create()
-
-模块输入是检测到的特征边缘，即包含 ViewEdge 的 ViewMap，模块输出是样式化的线条，也叫笔触 Strokes，模块以流水线方式对输入的边缘进行处理。
-
-Selection 操作根据用户定义从 ViewMap 挑选 ViewEdge，根据用户定义再对 ViewEdge 的子集进行 Chaining 连结，可以后续分割再连结。挑选的边缘连结后再排序 Sorting，这个决定了哪条线在上，哪条线在下，最后应用样式创建笔触，并输出。
-
-ViewEdges, Chains 和 Strokes 都是一维元素 1D，可以是多条相连的线段 polyline，连结的顶点则是零维 0D。
-
-
-视图层属性面板中，View Layer ‣ Freestyle 提供的设置，除了设置探测控制方式 Control Method 外，还有一些检测相关选项：
-
-- View Map Cache
-
-	沟线以重用先前计算的视图映射，以供后续渲染。当输入三维场景的网格几何结构被改变时，缓存将自动更新。
-
-	此功能提供了一个主要的性能提升，就是在 Freestyle 的动画渲染时，且相机空间网格的几何结构是静态的如同重复，则依然以直线化选项进行渲染。
-
-	尽管 View Map Cache 是在视图层属性面板设置的，但是缓存供所有场景使用，因此在不同场景的更新都是更新同一个缓存。
-
-- As Render Pass 直通渲染
-
-	这是 2.83 版本新增功能，用来直接生成透明线稿，渲染结果却看不到线稿。此时，通过合成编辑器 Compositor 就可以查看，点击 Use Nodes 激活合成器的节点，注意 Render Layers 节点有个 Freestyle 输出端口，透明线稿的图像就在这里输出。可以添加一个 Viewer 输出节点，连接上 Freestyle 输出即可看到线稿图像。
-
-	如果使用 Cycles 渲染引擎，还可以在视图层属性面板中设置过滤器 Filter，只勾选 Freestyle 就可以输出不含有其它内容的线稿。配合 Cycles 引擎属性面板中的 Film - Transparent 选项可以输出透明底的线稿。
-
-- Face Smoothness 勾选以在计数边缘是考虑面平滑着色
-
-- Crease Angle 
-
-	折痕夹角阈值，如果两个相邻的面形成的夹角小于指定阈值，则表示可以选中进行渲染，在线集 Line Set 中定义的边缘类型选择匹配时将呈现两面夹角的的边缘，该值也影响轮廓边缘类型选择。
-
-- Culling 背面剔除
-
-	忽略视图之外的边，以节省硬件资源，但某些情况可能会导致结果质量下降。
-
-- Advanced Options 高级选项
-
-	- Sphere Radius 球体半径
-
-		对脊线/沟线/外形暗示的曲率计算有影响，曲线每个顶点上的曲率会按指定的球体半径平均化，增大半径可以减少噪点提高细节。
-
-- KR Derivative Epsilon 极小 Kr 导数
-
-	对用来挑选外形暗示边缘 Suggestive Contour 的曲率变化率进行控制，增大值会从平滑区开始减少渲染线条。
-
-
-
-视图层属性面板中，Freestyle Line Set 包含了 Line Set 线条集，每个线条集设置的是线条检测参数，在 Selection By 展示的选择方式有五类。点击变成高亮的蓝色表示这一组选择条件得到的结果有效，这些生效的选择方式得到选择结果还要进行 Logical And 运算，最后汇总得到结果：
-
-- Visibility
-
-	通过可见性选择渲染，可见或不可见，或通过 QI Range 指定遮挡边缘的面数量在指定范围的边线，QI 为量化隐性 Quantitative Invisibility。
-
-- Edge Types 通过边线类型选择；
-
-- Face Marks
-
-	通过标记边线选择，选择 Inclusive 或 Exclusive 以包含或排除满足 One Face 或 Two Faces 条件的边线。One Face 表示匹配那些单个或两个相邻面作标记的边线，Both Faces 匹配那些相邻的双面都作标记的边线。
-
-	要标记面，在编辑模式中执行菜单 Face - Face Data - Mark Freestyle Face。
-
-	以一个 Cube 为例，将相邻的两个面标记，那么满足 One Face 的边就有七条，两个面 8 条边，减去其中公共边一条。满足 Two Faces 条件的就只有这条公共边，如果标记三个相邻面，那么，满足 Two Faces 条件的有三条了。
-
-- Collection 通过指定集合来选择，可以先包含或排除指定集合；
-- Image Border 通过图像边界选择；
-
-
-边条类型 Edge Types 中分为两类展示各种边线类型：
-
-- Silhouette 轮廓线
-
-	物体内部轮廓线由物体的各边线构成。
-
-- Border 网格边界
-
-	网格边界是物体分隔内外部空间的线条，是区分那些区域属于此对象的重要依据，国界就是 Border 这个词。比如，一个空心圆的面，边界线有两条，一条是圆周线，另一条是内部空心的圆周线。
-
-- Contour 外形轮廓
-
-	外形轮廓，相比 Silhouette 轮廓线，外形只关注物体在视角上投影的轮廓，不含物体的其它边线。
-
-- Ridge & Valle 脊线&沟线
-
-	脊线和沟线曾经是两种线，Concave & Convex，后来改进后是根据物体边线曲率 Curvature 的变化推断的同一种线条。
-
-- Suggestive Contour 外形暗示
-
-	外形暗示是非常有用，它是视角上形成的边线，比如看面前的台阶，注意和眼睛高度差不多的那一级就像是一条线，这就视觉暗示作用。
-
-- External Contour 重叠外形
-
-	物体有外形，当两个物体在某个视角处于重叠时，两者的外形也重叠，这个重叠的外形的轮廓就是重叠外形。
-
-- Crease 折痕
-
-	Crease 折痕，模型面相交的边线，两个面的夹角是检测中用到的重要参数。
-
-- Edge Mark 标记边线
-
-	用边线标记明显的物体外形，在模型编辑模式下，通过右键菜单标记选择的边 Mark Freestyle Line，再到 Freestyle Line Set 属性面板中设置需要渲染标记边线，Face Marks - Inclusive，还 /Both Faces，再渲染即可以看到标记线输出。
-
-- Material Boundaries 材质边界
-
-	材质边界线是物体上两种材质相交的位置形成的一条边界。
-
-
-
-## 👉 Freestyle Line Style 
-
-Line Set 设置的边线检测参数决定了场景中那些线条需要渲染，Line Style 的设置决定了线条会渲染成什么样子，什么颜色。
-
-渲染引擎属性面板 Freestyle 中又两个选项设置渲染线条的粗细：
-
-- Line Thickness Mode 模式设置
-	- Absolute 绝对模式
-	- Relative 相对模式
-- Line Thickness 线条粗细，指定绝对像素大小。
-
-在相对模式下，线条会进行缩放，480P 垂直分辨率时为 1x，720P 垂直分辨率就为 1.5x，960P 垂直分辨率就为 2x。
-
-
-材质属性面板种提供两个选项设置，Properties ‣ Material ‣ Freestyle Line：
-
-- Line Color 为材质指定线条颜色；
-- Priority 指定在材质边界 Material Boundaries 比较线条色彩时的优先级；
-
-
-视图层属性面板 Freestyle Line Style 提供了六类样属性设置：
-
-- Strokes 基本笔触设置，如连笔、断笔、前后排序、封线口等；
-- Color 设置线条底色和修改器；
-- Alpha 笔触透明控制；
-- Thickness 对笔触的粗细及位置等进行控制，笔触可以描在边线的中心、内则、外侧或相对位置；
-- Geometry 笔触几何修改；
-- Texture 设置笔触纹理；
-
-
-
-Color/Alpha/Thickness 三种属性基本共用了一套修改器，利用属性映射关系产生颜色变化、透明度变换、粗细变化效果：
-
-- Along Stroke 顺行修改器
-- Crease Angle 折痕角度
-- Curvature 3D 曲率 3D
-- Distance from Camera 到相机距离
-- Distance from Object 到对象距离
-- Material 材质修改器
-- Noise 噪波修改器
-- Tangent 正切修改器
-- Calligraphy 书法修改器 Thickness 专用
-
-
-以 Distance from Camera/Object 修改器为例，它们可以从物体到相机或物体位置的距离作为一个映射值，并设置到修改的对象上。
-
-添加 Distance from Camera 修改器，适当调整参数：
-
-- Range Min 物体到相机的最小距离，比如 10m；
-- Range Max 物体到相机最大的距离，比如 15m；
-
-或者选中对象后，直接按 Fill Range by Selection 按钮，它会自动检测对象远端和近端到相机的距离并自动填入。
-
-比如设置底色，这两个距离映射为色带上的颜色，物体对应距离的颜色就在色带对应位置上；又如设置 Alpha 透明通道，这两个值的范围就映射为 0 - 255 的 Alpha 值设置到物体相应距离的位置上。设置粗细度，这两个距离映射为对应的 Value Min/Max，距离远的就是 Value Max 指定的粗细，距离近的笔画就是 Value Min 中指定的粗细度，Value Min 指定的值可以大于 Value Max 的值。
-
-
-材质修改器这个很特别，可以将物体材质的各种属性数据映射到笔触上，根据材质的设置可以得到非常丰富的效果。
-设置了笔触选项 Split by Material，在各材质间就不会有模糊效果。
-
-
-几何体修改使用的是另一套修改器；
-
-- 2D Offset 二维偏移
-- 3D Transform 三维变换
-- Backbone Stretcher 骨架伸展
-- Guiding Lines 引导线
-- Perlin Noise 1D 一维柏林噪波
-- Perlin Noise 2D 二维柏林噪波
-- Polygonization 多边化
-- Sampling 采样修改器
-- Simplification 简化修改器
-- Sinus Displacement 凹槽置换修改器
-- Spatial Noise 立体噪波
-- Tip Remover 拔梢器 
-
-
 
 
 ## 👉 Blender Python API
@@ -12146,7 +12824,8 @@ Blender 中的每个对象可以具有不同的 ID。您可以在“对象属性
 
 
 ### ⚡ 花朵制作
-- Grease Pencil 初学者教程 https://www.bilibili.com/video/BV1Tp4y1h7Ya/
+1. Grease Pencil 初学者教程 https://www.bilibili.com/video/BV1Tp4y1h7Ya/
+2. 几何节点 花开动画 https://www.bilibili.com/video/BV1cP411Z7L2/
 
 添加一个 plane，进入 edit mode，使用 k 或 Ctrl-R 分割成两个格子，适当调整近似纺锤形。
 

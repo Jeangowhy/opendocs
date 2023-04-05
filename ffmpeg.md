@@ -529,9 +529,12 @@ SRT字幕通常以srt作为后缀，作为外挂字幕，多数主流播放器�
 这些 HTML 可嵌套。当然某些播放器还对 SRT 做了扩展，可以支持 ASS/SSA 中部分格式化代码。
 
 
-内嵌字幕
+内嵌字幕，可以指定字体和大小。
 
     ffmpeg -i input.mp4 -vf subtitles=subtitle.srt output.mp4
+
+    ffmpeg -i input.mp4 -vf subtitles=subtitle.srt:force_style='FontName=DejaVu Serif,FontSize=24' -vcodec libx264 -acodec copy -q:v 0 -q:a 0 output.mp4 
+
 
 如果原视频有字幕流，ffmpeg 可能会自动选择原视频中的字幕流，而自定义的字幕文件根本没有被加载。
 

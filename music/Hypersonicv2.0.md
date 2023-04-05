@@ -3,22 +3,60 @@ Steinberg Hypersonic(斯坦伯格波表音源) v2.0
 软件大小: 1.5 GB
 更新时间: 2017-01-14
 软件语言: 简体中文
-软件厂商: Home Page
+软件厂商: Steinberg
 
 ## 软件介绍
+文杰 Hypersonic2 混音教程 https://www.bilibili.com/video/BV19W411z7xa
 
-Steinberg Hypersonic又称斯坦伯格波表音源，这是由wizoo公司推出的一款音源软件，软件内置了丰富的音色供使用者选择，包含了1000个预置音色，100个组合音色，70套鼓组，2560个用户自定义音色，同时还拥有5种合成引擎供使用者选择，小编提供的这个是汉化版本，可以完美兼容64位操作系统，是您进行音频剪辑、处理的好帮手。
+Steinberg Hypersonic 又称斯坦伯格波表音源，这是由 Wizoo 公司推出的一款音源软件，
+软件内置了丰富的音色供使用者选择，包含了 1000 个预置音色，100 个组合音色，70 套鼓组，
+2560 个用户自定义音色，同时还拥有 5 种合成引擎供使用者选择，可以完美兼容 64 位操作系统。
+
+Hypersonic 只能使用 16 个乐器轨道，每人轨道可以 Link 到前一个轨道，以使用相同的 MIDI 轨道。
+在插件的 MIDI 面板中，可以给每个通道设置触发条件，包含：
+
+1. Key Range 键盘触发范围。
+2. Vel Range 力度触发范围。
+3. Semi 和 Cent 为音高调整，分别按半音、微分音调整，Transposing and tuning。
+4. Voices 参数限制某个部分的复音数量，更少的复音高系统性能更好。
+5. 最后一个是参数锁，Parameter lock 防止参数被重置。
+
+
+在插件界面中 Setup - MIDI Settings - GM On 可以自动映射 MIDI 波表音色到 MIDI 轨道。
+MIDI 控制器的 Program Change 参数用于控制音色的选择，Pgm Change On 表示自动映射。
+在轨道右键菜单，Save Combi 和 Save Patch 分别保存轨道音色配置，以及乐器参数配置。
+数据保存在 Load - User Combi 或 User Patches 分类中。在 Combi 面板可以加载预置的
+工厂乐器配置，Factory Chain.h2c，也可以使用右键设置自己的乐器配置，并保存到配置文件。
+使用 16 号轨道可以用来选择配置，在选择音色配置时会在面板中提示其对应的 Bank 和 Prog 序号：
+
+1. Preset combi bank: 120
+2. User combi banks: 121-128
+
+Bank 即指代一组乐器配置，或者一套音色配置。
+
+全局效果器在 FX 面板中设置，分为 Global FX 和 Patch FX 两种共享 8 个。
+Edit 面板中可以插入多个效果器，每个空方块都可以放置一个效果器，点击现有的效果器方格，在弹出
+菜单中选择要添加的效果器类型。点击 FX 效果器方块图标，可以设置全局效果器 FX1 - FX4 的百分比。
+
+Setup - Audio Settings 中默认激活了 4 个音频输出通道，总共可以使用 16 个音频输出通道，
+修改通道激活状态需要重新加载插件。在 Mix 面板中，可以设置每个乐器通道所使用的音频输出通道。
+Cubase 中默认就可以使用多通道音源功能。FL Studio 中需要额外设置，在插件界面左上角的箭头
+下拉菜单中设置：Enable multiple outputs。新版本则默认为 Tracks 指定及后续 3 个通道，
+也可以点击齿轮图标打开插件设置界面，选择 Processing 栏目，可以看到 Auto map outputs
+中罗列了 Multi-Output VSTi 的多轨输出映射。
+
 
 ## Hypersonic 2 特色
-1、带有1.7GB的音色
-2、1800个预置音色
+
+1、带有 1.7GB 的音色
+2、1800 个预置音色
 3、占用更小的资源
-4、1024复音的无损回放系统
+4、1024 复音的无损回放系统
 5、增强对声音的编辑能力
 6、调音台提供对声像、输出通道、效果发送等完整的控制能力
-7、增加Hyperphrase，这是一个复音琶音器，可读取MIDI
-8、增加现场演奏模式，可在演奏的同时通过调制轮或按钮发出的MIDI信息发送音色改变信息，来读取其它音色，这意味着演奏者不必使用鼠标或显示器，就可随时切换音色
-9、支持ReWire，可独立运行
+7、增加 Hyperphrase，这是一个复音琶音器，可读取 MIDI
+8、增加现场演奏模式，可在演奏的同时通过调制轮或按钮发出的 MIDI 信息发送音色改变信息，来读取其它音色，这意味着演奏者不必使用鼠标或显示器，就可随时切换音色
+9、支持 ReWire，可独立运行
 
 ## 更新说明
 Wizoo 再次发布新的 Hypersonic 声音模块：
@@ -95,7 +133,7 @@ Wizoo 再次发布新的 Hypersonic 声音模块：
 51、GM Drums GM鼓组
 52、Combis 音色组
 
-## GM音色表
+## GM 音色表
 
 钢琴
 
@@ -132,9 +170,7 @@ Wizoo 再次发布新的 Hypersonic 声音模块：
 
 吉他
 
-24 Acoustic Guitar (nylon)
-
-尼龙弦吉他
+24 Acoustic Guitar (nylon) 尼龙弦吉他
 
 25 Acoustic Guitar (steel) 钢弦吉他
 26 Electric Guitar (jazz) 爵士电吉他

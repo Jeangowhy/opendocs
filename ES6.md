@@ -4826,13 +4826,14 @@ Chrome 51 开始，浏览器的 Cookie 新增加了一个 SameSite 属性，用�
 
 Cookie 的 SameSite 属性用来限制第三方 Cookie，从而减少安全风险。
 
-Strict 这个规则过于严格，可能造成非常不好的用户体验。比如，当前网页有一个 GitHub 链接，用户点击跳转就不会带有 GitHub 的 Cookie，跳转过去总是未登陆状态。
-
 它可以设置三个值。
 
 - Strict
 - Lax
 - None
+
+Strict 这个规则过于严格，可能造成非常不好的用户体验。比如，当前网页有一个 GitHub 链接，
+用户点击跳转就不会带有 GitHub 的 Cookie，跳转过去总是未登陆状态。
 
 SameSite="Lax" 和 SameSite="Strict" 有什么区别？
 
@@ -4848,8 +4849,12 @@ Lax 允许在某些跨站点请求中发送 cookie，而 Strict 从不允许在�
 
 例如：
 
-假设用户在 a.com 单击链接进入 b.com。这是一个跨站点的请求，这是顶级导航，是 GET 请求，因此 Lax cookie 被发送到 b.com。但是，严格的 cookie 不会发送，因为它毕竟是跨站点请求。
+假设用户在 a.com 单击链接进入 b.com。这是一个跨站点的请求，这是顶级导航，是 GET 请求，
+因此 Lax cookie 被发送到 b.com。但是，严格的 cookie 不会发送，因为它毕竟是跨站点请求。
 
-用户位于 a.com 存在一个 iframe 加载了 b .com。这是跨网站的请求，但不是顶级导航。用户仍在 a.com 上，即，在加载 iframe 时，网址栏不会更改。因此，Lax 和 Strict cookie 都不会发送到 b.com。
+用户位于 a.com 存在一个 iframe 加载了 b .com。这是跨网站的请求，但不是顶级导航。
+用户仍在 a.com 上，即，在加载 iframe 时，网址栏不会更改。
+因此，Lax 和 Strict cookie 都不会发送到 b.com。
 
-用户位于 a.com 上，该站点将表单过帐到 b.com。这是跨站点请求，但是方法 POST 不安全。它不符合 Lax Cookie 跨站点访问的条件，因此 Lax 和 Strict Cookie 均不会发送到 b.com
+用户位于 a.com 上，该站点将表单过帐到 b.com。这是跨站点请求，但是方法 POST 不安全。它不符合
+Lax Cookie 跨站点访问的条件，因此 Lax 和 Strict Cookie 均不会发送到 b.com

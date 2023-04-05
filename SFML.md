@@ -11,6 +11,7 @@
 - NVIDIA SDK 9.52 Code Samples https://developer.download.nvidia.cn/SDK/9.5/Samples/samples.html
 - NVIDIA OpenGL Driver Support https://developer.nvidia.com/opengl-driver
 - Google Angle - OpenGL ES implementation https://github.com/google/angle
+- https://github.com/jimboyeah/spine-sfml-demo
 
 SDL 和 SFML 作为轻量级图形框架，常用用于 GUI 程序及游戏开发，就开发者活跃度来看，基于 C++ 的 SFML 占优势，像 Spine 动画制作软件都提供提供了运行时支持，大大方便了游戏制作流程。这些框架做了不同系统平台的图形接口的适配工作，使用者就不再需要基于操作系统底层 API 来开发图形应用程序，开发者就可以不深入 Windows 系统下的 DirectX，Linux 系统下的 X Window System，Mac OS 使用通用的 OpenGL 图形接口的细节。
 
