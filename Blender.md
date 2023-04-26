@@ -150,22 +150,28 @@ Table of contents :
 	1 What You Need to Know About Blender
 	2 Blender Basics: The User Interface
 	3 Your First Scene in Blender
+
 	Part II Beginning a Project
 	4 Project Overview
 	5 Character Design
+
 	Part III Modeling in Blender
 	6 Blender Modeling Tools
 	7 Character Modeling
+
 	Part IV Unwrapping, Painting, and Shading
 	8 Unwrapping and UVs in Blender
 	9 Painting Textures
 	10 Materials and Shaders
+
 	Part V Bringing Your Character to Life
 	11 Character Rigging
 	12 Animating Your Character
+
 	Part VI Getting the Final Result
 	13 Camera Tracking in Blender
 	14 Lighting, Compositing, and Rendering
+
 	Part VII Keep Learning
 	15 Other Blender Features
 	Index
@@ -984,6 +990,62 @@ Menu Search 中搜索到的菜单命令可以添加到喜好列表中，通过�
 就可以按下 Q 键打开快捷菜单，比起通过菜单定位的方式更快捷。
 
 
+## 👉 Annotations 标注线
+- https://docs.blender.org/manual/en/latest/interface/annotate_tool.html
+
+Annotation 工具用于多种编辑器视图中画标注线，这些标注线不会被渲染，只是一种提示功能，比如，
+蜡笔绘画中给 Character turnaround sheet 标注比例线，方便确定人物比例的准度。
+
+按住 Toolbar 标注线工具，会弹出多个子工具，即不同的标注线绘画方式：
+
+01. **Annotate** - Draw free-hand strokes in the main area.
+02. **Annotate Line** - Click and drag to create a line. 
+	Optionally, you can select the arrow style for the start and end of the line.
+03. **Annotate Polygon** - Click multiple times to create multiple connected lines,
+	then press [RMB], [Return] or [Esc] to confirm.
+04. **Annotate Eraser** - Click and drag to remove lines. 
+	The eraser has a Radius setting found in Tool Settings.
+
+使用 Annotate 自由画线工具也能画直接，先点击 [LMB] 再按 [Ctrl] 即临时切换为单方向画线模式，
+如果先再按 [Ctrl] 点击 [LMB] 则是切换为擦除绘制模式。
+
+在不同的编辑器视图下，根据标注对象的不同，标注线可以按不同的方式放置，**Placement** 设置为
+**Surface**方式，绘画的线条就会贴近几何曲面上，如果没有在几何体表面上画线，就按**3D Cursor**
+方式放置线条。
+
+Blender 中可以有多标注线对象，它们使用图层的方式来记录线条数据，在侧栏面板**Annotation Layer**
+中可以切换所使用的标注线对象，以及要使用的图层，这些图层可以在多个视图中共享，但是所画线条只在原先
+绘画时的视图中才会显示。
+
+除了使用擦除工具删除标注线，也可以使用直接删除关键帧来清除所有标注线，在标注图层面板中进行操作。
+
+标注线图层面板还可以设置标注线的精细和透明度，以及洋葱皮功能，Sidebar ‣ View ‣ Annotations：
+
+- **Opacity** - Adjusts the opacity of existing and new strokes.
+- **Thickness** - Adjusts the thickness of existing and new strokes.
+- **Onion Skin** Shows a ghosted image of strokes made in frames before and after the current frame. Onion skinning only works in the 3D Viewport and Sequencer.
+	- Before/After - Color to use before and after the current frame on ghost frames.
+	The number defines how many frames to show before and after the current frame.
+
+使用稳定器，Stabilize Stroke 可以让线条更平滑，平滑半径和系数越大，线条越平滑。
+
+侧栏面板提供了标注线工具的设置 Tool Settings：
+
+01. **Color** - Adjust the color of existing and new strokes.
+02. **Annotation Layer** - A pop-over menu, showing the name of the current layer, to access the Annotation Layers.
+03. **Placement** - Determines where the annotations are drawn.
+	- **3D Cursor** : Draw on an imaginary plane that goes through the 3D Cursor and is aligned to your view.
+	- **Surface** : Draw onto the surface of the object under the mouse in 3D Viewport. If there is no surface, you get the same behavior as 3D Cursor.
+	- **Image** : Only available in 2D editors such as the Image Editor. The annotations become part of the 2D space, meaning their position and size change as you pan and zoom in the editor.
+	- **View** : The new annotations are 2D and get stuck to the screen. They keep the same position, rotation and size no matter how you pan, orbit or zoom in the editor.
+01. **Stabilize Stroke** - Helps to reduce jitter of the strokes while drawing by delaying and correcting the location of points.
+02. **Radius** - Minimum distance from the last point before the stroke continues.
+03. **Factor** - A smooth factor, where higher values result in smoother strokes but the drawing sensation feels like as if you were pulling the stroke.
+
+
+
+
+
 ## 👉 User Library 用户资产管理
 - https://docs.blender.org/manual/en/latest/files/index.html
 - https://code.blender.org/2020/03/asset-manager/
@@ -1172,11 +1234,82 @@ Mesh 对象、 Nurbs 曲面、 Grase Pencil 蜡笔对象，标题栏提供有对
 
 
 ## 👉 Camera View 相机视图
+Object Modes https://docs.blender.org/manual/en/latest/editors/3dview/modes.html
+
+3D View 默认的工作模式，Object Mode，其实图菜单提供了摄像机导航工具，Navigation Gizmo
+是最基本的导航工具，提供通用的基础视角控制功能：
+
+1.   Zoom the 3D Viewport
+2.    Pan the 3D Viewport
+3. Toggle the Camera View
+4. Toggle the Projection
+5. Viewpoint Switcher
+
+另外，还提供了 Fly/Walk Navigation 两种运动导航，可以控制飞行速度和方向，视图锁定时不能使用。
+以下是常用的视角切换功能：
+
+01. Zoom Region (Shift B) 区域放大
+02. Dolly View (Shift Ctrl Alt LMB) 推拉视图。
+03. Frame All 切换到全景视角，可以看到所有对象。
+04. Frame Selected 视角聚焦到选中的对象，等价于 View Selected。
+05. Toggle Local View (Numpad /) 切换到对象局部视图，临时隐藏无关对象。
+06. Remove from Local View (Alt Numpad /) 将对象临时从局部视图中移除。
+07. Frame Camera Bounds (Home) 将视图缩放到相机边框大小。
+08. Toggle Quad View (Ctrl-Alt-Q) 显示四分法上下文视图。
+
+除了场景中的 Camera 对象，场景中还有一个隐藏的相机，只要没有激活当前相机视图，就是使用隐藏的相机。
+这也是最常使用的视图，Gizmo 就是操作这个隐藏相机的工具，鼠标也可以操作这个隐藏的相机镜头和位置：
+
+01. MMB 拖动改变相机朝向。
+02. Alt-MMB 点击，移动相机剧中显示点击位置。
+03. Alt-MMB 拖动，切换到正视图，Top、Bottom、Left、Front 等等。
+04. Ctrl-MMB 推拉相机镜头，不移动相机，使用滚轮也可以操作。
+05. Ctrl-Shift-MMB 推拉视图，前移、后移相机位置，Dolly View (Shift Ctrl Alt LMB)。
+06. Shift-MMB 平移相机。
+
+视角对齐 View ‣ Align View 用于移动摄像机的视角：
+
+01. Align View to Active 将场景的活动相机视角对齐到当前活动对象。
+02. Align Active Camera to View (**Ctrl-Alt-Numpad0**) 将活动相机的视角与当前视图角度贴合。
+03. Align Active Camera to Selected 将活动相机对齐到当前选中的对象，保留朝向角度。
+04. Center Cursor and Frame All (**Shift-C**) 切换到全景视角，并将 3D 光标居中。
+05. Center View to Cursor 将视图剧中到 3D 光标位置。
+06. View Lock to Active 将视图锁定到活动对象，视图旋转总是心目标对象为中心。
+
+视图区域裁剪 View Regions 用来定义裁剪显示区域，或者渲染时要出图的区域：
+
+1. Clipping Region (Mark and Clear: Alt-B)
+2. Render Region (Mark: Ctrl-B Clear: Ctrl-Alt-B)
+
+Clipping Region 定义的剪裁区域，将三维视口显示限制为三维空间的一部分，以处理复杂的模型和场景。
+激活工具后，用鼠标绘制一个矩形，它变成了一个由四个平面组成的剪裁体积：
+
+1. 如果视图是正交的，则为直角平行六面体（无限长）。
+2. 如果您的视图是透视的，则为基于矩形的金字塔（高度无限）。
+
+在线框或实体着色模式下使用剪裁，将只能看到您定义的体积内部的内容。绘制、雕刻、选择、变换捕捉等
+工具也会忽略剪裁边界之外的几何体。
+
+
 
 相机视图可用于虚拟合成镜头并预览渲染时场景的外观，渲染图像将包含虚线内的所有内容。执行在渲染时，活动
 相机的视口会被渲染输出。当前活动相机所在的对象，可以通过场景属性面板的摄像机属性指定，或通过大纲视图层
 列表 Outliner - View Layer 中的摄像机指定，只需要将摄像机对象的层级展开，单击里层的 Camear 
 对象激活即可。通过选择菜单获取 Select - Select Active Camera 选中当前摄像机对象。
+
+使用反引号按键打开 View 环形菜单可以快速切换视角，View Camera 即切换到场景的活动相机视角。
+又或者使用 View Selected 切换视角到当前选中对象。
+
+场景存在多个相机时，可以在场景树列表中，点击相机对象条目的摄像机图标以激活它作为活动相机。
+每个相机对象都有一个相机数据，它决定的相机视角看到的是什么内容，相机对象的数据属性面板可以随时
+改变相机使用的数据对象。View ‣ Cameras ‣ Set Active Object as Camera (Ctrl-Numpad0)
+菜单也可以设置相机数据对象。
+
+设置摄像机属性：Object Data -> Background Images，可以指定摄像机视角下呈现的背景图，
+可以是图形或者视频。使用视频，Depth 属性指定背景的显示方式，或在所有对象背后，或前面显示。 
+
+配合好 Compositing 进行后期处理，将背景图与 2D 绘画内容融合。
+
 
 利用相机不同位置和角度的变化获得不同的画面，是动画制作的常用手段。注意，每个场景只能设置一个活动相机。
 如果要使用多个相机，就需要配合多个场景，或者在场景属性面板中设置活动相机以渲染需要的相机画面。
@@ -1425,7 +1558,61 @@ Cycles 和 Eevee 渲染器配置中，勾选胶片的胶片透明 Film - Transpa
 
 
 
-## 👉 3D View 视图快捷键
+## 👉 3D View 三维视图
+https://docs.blender.org/manual/en/latest/editors/3dview/modes.html
+
+Blender 3D 视图有 9 种工作模式，可以在工作模式列表中切换，或者使用 Ctrl-Tab 打开模式切换菜单：
+
+01. **Object Mode**
+	The default mode, available for all object types. 
+	Allows editing position, rotation and scale, duplicating objects, and so on.
+
+01. **Edit Mode**
+	A mode for editing an object’s shape (vertices/edges/faces for meshes, 
+	control points for curves/surfaces, points/strokes for Grease Pencil, etc.).
+
+01. **Sculpt Mode**
+	Provides an alternative toolset for editing an object’s shape (only for meshes).
+
+01. **Vertex Paint Mode**
+	A mesh-only mode that allows you to set your mesh’s vertex colors 
+	(i.e. to “paint” them).
+
+01. **Weight Paint Mode**
+	A mesh-only mode, dedicated to vertex group weighting.
+
+01. **Texture Paint Mode**
+	A mesh-only mode that allows you to paint a texture directly on the model, 
+	in the 3D Viewport.
+
+01. **Particle Edit Mode**
+	A mesh-only mode dedicated to particle systems, useful for editable systems (hair).
+
+01. **Pose Mode**
+	An armature-only mode, dedicated to posing.
+
+01. **Draw Mode**
+	A Grease Pencil-only mode, dedicated to creating Grease Pencil strokes.
+
+每种工作模式下，在大纲视图（Outliner）中，对象列表最左侧也会显示相应的图标，但是在对象模式下
+不显示图标，其它工作模式都有不同的图标表示，其它拥有相同工作模式的对象会使用圆点表示。
+
+3D View 提供了两种方便的操作：
+
+1. Switching Objects
+2. Multi-Object Editing
+
+对象模式是默认的 3D View 工作模式，使用 Tab 可以切换到编辑模式。要保持当前工作模式并切换对象，
+可以使用 Alt-Q 快捷键，配合鼠标悬停在目标对象上。
+
+多对象编辑有两种使用方式：
+
+1. 在对象模式下，按住 Shift 点击以选择多个要编辑的对象，然后进行编辑模式。
+2. 在编辑模式下，按住 Ctrl 点击场景树（Outliner）中对象左侧的圆点，将对象添加到编辑模式。
+
+
+使用 Edit - Lock Object Modes 可以锁定对象的工作模式，避免在意外点击其它对象时被切换。
+
 
 - ~ 	AccentGrave	重音、波浪号、反引号按键，按住弹出视图导航 pie 菜单，按下松开旋转镜头。
 - Ctrl-AccentGrave	切换显示操纵器。
@@ -2794,7 +2981,7 @@ Projecting High-Res Models by Shrinkwrap https://www.bilibili.com/video/BV1P44y1
 - NURBS - Non uniform rational B-spline 非均匀有理样条是精确连续的，贝塞尔曲线是近似的。
 - Nurbs Path 曲面路径，也是贝塞尔曲线，只是功能上有差异。
 
-曲面路径对象属性面板 Geometry -> Bevel 可以指定一条放样贝塞尔曲线进行造型，Bevel -> Depth
+曲面路径对象数据属性 Geometry -> Bevel 可以指定一条放样贝塞尔曲线进行造型，Bevel -> Depth
 设置一定的倒角厚度得到实体。在 Blender 2.93 版本改进了这一工具，直接在属性面板中指定 Profile
 截面曲线，而不必另外添加贝塞尔曲线。路径上的控制点，可以设置半径来控制放榜对象的截面大小，在侧栏
 工具中操作：Sidebar -> Item Transofrm -> Radius，快捷键 Alt-S 缩放半径。
@@ -3093,20 +3280,44 @@ Quick Tool Shortcuts
 - Z	:	Relax
 
 
-## 👉 UV Unwrapping 贴图展开
-参考文档制作模型 » 网格 » 编辑 » UV，编辑模式 UV 菜单快捷键 U。
+## 👉 UV Unwrapping 贴图坐标展开
+https://docs.blender.org/manual/en/latest/modeling/meshes/editing/uv.html
 
-Blender 可以为一个面关联一个独立的图像，UV 坐标定义图像如何映射到面，然后图像可以用于渲染或实时
-显示。通过展开模型来确定贴图到模型的映射关系，如果不进行展开，那么贴图就是随机映射到模型的。当然了，
-如果模型的拓扑结构不会发生改变，那么也不需要展开模型。
+参考文档：制作模型 » 网格 » 编辑 » UV，编辑模式 UV 菜单快捷键 U。
 
-在 3D 视图中，编辑模式选择面后，才能指定图像或修改活动网格物体对应的 UV 坐标，这样一个面可以有多张
-UV 贴图。
+贴图的英语 Mapping 其实包含了另一层含义就是映射，其功能就是把二维的纹理图片通过 UV 坐标映射到 
+3D 物体表面。贴图坐标指定如何在几何体上放置贴图、调整贴图方向以及进行缩放。贴图坐标以 U、V 和 W 指定，
+其中 U 是水平维度，V 是垂直维度，W 是可选的第三维度，它指示深度。
+
+贴图可以说是最简单的材质方法，给选定物体表面的某些区域赋予一张二维图片就可以很好地通过算法模拟出
+真实世界的物理属性，如颜色、粗糙度、反光度、透明度等。而最简单的贴图是位图文件，其他有 2D/3D 贴图，
+按程序生成。
+
+最简单的模型就是由四个顶点构成的 Plane，四个顶点可以很好地映射到纹理图像的像素上，它们都是二维的。
+面片关联一个独立的纹理图像，UV 坐标定义图像如何映射到面，然后图像可以用于渲染或实时显示。
+
+实际中，不可能只进行一个面的映射处理，稍为复杂一点的就是包含六个面的 Cube，它的展开也相对简单。
+每个面可以映射到一整张纹理图像，也可以将六个面平铺开来，作为一个整体映射到纹理图像上。通过展开模型
+来确定贴图到模型的映射关系，如果不进行展开，那么贴图的映就可能是混乱贴到模型的曲面上。
+
+更复杂的模型可能还需要手动进行 UV 布局调整，以正确映射纹理贴图。设置好 UV 映射关系后，后续只要
+模型的拓扑结构不会发生改变，那么也不需要再展开模型。可以在模型边线上标记出缝合线 (Seams)，以提示
+Blender 展开模型时，按这些缝合线剪开模式。
+
+在编辑模式下，选择面片后，才能指定图像或修改活动网格物体对应的 UV 坐标。选择面片后，UV 编辑器中
+会显示相应的控制点，通过调整 UV 坐标点使相应的面片映射到指定的纹理区域，这个过程就是 UV 布局调整。
+3D 视图下，可以使用 H 或 Alt-H 快捷键临时隐藏面片，以避免在 UV 编辑器中误操作。
+
+Constrain to Image Bounds 菜单可以用来约束 UV 坐标点，避免将它们移出纹理图像边缘。
+尽管，将 UV 坐标点移出图像边缘也是经常有的，它们可以折回到纹理的开始位置。可以相像将纹理
+图像平铺在 UV 编辑器中，UV 坐标点在什么位置就表示面片映射到什么内容。
+
+UV 坐标数据保存在对象数据属性面板的 UV Maps，每个对象可以创建多个 UV Maps，默认名为 UVMap。
 
 Blender 提供了几种 UV 映射方式。比较简单的投影方法使用三维空间到二维空间的映射公式，将点的位置朝
 点/轴面确定的表面插值。更高级的方法可以用于更加复杂的模型，并有更具体的用途。
 
-参考模型编辑模式的 UV 菜单：
+模型编辑模式的 UV 菜单参考：
 
 - Unwrap
 
@@ -3116,19 +3327,23 @@ Blender 提供了几种 UV 映射方式。比较简单的投影方法使用三�
 
 - Smart UV Project 
 
-	智能 UV 投射，以前叫做 Archimapper，基于角度阈值，网格中角度变化，提供了对自动缝合线的精细
-	控制。该功能会检测物体的形状，选中面以及其与其他面的关系，根据这些信息和用户设置的参数创建 UV
+	智能 UV 投射，以前叫做 Archimapper，基于角度阈值裁剪模型，提供了对自动缝合线的精细控制。
+	该功能会检测物体的形状，选中面以及其与其他面的关系，根据这些信息和用户设置的参数创建 UV
 	映射。对于更加复杂的机械物体，该工具可以非常快速而且简单地创建一个有逻辑和直接的 UV 布局。
+
+	- Angle Limit 此参数控制面片如何分组，值越大得到的分组越多，细节越多。
+	- Island Margin 控制 UV 孤岛的边距，1 表示整个 UV 空间。
+	- Area Weight 面积权重，按面积较大的面加权投影的矢量。
 
 - Lightmap Pack 
 
-	光照贴图拼排，分离网格的面或选中面，并将其拼排至 UV 边界范围内。主要用在游戏环境下，光照信息都
-	烘焙在 UV 贴图中，可以尽可能多的利用 UV 空间，它还可以一次用于多个网格。
+	光照贴图拼排，分离网格的面或选中面，并将其拼排至 UV 边界范围内，每个面都是一个 UV 孤岛。
+	光照信息都烘焙在 UV 贴图中，可以尽可能多的利用 UV 空间，它还可以一次用于多个网格。
 
 - Follow Active Quads 
 
-	沿活动四边面展开，此工具沿选中的四边面对连续的面循环展开，即使网格面是非常规形状的。要注意的是，
-	展开时不会考虑图像尺寸，所以可能需要稍微缩放一点，以匹配图像区域。
+	沿活动四边面展开，此工具沿选中的四边面对连续的面循环展开，即使网格面是非常规形状的。
+	要注意的是，展开时不会考虑图像尺寸，所以可能需要稍微缩放一点，以匹配图像区域。
 
 	Edge Length Mode 边长度模式：
 
@@ -3137,42 +3352,41 @@ Blender 提供了几种 UV 映射方式。比较简单的投影方法使用三�
 	- Length Average 对每个循环边上的边长度取平均值。
 
 
-需要注意的是，这里匹配的是活动四边面在 UV 空间中的形状，而非三维空间中的形状。要获得整齐的 90 度
-展开，在使用 沿活动四边面展开 前，要确保活动四边面在UV空间中是矩形。
+需要注意的是，这里匹配的是活动四边面在 UV 空间中的形状，而非三维空间中的形状。
+要获得整齐的 90 度展开，在使用 沿活动四边面展开 前，要确保活动四边面在 UV 空间中是矩形。
 
 
 - Cube Projection
 
-	将网格当立方体展开，投影至 6 个分离的平面，创建 6 个 UV 孤岛。
+	将网格当立方体展开，6 个平面投影至一个 UV 孤岛。所谓 UV 孤岛就是那些相连顶点构成的坐标集合。
 
 - Cylinder/Sphere Projection 
 
 	柱面和球面投射，就是制图人员绘制世界地图的方法。
 
 - Project from View 
-
-	按视图投影，按照 3D 视图的当前视角显示的网格形状及大小投射到 UV 贴图上。
-
 - Project from View (Bounds) 
 
-	视图投影，并且约束 UV 坐标边界与贴图边界对齐；
+	按视图投影，按照 3D 视图的当前视角显示的网格形状及大小投射到 UV 贴图上。
+	当前角度看到的网格贴图就和纹理图像一样。	后者会约束 UV 坐标边界与贴图边界对齐。
 
 - Reset 
 
-	重置 UV，将每个面映射为填充整个 UV 栅格，赋予每个面同样的映射。
+	重置 UV，将每个面片映射为到 UV 栅格，即面片与纹理图形 1:1 映射，每个面同样映射。
 
-贴图的英语 Mapping 其实包含了另一层含义就是映射，其功能就是把二维的纹理图片通过 UV 坐标映射到 3D
-物体表面。贴图坐标指定如何在几何体上放置贴图、调整贴图方向以及进行缩放。贴图坐标通常以 U、V 和 W 指定，
-其中 U 是水平维度，V 是垂直维度，W 是可选的第三维度，它指示深度。
 
-如果模型涉及纹理贴图，就须要考虑模型的 UV 处理问题了。因为这涉及贴图纹理如何通过 UV 坐标将贴到模型
-的对应部位的问题。
+这些展开操作只对当前选择的面片有效，不会修改没有选中的面片的 UV 坐标。这些模式化的展开工具
+相当于自动添加了缝合线。手动标记缝合线也可以，比如圆柱体，需要在上、下两个圆面的边缘，以及
+柱体上标记一条缝合线以分割柱体方便展平，最后执行 Unwrap 命令将圆柱体展平成三个 UV 孤岛。
+3D 视图的 Viewport Overlays 选项面板中可以打开缝合线的显示，用红色边线标记。
 
-模型的每个独立面对应 UV 的相应的面，尽管 UV 展开，就像把一个立体的物体，在一些地方适当地剪开，然后，
-平摊到平的桌面上一样。这个平坦的贴图是包含对应模型各个面的 UV 坐标的。
+如果柱体没有沿纵向标记缝合线，或者两个圆面没有标记缝合线，那么展平时就需要做柱体到平面的投射。
 
-一个面的 UV 纹理只需用到图像的部分，而不是整张图像。同样地，多个面可以共用图像的同一部分，映射后
-占用的图像会更少。
+模型的每个独立面对应 UV 的相应的面，尽管 UV 展开，就像把一个立体的物体，在一些地方适当地剪开，
+然后，平摊到平的桌面上一样。这个平坦的贴图是包含对应模型各个面的 UV 坐标的。
+
+一个面片通常只影射到纹理图像的一部分，坐标点不会占满 UV 编辑器中的空间。
+类似地，多个面可以共用图像的同一部分，坐标点就会重叠在一起。
 
 UV 展开的一般工作流程如下：
 
@@ -3201,6 +3415,8 @@ UV 展开的一般工作流程如下：
 
 
 ## 👉 UV Editor
+https://docs.blender.org/manual/en/latest/editors/uv/index.html
+https://docs.blender.org/manual/en/latest/modeling/meshes/uv/index.html
 
 通过模型的 UV 展开后，接下来就需要使用 UV Editor 来细调 UV 面布局，编辑调整布局要达到的效果是：
 
@@ -3214,7 +3430,7 @@ UV 展开的一般工作流程如下：
 连结点的部分会产生独立 UV 面片，可以使用 Ctrl-L 来选择连结面片，即所谓 UV 孤岛。
 
 UV 编辑器的选择模式有四种，顶点、 边、 面、 孤岛。在编辑器中，关闭同步选择 UV Sync Selection 就
-可以使用孤岛选择模式 Island Selection Mode， 按钮就在 UV 编辑器的左上角。
+可以使用孤岛选择模式 Island Selection Mode，按钮就在 UV 编辑器的左上角。
 
 通过排列 UV 孤岛，可以将多个模型共享同一张贴图，这样做的好处是节约硬件资源。因为每张图像文件都会被
 加载到内存里，不同的网格重复使用同一张图像，就可以节约内存。比如，可以绘制一个通用的脸部，然后用在
@@ -4722,31 +4938,75 @@ Blender 右键选择模式可以提高绘画模式的工作效率，设置用户
 
 ## 👉 Texture Paint 纹理绘制
 [Blender 实用案例训练 ep.4 绘制PBR贴图技巧冰效果](https://www.bilibili.com/read/cv4475939)
+- https://docs.blender.org/manual/en/3.4/sculpt_paint/brush/index.html
 - https://docs.blender.org/manual/en/3.4/sculpt_paint/texture_paint/index.html
 
 纹理绘制是一种很好模型纹理贴图的创建方法，这种方法的使用让平面绘画很好地应用到了 3D 场景中。
 
-UV 纹理是一张用于模型表面着色的图像(图片、图像序列或者影片)，它通过一张或者多张纹理 UV 贴图映射到
-模型上的。有三种方法来建立 UV 贴图：
+UV 纹理是一张用于模型表面着色的图像(图片、图像序列或者影片)，它将一张或者多张纹理贴图，通过
+UV 坐标映射到模型上的。有三种方法来建立 UV 贴图：
 
 - 在 UV 或图像编辑器当前选中的 UV 纹理上绘制平面图像，然后将图像中的颜色映射到模型网格表面。
 - 在 3D 视图中直接在网格模型上绘制，会按当前选中的 UV 贴图更新 UV 纹理。
 - 使用任意图像编辑软件来创建图像。
 
-纹理绘制是 Blender 内置的绘画模式，它是特别为了在 UV 及图像编辑器窗口或 3D 视图窗口简单快速绘制
-UV 纹理和图像而设计的。由于 UV 纹理仅是一张特殊用途的图像，你也可以用任何外部程序来创建，如 GIMP
+Blender 内置了纹理绘制模式，它是特别为了在 UV 及图像编辑器窗口或 3D 视图窗口简单快速绘制
+UV 纹理和图像而设计的。由于 UV 纹理仅是一张特殊用途的图像，可以用任何外部程序来创建，如 GIMP
 或 Krita。
 
-进入纹理绘制模式，可以通过各种画笔的设置，比如画笔的纹理及画笔纹理遮罩等等可以绘制真实漂亮的模型纹理。
+Blender 纹理绘制模式本身就和这些图像处理工具类似，只是笔刷配置相对简化了，配置相对复杂。
+另外，由于笔刷逻辑上也不同，比如 Mix 混合模式下，按下笔刷不停来回刷，画面并不会趋向指定的颜色。
+而是一个中间值，并且是一个计算好的中间值，要得到笔刷指定的色彩就要多次着笔，不能来回地刷。
 
-遮罩功能将图像映射到网格，并使用图像强度在绘制期间将网格的某些部分遮罩住。遮罩选项可以在 遮罩面板 找到。
+如果不适应这种绘画算法，可以勾选 Brush Settings - Advanced - Accumulate，启用积累
+方式后，笔刷的表现更像自然的绘画过程。
 
-笔刷控制
+纹理绘画的配置复杂，也就是说它的功能与一般图像处理工具不同，毕竟 Blender 需要将这处绘图工具
+与三维建模融合。比如，可以使用对称绘画：Brush Settings - Symmetry。
+
+进入纹理绘制模式之前，需要设置材质，并给几何体设置好纹理，以及 UV 映射关系。
+然后可以通过各种画笔的设置，比如画笔的纹理及画笔纹理遮罩等等可以绘制真实漂亮的模型纹理。
+
+绘画工具或者填充工具有两个色彩，默认使用主色绘画，按下 Ctrl 时使用次色绘画，或者按 X 交换。
+再配合快捷键 S 可以获取光标位置的色值。
+
+另外，笔刷可以设置两个不同功能的纹理贴图：
+
+01. Texture 笔刷纹理，绘画到图像上的纹理。
+02. Texture Mask 遮罩纹理，
+
+Blender 的纹理绘图中的笔刷纹理的默认映射方式就像复写纸，Stencil 方式需要在纹理所在位置上绘画。
+需要不断调整纹理位置、缩放、旋转等，好处是纹理可以放置在任意位置上。可以使用 View Plane 这种更
+贴合自然绘画的映射方式，根据视角与绘画平面的角度差，纹理绘画出来可能会变形，视角垂直绘画平面时
+就不会导致纹理变形。
+
+配合 Stroke Method 可以实现多种纹理绘画体验，一个复杂的笔触是曲线笔触，设置笔触为 Curve 方式 就要创建或关联一条曲线。按下 Ctrl-LMB 可以在绘图区设置曲线控制点，
+定义好曲线后再绘画，笔迹就会按曲线运动。
+
+笔触曲线编辑状态中，可以使用快捷键操作，尽管没有相应的菜单：
+
+- A 全选控制点，或取消选择；
+- S 绽放曲线；
+- G 移动曲线；
+- X 删除选中控制点；
+- Shift-RMB 扩展选择控制点；
+- Shift-LMB 拖动曲线变换电确保控制点的控制杆对称。
+- Return 确认和执行曲线描边，或使用绘制曲线按钮。
+- Shift-S 激活平滑特性，Stabilized Stoke，画笔滞后于鼠标，并遵循更平滑的路径。
+
+
+笔刷控制快捷键：
 
 - 设置笔刷大小 F
 - 设置笔刷强度 Shift-F
 - 旋转笔刷纹理 Ctrl-F
-- S 或 Ctrl 分别用于当前光标位置色值获取，和临时使用候选色 Secondary Color。
+- E Stroke Method 描边方式/笔触选择。
+- S 临时激活取色工具，获取当前光标位置色值。
+- Ctrl 临时使用候选色 Secondary Color。
+- 旋转笔刷纹理 Ctrl-F，交互式旋转，你也可以输入数值更改旋转角度。
+- 旋转笔刷纹理 Ctrl-RMB
+- 缩放笔刷纹理 Shift-RMB
+- 移动笔刷纹理 RMB
 
 
 纹理图像还可以使用图片编辑器进行绘画修改，Image Editor 绘画模式提供的工具不多：
@@ -4764,7 +5024,7 @@ UV 纹理和图像而设计的。由于 UV 纹理仅是一张特殊用途的图�
 	在三维投射绘制中，可使用 Ctrl-LMB 定位克隆游标。在二维绘制中，可以 RMB 拖动来移动克隆。
 
 - Fill 用于使用笔刷颜色填充图像的大片区域。
-- Mask 遮罩功能定义某些区域 0 表示没有遮蔽可以修改，1 表示完全遮蔽避免修改。
+- Mask 遮罩工具，绘制灰度值图像，像素值表示权重，0 表示没有遮蔽可以修改，1 表示完全遮蔽避免修改。
 
 
 纹理绘制之前的准备工作，需要 Unwrap UV 映射，需要给物体材质设置 Color 属性对就的 Image Texture，
@@ -4775,8 +5035,21 @@ UV 纹理和图像而设计的。由于 UV 纹理仅是一张特殊用途的图�
 
 如果没有关联图像，根据使用到的不同功能，会提示相应：
 
-- Missing Textures, detected!
-- Missing Stencil, detected!
+- Missing Textures, detected! 纹理贴图没有设置。
+- Missing Stencil, detected! 遮罩纹理图像设有设置。
+
+遮罩工具需要在 mask texture 上绘制出权重灰度图，通过侧栏 Masking 面板中设置：
+
+01. Stencil Mask 镂空方式，使用 Mask 工具定义镂空的表面，以避免受到绘画工具作用。
+02. Cavity Mask 洞孔遮罩方式，是可选项，算法基于顶点实现，网格表面的洞孔就是遮罩区。
+
+Stencil Mask 定义的遮罩区默认显示为黑色，即不能绘画的区域。使用 Mask 工具可以绘制遮罩区，
+按住 Ctrl 绘制则清除遮罩区。3D 视图中显示为黑色，在其纹理图像中是白色，即数值 1 代表的遮罩区域。
+可以随时在 Masking 面板中反转遮罩区，或者改变遮罩显示的颜色。
+
+另一个遮罩工具是基于网格面片的 Paint Mask，此遮罩工具激活时，工具栏会出现 Select Box，用来
+选择哪些面片是可以绘画的，不能绘画的面片就会以模糊状态显示。
+
 
 纹理绘制的一个方便的功能是，可以将 Texture 图案绘制到模型上。在纹理绘制工作空间，为 Texture 属性
 设置一个纹理，将下载好的部图像关联到纹理对象上，如树皮图像素材，然后设置纹理的映射模式为镂空 stencil。
@@ -4943,6 +5216,7 @@ Track 追踪面板
 
 # 🚩 NPR 非真实渲染
 1. 水彩风格 by Gakut https://www.bilibili.com/video/BV1F44y1r75Y
+1. 水墨山水 by Mamenr https://www.bilibili.com/video/BV1EV411H79U/
 2. 三维水墨金鱼《戏》 五天晴 https://www.bilibili.com/video/BV1kT411F7HU/
 3. 三维水墨教程 五天晴 https://www.bilibili.com/video/BV14M4y1k7pD/
 4. 王希孟你也太会画了吧？！ https://www.bilibili.com/video/BV1gT4y1k7qL/
@@ -4950,7 +5224,7 @@ Track 追踪面板
 6. 《清明上河图》 明 仇英 台北故宫博物院 https://g2.ltfc.net/view/SUHA/608986e1d14344504828dffb
 7. 清明上河图 明 仇英 辽宁省博物馆 https://g2.ltfc.net/view/SUHA/609672f536bd622e5d1ee9bf
 8. 清院本清明上河图卷 清 陈枚 台北故宫博物院 https://g2.ltfc.net/view/SUHA/609678bfe2d4222ecd8c2f7f
-
+9. SAI 笔刷纹理 https://pan.baidu.com/s/1hYRk548QDDFYYtbctEQeDw?pwd=j9jf
 
 清院本清明上河图卷
 清  陈枚  台北故宫博物院
@@ -5208,6 +5482,7 @@ Dots Stroke，利用紧密的点云来模拟笔迹。但不能直接通过 Dot S
 观察者。而填充中使用纹理图形则不是这样，因为填充意味隐含着一个填充平面，这个平面会上填充的纹理
 符合 3D 对象的空间变换，所以在同平面角度下看不到填充的纹理图像。
 
+
 而笔触上的纹理图形始终可见，这就会在 2D 笔刷上产生一种厚度感，在 Alignment = Fixed 
 对齐方式下，笔刷纹理就不会随视图角度的变换而出来翻转的现象。在给叶片这样的模型时，可以一笔笔
 地画出轮廓，如果画笔使用了纹理，那么就会有厚度感。如果是使用填充方式，则叶片就没有因纹理朝向
@@ -5215,6 +5490,14 @@ Dots Stroke，利用紧密的点云来模拟笔迹。但不能直接通过 Dot S
 
 不使纹理的笔刷，只要半径足够大，也会因为笔迹朝向观察者而产生厚度感，只有使用区域填充才不会。
 
+在网格平面上绘画，或者 Surface 笔触方式时需要一个偏移距离，避免笔迹的填充内容所在平面与
+网格重叠而导致笔迹不能正确渲染。在蜡笔对象之间，这种因绘画平面重叠导致的渲染异常现象也会发生。
+表现就是蜡笔 Stoke 会先和场景的背景色混合，再覆盖掉其它蜡笔对象中平面重叠的填充内容。同一个
+蜡笔对象内不存在这种问题。
+
+另一个问题是，蜡笔对象的笔迹会记录大量数据，一般用于线稿或色块填充，不适宜用来厚涂绘画，
+应该使用几何体的 Texture Paint 绘画模式，这种工作方式使用位图，在指定纹理图像大小前提下，
+可以任意绘画，而不会像蜡笔对象一样出现数据积压。
 
 笔刷参数定制在 Advanced 和 Stroke 两个下拉列表中，或者在侧栏工具 Brush Settings 中设置：
 
@@ -5274,9 +5557,9 @@ Water color flower in Grease Pencil https://www.bilibili.com/video/BV1F44y1r75Y?
 05. *Multiframe* 允许同时在多个帧上绘制，配合时间线进行动作制作。
 
 另外，画笔放置方式和绘画平面决定了绘制内容如何在 3D 空间，默认绘画平面是 3D Viewport，
-绘画平面与相机视图正交。默认的放置点为蜡笔对象的 Origin，选择 Surface 绘画到模型的曲面上，
-并指定 offset 表面距离。指定 Stroke 放置方式，会按画笔的指定点进行连接，例如 First Point
-表示由起笔位置现有笔迹决定新笔迹的放置位置：
+绘画平面与相机视图正交。默认的 Origin 放置方式表示绘画平台经过蜡笔对象原点，选择 Surface
+绘画到模型的曲面上，并指定 offset 表面距离。Stroke 放置方式，会按画笔的指定点进行连接。
+例如 First Point 表示由起笔位置现有笔迹决定新笔迹的放置位置：
 
 1. Stroke Placement
 	- **Origin** Strokes are placed at Grease Pencil object origin.
@@ -5448,8 +5731,13 @@ Sapling Tree Gen 可以用来生成树干模型，这也可以用于蜡笔绘画
 绘图模式下最常用的是手绘工具，需要绘画基础。
 
 - LMB 或使用绘图笔在视角绘制自由线。
-- L 激活引导线模式，视图顶部 Guides 列表中提供多种引导线，M 水平竖直方向改变，O 移动参考点。
-- C 激活圆形引导线。
+- 视图 Guides 列表中提供多种引导线
+	- L Parallel 激活平衡引导线模式。
+	- C circular 激活圆形引导线。
+	- O 移动参考点。
+	- M 以 90 度为单位旋转参考角度，水平、竖直方向切换。
+	- J 逆时针旋转参考角度。
+	- K 顺时针旋转参考角度。
 - B 框选删除选中区域。
 - F 来改变画笔大小，移动鼠标/压感笔或输入数字并确定。
 - Shift-F 改变画笔强度，移动鼠标/压感笔并 LMB，也可以输入数值大小。
@@ -5623,6 +5911,7 @@ Hook Modifier。其主要用途是使用晶格修改器对其控制的对象应�
 
 Blender 的权重系统是通用的动画控制技术，一般都与顶点组配合使用。Vertex Groups 位于对象
 数据属性面板中，可以将选择中的顶点分配到一个顶点组中，Assign 表示给这些选中的顶点设置 Weigth 属性中指定的权重值。Vertex Groups 不仅用来管理顶点的分组，同时还记录分组内的顶点的权重数据。
+同一个顶点可以归属于不同顶点组，并且记录不同的权重值，记录顶点权重值就是顶点组的意义。
 
 权重绘制是一种非常直观的方式，用来记录大量顶点权重信息。在权重绘制模式下，必定选择一个顶点组
 进行权重刷制。顶点用不同的颜色来表示不同的权重，从 0 到 1，颜色对应蓝、青、绿、黄、红。顶点颜色
@@ -6599,8 +6888,9 @@ Shape Keys 面板下拉菜单提供的其它专用功能：
 
 
 ## 👉 Armatures 骨架
-- Blender2.8 官方教程 角色绑定 https://www.bilibili.com/video/BV1QZ4y1W7U3?p=34
-- 动画 https://docs.blender.org/manual/zh-hans/3.0/animation/introduction.html
+1. Blender2.8 官方教程 角色绑定 https://www.bilibili.com/video/BV1QZ4y1W7U3?p=34
+2. 动画 https://docs.blender.org/manual/zh-hans/3.0/animation/introduction.html
+3. Adjustable Mannequin V1.1 https://www.lookae.com/adjustable-mannequin/
 
 Blender 中的骨架就像一个真实的骨架那样，骨架是由许多骨骼连接组成。这些骨骼可以控制表面附着
 网格或者相关联的任何东西一起旋转移动。骨架 Armature 和网格绑定后，就可以用骨架姿势控制网格，
@@ -8288,7 +8578,10 @@ Principled BSDF 提供以下选项及属性：
 	
 	- Random Walk 随机游走
 
-		对薄物体和弯曲物体的计算结果较理想。这是以增加渲染时间或噪点为代价，来使密集的介质(如皮肤)获得较好的渲染效果，并且可以更好保存物体的几何细节。随机游走模式在网格内部使用真正体积散射，这意味着它更加适用于闭合网格。 网格中的重叠面和孔可能会导致渲染出现问题。
+		对薄物体和弯曲物体的计算结果较理想。这是以增加渲染时间或噪点为代价，来使密集的
+		介质(如皮肤)获得较好的渲染效果，并且可以更好保存物体的几何细节。随机游走模式在
+		网格内部使用真正体积散射，这意味着它更加适用于闭合网格。 网格中的重叠面和孔
+		可能会导致渲染出现问题。
 
 - Base Color 基础色，漫反射 Diffusion 或金属 Refraction表面颜色。
 - Subsurface 次表面，漫反射 Diffusion 和次表 Refraction面散射之间的数值进行相乘运算混合。

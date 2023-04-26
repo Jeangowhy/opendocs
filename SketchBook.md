@@ -1113,6 +1113,7 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 16. Marc Leone 艺用人体解剖 https://www.bilibili.com/video/BV1zJ411N71Y
 17. Drawing Anatomy: An Artists’ Guide to the Human Figure by Barrington Barber https://book4you.org/book/3690952/f6f36f
 18. 临摹电影画面加强构图能力 by Angela https://www.bilibili.com/list/411442559?bvid=BV1N441187oy
+18. Animatic version of the film 了不起的狐狸爸爸 https://www.bilibili.com/video/BV1qr4y1D7SY/
 
 线条掌握后，就需要考虑造型和处理明暗关系了，目的就是表现物体的体积，这是素描的重点内容。在艺术学院，造型艺术专业是重点专业，这个专业与其它专业不同，是培养艺术家的专业。
 

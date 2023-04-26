@@ -16,8 +16,16 @@
 
 我的游戏计划种子：
 
+- ✨Seeding 种子能有什么用呢？对啊，播种能收获什么呢？是什么未知的世界呢？对啊，能和它们交流吧？
 - ✨千年农夫
 - ✨游戏三国
+- ✨危机 
+
+    我自认为有深刻的危机意识，几乎每天活在危机意思之下，假定我明天就死掉，现在的我会选择做什么？
+    人类是有认识局限的，从出生的完全局部，再经过学习不断减少局限，但这个过程必定只是一个逐步靠近
+    完全无局限，并且永远不可达。一个包装危机的游戏体量有限，也许只能去反映一个社会现象，比如历史中
+    下岗潮，或者是新冠疫情后时代的经济危机，都是不错的故事题材。
+
 - ✨Next 次世代
 
     新世界大潮袭来，人们还沉浸在充满诱惑的生活中，为了满足无止境的物质追求，都不愿意为高仰的
@@ -55,6 +63,47 @@
     2D 中国风妖怪类冒险解谜游戏。游戏将民俗，中国传统妖怪文化（黑白无常，牛头马面等）融入到
     解谜元素中以创造独特的游戏体验。
     https://indienova.com/g/rewinder
+
+- 🌟Half Life: Alyx
+    Half Life: Alyx 最好的VR游戏 https://www.bilibili.com/video/BV1i54y1t7qB
+    老师在《半条命：Alyx》开数学课 https://www.bilibili.com/video/BV1B7411C7TL/
+
+- 🌟饥荒 Don't Starve https://www.bilibili.com/video/BV1Jc411p7oQ/
+    《饥荒》的故事是关于一名科学家被恶魔传送到了异世界荒野。他必须用自己的智慧在严酷的野外环境中求生。
+    差不多就是《东京丛林》加上能灵巧活动的双手，或者《我的世界》加上消化系统。
+
+    《饥荒：巨人国》是生存游戏《饥荒》的一个免费单人游戏扩展DLC，新内容主要加入了两个新可操控角色，
+    Wigfrid，一个只吃肉的舞台剧演员；Webber，一个住在曾要吃了他的蜘蛛尸体内的男孩。另外还有
+    两个新季节，春季和夏季，两个新生物群，当然还有巨人。
+
+　　《饥荒：海难》是生存游戏《饥荒》的一个单人游戏扩展DLC，本作会带来新的游戏人物，生物群落，生物和
+    季节的影响等等。帆船将也被添加到游戏中，创造一种有趣的方式，来绕过以前人迹罕至的被水覆盖的地图。
+
+- 🌟奥日 Ori https://www.bilibili.com/video/BV1344y1V7Vg/
+
+- 🌟茶杯头 Cup Head https://www.bilibili.com/video/BV1LN4y1j7fs/
+    官方《茶杯艺术》/画集/国外wiki/茶杯官媒记录/《茶杯头如何创作的》/国外论坛
+
+    参考动画（部分）
+    1936《邪恶米老鼠侵略日本》
+    《贝蒂》合集 老动画 Betty Boop 1930 -1937
+    1938年 派拉蒙彩色经典动画《洋葱之泪》
+    迪士尼糊涂交响曲《silly symphony》全集(1929-1939)
+    第一部奥斯卡获奖动画短片，《花与树》
+    16mm sound film - "DIZZY RED RIDING-HOOD" Betty Boop cartoon US 1931《笨笨的小红帽》
+    【甜饼狂欢节】The Cookie Carnival 1935 糊涂交响曲
+    【动画连续剧】《麦克斯·弗雷彻之小丑柯柯》KOKO The Clown (Max Fleischer) (1919-1929)collection
+    【大力水手遇见辛巴达水手】（1936）
+    Felix the Cat 《菲力猫》
+    Fleischer Cartoons - Ants in the Plants《植物中的蚂蚁》
+    Walt Disney Cartoons- Mickey's Rival (1936)《米奇的对手》
+    1938 Silly Symphony short Moth and the Flame《飞蛾与火焰》
+    米老鼠 《疯狂的医生》 The Mad Doctor 1933
+    【HELL'S BELLS】（1929）《地狱的钟声》
+    【山中的老人】贝蒂小姐,1933
+    贝蒂小姐 - 《可怜的灰姑娘》1934
+    1931 - The Spider And The Fly (High Quality)《蜘蛛与苍蝇》
+    《白雪公主》《木偶奇遇记》《龟兔赛跑》《睡美人》《灰姑娘》《猫和老鼠》全集
 
 - 🌟侠客风云传
     曾经国产游戏的天花板，为何屡屡面临倒闭威胁？ https://www.bilibili.com/video/BV1eb411Z77Z/
@@ -371,7 +420,6 @@ Godot IDE 编辑器本身集成了在线手册，按 F1 或直接在代码中按
 ## 🟡 Godot Architecture 构架介绍
 - [Introduction to Godot development](https://docs.godotengine.org/en/stable/development/cpp/introduction_to_godot_development.html)
 - [Optimization using Servers](https://docs.godotengine.org/en/3.3/tutorials/optimization/using_servers.html)
-- [Inheritance class tree](https://docs.godotengine.org/en/stable/development/cpp/inheritance_class_tree.html)
 - [Overview of Godot's key concepts](https://docs.godotengine.org/en/stable/getting_started/introduction/key_concepts_overview.html)
 - [Nodes and Scenes](https://docs.godotengine.org/en/stable/getting_started/step_by_step/nodes_and_scenes.html)
 - [Using SceneTree](https://docs.godotengine.org/en/3.5/tutorials/scripting/scene_tree.html)
@@ -396,6 +444,12 @@ Godot IDE 编辑器本身就是和游戏工程一样的应用，每个游戏可�
 包含一组节点，节点是一个可以绑定脚本进行编程的对象。
 
 ![Architecture diagram](https://docs.godotengine.org/en/stable/_images/architecture_diagram.jpg)
+
+类型继承关系图参考，官方文档使用 GraphML 绘制关系图：
+
+1. godot-docs\docs\contributing\development\core_and_modules\inheritance_class_tree.rst
+2. [Inheritance class tree](https://docs.godotengine.org/en/stable/development/cpp/inheritance_class_tree.html)
+2. GraphML http://graphml.graphdrawing.org
 
 Godot 本身支持多平台，通过源代码 platform 目录下对应各平台的实现，detect.py 脚本则用于检测当前
 支持的平台，主程序入口则是在 main 目录下，入口方法是 **Main::start()**。SceneTree 类型就是一个
@@ -1335,6 +1389,37 @@ $ clang -o overrun overrun.c -Wall -g -fsanitize=address
 $ valgrind ./overrun
 ```
 
+
+## 🟡 Monnitor Power off
+https://learn.microsoft.com/en-us/windows/win32/menurc/wm-syscommand
+https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-postmessagew
+
+调用 Windows API 关闭显示器：
+
+    python C:\HaxeToolkit\monitor_off.py
+
+```py
+from ctypes import *
+from ctypes.wintypes import *
+ 
+HWND_BROADCAST = 0xffff
+WM_SYSCOMMAND = 0x0112
+SC_MONITORPOWER = 0xF170
+MonitorPowerOff = 2
+SW_SHOW = 5
+ 
+def main():
+    windll.user32.PostMessageW(HWND_BROADCAST, WM_SYSCOMMAND,
+                               SC_MONITORPOWER, MonitorPowerOff)
+    
+    shell32 = windll.LoadLibrary("shell32.dll");
+    shell32.ShellExecuteW(None,'open', 'rundll32.exe',
+                          'USER32','',SW_SHOW)
+ 
+if __name__ == "__main__":
+    print( "Win32 Application in python" )
+    main()
+```
 
 ## 🟡 MT Downloader
 - [Requests: HTTP for Humans](https://requests.readthedocs.io/en/latest/)
