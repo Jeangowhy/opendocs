@@ -1250,27 +1250,27 @@ https://github.com/Kode/Kha/wiki/Feature-Matrix
     \*** - The Node.js target works in headless mode for server operation
          - all APIs are supported but they do nothing
 
-|                    | audio1 | audio2 | graphics1 | graphics2 | graphics4 |
+|       Targets       | audio1 | audio2 | graphics1 | graphics2 | graphics4 |
 |---------------------|--------|--------|-----------|-----------|-----------|
-| Android             |    ✔   |    ✖  |     ✔     |     ✔     |     ✔     |
-| Android*            |    ✔   |    ✔  |     ✔     |     ✔     |     ✔     |
-| HTML5               |    ✔   |    ✔  |     ✔     |     ✔     |     ✔     |
-| HTML5*              |    ✔   |    ✔  |     ✔     |     ✔     |     ✔     |
-| HTML5**             |    ✔   |    ✖  |     ✔     |     ✔     |    ✔      |
-| iOS/iPadOS/tvOS     |    ✔   |    ✔  |     ✔     |     ✔     |     ✔     |
-| Java                |    ✔   |    ✖   |    ✔      |    ✔      |     ✖     |
-| Linux               |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| Node.js***          |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| macOS               |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| PlayStation 4       |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| PlayStation 5       |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| Xbox One            |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| Xbox Series X and S |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| Switch              |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| Raspberry Pi        |    ✔  |    ✔    |     ✔     |     ✔     |     ✔     |
-| Windows             |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| Windows Universal   |    ✔   |    ✔   |     ✔     |     ✔     |     ✔     |
-| WPF                 |    ✖   |    ✖   |     ✔     |     ✔     |     ✖     |
+| Android             |    ✔  |    ✖  |     ✔    |    ✔    |    ✔     |
+| Android*            |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| HTML5               |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| HTML5*              |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| HTML5**             |    ✔  |    ✖  |     ✔    |    ✔    |    ✔     |
+| iOS/iPadOS/tvOS     |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Java                |    ✔  |    ✖  |     ✔    |    ✔    |    ✖     |
+| Linux               |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Node.js***          |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| macOS               |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| PlayStation 4       |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| PlayStation 5       |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Xbox One            |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Xbox Series X and S |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Switch              |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Raspberry Pi        |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Windows             |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| Windows Universal   |    ✔  |    ✔  |     ✔    |    ✔    |    ✔     |
+| WPF                 |    ✖  |    ✖  |     ✔    |    ✔    |    ✖     |
 
 Kha 构架图
 https://github.com/Kode/Kha/wiki/Features
@@ -1540,6 +1540,68 @@ Iron 框架的 Trait 脚本基本结构参考：
 Armory 整合了多个框架，并且它有 **Hardware Abstraction Layer (HAL)** ，这也是跨平台
 基础框架，也是最可能出问题的环节。
 
+☢ SPIR-V is not generated for failed compile or link
+
+着色器编译出错，使用的是延时光照渲染算法，deferred light。SPIR-V 是 OpenGL 官方开发的一个
+中间表示语言，可以用来转换各种着色器程序。发现未定义符号 LWVPSpot0，看名字应该和聚光光相关。
+
+    ERROR: LogicCanvasUI\build_logic\compiled\Shaders\deferred_light.frag.glsl:458: 'LWVPSpot0' : undeclared identifier
+    ERROR: LogicCanvasUI\build_logic\compiled\Shaders\deferred_light.frag.glsl:458: '' : missing #endif
+    ERROR: LogicCanvasUI\build_logic\compiled\Shaders\deferred_light.frag.glsl:458: '' : compilation terminated
+    ERROR: 3 compilation errors.  No code generated.
+
+    SPIR-V is not generated for failed compile or link
+
+    Compiling shader 4 of 25 (deferred_light.frag.glsl) failed:
+    Shader compiler error.
+
+LWVP - Light World View Projection Matrix 是光照视图投射变换矩阵。Armory 有几十个着色器，
+延时光照着色器是其中一个。着色器还与材质代码生成工具有关，material make 这些脚本用来生成顶点
+着色器和片段着色器程序，并且会根据使用到的功能设置相应的代码片段，`LWVPSpot0` 这个符号没有定义，
+只在光照着色器中有类似的 `LWVPSpot` 定义，它是矩阵数组：
+
+    armsdk\armory\Shaders\deferred_light\deferred_light.frag.glsl
+    armsdk\armory\Shaders\std\light.glsl
+    armsdk\armory\Shaders\std\light_mobile.glsl
+    armsdk\armory\blender\arm\material\make.py
+
+即就是目前不支持此功能，官方文档 supported nodes 也标明 Principled BSDF 属于部分功能支持。
+并且这个功能会在使用了 Spot Light 和次表面散射材质 SSS 时被激活：
+
+```glsl
+    #ifdef _Spot
+    #ifdef _SSS
+    if (matid == 2) fragColor.rgb += fragColor.rgb * SSSSTransmittance(LWVPSpot0, p, n, normalize(pointPos - p), lightPlane.y, shadowMapSpot[0]);
+    #endif
+    #endif
+```
+
+编译过程中，源代码中的 deferred_light.frag.glsl 会拷贝到输出目录，并且会被缓存起来，除非
+`Armory Project -> Clean` 执行了清理，否则不会再重新编译。
+
+着色器代码会与 Blender Armory 的世界环境配置项相关：
+
+```py
+>>> bpy.data.worlds['Arm'].world_defs
+'_Irr_Rad_Deferred_ShadowMap_CSM_Spot_Sun_SinglePoint_Brdf_SMAA_SSAO_SSS_EmissionShadeless'
+```
+
+```glsl
+#ifdef _ShadowMap
+#ifdef _SinglePoint
+    #ifdef _Spot
+    //!uniform sampler2DShadow shadowMapSpot[1];
+    //!uniform mat4 LWVPSpot[1];
+    #else
+    //!uniform samplerCubeShadow shadowMapPoint[1];
+    //!uniform vec2 lightProj;
+    #endif
+#endif
+```
+
+
+☢ Cubemap filtering tool (cmft) CLI 处理世界光照贴图步骤卡死
+
 编译项目时，Cubemap filtering tool (cmft) CLI 处理世界光照贴图步骤卡死。使用 Very Sleep
 工具检查到 cmft.exe 在等待 WaitForSingleObjectEx API 的时间最多。打开 Armory Project -
 Debug - Verbose Output 选项，相当于禁止使用 --silent 参数，以查看详细信息：
@@ -1591,20 +1653,49 @@ Debug - Verbose Output 选项，相当于禁止使用 --silent 参数，以查�
     CMFT info: Saving compiled/Assets/envmaps/env_World_radiance.hdr [HDR 512x256 RGBE LatLong 1-faces 8-mips].
     CMFT info: Done.
 
-出现警告信息，场景没有世界环境材质，画面渲染时不清屏会有残影，World 属性面板可以添加世界环境材质。
+☢ WARNING: Scene "Scene.001" is missing a world, some render targets will not be cleared
 
-    WARNING: Scene "Scene.001" is missing a world, some render targets will not be cleared
+出现警告信息，场景没有世界环境材质，画面渲染时不清屏会有残影，World 属性面板可以添加世界环境材质。
 
 相机角度不同出现的错误阴影问题，场景中没有遮挡物的情况下，相机在特定视角范围中会出现不正确的阴影。
 场景中有两 Sun 光源的情况下，Armory 不能正确处理。
 
+
+☢ WARNING: Asset name "Texture_18c.jpg" already exists, skipping
+
 出现资源重复引用或引用未曾使用的纹理，编译脚本中会自动添加没有使用的纹理图像，可能是因为导入
-纹理图像后，对纹理图像更名导致 Image Editor 显示的纹理图像与实现文件不一致，可以重新设置后
+纹理图像后，对纹理图像更名导致 Image Editor 显示的纹理图像与实现文件名不一致，可以重新设置后
 清理未曾使用的数据块 `File -> Clean Up -> Unused Data-blocks`：
 
-    WARNING: Asset name "Texture_18c.jpg" already exists, skipping
-
     project.addAssets("C:/training/Bundled/Texture_18c.jpg", { notinlist: true });
+
+☢ WARNING: Player exited code 3221225477
+
+游戏闪退，Windows 系统下，Krom 平台出现 STATUS_ACCESS_VIOLATION (0xC0000005)，HTML5
+则提供更详细的信息，kha.js 未捕捉的断言异常。从错误信息判断，可能是 Canvas UI 未挂载到相机
+或者场景上，导致绘图时 `CanvasScript` 找不到相机。而真实原因是 Speaker 加载了错误的 ogg 
+音频文件，加载 m4a 音频时，还会弹窗提示 Unknown Error，返回错误码 1。
+
+    WARNING: Player exited code 1
+
+    kha.js:4082 Uncaught armory_system_ArmAssertionException
+
+    Failed assertion:
+    Message: Could not find a canvas trait on the active scene or camera
+    Expression: (activeCanvas != null)
+    posInfos: {fileName: 'Sources/armory/trait/internal/CanvasScript.hx', lineNumber: 193, className: 'armory.trait.internal.CanvasScript', methodName: 'getActiveCanvas'}
+
+        at armory_system_ArmAssertionException.haxe_exceptions_PosException [as __class__]
+        at new armory_system_ArmAssertionException
+        at armory_system_Assert.throwAssertionError
+        at armory_trait_internal_CanvasScript.getActiveCanvas
+        at armory_logicnode_CanvasSetTextNode.run
+        at armory_logicnode_OnRender2DNode.runOutput
+        at armory_logicnode_OnRender2DNode.onRender2D
+        at iron_App.render2D
+        at iron_App.render
+        at kha_System.render
+
 
 
 ## 🐥 Armory Iron Traits
@@ -1755,6 +1846,24 @@ https://github.com/armory3d/armory/wiki/traits
         if (camera != null){
             notifyOnUpdate(update);
         }
+    }
+```
+
+使用标注 `@prop` 可以将属性与 UI 面板关连，例如内置的 Bundled Scripts：
+armsdk\armory\Sources\armory\trait\SimpleMoveObject.hx
+
+```haxe
+    /**
+        Simple script to move an object around using the keyboard with WSAD+QE.
+        Can be used for testing and debuging.
+    **/
+    class SimpleMoveObject extends iron.Trait {
+
+        @prop
+        var speed: Float = 0.1;
+
+        var keyboard: Keyboard;
+        var rb: RigidBody;
     }
 ```
 
@@ -3514,8 +3623,14 @@ transform 属性，再使用 `SetHaxePropertyNode` 设置转换矩阵的 rot 属
 
 `MathExpressionNode` 不依赖外部模块，内置数学算式语法分析工具，但只支持常用的计算相关的功能，
 + - * / ^ % 以及 abs ln sin cos tan cot asin acos atan atan2 log max min 常用函数，
-只使用浮点数据类型。 其中 % 表示求余运算，可以用它截取浮点的小数：1.12345 - 1.12345 % 0.001。
-但是谨慎使用它，可能因为输入数据错误导数据流致相关节点中断执行，以下就是 `Formula` 解析出错一例。
+只使用浮点数据类型。 其中 % 表示求余运算，在代码中可以用它截取浮点的小数，但在节点中不能，因为有
+小数浮点误差，还有更好的小数点截取方式，比如 Ceil(a * 1000)/1000：
+
+        1.12345 - 1.12345 % 0.001
+
+并且谨慎使用它，可能因为输入数据错误导数据流致相关节点中断执行，以下就是 `Formula` 解析出错一例。
+当输入数据出现非数值，或者 NaN 的情况下就会导致逻辑节点执行失败：
+armsdk\armory\Sources\armory\logicnode\MathExpressionNode.hx:1903
 
 ```sh
 Trace: Error: [object Object]
@@ -3529,6 +3644,13 @@ Trace: Error: [object Object]
     at render (<anonymous>:19616:12)
     at Function.render (<anonymous>:40548:4)
     at renderCallback (<anonymous>:40691:14)
+Trace: Error: End before you begin
+    at Function.thrown (<anonymous>:11489:12)
+    at kha_graphics4_Graphics2.begin (<anonymous>:61529:25)
+    at Function.render2D (<anonymous>:19617:19)
+    at render (<anonymous>:19613:12)
+    at Function.render (<anonymous>:40545:4)
+    at renderCallback (<anonymous>:40688:14)
 ```
 
 `ScriptNode` 和 `ExpressionNode` 可以用来执行 Haxe 脚本，需要 Haxe Script 类库支持，
@@ -4411,6 +4533,19 @@ iron\Sources\iron\data\ShaderData.hx
 可以将图像绘制到屏幕的任意位置。之所以还需要指定对象、材质等参数，是因为 Iron 框架中，渲染目标
 需要依存于它们。
 
+因为，RenderTarget 在转绘的过程中会有几何变换作用的影响，所以需要清楚这其中的关系。以简单的
+节点连接为例：
+
+1. `Create Render Target Node` 创建一个 32 x 32 大小的 RenderTarget；
+2. `Draw to Material Image` 打开渲染目标做绘画准备，可以不连接到上一节点，但材质属性要一致；
+3. `Draw Rect` 绘制一个 32 x 32 大小的矩形，那么就会刚好绘满整个 RenderTarget；
+
+注意，绘制矩形设置为对心对齐 Center + Middle，对应值为 1，那么将会以 UV Map 的起点作为中心，
+对于一个简单的 Plane 来说，只能绘制 1/4 区域，并且是下面左下角的 1/4。另外，要使用节点进行
+材质纹理绘制，就需要材质编辑器中将 Image Texture 节点的文件移除，因为设置了文件资源，就有可能
+优先于节点的绘制回调处理，导致节点中设置的 Link 回调函数失效。
+
+
 在绘画节点分组下，有一个 `DrawImageSequenceNode` 节点，它可以将序列帧纹理图像逐帧地绘制，
 同样，这种节点只需要 Start 一次触发就会循环地工作，只需要设置好图像名称的规则，如代码所示：
 
@@ -4482,8 +4617,9 @@ iron\Sources\iron\data\ShaderData.hx
 
 `Draw to Material Image` 和 `Set Material Image Param` 节点在功能实现上有互斥，因为
 前者已经包含了纹理链接回调函数的设置，而后者同样也是，只不过它还需要独占纹理的处理过程，需要在
-Blender 材质编辑器侧栏面板勾选**Armory -> Armory Material Node -> Paramerter**。
-这样才能在它的回调函数中获取到这个材质节点的回调处理，导致后果就是，其它节点读取不到这部分数据。
+Blender 材质编辑器侧栏面板勾选 **Armory -> Armory Material Node -> Paramerter**。
+这样才能导出着色器常量，将材质资源与着色器 `uniform` 常量链接起来，才在它的回调函数中获取到
+这个材质节点的回调处理，导致后果就是，其它节点读取不到这部分数据。
 
 并且，`SetMaterialValueParamNode` 也是需要导出材质参数的配合，否则，是无法设置指定对象的
 材质的纹理图像的！这一点很容易忽略，导致无法意识到是哪里的问题，因为根本找到问题的根源，除非阅读
@@ -10019,6 +10155,463 @@ Krom lib sources
     |-- Krom\lib\wasi.js
     |-- Krom\lib\worker_threads.js
     `-- Krom\lib\zlib.js
+
+
+## 🐥 Sources List - Armory Logic Nodes
+
+Armory 逻辑节点设计时初始化脚本，初始化方法由 nodes_logic.py 脚本 `register_nodes()` 
+调用，其注册逻辑节点，并生成相应的节点菜单条目：
+
+    armsdk\armory\blender\arm\logicnode\__init__.py
+    armsdk\armory\blender\arm\nodes_logic.py:131
+
+初始化脚本使用 Python 模块方法 `pkgutil.walk_packages()` 进行目录递归查找并加载。
+
+所有节点及分类注册记录在以下命名空间，分类结构采用 Sections/Categories/Sections 三级结构，
+分类上下有分区，后一级分区包含节点列表，比如以下查询 basic 分区 Logic 分类 flow 分区下的节点：
+
+    arm.logicnode.arm_nodes.nodes
+    arm.logicnode.arm_nodes.category_items
+    arm.logicnode.arm_nodes.category_items['basic'][0].node_sections['flow']
+
+以下代码可以打印所有 Armory 逻辑节点设计时类型，及其运行时类型对照：
+
+```py
+from arm.logicnode.arm_nodes import category_items
+for s1st in category_items:
+    for s2nd in category_items[s1st]:
+        for s3rd in s2nd.node_sections:
+            for s4th in s2nd.node_sections[s3rd]:
+                print('| %s -> %s -> %s | %s | %s' % (s1st, s2nd.name, s3rd, s4th.label, s4th.nodetype))
+```
+
+Armory 逻辑节点命名按 bl_idname 约定，去掉 LN 前缀即为运行类型：
+
+|         Nodes Categorys          |             Labels            |            Node Types           |
+|----------------------------------|-------------------------------|---------------------------------|
+| basic -> Logic -> flow           | Invert Output                 | LNInverseNode                   |
+| basic -> Logic -> flow           | Loop                          | LNLoopNode                      |
+| basic -> Logic -> flow           | Loop Break                    | LNLoopBreakNode                 |
+| basic -> Logic -> flow           | Loop Continue                 | LNLoopContinueNode              |
+| basic -> Logic -> flow           | Merge                         | LNMergeNode                     |
+| basic -> Logic -> flow           | Once Per Frame                | LNOncePerFrameNode              |
+| basic -> Logic -> flow           | Output Sequence               | LNSequenceNode                  |
+| basic -> Logic -> flow           | While True                    | LNWhileNode                     |
+| basic -> Logic -> function       | Call Function                 | LNCallFunctionNode              |
+| basic -> Logic -> function       | Function                      | LNFunctionNode                  |
+| basic -> Logic -> function       | Function Output               | LNFunctionOutputNode            |
+| basic -> Logic                   | Branch                        | LNBranchNode                    |
+| basic -> Logic                   | Case Index                    | LNCaseIndexNode                 |
+| basic -> Logic                   | Gate                          | LNGateNode                      |
+| basic -> Logic                   | Invert Boolean                | LNNotNode                       |
+| basic -> Logic                   | Is False                      | LNIsFalseNode                   |
+| basic -> Logic                   | Is Not Null                   | LNIsNotNoneNode                 |
+| basic -> Logic                   | Is Null                       | LNIsNoneNode                    |
+| basic -> Logic                   | Is True                       | LNIsTrueNode                    |
+| basic -> Logic                   | Null                          | LNNoneNode                      |
+| basic -> Logic                   | Output to Boolean             | LNToBoolNode                    |
+| basic -> Logic                   | Pulse                         | LNPulseNode                     |
+| basic -> Logic                   | Select                        | LNSelectNode                    |
+| basic -> Logic                   | Switch Output                 | LNSwitchNode                    |
+| basic -> Logic                   | Value Changed                 | LNValueChangedNode              |
+| basic -> Event                   | On Application State          | LNOnApplicationStateNode        |
+| basic -> Event                   | On Init                       | LNOnInitNode                    |
+| basic -> Event                   | On Render2D                   | LNOnRender2DNode                |
+| basic -> Event                   | On Timer                      | LNOnTimerNode                   |
+| basic -> Event                   | On Update                     | LNOnUpdateNode                  |
+| basic -> Event -> custom         | On Event                      | LNOnEventNode                   |
+| basic -> Event -> custom         | Send Event to Object          | LNSendEventNode                 |
+| basic -> Event -> custom         | Send Global Event             | LNSendGlobalEventNode           |
+| basic -> Input -> keyboard       | Keyboard                      | LNMergedKeyboardNode            |
+| basic -> Input -> mouse          | Cursor In Region              | LNCursorInRegionNode            |
+| basic -> Input -> mouse          | Get Cursor Location           | LNGetCursorLocationNode         |
+| basic -> Input -> mouse          | Get Cursor State              | LNGetCursorStateNode            |
+| basic -> Input -> mouse          | Get Mouse Movement            | LNGetMouseMovementNode          |
+| basic -> Input -> mouse          | Mouse                         | LNMergedMouseNode               |
+| basic -> Input -> mouse          | Set Cursor State              | LNSetCursorStateNode            |
+| basic -> Input -> gamepad        | Gamepad                       | LNMergedGamepadNode             |
+| basic -> Input -> gamepad        | Gamepad Coords                | LNGamepadCoordsNode             |
+| basic -> Input -> gamepad        | Gamepad Sticks                | LNGamepadSticksNode             |
+| basic -> Input -> surface        | Get Touch Location            | LNGetTouchLocationNode          |
+| basic -> Input -> surface        | Get Touch Movement            | LNGetTouchMovementNode          |
+| basic -> Input -> surface        | Touch                         | LNMergedSurfaceNode             |
+| basic -> Input -> surface        | Touch In Region               | LNTouchInRegionNode             |
+| basic -> Input -> sensor         | Sensor Coords                 | LNSensorCoordsNode              |
+| basic -> Input -> virtual        | Virtual Button                | LNMergedVirtualButtonNode       |
+| basic -> Input                   | Get Gamepad Started           | LNGetGamepadStartedNode         |
+| basic -> Input                   | Get Input Map Key             | LNGetInputMapKeyNode            |
+| basic -> Input                   | Get Keyboard Started          | LNGetKeyboardStartedNode        |
+| basic -> Input                   | Get Mouse Started             | LNGetMouseStartedNode           |
+| basic -> Input                   | On Input Map                  | LNOnInputMapNode                |
+| basic -> Input                   | Remove Input Map Key          | LNRemoveInputMapKeyNode         |
+| basic -> Input                   | Set Input Map Key             | LNSetInputMapKeyNode            |
+| basic -> Input -> Input          | On Swipe                      | LNOnSwipeNode                   |
+| basic -> Input -> Input          | On Tap Screen                 | LNOnTapScreen                   |
+| basic -> Native -> haxe          | Call Haxe Static              | LNCallHaxeStaticNode            |
+| basic -> Native -> haxe          | Expression                    | LNExpressionNode                |
+| basic -> Native -> haxe          | Get Haxe Property             | LNGetHaxePropertyNode           |
+| basic -> Native -> haxe          | Script                        | LNScriptNode                    |
+| basic -> Native -> haxe          | Set Haxe Property             | LNSetHaxePropertyNode           |
+| basic -> Native                  | Clear Console                 | LNClearConsoleNode              |
+| basic -> Native                  | Detect Mobile Browser         | LNDetectMobileBrowserNode       |
+| basic -> Native                  | Load URL                      | LNLoadUrlNode                   |
+| basic -> Native                  | Print                         | LNPrintNode                     |
+| basic -> Native                  | Shutdown                      | LNShutdownNode                  |
+| basic -> Native -> Native        | Get Date and Time             | LNGetDateTimeNode               |
+| basic -> Native -> Native        | Get System Language           | LNGetSystemLanguage             |
+| basic -> Native -> Native        | Get System Name               | LNGetSystemName                 |
+| basic -> Native -> Native        | Set Vibrate                   | LNSetVibrateNode                |
+| basic -> Native -> file          | Read File                     | LNReadFileNode                  |
+| basic -> Native -> file          | Read JSON                     | LNReadJsonNode                  |
+| basic -> Native -> file          | Read Storage                  | LNReadStorageNode               |
+| basic -> Native -> file          | Write File                    | LNWriteFileNode                 |
+| basic -> Native -> file          | Write JSON                    | LNWriteJsonNode                 |
+| basic -> Native -> file          | Write Storage                 | LNWriteStorageNode              |
+| data -> Camera                   | Get Camera Active             | LNActiveCameraNode              |
+| data -> Camera                   | Get Camera Aspect             | LNGetCameraAspectNode           |
+| data -> Camera                   | Get Camera FOV                | LNGetCameraFovNode              |
+| data -> Camera                   | Get Camera Ortho Scale        | LNGetCameraScaleNode            |
+| data -> Camera                   | Get Camera Start End          | LNGetCameraStartEndNode         |
+| data -> Camera                   | Get Camera Type               | LNGetCameraTypeNode             |
+| data -> Camera                   | Set Camera Active             | LNSetCameraNode                 |
+| data -> Camera                   | Set Camera Aspect             | LNSetCameraAspectNode           |
+| data -> Camera                   | Set Camera FOV                | LNSetCameraFovNode              |
+| data -> Camera                   | Set Camera Ortho Scale        | LNSetCameraScaleNode            |
+| data -> Camera                   | Set Camera Start End          | LNSetCameraStartEndNode         |
+| data -> Camera                   | Set Camera Type               | LNSetCameraTypeNode             |
+| data -> Material                 | Get Object Material           | LNGetMaterialNode               |
+| data -> Material                 | Material                      | LNMaterialNode                  |
+| data -> Material                 | Set Object Material Slot      | LNSetMaterialSlotNode           |
+| data -> Material -> params       | Set Material Image Param      | LNSetMaterialImageParamNode     |
+| data -> Material -> params       | Set Material RGB Param        | LNSetMaterialRgbParamNode       |
+| data -> Material -> params       | Set Material Value Param      | LNSetMaterialValueParamNode     |
+| data -> Light                    | Set Area Light Size           | LNSetAreaLightSizeNode          |
+| data -> Light                    | Set Light Color               | LNSetLightColorNode             |
+| data -> Light                    | Set Light Strength            | LNSetLightStrengthNode          |
+| data -> Light                    | Set Spot Light Blend          | LNSetSpotLightBlendNode         |
+| data -> Light                    | Set Spot Light Size           | LNSetSpotLightSizeNode          |
+| data -> Object                   | Get Distance                  | LNGetDistanceNode               |
+| data -> Object                   | Get Object By Uid             | LNGetObjectByUidNode            |
+| data -> Object                   | Get Object by Name            | LNGetObjectNode                 |
+| data -> Object                   | Mesh                          | LNMeshNode                      |
+| data -> Object                   | Object                        | LNObjectNode                    |
+| data -> Object                   | Remove Object                 | LNRemoveObjectNode              |
+| data -> Object                   | Self Object                   | LNSelfNode                      |
+| data -> Object                   | Spawn Object                  | LNSpawnObjectNode               |
+| data -> Object                   | Spawn Object By Name          | LNSpawnObjectByNameNode         |
+| data -> Object -> props          | Get Object Mesh               | LNGetMeshNode                   |
+| data -> Object -> props          | Get Object Name               | LNGetNameNode                   |
+| data -> Object -> props          | Get Object Offscreen          | LNGetObjectOffscreenNode        |
+| data -> Object -> props          | Get Object Property           | LNGetPropertyNode               |
+| data -> Object -> props          | Get Object Uid                | LNGetUidNode                    |
+| data -> Object -> props          | Get Object Visible            | LNGetVisibleNode                |
+| data -> Object -> props          | Raycast Closest Object        | LNRaycastClosestObjectNode      |
+| data -> Object -> props          | Raycast Object                | LNRaycastObjectNode             |
+| data -> Object -> props          | Set Object Mesh               | LNSetMeshNode                   |
+| data -> Object -> props          | Set Object Name               | LNSetNameNode                   |
+| data -> Object -> props          | Set Object Property           | LNSetPropertyNode               |
+| data -> Object -> props          | Set Object Shape Key          | LNSetObjectShapeKeyNode         |
+| data -> Object -> props          | Set Object Visible            | LNSetVisibleNode                |
+| data -> Object -> relations      | Get Object Child              | LNGetChildNode                  |
+| data -> Object -> relations      | Get Object Children           | LNGetChildrenNode               |
+| data -> Object -> relations      | Get Object Parent             | LNGetParentNode                 |
+| data -> Object -> relations      | Remove Object Parent          | LNClearParentNode               |
+| data -> Object -> relations      | Set Object Parent             | LNSetParentNode                 |
+| data -> Scene                    | Get Scene Active              | LNActiveSceneNode               |
+| data -> Scene                    | Get Scene Root                | LNSceneRootNode                 |
+| data -> Scene                    | Global Object                 | LNGlobalObjectNode              |
+| data -> Scene                    | Remove Scene Active           | LNRemoveActiveSceneNode         |
+| data -> Scene                    | Set Scene Active              | LNSetSceneNode                  |
+| data -> Scene                    | Spawn Scene                   | LNSpawnSceneNode                |
+| data -> Scene -> collection      | Add Object to Collection      | LNAddObjectToGroupNode          |
+| data -> Scene -> collection      | Collection                    | LNGroupNode                     |
+| data -> Scene -> collection      | Create Collection             | LNAddGroupNode                  |
+| data -> Scene -> collection      | Get Collection                | LNGetGroupNode                  |
+| data -> Scene -> collection      | Get Object Collection         | LNGetObjectGroupNode            |
+| data -> Scene -> collection      | Remove Collection             | LNRemoveGroupNode               |
+| data -> Scene -> collection      | Remove Object from Collection | LNRemoveObjectFromGroupNode     |
+| data -> Scene -> collection      | Spawn Collection              | LNSpawnCollectionNode           |
+| data -> Trait                    | Add Trait to Object           | LNAddTraitNode                  |
+| data -> Trait                    | Get Object Trait              | LNGetTraitNode                  |
+| data -> Trait                    | Get Object Traits             | LNGetObjectTraitsNode           |
+| data -> Trait                    | Get Trait Name                | LNGetTraitNameNode              |
+| data -> Trait                    | Get Trait Paused              | LNGetTraitPausedNode            |
+| data -> Trait                    | Remove Trait                  | LNRemoveTraitNode               |
+| data -> Trait                    | Remove Trait from Object      | LNRemoveTraitObjectNode         |
+| data -> Trait                    | Self Trait                    | LNSelfTraitNode                 |
+| data -> Trait                    | Set Trait Paused              | LNSetTraitPausedNode            |
+| data -> Trait                    | Trait                         | LNTraitNode                     |
+| data -> Network                  | Close Connection              | LNNetworkCloseConnectionNode    |
+| data -> Network                  | Create Client                 | LNNetworkClientNode             |
+| data -> Network                  | Create Host                   | LNNetworkHostNode               |
+| data -> Network                  | Host Close Client             | LNNetworkHostCloseClientNode    |
+| data -> Network                  | Host Get IP                   | LNNetworkHostGetIpNode          |
+| data -> Network                  | Http Request                  | LNNetworkHttpRequestNode        |
+| data -> Network                  | Message Parser                | LNNetworkMessageParserNode      |
+| data -> Network                  | Network Event                 | LNNetworkEventNode              |
+| data -> Network                  | Open Connection               | LNNetworkOpenConnectionNode     |
+| data -> Network                  | Send Message                  | LNNetworkSendMessageNode        |
+| motion -> Animation              | Action                        | LNAnimActionNode                |
+| motion -> Animation              | Blend Action                  | LNBlendActionNode               |
+| motion -> Animation              | Get Action State              | LNAnimationStateNode            |
+| motion -> Animation              | On Action Marker              | LNOnActionMarkerNode            |
+| motion -> Animation              | Play Action From              | LNPlayActionFromNode            |
+| motion -> Animation              | Set Action Paused             | LNSetActionPausedNode           |
+| motion -> Animation              | Set Action Speed              | LNSetActionSpeedNode            |
+| motion -> Animation              | Set Particle Speed            | LNSetParticleSpeedNode          |
+| motion -> Animation -> tilesheet | Get Tilesheet State           | LNGetTilesheetStateNode         |
+| motion -> Animation -> tilesheet | Play Tilesheet                | LNPlayTilesheetNode             |
+| motion -> Animation -> tilesheet | Set Tilesheet Paused          | LNSetTilesheetPausedNode        |
+| motion -> Animation -> armature  | Bone FK                       | LNBoneFKNode                    |
+| motion -> Animation -> armature  | Bone IK                       | LNBoneIKNode                    |
+| motion -> Animation -> armature  | Get Bone FK IK Only           | LNGetBoneFkIkOnlyNode           |
+| motion -> Animation -> armature  | Get Bone Transform            | LNGetBoneTransformNode          |
+| motion -> Animation -> armature  | Remove Parent Bone            | LNRemoveParentBoneNode          |
+| motion -> Animation -> armature  | Set Bone FK IK Only           | LNSetBoneFkIkOnlyNode           |
+| motion -> Animation -> armature  | Set Parent Bone               | LNSetParentBoneNode             |
+| motion -> Navmesh                | Get Agent Data                | LNGetAgentDataNode              |
+| motion -> Navmesh                | Go to Location                | LNGoToLocationNode              |
+| motion -> Navmesh                | Navigable Location            | LNNavigableLocationNode         |
+| motion -> Navmesh                | Pick NavMesh Location         | LNPickLocationNode              |
+| motion -> Navmesh                | Stop Agent                    | LNStopAgentNode                 |
+| motion -> Transform              | Append Transform              | LNAppendTransformNode           |
+| motion -> Transform              | Get Object Transform          | LNGetTransformNode              |
+| motion -> Transform              | Separate Transform            | LNSeparateTransformNode         |
+| motion -> Transform              | Set Object Transform          | LNSetTransformNode              |
+| motion -> Transform              | Transform Math                | LNTransformMathNode             |
+| motion -> Transform              | Transform to Vector           | LNVectorFromTransformNode       |
+| motion -> Transform -> location  | Get Object Location           | LNGetLocationNode               |
+| motion -> Transform -> location  | Set Object Location           | LNSetLocationNode               |
+| motion -> Transform -> location  | Translate Object              | LNTranslateObjectNode           |
+| motion -> Transform -> location  | Translate On Local Axis       | LNTranslateOnLocalAxisNode      |
+| motion -> Transform -> location  | World Vector to Local Space   | LNWorldVectorToLocalSpaceNode   |
+| motion -> Transform -> rotation  | Get Object Rotation           | LNGetRotationNode               |
+| motion -> Transform -> rotation  | Get World Orientation         | LNGetWorldNode                  |
+| motion -> Transform -> rotation  | Look At                       | LNLookAtNode                    |
+| motion -> Transform -> rotation  | Rotate Object                 | LNRotateObjectNode              |
+| motion -> Transform -> rotation  | Separate Rotation             | LNSeparateRotationNode          |
+| motion -> Transform -> rotation  | Set Object Rotation           | LNSetRotationNode               |
+| motion -> Transform -> rotation  | Vector to Object Orientation  | LNVectorToObjectOrientationNode |
+| motion -> Transform -> scale     | Get Object Scale              | LNGetScaleNode                  |
+| motion -> Transform -> scale     | Set Object Scale              | LNSetScaleNode                  |
+| motion -> Transform -> dimension | Get Object Dimension          | LNGetDimensionNode              |
+| motion -> Physics                | Add Rigid Body                | LNAddRigidBodyNode              |
+| motion -> Physics                | Get RB Point Velocity         | LNGetPointVelocityNode          |
+| motion -> Physics                | Get RB Velocity               | LNGetVelocityNode               |
+| motion -> Physics                | Get World Gravity             | LNGetGravityNode                |
+| motion -> Physics                | On Volume Trigger             | LNOnVolumeTriggerNode           |
+| motion -> Physics                | RB Is Active                  | LNIsRigidBodyActiveNode         |
+| motion -> Physics                | Remove RB                     | LNRemovePhysicsNode             |
+| motion -> Physics                | Set RB Activation State       | LNSetActivationStateNode        |
+| motion -> Physics                | Set RB Friction               | LNSetFrictionNode               |
+| motion -> Physics                | Set RB Gravity Enabled        | LNSetGravityEnabledNode         |
+| motion -> Physics                | Set RB Velocity               | LNSetVelocityNode               |
+| motion -> Physics                | Set World Gravity             | LNSetGravityNode                |
+| motion -> Physics -> force       | Apply Force                   | LNApplyForceNode                |
+| motion -> Physics -> force       | Apply Force At Location       | LNApplyForceAtLocationNode      |
+| motion -> Physics -> force       | Apply Impulse                 | LNApplyImpulseNode              |
+| motion -> Physics -> force       | Apply Impulse At Location     | LNApplyImpulseAtLocationNode    |
+| motion -> Physics -> force       | Apply Torque                  | LNApplyTorqueNode               |
+| motion -> Physics -> force       | Apply Torque Impulse          | LNApplyTorqueImpulseNode        |
+| motion -> Physics -> contact     | Get RB Contacts               | LNGetContactsNode               |
+| motion -> Physics -> contact     | Get RB First Contact          | LNGetFirstContactNode           |
+| motion -> Physics -> contact     | Has Contact                   | LNHasContactNode                |
+| motion -> Physics -> contact     | Has Contact Array             | LNHasContactArrayNode           |
+| motion -> Physics -> contact     | On Contact                    | LNOnContactNode                 |
+| motion -> Physics -> contact     | On Contact Array              | LNOnContactArrayNode            |
+| motion -> Physics -> ray         | Convex Cast                   | LNPhysicsConvexCastNode         |
+| motion -> Physics -> ray         | Convex Cast On                | LNPhysicsConvexCastOnNode       |
+| motion -> Physics -> ray         | Pick RB                       | LNPickObjectNode                |
+| motion -> Physics -> ray         | Ray Cast                      | LNCastPhysicsRayNode            |
+| motion -> Physics -> ray         | Ray Cast On                   | LNCastPhysicsRayOnNode          |
+| motion -> Physics -> add         | Add Physics Constraint        | LNAddPhysicsConstraintNode      |
+| motion -> Physics -> add         | Physics Constraint            | LNPhysicsConstraintNode         |
+| motion -> Physics -> props       | Get RB Data                   | LNGetRigidBodyDataNode          |
+| motion -> Physics -> misc        | Volume Trigger                | LNVolumeTriggerNode             |
+| values -> Array -> variable      | Array Boolean                 | LNArrayBooleanNode              |
+| values -> Array -> variable      | Array Color                   | LNArrayColorNode                |
+| values -> Array -> variable      | Array Dynamic                 | LNArrayNode                     |
+| values -> Array -> variable      | Array Float                   | LNArrayFloatNode                |
+| values -> Array -> variable      | Array Integer                 | LNArrayIntegerNode              |
+| values -> Array -> variable      | Array Object                  | LNArrayObjectNode               |
+| values -> Array -> variable      | Array String                  | LNArrayStringNode               |
+| values -> Array -> variable      | Array Vector                  | LNArrayVectorNode               |
+| values -> Array                  | Array Add                     | LNArrayAddNode                  |
+| values -> Array                  | Array Compare                 | LNArrayCompareNode              |
+| values -> Array                  | Array Concat                  | LNArrayConcatNode               |
+| values -> Array                  | Array Contains                | LNArrayInArrayNode              |
+| values -> Array                  | Array Count                   | LNArrayCountNode                |
+| values -> Array                  | Array Display                 | LNArrayDisplayNode              |
+| values -> Array                  | Array Distinct                | LNArrayDistinctNode             |
+| values -> Array                  | Array Filter                  | LNArrayFilterNode               |
+| values -> Array                  | Array Get                     | LNArrayGetNode                  |
+| values -> Array                  | Array Get Next                | LNArrayGetNextNode              |
+| values -> Array                  | Array Get Previous/Next       | LNArrayGetPreviousNextNode      |
+| values -> Array                  | Array Index                   | LNArrayIndexNode                |
+| values -> Array                  | Array Length                  | LNArrayLengthNode               |
+| values -> Array                  | Array Loop                    | LNArrayLoopNode                 |
+| values -> Array                  | Array Pop                     | LNArrayPopNode                  |
+| values -> Array                  | Array Remove by Index         | LNArrayRemoveNode               |
+| values -> Array                  | Array Remove by Value         | LNArrayRemoveValueNode          |
+| values -> Array                  | Array Resize                  | LNArrayResizeNode               |
+| values -> Array                  | Array Reverse                 | LNArrayReverseNode              |
+| values -> Array                  | Array Sample                  | LNArraySampleNode               |
+| values -> Array                  | Array Set                     | LNArraySetNode                  |
+| values -> Array                  | Array Shift                   | LNArrayShiftNode                |
+| values -> Array                  | Array Shuffle                 | LNArrayShuffleNode              |
+| values -> Array                  | Array Slice                   | LNArraySliceNode                |
+| values -> Array                  | Array Sort                    | LNArraySortNode                 |
+| values -> Array                  | Array Splice                  | LNArraySpliceNode               |
+| values -> Math                   | Bitwise Math                  | LNBitwiseMathNode               |
+| values -> Math                   | Clamp                         | LNClampNode                     |
+| values -> Math                   | Compare                       | LNCompareNode                   |
+| values -> Math                   | Float Delta Interpolate       | LNFloatDeltaInterpolateNode     |
+| values -> Math                   | Key Interpolate Node          | LNKeyInterpolateNode            |
+| values -> Math                   | Map Range                     | LNMapRangeNode                  |
+| values -> Math                   | Math                          | LNMathNode                      |
+| values -> Math                   | Math Expression               | LNMathExpressionNode            |
+| values -> Math                   | Mix                           | LNMixNode                       |
+| values -> Math                   | Tween Float                   | LNTweenFloatNode                |
+| values -> Math                   | Tween Rotation                | LNTweenRotationNode             |
+| values -> Math                   | Tween Transform               | LNTweenTransformNode            |
+| values -> Math                   | Tween Vector                  | LNTweenVectorNode               |
+| values -> Math -> angle          | Deg to Rad                    | LNDegToRadNode                  |
+| values -> Math -> angle          | Rad to Deg                    | LNRadToDegNode                  |
+| values -> Math -> matrix         | Matrix Math                   | LNMatrixMathNode                |
+| values -> Math -> matrix         | Screen to World Space         | LNScreenToWorldSpaceNode        |
+| values -> Math -> matrix         | World to Screen Space         | LNWorldToScreenSpaceNode        |
+| values -> Math -> color          | Combine HSVA                  | LNCombineColorHSVNode           |
+| values -> Math -> color          | Combine RGBA                  | LNCombineColorNode              |
+| values -> Math -> color          | Separate HSVA                 | LNSeparateColorHSVNode          |
+| values -> Math -> color          | Separate RGBA                 | LNSeparateColorNode             |
+| values -> Math -> vector         | Mix Vector                    | LNVectorMixNode                 |
+| values -> Math -> vector         | Separate XYZ                  | LNSeparateVectorNode            |
+| values -> Math -> vector         | Vector Clamp                  | LNVectorClampToSizeNode         |
+| values -> Math -> vector         | Vector Math                   | LNVectorMathNode                |
+| values -> Math -> vector         | Vector Move Towards           | LNVectorMoveTowardsNode         |
+| values -> Math -> quaternions    | Quaternion Math               | LNQuaternionMathNode            |
+| values -> Math -> quaternions    | Rotation Math                 | LNRotationMathNode              |
+| values -> Random                 | Random Boolean                | LNRandomBooleanNode             |
+| values -> Random                 | Random Choice                 | LNRandomChoiceNode              |
+| values -> Random                 | Random Color                  | LNRandomColorNode               |
+| values -> Random                 | Random Float                  | LNRandomFloatNode               |
+| values -> Random                 | Random Integer                | LNRandomIntegerNode             |
+| values -> Random                 | Random String                 | LNRandomStringNode              |
+| values -> Random                 | Random Vector                 | LNRandomVectorNode              |
+| values -> Random -> logic        | Random Output                 | LNRandomOutputNode              |
+| values -> String                 | Concatenate String            | LNConcatenateStringNode         |
+| values -> String                 | Split String                  | LNSplitStringNode               |
+| values -> String                 | String                        | LNStringNode                    |
+| values -> String                 | String Case                   | LNCaseStringNode                |
+| values -> String                 | String Contains               | LNContainsStringNode            |
+| values -> String                 | String Length                 | LNLengthStringNode              |
+| values -> String                 | String Replace                | LNStringReplaceNode             |
+| values -> String                 | Sub String                    | LNSubStringNode                 |
+| values -> String -> parse        | Parse Float                   | LNParseFloatNode                |
+| values -> String -> parse        | Parse Int                     | LNParseIntNode                  |
+| values -> Variable -> set        | Retain Value                  | LNRetainValueNode               |
+| values -> Variable -> set        | Set Variable                  | LNSetVariableNode               |
+| values -> Variable               | Boolean                       | LNBooleanNode                   |
+| values -> Variable               | Color                         | LNColorNode                     |
+| values -> Variable               | Dynamic                       | LNDynamicNode                   |
+| values -> Variable               | Float                         | LNFloatNode                     |
+| values -> Variable               | Integer                       | LNIntegerNode                   |
+| values -> Variable               | Mask                          | LNMaskNode                      |
+| values -> Variable               | Rotation                      | LNRotationNode                  |
+| values -> Variable               | Scene                         | LNSceneNode                     |
+| values -> Variable               | Transform                     | LNTransformNode                 |
+| values -> Variable               | Vector                        | LNVectorNode                    |
+| graphics -> Draw -> draw         | Draw Arc                      | LNDrawArcNode                   |
+| graphics -> Draw -> draw         | Draw Camera                   | LNDrawCameraNode                |
+| graphics -> Draw -> draw         | Draw Camera to Texture        | LNDrawCameraTextureNode         |
+| graphics -> Draw -> draw         | Draw Circle                   | LNDrawCircleNode                |
+| graphics -> Draw -> draw         | Draw Curve                    | LNDrawCurveNode                 |
+| graphics -> Draw -> draw         | Draw Ellipse                  | LNDrawEllipseNode               |
+| graphics -> Draw -> draw         | Draw Image                    | LNDrawImageNode                 |
+| graphics -> Draw -> draw         | Draw Image Sequence           | LNDrawImageSequenceNode         |
+| graphics -> Draw -> draw         | Draw Line                     | LNDrawLineNode                  |
+| graphics -> Draw -> draw         | Draw Polygon                  | LNDrawPolygonNode               |
+| graphics -> Draw -> draw         | Draw Rect                     | LNDrawRectNode                  |
+| graphics -> Draw -> draw         | Draw String                   | LNDrawStringNode                |
+| graphics -> Draw -> draw         | Draw Text Area String         | LNDrawTextAreaStringNode        |
+| graphics -> Draw -> draw         | Draw To Material Image        | LNDrawToMaterialImageNode       |
+| graphics -> Draw -> draw         | Draw Triangle                 | LNDrawTriangleNode              |
+| graphics -> Canvas               | Get Canvas Checkbox           | LNCanvasGetCheckboxNode         |
+| graphics -> Canvas               | Get Canvas Input Text         | LNCanvasGetInputTextNode        |
+| graphics -> Canvas               | Get Canvas Location           | LNCanvasGetLocationNode         |
+| graphics -> Canvas               | Get Canvas Position           | LNCanvasGetPositionNode         |
+| graphics -> Canvas               | Get Canvas Progress Bar       | LNCanvasGetPBNode               |
+| graphics -> Canvas               | Get Canvas Rotation           | LNCanvasGetRotationNode         |
+| graphics -> Canvas               | Get Canvas Scale              | LNCanvasGetScaleNode            |
+| graphics -> Canvas               | Get Canvas Slider             | LNCanvasGetSliderNode           |
+| graphics -> Canvas               | Get Canvas Text               | LNCanvasGetTextNode             |
+| graphics -> Canvas               | Get Canvas Visible            | LNCanvasGetVisibleNode          |
+| graphics -> Canvas               | Get Global Canvas Font Size   | LNGetGlobalCanvasFontSizeNode   |
+| graphics -> Canvas               | Get Global Canvas Scale       | LNGetGlobalCanvasScaleNode      |
+| graphics -> Canvas               | On Canvas Element             | LNOnCanvasElementNode           |
+| graphics -> Canvas               | Set Canvas Asset              | LNCanvasSetAssetNode            |
+| graphics -> Canvas               | Set Canvas Checkbox           | LNCanvasSetCheckBoxNode         |
+| graphics -> Canvas               | Set Canvas Color              | LNCanvasSetColorNode            |
+| graphics -> Canvas               | Set Canvas Input Text         | LNCanvasSetInputTextNode        |
+| graphics -> Canvas               | Set Canvas Input Text Focus   | LNCanvasSetInputTextFocusNode   |
+| graphics -> Canvas               | Set Canvas Location           | LNCanvasSetLocationNode         |
+| graphics -> Canvas               | Set Canvas Progress Bar       | LNCanvasSetPBNode               |
+| graphics -> Canvas               | Set Canvas Rotation           | LNCanvasSetRotationNode         |
+| graphics -> Canvas               | Set Canvas Scale              | LNCanvasSetScaleNode            |
+| graphics -> Canvas               | Set Canvas Slider             | LNCanvasSetSliderNode           |
+| graphics -> Canvas               | Set Canvas Text               | LNCanvasSetTextNode             |
+| graphics -> Canvas               | Set Canvas Visible            | LNCanvasSetVisibleNode          |
+| graphics -> Canvas               | Set Global Canvas Font Size   | LNSetGlobalCanvasFontSizeNode   |
+| graphics -> Canvas               | Set Global Canvas Scale       | LNSetGlobalCanvasScaleNode      |
+| graphics -> Postprocess          | Get Bloom Settings            | LNBloomGetNode                  |
+| graphics -> Postprocess          | Get CA Settings               | LNChromaticAberrationGetNode    |
+| graphics -> Postprocess          | Get Camera Post Process       | LNCameraGetNode                 |
+| graphics -> Postprocess          | Get Lenstexture Settings      | LNLenstextureGetNode            |
+| graphics -> Postprocess          | Get SSAO Settings             | LNSSAOGetNode                   |
+| graphics -> Postprocess          | Get SSR Settings              | LNSSRGetNode                    |
+| graphics -> Postprocess          | Set Bloom Settings            | LNBloomSetNode                  |
+| graphics -> Postprocess          | Set CA Settings               | LNChromaticAberrationSetNode    |
+| graphics -> Postprocess          | Set Camera Post Process       | LNCameraSetNode                 |
+| graphics -> Postprocess          | Set Lenstexture               | LNLenstextureSetNode            |
+| graphics -> Postprocess          | Set SSAO Settings             | LNSSAOSetNode                   |
+| graphics -> Postprocess          | Set SSR Settings              | LNSSRSetNode                    |
+| graphics -> Postprocess          | Colorgrading Get Global       | LNColorgradingGetGlobalNode     |
+| graphics -> Postprocess          | Colorgrading Get Highlight    | LNColorgradingGetHighlightNode  |
+| graphics -> Postprocess          | Colorgrading Get Midtone      | LNColorgradingGetMidtoneNode    |
+| graphics -> Postprocess          | Colorgrading Get Shadow       | LNColorgradingGetShadowNode     |
+| graphics -> Postprocess          | Colorgrading Set Global       | LNColorgradingSetGlobalNode     |
+| graphics -> Postprocess          | Colorgrading Set Highlight    | LNColorgradingSetHighlightNode  |
+| graphics -> Postprocess          | Colorgrading Set Midtone      | LNColorgradingSetMidtoneNode    |
+| graphics -> Postprocess          | Colorgrading Set Shadow       | LNColorgradingSetShadowNode     |
+| graphics -> Renderpath           | Create Render Target          | LNCreateRenderTargetNode        |
+| graphics -> Renderpath           | Pause Active Camera Render    | LNPauseActiveCameraRenderNode   |
+| graphics -> Renderpath           | Rotate Render Target          | LNRotateRenderTargetNode        |
+| graphics -> Renderpath           | Set MSAA Quality              | LNRpMSAANode                    |
+| graphics -> Renderpath           | Set Post Process Quality      | LNRpConfigNode                  |
+| graphics -> Renderpath           | Set SSAA Quality              | LNRpSuperSampleNode             |
+| graphics -> Renderpath           | Set Shadows Quality           | LNRpShadowQualityNode           |
+| graphics -> Renderpath           | Set Shader Uniform            | LNSetShaderUniformNode          |
+| sound -> Sound                   | Pause Speaker                 | LNPauseSoundNode                |
+| sound -> Sound                   | Play Sound                    | LNPlaySoundRawNode              |
+| sound -> Sound                   | Play Speaker                  | LNPlaySoundNode                 |
+| sound -> Sound                   | Stop Speaker                  | LNStopSoundNode                 |
+| misc -> group                    | Call Node Group               | LNCallGroupNode                 |
+| misc -> group                    | Group Input Node              | LNGroupInputsNode               |
+| misc -> group                    | Group Output Node             | LNGroupOutputsNode              |
+| misc -> screen                   | Get Display Resolution        | LNDisplayInfoNode               |
+| misc -> screen                   | Get Window Resolution         | LNWindowInfoNode                |
+| misc -> Miscellaneous            | Boolean to Int                | LNIntFromBooleanNode            |
+| misc -> Miscellaneous            | Boolean to Vector             | LNVectorFromBooleanNode         |
+| misc -> Miscellaneous            | Default if Null               | LNDefaultIfNullNode             |
+| misc -> Miscellaneous            | Get Application Time          | LNTimeNode                      |
+| misc -> Miscellaneous            | Get Debug Console Settings    | LNGetDebugConsoleSettings       |
+| misc -> Miscellaneous            | Get Frames Per Second         | LNGetFPSNode                    |
+| misc -> Miscellaneous            | Set Debug Console Settings    | LNSetDebugConsoleSettings       |
+| misc -> Miscellaneous            | Set Time Scale                | LNSetTimeScaleNode              |
+| misc -> Miscellaneous            | Sleep                         | LNSleepNode                     |
+| misc -> Miscellaneous            | Timer                         | LNTimerNode                     |
+| misc -> Layout                   | Frame                         | NodeFrame                       |
+| misc -> Layout                   | Reroute                       | NodeReroute                     |
 
 
 ## 🐥 Sources List - Armory Addon
@@ -19602,17 +20195,240 @@ armsdk\armory\Sources\armory\data\Config.hx
     |   |-- brick_bump.jpg
     |   `-- material_bump.blend
 
-## 🐥 Armory Tutorials: material_decal
+
+## 🐥 Armory Tutorials: material_decal material_decal_colors script_spawnobject spawn_from_scene
 
     |-- material_decal
     |   |-- decal.png
     |   `-- material_decal.blend
-
-## 🐥 Armory Tutorials: material_decal_colors
-
     |-- material_decal_colors
     |   |-- README.md
     |   `-- material_decal_colors.blend
+    |-- script_spawnobject
+    |   |-- Sources
+    |   |   `-- arm
+    |   |       `-- script_spawnobject/Sources/SpawnTrait.hx
+    |   `-- script_spawnobject.blend
+    |-- spawn_from_scene
+    |   |-- README.md
+    |   |-- Sources
+    |   |   `-- arm
+    |   |       `-- spawn_from_scene/Sources/MyTrait.hx
+    |   `-- spawn_from_scene.blend
+
+
+armory_examples-22.06\material_decal
+armory_examples-22.06\material_decal_colors
+
+
+示例 **material_decal** 演示了如何将装饰物贴到模型的表面上。纹理 dacal.png 连接 Armory PBR
+着色器节点组，因为它已经包含了 Opacity 可以直接连接透明通道，透明区域通过 Mixer 混合 
+Transparent BSDF 着色器，过滤掉了材质的其它内容。然后将材质赋予 Plane，并紧贴需要被
+装饰的模型表面，以达到一个表面装饰的效果。
+
+**script_spawnobject** 示例演示了 `spawnObject()` 方法的 spawnChildren 两种使用方式，
+它内部调用  `createObject()` 方法生成实例。
+
+**spawn_from_scene** 示例设置了两个场景，主场景 Scene 作为启动场景，通过场景挂载的脚本扩展，
+调用数据、场景对象方法生成来自其它场景 ( Scene.001) 中的猴头。
+
+1. Data `getSceneRaw()` 获取场景数据；
+2. 场景对象的 `getRawObjectByName()` 方法获取对象原始数据；
+3. 场景对象的 `createObject()` 方法生成实例，可以接收一个父对象用于放置对象；
+
+```haxe
+    // Spawn object from scene hierarchy, including children
+    iron.Scene.active.spawnObject("Cube", null, function(object:iron.object.Object) {
+        object.transform.loc.set(0, 4, 0);
+        object.transform.buildMatrix();
+    });
+
+    // Spawn single object from scene hierarchy
+    var spawnChildren = false;
+    iron.Scene.active.spawnObject("Cube", null, function(object:iron.object.Object) {
+        object.transform.loc.set(-4, 0, 0);
+        object.transform.buildMatrix();
+    }, spawnChildren);
+
+    Data.getSceneRaw("Scene.001", function (raw:TSceneFormat) {
+        var obj = Scene.getRawObjectByName(raw, "Suzanne");
+        Scene.active.createObject(obj, raw, null, null, function(o:Object) {
+            trace("Suzanne spawned!");
+        });
+    });
+```
+
+示例 **material_decal_colors** 演示了如何将装饰物贴到模型的表面上。brush_dacal.png 纹理
+只是一张灰度图（白色），通过染色使其变成不同的效果。点击猴头就将 Plane 紧贴在目标位置的曲面上，
+并通过 RGB 着色器节点设置指定颜色，注意导出着色器常量 `Armory Meterial Node -> Parameter`，
+激活此选项后，这个 RGB 着色器节点就会与着色器程序中的一个 `uniform` 常量链接起来。
+
+场景有两个模型，一个猴头，一个设置了墨滴喷溅状纹理的 Plane，点击鼠标时，后者将作为装饰物绘画于
+猴头表面。有三个逻辑树，两个模型各一个，场景一个，分为用于旋转猴头、管理装饰物、相机控制、生成装饰物。
+注意逻辑节点 **Object** 输入都使用默认值，留空表示使用当前所挂载的对象，即 Plane 对象。
+
+注意，`LNSetParentNode` 节点调用 `setParent()` 设置对象父层级时，要激活父层级逆变换矩阵
+Parent Inverse，这样才能保持对象挂到子层级下时保持位置等变换，并且在解除时保留变换状态。否则，
+在猴头旋转后，鼠标点击位置与绘画位置不一致，绘画位置还是以正面为参考。有了父层逆变换，就不会使用
+默认的变换 (loc 0,0,0 rot 0,0,0 scale 1,1,1)，这个默认的父层级变换会将子对象移动到父对象
+的原点位置。
+
+另外，Plane 是如何贴近曲面的，为何不会按四边面原始状态那样平展在猴头表面。尝试 Cube 为绘制对象，
+旋转猴头时就不会像 Plane 那样随着表面变换，而是固定在绘画位置，在相交位置渲染出色块。这是因为
+没有设置正确的 Armory 材质属性，`Armory Props -> Decal` 激活后，对象就会当作表面装饰物进行
+渲染，也就是只渲染与父层级对象表面相交的部分。
+
+**RotateZoom** 逻辑树挂载在 Suzanne 对象上用于旋转、缩放猴头：
+
+0. `LNTranslateObjectNode` 用于在滚轮运动时移动猴头，通过 `LNOnUpdateNode` 事件触发。
+1. `LNGetMouseMovementNode` 节点获取经过乘数运算后的 X、Y 以及滚轮运动量，鼠标保持静止时总是 0 值。
+2. `LNRotateObjectNode` 节点用于旋转猴头，使用 `Mouse` 事件节点触发。
+3. `LNRotationNode` 用于计算欧拉角，旋转角数据来自通过 `Vector` 变量节点的鼠标 X、Y 运动量。
+
+注意，旋转操作有多个节点，具体是涉及不同的输入参数和操作对象，变量节点 `LNRotationNode` 只用来
+计算变换值，而 `Transform` 分类中的 `LNRotateObjectNode` 节点改变对象的旋转状态。
+
+**DecalManager** 逻辑树挂载在 Plane 对象上用于管理已经生成的装饰物：
+
+1. `LNRemoveObjectNode` 用于移除所有已经生成的实例，通过 `Mouse` 右键事件触发。
+2. `LNSetMaterialRgbParamNode` 用于设置 RGB 着色器常量，颜色来自 `LNRandomColorNode`。
+3. `LNGetMaterialNode` 用于获取当前对象的材质，使用 Slot 0 插槽，对应着色器编辑器的 Slot 1。
+4. `LNSetParentNode` 设置对象的父节点，将新产生的实例关联到猴头对象的子层级。
+
+因为着色器常量回调函数只要设置一次即可，所以使用 `On Init` 事件，每次实例化时只执行一次，每次都
+产生随机色，并能通过着色器常量渲染 Plane 对象的实例。
+
+|         Nodes Categorys         |          Labels          |          Node Types         |
+|---------------------------------|--------------------------|-----------------------------|
+| basic -> Event                  | On Init                  | LNOnInitNode                |
+| basic -> Event                  | On Update                | LNOnUpdateNode              |
+| basic -> Input -> mouse         | Get Cursor Location      | LNGetCursorLocationNode     |
+| basic -> Input -> mouse         | Get Cursor State         | LNGetCursorStateNode        |
+| basic -> Input -> mouse         | Get Mouse Movement       | LNGetMouseMovementNode      |
+| basic -> Input -> mouse         | Mouse                    | LNMergedMouseNode           |
+| values -> Math -> quaternions   | Rotation Math            | LNRotationMathNode          |
+| values -> Variable              | Transform                | LNTransformNode             |
+| values -> Variable              | Rotation                 | LNRotationNode              |
+| data -> Object                  | Spawn Object             | LNSpawnObjectNode           |
+| data -> Object                  | Spawn Object By Name     | LNSpawnObjectByNameNode     |
+| data -> Scene                   | Spawn Scene              | LNSpawnSceneNode            |
+| data -> Scene -> collection     | Spawn Collection         | LNSpawnCollectionNode       |
+| data -> Scene                   | Get Scene Active         | LNActiveSceneNode           |
+| data -> Scene                   | Get Scene Root           | LNSceneRootNode             |
+| data -> Scene                   | Remove Scene Active      | LNRemoveActiveSceneNode     |
+| data -> Scene                   | Set Scene Active         | LNSetSceneNode              |
+| data -> Material                | Get Object Material      | LNGetMaterialNode           |
+| data -> Material                | Material                 | LNMaterialNode              |
+| data -> Material                | Set Object Material Slot | LNSetMaterialSlotNode       |
+| data -> Material -> params      | Set Material Image Param | LNSetMaterialImageParamNode |
+| data -> Material -> params      | Set Material RGB Param   | LNSetMaterialRgbParamNode   |
+| data -> Material -> params      | Set Material Value Param | LNSetMaterialValueParamNode |
+| data -> Object                  | Remove Object            | LNRemoveObjectNode          |
+| data -> Object -> props         | Raycast Closest Object   | LNRaycastClosestObjectNode  |
+| data -> Object -> props         | Raycast Object           | LNRaycastObjectNode         |
+| data -> Object -> relations     | Set Object Parent        | LNSetParentNode             |
+| motion -> Physics -> ray        | Pick RB                  | LNPickObjectNode            |
+| motion -> Physics -> ray        | Ray Cast                 | LNCastPhysicsRayNode        |
+| motion -> Physics -> ray        | Ray Cast On              | LNCastPhysicsRayOnNode      |
+| motion -> Transform             | Transform Math           | LNTransformMathNode         |
+| motion -> Transform -> location | Translate Object         | LNTranslateObjectNode       |
+| motion -> Transform -> rotation | Rotate Object            | LNRotateObjectNode          |
+| motion -> Transform -> rotation | Set Object Rotation      | LNSetRotationNode           |
+
+
+**DecalSpawn** 逻辑树挂载在场景上用于生成装饰物，这是示例的核心内容，主要是通过获取光标的在
+屏幕空间中的坐标，并使用物理节点 Pick RB 即选择 Rigid Body，所以需要在启用了物理刚体的对象上
+使用此节点。然后通过 `LNSpawnObjectByNameNode` 节点进行实例化。
+
+1. `LNGetCursorLocationNode` 获取光标的屏幕空间下坐标，通过 `Vector` 变量节点转换为向量；
+2. `LNPickObjectNode` 只需要一个屏幕空间坐标点就可以点选物理刚体对象，输出碰撞点 3D 坐标、法向等；
+3. `LNRotationMathNode` 旋转计算节点 From To 模式可以计算一个参考向量到一个向量方向的旋转角度；
+4. `LNSpawnObjectByNameNode` 可以实例化一个对象到场景内，可以是当前场景或者其它场景的对象。
+5. `LNMergedMouseNode` 鼠标点击事件触发对象生成，Is Not Null 逻辑节点判断是否拾取到对象。
+
+注意激活装饰材质属性，激活对象材质属性面板中的 `Armory Props -> Decal` 选项。
+
+碰撞点对应的法向量是物理刚体曲面对应点的法向，通过 Rotation Math 计算它与参考向量之间的旋转角度。
+`RotationMathNode` 节点使用四元数进行计算，根据参数个数不同至少可以提供 6 种运算：
+
+01. 1 argument: Normalize, Inverse
+02. 2 arguments: Compose, Amplify, FromTo, FromRotationMat,
+03. 3 arguments: Lerp, Slerp, FromAxisAngle, FromEuler
+
+`LNSpawnObjectByNameNode` 节点和 `LNSpawnSceneNode` 节点逻辑上非常相似，只是前者需要
+指定要实例化的对象来源场景，并且会调用 `Data.getSceneRaw()` 获取数据，判断是否存在指定名称
+的对象再调用场景 `spawnObject()` 进行实例化。两个节点都以一样的方式处理 Transfrom 数据，
+差别在于，前者会将 TSceneFormat 场景数据传入 `spawnObject()`。
+
+生成对象的节点调用 API 读取场景数据，将场景、集合、对象实例化添加到场景中，只需要场景或对象名称，
+用于在 TSceneFormat 文件中定位相应的对象数据。这些生成的对象在内存中使用的是同样的原始数据，
+只是通过设置不同的变换矩阵使其呈现在场景中的不同位置。它们复制只是一种数据映射关系，并不会产生
+额外的 Draw call。
+
+Draw Call 就是程序通过 CPU 向 GPU 下达指令渲染、绘制模型。游戏开发人员使用批处理将相似对象的
+渲染分组到同一个 Draw Call，这样的好处是只需消耗一次绘制调用即可渲染多个对象，节省能量又提速。
+
+Batches 和 SetPasses 是两种不同的渲染操作，它们有着不同的 Draw call 成本。
+
+***Batches*** 通常被称为绘图调用（Draw Call），包含简单的绘制命令。例如，在此处绘制此对象，
+然后在再绘制另一个对象。这主要是关于使用当前全局渲染状态绘制相同着色器、相似参数的对象。
+
+**SetPasses** 描述一种更昂贵的操作：材质更改。更改材质很昂贵，因为必须设置一个新的渲染状态。
+其中包括着色器参数和管线设置，例如 Alpha Blending，Z-Test，Z-Writing 等等。
+
+例如，要绘制一个模型三次，分别表示为 A B C，以下显示各个 Batches 和 SetPasses 方案将效果：
+
+|     Cases      | Case: Worst  |  Case: Bad   |  Case: Good  |  Case: Better  |
+|----------------|--------------|--------------|--------------|----------------|
+| Batches        | Off          | On           | Off          | On             |
+| Materials      | x3           | x3           | x1           | x1             |
+|----------------|--------------|--------------|--------------|----------------|
+| Draw Call      | Set Pass (A) | Set Pass (A) | Set Pass (A) | Set Pass (A)   |
+|                | DrawCall (A) | DrawCall (A) | DrawCall (A) | DrawCall (A*3) |
+|                | Set Pass (B) | Set Pass (C) | DrawCall (B) |                |
+|                | DrawCall (B) | DrawCall (C) | DrawCall (C) |                |
+|                | Set Pass (C) | Set Pass (C) |              |                |
+|                | DrawCall (C) | DrawCall (C) |              |                |
+|----------------|--------------|--------------|--------------|----------------|
+| Set Passes     | 3 time       | 3            | 1 time       | 1 time         |
+| Batches (D.C.) | 3 time       | 3 time       | 3 time       | 1 time         |
+
+要批处理的对象必须使用相同着色器程序，因此更换当前着色器（Shader）是最昂贵的操作之一，会大大降低
+渲染速度，引擎习惯是编译一个大型着色器程序。深入研究 Draw Call 需要适当的工具，例如 RenderDoc。
+
+Armory Project -> Debug Console 也可以打开调试器面板，渲染时间栏目下查看 Draw Call 数据。
+
+使用 `SpawnObjectByNameNode` 等节点还可以设置变换矩阵，用于定位对象的放置点，以及旋转朝向。
+相比 `SpawnObjectNode`，此节点只能生成同场景下的对象，而前者可以生成其它场景中的对象。
+
+`Transform` 确定每个对象在场景中的 Position、Rotation 和 Scale 等仿射变换属性值，变换矩阵
+`Mat4` 可以代表一个仿射变换操作。每个游戏对象都有一个变换组件，存储游戏对象的位置、旋转、缩放和
+父子化状态。变换组件中包含了世界变换、本地变换等等矩阵数据，其中旋转 rot 是一个四元数。通过
+`setMatrix()` 方法可以将一个变换矩阵更新平移、旋转、缩放，以及世界变换矩阵。
+
+    armsdk\iron\Sources\iron\data\SceneFormat.hx
+    armsdk\iron\Sources\iron\Scene.hx
+    armsdk\iron\Sources\iron\object\Transform.hx
+    armsdk\iron\Sources\iron\math\Mat4.hx
+    armsdk\iron\Sources\iron\math\Quat.hx
+    armsdk\armory\Sources\armory\logicnode\SpawnSceneNode.hx
+    armsdk\armory\Sources\armory\logicnode\SpawnObjectNode.hx
+    armsdk\armory\Sources\armory\logicnode\SpawnObjectByNameNode.hx
+
+场景对象提供的方法：
+
+1. `root`: Object 场景根据对象，名称为 Root，是一切场景对象的父级；
+2. `raw`: TSceneFormat 场景原始数据对象，实例化场景集合时需要用到它；
+3. `remove()` 移除/卸载场景，也可以移动活动场景内容以准备加载其它场景；
+4. `addObject()` 添加对象到场景树，可以指定一个父对象，默认使用 root 作为父对象；
+5. `addScene()` 添加场景，可以配合移除场景方法，清理不需要的旧场景内容；
+6. `createObject()` 在场景中创建对象，必需传入 TSceneFormat 数据，可以实例化其它场景中的对象；
+7. `spawnObject()` 实例化对象，只要提供一个对象名称，也可以传入 TSceneFormat 实例化其它场景的对象；
+
+两种生成对象的方法有些差别，前者需要 TObj 数据来生成对象，后者只需要对象名称，还可以指定是否生成
+对象的子层级对象，**spawnChildren** 参数默认为 true。Spawn 方法内部也会调用 `createObject`，
+因为它可以生成多种对象，包含相机、灯光、探针、网格、喇叭等等。
+
 
 ## 🐥 Armory Tutorials: material_depth_texture
 
@@ -20152,6 +20968,10 @@ NavAgentController 虽然可以临时修改 NavAgent 配置数据，但在执行
 3. Variable - `Float` 假设修改使用浮点值的速度，将此变量连接到变量赋值节点，以及 `Go to Location`；
 4. Math - `Multiple` 使用两个数学乘法运算处理变量值再输入到赋值节点，系数为 1.1、0.9 以增减速度；
 
+不同于 UPBGE 的节点，Math 运算节点不可以可以对向量进行数值的运算，使用 Vector Math 专用节点，
+进行向量运算，例如点积，叉积等等。
+
+
 Armory 引擎中专用于 Navmesh 的逻辑节点，以及键盘鼠标输入：
 
     |   |   |-- arm\logicnode\navmesh
@@ -20166,16 +20986,16 @@ Armory 引擎中专用于 Navmesh 的逻辑节点，以及键盘鼠标输入：
     |   |   |   |-- arm\logicnode\input\LN_mouse.py
 
 
-## 🐥 Armory Tutorials: particle_bunny
+## 🐥 Armory Tutorials: particle_bunny particle_hair
 
     |-- particle_bunny
     |   |-- bunny.png
     |   `-- particle_bunny.blend
-
-## 🐥 Armory Tutorials: particle_hair
-
     |-- particle_hair
     |   `-- particle_hair.blend
+
+Armory 支持对象粒子化，但不支持集合粒子化。
+
 
 ## 🐥 Armory Tutorials: particle_info
 
@@ -20550,50 +21370,11 @@ its name is printed to the console.
 
 Raycast 示例场景只有 Cube 模型设置了 Rigid Body - Types = Active，并且 Dynamic 禁用。
 模拟地面的 Plane 和模拟光枪的 Cone 模型不需要设置物理属性，因为 Cube 才需要使用物理引擎的碰撞。
-其中的逻辑节点和 RayCastTrait 扩展都挂载到模拟光枪的 Cone 模型上，用来旋转它，并且在按下 LMB
+其中的逻辑节点和 `RayCastTrait` 扩展都挂载到模拟光枪的 Cone 模型上，用来旋转它，并且在按下 LMB
 时模拟发射出射线，并通过物理引擎求解射线碰撞到的刚体。
 
-逻辑节点连接关系：
 
-01. `SelfObject` 获取当前 owner 对象，即 Cone 模型； 
-02. `CastPhysicsRayNode` Ray Cast 发出射线，From 为起点坐标，To 为终点坐标；
-03. From 起点坐标数据处理：
-04. `GetLocationNode` Get Object Location 获取当前 owner 对象的位置坐标，用作射线 From 输入； 
-05. To 终点坐标数据处理：
-06. `GetTransformNode` Get Object Transform 获取对象的变换矩阵；
-07. `VectorFromTransformNode` Transform to Vector 将矩阵转换为 look 向量，即 Cone 前方指向；
-08. `VectorMathNode` Vector 做乘法运算，各个分量 Multiply 1000，模拟射线传播距离；
-09. `VectorMathNode` Vector 再做加法运算，与前面获取到的起点坐标相加，得到正确的射线传播方向；
-10. `GetNameNode` Get Object Name 获取射线碰撞到的对象名称；
-11. `PrintNode` 将对象命名打印到控制台，使用 `MergedMouseNode` Mouse 节点作为事件流；
-
-能不能对示例做一点小改进呢？比如射线击中刚体时，让物体按其输出的碰撞点法向对齐。
-
-首先，修改键盘输入的逻辑节点，因为通过鼠标控件 Cone 模型的旋转操作更方便：
-
-01. `OnUpdateNode` 替换掉 `OnKeyboardNode` 用来触发 Cone 模型的旋转操作； 
-02. `RotateObjectNode` 指定一个 Vector 作为旋转偏移量，只需要 Z 轴上的旋转，设置弧度 0.2 左右；
-03. 旋转偏移量数据处理：
-    04. `GetMouseMovementNode` 滚轮数据作为旋转的偏移，滚轮动作时对应 1 和 -1，指定系数 0.2 即可;
-    05. `VectorNode` 节将滚轮数据输入 Z 分量并输出到`RotateObjectNode` 对象旋转节点；
-06. 以设置目的是在 Canvas UI 上显示滚轮数据的统计值：
-    07. `SetVariableNode` 用来设置一个变量，将滚轮数据保存起来；
-    08. `VectorNode` 这是另一个向量节点，用来保存变量数据，将它连接到 `SetVariableNode`；
-    09. `VectorMath` 将上面获取到的滚轮数据与向量变量相加，统计的滚轮数据作为 Value 输入到变量设置节点；
-10. `OnRender2DNode` 连接 `CanvasSetTextNode`，设置 Element = Text 将数据显示在控件上。
-11. 最后，将变量设置节点连接 `OnUpdateNode` 事件流！
-
-注意：这里为了能正确读取到实时更新的鼠标运动数据，变量设置节点必须连接 `OnUpdateNode` 事件流。
-
-使用滚轮数据 wheelDelta 要注意，因为这个值是表示当下的运动值，只要滚轮没动就会立即置零。
-Iron 框架的 Input 抽象将鼠标等输入设备的状态设计成了缓存的数据结构，只要没有及时读取出来的
-动态数据，就会在稍后，帧绘画线束时清零，除了光标的坐标数据会保留。这就导致像 `PrintNode` 这些
-节点可能无法打印出正确的数据，它们可能在 Iron 输入设备的 `reset()` 方法执行之后才得到执行。
-这种情况就发生在 `On Render2D` 事件流后面连接的逻辑节点上，所以要正确读取到数据，就要优先
-使用 `On Update` 这样的节点来运行所有需要读取输入数据的节点。
-
-
-```java
+```js
     package arm;
 
     import armory.trait.physics.PhysicsWorld;
@@ -20644,6 +21425,189 @@ Iron 框架的 Input 抽象将鼠标等输入设备的状态设计成了缓存�
                     object.transform.buildMatrix();
                 }
             });
+        }
+    }
+```
+
+逻辑节点连接关系：
+
+01. `SelfObject` 获取当前 owner 对象，即 Cone 模型； 
+02. `CastPhysicsRayNode` Ray Cast 发出射线，From 为起点坐标，To 为终点坐标；
+03. From 起点坐标数据处理：
+04. `GetLocationNode` Get Object Location 获取当前 owner 对象的位置坐标，用作射线 From 输入； 
+05. To 终点坐标数据处理：
+06. `GetTransformNode` Get Object Transform 获取对象的变换矩阵；
+07. `VectorFromTransformNode` Transform to Vector 将矩阵转换为 look 向量，即 Cone 前方指向；
+08. `VectorMathNode` Vector 做乘法运算，各个分量 Multiply 1000，模拟射线传播距离；
+09. `VectorMathNode` Vector 再做加法运算，与前面获取到的起点坐标相加，得到正确的射线传播方向；
+10. `GetNameNode` Get Object Name 获取射线碰撞到的对象名称；
+11. `PrintNode` 将对象命名打印到控制台，使用 `MergedMouseNode` Mouse 节点作为事件流；
+
+Iron 框架定义的 `Transform` 提供了 `look()` 方法，它返回一个方向，指向对象的正面方向。即
+对象本地坐标的 Y 轴指向。使用 `Transform to Vector` 节点也可以调用此方法。
+
+其中，旋转操作使用了四元数，Quaternion，这是一种更好的旋转操作算法，同时也是更加抽象的一种算法。
+对象局部旋转时，先设置旋转量，再执行四元数 `buildMatrix()` 方法完成旋转。通过 Haxe Property
+读写节点来修改 object.transform.rot 属性并不能实现旋转。使用四元数旋转时，注意要设置 w=1 分量。
+
+四元数提供 `applyQuat()` 方法对矩阵应用额外的旋转，Vector to Object Orientation 节点就
+是调用此方法实现一个额外旋转量，Objec 参数用于获取其变换矩阵的旋转量，即要旋转的四元数，对指定的
+World 向量进行额外的旋转。
+
+旋转中需要单位四元数：
+
+    q = (𝒘, 𝑣⃗)ᵀ = (cos(Θ/2), 𝑢 sin(Θ/2))  |𝑢| = x² + y² + z² + 𝒘² = 1
+
+直观地用一个沿 Z 轴向旋转作为例子，假设分量始终为 𝒘 = 1，World = (1,0,0)，即 X 轴正向为参考
+方向，那么物体朝向与世界参考坐标的关系如下，与世界坐标对齐时即旋转 0°，在整个 360° 旋转范围内，
+可以看到四元数的 x 和 y 分别分别在 X 和 Y 轴上来回变换方向：
+
+| Rotation |    Quatnion    |
+|----------|----------------|
+| 0°       | Quat(0, -1, 0) |
+| 90°      | Quat(1, 0, 0)  |
+| 180°     | Quat(0, 1, 0)  |
+| 270°     | Quat(-1, 0, 0) |
+| 360°     | Quat(0, -1, 0) |
+
+- [四元数的可视化 by 3Blue1Brown](https://www.bilibili.com/video/av33385105/)
+- [Visualizing quaternions, an explorable video series](https://eater.net/quaternions/video/intro)
+- [维度：数学漫步 Dimensions: A Walk Through Mathematics (2008)](https://www.bilibili.com/video/BV1rx411J7EL)
+- [GAMES105-计算机角色动画基础-刘利斌](https://www.bilibili.com/video/BV1GG4y1p7fF/)
+
+
+参考 `SetRotationNode` 节点的代码：
+
+|         Nodes Categorys         |        Labels       |       Node Types      |
+|---------------------------------|---------------------|-----------------------|
+| values -> Variable              | Rotation            | LNRotationNode        |
+| motion -> Transform -> rotation | Rotate Object       | LNRotateObjectNode    |
+| motion -> Transform -> rotation | Set Object Rotation | LNSetRotationNode     |
+| basic -> Native -> haxe         | Get Haxe Property   | LNGetHaxePropertyNode |
+| basic -> Native -> haxe         | Set Haxe Property   | LNSetHaxePropertyNode |
+| motion -> Transform | Vector to Object Orientation  | LNVectorToObjectOrientationNode |
+
+    armsdk\iron\Sources\iron\math\Mat4.hx
+    armsdk\iron\Sources\iron\object\Transform.hx:31
+    armsdk\armory\Sources\armory\logicnode\SetRotationNode.hx:22
+
+```haxe
+    package armory.logicnode;
+
+    import iron.object.Object;
+    import iron.math.Quat;
+    import armory.trait.physics.RigidBody;
+
+    class SetRotationNode extends LogicNode {
+
+        public var property0: String; // UNUSED
+
+        public function new(tree: LogicTree) {
+            super(tree);
+        }
+
+        override function run(from: Int) {
+            var object: Object = inputs[1].get();
+            if (object == null) return;
+            var _q: Quat = inputs[2].get();
+            if (_q == null) return;
+
+            final q = new Quat(_q.x, _q.y, _q.z, _q.w).normalize();
+            object.transform.rot.setFrom(q);
+            object.transform.buildMatrix();
+
+            #if arm_physics
+            var rigidBody = object.getTrait(RigidBody);
+            if (rigidBody != null) {
+                rigidBody.syncTransform();
+            }
+            #end
+            runOutput(0);
+        }
+    }
+```
+
+能不能对示例做一点小改进呢？比如射线击中刚体时，让物体按其输出的碰撞点法向对齐。
+
+首先，修改键盘输入的逻辑节点，因为通过鼠标控件 Cone 模型的旋转操作更方便：
+
+01. `OnUpdateNode` 替换掉 `OnKeyboardNode` 用来触发 Cone 模型的旋转操作； 
+02. `RotateObjectNode` 指定一个 Vector 作为旋转偏移量，只需要 Z 轴上的旋转，设置弧度 0.2 左右；
+03. 旋转偏移量数据处理：
+    04. `GetMouseMovementNode` 滚轮数据作为旋转的偏移，滚轮动作时对应 1 和 -1，指定系数 0.2 即可;
+    05. `VectorNode` 节将滚轮数据输入 Z 分量并输出到`RotateObjectNode` 对象旋转节点；
+06. 以设置目的是在 Canvas UI 上显示滚轮数据的统计值：
+    07. `SetVariableNode` 用来设置一个变量，将滚轮数据保存起来；
+    08. `VectorNode` 这是另一个向量节点，用来保存变量数据，将它连接到 `SetVariableNode`；
+    09. `VectorMath` 将上面获取到的滚轮数据与向量变量相加，统计的滚轮数据作为 Value 输入到变量设置节点；
+10. `OnRender2DNode` 连接 `CanvasSetTextNode`，设置 Element = Text 将数据显示在控件上。
+11. 最后，将变量设置节点连接 `OnUpdateNode` 事件流！
+
+注意：这里为了能正确读取到实时更新的鼠标运动数据，变量设置节点必须连接 `OnUpdateNode` 事件流。
+
+使用滚轮数据 wheelDelta 要注意，因为这个值是表示当下的运动值，只要滚轮没动就会立即置零。
+Iron 框架的 Input 抽象将鼠标等输入设备的状态设计成了缓存的数据结构，只要没有及时读取出来的
+动态数据，就会在稍后，帧绘画线束时清零，除了光标的坐标数据会保留。这就导致像 `PrintNode` 这些
+节点可能无法打印出正确的数据，它们可能在 Iron 输入设备的 `reset()` 方法执行之后才得到执行。
+这种情况就发生在 `On Render2D` 事件流后面连接的逻辑节点上，所以要正确读取到数据，就要优先
+使用 `On Update` 这样的节点来运行所有需要读取输入数据的节点。
+
+为了更方便地使用鼠标的移动来控制镜头的移动，需要对原生的 `WalkNavigation` 改造一下，将其镜头
+拖拽的触发条件 `mouse.down()` 改变成 `mouse.moved`，代码片段参考如下。将新改造的扩展脚本
+保存到 WalkNavigation 同目录下，即可以当作 Bundled Scripts 使用，注意清理后重新构造工程：
+
+```haxe
+    package armory.trait;
+
+    import iron.Trait;
+    import iron.system.Input;
+    import iron.system.Time;
+    import iron.object.CameraObject;
+    import iron.math.Vec4;
+
+    class WalkNavigationMM extends Trait {
+
+        public static var enabled = true;
+
+        @prop
+        var speed = 5.0;
+
+        var mouse: Mouse;
+        var camera: CameraObject;
+
+
+        public function new() {
+            super();
+            notifyOnInit(init);
+        }
+
+        function init() {
+            mouse = Input.getMouse();
+
+            try {
+                camera = cast(object, CameraObject);
+            }
+            catch (msg: String) {
+                trace("Error occurred: " + msg + "\nWalkNavigation trait should be used with a camera object.");
+            }
+
+            if (camera != null){
+                notifyOnUpdate(update);
+            }
+        }
+
+        function update() {
+            if (!enabled || Input.occupied) return;
+
+            // if (mouse.down()) {
+            if (mouse.moved) {
+                #if arm_yaxisup
+                camera.transform.rotate(Vec4.yAxis(), -mouse.movementX / 200);
+                #else
+                camera.transform.rotate(Vec4.zAxis(), -mouse.movementX / 200);
+                #end
+                camera.transform.rotate(camera.right(), -mouse.movementY / 200);
+            }
         }
     }
 ```
@@ -21125,13 +22089,6 @@ Render Path - `Create Render Target` 相当于调用 `createRenderTarget()` 创�
     |   |       `-- Trigger.hx
     |   `-- script_rigidbody_trigger.blend
 
-## 🐥 Armory Tutorials: script_spawnobject
-
-    |-- script_spawnobject
-    |   |-- Sources
-    |   |   `-- arm
-    |   |       `-- SpawnTrait.hx
-    |   `-- script_spawnobject.blend
 
 ## 🐥 Armory Tutorials: script_transform
 
@@ -21186,15 +22143,6 @@ Render Path - `Create Render Target` 相当于调用 `createRenderTarget()` 创�
     |   |-- drums.wav
     |   `-- sound.blend
 
-
-## 🐥 Armory Tutorials: spawn_from_scene
-
-    |-- spawn_from_scene
-    |   |-- README.md
-    |   |-- Sources
-    |   |   `-- arm
-    |   |       `-- MyTrait.hx
-    |   `-- spawn_from_scene.blend
 
 ## 🐥 Armory Tutorials: tilesheet tilesheet_2d tilesheet_walkcycle
 

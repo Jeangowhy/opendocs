@@ -353,8 +353,10 @@ see `Python Components` (manual/python_components/introduction).
 5. **Xor**  异或逻辑运算⊕，eXclusive Or，当输入两条件相反时就执行 **Actuator**。
 6. **Xnor** 同或逻辑运算，eXclusive Not Or，当输入两条件相同时就执行 **Actuator**。
 7. **Expression** 只有在表达式求值结果为 `True` 时才执行 **Actuator**。
-8. **Python** 就执行 **Actuator**。
+8. **Python** 脚本执行控制器，可以替代或与 **Actuator** 交互。
 
+upbge-0.30\source\gameengine\GameLogic\SCA_PythonController.h
+upbge-0.30\doc\python_api\rst\bge_types\bge.types.SCA_PythonController.rst
 UPBGE-Docs\source\manual\logic\controllers\types\python.rst
 UPBGE-Docs\source\manual\logic\controllers\types\expression.rst
 https://www.howtogeek.com/wp-content/uploads/csit/2021/05/22e2d43d.png
@@ -398,6 +400,22 @@ NAND Controller `SCA_NANDController`
 脚本定义了以下这样一个函数，那么就可以使用脚本控制器加载：`scripts.myscript.reload_me`，
 这个点路径中，目录可以称之为包 package，脚本文件称为模块 module，函数或类型称为导入的符号。
 控制器中导入的脚本，调用其函数时，会将当前的控制器作为参数传入。
+
+``D`` (Use Debug) 选项可以激活持续加载脚本文件，使用最新修改的内容生效。
+
+使用脚本控制器本身就可以实现任意执行器的功能，当然，也可以使用 `activate()` 和 `deactivate()`
+等方法来调用执行器。所有与控制相连的传感器、执行器分别保存在相应的 sensors、actuators 集合中。
+使用 Module 脚本模块方式，可以直接在模块方法参数接收到当前的控制器引用，如果是 Script 模式，
+则需要使用 bge.logic.getCurrentController() 全局函数来获取当前控制器。
+
+```py,ignore
+from bge.types import *
+
+def textRotation(controller: SCA_PythonController):
+    if len(controller.actuators) > 0:
+        actuator = controller.actuators[0]
+        controller.activate(actuator)
+```
 
 导入外部脚本时，可以使用多级目录，但是在 Game Components 面板中创建脚本组件时就只能使用模块名
 加符号名的组合形式。即使指定多级点路径，UPBGE 也只会按前面两部分创建相应的模块和脚本组件类型。
@@ -1078,7 +1096,7 @@ Property 指定一个名称，只有设置了相应 Game Properties 的对象才
 相机画面中的世界尺寸。画面的大小与相机 lens 和 fov 等参数密切相关。代码中乘 10 是一个放大系数。
 
 在处理数据过程中，Math 运算节点可以对向量进行数值的运算，而 Vector Math 节点则进行向量运算，
-例如点积，叉积乖乖。其中 Vector XY，虽然只有两个分量，但其实它是三维的输出。
+例如点积，叉积等等。其中 Vector XY，虽然只有两个分量，但其实它是三维的输出。
 
 还有 RunPythonCode，虽然它可以运行脚本，但也只是调用函数，并且参数只能有一个，当然，可以通过
 字典对象传递多个值。
