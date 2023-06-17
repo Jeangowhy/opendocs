@@ -1297,6 +1297,309 @@ why you can still see a graphics5_ package. If Haxe will ever receive better
 multithreading support I might revive it but I don't think that will happen.
 
 
+## 🐥 Tankzors Lux 塞班手机时代游戏
+https://boostrobotics.eu/windows-key-codes/
+[Tankzors Lux](https://github.com/tankzors/tankzors.github.io)
+[Online Maps](https://github.com/Tankzors/Maps)
+[HTML5](https://tankzors.github.io/Builds/html5/)
+
+相关类型定义：
+
+    $hxClasses["Crashlytics"] = Crashlytics;
+    $hxClasses["Loader"] = Loader;
+    $hxClasses["Main"] = Main;
+    $hxClasses["Music"] = Music;
+    $hxClasses["OldMap"] = OldMap;
+    $hxClasses["Sound"] = Sound;
+    $hxClasses["game.BaseSets"] = game_BaseSets;
+    $hxClasses["game.Base"] = game_Base;
+    $hxClasses["game.Tank"] = game_Tank;
+    $hxClasses["game.Bot"] = game_Bot;
+    $hxClasses["game.Dijkstra"] = game_Dijkstra;
+    $hxClasses["game.BuildingSets"] = game_BuildingSets;
+    $hxClasses["game.Building"] = game_Building;
+    $hxClasses["game._Bullet.BulletType_Impl_"] = game__$Bullet_BulletType_$Impl_$;
+    $hxClasses["game.Bullet"] = game_Bullet;
+    $hxClasses["game.CustomData"] = game_CustomData;
+    $hxClasses["game.ExplSets"] = game_ExplSets;
+    $hxClasses["game.Explosion"] = game_Explosion;
+    $hxClasses["game.Game"] = game_Game;
+    $hxClasses["game.Player"] = game_Player;
+    $hxClasses["game.Practice"] = game_Practice;
+    $hxClasses["game.SpriteSets"] = game_SpriteSets;
+    $hxClasses["game.Sprite"] = game_Sprite;
+    $hxClasses["game.TankSets"] = game_TankSets;
+    $hxClasses["game.TileSpriteSets"] = game_TileSpriteSets;
+    $hxClasses["game.TileSprite"] = game_TileSprite;
+    $hxClasses["game.Timer"] = game_Timer;
+    $hxClasses["game.TriggerSets"] = game_TriggerSets;
+    $hxClasses["game.Trigger"] = game_Trigger;
+    $hxClasses["game.TurretSets"] = game_TurretSets;
+    $hxClasses["game.Turret"] = game_Turret;
+    $hxClasses["game.effects.AircraftSets"] = game_effects_AircraftSets;
+    $hxClasses["game.effects.Aircraft"] = game_effects_Aircraft;
+    $hxClasses["game.effects.Artillery"] = game_effects_Artillery;
+    $hxClasses["game.effects.Border"] = game_effects_Border;
+    $hxClasses["game.effects.Cloud"] = game_effects_Cloud;
+    $hxClasses["game.effects.Dynamite"] = game_effects_Dynamite;
+    $hxClasses["game.effects.ExplEffect"] = game_effects_ExplEffect;
+    $hxClasses["game.effects.Palm"] = game_effects_Palm;
+    $hxClasses["game.effects.Radar"] = game_effects_Radar;
+    $hxClasses["game.effects.Rocket"] = game_effects_Rocket;
+    $hxClasses["game.effects.RocketSmoke"] = game_effects_RocketSmoke;
+    $hxClasses["game.effects.Smoke"] = game_effects_Smoke;
+    $hxClasses["game.effects.TextHint"] = game_effects_TextHint;
+    $hxClasses["game.effects.Trace"] = game_effects_Trace;
+    $hxClasses["game.gui.About"] = game_gui_About;
+    $hxClasses["game.gui.AimMode"] = game_gui_AimMode;
+    $hxClasses["game.gui.Briefing"] = game_gui_Briefing;
+    $hxClasses["game.gui.ButtonSets"] = game_gui_ButtonSets;
+    $hxClasses["game.gui.Button"] = game_gui_Button;
+    $hxClasses["game.gui._Icon.Icon_Impl_"] = game_gui__$Icon_Icon_$Impl_$;
+    $hxClasses["game.gui.Inventory"] = game_gui_Inventory;
+    $hxClasses["game.gui.Menu"] = game_gui_Menu;
+    $hxClasses["game.gui.MoneyWindow"] = game_gui_MoneyWindow;
+    $hxClasses["game.gui.NewsWindow"] = game_gui_NewsWindow;
+    $hxClasses["game.gui.OfferScreen"] = game_gui_OfferScreen;
+    $hxClasses["game.gui.Shop"] = game_gui_Shop;
+    $hxClasses["game.gui.ShopHelp"] = game_gui_ShopHelp;
+    $hxClasses["game.gui.SmoothScroll"] = game_gui_SmoothScroll;
+    $hxClasses["game.gui.SoundScreen"] = game_gui_SoundScreen;
+    $hxClasses["game.gui.Text"] = game_gui_Text;
+    $hxClasses["game.gui.Touch"] = game_gui_Touch;
+    $hxClasses["game.gui.TouchPads"] = game_gui_TouchPads;
+    $hxClasses["game.gui.TouchStick"] = game_gui_TouchStick;
+    $hxClasses["game.gui.Ui"] = game_gui_Ui;
+    $hxClasses["game.gui.Widgets"] = game_gui_Widgets;
+
+作者实现了地图编辑器，HTML5 版本可以通过 HASH 打开编辑器：http://localhost:8000/#editor
+但功能不完整，不能直接创建游戏中可以加载的地图数据。编辑器中保存的 JSON 数据使用三个数组保存三个
+图层上绘制的 Tile。
+
+`Loader` 类型实现游戏加载方法：
+
+    loadComplete: function(){
+        ...
+        var nav = HxOverrides.substr(window.location.hash,1,null);
+        switch(nav) {
+        case "editor":
+            var editor = new khm_editor_Editor(new khm_tilemap_Tileset(kha_Assets.blobs.tiles_json));
+            editor.show();
+            editor.init();
+            break;
+        case "game":
+            Loader.newGame();
+            break;
+        case "practice":
+            var game1 = new game_Game();
+            game1.show();
+            game1.init();
+            game1.loadPractice();
+            break;
+        case "shop":
+            var game2 = new game_Game();
+            game2.show();
+            game2.init();
+            game2.continueCampaign();
+            var shop = new game_gui_Shop();
+            shop.show();
+            shop.init(game2,game2.player);
+            break;
+        case "sound":
+            Loader.soundScreen();
+            break;
+        default:
+            if(nav.length > 0) {
+                var save1 = khm_Settings.read();
+                save1.currentSlot.level = Std.parseInt(nav);
+                khm_Settings.write(save1);
+                Loader.newGame();
+                return;
+            }
+            this.nextScreen();
+        }
+    }
+
+游戏中加载的旧版本（4、5）数据使用 map_arr 和 parameters 数组保存数据，
+新版本（6）多了触发器使用的两个数组，使用 **OldMap** 对象类型进行加载：
+
+1. map_arr 是一个二维数组，对应了二维地图上的 Tile，不同的数值组合了不同图层的属性；
+2. parameters 是一个一给数组，包含一个游戏关卡的配置参数，如触发器提供空中打击的 3 组坐标。
+3. triggers 包含多个触发器配置数据。
+4. triggers_msg 触发器消息。
+
+按照 `getNextBg()` 函数算法，Tile 数值大于 249 表示包含了地表与地面两个图层数据：
+
+        if(tile > 249) {
+            tile -= 149;
+        }
+
+|    Fields    |     Ver 4,5     |      Ver 6      |
+|--------------|-----------------|-----------------|
+| map_arr      | [rows][columns] | [rows][columns] |
+| parameters   | [56]            | [96]            |
+| triggers     | -               | [20][5]         |
+| triggers_msg | -               | [7]             |
+
+parameters 涉及的功能：
+
+```js
+    var params2 = { 
+        teamLimits : [0,params,p1,0],
+        teamCounts : [_g,_g1,_g2,_g3],
+        teamTurretTypes : [p2,p3,p4,p5],
+        turretHeight : p6,
+        turretDistance : p7,
+        friendlyFire : p8,
+        enemyDifficulty : p9,
+        enemyAIType : p10,
+        winCondition : p11,
+        blueFlagCount : 0,
+        blueFlags : [],
+        airSupport : [{ x : p12, y : p13},{ x : p14, y : p15},{ x : p16, y : p17}],
+        boxesContent : [],
+        radarHP : p18,
+        reactorHP : p19,
+        musicTrack : p20,
+        enemySightDistance : p21,
+        enemySpawnOrdered : params1,
+        enemySpawnOrder : _g4,
+        playerSpawnMode : p[79],
+        disableFreeze : (p[95] & 1) != 0,
+        oneLifeMode : (p[95] & 4) != 0,
+        disableClouds : (p[95] & 64) != 0,
+        disableDebriefing : (p[95] & 128) != 0
+    };
+```
+
+当数值满足 **tile1 > 99 && tile1 < 115**，就包含一类触发器行为，比如：
+
+    100 我方基地
+    101 敌方基地
+    102 蓝方基地
+
+当数值满足 **tile1 > 114 && tile1 < 130**，就包含各种颜色的旗帜触发器。
+
+触发器 5 个数值包含的功能如下，触发器类型定义 `game_Trigger`，按 **map_arr** 配置依次添加：
+
+    var trigger = json.triggers[triggerId];
+    var param = trigger[1];
+    var delay = trigger[2];
+    var sensetivity = trigger[3];
+
+    var state = { 
+        isActive : (trigger[4] & 1) != 0, 
+        isPressed : (trigger[4] & 2) != 0, 
+        isReusable : (trigger[4] & 4) != 0, 
+        isVisible : (trigger[4] & 8) != 0, 
+        color : 40 + ((trigger[4] & 48) >> 4)
+    };
+
+    // game_TriggerType
+    switch(trigger[0]) { ... }
+
+使用数字键切换图层功能，或者直接通过 Tile 面板自动选择对应层：
+
+1. layer 1 设置植被、路面
+2. layer 2 设置 walls、 spikes、 mines、 powerups、 buildings、 triggers 等等
+3. layer 3 天空图层，如云朵、棕榈树等等
+
+地图上绘制的 Tile 使用数字序号标记，从 1 开始，归属于不同图层的 Tile 使用各自的数字序号系统。
+
+地图编辑器快捷键：Tankzors\html5\kha.js:33477
+
+```js
+var khm_editor_Editor = function(tileset) { }
+
+khm_editor_Editor.prototype = $extend(khm_Screen.prototype,{
+
+    ,onKeyDown: function(key) {
+        var tmp;
+        var _g = this.keys.h[17]; // Ctrl
+        if(!(_g == null ? false : _g)) {
+            var _g1 = this.keys.h[224];
+            tmp = _g1 == null ? false : _g1;
+        } else {
+            tmp = true;
+        }
+        if(tmp) {
+            if(key == 90) { // Ctrl-Z
+                var _g2 = this.keys.h[16];
+                if(!(_g2 == null ? false : _g2)) {
+                    this.tool.undo();
+                } else {
+                    this.tool.redo();
+                }
+            }
+            if(key == 89) { // Ctrl-Y
+                this.tool.redo();
+            }
+            if(key == 83) { // Ctrl-S
+                this.keys.h[83] = false;
+                this.keys.h[224] = false;
+                this.keys.h[17] = false;
+                this.save(this.tilemap.map);
+            }
+        }
+        if(khm_utils_ScreenTools.onRescaleKeys(this,key)) {
+            return;
+        }
+        if(key == 37 || key == 39 || key == 38 || key == 40) { // Left/Up/Right/Down
+            var _g3 = this.keys.h[16];
+            if(!(_g3 == null ? false : _g3)) {
+                this.moveCursor(key);
+                this.updateCamera();
+            }
+        }
+        if(key == 32) { // Space
+            this.tilemap.setTileId(this.layer,this.x,this.y,this.tiles[this.layer]);
+        } else if(key == 77) { // M
+            this.set_tool(this.arrow);
+        } else if(key == 66) { // B
+            this.set_tool(this.brush);
+        } else if(key == 82) { // R
+            this.set_tool(this.fillRect);
+        } else if(key == 80) { // P
+            this.set_tool(this.pipette);
+        } else if(key == 72) { // H
+            this.set_tool(this.hand);
+        } else if(key == 79) { // O
+            this.browse();
+        } else if(key == 78) { // N
+            this.createMap();
+        } else if(key == 81) { // Q
+            this.prevTile();
+        } else if(key == 69) { // E
+            this.nextTile();
+        } else if(key == 71) { // G
+            this.isGridEnabled = !this.isGridEnabled;
+        } else if(key == 188) { // <
+            this.tilePanel.incColumns();
+        } else if(key == 190) { // >
+            this.tilePanel.decColumns();
+        } else if(key == 48) { // 0
+            if(khm_editor_Editor.testMap != null) {
+                khm_editor_Editor.testMap(this,this.tilemap);
+            }
+        } else if(key == 57) { // 9
+            this.resizeMap();
+        } else if(key == 8) { // BACKSPACE
+            this.clearSelection();
+        } else if(key - 49 >= 0 && key - 49 <= 9) { // 1 ~ 0
+            var newLayer = key - 49;
+            if(newLayer < this.tilemap.map.layers.length) {
+                this.layer = newLayer;
+            }
+        } else if(key == 27) { // Escape
+            if(!window.confirm(khm_Lang.get("dataWillBeLost") + " " + khm_Lang.get("areYouSure"))) {
+                return;
+            }
+            if(khm_editor_Editor.exit != null) {
+                khm_editor_Editor.exit();
+            }
+        }
+```
+
 ## 🐥 Armory HelloWorld
 
 下载 Armory SDK 并解包到任意位置，然后在 Blender 安装插件，定位到 armory.py 脚本进行安装。

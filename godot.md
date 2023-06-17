@@ -76,7 +76,7 @@
     Wigfrid，一个只吃肉的舞台剧演员；Webber，一个住在曾要吃了他的蜘蛛尸体内的男孩。另外还有
     两个新季节，春季和夏季，两个新生物群，当然还有巨人。
 
-　　《饥荒：海难》是生存游戏《饥荒》的一个单人游戏扩展DLC，本作会带来新的游戏人物，生物群落，生物和
+    《饥荒：海难》是生存游戏《饥荒》的一个单人游戏扩展DLC，本作会带来新的游戏人物，生物群落，生物和
     季节的影响等等。帆船将也被添加到游戏中，创造一种有趣的方式，来绕过以前人迹罕至的被水覆盖的地图。
 
 - 🌟奥日 Ori https://www.bilibili.com/video/BV1344y1V7Vg/
@@ -225,10 +225,10 @@
     https://www.bilibili.com/video/BV1v44y137f5
     https://www.bilibili.com/video/BV1g7411J74R
     https://zhuanlan.zhihu.com/p/146105377
-    　　《这是我的战争》别称《我的这一战》，是 11 bit 工作室所制作的黑暗求生游戏，与一般的战争游戏不同，
+    《这是我的战争》别称《我的这一战》，是 11 bit 工作室所制作的黑暗求生游戏，与一般的战争游戏不同，
     玩家控制的并不是士兵，而是一群在战火中求生存的平民，开发商给出的理念是让玩家从另一个角度去看待战争。
 
-    　　战争是游戏常用的故事背景，因为它能为玩家提供最直接的游戏目标：杀死敌人获胜。但历史告诉我们，
+    战争是游戏常用的故事背景，因为它能为玩家提供最直接的游戏目标：杀死敌人获胜。但历史告诉我们，
     任何战争，最大的受害者永远是平民。而市面上无数的军事游戏，几乎没有一款对这些无辜的平民的处境进行
     描绘，而本作将填补这一空白。
 
@@ -284,6 +284,718 @@
     https://www.bilibili.com/read/cv18420756
 
 
+
+
+## 🟡 各大平台游戏上架流程
+Stream 蒸汽机平台 https://store.steampowered.com/
+Steamworks https://partner.steamgames.com
+Steam 上架作品教程 https://www.bilibili.com/video/BV1Kt411R7Jx/
+https://partner.steamgames.com/doc/marketing/discounts?l=schinese
+Epic Game 虚幻引擎平台 https://store.epicgames.com/
+https://sac.epicgames.com/en-US/overview
+https://dev.epicgames.com/docs/resources-overview
+https://www.epicgames.com/store/
+Itch.io 免费发布平台 https://armory.itch.io/armory3d
+https://itch.io/community/search?category_id=10023&query=Paypal
+https://itch.io/t/643204/paypal-marketplaces-an-update-for-paypal-direct-to-you-payments
+https://itch.io/user/settings/seller/payment-processors
+https://www.paypal.com/c2/home
+https://www.paypal.com/us/webapps/mpp/merchant-fees
+游戏中集成 TapTap 登录功能 https://www.bilibili.com/video/BV1YX4y1b7TB/
+
+Steam 是最大也是用户最多最活跃的游戏发布平台，由一条命游戏开发团队 Valve 创建。
+Steam 平台发布游戏需要预收 100$ 作为应用提交费用，当销售达到 1000 份时将按原支付额返回给注册者。
+支付方式支持 Visa、MasterCard、美国运通卡、支付宝、微信支付、银联，对国内开发者友好。
+Steamworks 是管理 Steam 游戏的开发者平台，登录并注册开发者账号，按表单填写作品信息并发布。
+作品定价时注意，因为这是一个全球发行平台，不同地区可以指定购买价格，可以给设置一个合理的价格，
+也可以按基准的美元定价。但是，如果其它区的用户按汇率以低价区价格购买则可能给开发者造成损失
+
+Steam 经常有打折活动，折扣具体规则：
+1. 您可以实行首发降价优惠，但是在首发降价优惠结束后的 30 天内，不得实行任何其他折扣。
+2. 您的产品在任一币种中涨价后的 30 天内不能打折销售。
+3. 在前一折扣结束后的 30 天内不得进行其他打折，但 Steam 全范围内的季节性活动除外。
+4. 游戏发售 30 天内、首发降价优惠结束后的 30 天内，或在任何币种中涨价后的 30 天内不可参与季节性特卖。
+5. 在促销活动期间或未来的促销已安排好日程后，不得改变产品价格。
+6. 折后价格不得低于原价的 10% 或高于原价的 90%。
+7. 自定义折扣期不得长于 2 周或短于 1 天。
+
+
+Epic Game 是虚幻引擎团队开发的发布平台，平台分成比 Steam 平台低。
+每款游戏收费 100$ 即可以上架 Epic 商城，开发者最高可以获取 88% 的分成，88%/12% Revenue Split。
+登录开发者网站，注册开发者账户，激活 Two-Factor Sign，建议使用短信或电子邮件方式。
+
+Epic 从 2019 年开始正式支持国内市场，支持微信、支付宝等支付方式，通过 Xsolla 提供支付服务。
+账户需要设置国家/地区为中国，如果锁区，可以通过客服改回国区。
+
+https://store.epicgames.com/en-US/distribution
+Epic 在《2022 年回顾及自助发行功能上线》一文中宣布，自助发布工具 1.0 版本正式推出。
+利用该工具，开发者们可以通过简单的流程将自己符合要求的 PC 平台产品直接发布在 Epic 游戏商城，
+Epic 表示，使用自助发布服务的合作伙伴们将继续享受 88%/12% 收入分成政策，
+或在产品中使用他们自己的应用内付款渠道。
+
+https://dev.epicgames.com/docs/dev-portal
+The Epic Games Developer Portal is a browser-based tool. Use the Developer Portal
+to set up and configure your game with Epic developer resources: the Epic Games 
+Store and Epic Online Services (EOS).
+
+Note: The Epic Games Developer Portal (known as the "Developer Portal") does not
+provide configuration support for Kids Web Services (KWS).
+
+登录 Developer Portal 就可以创建开发者组织机构 Organization，并以机构名义创建作品。
+每款游戏支付 100 美元 submission fee，此费用不可退还，但在产品通过 Epic Games Store 交易和
+通过 Epic Payment Platform 的游戏内购获得至少 1000.00 美元的收入后，可以在付款中收回此费用。
+
+Pay submission fee
+A $100 USD (or local currency equivalent), plus local taxes if applicable, 
+submission fee is required for each product. While this fee is non-refundable, 
+it is recoupable in the payment made after your product has earned at least 
+$1,000.00 in revenue for payout for Epic Games Store purchases and in-game 
+purchases using the Epic Payment Platform.
+
+
+https://publish.unrealengine.com/v3/welcome
+还可以成为 Marketplace Seller 在官方商场销售游戏资产，或相关资源。
+不过，需要进行税务信息登记，有四种选择：
+
+1. I would like to create a PERSONAL tax profile. (Recommend).
+2. I would like to create a SOLE PROPRIETOR tax profile.
+3. I would like to start a tax interview for a SINGLE MEMBER LLC (applicable for US only).
+4. I would like to create a BUSINESS tax profile.
+
+填写税务登记表后，就可以激活超级钱包账户 HYPERWALLET ACCOUNT 用于收款或购买游戏。最后，
+还要提供 National Identity Card 身份证明扫描图像等文件作为激活钱包账户的认证文档。
+完成后，就可以添加转账方式，Transfer Method，官方提供 Wire Transfer 电汇方法。
+
+期间需要接收电子邮件通知，并登录开发者网站，在 Publisher Portal Dashboard 激活钱包帐户。
+
+电汇是银行与银行之间通过电子方式直接将资金从一个 A 帐户转移到 B 帐户，没有实体的现金流动，
+汇款方向机构支付汇款金额以及收款人信息，收款机构收到交易信息之后，直接存入收款人的银行账户，
+或者通知收款人取现。电汇主要适用于大额境内汇款和境外汇款，时效性好。
+
+美国税务登记使用纳税人识别号 TIN (Tax Identification Number)，相当于身份证号码。美国税法
+相当复杂，对于在美有业务的公司，Epic 需要收集 W-8 or W-9 税务登记表信息。
+
+https://www.deel.com/blog/tax-forms-for-contractors
+Do Non-US Companies Need W-9 and W-8 Forms in 2022? by Anja Simic
+
+Tax forms for contractors: general rules
+Only US-based companies need to collect Forms W-8 or W-9. If a company is based
+outside of the US, there’s no need to collect them. The tax compliance matter
+still needs to be handled, but it’s going to be according to the laws of the
+country where the company is located.
+
+When a company is based in the US and hires US citizens, they need to comply 
+with domestic tax regulations and use Form W-9. If a US-based company hires 
+foreign contractors, it’s the employer’s responsibility to issue the Form W-8BEN 
+to independent contractors acting as individuals, or W-8BEN-E forms to those 
+acting as business entities.
+
+
+The tax form W-9 is used to collect and verify the necessary information from 
+US-based independent contractors. 
+
+Form W-8 is necessary for all foreign contractors who perform work for US-based 
+employers.
+
+Form W-8BEN is also called Certificate of Foreign Status of Beneficial Owner 
+for United States Tax Withholding and Reporting. 
+
+Form W-4, Employee’s Withholding Certificate is a US tax document that employees
+fill out to let their employer know the correct amount of money to withhold from
+their salary for federal taxes.
+
+
+
+Itch.io 是国外最大的独立游戏分享平台，免费的发布平台，开放源代码，但对国内网络可能不是很友好。
+2013 由 Leaf Corcoran 推出网站，之后推出了全平台客户端，该网站的政策对于独立制作游戏非常友好，
+对于独立游戏的审核也相对宽松，经常鼓励游戏独立制作人并且上架他们的作品。
+
+开发者可以在 Revenue Sharing 设置中任意调整分成比例，截至可以不给 Itch.io 抽成，提供参考配置：
+
+    itch.io default (10%)
+    Industry standard (30%)
+
+The itch book https://itch.io/docs/itch/
+https://itch.io/docs/butler/
+https://broth.itch.ovh/butler
+Web 上传限制作品容量不能超过 2GB，但可以使用 butler 上工具上传高达 30GB 的作品。
+
+butler is a small command-line tool that lets you:
+
+1. Upload builds of your games quickly & reliably to itch.io
+2. Generate patches and apply them offline
+3. Run a few other utility commands
+
+butler is easily integrated into an automated build/deploy pipeline. 
+Like most of the itch.io delivery infrastructure, it is open-source 
+(MIT licensed):
+
+https://github.com/itchio/butler
+
+It is also a good showcase of the Wharf open specification, using only openly 
+documented algorithms and file formats, encouraging the development of 
+ompatible tools:
+
+https://docs.itch.ovh/wharf
+
+And is used by the itch app for various operations.
+
+Keep reading to learn how to use it! First you'll want to install butler.
+
+
+Accepting Payments and Getting Paid 
+https://itch.io/docs/creators/payments
+Itch.io 收付款只支持两种方式：
+
+1. **PayPal** — Pay with PayPal balance, card, or bank
+2. **Stripe** — Pay with credit or debit card
+
+国内注册 PayPal 账户需要提供一个营业执照给 PayPal 才能收款。
+还有一种 itch 平台代收的收款方式，自己注册一个 Payoneer 账号绑定国内银行卡。
+
+To close up, here’s a quick recap of the two payout modes itch.io supports:
+
+ * `Direct to you` – Each transaction is handled directly through your PayPal or 
+    Stripe account. You are the merchant of record
+ * `Collected by itch.io, paid later` – itch.io’s Stripe and PayPal accounts 
+    handle all transactions, you can request a payout to collect you earnings 
+    in bulk at a later time
+
+https://itch.io/user/settings/seller/get-started
+Itch.io 为游戏评论家和作家提供了专门的新闻账户 Press Accounts，如果开发者选择将游戏加入系统，
+这些评论家、作家们可以免费下载这些付费游戏。Partner & Affiliate 合作伙伴和联盟计划是为那些创建
+专注于游戏和其他媒体内容的人提供的一系列工具：
+
+01. A way to verify your identity on itch.io 
+    — Link your Twitter, Twitch, YouTube, email, etc. — 
+    So creators can confidently give review copies to trusted people 
+    in the community
+02. Access a large collection of paid games (the partner library) that have 
+    opted into the partner system for free access
+03. A partner profile page that shows your publications, accounts, and 
+    contributions
+04. Affiliate codes — Tag your links to attribute purchases to your account
+
+开发者可以创建任意 API keys 来访问 itch.io API 服务，获取开发者账户中的游戏产品相关数据。
+也可以注册 OAuth Applications 用于开发第三方登录应用。
+https://itch.io/docs/api/overview
+https://itch.io/docs/api/serverside
+https://itch.io/docs/itch/integrating/api/
+
+You can integrate your game with the itch.io API in different ways, depending 
+on whether they're using the app or not.
+
+When using the app, you can include an app manifest which will directly pass 
+your game an API key using an environment variable.
+
+Combined with the rest of our server-side API, you can do things like:
+
+01. Authenticate a user (ie. know for sure which itch.io account is playing 
+    your game)
+02. Retrieve user information (such as their username, avatar, whether they 
+    have a press account, etc.)
+03. Get a proof of purchase
+
+For example, you might want your online play servers to be only accessible by
+users who have purchased a legitimate copy of your game, and to all press users.
+
+
+目前 itch.io 服务器端 API 接口只包含基本功能，还达来到功能丰富的程度，如下：
+
+1. `credentials/info` 可以获取 KEY 类型信息；
+    HTTP GET 
+    https://itch.io/api/1/KEY/credentials/info
+
+2. `me` 接口获取 KEY 所有者账户信息；
+    HTTP GET profile:me 
+    https://itch.io/api/1/KEY/me
+
+3. `my-games` 开发者所有游戏产品数据；
+    HTTP GET profile:games 
+    https://itch.io/api/1/KEY/my-games
+
+4. `download_keys` 获取用户已经购买的下载链接等等；
+    HTTP GET game:view:purchases
+    https://itch.io/api/1/KEY/game/GAME_ID/download_keys
+
+        Requires either of the following parameter:
+
+        download_key: The download key to look up, or
+        user_id: The user identifier to look up download keys for. or
+        email: The e-mail to look up download keys for.
+
+5. `purchases` 获取用户已经购买的游戏信息；
+    HTTP GET game:view:purchases 
+    https://itch.io/api/1/KEY/game/GAME_ID/purchases
+    
+        Requires either of the following parameters:
+
+        email: The email address to look up purchases for, or 
+        user_id: The user identifier to look up purchases for.
+
+查询用户账户信息的接口有两个，信息中的账户类型对应账户设置 Account type 的类型：
+
+1. Playing and downloading games: **gamer**
+2. Developing and uploading games: **developer**
+
+```json
+    {
+        "user": {
+            "developer": true,
+            "url": "https://jeangowhy.itch.io",
+            "id": 8275290,
+            "username": "Jeangowhy",
+            "gamer": true,
+            "press_user": false
+        }
+    }
+```
+
+当前 itch.io app 登录的用户信息可以使用 JWT Token 及相应的会话 API key 查询，返回数据内容
+有所差别，参考 manifest 的 API key & scoping 与 https://itch.io/api/1/jwt/me 接口：
+
+```json
+    {
+        "user": {
+            "gamer": true,
+            "url": "https://jeangowhy.itch.io",
+            "id": 8275290,
+            "username": "Jeangowhy",
+            "developer": true,
+            "press_user": false
+        },
+        "api_key": {
+            "expires_at": 1687471431,
+            "issuer": {
+                "game_id": 2056776
+            },
+            "type": "jwt"
+        }
+    }
+```
+
+所有 API 端点都需要身份验证，并且 itch.io 有两种 key 类型的凭据，访问关联作用域下的数据：
+
+1. **API keys** are long-lasting credentials that can be revoked by users
+2. **JWT tokens** are short-lived, expiring credentials
+
+因为有两种 API key 授权，所有 API 接口也有不同调用形式，以上罗列的 API 接口 URL 中的 `KEY` 
+可以替换为 `key` 或 `jwt`，根据 scope 约束以及需要使用。目前 manifest 传递的 JWT Tokens
+只能是 profile:me 作用域，所以只能用于查询用户信息，参考如下：
+
+    API key Source  Created at  
+    oeTc5zxrDV6zQ22RVePeWbUfV02zQKRWmYzdT1Oj    web  6 hours ago    
+    cDVQnky71UmWfU3BLNcDrQKamltFMd6ogyGYp87L    desktop  5 hours ago    
+
+    $apikey='jwt_api_key_from_manifest'
+    curl.exe -i https://itch.io/api/1/jwt/me -H "Authorization: $apikey"
+
+    $apikey='api_key_from_user_settings'
+    curl.exe -i https://itch.io/api/1/key/me -H "Authorization: $apikey"
+
+API keys
+You can generate API keys for your own account from the API keys page. 
+(You'll need an itch.io account account if you don’t already have one.)
+
+If you want to make requests on behalf of other itch.io users, you can 
+register an OAuth application and have them grant permissions to your app.
+
+To use an API key to authenticate an API request, simply replace KEY in the 
+following API endpoints with the string key, and pass the Authorization header:
+
+    GET /api/1/key/...
+    Authorization: Bearer YOUR_API_KEY
+
+Alternatively, you can just replace KEY with your API key:
+
+    GET /api/1/YOUR_API_KEY/...
+
+JWT tokens
+JWT tokens can be passed to a game when it specifies a list of requested 
+API scopes. Read the app manifest documentation for more information.
+
+To use a JWT token to authenticate an API request, replace KEY in the following 
+endpoints with jwt, and pass the Authorization header:
+
+    GET /api/1/jwt/...
+    Authorization: Bearer YOUR_JWT_TOKEN
+
+Scopes
+Credentials (whether they're API keys or JWT tokens) usually have a limited 
+scope, which means they'll give access to some endpoints but not others.
+
+Having access to a scope gives access to all its subscopes. For example, 
+profile gives access to profile:me, but game:view:purchases does not give 
+access to game:view.
+
+API keys that you generate from your user settings are unscoped – they have 
+access to all endpoints.
+
+
+
+
+https://itch.io/docs/itch/integrating/manifest.html
+https://itch.io/docs/itch/integrating/manifest-actions.html
+https://itch.io/docs/itch/integrating/manifest/validating-your-manifest.html
+https://itch.io/docs/itch/integrating/troubleshooting-guide.html
+如果使用 itch.io app，则可以使用游戏配置清单文件 manifest，名称为 `.itch.toml`，
+App manifests 文件存放于游戏主目录中，配置的 Action 有四种加载方式，参数源代码的消息接口定义：
+
+
+```ts,ignore
+    // itch-25.6.1-canary\src\common\butlerd\messages.ts
+    export interface LaunchTarget {
+      /**
+       * The manifest action corresponding to this launch target.
+       * For implicit launch targets, a minimal one will be generated.
+       */
+      action: Action;
+      /** Host this launch target was found for */
+      host: Host;
+      /** Detailed launch strategy */
+      strategy: StrategyResult;
+    }
+
+    export interface StrategyResult {
+      /** Name of launch strategy used for launch target */
+      strategy: LaunchStrategy;
+      /** Absolute filesystem path of the target. */
+      fullTargetPath: string;
+      /** If a local file, result of dash configure */
+      candidate: Candidate;
+    }
+
+    export enum LaunchStrategy {
+      Unknown = "",
+      Native = "native",
+      HTML = "html",
+      URL = "url",
+      Shell = "shell",
+    }
+
+    /**
+     * An Action is a choice for the user to pick when launching a game.
+     *
+     * see https://itch.io/docs/itch/integrating/manifest.html
+     */
+    export interface Action {
+      /** human-readable or standard name */
+      name: string;
+      /** file path (relative to manifest or absolute), URL, etc. */
+      path: string;
+      /** icon name (see static/fonts/icomoon/demo.html, don't include `icon-` prefix) */
+      icon: string;
+      /** command-line arguments */
+      args: string[];
+      /** sandbox opt-in */
+      sandbox: boolean;
+      /** requested API scope */
+      scope: string;
+      /** don't redirect stdout/stderr, open in new console window */
+      console: boolean;
+      /** platform to restrict this action to */
+      platform: Platform;
+      /** localized action name */
+      locales: { [key: string]: ActionLocale };
+    }
+    export interface ActionLocale {
+      /** A localized action name */
+      name: string;
+    }
+```
+
+There are several good reasons to include an app manifest with your game:
+
+1. You want to provide a choice between multiple launch targets
+2. Examples: game, level editor, etc.
+3. Your app needs access to the itch.io API, for authentication or more
+
+"It launches the wrong thing" is usually a bad reason to ship a manifest, 
+see Troubleshooting.
+
+清单中添加动作时，path 可以指定一个相于清单文件的路径，或者一个 URL 地址。如果路径指向的目录、
+程序不存在会触发运行错误，并且路径相对于安装目录，程序路径使用绝对路径将不会执行。可以给已经安装的
+游戏添加配置清单，清单动作可以指定 platform 为可执行的平台信息，如 windows/osx/linux，
+这样就不会在不兼容的平台显示相应的动作。可以使用 butler 命令行工具验证清单文件的正确性。
+
+动作名称可以使用任意字符串，但需要自行提供本地化翻译如果有需要，以下常用的名称自动多语言适应：
+
+1. **play**: shows up as **Play Now** in english, is highlighted
+2. **editor**: shows up as **Editor** in english
+3. **manual**: shows up as **User Manual** in english
+4. **forums**: shows up as **Forums** in english
+
+对于控制台界面的游戏，可以指定 `console = true` 方式运行。
+
+通过指定 `scope = "profile:me"`，游戏程序可以获取指定作用域配置的 JWT token。目前唯一支持
+的作用域 `me` 表示当前用户。设置此参数后，itch.io app 会设置两个包含 API key 信息的环境变量。
+游戏程序可以使用 JWT token 可以访问当前登录用户账户信息，也可以直接嵌入 API key 访问服务接口。
+
+这个 JWT token 用于 JSON Web Token(JWT) 会话管理，配合 JWT 接口查询当前登录的用户信息。
+
+JWT 规范非常轻巧，是用于网络应用环境间传递声明的一种基于 JSON 的开放标准 (RFC 7519)。
+JWT 标准只是设计了一个防篡改令牌，并非是为会话管理而设计，属于一种 JOSE - Javascript 
+Object Signing and Encryption 技术。
+
+该 Token 被设计为紧凑且安全的，特别适用于分布式站点的单点登录（SSO）场景。JWT 的声明一般被用
+来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些
+额外的其它业务逻辑所必须的声明信息，该 Token 也可直接被用于认证，也可被加密。
+
+JWT 与 Session 最大差别在于，它们都是存储用户信息，然而，Session 是在服务器端的保存数据，
+而 JWT 是在客户端保存数据。即 Session 的状态数据是存储在服务器端，客户端只有 SessionID，
+而 Token 的状态存储在客户端，服务器只需要校验 Token 是否合法。
+
+JWT 与 OAuth 的区别：
+
+- OAuth2 是一种授权框架，JWT 是一种认证协议，无论使用哪种方式切记用 HTTPS 来保证数据的安全性。
+- OAuth2 用在使用第三方账号登录的情况，而 JWT 是用在前后端分离, 需要简单的对后台 API 进行保护时使用。
+
+
+JWT 基本流程：
+
+- 用户使用用户名密码来请求服务器
+- 服务器验证用户的信息
+- 服务器通过验证后给用户一个 Token 
+- 客户端存储 Token，并在每次请求时附带
+- 服务端验证 Token 值，并返回数据
+
+
+Valid values for scope:
+
+1. `profile:me`: grants access to https://itch.io/api/1/jwt/me
+2. (This is the only valid scope for now)
+
+When the `scope` parameter is set, the itch.io app sets the following environment 
+variables:
+
+1. `ITCHIO_API_KEY` :a game-specific, session-specific API key
+2. `ITCHIO_API_KEY_EXPIRES_AT` the expiration date of the key, in iso-8601 format.
+
+Making requests with the API key
+The itch.io API key provided to the game should be the value of an HTTP
+header named Authorization.
+
+For example, using the JavaScript library needle, one would do:
+
+    const apiKey = process.env.ITCHIO_API_KEY
+
+    const opts = {
+      headers: { 'Authorization': apiKey }
+    }
+    needle.get('https://itch.io/api/1/jwt/me', opts, function (error, response) {
+      // deal with error, if any & process response
+    })
+
+Accessing the API key in HTML5 games
+The HTML5 environment doesn't grant access to environment variables by design,
+so the itch app injects a global object named Itch into the JavaScript runtime.
+
+Here's the proper way to check that it's there:
+
+    if (typeof Itch === 'undefined') {
+      // not launched by itch app (regular web browser, missing manifest, etc.)
+    } else {
+      // launched by itch app
+      makeRequestWithKey(Itch.env.ITCHIO_API_KEY)
+    }
+
+
+https://itch.io/docs/itch/using/sandbox.html
+使用 `sandbox = true` 选项可以启用 itch.io 提供的沙箱环境，防止一些典型的恶意程序搞破坏：
+
+1. Limit what files a process can read
+2. Limit what files a process can write to
+3. On Linux, be more permissive about writes, but redirect them to a safe, per-game folder
+4. On Windows, run games as a different, less-privileged user
+
+一个打印程序接收参数的 print_args.py 脚本参考：
+
+```py
+    import sys
+    import os
+    import time
+
+    print(sys.argv)
+    print(os.environ['ITCHIO_API_KEY'])
+    print(os.environ['ITCHIO_API_KEY_EXPIRES_AT'])
+    with open("log.md", "w+") as f:
+        f.write(','.join(sys.argv))
+    time.sleep(6) # sleep 6 seconds
+    # Output: print_args.py,--that,--is,--a,lot=of-arguments
+```
+
+例如，以下可以通过 print_args.py 脚本来打印 itch.io app 启动游戏时传递的参数，需要手动
+复制 Python 可执行程序到游戏主目录中：
+
+    [[actions]]
+    name = "play"
+    path = "game.exe"
+
+    [[actions]]
+    name = "Print Args"
+    path = "python.exe"
+    args = ["print_args.py", "--that", "--is", "--a", "lot=of-arguments"]
+    platform = "windows"
+    console = true
+    scope = "profile:me"
+
+    [[actions]]
+    name = "Open mods folder"
+    path = "mods/"
+
+    [[actions]]
+    name = "Tankzors"
+    path = "Tankzors/index.html"
+
+    [[actions]]
+    name = "Discussion forum"
+    path = "https://foo.itch.io/bar/community"
+
+
+https://itch.io/docs/creators/download-keys
+当用户完成支付后，就会获得相应的 Download keys & URLs 以下载游戏文件，以下三种情形都会生成
+一个 download key：
+
+1. Someone pays for your project (or purchases a bundle that includes your project)
+2. You, the project owner, generate one from the project edit page
+3. Someone “claims” your project in a 100% off sale/bundle that has claiming enabled
+
+但是用户下载免费项目时，不会生成 download key，用户不会因为免费下载而拥有一个游戏。
+但是用户支持了一个游戏项目，包括价格为 0 的情况，他们仍然会获取 download key，并且在项目涨价后
+依然有效。Download key 对应的 URL 链接是唯一的，并且不应该分享。
+
+Hosting a sale or bundle 
+https://itch.io/docs/creators/sales
+https://itch.io/docs/creators/bundles
+
+itch.io 上的销售可以让你在任何时间段内以折扣价提供任何已付款商品的组合。任何人都可以在任何时候
+举办促销活动！如果你的销售中有多件商品，那么它们可以捆绑在一起供用户购买。你可以选择添加捆绑价格，
+当所有东西一起购买时的自定义价格。每个 Bundle 销售仅限于 itch.io 上单个帐户的项目，如果您需要
+在多个帐户上托管捆绑包，需要使用配套功能合作捆绑包 co-op bundle。
+
+https://itch.io/docs/creators/html5
+https://itch.io/docs/itch/integrating/platforms/web.html
+https://github.com/itchio/itch
+https://github.com/Tankzors/Builds
+开发 HTML5 游戏可以直接在 itch.io 页面上运行，无需用户下载。如果使用 manifest 清理来设置
+加载入口，则直接在 path 中指定 html 文件路径，比如塞班手机时代游戏 Tankzors Lux 就是一个
+HTML5 和 Andorid 游戏，可以将 HTML5 版本放到安装目录中，itch.io 执行时会以自定义域名、协议
+加载资源文件，假设将 index.html 及所有文件放置在 Tankzors 子目录下，加载时的 URL 如下：
+
+    itch-cave://game.itch/Tankzors/music/track4.mp3
+
+
+桌面程序 itch.io app 基于 Electron 和 React 等开源 Web 框架，使用 TypeScript 语言编写。
+App 登录成功一次之后，就可以离线运行。通过 Shift+F12 打开 Chrome Developer Tools 调试程序。
+
+    Nodejs   v14.18.51
+    Electron v11.5.0
+    React    v16.14.0
+
+https://github.com/electron/electron
+https://www.electronjs.org/docs/latest/
+https://npmmirror.com/mirrors/electron/
+https://npmmirror.com/mirrors/electron-nightly/
+https://registry.npmmirror.com/binary.html?path=electron/25.1.1/
+https://www.electronjs.org/docs/latest/development/build-instructions-gn
+https://www.electronjs.org/docs/latest/development/source-code-directory-structure
+The Electron framework lets you write cross-platform desktop applications using 
+JavaScript, HTML and CSS. It is based on Node.js and Chromium and is used by 
+the Atom editor and many other apps.
+
+Electron 项目架构本身由 C++ 57.2% 和 TypeScript 30.4% 等语言混合编程开发。C++ 主要是对接
+Chromium 开源浏览器，并给脚本开发提供一个桌面环境。TypeScript 脚本则是基于 Node 环境开发，
+它和 Google 浏览器一样都使用了 V8 脚本引擎。Chromium 浏览器源代码的依赖处理需要 depot_tools，
+这是 Google 开发的专用于依赖处理的工具。
+
+Electron 运行的各个 GUI 窗口都有两个基本的进程：
+
+1. **Renderer Process** 进程进行渲染，具体绘制工作交由 Chromium 来执行；
+2. **Main Process** 主进程集成 Node，负责与系统 API 交互，处理核心事务。
+
+开发者的应用基于 Node 环境和 Electron 提供的桌面环境进行开发。基于 Electron 开发应用，
+本质上与网站开发没有差别。
+
+Chromium 浏览器是一个复杂的软件工程，难度堪与操作系统不相上下，参考 Chromium OS 项目，
+堪称是全世界最复杂的软件应用，整体代码库已经庞大到了近 40G，主要的部件包括：
+
+网络处理模块，实现了主机解析，cookies，网络改变探测，SSL，资源缓存，FTP，HTTP，OCSP 实现，
+代理配置，解析，QUIC，Socket 池，SPDY，WebSockets 等等。
+
+V8 脚本引擎模块，这是世界上目前运行最快的脚本引擎，比精简的 Lua 也要快得多。功能包括：字节码解析器，
+JIT 编译器，多代 GC，inspector 调试支持，内存和 CPU Profiler 性能统计分析工具，WebAssembly，
+两种 post-mortem diagnostics 的支持，脚本初始化环境快照，代码缓存、代码热点分析等等。
+
+Skia 图形引擎模块，支持十几种矢量的绘制，文字绘制、GPU 加速、矢量的指令回放（还要能支持线程安全）、
+各种图像格式的编解码、GPU渲染优化等等。
+
+Blink 页面解析引擎，这个更复杂，HTML 和 CSS 规范解析器，要将它们完全实现是一个巨大的工作量，
+再加上实现 Layout 的成本，涉及到非常庞大的计算，还要考虑极致的性能，保证浏览器的渲染能够流畅快速。
+
+此外还有音视频相关、沙箱、插件、UI 等等。
+
+Tauri VS. Electron - Real world application 
+https://juejin.cn/post/7136538913376010277
+https://tauri.app/v1/guides/getting-started/setup/
+
+流行跨平台应用开发构架：
+
+| Frameworks |  Language  |          GUI          |
+|------------|------------|-----------------------|
+| Tauri      | Rust       | WebView2 or WKWebView |
+| Electron   | TypeScript | Chromium              |
+| Flutter    | Dart       | Skia                  |
+
+```sh
+    # Tauri app via Node nmp
+    npm create tauri-app@latest
+    npm run tauri dev
+    npm run tauri build
+
+    # Tauri app via Node pnmp
+    pnpm create tauri-app
+    pnpm tauri dev
+    pnpm tauri build
+
+    # Tauri app via Rust cargo
+    cargo install tauri-cli
+    cargo install create-tauri-app
+    cargo create-tauri-app
+    cargo tauri dev
+    cargo tauri build --target i686-pc-windows-msvc
+```
+
+
+Multi-process Architecture 
+https://www.chromium.org/developers/design-documents/multi-process-architecture/
+https://www.chromium.org/developers/design-documents/multi-process-architecture/arch.png
+
+Chromium uses multiple processes to protect the overall application from bugs 
+and glitches in the rendering engine or other components. It also restricts 
+access from each rendering engine process to other processes and to the rest of 
+the system. In some ways, this brings to web browsing the benefits that memory 
+protection and access control brought to operating systems.
+
+We refer to the **main process** that runs the UI and manages renderer and 
+other processes as the "browser process" or "browser." Likewise, the processes 
+that handle web content are called "renderer processes" or "renderers." 
+The renderers use the Blink open-source layout engine for interpreting and 
+laying out HTML.
+
+
+
+https://itch.io/docs/creators/css-guide
+支持 CSS 编辑，可以在 itch.io 以下页面中定制样式：
+
+1. Project pages (Including Devlog posts)
+2. Jam pages
+3. Profile pages
+
+https://itch.io/jams
+https://itch.io/docs/creators/game-jams
+itch.io 主页上有 Game Jams 活动，开发者可以随机加入，并上托管自己的 Jam 作品，或创建比赛。
+Game Jams 是游戏开发者用于快速制作游戏的一种赛事，常用于锻炼和提升游戏开发者的技能水平。
+Jam Calendar 中可以看到那些响动正在进行，那么已经结束，或者还没有开始。
 
 
 ## 🟡 Godot Docs 官方文档阅读指南
@@ -1628,6 +2340,323 @@ if __name__ == "__main__":
     ----|--------------------------------------
     总和 |  0    0   1   0   -1   0   1   1   -2
 
+《三国群英传2》最强武将分析 http://www.esanguo.com/gonglve/3769.html
+武将出场区域 https://www.bilibili.com/read/cv4968518/
+
+    太史慈 拥有游戏最强的回血技能
+    关羽  游戏武力的天花板
+    甘宁
+
+    夏侯惇、张辽、徐晃、马超、张合、庞德、姜维、吕布。
+    赵云、孙坚、文鸳、夏侯渊、颜良、典韦、曹彰、许褚。
+    张飞、黄忠、孙策、严颜、曹仁、董卓、管亥。
+
+
+    大军师：张角、司马懿、诸葛亮、邓艾、姜维、周瑜、陆逊、曹操
+
+陆抗 武力 78 智力 92
+
+    LV 1  半月斩     离间计(初)
+    LV 5            混乱敌军(初)
+    LV 6  八面火
+    LV 11 冲车
+    LV 13           逼近敌军
+    LV 17 龙炮       乱阵
+    LV 23 神剑闪
+    LV 24           快速集气(中)
+    LV 29           减少疲劳(高)
+    LV 30 炬石轰
+    LV 35           快速集气(高)
+    LV 34 炎墙
+    LV 41 火牛烈崩    增强攻击(高)
+
+陆逊 武力 79 智力 96
+
+    LV 1  落日弓     化解计策
+    LV 5            增加经验(中)
+    LV 6  雷击
+    LV 12 龙炮       增加体力(中)
+    LV 17           金蝉脱壳
+    LV 18 生死门
+    LV 22           离间计(高)
+    LV 23 神火旋张
+    LV 27           恢复技力(高)
+    LV 28 后伏兵阵
+    LV 33           强化士兵(高)
+    LV 34 集火柱
+    LV 40 炎墙烈烧
+
+孙策，武力95，智力83
+
+    LV 2  刀剑乱     保留气力(初)
+    LV 6            诈败
+    LV 7  太极门
+    LV 11 突剑四方
+    LV 15           增加经验(初)
+    LV 18 地茅乱刺
+    LV 20           劝降
+    LV 24 乱刀狂舞
+    LV 26           快速集气(中)
+    LV 30 火牛群舞
+    LV 34 分身斩     混乱敌军(中)
+    LV 40 日月轮斩
+
+张颌，武力93，智力67
+
+    LV 2  落日弓     降低士气(初)
+    LV 7  旋蹬火
+    LV 10           增加技力(初)
+    LV 12 冰柱刺
+    LV 19 生死门     扰乱敌将(中)
+    LV 24 伏兵连阵
+    LV 29 偷袭敌军
+    LV 31 龙炮灭杀
+    LV 36 冰风刃舞
+
+孙坚 武力 94，智力85
+
+    LV 2  落石       后选出战
+    LV 6            增加体力(初)
+    LV 7  回天术
+    LV 13 八面火转
+    LV 14           化解计策
+    LV 17 火牛阵
+    LV 19           包围敌军
+    LV 24 连弩狂涛
+    LV 25           恢复技力(中)
+    LV 29 飞矢烈震
+    LV 33           强化士兵(中)
+    LV 36 旋龙天舞
+    LV 39           快速集气(高)
+    LV 40 集火柱
+
+
+夏侯渊，武力93，智力60
+
+    LV 2  连弩       减缓集气(初)
+    LV 6  太极门
+    LV 10           增加技力(初)
+    LV 12 连弩激射
+    LV 13           诈败
+    LV 18 火牛阵
+    LV 25 伏兵连阵
+    LV 26           增加经验(初)
+    LV 30 炬石轰
+    LV 36 炎墙
+
+关羽，武力99，智力85
+
+    LV 2  半月斩     保留气力(初)
+    LV 6  冰柱刺     强化士兵(初)
+    LV 11 龙炮
+    LV 12           强化武将(初)
+    LV 17 烈火旋蹬
+    LV 19           劝降
+    LV 22 神剑闪
+    LV 26           鼓舞士气(高)
+    LV 29 三圣华斩
+    LV 32           扰乱敌将(高)
+    LV 35 集火柱
+    LV 39 十面埋伏
+    LV 40 鬼哭神嚎
+
+姜维，武力93，智力96
+
+    LV 2  落日弓      化解计策
+    LV 6  火雷        增加经验(中)
+    LV 12 龙炮        增加体力(中)
+    LV 17 木轮强袭
+    LV 18            劝降
+    LV 23 十面埋伏
+    LV 24 黄龙天翔
+    LV 28 三圣华斩     增加技力(高)
+    LV 29 飞矢烈震
+    LV 35 大地狂啸     混乱敌军(高)
+    LV 40             喝阻敌军(高)
+    LV 41 狂雷天牢
+
+吕布，武力100，智力42
+
+    LV 2  半月斩       快速集气(初)
+    LV 6  旋蹬火
+    LV 12 冰柱刺
+    LV 16 生死门
+    LV 22 三圣华斩
+    LV 28 炬石轰
+    LV 33 神鬼乱舞
+    LV 39 鬼哭神嚎
+
+甘宁，武力96，智力63
+
+    LV 2 刀剑乱        保留气力(初)
+    LV 6 伏兵班阵
+    LV 9              增加技力(初)
+    LV 13 连弩激射
+    LV 18 火牛阵
+    LV 21             增加经验(初)
+    LV 23 三日月斩
+    LV 30 神火旋张      偷袭敌军
+    LV 34 分身斩
+    LV 40 神鬼乱舞
+
+
+庞德，武力97，智力70
+
+    LV 2 落日弓 扰乱敌将(初)
+    LV 6 伏兵班阵
+    LV 8 增加体力(初)
+    LV 11 八面火转
+    LV 16 喝阻敌军(初)
+    LV 18 生死门
+    LV 24 神剑闪
+    LV 25 保护主将
+    LV 28 飞矢烈震
+    LV 32 保留气力(中)
+    LV 33 集火柱
+    LV 39 火牛烈崩
+
+夏侯敦 武力 96 智力 70
+
+    LV 2 落日弓    减缓集气(初)
+    LV 6 地茅刺 
+    LV 8          增强攻击(初)
+    LV 13 冲车
+    LV 16         扰乱敌将(初)
+    LV 19 烈火旋蹬
+    LV 23 八卦奇阵
+    LV 25         劝降
+    LV 28 三圣华斩
+    LV 33         恢复技力(中)
+    LV 35 火牛群舞
+    LV 40 鬼哭神嚎
+
+颜良，武力96，智力45
+
+    LV  2 半月斩  保留气力(初) 
+    LV  7 八面火
+    LV 13 突袭石
+    LV 18 冰柱群峰
+    LV 24 伏兵连阵
+    LV 28 滚石怒冲
+    LV 34 炎墙
+    LV 41 神火怒张
+
+文丑，武力96，智力40
+
+    LV 2 八面火     扰乱敌将(初)
+    LV 5 鬼戟
+    LV 12 地茅刺
+    LV 17 火牛阵
+    LV 24 八卦奇阵
+    LV 30 连弩狂涛
+    LV 34 旋龙天舞
+    LV 41 神鬼乱舞
+
+徐晃 武力 93 智力 70
+
+    LV 2  落日弓    离间计（初）
+    LV 6  旋蹬火
+    LV 9           增加体力（初）
+    LV 13 突剑四方
+    LV 17          扰乱敌将（中）
+    LV 18 烈火旋蹬
+    LV 24 太极华阵
+    LV 30 神火旋张
+    LV 33          快速集气（中）
+    LV 37 神鬼乱舞
+
+张飞，武力99，智力51
+
+    LV 2 连弩       保留气力(初)
+    LV 7 冰柱刺
+    LV 11 龙炮
+    LV 17 龙炮激射
+    LV 24 三日月斩   增加技力(初)
+    LV 28 滚石怒冲
+    LV 33 神剑闪华
+    LV 39 神鬼乱舞
+
+赵云，武力98，智力88
+
+    LV 2  落日弓     保留气力(初)
+    LV 7  旋蹬火     诈败
+    LV 12 神剑
+    LV 13           增加经验(初)
+    LV 17 龙炮激射
+    LV 19           离间计(中)
+    LV 23 三日月斩
+    LV 24           增加技力(中)
+    LV 29 炬石轰
+    LV 31           增加体力(中)
+    LV 33 剑轮舞
+    LV 37           离间计(高)
+    LV 39 炬石炼狱
+
+马超，武力98，智力48
+
+    LV 2  半月斩     快速集气(初)
+    LV 6  八门金锁
+    LV 12 突袭石
+    LV 17 烈火旋蹬
+    LV 23 三日月斩
+    LV 24           增加体力(初)
+    LV 28 炬石轰
+    LV 34 分身斩
+    LV 39 五岳华斩
+
+太史慈，武力97，智力70
+
+    LV 2  落日弓     减缓集气(初)
+    LV 5  八门金锁
+    LV 8            混乱敌军(初)
+    LV 12 神剑
+    LV 16           喝阻敌军(初)
+    LV 17 烈火旋蹬
+    LV 23 伏兵连阵
+    LV 24 偷袭敌军
+    LV 28 神火旋张
+    LV 32           恢复体力(中)
+    LV 33 剑轮舞
+    LV 40 鬼哭神嚎
+
+张辽 武力 95 智力 88
+
+    LV 2  落日弓    快速集气(初)
+    LV 6  太极门    诈败
+    LV 11 冰柱刺
+    LV 12          降低士气(中)
+    LV 18 烈火旋蹬
+    LV 19          减少疲劳(中)
+    LV 23 三日月斩
+    LV 26          恢复技力(中)
+    LV 29 神火旋张
+    LV 32          增强攻击(中)
+    LV 35 炎墙
+    LV 38          离间计(高)
+    LV 40 炬石炼狱
+
+张角 武力 56 智力 95
+
+    LV 1                恢复技力（初）
+    LV 7  太极门         增加技力（初）
+    LV 11 神剑
+    LV 12               快速集气（中）
+    LV 18 生死门         恢复技力（中）
+    LV 23 神剑闪         增加技力（中）
+    LV 29               保留气力（高）
+    LV 30 剑轮舞
+    LV 34 地狱之门       恢复技力（高）
+    LV 40               增加技力（高）
+    LV 41 炎墙烈烧
+
+邢道荣 武力 80 智力 44 
+
+    LV 6  突石      减缓集气（初）
+    LV 9  伏兵班阵
+    LV 16 连弩激射
+    LV 23 烈火旋灯
+    LV 31 连弩狂涛
+
 
 ## 🟡 GDNative/GDExtension 扩展开发
 - [Godot Engine Download](https://downloads.tuxfamily.org/godotengine/)
@@ -2585,7 +3614,7 @@ GDBSever 进行远程调试，需要在 **miDebuggerServerAddress** 指定服务
 在调试 Web 服务器时，可以使用 serverReadyAction 参数指定一个自动打开浏览器的方式，比如以下
 配置，就会在外部浏览器中打开指定的 URL 地址。这个动作需要在程序中输出可以按 pattern 格式匹配
 的内容到调试器控制台，编辑器匹配到控制台内容后再在浏览器中打开匹配到的地址。uriFormat 则是指示
-如果构造出相应的 URL 地址：
+构造出相应的 URL 地址格式：
 
 ```json
     // tasks.jsonconfiguration
@@ -3094,6 +4123,18 @@ string 为 NodePath 或 StringName 会产生原生互操作和 marshalling 成�
 
 
 ### 🟠🔵 Export in CSharp
+
+Godot 4.1 Dev support GDScript’s class_name feature
+https://github.com/godotengine/godot/pull/72619
+
+```C#,ignore
+[GlobalClass]
+public partial class ResCS : Resource
+{
+    [Export]
+    public string Name;
+}
+```
 
 以下演示在 Godot 4.x Mono 中使用 C# [Export] 标注导出符号，以及使用 [Signal] 自定义信号：
 
@@ -7515,8 +8556,7 @@ Bézier Curve 贝塞尔曲线是计算机图形学二维图形应用程序的数
 
 
 曲面细分是指将一个模型的面合理的分成更多小的面，从而提升模型精度，提高渲染效果。而曲面简化是指将一个
-模型的面合理的合成更少的面，从而降低模型精度，为特定情形下提供使用，如 Level Of Detail (LOD) 技术。
-
+    模型的面合理的合成更少的面，从而降低模型精度，为特定情形下提供使用，如 LV Of Detail (LOD) 技术。
 几何模型简化是图形学的难点，与之相反的是几何图形细分问题。细分的基本思想是在每条边上插入一个新的顶点，
 随着细分次数的增加，折线逐渐变成一条光滑的曲线。曲面细分需要有几何规则和拓扑规则，几何规则用于计算新的
 顶点位置，拓扑规则用于确定新顶点的连接关系。Catmull-Clark 细分是一种四边形网格的细分法则，每个面
@@ -8337,7 +9377,7 @@ add_child(mi)
 - [OGLDev Tutorial 16: Basic Texture Mapping](https://ogldev.org/www/tutorial16/tutorial16.html)
 - [LearnOpenGL - Textures](https://learnopengl.com/Getting-started/Textures)
 - OpenGL 4.6 (Core Profile) 8.14 Texture Minification & 8.15 Texture Magnification
-- [GPU Gems II - 28. Mipmap-Level Measurement](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-28-mipmap-level-measurement)
+    - [GPU Gems II - 28. Mipmap-LV Measurement](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-qualit-rendering/chapter-28-mipmap-level-measurement)
 
 纹理贴图是图形着色中的一种基本方法，贴图就是一张贴在图形上的图像。要将一张图片映射到一个图形，比如
 三角形或者正方形上，这就需要一种确定映射关系的方法。图形学中，将渲染得到的图像中的每一个点称为像素，
@@ -8446,22 +9486,20 @@ UV 坐标取值范围在 [0,1] 区间，在屏幕空间看起来就是 U 对应�
 
 一个经典的解决方法是 Mipmap，它通过为高质量的纹理生成不同精细层级的缩小版纹理，很好地解决了纹理
 适配问题，并且速度很快，但是它只能做正方形的处理，比如 1x1、64x64、512x512 这样的纹理尺寸。一般
-每层重采样按 1/2 的大小缩小，Level 0 为原图，Level 1 为原图的 1/4 大小，依次类推，所以增加的
-存储空间最大为原纹理大小的 1/3。
+每层重采样按 1/2 的大小缩小，LV 0 为原图，LV 1 为原图的 1/4 大小，依次类推，所以增加的
+    存储空间最大为原纹理大小的 1/3
 
 ![Figure 9-4 : Mipmaps](http://www.glprogramming.com/red/images/Image114.gif)
 
 Mipmap 重采样纹理可以预先生成，得到 Mipmap 层级纹理后，贴纹理时就需要有一个映射方法，根据图形的
-大小来选择所需要的精细度层级，Computing Mipmap Level D。
-
-![Computing Mipmap Level D](https://img-blog.csdnimg.cn/cbc21cd30b7f4e129dfd141783d1aa0e.png)
+    大小来选择所需要的精细度层级，Computing Mipmap LV D。
+    ![Computing Mipmap LV D](https://img-blog.csdnimg.cn/cbc21cd30b7f4e129dfd41783d1aa0e.png)
 
 计算 Mipmap 层级需要用到偏微分，图上的式中看起来很复杂，但其实就是求解像素与纹素变化率的比值问题。
 将像相邻素点投影到对应的纹素，图中的红点代表投射坐标，四个相邻像素构成的矩形就会在纹理上投射出一个
 四边形。已知相邻两个像素中心的距离是 1，对应到右边纹理上有的距离 L 也就可以求出，只需要用变化大的
-一边的值就可以计算出目标的 Mipmap Level。如果 L 同样为 1 就表示应该使用原纹理，如果 L 为 2 则
-应该使用 Level 1 纹理，查询结果总会对应 D  = log2L 层纹理上的一个纹素。
-
+一边的值就可以计算出目标的 Mipmap LV。如果 L 同样为 1 就表示应该使用原纹理，如果 L 为 2 则
+    应该使用 LV 1 纹理，查询结果总会对应D  = log2L 层纹理上的一个纹素。
 因此，只需要算出 D，即在第几层正方形的区域对应一个像素，就可以得出这个区域内平均值是多少。
 
 
@@ -9425,7 +10463,7 @@ SDFGI 也支持反射，无论是漫反射还是镜面反射，所以全 PBR 场
 以上两者都会导致光从较亮的区域开始逸出，一旦看到辉光，就可以通过一些额外的参数来控制它：
 
 - **Intensity** 强度是效果的整体比例，可以将其增强或减弱，0.0 可以将其删除。
-- **Strength** 调整高斯滤波器内核的处理强度，数值越大，滤波器越饱和并向外扩展。一般来说，修改 Levels 更有效地调整大小。
+    - **Strength** 调整高斯滤波器内核的处理强度，数值越大，滤波器越饱和并向外扩展。一般来说，修改 LVs 更有效地调整大小
 
 效果的混合模式如下：
 
@@ -9434,9 +10472,8 @@ SDFGI 也支持反射，无论是漫反射还是镜面反射，所以全 PBR 场
 - **Softlight** 是默认的，也是最弱的一种，只在物体周围产生细微的颜色扰动，在黑暗场景中效果最好。
 - **Replace** 用来模糊整个屏幕或调试辉光效果，它只显示辉光的效果，没有后面的图像。
 
-辉光等级 Levels 提供了 7 个用于改变辉光效果的大小和形状配置，较小的级别在物体周围出现较强的辉光，
-而大的级别是覆盖整个屏幕的朦胧辉光。然而，这个系统的真正优势在于结合 Levels 来创造更有趣的辉光模式。
-
+辉光等级 LVs 提供了 7 个用于改变辉光效果的大小和形状配置，较小的级别在物体周围出现较强的辉光，
+    而大的级别覆盖整个屏幕的朦胧辉光。然而，这个系统的真正优势在于结合 LVs 来创造更有趣的辉光模式。
 最后，随着最高的图层在对微小模糊图像的拉伸中被创建，可能会看到一些块状模糊。启用 Bicubic Upscaling
 可以以最低的性能成本处理这种问题，注意这只在 GLES3 中有效。
 
@@ -9843,8 +10880,8 @@ OpenGL 程序的开发人员来讲是不可想象的，甚至比自己用 CPU �
 
 目前，三大主流规范使用的 Shader 语言是：
 
-- HLSL - Direct3D High Level Shader Language
-- GLSL - OpenGL Shader Language 
+- HLSL - Direct3D High LV Shader Language
+    - GLSL - OpenGL Shader Lnguage 
 - CGSL - Nvidia C for Graphic
 
 着色器 Shaders 就是在 GPU 上运行的程序，也就是对 GPU 编程的代码片断，所谓片断是指这种程序一般很小，
@@ -11661,8 +12698,7 @@ ParallaxBackground，就可以实现，继承自 CanvasLayer。将视差图层�
 - Transitions: 视觉变换，如渐变、混合效果，这些内容也固定位置。
 
 类似的，CanvasItem 提供了一个方法，**set_as_toplevel()** 可以将 2D 节点添加顶级状态，以避免
-受到父级的变换影响，同时绘图时会覆盖在其它未标记为 Top Level 的基点。
-
+    受到父级的变换影响，同时绘图时会覆盖在其它未标记为 Top LV 的基点。
 场景中可以使用一个 **WorldEnvironment** 节点，同时只能有一个，包括继承的场景在内。然后为环境节点
 创建一个 **Environment** 资源，用于配置环境，如设置背景属性：
 
@@ -14739,7 +15775,7 @@ C 类地址最高位为 110，网络号占 21-bit，主机地址占 8-bit，可�
 DNS 域名空间使用分布式的解析方案，整个 DNS 架构是一种层次树状结构，这个树状结构称为 DNS 域名空间。
 
 - 根域 Root Domain 位于域名空间最顶层，一般用一个 “.” 表示。
-- 顶级域 Top Level Domain (TLD)，代表组织机构或国家地区，如 net、com、org、edu、gov、mil、cn、jp、hk。
+    - 顶级域 Top LV Domain (TLD)，代表组织机构或国家地区，如 net、com、org、eu、gov、mil、cn、jp、hk。
 - 二级域，用来标明顶级域内的一个特定的组织，如 .com.cn .net.cn .edu.cn 等等。
 - 子域 Sub-Domain，二级域下所创建的各级域统称为子域，如 fanyi.baidu.com 前头的"翻译"。
 - 主机 Host，主机位于域名空间最下层，就是一台具体的计算机，如 www、mail 都是具体的计算机名字。
@@ -16922,13 +17958,12 @@ GDScript 脚本解析器根据这种语法来处理脚本，按规则解析后�
        description.
     *)
 
-    program = [ inheritance NEWLINE ] [ className ] { topLevelDecl } ;
-
+        program = [ inheritance NEWLINE ] [ className ] { tVDecl } ;
     inheritance = "extends" ( IDENTIFIER | STRING ) { "." IDENTIFIER } ;
     className = "class_name" IDENTIFIER [ "," STRING ] NEWLINE ;
 
-    topLevelDecl
-        = classVarDecl
+    tVDecl
+           = classVarDecl
         | constDecl
         | signalDecl
         | enumDecl
@@ -16942,8 +17977,7 @@ GDScript 脚本解析器根据这种语法来处理脚本，按规则解析后�
 
 - [ inheritance NEWLINE ] 可选的继承关系定义，独占一行，使用 **extends** 关键字；
 - [ className ] 可选的类名定义，使用 **class_name** 关键字，后面可以指定一个图标；
-- { topLevelDecl } 必选的顶级声明，包含类成员、常量、用户信号、枚举、方法、构造、内部类、编辑器工具等等；
-
+    - { tVDecl } 必选的顶级声明，包含类成员、常量、用户信号、枚举、方法、构造、内部类、编辑器工具等等；
 
 
 ### 🟠🔵 Threads & Coroutines
@@ -19180,13 +20214,12 @@ Inconsistencies here likely mean an error in this grammar, not a bug in GDScript
    description.
 *)
 
-program = [ inheritance NEWLINE ] [ className ] { topLevelDecl } ;
-
+    program = [ inheritance NEWLINE ] [ className ] { tVDecl } ;
 inheritance = "extends" ( IDENTIFIER | STRING ) { "." IDENTIFIER } ;
 className = "class_name" IDENTIFIER [ "," STRING ] NEWLINE ;
 
-topLevelDecl
-    = classVarDecl
+tVDecl
+       = classVarDecl
     | constDecl
     | signalDecl
     | enumDecl
@@ -19222,8 +20255,7 @@ constructorDecl = "func" IDENTIFIER "(" [ parList ] ")"
 argList = expression { "," expression } ;
 
 innerClass = "class" IDENTIFIER [ inheritance ] ":" NEWLINE
-    INDENT [ inheritance NEWLINE ] topLevelDecl { topLevelDecl } DEDENT ;
-
+        INDENT [ inheritance NEWLINE ] tVDecl { tVDecl } DEDENT ;
 stmtOrSuite = stmt | NEWLINE INDENT suite DEDENT ;
 suite = stmt { stmt };
 
@@ -20162,7 +21194,7 @@ GPU Gems 2 contents
     - [Chapter 25. GPU Image Processing in Apple's Motion](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-25-gpu-image-processing-apples-motion)
     - [Chapter 26. Implementing Improved Perlin Noise](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-26-implementing-improved-perlin-noise)
     - [Chapter 27. Advanced High-Quality Filtering](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-27-advanced-high-quality-filtering)
-    - [Chapter 28. Mipmap-Level Measurement](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-quality-rendering/chapter-28-mipmap-level-measurement)
+        - [Chapter 28. Mipmap-LV Measurement](https://developer.nvidia.com/gpugems/gpugems2/part-iii-high-uality-rendering/chapter-28-mipmap-level-measurement)
 - [Part IV: General-Purpose Computation on GPUS: A Primer](https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer)
     - [Chapter 29. Streaming Architectures and Technology Trends](https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer/chapter-29-streaming-architectures)
     - [Chapter 30. The GeForce 6 Series GPU Architecture](https://developer.nvidia.com/gpugems/gpugems2/part-iv-general-purpose-computation-gpus-primer/chapter-30-geforce-6-series-gpu)

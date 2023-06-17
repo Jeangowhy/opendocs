@@ -235,6 +235,8 @@ Auto Tuner https://pan.baidu.com/s/1WLuE0ksCb1pM1t4n-MR8uw?pwd=8wv9
 1. 低音 - 脸部嘴型处于微笑状态，收下巴不鼓腮，气息缓缓吹出；
 2. 中高音 - 嘴型收拢，气流加速吹出；
 
+气流只有打到吹气口边缘发生共鸣振动才算是有效气流，吹气口过大会产生大量的杂音，过小又导致声音紧。
+
 之所以高速度气流可以吹出高八度音，这里因为在笛子内的空气柱吹出的复合音中，各种频率的分音能量比例
 相对固定，当吹入加速气流后，第二分音（高八度音）的共振能量的增加量就会超过第一分音，所以就听起来
 就是吹出来的高八度音。
@@ -1216,6 +1218,103 @@ https://wiki.nicechord.com/index.php/十分鐘以內，一次搞懂所有的現�
 
 于是，完成了属和弦到主和弦的进行，其中三全音的解决是促成这个进行的最大的动力。这也就是为何说
 音程的协和与否不论好坏，只论听感，只有使用得当，和弦才能发挥出正面作用。
+
+
+# Singing Voice Synthesis
+https://huggingface.co/spaces/Silentlin/DiffSinger
+https://mp.weixin.qq.com/s?__biz=Mzg4NjU0NTM1Ng==&mid=2247483955&idx=1&sn=ffdd80abace058d6916627f9705be3ab&chksm=cf994c90f8eec5860a729742d39fb0856c074c818d8433079128a6afeedd6da5e449fb998d0c&token=1840398179&lang=zh_CN#rd
+Karplus-Strong算法：初探声音的物理建模合成 https://zhuanlan.zhihu.com/p/92577332
+
+声音合成技术大概经历了 FM 频率调制技术、WT 波表合成技术、物理模型合成音色等不同阶段。
+
+物理建模合成(Physical Modelling Synthesis)通过对现实世界的振动的模拟出声音。
+
+物理模型合成技术可以很复杂，也可以很简单。有时候，它可以是在了解某个过程后，精心设计出来的算法。
+而有时候，它也可以是在无意之中发现的方法，而后再反过来寻找一些理论去解释它。
+
+1980 年代，Kevin Karplus 和 Alex Strong 一起提出了 Karplus-Strong 算法，模拟拨弦乐器。
+它十分简单，但是它计算出来的声音又十分真实。
+
+它的核心只有两步：
+
+1. 生成一组随机数
+2. 不断对它们前后求平均
+
+
+歌声合成（SVS）系统是为了合成高质量和有表现力的歌声而建立的，其中声学模型会在给定的乐谱上生成
+声学特征（例如梅尔频谱）。以前的歌唱声学模型采用简单的损失（如L1损失和L2损失）或GAN（生成式对抗网络）
+来重建声学特征，而它们分别存在过度平滑和不稳定的训练问题，这阻碍了合成歌声的自然度。
+
+这篇论文中的DiffSinger模型是一个基于扩散概率模型的SVS声学模型。DiffSinger也是一个马尔科夫链
+参数模型，它根据乐谱一步步地将噪声转换为梅尔频谱。通过隐式地优化变分边界，DiffSinger可以稳定地
+训练并产生真实的输出。为了进一步提高语音质量和加快推理速度，论文作者引入了一个浅层扩散机制，以更好
+地利用通过之前简单损失学到的先验知识。
+
+具体来说，DiffSinger 根据真实梅尔频谱的扩散轨迹和简单梅尔频谱解码器预测的扩散轨迹的交点，以小于
+原始的总扩散步数的浅层步数开始生成。此外，论文提出了边界预测方法来定位交点，并自适应地确定浅层步骤。
+
+
+DiffSinger 基于扩散模型构造，扩散模型分为两个过程：扩散过程和反向过程。
+
+扩散过程是一个具有固定参数的马尔科夫链，在每一步都向数据中添加微小的高斯噪声，最终将原始数据逐渐
+转换为高斯分布。
+
+反向过程是具有可学习参数的马尔科夫链，是扩散过程的反过程，从高斯白噪声中恢复原始数据。
+
+浙江大学开发的 DiffSinger 物理合成模型，基本上实现了歌声、语音合成。
+
+This repository is the official PyTorch implementation of our AAAI-2022 paper, 
+in which we propose DiffSinger (for Singing-Voice-Synthesis) and DiffSpeech 
+(for Text-to-Speech).
+
+DiffSinger: Singing Voice Synthesis via Shallow Diffusion Mechanism
+https://aaai.org/papers/11020-diffsinger-singing-voice-synthesis-via-shallow-diffusion-mechanism/
+
+Abstract:
+
+Singing voice synthesis (SVS) systems are built to synthesize high-quality and 
+expressive singing voice, in which the acoustic model generates the acoustic 
+features (e.g., mel-spectrogram) given a music score. Previous singing acoustic 
+models adopt a simple loss (e.g., L1 and L2) or generative adversarial network (GAN)
+to reconstruct the acoustic features, while they suffer from over-smoothing and
+unstable training issues respectively, which hinder the naturalness of synthesized
+singing. In this work, we propose DiffSinger, an acoustic model for SVS based on
+the diffusion probabilistic model. DiffSinger is a parameterized Markov chain
+that iteratively converts the noise into mel-spectrogram conditioned on the music
+score. By implicitly optimizing variational bound, DiffSinger can be stably
+trained and generate realistic outputs. To further improve the voice quality 
+and speed up inference, we introduce a shallow diffusion mechanism to make 
+better use of the prior knowledge learned by the simple loss. Specifically, 
+DiffSinger starts generation at a shallow step smaller than the total number 
+of diffusion steps, according to the intersection of the diffusion trajectories 
+of the ground-truth mel-spectrogram and the one predicted by a simple 
+mel-spectrogram decoder. Besides, we propose boundary prediction methods to 
+locate the intersection and determine the shallow step adaptively. 
+The evaluations conducted on a Chinese singing dataset demonstrate that 
+DiffSinger outperforms state-of-the-art SVS work. Extensional experiments also 
+prove the generalization of our methods on text-to-speech task (DiffSpeech). 
+Audio samples: https://diffsinger.github.io. 
+Codes: https://github.com/MoonInTheRiver/DiffSinger.
+
+Authors
+
+    Jinglin Liu
+    Zhejiang University
+
+    Chengxi Li
+    Zhejiang University
+
+    Yi Ren
+    Zhejiang University
+
+    Feiyang Chen
+    Zhejiang University
+
+    Zhou Zhao
+    Zhejiang University
+
+
+
 
 
 # 作品鉴赏

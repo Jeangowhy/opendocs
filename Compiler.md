@@ -135,7 +135,7 @@ NLG 处理的 6 个步骤：
 参考表达式生成 – REG - Referring Expression Generation
 语言实现 – Linguistic Realisation
 
-自然语言处理界的大佬，乔姆斯基（Noam Chomsky）的定义——语言是按照一定规律构成的句子和符号串的有限或无限的集合。
+自然语言专家，乔姆斯基（Noam Chomsky）的定义——语言是按照一定规律构成的句子和符号串的有限或无限的集合。
 
 对工程师来说，解决问题的第一步就是先知道你面对的是什么问题：使用编译原理的知识来解析开头的表达式，相当于定义一个简陋的 DSL 语言，并编写词法解析器和语法解析器（lexer & parser）来将其转换成 AST 抽象语法树，进而对其进行处理。
 
@@ -311,6 +311,9 @@ typedef struct {
 - [CSE 401/M501: Compiler Construction](https://courses.cs.washington.edu/courses/cse401/22sp/)
 - [CSc 453: Compilers and Systems Software](http://www2.cs.arizona.edu/classes/cs453/fall14/)
 - [CPEG 421/621 Compiler Design](https://www.capsl.udel.edu/courses/cpeg421/2012/)
+- 国防科技大学 编译原理 https://www.bilibili.com/video/BV1dJ411D7w6/
+- 中山大学 CS290 编译原理 https://github.com/arcsysu/arcsysu.github.io/tree/latest/teach/dcs290
+- 中山大学 CS290 编译原理 https://arcsysu.github.io/teach/dcs290/s2021.html
 
 乔姆斯基，Avram Noam Chomsky，1928 年生于美国费城，麻省理工学院语言学及语言哲学研究所教授兼名誉教授，被誉为“现代语言学之父”。乔姆斯基继承了布龙菲尔德的分布主义分析方法，提出了生成语法理论，认为“思考语言为何物，就是在思考人类为何物”。
 
@@ -336,22 +339,39 @@ Chomsky 形式文法 Formal Grammars 是极为重要的理论，Chomsky 文法�
 
 语法 G 的不含非终结符的句子形式称为 G 生成的句子；由语法 G 生成的语言，记做 L(G)，指 G 生成的所有句子的集合。
 
-The Chomsky Hierarchy of Grammars and Languages
+The Chomsky Hierarchy of Grammars and Languages 乔姆斯基将语言形式整理为 4 种形式：
 
-- Type 0 Grammars：无约束文法，规则形式没有任何限制，也称无限制重写文法，重写规则为 α → β，其中 α, β ∈ (Vn ∪ Vt) 。
-- Type 1 Grammars：上下文相关文法，重写规则为 αAβ → αγβ，其中 A ∈ Vn, α, β, γ ∈ (Vn ∪ Vt)，且 γ 非空。在上下文 α…β 中，单个非终结符 A 被重写为符号串 γ，因此是上下文相关的。
-- Type 2 Grammars：上下文无关文法 CFG，重写规则为 A → α，其中 A ∈ Vn, α ∈(Vn ∪ Vt)，A 重写为 α 时没有上下文限制。
-- Type 3 Grammars：正则文法 RG，重写规则为 A → Bx 或 A → x，其中 A, B ∈ Vn, x ∈ Vt。A → xA 是将 A → Bx 中的 B 看作空符号的一种特殊情况。如果把 A, B 看作不同的状态，那么由重写规则可知，由状态 A 转入状态 B 时，可生成一个终结符 x ，因此正则文法也称作有限状态文法。
+    Type 0 无约束文法 unrestricted grammar
+    Type 1 上下文有关方法 CSG：Context sensitive grammar
+    Type 2 上下文无关文法 CFG：Context free grammars
+    Type 3 正则文法 RG：Regular grammars
 
-乔姆斯基的文法理论，在计算机领域中真正被使用的只有两者：Type 2 文法和 Type 3 文法。
+Type 0 无约束文法，规则形式没有任何限制，也称无限制重写文法，重写规则如下：
+
+    α → β，其中 α, β ∈ (Vn ∪ Vt)
+
+Type 1 上下文相关文法，重写规则如下，在上下文 α…β 中，单个非终结符 A 被重写为
+符号串 γ，因此是上下文相关的。
+
+     αAβ → αγβ，其中 A ∈ Vn, α, β, γ ∈ (Vn ∪ Vt)，且 γ 非空
+
+Type 2 上下文无关文法 CFG，重写规则如下，A 重写为 α 时没有上下文限制。
+
+    A → α，其中 A ∈ Vn, α ∈(Vn ∪ Vt)
+
+Type 3 正则文法 RG，重写规则如下。A → xA 是将 A → Bx 中的 B 看作空符号的一种特殊情况。如果把 A, B 看作不同的状态，那么由重写规则可知，由状态 A 转入状态 B 时，可生成一个终结符 x ，因此正则文法也称作有限状态文法。
+
+    A → Bx 或 A → x，其中 A, B ∈ Vn, x ∈ Vt
+
+乔姆斯基的文法理论，每个分类都是细分类型的超集，在计算机领域中使用的只有 Type 2 和 Type 3 文法。
 
     L(G3) ⊆ L(G2) ⊆ (G1) ⊆ (G0)
 
 即，每一个正则文法都是上下文无关文法，每一个上下文无关文法都是上下文有关文法，每一个上下文有关文法都是 0 型文法。
 
-Type 2 Grammars 二型文法即上下文无关文法，特征是任何语言元素在任何上下文中的含义始终保持一致。事实上，多数如今的程序设计语言语法都以此为基础。
+Type 2 上下文无关文法，特征是任何语言元素在任何上下文中的含义始终保持一致。事实上，多数如今的程序设计语言语法都以此为基础。
 
-Type 3 Grammars 三型方法特征是语法中不存在递归下降结构，它的代表是基本正则表达式（扩展后的正则表达式情况略有不同）。
+Type 3 三型方法特征是语法中不存在递归下降结构，它的代表是基本正则表达式（扩展后的正则表达式情况略有不同）。
 
 以上两种文法构成了现今所有实用计算机程序设计语言的分析器理论基础，也有成熟的数据结构和算法支持：三型文法的 NFA/DFA，以及二型文法的递归下降、LL(x)、LR(x)、LALR(x)。
 
@@ -536,7 +556,7 @@ LL(1) 属于自顶向下非递归下降算法设计，可以支持正则表达�
 | E + E                | E + E  | E → E + E       |
 | E                    |        |                 |
 
-¥
+
 说到 LL 或者 LR 算法，就不得不和二叉树这种数据结构一起说。
 
 二叉树这种数据结构应用非常广泛，无论是在操作系统，编译软件还大型应用程序，都非常多应用，并且变体非常多，比如程序优先级的算法中可能会用到 Red-Black Tree，最普通的有序数据查找就是 Binary Search Tree 算法，它通过每次都折半查询数据，大致快速定位目标数据的目的。
@@ -678,7 +698,8 @@ LL 和 LR 解析理论已有 50 多年的历史：Knuth 的论文 On the Transla
     - Final code generation
     - Machine-dependent optimizations
 
-一种语言的 compiler 或 interptreter 通常需要两个基本步骤，前端与中端作为一个部分，后端负责机器码的生成（合成），高度依赖具体的硬件系统：
+一种语言的 compiler 或 interptreter 通常需要两个基本步骤，前端与中端作为一个部分，后端负责
+机器码的生成（合成），高度依赖具体的硬件系统：
 
 - Read the source program and discover its structure.
 - Process this structure, e.g. to generate the target program.
@@ -694,18 +715,22 @@ Lex 和 Yacc，Flex 和 Biion 这些工具可以完成前面的代码结构分�
 - Syntactic Analysis (Parser) 解析器分析 Tokens 序列得到 AST，确定语法结构并检查部分语法错误；
 - Semantic Analysis 语义分析器检查语法树可能出现的语义错误，例如 *float d = "x"*，还包含类型检查、对象绑定等；
 
-为了加强理解 Programming Language Pragmatics 4th 书中第一章有一道习题，尝试使用熟悉的一种命令式语言，如 C/C++，去触发不同阶段的错误：
+为了加强理解 Programming Language Pragmatics 4th 书中第一章有一道习题，尝试使用熟悉的一种
+命令式语言，如 C/C++，去触发不同阶段的错误：
 
 (a) A lexical error, detected by the scanner
 (b) A syntax error, detected by the parser
 (c) A static semantic error, detected by semantic analysis
 (d) A dynamic semantic error, detected by code generated by the compiler
 (e) An errorthat the compiler can neither catch nor easily generatecode to
-catch (this should be a violation of the language definition, not just a
-program bug)
+    catch (this should be a violation of the language definition, not just a
+    program bug)
 
 
-现代的编译器增加了中间代码表示层，IR - Intermediate Representations，像 LLVM - “Low Level Virtual Machine” 这种编译工具，因为增加 IR 层带来的灵活性而取得了巨大的成功。
+现代的 LLVM - “Low Level Virtual Machine” 编译器基础构架，增加了中间代码表示层，
+IR - Intermediate Representations，因为增加 IR 层带来的灵活性而取得了巨大的成功。
+不同语言可以方便地先将源代码经过前端编译为中间代码，经过优化调整后，再用后端编译成平台相关的
+机器指令，这极大地简化了各种语言编译器与各种平台差异化的编译工作。
 
 参考 Stanford CS143: Compilers 提供的现代编译器工作流程图：
 
@@ -766,15 +791,22 @@ program bug)
     | Python  | ==>+                                          |                       |
     +=========+    |                                          |   +===============+   |
                    |                                          +==>|    Linker     |<==+
-    +=========+    |     ==============================          +===============+
+    +=========+    |     ==============================           +===============+
     | Ruby    | ==>+     LLVM Toolchain at a High-Level                  |
     +=========+    |     ==============================      +===========v===========+
                    |                                         | Executable or Library |
         ...     ==>+                                         +=======================+
 
-通过实现编译器前端与后端的分离构架，LLVM 就可以使用 IR 灵活地处理各种言语分析并生成的中间代码，中间表示也称为 LLVM ASM，然后通过后端生成各种硬件平台依赖的机器码，无论是 ARM、x86、PowerPC 架构都可以，只需要根据不同的语言实现相应的前端编译器即可。
+通过实现编译器前端与后端的分离构架，LLVM 就可以使用 IR 灵活地处理各种言语分析并生成的中间代码，
+中间表示也称为 LLVM ASM，然后通过后端生成各种硬件平台依赖的机器码，无论是 ARM、x86、PowerPC 
+架构都可以，只需要根据不同的语言实现相应的前端编译器即可。
 
-LLVM IR 是一种基于*静态单一赋值*的表示法，Static Single Assignment (SSA) 特性提供类型安全性、底层操作、灵活性，以及清晰地表示所有高级语言的能力。
+LLVM IR 是一种基于*静态单一赋值*的表示法，Static Single Assignment (SSA) 提供类型安全性、
+底层操作、灵活性，以及清晰地表示所有高级语言的能力。
+
+SSA 是 LLVM Virtual Instruction Set 中虚拟寄存器的基本结构，也是中间代码的主要表达形式。
+虚拟寄存器用来存储各种原始类型的值，primitive types (integral, floating point, or pointer values)
+通过引入 SSA 可以解决物理寄存器的平台依赖或约束，被大量应用于编译器优化中。
 
 SSA philosophy:
 
@@ -788,7 +820,8 @@ SSA 理念：
 - 这样做获取的好处是，变量引用指向唯一的定义，同名变量拥有相同值；
 - 形式上等价于 Continuation-Passing Style (CPS) IR；
 
-SSA 属于控制流分析技术，所以相关的概念有控制流图、控制树、直接控制和真控制，参考康奈尔大学的 CS 6120: Advanced Compilers 或卡内基梅隆大学 CMU 15-411 Compiler Design 课程资源。
+SSA 属于控制流分析技术，所以相关的概念有控制流图、控制树、直接控制和真控制，参考康奈尔大学课程
+CS 6120: Advanced Compilers 或卡内基梅隆大学 CMU 15-411 Compiler Design 课程资源。
 
 Clang 项目就是 LLVM 的前面编译器，目前提供了大量流行语言的编译能力：
 
@@ -796,7 +829,10 @@ Clang 项目就是 LLVM 的前面编译器，目前提供了大量流行语言�
 ● Compiles C, C++, Objective-C, and Objective-C++ into LLVM IR.
 ● Using Clang in conjunction with LLVM replaces the GCC stack.
 
-参考 LLVM 文档，LLVM: An Infrastructure for Multi-Stage Optimization，Figure 2.1: LLVM system architecture diagram。
+参考 LLVM 文档多阶段优化文档：
+
+    LLVM: An Infrastructure for Multi-Stage Optimization
+    Figure 2.1: LLVM system architecture diagram
 
 当前编译系统主要有以下编译优化方法：
 
@@ -815,9 +851,11 @@ Clang 项目就是 LLVM 的前面编译器，目前提供了大量流行语言�
     5. The LLVM Approach to Run Time Optimization
     6. Idle Time: Offline Reoptimizer 
 
-得益于前后分离的编译系统构架，LLVM 可以在多个阶段提供编译优化时机，可以为优化提供 Optimizing Linker、Runtime Optimizer、Offline Reoptimizer 实现。
+得益于前后分离的编译系统构架，LLVM 可以在多个阶段提供编译优化时机，可以为优化提供 
+Optimizing Linker、Runtime Optimizer、Offline Reoptimizer 实现。
 
-参考 Programming Language Pragmatics by Michael L. Scott，对于 Python 这类使用解释器运行的脚本语言，或者 Java 这种使用虚拟机运行的语言，编译器与解析器的结构简化表达如下：
+参考 Programming Language Pragmatics by Michael L. Scott，对于 Python 这类使用解释器
+运行的脚本语言，或者 Java 这种使用虚拟机运行的语言，编译器与解析器的结构简化表达如下：
 
        Source program
              🡓
@@ -831,9 +869,11 @@ Clang 项目就是 LLVM 的前面编译器，目前提供了大量流行语言�
                           🡕   +=================+    +========+
                      Input
 
-虽然，Python 并没有虚拟机的实现，但是脚本运行流程基本是类似的，依然会将脚本转译为字节码，然后再通过字节码解析器运行。
+虽然，Python 并没有虚拟机的实现，但是脚本运行流程基本是类似的，依然会将脚本转译为字节码，然后再
+通过字节码解析器运行。
 
-最早的 Java 实现完全基于字节码解析器运行程序，byte-code interpreters，经过发展优化后，现代的 Java 实现了 JIT - Just-in-Time compiler，在程序即将执行之前，它会将字节码转译为机器语言：
+最早的 Java 实现完全基于字节码解析器运行程序，byte-code interpreters，经过发展优化后，现代的
+Java 实现了 JIT - Just-in-Time compiler，在程序即将执行之前，它会将字节码转译为机器语言：
 
                  Java program
                        🡓
@@ -851,39 +891,68 @@ Clang 项目就是 LLVM 的前面编译器，目前提供了大量流行语言�
     Input ==> | Machine language | =======> Output
               +==================+
 
-目前，LLVM 本身除了是编译器之外，已然是最优秀的编译开发工具，LLVM Compiler Framework and Infrastructure。
+LLVM 不仅有编译器，已然是最优秀的编译器开发平台，LLVM Compiler Framework and Infrastructure。
 
-LLVM Tutorial: Implementing My Kaleidoscope Language 是一个非常好的编译器端着实现教程参考，它实现一个叫作万花筒 “Kaleidoscope” 的语言来作为 LLVM 编译工具套件的开发与使用。
+JIT - Just-in-Time Compiler 作为一个重要的提速技术，它主要负责在程序执行前将字节码转化为机器
+实现更高的效率提升，像 Google V8 JavaScript 引擎，就是因为引入了 JIT 技术使得它在脚本的执行
+效率完全领先于其它 JavaScript 脚本引擎。
+
+
+## ==⚡ LLVM Tutorial: Implementing My Kaleidoscope Language
+- [LLVM Git Repository](https://github.com/llvm/llvm-project)
+- [LLVM 14.0.0 docs](https://releases.llvm.org/14.0.0/docs/index.html)
+- [LLVM Tutorial: Implementing My Kaleidoscope Language](http://llvm.org/docs/tutorial/index.html)
+
+LLVM Tutorial: Implementing My Kaleidoscope Language 编译器前端实现教程，
+此教程演示如何使用 LLVM C++ 工具实现一种称为万花筒 “Kaleidoscope” 的简单语言。
 
 Kaleidoscope 这个项目按以下步骤讲解，符合了现代编译的架构：
 
-1. Kaleidoscope: Kaleidoscope Introduction and the *Lexer*
-2. Kaleidoscope: Implementing a *Parser* and *AST*
-3. Kaleidoscope: Code generation to *LLVM IR*
-4. Kaleidoscope: Adding *JIT* and *Optimizer* Support
-5. Kaleidoscope: Extending the Language: *Control Flow*
-6. Kaleidoscope: Extending the Language: User-defined Operators
-7. Kaleidoscope: Extending the Language: Mutable Variables
-8. Kaleidoscope: Compiling to Object Code
-9. Kaleidoscope: Adding Debug Information
+01. Kaleidoscope: Kaleidoscope Introduction and the *Lexer*
+02. Kaleidoscope: Implementing a *Parser* and *AST*
+03. Kaleidoscope: Code generation to *LLVM IR*
+04. Kaleidoscope: Adding *JIT* and *Optimizer* Support
+05. Kaleidoscope: Extending the Language: *Control Flow*
+06. Kaleidoscope: Extending the Language: User-defined Operators
+07. Kaleidoscope: Extending the Language: Mutable Variables
+08. Kaleidoscope: Compiling to Object Code
+09. Kaleidoscope: Adding Debug Information
 10. Kaleidoscope: Conclusion and other useful LLVM tidbits
 
-JIT - Just-in-Time Compiler 作为一个重要的提速技术，它主要负责在程序执行前将字节码转化为机器实现更高的效率提升，像 Google V8 JavaScript 引擎，就是因为引入了 JIT 技术使得它在脚本的执行效率完全领先于其它 JavaScript 脚本引擎。
+
+Requirements: This tutorial assumes you know C++, but no previous compiler 
+experience is necessary.
+
+Welcome to the “My First Language Frontend with LLVM” tutorial. Here we run 
+through the implementation of a simple language, showing how fun and easy it 
+can be. This tutorial will get you up and running fast and show a concrete 
+example of something that uses LLVM to generate code.
+
+This tutorial introduces the simple “Kaleidoscope” language, building it 
+iteratively over the course of several chapters, showing how it is built 
+over time. This lets us cover a range of language design and LLVM-specific 
+ideas, showing and explaining the code for it all along the way, and reduces 
+the overwhelming amount of details up front. We strongly encourage that you 
+work with this code - make a copy and hack it up and experiment.
+
+Warning: In order to focus on teaching compiler techniques and LLVM specifically, 
+this tutorial does not show best practices in software engineering principles. 
+For example, the code uses global variables pervasively, doesn’t use visitors, 
+etc… but instead keeps things simple and focuses on the topics at hand.
+
 
 
 ## ==⚡ A Simple Interpreter
 - [The Lex & Yacc Page](http://dinosaur.compilertools.net/)
-- [LLVM Git Repository](https://github.com/llvm/llvm-project)
-- [LLVM 14.0.0 docs](https://releases.llvm.org/14.0.0/docs/index.html)
-- [LLVM Tutorial: Implementing My Kaleidoscope Language](http://llvm.org/docs/tutorial/index.html)
 - [Write Your Own Compiler](https://silcnitc.github.io/roadmap.html)
 - [Writing Your Own Toy Compiler Using Flex, Bison and LLVM](https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/)
 
 根据编译器的工作流程，基于 C/C++ 语言实现一个 Simple 语言解释器。
 
-利用现有的工具，如 ANTLR、LLVM 等，可以大大降低实现一种计算机语言的技术门槛。例如，可以利用现有的汇编编译器实现机器码的生成，也可以利用其它编译器，如 C/C++ 编译器实现机器码的生成。
+利用现有的工具，如 ANTLR、LLVM 等，可以大大降低实现一种计算机语言的技术门槛。可以利用现有的
+汇编编译器实现机器码的生成，也可以利用其它编译器，如 C/C++ 编译器实现机器码的生成。
 
-Lex 和 Yacc，Flex 和 Biion 可以完成前面的代码结构分析工具，并细分为两步操作流程：
+Lex 和 Yacc，Flex 和 Biion 可以生成编译器前端的代码结构分析工具，细分为两步操作流程：
     
 - Split the source file into tokens (Lex).
 - Find the hierarchical structure of the program (Yacc).
@@ -920,355 +989,426 @@ A First Example: A Simple Interpreter
 
     The Memphis Tree Builder & Tree Walker Tool
 
-Writing an Interpreter
-with Lex, Yacc, and Memphis
-Memphis
-Examples
-Manuals
-Distribution
-Here is a small example that shows how to write an interpreter with Lex, Yacc, and Memphis.
-Our example language provides arithmetic and relational expressions as well as assignment and print statements. To structure programs it features conditional and repetitive statements and the possibility to group statements to sequences.
+
+Writing an Interpreter with Lex, Yacc, and Memphis
+
+
+Here is a small example that shows how to write an interpreter with Lex, Yacc, 
+and Memphis. Our example language provides arithmetic and relational expressions 
+as well as assignment and print statements. To structure programs it features 
+conditional and repetitive statements and the possibility to group statements 
+to sequences.
 
 Here is a typical program in our example language:
 
-   // Greatest Common Divisor
-   x := 8;
-   y := 12;
-   WHILE x != y DO
-      IF x > y THEN x := x-y
-      ELSE y := y-x
-      FI
-   OD;
-   PRINT x
+       // Greatest Common Divisor
+       x := 8;
+       y := 12;
+       WHILE x != y DO
+          IF x > y THEN x := x-y
+          ELSE y := y-x
+          FI
+       OD;
+       PRINT x
+
 Our processor for this language will be decomposed into two parts.
 
-The task of the first part (the analizer) is to read the source program and to discover its structure.
+The task of the first part (the analizer) is to read the source program and to 
+discover its structure.
 
-The task of the second part (the tree walker) is to process this structure, thereby evaluating expressions and executing statements.
+The task of the second part (the tree walker) is to process this structure, 
+thereby evaluating expressions and executing statements.
 
 The glue between these parts is an abstract program representation.
 
 The Analizer
-The task to structure the program is decomposed into lexical analysis and syntactical analysis.
-Lexical analysis splits the source text into a sequence of tokens, skipping blanks, newlines, and comments. For example, the source text
+The task to structure the program is decomposed into lexical analysis and 
+syntactical analysis. Lexical analysis splits the source text into a sequence 
+of tokens, skipping blanks, newlines, and comments. 
 
-   x :=   // multiply x
-   x*100  // by hundred
+For example, the source text
+
+       x :=   // multiply x
+       x*100  // by hundred
+
 is handled as the sequence of tokens
 
-   x
-   :=
-   x
-   *
-   100
-Each token belongs to a token class. There are simple tokens such as ``:='', it belongs to the class ASSIGN which has only this member. And there are more complex tokens such 100, it belongs to the class Number which comprises the strings that form decimal numbers. Simple tokens can be specified simply by the string that represents them. Complex tokens are defined by a regular expression that covers the strings of the token class. For example, the regular expression
+       x
+       :=
+       x
+       *
+       100
 
-   [0-9]+
-specifies nonempty sequences of decimal digits. In case of simple tokens we just need to know the token class, in case of complex tokens some additional processing is neccessary. E.g. the strings that matches the regular expression for numbers must be converted to an integer that holds its numerical value.
+Each token belongs to a token class. There are simple tokens such as ``:=``, 
+it belongs to the class ASSIGN which has only this member. And there are more 
+complex tokens such 100, it belongs to the class Number which comprises the 
+strings that form decimal numbers. Simple tokens can be specified simply by the 
+string that represents them. Complex tokens are defined by a regular expression 
+that covers the strings of the token class. For example, the regular expression
 
-The lexical analysis is implemented by a function yylex() that reads a token from the input stream and returns its name (token class). In addition, it assign the semantic value (e.g. of numbers) to the global variable yylval.
+       [0-9]+
+
+specifies nonempty sequences of decimal digits. In case of simple tokens we just 
+need to know the token class, in case of complex tokens some additional processing
+is neccessary. E.g. the strings that matches the regular expression for numbers 
+must be converted to an integer that holds its numerical value.
+
+The lexical analysis is implemented by a function `yylex()` that reads a token 
+from the input stream and returns its name (token class). In addition, it assign 
+the semantic value (e.g. of numbers) to the global variable `yylval`.
 
 Such a function can be generated by the tool Lex. Its input is a set of pairs
 
-regular-expression { action }
-The action is performed when the current input matches the regular expression. For example,
-   ":=" { return ASSIGN; }
+    regular-expression { action }
+
+The action is performed when the current input matches the regular expression. 
+For example,
+
+       ":=" { return ASSIGN; }
+
 defines ASSIGN tokens and
 
-   [0-9]+ { yylval = atoi(yytext); return NUMBER; }
+       [0-9]+ { yylval = atoi(yytext); return NUMBER; }
+
 specifies how to handle numbers.
 
 Here is the input to Lex:
 
+       %{
+       #include "y.tab.h"
+       extern int yylval;
+       %}
+       %%
+       "="      { return EQ; }
+       "!="     { return NE; }
+       "<"      { return LT; }
+       "<="     { return LE; }
+       ">"      { return GT; }
+       ">="     { return GE; }
+       "+"      { return PLUS; }
+       "-"      { return MINUS; }
+       "*"      { return MULT; }
+       "/"      { return DIVIDE; }
+       ")"      { return RPAREN; }
+       "("      { return LPAREN; }
+       ":="     { return ASSIGN; }
+       ";"      { return SEMICOLON; }
+       "IF"     { return IF; }
+       "THEN"   { return THEN; }
+       "ELSE"   { return ELSE; }
+       "FI"     { return FI; }
+       "WHILE"  { return WHILE; }
+       "DO"     { return DO; }
+       "OD"     { return OD; }
+       "PRINT"  { return PRINT; }
+       [0-9]+   { yylval = atoi(yytext); return NUMBER; }
+       [a-z]    { yylval = yytext[0] - 'a'; return NAME; }   
+       \        { ; }
+       \n       { nextline(); }
+       \t       { ; }
+       "//".*\n { nextline(); }
+       .        { yyerror("illegal token"); }
+       %%
+       #ifndef yywrap
+       yywrap() { return 1; }
+       #endif
 
-   %{
-   #include "y.tab.h"
-   extern int yylval;
-   %}
-   %%
-   "="      { return EQ; }
-   "!="     { return NE; }
-   "<"      { return LT; }
-   "<="     { return LE; }
-   ">"      { return GT; }
-   ">="     { return GE; }
-   "+"      { return PLUS; }
-   "-"      { return MINUS; }
-   "*"      { return MULT; }
-   "/"      { return DIVIDE; }
-   ")"      { return RPAREN; }
-   "("      { return LPAREN; }
-   ":="     { return ASSIGN; }
-   ";"      { return SEMICOLON; }
-   "IF"     { return IF; }
-   "THEN"   { return THEN; }
-   "ELSE"   { return ELSE; }
-   "FI"     { return FI; }
-   "WHILE"  { return WHILE; }
-   "DO"     { return DO; }
-   "OD"     { return OD; }
-   "PRINT"  { return PRINT; }
-   [0-9]+   { yylval = atoi(yytext); return NUMBER; }
-   [a-z]    { yylval = yytext[0] - 'a'; return NAME; }   
-   \        { ; }
-   \n       { nextline(); }
-   \t       { ; }
-   "//".*\n { nextline(); }
-   .        { yyerror("illegal token"); }
-   %%
-   #ifndef yywrap
-   yywrap() { return 1; }
-   #endif
 
-
-Syntactical analysis imposes a hierarchical structure on the program. This structure is specified by the rules of a context-free grammar. A syntactical phrase is introduced by giving one or more alternatives. An alternative specifies how to construct an instance of the phrase. It list the members that build up the phrase, where such a member is either atoken or the name of a phrase (a nonterminal).
+Syntactical analysis imposes a hierarchical structure on the program. 
+This structure is specified by the rules of a context-free grammar. 
+A syntactical phrase is introduced by giving one or more alternatives. 
+An alternative specifies how to construct an instance of the phrase. 
+It list the members that build up the phrase, where such a member is 
+either atoken or the name of a phrase (a nonterminal).
 
 Consider the rule to define statements:
 
-   statement:
-     designator ASSIGN expression
-   | PRINT expression
-   | IF expression THEN stmtseq ELSE stmtseq FI
-   | IF expression THEN stmtseq FI
-   | WHILE expression DO stmtseq OD
-   ;
-For example, the first alternative specifies that if D is a designator and if E is an expression then D := E is a statement.
+       statement:
+         designator ASSIGN expression
+       | PRINT expression
+       | IF expression THEN stmtseq ELSE stmtseq FI
+       | IF expression THEN stmtseq FI
+       | WHILE expression DO stmtseq OD
+       ;
 
-We use the tool Yacc to generate the syntactical analizer. Its input is a context-free grammar from which it creates a function yyparse() that parses the source text according to that grammar. (yyparse() invokes yylex() to obtain the next token).
+For example, the first alternative specifies that if D is a designator and 
+if E is an expression then D := E is a statement.
 
-With rules like the one given above, yyparse() would only be able to check whether a given source is consistent with the grammar. As we did with the Lex specification, we attach semantic actions. They are executed whenever an alternative matches a phrase of the input and are used to construct an abstract program representation.
+We use the tool Yacc to generate the syntactical analizer. Its input is a 
+context-free grammar from which it creates a function `yyparse()` that parses 
+the source text according to that grammar. (`yyparse()` invokes `yylex()` to obtain 
+the next token).
+
+With rules like the one given above, `yyparse()` would only be able to check 
+whether a given source is consistent with the grammar. As we did with the Lex 
+specification, we attach semantic actions. They are executed whenever an 
+alternative matches a phrase of the input and are used to construct an abstract 
+program representation.
 
 The rule for statement becomes:
 
- statement:
-   designator ASSIGN expression {$$ = assignment($1, $3);} 
- | PRINT expression {$$ = print($2);} 
- | IF expression THEN stmtseq ELSE stmtseq FI
-     {$$ = ifstmt($2, $4, $6);}
- | IF expression THEN stmtseq FI
-     {$$ = ifstmt($2, $4, empty());}
- | WHILE expression DO stmtseq OD {$$ = whilestmt($2, $4);}
- ;
-Consider again the first alternative. The semantic action attached to it constructs an abstract representation of an assignment statement and defines this as the structural value of the phrase, i.e. it assigns it to the special variable $$. the value is constructed by applying the function assignment() to the value of the first member (designator), denoted by $1, and the value of the third member (expression), denoted by $3.
+     statement:
+       designator ASSIGN expression {$$ = assignment($1, $3);} 
+     | PRINT expression {$$ = print($2);} 
+     | IF expression THEN stmtseq ELSE stmtseq FI
+         {$$ = ifstmt($2, $4, $6);}
+     | IF expression THEN stmtseq FI
+         {$$ = ifstmt($2, $4, empty());}
+     | WHILE expression DO stmtseq OD {$$ = whilestmt($2, $4);}
+     ;
+
+Consider again the first alternative. The semantic action attached to it 
+constructs an abstract representation of an assignment statement and defines 
+this as the structural value of the phrase, i.e. it assigns it to the special 
+variable `$$`. the value is constructed by applying the function `assignment()` 
+to the value of the first member (designator), denoted by `$1`, and the value 
+of the third member (expression), denoted by $3.
 
 Here is the input to Yacc:
 
 
-   %start ROOT
+       %start ROOT
 
-   %token EQ
-   %token NE
-   %token LT
-   %token LE
-   %token GT
-   %token GE
-   %token PLUS
-   %token MINUS
-   %token MULT
-   %token DIVIDE
-   %token RPAREN
-   %token LPAREN
-   %token ASSIGN
-   %token SEMICOLON
-   %token IF
-   %token THEN
-   %token ELSE
-   %token FI
-   %token WHILE
-   %token DO
-   %token OD
-   %token PRINT
-   %token NUMBER
-   %token NAME
+       %token EQ
+       %token NE
+       %token LT
+       %token LE
+       %token GT
+       %token GE
+       %token PLUS
+       %token MINUS
+       %token MULT
+       %token DIVIDE
+       %token RPAREN
+       %token LPAREN
+       %token ASSIGN
+       %token SEMICOLON
+       %token IF
+       %token THEN
+       %token ELSE
+       %token FI
+       %token WHILE
+       %token DO
+       %token OD
+       %token PRINT
+       %token NUMBER
+       %token NAME
 
-   %%
+       %%
 
-   ROOT:
-     stmtseq { execute($1); } 
-   ;
+       ROOT:
+         stmtseq { execute($1); } 
+       ;
 
-   statement:
-     designator ASSIGN expression { $$ = assignment($1, $3); } 
-   | PRINT expression { $$ = print($2); } 
-   | IF expression THEN stmtseq ELSE stmtseq FI
-    { $$ = ifstmt($2, $4, $6); }
-   | IF expression THEN stmtseq FI
-    { $$ = ifstmt($2, $4, empty()); }
-   | WHILE expression DO stmtseq OD { $$ = whilestmt($2, $4); }   
-   ;
+       statement:
+         designator ASSIGN expression { $$ = assignment($1, $3); } 
+       | PRINT expression { $$ = print($2); } 
+       | IF expression THEN stmtseq ELSE stmtseq FI
+        { $$ = ifstmt($2, $4, $6); }
+       | IF expression THEN stmtseq FI
+        { $$ = ifstmt($2, $4, empty()); }
+       | WHILE expression DO stmtseq OD { $$ = whilestmt($2, $4); }   
+       ;
 
-   stmtseq:
-     stmtseq SEMICOLON statement { $$ = seq($1, $3); }
-   | statement { $$ = $1; }
-   ;
+       stmtseq:
+         stmtseq SEMICOLON statement { $$ = seq($1, $3); }
+       | statement { $$ = $1; }
+       ;
 
-   expression:
-     expr2 { $$ = $1; } 
-   | expr2 EQ expr2 { $$ = eq($1, $3); }
-   | expr2 NE expr2 { $$ = ne($1, $3); }
-   | expr2 LT expr2 { $$ = le($1, $3); }
-   | expr2 LE expr2 { $$ = le($1, $3); }
-   | expr2 GT expr2 { $$ = gt($1, $3); }
-   | expr2 GE expr2 { $$ = gt($1, $3); }
-   ;
+       expression:
+         expr2 { $$ = $1; } 
+       | expr2 EQ expr2 { $$ = eq($1, $3); }
+       | expr2 NE expr2 { $$ = ne($1, $3); }
+       | expr2 LT expr2 { $$ = le($1, $3); }
+       | expr2 LE expr2 { $$ = le($1, $3); }
+       | expr2 GT expr2 { $$ = gt($1, $3); }
+       | expr2 GE expr2 { $$ = gt($1, $3); }
+       ;
 
-   expr2:
-     expr3 { $$ == $1; }
-   | expr2 PLUS expr3 { $$ = plus($1, $3); }
-   | expr2 MINUS expr3 { $$ = minus($1, $3); }
-   ;
+       expr2:
+         expr3 { $$ == $1; }
+       | expr2 PLUS expr3 { $$ = plus($1, $3); }
+       | expr2 MINUS expr3 { $$ = minus($1, $3); }
+       ;
 
-   expr3:
-     expr4 { $$ = $1; }
-   | expr3 MULT expr4 { $$ = mult($1, $3); }
-   | expr3 DIVIDE expr4 { $$ = divide ($1, $3); }
-   ;
+       expr3:
+         expr4 { $$ = $1; }
+       | expr3 MULT expr4 { $$ = mult($1, $3); }
+       | expr3 DIVIDE expr4 { $$ = divide ($1, $3); }
+       ;
 
-   expr4:
-     PLUS expr4 { $$ = $2; }
-   | MINUS expr4 { $$ = neg($2); }
-   | LPAREN expression RPAREN { $$ = $2; }
-   | NUMBER { $$ = number($1); }
-   | designator { $$ = $1; }
-   ;
+       expr4:
+         PLUS expr4 { $$ = $2; }
+       | MINUS expr4 { $$ = neg($2); }
+       | LPAREN expression RPAREN { $$ = $2; }
+       | NUMBER { $$ = number($1); }
+       | designator { $$ = $1; }
+       ;
 
-   designator:
-     NAME { $$ = name($1); }
-   ;
+       designator:
+         NAME { $$ = name($1); }
+       ;
 
 
 The Glue
-As we have seen with assignment(), the abstract representation, or abstract syntax, is constructed by functions that take the representation of constituents and build the representation of a larger construct.
-This results in a tree structure: the functions construct nodes whose childs are subtrees representing the constituents.
+As we have seen with `assignment()`, the abstract representation, or abstract 
+syntax, is constructed by functions that take the representation of constituents 
+and build the representation of a larger construct.
 
-In language processors the abstract syntax plays a central role. It does not only define the glue between passes, it also determines the design of functions that process the program: they often inductively follow the structure of the abstract representation.
+This results in a tree structure: the functions construct nodes whose childs 
+are subtrees representing the constituents.
 
-Hence it is a good idea to provide a clean definition. We classify the nodes into into node types and list the types of its childs.
+In language processors the abstract syntax plays a central role. It does not 
+only define the glue between passes, it also determines the design of functions 
+that process the program: they often inductively follow the structure of the 
+abstract representation.
 
-For our example language we introduce two node types: Statement and Expression. An example of nodes of type Statement is assignment that takes two arguments (lhs and rhs) of type Expression. This is specified by listing
+Hence it is a good idea to provide a clean definition. We classify the nodes 
+into into node types and list the types of its childs.
 
-   assignment (Expression lhs, Expression rhs)
+For our example language we introduce two node types: Statement and Expression. 
+An example of nodes of type Statement is assignment that takes two arguments 
+(lhs and rhs) of type Expression. This is specified by listing
+
+       assignment (Expression lhs, Expression rhs)
+
 as an alternative of type Statement.
 
 We use domain declarations for the specification.
 
 For example, Statement is introduced by a declaration of the form
 
-   domain Statement {
-      ...
-   }
+       domain Statement {
+          ...
+       }
+
 that lists the Statement alternatives. One of them is
 
-   assignment (Expression lhs, Expression rhs)
+       assignment (Expression lhs, Expression rhs)
+
 Here is the complete definition of the abstract syntax:
 
+       domain Statement {
 
-   domain Statement {
+          assignment (Expression lhs, Expression rhs)
+          print (Expression x)
+          ifstmt (Expression cond, Statement thenpart, Statement elsepart)   
+          whilestmt (Expression cond, Statement body)
+          seq (Statement s1, Statement s2)
+          empty ()
 
-      assignment (Expression lhs, Expression rhs)
-      print (Expression x)
-      ifstmt (Expression cond, Statement thenpart, Statement elsepart)   
-      whilestmt (Expression cond, Statement body)
-      seq (Statement s1, Statement s2)
-      empty ()
+       }
 
-   }
+       domain Expression {
 
-   domain Expression {
+          eq (Expression x, Expression y)
+          ne (Expression x, Expression y)
+          lt (Expression x, Expression y)
+          le (Expression x, Expression y)
+          gt (Expression x, Expression y)
+          ge (Expression x, Expression y)
+          plus (Expression x, Expression y)
+          minus (Expression x, Expression y)
+          mult (Expression x, Expression y)
+          divide (Expression x, Expression y)
+          neg (Expression x)
+          number (int x)
+          name (int location)
 
-      eq (Expression x, Expression y)
-      ne (Expression x, Expression y)
-      lt (Expression x, Expression y)
-      le (Expression x, Expression y)
-      gt (Expression x, Expression y)
-      ge (Expression x, Expression y)
-      plus (Expression x, Expression y)
-      minus (Expression x, Expression y)
-      mult (Expression x, Expression y)
-      divide (Expression x, Expression y)
-      neg (Expression x)
-      number (int x)
-      name (int location)
-
-   }
+       }
 
 Note that this definition can be read as a grammar defining the abstract syntax.
 
-The definition not only provides documentation (as it is valuable even if we write the corresponding C/C++ data types and the functions manually), it also enables the Memphis precompiler to generate the implementation automatically.
+The definition not only provides documentation (as it is valuable even if we 
+write the corresponding C/C++ data types and the functions manually), it also 
+enables the Memphis precompiler to generate the implementation automatically.
 
 The Tree Walker
 We are now ready to write the tree walker.
-It will consist of two functions (one for each domain of the abstract syntax): evaluate (Expression e) that evaluates an Expression e and returns its numerical value, and execute (Statement s) that executes a Statement s.
+It will consist of two functions (one for each domain of the abstract syntax): 
+evaluate (Expression e) that evaluates an Expression e and returns its numerical
+value, and execute (Statement s) that executes a Statement s.
 
-Such functions are generally written by providing a piece of code for each possible alternative of the argument, where this code recursively visits the constituents the argument.
+Such functions are generally written by providing a piece of code for each 
+possible alternative of the argument, where this code recursively visits the 
+constituents the argument.
 
 In Memphis we can use the match statement to describe this style of processing.
 
 The evaluate function takes the form
 
-   int evaluate(Expression e)
-   {
-      match e {
-         ...
-      }
-   }
-The body of the match statement lists specific rules that handle the Expression e according to its structure.
+       int evaluate(Expression e)
+       {
+          match e {
+             ...
+          }
+       }
+
+The body of the match statement lists specific rules that handle the Expression 
+e according to its structure.
 
 One of these rules is
 
-   rule plus(x, y) : return evaluate(x) + evaluate(y);
-If e has the form plus(x, y) then this rule is applied. It recursively evaluates x and y and returns the sum of their numerical values.
+       rule plus(x, y) : return evaluate(x) + evaluate(y);
+
+If e has the form plus(x, y) then this rule is applied. It recursively evaluates 
+x and y and returns the sum of their numerical values.
 
 Here is the tree walker:
 
 
-   with ast;
+       with ast;
 
-   extern "C" printf(...);
-   extern "C" execute(Statement s);
+       extern "C" printf(...);
+       extern "C" execute(Statement s);
 
-   int var[26];
+       int var[26];
 
-   int evaluate(Expression e)
-   {
-      match e {
-     rule eq(x, y)     :  return evaluate(x) == evaluate(y);   
-     rule ne(x, y)     :  return evaluate(x) != evaluate(y);
-     rule lt(x, y)     :  return evaluate(x) <  evaluate(y);
-     rule le(x, y)     :  return evaluate(x) <= evaluate(y);
-     rule gt(x, y)     :  return evaluate(x) >  evaluate(y);
-     rule ge(x, y)     :  return evaluate(x) >= evaluate(y);
-     rule plus(x, y)   :  return evaluate(x) +  evaluate(y);
-     rule minus(x, y)  :  return evaluate(x) -  evaluate(y);
-     rule mult(x, y)   :  return evaluate(x) *  evaluate(y);
-     rule divide(x, y) :  return evaluate(x) /  evaluate(y);
-     rule neg(x)       :  return - evaluate(x);
-     rule number(x)    :  return x;
-     rule name(x)      :  return var[x];
-      }
-   }
+       int evaluate(Expression e)
+       {
+          match e {
+         rule eq(x, y)     :  return evaluate(x) == evaluate(y);   
+         rule ne(x, y)     :  return evaluate(x) != evaluate(y);
+         rule lt(x, y)     :  return evaluate(x) <  evaluate(y);
+         rule le(x, y)     :  return evaluate(x) <= evaluate(y);
+         rule gt(x, y)     :  return evaluate(x) >  evaluate(y);
+         rule ge(x, y)     :  return evaluate(x) >= evaluate(y);
+         rule plus(x, y)   :  return evaluate(x) +  evaluate(y);
+         rule minus(x, y)  :  return evaluate(x) -  evaluate(y);
+         rule mult(x, y)   :  return evaluate(x) *  evaluate(y);
+         rule divide(x, y) :  return evaluate(x) /  evaluate(y);
+         rule neg(x)       :  return - evaluate(x);
+         rule number(x)    :  return x;
+         rule name(x)      :  return var[x];
+          }
+       }
 
-   execute (Statement s)
-   {
-      match s {
-     rule assignment(name(x), rhs) :
-        var[x] = evaluate(rhs);
-     rule print(x) :
-        printf("%d\n", evaluate(x));
-     rule ifstmt(c, s1, s2) :
-        if(evaluate(c)) execute(s1); else execute(s2);
-     rule whilestmt(c, s) :
-        while(evaluate(c)) execute(s);
-     rule seq(s1, s2) :
-        execute(s1); execute(s2);
-     rule empty() :
-        ;
-      }
-   }
+       execute (Statement s)
+       {
+          match s {
+         rule assignment(name(x), rhs) :
+            var[x] = evaluate(rhs);
+         rule print(x) :
+            printf("%d\n", evaluate(x));
+         rule ifstmt(c, s1, s2) :
+            if(evaluate(c)) execute(s1); else execute(s2);
+         rule whilestmt(c, s) :
+            while(evaluate(c)) execute(s);
+         rule seq(s1, s2) :
+            execute(s1); execute(s2);
+         rule empty() :
+            ;
+          }
+       }
 
-Note that this notation is similar to the Yacc style. A syntactic pattern is followed by an associated action. But here the pattern describes abstract syntax instead of concrete source text.
+Note that this notation is similar to the Yacc style. A syntactic pattern is 
+followed by an associated action. But here the pattern describes abstract syntax 
+instead of concrete source text.
 
-Again, the notation is more concise than the corresponding manual implementation. The Memphis precompiler not only generates the implementation, it also allows to check statically that constituents are only used in a context where they are indeed fields of the actual item.
+Again, the notation is more concise than the corresponding manual implementation. 
+The Memphis precompiler not only generates the implementation, it also allows to 
+check statically that constituents are only used in a context where they are 
+indeed fields of the actual item.
 
 
 ## ==⚡ ANTLR Parser Generator

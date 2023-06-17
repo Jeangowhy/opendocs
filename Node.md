@@ -265,27 +265,31 @@ Nodejs 18.2.0 除了 NPM 模块，还多了一个 corepck 模块。
 ```sh
 PARAM([string]$version, $target="c:/nodejs")
 
+# Use Target and LinkType in PS5.1, LinkTarget only support in newer version, such PS7.1
 $PS = $PSCommandPath -replace "^.+[\\/]",""
-$VMD = (Get-Item $PSCommandPath).LinkTarget
-if ($VMD -eq $null){ 
+$NVM = (Get-Item $PSCommandPath).Target
+$VMD = $NVM
+if ($NVM -eq $null){ 
+    $NVM = $PSCommandPath
     $VMD = $PSCommandPath
 }
 $VMD = $VMD -replace "\\[^/\\]+$","\"
 $versions = Get-Childitem -Directory "$VMD/v*"
+
 $current = "Not set yet"
-if ( (Test-Path $target) -and (Get-Item $target).LinkTarget){
-    $current = (Get-Item $target).LinkTarget
+if ( (Test-Path $target) -and (Get-Item $target).Target){
+    $current = (Get-Item $target).Target
 }
 
 function Print($msg, $color=$null)
 {
-    Write-Host ("="*80)
+    # Write-Host ("="*80)
     if ($color){
         Write-Host $msg -Foreground $color
     } else {
         Write-Host $msg
     }
-    Write-Host ("="*80)
+    # Write-Host ("="*80)
 } 
 
 function PrintHelp 
@@ -293,8 +297,8 @@ function PrintHelp
     Print @"
     Node.js Version Manager`n
     Usage:
-        $VMD $($versions[-1].Name)
-        $VMD $($versions[-1].Name) c:/nodejs
+        $NVM $($versions[-1].Name)
+        $NVM $($versions[-1].Name) c:/nodejs
     
     Candidate: 
         $($versions.Name)
@@ -323,7 +327,7 @@ function PrintResult($action, $result)
 
 function CanBeLinkSymblic($sym){
     $exist = Test-Path "$sym"
-    if ($exist -and (Get-Item "$sym").LinkTarget -eq $null){
+    if ($exist -and (Get-Item "$sym").Target -eq $null){
         return $false
     }
     return $true
@@ -350,8 +354,9 @@ function SwitchVersion
     $versions | % {
         if ($_.Name.IndexOf($version) -ge 0){
             Print "Use $($_.Name)"
-            MakeSymblic "$_/$PS" "$VMD/$PS" $true
-            MakeSymblic $target "$_"
+            MakeSymblic "$target"    "$_"
+            MakeSymblic "$_/$PS"     "$VMD/$PS"     $true
+            MakeSymblic "$_/nvm.exe" "$VMD/nvm.exe" $true
             FixedNodeModules "$_"
             break
         }

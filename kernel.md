@@ -348,6 +348,138 @@ CPU 指令通常都需要进行数据处理，个别指令不涉及数据除外�
 如果要细分，还涉及指令附带的立即数，Immediate-to-register、Immediate-to-memory。
 
 
+## ⚡ RISC-V 破局者！
+https://riscv.org/technical/specifications/
+https://www.kernel.org/doc/html/latest/loongarch/introduction.html
+https://loongson.github.io/LoongArch-Documentation/README-EN.html
+
+指令集架构 Instruction Set Architecture (ISA)是和硬件电路相关的概念，指令集架构是一个能为
+电路硬件翻译应用程序的一层抽象层。它能够为操作系统制定很多规则和约束，也能让编程者不用操心具体的
+电路结构，转而在这一抽象的、高级的、定义很多规则的层面编写程序，比如：
+
+01. 这个计算机架构里有多少个寄存器（Register）？
+02. 我能进行哪些运算操作？（有哪些指令？ADD，SUB，MUL等等）
+03. 如果遇到异常或者中断该怎么办？
+04. 数据可以有哪些类型？最多有几个字节？
+05. 等等等等
+
+指令集架构（ISA） vs. 微架构（Microarchitecture）
+指令集架构（ISA）和微架构（Microarchitecture）很多时候会被人们混淆。其实微架构就是对 ISA 的一种实现。
+
+比如，AMD 和 Intel 的两款不同的芯片，尽管他们的指令集架构一样，能够运行相同的操作系统和程序，
+但他们的具体实现方式是不一样的，也就是他们拥有着不一样的微架构。
+
+微架构更感兴趣的，是设计芯片时，各个指标的权衡（Trade-off），这些指标包含了：
+
+1. 功率（Power）
+2. 面积（Area）
+3. 成本（Cost）
+4. 性能（Performance）
+
+在性能方面，微架构更加关注这些内容：
+
+1. 流水线深度
+2. 流水线宽度（超标量流水线）
+3. 缓存器的大小
+4. 总面积
+5. 峰值功率
+6. 乱序执行（Out-of-Order）还是 有序执行（In-Order）
+7. 总线带宽
+8. 等等等等……
+
+综合而言，微架构是指令集架构的一种实现方式，不同的处理器有着不一样的微架构。
+
+在当下的市场形势下，Windows + Intel X86 CPU 垄断桌面平台，Android + ARM CPU 垄断移动平台，
+只有嵌入式是一个可使劲的方向。
+
+龙芯架构作为国内较早且相对独立的自主 CPU 构架，早期龙芯指令都在 MIPS 上扩展，传统的 LoongISA
+添加了很多扩展指令。
+
+2021 年 4 月，龙芯中科率先在国产自主化跨出一步，宣布推出完全自主指令集架构：LoongArch，顶层架构
+到指令功能和 ABI 标准完全自主。这表明龙芯中科未来的 CPU 不再使用 MIPS 指令集架构，新推出的 3A5000 开始都将使用 LoongArch 架构。
+
+LoongArch is a new RISC ISA, which is a bit like MIPS or RISC-V. 
+There are currently 3 variants: 
+
+1. a reduced 32-bit version (LA32R), 
+2. a standard 32-bit version (LA32S) and 
+3. a 64-bit version (LA64)
+
+There are 4 privilege levels (PLVs) defined in LoongArch: PLV0 ~ PLV3, from 
+high to low. Kernel runs at PLV0 while applications run at PLV3. This document
+introduces the registers, basic instruction set, virtual memory and some 
+other topics of LoongArch.
+
+LLVM 国际开源软件社区于 2023 年 3 月 18 日发布了 16.0.0 版本，以正式后端（official target）
+的级别实现 LoongArch 指令集架构的完善支持。
+
+至此，开源软件世界最重要的五大基础软件，Linux 内核、GCC、LLVM、Glibc、Binutils，都已发布了支持
+LoongArch 架构的正式版本。此后的 LoongArch 架构操作系统发行版将可以直接基于上游社区版本进行构建。
+
+
+
+就像 Linus 大神因为不满付费的代码管理公司对 Linux 社区程序员无情的盘剥，“任性”的创造 GIT 一样。
+伯克利分校的那群人，面对架构垄断的现实，也开始了他们在处理器架构设计舞台上的表演。
+
+    简约是复杂的最终形式。
+    —— 列奥纳多·达·芬奇(Leonardo da Vinci)
+
+RISC-V 处理器架构就是这样一个完美的、简单的艺术品，它解决了传统垄断处理器架构存在的诸多弊端，
+是当之无愧的后起之秀。
+
+RISC-V 即第五代精简指令处理器架构，取这个名字正是因为美国伯克利研究团队的 David Patterson 
+教授在此之前已经研制了四代精简指令处理器芯片。
+
+2010 年，伯克利研究团队要设计一款 CPU，然而，英特尔对 X86 的授权卡的很严，ARM 的指令集授权很贵，
+MIPS、SPARC、Open Power 也都需要各自的公司授权。在选择很有限的情况下，伯克利的研究团队决定从零
+开始设计一套全新的指令集。而被很多媒体大肆宣扬也让人振奋的是，伯克利的研究团队 4 名成员仅用 3 个月
+就完成 RISC-V 的指令集开发。目前，伯克利研究团队已经完成了基于 RISC-V 指令集的顺序执行的 64 位
+处理器核心，代号为 **Rocket**，并前后基于 45nm 与 28nm 工艺进行了 12 次流片。
+
+Rocket 芯片主频 1GHz，与 ARM Cortex-A5 相比，实测性能较之高 10%，面积效率高 49%，单位频率
+动态功耗仅为 Cortex-A5 的 43%。在嵌入式领域，Rocket 已经可以和 ARM 争市场了。
+
+RISC-V 指令集是基于精简指令集计算原理建立的开放指令集架构 ISA，RISC-V是在指令集不断发展和成熟
+的基础上建立的全新指令。RISC-V 指令集完全开源，设计简单，易于移植 Unix 系统，模块化设计，完整
+工具链，同时有大量的开源实现和流片案例，已在社区得到大力支持。它虽然不是第一个开源的的指令集构架，
+但它是第一个被设计成可以根据具体场景可以选择适合的指令集的指令集架构。基于 RISC-V 指令集架构可以
+设计服务器、家用电器、工控设置和传感器中的 CPU。
+
+在处理器领域，目前主流的架构为 x86 与 ARM 架构，但它们作为商用的架构，需要保持架构的向后兼容性，
+所以自带历史包袱，其不得不保留许多过时的定义，久而久之就变得极为冗长。全新的 RISC-V 架构则没有
+向后兼容这样的问题。目前的 RISC-V 架构文档分为两卷：
+
+01. Volume I: User-Level ISA 用户级指令集文档 238 页左右
+    https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf
+02. Volume II: Privileged Architecture 特权架构文档 155 页左右
+    https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
+
+RISC-V 架构相比其他成熟的商业架构的最大一个不同还在于它是一个模块化的架构。因此，RISC-V 架构
+不仅短小精悍，而且其不同的部分还能以模块化的方式组织在一起，从而试图通过一套统一的架构满足各种
+不同的应用。这种模块化是 x86 与 ARM 架构所不具备的。以 ARM 的架构为例，ARM 的架构分为 A、R 和
+M 三个系列，分别针对于以下三个领域，彼此之间并不兼容：
+
+1. **Cortex-A** Application 系列面向性能密集型系统的应用处理器核。
+2. **Cortex-R** Real-Time 系列面向实时应用的高性能核。
+3. **Cortex-E** Embedded 系列面向各类嵌入式应用的微控制器核。
+
+例如，STM32 系列芯片就是 Cortex-E 系列，名称要把它拆分成三个部分来看
+
+    ST + M + 32
+
+显然，ST 是 STMicroelectronics 的简称，是为了纪念它的缔造者---意法半导体。意法半导体是
+微处理器设计的先驱公司，是全球第五大半导体厂商之一，正是他创造了这一款流行的芯片。
+
+"32” 意味着这是一款 32 位的微处理器芯片。而“M”表示使用的是 ARM Cortex®-M 处理器架构。
+
+
+短小精悍的架构以及模块化的哲学，使得 RISC-V 架构的指令数目非常的简洁。基本的 RISC-V 指令数目仅有
+40 多条，加上其他的模块化扩展指令总共几十条指令。
+
+目前，基于 RISC-V 的编译器开发人员需求也相对旺盛。
+
+
+
 ## ⚡ QEMU simulator
 - JSLinux - Operating Systems in your browser! https://bellard.org/jslinux/
 - QEMU - a generic machine emulator and virtualizer http://qemu.org/
