@@ -57,6 +57,10 @@ Blink 页面解析引擎，这个更复杂，HTML 和 CSS 规范解析器，要�
 Tauri VS. Electron - Real world application 
 https://juejin.cn/post/7136538913376010277
 https://tauri.app/v1/guides/getting-started/setup/
+https://developer.microsoft.com/en-us/microsoft-edge/webview2
+https://learn.microsoft.com/zh-cn/microsoft-edge/webview2/
+https://www.electronjs.org/zh/blog/webview2
+https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution
 
 流行跨平台应用开发构架：
 
@@ -65,6 +69,45 @@ https://tauri.app/v1/guides/getting-started/setup/
 | Tauri      | Rust       | WebView2 or WKWebView |
 | Electron   | TypeScript | Chromium              |
 | Flutter    | Dart       | Skia                  |
+
+1. WebView2 基于性能强悍的 Edge（Chromium） 内核。
+2. WebView2 生成的软件体积很小。Win11 内置 WebView2 Runtime，其他操作系统也可以快速地自动安装。
+3. WebView2 接口非常简洁，嵌入其他窗口界面也非常方便。
+
+Webview2 并不是 Electron 那样可以在桌面平台上快速发布 Web 应用的打包器。Electron 与 WebView2 
+都是以 Chromium 为基础构建而成，但更严格地说，WebView2 继承的是 Edge 源代码，而 Edge 又用
+到了 Chromium 源代码的一个分支。
+
+Electron 与 WebView2 都继承了 Chromium 多进程架构，由单一主进程同一个或多个渲染器进程通信。
+这些进程同系统上正在运行的其他应用程序完全分离，每个 Electron 应用程序都拥有一个独立的进程树，
+其中包含一个根浏览器进程、部分实用程序进程外加一定数量的渲染进程。
+
+Electron 能够为各类常见桌面应用需求提供 API，例如菜单、文件系统访问、通知等等。WebView2 则能以
+组件的形式集成到 WinForms、WPF、WinUI 或者 Win32 等应用程序框架当中。另外，WebView2 仅通过
+JavaScript 提供符合 Web 标准的操作系统 API。
+
+Electron 当中集成有 Node，因此 Electron 应用程序可以使用来自渲染器及主进程的任何 Node API、
+模块或者 node-native-addon。WebView2 应用程序则不会对应用程序各个部分所使用的编程语言或框架
+做任何预设，JavaScript 代码必须通过 application-host 进程代理才能访问操作系统。
+
+Electron 提供可配置的 Web 内容安全模型，配置范围涵盖完全开放访问到完全沙箱模式。WebView2 
+内容则始终保持沙箱化。Electron 还提供关于如何选择安全模式的详尽说明文档，而 WebView2 则提供
+丰富的安全最佳实践。
+
+Electron 源代码在 GitHub 上进行维护与交付，各应用程序能够修改并构建属于自己的 Electron 品牌。
+WebView2 源代码则并未登陆 GitHub。
+
+虽然 Electron 与 WebView2 的流程模型基本相似，但底层 IPC 却有所不同。JavaScript 与 C++ 
+或 C# 之间的通信需要经过编组，而且最常见的方法是编组为 JSON 字符串。请注意，JSON 资源序列化、
+解析操作的成本极高，因此 IPC 瓶颈必然会对性能产生负面影响。因此从 Edge 93 开始，WebView2 
+将对网络事件使用 CBOR。
+
+Electron 则通过 MessagePorts API 支持任意两个进程之间的直接 IPC，其中使用到了结构化克隆算法。
+利用这项功能，应用程序就能避免在不同进程间发送对象时执行资源成本高昂的 JSON 序列化操作。
+
+Electron 与 WebView2 虽然有着不少差异之处，但二者在渲染 Web 内容方面却高度一致，毕竟同样师出 
+Chromium。最核心的影响还是来自应用程序架构与 JavaScript 框架在内存与性能层面的影响。
+
 
 ```sh
     # Tauri app via Node nmp

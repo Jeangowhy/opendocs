@@ -27,16 +27,21 @@
 - 理解可视化编程的概念，因为 UE4 的 Blueprint 就是可视化脚本编程；
 - 有计算机图形学基础，了解 3D 游戏引擎的一些基础概念，如知道什么是材质、着色器、骨骼动画融合等；
 
-虚幻引擎历经 20 多年的发展，已经作为一款强大的通用引擎，被广泛应用于游戏制作，影视虚拟制片，AR，VR， 设计与可视化表现等多个领域，UE4 的全球用户就超过 400 万人。
+虚幻引擎历经 20 多年的发展，已经作为一款强大的通用引擎，被广泛应用于游戏制作，影视虚拟制片，AR，VR，
+设计与可视化表现等多个领域，UE4 的全球用户就超过 400 万人。
 
 最新的 UE 5 预告宣传里有两大核心技术：
 
 - Lumen，全局光照和反射系统，解决实时渲染中的全局光照问题；
 - Nanite，实时同屏上亿三角形，准子像素级的几何渲染技术；
 
-对于现有项目，比如使用虚幻引擎 4 创建的项目，不会自动启用 Lumen，为了防止破坏或更改这些项目的任何光照路径。
+对于现有项目，比如使用虚幻引擎 4 创建的项目，不会自动启用 Lumen，为了防止破坏或更改这些项目的
+任何光照路径。
 
-通过项目配置启用 Lumen 照明，Project Settings -> Rendering -> Dynamic Global Illumination 类别下设置为 Lumen。此属性还会将 反射方法（Reflection Method） 设置为 Lumen，并启用生成网格体距离场（Generate Mesh Distance Fields）。在 Lumen 的软件光线追踪模式下，这是必需的。
+通过项目配置启用 Lumen 照明，将动态全局光照类别设置为 Lumen。还要将反射方法（Reflection Method）
+设置为 Lumen，并启用生成网格体距离场（Generate Mesh Distance Fields），在 Lumen 的软件
+光线追踪模式下，这是必需的。
+Project Settings -> Rendering -> Dynamic Global Illumination
 
 
 Nanite的优势
@@ -49,9 +54,11 @@ Nanite的优势
 - 品质损失极少或没有损失，特别是在 LOD 发生过渡时
 
 
-虚拟纹理并不要求与Nanite一起使用，但推荐这么做。虚拟纹理是一个单独的虚幻引擎功能，它与纹理数据的关系类似于 Nanite 对网格体数据的关系。
+虚拟纹理并不要求与Nanite一起使用，但推荐这么做。虚拟纹理是一个单独的虚幻引擎功能，它与纹理数据的
+关系类似于 Nanite 对网格体数据的关系。
 
-可以通过多种方法在符合条件的几何体上启用 Nanite：在导入时打开、通过单独的网格体编辑器打开、或者在内容浏览器中批量设置。
+可以通过多种方法在符合条件的几何体上启用 Nanite：在导入时打开、通过单独的网格体编辑器打开、或者在
+内容浏览器中批量设置。
 
 - 在导入要用于 Nanite 的网格体时，选中 Mesh -> Build Nanite 复选框，再导入。
 - 对于已有的大量希望启用 Nanite 的资产，那么有两种办法：一个是使用内容浏览器批量启用资产，二是在每个资产的编辑器中单独启用。
@@ -61,15 +68,24 @@ Nanite的优势
 - 对于几何体集合（Geometry Collections），先打开几何体集合资产，设置 Details ->  Nanite -> Enabled。
 
 
-从虚幻引擎 4.24 起，对 HTML5 平台的支持已从引擎转移到公开的平台扩展上，由社区成员维护和改良。所以 Unreal Engine 4.23.1 是最后一个集成 HTML5 平台支持的版本。
+从虚幻引擎 4.24 起，对 HTML5 平台的支持已从引擎转移到公开的平台扩展上，由社区成员维护和改良。
+所以 Unreal Engine 4.23.1 是最后一个集成 HTML5 平台支持的版本。
 
-同时，虚幻引擎 4.21 推出的像素流技术 Pixel Streaming 使得在网页端流畅使用大型程序成为可能，也扩展了虚幻程序终端的使用类型。官方的 MetaHubman 数字人工具现在就是通过 Pixel Streaming 技术在 Web 提供试用。
+同时，虚幻引擎 4.21 推出的像素流技术 Pixel Streaming 使得在网页端流畅使用大型程序成为可能，
+也扩展了虚幻程序终端的使用类型。官方的 MetaHubman 数字人工具现在就是通过 Pixel Streaming 
+技术在 Web 提供试用。
 
-利用像素流送技术，可以在用户不可见的电脑上远程运行虚幻引擎应用程序，而玩家通过一个浏览器运行的 Web 应用来参与游戏。虚幻引擎将使用该电脑可用的资源（CPU、GPU、内存等）来运行游戏逻辑并渲染每一帧。它会不断将此渲染输出编码到一个媒体流送中，再通过一个轻量级的网页服务堆栈进行传递。用户即可在其他电脑和移动设备上运行的标准网页浏览器中查看直播流送，并将输入控制回传到远程运行中的虚幻引擎。
+利用像素流送技术，可以在用户不可见的电脑上远程运行虚幻引擎应用程序，而玩家通过一个浏览器运行的 
+Web 应用来参与游戏。虚幻引擎将使用该电脑可用的资源（CPU、GPU、内存等）来运行游戏逻辑并渲染每一帧。
+它会不断将此渲染输出编码到一个媒体流送中，再通过一个轻量级的网页服务堆栈进行传递。用户即可在其他
+电脑和移动设备上运行的标准网页浏览器中查看直播流送，并将输入控制回传到远程运行中的虚幻引擎。
 
-安装 UE4 时，可以选择安装 StarterContent，这接近 1GB 的资源可以用于初始学者学习时使用，里面包含用于示范的声频、Blueprints、HDRI、Maps、材质、粒子、纹理贴图等。
+安装 UE4 时，可以选择安装 StarterContent，这接近 1GB 的资源可以用于初始学者学习时使用，里面
+包含用于示范的声频、Blueprints、HDRI、Maps、材质、粒子、纹理贴图等。
 
-在创建项目时，使用 with Starter Content 选项就可以在项目中使用这些素材的副本，可以在项目中删除它。在内容浏览器中删除 StarterContent，然后右键最上级内容，选择 Fix Up Redirectors in Folder 即可。
+在创建项目时，使用 with Starter Content 选项就可以在项目中使用这些素材的副本，可以在项目中
+删除它。在内容浏览器中删除 StarterContent，然后右键最上级内容，选择修复目录重定向：
+Fix Up Redirectors in Folder。
 
 用户通过自己的浏览器对体验进行控制，将键盘、鼠标、触摸事件和播放器网页发出的自定义事件发送回虚幻引擎。
 
@@ -319,72 +335,138 @@ Vertex Color 四个输出端点说明：
 - Creating a Gameplay Module https://docs.unrealengine.com/4.27/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/ModuleQuickStart/
 - Unreal Engine Modules https://docs.unrealengine.com/4.27/zh-CN/ProgrammingAndScripting/ProgrammingWithCPP/Modules/
 
-源代码最高一级目录中，是你的引擎（Engine）目录以及你的所有游戏项目目录。Engine 目录包含引擎自身及其随附工具。每个游戏目录都包含与该游戏有关的所有文件。与先前的引擎版本相比，UE4 中的引擎和游戏在目录结构上有了更明显的区分。
+源代码根目录中的引擎目录（Engine），Engine 目录包含引擎自身及其随附工具。
+引擎目录也存在于游戏项目根目录中，每个游戏目录都包含与该游戏有关的所有文件。
+与先前的引擎版本相比，UE4 中的引擎和游戏在目录结构上有了更明显的区分。
 
 Unreal Engine 引擎本身的开发是基于模块化的，基本引擎开发的工程也传承了模块化管理。
 
-根目录
+根目录结构：
 
-- Engine - 包含构成引擎的所有源代码、内容等。
-- Templates - 创建新项目时可用的项目模板集合。
-- GenerateProjectFiles.bat - 用于创建在Visual Studio中使用引擎和游戏所需的UE4解决方案和项目文件。请参阅IDE的项目文件以了解详细信息。
-- UE4Games.uprojectdirs - 辅助文件，帮助引擎找到子目录中的项目。
+- **Engine** - 包含构成引擎的所有源代码、内容等。
+- **Templates** - 创建新项目时可用的项目模板集合。
+- **GenerateProjectFiles.bat** - 脚本用于创建 UE4 的 Visual Studio 解决方案和项目文件。
+- **UE4Games.uprojectdirs** - 辅助文件，帮助引擎找到子目录中的项目。
 
 引擎专有目录，部分子目录只存在于 Engine 目录中。
 
-- Documentation - 包含引擎文档，包括源文件和发布的文件。
-    - HTML - 发布的HTML文档文件。
-    - Source - markdown 源文档文件。
-- Extras - 其他辅助和工具文件。
-- Plugins - 包含引擎中使用的插件。
-- Programs - 包含UE4根目录中各个项目及其他虚幻程序（如UnrealFrontend和UnrealHeaderTool）的配置文件和日志文件。
-- Shaders - 保存引擎的着色器源文件（.usf）。
+- **Documentation** - 包含引擎文档，包括源文件和发布的文件。
+    - **HTML** - 发布的 HTML 文档文件。
+    - **Source** - markdown 源文档文件。
+- **Extras** - 其他辅助和工具文件。
+- **Plugins** - 包含引擎中使用的插件。
+- **Programs** - 包含虚幻子程序的配置文件和日志文件，如 UnrealFrontend、UnrealHeaderTool。
+- **Shaders** - 保存引擎的着色器源文件（.usf）。
 
-通用目录，某些子目录在 Engine 目录和游戏项目目录中都能找到：
+通用目录，某些子目录在 Engine 目录和游戏项目中都能找到：
 
-- Binaries - 包含可执行文件或编译期间创建的其他文件。
-- Build - 包含编译引擎或游戏所需的文件，包括为某些特定平台创建项目版本时所需的文件。
-- Config - 配置文件，包含的参数可用于控制引擎的行为。你在游戏项目Config文件中设置的值会覆盖 Engine\Config 目录中设置的值。
-- Content - 保存引擎或游戏中的内容，例如资产包、贴图。
-- DerivedDataCache - 包含派生数据文件。这类数据专为被引用内容生成，并且在加载时生成。假如被引用内容未生成过缓存文件，则加载时间会显著增加。
-- Intermediate - 包含编译引擎或游戏时生成的临时文件。在游戏目录中，着色器也保存在Intermediate目录中。
-- Saved - 包含自动保存文件、配置（.ini）文件和日志文件。此外，Engine > Saved 目录还包含崩溃日志、硬件信息和 Swarm 选项与数据。
-- Source - 包含引擎或游戏的所有源文件，包括引擎源代码、工具和游戏类等。
-    - Engine 源文件中的  Sources 文件夹组织结构如下：
-        - Developer - 编辑器和引擎共同使用的文件。
-        - Editor - 仅供编辑器使用的文件。
-        - Programs - 引擎或编辑器使用的外部工具。
-        - Runtime - 仅供引擎使用的文件。
-    - 游戏项目中的 Sources 文件按模块分组，一个模块一个目录，每个游戏模块包含以下内容：
-        - Classes - 包含所有的头文件（.h）。
-        - Private - 包含所有 .cpp 文件，包括游戏逻辑类以及各种模块的实现文件。
-        - Public - 包含模块的头文件。
+- **Binaries** - 包含可执行文件或编译期间创建的其他文件。
+- **Build** - 包含编译引擎或游戏所需的文件，包括为某些特定平台创建项目版本时所需的文件。
+- **Config** - 配置文件包含的参数可用于控制引擎的行为。项目中设置的配置值会覆盖此目录中设置的值。
+- **Content** - 保存引擎或游戏中的内容，例如资产包、贴图。
+- **DerivedDataCache** - 包含派生数据文件。这类数据专为被引用内容生成，并且在加载时生成。
+- **Intermediate** - 包含编译引擎或游戏时生成的临时文件。在游戏目录中，着色器也保存在此目录中。
+- **Saved** - 包含自动保存文件、配置文件（.ini）、日志文件、崩溃日志、硬件信息和 Swarm 选项与数据。
+- **Source** - 包含引擎或游戏的所有源文件，包括引擎源代码、工具和游戏类等。
+    - 引擎源文件中的 **Sources** 文件夹组织结构如下：
+        - **Developer** - 编辑器和引擎共同使用的文件。
+        - **Editor** - 仅供编辑器使用的文件。
+        - **Programs** - 引擎或编辑器使用的外部工具。
+        - **Runtime** - 仅供引擎使用的文件。
+    - 游戏项目中的 **Sources** 文件按模块分组，一个模块一个目录，每个游戏模块包含以下内容：
+        - **Classes** - 包含所有的头文件（.h）。
+        - **Private** - 包含所有 .cpp 文件，包括游戏逻辑类以及各种模块的实现文件。
+        - **Public** - 包含模块的头文件。
 
 游戏项目目录
 
-- Binaries 包含可执行文件或编译期间创建的其他文件。
-- Config 游戏的默认项目设置。
-- Content 包含引擎或游戏的内容，包括资产包和贴图。
-- External dependencies 显示公有的引擎头文件（仅在Visual Studio中可见）。
-- Intermediate 包含UnrealBuildTool生成的文件，如Visual Studio项目文件。这些文件可以删除并重新构建。
-- Saved 包含引擎生成的文件，如配置文件和日志。这些文件可以删除并重新构建。
-- Source 包含游戏模块对象类文件。
+- **Binaries** 包含可执行文件或编译期间创建的其他文件。
+- **Config** 游戏的默认项目设置。
+- **Content** 包含引擎或游戏的内容，包括资产包和贴图。
+- **External dependencies** 显示公有的引擎头文件（仅在Visual Studio中可见）。
+- **Intermediate** 包含 UnrealBuildTool 生成的文件，如 Visual Studio 项目文件。
+- **Saved** 包含引擎生成的文件，如配置文件和日志。这些文件可以删除并重新构建。
+- **Source** 包含游戏模块对象类文件。
 
 解决方案目录
 
-- Classes 包含游戏对象的类定义（.h 文件）。
-- Config 游戏的默认项目设置。
-- External dependencies 显示公有引擎头文件（仅在Visual Studio中可见）。
-- Private 包含私有游戏对象类的实现文件（.cpp 文件）。
-- Public 包含公有游戏对象类的实现文件（.cpp 文件）。
+- **Classes** 包含游戏对象的类定义（.h 文件）。
+- **Config** 游戏的默认项目设置。
+- **External dependencies** 显示公有引擎头文件（仅在Visual Studio中可见）。
+- **Private** 包含私有游戏对象类的实现文件（.cpp 文件）。
+- **Public** 包含公有游戏对象类的实现文件（.cpp 文件）。
 
-注意，项目中 Binaries、Intermediate、Saved 三个目录，会随着开发过程不断的添加的内容以及编译操作不断产生大量临时文件，可以删除，但再次打开时就需要重新编译缺失的文件。
+注意，项目中 Binaries、Intermediate、Saved 三个目录，会随着开发过程不断的添加的内容以及
+编译操作不断产生大量临时文件，可以删除，但再次打开时就需要重新编译缺失的文件。
 
 另外，在用户目录下的 AppData\Local\UnrealEngine 目录下也会大量的缓存文件。
 
-在 UE3 的时候用 MakeFiles 实现项目的自动化编译，到了 UE4 引入了 UnrealBuildTool 和 UnrealHeaderTool，引入了模块机制。
+在 UE3 的时候用 MakeFiles 实现项目的自动化编译，UE4 引入 C# 编写的 UBT（UnrealBuildTool）
+和 UnrealHeaderTool 编译辅助工具，引入了模块机制。UE4 源码工程本身也使用 UBT 来组织编译。
 
-UE4 支持模块和插件共生，通过在 uproject 文件中启用插件，项目模块就可依赖插件。类似地，通过在插件自身 的 uplugin 文件中启用其他插件表明依赖。
+
+剖析虚幻渲染体系（10）- RHI
+https://www.cnblogs.com/timlly/p/15156626.html
+https://docs.unrealengine.com/5.2/en-US/graphics-programming-overview-for-unreal-engine/
+UE 的渲染流程中，存在 4 种工作线程：
+
+1. 游戏线程（Game Thread）
+2. 渲染线程（Render Thread）
+3. RHI 线程
+4. GPU（含驱动）
+
+RHI - Render Hardware Interface（渲染硬件接口）是 UE 渲染体系中非常基础且重要的模块，
+封装了众多图形 API（DirectX、OpenGL、Vulkan、Metal）之间的差异，提供了简便且一致的概念、
+数据、资源和接口供给  Game 和 Renderer 模块调用，实现一份渲染代码跑在多个平台的目标。
+
+RHI 线程负责将渲染线程 Push 进来的 RHI 中间指令转译到对应图形平台的 GPU 指令。在部分图形 
+API（DX12、Vulkan、主机）支持并行的情况下，如果渲染线程是并行生成的 RHI 中间指令，那么 RHI 
+线程也会并行转译。
+
+游戏线程是整个引擎的驱动者，提供所有的源数据和事件，以驱动渲染线程和 RHI 线程。游戏线程领先渲染线程
+不超过 1 帧，更具体地说如果第N帧的渲染线程在第 N+1 帧的游戏线程的 Tick 结束时还没有完成，那么游戏
+线程会被渲染线程卡住。反之，如果游戏线程负载过重，没能及时发送事件和数据给渲染线程，渲染线程也会卡住。
+
+渲染线程负责产生 RHI 的中间命令，在适当的时机派发、刷新指令到 RHI 线程。因此，渲染线程的卡顿
+也可能导致 RHI 的卡顿。
+
+RHI 线程负责派发（可选）、转译、提交指令，且渲染的最后一步需要 SwapBuffer，这一步需要等待 GPU 
+完成渲染工作。因此，渲染 GPU 的繁忙也会导致 RHI 线程的卡顿。
+
+除了游戏线程，渲染线程、RHI 线程和 GPU 的工作都是存在间隙的，即游戏线程提供给渲染任务的时机
+会影响渲染工作的密度，也会影响到渲染的时间，小量多次会浪费渲染效率。
+
+
+Windows 平台上，主要使用 DirectX 游戏图形编程接口，官方提供的 DirectXShaderCompiler 
+是着色器程序编译器，也就是 HLSL 着色器编译器开源项目。HLSL Shader 目前最新的版本为 v6.6，
+按微软的叫法就是 sm6.6，又增加了很多新的光追 Shader 特性。
+
+UE5 中可以设置项目启用 SM6。Platforms -> Windows -> D3D12TargetedShaderFormats -> SM6。
+但是，Intel 的核显驱动可能不支持 shader model 6.0，可以使用 DirectX Capabilities Viewer
+工具检测 DirectX 12 当前支持的 SM 版本：
+Identifying the Shader Model of Your Graphics Card in Windows
+https://www.chiefarchitect.com/support/article/KB-03146/identifying-the-shader-model-of-your-graphics-card-in-windows.html 
+https://cloud.chiefarchitect.com/1/downloads/support/dxcapsviewer.exe
+https://docs.unrealengine.com/5.1/zh-CN/hardware-and-software-specifications-for-unreal-engine/
+
+如果确认不支持，就需要禁止光追或者切换成 DirectX11。官方社区说 UE5.1.0 系统要搭配最新的 DX12，
+而对于 Windows 系统(1909版本等)要在系统设置点击 Windows 更新最新 DX12，要么就用回 UE5.0.3。
+
+VSM 和 Nanite 需要 shading model 6.6，建议更新驱动，也可能 Intel 拉垮还没做出来支持的驱动。
+不过 Intel 核显性能好像本来就跑不起来什么高级渲染功能，不及 AMD 核显，建议改回 sm5 安心用。
+
+https://www.nvidia.com/en-us/geforce/technologies/directx-12-ultimate/
+GeForce 10 系列显示不支持最新的 DirectX 12 Ultimate，因此只能使用兼容 DirectX API，
+不能使用 DX12 Ultimate 高级功能，应该使用 RTX 20, RTX 30 或者 Radeon 6000 等级别显卡，
+以支持 DirectX 12 Ultimate 高级功能：
+
+    DXR (DirectX Ray Tracing)
+    VRS (Variable Rate Shading)
+    Mesh Shading
+    Sampler Feedback
+
+UE4 支持模块和插件共生，通过在 uproject 文件中启用插件，项目模块就可依赖插件。类似地，通过在
+插件自身 的 uplugin 文件中启用其他插件表明依赖。
 
 游戏项目开发是模块化的，编译发布时只会打包项目用到的模块。
 
@@ -398,28 +480,40 @@ UE4 支持模块和插件共生，通过在 uproject 文件中启用插件，项
 
 目标文件的典型结构如下：
 
-```cpp
-using UnrealBuildTool;
-using System.Collections.Generic;
-public class MyProjectTarget :TargetRules
-{
-    public MyProjectTarget(TargetInfo Target) : base(Target)
+```cpp,ignore
+    using UnrealBuildTool;
+    using System.Collections.Generic;
+    public class MyProjectTarget :TargetRules
     {
-        Type = TargetType.Game;
-        // 此处为其他属性
+        public MyProjectTarget(TargetInfo Target) : base(Target)
+        {
+            Type = TargetType.Game;
+            // 此处为其他属性
+        }
     }
-}
 ```
 
-类的名称必须与在其中声明这个类的文件的名称相匹配，后跟"Target"（例如，MyProject.target.cs定义类"MyProjectTarget"）。
+类的名称必须与在其中声明这个类的文件的名称相匹配，后跟"Target"，例如，MyProject.target.cs
+定义类 "MyProjectTarget"。
 
-UE4 每个模块都拥有控制其编译方式的 build.cs 文件，包括定义模块相依性的选项、额外的库、包含路径等。这些模块被默认编译为 DLL 文件，并通过单一可执行文件进行加载，可选择在 BuildConfiguration.cs 文件中编译一个单块可执行文件。
+UE4 每个模块都拥有控制其编译方式的 build.cs 文件，包括定义模块相依性的选项、额外的库、包含路径等。
+这些模块被默认编译为 DLL 文件，并通过单一可执行文件进行加载，可选择在 BuildConfiguration.cs 
+文件中编译一个单块可执行文件。
 
-模块通过 C# 源文件声明，扩展名为 build.cs，存储在项目的 Source 目录下。属于一个模块的 C++ 源代码与 build.cs 文件并列存储，或者存储在它的子目录中。每个. build.cs 文件都声明一个类，从 `ModuleRules` 基类衍生而来，并设置属性来控制如何从其构造函数进行构建。这些 build.cs 文件都由 UnrealBuildTool 编译，并被构造来确定整个编译环境。
+模块通过 C# 源文件声明，扩展名为 build.cs，存储在项目的 Source 目录下。属于一个模块的 C++ 
+源代码与 build.cs 文件并列存储，或者存储在它的子目录中。每个. build.cs 文件都声明一个类，
+从 `ModuleRules` 基类衍生而来，并设置属性来控制如何从其构造函数进行构建。这些 build.cs 文件
+都由 UnrealBuildTool 编译，并被构造来确定整个编译环境。
 
-目标通过 C# 源文件声明，扩展名为 target.cs，并存储在项目的 Source 目录下。每个 target.cs 文件都声明一个类，从 `TargetRules` 基类衍生而来，并设置属性来控制如何从其构造函数进行编译。类的名称必须与在其中声明这个类的文件的名称相匹配，当要求编译目标时，虚幻编译工具将编译 target.cs 文件，并在其中构造类来确定其设置。
+目标通过 C# 源文件声明，扩展名为 target.cs，并存储在项目的 Source 目录下。每个 target.cs 
+文件都声明一个类，从 `TargetRules` 基类衍生而来，并设置属性来控制如何从其构造函数进行编译。
+类名称必须与在其中声明这个类的文件的名称相匹配，当要求编译目标时，虚幻编译工具将编译 target.cs 
+文件，并在其中构造类来确定其设置。
 
-项目中的 Games 程序或 Unreal Editor 都是 Target 定义，每个 Target 都由一系列的 C++ 模块构成。每个模块的代码可以被其它模块引用，只需要在构成配置文件中添加依赖模块。每个 Targets 和 Modules 的构建都通过 C# 编写的  UnrealBuildTool 虚幻引擎专用构建工具编译。`Modules` 的构建规则配置代码文件以 `build.cs` 为扩展名，`Target` 的构建规则配置代码文件以 `target.cs` 为扩展名。
+项目的 Games 程序或 Unreal Editor 都是 Target 定义，每个 Target 都由一系列 C++ 模块构成。
+每个模块的代码可以被其它模块引用，只需要在构成配置文件中添加依赖模块。每个 Targets 和 Modules 
+都通过 C# 编写的 UnrealBuildTool 虚幻引擎专用构建工具编译。`Modules` 的构建规则配置代码
+文件以 `build.cs` 为扩展名，`Target` 的构建规则配置代码文件以 `target.cs` 为扩展名。
 
 Unreal Engine 将模块分成三类：
 
@@ -445,9 +539,10 @@ Unreal Engine 将模块分成三类：
     - Gameplay: UPlayer, ULocalPlayer, UWorld, ULevel
     - Assets: UTexture, UMaterial, UStaticMesh, USkeletalMesh, UParticleSystem
 
-Include What You Use（IWYU）包含您所使用，意味着引擎的源代码只包括其需要编译的依赖性。IWYU 规范的目的是为避免包含单块头文件，如 *Engine.h* 或 *UnrealEd.h*，借此省去不必要的依赖性。
+Include What You Use（IWYU）包含您所使用，意味着引擎的源代码只包括其需要编译的依赖性。
+IWYU 规范的目的是为避免包含单块头文件，如 *Engine.h* 或 *UnrealEd.h*，借此省去不必要的依赖性。
 
-如需要游戏使用IWYU，需要注意以下几点：
+如需要游戏使用 IWYU，需要注意以下几点：
 
 - 在每个头文件的顶部包含 *CoreMinimal.h*。
 - 禁用PCH文件，在非统一模式中编译游戏项目，即可验证所有源文件包含其必需的所有依赖性。
@@ -499,94 +594,94 @@ Include What You Use（IWYU）包含您所使用，意味着引擎的源代码�
 
 模块类定义根据 ModuleManager 提供的 `IModuleInterface` 接口实现，也可以直接使用 `IMPLEMENT_PRIMARY_GAME_MODULE` 宏实现基本骨架。
 
-```C++
-// P2D.h
-#pragma once
+```C++,
+    // P2D.h
+    #pragma once
 
-#include "CoreMinimal.h"
+    #include "CoreMinimal.h"
 
-// P2D.cpp
-#include "P2D.h"
-#include "Modules/ModuleManager.h"
+    // P2D.cpp
+    #include "P2D.h"
+    #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, P2D, "P2D" );
+    IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, P2D, "P2D" );
 ```
 
 根据默认模块实现宏的定义，在生成的 Intermediate\Build\Win64\UnrealEditor\Development\Puzzle\Definitions.Puzzle.h 就会包含以下定义，在定义类时可以用来声明导出 API：
 
-```C++
+```C++,
 #define P2D_API DLLEXPORT
 ```
 
 例如 MyPawn.h 中使用它来定义导出的 API：
 
-```cpp
-#pragma once
+```C++,
+    #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
-#include "MyPawn.generated.h"
+    #include "CoreMinimal.h"
+    #include "GameFramework/Pawn.h"
+    #include "MyPawn.generated.h"
 
-UCLASS()
-class P2D_API AMyPawn : public APawn
-{
-    GENERATED_BODY()
+    UCLASS()
+    class P2D_API AMyPawn : public APawn
+    {
+        GENERATED_BODY()
 
-public:
-    // Sets default values for this pawn's properties
-    AMyPawn();
+    public:
+        // Sets default values for this pawn's properties
+        AMyPawn();
 
-};
+    };
 ```
 
 刚创建的 Target.cs 和 Editor.Target.cs 差别不大，主要是 TargetType 类型选择不同，前者是 Game 后者是 Editor。
 
-```C#
-// Fill out your copyright notice in the Description page of Project Settings.
+```C#,
+    // Fill out your copyright notice in the Description page of Project Settings.
 
-using UnrealBuildTool;
-using System.Collections.Generic;
+    using UnrealBuildTool;
+    using System.Collections.Generic;
 
-public class P2DTarget : TargetRules
-{
-    public P2DTarget(TargetInfo Target) : base(Target)
+    public class P2DTarget : TargetRules
     {
-        Type = TargetType.Game;
-        DefaultBuildSettings = BuildSettingsVersion.V2;
+        public P2DTarget(TargetInfo Target) : base(Target)
+        {
+            Type = TargetType.Game;
+            DefaultBuildSettings = BuildSettingsVersion.V2;
 
-        ExtraModuleNames.AddRange( new string[] { "P2D" } );
+            ExtraModuleNames.AddRange( new string[] { "P2D" } );
+        }
     }
-}
 ```
 
 还可以构建专有服务器程序，只需设置为 `TargetType.Server`。然后，在项目基本目录中找到项目的 uproject 文件，使用右键菜单 Generate Visual Studio Project Files 为游戏重新生成 Visual Studio 解决方案，这个方案会提供用于构建专有服务器程序的配置。
 
 Build.cs 文件内容参考：
 
-```C#
-// Fill out your copyright notice in the Description page of Project Settings.
+```C#,
+    // Fill out your copyright notice in the Description page of Project Settings.
 
-using UnrealBuildTool;
+    using UnrealBuildTool;
 
-public class P2D : ModuleRules
-{
-    public P2D(ReadOnlyTargetRules Target) : base(Target)
+    public class P2D : ModuleRules
     {
-        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-    
-        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
-
-        PrivateDependencyModuleNames.AddRange(new string[] {  });
-
-        // Uncomment if you are using Slate UI
-        // PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+        public P2D(ReadOnlyTargetRules Target) : base(Target)
+        {
+            PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         
-        // Uncomment if you are using online features
-        // PrivateDependencyModuleNames.Add("OnlineSubsystem");
+            PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
-        // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
+            PrivateDependencyModuleNames.AddRange(new string[] {  });
+
+            // Uncomment if you are using Slate UI
+            // PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+            
+            // Uncomment if you are using online features
+            // PrivateDependencyModuleNames.Add("OnlineSubsystem");
+
+            // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
+        }
     }
-}
 ```
 
 手动添加模块按以下步骤操作：
@@ -666,43 +761,43 @@ Actor 并没有 AddChild 函数，只有使用 AttachToActor 和 AttachToCompone
 
 类似于 Unity 的 Start，OnDestroy 和 Update 函数，虚幻 4 在 Actor 中有类似的方法，而组件使用不同的函数，以下是示例：
 
-```cpp
-UCLASS()
-class AMyActor : public AActor
-{
-    GENERATED_BODY()
+```C++,
+    UCLASS()
+    class AMyActor : public AActor
+    {
+        GENERATED_BODY()
 
-    // 游戏开始时调用
-    // 蓝图事件：Event Begin Play
-    void BeginPlay();
+        // 游戏开始时调用
+        // 蓝图事件：Event Begin Play
+        void BeginPlay();
 
-    // 当此Actor销毁时调用
-    // 蓝图事件：Event End Play
-    void EndPlay(const EEndPlayReason::Type EndPlayReason);
+        // 当此Actor销毁时调用
+        // 蓝图事件：Event End Play
+        void EndPlay(const EEndPlayReason::Type EndPlayReason);
 
-    // 每帧调用，用于更新此Actor
-    // 蓝图事件：Event Tick
-    void Tick(float DeltaSeconds);
-};
+        // 每帧调用，用于更新此Actor
+        // 蓝图事件：Event Tick
+        void Tick(float DeltaSeconds);
+    };
 
 
-UCLASS()
-class UMyComponent : public UActorComponent
-{
-    GENERATED_BODY()
+    UCLASS()
+    class UMyComponent : public UActorComponent
+    {
+        GENERATED_BODY()
 
-    // 当所属Actor创建时调用
-    // 蓝图事件：Event Initialize Component
-    void InitializeComponent();
+        // 当所属Actor创建时调用
+        // 蓝图事件：Event Initialize Component
+        void InitializeComponent();
 
-    // 当组件或所属Actor销毁时调用
-    // 蓝图事件：Event Uninitialize Component
-    void UninitializeComponent();
+        // 当组件或所属Actor销毁时调用
+        // 蓝图事件：Event Uninitialize Component
+        void UninitializeComponent();
 
-    // 组件版的Tick函数
-    // 蓝图事件：Event Tick Component
-    void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction);
-};
+        // 组件版的Tick函数
+        // 蓝图事件：Event Tick Component
+        void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction);
+    };
 ```
 
 组件是一种特殊类型的对象，Actor 可以将组件作为子对象附加到自身。组件适用于共享相同的行为，例如显示视觉表现、播放声音。它们还可以表示项目特有的概念，例如载具解译输入和改变其速度与方向的方式。举例而言，某个项目拥有用户可控制车辆、飞机和船只。可以通过更改载具 Actor 所使用的组件来实现载具控制和移动的差异。
@@ -752,48 +847,48 @@ Actor 其实更像是一个容器，只提供了基本的创建销毁，网络�
 
 以下代码片段示范在 Pawn 类中附加一个静态网格组件：
 
-```cpp
-UStaticMeshComponent* VisualMesh;
+```C++,
+    UStaticMeshComponent* VisualMesh;
 
-VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-VisualMesh->SetupAttachment(RootComponent);
+    VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+    VisualMesh->SetupAttachment(RootComponent);
 
-static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-CubeVisualAsset(TEXT("/Engine/StarterContent/Shapes/Shape_Cube"));
-// "/Game/Engine Content/StarterContent/Shapes/Shape_Cube.Shape_Cube";
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+    CubeVisualAsset(TEXT("/Engine/StarterContent/Shapes/Shape_Cube"));
+    // "/Game/Engine Content/StarterContent/Shapes/Shape_Cube.Shape_Cube";
 
-if (CubeVisualAsset.Succeeded()) 
-{ 
-        VisualMesh->SetStaticMesh(CubeVisualAsset.Object); 
-        VisualMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f)); 
-}
+    if (CubeVisualAsset.Succeeded()) 
+    { 
+            VisualMesh->SetStaticMesh(CubeVisualAsset.Object); 
+            VisualMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f)); 
+    }
 ```
 
 组织结构上，Component 有且仅有一个 Owner，即一个 Actor 拥有任意个组件，但组件只能被同一个 Actor 拥有。
 
 组件在 Actor 作为类的数据成员存在，基于 UHT 实现的运行时类型系统，从 Actor 获取 Component 可以通过组件 Class 类型查找，而获取组件的所有者则简单多了。
 
-```cpp
-AActor* Actor = Component->GetOwner();
+```C++,
+    AActor* Actor = Component->GetOwner();
 
-UInputComponent* InputComponent;
-InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
+    UInputComponent* InputComponent;
+    InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
 ```
 
 Actor 的 RootComponent 成员是相当重要的，它引用的是 USceneComponent 实例，这种从 UActorComponet 扩展的组件具有可嵌套性。
 
-```cpp
-/** Adds a component to the instance components array */
-void AddInstanceComponent(UActorComponent* Component);
+```C++,
+    /** Adds a component to the instance components array */
+    void AddInstanceComponent(UActorComponent* Component);
 
-/** Removes a component from the instance components array */
-void RemoveInstanceComponent(UActorComponent* Component);
+    /** Removes a component from the instance components array */
+    void RemoveInstanceComponent(UActorComponent* Component);
 
-/** Clears the instance components array */
-void ClearInstanceComponents(bool bDestroyComponents);
+    /** Clears the instance components array */
+    void ClearInstanceComponents(bool bDestroyComponents);
 
-/** Returns the instance components array */
-const TArray<UActorComponent*>& GetInstanceComponents() const;
+    /** Returns the instance components array */
+    const TArray<UActorComponent*>& GetInstanceComponents() const;
 ```
 
 
@@ -1165,7 +1260,7 @@ UObject(FVTableHelper& Helper);
 
 首先我们先声明一个 *MyCharacter*，派生自 *ACharacter*，并使用初始化器*SetDefaultSubobjectClass*来修改原有子对象设置逻辑：
 
-```C++
+```C++,
 // AMyCharacter.h
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
@@ -1235,7 +1330,7 @@ void UMyMovementComponent::BeginPlay()
 
 使用适当的宏标记类、属性和函数可以将它们转变为`UClasses`、`UProperties`和`UFunctions`。这让虚幻引擎能够访问它们，从而允许实现一些后台处理功能。为实现 UObject 派生类型所提供的功能，引擎需要在头文件上为这些类型执行一个预处理步骤，以核对需要的信息。该预处理步骤由 UnrealHeaderTool（简称 UHT）执行。
 
-```C++
+```C++,
 #pragma once
 
 #include 'Object.h'
@@ -1262,15 +1357,15 @@ UCLASS 包含定义类的一套属性和函数，是本地代码可用的普通 
 - `NewObject<class>` 使用所有可用创建选项的可选参数创建一个新实例，提供极高的灵活性，包括带自动生成命名的简单使用案例。
 - `new` 使用 C++ 的关键字创建新实例，用于在特定低层情况下构建对象，如构建函数需要参数时。
 
-```js
-Public function T *  NewObject ( UObject* Outer )
-Public function T *  NewObject ( UObject* Outer, FName Name, EObjectFlags Flags, UObject* Template, 
-                                 bool bCopyTransientsFromClassDefaul..., FObjectInstancingGraph* InInst... )
+```C++,
+    Public function T *  NewObject ( UObject* Outer )
+    Public function T *  NewObject ( UObject* Outer, FName Name, EObjectFlags Flags, UObject* Template, 
+                                     bool bCopyTransientsFromClassDefaul..., FObjectInstancingGraph* InInst... )
 
-// Convenience template for constructing a gameplay object
-Public function T *  NewObject ( UObject* Outer, const UClass* Class, FName Name, EObjectFlags Flags,
-                                 UObject* Template, bool bCopyTransientsFromClassDefaul...,
-                                 FObjectInstancingGraph* InInst..., UPackage* ExternalPackage )
+    // Convenience template for constructing a gameplay object
+    Public function T *  NewObject ( UObject* Outer, const UClass* Class, FName Name, EObjectFlags Flags,
+                                     UObject* Template, bool bCopyTransientsFromClassDefaul...,
+                                     FObjectInstancingGraph* InInst..., UPackage* ExternalPackage )
 ```
 
 UObject 处理系统的工作内容非常多，而且复杂：
@@ -1328,7 +1423,7 @@ UObject 处理系统的工作内容非常多，而且复杂：
 
 以下示范 RIIT 的使用：
 
-```C++
+```C++,
 class AEnemy : public ACharacter
 {
     virtual void Speak()
@@ -1351,7 +1446,7 @@ class AMegaBoss : public AEnemy
 
 此外，你可以使用模板化 `Cast` 函数安全地将对象从基类转换为衍生类，或者`IsA`查询看对象是不是特定类。
 
-```C++
+```C++,
 class ALegendaryWeapon : public AWeapon
 {
     void SlayMegaBoss()
@@ -1425,6 +1520,12 @@ class ALegendaryWeapon : public AWeapon
       [SOFT]
         /Game/SnowFoot/RenderTarget_BP.RenderTarget_BP
 
+项目设置 Packaging 指定烘焙时排除编辑器内容，烘焙指定的关卡地图。编辑器内容只在开发阶段使用，
+在游戏打包发行后不需要。编译时，配置指定 Shipping（Production），就会对打包内容进行压缩，
+可以进一步减小打包体积。
+
+启用“创建压缩的已烘培包”（Create compressed cooked packages）复选框的情况下打包游戏后，
+项目 APK 包大小下降 50% 并不罕见。
 
 
 ## ⚡ Assets Reference 资源引用
@@ -1458,25 +1559,25 @@ USoundCue* ConstructionStartStinger;
 构造时引用也是常见硬性引用方式，当程序员知道需要为给定属性加载的确切资源，并在对象的构造中设置该属性。这项任务是使用特殊的 **ConstructorHelpers** 类完成的，这个类在构造阶段查找某个对象的对象和类。
 以下 HUD 片段同样来自 StrategyGame，它在其渲染过程中指派要使用的资源。
 
-```C++
-/** gray health bar texture */
+```C++,
+    /** gray health bar texture */
 
-UPROPERTY()
+    UPROPERTY()
 
-class UTexture2D* BarFillTexture;
+    class UTexture2D* BarFillTexture;
 
-AStrategyHUD::AStrategyHUD(const FObjectInitializer& ObjectInitializer) :
-    Super(ObjectInitializer)
-{
-    static ConstructorHelpers::FObjectFinder<UTexture2D> BarFillObj(TEXT("/Game/UI/HUD/BarFill"));
+    AStrategyHUD::AStrategyHUD(const FObjectInitializer& ObjectInitializer) :
+        Super(ObjectInitializer)
+    {
+        static ConstructorHelpers::FObjectFinder<UTexture2D> BarFillObj(TEXT("/Game/UI/HUD/BarFill"));
 
-    ...
+        ...
 
-    BarFillTexture = BarFillObj.Object;
+        BarFillTexture = BarFillObj.Object;
 
-    ...
+        ...
 
-}
+    }
 ```
 
 在以上构造函数中，ConstructorHelpers 类将尝试在内存中查找该资源，如果找不到，则进行资产加载。请注意，使用资源的完整路径来指定要加载的内容。如果该资源不存在或者由于出错而无法加载，那么该属性将设置为 nullptr。发生这种情况时，尝试访问纹理的代码将崩溃。最好进行声明，指出资源已正确加载（如果后续代码假设引用有效）。
@@ -1498,19 +1599,19 @@ ConstructorHelpers 有一个 `FObjectFinder` 和一个 `FClassFinder` 来加载�
 
 间接属性引用方式，可以控制何时加载资源，一种简单方法是使用 **TSoftObjectPtr**。对于设计人员，间接属性引用的工作方式就像直接属性引用一样。但是，属性以字符串形式与模版代码存储在一起以便安全地检查资源是否已加载，而不是进行直接指针引用。使用 **IsPending()** 方法可检查资源是否已准备好可供访问。请注意，使用 **TSoftObjectPtr** 要求在您想要使用资源时手动加载该资源。您可使用模板化 **LoadObject<>()** 方法、**StaticLoadObject()** 或 **FStreamingManager** 来加载对象。前两个方法以同步方式加载资源，这可能会导致帧速率突增，因此，仅当您知道不会影响游戏时，才应使用这些方法。
 
-```C++
-UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category=Building)
-TSoftObjectPtr<UStaticMesh> BaseMesh;
+```C++,
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category=Building)
+    TSoftObjectPtr<UStaticMesh> BaseMesh;
 
-UStaticMesh* GetLazyLoadedMesh()
-{
-    if (BaseMesh.IsPending())
+    UStaticMesh* GetLazyLoadedMesh()
     {
-        const FSoftObjectPath& AssetRef = BaseMesh.ToStringReference();
-        BaseMesh = Cast<UStaticMesh>(Streamable.SynchronousLoad(AssetRef));
+        if (BaseMesh.IsPending())
+        {
+            const FSoftObjectPath& AssetRef = BaseMesh.ToStringReference();
+            BaseMesh = Cast<UStaticMesh>(Streamable.SynchronousLoad(AssetRef));
+        }
+        return BaseMesh.Get();
     }
-    return BaseMesh.Get();
-}
 ```
 
 以上代码，**TSoftObjectPtr** 将其使用的 UStaticMesh 网格的加载推迟到运行时进行。会进行检查资源，以确定对象是否已加载。如果尚未加载，那么将使用 **FStreamingManager** 执行同步加载。然后，返回 **TSoftObjectPtr** 内的 UStaticMesh 指针给调用者。
@@ -1632,49 +1733,49 @@ TEnumAsByte<enum TextureFilter> Filter;
 
 注册这些委托的方法是，加载资源注册表（Asset Registry）模块，然后使用 *IAssetRegistry* 接口提供的函数：
 
-```js
-/** 注册/取消注册：适用于资源被添加到注册表中的情况的回调*/
-virtual FAssetAddedEvent& OnAssetAdded() = 0;
+```C++,
+    /** 注册/取消注册：适用于资源被添加到注册表中的情况的回调*/
+    virtual FAssetAddedEvent& OnAssetAdded() = 0;
 
-/** 注册/取消注册：适用于资源被从注册表中删除的情况的回调*/
-virtual FAssetRemovedEvent& OnAssetRemoved() = 0;
+    /** 注册/取消注册：适用于资源被从注册表中删除的情况的回调*/
+    virtual FAssetRemovedEvent& OnAssetRemoved() = 0;
 
-/** 注册/取消注册：适用于资源在注册表中被重命名的情况的回调*/
-virtual FAssetRenamedEvent& OnAssetRenamed() = 0;
+    /** 注册/取消注册：适用于资源在注册表中被重命名的情况的回调*/
+    virtual FAssetRenamedEvent& OnAssetRenamed() = 0;
 
-/** 注册/取消注册：适用于资源注册表加载完文件的情况的回调*/
-virtual FFilesLoadedEvent& OnFilesLoaded() = 0;
+    /** 注册/取消注册：适用于资源注册表加载完文件的情况的回调*/
+    virtual FFilesLoadedEvent& OnFilesLoaded() = 0;
 
-/** 注册/取消注册：更新后台文件加载进度的回调*/
-virtual FFileLoadProgressUpdatedEvent& OnFileLoadProgressUpdated() = 0;
+    /** 注册/取消注册：更新后台文件加载进度的回调*/
+    virtual FFileLoadProgressUpdatedEvent& OnFileLoadProgressUpdated() = 0;
 
-/** 如果资源注册表当前正在加载文件，尚无法返回有关所有资源的信息时返回 True*/
-virtual bool IsLoadingAssets() = 0;
+    /** 如果资源注册表当前正在加载文件，尚无法返回有关所有资源的信息时返回 True*/
+    virtual bool IsLoadingAssets() = 0;
 ```
 
 例如：
 
-```C++
-void FMyClass::FMyClass()
-{
-    // 加载资源注册表模块，以侦听更新
-    FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
-    AssetRegistryModule.Get().OnAssetAdded().AddRaw( this, &FMyClass::OnAssetAdded );
-}
+```C++,
+    void FMyClass::FMyClass()
+    {
+        // 加载资源注册表模块，以侦听更新
+        FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
+        AssetRegistryModule.Get().OnAssetAdded().AddRaw( this, &FMyClass::OnAssetAdded );
+    }
 
-FMyClass::~FMyClass()
-{
-    // 加载资源注册表模块，以将委托取消注册
-    FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
-    AssetRegistryModule.Get().OnAssetAdded().RemoveAll( this );
-}
+    FMyClass::~FMyClass()
+    {
+        // 加载资源注册表模块，以将委托取消注册
+        FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>("AssetRegistry");
+        AssetRegistryModule.Get().OnAssetAdded().RemoveAll( this );
+    }
 
-void FMyClass::OnAssetAdded(const FAssetData& AssetData)
-{
-    // 资源注册表发现某个资源。
-    // 这意味着该资源刚被创建或刚在磁盘上被发现。
-    // 确保此函数中的代码速度较快，否则它将拖慢收集过程。
-}
+    void FMyClass::OnAssetAdded(const FAssetData& AssetData)
+    {
+        // 资源注册表发现某个资源。
+        // 这意味着该资源刚被创建或刚在磁盘上被发现。
+        // 确保此函数中的代码速度较快，否则它将拖慢收集过程。
+    }
 ```
 
 可在 commandlet 中使用资源注册表，但是这样 会同步收集信息。*LoadModule()* 调用将被阻止，直至收集完成。
@@ -1737,42 +1838,42 @@ UTexture2D* SourceTexture2; // 硬引用
 
 理想状态下，类中的资源引用并不存在。硬编码资源引用很脆弱，优选方法是使用蓝图配置资源属性。然而，仍然完全支持硬编码引用。不需要在每次构造对象时搜索资源，因此这些搜索只执行一次。一个静态结构体可确保只执行一次资源搜索：`ConstructorHelpers::FObjectFinder` 通过 *StaticLoadObject* 为特定的 UObject 寻找引用。它常用于引用存储在内容包中的资源。如未找到对象， 则报告失败。
 
-```C++
-ATimelineTestActor::ATimelineTestActor()
-{
-    // 进行一次性初始化的结构
-    struct FConstructorStatics
+```C++,
+    ATimelineTestActor::ATimelineTestActor()
     {
-        ConstructorHelpers::FObjectFinder<UStaticMesh> Object0;
-        FConstructorStatics()
-        :Object0(TEXT("StaticMesh'/Game/UT3/Pickups/Pickups/Health_Large/Mesh/S_Pickups_Base_Health_Large.S_Pickups_Base_Health_Large'"))
+        // 进行一次性初始化的结构
+        struct FConstructorStatics
         {
-        }
-    };
-    static FConstructorStatics ConstructorStatics;
+            ConstructorHelpers::FObjectFinder<UStaticMesh> Object0;
+            FConstructorStatics()
+            :Object0(TEXT("StaticMesh'/Game/UT3/Pickups/Pickups/Health_Large/Mesh/S_Pickups_Base_Health_Large.S_Pickups_Base_Health_Large'"))
+            {
+            }
+        };
+        static FConstructorStatics ConstructorStatics;
 
-    // 属性初始化
-    StaticMesh = ConstructorStatics.Object0.Object;
-}
+        // 属性初始化
+        StaticMesh = ConstructorStatics.Object0.Object;
+    }
 ```
 
 类引用使用 *ConstructorHelpers::FClassFinder* 为特定的 UClass 寻找引用。如类未找到，则报告失败。
 
-```C++
-APylon::APylon(const class FObjectInitializer& ObjectInitializer)
-:Super(ObjectInitializer)
-{
-    // 进行一次性初始化的结构
-    static FClassFinder<UNavigationMeshBase> ClassFinder(TEXT("class'Engine.NavigationMeshBase'"));
-    if (ClassFinder.Succeeded())
+```C++,
+    APylon::APylon(const class FObjectInitializer& ObjectInitializer)
+    :Super(ObjectInitializer)
     {
-        NavMeshClass = ClassFinder.Class;
+        // 进行一次性初始化的结构
+        static FClassFinder<UNavigationMeshBase> ClassFinder(TEXT("class'Engine.NavigationMeshBase'"));
+        if (ClassFinder.Succeeded())
+        {
+            NavMeshClass = ClassFinder.Class;
+        }
+        else
+        {
+            NavMeshClass = nullptr;
+        }
     }
-    else
-    {
-        NavMeshClass = nullptr;
-    }
-}
 ```
 
 在许多情况下，可只使用 USomeClass::StaticClass()，绕开复杂的全部 ClassFinder。例如，在多数情况下均可使用以下方法：
@@ -1786,21 +1887,21 @@ NavMeshClass = UNavigationMeshBase::StaticClass();
 
 加载并设置材质：
 
-```C++
-// Find assets
-static ConstructorHelpers::FObjectFinder<UStaticMesh> ofMesh(TEXT("StaticMesh'/Game/StaticMeshes/Shape_Cube.Shape_Cube'"));
-static ConstructorHelpers::FObjectFinder<UMaterial> ofMat(TEXT("Material'/Game/Materials/M_Ray.M_Ray'"));
+```C++,
+    // Find assets
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> ofMesh(TEXT("StaticMesh'/Game/StaticMeshes/Shape_Cube.Shape_Cube'"));
+    static ConstructorHelpers::FObjectFinder<UMaterial> ofMat(TEXT("Material'/Game/Materials/M_Ray.M_Ray'"));
 
-m_pMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-m_pMesh->SetCollisionProfileName(TEXT("NoCollision"));
+    m_pMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+    m_pMesh->SetCollisionProfileName(TEXT("NoCollision"));
 
-if (ofMesh.Succeeded() &&
-    ofMat.Succeeded())
-{
-    m_pMesh->SetStaticMesh(ofMesh.Object);
-    m_pMesh->SetRelativeLocation(FVector(0.0f, 0.0f, -50.0f));
-    m_pParentMat = ofMat.Object;
-}
+    if (ofMesh.Succeeded() &&
+        ofMat.Succeeded())
+    {
+        m_pMesh->SetStaticMesh(ofMesh.Object);
+        m_pMesh->SetRelativeLocation(FVector(0.0f, 0.0f, -50.0f));
+        m_pParentMat = ofMat.Object;
+    }
 ```
 
 在许多情况下，可只使用 USomeClass::StaticClass()，绕开复杂的全部 ClassFinder。例如，在多数情况下均可使用以下方法：
@@ -1813,66 +1914,66 @@ NavMeshClass = UNavigationMeshBase::StaticClass();
 
 以下代码片段示范使用 LoadObject 和  加载静态网络资产：
 
-```cpp
-UStaticMeshComponent* VisualMesh;
+```C++,
+    UStaticMeshComponent* VisualMesh;
 
-VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-VisualMesh->SetupAttachment(RootComponent);
+    VisualMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+    VisualMesh->SetupAttachment(RootComponent);
 
-UStaticMesh *mesh = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/StarterContent/Shapes/Shape_Cube"));
-if (mesh != nullptr) {
-    VisualMesh->SetStaticMesh(mesh);
-    VisualMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f)); 
-}
+    UStaticMesh *mesh = LoadObject<UStaticMesh>(nullptr, TEXT("/Engine/StarterContent/Shapes/Shape_Cube"));
+    if (mesh != nullptr) {
+        VisualMesh->SetStaticMesh(mesh);
+        VisualMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f)); 
+    }
 
-static ConstructorHelpers::FObjectFinder<UStaticMesh> 
-CubeVisualAsset(TEXT("/Engine/StarterContent/Shapes/Shape_Cube"));
-// "/Game/Engine Content/StarterContent/Shapes/Shape_Cube.Shape_Cube";
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> 
+    CubeVisualAsset(TEXT("/Engine/StarterContent/Shapes/Shape_Cube"));
+    // "/Game/Engine Content/StarterContent/Shapes/Shape_Cube.Shape_Cube";
 
-if (CubeVisualAsset.Succeeded()) 
-{ 
-    VisualMesh->SetStaticMesh(CubeVisualAsset.Object); 
-    VisualMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f)); 
-}
+    if (CubeVisualAsset.Succeeded()) 
+    { 
+        VisualMesh->SetStaticMesh(CubeVisualAsset.Object); 
+        VisualMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f)); 
+    }
 ```
 
 以下代码片段演示如何加载蓝图类、动画蓝图、骨骼蓝图。使用第三人称模板创建 C++ 工程和蓝图工程有些结构差别，存放类对象的目录分别是 ThirdPersonCPP 和 FirstPersonBP，虽格式还是资产文件类型，但内容肯定是有差别的。
 
 注意，加载动画资产时，因为是蓝图类，多了后缀 ThirdPerson_AnimBP -> ThirdPerson_AnimBP_C。
 
-```C++
-ARespawnPlayerGameMode::ARespawnPlayerGameMode()
-{
-    //将默认Pawn类设置为已绘制蓝图的角色
-    static ConstructorHelpers::FClassFinder<APawn> 
-        PlayerPawnBPClass(TEXT("/Game/ThirdPersonCPP/Blueprints/ThirdPersonCharacter"));
-        // C:/Unreal Projects/TpCPP/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset
-        // PlayerPawnBPClass(TEXT("PawnBlueprint'/Game/FirstPersonBP/Blueprints/FirstPersonCharacter'"));
-        // C:/Unreal Projects/Fp/Content/FirstPersonBP/Blueprints/FirstPersonCharacter.uasset
-    if (PlayerPawnBPClass.Class != NULL)
+```C++,
+    ARespawnPlayerGameMode::ARespawnPlayerGameMode()
     {
-        DefaultPawnClass = PlayerPawnBPClass.Class;
+        //将默认Pawn类设置为已绘制蓝图的角色
+        static ConstructorHelpers::FClassFinder<APawn> 
+            PlayerPawnBPClass(TEXT("/Game/ThirdPersonCPP/Blueprints/ThirdPersonCharacter"));
+            // C:/Unreal Projects/TpCPP/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset
+            // PlayerPawnBPClass(TEXT("PawnBlueprint'/Game/FirstPersonBP/Blueprints/FirstPersonCharacter'"));
+            // C:/Unreal Projects/Fp/Content/FirstPersonBP/Blueprints/FirstPersonCharacter.uasset
+        if (PlayerPawnBPClass.Class != NULL)
+        {
+            DefaultPawnClass = PlayerPawnBPClass.Class;
+        }
     }
-}
 
-ARespawnPlayerCharacter::ARespawnPlayerCharacter()
-{
-    // ...
-    // 注意：网格体组件上引用的骨骼网格体和动画蓝图（从ACharacter继承） 
-    // 是在名为MyCharacter的推导蓝图资产中设置的（以避免在C++中直接引用内容）
-    // Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
-    // are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
-    static ConstructorHelpers::FObjectFinder<USkeletalMesh>
-        SkeletalMeshAsset(TEXT("SkeletalMesh'/Game/Mannequin/Character/Mesh/SK_Mannequin.SK_Mannequin'"));
-        // C:/Unreal Projects/Tp/Content/Mannequin/Character/Mesh/SK_Mannequin.uasset
-    GetMesh()->SetSkeletalMesh(SkeletalMeshAsset.Object);
-    GetMesh()->SetRelativeLocation(FVector(0.0f, 0.0f, -97.0f));
-    GetMesh()->SetRelativeRotation(FQuat(FRotator(0.0f, 270.0f, 0.0f)));
-    static ConstructorHelpers::FObjectFinder<UAnimBlueprintGeneratedClass>
-        AnimInstanceAsset(TEXT("AnimBlueprint'/Game/Mannequin/Animations/ThirdPerson_AnimBP.ThirdPerson_AnimBP_C'"));
-        // C:/Unreal Projects/Tp/Content/Mannequin/Animations/ThirdPerson_AnimBP.uasset
-    GetMesh()->SetAnimInstanceClass(AnimInstanceAsset.Object);
-}
+    ARespawnPlayerCharacter::ARespawnPlayerCharacter()
+    {
+        // ...
+        // 注意：网格体组件上引用的骨骼网格体和动画蓝图（从ACharacter继承） 
+        // 是在名为MyCharacter的推导蓝图资产中设置的（以避免在C++中直接引用内容）
+        // Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
+        // are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+        static ConstructorHelpers::FObjectFinder<USkeletalMesh>
+            SkeletalMeshAsset(TEXT("SkeletalMesh'/Game/Mannequin/Character/Mesh/SK_Mannequin.SK_Mannequin'"));
+            // C:/Unreal Projects/Tp/Content/Mannequin/Character/Mesh/SK_Mannequin.uasset
+        GetMesh()->SetSkeletalMesh(SkeletalMeshAsset.Object);
+        GetMesh()->SetRelativeLocation(FVector(0.0f, 0.0f, -97.0f));
+        GetMesh()->SetRelativeRotation(FQuat(FRotator(0.0f, 270.0f, 0.0f)));
+        static ConstructorHelpers::FObjectFinder<UAnimBlueprintGeneratedClass>
+            AnimInstanceAsset(TEXT("AnimBlueprint'/Game/Mannequin/Animations/ThirdPerson_AnimBP.ThirdPerson_AnimBP_C'"));
+            // C:/Unreal Projects/Tp/Content/Mannequin/Animations/ThirdPerson_AnimBP.uasset
+        GetMesh()->SetAnimInstanceClass(AnimInstanceAsset.Object);
+    }
 ```
 
 ## ⚡ Data Driven 数据驱动的游戏性
@@ -2369,96 +2470,96 @@ C++ 类既可以通过 C++ 类进行扩展也可以通过类蓝图进行扩展�
 
 最终的 C++ 实现的 *LightSwitchCodeOnly* 文件如下所示，替换`[PROJECTNAME]`为相应的工程名：
 
-```C++
-// LightSwitchCodeOnly.h
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+```C++,
+    // LightSwitchCodeOnly.h
+    // Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
 
-#pragma once
+    #pragma once
 
-#include "GameFramework/Actor.h"
-#include "LightSwitchCodeOnly.generated.h"
+    #include "GameFramework/Actor.h"
+    #include "LightSwitchCodeOnly.generated.h"
 
-/**
- * 
- */
-UCLASS()
-class [PROJECTNAME]_API ALightSwitchCodeOnly : public AActor
-{
-    GENERATED_BODY()
-    public:
-    /** 点光源组件 */
-    UPROPERTY(VisibleAnywhere, Category = "Switch Components")
-    class UPointLightComponent* PointLight1;
-
-    /** 球体组件 */
-    UPROPERTY(VisibleAnywhere, Category = "Switch Components")
-    class USphereComponent* Sphere1;
-
-    ALightSwitchCodeOnly();
-
-    /** 当某对象进入球体组件时调用 */
-    UFUNCTION()
-    void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-    /** 当某对象离开球体组件时调用 */
-    UFUNCTION()
-    void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
-    /** 切换光照组件的可见性*/
-    UFUNCTION()
-    void ToggleLight();
-
-    /** 该光照的所需强度 */
-    UPROPERTY(VisibleAnywhere, Category = "Switch Variables")
-    float DesiredIntensity;
-
-};
-
-
-// LightSwitchCodeOnly.cpp
-// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
-
-#include "BasicClasses.h"
-#include "LightSwitchCodeOnly.h"
-
-ALightSwitchCodeOnly::ALightSwitchCodeOnly()
-{
-    DesiredIntensity = 3000.0f;
-
-    PointLight1 = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLight1"));
-    PointLight1->Intensity = DesiredIntensity;
-    PointLight1->bVisible = true;
-    RootComponent = PointLight1;
-
-    Sphere1 = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere1"));
-    Sphere1->InitSphereRadius(250.0f);
-    Sphere1->SetupAttachment(RootComponent);
-
-    Sphere1->OnComponentBeginOverlap.AddDynamic(this, &ALightSwitchCodeOnly::OnOverlapBegin);       // 当此组件与某对象重叠时，设置通知
-    Sphere1->OnComponentEndOverlap.AddDynamic(this, &ALightSwitchCodeOnly::OnOverlapEnd);       // 当此组件与某对象重叠时，设置通知
-
-}
-
-void ALightSwitchCodeOnly::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-    if (OtherActor && (OtherActor != this) && OtherComp)
+    /**
+     * 
+     */
+    UCLASS()
+    class [PROJECTNAME]_API ALightSwitchCodeOnly : public AActor
     {
-        ToggleLight();
-    }
-}
+        GENERATED_BODY()
+        public:
+        /** 点光源组件 */
+        UPROPERTY(VisibleAnywhere, Category = "Switch Components")
+        class UPointLightComponent* PointLight1;
 
-void ALightSwitchCodeOnly::OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-    if (OtherActor && (OtherActor != this) && OtherComp)
+        /** 球体组件 */
+        UPROPERTY(VisibleAnywhere, Category = "Switch Components")
+        class USphereComponent* Sphere1;
+
+        ALightSwitchCodeOnly();
+
+        /** 当某对象进入球体组件时调用 */
+        UFUNCTION()
+        void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+        /** 当某对象离开球体组件时调用 */
+        UFUNCTION()
+        void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+        /** 切换光照组件的可见性*/
+        UFUNCTION()
+        void ToggleLight();
+
+        /** 该光照的所需强度 */
+        UPROPERTY(VisibleAnywhere, Category = "Switch Variables")
+        float DesiredIntensity;
+
+    };
+
+
+    // LightSwitchCodeOnly.cpp
+    // Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+
+    #include "BasicClasses.h"
+    #include "LightSwitchCodeOnly.h"
+
+    ALightSwitchCodeOnly::ALightSwitchCodeOnly()
     {
-        ToggleLight();
-    }
-}
+        DesiredIntensity = 3000.0f;
 
-void ALightSwitchCodeOnly::ToggleLight()
-{
-    PointLight1->ToggleVisibility();
-}
+        PointLight1 = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLight1"));
+        PointLight1->Intensity = DesiredIntensity;
+        PointLight1->bVisible = true;
+        RootComponent = PointLight1;
+
+        Sphere1 = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere1"));
+        Sphere1->InitSphereRadius(250.0f);
+        Sphere1->SetupAttachment(RootComponent);
+
+        Sphere1->OnComponentBeginOverlap.AddDynamic(this, &ALightSwitchCodeOnly::OnOverlapBegin);       // 当此组件与某对象重叠时，设置通知
+        Sphere1->OnComponentEndOverlap.AddDynamic(this, &ALightSwitchCodeOnly::OnOverlapEnd);       // 当此组件与某对象重叠时，设置通知
+
+    }
+
+    void ALightSwitchCodeOnly::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+    {
+        if (OtherActor && (OtherActor != this) && OtherComp)
+        {
+            ToggleLight();
+        }
+    }
+
+    void ALightSwitchCodeOnly::OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+    {
+        if (OtherActor && (OtherActor != this) && OtherComp)
+        {
+            ToggleLight();
+        }
+    }
+
+    void ALightSwitchCodeOnly::ToggleLight()
+    {
+        PointLight1->ToggleVisibility();
+    }
 ```
 
 ## ⚡ LightSwitch with both C++ & Blueprint
@@ -2535,101 +2636,101 @@ if (GEngine != nullptr)
 
 蓝图类*LightSwitchBoth_BP*位于内容浏览器中，可将其从其中拖入关卡。该蓝图类同样位于类查看器中。
 
-```C++
-// LightSwitchBoth.h
-// 版权所有 1998-2018 Epic Games, Inc. 保留所有权利。
+```C++，
+    // LightSwitchBoth.h
+    // 版权所有 1998-2018 Epic Games, Inc. 保留所有权利。
 
-#pragma once
+    #pragma once
 
-#include "GameFramework/Actor.h"
-#include "LightSwitchBoth.generated.h"
+    #include "GameFramework/Actor.h"
+    #include "LightSwitchBoth.generated.h"
 
-/**
- * 纯C++代码实现的，并且可以被蓝图改写的（BlueprintNativeEvent）自动光源开关
- */
-UCLASS()
-class [PROJECTNAME]_API ALightSwitchBoth : public AActor
-{
-    GENERATED_BODY()
-    public:
-    /** 点光源组件 */
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Switch Components")
-    class UPointLightComponent* PointLight1;
-
-    /** 球体组件 */
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Switch Components")
-    class USphereComponent* Sphere1;
-
-    ALightSwitchBoth();
-
-    /** 当某对象进入球体组件时调用（BlueprintNativeEvent）可在蓝图中改写 */
-    UFUNCTION(BlueprintNativeEvent, Category="Switch Functions")
-    void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-    void OnOverlapBegin_Implementation(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-    /** 当某对象离开球体组件时调用（BlueprintNativeEvent）可在蓝图中改写 */
-    UFUNCTION(BlueprintNativeEvent, Category="Switch Functions")
-    void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
-    void OnOverlapEnd_Implementation(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
-    /** 切换光源组件的可视性*/
-    UFUNCTION()
-    void ToggleLight();
-
-    /** 光源的理想强度 */
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Switch Variables")
-    float DesiredIntensity;
-
-};
-
-
-// LightSwitchBoth.cpp
-// 版权所有 1998-2018 Epic Games, Inc. 保留所有权利。
-
-#include "BasicClasses.h"
-#include "LightSwitchBoth.h"
-
-ALightSwitchBoth::ALightSwitchBoth()
-{
-
-    DesiredIntensity = 3000.0f;
-
-    PointLight1 = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLight1"));
-    PointLight1->Intensity = DesiredIntensity;
-    PointLight1->bVisible = true;
-    RootComponent = PointLight1;
-
-    Sphere1 = CreateDefaultSubobject<USphereComponent>(this, TEXT("Sphere1"));
-    Sphere1->InitSphereRadius(250.0f);
-    Sphere1->SetupAttachment(RootComponent);
-
-    // 设置 Overlaps 事件委托，添加相应的处理函数
-    Sphere1->OnComponentBeginOverlap.AddDynamic(this, &ALightSwitchBoth::OnOverlapBegin);
-    Sphere1->OnComponentEndOverlap.AddDynamic(this, &ALightSwitchBoth::OnOverlapEnd);
-}
-
-void ALightSwitchBoth::OnOverlapBegin_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-    if (OtherActor && (OtherActor != this) && OtherComp)
+    /**
+     * 纯C++代码实现的，并且可以被蓝图改写的（BlueprintNativeEvent）自动光源开关
+     */
+    UCLASS()
+    class [PROJECTNAME]_API ALightSwitchBoth : public AActor
     {
-        ToggleLight();
-    }
-}
+        GENERATED_BODY()
+        public:
+        /** 点光源组件 */
+        UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Switch Components")
+        class UPointLightComponent* PointLight1;
 
-void ALightSwitchBoth::OnOverlapEnd_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-    if (OtherActor && (OtherActor != this) && OtherComp)
+        /** 球体组件 */
+        UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Switch Components")
+        class USphereComponent* Sphere1;
+
+        ALightSwitchBoth();
+
+        /** 当某对象进入球体组件时调用（BlueprintNativeEvent）可在蓝图中改写 */
+        UFUNCTION(BlueprintNativeEvent, Category="Switch Functions")
+        void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+        void OnOverlapBegin_Implementation(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+        /** 当某对象离开球体组件时调用（BlueprintNativeEvent）可在蓝图中改写 */
+        UFUNCTION(BlueprintNativeEvent, Category="Switch Functions")
+        void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+        void OnOverlapEnd_Implementation(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+        /** 切换光源组件的可视性*/
+        UFUNCTION()
+        void ToggleLight();
+
+        /** 光源的理想强度 */
+        UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Switch Variables")
+        float DesiredIntensity;
+
+    };
+
+
+    // LightSwitchBoth.cpp
+    // 版权所有 1998-2018 Epic Games, Inc. 保留所有权利。
+
+    #include "BasicClasses.h"
+    #include "LightSwitchBoth.h"
+
+    ALightSwitchBoth::ALightSwitchBoth()
     {
-        ToggleLight();
-    }
-}
 
-void ALightSwitchBoth::ToggleLight()
-{
-    PointLight1->ToggleVisibility();
-}
+        DesiredIntensity = 3000.0f;
+
+        PointLight1 = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLight1"));
+        PointLight1->Intensity = DesiredIntensity;
+        PointLight1->bVisible = true;
+        RootComponent = PointLight1;
+
+        Sphere1 = CreateDefaultSubobject<USphereComponent>(this, TEXT("Sphere1"));
+        Sphere1->InitSphereRadius(250.0f);
+        Sphere1->SetupAttachment(RootComponent);
+
+        // 设置 Overlaps 事件委托，添加相应的处理函数
+        Sphere1->OnComponentBeginOverlap.AddDynamic(this, &ALightSwitchBoth::OnOverlapBegin);
+        Sphere1->OnComponentEndOverlap.AddDynamic(this, &ALightSwitchBoth::OnOverlapEnd);
+    }
+
+    void ALightSwitchBoth::OnOverlapBegin_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+    {
+        if (OtherActor && (OtherActor != this) && OtherComp)
+        {
+            ToggleLight();
+        }
+    }
+
+    void ALightSwitchBoth::OnOverlapEnd_Implementation(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+    {
+        if (OtherActor && (OtherActor != this) && OtherComp)
+        {
+            ToggleLight();
+        }
+    }
+
+    void ALightSwitchBoth::ToggleLight()
+    {
+        PointLight1->ToggleVisibility();
+    }
 ```
 
 
@@ -3184,39 +3285,39 @@ PlayerInput 中定义了两种结构体：
 
 可以在执行 ACharacter::SetupPlayerInputComponent 逻辑中嵌入输入映射，部分关键 API 参考如下：
 
-```cpp
-void AddAxisMapping(const FInputAxisKeyMapping&amp; KeyMapping, bool bForceRebuildKeymaps = true);
-void RemoveAxisMapping(const FInputAxisKeyMapping& InKeyMapping, const bool bForceRebuildKeymaps)
-void AddActionMapping(const FInputActionKeyMapping&amp; KeyMapping, bool bForceRebuildKeymaps = true);
-void RemoveActionMapping(const FInputActionKeyMapping&amp; KeyMapping, bool bForceRebuildKeymaps = true);
+```C++,
+    void AddAxisMapping(const FInputAxisKeyMapping&amp; KeyMapping, bool bForceRebuildKeymaps = true);
+    void RemoveAxisMapping(const FInputAxisKeyMapping& InKeyMapping, const bool bForceRebuildKeymaps)
+    void AddActionMapping(const FInputActionKeyMapping&amp; KeyMapping, bool bForceRebuildKeymaps = true);
+    void RemoveActionMapping(const FInputActionKeyMapping&amp; KeyMapping, bool bForceRebuildKeymaps = true);
 
-#include "GameFramework/PlayerInput.h"
-#include "GameFramework/InputSettings.h"
+    #include "GameFramework/PlayerInput.h"
+    #include "GameFramework/InputSettings.h"
 
-FInputAxisKeyMapping AxisMap;
-AxisMap.AxisName = TEXT("MoveRight");
-AxisMap.Key = EKeys::E;
+    FInputAxisKeyMapping AxisMap;
+    AxisMap.AxisName = TEXT("MoveRight");
+    AxisMap.Key = EKeys::E;
 
-FInputActionKeyMapping ActionMap;
-ActionMap.ActionName = TEXT("Jump");
-ActionMap.bAlt = true;
-ActionMap.Key = EKeys::G;
-//添加轴向事件绑定 注意此函数有默认参数bool，如果为false则下次启动程序应用新的按键映射，默认为true立即生效
-UInputSettings::GetInputSettings()->AddAxisMapping(AxisMap);
-//移除一个已经添加的按键事件
-UInputSettings::GetInputSettings()->RemoveActionMapping(ActionMap);
-UInputSettings::GetInputSettings()->SaveKeyMappings();
+    FInputActionKeyMapping ActionMap;
+    ActionMap.ActionName = TEXT("Jump");
+    ActionMap.bAlt = true;
+    ActionMap.Key = EKeys::G;
+    //添加轴向事件绑定 注意此函数有默认参数bool，如果为false则下次启动程序应用新的按键映射，默认为true立即生效
+    UInputSettings::GetInputSettings()->AddAxisMapping(AxisMap);
+    //移除一个已经添加的按键事件
+    UInputSettings::GetInputSettings()->RemoveActionMapping(ActionMap);
+    UInputSettings::GetInputSettings()->SaveKeyMappings();
 ```
 
 添加映射后，就可以直接使用映射设置的友好名称与事件处理函数绑定：
 
-```js
-void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
-{
-    check(PlayerInputComponent);
-    PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-    PlayerInputComponent->BindAxis("MoveRight", this, &ARespawnPlayerCharacter::MoveRight);
-}
+```C++,
+    void APlayerCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+    {
+        check(PlayerInputComponent);
+        PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+        PlayerInputComponent->BindAxis("MoveRight", this, &ARespawnPlayerCharacter::MoveRight);
+    }
 ```
 
 UE 4 的配置文件多种多样，其目录信息可以通过 FPaths 提供的静态方法获取：
@@ -3630,97 +3731,97 @@ Content Example 工程设置的 BP_Double_Doors 蓝图对象是一个带有开�
 
 LevelStreamerActor.h 如下：
 
-```C++
-#pragma once
+```C++,
+    #pragma once
 
-#include "GameFramework/Actor.h"
-#include "LevelStreamerActor.generated.h"
+    #include "GameFramework/Actor.h"
+    #include "LevelStreamerActor.generated.h"
 
-UCLASS()
-class LEVELS_API ALevelStreamerActor : public AActor
-{
-    GENERATED_BODY()
+    UCLASS()
+    class LEVELS_API ALevelStreamerActor : public AActor
+    {
+        GENERATED_BODY()
 
-public: 
-    // 构造器中设置该 actor 属性的默认值
-    ALevelStreamerActor();
+    public: 
+        // 构造器中设置该 actor 属性的默认值
+        ALevelStreamerActor();
 
-    // 每帧调用
-    virtual void Tick( float DeltaSeconds ) override;
+        // 每帧调用
+        virtual void Tick( float DeltaSeconds ) override;
 
-protected:
+    protected:
 
-    // 游戏开始或生成时调用
-    virtual void BeginPlay() override;
+        // 游戏开始或生成时调用
+        virtual void BeginPlay() override;
 
-    UFUNCTION()
-    void OverlapBegins(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
-    UFUNCTION()
-    void OverlapEnds(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+        UFUNCTION()
+        void OverlapBegins(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+        UFUNCTION()
+        void OverlapEnds(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
-    UPROPERTY(EditAnywhere)
-    FName LevelToLoad;
+        UPROPERTY(EditAnywhere)
+        FName LevelToLoad;
 
-private:
-    // 重叠体积域触发关卡流送
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-    UBoxComponent* OverlapVolume;
+    private:
+        // 重叠体积域触发关卡流送
+        UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+        UBoxComponent* OverlapVolume;
 
-};
+    };
 ```
 
 LevelStreamerActor.cpp 如下：
 
-```C++
-#include "Levels.h"
-#include "Kismet/GameplayStatics.h"
-#include "LevelStreamerActor.h"
+```C++,
+    #include "Levels.h"
+    #include "Kismet/GameplayStatics.h"
+    #include "LevelStreamerActor.h"
 
-// 设置默认值
-ALevelStreamerActor::ALevelStreamerActor()
-{
-    // 将此 actor 设为每帧调用 Tick()。不需要时可将此关闭，以提高性能。
-    PrimaryActorTick.bCanEverTick = true;
+    // 设置默认值
+    ALevelStreamerActor::ALevelStreamerActor()
+    {
+        // 将此 actor 设为每帧调用 Tick()。不需要时可将此关闭，以提高性能。
+        PrimaryActorTick.bCanEverTick = true;
 
-    OverlapVolume = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapVolume"));
-    RootComponent = OverlapVolume;
+        OverlapVolume = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapVolume"));
+        RootComponent = OverlapVolume;
 
-    OverlapVolume->OnComponentBeginOverlap.AddUniqueDynamic(this, &ALevelStreamerActor::OverlapBegins);
-    OverlapVolume->OnComponentEndOverlap.AddUniqueDynamic(this, &ALevelStreamerActor::
-}
-// 游戏开始时或生成时调用
-void ALevelStreamerActor::BeginPlay()
-{
-    Super::BeginPlay();
+        OverlapVolume->OnComponentBeginOverlap.AddUniqueDynamic(this, &ALevelStreamerActor::OverlapBegins);
+        OverlapVolume->OnComponentEndOverlap.AddUniqueDynamic(this, &ALevelStreamerActor::
+    }
+    // 游戏开始时或生成时调用
+    void ALevelStreamerActor::BeginPlay()
+    {
+        Super::BeginPlay();
 
-}
+    }
 
-// 每帧调用
-void ALevelStreamerActor::Tick( float DeltaTime )
-{
-    Super::Tick( DeltaTime );
+    // 每帧调用
+    void ALevelStreamerActor::Tick( float DeltaTime )
+    {
+        Super::Tick( DeltaTime );
 
-}
+    }
 
-void ALevelStreamerActor::OverlapBegins(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
-{
-        ACharacter* MyCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
-        if (OtherActor == MyCharacter && LevelToLoad != "")
-        {
-            FLatentActionInfo LatentInfo;
-            UGameplayStatics::LoadStreamLevel(this, LevelToLoad, true, true, LatentInfo);
-        }
-}
+    void ALevelStreamerActor::OverlapBegins(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+    {
+            ACharacter* MyCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
+            if (OtherActor == MyCharacter && LevelToLoad != "")
+            {
+                FLatentActionInfo LatentInfo;
+                UGameplayStatics::LoadStreamLevel(this, LevelToLoad, true, true, LatentInfo);
+            }
+    }
 
-void ALevelStreamerActor::OverlapEnds(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-        ACharacter* MyCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
-        if (OtherActor == MyCharacter && LevelToLoad != "")
-        {
-            FLatentActionInfo LatentInfo;
-            UGameplayStatics::UnloadStreamLevel(this, LevelToLoad, LatentInfo);
-        }
-}
+    void ALevelStreamerActor::OverlapEnds(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+    {
+            ACharacter* MyCharacter = UGameplayStatics::GetPlayerCharacter(this, 0);
+            if (OtherActor == MyCharacter && LevelToLoad != "")
+            {
+                FLatentActionInfo LatentInfo;
+                UGameplayStatics::UnloadStreamLevel(this, LevelToLoad, LatentInfo);
+            }
+    }
 ```
 
 
@@ -3776,20 +3877,20 @@ Python 当前是一个实验性功能。
 
 这些子系统通过 *GEngine* 或*GEEditor*这样的全局变量访问，如下所示。
 
-```js
-class UMyEngineSubsystem : public UEngineSubsystem { ... };
-class UMyEditorSubsystem : public UEditorSubsystem { ... };
-class UMyGameSubsystem   : public UGameInstanceSubsystem { ... };
-class UMyPlayerSubsystem : public ULocalPlayerSubsystem { ... };
+```C++,
+    class UMyEngineSubsystem : public UEngineSubsystem { ... };
+    class UMyEditorSubsystem : public UEditorSubsystem { ... };
+    class UMyGameSubsystem   : public UGameInstanceSubsystem { ... };
+    class UMyPlayerSubsystem : public ULocalPlayerSubsystem { ... };
 
-UMyEngineSubsystem* MySubsystem = GEngine->GetEngineSubsystem<UMyEngineSubsystem>();
-UMyEditorSubsystem* MySubsystem = GEditor->GetEditorSubsystem<UMyEditorSubsystem>();
+    UMyEngineSubsystem* MySubsystem = GEngine->GetEngineSubsystem<UMyEngineSubsystem>();
+    UMyEditorSubsystem* MySubsystem = GEditor->GetEditorSubsystem<UMyEditorSubsystem>();
 
-UGameInstance* GameInstance = ...;
-UMyGameSubsystem* MySubsystem = GameInstance->GetSubsystem<UMyGameSubsystem>();
+    UGameInstance* GameInstance = ...;
+    UMyGameSubsystem* MySubsystem = GameInstance->GetSubsystem<UMyGameSubsystem>();
 
-ULocalPlayer* LocalPlayer = ...;
-UMyPlayerSubsystem * MySubsystem = LocalPlayer->GetSubsystem<UMyPlayerSubsystem>();
+    ULocalPlayer* LocalPlayer = ...;
+    UMyPlayerSubsystem * MySubsystem = LocalPlayer->GetSubsystem<UMyPlayerSubsystem>();
 ```
 
 在以下示例中，为游戏添加一个统计数据系统，以跟踪收集资源的数量。
@@ -3806,21 +3907,21 @@ UMyPlayerSubsystem * MySubsystem = LocalPlayer->GetSubsystem<UMyPlayerSubsystem>
 
 因此，我们最终使用的代码将显示在下例中。
 
-```C++
-UCLASS()
-class UMyGamesStatsSubsystem : public UGameInstanceSubsystem
-{
-    GENERATED_BODY()
-public:
-    // Begin USubsystem
-    virtual void Initialize(FSubsystemCollectionBase& Collection) override;
-    virtual void Deinitialize() override;
-    // End USubsystem
+```C++,
+    UCLASS()
+    class UMyGamesStatsSubsystem : public UGameInstanceSubsystem
+    {
+        GENERATED_BODY()
+    public:
+        // Begin USubsystem
+        virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+        virtual void Deinitialize() override;
+        // End USubsystem
 
-    void IncrementResourceStat();
-private:
-    // All my variables
-};
+        void IncrementResourceStat();
+    private:
+        // All my variables
+    };
 ```
 
 
@@ -4139,76 +4240,76 @@ UMG 通过内容浏览器的 User Interface 提供选项：
 
 以下示范在 RebuildWidget() 函数中创建一个 Slate 按钮组件 SButton：
 
-```C++
-TSharedRef<SWidget> UButton::RebuildWidget()
-{
-    MyButton = SNew(SButton)
-        .OnClicked(BIND_UOBJECT_DELEGATE(FOnClicked,
-            SlateHandleClicked))
-        .OnPressed(BIND_UOBJECT_DELEGATE(FSimpleDelegate,
-            SlateHandlePressed))
-        .OnReleased(BIND_UOBJECT_DELEGATE(FSimpleDelegate,
-            SlateHandleReleased))
-        .OnHovered_UObject(this, &ThisClass::SlateHandleHovered)
-        .OnUnhovered_UObject(this, &ThisClass::SlateHandleUnhovered)
-        .ButtonStyle(&WidgetStyle)
-        .ClickMethod(ClickMethod)
-        .TouchMethod(TouchMethod)
-        .IsFocusable(IsFocusable)
-        ;
-
-    if ( GetChildrenCount() > 0 )
+```C++,
+    TSharedRef<SWidget> UButton::RebuildWidget()
     {
-        Cast<UButtonSlot>(GetContentSlot())
-            ->BuildSlot(MyButton.ToSharedRef());
+        MyButton = SNew(SButton)
+            .OnClicked(BIND_UOBJECT_DELEGATE(FOnClicked,
+                SlateHandleClicked))
+            .OnPressed(BIND_UOBJECT_DELEGATE(FSimpleDelegate,
+                SlateHandlePressed))
+            .OnReleased(BIND_UOBJECT_DELEGATE(FSimpleDelegate,
+                SlateHandleReleased))
+            .OnHovered_UObject(this, &ThisClass::SlateHandleHovered)
+            .OnUnhovered_UObject(this, &ThisClass::SlateHandleUnhovered)
+            .ButtonStyle(&WidgetStyle)
+            .ClickMethod(ClickMethod)
+            .TouchMethod(TouchMethod)
+            .IsFocusable(IsFocusable)
+            ;
+
+        if ( GetChildrenCount() > 0 )
+        {
+            Cast<UButtonSlot>(GetContentSlot())
+                ->BuildSlot(MyButton.ToSharedRef());
+        }
+        
+        return MyButton.ToSharedRef();
     }
-    
-    return MyButton.ToSharedRef();
-}
 ```
 
 UOverlay 组件扩展示范：
 
-```C++
-// ExampleOverlay.h
-UCLASS()
-class UExampleOverlay : public UOverlay
-{
-    GENERATED_UCLASS_BODY()
-public:
-
-#if WITH_EDITOR
-    virtual const FText GetPaletteCategory() override;
-#endif
-
-protected:
-    // UWidget interface
-    virtual TSharedRef<SWidget> RebuildWidget() override;
-    // End of UWidget interface
-};
-
-
-// ExampleOverlay.cpp
-#define LOCTEXT_NAMESPACE "ExampleUMG"
-
-TSharedRef<SWidget> UExampleOverlay::RebuildWidget()
-{
-    auto Result = Super::RebuildWidget();
-
-    for (UPanelSlot* InSlot : Slots)
+```C++,
+    // ExampleOverlay.h
+    UCLASS()
+    class UExampleOverlay : public UOverlay
     {
-        // Do something custom
+        GENERATED_UCLASS_BODY()
+    public:
+
+    #if WITH_EDITOR
+        virtual const FText GetPaletteCategory() override;
+    #endif
+
+    protected:
+        // UWidget interface
+        virtual TSharedRef<SWidget> RebuildWidget() override;
+        // End of UWidget interface
+    };
+
+
+    // ExampleOverlay.cpp
+    #define LOCTEXT_NAMESPACE "ExampleUMG"
+
+    TSharedRef<SWidget> UExampleOverlay::RebuildWidget()
+    {
+        auto Result = Super::RebuildWidget();
+
+        for (UPanelSlot* InSlot : Slots)
+        {
+            // Do something custom
+        }
+
+        return Result;
     }
 
-    return Result;
-}
-
-#if WITH_EDITOR
-const FText UExampleOverlay::GetPaletteCategory()
-{
-    return LOCTEXT("ExampleUI", "ExampleOverlay");
-}
-#endif
+    #if WITH_EDITOR
+    const FText UExampleOverlay::GetPaletteCategory()
+    {
+        return LOCTEXT("ExampleUI", "ExampleOverlay");
+    }
+    #endif
 ```
 
 
@@ -4357,14 +4458,14 @@ SNew( SButton )
 
 事实上，SButton 不等价 UButton，但是 UMG 通过包装 SButton 来实现 UButton：
 
-```C++
-class UButton : public UVisual
-{
-// ...
-    /** Cached pointer to the underlying slate
-        button owned by this UWidget */
-    TSharedPtr<SButton> MyButton;
-};
+```C++,
+    class UButton : public UVisual
+    {
+    // ...
+        /** Cached pointer to the underlying slate
+            button owned by this UWidget */
+        TSharedPtr<SButton> MyButton;
+    };
 ```
 
 扩展现有的 Slate 组件使用的 C++ 代码初一看是有点怪的，它和 UE 引擎一样使用了多种宏定义。
@@ -4373,28 +4474,28 @@ class UButton : public UVisual
 
 去 Unreal Engine 安装目录打开 SImage 的源代码，试着阅读，掌控关键的信息：
 
-```C++
-SLATE_BEGIN_ARGS( SImage )
-    : _Image( FCoreStyle::Get().GetDefaultBrush() )
-    , _ColorAndOpacity( FLinearColor::White )
-    , _FlipForRightToLeftFlowDirection( false )
-    { }
+```C++,
+    SLATE_BEGIN_ARGS( SImage )
+        : _Image( FCoreStyle::Get().GetDefaultBrush() )
+        , _ColorAndOpacity( FLinearColor::White )
+        , _FlipForRightToLeftFlowDirection( false )
+        { }
 
-    /** Image resource */
-    SLATE_ATTRIBUTE(const FSlateBrush*, Image)
+        /** Image resource */
+        SLATE_ATTRIBUTE(const FSlateBrush*, Image)
 
-    /** Color and opacity */
-    SLATE_ATTRIBUTE(FSlateColor, ColorAndOpacity)
+        /** Color and opacity */
+        SLATE_ATTRIBUTE(FSlateColor, ColorAndOpacity)
 
-    /** When specified, ignore the brushes size and report the DesiredSizeOverride as the desired image size. */
-    SLATE_ATTRIBUTE(TOptional<FVector2D>, DesiredSizeOverride)
+        /** When specified, ignore the brushes size and report the DesiredSizeOverride as the desired image size. */
+        SLATE_ATTRIBUTE(TOptional<FVector2D>, DesiredSizeOverride)
 
-    /** Flips the image if the localization's flow direction is RightToLeft */
-    SLATE_ARGUMENT( bool, FlipForRightToLeftFlowDirection )
+        /** Flips the image if the localization's flow direction is RightToLeft */
+        SLATE_ARGUMENT( bool, FlipForRightToLeftFlowDirection )
 
-    /** Invoked when the mouse is pressed in the widget. */
-    SLATE_EVENT(FPointerEventHandler, OnMouseButtonDown)
-SLATE_END_ARGS()
+        /** Invoked when the mouse is pressed in the widget. */
+        SLATE_EVENT(FPointerEventHandler, OnMouseButtonDown)
+    SLATE_END_ARGS()
 ```
 
 - 构造器如何初始化 Slate 组件；
@@ -4405,34 +4506,34 @@ SLATE_END_ARGS()
 
 以下是 ExampleSlate.h 示范：
 
-```C++
-#pragma once
+```C++,
+    #pragma once
 
-#include "CoreMinimal.h"
+    #include "CoreMinimal.h"
 
-class SExampleSlate : public SCompoundWidget
-{
-    SLATE_BEGIN_ARGS(SStandardSlateWidget){}
+    class SExampleSlate : public SCompoundWidget
+    {
+        SLATE_BEGIN_ARGS(SStandardSlateWidget){}
 
-    // See private declaration of OwnerHUD below.
-    SLATE_ARGUMENT(TWeakObjectPtr<class AStandardHUD>, OwnerHUD)
- 
-    SLATE_END_ARGS()
- 
-public:
-  // Required
-    void Construct(const FArguments& InArgs);
+        // See private declaration of OwnerHUD below.
+        SLATE_ARGUMENT(TWeakObjectPtr<class AStandardHUD>, OwnerHUD)
+     
+        SLATE_END_ARGS()
+     
+    public:
+      // Required
+        void Construct(const FArguments& InArgs);
 
-    // Begin SWidget interface
-    void OnArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren) const override;
-    virtual FReply OnMouseMove(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent) override;
-    virtual void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
-    // End SWidget interface
+        // Begin SWidget interface
+        void OnArrangeChildren(const FGeometry& AllottedGeometry, FArrangedChildren& ArrangedChildren) const override;
+        virtual FReply OnMouseMove(const FGeometry& MyGeometry, const FPointerEvent& MouseEvent) override;
+        virtual void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
+        // End SWidget interface
 
- 
-private:
-    TWeakObjectPtr<class AStandardHUD> OwnerHUD;
-};
+     
+    private:
+        TWeakObjectPtr<class AStandardHUD> OwnerHUD;
+    };
 ```
 
 在这个列子中，并不能直接体现使用 C++ 扩展 Slate UI 比 UMG UI 的强大之处。 
@@ -4547,239 +4648,239 @@ GEngine->GameViewport->RemoveViewportWidgetContent(
 
 创建 HUD 派生类：AMyHUD
 
-```C++
-#pragma once
-#include "CoreMinimal.h"
-#include "GameFramework/HUD.h"
-#include "MyHUD.generated.h"
-UCLASS()
-class DESIGNPATTERNS_API AMyHUD : public AHUD
-{
-    GENERATED_BODY()
-public:
-    virtual void BeginPlay() override;
-
-    void ShowMySlate();
-    void RemoveMySlate();
-
-    // 使用 class 声明，没有 include 头文件
-    TSharedPtr<class SMyCompoundWidget> MyCompoundWidget;
-
-    // 添加视口方法三
-    TSharedPtr<SWidget> WidgetContainer;
-};
-
-#pragma once
-#include "MyHUD.h"
-#include "Kismet/GameplayStatics.h"
-#include "SMyCompoundWidget.h"
-#include "Widgets/SWeakWidget.h"
-
-void AMyHUD::BeginPlay()
-{
-    Super::BeginPlay();
-    ShowMySlate();
-}
-
-void AMyHUD::ShowMySlate()
-{
-    if (GEngine && GEngine->GameViewport)
+```C++,
+    #pragma once
+    #include "CoreMinimal.h"
+    #include "GameFramework/HUD.h"
+    #include "MyHUD.generated.h"
+    UCLASS()
+    class DESIGNPATTERNS_API AMyHUD : public AHUD
     {
-        // 第二个参数为 ZOrder,默认为 0
-        //GEngine->GameViewport->AddViewportWidgetContent(SNew(SMyCompoundWidget), 0);
-        //GEngine->GameViewport->AddViewportWidgetContent(SAssignNew(MyCompoundWidget, SMyCompoundWidget));
-        
-        MyCompoundWidget = SNew(SMyCompoundWidget).OwnerHUDArg(this);
-        //SAssignNew(MyCompoundWidget, SMyCompoundWidget);
+        GENERATED_BODY()
+    public:
+        virtual void BeginPlay() override;
 
-        // 添加视口方法一，可被移除
-        //GEngine->GameViewport->AddViewportWidgetContent(MyCompoundWidget.ToSharedRef());
+        void ShowMySlate();
+        void RemoveMySlate();
 
-        // 添加视口方法二，此处无法移除，因为 weak widget
-        //GEngine->GameViewport->AddViewportWidgetContent( SNew(SWeakWidget).PossiblyNullContent(MyCompoundWidget.ToSharedRef()), 0);
-        
-        // 添加视口方法三，可被移除
-        GEngine->GameViewport->AddViewportWidgetContent(
-            SAssignNew(WidgetContainer,SWeakWidget).PossiblyNullContent(MyCompoundWidget.ToSharedRef()), 0);
+        // 使用 class 声明，没有 include 头文件
+        TSharedPtr<class SMyCompoundWidget> MyCompoundWidget;
 
-        // 显示鼠标及设置输入模式
-        APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-        if (PC)
+        // 添加视口方法三
+        TSharedPtr<SWidget> WidgetContainer;
+    };
+
+    #pragma once
+    #include "MyHUD.h"
+    #include "Kismet/GameplayStatics.h"
+    #include "SMyCompoundWidget.h"
+    #include "Widgets/SWeakWidget.h"
+
+    void AMyHUD::BeginPlay()
+    {
+        Super::BeginPlay();
+        ShowMySlate();
+    }
+
+    void AMyHUD::ShowMySlate()
+    {
+        if (GEngine && GEngine->GameViewport)
         {
-            PC->bShowMouseCursor = true;
-            PC->SetInputMode(FInputModeUIOnly());
+            // 第二个参数为 ZOrder,默认为 0
+            //GEngine->GameViewport->AddViewportWidgetContent(SNew(SMyCompoundWidget), 0);
+            //GEngine->GameViewport->AddViewportWidgetContent(SAssignNew(MyCompoundWidget, SMyCompoundWidget));
+            
+            MyCompoundWidget = SNew(SMyCompoundWidget).OwnerHUDArg(this);
+            //SAssignNew(MyCompoundWidget, SMyCompoundWidget);
+
+            // 添加视口方法一，可被移除
+            //GEngine->GameViewport->AddViewportWidgetContent(MyCompoundWidget.ToSharedRef());
+
+            // 添加视口方法二，此处无法移除，因为 weak widget
+            //GEngine->GameViewport->AddViewportWidgetContent( SNew(SWeakWidget).PossiblyNullContent(MyCompoundWidget.ToSharedRef()), 0);
+            
+            // 添加视口方法三，可被移除
+            GEngine->GameViewport->AddViewportWidgetContent(
+                SAssignNew(WidgetContainer,SWeakWidget).PossiblyNullContent(MyCompoundWidget.ToSharedRef()), 0);
+
+            // 显示鼠标及设置输入模式
+            APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+            if (PC)
+            {
+                PC->bShowMouseCursor = true;
+                PC->SetInputMode(FInputModeUIOnly());
+            }
         }
     }
-}
 
-void AMyHUD::RemoveMySlate()
-{
-    if (GEngine && GEngine->GameViewport && WidgetContainer.IsValid())
+    void AMyHUD::RemoveMySlate()
     {
-        // 移除添加视口方法一
-        GEngine->GameViewport->RemoveViewportWidgetContent(MyCompoundWidget.ToSharedRef());
-        
-        // 移除添加视口方法三
-        GEngine->GameViewport->RemoveViewportWidgetContent(WidgetContainer.ToSharedRef());
-        
-        // 移除所有
-        //GEngine->GameViewport->RemoveAllViewportWidgets();
-        
-        // 显示鼠标及设置输入模式
-        APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-        if (PC)
+        if (GEngine && GEngine->GameViewport && WidgetContainer.IsValid())
         {
-            PC->bShowMouseCursor = false;
-            PC->SetInputMode(FInputModeGameOnly());
+            // 移除添加视口方法一
+            GEngine->GameViewport->RemoveViewportWidgetContent(MyCompoundWidget.ToSharedRef());
+            
+            // 移除添加视口方法三
+            GEngine->GameViewport->RemoveViewportWidgetContent(WidgetContainer.ToSharedRef());
+            
+            // 移除所有
+            //GEngine->GameViewport->RemoveAllViewportWidgets();
+            
+            // 显示鼠标及设置输入模式
+            APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+            if (PC)
+            {
+                PC->bShowMouseCursor = false;
+                PC->SetInputMode(FInputModeGameOnly());
+            }
         }
     }
-}
 ```
 
 创建 SCompoundWidget 派生类：SMyCompoundWidget
 
-```C++
-#include "CoreMinimal.h"
-#include "Widgets/SCompoundWidget.h"
-#include "MyHUD.h"
+```C++,
+    #include "CoreMinimal.h"
+    #include "Widgets/SCompoundWidget.h"
+    #include "MyHUD.h"
 
-/**
- * 
- */
-class DESIGNPATTERNS_API SMyCompoundWidget : public SCompoundWidget
-{
-public:
-    SLATE_BEGIN_ARGS(SMyCompoundWidget)
-    {}
-    // 添加参数
-    SLATE_ARGUMENT(TWeakObjectPtr<AMyHUD>, OwnerHUDArg);
-    SLATE_END_ARGS()
+    /**
+     * 
+     */
+    class DESIGNPATTERNS_API SMyCompoundWidget : public SCompoundWidget
+    {
+    public:
+        SLATE_BEGIN_ARGS(SMyCompoundWidget)
+        {}
+        // 添加参数
+        SLATE_ARGUMENT(TWeakObjectPtr<AMyHUD>, OwnerHUDArg);
+        SLATE_END_ARGS()
 
-    /** Constructs this widget with InArgs */
-    void Construct(const FArguments& InArgs);
+        /** Constructs this widget with InArgs */
+        void Construct(const FArguments& InArgs);
 
-    FReply OnPlayClicked() const;
-    FReply OnQuitClicked() const;
+        FReply OnPlayClicked() const;
+        FReply OnQuitClicked() const;
 
-private:
-    TWeakObjectPtr<AMyHUD> OwnerHUD;
-};
+    private:
+        TWeakObjectPtr<AMyHUD> OwnerHUD;
+    };
 
-#include "SMyCompoundWidget.h"
-#include "SlateOptMacros.h"
-#include "Widgets/Images/SImage.h"
-#include "MyHUD.h"
-#include "Kismet/KismetSystemLibrary.h"
-#include "Kismet/GameplayStatics.h"
-#include "Widgets/Layout/SBackgroundBlur.h"
-#define LOCTEXT_NAMESPACE "MyNamespace"
+    #include "SMyCompoundWidget.h"
+    #include "SlateOptMacros.h"
+    #include "Widgets/Images/SImage.h"
+    #include "MyHUD.h"
+    #include "Kismet/KismetSystemLibrary.h"
+    #include "Kismet/GameplayStatics.h"
+    #include "Widgets/Layout/SBackgroundBlur.h"
+    #define LOCTEXT_NAMESPACE "MyNamespace"
 
-BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
-void SMyCompoundWidget::Construct(const FArguments& InArgs)
-{
-    // 注意此处带下划线
-    OwnerHUD = InArgs._OwnerHUDArg;
-    // 文本和按钮间距设置
-    const FMargin ContentPadding = FMargin(500.0f, 300.0f);
-    const FMargin ButtonPadding = FMargin(10.f);
-    // 按钮和标题文本
-    const FText TitleText = LOCTEXT("SlateTest", "Just a Slate Test");
-    const FText PlayText = LOCTEXT("PlayGame", "Play");
-    const FText QuitText = LOCTEXT("QuitGame", "Quit Game");
-    //按钮字体及大小设置
-    FSlateFontInfo ButtonTextStyle = FCoreStyle::Get().GetFontStyle("EmbossedText");
-    ButtonTextStyle.Size = 40.f;
-    //标题字体及大小设置
-    FSlateFontInfo TitleTextStyle = ButtonTextStyle;
-    TitleTextStyle.Size = 60.f;
+    BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
+    void SMyCompoundWidget::Construct(const FArguments& InArgs)
+    {
+        // 注意此处带下划线
+        OwnerHUD = InArgs._OwnerHUDArg;
+        // 文本和按钮间距设置
+        const FMargin ContentPadding = FMargin(500.0f, 300.0f);
+        const FMargin ButtonPadding = FMargin(10.f);
+        // 按钮和标题文本
+        const FText TitleText = LOCTEXT("SlateTest", "Just a Slate Test");
+        const FText PlayText = LOCTEXT("PlayGame", "Play");
+        const FText QuitText = LOCTEXT("QuitGame", "Quit Game");
+        //按钮字体及大小设置
+        FSlateFontInfo ButtonTextStyle = FCoreStyle::Get().GetFontStyle("EmbossedText");
+        ButtonTextStyle.Size = 40.f;
+        //标题字体及大小设置
+        FSlateFontInfo TitleTextStyle = ButtonTextStyle;
+        TitleTextStyle.Size = 60.f;
 
-    //所有UI控件都写在这里
-    ChildSlot
-        [
-            SNew(SOverlay)
-            + SOverlay::Slot()
-            .HAlign(HAlign_Fill).VAlign(VAlign_Fill)
+        //所有UI控件都写在这里
+        ChildSlot
             [
-                SNew(SImage)    // 背景（半透明黑）
-                .ColorAndOpacity(FColor(0,0,0,127))             
-            ]
-
-            + SOverlay::Slot()
-            .HAlign(HAlign_Fill).VAlign(VAlign_Fill)
-            [
-                SNew(SBackgroundBlur) // 高斯模糊
-                .BlurStrength(10.0f)
-            ]
-
-            + SOverlay::Slot()
-            .HAlign(HAlign_Fill).VAlign(VAlign_Fill)
-            .Padding(ContentPadding)
-            [
-                SNew(SVerticalBox)
-
-                // Title Text
-                + SVerticalBox::Slot()
+                SNew(SOverlay)
+                + SOverlay::Slot()
+                .HAlign(HAlign_Fill).VAlign(VAlign_Fill)
                 [
-                    SNew(STextBlock)
-                    .Font(TitleTextStyle)
-                    .Text(TitleText)
-                    .Justification(ETextJustify::Center)
+                    SNew(SImage)    // 背景（半透明黑）
+                    .ColorAndOpacity(FColor(0,0,0,127))             
                 ]
 
-                // Play Button
-                + SVerticalBox::Slot()
-                .Padding(ButtonPadding)
+                + SOverlay::Slot()
+                .HAlign(HAlign_Fill).VAlign(VAlign_Fill)
                 [
-                    SNew(SButton)
-                    .OnClicked(this, &SMyCompoundWidget::OnPlayClicked)
+                    SNew(SBackgroundBlur) // 高斯模糊
+                    .BlurStrength(10.0f)
+                ]
+
+                + SOverlay::Slot()
+                .HAlign(HAlign_Fill).VAlign(VAlign_Fill)
+                .Padding(ContentPadding)
+                [
+                    SNew(SVerticalBox)
+
+                    // Title Text
+                    + SVerticalBox::Slot()
                     [
                         SNew(STextBlock)
-                        .Font(ButtonTextStyle)
-                        .Text(PlayText)
+                        .Font(TitleTextStyle)
+                        .Text(TitleText)
                         .Justification(ETextJustify::Center)
                     ]
-                ]
 
-                // Quit Button
-                + SVerticalBox::Slot()
-                .Padding(ButtonPadding)
-                [
-                    SNew(SButton)
-                    .OnClicked(this, &SMyCompoundWidget::OnQuitClicked)
+                    // Play Button
+                    + SVerticalBox::Slot()
+                    .Padding(ButtonPadding)
                     [
-                        SNew(STextBlock)
-                        .Font(ButtonTextStyle)
-                        .Text(QuitText)
-                        .Justification(ETextJustify::Center)
+                        SNew(SButton)
+                        .OnClicked(this, &SMyCompoundWidget::OnPlayClicked)
+                        [
+                            SNew(STextBlock)
+                            .Font(ButtonTextStyle)
+                            .Text(PlayText)
+                            .Justification(ETextJustify::Center)
+                        ]
+                    ]
+
+                    // Quit Button
+                    + SVerticalBox::Slot()
+                    .Padding(ButtonPadding)
+                    [
+                        SNew(SButton)
+                        .OnClicked(this, &SMyCompoundWidget::OnQuitClicked)
+                        [
+                            SNew(STextBlock)
+                            .Font(ButtonTextStyle)
+                            .Text(QuitText)
+                            .Justification(ETextJustify::Center)
+                        ]
                     ]
                 ]
-            ]
-        ];
+            ];
 
-    
-}
-
-FReply SMyCompoundWidget::OnPlayClicked() const
-{
-    if (OwnerHUD.IsValid())
-    {
-        OwnerHUD->RemoveMySlate();
+        
     }
-    return FReply::Handled();
-}
 
-FReply SMyCompoundWidget::OnQuitClicked() const
-{
-    if (OwnerHUD.IsValid())
+    FReply SMyCompoundWidget::OnPlayClicked() const
     {
-        OwnerHUD->PlayerOwner->ConsoleCommand("quit");  
+        if (OwnerHUD.IsValid())
+        {
+            OwnerHUD->RemoveMySlate();
+        }
+        return FReply::Handled();
     }
-    return FReply::Handled();
-}
 
-END_SLATE_FUNCTION_BUILD_OPTIMIZATION
+    FReply SMyCompoundWidget::OnQuitClicked() const
+    {
+        if (OwnerHUD.IsValid())
+        {
+            OwnerHUD->PlayerOwner->ConsoleCommand("quit");  
+        }
+        return FReply::Handled();
+    }
 
-#undef LOCTEXT_NAMESPACE
+    END_SLATE_FUNCTION_BUILD_OPTIMIZATION
+
+    #undef LOCTEXT_NAMESPACE
 ```
 
 
@@ -5208,22 +5309,22 @@ Spine 界面中的关键帧图标不同颜色含义：
 
 以下代码片段示范如何通过 Spine 运行时对事件进行编程：
 
-```js
-AnimationState state = ...
-state.addListener (new AnimationStateAdapter() {
-    public void event (int trakIndex, Event event) {
-        if (event.name == "Attack")
-            Audio.play(event.name + event.intValue + ".wav");
-    }
-})
+```C++,
+    AnimationState state = ...
+    state.addListener (new AnimationStateAdapter() {
+        public void event (int trakIndex, Event event) {
+            if (event.name == "Attack")
+                Audio.play(event.name + event.intValue + ".wav");
+        }
+    })
 
-TrackEntry entry = state.setAnimation(0, "run", true);
-entry.setListener (new AnimationStateAdapter() {
-    public void event (int trakIndex, Event event) {
-        if (event.name == "audio")
-            Audio.play(event.stringValue);
-    }
-})
+    TrackEntry entry = state.setAnimation(0, "run", true);
+    entry.setListener (new AnimationStateAdapter() {
+        public void event (int trakIndex, Event event) {
+            if (event.name == "audio")
+                Audio.play(event.stringValue);
+        }
+    })
 ```
 
 

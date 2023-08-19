@@ -661,15 +661,411 @@ https://designmodo.com/repeat-grid-adobe-xd/ By Caleb Kingston
 
 
 
+# 🚩 PureRef 参考图片神器
+
+PureRef是一个非常好用的绘画素材参考神器，它可以非常方便的将图片截取下来并保存在其中，通过对素材图片的旋转，移动和拉伸，让它们排版从成你需要的样子。并且软件可以置顶悬浮在所有窗口之上，需要的用户快来下载使用吧。
+
+
+首先是下载地址：
+https://www.pureref.com/
+http://www.3h3.com/soft/150562.html
+https://pan.baidu.com/s/1yU_xXbmb6_JPGQnOJhjs7g#6cuj
+
+这是款免费软件，在下载时可以通过PayPal捐赠支持作者，也可以输入0元直接下载。良心的不行。
+
+- 添加图片
+
+    您可以直接从浏览器中拖放计算机或图像中的文件。您也可以使用右键单击菜单或ctrl + v粘贴它们。
+
+- 编辑图像
+
+    您可以通过几种方式编辑图像以满足您的参考需求。您可以：
+
+    - 选择一个或多个
+    - 专注于一个或多个（双击/空格）
+    - 旋转（自由或使用shift进行对齐）
+    - 翻动
+    - 规模
+    - 作物
+    - 改变不透明度
+    - 删除
+    - 保存图像
+
+- 控制画布
+
+    画布是您的场景，也可以通过多种方式使用。功能包括：
+
+    - 优化图像周围的画布。
+    - 打包你的图像。
+    - 始终在顶级功能上切换。
+    - 切换到鼠标功能透明。
+    - 锁定画布以进行编辑。
+    - 清晰的画布。
+    - 撤销重做。
+    - 重置相机。
+    - 保存/加载场景。
+    - 导出场景。
+
+- 定制
+
+    您可以自定义PureRef的外观和键盘快捷键以满足您的需求。
+
+    - 自定义颜色。
+    - 保存颜色主题。
+    - 更改主不透明度。
+    - 自定义键绑定。
+
+- 使用方法
+
+- 界面可以通过拉扯四个角落，进行形状的调整。
+- 鼠标右键可以拖拽界面到屏幕上合适的位置。
+- 在界面中按住鼠标滚轮，并移动鼠标，在界面平行移动。
+- 鼠标左键就是选择图片。
+- 如果一张图片，你只想显示其中的一部分，按住键盘上的 C 键裁剪想显示的区域。取消剪裁时，选中图片，Shift-Command-C。
+- 右键或菜单选择模式，可以让参考图片一直显示在顶端，也可以对鼠标透明，穿透直达工作软件。
+- 选中一个图片，按空格，这个图片就会显示到正中间。
+- Command-U 可以调整界面的颜色。。
+- 右键就是快捷菜单，可以对图形进行各种变换。
+- 可以保存方便下次使用，不同的图片类型可以保存成不同的文件。
+- 水平上下翻转，用 Alt-Shift-RMB 鼠标左键按照方向拖拽。
+- 旋转，按住 Ctrl-LMB-Drag 用鼠标拖拽
+- 查看颜色代码按住 S，然后鼠标左键点击。
+
+- 怎么置顶
+
+    PureRef 可以置顶悬浮在所有窗口上面，用于作画参考非常方便，下面就来告诉大家如何进行置顶操作。
+
+    在 PureRef 右键呼出设置菜单，选择 Mode - AlwaysOmTop，快捷键 Ctrl-Shift-A。如果无法置顶，一般是和其他软件的热键冲突，导致无法置顶。
+
+- 怎么退出全屏
+
+    在全屏状态下右键，选择 Window - Maximize 就可以退出全屏了，快捷键  Ctrl-F。
+
+- 菜单
+
+    - Help      Ctrl-H
+    - About     Ctrl-J
+    - Setting   Ctrl-U
+
+    - Undo      Ctrl-Z
+    - Redo      Ctrl-Shift-Z
+
+    - Copy      Ctrl-C
+    - Pase      Ctrl-V
+    - Note      Ctrl-N
+
+    - Mode
+
+        Transparent to Mouse        Ctrl-T 穿透鼠标/取消穿透
+        Overlay Selection           Ctrl-Y 覆盖选择的图片到屏幕上（可操作其他软件）
+        Always on Top               Ctrl-B 置顶，总是在其它窗口顶层显示
+        Always on Bottom            Ctrl+Shift-B 置底
+
+    - Window
+
+        Maximum                 Ctrl+F
+        Minimize                Ctrl+M
+        Resize to Selection     Ctrl+Shift-R
+        Lock Window             Ctrl+W 锁定
+
+    - Canvas
+
+        Optimize                Ctrl-O
+        Reset Camera            Ctrl-G
+        Reset Camera Rotate     Ctrl-Shift-G
+        Lock Canvas             Ctrl-R
+        Grayscale               Ctrl-Alt-G
+        Clear                   Ctrl-K
+
+    - Images
+
+        - Select All            Ctrl-A
+
+        - Selection
+
+            Reset Cropping              Ctrl+Shift+C    ⇧⌘C
+            Reset Transform             Ctrl+Shift+T    ⇧⌘T
+            Open Source                 Ctrl+Shift+O    ⇧⌘O
+            Toggle Bilinear Sampling    Alt+T   ⌥T
+            Toggle Grayscale            Alt+G   ⌥G
+            Send To Back                Down    ↓
+            Send To Front               Up  ↑
+            Delete                      Del ⌫
+
+        - Arrange
+
+            Arrange By Addition     Ctrl+Alt+A  ⌥⌘A
+            Arrange By Name         Ctrl+Alt+N  ⌥⌘N
+            Arrange Optimal         Ctrl+P  ⌘P
+
+        - Align
+
+            Align Bottom    Ctrl+Down   ⌘↓
+            Align Left      Ctrl+Left   ⌘←
+            Align Right     Ctrl+Right  ⌘→
+            Align Top       Ctrl+Up     ⌘↑
+            Stack           Ctrl+Alt+S  ⌥⌘S
+
+        - Normalize
+
+            Normalize Height    Ctrl+Alt+Left   ⌥⌘←
+            Normalize Scale     Ctrl+Alt+Down   ⌥⌘↓
+            Normalize Size      Ctrl+Alt+Up ⌥⌘↑
+            Normalize Width     Ctrl+Alt+Right  ⌥⌘→
+
+    - Save
+
+        Save            Ctrl-S
+        Save As     Ctrl-Shift-S
+
+        - Export
+
+            Scene               Ctrl-I
+            All Images      Ctrl-Alt-I
+            Selected Images Ctrl-Shift-I
+
+    - Load
+        
+        Load                Ctrl-I
+        Load Images     Ctrl-L
+        Load Rencent    
+
+    - Close     Ctrl-X
+
+
+Default keybindings
+
+Actions
+
+    Function    Windows/Linux   Mac
+    About   Ctrl+J  ⌘J
+    Align Bottom    Ctrl+Down   ⌘↓
+    Align Left  Ctrl+Left   ⌘←
+    Align Right Ctrl+Right  ⌘→
+    Align Top   Ctrl+Up ⌘↑
+    Always On Bottom    Ctrl+Shift+B    ⇧⌘B
+    Always On Top   Ctrl+Shift+A    ⇧⌘A
+    Arrange By Addition Ctrl+Alt+A  ⌥⌘A
+    Arrange By Name Ctrl+Alt+N  ⌥⌘N
+    Arrange Optimal Ctrl+P  ⌘P
+    Close   Ctrl+X  ⌘Q
+    Copy    Ctrl+C  ⌘C
+    Decrease Master Opacity Ctrl+-  ⌘-
+    Export All Images   Ctrl+Alt+I  ⌥⌘I
+    Export Scene    Ctrl+E  ⌘E
+    Export Selected Images  Ctrl+Shift+I    ⇧⌘I
+    Grayscale   Ctrl+Alt+G  ⌥⌘G
+    Help    Ctrl+H  ⌃H
+    Increase Master Opacity Ctrl++  ⌘+
+    Load Images Ctrl+I  ⌘I
+    Load Most Recent    Ctrl+Shift+L    ⇧⌘L
+    Load    Ctrl+L  ⌘L
+    Lock Canvas Ctrl+R  ⌘R
+    Lock Window Ctrl+W  ⌘W
+    Maximize    Ctrl+F  ⌘F
+    Minimize    Ctrl+M  ⌘M
+    New Scene   Ctrl+K  ⌘K
+    Normalize Height    Ctrl+Alt+Left   ⌥⌘←
+    Normalize Scale Ctrl+Alt+Down   ⌥⌘↓
+    Normalize Size  Ctrl+Alt+Up ⌥⌘↑
+    Normalize Width Ctrl+Alt+Right  ⌥⌘→
+    Note    Ctrl+N  ⌘N
+    Open Source Ctrl+Shift+O    ⇧⌘O
+    Optimize Canvas Ctrl+O  ⌘O
+    Overlay Selection   Ctrl+Y  ⌘Y
+    Pack All And Optimize   Ctrl+Shift+P    ⇧⌘P
+    Paste   Ctrl+V  ⌘V
+    Preset Custom1  Alt+4   ⌥4
+    Preset Custom2  Alt+5   ⌥5
+    Preset Custom3  Alt+6   ⌥6
+    Preset Custom4  Alt+7   ⌥7
+    Preset Dark Alt+1   ⌥1
+    Preset Glass    Alt+3   ⌥3
+    Preset Light    Alt+2   ⌥2
+    Redo    Ctrl+Shift+Z    ⇧⌘Z
+    Relink Missing Images   Ctrl+Alt+Shift+R    ⌥⇧⌘R
+    Reset Camera Zoom   Ctrl+Shift+G    ⇧⌘G
+    Reset Camera    Ctrl+G  ⌘G
+    Reset Cropping  Ctrl+Shift+C    ⇧⌘C
+    Reset Transform Ctrl+Shift+T    ⇧⌘T
+    Resize To Selection Ctrl+Shift+R    ⇧⌘R
+    Save As Ctrl+Shift+S    ⇧⌘S
+    Save    Ctrl+S  ⌘S
+    Settings    Ctrl+U  ⌃⇧⌘D
+    Stack   Ctrl+Alt+S  ⌥⌘S
+    Toggle Bilinear Sampling    Alt+T   ⌥T
+    Toggle Grayscale    Alt+G   ⌥G
+    Transparent To Mouse    Ctrl+T  ⌘T
+    Undo    Ctrl+Z  ⌘Z
+
+Controls
+
+    Function    Windows/Linux   Mac
+    Axis Snapped Move Item  Left MB + Shift Left MB + ⇧
+    Change Opacity  Left MB + Ctrl+Alt+Shift    Left MB + ⌥⇧⌘
+    Continuous Select   Left MB + Shift Left MB + ⇧
+    Crop Selection  Left MB + C Left MB + C
+    Delete  Del ⌫
+    Flip Image Horizontally Alt+Shift+H ⌥⇧H
+    Flip Image Vertically   Alt+Shift+V ⌥⇧V
+    Flip    Left MB + Alt+Shift Left MB + ⌥⇧
+    Focus Canvas    Ctrl+Space  ⌘Space
+    Focus Image Space   Space
+    Focus Next Image    Right   →
+    Focus Previous Image    Left    ←
+    Move Item   Left MB Left MB
+    Neighbour Snapped Move Item Left MB + Shift+Space   Left MB + ⇧Space
+    Pan (While Locked)  Left MB Left MB
+    Pan (While Maximized)   Right MB    Right MB
+    Pan Cropping    Left MB + V Left MB + V
+    Pan Left MB + Alt   Left MB + ⌥
+    Pan Middle MB   Middle MB
+    Rotate  Left MB + Ctrl  Left MB + ⌘
+    Scale   Left MB + Ctrl+Alt  Left MB + ⌥⌘
+    Select All  Ctrl+A  ⌘A
+    Select Items    Left MB Left MB
+    Send To Back    Down    ↓
+    Send To Front   Up  ↑
+    Show Color Code Left MB + S Left MB + S
+    Show Image Coordinate   Left MB + D Left MB + D
+    Snapped Rotate  Left MB + Ctrl+Shift    Left MB + ⇧⌘
+    Zoom Cropping   Left MB + Shift+V   Left MB + ⇧V
+    Zoom    Left MB + Z Left MB + Z
+
+System
+
+    Function    Windows/Linux   Mac
+    Move Window Right MB    Right MB
+    Open Context Menu   Right MB    Right MB
+    Resize Window   Left MB Left MB
+
+
+# 🚩 3D 文件格式
+1. 3D 模型格式全解 https://zhuanlan.zhihu.com/p/547182109
+2. gltf 和 fbx 格式对比  https://zhuanlan.zhihu.com/p/555641352
+
+目前存储三维实体模型的数据文件格式有诸多类型，传统的有 OBJ 格式，
+
+| Format |             Desc            |       Publisher        |
+|--------|-----------------------------|------------------------|
+| obj    | Wavefront 3D Object File    | Wavefront Technologies |
+| 3ds    | 3D Studio Scene             | Autodesk, Inc.         |
+| abc    | Alembic                     | ILM, Sony Pictures, Imageworks |
+| dae    | Digital Asset Exchange File | Sony                   |
+| fbx    | rcView Spatial Index File For Read-Only Datasets | ESRI；Kaydara (Autodesk) |
+| glb    | STK Globe File              | Analytical Graphics    |
+| gltf   | GL Transmission Format File | Trimble Inc.           |
+| ply    | Polygon File Format       | Stanford Triangle Format
+| stl    | Stereolithography File      | 3D Systems             |
+
+OBJ 文件格式是一种纯文本格式，首次由波前技术以其先进的可视化动画包开发了一个通用的几何形状清晰度的 3D 图像文件格式。它支持表面几何形状的两个近似的和精确的编码。它也可以使用一个单独的 MTL（材质模板库）文件来存储颜色和纹理信息。很适合用于 3D 软件模型之间的互导，OBJ 文件一般包括三个子文件，分别是 .obj、.mtl、.jpg，除了模型文件，还需要.jpg纹理文件。目前几乎所有知名的 3D 软件都支持 OBJ 文件的读写，不过其中很多需要通过插件才能实现。
+
+3D Studio 的场景文件（3DS）格式是专有的3D文件格式。它是利用 Autodesk 的 3ds Max 软件的 3D 建模，动画和渲染软件，是目前使用最古老的3D文件格式之一。虽然是一个流行的标准，但它只能存储动画，几何形状，外观和场景基本属性，不支持存储定向光源。
+
+ABC 特效工作室格式由 ILM、Sony Pictures 与 Imageworks, 共同开发，开放源码，目标是解决特效界共同的问题。这个格式命名为蒸馏机 Alembic ，是一个 CG 交换格式, 专注于有效地储存, 共享动画与特效场景, 跨越不同的应用程式或是软体, 包含了商业贩售的软体或是公司内部开发的软体, 客制化的工具组。支持动画、粒子等！bake 三维场景的模型、流体、动画、特效等数据，输出输入到其他三维软件。
+
+COLLADA 是面向交互式 3D 应用程序的基于 XML 的数字资产交换方案，使 3D 创作应用程序可以自由地交换数字资产而不损失信息 - 使多种 DCC 和 3D 处理软件包可以组合成强大的工具链管道。
+
+DAE 文件与 COLLADA 协作设计建立了一个交换文件格式的交互式 3D 应用程序。
+
+FBX 文件，又称欧特克 FBX 交换文件格式，是在电影界及视频游戏开发最常用的一种流行的专有的文件格式。它支持有关几何形状和外观存储信息，而且还可以支持骨骼动画。
+
+GLB 文件与 STK，用于建模和工作任务的空间，防御系统和电子系统的程序有关。它包含一个模拟或真实世界地形的三维模型，并且可以使用 STK 环球 Manager 组件导入或导出。
+
+PLY 斯坦福三角形档案（Stanford Triangle Format）由史丹佛大学的 The Digital Michelangelo Project 开发并采用，PLY 格式储存极高分辨率之米开朗基罗的作品"大卫"雕塑。该格式主要用以储存立体扫描结果的三维数值，透过多边形片面的集合描述三维物体，与其他格式相较之下这是较为简单的方法。它可以储存的资讯包含颜色、透明度、表面法向量、材质座标与资料可信度，并能对多边形的正反两面设定不同的属性。PLY 文件有纯文字（ASCII）与二元码（binary）两种格式。
+
+STL 是用于保存在标准形式 CAD 文件，并且还可以由几个CAD应用程序读取的交换文件格式。STL 文件包含作为主模型用于创建几个原型三维设计，是一种为快速原型制造技术服务的三维图形文件格式。在计算机图形应用系统中，用于表示三角形网格的一种文件格式，它的文件格式非常简单， 应用很广泛。
+
+适合作为 3D 打印的格式有：stl/obj/stp。其中，STL 文件格式 是目前 3D 打印制造系统使用的一种标准化格式。STL 是 3D Systems 公司开发的文件格式。当前绝大多数 3D 打印厂商都采用 STL 接口作为 CAD 和打印机之间的数据接口，几乎所有 3D 打印机内罝的切片软件都支持该格式。
+
+
+如果您将数据传输到 Unity 或 Unreal Engine 等游戏引擎或 3DS Max 等 3D 工具之间，FBX 文件格式比 glTF 更好。如果您想通过 Internet 有效地传输 3D 场景数据以便在远程应用程序中查看，例如用于增强现实的目的，glTF 格式比 FBX 更好。
+
+Autodesk FBX 文件格式是一种流行的 3D 数据交换格式，用于 3D 编辑器和游戏引擎之间。它最初是作为 Kaydara 的 Filmbox 动作捕捉工具的原生文件格式创建的。2005 年，Kaydara 为原本封闭和专有的 FBX 文件格式发布了一个公共 SDK，并参与了一项协调一致的公关活动，以鼓励采用 FBX 文件格式在不同工具之间进行高质量的 3D 数据交换。Filmbox 最终更名为 MotionBuilder，后来被 Autodesk 收购。
+
+FBX 文件格式的一个优势是拥有独立的位置、UV 和法线拓扑。它能够存储具有不同拓扑的位置、UV 和法线数据。这对于高质量的建模工具非常有用，并且可以实现精确的细分曲面等复杂功能。这使得将这些模型加载到 游戏引擎中变得有点困难，因为需要对数据进行预处理以统一所有拓扑。
+
+FBX 文件格式因为它使用二进制格式，所以效率很高。当您将数据存储为二进制时，写入和读取它的速度更快，而基于文本的格式必须将二进制数据与人类可读的数字相互转换。它在空间方面也很有效，因为数字的二进制表示比人类可读的数字占用更少的空间。如果您需要直接读取和写入二进制格式，它们通常会很复杂，但 FBX SDK 对用户隐藏了这一点。
+
+FBX 格式的最大缺点是它是一种封闭格式。访问 FBX 文件中数据的唯一官方方法是使用官方 SDK。您无法在 FBX SDK 未正式支持的系统上加载 FBX（例如在 Web 浏览器或开源应用程序中）。经过几年的努力，Blender 已经成功地对大多数当前版本的 FBX 格式进行了逆向工程。
+
+1. https://www.khronos.org/gltf/
+2. https://zhuanlan.zhihu.com/p/65265611
+3. https://github.com/KhronosGroup/glTF-Tutorials/blob/master/gltfTutorial/gltfTutorial_002_BasicGltfStructure.md
+
+glTF 格式是一种开放的 3D 模型和场景格式，旨在高效传输丰富的场景 3D 数据。它自 2013 年以来由 The Khronos Group 创建和管理。glTF 是一个首字母缩写词，代表 OpenGL 图形语言传输格式。
+
+优点是易于阅读和书写，因为使用了 JSON 数据格式。有众多开源库读写 glTF 文件，也可以自己编写导入程序。使用 JSON 甚至比 OBJ 文件格式更容易进行解释，因为 JSON 本身是一种灵活的人类可读的文件格式标准，它在大多数语言中都有可用的解析器。
+
+与 FBX 文件格式一样，glTF 将 3D 几何的主要批量数据存储在二进制文件中。二进制文件的读取由 JSON 描述符文件引导。这意味着与以人类可读文本（如 OBJ 一样）存储大量 3D 几何图形的文件格式相比，glTF 平均小 5 倍，读取速度快 10 倍以上。在游戏引擎的上下文中，glTF 的读取速度甚至比 FBX 还要快，因为它将其网格数据存储在一个统一的拓扑中。这意味着游戏引擎可以将 glTF 中的数据直接读取到 GPU 内存中，然后在屏幕上渲染生成的图形，而无需对 OBJ 网格数据进行中间处理。
+
+与 FBX 相比，glTF 的最大缺点之一是其 3D 模型数据的存储格式更加简单。它不允许位置、UV 和法线数据的不同拓扑。虽然如果您想要直接读取游戏引擎的速度，这是有益的，但这意味着修改 3D 模型可能非常困难。
+
+glTF 2.0 Overview
+https://github.com/KhronosGroup/glTF/blob/main/specification/2.0/figures/gltfOverview-2.0.0b.png
+
+glTF 格式文件虽然是二进制保存，本质上是一个 JSON 文件，文件头以魔术数 gkTF 或者 glTF 作标记。这一文件描述了整个 3D 场景的内容，包含了对场景结构进行描述的场景图：
+
+1. 场景中的 3D 对象通过场景结点引用网格进行定义；
+2. 材质定义了 3D 对象的外观；
+3. 动画定义了 3D 对象的变换操作(比如选择、平移操作)；
+4. 蒙皮定义了3D对象如何进行骨骼变换；
+5. 相机定义了渲染程序的视锥体设置，等等。
+
+glTF 的 JSON 节点层次结构：
+
+1. *scene*：glTF格式的场景结构描述条目。
+2. *node*：场景树结点。它可以包含一个变换(比如旋转或平移)，引用更多的子结点。它可以引用网格和相机，以及描述网格变换的蒙皮。
+3. *camera*：定义了用于渲染场景的视锥体配置。
+4. *mesh*：描述了场景中出现的 3D 对象的网格数据。它引用的 accessor 对象可以用来访问真实的几何数据。它引用的 material 对象定义了3D对象的外观。
+5. *skin*：蒙皮参数，参数的值通过一个 accessor 对象获得。
+6. *animation*：描述了一些结点如何随时间进行变换(比如旋转或平移)。
+7. *accessor*：一个访问任意数据的抽象数据源。mesh、skin 和 animation 元素用来获取几何数据，蒙皮参数和基于时间的动画值。它通过引用一个 bufferView 对象，来引用实际的二进制数据。
+8. *material*：包含了定义 3D 对象外观的参数。它通常引用了用于 3D 对象渲染的 texture 对象。
+9. *texture*：定义了一个 sampler 对象和一个 image 对象。sampler 对象定义了 image 对象在 3D 对象上的张贴方式
+
+glTF 格式以引用方式使用外部二进制数据，比如 3D 对象的几何数据和纹理数据通常不被包含在 JSON 文件中，它们被存储在外部的文件中。JSON 文件中只包含了到这些外部文件的链接。这使得二进制数据可以以非常紧凑的形式进行存储方便互联网传输，并且可以直接被渲染程序使用，无需额外的解码、预处理。
+
+
+
 # 🐣 Toons History
+The History of Animation https://www.bilibili.com/list/57598190
+FXPHD 影视特效行业基础讲解 《maleficent》脸部跟踪系统 https://www.bilibili.com/video/BV1pD4y1Q777?p=7
+
+动画的概念不同于一般意义上的动画片，动画是一种综合艺术，它是集合了绘画、漫画、电影、数字媒体、摄影、音乐、文学等众多艺术门类于一身的艺术表现形式。
+
+按不同的制作媒体，动画可以分为传统手绘动画、皮影戏（Shadow Puppets）、剪影动画 Cut-Out Animation、沙土动画，黏土动画，剪纸动画 Cutout Animation 等等；按制作方式差异，动画可以分为传统动画、矢量动画（2D动画）、3D动画、MG（motion graphic）、定格动画 Stop Motion Animation。
+
+中国民间传统的和剪影动画非常相似，文字记录可以追溯到 2000 多年前，记录在《汉书》汉武帝与爱妃李夫人的爱情故事中，李少翁上演了最早的皮影戏。《大河唱》皮影艺人 https://www.bilibili.com/bangumi/play/ep431096
+
+MG动画即运动图像，比如经典的 Ease Tween 缓动曲线函数控制的图形运动。
+
+定格动画一般是逐帧拍摄实景，而实景一般通过粘土等可以重复塑性的材料制作，比如动画版 Fantastic Mr. Fox《了不起的狐狸爸爸》 https://www.bilibili.com/video/BV1qr4y1D7SY/。
+
+3D 动画作为计算机动画的一种主要形式，在现代信息化高度发达的世界中得到了大量的应用，它具有制作复杂、画面华丽、效果真实的特点。是美国好莱坞等电影工业基地制作大型动画电影的主要手段之一。3D 动画需要制作复杂的角色模型，并且通过骨骼绑定或动作捕捉技术控制角色的运动，结合贴图、蒙皮技术、材质技术创造出真实的角色形象。例如，2011 改编自比利时漫画家沛优同名漫画及动画片
+《蓝精灵》（The Smurfs）电影版，影片采用“表演捕捉+CG动画”的方式制作。国内的有 2020 年改编同名玄幻小说的《凡人修仙传》。
+
 
 上个世纪，动画制作开始发展，慢慢从传统的基于纸质绘画和摄影台的制作工艺过渡到以计算机技术为主导的潮流中。到目前为止，诞生了大量 2D/3D 动画制作软件，极大地提高了动画制作效率。如开源免费的 Blender 既能 2D 又能 3D，提供基础的 Eevee 实时渲染非常强大。由其基金会支持的 Mango Open Movie 在 2019 年发行，Andy Goralczyk 导演的《Spring》效果惊艳。
  
-其它的 2D 动画制作软件有 Anime Studio/Toon Boom Storyboard/TVPaint Animation/Adobe Animate/Comic Studio/Retas Studio 等等，OpenToonz 和 Sketchbook 作为开软免费的存在，着实让人高兴。其它还有大量着重绘画效果的软件，有 OpenCanvas/ArtRage/Printer/Krita 等。
+其它的 2D 动画制作软件有 Anime Studio/Toon Boom Storyboard/TVPaint Animation/Adobe Animate/Comic Studio/Retas Studio 等等，OpenToonz 和 Sketchbook 作为开软免费的存在，着实让人高兴，更加强大的开源免费动画软件实属 Blender，它是包揽 2D/3D 动画全流程制作的工具，可以使用蜡笔绘制传统手绘动画，同时结合 3D 的建模工具（几何网格、雕刻、几何节点程序化建模等、VDM 矢量置换映射等等）。其它还有大量着重绘画效果的软件，有 OpenCanvas/ArtRage/Printer/Krita 等。
 
 Clip Studio Paint 是作为 ComicStudio、IllustStudio 继任者而出现的绘图软件，同属于 CELSYS 公司，一般简称为 CSP，国内有引进版叫优动漫。
 
-也就是说CLIP STUDIO PAINT是ComicStudio和IllustStudio的结合，拥有ComicStudio的全部功能同时也有IllustStudio的功能，在和以往只针对漫画而言的ComicStudio更拥有了强大的画插画能力，CLIP STUDIO PAINT的强大之处。
+也就是说 CLIP STUDIO PAINT 是 ComicStudio 和 IllustStudio 的结合，拥有 ComicStudio 的全部功能同时也有 IllustStudio 的功能，在和以往只针对漫画而言的 ComicStudio 更拥有了强大的画插画能力，CLIP STUDIO PAINT 的强大之处。
+
+一部动画片从立项开始，需部动画制作基本流程大概分为前期、中期、后期三个阶段。镜头是制作过程中的最重要的组织概念，导演需要将剧本分解成一个个段落 ，然后每个段落分解到一个个镜头。镜头是独立的单元，最终合成起来就是长片。
+
+- 前期工作：
+    - 剧本：根据创作者灵感设计故事情节与走向。
+    - 人物：根据剧本设计角色形象、动作、表情等。
+    - 场景：根据角度和故事背景设计合适的场景，作为分镜参考。
+    - 气氛：根据影片风格设计整体色彩风格，奠定情绪基调。
+    - 故事板：使用简化后场景、人物动态汇合成一个原始的分镜参考或影片雏形。
+- 中期工作：
+    - 2D：根据故事板的分镜绘制各个镜头的动画原画、关键帧。
+    - 3D：使用软件建模、绑定角色骨骼或动作捕捉制作动画，设计场景、灯光，添加粒子、毛发、布料等特效等。
+- 后期工作：图像合成、特效、调色、渲染、配音配乐。
 
 上世纪的动画，参考 Gene Deitch 的马罗 Munro，以现代的视角来看，这个短片只似乎除了故事就没有值得参考的，但是应该回到 1961 的那个年代，在当时的历史背景去理解这种主导风格 Dominant Animation Style 绘画表现。
 
@@ -689,22 +1085,22 @@ Clip Studio Paint 是作为 ComicStudio、IllustStudio 继任者而出现的绘�
 - Milt Kahl (1909年3月22日 - 1987年4月19日)
 - Marc Davis (1913年3月30日 - 2001月12日)
 
-《罗宾汉》发行的时候他们所有人在一起拍摄了最后一张集体照，九大元老中只有 4 位还在迪士尼做动画，他们是 Milt Kahl、John Lounsbery、Frank Thomas 和 Ollie Johnston （不过 Eric Larson 还在迪士尼工作，主要从事人才的发掘和培训）。John Lounsbery 在1976年死去，同年，Milt Kahl 退休而在1987年去世。Frank Thomas 和 Ollie Johnston 在1977年退休，不过他们后来一起出现在 Brad Bird 导演的电影《正义铁巨人》（1999年，华纳兄弟发行）和《超人总动员》（2004）中。Frank Thomas 不久，在2004年去世，而 Ollie Johnston 成为唯一在世的“元老”。
+《罗宾汉》发行的时候他们所有人在一起拍摄了最后一张集体照，九大元老中只有 4 位还在迪士尼做动画，他们是 Milt Kahl、John Lounsbery、Frank Thomas 和 Ollie Johnston （不过 Eric Larson 还在迪士尼工作，主要从事人才的发掘和培训）。John Lounsbery 在1976年去世，同年，Milt Kahl 退休而在1987年去世。Frank Thomas 和 Ollie Johnston 在1977年退休，不过他们后来一起出现在 Brad Bird 导演的电影《正义铁巨人》（1999年，华纳兄弟发行）和《超人总动员》（2004）中。Frank Thomas 不久，在2004年去世，而 Ollie Johnston 成为唯一在世的“元老”。
 
 这九大元老创立了动画的12个基本准则：
 
-- Squash and stretch
-- Anticipation
-- Staging
-- Straight Ahead Action and Pose to Pose
-- Follow Through and Overlapping Action
-- Slow In and Slow Out
-- Arcs
-- Secondary Action
-- Timing
-- Exaggeration
-- Solid Drawing
-- Appeal
+01. Squash and stretch
+02. Anticipation
+03. Staging
+04. Straight Ahead Action and Pose to Pose
+05. Follow Through and Overlapping Action
+06. Slow In and Slow Out
+07. Arcs
+08. Secondary Action
+09. Timing
+10. Exaggeration
+11. Solid Drawing
+12. Appeal
 
 相关资源：
 
@@ -801,26 +1197,127 @@ Clip Studio Paint 是作为 ComicStudio、IllustStudio 继任者而出现的绘�
 - [获奖微电影合集](https://www.bilibili.com/video/BV1qE411M7da)
 
 ## 🐥 the 12 Principles of Animation
-- The illusion of life: Disney animation by Frank Thomas, Ollie Johnston https://book4you.org/book/1190255/543c27
+- The illusion of life: Disney animation by Frank Thomas, Ollie Johnston
 - 迪士尼动画十二原则 https://www.bilibili.com/video/BV1Qt411v7ih/
 - Spine 演示迪士尼动画十二原则 https://www.bilibili.com/video/BV1Nz4y127sM
+- 动画师生存手册 The Animators Survival Kit Animated by Richard Williams Animation Masterclass 2008 https://www.bilibili.com/video/BV1pt411i7nD/
 
 迪士尼的 12 项动画基本原则是迪士尼动画制作人 Ollie Johnston 和 Frank Tomas 在 1981 年出版的 The Illusion of Life: Disney Animation 书中介绍的原则。在 20 世纪 30 年代之后，Johnston 和 Thoma 轮流将他们的书基于引领动画制作人来修订，并且投入努力去制作更多的现实风格动画。
 
-原则的主要目的是制作一个与物理基本原则相联系的动画人物幻象，但是他们也可以应对更多抽象的问题，例如说情感化的时机还有人物吸引力。
+原则的主要目的是制作一个与物理基本原则相联系的、艺术抽象的动画人物幻象，但是他们也可以应对更多抽象的问题，例如说情感化的时机还有人物吸引力。
 
-- Squash & Stretch 通过挤压和拉伸生动地表达体积感的变化；
-- Anticipation 预备动作为观众心理预期准备一个适应性提示；
-- Staging 舞台布局在画面构图上精心安排好主次元素；
-- Straight Ahead Action & Pose to Pose 使用关键帧来设置动画姿态并保持动作连贯；
-- Follow Through & Overlapping Action 为受力拖拽、惯性元素提供动画效果，前后画面有交叠更流畅；
-- Slow In & Slow Out 缓入缓出（Ease In/Out），真实世界的动画是累积的而非突变的；
-- Arcs 弧线运动，这是普遍存真实世界中的运动，如手臂的摆动，身体的弯曲等等；
-- Secondary Action 次要动作是丰富动画内容的重要手段，例如人物搬运重物前可以添加一个摩擦手掌的动作；
-- Timing & Weight 时间节奏和重量感，时间越短或帧数越少表示动作越快；
-- Exaggeration 夸张地表现情绪气氛；
-- Solid Drawing 立体造型，符合透视的画面才更真实；
-- Appeale 吸引力，让画面更讨喜、比例更突出，使用画面简洁而突出重点，这也是动画与插画的区别；
+01. *Squash & Stretch* 通过挤压和拉伸生动地表达体积感的变化；
+02. *Anticipation* 预备动作为观众心理预期准备一个适应性提示；
+03. *Staging* 舞台布局在画面构图上精心安排好主次元素；
+04. *Straight Ahead Action & Pose to Pose* 使用关键帧来设置动画姿态并保持动作连贯；
+05. *Follow Through & Overlapping Action* 为受力拖拽、惯性元素提供动画效果，前后画面有交叠更流畅；
+06. *Slow In & Slow Out* 缓入缓出（Ease In/Out），真实世界的动画是累积的而非突变的；
+07. *Arcs* 弧线运动，这是普遍存真实世界中的运动，如手臂的摆动，身体的弯曲等等；
+08. *Secondary Action* 次要动作是丰富动画内容的重要手段，例如人物搬运重物前可以添加一个摩擦手掌的动作；
+09. *Timing & Weight* 时间节奏和重量感，时间越短或帧数越少表示动作越快；
+10. *Exaggeration* 夸张地表现情绪气氛；
+11. *Solid Drawing* 立体造型，符合透视的画面才更真实；
+12. *Appeale* 吸引力，让画面更讨喜、比例更突出，使用画面简洁而突出重点，这也是动画与插画的区别；
+
+
+动画片播放过程中，眼球接受最为自然的是1秒24张图片，一拍一就是 1 张原画拍 1 帧画面；一拍二就是一张图在动画播放时停留 2 帧，也就是 1 秒画 12 张图；一拍三就是一张图停留 3 帧，只需要画 8 张图。
+
+在动漫业发达的日本，使用最多的是拍二拍三，这主要运用在有限动画中。一拍三这基本也是动画视觉上的极限了，正因为一拍三的动作连贯性比以上那些差，所以日本在人设、情节和动作设计还有镜头等方面下了很大功夫，并直接促使原画模式的诞生。
+
+原画模式一言而概之，就是时间上而言是关键帧的使用，空间上则是镜头位置的运用。
+
+一拍一，一画拍一帧，特点是细腻流畅，单位时间内需要更多的原画，相应成本高（人力成本或时间成本）。
+
+一拍二，一画拍两帧，特点是有张力，有表现的余地，方便计算和规划，可以看作是一拍一的精简版，日本动画里最常用。
+
+一拍三，一画拍三帧，特点是粗犷有力，成本相对较低。日本动画里常用在表现力量感和速度感的场景里。很好理解，两画之间的间隔时间越长，动作差别越大，画面也越卡顿。爆发力往往需要较大的力距对比来表现力量感，自然是一排三更合适。
+
+但是，比较成本的高低，有个重要的前提——规范化管理。一拍二和一拍三在日本动画中同时作为常规手段切换使用，是经过规范化设计的，避免多人协作时出现的混乱问题，这也是“原画模式”的由来。所以，如果是临时的多人协作，缺少必要的磨合和讨论，一以贯之地用一拍二可能是最节省成本和最保证质量的。
+
+动画师生存手册术语对照：
+
+| Index |         英文原文        |      中青版译法      |       台湾版译法       |
+|-------|-------------------------|----------------------|------------------------|
+| A     | accent                  | 强调动作、重音       | 强调动作、强调         |
+|       | animatic                | 样片                 | 原画样片               |
+|       | anticipation            | 预备                 | 预期性                 |
+| B     | back & forth vibration  | 来来回回的振动       | 来回震动               |
+|       | breakdown               | 小原画               | 细分                   |
+|       | breaking joint          | 折断关节、弯曲关节   | 打断关节               |
+|       | The 'brief'             | 简明扼要             | 摘要                   |
+| C     | charts                  | 标尺                 | 表格                   |
+|       | cliché                  | 套路                 | 常见题材               |
+|       | consonants              | 辅音                 | 子音                   |
+|       | contact drawing         | 接触                 | 接触点                 |
+|       | contrast                | 对比度               | 对比                   |
+|       | counter action          | 反作用               | 反作用力               |
+|       | cushioning in           | 缓冲入               | 缓冲式、缓冲效果       |
+|       | cushioning out          | 缓冲出               | 缓冲式、缓冲效果       |
+| D     | dialogue                | 对话                 | 对话                   |
+|       | drag                    | 拽动、拖拽           | 拖动、拖拽             |
+|       | drapery                 | 衣角、衣角摆动       | 服装摆动               |
+| E     | exaggerate              | 夸张                 | 夸张性                 |
+|       | exposes sheet/X-sheet   | 摄影表               | X表、摄影表            |
+|       | extremes                | 原画                 | 极端                   |
+| F     | flexibility             | 弹性                 | 柔软度                 |
+|       | flow                    | 连贯、自然           | 自然流畅               |
+|       | folding and unfolding   | 缩起与展开           | 收缩与伸展             |
+|       | follow through          | 动作跟随             | 跟随动作               |
+|       | formula                 | 规则、模式           | 公式                   |
+| H     | hard accents            | 剧烈的强调动作       | 强烈的强调动作         |
+|       | hook-ups                | 一环套一环           | 衔接                   |
+| I     | inbetween               | 中间画               | 中间画                 |
+|       | inbetweener             | 中间画动画师         | 中间画家               |
+|       | interleave              | 交织                 | 交错                   |
+|       | invisible anticipations | 无形的预备动作       | 无形的预期性           |
+| K     | key                     | 关键张               | 关键                   |
+| L     | Leica Reel              | 莱卡带               | 原画                   |
+|       | level sync              | 声画剪辑同步         | 标准同步法             |
+|       | limber                  | 弹性                 | 柔软、弯曲             |
+|       | Live Action             | 真人表演             | 生动影像、逼真动作     |
+|       | long-headed inbetweens  | 拉长了头的中间画     | 尖形中间画             |
+|       | loosen up               | 自如、放松           | 随性                   |
+| M     | March Time              | 行军节拍             | 行进节拍               |
+|       | method                  | 作风                 | 方法                   |
+| O     | ones & twos             | 一拍一与一拍二       | 一次曝光法与两次曝光法 |
+|       | over animation          | 过渡动画(疑为笔误)   | 过度动画               |
+|       | overlapping action      | 重叠动作             | 重叠动作               |
+| P     | passing position        | 过渡位置             | 经过位置               |
+|       | pattern                 | 模式                 | 方法                   |
+|       | phrasing                | 分节法               | 分段                   |
+|       | pose to pose            | 原动画法、重点动作法 | 动作对应               |
+|       | principle               | 原理                 | 原则                   |
+|       | progress the action     | (说话的同时)引领动作 | (说话时)逐渐推进动作   |
+| R     | Rubber Hose Animation   | “橡胶软管”动画       | “水管型”动画           |
+| S     | separate the character  | 区分开角色           | 区隔角色               |
+|       | side to side vibration  | 一侧到另一侧的振动   | 边对边震动             |
+|       | slowing in/easing in    | 慢入/渐入            | 由慢至快               |
+|       | slowing out/easing out  | 慢出/渐出            | 由快至慢               |
+|       | snap                    | 骤变                 | 快照                   |
+|       | sneak                   | 蹑手蹑脚             | 潜行步法               |
+|       | soft accents            | 柔和的强调动作       | 温和的强调动作         |
+|       | sophisticate            | 复杂的、成熟的       | 复杂的、精致的         |
+|       | spacing                 | 空间幅度             | 间距                   |
+|       | squash & stretch        | 压缩与伸展           | 压缩和延伸             |
+|       | squash/squashy          | 压缩                 | 压缩                   |
+|       | stagger                 | 摇摇晃晃             | 交错                   |
+|       | stagger vibration       | 摇摇晃晃的振动方式   | 交错震动               |
+|       | storyboard              | 故事板               | 分镜脚本               |
+|       | straight ahead          | 逐张画法、连续动作法 | 一气呵成               |
+|       | stretch/stretchy        | 伸展                 | 延伸                   |
+| T     | take                    | 前期动作             | 预期动作               |
+|       | thumbnai                | 草图                 | 草稿图                 |
+|       | timing                  | 时间点               | 时间                   |
+|       | twining                 | 对称、孪生           | 对称、成对             |
+| U     | Up & Down               | 向上和向下           | 上位与下位             |
+|       | up & down vibration     | 上上下下的振动       | 上下震动               |
+| V     | vibration               | 振动                 | 震动                   |
+|       | volume                  | 尺度                 | 体积                   |
+|       | volume control          | 严格把关             | 确实掌控               |
+|       | vowel                   | 元音                 | 母音                   |
+| W     | wave action             | 飘动动作             | 波形运动               |
+|       | weight shift            | 重心转移             | 转移重量               |
+|       | whip action             | 抽打动作             | 甩动动作               |
 
 
 ### 🐤 挤压和拉伸 Squash and Stretch
@@ -901,18 +1398,58 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 
 
 # 🐣 绘画艺术基础
-- 画家之眼 the Eye of the Painter and Elements of Beauty by Andrew Loomis
-- [Key to Drawing 素描的诀窍 (美)伯特·多德森](https://book4you.org/book/15425289/667bb9)
-- [The Complete Introduction to Drawing](https://book4you.org/book/3690965/5f8857)
-- [观看之道 （Ways of Seeing, 1972）约翰·伯格](https://www.bilibili.com/video/av15938583/)
-- [Drawing Tutorials - How to Draw Step by Step](http://www.dueysdrawings.com/drawing_tutorials.html)
-- [Duey's Stile Life Tutorial](http://www.dueysdrawings.com/still_life_tutorial.html)
-- [How to draw Grass and Weeds Tutorial by Diane Wright](http://www.dianewrightfineart.com/drawing-grass-1.htm)
-- [Expresii 水墨公鸡示范](https://www.bilibili.com/video/BV1bx411s7vb)
+01. 画家之眼 the Eye of the Painter and Elements of Beauty by Andrew Loomis
+02. [Key to Drawing 素描的诀窍 (美)伯特·多德森](https://book4you.org/book/15425289/667bb9)
+03. [The Complete Introduction to Drawing](https://book4you.org/book/3690965/5f8857)
+04. [观看之道 （Ways of Seeing, 1972）约翰·伯格](https://www.bilibili.com/video/av15938583/)
+05. [Drawing Tutorials - How to Draw Step by Step](http://www.dueysdrawings.com/drawing_tutorials.html)
+06. [Duey's Stile Life Tutorial](http://www.dueysdrawings.com/still_life_tutorial.html)
+07. [How to draw Grass and Weeds Tutorial by Diane Wright](http://www.dianewrightfineart.com/drawing-grass-1.htm)
+08. [Expresii 水墨公鸡示范](https://www.bilibili.com/video/BV1bx411s7vb)
+09. 冉茂芹素描女肖像 https://www.bilibili.com/video/BV1Qg411E7uX/
+10. 忙波画牛仔 https://www.bilibili.com/video/BV1XD4y1s7ey/
+11. Craig Mullins 数字手绘 http://www.goodbrush.com/
+12. Digital Painting with Craig Mullins https://www.bilibili.com/video/BV1PW411P72W/
+13. 徐徐绘画 素描课 https://www.bilibili.com/video/BV17t41117zH
 
-艺术境界大概有四个层次，匠、艺、文、道，先求表面的相似，再求艺术意蕴，再升华精神感悟。
+Glenn Vilppu 画画基础课程 Drawing Essentials
+https://www.bilibili.com/video/BV1Ez411i7ft/
 
-先来说说网上流行的说法：人类的本质是复读机！这种说法有一定的合理性，甚至对于大多数普通人来说是完全正确的。今天的你之所以是你，是因为你脑袋中存在的已经从其它人那里在复制好的知识、文化、经验等等。
+    Week1 绘画基础：材料、线条和明度的基础
+    Week2 Drawing as a Tool
+    Week3 如何学习
+    Week4 观察
+    Week5 描绘并分析形体：结合调子和间接光源描绘形体
+    Week6 构建真实感：直接光源、阴影、反射光、投影
+
+Glenn Vilppu 人体结构解剖素描
+https://www.bilibili.com/video/BV1fs411N7nE/
+
+Glen Vilppu - Language of Drawing 17 DvDs
+https://www.bilibili.com/video/BV145411A7CV/
+
+王国维《人间词话》的核心理论是艺术的三重境界：句秀，骨秀、神秀。
+
+林谷芳将艺术境界概括为四个层次：匠、艺、文、道，先求表面的相似，再求艺术意蕴，再升华精神感悟。
+
+在艺术道路上，美感永远是第一位的，培养识别美的能力永远是第一要务！只有在美感的指导下才能创作出美的作品！反而绘画表达能力是其次，行业中称之为“眼高手低”，当然这并不是说绘画表达能力不重要。
+
+美，是指能引起人们美感的客观事物的一种共同的本质属性，但它本身是一种主观感受，美不是客观存在，抽象美（意境）永远比具象美更有吸引力。人类关于美的本质、定义、感觉、形态及审美等问题的认识、判断、应用的过程是美学。
+
+人类历史上第一篇系统研究美学的文章《大希庇阿斯篇》，作者柏拉图通过苏格拉底之口提出“美本身”的概念，认为应严格区别“美本身”与具体的美的事物，然后，作者分别对当时流行的关于美的见解，如美是有用，有益，恰当，快感等进行了批判。
+
+19 世纪实验美学（experimental aesthetics），费希纳首先把心理实验法引入美学领域。屈尔佩则在此基础上详细探讨了印象法、表现法、制作法三大研究方法及其具体运用，开辟了对具体审美经验进行研究的新途径。
+
+美可以概括为一切事物在人脑中产生的刺激信号，并由此引起人的愉悦反应，包括第一信号（小脑）和第二信号（皮层），它们是产生美的原因。
+
+以人感知客观世界的方式（嗅，触，尝，听，看，想）为标准，美可分为实用美，形式美，音乐美、精神美和创造美。以人的需要层次为标准，美可分为生理美、先验美和精神美。美包括生活美（自然美和社会美）和艺术美两个最主要形态。
+
+劳动即美，亦是享受。劳动是创造，是人类获得满足的实践过程。资本主义异化下的工作不是劳动，异化分离了劳动中原本统一的创造与获得满足的一体结构，工作成为资本剥削剩余价值的手段，工作成为无产阶级以时间换取生活资料的途径。
+
+形式美法则，是人类在创造美的形式、美的过程中对美的形式规律的经验总结和抽象概括，《画家之眼》一书对绘画美的元素有较完整的解说。
+
+
+有一种说法：人类的本质是复读机！这种说法有一定的合理性，甚至对于大多数普通人来说是完全正确的。今天的你之所以是你，是因为你脑袋中存在的已经从其它人那里在复制好的知识、文化、经验等等。
 
 以上观点只是为了说服你认真的复刻他人的作品，说抄袭就不恰当，因为你不是通过改造别人的作品来商业使用，重要的是在这个过程中学习转化你所欠缺的技能。
 
@@ -939,19 +1476,24 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 
 基础的艺术元素 Elements of Art：
 
-- 线条 Line
-- 造型 Shape
-- 明暗 Value
-- 颜色 Color
-- 肌理 Texture
-- 结构 Form
-- 空间 Space
+1. 点 Points
+2. 线条 Line
+3. 形状 Shape
+4. 明暗 Value
+5. 颜色 Color
+6. 肌理 Texture
+7. 结构 Form
+8. 空间 Space
 
-它们的关系大概是从线条得到造型，并表现出物体的在空间中结构，也就是绘画作品中重要的体积感。而画面还包含最基本的明暗关系的处理，然后再补充完整的色彩，以及肌理细节。
+它们的关系大概是从线条得到造型，并表现出物体的在空间中结构，也就是绘画作品中重要的体积感。而画面还包含最基本的明暗关系的处理，然后再逐步给局部补充完整的色彩，以及肌理细节。这这个过程是从简要概括的线条、几何图形，逐步添加细节的绘画过程，绘画的细化永无止境。这样的绘画流程优点是：使用简单几何图形更便于准确地从整体把握画面元素之间的比例关系、明暗关系、主次关系，即素描关系，这是画好一副画的最重要的切入点。
 
-入门关是线条，然后是造型，这部分过不了关基本上就和绘画艺术无缘了。
+细化局部的过程会涉及丰富的细节，如果没有相当的积累，就会出现无法进行表达，无法画下去的状况。这些细节必然需要日常中积累，或者借用参考图片。Craig Mullins 的作品非常值得参考，他在细化作品的过程就需要大量的参考图。Craig Mullins 作画常用硬边圆笔刷，并且表示用硬边缘笔刷可以有更多自己的表达，而其它特效笔刷虽然可以加速绘画，但是也剥夺了艺术家的想法。这种绘画方式和油画非常类似，要求有扎实的素描功底。
 
-当然，也有像点画大神 Phil Hansen 一样画不了直线的画家，他因永久性神经失调而失去定位的手势控制能力。
+忌讳一上来就扣细节不许，这样作画不仅无法保证画面元素的整体关系，更可能导致绘画效率低。所谓车到山前必有路，先从简化的全局的元素着手，确保画面的基调，再逐步细化。不能一上手就开始从画面某个局部细节开始。当然，有人这样画，这必定有个堤：对最终结果、细节细化程度有一个明确要求，并且要将细节熟记于心。
+
+由浅入深、由简到繁是一条普遍性的规律，适用于各种技能的学习过程。
+
+入门关是线条，然后是造型，这部分过不了关基本上就和绘画艺术无缘了。当然，也有像点画大神 Phil Hansen 一样画不了直线的画家，他因永久性神经失调而失去定位的手势控制能力。他的作品很好地用看似杂乱的散点达成了绘画生一个要点：统一、协调性。Loomise 在其《画家之眼》之眼中称之为 Unity。看似混乱的东西，其背后也可以通过统合性重现出协调的美感。
 
 如何使用软件辅助可以创作好的作品也未偿不可，会画软件一般自带平滑工具，也有像 Lazy Nezumi 这样的专用平滑工具。 
 
@@ -974,30 +1516,156 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 - *主题*（subject）：这项要素提供给画家大好机会，充分发挥个人品位。画家可以从生活和大自然中，找到数不清的主题，从中挑选、设计和创造出自己专注的主题，展现画家本身对美的鉴赏力。
 - *技法*（technique）：意指表现的方式而非表现本身。技法包括对于物体表面和质感的理解，以及对媒材及媒材应用之诸多方法的认识。技法是结合其他美的要素所做的个人表现。
 
+素描或速写是绘画的最基础的能力，它们大体相通，侧重稍有差异。素描 Sketches 要义在“素”，即简要地表达画面的三大结构关系：画面整体比例关系、透视关系、明暗关系。速写 Quick Sketches 侧重在于快速，以尽量少的时间把握画面人物的动态结构，表现物体的姿态。
+
+Structure Sketch 结构素描，又称“形体素描”，是以线条为主要表现手段，不施明暗，没有光影变化，而强调突出物象的结构特征。以理解和表达物体自身的结构本质为目的，结构素描的观察常和测量与推理结合起来，透视原理的运用自始至终贯穿在观察的过程中，而不仅仅注重于直观的方式。这种表现相对比较理性，可以忽视对象的光影、质感、体量和明暗等外在因素。
+
+任何物体都可以归纳为最简单的明暗关系：三大面，即受光部分、背光部分、明暗交界线。最简单就是正方体、长方形物体在侧面来光的情况，产生的受光面、顺光面、背光面。
+
+①色彩的画面灰、粉，都是素描关系不明确的问题，画面中灰色太多，重色太少，画面就会很灰、粉。 颜色好看不如素描关系更强。 ②一副色彩也要有前后虚实变化、结构、空间、体积，而这些关系是要依靠素描关系来支持。 而且有了素描关系之后画面会更加真实。 ③素描关系主要是通过高光、亮面、交界线、暗面、反光来体现，这是比三大面更细化的五大调子，*五大调子*在画面中占主导地位，能够通过其明暗对比、层次变化，强弱虚实来反映素描艺术的真实性。
+
+素描的技法都是为表达画面结构关系服务的，即在合乎比例的位置绘画出轮廓，在明暗关系相关的位置绘画出面、过度。
+
+素描的要素是线，排线是最基本的技法，在素描中可以用线条区分立体与平面，至于色彩明暗是为了加强和分清整体与部分的关系。素描的线条技法还需要平面技法的辅助，手指或纸巾涂抹法等可以更平滑地表现平面。平面技法在使用炭粉笔时，在明暗对照上可用擦笔法。
+
+
 
 ### 🐤 Lines 线条
 - 线条准确性流畅性与力度控制训练方法 https://www.bilibili.com/video/BV1Qi4y1L71S/
 - 怎样打好素描的基础？ https://www.zhihu.com/question/26444779/answer/459808155
 
+
+人体是一个精密的机体，所有绘画动作都在眼、脑、手之间形成一个信号闭环。肌肉和骨骼的协调性训练是绘画练习中的最基本内容。骨肉在神经系统控制下调动骨骼完成精神中构想的动作，每一笔画都是先有神而后有形。眼睛在绘画过程中的一大功能就是担当信号反馈器，在遮挡运动前方、死盯笔尖的情况下，并不能绘画出最完美的条件，因为此时画面部分有用信息被过滤掉了。或者说，由于遮挡、注意力受限，导致手部运动缺少目标性指导，从而导致线条失控、扭曲。
+
+整个手眼信号反馈系统是有延时的，从眼睛观察到图像，到大脑识别到信号并命令肌肉作出反应，这个时间大概在 200ms - 300ms 范围，专业的电竞选手可以达到 150ms 水平，并且这个反应延时基本是天生的，后天训练不能大幅提高。反应越快，通过观察到的参考信息对肢体运动的修正控制就越精确。而练习的目的就是要形成肌肉记忆，减少或替代反馈能力的依赖，做到真正的下笔如有神。
+
+导致线条不受控的一大原因是震颤，震颤是一种非自主的、有节奏的肌肉收缩，导致身体的一个或多个部位发抖。这是一种常见的运动障碍，且最常见的影响部位是双手，但也可发生于手臂、头部、声带、躯干和腿。震颤在何年龄都可能发生，但在中老年人中最为常见，可能是间歇性的或持续的。一般来说，震颤是由大脑深处控制运动的问题引起的，可自行发生，或是由多种神经紊乱的症状引起。即使正常健康状态也会有震颤现象，比如寒冷时小脑会使全身颤抖以产生更多的热量御寒。当然，在身体不适的情况下，震颤现象可能会更明显。
+
+震颤可分为静止性、动作性震颤两大类：
+
+静止性震颤发生在肌肉放松时，例如当手放在膝盖上休息时会发生颤抖，并且常见于手部。这种类型的震颤在帕金森病患者中较为典型。
+
+动作性震颤在肌肉运动时发生，这也是绘画中导致线条抖动的主要原因：
+
+1. 体位性震颤：肌肉与重力对抗的位置，例如伸出手臂；
+2. 运动性震颤：随意运动时发生，如手腕向上和向下移动或闭合和睁开眼睛；
+3. 意向性震颤：身体部分有目的地向目标移动时发生，例如抬起手指触摸鼻子；
+4. 等长收缩性震颤：肌肉主动收缩期间，如把重物端起并保持在同一位置。
+
+配合哑铃等工具针对相应肌群做有效的锻炼，是克服震颤的有效方法。
+
+肌肉收缩其实是有三种形式，“力量够不够”导致的震颤问题，可能是向心收缩的力量比较强，但是其他两种收缩的力量比较弱。以下图哑铃相关动作为例：
+
+https://pica.zhimg.com/v2-2b1c30b9695bed432792af99bbf54df8.jpg
+
+1. 向心收缩：肱二头肌发力，肌纤维缩短，哑铃随前臂抬起；
+2. 离心收缩：肱二头肌发力，肌纤维拉长，哑铃随前臂放下；
+3. 等长收缩：肱二头肌发力，肌纤维长度不变，哑铃随前臂维持相同位置。
+
+离心收缩能力弱的表现是放下哑铃时出现震颤，特别是缓慢放下，有动作控制，才能明显体验到。训练时，应该像练太极拳一样，尽量放慢动作，保证肌群各种收缩能力的锻炼。
+
+向心收缩（肌肉纵向收缩）是积极的在做功，肌肉主动收缩克服阻力（哑铃产生的反向作用力）。离心收缩是一种肌肉纤维被动拉伸运动，肌肉收缩的力量小于阻力，使得肌肉纤维被拉伸。
+
+离心收缩（肌肉径向收缩）最主要的功能就是对肌肉拉伸速度的控制功能，如果这个速度太快，有可能产生肌肉损伤、拉伤。所以离心收缩，拉长，它应该是一个慢慢控制住肌肉，让这个运动的速度不要太快，从而避免产生这种运动损伤。
+
+肌肉离心收缩和向心收缩都能造成拉伤，并且离心收缩更容易造成拉伤。简单说，离心收缩会导致肌肉过度拉伸，肌结断裂，激发-收缩耦合系统受损。但是这里面有比较复杂的生理过程，也有些未定性的问题。
+
+离心控制❗️核心收紧❗️是健身教练、健身达人们说的最多的关键词。从宏观来看“波棱盖”往上及“肩膀头子”以下都可以称之为核心。但是训练中的“核心”通常指包裹内脏和腹腔的肌肉：膈肌、腹横肌，骨盆底肌、多裂肌。为什么要收紧核心？目的是提高训练的安全性！在完成任何抗阻力训练时，需要克服阻力来做功，同样阻力也会向身体施加一个力，而这个力并不只由目标肌肉群来承担，而是透过目标肌群筒躯干完成力量的相互传导。支撑躯干稳定的力由关节、韧带、肌肉共同承担，如果肌肉处于放松的状态，力量自然就会更多施加在关节、肌腱上，自然增加了受伤的风险。关节、肌腱并没有很强的延展能力，更加容易拉伤。
+
+因此，收紧核心可以更好的分摊训练时阻力给关节、肌腱的压力，让更多的力量由肌肉来承担，可以极大的降低运动损伤风险。同时，核心作为连接上肢与下肢的基础，强大的核心力量更加利于力量的传导，减小损耗。
+
+如何收紧核心？做个简单的测试：先吸满一口气把肚子顶起来，然后把手放在肚子上，用力一下把气全呼出去，此时腹部是不是在这一瞬间收紧了呢？这种状态武术上类似的称之为“气沉丹田”。
+
+人体肌肉细胞可分为三类：
+
+1. 骨骼肌（Skeletal muscle），随意肌（voluntary muscle），可由意识支配；
+2. 心肌（Cardiac muscle），不随意肌（involuntary muscle），无法自由控制；
+3. 平滑肌（Smooth muscle），不随意肌（involuntary muscle），无法自由控制。
+
+解剖观察上，骨骼肌和心肌细胞都具有着明暗相间的条纹，因此骨骼肌和心肌又称为横纹肌（Striated muscle）。因为肌原纤维全长由暗带（A带）和明带（I带）交替排列形成，在显微镜下呈有规律的横纹排列。
+
+肌肉的细微结构：肌肉是由成束排列的肌细胞组成，肌细胞又称肌纤维，是肌肉结构和功能的基本单位。每条肌纤维外面被肌膜包裹，肌膜相当于细胞膜，肌膜内有肌浆和多个细胞核。肌纤维的肌浆十分丰富，肌浆内含有大量的线粒体、糖原和脂滴外，还充满与肌纤维平行的肌原纤维和复杂的肌管系统。
+
+https://cdn.britannica.com/35/2835-050-FE6705E3/bundle-muscle-fibres-tissue-Striated-structure-human.jpg
+https://i0.hdslb.com/bfs/article/168f768e97061521c593d1dd27583b140177899c.png
+Anatomy and Physiology 2e
+10.2 Skeletal Muscle https://openstax.org/books/anatomy-and-physiology-2e/pages/10-2-skeletal-muscle
+肌肉是如何收缩的？ https://www.bilibili.com/read/cv3024715
+
+将骨骼肌层层剥开，得到许多条**肌纤维**（muscle fiber），每条肌纤维即一条骨骼肌细胞。骨骼肌纤维为骨骼肌收缩的最小单位，呈细长的圆柱状，直径从 10-100μm 不等，长度一般为 10cm，当然，在一些比较长的骨骼肌中，例如大腿上的缝匠肌，一些骨骼肌纤维长度可达 30cm。骨骼肌纤维内含大量的**肌原纤维**（myofibril），每条肌原纤维贯穿肌纤维全长，它们直径约 2μm，在一条肌纤维内，肌原纤维的数目可多达上千条。每条肌纤维除了富含肌丝还存在着成百上千个线粒体，大量的线粒体能为肌肉收缩提供能量。
+
+要加强锻炼的主要肌群：肱二头肌、肱三头肌、肱肌、肱桡肌、胸大肌、前三角肌、前臂肌群（腕伸肌、指伸肌）等。其中，手臂上臂前、后侧对应的肱二头肌、肱三头肌是主要的锻炼目标肌群，特别是后者，日常活动缺少锻炼。
+
+上肢肌肌群组成：
+
+1. 上肢肌   = 上臂肌群+前臂肌群
+2. 上臂肌群 = 前侧：肱二头肌、肱肌、肱桡肌 + 后侧：肱三头肌
+3. 前臂肌群 = 前侧：前臂屈肌群、旋前圆肌、旋前方肌 + 后侧：前臂伸肌群、肘肌、旋后肌
+4. 上肢带肌 = 肩袖肌群+喙肱肌+大圆肌+三角肌
+
+注：上肢带肌不在上肢肌的范畴里，但是连着肩膀的肌肉。以下视频中，上肢前臂肌群说明部分应该是错配了。
+
+1. 人体常见肌肉功能及位置 https://www.bilibili.com/video/BV1mM4y1w7VV
+2. 全身肌肉训练讲解 https://www.bilibili.com/video/BV1344y1e7ur/
+3. CubeBrush 数字艺术入门：解剖学 https://www.bilibili.com/video/BV1hV4y1y7RT?p=17
+4. Art School for Digital Artists by Marc Brunet https://cubebrush.co/mb/products/0dpzeg/art-school
+
+人体有 206 块骨头：
+
+- 骨骼可分为两大类：
+    - 中轴骨 Axial Skeleton： 颅骨 Skull、胸骨 Sternum、脊柱 Spine、肋骨 Ribs；
+    - 四肢骨 Appendicular Skeleton：上肢骨、下肢骨；
+- 按骨头形状可分为五类：
+    - 长骨 Long Bone：长管状，分布于四肢，如股骨 Femur，大腿骨 Thigh，小腿骨 Leg，胫骨 Shin；
+    - 短骨 Short Bone：多位于关节连接位置，如手腕部的头状骨 Caoitate；
+    - 扁骨 Flat Bone：平板状，如骨盘 Pelvis，保护头部的多数都是扁骨，如顶骨 Parietal；
+    - 不规则骨 Irregular Bone：不长不短不扁，如第 6 胸椎 T6 Thoracic Vertebra；
+    - 籽骨 Sesamoid Bone：位于肌腱的特殊骨头，如髌骨 Patella；
+
+牙齿不是骨头，与骨头是完全不同的消化器官，两者的结构是完全不同的。
+
+中国人可能是进化更超前，只有 204 块骨头。第五趾骨只有2节儿，脚趾末端少了一块，但仍有超过四分之一的被观察者在第五趾上拥有三个趾骨。根据《解剖学报》上的调查报告显示，第四趾出现只有两个趾骨的情况约占13.2%，而第三趾出现只有两个趾骨的情况约占3.4%。
+
+儿童由于部分骨骼未完全闭合，例如尾椎骨，所以比成人有更多的骨块。
+
+
+对于手抖的人，练习线条注定是一个艰苦的过程，尽管绘画不等于画线条，但是能随心所欲画线，才能准确表达思维中的构图。如果不能达成这一点，那么练习绘画可能是一个非常打击自信的过程，并降低你练习时获得愉悦的正面体验，进而打击练习的欲望。因此，练习时更需要自信满满，因为新手画线不准是必然的，练习就是要达成这一目标，即使画出来的线条歪歪扭扭，也依然要在自信满满的状态下进行，不必管结果是否达到预想的效果。认识并承认自己所处的起步状态，才能正确地接受当下的成效。而结果会随着不断的练习与修正的肌肉记忆，不断地向预期效果靠近，最终达成随心所欲的状态。
+
+每画一条线，都需要保证以下几点（以悬臂手势为例）：
+
+- 重点：握笔姿势是否足够放松？错误的姿势损伤肢体，还对练习带来负面影响。
+- 握笔是否稳定？如果画笔不稳，在接触画布或运动时就会出来抖动。
+- 肢体的支点（肩膀、肘关节、手腕）是否够稳定？支点稳定时绘画线条才平滑。
+- 绘画运动过程中用力是否均衡？力度不稳结合握笔不稳等因素会直接导致抖动。
+- 画板、纸张是否稳定、平整，或者身体舒适状态，这些因素也会影响笔迹。
+
+一般来讲，动作越快时间超短，受到影响因素越小，线条越流畅。并且画画时通常有快速的预备动作，在笔尖正式触纸前先按线条预演手部运动，提高线条的准确度。但是练习时，应该以慢、稳为主。锁定手臂的关节是相对容易的，因此只有一处关节运动的状态是最稳定流畅的，相当于只有一个变量，而锁定的关节可以看作固定量。但是绘画中一般需要一个以上的关节相互配合。最简单的情况可能是只保持肘关节运动画长弧线，手指、手腕、肩膀都保持固定，这也是画长水平直线的基本动作。而画长竖线就需要增加肩膀的配合，就增加了难度。画短直线，水平或竖直，只需要手腕动作就可以。
+
+另外，力量的控制能力始终是练习的重点，要将力量平衡于能稳定笔杆的同时，还要不影响手臂的稳定性（力量超出肢体负荷），同时又要达到画面所需要的力量表达（笔画粗细、颜色浓度）。笔尖与纸之间的作用力越大，手臂运动受到的阻力也相应增加，过大的阻力是产生抖动的一大因素。
+
+如果有时间练习，每天可以花上几个小时对某个动作进行重复练习，坚持一两个星期，甚至是更长周期。不能三天打鱼两天晒网，过短的练习时间可能导致无效练习，比如每天几十分钟，肌肉不能得到有效的长时间的有氧训练。
+
+由浅入深、由简到繁是一条普遍性的规律，无论是学习还是训练都适用。绘画中使用的石膏像，甚至更傻简单和概括性的几何图形（矩形、球体、柱体等），都是一种简化复杂世界的手段，我们不擅长处理复杂的东西，除非有现在的经验。而学习高度概括和简化的图形，就是一种帮助积累处理复杂事物经验的一种有效手段。
+
 学习线条的目的：构图造型，构造纹理。关于线条的应用，可以参考瑞典画家、蚀刻师和雕塑家佐恩的版画作品。佐恩的线条造型，笔墨不多但体积极好，笔笔在秩序里，简直是线条指挥家。
 
 当然，除了使用线条造型外，还有其它的造型方法，使用阴影和块面而非轮廓来构图，也就是厚涂，这也是一种创造美感的好方法。
 
-使用线条构造正确的形状是一个需要大量重复的工作，作为初学者，通过练习，利用肢体特点稳定手掌，掌握用绘画工具表达准确的线条。通过观察物体，掌握快速出线稿的能力是学习绘画的第一到关，这需要手眼协调，还有心中有度。线稿，国内也叫白描技法，就是用简明的线条准确地表达物体的主要轮廓或明暗边界。
+使用线条构造正确的形状是一个需要大量重复的工作，作为初学者，通过练习，利用肢体特点稳定手掌，掌握用绘画工具表达准确的线条。通过观察物体，掌握快速出线稿的能力是学习绘画的第一关，这需要手眼协调，还有心中有度。线稿，国内也叫白描技法，就是用简明的线条准确地表达物体的主要轮廓或明暗边界。
 
-作为手抖的人，学习绘画更需要大量的训练。而练习的主要目标是控制力，划长直线并非主要目的。根据线条的长短，控制好手指、手腕、手臂甚至是肩膀关节，越长的线条就越需要手臂或肩膀的配合。对于短线条，可以利用手腕外侧关节或小指 Pinky 做为一个支撑点，来稳定绘画姿势。但对于长线条，支撑点会限制手部的活动。所以，综合来说，训练的目的就是区针对这些手部关节的练习。另外再结合适当的体育锻炼，效果更好。
+作为手抖的人，学习绘画更需要大量的训练。而练习的主要目标是控制力，划长直线并非主要目的。根据线条的长短，控制好手指、手腕、手臂甚至是肩膀关节，越长的线条就越需要手臂或肩膀的配合。对于短线条，可以利用手腕外侧关节或小指 Pinky 做为一个支撑点，来稳定绘画姿势。但对于长线条，支撑点会限制手部的活动。所以，综合来说，训练的目的就是区针对这些手部关节的练习。另外再结合适当的体育锻炼，效果更好。另外，这种破坏流畅性的抖动也不是一无是处，像自然中的闪电、杂乱物化的轮廓，就需要这种自带随机性的线条来表现。
 
 总的来说，肘关节、手腕、指关节及相关肌群的稳定性练习是重点，也就是说，你的手臂有多大力量并不重要，重要的是这些力量可以随心控制，以手合一。
 
 所以，考察目标有两个，一是线条的流畅度，二是线条的准确度。然而，准确度比流畅度应该是要难的。
+
+一般画短线条使用指关节的运动，长线长使用手臂的摆，但无论何种线条，都要求握笔要稳定，不能在作画过程中使笔杆出现松动。为了保证线条的流畅度，训练的重点就是保持非运动关节的稳定性。开始练习只需要掌握横平竖直两个方向维度上的稳定即可，因为在这两个维度之上，可以按力的矢量叠加绘画出各方向的线条。
 
 新手画线最容易出现三种画线问题：甩线，蹭线，抖线。需要通过大量练习来解决，画线时找准落点，然后往线条的方向，匀速拉动小手臂，并且在终点停笔。要做到下笔果断，画线稳定，到点停笔，达到点到点画线的准确度。
 
 设置参考点是重要的辅助手段，一方面在训练时帮助提高训练的准确度，另一方面在绘画中提高构图的准确度。
 
 线条练习是一件需要长期坚持练习的基础能力，在准确画线条之前，会很难抓准型。所以，这是一个硬性基础能力，每天都要坚持做，这样才会逐渐提升自己的控笔能力！如果有充裕时间练习最好，练 30 ~ 40 分钟，再休息活动关节，最好使用哑铃锻炼。
-
-
 
 固定腕关节、肘关节的画线方式，总是最容易画出流畅线条，应该加强这种能力，并逐步扩展这种能力用于各种线条的绘画。在节点完全固定时，画线就是流畅的弧线，配合指关节的灵活就可以很好地画圆弧，这个技巧非常重要。
 
@@ -1114,12 +1782,21 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 17. Drawing Anatomy: An Artists’ Guide to the Human Figure by Barrington Barber https://book4you.org/book/3690952/f6f36f
 18. 临摹电影画面加强构图能力 by Angela https://www.bilibili.com/list/411442559?bvid=BV1N441187oy
 18. Animatic version of the film 了不起的狐狸爸爸 https://www.bilibili.com/video/BV1qr4y1D7SY/
+18. 欧洲学院派素描石膏像技法 Sight Size https://www.sightsize.com/what-is-sight-size/
+18. 厚涂石膏像 https://www.bilibili.com/video/BV1Tb4y1Z7eD/
+18. Michael D.mattesi 力量绘画系列 https://www.bilibili.com/video/BV1BX4y1i7Fs/
+18. Force: Dynamic Life Drawing by Michael Mattesi [彰显生命力-动态素描解析]
 
 线条掌握后，就需要考虑造型和处理明暗关系了，目的就是表现物体的体积，这是素描的重点内容。在艺术学院，造型艺术专业是重点专业，这个专业与其它专业不同，是培养艺术家的专业。
 
 为了让明暗关系有序递进，画线条时就需要慢慢来，对于过度平缓的位置可能需要十数次的反复处理才能让明暗关系正确地过度好。如果，一上来就浓重地涂抹，可能就破坏了明暗关系。
 
 在空间结构分解中的观察方法是先大后细，先看大的位置和物体，大的位置相对准确后再去看中的。造型中常用的参考方法是使用参考网格、或者用几何图形概括。本质上，这些方法是通过拆解降低难度，把大画拆成小画，把整体拆成局部。
+
+石膏像素描就是针对造型训练使用的一种简化物体，其结构有一些轮廓细节，但对于新手又不至于太复杂，过滤了丰富颜色带来的复杂感。注意，明暗关系是物体结构的体现，训练造型能力、理解物体结构与明暗之间的联系才最关键。石膏像可以使用实物，也可以下载 3D 模型作为描摹参考。3D 模型还可以通过 Blender 等软件便利地调整光照、角度：
+
+1. Three D Scans https://threedscans.com
+2. Artec 3D https://www.artec3d.com/3d-models/art-and-design
 
 最重要的三个几何体：球体，方体，柱体。三个几何体经过伸缩、切割、扭曲、增减，可以变换出椎体，椭圆体，扭曲形体，残缺形体等各种形体。使用简单几何体去概括画面本身就是观察世界的一种能力。
 
@@ -1131,9 +1808,11 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 
 强调一下，造型开始阶段，要大胆地下笔画线，不要纠结细节！开始阶段处理细节没有意义，细节必需在后续深入阶段进行，前期要将重心放在动态、姿态上。这个阶段需要注意，明暗分界线和外轮廓都是重要的转折。
 
+先从全局、整体结构进行分解，再逐级细分局部结构，但依然不要纠结于最终的细节表现，而应该将重心放到造型、结构的简化、概括形态表达准确。一幅画是否和谐，在整体结构关系把握上是关系。尽量使用直线、规则几何体等基础图形元素表达造型结构，大小、方向，以及相应的明度概括，甚至可以使用 Halftone 半调色起形。西方历来有方格取景、Sight Size 等辅助手段来保证整体结构的准确性，先确定外轮廓，再在其内部确定各个部分的分割比例。细分作画思想与 Blender Multiresolution 多级细分修改器雕刻技法精髓完全契合。要点：不要纠结当下的细节，而始终将当前细分级别的造型结构的简化、概括形态表达准确。
+
 有老师说，学会人体造型后绘画才算入门，按这种说法，学线条就是幼儿时期。当然，对新手，通常先学习结构简单的静物造型后，再学习人体造型。
 
-速写 Quick Sketches 的要领就是观察物体大的线条形式走向，用少量的线条概括出体积感。抓住重要的转折点，必需忽略转折点之间的细节，否则就不是速写了。素描的诀窍在于，先有主体轮廓线各明暗分界线，配合将要的结构线条，再配合表达明暗关系的涂抹，以及适合的纹理。
+速写 Quick Sketches 的要领就是观察物体大的线条形式走向，还要用最简单的线条，用少量的线条概括出体积感。抓住重要的转折点（角度），必需忽略转折点之间的细节，否则就不是速写了。素描的诀窍在于，先有主体轮廓线各明暗分界线，配合将要的结构线条，再配合表达明暗关系的涂抹，以及适合的纹理。
 
 速写要达到什么效果，参考 Figure Drawing: Design and Invention by Michael Hampton 《人体绘画：设计与创造》。动态速写参考材料可以直接从电影场景中获取，或者使用 Bodies in Motion 这种专用的素材网站上获取。退而求其次，Adobe Mixamo 3D 模型动画也不错。
 
@@ -1193,7 +1872,7 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 ### 🐤 Color Theory 色彩理论
 01. [色彩构成理论基础](https://www.bilibili.com/video/BV1Vx411G7ZV)
 02. [色彩搭配基础理论](https://www.bilibili.com/video/BV1t7411o79q)
-03. [Jerry Vickery 光影色彩理论](https://www.bilibili.com/video/BV14t41127Xz)
+03. [光影色彩理论 Jerry Vickery](https://www.bilibili.com/video/BV14t41127Xz)
 04. [色彩搭配的原理](https://www.bilibili.com/video/BV15b411q75C/)
 05. Contemporary Color : Theory and Use, Cengage Learning, by Steven Bleicher
 06. Color and Light: A Guide for the Realist Painter, Andrews McMeel Publishing, James Gurney
@@ -1211,11 +1890,20 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 
 体积感的表达和线条、颜色的使用密切相关。例如，在球体表面上平滑过度的暗部表达了这是平滑曲面，在明暗变化明显的位置就隐含了一条分界线。如果，在暗部过度的区域填上一块特别暗的色块，那么就很容易给视觉造成一种深坑的感觉。因为光线不能完全打在平滑的表面，更无法照进深凹的坑内。
 
-美国美院基础教学法：五明度法，只需考虑形状，明度和形状之间的边缘。一套简单而规范的方法论，非常适合初学者。
+色彩要素：明度 Brightness/Value/Intensity、色相 Hue、饱和度 Saturation。黑白灰是最简单的颜色，它们也是最能体现明度这一色彩要素的基础色，在不同的色彩模型下使用不同的单词表达。在同一明度的条件下，也可以对同一色相不同饱和度的识别，但是加入明度变化后，饱和度就不太容易辨别确认。绘画软件中常用 HSL 色彩模型，通常使用色环表达不同的色相，0° - 360°分别对应红、橙、黄、绿、青、蓝、紫，循环。饱和度和亮度通常由一个二维的色块表示，并且通常左右方向调整饱和度，上下方向调整亮度。
 
-颜色是眼睛能观察到的电磁波，波长越短能量越低，波长越短能量越高。按红、澄、黄、绿、青、蓝、紫排列，在绘画中主要是区分颜色对心理有冷暖感觉的影响。特定波长的能量可以被物体吸收，现实中的火光看起来越偏红、黄，它是属于可以被人体吸收的热辐射光，这是暖色调。而能量更低的绿色、蓝色使心理感觉显得冷，比如雪天的环节，又比如植物也会吸收能量而过滤掉非绿色的光线。还有早晨的天空多呈现蓝色，因为无云层，大气对太阳光主要起散射作用。紫光的波长最短，散射能力最大，在没有到达地面之前就在外层大气中散射掉了，接近地面的紫光很少。而蓝光最多，所以我们在地面看天空是蓝色，而在高空则逐渐变成紫色。而傍晚天空多是火红色，因为日间太阳的能量使得空气上升造成云层密集，并且对短波长的蓝、绿光线有更强的过滤作用，而红、黄光则更容易穿透云层。这些日积月累的自然现象已经是刻进 DNA 的信息，就如自然的条件反射，即是冬天，眼睛看到红色就会有暖意。
+明度作为最基本的色彩要素，它在体现了素描画中最重要的关系：明暗关系。明暗关系正确，配上任何颜色都不会难看。美院基础教学法：五明度法，只需考虑形状，明度和形状之间的边缘。一套简单而规范的方法论，非常适合初学者。对于有色弱的情况，应该先从简单颜色开始训练，再到复杂颜色。
+
+颜色本质是眼睛能观察到的电磁波，波长越长能量越低，波长越短能量越高，但是长波的热辐射效率更高，与人类体感冷热相关。从长波到短波依次按红、澄、黄、绿、青、蓝、紫排列，在绘画中主要是区分颜色对心理有冷暖感觉的影响。色彩心理作用是人类生活中积累的热辐射体验，因为经常接触到火光照射，从而产生红、黄的暖感，同理冰雪或冷天的蓝色给人冰凉感觉。特定波长的能量可以被物体吸收，现实中的火光看起来越偏红、黄，它是属于可以被人体吸收的热辐射光，这是暖色调。而能量更低的绿色、蓝色使心理感觉显得冷，比如雪天的环节，又比如植物也会吸收能量而过滤掉非绿色的光线。还有早晨的天空多呈现蓝色，因为无云层，大气对太阳光主要起散射作用。紫光的波长最短，散射能力最大，在没有到达地面之前就在外层大气中散射掉了，接近地面的紫光很少。而蓝光最多，所以我们在地面看天空是蓝色，而在高空则逐渐变成紫色。而傍晚天空多是火红色，因为日间太阳的能量使得空气上升造成云层密集，并且对短波长的蓝、绿光线有更强的过滤作用，而红、黄光则更容易穿透云层。这些日积月累的自然现象已经是刻进 DNA 的信息，就如自然的条件反射，即是冬天，眼睛看到红色就会有暖意。
 
 眼睛看到的颜色不是光的颜色，而是光从物体表面反射的颜色。比如绿色植物，它们用来吸收光能的叶绿素对太阳光有两个吸收高峰，分别是 440nm 附近的蓝区和 680nm 附近的红区，而对于处在 500 - 600 纳米之间的绿光吸收的甚少，绿光就反射被眼睛接收到。
+°
+
+阴影的本质就是物体反射的环境光，这是一种汇集所有经过多次散射的光线的低明度、低饱和度光，这里说的明度低是相对的，如晴天太阳光在肌肤形成的阴影，和阴天中形成的阴影完全不同。
+
+绘画中，阴影色彩有一个重要的理论倾向：补色倾向。所谓补色，即色环上色相相差 180°的颜色。受光区域暖，背光区域冷。反之，受光区域冷，背光区域暖。所以，画画时，阴影颜色要画化成主光的互补色。例如：主光颜色为橙色，那么，阴影的颜色就要画成灰蓝色或暗蓝色。阴影补色倾向的原理是，在光线照射下，物体向光面形成的主色，与阴影相比，缺失的是光线所包含的色彩，而选取补色是一个比较通用的方法。
+
+眼睛天然有补色效应，补色残像是指如果一直看着一个颜色，再去看别的地方的话，眼中就会看到刚才看到的颜色的补色。正如外科医生穿的手术服都是浅绿色，那是因为在手术中，一直看着鲜红的血，就会被补色残像所产生的绿色导致精神无法集中，因此要用同样的绿色来缓和。观察补色残像的实验操作：注视一幅图像，一段时间后，切换到白色背景，眼睛的残像便会显现。
 
 《色彩互动学》 Interaction of Color 本书记录了如何用实验的方法学习和教授颜色知识。从物理和生理上讲，视觉感知到的颜色并不真实。这一事实让颜色在艺术创作中富有弹性。高效使用颜色，有必要逐步识认颜色如何欺人。为此，本书以互动的方式来研究颜色系统。
 
@@ -1230,7 +1918,7 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
     绿+蓝=青     蓝+黄=绿
     蓝+红=紫     蓝+红=紫
 
-颜料三原色（CMYK）：品红、黄、青(天蓝)，属于减色法，颜料用得越少，吸收的光线就越少，颜色越浅。色彩三原色可以混合出所有颜料的颜色，同时相加为黑色，黑白灰属于无色系。
+工业印刷使用的是 CMYK 色彩模型，颜料三原色是 CMY：Cyan 青(天蓝)、品红 Magenta、黄 Yellow、黑 Black，属于减色法，颜料用得越少，吸收的光线就越少，颜色越浅。色彩三原色可以混合出所有颜料的颜色，同时相加为黑色，黑白灰属于无色系。
 
 传统美术色彩三原色：红，黄，蓝，属于减色法原理。为人们加入了感觉实际，是实际上的三原色。
 

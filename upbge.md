@@ -1,10 +1,58 @@
 
 # 🥚 UPBGE - Blender 游戏引擎继承者
-Armory3D 🆚 UPBGE https://github.com/rpaladin/armory3d-vs-upbge/
-UPBGE Current Manual https://upbge.org/#/documentation/docs/latest/manual/index.html
-Developer & User Docs https://github.com/UPBGE/upbge/wiki
-UPBGE 0.30 on Blender 3.0 https://github.com/UPBGE/upbge/releases
-UPBGE 0.3+ + Blender 3.6 Python API https://upbge.org/#/documentation/docs/latest/api/index.html
+1. Armory3D 🆚 UPBGE https://github.com/rpaladin/armory3d-vs-upbge/
+2. UPBGE Current Manual https://upbge.org/#/documentation/docs/latest/manual/index.html
+3. Developer & User Docs https://github.com/UPBGE/upbge/wiki
+4. UPBGE 0.30 on Blender 3.0 https://github.com/UPBGE/upbge/releases
+5. UPBGE 0.3+ + Blender 3.6 Python API https://upbge.org/#/documentation/docs/latest/api/index.html
+6. Fake Blender Python API https://github.com/nutti/fake-bpy-module
+https://github.com/svenfraeys/SublimeBlender
+6. Fake UPBGE Python API https://github.com/nutti/fake-bge-module
+6. Typing Module https://docs.python.org/3/library/typing.html
+
+Blender 脚本编程开发可以安装 Blender Development 插件，部分内置符号不能直接通过 Python 模块获取，比如导出 C++ 符号的 bpy 模块，为了在脚本中实现这些符号的自动提示，就需要脚本中使用类型声明信息，fake-bpy-module 就是这样一个类型声明模块，下载到可以被 import 的目录下使用。fake-bpy-module 使用了 Python 3.7 提供的 typing module 和 type hints 功能实现类型提示：
+
+    pip install fake-bpy-module-2.93
+    pip install fake-bpy-module-3.3
+    pip install fake-bpy-module-latest
+
+    pip install fake-bge-module-0.2.5
+
+可以手动下载，放到一个你喜欢的位置，将目录路径写入 Sublime LSP-pyright 插件的配置，配置参考：
+
+```json
+// Settings in here override those in "LSP-pyright/LSP-pyright.sublime-settings"
+
+{
+   "settings": {
+        "python.analysis.extraPaths": [
+            "C:/HaxeToolkit/UPBGE-0.30-windows-x86_64/3.0/python/lib",
+            "C:/HaxeToolkit/UPBGE-0.30-windows-x86_64/fake_bge_modules_0.2.5-20200804",
+            "C:/HaxeToolkit/UPBGE-0.30-windows-x86_64/fake_bpy_modules_3.3-20230117",
+        ],
+    }
+}
+```
+
+Sublime Blender Development 插件有两部分组成，分别在 Sublime 和 Blender 中安装，由于插件长期没有更新，会有版本兼容问题：
+
+1. https://github.com/svenfraeys/SublimeBlender
+2. https://github.com/svenfraeys/SublimeBlenderAddon
+
+
+```py
+# Type aliases
+from typing import TypeAlias
+
+Vector: TypeAlias = list[float]
+
+
+# Use the NewType helper to create distinct types:
+from typing import NewType
+
+UserId = NewType('UserId', int)
+some_id = UserId(524313)
+```
 
 UPBGE 作为 Bledner BGE 引擎的继承者，直接基于 Blender 源代码开发，集成度更高。
 
@@ -1068,7 +1116,7 @@ class ActionMousePick(ActionCell):
 UPBGE-Docs\source\manual\logic\sensors\types\ray.rst
 
 
-射线投身节点通用属性说明：
+射线投身寸节点通用属性说明：
 
 Distance 指定射线有效距离，在此距离内的物理对象才可能被拾取。
 Property 指定一个名称，只有设置了相应 Game Properties 的对象才可能被拾取。
@@ -5119,6 +5167,57 @@ Blender Python Console 执行以下脚本可以获取逻辑节点分类与运行
         |-- gameengine\VideoTexture\VideoFFmpeg.cpp
         |-- gameengine\VideoTexture\VideoFFmpeg.h
         `-- gameengine\VideoTexture\blendVideoTex.cpp
+
+## 🐥 Shader Material
+https://blenderartists.org/t/the-problem-with-shaders/1331367
+内斯特灯塔 by Yao Chan ttps://blenderartists.org/t/neist-point-lighthouse/1472393/2
+
+Frederick_Dietz
+Oct 2021
+
+this is to my knowledge the simplest useable shader (that doesn't simply replace what's 
+already there) that you can write in that game engine.
+
+```py
+import bge 
+own = bge.logic.getCurrentController().owner
+
+VertexShader = """
+    void main()
+    {
+        gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+        gl_TexCoord[0] = gl_MultiTexCoord0;
+    }
+"""
+  
+FragmentShader = """
+uniform sampler2D texture;
+ 
+    void main()
+    {   
+        vec4 colour = texture2D(texture, vec2(gl_TexCoord[0].x, gl_TexCoord[0].y));
+        gl_FragColor = vec4(colour[0],colour[1],colour[2],colour[3]);
+    }
+"""
+ 
+mesh = own.meshes[0]
+for mat in mesh.materials:
+    shader = mat.getShader()
+    shader.setSource(VertexShader, FragmentShader, 1)
+    shader.setSampler('texture', 0) 
+```
+
+it’s relatively simple, it does the usual gl pos calc, gets the pre existent texture and 
+then “re-applies it”, this is fine for the overwhelming majority of purposes and will 
+for the most part all you’ll ever need if that.
+
+but what i want to know is how you get the rest of the information that’s typically 
+found here https://blenderartists.org/uploads/default/original/4X/7/f/2/7f281ee009250dc31abced19152bb9a63366d71c.png
+
+in the influence tab in the BGE using GLSL. any help would be greatly appreciated.
+before you ask, my Blender version is 2.78a my game engine, openGL, and GLSL version 
+are the ones that came with the default settings etc.
+
 
 ## 🐥 Blender Code Layout
 

@@ -21289,34 +21289,43 @@ Armory 引擎中专用于 Navmesh 的逻辑节点，以及键盘鼠标输入：
     |   |   |   |-- arm\logicnode\input\LN_mouse.py
 
 
-## 🐥 Armory Tutorials: particle_bunny particle_hair
+## 🐥 Armory Tutorials: particle_bunny particle_hair particle_info particle_mesh particle_smoke
 
     |-- particle_bunny
     |   |-- bunny.png
     |   `-- particle_bunny.blend
     |-- particle_hair
     |   `-- particle_hair.blend
-
-Armory 支持对象粒子化，但不支持集合粒子化。
-
-
-## 🐥 Armory Tutorials: particle_info
-
     |-- particle_info
     |   |-- part.png
     |   `-- particle_info.blend
-
-## 🐥 Armory Tutorials: particle_mesh
-
     |-- particle_mesh
     |   |-- README.md
     |   `-- particle_mesh.blend
-
-## 🐥 Armory Tutorials: particle_smoke
-
     |-- particle_smoke
     |   |-- particle_smoke.blend
     |   `-- smoke.jpg
+
+Particle Bunny 演示粒子发射器 Emitter 将指定了 bunny.png 纹理的 Plane 作为粒子发射出去，
+粒子的渲染属性设置 Render -> Render As -> Object，Instance Object 指定要作为粒子的对象。
+
+Armory 支持对象粒子化，但不支持集合粒子化。Particle Hair 演示使用粒子系统的 Hair 算法在
+一个 Plane 平面上铺满草丛。设置粒子属性 Render -> Render As -> Object，以及 
+Instance Object 指定要作为草丛的几何体。
+
+Particle Info 演示通过材质节点的粒子信息输入节点中的 Age 获取各个粒子的生存时间，并根据时间
+来改变粒子的 Base Color 色相，使用 Color -> Hue Saturation Value 节点改变色相。
+
+Particle Mesh 发射一个几何体作为粒子的渲染图形，在设置了 Emitter 粒子发射器的对象上，设置
+Render -> Render As -> Object，以及 Instance Object 指定要作为粒子发射出去的几何体。
+对象上挂载 Armory Traits，使用逻辑节点 Set Particles Speed 来改变粒子发射器的运行速度。
+
+粒子模拟烟雾演示，烟雾使用一张 smoke.jpg 贴图，这是一张 Sprite Animation 图像，配合材质面板 
+Armory Tilesheet 使用。以一个 Plane 播放烟雾动画，粒子发射器每发射一个 Plane 就播放烟雾动画，
+烟雾随着 Plane 移动并且慢慢消散。烟雾效果可以使用 Blender 的物理模拟系统中的 Fluid 进行模拟，
+并渲染得到动画图像。
+
+Blender Fluid 流体模拟算法不仅可以模拟水体，还可以模拟火焰、烟雾等等特效。
 
 
 ## 🐥 Armory Tutorials: physics_break logic_break

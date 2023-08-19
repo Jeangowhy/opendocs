@@ -3,6 +3,7 @@
 - Node to Deno http://www.ruanyifeng.com/blog/2020/01/deno-intro.html
 - Debugging over the V8 Inspector Protocol https://v8.dev/docs/inspector
 - https://doc.deno.land/builtin/stable
+- https://github.com/denoland/manual
 - https://deno.land/manual/getting_started/permissions
 - https://deno.land/manual@v1.8.1/contributing/architecture
 - https://deno.land/manual@v1.8.1/tools
@@ -279,13 +280,147 @@ for (const filename of filenames) {
 }
 ```
 
-## ⚡ VSCode 配置
-- VScode Deno extension https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno
-- Debugging https://deno.land/manual@v1.9.0/getting_started/debugging_your_code
-- Setup Your Environment https://deno.land/manual/getting_started/setup_your_environment
-- Import Auto Completions https://github.com/denoland/vscode_deno/blob/main/docs/ImportCompletions.md
+## ⚡ Sublime VSCode 配置
+1. VScode Deno extension https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno
+2. Debugging https://deno.land/manual@v1.9.0/getting_started/debugging_your_code
+3. Setup Your Environment https://deno.land/manual/getting_started/setup_your_environment
+4. Import Auto Completions https://github.com/denoland/vscode_deno/blob/main/docs/ImportCompletions.md
+5. https://deno.land/manual@v1.36.1/getting_started/setup_your_environment
+6. https://deno.land/manual@v1.36.1/advanced/language_server/overview
+6. https://deno.land/manual@v1.36.1/advanced/typescript
+7. https://lsp.sublimetext.io/language_servers/#typescript-language-server
+8. https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#textDocumentItem
 
-首先，安装 VScode Deno extension，它提供了几个命令：
+Sublime Text 安装插件：
+
+1. TypeScript 语言支持插件 https://packagecontrol.io/packages/TypeScript
+2. LSP 语言服务器支持插件 https://packagecontrol.io/packages/LSP
+3. LSP-typescript [可选安装] https://github.com/sublimelsp/LSP-typescript
+
+Sublime 还有另外一个 LSP-typescript 插件，它一样可以支持 TypeScript 智能提示，可以同时与 Deno LSP 激活使用。但是缺少 Deno API 的支持，比如，不能正常引用 Deno 库类型定义，当然可以手动将 Deno 提供的类型声明文件放到工程目录中：
+
+    /// <reference lib="deno.unstable" />
+    const kv = await Deno.openKv();
+
+
+安装好插件后，配置 Package Settings -> LSP -> Settings，将 Deno 官方文档中提供参考配置写入 LSP 插件的 clients 配置中。或者将配置写入 Sublime Text 项目配置文件中，项目文件扩展名是 *.sublime-project*。
+
+然后打开 Sublime 项目，在界面左下角弹出出菜或者使用命令面板 LSP: Toggle Log Panel 打开调试日志面板，如果配置正确，切换到 JavaScript 或 TypeScript 脚本文件后，就会启动 Deno LSP 服务，消息打印如下：
+
+    :: [15:33:51.941] --> deno initialize (1): {'capabilities': ... }
+    deno: Starting Deno language server...
+    deno:   version: 1.36.1 (release, x86_64-pc-windows-msvc)
+    deno:   executable: C:\ProgramData\chocolatey\bin\deno.exe
+    deno: Connected to "Sublime Text LSP" 1.25.0
+
+可以遇到的问题：Deno LSP 可以响应 JavaScrit 脚本，但不响应 TypeScript。
+
+首先检查一下配置文件中的 languages 作用域名称类型是否一致，使用工具菜单可以查看当前光标所在文件的作用域名称，Tools -> Developer -> Show Scope Name。
+
+使用 LSP: Troubleshoot Server 进行问题探测。测试报告中信息如下：
+
+Server Configuration 分类下，*selector* 指示当前有效的作用域选择器，即相匹配的 scope 就会激活 LSP 服务。*priority_selector* 应该和配置文件中的 languages 配置的顺序一致，竖直符号表示逻辑或运算，其中一种满足即匹配。
+
+Active View 显示当前激活的文档信息，*base_scope* 指示文档对应的作用域名称类型。
+
+```sh
+ - shell command
+deno lsp
+ - selector
+(source.js)|(source.js)
+ - priority_selector
+(source.ts)|(source.js)|(source.jsx)|(source.tsx)
+```
+
+Sublime LSP 插件提供了默认的语法作用域与 LSP Language ID 的映射关系，可以自定义配置：
+
+```js
+// SublimeText base scope -> LSP Language ID overrides
+{
+    // "source.mylanguage": "mylang"
+}
+```
+
+有可能是因为语言支持包冲突导致的问题，比如安装了 *JavaScript* 语言支持包，它本身就包含 TypeScript 语言支持，如果再另外安装 *TypeScript* 支持包，则此语法设置不能正确激活 Deno LSP 服务，禁用一个语言包即可解决。
+
+消息的箭头指示数据流向，左侧为 Client，右侧为 Server，根据 LSP 规范，通知和请求两种消息的差别在于，前者不需要响应，分别用 -
+和 -- 符号表示，三个尖括号表示请求的响应数据流。客户端请求关闭服务器，--> deno shutdown，客户端收到服务器响应后再决定是否关闭客户端。
+
+    :: [23:05:14.748]  -> deno textDocument/didClose: {'textDocument': {'uri': '....ts'}}
+    :: [23:05:14.960] <-  deno textDocument/publishDiagnostics: {'diagnostics': [], 'uri': '....ts', 'version': 0}
+    :: [23:05:17.786] --> deno shutdown (4): None
+    deno: shutdown request received, shutting down
+    :: [23:05:17.786] <<< deno (4) (duration: 1ms): None
+    :: [23:05:17.786]  -> deno exit: None
+    deno: exit notification received, stopping
+
+以上是 Sublime LSP 插件触发的关闭服务器消息，在切换不同的语法作用域时产生，即由语法相关问题导致了 LSP 文档对象的关闭，再继而关闭了 Deno LSP 服务器。以下则是由用户执行 LSP: Disable Language Server in Project 命令后的消息：
+
+    deno: shutdown request received, shutting down
+    :: [21:40:26.433] --> deno shutdown (2): None
+    deno: exit notification received, stopping
+    :: [21:40:26.571] <<< deno (2) (duration: 139ms): None
+    :: [21:40:26.571]  -> deno exit: None
+
+正常的文档切换，语言作用域变换，会使 LSP 关闭原文档对象的映射关系，并且重新以新语言建立文档映射关系，所以 didClose 之后会有 didOpen。
+
+Setup your environment 文档提供的 Deno LSP 配置：
+
+```json
+    {
+      "settings": {
+        "LSP": {
+          "deno": { // LSP Client
+            "command": ["deno", "lsp"],
+            "initializationOptions": {
+              // "config": "", // Sets the path for the config file in your project
+              "enable": true,
+              // "importMap": "", // Sets the path for the import-map in your project
+              "lint": true,
+              "unstable": false
+            },
+            "enabled": true,
+            "languages": [
+              {
+                "languageId": "javascript",
+                "scopes": ["source.js"],
+                "syntaxes": [
+                  "Packages/Babel/JavaScript (Babel).sublime-syntax",
+                  "Packages/JavaScript/JavaScript.sublime-syntax"
+                ]
+              },
+              {
+                "languageId": "javascriptreact",
+                "scopes": ["source.jsx"],
+                "syntaxes": [
+                  "Packages/Babel/JavaScript (Babel).sublime-syntax",
+                  "Packages/JavaScript/JavaScript.sublime-syntax"
+                ]
+              },
+              {
+                "languageId": "typescript",
+                "scopes": ["source.ts"],
+                "syntaxes": [
+                  "Packages/TypeScript-TmLanguage/TypeScript.tmLanguage",
+                  "Packages/TypeScript Syntax/TypeScript.tmLanguage"
+                ]
+              },
+              {
+                "languageId": "typescriptreact",
+                "scopes": ["source.tsx"],
+                "syntaxes": [
+                  "Packages/TypeScript-TmLanguage/TypeScriptReact.tmLanguage",
+                  "Packages/TypeScript Syntax/TypeScriptReact.tmLanguage"
+                ]
+              }
+            ]
+          }
+        } // LSP Client
+      }
+    }
+```
+
+VScode 编辑器中配置，首先，安装 VScode Deno extension，它提供了几个命令：
 
 - Deno: Cache - 指示 Deno 获取当前文件所有依赖模块，并且缓存到本地目录，类似执行 deno cache 命令。
 - Deno: Initialize Workspace Configuration - 初始化 Deno 工程配置，包括 LSP 插件功能、linting 和 unstable 选项。
@@ -617,6 +752,819 @@ Create an Administrator user，打开 http://localhost:1337/admin 创建管理�
     取三个时间平均值参考，比如只有 1 分钟的是满负载，其他俩都是 0.1，这表明只是临时突发的现象，问题不大。如果15分钟内，系统负荷都是满负载，那表明问题持续存在啊。
 
     对于单核 CPU 系统负载值最大为 1 表示系统已经满负荷状态。但实际经验中，当系统负荷持续大于 0.7 也就是 70%，就基本是满载了，需要马上解决问题，防止进一步恶化。
+
+
+## ⚡ Examples
+
+Basics
+
+1. Hello World https://examples.deno.land/hello-world
+2. Logging with colors https://examples.deno.land/color-logging
+3. Importing & Exporting https://examples.deno.land/import-export
+4. Dependency Management https://examples.deno.land/dependency-management
+5. Use Node.js built-in modules https://examples.deno.land/node
+6. Import modules from npm https://examples.deno.land/npm
+7. Built-in TypeScript support https://examples.deno.land/typescript
+8. Timeouts & Intervals https://examples.deno.land/timers
+9. Manipulating & Parsing URLs https://examples.deno.land/url-parsing
+
+
+Encoding
+
+1. Importing JSON https://examples.deno.land/importing-json
+2. Parsing and serializing JSON https://examples.deno.land/parsing-serializing-json
+3. Parsing and serializing TOML https://examples.deno.land/parsing-serializing-toml
+4. Parsing and serializing YAML https://examples.deno.land/parsing-serializing-yaml
+5. Parsing and serializing CSV https://examples.deno.land/parsing-serializing-csv
+6. Hex and Base64 Encoding https://examples.deno.land/hex-base64-encoding
+7. Manipulating byte arrays https://examples.deno.land/byte-manipulation
+
+
+CLI
+
+1. Command Line Arguments https://examples.deno.land/command-line-arguments
+2. Input Prompts https://examples.deno.land/prompts
+3. Getting the Deno version https://examples.deno.land/deno-version
+4. Permission Management https://examples.deno.land/permissions
+5. Writing Tests https://examples.deno.land/writing-tests
+
+Network
+
+01. HTTP Requests https://examples.deno.land/http-requests
+02. Outbound WebSockets https://examples.deno.land/websocket
+03. Running DNS Queries https://examples.deno.land/dns-queries
+04. HTTP Server: Hello World https://examples.deno.land/http-server
+05. HTTP Server: Routing https://examples.deno.land/http-server-routing
+06. HTTP Server: Streaming https://examples.deno.land/http-server-streaming
+07. HTTP Server: Serving Files https://examples.deno.land/http-server-files
+08. HTTP Server: WebSockets https://examples.deno.land/http-server-websocket
+09. TCP Listener: Ping https://examples.deno.land/tcp-listener
+10. TCP Connector: Ping https://examples.deno.land/tcp-connector
+11. TCP/TLS Listener: Ping https://examples.deno.land/tls-listener
+12. TCP/TLS Connector: Ping https://examples.deno.land/tls-connector
+13. Piping Streams https://examples.deno.land/piping-streams
+
+
+System
+
+1. Benchmarking https://examples.deno.land/benchmarking
+2. Process Information https://examples.deno.land/pid
+3. Handling OS Signals https://examples.deno.land/os-signals
+4. Environment Variables https://examples.deno.land/environment-variables
+5. Subprocesses: Collecting Output https://examples.deno.land/subprocesses-output
+6. Subprocesses: Spawning https://examples.deno.land/subprocesses-spawn
+
+File System
+
+01. Reading Files https://examples.deno.land/reading-files
+02. Writing Files https://examples.deno.land/writing-files
+03. Deleting Files https://examples.deno.land/deleting-files
+04. Moving/Renaming Files https://examples.deno.land/moving-renaming-files
+05. Temporary Files & Directories https://examples.deno.land/temporary-files
+06. Creating & Removing Directories https://examples.deno.land/create-remove-directories
+07. Creating & Resolving Symlinks https://examples.deno.land/symlinks
+08. Watching the filesystem https://examples.deno.land/watching-files
+09. Walking directories https://examples.deno.land/walking-directories
+10. Checking for file existence https://examples.deno.land/checking-file-existence
+11. Path operations https://examples.deno.land/path-operations
+12. Streaming File Operations https://examples.deno.land/streaming-files
+
+Databases
+
+1. Connect to Postgres https://examples.deno.land/postgres
+2. Deno KV: Key/Value Database https://examples.deno.land/kv
+
+Cryptography
+
+1. Hashing https://examples.deno.land/hashing
+2. Generating & Validating UUIDs https://examples.deno.land/uuids
+
+Advanced
+
+1. Web Workers https://examples.deno.land/web-workers
+2. Web Assembly https://examples.deno.land/webassembly
+
+
+### ✔Logging with colors
+https://examples.deno.land/color-logging
+```js
+console.log("%cHello World", "color: red");
+
+console.log("%cHello World", "background-color: blue");
+
+console.log("%cHello World", "text-decoration: underline");
+console.log("%cHello World", "text-decoration: line-through");
+
+console.log("%cHello World", "font-weight: bold");
+
+console.log("%cHello World", "color: red; font-weight: bold");
+
+console.log("%cHello %cWorld", "color: red", "color: blue");
+
+console.log("%cHello World", "color: #FFC0CB");
+console.log("%cHello World", "color: rgb(255, 192, 203)");
+```
+
+### ✔Use Node.js built-in modules
+https://examples.deno.land/node
+```js
+import os from "node:os";
+
+console.log("Current architecture is:", os.arch());
+console.log("Home directory is:", os.homedir());
+```
+
+### ✔Import modules from npm
+https://examples.deno.land/npm
+```js
+import express from "npm:express@4.18.2";
+
+const app = express();
+
+app.get("/", (_req, res) => {
+  res.send("Welcome to the Dinosaur API!");
+});
+
+app.listen(3000);
+```
+
+### ✔Manipulating & Parsing URLs
+https://examples.deno.land/url-parsing
+```js
+let url = new URL("https://deno.land/manual/introduction");
+
+url = new URL("/manual/introduction", "https://deno.land");
+
+console.log(url.href); // https://deno.land/manual/introduction
+
+console.log(url.host); // deno.land
+console.log(url.origin); // https://deno.land
+console.log(url.pathname); // /manual/introduction
+console.log(url.protocol); // https:
+
+url = new URL("https://deno.land/api?s=Deno.readFile");
+
+console.log(url.searchParams.get("s")); // Deno.readFile
+
+url.host = "deno.com";
+url.protocol = "http:";
+
+console.log(url.href); // http://deno.com/api?s=Deno.readFile
+```
+
+
+### ✔Importing JSON
+https://examples.deno.land/importing-json
+```js
+import file from "./version.json" assert { type: "json" };
+console.log(file.version);
+
+const module = await import("./version.json", {
+  assert: { type: "json" },
+});
+console.log(module.default.version);
+```
+
+
+### ✔Hex and Base64 Encoding
+https://examples.deno.land/hex-base64-encoding
+```js
+import * as base64 from "https://deno.land/std@0.194.0/encoding/base64.ts";
+import * as hex from "https://deno.land/std@0.194.0/encoding/hex.ts";
+
+const base64Encoded = base64.encode("somestringtoencode");
+console.log(base64.encode(new Int8Array([1, 32, 67, 120, 19])));
+
+const base64Decoded = base64.decode(base64Encoded);
+
+const textEncoder = new TextEncoder();
+const textDecoder = new TextDecoder();
+console.log(textDecoder.decode(base64Decoded));
+
+const arrayBuffer = textEncoder.encode("somestringtoencode");
+const hexEncoded = hex.encode(arrayBuffer);
+console.log(hexEncoded);
+
+console.log(textDecoder.decode(hexEncoded));
+
+const hexDecoded = hex.decode(hexEncoded);
+console.log(textDecoder.decode(hexDecoded));
+```
+
+### ✔Manipulating byte arrays
+https://examples.deno.land/byte-manipulation
+```js
+const a = new Uint8Array([0, 1, 2, 3, 4]);
+const b = new Uint8Array([5, 6, 7, 8, 9]);
+const c = new Uint8Array([4, 5]);
+
+import { concat } from "https://deno.land/std@0.194.0/bytes/concat.ts";
+const d = concat(a, b);
+console.log(d); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+import { repeat } from "https://deno.land/std@0.194.0/bytes/repeat.ts";
+console.log(repeat(c, 4)); // [4, 5, 4, 5, 4, 5, 4, 5]
+
+import { copy } from "https://deno.land/std@0.194.0/bytes/copy.ts";
+const cpy = new Uint8Array(5);
+console.log("Bytes copied:", copy(b, cpy)); // 5
+console.log("Bytes:", cpy); // [5, 6, 7, 8, 9]
+```
+
+### ✔Command Line Arguments
+https://examples.deno.land/command-line-arguments
+deno run https://examples.deno.land/command-line-arguments.ts Deno Sushi --help --version=1.0.0 --no-color
+```js
+const name = Deno.args[0];
+const food = Deno.args[1];
+console.log(`Hello ${name}, I like ${food}!`);
+
+import { parse } from "https://deno.land/std@0.194.0/flags/mod.ts";
+
+const flags = parse(Deno.args, {
+  boolean: ["help", "color"],
+  string: ["version"],
+  default: { color: true },
+});
+console.log("Wants help?", flags.help);
+console.log("Version:", flags.version);
+console.log("Wants color?:", flags.color);
+
+console.log("Other:", flags._);
+```
+
+### ✔Input Prompts
+https://examples.deno.land/prompts
+```js
+alert("Please acknowledge the message.");
+console.log("The message has been acknowledged.");
+
+const shouldProceed = confirm("Do you want to proceed?");
+console.log("Should proceed?", shouldProceed);
+
+const name = prompt("Please enter your name:");
+console.log("Name:", name);
+
+const age = prompt("Please enter your age:", "18");
+console.log("Age:", age);
+```
+
+### ✔Getting the Deno version
+https://examples.deno.land/deno-version
+```js
+console.log("%c%cVersions", "color: red; background-color:white");
+console.log("Current Deno version", Deno.version.deno);
+console.log("Current TypeScript version", Deno.version.typescript);
+console.log("Current V8 version", Deno.version.v8);
+```
+
+### ✔Permission Management
+https://examples.deno.land/permissions
+```js
+let status = await Deno.permissions.request({ name: "env" });
+if (status.state === "granted") {
+  console.log("'env' permission is granted.");
+} else {
+  console.log("'env' permission is denied.");
+}
+
+status = Deno.permissions.requestSync({ name: "env" });
+if (status.state === "granted") {
+  console.log("'env' permission is granted.");
+} else {
+  console.log("'env' permission is denied.");
+}
+
+const readStatus = await Deno.permissions.query({
+  name: "read",
+  path: "/etc",
+});
+console.log(readStatus.state);
+
+import { assert } from "https://deno.land/std@0.194.0/testing/asserts.ts";
+
+const runStatus = await Deno.permissions.revoke({ name: "run" });
+assert(runStatus.state !== "granted");
+```
+
+### ✔Writing Tests
+https://examples.deno.land/writing-tests
+```js
+import { assert, assertEquals } from "https://deno.land/std@0.194.0/testing/asserts.ts";
+
+Deno.test("assert works correctly", () => {
+  assert(true);
+  assertEquals(1, 1);
+});
+
+Deno.test("testing steps", async (t) => {
+  const file = await Deno.open("example.txt", {
+    read: true,
+    write: true,
+    create: true,
+  });
+  const encoder = new TextEncoder();
+  const data = encoder.encode("Hello world!");
+
+  await t.step("write some bytes", async () => {
+    const bytesWritten = await file.write(data);
+    assertEquals(bytesWritten, data.length);
+    await file.seek(0, Deno.SeekMode.Start);
+  });
+
+  await t.step("read some bytes", async () => {
+    const buffer = new Uint8Array(data.length);
+    await file.read(buffer);
+    assertEquals(buffer, data);
+  });
+
+  file.close();
+});
+
+Deno.test({
+  name: "leaky test",
+  async fn() {
+    await Deno.open("example.txt");
+  },
+  sanitizeResources: false,
+});
+```
+
+### ✔HTTP Requests
+https://examples.deno.land/http-requests
+```js
+let resp = await fetch("https://example.com");
+
+console.log(resp.status); // 200
+console.log(resp.headers.get("Content-Type")); // "text/html"
+console.log(await resp.text()); // "Hello, World!"
+
+resp = await fetch("https://example.com");
+await resp.arrayBuffer();
+/** or await response2.json(); */
+/** or await response2.blob(); */
+
+resp = await fetch("https://example.com");
+for await (const chunk of resp.body!) {
+  console.log("chunk", chunk);
+}
+
+const body = `{"name": "Deno"}`;
+resp = await fetch("https://example.com", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "X-API-Key": "foobar",
+  },
+  body,
+});
+
+const req = new Request("https://example.com", {
+  method: "DELETE",
+});
+resp = await fetch(req);
+
+const url = "https://example.com";
+new Request(url, {
+  method: "POST",
+  body: new Uint8Array([1, 2, 3]),
+});
+new Request(url, {
+  method: "POST",
+  body: new Blob(["Hello, World!"]),
+});
+new Request(url, {
+  method: "POST",
+  body: new URLSearchParams({ "foo": "bar" }),
+});
+
+const formData = new FormData();
+formData.append("name", "Deno");
+formData.append("file", new Blob(["Hello, World!"]), "hello.txt");
+resp = await fetch("https://example.com", {
+  method: "POST",
+  body: formData,
+});
+
+const bodyStream = new ReadableStream({
+  start(controller) {
+    controller.enqueue("Hello, World!");
+    controller.close();
+  },
+});
+resp = await fetch("https://example.com", {
+  method: "POST",
+  body: bodyStream,
+});
+```
+
+
+### ✔HTTP Server: Streaming
+https://examples.deno.land/http-server-streaming
+```js
+function handler(_req: Request): Response {
+  let timer: number | undefined = undefined;
+  const body = new ReadableStream({
+    start(controller) {
+      timer = setInterval(() => {
+        const message = `It is ${new Date().toISOString()}\n`;
+        controller.enqueue(new TextEncoder().encode(message));
+      }, 1000);
+    },
+    cancel() {
+      if (timer !== undefined) {
+        clearInterval(timer);
+      }
+    },
+  });
+  return new Response(body, {
+    headers: {
+      "content-type": "text/plain",
+      "x-content-type-options": "nosniff",
+    },
+  });
+}
+Deno.serve(handler);
+```
+
+### ✔HTTP Server: Routing
+https://examples.deno.land/http-server-routing
+```js
+const BOOK_ROUTE = new URLPattern({ pathname: "/books/:id" });
+
+function handler(req: Request): Response {
+
+  const match = BOOK_ROUTE.exec(req.url);
+
+  if (match) {
+    const id = match.pathname.groups.id;
+    return new Response(`Book ${id}`);
+  }
+
+  return new Response("Not found (try /books/1)", {
+    status: 404,
+  });
+}
+
+Deno.serve(handler);
+```
+
+### ✔HTTP Server: Serving Files
+https://examples.deno.land/http-server-files
+```js
+import { serveDir, serveFile } from "https://deno.land/std@0.194.0/http/file_server.ts";
+Deno.serve((req: Request) => {
+  const pathname = new URL(req.url).pathname;
+
+  if (pathname === "/simple_file") {
+    return serveFile(req, "./path/to/file.txt");
+  }
+
+  if (pathname.startsWith("/static")) {
+    return serveDir(req, {
+      fsRoot: "public",
+      urlRoot: "static",
+    });
+  }
+
+  return new Response("404: Not Found", {
+    status: 404,
+  });
+});
+```
+
+
+### ✔HTTP Server: WebSockets
+https://examples.deno.land/http-server-websocket
+```js
+Deno.serve((req) => {
+
+  if (req.headers.get("upgrade") != "websocket") {
+    return new Response(null, { status: 501 });
+  }
+
+  const { socket, response } = Deno.upgradeWebSocket(req);
+
+  socket.addEventListener("open", () => {
+    console.log("a client connected!");
+  });
+
+  socket.addEventListener("message", (event) => {
+    if (event.data === "ping") {
+      socket.send("pong");
+    }
+  });
+
+  return response;
+});
+```
+
+### ✔Piping Streams
+https://examples.deno.land/piping-streams
+```js
+const download = await Deno.open("example.html", { create: true, write: true });
+
+const req = await fetch("https://examples.deno.land");
+
+req.body?.pipeTo(download.writable);
+
+
+
+import { bgBrightYellow } from "https://deno.land/std@0.194.0/fmt/colors.ts";
+
+class HighlightTransformStream extends TransformStream<string, string> {
+  constructor() {
+    super({
+      transform: (chunk, controller) => {
+        controller.enqueue(chunk.replaceAll("<", bgBrightYellow("<")));
+      },
+    });
+  }
+}
+
+const example = await Deno.open("example.html", { read: true });
+
+await example.readable
+  .pipeThrough(new TextDecoderStream())
+  .pipeThrough(new HighlightTransformStream())
+  .pipeThrough(new TextEncoderStream())
+  .pipeTo(Deno.stdout.writable);
+```
+
+
+### ✔Process Information
+https://examples.deno.land/pid
+```js
+console.log(Deno.pid);
+console.log(Deno.ppid);
+```
+
+
+### ✔Subprocesses: Collecting Output
+https://examples.deno.land/subprocesses-output
+```js
+const command = new Deno.Command("deno", {
+  args: [
+    "eval",
+"\
+    console.log('hello from deno'); \
+    console.error('hello from stderr'); \
+    ",
+  ],
+});
+
+let result = await command.output();
+
+result = command.outputSync();
+
+const textDecoder = new TextDecoder();
+console.log("stdout:", textDecoder.decode(result.stdout));
+console.log("stderr:", textDecoder.decode(result.stderr));
+```
+
+
+### ✔Subprocesses: Spawning
+https://examples.deno.land/subprocesses-spawn
+```js
+const command = new Deno.Command("deno", {
+  args: [ "fmt", "-", ],
+  stdin: "piped",
+  stdout: "piped",
+});
+
+const process = await command.spawn();
+
+const writer = await process.stdin.getWriter();
+writer.write(new TextEncoder().encode("console.log('hello')"));
+writer.releaseLock();
+
+await process.stdin.close();
+
+const result = await process.output();
+console.log(new TextDecoder().decode(result.stdout));
+```
+
+
+### ✔Handling OS Signals
+https://examples.deno.land/os-signals
+https://deno.land/api?s=Deno.addSignalListener
+https://deno.land/api@v1.36.1?s=Deno.Signal
+```js
+console.log("Counting seconds...");
+
+let i = 0;
+
+function sigIntHandler() {
+  console.log("interrupted! your number was", i);
+  Deno.exit();
+}
+
+Deno.addSignalListener("SIGINT", sigIntHandler);
+
+const interval = setInterval(() => {
+  i++;
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(interval);
+  Deno.removeSignalListener("SIGINT", sigIntHandler);
+  console.log("done! it has been 10 seconds");
+}, 10_000);
+```
+
+
+### ✔Environment Variables
+https://examples.deno.land/environment-variables
+deno run --allow-env https://examples.deno.land/environment-variables.ts
+```js
+const PORT = Deno.env.get("PORT");
+console.log("PORT:", PORT);
+
+const env = Deno.env.toObject();
+console.log("env:", env);
+
+Deno.env.set("MY_PASSWORD", "123456");
+
+Deno.env.delete("MY_PASSWORD");
+
+Deno.env.set("MY_PASSWORD", "123");
+Deno.env.set("my_password", "456");
+console.log("UPPERCASE:", Deno.env.get("MY_PASSWORD"));
+console.log("lowercase:", Deno.env.get("my_password"));
+```
+
+
+
+### ✔Benchmarking
+https://examples.deno.land/benchmarking
+deno bench https://examples.deno.land/benchmarking.ts
+```js
+Deno.bench("URL parsing", () => {
+  new URL("https://deno.land");
+});
+Deno.bench("Async method", async () => {
+  await crypto.subtle.digest("SHA-256", new Uint8Array([1, 2, 3]));
+});
+Deno.bench({
+  name: "Long form",
+  fn: () => {
+    new URL("https://deno.land");
+  },
+});
+Deno.bench({
+  name: "Date.now()",
+  group: "timing",
+  baseline: true,
+  fn: () => {
+    Date.now();
+  },
+});
+
+Deno.bench({
+  name: "performance.now()",
+  group: "timing",
+  fn: () => {
+    performance.now();
+  },
+});
+```
+
+
+### ✔Deno KV: Key/Value Database
+https://examples.deno.land/kv
+```js
+/// <reference lib="deno.unstable" />
+
+const kv = await Deno.openKv();
+
+enum Rank {
+  Bronze,
+  Silver,
+  Gold,
+}
+
+interface Player {
+  username: string;
+  rank: Rank;
+}
+
+const player1: Player = { username: "carlos", rank: Rank.Bronze };
+const player2: Player = { username: "briana", rank: Rank.Silver };
+const player3: Player = { username: "alice", rank: Rank.Bronze };
+
+await kv.set(["players", player1.username], player1);
+await kv.set(["players", player2.username], player2);
+await kv.set(["players", player3.username], player3);
+
+player3.rank = Rank.Gold;
+await kv.set(["players", player3.username], player3);
+
+const record = await kv.get(["players", "alice"]);
+const alice: Player = record.value as Player;
+console.log(record.key, record.versionstamp, alice);
+
+const [record1, record2] = await kv.getMany([
+  ["players", "carlos"],
+  ["players", "briana"],
+]);
+console.log(record1, record2);
+
+const records = await kv.list({ prefix: ["players"] });
+const players = [];
+for await (const res of records) {
+  players.push(res.value as Player);
+}
+console.log(players);
+
+await kv.delete(["players", "carlos"]);
+
+const aliceScoreKey = ["scores", "alice"];
+await kv.set(aliceScoreKey, new Deno.KvU64(0n));
+
+await kv.atomic()
+  .mutate({
+    type: "sum",
+    key: aliceScoreKey,
+    value: new Deno.KvU64(10n),
+  })
+  .commit();
+const newScore = (await kv.get<Deno.KvU64>(aliceScoreKey)).value;
+console.log("Alice's new score is: ", newScore);
+```
+
+### ✔Generating & Validating UUIDs
+https://examples.deno.land/uuids
+UUIDs (universally unique identifier) can be used to uniquely identify some object or data.
+Generators and validators for UUIDs for versions v1, v3, v4 and v5.
+Consider using the web platform crypto.randomUUID for v4 UUIDs instead.
+Based on https://github.com/kelektiv/node-uuid -> https://www.ietf.org/rfc/rfc4122.txt
+Support for RFC4122 version 1, 3, 4, and 5 UUIDs
+```js
+const myUUID = crypto.randomUUID();
+console.log("Random UUID:", myUUID);
+
+import * as uuid from "https://deno.land/std@0.194.0/uuid/mod.ts";
+
+console.log(uuid.validate("not a UUID")); // false
+console.log(uuid.validate("6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b")); // true
+
+console.log({uuid: uuid.v1.generate(), webuuid: crypto.randomUUID()});
+
+const NAMESPACE_URL = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
+const data = new TextEncoder().encode("deno.land");
+console.log(await uuid.v5.generate(NAMESPACE_URL, data));
+```
+
+
+### ✔Hasing
+https://examples.deno.land/hashing
+```js
+const message = "The easiest, most secure JavaScript runtime.";
+
+const messageBuffer = new TextEncoder().encode(message);
+
+const hashBuffer = await crypto.subtle.digest("SHA-256", messageBuffer);
+
+import { toHashString } from "https://deno.land/std@0.194.0/crypto/to_hash_string.ts";
+const hash = toHashString(hashBuffer);
+console.log(hash);
+
+
+
+import { crypto } from "https://deno.land/std@0.194.0/crypto/mod.ts";
+const file = await Deno.open("example.txt", { read: true });
+
+const readableStream = file.readable;
+
+const fileHashBuffer = await crypto.subtle.digest("SHA-256", readableStream);
+
+const fileHash = toHashString(fileHashBuffer);
+console.log(fileHash);
+```
+
+
+### ✔Web Assembly
+https://examples.deno.land/webassembly
+```js
+const bytes = new Uint8Array([
+  0,97,115,109,1,0,0,0,1,7,1,96,2,
+  127,127,1,127,2,1,0,3,2,1,0,4,1,
+  0,5,1,0,6,1,0,7,7,1,3,97,100,100,
+  0,0,9,1,0,10,10,1,8,0,32,0,32,1,
+  106,15,11,11,1,0,
+]);
+
+interface WebAssemblyExports {
+  add(a: number, b: number): number;
+}
+
+const exports = await WebAssembly.instantiate(bytes);
+
+const functions = exports.instance.exports as unknown as WebAssemblyExports;
+
+console.log(functions.add(1, 2)); // 3
+```
+
 
 
 ## ⚡ License Filter
@@ -1407,9 +2355,65 @@ Learning Reactive Programming With Java 8 的作者 Nickolay Tsvetinov 举过类
 
 
 # 🚩 The Runtime
-- Deno's stable runtime https://doc.deno.land/builtin/stable
-- Deno's unstable runtime https://doc.deno.land/builtin/unstable
+1. Deno's stable runtime https://doc.deno.land/builtin/stable
+2. Deno's unstable runtime https://doc.deno.land/builtin/unstable
+3. https://deno.land/manual@v1.36.1/runtime
+04. Stable API https://doc.deno.land/builtin/stable
+05. Unstable API https://doc.deno.land/builtin/unstable#Deno.CompilerOptions
 
+Deno 运行时分为稳定、不稳定两种。
+
+所符合 Web Platform APIs 规范的接口都可以直接在全局空间中访问。比如 JSON/Fetch API，文档需要参考 mozilla.org 网站，Deno 本身没有提供相关文档。
+https://deno.land/manual@v1.36.1/runtime/web_platform_apis
+
+其它接口则需要通过 Deno 命名空间访问，TypeScript 类型定义参考：
+https://github.com/denoland/deno/blob/v1.36.1/cli/tsc/dts/lib.deno.ns.d.ts
+
+要使用 Unstable API 就需要通过参数激活：
+
+    deno run --unstable mod_which_uses_unstable_stuff.ts
+
+传入 --unstable 参数的作用：
+
+- 为运行时激活非稳定 API；
+- 为 TypeScript 类型检查添加 lib.deno.unstable.d.ts 类型声明，而稳定 API 的类型声明文件是 lib.deno.ns.d.ts。
+
+非稳定 API 是指还未通过安全性审查，not undergone a security review，可能会在随后的版本中破坏性变更。
+
+以下按 Deno 1.7.0 环境展开，Deno 1.9.2 运行失败，引用的第三方模块有问题：
+
+```sh
+error: TS2612 [ERROR]: Property 'resolve' will overwrite the base property in 'Deferred<undefined>'. If this is intentional, add an initializer. Otherwise, add a 'declare' modifier or remove the redundant declaration.
+    public readonly resolve!: () => void;
+#                   ~~~~~~~
+    at https://deno.land/x/evt@v1.8.10/tools/Deferred.ts:57:21
+```
+
+例如，Runtime compiler APIs 最新的 `Deno.emit` 函数替代了旧的 `Deno.compile` 和 `Deno.bundle`。
+
+
+The Runtime
+
+01. Stability 
+02. Built-in APIs 
+03. `import.meta` API 
+04. Program Lifecycle 
+05. Permission APIs 
+06. Web Platform APIs 
+07. HTTP Server APIs 
+08. KV 
+    Operations 
+    Transactions 
+    Secondary indexes 
+    Key Space 
+09. Location API 
+10. Web Storage API 
+11. Workers 
+12. Foreign Function Interface 
+13. Using WebAssembly 
+    Using WebAssembly in Deno 
+    Using the Streaming WebAssembly APIs 
+    Helpful Resources 
 
 ## ⚡ Command Line Interface & shell
 - https://deno.land/std@0.93.0/http/file_server.ts
@@ -1674,6 +2678,93 @@ Windows 系统还支持以下这样的语法：
     dir 1> output.msg 2>&1
 
 
+## ⚡ Binary 数据处理
+1. https://deno.land/api@v1.36.1#Encoding_API
+2. https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
+3. https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView
+4. https://developer.mozilla.org/en-US/docs/Web/API/Blob
+4. https://deno.land/api@v1.36.1?s=Deno
+
+Deno 通过 Rust 绑定 V8 引擎，提供了底层数据类型的支持。
+
+Data 类只定义了一个私有的 Data() 构造器，子类 Value 提供基本的类型判断方法，如 isSet, isMap, isTrue, isNull, isUndefined 等。
+
+然后是原始值类型，Primitive 和 Object 的各种子类，分别对应了 JavaScript 的原始值类型和复杂对象类型：
+
+- class `External` : `Value`
+- class `Primitive` : `Value`
+    - class `BigInt` : `Primitive`
+    - class `Boolean` : `Primitive`
+    - class `Name` : `Primitive`
+    - class `Number` : `Primitive`
+        - class `Integer` : `Number`
+            - class `Int32` : `Integer`
+            - class `Uint32` : `Integer`
+- class `Object` : `Value`
+    - class `Array` : `Object`
+    - class `Map` : `Object`
+    - class `Set` : `Object`
+    - class `Function` : `Object`
+    - class `Promise` : `Object`
+    - class `Resolver` : `Object`
+    - class `Proxy` : `Object`
+    - class `WasmModuleObject` : `Object`
+    - class `ArrayBuffer` : `Object`
+    - class `ArrayBufferView` : `Object`
+    - class `SharedArrayBuffer` : `Object`
+    - class `Date` : `Object`
+    - class `NumberObject` : `Object`
+    - class `BigIntObject` : `Object`
+    - class `BooleanObject` : `Object`
+    - class `StringObject` : `Object`
+    - class `SymbolObject` : `Object`
+    - class `RegExp` : `Object`
+    - class `FinalizationGroup` : `Object`
+
+ECMAScript 脚本语言有一套处理二进制数据的对象规范，Deno 文档没有提供这些对象的接口信息，需要参考 ECMAScript 相关文档。
+
+*ArrayBuffer* 是内存中缓冲区保存的数据对象，代表原始的二进制数据 "byte array"，这些数据不能直接在脚本中操作，需要通过其它具体类型来操作，即需要在具体数据类型的约束下才操作内存数据。最基础的就是类型化的数组类型，比如 *Float32Array*、*Uint8Array* 等等，其中后者是字节类型，常用于字符串与二进制之间的转换。
+
+    Array
+    Int8Array       Uint8Array  Uint8ClampedArray
+    Int16Array      Uint16Array
+    Int32Array      Uint32Array
+    BigInt64Array    BigUint64Array
+    Float32Array    Float64Array
+
+另外，为了减少对原始数据复制操作，引入了 *DataView* 类型，即从不同的区间“取出”一部分数据，但不需要将原始数据复制到内存的其它位置。OOP 编程思想来理解，就是创建数据对象实例，却不需要内存副本，使用共同的原始数据。
+
+You cannot directly manipulate the contents of an ArrayBuffer; instead, you create one of the typed array objects or a DataView object which represents the buffer in a specific format, and use that to read and write the contents of the buffer.
+
+https://deno.land/api@v1.36.1?s=Deno.Buffer
+https://deno.land/std@0.198.0/io/buffer.ts
+Deprecated
+Use Buffer from std/io/buffer.ts instead. Deno.Buffer will be removed in the future.
+
+    import * as mod from "https://deno.land/std@0.198.0/io/buffer.ts";
+
+
+Node.JS 中用 *Buffer* 来操作 ArrayBuffer，即 Buffer 是一个用于操作原始数据的视图(view)，和前面列表中的类型化数组类型一样，都是 *TypedArray* 接口类型的一种。
+
+    ArrayBuffer
+    +- TypedArray
+    |   +- Int8Array
+    |   +- UInt8Array
+    |   |   +- Buffer
+    |   +- ...
+    +- DataView
+
+Uint8Array 作为 8-bit 无符号整型数组，一段以 8-bit 字节数据为单位的无符号整型数组，可以理解为一种具象化的 ArrayBuffer。与 DataView 的区别在于，数据视图不不需要复制数据，在某些应用场景下提升效率。
+
+此外，还有大尺寸的数据对象 Blob - Binary Large Object，通常用于支持文件操作的二进制对象。
+
+```js
+let buf:Uint8Array = new Uint8Array(32);
+let ret:TextEncoderEncodeIntoResult = new TextEncoder().encodeInto("中文", buf);
+let txt:string = new TextDecoder("utf8").decode(buf.subarray( 0, ret.written));
+```
+
+
 ## ⚡ File 读写
 - Read and write files https://deno.land/manual@v1.9.2/examples/read_write_files
 - Unix cat program https://deno.land/manual@v1.9.2/examples/unix_cat
@@ -1923,6 +3014,232 @@ Run with:
 The above for-await loop exits after 5 seconds when sig.dispose() is called.
 
 
+## ⚡ Import Maps & import.meta API
+1. https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/import.meta
+2. https://deepu.tech/concurrency-in-modern-languages-ts/
+3. https://deno.land/manual@v1.36.1/getting_started/configuration_file
+3. https://deno.land/manual@v1.36.1/basics/import_maps
+3. https://deno.land/manual@v1.36.1/runtime/import_meta_api
+4. https://deno.land/api@v1.36.1#Web_APIs
+4. https://deno.land/api@v1.36.1?s=ImportMeta
+
+1. https://deno.land/manual@v1.36.1/node/npm_specifiers
+2. https://deno.land/manual@v1.36.1/node/node_specifiers
+3. https://deno.land/manual@v1.36.1/node/cdns
+4. https://deno.land/manual@v1.36.1/node/package_json
+5. https://deno.land/manual@v1.36.1/node/how_to_with_npm
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/prisma
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/mongoose
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/mysql2
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/redis
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/react
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/vue
+0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/express
+4. https://vitejs.dev/guide/
+
+ JavaScript 引入模块规范后，通过 import 和
+export 等关键字定义或引入模块，极大也增强的脚本编程的体验，提升了大型项目的管理效率。为了方便脚本中获取脚本模块信息，同时也加入了 import.meta，这是一个给暴露特定上下文的元数据属性的对象。它包含了这个模块的信息，比如说这个模块的 URL。
+
+通常情况下"import."是作为一个属性访问的上下文，但是在这里"import"不是一个真正的对象。import.meta 对象由 ECMAScript 实现，它带有一个null的原型对象。这个对象可以扩展，并且它的属性都是可写，可配置和可枚举的。
+
+为了像 Node 那样导入 "react" 或 "lodash" 这样的脚本模块，Deno 设计了 Import Maps 机制，通过配置文件 `deno.json` 中设置的模块与 URL 映射关系导入指定的模块。
+
+Deno 模块导入设计是直接通过 CDN 提供的模块 URL 地址导入，esm.sh 就是专用于 Deno 模块分布式内容节点服务。另外，为了导入 Node 内置模块和 NPM 模块，除了兼容 package.json 依赖模块设置，还专门设计了 npm: specifiers 和 node: specifiers，引入的 Node 内置模块功能有限制。
+
+使用 CDN 导入，服务器会自动为 TypeScript 开发环境设置一个 Header 提示模块的类型声明文件地址，比如请求 ReactDOMServer 模块，HTTP 响应头就会包含类似以下标记。Deno 可以检测到类型声明标记，在三斜杠指令处会有智能提示内容，表示引入模块已经处理 Resolved Dependency 状态，并且还有 Code 和 Types 两处信息指示相应的 URL 地址，相当于脚本开头使用 triple-slash 指令引用类型声明文件：
+
+    X-Typescript-Types: https://esm.sh/v131/@types/react-dom@~18.2/server~.d.ts
+
+    https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+    /// <reference types="./server~.d.ts" />
+    /// <reference types="https://esm.sh/v131/@types/express@^4/index.d.ts" />
+
+    deno cache https://esm.sh/v131/@types/express@^4/index.d.ts
+    deno cache https://esm.sh/v128/@types/react@~18.2/index.d.ts
+    deno cache https://esm.sh/v131/@types/react-dom@~18.2/index.d.ts
+    deno cache https://esm.sh/v131/@types/react-dom@~18.2/server~.d.ts
+
+由于 TypeScript 官方未支持使用 URL 的三斜杠指令，语法检查会提示找不到类型定义文件。只能在 Deno 环境使用，并且 Deno 会在类型定义文件缓存之前提示 URL 指定的文件处理 Uncache 状态，通常会在运行程序时自动缓存，可以手动执行 `deno cache URL` 缓存指定 URL 地址类型声明文件。也只可以手动下载类型声明文件到项目目录下，使用相对路径引用类型定义文件。缓存目录信息使用 `deno info` 命令查看：
+
+1. DENO_DIR location
+2. Remote modules cache
+3. npm modules cache
+4. Emitted modules cache
+5. Language server registries cache
+6. Origin storage
+
+导入 npm: 模块时，如果模块本身提供了 TypeScript 类型声明，Deno 会检测到，如果没提供，则可以手动 @deno-types 指令指定类型声明模块。
+
+以下是基于 Deno 编写的 React SSR 应用示范，为了简化起见，服务器端的 HelloSSR 是简化后 Hello 组件，它们生成的初始内容必须一致，如果使用 hydrateRoot()。SSR 渲染目的是向浏览器在发出页面请求时，服务器可以提供一个具有完整 HTML 结构的页面，这样做的目的可以是出于 SEO 搜索引擎优化需要。
+
+浏览器获取到 SSR 页面后，就执行客户端的脚本，ReactDOM.hydrate() 则根据对应组件生成的 HTML 绑定事件处理函数，恢复组件的交互能力。dydrate() 相比 render() 可以跳过组件 HTML 结构处理过程，因为 HTML 已经由服务生成并已经在页面中，这样以获得非常高效的首次加载体验，React SSR 会使用项目复杂化。
+
+SSR 是 JSP、PHP 时代就存在的古老的技术，只不过之前是通过模版引擎。React SSR 则是基于渲染组件得到 HTML，并且客户端再次渲染，这种叫做同构渲染的模式。
+
+SSR 存在的主要目的除了 SEO 优化，还有就是解决 Client-Side Render (CSR) 项目的初次加载时间长的问题，TTFP（Time To First Page）时间比较长。CSR 渲染模式下，首先要加载 HTML 文件，之后要下载页面所需的 JavaScript 文件，然后 JavaScript 文件渲染生成页面。
+
+```ts,ignore
+/// <reference types="npm:@types/node" />
+
+import os from "node:os";
+import chalk from "npm:chalk@5";
+// @deno-types="npm:@types/express@^4.17"
+import express, {Request, Response} from "npm:express@^4.17";
+// import express from "https://esm.sh/express@4.18.2";
+import React from "https://esm.sh/react@18.2.0";
+import ReactDOM from "https://esm.sh/react-dom@18.2.0";
+import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+
+
+class HelloSSR extends React.Component {
+  render () {
+    console.log("ssr render", HelloSSR);
+    let fakeTick = 1;
+    return (<div>Hello, SSR! {fakeTick} </div>)
+  }
+}
+
+const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
+
+const html = `
+  <!doctype html>
+  <html>
+    <body>
+    <div id="container">${ssr}</div>
+      <script src="https://cdn.staticfile.org/babel-standalone/7.22.10/babel.min.js"></script>
+      <script type="text/babel" data-type="module">
+        import React from "https://esm.sh/react@18.2.0";
+        import ReactDOM from "https://esm.sh/react-dom@18.2.0";
+        import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+
+class Hello extends React.Component {
+  static tick = 0;
+  constructor() {
+    super({});
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e){ 
+    console.log("onclick", {t: this, e}); 
+    fetch("/react-ssr")
+    .then(res=>res.text())
+    .then(res=>console.log({res}));
+    this.forceUpdate();
+  }
+  render () {
+    Hello.tick++;
+    console.log("render", Hello.name, Hello.tick);
+    return (<div onClick={this.handleClick}>Hello, SSR! {Hello.tick} </div>)
+  }
+}
+        let container = document.querySelector("#container");
+        // ReactDOM.render(<Hello />, container);
+        // ReactDOM.hydrate(<Hello />, container);
+        ReactDOM.hydrateRoot(container, <Hello />);
+      </script>
+      <script type="module">
+      </script>
+    </body>
+  </html>
+  `;
+
+
+const app = express();
+
+app.get("/", (req:Request, res:Response) => {
+  res.send(html);
+});
+
+app.get("/react-ssr", (req:Request, res:Response) => {
+  const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
+  res.send(ssr);
+});
+
+app.listen(3000);
+console.log(chalk.green("listening on http://localhost:3000/"), `home dir: ${os.homedir}`);
+```
+
+
+Vite 是新式的前端开发框架，由 Vue 作者尤雨溪开发，基于 JavaScript modules (ESM) 模块，拥有轻量式 Hot Module Replacement (HMR)，支持 Server-Sider Render (SSR) 和插件机制，以及丰富的开箱即用功能，包括 TypeScript, JSX, CSS 等等，用于 Deno 环境下创建 React、Vue 应用等等。执行以下命令，运行 Vite 脚手架，选择 Web 应用框架以及脚本语言和 SSR 方式，创建默认的工程：
+
+```sh
+deno run --allow-env --allow-read --allow-write npm:create-vite-extra
+cd vite-project
+deno task dev
+# npm install
+# npm run dev
+```
+
+Vite 生产环境用 rollup 而非 webpack 打包模块，但使用 npm 或者 yarn 一建生成项目结构的方式，所以项目中会有 node_modules 目录。
+
+
+```json
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.198.0/",
+    "fmt/": "https://deno.land/std@0.198.0/fmt/",
+     // import lodash from "lodash";
+    "lodash": "https://esm.sh/lodash@4.17.21",
+    "react" : "https://esm.sh/react@18.2.0",
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
+```
+
+```ts
+import { red } from "fmt/colors.ts";
+console.log(red("hello world"));
+
+import os from "node:os";
+import chalk from "npm:chalk@5";
+import express from "npm:express@^4.17";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+app.listen(3000);
+console.log(chalk.green("listening on http://localhost:3000/"), `homedir: ${os.homedir}`);
+```
+
+
+Deno supports a number of methods on the [`import.meta`] API:
+
+- `import.meta.url`: returns the URL of the current module.
+- `import.meta.main`: returns whether the current module is the entry point to
+  your program.
+- `import.meta.resolve`: resolve specifiers relative to the current module.
+
+```ts
+const worker = new Worker(import.meta.resolve("./worker.ts"));
+```
+
+With such import map loaded...
+
+```json
+{
+  "imports": {
+    "fresh": "https://deno.land/x/fresh@1.0.1/dev.ts"
+  }
+}
+```
+
+...you can now resolve:
+
+```js
+// resolve.js
+console.log(import.meta.resolve("fresh"));
+```
+
+```sh
+$ deno run resolve.js
+https://deno.land/x/fresh@1.0.1/dev.ts
+```
+
+
 ## ⚡ Events & EventTarget
 - https://doc.deno.land/builtin/stable#Event
 - https://doc.deno.land/builtin/stable#EventTarget
@@ -1955,7 +3272,7 @@ window.addEventListener("unload", handler);
 - key 只能是对象，并且不可以被遍历，不可以清除，也不具有 size 属性。它是黑匣子，只有同时拥有 WeakMap 和 key 引用才能访问其值。
 - key 是对象的弱引用，当对象被回收后，会自动移除对应的键值对。
 
-```js
+```js,ignore
   const eventTargetData = new WeakMap();
 
   function getDefaultTargetData() {
@@ -1990,7 +3307,7 @@ window.addEventListener("unload", () => {
 
 而直接给 `load` 和 `unload` 属性设置事件监听函数的做法是通过 @runtime\js\01_web_util.js 文件中定义的 `defineEventHandler` 方法设置的：
 
-```js
+```js,ignore
   const handlerSymbol = Symbol("eventHandlers");
 
   function makeWrappedHandler(handler) {
@@ -2041,7 +3358,7 @@ ES6 引入的代理（Proxy）实现了对象的 API Intercepting 劫持监听�
 
 注册事件的过程相对是简单的，复杂的是向对象注册好的事件处理函数派发事件，以 Window 的 unload 事件为例，事件源头自 Deno Cli，即 Rust 绑定的脚本引擎内部触发，然后一步步向 JsRuntime 初始化代码传递，这中间又涉及了 Deno Core 搭建的 JsRuntime 环境：
 
-```js
+```js,ignore
 // @core\core.js
   function dispatch(opName, promiseId, control, zeroCopy) {
     const opId = typeof opName === "string" ? opsCache[opName] : opName;
@@ -2164,16 +3481,185 @@ Note that the exact ordering of the events can vary between operating systems. T
 - Windows: ReadDirectoryChangesW
 
 
+## ⚡ Modules
+- import or export https://deno.land/manual@v1.9.2/examples/import_export
+- Module metadata https://deno.land/manual@v1.9.2/examples/module_metadata
+- Linking to third party code https://deno.land/manual/linking_to_external_code
+- Managing dependencies https://deno.land/manual@v1.9.2/examples/manage_dependencies
+
+模块的元数据主要有以下这些：
+
+- `import.meta` 提供当前执行脚本的上下文信息。
+- `import.meta.main` 指示当前模块是否为入口模块，true or false。
+- `import.meta.url` 包含当前模块的 URL 地址，本地文件则以 `file:///` 协议开头。
+- `Deno.mainModule` 是主模块，即由 Deno CLI 执行的入口模块的 URL 地址。
+
+模块地址的处理，如获取目录，相对目录，脚本目录等，可以通过标准库的 path 模块进行处理。
+
+模块导入功能具有特殊的 Deno 网络权限，可以不用 --allow-net 授权。
+
+例如，以下这个测试演示：
+
+```js
+// test.ts
+import { assertEquals } from "https://deno.land/std@0.95.0/testing/asserts.ts";
+
+assertEquals("hello world", "hello world");
+assertNotEquals("hello", "world");
+
+console.log("Asserted! ✓");
+```
+
+运行测试：
+
+    $ deno run test.ts
+    Compile file:///mnt/f9/Projects/github.com/denoland/deno/docs/test.ts
+    Download https://deno.land/std@0.95.0/testing/asserts.ts
+    Download https://deno.land/std@0.95.0/fmt/colors.ts
+    Download https://deno.land/std@0.95.0/testing/diff.ts
+    Asserted! ✓
+
+导入的的依赖模块会缓存在 DENO_DIR 目录中，如果没有设置相应环境变量，那么使用以下默认目录，通过 deno info 命令可以查询：
+
+- Linux/Redox: `$XDG_CACHE_HOME/deno` or `$HOME/.cache/deno`
+- Windows: `%LOCALAPPDATA%/deno` (`%LOCALAPPDATA%` = FOLDERID_LocalAppData)
+- macOS: `$HOME/Library/Caches/deno`
+- 后备目录 `$HOME/.deno`
+
+为了避免在项目中重复编写导入模块，可以使用一个 deps.ts 依赖管理文件，统一导出依赖的模块：
+
+    export {
+      assert,
+      assertEquals,
+      assertStrContains,
+    } from "https://deno.land/std@0.95.0/testing/asserts.ts";
+
+然后，再导入这个依赖管理脚本：
+
+    import { assertEquals, runTests, test } from "./deps.ts";
+
+使用 lock file 可以保证下载模块的 URL 和初始开发时使用的一致，使用 --lock 命令选项。
+
+为了防止模块服务器挂机而导致依赖下载出错，可以执行 deno cache 预先缓存依赖：
+
+```sh
+# Download the dependencies.
+DENO_DIR=./deno_dir deno cache src/deps.ts
+
+# Make sure the variable is set for any command which invokes the cache.
+DENO_DIR=./deno_dir deno test src
+
+# Check the directory into source control.
+git add -u deno_dir
+git commit
+```
+
+与 Node 的集中式模块管理不同，Deno 使用分布式，可以从任何提供模块服务的主机上获取依赖模块。
+
+Deno 完全摆脱 Node 的模块标准，使用兼容 ESM 的浏览器模块标准，更方便的 import and export，除了导入本地文件，还可以直接导入 URL 指定的模块。
+
+Deno 没有模块管理器的概念，也没有 package manager 工具，它是通过 URL 来管理依赖模块的。
+
+在大项目中依赖会变得 cumbersome 而消耗更多时间，因而，Deno 使用以下两个依赖管理文件：
+
+- deps.ts 本地中心化依赖管理文件；
+- dev_deps.ts 开发依赖管理文件；
+
+导入模块语法参考：
+
+```ts
+/**
+ * remote import
+ */
+import {
+  add,
+  multiply,
+} from "https://x.nest.land/ramda@0.27.0/source/index.js";
+
+/**
+ * local import
+ */
+import { add, multiply } from "./arithmetic.ts";
+
+function totalCost(outbound: number, inbound: number, tax: number): number {
+  return multiply(add(outbound, inbound), tax);
+}
+
+/**
+ * export
+ */
+export function add(a: number, b: number): number {
+  return a + b;
+}
+
+export function multiply(a: number, b: number): number {
+  return a * b;
+}
+```
+
+ESM improt 语法参考：
+
+    import defaultExport from "module-name";
+    import * as name from "module-name";
+    import { export1 } from "module-name";
+    import { export1 as alias1 } from "module-name";
+    import { export1 , export2 } from "module-name";
+    import { foo , bar } from "module-name/path/to/specific/un-exported/file";
+    import { export1 , export2 as alias2 , [...] } from "module-name";
+    import defaultExport, { export1 [ , [...] ] } from "module-name";
+    import defaultExport, * as name from "module-name";
+    import "module-name";
+    var promise = import("module-name");
+
+ESM export 语法参考：
+
+    // Exporting individual features
+    export let name1, name2, …, nameN; // also var, const
+    export let name1 = …, name2 = …, …, nameN; // also var, const
+    export function functionName(){...}
+    export class ClassName {...}
+
+    // Export list
+    export { name1, name2, …, nameN };
+
+    // Renaming exports
+    export { variable1 as name1, variable2 as name2, …, nameN };
+
+    // Exporting destructured assignments with renaming
+    export const { name1, name2: bar } = o;
+
+    // Default exports
+    export default expression;
+    export default function (…) { … } // also class, function*
+    export default function name1(…) { … } // also class, function*
+    export { name1 as default, … };
+
+    // Aggregating modules
+    export * from …; // does not set the default export
+    export * as name1 from …; // Draft ECMAScript® 2O21
+    export { name1, name2, …, nameN } from …;
+    export { import1 as name1, import2 as name2, …, nameN } from …;
+    export { default, … } from …;
+
+注意，导出与导入的对应关系：
+
+- Default Export 对应 Default Import：
+    - `impoart defultExport from ...`；
+    - `impoart defultExport { ... } from ...`；
+- 其它 exports 对应 `import { ... }`；
+
+
 ## ⚡ Using TypeScript
-- Super fast javascript / typescript compiler https://swc.rs
-- SWC - Speedy web compiler https://crates.io/crates/swc
-- Using cli (swc) https://swc.rs/docs/usage-swc-cli
-- Using TypeScript in Deno https://deno.land/manual@v1.9.1/typescript
-- Deno Manual - Examples https://deno.land/std@0.90.0/examples
-- https://docs.skypack.dev/skypack-cdn/code/deno
-- https://github.com/denoland/deno/releases
-- https://microsoft.github.io/language-server-protocol/
-- The Deno Handbook: A TypeScript Runtime Tutorial with Code Examples https://www.freecodecamp.org/news/the-deno-handbook/
+1. Super fast javascript / typescript compiler https://swc.rs
+2. SWC - Speedy web compiler https://crates.io/crates/swc
+3. Using cli (swc) https://swc.rs/docs/usage-swc-cli
+4. Using TypeScript in Deno https://deno.land/manual@v1.9.1/typescript
+5. Deno Manual - Examples https://deno.land/std@0.90.0/examples
+6. https://docs.skypack.dev/skypack-cdn/code/deno
+7. https://github.com/denoland/deno/releases
+8. https://microsoft.github.io/language-server-protocol/
+9. The Deno Handbook: A TypeScript Runtime Tutorial with Code Examples https://www.freecodecamp.org/news/the-deno-handbook/
+0. TypeScript 教程 by 阮一峰 https://wangdoc.com/typescript/
 
 Deno 以 TypeScript 作为第一语言，它会基于 Rust 语言集成开发了 TypeScript 编译器，叫做 SWC - Speedy web compiler，是一个 Rust 库。编译器会将脚本代码，包括 TSX 和 JSX 转换转序为 JavaScript 再由脚本解析引擎运行。官方声明，单线程下此编译器要 20x 快于 babel，而 4 核心线程下 70x，除了 Deno，包括字节跳动都在使用。
 
@@ -2315,206 +3801,48 @@ Deno 强制开启 isolatedModules 编译配置，那么即使使用 TypeScript �
 - `declare namespace` 支持，运行时 `namespace` 是传统 TypeScript 语法，不支持。
 
 
-## ⚡ Modules
-- import or export https://deno.land/manual@v1.9.2/examples/import_export
-- Module metadata https://deno.land/manual@v1.9.2/examples/module_metadata
-- Linking to third party code https://deno.land/manual/linking_to_external_code
-- Managing dependencies https://deno.land/manual@v1.9.2/examples/manage_dependencies
+## ⚡ Using JSX and the DOM
+01. https://deno.land/manual@v1.36.1/advanced/jsx_dom
+02. Deno Bundle for Server Side Rendered React https://dev.to/craigmorten/deno-bundle-for-server-side-rendered-react-11c2
+03. Writing a React SSR app in Deno https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7
+06. Deno Bundle https://deno.land/manual/tools/bundler#bundling
+07. Runtime compiler APIs https://deno.land/manual@v1.9.0/typescript/runtime
+08. Deno Demos https://github.com/jimboyeah/deno-demo
+09. opine Fast, minimalist web framework https://github.com/asos-craigmorten/opine
+10. std:http/server.ts https://doc.deno.land/https/deno.land/std@0.51.0/http/server.ts
 
-模块的元数据主要有以下这些：
+一个 web 应用包含多种技术，对应不同的数据组织形式：
 
-- `import.meta` 提供当前执行脚本的上下文信息。
-- `import.meta.main` 指示当前模块是否为入口模块，true or false。
-- `import.meta.url` 包含当前模块的 URL 地址，本地文件则以 `file:///` 协议开头。
-- `Deno.mainModule` 是主模块，即由 Deno CLI 执行的入口模块的 URL 地址。
+1. JavaScript 脚本，对应浏览器的各种脚本对象；
+2. HTML 标签，对应浏览器 DOM 对象；
+3. CSS 样式表，对应页面外观样式；
+4. Web Assembly 字节码，比脚本更底层的程序。
 
-模块地址的处理，如获取目录，相对目录，脚本目录等，可以通过标准库的 path 模块进行处理。
+使用这些数据就需要不同的解释程序，但是现代的 web 应用已经实现组件化，Facebook 创建的 React 框架引入了一种数据溶合技术，JSX 即带有 XML 数据的 JavaScript 脚本，这是一种流行的领域特定语言 DSL (domain specific language) ，这种技术实现了在 JavaScript 或者 TypeScript 脚本上编写类似 HTML 结构的脚本，这使得编写 web 组件变得非常方便，HTML 标签通过组件化技术，就像编写脚本一样。
 
-模块导入功能具有特殊的 Deno 网络权限，可以不用 --allow-net 授权。
+当前 Deno 可以使用以下工具来解释 JSX 中的 DOM 和 CSS 对象，它们的功能就是实现 HTML-in-JS 和 CSS-in-JS：
 
-例如，以下这个测试演示：
+1. Using LinkeDOM https://github.com/WebReflection/linkedom
+2. Using deno-dom https://deno.land/x/deno_dom
+3. Using jsdom https://github.com/jsdom/jsdom
+4. Parsing CSS 
+    via reworkcss/css https://github.com/reworkcss/css
+    or deno_css https://deno.land/x/css
+5. Using Twind https://twind.dev/
 
-```js
-// test.ts
-import { assertEquals } from "https://deno.land/std@0.95.0/testing/asserts.ts";
 
-assertEquals("hello world", "hello world");
-assertNotEquals("hello", "world");
+一个 JSX 组件定义类似如下内容：
 
-console.log("Asserted! ✓");
+```jsx
+    export function Greeting({ name }) {
+      return (
+        <div>
+          <h1>Hello {name}!</h1>
+        </div>
+      );
+    }
 ```
 
-运行测试：
-
-    $ deno run test.ts
-    Compile file:///mnt/f9/Projects/github.com/denoland/deno/docs/test.ts
-    Download https://deno.land/std@0.95.0/testing/asserts.ts
-    Download https://deno.land/std@0.95.0/fmt/colors.ts
-    Download https://deno.land/std@0.95.0/testing/diff.ts
-    Asserted! ✓
-
-导入的的依赖模块会缓存在 DENO_DIR 目录中，如果没有设置相应环境变量，那么使用以下默认目录，通过 deno info 命令可以查询：
-
-- Linux/Redox: `$XDG_CACHE_HOME/deno` or `$HOME/.cache/deno`
-- Windows: `%LOCALAPPDATA%/deno` (`%LOCALAPPDATA%` = FOLDERID_LocalAppData)
-- macOS: `$HOME/Library/Caches/deno`
-- 后备目录 `$HOME/.deno`
-
-为了避免在项目中重复编写导入模块，可以使用一个 deps.ts 依赖管理文件，统一导出依赖的模块：
-
-    export {
-      assert,
-      assertEquals,
-      assertStrContains,
-    } from "https://deno.land/std@0.95.0/testing/asserts.ts";
-
-然后，再导入这个依赖管理脚本：
-
-    import { assertEquals, runTests, test } from "./deps.ts";
-
-使用 lock file 可以保证下载模块的 URL 和初始开发时使用的一致，使用 --lock 命令选项。
-
-为了防止模块服务器挂机而导致依赖下载出错，可以执行 deno cache 预先缓存依赖：
-
-```
-# Download the dependencies.
-DENO_DIR=./deno_dir deno cache src/deps.ts
-
-# Make sure the variable is set for any command which invokes the cache.
-DENO_DIR=./deno_dir deno test src
-
-# Check the directory into source control.
-git add -u deno_dir
-git commit
-```
-
-与 Node 的集中式模块管理不同，Deno 使用分布式，可以从任何提供模块服务的主机上获取依赖模块。
-
-Deno 完全摆脱 Node 的模块标准，使用兼容 ESM 的浏览器模块标准，更方便的 import and export，除了导入本地文件，还可以直接导入 URL 指定的模块。
-
-Deno 没有模块管理器的概念，也没有 package manager 工具，它是通过 URL 来管理依赖模块的。
-
-在大项目中依赖会变得 cumbersome 而消耗更多时间，因而，Deno 使用以下两个依赖管理文件：
-
-- deps.ts 本地中心化依赖管理文件；
-- dev_deps.ts 开发依赖管理文件；
-
-导入模块语法参考：
-
-```ts
-/**
- * remote import
- */
-import {
-  add,
-  multiply,
-} from "https://x.nest.land/ramda@0.27.0/source/index.js";
-
-/**
- * local import
- */
-import { add, multiply } from "./arithmetic.ts";
-
-function totalCost(outbound: number, inbound: number, tax: number): number {
-  return multiply(add(outbound, inbound), tax);
-}
-
-/**
- * export
- */
-export function add(a: number, b: number): number {
-  return a + b;
-}
-
-export function multiply(a: number, b: number): number {
-  return a * b;
-}
-```
-
-ESM improt 语法参考：
-
-    import defaultExport from "module-name";
-    import * as name from "module-name";
-    import { export1 } from "module-name";
-    import { export1 as alias1 } from "module-name";
-    import { export1 , export2 } from "module-name";
-    import { foo , bar } from "module-name/path/to/specific/un-exported/file";
-    import { export1 , export2 as alias2 , [...] } from "module-name";
-    import defaultExport, { export1 [ , [...] ] } from "module-name";
-    import defaultExport, * as name from "module-name";
-    import "module-name";
-    var promise = import("module-name");
-
-ESM export 语法参考：
-
-    // Exporting individual features
-    export let name1, name2, …, nameN; // also var, const
-    export let name1 = …, name2 = …, …, nameN; // also var, const
-    export function functionName(){...}
-    export class ClassName {...}
-
-    // Export list
-    export { name1, name2, …, nameN };
-
-    // Renaming exports
-    export { variable1 as name1, variable2 as name2, …, nameN };
-
-    // Exporting destructured assignments with renaming
-    export const { name1, name2: bar } = o;
-
-    // Default exports
-    export default expression;
-    export default function (…) { … } // also class, function*
-    export default function name1(…) { … } // also class, function*
-    export { name1 as default, … };
-
-    // Aggregating modules
-    export * from …; // does not set the default export
-    export * as name1 from …; // Draft ECMAScript® 2O21
-    export { name1, name2, …, nameN } from …;
-    export { import1 as name1, import2 as name2, …, nameN } from …;
-    export { default, … } from …;
-
-注意，导出与导入的对应关系：
-
-- Default Export 对应 Default Import：
-    - `impoart defultExport from ...`；
-    - `impoart defultExport { ... } from ...`；
-- 其它 exports 对应 `import { ... }`；
-
-
-## ⚡ Stability & JSX
-- Deno Bundle for Server Side Rendered React https://dev.to/craigmorten/deno-bundle-for-server-side-rendered-react-11c2
-- Writing a React SSR app in Deno https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7
-- Stable API https://doc.deno.land/builtin/stable
-- Unstable API https://doc.deno.land/builtin/unstable#Deno.CompilerOptions
-- Deno Bundle https://deno.land/manual/tools/bundler#bundling
-- Runtime compiler APIs https://deno.land/manual@v1.9.0/typescript/runtime
-- Deno Demos https://github.com/jimboyeah/deno-demo
-- opine Fast, minimalist web framework https://github.com/asos-craigmorten/opine
-- std:http/server.ts https://doc.deno.land/https/deno.land/std@0.51.0/http/server.ts
-
-Deno 目前发展中，API 有 stable 和 unstable 两套，要使用非稳定 API 就需要通过参数激活：
-
-    deno run --unstable mod_which_uses_unstable_stuff.ts
-
-传入 --unstable 参数的作用：
-
-- 为运行时激活非稳定 API；
-- 为 TypeScript 类型检查添加 lib.deno.unstable.d.ts 类型声明，而稳定 API 的类型声明文件是 lib.deno.ns.d.ts。
-
-非稳定 API 是指还未通过安全性审查，not undergone a security review，可能会在随后的版本中破坏性变更。
-
-以下按 Deno 1.7.0 环境展开，Deno 1.9.2 运行失败，引用的第三方模块有问题：
-
-```sh
-error: TS2612 [ERROR]: Property 'resolve' will overwrite the base property in 'Deferred<undefined>'. If this is intentional, add an initializer. Otherwise, add a 'declare' modifier or remove the redundant declaration.
-    public readonly resolve!: () => void;
-#                   ~~~~~~~
-    at https://deno.land/x/evt@v1.8.10/tools/Deferred.ts:57:21
-```
-
-例如，Runtime compiler APIs 最新的 `Deno.emit` 函数替代了旧的 `Deno.compile` 和 `Deno.bundle`。
 
 ```sh
 deno run -A --reload --unstable .\server.tsx
@@ -2678,6 +4006,96 @@ app.listen({ port: 3000 });
 
 console.log("React SSR on http://localhost:3000");
 ```
+
+
+## ⚡ Using React with Deno
+1. https://fresh.deno.dev/docs/getting-started
+2. https://alephjs.org/docs/get-started
+3. https://deno.land/manual@v1.36.1/basics/react
+3. https://preactjs.com/guide/v10/getting-started
+1. https://www.patterns.dev/posts/islands-architecture
+
+作为 Web 模块化组件化开发的流行框架，React、Vue、Angular 都受到大量用户不同程度的追捧。Deno 环境中也可以和 Node 一样开发 Web 应用，以下就利用 Fresh 或 Aleph.js 脚手架创建一个配置好开发环境的 Web 示范项目：
+
+```sh
+# 🐣 Create a new app with Fresh:
+deno run -A -r https://fresh.deno.dev
+cd fresh-project
+deno task start
+
+
+# 🐣 Create a new app with Aleph.js:
+deno run -A -r https://alephjs.org/init.ts
+deno run -A -r https://alephjs.org/init.ts --template=react
+deno run -A -r https://alephjs.org/init.ts --template=vue
+
+cd my-app
+# Start the app in development mode:
+deno task dev
+# Start the app in production mode:
+deno task start
+# Optimize the application (bundling, ssg, etc.):
+deno task opt
+```
+
+Web 应用脚手架的作用就是简化配置，以及提供开发环境的 Web 服务器配置，最重要的一个功能就是 Hot Module Replacement (or HMR)，通过热加载功能，Web 服务器可以即时更新开发者刚修改的内容，而不用再重新加载整个 Web 服务器，大大提升了开发效率。
+
+Fresh 是最流行的 Deno 平台下的 React 应用开发框架。它使用一个默认情况下不向客户端发送 JavaScript 的模型。大部分渲染都是在服务器上完成的，客户端只负责重新渲染交互性的小岛，这意味着开发人员明确选择客户端呈现特定组件。所谓小岛是指 islands 目录下的组件，这些组件由 route 目录下的路由组件根据用户请求加载，整个应用基于 islands architecture 渲染架构设计。
+
+Fresh 会自动生成包含路由信息的脚本文件 *fresh.gen.ts*，它将路由、小岛映射关系导出为 manifest 配置对象。
+
+以下是处理各种 web 默认状态的内置路由映射，以及路由表参考：
+
+    routes/_app.tsx
+    https://fresh.deno.dev/docs/concepts/app-wrapper
+
+    routes/_404.tsx
+    routes/_500.tsx
+    https://fresh.deno.dev/docs/concepts/error-pages
+
+|        File name        |    Route pattern     |     Matching paths     |
+|-------------------------|----------------------|------------------------|
+| index.ts                | /                    | /                      |
+| about.ts                | /about               | /about                 |
+| blog/index.ts           | /blog                | /blog                  |
+| blog/[slug].ts          | /blog/:slug          | /blog/foo, /blog/bar   |
+| blog/[slug]/comments.ts | /blog/:slug/comments | /blog/foo/comments     |
+| old/[...path].ts        | /old/:path*          | /old/foo, /old/bar/baz |
+
+Examples
+1. https://fresh.deno.dev/docs/examples/init-the-server
+2. https://fresh.deno.dev/docs/examples/handling-complex-routes
+3. https://fresh.deno.dev/docs/examples/rendering-markdown
+4. https://fresh.deno.dev/docs/examples/creating-a-crud-api
+5. https://fresh.deno.dev/docs/examples/using-deno-kv-oauth
+6. https://fresh.deno.dev/docs/examples/dealing-with-cors
+7. https://fresh.deno.dev/docs/examples/using-csp
+
+Aleph.js is the second most popular React framework for Deno. It gives you the same sort of quick-start with React as Create-React-App. Like Next.js, Aleph provides SSR and SSG out of the box in order to allow developers to create SEO-friendly apps. In addition, Aleph provides some other built-in features that don’t come out of the box in Next.js, such as:
+
+1. Hot Reloading (Using React Fast Refresh)
+2. ESM Import Syntax (No need for webpack)
+3. TypeScript-Ready
+
+Features
+01. Zero Config
+02. No build step
+03. File-system Routing
+04. Just-in-time Server-side Rendering(SSR)
+05. Streaming SSR
+06. Support Typescript/JSX in Deno out of the box
+07. Built-in Unocss (Automatic CSS)
+08. Import Maps
+09. Hot Module Replacement (or HMR)
+10. Support Middware
+11. Custom Module Loader like MDX
+
+Supported Frameworks
+1. React (docs, example)
+2. React with MDX (docs, example)
+3. Vue (docs, example)
+4. SolidJS (docs, example) Experimental
+5. Yew (docs, example) In Rust
 
 
 ## ⚡ Program lifecycle
@@ -2974,14 +4392,16 @@ const desc5 = { name: "hrtime" } as const;
 ```
 
 ## ⚡ Web Platform APIs
-- Web Platform APIs https://deno.land/manual@v1.9.2/runtime/web_platform_apis
-- Fetch data Example https://deno.land/manual@v1.9.2/examples/fetch_data
-- 抖音开放平台 - 获取授权 https://open.douyin.com/platform/doc/6848834666171009035
-- DT抖音小姐下载 https://github.com/jimboyeah/deno-demo/blob/master/demo/douyin.ts
-- Remove opaqueredirect response type in fetch #8351 https://github.com/denoland/deno/issues/8351
-- Response.type https://developer.mozilla.org/en-US/docs/Web/API/Response/type
-- Window.location https://developer.mozilla.org/en-US/docs/Web/API/Window/location
-- Service Worker https://developers.google.cn/web/fundamentals/primers/service-workers?hl=zh-cn
+1. Web Platform APIs https://deno.land/manual@v1.9.2/runtime/web_platform_apis
+2. Fetch data Example https://deno.land/manual@v1.9.2/examples/fetch_data
+3. 抖音开放平台 - 获取授权 https://open.douyin.com/platform/doc/6848834666171009035
+4. DT抖音小姐下载 https://github.com/jimboyeah/deno-demo/blob/master/demo/douyin.ts
+5. Remove opaqueredirect response type in fetch #8351 https://github.com/denoland/deno/issues/8351
+6. Response.type https://developer.mozilla.org/en-US/docs/Web/API/Response/type
+7. Window.location https://developer.mozilla.org/en-US/docs/Web/API/Window/location
+8. Service Worker https://developers.google.cn/web/fundamentals/primers/service-workers?hl=zh-cn
+9. fetch API 流式处理请求 https://web.dev/i18n/zh/fetch-upload-streaming/
+9. https://www.bookstack.cn/read/webapi-tutorial/spilt.2.docs-fetch.md
 
 Deno 目标希望依照 Web platform APIs 提供实现，如 Fetch API，而不是另开门面创建全新一套 API。这些 API 会尽量依照规范实现，并符合 Chrome 和 Firefox 浏览器的标准。
 
@@ -3005,6 +4425,14 @@ Deno 目标希望依照 Web platform APIs 提供实现，如 Fetch API，而不�
 - {redirect: "follow"} 跟随重定向。
 - {redirect: "error"} 返回一个错误。
 - {redirect: "manual"} 手动模式会获取到一个 opaqueredirect 过滤响应。
+
+Fetch API 提供以下五个数据流读取器。
+
+1. .text()：返回字符串
+2. .json()：返回 JSON 对象
+3. .formData()：返回 FormData 对象
+4. .blob()：返回 blob 对象
+5. .arrayBuffer()：返回缓冲区二进制数组 ArrayBuffer 对象
 
 标准库提供各种相关 APIs：
 
@@ -3203,7 +4631,7 @@ for await (const conn of server) {
 
 第二步，建立 TCP 连接后，就可以进入 HTTP 请求处理，使用 `serveHttp` 方法：
 
-```js
+```js,ignore
 let handle = async () => {
   const httpConn = Deno.serveHttp(conn);
   while (true) {
@@ -3220,7 +4648,7 @@ let handle = async () => {
 
 同样，HTTP 连接实例也是可枚举对象：
 
-```js
+```js,ignore
 async function handle(conn: Deno.Conn) {
   const httpConn = Deno.serveHttp(conn);
   for await (const requestEvent of httpConn) {
@@ -3243,7 +4671,7 @@ async function handle(conn: Deno.Conn) {
 完整的程序如下：
 
 
-```js
+```js,ignore
 console.log("Server on http://localhost:8080")
 const server = Deno.listen({ port: 8080 });
 
@@ -3331,10 +4759,52 @@ TLS alert received: Message {
 ```
 
 
-## ⚡ Workers
-- Worker https://deno.land/manual@v1.9.2/runtime/workers
-- [`Web Worker API`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker)
-- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis
+Deno 支持 WebSockets，可以将 HTTP 请求升级为 WebSocket，使用 HTTP servers 就可以处理 WebSocket endpoints。WebSocket 请求包与常规 HTTP 请求的差别在于：WebSocket 包头部包含一个 upgrade 标记，服务探测到此标记后就可以将连接升级为 WebSocket 连接。
+
+目前 WebSockets 只支持 HTTP/1.1，在执行 `Deno.upgradeWebSocket(req)` 升级为 WebSocket，创建的连接就不能用于 HTTP 流量。
+
+```js
+async function handle(conn: Deno.Conn) {
+  const httpConn = Deno.serveHttp(conn);
+  for await (const requestEvent of httpConn) {
+    await requestEvent.respondWith(handleReq(requestEvent.request));
+  }
+}
+
+function handleReq(req: Request): Response {
+  const upgrade = req.headers.get("upgrade") || "";
+  if (upgrade.toLowerCase() != "websocket") {
+    return new Response("request isn't trying to upgrade to websocket.");
+  }
+  const { socket, response } = Deno.upgradeWebSocket(req);
+  socket.onopen = () => console.log("socket opened");
+  socket.onmessage = (e) => {
+    console.log("socket message:", e.data);
+    socket.send(new Date().toString());
+  };
+  socket.onerror = (e) => console.log("socket errored:", e);
+  socket.onclose = () => console.log("socket closed");
+  return response;
+}
+```
+
+
+## ⚡ Web Worker API
+1. https://deno.land/manual@v1.9.2/runtime/workers
+2. https://deno.land/api@v1.36.1#Web_APIs
+2. https://deno.land/api@v1.36.1?#DOM_APIs
+2. https://deno.land/api@v1.36.1?#Web_Workers
+3. https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker
+4. https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/globalThis
+4. https://deepu.tech/concurrency-in-modern-languages-ts/
+
+JavaScript 是单线程程序，因此多线程的唯一实现方法是创建引擎的多个实例，因此 TypeScript 也是如此。
+
+为了实现多线程编程，ECMAScript 脚本规范引入了 Worker。JavaScript 中的 Web Worker API 和 NodeJS 中的类似支持，Deno 也支持 Web Worker API，每一个 Worker 都运行于独立的专用线程中。Worker 的使用可以实现较高的并发处理能力，因此可以用来处理一些大规模的计算、数据处理任务等等。
+
+可惜 Deno 还没有提供类似于 NodeJS worker_threads 或集群模块的功能，使用 web worker 会使事情变得更加复杂，因为 Deno 只支持模块作为worker，这意味着只能从 worker 调用 JS/TS 文件。因此，NodeJS 中可能存在的一些高级多线程概念在 Deno 中还不可行。同样值得注意的是，Deno 支持开箱即用的 Web Assembly，因此为使用 Rust 等语言的一些高级多线程铺平了道路。
+
+NodeJS 和 Deno 都是重度支持非阻塞和异步编程，non-blocking and asynchronous，Deno改进概念使异步 API 更干净、更易于使用。Deno 异步基于 Promises API 而不是使用回调，这与 NodeJS 相比是一个区别。Deno 甚至支持像顶级等待这样的概念，这样可以减少混乱并使代码更干净。
 
 Worker 是新 Web 规范引入的多线程实现，当前 Deno 只支持 `module` 工作线程，创建实例时需要指定 `type: "module"` 选项。
 
@@ -3352,6 +4822,13 @@ new Worker(url);
 new Worker(url, { type: "classic" });
 new Worker("./worker.js", { type: "module" });
 ```
+
+当所有 Worker 实例完成作业执行 close() 或者
+terminate()，或者主线程终止，整个程序结束运行。
+
+Starting in v1.22 the Deno namespace is available in worker scope by default. To enable the namespace in earlier versions pass deno: { namespace: true } when creating a new worker.
+
+Starting in v1.23 `Deno.exit()` no longer exits the process with the provided exit code. Instead is an alias to `self.close()`, which causes only the worker to shutdown. This better aligns with the Web platform, as there is no way in the browser for a worker to close the page.
 
 给工作线程指定权限，或开放 Deno 命令空间，这需要 `--unstable` 支持：
 
@@ -3383,7 +4860,7 @@ new Worker("./worker.js", { type: "module" });
 
 示范，在同一个 worker.ts 脚本中实主模块和 worker 模块：
 
-```rust
+```js
 let canRead = await Deno.permissions.query({ 
   name: "read",
   path: "./worker.ts" 
@@ -3399,23 +4876,48 @@ if(canRead.state==="granted"){
     }
   };
   let worker = new Worker(new URL("./worker.ts", import.meta.url).href, opt);
-  worker.onmessage = ( ev ) => console.log(ev.data );
+  worker.onmessage = ( ev:MessageEvent ) =>{
+    let {type, data:message} = ev;
+    console.log({type,message});
+    worker.postMessage ({message:"roger that: "+ev.data});
+    // worker.terminate();
+  }
+  worker.addEventListener("error", (event) => console.error(event));
+  worker.addEventListener("message", (event) => (event));
+
+  await (function Delay(ms:number):Promise<void> {
+    return new Promise((res)=>{
+      setTimeout(res, ms);
+    })
+  })(100);
   worker.postMessage({ message: "Welcome to Deno!" });
 }else{
-  (self as any).onmessage = async (e:MessageEvent) => {
-    const { message } = e.data;
-    console.log("Roger that:", message);
-    (self as any).postMessage("Hi there~");
-    self.close();
+  let worker: Worker = self as any;
+  worker.onmessage = async (e:MessageEvent) => {
+    const msg = e.data;
+    console.log("Roger that:", msg);
+    worker.postMessage("Hi there~");
+    worker.close();
   };
+  // worker.postMessage("initialized!");
 }
 ```
 
-这不能使用 import.meta.main 来判断是否在运行主模块，因为对于同一个文件，如果作为主模块运行，那么后面再创建新进程运行它还是主模块。
+这不能使用 import.meta.main 来判断是否在运行主模块，因为对于同一个文件，如果作为主模块运行，那么后面再创建新进程运行它还是主模块。这里的脚本利用是否授予了读取权来判断当前的脚本运行是否在入口状态。
 
     deno run -A --unstable src\worker.ts main
 
 如果通过命令行参数来判断，则要在执行 worker 线程时，移除相应的命令行参数才行。
+
+创建 Worker 实例后，一般不在主线程中直接发送消息，因为此时 worker 实例不一定准备好侦听消息，可以由 worker 先发送初始化的状态消息。示范中也在主线程中使用了异步等待，给定了 100ms 时间等待 worker 的初始化工作。
+
+MessageEvent 继承了 Event 类型，其中有两和事件目标相关的只读属性，分别是事件来源（target）和事件处理方（currentTarget），它们都是 Worker 对象：
+
+    readonly currentTarget: EventTarget | null
+    Returns the object whose event listener's callback is currently being invoked.
+
+    readonly target: EventTarget | null
+    Returns the object to which event is dispatched (its target).
 
 另外，将 worker 代码与主模块一起写还有命令空间识别的问题，主模块的 self 是 global 命令空间的 Window 实例。而 worker 是 WorkerGlobalScope 实例，但是不能直接转换为这个类型，因为在主模块运行时转换会失败，需要将 self 转换为 any 避免类型检查。
 
@@ -3665,6 +5167,190 @@ export interface UnixConnectOptions {
 }
 ```
 
+
+## ⚡ Tasks
+- https://doc.deno.land/builtin/stable#queueMicrotask
+- https://doc.deno.land/builtin/stable#setInterval
+
+创建 microtask
+
+```rust
+queueMicrotask(() => { console.log('This event loop stack is complete'); });
+```
+
+创建 Timers queue，包含 setTimeout 超时回调和 setInterval 间隔回调
+
+```rust
+// function setInterval(cb: (...args: any[]) => void, delay?: number, ...args: any[]): number
+// Repeatedly calls a function , with a fixed time delay between each call.
+// Outputs 'hello' to the console every 500ms
+setInterval(() => { console.log('hello'); }, 500);
+
+// function setTimeout(cb: (...args: any[]) => void, delay?: number, ...args: any[]): number
+// Sets a timer which executes a function once after the timer expires. Returns an id which may be used to cancel the timeout.
+setTimeout(() => { console.log('hello'); }, 500);
+```
+
+deno:runtime/js/11_timers.js 包含了定时器队列处理方法 handleTimerMacrotask。
+
+
+## ⚡ encode/decode & JSON
+- https://doc.deno.land/builtin/stable#TextEncoder
+- https://doc.deno.land/builtin/stable#TextDecoder
+- https://deno.land/api@v1.36.1#Encoding_API
+
+deno_src\core\core.js 有两个非公开的方法处理 JSON 与 Uint8Array 的转换：
+
+```js
+  // Returns Uint8Array
+  function encodeJson(args) {
+    const s = JSON.stringify(args);
+    return core.encode(s);
+  }
+
+  function decodeJson(ui8) {
+    const s = core.decode(ui8);
+    return JSON.parse(s);
+  }
+```
+
+deno_src\core\bindings.rs 提供了 core.encode 和 core.decode 方法的绑定专用于 UTF-8 编码：
+
+```js
+fn encode(
+  scope: &mut v8::HandleScope,
+  args: v8::FunctionCallbackArguments,
+  mut rv: v8::ReturnValue,
+){...
+
+fn decode(
+  scope: &mut v8::HandleScope,
+  args: v8::FunctionCallbackArguments,
+  mut rv: v8::ReturnValue,
+){...
+```
+
+deno:op_crates/web/08_text_encoding.js 提供 TextDecoder/TextEncoder 字符编码对象实现，内部除了使用 core.encode/decode 方法，还另外提供了 Utf16ByteDecoder Big5Decoder gb18030Decoder 等查表编码转换对象。
+
+    !["utf-16le", "utf-16be", "utf-8", "big5", "gbk", "gb18030"].includes(
+      encoding,
+    )
+
+此外，还有 Base64/Uint8Array 的转换方法 atob/btoa。
+
+```js
+// function atob(s: string): string
+// Decodes a string of data which has been encoded using base-64 encoding.
+console.log(atob("aGVsbG8gd29ybGQ=")); // outputs 'hello world'
+
+// function btoa(s: string): string
+// Creates a base-64 ASCII encoded string from the input string.
+console.log(btoa("hello world"));  // outputs "aGVsbG8gd29ybGQ="
+```
+
+
+
+## ⚡ Deno.run & Process
+- https://doc.deno.land/builtin/stable#Deno.run
+- https://doc.deno.land/builtin/stable#Deno.Process
+- https://deno.land/manual@v1.8.1/examples/subprocess
+
+API:
+
+    function Deno.run(opt: T): Process<T>
+
+    declaration file: \cli\dts\lib.deno.ns.d.ts
+
+Spawns new subprocess.  RunOptions must contain at a minimum the `opt.cmd`, 
+an array of program arguments, the first of which is the binary.
+
+```js
+// create subprocess
+const p = Deno.run({
+  cmd: ["echo", "hello"],
+  env: {
+    PLUGIN_URL: "./target/release",
+    DEBUG: "true",
+  },
+  stdout: "piped",
+});
+
+
+// await its completion
+// await p.status();
+const rawOutput:Uint8Array = await p.output();
+// let msg = String.fromCharCode.apply(null, rawOutput as any);
+let msg = new TextDecoder("utf-8").decode(rawOutput);
+console.log(msg, "done!");
+```
+
+Subprocess uses same working directory as parent process unless `opt.cwd` is specified.
+
+Environmental variables for subprocess can be specified using `opt.env` mapping.
+
+By default subprocess inherits stdio of parent process. To change that
+`opt.stdout`, `opt.stderr` and `opt.stdin` can be specified independently -
+they can be set to either an rid of open file or set to "inherit" "piped"
+or "null":
+
+- `"inherit"` 默认值，子进程继承父进程的 I/O 文件描述符；
+- `"piped"` 新管道连接父进程与子进程。
+- `"null"` 忽略流数据，相当将流导向到 `/dev/null`。
+
+Details of the spawned process are returned.
+
+Requires `allow-run` permission. 
+
+
+```js
+if(import.meta.main && Deno.args[0] == "main"){
+  // let cmd = ["echo", "hello"];
+  let cmd = ["deno", "run", "-A", "--unstable", Deno.mainModule];
+  const p = Deno.run({ cmd, stderr: 'piped', stdout: 'piped' });
+  const [status, stdout, stderr] = await Promise.all([
+  p.status(),
+  p.output(),
+  p.stderrOutput()
+  ]);
+  p.close();
+
+  let msg = new TextDecoder("utf-8").decode(stdout);
+  let err = new TextDecoder("utf-8").decode(stderr);
+  console.log({status, main: import.meta.main, msg, err});
+}else{
+  console.log("Hello", import.meta.main);
+  console.error("Ooh!");
+  Deno.write(Deno.stdout.rid, new TextEncoder().encode("stdout..."));
+  Deno.write(Deno.stderr.rid, new TextEncoder().encode("stderr..."));
+}
+```
+输出：
+
+    {
+      status: { success: true, code: 0 },
+      main: true,
+      msg: "Hello true\nstdout...",
+      err: "Check path/to/demos/src/stdio.ts\nOoh!\nstderr..."
+    }
+
+参考标准 I/O 对象：
+
+```js
+console.log(Deno.resources());
+// { 0: "stdin", 1: "stdout", 2: "stderr" }
+Deno.openSync('../test.file');
+console.log(Deno.resources());
+// { 0: "stdin", 1: "stdout", 2: "stderr", 3: "fsFile" }
+
+const Deno.stderr: Writer & WriterSync & Closer & { rid: number }
+// A handle for stderr.
+
+const Deno.stdin: Reader & ReaderSync & Closer & { rid: number }
+// A handle for stdin.
+
+const Deno.stdout: Writer & WriterSync & Closer & { rid: number }
+// A handle for stdout.
+```
 
 
 # 🚩 Testing
@@ -5226,7 +6912,7 @@ TODO LIST
 
 **connect**
 
-```ts
+```ts,ignore
 import { Client } from "https://deno.land/x/mysql/mod.ts";
 const client = await new Client().connect({
   hostname: "127.0.0.1",
@@ -5242,7 +6928,7 @@ Create client with connection pool.
 
 pool size is auto increment from 0 to `poolSize`
 
-```ts
+```ts,ignore
 import { Client } from "https://deno.land/x/mysql/mod.ts";
 const client = await new Client().connect({
   hostname: "127.0.0.1",
@@ -5255,14 +6941,14 @@ const client = await new Client().connect({
 
 **create** database
 
-```ts
+```ts,ignore
 await client.execute(`CREATE DATABASE IF NOT EXISTS enok`);
 await client.execute(`USE enok`);
 ```
 
 **create** table
 
-```ts
+```ts,ignore
 await client.execute(`DROP TABLE IF EXISTS users`);
 await client.execute(`
     CREATE TABLE users (
@@ -5276,7 +6962,7 @@ await client.execute(`
 
 **insert**
 
-```ts
+```ts,ignore
 let result = await client.execute(`INSERT INTO users(name) values(?)`, [
   "manyuanrong",
 ]);
@@ -5286,7 +6972,7 @@ console.log(result);
 
 **update**
 
-```ts
+```ts,ignore
 let result = await client.execute(`update users set ?? = ?`, ["name", "MYR"]);
 console.log(result);
 // { affectedRows: 1, lastInsertId: 0 }
@@ -5294,7 +6980,7 @@ console.log(result);
 
 **delete**
 
-```ts
+```ts,ignore
 let result = await client.execute(`delete from users where ?? = ?`, ["id", 1]);
 console.log(result);
 // { affectedRows: 1, lastInsertId: 0 }
@@ -5302,7 +6988,7 @@ console.log(result);
 
 **query**
 
-```ts
+```ts,ignore
 const username = "manyuanrong";
 const users = await client.query(`select * from users`);
 const queryWithParams = await client.query(
@@ -5314,7 +7000,7 @@ console.log(users, queryWithParams);
 
 **transaction**
 
-```ts
+```ts,ignore
 const users = await client.transaction(async (conn) => {
   await conn.execute(`insert into users(name) values(?)`, ["test"]);
   return await conn.query(`select ?? from ??`, ["name", "users"]);
@@ -5332,7 +7018,7 @@ await client.close();
 
 To disable logging:
 
-```ts
+```ts,ignore
 import { configLogger } from "https://deno.land/x/mysql/mod.ts";
 await configLogger({ enable: false });
 ```
@@ -5369,195 +7055,6 @@ $ npm install xlsx
 
 # With bower:
 $ bower install js-xlsx
-```
-
-
-# 🚩 Deno API
-- Deno's unstable runtime https://doc.deno.land/builtin/unstable
-- Deno's stable runtime https://doc.deno.land/builtin/stable
-
-
-## ⚡ Tasks
-- https://doc.deno.land/builtin/stable#queueMicrotask
-- https://doc.deno.land/builtin/stable#setInterval
-
-创建 microtask
-
-```rust
-queueMicrotask(() => { console.log('This event loop stack is complete'); });
-```
-
-创建 Timers queue，包含 setTimeout 超时回调和 setInterval 间隔回调
-
-```rust
-// function setInterval(cb: (...args: any[]) => void, delay?: number, ...args: any[]): number
-// Repeatedly calls a function , with a fixed time delay between each call.
-// Outputs 'hello' to the console every 500ms
-setInterval(() => { console.log('hello'); }, 500);
-
-// function setTimeout(cb: (...args: any[]) => void, delay?: number, ...args: any[]): number
-// Sets a timer which executes a function once after the timer expires. Returns an id which may be used to cancel the timeout.
-setTimeout(() => { console.log('hello'); }, 500);
-```
-
-deno:runtime/js/11_timers.js 包含了定时器队列处理方法 handleTimerMacrotask。
-
-
-## ⚡ encode/decode & JSON
-- https://doc.deno.land/builtin/stable#TextEncoder
-- https://doc.deno.land/builtin/stable#TextDecoder
-
-deno_src\core\core.js 有两个非公开的方法处理 JSON 与 Uint8Array 的转换：
-
-```js
-  // Returns Uint8Array
-  function encodeJson(args) {
-    const s = JSON.stringify(args);
-    return core.encode(s);
-  }
-
-  function decodeJson(ui8) {
-    const s = core.decode(ui8);
-    return JSON.parse(s);
-  }
-```
-
-deno_src\core\bindings.rs 提供了 core.encode 和 core.decode 方法的绑定专用于 UTF-8 编码：
-
-```js
-fn encode(
-  scope: &mut v8::HandleScope,
-  args: v8::FunctionCallbackArguments,
-  mut rv: v8::ReturnValue,
-){...
-
-fn decode(
-  scope: &mut v8::HandleScope,
-  args: v8::FunctionCallbackArguments,
-  mut rv: v8::ReturnValue,
-){...
-```
-
-deno:op_crates/web/08_text_encoding.js 提供 TextDecoder/TextEncoder 字符编码对象实现，内部除了使用 core.encode/decode 方法，还另外提供了 Utf16ByteDecoder Big5Decoder gb18030Decoder 等查表编码转换对象。
-
-    !["utf-16le", "utf-16be", "utf-8", "big5", "gbk", "gb18030"].includes(
-      encoding,
-    )
-
-此外，还有 Base64/Uint8Array 的转换方法 atob/btoa。
-
-```js
-// function atob(s: string): string
-// Decodes a string of data which has been encoded using base-64 encoding.
-console.log(atob("aGVsbG8gd29ybGQ=")); // outputs 'hello world'
-
-// function btoa(s: string): string
-// Creates a base-64 ASCII encoded string from the input string.
-console.log(btoa("hello world"));  // outputs "aGVsbG8gd29ybGQ="
-```
-
-
-
-## ⚡ Deno.run & Process
-- https://doc.deno.land/builtin/stable#Deno.run
-- https://doc.deno.land/builtin/stable#Deno.Process
-- https://deno.land/manual@v1.8.1/examples/subprocess
-
-API:
-
-    function Deno.run(opt: T): Process<T>
-
-    declaration file: \cli\dts\lib.deno.ns.d.ts
-
-Spawns new subprocess.  RunOptions must contain at a minimum the `opt.cmd`, 
-an array of program arguments, the first of which is the binary.
-
-```js
-// create subprocess
-const p = Deno.run({
-  cmd: ["echo", "hello"],
-  env: {
-    PLUGIN_URL: "./target/release",
-    DEBUG: "true",
-  },
-  stdout: "piped",
-});
-
-
-// await its completion
-// await p.status();
-const rawOutput:Uint8Array = await p.output();
-// let msg = String.fromCharCode.apply(null, rawOutput as any);
-let msg = new TextDecoder("utf-8").decode(rawOutput);
-console.log(msg, "done!");
-```
-
-Subprocess uses same working directory as parent process unless `opt.cwd` is specified.
-
-Environmental variables for subprocess can be specified using `opt.env` mapping.
-
-By default subprocess inherits stdio of parent process. To change that
-`opt.stdout`, `opt.stderr` and `opt.stdin` can be specified independently -
-they can be set to either an rid of open file or set to "inherit" "piped"
-or "null":
-
-- `"inherit"` 默认值，子进程继承父进程的 I/O 文件描述符；
-- `"piped"` 新管道连接父进程与子进程。
-- `"null"` 忽略流数据，相当将流导向到 `/dev/null`。
-
-Details of the spawned process are returned.
-
-Requires `allow-run` permission. 
-
-
-```js
-if(import.meta.main && Deno.args[0] == "main"){
-  // let cmd = ["echo", "hello"];
-  let cmd = ["deno", "run", "-A", "--unstable", Deno.mainModule];
-  const p = Deno.run({ cmd, stderr: 'piped', stdout: 'piped' });
-  const [status, stdout, stderr] = await Promise.all([
-  p.status(),
-  p.output(),
-  p.stderrOutput()
-  ]);
-  p.close();
-
-  let msg = new TextDecoder("utf-8").decode(stdout);
-  let err = new TextDecoder("utf-8").decode(stderr);
-  console.log({status, main: import.meta.main, msg, err});
-}else{
-  console.log("Hello", import.meta.main);
-  console.error("Ooh!");
-  Deno.write(Deno.stdout.rid, new TextEncoder().encode("stdout..."));
-  Deno.write(Deno.stderr.rid, new TextEncoder().encode("stderr..."));
-}
-```
-输出：
-
-    {
-      status: { success: true, code: 0 },
-      main: true,
-      msg: "Hello true\nstdout...",
-      err: "Check path/to/demos/src/stdio.ts\nOoh!\nstderr..."
-    }
-
-参考标准 I/O 对象：
-
-```js
-console.log(Deno.resources());
-// { 0: "stdin", 1: "stdout", 2: "stderr" }
-Deno.openSync('../test.file');
-console.log(Deno.resources());
-// { 0: "stdin", 1: "stdout", 2: "stderr", 3: "fsFile" }
-
-const Deno.stderr: Writer & WriterSync & Closer & { rid: number }
-// A handle for stderr.
-
-const Deno.stdin: Reader & ReaderSync & Closer & { rid: number }
-// A handle for stdin.
-
-const Deno.stdout: Writer & WriterSync & Closer & { rid: number }
-// A handle for stdout.
 ```
 
 

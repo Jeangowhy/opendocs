@@ -1408,6 +1408,8 @@ Node.js 的运行机制如下：
 - process.nextTick() 添加在当前"执行栈"的尾部，以及下一次主线程读取 Task Queue 之前触发的回调函数。也就是说，它指定的任务总是发生在所有异步任务之前。
 - setImmediate() 往当前 Task Queue 的尾部添加事件，它指定的任务总是在下一次 Event Loop 时执行，这与 setTimeout(fn, 0) 很像。
 
+注：由于 nextTick() 向当前栈添加任务的这种特性，在递归调用方式使用它，可能导致任务死锁。
+
 ![Node.js System](http://www.ruanyifeng.com/blogimg/asset/2014/bg2014100803.png)
 
        ┌───────────────────────────┐
@@ -2912,6 +2914,66 @@ addon.hello();
 JavaScript 的生态系统一直在稳步增长，当各种组件混合使用时，就可能会发现不是所有的组件都能和平共处，为了解决这些问题，各种模块规范就出来了。模块化开发极大促进了 JavaScript 开发的规模、速度和代码质量，通过 Node 开发环境，可以结合 NPM 模块管理工具将传统零散的脚本迁移到模块化开发模式，然后通过模块打包工具，如 Webpack 生产浏览器运行的脚本程序，这种工程化的方法使得 JavaScript 也可以开发高质量的大型软件工程。
 
 Node 作为一门服务端的 javascript，它借鉴了 CommonJS 的规范，形成了一套易用的模块规范。
+
+`Node version 13.2.0 is required to support ES Modules: ${(process.versions.node)}`
+Use mjs extension or type:"module" in package.json, to use import/export.
+CommonJS is Node default setting, use cjs extension or type:"commonjs" to use require/module.exports.
+
+1. Modules: Packages https://nodejs.org/api/packages.html
+2. Modules: node:module API https://nodejs.org/api/module.html
+3. Modules: CommonJS modules https://nodejs.org/api/modules.html
+4. Modules: ECMAScript modules https://nodejs.org/api/esm.html
+
+
+注意以下测试 CJS 模块代码通过 exports 导出符号的操作：
+
+```js
+// m.js
+module.exports = {m: "this is m.js [module.exports]"} // OK
+exports.m  = "this is m.js [exports.m]" // OK
+exports = {m: "this is m.js [exports]"}  // Error,Unlink
+
+// n.js
+let m = require("./m.js"); // CommonJS
+console.log( {m} );
+```
+
+在脚本模块中，exports 就是引用 module.exports，如果直接将一个对象赋值给 exports，那么就会导致原引用的关系被替换为一个新对象，而不是 module.exports 这个对象，因此导出失败，这种方式不能使用。
+
+
+以下测试 ESM 模块代码通过 export 关键字导出符号，注意 ESM 模块中导入 Node 内建模块时，需要在模块名前缀 `node:`：
+
+```js
+// m.js
+export {m: "this is m.js [exports]"} // OK
+export default {m: "this is m.js [default]"}  // OK
+
+// n.js
+import m from "./m.js"; // ESM
+import cp from "node:child_process"; // Builtin modules
+console.log( {m, cp} );
+```
+
+```js
+import https from "node:https";
+import zlib from "node:zlib";
+import { StringDecoder } from "node:string_decoder";
+
+const url = "https://cdn-g2.ltfc.net/wuyue/assets/hdputils-fc5d45e9.js"
+https.get(url, { headers: {"Accept-Encoding":""} }, res =>{
+    const decoder = new StringDecoder('utf8');
+    // res.on('data', data => console.log((data)));
+    var buffer = [];
+    res.on('data', data => {
+        buffer.push(data);
+    });
+    res.on('end', res =>{
+        zlib.gunzip(Buffer.concat(buffer), (err, buf) => console.log(buf.toString()));
+    });
+    console.log({statusCode: res.statusCode});
+}).on('error', e => console.error(e))
+```
+https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction
 
 模块规范部分可以分成三部分：
 
@@ -9044,6 +9106,16 @@ socket.on('data', function(data){
 - https://nodejs.org/docs/latest-v9.x/api/http.html#http_class_http_incomingmessage
 - https://nodejs.org/docs/latest-v12.x/api/https.html
 - https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
+
+http.get(options[, callback])
+http.get(url[, options][, callback])
+http.request(options[, callback])
+http.request(url[, options][, callback])
+https.get(options[, callback])
+https.get(url[, options][, callback])
+https.globalAgent
+https.request(options[, callback])
+https.request(url[, options][, callback])
 
 HTTP GET 请求
 

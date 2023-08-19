@@ -15,12 +15,13 @@ JavaScript 通常被认为是最容易掌握的语言，也是最难掌握的语
 
 
 ## ⚡ Operators 奇技淫巧
-- ES2021: Logical assignment operators https://2ality.com/2020/06/logical-assignment-operators.html
-- Ecma International, Technical Committee 39 - ECMAScript https://github.com/tc39/proposal-logical-assignment
-- Looping over Arrays: for vs. for-in vs. .forEach() vs. for-of https://2ality.com/2021/01/looping-over-arrays.html
-- Optional Chaining https://exploringjs.com/impatient-js/ch_single-objects.html#optional-chaining
-- New JavaScript features  https://exploringjs.com/impatient-js/ch_new-javascript-features.html
-- Destructuring https://exploringjs.com/impatient-js/ch_destructuring.html
+1. ES2021: Logical assignment operators https://2ality.com/2020/06/logical-assignment-operators.html
+2. Ecma International, Technical Committee 39 - ECMAScript https://github.com/tc39/proposal-logical-assignment
+3. Looping over Arrays: for vs. for-in vs. .forEach() vs. for-of https://2ality.com/2021/01/looping-over-arrays.html
+4. Optional Chaining https://exploringjs.com/impatient-js/ch_single-objects.html#optional-chaining
+5. New JavaScript features  https://exploringjs.com/impatient-js/ch_new-javascript-features.html
+6. Destructuring Assignment https://exploringjs.com/impatient-js/ch_destructuring.html
+7. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
 这里主要了解一些新式的运算符，或功能特殊的运算符。
 
@@ -46,7 +47,6 @@ JavaScript 通常被认为是最容易掌握的语言，也是最难掌握的语
 	title ??= '(Untitled)';
 
 下划线 _ 作为数值的分组操作符号 [ES2021]：
-
 
 	const inhabitantsOfLondon = 1_335_000;
 	const distanceEarthSunInKm = 149_600_000;
@@ -74,7 +74,7 @@ ECMAScript 2016 引入指数运算符号，比如计算 2 的 8 次方：
 	const x = arr[0]; // extract
 	const y = arr[1]; // extract
 
-引入解构操作，只需要一个模板 Destructuring Pattern 就可以将需要的值解析出来：
+引入解构赋值操作，只需要一个模板 Destructuring Pattern 就可以将需要的值解析出来：
 
 	const arr = ['a', 'b', 'c'];
 	const [x, y] = arr; // (A)

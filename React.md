@@ -485,7 +485,8 @@ Flow 与 Typescript 不同的是，它可以部分引入，不需要完全重构
 
 
 ## Hello ReactDom.Render()
-- React Components, Elements, and Instances https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html
+1. https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html
+2. https://legacy.reactjs.org/docs/react-without-jsx.html
 
 在前面 Hello Demo 的例子中，使用的是最简单的 React 例子，是直接使用 ReactDom.render() 方法渲染一个组件：
 
@@ -10087,7 +10088,14 @@ Vue 的 template 表示模板，同時也是一個模板包裹元素，本身不
 - 在浏览的交互中，请求新的地址发回服务器；
 - 服务器通过会话、路由配置解析相应的组件，重新执行第一步流程。
 
-在后端调用 renderToString() 的方法，把整个页面渲染成字符串。然后前端调用 hydrate() 方法，把后端传递的字符串和自己的实例混合起来，保留 HTML 并附上事件监听，并复原交互功能。这个过程就像有脱水保持活性，转移到客户端后再注水复活。这就是 Next.js 实现 SSR 的主要方法，也就是后端会渲染 HTML, 前端添加监听。前端也会渲染一次，以确保前后端渲染结果一致。如果结果不一致，控制台会报错提醒我们。
+在后端调用 renderToString() 的方法，把整个页面渲染成字符串。然后前端调用 hydrate() 方法，把后端传递的字符串和自己的实例混合起来，保留 HTML 并附上事件监听，并复原交互功能。这个过程就像有脱水保持活性，转移到客户端后再注水活化。这就是 Next.js 实现 SSR 的主要方法，也就是后端会渲染 HTML, 前端添加监听。前端也会渲染一次，以确保前后端渲染结果一致。如果结果不一致，控制台会报错提醒我们。
+
+React 服务端渲染得到的字符串并不会以 <div onclick="xxx" /> 这种内联事件形态出现。所以，ReactDOMServer 渲染的内容在「结构-样式-行为」铁三角关系里，缺失了「行为」。
+
+React v15 版本的 ReactDOM.render 方法可以根据 data-react-checksum 的标记，复用 ReactDOMServer 的渲染结果，不重复渲染，而是根据 data-reactid 属性，找到需要绑定的事件元素，进行事件绑定的处理。补完「结构-样式-行为」。
+
+React v16 版本里，ReactDOMServer 渲染的内容不再有 data-react 的属性，而是尽可能复用 SSR 的 HTML 结构。这就带来了一个问题，ReactDOM.render 不再能够简单地用 data-react-checksum 的存在性来判断是否应该尝试复用，如果每次 ReactDOM.render 都要尽可能尝试复用，性能和语义都会出现问题。所以， ReactDOM 提供了一个新的 API， ReactDOM.hydrate() 。
+
 
 在组件化的技术潮流下，服务端渲染焕发新的生机，和旧式的 JSP、PHP 等有着巨大差别。
 
@@ -10100,8 +10108,97 @@ Vue 的 template 表示模板，同時也是一個模板包裹元素，本身不
 
 使用 SSR 使项目复杂度增加，需要前端团队有较高的技术素养。为了同构，要处处兼容 Node.js 的执行环境，不能有浏览器相关的原生代码在服务端执行，前端代码使用的 window 在 node 环境是不存在的，所以要对客户端进行 mock window，获取其中最重要的是 cookie，userAgent，location 等属性数据。
 
+以下是基于 Deno 编写的 React SSR 应用示范，为了简化起见，服务器端的 HelloSSR 是简化后 Hello 组件，它们生成的初始内容必须一致，如果使用 hydrateRoot()。SSR 渲染目的是向浏览器在发出页面请求时，服务器可以提供一个具有完整 HTML 结构的页面，这样做的目的可以是出于 SEO 搜索引擎优化需要。
+
+浏览器获取到 SSR 页面后，就执行客户端的脚本，ReactDOM.hydrate() 则根据对应组件生成的 HTML 绑定事件处理函数，恢复组件的交互能力。dydrate() 相比 render() 可以跳过组件 HTML 结构处理过程，因为 HTML 已经由服务生成并已经在页面中，这样以获得非常高效的首次加载体验，React SSR 会使用项目复杂化。
+
+SSR 是 JSP、PHP 时代就存在的古老的技术，只不过之前是通过模版引擎。React SSR 则是基于渲染组件得到 HTML，并且客户端再次渲染，这种叫做同构渲染的模式。
+
+SSR 存在的主要目的除了 SEO 优化，还有就是解决 Client-Side Render (CSR) 项目的初次加载时间长的问题，TTFP（Time To First Page）时间比较长。CSR 渲染模式下，首先要加载 HTML 文件，之后要下载页面所需的 JavaScript 文件，然后 JavaScript 文件渲染生成页面。
+
+```ts,ignore
+/// <reference types="npm:@types/node" />
+
+import os from "node:os";
+import chalk from "npm:chalk@5";
+// @deno-types="npm:@types/express@^4.17"
+import express, {Request, Response} from "npm:express@^4.17";
+// import express from "https://esm.sh/express@4.18.2";
+import React from "https://esm.sh/react@18.2.0";
+import ReactDOM from "https://esm.sh/react-dom@18.2.0";
+import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+
+
+class HelloSSR extends React.Component {
+  render () {
+    console.log("ssr render", HelloSSR);
+    let fakeTick = 1;
+    return (<div>Hello, SSR! {fakeTick} </div>)
+  }
+}
+
+const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
+
+const html = `
+  <!doctype html>
+  <html>
+    <body>
+    <div id="container">${ssr}</div>
+      <script src="https://cdn.staticfile.org/babel-standalone/7.22.10/babel.min.js"></script>
+      <script type="text/babel" data-type="module">
+        import React from "https://esm.sh/react@18.2.0";
+        import ReactDOM from "https://esm.sh/react-dom@18.2.0";
+        import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+
+class Hello extends React.Component {
+  static tick = 0;
+  constructor() {
+    super({});
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e){ 
+    console.log("onclick", {t: this, e}); 
+    fetch("/react-ssr")
+    .then(res=>res.text())
+    .then(res=>console.log({res}));
+    this.forceUpdate();
+  }
+  render () {
+    Hello.tick++;
+    console.log("render", Hello.name, Hello.tick);
+    return (<div onClick={this.handleClick}>Hello, SSR! {Hello.tick} </div>)
+  }
+}
+        let container = document.querySelector("#container");
+        // ReactDOM.render(<Hello />, container);
+        // ReactDOM.hydrate(<Hello />, container);
+        ReactDOM.hydrateRoot(container, <Hello />);
+      </script>
+      <script type="module">
+      </script>
+    </body>
+  </html>
+  `;
+
+
+const app = express();
+
+app.get("/", (req:Request, res:Response) => {
+  res.send(html);
+});
+
+app.get("/react-ssr", (req:Request, res:Response) => {
+  const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
+  res.send(ssr);
+});
+
+app.listen(3000);
+console.log(chalk.green("listening on http://localhost:3000/"), `home dir: ${os.homedir}`);
+```
+
 
 ## SSR with ReactDOMServer
+浅析React 18 Streaming SSR https://juejin.cn/post/7064759195710521381
 
 使用 ReactDOMServer 进行服务器端渲染示范可以参考 server-components-demo。
 
@@ -10111,6 +10208,52 @@ React ReactDOMServer 模块提供的 SSR API 有两个：
 - `renderToStaticMarkup()` 则没有 data-reactid 属性，页面看上去干净点。在浏览器访问页面的时候不能识别到 HTML 内容，会执行 `createElement` 方法重新创建 DOM。
 - `renderToNodeStream()` 支持直接渲染到节点流，渲染到流可以减少内容第一个字节 TTFB 的时间，在文档的下一部分生成之前，将文档的开头至结尾发送到浏览器。 当内容从服务器流式传输时，浏览器将开始解析 HTML 文档。速度是 `renderToString` 的三倍左右，官方是这么说。
 - `renderToStaticNodeStream()` 很像前面一个 API，只是没有额外的 DOM 属性，可以节省数据。React 内部使用，如`data-reactroot`，在只生成静态页面时非常有用。返回数据和`renderToStaticMarkup`是一样的，如果需要交互就不能使用此方法，而应该在服务端使用`renderToNodeStream`，在客户端使用`ReactDOM.hydrate()`。
+
+TFFB：Time To First Byte，发出页面请求到接收到应答数据第一个字节所花费的毫秒数。
+
+前面两个 String API 能跨 Node.js、浏览器环境运行：renderToString()、renderToStaticMarkup()
+
+后面两个 Stream API 只能在 Node.js 环境运行：renderToNodeStream()、renderToStaticNodeStream()
+
+其中 renderToString(element) 是最基础的 SSR API，输入 React 组件（ReactElement），输出无交互性的 HTML 字符串。由客户端 hydrate API 给它附加上交互行为，并完成页面渲染。
+
+类似的 renderToStaticMarkup 只用于纯展示（没有事件交互，不需要 hydrate）的场景。只生成干净的 HTML，不带额外的 DOM 属性，如 data-reactroot，响应体积上有些微的优势。
+
+This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes. If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use renderToString on the server and ReactDOM.hydrate() on the client.
+
+React 16 改用单节点校验来复用（服务端返回的）HTML 节点，不再生成 data-reactid、data-react-checksum 等体积占用大户，两个 API 渲染结果的体积差异变得微乎其微。
+
+服务端渲染（Server side rendering）技术涉及前端、后端两方面的 API 配合，React 对应提供的 SSR API 对应为面向服务端的 ReactDOMServer 和客户端执行的 ReactDOM，基本工作流程：
+
+在用户访问时，React SSR 在服务器将 React 组件渲染成 HTML 发送给客户端，这样客户端能够在 JavaScript 渲染完成前展示基本的静态 HTML 内容，减少白屏等待的时间。
+
+然后在 JavaScript 加载完成后对已有的 HTML 组件进行 React 事件逻辑绑定（也就是 Hydration 过程），Hydration 完成后才是一个正常的 React 应用。
+
+```js
+// https://react.dev/reference/react-dom/server
+ReactDOMServer.renderToString(reactNode)
+ReactDOMServer.renderToStaticMarkup(reactNode)
+ReactDOMServer.renderToNodeStream(reactNode) // Deprecated
+ReactDOMServer.renderToReadableStream(reactNode, options?) 
+ReactDOMServer.renderToStaticNodeStream(reactNode)
+
+// https://react.dev/reference/react-dom
+ReactDOM.hydrate(element, container, callback?) // Deprecated
+ReactDOM.hydrateRoot(domNode, reactNode, options?)
+ReactDOM.render(element, container, callback?) // Deprecated
+ReactDOM.createRoot(domNode, options?)
+```
+
+但是这类 SSR 存在弊端：
+
+1. 服务端需要准备好所有组件的 HTML 才能返回。如果某个组件需要的数据耗时较久，就会阻塞整个 HTML 的生成。
+2. Hydration 是一次性的，用户需要等待客户端加载所有组件的 JavaScript 并 Hydrated 完成后才能和任一组件交互。（渲染逻辑复杂时，页面首次渲染到可交互之间可能存在较长的不可交互时间）
+3. 在 React SSR 中不支持客户端渲染常用的代码分割组合 React.lazy 和 Suspense。
+
+React 18 中新的 SSR 架构 React Fizz 带来了两个主要新特性来解决上述的缺陷：
+
+1. Streaming HTML（流式渲染）
+2. Selective Hydration（选择性注水）
 
 
 安装依赖：

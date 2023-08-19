@@ -1437,10 +1437,27 @@ TypeScript 和 Flow 都有非常好的上手过程。一个个文件地尝试是
 
 
 # ⚑ Operators 奇技操作
-- https://www.runoob.com/typescript/ts-operators.html
-- TypeScript 2.0 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
-- TypeScript 2.1 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#keyof-and-lookup-types
-- TypeScript 4.2 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html
+1. https://www.runoob.com/typescript/ts-operators.html
+2. TypeScript 2.0 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator
+3. TypeScript 2.1 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#keyof-and-lookup-types
+4. TypeScript 4.2 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html
+5. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+## Destructuring Assignment 解构赋值
+
+解构赋值功能是 ECMAScript 6 规范引入的便利功能，通过它可以便利地从一个对象中解构出需要的字段。
+
+```js
+let a: { f1:string, f2:number } = { f1:"bad apple", f2:123 };
+let b: { f1:string } = a;
+let { f2:c }: { f2:number } = a;
+console.log({a, b, c});
+// {
+//     a: { f1: "bad apple", f2: 123 }, 
+//     b: { f1: "bad apple", f2: 123 }, 
+//     c: 123 
+// }
+```
 
 ## ?: 可选属性
 
@@ -2092,14 +2109,13 @@ TypeScript 1.4 开始支持 ES6 template strings：
 	}
 
 
-
-## Boolean
+## Boolean 布尔值
 
 最基本的数据类型就是简单的 true/false 值，在 JavaScript 和 TypeScript 里叫做 boolean（其它语言中也一样）。
 
 	let isDone: boolean = false;
 
-## Number
+## Number 数值
 
 和 JavaScript 一样， TypeScript 里的所有数字都是浮点数。 这些浮点数的类型是 number。 除了支持十进制和十六进制字面量， TypeScript 还支持 ECMAScript 2015 中引入的二进制和八进制字面量。
 
@@ -2108,7 +2124,7 @@ TypeScript 1.4 开始支持 ES6 template strings：
 	let binaryLiteral: number = 0b1010;
 	let octalLiteral: number = 0o744;
 
-## String
+## String 字符串
 
 JavaScript 程序的另一项基本操作是处理网页或服务器端的文本数据。 像其它语言里一样，我们使用 string 表示文本数据类型。 和 JavaScript 一样，可以使用双引号（ "）或单引号（'）表示字符串。
 
@@ -2129,7 +2145,7 @@ JavaScript 程序的另一项基本操作是处理网页或服务器端的文本
 	    "I'll be " + (age + 1) + " years old next month.";
 
 
-## Array
+## Array 数组
 
  TypeScript 像 JavaScript 一样可以操作数组元素。 有两种方式可以定义数组。 第一种，可以在元素类型后面接上 []，表示由此类型元素组成的一个数组：
 
@@ -2139,9 +2155,9 @@ JavaScript 程序的另一项基本操作是处理网页或服务器端的文本
 
 	let list: Array<number> = [1, 2, 3];
 
-## Tuple
+## Tuple 元组
 
-元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同，但对应位置的类型需要相同。 比如，你可以定义一对值分别为 string 和 number 类型的元组。
+元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同，但对应位置的类型需要相同。比如，你可以定义一对值分别为 string 和 number 类型的元组。
 
 	// Declare a tuple type
 	let x: [string, number];
@@ -2176,7 +2192,7 @@ JavaScript 程序的另一项基本操作是处理网页或服务器端的文本
 	const e1: Scores = [95, 50, 75, 75];
 	const sarahScores: Scores = [];
 
-## Enum
+## Enum 枚举
 https://www.typescriptlang.org/docs/handbook/enums.html
 
 enum 类型是对 JavaScript 标准数据类型的一个补充。 像 C## 等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。
@@ -2262,7 +2278,7 @@ Even though Enums are real objects that exist at runtime, the keyof keyword work
 以上示范了如何获取枚举类型的主键作为字符使用。
 
 
-## Any
+## Any 任意
 
 有时候，我们会想要为那些在编程阶段还不清楚类型的变量指定一个类型。 这些值可能来自于动态的内容，比如来自用户输入或第三方代码库。 这种情况下，我们不希望类型检查器对这些值进行检查而是直接让它们通过编译阶段的检查。 那么我们可以使用 any类型来标记这些变量：
 
@@ -2286,7 +2302,7 @@ Even though Enums are real objects that exist at runtime, the keyof keyword work
 	list[1] = 100;
 
 
-## Void
+## Void 无类型
 
 某种程度上来说，void 类型像是与 any 类型相反，它表示没有任何类型。 当一个函数没有返回值时，你通常会见到其返回值类型是 void：
 
@@ -2298,7 +2314,7 @@ Even though Enums are real objects that exist at runtime, the keyof keyword work
 
 	let unusable: void = undefined;
 
-## Null and Undefined
+## Null and Undefined 空值与未定义
 
 TypeScript 里，undefined 和 null 两者各自有自己的类型分别叫做 undefined 和 null。 和 void 相似，它们的本身的类型用处不是很大：
 
@@ -2313,7 +2329,7 @@ TypeScript 里，undefined 和 null 两者各自有自己的类型分别叫做 u
 注意：我们鼓励尽可能地使用 --strictNullChecks，但在本手册里我们假设这个标记是关闭的。
 
 
-## Never
+## Never 不可能
 
 never 类型表示的是那些永不存在的值的类型。 例如， never 类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型； 变量也可能是 never 类型，当它们被永不为真的类型保护所约束时。
 
@@ -2338,7 +2354,7 @@ never 类型是任何类型的子类型，也可以赋值给任何类型；然�
 	}
 
 
-## Object
+## Object 对象
 
 object 表示非原始类型，也就是除 number，string，boolean，symbol，null 或 undefined 之外的类型。
 
@@ -2384,7 +2400,7 @@ object 表示非原始类型，也就是除 number，string，boolean，symbol�
 
 你可能已经注意到了，我们使用 let 关键字来代替大家所熟悉的 JavaScript 关键字 var。 let 关键字是 JavaScript 的一个新概念，TypeScript 实现了它。 我们会在以后详细介绍它，很多常见的问题都可以通过使用 let 来解决，所以尽可能地使用 let 来代替 var 吧。
 
-## New `unknown` top type
+## New `unknown` top type 未知
 - [TypeScript 3.0 Release Notes](https://www.tslang.cn/docs/release-notes/typescript-3.0.html)
 - [TypeScript Handbook](https://github.com/Microsoft/TypeScript-Handbook)
 - [TypeScript 基础类型](https://www.runoob.com/typescript/ts-type.html)
@@ -2583,6 +2599,155 @@ any 类型本质上是类型系统的一个逃逸舱。作为开发者，这给�
 	    b: unknown;
 	    c: any;
 	}
+
+
+# ⚑ ECMA262 JSON to Class
+1. https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object
+2. https://www.ecma-international.org/publications-and-standards/standards/ecma-262/
+3. https://www.typescriptlang.org/docs/handbook/utility-types.html
+3. https://github.com/tc39/ecma262
+3. ECMAScript历代版本新特性 https://juejin.cn/post/7109378925964296223
+
+TypeScript 环境下，JSON API 解析 json 数据返回的是 any 类型对象，即使赋值给指定类型的变量或者使用 as 声明类型，它依然是 any 类型，除非用以下方法：
+
+1. Use Object.assign to Cast From JSON to Class in TypeScript
+2. Use Custom Methods to Cast a JSON String to Class in TypeScript
+
+TypeScript 2.8 版本引入了一些与 infer 有关的映射类型工具，`ReturnType<Type>` 就是其中一个，它可以获取泛型参数 Type 指定的函数类型返回类型。
+
+```js
+function getInt(a: string) {
+  return parseInt(a);
+}
+
+type A = ReturnType<typeof getInt>; // => number
+// ReturnType<CLASS['method']>
+```
+
+注：使用函数与类成员作为 ReturnType 的泛型参数时，前者需要使用 typeof，因为函数是一个值类型，泛型参数需要的是类型定义。
+
+注：构建函数没有返回， ReturnType 不能使用 CLASS["constructor"] 或者 CLASS.constructor 这样的方式推断出类型。构造函数不返回值的原因是，它不是由代码直接调用的，而是由运行时中的内存分配和对象初始化代码调用的。构造过程由编译器生成类型数据结构，并确定类对象实例在内存中需要占据多少空间，无论是在堆或栈上，Heap Memory vs. Stack Memory。
+
+尽管在 TypeScript 中声明了变量的类型就可以获得自动完成智能提示，但在代码实现逻辑上，并不能通过赋值操作直接将 JSON.parse() 返回的 any 类型转化为声明的类型。所以，以下代码中的 dd 变量保存的并非 CC 类型实例，也不能调用其 toObject() 方法。
+
+```js
+class CC {
+    id:number;
+    tag:string;
+    constructor(id?:number, tag?:string) {
+        this.id = id || 0;
+        this.tag = tag || "";
+    }
+    public toObject () {
+        return {id:this.id, tag:this.tag};
+    }
+}
+
+let json = '{"id":123,"tag":"link", "extra_reviver":321}';
+let dd:CC = JSON.parse(json, (key,value)=>{
+    if (Object.keys(new CC).indexOf(key)>=0){
+        return value;
+    } else if (key === "") {
+        return value; // Top moust of json.
+    }
+}) as CC; // JSON.parse return an `any` type.
+let ee:ReturnType<CC['toObject']> = dd;
+let ff:CC = Object.assign(new CC, dd);
+
+console.log({
+    json, id: dd.id,
+    "dd is CC":dd instanceof CC,  // false
+    "ee is CC":ee instanceof CC,  // false
+    "ff is CC":ff instanceof CC, // true
+});
+```
+
+Object 是 JavaScript 的一种数据类型。它用于存储各种键值集合和更复杂的实体。可以通过 Object() 构造函数或者使用对象字面量的方式创建对象。
+
+2015 年发布的 ECMAScript 6 脚本规范为 Web API 带来了丰富的特性，这是一个跨时代的脚本规范！更早的 ES5 2009 规范已经支持 Object.keys()，它可以获取一个对象的字段名称。
+
+EMCA（European Computer Manufacturers Association）欧洲计算机制造商协会标准组织容纳了大量通信、计算机及其相关行业的标准规范，现发展为 Ecma International。ECMAScript 脚本规范在官方档案中命名为 ECMA-262 通常缩写为 ES。
+
+目前在线归档的版本主要有：
+
+1. ECMA-262, 5.1 edition, June 2011
+2. ECMA-262, 6th edition, June 2015
+3. ECMA-262, 7th edition, June 2016
+4. ECMA-262, 8th edition, June 2017
+5. ECMA-262, 9th edition, June 2018
+6. ECMA-262, 10th edition, June 2019
+7. ECMA-262, 11th edition, June 2020
+8. ECMA-262, 12th edition, June 2021
+9. ECMA-262, 13th edition, June 2022
+
+规范从提案立项到正式完成发布，会经历 5 个阶段：
+
+1. Stage 0: Strawman 展示新特性阶段；
+2. Stage 1: Proposal 征求提案阶段；
+3. Stage 2: Draft 形成初步草案阶段；
+4. Stage 3: Candidate 后选阶段；
+5. Stage 4: Finished 完成阶段；
+
+TC39 是一个由 JavaScript 开发者、实现者、学者等组成的团体，TC39 归属 Ecma International，与 JavaScript 社区合作维护和发展 JavaScript 的标准，其也有相应的规范档案发展阶段。
+
+1. Inactive Proposals
+2. Stage 0 Proposals
+3. Stage 1 Proposals
+4. Active Proposals
+5. Finished Proposals
+
+Object 是 JavaScript 脚本中的一种对象类型，名称就叫对象，这个单词本身的意思就是泛指面向对象编程中的对象。新规范文档将 Object 对象类型归类为基础对象，而早期版本文档则将其归类到 Types 章节，可以看到早期文档未将 Function 对象内容统一到对应章节，而是散布在多个章节中：
+
+	https://www.ecma-international.org/wp-content/uploads/ECMA-262_5th_edition_december_2009.pdf
+	https://262.ecma-international.org/5.1/
+
+	8 Types
+	8.1 The Undefined Type
+	8.2 The Null Type
+	8.3 The Boolean Type
+	8.4 The String Type
+	8.5 The Number Type
+	8.6 The Object Type
+	8.7 The Reference Specification Type
+	8.8 The List Specification Type
+	8.9 The Completion Specification Type
+	8.10 The Property Descriptor and Property Identifier Specification Types
+	8.11 The Lexical Environment and Environment Record Specification Types
+	8.12 Algorithms for Object Internal Methods
+
+	https://262.ecma-international.org/13.0/index.html
+	6 ECMAScript Data Types and Values
+	6.1 ECMAScript Language Types
+	6.1.1 The Undefined Type
+	6.1.2 The Null Type
+	6.1.3 The Boolean Type
+	6.1.4 The String Type
+	6.1.5 The Symbol Type
+	6.1.6 Numeric Types
+	6.1.7 The Object Type
+	6.2 ECMAScript Specification Types
+	6.2.1 The List and Record Specification Types
+	6.2.2 The Set and Relation Specification Types
+	6.2.3 The Completion Record Specification Type
+	6.2.4 The Reference Record Specification Type
+	6.2.5 The Property Descriptor Specification Type
+	6.2.6 The Environment Record Specification Type
+	6.2.7 The Abstract Closure Specification Type
+	6.2.8 Data Blocks
+	6.2.9 The PrivateElement Specification Type
+	6.2.10 The ClassFieldDefinition Record Specification Type
+	6.2.11 Private Names
+	6.2.12 The ClassStaticBlockDefinition Record Specification Type
+
+	20 Fundamental Objects
+	20.1 Object Objects
+	20.2 Function Objects
+	20.3 Boolean Objects
+	20.4 Symbol Objects
+	20.5 Error Objects
+
+从文档中可以看到，类型系统中涉及到两大类型，一是脚本语言中直接使用的类型，比如：Undefined, Null, Boolean, String, Symbol, Number, BigInt, and Object。另一类是规范类型，比如：Reference, List, Completion Record, Property Descriptor, Environment Record, Abstract Closure, Data Block。规范类型对应于算法中用于描述 ECMAScript 语言构造和 ECMAScript 语言类型的语义的元值，meta-value，即脚本语言实现层面上的类型实现算法使用的数据结构。
+
 
 
 # ⚑ Enum of String literal - TS Plugin
@@ -3845,8 +4010,28 @@ You can work around this by using functions to return your classes which differ 
 
 TypeScript 提供的工具类型可以很好地帮助 TypeScript 代码实现通用的 JavaScript 代码，同时又不失强类型的特征。
 
-
-## GetType 获取类型信息
+01. Awaited<Type>
+02. Partial<Type>
+03. Required<Type>
+04. Readonly<Type>
+05. Record<Keys, Type>
+06. Pick<Type, Keys>
+07. Omit<Type, Keys>
+08. Exclude<UnionType, ExcludedMembers>
+09. Extract<Type, Union>
+10. NonNullable<Type>
+11. Parameters<Type>
+12. ConstructorParameters<Type>
+13. ReturnType<Type>
+14. InstanceType<Type>
+15. ThisParameterType<Type>
+16. OmitThisParameter<Type>
+17. ThisType<Type>
+18. Intrinsic String Manipulation Types
+19. Uppercase<StringType>
+20. Lowercase<StringType>
+21. Capitalize<StringType>
+22. Uncapitalize<StringType>
 
 
 ## Optionalize
@@ -4397,7 +4582,18 @@ Uncapitalize<StringType>
 	- Type inference in conditional types
 	- Predefined conditional types
 
+TypeScript Cheat Sheets 
+		https://www.typescriptlang.org/cheatsheets
+		https://www.typescriptlang.org/assets/typescript-cheat-sheets.zip
 
+1. TypeScript Control Flow Analysis
+		https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png
+2. TypeScript Interfaces
+		https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png
+3. TypeScript Types
+		https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png
+4. TypeScript Classes
+		https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
 
 ## Intersection Types 交叉类型 &
 
@@ -5151,8 +5347,9 @@ Readonly， Partial 和 Pick 是同态的，但 Record 不是。 因为 Record �
 
 
 ## Conditional Types - extends 条件类型
-- https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types
-- https://typescript-play.js.org/#example/conditional-types
+1. https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types
+2. https://typescript-play.js.org/#example/conditional-types
+3. https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
 
 根据条件选择类型定义：
 
@@ -5468,6 +5665,115 @@ TypeScript 2.8 在 lib.d.ts 里增加了一些预定义的有条件类型：
 
 注意：Exclude 类型是建议的 Diff 类型的一种实现。我们使用 Exclude 这个名字是为了避免破坏已经定义了 Diff 的代码，并且我们感觉这个名字能更好地表达类型的语义。我们没有增加 Omit<T, K> 类型，因为它可以很容易的用 `Pick<T, Exclude<keyof T, K>>` 来表示。
 
+## distributive conditional type 条件分发
+1. https://juejin.cn/post/6985463429502877726
+2. https://www.typescriptlang.org/docs/handbook/2/typeof-types.html
+3. https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
+
+TS 大多数高级类型都是基于条件类型，分发的概念也和 Conditional Types 息息相关，所以先来看看所谓的 Conditional Types 究竟是什么。
+
+```js
+type isString<T> = T extends string ? true : false;
+
+let a: isString<'abc'>; // a 的类型为 true
+let b: isString<123>;  // b 的类型为 false
+
+console.log({a: typeof a,b: typeof b}); // all undefined
+```
+
+所谓条件类型就是对类型进行逻辑条件操作后得到的类型，例中代码使用了三元表达式来返回类型信息。
+
+注意：代码中 typeof 关键字在运行时获取到的是变量所赋值的类型，因为没有初始化以及赋值，所以得到结果是 undefined。
+
+TypeScript 扩展了 typeof 运算符，你可以在类型上下文中使用它来引用变量或属性的类型，即引用其它类型来声明变量。
+
+```js
+class Lion  { meow() { return "meow..."}; }
+class Shark { }
+class Tiger { meow() { return "meow..."}; }
+class Zebra { }
+
+type Animal = Lion | Zebra | Tiger | Shark
+
+type ExtractCat<A> = A extends { meow(): void } ? A : never
+
+type Cat = ExtractCat<Animal> // Cat => Lion | Tiger
+
+let kitten: Cat = new Tiger();
+console.log(kitten.meow());
+```
+
+注意代码中的 Cat 类型，它经过 ExtractCat 将 Animal 中所以满足条件的类型过滤出来，Cat 即为所有猫科动物类型定义。
+
+TypeScript 这种条件类型的用法被称为分发条件类型（distributive conditional type），将一系列类型（联合类型）按条件类型定义递归处理。
+
+这种“分发”，也就是联合类型以递归方式展开，但是这是有限制的：只发生在 extends 关键字左侧是普通类型变量的时候。
+
+通过 Pick Exclude keyof 等等类型运算操作，可以将以下示例代码 Action 类型中的 type 和其它参数字段进行分离，方便 dispatch() 方法使用。
+
+类型分发的示例：
+
+```js
+type Action = { type:"INIT" } | { type:"SYNC" } | { type:"LOGIN", email:string }
+type ActionType = Action['type']
+type ActionArgs<A,T> = A extends { type:T } ? Pick<A, Exclude<keyof A, "type">> : never
+
+type ExtractSimpleActionType<T> = Exclude<keyof Action, "type"> extends never ? Action["type"] : never
+type SimpleActionType = ExtractSimpleActionType<Action>
+
+// declare function dispatch<T extends ActionType>(type:T, args:ActionArgs<Action,T>): void
+
+function dispatch (type:SimpleActionType): void
+function dispatch (type:ActionType, args:ActionArgs<Action,ActionType>): void
+function dispatch (type:ActionType, args?:ActionArgs<Action,ActionType>): void {
+    console.log({type, args})
+}
+
+let a: ActionArgs<Action,"LOGIN"> = { email:"x@studio.com" }
+dispatch("LOGIN", a)
+dispatch("INIT")
+```
+
+
+## covariance & contravariance 协变与逆变
+TS中各种高级语法 https://cloud.tencent.com/developer/article/1986722
+
+逆变与协变的含义：随着某一个量的变化，随之一致变化的即为**协变** covariance，随之相反变化的即为**逆变** contravariance。
+
+维基百科对协变和逆变的概念解释：
+
+1. Covariant：它保持了子类型序关系≦。该序关系是：子类型≦基类型。
+2. Contravariant：它逆转了子类型序关系。
+
+在编程领域中，协变与逆变可以通过子类型可以隐性的转换为父类型这个过程来理解。比如，*int* 和 *float* 两个类型的关系可以写成这样：int ≦ float，也就是说 int 是 float 的子类型。按照上面的原理来说，就是 int 可以转换成 float 类型，比如 int 3 可以默认转化为 float 3.0，但是 float 3.14 默认转换成 int 3 就会丢失精度。所以说 int 可以是 float 类型，但是 float 不能是 int 类型。
+
+绝大部分的语言允许协变，也就是允许子类型默认转换为父类型，逆变一般是不被允许的（除了函数的参数）。
+
+```js
+let a!: { a: string; b: number };
+let b!: { a: string };
+b = a
+
+
+let fn1!: (a: string, b: number) => void;
+let fn2!: (a: string, b: number, c: boolean) => void;
+
+fn2 = fn1; // covariant
+fn1 = fn2; // Error: 不能将fn2的类型赋值给fn1
+
+
+let fn1!: (a: string, b: number) => string;
+let fn2!: (a: string, b: number) => string | number | boolean;
+
+fn2 = fn1; // covariant
+fn1 = fn2; // Error: 不可以将 string|number|boolean 赋给 string 类型
+```
+
+处理函数参数列表协变时，参数兼容即可以赋值，多传入的数据可以不使用，但是反过来，缺少参数就不行。
+
+处理函数返回值和变量赋值过程相同，兼容类型即可以赋值。
+
+
 
 # ⚑ Functions
 - https://www.typescriptlang.org/docs/handbook/functions.html
@@ -5718,6 +6024,18 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 	uiElement.addClickListener(h.onClickGood);
 
 ## Overloads 重载
+https://www.typescriptlang.org/docs/handbook/2/functions.html
+
+有些函数可以接受不同类型或不同个数的参数，并且根据参数的不同，会有不同的函数行为。这种根据参数类型不同，执行不同逻辑的行为，称为函数重载（function overload）。
+
+函数签名由函数的名称、参数列表以及返回值等信息构成。函数签名不同，函数会做出不同的处理。重载形式可以有多个，函数实现只有一个。为了处理参数列表中的参数数量差异，在实现函数时，参数可能需要使用可选参数声明形式。
+
+Overload Signatures and the Implementation Signature
+
+如果重复实现同名函数，或者多个函数笔一致，重载使用不规范，TypeScript 编译器会报告 "duplicate function implementation.ts(2393)" 错误，关键是检查所有同名函数的定义，并确保它们的名称相同、参数列表和返回值类型有差异。
+
+重载声明的排序很重要，因为 TypeScript 是按照顺序进行检查的，一旦发现符合某个类型声明，就不再往下检查了，所以类型最宽的声明应该放在最后面，防止覆盖其他类型声明。
+
 
 JavaScript 作为一个非常动态的语言，它的函数可以返回任意类型的数据：
 
@@ -8007,6 +8325,10 @@ tsconfig.json 文件可以是个空文件，那么所有默认的文件（如上
 - https://www.typescriptlang.org/docs/handbook/declaration-files/library-structures.html
 - https://www.tslang.cn/docs/handbook/triple-slash-directives.html
 - Modules .d.ts https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html
+
+`*.d.ts` 即类型声明文件 Declaration Files。通常引用 JavaScript 这种无类型声明的脚本时，需要一个类型文件来帮助你在 TypeScript 使用它们。TypeScript 工程中，类型信息是必须的，因为这是一种强类型脚本语言，可以将类型信息写入类型声明文件，也可以在 tsc 编译时生成类型声明文件供其它项目使用。TypeScript 也是我见过拥有最丰富类型系统的脚本语言，没有之一，你可以使用 Any 或 Unkown 来兼容 JavaScript 这种弱类型脚本语言。
+
+https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
 
 虽然通过直接引用可以调用库的类和方法，但是却无法使用 TypeScript 诸如类型检查等特性功能。为了解决这个问题，需要将这些库里的函数和方法体去掉后只保留导出类型声明，而产生了一个描述 JavaScript 库和模块信息的声明文件。通过引用这个声明文件，就可以借用 TypeScript 的各种特性来使用库文件了。
 
@@ -10377,7 +10699,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	 * @type {number | string}
 	 */
 	var numberOrString = Math.random() < 0.5 ? "hello" : 100;
-	var typeAssertedNumber = /** @type {number} */ (numberOrString);Try
+	var typeAssertedNumber = /** @type {number} */ (numberOrString);
 
 经过转换，typeAssertedNumber 是 number 类型。
 
@@ -10460,7 +10782,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 
 	/** @type {SpecialType} */
 	var specialTypeObject;
-	specialTypeObject.prop3;Try
+	specialTypeObject.prop3;
 
 可以在首先中使用 object 或 Object：
 
@@ -10472,7 +10794,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	 */
 
 	/** @type {SpecialType1} */
-	var specialTypeObject1;Try
+	var specialTypeObject1;
 
 @param 用来为函数等定义一次性使用的类型，请注意，属性名称必须以参数名称作为前缀：
 
@@ -10521,7 +10843,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 
 	const a = id("string");
 	const b = id(123);
-	const c = id({});Try
+	const c = id({});
 
 多个参数使用逗号分开：
 
@@ -10665,7 +10987,7 @@ TypeScript 编译器通常会指出 this 引用的对象类型，如果没有，
 	  SavingComments: 2,
 	};
 
-	JSDocState.SawAsterisk;Try
+	JSDocState.SawAsterisk;
 
 注意 @enum 与 TypeScript 的 enum 类型多少有些不同，@enum 只可以是任意类型：
 
@@ -10717,14 +11039,14 @@ Nullable 类型只有在 strictNullChecks 配置打开时有效：
 	 * With strictNullChecks: true  -- number | null
 	 * With strictNullChecks: false -- number
 	 */
-	var nullable;Try
+	var nullable;
 
 	/**
 	 * @type {number | null}
 	 * With strictNullChecks: true  -- number | null
 	 * With strictNullChecks: false -- number
 	 */
-	var unionNullable;Try
+	var unionNullable;
 
 ## Unsupported tags
 

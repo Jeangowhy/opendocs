@@ -312,6 +312,7 @@ FFmpeg 常用的命令行参数如下。
 -vcodec libx264 -b:v 2M 精准切割。
 
 4.10 图片序列合成视频
+https://ffmpeg.org/ffmpeg-formats.html#image2-1
 
     ffmpeg -f image2 -i image_%d.jpg out.mp4
     ffmpeg -f image2 -i image_%d.jpg  -vcodec libx264  out.mp4
@@ -321,6 +322,17 @@ FFmpeg 常用的命令行参数如下。
 
 指定编码格式 -vcodec libx264 表示使用 x264 开源的 H.264/MPEG-4 AVC 视频编码函数库，这是最好的有损视频编码器之一。指定帧率 -r 10 表示定义帧率为 10 fps。
 
+
+使用以下命令来实现 PDF 转 JPG:
+
+    ffmpeg -i input.pdf -qscale:v 2 output_%d.jpg
+
+-i 参数是输入文件的名称，-qscale:v 2 参数是图像质量参数，数字越小质量越高，output_%d.jpg 是输出文件的命名模式。
+
+ffmpeg将视频导出成多张图片
+
+    ffmpeg -i output.mp4 -r 30 -f image2 foo-%05d.jpeg
+    // -r参数表示按照30帧的速度提取。
 
 下面是实际的例子。
 

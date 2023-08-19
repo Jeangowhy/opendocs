@@ -80,6 +80,31 @@
     季节的影响等等。帆船将也被添加到游戏中，创造一种有趣的方式，来绕过以前人迹罕至的被水覆盖的地图。
 
 - 🌟奥日 Ori https://www.bilibili.com/video/BV1344y1V7Vg/
+- 🌟画中世界 http://gorogoa.com
+    The Making of Gorogoa https://www.gcores.com/articles/102521
+    https://www.bilibili.com/video/av32718176/
+    https://www.bilibili.com/video/BV13W411a76R/
+
+    Gorogoa 
+    An ingenious, perfectly crafted puzzler.
+    2017 puzzle video game
+
+    Gorogoa is an elegant evolution of the puzzle genre, told through a 
+    beautifully hand-drawn story designed and illustrated by Jason Roberts.
+
+    UNIQUELY IMAGINATIVE PUZZLES
+    The gameplay of Gorogoa is wholly original, comprised of lavishly illustrated 
+    panels that players arrange and combine in imaginative ways to solve puzzles. 
+    Impeccably simple, yet satisfyingly complex.
+
+    GORGEOUSLY HAND-DRAWN GAMEPLAY
+    Jason Roberts created thousands of meticulously detailed hand-drawn 
+    illustrations, encompassing the impressive scope of Gorogoa's personal 
+    narrative.
+
+    A NEW KIND OF STORYTELLING
+    Gorogoa isn't just a game - it's a work of art, expressing itself through 
+    soulful, charming illustrations and distinguished puzzle mechanics.
 
 - 🌟茶杯头 Cup Head https://www.bilibili.com/video/BV1LN4y1j7fs/
     官方《茶杯艺术》/画集/国外wiki/茶杯官媒记录/《茶杯头如何创作的》/国外论坛
@@ -302,6 +327,7 @@ https://itch.io/user/settings/seller/payment-processors
 https://www.paypal.com/c2/home
 https://www.paypal.com/us/webapps/mpp/merchant-fees
 游戏中集成 TapTap 登录功能 https://www.bilibili.com/video/BV1YX4y1b7TB/
+这帧截图里隐藏了多少信息？视频数字水印如何改变你的生活？ https://www.bilibili.com/video/BV1mv411J77v/
 
 Steam 是最大也是用户最多最活跃的游戏发布平台，由一条命游戏开发团队 Valve 创建。
 Steam 平台发布游戏需要预收 100$ 作为应用提交费用，当销售达到 1000 份时将按原支付额返回给注册者。
@@ -816,10 +842,13 @@ https://itch.io/docs/itch/using/sandbox.html
     import time
 
     print(sys.argv)
-    print(os.environ['ITCHIO_API_KEY'])
-    print(os.environ['ITCHIO_API_KEY_EXPIRES_AT'])
+    print({
+        "ITCHIO_API_KEY": os.environ['ITCHIO_API_KEY'],
+        "EXPIRES_AT": os.environ['ITCHIO_API_KEY_EXPIRES_AT']
+        })
     with open("log.md", "w+") as f:
-        f.write(','.join(sys.argv))
+        f.write(','.join(sys.argv)+"\n")
+        f.write(','.join(os.environ))
     time.sleep(6) # sleep 6 seconds
     # Output: print_args.py,--that,--is,--a,lot=of-arguments
 ```
@@ -4599,6 +4628,7 @@ This plugin requires features added to Godot 3.5
 
 ## 🟡 CLI & LSP 命令行工具与代码提示
 - https://docs.godotengine.org/en/stable/tutorials/editor/command_line_tutorial.html
+- https://microsoft.github.io/language-server-protocol/implementors/servers/
 - [GDScript support for Sublime Text](https://packagecontrol.io/packages/GDScript%20(Godot%20Engine)
 - [LSP - Language Server Protocol for Sublime Text](https://packagecontrol.io/packages/LSP)
 - [LSP Client - GDScript (Godot Engine)](https://lsp.sublimetext.io/language_servers/#gdscript-godot-engine)
@@ -4734,10 +4764,10 @@ LSP Specification 3.16 Major new feature are:
    6. Change annotation support for text edits and file operations (create, rename, delete)
 
 
-LSP 2.x Messages overview 注意箭头表示消息流向，右侧为 Client ➡️ Server，带回钩表示有回复：
+LSP 2.x Messages overview 注意箭头表示消息流向类型，右为服务器，左侧为客户端，➡️ 和 ⬅ 表示通知，↩️ 和 ↪️ 表示请求，回钩表示响应消息流向：
 
 | Document                          | General                               |
-| ⬅️ textDocument/publishDiagnostics | ------------------------------------- |
+| ⬅ textDocument/publishDiagnostics | ------------------------------------- |
 | ➡️ textDocument/didChange          | ↩️ initialize                         |
 | ➡️ textDocument/didClose           | ↩️ shutdown                           |
 | ➡️ textDocument/didOpen            | ➡️ exit                               |
@@ -4759,6 +4789,73 @@ LSP 2.x Messages overview 注意箭头表示消息流向，右侧为 Client ➡�
 | ↩️ textDocument/documentLink       |                                       |
 | ↩️ documentLink/resolve            |                                       |
 | ↩️ textDocument/rename             |                                       |
+
+
+LSP 服务基于 HTTP 协议，使用 JSON-RPC 进行通信，当前的数据包 Header 支持如下，默认的内容类型为 application/vscode-jsonrpc; charset=utf-8：
+
+| Header Field Name | Value Type |               Description                |
+|-------------------|------------|------------------------------------------|
+| Content-Length    | number     | The length of the content part in bytes. |
+| Content-Type      | string     | The mime type of the content part.       |
+
+
+HTTP Request Message example:
+
+```sh
+Content-Length: ...\r\n
+\r\n
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "textDocument/completion",
+    "params": {
+        ...
+    }
+}
+```
+
+LSP 是一个「双工协议」，不仅开发者工具（客户端）会主动向 Language Server（服务端）发信，服务端也可能主动向开发者工具发起 RPC 请求，比如代码诊断事件 textDocument/Diagnostics ，此消息只能从服务端向客户端主动发送。
+
+
+Language Server 运行的基本步骤：
+
+1. 创建 LSP 连接对象，connection，为客户端提供服务；
+2. 创建 TextDocuments 文档集合对象，映射客户端正在编辑的文件；
+3. 初始化连接，onInitialize 事件中声明插件支持的语法特性；
+4. 文档集合执行 listen() 关联 connection 对象；
+5. 调用 connection.listen() 函数开始监听客户端消息；
+6. 响应客户端消息相应的文档事件，并提供相应的功能服务；
+
+LSP 的生命周期消息，Server lifeCycle Messages，文档编辑中产生的相关的消息在打开、关闭文档之间产生：
+
+1. 请求初始化服务器 (Initialize)，Initialize Request (↩️) ；
+1. 通知服务器客户端已初始 (initialized)，Initialized Notification (➡️)；
+2. 打开文件 (textDocument/didOpen) ，DidOpenTextDocument Notification (➡️);
+3. 编辑文件 (textDocument/didChange) ，DidChangeTextDocument Notification (➡️);
+4. 关闭文件 (textDocument/didClose) ，DidCloseTextDocument Notification (➡️);
+5. 请求关闭服务器 (shutdown)，Shutdown Request (↩️)；
+5. 通知服务器退出 (exit)，Exit Notification (➡️)。
+
+客户端向服务器发出初始化请求，并等待服务器的响应 *InitializeResult*，此类型包含服务支持的功能信息。接收到初始化的响应信息后，客户端就可以通过其包含的  ServerCapabilities 查询到服务器所支持的功能特性，并发送已初始化通知到服务器。LSP 初始化完成此之前，服务器不能接收客户端的其它消息，并按以下两种方式处理：
+
+1. 对于请求，应该响应一个错误，代码为：-32002。
+2. 应删除通知，退出通知除外，以允许初始化请求之前退出服务器。
+
+关闭请求从客户端发送到服务器，它要求服务器关闭，但不要退出（否则响应可能无法正确传递到客户端）。Exit Notification 是单独的退出通知，要求服务器退出。客户端不得向已向其发送关闭请求的服务器发送任何通知，除退出通知或请求之外。客户端还应该等待发送退出通知，直到收到服务器响应关闭请求之后再发送。
+
+LSP 规范定义编辑操作的更新方式有三种：不更新、全量更新、增量更新。但大部分 Language Server 一般采用增量更新模式，即发送编辑产生的 "diff" 而非更新后的整个文档内容。
+
+
+下面是工具和语言服务器在例行编辑会话期间如何进行通信的流程图：
+https://learn.microsoft.com/zh-cn/visualstudio/extensibility/language-server-protocol
+
+https://learn.microsoft.com/zh-cn/visualstudio/extensibility/media/lsp-flow-diagram.png
+
+LSP 服务端开发可以使用 TypeFox Langium 框架，TypeFox 是一家咨询和研究公司，创建了 Eclipse Theia、Gitpod 和 Xtext 等云端 IDE 开发环境。
+https://www.typefox.io/
+https://langium.org/docs/
+Langium is an open source language engineering tool with first-class support for the Language Server Protocol, written in TypeScript and running in Node.js.
+
 
 在 VSCode 或 Sublime Text 使用 LSP 插件。安装插件后，使用 LSP: Troubleshoot Server
 来检测 clangd 等语言服务是否正常，即安装了 Clangd 并可以在路径环境变量中搜索到它。

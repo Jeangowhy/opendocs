@@ -2142,7 +2142,13 @@ black
 > $color.Insert(0, "Black")
 ```
 
-使用 .. 省略运算符可以截取指定的序号之间的元素，并且可以实现 reverse 效果，如 [1, -1] 将第 1 号、0 号、最未位置的元素组成新的数组。
+https://blog.ironmansoftware.com/daily-powershell/powershell-range-operator/
+
+使用 .. 省略运算符（Range operator）可以截取指定的序号之间的元素，并且可以实现 reverse 效果，如 [1, -1] 将第 1 号、0 号、最未位置的元素组成新的数组。
+
+    [System.Collections.ArrayList]@(1..(dir).Length)
+    [char]'A'..[char]'Z'
+    (1,-1)
 
 和字符串一样，使用 * 运算符可以按指定次数复制数组元素。
 
@@ -7733,6 +7739,8 @@ CodePage          : 1200
 控制台输出编码是通过 System.Console 全局变量设置的，当创建新的 pwsh.exe 运行脚本时，它可以自动输入与输出的编码方案一致。
 
 而直接在当前控制台中执行脚本时，就不会自动设置输出的编码方案，从而导致乱码，需要手动设置。
+
+比如，使用 curl 命令获取网页数据，默认会处理好 UTF-8 字符串，并正确显示在控制台上。但是如果将 curl 返回的内容保存到变量中，那么后续再显示内容则可能由于 [System.Console]::OutputEncoding 编码设置与网页编码不一致而导致乱码。
 
 另外，如何需要进行编码转换的操作，那么注意，Start-Job 会启动新的 PowerShell 进程，并且使用系统默认的编码方案设置，这意味着当前进程正确的输入、输出编码方案设置将不会被应用到新的进程，这很有可能导致 ConvertTo-Json 或 ConvertFrom-Json 这操作涉及编码转换的操作失败！
 
