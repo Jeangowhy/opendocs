@@ -79,7 +79,13 @@ TypeScript 可以理解为是 JavaScript 的一个超集，也就是说涵盖了
 
 TypeScript 是一种脚本编程语言，是一种静态类型语言，是一种强类型语言，是 JavaScript 脚本超集。作为一种编程脚本语言，它不仅可以用于开发 Web 前端，或者 Web 后端，还可以开发桌面应用或者游戏开发，等等。
 
-编程语言的本质就是人类用于交流的一种工具，和人类使用的自然语言，英语、汉语或其它民族使用的语言没有本质区别。编程语言由于主要功能是用来指导计算机执行逻辑功能，所以各种编程语言更具有完善的逻辑系统，不同语言理论上可以通过转译程序实现相互之间的等价变换，就像人类日常使用翻译功能进行交流。例如前端开发中使用的 Babel 转译工具，模块打包工具等等。
+编程语言的本质就是人类用于交流的一种工具，和人类使用的自然语言，英语、汉语或其它民族使用的语言没有本质区别。编程语言由于主要功能是用来指导计算机执行逻辑功能，所以各种编程语言更具有完善的逻辑系统，不同语言理论上可以通过转译程序实现相互之间的等价变换，就像人类日常使用翻译功能进行交流。例如前端开发中使用的 Babel 转译工具，模块打包工具等等。又如 Deno 中提供的 Deno.dlopen() API 可以用来加载 Rust 等系统语言编写的动态扩展模块，可以实现 Deno 当前不支持的功能，Deno 执行程序时就会按脚本配置自动下载相应的动态链接库到本地进行调用，比如 clippy 对系统剪贴板的读写扩展，当然读写剪贴板不一定非通过动态库扩展。
+
+```ts
+import * as clippy from "https://deno.land/x/clippy@v0.2.2/mod.ts";
+import clipboard from "https://deno.land/x/clipboard@v0.0.2/mod.ts";
+console.log({clipboard: await clipboard.readText()});
+```
 
 比如，人类自然语言说：
 
@@ -151,9 +157,9 @@ Sublime Text + Deno lsp
 
 ## 🐣 TypeScript 更好吗？
 
-网络上信息太多了，什么水平都有。从而很容易引导初学者进行一个怪圈：“什么语言最好？”进入这种问题怪圈不说很大，只能说是毫无意义。这个世界没有完美的事件。"大都好物不坚牢，彩云易散琉璃脆。"选择最适合的工具做最恰当的工作，这就是于不完美中尽善。
+网络上信息太多了，什么水平都有。从而很容易引导初学者进行一个怪圈：“什么语言最好？”进入这种问题怪圈不说作用很大，只能说是毫无意义。这个世界没有完美的事件。"大都好物不坚牢，彩云易散琉璃脆。"选择最适合的工具做最恰当的工作，这就是于不完美中尽善。
 
-TypeScript 更好的诊断是相对于 JavaScript 脚本的过度灵活从而带来维护问题而言的，任何事，只要足够自由，就会因为参与的人多了产生变坏的趋势。因为人性天然不喜欢约束，JavaScript 则是支持人性的脚本。结果，带来的这种坏可以用以下代码表达：
+TypeScript 更好的论断是相对于 JavaScript 脚本的过度灵活从而带来维护问题而言的，任何事，只要足够自由，就会因为参与的人多了产生变坏的趋势。因为人性天然不喜欢约束，JavaScript 则是支持人性的脚本。结果，带来的这种坏可以用以下代码表达：
 
 ```js
 function addup(arg) {
@@ -172,6 +178,235 @@ addup("1"); // "11"
 
 假设，一个项目随着迭代，代码会必然会增加，那么这种灵活性可能就是未来产生代码“史山”的根源，即使是代码写作者本人，可能隔天就忘记了当时写下代码的本意。
 
+
+## 🐣 TypeScript 模块化与类型声明文件
+1. https://www.typescriptlang.org/docs/handbook/modules.html
+2. https://www.typescriptlang.org/docs/handbook/2/modules.html
+3. https://www.typescriptlang.org/docs/handbook/namespaces.html
+4. https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
+5. https://deno.land/manual@v1.36.1/getting_started/configuration_file
+5. https://deno.land/manual@v1.36.1/basics/import_maps
+
+TypeScript 引入了类型声明机制，通过类型声明文件 .d.ts 提供的类型信息，编译可以配合 LSP 给出智能提示，即时反馈源文件中不合法的代码。
+
+脚本模块化是当下的流行趋势，模块化编程需要考虑以下三个问题：
+
+1. **Syntax**: What syntax do I want to use to import and export things?
+2. **Module Resolution**: What is the relationship between module names (or paths) and files on disk?
+3. **Module Output Target**: What should my emitted JavaScript module look like?
+
+最常用的模块打包规范有两种：
+
+1. Node 默认使用的 CommonJS (CJS) ，最新的 Node 也已经支持 ESM；
+2. Web 平台使用的 ES Modules (ESM)，和 ；
+
+Universal Module Definition (UMD) 通用模块是兼容了 RequireJS、CommonJS、ESM 等模块规范，基于 Asynchronous Module Definition (AMD) 异步模块规范，并添加了特殊的外壳来处理多种模块加载的兼容性。AMD 本身也是 CommonJS (CJS) 规范的替代品。
+
+TypeScript 类型声明文件的组织与脚本的模块、命名空间关系密切，并且提供了一个专用的 /// 三斜线指令来处理类型的引用。
+
+执行 tsc init 初始化项目以及生成 tsconfig.josn 配置文件，它包含默认，其中 `target` 指示了当前编译器支持的 TypeScript 转译 JavaScript 脚本时，可以按什么规范生成目标脚本代码。另外 `module` 配置指示生成目标代码所使用的模块打包规范。
+
+```json
+"target": "es5",
+/* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
+"module": "commonjs",
+/* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+```
+
+TypeScript 脚本编程本身使用的是最新的 ESM 模块规范，使用 import 或者 export 指令导入导出模块，并且支持多种规范，使用非常便利。
+比如，支持 AMD 模块中的 `export =` 和 `import = require()` 这样的使用方式。
+
+TypeScript 3.8 之前版本，使用 import 可以导入一个类型，到此版本后，还可以使用专用的 import type：
+
+```ts
+// Re-using the same import
+import { APIResponseType } from "./api";
+// Explicitly use import type
+import type { APIResponseType } from "./api";
+// Explicitly pull out a value (getResponse) and a type (APIResponseType) 
+import { getResponse, type APIResponseType} from "./api";
+```
+
+以下是一个演示模块，执行编译命令生成 CommonJS、AMD、UMD 等不同的模块，可以看到打包机制的差别。
+
+CommonJS 模块结构相对简洁，也可以 ESM 较类似，因为其加载过程完全交给了运行环境，比如 Node，使用 require() 导入。而 ESM 则由 Web 浏览器等加载，使用 import 和 export 进行导入导出。
+
+AMD 使用 require()、define() 方法进行导入导出，使用一个函数作为封闭空间包装模块代码。UMD 通过加壳函数处理 factory() 中包含的按 AMD 原样包装的模块代码，壳函数会判断 `module` 变量和 `define` 函数，并选择执行 CommonJS 或 AMD 加载。这些模块的加载器都有共同的特点：使用封闭作用域包装模块代码，避免代码空间污染问题。
+
+注意不同模块规范对 export 指令的使用有细小差别，比如 ESM 中使用的 export default 就不能用于 AMD。TypeScript 中导出的 namespace 会对应到其它模块中 `exports` 中的一个变量，并且命名空间下的代码会用一个匿名函数封闭起来，建议用新的模块规范替代命名空间。
+
+```ts
+// mod.ts
+export function addup(a:number) {
+    return a + 1;
+}
+
+export default addup;
+
+
+// tsc --module commonjs mod.ts
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.addup = void 0;
+function addup(a) {
+    return a + 1;
+}
+exports.addup = addup;
+exports.default = addup;
+
+
+// tsc --module amd mod.ts
+define(["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.addup = void 0;
+    function addup(a) {
+        return a + 1;
+    }
+    exports.addup = addup;
+    exports.default = addup;
+});
+
+
+// tsc --module umd mod.ts
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.addup = void 0;
+    function addup(a) {
+        return a + 1;
+    }
+    exports.addup = addup;
+    exports.default = addup;
+});
+```
+
+
+TypeScript 源代码中提供了一系列内建模块的类型声明，例如浏览器环境下的 DOM 或者 ECMAScript 规范定义的全局对象这样的命名空间，其本身没有相应的模块定义脚本文件，因为它们是 浏览器底层实现语言中导出到脚本运行时环境中的全局符号，例如  V8 Runtime。这样的模块就是内建模块，**built-in lib**，其包含全局类型需要引用类型声明文件，才能提供智能类型提示。其它内建模块定义参考 TypeScript 源代码中的 lib 目录。
+
+TypeScript 4.5 开始，内建库可以被 npm modules 覆盖。
+
+注：内建模块的类型声明文件命名类似 **lib.dom.d.ts**，其中前缀 lib 表示内建库，后缀 .d.ts 表示类型声明文件，所以在使用三斜杠指令引用内建库时，应该使用 **dom**，而不应该包含前缀、后缀，相当于给编译器指定参数 --lib dom。
+
+	/// <reference lib="dom" />
+
+TypeScript 有一个环境模块概念 Ambient Modules，即在一个 .d.ts 文件中使用多个 declaration module 为多个模块编写类型声明，避免在分散的类型声明文件中编写类型声明。然后在代码文件中使用 /// 指令引用这个集中管理的类型声明文件，然后使用 import 导入模块，就会相应获得 Ambient Modules 中的模块声明。这个方法可以用来给那些没有提供类型声明文件的模块编写类型声明，例如：
+
+```ts
+// node.d.ts 
+declare module "url" {
+  export interface Url {
+    protocol?: string;
+    hostname?: string;
+    pathname?: string;
+  }
+  export function parse(
+    urlStr: string,
+    parseQueryString?,
+    slashesDenoteHost?
+  ): Url;
+}
+
+// main.ts 
+/// <reference path="node.d.ts"/>
+import * as URL from "url";
+```
+
+TypeScript 类型信息加载流程：
+
+- 源代码文件中已有的类型信息；
+- 通过 import 导入的代码文件包含的类型信息；
+- 通过加载类型声明文件提供的类型信息，结合项目配置项使用；
+
+早期，import 语法还没有 ES6 规范，使用三斜线指令引用类型声明：
+
+	/// <reference path="./jquery.d.ts" />
+	/// <reference types="node" />
+
+- path 类型声明的是对本地文件的依赖，包含本地路径信息；
+- types 类型声明默认是 node_modules/@types 文件夹下的类型信息；
+
+三斜线指令不会将一个全局文件变成模块文件，而 import 会。如果你需要一个在全局文件 b 里用另一个文件 c 里的变量，就可以用三斜线指令，因为用 import 会把 b 变成一个模块文件。
+
+
+为模块/库写声明文件之前，需要知道这些模块/库是否需要声明文件，或者是否已有声明文件。
+
+若第三方模块/库本身使用 TypeScript 编写且无声明文件， 可以使用编译器参数 --declaration 或配置文件 tsconfig.json 配置选项来生成类型声明文件。
+
+若第三方模块/库本身使用 JavaScript 编写，作者有可以已经提供 npm 类型声明包并发布到 @types，或者与该 npm 包绑定在一起，安装相应的模块即可以获取类型声明文件。
+
+对于无类型声明的其它脚本，则需要自己手写声明文件，或者使用编译器生成 d.ts 类型声明文件。例如，以下有一个演示模块 m.js，只简单导出一个函数：
+
+```js
+// m.js
+export function addup(a) {
+    return a + 1;
+}
+
+export default addup;
+```
+
+执行编译命令生成类型声明文件内容如下，尽管类型都使用 any，它表示变量可以是脚本中任何支持的类型。因为 TypeScript 默认编译器配置，相当于命令行中指定模块类型为 commonjs，生成的这个类型声明文件本身是一个 CommonJS 模块，可以在脚本中使用 import 进行导入使用：
+
+    tsc --allowJs --declaration --emitDeclarationOnly m.js
+    tsc --allowJs --declaration --emitDeclarationOnly --module commonjs m.js
+
+```ts
+// m.d.ts
+export function addup(a: any): any;
+export default addup;
+```
+
+为了给 m.js 脚本编写准确的类型声明文件，并且在 TypeScript 有相应的类型智能提示，可以按以下操作：
+
+1. 借助 Ambient Modules 在类型声明文件中的模块中定义导出的符号。
+2. 修改配置文件，设置 paths 映射，将模块名映射到脚本文件。
+3. 使用 /// 指令引用类型声明文件。
+4. 使用 import 导入映射后的模块名，以使用环境模块类型信息生效。
+
+这种导入方式，生成的代码不一定能够直接运行，因为模块映射的文件并不会替换到生成的脚本中，而是保留着以模块名导入。
+
+```ts
+// tsconfig.son
+
+    "baseUrl": "./",
+    "paths": {
+      "mod":"./m.js"
+    },
+
+// m.d.ts
+declare module "mod" {
+    export function addup(a: string): string;
+    export default addup;
+}
+
+// main.ts
+/// <reference path="./m.d.ts"/>
+import * as m from "mod";
+
+console.log({m});
+```
+
+注意：使用 Deno 运行时，大部分 TypeScript 编译选项都不支持，并且配置文件需要手动通过 --config tsconfig.json 参数传入，并不会自动加载。Deno 有自己的配置文件 deno.jsonc，可以使用 deno init 命令初始化。Deno v1.18 开始自动检测 deno.json 或者 deno.jsonc 配置文件。模块映射使用 imports 设置，参考如下：
+
+```json
+{
+  "imports": {
+    "md":"./m.js"
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
+```
 
 
 ## 🐣 TypeScript 解决什么问题？
@@ -207,7 +442,7 @@ TypeScript 类型系统元素包括：
 
 1. JavaScript 基础类型：boolean、string、number、bigint、symbol、object、undefined、null
 2. JavaScript 基础对象：Boolean、String、Number、BigInt、Symbol、Object
-3. 各种工具类型 Utility Types类型以及体操逻辑运算：
+3. 各种工具类型 Utility Types 以及类型体操逻辑运算：
 
         instanceof  实例判断
         typeof      类型判断

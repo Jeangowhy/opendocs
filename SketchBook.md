@@ -1411,6 +1411,7 @@ Johnston和Thomas特别希望避免的一点是“双胞胎”：人物的左右
 11. Craig Mullins 数字手绘 http://www.goodbrush.com/
 12. Digital Painting with Craig Mullins https://www.bilibili.com/video/BV1PW411P72W/
 13. 徐徐绘画 素描课 https://www.bilibili.com/video/BV17t41117zH
+14. 1911年后已故书画等8类作品限制出境名家名单 http://www.ncha.gov.cn/art/2023/5/26/art_2318_46118.html
 
 Glenn Vilppu 画画基础课程 Drawing Essentials
 https://www.bilibili.com/video/BV1Ez411i7ft/
