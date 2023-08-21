@@ -2607,6 +2607,7 @@ any 类型本质上是类型系统的一个逃逸舱。作为开发者，这给�
 3. https://www.typescriptlang.org/docs/handbook/utility-types.html
 3. https://github.com/tc39/ecma262
 3. ECMAScript历代版本新特性 https://juejin.cn/post/7109378925964296223
+3. https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates
 
 TypeScript 环境下，JSON API 解析 json 数据返回的是 any 类型对象，即使赋值给指定类型的变量或者使用 as 声明类型，它依然是 any 类型，除非用以下方法：
 
@@ -2661,6 +2662,23 @@ console.log({
     "ff is CC":ff instanceof CC, // true
 });
 ```
+
+TypeScript 定义了一个关键字 is 来判断对象是否实现了接口，但是它不能直接做判断，而是用于 Type Guards，间接实现接口的判断，并且 is 关键字只能作为 type predicates 形式使用。如下，代码中明确的表示参数是一个接口类型，同时又声明函数的返回值是 boolean 值，这种形式称为类型谓词。实质上做判断的还是函数体中的语句，使用的是 duck typing 策略，即听起来像鸭子，走起步子又像鸭子，就认为是鸭子：
+
+```ts
+interface ICC {
+    id:number;
+    type:"ICC";
+}
+
+function isICC(s): s is ICC {
+  return s.type === "ICC";
+}
+
+const cc:ICC = { id:123, type:"ICC" }
+console.log({cc, isICC: isICC(cc)})
+```
+
 
 Object 是 JavaScript 的一种数据类型。它用于存储各种键值集合和更复杂的实体。可以通过 Object() 构造函数或者使用对象字面量的方式创建对象。
 

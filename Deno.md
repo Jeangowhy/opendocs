@@ -280,7 +280,7 @@ for (const filename of filenames) {
 }
 ```
 
-## ⚡ Sublime VSCode 配置
+## ⚡ Sublime VSCode LSP 配置
 1. VScode Deno extension https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno
 2. Debugging https://deno.land/manual@v1.9.0/getting_started/debugging_your_code
 3. Setup Your Environment https://deno.land/manual/getting_started/setup_your_environment
@@ -364,7 +364,9 @@ Sublime LSP 插件提供了默认的语法作用域与 LSP Language ID 的映射
 
 正常的文档切换，语言作用域变换，会使 LSP 关闭原文档对象的映射关系，并且重新以新语言建立文档映射关系，所以 didClose 之后会有 didOpen。
 
-Setup your environment 文档提供的 Deno LSP 配置：
+导致此现象的原因是 Sublime LSP 插件的语言作用域识别机制，应该在 LSP Settings 中的 clients 下一级配置节点中设置作用域类型列表，将需要启用 Deno LSP 服务的语言作用域添加到 `selector` 配置列表中。因为 Deno 官方文档中给出的参考配置并没有包含此值，从而导致只有 JavaScript 语言作用域下才生效。其配置节点 languages 列表指定的 scopes 并不被 Sublime LSP 插件认可。
+
+Setup your environment 文档提供的 Deno LSP 配置（增加 "selector" 配置）：
 
 ```json
     {
@@ -380,6 +382,7 @@ Setup your environment 文档提供的 Deno LSP 配置：
               "unstable": false
             },
             "enabled": true,
+            "selector": "source.js, source.jsx, source.ts, source.tsx",
             "languages": [
               {
                 "languageId": "javascript",
@@ -865,6 +868,8 @@ console.log("%cHello World", "color: #FFC0CB");
 console.log("%cHello World", "color: rgb(255, 192, 203)");
 ```
 
+ASCII 控制字符定义，使用 \033[1A 或者 \x1b[1A 控制字符移动光标到行首，\033[K 清除当前行内容。
+
 ### ✔Use Node.js built-in modules
 https://examples.deno.land/node
 ```js
@@ -1269,7 +1274,6 @@ const req = await fetch("https://examples.deno.land");
 req.body?.pipeTo(download.writable);
 
 
-
 import { bgBrightYellow } from "https://deno.land/std@0.194.0/fmt/colors.ts";
 
 class HighlightTransformStream extends TransformStream<string, string> {
@@ -1427,6 +1431,149 @@ Deno.bench({
     performance.now();
   },
 });
+```
+
+
+### ✔Creating & Resolving Symlinks
+https://examples.deno.land/symlinks
+Creating and resolving symlink is a common task. Deno has a number of functions for this task.
+```js
+await Deno.writeTextFile("example.txt", "hello from symlink!");
+
+await Deno.symlink("example.txt", "link");
+console.log(await Deno.realPath("link"));
+console.log(await Deno.readTextFile("link"));
+
+await Deno.link("example.txt", "hardlink");
+console.log(await Deno.readTextFile("hardlink"));
+```
+
+### ✔Watching the filesystem
+https://examples.deno.land/watching-files
+When creating frameworks or CLI tools, it is often neccessary to watch the filesystem for changes.
+```js
+let watcher = Deno.watchFs("./");
+for await (const event of watcher) {
+  console.log(">>>> event", event);
+  watcher.close();
+}
+
+
+import { debounce } from "https://deno.land/std@0.194.0/async/debounce.ts";
+const log = debounce((event: Deno.FsEvent) => {
+  console.log("[%s] %s", event.kind, event.paths[0]);
+}, 200);
+
+watcher = Deno.watchFs("./");
+
+for await (const event of watcher) {
+  log(event);
+}
+```
+
+
+### ✔Walking directories
+https://examples.deno.land/walking-directories
+When doing something like filesystem routing, it is useful to be able to walk down a directory to visit files.
+```js
+for await (const dirEntry of Deno.readDir(".")) {
+  console.log("Basic listing:", dirEntry.name);
+}
+
+
+import { walk } from "https://deno.land/std@0.194.0/fs/walk.ts";
+
+for await (const dirEntry of walk(".")) {
+  console.log("Recursive walking:", dirEntry.name);
+}
+for await (const dirEntry of walk(".", { exts: ["ts"] })) {
+  console.log("Recursive walking with extension:", dirEntry.name);
+}
+```
+
+### ✔Checking for file existence
+https://examples.deno.land/checking-file-existence
+Sometimes we as developers think that we need to check if a file exists or not. More often than not, we are entirely wrong.
+```js
+try {
+  await Deno.mkdir("new_dir");
+} catch (err) {
+  if (!(err instanceof Deno.errors.AlreadyExists)) {
+    throw err;
+  }
+}
+try {
+  await Deno.lstat("example.txt");
+  console.log("exists!");
+} catch (err) {
+  if (!(err instanceof Deno.errors.NotFound)) {
+    throw err;
+  }
+  console.log("not exists!");
+}
+```
+
+
+### ✔Path operations
+https://examples.deno.land/path-operations
+Many applications need to manipulate file paths in one way or another. The Deno standard library provides simple utilities for this.
+```js
+import * as path from "https://deno.land/std@0.194.0/path/mod.ts";
+
+const p1 = path.posix.fromFileUrl("file:///home/foo");
+const p2 = path.win32.fromFileUrl("file:///home/foo");
+console.log(`Path 1: ${p1} Path 2: ${p2}`);
+const p3 = path.fromFileUrl("file:///home/foo");
+console.log(`Path on current OS: ${p3}`);
+
+const formatPath = path.format({
+  root: "/",
+  dir: "/home/user/dir",
+  ext: ".html",
+  name: "index",
+});
+console.log({
+    formatPath, // "/home/user/dir/index.html"
+    basename: path.basename(formatPath), // index.html
+    dirname: path.dirname(formatPath),  // /home/user/dir
+    extname: path.extname(formatPath), // .html
+})
+
+const joinPath = path.join("foo", "bar");
+console.log(joinPath);
+const current = Deno.cwd();
+console.log(current);
+```
+
+
+### ✔Streaming File Operations
+https://examples.deno.land/streaming-files
+Sometimes we need more granular control over file operations. Deno provides a low level interface to file operations that may be used for this purpose.
+```js
+const output = await Deno.open("example.txt", {
+  create: true,
+  append: true,
+});
+const outputWriter = output.writable.getWriter();
+await outputWriter.ready;
+const outputText = "I love Deno!";
+const encoded = new TextEncoder().encode(outputText);
+await outputWriter.write(encoded);
+await outputWriter.close();
+
+const input = await Deno.open("example.txt");
+const inputReader = input.readable.getReader();
+const decoder = new TextDecoder();
+
+let done = false;
+do {
+  const result = await inputReader.read();
+  done = result.done;
+
+  if (result.value) {
+    console.log(`Read chunk: ${decoder.decode(result.value)}`);
+  }
+} while (!done);
 ```
 
 
@@ -3069,6 +3216,178 @@ Deno 模块导入设计是直接通过 CDN 提供的模块 URL 地址导入，es
 6. Origin storage
 
 导入 npm: 模块时，如果模块本身提供了 TypeScript 类型声明，Deno 会检测到，如果没提供，则可以手动 @deno-types 指令指定类型声明模块。
+
+使用 *tsconfig.json* 相关配置项，使用 `tsc --init` 命令生成初始配置。使用编译选项 `typeRoots` 用来指定默认的类型声明文件查找路径，默认配置下，`@types` 包定位在 node_modules/@types 目录下。如果设置了 `typeRoots` 就以目录列表指路径为参考，并且路径相对于 *tsconfig.json* 文件。使用 `types` 指定自动引入模块名称，而不必在源代码文件中显式引用，同时不会引用 node_modules/@types 目录下的其它模块。路径配置错误导致编译器不能定位到类型声明文件：
+
+    Can't find lib definitions for "*.d.ts" 
+    typescript(2726)
+    Cannot find module 'Deno' or its corresponding type declarations. 
+    typescript(2307)
+    File "*.d.ts" is not a module.
+    typescript(2306)
+
+导入模块时，如果只有类型声明文件，而没有模块源文件，那么就会导致 2306 错误。因为编译器将类型声明文件当作模块导入，但它不是模块定义，不能导入，只能引用其提供的类型声明信息。Deno 这样的命名空间，其本身没有相应的模块定义脚本文件，因为它们是 Rust 底层语言中导出到 V8 Runtime 环境中的全局符号。这样的模块就是内建模块，**built-in lib**，其包含全局类型需要引用类型声明文件，才能提供智能类型提示。其它内建模块定义参考 TypeScript 源代码中的 lib 目录。Deno LSP 服务本身就包含这些类型声明，而其它环境，比如直接使用官方的 TypeScript 开发环境就需要手段引用这些全局类型声明文件。
+
+TypeScript 4.5 开始，内建库可以被 npm modules 覆盖。
+
+注：内建模块的类型声明文件命名类似 lib.deno.unstable.d.ts，其中前缀 lib 表示内建库，后缀 .d.ts 表示类型声明文件，所以在使用三斜杠指令引用内建库时，应该使用 **deno.unstable**，而不应该包含前缀、后缀，相当于给编译器指定参数 --lib deno.unstable。
+
+    /// <reference lib="deno.unstable" />  <==> lib.deno.unstable.d.ts
+    /// <reference lib="deno.ns" />      <==> lib.deno.ns.d.ts
+
+Triple-Slash Directives 三斜杠指令是专用于类型声明引用的指令，除了在源代码中引入类型声明，也在类型声明文件中用于设置相应的信息，或者像 import 语句一样引入模块：
+
+```sh
+/// <reference path="..." />
+It serves as a declaration of dependency between files.
+
+/// <reference types="..." />
+Directive declares a dependency on a package.
+For example, including /// <reference types="node" /> in a declaration file declares that this file uses names declared in @types/node/index.d.ts; and thus, this package needs to be included in the compilation along with the declaration file.
+
+/// <reference lib="..." />
+This directive allows a file to explicitly include an existing built-in lib file,
+in the same fashion as the lib compiler option in tsconfig.json 
+(e.g. use lib="es2015" and not lib="lib.es2015.d.ts", etc.).
+
+/// <reference no-default-lib="true"/>
+# This directive marks a file as a default library. 
+
+///<amd-module name="NamedModule"/>
+
+/// <amd-dependency />
+/// <amd-dependency path="x" name="x" />
+Deprecated. Use import "moduleName"; statements instead.
+```
+
+为了让编译器检测到内建库，最便捷的方法就是将库类型声明文件所在目录链接到项目目录下，注意使用 `tsc --init` 命令初始化项目目录生成配置文件：
+
+```sh
+# PowerShell
+mkdir types
+New-Item -ItemType SymbolicLink -Path types\deno -Target deno-1.36.1\cli\tsc\dts\
+```
+
+如果开发者已经提供声明文件,使用 npm 可以方便地获取类型声明包，然后直接导入模块，指定模块名即可，编译器会自动定位 node_modules/@types 目录的类型声明文件专用模块中的入口 index.d.ts，这种导入方式可以为 TypeScript 官方开发环境提供 LSP 类型提示服务，但不兼容 Deno 开发环境：
+
+    npm i @types/express@4.0.29
+    npm i @types/react@18.2.0
+    npm i @types/react-dom@18.2.0
+
+    import React from "react";
+    import ReactDOM from "react-dom";
+    import ReactDOMServer from "react-dom/server";
+
+    /// <reference types="react" />
+    /// <reference name="React" path="node_modules/@types/react/index.d.ts" />
+
+    /// <reference name="ReactDOM" path="node_modules/@types/react-deom/index.d.ts" />
+    /// <reference name="ReactDOMServer" path="node_modules/@types/react-deom/server.d.ts" />
+
+三斜杠指令设置 type 指定模块，或者 path 指定类型声明文件可以为智能提示提供类型定义信息，并且可以指定模块名称，但这种设置会被 import 语句导入的模块覆盖。Deno 使用 npm: 或 node: 指示符来导入模块，这些都不是 TypeScript 官方规范内容，所以不能在 Deno lSP 开发环境下识别。
+
+
+1. https://www.typescriptlang.org/tsconfig
+2. https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
+3. https://www.typescriptlang.org/docs/handbook/module-resolution.html
+4. https://www.typescriptlang.org/docs/handbook/compiler-options.html
+5. https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html
+6. https://github.com/microsoft/TypeScript/tree/main/src/lib
+
+TypeScript 目前支持两种模块解析策略，默认的 `node` 模式和 TypeScript pre-1.6 旧版本使用的 `classic` 经典模式。
+
+Module Resolution 参考手册详细解释了模块的搜索流程，以导入 "./moduleB" 模块为例，TypeScript 默认解析流程如下所示，：
+
+    /root/src/moduleA.ts
+    import { b } from "./moduleB"
+
+    /root/src/moduleB.ts
+    /root/src/moduleB.tsx
+    /root/src/moduleB.d.ts
+    /root/src/moduleB/package.json (if it specifies a types property)
+    /root/src/moduleB/index.ts
+    /root/src/moduleB/index.tsx
+    /root/src/moduleB/index.d.ts
+
+模块路径解析有相对路径、绝对路径两种方式，Relative vs. Non-relative，路径以 `/`, `./` or `../` 等等开头都是相对路径方式导入。非相对路径导入模块例子如下，可以配置 baseUrl 和 paths 路径映射来定位模块：
+
+    import * as $ from "jquery";
+    import { Component } from "@angular/core";
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".", // This must be specified if "paths" is.
+    "paths": {
+      "jquery": ["node_modules/jquery/dist/jquery"] // This mapping is relative to "baseUrl"
+    }
+  }
+}
+```
+
+模块解析配置选项 rootDirs 相当于一个虚拟目录机制，它可以用来管理需要分散在多个目录下管理的大项目，列表中指定目录将汇合成单个虚拟的根目录，编译器合并处理分散在多个目录的项目文件，就像是一个单独目录下的项目。
+
+     src
+     └ views
+        └ view1.ts (can import "./template1", "./view2`)
+        └ view2.ts (can import "./template1", "./view1`)
+
+     generated
+     └ templates
+        └ views
+           └ template1.ts (can import "./view1", "./view2")
+```json
+{
+  "compilerOptions": {
+    "rootDirs": ["src/views", "generated/templates/views"]
+  }
+}
+```
+
+设置根目录列表的另一个用途是实现单独的“类型层”，使用专用目录存放为非 TypeScript or JavaScript 文件生成的 .d.ts 文件。此技术对于使用导入不一定是代码的文件的捆绑式应用程序非常有用。
+
+     src
+     └ index.ts
+     └ css
+        └ main.css
+        └ navigation.css
+
+     generated
+     └ css
+       └ main.css.d.ts
+       └ navigation.css.d.ts
+
+```json
+{
+  "compilerOptions": {
+    "rootDirs": ["src", "generated"]
+  }
+}
+```
+
+Module Resolution Options
+
+```json
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+    "baseUrl": "./",
+    /* Base directory to resolve non-absolute module names. */
+    "paths": {},
+    /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+    "rootDirs": [],
+    /* List of root folders whose combined content represents the structure of the project at runtime. */
+    "typeRoots": [],
+    /* List of folders to include type definitions from. */
+    "types": [],
+    /* Type declaration files to be included in compilation. */
+
+    "typeRoots": [ "@types" ],
+    "types" : ["node", "lodash", "express", "deno.ns", "deno.unstable"]
+  }
+}
+```
 
 以下是基于 Deno 编写的 React SSR 应用示范，为了简化起见，服务器端的 HelloSSR 是简化后 Hello 组件，它们生成的初始内容必须一致，如果使用 hydrateRoot()。SSR 渲染目的是向浏览器在发出页面请求时，服务器可以提供一个具有完整 HTML 结构的页面，这样做的目的可以是出于 SEO 搜索引擎优化需要。
 
@@ -7325,11 +7644,14 @@ console.log("Set-Cookie:", cookieHeader);
 
 
 ## ⚡ std io
-- https://deno.land/std@0.97.0/io
-- https://doc.deno.land/builtin/stable#WritableStream
-- https://doc.deno.land/builtin/stable#ReadableStream
-- https://doc.deno.land/builtin/stable#Deno.Reader
-- https://doc.deno.land/builtin/stable#Deno.Writer
+1. https://deno.land/std@0.97.0/io
+2. https://deno.land/api@v1.36.1#I/O
+2. https://deno.land/api@v1.36.1#Streams_API
+3. https://doc.deno.land/builtin/stable?s=WritableStream
+4. https://doc.deno.land/builtin/stable?s=ReadableStream
+5. https://doc.deno.land/builtin/stable#Deno.Reader
+6. https://doc.deno.land/builtin/stable#Deno.Writer
+6. https://developer.mozilla.org/zh-CN/docs/Web/API/ReadableStream/pipeThrough
 
 I/O 流处理模块，对以下 Deno 全局类型的包装：
 
@@ -7340,9 +7662,14 @@ var ReadableStreamDefaultReader: { prototype: ReadableStreamDefaultReader }
 var ReadableStreamReader: { prototype: ReadableStreamReader }
 var WritableStream: { prototype: WritableStream }
 var WritableStreamDefaultWriter: { prototype: WritableStreamDefaultWriter }
+
+pipeThrough<T>(transform: { writable: WritableStream<R>; readable: ReadableStream<T>; }, options?: PipeOptions): ReadableStream<T>
+pipeTo(dest: WritableStream<R>, options?: PipeOptions): Promise<void>
 ```
 
 Deno.Reader 和 Deno.Writer 是两个最基本的接口。
+
+ReadableStream 提供了两个 pipe 方法，一个是 pipeTo 将数据流管道传送到目标写入流。另一个方法 pipeThrough() 提供了一种链式读取方式，将当前流通过转换流或者其他任何一对可写/可读的流进行管道传输。传输一个流通常在管道传输的时间内锁定这个流，以阻止其他 reader 锁定它。
 
 IO 模块主要提供对象：
 

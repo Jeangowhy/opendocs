@@ -92,7 +92,7 @@ Powershell 脚本调用 IrfanView 拼接图片：
     }
 ```
 
-厦门市少年儿童图书馆 数字连环画阅览室
+厦门市少年儿童图书馆 数字连环画阅览室 查询脚本 (Node)：
 
 ```js
     // import https from "node:https"
@@ -171,45 +171,117 @@ Powershell 脚本调用 IrfanView 拼接图片：
     }
 ```
 
-Deno TypeScript 脚本查询目录数据：
+Deno TypeScript 脚本下载、查询目录数据：
 
 ```js
+/// <reference lib="dom" />
 /// <reference lib="deno.unstable" />
 const kv = await Deno.openKv();
 
-const MAXROUTINE = 500;
+const MAXROUTINE = 50;
+let sentinal_abort = false;
+Deno.addSignalListener( "SIGINT", ()=>{
+    sentinal_abort = true;
+    let len = -1;
+    console.log("Wait for queued task finished before exit...");
+    const id = setInterval(()=>{
+        if (len != rqpool.length){
+            len = rqpool.length;
+            console.log("\x1b[1A\x1b[Kqueued task: ", len);
+        }
+        if (rqpool.length<=0) {
+            clearInterval(id);
+        }
+    }, 1000);
+})
 
 interface Item {
   id: number;
-  page?: number;
-  title?: string;
-  ttl?: number;
+  page: number;
+  title: string;
+}
+interface ItemEssential {
+  id: number;
+  ttl: number;
+  it: Item | null;
 }
 
 console.log("%c厦门市少年儿童图书馆 数字连环画阅览室", "color: red;background-color: blue");
 console.log("http://data2.xmst.org:8081/pc/Index");
-const url = "http://data2.xmst.org:8081/pc/booksinglereader/{id}";
-const img = "http://data2.xmst.org:8081/UploadImg/bookpage/big/467/0001";
+const URL = "http://data2.xmst.org:8081/pc/booksinglereader/{id}";
+const IMG = "http://data2.xmst.org:8081/UploadImg/bookpage/big/{id}/{page}";
 
-let filters:Item[] = [
+const filters:Item[] = [
     { id: 0, page: NaN, title: "未将对象引用设置到对象的实例。" },
+    // { id: 6262, page: 33, title: "红楼梦选绘-1王凤姐弄权铁槛寺" },
+    // { id: 6263, page: 32, title: "红楼梦选绘-2宝钗扑蝶" },
+    // { id: 6264, page: 31, title: "红楼梦选绘-3黛玉葬花" },
+    // { id: 6265, page: 36, title: "红楼梦选绘-4袭人受宠" },
+    // { id: 6266, page: 39, title: "红楼梦选绘-5鸳鸯抗婚" },
+    // { id: 6267, page: 39, title: "红楼梦选绘-6尤三姐殉情" },
+    // { id: 6268, page: 32, title: "红楼梦选绘-7晴雯蒙冤" },
+    // { id: 6269, page: 51, title: "红楼梦选绘-8宝玉出走" },
+    // { id: 18624, page: 39, title: "后红楼梦06" } ,
+    // { id: 18625, page: 43, title: "后红楼梦05" } ,
+    // { id: 18626, page: 42, title: "后红楼梦04" } ,
+    // { id: 18627, page: 43, title: "后红楼梦03" } ,
+    // { id: 18628, page: 50, title: "后红楼梦02" } ,
+    // { id: 18629, page: 50, title: "后红楼梦01" } ,
+    { id: 23352, page: 124, title: "红楼梦-16宝玉出走（上海人民美术出版社81版）" },
+    { id: 23353, page: 124, title: "红楼梦-15巧姐避祸（上海人民美术出版社81版）" },
+    { id: 23354, page: 180, title: "红楼梦-14查抄贾府（上海人民美术出版社81版）" },
+    { id: 23355, page: 172, title: "红楼梦-13黛玉焚稿（上海人民美术出版社81版）" },
+    { id: 23356, page: 132, title: "红楼梦-12金桂之死（上海人民美术出版社81版）" },
+    { id: 23357, page: 148, title: "红楼梦-11潇湘惊梦（上海人民美术出版社81版）" },
+    { id: 23358, page: 196, title: "红楼梦-10抄检大观园（上海人民美术1981版）" },
+    { id: 23359, page: 204, title: "红楼梦-9红楼二尤（上海人民美术出版社82版）" },
+    { id: 23360, page: 140, title: "红楼梦-8宝玉瞒赃（上海人民美术出版社82版）" },
+    { id: 23361, page: 92, title: "红楼梦-7鸳鸯抗婚（上海人民美术出版社82版）" },
+    { id: 23362, page: 116, title: "红楼梦-6二进荣国府（上海人民美术出版社81版）" },
+    { id: 23363, page: 124, title: "红楼梦-5宝玉受笞（上海人民美术出版社81版）" },
+    { id: 23364, page: 196, title: "红楼梦-4黛玉葬花（上海人民美术出版社81版）" },
+    { id: 23365, page: 108, title: "红楼梦-3王熙凤弄权（上海人民美术出版社81版）" },
+    { id: 23366, page: 116, title: "红楼梦-2宝黛初相会（上海人民美术出版社81版）" },
+    { id: 23367, page: 100, title: "红楼梦-1乱判葫芦案（上海人民美术出版社81版）" },
+    // { id: 23377, page: 74, title: "红楼梦故事下二册（人民美术出版社85版）" },
+    // { id: 23378, page: 73, title: "红楼梦故事下一册（人民美术出版社85版）" },
+    // { id: 23379, page: 76, title: "红楼梦故事上二册（人民美术出版社85版）" },
+    // { id: 23380, page: 73, title: "红楼梦故事上一册（人民美术出版社85版）" },
+    { id: 1445, page: 45, title: "《长恨歌》（彩绘彩墨连环画）作画：戴敦邦" } ,
+    { id: 1496, page: 82, title: "含绣轩-新绘红楼梦（戴敦邦彩绘）后40回" } ,
+    { id: 1498, page: 162, title: "含绣轩-新绘红楼梦（戴敦邦绘）前80回" } ,
+    // { id: 30422, page: 22, title: "彩绘全本-红楼梦-1" },
+    // { id: 30423, page: 22, title: "彩绘全本-红楼梦-2" },
+    // { id: 30424, page: 22, title: "彩绘全本-红楼梦-3" },
+    // { id: 30425, page: 22, title: "彩绘全本-红楼梦-4" },
+    // { id: 30426, page: 22, title: "彩绘全本-红楼梦-5" },
+    // { id: 30427, page: 22, title: "彩绘全本-红楼梦-6" },
+    // { id: 30428, page: 22, title: "彩绘全本-红楼梦-7" },
+    // { id: 30429, page: 22, title: "彩绘全本-红楼梦-8" },
+    // { id: 30430, page: 22, title: "彩绘全本-红楼梦-9" },
+    // { id: 30431, page: 22, title: "彩绘全本-红楼梦-10" },
+    // { id: 30432, page: 22, title: "彩绘全本-红楼梦-11" },
+    // { id: 30433, page: 16, title: "彩绘全本-红楼梦-12" },
 ];
-let rqpool:Item[] = [ ];
-let idpool:Item[] = [ ];
+let rqpool:ItemEssential[] = [ ];
+const idpool:ItemEssential[] = [ ];
 
-for (let id = 0; id<32963; id++) {
+for (let id = 0; id<.32963; id++) {
     if (filters.filter( it=>it.id==id).length>0) continue;
-    idpool.push({id, ttl:0});
+    idpool.push({id, ttl:0, it:null});
 }
 
 function list(){
+    if (sentinal_abort) {
+        return;
+    }
     if (idpool.length && rqpool.length < MAXROUTINE){
-        let it = idpool.shift();
-        rqpool.push(it!);
-        fetch(url.replace("{id}", it!.id.toString()))
+        const it = idpool.shift()!;
+        rqpool.push(it);
+        fetch(URL.replace("{id}", it.id.toString()))
         // .then(async res=>"<title>mytitle</title>"+await res.text())
-        .then(responsible(it!)/*,handle_error(it!)*/)
-        .catch(handle_error(it!));
+        .then(responsible(it)/*,handle_error(it)*/)
+        .catch(handle_error(it));
     }
     if (idpool.length > 0 || rqpool.length>0){
         setTimeout(list, 1000/260); // setTimeout to reduce CPU time.
@@ -217,26 +289,103 @@ function list(){
 }
 list();
 
-function handle_error (it: Item) : (err: TypeError )=>void {
+function pageToPad(page:number):string {
+    return (page+10000).toString().substr(1);
+}
+function itemToDir(it:Item):string {
+    return `${it.id} ${it.title}`
+}
+
+for (const it of filters) {
+    if (!it.page) continue;
+    const dir = itemToDir(it);
+    try {
+        const stat = Deno.statSync(dir);
+        if (!stat.isDirectory) {
+            Deno.mkdirSync(dir, {recursive:false, mode:0o666})
+        }
+    } catch (err) {
+        if (err instanceof Deno.errors.NotFound) {
+            Deno.mkdirSync(dir, {recursive:false, mode:0o666})
+        } else {
+            throw err;
+        }
+    }
+
+    for (let page=1; page<=it.page; page++){
+        const {id,title} = it;
+        const p = pageToPad(page);
+        const file = `${dir}/${p}.jpg`;
+        try {
+            const stat = Deno.statSync(file)
+            if (stat.isFile && stat.size > 50000) {
+                console.info(`Skip ${file}`)
+                continue;
+            }
+        } catch (err) {
+            if (err instanceof Deno.errors.NotFound) {
+                // ...
+            } else {
+                throw err;
+            }
+        }
+        idpool.push({id, ttl:0, it:{id, page, title}});
+    }
+}
+
+function get(){
+    if (sentinal_abort) {
+        return;
+    }
+    if (idpool.length && rqpool.length < MAXROUTINE){
+        const it = idpool.shift()!;
+        rqpool.push(it);
+        const page = pageToPad(it.it!.page);
+        fetch(IMG.replace("{id}", it.id.toString()).replace("{page}", page))
+        .then(writable(it))
+        .catch(handle_error(it));
+    }
+    if (idpool.length > 0 || rqpool.length>0){
+        setTimeout(get, 1000/260); // setTimeout to reduce CPU time.
+    }
+}
+get();
+
+function handle_error (it: ItemEssential) : (err: TypeError )=>void {
     return (err: TypeError) => {
-        if (it.ttl!<3){
-            it.ttl!++;
+        if (it.ttl<3){
+            it.ttl++;
             idpool.push(it);
         }
         console.error({id: it.id, error: err.name + err.message});
     }
 }
 
-function responsible (it: Item) : (arg: Response)=>void {
+function writable (it: ItemEssential) : (arg: Response)=>void {
+    return async (res) =>{
+        const {ok, status, statusText, url} = res;
+        if (!ok) {
+            console.error({status, statusText, url});
+            return;
+        }
+        const dir = itemToDir(it.it!);
+        const page = pageToPad(it.it!.page);
+        const file = await Deno.open(`${dir}/${page}.jpg`, {create:true, write:true});
+        console.log( it.it, url )
+        await res.body?.pipeTo(file.writable);
+        rqpool = rqpool.filter(t=> it!=t)
+    }
+}
+
+function responsible (it: ItemEssential) : (arg: Response)=>void {
     return async (res) =>{
         // const decoder = new TextDecoder('utf8');
         // const buf = await res.arrayBuffer();
         // console.log(decoder.decode(buf).substring(0,80));
         if (!res.ok) {
             // ['ECONNREFUSED', 'ECONNRESET', 'ETIMEDOUT'].indexOf(err.code)
-            rqpool = rqpool.filter(t => it!=t);
-            if (it.ttl!<3 && [500, 404].indexOf(res.status)<0){
-                it.ttl!++;
+            if (it.ttl<3 && [500, 404].indexOf(res.status)<0){
+                it.ttl++;
                 idpool.push(it);
             }else{
                 console.log({
