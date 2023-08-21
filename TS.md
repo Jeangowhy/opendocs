@@ -60,6 +60,262 @@ TypeScript 可以理解为是 JavaScript 的一个超集，也就是说涵盖了
 如果，在大型项目中，以上问题可能会消耗大量调试时间，这就是成本，而强类型的约束会禁止代码出现这样的问题，并且会给出详细提示。
 
 
+# ⚑ TypeScript 光速入门
+
+为了快速入门 TypeScript，本文将提出几个问题来导入深入地学习 TypeScript。
+
+1. TypeScript 是什么？
+2. TypeScript 更好吗？
+3. TypeScript 解决什么问题？
+4. TypeScript 学习的路线安排。
+
+## 🐣 TypeScript 是什么？
+
+官方网站是这样描述 TypeScript 语言的：
+
+>TypeScript is JavaScript with syntax for types.
+>
+>TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+
+TypeScript 是一种脚本编程语言，是一种静态类型语言，是一种强类型语言，是 JavaScript 脚本超集。作为一种编程脚本语言，它不仅可以用于开发 Web 前端，或者 Web 后端，还可以开发桌面应用或者游戏开发，等等。
+
+编程语言的本质就是人类用于交流的一种工具，和人类使用的自然语言，英语、汉语或其它民族使用的语言没有本质区别。编程语言由于主要功能是用来指导计算机执行逻辑功能，所以各种编程语言更具有完善的逻辑系统，不同语言理论上可以通过转译程序实现相互之间的等价变换，就像人类日常使用翻译功能进行交流。例如前端开发中使用的 Babel 转译工具，模块打包工具等等。
+
+比如，人类自然语言说：
+
+    请把评论打在楼下！
+
+    请投币点赞收藏！
+
+和以下编程脚本中的代码没有本质具别，只还过编程更讲究逻辑，而自然语言则不一定要符合特定逻辑。所以，人类很自然感觉到使用自然语言的轻松，而学习强逻辑的计算机语言有种身在约束丛林的感觉。
+
+就以下代码行而言，其逻辑包含：console 是一个对象，是一个类定义的实例，这种类型是脚本语言内建的（用户可以直接使用），它定义了一个方法叫做 log()，这个方法可以接收任意个参数并将这些参数打印到控制台.
+
+```ts
+console.log("Please like me.");
+```
+
+在编程世界中，有许多与人类自然语言世界相互冲突的语义，比如数学上 = 号表示两个值相等，比如 1 = x，那么就知道 x 的值是 1。但是在编程逻辑中，由于计算机硬件体系结构的存在-逻辑机器，需要编程语言提供一种数据读写的基本操作，而这个操作表现在编程语言元素中，就是 = 号，比如以下给一个变量赋值，等号右侧的称为数据，data，左侧称为变量，variables。变量的本质是一块随机分配的内存，赋值操作就是将数据保存到分配好的内存中。这个赋值过程和人类搬东西到指定位置具有等价意义：
+
+```ts
+	let b = "bad apple";
+```
+
+https://article.biliimg.com/bfs/article/a48dd9ecf12561af3388e45a5cecec8f60a15666.png
+
+
+以下提供几种使用 TypeScript 脚本编程环境安装指导：
+
+TypeScript Playground 游乐场：可以直接在 Web 浏览器上运行脚本，但有功能约束，比如不能使用 fetch 这样的 API 进行 HTTP 操作。https://www.typescriptlang.org/play
+
+Node 环境：安装 Node 开发环境，然后使用命令 npm install -global typescript 安装 tsc 编译器。https://nodejs.org/
+
+Deno 环境：它本身集成了 TypeScript 解析器以及 V8 脚本引擎，直接下载 Deno 即可以开发 TypeScript 应用，或者使用控制台工具进行安装。https://deno.land/manual@v1.36.1/getting_started/installation https://github.com/denoland/deno/releases/tag/v1.36.1
+
+Node.js 命令行的 TypeScript 编译器的安装各基本用法如下，使用 npm 命令来安装，-g 表示 global 全局安装，这样可以在任意的命令行窗口运行编译器。安装后会有一个 tsc 编译器命令来转译 TypeScript 代码为 JavaScript，也可以安装 ts-node 模块来直接解析运行。当然，推荐使用 Deno，它直接可以执行 TypeScript 脚本，并可以用于生产环境的开发工作。
+
+```sh
+npm install -g typescript
+npm install -g ts-node
+tsc helloworld.ts
+ts-node helloworld.ts
+```
+
+开发工具可选择有很多，推荐两个易用的编程工具：
+
+Sublime Text 这是一款付费软件，但作者没有强制用户付费，只会偶尔弹窗提醒。支持 LSP 智能代码提示，可以搭配 Deno LSP 服务使用。https://www.sublimetext.com/ https://lsp.sublimetext.io/language_servers
+
+Visual Studio Code 简称 VS Code，微软开源团队基于 TypeScript + Electron 开发的跨平台开发工具。https://code.visualstudio.com/
+
+关于 Sublime Text + Deno LSP 环境正确安装后就可以非常方便地开发 TypeScript 应用。环境配置可以参考 Opendocs Demo.md 中的 Sublime VSCode LSP 配置，注意 Deno 官方文档提供的 LSP Settings 中缺少 selector 配置项，默认只提供 JavaScript 智能提示，不处理 TypeScript 脚本和 JSX 或 TSX，可以添加语言选择器配置：
+
+```json
+    "selector": "source.js, source.jsx, source.ts, source.tsx",
+    "languages": [
+      {
+        "languageId": "javascript",
+        "scopes": ["source.js"],
+        "syntaxes": [
+          "Packages/Babel/JavaScript (Babel).sublime-syntax",
+          "Packages/JavaScript/JavaScript.sublime-syntax"
+        ]
+      },
+	  //......
+```
+
+https://github.com/Jeangowhy/opendocs/blob/main/Deno.md
+
+https://deno.land/manual@v1.36.1/getting_started/setup_your_environment
+
+Sublime Text + Deno lsp
+
+## 🐣 TypeScript 更好吗？
+
+网络上信息太多了，什么水平都有。从而很容易引导初学者进行一个怪圈：“什么语言最好？”进入这种问题怪圈不说很大，只能说是毫无意义。这个世界没有完美的事件。"大都好物不坚牢，彩云易散琉璃脆。"选择最适合的工具做最恰当的工作，这就是于不完美中尽善。
+
+TypeScript 更好的诊断是相对于 JavaScript 脚本的过度灵活从而带来维护问题而言的，任何事，只要足够自由，就会因为参与的人多了产生变坏的趋势。因为人性天然不喜欢约束，JavaScript 则是支持人性的脚本。结果，带来的这种坏可以用以下代码表达：
+
+```js
+function addup(arg) {
+  console.log(arg + 1);
+}
+
+addup(1);   // 2
+addup("1"); // "11"
+```
+
+为了运行 JavaScript 脚本，可以使用 Chrome 等浏览器提供的开发者工具，按 F12 即可以调出，在 Console 面板中就可以输入代码进行测试。
+
+因为，JavaScript 使用的是动态类型，Dynamic Types，即脚本引擎实现源代码中，使用的是一个数据结构，这个结构可以保存整数值、浮点数、字符串、布尔值等等不同的数据类型，并且会将相应的 API 导出到脚本解析器的运行时环境中供脚本使用。所以在一个脚本编程环境中，包含两个基本构成：解析器底层实现，通常是 C++ 或 C 言语实现；脚本运行时实现，提供一个环境运行脚本或将底层实现的公开 API 导出到运行时，供脚本调用。
+
+这也就是为何在以上代码片段中，同样是执行 `addup()` 函数，但由于参数 arg 接收到的数据类型差异而得到完全不同的结果。在 JavaScript 中，还可以使用 +"1" 这样的表达式将字符串转型为数值，比如 `+"1"+1` 就得到 2。
+
+假设，一个项目随着迭代，代码会必然会增加，那么这种灵活性可能就是未来产生代码“史山”的根源，即使是代码写作者本人，可能隔天就忘记了当时写下代码的本意。
+
+
+
+## 🐣 TypeScript 解决什么问题？
+
+JavaScript 一直以来的灵活性引出了一个编程语言类型的选择问题：
+
+1. 选择 Static type 还是 Dynamic type？
+2. 选择 Strong  type 还是 Weak type？
+
+这不是好与坏之间的问题，而是合适与不合适之间取舍的权衡。动态类型与静态类型差别在于，动态类型在实现上使用的数据结构可以兼容多种类型，在运行时可以按需要转化类型。而静态类型则不可以，声明什么类型它就是固定的类型。
+
+强类型与弱类型的差别不仅在底层实现上，更体现在于对代码的约束，强类型必需要未求数据类型一致才能达成逻辑操作，而弱类型不需要。
+
+TypeSciprt 的出场就是静态类型与强类型结合，一方面有足够的类型操作的灵活性，另一方法又提供了强类型的安全性，通过配合 Language Server Protocol (LSP) 提供的智能提示，可以让你的代码更健壮（我不想说鲁棒）、更具有可维护性，对于开发大型项目而言，这无异是极大的优势！
+
+注意：强类型、弱类型这样的描述本身具有较多争议，存在误用的情况，建议少用。
+
+TypeScript 在类型系统的设计上，是套完整的类型体操逻辑系统，类型可以通过各种逻辑操作进行组合拆分。一方面又引入了 `any`、`unknow`、`never` 、`void` 等类型解决 JavaScript 遗留问题，主要是指 `undefined` 问题。
+
+JavaScript 主要遗留问题是 null 和 undefined 这样的特殊类型值，默认情况下它们是所有类型的子类型，可以赋值给任何类型的变量。要避免其它类型的变量被赋值为 undefined，可以使用严格空值检查模式编译器选项 --strictNullChecks，这个选项用来配合 TypeScript 2.0 增加的 NonNullable<Type> 工具类型使用。开户严格 null 检查模式后，代码就需要做变量值测试工作保证逻辑的严格性。
+
+`any` 类型就是类型系统中存在的一切类型，或者没有类型约束的类型。`any` 类型本质上是类型系统的一个逃逸舱。作为开发者，这给了我们很大的自由：TypeScript 允许我们对 `any` 类型的值执行任何操作，而无需事先执行任何形式的检查，就像在 JavaScript 中编程一样。
+
+TypeScript 3.0 引入顶级的 `unknown` 类型， 对照于 `any`，`unknown` 是类型安全的。任何值都可以赋给 `unknown`，但是当没有类型断言或基于控制流的类型细化时 `unknown` 不可以赋值给其它类型，除了它自己和 `any` 外。 同样地，在 `unknown` 没有被断言或细化到一个确切类型之前，是不允许在其上进行任何操作的。
+
+TypeScript 类型系统是结构化类型，也称鸭子类型（duck typing）。
+
+当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。
+
+更确切地说，TypeScript 类型系统是结构类型系统（Structural type system），任意两个以相同结构描述的值具有相同类型。
+
+TypeScript 类型系统元素包括：
+
+1. JavaScript 基础类型：boolean、string、number、bigint、symbol、object、undefined、null
+2. JavaScript 基础对象：Boolean、String、Number、BigInt、Symbol、Object
+3. 各种工具类型 Utility Types类型以及体操逻辑运算：
+
+        instanceof  实例判断
+        typeof      类型判断
+        as          类型强制转换
+        is          断言返回布尔类型
+        ?           条件类型
+        keyof       键名索引
+        in          映射
+        infer       声明待推断的类型
+        <>          泛型
+        type        别名
+        |           联合类型
+        &           交叉类型
+
+现在，让我们来重新实现前面的 addup 函数：
+
+```js
+function addup<T>(arg:T) {
+  if (typeof arg ==="number") {
+      console.log(arg + 1);
+  } else if (typeof arg === "string") {
+      console.log(+arg + 1);
+  }
+}
+
+addup(1);   // 2
+addup("1"); // 2
+addup("a"); // NaN
+```
+
+以上就是 TypeScript 中的一个 Type-narrowing 类型收缩函数，通过逻辑条件判断细分数据的类型。有些函数通过逻辑判断输入参数的类型，并返回一个布尔值表示确定参数是某类型，这种函数在 TypeScript 中叫做守卫函数 guard functions。代码片段中使用到 TypeScript 的泛型、类型收缩、类型自动推断等特性。TypeScript 会按泛型函数 `addup()` 使用到的两种 arg 参数类型，数值和字符串，实例化两个不同的函数：`addup(arg:number)`  和 `addup(arg:string)` 。在函数未标明返回类型，也没有 return 语句时，函数的返回类型为 void。
+
+通过类型指示标注（变量或数据后面的冒号续写的部分用来定义类型），所有变量或数据都拥有一个特定的类型标记，type notation，TypeScript 编译器的主要功能就是确定在相同的类型标记这一条件达成的前提下进行各种逻辑操作。
+
+JavaScript 中常用的 JSON 表达，因为在字面量，TypeScript 可以利用自动推断功能获得其类型，如下代码变量 a 和 b 的类型可以自动根据右侧的字面量推断，所以可以省略 `{id:number}` 这个类型标记信息。每个类型都是成员的数据集合，当一个集合包含另一集合，那么就是兼容类型，如下 b 变量的类型兼容 a 变量的类型，所以 b 可以赋值给 a，但反过来不行。相对于一个变量的类型，它也是数据类型的集合，但是超集可以兼容子集，反过过则不行。比如 `number|null` 交集类型兼容 `number` 类型或者 `null` 类型，可以赋值给超集。但反过来，`number|null` 类型不能赋值给 `number` 类型或者 `null` 类型，因为总有意外的类型不能满足。
+
+```ts
+let a: {id:number} = {id:123}
+let b = {id:234, tag:"type"}
+a = b; // compatiable type
+b = a; // Property 'tag' is missing in type '{ id: number; }'
+```
+
+字面量类型 Literal Type 可能是最能够体现 TypeScript 类型系统灵活性的一个类型。一般来说，TypeScript 会根据字面量类型自动推断出变量的类型，而不需要声明变量类型。而将字面量当作类型使用，用来声明变量，那么变量就只能接收所声明的字面量：
+
+```ts
+type LT = true | "hello" | 996 | [null,string] | {id:number};
+let lt: LT = 996;
+lt = {id:123};
+lt = true;
+lt = [null,"NULL"];
+// Type 'false' is not assignable to ...
+// lt = 123;
+// lt = false;
+```
+
+以上定义了一个字面量类型 LT，它的值只可以是声明的 5 种形式：
+
+1. 布尔值中的 true；
+2. 字符串字面量 "hello"；
+3. 数值 996；
+4. Tuple 元组 [null,string]，元组是数组的一种，并且是元素有类型秩序的数组；
+5. 对象字面量，类型是 {id:number}，即只有一个 id 号码的对象类型；
+
+
+
+## 🐣 TypeScript 学习的路线安排
+
+以上就是 TypeScript 的最基础的内容，由于其类型系统的强大，以致官方文档中直接使用类型体操 Type Manipulation 这样的字眼。
+
+https://www.typescriptlang.org/docs/
+
+官方文档内容非常丰富，这里就学习 TypeScript 路径给出一些指引信息：
+
+1. 了解 JavaScript/TypeScript 脚本编程的发展，以及 ECMAScript 脚本规范；
+2. 了解脚本的模块化规范，如 Node 使用的 CommonJS 以及最新的 ES Modules 规范；
+3. 了解编译器的使用与配置选项，特别是 Declaration Files (.d.ts) 类型声明文件的使用；
+4. 了解 TypeScript 对 JavaScript 类型的兼容支持，以及各种流程控制关键字的使用；
+5. 了解 TypeScript 各种工具类型的使用，它们可以对类型进行灵活操作；
+6. 了解 TypeScript 的接口、类型、泛型等等功能的使用；
+7. 了解一些 TypeScript 应用的开发框架，比如开源的 VS Code，或者 Deno，或者 React 或 Vue 等前端框架。
+
+
+TypeScript Cheat Sheets 是快速参考卡，可以快速了解 TypeScript 的功能概要：
+
+https://www.typescriptlang.org/cheatsheets
+https://www.typescriptlang.org/assets/typescript-cheat-sheets.zip
+
+
+1. TypeScript Control Flow Analysis
+
+https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png
+
+2. TypeScript Interfaces
+
+https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png
+
+3. TypeScript Types
+
+https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png
+
+4. TypeScript Classes
+
+https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
+
+
+
+
 # ⚑ 5分钟上手TypeScript
 
 让我们使用 TypeScript 来创建一个简单的 Web 应用。
@@ -1546,6 +1802,7 @@ TypeScript 可以定义可选类型，Optional Properties ?:，定义属性检�
 
 	// TypeError: Cannot read property 'toFixed' of undefined
 	// let width = config.width!.toFixed(2);
+
 
 
 ## callable 可调用类型
