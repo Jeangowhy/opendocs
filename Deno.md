@@ -920,6 +920,9 @@ console.log(url.href); // http://deno.com/api?s=Deno.readFile
 
 ### ✔Importing JSON
 https://examples.deno.land/importing-json
+JSON files can be imported in JS and TS files using the `import` keyword. This makes including static data in a library much easier.
+
+
 ```js
 import file from "./version.json" assert { type: "json" };
 console.log(file.version);
@@ -1577,8 +1580,218 @@ do {
 ```
 
 
+### ✔Deno SQLite Module
+https://deno.land/x/sqlite
+https://www.sqlite.org/schematab.html
+https://www.sqlite.org/lang.html
+https://www.sqlite.org/lang_expr.html
+https://www.sqlite.org/lang_select.html
+https://deno.land/x/deno_sqlite_orm
+This is an SQLite module for JavaScript and TypeScript. The wrapper is targeted at Deno and uses a version of SQLite3 compiled to WebAssembly (WASM). This module focuses on correctness, ease of use and performance.
+
+This module guarantees API compatibility according to semantic versioning. Please report any issues you encounter. Note that the master branch might contain new or breaking features. The versioning guarantee applies only to tagged releases.
+```js
+import { DB } from "https://deno.land/x/sqlite/mod.ts";
+
+// Open a database
+const db = new DB("test.db");
+db.execute(`
+  CREATE TABLE IF NOT EXISTS people (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+  )
+`);
+
+// Run a simple query
+for (const name of ["Peter Parker", "Clark Kent", "Bruce Wayne"]) {
+  db.query("INSERT INTO people (name) VALUES (?)", [name]);
+}
+
+// Print out data in table
+for (const [name] of db.query("SELECT name FROM people")) {
+  console.log(name);
+}
+
+// Close connection
+db.close();
+```
+
+SQLite 查询字符串中使用两个连续的双引号 "" 来转义表示一个双引号字符。语句中p字符串两边要加单撇号，数值型可以不加单引号。
+
+```js
+import { DB } from "https://deno.land/x/sqlite/mod.ts";
+import * as path from "https://deno.land/std@0.194.0/path/mod.ts";
+
+const DENO_DIR = Deno.env.get("DENO_DIR") ?? Deno.env.get("DENO") ?? "";
+const dep_analysis_cache_v1 = path.join(DENO_DIR, "dep_analysis_cache_v1");
+const check_cache_v1 = path.join(DENO_DIR, "check_cache_v1");
+const node_analysis_cache_v1 = path.join(DENO_DIR, "node_analysis_cache_v1");
+
+try {
+  const stat = Deno.statSync(dep_analysis_cache_v1);
+} catch (err) {
+  throw err;
+}
+
+// Open a database
+const db = new DB(dep_analysis_cache_v1);
+
+// db.execute(`
+//   CREATE TABLE IF NOT EXISTS people (
+//     id INTEGER PRIMARY KEY AUTOINCREMENT,
+//     name TEXT
+//   )
+// `);
+
+// Print out data in table
+const list_table = "SELECT tbl_name, sql FROM sqlite_master WHERE type = 'table'";
+const list_info = `SELECT * FROM info WHERE key like '%'`;
+const list_infocache = `SELECT * FROM moduleinfocache LIMIT 60,30`;
+const list_checkcache = `SELECT * FROM checkcache`;
+const list_tsbuildinfo = `SELECT * FROM tsbuildinfo`;
+const list_cjsanalysiscache = `SELECT * FROM cjsanalysiscache`;
+for (const [spec, type, _hash, _info] of db.query(list_infocache)) {
+  console.log({spec, type, _hash });
+}
+
+// for (const [name, sql] of db.query(list_table)) {
+//   console.log(name, sql);
+// }
+
+// Close connection
+db.close();
+```
+
+Deno info 命令可以打印出模块缓冲目录，它们以统一的 SQLite3 数据库信息管理。每个运行时版本对应一个 info key-value。参考源代码 deno-1.36.1/cli/cache/cache_db.rs
+
+其中，node_analysis_cache_v1 数据库文件 caching node analysis，记录用户项目中用到的 node 模块依赖信息。
+
+dep_analysis_cache_v1 数据库 caching swc dependency analysis：每个模块依赖会产生 moduleinfocache 表中的一条记录：
+
+1. `specifier` 字段是模块的导入地址；
+2. `media_type` 文件类型；
+3. `source_hash` 源文件 hash 摘要；
+4. `module_info` 模块信息，包括模块依赖；
+
+模块标识符会映射到 deps 目录下各个主机缓存目录，目录下包含成对的模块文件以及其 metadata.json 信息文件，信息文件包含 HTTP 响应头记录以及 URL 地址等。文件名前缀为转码后的 Hash 字符串 64 个字符，对应 32 字节的 SHA256 值。这个 Hash 并非直接通过 URL 或者模块文件计算得到。
+
+```json
+// "https://deno.land/x/fresh@1.3.1/init.ts",
+// "5",
+// "2252238238442211957",
+{
+    "dependencies": [{
+        "kind": "Import",
+        "is_dynamic": false,
+        "leading_comments": [],
+        "range": {
+            "start": {"line": 0, "character": 0 },
+            "end": {"line": 0, "character": 75 }
+        },
+        "specifier": "./src/dev/deps.ts",
+        "specifier_range": {
+            "start": {"line": 0, "character": 55 },
+            "end": {"line": 0, "character": 74 }
+        },
+        "import_assertions": "None"
+    }, {
+        "kind": "Import",
+        "is_dynamic": false,
+        "leading_comments": [],
+        "range": {
+            "start": {"line": 1, "character": 0 },
+            "end": {"line": 1, "character": 43 }
+        },
+        "specifier": "./src/dev/error.ts",
+        "specifier_range": {
+            "start": {"line": 1, "character": 22 },
+            "end": {"line": 1, "character": 42 }
+        },
+        "import_assertions": "None"
+    }, {
+        "kind": "Import",
+        "is_dynamic": false,
+        "leading_comments": [],
+        "range": {
+            "start": {"line": 2, "character": 0 },
+            "end": {"line": 2, "character": 75 }
+        },
+        "specifier": "./src/dev/mod.ts",
+        "specifier_range": {
+            "start": {"line": 2, "character": 56 },
+            "end": {"line": 2, "character": 74 }
+        },
+        "import_assertions": "None"
+    }, {
+        "kind": "Import",
+        "is_dynamic": false,
+        "leading_comments": [],
+        "range": {
+            "start": {"line": 3, "character": 0 },
+            "end": {"line": 7, "character": 30 }
+        },
+        "specifier": "./src/dev/imports.ts",
+        "specifier_range": {
+            "start": {"line": 7, "character": 7 },
+            "end": {"line": 7, "character": 29 }
+        },
+        "import_assertions": "None"
+    }]
+}
+```
+
+```sql
+CREATE TABLE sqlite_schema(
+  type text,
+  name text,
+  tbl_name text,
+  rootpage integer,
+  sql text
+);
+
+-- dep_analysis_cache_v1
+info CREATE TABLE info (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL
+      )
+-- [ [ "CLI_VERSION", "1.36.1" ] ] 
+
+moduleinfocache CREATE TABLE moduleinfocache (
+      specifier TEXT PRIMARY KEY,
+      media_type TEXT NOT NULL,
+      source_hash TEXT NOT NULL,
+      module_info TEXT NOT NULL
+    )
+
+-- node_analysis_cache_v1
+info CREATE TABLE info (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL
+      )
+cjsanalysiscache CREATE TABLE cjsanalysiscache (
+      specifier TEXT PRIMARY KEY,
+      source_hash TEXT NOT NULL,
+      data TEXT NOT NULL
+    )
+
+-- check_cache_v1
+info CREATE TABLE info (
+        key TEXT PRIMARY KEY,
+        value TEXT NOT NULL
+      )
+checkcache CREATE TABLE checkcache (
+      check_hash TEXT PRIMARY KEY
+    )
+tsbuildinfo CREATE TABLE tsbuildinfo (
+      specifier TEXT PRIMARY KEY,
+      text TEXT NOT NULL
+    ) 
+```
+
+
 ### ✔Deno KV: Key/Value Database
 https://examples.deno.land/kv
+Deno KV is a key/value database built in to the Deno runtime, and works with zero configuration on Deno Deploy. It's great for use cases that require fast reads and don't require the query flexibility of a SQL database.
 ```js
 /// <reference lib="deno.unstable" />
 

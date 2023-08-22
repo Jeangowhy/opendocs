@@ -214,7 +214,91 @@ TypeScript 类型声明文件的组织与脚本的模块、命名空间关系密
 ```
 
 TypeScript 脚本编程本身使用的是最新的 ESM 模块规范，使用 import 或者 export 指令导入导出模块，并且支持多种规范，使用非常便利。
-比如，支持 AMD 模块中的 `export =` 和 `import = require()` 这样的使用方式。
+比如，支持 AMD 模块中的 `export =` 和 `import = require()` 这样的使用方式。使用 export = 语法指定从模块导出的单个对象，可以是类、接口、命名空间、函数或枚举。导出模块时，必须配合使用 import require 导入模块。
+
+
+TypeScript 导入时不需要加 .ts 扩展名，因为编译器将 TypeScript 代码转换为 JavaScript 时不会更改导入说明符，因此导入路径即使在编译后也会保留 .ts
+扩展名，这会导致脚本在运行时的导入问题。但是在 Deno 运行环境下，是需要使用扩展名的，因为 Deno 本身不需要将 TypeScript 转译，而直接运行。
+
+>error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled. 
+
+为了编译通过，可以在导入语句上一行使用注释 // @ts-ignore 来忽略错误。
+
+```ts
+// @ts-ignore: TS5097 allowImportingTsExtensions
+import * as mod from "./mod.ts";
+```
+
+还可以在 --noEmit or --emitDeclarationOnly 模式下配置 allowImportingTsExtensions 允许使用 .ts 扩展名。
+https://www.typescriptlang.org/tsconfig#allowImportingTsExtensions
+
+
+考虑到需要编译出可以用于浏览器的脚本模块导入，所以允许加 .js 扩展名，这样在浏览器才不会出错。Web 页面中使用模块语法导入 ESM：
+
+<script type="module" src="./main.js"></script>
+
+>Access to script at 'file://.../main.js' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, isolated-app, chrome-extension, chrome, https, chrome-untrusted.
+
+注意：模块涉及 CORS 跨域同源安全策略的约束，默认不支持通过 file:// 协议访问本地文件，即来源属性值 origin = 'null'，需要通过 Web 服务器来做测试。
+
+模块文件 .mjs 后缀的文件需要以 MIME 类型为 `javascript/esm` 来加载 (或者其他的 JavaScript 兼容的 MIME，比如 `application/javascript`)。服务器响应头没有提供严格的 MIME 信息，比如 `Content-Type:
+text/plain`，浏览器会一个严格的 MIME 类型检查错误拒绝加载模块。
+
+1. https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules#故障排除
+2. https://examples.deno.land/http-server-files
+3. https://deno.land/manual@v1.36.2/examples/file_server
+4. https://deno.land/std@0.194.0/http/mod.ts
+5. https://deno.land/std@0.194.0/media_types/mod.ts
+6. https://deno.land/std@0.194.0/media_types/vendor/mime-db.v1.52.0.ts?source
+
+Web 服务器一般脚本语言都有提供，比如 python -m http.server 8080。需要修改 http.server 模块中的 SimpleHTTPRequestHandler extensions_map，添加正确的 MIME 类型映射。
+
+也可以使用 Deno 脚本编写一个静态文件服务器，HTTP 服务器使用标准库 media_types 来获取 MIIME 类型信息。
+
+```ts
+  // https://deno.land/std@0.194.0/http/file_server.ts?source=#L205
+  // Set mime-type using the file extension in filePath
+  const contentTypeValue = contentType(extname(filePath));
+  if (contentTypeValue) {
+    headers.set("content-type", contentTypeValue);
+  }
+```
+
+注意，http 模块使用 media_types 模块提供的 MIME 信息，其导出的 extensions 映射集合中的数据来源自 jshttp/mime-db db.json，模块导出为常量，修这个映射对服务器输出 MIIME 信息不起作用。`contentType("js")` 和 `typeByExtension("js")` 获取到的内容差异在于：前者可能包含完整的内容类型信息，包括编码方案信息，后者则只包含 MIME 类型信息。如果直接使用 http 模块中的 serveFile 服务，就不能对响应文件的 Content-Type 进行修改。Deno 官网几乎不提供 Web API 规范的文档，只提供链接，类型 Response、Headers 这样的接口 API 参考手册需要跳转到引用网站：
+
+1. https://developer.mozilla.org/en-US/docs/Web/API/Response
+2. https://developer.mozilla.org/en-US/docs/Web/API/Headers
+
+```ts
+// deno run -A https://deno.land/std/http/file_server.ts
+import * as path from "https://deno.land/std@0.194.0/path/mod.ts";
+import * as http from "https://deno.land/std@0.194.0/http/mod.ts";
+import { serveDir, serveFile } from "https://deno.land/std@0.194.0/http/file_server.ts";
+
+
+Deno.serve((req: Request) => {
+  const uri = new URL(req.url);
+  const pathname = decodeURI(uri.pathname).substring(1);
+  console.log({pathname});
+
+  if (pathname==""){
+    const headers = new Headers({"Content-Type":"text/html; charset=utf-8"});
+    return new Response("<h1 style='margin:50vh 45vw;'>Hello World!</h1>", { headers});
+  }
+
+  const stat = Deno.statSync(pathname);
+  if (stat.isFile) {
+    if (pathname.endsWith(".js")) {
+    }
+    return serveFile(req, pathname, {fileInfo: stat});
+  } else if (stat.isDirectory) {
+    return serveDir(req, {fsRoot:"public", urlRoot:"static"})
+  }
+  return new Response("404: Not Found", {
+    status: 404,
+  });
+});
+```
 
 TypeScript 3.8 之前版本，使用 import 可以导入一个类型，到此版本后，还可以使用专用的 import type：
 
@@ -235,7 +319,7 @@ AMD 使用 require()、define() 方法进行导入导出，使用一个函数作
 
 注意不同模块规范对 export 指令的使用有细小差别，比如 ESM 中使用的 export default 就不能用于 AMD。TypeScript 中导出的 namespace 会对应到其它模块中 `exports` 中的一个变量，并且命名空间下的代码会用一个匿名函数封闭起来，建议用新的模块规范替代命名空间。
 
-```ts
+```ts,ignore
 // mod.ts
 export function addup(a:number) {
     return a + 1;
@@ -288,6 +372,43 @@ define(["require", "exports"], function (require, exports) {
     exports.default = addup;
 });
 ```
+
+
+TypeScript 生成脚本模块中包含一个标记属性 `__esModule`，用于不同模块规范的混用导入，在配置文件中启用 `esModuleInterop`，默认状态，这个标记属性作用就是指示当前模块是一个 ESM 模块。
+如果被导入的模块没有标识 `__esModule`，则默认导入将直接返回一个只含有 `default` 属性的对象。
+
+如果不开启 `esModuleInterop` 编译选项，则不能使用默认导入，必须用批量导入才能通过编译。
+
+1. https://www.npmjs.com/package/react
+2. https://www.typescriptlang.org/tsconfig#esModuleInterop
+3. https://toyobayashi.github.io/2020/06/29/ESModule/
+
+默认状态下，esModuleInterop = false 或者没有在配置文件中设置值，TypeScript 处理 CommonJS/AMD/UMD 模块和 ES6 modules 模块相似。为了混用这些模块，在这样做的过程中，有两个部分被证明是有缺陷的假设：
+
+a namespace import like `import * as moment from "moment"` acts the same as `const moment = require("moment")`
+
+a default import like `import moment from "moment"` acts the same as `const moment = require("moment").default`
+
+这两种由于模块规范差异引起的不匹配导致以下两个问题：
+
+ES6模块规范规定，命名空间导入 `import * as x` 只能是一个对象，通过将其视为 `= require("x")`，然后允许 TypeScript 将导入视为一个函数并可调用。根据规范，这是无效的。
+
+虽然符合 ES6 模块规范，但大多数带有 CommonJS/AMD/UMD 模块的库并不像 TypeScript的 实现那样严格。
+
+
+以引入 React 为例，官方发布包有 CommonJS (CJS) 和 UMD 两种模块打包，并且默认使用 CJS。
+
+```ts
+// import default
+import React from 'react'
+// import all
+import * as React from 'react'
+``` 
+
+在没有开启 `esModuleInterop` 并且安装了 @types/react 的情况下，import default 会导致错误：此模块是使用 "export =" 声明的，在使用 "esModuleInterop" 标志时只能与默认导入一起使用。
+
+总之，`__esModule` 标记属性用来兼容 ES 模块导入 CommonJS 模块的 default 导出方案。推荐向标准看齐，在以后写 CommonJS 模块的时候尽量不要用 module.exports 导出单对象，而是导出具体的属性名 exports.foo = bar。在 ES 模块中也尽量不要用 export default。
+
 
 
 TypeScript 源代码中提供了一系列内建模块的类型声明，例如浏览器环境下的 DOM 或者 ECMAScript 规范定义的全局对象这样的命名空间，其本身没有相应的模块定义脚本文件，因为它们是 浏览器底层实现语言中导出到脚本运行时环境中的全局符号，例如  V8 Runtime。这样的模块就是内建模块，**built-in lib**，其包含全局类型需要引用类型声明文件，才能提供智能类型提示。其它内建模块定义参考 TypeScript 源代码中的 lib 目录。
@@ -387,6 +508,11 @@ declare module "mod" {
     export function addup(a: string): string;
     export default addup;
 }
+// Global symbol, namespace
+declare lets jQuery: (selector: string) => object;
+declare namespace ns {
+    export let jQuery: (selector: string) => object;
+}
 
 // main.ts
 /// <reference path="./m.d.ts"/>
@@ -406,6 +532,12 @@ console.log({m});
     "dev": "deno run --watch main.ts"
   }
 }
+```
+
+获取当前生效的配置项：
+
+```sh
+tsc --showConfig
 ```
 
 
