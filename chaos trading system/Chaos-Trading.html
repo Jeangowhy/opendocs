@@ -1,6 +1,5 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
   max-width: 980px;
-  outline: 1300px solid #fff;
   margin: 16px auto;
 }
 
@@ -501,8 +500,11 @@ body .markdown-body
   padding-bottom: 0.2em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
   border-radius: 3px;
+}
+
+.markdown-body code:not(.highlight):not(.codehilite), .markdown-body samp {
+  background-color: rgba(0,0,0,0.04);
 }
 
 .markdown-body code:before,
@@ -533,8 +535,16 @@ body .markdown-body
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f7f7f7;
+}
+
+.markdown-body .codehilite,
+.markdown-body .highlight,
+.markdown-body pre {
   border-radius: 3px;
+}
+
+.markdown-body :not(.highlight) > pre {
+  background-color: #f7f7f7;
 }
 
 .markdown-body .codehilite pre,
@@ -915,7 +925,7 @@ body .markdown-body
   }
 }
 
-@media pprint {
+@media print {
   .markdown-body * {
     background: transparent !important;
     color: black !important;
@@ -1004,7 +1014,7 @@ body .markdown-body
   }
 }
 </style><style>/*GitHub*/
-.highlight {background-color:#fff;color:#333333;}
+.highlight {background-color:#f7f7f7;color:#333333;}
 .highlight .hll {background-color:#ffffcc;}
 .highlight .c{color:#999988;font-style:italic}
 .highlight .err{color:#a61717;background-color:#e3d2d2}
@@ -1070,7 +1080,7 @@ body .markdown-body
 
 <div class="page">
 
-<img src="./cover.jpg" />
+<img src="/C:/coding/md/opendocs/chaos%20trading%20system/cover.jpg" />
 
 <p>by Jeango</p>
 <p>a speculator who knows logic and programming.</p>
@@ -1863,7 +1873,14 @@ Neuroscience Exploring the Brain, 4th Edition (Mark F. Bear, Barry W. Connors et
 @page :left { margin-left: 40cm; }
 @page :right { margin-left: 40cm; }
  */
-@page { size: A4 portrait; background: #282828; margin: 2cm 0cm; }
-@media print {  }
+@page { size: A4 portrait; background-color: #f82828; margin: 2cm 0cm; }
+@media print { 
+    .markdown-body  { background-color: white; }  
+    .markdown-body pre, 
+    .markdown-body code { padding: 0; background-color: #7a7 !important; 
+        border: 0px solid rgba( 0.4, 0.6, 4, .1) !important;}
+    .markdown-body blockquote { padding: 16px; background-color: #7a7 !important;
+      color: #121 !important; }
+}
 
 </style></article></body></html>

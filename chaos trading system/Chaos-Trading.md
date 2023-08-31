@@ -1165,7 +1165,14 @@ MT5 提供的交易报告包一些主要指标，包括盈亏比、胜率、持�
 @page :left { margin-left: 40cm; }
 @page :right { margin-left: 40cm; }
  */
-@page { size: A4 portrait; background: #282828; margin: 2cm 0cm; }
-@media print {  }
+@page { size: A4 portrait; background-color: #f82828; margin: 2cm 0cm; }
+@media print { 
+    .markdown-body  { background-color: white; }  
+    .markdown-body pre, 
+    .markdown-body code { padding: 0; background-color: #7a7 !important; 
+        border: 0px solid rgba( 0.4, 0.6, 4, .1) !important;}
+    .markdown-body blockquote { padding: 16px; background-color: #7a7 !important;
+      color: #121 !important; }
+}
 
 </style>

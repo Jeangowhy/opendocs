@@ -179,6 +179,147 @@ addup("1"); // "11"
 假设，一个项目随着迭代，代码会必然会增加，那么这种灵活性可能就是未来产生代码“史山”的根源，即使是代码写作者本人，可能隔天就忘记了当时写下代码的本意。
 
 
+
+## 🐣 TypeScript 解决什么问题？
+
+JavaScript 一直以来的灵活性引出了一个编程语言类型的选择问题：
+
+1. 选择 Static type 还是 Dynamic type？
+2. 选择 Strong  type 还是 Weak type？
+
+这不是好与坏之间的问题，而是合适与不合适之间取舍的权衡。动态类型与静态类型差别在于，动态类型在实现上使用的数据结构可以兼容多种类型，在运行时可以按需要转化类型。而静态类型则不可以，声明什么类型它就是固定的类型。
+
+强类型与弱类型的差别不仅在底层实现上，更体现在于对代码的约束，强类型必需要未求数据类型一致才能达成逻辑操作，而弱类型不需要。
+
+TypeSciprt 的出场就是静态类型与强类型结合，一方面有足够的类型操作的灵活性，另一方法又提供了强类型的安全性，通过配合 Language Server Protocol (LSP) 提供的智能提示，可以让你的代码更健壮（我不想说鲁棒）、更具有可维护性，对于开发大型项目而言，这无异是极大的优势！
+
+注意：强类型、弱类型这样的描述本身具有较多争议，存在误用的情况，建议少用。
+
+TypeScript 在类型系统的设计上，是套完整的类型体操逻辑系统，类型可以通过各种逻辑操作进行组合拆分。一方面又引入了 `any`、`unknow`、`never` 、`void` 等类型解决 JavaScript 遗留问题，主要是指 `undefined` 问题。
+
+JavaScript 主要遗留问题是 null 和 undefined 这样的特殊类型值，默认情况下它们是所有类型的子类型，可以赋值给任何类型的变量。要避免其它类型的变量被赋值为 undefined，可以使用严格空值检查模式编译器选项 --strictNullChecks，这个选项用来配合 TypeScript 2.0 增加的 NonNullable<Type> 工具类型使用。开户严格 null 检查模式后，代码就需要做变量值测试工作保证逻辑的严格性。
+
+`any` 类型就是类型系统中存在的一切类型，或者没有类型约束的类型。`any` 类型本质上是类型系统的一个逃逸舱。作为开发者，这给了我们很大的自由：TypeScript 允许我们对 `any` 类型的值执行任何操作，而无需事先执行任何形式的检查，就像在 JavaScript 中编程一样。
+
+TypeScript 3.0 引入顶级的 `unknown` 类型， 对照于 `any`，`unknown` 是类型安全的。任何值都可以赋给 `unknown`，但是当没有类型断言或基于控制流的类型细化时 `unknown` 不可以赋值给其它类型，除了它自己和 `any` 外。 同样地，在 `unknown` 没有被断言或细化到一个确切类型之前，是不允许在其上进行任何操作的。
+
+TypeScript 类型系统是结构化类型，也称鸭子类型（duck typing）。
+
+当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。
+
+更确切地说，TypeScript 类型系统是结构类型系统（Structural type system），任意两个以相同结构描述的值具有相同类型。
+
+TypeScript 类型系统元素包括：
+
+1. JavaScript 基础类型：boolean、string、number、bigint、symbol、object、undefined、null
+2. JavaScript 基础对象：Boolean、String、Number、BigInt、Symbol、Object
+3. 各种工具类型 Utility Types 以及类型体操逻辑运算：
+
+        instanceof  实例判断
+        typeof      类型判断
+        as          类型强制转换
+        is          断言返回布尔类型
+        ?           条件类型
+        keyof       键名索引
+        in          映射
+        infer       声明待推断的类型
+        <>          泛型
+        type        别名
+        |           联合类型
+        &           交叉类型
+
+现在，让我们来重新实现前面的 addup 函数：
+
+```js
+function addup<T>(arg:T) {
+  if (typeof arg ==="number") {
+      console.log(arg + 1);
+  } else if (typeof arg === "string") {
+      console.log(+arg + 1);
+  }
+}
+
+addup(1);   // 2
+addup("1"); // 2
+addup("a"); // NaN
+```
+
+以上就是 TypeScript 中的一个 Type-narrowing 类型收缩函数，通过逻辑条件判断细分数据的类型。有些函数通过逻辑判断输入参数的类型，并返回一个布尔值表示确定参数是某类型，这种函数在 TypeScript 中叫做守卫函数 guard functions。代码片段中使用到 TypeScript 的泛型、类型收缩、类型自动推断等特性。TypeScript 会按泛型函数 `addup()` 使用到的两种 arg 参数类型，数值和字符串，实例化两个不同的函数：`addup(arg:number)`  和 `addup(arg:string)` 。在函数未标明返回类型，也没有 return 语句时，函数的返回类型为 void。
+
+通过类型指示标注（变量或数据后面的冒号续写的部分用来定义类型），所有变量或数据都拥有一个特定的类型标记，type notation，TypeScript 编译器的主要功能就是确定在相同的类型标记这一条件达成的前提下进行各种逻辑操作。
+
+JavaScript 中常用的 JSON 表达，因为在字面量，TypeScript 可以利用自动推断功能获得其类型，如下代码变量 a 和 b 的类型可以自动根据右侧的字面量推断，所以可以省略 `{id:number}` 这个类型标记信息。每个类型都是成员的数据集合，当一个集合包含另一集合，那么就是兼容类型，如下 b 变量的类型兼容 a 变量的类型，所以 b 可以赋值给 a，但反过来不行。相对于一个变量的类型，它也是数据类型的集合，但是超集可以兼容子集，反过过则不行。比如 `number|null` 交集类型兼容 `number` 类型或者 `null` 类型，可以赋值给超集。但反过来，`number|null` 类型不能赋值给 `number` 类型或者 `null` 类型，因为总有意外的类型不能满足。
+
+```ts
+let a: {id:number} = {id:123}
+let b = {id:234, tag:"type"}
+a = b; // compatiable type
+b = a; // Property 'tag' is missing in type '{ id: number; }'
+```
+
+字面量类型 Literal Type 可能是最能够体现 TypeScript 类型系统灵活性的一个类型。一般来说，TypeScript 会根据字面量类型自动推断出变量的类型，而不需要声明变量类型。而将字面量当作类型使用，用来声明变量，那么变量就只能接收所声明的字面量：
+
+```ts
+type LT = true | "hello" | 996 | [null,string] | {id:number};
+let lt: LT = 996;
+lt = {id:123};
+lt = true;
+lt = [null,"NULL"];
+// Type 'false' is not assignable to ...
+// lt = 123;
+// lt = false;
+```
+
+以上定义了一个字面量类型 LT，它的值只可以是声明的 5 种形式：
+
+1. 布尔值中的 true；
+2. 字符串字面量 "hello"；
+3. 数值 996；
+4. Tuple 元组 [null,string]，元组是数组的一种，并且是元素有类型秩序的数组；
+5. 对象字面量，类型是 {id:number}，即只有一个 id 号码的对象类型；
+
+
+
+## 🐣 TypeScript 学习的路线安排
+
+以上就是 TypeScript 的最基础的内容，由于其类型系统的强大，以致官方文档中直接使用类型体操 Type Manipulation 这样的字眼。
+
+https://www.typescriptlang.org/docs/
+
+官方文档内容非常丰富，这里就学习 TypeScript 路径给出一些指引信息：
+
+1. 了解 JavaScript/TypeScript 脚本编程的发展，以及 ECMAScript 脚本规范；
+2. 了解脚本的模块化规范，如 Node 使用的 CommonJS 以及最新的 ES Modules 规范；
+3. 了解编译器的使用与配置选项，特别是 Declaration Files (.d.ts) 类型声明文件的使用；
+4. 了解 TypeScript 对 JavaScript 类型的兼容支持，以及各种流程控制关键字的使用；
+5. 了解 TypeScript 各种工具类型的使用，它们可以对类型进行灵活操作；
+6. 了解 TypeScript 的接口、类型、泛型等等功能的使用；
+7. 了解一些 TypeScript 应用的开发框架，比如开源的 VS Code，或者 Deno，或者 React 或 Vue 等前端框架。
+
+
+TypeScript Cheat Sheets 是快速参考卡，可以快速了解 TypeScript 的功能概要：
+
+https://www.typescriptlang.org/cheatsheets
+https://www.typescriptlang.org/assets/typescript-cheat-sheets.zip
+
+
+1. TypeScript Control Flow Analysis
+
+https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png
+
+2. TypeScript Interfaces
+
+https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png
+
+3. TypeScript Types
+
+https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png
+
+4. TypeScript Classes
+
+https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
+
+
 ## 🐣 TypeScript 模块化与类型声明文件
 1. https://www.typescriptlang.org/docs/handbook/modules.html
 2. https://www.typescriptlang.org/docs/handbook/2/modules.html
@@ -269,7 +410,7 @@ Web 服务器一般脚本语言都有提供，比如 python -m http.server 8080�
 1. https://developer.mozilla.org/en-US/docs/Web/API/Response
 2. https://developer.mozilla.org/en-US/docs/Web/API/Headers
 
-```ts
+```ts,ignore
 // deno run -A https://deno.land/std/http/file_server.ts
 import * as path from "https://deno.land/std@0.194.0/path/mod.ts";
 import * as http from "https://deno.land/std@0.194.0/http/mod.ts";
@@ -421,7 +562,7 @@ TypeScript 4.5 开始，内建库可以被 npm modules 覆盖。
 
 TypeScript 有一个环境模块概念 Ambient Modules，即在一个 .d.ts 文件中使用多个 declaration module 为多个模块编写类型声明，避免在分散的类型声明文件中编写类型声明。然后在代码文件中使用 /// 指令引用这个集中管理的类型声明文件，然后使用 import 导入模块，就会相应获得 Ambient Modules 中的模块声明。这个方法可以用来给那些没有提供类型声明文件的模块编写类型声明，例如：
 
-```ts
+```ts,ignore
 // node.d.ts 
 declare module "url" {
   export interface Url {
@@ -466,7 +607,7 @@ TypeScript 类型信息加载流程：
 
 对于无类型声明的其它脚本，则需要自己手写声明文件，或者使用编译器生成 d.ts 类型声明文件。例如，以下有一个演示模块 m.js，只简单导出一个函数：
 
-```js
+```js,ignore
 // m.js
 export function addup(a) {
     return a + 1;
@@ -480,7 +621,7 @@ export default addup;
     tsc --allowJs --declaration --emitDeclarationOnly m.js
     tsc --allowJs --declaration --emitDeclarationOnly --module commonjs m.js
 
-```ts
+```ts,ignore
 // m.d.ts
 export function addup(a: any): any;
 export default addup;
@@ -495,7 +636,7 @@ export default addup;
 
 这种导入方式，生成的代码不一定能够直接运行，因为模块映射的文件并不会替换到生成的脚本中，而是保留着以模块名导入。
 
-```ts
+```ts,ignore
 // tsconfig.son
 
     "baseUrl": "./",
@@ -540,154 +681,560 @@ console.log({m});
 tsc --showConfig
 ```
 
+## 🐣 toString 原型链方法
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
-## 🐣 TypeScript 解决什么问题？
+JavaScript 是基于原型链 prototype chain 进行递归处理实现的类型继承机制，即原型链上层定义的方法会继承到下层的子类型中。
 
-JavaScript 一直以来的灵活性引出了一个编程语言类型的选择问题：
+JavaScript Demo: Object.prototype.toString()
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString
+```js
+function Dog(name) {
+  this.name = name;
+}
 
-1. 选择 Static type 还是 Dynamic type？
-2. 选择 Strong  type 还是 Weak type？
+const dog1 = new Dog('Gabby');
 
-这不是好与坏之间的问题，而是合适与不合适之间取舍的权衡。动态类型与静态类型差别在于，动态类型在实现上使用的数据结构可以兼容多种类型，在运行时可以按需要转化类型。而静态类型则不可以，声明什么类型它就是固定的类型。
+Dog.prototype.toString = function dogToString() {
+  return `${this.name}`;
+};
 
-强类型与弱类型的差别不仅在底层实现上，更体现在于对代码的约束，强类型必需要未求数据类型一致才能达成逻辑操作，而弱类型不需要。
+console.log(dog1.toString());
+// Expected output: "Gabby"
+```
 
-TypeSciprt 的出场就是静态类型与强类型结合，一方面有足够的类型操作的灵活性，另一方法又提供了强类型的安全性，通过配合 Language Server Protocol (LSP) 提供的智能提示，可以让你的代码更健壮（我不想说鲁棒）、更具有可维护性，对于开发大型项目而言，这无异是极大的优势！
+JavaScript 语言实现上只有一种结构：对象。每个对象（object）都有一个私有属性 `__proto__` 指向另一个原型对象。原型对象也有一个自己的原型，层层向上直到一个对象的原型为 null。根据定义，null 没有原型，并作为这个**原型链**（prototype chain）中的最后一个环节。可以改变原型链中的任何成员，甚至可以在运行时换出原型，因此 JavaScript 中不存在静态分派的概念。
 
-注意：强类型、弱类型这样的描述本身具有较多争议，存在误用的情况，建议少用。
-
-TypeScript 在类型系统的设计上，是套完整的类型体操逻辑系统，类型可以通过各种逻辑操作进行组合拆分。一方面又引入了 `any`、`unknow`、`never` 、`void` 等类型解决 JavaScript 遗留问题，主要是指 `undefined` 问题。
-
-JavaScript 主要遗留问题是 null 和 undefined 这样的特殊类型值，默认情况下它们是所有类型的子类型，可以赋值给任何类型的变量。要避免其它类型的变量被赋值为 undefined，可以使用严格空值检查模式编译器选项 --strictNullChecks，这个选项用来配合 TypeScript 2.0 增加的 NonNullable<Type> 工具类型使用。开户严格 null 检查模式后，代码就需要做变量值测试工作保证逻辑的严格性。
-
-`any` 类型就是类型系统中存在的一切类型，或者没有类型约束的类型。`any` 类型本质上是类型系统的一个逃逸舱。作为开发者，这给了我们很大的自由：TypeScript 允许我们对 `any` 类型的值执行任何操作，而无需事先执行任何形式的检查，就像在 JavaScript 中编程一样。
-
-TypeScript 3.0 引入顶级的 `unknown` 类型， 对照于 `any`，`unknown` 是类型安全的。任何值都可以赋给 `unknown`，但是当没有类型断言或基于控制流的类型细化时 `unknown` 不可以赋值给其它类型，除了它自己和 `any` 外。 同样地，在 `unknown` 没有被断言或细化到一个确切类型之前，是不允许在其上进行任何操作的。
-
-TypeScript 类型系统是结构化类型，也称鸭子类型（duck typing）。
-
-当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。
-
-更确切地说，TypeScript 类型系统是结构类型系统（Structural type system），任意两个以相同结构描述的值具有相同类型。
-
-TypeScript 类型系统元素包括：
-
-1. JavaScript 基础类型：boolean、string、number、bigint、symbol、object、undefined、null
-2. JavaScript 基础对象：Boolean、String、Number、BigInt、Symbol、Object
-3. 各种工具类型 Utility Types 以及类型体操逻辑运算：
-
-        instanceof  实例判断
-        typeof      类型判断
-        as          类型强制转换
-        is          断言返回布尔类型
-        ?           条件类型
-        keyof       键名索引
-        in          映射
-        infer       声明待推断的类型
-        <>          泛型
-        type        别名
-        |           联合类型
-        &           交叉类型
-
-现在，让我们来重新实现前面的 addup 函数：
+例如，对于一个用户定义的函数对象，通过 new 关键字实例化，它的原型链包含与 Function、Object 相关的信息如下：
 
 ```js
-function addup<T>(arg:T) {
-  if (typeof arg ==="number") {
-      console.log(arg + 1);
-  } else if (typeof arg === "string") {
-      console.log(+arg + 1);
+function empty(){}
+let obj = new empty();
+
+// Prototype chain under user define function
+obj.prototype // undefined
+empty.prototype // [object Object]: {constructor: function empty(){}}
+Function.prototype // function() { [native code] }:
+Object.prototype // [object Object]: {constructor: function Object() { [native code] }...
+
+obj.__proto__ === empty.prototype // True, [object Object]: {constructor: function empty(){}}
+empty.__proto__ === Function.prototype // True, a function() { [native code] }
+Function.__proto__ === Function.prototype // True
+Object.__proto__ === Function.prototype // True
+
+empty.prototype.__proto__ === Object.prototype // True,
+Function.prototype.__proto__ === Object.prototype // True,
+Object.prototype.__proto__	 === null  // True
+
+obj.constructor === empty // True
+empty.constructor === Function // True
+Object.constructor === Function // True
+Function.constructor === Function // True
+Object.prototype.constructor === Object // true
+Function.prototype.constructor === Function // true
+```	
+
+以上代码可以简化总结为：
+
+1. 对象实例通过 `prototype` 属性保存原型信息；
+2. 其它对象实例通过 `__proto__` 属性指向其原型对象，递归关系即为原型链；
+3. 函数对象 `Function.prototype` 保存的原型信息是引擎内部函数；
+4. 顶层对象 `Object.prototype` 保存的原型信息是包含 `Object() `构造函数的对象；
+5. 顶层对象 `Object` 的原型对象的原型是 null，即已经到达原型链的最顶层；
+
+相对于用户定义函数，`Function` 和  `Obejct` 是引擎内置的两个特殊实现。Function 是对象类型的构造器，Object 是对象类型的原型。函数是类型实例的构造器，Function 是函数的构造器。在编写代码时，*Object* 这个字面意思表达的就是对象的构造函数，其它内置对象类型亦是如此，可以像调用函数一样而不必使用 `new` 关键字来实例化对象。
+
+而 `prototype` 属性保存原型对象信息，但是原型对象并不使用 prototype 属性。`obj.__proto__` 属性是引擎习惯实现的原型访问器，应该使用 ECMAScript 规范的 `obj.[[Prototype]]` 作为代替。
+
+几乎所有的 JavaScript 对象最终都继承自 Object.prototype。然而，你可以使用 Object.create(null) 或定义了对象字面量的 `{__proto__: null}` 语法来创建 null 原型对象。还可以通过调用 O`bject.setPrototypeOf(obj, null)` 将现有对象的原型更改为 null。
+
+注意：对象字面量 `{__proto__:....}` 中的键 `__proto__` 不同于已弃用的 `Object.prototype.__proto__` 属性。
+
+备注： 遵循 ECMAScript 标准，`someObject.[[Prototype]]` 这种使用 symbol 符号用于标识 someObject 的原型。内部插槽 [[Prototype]] 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 函数来访问。这个等同于 JavaScript 的非标准但被许多 JavaScript 引擎实现的属性 `__proto__` 访问器。为在保持简洁的同时避免混淆，在我们的符号中会避免使用 `obj.__proto__`，而是使用 `obj.[[Prototype]]` 作为代替。
+
+注意：两个函数的单词开头大小写的区别：
+
+- `Function` 内置的函数类型，可以使用 `new` 进行实例化；
+- `function` 关键字定义一个函数对象，它和内置的 `Function` 没有本质区别；
+
+使用 `new` 进行实例化的过程会自动创建一个作用域，通过 this 指针供所有成员方法引用。如果直接调用函数，而不是通过 `new` 方式，那么 `this` 指针指向全局作用域，在浏览器环境中通常是 window。注意：箭头函数不绑定 this。
+
+```js
+let scoped = { 
+  sayThisArrow: ()=>{ console.log({this:this}) },
+  sayThis: function(){ console.log({this:this}) },
+  }
+scoped.sayThisArrow.apply(scoped); // THIS is undefined.
+scoped.sayThis.apply(scoped); // THIS is scoped.
+```
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/new
+当代码 new Foo(...) 执行时，会发生以下事情：
+
+1. 一个继承自 Foo.prototype 的新对象被创建。
+2. 调用构造函数 Foo()，绑定 this 引用。不使用参数列表的 new Foo 等同于 new Foo()。
+3. 构造函数返回的对象就是 new 表达式的结果，或者使用返回前面创建的原型对象。
+
+Function 是最顶层的构造器，Object 是最顶层的对象，Function 继承自 Object，但又构造构造 Object。先有的 Object 原型对象，后造出 Function 的原型对象，然后 Function 又是 Object 和 Function 的构造器，真的是鸡与蛋的关系。
+
+因为 JavaScript 的函数概念相当混沌，有很长一段时间，我无法清晰的理解 function 和 object 之间的暧昧关系，这二者绝对是 JavaScript 中最混乱的关系：
+
+```js
+    Function instanceof Object // 返回 true
+    Object instanceof Function // 依然返回 true
+```
+
+TypeScript 中定义类型时所有成员方法都会转换成 JavaScript 中原型链中方法定义，并且使用通用的 `Function` 对象代表 Class 定义，它本身是 `Object` 类型的了类型。JavaScript 中的每一个函数都是一个函数类型对象，`Function` 的实例。
+
+
+```ts
+// TypeScript class defnition
+class Book {
+  name: string;
+  isbn: string;
+  constructor(n: string, i: string){
+    this.name = n;
+    this.isbn = i;
+  }
+  toString(){
+    return `<Book name="${this.name}" isbn="${this.isbn}">`;
+  }
+  valueOf(){
+    return `<BOOK NAME="${this.name}" ISBN="${this.isbn}">`;
   }
 }
 
-addup(1);   // 2
-addup("1"); // 2
-addup("a"); // NaN
+// JavaScript class defnition
+var Book = /** @class */ (function () {
+    function Book(n, i) {
+        this.name = n;
+        this.isbn = i;
+    }
+    Book.prototype.toString = function () {
+        return "<Book name=\"".concat(this.name, "\" isbn=\"").concat(this.isbn, "\">");
+    };
+    Book.prototype.valueOf = function () {
+        return "<BOOK NAME=\"".concat(this.name, "\" ISBN=\"").concat(this.isbn, "\">");
+    };
+    return Book; // return a constructor function
+}());
 ```
 
-以上就是 TypeScript 中的一个 Type-narrowing 类型收缩函数，通过逻辑条件判断细分数据的类型。有些函数通过逻辑判断输入参数的类型，并返回一个布尔值表示确定参数是某类型，这种函数在 TypeScript 中叫做守卫函数 guard functions。代码片段中使用到 TypeScript 的泛型、类型收缩、类型自动推断等特性。TypeScript 会按泛型函数 `addup()` 使用到的两种 arg 参数类型，数值和字符串，实例化两个不同的函数：`addup(arg:number)`  和 `addup(arg:string)` 。在函数未标明返回类型，也没有 return 语句时，函数的返回类型为 void。
+JavaScript 中的对象类型继承关系：
 
-通过类型指示标注（变量或数据后面的冒号续写的部分用来定义类型），所有变量或数据都拥有一个特定的类型标记，type notation，TypeScript 编译器的主要功能就是确定在相同的类型标记这一条件达成的前提下进行各种逻辑操作。
+    - Object 基础对象类型；
+       +- Function 函数对象；
+       +- Array 数组对象；
+       +- Map 影射对象；
+       +- Set 集合对象；
+       +- Date 日期时间对象；
+       +- RegExp 正则表达式对象；
+       `- Symbol 符号对象，ES6 规范引入；
 
-JavaScript 中常用的 JSON 表达，因为在字面量，TypeScript 可以利用自动推断功能获得其类型，如下代码变量 a 和 b 的类型可以自动根据右侧的字面量推断，所以可以省略 `{id:number}` 这个类型标记信息。每个类型都是成员的数据集合，当一个集合包含另一集合，那么就是兼容类型，如下 b 变量的类型兼容 a 变量的类型，所以 b 可以赋值给 a，但反过来不行。相对于一个变量的类型，它也是数据类型的集合，但是超集可以兼容子集，反过过则不行。比如 `number|null` 交集类型兼容 `number` 类型或者 `null` 类型，可以赋值给超集。但反过来，`number|null` 类型不能赋值给 `number` 类型或者 `null` 类型，因为总有意外的类型不能满足。
+脚本中的类对象类型都包含继承自基础对象的 `valueOf()` `toString()` 方法，它们就是执行隐式类型转换的方法。
+
+对象进行隐匿类型转换的执行步骤如下，注意调用顺序体现的万物皆数的原则：
+
+- 调用 `valueOf()`，返回值若不是原始类型，执行下一步；
+- 调用 `toString()`，返回值若不是原始类型，执行下一步；
+- 抛出错误：TypeError: Cannot convert object to primitive value(…)
 
 ```ts
-let a: {id:number} = {id:123}
-let b = {id:234, tag:"type"}
-a = b; // compatiable type
-b = a; // Property 'tag' is missing in type '{ id: number; }'
+import { Book } from "./mod.ts";
+let data = ["The Definitive Guide to SQLite 2nd Edition.2010","978-1-4302-3225-4"];
+console.log("default:", new Book(data[0], data[1]));
+console.log("toString:", "" + new Book(data[0], data[1])); // call valueOf()
 ```
 
-字面量类型 Literal Type 可能是最能够体现 TypeScript 类型系统灵活性的一个类型。一般来说，TypeScript 会根据字面量类型自动推断出变量的类型，而不需要声明变量类型。而将字面量当作类型使用，用来声明变量，那么变量就只能接收所声明的字面量：
+
+## 🐣 Bundled 模块打包
+
+
+Deno 自带打包命令 `deno bundle [URL]`，可以将 TypeScript 编译输出单个 ES Module，包含所有指定输入的依赖。
+
+    deno bundle --help
+    deno bundle [OPTIONS] <source_file> [out_file]
+
+以下示范打包 Deno 标准模块中提供的示范程序：
+
+```sh
+> deno bundle https://deno.land/std@0.90.0/examples/colors.ts colors.bundle.js
+Bundle https://deno.land/std@0.90.0/examples/colors.ts
+Download https://deno.land/std@0.90.0/examples/colors.ts
+Download https://deno.land/std@0.90.0/fmt/colors.ts
+Emit "colors.bundle.js" (9.83KB)
+```
+
+新版本已经丢弃此命令，转而使用社区提个的模块打包机：
+1. https://github.com/denoland/deno_emit
+2. https://esbuild.github.io/
+3. https://rollupjs.org/tools/#deno
+4. https://deno.land/manual@v1.36.2/tools/bundler
+
+WARNING: deno bundle has been deprecated and will be removed in some future release. Use deno_emit, esbuild or rollup instead.
+
+-  ESbuild
+    An extremely fast bundler for the web
+-  rollup.js
+    The JavaScript module bundler
+    Compile small pieces of code into something larger and more complex
+-  eeno_emit
+    Transpile and bundle JavaScript and TypeScript under Deno and Deno Deploy
+
+这些新秀模块打包机将是替代老旧的 webpack 有力生产工具。
+
+It has basically the same API as esbuild's npm package with one addition: you need to call `stop()` when you're done because unlike node, Deno doesn't provide the necessary APIs to allow Deno to exit while esbuild's internal child process is still running.
+
+If you would like to use esbuild's WebAssembly implementation instead of esbuild's native implementation with Deno, you can do that by importing wasm.js instead of mod.js like this:
 
 ```ts
-type LT = true | "hello" | 996 | [null,string] | {id:number};
-let lt: LT = 996;
-lt = {id:123};
-lt = true;
-lt = [null,"NULL"];
-// Type 'false' is not assignable to ...
-// lt = 123;
-// lt = false;
+import * as esbuild from 'https://deno.land/x/esbuild@v0.19.0/wasm.js'
+import * as esbuild from 'https://deno.land/x/esbuild@v0.19.0/mod.js'
+const ts = 'let test: boolean = true'
+const result = await esbuild.transform(ts, { loader: 'ts' })
+console.log('result:', result)
+esbuild.stop()
 ```
 
-以上定义了一个字面量类型 LT，它的值只可以是声明的 5 种形式：
+Using WebAssembly instead of native means you do not need to specify Deno's --allow-run permission, and WebAssembly the only option in situations where the file system is unavailable such as with Deno Deploy. However, keep in mind that the WebAssembly version of esbuild is a lot slower than the native version. Another thing to know about WebAssembly is that Deno currently has a bug where process termination is unnecessarily delayed until all loaded WebAssembly modules are fully optimized, which can take many seconds. You may want to manually call `Deno.exit(0)` after your code is done if you are writing a short-lived script that uses esbuild's WebAssembly implementation so that your code exits in a reasonable timeframe.
 
-1. 布尔值中的 true；
-2. 字符串字面量 "hello"；
-3. 数值 996；
-4. Tuple 元组 [null,string]，元组是数组的一种，并且是元素有类型秩序的数组；
-5. 对象字面量，类型是 {id:number}，即只有一个 id 号码的对象类型；
+大多数前端打包工具都是基于 JavaScript 实现的，而 Esbuild 则选择使用 Go 语言编写，两种语言各自有其擅长的场景，但是在资源打包这种 CPU 密集场景下，Go 更具性能优势。它提供了比 Webpack、Rollup、Parcel 等工具相似的资源打包能力，但却有着高的离谱的性能优势。
+
+Esbuild 选择重写包括 js、ts、jsx、css 等语言在内的转译工具，所以它更能保证源代码在编译步骤之间的结构一致性。
+
+Webpack 打包流程则比较消耗时间，例如使用 babel-loader 处理代码时，源代码需要经历在字符串与 AST 之间反复转换：
+
+1. Webpack 读入源码，此时为字符串形式；
+2. Babel 解析源码，转换为 AST 形式；
+3. Babel 将源码 AST 转换为低版本 AST；
+4. Babel 将低版本 AST generate 为低版本源码，字符串形式；
+5. Webpack 解析低版本源码；
+6. Webpack 将多个模块打包成最终产物；
+
+Esbuild 重写大多数转译工具之后，能够在多个编译阶段共用相似的 AST 结构，尽可能减少字符串到 AST 的结构转换，提升内存使用效率。
+
+但这是有代价的，刨除语言层面的天然优势外，在功能层面它直接放弃对 less、stylus、sass、vue、angular 等资源的支持，放弃 MF、HMR、TS 类型检查等功能。
+
+Esbuild 当下不适合直接用于生产环境，而更适合作为偏底层的模块打包工具，需要在它的基础封装扩展出一套既兼顾性能又有完备工程化能力的工具链，例如 Snowpack, Vite, SvelteKit, Remix Run 等。
+
+ESBuild Major features:
+
+1. Extreme speed without needing a cache
+2. JavaScript, CSS, TypeScript, and JSX built-in
+3. A straightforward API for CLI, JS, and Go
+4. Bundles ESM and CommonJS modules
+5. Bundles CSS including CSS modules
+6. Tree shaking, minification, and source maps
+7. Local server, watch mode, and plugins
+
+ESbuild 命令行程序安装如下，支持 Unix 类系统，Windows 可以使用 WSL2 或者编译源代码（为了推 Go 语言），可以通过 NPM 安装已经编译好的 @esbuild/win32-x64 版本，但是需要手动添加环境路径变量，或者创建软链接到已经配置到环境搜索路径。
+
+```sh
+curl -fsSL https://esbuild.github.io/dl/v0.19.0 | sh
+curl -fsSL https://esbuild.github.io/dl/latest | sh
+
+# https://github.com/evanw/esbuild
+npm install -g esbuild
+$Path = "C:\nvm\node_modules\.bin\esbuild.exe"
+$Target = "C:\nvm\node_modules\@esbuild\win32-x64\esbuild.exe"
+New-Item -Type SymbolicLink -Path $Path  -Target $Target 
+
+git clone --depth 1 --branch v0.19.0 https://github.com/evanw/esbuild.git
+cd esbuild
+go build ./cmd/esbuild
+GOOS=linux GOARCH=386 go build ./cmd/esbuild
+```
+
+```js
+// https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+let urls = [
+	"https://www.npmjs.com/search?q=esbuild-win32",
+	"https://registry.npmjs.org/@esbuild/win32-x64",
+	"https://registry.npmjs.org/@esbuild/win32-arm64",
+	"https://registry.npmjs.org/@esbuild/win32-ia32",
+	"https://registry.npmjs.org/@esbuild/linux-x64",
+	"https://registry.npmjs.org/@esbuild/darwin-arm64",
+];
+fetch(urls[0]).then(res=>res.text()).then(text=>{
+	let matchs = /(?<=<h3[^>]*?>)(.+?)(?=<\/h3>)/g[Symbol.match](text);
+	console.log(matchs);
+}).catch(err=>console.error(err));
+
+fetch(urls[1]).then(res=>res.json()).then(json=>{
+	for(let ver of Object.keys(json.versions)){
+		ver=json.versions[ver]; console.log(ver.dist.tarball)
+	}
+});
+```
+
+ESBuild 已经实现了基本文件类型的加载器，官方文档 Content Types 演示了各种文件的加载。至于没有提供的文件类型加载功能，通过插件机制就可以实现自定义的加载器逻辑。
+1. https://esbuild.github.io/plugins/
+2. https://esbuild.github.io/content-types/
+3. https://esbuild.github.io/getting-started/#build-from-source
+
+```js
+// 01. JavaScript
+
+// 02. TypeScript
+
+// 03. JSX
+
+// 04. JSON
+import object from './example.json'
+console.log(object)
+import { version } from './package.json'
+console.log(version)
+
+// 05. CSS
+
+// 06. Text
+import string from './example.txt'
+console.log(string)
+
+// 07. Binary
+import uint8array from './example.data'
+console.log(uint8array)
+// esbuild app.js --bundle --loader:.data=binary
+require('esbuild').buildSync({
+  entryPoints: ['app.js'],
+  bundle: true,
+  loader: { '.data': 'binary' },
+  outfile: 'out.js',
+})
+
+// 08. Base64
+import base64string from './example.data'
+console.log(base64string)
+// esbuild app.js --bundle --loader:.data=base64
+require('esbuild').buildSync({
+  entryPoints: ['app.js'],
+  bundle: true,
+  loader: { '.data': 'base64' },
+  outfile: 'out.js',
+})
+
+// 09. Data URL
+import url from './example.png'
+let image = new Image
+image.src = url
+document.body.appendChild(image)
+// data:image/png;base64,iVBORw0KGgo=
+// data:image/svg+xml,<svg></svg>%0A
+// esbuild app.js --bundle --loader:.png=dataurl
+require('esbuild').buildSync({
+  entryPoints: ['app.js'],
+  bundle: true,
+  loader: { '.png': 'dataurl' },
+  outfile: 'out.js',
+})
+
+// 10. External file
+import url from './example.png'
+let image = new Image
+image.src = url
+document.body.appendChild(image)
+// esbuild app.js --bundle --loader:.png=file --outdir=out
+require('esbuild').buildSync({
+  entryPoints: ['app.js'],
+  bundle: true,
+  loader: { '.png': 'file' },
+  outdir: 'out',
+})
+
+import json from './example.json' assert { type: 'json' }
+// esbuild app.js --bundle --loader:.json=copy --outdir=out --format=esm
+require('esbuild').buildSync({
+  entryPoints: ['app.js'],
+  bundle: true,
+  loader: { '.json': 'copy' },
+  outdir: 'out',
+  format: 'esm',
+})
+// 11. Empty file
+// esbuild app.js --bundle --loader:.css=empty
+require('esbuild').buildSync({
+  entryPoints: ['app.js'],
+  bundle: true,
+  loader: { '.css': 'empty' },
+})
+```
 
 
+Using plugins
+An esbuild plugin is an object with a name and a setup function. They are passed in an array to the build API call. The setup function is run once for each build API call.
 
-## 🐣 TypeScript 学习的路线安排
+Here's a simple plugin example that allows you to import the current environment variables at build time:
 
-以上就是 TypeScript 的最基础的内容，由于其类型系统的强大，以致官方文档中直接使用类型体操 Type Manipulation 这样的字眼。
+```js
+import * as esbuild from 'esbuild'
 
-https://www.typescriptlang.org/docs/
+let envPlugin = {
+  name: 'env',
+  setup(build) {
+    // Intercept import paths called "env" so esbuild doesn't attempt
+    // to map them to a file system location. Tag them with the "env-ns"
+    // namespace to reserve them for this plugin.
+    build.onResolve({ filter: /^env$/ }, args => ({
+      path: args.path,
+      namespace: 'env-ns',
+    }))
 
-官方文档内容非常丰富，这里就学习 TypeScript 路径给出一些指引信息：
+    // Load paths tagged with the "env-ns" namespace and behave as if
+    // they point to a JSON file containing the environment variables.
+    build.onLoad({ filter: /.*/, namespace: 'env-ns' }, () => ({
+      contents: JSON.stringify(process.env),
+      loader: 'json',
+    }))
+  },
+}
 
-1. 了解 JavaScript/TypeScript 脚本编程的发展，以及 ECMAScript 脚本规范；
-2. 了解脚本的模块化规范，如 Node 使用的 CommonJS 以及最新的 ES Modules 规范；
-3. 了解编译器的使用与配置选项，特别是 Declaration Files (.d.ts) 类型声明文件的使用；
-4. 了解 TypeScript 对 JavaScript 类型的兼容支持，以及各种流程控制关键字的使用；
-5. 了解 TypeScript 各种工具类型的使用，它们可以对类型进行灵活操作；
-6. 了解 TypeScript 的接口、类型、泛型等等功能的使用；
-7. 了解一些 TypeScript 应用的开发框架，比如开源的 VS Code，或者 Deno，或者 React 或 Vue 等前端框架。
+await esbuild.build({
+  entryPoints: ['app.js'],
+  bundle: true,
+  outfile: 'out.js',
+  plugins: [envPlugin],
+})
+```
 
+You would use it like this:
 
-TypeScript Cheat Sheets 是快速参考卡，可以快速了解 TypeScript 的功能概要：
+```js
+import { PATH } from 'env'
+console.log(`PATH is ${PATH}`)
+```
 
-https://www.typescriptlang.org/cheatsheets
-https://www.typescriptlang.org/assets/typescript-cheat-sheets.zip
+Vite 前端应用开发框架使用 esbuild 执行预构建，这使得 Vite 的冷启动时间比任何基于 JavaScript 的打包器都要快得多。
 
+1. https://github.com/vitejs/vite
+2. https://cn.vitejs.dev/guide/api-hmr.html
 
-1. TypeScript Control Flow Analysis
+使用 Vite 框架创建项目，执行命令并按提示设置项目名称，选择 Web 框架、脚本语言等等，或者直接指定项目模板。安装 npm 依赖模块后启动本地开发服务器：
 
-https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png
+```sh
+# NPM:
+$ npm create vite@latest
+# Yarn:
+$ yarn create vite
+# PNPM:
+$ pnpm create vite
 
-2. TypeScript Interfaces
+# npm 6.x
+npm create vite@latest my-vue-app --template vue
+# npm 7+, extra double-dash is needed:
+npm create vite@latest my-vue-app -- --template vue
+# yarn
+yarn create vite my-vue-app --template vue
+# pnpm
+pnpm create vite my-vue-app --template vue
 
-https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png
+cd my-project
+npm install
+npm run dev
+```
 
-3. TypeScript Types
+Deno 开发环境可以获得更好体验，依赖管理的目录结构更清爽：
 
-https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png
+```sh
+deno run -A npm:create-vite@latest
+cd vite-project
+deno task dev
+# deno run --allow-env --allow-read --allow-write npm:create-vite-extra
+# npm install
+# npm run dev
+```
 
-4. TypeScript Classes
+前端开发框架一般都需要有 HMR 功能以方便开发过程实时监测应用的当前修改后的状态，热更新有两种解释：Hot module refresh 或 Hot module replacement，热更新需要监听文件的变化，重新编译文件，并告诉前端更新已经修改部分，从而实现即时呈现修改的效果。
 
-https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
+Vite 以 原生 ESM 方式服务源码，只需要在浏览器请求源码时先进行转换再返回转换后的源码。基于这种方式，Vite HMR 的实现要比 Webpack HMR 实现更简单更快速。
 
+开发环境下注入 HMR 功能实现原理大致过程如下：
 
+1. 创建一个 websocket 服务端。
+2. 创建一个 ws client 脚本文件，并在 HTML 页面中加载。
+3. 服务端监听文件变化，通过 websocket 消息通知客户端变更动作。
+4. 客户端选择性刷新页面内容，并执行注入代码设置的回调函数。
+
+Vite 通过 Web API 定义的 import.meta 对象暴露在客户端使用的 HMR API，主要用于框架和工具作者。作为最终用户，HMR 可能已经在特定于框架的启动器模板中为你处理过了。若要在插件中处理 HMR 更新，详见插件 API handleHotUpdate。
+https://cn.vitejs.dev/guide/api-plugin.html#handleHotUpdate
+
+1. hot.accept(deps, cb) 接受模块自身或直接依赖项的更新。
+2. hot.dispose(cb) 用来清除任何由其更新副本产生的持久副作用。
+3. hot.prune(cb) 注册一个回调，当模块在页面上不再被导入时调用。
+4. hot.data 在同一个更新模块的不同实例版本之间传递持久数据。
+5. hot.decline() 空操作，功能待定，暂留用于向后兼容。
+6. hot.invalidate(msg?: string) 主动报告不能处理当前热更新动作。
+7. hot.on(event, cb)  监听自定义 HMR 事件。
+8. hot.send(event, data) 发送自定义事件到 web socket 服务器。
+
+重载的 accept() 方法用法说明：
+
+`accept()` 接收更新，但不注册回调函数，模块自身不进行刷新。
+
+`accept(cb)` 注册当前模块热更新时的回调函数，模块自身为 HMR 边界，修改该模块文件，所注册的回调函数自动执行。
+
+`accept(dep, db)` 单一直接依赖项的热更新信息回调。
+
+`accept(deps, db)` 多个接依赖项的热更新信息回调，回调函数参数中的数组对应指定依赖的顺序接收相应的模块，如果模块没有更新，数据相应位置的元素为 undefined。
+
+注意：注册回调时，依赖路径指定需要和更新事件中 updates 记录的 `acceptedPath` 路径要一致，否则回调函数可能被忽略。
+
+一个接收自身的模块可以在运行时意识到它不能处理 HMR 更新，因此需要将更新强制传递给导入者，`invalidate()` 方法即是此用途。主动报告向服务器传递的信息会打印到命令行中，同时在浏览器控制台可能会打印页面刷新的消息。可以利用这条信息，对发生失效的原因给予一些上下文。
+
+Vite 自动触发以下 HMR 事件，插件可以发送自定义 HMR 事件：
+https://cn.vitejs.dev/guide/api-plugin.html#client-server-communication
+
+1. 'vite:beforeUpdate' 即将更新（例如，一个模块将被替换）；
+2. 'vite:afterUpdate' 已经更新（例如，一个模块已被替换）；
+3. 'vite:beforeFullReload' 即将完整地重新加载；
+4. 'vite:beforePrune' 不再需要的模块即将被剔除；
+5. 'vite:invalidate' 调用 hot.invalidate() 使一个模块失效时触发；
+6. 'vite:error' 当发生错误时（例如，语法错误）；
+7. 'vite:ws:disconnect' 当 WebSocket 链接丢失时；
+8. 'vite:ws:connect' 当 WebSocket 链接重修建立时；
+
+```js
+import * as Hc from './hello'
+
+console.log("🍀HMR ...", {Hc: Hc.data} )
+
+let logType = (type:string) => {
+  return (data: any[] | any) => {
+    if (data.updates) {
+      console.log(type, data, data.updates)
+    } else if (data.default) {
+      console.log(type, data, data.default)
+    } else {
+      console.log(type, data)
+    }
+  }
+}
+
+const hot = import.meta.hot;
+!function (hot) {
+  if (hot === null) return null;
+  // hot?.accept(); //接收更新，但模块自己不进行刷新。
+  hot?.accept( logType('accept self') );
+  hot?.accept( "/src/hello", logType('accept dep') );
+  hot?.accept( "/src/App.vue", logType('accept dep self') );
+  hot?.accept( ["/src/hello", "/src/App.vue"], logType("accept deps") );
+  hot?.on('vite:beforeUpdate', logType('vite:beforeUpdate') );
+  hot?.on('vite:afterUpdate', logType('vite:afterUpdate') );
+  hot?.on('vite:beforeFullReload', logType('vite:beforeFullReload') );
+  hot?.on('vite:beforePrune', logType('vite:beforePrune') );
+
+  hot?.send("my:event", {msg:"MyEvent"});
+  if (Math.random()>0.6) {
+    hot?.invalidate("➡Just invalidate refresh.");
+  }
+}(hot);
+```
 
 
 # ⚑ 5分钟上手TypeScript
 
 让我们使用 TypeScript 来创建一个简单的 Web 应用。
 
-## 通过 Node.js 安装
+通过 Node.js 安装 TypeScript 编译器，或者使用 Deno 直接运行。
 
 Node.js 命令行的 TypeScript 编译器可以使用 npm 来安装，安装后会有一个 tsc 命令来转译 TypeScript 代码为 JavaScript，也可以安装 ts-node 来直接解析运行。
 
@@ -697,6 +1244,58 @@ Node.js 命令行的 TypeScript 编译器可以使用 npm 来安装，安装后�
 	ts-node helloworld.ts
 
 使用 VSCode、Sublime Text、Vim 作为开发工具都是很好的选择。
+
+Sublime Text 开发环境插件推荐：
+
+1. LSP for Sublime Text https://lsp.sublimetext.io/language_servers/#deno
+2. Terminus 终端模拟 https://packagecontrol.io/packages/Terminus
+3. Origami 界面窗口切分 https://packagecontrol.io/packages/Origami
+4. 程序化标签输入 https://packagecontrol.io/packages/Emmet
+5. 加强侧边栏 https://packagecontrol.io/packages/SideBarEnhancements
+6. 函数标记追踪 https://packagecontrol.io/packages/CTags
+7. 智能提示 https://packagecontrol.io/packages/SublimeCodeIntel
+8. 格式美化 https://packagecontrol.io/packages/HTML-CSS-JS%20Prettify
+9. https://github.com/Kronuz/ColorHighlight
+10. https://packagecontrol.io/packages/ColorPicker
+10. https://github.com/sokolovstas/SublimeWebInspector
+
+Color Highlighter 需要配置 ImageMagick https://imagemagick.org/ 命令行工具，推荐使用 Color Highlight：
+
+    "icon_factory.convert_command":"C:/Program Files/ImageMagick-7.1.1-Q16-HDRI/convert.exe",
+
+Origami Keyboard shortcuts
+Default, these keyboard shortcuts are all two-stage, and are hidden behind command+k. First press command+k, then press the arrow keys with modifiers:
+
+NOTE: Windows and Linux use ctrl instead of command.
+
+	First				Then			      Action
+	command+k	▲►▼◄	      travel to an adjacent pane
+	command+k	shift+▲►▼◄	carry the current file to the destination
+	command+k	alt+▲►▼◄	  clone the current file to the destination
+	command+k	ctrl+▲►▼◄	  create an adjacent pane
+	command+k	ctrl+shift+▲►▼◄	destroy an adjacent pane
+	command+k	ctrl+alt+▲►▼◄	create an adjacent pane and carry the current file to the destination
+
+These keyboard shortcuts are designed to make it really easy to modify the layout of your editor.
+
+NOTE: The following keyboard shortcuts for zooming and editing pane sizes are not enabled by default due to a conflict with built-in ST features. Open the Preferences: Origami Key Bindings from the Command Palette to enable or edit them, or just use the Command Palette to trigger those commands.
+
+	First	      Then	      Action
+	command+k	command+z	Zoom the current pane so it takes up 90% of the screen (the fraction is changeable in the keybindings)
+	command+k	shift+command+z	Un-zoom: equally space all panes
+	It is also possible to edit the pane sizes:
+
+	First	      Then	      Action
+	command+k	command+r	Adjust the top and bottom separator
+	command+k	command+c	Adjust the left and right separator
+
+In the keybindings you can change a mode which specifies which separation lines you want to edit. * ALL means all horizontal (or vertical) separators * RELEVANT means all horizontal (or vertical) separators which intersect the column (row) of the selected row. * NEAREST means top and bottom (or left and right) separators. This is the default mode. * BEFORE means top (or left) separator * AFTER means bottom (or right) separator
+
+Automation
+You can have Origami automatically zoom the active pane by setting `auto_zoom_on_focus` in your Origami user preferences. Set it to true for the default zoom, or set it to a user-definable fraction of the screen, such as 0.75.
+
+Origami can also automatically close a pane for you once you've closed the last file in it. Just set `auto_close_empty_panes` to true in the Origami preferences.
+
 
 ## Hello TypeScript
 

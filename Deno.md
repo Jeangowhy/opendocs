@@ -1579,14 +1579,212 @@ do {
 } while (!done);
 ```
 
+### ✔Deno SQLite ORM
+https://deno.land/x/deno_sqlite_orm
+Sqlite ORM for deno. Tables with relations are not supported.
+
+Defining columns:
+All properties of the table are considered as columns. Column types are automatically inferred from the default value
+of the property.
+
+
+```js
+@orm.model()
+class Foo extends SqlTable {
+  // type is automatically inferred as "string"
+  public foo = 'bar'
+
+  // column type is required when property doesn't have a default value
+  @orm.columnType('string')
+  public bar!: string
+
+  // set a column as a primary key
+  @orm.primaryKey()
+  public fooId = 0
+
+  // ignore property
+  @orm.ignoreColumn()
+  @orm.autoIncrement() // mark it as autoincrement
+  @orm.columnType('integer')
+  public ignored = 0
+  
+  // remove id from primary key
+  @orm.ignoreColumn()
+  public id = -1
+
+  // automatically marked as nullable
+  @orm.columnType('string')
+  @orm.nullable() // or manually mark it
+  public baz: string | null = null
+
+  // incase the column exists with a different name
+  @orm.mappedTo('bar')
+  public baa = ''
+
+  // if you don't want to stack multiple decorators, you can do:
+  @orm.column({ type: 'string', nullable: true })
+  public faz!: string | null
+}
+```
+
+
+Querying data:
+
+```js
+// find a single a row, throws an error (`DBNotFound`) when not found
+orm.findOne(Foo, 1) // finds a row in Foo where id = 1
+// equivalent to above
+orm.findOne(Foo, {
+  where: {
+    clause: 'id = ?',
+    values: [1] // optional when not using placeholders
+  }
+})
+
+// same usage as above, but returns a new instance of `Foo` when not found
+// you can check if its new from `Foo._new`
+orm.findOneOptional(Foo, 1)
+
+// same as `findOne` but returns multiple instances of or rows of Foo
+orm.findMany(Foo, {
+  where: {
+    clause: 'id > 5'
+  },
+  limit: 10, // optional
+  offset: 3 // optional
+})
+
+// save an instance of Foo
+const baz = new Foo()
+orm.save(baz)
+
+// delete rows from Foo where id = 1
+orm.delete(Foo, {
+  where: {
+    clause: 'id = 1'
+  }
+})
+
+// count rows of Foo where id < 5
+orm.countWhere(Foo, {
+  where: {
+    clause: 'id < 5'
+  }
+})
+
+// or you can do a more advanced count
+orm.aggregateSelect<[foo: string, count: number]>(Foo, {
+  select: {
+    clause: 'foo, COUNT(baz)'
+  },
+  group: {
+    cols: ['foo']
+  }
+})
+```
+
+Objects are converted to JSON before saving, and parsed when read. If its a class instance then the class should be registered by @registerJsonSerializable()
+
+You can access the database instance directly by orm.db. If you are using an existing database and it contains JSON objects, enable jsonCompatMode in options.
+
+```js
+import { registerJsonSerializable } from 'https://deno.land/x/deno_sqlite_orm@1.1.1/mod.ts';
+
+// the property "ignored" will be ignored and not saved
+@registerJsonSerializable(['ignored'])
+class Bar {
+  public foo = 'bar'
+  public ignored = ''
+}
+
+@orm.model()
+class Foo extends SqlTable {
+  // type is automatically inferred as json
+  bar: Record<string, any> = {}
+  baz: Bar = new Bar()
+}
+```
+
+Example
+
+```js
+import { SqliteOrm, SqlTable } from "https://deno.land/x/deno_sqlite_orm@1.1.1/mod.ts";
+
+const orm = new SqliteOrm({
+  dbPath: "orm.db",
+  jsonCompatMode: true,
+  // backupDir: ".",
+});
+// orm.db.exec("DROP TABLE IF EXISTS Info");
+
+@orm.model()
+class Info extends SqlTable {
+  
+  @orm.autoIncrement(true)
+  @orm.column({type:"integer"})
+  public id = 0;
+
+  // @orm.primaryKey()
+  @orm.column({type:"string"})
+  public key = "";
+  
+  @orm.columnType("string")
+  public value = "";
+
+  @orm.ignoreColumn()
+  public ignore = "";
+
+  clone(): Info {
+    const obj = new Info();
+    obj.key  = this.key;
+    obj.value = this.value;
+    obj.ignore = this.ignore;
+    return obj;
+  }
+}
+
+const list_table = "SELECT tbl_name, sql FROM sqlite_master WHERE type = 'table'";
+console.log(orm.db.prepare(list_table).all());
+
+orm.modelsLoaded();
+let info = new Info();
+info.key = (new Date()).getTime().toString(16);
+info.value = new Date().getTime().toString();
+info.ignore = "nothing";
+orm.save(info); // totalChanges +1
+info = info.clone()
+info.key += "_dup";
+orm.save(info); // totalChanges +1
+
+let count = orm.countWhere(Info, {
+  where: { clause: 'key > ?', values:[""] }
+})
+
+console.log( orm.findMany( Info, { 
+  order: { by:"key", desc: true },
+  limit: 10, 
+}), {count},);
+// console.log( "findone by Id=1", orm.findOne(Info, 1));
+console.log( "findOneOptional by Id=1", orm.findOneOptional(Info, 1));
+
+orm.delete( Info, { 
+  where: { clause: 'key <= ?', values:["18a1f358f8c"] },
+})
+const {changes, totalChanges} = orm.db;
+console.log( "delete by key", {changes, totalChanges} );
+// https://www.sqlite.org/lang_corefunc.html#total_changes
+```
+
 
 ### ✔Deno SQLite Module
 https://deno.land/x/sqlite
+https://deno.land/x/sqlite3
 https://www.sqlite.org/schematab.html
 https://www.sqlite.org/lang.html
 https://www.sqlite.org/lang_expr.html
 https://www.sqlite.org/lang_select.html
-https://deno.land/x/deno_sqlite_orm
+
+
 This is an SQLite module for JavaScript and TypeScript. The wrapper is targeted at Deno and uses a version of SQLite3 compiled to WebAssembly (WASM). This module focuses on correctness, ease of use and performance.
 
 This module guarantees API compatibility according to semantic versioning. Please report any issues you encounter. Note that the master branch might contain new or breaking features. The versioning guarantee applies only to tagged releases.
@@ -1673,7 +1871,7 @@ dep_analysis_cache_v1 数据库 caching swc dependency analysis：每个模块�
 3. `source_hash` 源文件 hash 摘要；
 4. `module_info` 模块信息，包括模块依赖；
 
-模块标识符会映射到 deps 目录下各个主机缓存目录，目录下包含成对的模块文件以及其 metadata.json 信息文件，信息文件包含 HTTP 响应头记录以及 URL 地址等。文件名前缀为转码后的 Hash 字符串 64 个字符，对应 32 字节的 SHA256 值。这个 Hash 并非直接通过 URL 或者模块文件计算得到。
+模块标识符会映射到 deps 目录下各个主机缓存目录，目录下包含成对的模块文件以及其 metadata.json 信息文件，信息文件包含 HTTP 响应头记录以及 URL 地址等。文件名前缀为转码后的 Hash 字符串 64 个字符，对应 32 字节的 SHA256 值。这个 Hash 并非直接通过 URL 或者模块文件计算得到，此值也会记录到 deno.lock 文件中。
 
 ```json
 // "https://deno.land/x/fresh@1.3.1/init.ts",
@@ -3397,7 +3595,7 @@ The above for-await loop exits after 5 seconds when sig.dispose() is called.
 0. https://deno.land/manual@v1.36.1/node/how_to_with_npm/express
 4. https://vitejs.dev/guide/
 
- JavaScript 引入模块规范后，通过 import 和
+JavaScript 引入模块规范后，通过 import 和
 export 等关键字定义或引入模块，极大也增强的脚本编程的体验，提升了大型项目的管理效率。为了方便脚本中获取脚本模块信息，同时也加入了 import.meta，这是一个给暴露特定上下文的元数据属性的对象。它包含了这个模块的信息，比如说这个模块的 URL。
 
 通常情况下"import."是作为一个属性访问的上下文，但是在这里"import"不是一个真正的对象。import.meta 对象由 ECMAScript 实现，它带有一个null的原型对象。这个对象可以扩展，并且它的属性都是可写，可配置和可枚举的。
@@ -3601,142 +3799,6 @@ Module Resolution Options
   }
 }
 ```
-
-以下是基于 Deno 编写的 React SSR 应用示范，为了简化起见，服务器端的 HelloSSR 是简化后 Hello 组件，它们生成的初始内容必须一致，如果使用 hydrateRoot()。SSR 渲染目的是向浏览器在发出页面请求时，服务器可以提供一个具有完整 HTML 结构的页面，这样做的目的可以是出于 SEO 搜索引擎优化需要。
-
-浏览器获取到 SSR 页面后，就执行客户端的脚本，ReactDOM.hydrate() 则根据对应组件生成的 HTML 绑定事件处理函数，恢复组件的交互能力。dydrate() 相比 render() 可以跳过组件 HTML 结构处理过程，因为 HTML 已经由服务生成并已经在页面中，这样以获得非常高效的首次加载体验，React SSR 会使用项目复杂化。
-
-SSR 是 JSP、PHP 时代就存在的古老的技术，只不过之前是通过模版引擎。React SSR 则是基于渲染组件得到 HTML，并且客户端再次渲染，这种叫做同构渲染的模式。
-
-SSR 存在的主要目的除了 SEO 优化，还有就是解决 Client-Side Render (CSR) 项目的初次加载时间长的问题，TTFP（Time To First Page）时间比较长。CSR 渲染模式下，首先要加载 HTML 文件，之后要下载页面所需的 JavaScript 文件，然后 JavaScript 文件渲染生成页面。
-
-```ts,ignore
-/// <reference types="npm:@types/node" />
-
-import os from "node:os";
-import chalk from "npm:chalk@5";
-// @deno-types="npm:@types/express@^4.17"
-import express, {Request, Response} from "npm:express@^4.17";
-// import express from "https://esm.sh/express@4.18.2";
-import React from "https://esm.sh/react@18.2.0";
-import ReactDOM from "https://esm.sh/react-dom@18.2.0";
-import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
-
-
-class HelloSSR extends React.Component {
-  render () {
-    console.log("ssr render", HelloSSR);
-    let fakeTick = 1;
-    return (<div>Hello, SSR! {fakeTick} </div>)
-  }
-}
-
-const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
-
-const html = `
-  <!doctype html>
-  <html>
-    <body>
-    <div id="container">${ssr}</div>
-      <script src="https://cdn.staticfile.org/babel-standalone/7.22.10/babel.min.js"></script>
-      <script type="text/babel" data-type="module">
-        import React from "https://esm.sh/react@18.2.0";
-        import ReactDOM from "https://esm.sh/react-dom@18.2.0";
-        import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
-
-class Hello extends React.Component {
-  static tick = 0;
-  constructor() {
-    super({});
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick(e){ 
-    console.log("onclick", {t: this, e}); 
-    fetch("/react-ssr")
-    .then(res=>res.text())
-    .then(res=>console.log({res}));
-    this.forceUpdate();
-  }
-  render () {
-    Hello.tick++;
-    console.log("render", Hello.name, Hello.tick);
-    return (<div onClick={this.handleClick}>Hello, SSR! {Hello.tick} </div>)
-  }
-}
-        let container = document.querySelector("#container");
-        // ReactDOM.render(<Hello />, container);
-        // ReactDOM.hydrate(<Hello />, container);
-        ReactDOM.hydrateRoot(container, <Hello />);
-      </script>
-      <script type="module">
-      </script>
-    </body>
-  </html>
-  `;
-
-
-const app = express();
-
-app.get("/", (req:Request, res:Response) => {
-  res.send(html);
-});
-
-app.get("/react-ssr", (req:Request, res:Response) => {
-  const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
-  res.send(ssr);
-});
-
-app.listen(3000);
-console.log(chalk.green("listening on http://localhost:3000/"), `home dir: ${os.homedir}`);
-```
-
-
-Vite 是新式的前端开发框架，由 Vue 作者尤雨溪开发，基于 JavaScript modules (ESM) 模块，拥有轻量式 Hot Module Replacement (HMR)，支持 Server-Sider Render (SSR) 和插件机制，以及丰富的开箱即用功能，包括 TypeScript, JSX, CSS 等等，用于 Deno 环境下创建 React、Vue 应用等等。执行以下命令，运行 Vite 脚手架，选择 Web 应用框架以及脚本语言和 SSR 方式，创建默认的工程：
-
-```sh
-deno run --allow-env --allow-read --allow-write npm:create-vite-extra
-cd vite-project
-deno task dev
-# npm install
-# npm run dev
-```
-
-Vite 生产环境用 rollup 而非 webpack 打包模块，但使用 npm 或者 yarn 一建生成项目结构的方式，所以项目中会有 node_modules 目录。
-
-
-```json
-{
-  "imports": {
-    "std/": "https://deno.land/std@0.198.0/",
-    "fmt/": "https://deno.land/std@0.198.0/fmt/",
-     // import lodash from "lodash";
-    "lodash": "https://esm.sh/lodash@4.17.21",
-    "react" : "https://esm.sh/react@18.2.0",
-  },
-  "tasks": {
-    "dev": "deno run --watch main.ts"
-  }
-}
-```
-
-```ts
-import { red } from "fmt/colors.ts";
-console.log(red("hello world"));
-
-import os from "node:os";
-import chalk from "npm:chalk@5";
-import express from "npm:express@^4.17";
-
-const app = express();
-
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
-app.listen(3000);
-console.log(chalk.green("listening on http://localhost:3000/"), `homedir: ${os.homedir}`);
-```
-
 
 Deno supports a number of methods on the [`import.meta`] API:
 
@@ -4540,12 +4602,12 @@ console.log("React SSR on http://localhost:3000");
 ```
 
 
-## ⚡ Using React with Deno
+## ⚡ Using React JSX Component with Deno
 1. https://fresh.deno.dev/docs/getting-started
 2. https://alephjs.org/docs/get-started
 3. https://deno.land/manual@v1.36.1/basics/react
-3. https://preactjs.com/guide/v10/getting-started
-1. https://www.patterns.dev/posts/islands-architecture
+4. https://preactjs.com/guide/v10/getting-started
+5. https://www.patterns.dev/posts/islands-architecture
 
 作为 Web 模块化组件化开发的流行框架，React、Vue、Angular 都受到大量用户不同程度的追捧。Deno 环境中也可以和 Node 一样开发 Web 应用，以下就利用 Fresh 或 Aleph.js 脚手架创建一个配置好开发环境的 Web 示范项目：
 
@@ -4628,6 +4690,294 @@ Supported Frameworks
 3. Vue (docs, example)
 4. SolidJS (docs, example) Experimental
 5. Yew (docs, example) In Rust
+
+
+以下演示 Web 应用开发框架 React 的导入与使用，注意 React 使用 JSX 语法，需要将代码文件命名为 jsx 或者 tsx，开始环境应该配置好 JSX 语法处理流程，新版本 Deno 会自动根据扩展名对 JSX 格式编写的组件代码（JSX.Element）进行预处理，将标签转换成对应的 React 组件对象。
+
+所谓 JSX 组件，就是 JS + XML 混合的脚本，不能直接在 JavaScript 解析器中运行，它需要先进行转译处理，先转换 HTML 标签为符合 JavaScript 规范的数据结构，这个数据结构就是 `JSX.Element`。也可以直接通过 `React.createElement()` 创建，而不是使用 HTML 标签定义。React 支持多种组件编写形式：
+
+*函数式*：使用函数封装 HTML 标签，也可以不包含标签，因为一般的字符串也是符合规范的内容，一个组件只能有一个顶级标签，如果有多个顶层标签可以使用 React.Fragment 包裹器组件 `<>...</>`，这个组件渲染时没有可见的内容。示例比如：
+
+```sh
+    const DIV = () => <div>custom div</div>;
+    const DIV = () => "<div>custom div</div>";
+    # => "&lt;div&gt;custom div&lt;/div&gt;" 
+    const BIS = () => <><b>Bold</b><i>Italic</i></>;
+```
+
+*标签式*：常规的 HTML 标签，比如 `<b>Bold</b>`；或者其它自定义组件的标签形式，如以上定义的函数组件的标签式表达为 `<DIV />`；标签式 JSX 组件是 React 的通用形式，可以将 JSX 这种形式理解为一种特别的函数调用形式，在转译程序的支持下实现这种调用。
+
+*组件类*：React 模块提供了多种组件类，有状态组件、无状态组件等等，标准组件就是 React.Component 类型，继承它就可以定制新的组件，同样支持标签式表达，比如 `<HelloSSR />` 就是代表实例一个组件类，也就是递归解析组件 children 嵌套结构对应的标签结构。
+
+在组件标签内联插值，`{variable}` 这种语法会产生额外的 `<!-- -->` 占位符，React 做数据处理时需要用它来定位插值的位置信息。
+
+0. https://deno.land/manual@v1.36.2/advanced/jsx_dom/jsx
+1. https://react.dev/blog/2023/03/16/introducing-react-dev
+2. https://legacy.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+3. https://github.com/developit/htm
+3. https://github.com/cuixiaorui/mini-vue
+3. Minimal React: getting started with the frontend library  https://2ality.com/2020/08/minimal-react.html
+
+流行的转译工具就有 Babel，转译 JSX 只是它的其中一部分功能，更重要的是它可以为浏览实现运行更先进的 ECMASCript 脚本规范提供支持。编译后的脚本在浏览器中运行，通过 ReactDOM API 按组件的数据描述实例化为浏览器 DOM 对象，生成对应的 HTML 结构。ReactDOM 就是在浏览器会用于渲染 HTML 结构的模块，ReactDOMServer 则通用于服务端渲染，当然它是常规脚本，也可以在浏览器中运行，渲染出组件对应的 HTML 字符串。
+
+```tsx
+import React from "https://esm.sh/react@18.2.0";
+
+const Div:React.JSX.Element = (<div>HTML Division</div>);
+
+class HelloSSR extends React.Component {
+  render () {
+    const fakeTick = 1;
+    return (<div>Hello, SSR! {fakeTick} </div>)
+  }
+}
+const props = {className:"mydiv",children:"Division"};
+console.log({
+  HelloSSR, 
+  Div,
+  mydiv: React.createElement("div", props, "text")
+});
+/* {
+  HelloSSR: [class HelloSSR extends d],      
+  ...
+  mydiv: {
+    "$$typeof": Symbol(react.element),
+    type: "div",
+    key: null,
+    ref: null,
+    props: { className: "mydiv", children: "text" },
+    _owner: null
+  }
+} */
+console.log({
+  HelloSSR: ReactDOMServer.renderToString(<HelloSSR/>), 
+  Div: ReactDOMServer.renderToString(Div),
+});
+/* {
+  HelloSSR: "<div>Hello, SSR! <!-- -->1<!-- --> </div>",
+  Div: "<div>HTML Division</div>"
+} */
+```
+
+ESBuild 这样的极速模块打包机也支持 JSX 语法的转译，转译与编译不同，ESBuild 不会进行语言层面上的检查，只是将 JSX 到 JavaScript 转换的关系映射体现出来。
+
+React 类型定义中，类组件是泛型实现，其中 P、S、SS 参数对应的是 Props, State 和 getSnapshotBeforeUpdate 方法相关的 SnapShot 对象。其中 Props 是只读的属性值，不应该进行修改，并且组件构造函数中应该通过 `super(props)` 将参数传递给父类内部进行只读属性的初始化：
+
+```ts,ignore
+    class Component<P, S>
+
+    interface Component<P = {}, S = {}, SS = any> extends ComponentLifecycle<P, S, SS> 
+
+    interface ComponentLifecycle<P, S, SS = any> extends NewLifecycle<P, S, SS>, DeprecatedLifecycle<P, S> 
+```
+
+例如，以下使用 ESBuild 对一组 JSX 组件进行转译：
+
+```jsx
+import * as esbuild from 'https://deno.land/x/esbuild@v0.19.0/mod.js'
+const ts = `
+const t = {id:123, message:"Hello"};
+const Hello = (props) => (<b >{props.message}</b>);
+const tag = <><Hello {...t} /></>;
+class HelloSSR extends React.Component<{message:string}> {
+  constructor(props) {
+    super(props); // set this.props internally
+    console.log(this.props);
+  }
+  render () {
+    return (<div>{ this.props.message }, SSR!  </div>)
+  }
+}
+`;
+// const html = ReactDOMServer.renderToString( [tag,<HelloSSR {...t} />] );
+const { code, ...result} = await esbuild.transform(ts, { loader: 'tsx' })
+console.log({result}, code )
+esbuild.stop()
+```
+
+注意：标签式组件赋值给变量后（tag），就意味已经得到组件的数据结构 JSX.Element，就不能再对变量使用标签的表达形式。还有定义组件类时，注意泛型参数应该写在父类的泛型参数中，这样就可以定义组件类的 props 属性的数据类型。如果将泛型参数写在继承类（左侧），那么就是在定义一个新的泛型类。
+
+以上代码经过 ESBuild 转译后生成的 JavaScript 代码如下，JSX 组件标签会映射到 React API，亦即前面所说，组件标签相当于函数调用的特殊形式：
+https://esbuild.github.io/api/#jsx-side-effects
+https://esbuild.github.io/api/#pure
+
+```jsx,ignore
+const t = { id: 123, message: "Hello" };
+const Hello = (props) => /* @__PURE__ */ React.createElement("b", null, props.message);
+const tag = /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(Hello, { ...t }));
+class HelloSSR extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props);
+  }
+  render() {
+    return /* @__PURE__ */ React.createElement("div", null, this.props.message, ", SSR!  ");
+  }
+}
+```
+
+以下是基于 Deno 编写的 React SSR 应用示范，为了简化起见，服务器端的 HelloSSR 是简化后 Hello 组件，它们生成的初始内容必须一致，如果使用 hydrateRoot()。SSR 渲染目的是向浏览器在发出页面请求时，服务器可以提供一个具有完整 HTML 结构的页面，这样做的目的可以是出于 SEO 搜索引擎优化需要。
+
+浏览器获取到 SSR 页面后，就执行客户端的脚本，ReactDOM.hydrate() 则根据对应组件生成的 HTML 绑定事件处理函数，恢复组件的交互能力。dydrate() 相比 render() 可以跳过组件 HTML 结构处理过程，因为 HTML 已经由服务生成并已经在页面中，这样以获得非常高效的首次加载体验，React SSR 会使用项目复杂化。
+
+SSR 是 JSP、PHP 时代就存在的古老的技术，只不过之前是通过模版引擎。React SSR 则是基于渲染组件得到 HTML，并且客户端再次渲染，这种叫做同构渲染的模式。
+
+SSR 存在的主要目的除了 SEO 优化，还有就是解决 Client-Side Render (CSR) 项目的初次加载时间长的问题，TTFP（Time To First Page）时间比较长。CSR 渲染模式下，首先要加载 HTML 文件，之后要下载页面所需的 JavaScript 文件，然后 JavaScript 文件渲染生成页面。
+
+```tsx,ignore
+/// <reference types="npm:@types/node" />
+
+import os from "node:os";
+import chalk from "npm:chalk@5";
+// @deno-types="npm:@types/express@^4.17"
+import express, {Request, Response} from "npm:express@^4.17";
+// import express from "https://esm.sh/express@4.18.2";
+import React from "https://esm.sh/react@18.2.0";
+import ReactDOM from "https://esm.sh/react-dom@18.2.0";
+import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+
+
+class HelloSSR extends React.Component {
+  render () {
+    console.log("ssr render", HelloSSR);
+    let fakeTick = 1;
+    return (<div>Hello, SSR! {fakeTick} </div>)
+  }
+}
+
+const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
+
+const html = `
+  <!doctype html>
+  <html>
+    <body>
+    <div id="container">${ssr}</div>
+      <script src="https://cdn.staticfile.org/babel-standalone/7.22.10/babel.min.js"></script>
+      <script type="text/babel" data-type="module">
+        import React from "https://esm.sh/react@18.2.0";
+        import ReactDOM from "https://esm.sh/react-dom@18.2.0";
+        import ReactDOMServer from "https://esm.sh/react-dom@18.2.0/server";
+
+class Hello extends React.Component {
+  static tick = 0;
+  constructor() {
+    super({});
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e){ 
+    console.log("onclick", {t: this, e}); 
+    fetch("/react-ssr")
+    .then(res=>res.text())
+    .then(res=>console.log({res}));
+    this.forceUpdate();
+  }
+  render () {
+    Hello.tick++;
+    console.log("render", Hello.name, Hello.tick);
+    return (<div onClick={this.handleClick}>Hello, SSR! {Hello.tick} </div>)
+  }
+}
+        let container = document.querySelector("#container");
+        // ReactDOM.render(<Hello />, container);
+        // ReactDOM.hydrate(<Hello />, container);
+        ReactDOM.hydrateRoot(container, <Hello />);
+      </script>
+      <script type="module">
+      </script>
+    </body>
+  </html>
+  `;
+
+
+const app = express();
+
+app.get("/", (req:Request, res:Response) => {
+  res.send(html);
+});
+
+app.get("/react-ssr", (req:Request, res:Response) => {
+  const ssr = ReactDOMServer.renderToString( <HelloSSR /> );
+  res.send(ssr);
+});
+
+app.listen(3000);
+console.log(chalk.green("listening on http://localhost:3000/"), `home dir: ${os.homedir}`);
+```
+
+
+Vite 是新式的前端开发框架，由 Vue 作者尤雨溪开发，基于 JavaScript modules (ESM) 模块，拥有轻量式 Hot Module Replacement (HMR)，支持 Server-Sider Render (SSR) 和插件机制，以及丰富的开箱即用功能，包括 TypeScript, JSX, CSS 等等，用于 Deno 环境下创建 React、Vue 应用等等。执行以下命令，运行 Vite 脚手架，选择 Web 应用框架以及脚本语言和 SSR 方式，创建默认的工程：
+
+```sh
+deno run --allow-env --allow-read --allow-write npm:create-vite-extra
+cd vite-project
+deno task dev
+# npm install
+# npm run dev
+```
+
+Vite 生产环境用 rollup 而非 webpack 打包模块，但使用 npm 或者 yarn 一建生成项目结构的方式，所以项目中会有 node_modules 目录。
+
+
+```json
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.198.0/",
+    "fmt/": "https://deno.land/std@0.198.0/fmt/",
+     // import lodash from "lodash";
+    "lodash": "https://esm.sh/lodash@4.17.21",
+    "react" : "https://esm.sh/react@18.2.0",
+  },
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
+```
+
+```ts,igore
+import { red } from "fmt/colors.ts";
+console.log(red("hello world"));
+
+import os from "node:os";
+import chalk from "npm:chalk@5";
+import express from "npm:express@^4.17";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+app.listen(3000);
+console.log(chalk.green("listening on http://localhost:3000/"), `homedir: ${os.homedir}`);
+```
+
+注意：Vue 框架中，模块代码执行、热更新时，Root 挂载节点下的 HTML 标签会被临时摘除，等待完成虚拟节点的 Patches 操作后再挂载，这个过程可能瞬间完成，也可能耗时长一点，这做空档期间会导致 document.querySelector() 这类的方法不能获取到指定节点，就只有获取到当前模块中已经加载的 DOM 对象。应该使用 Vue API 引用 DOM 节点。
+
+另外，如果尝试将 document.querySelector() 等函数通过变量引用，可能导致其上下文出现逻辑错误。因为通过变量调用函数时，this 引用的上下文对象是变量定义所在的作用域对象。如果是在全局空间定义的变量，那么这个对象可能就是 window，那么执行方法时因为不能通过 window 对象来获取 DOM 而产生错误。可以先将指定对象绑定 API 作为其上下文对象，这样可以保证按原有逻辑运行：
+
+```js
+let qb = document.querySelector.bind(document);
+let q = document.querySelector;
+!function test(){
+    console.log( qb("body") );
+    console.log( q("body") ); // TypeError: Illegal invocation
+}();
+```
+
+模块 export 导出的符号，导出的函数、对象和原始值，只能被 import 所在的模块读取，而不能修改：
+https://rollupjs.org/es-module-syntax/#how-bindings-work
+
+```js
+// hello.js
+export let count = 0;
+export function increment() { count++; }
+
+// main.js
+import { count, increment} from './hello'
+increment();
+count ++; //TypeError: Cannot assign to read only property 'count' of '[object Module]'
+```
+
 
 
 ## ⚡ Program lifecycle
@@ -5571,7 +5921,7 @@ JavaScript 源码下载到浏览器执行前，需要解析为抽象语法树（
 - 编译器不需要去每次执行相同代码中数据类型是否一样。
 - 更多的优化在最前面的 LLVM - LOW Level Virtual Machine 就已经完成了，所以编译和优化的工作很少。
 
-传统编译器分三个阶段： 
+传统编译器分三个阶段：
 
 - 前端（Frontend）
 - 优化器（Optimizer）
