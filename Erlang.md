@@ -96,13 +96,14 @@ Joe Armstrong 在论文中是这样认为的：几乎所有传统的编程语言
 
 程序不可能处理一切错误，因此程序员只要力所能及的处理显然易见的错误就好了，而那些隐藏着的，非直觉性的错误，就让他崩掉吧——本来就很有可能是极少见的错误，经常出现的？就需要程序员人工处理了，这是紧急情况，就算 try catch 所有错误也无法避免，因为系统已经陷入崩溃边缘了，苟延残喘下去只是自欺欺人。并且，不恰当地使用 try catch 还会埋下隐患，让系统带病运转。
 
-其四，一切进程都是轻量级的，都可以被监控 monitor，有 Supervisor 专门做监控。你可以方便的用一个 supervisor 进程去管理子进程，supervisor 会根据你设定的策略，来处理意外挂掉的子进程。这种情况的问题的是，错误处理稍微做不好就会挂，策略有：
+其四，一切进程都是轻量级的，都可以被监控 monitor，OTP 构架中的有 Supervisor 专门做监控。用一个 supervisor 进程去管理子进程，supervisor 会根据你设定的策略，来处理意外挂掉的子进程。这种情况的问题的是，错误处理稍微做不好就会挂，策略有：
 
 - one_for_one：只重启挂掉的子进程
 - one_for_all：有一个子进程挂了，重启所有子进程
-- rest_for_one：在该挂掉的子进程 创建时间之后创建的子进程都会重启。
+- rest_for_one：一个子进行挂掉，该子进程和所有在其之后创建的子进程都会重启。
 
-## 我们读过的 Erlang 论文
+
+## 🍀 我们读过的 Erlang 论文
 - 	https://www.cnblogs.com/me-sa/p/best_thing_i_met.html
 
 我在Erlang Resources 豆瓣小站上发起了一个征集活动 [链接] ,"[征集] 我们读过的Erlang论文",希望大家来参加.发起这样一个活动的目的是因为Erlang相关的出版物很少,很多时候都是从学术论文中寻找答案,而发现合适的论文是第一步,这个活动就是为了解决这个问题.
@@ -225,7 +226,7 @@ No more need for records
 
 
 
-## Erlang 语言特性
+## 🍀 Erlang 语言特性
 
 1. 简单小巧
 
@@ -316,7 +317,7 @@ Erlang让您的应用支持多个处理器，您不需要为不同的硬件系�
 开源是我非常喜欢的一个词汇，开源意味这更加强壮，更加公开，更加的追求平等。开源会让 Erlang 更好。
 
 
-## Erlang 与外界的交互
+## 🍀 Erlang 与外界的交互
 
 Erlang 可以与其他的语言进行交互，如 C、C++，Java。当然也有热心的朋友提供了与其他语言的交互，如果需要你也可以根据 Erlang 的数据格式，提供一个库，让 Erang 与您心爱的语言交互。
 
@@ -331,7 +332,7 @@ Port 是 Erlang 最基本的与外界交互的方式，进行交互的双方通�
 嵌入式执行，通过 Erlang 平台加载，因此这是非常危险的，如果您的程序崩溃，没有任何理由，Erlang 也会崩溃。
 
 
-## Erlang 批评者
+## 🍀 Erlang 批评者
 
 
 曾经使用过一段时间 Erlang，结论是：方便的地方真的方便，但麻烦的地方真的很麻烦。最终放弃 Erlang 并不是因为社区，文档，或者开源项目的多少，而是因为语言本身。首先是状态问题，比如要在 Erlang 中操作二维地图，很多人都选择用C来实现：Erlang 如何操作游戏中的二维地图？ 
@@ -352,6 +353,149 @@ Erlang是一个专业化定制程度很高的语言（非状态类电信系统�
 
 每一种流行的语言都一定有用这种语言实现的、应用广泛的系统，以及由此衍生的庞大社区。社区中的布道者会把这个语言推向更多的应用场景。比如 php 的 wordpress、druple，python 的 web 框架 Django，用于机器学习的 sklearn。但是对于 erlang，除了 rabbitmq，jabber，似乎没有太多 killer app。
 
+
+
+# 🚩 Erlang LSP
+https://erlang-ls.github.io/
+
+Sublime 上编写 Erlang 程序，只需配置以下 build system 配置文件，将文件保存到 `Packages\User\erlang.sublime-build`，就可以使用菜单运行 source.erlang 代码文件：
+
+```json
+	{
+		"env": {
+			"path":"c:\\Program Files\\erl10.4\\bin;%path%"
+		},
+		"working_dir": "$file_path",
+		"cmd": "escript.exe $file",
+		// hello.erl:2: function perms/2 undefined
+		"file_regex":"^(..[^:]+):([0-9]+): (.*)",
+		"selector": "source.erlang",
+		"encoding": "cp936",
+		"quiet": true,
+		"variants": [{
+			"name": "Run ...",
+			"shell_cmd": "erlc $file_name && erl -noshell -s $file_base_name start -s init stop"
+		}]
+	}   
+```
+
+Erlang OTP 23 开始在 erl shell 中集成在线帮助文档同时完善了 TAB 自动完成功能，比如 `h(lists).` 就可以查询列表模块的文档。
+
+安装 Sublime Text 语言服务插件获取智能代码提示，erlang-ls 插件本身使用 Erlang 开发，可以直接下载源代码编译安装。需要注意，它本身依赖了几个代码仓库，在构建时会自动克隆到 build 目录下，或者插件或是依赖库，根据 rebar.config 或者 rebar.lock 配置指示，可以插件下载到指定目录。国内网络访问不了 git 服务器，可以使用 git@github.com 以 SSH 协议尝试访问：
+
+```sh
+git clone --depth=1 git@github.com:erlang-ls/erlang_ls
+
+git clone --depth=1 git@github.com:gomoripeti/erlfmt.git _build/default/lib/erlfmt
+git clone --depth=1 git@github.com:gomoripeti/erlfmt.git _build/default/lib/erlfmt
+git clone --depth=1 git@github.com:erlang-ls/rebar3_bsp.git _build/default/plugins/rebar3_bsp
+
+cd erlang_ls
+make clean
+make
+# rebar3 escriptize
+# This will create an Erlang escript in:
+# _build/default/bin/erlang_ls
+```
+
+构建脚本 Makefile 中的命令 `rebar3 as dap escriptize` 表示构建包含 Debug Adapter Protocol (DAP) 调试信息的输出。
+
+1. https://github.com/erlang-ls/erlang_ls/releases/download/0.48.1/els_dap-win32.tar.gz
+2. https://github.com/erlang-ls/erlang_ls/releases/download/0.48.1/erlang_ls-win32.tar.gz
+3. https://microsoft.github.io/debug-adapter-protocol/
+
+0. https://lsp.sublimetext.io/language_servers/#erlang
+1. https://github.com/sublimelsp/LSP-elixir
+2. https://github.com/erlang-ls/erlang_ls
+3. https://erlang-ls.github.io/
+
+执行构建命令后，会生成 erlang_ls 脚本，这就是 LSP 服务入口程序。这是一个 escript 脚本，Windows 系统下配置 command 时需要前缀 escript.exe 命令去执行它。插件官方发布的 0.48.1 版本还会在 Windows 10 平台下引发 main 入口函数未定义问题，生成的文件有问题。
+
+	escript erlang_ls --version  
+	escript: exception error: undefined function erlang_ls:main/1 
+	  in function  escript:run/2 (escript.erl, line 758)          
+	  in call from escript:start/1 (escript.erl, line 277)        
+	  in call from init:start_em/1 (init.erl, line 1109)          
+	  in call from init:do_boot/3 (init.erl, line 817) 
+
+源代码构建也会产生错误面终止，Gradualizer 模块代码中调用函数时可能少传了参数，可以添加一个 utf8 默认值。另一处问题是定义了未使用的函数 eep48_docs，将其相关代码行注解即可：
+
+	_build/default/lib/gradualizer/src/rebar_prv_gradualizer.erl:147: function binary_to_atom/1 undefined
+
+	apps/els_lsp/src/els_docs.erl:293: function eep48_docs/4 is unused 
+
+Rebar3 在 Windows 10 执行编译不顺利，根据以上修改后成功编译，并自动创建一个 `erlang_ls.cmd` 即可执行相应的 rebar3 脚本，Linux 系统则会自动处理：
+
+	@echo off
+	setlocal
+	set rebarscript=%~f0
+	escript.exe "%rebarscript:.cmd=%" %*
+
+这段脚本的意思是，将命令行的脚本名保存到 rebarscript 变量中，然后 `"%rebarscript:.cmd=%"` 表示将其中的 `.cmd` 扩展名删除，而 `%*` 表示命令行中传入的所有参数，然后使用 escript 执行它。
+
+比如，如下查看版本命令，执行的是 erlang_ls.cmd，就会调用 escript 执行 erlang_ls 这个编译好的脚本文件。
+
+```sh
+.\_build\default\bin\erlang_ls.cmd --version
+Version: 0.48.1+build.1929.refa4a1200
+```
+
+Install the Erlang Language Server.
+Open Preferences > Package Settings > LSP > Settings and add the "erlang-ls" client configuration to the "clients":
+
+```json
+{
+  "clients":
+    {
+      "erlang-ls":
+        {
+          "command"   : [ "path/to/erlang_ls", "--transport", "stdio" ],
+          "command"   : [ "escript", "path/to/erlang_ls", "--transport", "stdio" ],
+          "enabled"   : true,
+          "languageId": "erlang",
+          "scopes"    : [ "source.erlang" ],
+          "syntaxes"  : ["Packages/Erlang/Erlang.sublime-syntax"]
+        }
+    },
+  // Allow up to 30 secs to `erlang_ls` to respond to `initialize`
+  // (it requires less, but just to be on the safe side)
+  "initialize_timeout": 30
+}
+```
+
+注意，以下 otp_path 路径配置只需要指定到 OTP 根目录，即包含 lib 子目录的安装目录。
+
+The erlang_ls.config file should be placed in the root directory of a given project to store the configuration for that project.
+
+A sample erlang_ls.config file would look like the following:
+
+```yaml
+otp_path: "/path/to/otp"
+deps_dirs:
+  - "lib/*"
+diagnostics:
+  enabled:
+    - crossref
+  disabled:
+    - dialyzer
+include_dirs:
+  - "include"
+  - "_build/default/lib"
+lenses:
+  enabled:
+    - ct-run-test
+  disabled:
+    - show-behaviour-usages
+macros:
+  - name: DEFINED_WITH_VALUE
+    value: 42
+  - name: DEFINED_WITHOUT_VALUE
+code_reload:
+  node: node@example
+providers:
+  enabled:
+    - signature-help
+```
 
 
 # 🚩 Getting Started
@@ -391,7 +535,16 @@ Erlang 官方文档提供以下两大类内容，用户手册 [User's Guide] 是
 
 其中 OTP Design Principles User's Guide 这部分是开发 Erlang 程序的核心理念，主要涉及 Supervision Tree 监督树框架的各个部分。
 
-还提供书籍 Erlang books：
+Application 分组下的 Basic 包含最核心的几个模块的文档，这几个文档分类下包含的内容极其基础又极其重要。其中 erts 即 Erlang 的运行时，在安装目录下使用独立的子目录保存源文件，比如 erts-10.4：
+
+1. compiler 7.4	- A byte code compiler for Erlang which produces highly compact code
+2. erts 10.4	- Functionality necessary to run the Erlang System itself
+3. kernel 6.4	- Functionality necessary to run the Erlang System itself
+4. sasl 3.4	- The System Architecture Support Libraries is a set of tools for release upgrades and alarm handling etc.
+5. stdlib 3.9	- The Erlang standard libraries
+
+
+另外，还提供参考书籍 Erlang books：
 
 - Programming Erlang: Software for a Concurrent World
 - Learn You Some Erlang for Great Good!
@@ -404,6 +557,10 @@ Erlang 官方文档提供以下两大类内容，用户手册 [User's Guide] 是
 
 当然，这里有 Frederic 制作的免费的电子书 Learn You Some Erlang for Great Good!
 
+## 🍀 erl shell
+1. https://www.erlang.org/doc/man/erl
+2. https://www.erlang.org/doc/man/erlc
+
 安装 Erlang 后，需要将 Erlang 的 bin 目录加入环境变量 Path 之中。
 
 Erlang/OTP 文件类型:
@@ -414,30 +571,12 @@ Erlang/OTP 文件类型:
 | .hrl		| Include file	| Erlang Reference Manual |
 | .rel		| Release resource file	| rel(4) manual page in SASL |
 | .app		| Application resource file	| app(4) manual page in Kernel |
-| .script	| Boot script	| script(4) manual page in SASL |
+| .script		| Boot script	| script(4) manual page in SASL |
 | .boot		| Binary boot script	| - |
-| .config	| Configuration file	| config(4) manual page in Kernel |
-| .appup	| Application upgrade file	| appup(4) manual page in SASL |
+| .config		| Configuration file	| config(4) manual page in Kernel |
+| .appup		| Application upgrade file	| appup(4) manual page in SASL |
 | relup		| Release upgrade file	| relup(4) manual page in SASL |
 
-
-在 Sublime 上编写程序，只需发配置以下编译配置，将文件保存到 `Packages\User\erlang.sublime-build`：
-
-	{
-		"env": {
-			"path":"c:\\Program Files\\erl10.4\\bin;%path%"
-		},
-		"working_dir": "$file_path",
-		"cmd": "csc.exe $file",
-		"file_regex":"^([^:]+):(?:([0-9]+):)?(?:([0-9]+):)? (.*)",
-		"selector": "source.erlang",
-		"encoding": "cp936",
-		"quiet": true,
-		"variants": [{
-			"name": "Run ...",
-			"shell_cmd": "erlc $file_name && erl -noshell -s $file_base_name start -s init stop"
-		}]
-	}   
 
 安装 Erlang 后，执行 erl 命令进入 Erlang shell 交互界面，可以键入 `help().` 来获取相关的 shell 命令信息，注意加句点表示执行。
 
@@ -549,9 +688,139 @@ You should have noticed Erlang doesn't care if you enter floating point numbers 
 	12> 16#AE.
 	174
 
+erlc -help
+
+	Usage: erlc [Options] file.ext ...
+	Options:
+	-b type        type of output file (e.g. beam)
+	-d             turn on debugging of erlc itself
+	-Dname         define name
+	-Dname=value   define name to have value
+	-help          shows this help text
+	-I path        where to search for include files
+	-M             generate a rule for make(1) describing the dependencies
+	-MF file       write the dependencies to 'file'
+	-MT target     change the target of the rule emitted by dependency generation
+	-MQ target     same as -MT but quote characters special to make(1)
+	-MG            consider missing headers as generated files and add them to the dependencies
+	-MP            add a phony target for each dependency
+	-MD            same as -M -MT file (with default 'file')
+	-MMD           generate dependencies as a side-effect
+	-o name        name output directory or file
+	-pa path       add path to the front of Erlang's code path
+	-pz path       add path to the end of Erlang's code path
+	-smp           compile using SMP emulator
+	-v             verbose compiler output
+	-Werror        make all warnings into errors
+	-W0            disable warnings
+	-Wnumber       set warning level to number
+	-Wall          enable all warnings
+	-W             enable warnings (default; same as -W1)
+	-E             generate listing of expanded code (Erlang compiler)
+	-S             generate assembly listing (Erlang compiler)
+	-P             generate listing of preprocessed code (Erlang compiler)
+	+term          pass the Erlang term unchanged to the compiler
 
 
-## Hello World
+## 🍀 CLI Arguments
+1. https://www.erlang.org/doc/man/erl
+2. https://www.erlang.org/doc/man/erlang
+3. https://www.erlang.org/doc/man/string
+
+erl shell 命令参数有三种形式：
+
+1. emulator flags 使用 + 表示，比如打印版本号 `erl +v`；
+2. flags 使用 - 表示，传递到 Erlang 运行时内部，比如 `erl -s hello`，调用模块 start 方法；
+3. plain arguments 出现在首个 flag 参数之前，或者 -- flag 或者 -extra flag 中指定，可以通过 `init:get_plain_arguments/0` 函数获取，这些参数不会被解释，只会在 init 进程中缓存；
+
+文档中所有标记为 init flags 的参数会在运行时初始化中使用，其它 flags 参数为用户参数，可以通过 init:get_argument/1 函数获取。如果只需要通过 CLI 执行程序，可以使用 -noshell 参数禁用 shell 交互，同时在执行完后调用 init:stop/0 方法终止。
+
+	erl -eval "io:format(hi)"
+	erl -eval "io:format(""hi"")"
+	erl -s module function arg1 arg2 ...
+	erl -pa ebin -s hello fac 1 
+	erl -noshell -s hello fac -s init stop
+
+命令行中调用模块函数传递参数时容易引发异常，以下错误提示在 Windows 10 系统，说明如下：
+
+	Erlang (SMP,ASYNC_THREADS) (BEAM) emulator version 10.4 
+	{"init terminating in do_boot",{badarith... }
+	{"init terminating in do_boot",{function_clause..}
+
+	Erlang/OTP 26 [erts-14.0.2] [source] [64-bit] 
+	Runtime terminating during boot ({badarith,[{erlang...})
+
+1. badarg 参数类型错误，传入参数和函数要求参数不匹配。
+2. badarith 运算错误，atithmetic 运算，例如将一个整数和一个 atom 相加。
+3. badmatch 模式匹配错误，最常见的就是给变量重新赋值。
+4. undef 符号未定义，可能是符号拼写错误，或者没有编译生成相应的 beam 文件。
+4. function_clause 找不到匹配的函数从句，即没有匹配的分支。
+
+使用命令控制台传递参数，与代码中传递参数的形式是有差别的，也就是数据类型会不一样，命令控制台中传递的是字符串，并且进入到 Erlang 中以 List 的形式出现，并且是 [atom]，因为这是传递作为函数参数列表使用的数据。
+
+Erlang 中的 atom 类型通常以小写字母的形式出现，如果包含下载线开头或者是数字等等形式，就需要使用单引号包括。可以使用 erlang 模块内置函数以及字符串库函数将 atom 转换为数值：
+
+	string:list_to_integer(erlang:atom_to_list('123')).
+
+	erlang:list_to_integer(String, Base) -> integer()
+	erlang:list_to_integer(String) -> integer()
+
+	string:to_integer(String) -> {Int,Rest} | {error,Reason}
+
+注意命令行传入的参数不是 ["string"]，尽管 Erlang 中的字符串本身就是数值列表，但是 "string" 和 ["string"] 的区别还是挺大的，就是一维与二维 list 的区别。可以使用 is_list/1 或者 is_atom/1 等内置函数进行类型判断。
+
+以下程序演示从命令行传递参数到 Erlang 程序的处理过程：
+
+```erlang
+-module(hello).
+-export([main/1, fac/1, test/1]).
+-on_load(start/0).
+
+main(Args) ->
+    test("123b"),
+    io:format("Cli arguments: ~p~n", [Args]).
+
+start() -> 
+   io:fwrite("Hello Module Load.~n").
+
+fac(0) -> 1;
+fac(N) -> N * fac(N-1).
+
+test(_S) -> 
+    io:format("# RAW INPUT ==> ~p ~n",[_S]),
+    case _S of
+        [A|_] when is_atom(A) -> 
+            N = string_to_integer(atom_to_list(A)),
+            io:fwrite("# input is atom list ~p ~p~n", [_S,N]),
+            io:format("# factorial ~5.10B = ~.10B~n", [N, fac(N)]);
+        L1   when is_list(L1) -> 
+            N = string_to_integer(L1),
+            io:fwrite("# input is list ~p ~p~n", [_S,N]),
+            io:format("# factorial ~5.10B = ~.10B~n", [N, fac(N)])
+    end.
+
+string_to_integer(_S) ->
+    case string:to_integer(_S) of
+        { N, _R } when is_integer(N) -> N;
+        { Err, Reason } ->  throw ({Err, Reason})
+    end.
+```
+
+```sh
+erlc -o ebin .\hello.erl
+
+erl -pa ebin -s hello main someargs -s init stop
+# RAW INPUT ==> "123b"
+# input is list "123b" 123
+# factorial   123 = 1214630436702532967...
+erl -pa ebin -s hello test "123c" -s init stop
+# RAW INPUT ==> ['123c']
+# input is atom list ['123c'] 123
+# factorial   123 = 1214630436702532967...
+```
+
+
+## 🍀 Hello World
 - https://erldocs.com/current/stdlib/io.html#type-format
 - [Rebar Package Manager](https://www.cnblogs.com/autumnwhisper/p/4914726.html)
 
@@ -593,7 +862,7 @@ Erlang 程序的运行一般需要两个步骤，即编译和运行。通过编�
 	3>
 
 
-编写一个 hello.erl 程序，后面有三种方式运行它：
+编写一个 hello.erl 程序，配合 erl 命令行、erlc 编译器、escript 脚本解释器有多种方式运行它：
 
 	-module(hello).
 	-export([fac/1]).
@@ -619,7 +888,7 @@ Erlang 程序的运行一般需要两个步骤，即编译和运行。通过编�
 	815915283247897734345611269596115894272000000000
 	32> _
 
-确保工作目录与程序所在目录为同一个目录，避免 erl 找不到文件，或者使用 `-pa ./ebin` 参数将当前目录传入 erl，或者使用 `cd(Dir)` 命令进入指定目录。然后执行编译 `c(hello).` 出现 `{ok，hello}` 说明编译成功，可以执行程序了。
+确保工作目录与程序所在目录为同一个目录，避免 erl 找不到文件，或者使用 `-pa ./ebin` 参数将当前目录传入 erl，或者使用 `cd(Dir)` 命令进入指定目录。然后执行编译 `c(hello).` 出现 `{ok，hello}` 说明编译成功，生成相应的二进制文件 hello.beam，然后可以执行程序了。
 
 在命令行编译和运行，erlc 命令提供了一个公共的途径来运行所有 Erlang 系统的编译器，erlc 会根据于各输入文件的扩展名来调用合适的编译器。
 
@@ -637,19 +906,29 @@ Erlc 编译一个或一个以上文件，文件必须包括它们的扩展名，
 
 使用 escript 可以直接运行程序，不需要先编译。想要以 escript 方式运行 hello，需要创建如下文件，提供 `main(_)` 入口函数:
 
+```erlang
 	#! /usr/bin/env escript
 	-module (coding).
-	-export ([start/0]).
+	-export ([main/1]).
 
 	main(_) ->
 		io:format("Hello world\n").
 
-	start() ->
-		io:format("Hello World! ~n").
-
 	% io:format("consulting .erlang in ~p~n",[element(2,file:get_cwd())]).
 	% c:cd("g:/programing/programingerlang").
 	% io:format("Now in:~p~n",[element(2,file:get_cwd())]).
+```
+
+脚本的启动函数为main，它有一个参数，表示运行时传入的参数，如果不传参的话，可以写为下划线，意味丢弃该参数。io 模块中的格式化函数接收的数据是一个 List 类型，每个元素对应格式字符串中的一个占位。
+
+```erlang
+%% -*- erlang -*-
+-module(hello).
+-export([main/1]).
+
+main(Args) ->
+    io:format("Hello ~p!\n", [Args]).
+```
 
 然后执行：
 
@@ -672,6 +951,7 @@ Erlc 编译一个或一个以上文件，文件必须包括它们的扩展名，
 
 使用格式输出：
 
+```erlang
 	-module(helloworld). 
 	-export([start/0]). 
 
@@ -680,6 +960,8 @@ Erlc 编译一个或一个以上文件，文件必须包括它们的扩展名，
 	   Y = 50.00, 
 	   io:fwrite("~f~n",[X]), 
 	   io:fwrite("~e",[Y]).
+```
+
 Output
 
 	40.000000
@@ -736,8 +1018,36 @@ Erlang 数字前面可以用 # 来标注其 Base，语法：Base#Value，默认�
 	12> 16#AE.   %% 16 进制的 AE
 	174
 
-Erlang 是函数式语言(虽然也支持副作用)。这意味着 Erlang 里的变量 ‘ Immutable’ (不可变的).
+## 🍀 Pattern matching 模式匹配
+- https://www.erlang.org/doc/apps/erts/match_spec
+- [Erlang shell](https://www.tutorialspoint.com/erlang/erlang_shell.htm)
+- [Erlang Pattern Matching](https://docs.scala-lang.org/tour/pattern-matching.html)
+- [Erlang case & if](https://www.w3cschool.cn/erlang/qik11p5y.html)
+
+变量 Variables 大概是编程入门掌握的一个基本概念，正因为变量可变 mutable，所以它可以被重新赋值，与常量相对。
+
+Erlang 是函数式语言(虽然也支持副作用)。这意味着 Erlang 里的变量 ‘Immutable’ (不可变的).
 Immutable variables 在设计上简单，减少了并发过程中处理状态改变带来的复杂性。理解这一点很重要。
+
+Erlang 的变量则完全打破常规的变量意义，因为 Erlang 使用的是变量模式匹配机制 pattern matching。变量只能进行一次性赋值，所以 Erlang 的变量一共有 2 个状态：已被赋值的变量叫绑定变量，未绑定的变量则是自由变量，可以后续通过 pattern matching 进行绑定。若试图改变已绑定变量的值，就会得到错误，模式匹配同样的值并不改变数据也不会引起错误。
+
+```sh
+$ erl
+Eshell V10.4  (abort with ^G)
+1> List = [1,2,3].
+[1,2,3]
+2> List = [1,2,3].
+[1,2,3]
+3> List = [1,2].
+** exception error: no match of right hand side value [1,2] 
+```
+
+Erlang 这种反常识的模式匹配机制，相比使用 mutable 变量机制的语言，immutable 变量机制可以算是优点。比如 C 或 Java 等语言进行多核 CPU 编程的时候，因为变量可变，就必须面对共享内存的问题，为了不破坏共享内存，访问这些内存的时候，必须加锁防止*竞态条件*（Race condition）与*数据竞争*（Data Race），否则就可能在多线程下导致数据逻辑不一致的线程安全问题。
+
+Erlang 具有不可变状态，没有共享内存，也没有锁，这就让程序并行变得简单。
+
+当然，模式匹配与变量不可变的缺点也存在，因为这是一种反常识的逻辑，会造成编码的一定障碍。没有可变变量该怎么去实现 X = X + 1 这种已经十分深入人心的概念呢？简单的解决就是换一个变量来接收新的值。
+
 
 Erlang 是动态类型的语言，但它也是强类型的语言。动态类型意味着你声明变量时不需要指定类型，而强类型是说，erlang 不会偷偷做类型转换:
 
@@ -748,11 +1058,140 @@ Erlang 是动态类型的语言，但它也是强类型的语言。动态类型�
 
 Erlang 里变量的命名有约定，必须首字母大写。因为首字母小写的，会被认为是 atom (原子) 类型。
 
-Erlang 里没有赋值语句，= 号在 Erlang 里是 pattern matching 模式匹配。
+**Erlang 里没有赋值语句，= 号在 Erlang 里是 pattern matching 模式匹配。**
+
+
+变量通过模式匹配绑定到值，在 function call, case- receive- try- 和匹配操作符 = 等表达式中进行模式匹配。另外，还有 Guards （保护序列）模式匹配，TypeScript 相似的概念是 Type Guards 类型守卫。
+
+Erlang 变量只能以大写字母或下载线 _ 开关，并且单独的 _ 代表丢弃的变量，Python 有相同应用。Erlang 还有一此非常特别的运算符号，如恒等测试符号 =:=，不等测试符号 =/=，参考布尔值比较运算。
+
+
+更多的模式匹配规则参考 Erlang Reference Manual 9 Expressions
+https://www.erlang.org/doc/reference_manual/expressions
+
+
+模式匹配通常用来简单嵌套 if-else 结构。
+
+Erlang 里变量的命名有约定，必须首字母大写。因为首字母小写的，会被认为是 atom 原子类型。
+
+Erlang 里没有赋值语句，等号 = 是模式匹配符号，如果 = 左侧跟右侧的值不相等，就叫没匹配上，这时那个 erlang 进程会直接异常崩溃，不要害怕，erlang 是高容错系统，程序崩溃挺正常。
+
+匹配模式中，左则的模式如果和右侧的 term 匹配，那么模式中未绑定的变量就会绑定到匹配到的值。
+
+Erlang 中的变量在绑定之前是自由的，非绑定变量可以绑定一次任意类型的数据。为了支持这种类型系统，Erlang 虚拟机采用的实现方法是用一个带有标签的机器字表示所有类型的数据，这个机器字就叫做 term。在 32 位机器上，一个 term 为 32 位宽；在 64 位机器上，一个 term 默认为 64 位宽。由于目前大规模的服务器基本上都是 64 位平台，所以本文下面的讨论都基于 64 位平台。
+
+
+示例:
+
+	1> X.
+	** 1: variable 'X' is unbound **
+	2> X = 2.
+	2
+	3> X + 1.
+	3
+	4> {X, Y} = {1, 2}.
+	** exception error: no match of right hand side value {1,2}
+	5> {X, Y} = {2, 3}.
+	{2,3}
+	6> Y = 3.
+	3
+
+程序解析：
+
+- `X` 变量开始是未绑定的，然后绑定到 2 这个数值，后面的 X + 1 并非给变量加 1，并没有模式匹配。
+- `{X, Y} = {1, 2}` 这里的模式匹配失败，因为 X 已经绑定 2，但和右侧的值不一致。
+- `{X, Y} = {2, 3}` 这里的模式匹配成功，因为已经绑定的变量 X 和右侧的值一致，而 Y 变量是没有绑定的，所以匹配成功对其绑定为 3。
+
+列如，在更多的匹配条件中获取值：
+
+	3> {X, 1, 5} = {2, 1, 5}.
+	{2,1,5}
+	4> X. 
+	2
+
+使用匹配来解析 List，将第一个元素绑定到 H, 将其余绑定到 T：
+
+	5> [H | T] = [1, 2, 3].
+	[1,2,3]
+	6> H.
+	1
+	7> T.
+	[2,3]
+
+可以在函数中这么递归下去，下划线表示丢弃赋值：
+
+	8> [_ | T2] = T.
+	[2,3]
+	9> T2.
+	[3]
+	10> [_ | T3] = T2.
+	[3]
+	11> T3.
+	[]
+
+Erlang 里面变量是 immutable 的，可以使用 `f()` 解绑所有变量，清理之前用过的变量名。
+
+下面重新定义了 Add 函数，现在它只接收一个 tuple 参数。然后在参数列表里做 pattern matching 以获取 tuple 中的两个值，解析到 A，B.
+
+	12> f().
+	ok
+	13> Add = fun({A, B}) -> A + B end.
+	#Fun<erl_eval.6.118419387>
+	14> Add({1, 2}).   
+	3
+
+Erlang 到处都模式匹配，如下面代码定义的 greet/2 函数就使用了 case-of-end 模式匹配:
+
+```erlang
+	-module(case_matching).
+	-export([greet/2]).
+
+	greet(Gender, Name) ->
+	  case Gender of
+		male ->
+		  io:format("Hello, Mr. ~s!~n", [Name]);
+		female ->
+		  io:format("Hello, Mrs. ~s!~n", [Name]);
+		_ ->
+		  io:format("Hello, ~s!~n", [Name])
+	  end.
+```
+
+case 的各个分支是自上往下依次匹配的，如果 Gender 是 atom 'male', 则走第一个，如果是 'female' 走第二个，如果上面两个都没匹配上，则走第三个。case 语句一定要有匹配的分支，否则就会触发异常。不同的模式匹配分支使用分号隔离，在定义函数参数列表的模式匹配时也一样。
+
+上面的例子改一下，就可以得到规整一点的函数参数列表匹配模式的形式：
+
+```erlang
+	-module(function_matching).
+	-export([greet/2]).
+
+	greet(male, Name) ->
+	  io:format("Hello, Mr. ~s!~n", [Name]);
+	greet(female, Name) ->
+	  io:format("Hello, Mrs. ~s!~n", [Name]);
+	greet(_, Name) ->
+	  io:format("Hello, ~s!~n", [Name]).
+```
+
+这个模块使用函数匹配模式，有三个 clause，与 case 一样，自上往下依次匹配。
+
+```sh
+	$ erl -pa ebin/
+	Eshell V10.4  (abort with ^G)
+	1> function_matching:greet(female, "Scarlett").
+	Hello, Mrs. Scarlett!
+	ok
+	2>
+```
+
+`erl -pa` 参数的意思是 Path Add, 添加目录到 erlang 以查找目录列表里的 beam 文件。使用 erlc 编译器时，应该将编译输出的二进制文件保存到 ebin 目录下：
+
+	erlc -o ebin function_matching.erl
 
 
 
-## Data Types
+
+## 🍀 Data Types
 - Erlang Data Types https://erlang.org/doc/reference_manual/data_types.html
 - EEP 8: Types and function specifications http://erlang.org/eeps/eep-0008.html
 - Array https://erlang.org/doc/man/array.html
@@ -764,7 +1203,7 @@ Erlang 为动态语言，变量在运行时动态绑定，这对于我们获取�
 
 Erlang 是一个有着 20 多年历史的成熟系统，它早已发展出了一套自己的类型标注系统，不仅用来生成文档，更重要的是可以据此对源码进行静态分析，通过程序来排除一些低级的和隐藏的错误。动态类型语言属性并没有让其成为短板，相比 TypeScript 也通过类型标注解决了 JavaScript 的弱类型问题。
 
-预定义的类型及语法如下:
+预定义的类型及语法规则如下:
 
     Type  :: any ()         %% 最顶层类型，表示任意的 Erlang term
         | none ()           %% 最底层类型，不包含任何 term
@@ -815,14 +1254,14 @@ Erlang 是一个有着 20 多年历史的成熟系统，它早已发展出了一
 
 - 3.1  Terms
 
-    在 Erlang 中表示任何类型的数据都叫做 `Terms`，它是源代码中的基本数据类型。
+    在 Erlang 中表示任何类型的数据都叫做 `Terms`，它是源代码中的基本数据类型。单词全称 terminology，即术语。Erlang 中的变量在绑定之前是自由的，非绑定变量可以绑定一次任意类型的数据。为了支持这种类型系统，Erlang 虚拟机采用的实现方法是用一个带有标签的机器字表示所有类型的数据，这个机器字就叫做 term。对应 C 语言实现代码中的 `Eterm` 数据结构。
 
 - 3.2  Number 
 
-    数值有 integers & floats 两种。除了常规表达，还有两种 Erlang-specific notations:
+    数值有 integers & floats 两种。数值字面量 literals 也有两种形式:
 
     - `$char` ASCII 字符或 unicode 字符。
-    - `base#value` 指定进制的整数，数值范围在 2..36。
+    - `base#value` 指定进制的整数，bae 数值范围在 2..36。
 
     数值可以使得 _ 分隔符号以便于视觉区别。
 
@@ -855,8 +1294,14 @@ Erlang 是一个有着 20 多年历史的成熟系统，它早已发展出了一
         <<10,20>>
         2> <<"ABC">>.
         <<"ABC">>
-        1> <<1:1,0:1>>.
-        <<2:2>>
+        1> <<1:1,0:1,0:1,0:1>>.
+        <<8:4>>
+
+    冒号后指定数据占用的 bit 宽度，还可以指定数据具体类型，参考 Bit Syntax：
+
+    list_to_integer_binaries(L) ->
+	    [<<I:32/integer-native>> || I <- L].
+
 
 - 3.5  Reference
 
@@ -884,7 +1329,7 @@ Erlang 是一个有着 20 多年历史的成熟系统，它早已发展出了一
     spawn_link/1,2,3,4
     spawn_opt/4
 
-    以下例子使用 `self()` 返回当前进程标识：
+    以下例子使用 `self()` 返回当前运行此代码的进程标识：
 
         -module(m).
         -export([loop/0]).
@@ -1041,368 +1486,79 @@ Erlang 是一个有着 20 多年历史的成熟系统，它早已发展出了一
         true
 
 
-## Operators 四类操作符
-
-Arithmetic operators
-
-| Operator	| Description	| Example |
-| :--------	| :--------	| :--------	|
-| +	| 两数相加	| 1 + 2 = 3 |
-| −	| 两数相减	| 1 - 2 = -1 |
-| *	| 两数相乘	| 2 * 2 = 4 |
-| /	| 两数相除	| 2 / 2 = 1 |
-| rem	| 求余	| 3 rem 2 = 1 |
-| div	| 整除	| 3 div 2 will give 1 |
-
-Relational operators
-
-| Operator	| Description	| Example |
-| :--------	| :--------	| :--------	|
-| ==	| 判断是否相等	| 2 = 2 = true |
-| /=	| 判断是否不等	| 3 /= 2 = true |
-| <		| 左侧是否小于右侧	| 2 < 3 = true |
-| >		| 左侧是否大于右侧	| 3 > 2 = true |
-| =<	| 左侧是否小于或等于右侧	| 2 =<3 = true |
-| >=	| 左侧是否大于或等于右侧	| 3 >= 2 = true |
-
-Logical operators
-
-| or	| 逻辑或运算	| true or true = true |
-| and	| 逻辑与运算	| True and false = false |
-| not	| 逻辑非运算	| not false = true |
-| xor	| 逻辑异或	| True xor false = true |
-
-Bitwise operators 比特位运算符号有四个，在逻辑运算符前缀 b 就是对应的位运算。另外还有两个移位操作：
-
-- bsl (Bit Shift Left)
-- bsr (Bit Shift Right)
-
-注意，以下数值是十六进制，如下：
-
-	-module(helloworld). 
-	-export([start/0]). 
-
-	start() -> 
-	   io:fwrite("~w~n",[00111100 band 00001101]), 
-	   io:fwrite("~w~n",[00111100 bxor 00111100]), 
-	   io:fwrite("~w~n",[bnot 00111100]), 
-	   io:fwrite("~w~n",[00111100 bor 00111100]).
-
-Output
-
-	76
-	0
-	-111101
-	111100
-
-## Escape Sequences
-
-转义符号，在字符串或单引号包括的 atoms 原子类型中使用：
-
-| 转义符号	| 意义 |
-| :-----	| :----- |
-| \b	| Backspace |
-| \d	| Delete |
-| \e	| Escape |
-| \f	| Form feed |
-| \n	| Newline |
-| \r	| Carriage return |
-| \s	| Space |
-| \t	| Tab |
-| \v	| Vertical tab |
-| \XYZ, \YZ, \Z	| 代表八制字符 XYZ, YZ or Z |
-| \xXY	| 代表十六进制字符 XY |
-| \x{X...}	| 代表十六进制字符， X... 表示多个十六进制字符 |
-| \^a...\^z, \^A...\^Z	| 控制字符 Control A to control Z |
-| \'	| Single quote |
-| \"	| Double quote |
-| \\	| Backslash |
-
-
-## Decision Making 条件决策
+### 🐣 Atoms 原子类型
 
-If 语句的一般形式、多条件判断和嵌入式，如下面的程序所显示，
-
-	if
-	condition1 ->
-	   statement#1;
-	condition2 ->
-	   statement#2;
-	conditionN ->
-	   statement#N;
-	true ->
-	   defaultstatement
-	end.
+Erlang 里面有 atom 原子类型，它使用的内存很小，所以常用来做函数的参数和返回值。参加 pattern matching 的时候，运算也非常快速。
 
-示例：
+在其他没有 atom 的语言里，你可能用过 constant 之类的东西，一个常量需要对应一个数字值或者其他类型的值。
 
-	-module(helloworld). 
-	-export([start/0]). 
+在 Erlang 里 atom 真是抬头不见低头见，可以通过 atom 来表示各种意义的常量。在其他语言，例如 C/C++ 中使用 #define 宏定义，enum 枚举，或者用 const 常量等方法实现类似的功能。
 
-	start() -> 
-	   A = 4, 
-	   B = 6, 
-	   if 
-		  A < B ->
-			 if 
-				A > 5 -> 
-				   io:fwrite("A is greater than 5"); 
-				true -> 
-				   io:fwrite("A is less than 5")
-			 end;
-		  true -> 
-			 io:fwrite("A is greater than B") 
-	   end.
+但是，使用这些方法的时候，总会觉得不是太舒服，比如使用 #define 宏定义和 const 常量，除了本来就头痛的给宏或常量命名之外，还要真正填上一个值，为了让这些值不冲突，又是一件头痛的事情了。如果用字符串吧，那么每次匹配的时候还要做低效的字符串操作。
 
+比如：
 
-Case Statements
+	const int red = 1;
+	const int green = 2;
+	const int blue = 3;
 
-	case expression of
-	   value1 -> statement#1;
-	   value2 -> statement#2;
-	   valueN -> statement#N
-	end.
+但多了这个映射，其实用起来不大方便，后面对应的值 1， 2，3 一般只是用来比较，具体是什么值都关系不大。所以有了 atom 就很方便了，我们从字面上就能看出，这个值是干嘛的:
 
-示例：
+	1> red.
+	red
 
-	-module(helloworld). 
-	-export([start/0]). 
+atom 类型支持的写法：
 
-	start() -> 
-	   A = 5,
-	   case A of 
-		  5 -> io:fwrite("The value of A is 5"); 
-		  6 -> io:fwrite("The value of A is 6") 
-	   end.
+	1> atom.
+	atom
+	2> atoms_rule.
+	atoms_rule
+	3> atoms_rule@erlang.
+	atoms_rule@erlang
+	4> 'Atoms can be cheated!'.
+	'Atoms can be cheated!'
+	5> atom = 'atom'.
+	atom
 
+包含空格等特殊字符的 atom 需要用单引号括起来。 Erlang 里变量的命名必须首字母大写，小写起头是 atom 原子类型。
 
-## Function 函数
-- [Funs Programming Example](https://erlang.org/doc/programming_examples/funs.html)
-- [Function Call](https://erlang.org/doc/reference_manual/expressions.html#function-calls)
+需要注意的是：在一个 erlang vm 里，可创建的 atom 的数量是有限制的，默认是 1,048,576，因为 erlang 虚拟机创建 atom 表也是需要内存的。一旦创建了某个 atom，它就一直存在那里了，不会被垃圾回收。不要在代码里动态的做 string -> atom 的类型转换，这样最终会使你的 erlang atom 爆表。比如在你的接口逻辑处理的部分做 to atom 的转换的话，别人只需要用不一样的参数不停地调用你的接口，就可以攻击你。
 
-函数定义的一般写法：
 
-	FunctionName(Pattern1… PatternN) ->
-	Body;
 
-匿名函数示范：
+### 🐣 String 字符串
+https://www.erlang.org/doc/reference_manual/data_types#string
 
-	F = fun (Arg1, Arg2, ... ArgN) ->
-			...
-		end
+Strings 是指用双引号包括的一系列字符，Erlang 类型系统中没有字符串这种数据类型，只有这种数据。比如字符串 "hello" 等价的列表是 [$h,$e,$l,$l,$o]，也即是 [104,101,108,108,111] 这样的二进制数据序列。
 
-示例：
+Two adjacent string literals are concatenated into one. This is done in the compilation, thus, does not incur any runtime overhead.
 
-	-module(helloworld). 
-	-export([add/2,add/3,start/0]). 
+Example:
 
-	add(X,Y) -> 
-	   Z = X+Y, 
-	   io:fwrite("~w~n",[Z]). 
+	"string" "42"
 
-	add(X,Y,Z) -> 
-	   A = X+Y+Z, 
-	   io:fwrite("~w~n",[A]). 
+is equivalent to
 
-	start() ->
-	   add(5,6), 
-	   add(5,6,6).
+	"string42"
 
-匿名函数，没有与任何名称相关联，示例
+String 模块中处理的字符使用 unicode:chardata() 表示，即 UTF-8 编码的字符集，是码点值的列表，或者 UTF-8 编码的二进制数据。
 
-	-module(helloworld). 
-	-export([start/0]). 
+	"abcd"               is a valid string
+	<<"abcd">>           is a valid string
+	["abcd"]             is a valid string
+	<<"abc..åäö"/utf8>>  is a valid string
+	<<"abc..åäö">>       is NOT a valid string,
+	                     but a binary with Latin-1-encoded codepoints
+	[<<"abc">>, "..åäö"] is a valid string
+	[atom]               is NOT a valid string
 
-	start() -> 
-	   Fn = fun() -> 
-		  io:fwrite("Anonymous Function") end, 
-	   Fn().
 
-匿名函数定义要点：
-
-- 匿名函数是使用 fun() 关键字定义的
-- 该函数被分配给一个名为 Fn 的变量
-- 该函数是通过变量名称来调用的
-
-
-函数可以使用保护序列来防止输入无效参数，语法如下：
-
-	FunctionName(Pattern1… PatternN) [when GuardSeq1]->
-	Body;
-
-示例，如果 add 函数被调用为 add(3)，该程序将会出现错误：
-
-	-module(helloworld). 
-	-export([add/1,start/0]). 
-
-	add(X) when X>3 -> 
-	   io:fwrite("~w~n",[X]). 
-
-	start() -> 
-	   add(4).
-
-
-Erlang 里面函数是用 `函数名/参数个数` 来表示的，如果两个函数的函数名与参数个数都一样，他们就是一个函数的两个分支，必须写在一起，分支之间用分号分割。
-
-如下，clauses.erl 模块定义一个函数的多个分支 clause 就要用 `;` 分割：
-
-	-module(clauses).
-	-export([add/2]).
-
-	%% goes into this clause when both A and B are numbers
-	add(A, B) when is_number(A), is_number(B) ->
-	  A + B;
-	%% goes this clause when both A and B are lists
-	add(A, B) when is_list(A), is_list(B) ->
-	  A ++ B.
-	%% crashes when no above clauses matched.
-
-上面代码里，定义了一个函数：add/2. 这个函数有两个 clause 分支，一个是计算数字相加的，一个是计算字符串相加的。
-
-代码里 when 是一个 Guard 关键字，匹配模式 Pattern Matching 和保护序列 Guard 后面讲解。
-
-运行 add/2 时会从上往下挨个匹配：
-
-	$ erl -pa ebin/
-	Eshell V8.3  (abort with ^G)
-	1> clauses:add("ABC", "DEF").
-	"ABCDEF"
-	2> clauses:add(1, 2).
-	3
-	3> clauses:add(1, 2.4).
-	3.4
-	4> clauses:add(1, "no").
-	** exception error: no function clause matching clauses:add(1,"no") (clauses.erl, line 4)
-
-  第一个 clause:add 匹配的是第二个 clause。 最后一个 clauses:add 都没匹配上，崩溃了。
-
-
-
-## Pattern Matching 模式匹配
-- [Erlang shell](https://www.tutorialspoint.com/erlang/erlang_shell.htm)
-- [Erlang Pattern Matching](https://docs.scala-lang.org/tour/pattern-matching.html)
-- [Erlang case & if](https://www.w3cschool.cn/erlang/qik11p5y.html)
-
-变量通过模式匹配绑定到值，在 function call, case- receive- try- 和匹配操作符 = 等表达式中进行模式匹配。
-
-模式匹配通常用来简单嵌套 if-else 结构。
-
-Erlang 里变量的命名有约定，必须首字母大写。因为首字母小写的，会被认为是 atom 原子类型。
-
-Erlang 里没有赋值语句，等号 = 是模式匹配符号，如果 = 左侧跟右侧的值不相等，就叫没匹配上，这时那个 erlang 进程会直接异常崩溃，不要害怕，erlang 是高容错系统，程序崩溃挺正常。
-
-匹配模式中，左则的模式如果和右侧的 term 匹配，那么模式中未绑定的变量就会绑定到匹配到的值。
-
-Erlang 中的变量在绑定之前是自由的，非绑定变量可以绑定一次任意类型的数据。为了支持这种类型系统，Erlang 虚拟机采用的实现方法是用一个带有标签的机器字表示所有类型的数据，这个机器字就叫做 term。在 32 位机器上，一个 term 为 32 位宽；在 64 位机器上，一个 term 默认为 64 位宽。由于目前大规模的服务器基本上都是 64 位平台，所以本文下面的讨论都基于 64 位平台。
-
-
-示例:
-
-	1> X.
-	** 1: variable 'X' is unbound **
-	2> X = 2.
-	2
-	3> X + 1.
-	3
-	4> {X, Y} = {1, 2}.
-	** exception error: no match of right hand side value {1,2}
-	5> {X, Y} = {2, 3}.
-	{2,3}
-	6> Y.
-	3
-
-程序解析：
-
-- `X` 变量开始是未绑定的，然后绑定到 2 这个数值，后面的 X + 1 并非给变量加 1，并没有模式匹配。
-- `{X, Y} = {1, 2}` 这里的模式匹配失败，因为 X 已经绑定 2，但和右侧的值不一致。
-- `{X, Y} = {2, 3}` 这里的模式匹配成功，因为已经绑定的变量 X 和右侧的值一致，而 Y 变量是没有绑定的，所以匹配成功对其绑定为 3。
-
-列如，在更多的匹配条件中获取值：
-
-	3> {X, 1, 5} = {2, 1, 5}.
-	{2,1,5}
-	4> X. 
-	2
-
-使用匹配来解析 List，将第一个元素绑定到 H, 将其余绑定到 T：
-
-	5> [H | T] = [1, 2, 3].
-	[1,2,3]
-	6> H.
-	1
-	7> T.
-	[2,3]
-
-可以在函数中这么递归下去，下划线表示丢弃赋值：
-
-	8> [_ | T2] = T.
-	[2,3]
-	9> T2.
-	[3]
-	10> [_ | T3] = T2.
-	[3]
-	11> T3.
-	[]
-
-Erlang 里面变量是 immutable 的，可以使用 `f()` 解绑所有变量，清理之前用过的变量名。
-
-下面重新定义了 Add 函数，现在它只接收一个 tuple 参数。然后在参数列表里做 pattern matching 以获取 tuple 中的两个值，解析到 A，B.
-
-	12> f().
-	ok
-	13> Add = fun({A, B}) -> A + B end.
-	#Fun<erl_eval.6.118419387>
-	14> Add({1, 2}).   
-	3
-
-Erlang 里到处都用匹配的，下面的代码里，定义了一个 greet/2 函数:
-
-	-module(case_matching).
-	-export([greet/2]).
-
-	greet(Gender, Name) ->
-	  case Gender of
-		male ->
-		  io:format("Hello, Mr. ~s!~n", [Name]);
-		female ->
-		  io:format("Hello, Mrs. ~s!~n", [Name]);
-		_ ->
-		  io:format("Hello, ~s!~n", [Name])
-	  end.
-
-case 的各个分支是自上往下依次匹配的，如果 Gender 是 atom 'male', 则走第一个，如果是 'female' 走第二个，如果上面两个都没匹配上，则走第三个。case 语句一定要有匹配的分支，否则就会触发异常。
-
-有了匹配模式，上面的例子改一下，会更规整一点：
-
-	-module(function_matching).
-	-export([greet/2]).
-
-	greet(male, Name) ->
-	  io:format("Hello, Mr. ~s!~n", [Name]);
-	greet(female, Name) ->
-	  io:format("Hello, Mrs. ~s!~n", [Name]);
-	greet(_, Name) ->
-	  io:format("Hello, ~s!~n", [Name]).
-
-这个模块使用函数匹配模式，有三个 clause，与 case 一样，自上往下依次匹配。
-
-	$ erl -pa ebin/
-	Eshell V10.4  (abort with ^G)
-	1> function_matching:greet(female, "Scarlett").
-	Hello, Mrs. Scarlett!
-	ok
-	2>
-
-`erl -pa` 参数的意思是 Path Add, 添加目录到 erlang 以查找目录列表里的 beam 文件。
-
-
-
-## bitstring & binary 位串与二进制
+### 🐣 bitstring & binary 位串与二进制
 - http://erlang.org/doc/reference_manual/data_types.html
 - http://erlang.org/doc/reference_manual/expressions.html#bit_syntax
 - http://erlang.org/doc/programming_examples/bit_syntax.html
 
-比特字符串 bit string 保存在无类型定义的内存 untyped memory。
+比特串 bit string 保存在无类型定义的内存 untyped memory。
 
 位串包含一系列比特位，当元素都是 8-bit 或者刚好是它的整数倍分组，那么就是二进制数据。
 
@@ -1442,7 +1598,7 @@ Examples:
 	2> bit_size(A).
 	8
 
-Erlang 没有字符串类型，字符串通常用 List 表达，如：
+Erlang 没有字符串类型，字符串用 List 表达，如：
 
 	1> [97, 98, 99].
 	"abc"
@@ -1491,7 +1647,7 @@ Erlang 没有字符串类型，字符串通常用 List 表达，如：
 	   X = binary_to_list(Bin1),
 	   io:fwrite("~w",[X]).
 
-执行上面的程序，输出结果如下： 
+执行上面的程序，输出结果如下： 
 	
 	[10,20]
 
@@ -1505,110 +1661,7 @@ bxor,
 bnot.
 
 
-## Type Conversions 类型转换
-
-Erlang 提供以下供类型韩国的使用的 BIFs：
-
-    1> atom_to_list(hello).
-    "hello"
-    2> list_to_atom("hello").
-    hello
-    3> binary_to_list(<<"hello">>).
-    "hello"
-    4> binary_to_list(<<104,101,108,108,111>>).
-    "hello"
-    5> list_to_binary("hello").
-    <<104,101,108,108,111>>
-    6> float_to_list(7.0).
-    "7.00000000000000000000e+00"
-    7> list_to_float("7.000e+00").
-    7.0
-    8> integer_to_list(77).
-    "77"
-    9> list_to_integer("77").
-    77
-    10> tuple_to_list({a,b,c}).
-    [a,b,c]
-    11> list_to_tuple([a,b,c]).
-    {a,b,c}
-    12> term_to_binary({a,b,c}).
-    <<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>
-    13> binary_to_term(<<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>).
-    {a,b,c}
-    14> binary_to_integer(<<"77">>).
-    77
-    15> integer_to_binary(77).
-    <<"77">>
-    16> float_to_binary(7.0).
-    <<"7.00000000000000000000e+00">>
-    17> binary_to_float(<<"7.000e+00">>).
-    7.0
-
-除了 tuple_to_list 转换成 list 时都会尽力转成字符串形式
-
-	atom_to_list(hello).
-	"hello"
-	binary_to_list(<<"hello">>).
-	"hello"
-	binary_to_list(<<104,101,108,108,111>>).
-	"hello"
-	float_to_list(7.0).
-	"7.00000000000000000000e+00"
-	integer_to_list(77).
-	"77"
-
-	tuple_to_list({a,b,c}).
-	[a,b,c]
-
-Number 转 binary 都转成了字符串
-
-	integer_to_binary(77).
-	<<"77">>
-	float_to_binary(7.0).
-	<<"7.00000000000000000000e+00">>
-	 
-
-其他的转换
-
-	list_to_atom("hello").
-	hello
-	list_to_binary("hello").
-	<<104,101,108,108,111>>
-	list_to_float("7.000e+00").
-	7.0
-	list_to_integer("77").
-	77
-	list_to_tuple([a,b,c]).
-	{a,b,c}
-	term_to_binary({a,b,c}).
-	<<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>
-	binary_to_term(<<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>).
-	{a,b,c}
-	binary_to_integer(<<"77">>).
-	77
-	binary_to_float(<<"7.000e+00>>").
-	7.0
-
-类型判断
-
-	is_atom/1           
-	is_binary/1        
-	is_bitstring/1      
-	is_boolean/1        
-	is_builtin/3       
-	is_float/1          
-	is_function/1       is_function/2      
-	is_integer/1        
-	is_list/1           
-	is_number/1        
-	is_pid/1            
-	is_port/1           
-	is_record/2         is_record/3         
-	is_reference/1      
-	is_tuple/1
-
-
-## Boolean 布尔比较
+### 🐣 Boolean 布尔
 
 Erlang 没有专用的 Boolean 类型，使用 atom 类型的 true 和 false 两个值，作为布尔处理。
 
@@ -1640,7 +1693,7 @@ Erlang 没有专用的 Boolean 类型，使用 atom 类型的 true 和 false 两
 	11> 5 /= 5.0.
 	false
 
-`=:=` 和 `=/=` 分别是严格相等运算符和严格不等运算符，`/=` 和 `==` 分别是相差很多，大概相等。
+`=:=` 和 `=/=` 分别是严格相等运算符、严格不等运算符，`/=` 和 `==` 分别是相差很多、大概相等。
 
 	12> 1 < 2.
 	true
@@ -1662,7 +1715,7 @@ Erlang 没有专用的 Boolean 类型，使用 atom 类型的 true 和 false 两
 	number < atom < reference < fun < port < pid < tuple < list < bit string
 
 
-## Tuples 元组
+### 🐣 Tuples 元组
 
 Tuple 类型是多个不同类型的值组合成的类型。有点类似于 C 语言里的 struct。
 
@@ -1693,10 +1746,11 @@ Tuple 类型是多个不同类型的值组合成的类型。有点类似于 C �
 上面用 case 做 pattern matching 模式匹配。
 
 
-## Map 映射
+### 🐣 Map 映射
 - http://erlang.org/doc/reference_manual/expressions.html#map_expressions
 - http://erlang.org/doc/reference_manual/data_types.html
 - http://erlang.org/doc/man/maps.html
+- https://www.erlang.org/doc/getting_started/seq_prog#maps
 
 映射是复合数据类型，存放各种键值对，一个主键 Key 对应一个值，存放键值对也中元素 Element，其数量就是映射的大小：
 
@@ -1816,8 +1870,20 @@ Matching Syntax
 	...
 		{reply, ok, S#{ state := changed }};
 
+使用 maps 库函数：
 
-## List 列表
+```sh
+> Map = #{ key1 => val1, key2 => val2 }.
+#{key1 => val1,key2 => val2}
+> maps:get(key1, Map, "Default value").
+val1
+> maps:get(key3, Map, "Default value").
+"Default value"
+```
+
+
+### 🐣 List 列表
+- https://www.erlang.org/doc/man/lists
 - [List Comprehensions](https://erlang.org/doc/programming_examples/lists.html)
 - [List Handling](https://erlang.org/doc/efficiency_guide/listHandling.html)
 
@@ -1903,78 +1969,84 @@ List 可以分解为 `[Head|Tail]`，仔细看一下这几行体会一下：
 	2> [X || X <- [1,2,3,4,5,6,7,8,9,10], X rem 2 =:= 0].
 	[2,4,6,8,10]
 
+使用 lists 库函数：
 
-## Atoms 原子类型
+	lists:sum ([1,2,3]).      % 6
+	lists:flatlength ([1,2,3]). % 3
 
-Erlang 里面有 atom 原子类型，它使用的内存很小，所以常用来做函数的参数和返回值。参加 pattern matching 的时候，运算也非常快速。
+Erlang 的 list 在 c 语言实现中是链表结构的 ETERM 数组，list 本身也是一个 ETERM，指向这个结构的头部。这个数据结构本身不包含长度信息，所以获取 list 元素的数量也需要遍历。
 
-在其他没有 atom 的语言里，你可能用过 constant 之类的东西，一个常量需要对应一个数字值或者其他类型的值。
+List Comprehensions 列表推断表达式是对列表元素进行运算并返回新列表的一种方式，`||` 符号就表达一个列表推断表达式，其左侧为新列表元素，其右侧是一组 Guard 表达式。注意 `<-` 符号从右侧的列表中产生一个表达式，即左侧为生成的表达式，后续逗号分隔的是一个 Guard Expression，它需要返回 true 时，整个 Guard Sequence 表达式才成立。生成表达式可以单独作为新列表的元素值，也可以进行排列组合运算。
 
-在 Erlang 里 atom 真是抬头不见低头见，可以通过 atom 来表示各种意义的常量。在其他语言，例如 C/C++ 中使用 #define 宏定义，enum 枚举，或者用 const 常量等方法实现类似的功能。
+```erlang
+> [X || X <- [1,2,a,3,4,b,5,6], X > 3].
+[a,4,b,5,6]
 
-但是，使用这些方法的时候，总会觉得不是太舒服，比如使用 #define 宏定义和 const 常量，除了本来就头痛的给宏或常量命名之外，还要真正填上一个值，为了让这些值不冲突，又是一件头痛的事情了。如果用字符串吧，那么每次匹配的时候还要做低效的字符串操作。
+> [X || X <- [1,2,a,3,4,b,5,6], is_integer(X), X > 3].
+[4,5,6]
 
-比如：
+> [{X, Y} || X <- [1,2,3], Y <- [a,b]].
+[{1,a},{1,b},{2,a},{2,b},{3,a},{3,b}]
+```
 
-	const int red = 1;
-	const int green = 2;
-	const int blue = 3;
+以下是一个利用列表推断产生 Permutations 变化组合的示范：
 
-但多了这个映射，其实用起来不大方便，后面对应的值 1， 2，3 一般只是用来比较，具体是什么值都关系不大。所以有了 atom 就很方便了，我们从字面上就能看出，这个值是干嘛的:
+```erlang
+perms([]) -> [[]];
+perms(L) -> [[H|T] || H <- L, T <- perms(L--[H])].
+> perms([b,u,g]).
+[[b,u,g],[b,g,u],[u,b,g],[u,g,b],[g,b,u],[g,u,b]]
+```
 
-	1> red.
-	red
+根据排列组合的规则，推断式中两个列表中的元素会依次被枚举处理，而其中后一个列表就是前一个列表中移除当前枚举元素的余下部分，利用这一点，就可以产生列表所有元素的不同变化组合。
 
-atom 类型支持的写法：
+示范使用列表推断进行类似 QuickSort 排序的算法操作：
 
-	1> atom.
-	atom
-	2> atoms_rule.
-	atoms_rule
-	3> atoms_rule@erlang.
-	atoms_rule@erlang
-	4> 'Atoms can be cheated!'.
-	'Atoms can be cheated!'
-	5> atom = 'atom'.
-	atom
+```erlang
+sort([]) -> [];
+sort([Pivot|List]) ->
+    sort([X || X <- List, X < Pivot]) 
+    ++ [Pivot] ++ 
+    sort([X || X <- List, X >= Pivot]).
+```
 
-包含空格等特殊字符的 atom 需要用单引号括起来。 Erlang 里变量的命名必须首字母大写，小写起头是 atom 原子类型。
+在需要考虑性能的场合不能使用列表 ++ 列表这种低效率的运算，因为将列表后缀到另一个列表需要枚举所有元素。
 
-需要注意的是：在一个 erlang vm 里，可创建的 atom 的数量是有限制的，默认是 1,048,576，因为 erlang 虚拟机创建 atom 表也是需要内存的。一旦创建了某个 atom，它就一直存在那里了，不会被垃圾回收。不要在代码里动态的做 string -> atom 的类型转换，这样最终会使你的 erlang atom 爆表。比如在你的接口逻辑处理的部分做 to atom 的转换的话，别人只需要用不一样的参数不停地调用你的接口，就可以攻击你。
-
-
-## Guards 保护序列
-
-在函数定义中，可以使用 when 加入保持序列。
-
-假设，learn-you-some-erlang 的作者那边 16 岁才能"开车" (笑). 那我们写个函数判断一下，某个人能不能开车？
-
-	old_enough(0) -> false;
-	old_enough(1) -> false;
-	old_enough(2) -> false;
-	...
-	old_enough(14) -> false;
-	old_enough(15) -> false;
-	old_enough(_) -> true.
-
-上面这个又点太繁琐了，所以我们得另想办法：
-
-	old_enough(X) when X >= 16 -> true;
-	old_enough(_) -> false.
-
-然后作者又说了，超过 104 岁的人，禁止开车：
-
-	right_age(X) when X >= 16, X =< 104 ->
-	   true;
-	right_age(_) ->
-	   false.
-
-注意 when 语句里，`,` 逗号表示 and, `;` 分号表示 or, 如果你想用短路运算符的话，用 andalso 和 orelse, 这么写：
-
-	right_age(X) when X >= 16 andalso X =< 104 -> true;
+QuickSort 快速排序算法的核心思想是分而治之：把数组列表根据参考值 Pivot 分两段，左侧小右侧在，再对左右两边执行同样的递归操作。
 
 
-## Records 记录体
+以下是官方文档中两个列表示范例子：
+https://www.erlang.org/doc/getting_started/seq_prog
+
+```erlang
+-module(tut4).
+
+-export([list_length/1]).
+
+list_length([]) ->
+    0;    
+list_length([First | Rest]) ->
+    1 + list_length(Rest).
+```
+
+```erlang
+-module(tut8).
+
+-export([reverse/1]).
+
+reverse(List) ->
+    reverse(List, []).
+
+reverse([Head | Rest], Reversed_List) ->
+    reverse(Rest, [Head | Reversed_List]);
+reverse([], Reversed_List) ->
+    Reversed_List.
+```
+
+因为是 pattern matching 编程模式，包括函数参数的传递也是，比如对一个列表进行反转操作，reverse([1,2,3])，首先调用的是 reverse/1 函数，它再调用 reverse/2，最后递归调用直接列表中 Rest 所代表的列表后尾不同有更多元素时，才调用最后一个 reverse/2 方法，也即是 Rest 与空列表 [] 相匹配的最后形式。注意：reverse/2 两种形式对应了两种匹配模式规则，两者之间使用 ; 号间隔开，与常规使用 . 点分隔的 reverse/1 之间的差别在于：句点表示一个完整的函数定义，分号表示函数参数列表的模式匹配规则分隔。
+
+
+### 🐣 Records 记录体
 - http://erlang.org/doc/reference_manual/records.html
 - http://erlang.org/doc/programming_examples/records.html
 - https://www.cnblogs.com/me-sa/archive/2011/12/31/erlang0027.html
@@ -2003,6 +2075,7 @@ Erlang 的 record 类型可以提个名字访问：
 
 编译测试：
 
+```erlang
 	$ erl
 	Eshell V8.3  (abort with ^G)
 	1> c(records).
@@ -2019,19 +2092,21 @@ Erlang 的 record 类型可以提个名字访问：
 	7> records:get_user_name({user, <<"Shawn">>, <<"18253232321">>}).
 	<<"Shawn">>
 
-	9> Shawn#user.name.
+	8> Shawn#user.name.
 	<<"Shawn">>
-	10> #user.name.
+	9> #user.name.
 	2
+```
 
 程序解释：
 
-- 其实 `#user{}` 相当 `{user, name, phone}`，是第一个元素为 user 的 tagged tuple。
+- 使用 # 运算符创建记录体实例。
+- `#user{}` 相当默认值 `{user, name, phone}`，是第一个元素为 user 的 tagged tuple。
 - `#user.name` 是这个 tuple 里 name 字段的位置号 2。
 - Record 字段的位置 Index 等都是约定从 1 开始的。
 - Shawn#user.name 的意思是取 Shawn 里的第 2 个元素。
 
-记录体在 Erlang 内部其实就是 tuple 元组的形式保存的，这会在编译过程中将记录体转换为元组，如下：
+记录体在 Erlang 内部表达就是 tuple 元组的形式，这会在编译过程中将记录体转换为元组，如下：
 
 	-record(Name, {Field1,...,FieldN}).
 
@@ -2130,319 +2205,1052 @@ Erlang/OTP R14 支持记录体嵌套 Nested Records 的访问或更新省略圆�
 	N0n = N2#nrec2.nrec1#nrec1.nrec0#nrec0{name = "nested0a"},
 
 
-## Recursive 递归
-- http://www.jishuchi.com/read/erlang-lang/2500
-- https://erlang.org/doc/efficiency_guide/myths.html
+## 🍀 Operators 四类操作符
 
-递归是 Erlang 的重要组成部分。
+Arithmetic operators
 
-以下实现阶乘程序来了解简单的递归。
+| Operator	| Description	| Example |
+| :--------	| :--------	| :--------	|
+| +	| 两数相加	| 1 + 2 = 3 |
+| −	| 两数相减	| 1 - 2 = -1 |
+| *	| 两数相乘	| 2 * 2 = 4 |
+| /	| 两数相除	| 2 / 2 = 1 |
+| rem	| 求余	| 3 rem 2 = 1 |
+| div	| 整除	| 3 div 2 will give 1 |
 
-	-module(helloworld). 
-	-export([fac/1,start/0]). 
+Relational operators
 
-	fac(N) when N == 0 -> 1; 
-	fac(N) when N > 0 -> N*fac(N-1). 
-	
-	start() -> 
-	   X = fac(4), 
-	   io:fwrite("~w",[X]).
+| Operator	| Description	| Example |
+| :--------	| :--------	| :--------	|
+| ==	| 判断是否相等	| 2 = 2 = true |
+| /=	| 判断是否不等	| 3 /= 2 = true |
+| <		| 左侧是否小于右侧	| 2 < 3 = true |
+| >		| 左侧是否大于右侧	| 3 > 2 = true |
+| =<	| 左侧是否小于或等于右侧	| 2 =<3 = true |
+| >=	| 左侧是否大于或等于右侧	| 3 >= 2 = true |
 
-以递归一个更有效的方法可以用于确定一个列表的长度，现在来看看一个简单的例子。列表中有多个值，如[1,2,3,4]。
+Logical operators
 
-让我们用递归的方法来看看如何能够得到一个列表的长度。
+| or	| 逻辑或运算	| true or true = true |
+| and	| 逻辑与运算	| True and false = false |
+| not	| 逻辑非运算	| not false = true |
+| xor	| 逻辑异或	| True xor false = true |
 
-	-module(helloworld). 
-	-export([len/1,start/0]). 
+Bitwise operators 比特位运算符号有四个，在逻辑运算符前缀 b 就是对应的位运算。另外还有两个移位操作：
 
-	len([]) -> 0; 
-	len([_|T]) -> 1 + len(T). 
-	
-	start() -> 
-	   X = [1,2,3,4], 
-	   Y = len(X), 
-	   io:fwrite("~w",[Y]).
+- bsl (Bit Shift Left)
+- bsr (Bit Shift Right)
 
-上述程序关键点：
-
-- 第一个函数 `len([])` 用于特殊情况的条件：如果列表为空。
-- `[H|T]` 模式来匹配一个或多个元素的列表，如长度为 1 的列表可以定义为 `[X|[]]`，而长度为 2 的列表可以定义为 `[X|[Y|[]]]` 。
-
-注意，第二元素是列表本身。这意味着我们只需要计数第一个，函数可以调用它本身在第二元素上。在列表给定每个值的长度计数为 1 。
-
-Tail-Recursive 比 Recursive 更快！
-
-有个比喻可以帮你理解`尾递归` Tail-Recursive 与`递归` Recursive 的区别：
-
-假设玩一个游戏，你需要去收集散落了一路，并通向远方的硬币。
-
-于是你一个一个的捡，一边捡一边往前走，但是你必须往地上撒些纸条做记号，因为不做记号你就忘了回来的路。于是你一路走，一路捡，一路撒纸条。等你捡到最后一个硬币时，你开始沿着记号回来了，一路走，一路捡纸条(保护环境)。等回到出发点时，你把硬币装你包里，把纸条扔进垃圾桶。
-这就是非尾递归，纸条就是你的调用栈，是内存记录。
-
-下次再玩这个游戏时，你学聪明了，你直接背着包过去了，一路走，一路捡，一路往包里塞。等到了终点时，最后一个硬币进包了，任务完成了，你不回来了！这就是尾递归，省去了调用栈的消耗。
-
-
-## Processes 进程
-
-现代主机可以按 CPU 的结构划分成以下三类：
-
-- SMP - Symmetrical Multi-Processing 对称多处理技术，同一主机上各 CPU 之间共享内存子系统以及总线结构。
-- MPP - Massive Parallel Processing 大规模并行处理系统由多个 SMP 服务器通过一定的节点互联网络进行连接，协同工作，完成相同的任务，从用户的角度来看是一个服务器系统。
-- NUMA - Non-Uniform Memory Access 架构每个处理器拥有自己的内存，访问共享内存时具有不同的访问延迟。
-
-SMP Emulator 在 R11B 版本引入，目的是利用现有的多核心 CPU 的能力，并行使用多个 Erlang 调试器线程 scheduler，数量同核心数，每个调度器和 non-SMP 的调度器表现一样。但仍然要注意超锁，locking overhead，尽管 Erlang 尽量减少此情况的发生。
-
-在没有 HiPE 的 non-SMP emulator 分裂一个 Erlang 进程使用 309 机器字内存。SMP 或 HiPE 支持各增加 309 机器字内存。 
-
-	Erlang (BEAM) emulator version 5.6 [async-threads:0] [kernel-poll:false]
-
-	Eshell V5.6  (abort with ^G)
-	1> Fun = fun() -> receive after infinity -> ok end end.
-	#Fun<...>
-	2> {_,Bytes} = process_info(spawn(Fun), memory).
-	{memory,1232}
-	3> Bytes div erlang:system_info(wordsize).
-	309
-
-这个内存包含了 233 机器字作为堆内存 heap，堆内存则包含栈内存 stack，回收器 garbage collector 会增加堆内存，如果有需要。
-
-主进程消息循环一定要以 Tail-Recursive 实现，否则堆栈无限增长最终会杀掉进程，下面两种实现中，前面一例的 io:format 语句就永远不会执行，但每次递归的返回地址总是压栈。
-
-	loop() -> 
-	  receive
-		 {sys, Msg} ->
-			 handle_sys_msg(Msg),
-			 loop();
-		 {From, Msg} ->
-			  Reply = handle_msg(Msg),
-			  From ! Reply,
-			  loop()
-	  end,
-	  io:format("Message is processed~n", []).
-
-正确的消息循环实现：
-
-	   loop() -> 
-		  receive
-			 {sys, Msg} ->
-				handle_sys_msg(Msg),
-				loop();
-			 {From, Msg} ->
-				Reply = handle_msg(Msg),
-				From ! Reply,
-				loop()
-		end.
-
-对于支持百万进程级别的 Erlang 来说，默认的初始堆内存 233 机器字是个保守值，GC 会按需要增加或回收。对于进程量少的系统，使用 `+h` 选项，或在 `spawn_opt/4` 函数的 min_heap_size 选项指定一个大内存，减少 GC 操作可以增加性能。
-
-在大量进程的系统中，设置合适的初始堆内存，也许进程完成任务刚好够用，GC 根本都不用做清理。
-
-进程管理中，所有消息都是拷贝传递到另一个进程的，除了引用二进制类型 refc binaries。消息发送时，先会编码成 Erlang External Format，再通过 TCP/IP 传输。接收节点再进行解码，并发往目标进程。
-
-在常量池 Constant Pool 保存的是 Erlang 的字面量类型，每个加载的模块都自有常量池。如下，这个函数不会在每次调用时都构造元组，因为它在常量池保存的，只有在 GC 运行丢弃后才会。
-
-	days_in_month(M) ->
-		element(M, {31,28,31,30,31,30,31,31,30,31,30,31}).
-
-但是，常量在发往其它进程，或保存到 Ets 数据表中时，是复制的。因为，运行时系统要追踪所以正确卸载包含常量的代码，并将常量拷贝到目标进程的堆内存中，此常量拷贝流程可能在将来的版本中清除掉。
-
-以下几种情况中，共享类型 Shared subterms 不受保护：
-
-- 当一个 term 改善到其它进程；
-- 当一个 term 作为参数传入 spawn 函数；
-- 当一个 term 保存到 Ets 数据表中；
-
-这是优化行为，大多数程序并不发送带 shared subterms 的消息。
-
-以下例子演示如何创建共享子类 shared subterm：
-
-	kilo_byte() ->
-		kilo_byte(10, [42]).
-
-	kilo_byte(0, Acc) ->
-		Acc;
-	kilo_byte(N, Acc) ->
-		kilo_byte(N-1, [Acc|Acc]).
-
-`kilo_byte/1` 使用递归创建一个深度嵌套列表，如果 `list_to_binary/1` 函数将结果转换为 binary，结果为 1024 字节：
-
-	1> byte_size(list_to_binary(efficiency_guide:kilo_byte())).
-	1024
-
-使用 `erts_debug:size/1` BIF 可以看到这个列表只需要 22 机器字的头部堆内存空间：
-
-	2> erts_debug:size(efficiency_guide:kilo_byte()).
-	22
-
-使用 `erts_debug:flat_size/1` BIF 可以看到忽略共享时占用的内存，这个大小就是它发送到其它进程或保存到 Ets 数据表中的大小：
-
-	3> erts_debug:flat_size(efficiency_guide:kilo_byte()).
-	4094
-
-下面将列表保存到 Ets 数据表中，可以验证共享丢失：
-
-	4> T = ets:new(tab, []).
-	#Ref<0.1662103692.2407923716.214181>
-	5> ets:insert(T, {key,efficiency_guide:kilo_byte()}).
-	true
-	6> erts_debug:size(element(2, hd(ets:lookup(T, key)))).
-	4094
-	7> erts_debug:flat_size(element(2, hd(ets:lookup(T, key)))).
-	4094
-
-
-使用 `ernlang:register/2` 函数可以将一个进程 Pid 与一个进程名称关联在一起，这样就可以直接通过模块名称给进程发消息。
-
-	start() ->
-	register(?MODULE, Pid=spawn(?MODULE, init, [])),
-	Pid.
-	 
-	start_link() ->
-	register(?MODULE, Pid=spawn_link(?MODULE, init, [])),
-	Pid.
-	 
-	terminate() ->
-	?MODULE ! shutdown.
-
-
-
-## Loops 循环控制
-
-Erlang 中没有可直接使用的循环控制语句，须使用递归技术在 Erlang 中来实现 while/for 等语句。
+注意，以下数值是十六进制，如下：
 
 	-module(helloworld). 
-	-export([while/1,while/2, start/0]). 
-
-	while(L) -> while(L,0). 
-	while([], Acc) -> Acc;
-
-	while([_|T], Acc) ->
-	   io:fwrite("~w~n",[Acc]), 
-	   while(T,Acc+1). 
-	   
-	   start() -> 
-	   X = [1,2,3,4], 
-	   while(X).
-
-此循环程序定义了递归函数模拟 while 循环，在主函数输入一个数值列表，列表绑定到变量 X 中。在 while 函数中，利用中间变量 Acc 保存从列表取出的值，然后递归调用 while 函数。
-
-	-module(helloworld). 
-	-export([for/2,start/0]). 
-	
-	for(0,_) -> 
-	   []; 
-	   for(N,Term) when N > 0 -> 
-	   io:fwrite("Hello~n"), 
-	   [Term|for(N-1,Term)]. 
-	   
-	start() -> 
-	   for(5,1).
-
-上述程序实现 for 循环的关键点：
-
-- 定义一个递归函数来实例和执行 for 循环；
-- 使用 for 函数以确保 N 或限制的值是正值；
-- 递归地调用 for 函数，通过在每一次递归后减少 N 的值。
-
-
-## Module 模块定义
-- [Erlang Module](https://erlang.org/doc/reference_manual/modules.html)
-- [Record & Macros](http://erlang.org/doc/getting_started/record_macros.html)
-- [Learn You some Erlang for Great Good!](https://learnyousomeerlang.com/modules)
-
-模块是在一个文件重新组合的函数集合，在 Erlang 所有函数必须在模块定义。模块的名称必须在模块代码的第一行，并且和文件名一致。
-
-大部分像算术，逻辑和布尔操作符的基本函数已经 Erlang 内部集成提供并且可以直接调用，因为在运行程序时的默认模块被加载。一个模块中使用定义的所有其他函数需要使用形式 Module:Function (参数) 来调用。
-
-下面的程序显示了一个叫 helloworld 模块的一个例子。
-
-	-module(helloworld). 
-	-author("TutorialPoint"). 
-	-version("1.0"). 
 	-export([start/0]). 
-	-import(io,[fwrite/1]). 
 
 	start() -> 
-	   io:fwrite("Hello World").
+	   io:fwrite("~w~n",[00111100 band 00001101]), 
+	   io:fwrite("~w~n",[00111100 bxor 00111100]), 
+	   io:fwrite("~w~n",[bnot 00111100]), 
+	   io:fwrite("~w~n",[00111100 bor 00111100]).
 
-模块定义了 author、 version 两个标签属性，可以按 `-Tag(Value)` 格式定义。
+Output
 
-编译指令 
-
-- `-export([start/0])` 是说，其他模块可以在源码级调用本模块的函数 start。
-- `-compile(export_all,nowarn_export_all)` 本模块编译成 .beam 后，全部函数均开放调用。
-
-这里只导出一个 start 函数，参数个数为 0 个。导入语句类似，它指定导入的模块和函数列表。所以，现在每当调用 fwrite 函数，不必每次都要带上模块的名称。
-
-导入模块和函数 `-import(io,[fwrite/1]).` 格式类似导出，它需要指定导入的模块。Erlang 没有全部导入的方式，但是可以在运行 erl -pa .\ebin 指定编译后的程序目录，这样 Erlang 会自动查找引用到的函数。
-
-
-然后你用 erlc 编译
-
-	mkdir -p ./ebin
-	erlc -o ebin helloworld.erl
-
-或者在 Erlang shell 中编译：
-
-	1> cd("/path/to/where/you/saved/the-module/").
-	"Path Name to the directory you are in"
-	ok
-	2> c(helloworld).
-	{ok,helloworld}
+	76
+	0
+	-111101
+	111100
 
 
-编译后的 beam 文件会在 ebin 目录下，然后你启动 erlang shell：
+## 🍀 Function 函数
+- https://math.fandom.com/wiki/Arity
+- https://www.erlang.org/doc/reference_manual/functions
+- https://www.erlang.org/doc/reference_manual/expressions#funs
+- https://www.erlang.org/doc/getting_started/seq_prog#modules-and-functions
+- [Funs Programming Example](https://erlang.org/doc/programming_examples/funs.html)
+- [Function Call](https://erlang.org/doc/reference_manual/expressions.html#function-calls)
 
-	$ erl -pa ./ebin
+Erlang 函数的一般表达形式是 M:F/A，即 `Module:FunctionName/Arity`，其中 Arity 意思为元素，是逻辑、数学术语，表示函数参数的数量。比如一个 Nullary 形式的函数没有参数，Unary 形式的函数有一个参数，n-ary function 就有 n 个参数，等等。
 
-	Eshell V8.3  (abort with ^G)
-	1> helloworld:start().
-	3
-	2> helloworld:start().
-	4
+01. Nullary means 0-ary.
+02. Unary means 1-ary.
+03. Binary means 2-ary.
+04. Ternary means 3-ary.
+05. Quaternary means 4-ary.
+06. Quinary means 5-ary.
+07. Senary means 6-ary.
+08. Septenary means 7-ary.
+09. Octary means 8-ary.
+10. Nonary means 9-ary.
+11. Polyadic, multary and multiary mean any number of operands (or parameters).
+12. n-ary means n operands (or parameters), but is often used as a synonym of "polyadic".
 
-erl -pa 参数的意思是 Path Add, 添加 beam 文件目录到 erlang 以自动查找编译好的程序。就是说，你运行 helloworld:start(). 的时候，Erlang 发现 module 'helloworld' 没加载，就在那些查找目录里找 helloworld.beam，然后加载进来。
+函数定义的一般写法如下，使用分号分隔函数不同参数列表模式匹配的形式，使用句点作为函数定义的结束：
 
-在 Erlang shell 中通过 m() 查询当前加载的模块列表，使用 m(shell_default) 或 module_info() 查询 shell 默认模块的信息。
+	Name(Pattern11,...,Pattern1N) [when GuardSeq1] ->
+	    Body1;
+	...;
+	Name(PatternK1,...,PatternKN) [when GuardSeqK] ->
+	    BodyK.
 
-在模块中，可以使用内置宏 `?MODULE` 来引用模块名，或 `?MODULE_STRING` 当前模块名的字符串值，参考预处理 Preprocessor。
+匿名函数即 Fun Expression，示范：
 
+	F = fun (Arg1, Arg2, ... ArgN) ->
+			...
+		end
 
+函数表达式一般形式如下：
+https://www.erlang.org/doc/reference_manual/expressions#funs
 
-## send & receive 接收消息
-- [Learn you some erlang - More On Multiprocessing](https://learnyousomeerlang.com/more-on-multiprocessing)
-- [Send & Receive](https://erlang.org/doc/reference_manual/expressions.html#send)
-
-
-Erlang 一出生就是奔着并发编程来的，所以它与传统 C、C++、Java、C#，或者 JavaScript、Python、PHP、Lua 等脚本语言有很大的区别，而消息处理机制的逻辑是 Erlang 独有的。
-
-接收消息的语法格式：
-
-	receive
-		Pattern1 [when Guard1] -> Expression1;
-		Pattern2 [when Guard2] -> Expression2;
-		...
-		PatternN [when GuardN] -> ExpressionN
-		after Interval -> Expression0
+	fun
+	    [Name](Pattern11,...,Pattern1N) [when GuardSeq1] ->
+	              Body1;
+	    ...;
+	    [Name](PatternK1,...,PatternKN) [when GuardSeqK] ->
+	              BodyK
 	end
 
-receive 语句使用模式匹配 pattern matching 来从自己进程的消息队列中读取消息，匹配中的消息就进入相应的分支进行处理。
+匿名函数，没有与任何名称相关联：
+
+```erlang
+	-module(helloworld). 
+	-export([start/0]). 
+
+	start() -> 
+	   Fn = fun() -> 
+	       io:fwrite("Anonymous Function") end, 
+	   Fn().
+```
+
+匿名函数定义要点：
+
+- 匿名函数使用 fun() 形式定义
+- 该函数被分配给一个名为 Fn 的变量
+- 该函数是通过变量名称来调用的
+
+Erlang 的世界观认为，有输入就一定有输出，Erlang 是面向数据和消息，没有 return 这样的流程控制语句，尽管可以使用 throw/1 来提供结束函数，只是大多喜欢 try catch 验证条件。
+
+
+示例，tut1.erl 文件定义了 tut1 模块，其中定义一个阶乘函数，比如 factorial 4 等于 4 * 3 * 2 * 1，结果是 24：
+
+```erlang
+-module(tut1).
+-export([fac/1]).
+
+fac(1) ->
+    1;
+fac(N) ->
+    N * fac(N - 1).
+```
+
+因为是 pattern matching 编程模式，包括函数参数的传递也是。注意：fac/1 两种形式对应了两种匹配模式规则，两者之间使用 ; 号间隔开，每段函数定义即是 function_clause。与常规使用 . 点分隔的函数之间的差别在于：句点表示一个完整的函数定义，分号表示函数参数列表的模式匹配规则分隔。
+
+
+函数可以使用保护序列来防止输入无效参数，TypeScript 就有类似的 Type Guards 类型守卫，语法如下：
+
+	FunctionName(Pattern1… PatternN) [when GuardSeq1]->
+	Body;
+
+示例，如果 add 函数被调用为 add(3)，该程序将会出现错误：
+
+	-module(helloworld). 
+	-export([add/1,start/0]). 
+
+	add(X) when X>3 -> 
+	   io:fwrite("~w~n",[X]). 
+
+	start() -> 
+	   add(4).
+
+
+Erlang 里面函数是用 `函数名/参数个数` 来表示的，如果两个函数的函数名与参数个数都一样，他们就是一个函数的两个分支，必须写在一起，分支之间用分号分割，对参数列表应用模式匹配规则进行分支选择。
+
+如下，clauses.erl 模块定义一个函数的多个分支 clause 就要用 `;` 分割：
+
+```erlang
+	-module(clauses).
+	-export([add/2]).
+
+	%% goes into this clause when both A and B are numbers
+	add(A, B) when is_number(A), is_number(B) ->
+	  A + B;
+	%% goes this clause when both A and B are lists
+	add(A, B) when is_list(A), is_list(B) ->
+	  A ++ B.
+	%% crashes when no above clauses matched.
+```
+
+上面代码里，定义了一个函数：add/2. 这个函数有两个 clause 分支，一个是计算数字相加的，一个是计算字符串相加的。
+
+代码里 when 是一个 Guard 关键字，匹配模式 Pattern Matching 和保护序列 Guard 后面讲解。
+
+运行 add/2 时会从上往下挨个匹配：
+
+	$ erl -pa ebin/
+	Eshell V8.3  (abort with ^G)
+	1> clauses:add("ABC", "DEF").
+	"ABCDEF"
+	2> clauses:add(1, 2).
+	3
+	3> clauses:add(1, 2.4).
+	3.4
+	4> clauses:add(1, "no").
+	** exception error: no function clause matching clauses:add(1,"no") (clauses.erl, line 4)
+
+第一个 clauses:add 匹配的是定义中的第二个从句，由于类型守卫确实。最后一个 clauses:add 都没匹配上，崩溃了。
+
+函数可以像其它变量一样传递给函数使用，基本语法是 `fun funtionName/Arity`，也可以使用带有模块名称的全称，这种形式就需要将函数导出，因为属性外部调用形式。以下示范代码演示如何抽像一个日志数据输出设备接口，通过不同的设备函数实现数据写入到不同的设备中：
+
+```erlang
+-module(funpass).
+-export([start/0,floppy/1, hardDisk/1, compactDisck/1]).
+
+start() ->
+    log("bad apple", fun ?MODULE:floppy/1),
+    log("green apple", fun ?MODULE:hardDisk/1),
+    log("sweet apple", fun ?MODULE:compactDisck/1).
+
+log(Data,Device) ->
+    Device(Data).
+
+floppy(Data) ->
+    io:format("Write to Floppy: ~p~n", [Data]).
+hardDisk(Data) ->
+    io:format("Write to HardDisk: ~p~n", [Data]).
+compactDisck(Data) ->
+    io:format("Write to CompactDisck: ~p~n", [Data]).
+```
+
+
+函数尾递归 Tail recursion 是一种节省资源提升函数运行效率的优化手段。将递归调用放置到函数最末端，这样就不需要当前函数栈的资源。优化后，就不需要为尝试递归调用分配巨量的资源。
+
+```erlang
+loop(N) ->
+    io:format("~w~n", [N]),
+    loop(N+1).
+```
+
+正是基于 Tail recursiion，Erlang 没有提供循环语句，通过尾递归函数即可以模拟循环，即使不停地运行也不会将栈空间耗尽，同时还能达到和 while 循环一样高效。
+
+
+函数式编程中还有一个常用概念：高阶函数 High Order Component，接受 fun 作为参数并按原样返回 fun 的函数都称为高阶函数。可以将 HoC 理解为一个函数包装工具，它本身也是函数。
+
+
+Efficiency guide 指导手册中按效率罗列出不同的函数调用形式，注意大写开头表的是变量：
+https://www.erlang.org/doc/efficiency_guide/functions.html
+
+This is a rough hierarchy of the performance of the different types of function calls:
+
+1. Calls to local or external functions (`foo()`, `m:foo()`) are the fastest calls.
+2. Calling or applying a fun (`Fun()`, `apply(Fun, [])`) is just a little slower than external calls.
+3. Applying an exported function (`Mod:Name()`, `apply(Mod, Name, [])`) where the number of arguments is known at compile time is next.
+4. Applying an exported function (`apply(Mod, Name, Args)`) where the number of arguments is not known at compile time is the least efficient.
+
+
+## 🍀 Type specifications 类型规范指示
+https://www.erlang.org/doc/reference_manual/typespec.html
+https://www.erlang.org/doc/reference_manual/opaques
+
+Erlang 是一次性赋值（single-assignment variable）的动态类型的函数式编程语言。动态类型语言的数据类型不会在编译阶段决定，而是在运行时做变量的类型绑定。并且在运行时可以改变类型结构，例如新的函数、对象、甚至代码可以被引进，已有的函数可以被删除或是其他结构上的变化。
+
+为了提升编码时的类型辅助信息，Erlang 引入了类型规范指示以实现以下目标：
+
+1. To document function interfaces
+2. To provide more information for bug detection tools, such as Dialyzer
+3. To be exploited by documentation tools, such as EDoc, for generating program documentation of various forms
+4. To replaces the purely comment-based @type and @spec declarations used by EDoc.
+
+Given the function sum/2 which computes the sum of two numbers:
+
+```erlang
+-spec sum(number(), number()) -> number().
+sum(A, B) ->
+  A + B.
+```
+
+类型规范描述一组 Erlang terms，类型包含一组预定义类型，以及从中构造新类型。比如预定义类型 integer(), atom(), 和 pid() 等等，预定义类型表示属于此 Erlang terms 集合类型的典型的无限集，比如 atom() 表示 Erlang 中所有的 atoms 类型。
+
+对于 integers 或者 atoms，可以是 singleton 类型（单态类型），比如 -1 或者 42 这样的单态类型，又或者是 'foo' 与 'bar' 这样的单态 atoms 类型。其它类型都使用类型联合构建。在一个类型与其子类型之间的类型并集中，该子类型被超类型吸收。因此，不将并集类型视为并集的子类型。例如，以下两个类型并集等价：
+
+	atom() | 'bar' | integer() | 42
+
+	atom() | integer()
+
+由于类型之间存在子类型关系，因此类型会形成交错结构，但其中最顶层的类型元素为 `any()` 表示所有 Erlang terms 的集合，而底层类型元素为 `none()` 表示空项的 terms 集合，除了 `dynamic()` 类型以外。
+
+其中 `dynamic()` 这种类型是为了方便 Erlang 逐步类型化引入的，类似 Python 中的 Any 类型，也类似于 TypeScript 中的 any 类型，以及 Hack 中的 dynamic 类型。`any()` 和 `dynamic()` 的交互方式相同，静态类型分析工具 Dialyzer 并不会区别对象，这个工具会将分析结果写入 Persistent Lookup Table (PLT)。
+https://www.erlang.org/doc/apps/dialyzer/dialyzer_chapter.html
+
+To facilitate gradual typing of Erlang, the type `dynamic()` is provided. It is similar to Any in Python, any in TypeScript and dynamic in Hack. `any()` and `dynamic()` interact with success typing the same way, so Dialyzer doesn't distinguish between them.
+
+预定义类型的集合和类型的语法如下：
+
+```erlang
+  Type :: any()                 %% The top type, the set of all Erlang terms
+        | none()                %% The bottom type, contains no terms
+        | dynamic()
+        | pid()
+        | port()
+        | reference()
+        | []                    %% nil
+        | Atom
+        | Bitstring
+        | float()
+        | Fun
+        | Integer
+        | List
+        | Map
+        | Tuple
+        | Union
+        | UserDefined           %% described in Type Declarations of User-Defined Types
+
+  Atom :: atom()
+        | Erlang_Atom           %% 'foo', 'bar', ...
+
+  Bitstring :: <<>>
+             | <<_:M>>          %% M is an Integer_Value that evaluates to a positive integer
+             | <<_:_*N>>        %% N is an Integer_Value that evaluates to a positive integer
+             | <<_:M, _:_*N>>
+
+  Fun :: fun()                  %% any function
+       | fun((...) -> Type)     %% any arity, returning Type
+       | fun(() -> Type)
+       | fun((TList) -> Type)
+
+  Integer :: integer()
+           | Integer_Value
+           | Integer_Value..Integer_Value      %% specifies an integer range
+
+  Integer_Value :: Erlang_Integer              %% ..., -1, 0, 1, ... 42 ...
+                 | Erlang_Character            %% $a, $b ...
+                 | Integer_Value BinaryOp Integer_Value
+                 | UnaryOp Integer_Value
+
+  BinaryOp :: '*' | 'div' | 'rem' | 'band' | '+' | '-' | 'bor' | 'bxor' | 'bsl' | 'bsr'
+
+  UnaryOp :: '+' | '-' | 'bnot'
+
+  List :: list(Type)                           %% Proper list ([]-terminated)
+        | maybe_improper_list(Type1, Type2)    %% Type1=contents, Type2=termination
+        | nonempty_improper_list(Type1, Type2) %% Type1 and Type2 as above
+        | nonempty_list(Type)                  %% Proper non-empty list
+
+  Map :: #{}                                   %% denotes the empty map
+       | #{AssociationList}
+
+  Tuple :: tuple()                             %% denotes a tuple of any size
+         | {}
+         | {TList}
+
+  AssociationList :: Association
+                   | Association, AssociationList
+
+  Association :: Type := Type                  %% denotes a mandatory association
+               | Type => Type                  %% denotes an optional association
+
+  TList :: Type
+         | Type, TList
+
+  Union :: Type1 | Type2
+```
+
+为了便利，提供了以下内置类型定义：
+
+	| Built-in type	| Defined as
+	| --------- | --------- |
+	| term()			| any()
+	| binary()			| <<_:_*8>>
+	| nonempty_binary()	| <<_:8, _:_*8>>
+	| bitstring()		| <<_:_*1>>
+	| nonempty_bitstring()	| <<_:1, _:_*1>>
+	| boolean()			| 'false' | 'true'
+	| byte()			| 0..255
+	| char()			| 0..16#10ffff
+	| nil()			| []
+	| number()			| integer() | float()
+	| list()			| [any()]
+	| maybe_improper_list()	| maybe_improper_list(any(), any())
+	| nonempty_list()	| nonempty_list(any())
+	| string()			| [char()]
+	| nonempty_string()	| [char(),...]
+	| iodata()			| iolist() | binary()
+	| iolist()			| maybe_improper_list(byte() | binary() | iolist(), binary() | [])
+	| map()			| #{any() => any()}
+	| function()		| fun()
+	| module()			| atom()
+	| mfa()			| {module(),atom(),arity()}
+	| arity()			| 0..255
+	| identifier()		| pid() | port() | reference()
+	| node()			| atom()
+	| timeout()			| 'infinity' | non_neg_integer()
+	| no_return()		| none()
+
+Table 7.1:   Built-in types, predefined aliases
+
+In addition, the following three built-in types exist and can be thought as defined below, though strictly their "type definition" is not valid syntax according to the type language defined above.
+
+| Built-in type		| Can be thought defined by the syntax
+| ------------ | ------------ |
+| non_neg_integer()		| 0..
+| pos_integer()			| 1..
+| neg_integer()			| ..-1
+
+Table 7.2:   Additional built-in types
+
+对于一些极少乃至的类型，还可以使用非常长的名称：
+
+	nonempty_maybe_improper_list() :: nonempty_maybe_improper_list(any(), any())
+	nonempty_improper_list(Type1, Type2)
+	nonempty_maybe_improper_list(Type1, Type2)
+
+同样为了方便起见，允许使用 Record 符号。对于相应的元组类型，Record 更简略：
+
+    Record :: #Erlang_Atom{} | #Erlang_Atom{Fields}
+
+Records are extended to possibly contain type information. This is described in Type Information in Record Declarations.
+
+Erlang/OTP 26 开始可以覆盖预定义类型，使用 -type 定义和内建类型相同名称的类型。假设新版本引入了一个 gadget() 类型，等价 reerence() 类型，那么使用以下方式重新定义为 Recode 类型：
+
+	-type gadget() :: {'gadget', reference()}.
+
+	-type gadget() :: #{}.
+
+用户定义类型 User-Defined Types，按以下两种方式定义，类型名称是原子跟着圆括号：
+
+    -type my_struct_type() :: Type.
+    -opaque my_opaq_type() :: Type.
+
+其中的 `Type` 即是前面预定义类型语法中定义的 Type，当前的限制是，Type 除了预定义类型外，只能是以下两种形式：
+
+1. Module-local type, that is, with a definition that is present in the code of the module
+2. Remote type, that is, type defined in, and exported by, other modules; more about this soon.
+
+两种形式示范如下，其中 T 为类型的原子名称，A 表示 Arity，即 T 类型的参数：
+
+	-type orddict(Key, Val) :: [{Key, Val}].
+	-export_type([T1/A1, ..., Tk/Ak]).
+	-export_type([my_struct_type/0, orddict/2]).
+
+假设，以上的类型经由 'mod' 模块导出，那么在其它模块中按以下语法引用这些类型：
+
+    mod:my_struct_type()
+    mod:orddict(atom(), term())
+
+
+Erlang 引入类型不透明性的主要目的是隐藏数据类型的实现，避免类型实现从实现模块的外部观察，使得 API 在不断发展同时最大限度地降低破坏类型消费者的风险。运行时不检查类型不透明度。Dialyzer 静态检查工具提供了一些不透明度检查，但其余的都符合惯例。
+
+Record Declarations 语法参考：
+
+    -record(rec, {field1 :: Type1, field2, field3 :: Type3}).
+    -record(rec, {field1 :: Type1, field2 :: any(), field3 :: Type3}).
+    -record(rec, {field1 = [] :: Type1, field2, field3 = 42 :: Type3}).
+
+一旦定义了 Record 类型，就可以按以下方式使用，未指定的字段按定义中的字段类型处理：
+
+    #rec{}
+    #rec{some_field :: Type}
+
+Specifications for Functions 语法参考：
+
+	-spec Function(ArgType1, ..., ArgTypeN) -> ReturnType.
+	-spec Module:Function(ArgType1, ..., ArgTypeN) -> ReturnType.
+	-spec Function(ArgName1 :: Type1, ..., ArgNameN :: TypeN) -> RT.
+
+	-spec id(X) -> X.
+    -spec id(X) -> X when X :: tuple().
+
+	-spec foo(T1, T2) -> T3
+         ; (T4, T5) -> T6.
+
+为了文档生成包含信息更丰富，可以使用模块前缀，或参数名也可以添加。可以为输入参数和输出之间添加类型约束。
+
+对于重载函数类型，当前的一个限制是，会导致 Dialyzer 发出警告：参数类型的域不能重叠。
+
+
+## 🍀 Type Conversions 类型转换
+
+Erlang 核心模块 erlang 提供以下类型转换内置函数，Built-in Functions (BIFs)：
+
+```erlang
+    1> atom_to_list(hello).
+    "hello"
+    2> list_to_atom("hello").
+    hello
+    3> binary_to_list(<<"hello">>).
+    "hello"
+    4> binary_to_list(<<104,101,108,108,111>>).
+    "hello"
+    5> list_to_binary("hello").
+    <<104,101,108,108,111>>
+    6> float_to_list(7.0).
+    "7.00000000000000000000e+00"
+    7> list_to_float("7.000e+00").
+    7.0
+    8> integer_to_list(77).
+    "77"
+    9> list_to_integer("77").
+    77
+    10> tuple_to_list({a,b,c}).
+    [a,b,c]
+    11> list_to_tuple([a,b,c]).
+    {a,b,c}
+    12> term_to_binary({a,b,c}).
+    <<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>
+    13> binary_to_term(<<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>).
+    {a,b,c}
+    14> binary_to_integer(<<"77">>).
+    77
+    15> integer_to_binary(77).
+    <<"77">>
+    16> float_to_binary(7.0).
+    <<"7.00000000000000000000e+00">>
+    17> binary_to_float(<<"7.000e+00">>).
+    7.0
+```
+
+多种数据类型都可以转换成 list，字符串就是列表类型：
+
+	atom_to_list(hello).
+	"hello"
+	binary_to_list(<<"hello">>).
+	"hello"
+	binary_to_list(<<104,101,108,108,111>>).
+	"hello"
+	float_to_list(7.0).
+	"7.00000000000000000000e+00"
+	integer_to_list(77).
+	"77"
+
+	tuple_to_list({a,b,c}).
+	[a,b,c]
+
+Number 转 binary 都转成了字符串
+
+	integer_to_binary(77).
+	<<"77">>
+	float_to_binary(7.0).
+	<<"7.00000000000000000000e+00">>
+	 
+
+其他的转换
+
+	list_to_atom("hello").
+	hello
+	list_to_binary("hello").
+	<<104,101,108,108,111>>
+	list_to_float("7.000e+00").
+	7.0
+	list_to_integer("77").
+	77
+	list_to_tuple([a,b,c]).
+	{a,b,c}
+	term_to_binary({a,b,c}).
+	<<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>
+	binary_to_term(<<131,104,3,100,0,1,97,100,0,1,98,100,0,1,99>>).
+	{a,b,c}
+	binary_to_integer(<<"77">>).
+	77
+	binary_to_float(<<"7.000e+00>>").
+	7.0
+
+类型判断
+
+	is_atom/1           
+	is_binary/1        
+	is_bitstring/1      
+	is_boolean/1        
+	is_builtin/3       
+	is_float/1          
+	is_function/1       is_function/2      
+	is_integer/1        
+	is_list/1           
+	is_number/1        
+	is_pid/1            
+	is_port/1           
+	is_record/2         is_record/3         
+	is_reference/1      
+	is_tuple/1
+
+
+
+## 🍀 Expressions
+https://www.erlang.org/doc/reference_manual/expressions
+
+
+### 🐣 Escape Sequences
+
+转义符号，在字符串或单引号包括的 atoms 原子类型中使用：
+
+| 转义符号	| 意义 |
+| :-----	| :----- |
+| \b	| Backspace |
+| \d	| Delete |
+| \e	| Escape |
+| \f	| Form feed |
+| \n	| Newline |
+| \r	| Carriage return |
+| \s	| Space |
+| \t	| Tab |
+| \v	| Vertical tab |
+| \XYZ, \YZ, \Z	| 代表八制字符 XYZ, YZ or Z |
+| \xXY	| 代表十六进制字符 XY |
+| \x{X...}	| 代表十六进制字符， X... 表示多个十六进制字符 |
+| \^a...\^z, \^A...\^Z	| 控制字符 Control A to control Z |
+| \'	| Single quote |
+| \"	| Double quote |
+| \\	| Backslash |
+
+
+### 🐣 Operator Precedence 运算符优先级
+
+Operator precedence in descending order:
+Table 9.6:   Operator Precedence
+
+	| :								|  
+	| #								|  
+	| Unary + - bnot not				|  
+	| / * div rem band and				| Left-associative
+	| + - bor bxor bsl bsr or xor		| Left-associative
+	| ++ --						| Right-associative
+	| == /= =< < >= > =:= =/=	| Non-associative
+	| andalso							| Left-associative
+	| orelse							| Left-associative
+	| catch							|  
+	| = !							| Right-associative
+	| ?=							| Non-associative
+
+Unary + - 即单目运算中的正负号运算符号。
+
+
+### 🐣 Guard Sequences 关卡序列
+https://www.erlang.org/doc/reference_manual/expressions#guard-sequences
+
+Guard 表达式是 Erlang 编程中最基本的元素，是合法 Erlang 表达式的子集，相当于其它语言的代码语句。
+
+在函数定义中，可以使用 when 加入 Guard Sequences，其作用和 TypeScript 概念 Type Guards 类型守卫一致。
+
+官方文档对 Guard 和 Guard Sequences 概念的解释有点拗口，意思是有两种基本 Guard 形式：
+
+	GuardExpr1,...,GuardExprN
+	Guard1;...;GuardK
+
+1. guard 是使用逗号分隔的 guard expresssions，所有子表达式求值为 true 才返回 true；
+2. guard sequence 是使用分号分隔的一系列 guards，其中一个子表达式求值为 true 就立即返回 true，后续的不再求值；
+
+
+假设，learn-you-some-erlang 的作者那边 16 岁才能"开车" (笑)，那我们写个函数判断一下，某个人能不能开车？
+
+	old_enough(0) -> false;
+	old_enough(1) -> false;
+	old_enough(2) -> false;
+	...
+	old_enough(14) -> false;
+	old_enough(15) -> false;
+	old_enough(_) -> true.
+
+上面这个又点太繁琐了，所以我们得另想办法：
+
+	old_enough(X) when X >= 16 -> true;
+	old_enough(_) -> false.
+
+然后作者又说了，超过 104 岁的人，禁止开车：
+
+	right_age(X) when X >= 16, X =< 104 ->
+	   true;
+	right_age(_) ->
+	   false.
+
+注意 when 语句里，`,` 逗号表示 and, `;` 分号表示 or, 如果你想用短路运算符的话，用 andalso 和 orelse, 这么写：
+
+	right_age(X) when X >= 16 andalso X =< 104 -> true;
+
+The set of valid guard expressions is a subset of the set of valid Erlang expressions. The reason for restricting the set of valid expressions is that evaluation of a guard expression must be guaranteed to be free of side effects. Valid guard expressions are the following:
+
+01. Variables
+02. Constants (atoms, integer, floats, lists, tuples, records, binaries, and maps)
+03. Expressions that construct atoms, integer, floats, lists, tuples, records, binaries, and maps
+04. Expressions that update a map
+05. The record expressions Expr#Name.Field and #Name.Field
+06. Calls to the BIFs specified in tables Type Test BIFs and Other BIFs Allowed in Guard Expressions
+07. Term comparisons
+08. Arithmetic expressions
+09. Boolean expressions
+10. Short-circuit expressions (andalso/orelse)
+
+Table 9.4:   Type Test BIFs
+
+	is_atom/1 					is_map/1
+	is_binary/1 					is_number/1
+	is_bitstring/1 					is_pid/1
+	is_boolean/1 					is_port/1
+	is_float/1 					is_record/2
+	is_function/1 					is_record/3
+	is_function/2 					is_reference/1
+	is_integer/1 					is_tuple/1
+	is_list/1 					
+
+Notice that most type test BIFs have older equivalents, without the is_ prefix. These old BIFs are retained for backwards compatibility only and are not to be used in new code. They are also only allowed at top level. For example, they are not allowed in Boolean expressions in guards.
+
+Table 9.5:   Other BIFs Allowed in Guard Expressions
+
+	abs(Number)						max(A, B)
+	bit_size(Bitstring)				min(A, B)
+	byte_size(Bitstring)				node()
+	element(N, Tuple)				node(Pid|Ref|Port)
+	float(Term)						round(Number)
+	hd(List)						self()
+	is_map_key(Key, Map)			size(Tuple|Bitstring)
+	length(List)						tl(List)
+	map_get(Key, Map)				trunc(Number)
+	map_size(Map)					tuple_size(Tuple)
+
+
+
+### 🐣 if 条件匹配
+
+条件匹配表达式的一般形式：
+
+```erlang
+if
+    GuardSeq1 ->
+        Body1;
+    ...;
+    GuardSeqN ->
+        BodyN
+end
+```
+
+按各分支的前后顺序进行匹配，直到其中一条 GuardSeq 匹配，就执行地相应的 Body，其返回值就是 if 表达式的值。
+
+If no guard sequence is evaluated as true, an if_clause run-time error occurs. If necessary, the guard expression true can be used in the last branch, as that guard sequence is always true.
+
+Example:
+
+```erlang
+is_greater_than(X, Y) ->
+    if
+        X>Y ->
+            true;
+        true -> % works as an 'else' branch
+            false
+    end
+```
+
+if 条件表达式会进行异常处理？文档说 if 只会在匹配到 GuardSeq 求值为 true 时执行相应的分支。示例中 1/0 的求值结果是一个异常，并不是 true。
+
+```sh
+1> Fn = fun() -> if 1/0 -> err; true -> ok end end.
+#Fun<erl_eval.21.91303403>
+2> Fn().
+ok
+3> 1/0.
+** exception error: an error occurred when evaluating an arithmetic expression
+     in operator  '/'/2
+        called as 1 / 0
+```
+
+
+### 🐣 Case-of 分支
+
+基本 case-of 分支结构语法：
+
+```erlang
+case Expr of
+    Pattern1 [when GuardSeq1] ->
+        Body1;
+    ...;
+    PatternN [when GuardSeqN] ->
+        BodyN
+end
+```
+
+当其中一个模式与 Expr 匹配，就需要相应的 Body，可以使用类型守卫序列保证匹配只发生在输入正确的数据前提下。
+
+case-of 表达式的值就是相应执行的 Body 返回值。
+
+注意：分支之间的分号，并且最后分支不使用分号，如果 case-of 作为函数体，还需要在 end 后面使用句点。
+
+与 if 条件匹配模式类似，在没有匹配的情况都会引发运行时异常，if 通常使用一个 true 作为默认匹配，case 则使用 _ 作为默认的匹配。
+
+```erlang
+is_valid_signal(Signal) ->
+    case Signal of
+        {signal, _What, _From, _To} ->
+            true;
+        {signal, _What, _To} ->
+            true;
+        _Else ->
+            false
+    end.
+```
+
+
+### 🐣 maybe 可能
+
+maybe is an experimental feature introduced in Erlang/OTP 25. By default, it is disabled. To enable maybe, either use the `-feature(maybe_expr,enable)` directive (from within source code), or the compiler option `{feature,maybe_expr,enable}`.
+
+maybe
+    Expr1,
+    ...,
+    ExprN
+end
+The expressions in a maybe block are evaluated sequentially. If all expressions are evaluated successfully, the return value of the maybe block is ExprN. However, execution can be short-circuited by a conditional match expression:
+
+Expr1 ?= Expr2
+?= is called the conditional match operator. It is only allowed to be used at the top-level of a maybe block. It matches the pattern Expr1 against Expr2. If the matching succeeds, any unbound variable in the pattern becomes bound. If the expression is the last expression in the maybe block, it also returns the value of Expr2. If the matching is unsuccessful, the rest of the expressions in the maybe block are skipped and the return value of the maybe block is Expr2.
+
+None of the variables bound in a maybe block must be used in the code that follows the block.
+
+Here is an example:
+
+maybe
+    {ok, A} ?= a(),
+    true = A >= 0,
+    {ok, B} ?= b(),
+    A + B
+end
+Let us first assume that a() returns {ok,42} and b() returns {ok,58}. With those return values, all of the match operators will succeed, and the return value of the maybe block is A + B, which is equal to 42 + 58 = 100.
+
+### 🐣 Try catch throw
+1. https://www.erlang.org/doc/reference_manual/expressions#catch-and-throw
+2. https://www.erlang.org/doc/reference_manual/errors
+
+catch 语句用来捕捉表达式的返回值，`catch EXPR`，如果返回的是抛出的异常，则捕捉异常。
+
+```erlang
+1> catch 1+2.
+3
+2> catch 1+a.
+{'EXIT',{badarith,[{erlang,'+',[1,a],[]},...
+3> catch throw(hello).
+hello
+4> 1/0.
+** exception error: an error occurred when evaluating an arithmetic expression
+     in operator  '/'/2
+        called as 1 / 0
+```
+
+如果异常未曾被 catch 捕获，则触发一个 nocatch 运行时错误。
+
+内建函数 throw(any) 用于抛出异常，异常可以是任何数据。
+
+Before Erlang/OTP 24, the catch operator had the lowest precedence, making it necessary to add parentheses when combining it with the match operator:
+
+```erlang
+1> A = (catch 42).
+42
+2> A.
+42
+```
+
+Starting from Erlang/OTP 24, the parentheses can be omitted:
+
+```erlang
+1> A = catch 42.
+42
+2> A.
+42
+```
+
+try 语句相当于加强版的 catch 语句，注意，try 语句中使用的 `catch` 关键字并非是上面介绍的 catch 表达式，它不用来做 `catch EXPR`，try 语句可以用实现以下功能：
+
+1. Distinguish between different exception classes.
+2. Choose to handle only the desired ones.
+3. Passing the others on to an enclosing try or catch, or to default error handling.
+
+try 语句的基本形式如下，可以使用 try-of 形式增加模式匹配从句，语句中只有 Exprs 触发的异常才会进入 catch 处理流程：
+
+```erlang
+try Exprs
+catch
+    Class1:ExceptionPattern1[:Stacktrace] [when ExceptionGuardSeq1] ->
+        ExceptionBody1;
+    ClassN:ExceptionPatternN[:Stacktrace] [when ExceptionGuardSeqN] ->
+        ExceptionBodyN
+end
+
+% It is allowed to omit Class and Stacktrace. An omitted Class is shorthand for throw:
+try Exprs
+catch
+    ExceptionPattern1 [when ExceptionGuardSeq1] ->
+        ExceptionBody1;
+    ExceptionPatternN [when ExceptionGuardSeqN] ->
+        ExceptionBodyN
+end
+
+% The try expression can have an of section:
+try Exprs of
+    Pattern1 [when GuardSeq1] ->
+        Body1;
+    ...;
+    PatternN [when GuardSeqN] ->
+        BodyN
+catch
+    Class1:ExceptionPattern1[:Stacktrace] [when ExceptionGuardSeq1] ->
+        ExceptionBody1;
+    ...;
+    ClassN:ExceptionPatternN[:Stacktrace] [when ExceptionGuardSeqN] ->
+        ExceptionBodyN
+after
+    AfterBody
+end
+
+try Exprs after AfterBody end
+```
+
+try-of 形式中，如果 Exprs 的求值成功没有发生异常，则模式 Pattern 将以与 case 表达式相同的方式与结果顺序匹配，只是在匹配失败时，则会出现 `try_clause` 运行时错误，而不是 `case_lause` 错误。
+
+try 语句还可以使用一个 after 区块用于处理副作用，无论是否捕捉异常都会执行，相当于 Java 中的 finally 区块。
+
+try 语句除了 end 必须，其它所有区块都是可选项，但是至少要有一个 `catch` 或者 `after` 区块。
+
+简单的 try 语句例子：
+
+```erlang
+    try 
+        1/0, 1+a
+    catch
+        error:badarith -> io:format("catch badarith.~n");
+        Class:Reason -> io:format("catch exception ~p ~n", [[Class,Reason]])
+    end.
+```
+
+异常捕捉区块中，模式匹配的规则可以使用精确的 Atom 类型，比如常用的 error，也可以使用变量对错误类型、异常类型进行匹配。Erlang 的错误分为四种类型：
+
+1. Compile-time errors 编译中可以检查的错误，通常是语法错误；
+2. Logical errors 逻辑错误，这类问题通常最隐蔽，只是逻辑问题，不会导致程序异常结束；
+3. Run-time errors 运行时错误，导致程序不能正常执行，比如不合法的运算 1 + a。
+4. Generated errors 生成的错误，比如调用 exit/1 或者 throw/1 方法就可以生成相应的异常。
+
+Erlang 编程语言具有用于处理运行时错误的内置功能。运行时错误也可以通过调用 `error(Reason)`来模拟，运行时错误是 `error` 类型异常。以下表中的异常都可以使用 `erlang:raise/3` 函数生成：
+
+Table 12.1:   Exception Classes.
+
+| Class	| Origin |
+| ---- | ---- |
+| error	| Run-time error, for example, 1+a, or the process called error/1,2
+| exit	| The process called exit/1
+| throw	| The process called throw/1
+
+Table 12.2:   Exit Reasons
+
+| Reason		| Type of Error
+| ------- | ------- |
+| badarg		| Bad argument. The argument is of wrong data type, or is otherwise badly formed.
+| badarith		| Bad argument in an arithmetic expression.
+| {badmatch,V}	| Evaluation of a match expression failed. The value V did not match.
+| function_clause	| No matching function clause is found when evaluating a function call.
+| {case_clause,V}	| No matching branch is found when evaluating a case expression. The value V did not match.
+| if_clause		| No true branch is found when evaluating an if expression.
+| {try_clause,V}	| No matching branch is found when evaluating the of-section of a try expression. The value V did not match.
+| undef			| The function cannot be found when evaluating a function call.
+| {badfun,F}		| Something is wrong with a fun F.
+| {badarity,F}		| A fun is applied to the wrong number of arguments. F describes the fun and the arguments.
+| timeout_value		| The timeout value in a receive..after expression is evaluated to something else than an integer or infinity.
+| noproc			| Trying to link or monitor to a non-existing process or port.
+| noconnection		| A link or monitor to a remote process was broken because a connection between the nodes could not be established or was severed.
+| {nocatch,V}		| Trying to evaluate a throw outside a catch. V is the thrown term.
+| system_limit		| A system limit has been reached. See Efficiency Guide for information about system limits.
+
+Stack 调用栈追溯数据是一系列 tuples {Module,Name,Arity,ExtraInfo}，最近调用的函数信息在最开头，它可能的形式是 {Module,Name,[Arg],ExtraInfo}。可以使用 erlang:get_stacktrace/0 函数获得异常堆栈。
+
+
+以下例子使用 after 区块来关闭已经打开的并操作中出现异常的文件，异常可能会在 file:read/2 或者 binary_to_term/1 函数中触发：
+
+```erlang
+termize_file(Name) ->
+    {ok,F} = file:open(Name, [read,binary]),
+    try
+        {ok,Bin} = file:read(F, 1024*1024),
+        binary_to_term(Bin)
+    after
+        file:close(F)
+    end.
+```
+
+以下是利用 try 语句模块 catch Expr 的演示：
+
+```erlang
+try Expr
+catch
+    throw:Term -> Term;
+    exit:Reason -> {'EXIT',Reason}
+    error:Reason:Stk -> {'EXIT',{Reason,Stk}}
+end
+```
+
+Variables bound in the various parts of these expressions have different scopes. Variables bound just after the try keyword are:
+
+1. bound in the of section
+2. unsafe in both the catch and after sections, as well as after the whole construct
+
+Variables bound in of section are:
+
+1. unbound in the catch section
+2. unsafe in both the after section, as well as after the whole construct
+
+Variables bound in the catch section are unsafe in the after section, as well as after the whole construct.
+
+Variables bound in the after section are unsafe after the whole construct.
+
+
+
+### 🐣 send & receive 消息处理
+- [Learn you some erlang - More On Multiprocessing](https://learnyousomeerlang.com/more-on-multiprocessing)
+- [Send & Receive](https://erlang.org/doc/reference_manual/expressions.html#send)
+- https://www.erlang.org/doc/getting_started/conc_prog
+
+Erlang 一出生就是奔着并发编程来的，所以它与传统 C、C++、Java、C#，或者 JavaScript、Python、PHP、Lua 等脚本语言有很大的区别，编程模型是 Actors Model，彼此进程之间的数据交流则是消息处理机制。
+
+消息发送使用感叹号，基本语法如下：
+
+	Expr1 ! Expr2
+
+Expr2 表达式是任意数据代表的消息，Expr1 求值应该对应一个进程 PID，使用 `self()`  获取当前进程 PID、或者进程别名、Port 或已经注册的进程 (atom)，又或者是 tuple {Name,Node}，其中 Name 是代表进程命名，Node 代表分布系统中节点名，它们都是 atom 数据类型。
+
+1. 如果进程名没有相应注册过的进程，则引发 badarg 运行时错误。
+2. 给一个引用发送消息如不失败，即使它不再或从未曾引用进程别名。
+3. 给一个 PID 发送消息永不失败，即便进程已经结束。
+4. 分布系统的消息发送永不失败，即给 tuple {Name,Node} 或者另一个节点上的 PID 发消息。
+
+进程别名是 OTP 24.0 引入的功能，可以使用 alias 或者 unalias 处理进程别名，但不能如下操作：
+
+1. create an alias identifying another process than the caller.
+2. deactivate an alias unless it identifies the caller.
+3. look up an alias.
+4. look up the process identified by an alias.
+5. check if an alias is active or not.
+6. check if a reference is an alias.
+
+接收消息的基本语法格式如下，其中 after 区块可选，用于超时操作：
+
+	receive
+	    Pattern1 [when GuardSeq1] ->
+	        Body1;
+	    ...;
+	    PatternN [when GuardSeqN] ->
+	        BodyN
+	after
+	    ExprT ->
+	        BodyT
+	end
+
+receive 语句使用模式匹配 pattern matching 来从自己进程的消息队列中读取消息，其中一条 Patern 匹配的消息就进入相应的分支进行处理。
 
 总结 receive 语句的用法：
 
+- receive 语句阻塞直到有消息到来，或者使用 after 0 避免阻塞；
 - receive 语句当且仅当有一个消息到达时才被触发；
-- receive 语句当且仅当 ExpressionN (N=0,1,2,...) 被求值后退出且计时器清零；
-- receive 语句触发后若无 ExpressionN 被求值，就挂起等待下一次触发；
+- receive 语句当且仅当 BodyN (N=0,1,2,...) 被求值后退出且计时器清零；
+- receive 语句触发后若无 BodyN 被求值，就挂起等待下一次触发；
 - receive 语句通常植入一个独立的进程；
-- receive 语句至少在 Interval（毫秒）内，会有 ExpressionN 被求值；
+- receive 语句至少在 Interval（毫秒）内，会有 BodyN 被求值；
 - receive 语句通常被置入一个函数，并被创建一个进程；
-- ExpressionN 可以包含函数重入，通常是在 Expression0；
-- Expression(1,2,..)如果被求值的话，`after` 子句被忽略；
-- ExpressionN只要有一个被求值，即告推出；
-- after 子句缺失等价于 after infinity，没有匹配的 ExpressionN 就进入阻塞;
-- after 0 意味着如果 Expression(1,2,..) 不被求值的话，Expresion0 立刻会被求值；
+- Body1 ~ N 可以包含函数重入，通常是在 Expression0；
+- Body1 ~ N 如果被求值的话，`after` 子句被忽略；
+- Body1 ~ N 只要有一个被求值，即退出；
+- after 子句缺失等价于 after infinity，没有匹配的 BodyN 就进入阻塞;
+- after 0 意味着如果 BodyN 不被求值的话，BodyT 立刻会被求值；
 
-receive 只会遍历邮箱一次，下一次遍历，是在受到新消息的时候。遍历邮箱的时候，匹配到一个，立刻结束匹配的过程，执行相应分支，然后执行 receive end 后面的代码块，如果有的话。
+receive 只会遍历消息邮箱一次，下一次遍历，是在受到新消息的时候。遍历邮箱的时候，匹配到一个，立刻结束匹配的过程，执行相应分支，然后执行 receive end 后面的代码块，如果有的话。
 
 可选的 after 语句用来设置等待超时时间，不加 after 语句的 receive 遍历邮箱，如果没有匹配到，就会进入阻塞。设置了 after 语句扣，如果遍历邮箱没有匹配的消息，则等待 Interval 指定的时间后，单位是毫秒，再执行 after 分支后续的代码。
 
@@ -2523,9 +3331,9 @@ Erlang VM 遇到这种情况就会从邮箱中获取任意一个消息，因为 
 				loop()
 		end.
 
-
 编译测试进程，通过 spawn 创建进程，并向 Pid 指定进程传递消息：
 
+```erlang
 	1> c(loop_demo).
 	{ok,loop_demo}
 
@@ -2543,11 +3351,952 @@ Erlang VM 遇到这种情况就会从邮箱中获取任意一个消息，因为 
 	5> Pid ! {triangle, 2, 4, 5}.
 	I don't know what the area of a {triangle,2,4,5} is 
 	{triangle,2,4,5}
+```
+
+
+
+### 🐣 Loops 循环控制
+
+Erlang 中没有可直接使用的循环控制语句，须使用递归技术在 Erlang 中来实现 while/for 等语句。
+
+	-module(helloworld). 
+	-export([while/1,while/2, start/0]). 
+
+	while(L) -> while(L,0). 
+	while([], Acc) -> Acc;
+
+	while([_|T], Acc) ->
+	   io:fwrite("~w~n",[Acc]), 
+	   while(T,Acc+1). 
+	   
+	   start() -> 
+	   X = [1,2,3,4], 
+	   while(X).
+
+此循环程序定义了递归函数模拟 while 循环，在主函数输入一个数值列表，列表绑定到变量 X 中。在 while 函数中，利用中间变量 Acc 保存从列表取出的值，然后递归调用 while 函数。
+
+	-module(helloworld). 
+	-export([for/2,start/0]). 
+	
+	for(0,_) -> 
+	   []; 
+	   for(N,Term) when N > 0 -> 
+	   io:fwrite("Hello~n"), 
+	   [Term|for(N-1,Term)]. 
+	   
+	start() -> 
+	   for(5,1).
+
+上述程序实现 for 循环的关键点：
+
+- 定义一个递归函数来实例和执行 for 循环；
+- 使用 for 函数以确保 N 或限制的值是正值；
+- 递归地调用 for 函数，通过在每一次递归后减少 N 的值。
 
 
 
 
-## Preprocessor 预处理指令
+### 🐣 Decision Making 条件决策
+
+If 语句的一般形式、多条件判断和嵌入式，如下面的程序所显示，
+
+	if
+	condition1 ->
+	   statement#1;
+	condition2 ->
+	   statement#2;
+	conditionN ->
+	   statement#N;
+	true ->
+	   defaultstatement
+	end.
+
+示例：
+
+	-module(helloworld). 
+	-export([start/0]). 
+
+	start() -> 
+	   A = 4, 
+	   B = 6, 
+	   if 
+		  A < B ->
+			 if 
+				A > 5 -> 
+				   io:fwrite("A is greater than 5"); 
+				true -> 
+				   io:fwrite("A is less than 5")
+			 end;
+		  true -> 
+			 io:fwrite("A is greater than B") 
+	   end.
+
+
+Case Statements
+
+	case expression of
+	   value1 -> statement#1;
+	   value2 -> statement#2;
+	   valueN -> statement#N
+	end.
+
+示例：
+
+	-module(helloworld). 
+	-export([start/0]). 
+
+	start() -> 
+	   A = 5,
+	   case A of 
+		  5 -> io:fwrite("The value of A is 5"); 
+		  6 -> io:fwrite("The value of A is 6") 
+	   end.
+
+
+
+## 🍀 Recursive 递归
+- http://www.jishuchi.com/read/erlang-lang/2500
+- https://erlang.org/doc/efficiency_guide/myths.html
+
+递归是 Erlang 的重要组成部分。
+
+以下实现阶乘程序来了解简单的递归。
+
+	-module(helloworld). 
+	-export([fac/1,start/0]). 
+
+	fac(N) when N == 0 -> 1; 
+	fac(N) when N > 0 -> N*fac(N-1). 
+	
+	start() -> 
+	   X = fac(4), 
+	   io:fwrite("~w",[X]).
+
+以递归一个更有效的方法可以用于确定一个列表的长度，现在来看看一个简单的例子。列表中有多个值，如[1,2,3,4]。
+
+让我们用递归的方法来看看如何能够得到一个列表的长度。
+
+	-module(helloworld). 
+	-export([len/1,start/0]). 
+
+	len([]) -> 0; 
+	len([_|T]) -> 1 + len(T). 
+	
+	start() -> 
+	   X = [1,2,3,4], 
+	   Y = len(X), 
+	   io:fwrite("~w",[Y]).
+
+上述程序关键点：
+
+- 第一个函数 `len([])` 用于特殊情况的条件：如果列表为空。
+- `[H|T]` 模式来匹配一个或多个元素的列表，如长度为 1 的列表可以定义为 `[X|[]]`，而长度为 2 的列表可以定义为 `[X|[Y|[]]]` 。
+
+注意，第二元素是列表本身。这意味着我们只需要计数第一个，函数可以调用它本身在第二元素上。在列表给定每个值的长度计数为 1 。
+
+Tail-Recursive 比 Recursive 更快！
+
+有个比喻可以帮你理解`尾递归` Tail-Recursive 与`递归` Recursive 的区别：
+
+假设玩一个游戏，你需要去收集散落了一路，并通向远方的硬币。
+
+于是你一个一个的捡，一边捡一边往前走，但是你必须往地上撒些纸条做记号，因为不做记号你就忘了回来的路。于是你一路走，一路捡，一路撒纸条。等你捡到最后一个硬币时，你开始沿着记号回来了，一路走，一路捡纸条(保护环境)。等回到出发点时，你把硬币装你包里，把纸条扔进垃圾桶。
+这就是非尾递归，纸条就是你的调用栈，是内存记录。
+
+下次再玩这个游戏时，你学聪明了，你直接背着包过去了，一路走，一路捡，一路往包里塞。等到了终点时，最后一个硬币进包了，任务完成了，你不回来了！这就是尾递归，省去了调用栈的消耗。
+
+
+## 🍀 Module 模块定义
+- https://www.erlang.org/doc/man/erl
+- https://www.erlang.org/doc/man/code
+- https://www.erlang.org/doc/man/erlang#load_module-2
+- https://www.erlang.org/doc/reference_manual/code_loading#on_load
+- https://www.erlang.org/doc/system_principles/system_principles#code_loading
+- [Erlang Module](https://erlang.org/doc/reference_manual/modules.html)
+- [Record & Macros](http://erlang.org/doc/getting_started/record_macros.html)
+- [Learn You some Erlang for Great Good!](https://learnyousomeerlang.com/modules)
+
+模块是项目中组织代码的一种抽象概念，Erlang 模块是定义在一个文件重新组合的函数集合，在 Erlang 所有函数必须在模块定义。模块的名称必须在模块代码的第一行，并且和文件名一致。
+
+Erlang 源文件的后缀为 .erl，也有头文件，后缀为 .hrl，可以编写一些预定义宏。每个模块编译后会产生一个 .beam 文件。
+
+The following file types are defined in Erlang/OTP:
+https://www.erlang.org/doc/system_principles/system_principles#file-types
+Table 1.1:   File Types
+
+| File Type	| File Name/Extension	| Documented in |
+| ------- | ------- | ------- |
+| Module				| .erl	| Erlang Reference Manual |
+| Include file			| .hrl	| Erlang Reference Manual |
+| Release resource file	| .rel	| rel(4) manual page in SASL |
+| Application resource file| .app	| app(4) manual page in Kernel |
+| Boot script			| .script	| script(4) manual page in SASL |
+| Binary boot script		| .boot	| - |
+| Configuration file		| .config	| config(4) manual page in Kernel |
+| Application upgrade file	| .appup	| appup(4) manual page in SASL |
+| Release upgrade file	| relup	| relup(4) manual page in SASL |
+
+
+模块编译有多种方式，代码中调用编译器，或者在 erl shell，或者直接调用 erlc 编译器：
+
+```erlang
+compile:file(Module)
+compile:file(Module, Options)
+% erl -compile Module1...ModuleN
+% erl -make
+% erlc <flags> File1.erl...FileN.erl
+```
+
+Erlang 提供自动构建脚本 Emakefile 的功能，执行编译 `erl -make` 相当执行 `make:all()`，编译后的字节文件会保存到 `ebin` 目录，执行时使用 `erl -pa ebin` 就可以自动加载字节码。erl -make 脚本功能兼容 GNU make。
+
+模块之间可以互相引用对方的函数，但是要注意避免循环调用问题。
+
+大部分像算术，逻辑和布尔操作符的基本函数已经 Erlang 内部集成提供并且可以直接调用，因为在运行程序时的默认模块被加载。一个模块中使用定义的所有其他函数需要使用形式 Module:Function (参数) 来调用。
+
+根据文档描述 Code Loading Strategy，Erlang 运行时系统有两种启动方式，默认 interactive mode，另外可以手动指定 embeded mode，由 Code server 负责处理代码加载：
+
+	% erl -mode embedded
+
+在 embedded 模式，Code server 会在系统启动时按 boot script 指示加载所有代码。
+
+在 interactive 模式，目标代码会动态地在第一次引用时加载。比如，首次调用模块中的函数，就会导致模块的加载行为。Code server 会在 Code path 目录列表中搜索相应的模块，并加载它。
+
+初始状态下，code path 包含当前工作目录，以及 Erlang/OTP 安装目录下的 ROOT/lib 子目录，可以通过 `code:root_dir()` 函数获取些目录位置。这些自带的库目录名都使用一个版本号作为后缀，名称格式 `Name[-Vsn]`，Code server 会自动挑选高版本号的加载。通过命令行参数 -pa 或 -pz 可以添加指定目录。
+
+可以使用环境变量 `ERL_LIBS` 来设置 code path 目录，此方式会忽略不含 ebin 子目录的条目。
+
+在目录列表前的库目录会覆盖 OTP 中具有相同名称的模块，但固定模块除外，即 Kernel 和 STDLIB 中的模块除外。
+
+OTP 26.0 以来，$OTP_ROOT、ERL_LIBS 和引导脚本中指定的 code path 会默认地缓存下来，当前工作目录“.”除外。代码服务器将在其目录中查找内容一次，以避免将来的文件系统遍历。因此，在Erlang 虚拟机引导之后添加到这些目录中的模块将不会被拾取。可以通过将 `-cache_boot_path false` 或调用 `code:set_path(code:get_path())` 来禁用此行为。
+
+Erlang 自带三个 Boot 脚本，扩展名 .script 为文本格式，.boot 为二进制格式：
+
+1. start_clean.boot 加载和启动 Kernel 和 STDLIB
+2. start_sasl.boot 比上面多加载 SASL
+3. no_dot_erlang.boot 跟第一个一样，只是不加载 .erlang
+
+安装 Erlang/OTP 时可以选择默认的启动脚本，start_clean 还是 start_sasl，然后拷贝一份命名为 start.boot 保存在安装目录下作为默认启动脚本。
+
+对于内置的模块，如 lists，math 等等，这些模块是不能重复热更新的。这些模块所在的目录称为 sticky 目录，如 kernel, stdlib, compiler 等模块目录。目的是防止误操作把系统模块给替换了导致整个系统崩溃。除了这些系统模块，其他的模块都是可以热更新的，也可以使用 `-nostick` 参数禁用此特性。
+
+模块的代码可以有两种变体存在于系统中：`current code` 和 `old code`。当模块首次加载到系统，模块代码将变为“current”，全局导出表将更新为引用从模块导出的所有函数。
+
+如果加载了模块的新实例（例如，由于纠错），则上一个实例的代码将变为“old”，并且所有引用上一个示例的导出条目都将被删除。之后，新实例将像第一次一样加载，并变为“当前”实例。
+
+旧代码和当前代码都是有效的代码，甚至可以同时求值。不同之处在于，旧代码中导出的函数不可用。因此，不能对旧代码中导出的函数进行全局调用，但由于进程在旧代码中徘徊，因此仍然可以对旧代码进行求值。
+
+如果加载了模块的第三个实例，code server 将删除（purge）旧代码，并终止其中的任何进程。然后第三个实例变为“current”，前一个 “current” 代码变为“old”。
+
+可以使用以下代码来演示 current code 与 old code 两种状态：
+
+1. 打开 erl shell，执行 `c(curold), curold:start('1.0')` 就开始了 current code；
+2. 可以执行 start/1 创建更多的进程，但它们都属性 current code，打印指定的信息；
+3. 然后，尝试修改代码的内容，重新编译生成新 beam 文件就有差别了：
+	4. 使用非全称调用 loop(V) 依然会执行原先的代码，即 old code；
+	5. 使用全称调用 curold:loop(V) 将会执行新编译的代码，即总是执行 current code；
+6. 若再重新编译生成新的 beam，那么执行 old code 的进程将被终止，current code 成为 old code。
+
+注意，使用全称调用的方式，它不会执行 old code，所以在加载新 beam 代码时不会被终结。
+
+```erlang
+-module(curold).
+-export([start/1, loop/1]).
+
+start(V) ->
+    spawn(?MODULE, loop, [V]).
+
+loop(V) ->
+    timer:sleep(3000),
+    io:format("Version. ~p~n", [V]),
+    loop(V). % will execute old code
+    % ?MODULE:loop(V). % alway execute current code
+```
+
+所以一般在处理 Code replacement，热更新模块的首次发生是安全的，因为系统只有一个 current code。第二次热更新就出现了 old code，如果强制更新就可能杀死一些进程，引发一些意想不到的后果。
+要避免这种情况，一方面是在调用代码的时候使用全名函数，一方面在热更新的时候尝试使用 soft purge，避免还有进程在执行老代码而被强制终止。
+
+1. purge/1 从系统中移除 old code，并且强制终止在执行 old code 的进程；
+2. soft_purge/1 尝试移除 old code，如果仍有进程在执行老版本代码，则返回 false。
+
+Beam VM 为每份代码都保存了“多个副本”，然后通过一个全局的 code index（代码索引） 确认当前使用的是哪个版本。code index 作用是当 beam 代码正在修改时（如加载，更新，或删除），允许 erlang 进程同时访问执行代码而不用加锁。code index 同时作用于 export / module / beam_catches / beam_ranges 这几个模块的结构数据。
+
+code index 有3个状态： active、staging，和另外一个未明确使用的状态，可以理解成“上一个的active”，或者是“下一个staging”。其中，active 表示当前使用的版本；staging 表示下一个版本，仅在更新 beam 代码时使用到。当代码更新完成后 staging 将切换成 active，那 active 就变成了“上一个active状态”。代码改变时就一直重复这个过程。
+
+
+以下是erlang热更新的三个过程：
+
+	c(Modudle) ->
+		compile:file(Module),   % generate .beam file
+		code:purge(Module),    % remove old code
+		code:load_file(Module). % load module code to beam vm
+
+最终调用 erlang:load_module/2 函数完成模块加载：
+erl10.4\lib\erts-10.4\src\erlang.erl:2125
+
+```erlang
+-spec load_module(Module, Binary) -> {module, Module} | {error, Reason} when
+      Module :: module(),
+      Binary :: binary(),
+      Reason :: badfile | not_purged | on_load.
+load_module(Mod, Code) ->
+    case erlang:prepare_loading(Mod, Code) of
+	{error,_}=Error ->
+	    Error;
+	Prep when erlang:is_reference(Prep) ->
+	    case erlang:finish_loading([Prep]) of
+		ok ->
+		    {module,Mod};
+		{Error,[Mod]} ->
+		    {error,Error}
+	    end
+    end.
+```
+
+Before Erlang/OTP 19, if the on_load function failed, any previously current code would become old, essentially leaving the system without any working and reachable instance of the module.
+
+示例：
+
+```erlang
+-module(m).
+-export([loop/0]).
+
+loop() ->
+    receive
+        code_switch ->
+            m:loop();
+        Msg ->
+            ...
+            loop()
+    end.
+```
+
+要使用进程使用更新的代码，只需要发送 code_switch 消息给它即可。进程接收到消息就会以全称调用 `m:loop()` 函数，即全局导出表中引用的导出函数。注意 `m:loop/0` 必须导出才能以此形式调用。
+
+For code replacement of funs to work, use the syntax `fun Module:FunctionName/Arity` (remember that Arity = number of arguments). https://math.fandom.com/wiki/Arity
+
+
+执行 erl 命令行时可以配置代码路径 Code Path 以定位 beam 文件：
+
+	-pa Dir1 Dir2 ...
+	Adds the specified directories to the beginning of the code path, similar to code:add_pathsa/1. Note that the order of the given directories will be reversed in the resulting path.
+
+	As an alternative to -pa, if several directories are to be prepended to the code path and the directories have a common parent directory, that parent directory can be specified in environment variable ERL_LIBS; see code(3).
+
+	-pz Dir1 Dir2 ...
+	Adds the specified directories to the end of the code path, similar to code:add_pathsz/1; see code(3).
+
+	-path Dir1 Dir2 ...
+	Replaces the path specified in the boot script; see script(4).
+
+也可以使用 code 模块提供的函数来设置模块目录，或查询现有的目录列表：
+
+	code:add_path(Dir) -> add_path_ret()
+	code:add_path(Dir, Cache :: cache()) -> add_path_ret()  % OTP 26.0
+	code:add_pathz(Dir) -> add_path_ret()
+	code:add_pathz(Dir, Cache :: cache()) -> add_path_ret()  % OTP 26.0
+
+	add_patha(Dir) -> add_path_ret()
+	add_patha(Dir, Cache :: cache()) -> add_path_ret()   % OTP 26.0
+
+	add_paths(Dirs) -> ok
+	add_paths(Dirs, Cache :: cache()) -> ok   % OTP 26.0
+	add_pathsz(Dirs) -> ok
+	add_pathsz(Dirs, Cache :: cache()) -> ok  % OTP 26.0
+
+	add_pathsa(Dirs) -> ok
+	add_pathsa(Dirs, Cache :: cache()) -> ok
+
+	del_path(NameOrDir) -> boolean() | {error, What}
+	del_paths(NamesOrDirs) -> ok
+
+	code:is_loaded(Module) -> {file, Loaded} | false
+	code:load_file(Module) -> load_ret()
+	code:ensure_loaded(Module) -> {module, Module} | {error, What}
+	code:load_binary(Module, Filename, Binary) ->
+               {module, Module} | {error, What}
+
+	purge(Module) -> boolean()
+	soft_purge(Module) -> boolean()
+
+
+添加目录的方法有多种重载，看后缀识别功能：s 后缀表示添加目录列表，a 表示添加到 code path 前头，z 表示添加在 code path 列表后头。如果误将字符串传入 add_paths 等方法，目录路径将被忽略。
+
+```erlang
+	code:add_pathsa(["path/to/module/ebin"]).
+	code:add_pathsz(["path/to/module/ebin"]).
+	code:del_path("path/to/module/ebin").
+	code:load_file(module).
+```
+
+使用 `load_file(Module)` 会尝试加载模块，并且自动给模块名添加上 .beam 后缀名，重复加载将导致 not_perged 异常。
+
+```erlang
+$ erl
+Eshell V10.4  (abort with ^G)
+1> code:load_file(hello).
+{module,hello}
+2> code:is_loaded(hello).
+{file,"c:/coding/md-code/erlang/hello.beam"}
+3> code:load_file(hello).                         
+{error,not_purged} 
+```
+
+加载模块文件可能返回的错误码：
+
+1. `badfile` The object code has an incorrect format or the module name in the object code is not the expected module name.
+2. `nofile` No file with object code was found.
+3. `not_purged` The object code could not be loaded because an old version of the code already existed.
+4. `on_load_failure` The module has an -on_load function that failed when it was called.
+5. `sticky_directory` The object code resides in a sticky directory.
+
+
+比如，erlang-color 这个 ANSI Color 功能模块，下载代码文件后，就可以手动编译它，然后告知 erl 命令如果去定位其模块二进制文件：
+
+```sh
+$ git clone https://github.com/julianduque/erlang-color
+$ cd erlang-color
+$ mkdri ebin
+$ erlc -I include -o ebin src\color.erl
+$ erl -pa .\erlang-color\ebin\
+Eshell V10.4  (abort with ^G)
+1> color:red("red color").
+[<<"\e[31m">>,"red color",<<"\e[0m">>] 
+2> q().
+
+$ erl
+Eshell V10.4  (abort with ^G)
+1> code:add_path("erlang-color/ebin").
+true
+2> color:red("r").
+[<<"\e[31m">>,"r",<<"\e[0m">>]
+```
+
+下面的程序显示了一个叫 helloworld 模块的一个例子。
+
+```erlang
+	-module(helloworld). 
+	-include("some.hrl").
+	-author("TutorialPoint"). 
+	-version("1.0"). 
+	-export([start/0]). 
+	-import(io,[fwrite/1]). 
+	-on_load(start/0).
+
+	start() -> 
+	   io:fwrite("Hello World").
+```
+
+模块定义了 author、 version 两个标签属性，可以按 `-Tag(Value)` 格式定义。
+
+编译指令 
+
+- `-export([start/0])` 是说，其他模块可以在源码级调用本模块的函数 start。
+- `-compile(export_all,nowarn_export_all)` 本模块编译成 .beam 后，全部函数均开放调用。
+
+这里只导出一个 start 函数，参数个数为 0 个。导入语句类似，它指定导入的模块和函数列表。所以，现在每当调用 fwrite 函数，不必每次都要带上模块的名称。
+
+导入模块和函数 `-import(io,[fwrite/1]).` 格式类似导出，它需要指定导入的模块。Erlang 没有全部导入的方式，但是可以在运行 erl -pa .\ebin 指定编译后的程序目录，这样 Erlang 会自动查找引用到的函数。
+
+
+然后调用 erlc 编译
+
+	mkdir -p ./ebin
+	erlc -o ebin helloworld.erl
+
+或者在 Erlang shell 中编译：
+
+	1> cd("/path/to/where/you/saved/the-module/").
+	"Path Name to the directory you are in"
+	ok
+	2> c(helloworld).
+	{ok,helloworld}
+
+
+编译后的 beam 文件会在 ebin 目录下，然后你启动 erlang shell：
+
+	$ erl -pa ./ebin
+
+	Eshell V8.3  (abort with ^G)
+	1> helloworld:start().
+	3
+	2> helloworld:start().
+	4
+
+erl -pa 参数的意思是 Path Add, 添加 beam 文件目录到 erlang 以自动查找编译好的程序。就是说，你运行 helloworld:start(). 的时候，Erlang 发现 module 'helloworld' 没加载，就在那些查找目录里找 helloworld.beam，然后加载进来。
+
+在 Erlang shell 中通过 `m()` 查询当前加载的模块列表，使用 `m(shell_default)` 或 `module_info()` 查询 shell 默认模块的信息。用户模块信息也一样可以查询：`m(hello)` 或者 `hello:module_info()`。
+
+在模块中，可以使用内置宏 `?MODULE` 来引用模块名，或 `?MODULE_STRING` 当前模块名的字符串值，参考预处理 Preprocessor。
+
+
+## 🍀 Processes 进程
+https://www.erlang.org/doc/getting_started/conc_prog
+https://www.erlang.org/doc/reference_manual/processes
+
+现代主机可以按 CPU 的结构划分成以下三类：
+
+- SMP - Symmetrical Multi-Processing 对称多处理技术，同一主机上各 CPU 之间共享内存子系统以及总线结构。
+- MPP - Massive Parallel Processing 大规模并行处理系统由多个 SMP 服务器通过一定的节点互联网络进行连接，协同工作，完成相同的任务，从用户的角度来看是一个服务器系统。
+- NUMA - Non-Uniform Memory Access 架构每个处理器拥有自己的内存，访问共享内存时具有不同的访问延迟。
+
+SMP Emulator 在 R11B 版本引入，目的是利用现有的多核心 CPU 的能力，并行使用多个 Erlang 调试器线程 scheduler，数量同核心数，每个调度器和 non-SMP 的调度器表现一样。但仍然要注意超锁，locking overhead，尽管 Erlang 尽量减少此情况的发生。
+
+在没有 HiPE 的 non-SMP emulator 分裂一个 Erlang 进程使用 309 机器字内存。SMP 或 HiPE 支持各增加 309 机器字内存。 
+
+```sh
+	1> Fun = fun() -> receive after infinity -> ok end end.
+	#Fun<...>
+	2> {_,Bytes} = process_info(spawn(Fun), memory).
+	{memory,1232}
+	3> Bytes div erlang:system_info(wordsize).
+	309
+```
+
+这个内存包含了 233 机器字作为堆内存 heap，堆内存则包含栈内存 stack，回收器 garbage collector 会增加堆内存，如果有需要。
+
+PID 数据类型属于基本的 term 类型，其旧结构格式是 <serial,number,creation,node>，0 节点代表当前节点，就像计算机始终使用主机名“ localhost”来引用自身一样。这是由旧的记忆造成的，因此可能不是100％正确的解决方案。
+
+OTP 19 引入的新 NEW_PID_EXT 格式如下：
+https://www.erlang.org/doc/apps/erts/erl_ext_dist#pid_ext
+
+	1	N	4	4	4
+	88	Node	ID	Serial	Creation
+	
+	Table 12.19:   NEW_PID_EXT
+
+Encodes an Erlang process identifier object.
+
+1. Node - The name of the originating node, encoded as an atom.
+2. ID - A 32-bit big endian unsigned integer.
+3. Serial - A 32-bit big endian unsigned integer.
+4. Creation - A 32-bit big endian unsigned integer. 
+
+参考源代码 OTP-26.0.2\erts\emulator\beam\erl_term.h
+
+一个进程运行结束时，总会返回一个 exit reason，可以是任何 term 类型数据。正常结束通常以 atom `normal` 表示，其它情况视之为异常退出。
+
+出现运行时错误的退出理由使用 {Reason,Stack} 表示。进程可以调用以下 BIF 函数主动结束：
+
+	exit(Reason)
+	erlang:error(Reason)
+	erlang:error(Reason, Args)
+
+The process then terminates with reason Reason for exit/1 or {Reason,Stack} for the others.
+
+Erlang 使用 Actor Model 编程模型，进程之间使用各种信号通信，列如最常用的 message 就是其中一种信号，使用 receive 表达式接收消息，使用 ! 运算符发送消息。
+
+信号的接收是 Erlang 编程模型的基本构成，自动异步处理，进程不必做任何事情来处理信号的接收，也不必做什么来防止信号的接收。特别是，信号接收与 receive 接收表达式的执行无关，而是可以发生在进程执行流中的任何地方。部分信号参考如下：
+
+1. *message* Sent when using the send operator !, erlang:send/2,3 or erlang:send_nosuspend/2,3 BIFs.
+2. *link* Sent when calling the link/1 BIF.
+3. *unlink* Sent when calling the unlink/1 BIF.
+4. *exit* Sent either when explicitly sending an exit signal by calling the exit/2 BIF...
+5. *monitor* Sent when calling one of the monitor/2,3 BIFs.
+6. *demonitor* Sent when calling one of the demonitor/1,2 BIFs, or when a monitor process terminates.
+7. *alive_request/alive_reply* Sent due to a call to the is_process_alive/1 BIF.
+
+进程直接可见资源是非常重要的概念，Erlang 的进程是完全隔离的，进程只能使用已经分配的资源，比如 registered name 或者 ETS tables (Built-in term storage)。在进程完全释放资源之前，exit、down 和 alive_reply (因由 alive_requests)信号不会在退出过程中发送。
+
+消息发送运算符可以串连表达，给多个进程发送消息。消息接收每次只从信箱中取当头一条信息，其它信息需要在下一回接收消息时获取，或者使用 flush/0 函数清空信箱：
+
+```erlang
+1> self() ! self() ! self() ! 'hello!'.
+'hello!'
+2> flush().
+Shell got 'hello!'
+Shell got 'hello!'
+Shell got 'hello!'
+ok 
+```
+
+Erlang 进程附带了一个字典作为临时数据存储用途，Process Dictionary 只供当前进程访问，可以使用以下方法进行读写、擦除等操作：
+
+```erlang
+-spec put(Key, Val) -> term() when
+      Key :: term(),
+      Val :: term().
+
+-spec get() -> [{Key, Val}] when
+      Key :: term(),
+      Val :: term().
+-spec get(Key) -> Val | undefined when
+      Key :: term(),
+      Val :: term().
+
+-spec get_keys() -> [Key] when
+      Key :: term().
+-spec get_keys(Val) -> [Key] when
+      Val :: term(),
+      Key :: term().
+
+-spec erase() -> [{Key, Val}] when
+      Key :: term(),
+      Val :: term().
+-spec erase(Key) -> Val | undefined when
+      Key :: term(),
+      Val :: term().
+```
+
+| BIF		| Description
+| ------- |------- |
+| register(Name, Pid)	| Associates the name Name, an atom, with the process Pid.
+| registered()		| Returns a list of names that have been registered using register/2.
+| whereis(Name)		| Returns the pid registered under Name, or undefined if the name is not registered.
+
+Table 14.1:   Name Registration BIFs
+
+
+```erlang
+-spec spawn(Fun) -> pid() when
+      Fun :: function().
+
+-spec spawn(Node, Fun) -> pid() when
+      Node :: node(),
+      Fun :: function().
+
+-spec spawn(Module, Function, Args) -> pid() when
+      Module :: module(),
+      Function :: atom(),
+      Args :: [term()].
+
+-spec spawn_link(Fun) -> pid() when
+      Fun :: function().
+
+-spec spawn_link(Node, Fun) -> pid() when
+      Node :: node(),
+      Fun :: function().
+
+
+-spec spawn_monitor(Fun) -> {pid(), reference()} when
+      Fun :: function().
+
+-spec spawn_monitor(Module, Function, Args) -> {pid(), reference()} when
+      Module :: module(),
+      Function :: atom(),
+      Args :: [term()].
+
+-spec processes() -> [pid()].
+
+-spec process_flag(Pid, Flag, Value) -> OldValue when
+      Pid :: pid(),
+      Flag :: save_calls,
+      Value :: non_neg_integer(),
+      OldValue :: non_neg_integer().
+
+-spec process_info(Pid) -> Info when
+      Pid :: pid(),
+      Info :: [InfoTuple] | undefined,
+      InfoTuple :: process_info_result_item().
+-spec process_info(Pid, Item) -> InfoTuple | [] | undefined when
+      Pid :: pid(),
+      Item :: process_info_item(),
+      InfoTuple :: process_info_result_item();
+              (Pid, ItemList) -> InfoTupleList | [] | undefined when
+      Pid :: pid(),
+      ItemList :: [Item],
+      Item :: process_info_item(),
+      InfoTupleList :: [InfoTuple],
+      InfoTuple :: process_info_result_item().
+
+-spec processes() -> [pid()].
+
+-spec is_process_alive(Pid) -> boolean() when
+      Pid :: pid().
+
+-spec self() -> pid().
+
+-spec unlink(Id) -> true when
+      Id :: pid() | port().
+
+-spec link(PidOrPort) -> true when
+      PidOrPort :: pid() | port().
+
+-spec is_pid(Term) -> boolean() when
+      Term :: term().
+```
+
+主进程消息循环一定要以 Tail-Recursive 实现，否则堆栈无限增长最终会杀掉进程，下面两种实现中，前面一例的 io:format 语句就永远不会执行，但每次递归的返回地址总是压栈。
+
+```erlang
+	loop() -> 
+	  receive
+		 {sys, Msg} ->
+			 handle_sys_msg(Msg),
+			 loop();
+		 {From, Msg} ->
+			  Reply = handle_msg(Msg),
+			  From ! Reply,
+			  loop()
+	  end,
+	  io:format("Message is processed~n", []).
+```
+
+正确的消息循环实现：
+
+```erlang
+   loop() -> 
+	  receive
+		 {sys, Msg} ->
+			handle_sys_msg(Msg),
+			loop();
+		 {From, Msg} ->
+			Reply = handle_msg(Msg),
+			From ! Reply,
+			loop()
+	end.
+```
+
+对于支持百万进程级别的 Erlang 来说，默认的初始堆内存 233 机器字是个保守值，GC 会按需要增加或回收。对于进程量少的系统，使用 `+h` 选项，或在 `spawn_opt/4` 函数的 min_heap_size 选项指定一个大内存，减少 GC 操作可以增加性能。
+
+在大量进程的系统中，设置合适的初始堆内存，也许进程完成任务刚好够用，GC 根本都不用做清理。
+
+进程管理中，所有消息都是拷贝传递到另一个进程的，除了引用二进制类型 refc binaries。消息发送时，先会编码成 Erlang External Format，再通过 TCP/IP 传输。接收节点再进行解码，并发往目标进程。
+
+在常量池 Constant Pool 保存的是 Erlang 的字面量类型，每个加载的模块都自有常量池。如下，这个函数不会在每次调用时都构造元组，因为它在常量池保存的，只有在 GC 运行丢弃后才会。
+
+	days_in_month(M) ->
+		element(M, {31,28,31,30,31,30,31,31,30,31,30,31}).
+
+但是，常量在发往其它进程，或保存到 Ets 数据表中时，是复制的。因为，运行时系统要追踪所以正确卸载包含常量的代码，并将常量拷贝到目标进程的堆内存中，此常量拷贝流程可能在将来的版本中清除掉。
+
+以下几种情况中，共享类型 Shared subterms 不受保护：
+
+- 当一个 term 改善到其它进程；
+- 当一个 term 作为参数传入 spawn 函数；
+- 当一个 term 保存到 Ets 数据表中；
+
+这是优化行为，大多数程序并不发送带 shared subterms 的消息。
+
+以下例子演示如何创建共享子类 shared subterm：
+
+	kilo_byte() ->
+		kilo_byte(10, [42]).
+
+	kilo_byte(0, Acc) ->
+		Acc;
+	kilo_byte(N, Acc) ->
+		kilo_byte(N-1, [Acc|Acc]).
+
+`kilo_byte/1` 使用递归创建一个深度嵌套列表，如果 `list_to_binary/1` 函数将结果转换为 binary，结果为 1024 字节：
+
+	1> byte_size(list_to_binary(efficiency_guide:kilo_byte())).
+	1024
+
+使用 `erts_debug:size/1` BIF 可以看到这个列表只需要 22 机器字的头部堆内存空间：
+
+	2> erts_debug:size(efficiency_guide:kilo_byte()).
+	22
+
+使用 `erts_debug:flat_size/1` BIF 可以看到忽略共享时占用的内存，这个大小就是它发送到其它进程或保存到 Ets 数据表中的大小：
+
+	3> erts_debug:flat_size(efficiency_guide:kilo_byte()).
+	4094
+
+下面将列表保存到 Ets 数据表中，可以验证共享丢失：
+
+	4> T = ets:new(tab, []).
+	#Ref<0.1662103692.2407923716.214181>
+	5> ets:insert(T, {key,efficiency_guide:kilo_byte()}).
+	true
+	6> erts_debug:size(element(2, hd(ets:lookup(T, key)))).
+	4094
+	7> erts_debug:flat_size(element(2, hd(ets:lookup(T, key)))).
+	4094
+
+
+使用 `ernlang:register/2` 函数可以将一个进程 Pid 与一个进程名称关联在一起，这样就可以直接通过模块名称给进程发消息。
+
+	start() ->
+	register(?MODULE, Pid=spawn(?MODULE, init, [])),
+	Pid.
+	 
+	start_link() ->
+	register(?MODULE, Pid=spawn_link(?MODULE, init, [])),
+	Pid.
+	 
+	terminate() ->
+	?MODULE ! shutdown.
+
+
+
+
+## 🍀 Mornitors & Linked Processes
+
+进程退出信号 exit 可以是调用退出函数触发的，或者由已链接的进程终结时触发，这种情况会在进程使用的所有直接可见的 Erlang 资源都已释放后发送信号。
+
+Erlang 是为电信产品服务发展起来的语言，这决定了她对错误处理的严格要求。除了异常，try catch 等语法，还支持 `Monitor` 和 `Link`，单向、双向两种监控进程的机制，使得所有进程可以连接起来组成一个整体。当某个进程出错退出时，其他进程都会收到该进程退出的消息通知。基于这些特性，Erlang 可以建立一个简单并且健壮的系统。
+
+Monitor 方式则实现进程的单向监控，当被监控进程退出时，监控进程会收到该进程退出的消息。如果受监控进程以 normal 方式退出，则不会发出进程退出通知。
+https://www.erlang.org/doc/man/erlang#monitor-2
+
+```erlang
+-module(monitor).
+-export([start/0]).
+
+start() ->
+    P1 = spawn(fun() ->process_msg() end),
+    P2 = spawn(fun() ->process_msg() end),
+    P3 = spawn(fun() ->process_msg() end),
+    P2 ! P3 ! {mon, P1},
+    io:format("P1 ~p P2 ~p P3 ~p~n", [P1,P2,P3]),
+    exit(P1, reason),
+    Alives = [is_process_alive(P1), is_process_alive(P2), is_process_alive(P3) ],
+    io:format("Alive ~p~n", [Alives]).
+
+process_msg() ->
+    receive
+        {mon, PID} when is_pid(PID) ->
+            io:format("~p monitors ~p~n", [self(), PID]),
+            _MonitorRef = erlang:monitor(process, PID),
+            process_msg();
+        Msg ->
+            io:format("~p received: ~p~n", [self(), Msg])
+    end.
+```
+
+```erlang
+monitor(Type :: process, Item :: monitor_process_identifier()) ->
+           MonitorRef
+monitor(Type :: port, Item :: monitor_port_identifier()) ->          % OTP 19.0
+           MonitorRef
+monitor(Type :: time_offset, Item :: clock_service) -> MonitorRef   % OTP 18.0
+
+monitor(Type :: process, Item :: monitor_process_identifier(), Opts :: [monitor_option()]) -> % OTP 24.0
+           MonitorRef
+monitor(Type :: port, Item :: monitor_port_identifier(), Opts :: [monitor_option()]) ->     % OTP 24.0
+           MonitorRef
+monitor(Type :: time_offset, Item :: clock_service, Opts :: [monitor_option()]) ->       % OTP 24.0
+           MonitorRef
+```
+
+OTP 应用构架作为 Erlang 官方的编程框架，OTP 的实现中，link 机制被广泛的应用。OTP 实现容错的主要途径之一就是改写退出信号默认的传播行为。通过设置 trap_exit 进程标记，你可以令进程不再服从外来的退出信号的默认行为，而是捕捉它自行处理。
+https://www.erlang.org/doc/design_principles/users_guide
+
+Erlang 进程间或者进程与 Port 之间可以结成 Linked 关系，通过 link/1 函数进行连结，当其中一方终结，就会向另一方发送 `unlink` 信号，连结时会发送 `link` 信号。连结操作也可以由 spawn_link(), spawn_opt(), or spawn_request() 等函数自动完成。
+
+1. https://www.erlang.org/doc/man/erlang#link-1
+2. https://www.erlang.org/doc/apps/erts/erl_dist_protocol#link_protocol
+3. https://learnyousomeerlang.com/errors-and-processes
+
+OTP 23.3 引入的新链路协议，link protocol，OTP 26 起成为强制性协议，OTP 节点将拒绝使用 DFLAG_UNLINK_ID 分发标志来连接到那些没有表明支持新链路协议的节点。
+
+假设两个链结进程 A 和 B，在不同的 trap_exit 设置下有不同的信号行为：
+
+1. A 调用 error/1 正常结束，原因是 normal 或指定，那么 B 进程不会退出，此时 link 机制不发生作用；
+2. A 被强制终结，结束原因是 killed，例如 `exit(PidA,kill)`，B 也同样被终结，exit 信号无效；
+3. A 因其它理由终结，例如 exit(PidA,Reason)，并且 B 设置 trap_exit 时就可以捕捉 exit 信号；
+
+| Reason	| (trap_exit = true)	            |  (trap_exit = false)
+| ---- | ----------------- | ----------------- |
+| normal	| Receives {'EXIT', Pid, Normal}	| Nothing happens
+| kill	| Terminates with reason killed	| Terminates with reason killed
+| Other	| Receives {'EXIT', Pid, Other}	| Terminates with reason Other
+
+注：Erlang 进程默认不捕捉 exit 信号，使用 process_flag(trap_exit, true) 改变默认行为。
+
+调用 link/1 方法创建链结时，是双向链结，进程任何一方调用此方法都是双向链结，并且只有一个链结关系，重复调用 link 方法无效。
+
+Exit Signal 的默认处理方式：只要退出理由不是 normal 并且没有设置 trap_exit，那么默认行为就是结束链结进程。注意，设置 trap_exit 后，exit/1 指定其它退出理由并不会执行默认的进程结束行为，除非是 error 方法触发运行时错误。
+
+链接进程关系中，如果错误在 A、B 和 C 当中任何一个发生，通过传播错误，所有链接的进程将会死去。进程设置捕捉信号后，错误信号也一样传播，但是进程不会自动终结。使用 unlink 断开链结可以阻止信号的传播，注意只能对 link 方法中使用的同样 PID 进行解除链结，unlink 不会提示对其它 PID 操作的问题。并且，首个搜捕到错误的进程与后续进程捕捉到的信号形式上有些差别，前者捕捉到的信息包含 Sender identifier 和 error reason，后者是 'EXIT' + normal。以下是演示代码，采用星型链结。
+
+
+```erlang
+-module(linked).
+-export([start/0]).
+
+% execute command:
+% erlc -o ebin linked.erl; erl -pa ebin -s linked -s init stop
+
+start() ->
+    P1 = spawn(fun() ->loop({trap}) end),
+    P2 = spawn(fun() ->loop({P1,trap}) end),
+    P3 = spawn(fun() ->loop({P1,trap}) end),
+    io:format("P1: ~p  P2: ~p  P3: ~p~n", [P1,P2,P3]),
+    timer:sleep(100), P3 ! error,
+    % timer:sleep(100), P3 ! {unlink, P2},
+    % io:format("Terminate ~p with reason.~n", [P1]),
+    % exit(P1, reason),
+    timer:sleep(200), 
+    Alives = [is_process_alive(P1), is_process_alive(P2), is_process_alive(P3)],
+    io:format("Alive ~p ~n", [Alives]).
+
+process_msg() ->
+    receive
+        error -> erlang:error(error);
+        { link,PID} -> 
+            R = erlang:link(PID),
+            io:format("link(~p) ~p~n", [PID, R]),
+            process_msg();
+        {unlink,PID} -> 
+            R = erlang:unlink(PID),
+            io:format("unlink(~p) ~p~n", [PID, R]),
+            process_msg();
+        Msg ->
+            io:format("~p received: ~p~n", [self(), Msg])
+    end.
+
+loop(Arg) ->
+    case Arg of
+        {trap} -> 
+            process_flag(trap_exit, true),
+            io:format("~p set trap_exit~n", [self()]);
+        {PID, trap} when is_pid(PID) -> 
+            io:format("~p set trap_exit~n", [self()]),
+            io:format("link process ~p <==> ~p~n", [self(), PID]),
+            process_flag(trap_exit, true),
+            erlang:link(PID);
+        {PID, none} when is_pid(PID) -> 
+            io:format("link process ~p <==> ~p ~n", [self(), PID]),
+            erlang:link(PID);
+        _ -> Arg
+    end,
+    process_msg().
+```
+
+	<0.120.0> set trap_exit                   
+	<0.121.0> set trap_exit                   
+	<0.122.0> set trap_exit                   
+	link process <0.121.0> <==> <0.120.0>                     
+	link process <0.122.0> <==> <0.121.0>
+	<0.121.0> received: {'EXIT',<0.122.0>, {error,...
+	<0.120.0> received: {'EXIT',<0.121.0>,normal}
+	=ERROR REPORT==== 5-Sep-2023::17:37:28.515000 ===
+	Error in process <0.122.0> with exit value:
+	{error,[{linked,process_msg,0,[{file,"linked.erl"},{line,20}]}]}
+
+
+
+## 🍀 Distributed Erlang 分布式应用
+https://www.erlang.org/doc/apps/erts/alt_dist
+https://www.erlang.org/doc/apps/erts/erl_dist_protocol
+https://www.erlang.org/doc/reference_manual/distributed
+https://www.erlang.org/doc/man/gen_udp
+https://www.erlang.org/doc/man/gen_tcp
+
+Erlang 分布式应用基于 TCP/IP 和 UDP 协议进行数据传递，Kernel 库中的 gen_tcp 和 gen_udp 模块提供相应函数。监护进程 Port Mapper Daemon (EPMD) 默认使用 4369 端口。分布式协议可以分为以下四部分：
+
+
+1. Low-level socket connection (1)
+2. Handshake, interchange node name, and authenticate (2)
+3. Authentication (done by net_kernel(3)) (3)
+4. Connected (4)
+
+每启动一个节点，它都会检查本地机器上是否运行着 EPMD 并且会自动启动它。EPMD 会追踪在本地机器上运行的所有节点，并记录分配给它们的端口。当一台机器上的节点试图与某远程节点通信时，本地 EPMD 就会联络远程机器上的 EPMD，询问在远程机器上有没有叫相应名字的节点，如果有，远程的 EPMD 就会回复一个端口，通过该端口便可直接与远程节点通信，不过 EPMD 不会主动搜寻其他 EPMD，只有在某个节点主动搜寻其他节点时通信才能建立。
+
+部分用于分布式编程的 BIFs：
+
+1. `spawn(Node, Mod, Func, Args)` 创建远程节点的一个进程；
+2. `spawn_link(Node, Mod, Func, Args)` 创建并链结到远程节点的进程；
+3. `monitor_node(Node, Flag)` 开户或关闭远程节点的监控；
+4. `node()` 返回当前进程的节点名称；
+5. `node(pid|port|ref)` 返回指定进程的原节点名称，节点关闭时返回 nonode@nohost。
+6. `nodes()` 返回已知节点名称列表；
+7. `disconnect_node(Nodename)` 从节点Nodename断开。
+
+
+
+## 🍀 Preprocessor 预处理指令
 - https://erlang.org/doc/reference_manual/macros.html
 - http://erlang.org/doc/getting_started/record_macros.html
 
@@ -2761,7 +4510,8 @@ Erlang 和 C 语言类似，也使用预处理指令对源代码进行修饰。
 
 
 
-## Error 错误处理
+## 🍀 Error 错误处理
+- https://www.erlang.org/doc/apps/erts/crash_dump
 - http://erlang.org/doc/getting_started/robustness.html
 - http://erlang.org/doc/reference_manual/errors.html
 - https://www.tutorialspoint.com/erlang/erlang_exceptions.htm
@@ -2775,7 +4525,7 @@ Erlang 的错误分类：
 - Run-time errors
 - Generated errors 
 
-Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口和错误相比，他们并没有真正承担任何“崩溃过程！” 他们背后的意图，而是他们控制流量。 当您在期望程序员处理它们的同时使用 throws 时，通常最好在使用它们的模块中记录它们的使用。
+Throw 抛出一类异常，用于程序员可以处理的情况。 与出口和错误相比，他们并没有真正承担任何“崩溃过程！” 他们背后的意图，而是他们控制流量。 当您在期望程序员处理它们的同时使用 throws 时，通常最好在使用它们的模块中记录它们的使用。
 
 调用 `erlang:error(Reason,Args)` 将结束当前进程中的执行，并包含当您捕获它们时使用其参数调用的最后函数的堆栈跟踪。 这些是引发上述运行时错误的异常。
 
@@ -2792,11 +4542,7 @@ Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口�
 	{"init terminating in do_boot", {undef,[{helloworld,start,[],[]}, 
 	{init,start_it,1,[]},{init,start_em,1,[]}]}}
 
-崩溃转储将被写入 -
-
-	erl_crash.dump
-	init terminating in do_boot ()
-
+崩溃转储将被写入 `erl_crash.dump` 虚拟机状态转储文件。
 
 常见错误码意义：
 
@@ -2806,11 +4552,11 @@ Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口�
 - `enotdir` 不是目录，一些系统会返回 enoent；
 - `einval` 试图删除当前目录，一些系统会返回 eacces；
 - `badarg` 参数错误；
-- `badfun` 最常见的错误之一，当你把不是函数的变量当变量使用时就会出现；
-- `badarity` 算是 badfun 的细分，当你使用高阶函数 HOC/HOF - higher order functions，但参数不匹配时出现。
+- `badfun` 最常见的错误之一，不是函数的变量当函数使用时就会出现；
+- `badarity` 算是 badfun 的细分，使用高阶函数 HOC 但参数不匹配时出现。
 - `badarith` 运算错误，atithmetic 运算，例如将一个整数和一个 atom 相加。
 - `{badmatch, V}`  模式匹配错误
-- `function_clause` 该错误信息表示找不到匹配的函数。例如，不到匹配的分支，会抛出 function_clause。
+- `function_clause` 找不到匹配的函数从句，即没有匹配的分支。
 - `{case_clause, V}` case 表达式找不到匹配的分支。一般要把 `_` 加到最后的分支中，作为容错或者其它。
 - `if_clause` if 表达式是 case 表达式的一种特殊方式，要求至少有一个分支测试条件的结果为 true，否则会引发错误。
 - `undef` 调用未定义的函数或者模块时，返回该错误信息。
@@ -2830,8 +4576,7 @@ Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口�
 
 	** exception throw: permission_denied
 
-异常处理
-在开发中可使用try,catch捕获异常,同时也调用erlang:get_stacktrace()，获取栈信息，定位错误。
+使用 try-catch 捕获异常,同时也调用 erlang:get_stacktrace()，获取栈信息，定位错误。
 
 	try:
 		%% 业务代码
@@ -2845,6 +4590,7 @@ Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口�
 
 一个简单的例子:
 
+```erlang
 	-module(test).
 	-export([add/2]).
 
@@ -2854,14 +4600,16 @@ Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口�
 		catch
 			Class:Reason ->
 				io:format("Class:~p,Reason:~p~nstacktrace:~n~p",
-						  [Class,Reason,erlang:get_stacktrace()]),
+						  [Class, Reason, erlang:get_stacktrace()]),
 				error
 		end.
+```
 
 以下是如何使用这些异常以及如何完成任务的示例。
 
 第一个函数生成所有可能的异常类型。然后我们编写一个包装函数来在 try ... catch 表达式中调用 generate_exception 。
 
+```erlang
 	-module(helloworld). 
 	-compile(export_all). 
 
@@ -2894,6 +4642,187 @@ Throw 抛出是一类异常，用于程序员可以处理的情况。 与出口�
 		  1 -> {'EXIT', a}; 
 		  2 -> exit(a) 
 	   end.
+```
+
+
+# 🚩 io 模块
+https://www.cnblogs.com/zhongwencool/p/playwithioformat.html
+
+格式化函数常用格式序列字符：
+
+https://www.erlang.org/doc/man/io_lib
+
+	format(Format, Data) -> chars()
+	fwrite(Format, Data) -> chars()
+	format(Format, Data, Options) -> chars()  OTP 21.0
+	fwrite(Format, Data, Options) -> chars()  OTP 21.0
+
+https://www.erlang.org/doc/man/io
+
+	format(Format) -> ok
+	format(Format, Data) -> ok
+	format(IoDevice, Format, Data) -> ok
+	fwrite(Format) -> ok
+	fwrite(Format, Data) -> ok
+	fwrite(IoDevice, Format, Data) -> ok
+
+	Types
+		IoDevice = device()
+		Format = format()
+		Data = [term()]
+
+
+	io:format("this is a ~s from ~w~n", ["hello world", erlang]).
+	io:format("~p", [[1,2,3]]).
+
+	io:format("~6s~n", ["Apple"]). % " Apple"
+	io:format("~6w~n", [apple]).   % " apple"
+	io:format("~6.3f~n", [3.14]). % " 3.140"
+
+	io:fwrite("~.16B~n", [-31]).      % -1F
+	io:fwrite("~.16X~n", [-31,"0x"]). % -0x1F
+	io:fwrite("~.16#~n", [-31]).      % -16#1F
+
+格式序列基本形式是 `~F.P.PadModC`，波浪号和最后的字符类型控制才是必需参数：
+
+1. F is the field width of the printed argument. 
+2. P is the precision of the printed argument.
+3. Pad is the padding character. 
+4. Mod is the control sequence modifier. 
+5. The character C determines the type of control sequence to be used. 
+
+控制字符，~n 表示换行：
+
+	c The argument is a number that is interpreted as an ASCII code.
+	e The argument is a float that is written as [-]d.ddde+-ddd,
+	f The argument is a float that is written as [-]ddd.ddd,
+	s Prints the argument with the string syntax. 
+	w Writes data with the standard syntax.
+	p Writes the data with standard syntax in the same way as ~w, but breaks terms
+	W Writes data in the same way as ~w, but takes an extra argument that is the maximum depth to which terms are printed.
+	P Writes data in the same way as ~p, but takes an extra argument that is the maximum depth to which terms are printed. 
+
+	B Writes an integer in base 2-36, the default base is 10.
+	X Like B, but takes an extra argument that is a prefix to insert before the number, but after the leading dash, if any.
+	# Like B, but prints the number with an Erlang style #-separated base prefix. 
+	b Like B, but prints lowercase letters.
+	x Like X, but prints lowercase letters.
+	+ Like #, but prints lowercase letters.
+	n Writes a new line.
+	i Ignores the next term.
+
+The current modifiers are:
+
+	t For Unicode translation.
+	l For stopping p and P from detecting printable characters.
+	k For use with p, P, w, and W to format maps in map-key ordered order (see maps:iterator_order()).
+	K Similar t o k, for formatting maps in map-key order, but takes an extra argument that specifies the maps:iterator_order().
+
+For example:
+
+```sh
+> M = #{ a => 1, b => 2 }.
+#{a => 1,b => 2}
+> io:format("~Kp~n", [reversed, M]).
+#{b => 2,a => 1}
+ok
+```
+
+格式化函数中 Format 数据类型为 format() = atom() | string() | binary()，可以是原子、字符串以及二进制数据。
+
+I/O 驱动类型 device() = atom() | pid()，可以是标准的输入输出 standard_io, 或是错误信息的输入输出 standard_error，也可以是一个使用 file:open/2 打开处理 I/O 协议的 pid(或 register name )，比如：
+
+```erlang
+%% 写入二进制数据 <<"good">> 到在当前目录下 test.txt 文件(没有则创建)
+{ok, IoDevice} = file:open("test.txt", [write,binary]),
+io:format(IoDevice, <<"good">>, []),
+ok = file:close(IoDevice).
+```
+
+利用预处理和宏函数打印调试信息：
+
+```erlang
+-ifndef(PRINT).
+-define(PRINT(Var), io:format("DEBUG: ~p:~p - ~p=~p~n~n", [?MODULE, ?LINE, ??Var, Var])).
+-endif.
+
+main(Args) ->
+    MyValue = test_value,
+    ?PRINT(MyValue).
+```
+
+ANSI 色彩控制参考
+https://github.com/julianduque/erlang-color
+
+
+io 模块定义的数据类型 Data Types：
+
+	device() = atom() | pid()
+	An I/O device, either standard_io, standard_error, a registered name, or a pid handling I/O protocols (returned from file:open/2).
+
+	For more information about the built-in devices see Standard Input/Output and Standard Error.
+
+	opt_pair() =
+	    {binary, boolean()} |
+	    {echo, boolean()} |
+	    {expand_fun, expand_fun()} |
+	    {encoding, encoding()} |
+	    {atom(), term()}
+	get_opt_pair() = opt_pair() | {terminal, boolean()}
+	expand_fun() = fun((string()) -> {yes | no, string(), list()})
+	encoding() =
+	    latin1 | unicode | utf8 | utf16 | utf32 |
+	    {utf16, big | little} |
+	    {utf32, big | little}
+	setopt() = binary | list | opt_pair()
+	format() = atom() | string() | binary()
+	location() = erl_anno:location()
+	prompt() = atom() | unicode:chardata()
+	server_no_data() = {error, ErrorDescription :: term()} | eof
+	What the I/O server sends when there is no data.
+
+io_lib 模块定义的数据类型 Data Types：
+
+	chars() = [char() | chars()]
+	continuation()
+	A continuation as returned by fread/3.
+
+	chars_limit() = integer()
+	depth() = -1 | integer() >= 0
+	fread_error() =
+	    atom | based | character | float | format | input | integer |
+	    string | unsigned
+	fread_item() = string() | atom() | integer() | float()
+	latin1_string() = [unicode:latin1_char()]
+	format_spec() =
+	    #{control_char := char(),
+	      args := [any()],
+	      width := none | integer(),
+	      adjust := left | right,
+	      precision := none | integer(),
+	      pad_char := char(),
+	      encoding := unicode | latin1,
+	      strings := boolean(),
+	      maps_order => maps:iterator_order()}
+	Where:
+
+	control_char is the type of control sequence: $P, $w, and so on.
+
+	args is a list of the arguments used by the control sequence, or an empty list if the control sequence does not take any arguments.
+
+	width is the field width.
+
+	adjust is the adjustment.
+
+	precision is the precision of the printed argument.
+
+	pad_char is the padding character.
+
+	encoding is set to true if translation modifier t is present.
+
+	strings is set to false if modifier l is present.
+
+	maps_order is set to undefined by default, ordered if modifier k is present, or reversed or CmpFun if modifier K is present.
 
 
 # 🚩 Logger 日志
@@ -3138,8 +5067,6 @@ As of OTP 22 the run-time complexity is "n log n" and the operation will complet
 - [Release Handling](https://erlang.org/doc/design_principles/release_handling.html)
 - [Release Structure](https://erlang.org/doc/design_principles/release_structure.html)
 - [Building applications with OTP](https://learnyousomeerlang.com/building-applications-with-otp)
-- []()
-- []()
 
 Erlang 应用程序就是一组相关代码和进程，使用 OTP 框架的程序就是 Erlang/OTP 应用程序。
 
@@ -3172,6 +5099,9 @@ SASL - System Architecture Support Libraries 为 Erlang/OTP 应用程序架构�
 
 注意 Erlang/OTP 的 SASL 应用与 RFC 4422 文档中的 Simple Authentication and Security Layer 没有任何关系。
 
+## 🍀 OTP Application
+https://www.erlang.org/doc/design_principles/users_guide
+
 Erlang/OTP 工程的基本框架，即 Supervision Tree 架构：
 
 - 项目可以包含很多个 `Application`，它包含了本应用的所有代码，可以随时加载和关闭；
@@ -3179,13 +5109,15 @@ Erlang/OTP 工程的基本框架，即 Supervision Tree 架构：
 - 顶层 Supervisor 下面管理了许多 sub Supervisor 和 Worker 进程。
 - 业务逻辑都在 Worker 里面，Supervisor 里可以定制重启策略，如果返现某个 Worker 挂掉了，可以按照既定的策略重启它。
 
+可以将 OTP 监察树构架抽象为二叉树，Supervision Tree 所有叶节点都是受监管的 Worker，它们是真正做事的进程，而其它节点都是监管进程。
+
 Supervisor 负责启动，停止和监视其子进程，基本思想是通过在必要时重新启动它们来保持子进程的活动。
 
 在 Erlang/OTP 架构中，一切进程都是轻量级的，都可以被监控 monitor，有 Supervisor 专门做监控。你可以方便的用一个 Supervisor 进程去管理子进程，它会根据你设定的策略，来处理意外挂掉的子进程。这种情况的问题的是，错误处理稍微做不好就会挂，Restart Strategy 重启策略有：
 
 - one_for_one：只重启挂掉的子进程
 - one_for_all：有一个子进程挂了，重启所有子进程
-- rest_for_one：在该挂掉的子进程 创建时间之后创建的子进程都会重启。
+- rest_for_one：一个子进行挂掉，该子进程和所有在其之后创建的子进程都会重启。
 
 在监督树中，许多流程具有相似的结构，它们遵循类似的模式，即抽象为 Behaviour 模型。Supervisor 的结构相似，他们之间唯一的区别是他们监督哪个子进程。许多 Worker 都是 C/S 服务器对客户端关系模式中的服务器角色，Worker 对应各种 Behaviour，包括有限状态机器 gen_statem、错误事件记录器 gen_event 等事件处理程序，还有 gen_server 通用服务器行为。
 
@@ -3431,7 +5363,7 @@ Example:
 临时应用程序在实践中少见，因为，Supervision Tree 结束时产的 Reason 是 `shutdown` 而不是 `normal`。
 
 
-## OTP Application Pool
+## 🍀 OTP Application Pool
 - [Building applications with OTP](https://learnyousomeerlang.com/building-applications-with-otp)
 
 Erlang 应用程序就是一组相关代码和进程，使用 OTP 框架的程序就是 Erlang/OTP 应用程序。
@@ -3566,7 +5498,7 @@ We can now get rid of the pool as a whole:
 	19> ppool:stop().
 	** exception exit: killed
 
-## hot-update 热更新
+## 🍀 hot-update 热更新
 - [functional interface to system messages](https://erlang.org/doc/man/sys.html)
 
 Erlang 支持运行时的代码更新，使用 `l()` 加载字节码文件，代码更新作用在模块级别，每个代码模块允许存在两个版本在系统中。即连续两次执行 `l()` 就会杀死模块旧版的进程，即使模块没有更新。但是新启动的进程，总是以最后加载的字节码为准。
@@ -3720,7 +5652,7 @@ Erlang 支持运行时的代码更新，使用 `l()` 加载字节码文件，代
 
 
 
-## Upgrade File 自动升级
+## 🍀 Upgrade File 自动升级
 
 Erlang 程序天生高可用，可以无间断升级，它提供 SASL 应用实现程序的热更新，注意 Erlang/OTP 的 SASL 应用与 RFC 4422 文档中的 Simple Authentication and Security Layer 没有任何关系。
 
@@ -3886,7 +5818,7 @@ EDoc 是 Erlang 程序文档生成器，受 Javadoc(TM) 工具的启发，EDoc �
 - `edoc:application/2`: 为典型的 Erlang 程序生成文档；
 - `edoc:files/2`: 从指定的代码中生成文档，EDoc 0.1 旧版函数，弃用；
 
-## The overview page
+## 🍀 The overview page
 
 整个程序的概览页面，默认从目标目录下的 overview.edoc 文件生成，参考 edoc_doclet 模块：
 
@@ -3911,7 +5843,7 @@ EDoc 是 Erlang 程序文档生成器，受 Javadoc(TM) 工具的启发，EDoc �
 - @version 参考模块标记 `@version`
 
 
-## Generic tags
+## 🍀 Generic tags
 
 @clear 清除前面的标记
 
@@ -3948,7 +5880,7 @@ EDoc 是 Erlang 程序文档生成器，受 Javadoc(TM) 工具的启发，EDoc �
 @type 抽象数据类型或别名
 
 
-## Module tags
+## 🍀 Module tags
 
 以下标记可以在模块定义前使用
 
@@ -3989,7 +5921,7 @@ EDoc 是 Erlang 程序文档生成器，受 Javadoc(TM) 工具的启发，EDoc �
 
 @version 版本标记
 
-## Function tags
+## 🍀 Function tags
 
 以下标记在函数前使用
 
@@ -4020,7 +5952,7 @@ EDoc 是 Erlang 程序文档生成器，受 Javadoc(TM) 工具的启发，EDoc �
 
 @type 类型标记，通用标记
 
-## References
+## 🍀 References
 
 @see, @link 之类的引用标记规则
 
@@ -4036,7 +5968,7 @@ EDoc 是 Erlang 程序文档生成器，受 Javadoc(TM) 工具的启发，EDoc �
 | //Application/Module:Function/Arity	| edoc_run:file/1	| Global	|
 | //Application/Module:Type()	| edoc:edoc_module()	| Global	|
 
-## Wiki notation
+## 🍀 Wiki notation
 
 Empty lines separate paragraphs
 
@@ -4083,7 +6015,7 @@ Verbatim quoting
 	%%       fun () -> ... end
 	%% '''
 
-## Macro expansion
+## 🍀 Macro expansion
 
 文档宏可以自定义，参考 `edoc:file/2` 和 `edoc:get_doc/2`
 
@@ -4131,7 +6063,7 @@ Escape sequences
 	%% a new tag even if it appears first in a line.
 
 
-## Type specifications
+## 🍀 Type specifications
 
 Table 1.2:   specification syntax grammar
 
@@ -4397,7 +6329,7 @@ eunit 测试函数的命令可以是 `_test()` 和 `_test_()` 两种后缀样式
 	rebar get_deps
 
 
-Rebar3 在 Windows 10 执行编译不顺利，还到官网上下载编译好的 rebar3。将下载的 rebar3 文件移动到 erl 的环境变量目录下，创建一个 `rebar3.cmd` 即可：
+Rebar3 在 Windows 10 执行编译不顺利，还到官网上下载编译好的 rebar3。将下载的 rebar3 文件移动到 erl 的环境变量目录下，创建一个 `rebar3.cmd` 即可执行相应的 rebar3 脚本，Linux 系统则会自动处理：
 
 	@echo off
 	setlocal
@@ -4528,7 +6460,7 @@ Erlang 还提供许多工具应用，比如运行 Observer 监视 Erlang 程序�
 -	
 -	
 
-## dialyzer 
+## 🍀 dialyzer 
 - http://erlang.org/doc/man/dialyzer.html
 
 Dialyzer 是 Erlang 程序差异分析工具，DIscrepancy AnaLYZer for ERlang programs。
@@ -4562,7 +6494,7 @@ Dialyzer 可以从原代码和带调试信息的 beam 字节码中分析：
 	dialyzer --gui test_processes.erl
 
 
-## Debugger 调试器
+## 🍀 Debugger 调试器
 - [Debuger Reference](http://erlang.org/doc/apps/debugger/index.html)
 - [Debugger User's Guide](http://erlang.org/doc/apps/debugger/users_guide.html)
 
@@ -4610,7 +6542,7 @@ quick 方法调试单进程，解析模块时执行 apply(Module,Name,Args)，�
 	i:im().
 
 
-## Profiling Tool
+## 🍀 Profiling Tool
 - Programming Erlang 2nd - Ch21 Profiling, Debugging, and Tracing
 
 标准的 Erlang 自带代码分析工具 profiling tools：
@@ -4648,7 +6580,7 @@ of fprof , which is suitable for small-scale profiling.
 	5> cprof:stop(). %% stop the profiler
 	4865
 
-## Testing Code Coverage
+## 🍀 Testing Code Coverage
 
 When we’re testing our code, it’s often nice to see not only which lines of code
 are executed a lot but also which lines are never executed. Lines of code that
@@ -4788,7 +6720,7 @@ calender 导出符号：
 - Y 整除 400；
 
 
-## Timer 定时器
+## 🍀 Timer 定时器
 - http://erlang.org/doc/man/timer.html
 
 对于任何网络程序来讲，定时器管理都是重头戏，Erlang 更是依赖于定时器。基础的 timer 主要是由 `time.c` `erl_time_sup.c` 实现。
@@ -5014,7 +6946,7 @@ wxWidgets 现在引入 XML Based Resource System (XRC)，将软件界面分享�
 
 它会返回 true，并且你就会看到一个窗体。
 
-## 从 shell 异常中恢复
+## 🍀 从 shell 异常中恢复
 
 只需要点击关闭按钮就能关闭 frame。但是别那么做，先试试下面这个无意义的调用；
 
@@ -5043,7 +6975,7 @@ wxWidgets 现在引入 XML Based Resource System (XRC)，将软件界面分享�
 它应该返回 ok 然后 frame 销毁消失了。
 
 
-## StatusBar 状态栏
+## 🍀 StatusBar 状态栏
 
 就当是开心一下，创建多个frame：
 
@@ -5084,7 +7016,7 @@ wxWidgets 现在引入 XML Based Resource System (XRC)，将软件界面分享�
 现在应该已经回到了之前你向状态栏添加文字的样子。
 
 
-## Menu 菜单栏
+## 🍀 Menu 菜单栏
 
 按照惯例 wxWidgets 中的 frame 都会有一个菜单栏。这样看起来状态栏菜单栏没什么区别。然而，菜单栏通常由其他东西组成：它们需要被组合到一起。
 
@@ -5150,7 +7082,7 @@ wxWidgets 现在引入 XML Based Resource System (XRC)，将软件界面分享�
 
 花一点时间把代码复制粘贴到你的临时文件。
 
-## Events 事件
+## 🍀 Events 事件
 
 到目前为止，我们所做的都没有涉及事件。你可能认为 Erlang wxWidgets 没有事件。如果你现在输入 flush().， 你就不会那样想了。 事实上，在 wxWidgets 中每个鼠标点击都会触发事件。它们被wx以默认的一些方式处理。通常，wx 的默认处理方式是忽略它们。让我们捕获事件，看看它到底是什么样的。
 
@@ -5222,7 +7154,7 @@ wx 中的事件由回调函数处理。首先，生成一个回调函数。输�
 	wxFrame:disconnect (F, close_window).
 
 
-## Dialog 对话框
+## 🍀 Dialog 对话框
 
 一个“About”菜单项应该给我们显示一个模态对话框。但是怎样生成这个对话框？这里是最简单的方法。
 
@@ -5242,7 +7174,7 @@ wx 中的事件由回调函数处理。首先，生成一个回调函数。输�
 因为对话框是模态的，所以直到你点 OK 之前 shell 都不会有任何返回值。返回值应该是 5100。如果你看看 wx.hrl，你就会知道它代表 `wxID_OK`。
 
 
-## wxErlang Hello
+## 🍀 wxErlang Hello
 - https://erlang.org/doc/man/wx_object.html#start_link-3
 - https://erlang.org/doc/man/wx.html#batch-1
 
@@ -5501,7 +7433,7 @@ XPM 是一个文本化图像定义文件，格式如下：
 
 
 
-## wxErlang gen_server
+## 🍀 wxErlang gen_server
 - [wxErlang Reference Manual 1.9.1](https://erlang.org/doc/man/wx_object.html)
 - [OTP design principles](http://erlang.org/doc/design_principles/des_princ.html)
 - [Erlang Generic server behavior](http://erlang.org/doc/man/gen_server.html)
@@ -5521,7 +7453,7 @@ wx_object 不是 wxWidgets 的类，而是 wx 在内存里的具体物理实现�
 
 当然，现在是用 Erlang，还是要用它的说法，用户程序模块应该导出以下函数：
 
-- init(Args) 
+- init(Args) 
 - handle_call(Msg, {From, Tag}, State)
 - handle_event(#wx{}, State)
 - handle_info(Info, State)
@@ -5605,7 +7537,7 @@ wx_object 不是 wxWidgets 的类，而是 wx 在内存里的具体物理实现�
 
 
 
-## wxErlang Sudoku
+## 🍀 wxErlang Sudoku
 - [wxErlang Reference Manual 1.9.1](https://erlang.org/doc/man/wx_object.html)
 - [OTP design principles](http://erlang.org/doc/design_principles/des_princ.html)
 - [Erlang Generic server behavior](http://erlang.org/doc/man/gen_server.html)
@@ -5808,6 +7740,7 @@ UDP 允许应用发送简短报文，即数据报 datagram 到另一端，但是
 
 我们先写一个小函数，标准库的 http:request(Url) 实现相同的功能，但是这里是演示 TCP socket 编程获取网站的 HTML 页面:
 
+```erlang
 	-module(coding).
 	-export([nano_get_url/0, nano_get_url/1]).
 	-import(lists, [reverse/1]).
@@ -5832,6 +7765,7 @@ UDP 允许应用发送简短报文，即数据报 datagram 到另一端，但是
 				io:format("go ~s~n", [tcp_closed]),
 				list_to_binary(reverse(SoFar))
 		end.
+```
 
 它如何工作呢？
 
@@ -5877,7 +7811,7 @@ UDP 允许应用发送简短报文，即数据报 datagram 到另一端，但是
 这段代码是正确，但是效率比较低，因为不断的把新的二进制数据加到缓冲区后面，也就是包含了多个数据的拷贝的。一个好办法是累积所有分片，尽管顺序是相反的，然后反序整个列表并一次连接所有分片。
 
 
-## TCP Server Demo
+## 🍀 TCP Server Demo
 
 在前一节，我们写了一个简单的客户端，现在我们写个服务器。
 
@@ -6638,7 +8572,7 @@ Supervisor 负责启动，停止和监视其子进程，基本思想是通过在
 
 - one_for_one：只重启挂掉的子进程
 - one_for_all：有一个子进程挂了，重启所有子进程
-- rest_for_one：在该挂掉的子进程 创建时间之后创建的子进程都会重启。
+- rest_for_one：一个子进行挂掉，该子进程和所有在其之后创建的子进程都会重启。
 
 由列表指定 child specifications 指定哪些子进程受监视，子进程按此列表指定的顺序启动，并以相反的顺序终止。
 
@@ -6722,7 +8656,7 @@ Supervisor 启动服务器的 gen_server Behaviour 回调模块可能如下所�
 - gen_event:start_link
 
 
-## Start a Supervisor
+## 🍀 Start a Supervisor
 
 在前面的示例代码中，通过调用模块暴露的 `ch_sup:start_link()` 命令执行 Supervisor 启动函数：
 
@@ -6753,7 +8687,7 @@ Supervisor 启动服务器的 gen_server Behaviour 回调模块可能如下所�
 `supervisor:start_link` 是同步的，直到所有子进程启动后才会返回。
 
 
-## Adding a Child Process
+## 🍀 Adding a Child Process
 
 除了静态监督树之外，还可以通过以下调用动态添加子进程到现有 Supervisor：
 
@@ -6764,7 +8698,7 @@ Sup 是 Supervisor 进程的 pid 或名称，ChildSpec 是一个 child specifica
 函数 `start_child/2` 添加的子进程与其他子进程的行为方式相同，但有一个重要的例外：如果 Supervisor 进程挂了并重新创建，那么动态添加到主管的所有子进程都会丢失。
 
 
-## Stopping a Child Process
+## 🍀 Stopping a Child Process
 
 任何子进程，静态或动态，都可以根据 shutdown specification 关闭规范终止进程：
 
@@ -6779,7 +8713,7 @@ Sup 是 Supervisor 进和的 pid 或名称。Id 是 child specification 中值�
 与动态添加的子进程一样，如果管理程序本身重新启动，则动态删除静态子进程的效果将丢失。
 
 
-## Simplified one_for_one Supervisors
+## 🍀 Simplified one_for_one Supervisors
 
 具有简化 `one_for_one` 重启策略 `simple_one_for_one` 的 Supervisor 进程，其所有子进程都是同一进程动态添加实例。
 
@@ -7761,48 +9695,72 @@ hello_world_sup.erl 里面，调用 supervisor:start_link/3 之后，supervisor 
 
 # 🚩 Ports and Port Drivers
 - http://erlang.org/doc/reference_manual/ports.html
-- http://erlang.org/doc/tutorial/c_port.html
-- http://erlang.org/doc/tutorial/nif.html
-- https://wudaijun.com/2015/08/erlang-port/
-- http://beam-wisdoms.clau.se/en/latest/interfacing.html
-- http://beam-wisdoms.clau.se/en/latest/indepth-io.html
+- https://www.erlang.org/doc/tutorial/introduction#interoperability%20tutorial
+- https://www.erlang.org/doc/getting_started/conc_prog#distributed-programming
+- http://beam-wisdoms.clau.se/interfacing.html
+- http://beam-wisdoms.clau.se/indepth-io.html
 - http://bert-rpc.org/
 
-与其说 Erlang 是一个语言运行环境，不如说它是一个虚拟的操作系统环境。在这个操作系统环境下运行着虚拟的 Erlang process，这些 process 之间是独立并行运行的，由 Erlang 虚拟机负责调度，就像在真的操作系统中一样。
+与其说 Erlang 是一个语言运行环境，不如说它是一个虚拟的操作系统环境。在这个操作系统环境下运行着虚拟的 Erlang process，这些进程之间是独立并行运行的，由 Erlang 虚拟机负责调度，就像在真的操作系统中一样。
 
-作为虚拟的操作系统，当然少不了对 io 的处理。这些虚拟的 process 需要虚拟的 IO 设备来和外界通信。`Port` 在整个 Erlang 环境中就扮演了这个角色。Port 是连接外部程序进程和 Erlang 虚拟机的桥梁，外部进程通过标准输入输出与 Erlang 虚拟机交互，并运行于独立的地址空间。
+作为虚拟的操作系统，当然少不了对 io 的处理。这些虚拟的 process 需要虚拟的 IO 设备来和外界通信。`Port` 在整个 Erlang 环境中就扮演了这个角色。Port 是连接外部程序进程和 Erlang 虚拟机的桥梁，外部进程是操作系统中独立的进程，通过标准输入输出以字节接口 byte-oriented 而非 Erlang terms 的方式与 Erlang 虚拟机交互，并运行于独立的地址空间。
 
-Erlang 外部调用的几种方式，Port 只是其中一种。
+Ports 方式根据不同系统会有实现层面上差别，比如 UNIX 系统下会使用 pipes 作为数据传递通道。由于外部程序是独立的操作系统进程而非 Erlang 进程，具有独立进程内存空间，运行安全性更高，但也更消耗系统资源。
 
-外部接入，OS 进程级：
+Port Drivers 方式则是通过链接库载入 Erlang 运行时，虽然同样需要使用 Port 通信机制，但是和 Erlang 同属一个进程。使用 C 等语言按接口规则编写 Port Drivers，并通过动态链接库的方式挂载到 Erlang 运行时，称之为 Linked-in drivers。
 
-- Ports: 用 C 实现的可执行程序，以 Port 的方式与 Erlang 交互。
-- C Nodes: 用 C 模拟 Erlang Node 行为实现的可执行程序。
-- Jinterface: Java 和 Erlang 的通讯接口。
+除了 Port 通信方式和 Port Drivers 链接库方式，为了方便接入外部程序，Erlang 还提供以下类库或互调方式：
+
+- Erl_Interface: 为 C 语言编程实现的接口，使用 term_to_binary 和 binary_to_term 转换类型类型。
+- Jinterface: Java 和 Erlang 的通讯接口，和 Erl_Interface 接口类似。
+- C Nodes: 用 C 语言按 Erl_Interface 接口模拟 Erlang Node 行为实现的可执行程序。
+- NIF: Erlang 虚拟机直接调用 C 原生代码实现的动态链接函数库。
 - Network: 通过自定义序列化格式与 Erlang 节点网络交互，如 bert-rpc。
 
-内部接入，和虚拟机在同一个 OS 进程内：
+从进程关系上来分类，Port、Erl_Interface、Jinterface、C Nodes 还有 Network 方式都是独立的外部程序，进程完全独立。而通过动态链接库加载的形式有 Port Drivers、NIF。
 
-- BIF: Erlang 大部分 BIF 用 C 实现，如 erlang:now，lists:reverse 等。
-- Port Driver: 以链接库方式将 Port 嵌入虚拟机，也叫 Linkin Driver。
-- NIF: 虚拟机直接调用 C 原生代码。
+所有需要引用的头文件或库都可以在安装目录下 usr\include 和 lib 中找到。
+
+Erlang 外部调用有几种方式，Port 或者 Port Drivers 只是其中之一，与其它语言程序的互调用机制可以归纳为两类：
+
+1. Distributed Erlang 分布式互调用，主要用于 Erlang 程序之间，当然也可以与 C 或 Java 互调。
+2. Ports 或者 linked-in drivers，主要用于 Erlang 与其它语言程序。
+
+通过给分布系统中的一个 Erlang 运行时系统一个名称而成为一个分布式 Erlang 节点。分布式 Erlang 节点可以连接并监视其他节点，还可以在其他节点生成进程。不同节点的进程之间的消息传递和错误处理是透明的。分布式 Erlang 系统中提供了许多有用的 STDLIB 模块。例如，global，它提供全局名称注册。分发机制使用 TCP/IP 套接字实现。
 
 
-## NIF
+## 🍀 NIF 原生实现函数
+- https://www.erlang.org/doc/tutorial/nif
+- https://www.erlang.org/doc/man/erl_nif.html
+- https://www.erlang.org/doc/tutorial/debugging
 - https://www.cnblogs.com/zhengsyao/p/dirty_scheduler_otp_17rc1.html
 - https://github.com/slfritchie/nifwait/tree/md5
 - https://github.com/vinoski/bitwise
 
 
-NIF - Native Implemented Functions 是 Erlang 调用 C 代码最简单高效的方案，对 Erlang 层来说，调用 NIF 就像调用普通函数一样，只不过这个函数是由 C 实现的。
+> Warning
+> 
+> Use this functionality with extreme care.
+> 
+> A native function is executed as a direct extension of the native code of the VM. Execution is not made in a safe environment. The VM cannot provide the same services as provided when executing Erlang code, such as pre-emptive scheduling or memory protection. If the native function does not behave well, the whole VM will misbehave.
+> 
+> A native function that crashes will crash the whole VM.
+> 
+> An erroneously implemented native function can cause a VM internal state inconsistency, which can cause a crash of the VM, or miscellaneous misbehaviors of the VM at any point after the call to the native function.
+> 
+> A native function doing lengthy work before returning degrades responsiveness of the VM, and can cause miscellaneous strange behaviors. Such strange behaviors include, but are not limited to, extreme memory usage, and bad load balancing between schedulers. Strange behaviors that can occur because of lengthy work can also vary between Erlang/OTP releases.。
+
+NIF - Native Implemented Functions 是 Erlang 调用 C 代码最简单高效的方案，对 Erlang 层来说，调用 NIF 就像调用普通函数一样，只不过这个函数是由 C 实现的。实现方式和 Port Drivers 类似，都是通过动态链接库的形式加载，只是没有经过 Port 接口。
 
 NIF 是同步语义的，运行于调度线程中，无需上下文切换，因此效率很高。但也引出一个问题，对于执行时间长的 NIF，在 NIF 返回之前，调度线程不能做别的事情，影响了虚拟机的公平调度，甚至会影响调度线程之间的协作。因此 NIF 是把双刃剑，在使用的时候要尤其小心。
 
-Erlang 建议的 NIF 执行时间不要超过 1ms，针对于执行时间长的 NIF，有如下几种方案：
+Erlang 建议的 NIF 执行时间不要超过 1ms，针对于执行时间长的 NIF，Long-running NIFs
+ 文档方案参考：
 
 - 分割任务，将单次长时间调用切分为多次短时间调用，再合并结果。这种方案显然不通用
-- 让 NIF 参与调度。在 NIF 中恰当时机通过 `enif_consume_timeslice` 汇报消耗的时间片，让虚拟机确定是否放弃控制权并通过返回值通知 NIF(做上下文保存等)
-- 使用脏调度器，让 NIF 在非调度线程中执行
+- 让 NIF 参与调度。NIF 适时通过 `enif_consume_timeslice` 汇报消耗的时间片，让虚拟机确定是否放弃控制权并通过返回值通知 NIF(做上下文保存等)
+- Dirty NIF 脏调度器，让 NIF 在非调度线程中执行；
+- Threaded NIF，让独立线程进行长时的工作，完成后通过 enif_send 方法发送结果。
 
 Erlang 默认并未启用脏调度器，通过 `--enable-dirty-schedulers` 选项重新编译虚拟机可打开脏调度器，目前脏调度器只能被 NIF 使用。
 
@@ -7817,116 +9775,157 @@ Port Driver 和 NIF 与虚拟机调度密切相关，想要在实践中用好它
 
 另外，Port Driver 和 NIF 还有一种用法是自己创建新的线程或线程池，Driver 和 NIF 也提供了线程操作 API，这基本是费力不讨好的一种方案，还极易出错。
 
+NIF library 作为动态链接库，.so 或者 .dll，并且通过 erlang:load_nif/2 加载到 Erlang 运行时，调用 NIF 函数就和其它内建函数一样。编写 NIF 函数库需要以下头文件：
 
-## Port Driver
-- http://erlang.org/doc/man/erl_driver.html
-- http://erlang.org/doc/tutorial/c_portdriver.html
-- http://erlang.org/doc/apps/erts/driver.html
-- https://erlang.org/doc/efficiency_guide/drivers.html
+1. usr\include\erl_nif.h
+2. usr\include\erl_drv_nif.h
+3. usr\include\erl_nif_api_funcs.h
 
-Port 的优势在于隔离性和安全性，因为外部程序的任何异常都不会导致虚拟机崩溃，并且 Erlang 层通过 receive 来实现同步调用等待外部程序响应时，是不会影响 Erlang 虚拟机调度的。至于 Port 的缺点，主要是效率低，由于传递的是字节流数据，因此需要对数据进行序列化反序列化，Erlang 本身针对 C 和 Java 提供了对应的编解码库 ei 和 Jinterface。
+一个最小 NIF 库的实现如下，C 语言代码只需要引用 erl_nif.h 头文件。代码中
+调用宏函数 `ERL_NIF_INIT` 将 C 实现的函数注册为 NIF，并关联指定的 Erlang 模块名，宏体会构建出相应的 `ErlNifEntry`。
 
-Port Driver 分为静态链接和动态链接两种，前者和虚拟机一起编译，在虚拟机启动时被加载，后者通过动态链接库的方式嵌入到虚拟机。出于灵活性和易用性的原因，通常使用后者。
+	#define ERL_NIF_INIT(NAME, FUNCS, LOAD, RELOAD, UPGRADE, UNLOAD) 
 
-虚拟机和 Port Driver 的交互方式与 Port 一样，Port 和 Port Driver 在 Erlang 层表现的语义一致。
+宏函数参数说明：
 
-Port Driver 通过一个 `ErlDrvEntry` 结构体与虚拟机交互，该结构体注册了driver 针对各种虚拟机事件的响应函数。skynet 挂接 service 的思想大概也继承于此。driver entry 结构体定义在 `erl_driver.h` 主要成员如下：
+1. NAME 指定要绑定的 Eerlang 模块的名称；
+2. FUNCS 指定 NIFs 函数列表与对应的 C 语言实现函数；
+3. LOAD、RELOAD、UPGRADE、UNLOAD  对应模块的功能函数，可选。
 
+```cpp
+    int  (*load)   (ErlNifEnv*, void** priv_data, ERL_NIF_TERM load_info);
+    int  (*reload) (ErlNifEnv*, void** priv_data, ERL_NIF_TERM load_info);
+    int  (*upgrade)(ErlNifEnv*, void** priv_data, void** old_priv_data, ERL_NIF_TERM load_info);
+    void (*unload) (ErlNifEnv*, void* priv_data);
+```
 
-	typedef struct erl_drv_entry {
-	int (*init)(void);
-	/* called at system start up for statically
-				   linked drivers, and after loading for
-				   dynamically loaded drivers */ 
+每个 NIF 函数实现对应 `ErlNifFunc` 结构，相当于是描述 `FunctionName/Arity` 的结构。实现函数接收一个 Erlang 上下文环境, 可以通过它得到对应的 NIF 模块信息。
+函数输入输出都使用 `ERL_NIF_TERM` 类型，它是一个用于标识 terms 类型的值。使用 erl_nif_api_funcs.h 中提供的各种类型转换函数，比如 `enif_make_string`，实现函数只需要负责输出部分的数据类型转换。
 
-	#ifndef ERL_SYS_DRV
-		ErlDrvData (*start)(ErlDrvPort port, char *command);
-		/* called when open_port/2 is invoked. return value -1 means failure. */
-	#else
-		ErlDrvData (*start)(ErlDrvPort port, char *command, SysDriverOpts* opts);
-		/* special options, only for system driver */
-	#endif
-		void (*stop)(ErlDrvData drv_data);
-		/* called when port is closed, and when the emulator is halted. */
-		void (*output)(ErlDrvData drv_data, char *buf, ErlDrvSizeT len);
-		/* called when we have output from erlang to the port */
-		void (*ready_input)(ErlDrvData drv_data, ErlDrvEvent event); 
-		/* called when we have input from one of the driver's handles */
-		void (*ready_output)(ErlDrvData drv_data, ErlDrvEvent event);  
-		/* called when output is possible to one of the driver's handles */
-		char *driver_name;		
-		/* name supplied as command in open_port XXX ? */
-		void (*finish)(void);        
-		/* called before unloading the driver - DYNAMIC DRIVERS ONLY */
-		void *handle;
-		/* Reserved -- Used by emulator internally */
-		ErlDrvSSizeT (*control)(ErlDrvData drv_data, unsigned int command,
-					char *buf, ErlDrvSizeT len, char **rbuf,
-					ErlDrvSizeT rlen); 
+根据系统差异，类型转换函数使用不同的宏函数构造：`ERL_NIF_API_FUNC_MACRO` (Win32) 和 `ERL_NIF_API_FUNC_DECL`。以下按 Win32 系统的处理梳理类型转换函数的逻辑：
 
-		/* "ioctl" for drivers - invoked by port_control/3 */
-		void (*timeout)(ErlDrvData drv_data);	
-		/* Handling of timeout in driver */
-		void (*outputv)(ErlDrvData drv_data, ErlIOVec *ev);
-		/* called when we have output from erlang to the port */
-		void (*ready_async)(ErlDrvData drv_data, ErlDrvThreadData thread_data);
-		void (*flush)(ErlDrvData drv_data);
-		/* called when the port is about to be 
-					   closed, and there is data in the 
-					   driver queue that needs to be flushed
-					   before 'stop' can be called */
-		ErlDrvSSizeT (*call)(ErlDrvData drv_data,
-				 unsigned int command, char *buf, ErlDrvSizeT len,
-				 char **rbuf, ErlDrvSizeT rlen,
-				 /* Works mostly like 'control', a synchronous call into the driver. */
-				 unsigned int *flags); 
+```cpp
+#  define enif_make_binary ERL_NIF_API_FUNC_MACRO(enif_make_binary)
 
-		void (*unused_event_callback)(void);
+#  define ERL_NIF_API_FUNC_MACRO(NAME) (WinDynNifCallbacks.NAME)
+#  include "erl_nif_api_funcs.h"
 
-		int extended_marker;	/* ERL_DRV_EXTENDED_MARKER */
-		int major_version;		/* ERL_DRV_EXTENDED_MAJOR_VERSION */
-		int minor_version;		/* ERL_DRV_EXTENDED_MINOR_VERSION */
-		int driver_flags;		/* ERL_DRV_FLAGs */
-		void *handle2;              /* Reserved -- Used by emulator internally */
-
-		void (*process_exit)(ErlDrvData drv_data, ErlDrvMonitor *monitor);
-		/* Called when a process monitor fires */
-		void (*stop_select)(ErlDrvEvent event, void* reserved);
-		/* Called on behalf of driver_select when
-					   it is safe to release 'event'. A typical
-					   unix driver would call close(event) */
-		void (*emergency_close)(ErlDrvData drv_data);
-		/* called when the port is closed abruptly.
-					   specifically when erl_crash_dump is called. */
-		/* When adding entries here, dont forget to pad in obsolete/driver.h */
-	} ErlDrvEntry;
-
-该结构体比较复杂，主要原因是Erlang Port Driver支持多种运行方式：
-
-- 运行于虚拟机调度线程的基本模式
-- 基于 select 事件触发的异步 Driver
-- 基于异步线程池的异步 Driver
-
-三种模式的示例参考 Port Driver，How to Implement a Driver，Driver API 接口文档。Erlang 虚拟机提供的异步线程池可通过 `+A` 选项设置。
-
-端口驱动的主要优势是效率高，但是缺点是链入的动态链接库本身出现内测泄露或异常，将影响虚拟机的正常运行甚至导致虚拟机崩溃。将外部模块的问题带入了虚拟机本身。对于耗时较长或阻塞的任务，应该通过异步方式设计，避免影响虚拟机调度。
+#  define ERL_NIF_API_FUNC_DECL(RET_TYPE, NAME, ARGS) RET_TYPE (*NAME) ARGS
+typedef struct {
+#  include "erl_nif_api_funcs.h"
+   void* erts_alc_test;
+} TWinDynNifCallbacks;
+extern TWinDynNifCallbacks WinDynNifCallbacks;
+#  undef ERL_NIF_API_FUNC_DECL
+```
 
 
+以下是 NIF 函数库的示范代码：
 
-## C Port Example
+```cpp
+/* niftest.c */
+#include <erl_nif.h>
+
+static ERL_NIF_TERM hello(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+{
+    return enif_make_string(env, "Hello world!", ERL_NIF_LATIN1);
+}
+
+static ErlNifFunc nif_funcs[] =
+{
+    {"hello", 0, hello}
+};
+
+ERL_NIF_INIT(niftest,nif_funcs,NULL,NULL,NULL,NULL)
+```
+
+对应的 Erlang 加载程序如下，注意使用 `-on_load` 指令，它保证模块加载时会执行 NIF 函数库的加载。并且使用了 `-nifs` 指令定义了 NIF 函数库导出的函数列表，这个指令指导 Erlang 用 NIF 函数替代代码中定义的同名的 Erlang 函数，如果 NIF 函数库加载成为就会以 Code replacement 的形式替换它，在加载 NIF 函数库失败时就会以 fallback 形式使用同名的 Erlang 函数。同时 fallback 函数必要存在以确保 NIF 函数库加载前被调用的情形得到响应，一般会调用 erlang:nif_error 触发异常：
+
+```erlang
+-module(niftest).
+
+-export([init/0, hello/0]).
+
+-nifs([hello/0]).
+
+-on_load(init/0).
+
+init() ->
+      erlang:load_nif("./niftest", 0).
+
+hello() ->
+      erlang:nif_error("NIF library not loaded").
+```
+
+A NIF does not have to be exported, it can be local to the module. However, unused local stub functions will be optimized away by the compiler, causing loading of the NIF library to fail.
+
+以上 NIF 函数库程序可以在 Linux 系统使用以下命令编译并加载调用：
+
+```sh
+$> gcc -fPIC -shared -o niftest.so niftest.c -I $ERL_ROOT/usr/include/
+$> erl
+
+1> c(niftest).
+{ok,niftest}
+2> niftest:hello().
+"Hello world!"
+```
+
+NIF 函数库一旦加载就持久存在，除非主动 purge 函数库所归属的 Erlang 模块。可以在 NIF 实现中，编写 unload 函数，用于在卸载函数库时做清理工作。
+
+调试 NIF 程序，可以激活 erl 的调试功能，如果编译时已启用 debug emulator 调试功能会出现 debug-compiled。建议开发中总是使用调试模拟器，尽管会降低性能，但可以获得以下好处：
+
+1. Increase probability of detecting bugs earlier. It contains a lot more runtime checks to ensure correct use of internal interfaces and data structures.
+2. Generate a core dump that is easier to analyze. Compiler optimizations are turned off, which stops the compiler from "optimizing away" variables, thus making it easier/possible to inspect their state.
+3. Detect lock order violations. A runtime lock checker will verify that the locks in the erl_nif and erl_driver APIs are seized in a consistent order that cannot result in deadlock bugs.
+
+```sh
+# https://www.erlang.org/doc/installation_guide/install
+# $ (cd $ERL_TOP/erts/emulator && make debug)
+> erl.exe -emu_type debug
+Erlang/OTP 26 [erts-14.0.2] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1] [jit:ns] [type-assertions] [debug-compiled] [lock-checking]
+
+Eshell V14.0.2 (press Ctrl+G to abort, type help(). for help) 
+```
+
+## 🍀 C Port Example
+- https://www.erlang.org/doc/tutorial/c_port
+- https://www.erlang.org/doc/reference_manual/ports
 - [SMP、NUMA、MPP体系结构介绍](https://www.cnblogs.com/yubo/archive/2010/04/23/1718810.html)
 
-在 Erlang 中，一个 `Port` 其实就代表了一个 IO 句柄，进程通过 `open_port` 打开，然后在这个 port 上进行读写数据操作，来与这个 IO 句柄进行数据交换。Port 被用来抽象所有和 Erlang 虚拟机交互的 IO 对象，比如文件，socket 等等，就像 unix 设计一样。而真正对这些 IO 对象进行操作的，是每个 port 对应的 `port driver`。
+在 Erlang 中，一个 `Port` 其实就代表了一个 IO 句柄，进程通过 `open_port` 打开，然后在这个 port 上进行读写数据操作，来与这个 IO 句柄进行数据交换。Port 被用来抽象所有和 Erlang 虚拟机交互的 IO 对象，比如文件，socket 等等，就像 unix 设计一样。Port 作为抽象的端口，不仅实现 Erlang 进程与其它独立的操作系统进程的通信，也实现了在 Erlang 进程内部与其它语言编写的 Port Drivers 动态链接程序进行互调用。
 
 系统与 `Port Driver` 的交互中，要向系统提供一个 `ErlDrvEntry` 类型的结构体，其中包含有系统回调函数的指针，每个回调函数都用于处理 driver 事件进行处理。关于每个回调函数的描述可以参考 Ports and Port Drivers 文档。
 
 每个 Port 都有一个 owner 进程，通常为创建 Port 的进程，当 owner 进程终止时，Port 也将被自动关闭。Ports 使用示例参考官方文档 C Ports。进程创建 port 也叫做连接进程到 port，是同一个意思。
 
+通过 open_port 函数文档提供的信息，可以知道 Port 程序有多种运行方式：
+
+```erlang
+PortName =
+    {spawn, Command :: string() | binary()} |
+    {spawn_driver, Command :: string() | binary()} |
+    {spawn_executable, FileName :: file:name()} |
+    {fd, In :: integer() >= 0, Out :: integer() >= 0}
+```
+
+1. 第一种方式，`{spawn, Command}`，是 Ports 和 Port Drivers 互调用的方式，不适用于运行目录路径或命令名称中带空格的情况。
+
+2. `{spawn_driver, Command}` 专用于 Port Drivers，并以命令中的第一个空格前的内容作为驱动程序名。
+
+3. `{spawn_executable, FileName}` 适用于运行目录路径或命令名称中带空格的情况。
+
+4. `{fd, In, Out }` 允许访问当前 Erlang 进程打开的文件描述符，标准输入和标准输出。
+
+第一、二种形式中，Command 指定要运行的 PATH 环境变量目录列表中可以定位的外部程序，或者 Port Drivers 名称。如果命令包含空格，那么第一个空格前的值作为要运行的外部程序和 Driver 名称。命令所需要的参数可以通过 open_port PortSettings 参数 args 或 arg0 传入。
+
+由于 open_port 涉及到建立操作系统进程，所以是比较耗资源的操作。
+
 现代主机可以按 CPU 的结构划分成以下三类：
 
-- SMP - Symmetrical Multi-Processing 对称多处理技术，同一主机上各 CPU 之间共享内存子系统以及总线结构。
-- MPP - Massive Parallel Processing 大规模并行处理系统由多个 SMP 服务器通过一定的节点互联网络进行连接，协同工作，完成相同的任务，从用户的角度来看是一个服务器系统。
-- NUMA - Non-Uniform Memory Access 架构每个处理器拥有自己的内存，访问共享内存时具有不同的访问延迟。
+- Symmetrical Multi-Processing (SMP) 对称多处理技术，同一主机上各 CPU 之间共享内存子系统以及总线结构。
+- Massive Parallel Processing (MPP) 大规模并行处理系统由多个 SMP 服务器通过一定的节点互联网络进行连接，协同工作，完成相同的任务，从用户的角度来看是一个服务器系统。
+- Non-Uniform Memory Access (NUMA) 非统一内存读写架构每个处理器拥有自己的内存，访问共享内存时具有不同的访问延迟。
 
 Erlang 虚拟机在默认情况下运行于对称多处理 SMP 模式。系统一般会根据处理器数量，启动同样数量的 scheduler 调度线程负责以下工作：
 
@@ -7934,15 +9933,15 @@ Erlang 虚拟机在默认情况下运行于对称多处理 SMP 模式。系统�
 - 处理系统 IO 事件；
 - driver 在一个 scheduler 线程中运行，对应以上两个上下文。
 
-所有 port 相关的 bif 都运行于 process 执行上下文中。比如 `open_port`，会立即调用 driver 的 `start` 回调，`port_command` 会调用 `output` 回调等等。在处理这些回调时，经常需要一些 IO 处理，比如读写 socket 或文件。如果我们使用同步的阻塞方法进行读写，将会挂起整个 scheduler 线程，从而导致所属的所有工作都被挂起。这是不允许的，所以在 driver 中处理 IO 时，都会使用非阻塞的方法。
+所有 port 相关的 BIFs 都运行于 process 执行上下文中。比如 `open_port`，会立即调用 driver 的 `start` 回调，`port_command` 会调用 `output` 回调等等。在处理这些回调时，经常需要一些 IO 处理，比如读写 socket 或文件。如果我们使用同步的阻塞方法进行读写，将会挂起整个 scheduler 线程，从而导致所属的所有工作都被挂起。这是不允许的，所以在 driver 中处理 IO 时，都会使用非阻塞的方法。
 
 系统通过 `driver_select` 接口函数为 driver 提供了事件监听机制，来实现非阻塞的 IO 处理。当有 IO 需要操作时，通过 `driver_select` 向系统注册可读或者可写事件，然后等待系统回调来最终处理读写。这个回调就是 `ready_input` 和 `ready_output`。他们运行于处理系统 IO 事件的上下文中。同样，在这个上下文中也不能阻塞 scheduler 线程的运行。
 
 这些方法可以在源代码中找到：
 
-	otp_src_23.0\erts\emulator\sys\common\erl_check_io.c
-	otp_src_23.0\erts\emulator\sys\unix\sys_drivers.c
-	otp_src_23.0\erts\emulator\sys\win32\sys.c
+1. otp_src_23.0\erts\emulator\sys\common\erl_check_io.c
+2. otp_src_23.0\erts\emulator\sys\unix\sys_drivers.c
+3. otp_src_23.0\erts\emulator\sys\win32\sys.c
 
 系统还为每个 port 提供了一个 driver queue，用来存储异步数据。我们可以通过将待处理的数据加入到 driver queue 中，等待系统读写事件发生时再进行处理。
 
@@ -7952,8 +9951,26 @@ Erlang 虚拟机在默认情况下运行于对称多处理 SMP 模式。系统�
 
 在 driver 中，还有一个与阻塞相关的功能，就是 port busy，可以通过 `set_busy_port` 设置 busy 状态。如果一个 process 向 busy 状态的 port 发送数据时，这个 process 就会被挂起，直到 port 解除 busy 状态，一般使用这个功能来解决处理能力问题。比如 socket 的数据已经堆积了很多还没有发送出去时，就可以设置 busy，让发送 process 暂时阻塞在发送上面，等待数据发送完成。
 
-以下是 Complex 模块完整代码：
+假设由 C 语言编写的程序提供了两个函数：foo 和 bar，暂时将这个程序看作是 complex 模块。通过编写 Erlang Port 程序，可以实现 complex:foo() 或者 complex:bar() 这样的方式去调用 C 语言程序，并完成参数的传递与输出数据的获取。Erlang Port 程序在这个过程需要按以下步骤操作：
 
+1. Encodes the message into a sequence of bytes.
+2. Sends it to the port.
+3. Waits for a reply.
+4. Decodes the reply.
+5. Sends it back to the caller:
+
+以下是 Erlang complex 模块代码，代码使用定义的 encode 和 decode 方法用于将数值映射到 foo 和 bar，这样方便 C 程序接收到消息时直接处理数值即可。
+
+注意，代码中的 complex 这个原子，它既是模块名，但更重要的是它是注册的进程，所以可以直接向它发送消息。注意，`self/0` 获取到的 PID 取决于其当前运行的进程，即什么进程调用它就反回对应进程的 PID。而无关于代码定义写在什么模块，由哪个进行运行这个模块。
+
+1. spawn 孵化进程执行初始化 init/1，此时 self/0 是指这个孵化出来的进程；
+2. 其它进程调用 complex:foo/1，并打开端口，此时 self/0 却是指这“其它进程”；
+
+已经注册过的进程名或者 Port 可以使用 `whereis/1` 函数进行查询，获取其引用。如果指定的 atom 名称即没有相应注册的进程，也没有相应的注册端口，则返回 undefined。具体返回什么对象，取决于 register/2 方法注册时与 atom 名称关联的对象，可以用此方法来检测指定进程是否处于启动状态。
+
+PID 与 Port 标识的字面表达有些不同，前者像 <0.78.0> ，而后者像 #Port<0.5>，可以。
+
+```erlang
 	-module(complex).
 	-export([start/1, stop/0, init/1]).
 	-export([foo/1, bar/1]).
@@ -8005,19 +10022,79 @@ Erlang 虚拟机在默认情况下运行于对称多处理 SMP 模式。系统�
 	encode({bar, Y}) -> [2, Y].
 
 	decode([Int]) -> Int.
+```
 
-进程在 `loop` 函数中递归，捕捉到错误或退出信号就结束程序。
+Erlang complex 模块启动时执行 start 方法，以新进程启动 init 函数完成以下事务：
 
-定义了 `complex1:foo/1` 和 `complex1:bar/1` 两个函数，用来发送消息到进程中。
+1. 模块注册，名称为原子 complex；
+2. 设置 trap_exit 错误信息捕捉；
+3. 打开 Port 对象准备与外部程序进行消息通信，消息字节指 {packet, N} ，1、2、4 字节。
+4. 进入 `loop` 函数中递归处理模块的消息，捕捉到错误或退出信号就结束程序。
 
-进程的任务如下：
+为了自动化处理初始过程，可以使用 -on_load(start/0) 指令去执行初始化方法。注意，此 start/1 方法需要指定外部程序文件名，省略扩展名。外部程序名可以是字符串或者原子形式指定都可以。注意，这个名称会作用 open_port 函数中的商品命令使用。另外，-on_load 指令中不能使用匿名函数，并且不能在 -on_load 直接返回进程对象，使用中会出现循环调用现象。
 
-- 在 `loop` 中接收到消息后，使用 `encode` 对消息进行编码，字节序列化；
-- 然后，将消息发送到 port，等待回复；
-- 接收到回复，使用 `decode` 解码，并发回给 caller。
+```erlang
+-on_load(start/0).
 
-假设，从 C 程序发送过来的参数小于 256，那么经过 encode、decode 简单的编码，foo 由字节值 1 表示，bar 由 2 表示，参数结果也由单个字节表示。
+start() -> 
+	% start(port_test). % dead cycle
+	P = start(port_test),
+	io:format("MOD: ~p ~p~n", [?MODULE, P]).
+```
 
+模块中定义的 `complex1:foo/1` 和 `complex1:bar/1` 两个函数供其它模块调用，用于触发调用外部程序，通过向模块本身发送 call 消息实现，loop 循环中接收到调用信息就通过 Port 对象发起与外部程序的消息通信。
+
+进程在 `loop` 循环处理的调用任务如下：
+
+1. 接收到 call 消息，此消息包含了要调用的外部函数与相应的参数；
+2. 使用 `encode` 对消息进行编码，将待调用函数映射为对应的数字编号；
+3. 然后，向 Port 对象发送 command 消息一并发送相应的参数，等待外部程序回复；
+4. 接收到数据消息回复，使用 `decode` 解码得到计算结果的数值，并发回给 caller。
+
+注意：call_port 方法中的 self() 获取当前进程 PID，即正在调用 complex:foo/1 或者 complex:bar/1 运行中的进程。示范程序假定使用 1 个字节来传递参数。
+
+注意：Port 对象消息的收发规范，数据发送 {Pid,{command,Data}}，数据接收 {Port,{data,Data}}。
+
+
+外部程序的主函数负责调用 erl_comm.c 程序中的函数读写 Erlang 程序通过 Port 机制收发的消息数据。因为 Erlang 将调用的函数映射为数值，并通过消息发送到 C 程序，所以读取消息时，根据数组映射关系去调用 foo 或 bar 函数，两个函数只接收一个参数简化了处理过程：
+
+```cpp
+	/* port.c */
+
+	typedef unsigned char byte;
+
+	int main() {
+	  int fn, arg, res;
+	  byte buf[100];
+
+	  while (read_cmd(buf) > 0) {
+		fn = buf[0];
+		arg = buf[1];
+		
+		if (fn == 1) {
+		  res = foo(arg);
+		} else if (fn == 2) {
+		  res = bar(arg);
+		}
+
+		buf[0] = res;
+		write_cmd(buf, 1);
+	  }
+	}
+```
+
+在 C 代码中，stdin 和 stdout 是缓冲区，不可以用来和 Erlang 通讯。
+
+在 main 函数中， port.c 程序在 while 循环中通过 read_cmd 读取来自 Erlang 的消息，最终会调用 C 语言库函数 read 读取缓冲区数据到 buf 变量中。此方法是阻塞的，它等待数据的到来，并逐字节读取再定入 buf 这个程序缓冲变量。在循环读取流程中，满足以下任一条，read_cmd 函数立即返回：
+
+1. 缓冲区达到结束，即读取到 0 值；
+2. 读取数据长度满足参数 len 指定的字节长度就返回。
+
+根据读取到的消息数据第一个整数来决定执行 foo 或 bar 函数进行处理，而第二个整数则作为参数。得到计算结果后，再通过 write_cmd 发送回 Erlang 程序。
+
+示范程序假设了一个字节足够映射两个 NIF 函数，同时假定其参数也使用一个字节表达。经过 encode、decode 简单的编码，foo 由数值 1 表示，bar 由 2 表示，输入参数也同样由单个字节表示。
+
+```c
 	/* erl_comm.c */
 
 	#include <stdio.h>
@@ -8074,7 +10151,11 @@ Erlang 虚拟机在默认情况下运行于对称多处理 SMP 模式。系统�
 
 	  return write_exact(buf, len);
 	}
+```
 
+功能函数只用于演示 Port 调用逻辑，本身功能只做常规数学计算：
+
+```cpp
 	/* complex.c */
 
 	int foo(int x) {
@@ -8084,35 +10165,7 @@ Erlang 虚拟机在默认情况下运行于对称多处理 SMP 模式。系统�
 	int bar(int y) {
 	  return y*2;
 	}
-
-	/* port.c */
-
-	typedef unsigned char byte;
-
-	int main() {
-	  int fn, arg, res;
-	  byte buf[100];
-
-	  while (read_cmd(buf) > 0) {
-		fn = buf[0];
-		arg = buf[1];
-		
-		if (fn == 1) {
-		  res = foo(arg);
-		} else if (fn == 2) {
-		  res = bar(arg);
-		}
-
-		buf[0] = res;
-		write_cmd(buf, 1);
-	  }
-	}
-
-
-在 C 代码中，stdin 和 stdout 是缓冲区，不可以用来和 Erlang 通讯。
-
-在 main 函数中， port.c 程序在 while 循环中通过 read_cmd 读取来自 Erlang 的消息。根据消息的第一个字节来决定执行 foo 或 bar 函数进行处理，而第二个字节则作为参数。得到计算结果后，再通过 write_cmd 发送加 Erlang。
-
+```
 
 运行测试
 
@@ -8140,6 +10193,11 @@ Step 3. 运行并装入外部 C 程序：
 	5> complex1:stop().
 	stop
 
+或者将编译输出到 ebin 目录，再将此目录添加到 code path 列表：
+
+	erlc -o ebin complex1.erl
+	erl -pa ebin -s complex1 foo 3 -s init stop
+
 注意，装入 C 程序指定的文件名不匹配会导致 `enoent` 错误，在 Windows 系统上可以省略 exe 扩展名。
 
 如果，输入错误参数，会导致 port 进程挂掉，因为没有进行错误处理：
@@ -8147,6 +10205,838 @@ Step 3. 运行并装入外部 C 程序：
 	> complex:bar(0.5).
 	=ERROR REPORT==== 17-Jun-2020::04:53:35.026000 ===
 	Bad value on output port 'extprg'
+
+
+https://www.erlang.org/doc/man/erlang#open_port-2
+otp-OTP-26.0.2\erts\preloaded\src\erlang.erl
+
+```erlang
+-spec open_port(PortName, PortSettings) -> port() when
+      PortName :: {spawn, Command :: string() | binary()} |
+                  {spawn_driver, Command :: string() | binary()} |
+                  {spawn_executable, FileName :: file:name() } |
+                  {fd, In :: non_neg_integer(), Out :: non_neg_integer()},
+      PortSettings :: [Opt],
+      Opt :: {packet, N :: 1 | 2 | 4}
+           | stream
+           | {line, L :: non_neg_integer()}
+           | {cd, Dir :: string() | binary()}
+           | {env, Env :: [{Name :: os:env_var_name(), Val :: os:env_var_value() | false}]}
+           | {args, [string() | binary()]}
+           | {arg0, string() | binary()}
+           | exit_status
+           | use_stdio
+           | nouse_stdio
+           | stderr_to_stdout
+           | in
+           | out
+           | binary
+           | eof
+	   | {parallelism, Boolean :: boolean()}
+	   | hide.
+
+-spec erlang:ports() -> [port()].
+
+-spec erlang:port_call(Port, Data) -> term() when
+      Port :: port() | atom(),
+      Data :: term().
+
+-spec erlang:port_call(Port, Operation, Data) -> term() when
+      Port :: port() | atom(),
+      Operation :: integer(),
+      Data :: term().
+
+-spec erlang:port_info(Port) -> Result when
+      Port :: port() | atom(),
+      ResultItem :: {registered_name, RegisteredName :: atom()}
+		  | {id, Index :: non_neg_integer()}
+		  | {connected, Pid :: pid()}
+		  | {links, Pids :: [pid()]}
+		  | {name, String :: string()}
+		  | {input, Bytes :: non_neg_integer()}
+		  | {output, Bytes :: non_neg_integer()}
+		  | {os_pid, OsPid :: non_neg_integer() | 'undefined'},
+      Result :: [ResultItem] | 'undefined'.
+      
+-spec erlang:port_set_data(Port, Data) -> 'true' when
+      Port :: port() | atom(),
+      Data :: term().
+
+-spec erlang:port_get_data(Port) -> term() when
+      Port :: port() | atom().
+
+-spec port_command(Port, Data) -> 'true' when
+      Port :: port() | atom(),
+      Data :: iodata().
+
+-spec port_command(Port, Data, OptionList) -> boolean() when
+      Port :: port() | atom(),
+      Data :: iodata(),
+      Option :: force | nosuspend,
+      OptionList :: [Option].
+
+-spec port_connect(Port, Pid) -> 'true' when
+      Port :: port() | atom(),
+      Pid :: pid().
+
+-spec port_close(Port) -> 'true' when
+      Port :: port() | atom().
+
+-spec port_control(Port, Operation, Data) -> iodata() | binary() when
+      Port :: port() | atom(),
+      Operation :: integer(),
+      Data :: iodata().
+
+-spec whereis(RegName) -> pid() | port() | undefined when
+      RegName :: atom().
+```
+
+Table 17.1:   Port Creation BIF
+
+| Port Bif	| Description
+| ------ |------- |
+| open_port(PortName, PortSettings)	| Returns a port identifier Port as the result of opening a new Erlang port. Messages can be sent to, and received from, a port identifier, just like a pid. Port identifiers can also be linked to using link/1, or registered under a name using register/2.
+
+Table 17.2:   Messages Sent To a Port
+
+| Message	| Description
+| --------- |--------- |
+| {Pid,{command,Data}}	| Sends Data to the port.
+| {Pid,close}			| Closes the port. Unless the port is already closed, the port replies with {Port,closed} when all buffers have been flushed and the port really closes.
+| {Pid,{connect,NewPid}}	| Sets the port owner of Port to NewPid. Unless the port is already closed, the port replies with{Port,connected} to the old port owner. Note that the old port owner is still linked to the port, but the new port owner is not.
+
+Table 17.3:   Messages Received From a Port
+
+| Message		| Description
+| --------- |--------- |
+| {Port,{data,Data}}	| Data is received from the external program.
+| {Port,closed}		| Reply to Port ! {Pid,close}.
+| {Port,connected}	| Reply to Port ! {Pid,{connect,NewPid}}.
+| {'EXIT',Port,Reason}		| If the port has terminated for some reason.
+
+Table 17.4:   Port BIFs
+
+| Port BIF		| Description	|
+| --------- |--------- |
+| port_command(Port,Data)	| Sends Data to the port.
+| port_close(Port)		| Closes the port.
+| port_connect(Port,NewPid)	| Sets the port owner of Portto NewPid. The old port owner Pid stays linked to the port and must call unlink(Port) if this is not desired.
+| erlang:port_info(Port,Item)		| Returns information as specified by Item.
+| erlang:ports()			| Returns a list of all ports on the current node.
+
+
+## 🍀 Port Driver 动态链接程序
+- http://erlang.org/doc/tutorial/c_portdriver.html
+- http://erlang.org/doc/apps/erts/driver.html
+- https://erlang.org/doc/efficiency_guide/drivers.html
+
+Port Drivers API 相关文档：
+
+1. Kernel erl_ddll https://www.erlang.org/doc/man/erl_ddll
+2. ERTS driver_entry https://www.erlang.org/doc/man/driver_entry
+3. ERTS erl_driver https://www.erlang.org/doc/man/erl_driver
+4. Kernel global https://www.erlang.org/doc/man/global
+5. Kernel net_adm https://www.erlang.org/doc/man/net_adm
+6. Kernel pg https://www.erlang.org/doc/man/pg
+7. Kernel rpc https://www.erlang.org/doc/man/rpc
+8. STDLIB pool https://www.erlang.org/doc/man/pool
+9. STDLIB slave https://www.erlang.org/doc/man/slave
+
+> Warning
+> Use this functionality with extreme care.
+> 
+> A driver callback is executed as a direct extension of the native code of the VM. Execution is not made in a safe environment. The VM cannot provide the same services as provided when executing Erlang code, such as pre-emptive scheduling or memory protection. If the driver callback function does not behave well, the whole VM will misbehave.
+> 
+> A driver callback that crash will crash the whole VM.
+> 
+> An erroneously implemented driver callback can cause a VM internal state inconsistency, which can cause a crash of the VM, or miscellaneous misbehaviors of the VM at any point after the call to the driver callback.
+> 
+> A driver callback doing lengthy work before returning degrades responsiveness of the VM, and can cause miscellaneous strange behaviors. Such strange behaviors include, but are not limited to, extreme memory usage, and bad load balancing between schedulers. Strange behaviors that can occur because of lengthy work can also vary between Erlang/OTP releases.
+
+Port 的优势在于隔离性和安全性，因为外部程序的进程与 Erlang 虚拟机进程是两个完全独立的操作系统进程，任何异常都不会导致虚拟机崩溃，并且 Erlang 层通过 receive 来实现同步调用等待外部程序响应时，是不会影响 Erlang 虚拟机调度的。至于 Port 的缺点，主要是效率低，由于传递的是字节流数据，因此需要对数据进行序列化反序列化，Erlang 本身针对 C 和 Java 提供了对应的编解码库 ei 和 Jinterface。
+
+Port Driver 则是通过链接程序装载到 Erlang 虚拟机进程同一内存空间下运行，属性于同一个操作系统进程。分为静态链接和动态链接两种，前者和虚拟机一起编译，在虚拟机启动时被加载，后者通过动态链接库的方式嵌入到虚拟机。出于灵活性和易用性的原因，通常使用动态链接库的形式。
+
+除了进程的隔离性质差异，Erlang 虚拟机和 Port Driver 的交互方式与 Port 一样，Port 和 Port Driver 在 Erlang 层表现的语义一致。
+
+Port Driver 动态链接库通过 erl_ddll:load_driver/2 方法加载，按规范导出入口函数，然后再调用 open_port({spawn, DriverName}) 打开相应的端口进行通信。
+
+ERTS 5.9 (Erlang/OTP R15B) 开始，驱动接口作了更新，引入了版本管理，通过设置 ErlDrvEntry 结构体的 extended_marker 字段值为 `ERL_DRV_EXTENDED_MARKER` 来启用新规范。以及配置相应的适用版本号，ERL_DRV_EXTENDED_MAJOR_VERSION 和 ERL_DRV_EXTENDED_MINOR_VERSION。Erlang 运行时会根据驱动所指示扩展版本来选择加载或不加载。
+
+旧版接口使用 erl_driver.h，适用于 ERTS v5.9 之前的版本。
+
+驱动没有线程安全机制，不建议进行驱动之间的通信。
+
+默认情况下，会应用驱动级别的锁，当然也可以使用 Port 级别的锁。默认设置下同时只有一个 Erlang 模块器线程会在驱动程序中执行。如果使用 Port 级别锁，则可心有多个模块器线程运行在驱动器上。不过，一次只有一个线程会调用对应于同一 Port 的驱动程序的回调。在驱动程序入口配置 `driver_entry` 设置驱动程序标志 driver_flags 为 ERL_DRV_FLAG_USE_PORT_LOCKING 即启用端口级锁定。当使用端口级锁定时，driver writer 负责同步对端口（驱动程序实例）共享的数据的所有访问。
+
+如果使用驱动程序级锁定，在具有 SMP 构架支持的运行时系统存在之前编写的大多数驱动程序，都可以在具有 SMP 支撑的运行时体系中运行，而无需重写。
+
+
+Port Driver 通过一个 `ErlDrvEntry` 结构体与虚拟机交互，该结构体注册了driver 针对各种虚拟机事件的响应函数。skynet 挂接 service 的思想大概也继承于此。driver entry 结构体定义在 `erl_driver.h` 主要成员如下：
+
+```cpp
+	typedef struct erl_drv_entry {
+	int (*init)(void);
+	/* called at system start up for statically
+				   linked drivers, and after loading for
+				   dynamically loaded drivers */ 
+
+	#ifndef ERL_SYS_DRV
+		ErlDrvData (*start)(ErlDrvPort port, char *command);
+		/* called when open_port/2 is invoked. return value -1 means failure. */
+	#else
+		ErlDrvData (*start)(ErlDrvPort port, char *command, SysDriverOpts* opts);
+		/* special options, only for system driver */
+	#endif
+		void (*stop)(ErlDrvData drv_data);
+		/* called when port is closed, and when the emulator is halted. */
+		void (*output)(ErlDrvData drv_data, char *buf, ErlDrvSizeT len);
+		/* called when we have output from erlang to the port */
+		void (*ready_input)(ErlDrvData drv_data, ErlDrvEvent event); 
+		/* called when we have input from one of the driver's handles */
+		void (*ready_output)(ErlDrvData drv_data, ErlDrvEvent event);  
+		/* called when output is possible to one of the driver's handles */
+		char *driver_name;		
+		/* name supplied as command in open_port XXX ? */
+		void (*finish)(void);        
+		/* called before unloading the driver - DYNAMIC DRIVERS ONLY */
+		void *handle;
+		/* Reserved -- Used by emulator internally */
+		ErlDrvSSizeT (*control)(ErlDrvData drv_data, unsigned int command,
+					char *buf, ErlDrvSizeT len, char **rbuf,
+					ErlDrvSizeT rlen); 
+		/* "ioctl" for drivers - invoked by port_control/3 */
+		void (*timeout)(ErlDrvData drv_data);	
+		/* Handling of timeout in driver */
+		void (*outputv)(ErlDrvData drv_data, ErlIOVec *ev);
+		/* called when we have output from erlang to the port */
+		void (*ready_async)(ErlDrvData drv_data, ErlDrvThreadData thread_data);
+		void (*flush)(ErlDrvData drv_data);
+		/* called when the port is about to be 
+					   closed, and there is data in the 
+					   driver queue that needs to be flushed
+					   before 'stop' can be called */
+		ErlDrvSSizeT (*call)(ErlDrvData drv_data,
+				 unsigned int command, char *buf, ErlDrvSizeT len,
+				 char **rbuf, ErlDrvSizeT rlen,
+				 /* Works mostly like 'control', a synchronous call into the driver. */
+				 unsigned int *flags); 
+
+		void (*unused_event_callback)(void);
+
+		int extended_marker;	/* ERL_DRV_EXTENDED_MARKER */
+		int major_version;		/* ERL_DRV_EXTENDED_MAJOR_VERSION */
+		int minor_version;		/* ERL_DRV_EXTENDED_MINOR_VERSION */
+		int driver_flags;		/* ERL_DRV_FLAGs */
+		void *handle2;              /* Reserved -- Used by emulator internally */
+
+		void (*process_exit)(ErlDrvData drv_data, ErlDrvMonitor *monitor);
+		/* Called when a process monitor fires */
+		void (*stop_select)(ErlDrvEvent event, void* reserved);
+		/* Called on behalf of driver_select when
+					   it is safe to release 'event'. A typical
+					   unix driver would call close(event) */
+		void (*emergency_close)(ErlDrvData drv_data);
+		/* called when the port is closed abruptly.
+					   specifically when erl_crash_dump is called. */
+		/* When adding entries here, dont forget to pad in obsolete/driver.h */
+	} ErlDrvEntry;
+```
+
+该结构体比较复杂，主要原因是 Erlang Port Driver 支持多种运行方式：
+
+- 运行于虚拟机调度线程的基本模式
+- 基于 select 事件触发的异步 Driver
+- 基于异步线程池的异步 Driver
+
+三种模式的示例参考 Port Driver，How to Implement a Driver，Driver API 接口文档。Erlang 虚拟机提供的异步线程池可通过命令行 `+A size` 选项设置。
+
+端口驱动的主要优势是效率高，但是缺点是链入的动态链接库本身出现内测泄露或异常，将影响虚拟机的正常运行甚至导致虚拟机崩溃。将外部模块的问题带入了虚拟机本身。对于耗时较长或阻塞的任务，应该通过异步方式设计，避免影响虚拟机调度。
+
+
+以下是 C 语言实现的 Port Driver 程序，不含 foo 或者 bar 等演示函数的实现，所依赖的头文件和链接库位于 ERTS 安装目录下。
+
+初始化使用宏函数 `DRIVER_INIT(example_drv)` 构造相应的初始化函数 example_drv driver_init，供 Erlang 调用以注册驱动程序信息，返回 ErlDrvEntry 实例中的 driver_name 字段值必需与方法参数一至。这个名字会作为 open_port 方法的命令参数使用。另外，应当作为动态链接库导出函数名称的前缀，如启动、停止方法 example_drv_start、example_drv_stop，以及 Erlang 端口数据到达时的回调方法 example_drv_output。
+
+启动函数会在 open_port/2 调用时执行，其接收唯一的参数就是 Erlang Port 实例，`ErlDrvPort` 类型，需要保存下来，并作为返回值交给 Erlang 运行时。在进行消息通信时它会传入相应的消息答复函数，即 output 函数。在驱动程序中，消息通信的输入输出都在 Output 函数，它接收的参数就是 Erlang 发送的消息，调用 `driver_output` 函数就是返回响应消息。
+
+示范代码中直接使用的 Port Drivers 接口方法有三个：
+
+1. *driver_alloc()* 申请分配动态内存，由驱动程序进行管理；
+2. *driver_free()* 在卸载驱动时被调用，需要在此释放申请到的动态内存；
+3. *driver_output()* 输出响应 Erlang 的消息，输入参数即包含 Erlang 发送的消息。
+
+在驱动程序中使用全局变量不是什么好点子，因为会有多进程的数据共享问题。
+
+```cpp
+/* port_driver.c */
+
+#include <stdio.h>
+#include "erl_driver.h"
+
+typedef struct {
+    ErlDrvPort port;
+} example_data;
+
+static ErlDrvData example_drv_start(ErlDrvPort port, char *buff)
+{
+    example_data* d = (example_data*)driver_alloc(sizeof(example_data));
+    d->port = port;
+    return (ErlDrvData)d;
+}
+
+static void example_drv_stop(ErlDrvData handle)
+{
+    driver_free((char*)handle);
+}
+
+static void example_drv_output(ErlDrvData handle, char *buff, 
+			       ErlDrvSizeT bufflen)
+{
+    example_data* d = (example_data*)handle;
+    char fn = buff[0], arg = buff[1], res;
+    if (fn == 1) {
+      res = foo(arg);
+    } else if (fn == 2) {
+      res = bar(arg);
+    }
+    driver_output(d->port, &res, 1);
+}
+
+ErlDrvEntry example_driver_entry = {
+    NULL,			/* F_PTR init, called when driver is loaded */
+    example_drv_start,	/* L_PTR start, called when port is opened */
+    example_drv_stop,	/* F_PTR stop, called when port is closed */
+    example_drv_output,	/* F_PTR output, called when erlang has sent */
+    NULL,			/* F_PTR ready_input, called when input descriptor ready */
+    NULL,			/* F_PTR ready_output, called when output descriptor ready */
+    "example_drv",		/* char *driver_name, the argument to open_port */
+    NULL,			/* F_PTR finish, called when unloaded */
+    NULL,			/* void *handle, Reserved by VM */
+    NULL,			/* F_PTR control, port_command callback */
+    NULL,			/* F_PTR timeout, reserved */
+    NULL,			/* F_PTR outputv, reserved */
+    NULL,			/* F_PTR ready_async, only for async drivers */
+    NULL,			/* F_PTR flush, called when port is about 
+					to be closed, but there is data in driver queue */
+    NULL,			/* F_PTR call, much like control, sync call to driver */
+    NULL,			/* unused */
+    ERL_DRV_EXTENDED_MARKER, 
+    /* int extended marker, Should always be set to indicate driver versioning */
+    ERL_DRV_EXTENDED_MAJOR_VERSION, 
+    /* int major_version, should always be set to this value */
+    ERL_DRV_EXTENDED_MINOR_VERSION, 
+    /* int minor_version, should always be set to this value */
+    0,				/* int driver_flags, see documentation */
+    NULL,			/* void *handle2, reserved for VM use */
+    NULL,			/* F_PTR process_exit, called when a monitored process dies */
+    NULL				/* F_PTR stop_select, called to close an event object */
+};
+
+DRIVER_INIT(example_drv) /* must match name in driver_entry */
+{
+    return &example_driver_entry;
+}
+```
+
+Port Drivers 互调用的 Erlang 端程序与 Port 互调用形式基本一致，只是增加了动态链接库的加载，调用 `erl_ddll:load_driver(Path, Name)` 函数完成加载。
+
+```erlang
+-module(complex5).
+-export([start/1, stop/0, init/1]).
+-export([foo/1, bar/1]).
+
+start(SharedLib) ->
+    case erl_ddll:load_driver(".", SharedLib) of
+	ok -> ok;
+	{error, already_loaded} -> ok;
+	_ -> exit({error, could_not_load_driver})
+    end,
+    spawn(?MODULE, init, [SharedLib]).
+
+init(SharedLib) ->
+    register(complex, self()),
+    Port = open_port({spawn, SharedLib}, []),
+    loop(Port).
+
+stop() ->
+    complex ! stop.
+
+foo(X) ->
+    call_port({foo, X}).
+bar(Y) ->
+    call_port({bar, Y}).
+
+call_port(Msg) ->
+    complex ! {call, self(), Msg},
+    receive
+	{complex, Result} ->
+	    Result
+    end.
+
+loop(Port) ->
+    receive
+	{call, Caller, Msg} ->
+	    Port ! {self(), {command, encode(Msg)}},
+	    receive
+		{Port, {data, Data}} ->
+		    Caller ! {complex, decode(Data)}
+	    end,
+	    loop(Port);
+	stop ->
+	    Port ! {self(), close},
+	    receive
+		{Port, closed} ->
+		    exit(normal)
+	    end;
+	{'EXIT', Port, Reason} ->
+	    io:format("~p ~n", [Reason]),
+	    exit(port_terminated)
+    end.
+
+encode({foo, X}) -> [1, X];
+encode({bar, Y}) -> [2, Y].
+
+decode([Int]) -> Int.
+```
+
+从形式上，Port Driver 使用动态链接库不需要像 Port 方式那样需要使用入口函数，而是直接使用规范的 ouput 函数进行消息处理。逻辑结构上更清晰，代码也更容易管理。逻辑上，驱动程序只需要导出一个入口函数即可，即通过宏函数 DRIVER_INIT 构建的函数。
+
+但是，因为动态链接库需要与 Erlang 运行时以同一进程运行，所以引入了潜在的风险，甚至是致使 Beam VM 宕机，驱动程序代码编写要求更高。在进行长时任务时，驱动程序回调会降低 VM 的响应能力，并可能导致各种奇怪的行为。这种奇怪的行为包括但不限于极端的内存使用和调度器之间糟糕的负载平衡。
+
+程序编程与测试流程参考：
+
+Step 1. Compile the C code:
+
+```sh
+unix> gcc -o example_drv.so -fpic -shared complex.c port_driver.c
+windows> cl -LD -MD -Fe example_drv.dll complex.c port_driver.c
+```
+
+Step 2. Start Erlang and compile the Erlang code:
+
+```sh
+> erl
+Erlang (BEAM) emulator version 5.1
+
+Eshell V5.1 (abort with ^G)
+1> c(complex5).
+{ok,complex5}
+```
+
+Step 3. Run the example:
+
+```sh
+2> complex5:start("example_drv").
+<0.34.0>
+3> complex5:foo(3).
+4
+4> complex5:bar(5).
+10
+5> complex5:stop().
+stop
+```
+
+
+
+## 🍀 driver_async & ready_async 
+
+除了使用消息收发机制，还可以直接使用 port_control 函数与驱动程序进行同步通信：
+
+```erlang
+	port_control(Port, Operation, Data) -> iodata() | binary()
+		Types
+			Port = port() | atom()
+			Operation = integer()
+			Data = iodata()
+```
+
+Do not call port_control/3 with an unknown Port identifier and expect badarg exception. Any undefined behavior is possible (including node crash) depending on how the port driver interprets the supplied arguments.
+
+Operation 和 Data 参数的含义取决于 Port，并非所有 Port Driver 都支持此特性，需要在 ErlDrvEntry 配置 control 回调函数。返回值是一个字节 0..255 或者 binary，其含义取决于 Port Driver。
+
+Erlang 和驱动程序之间的所有通信都可以通过 port_control/3 完成，驱动程序使用 buf 指向的冲区返回消息数据。
+
+异步通信则需要使用在 Driver 代码中配合 driver_async 方法实现 ready_async 回调函数，或者实现 ready_input 和 ready_output 回调函数。
+
+使用 ready_async 进行异步消息处理时，只需要在 output 回调中调用 driver_async，并且将异步操作的回调函数传递给 Erlang，并由其进行调用，然后就可以在 ready_async 等待异步操作的数据返回时执行处理。
+
+
+```cpp
+	void (*output)(ErlDrvData drv_data, char *buf, ErlDrvSizeT len);
+	/* called when we have output from erlang to the port */
+	void (*ready_input)(ErlDrvData drv_data, ErlDrvEvent event); 
+	/* called when we have input from one of the driver's handles */
+	void (*ready_output)(ErlDrvData drv_data, ErlDrvEvent event);  
+	/* called when output is possible to one of the driver's handles */
+	void (*outputv)(ErlDrvData drv_data, ErlIOVec *ev);
+	/* called when we have output from erlang to the port */
+	void (*ready_async)(ErlDrvData drv_data, ErlDrvThreadData thread_data);
+
+	ErlDrvSSizeT (*control)(ErlDrvData drv_data, unsigned int command,
+				char *buf, ErlDrvSizeT len, char **rbuf, ErlDrvSizeT rlen);
+	/* "ioctl" for drivers - invoked by port_control/3 */
+```
+
+How to Implement a Driver 文档演示如何只使用 port_control 实现消息通信，以及异步消息处理，Erlang 源代码中包含示范程序，编译它们需要用到 postgres 数据库接口的依赖文件，并且需要提供 erl_int_sizes_config.h 头文件配置各种数据类型大小，编译 Erlang 源代码时，会根据系统类型自动按模板脚本生成此配置头文件：
+
+1. https://www.erlang.org/doc/apps/erts/driver.html
+2. https://github.com/erlang/otp/blob/master/erts/example/pg_sync.c
+2. https://github.com/erlang/otp/blob/master/erts/example/pg_async.c
+2. https://github.com/erlang/otp/blob/master/erts/example/pg_async2.c
+2. https://github.com/erlang/otp/blob/master/erts/example/next_perm.cc
+3. OTP-26.0.2\erts\include\erl_int_sizes_config.h.in
+3. OTP-26.0.2\erts\include\x86_64-unknown-linux-gnu\erl_int_sizes_config.h
+
+```cpp
+/* The number of bytes in a char.  */
+#define SIZEOF_CHAR 1
+
+/* The number of bytes in a short.  */
+#define SIZEOF_SHORT 2
+
+/* The number of bytes in a int.  */
+#define SIZEOF_INT 4
+
+/* The number of bytes in a long.  */
+#define SIZEOF_LONG 8
+
+/* The number of bytes in a long long.  */
+#define SIZEOF_LONG_LONG 8
+
+/* The size of a pointer. */
+#define SIZEOF_VOID_P 8
+```
+
+其中一个示例演示了通过 C++ 库函数实现的 Next Permutation 算法来解决问题，假设问题使用的数组元素超过 10 万个。示范代码中使用了一些过时的 API，比如 `driver_output_term`，文档推荐使用 `erl_drv_output_term` 替代它。
+
+使用 make 命令编译示范程序，原脚本要先行编译 Erlang 源代码以生成依赖的链接库：
+
+	make ERL_TOP="/path/to/otp" next_perm.so
+
+	make --makefile=makeme ERL_TOP="c:/program files/erl10.4" next_perm.so
+
+也可以修改 Makefile 并存为副本 makeme，按当前系统中安装的 Erlang 自带的依赖文件来配置示范程序的编译。但是，还是遇到了问题，使用到的 erl_driver.h 中声明的外部函数会在链接阶段出现引用错误：
+
+	next_perm.cc:115: undefined reference to `driver_async'
+	next_perm.cc:134: undefined reference to `driver_mk_port'
+	next_perm.cc:144: undefined reference to `erl_drv_output_term'
+
+使用 objdump --syms ei.lib 查询导出的符号列表，也没有发现 erl_driver.h 声明的相关外部函数，可能是因为此导入库文件只是为 erl_interface 接口服务的。
+
+动态连接库，Dynamic Link Libraraies 也叫做共享库 Shared Libraries。Windows 系统下使用 .dll 扩展名，Linux 系统下使用 .so 扩展名，是指不同的程序可以在运行时动态地链接，并调用库函数。由于不同程序都共享同一个共享库文件，所以可以节省空间。可以使用 nm 命令查看动态链接符号。与之相对的是静态库，编译程序时会和程序链接到一起，程序运行时不依赖外部文件。Windows 系统中静态库和共享库的导入库使用一样的 .lib 扩展名，Linux 系统中使用 .a 扩展名。
+
+1. https://learn.microsoft.com/cpp/build/linking-an-executable-to-a-dll
+2. https://www.sourceware.org/autobook/autobook/autobook_96.html#Using-GNU-libltdl
+
+共享库有两种链接方式：
+
+1. Explicit linking 隐式链接会的共享库会随程序运行时自动由操作系统加载；
+2. Implicit linking 显式链接需要在程序运行时调用操作系统 API 加载；
+
+在编译程序时，不需要对显式连接的共享库进行处理，而是用开发者自行调用系统 API 加载。这种技术通常用于插件机制，程序通过规定插件接口，就可以动态地加载按照插件接口开发的共享库。比如，GNU M4 1.5 版本就开始支持加载动态模块：
+
+```sh
+$ m4 --help
+Usage: m4 [OPTION]... [FILE]...
+...
+Dynamic loading features:
+  -M, --module-directory=DIRECTORY  add DIRECTORY to the search path
+  -m, --load-module=MODULE          load dynamic MODULE from M4MODPATH
+...
+Report bugs to <bug-m4@gnu.org>.
+```
+
+而隐式链接共享库的函数就需要给链接程序指定导入库，Import Libraries，导入库包含共享库的信息，如果共享库的文件名，导出的函数符号等等。编译器遇到调用共享库中的外部函数时，并不知道库函数的地址，因为这些库函数是声明在头文件中的外部函数，只有函数签名声明。链接程序需要通过导入库 .lib 来获取这些外部函数的加载信息，如果缺失这些导入信息，编译器就会给出错误提示：引用符号没有定义。
+
+```sh
+# include $(ERL_TOP)/make/target.mk
+# include $(ERL_TOP)/make/$(TARGET)/otp.mk
+
+EI_ROOT = $(ERL_TOP)/lib/erl_interface-3.12
+EI_INCLUDE = -I"$(ERL_TOP)/usr/include" -I"$(EI_ROOT)/include"
+EI_LIB = -L"$(ERL_TOP)/usr/lib" -I"$(EI_ROOT)/lib" -lei
+
+PQ_LIB = -lpq
+
+OUR_C_FLAGS =  -g -Wall -fpic $(EI_INCLUDE)
+CFLAGS += $(OUR_C_FLAGS)
+CXXFLAGS += $(OUR_C_FLAGS)
+
+TARGETS = matrix_nif.so pg_sync.so pg_async.so pg_async2.so next_perm.so
+
+all: $(TARGETS)
+
+clean:
+	rm -f $(TARGETS) *.o
+	rm -f pg_async2.so pg_encode2.beam pg_async2.beam
+	rm -f core erl_crash.dump
+	rm -f *~
+
+pg_async2.o  pg_encode2.o: pg_encode2.h
+
+pg_sync.o pg_async.o pg_encode.o: pg_encode.h
+
+pg_async2.so: pg_encode2.o
+
+pg_sync.so pg_async.so: pg_encode.o
+
+pg_async2.so: pg_async2.o
+	$(CC) $(CFLAGS) pg_encode2.o -shared $< $(EI_LIB) $(PQ_LIB) -o $@
+
+# next_perm.so: next_perm.o
+# 	$(CXX) $(CXXFLAGS) $<  -shared $(EI_LIB) -o $@
+
+%.so: %.cc
+	$(CXX) $(CXXFLAGS) $< -shared -o $@
+
+%.so: %.o
+	$(CC) $(CFLAGS) pg_encode.o -shared $< $(EI_LIB) $(PQ_LIB) -o $@
+
+%: %.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+```
+
+
+下一排列问题是指：给定大小为N的数组 `arr[]`，任务是按字典顺序打印给定数组的下一个较大排列。如果不存在任何更大的排列，则打印给定数组的字典式最小排列。
+
+https://leetcode.cn/problems/next-permutation/
+Given an array arr[] of size N, the task is to print the lexicographically next greater permutation of the given array. If there does not exist any greater permutation, then print the lexicographically smallest permutation of the given array.
+
+整数数组的一个排列，就是将其所有成员以序列或线性顺序排列。字典序就是字符在字典出现的顺序，比如 0123456789abc 等等。
+
+	字典序值 0	1	2	3	4	5
+	排列    123	132	213	231	312	321
+
+字典序值就是当前序列在字典序中的排列位置。那给定一个排列，我们应该如何求出它的字典序值呢？假设给定的内存容器固定，如何计算出指定的排列呢？
+
+举例来说，全排列 {1,2,3} 按照字典序的排列分别有 123、132、213、231、312 和 321，其中 321 就是最大的字典序排列，123 就是最小的字典序排列，“下一个更大”的排列就是 132。类似地，[2,3,1] 的下一个更大的排列是 [3,1,2]，再下一个更大排列是 [3,2,1]，即最大的字典序排列。
+
+
+
+
+
+## 🍀 Erl_Interface 接口编程
+- http://gashero.yeax.com/?p=69
+- https://www.erlang.org/doc/man/ei
+- http://erlang.org/doc/tutorial/erl_interface.html
+- http://erlang.org/doc/apps/erl_interface/ei_users_guide.html
+- http://erlang.org/doc/apps/jinterface/jinterface_users_guide.html
+
+Erl_Interface 接口库简称 ei，包含的函数接口可以帮助你用 C 语言开发 Erlang 模块，此接口的功能如下：
+
+- 在 C 语言中操作 Erlang 的数据类型；
+- 在 C 语言和 Erlang 之间转换数据格式；
+- 在传送或保存数据对 Erlang 数据类型进行编码和解码；
+- 在 C nodes 和 Erlang 进程间通信；
+- 从 Mensia 中恢复或保存 C node 的状态；
+
+注意，Erl_Interface 库默认只兼容同版本 Erlang/OTP 组件。旧版的组件通信可以参考 ei_set_compat_rel 函数。https://www.erlang.org/doc/man/ei#ei_set_compat_rel
+
+官方文档按 Erl_Interface 工作流程进行讨论：
+
+- 编译包含 Erl_Interface 的 C 代码；
+- 初始化 Erl_Interface；
+- 编码与解码和发送 Erlang terms；
+- 建立 terms 和模式 patterns；
+- 模式匹配 Pattern matching；
+- 连接到分布式 Erlang 节点；
+- 使用 Erlang Port Mapper Daemon (EPMD)
+- 向 Erlang 发送或接收消息；
+- 运程过程调用 RPC - Remote procedure calls；
+- 使用全局模块名称 Using global names；
+- 使用注册模块，OTP 24 可能会移除此功能；
+
+编写 Erl_Interface 接口程序，需要使用相应的链接库和头文件，可以使用 `code:rootdir()` 来获取 Erlang 的安装目录，其子目录 lib 包含所有模块的文件。
+
+1. lib\erl_interface-3.12\include\ei.h
+2. lib\erl_interface-3.12\include\erl_interface.h
+
+在执行 C 编译命令时将模块的 include 目录路径添加到搜索列表：
+
+```sh
+gcc -I/path/to/erl_interface/include -L/path/to/erl_interface/lib -lei myprog.c    
+```
+
+在一些系统上，可能还需要链接额外的系统库实现 Erl_Interface 的通信，比如 Solaris 系统：libnsl.a 和 libsocket.a；Windows 系统：wsock32.lib。
+
+Erl_Interface 接口程序开发与 C 语言编写的 Port 程序具有类似的 Erlang 代码，差异在于使用的数据编码。Erl_Interface 接口是 byte-oriented，在打开 Port 时需要使用 binary 方式，同时消息处理中也需要使用 binary 数据。
+
+```erlang
+	-module(complex).
+	-export([start/1, stop/0, init/1]).
+	-export([foo/1, bar/1]).
+
+	start(ExtPrg) -> spawn(?MODULE, init, [ExtPrg]).
+	stop() -> complex ! stop.
+
+	foo(X) -> call_port({foo, X}).
+	bar(Y) -> call_port({bar, Y}).
+
+	call_port(Msg) ->
+		complex ! {call, self(), Msg},
+		receive
+		{complex, Result} ->
+			Result
+		end.
+
+	init(ExtPrg) ->
+		register(complex, self()),
+		process_flag(trap_exit, true),
+		% Port = open_port({spawn, ExtPrg}, [{packet, 2}]),     % C Port Version
+		Port = open_port({spawn, ExtPrg}, [{packet, 2}, binary]), % Erl_Interface Version
+		loop(Port).
+
+	loop(Port) ->
+		receive
+		{call, Caller, Msg} ->
+			% Port ! {self(), {command, encode(Msg)}},        % C Port Version
+			% receive                                  %
+			% {Port, {data, Data}} ->                    %
+			% 	Caller ! {complex, decode(Data)}              %
+			% end,                                    %
+			Port ! {self(), {command, term_to_binary(Msg)}},    % Erl_Interface Version
+			receive
+			  {Port, {data, Data}} ->
+			    Caller ! {complex, binary_to_term(Data)}
+			end,
+			loop(Port);
+		stop ->
+			Port ! {self(), close},
+			receive
+			{Port, closed} ->
+				exit(normal)
+			end;
+		{'EXIT', Port, Reason} ->
+			io:fwrite(Reason),
+			exit(port_terminated)
+		end.
+
+	% encode({foo, X}) -> [1, X];  % C Port Version
+	% encode({bar, Y}) -> [2, Y].
+	% decode([Int]) -> Int.
+```
+以下是相应的 C 语言实现的主程序，其它函数，比如 read_cmd() 或者 write_cmd() 等等，都和 C Port Example 中使用的代码相同。
+
+```cpp
+/* ei.c */
+
+#include "ei.h"
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+
+typedef unsigned char byte;
+
+int read_cmd(byte *buf);
+int write_cmd(byte *buf, int len);
+int foo(int x);
+int bar(int y);
+
+static void fail(int place) {
+    fprintf(stderr, "Something went wrong %d\n", place);
+    exit(1);
+}
+
+int main() {
+    byte buf[100];
+    int index = 0;
+    int version = 0;
+    int arity = 0;
+    char atom[128];
+    long in = 0;
+    int res = 0;
+    ei_x_buff res_buf;
+    ei_init();
+    while (read_cmd(buf) > 0) {
+        if (ei_decode_version(buf, &index, &version) != 0)
+            fail(1);
+        if (ei_decode_tuple_header(buf, &index, &arity) != 0)
+            fail(2);
+        if (arity != 2)
+            fail(3);
+        if (ei_decode_atom(buf, &index, atom) != 0)
+            fail(4);
+        if (ei_decode_long(buf, &index, &in) != 0)
+            fail(5);
+        if (strncmp(atom, "foo", 3) == 0) {
+            res = foo((int)in);
+        } else if (strncmp(atom, "bar", 3) == 0) {
+            res = bar((int)in);
+        }
+        if (ei_x_new_with_version(&res_buf) != 0)
+            fail(6);
+        if (ei_x_encode_long(&res_buf, res) != 0)
+            fail(7);
+        write_cmd(res_buf.buff, res_buf.index);
+
+        if (ei_x_free(&res_buf) != 0)
+            fail(8);
+        index = 0;
+    }
+}
+```
+
+示范代码使用到的 Erl_Interface API 说明：
+
+2. *ei_init* 接口初始化，内部会调用 `ei_init_connect()` 和 `ei_init_resolve()`。
+3. *ei_decode_version* 解码消息数据头部的魔术字，版本与 ERL_VERSION_MAGIC 匹配才认可。
+4. *ei_decode_tuple_header* 解码一个 tuple 头部。
+5. *ei_decode_atom* 解码一个 atom 数据。
+6. *ei_decode_long* 解码一个 long 数据。
+1. *ei_x_buff* 定义一个包含 buffsz 和 index 属性的消息回复缓存区结构。
+7. *ei_x_new_with_version* 申请分配用于回复缓冲区的内存空间。
+8. *ei_x_encode_long* 将一个 long 类型数据编码后写入回复缓冲区。
+9. *ei_x_free* 释放接口分配的内存。
+
+接口内部定义了一个 `get8(s)` 和 `get32be(s)` 宏函数，它会从 s 指针指向的内存读取一个字节或者一个机器字，并将 s 地址加一个偏移值。
+
+解析消息要与 Erlang 发送过来的 tuple 消息数据类型一致，它应该有两个元素，{PID, {command, data}}，如果不匹配就不予通过。tuple 头部首字节会有 'h' 和 'i' 两种情况，对应 `ERL_SMALL_TUPLE_EXT` 和 `ERL_LARGE_TUPLE_EXT`，根据此值调用 get8 或 get32be。后续一个字(节)对应 arity，即元素个数。解码方法都会相应修改 index 值，确保它指向缓冲区中下一个待处理数据的位置。
+
+使用 *ei_x_new()* 申请动态内存，而 *ei_x_new_with_version*  则表示设置好 ERL_VERSION_MAGIC。Erlang 加载 Eri_Interface 程序后，就会通过外部程序的标准输入文件 stdin 来发送消息，回复消息数据通过 C 语言标准库函数 write 写入标准输出文件 stdout。
+
+
+5.3  Running the Example
+
+Step 1. Compile the C code. This provides the paths to the include file ei.h, and also to the library ei:
+
+```sh
+unix> gcc -o extprg -I/usr/local/otp/lib/erl_interface-3.9.2/include \ 
+      -L/usr/local/otp/lib/erl_interface-3.9.2/lib \ 
+      complex.c erl_comm.c ei.c -lei -lpthread
+```
+
+In Erlang/OTP R5B and later versions of OTP, the include and lib directories are situated under OTPROOT/lib/erl_interface-VSN, where OTPROOT is the root directory of the OTP installation (/usr/local/otp in the recent example) and VSN is the version of the Erl_interface application (3.2.1 in the recent example).
+
+In R4B and earlier versions of OTP, include and lib are situated under OTPROOT/usr.
+
+Step 2. Start Erlang and compile the Erlang code:
+
+```sh
+unix> erl
+Erlang (BEAM) emulator version 4.9.1.2
+
+Eshell V4.9.1.2 (abort with ^G)
+1> c(complex2).
+{ok,complex2}
+```
+
+Step 3. Run the example:
+
+```sh
+2> complex2:start("./extprg").
+<0.34.0>
+3> complex2:foo(3).
+4
+4> complex2:bar(5).
+10
+5> complex2:bar(352).
+704
+6> complex2:stop().
+stop
+```
+
+
 
 
 
@@ -8313,36 +11203,6 @@ etop 进程监视，类似 Unix 的 top 命令；
 - `set_sysmem_high_watermark(Float)` -> ok 设置系统内存使用阀值
 
 
-# 🚩 Erl_Interface 接口编程
-- http://gashero.yeax.com/?p=69
-- http://erlang.org/doc/tutorial/erl_interface.html
-- http://erlang.org/doc/apps/erl_interface/ei_users_guide.html
-- http://erlang.org/doc/apps/jinterface/jinterface_users_guide.html
-
-Erl_Interface 库包含的函数接口可以帮助你用 C 语言开发 Erlang 模块，此接口的功能：
-
-- 在 C 语言中操作 Erlang 的数据类型；
-- 在 C 语言和 Erlang 之间转换数据格式；
-- 在传送或保存数据对 Erlang 数据类型进行编码和解码；
-- 在 C nodes 和 Erlang 进程间通信；
-- 从 Mensia 中恢复或保存 C node 的状态；
-
-注意，Erl_Interface 库默认只兼容同版本 Erlang/OTP 组件。日期的组件通信可以参考 ei_set_compat_rel 函数。
-
-官方文档讨论的内容包含：
-
-- 编译包含 Erl_Interface 的 C 代码；
-- 初始化 Erl_Interface；
-- 编码与解码和发送 Erlang terms；
-- 建立 terms 和模式 patterns；
-- 模式匹配 Pattern matching；
-- 连接到分布式 Erlang 节点；
-- 使用 Erlang Port Mapper Daemon (EPMD)
-- 向 Erlang 发送或接收消息；
-- 运程过程调用 RPC - Remote procedure calls；
-- 使用全局模块名称 Using global names；
-- 使用注册模块，OTP 24 可能会移除此功能；
-
 
 # 🚩 Erlang Kernel
 - [ERTS - Erlang Run-Time System Application](http://erlang.org/doc/apps/erts/erl_ext_dist.html)
@@ -8481,7 +11341,7 @@ Erlang 运行时有一个 kernel application，运行一下 appmon 我们可以�
 
 特别值得一提的是 shell 和 shell_default，对 Erlang Shell 好奇的同学看看这里能找到答案。所谓 EShell 里面灵异的问题也就有了一个合理的解释。其它的模块因为功能特别明确很容易定位到，比如专门处理 XML 的 xmerl，数据库 mnesia 等等，辅之以 Google 几乎没有什么障碍。
 
-## Power on BEAM VM
+## 🍀 Power on BEAM VM
 - [透析器 dialyzer](https://cloud.tencent.com/developer/section/1122978)
 - https://www.cnblogs.com/zhengsyao/archive/2012/08/15/Erlang-otp_start_up.html
 - http://erlang.org/doc/man/ct_run.html
@@ -8582,7 +11442,7 @@ beam 进程的入口点在 erl_main.c 这个文件中，main 函数只有一行�
 Erlang 虚拟机很像一个运行了操作系统的计算机。erl 对应的是 BIOS，erlexec 加载对应 bootloader。erlexec 加载 BEAM 虚拟机，BEAM 虚拟机对应了操作系统。接下来 BEAM 进行初步的初始化，初始化执行环境，对应了操作系统的初始化。初始化完成之后，BEAM 像 Linux 一样加载系统中的第一个进程 init。init 进程读取启动列表，执行启动系统的步骤。执行完这些步骤之后，Erlang 成为了一个完全完成了初始化过程可以运行的系统。Erlang 像操作系统一样，有自己的调度系统，内存管理系统，还有和外界交互的 I/O 系统。只不过内存管理系统更加的智能，可以主动帮助进程进行垃圾回收。I/O 系统以系统服务的方式存在，通过 Erlang 消息通信的方式向其他进程提供服务，因此 Erlang 的进程只需要通过消息这一种语义就能和外界交换数据。Erlang 中的模块就好像操作系统中的动态共享库，只要加载到系统中，就可以供所有的进程访问。多个模块可以组织为应用程序。Erlang 的模块命名是平坦的，因此不同应用程序中的模块不能重名。Erlang 的应用程序是对模块和进程的一种组织方式，从一个应用程序可以包含一组进程的角度看，Erlang 的应用程序有点类似于 Linux 系统中的进程。
    
 
-## Source Basic
+## 🍀 Source Basic
 
 介绍 erts/emulator/beam 目录部分文件，这里的代码涉及 BEAM 中间代码的实现：
  
@@ -8791,7 +11651,7 @@ Erlang 虚拟机很像一个运行了操作系统的计算机。erl 对应的是
 	};
 ```
 
-## BEAM Virtual Machine Data Types
+## 🍀 BEAM Virtual Machine Data Types
 - [BEAM Wisdoms](http://beam-wisdoms.clau.se/en/latest/index.html)
 - [BEAM Wisdoms Indepth Memory Layout](http://beam-wisdoms.clau.se/en/latest/indepth-memory-layout.html)
 - [Erlang 数据类型的内部表示和实现](https://www.cnblogs.com/zhengsyao/p/erlang_eterm_implementation_2.html)
@@ -9065,7 +11925,7 @@ A 和 B 都是整数，那么 X 是一个 binary，而 Y 称作是一个 bitstri
 
 
 
-## BEAM VM Instructions
+## 🍀 BEAM VM Instructions
 - [Erlang 虚拟机代码运行原理](https://www.cnblogs.com/gavanwanggw/p/6963695.html)
 - [The Erlang BEAM Virtual Machine Specification](http://www.cs-lab.org/historical_beam_instruction_set.html)
 - [Virtual Machine Showdown: Stack Versus Registers Yunhe Shi, David Gregg, Andrew Beatty](https://www.usenix.org/legacy/events/vee05/full_papers/p153-yunhe.pdf)
@@ -9145,13 +12005,13 @@ Erlang 进程是在代码运行过程中动态创建和销毁，每一个进程�
 
 Erlang VM 使用以下寄存器：
 
-- `HTOP` - top-of-heap 堆顶指针
-- `E` - top-of-stack 栈项指针   
-- `CP` - 返回地址指针，原意 Continuation Pointer。
-- `I` - 下一条指令指针。
-- `x(N)` - 参数寄存器，用来向函数传参，也用来保存变量。
-- `y(N)` - 本地变量，不是真实寄存器。保存在 local frame，通过一个值指定它到栈顶的偏移。
-- `fcalls` - 表示当前进程剩余的调度次数（Reductions），执行检查以停止。
+- `HTOP` - top-of-heap 堆顶指针
+- `E` - top-of-stack 栈项指针   
+- `CP` - 返回地址指针，原意 Continuation Pointer。
+- `I` - 下一条指令指针。
+- `x(N)` - 参数寄存器，用来向函数传参，也用来保存变量。
+- `y(N)` - 本地变量，不是真实寄存器。保存在 local frame，通过一个值指定它到栈顶的偏移。
+- `fcalls` - 表示当前进程剩余的调度次数（Reductions），执行检查以停止。
 
 对于基于栈的虚拟机，操作数在使用前都会被压到栈，计算时取出。也就是先将本地变量的值压入栈，然后在计算时从栈取出赋值给本地变量。所以，这里有非常大开销在本地变量和栈之间的交换上（出入栈）。
 
@@ -9230,19 +12090,19 @@ Erlang 指令调度实现是一个巨大的 switch 结构。每一个 case 语�
 
 市面上的消息队列产品有很多，比如老牌的 ActiveMQ、RabbitMQ ，目前我看最火的 Kafka ，还有 ZeroMQ ，去年底阿里巴巴捐赠给 Apache 的 RocketMQ ，连 redis 这样的 NoSQL 数据库也支持 MQ 功能。总之这块知名的产品就有十几种，就我自己的使用经验和兴趣只打算谈谈 RabbitMQ、Kafka 和 ActiveMQ ，本文先讲 RabbitMQ ，在此之前先看下消息队列的相关概念。
 
-## 什么叫消息队列
+## 🍀 什么叫消息队列
 消息（Message）是指在应用间传送的数据。消息可以非常简单，比如只包含文本字符串，也可以更复杂，可能包含嵌入对象。
 
 消息队列（Message Queue）是一种应用间的通信方式，消息发送后可以立即返回，由消息系统来确保消息的可靠传递。消息发布者只管把消息发布到 MQ 中而不用管谁来取，消息使用者只管从 MQ 中取消息而不管是谁发布的。这样发布者和使用者都不用知道对方的存在。
 
-## 为何用消息队列
+## 🍀 为何用消息队列
 从上面的描述中可以看出消息队列是一种应用间的异步协作机制，那什么时候需要使用 MQ 呢？
 
 以常见的订单系统为例，用户点击【下单】按钮之后的业务逻辑可能包括：扣减库存、生成相应单据、发红包、发短信通知。在业务发展初期这些逻辑可能放在一起同步执行，随着业务的发展订单量增长，需要提升系统服务的性能，这时可以将一些不需要立即生效的操作拆分出来异步执行，比如发放红包、发短信通知等。这种场景下就可以用 MQ ，在下单的主流程（比如扣减库存、生成相应单据）完成之后发送一条消息到 MQ 让主流程快速完结，而由另外的单独线程拉取MQ的消息（或者由 MQ 推送消息），当发现 MQ 中有发红包或发短信之类的消息时，执行相应的业务逻辑。
 
 以上是用于业务解耦的情况，其它常见场景包括最终一致性、广播、错峰流控等等。
 
-## RabbitMQ 特点
+## 🍀 RabbitMQ 特点
 RabbitMQ 是一个由 Erlang 语言开发的 AMQP 的开源实现。
 
 AMQP - Advanced Message Queue，高级消息队列协议。它是应用层协议的一个开放标准，为面向消息的中间件设计，基于此协议的客户端与消息中间件可传递消息，并不受产品、开发语言等条件的限制。
@@ -9286,7 +12146,7 @@ RabbitMQ 最初起源于金融系统，用于在分布式系统中存储转发�
 	RabbitMQ 提供了许多插件，来从多方面进行扩展，也可以编写自己的插件。
 
 
-## RabbitMQ 中的概念模型
+## 🍀 RabbitMQ 中的概念模型
 
 消息模型
 
@@ -9372,7 +12232,7 @@ topic
 topic 交换器通过模式匹配分配消息的路由键属性，将路由键和某个模式进行匹配，此时队列需要绑定到一个模式上。它将路由键和绑定键的字符串切分成单词，这些单词之间用点隔开。它同样也会识别两个通配符：符号“#”和符号“”。#匹配0个或多个单词，匹配不多不少一个单词。
 
 
-## Erlang 开源项目
+## 🍀 Erlang 开源项目
 
 排名不分先后
 
@@ -9387,7 +12247,7 @@ topic 交换器通过模式匹配分配消息的路由键属性，将路由键�
 
 
 
-## RabbitMQ 安装
+## 🍀 RabbitMQ 安装
 - https://www.rabbitmq.com/download.html
 
 一般来说安装 RabbitMQ 之前要安装 Erlang ，可以去Erlang官网下载。接着去RabbitMQ官网下载安装包，之后解压缩即可。根据操作系统不同官网提供了相应的安装说明：
@@ -9476,7 +12336,7 @@ sbin 目录下有个特别重要的文件叫 rabbitmqctl ，它提供了 RabbitM
 
 	./sbin/rabbitmqctl list_bindings
 
-## Java 客户端访问
+## 🍀 Java 客户端访问
 
 RabbitMQ 支持多种语言访问，以 Java 为例看下一般使用 RabbitMQ 的步骤。
 
@@ -9589,7 +12449,7 @@ maven 工程的 pom 文件中添加依赖
 接着运行 Producer, 发布一条消息，在 Consumer 的控制台能看到接收的消息
 
 
-## RabbitMQ 集群
+## 🍀 RabbitMQ 集群
 
 RabbitMQ 最优秀的功能之一就是内建集群，这个功能设计的目的是允许消费者和生产者在节点崩溃的情况下继续运行，以及通过添加更多的节点来线性扩展消息通信吞吐量。RabbitMQ 内部利用 Erlang 提供的分布式通信框架 OTP 来满足上述需求，使客户端在失去一个 RabbitMQ 节点连接的情况下，还是能够重新连接到集群中的任何其他节点继续生产、消费消息。
 
@@ -9674,7 +12534,7 @@ RabbitMQ 集群运维
 - http://gashero.yeax.com/?p=64
 - https://erlang.org/doc/man/string.html
 
-## string:len(String) -> Length
+## 🍀 string:len(String) -> Length
 
 	String=string()
 	Length
@@ -9682,21 +12542,21 @@ RabbitMQ 集群运维
 返回字符串的字符数。
 
 
-## string:equal(String1,String2) -> bool()
+## 🍀 string:equal(String1,String2) -> bool()
 
 	String1=String2=string()
 
 测试两个字符串是否相等，如果相等返回 true ，不相等返回 false 。
 
 
-## string:concat(String1,String2) -> String3
+## 🍀 string:concat(String1,String2) -> String3
 
 	String1=String2=String3=string()
 
 连接两个字符串成为新的字符串，返回新的字符串。
 
 
-## string:chr(String,Character) -> Index
+## 🍀 string:chr(String,Character) -> Index
 
 	String=string()
 	Character=char()
@@ -9708,7 +12568,7 @@ RabbitMQ 集群运维
 函数 rchr 拥有相同参数，但是从右侧开始计算。
 
 
-## string:str(String,SubString) -> Index
+## 🍀 string:str(String,SubString) -> Index
 
 	String=SubString=string()
 	Index=integer()
@@ -9721,7 +12581,7 @@ RabbitMQ 集群运维
 函数 rstr 拥有相同参数，但是从右侧开始计算。
 
 
-## string:span(String,Chars) -> Length
+## 🍀 string:span(String,Chars) -> Length
 
 	String=Chars=string()
 	Length=integer()
@@ -9736,7 +12596,7 @@ RabbitMQ 集群运维
 函数 cspan 则是取从前开始第一个匹配时前面不匹配的部分。后面的Chars可以包含多个字符用于匹配。
 
 
-## string:substr(String,Start[,Length]) -> SubString
+## 🍀 string:substr(String,Start[,Length]) -> SubString
 
 	String=SubString=string()
 	Start=Length=integer()
@@ -9746,7 +12606,7 @@ RabbitMQ 集群运维
 	> string:substr("Hello World",4,5).
 	"lo Wo"
 
-## string:tokens(String,SeparatorList) -> Tokens
+## 🍀 string:tokens(String,SeparatorList) -> Tokens
 
 	String=SeparatorList=string()
 	Tokens=[string()]
@@ -9756,7 +12616,7 @@ RabbitMQ 集群运维
 	> string:tokens("abc defxxghix jkl","x ").
 	["abc","def","ghi","jkl"]
 
-## string:chars(Character,Number[,Tail]) -> String
+## 🍀 string:chars(Character,Number[,Tail]) -> String
 
 	Character=char()
 	Number=integer()
@@ -9765,7 +12625,7 @@ RabbitMQ 集群运维
 返回包含指定数目个字符的字符串，可选的指定随后跟着的字符串Tail。
 
 
-## string:copies(String,Number) -> Copies
+## 🍀 string:copies(String,Number) -> Copies
 
 	String=Copies=string()
 	Number=integer()
@@ -9773,7 +12633,7 @@ RabbitMQ 集群运维
 返回包含指定数量份复制过的字符串。
 
 
-## string:words(String[,Character]) -> Count
+## 🍀 string:words(String[,Character]) -> Count
 
 	String=string()
 	Character=char()
@@ -9787,7 +12647,7 @@ RabbitMQ 集群运维
 注意分隔字符必须以美元符号开头，后面指定，如上的 $o 。
 
 
-## string:sub_word(String,Number[,Character]) -> Word
+## 🍀 string:sub_word(String,Number[,Character]) -> Word
 
 	String=Word=string()
 	Character=char()
@@ -9798,7 +12658,7 @@ RabbitMQ 集群运维
 	> string:sub_word(" Hello old boy !",3,$o).
 	"ld b"
 
-## string:strip(String[,Direction[,Character]]) -> Stripped
+## 🍀 string:strip(String[,Direction[,Character]]) -> Stripped
 
 	String=Stripped=string()
 	Direction=left | right | both
@@ -9809,7 +12669,7 @@ RabbitMQ 集群运维
 	> string:strip("...Hello.....",both,$.).
 	"Hello"
 
-## string:left(String,Number[,Character]) -> Left
+## 🍀 string:left(String,Number[,Character]) -> Left
 
 	String=Left=string()
 	Character=char
@@ -9823,7 +12683,7 @@ RabbitMQ 集群运维
 函数 right 拥有相同的参数，只不过会将字符串右对齐。
 
 
-## string:centre(String,Number[,Character]) -> Centered
+## 🍀 string:centre(String,Number[,Character]) -> Centered
 
 	String=Centered=string()
 	Character=char
@@ -9832,7 +12692,7 @@ RabbitMQ 集群运维
 将字符串中间对齐扩充到指定长度，不足不用用空格或指定字符填充。
 
 
-## string:sub_string(String,Start[,Stop]) -> SubString
+## 🍀 string:sub_string(String,Start[,Stop]) -> SubString
 
 	String=SubString=string()
 	Start=Stop=integer()
@@ -9844,7 +12704,7 @@ RabbitMQ 集群运维
 注意不同于 substr 的指定开始和长度，这个函数是指定开始和结束。
 
 
-## string:to_float(String) -> {Float,Rest} | {error,Reason}
+## 🍀 string:to_float(String) -> {Float,Rest} | {error,Reason}
 
 	String=string()
 	Float=float()
@@ -9862,7 +12722,7 @@ RabbitMQ 集群运维
 	> string:to_float("-1.5eX").
 	{-1.50000,"eX"}
 
-## string:to_integer(String) -> {Int,Rest} | {error,Reason}
+## 🍀 string:to_integer(String) -> {Int,Rest} | {error,Reason}
 
 	String=string()
 	Int=integer()
@@ -9880,7 +12740,7 @@ RabbitMQ 集群运维
 	> string:to_integer("x=2").
 	{error,no_integer}
 
-## string:to_lower(String) -> Result
+## 🍀 string:to_lower(String) -> Result
 
 	String=Result=string()
 	Char=CharResult=integer()
@@ -9891,7 +12751,7 @@ RabbitMQ 集群运维
 
 带 Pred 函数和不带 Pred 函数
 
-## lists: all(Pred, List) -> boolean()
+## 🍀 lists: all(Pred, List) -> boolean()
 
 如果List中的每个元素作为Pred函数的参数执行，结果都返回true，那么all函数返回true，否则返回false
 
@@ -9904,7 +12764,7 @@ RabbitMQ 集群运维
 	true
 
 
-## lists: any(Pred, List) -> boolean()
+## 🍀 lists: any(Pred, List) -> boolean()
 
 如果List中至少有一个元素作为Pred函数的参数执行，结果返回true，那么any函数返回true，否则返回false
 
@@ -9916,9 +12776,9 @@ RabbitMQ 集群运维
 
 	true
 
-	 
+	 
 
-## lists:dropwhile(Pred, List1) -> List2
+## 🍀 lists:dropwhile(Pred, List1) -> List2
 将List1列表中的元素作为参数执行Pred函数，如果返回true，将其丢弃，最后返回剩余元素组成的列表
 
 	例子
@@ -9929,7 +12789,7 @@ RabbitMQ 集群运维
 
 	[1,2,a,b]
 
-## lists:filter(Pred, List1) -> List2
+## 🍀 lists:filter(Pred, List1) -> List2
 返回一个列表，这个列表是由List1中执行Pred函数返回true的元素组成。
 
 	lists:filter(fun(E) -> is_integer(E) end,[q,2,a,4]).
@@ -9938,16 +12798,16 @@ RabbitMQ 集群运维
 
 	[2,4]
 
-	 
-## lists:map(Fun, List1) -> List2
+	 
+## 🍀 lists:map(Fun, List1) -> List2
 将List1中的每个元素去在Fun中执行，然后返回一个元素，最后返回的这些元素组成一个列表，返回给List2
 
 	例子：
 	lists:map(fun(X)->[X,X] end, [a,b,c]).
 	结果：[[a,a],[b,b],[c,c]]
-	 
+	 
 
-## lists:flatmap(Fun, List1) -> List2
+## 🍀 lists:flatmap(Fun, List1) -> List2
 这个函数和 map 比较类似，相当于把 map 的结果进行append处理
 
 	lists:append(lists:map(List1)).
@@ -9956,9 +12816,9 @@ RabbitMQ 集群运维
 	lists:flatmap(fun(X)->[X,X] end, [a,b,c]).
 	结果：[a,a,b,b,c,c]
 
-	 
+	 
 
-## lists:foldl(Fun, Acc0, List) -> Acc1
+## 🍀 lists:foldl(Fun, Acc0, List) -> Acc1
 
 例子：对[1,2,3,4,5]求和
 
@@ -9969,37 +12829,37 @@ RabbitMQ 集群运维
 	Fun 第二次执行时，X 的值取列表 List 的第二个元素 2，Sum 取 Fun 第一次的返回值
 	依次轮推，直到 List 中每个元素执行完，最后 foldl 返回最后一次的结果。
 
-	 
+	 
 
-## lists:foldr(Fun, Acc0, List) -> Acc1
+## 🍀 lists:foldr(Fun, Acc0, List) -> Acc1
 foldr这个函数和foldl比较相似
 不过是Fun执行时，X的值先取List的最后一个，然后取倒数第二个。
 
 
-## lists:foreach(Fun, List) -> ok
+## 🍀 lists:foreach(Fun, List) -> ok
 以List中的每个元素为参数执行Fun函数，执行顺序按照List中元素的顺序，这个函数最后返回ok。是单边的
 
 	例子 lists:foreach(fun(X)->
-	  %%using X to do somethings 
-	  %%
-	  end,List)
+	  %%using X to do somethings 
+	  %%
+	  end,List)
 
-	 
+	 
 
-## lists:keymap(Fun, N, TupleList1) -> TupleList2
+## 🍀 lists:keymap(Fun, N, TupleList1) -> TupleList2
 对TupleList1中的每个元素的第N项作为参数在Fun中处理，然后这个第N项最后就被替换为Fun执行完返回的值
 
 	例子：
 	List1 = [{name,"zhangjing"},{name,"zhangsan"}].
 	lists:keymap(fun(X)->
-	  list_to_atom(X)
-	  end,2,List1).
+	  list_to_atom(X)
+	  end,2,List1).
 	结果：
 	[{name,zhangjing},{name,zhangsan}]
 
-	 
+	 
 
-## lists:mapfoldl(Fun, Acc0, List1) -> {List2, Acc1}
+## 🍀 lists:mapfoldl(Fun, Acc0, List1) -> {List2, Acc1}
 
 	这个函数等于是把map和foldl函数结合起来。将List1中的每一个元素执行Fun函数，执行后花括号的第一个值作为返回值返回，
 	第二个值作为参数传给Fun，作为下一次用。
@@ -10008,14 +12868,14 @@ foldr这个函数和foldl比较相似
 	0, [1,2,3,4,5]).
 	{[2,4,6,8,10],15}
 
-	 
+	 
 
-## lists:mapfoldr(Fun, Acc0, List1) -> {List2, Acc1}
+## 🍀 lists:mapfoldr(Fun, Acc0, List1) -> {List2, Acc1}
 
 	这个函数相当于将map和foldr结合起来
 
 
-## lists:merge(Fun, List1, List2) -> List3
+## 🍀 lists:merge(Fun, List1, List2) -> List3
 
 	这个函数的功能也是把List1和List2合并到一起，只不过是List1和List2的元素要作为参数在Fun中执行，如果
 	Fun返回true，那么返回值就是List1在前，List2在后。否则，反之。
@@ -10024,9 +12884,9 @@ foldr这个函数和foldl比较相似
 	结果
 	[2,1,3,4]
 
-	 
+	 
 
-## lists:partition(Pred, List) -> {Satisfying, NotSatisfying}
+## 🍀 lists:partition(Pred, List) -> {Satisfying, NotSatisfying}
 
 	这个函数的功能是将List分成两个List1和List2，List1是将List元素作为参数去Pred函数中执行返回true的元素组成，
 	List2由Pred返回false的元素组成。
@@ -10037,7 +12897,7 @@ foldr这个函数和foldl比较相似
 	{[1,3,5,7],[2,4,6]}
 
 
-## lists:sort(Fun, List1) -> List2
+## 🍀 lists:sort(Fun, List1) -> List2
 
 	如果Fun函数返回true，则排序是从小到大的顺序，否则，从大到小。
 	其中Fun有两个参数。
@@ -10047,7 +12907,7 @@ foldr这个函数和foldl比较相似
 	[3,2,1]
 
 
-## lists:splitwith(Pred, List) -> {List1, List2}
+## 🍀 lists:splitwith(Pred, List) -> {List1, List2}
 
 	将List分成List1和List2，
 	List1由List中元素在Pred函数返回true的组成，但是有一点，如果遇到为false的，则将剩下的元素
@@ -10058,7 +12918,7 @@ foldr这个函数和foldl比较相似
 	{[a,b],[1,c,d,2,3,4,e]}
 
 
-## lists:takewhile(Pred, List1) -> List2
+## 🍀 lists:takewhile(Pred, List1) -> List2
 
 	List1中的元素element依次执行Pred(element),如果返回true，则获取这个元素，直到有元素执行Pred(element)返回false
 	例子
@@ -10067,7 +12927,7 @@ foldr这个函数和foldl比较相似
 	[a,b]
 
 
-## lists:umerge(Fun, List1, List2) -> List3
+## 🍀 lists:umerge(Fun, List1, List2) -> List3
 
 	这个函数和merge不同的是 当Fun返回true时，返回的List3中不能出现相同的元素
 	疑问：但是当Fun返回false时，List3中可以有相同的元素。
@@ -10080,9 +12940,9 @@ foldr这个函数和foldl比较相似
 	[2,3,1,2]
 	好神奇，竟然2有重复
 
-	 
+	 
 
-## lists:usort(Fun, List1) -> List2
+## 🍀 lists:usort(Fun, List1) -> List2
 
 	按照Fun函数进行排序，如果Fun返回true，那么只返回List1的第一个元素
 	如果Fun返回false，那么List1从大到小排序
@@ -10097,7 +12957,7 @@ foldr这个函数和foldl比较相似
 	[4,3,2,2,1]
 
 
-## lists:zipwith(Combine, List1, List2) -> List3
+## 🍀 lists:zipwith(Combine, List1, List2) -> List3
 
 	将List1和list2中的每个元素执行Combine函数，然后返回一个元素，List3就是由Combine函数返回的一个个元素组成的。
 	功能和map有点像，但是这里是对两个列表的操作。
@@ -10106,9 +12966,9 @@ foldr这个函数和foldl比较相似
 	结果
 	[5,7,9]
 
-	 
+	 
 
-## lists:zipwith3(Combine, List1, List2, List3) -> List4
+## 🍀 lists:zipwith3(Combine, List1, List2, List3) -> List4
 
 	将List1和list2，list3中的每个元素执行Combine函数，然后返回一个元素，List4就是由Combine函数返回的一个个元素组成的。
 	功能和map有点像，但是这里是对三个列表的操作。
@@ -10117,9 +12977,9 @@ foldr这个函数和foldl比较相似
 	结果
 	[12,15,18]
 
-	 
+	 
 
-## lists:append(ListOfLists) -> List1
+## 🍀 lists:append(ListOfLists) -> List1
 
 	ListOfLists都是由List组成的，而List一个列表，里面可以是任何类型的元素
 	这个函数就是将ListOfLists里面的所有列表的元素按顺序编成一个列表
@@ -10134,7 +12994,7 @@ foldr这个函数和foldl比较相似
 	[1,2,3,a,b,4,5,6]
 
 
-## lists:append(List1, List2) -> List3
+## 🍀 lists:append(List1, List2) -> List3
 
 	将List1和List2两个列表连接起来，组成一个列表，然后返回新的这个列表
 	这个函数的功能等同于List1 ++ List2
@@ -10147,24 +13007,22 @@ foldr这个函数和foldl比较相似
 
 	"abcdef"
 
-	 
+	 
 
-## lists:concat(Things) -> string()
+## 🍀 lists:concat(Things) -> string()
 
-	这里的Things是一个列表，里面由atom() | integer() | float() | string()
+	这里的 Things 是一个列表，里面由 atom() | integer() | float() | string()
 	将这个列表里面的元素拼成一个字符串，然后返回
 
 	例子
 
-	lists:concat([doc, '/', file, '.', 3]).
+	lists:concat([doc, '/', file, '.', 3]). % "doc/file.3"
+	lists:concat("123").                 % "495051"
 
-	结果
+	注意，字符串就是进制值的列表，拼合时就会得到其对应字符的 ASCII 值。
+	 
 
-	doc/file.3"
-
-	 
-
-## lists:delete(Elem, List1) -> List2
+## 🍀 lists:delete(Elem, List1) -> List2
 
 	List1是由很多Element组成的，这个函数的功能是在List1中寻找第一个和Elem元素一样的，
 	然后删除之，返回删除后新的列表。
@@ -10177,9 +13035,9 @@ foldr这个函数和foldl比较相似
 
 	[{name,"lisi"},{name,"wangmazi"}]
 
-	 
+	 
 
-## lists:duplicate(N, Elem) -> List
+## 🍀 lists:duplicate(N, Elem) -> List
 
 	返回一个由N个Elem组成的列表。
 
@@ -10191,9 +13049,9 @@ foldr这个函数和foldl比较相似
 
 	["test","test","test","test","test"]
 
-	 
+	 
 
-## lists:flatlength(DeepList) -> integer() >= 0
+## 🍀 lists:flatlength(DeepList) -> integer() >= 0
 
 	我的理解是DeepList就是列表里面套列表
 	计算列表的长度，即用flatten函数将DeepList转化成List后元素的个数
@@ -10205,7 +13063,7 @@ foldr这个函数和foldl比较相似
 	lists:flatlength(List)求的值是：4
 	其实lists:flatlength(List) = length(flatten(List))
 
-## lists:flatten(DeepList) -> List
+## 🍀 lists:flatten(DeepList) -> List
 
 	将DeepList变成只有term()的list
 	例子：
@@ -10213,9 +13071,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	[a,a,b,b,c,c]
 
-	 
+	 
 
-## lists:flatten(DeepList, Tail) -> List
+## 🍀 lists:flatten(DeepList, Tail) -> List
 
 	就是将DeepList变成只有term的List后，在后面再加一个Tail。
 	例子：
@@ -10223,9 +13081,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	[a,a,b,b,c,c,dd]
 
-	 
+	 
 
-## lists:keydelete(Key, N, TupleList1) -> TupleList2
+## 🍀 lists:keydelete(Key, N, TupleList1) -> TupleList2
 
 	这个函数适合处理列表里面的元素是元组的情况
 	删除TupleList1中元素第N个元素和Key一致的元素，只删除第一个一样的，后面一样的不删除
@@ -10235,9 +13093,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	[{name,"zhangjing"},{name,"zhangsan"},{sex,"male"}]
 
-	 
+	 
 
-## lists:keyfind(Key, N, TupleList) -> Tuple | false
+## 🍀 lists:keyfind(Key, N, TupleList) -> Tuple | false
 
 	查找TupleList中的一个Tuple，如果查找到，返回，如果没有查找到，则返回false
 	这个Tuple必须满足第N个元素和key是一样。
@@ -10246,9 +13104,9 @@ foldr这个函数和foldl比较相似
 	lists:keyfind("zhangjing",2,List1)
 	结果：{name,"zhangjing"}
 
-	 
+	 
 
-## lists:keymember(Key, N, TupleList) -> boolean()
+## 🍀 lists:keymember(Key, N, TupleList) -> boolean()
 
 	如果TupleList中的元素中存在第N个元素和key一致，则返回true，否则返回false
 	例子：
@@ -10256,9 +13114,9 @@ foldr这个函数和foldl比较相似
 	lists:keymember("zhangjing",2,List1).
 	结果：true
 
-	 
+	 
 
-## lists:keymerge(N, TupleList1, TupleList2) -> TupleList3
+## 🍀 lists:keymerge(N, TupleList1, TupleList2) -> TupleList3
 
 	将TupleList1和TupleList2进行混合，组成一个TupleList，
 	新组成的TupleList是按照Tuple的第N个元素进行排序的
@@ -10268,13 +13126,13 @@ foldr这个函数和foldl比较相似
 	lists:keymerge(2,List1,List2).
 	结果：
 	[{name,"zhangjing"},
-	 {name,"zhangsan"},
-	 {nick,"zj"},
-	 {nick,"zs"}]
+	 {name,"zhangsan"},
+	 {nick,"zj"},
+	 {nick,"zs"}]
 
-	 
+	 
 
-## lists:keyreplace(Key, N, TupleList1, NewTuple) -> TupleList2
+## 🍀 lists:keyreplace(Key, N, TupleList1, NewTuple) -> TupleList2
 
 	在TupleList1的Tuple中找出第N个元素和Key一致，然后用NewTuple将这个Tuple替换掉，如果没有找到
 	，则返回原来的TupleList1
@@ -10284,9 +13142,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	[{nickname,"netzj"},{name,"zhangsan"}]
 
-	 
+	 
 
-## lists:keysearch(Key, N, TupleList) -> {value, Tuple} | false
+## 🍀 lists:keysearch(Key, N, TupleList) -> {value, Tuple} | false
 
 	这个函数和keyfind差不多，就是返回值的结构不一样
 	也是在TupleList中找一个Tuple，这个Tuple的第N个元素和Key一样。
@@ -10296,9 +13154,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	{value,{name,"zhangjing"}}
 
-	 
+	 
 
-## lists:keysort(N, TupleList1) -> TupleList2
+## 🍀 lists:keysort(N, TupleList1) -> TupleList2
 
 	对TupleList1中的Tuple按照第N个元素进行排序，然后返回一个新的顺序的TupleList。
 	不过这种排序是固定的。
@@ -10308,9 +13166,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	[{name,"zhangjing"},{name,"zhangsan"}]
 
-	 
+	 
 
-## lists:keystore(Key, N, TupleList1, NewTuple) -> TupleList2
+## 🍀 lists:keystore(Key, N, TupleList1, NewTuple) -> TupleList2
 
 	这个函数和keyreplace函数比较像，不同的是，这个keystore在没有找到对应的Tuple时，
 	会将这个NewTuple追加在这个TupleList1的最后。
@@ -10323,9 +13181,9 @@ foldr这个函数和foldl比较相似
 	lists:keystore("zhanging",2,List1,{name,"netzhangjing"}).
 	[{name,"zhangjing"},{name,"zhangsan"},{name,"netzhangjing"}]
 
-	 
+	 
 
-## lists:keytake(Key, N, TupleList1) -> {value, Tuple, TupleList2} | false
+## 🍀 lists:keytake(Key, N, TupleList1) -> {value, Tuple, TupleList2} | false
 
 	在TupleList1中找Tuple，这个Tuple的第N个元素和Key一致，如果找到了这么一个Tuple
 	那么返回，{value, Tuple, TupleList2} 其中TupleList2是去掉Tuple的TupleList1.
@@ -10335,9 +13193,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	{value,{name,"zhangjing"},[{name,"zhangsan"},{name,"lisi"}]}
 
-	 
+	 
 
-## lists:last(List) -> Last
+## 🍀 lists:last(List) -> Last
 
 	返回：List最后一个元素
 	例子：
@@ -10346,9 +13204,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	{name,"lisi"}
 
-	 
+	 
 
-## lists:max(List) -> Max
+## 🍀 lists:max(List) -> Max
 
 	取出List中最大的元素，一般List是整型时比较适合。
 	例子：
@@ -10356,9 +13214,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	15
 
-	 
+	 
 
-## lists:member(Elem, List) -> boolean()
+## 🍀 lists:member(Elem, List) -> boolean()
 
 	如果Elem和List中的某个元素匹配（相同），那么返回true，否则返回false
 	例子
@@ -10366,7 +13224,7 @@ foldr这个函数和foldl比较相似
 	结果：
 	true
 
-## lists:merge(ListOfLists) -> List1
+## 🍀 lists:merge(ListOfLists) -> List1
 
 	ListOfLists是一个列表，里面由子列表构成
 	这个函数的功能就是将这些子列表合并成一个列表。
@@ -10375,9 +13233,9 @@ foldr这个函数和foldl比较相似
 	结果
 	[{11},{22},{33}]
 
-	 
+	 
 
-## lists:merge(List1, List2) -> List3
+## 🍀 lists:merge(List1, List2) -> List3
 
 	List1和List2分别是一个列表，这个函数的功能是将这两个列表合并成一个列表。
 	例子：
@@ -10387,7 +13245,7 @@ foldr这个函数和foldl比较相似
 	[2,1,3,4]
 
 
-## lists:23, merge3(List1, List2, List3) -> List4
+## 🍀 lists:23, merge3(List1, List2, List3) -> List4
 
 	将List1，List2，List3合并成一个列表
 	例子
@@ -10395,9 +13253,9 @@ foldr这个函数和foldl比较相似
 	结果：
 	[11,22,33,44]
 
-	 
+	 
 
-## lists:min(List) -> Min
+## 🍀 lists:min(List) -> Min
 
 	返回List中的最小的元素，和max函数对应
 	例子
@@ -10405,9 +13263,9 @@ foldr这个函数和foldl比较相似
 	结果
 	1
 
-	 
+	 
 
-## lists:nth(N, List) -> Elem
+## 🍀 lists:nth(N, List) -> Elem
 
 	返回List中的第N个元素。
 	例子
@@ -10415,9 +13273,9 @@ foldr这个函数和foldl比较相似
 	结果
 	{name,"lisi"}
 
-	 
+	 
 
-## lists:nthtail(N, List) -> Tail
+## 🍀 lists:nthtail(N, List) -> Tail
 
 	返回List列表中第N个元素后面的元素
 	例子
@@ -10426,11 +13284,11 @@ foldr这个函数和foldl比较相似
 	[d,e]
 
 
-## lists:prefix(List1, List2) -> boolean()
+## 🍀 lists:prefix(List1, List2) -> boolean()
 
 	如果List1是List2的前缀(也就是说List1和List2前部分相同)，那么返回true，否则返回false
 
-## lists:reverse(List1) -> List2
+## 🍀 lists:reverse(List1) -> List2
 
 	将List1反转
 	例子
@@ -10438,34 +13296,34 @@ foldr这个函数和foldl比较相似
 	结果
 	[4,3,2,1]
 
-	 
+	 
 
-## lists:reverse(List1, Tail) -> List2
+## 🍀 lists:reverse(List1, Tail) -> List2
 
 	将List1反转，然后将Tail接在反转List1的后面，然后返回
 	例子
 	lists:reverse([1, 2, 3, 4], [a, b, c]).
 	[4,3,2,1,a,b,c]
 
-	 
+	 
 
-## lists:seq(From, To) -> Seq
+## 🍀 lists:seq(From, To) -> Seq
 
 	这个函数返回一个从 From 到 To 的一个整型列表。
 	例子
 	lists:seq(1,10).
 	结果
 	[1,2,3,4,5,6,7,8,9,10]
-	 
-## lists:seq(From, To, Incr) -> Seq
+	 
+## 🍀 lists:seq(From, To, Incr) -> Seq
 
 	返回一个整型列表，这个列表的后一个元素比前一个元素大Incr。
 	例子
 	lists:seq(1,10,4).
 	[1,5,9]
 
-	 
-## lists:sort(List1) -> List2
+	 
+## 🍀 lists:sort(List1) -> List2
 
 	将List1中的元素从小到大排序，然后返回新的一个列表。
 	例子
@@ -10473,7 +13331,7 @@ foldr这个函数和foldl比较相似
 	结果
 	[1,2,3]
 
-## lists:split(N, List1) -> {List2, List3}
+## 🍀 lists:split(N, List1) -> {List2, List3}
 
 	将List1分成List2和List3
 	其中List2包括List1的前N个元素，List3包含剩余的。
@@ -10485,7 +13343,7 @@ foldr这个函数和foldl比较相似
 
 	这个函数和partition数有区别，partition是遍历全部的List，而splitwith在遍历时遇到false的情况
 	则马上结束遍历，返回结果。
-## lists:sublist(List1, Len) -> List2
+## 🍀 lists:sublist(List1, Len) -> List2
 
 	返回从第一个元素到第Len个元素的列表，这个Len大于List1的长度时，返回全部。
 	例子
@@ -10493,8 +13351,8 @@ foldr这个函数和foldl比较相似
 	结果
 	[1,2,3]
 
-	 
-## lists:sublist(List1, Start, Len) -> List2
+	 
+## 🍀 lists:sublist(List1, Start, Len) -> List2
 
 	返回从List1的第Start个位置开始，后面Len个元素的列表。
 	例子
@@ -10502,8 +13360,8 @@ foldr这个函数和foldl比较相似
 	结果
 	[2,3]
 
-	 
-## lists:subtract(List1, List2) -> List3
+	 
+## 🍀 lists:subtract(List1, List2) -> List3
 
 	等同于 List1 -- List2
 	这个函数功能是返回一个List1的副本，对于List2中的每个元素，第一次在List1副本中出现时被删掉。
@@ -10512,8 +13370,8 @@ foldr这个函数和foldl比较相似
 	结果
 	"1233"
 
-	 
-## lists:suffix(List1, List2) -> boolean()
+	 
+## 🍀 lists:suffix(List1, List2) -> boolean()
 
 	如果List1是List2的后缀，那么返回true，否则返回false
 	例子
@@ -10521,8 +13379,8 @@ foldr这个函数和foldl比较相似
 	结果
 	true
 
-	 
-## lists:sum(List) -> number()
+	 
+## 🍀 lists:sum(List) -> number()
 
 	返回List中每个元素的和。其中List中的元素都应该是number()类型的。
 	例子
@@ -10530,15 +13388,15 @@ foldr这个函数和foldl比较相似
 	结果
 	10
 
-## lists:ukeymerge(N, TupleList1, TupleList2) -> TupleList3
+## 🍀 lists:ukeymerge(N, TupleList1, TupleList2) -> TupleList3
 
 	TupleList1和TupleList2里面的元素都是元组
 	将TupleList1和TupleList2合并，合并的规则是按照元组的第N个元素，如果第N个元素有相同的，那么保留TupleList1中
 	的，删除TupleList2中的。
 
-	 
+	 
 
-## lists:ukeysort(N, TupleList1) -> TupleList2
+## 🍀 lists:ukeysort(N, TupleList1) -> TupleList2
 
 	TupleList1里面的元素都是元组
 	这个函数也同样返回一个元素是元组的列表，返回的这个列表是按照元组的第N个元素来排序的，如果元组中有出现
@@ -10548,8 +13406,8 @@ foldr这个函数和foldl比较相似
 	结果
 	[{name,"zhangsan"},{sex,"male"}]
 
-	 
-## lists:umerge(ListOfLists) -> List1
+	 
+## 🍀 lists:umerge(ListOfLists) -> List1
 
 	这个函数和merge唯一不同的就是，里面不能出现相同的元素，如果出现相同的，那么删除之，只保留一个唯一的
 	例子
@@ -10558,7 +13416,7 @@ foldr这个函数和foldl比较相似
 	[1,2,3]
 	分析：由于[[1,2],[2,3]]中merge后是[1,2,2,3],这个时候有两个相同的元素2，所以只保存一个2，所以结果是[1,2,3].
 
-## lists:umerge3(List1, List2, List3) -> List4
+## 🍀 lists:umerge3(List1, List2, List3) -> List4
 
 	将List1, List2, List3合并
 	和merge3不同的是返回的List4中不能出现重复的元素
@@ -10567,8 +13425,8 @@ foldr这个函数和foldl比较相似
 	结果
 	[1,2,3,4]
 
-	 
-## lists:unzip(List1) -> {List2, List3}
+	 
+## 🍀 lists:unzip(List1) -> {List2, List3}
 
 	List1里面的元素是元组，每个元组由两个元素组成，返回值List2包含每个List1中每个元组的第一个元素
 	返回值List3包含每个List1中每个元组的第二个元素。
@@ -10577,8 +13435,8 @@ foldr这个函数和foldl比较相似
 	结果
 	{[name,sex,city],["zhangsan","male","hangzhou"]}
 
-	 
-## lists:unzip3(List1) -> {List2, List3, List4}
+	 
+## 🍀 lists:unzip3(List1) -> {List2, List3, List4}
 
 	List1里面的元素是元组，每个元组由三个元素组成，返回值List2包含每个List1中每个元组的第一个元素；
 	返回值List3包含每个List1中每个元组的第二个元素；返回值List4包含每个List1中每个元组的第三个元素。
@@ -10586,11 +13444,11 @@ foldr这个函数和foldl比较相似
 	lists:unzip3([{name,"zhangsan","apple"},{sex,"male","banana"},{city,"hangzhou","orange"}]).
 	结果
 	{[name,sex,city],
-	 ["zhangsan","male","hangzhou"],
-	 ["apple","banana","orange"]}
+	 ["zhangsan","male","hangzhou"],
+	 ["apple","banana","orange"]}
 	注意，最终返回的是一个元组。
 
-## lists:usort(List1) -> List2
+## 🍀 lists:usort(List1) -> List2
 
 	将List1按照从小到大的顺序排序，如果排序后有重复的元素，删除重复的，只保存一个唯一的。
 	例子
@@ -10598,7 +13456,7 @@ foldr这个函数和foldl比较相似
 	结果
 	[1,2,3,4]
 
-## lists:zip(List1, List2) -> List3
+## 🍀 lists:zip(List1, List2) -> List3
 
 	将两个长度相同的列表合并成一个列表
 	List3是里面的每一个元组的第一个元素是从List1获取的，而每个元组的第二个元素是从List2中获取的
@@ -10608,8 +13466,8 @@ foldr这个函数和foldl比较相似
 	[{name,"zhangsan"},{sex,"male"},{city,"hangzhou"}]
 	注意，如果List1和List2长度不一致，那么这个函数将会报错。
 
-	 
-## lists:zip3(List1, List2, List3) -> List4
+	 
+## 🍀 lists:zip3(List1, List2, List3) -> List4
 
 	将三个长度相同的列表合并成一个列表
 	List4是里面的每一个元组的第一个元素是从List1获取的，而每个元组的第二个元素是从List2中获取的
@@ -10618,10 +13476,10 @@ foldr这个函数和foldl比较相似
 	lists:zip3([name,sex,city],["zhangsan","male","hangzhou"],["nick","1","zhejiang"]).
 	结果
 	[{name,"zhangsan","nick"},
-	 {sex,"male","1"},
-	 {city,"hangzhou","zhejiang"}]
+	 {sex,"male","1"},
+	 {city,"hangzhou","zhejiang"}]
 
-	 
+	 
 
 
 # 🚩 RegExp 模块
@@ -10630,7 +13488,7 @@ foldr这个函数和foldl比较相似
 - http://gashero.yeax.com/?p=65
 
 
-## re:compile(Regexp) -> {ok, MP} | {error, ErrSpec}
+## 🍀 re:compile(Regexp) -> {ok, MP} | {error, ErrSpec}
 Types
 Regexp = iodata()
 MP = mp()
@@ -10638,7 +13496,7 @@ ErrSpec =
 	{ErrString :: string(), Position :: integer() >= 0}
 The same as compile(Regexp,[])
 
-## re:compile(Regexp, Options) -> {ok, MP} | {error, ErrSpec}
+## 🍀 re:compile(Regexp, Options) -> {ok, MP} | {error, ErrSpec}
 Types
 Regexp = iodata() | unicode:charlist()
 Options = [Option]
@@ -10647,7 +13505,7 @@ MP = mp()
 ErrSpec =
 	{ErrString :: string(), Position :: integer() >= 0}
 
-## re:inspect(MP, Item) -> {namelist, [binary()]}
+## 🍀 re:inspect(MP, Item) -> {namelist, [binary()]}
 OTP 17.0
 Types
 MP = mp()
@@ -10655,14 +13513,14 @@ Item = namelist
 
 
 
-## re:replace(Subject, RE, Replacement) -> iodata() | unicode:charlist()
+## 🍀 re:replace(Subject, RE, Replacement) -> iodata() | unicode:charlist()
 Types
 Subject = iodata() | unicode:charlist()
 RE = mp() | iodata()
 Replacement = iodata() | unicode:charlist()
 Same as replace(Subject, RE, Replacement, []).
 
-## re:replace(Subject, RE, Replacement, Options) ->
+## 🍀 re:replace(Subject, RE, Replacement, Options) ->
 		   iodata() | unicode:charlist()
 Types
 Subject = iodata() | unicode:charlist()
@@ -10697,7 +13555,7 @@ Example:
 
 	"ab[&]d"
 
-## re:run(Subject, RE) -> {match, Captured} | nomatch
+## 🍀 re:run(Subject, RE) -> {match, Captured} | nomatch
 Types
 Subject = iodata() | unicode:charlist()
 RE = mp() | iodata()
@@ -10705,7 +13563,7 @@ Captured = [CaptureData]
 CaptureData = {integer(), integer()}
 Same as run(Subject,RE,[]).
 
-## re:run(Subject, RE, Options) ->
+## 🍀 re:run(Subject, RE, Options) ->
 	   {match, Captured} | match | nomatch | {error, ErrType}
 Types
 Subject = iodata() | unicode:charlist()
@@ -10757,14 +13615,14 @@ CompileErr =
 	{match,[{0,10},{3,4}]}
 
 
-## re:split(Subject, RE) -> SplitList
+## 🍀 re:split(Subject, RE) -> SplitList
 Types
 Subject = iodata() | unicode:charlist()
 RE = mp() | iodata()
 SplitList = [iodata() | unicode:charlist()]
 Same as split(Subject, RE, []).
 
-## re:split(Subject, RE, Options) -> SplitList
+## 🍀 re:split(Subject, RE, Options) -> SplitList
 Types
 Subject = iodata() | unicode:charlist()
 RE = mp() | iodata() | unicode:charlist()
@@ -10817,7 +13675,7 @@ gives
 
 
 
-## regexp:match(String,RegExp) -> MatchRes
+## 🍀 regexp:match(String,RegExp) -> MatchRes
 
 	String=RegExp=string()
 	MatchRes={match,Start,Length} | nomatch | {error,errordesc()}
@@ -10830,7 +13688,7 @@ nomatch ：无法匹配。
 {error,Error} ：发生错误。
 
 
-## regexp:first_match(String,RegExp) -> MatchRes
+## 🍀 regexp:first_match(String,RegExp) -> MatchRes
 
 	String=RegExp=string()
 	MatchRes={match,Start,Length} | nomatch | {error,errordesc()}
@@ -10840,7 +13698,7 @@ nomatch ：无法匹配。
 
 
 
-## regexp:matches(String,RegExp) -> MatchRes
+## 🍀 regexp:matches(String,RegExp) -> MatchRes
 
 	String=RegExp=string()
 	MatchRes={match,MatchRes} | {error,errordesc()}
@@ -10852,7 +13710,7 @@ nomatch ：无法匹配。
 {error,Error} ：正则表达式有错。
 
 
-## regexp:sub(String,RegExp,New) -> SubRes
+## 🍀 regexp:sub(String,RegExp,New) -> SubRes
 
 	String=RegExp=New=string()
 	SubRes={ok,NewString,RepCount} | {error,errordesc()}
@@ -10864,11 +13722,11 @@ nomatch ：无法匹配。
 {error,Error} ：正则表达式有误。
 
 
-## regexp:gsub(String,RegExp,New) -> SubRes
+## 🍀 regexp:gsub(String,RegExp,New) -> SubRes
 基本等同于 sub ，不同在于所有的不重叠会被替换，而不仅仅是替换一次。
 
 
-## regexp:split(String,RegExp) -> SplitRes
+## 🍀 regexp:split(String,RegExp) -> SplitRes
 
 	String=RegExp=string()
 	SubRes={ok,FieldList} | {error,errordesc()}
@@ -10880,7 +13738,7 @@ nomatch ：无法匹配。
 {error,Error} ：正则表达式有误。
 
 
-## regexp:sh_to_awk(ShRegExp) -> AwkRegExp
+## 🍀 regexp:sh_to_awk(ShRegExp) -> AwkRegExp
 
 	ShRegExp=AwkRegExp=string()
 	SubRes={ok,NewString,RepCount} | {error,errordesc()}
@@ -10895,7 +13753,7 @@ nomatch ：无法匹配。
 尽管sh正则表达式并不强大，但在大多数时候却很好用。
 
 
-## regexp:parse(RegExp) -> ParseRes
+## 🍀 regexp:parse(RegExp) -> ParseRes
 
 	RegExp=string()
 	ParseRes={ok,RE} | {error,errordesc()}
@@ -10906,14 +13764,14 @@ nomatch ：无法匹配。
 {error,Error} ：正则表达式有误。
 
 
-## regexp:format_error(ErrorDescription) -> Chars
+## 🍀 regexp:format_error(ErrorDescription) -> Chars
 
 	ErrorDescriptor=errordesc()
 	Chars=[char() | Chars]
 
 在匹配失败时返回匹配错误的描述信息。
 
-## Regular Expression 正则表达式
+## 🍀 Regular Expression 正则表达式
 - https://erlang.org/doc/man/re.html#regexp_syntax
 
 这里提到的正则表达式知识 egrep 和AWK语言中的子集。他们由如下字符组成：
@@ -10960,21 +13818,21 @@ nomatch ：无法匹配。
 # 🚩 unicode 模块
 - http://erlang.org/doc/man/unicode.html
 
-## unicode:bom_to_encoding/1
-## unicode:characters_to_binary/1
-## unicode:characters_to_binary/2
-## unicode:characters_to_binary/3
-## unicode:characters_to_list/1
-## unicode:characters_to_list/2
-## unicode:characters_to_nfc_binary/1
-## unicode:characters_to_nfc_list/1
-## unicode:characters_to_nfd_binary/1
-## unicode:characters_to_nfd_list/1
-## unicode:characters_to_nfkc_binary/1
-## unicode:characters_to_nfkc_list/1
-## unicode:characters_to_nfkd_binary/1
-## unicode:characters_to_nfkd_list/1
-## unicode:encoding_to_bom/1
+## 🍀 unicode:bom_to_encoding/1
+## 🍀 unicode:characters_to_binary/1
+## 🍀 unicode:characters_to_binary/2
+## 🍀 unicode:characters_to_binary/3
+## 🍀 unicode:characters_to_list/1
+## 🍀 unicode:characters_to_list/2
+## 🍀 unicode:characters_to_nfc_binary/1
+## 🍀 unicode:characters_to_nfc_list/1
+## 🍀 unicode:characters_to_nfd_binary/1
+## 🍀 unicode:characters_to_nfd_list/1
+## 🍀 unicode:characters_to_nfkc_binary/1
+## 🍀 unicode:characters_to_nfkc_list/1
+## 🍀 unicode:characters_to_nfkd_binary/1
+## 🍀 unicode:characters_to_nfkd_list/1
+## 🍀 unicode:encoding_to_bom/1
 
 
 

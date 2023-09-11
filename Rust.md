@@ -3211,6 +3211,7 @@ rust1.16.0 在 VS2017 下不能正确识别相关的 LIB，手动添加 LIB：
 
     rustup toolchain list
     rustup toolchain uninstall nightly
+    rustup toolchain default nightly
 
 
 如果出现这些内容，Rust 就安装成功了！如果并没有看到这些信息，并且使用的是 Windows，请检查 Rust 是否位于 %PATH% 系统变量中。如果一切正确但 Rust 仍不能使用，有许多地方可以求助。最简单的是 位于 Rust 官方 Discord 上的 #beginners 频道。在这里你可以和其他 Rustacean（Rust 用户的称号，有自嘲意味）聊天并寻求帮助。其它给力的资源包括用户论坛和 Stack Overflow。

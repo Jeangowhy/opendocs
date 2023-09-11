@@ -3374,17 +3374,17 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\ST]
 @="Sublime Text ✒ 🏡"
-"Icon"="C:\\Program Files\\Sublime Text 3\\sublime_text.exe"
+"Icon"="C:\\Program Files\\Sublime Text\\sublime_text.exe"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\ST\command]
-@="C:\\Program Files\\Sublime Text 3\\sublime_text.exe \"%V\""
+@="C:\\Program Files\\Sublime Text\\sublime_text.exe \"%V\""
 
 [HKEY_CLASSES_ROOT\Directory\shell\ST]
 @="Sublime Text ⚡ 🏡"
-"ICON"="C:\\Program Files\\Sublime Text 3\\sublime_text.exe"
+"ICON"="C:\\Program Files\\Sublime Text\\sublime_text.exe"
 
 [HKEY_CLASSES_ROOT\Directory\shell\ST\command]
-@="C:\\Program Files\\Sublime Text 3\\sublime_text.exe"
+@="C:\\Program Files\\Sublime Text\\sublime_text.exe \"%V\""
 ```
 
 ## ==⚡ 插件源设置

@@ -9,6 +9,8 @@ Make 是最常用的构建工具，诞生于 1977 年，主要用于 C 语言的
 
 Erlang 命令本身也实现了 Emakefile 的功能，执行编译 `erl -make` 相当执行 `make:all()`，编译后的字节文件会保存到 `ebin` 目录，执行时使用 `erl -pa ebin` 就可以自动加载字节码。erl -make 也兼容 GNU make。
 
+Makefile 脚本是一组依赖规则，make 命令根据规则去调用相应的命令生成相应的输出，最终构建出需要编译的程序。
+
 Emakefile 规则定义语法：
 
     Modules.
@@ -181,7 +183,7 @@ Make 的一些编程能力：
                 echo $$i; \
             done
 
-        # 等同于
+    等同于
 
         all:
             for i in one two three; do \
@@ -191,7 +193,9 @@ Make 的一些编程能力：
 - 支持使用函数：
 
         $(function arguments)
-        # 或者
+
+    或者
+
         ${function arguments}
 
 Makefile 提供了许多内置函数，可供调用。下面是几个常用的内置函数。
@@ -320,6 +324,3204 @@ Make Control Functions
     make [Target]
 
 就会将模块编译生成脚本定义目标文件。
+
+
+# 🐣 GNU m4 宏编程
+1. https://www.gnu.org/software/m4/
+2. https://www.gnu.org/software/autoconf/
+3. https://www.gnu.org/software/automake/
+4. 让这世界再多一份 GNU m4 教程 https://segmentfault.com/a/1190000004108113
+
+手写 Makefile 虽然不是困难的工作却非常繁琐，并且手写脚本可能风格不一致。为此 GNU 引入了多个工具来实现自动地生成符合自由软件惯例的 Makefile，象常见的 GNU 程序一样，只要使用 ./configure make make instal 就可以完成程序和编译和安装：
+
+1. autoconf 根据一个宏文件生成 configure 源代码配置脚本；
+2. automake 根据一些简单的预定义宏文件来生成 Makefile.in 脚本，依赖 autoconf；
+3. configure 脚本依据 Makefile.in 来生成一个符合惯例的 Makefile 脚本；
+4. GNU m4 通用的宏处理器，宏编程工具，autoconf 中大量采用；
+
+C 语言自诞生后，只用了 5 年就让汇编语言归隐山林了，这可能要归功于 Unix 的成功以及 Dennis Ritchie 的忽悠。Steve Johnson——yacc, lint, spell 以及 PCC（Portable C Compiler）的作者说：『Dennis Ritchie 告诉所有人，C 函数的调用开销真的很小很小。于是人人都开始编写小函数，搞模块化。然而几年后，我们发现在 PDF-11 中函数的调用开销依然非常大，而 VAX 机器上的代码往往在 CALL 指令上花费掉 50% 的运行时间。Dennis 对我们撒了谎！但为时已晚，我们已经欲罢不能……』
+
+Macros 即代码生成工具，宏可以创造优雅易读的代码，更能体现编程是一种艺术。虽然有些编程语言未提供宏功能，但是有 GNU m4 这种通用的宏处理器可用。所有的 Unix 系统都会提供 m4 宏处理器，因为它是 POSIX 标准的一部分。
+
+最初的 M4 作为 Rational FORTRAN 系统的预处理器设计实现，受到 Stratchey 于1965年首次描述的通用宏生成器 General Purpose Macro (GPM) 的影响！GNU M4 是 GNU 项目对 M4 的实现，于 1990 年由 RenéSeindal 编写。
+
+GNU m4 它扫描用户输入的文本并将其输出，期间如果遇到宏就将其展开后输出。宏有两种，一种是内建的，另一种是用户定义的，它们能接受任意数量的参数。除了做展开宏的工作之外，m4 内建的宏能够加载文件，执行 Shell 命令，做整数运算，操纵文本，形成递归等等。m4 可用作编译器的前端，或者单纯作为宏处理器来用。
+
+来自 GNU m4 手册的警告：有些人对 m4 非常着迷，他们先是用 m4 解决一些简单的问题，然后解决了一个比一个更大的问题，直至掌握如何编写一个复杂的 m4 宏集。若痴迷于此，往往会对一些简单的问题写出复杂的 m4 脚本，然后耗费很多时间去调试，反而不如直接手动解决问题更有效。所以，对于程序猿中的强迫症患者，要对 m4 有所警惕，它可能会危及你的健康。
+
+使用 m4 首先需要建立流的概念，m4 命令的输入输出是以流的形式处理的。这意味着 m4 在从输入流中读取文本的过程中至少需要检测所读取的某段文本是不是宏，如果是宏就展开它，如果是一般文本就保持原样。
+
+注解使用 # 号，注解符号直到行尾的内容都是 commets，但是代码最后一行不能是注解。注意，m4 的注释文本一样会被发送到输出流，它们只是没有宏展开功能。除非使用 dnl 指令将此指令位置后到换行符的内容统统干掉。
+
+可以用 changecom 宏修改 m4 默认的注释符，或定义块注释符，例如：
+
+    changecom(`@@')
+    changecom(/*,*/)
+
+如果不向 changecom 提供任何参数，其他 m4 实现会恢复默认的注释符，但是 GNU m4 不会恢复默认的注释符，而是关闭 m4 的注释功能。
+
+## 🍀 Diversions
+1. https://www.gnu.org/software/m4/manual/m4.html#Input-Control
+2. https://www.gnu.org/software/m4/manual/m4.html#File-Inclusion
+3. https://www.gnu.org/software/m4/manual/m4.html#Diversions
+
+8 Input control
+This chapter describes various builtin macros for controlling the input to m4.
+
+    Builtin: dnl “Discard to Next Line”
+    Builtin: changequote ([start = ‘`’], [end = ‘'’])
+    Builtin: changecom ([start], [end = ‘NL’])
+    Optional builtin: changeword (regex)
+    Builtin: m4wrap (string, …)
+
+    Builtin: include (file)
+    Builtin: sinclude (file)
+
+1. • Dnl       Deleting whitespace in input
+2. • Changequote       Changing the quote characters
+3. • Changecom     Changing the comment delimiters
+4. • Changeword        Changing the lexical structure of words
+5. • M4wrap        Saving text until end of input
+
+缓冲区的使用方式 Diverting and undiverting output：
+
+10.1 `divert ([number = ‘0’])` 将输出转移到指定缓冲区；
+10.2 `undivert ([diversions…])` 所有（黑暗缓存除外）或指定缓存区的内容重新迁移到当前的缓冲区；
+10.3 `divnum` 获取当前缓冲区序号。默认使用 0 号缓存区；
+10.4 Discarding diverted text 舍弃缓冲内容，黑暗缓冲区；
+
+以下是一个 m4 演示程序，可以执行 m4 命令，这时没有任何内容输出，因为 m4 在等待输入流的数据。直接运行 m4 对应的输入输出流就是 C 语言程序概念中的 stdin 和 stdout，用户可以直接编写以下代码，然后执行到 say_hello 时，m4 就会展开这个宏并打印出 Hello World！当然，可以将代码保存到 .m4 文件，通常使用这个扩展名，然后执行 m4 some.m4 来执行脚本文件。
+
+```sh
+divert(0)
+define(say_hello, Hello World!)
+say_hello
+```
+
+作为一种编程工具，m4 当然就是一个图灵机，它至少需要有一个『状态寄存器』，否则它无法判断当前从输入流中读取的文本是宏还是非宏。为了提高文本处理效率，还应该有一个缓存空间，使得 m4 在这一空间中高效工作。
+
+官方概念是临时通道（Diversion），divert(0) 即表达使用首个临时缓存区，这也是默认缓存区。可以使用 divert(1) 这样的指令随机切换工作缓存区。m4 缓存的容量为 512KB。当它满了的时候，会自动将其中的内容保存到临时文件中备用。所以，只要你的磁盘或其它外围设备的容量足够，就不要担心 m4 无法处理大文件。
+
+类似 CPU 的多级缓存机制，m4 的缓存空间也是划分了级别的。POSIX 标准的 m4 将缓存空间划分为 10 个级别，编号依次为 0, 1, 2, ..., 9。GNU m4 对缓存空间的级别数量不作限制。
+
+m4 会根据缓存级别的编号的增序进行汇总。例如，它总是先将 1 号缓存的内容汇总到 0 号缓存中，然后将 2 号缓存的内容汇总到 0 号缓存中，以此类推，最后将 0 号缓存中的内容依序发送到输出流中。有了这种分级的缓存汇总机制，就可以控制文本的支流，决定哪条支流先汇入 0 号缓存。
+
+```sh
+# output: hello world
+divert(eval(1<<28))world
+divert(2)hello
+```
+
+注：`eval(1<<28)` 是一个求值表达式，1 左移 28 bit，即 2^28，是一个非常大的值，保证 world 这个词最后合并到输出流。Linux Shell 环境下还可以使用 divert(`1+1') 这样的表达式写法，注意反引号开头，单引号结尾。
+
+可以使用格式化输出宏来复制输入流数据到输出流：
+
+    format(`Result is %d', eval(`2**15'))
+
+m4 有黑暗缓存概念，Discarding diverted text，即不会输出缓存区编号为负数的缓存区。上面例子中宏指令语句『展开』为一个长度为 0 的字符串，也就是空文本，但是每条指令后面，比如 divert(0) 之后存在一个换行符，m4 会将这个换行符发送到输出流。所以在运行脚本时，会出现多个换行，通过将指令语句转移到黑暗缓存，就可以避免输出这些空行。
+
+消除指令后面的换行符有两种方法：
+
+1. 指令后面不换行，例如：`divert(0)Hello`。
+2. 使用 m4 内建的 dnl 宏将它被调用的位置到后面换行符之间的文本一并删除。
+
+```sh
+divert(-9)
+define(say_hello_world, Hello World!)
+divert(0)No new line -> dnl delete to the new line
+say_hello_world
+```
+
+要禁止所有内容输出，最简单的方法就是使用黑暗缓存，并且使用 undivert 指令将所有缓存区内容放到黑暗是缓存中：
+
+```sh
+divert(`1')
+Diversion one: divnum
+divert(`2')
+Diversion two: divnum
+divert(`-1')
+undivert
+```
+
+以下定义了一个 cleardivert 宏，可以清除指定的缓存区内容，使用到 pushdef 和 popdef，它们用于直接操作宏定义堆栈，在此临时重定义宏：
+
+    5.6 Temporarily redefining macros：
+    Builtin: pushdef (name, [expansion])
+    Builtin: popdef (name…)
+
+```sh
+divert(`1')
+Diversion one: divnum
+divert(`2')
+Diversion two: divnum
+define(`cleardivert',
+`pushdef(`_n', divnum)divert(`-1')undivert($@)divert(_n)popdef(`_n')')
+cleardivert(`1')
+```
+
+使用 m4wrap 指令可以将内容保存起来，直到最后才输出：
+
+```sh
+define(`cleanup', `This is the `cleanup' action. ')
+m4wrap(`cleanup')
+```
+
+注意，m4wrap 参数中使用了转义字符串，也就是到程序结束时输出 "cleanup" 这个字符串，因为它是一个宏定义，所以要展开其内容再输出。如果没有使用转义，则会直接将 cleanup 这个宏展开的内容暂存起来，最后再输出，而这时因为内容中又包含 "cleanup"，所以又会再对它展开得到二次展开内容。
+
+
+由于 m4 没有提供文件操作接口，所以文件的读写只能通过操作系统环境中的 stdin、stdout 和 stderr 等标准 I/O 文件实现，配合文件重定向管道进行操作。
+
+m4 状态机的运行状态可以通过文件进行保留、加载，这个功能称为 frozen state，可以使用以前保留的状态继承执行脚本，使用 -F file 和 -R file 分别指定要写入、读取的状态文件。
+
+
+## 🍀 CPL -  Standard I/O
+
+此文档参考 The C Programming Language -  Standard I/O 内容翻译而成。
+
+以下 stdio.c 程序演示控制台的基本输入输出：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{ 
+    int c;
+    do {
+        c = getchar();
+        if (c=='x') break;
+        if (c!='\n') putchar(c);
+    } while (c != EOF);
+    printf("End of File: %d", c);
+    return EXIT_SUCCESS;
+}
+```
+
+这是两个最基本的输入输出函数，gethar 函数读取一个字符，然后 putchar 输出一个字符。
+
+这个示范程序使用了 while 循环的另一种形式，do-while，将条件判断移到循环体后面。
+
+循环中使用 EOF 作为结束，在 Windows 系统中，输入 ENTER 键新起一行后，再输入 Ctrl+Z，再输入 ENTER 键即可以产生 EOF。 
+
+Linux 直接按 CTRL+D 快捷键结束输入，即产生 EOF。
+
+基本输入输出一般涉及键盘和显示器，也就是程序运行中的控制台。对控制台操作时，键盘和鼠标等输入设备产生的信号或数据被抽象为输入文件 `stdin` 文件。而输出的内容会写入显示器的缓存中并显示出来，视觉上就是控制台窗口看到的内容，同样，输出也被抽象为 `stdout` 文件。
+
+对于键盘输入设备抽象而来的 stdin 文件，怎么表示它的结束是个技巧，不像硬盘存储的文件，有明确的文件大小和结束位置。标准控制台的输入结束一般意味着程序的结束，不能再接收用户的输入。比如，通过 Ctrl+D 和 Ctrl+C 结束程序，即会得到文件结束符 EOF，它在函数库里一般定义为 -1，但这个值的意义不在于取什么值，因为它不是用户输入的值，而是任意指定的。
+
+事实上，输入输入文件是可以被重定向到其它文件的，标准输入输出文件，stdin stdout stderr 它们都可以重定向到磁盘中文件，即输入文件到程序中，或者输出内容、错误信息到磁盘文件中。如运行程序时，将 stdio 程序的 stdout 重定向到 out.txt 文件，而不是控制台默认的显示器输出：
+
+```sh
+stdio.exe > out.txt
+a
+b
+c
+x
+```
+
+只要程序正常结束，输出的内容便会按照约定写入 out.txt 文件中，原来的文件内容将被覆盖，可以使用 >> 来将新内容附加到文件原有内容后。
+
+此外，还有 stderr 标准错误文件，它输出的是错误信息，和 stdout 相对应。
+
+额外补充，Unix/Linux 标准 I/O 流文件与对应的 ID：
+
+    | Handle |  Name  |   Description   |
+    |--------|--------|-----------------|
+    |      0 | stdin  | Standard input  |
+    |      1 | stdout | Standard output |
+    |      2 | stderr | Standard error  |
+
+在命令行中，可以使用这些文件 ID 来做重定向，例如 ls 命令的标准输出到文件：
+
+    # redirect stdout to list.txt
+    ls > list.txt
+    ls 1> list.txt
+
+    # append stdout to list.txt
+    ls -l >> list.txt
+
+例如，将 grep 命令的 stderr 重定向到文件：
+
+    grep -R 'MASTER' $HOME 2> err.txt
+
+同时将 stdout 和 stderr 重定向到文件，注意，后面的`2>&1`表示将 stderr 重定向到 stdout：
+
+    $ ls > list.txt 2>&1
+
+    ## bash only ##
+    $ ls &> list.txt
+
+Windows 系统还支持以下这样的语法：
+
+    dir 2>&1 > out.txt
+    dir 2> nul
+    dir > output.msg 2> output.err
+    dir 1> output.msg 2>&1
+
+重定向 stdin 使用左尖括号，在 Windows 系统只支持第一种用法：
+
+    cmd < foo         将 cmd 的标准输入重定向到文件 foo 即读入文件
+    cmd << delimiter  将 cmd 的标准输入重定向到下面的命令行，直到遇到 delimiter（here document）
+    cmd <<- delimiter 将 cmd 的标准输入重定向到下面的命令行，直到遇到 delimiter（here document，命令行中开头的制表符会被忽略）
+
+
+## 🍀 Define Macros
+
+5 How to define new macros
+Macros can be defined, redefined and deleted in several different ways. Also, it is possible to redefine a macro without losing a previous value, and bring back the original value at a later time.
+
+    Builtin: define (name, [expansion])
+    Builtin: undefine (name…)
+    Builtin: defn (name…)
+    Builtin: pushdef (name, [expansion])
+    Builtin: popdef (name…)
+    Builtin: indir (name, [args…])
+    Builtin: builtin (name, [args…])
+
+    Composite: array (index)
+    Composite: array_set (index, [value])
+    Composite: exch (arg1, arg2)
+    Composite: nargs (…)
+
+1. • Define        Defining a new macro
+2. • Arguments     Arguments to macros
+3. • Pseudo Arguments      Special arguments to macros
+4. • Undefine      Deleting a macro
+5. • Defn         Renaming macros
+6. • Pushdef       Temporarily redefining macros
+7. • Indir         Indirect call of macros
+8. • Builtin       Indirect call of builtins
+
+宏定义基本语法 `define(Name, Body)`，通过使用反引号和单引号结尾组合，宏名大小写敏感，不能使用空格，只能包含 letters, digits, _ (underscore)，出现非法字符将忽略宏定义。
+
+此命名规则可以通过命令行 -W regexp 或者 --word-regexp=regexp 等参数，又或者使用 changeword 指令改变默认的标识符号单词匹配的正则规则：
+
+    [_a-zA-Z][_a-zA-Z0-9]*
+
+    Optional builtin: changeword (regex)
+
+可以在 Body 中编写多行内容。如果内容中没有逗号，这是宏参数分隔符，不用引号也不会出问题，而反引号可使逗号功能逃逸。
+
+使用 dumpdef 可以获取宏定义信息：
+
+    dumpdef(`macro')
+    Builtin: dumpdef ([names…]))
+
+就 define 这个宏本身而言，和调用其它宏一样通过圆括号调用，并传递参数。如果宏体中使用未传入的参数，那么它仅仅会得到空字符串。可以在运行 m4 命令时，指定 --quiet 或者  --silent, -Q 等等参数来避免在宏参数数量不一致时的警告信息。
+
+宏体中可以通过 $1, $2, ..., $n 等等引用对应的宏参数，$# 指示宏接收到的参数个数，注意 # 是作为默认注解符号，应用使用引号包括这个预定义宏。$* 和 $@ 都表示所有参数，差别在于后者使用引号包括参数避免进行宏展开。GNU m4 不限定参数的个数，其他 m4 实现最多支持 9 个参数，所以其它 m4 实现中 n=9。如果知道 Bash 脚本编程，那么就应该知道 $0 对应脚本本身的路径，而在 m4 脚本中 $0 是宏本身，使用它意味着递归调用。
+
+```sh
+define(args, `
+    `$'# = arugments count: $#
+    `$'@ = all arugments quoted: $@
+    `$'* = all arugments unquoted: $*
+    `$'00 = macro itself: `$0'
+    `$'01 = $01
+    `$'02 = $02
+    `$'03 = $03
+    ......
+    `$'11 = $11
+    ')
+args(1,2,3,4,5,6,7,8,9,0,a,b,c)
+```
+
+虽然，从输出内容来年，$* 和 $@ 的内容看起来是一样的，但是 $@ 输出的内容不会再进行宏扩展。另外，这些内置的参数宏不会因为使用了引号包括而作为字符串，它们依然会被替换成相应的参数值，除非使用引号将这些符号分割开来：
+
+    $# = arugments count: 13
+    $@ = all arugments quoted: 1,2,3,4,5,6,7,8,9,0,a,b,c
+    $* = all arugments unquoted: 1,2,3,4,5,6,7,8,9,0,a,b,c
+    $00 = macro itself: args
+    $01 = 1
+    $02 = 2
+    $03 = 3
+    ......
+    $11 = a
+
+以下演示宏参数的各种组织形成，特别是内联的注解并不会打断一个参数，包括注解内容依然可以在宏体中获取。另外，成对的双此号、单引号并不像反引号与单引号那么可以用来转义字符串，它们和一般字符串没有区别。只有反引号与单引号组合才具有转义功能。
+
+```sh
+define(`nargs', `$#')dnl
+nargs  # nargs ⇒0
+nargs()  # nargs() ⇒1
+nargs(,,,) # nargs(,,,) ⇒4
+nargs(`a 1', `b 2', `c 3')   # nargs(`a 1', `b 2', `c 3') ⇒3
+# ⇒ 1 and 1 and also 1
+nargs(`quoted comma, like this')
+nargs(arg1#inside comments, commas do not separate arguments
+still arg1) 
+nargs((unquoted parentheses, like this, group arguments))
+```
+
+以下宏定义像 C 语言的宏编程一样生成结构体定义：
+
+```sh
+divert(-1)
+define(DEF_PAIR_OF,
+`typedef struct pair_of_$1 {
+        $1 first;
+        $1 second;
+} pair_of_$1')
+divert(0)dnl
+
+DEF_PAIR_OF(int);
+DEF_PAIR_OF(double);
+```
+
+blind macro 是指需要显式使用圆括号才会展开的宏，即没有参数时返回宏名本身：
+
+    Composite: define_blind (name, [value])
+
+Defines name as a blind macro, such that name will expand to value only when given explicit arguments. value should not be the result of defn. This macro is only recognized with parameters, and results in an empty string.
+
+```sh
+define(`define_blind', `ifelse(`$#', `0', ``$0'',
+    `_$0(`$1', `$2', `$'`#', `$'`0')')')
+define(`_define_blind', `define(`$1', 
+    `ifelse(`$3', `0', ``$4'', `$2')')')
+
+define_blind # ⇒define_blind
+define_blind(`foo', `arguments were $*')
+define_blind(`bar', defn(`foo'))
+
+foo      # ⇒foo
+foo(`bar') # ⇒arguments were bar
+bar(`foo') # ⇒arguments were foo
+```
+
+柯理化（Currying）是函数式编程的一个概念，是一种处理多元函数的方法：将传递给函数参数分解成后来调用它，并且返回一个函数去处理剩下的参数。
+
+Another interesting composition tactic is argument currying, or factoring a macro that takes multiple arguments for use in a context that provides exactly one argument.
+
+    Composite: curry (macro, …)
+
+Expand to a macro call that takes exactly one argument, then appends that argument to the original arguments and invokes macro with the resulting list of arguments.
+
+注意 curry 实现代码是如何通过使用一个宏名（`_$0` 扩展后指代的 `_curry`）完成“$1”参数的收集，而不使用左括号。`_curry` 是一个辅助宏，它接受一个参数，然后将其添加到列表中，这个列表是 curry 宏体缺失的那一部分。注意 $1 使用了双层反引号包括，这使得它会原样扩展到 curry 宏体中。最后 `_curry` 提供右括号，完成了 curry 宏体的定义。shift 调用中使用逗号允许 currying 也适用于接受一个参数的宏，尽管直接调用该宏通常比通过 curry 更有意义。
+
+```sh
+divert(`-1')
+# curry(macro, args)
+# Expand to a macro call that takes one argument, then invoke
+# macro(args, extra).
+define(`curry', `$1(shift($@, ) _$0')
+define(`_curry', `$1)')
+divert`'dnl
+
+# debugmode(`+letx')
+# debugmode(`+letaq')
+define(`add', `eval($1+$2+$3)')
+curry(`curry', `add', 1)(2)(3)
+```
+
+打开 debugmode 并设置打印扩展过程调用细节就可以看到细节，其中 -1- 这样的数值表达展开式递归处理的深度。第 12 行脚本调用 curry 宏时得到的展开式还不是完全闭合的 curry 宏调用，展开式的最后位置是一个 `_curry`，当这个展开式与后续的参数 (2)(3)(4)(5) 组合到一起时，就会得到一个 `_curry(2)`。到这里就是第二层递归展开处理，这又是一个宏调用，这就是为何 curry 宏定义中可以使用 `_$0` 来获取参数列表中下一个参数的原理。只要有 curry 调用，就一定会有一个辅助宏 `_$0` 去获取后续的参数。
+
+```sh
+m4trace:11: -1- define(`add', ``add'(eval($1+$2))')
+m4trace:12: -1- curry(`curry', `add', `1') -> `curry(shift(`curry',`add',`1', ) _curry'
+m4trace:12: -2- shift(`curry', `add', `1', `') -> ``add',`1',`''
+m4trace:12: -2- _curry(`2') -> `2)'
+m4trace:12: -1- curry(`add', `1', ` 2') -> `add(shift(`add',`1',` 2', ) _curry'
+m4trace:12: -2- shift(`add', `1', ` 2', `') -> ``1',` 2',`''
+m4trace:12: -2- _curry(`3') -> `3)'
+m4trace:12: -1- add(`1', ` 2', ` 3') -> ``add'(eval(1+ 2))'
+add(m4trace:12: -1- eval(`1+ 2') -> `3'
+```
+
+使用命令行参数也可以定义宏，并且同样可以在宏体中调用其它宏并传递参数：
+
+    m4 -Dcc="list(1,2,3)" .\m4tutor.m4
+
+注意：m4 的宏调用无限递归处理，宏名可以其它宏展开的结果，宏体中也可以调用宏，所以小心形成循环调用的无限展开。宏必需先定义才能使用。比如，以下就是无限循环调用 apple 宏，打印无限的 sweet，除非永远不去调用 apple 这个宏。因此，类型允许宏的重定义这样的表达，但是，事实上它不是重写宏的定义，而是递归处理。
+
+```sh
+define(apple, sweet apple)dnl
+apple
+```
+以下演示宏的递归定义以及调用：
+
+```sh
+define(Apple, bad_apple)dnl
+Apple                   # Apple -> bad_apple
+define(Apple, sweet_apple)dnl # define(bad_apple, sweet_apple)
+Apple                   # Apple -> bad_apple -> sweet_apple
+bad_apple                # bad_apple -> sweet_apple
+```
+
+可以使用 indir 间接调用宏，也可以使用 builtin 调用内置宏，调用 undefine 来解除。此外，使用 defn 可以重命名现有的宏，这宏本身的功能是获取指定宏定义，配合 define 使用就可以给已有的宏定义起一个新的名称：
+
+```sh
+define(`zap', defn(`undefine'))
+dumpdef(`undefine')  # ⇒ undefine:  <undefine> 
+zap(`undefine')
+dumpdef(`undefine')  # ⇒ undefined macro `undefine'
+dumpdef(`zap')      # ⇒ zap:    <undefine>  
+undefine(`zap')      # ⇒ undefine(zap)
+dumpdef(`zap')      # ⇒ zap:    <undefine>  
+defn(`zap')         # ⇒ 
+```
+
+Dumpdef 并不能获取内部宏定义，只能查看用户定义宏。Defn 也只能返回用户定义的宏体，不能打印内部宏定义。
+
+
+## 🍀 Strings vs. Numbers
+1. https://www.gnu.org/software/m4/manual/m4.html#Arithmetic
+2. https://www.gnu.org/software/m4/manual/m4.html#Text-handling
+
+11 Macros for text handling
+There are a number of builtins in m4 for manipulating text in various ways, extracting substrings, searching, substituting, and so on.
+
+    Builtin: len (string)
+    Builtin: index (string, substring)
+    Builtin: regexp (string, regexp, [replacement])
+    Builtin: substr (string, from, [length])
+    Builtin: translit (string, chars, [replacement])
+    Builtin: patsubst (string, regexp, [replacement])
+
+    Composite: upcase (text)
+    Composite: downcase (text)
+    Composite: capitalize (text)
+    Builtin: format (format-string, …)
+
+1. • Len          Calculating length of strings
+2. • Index macro   Searching for substrings
+3. • Regexp        Searching for regular expressions
+4. • Substr        Extracting substrings
+5. • Translit      Translating characters
+6. • Patsubst      Substituting text by regular expression
+7. • Format        Formatting strings (printf-like)
+
+m4 处理双引号的基本规则是：在读取带引号的文本片段 S 时，无论 S 中含有多少重引号，m4 只消除其最外层引号，然后将剩余的文本直接发送到输出流，使用 m4wrap 保存的内容同等对待。使用反引号和单引号来包括多行内容，或者使宏的展开功能或者逗号作为宏参数列表的功能逃逸。单引号、双引号包括的字符串会进行宏展开操作。
+
+反引号的外层再封装一层引号从而将前者变为普通字符，但是，有些时候你只想以普通文本的形式显示左引号，不希望出现一个与之配对的右引号。对于这个问题，可以使用 changequote 宏修改 m4 默认的引号定界符，例如：
+
+    changequote(<!,!>)
+    changequote(`[', `]')
+
+如果不向 changequote 提供任何参数，就恢复了默认的引号定界符。
+
+以下代码演示反引号包括的字符串是如果一层层解包的：
+
+```sh
+define(`box', bad apple)
+define(`l1unwrap', `$1')
+define(`l2unwrap', ``$1'')
+l1unwrap(`box')    # A ⇒ bad apple
+l2unwrap(`box')    # B ⇒ box
+l1unwrap(``box'')  # C ⇒ box
+l2unwrap(``box'')  # D ⇒ `box'
+```
+
+反引号包括的字符串，在每一轮的解释处理中都会剥去一层。以 A 情况的执行为例，解释器首先将 "box" 字符传入 l1unwrap 进行展开，宏体中同样只有一层反引号包括。所以在这一轮处理中，无论在调用处，还是在宏体，单层的反引号将被剥离，也就是得到的是 box 对应一个宏定义，所以要继承展开。
+
+然后，按 C 情况的执行进行分析，由于外层使用了两层反号包括，所以处理时只剥离最外层，得到的结果是 `box'，即转义状态的字符，不会以进行宏展开。但是输出时还会剥离一层，所以输出的内容看不到有引号。
+
+至于，情况 D 所示，由于调用、和宏体两处都使用了双层反引号，处理时各剥离一层，还留下两层。字符串写入输出流时再剥离一层，最后剩下一层，所以结果输出内容保留有一层反引号包括。
+
+字符串处理宏功能演示：
+
+```sh
+translit(`GNUs not Unix', `A-Z')
+⇒s not nix
+translit(`GNUs not Unix', `a-z', `A-Z')
+⇒GNUS NOT UNIX
+translit(`GNUs not Unix', `A-Z', `z-a')
+⇒tmfs not fnix
+translit(`+,-12345', `+--1-5', `<;>a-c-a')
+⇒<;>abcba
+translit(`abcdef', `aabdef', `bcged')
+⇒bgced
+```
+
+使用圆括号，只可以将多个字符串当作列表处理：
+
+```sh
+define(`reverse', `ifelse(eval($# > 1), 1, `reverse(shift($@)), `$1'', ``$1'')')
+
+shift(,,,,)         # ⇒ ,,,
+shift(1, 2, 3, 4)   # ⇒ 2,3,4
+shift((1, 2, 3, 4))  # ⇒
+reverse(1, 2, 3, 4)  # ⇒ reverse(1, 2, 3, 4)
+```
+
+m4 只认识文本，数字也是文本。不过 m4 提供了内建宏 eval 等宏对整型数的运算表达式进行『求值』——求值结果在 m4 看来依然是文本。
+
+    Builtin: incr (number)
+    Builtin: decr (number)
+    Builtin: eval (expression, [radix = ‘10’], [width])
+
+m4 只有宏没有变量的概念，但可以通过宏来模拟变量赋值，注意不能对没有定义的变量（宏）进数学求值：
+
+```sh
+define(`var', 0)
+define(`var', eval(var+2))
+`var' = var
+```
+
+Expands to the value of expression. The expansion is empty if a problem is encountered while parsing the arguments. If specified, radix and width control the format of the output.
+
+Calculations are done with 32-bit signed numbers. Overflow silently results in wraparound. A warning is issued if division by zero is attempted, or if expression could not be parsed.
+
+Expressions can contain the following operators, listed in order of decreasing precedence.
+
+    ‘()’          Parentheses
+    ‘+ - ~ !’   Unary plus and minus, and bitwise and logical negation
+    ‘**’         Exponentiation
+    ‘* / %’     Multiplication, division, and modulo
+    ‘+ -’       Addition and subtraction
+    ‘<< >>’    Shift left or right
+    ‘> >= < <=’Relational operators
+    ‘== !=’      Equality operators
+    ‘&’          Bitwise and
+    ‘^’          Bitwise exclusive-or
+    ‘|’          Bitwise or
+    ‘&&’         Logical and
+    ‘||’         Logical or
+
+The macro eval is recognized only with parameters.
+
+
+## 🍀 Lexical & Embed Macros
+
+虽然，宏可以无限递归展开，但是宏不能进行“穿透式调用”，如下：
+
+```sh
+define(`definenum', `define(`num', `99')extra') 
+definenum
+num
+```
+
+如果没调用 definenum 宏，那么就不会展开其宏体，也就不会产生 num 宏定义，所以不能直接通过 num 调用这个嵌在宏体中定义的宏。
+
+m4 的词法结构决定了解释器会如何处理输入流。
+
+3 Lexical and syntactic conventions
+
+1. • Names     Macro names
+2. • Quoted strings        Quoting input to m4
+3. • Comments      Comments in m4 input
+4. • Other tokens      Other kinds of input tokens
+5. • Input processing      How m4 copies input to output
+
+在进行脚本语法解析的过程中，m4 将输入流看作记号（Token）为单元的数据进行处理。Token 就像自然语言中的单词，符号也属于 Token 的一种，并且用符号还用来做 Token 之间的分隔标志。可以猜测，m4 解释器实现代码中可能会存在类型 COMMA、PERIOD、COLON、SEMICOLON 或者 DOLLAR (‘$’) 这样的 Token 常量或变量名称，用于指代解释程序在处理输入流时的获得的对应 Token。
+
+使用 changeword 指令可以改变默认的标识符号单词匹配的正则规则：
+
+    [_a-zA-Z][_a-zA-Z0-9]*
+
+    Optional builtin: changeword (regex)
+
+就以前面的示范代码而言，m4 解释器先读取到一个 define 单词，而后遇到 ( 符号，这意味着可能是一个宏定义，需要期待后续是否存在逗号（作为参数列表的标志）、右侧圆括号（作为宏定义的结束边界），如果后续读取的 Token 都满足条件，那么就得到一个宏定义。
+
+从左侧圆括号继续读取数据流，遇到一个反引号，解释器则开始字符串，直接到遇到单引号结束，获取到一个完整的 Token：definenum，并且它将作为潜在的宏定义名称，除非后续解释到的数据与前面的得到的状态有冲突，否则这个字符串就是潜在的宏名称。
+
+然后，继续读取数据，得到一个逗号，这就是宏参数列表分隔符号，是合理合规合法的 Token，非常符合预期。
+
+然后，叕读取到一个字符串，到目前为之，这个字符串还未曾展开，它里的内容也没作解释，直到最后得到一个 Token 即右侧圆括号作为宏定义的结束标志。
+
+解释进入第二行内容的处理，读取到一个单词，通过以上解释结果，这个单词匹配到一个宏定义，那么就展开它。亦即对第一行定义的宏体进行展开操作，又获取到一个新宏定义。并且宏定义后面还跟着一个字符串 extra，就直接将它输出。
+
+进入最后一行内容的处理，同样获取到一个单词，并且匹配到以上处理结果中的一个宏定义，所以也要进行展开。最后输出宏体，即数值 99。
+
+
+## 🍀 if else for loops recursion
+https://www.gnu.org/software/m4/manual/m4.html#Conditionals
+
+6 Conditionals, loops, and recursion
+Macros, expanding to plain text, perhaps with arguments, are not quite enough. We would like to have macros expand to different things, based on decisions taken at run-time. For that, we need some kind of conditionals. Also, we would like to have some kind of loop construct, so we could do something a number of times, or while some condition is true.
+
+    Builtin: ifdef (name, string-1, [string-2])
+
+    Builtin: ifelse (comment)
+    Builtin: ifelse (string-1, string-2, equal, [not-equal])
+    Builtin: ifelse (string-1, string-2, equal-1, string-3, string-4, equal-2, …, [not-equal])
+
+    Builtin: shift (arg1, …)
+
+    Composite: reverse (…)
+    Composite: cond (test-1, string-1, equal-1, [test-2], [string-2], [equal-2], …, [not-equal])
+    Composite: join ([separator], [args…])
+    Composite: joinall ([separator], [args…])
+    Composite: quote (…)
+    Composite: dquote (…)
+    Composite: dquote_elt (…)
+    Composite: argn (n, …)
+    Composite: forloop (iterator, start, end, text)
+    Composite: foreach (iterator, paren-list, text)
+    Composite: foreachq (iterator, quote-list, text)
+    Composite: stack_foreach (macro, action)
+    Composite: stack_foreach_lifo (macro, action)
+
+    Composite: define_blind (name, [value])
+    Composite: curry (macro, …)
+    Composite: copy (source, dest)
+    Composite: rename (source, dest)
+
+1. • Ifdef     Testing if a macro is defined
+2. • Ifelse     If-else construct, or multibranch
+3. • Shift     Recursion in m4
+4. • Forloop       Iteration by counting
+5. • Foreach       Iteration by list contents
+6. • Stacks        Working with definition stacks
+7. • Composition       Building macros with macros
+
+文档中标记为 Composite 即为宏组合实现的功能，如果在 Windows 平台下通过 MinGW 使用 GNU m4，则可能需要下载源代码，因为这些功能需要引用其 examples 目录下的脚本：
+
+```sh
+# m4 -I C:/mingw/src/m4-1.4.19/examples tutorial.m4
+include(`forloop.m4')
+forloop(`i', 1, 10, "LOOP i")
+```
+
+m4 提供了两种条件宏，ifdef 宏用于判断宏是否定义，ifelse 宏是判断表达式的真假。
+
+    ifdef(`a', "TRUE")
+    ifdef(`a', "TRUE", "FALSE")
+
+条件宏根据输入值决定展开 "TRUE" 或者是 "FALSE" 部分，如果 a 是未定义的宏，这条语句的展开结果是 "FALSE"。
+
+被测试的宏，它的定义可以是空字串，例如：
+
+    define(`def')
+    `def' is ifdef(`def', , not) defined.  # -> def is defined.
+    
+    define(`def', DEF)
+    `def' is ifdef(`def', , not) defined.  # -> def is defined.
+
+    "def" is ifdef(def, , not) defined.    # -> DEF is not defined.
+
+ifelse(a,b,c,d) 会比较字符串 a 与 b 是否相同，如果它们相同，这条语句的展开结果是字符串 c，否则展开为字符串 d。
+
+ifelse 可以支持多个分支，例如：
+
+    ifelse(`a', `b', "EQUAL", "NOT-EQUAL")
+
+
+以下是等价表达：
+
+    ifelse(a,b,c,d,e,f,g)
+    ifelse(a,b,c,ifelse(d,e,f,g))
+
+递归版本的 Fibonacci 宏的实现与应用，它可以产生第 47 个 Fibonacci 数：
+
+    divert(-1)
+    define(`FIB',
+        `ifelse(`$1', `0',
+             0,
+            `ifelse(`$1', `1',
+                 1,
+                `eval(FIB(eval($1 - 1)) + FIB(eval($1-2)))')')')
+    divert(0)dnl
+    FIB(46)
+
+因为 m4 目前只支持 32 位的有符号整数，只能表示的最大正整数是 2^31 - 1。
+
+以上递归版本 Fibonacci 数计算过程中包含着大量的重复计算，对每一个值都进行 ifelse 的判断，效率很低。如果以尾递归方式，就可以节省无效运算，只使用一条 ifelse 调用并且将递归调用放到宏体最未尾进行，实现快速的迭代。将值从小到大逐步累加，当到达指定位置时就结束并输出结果：
+
+    divert(-1)
+    define(`FIB_ITER',
+    `ifelse(`$3', 0,
+             $2,
+         `FIB_ITER(eval($1 + $2), $1, eval($3 - 1))')')
+    define(`FIB', `FIB_ITER(1, 0, $1)')
+    divert(0)dnl
+    FIB(46)
+
+注意，没有负值判断，如果输入负值就不会得到结果。
+
+
+## 🍀 Shell commands
+https://www.gnu.org/software/m4/manual/m4.html#Shell-commands
+
+13 Macros for running shell commands
+There are a few builtin macros in m4 that allow you to run shell commands from within m4.
+
+Note that the definition of a valid shell command is system dependent. On UNIX systems, this is the typical /bin/sh. But on other systems, such as native Windows, the shell has a different syntax of commands that it understands. Some examples in this chapter assume /bin/sh, and also demonstrate how to quit early with a known exit value if this is not the case.
+
+    Optional builtin: __gnu__
+    Optional builtin: __os2__
+    Optional builtin: os2
+    Optional builtin: __unix__
+    Optional builtin: unix
+    Optional builtin: __windows__
+    Optional builtin: windows
+
+    Builtin: syscmd (shell-command)
+    Builtin: esyscmd (shell-command)
+    Builtin: sysval
+
+    Builtin: mkstemp (template)
+    Builtin: maketemp (template)
+
+1. • Platform macros       Determining the platform
+2. • Syscmd        Executing simple commands
+3. • Esyscmd       Reading the output of commands
+4. • Sysval        Exit status
+5. • Mkstemp       Making temporary files
+
+系统平台测试：
+
+```sh
+define(`provided', `unknown')
+ifdef(`__unix__',    `define(`provided', (`Unix', provided) )')
+ifdef(`__windows__', `define(`provided', (`Windows', provided) )')
+ifdef(`__os2__',    `define(`provided', (`OS/2', provided) )')
+System platform is provided
+```
+
+When GNU extensions are in effect (that is, when you did not use the -G option, see Invoking m4), GNU m4 will define the macro __gnu__ to expand to the empty string.
+
+```sh
+$ m4
+__gnu__
+⇒
+__gnu__(`ignored')
+⇒
+Extensions are ifdef(`__gnu__', `active', `inactive')
+⇒Extensions are active
+
+$ m4 -G
+__gnu__
+⇒__gnu__
+__gnu__(`ignored')
+⇒__gnu__(ignored)
+Extensions are ifdef(`__gnu__', `active', `inactive')
+⇒Extensions are inactive
+```
+
+外部程序退出状态码判断：
+
+```sh
+sysval        # ⇒ default sysval should be 0
+syscmd(`false')dnl
+sysval        # ⇒ syscmd(`false') should be 1
+syscmd(`true')dnl
+sysval        # ⇒ syscmd(`true') should be 0
+syscmd(`exit 2')dnl
+
+esyscmd(`true')dnl
+sysval        # ⇒ esyscmd(`true') should be 0
+esyscmd(`false')dnl
+sysval        # ⇒ esyscmd(`false') should be 1
+esyscmd(`echo dnl && exit 127')dnl
+sysval        # ⇒ esyscmd(`exit 127') should be 127
+ifelse(sysval, `0', `zero', `non-zero') dnl # ⇒non-zero
+```
+
+只要 true 或者 false 没有关联的宏定义，只可以不使用引号，效果一样。退出状态码常用值 127，因为它在整个字节除了最高 bit 全都置位。
+
+syscmd 与 esyscmd 的差别在于，后者会对命令进行宏展开操作，前缀 e 即代表 expansion：
+
+```sh
+define(`foo', `FOO')dnl
+syscmd(`echo foo')  # ⇒foo
+
+define(`foo', `FOO')dnl
+esyscmd(`echo foo')  # ⇒FOO
+```
+
+On UNIX platforms, where it is possible to detect when command execution is terminated by a signal, rather than a normal exit, the result is the signal number shifted left by eight bits.
+
+```sh
+dnl This test assumes kill is a shell builtin, and that signals are recognizable.
+ifdef(`__unix__', ,
+      `errprint(` skipping: syscmd does not have unix semantics
+')m4exit(`77')')dnl
+changequote(`[', `]')dnl
+syscmd([/bin/sh -c 'kill -9 $$'; st=$?; test $st = 137 || test $st = 265])dnl
+ifelse(sysval, [0], , [errprint([ skipping: shell does not send signal 9
+])m4exit([77])])dnl
+
+syscmd([kill -9 $$])   # ⇒
+sysval              # ⇒2304
+```
+
+Bash ($$) Expands to the process ID of the shell. In a subshell, it expands to the process ID of the invoking shell, not the subshell. ($?) Expands to the exit status of the most recently executed foreground pipeline.
+
+By default, the shell-command will be used as the argument to the -c option of the /bin/sh shell (or the version of sh specified by ‘command -p getconf PATH’, if your system supports that). If you prefer a different shell, the configure script can be given the option --with-syscmd-shell=location to set the location of an alternative shell at GNU m4 installation; the alternative shell must still support -c.
+
+
+
+## 🍀 Misscelleneous macros
+https://www.gnu.org/software/m4/manual/m4.html#Debugging
+https://www.gnu.org/software/m4/manual/m4.html#Debugging-options
+https://www.gnu.org/software/m4/manual/m4.html#Miscellaneous
+https://www.gnu.org/software/m4/manual/m4.html#Frozen-files
+https://www.gnu.org/software/m4/manual/m4.html#File-Inclusion
+
+7 How to debug macros and input
+When writing macros for m4, they often do not work as intended on the first try (as is the case with most programming languages). Fortunately, there is support for macro debugging in m4.
+
+    Builtin: dumpdef ([names…])
+    Builtin: traceon ([names…])
+    Builtin: traceoff ([names…])
+
+    Builtin: debugmode ([flags])
+    Builtin: debugfile ([file])
+
+1. • Dumpdef       Displaying macro definitions
+2. • Trace         Tracing macro calls
+3. • Debug Levels      Controlling debugging output
+4. • Debug Output      Saving debugging output
+
+14 Miscellaneous builtin macros
+This chapter describes various builtins, that do not really belong in any of the previous chapters.
+
+    Builtin: errprint (message, …)
+    Builtin: m4exit ([code = ‘0’])
+    Composite: fatal_error (message)
+
+    Builtin: __file__
+    Builtin: __line__
+    Builtin: __program__
+
+1. • Errprint      Printing error messages
+2. • Location      Printing current location
+3. • M4exit        Exiting from m4
+
+
+The -d option (or --debug) controls the amount of details presented in three categories of output.
+
+    -d[flags]
+    --debug[=flags]
+
+Set the debug-level according to the flags flags. The debug-level controls the format and amount of information presented by the debugging functions. See Debug Levels, for more details on the format and meaning of flags. If omitted, flags defaults to ‘aeq’.
+
+    --debugfile[=file]
+    -o file
+    --error-output=file
+
+Redirect dumpdef output, debug messages, and trace output to the named file. Warnings, error messages, and errprint output are still printed to standard error. If these options are not used, or if file is unspecified (only possible for --debugfile), debug output goes to standard error; if file is the empty string, debug output is discarded. See Debug Output, for more details. The option --debugfile may be given more than once, and order is significant with respect to file names. The spellings -o and --error-output are misleading and inconsistent with other GNU tools; for now they are silently accepted as synonyms of --debugfile and only recognized once, but in a future version of M4, using them will cause a warning to be issued.
+
+    -l num
+    --arglength=num
+
+Restrict the size of the output generated by macro tracing to num characters per trace line. If unspecified or zero, output is unlimited. See Debug Levels, for more details.
+
+    -t name
+    --trace=name
+
+This enables tracing for the macro name, at any point where it is defined. name need not be defined when this option is given. This option may be given more than once, and order is significant with respect to file names. See Trace, for more details.
+
+
+Trace output is requested by traceon (see Trace), and each line is prefixed by ‘m4trace:’ in relation to a macro invocation. Debug output tracks useful events not associated with a macro invocation, and each line is prefixed by ‘m4debug:’. Finally, dumpdef (see Dumpdef) output is affected, with no prefix added to the output lines.
+
+
+The -d or --debug flags following the option can be one or more of the following:
+
+a
+In trace output, show the actual arguments that were collected before invoking the macro. This applies to all macro calls if the ‘t’ flag is used, otherwise only the macros covered by calls of traceon. Arguments are subject to length truncation specified by the command line option --arglength (or -l).
+
+c
+In trace output, show several trace lines for each macro call. A line is shown when the macro is seen, but before the arguments are collected; a second line when the arguments have been collected and a third line after the call has completed.
+
+e
+In trace output, show the expansion of each macro call, if it is not void. This applies to all macro calls if the ‘t’ flag is used, otherwise only the macros covered by calls of traceon. The expansion is subject to length truncation specified by the command line option --arglength (or -l).
+
+f
+In debug and trace output, include the name of the current input file in the output line.
+
+i
+In debug output, print a message each time the current input file is changed.
+
+l
+In debug and trace output, include the current input line number in the output line.
+
+p
+In debug output, print a message when a named file is found through the path search mechanism (see Search Path), giving the actual file name used.
+
+q
+In trace and dumpdef output, quote actual arguments and macro expansions in the display with the current quotes. This is useful in connection with the ‘a’ and ‘e’ flags above.
+
+t
+In trace output, trace all macro calls made in this invocation of m4, regardless of the settings of traceon.
+
+x
+In trace output, add a unique ‘macro call id’ to each line of the trace output. This is useful in connection with the ‘c’ flag above.
+
+V
+A shorthand for all of the above flags.
+
+If no flags are specified with the -d option, the default is ‘aeq’. The examples throughout this manual assume the default flags.
+
+There is a builtin macro debugmode, which allows on-the-fly control of the debugging output format:
+
+    Builtin: debugmode ([flags])
+
+The argument flags should be a subset of the letters listed above. As special cases, if the argument starts with a ‘+’, the flags are added to the current debug flags, and if it starts with a ‘-’, they are removed. If no argument is present, all debugging flags are cleared (as if no -d was given), and with an empty argument the flags are reset to the default of ‘aeq’.
+
+
+## 🍀 Some examples
+https://www.gnu.org/software/m4/manual/m4.html#Answers
+
+17 Correct version of some examples
+Some of the examples in this manuals are buggy or not very robust, for demonstration purposes. Improved versions of these composite macros are presented here.
+
+1. • Improved exch      Solution for exch
+2. • Improved forloop      Solution for forloop
+3. • Improved foreach      Solution for foreach
+4. • Improved copy         Solution for copy
+5. • Improved m4wrap       Solution for m4wrap
+6. • Improved cleardivert      Solution for cleardivert
+7. • Improved capitalize       Solution for capitalize
+8. • Improved fatal_error      Solution for fatal_error
+
+###  Solution for exch
+
+宏要求调用者对其参数进行引号包括引用。一个更好的定义，让调用者遵循每一级括号用一级反引号包括的经验法则，包括在 exch 的定义中添加引号，如下所示：
+
+The exch macro (see Arguments) as presented requires clients to double quote their arguments. A nicer definition, which lets clients follow the rule of thumb of one level of quoting per level of parentheses, involves adding quotes in the definition of exch, as follows:
+
+```sh
+define(`exch', ``$2', `$1'')
+define(mydef, `define($1, ``args:' $# => $@')')
+mydef(exch(`expansion text, `$#'', `macro'))
+macro
+```
+
+exch 宏功能就是用来交换 $1 $2 两个参数，所以当执行 exch(`expansion text xxx', `macro') 就会得到两参数位置交换后的结果，然后 define 就会定义一个叫做 macro 的宏，宏体包含 expansion text 这样的字符串。为了保证参数个体完整性不会因为宏展开而产生变化，就应该使用多层引号包括。
+
+
+###  Solution for forloop
+
+forloop.m4 有点低效率，使用了 6 macros， 不含字符内部。
+
+```sh
+divert(`-1')
+# forloop(var, from, to, stmt) - simple version
+define(`forloop', `pushdef(`$1', `$2')_forloop($@)popdef(`$1')')
+define(`_forloop',
+       `$4`'ifelse($1, `$3', `', `define(`$1', incr($1))$0($@)')')
+divert`'dnl
+```
+
+
+forloop2.m4 提升版本，可以使用，但容易出问题。
+
+```sh
+divert(`-1')
+# forloop(var, from, to, stmt) - improved version:
+#   works even if VAR is not a strict macro name
+#   performs sanity check that FROM is larger than TO
+#   allows complex numerical expressions in TO and FROM
+define(`forloop', `ifelse(eval(`($2) <= ($3)'), `1',
+  `pushdef(`$1')_$0(`$1', eval(`$2'),
+    eval(`$3'), `$4')popdef(`$1')')')
+define(`_forloop',
+  `define(`$1', `$2')$4`'ifelse(`$2', `$3', `',
+    `$0(`$1', incr(`$2'), `$3', `$4')')')
+divert`'dnl
+
+
+forloop(`i', `2', `1', `no iteration occurs')
+# ⇒
+forloop(`', `1', `2', ` odd iterator name')
+# ⇒ odd iterator name odd iterator name
+forloop(`i', `5 + 5', `0xc', ` 0x`'eval(i, `16')')
+# ⇒ 0xa 0xb 0xc
+forloop(`i', `a', `b', `non-numeric bounds')
+# error→m4:stdin:6: bad expression in eval (bad input): (a) <= (b)
+```
+
+forloop3.m4
+
+```sh
+divert(`-1')
+# forloop_arg(from, to, macro) - invoke MACRO(value) for
+#   each value between FROM and TO, without define overhead
+define(`forloop_arg', `ifelse(eval(`($1) <= ($2)'), `1',
+  `_forloop(`$1', eval(`$2'), `$3(', `)')')')
+# forloop(var, from, to, stmt) - refactored to share code
+define(`forloop', `ifelse(eval(`($2) <= ($3)'), `1',
+  `pushdef(`$1')_forloop(eval(`$2'), eval(`$3'),
+    `define(`$1',', `)$4')popdef(`$1')')')
+define(`_forloop',
+  `$3`$1'$4`'ifelse(`$1', `$2', `',
+    `$0(incr(`$1'), `$2', `$3', `$4')')')
+divert`'dnl
+```
+
+foreach.m4，注意 `_arg1$2` 这里，因为第二个参数是一个列表，如 (1,2,3)，组合在一起就是宏调用，用于获取第一个待枚举的值，并将它赋值到 $1 中指定的变量。另外一处，`shift$2` 也是类型的结构。`_foreach` 宏体中第一个 $3 就是在调用循环体。
+
+```sh
+divert(`-1')
+# foreach(x, (item_1, item_2, ..., item_n), stmt)
+#   parenthesized list, simple version
+define(`foreach', `pushdef(`$1')_foreach($@)popdef(`$1')')
+define(`_arg1', `$1')
+define(`_foreach', `ifelse(`$2', `()', `',
+  `define(`$1', _arg1$2)$3`'$0(`$1', (shift$2), `$3')')')
+divert`'dnl
+```
+
+foreach2.m4 提升版本，参数加引号包括。
+
+```sh
+include(`quote.m4')dnl
+divert(`-1')
+# foreach(x, (item_1, item_2, ..., item_n), stmt)
+#   parenthesized list, improved version
+define(`foreach', `pushdef(`$1')_$0(`$1',
+  (dquote(dquote_elt$2)), `$3')popdef(`$1')')
+define(`_arg1', `$1')
+define(`_foreach', `ifelse(`$2', `(`')', `',
+  `define(`$1', _arg1$2)$3`'$0(`$1', (dquote(shift$2)), `$3')')')
+divert`'dnl
+```
+
+quote.m4 字符串引号包装程序。
+
+```sh
+divert(`-1')
+# quote(args) - convert args to single-quoted string
+define(`quote', `ifelse(`$#', `0', `', ``$*'')')
+# dquote(args) - convert args to quoted list of quoted strings
+define(`dquote', ``$@'')
+# dquote_elt(args) - convert args to list of double-quoted strings
+define(`dquote_elt', `ifelse(`$#', `0', `', `$#', `1', ```$1''',
+                             ```$1'',$0(shift($@))')')
+divert`'dnl
+```
+
+foreachq.m4 反引号包括的参数列表简单版本。
+
+```sh
+include(`quote.m4')dnl
+divert(`-1')
+# foreachq(x, `item_1, item_2, ..., item_n', stmt)
+#   quoted list, simple version
+define(`foreachq', `pushdef(`$1')_foreachq($@)popdef(`$1')')
+define(`_arg1', `$1')
+define(`_foreachq', `ifelse(quote($2), `', `',
+  `define(`$1', `_arg1($2)')$3`'$0(`$1', `shift($2)', `$3')')')
+divert`'dnl
+```
+
+foreachq2.m4 反引号包括的参数列表提升版本，使用 `_$0` 替代 `_foreachq`，增加了一个 `_rest` 获取待枚举元素。
+
+```sh
+include(`quote.m4')dnl
+divert(`-1')
+# foreachq(x, `item_1, item_2, ..., item_n', stmt)
+#   quoted list, improved version
+define(`foreachq', `pushdef(`$1')_$0($@)popdef(`$1')')
+define(`_arg1q', ``$1'')
+define(`_rest', `ifelse(`$#', `1', `', `dquote(shift($@))')')
+define(`_foreachq', `ifelse(`$2', `', `',
+  `define(`$1', _arg1q($2))$3`'$0(`$1', _rest($2), `$3')')')
+divert`'dnl
+```
+
+foreachq3.m4 另一个提升版本。
+
+```sh
+divert(`-1')
+# foreachq(x, `item_1, item_2, ..., item_n', stmt)
+#   quoted list, alternate improved version
+define(`foreachq', `ifelse(`$2', `', `',
+  `pushdef(`$1')_$0(`$1', `$3', `', $2)popdef(`$1')')')
+define(`_foreachq', `ifelse(`$#', `3', `',
+  `define(`$1', `$4')$2`'$0(`$1', `$2',
+    shift(shift(shift($@))))')')
+divert`'dnl
+```
+
+
+foreachq4.m4 基于 forloop 的版本。
+
+```sh
+include(`forloop2.m4')dnl
+divert(`-1')
+# foreachq(x, `item_1, item_2, ..., item_n', stmt)
+#   quoted list, version based on forloop
+define(`foreachq',
+`ifelse(`$2', `', `', `_$0(`$1', `$3', $2)')')
+define(`_foreachq',
+`pushdef(`$1', forloop(`$1', `3', `$#',
+  `$0_(`1', `2', indir(`$1'))')`popdef(
+    `$1')')indir(`$1', $@)')
+define(`_foreachq_',
+``define(`$$1', `$$3')$$2`''')
+divert`'dnl
+```
+
+###  Solution for m4wrap
+
+m4wrap 用于暂指定内容，到脚本运行到最后才输出，m4exit 会导致暂存内容的丢失。并且多个暂存内容输出顺序不确定，在未使用递归的情况下是按 LIFO—last in, first out 规则，但根据脚本的执行不同宏扩展流程，不能保证按此顺序。
+
+比如，wrap.m4 示范程序演示了以下混乱的暂存顺序，分析代码可能的暂存顺序应该是 1、4、3、2，但是运行结果证明是 4、3、1、2：
+
+```sh
+divert(-1)
+m4wrap(`Wrapper no. 1
+')
+
+m4wrap(`Wrapper no. 2
+m4wrap(`Wrapper no. 3
+m4wrap(`Wrapper no. 4
+')')')
+divert
+No. 33: The End.
+```
+
+wrapfifo.m4 先进先出规则版本：
+
+```sh
+dnl Redefine m4wrap to have FIFO semantics.
+define(`_m4wrap_level', `0')dnl
+define(`m4wrap',
+`ifdef(`m4wrap'_m4wrap_level,
+       `define(`m4wrap'_m4wrap_level, defn(`m4wrap'_m4wrap_level)`$1')',
+       `builtin(`m4wrap', `define(`_m4wrap_level', incr(_m4wrap_level))dnl
+m4wrap'_m4wrap_level)dnl
+define(`m4wrap'_m4wrap_level, `$1')')')dnl
+```
+
+
+wraplifo.m4 后进先出规则版本：
+
+```sh
+dnl Redefine m4wrap to have LIFO semantics.
+define(`_m4wrap_level', `0')dnl
+define(`_m4wrap', defn(`m4wrap'))dnl
+define(`m4wrap',
+`ifdef(`m4wrap'_m4wrap_level,
+       `define(`m4wrap'_m4wrap_level, `$1'defn(`m4wrap'_m4wrap_level))',
+       `_m4wrap(`define(`_m4wrap_level', incr(_m4wrap_level))dnl
+m4wrap'_m4wrap_level)dnl
+define(`m4wrap'_m4wrap_level, `$1')')')dnl
+```
+
+
+wraplifo2.m4 后进先出提升版本：
+
+```sh
+dnl Redefine m4wrap to have LIFO semantics, improved example.
+include(`join.m4')dnl
+define(`_m4wrap', defn(`m4wrap'))dnl
+define(`_arg1', `$1')dnl
+define(`m4wrap',
+`ifdef(`_$0_text',
+       `define(`_$0_text', joinall(` ', $@)defn(`_$0_text'))',
+       `_$0(`_arg1(defn(`_$0_text')undefine(`_$0_text'))')dnl
+define(`_$0_text', joinall(` ', $@))')')dnl
+```
+
+使用到 join.m4 提供的连接列表功能：
+
+```sh
+divert(`-1')
+# join(sep, args) - join each non-empty ARG into a single
+# string, with each element separated by SEP
+define(`join',
+`ifelse(`$#', `2', ``$2'',
+  `ifelse(`$2', `', `', ``$2'_')$0(`$1', shift(shift($@)))')')
+define(`_join',
+`ifelse(`$#$2', `2', `',
+  `ifelse(`$2', `', `', ``$1$2'')$0(`$1', shift(shift($@)))')')
+# joinall(sep, args) - join each ARG, including empty ones,
+# into a single string, with each element separated by SEP
+define(`joinall', ``$2'_$0(`$1', shift($@))')
+define(`_joinall',
+`ifelse(`$#', `2', `', ``$1$3'$0(`$1', shift(shift($@)))')')
+divert`'dnl
+```
+
+
+
+###  Solution for fatal_error
+
+```sh
+define(`fatal_error',
+    `errprint(ifdef(`__program__', `__program__', ``m4'')'dnl
+        `:ifelse(__line__, `0', `',
+        `__file__:__line__:')` fatal error: $*
+')m4exit(`1')')
+
+m4wrap(`divnum(`demo of internal message')
+dnl # error→m4:stdin:6: Warning: excess arguments to builtin `divnum' ignored
+
+fatal_error(`inside wrapped text')')
+dnl # error→m4:stdin:6: fatal error: inside wrapped text
+```
+
+## 🍀 Autoconf + Automake 构建工程
+0. https://www.gnu.org/prep/standards/standards.html
+1. https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/
+2. https://www.gnu.org/software/automake/manual/
+3. https://www.gnu.org/software/make/manual
+4. https://www.sourceware.org/autobook/
+
+Windows 系统可以通过 Mysys2 安装：
+
+1. https://packages.msys2.org/package/automake1.16
+2. https://packages.msys2.org/package/autoconf2.71
+
+源代码使得 zst 格式压缩，可以在 WSL 系统下使用 tar 或者直接使用 zstd 命令进行解包：
+
+    dest -d autoconf2.71-2.71-2-any.pkg.tar.zst 
+    tar -C path/to/dest -I zstd -xvf autoconf2.71-2.71-2-any.pkg.tar.zst 
+
+1. Autoconf 根据一个宏文件生成 configure 源代码配置脚本；
+2. Automake 依赖 autoconf 并根据 `Makefile.am` 等宏模板文件来生成 Makefile.in；
+3. configure 脚本依据 Makefile.in 脚本模板生成一个符合 GNU 惯例的 Makefile 脚本；
+4. GNU m4 通用的宏处理器，宏编程工具，autoconf 中大量采用；
+
+这一套基于 Make 命令和 Makefile 规则脚本的自动化构建系统就 GNU Build System，这套工具也就是 GNU Autotools 工具集。使用这套工具的好处是可以按 GNU 软件规范编写程序及构建系统，缺点是有门槛，涉及多个工具的使用，同时不能流畅地跨平台工作。当然，还有其它备选的构建系统，CMake、Ninja 等等都是不错的选择。
+
+Cmake 文档中有对使用 Autoconf 工具的一些观点，Why Not Use Autoconf?
+
+1. Autotools 工具集跨平台工作是个问题，安装非常麻烦，并且不是原生工具。
+2. 尽管 autoconf 支持用户指定的选项，但没有用选项依赖功能，即一个选项依赖其它选项；
+3. 对于 Unix 用户，CMake 还提供了自动生成依赖项的功能，autoconf 不能直接完成。
+4. CMake 输入格式简单，也比 Makefile.in 和 config.in 组合更容易读取和维护。
+5. CMake 记忆和链接依赖库信息的能力和 autoconf/automake 不对等。
+
+Automake 文档有一个简短的使用教程，演示这套工具的使用流程：
+https://www.gnu.org/software/automake/manual/html_node/Creating-amhello.html
+
+安装 autorconf 附带 autoscan 扫描工具，它可以扫描源代码中的脚本文件并生成 `configure.scan`，此文件可以作为 `configure.ac` 的蓝本，稍加修改就可以执行 autoconf 生成 configure 源代码脚本。源代码配置脚本的目的是为了针对平台特性、软件功能配置、依赖库路径、编译器参数配置等等提供脚本自动化的操作，包括生成配置代码文件等等。执行配置脚本后生成相应的 Makefile，最后就是执行 make 命令按构建规则编译项目。
+
+附带工具包里还有一个 autoheader 用来提取 configure.ac 里面的宏配置，比如软件版本号等等，并按 C 语言宏格式的 #define 形式写入 config.h.in 文件，作为头文件模板。运行配置脚本 configure 生成 makefile 的时候，一并生成 config.h 头文件。如果想在程序代码中使用这些宏，就可以直接 #include "config.h"。
+
+
+Automake 工具出现后，增加了一些自定义宏，扩展了 Autoconf 的宏库。在此前，Autoconf 都是单独使用的，现在要跟 automake 配合使用，就要在 configure.ac 文件里调用 `AM_INIT_AUTOMAKE` 这样的 automake 宏定义来执行初始化工作。为了运行 autoconf 命令时能找到这些扩展的宏定义，就在 configure.ac 同目录下引入 `aclocal.m4` 脚本，里面存放 automake 的宏扩展或用户定义宏。
+
+Automake 工具自带 aclocal 工具，所谓 aclocal 意思即是 Autoconf Local Marcros 宏定义处理工具。 此工具根据 configure.ac 脚本来生成 aclocal.m4 脚本中的宏定义。在此之前会搜索所有能找到的 m4 脚本，找到各种宏定义，并将宏定义写入 aclocal.m4 文件中。工程外的目录，可以使用 -I 将其路径添加到搜索目录列表。
+
+如果项目目录存在 `acinclude.m4`，则会直接 include 到 aclocal.m4 宏定义脚本中。 
+
+理想状态下，aclocal 工具不应该是 Automake 的组成部分，Automake 应该聚焦于生成 `Makefile`。解决 M4 宏定义更应该是 Autoconf 的工作，但是实际上安装 Automake 的用户经用是为了使用 aclocal 工具来处理宏定义。
+
+Autoconf 和 Automake 集成了 GNU m4 宏解释器，但又对其进行了一些改动。脚本文件中 GNU m4 内置宏定义为使用 m4 前缀命名，比如 m4_ifndef。改动较大的内容如下：
+
+1. 宏定义使用 AC_DEFUN 或者 m4_define。
+2. 列表由 GNU m4 的逗号分隔改变为空格分隔。
+3. 字符串包括符号新定义为方括号，而 GNU m4 默认是反引号与单引号组合。
+
+一个简单的演示工程，可以只有以下两个或三个文件：
+
+1. helloworld.cc 源代码文件；
+2. Makefile.am 构建脚本模板，供 automake 参考生成 Makefile.in；
+3. configure.ac (configure.in) 可以使用 autoscan 工具生成参考模块；
+
+项目目录结构参考如下：
+
+    .
+    |-- configure.ac
+    |-- Makefile.am
+    |-- lib
+    |   |-- foo.c
+    |   `-- Makefile.am
+    `-- src
+        |-- bar.c
+        `-- Makefile.am
+
+演示用的 C/C++ hello world 源文件：
+
+```cpp
+#include <iostream>
+#include <cstdlib>
+#include <cstdio>
+
+int main(int argc, char** argv)
+{
+    printf("Hello, Linux! ");
+    return 0;
+} 
+```
+
+各个模板文件按依赖关系顺序的操作流程如下：
+
+1. *configure.scan* 通过 autoscan 工具生成，然后根据需要稍加修改保存为 configure.ac；
+2. *congigure* 源代码配置脚本运行 autoconf 或 `autoconf configure.ac > congifure` 命令生成；
+3. *config.h.in* 使用 `autoheader` 命令生成配置信息模板，设置标准库或软件版本信息等；
+4. *aclocal.m4* 宏定义文件使用 `aclocal` 命令生成，依赖 'configure.ac' or 'configure.in'；
+5. *Makefile.am* 手动编写基本宏调用，配置 aotomake 各种选项，包括要编译程序、源代码；
+6. *Makefile.in* 执行 `automake --add-missing` 生成构建脚本模板，依赖前面多个模板文件；
+7. *Makefile* 执行 configure 源代码配置脚本生成最终构建脚本；
+8. 最后，调用 make 命令按 Makefile 脚本指示编译项目；
+
+常用的 automake --add-missing  命令意思是“add missing standard files to package”，让 automake 自动加入标准软件包所必须的一些文件。这些文件有 compile, install-sh, missing，使用 `autoreconf --install` 也可以生成这些文件，这个命令可以根据最基本的 Makefil.am 和 configure.ac 生成所有脚本模板。参考手册 Automake 3.7 Programs automake might require。按照手册说明，新版本的工具只需要按以下步骤操作：
+
+3.1 Writing configure.ac
+3.1.1 A Shell Script Compiler
+3.1.2 The Autoconf Language
+3.1.3 Standard configure.ac Layout
+3.2 Using autoscan to Create configure.ac
+3.3 Using ifnames to List Conditionals
+3.4 Using autoconf to Create configure
+3.5 Using autoreconf to Update configure Scripts
+
+这些模板文件的依赖关系非常繁杂，用图表可以更清晰表达：
+
+```sh
+# https://www.sourceware.org/autobook/autobook/autobook_150.html#aclocal-process    
+
+user input files   optional input     process          output files
+================   ==============     =======          ============
+
+                    acinclude.m4 - - - - -.
+                                          V
+                                      .-------,
+configure.in ------------------------>|aclocal|
+                 {user macro files} ->|       |------> aclocal.m4
+                                      `-------'
+
+                    aclocal.m4 - - - - - - - .
+                    (acconfig.h) - - - -.    |
+                                        V    V
+                                     .----------,
+configure.in ----------------------->|autoheader|----> config.h.in
+                                     `----------'
+
+                                     .--------,
+                                     |        | - - -> COPYING
+                                     |        | - - -> INSTALL
+                                     |        |------> install-sh
+                                     |        |------> missing
+                                     |automake|------> mkinstalldirs
+configure.in ----------------------->|        |
+Makefile.am  ----------------------->|        |------> Makefile.in
+                                     |        |------> stamp-h.in
+                                 .---+        | - - -> config.guess
+                                 |   |        | - - -> config.sub
+                                 |   `------+-'
+                                 |          | - - - -> config.guess
+                                 |libtoolize| - - - -> config.sub
+                                 |          |--------> ltmain.sh
+                                 |          |--------> ltconfig
+                                 `----------'
+
+                   aclocal.m4 - - - - - -.
+                                         V
+                                     .--------,
+configure.in ----------------------->|autoconf|------> configure
+                                     `--------'
+
+                                     .---------,
+                   config.site - - ->|         |
+                  config.cache - - ->|configure| - - -> config.cache
+                                     |         +-,
+                                     `-+-------' |
+                                       |         |----> config.status
+                   config.h.in ------->|config-  |----> config.h
+                   Makefile.in ------->|  .status|----> Makefile
+                                       |         |----> stamp-h
+                                       |         +--,
+                                     .-+         |  |
+                                     | `------+--'  |
+                   ltmain.sh ------->|ltconfig|-------> libtool
+                                     |        |     |
+                                     `-+------'     |
+                                       |config.guess|
+                                       | config.sub |
+                                       `------------'
+
+                                   .--------,
+                   Makefile ------>|        |
+                   config.h ------>|  make  |
+{project sources} ---------------->|        |--------> {project targets}
+                                 .-+        +--,
+                                 | `--------'  |
+                                 |   libtool   |
+                                 |   missing   |
+                                 |  install-sh |
+                                 |mkinstalldirs|
+                                 `-------------'
+```
+
+源代码配置脚本 configure 除了生成构建脚本，还可能会生成一系列 config 文件，包括 config.h config.status config.log 或者 config.guess 等等。因为 configue 是一个 Linux Shell 脚本，Linux 环境下可以直接运行。Windows 系统下安装 mysys2 或者 MinGW 后也可以 `bash configure` 这样运行。
+
+autoconf 工具根据配置脚本模板生成源代码配置脚本，执行 automake 参照 Makefile.am、config.h.in 和 configure.ac 等模板文件生成 Makefile.in，再通过 autoconf 生成的源代码配置脚本生成 Makefile 构建脚本，最后正式执行 make 编译项目。
+
+
+使用 `aclocal` 命令生成的 aclocal.m4 宏定义文件，是通过扫描 'configure.ac' or 'configure.in' 等脚本文件中的宏调生成的，目的是统一在这个脚本文件中提供宏定义，供 autoconf 调用。双比如 automake 初始化宏 AM_INIT_AUTOMAKE 的定义，初始化宏接收参数有两种形式，旧式传递 PACKAGE 和 VERSION 这样的多参数形式，应该将旧式的参数传递到 AC_INIT。新版本参数是传递一个 OPTIONS，是一个空格分隔的参数列表，注意不是像 GNU 4 那样使用逗号分隔，可以直接调用 `AM_INIT_AUTOMAKE` 初始化，如果没有参数要传递。选项与 AUTOMAKE_OPTIONS 配置的选项内容一致，初始化宏可以直接传递一个版本号，比如 1.12 表示要使用的 automake 版本。
+
+    Macro: AC_INIT (package, version, [bug-report], [tarname], [url])
+
+1. https://www.gnu.org/software/autoconf/manual/autoconf-2.67/html_node/Initializing-configure.html
+2. https://www.gnu.org/software/automake/manual/html_node/Public-Macros.html
+3. https://www.gnu.org/software/automake/manual/html_node/List-of-Automake-options.html
+
+```sh
+# AM_INIT_AUTOMAKE(PACKAGE, VERSION, [NO-DEFINE])
+# AM_INIT_AUTOMAKE([OPTIONS])
+# -----------------------------------------------
+# The call with PACKAGE and VERSION arguments is the old style
+# call (pre autoconf-2.50), which is being phased out.  PACKAGE
+# and VERSION should now be passed to AC_INIT and removed from
+# the call to AM_INIT_AUTOMAKE.
+# We support both call styles for the transition.  After
+# the next Automake release, Autoconf can make the AC_INIT
+# arguments mandatory, and then we can depend on a new Autoconf
+# release and drop the old call support.
+AC_DEFUN([AM_INIT_AUTOMAKE],
+[AC_PREREQ([2.65])dnl
+dnl Autoconf wants to disallow AM_ names.  We explicitly allow
+dnl the ones we care about.
+m4_pattern_allow([^AM_[A-Z]+FLAGS$])dnl
+AC_REQUIRE([AM_SET_CURRENT_AUTOMAKE_VERSION])dnl
+AC_REQUIRE([AC_PROG_INSTALL])dnl
+if test "`cd $srcdir && pwd`" != "`pwd`"; then
+  # Use -I$(srcdir) only when $(srcdir) != ., so that make's output
+  # is not polluted with repeated "-I."
+  AC_SUBST([am__isrc], [' -I$(srcdir)'])_AM_SUBST_NOTMAKE([am__isrc])dnl
+  # test to see if srcdir already configured
+  if test -f $srcdir/config.status; then
+    AC_MSG_ERROR([source directory already configured; run "make distclean" there first])
+  fi
+fi
+```
+
+Autoconf 依赖 GNU m4 宏处理器来运行 aclocal.m4，并且按照源代码配置模板文件生成 configure 脚本。源代码配置脚本主要的功能就是检测系统特性，默认是为当前系统环境准备编译工作的。
+
+config.h.in 是默认的配置信息头文件模板，比如标准库、依赖库、PACKAGE 和 VERSION 等符号，无须对它们硬编码，`#include "config.h"` 写入代码中以利用这些定义。有时为了软件的移植性，可能还需要去配置各种数据类型所以使用的字节大小，比如在嵌入式开发领域，存在大量 8-bit 或者 16-bit 的嵌入式处理器，以及各种名目的 Advanced RISC Machines (ARM) 架构处理器。在 GNU 软件标准的推动下，目前 GNU GCC 编译器套件已经支持市场上流行的 CPU 架构的目标程序编译。注意，不要将 config.h 文件安装到系统中，因为它有可能与其他的软件包冲突。
+
+1. https://www.gnu.org/software/libtool/manual/
+2. https://www.gnu.org/software/gnulib/manual/gnulib.html
+
+```cpp
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the `crypto' library (-lcrypto). */
+#undef HAVE_LIBCRYPTO
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+...
+
+```
+
+Makefile.am 构建脚本模板中使用的宏功能参考，在使用上有点类似 CMake：
+
+AUTOMAKE_OPTIONS 配置 automake 选项，参数与 configure.ac 调用 AM_INIT_AUTOMAKE 设置的选项一样，但会覆盖配置脚本中的设置。执行命令时会检查目录下是否存在标准 GNU 软件包的各种文件，例如 AUTHORS、ChangeLog、NEWS 等文件。设置为 foreign 表示 automake 会改用一般软件包的标准来检查，GNU standards 软件规范严格性分为三个等级：
+
+1. *gnits* Gnits standards 标准是对软件进行编程、维护和分发的标准和建议的集合，由一群 GNU 项目维护人员发布，他们自称“Gnits”，是“GNU nit-pickers”的缩写。
+2. *gnu* 默认值，按照 GNU standards 软件标准配置。
+3. *foreign* “外来”相对于 GNU standards 规范，此严格等级下不会包含 NEWS 这样的文件。
+
+
+bin_PROGRAMS 指定编译生成的可执行文件，可以有多个可执行文件，名字间用空格隔开。
+
+helloworld_SOURCES 指定产生“helloworld”这个可执行程序所需要的源代码，多个源文件使用空格隔开。bin_PROGRAMS 如果定义了多个可执行文件，则对应每个可执行文件都要定义 filename_SOURCES 这样的源代码文件配置。
+
+```sh
+AUTOMAKE_OPTIONS=foreign
+
+bin_PROGRAMS=helloworld
+
+helloworld_SOURCES=helloworld.c 
+```
+
+Automake 规则变量参考如下，prog 是用户定义的程序名，保持和 bin_PROGRAMS 定义一致：
+
+01. *SUBDIRS* 指定需要递归处理的子目录；
+02. *DIST_SUBDIRS*  指定发布时包含目录，包括有条件地排除在构建之外的目录，比如 opt；
+03. *bin_PROGRAMS* 指定用户要编译的程序；
+04. *prog_SOURCES* 给程序指定依赖的源代码文件；
+05. *prog_CFLAGS* 指定 C 语言编译器参数；
+06. *prog_CPPFLAGS* 或者 prog_CXXFLAGS 指定 C++ 编译器参数；
+07. *prog_DEPENDENCIES* 给程序添加依赖库；
+08. *prog_LINK* 给程序指定链接程序；
+09. *prog_LDFLAGS* 给程序指定链接程序参数；
+10. *prog_AR* 指定需要构建的静态库；
+11. *prog_LIBRARIES* 指定需要构建的动态链接库；
+12. *prog_LDADD* 给程序添加链接导入库，automake 会根据依赖库添加；
+13. *prog_LIBADD* 编译静态库时指定要添加的依赖库；
+14. *prog_LIBTOOLFLAGS* 传递给 libtool 工具的参数，会覆盖 AM_LIBTOOLFLAGS。
+
+configure.ac 模板中需要设置一些基本的宏，比如 AM_INIT_AUTOMAKE，automake 需要这些基本宏来进行配置，指导如何生成 makefile.in 模块文件。
+
+configure.scan 模块需要调用的宏内容参考，也可以直接手写配置文件模板：
+
+1. AC_INIT 初始化 autoconf，接收程序包的完整路径，用于定位源文件目录和健全性检查。
+2. AM_INIT_AUTOMAKE 初始化 automake，接收应用程序的名称和版本号，它们将成为 config.h 中定义的 PACKAGE 和 VERSION 值。
+3. AC_PROG_CC 此宏用于检查 cc 编译器命令。
+4. AC_CONFIG_FILES 设置要写入的脚本文件，可以有多个，用空格分隔。
+5. AC_OUTPUT 这个宏指定要输出生成的 Makefile 脚本文件名字。
+
+```sh
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AM_INIT_AUTOMAKE(hello, 1.0)
+
+AC_PREREQ([2.69])
+AC_INIT([port], [0.1], [some@email.com, https://some.web.com])
+AM_INIT_AUTOMAKE([-Wall -Werror foreign 1.12])
+AC_CONFIG_SRCDIR([config.h.in])
+AC_CONFIG_HEADERS([config.h])
+# Checks for programs.
+AC_PROG_CC
+
+# Checks for libraries.
+# FIXME: Replace `main' with a function in `-lcrypto':
+AC_CHECK_LIB([crypto], [main])
+
+# Checks for header files.
+AC_CHECK_HEADERS([stdlib.h string.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+
+AC_CONFIG_FILES([Makefile lib/crypto-4.5/priv/obj/Makefile])
+AC_OUTPUT
+
+```
+
+按手册说明，3.1.3 Standard configure.ac Layout，以下是配置脚本的基本流程：
+
+01. Autoconf requirements
+02. AC_INIT(package, version, bug-report-address)
+03. information on the package
+04. checks for programs
+05. checks for libraries
+06. checks for header files
+07. checks for types
+08. checks for structures
+09. checks for compiler characteristics
+10. checks for library functions
+11. checks for system services
+12. AC_CONFIG_FILES([file…])
+13. AC_OUTPUT
+
+
+## 🍀 Cross-Compiling 交叉编译
+https://learn.microsoft.com/en-us/vcpkg/users/platforms/mingw
+https://www.llvm.org/docs/HowToCrossCompileLLVM.html
+https://clang.llvm.org/docs/CrossCompilation.html
+https://gcc.gnu.org/install/specific.html
+https://gcc.gnu.org/install/configure.html
+https://www.mingw-w64.org/downloads/
+https://sourceforge.net/projects/mingw/files/
+https://wiki.wxwidgets.org/Install_The_Mingw_Cross-Compiler
+https://www.gnu.org/software/autoconf/manual/autoconf-2.69/html_node/Hosts-and-Cross_002dCompilation.html
+https://cmake.org/cmake/help/book/mastering-cmake/chapter/Cross%20Compiling%20With%20CMake.html
+https://jensd.be/1126/linux/cross-compiling-for-arm-or-aarch64-on-debian-or-ubuntu
+
+Unix 类系统下，GNU Autotools 工具生成的 config.guess 脚本可以检测出系统的架构信息，包括：
+
+1. *cpu* 指示当前处理器类型，`i386` or `sparc`，或者 `mipsel` little endian MIPS 处理器等等。
+2. *manufacturer* 系统制造商信息，通常取值是 unknown，或者 pc 代表 IBM 个人兼容机。
+3. *operating_system* 当前操作系统类型，如 `solaris2.5` `winnt4.0` `aix4.1.4.0` 等等。
+4. *kernel* 主要用来指示 GNU/Linux 系统所使用的内核信息，例如 `i586-pc-linux-gnulibc1`。
+
+操作系统配置名称也可以用来描述非特定系统，比如嵌入式系统就不运行于任何特定操作系统，这种情况下就使用可执行程序的文件格式类型，比如 Linux `elf` 或者 Windows `coff` 等格式。
+
+因为像 GCC 这样的编译器支持交叉编译，所以当前系统平台信息以及目标平台信息是配置脚本中非重要的信息，它们决定了具体的配置。比如，以下是三种不同的编译环境的配置，build 表示当前运行编译器的环境，host 和 target 分别表示目标程序运行环境和目标程序支持的系统及格式。target 只有在建立交叉编译环境的时候用到，正常编译和交叉编译都不会用到。build 主机上的编译器，编译一个新的编译器工具，binutils gcc gdb 等等，这个新的编译器将来编译出来的程序将运行在 target 指定的系统上。
+
+Compiling a simple package for a GNU/Linux system.
+host = build = target = `i586-pc-linux-gnu`
+
+Cross-compiling a package on a GNU/Linux system that is intended to
+run on an IBM AIX machine: build = `i586-pc-linux-gnu`, host = target = `rs6000-ibm-aix3.2`
+
+Building a Solaris-hosted MIPS-ECOFF cross-compiler on a GNU/Linux
+system. build = `i586-pc-linux-gnu`, host = `sparc-sun-solaris2.4`, target = `mips-idt-ecoff'
+
+虽然，config.guess 脚本可以检测系统平台信息，但是依然可以通过配置脚本覆盖设置：
+
+    ./configure --build i686-pc-linux-gnu --host i586-mingw32msvc
+    ./configure --build=i686-pc-linux-gnu --host=m68k-coff
+    ./configure --host=alpha-netbsd sparc-gnu
+    ./configure CC=m68k-coff-gcc
+
+一般情况下的交叉编程，也是常用于嵌入式开发的编译模式，只涉及当前运行编程器的系统和程序构建出来后运行的目标系统，比如 Cross-Compiling from x86_64 to ARM。这需要编译器工具链的支持，比如 CMake 交叉编译脚本配置在 Linux 环境下使用 mingw32-binutils 交叉编译器构建目标运行于 Windows 系统的程序。i586-mingw32msvc-gcc 这个编译器名称表示支持 Intel Pentium 586 CPU 和支持 MinGW32 MSVC 编译方式的 GCC 交叉编译器。还可以使用 i686-w64-mingw32-gcc 或者 x86_64-w64-mingw32-gcc 交叉编译 32/64 位应用程序。
+
+Rust 语言交叉编译也做得比较好，使用 rustup 命令可心安装各种 Target 工具链：
+
+    $ rustup target list
+    $ rustup toolchain list
+    $ rustup toolchain default nightly
+
+    $ rustup target add x86_64-unknow-linux-gnu
+    $ rustup target add i686-unknown-linux-gnu 
+    $ rustup target add x86_64-pc-windows-msvc
+    $ rustup target add x86_64-pc-windows-gnu
+    $ rustup target add i686-pc-windows-msvc
+    $ rustup target add i686-pc-windows-gnu
+    $ rustup target add wasm32-wasi
+
+说到交叉编译，就不得不提到引入三层构架设计的 LLVM 编译器套件，由于引入了中间层，LLVM 将源代码编译和最终目标代码链接完全分离，形成编译器前端、中间层和后端三层分离式编译器构架，通过开发依赖不同硬件平台的编译器后端，大大方便了同一个程序链接为不同平台的可执行程序。Clang/LLVM 本身就是一个交叉编译器，只要有相应的编译器后端，这意味着一组程序可以通过设置 `-target` 选项编译到所需要的交叉编译目标。这使得希望编译到不同平台和体系结构的程序员、只需要维护一个构建系统的编译器开发人员以及只需要一组主包的操作系统发行版更容易。
+
+交叉编译参数指定通常使用 Target Triple 三元组，需要包含最基础的信息就是目标系统的 CPU 构架信息，其次是操作系统和系统。
+
+一个 triple 的一般格式为 `<arch><sub>-<vendor>-<sys>-<env>`，各部分说明如下：
+https://github.com/llvm/llvm-project/blob/main/llvm/include/llvm/TargetParser/Triple.h
+
+1. arch   = x86_64, i386, arm, thumb, mips, etc.
+2. sub    = for ex. on ARM: v5, v6m, v7a, v7m, etc.
+3. vendor  = pc, apple, nvidia, ibm, etc.
+4. sys    = none, linux, win32, darwin, cuda, etc.
+5. env    = eabi, gnu, android, macho, elf, etc.
+
+以上内容包含了常用的 CPU 构架和操作系统环境信息，其中 x86_64 构架也叫做 x64 或 amd64 构架，因为是 AMD 公司首先研发出来的 64-bit CPU 架构。而更早期的个人计算机使用的是 Intel x86 32-bit 构架，也叫做 i386、i586 等等。
+
+Linux 作为编译器资源最丰富的操作系统，它可以实现非常多的交叉编译方式，交叉编译为 Windows 系统，或者交叉编译为 ARM CPU 构架的常用的工具安装如下：
+
+    suto apt update
+    sudo apt-get install llvm
+    sudo apt-get install mingw32 mingw32-binutils
+    sudo apt-get install i686-w64-mingw32-gcc
+    sudo apt-get install mingw-w64
+    sudo apt-get install gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64
+
+    sudo apt-get install gcc-arm-linux-gnueabi binutils-arm-linux-gnueabi
+    sudo apt-get install gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu
+    sudo apt-get install gcc-12-arm-linux-gnueabihf g++-12-arm-linux-gnueabihf
+    sudo apt install gcc-9-aarch64-linux-gnu
+
+    clang --target=arm-linux-gnueabihf -o hello hello.cpp
+    clang --target=x86_64-mingw-w64 -o hello hello.cpp
+
+Mingw-w64 工具套件也可以在 Windows 系统上做交叉编译：
+
+| Architecture  | vcpkg community triplets                 | Tool name prefix
+| ------- | ------------------------ | ----------- |
+| x64        | x64-mingw-dynamic, x64-mingw-static   | x86_64-w64-mingw32-
+| x86        | x86-mingw-dynamic, x86-mingw-static   | i686-w64-mingw32-
+| arm64      | arm64-mingw-dynamic, arm64-mingw-static | aarch64-w64-mingw32-
+| arm        | arm-mingw-dynamic, arm-mingw-static     | armv7-w64-mingw32-
+
+
+CMake 手册中用 Build host 和 Target System 表示两个系统，但是命令行中依然是使用 build 和 host 参数：
+
+    --build=BUILD    The system on which the package is built.
+    --host=HOST     The system where built programs and libraries will run.
+    --target=TARGET When building compiler tools: the system for which the tools will create output.
+
+```sh
+cmake_minimum_required(VERSION 3.16.0)
+project(hello)
+
+add_executable(port port.c)
+
+# the name of the target operating system
+set(CMAKE_SYSTEM_NAME Windows)
+
+# which compilers to use for C and C++
+set(CMAKE_C_COMPILER   i586-mingw32msvc-gcc)
+set(CMAKE_CXX_COMPILER i586-mingw32msvc-g++)
+
+# where is the target environment located
+set(CMAKE_FIND_ROOT_PATH  /usr/i586-mingw32msvc
+    /home/alex/mingw-install)
+
+# adjust the default behavior of the FIND_XXX() commands:
+# search programs in the host environment
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+
+# search headers and libraries in the target environment
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+```
+
+CMake 项目的一般构建、编译流程：
+
+1. 编写 CMakeLists.txt 脚本；
+2. 执行 cmake 按指定的工程生成器生成相应的项目文件，例如 -G "Unix Makefiles"；
+3. 按生成的工程类型执行编译工作，例如 Makefiles 工程就执行 make 命令进行编译。
+
+WSL 中运行 CMake 按 CMakeLists.txt 脚本进行编译，Cmake 提示占用磁盘空间超额，需要在宿主机运行 Cmake。但是这不是磁盘空间占用问题，因为这个命令连帮助信息都不能打印。通过 apt 卸载时发现是曾经装过野鸡 cmake 产生的脚本命令，它只打印这条信息。执行 cmake 可能会有卡死现象，可以尝试关闭 WSL 再启动。
+
+```sh
+    $ cmake -S . -B build-win32 -G "Unix Makefiles"
+    cmake take more than 179MB hard disk, use it from the host system in place of WSL.
+
+    $ sudo apt remove cmake
+    Package 'cmake' is not installed, so not removed
+
+    $ cat /usr/bin/cmake
+    #!/bin/bash
+    echo cmake take more than 179MB hard disk, use it
+    from the host system in place of WSL.
+```
+
+WSL2 系统的虚拟磁盘文件在 AppData\Local\Packages 目录下，不同的 WSL2 发行版对应的名称前缀不同：
+
+1. Pengwin：WhitewaterFoundryLtd.Co
+2. Ubuntu：CanonicalGroupLimited
+3. Debian：TheDebianProject
+
+使用 `df -h /mnt/` 命令可以查看磁盘空间使用状态。
+
+vhdx 虚拟磁盘支持自动扩容，但是不会自动缩容。一旦把它“撑大”，即使删除文件后它也不会自动“缩小”。Diskpart 命令可以对虚拟磁盘进行压缩，它会根据WSL2中数据的大小来重新申请磁盘空间。：
+
+    wsl --shutdown
+    diskpart
+    # open window Diskpart
+    select vdisk file="ext4.vhdx"
+    attach vdisk readonly
+    compact vdisk
+    detach vdisk
+    exit
+
+
+The Meson Build system
+
+Meson is an open source build system meant to be both extremely fast, and, even more importantly, as user friendly as possible.
+
+The main design point of Meson is that every moment a developer spends writing or debugging build definitions is a second wasted. So is every second spent waiting for the build system to actually start compiling code.
+
+Features
+
+1. multiplatform support for Linux, macOS, Windows, GCC, Clang, Visual Studio and others
+2. supported languages include C, C++, D, Fortran, Java, Rust
+3. build definitions in a very readable and user friendly non-Turing complete DSL
+4. cross compilation for many operating systems as well as bare metal
+5. optimized for extremely fast full and incremental builds without sacrificing correctness
+6. built-in multiplatform dependency provider that works together with distro packages
+7. fun!
+
+Meson Cross compilation 脚本参考：
+https://mesonbuild.com/Cross-compilation.html
+
+Meson has full support for cross compilation through the use of a cross build definition file. An minimal example of one such file x86_64-w64-mingw32.txt for a GCC/MinGW cross compiler targeting 64-bit Windows could be:
+
+```sh
+[binaries]
+c = 'x86_64-w64-mingw32-gcc'
+cpp = 'x86_64-w64-mingw32-g++'
+ar = 'x86_64-w64-mingw32-ar'
+strip = 'x86_64-w64-mingw32-strip'
+exe_wrapper = 'wine64' # A command used to run generated executables.
+
+[host_machine]
+system = 'windows'
+cpu_family = 'x86_64'
+cpu = 'x86_64'
+endian = 'little'
+```
+
+```sh
+# meson.build
+project('meson-project', 'c',
+  version : '0.1',
+  default_options : ['warning_level=3'])
+
+executable('meson-project',
+           'ei.c',
+           'port.c',
+           install : true)
+```
+
+Which is then used during the setup phase.
+
+    meson init --name testproject --build
+    meson setup --cross-file x86_64-w64-mingw32.txt build-mingw
+    meson compile -C build-mingw
+
+
+## 🍀 Makefile 光学教程
+3. https://www.gnu.org/software/make/manual
+
+Make 是最常用的基于宏编程的构建工具，诞生于 1977 年，斯图亚特·费尔德曼（Stuart Feldman）在贝尔实验室（Bell Labs）创立，主要用于 C 语言的项目。但是实际上 ，任何只要某个文件有变化，就要重新构建的项目，都可以用 Make 构建。
+
+Makefile 构建脚本配置多种 targets，常用 make 命令用法如下：
+
+1. *make all* Builds all derived files sufficient to declare the package built.
+2. *make check* Runs any self-tests that the package may have.
+3. *make install* Installs the package in a predetermined location.
+4. *make clean* Removes all derived files.
+
+命令中指定的参数就是 Makefile 脚本文件中规则定义的 Target，可以在脚本中使用 DEFAULT_GOAL 变量指定一个默认执行的 Target。Make 最基本的能力就是，可以根据规则定义的 Target 依赖文件更新状态来决定是否执行 Target 的重新编译。
+
+Make 是一个宏编程工具，类似通用宏编程工具 GNU m4，执行 make 命令时，它就会读取 Makefile 脚本中的规则定义，并按宏符号定义对文件中的字符串进行扩展，即用宏定义的内容替换文件中相应的字符串，替换后文本应该包含要执行的命令，执行完这些相关的命令后，就完成了程序的编译工作。
+
+Make 命令的默认输入文件是当前目录下的 GNUmakefile 或者 makefile 或者 Makefile，依次尝试读取，如果需要指定脚本文件，使用 -f 或 --file 或 --makefile=somefile 指定。
+
+脚本中可以使用 include 指令原样地引用其它脚本文件，或者使用 -include filenames… 方式引用以避免在文件近缺失时引发错误，相当于 C/C++ 中引用头文件一样。make 会在当前目录、默认头文件目录中搜索，或者通过命令行参数 -I 或 --include-dir 指定搜索目录列表。
+
+Makefile 脚本作用指令 make 执行编译工作的规则集合，它本身也需要根据项目变化而调整。自动构建系统中可能存在不止一个 Makefile 文件，一些可能是脚本自动生成的，所以会需要在 make 命令读取这些规则内容之前进行内容更新。在顶层 Makefile 规则中只可以设置某些 Target 依赖某些 Makefile 文件，并根据其更新状态来执行是否要更新其中的规则定义。每次更新重启、加载 Makefile，其相应的特殊变量 `MAKE_RESTARTS` 就是相应增加以记录重启次数。参考文档 3.5 How Makefiles Are Remade。
+
+如果知道某些 Makefile 脚本是不需要更新的，可以使用空实现的规则定义，其格式是 `target: ;`，注意使用单个分号以及使用分号结尾，并且与 Target 名称同在一行，参考手册 5.9 Using Empty Recipes。
+
+一般来说，使用双冒号规则定义的 Target 或者是 .PHONY （内置的虚目标）会会无条件地执行，而不管依赖文件是否有更新，参考手册 4.13 Double-Colon Rules。
+
+但是，将这类规则应用到 MakeFile 时会导致死循环，make 会不断更新并读取被依赖的 Makefile，所以 make 对这类规则做了改变，禁止默认的无条件执行，而是无条忽略原本要执行的 Makefile 更新动作。所以，这个反常态的规则变化可以用来做加载优化，文件操作是 I/O 密集问题，操作的文件越少，程序性能就会越高，下面其中任何一条都可以避免 Makefile 的重复处理：
+
+    .PHONY: Makefile
+
+    Makefile:: ;
+
+Make 支持多个 Tareget 并行处理，通过 -j 或 --jobs 指定并行数量，不能并行处理的 Target 可以将其添加到内置的 .NOTPARALLEL 目标依赖列表中：
+
+```sh
+    all: base notparallel
+
+    base: one two three
+    notparallel: one two three
+
+    one two three: ; @sleep 1; echo $@
+
+    .NOTPARALLEL: notparallel
+```
+
+使用 `make -j 4` 运行以上脚本，会依次打印 one two three，此时 sleep 命令指定的时间延时会累计，以模拟大量的编译计算。如果注解掉 .NOTPARALLEL 则会按命令启用 4 进程/线程并行处理，所以整个项目只需要 1 秒就完成编译，而不是累计三个 Target 的 3 秒。
+
+并行处理过程中，消息打印就会乱序，可以开启输出同步 --output-sync 或 -O，或者使用
+--print-directory 开启 working directory printing。
+
+1. `none` 默认方式，所有输出不经过同步直接打印；
+2. `line` 单行同步，确保每一行内容不会出现其它线程中的消息出现；
+3. `target` 单目标同步，--output-sync 或者 -O 即启用此方式，消息按 Target 各自分组输出；
+4. `recurse` 递归同步，也是分组方式，会在递归调用完成后进行分组和打印。
+
+多个进程不能同时从同一设备获取输入，为了确保一次只有一个进程尝试从终端获取输入，make 将使正在运行的进程能访问标准输入流，其它进程的标准输入流无效。如果另一方试图从标准输入中读取，通常会产生致命错误，Broken pipe signal。
+
+脚本的基本解释流程，3.8 How Makefiles Are Parsed，GNU make 命令行为单位解释 Makefile： 
+
+1. Read in a full logical line, including backslash-escaped lines.
+2. Remove comments.
+3. If the line begins with the recipe prefix character and we are in a rule context, add the line to the current recipe and read the next line.
+4. Expand elements of the line which appear in an immediate expansion context.
+5. Scan the line for a separator character, such as ‘:’ or ‘=’, to determine whether the line is a macro assignment or a rule.
+6. Internalize the resulting operation and read the next line.
+
+比如，手册给出的例子，单行编写的规则：
+
+    myrule = target : ; echo built
+
+    $(myrule)
+
+解释时，make 会将其重新分割成相应的行：
+
+    define myrule
+    target:
+            echo built
+    endef
+
+    $(myrule)
+
+
+使用 Makefile 宏编程时，可以安装 Node.js watch 监视工具，它可以在监视到文件有更新时，及时调用指定的命令以自动地完成原来需要手工执行的命令行：
+
+```sh
+$ npm install -g watch
+$ watch "echo Watching... && make -f Makefile" -wait 0.2 .
+```
+
+
+### Basic Concepts
+
+按照 GNU m4 宏编程经验， Macros 即代码生成工具，输入输出都是字符串，输入字符中所有宏符号都会被相应的宏定义内容替换。但是 make 作为一种宏编程工具，有些功能差异，它并不像 GNU m4 这种通用的宏编程工具，出于约束它的灵活性同时降低使用风险，make 增加了许多约束条件，比如在 Target 规则之外不能使用宏输出内容。
+
+本质上，Makefile 就是一个描述依赖关系的脚本，例如如下一个 `Makefile` 规则定义：
+
+```sh
+all: foo
+foo: foo.o bar.o baz.o
+.c.o:
+        $(CC) $(CFLAGS) -c $< -o $@
+.l.c:
+        $(LEX) $< && mv lex.yy.c $@
+clean:
+        rm *.o temp
+```
+
+先抛开 $ 宏调用等特殊功能符号，以上这个 Makefile 它描述的是以下这样的依赖关系，最终是构建出 all 这个目标，它代表要链接各种目标文件的可执行程序。整个依赖关系网络由规则定义，链接命令由依赖关系推断。make 命令知道扩展名为 .o 的目标文件的处理，以及如何调用 C/C++ 编译器和链接程序，通过 $(CC)
+和 $(LEX) 分别调用 C/C++ 编译器和 lex 词法解释器生成命令，两个外部命令完成相应的编译工作。这种自动推断能力就是 make 的隐含能力，具有隐含功能的规则定义也就称为 Implicit Rules，参考手册 2.5 Letting make Deduce the Recipes。除非需要，开发者可以指定编译器的各种参数以修正默认的配置：
+
+               all
+                |
+               foo
+                |
+        .-------+-------.
+       /        |        \
+    foo.o     bar.o     baz.o
+      |         |         |
+    foo.c     bar.c     baz.c
+                          |
+                        baz.l
+
+这里的 Makefile 编写了两条旧风格的 suffix rule，即通过后缀识别行为/定义的规则，包含 double-suffix 和 single-suffix 两种。其中 .c .o .l 三个都是后缀，对应了 C 语言源代码、目标文件和词法规则分析器三种源文件。这种连续使用 source suffix 和 target suffix 后缀的形式就是 double-suffix，也即是双后缀形式的规则定义，从其执行结果可以知道这种规则就是将前 source 文件处理成后 target 文件。Single-suffix 则是保留 source surfix 文件后缀。
+
+一般的 Makefile 规则以冒号为分界，*Ordinary Rules*，左侧表示输出称为 `Target`，可以有多个输出，它本身就是一般的没有隐含功能的字符串标识，右侧表示输入称之为依赖或者先决条件。更复杂的规则可以参考官方文档，Complex Makefile 示例中有完整的规则参考。语法中的 recipe 单词为食谱、处方，也是规则实现、促使规则达成的意思。像以上这种规则，因为 Target 部分字符具有特殊功能的规则，称之为隐式规则 *Implit Rules*，与之对应的就是显式规则 *Explicit rule*，普通规则就是显式规则。
+
+Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 directive 用于实现 make 脚本功能的内置宏。另外就是附加的一些宏脚本编程能力，比如变量、宏指令、宏参数、include 其它脚本、 Secondary Expansion 二次展开，以及各种特殊功能符号等等，它们功能上都类似 GNU m4 的宏替换过程。Makefile 规则定义就是描述如何生成 Targer 之间的逻辑关系，也就是 Target 之间可以形成的依赖网络。
+
+Make 和 GNU m4 一样默认使用 # 作为注解符号。另外，如果行内容超长，可以在先进性行尾使用斜杠 \ 转义换行符号，便后一行内容与前一行内容拼接起来成为一行，即相当于断行连接。
+
+```sh
+    # 4.2 Rule Syntax
+    target … : prerequisites …
+            recipe
+            …
+            …
+```
+
+依赖关系链由 Target 与先决条件 prerequisites 之间的联系产生，因为先决条件中的任何项都可以被定义为 Target，也就形成了 A_Target -> Prerequisite -> B_Target -> Prerequisite 这样的链条。当执行 make A_Target 时，根据依赖链，会一起递归到最尾端的 Target 并执行其规则定义的 recipes，然后逐级返回执行上一层的 recipes，直到 A_Target 的部分。
+
+但是，只要这链条中间任何一环节破坏，Target 命名与上一层的先决条件不匹配，那么后面的 Target 定义即失效。除非调用 make 命令时，直接指定那些处于断链状态的 Target。依赖关系的判断，是根据宏扩展后的结果进行的，所以定义规则时，可以在规则中的 Targets 或先决条件中使用任意的宏函数，来灵活地构建依赖关系网络。
+
+### Rules Definition
+
+一个比较让人难以理解的规则，可能是模式匹配规则 *Pattern Rule*，它会在 Target 名称和先决条件中使用 % 符号来做匹配工作。并且按照依赖关系的处理，Taget 中的 % 符号会和上层目标的先决条件进行匹配处理。一旦上层 Target 的先决条件也使用了 % 做模式匹配，那么就有非常大的可能导致下层的 Target 与上层建立不了依赖联系，这完全取决于宏扩展结果生成的上层先决条件中的内容。
+
+模式匹配规则 *Pattern Rule* 也是隐式规则的一种，这种规则使用了 % 通配符号来匹配 Target 或者先决条件中的内容。Multiple Targets 规则中经常需要模式匹配规则来处理大量的文件。通配符 % 匹配任意非空白字符，可以用在 Targets 或者 Prerequisites 之中。
+
+例子中 clean 这种规则没有要生成的 Target 文件输出，这种规则定义的目标称为 *Phony Targets* 或者虚目标。虚目标的一个特性是：不进行 Target 文件的更新检查，总是会在触发时执行相应的命令，常用来定义 clean 这种用来做清理工作的目标。做目录递归处理时，也可以将子目录添加到 .PHONY 的先决条件列表中，这样就可以在子目录已经存的情况下无条件地处理。Make 系统定义了一系列的内置 Target 名称，包括 .PHONY .NOTPARALLEL .ONESHELL .SUFFIXES .SECONDARY .SECONDEXPANSION .IGNORE 等等，参考手册 4.9 Special Built-in Target Names。
+https://www.gnu.org/software/make/manual/make.html#Special-Targets
+
+注意：recipe 所有行必须由一个 tab 键起首，后面跟着 commands 等等，不支持空格缩进。否则会引发 Makefile: missing separator.  Stop. 
+
+这种以冒号作为标志的规则称为 *Single-Colon Rules*，它们的执行有序，有明确的前后依赖关系。另外一各规则称之为 *Double-Colon Rules*，即使用双冒号的规则，这种规则都是独立的规则，Target 在旧于依赖文件的情况下，或者没有先决条件的情况下，所以双冒号规则都会被执行，也就没有顺序执行的特性。
+
+Makefile 中定义的 Target 可以有多条规则，但多条规则只能使用同样的规则类型，单冒号的或者双冒号的规则。具有相同 Target 的双冒号规则各自完全独立，每个双冒号规则都单独处理，就像处理具有不同目标的规则一样。双冒号规则按照它们在 Makefile 中出现的顺序执行。然而，双冒号规则真正有意义的情况是那些执行配方的顺序无关紧要的情况。
+
+双冒号规则有些晦涩难懂，而且通常不太有用；它们只是提供了一种更新 Target 的机制。
+
+1. https://www.gnu.org/software/make/manual/html_node/Suffix-Rules.html
+2. https://www.gnu.org/software/make/manual/make.html#Complex-Makefile
+
+
+注意，make 目标就是根据先决条件产生相应的输出文件，所以一般的规则中，Target 对应的是系统磁盘中的文件，亦即 make 会隐含地进行 Target 和先决条件文件的检查。检查工作一项重要任务是比较 Target 与其先决条件文件、文件夹的更新时间，如果发现先决条件有更新，则触发 Target 的重新编译。
+
+这里可能导致有个 Bug，就是如果执行 make clean all 这样构建动作时，因为先检查到了文件存在并且没有需要更新，然后文件、文件夹被删除，再构建 all 目标时就可能会出错。
+
+注意：如果 Target 文件被移动，或者像 erlc 这样的编译器会按 -o 参数指定的目录输出编译文件，这时就要注意确保 Target 包含正确的路径，否则 make 会因为定位不到目标文件而始终重新编译 Target，不管依赖文件是否有更新。
+
+规则中使用模式匹配，就会有一个依赖文件搜索的过程。当应用在多先决条件的规则中时，就会出现一个隐含的约束，代码演示如下：
+
+    %.beam: %.erl %.hrl
+        @echo Start buildding $(basename $(@F)) : $@ < $<
+        @erlc -o $(Output) $<
+
+因为在同一条规则中，通配符 % 表示的是相同的匹配内容，一旦触发规则，那么 Target 模式匹配 % 匹配到的部分（stem 主干）就会替换到先决条件的 % 号中，一旦找不到其中一个文件，比如 ei_test.erl 和 ei_test.hrl 其中一个缺失则将产生错误。其中打印的信号不一定准确表现依赖关系，因为可能存在多组源代码的情况会出现错配现象：
+
+    make: No rule to make target 'port_test.beam', needed by 'ei_test'.  Stop.：
+
+在 Multiple Targets 形式规则中，有不同使用形式：
+
+0. Independent Targets 形式中所有 Targets 都是独立的，语法上使用冒号分隔先决条件；
+1. Grouped Targets 形式中所有 Targets 用空格隔开，或者使用变量列表，列表后跟 `&:`；
+2. Static Pattern Rules 形式中，多个 Target 后还有 target-pattern 和 prereq-patterns；
+
+手册参考：
+
+4.10 Multiple Targets in a Rule
+4.12 Static Pattern Rules
+10.5 Defining and Redefining Pattern Rules
+10.5.3 Automatic Variables
+
+对于分组形式，Target 不能出现在多个分组，除非使用 `&::` 而不是 `&:` 符号，其中 & 符号代表 all 的意思。分组形式的更新有一个特点：当其中一个 Target 先决条件更新，所有 Targets 都需要更新编译。
+
+此时可以在 reciple 可以使用以下自动变量，注意 @ 符号用在 shell 命令前以消隐当前当的内容，避免在执行命令时将命令本身打印出来：
+
+1. `$^` 自动变量引用完整的先决条件列表；
+2. `$<` 自动变量引用规则中的首个先决条件；
+3. `$@` 自动变量引用触发当前规则的 Target。
+4. `$*` 自动变量引用 % 模式匹配到的部分。
+5. `$?` 自动变量引用先决条件列表中比当前 Target 更新的那一部分。
+
+提示：使用 cc -M 或者 cc -MM 命令可以打印指定 C/C++ 源代码中的头文件依赖关系。
+Linux 命令 `ls -ld */*/` 可以打印二级子目录，使用通配符加斜杠组合 `*/` 成一个目录匹配模式。
+
+在子目录嵌套执行 make 时注意，因为 make 每执行一行命令都会返回到默认的工作目录。所以需要执行 cd 命令后执行的命令，必需并行执行，手册参考 5.7 Recursive Use of make。
+
+除了在规则中使用 % 模式匹配，还可以在 wildcard 函数中使用 * 通配符来获取文件或目录列表，可以同时获取多种文件类型，比如 `$(wildcard *.erl *.hrl)`，每种类型文件都是一个排序过的列表。
+
+注意，条件判断宏不能使用 Tab 缩进，并且参数列表使用圆括号时，需要用空格与宏名称隔开。这个空格隔开参数列表好理解，但是不能缩进这种要求实在太奇异了。但是，这种语法的怪异是有原因的。根据手册说明，3.7.2 Conditional Directives - Conditional directives are parsed immediately，也就是条件会在 make 一运行时就解释，不再有后续的宏扩展功能，这也就是为何不能在条件宏中使用局部变量的因由。
+
+Makefile 中有两种条件使用方式，其中一种就是 ifeq 和 ifneq 这种怪异的方式，这种形式的条件中不能使用 Target 特定变量，只能使用全局变量。第二种方式是条件函数，这种方式可以使用局部变量。
+
+    ifneq  (arg1, arg2)          ifeq  (arg1, arg2)
+    ifneq 'arg1' 'arg2'         ifeq 'arg1' 'arg2'
+    ifneq "arg1" "arg2"         ifeq "arg1" "arg2"
+    ifneq "arg1" 'arg2'         ifeq "arg1" 'arg2'
+    ifneq 'arg1' "arg2"         ifeq 'arg1' "arg2"
+    [TAB]...                  [TAB]...
+    else                      else
+    [TAB]...                  [TAB]...
+    endif                     endif
+
+    $(if condition,then-part[,else-part])
+    $(or condition1[,condition2[,condition3…]])
+    $(and condition1[,condition2[,condition3…]])
+    $(intcmp lhs,rhs[,lt-part[,eq-part[,gt-part]]])
+
+注意条件函数 if 的判断条件，即 condition 是空字符串 "" 决定结果也是为 then-part，除非变量没有定义。条件函数的宏体并不是一开始就扩展的，而只根据条件设定扩展对应的部分。
+
+1. https://www.gnu.org/software/make/manual/make.html#Conditionals
+2. https://www.gnu.org/software/make/manual/make.html#Conditional-Functions
+3. https://www.gnu.org/software/make/manual/make.html#index-pattern_002dspecific-variables
+
+Static Pattern Rules 规则定义中，目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns`，用于计算先决条件如果应用到每个 Target 之上。
+
+    # 4.12.1 Syntax of Static Pattern Rules
+    targets …: target-pattern: prereq-patterns …
+            recipe
+            …
+
+目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns` 说明如何计算每个目标的前提条件。每个目标都与目标模式相匹配，以提取目标名称的一部分，称为词干。这个词干被替换到每个prereq模式中，以形成先决条件名称（每个preeq模式中有一个）。
+
+每个模式匹配都包含一个“%”字符以匹配 Target 名称中的一部分，称之为 stem 主干。只有在 target-pattern 与 Target 名称完全匹配时，比如在一条 `foo.o : %.o : src/%.c %.h` 规则中，Target 名称为 `foo.o` 与目标模式 `%.o` 就是完全匹配，主干部分 `foo` 替换到每一个 `prereq-patterns` 匹配模式中，并且先决匹配模式中只能有一个 % 符号。最后，得到 Target 与 `src/foo.c` 和 `foo.h` 两个先决条件的依赖关系。
+
+### Secondary Expansion
+
+Make 规则解释过程工作于两个阶段，读取规则定义阶段，和更新规则阶段。对于 Target 的依赖部分，make 引入了二次扩展，所谓二次扩展就是对宏定义展开的基础上再做一次扩展，也就需要经过两轮宏符号替换操作，参考手册 3.9 Secondary Expansion。
+
+二次扩展一般同结合 $$ 转义符号使用，因为 $ 符号是功能符号，用于获取变量值，或者用于调用内置的宏函数。比如 $(value var) 这个函数调用就相当 $(var) 获取变量值。利用转义后的符号，就可以避免一些不需要在第一轮宏展开的符号被替换，比如 $@, $* 这些自动变量。
+
+要触发二次扩展，就需要使用 .SECONDEXPANSION 这个内置的 Target 命名，并且要在其它 Target 使用二次扩展依赖之前定义它。
+
+    .SECONDEXPANSION:
+    AVAR = top
+    onefile: $(AVAR)
+    twofile: $$(AVAR)
+    AVAR = bottom
+
+    % : ; @echo $@
+    .DEFAULT_GOAL = twofile
+
+对于使用转义符号的 `$$(AVAR)` 来说，在经过第一轮宏展开，应该得到 `$(AVAR)`，但运行中没有使用二次展开将得到一个 "$" 字符。如果是使用 `{AVAR}` 花括号形式，没有使二次展开将得到空字符串。出现这种结果可能是由于 `(AVAR)` 或者 `{AVAR}` 并不是合法的语法形式，被过滤掉了。 
+
+二次扩展可以应用在不同的规则类型上：
+
+1. Secondary Expansion of Explicit Rules
+2. Secondary Expansion of Implicit Rules
+3. Secondary Expansion of Static Pattern Rules
+
+通过使用宏定义的二次展开，可以在定义 Target 规则时获得非常巧妙的功能：
+
+    .SECONDEXPANSION:
+    main_OBJS := main.o try.o test.o
+    lib_OBJS := lib.o api.o
+
+    main lib: $$($$@_OBJS)
+
+    % : ; @echo += $@
+    %.o : ; @echo +- $@
+    .DEFAULT_GOAL = main
+
+以上演示了通过二次展开，让 $@ 这个自动变量和后缀拼接后得到一个对象文件依赖列表。另外，使用了两条模式匹配规则，前一条只使用 % 用于匹配所以显式的 Target 依赖，后一条使用了 %.o 用于匹配所有目标文件。
+
+因为 make 的自动推断功能会自动识别 .o 这种常用的扩展名文件，并且会推导出相应的命令，如果没有 %.o 这条模式匹配规则，则会执行 make 推导出现的命令。显式定义了这条规则后，就以显式定义的为准，而不会去执行自动推导的命令，参考手册 2.5 Letting make Deduce the Recipes。
+
+为何 % 这种模式匹配不会匹配上 .o 这种文件呢，即使是 %.o 也不行？大概是习惯，模式匹配不用于 make 自动推断出来的 Target。% 模式匹配是匹配其它 Target 的依赖列表，并且是进行了宏展开后的依赖列表中的条目，包括从命令行中传入的目标，例如 `make anything`，参考手册 10.5 Defining and Redefining Pattern Rules。
+
+注意：模式匹配中的通配符 % 和文件操作中的通配符 * 是不同用途的通配符，后者用于文件处理，配置 wildcard 函数使用，例如 `$(wildcard *.c *.h)` 将获得一个列表，列表的前半部分是 C 源文件，后面半部分是头文件，它们经过了排序。另外，模式匹配规则定义常常与 $* 自动蛮量一起使用，它代表 % 符号匹配到的内容。
+
+使用 Pattern Rule 还需要注意一个异常：如果模式目标过期或对应的文件不存在，并且不需要构建它，那么这样的 Target 就不会导致其他目标被认为过期。注意，这个历史异常将在 GNU make 未来版本中被删除，不应被依赖。如果检测到这种情况，make 将生成一个警告模式，pattern recipe did not update peer target。然而，无法确保 make 检测到所有此类情况。应该自行确保 Pattern Target 在运行时会得到更新。
+
+以下是文档给出的 Explicit Rules 示范，演示了二次展开中自动变量的状态：
+
+```sh
+.SECONDEXPANSION:
+
+foo: foo.1 bar.1 $$< $$^ $$+    # line #1
+foo: foo.2 bar.2 $$< $$^ $$+    # line #2
+foo: foo.3 bar.3 $$< $$^ $$+    # line #3
+foo: $$< $$(join $$^, .ext .ext) $$+
+    @echo 2: $^ 
+
+% : 
+    @echo ALL: $@ - $^
+.DEFAULT_GOAL = foo
+```
+
+1.  `$<` 自动变量表示依赖列表中的第一个依赖项；
+2.  `$^` 自动变量表示整个依赖列表，列表中各依赖项之以空格隔开；
+3.  `$+` 类似 $^，只是按顺序包含目标在 Makefile 中的依赖列表，配合链接程序使用；
+
+
+第一行依赖列表，所有自动变量展开为空字符串，因此此时依赖关系还没有建立。
+
+第二行依赖列表，三个自动变量分别展开为 `foo.1`，`foo.1 bar.1`，`foo.1 bar.1`。
+
+第三行依赖列表，三个自动变量分别展开为 `foo.1`，`foo.1 bar.1 foo.2 bar.2`，`foo.1 bar.1 foo.2 bar.2 foo.1 foo.1 bar.1 foo.1 bar.1`。
+
+以上是文档描述内容，但是无法在脚本程序中进行验证。
+
+
+以下是 Static Patter Rules 和 Implicit Rules 合体的二次展开示范例子：
+
+
+
+例子中使用了 Static Patter Rules，所谓静态模式规则，就是增加了 `target-pattern` 的多目标规则：
+
+    # 4.12.1 Syntax of Static Pattern Rules
+    targets …: target-pattern: prereq-patterns …
+            recipe
+            …
+
+模式匹配符号 % 可以再现在 Targets 命名中、还 `target-pattern` 和依赖项中。并且依赖项只能有一个 % 符号，这个符号将会被替换成 `target-pattern` 中 % 符号匹配到内容，此内容称为主干 stem。替换后得到的依赖项即为对应的依赖文件，或者下一层 Target 的名称，这个尝试找到模式匹配规则中的依赖项的过程就是隐式规则。
+
+Make 自动推导能力是关联多层目标的，比如，一个目标依赖 .o 文件，那么就会自动推导出 .o 目标，继而推导出 .c 目标，这就是 C 语言的基本构建涉及的文件目标。
+
+当这个隐式规则由 foo 这个目标触发执行时，$$< 二次展开为 bar，即首个依赖，$$^ 和 $$+ 都展开为 bar booo，最后 $$* 展开为 oo 即模式匹配 % 符号匹配到的主干内容。
+
+
+### Variaables
+1. https://www.gnu.org/software/make/manual/make.html#Automatic-Variables
+2. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
+3. https://www.gnu.org/software/make/manual/make.html#MAKE-Variable
+
+Makefile 中的变量应该是最简单的宏定义，变量名不能包含 characters not containing :#= 或者空白字符，并且也不应该使用句点开关头，因为由内置 Target 名称使用。变量赋值有四种，其中两种常用的基本方式：= 号赋值也叫做延后绑定赋值，变量的值绑定为等号右侧变量最后确定的值。而立即绑定赋值使用 := 进行赋值，右侧变量当前是什么内容，那么变量就被赋予什么值，后续不会再改变。
+
+    # 6.2.2 Simply Expanded Variable Assignment
+    x := foo
+    y := $(x) bar # foo bar
+    z  = $(x) bar # later bar
+    x := later
+
+四种变量赋值（扩展）方式如下：
+
+1. `=` Recursively Expanded Variable Assignment
+2. `:=` Simply Expanded Variable Assignment
+3. `::=` Immediately Expanded Variable Assignment
+4. `?=` Conditional Variable Assignment
+
+获取变量的值使用 `$(var)` 语法，变量名也可以使用其它变量，嵌套表达。使用 `$(flavor variable)` 函数可以获取变量的赋值方式的信息，延后绑定赋值即文档所说的的 Recursive flavor 方式：
+
+1. `undefined` if variable was never defined.
+2. `recursive` if variable is a recursively expanded variable.
+3. `simple` if variable is a simply expanded variable.
+
+除以上四种赋值方式，另外还提供了赋值时的两种高级特性，6.3 Advanced Features：
+
+1. Substitution References 替换变量值，例如 `bar := $(foo:.o=.c)`，替换 .o 为 .c；
+2. Computed Variable Names 计算变量名，例如 `foo := $($bar)`，实际变量由 bar 变量指定;
+
+变量只可以在脚本文件中定义，也可以在环境变量、命令行中定义，即 command line 类型的变量，例如 `make foo=bar`。使用 origin 函数可以获取变量定义来源信息。调用函数 `$(origin variable)` 返回的结果可能是：
+
+1. `undefined` if variable was never defined.
+2. `default` if variable has a default definition, as is usual with CC and so on. 
+3. `environment` if variable was inherited from the environment provided to make.
+4. `environment override` if variable was inherited from the environment provided to make, and is overriding a setting for variable in the makefile as a result of the ‘-e’option.
+5. `file` if variable was defined in a makefile.
+6. `command line` if variable was defined on the command line.
+7. `override` if variable was defined with an override directive in a makefile.
+8. `automatic` if variable is an automatic variable defined for the execution of the recipe for each rule (see Automatic Variables).
+
+变量的存活期可以是文件级别，随整个 Makefile 执行时存活。也可以是随 let 或者 foreach 函数执行时存活，这种变量只能在函数调用时有效，函数结束变量消失。自动变量是比如常用的变量，会在 Target 执行时自动替换为与当前规则相关的的值。也可以主动调用 undefine 撤消变量的定义。
+
+    # 8.5 The let Function
+    reverse = $(let first rest,$1,\
+                $(if $(rest),$(call reverse,$(rest)) )$(first))
+
+    all: ; @echo $(call reverse,d c b a)
+
+可以为某个目标设置局部变量，这种变量被称为目标特定变量“Target-specific Variable”，需要在 Target 规则前定义，在规则触发时就会对变量进行赋值。它和全局变量作用范围不同，只在特定规则触发时有效，所以其值也只在目标规则执行时的作用范围内有效。特定变量的值可以使用自动变量，这些自动变量会在规则执行时被替换成相应的值。类似的变量还是模式匹配特定变量，在特定模式触发时变量才有效。
+
+    # 6.11 Target-specific Variable Values
+    target … : variable-assignment
+
+    # 6.12 Pattern-specific Variable Values
+    pattern … : variable-assignment
+
+Makefile 一些特殊变量，6.14 Other Special Variables
+
+    myprog: myprog.o file1.o file2.o
+           $(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+    myprog: .EXTRA_PREREQS = $(CC)
+
+1. `MAKEFILE_LIST`  包含当前 make 命令已经解释到的所有 Makefile 文件列表。
+2. `.DEFAULT_GOAL 变量指定一个默认执行的 TargetGOAL`  用来设置默认的构建目标，以备命令行没有指定
+
+Make 是一个宏编程工具，类似通用宏编程工具 GNU m4 目标是调用，执行 make 命令时，它就会读取 Makefile 脚本中的规则定义，并按宏符号定义对文件中的字符串进行扩展，即用宏定义的内容替换文件中相应的字符串，最后执行相关的命令完成程序的编译工作。
+3. `.MAKE_RESTARTS` 在重启 make 编译时会自动设置些变量，重启次数记录在 MAKELEVEL。
+4. `.MAKE_TERMOUT` 和 `.MAKE_TERMERR` 会自动设置为相应的终端类型，对于标准文件则会停用控制台彩色。
+5. `.RECIPEPREFIX` 设置规则的命令行的首字符，默认是 TAB，可以随用随改。
+6. `.VARIABLES`  包含目前已经定义的所有全局变量的列表。
+7. `.FEATURES`  包含当前 make 命令支持的所有特性的列表。
+8. `.INCLUDE_DIRS` 包含 Makefile 文件搜索目录列表。
+9. `.EXTRA_PREREQS` 给目标设置额外的依赖，这些依赖不会出现在常用依赖的自动变量中。
+
+Makefile 中有许多变量由隐式规则使用，10.3 Variables Used by Implicit Rules。如果脚本中没有对 make 可以知识的文件类型提供规则定义，那么 make 就会自行推断使用相应的构建命令。比如，Target 为 C 语言源文件，则会执行 `$(CC) -c $(CFLAGS) $(CPPFLAGS)` 编译命令，并且可以多级推断，这就是 10.4 Chains of Implicit Rules。隐式规则中使用的 CFLAGS 或者 CPPFLAGS 都是隐式变量。
+
+### Functions
+
+Make 定义函数和定义变量差别不大，因为都是宏定义，主要是在使用方式上的差别。变量除了可以使用简化的 = 或 := 或 ::= 等等符号进行定义，还有一种通用的变量、函数定义，就是使用 define 指令定义用户宏。使用 define 指令定义宏函数时，也和变量一样，有使用 = 和 := 两种基本的绑定方式，使用 = 号或者省略 = 号表示延后绑定（deferred），是递归处理模式，宏体展开的内容始终是所使用宏符号的最后定义的值。而使用 := 的是立即绑定模式，当前定义这个宏函数时相应的宏定义是什么值，就会立即扩展变成字符串替换到宏函数体中相应的位置。
+
+    # 3.7.1 Variable Assignment
+    immediate = deferred
+    immediate ?= deferred
+    immediate := immediate
+    immediate ::= immediate
+    immediate :::= immediate-with-escape
+    immediate += deferred or immediate
+    immediate != immediate
+
+这宏是作用函数使用还是作用变量使用，完全取决于调用方式，使用 call 函数调用，用户宏就是函数，使用 $() 方式就是变量。用户宏函数只能通过 call 调用，不能像内置函数一样使用 $(sort 3,2,1) 这样的语法调用。每个参数都在宏函数调用前展开，函数内可以接收 $1 ~ $9 这几个参数，GNU m4 则没有这个数量限制，$0 还是一样指代宏名。
+
+    # 8.1 Function Call Syntax
+    $(function arguments)   # $(function a,b,c...)
+    ${function arguments}   # ${function a,b,c...}
+
+    # 8.8 The call Function
+    $(call variable,param,param,…)
+
+宏函数有 9 个参数的限制，实际上包括宏名就是 10 个，那么怎么处理更多参数的情形？解决方法也简单：使用列表传递参数，Makefile 列表就是空白字符（空格）隔开的多个字符串。
+
+```sh
+    define Fun
+    @echo Fun args test: $0 - $1 ... $9 [$(Srcs)]
+    endef
+
+    define Fun_Imm_ver :=
+    @echo Fun args test: $0 - $1 ... $9 [$(Srcs)]
+    endef
+
+    SOME_FUN_RET = $(call Fun_Imm_ver,123)
+    Srcs := NOTHING
+
+    all : $(Targets)
+
+        @echo var: $(Fun)
+        @echo bad: $(Fun a b c d e f g h i j k)
+        @echo bad: $(Fun ,a,b,c,d,e,f,g,h,i,j,k)
+        @echo call: $(call Fun,a b c d,e,f,g,h,i,j,k)
+        @echo ret: $(SOME_FUN_RET)
+```
+
+以下是输出内容参考：
+
+    var: @echo Fun args test: - ... [NOTHING]
+    bad:
+    bad:
+    call: @echo Fun args test: Fun - a b c d ... [NOTHING]
+    ret: @echo Fun args test: - ... [foo.c bar.c]
+
+从返回结果上看，在规则 recipes 中调用自定义函数与全局位置调用两种方式是有差别的，后者会丢失 $0 或者 $1 这样的局部变量，这样的自动变量只在执行 Target 构建的过程中有。
+
+宏编程的本质就是符号替换，宏函数的返回值也就是宏体扩展后，最终替换结果的内容。
+
+Makefile 提供了一个 eval 函数，和 JavaScript 中的 eval 类似，它可以通过文本构造出宏定义：
+
+```sh
+    PROGRAMS    = server client
+
+    server_OBJS = server.o server_priv.o server_access.o
+    server_LIBS = priv protocol
+
+    client_OBJS = client.o client_api.o client_mem.o
+    client_LIBS = protocol
+
+    .PHONY: all
+    all: $(PROGRAMS)
+
+    define PROGRAM_template =
+     $(1): $$($(1)_OBJS) $$($(1)_LIBS:%=-l%)
+     ALL_OBJS   += $$($(1)_OBJS)
+    endef
+
+    $(foreach prog,$(PROGRAMS),$(eval $(call PROGRAM_template,$(prog))))
+
+    $(PROGRAMS):
+            $(LINK.o) $^ $(LDLIBS) -o $@
+
+    clean:
+            rm -f $(ALL_OBJS) $(PROGRAMS)
+```
+
+GNU 还有许多高级的扩展编程能力，已经提供 GNU Glue 编程，这是一种  Scheme programming language。还可以编写扩展插件，通过 load 指令加载并运行。
+
+
+### Implicit Rules
+
+隐含规则绝对是 Makefile 宏编程中最令人迷惑的内容，一方面它既便利了常用的语言编译规则的编写，另一方面它又像副作用一样让人难以适应。特别是在不清楚隐式规则背后的功能时，脚本非旦不能简单地完成编译工具，还会带来各种让人迷惑的错误信息。
+
+Make 将所有隐式规则，包括运行环境、脚本解释数据都记录在程序的内置的数据库中，使用命令行参数 -p 就可以打印出来，或者使用 -r 将隐式规则禁用。
+
+      -d                          Print lots of debugging information.
+      --debug[=FLAGS]             Print various types of debugging information.
+      -i, --ignore-errors         Ignore errors from recipes.
+      -k, --keep-going            Keep going when some targets can't be made.
+
+      -p, --print-data-base       Print make's internal database.
+      -q, --question              Run no recipe; exit status says if up to date.
+      -r, --no-builtin-rules      Disable the built-in implicit rules.
+      -R, --no-builtin-variables  Disable the built-in variable settings.
+
+还可以使用 -d 激活调试信息，以观察 make 命令解释脚本的过程：
+
+    Reading makefiles...
+    Reading makefile 'Makefile'...
+    Updating makefiles....
+     Considering target file 'Makefile'.
+      Looking for an implicit rule for 'Makefile'.
+      Trying pattern rule with stem 'Makefile'.
+      Trying implicit prerequisite 'Makefile.o'.
+      Trying pattern rule with stem 'Makefile'.
+      Trying implicit prerequisite 'Makefile.c'.
+      ...
+      No implicit rule found for 'Makefile'.
+      Finished prerequisites of target file 'Makefile'.
+     No need to remake target 'Makefile'.
+    Updating goal targets....
+    Considering target file 'foo'.
+     File 'foo' does not exist.
+     Looking for an implicit rule for 'foo'.
+     Trying pattern rule with stem 'foo'.
+     Trying implicit prerequisite 'foo.o'.
+     Found an implicit rule for 'foo'.
+      Considering target file 'foo.o'.
+       File 'foo.o' does not exist.
+       Finished prerequisites of target file 'foo.o'.
+      Must remake target 'foo.o'.
+    Putting child 0x8000a1bf0 (foo.o) PID 1059 on the chain.
+    Live child 0x8000a1bf0 (foo.o) PID 1059 
+    echo Building: foo.o
+    ...
+    Removing child 0x8000a6330 PID 1060 from chain.
+        Successfully remade target file 'bar.c'.
+       Finished prerequisites of target file 'bar'.
+      Must remake target 'bar'.
+    cc     bar.c   -o bar
+    Putting child 0x80009fb40 (bar) PID 1061 on the chain.
+    Live child 0x80009fb40 (bar) PID 1061 
+    Reaping losing child 0x80009fb40 PID 1061 
+    Removing child 0x80009fb40 PID 1061 from chain.
+
+
+打印 Makefile 数据列表中，可以看到隐式规则相关的文件扩展名列表：
+
+.SUFFIXES: .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+
+已知的扩展名列表可以通过同名的内置目标 .SUFFIXES 来添加，将需要添加的扩展名设置为此目标的依赖项。
+
+
+隐含规则触发的情形：
+
+1. 使用模式匹配时，包括 Static Pattern Rules，% 在匹配依赖的过程触发隐式规则；
+2. 使用隐式规则时，Old-Fashioned Suffix Rules，如 .c.o : 
+3. 显式规则依赖关系不完善，有依赖项未定义相应的 Target。
+
+隐式规则必需有依赖项，没有依赖项就不能触发隐式规则。
+
+禁用隐式规则可以通过命令行参数 make -r 全局禁用隐式规则，如果要进行局部禁用，就需要在 makefile 中自定义完善的显式规则，比如，为 C 语言定义模式匹配规则 `%.o : %.c` 接管所有中间文件的处理。
+
+
+像以下这种显式规则，它就有可能会触发隐式规则，因为它是不完善的显式规则定义，并未完全定义依赖项的构建规则：
+
+    app : port plugin
+
+对于显式规则，Target 名称必需与上一层 Target 依赖文件一致匹配，才算是相互形成依赖关系。一个写 port，另一个写 port.o 就不算是匹配。
+
+对于隐式规则，需要 Target 和磁盘系统中的文件名（不含扩展名）匹配时，就可以根据 make 数据库找到相应文件的编译命令，并构建出相应的程序，即使没有设置依赖，只要求 Target 名称匹配。但是 Target 名称与文件名不匹配，则不能应用此隐式行为。
+
+```sh
+app : port    # build port.exe if there is a port.c
+bar : port.o  # make object if there is a port.c and no port.o
+foo : port.c  # make: Nothing to be done for 'foo'.
+.DEFAULT_GOAL = app
+```
+
+以上用三条规则演示了给目标指定不同的依赖文件类型时的隐式规则行为差别。其中 foo 直接依赖源代码文件，但是又没有定义 recipes，所以无事可做。并且对于源代码文件，make 的数据库中再找不出更深一层的隐式规则。
+
+在处理隐式规则时，根据依赖文件是否存在有不同的行为，如果依赖文件存在，则按 make 命令数据库的隐式规则寻找匹配的文件类型，并调用相应的规则命令。如果没有相应的文件则触发错误信息：
+
+    make: *** No rule to make target 'ported', needed by 'app'.  Stop.   
+
+如果对应有 port.c 这样的可以被 make 隐式规则数据库识别的文件类型存在，那么 make 就会调用相应的编译命令编译出程序，这个过程没有中间文件，因为 make 会自动执行 RM 命令将它们删除。有几个方法可以让 make 保留这些中间生成的文件：
+
+1. 将中间文件指定为依赖文件，比如 `app: port.o plugin.o`；
+2. 将中间文件指定为内置目标 .NOTINTERMEDIATE 的依赖文件；
+3. 使用内置目标 .PRECIOUS 可以在 make 意外中断时保留目标文件；
+
+通常，Makefile 规则中的 Target 包括依赖的目标文件不会当作中介文件，使用内置目标 .INTERMEDIATE 可以告诉 make 将其依赖项当作中间文件处理。注意，中间文件和中间目标文件的差别，前者是指那些没有定义为 Target 的编译过程生成的文件。
+
+Makefile 这种涉及中间文件的隐式规则的目标构建，称为链式隐式规则 10.4 Chains of Implicit Rules。
+
+将中间目标文件声明为 .SECONDARY 的依赖项，可以避免无效的重新编译行为。不使用的 .SECONDARY 的情况下，即源代码文件没有更新，也会因为中间文件的缺失而进行重新编译。将中间文件声明为 .SECONDARY 的依赖项就可以避免这样的问题。在显式规则中才需要这样做，隐式规则中会自动处理。
+
+注意：.SECONDARY 可能因为错误关系导致无效，中间文件不一定需要声明为 Target，可以通过隐式规则生成。但如果整个依赖关系链其中一个环节错误都可能导致需要重新编译，比如经常出现的就是 Target 文件路径不一致导致的非更新条件下的重新编译。
+
+
+使用旧风格的 suffix rule，包括 double-suffix 和 single-suffix，尽管后缀规则本身属性隐式规则。通过后缀识别行为/定义的规则，比如双后缀规则 `.c.o`。在编译 port 这个依赖项目时，因为没有后续的定义，所以 make 会尝试定位文件确定类型再决定调用相应的命令。注意，Target 依赖文件的扩展名要与 suffix rule 中的相匹配，这样才会调用相应的规则。
+
+本例使用的双后缀规则对应了 C 语言源代码、目标文件和词法规则分析器三种源文件。这种连续使用 source suffix 和 target suffix 后缀的形式就是 double-suffix，也即是双后缀形式的规则定义，从其执行结果可以知道这种规则就是将前 source 文件处理成后 target 文件。Single-suffix 则是保留 source surfix 文件后缀，比如 source suffix 定义为 .c 就等价于模式匹配规则 `% : %.c`。
+
+使用后缀规则注意，需要使用 .SUFFIXES 列表中显示的已经支持的文件格式。
+
+```sh
+all : app
+
+app : port.o
+    # @touch port.c
+    @echo app compiling...
+    @cc -o app $<
+
+# .NOTINTERMEDIATE : port.o
+# .SECONDARY : port.o
+# port.o: port.c
+
+.c.o:
+    @echo compile $@ - $<
+    @CC -c -o $@ $<
+
+.DEFAULT_GOAL = all
+```
+
+各种文件对应的隐式规则、默认处理命令如下，变量具体值根据不同的系统环境有所不同：
+
+| Lang         | Implicit Rules | Processors                      |
+| -------- | ------- | --------------------- |
+| C/C++       | %: %.o   | $(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| C/C++       | %: %.c   | $(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| C/C++       | %.ln: %.c | $(LINT.c) -C$* $<
+| C/C++       | %.o: %.c | $(COMPILE.c) $(OUTPUT_OPTION) $<
+| C/C++       | %: %.cc  | $(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| C/C++       | %.o: %.cc | $(COMPILE.cc) $(OUTPUT_OPTION) $<
+| C/C++       | %: %.C   | $(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| C/C++       | %.o: %.C | $(COMPILE.C) $(OUTPUT_OPTION) $<
+| C/C++       | %: %.cpp  | $(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| C/C++       | %.o: %.cpp | $(COMPILE.cpp) $(OUTPUT_OPTION) $<
+| Fortran/Ratfor | %: %.f   | $(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| Fortran/Ratfor | %.o: %.f | $(COMPILE.f) $(OUTPUT_OPTION) $<
+| Fortran/Ratfor | %: %.F   | $(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| Fortran/Ratfor | %.o: %.F | $(COMPILE.F) $(OUTPUT_OPTION) $<
+| Fortran/Ratfor | %.f: %.F | $(PREPROCESS.F) $(OUTPUT_OPTION) $<
+| Fortran/Ratfor | %: %.r   | $(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| Fortran/Ratfor | %.o: %.r | $(COMPILE.r) $(OUTPUT_OPTION) $<
+| Fortran/Ratfor | %.f: %.r | $(PREPROCESS.r) $(OUTPUT_OPTION) $<
+| Objective-C    | %: %.m   | $(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| Objective-C    | %.o: %.m | $(COMPILE.m) $(OUTPUT_OPTION) $<
+| Yacc for C    | %.ln: %.y | $(YACC.y) $<; $(LINT.c) -C$* y.tab.c; $(RM) y.tab.c
+| Yacc for C    | %.c: %.y  | $(YACC.y) $<; mv -f y.tab.c $@
+| Yacc for C    | %.m: %.ym | $(YACC.m) $<
+| Lex for Ratfor | %.r: %.l  | $(LEX.l) $< > $@
+| Assembly     | %: %.s    | $(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| Assembly     | %.o: %.s  | $(COMPILE.s) -o $@ $<
+| Assembly     | %: %.S   | $(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+| Assembly     | %.o: %.S  | $(COMPILE.S) -o $@ $<
+| Assembly     | %.s: %.S  | $(PREPROCESS.S) $< > $@
+| Modula-2     | %: %.mod  | $(COMPILE.mod) -o $@ -e $@ $^
+| Modula-2     | %.o: %.mod | $(COMPILE.mod) -o $@ $<
+| Modula-2     | %.sym: %.def | $(COMPILE.def) -o $@ $<
+| LaTeX        | %.dvi: %.tex | $(TEX) $<
+|             | %.info: %.texinfo | $(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+|             | %.dvi: %.texinfo | $(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+|             | %.info: %.texi  | $(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+|             | %.dvi: %.texi   | $(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+|             | %.info: %.txinfo | $(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+|             | %.dvi: %.txinfo  | $(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+|             | %.c: %.w       | $(CTANGLE) $< - $@
+|             | %.tex: %.w     | $(CWEAVE) $< - $@
+|             | %.p: %.web      | $(TANGLE) $<
+|             | %.tex: %.web     | $(WEAVE) $<
+|             | (%): %           | $(AR) $(ARFLAGS) $@ $<
+|             | %.c: %.w %.ch   | $(CTANGLE) $^ $@
+|             | %.tex: %.w %.ch | $(CWEAVE) $^ $@
+|             | %:: %,v     | $(CHECKOUT,v)
+|             | %:: RCS/%,v | $(CHECKOUT,v)
+|             | %:: RCS/%   | $(CHECKOUT,v)
+|             | %:: s.%     | $(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+|             | %:: SCCS/s.% | $(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+命令变量及对应的默认命令：
+
+| $(LINK.o)        |  cc        |  $(YACC.y)        |  yacc     |
+| $(LINK.c)        |  cc        |  $(LEX.l)         |  lex -t   |
+| $(LINT.c)        |  lint      |  $(YACC.m)        |  yacc     |
+| $(COMPILE.c)     |  cc -c     |  $(LINK.s)        |  cc       |
+| $(LINK.cc)       |  g++       |  $(COMPILE.s)     |  as       |
+| $(COMPILE.cc)    |  g++ -c    |  $(LINK.S)        |  cc       |
+| $(LINK.C)        |  g++       |  $(COMPILE.S)     |  cc -c    |
+| $(COMPILE.C)     |  g++ -c    |  $(PREPROCESS.S)  |  cc -E    |
+| $(LINK.cpp)      |  g++       |  $(COMPILE.mod)   |  m2c      |
+| $(COMPILE.cpp)   |  g++ -c    |  $(COMPILE.def)   |  m2c      |
+| $(LINK.f)        |  f77       |  $(TEX)           |  tex      |
+| $(COMPILE.f)     |  f77 -c    |  $(TEXI2DVI)      |  texi2dvi |
+| $(LINK.F)        |  f77       |  $(MAKEINFO)      |  makeinfo |
+| $(COMPILE.F)     |  f77 -c    |  $(CWEAVE)        |  cweave   |
+| $(PREPROCESS.F)  |  f77 -F    |  $(TANGLE)        |  tangle   |
+| $(LINK.m)        |  cc        |  $(WEAVE)         |  weave    |
+| $(COMPILE.m)     |  cc -c     |  $(AR)            |  ar       |
+| $(LINK.r)        |  f77       |  $(CTANGLE)       |  ctangle  |
+| $(COMPILE.r)     |  f77 -c    |  $(GET)           |  get      |
+| $(PREPROCESS.r)  |  f77 -F     
+
+命令变量及默认参数配置：
+
+    .SHELLFLAGS := -c
+    ARFLAGS = rv
+    COMPILE.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+    COMPILE.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
+    COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+    COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+    COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
+    COMPILE.f = $(FC) $(FFLAGS) $(TARGET_ARCH) -c
+    COMPILE.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+    COMPILE.mod = $(M2C) $(M2FLAGS) $(MODFLAGS) $(TARGET_ARCH)
+    COMPILE.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+    COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
+    COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
+    F77FLAGS = $(FFLAGS)
+    LEX.l = $(LEX) $(LFLAGS) -t
+    LEX.m = $(LEX) $(LFLAGS) -t
+    LINK.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_MACH)
+    LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.r = $(FC) $(FFLAGS) $(RFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+    LINK.s = $(CC) $(ASFLAGS) $(LDFLAGS) $(TARGET_MACH)
+    LINT.c = $(LINT) $(LINTFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
+    MAKEFLAGS = p
+    MFLAGS = -p
+    PREPROCESS.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -F
+    PREPROCESS.S = $(CC) -E $(CPPFLAGS)
+    PREPROCESS.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -F
+    YACC.m = $(YACC) $(YFLAGS)
+    YACC.y = $(YACC) $(YFLAGS)
+
+
+各种命令功能说明：
+
+01. *AR*  函数库打包程序。
+02. *AS*  汇编语言编译程序。
+03. *CC*  C 语言编译程序。
+04. *CXX*  C++ 语言编译程序。
+05. *CO*  从 RCS 文件中扩展文件程序。
+06. *CPP*  C 语言程序的预处理器（输出是标准输出设备）。
+07. *FC*  Fortran 和 Ratfor 的编译器和预处理程序。
+08. *GET*  从 SCCS 文件中扩展文件的程序。
+09. *LEX*  Lex 方法分析器程序（针对于C或Ratfor）。
+10. *PC*  Pascal 语言编译程序。
+11. *YACC*  Yacc 文法分析器（针对于C程序）。
+12. *YACCR*  Yacc 文法分析器（针对于Ratfor程序）。
+13. *MAKEINFO*  Texinfo（.texi）到 Info 文件的转换程序。
+14. *TEX*  TeX 文件到 TeX DVI 文件的转换程序。
+15. *TEXI2DVI*  Texinfo 到 TeX DVI 文件的转换程序。
+16. *WEAVE*  Web 到 TeX 的转换程序。
+17. *CWEAVE*  转换 C Web 到 TeX的程序。
+18. *TANGLE*  转换 Web 到 Pascal 语言的程序。
+19. *CTANGLE*  转换 C Web 到 C。
+20. *RM*  删除文件命令。
+
+
+### Makefile Syntaxes 语法列表
+https://www.gnu.org/software/make/manual/make.html#Quick-Reference
+https://www.gnu.org/software/make/manual/make.html#Error-Messages
+https://www.gnu.org/software/make/manual/make.html#Complex-Makefile
+https://www.gnu.org/software/make/manual/make.html#Standard-Targets
+https://www.gnu.org/software/make/manual/make.html#Concept-Index
+
+```sh
+    # 3.3 Including Other Makefiles
+    include filenames…
+    include foo *.mk $(bar)
+    include foo a.mk b.mk c.mk bish bash
+    -include filenames… # ignore errors
+    # 3.7 How make Reads a Makefile
+    # 3.7.1 Variable Assignment
+    immediate = deferred
+    immediate ?= deferred
+    immediate := immediate
+    immediate ::= immediate
+    immediate :::= immediate-with-escape
+    immediate += deferred or immediate
+    immediate != immediate
+
+    define immediate
+      deferred
+    endef
+
+    define immediate =
+      deferred
+    endef
+
+    define immediate ?=
+      deferred
+    endef
+
+    define immediate :=
+      immediate
+    endef
+
+    define immediate ::=
+      immediate
+    endef
+
+    define immediate :::=
+      immediate-with-escape
+    endef
+
+    define immediate +=
+      deferred or immediate
+    endef
+
+    define immediate !=
+      immediate
+    endef
+    # 3.7.2 Conditional Directives
+    # Conditional directives are parsed immediately. 
+    # 3.7.3 Rule Definition
+    # A rule is always expanded the same way, regardless of the form:
+    immediate : immediate ; deferred
+            deferred
+
+    # 4.2 Rule Syntax
+    target … : prerequisites …
+            recipe
+            …
+            …
+    targets : prerequisites ; recipe
+            recipe
+            …
+    # 4.3 Types of Prerequisites
+    targets : normal-prerequisites | order-only-prerequisites
+
+    # 4.10 Multiple Targets in a Rule
+    # 4.11 Multiple Rules for One Target
+    # 4.12.1 Syntax of Static Pattern Rules
+    targets …: target-pattern: prereq-patterns …
+            recipe
+            …
+    # 5.7 Recursive Use of make
+    subsystem:
+            cd subdir && $(MAKE)
+    subsystem:
+            $(MAKE) -C subdir
+    # 5.7.2 Communicating Variables to a Sub-make
+    export variable …
+    unexport variable …
+    export variable = value
+    # 6.1 Basics of Variable References
+    objects = program.o foo.o utils.o
+    program : $(objects)
+            cc -o program $(objects)
+    $(objects) : defs.h
+    # 6.2.1 Recursively Expanded Variable Assignment
+    foo = $(bar)
+    bar = $(ugh)
+    ugh = Huh?
+    all:;echo $(foo)  # echo Huh?
+    # 6.2.2 Simply Expanded Variable Assignment
+    x := foo
+    y := $(x) bar # foo bar
+    z  = $(x) bar # later bar
+    x := later
+    # 6.2.4 Conditional Variable Assignment
+    FOO ?= bar
+    ifeq ($(origin FOO), undefined)
+      FOO = bar
+    endif
+    # 6.7 The override Directive
+    # To override or append more text to a variable defined on the command line, use:
+    override CFLAGS = -fPIC
+    override CFLAGS := -fPIC
+    override CFLAGS += -g
+    # 6.8 Defining Multi-Line Variables
+    define two-lines
+    echo foo
+    echo $(bar)
+    endef
+    # 6.11 Target-specific Variable Values
+    target … : variable-assignment
+    # 6.12 Pattern-specific Variable Values
+    pattern … : variable-assignment
+    # 7.1 Example of a Conditional
+    libs_for_gcc = -lgnu
+    normal_libs =
+    foo: $(objects)
+    ifeq ($(CC),gcc)
+            $(CC) -o foo $(objects) $(libs_for_gcc)
+    else
+            $(CC) -o foo $(objects) $(normal_libs)
+    endif
+    # 8 Functions for Transforming Text
+    # 8.1 Function Call Syntax
+    $(function arguments)   # $(function a,b,c...)
+    ${function arguments}   # ${function a,b,c...}
+    # 8.2 Functions for String Substitution and Analysis
+    $(subst from,to,text)}
+    $(patsubst pattern,replacement,text)
+    $(strip string) 
+    $(findstring find,in)
+    $(filter pattern…,text)
+    $(filter-out pattern…,text)
+    $(sort list)        # $(sort foo bar lose) return‘bar foo lose’.
+    $(word n,text)     # $(word 2, foo bar baz) return bar
+    $(wordlist s,e,text) # $(wordlist 2, 3, foo bar baz) returns ‘bar baz’.
+    $(words index,text)
+    $(firstword names…)
+    $(lastword names…)
+    # 8.3 Functions for File Names
+    $(dir names…)             # $(dir src/foo.c bar) produces‘src/ ./’. 
+    $(notdir names…)           # $(notdir src/foo.c bar) produces‘foo.c bar’. 
+    $(suffix names…)          # $(suffix src/foo.c bar) produces‘.c’. 
+    $(basename names…)        # $(basename src/foo.c bar) produces‘src/foo bar’.
+    $(addsuffix suffix,names…) # $(addsuffix .c,foo bar) produces‘foo.c bar.c’.
+    $(addprefix prefix,names…) # $(addprefix src/,foo bar) produces‘src/foo src/bar’.
+    $(join list1,list2)         # $(join a b,.c .o) produces‘a.c b.o’.
+    $(wildcard pattern)
+    $(realpath names…)        # produces path lieke /a/b/c
+    $(abspath names…)        # produces path lieke /a/b/c
+    # 8.4 Functions for Conditionals
+    $(if condition,then-part[,else-part])
+    $(or condition1[,condition2[,condition3…]])
+    $(and condition1[,condition2[,condition3…]])
+    $(intcmp lhs,rhs[,lt-part[,eq-part[,gt-part]]])
+    # 8.5 The let Function
+    $(let var [var ...],[list],text)
+    reverse = $(let first rest,$1,\
+                $(if $(rest),$(call reverse,$(rest)) )$(first))
+
+    all: ; @echo $(call reverse,d c b a)
+    # 8.6 The foreach Function
+    $(foreach var,list,text)
+    # 8.7 The file Function
+    $(file op filename[,text])   # $(file >$@.in,$^)  $(file >>$@.in,$^)
+    # 8.8 The call Function
+    $(call variable,param,param,…)
+    # 8.9 The value Function
+    $(value variable)          # $(FOO) equals to $(value FOO)
+    # 8.10 The eval Function
+    $(eval txt)
+    # 8.11 The origin Function
+    $(origin variable)
+    # 8.12 The flavor Function
+    $(flavor variable)
+    # 8.13 Functions That Control Make
+    $(error text…)
+    $(warning text…)
+    $(info text…) 
+    # 8.14 The shell Function
+    $(shell command argus...)  # contents := $(shell cat foo)
+    # 8.15 The guile Function
+    # GNU Guile embedded extension language ( Scheme programming language )
+    https://www.gnu.org/software/guile/
+    https://www.gnu.org/software/make/manual/make.html#Guile-Integration
+    $(guile arg)  
+    # 10.5 Defining and Redefining Pattern Rules
+    # 10.5.3 Automatic Variables
+    %.o : %.c ; recipe…
+    # 12 Extending GNU make
+    # 12.1 GNU Guile Integration
+    # 12.2 Loading Dynamic Objects
+    # 12.2.1 The load Directive
+    load object-file …
+    load object-file(symbol-name) …
+    load ../mk_funcs.so(mk_funcs_gmk_setup) # default moodule init function
+    load ../mk_funcs.so(init_mk_func)
+    # 12.2.4 Example Loaded Object
+    https://www.gnu.org/software/make/manual/make.html#Loaded-Object-Example
+```
+
+
+## 🍀 C.1 Index for all m4 macros
+
+    Index Entry     Section
+                                                        _       
+    __file__:       Location
+    __gnu__:        Platform macros
+    __line__:       Location
+    __os2__:        Platform macros
+    __program__:    Location
+    __unix__:       Platform macros
+    __windows__:    Platform macros
+                                                        A       
+    argn:          Shift
+    array:         Define
+    array_set:      Define
+                                                        B       
+    builtin:        Builtin
+                                                        C       
+    capitalize:      Patsubst
+    changecom:      Changecom
+    changequote:     Changequote
+    changeword:     Changeword
+    cleardivert:     Cleardivert
+    cond:          Shift
+    copy:          Composition
+    curry:         Composition
+                                                        D       
+    debugfile:      Debug Output
+    debugmode:      Debug Levels
+    decr:          Incr
+    define:        Define
+    define_blind:    Composition
+    defn:         Defn
+    divert:        Divert
+    divnum:       Divnum
+    dnl:          Dnl
+    downcase:      Patsubst
+    dquote:       Shift
+    dquote_elt:     Shift
+    dumpdef:        Dumpdef
+                                                        E       
+    errprint:       Errprint
+    esyscmd:        Esyscmd
+    eval:          Eval
+    example:        Manual
+    exch:          Arguments
+                                                        F       
+    fatal_error:     M4exit
+    foreach:        Foreach
+    foreachq:       Foreach
+    forloop:        Forloop
+    format:     Format
+                                                        I       
+    ifdef:      Ifdef
+    ifelse:     Ifelse
+    ifelse:     Ifelse
+    ifelse:     Ifelse
+    include:     Include
+    incr:       Incr
+    index:      Index macro
+    indir:      Indir
+                                                        J       
+    join:       Shift
+    joinall:      Shift
+                                                        L       
+    len:        Len
+                                                        M       
+    m4exit:     M4exit
+    m4wrap:     M4wrap
+    maketemp:       Mkstemp
+    mkstemp:        Mkstemp
+                                                        N       
+    nargs:      Pseudo Arguments
+                                                        O       
+    os2:        Platform macros
+                                                        P       
+    patsubst:       Patsubst
+    popdef:     Pushdef
+    pushdef:        Pushdef
+                                                        Q       
+    quote:      Shift
+                                                        R       
+    regexp:     Regexp
+    rename:     Composition
+    reverse:        Shift
+                                                        S       
+    shift:      Shift
+    sinclude:       Include
+    stack_foreach:      Stacks
+    stack_foreach_lifo:     Stacks
+    stack_foreach_sep:      Improved copy
+    stack_foreach_sep_lifo:     Improved copy
+    substr:     Substr
+    syscmd:     Syscmd
+    sysval:     Sysval
+                                                        T       
+    traceoff:       Trace
+    traceon:        Trace
+    translit:       Translit
+                                                        U       
+    undefine:       Undefine
+    undivert:       Undivert
+    unix:         Platform macros
+    upcase:        Patsubst
+                                                        W       
+    windows:        Platform macros
+
+
+## 🍀 C.2 Index for many concepts
+
+    Index Entry     Section
+                                                                A       
+    argument currying:      Composition
+    arguments to macros:        Macro Arguments
+    arguments to macros:        Arguments
+    arguments to macros, special:       Pseudo Arguments
+    arguments, joining:     Shift
+    arguments, more than nine:      Arguments
+    arguments, more than nine:      Shift
+    arguments, more than nine:      Improved foreach
+    arguments, quoted macro:        Quoting Arguments
+    arguments, reversing:       Shift
+    arithmetic:     Arithmetic
+    arrays:     Define
+    avoiding quadratic behavior:        Improved foreach
+                                                                B       
+    basic regular expressions:      Regexp
+    basic regular expressions:      Patsubst
+    blind macro:        Inhibiting Invocation
+    blind macro:        Ifelse
+    blind macro:        Composition
+    bug reports:        Bugs
+    builtins, indirect call of:     Builtin
+    builtins, special tokens:       Defn
+                                                                C       
+    call of builtins, indirect:     Builtin
+    call of macros, indirect:       Indir
+    case statement:     Ifelse
+    changing comment delimiters:        Changecom
+    changing quote delimiters:      Changequote
+    changing syntax:        Changeword
+    characters, translating:        Translit
+    command line:       Invoking m4
+    command line, file names on the:        Command line files
+    command line, macro definitions on the:     Preprocessor features
+    command line, options:      Invoking m4
+    commands, exit status from shell:       Sysval
+    commands, running shell:        Shell commands
+    comment delimiters, changing:       Changecom
+    comments:       Comments
+    comments, copied to output:     Changecom
+    comparing strings:      Ifelse
+    compatibility:      Compatibility
+    composing macros:       Composition
+    concatenating arguments:        Shift
+    conditional, short-circuiting:      Shift
+    conditionals:       Ifdef
+    controlling debugging output:       Debug Levels
+    copying macros:     Composition
+    counting loops:     Forloop
+    currying arguments:     Composition
+                                                                D       
+    debugging macros:       Debugging
+    debugging output, controlling:      Debug Levels
+    debugging output, saving:       Debug Output
+    decrement operator:     Incr
+    deferring expansion:        M4wrap
+    deferring output:       Diversions
+    defining new macros:        Definitions
+    definition stack:       Pushdef
+    definition stack:       Stacks
+    definitions, displaying macro:      Defn
+    definitions, displaying macro:      Dumpdef
+    deleting macros:        Undefine
+    deleting whitespace in input:       Dnl
+    delimiters, changing:       Changequote
+    delimiters, changing:       Changecom
+    discarding diverted text:       Cleardivert
+    discarding input:       Ifelse
+    discarding input:       Dnl
+    discarding input:       Divert
+    displaying macro definitions:       Dumpdef
+    diversion numbers:      Divnum
+    diverted text, discarding:      Cleardivert
+    diverting output to files:      Divert
+    dumping into frozen file:       Using frozen files
+                                                                E       
+    error messages, printing:       Errprint
+    errors, fatal:      Operation modes
+    evaluation, of integer expressions:     Eval
+    examples, understanding:        Manual
+    executing shell commands:       Shell commands
+    exit status from shell commands:        Sysval
+    exiting from m4:        M4exit
+    expansion of macros:        Macro expansion
+    expansion, deferring:       M4wrap
+    expansion, tracing macro:       Trace
+    expressions, evaluation of integer:     Eval
+    expressions, regular:       Regexp
+    expressions, regular:       Patsubst
+    extracting substrings:      Substr
+                                                                F       
+    fast loading of frozen files:       Using frozen files
+    fatal errors:       Operation modes
+    FDL, GNU Free Documentation License:        GNU Free Documentation License
+    file format, frozen file:       Frozen file format
+    file inclusion:     File Inclusion
+    file inclusion:     Undivert
+    file inclusion:     Undivert
+    file names, on the command line:        Command line files
+    files, diverting output to:     Divert
+    files, names of temporary:      Mkstemp
+    for each loops:     Foreach
+    for loops:      Forloop
+    formatted output:       Format
+    Free Documentation License (FDL), GNU:      GNU Free Documentation License
+    frozen file format:     Frozen file format
+    frozen files for fast loading:      Using frozen files
+                                                                G       
+    General Public License (GPL), GNU:      GNU General Public License
+    GNU extensions:     Inhibiting Invocation
+    GNU extensions:     Define
+    GNU extensions:     Arguments
+    GNU extensions:     Indir
+    GNU extensions:     Builtin
+    GNU extensions:     Debug Levels
+    GNU extensions:     Debug Output
+    GNU extensions:     Search Path
+    GNU extensions:     Divert
+    GNU extensions:     Undivert
+    GNU extensions:     Undivert
+    GNU extensions:     Regexp
+    GNU extensions:     Patsubst
+    GNU extensions:     Format
+    GNU extensions:     Eval
+    GNU extensions:     Esyscmd
+    GNU extensions:     Mkstemp
+    GNU extensions:     Using frozen files
+    GNU extensions:     Extensions
+    GNU Free Documentation License:     GNU Free Documentation License
+    GNU General Public License:     GNU General Public License
+    GNU M4, history of:     History
+    GPL, GNU General Public License:        GNU General Public License
+                                                                H       
+    history of m4:      History
+                                                                I       
+    included files, search path for:        Search Path
+    inclusion, of files:        File Inclusion
+    inclusion, of files:        Undivert
+    inclusion, of files:        Undivert
+    increment operator:     Incr
+    indirect call of builtins:      Builtin
+    indirect call of macros:        Indir
+    initialization, frozen state:       Using frozen files
+    input location:     Preprocessor features
+    input location:     Location
+    input tokens:       Syntax
+    input, discarding:      Ifelse
+    input, discarding:      Dnl
+    input, discarding:      Divert
+    input, saving:      M4wrap
+    integer arithmetic:     Arithmetic
+    integer expression evaluation:      Eval
+    invoking m4:        Invoking m4
+    invoking macros:        Invocation
+    iterating over lists:       Foreach
+                                                                J       
+    joining arguments:      Shift
+                                                                L       
+    length of strings:      Len
+    lexical structure of words:     Changeword
+    License, code:      Copying This Package
+    License, manual:        Copying This Manual
+    limit, nesting:     Limits control
+    literal output:     Pseudo Arguments
+    local variables:        Pushdef
+    location, input:        Preprocessor features
+    location, input:        Location
+    loops:      Shift
+    loops, counting:        Forloop
+    loops, list iteration:      Foreach
+                                                                M       
+    M4PATH:     Search Path
+    macro composition:      Composition
+    macro definitions, on the command line:     Preprocessor features
+    macro expansion, tracing:       Trace
+    macro invocation:       Invocation
+    macro, blind:       Inhibiting Invocation
+    macro, blind:       Ifelse
+    macro, blind:       Composition
+    macros, arguments to:       Macro Arguments
+    macros, arguments to:       Arguments
+    macros, copying:        Composition
+    macros, debugging:      Debugging
+    macros, displaying definitions:     Defn
+    macros, displaying definitions:     Dumpdef
+    macros, expansion of:       Macro expansion
+    macros, how to define new:      Definitions
+    macros, how to delete:      Undefine
+    macros, how to rename:      Defn
+    macros, indirect call of:       Indir
+    macros, quoted arguments to:        Quoting Arguments
+    macros, recursive:      Shift
+    macros, special arguments to:       Pseudo Arguments
+    macros, temporary redefinition of:      Pushdef
+    manipulating quotes:        Shift
+    messages, printing error:       Errprint
+    more than nine arguments:       Arguments
+    more than nine arguments:       Shift
+    more than nine arguments:       Improved foreach
+    multibranches:      Ifelse
+                                                                N       
+    names:      Names
+    nesting limit:      Limits control
+    nine arguments, more than:      Arguments
+    nine arguments, more than:      Shift
+    nine arguments, more than:      Improved foreach
+    numbers:        Manual
+                                                                O       
+    options, command line:      Invoking m4
+    output, diverting to files:     Divert
+    output, formatted:      Format
+    output, literal:        Pseudo Arguments
+    output, saving debugging:       Debug Output
+    overview of m4:     Intro
+                                                                P       
+    pattern substitution:       Patsubst
+    platform macros:        Platform macros
+    positional parameters, more than nine:      Arguments
+    POSIX:      Extensions
+    POSIXLY_CORRECT:        Invoking m4
+    POSIXLY_CORRECT:        Incompatibilities
+    preprocessor features:      Preprocessor features
+    printing error messages:        Errprint
+    pushdef stack:      Pushdef
+    pushdef stack:      Stacks
+                                                                Q       
+    quadratic behavior, avoiding:       Improved foreach
+    quote delimiters, changing:     Changequote
+    quote manipulation:     Shift
+    quoted macro arguments:     Quoting Arguments
+    quoted string:      Quoted strings
+    quoting rule of thumb:      Quoting Arguments
+                                                                R       
+    recursive macros:       Shift
+    redefinition of macros, temporary:      Pushdef
+    regular expressions:        Changeword
+    regular expressions:        Regexp
+    regular expressions:        Patsubst
+    reloading a frozen file:        Using frozen files
+    renaming macros:        Defn
+    renaming macros:        Composition
+    reporting bugs:     Bugs
+    rescanning:     Limits control
+    rescanning:     Inhibiting Invocation
+    rescanning:     Pseudo Arguments
+    rescanning:     Defn
+    rescanning:     Other Incompatibilities
+    reversing arguments:        Shift
+    rule of thumb, quoting:     Quoting Arguments
+    running shell commands:     Shell commands
+                                                                S       
+    saving debugging output:        Debug Output
+    saving input:       M4wrap
+    search path for included files:     Search Path
+    shell commands, exit status from:       Sysval
+    shell commands, running:        Shell commands
+    short-circuiting conditional:       Shift
+    special arguments to macros:        Pseudo Arguments
+    stack, macro definition:        Pushdef
+    stack, macro definition:        Stacks
+    standard error, output to:      Dumpdef
+    standard error, output to:      Trace
+    standard error, output to:      Errprint
+    status of shell commands:       Sysval
+    status, setting m4 exit:        M4exit
+    string, quoted:     Quoted strings
+    strings, length of:     Len
+    substitution by regular expression:     Patsubst
+    substrings, extracting:     Substr
+    substrings, locating:       Index macro
+    suggestions, reporting:     Bugs
+    suppressing warnings:       Macro Arguments
+    switch statement:       Ifelse
+    synchronization lines:      Preprocessor features
+    syntax, changing:       Changeword
+                                                                T       
+    temporary file names:       Mkstemp
+    temporary redefinition of macros:       Pushdef
+    TMPDIR:     Diversions
+    tokens:     Syntax
+    tokens, builtin macro:      Defn
+    tokens, special:        Other tokens
+    tracing macro expansion:        Trace
+    translating characters:     Translit
+                                                                U       
+    undefining macros:      Undefine
+    UNIX commands, exit status from:        Sysval
+    UNIX commands, running:     Shell commands
+                                                                V       
+    variables, local:       Pushdef
+                                                                W       
+    warnings, suppressing:      Macro Arguments
+    words:      Names
+    words, lexical structure of:        Changeword
+
 
 
 # 🐣 NMake 微软自动化构建工具

@@ -2,8 +2,6 @@
 - https://elixir-lang.org/
 - http://jonnyzheng.github.io/blog/2013/07/30/elixir-intro/
 - [Elixir 编程入门](https://github.com/straightdave/programming_elixir)
-- []()
-- []()
 
 Elixir，[ɪ'lɪksər]，意为灵丹妙药、圣水，其 logo 是一枚紫色水滴。
 
