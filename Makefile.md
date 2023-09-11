@@ -2147,7 +2147,7 @@ Makefile 脚本作用指令 make 执行编译工作的规则集合，它本身�
 
 如果知道某些 Makefile 脚本是不需要更新的，可以使用空实现的规则定义，其格式是 `target: ;`，注意使用单个分号以及使用分号结尾，并且与 Target 名称同在一行，参考手册 5.9 Using Empty Recipes。
 
-一般来说，使用双冒号规则定义的 Target 或者是 .PHONY （内置的虚目标）会会无条件地执行，而不管依赖文件是否有更新，参考手册 4.13 Double-Colon Rules。
+一般来说，使用双冒号规则定义的 Target 或者是 .PHONY （内置的虚目标）会无条件地执行，而不管依赖文件是否有更新，参考手册 4.13 Double-Colon Rules。
 
 但是，将这类规则应用到 MakeFile 时会导致死循环，make 会不断更新并读取被依赖的 Makefile，所以 make 对这类规则做了改变，禁止默认的无条件执行，而是无条忽略原本要执行的 Makefile 更新动作。所以，这个反常态的规则变化可以用来做加载优化，文件操作是 I/O 密集问题，操作的文件越少，程序性能就会越高，下面其中任何一条都可以避免 Makefile 的重复处理：
 
@@ -2217,6 +2217,32 @@ $ watch "echo Watching... && make -f Makefile" -wait 0.2 .
 
 按照 GNU m4 宏编程经验， Macros 即代码生成工具，输入输出都是字符串，输入字符中所有宏符号都会被相应的宏定义内容替换。但是 make 作为一种宏编程工具，有些功能差异，它并不像 GNU m4 这种通用的宏编程工具，出于约束它的灵活性同时降低使用风险，make 增加了许多约束条件，比如在 Target 规则之外不能使用宏输出内容。
 
+Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 directive 用于实现 make 脚本功能的内置宏。另外就是附加的一些宏脚本编程能力，比如变量、宏指令、宏参数、include 其它脚本、 Secondary Expansion 二次展开，以及各种特殊功能符号等等，它们功能上都类似 GNU m4 的宏替换过程。Makefile 规则定义就是描述如何生成 Targer 之间的逻辑关系，也就是 Target 之间可以形成的依赖网络。
+
+
+```sh
+    # 4.2 Rule Syntax
+    target … : prerequisites …
+            recipe
+            …
+            …
+```
+
+默认配置下，recipe 部分编写的命令内容必须使用 Tab 符号作为行首字符。可以使用 .RECIPEPREFIX 内置变量来定义。但这个功能不一定所有 make 都支持，在不支持的情况下就会提示错误信息：missing separator.
+
+    .RECIPEPREFIX = >
+    all:
+    > @echo Hello, world
+
+Makefile 最基本的能力就是根据 Taraget 所设置的依赖决定是否需要执行 recipe 中编写的编译命令来生成最新的程序。这其中涉及了文件更新时间戳的检测行为，包括 Target 命令匹配的文件，以及规则中冒号右侧指定的依赖文件。
+
+当然，不是所有规则都需要对应文件，像以上示范中的规则，一个命名为 all 的目标，没有任何依赖文件，它本身也不对应磁盘中的文件，这条规则只需要在命令行中执行一条 echo 命令，打印一段字符串。
+
+依赖关系链由 Target 与先决条件 prerequisites 之间的联系产生，因为先决条件中的任何项都可以被定义为 Target，也就形成了 A_Target -> Prerequisite -> B_Target -> Prerequisite 这样的链条。当执行 make A_Target 时，根据依赖链，会一起递归到最尾端的 Target 并执行其规则定义的 recipes，然后逐级返回执行上一层的 recipes，直到 A_Target 的部分。
+
+
+但是，只要这链条中间任何一环节破坏，Target 命名与上一层的先决条件不匹配，那么后面的 Target 定义即失效。除非调用 make 命令时，直接指定那些处于断链状态的 Target。依赖关系的判断，是根据宏扩展后的结果进行的，所以定义规则时，可以在规则中的 Targets 或先决条件中使用任意的宏函数，来灵活地构建依赖关系网络。
+
 本质上，Makefile 就是一个描述依赖关系的脚本，例如如下一个 `Makefile` 规则定义：
 
 ```sh
@@ -2249,25 +2275,56 @@ clean:
 
 一般的 Makefile 规则以冒号为分界，*Ordinary Rules*，左侧表示输出称为 `Target`，可以有多个输出，它本身就是一般的没有隐含功能的字符串标识，右侧表示输入称之为依赖或者先决条件。更复杂的规则可以参考官方文档，Complex Makefile 示例中有完整的规则参考。语法中的 recipe 单词为食谱、处方，也是规则实现、促使规则达成的意思。像以上这种规则，因为 Target 部分字符具有特殊功能的规则，称之为隐式规则 *Implit Rules*，与之对应的就是显式规则 *Explicit rule*，普通规则就是显式规则。
 
-Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 directive 用于实现 make 脚本功能的内置宏。另外就是附加的一些宏脚本编程能力，比如变量、宏指令、宏参数、include 其它脚本、 Secondary Expansion 二次展开，以及各种特殊功能符号等等，它们功能上都类似 GNU m4 的宏替换过程。Makefile 规则定义就是描述如何生成 Targer 之间的逻辑关系，也就是 Target 之间可以形成的依赖网络。
-
 Make 和 GNU m4 一样默认使用 # 作为注解符号。另外，如果行内容超长，可以在先进性行尾使用斜杠 \ 转义换行符号，便后一行内容与前一行内容拼接起来成为一行，即相当于断行连接。
 
-```sh
-    # 4.2 Rule Syntax
-    target … : prerequisites …
-            recipe
-            …
-            …
-```
-
-依赖关系链由 Target 与先决条件 prerequisites 之间的联系产生，因为先决条件中的任何项都可以被定义为 Target，也就形成了 A_Target -> Prerequisite -> B_Target -> Prerequisite 这样的链条。当执行 make A_Target 时，根据依赖链，会一起递归到最尾端的 Target 并执行其规则定义的 recipes，然后逐级返回执行上一层的 recipes，直到 A_Target 的部分。
-
-但是，只要这链条中间任何一环节破坏，Target 命名与上一层的先决条件不匹配，那么后面的 Target 定义即失效。除非调用 make 命令时，直接指定那些处于断链状态的 Target。依赖关系的判断，是根据宏扩展后的结果进行的，所以定义规则时，可以在规则中的 Targets 或先决条件中使用任意的宏函数，来灵活地构建依赖关系网络。
 
 ### Rules Definition
+1. https://www.gnu.org/software/make/manual/make.html#Rule-Example
+2. https://www.gnu.org/software/make/manual/make.html#Rule-Introduction
+3. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
+4. https://www.gnu.org/software/make/manual/make.html#Recipe-Syntax
+1. https://www.gnu.org/software/make/manual/make.html#Suffix-Rules
+2. https://www.gnu.org/software/make/manual/make.html#Complex-Makefile
 
-一个比较让人难以理解的规则，可能是模式匹配规则 *Pattern Rule*，它会在 Target 名称和先决条件中使用 % 符号来做匹配工作。并且按照依赖关系的处理，Taget 中的 % 符号会和上层目标的先决条件进行匹配处理。一旦上层 Target 的先决条件也使用了 % 做模式匹配，那么就有非常大的可能导致下层的 Target 与上层建立不了依赖联系，这完全取决于宏扩展结果生成的上层先决条件中的内容。
+手册参考：
+
+2.1 What a Rule Looks Like
+3.7 How make Reads a Makefile
+4.1 Rule Example
+4.3 Types of Prerequisites
+4.6 Phony Targets
+4.10 Multiple Targets in a Rule
+4.12 Static Pattern Rules
+4.13 Double-Colon Rules
+4.14 Generating Prerequisites Automatically
+5.1 Recipe Syntax
+5.4 Parallel Execution
+7 Conditional Parts of Makefiles
+10.5 Defining and Redefining Pattern Rules
+10.5.3 Automatic Variables
+10.5.4 How Patterns Match
+16.6 Standard Targets for Users
+10.7 Old-Fashioned Suffix Rules
+
+总的来说，Makefile 规则定义可以简化理解为：
+
+1. Targets 指代要执行命令生成的文件；
+2. Prerequisites 指代 Targets 依赖的文件，这些文件本身又可以定义为相应的 Target；
+3. Recipes 指代生成 Target 要执行的命令，make 会通过 shell -c 执行这些命令；
+
+Target 与依赖文件之间的依赖关系通过它们的名称进行匹配，只要一个 Target 名称出现在某一个依赖文件路径之内，即可以建立 Targets 之间的依赖关系。
+
+依赖关系一般是空格分隔的字符串，属于 Makefile 中的列表，依赖列表有两种定义形式：
+
+    # 4.3 Types of Prerequisites
+    targets : normal-prerequisites | order-only-prerequisites
+
+1. normal-prerequisites 任何一个依赖有更新，则需要重新构建建目标。
+2. order-only-prerequisites 此依赖列表中文件的更新，不触发重新构建目标。
+
+Order-only 应该译作“仅指示”或者“整理过的”，这种依赖可以称作指示性依赖，也就是说这种依赖出现在依赖列表中的管道符号后面依赖都是起指示性功能，供阅读者参考，但本身不会参数 make 的更新时间条件比较运算。
+
+另一个比较让人难以理解的规则，可能是模式匹配规则 *Pattern Rule*，它会在 Target 名称和先决条件中使用 % 符号来做匹配工作。并且按照依赖关系的处理，Taget 中的 % 符号会和上层目标的先决条件进行匹配处理。一旦上层 Target 的先决条件也使用了 % 做模式匹配，那么就有非常大的可能导致下层的 Target 与上层建立不了依赖联系，这完全取决于宏扩展结果生成的上层先决条件中的内容。
 
 模式匹配规则 *Pattern Rule* 也是隐式规则的一种，这种规则使用了 % 通配符号来匹配 Target 或者先决条件中的内容。Multiple Targets 规则中经常需要模式匹配规则来处理大量的文件。通配符 % 匹配任意非空白字符，可以用在 Targets 或者 Prerequisites 之中。
 
@@ -2281,10 +2338,6 @@ https://www.gnu.org/software/make/manual/make.html#Special-Targets
 Makefile 中定义的 Target 可以有多条规则，但多条规则只能使用同样的规则类型，单冒号的或者双冒号的规则。具有相同 Target 的双冒号规则各自完全独立，每个双冒号规则都单独处理，就像处理具有不同目标的规则一样。双冒号规则按照它们在 Makefile 中出现的顺序执行。然而，双冒号规则真正有意义的情况是那些执行配方的顺序无关紧要的情况。
 
 双冒号规则有些晦涩难懂，而且通常不太有用；它们只是提供了一种更新 Target 的机制。
-
-1. https://www.gnu.org/software/make/manual/html_node/Suffix-Rules.html
-2. https://www.gnu.org/software/make/manual/make.html#Complex-Makefile
-
 
 注意，make 目标就是根据先决条件产生相应的输出文件，所以一般的规则中，Target 对应的是系统磁盘中的文件，亦即 make 会隐含地进行 Target 和先决条件文件的检查。检查工作一项重要任务是比较 Target 与其先决条件文件、文件夹的更新时间，如果发现先决条件有更新，则触发 Target 的重新编译。
 
@@ -2308,13 +2361,6 @@ Makefile 中定义的 Target 可以有多条规则，但多条规则只能使用
 1. Grouped Targets 形式中所有 Targets 用空格隔开，或者使用变量列表，列表后跟 `&:`；
 2. Static Pattern Rules 形式中，多个 Target 后还有 target-pattern 和 prereq-patterns；
 
-手册参考：
-
-4.10 Multiple Targets in a Rule
-4.12 Static Pattern Rules
-10.5 Defining and Redefining Pattern Rules
-10.5.3 Automatic Variables
-
 对于分组形式，Target 不能出现在多个分组，除非使用 `&::` 而不是 `&:` 符号，其中 & 符号代表 all 的意思。分组形式的更新有一个特点：当其中一个 Target 先决条件更新，所有 Targets 都需要更新编译。
 
 此时可以在 reciple 可以使用以下自动变量，注意 @ 符号用在 shell 命令前以消隐当前当的内容，避免在执行命令时将命令本身打印出来：
@@ -2326,11 +2372,22 @@ Makefile 中定义的 Target 可以有多条规则，但多条规则只能使用
 5. `$?` 自动变量引用先决条件列表中比当前 Target 更新的那一部分。
 
 提示：使用 cc -M 或者 cc -MM 命令可以打印指定 C/C++ 源代码中的头文件依赖关系。
-Linux 命令 `ls -ld */*/` 可以打印二级子目录，使用通配符加斜杠组合 `*/` 成一个目录匹配模式。
+Linux 命令 `ls -ld */*/` 可以打印二级子目录，使用通配符加斜杠组合 `*/` 成一个目录匹配模式。参考手册 4.14 Generating Prerequisites Automatically。
 
 在子目录嵌套执行 make 时注意，因为 make 每执行一行命令都会返回到默认的工作目录。所以需要执行 cd 命令后执行的命令，必需并行执行，手册参考 5.7 Recursive Use of make。
 
-除了在规则中使用 % 模式匹配，还可以在 wildcard 函数中使用 * 通配符来获取文件或目录列表，可以同时获取多种文件类型，比如 `$(wildcard *.erl *.hrl)`，每种类型文件都是一个排序过的列表。
+如果不喜欢命令并行执行，又或者命令太长，那么就需要使用在单独一个 shell 进程中执行命令，内置目标 .ONESHELL 就是干这种事的，将要以 One Shell 方式执行的目标添加作为其依赖项，参考手册 5.3.1 Using One Shell。
+
+    .ONESHELL:
+    foo : bar/lose
+        cd $(<D)
+        gobble $(<F) > ../$@
+
+Make 命令默认使用 shell 程序的 -c 或者 -ec 参数来执行规则定义的命令，后者在 POSIX 标准模式中使用。通过内置变量 SHELL 和 .SHELLFLAGS 可以修改这些参数值，参考手册 5.3.2 Choosing the Shell。
+
+    SHELL = $(COMSPEC)
+    SHELL = /bin/sh
+    SHELLFLAGS = -c
 
 注意，条件判断宏不能使用 Tab 缩进，并且参数列表使用圆括号时，需要用空格与宏名称隔开。这个空格隔开参数列表好理解，但是不能缩进这种要求实在太奇异了。但是，这种语法的怪异是有原因的。根据手册说明，3.7.2 Conditional Directives - Conditional directives are parsed immediately，也就是条件会在 make 一运行时就解释，不再有后续的宏扩展功能，这也就是为何不能在条件宏中使用局部变量的因由。
 
@@ -2364,11 +2421,40 @@ Static Pattern Rules 规则定义中，目标匹配模式 `target-pattern` 和�
             recipe
             …
 
+除了在规则中使用 % 模式匹配，还可以在 wildcard 函数中使用 * 通配符来获取文件或目录列表，可以同时获取多种文件类型，比如 `$(wildcard *.erl *.hrl)`，每种类型文件都是一个排序过的列表。
+
 目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns` 说明如何计算每个目标的前提条件。每个目标都与目标模式相匹配，以提取目标名称的一部分，称为词干。这个词干被替换到每个prereq模式中，以形成先决条件名称（每个preeq模式中有一个）。
 
 每个模式匹配都包含一个“%”字符以匹配 Target 名称中的一部分，称之为 stem 主干。只有在 target-pattern 与 Target 名称完全匹配时，比如在一条 `foo.o : %.o : src/%.c %.h` 规则中，Target 名称为 `foo.o` 与目标模式 `%.o` 就是完全匹配，主干部分 `foo` 替换到每一个 `prereq-patterns` 匹配模式中，并且先决匹配模式中只能有一个 % 符号。最后，得到 Target 与 `src/foo.c` 和 `foo.h` 两个先决条件的依赖关系。
 
+模式匹配规则中，Target 名称，即包含 % 符号的字符串会和上层目标的依赖条目进行匹配，这个匹配只是部分匹配，只需要上层依赖文件路径中出现了可以匹配 Target 名称的内容就算是匹配。
+
+在多条模式匹配规则中，% 匹配到的主干内容越短，执行优先级越高，即提供额外的字符越多匹配越细致。以下示范中演示了这个匹配优先级的作用，其中 b% 不会被执行，因为对于匹配 bar 这样的目标，另外一条 ba% 有更细致的匹配，而 % 提供的匹配信息最粗放，它也是最后的备选规则：
+
+```sh
+    all : foo far
+    foo far: f%: src/b%.c
+    %: ;   @echo -% $@
+    b%: ;  @echo -b% $@
+    f%: ;  @echo -f% $@
+    ba%: ; @echo -ba% $@
+    bo%: ; @echo -bo% $@
+
+    .DEFAULT_GOAL = all
+```
+
+参考输出：
+
+    -bo% src/boo.c
+    -f% foo
+    -ba% src/bar.c
+    -f% far
+    -% all
+
+
 ### Secondary Expansion
+1. https://www.gnu.org/software/make/manual/make.html#Secondary-Expansion
+2. https://www.gnu.org/software/make/manual/make.html#Static-Pattern
 
 Make 规则解释过程工作于两个阶段，读取规则定义阶段，和更新规则阶段。对于 Target 的依赖部分，make 引入了二次扩展，所谓二次扩展就是对宏定义展开的基础上再做一次扩展，也就需要经过两轮宏符号替换操作，参考手册 3.9 Secondary Expansion。
 
@@ -2434,7 +2520,7 @@ foo: $$< $$(join $$^, .ext .ext) $$+
 1.  `$<` 自动变量表示依赖列表中的第一个依赖项；
 2.  `$^` 自动变量表示整个依赖列表，列表中各依赖项之以空格隔开；
 3.  `$+` 类似 $^，只是按顺序包含目标在 Makefile 中的依赖列表，配合链接程序使用；
-
+4.  `$*` 模式匹配 % 符号匹配到的内容，称为主干 stem 并会替换依赖文件 % 符号；
 
 第一行依赖列表，所有自动变量展开为空字符串，因此此时依赖关系还没有建立。
 
@@ -2447,7 +2533,37 @@ foo: $$< $$(join $$^, .ext .ext) $$+
 
 以下是 Static Patter Rules 和 Implicit Rules 合体的二次展开示范例子：
 
+```sh
+.SECONDEXPANSION:
+foo : bar
+foo foz: f%: bo%
+%: $$< $$^ $$+ $$*
+    @echo -- $+
 
+.DEFAULT_GOAL = foo
+```
+
+当这个隐式规则由 foo 这个目标触发执行时，$$< 二次展开为 bar，即首个依赖，$$^ 和 $$+ 都展开为 bar booo，最后 $$* 展开为 oo 即模式匹配 % 符号匹配到的主干内容。最后，$$* 匹配到的主干为 foo。
+
+但是，由于模式匹配只有一 % 没有其它字符，所以它会匹配到这里定义的所有依赖条目，这就会形成循环依赖。比如，构建 bar 目标时，模式匹配规则就得到一条 `bar : $$< $$^ $$+ $$*` 依赖规则，二次展开替换为 `bar : bar`，因为是 bar 目标的首条依赖规则，除了 $$* 匹配到的主干为 bar 之外，其它三个自动变量都是空字符。而这个就是循环依赖，make 不允许这种规则，所以打印出来的消息中显示 $+ 自动变量是空字符。
+
+    make: Circular Makefile <- Makefile dependency dropped.
+    make: Circular bar <- bar dependency dropped.
+    --
+
+如果由 foo 触发目标的构建，那么就会有更多的依赖需要处理，情况复杂一点。其中第一个依赖就是 bar，然后匹配到第三条规则形成 `bar : bar` 循环依赖，当前的依赖链条结束，make 给出错误信息提示 Circular bar。但是依赖已经添加到 $+ 自动变量中包含的依赖列表，即 `foo : bar bar`。就当前目标而言 bar 本身在出现第一次循环依赖就结束了依赖关系的处理，所以它本身的依赖列表是空字符。
+
+然后，处理第二条规则，通过静态模式匹配，增加了一个 booo 依赖，此时 $+ 依赖列表就叠加了 booo 得到 `bar booo`，可以看到它是按 Makefile 规则中的依赖列表顺序叠加的。同样地，booo 也会在第三条规则中形成循环依赖，当前的依赖链条结束，make 给出错误信息提示 Circular booo。
+
+最后，其它自动变量也会在循环依赖出现之前向 $+ 列表添加相应的依赖条目。其中 $< 始终是指向第一个依赖 bar，这就是为何最终结果会出现 `bar bar booo` 这样的依赖。然后是 $^ 指向当前目标规则中的完整依赖列表，它不像 $+ 那样会将目标的所有规则中的依赖叠加起来，所以它指向的是 `bar booo`，再结合前面得到相同内容的 $+ 自动变量，整个依赖关系就是 `bar bar booo bar booo bar booo`。foo 本身也会和静态模式匹配结合形成循环依赖定义，从而终结整个目标的依赖关系，
+
+    make: Circular Makefile <- Makefile dependency dropped.
+    make: Circular bar <- bar dependency dropped.
+    --
+    make: Circular booo <- booo dependency dropped.
+    --
+    make: Circular foo <- foo dependency dropped.
+    -- bar bar booo bar booo bar booo
 
 例子中使用了 Static Patter Rules，所谓静态模式规则，就是增加了 `target-pattern` 的多目标规则：
 
@@ -2456,14 +2572,12 @@ foo: $$< $$(join $$^, .ext .ext) $$+
             recipe
             …
 
-模式匹配符号 % 可以再现在 Targets 命名中、还 `target-pattern` 和依赖项中。并且依赖项只能有一个 % 符号，这个符号将会被替换成 `target-pattern` 中 % 符号匹配到内容，此内容称为主干 stem。替换后得到的依赖项即为对应的依赖文件，或者下一层 Target 的名称，这个尝试找到模式匹配规则中的依赖项的过程就是隐式规则。
+模式匹配符号 % 可以出现在 Targets 命名中、还 `target-pattern` 和依赖项中。并且依赖项只能有一个 % 符号，这个符号将会被替换成 `target-pattern` 中 % 符号匹配到内容，此内容称为主干 stem。替换后得到的依赖项即为对应的依赖文件，或者下一层 Target 的名称，这个尝试找到模式匹配规则中的依赖项的过程就是隐式规则。
 
 Make 自动推导能力是关联多层目标的，比如，一个目标依赖 .o 文件，那么就会自动推导出 .o 目标，继而推导出 .c 目标，这就是 C 语言的基本构建涉及的文件目标。
 
-当这个隐式规则由 foo 这个目标触发执行时，$$< 二次展开为 bar，即首个依赖，$$^ 和 $$+ 都展开为 bar booo，最后 $$* 展开为 oo 即模式匹配 % 符号匹配到的主干内容。
 
-
-### Variaables
+### Variables
 1. https://www.gnu.org/software/make/manual/make.html#Automatic-Variables
 2. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
 3. https://www.gnu.org/software/make/manual/make.html#MAKE-Variable
@@ -2630,6 +2744,8 @@ GNU 还有许多高级的扩展编程能力，已经提供 GNU Glue 编程，这
 
 
 ### Implicit Rules
+https://www.gnu.org/software/make/manual/make.html#Suffix-Rules
+https://www.gnu.org/software/make/manual/make.html#Implicit-Rule-Search
 
 隐含规则绝对是 Makefile 宏编程中最令人迷惑的内容，一方面它既便利了常用的语言编译规则的编写，另一方面它又像副作用一样让人难以适应。特别是在不清楚隐式规则背后的功能时，脚本非旦不能简单地完成编译工具，还会带来各种让人迷惑的错误信息。
 
@@ -2904,6 +3020,57 @@ app : port.o
 18. *TANGLE*  转换 Web 到 Pascal 语言的程序。
 19. *CTANGLE*  转换 C Web 到 C。
 20. *RM*  删除文件命令。
+
+
+### Make CLI
+
+    Usage: make [options] [target] ...
+    Options:
+      -b, -m                      Ignored for compatibility.
+      -B, --always-make           Unconditionally make all targets.
+      -C DIRECTORY, --directory=DIRECTORY
+                                  Change to DIRECTORY before doing anything.
+      -d                          Print lots of debugging information.
+      --debug[=FLAGS]             Print various types of debugging information.
+      -e, --environment-overrides
+                                  Environment variables override makefiles.
+      -E STRING, --eval=STRING    Evaluate STRING as a makefile statement.
+      -f FILE, --file=FILE, --makefile=FILE
+                                  Read FILE as a makefile.
+      -h, --help                  Print this message and exit.
+      -i, --ignore-errors         Ignore errors from recipes.
+      -I DIRECTORY, --include-dir=DIRECTORY
+                                  Search DIRECTORY for included makefiles.
+      -j [N], --jobs[=N]          Allow N jobs at once; infinite jobs with no arg.
+      -k, --keep-going            Keep going when some targets can't be made.
+      -l [N], --load-average[=N], --max-load[=N]
+                                  Don't start multiple jobs unless load is below N.
+      -L, --check-symlink-times   Use the latest mtime between symlinks and target.
+      -n, --just-print, --dry-run, --recon
+                                  Don't actually run any recipe; just print them.
+      -o FILE, --old-file=FILE, --assume-old=FILE
+                                  Consider FILE to be very old and don't remake it.
+      -O[TYPE], --output-sync[=TYPE]
+                                  Synchronize output of parallel jobs by TYPE.
+      -p, --print-data-base       Print make's internal database.
+      -q, --question              Run no recipe; exit status says if up to date.
+      -r, --no-builtin-rules      Disable the built-in implicit rules.
+      -R, --no-builtin-variables  Disable the built-in variable settings.
+      -s, --silent, --quiet       Don't echo recipes.
+      --no-silent                 Echo recipes (disable --silent mode).
+      -S, --no-keep-going, --stop
+                                  Turns off -k.
+      -t, --touch                 Touch targets instead of remaking them.
+      --trace                     Print tracing information.
+      -v, --version               Print the version number of make and exit.
+      -w, --print-directory       Print the current directory.
+      --no-print-directory        Turn off -w, even if it was turned on implicitly.
+      -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE
+                                  Consider FILE to be infinitely new.
+      --warn-undefined-variables  Warn when an undefined variable is referenced.
+
+    This program built for x86_64-pc-msys
+    Report bugs to <bug-make@gnu.org>
 
 
 ### Makefile Syntaxes 语法列表
