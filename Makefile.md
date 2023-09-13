@@ -2123,6 +2123,16 @@ Which is then used during the setup phase.
     meson compile -C build-mingw
 
 
+## 🍀 面向 makefile 编程
+
+### 🐣 Project Templates
+
+### 🐣 Unit Test
+
+### 🐣 Multi threaded Download
+
+
+
 ## 🍀 Makefile 光学教程
 3. https://www.gnu.org/software/make/manual
 
@@ -2143,7 +2153,7 @@ Make 命令的默认输入文件是当前目录下的 GNUmakefile 或者 makefil
 
 脚本中可以使用 include 指令原样地引用其它脚本文件，或者使用 -include filenames… 方式引用以避免在文件近缺失时引发错误，相当于 C/C++ 中引用头文件一样。make 会在当前目录、默认头文件目录中搜索，或者通过命令行参数 -I 或 --include-dir 指定搜索目录列表。
 
-Makefile 脚本作用指令 make 执行编译工作的规则集合，它本身也需要根据项目变化而调整。自动构建系统中可能存在不止一个 Makefile 文件，一些可能是脚本自动生成的，所以会需要在 make 命令读取这些规则内容之前进行内容更新。在顶层 Makefile 规则中只可以设置某些 Target 依赖某些 Makefile 文件，并根据其更新状态来执行是否要更新其中的规则定义。每次更新重启、加载 Makefile，其相应的特殊变量 `MAKE_RESTARTS` 就是相应增加以记录重启次数。参考文档 3.5 How Makefiles Are Remade。
+Makefile 脚本作用指令 make 执行编译工作的规则集合，它本身也需要根据项目变化而调整。自动构建系统中可能存在不止一个 Makefile 文件，一些可能是脚本自动生成的，所以会需要在 make 命令读取这些规则内容之前进行内容更新。在顶层 Makefile 规则中只可以设置某些 Target 依赖某些 Makefile 文件，并根据其更新状态来执行是否要更新其中的规则定义。每次更新重启、加载 Makefile，其相应的特殊变量 `MAKE_RESTARTS` 就增加一次以记录重启次数。参考文档 3.5 How Makefiles Are Remade。
 
 如果知道某些 Makefile 脚本是不需要更新的，可以使用空实现的规则定义，其格式是 `target: ;`，注意使用单个分号以及使用分号结尾，并且与 Target 名称同在一行，参考手册 5.9 Using Empty Recipes。
 
@@ -2151,34 +2161,11 @@ Makefile 脚本作用指令 make 执行编译工作的规则集合，它本身�
 
 但是，将这类规则应用到 MakeFile 时会导致死循环，make 会不断更新并读取被依赖的 Makefile，所以 make 对这类规则做了改变，禁止默认的无条件执行，而是无条忽略原本要执行的 Makefile 更新动作。所以，这个反常态的规则变化可以用来做加载优化，文件操作是 I/O 密集问题，操作的文件越少，程序性能就会越高，下面其中任何一条都可以避免 Makefile 的重复处理：
 
+```makefile
     .PHONY: Makefile
 
     Makefile:: ;
-
-Make 支持多个 Tareget 并行处理，通过 -j 或 --jobs 指定并行数量，不能并行处理的 Target 可以将其添加到内置的 .NOTPARALLEL 目标依赖列表中：
-
-```sh
-    all: base notparallel
-
-    base: one two three
-    notparallel: one two three
-
-    one two three: ; @sleep 1; echo $@
-
-    .NOTPARALLEL: notparallel
 ```
-
-使用 `make -j 4` 运行以上脚本，会依次打印 one two three，此时 sleep 命令指定的时间延时会累计，以模拟大量的编译计算。如果注解掉 .NOTPARALLEL 则会按命令启用 4 进程/线程并行处理，所以整个项目只需要 1 秒就完成编译，而不是累计三个 Target 的 3 秒。
-
-并行处理过程中，消息打印就会乱序，可以开启输出同步 --output-sync 或 -O，或者使用
---print-directory 开启 working directory printing。
-
-1. `none` 默认方式，所有输出不经过同步直接打印；
-2. `line` 单行同步，确保每一行内容不会出现其它线程中的消息出现；
-3. `target` 单目标同步，--output-sync 或者 -O 即启用此方式，消息按 Target 各自分组输出；
-4. `recurse` 递归同步，也是分组方式，会在递归调用完成后进行分组和打印。
-
-多个进程不能同时从同一设备获取输入，为了确保一次只有一个进程尝试从终端获取输入，make 将使正在运行的进程能访问标准输入流，其它进程的标准输入流无效。如果另一方试图从标准输入中读取，通常会产生致命错误，Broken pipe signal。
 
 脚本的基本解释流程，3.8 How Makefiles Are Parsed，GNU make 命令行为单位解释 Makefile： 
 
@@ -2191,36 +2178,46 @@ Make 支持多个 Tareget 并行处理，通过 -j 或 --jobs 指定并行数量
 
 比如，手册给出的例子，单行编写的规则：
 
+```makefile
     myrule = target : ; echo built
 
     $(myrule)
+```
 
 解释时，make 会将其重新分割成相应的行：
 
+```makefile
     define myrule
     target:
             echo built
     endef
 
     $(myrule)
+```
 
 
 使用 Makefile 宏编程时，可以安装 Node.js watch 监视工具，它可以在监视到文件有更新时，及时调用指定的命令以自动地完成原来需要手工执行的命令行：
 
 ```sh
-$ npm install -g watch
-$ watch "echo Watching... && make -f Makefile" -wait 0.2 .
+npm install -g watch
+watch "echo ---====+ Watching +====--- && make -f Makefile" -wait 0.2 .
+watch "echo ---====+ Watching +====--- && make -j4 -Otarget" -wait 0.2 .
 ```
 
+注意，使用 watch 工具时，生成的文件最好不要放在监视中的目录下，这会触发命令的重新执行。当然，一个逻辑完全正确的 Makefile 绝不会出现重复编译。
 
-### Basic Concepts
+这个 watch 工具模拟了 Linux watch 工具，但是它们实现原理不一样，Node watch 是通过轮询文件状态信息实现，Linux 则提供了通用通知机制 watch_notification，建立在标准管道驱动之上，它可以有效地将来自内核的通知消息拼接到用 户空间打开的管道中，这就使用得 Linux watch 命令更加有效率。
+
+
+
+### 🐣 Basic Concepts
 
 按照 GNU m4 宏编程经验， Macros 即代码生成工具，输入输出都是字符串，输入字符中所有宏符号都会被相应的宏定义内容替换。但是 make 作为一种宏编程工具，有些功能差异，它并不像 GNU m4 这种通用的宏编程工具，出于约束它的灵活性同时降低使用风险，make 增加了许多约束条件，比如在 Target 规则之外不能使用宏输出内容。
 
-Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 directive 用于实现 make 脚本功能的内置宏。另外就是附加的一些宏脚本编程能力，比如变量、宏指令、宏参数、include 其它脚本、 Secondary Expansion 二次展开，以及各种特殊功能符号等等，它们功能上都类似 GNU m4 的宏替换过程。Makefile 规则定义就是描述如何生成 Targer 之间的逻辑关系，也就是 Target 之间可以形成的依赖网络。
+Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 directive 用于实现 make 脚本功能的内置宏。另外就是附加的一些宏脚本编程能力，比如变量、宏指令、宏参数、include 其它脚本、Secondary Expansion 二次展开，以及各种特殊功能符号等等，它们功能上都类似 GNU m4 的宏替换过程。Makefile 规则定义就是描述如何生成 Targer 之间的逻辑关系，也就是 Target 之间可以形成的依赖网络。
 
 
-```sh
+```makefile
     # 4.2 Rule Syntax
     target … : prerequisites …
             recipe
@@ -2230,9 +2227,11 @@ Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 
 
 默认配置下，recipe 部分编写的命令内容必须使用 Tab 符号作为行首字符。可以使用 .RECIPEPREFIX 内置变量来定义。但这个功能不一定所有 make 都支持，在不支持的情况下就会提示错误信息：missing separator.
 
-    .RECIPEPREFIX = >
+```makefile
+    .RECIPEPREFIX = ++
     all:
-    > @echo Hello, world
+    ++ @echo Hello, world
+```
 
 Makefile 最基本的能力就是根据 Taraget 所设置的依赖决定是否需要执行 recipe 中编写的编译命令来生成最新的程序。这其中涉及了文件更新时间戳的检测行为，包括 Target 命令匹配的文件，以及规则中冒号右侧指定的依赖文件。
 
@@ -2245,7 +2244,7 @@ Makefile 最基本的能力就是根据 Taraget 所设置的依赖决定是否�
 
 本质上，Makefile 就是一个描述依赖关系的脚本，例如如下一个 `Makefile` 规则定义：
 
-```sh
+```makefile
 all: foo
 foo: foo.o bar.o baz.o
 .c.o:
@@ -2278,7 +2277,7 @@ clean:
 Make 和 GNU m4 一样默认使用 # 作为注解符号。另外，如果行内容超长，可以在先进性行尾使用斜杠 \ 转义换行符号，便后一行内容与前一行内容拼接起来成为一行，即相当于断行连接。
 
 
-### Rules Definition
+### 🐣 Rules Definition
 1. https://www.gnu.org/software/make/manual/make.html#Rule-Example
 2. https://www.gnu.org/software/make/manual/make.html#Rule-Introduction
 3. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
@@ -2292,6 +2291,7 @@ Make 和 GNU m4 一样默认使用 # 作为注解符号。另外，如果行内�
 3.7 How make Reads a Makefile
 4.1 Rule Example
 4.3 Types of Prerequisites
+4.5 Searching Directories for Prerequisites
 4.6 Phony Targets
 4.10 Multiple Targets in a Rule
 4.12 Static Pattern Rules
@@ -2303,8 +2303,9 @@ Make 和 GNU m4 一样默认使用 # 作为注解符号。另外，如果行内�
 10.5 Defining and Redefining Pattern Rules
 10.5.3 Automatic Variables
 10.5.4 How Patterns Match
-16.6 Standard Targets for Users
+10.6 Defining Last-Resort Default Rules
 10.7 Old-Fashioned Suffix Rules
+16.6 Standard Targets for Users
 
 总的来说，Makefile 规则定义可以简化理解为：
 
@@ -2322,18 +2323,188 @@ Target 与依赖文件之间的依赖关系通过它们的名称进行匹配，�
 1. normal-prerequisites 任何一个依赖有更新，则需要重新构建建目标。
 2. order-only-prerequisites 此依赖列表中文件的更新，不触发重新构建目标。
 
-Order-only 应该译作“仅指示”或者“整理过的”，这种依赖可以称作指示性依赖，也就是说这种依赖出现在依赖列表中的管道符号后面依赖都是起指示性功能，供阅读者参考，但本身不会参数 make 的更新时间条件比较运算。
+Order-only 应该译作“仅指示”或者“整理过的”，这种依赖可以称作指示性依赖，也就是说这种依赖出现在依赖列表中的管道符号后面依赖都是起指示性功能，供阅读者参考，但本身不会参数 make 的更新时间条件比较运算。搭配 .PHONY 目标使用，就可以实现那些 Order-only 目标在依赖它的目标发生构建时才会进行重新构建。
+
+在定位 Target 文件或依赖文件时，make 默认以当前工作目录为参考，而不所执行的 Makefile 目录。工作目录即命令当前运行所在目录，使用 . 表示，上级目录使用 .. 表示。Unix 类型系统中，~/ 还表示用户的 Home 目录。Makefile 中可以使用内置谈到 `VPATH` 添加依赖文件搜索路径，默认使用冒号作为目录之间的分隔符号。Windows 系统则使用分号作为目录之间的分隔符号。另外，还可以使用 `vpath` 指令来设置模式匹配，给匹配到的依赖文件指定一个搜索目录。此外，还可以使用 wildcard 函数配合 * 通配符来获取文件列表。
+
+```makefile
+# vpath pattern directories
+# vpath   %.c   C:/coding/md-code/erlang/port/ebin
+VPATH = one/src : more/src :  C:/coding/md-code/erlang/port/ebin
+
+all : pp
+#   touch ebin/pp.c
+    @echo VPATH: $(word 1,$(VPATH))
+
+# port.h is order-only which never cause pp remake.
+pp : pp.c | port.h
+
+# port.h is normal prerequisite which cause pp remake when it updated.
+# pp : pp.c port.h  
+
+.DEFAULT_GOAL = all
+```
+
+每条规则定义中，Recipes 指代生成 Target 要执行的命令，但是这部分是可选的，即一条规则只有 Target 名称和冒号是必需的，依赖和命令都是可选的内容。并且，如果需要编写命令，那么按默认设置，就一定要使用 Tab 符号作为行首字符。
+
 
 另一个比较让人难以理解的规则，可能是模式匹配规则 *Pattern Rule*，它会在 Target 名称和先决条件中使用 % 符号来做匹配工作。并且按照依赖关系的处理，Taget 中的 % 符号会和上层目标的先决条件进行匹配处理。一旦上层 Target 的先决条件也使用了 % 做模式匹配，那么就有非常大的可能导致下层的 Target 与上层建立不了依赖联系，这完全取决于宏扩展结果生成的上层先决条件中的内容。
 
-模式匹配规则 *Pattern Rule* 也是隐式规则的一种，这种规则使用了 % 通配符号来匹配 Target 或者先决条件中的内容。Multiple Targets 规则中经常需要模式匹配规则来处理大量的文件。通配符 % 匹配任意非空白字符，可以用在 Targets 或者 Prerequisites 之中。
+模式匹配规则 *Pattern Rule* 也是隐式规则的一种，这种规则在 Target 命名中使用了 % 通配符号来匹配其它 Target 规则定义中的依赖文件。Multiple Targets 规则中经常需要模式匹配规则来处理大量的文件。通配符 % 匹配任意非空白字符，但可以包含合法的符号字符。并且，最重要的一条是，% 符号匹配到的内容会被替换到为 Targets 指定的依赖文件 Prerequisites 之中，得到展开状态的依赖文件。所以，在每一个依赖文件中只能使用一个 % 符号，这个符号匹配到的内容称为主干 stem，可以通过自动变量 $* 来引用它。
 
-例子中 clean 这种规则没有要生成的 Target 文件输出，这种规则定义的目标称为 *Phony Targets* 或者虚目标。虚目标的一个特性是：不进行 Target 文件的更新检查，总是会在触发时执行相应的命令，常用来定义 clean 这种用来做清理工作的目标。做目录递归处理时，也可以将子目录添加到 .PHONY 的先决条件列表中，这样就可以在子目录已经存的情况下无条件地处理。Make 系统定义了一系列的内置 Target 名称，包括 .PHONY .NOTPARALLEL .ONESHELL .SUFFIXES .SECONDARY .SECONDEXPANSION .IGNORE 等等，参考手册 4.9 Special Built-in Target Names。
-https://www.gnu.org/software/make/manual/make.html#Special-Targets
+注意，模式匹配规则中，不能像多目标那样定义编写多个 Target 命名并使用 % 符号。并且，模式匹配属性隐式规则，也不能和显式规则混用，总之不能编写多个 Targets。
+
+1. https://www.gnu.org/software/make/manual/make.html#Special-Targets
+2. https://www.gnu.org/software/make/manual/make.html#Pattern-Rules
+3. https://www.gnu.org/software/make/manual/make.html#Static-Pattern
+4. https://www.gnu.org/software/make/manual/make.html#Error-Messages
+
+
+Static Pattern Rules 规则定义中，目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns`，用于计算先决条件如果应用到每个 Target 之上。
+
+    # 4.12.1 Syntax of Static Pattern Rules
+    targets …: target-pattern: prereq-patterns …
+            recipe
+            …
+
+除了在规则中使用 % 模式匹配，还可以在 wildcard 函数中使用 * 通配符来获取文件或目录列表，可以同时获取多种文件类型，比如 `$(wildcard *.erl *.hrl)`，每种类型文件都是一个排序过的列表。
+
+目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns` 说明如何计算每个目标的前提条件。每个目标都与目标模式相匹配，以提取目标名称的一部分，称为词干。这个词干被替换到每个prereq模式中，以形成先决条件名称（每个preeq模式中有一个）。
+
+每个模式匹配都包含一个“%”字符以匹配 Target 名称中的一部分，称之为 stem 主干。只有在 target-pattern 与 Target 名称完全匹配时，比如在一条 `foo.o : %.o : src/%.c %.h` 规则中，Target 名称为 `foo.o` 与目标模式 `%.o` 就是完全匹配，主干部分 `foo` 替换到每一个 `prereq-patterns` 匹配模式中，并且先决匹配模式中只能有一个 % 符号。最后，得到 Target 与 `src/foo.c` 和 `foo.h` 两个先决条件的依赖关系。
+
+模式匹配规则中，Target 名称，即包含 % 符号的字符串会和上层目标的依赖条目进行匹配，这个匹配只是部分匹配，只需要上层依赖文件路径中出现了可以匹配 Target 名称的内容就算是匹配。
+
+在多条模式匹配规则中，% 匹配到的主干内容越短，执行优先级越高，即提供额外的字符越多匹配越细致。以下示范中演示了这个匹配优先级的作用，其中 b% 不会被执行，因为对于匹配 bar 这样的目标，另外一条 ba% 有更细致的匹配，而 % 提供的匹配信息最粗放，它也是最后的备选规则：
+
+```makefile
+    all : foo far
+    foo far: f%: src/b%.c
+    %: ;   @echo -% $@
+    b%: ;  @echo -b% $@
+    f%: ;  @echo -f% $@
+    ba%: ; @echo -ba% $@
+    bo%: ; @echo -bo% $@
+
+    .DEFAULT_GOAL = all
+```
+
+参考输出：
+
+    -bo% src/boo.c
+    -f% foo
+    -ba% src/bar.c
+    -f% far
+    -% all
+
+
+在缺件 RecIpes 的规则中，它的执行与完全形式的规则有些许差异。以下代码为例：
+
+```makefile
+    all : port.o
+        @echo all done: $^
+
+    % :
+        @echo -% $@
+    %.o : %.c
+        @echo -%.o $@
+    %.c : nothing
+        @echo -%.c $@
+
+    .PHONY: nothing
+    .nothing : ;
+
+    .DEFAULT_GOAL = all
+```
+
+这个示例所有规则都是显式规则，没有任何规则规则起作用，因为整条依赖关系链是完备的，all -> port.o -> port.c -> nothing (.PHONY)，没有任何一个环节有依赖缺失，也没有命令缺件。其中 nothing 这个目标是为了演示内置目标 .PHONY 而加入的依赖，即表示没有任何依赖。但实事上 nothing 是受 `% :` 这条后备规则接管的，如果缺失这条规则，就会因为依赖关系链缺失而导致 make 使用隐式规则来处理 nothing 这个目标。
+
+通过省略不同规则中的命令定义，将带出 make 很多奇妙的行为，前提假设磁盘中没有像 port 这样命名的文件，如果存在则会有不一样的执行结果：
+
+1. all 目标的命令定义省略，整个脚本原样运行，因为会被 `% :` 这条后备规则接管；
+2. 注解掉 `% :` 这条后备规则，同时移除 nothing 依赖，同样是显式规则，按依赖执行；
+3. 但是，只要中间任何环节注解掉，那么就会错误，错误有两种基本形式：
+    4. 缺失依赖的磁盘文件，一般信息提示是：No such file or directory  
+    5. 缺失规则定义错误：No rule to make target `xxx', needed by `yyy'. 
+
+详细错误码信息参考手册 Appendix B Errors Generated by Make。
+
+*依赖完备*和*规则完备*同时满足的前提下，脚本就会完全按编写好的命令执行，不会执行任何其它命令，因为 make 隐式规则不生效，不会以调用额外的命令。即使磁盘存在相应的源代码文件，make 也不会调用隐式规则去处理它们。
+
+依赖完备是指任何目标的依赖项都有相应的 Target 定义，规则完备是指任何规则都有 Target 和 Recipes 定义，因为依赖列表可以为空，所以没有强制要求。但是如果指定了依赖，那么任何一个依赖缺失相应的 Target 定义同时又没有相应的磁盘文件，那么就不算是规则完备。那么出现的结果就是，当前依赖列表中的其它依赖条件都会失效，并且由 cmake 使用相应的隐式规则接管。
+
+所以，总结起来，依赖完备的条件是满足以下其中之一：
+
+1. 任何目标的依赖文件都有相应的 Target 定义；
+2. 或者任何目标的依赖文件都有相应的磁盘文件，文件类型包含在 .SUFFIXES 列表中；
+
+另外，以上说明也从侧面上描述了一个事实：在目标定义了相应的命令就不能用隐式规则中命令替换，假设存在适用的隐式规则。所以，问题是在添加一个 Target 的依赖项时，应该考虑使用什么规则去处理它，是显式定义规则，还是有意使用隐式规则，又或者一知半解地使用了隐式规则，三者总有其一。
+
+如果，磁盘中存在 port 这样命令的文件，并且它是 make 隐式规则中包含的文件类型，.SUFFIXES 内容变量包含了这些文件的扩展名。在脚本文件缺失依赖关系的条件下，make 就会按隐式规则自动推断出，什么样的依赖文件应该执行什么命令去生成。比如，缺失 port.o 文件，这是 C/C++ 语言的目标文件，那么应该调用编译器编译源代码生成它。如果确实存在相应的源代码文件，那么就可以成功生成，否则编译器报错找不到相应文件。
+
+其中 % 这条后备规则，虽然它可以匹配任何 Target，但是由于它是最低优先级的模式匹配规则，所以在隐式规则发生作用时，它就不会被执行，除非依赖文件不是 make 可能自动处理的类型。
+
+隐式规则是相当多的一套预设规则，涉及 C/C++ Pascal LEX YACC TEX WEAVE CWEAVE TANGLE
+等等编译语言或文档工具的使用，以致需要专门编写章节内容去说明它。
+
+
+例子中 clean 这种规则没有要生成的 Target 文件输出，这种规则定义的目标称为 *Phony Targets* 或者虚目标。虚目标的一个特性是：不进行 Target 文件的更新检查，总是会在触发时执行相应的命令，常用来定义 clean 这种用来做清理工作的目标。做目录递归处理时，也可以将子目录添加到 .PHONY 的先决条件列表中，这样就可以在子目录已经存的情况下无条件地处理。
+
+但是，.PHONY 目标有一个副作用，它依赖列表中指定的依赖（目标），将标记为“不需要生成相应文件”，即在构建项目时，这些依赖文件的更新状态将不参与比较，这些标记为虚拟文件就不会触发受依赖方目标文件的更新。另一方面，那些依赖了 .PHONY 的目标，总是会认定需要执行重新构建！
+
+可以使用 Order-only 依赖方式来避免触发目标重新构建，只需要将声明为 .PHONY 的目标添加到其依赖列表中的管道符号 | 之后即可，Oerder-only 依赖不会触发重新构建动作。
+
+Make 定义了一系列的内置 Target，名称及功能说明如，参考手册 4.9 Special Built-in Target Names。
+
+01. .DEFAULT 用于收纳还没有相应规则定义的目标，并为其提供后选的命令设置；
+02. .DELETE_ON_ERROR 在执行命令错误退出、返回错误码时删除目标文件；
+03. .EXPORT_ALL_VARIABLES 导出所有变量符号供 Sub-make 进程使用；
+04. .IGNORE 忽略构建目标时出现的错误信息；
+05. .INTERMEDIATE 作为中间文件处理；
+06. .LOW_RESOLUTION_TIME 低时间分辨模式，避免因为系统不支持高分时间戳而误判断；
+07. .NOTINTERMEDIATE 不要作为蹭文件处理；
+08. .NOTPARALLEL 不要并行运行，使用命令行 -j 参数在此目标不失效；
+09. .ONESHELL 在同个 shell 进程中执行目标定义的命令；
+10. .PHONY 虚文件目标，不判断磁盘文件是否存在或其更新时间，总是认定重新构建；
+11. .POSIX 使用 POSIX 兼容模式 脚本，当然 GNU make 脚本特性依然有效；
+12. .PRECIOUS 珍贵目标，即构建失败也不要删除其文件；
+13. .SECONDARY 次要目标像中间文件类似处理，但不会自动删除文件，避免繁复的重新编译；
+14. .SECONDEXPANSION 进行宏定义二次扩展的目标；
+15. .SILENT 静默目标，等效使用命令参数 -s or --silent，又或者在命令前使用 @ 符号 ；
+16. .SUFFIXES 使用文件后缀作为规则的目标，参考 Old-Fashioned Suffix Rules；
+
+这些内置目标定义的使用语法形式都一样：将其它目标添加到其依赖列表中，即声明这些目标拥有这些内置目标定义特殊功能属性。
+
+对于支持时间高分辨的系统，文件更新时间具有亚秒值 sub-second，而对于不支持的系统，那么执行像 `cp -p` 这样的文件复制命令时，会丢弃亚秒部分，从而导致文件的更新时间比实际值要早一些，这个误差有可能导致 make 误差为旧文件。
 
 注意：recipe 所有行必须由一个 tab 键起首，后面跟着 commands 等等，不支持空格缩进。否则会引发 Makefile: missing separator.  Stop. 
 
-这种以冒号作为标志的规则称为 *Single-Colon Rules*，它们的执行有序，有明确的前后依赖关系。另外一各规则称之为 *Double-Colon Rules*，即使用双冒号的规则，这种规则都是独立的规则，Target 在旧于依赖文件的情况下，或者没有先决条件的情况下，所以双冒号规则都会被执行，也就没有顺序执行的特性。
+
+```makefile
+all: foo
+foo: foo.o bar.o baz.o
+.c.o:
+        $(CC) $(CFLAGS) -c $< -o $@
+.l.c:
+        $(LEX) $< && mv lex.yy.c $@
+clean:
+        rm *.o temp
+```
+
+例子这种以冒号作为标志的规则称为 *Single-Colon Rules*，它们的执行有序，有明确的前后依赖关系。另外一种规则称之为 *Double-Colon Rules*，即使用双冒号的规则，这种规则都是独立的规则，Target 在旧于依赖文件的情况下，或者没有先决条件的情况下，所以双冒号规则都会被执行，也就没有顺序执行的特性。双冒号规则的独立性还体现在：它可以为同名 Target 提供多个定义，这样就可以有多个命令块。而单冒号规则不具有这种特性，如果存在多个同名的单冒号定义的 Target，那么就会提示旧定义的命令块将被覆盖。但是原依赖关系不变，并且新定义的规则中的依赖会叠加。注意，使用 include 指令，根据指令出现的位置前、后来决定引入的定义是被替换还替换当前脚本的 Target 定义。include 指令和 ifeq 这样的指令一样是全局作用的，不会因为放在那个 Target 后面就属于哪个 Target。
+
+    'warning: overriding recipe for target `XXX''
+    'warning: ignoring old recipe for target `XXX''
+
+以下示例，两个 pp 目标中定义的命令块都会被执行，它们各自独立拥有相应的依赖列表，如果是单冒号规，则合并依赖，并且输 pp2 oo bb：
+
+```makefile
+all: pp
+bb :    ;  @echo bb $^; # bb
+oo :    ;  @echo oo $^; # pp1 bb
+pp :: bb ; @echo pp1 $^; # oo
+pp :: oo ; @echo pp2 $^; # pp2 oo
+```
 
 Makefile 中定义的 Target 可以有多条规则，但多条规则只能使用同样的规则类型，单冒号的或者双冒号的规则。具有相同 Target 的双冒号规则各自完全独立，每个双冒号规则都单独处理，就像处理具有不同目标的规则一样。双冒号规则按照它们在 Makefile 中出现的顺序执行。然而，双冒号规则真正有意义的情况是那些执行配方的顺序无关紧要的情况。
 
@@ -2347,9 +2518,11 @@ Makefile 中定义的 Target 可以有多条规则，但多条规则只能使用
 
 规则中使用模式匹配，就会有一个依赖文件搜索的过程。当应用在多先决条件的规则中时，就会出现一个隐含的约束，代码演示如下：
 
+```makefile
     %.beam: %.erl %.hrl
         @echo Start buildding $(basename $(@F)) : $@ < $<
         @erlc -o $(Output) $<
+```
 
 因为在同一条规则中，通配符 % 表示的是相同的匹配内容，一旦触发规则，那么 Target 模式匹配 % 匹配到的部分（stem 主干）就会替换到先决条件的 % 号中，一旦找不到其中一个文件，比如 ei_test.erl 和 ei_test.hrl 其中一个缺失则将产生错误。其中打印的信号不一定准确表现依赖关系，因为可能存在多组源代码的情况会出现错配现象：
 
@@ -2378,20 +2551,26 @@ Linux 命令 `ls -ld */*/` 可以打印二级子目录，使用通配符加斜�
 
 如果不喜欢命令并行执行，又或者命令太长，那么就需要使用在单独一个 shell 进程中执行命令，内置目标 .ONESHELL 就是干这种事的，将要以 One Shell 方式执行的目标添加作为其依赖项，参考手册 5.3.1 Using One Shell。
 
+```makefile
     .ONESHELL:
     foo : bar/lose
         cd $(<D)
         gobble $(<F) > ../$@
+```
 
 Make 命令默认使用 shell 程序的 -c 或者 -ec 参数来执行规则定义的命令，后者在 POSIX 标准模式中使用。通过内置变量 SHELL 和 .SHELLFLAGS 可以修改这些参数值，参考手册 5.3.2 Choosing the Shell。
 
+```makefile
     SHELL = $(COMSPEC)
     SHELL = /bin/sh
     SHELLFLAGS = -c
+```
 
 注意，条件判断宏不能使用 Tab 缩进，并且参数列表使用圆括号时，需要用空格与宏名称隔开。这个空格隔开参数列表好理解，但是不能缩进这种要求实在太奇异了。但是，这种语法的怪异是有原因的。根据手册说明，3.7.2 Conditional Directives - Conditional directives are parsed immediately，也就是条件会在 make 一运行时就解释，不再有后续的宏扩展功能，这也就是为何不能在条件宏中使用局部变量的因由。
 
-Makefile 中有两种条件使用方式，其中一种就是 ifeq 和 ifneq 这种怪异的方式，这种形式的条件中不能使用 Target 特定变量，只能使用全局变量。第二种方式是条件函数，这种方式可以使用局部变量。
+Makefile 中有两种条件使用方式，其中一种就是 ifeq 和 ifneq 这种怪异的方式，这种形式的条件中不能使用 Target 特定变量，只能使用全局变量。第二种方式是条件函数，这种方式可以使用局部变量。但是在函数内编写多行的命令不是很方便，因此可以考虑修改脚本逻辑，使用全局变量替代局部变量。但至少可以通过自定义函数来解决问题，可以使用传入的参数或者自动变量，不过依然不能在函数内进行变量赋值或在内部的条件语句使用局部变量。
+
+因为函数只是在做宏展开，最后输出字符串依然是当作 shell 命令执行的。所以，事实上编写 Makefile 规则的 Recipes 部分就是在进行 Linxu shell 编程！只不过可以使用 Makefile 中定义的宏函数来生成 shell 脚本而已。参考手册 16.2 Utilities in Makefiles。
 
     ifneq  (arg1, arg2)          ifeq  (arg1, arg2)
     ifneq 'arg1' 'arg2'         ifeq 'arg1' 'arg2'
@@ -2414,170 +2593,8 @@ Makefile 中有两种条件使用方式，其中一种就是 ifeq 和 ifneq 这�
 2. https://www.gnu.org/software/make/manual/make.html#Conditional-Functions
 3. https://www.gnu.org/software/make/manual/make.html#index-pattern_002dspecific-variables
 
-Static Pattern Rules 规则定义中，目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns`，用于计算先决条件如果应用到每个 Target 之上。
 
-    # 4.12.1 Syntax of Static Pattern Rules
-    targets …: target-pattern: prereq-patterns …
-            recipe
-            …
-
-除了在规则中使用 % 模式匹配，还可以在 wildcard 函数中使用 * 通配符来获取文件或目录列表，可以同时获取多种文件类型，比如 `$(wildcard *.erl *.hrl)`，每种类型文件都是一个排序过的列表。
-
-目标匹配模式 `target-pattern` 和前提条件匹配模式 `prereq-patterns` 说明如何计算每个目标的前提条件。每个目标都与目标模式相匹配，以提取目标名称的一部分，称为词干。这个词干被替换到每个prereq模式中，以形成先决条件名称（每个preeq模式中有一个）。
-
-每个模式匹配都包含一个“%”字符以匹配 Target 名称中的一部分，称之为 stem 主干。只有在 target-pattern 与 Target 名称完全匹配时，比如在一条 `foo.o : %.o : src/%.c %.h` 规则中，Target 名称为 `foo.o` 与目标模式 `%.o` 就是完全匹配，主干部分 `foo` 替换到每一个 `prereq-patterns` 匹配模式中，并且先决匹配模式中只能有一个 % 符号。最后，得到 Target 与 `src/foo.c` 和 `foo.h` 两个先决条件的依赖关系。
-
-模式匹配规则中，Target 名称，即包含 % 符号的字符串会和上层目标的依赖条目进行匹配，这个匹配只是部分匹配，只需要上层依赖文件路径中出现了可以匹配 Target 名称的内容就算是匹配。
-
-在多条模式匹配规则中，% 匹配到的主干内容越短，执行优先级越高，即提供额外的字符越多匹配越细致。以下示范中演示了这个匹配优先级的作用，其中 b% 不会被执行，因为对于匹配 bar 这样的目标，另外一条 ba% 有更细致的匹配，而 % 提供的匹配信息最粗放，它也是最后的备选规则：
-
-```sh
-    all : foo far
-    foo far: f%: src/b%.c
-    %: ;   @echo -% $@
-    b%: ;  @echo -b% $@
-    f%: ;  @echo -f% $@
-    ba%: ; @echo -ba% $@
-    bo%: ; @echo -bo% $@
-
-    .DEFAULT_GOAL = all
-```
-
-参考输出：
-
-    -bo% src/boo.c
-    -f% foo
-    -ba% src/bar.c
-    -f% far
-    -% all
-
-
-### Secondary Expansion
-1. https://www.gnu.org/software/make/manual/make.html#Secondary-Expansion
-2. https://www.gnu.org/software/make/manual/make.html#Static-Pattern
-
-Make 规则解释过程工作于两个阶段，读取规则定义阶段，和更新规则阶段。对于 Target 的依赖部分，make 引入了二次扩展，所谓二次扩展就是对宏定义展开的基础上再做一次扩展，也就需要经过两轮宏符号替换操作，参考手册 3.9 Secondary Expansion。
-
-二次扩展一般同结合 $$ 转义符号使用，因为 $ 符号是功能符号，用于获取变量值，或者用于调用内置的宏函数。比如 $(value var) 这个函数调用就相当 $(var) 获取变量值。利用转义后的符号，就可以避免一些不需要在第一轮宏展开的符号被替换，比如 $@, $* 这些自动变量。
-
-要触发二次扩展，就需要使用 .SECONDEXPANSION 这个内置的 Target 命名，并且要在其它 Target 使用二次扩展依赖之前定义它。
-
-    .SECONDEXPANSION:
-    AVAR = top
-    onefile: $(AVAR)
-    twofile: $$(AVAR)
-    AVAR = bottom
-
-    % : ; @echo $@
-    .DEFAULT_GOAL = twofile
-
-对于使用转义符号的 `$$(AVAR)` 来说，在经过第一轮宏展开，应该得到 `$(AVAR)`，但运行中没有使用二次展开将得到一个 "$" 字符。如果是使用 `{AVAR}` 花括号形式，没有使二次展开将得到空字符串。出现这种结果可能是由于 `(AVAR)` 或者 `{AVAR}` 并不是合法的语法形式，被过滤掉了。 
-
-二次扩展可以应用在不同的规则类型上：
-
-1. Secondary Expansion of Explicit Rules
-2. Secondary Expansion of Implicit Rules
-3. Secondary Expansion of Static Pattern Rules
-
-通过使用宏定义的二次展开，可以在定义 Target 规则时获得非常巧妙的功能：
-
-    .SECONDEXPANSION:
-    main_OBJS := main.o try.o test.o
-    lib_OBJS := lib.o api.o
-
-    main lib: $$($$@_OBJS)
-
-    % : ; @echo += $@
-    %.o : ; @echo +- $@
-    .DEFAULT_GOAL = main
-
-以上演示了通过二次展开，让 $@ 这个自动变量和后缀拼接后得到一个对象文件依赖列表。另外，使用了两条模式匹配规则，前一条只使用 % 用于匹配所以显式的 Target 依赖，后一条使用了 %.o 用于匹配所有目标文件。
-
-因为 make 的自动推断功能会自动识别 .o 这种常用的扩展名文件，并且会推导出相应的命令，如果没有 %.o 这条模式匹配规则，则会执行 make 推导出现的命令。显式定义了这条规则后，就以显式定义的为准，而不会去执行自动推导的命令，参考手册 2.5 Letting make Deduce the Recipes。
-
-为何 % 这种模式匹配不会匹配上 .o 这种文件呢，即使是 %.o 也不行？大概是习惯，模式匹配不用于 make 自动推断出来的 Target。% 模式匹配是匹配其它 Target 的依赖列表，并且是进行了宏展开后的依赖列表中的条目，包括从命令行中传入的目标，例如 `make anything`，参考手册 10.5 Defining and Redefining Pattern Rules。
-
-注意：模式匹配中的通配符 % 和文件操作中的通配符 * 是不同用途的通配符，后者用于文件处理，配置 wildcard 函数使用，例如 `$(wildcard *.c *.h)` 将获得一个列表，列表的前半部分是 C 源文件，后面半部分是头文件，它们经过了排序。另外，模式匹配规则定义常常与 $* 自动蛮量一起使用，它代表 % 符号匹配到的内容。
-
-使用 Pattern Rule 还需要注意一个异常：如果模式目标过期或对应的文件不存在，并且不需要构建它，那么这样的 Target 就不会导致其他目标被认为过期。注意，这个历史异常将在 GNU make 未来版本中被删除，不应被依赖。如果检测到这种情况，make 将生成一个警告模式，pattern recipe did not update peer target。然而，无法确保 make 检测到所有此类情况。应该自行确保 Pattern Target 在运行时会得到更新。
-
-以下是文档给出的 Explicit Rules 示范，演示了二次展开中自动变量的状态：
-
-```sh
-.SECONDEXPANSION:
-
-foo: foo.1 bar.1 $$< $$^ $$+    # line #1
-foo: foo.2 bar.2 $$< $$^ $$+    # line #2
-foo: foo.3 bar.3 $$< $$^ $$+    # line #3
-foo: $$< $$(join $$^, .ext .ext) $$+
-    @echo 2: $^ 
-
-% : 
-    @echo ALL: $@ - $^
-.DEFAULT_GOAL = foo
-```
-
-1.  `$<` 自动变量表示依赖列表中的第一个依赖项；
-2.  `$^` 自动变量表示整个依赖列表，列表中各依赖项之以空格隔开；
-3.  `$+` 类似 $^，只是按顺序包含目标在 Makefile 中的依赖列表，配合链接程序使用；
-4.  `$*` 模式匹配 % 符号匹配到的内容，称为主干 stem 并会替换依赖文件 % 符号；
-
-第一行依赖列表，所有自动变量展开为空字符串，因此此时依赖关系还没有建立。
-
-第二行依赖列表，三个自动变量分别展开为 `foo.1`，`foo.1 bar.1`，`foo.1 bar.1`。
-
-第三行依赖列表，三个自动变量分别展开为 `foo.1`，`foo.1 bar.1 foo.2 bar.2`，`foo.1 bar.1 foo.2 bar.2 foo.1 foo.1 bar.1 foo.1 bar.1`。
-
-以上是文档描述内容，但是无法在脚本程序中进行验证。
-
-
-以下是 Static Patter Rules 和 Implicit Rules 合体的二次展开示范例子：
-
-```sh
-.SECONDEXPANSION:
-foo : bar
-foo foz: f%: bo%
-%: $$< $$^ $$+ $$*
-    @echo -- $+
-
-.DEFAULT_GOAL = foo
-```
-
-当这个隐式规则由 foo 这个目标触发执行时，$$< 二次展开为 bar，即首个依赖，$$^ 和 $$+ 都展开为 bar booo，最后 $$* 展开为 oo 即模式匹配 % 符号匹配到的主干内容。最后，$$* 匹配到的主干为 foo。
-
-但是，由于模式匹配只有一 % 没有其它字符，所以它会匹配到这里定义的所有依赖条目，这就会形成循环依赖。比如，构建 bar 目标时，模式匹配规则就得到一条 `bar : $$< $$^ $$+ $$*` 依赖规则，二次展开替换为 `bar : bar`，因为是 bar 目标的首条依赖规则，除了 $$* 匹配到的主干为 bar 之外，其它三个自动变量都是空字符。而这个就是循环依赖，make 不允许这种规则，所以打印出来的消息中显示 $+ 自动变量是空字符。
-
-    make: Circular Makefile <- Makefile dependency dropped.
-    make: Circular bar <- bar dependency dropped.
-    --
-
-如果由 foo 触发目标的构建，那么就会有更多的依赖需要处理，情况复杂一点。其中第一个依赖就是 bar，然后匹配到第三条规则形成 `bar : bar` 循环依赖，当前的依赖链条结束，make 给出错误信息提示 Circular bar。但是依赖已经添加到 $+ 自动变量中包含的依赖列表，即 `foo : bar bar`。就当前目标而言 bar 本身在出现第一次循环依赖就结束了依赖关系的处理，所以它本身的依赖列表是空字符。
-
-然后，处理第二条规则，通过静态模式匹配，增加了一个 booo 依赖，此时 $+ 依赖列表就叠加了 booo 得到 `bar booo`，可以看到它是按 Makefile 规则中的依赖列表顺序叠加的。同样地，booo 也会在第三条规则中形成循环依赖，当前的依赖链条结束，make 给出错误信息提示 Circular booo。
-
-最后，其它自动变量也会在循环依赖出现之前向 $+ 列表添加相应的依赖条目。其中 $< 始终是指向第一个依赖 bar，这就是为何最终结果会出现 `bar bar booo` 这样的依赖。然后是 $^ 指向当前目标规则中的完整依赖列表，它不像 $+ 那样会将目标的所有规则中的依赖叠加起来，所以它指向的是 `bar booo`，再结合前面得到相同内容的 $+ 自动变量，整个依赖关系就是 `bar bar booo bar booo bar booo`。foo 本身也会和静态模式匹配结合形成循环依赖定义，从而终结整个目标的依赖关系，
-
-    make: Circular Makefile <- Makefile dependency dropped.
-    make: Circular bar <- bar dependency dropped.
-    --
-    make: Circular booo <- booo dependency dropped.
-    --
-    make: Circular foo <- foo dependency dropped.
-    -- bar bar booo bar booo bar booo
-
-例子中使用了 Static Patter Rules，所谓静态模式规则，就是增加了 `target-pattern` 的多目标规则：
-
-    # 4.12.1 Syntax of Static Pattern Rules
-    targets …: target-pattern: prereq-patterns …
-            recipe
-            …
-
-模式匹配符号 % 可以出现在 Targets 命名中、还 `target-pattern` 和依赖项中。并且依赖项只能有一个 % 符号，这个符号将会被替换成 `target-pattern` 中 % 符号匹配到内容，此内容称为主干 stem。替换后得到的依赖项即为对应的依赖文件，或者下一层 Target 的名称，这个尝试找到模式匹配规则中的依赖项的过程就是隐式规则。
-
-Make 自动推导能力是关联多层目标的，比如，一个目标依赖 .o 文件，那么就会自动推导出 .o 目标，继而推导出 .c 目标，这就是 C 语言的基本构建涉及的文件目标。
-
-
-### Variables
+### 🐣 Variables
 1. https://www.gnu.org/software/make/manual/make.html#Automatic-Variables
 2. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
 3. https://www.gnu.org/software/make/manual/make.html#MAKE-Variable
@@ -2621,11 +2638,13 @@ Makefile 中的变量应该是最简单的宏定义，变量名不能包含 char
 
 变量的存活期可以是文件级别，随整个 Makefile 执行时存活。也可以是随 let 或者 foreach 函数执行时存活，这种变量只能在函数调用时有效，函数结束变量消失。自动变量是比如常用的变量，会在 Target 执行时自动替换为与当前规则相关的的值。也可以主动调用 undefine 撤消变量的定义。
 
+```makefile
     # 8.5 The let Function
     reverse = $(let first rest,$1,\
                 $(if $(rest),$(call reverse,$(rest)) )$(first))
 
     all: ; @echo $(call reverse,d c b a)
+```
 
 可以为某个目标设置局部变量，这种变量被称为目标特定变量“Target-specific Variable”，需要在 Target 规则前定义，在规则触发时就会对变量进行赋值。它和全局变量作用范围不同，只在特定规则触发时有效，所以其值也只在目标规则执行时的作用范围内有效。特定变量的值可以使用自动变量，这些自动变量会在规则执行时被替换成相应的值。类似的变量还是模式匹配特定变量，在特定模式触发时变量才有效。
 
@@ -2642,20 +2661,33 @@ Makefile 一些特殊变量，6.14 Other Special Variables
     myprog: .EXTRA_PREREQS = $(CC)
 
 1. `MAKEFILE_LIST`  包含当前 make 命令已经解释到的所有 Makefile 文件列表。
-2. `.DEFAULT_GOAL 变量指定一个默认执行的 TargetGOAL`  用来设置默认的构建目标，以备命令行没有指定
-
-Make 是一个宏编程工具，类似通用宏编程工具 GNU m4 目标是调用，执行 make 命令时，它就会读取 Makefile 脚本中的规则定义，并按宏符号定义对文件中的字符串进行扩展，即用宏定义的内容替换文件中相应的字符串，最后执行相关的命令完成程序的编译工作。
-3. `.MAKE_RESTARTS` 在重启 make 编译时会自动设置些变量，重启次数记录在 MAKELEVEL。
-4. `.MAKE_TERMOUT` 和 `.MAKE_TERMERR` 会自动设置为相应的终端类型，对于标准文件则会停用控制台彩色。
+2. `MAKE_RESTARTS` 在 make 重启脚本时自动设置此变量，而递归调用深度记录在 MAKELEVEL。
+3. `MAKE_TERMOUT` 和 `MAKE_TERMERR` 会自动设置为相应的终端类型，对于标准文件则会停用控制台彩色。
+4. `.DEFAULT_GOAL`   变量指定一个默认执行的构建目标，以备命令行没有指定 Target。
 5. `.RECIPEPREFIX` 设置规则的命令行的首字符，默认是 TAB，可以随用随改。
 6. `.VARIABLES`  包含目前已经定义的所有全局变量的列表。
 7. `.FEATURES`  包含当前 make 命令支持的所有特性的列表。
 8. `.INCLUDE_DIRS` 包含 Makefile 文件搜索目录列表。
-9. `.EXTRA_PREREQS` 给目标设置额外的依赖，这些依赖不会出现在常用依赖的自动变量中。
+9. `.EXTRA_PREREQS` 通过目标绑定变量给它设置额外的依赖，这些依赖不会出现在常用依赖的自动变量中。
+
+
+使用 .EXTRA_PREREQS 特殊变量以及通过 target-specific 变量给目标添加额外依赖：
+
+```makefile
+    myprog: myprog.o file1.o file2.o
+           $(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+    myprog: .EXTRA_PREREQS = $(CC)
+```
+
+额外依赖功能可以在不用修改原脚本的前提下实现变更目标依赖文件，只需要将它声明在另一个脚本，比如命名为 extra.mk，然后运行 make 命令时将它包含进行来：
+
+    make -f extra.mk -f Makefile
+
 
 Makefile 中有许多变量由隐式规则使用，10.3 Variables Used by Implicit Rules。如果脚本中没有对 make 可以知识的文件类型提供规则定义，那么 make 就会自行推断使用相应的构建命令。比如，Target 为 C 语言源文件，则会执行 `$(CC) -c $(CFLAGS) $(CPPFLAGS)` 编译命令，并且可以多级推断，这就是 10.4 Chains of Implicit Rules。隐式规则中使用的 CFLAGS 或者 CPPFLAGS 都是隐式变量。
 
-### Functions
+
+### 🐣 Functions
 
 Make 定义函数和定义变量差别不大，因为都是宏定义，主要是在使用方式上的差别。变量除了可以使用简化的 = 或 := 或 ::= 等等符号进行定义，还有一种通用的变量、函数定义，就是使用 define 指令定义用户宏。使用 define 指令定义宏函数时，也和变量一样，有使用 = 和 := 两种基本的绑定方式，使用 = 号或者省略 = 号表示延后绑定（deferred），是递归处理模式，宏体展开的内容始终是所使用宏符号的最后定义的值。而使用 := 的是立即绑定模式，当前定义这个宏函数时相应的宏定义是什么值，就会立即扩展变成字符串替换到宏函数体中相应的位置。
 
@@ -2679,7 +2711,7 @@ Make 定义函数和定义变量差别不大，因为都是宏定义，主要是
 
 宏函数有 9 个参数的限制，实际上包括宏名就是 10 个，那么怎么处理更多参数的情形？解决方法也简单：使用列表传递参数，Makefile 列表就是空白字符（空格）隔开的多个字符串。
 
-```sh
+```makefile
     define Fun
     @echo Fun args test: $0 - $1 ... $9 [$(Srcs)]
     endef
@@ -2714,7 +2746,7 @@ Make 定义函数和定义变量差别不大，因为都是宏定义，主要是
 
 Makefile 提供了一个 eval 函数，和 JavaScript 中的 eval 类似，它可以通过文本构造出宏定义：
 
-```sh
+```makefile
     PROGRAMS    = server client
 
     server_OBJS = server.o server_priv.o server_access.o
@@ -2740,10 +2772,847 @@ Makefile 提供了一个 eval 函数，和 JavaScript 中的 eval 类似，它�
             rm -f $(ALL_OBJS) $(PROGRAMS)
 ```
 
+内置函数的使用，文件内容读取，以演示两种文件读取方法，file 函数和 shell 命令：
+
+```makefile
+@echo $(word 4,$(file < makefile))
+@echo $(subst \n,"@@@",$(shell cat $(wildcard makefile)))
+@echo $(join ,$(wordlist 1,80,$(file < makefile)))
+```
+
+注意，因为 shell 是宏函数处理，读取的内容还在宏展开的处理过程，所以 # 注解符号后的内容将不会被 echo 命令输出。并且，echo 也不能处理多行内容输出，除了第一行，其它内容都可能被当作不能识别的命令处理。使用 join 内置函数可以对内容进行并行处理，使用 wordlist 可以抽取其中若干个词。多行文件不需要使用 subst 替换换行符号，它直接当作列表处理。
+
 GNU 还有许多高级的扩展编程能力，已经提供 GNU Glue 编程，这是一种  Scheme programming language。还可以编写扩展插件，通过 load 指令加载并运行。
 
 
-### Implicit Rules
+### 🔄 Secondary Expansion
+1. https://www.gnu.org/software/make/manual/make.html#Secondary-Expansion
+2. https://www.gnu.org/software/make/manual/make.html#Static-Pattern
+
+Make 规则解释过程工作于两个阶段，读取规则定义阶段，和更新规则阶段。对于 Target 的依赖部分，make 引入了二次扩展，所谓二次扩展就是对宏定义展开的基础上再做一次扩展，也就需要经过两轮宏符号替换操作，参考手册 3.9 Secondary Expansion。
+
+二次扩展一般同结合 $$ 转义符号使用，因为 $ 符号是功能符号，用于获取变量值，或者用于调用内置的宏函数。比如 $(value var) 这个函数调用就相当 $(var) 获取变量值。利用转义后的符号，就可以避免一些不需要在第一轮宏展开的符号被替换，比如 $@, $* 这些自动变量。
+
+要触发二次扩展，就需要使用 .SECONDEXPANSION 这个内置的 Target 命名，并且要在其它 Target 使用二次扩展依赖之前定义它。
+
+```makefile
+    .SECONDEXPANSION:
+    AVAR = top
+    onefile: $(AVAR)
+    twofile: $$(AVAR)
+    AVAR = bottom
+
+    % : ; @echo $@
+    .DEFAULT_GOAL = twofile
+```
+
+对于使用转义符号的 `$$(AVAR)` 来说，在经过第一轮宏展开，应该得到 `$(AVAR)`，但运行中没有使用二次展开将得到一个 "$" 字符。如果是使用 `{AVAR}` 花括号形式，没有使二次展开将得到空字符串。出现这种结果可能是由于 `(AVAR)` 或者 `{AVAR}` 并不是合法的语法形式，被过滤掉了。 
+
+二次扩展可以应用在不同的规则类型上：
+
+1. Secondary Expansion of Explicit Rules
+2. Secondary Expansion of Implicit Rules
+3. Secondary Expansion of Static Pattern Rules
+
+通过使用宏定义的二次展开，可以在定义 Target 规则时获得非常巧妙的功能：
+
+```makefile
+    .SECONDEXPANSION:
+    main_OBJS := main.o try.o test.o
+    lib_OBJS := lib.o api.o
+
+    main lib: $$($$@_OBJS)
+
+    % : ; @echo += $@
+    %.o : ; @echo +- $@
+    .DEFAULT_GOAL = main
+```
+
+以上演示了通过二次展开，让 $@ 这个自动变量和后缀拼接后得到一个对象文件依赖列表。另外，使用了两条模式匹配规则，前一条只使用 % 用于匹配所以显式的 Target 依赖，后一条使用了 %.o 用于匹配所有目标文件。
+
+因为 make 的自动推断功能会自动识别 .o 这种常用的扩展名文件，并且会推导出相应的命令，如果没有 %.o 这条模式匹配规则，则会执行 make 推导出现的命令。显式定义了这条规则后，就以显式定义的为准，而不会去执行自动推导的命令，参考手册 2.5 Letting make Deduce the Recipes。
+
+为何 % 这种模式匹配不会匹配上 .o 这种文件呢，即使是 %.o 也不行？大概是习惯，模式匹配不用于 make 自动推断出来的 Target。% 模式匹配是匹配其它 Target 的依赖列表，并且是进行了宏展开后的依赖列表中的条目，包括从命令行中传入的目标，例如 `make anything`，参考手册 10.5 Defining and Redefining Pattern Rules。
+
+注意：模式匹配中的通配符 % 和文件操作中的通配符 * 是不同用途的通配符，后者用于文件处理，配置 wildcard 函数使用，例如 `$(wildcard *.c *.h)` 将获得一个列表，列表的前半部分是 C 源文件，后面半部分是头文件，它们经过了排序。另外，模式匹配规则定义常常与 $* 自动蛮量一起使用，它代表 % 符号匹配到的内容。
+
+使用 Pattern Rule 还需要注意一个异常：如果模式目标过期或对应的文件不存在，并且不需要构建它，那么这样的 Target 就不会导致其他目标被认为过期。注意，这个历史异常将在 GNU make 未来版本中被删除，不应被依赖。如果检测到这种情况，make 将生成一个警告模式，pattern recipe did not update peer target。然而，无法确保 make 检测到所有此类情况。应该自行确保 Pattern Target 在运行时会得到更新。
+
+以下是文档给出的 Explicit Rules 示范，演示了二次展开中自动变量的状态：
+
+```makefile
+.SECONDEXPANSION:
+
+foo: foo.1 bar.1 $$< $$^ $$+    # line #1
+foo: foo.2 bar.2 $$< $$^ $$+    # line #2
+foo: foo.3 bar.3 $$< $$^ $$+    # line #3
+foo: $$< $$(join $$^, .ext .ext) $$+
+    @echo 2: $^ 
+
+% : 
+    @echo ALL: $@ - $^
+.DEFAULT_GOAL = foo
+```
+
+1.  `$<` 自动变量表示依赖列表中的第一个依赖项；
+2.  `$^` 自动变量表示整个依赖列表，列表中各依赖项之以空格隔开；
+3.  `$+` 类似 $^，只是按顺序包含目标在 Makefile 中的依赖列表，配合链接程序使用；
+4.  `$*` 模式匹配 % 符号匹配到的内容，称为主干 stem 并会替换依赖文件 % 符号；
+
+第一行依赖列表，所有自动变量展开为空字符串，因此此时依赖关系还没有建立。
+
+第二行依赖列表，三个自动变量分别展开为 `foo.1`，`foo.1 bar.1`，`foo.1 bar.1`。
+
+第三行依赖列表，三个自动变量分别展开为 `foo.1`，`foo.1 bar.1 foo.2 bar.2`，`foo.1 bar.1 foo.2 bar.2 foo.1 foo.1 bar.1 foo.1 bar.1`。
+
+以上是文档描述内容，但是无法在脚本程序中进行验证。
+
+以下代码演示了 .SECONDEXPANSION 内置目标的两种使用方式：一是直接编写在要做二次展开的 Target 定义之前，二是将 Target 使用其依赖项添加到依赖列表。
+
+```makefile
+# .SECONDEXPANSION : %  %.c  %.h  %.o
+
+all : port  
+    @echo all done: $^
+port : port.o
+    @echo port done: $@ - $^
+%.c :
+    @echo done %.c: $@ - $^
+%.h :
+    @echo done %.h: $@ - $^
+# % :
+#   @echo done %: $@ - $^
+
+.SECONDEXPANSION :
+%.o : $$(addprefix %, .c .h) foo.h
+    @echo done %.o: $@ - $^
+
+# .PHONY: clean all
+clean:
+    @sleep 1.5
+    rm -f port.o port.exe
+
+.DEFAULT_GOAL = all
+```
+
+事实上这里的 addprefix 函数调用其实不需要二次展开，脚本输出参考：
+
+    done %.h: foo.h -
+    done %.o: port.o - port.c port.h foo.h
+    port done: port - port.o
+    all done: port
+
+以下是 Static Patter Rules 和 Implicit Rules 合体的二次展开示范例子：
+
+```makefile
+.SECONDEXPANSION:
+foo : bar
+foo foz: f%: bo%
+%: $$< $$^ $$+ $$*
+    @echo -- $+
+
+.DEFAULT_GOAL = foo
+```
+
+当这个隐式规则由 foo 这个目标触发执行时，$$< 二次展开为 bar，即首个依赖，$$^ 和 $$+ 都展开为 bar booo，最后 $$* 展开为 oo 即模式匹配 % 符号匹配到的主干内容。最后，$$* 匹配到的主干为 foo。
+
+但是，由于模式匹配只有一 % 没有其它字符，所以它会匹配到这里定义的所有依赖条目，这就会形成循环依赖。比如，构建 bar 目标时，模式匹配规则就得到一条 `bar : $$< $$^ $$+ $$*` 依赖规则，二次展开替换为 `bar : bar`，因为是 bar 目标的首条依赖规则，除了 $$* 匹配到的主干为 bar 之外，其它三个自动变量都是空字符。而这个就是循环依赖，make 不允许这种规则，所以打印出来的消息中显示 $+ 自动变量是空字符。
+
+    make: Circular Makefile <- Makefile dependency dropped.
+    make: Circular bar <- bar dependency dropped.
+    --
+
+如果由 foo 触发目标的构建，那么就会有更多的依赖需要处理，情况复杂一点。其中第一个依赖就是 bar，然后匹配到第三条规则形成 `bar : bar` 循环依赖，当前的依赖链条结束，make 给出错误信息提示 Circular bar。但是依赖已经添加到 $+ 自动变量中包含的依赖列表，即 `foo : bar bar`。就当前目标而言 bar 本身在出现第一次循环依赖就结束了依赖关系的处理，所以它本身的依赖列表是空字符。
+
+然后，处理第二条规则，通过静态模式匹配，增加了一个 booo 依赖，此时 $+ 依赖列表就叠加了 booo 得到 `bar booo`，可以看到它是按 Makefile 规则中的依赖列表顺序叠加的。同样地，booo 也会在第三条规则中形成循环依赖，当前的依赖链条结束，make 给出错误信息提示 Circular booo。
+
+最后，其它自动变量也会在循环依赖出现之前向 $+ 列表添加相应的依赖条目。其中 $< 始终是指向第一个依赖 bar，这就是为何最终结果会出现 `bar bar booo` 这样的依赖。然后是 $^ 指向当前目标规则中的完整依赖列表，它不像 $+ 那样会将目标的所有规则中的依赖叠加起来，所以它指向的是 `bar booo`，再结合前面得到相同内容的 $+ 自动变量，整个依赖关系就是 `bar bar booo bar booo bar booo`。foo 本身也会和静态模式匹配结合形成循环依赖定义，从而终结整个目标的依赖关系，
+
+    make: Circular Makefile <- Makefile dependency dropped.
+    make: Circular bar <- bar dependency dropped.
+    --
+    make: Circular booo <- booo dependency dropped.
+    --
+    make: Circular foo <- foo dependency dropped.
+    -- bar bar booo bar booo bar booo
+
+例子中使用了 Static Patter Rules，所谓静态模式规则，就是增加了 `target-pattern` 的多目标规则：
+
+    # 4.12.1 Syntax of Static Pattern Rules
+    targets …: target-pattern: prereq-patterns …
+            recipe
+            …
+
+模式匹配符号 % 可以出现在 Targets 命名中、还 `target-pattern` 和依赖项中。并且依赖项只能有一个 % 符号，这个符号将会被替换成 `target-pattern` 中 % 符号匹配到内容，此内容称为主干 stem。替换后得到的依赖项即为对应的依赖文件，或者下一层 Target 的名称，这个尝试找到模式匹配规则中的依赖项的过程就是隐式规则。
+
+Make 自动推导能力是关联多层目标的，比如，一个目标依赖 .o 文件，那么就会自动推导出 .o 目标，继而推导出 .c 目标，这就是 C 语言的基本构建涉及的文件目标。
+
+
+### 🔁 Make Restarts
+1. https://www.gnu.org/software/make/manual/make.html#Remaking-Makefiles
+2. https://www.gnu.org/software/make/manual/make.html#Remaking-Loaded-Objects
+
+Make 本身功能就是围绕如何通过比较 Target 与依赖文件之间的更新时间来决定是否要重新编译，这个过程会在 make 命令运行时读取 Makefile 文件中的规则后完成。
+
+但是，重新编译这个动作还可以在 make 正在处理的 Makefile 之内触发：
+
+1. make 命令载入脚本规则，判断出有依赖文件更新，并且达成更新编译的条件；
+2. 脚本中使用 include 或者 sinclude 指令包含的脚本产生变动，更新、删除等；
+
+Makefile 脚本并不要求一定要在 make 命令运行时存在，可以使用 --file 参数指定，还可以使用 --touch 参数在目标不存在时创建一个空内容的文件。
+
+使用命令行参数 --always-make 可以强制 make 执行目标的重新构建，而不管目标是否需要更新。
+
+根据手册描述 3.4 The Variable MAKEFILES，使用环境变量 `MAKEFILES` 可以指定列表，使用空格作为分隔符，make 会加载这个列表中的所有脚本文件。它相当于使用 include 等指令直接引用多个脚本文件，可以配合 --include-dir 命令行参数使用。
+
+6.14 Other Special Variables 说明了一个相似的内部变量，`MAKEFILE_LIST` 包含了当前 make 解释过的脚本列表，列表最后一个就是当前正在处理的脚本，`$(lastword $(MAKEFILE_LIST))`，除非使用了 include 引用其它脚本文件，此时列表最后一个脚本就是最后引用的文件。
+
+```makefile
+    # 3.3 Including Other Makefiles
+    # -I DIRECTORY, --include-dir=DIRECTORY
+    include filenames…
+    include foo *.mk $(bar)
+    sinclude foo a.mk b.mk c.mk bish bash
+    -include filenames… # silent include (sinclude) ignore errors
+```
+
+虽然 silent include 可以忽略包含时出现的文件缺失等错误，但是文件脚本如果存在错误就不会 siLent.
+
+注意，使用 include 指令，根据指令出现的位置前、后来决定引入的定义是被替换还替换当前脚本的 Target 定义。include 指令和 ifeq 这样的指令一样是全局作用的，不会因为放在那个 Target 后面就属于哪个 Target。
+
+根据替换的 Target 规则形式，有不同的替代效果，*Double-Colon Rules*，即使用双冒号的规则，这种规则都是独立的规则。双冒号规则的独立性体现在：它可以为同名 Target 提供多个定义，这样就可以有多个命令块。而单冒号规则不具有这种特性，如果存在多个同名的单冒号定义的 Target，那么就会提示旧定义的命令块将被覆盖。但是原依赖关系不变，并且新定义的规则中的依赖会叠加。
+
+Makefile 中可以使用的一些特殊变量参考 6.14 Other Special Variables。MAKE_RESTARTS 变量用于指示 make 命令执行 Makefile 脚本时已经重启的次数。不应该在脚本中设置它，也不要修改或导出，此值会在 make 进程实例重启时更新。注意，此值与递归调用不同，递归深度记录在 MAKELEVEL。
+
+所谓递归调用，即自己调用自己，也就是在 Makefile 中执行 make 调用自己，以下限制递归深度为 2。所以 `make -f Makefile recursion` 会使脚本执行 3 次，第一次是在命令行调用：
+
+```makefile
+    recursion:
+    ifneq "$(MAKELEVEL)" "2"
+        @echo  ====recursion====: $(MAKELEVEL)
+        @$(MAKE) -f Makefile  recursion
+    endif
+```
+
+递归调用在不同的目录中切换时，make 会打印消息提示进入、退出相应目录，可以使用 --print-directory 和 --no-print-directory 切换是否使用 working directory printing。另外 --silent 也有类似禁止显示目标切换提示的功能。
+
+MAKELEVEL 的值不仅在以上这种递归调用中递增，在脚本中使用 $(MAKE) 执行其它脚本时，也会递增，初始值为 0。
+
+注意，递归调用，和 make 重启是两回事，如果调用的是递归目标，则会引起循环调用，应该加条件限制。但是，include 或者 sinclude 指令引用文件时，如果是自引用，那么就是循环引用，这会导致 make 无法正常执行规则的解释。注意：循环引用并不会改变 `MAKELEVEL` 或者 `MAKE_RESTARTS` 的值，但会改变 `MAKEFILE_LIST`。
+
+
+Makefile 可以由 CVS，Revision Control System (RCS) 或者 Source Code Control System (SCCS) 等等源代码管理工具生成，因为需要 make 有一种重新加载 Makefile 脚本的机制。
+
+照此处理，make 会将所有加载的 Makefile 当作一个构建目标，就像脚本规则中定义的 Target 一样，但是按照其解释顺序进行处理，尝试更新它。
+
+按照手册 3.5 How Makefiles Are Remade 所述，如果 Makefile 中有一条规则规定了如何更新它（可以在该 Makefile 或另一个 Makefile 中找到），或者如果一条隐式规则适用于它，则在必要时会更新它。在检查完所有 Makefile 后，如果有任何 Makefile 确实发生了更改，make 将从头开始，并重新读取所有 Makefile ，每次重新启动都会更新内置变量 MAKE_RESTARTS。make 也会尝试再次更新这些 Makefile，但通常不会再次更改它们，因为它们已经是最新的。
+
+根据源代码 NEWS 文档得知，MAKE_RESTARTS 内置变量由 GNU make 3.81 (01 Apr 2006) 引入，默认状态下是空值，除非当前的 make 进程实例重启 Makefile，此时就会设置一个数据指示重启的次数。
+
+Gnu Texinfo 文档算是一种类似 markdown 的文本格式，可以使用 makeinfo 或者 textinfo 工具处理。这种格式文档可以很方便地转换成 HTML, PDF, DVI, Info, DocBook, LaTeX, EPUB 3。
+
+参考源代码的测试用的 Perl 脚本文件，参考其中一个测试案例，测试方法 run_make_test 包含了要测试的 make 脚本和脚本正确运行后的返回值，以下展示代码直接截取自 perl 脚本：
+
+```makefile
+    # make-4.3\tests\scripts\variables\MAKE_RESTARTS
+    # Test multiple restarts and make sure the variable is cleaned up
+    recurse:
+        @echo recurse MAKE_RESTARTS=$$MAKE_RESTARTS
+        @$(MAKE) -f #MAKEFILE# all
+    all:
+        @echo all MAKE_RESTARTS=$$MAKE_RESTARTS
+    $(info MAKE_RESTARTS=$(MAKE_RESTARTS))
+    include foo.x
+    foo.x: ; @echo "include bar.x" > $@
+    bar.x: ; @touch $@
+```
+
+#MAKEFILE# 这样的字符串会被 subst_make_string 方法替换成类似以下的测试文件名：
+
+
+```perl
+$makestring = '@$(MAKE) -f #MAKEFILE# all';
+$makefile ='tmpxxx';
+$makestring = subst_make_string($makestring);
+print $it, $makestring, "\n";
+
+sub subst_make_string
+{
+    local $_ = shift;
+    $makefile and s/#MAKEFILE#/$makefile/g;
+    return $_;
+}
+```
+
+Perl 可以作为 Unix 系统维护工具，它可以对文本文件，特别是对配置文件进行处理。Sublime Text 可以配置 PerlNavigator 提供 Perl LSP 代码智能提示服务。
+
+测试脚本构建 foo.x 目标时会将 include bar.x 写入 foo.x 文件，另外一条规则通过 touch 命令创建一个 bar.x 空内容文件。由于脚本中通过 include foo.x，所以就会形成一个 Makefile - foo.x - bar.x  三级引用关系。
+
+在首次运行时，由于待引用的脚本还没有生成，解释 Makefile 主脚本中发现 include 指令，然后根据指令中要引用的文件列表尝试调用相应的 Target 生成相应的脚本，这一点很重要，它就是触发 Makefile 重启的机制。创建 foo.x 就触发第一次重启，然后是嵌套引用 bar.x 触发第二次重启。这个过程会发生，就是因为 Makefile 文件中 include 指令引用脚本与对应定义的 Target，因为依赖脚本文件的更新（新创建文件）触发了 make 需要重启加载多个脚本，对依赖关系进行重新分析。生成文件后，再次运行 make 命令时，就不需要再重启脚本了，因为此时加载的所有脚本都已经完成更新，就如手册 3.5 How Makefiles Are Remade 所述。
+
+以上这个过程发生在依赖分析阶段，而不是执行阶段，以下例子输出结果观察到被引用的脚本 makefile.mk 会经过两次的分析重启。
+
+```makefile
+define Test
+$$(info MAKE_RESTARTS=[$$(MAKE_RESTARTS)])
+$$(info MAKEFILE_LIST=$$(MAKEFILE_LIST))
+$$(info MAKELEVEL=$$(MAKELEVEL))
+
+autoall: ; @:
+include foo.mk
+foo.mk: ; @touch $$@
+endef
+
+sinclude makefile.mk
+$(info =+sinclude makefile.mk+=)
+
+all: makefile.mk
+    @echo $@
+
+makefile.mk: 
+    touch $@
+    $(file > $@,$(call Test))
+
+clean :
+    $(RM) foo.mk makefile.mk makefilemk
+
+$(info |||MAKE_RESTARTS=[$(MAKE_RESTARTS)])
+$(info |||MAKEFILE_LIST=$(MAKEFILE_LIST))
+$(info |||MAKELEVEL=$(MAKELEVEL))
+
+.PHONY: all clean
+
+.DEFAULT_GOAL = clean
+```
+
+在没有生成任何文件的情况下构建默认目标 make clean 输出内容参考，可以看到 clean 最后执行，这是执行构建阶段的工作，在分析阶段，多次重启了 Makefile 脚本并执行脚本中的 info 函数等函数打印调试信息。如果尝试将 all 目标的依赖项改一个名，即将 makefile.mk 改为不同于 sinclude 指令中引用的脚本名称，如 makefilemk 就不会有以下的逻辑表现：
+
+    =+sinclude makefile.mk+=
+    |||MAKE_RESTARTS=[]
+    |||MAKEFILE_LIST=Makefile
+    |||MAKELEVEL=0
+    touch makefile.mk
+    MAKE_RESTARTS=[1]
+    MAKEFILE_LIST=Makefile makefile.mk
+    MAKELEVEL=0
+    =+sinclude makefile.mk+=
+    |||MAKE_RESTARTS=[1]
+    |||MAKEFILE_LIST=Makefile makefile.mk
+    |||MAKELEVEL=0
+    MAKE_RESTARTS=[2]
+    MAKEFILE_LIST=Makefile makefile.mk
+    MAKELEVEL=0
+    =+sinclude makefile.mk+=
+    |||MAKE_RESTARTS=[2]
+    |||MAKEFILE_LIST=Makefile makefile.mk foo.mk
+    |||MAKELEVEL=0
+    rm -f foo.mk makefile.mk makefilemk
+
+
+### ⏫ Make Jobs
+1. https://make.mad-scientist.net/papers/jobserver-implementation/
+2. https://www.gnu.org/software/make/manual/make.html#Parallel
+3. https://www.gnu.org/software/make/manual/make.html#MAKE-Variable
+4. https://www.gnu.org/software/make/manual/make.html#Instead-of-Execution
+5. https://www.gnu.org/software/make/manual/make.html#Options_002fRecursion
+6. https://www.gnu.org/software/make/manual/make.html#Job-Slots
+
+Make 支持多个 Tareget 并行处理，通过 -j 或 --jobs 指定并行数量，不能并行处理的 Target 可以将其添加到内置的 .NOTPARALLEL 目标依赖列表中：
+
+```makefile
+Delay = 0.2
+
+.RECIPEPREFIX = ++
+.ONESHELL : all T1 T2 T3 T4 T5 J1 J2 J3 J4 J5 
+
+all:  T1 T2 T3 T4 T5
+++ @echo build $@ : $^ ;
+++ echo $@ done.
+
+T1 : J1 ; @echo build $@ : $^ ; sleep $(Delay)
+T2 : J2 ; @echo build $@ : $^ ; sleep $(Delay)
+T3 : J3 ; @echo build $@ : $^ ; sleep $(Delay)
+T4 : J4 ; @echo build $@ : $^ ; sleep $(Delay)
+T5 : J5 ; @echo build $@ : $^ ; sleep $(Delay)
+J1 :    ; @echo build $@ : $^ ; sleep $(Delay)
+J2 :    ; @echo build $@ : $^ ; sleep $(Delay)
+J3 :    ; @echo build $@ : $^ ; sleep $(Delay)
+J4 :    ; @echo build $@ : $^ ; sleep $(Delay)
+J5 :    ; @echo build $@ : $^ ; sleep $(Delay)
+
+# .NOTPARALLEL: all
+.DEFAULT_GOAL = all
+```
+
+使用 `make -j 4 -Otarget` 运行以上脚本，会依次打印各个目标的构建过程，并且 make 以依赖关系分割并行任务，此时 sleep 命令以模拟大量的编译计算，指定的时间延时会按并行方式计算时长。如果解除注解 .NOTPARALLEL 则会按顺序构建各个目标，时间将是所有 sleep 时间的累加。所以，多进程并行任务中将大大节省构建时间，而顺序执行累计所有 Target 的构建时间。
+
+可以将依赖看成是一个 N 叉树的数据结构，叶节点就是没有任何依赖的节点（目标），那么并行构建时，可以将它们随意分配给空闲的进程进行构建。当某个节点的所有子节点都算是构建完成状态，那么它就可以看作是没有任何依赖（未构建的目标），也就可以随意分配给空闲进程进行处理。而那些还有依赖目标处于构建中或还未构建，那么就继续等待工作进程完成任务。这个任务分割逻辑是根据依赖关系猜测得来，并不一定是 make 源代码中的实现。
+
+并行任务的最小切割单位就是每个 Target 的命令块，它们会通过一个 shell 线程执行，对于使用 .ONESHELL 目标，或者每条命令都用 shell 线程执行。
+
+并行运行可以设置 --max-load 限制，防止 make 占用过多的 CPU，比如设置负载平衡为 -l 2.5，当到达这个值时，make 就控制进程不再进行更多的工作。
+
+并行构建方式下可能产生错误的情形：
+
+1. 存在未被发现的依赖，并且没有在脚本依赖关系中体现出来，这会导致执行命令出错；
+2. 不同目标访问的资源文件交错混乱，产生临界资源访问问题，数据竟态；
+3. 最隐蔽的问题还是在 Makefile 脚本中递归并行运行 make 子进程，后面讨论 Sub-make；
+
+为了提升性能，同时避免隐式规则触发多余的文件检查或产生潜在错误，可以使用 5.9 Using Empty Recipes，这是显式规则的一种使用方式，主要目的就是禁止 make 调用隐式规则的命令。假设以下脚本中删除 `target: ;` 这条空目标，那么 make 就会在执行时检查 target 文件，根据所有隐式规则定义的文件类型进行匹配，如果有相应的文件就调用隐式规则定义的命令编译它：
+
+```makefile
+    all : target
+    target: ;
+```
+
+另外两条目标也用于处理那些没有需要定义规则的目标，其中模式匹配 % 可以匹配到所有未定义的 Target，但它的执行优先级最低，会随时被隐式规则中更高优先级的其它模式匹配规则替换。另外一条是 .DEFAULT 内置目标，这个预置目标是处理那些没有 Target 规则声明，但又被其它 Target 依赖的目标，除非那些目标有适用的隐式规则进行处理。如列子中的 port 作为 all 的依赖，但它本身没有定义 Target 规则，除非磁盘有 port.c 这样的可以隐式处理的文件，否则它就会由 .DEFAULT 接管。当然，在以下例子中，因为 .DEFAULT 的优先级还不及模式匹配高，可以它不会被调用。但是，它们都是备选规则 10.6 Defining Last-Resort Default Rules。
+
+```makefile
+    all : port
+    %::
+            touch $@
+    .DEFAULT :
+        @echo do default command for prerequisites that has no target rules.
+```
+
+使用 :: 是将未定义的目标定义为独立的目标，当然可以使用 : 定义为使用常规依赖的目标。双冒号规则有一个特点，因为它定义的是独立目标，所以没有依赖也会总是执行构建，4.13 Double-Colon Rules
+
+使用空命令目标也许不是用来定义那些没有对应磁盘文件的目标，Makefile 中可以使用内置的 Phony Targets，它专用于此目的，只需要将那些目标添加到 .PHONY 依赖列表中即可以声明它们是虚目标，不涉及对应的磁盘文件，也不会进行文件的检查确定是不要更新。所以虚目标在执行时，其规则中定义的命令部是会得到执行，而不管文件的状态。但是，另一个副作用，那么些依赖了 .PHONY 的目标，就不会因为虚目标（事实上可能有对应的磁盘文件）触发更新构建。
+
+在明确 Makefile 不需要重新构建的情况下，使用以下任何一条规则避免 make 命令重新加载脚本：
+
+```makefile
+.PHONY: Makefile
+Makefile:: ;
+```
+
+文件 I/O 是一个性能瓶颈，编写 Makefile 应该尽量减少触发隐式规则，这里面涉及大量文件检查工作，这会明显了降低 make 工作性能。同时，利用多进程进行编译，又可以大大提升 I/O 的访问效率，减少 I/O 等待时间。
+
+并行处理过程中，消息打印就会乱序，可以开启输出同步 --output-sync 或 -O。
+
+1. `none` 默认方式，所有输出不经过同步直接打印；
+2. `line` 单行同步，确保每一行内容不会出现其它线程中的消息出现；
+3. `target` 单目标同步，--output-sync 或者 -O 即启用此方式，消息按 Target 各自分组输出；
+4. `recurse` 递归同步，也是分组方式会在递归调用完成后进行分组和打印。
+
+一般情况下，GNU make 会通过 stdin 和 stdout 标准输入输出文件来传递所有被调用命令的数据，许多工具都可以实现检测输入输出是否发生在终端环境中。根据文档 13.2 Synchronized Terminal Output，当使用了多进程构建功能时，--output-sync 选项激活了文件暂存各个线程的输出数据，这就会导致其它工具无法检测 make 是否在终端上处理 I/O。为了帮助各种工具应用进行检测，在调用工具之前，make 将通过内置变量 `MAKE_TERMOUT` 和 `MAKE_TERMERR` 提供指示性信息，自动设置为相应的终端类型或者文件设备。这些参数值类似 /dev/cons0 and /dev/cons0，即控制台标准文件设备。
+
+所谓终端程序，Terminaal，就当代而言，就是各种模拟大型计算机时代的硬终端的程序，即软件终端，它模拟了终端设备与主机进行交互的功能，同时打印从主机上传递回来的数据。一般彩色终端可以将字符打印成各种背景色、字体颜色。
+
+而对于标准文件则会没有这样的功能，因此就会停用控制台彩色。如果输出这些用于设置终端字符属性数据到标准文件中，就会当作乱码显示。比如 git 命令可以在终端中打印彩色文字，但是当使用命令 git status > status.txt 将输出重定向到文件，而不是输出到终端，那么就不应该有字符属性数据。Linux 提供了 isatty(int fd) 库函数用于检查 FD 是指终端还是其他文件设备，此函数是 unistd.h 头文件的一部分。
+
+
+Makefile 脚本中执行的命令其实就是 Linux shell 脚本，但 make 提供了一些功能：
+
+5.3.1 Using One Shell 使用 .ONESHELL 可以让指定目标的命令运行在同一个 shell 进程。
+5.4.1 Disabling Parallel Execution 使用 .NOTPARALLEL 可以让指定目标不能以多进程方式运行。
+
+在目标启用 .ONESHELL 的前提下，通过设置命令中首行首字符是 @ - + 三者之一激活特殊功能，这样在当前有目标所有命令行的开头都会包含这个字符，所以需要根据具体 shell 环境使用，三个字符对应功能如下：
+
+1. `@` 符号前缀在命令名就可以禁止命令本身被打印，相当 --silent。5.2 Recipe Echoing
+2. `-` 忽略命令退出状态码，默认在出错时 make 会终止构建。5.5 Errors in Recipes
+3. `+` 表示命令不能正常执行时就运行于 make -ntq 之下。5.7.1 How the MAKE Variable Works
+
+使用 .ONESHELL 的一个主要目的是执行一些前后相关的命令，比如需要进入到指定目录下操作的命令，如果不使用 .ONESHELL 就需 cd && commands 这样的并行命令执行形式，在大量执行命令时并不适用。注意，shell 命令是新的进程中执行的，wildcard 函数并不受 cd 命令的影响，它始终以父进程的工作目录为参考。以下脚本演示 .ONESHELL 的两种使用方式：
+
+```makefile
+# .ONESHELL : all
+.ONESHELL :
+all: makefile.mk clean 
+    @touch $<
+    pwd
+    cd $(word 1,$(wildcard */))
+    pwd
+    cd ../$(lastword $(wildcard */))
+    pwd
+    echo $(wildcard ./*/Make*) # path relative to parent make process pwd 
+```
+
+按照 5.7.1 How the MAKE Variable Works 文档说明，Makefile 脚本中应该总是以 MAKE 内部变量来调用 make 进程，以激活以上的功能特性。
+
+命令行参数说明：
+
+1. -t --touch 表示阻止 .Phony Targets 功能，禁止它无条的更新功能，即利用 touch 更新时间。
+2. -n --just-print 表示只打印出目标的构建命令，不要执行，No-op。
+3. -q --question 静默地检查目标是否需要更新，但不执行，返回码 1 表示需要更新。
+4. --ignore-errors 忽略目标命令出现的错误，默认会终止执行。
+5. --keep-silent 静默方式运行，Echo recipes，相当使用命令前缀 @ 。
+6. -k, --keep-going 某些目标构建失败时，继续构建其它目标。
+
+
+现在来讨论一下 Sub-make 执行方式，可以将 make 的运行分为三种形式：
+
+1. 普通模式，make -f Makefile aall 这样的命令运行方式；
+2. 并行模式，make -f Makefile -j4 aall 启用多进程运行方式，5.4 Parallel Execution；
+3. 子进程模式，Sub-make，即在 Makefile 脚本中通过 $(MAKE) 调用创建新进程的模式；
+
+子进程模式下，主进程就称为父进程或者顶级进程，与子进程之间就可以实现数据的传递，最基本的就是通过命令行参数、export 环境变量等等手段传递变量，5.7.3 Communicating Options to a Sub-make。而更深入的是 Job Slots 的共享处理，13.1 Sharing Job Slots with GNU make。
+
+The options ‘-C’, ‘-f’, ‘-o’, and ‘-W’ are not put into MAKEFLAGS; these options are not passed down.
+
+MAKELEVEL 内置变量会自动根据递归深度设置，顶层进程为 0，一级子进程为 1，依此设置。
+
+根据文档描述，make 调用的各种工具，如下罗列，或者是通过多进程，或者是多线程，又或者是通过 GNU make job 的方式进行，Jobserver 是一种进程、线程管理器，它确保系统活动的线程不会超过 GNU make 提供的最大 slots 数量。Slot 即插槽，插入线程以启动工作任务的一个抽象插槽。
+
+    awk cat cmp cp diff echo expr false grep install-info ln ls
+    mkdir mv printf pwd rm rmdir sed sleep sort tar test touch tr true
+    ar bison cc flex install ld ldconfig lex make makeinfo ranlib texi2dvi yacc
+    chgrp chmod chown mknod
+
+
+进程间通信技术 Inter-process communication (IPC)，是由于操作系统为了安全性而不得不隔离进程的内存空间，从而产生的一种技术需求，进行间通信有很多种方法：
+
+1. 匿名管道 Pipe：父子进程间的通信。
+2. 命名管道 FIFO：跨进程的通信。
+3. 共享内存 SHM：跨进程的通信，需要处理进程同步，比如和信号量配合。
+4. Unix Socket：跨进程的通信。
+5. Internet Socket：可以跨主机通信。
+
+Make 提供了一套机制给开发者编写扩展程序，即各种基于 make 的工具开发，也就是手册 12 Extending GNU 'make' 和 13 Integrating GNU 'make' 中所阐述的内容，主要是 job slots 在进程间的共享。扩展 make 就是基于插件机制编写工具，并且通过脚本中的 load 指令加载和执行指定方法，或者默认的入口方法。官方已经实现的一个工具就是 GNU Guile，这是一种嵌入式脚本语言，属于 Scheme programming language 的一种。
+
+关于 Jobserver 的讨论分为两大类操作系统，因为低层实现机制不一样：
+
+13.1.1 POSIX Jobserver Interaction 使用 Named Pipe（FIFO）或者简单 Unix Pipe；
+13.1.2 Windows Jobserver Interaction 使用命名信号量实现，named semaphore；
+
+Jobserver 通信手段：
+
+1. MAKEFLAGS 环境变量，程序要参与 jobs 就应该查找是否有 `--jobserver-auth=` 设置；
+2. make 命令启动默认就有一个 slot，jobserver 如此假定，其它程序就不需要进行通信；
+3. 最重要的是 jobserver protocol 要求程序申请到的 slots 在退出时归还，即使错误退出。
+
+Windows 系统下，Jobserver 使用的信号量设置为具有初始时可用 slots 的数量，工具要获得 slots，就必须等待信号量（可有或没有超时机制），释放信号量就是释放 slots。
+
+要访问信号量，必须从 MAKEFLAGS 变量解析出 --jobserver-auth=NAME 这橛的数字符串，其中 NAME 就是命名信号量的名称 。将此名称作为 Windows API  OpenSemaphore 参数创建信号量的句柄。环境变量中 jobserver-auth 可能存在多个值，但最后一个才是当前适用值。另外，只支持 --jobserver-style=sem 这一种风格设置。
+
+你实现的工具必须考虑各种错误条件，以确保实施的稳健：
+
+1. 通常，并行操作有相应的命令行参数。它如何处理同时指定 jobserver 和命令行参数的情况；
+2. 应该确保为它读取的令牌释放信号量，即使在错误触发时，包括外部中断（SIGINT）等。可能需要使用信号处理函数以片延时回写（write-back）。
+
+POSIX 系统上有更多的进程通信实现技术，Jobserver 实现有两种选择：
+
+1. 基于命名管道，Named Pipe，使用认证参数格式 --jobserver-auth=fifo:PATH
+2. 基于命名管道，UNIX Pipe，使用认证参数格式 --jobserver-auth=R,W
+
+其中，PATH 即是命名管道的路径名称，R、W 分别代码读、写文件描述符号，即操作文件时标识。如果为负值即表示 jobserver 禁用了进程间通信。如果系统不支持，或者用户指定参数 --jobserver-style=pipe 就使用使用简单 UNIX pipe。
+
+可以使用 make -p 命令将隐式规则打印出来，可以看到 $(MAKE) 相比直接调用 make 命令的方式可能包含一些默认的参数。在子进程中可以通过 MAKEFLAGS 检测到 --jobserver-auth=3,4 这样的命令行参数。表示各种工具可以从 3 号文件设备读取数据，可以往 4 号文件写数据，以进行进程间的通信。
+
+UNIX Pipe 即一般的匿名管道，这种方式下，只允许使用 make 支持的命令行参数进行递归调用。
+
+注意：UNIX 匿名管道读取设置为阻塞模式，即除非 jobserver 有空闲的 slots，否则申请 slot 时就会导致进程进入阻塞状态，即等待其它进程释放有限制的资源。更重要的是一定要归还 slot，即使工具运行出错！
+
+以上两种实现方式会为每个有效的 job 预加载只有单个字符的 Token，即使用一个独一的字符与 slot 建立一一对应关系。要获取额外的 slot，就必须从 jobseerver 管道中读取一个字符，要释放 slot 就将对应的字符回写到管道，这样就实现了 slots 的申请与归还，始终保持一致的工作进程关系。
+
+在实现自己的工具时，有以下必需考虑的问题：
+
+1. 如果使用命令行参数控制工具的并行运行模型，要同时考虑 jobserver 的指定的参数；
+2. 不支持 --jobserver-auth 参数时，应该假定 jobserer 使用不同风格且不能相互通信；
+3. 支持 --jobserver-auth 参数但检测到其指定的文件描述符已关闭时，表示 make 假定了此工具不是 make 递归调用，比如执行命令时没前缀 + 符号，应该告知工具的使用者。
+4. 必须确保回写已经读取的 Token 字符，即确保 slot 申请与归还逻辑闭环，即使工具被外部中断（SIGINT）强制终止，也应当使用信号响应函数来处理延时回写（write-back）。
+5. 应当检测 MAKEFLAGS 变量的第一个参数，如果是一个‘n’字符，即 make 使用 -n 选项，工具应当停止执行操作。
+
+通过命令行参数 --jobs N 指定了进程数 N，父进程和子进程就会通信以保证同时运行的进程数量不会超过此值。但是，那些标记为递归调用的 sub-make 不计数，如果计数那么运行 N 个子进程后就会导致无 slots 可用于实际的工作。参数中如果省略数值表示不限制进程数量。
+
+如果操作系统不支持以上父子进程的通信，而导致无法保证进程数据，make 就会从 MAKEFLAGS 环境变量中移除 -j 参数，迫使子进程不能运行于并行模式。如果依然要手动将这个参数传递给子进程，那么就会获取多得多的进程数量。
+
+MAKEFLAGS 或者环境变量（-e 启用覆盖值）或者 export 导出的变量可以无条件地传入子进程。如果不希望传递 MAKEFLAGS，就清空参数：
+
+```makefile
+    subsystem:
+        cd subdir && $(MAKE) MAKEFLAGS=
+```
+
+以下例子演示了 Sub-make 运行方式：
+
+```makefile
+    SUBDIRS = foo bar baz
+
+    subdirs:
+        for dir in $(SUBDIRS); do \
+          $(MAKE) -C $$dir; \
+        done
+```
+
+对于每个目标的命令定义部分，其实就是 shell 编程，经过 make 进行宏展开后，这部分内容就是对应 shell 脚本内容。以上这种方式虽然是可以执行的脚本，但是存在较大问题：
+
+1. 一是没有利用 make 自带的 Parallel Execution 并行构建功能；
+2. 二是忽略了每个 Sub-make 的错误状态，尽管可以使用 -k 让其在出错时继承构建工作；
+
+假设各个子目录独立，可以修改为可以用并行处理的规则定义，因为目录总是存在的（对于假设的项目），那么它就不需要进行文件状态的检测，通过声明为 .PHONY 目标就可以节省 I/O 操作。更重要的是它可以让子目录的构建无条进行，假设没有 .PHONY 目标的特性，当检测到对应的目录已经存在，make 就不会去构建它：
+
+```makefile
+SUBDIRS = foo bar baz
+.PHONY : $(SUBDIRS)
+
+all : $(SUBDIRS)
+
+$(SUBDIRS) :
+    $(MAKE) -C $@;
+```
+
+以下两组错误信息分别由脚本中使用的两种递归调用触发，都涉及多进程构建模式。前一组由使用 --jobs=N 强制激活多进程递归调用时触发，其中 N 是大于 0 的自然数。后一组由直接使用 make 命令调用时触发。结果就是 jobserver 只能提供顺序执行，没有并行处理功能：
+
+    @$(MAKE) -j4 --no-print-directory -f Makefile foo
+    warning: -jN forced in submake: resetting jobserver mode.
+    warning: -jN forced in submake: disabling jobserver mode.
+
+    @make --no-print-directory -f Makefile foo
+    warning: jobserver unavailable: using -j1. Add `+' to parent make rule.
+
+前面一组警告意思是：递归调用的 submake 命令因命令行直接指定的 -j4 这样的参数而导致被迫要求进入多进程工作，所以此时子进程就会拒绝与其它进程通信，并且假装自己已经有 4 jobs。
+
+在正常的并行构建方式下，父进程设置了 -jN 指定进程数，假设是 N = 8 就是父进程可以有个并行进行可以处理构建工作，并且父进程会与 submake 进行通信确保进程数量限制。当用户在 Makefile 脚本中再通过递归调用 make，并且又将 -jN 这样参数显式传递到子进程，包括使用 MAKEFLAGS 内置变量中设置也一样，那么如果允许这样做，每增加一次递归调用，每个子线程将多产生 N 个进程数，这就是为何 make 给出警告，并且假装已经有相应的工作进程。所以，要避免这个错误警告，就不能在递归调用中显式指定 -jN 参数。
+
+在使用多进程编译时，特别需要注意规则的依赖定义，并且注意是否有可能多个非直接依赖的目标对同一资源访问，这可能会造成数据竞争（Data Race）甚至竞态条件（Race condition）。
+
+Make 给多进程分割任务的依据是 Makefile 规则定义的依赖关系，同一个目标的多个依赖的构建构建顺序与其在依赖列表中出现的顺序无关，只能确保当前 Target 会在所有依赖完成构建后再构建。
+
+多个进程不能同时从同一设备获取输入，为了确保一次只有一个进程尝试从终端获取输入，make 将使正在运行的进程能访问标准输入流，其它进程的标准输入流无效。如果另一方试图从标准输入中读取，通常会产生致命错误，Broken pipe signal。
+
+为了使进程能够进行通信，父进程将信息传递给子进程。由于实际上子进程可能不是 make 进程，比如 C/C++ 编译器进程，这会导致问题，因此只有当父进程认为子进程是 make 进程时，父进程才会发送消息给子进程。父级使用普通算法来确定这一点。如果构造的 makefile 使得父进程不能检测出子进程是 make 子进程，那么子进程将只接收到部分必要的信息。在这种情况下，子进程将按顺序进行构建，并警告提示：Add `+` to parent make rule. 即告知需要在父进程应该像 `+make -C sub` 这样调用。
+
+命令行中的 -n -t -q 选项会在规则定义的命令中使用 `$(MAKE)` 或者 `${MAKE}` 形式调用 make 进程时失效，或者在命令前经 + 号也有相同作用，即这样的运行方式不会考虑这三个命令行参数。同时，同一规则下的其它命令行不会运行，除非它们也以 + 开头或包含 `$(MAKE)` 或者 `${MAKE}` 。
+
+如果 job 运行的不是 make 子进程，那么在命令脚本中就不会有 MAKE 变量（假定条件），并且没有 + 前缀在 make 命令前，GNU make 命令就是通过这些手段来检测是不是 make 子进程。然后，在调用命令前，make 就会关闭 jobserver 管道文件。如果脚本构造不能让 make 成功检测出是否是 make 子进程，在尝试读取管道文件时就会出现错误，然后会按顺序构建。这种检查是通过字符比较得出，只需要简单地使用 `echo $(MAKE)` 就可以消除警告信息。
+
+以下代码仅供参考：
+
+```makefile
+    SHOW = $(patsubst --jobserver-auth=%,--jobserver-auth=<auth>,$(MAKEFLAGS))
+    AUTH = $(filter --jobs%,$(MAKEFLAGS))
+    # MAKEFLAGS += -j2
+
+    all:
+        @echo $@: "[$(SHOW)]"
+
+    recurse: ;
+    default: recurse 
+    #   @$(MAKE) -j4 --silent -f Makefile all
+        @$(MAKE) --silent -f Makefile all
+        @make --silent -f Makefile all; # $(MAKE) fake sign
+        @echo $@: "[$(AUTH)]";
+
+    .DEFAULT_GOAL = default
+```
+
+参考源代码或测试脚本：
+
+1. make-4.3\tests\scripts\features\parallelism
+2. make-4.3\tests\scripts\features\jobserver
+
+
+### 🤘 Make Guile Extending
+1. https://www.gnu.org/software/guile/manual/
+2. https://www.gnu.org/software/guile/docs/guile-tut/tutorial.html
+3. https://spritely.institute/static/papers/scheme-primer.html
+4. https://packages.msys2.org/base/guile
+
+Make 提供了一套机制给开发者编写扩展程序，即各种基于 make 的工具开发，也就是手册 12 Extending GNU 'make' 和 13 Integrating GNU 'make' 中所阐述的内容，主要是 job slots 在进程间的共享。扩展 make 就是基于插件机制编写工具，并且通过脚本中的 load 指令加载和执行指定方法，或者默认的入口方法。官方已经在 GNU Make 4.2 集成 Guile。
+
+Guile 是一种嵌入式脚本语言，属于 Scheme programming language 的一种，即 LISP 语言的一种方言。这类语言使用的语法非常新奇（古典），例如，调用加法算术函数 `(+ 1 2)` 得到结果为 3，嵌套调用就继续加圆括号。
+
+Guile 项目起源于 GNU Project，作为 Emacs Lisp 扩展功能得到成功应用。
+
+Windows 系统可以使用 mysys2 安装移植版本，这个移植平台使用 Pacman 作为软件安装管理工具，并且提供了 API 接口，可以手动查询安装包及依赖关系，并且进行手动安装程序包。安装 Guile 后就可以编写测试脚本，并通过 `guile -s hi.scm` 命令运行测试：
+
+```lisp
+    #! /c:/mingw/bin/guile -s
+    !#
+    (display "Hello, world!" )
+    (display (string-append "Hel""l""o! 1+2+3+4=" (number->string (+ 1 2 3 4)) ))
+    (newline)
+```
+
+```sh
+    whereis guile
+    guile: /usr/bin/guile.exe
+```
+
+Linix 系统中可以直接 ./hi.scm 执行脚本，Bash 会根据脚本第一行注解找到解释命令，Windows 系统则没有这种服务，需要手动使用 bash 或者解释器程序命令去调用脚本。更好的方法是使用 watch 命令监视脚本的改动，并且在出现改动时重新执行脚本：
+
+    watch "echo ---====+ Watching +====--- && guile -ds hi.scm" -wait 0.3 . 
+
+除了 Guile 嵌入式脚本的支持，GNU make 还提供了一个插件接口，通过 load 指令加载插件动态链接库，此功能目前是 techonology preview 状态。
+
+     load OBJECT-FILE ...
+     load OBJECT-FILE(SYMBOL-NAME) ...
+    -load silient_load_objects ...
+
+     load ../mk_funcs.so
+     load ../mk_funcs.so(init_mk_func)
+
+初始化函数可以通过 SYMBOL-NAME 指定，默认初始化函数是 OBJECT-FILE_gmk_setup，其中 OBJECT-FILE 是指动态链接库名称，但只取其名称中合法的标识字符，字母和数字和下划线，忽略首个非标识字符及之后内容。初始化函数只调用一次，接收参数包括文件名、调用它的脚本所在行号，返回 int 值，功能说明如下：
+
+1. 0 表示初始化失败；
+2. -1 表示 GNU make 不会尝试重新构建其插件的目标文件。
+3. 非零值表示初始化成功；
+
+成功加载的插件会添加到 $(.LOADED) 变量中，make 支持插件像 Remaking Makefiles 一样重新执行构建。关于插件开发及接口定义的内容参考手册：
+
+12.2.3 Loaded Object Interface
+12.2.4 Example Loaded Object
+
+
+Guile 扩展不一定与正在使用的 make 一起编译，可以通过 .FEATURES 检测是否存在 guile 扩展。也可以编译源代码，调用源代码配置脚本 bash configure --with-guile 启用 Guile 进行编译，然后就可以在 Makefile 脚本中通过 guile 函数进行 LISP 编程：
+
+```makefile
+    $(info FEATURES: $(filter load% job% guile%,$(.FEATURES)) )
+    GUILD = $(filter guild%,$(.FEATURES))
+    LOAD = $(filter load%,$(.FEATURES))
+    $(info 12.1 GNU Guile Integration $(if $(GUILD),,un)supported )
+    $(info 12.2 Loading Dynamic Objects $(if $(LOAD),,un)supported )
+```
+
+Optional Packages:
+
+    --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+    --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+    --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+    --with-libiconv-prefix[=DIR]  search for libiconv in DIR/include and DIR/lib
+    --without-libiconv-prefix     don't search for libiconv in includedir and libdir
+    --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
+    --without-libintl-prefix     don't search for libintl in includedir and libdir
+    --with-guile            Support GNU Guile for embedded scripting
+    --with-customs=DIR      enable remote jobs via Customs--see README.customs
+    --with-dmalloc          use dmalloc, as in http://www.dmalloc.com
+
+
+16.2 Utilities in Makefiles 手册逻列了各种可以配合 make 使用的工具：
+
+     awk cat cmp cp diff echo egrep expr false grep install-info ln ls
+     mkdir mv printf pwd rm rmdir sed sleep sort tar test touch tr true
+
+    Compression programs such as 'gzip' can be used in the 'dist' rule.
+
+编译器相关命令，应该使用内置变量进行调用：
+
+     ar bison cc flex install ld ldconfig lex
+     make makeinfo ranlib texi2dvi yacc
+
+       Use the following 'make' variables to run those programs:
+
+     $(AR) $(BISON) $(CC) $(FLEX) $(INSTALL) $(LD) $(LDCONFIG) $(LEX)
+     $(MAKE) $(MAKEINFO) $(RANLIB) $(TEXI2DVI) $(YACC)
+
+额外的文件属性处理工具：
+
+     chgrp chmod chown mknod
+
+Make 宏编程只有字符串，没有其它数据类型，如何处理 Guile 数据类型？
+
+答案就是使用字符串约定值表示各种 Guile 数据类型：
+
+1. `#f` 使用空字符表示 False；
+2. `#t` 任何非空字符串表示 True；
+3. `symbol` 和 `number` 转换成对应的字符串表示；
+4. `character` 可打印字符原样转换；
+5. `string` 字符串按原样转换；
+6. `list` 根据以上规则转换列表，默认列表扁平化，如 (a b (c d) e) 转换为 'a b c d e'；
+7. `other` 其它任何 Guile 类型都会转换为错误，表示待将来版本支持；
+
+
+其中代表空字符的 '#f' 和代表非空字符的 '#t' 设计用 Guile 布尔来表达 make 中的布尔条件表达，例如：
+
+     $(if $(guile (access? "myfile" R_OK)),$(info myfile exists))
+
+Guile script 中必需考虑后面的类型转换结果，因为它们最终会以字符串出现在 make 脚本中。可以考虑使用 #f 结束脚本，以避免语法错误等问题。
+
+Guile scripts 脚本中会在启动时导出一个 Guile 模块，gnu make，并导出以下公共的函数：
+
+1. 'gmk-expand' 传入一个参数，它会以 make 宏展开式的结果返回；
+2. 'gmk-eval' 传入一个参数，无返回值，参数转换成字符串当作 Makefile 脚本，并通过 make 求值；
+
+以下 Guile 脚本演示了文件写入操作，使用 define endef 关键字定义过程。因为不能在 make 中表示 Guile ports，所以将它保存在 MKPORT 变量中，最后一行就是调用 Guile 注册函数登记模块定义：
+
+```lisp
+     define GUILEIO
+     ;; A simple Guile IO library for GNU make
+
+     (define MKPORT #f)
+
+     (define (mkopen name mode)
+       (set! MKPORT (open-file name mode))
+       #f)
+
+     (define (mkwrite s)
+       (display s MKPORT)
+       (newline MKPORT)
+       #f)
+
+     (define (mkclose)
+       (close-port MKPORT)
+       #f)
+
+     #f
+     endef
+
+     # Internalize the Guile IO functions
+     $(guile $(GUILEIO))
+```
+
+可以将代码保存到 Scheme 脚本文件，然后在 Makefile 脚本中通过 guile 函数载入：
+
+     $(guile (load "guileio.scm"))
+
+单独使用脚本文件的好处理就是可以完全使用 Scheme 语法进行编程，而不必考虑 Makefile 脚本语法。加入 Guile 脚本后，就可以使用注册好的函数库，Makefile 脚本中使用它们写数据到指定文件，注意这个工具还是使用列表作为输入：
+
+```makefile
+    prog: $(PREREQS)
+         @$(guile (mkopen "tmp.out" "w")) \
+          $(foreach X,$^,$(guile (mkwrite "$(X)"))) \
+          $(guile (mkclose))
+         $(LINK) < tmp.out
+```
+
+https://www.gnu.org/software/guile/manual/guile.html#Linking-Guile-into-Programs
+Guile 官方文档 2.3 Linking Guile into Programs 给了一个嵌入 Guile 脚本解释器的示范，示范代码只有一个 simple-guile.c 文件，实现了一个简单的嵌入式脚本语言的使用，演示了如何将 C/C++ 定义的函数导出到 Guile 脚本环境，并在脚本中调用它。
+
+```cpp
+#include <stdlib.h>
+#include <libguile.h>
+
+static SCM
+my_hostname (void)
+{
+  char *s = getenv ("HOSTNAME");
+  if (s == NULL)
+    return SCM_BOOL_F;
+  else
+    return scm_from_locale_string (s);
+}
+
+static void
+inner_main (void *data, int argc, char **argv)
+{
+  scm_c_define_gsubr ("my-hostname", 0, 0, 0, my_hostname);
+  scm_shell (argc, argv);
+}
+
+int
+main (int argc, char **argv)
+{
+  scm_boot_guile (argc, argv, inner_main, 0);
+  return 0; /* never reached */
+}
+```
+
+编译嵌入了 Guile 解释器的主程序，然后运行它进行 Lisp 编程，并调用主程序中注册的函数：
+
+```sh
+$ gcc -o simple-guile simple-guile.c `pkg-config --cflags --libs guile-3.0`
+
+$ ./simple-guile
+scheme@(guile-user)> (+ 1 2 3)
+$1 = 6
+scheme@(guile-user)> (my-hostname)
+"burns"
+```
+
+
+
+### ✋ Implicit Rules
 https://www.gnu.org/software/make/manual/make.html#Suffix-Rules
 https://www.gnu.org/software/make/manual/make.html#Implicit-Rule-Search
 
@@ -2828,7 +3697,7 @@ Make 将所有隐式规则，包括运行环境、脚本解释数据都记录在
 
 对于隐式规则，需要 Target 和磁盘系统中的文件名（不含扩展名）匹配时，就可以根据 make 数据库找到相应文件的编译命令，并构建出相应的程序，即使没有设置依赖，只要求 Target 名称匹配。但是 Target 名称与文件名不匹配，则不能应用此隐式行为。
 
-```sh
+```makefile
 app : port    # build port.exe if there is a port.c
 bar : port.o  # make object if there is a port.c and no port.o
 foo : port.c  # make: Nothing to be done for 'foo'.
@@ -2862,7 +3731,7 @@ Makefile 这种涉及中间文件的隐式规则的目标构建，称为链式�
 
 使用后缀规则注意，需要使用 .SUFFIXES 列表中显示的已经支持的文件格式。
 
-```sh
+```makefile
 all : app
 
 app : port.o
@@ -3022,7 +3891,7 @@ app : port.o
 20. *RM*  删除文件命令。
 
 
-### Make CLI
+### 💻 Make CLI
 
     Usage: make [options] [target] ...
     Options:
@@ -3073,14 +3942,14 @@ app : port.o
     Report bugs to <bug-make@gnu.org>
 
 
-### Makefile Syntaxes 语法列表
+### 📜 Makefile Syntaxes 语法列表
 https://www.gnu.org/software/make/manual/make.html#Quick-Reference
 https://www.gnu.org/software/make/manual/make.html#Error-Messages
 https://www.gnu.org/software/make/manual/make.html#Complex-Makefile
 https://www.gnu.org/software/make/manual/make.html#Standard-Targets
 https://www.gnu.org/software/make/manual/make.html#Concept-Index
 
-```sh
+```makefile
     # 3.3 Including Other Makefiles
     include filenames…
     include foo *.mk $(bar)
@@ -3212,12 +4081,12 @@ https://www.gnu.org/software/make/manual/make.html#Concept-Index
     $(patsubst pattern,replacement,text)
     $(strip string) 
     $(findstring find,in)
-    $(filter pattern…,text)
+    $(filter pattern…,text)     # $(filter %.c %.s,$(sources))
     $(filter-out pattern…,text)
-    $(sort list)        # $(sort foo bar lose) return‘bar foo lose’.
-    $(word n,text)     # $(word 2, foo bar baz) return bar
-    $(wordlist s,e,text) # $(wordlist 2, 3, foo bar baz) returns ‘bar baz’.
-    $(words index,text)
+    $(sort list)        # $(sort foo bar lose) produces‘bar foo lose’.
+    $(word n,text)     # $(word 2, foo bar baz) produces bar
+    $(wordlist s,e,text) # $(wordlist 2, 3, foo bar baz) produces‘bar baz’.
+    $(words text)      # $(info $(words "bad apple pie")) produces 3
     $(firstword names…)
     $(lastword names…)
     # 8.3 Functions for File Names
@@ -3245,7 +4114,7 @@ https://www.gnu.org/software/make/manual/make.html#Concept-Index
     # 8.6 The foreach Function
     $(foreach var,list,text)
     # 8.7 The file Function
-    $(file op filename[,text])   # $(file >$@.in,$^)  $(file >>$@.in,$^)
+    $(file op filename[,text]) # $(file >$@.in,$^)  $(file >>$@.in,$^) $(file < file/to/be/read)
     # 8.8 The call Function
     $(call variable,param,param,…)
     # 8.9 The value Function
@@ -3782,7 +4651,7 @@ NMAKE 使用以下命令及选项预定义宏：
 
 当然还有环境变量：
 
-```sh
+```makefile
 PATH=$(PATH);\nonesuch
 
 all:
@@ -3791,7 +4660,7 @@ all:
 
 目标定义的基本格式和 make 很像，也具有推理能力，以下是基本使用规则：
 
-```sh
+```makefile
 targets... : dependents...
     commands...
 
@@ -5846,6 +6715,7 @@ pacman -Fx <filename>
 pacman -Sc
 pacman -S --clean
 
+# /etc/pacman.conf
 >pacman-conf
 [options]
 RootDir = /

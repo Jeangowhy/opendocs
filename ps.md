@@ -9444,8 +9444,18 @@ Key
     expression  : Arithmetic expression
     /A          : see full details of Arithmetic expressions below.
 
+算数运算 加+，减-，乘*，除/，取余% 基本用法：
+
+    set /a 1+2 3
+    set /a 2*2 4
+
+    set id = 1
+    set /a id = %id% + 2
+    echo %id%
+
 set /a 执行数学计算并赋值到变量
 set /p 提示用户输入并赋值到变量
+
 
 ```sh
 set /p msg=启动 SQL 服务吗(Y/N)?:
