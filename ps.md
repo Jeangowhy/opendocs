@@ -9434,6 +9434,7 @@ Syntax
 
       SET /A "variable=expression"
       SET /P variable=[promptString]
+      SET /P variable= < file/to/read
       SET "
 
 Key
@@ -9454,7 +9455,7 @@ Key
     echo %id%
 
 set /a 执行数学计算并赋值到变量
-set /p 提示用户输入并赋值到变量
+set /p 提示用户输入、或重定向输入文件并赋值到变量
 
 
 ```sh

@@ -988,7 +988,7 @@ modules and modules associated with the Guile REPL.
 along with Mark Weaver, have also made their dent in the manual, writing
 documentation for new modules and subsystems that arrived with Guile
 2.0.  Ludovic, Andy, and Mark are also responsible for ensuring that the
-existing text retains its relevance as Guile evolves.  *Note Reporting
+existing text retains its relevance as Guile evolves.  *Note* Reporting
 Bugs::, for more information on reporting problems in this manual.
 
    The content for the first versions of this manual incorporated and
@@ -1027,7 +1027,7 @@ would want to do.
      General Public License version 3 or later.  See the file ‘COPYING’.
 
    • The manual you’re now reading is published under the terms of the
-     GNU Free Documentation License (*note GNU Free Documentation
+     GNU Free Documentation License (*note* GNU Free Documentation
      License::).
 
    C code linking to the Guile library is subject to terms of that
@@ -1103,12 +1103,12 @@ Scheme language, and standardises many non-core functions that
 implementations—including Guile—have previously done in different ways.
 Over time, Guile has been updated to incorporate almost all of the
 features of R6RS, and to adjust some existing features to conform to the
-R6RS specification.  *Note R6RS Support::, for full details.
+R6RS specification.  *Note* R6RS Support::, for full details.
 
    In parallel to official standardization efforts, the SRFI process
 (<http://srfi.schemers.org/>) standardises interfaces for many practical
 needs, such as multithreaded programming and multidimensional arrays.
-Guile supports many SRFIs, as documented in detail in *note SRFI
+Guile supports many SRFIs, as documented in detail in *note* SRFI
 Support::.
 
    The process that led to the R6RS standard brought a split in the
@@ -1120,7 +1120,7 @@ as having included some components that would never be adopted by more
 minimalistic Scheme implementations.  This second group succeeded in
 taking control of the official Scheme standardization track and in 2013
 released a more limited R7RS, essentially consisting of R5RS, plus a
-module system.  Guile supports R7RS also.  *Note R7RS Support::.
+module system.  Guile supports R7RS also.  *Note* R7RS Support::.
 
    With R6RS and R7RS, the unified Scheme standardization process
 appears to have more or less run its course.  There will continue to be
@@ -1284,7 +1284,7 @@ It will also install the Guile reference manual.
    Since this manual frequently refers to the Scheme “standard”, also
 known as R5RS, or the “Revised^5 Report on the Algorithmic Language
 Scheme”, we have included the report in the Guile distribution; see
-*note Introduction: (r5rs)Top.  This will also be installed in your info
+*note* Introduction: (r5rs)Top.  This will also be installed in your info
 directory.
 
 
@@ -1419,7 +1419,7 @@ script is simply a file of Scheme code with some extra information at
 the beginning which tells the operating system how to invoke Guile, and
 then tells Guile how to handle the Scheme code.
 
-   Here is a trivial Guile script.  *Note Guile Scripting::, for more
+   Here is a trivial Guile script.  *Note* Guile Scripting::, for more
 details.
 
      #!/usr/local/bin/guile -s
@@ -1520,7 +1520,7 @@ is how to do it on GNU/Linux:
        -shared -o libguile-bessel.so -fPIC bessel.c
 
    For creating shared libraries portably, we recommend the use of GNU
-Libtool (*note Introduction: (libtool)Top.).
+Libtool (*note* Introduction: (libtool)Top.).
 
    A shared library can be loaded into a running Guile process with the
 function ‘load-extension’.  The ‘j0’ is then immediately available:
@@ -1530,7 +1530,7 @@ function ‘load-extension’.  The ‘j0’ is then immediately available:
      scheme@(guile-user)> (j0 2)
      $1 = 0.223890779141236
 
-   For more on how to install your extension, *note Installing Site
+   For more on how to install your extension, *note* Installing Site
 Packages::.
 
 
@@ -1544,7 +1544,7 @@ modules, you can group related code together and manage the composition
 of complete programs from largely independent parts.
 
    For more details on the module system beyond this introductory
-material, *Note Modules::.
+material, *Note* Modules::.
 
 * Menu:
 
@@ -1603,7 +1603,7 @@ following session shows a simple example.
      scheme@(guile-user)> (frob 12)
      $1 = 24
 
-   For more on how to install your module, *note Installing Site
+   For more on how to install your module, *note* Installing Site
 Packages::.
 
 
@@ -1632,7 +1632,7 @@ and call ‘load-extension’ directly in the body of the module.
      scheme@(guile-user)> (j0 2)
      $1 = 0.223890779141236
 
-   *Note Foreign Extensions::, for more information.
+   *Note* Foreign Extensions::, for more information.
 
 
 File: guile.info,  Node: Reporting Bugs,  Prev: Using the Guile Module System,  Up: Hello Guile!
@@ -1749,7 +1749,7 @@ that is more or less assumed by the chapters that follow.
    The style of this introductory material aims about halfway between
 the terse precision of R5RS and the discursiveness of existing Scheme
 tutorials.  For pointers to useful Scheme resources on the web, please
-see *note Further Reading::.
+see *note* Further Reading::.
 
 * Menu:
 
@@ -1895,7 +1895,7 @@ therefore correct.
    In these examples, VALUE and NEW-VALUE are literal numeric or string
 values.  In general, however, VALUE and NEW-VALUE can be any Scheme
 expression.  Even though we have not yet covered the forms that Scheme
-expressions can take (*note About Expressions::), you can probably guess
+expressions can take (*note* About Expressions::), you can probably guess
 what the following ‘set!’ example does...
 
      (set! x (+ x 1))
@@ -1906,14 +1906,14 @@ missing pieces can be filled in.  If, however, you are already familiar
 with the structure of Scheme, you may like to read about those missing
 pieces immediately by jumping ahead to the following references.
 
-   • *note Lambda Alternatives::, to read about an alternative form of
+   • *note* Lambda Alternatives::, to read about an alternative form of
      the ‘define’ syntax that can be used when defining new procedures.
 
-   • *note Procedures with Setters::, to read about an alternative form
+   • *note* Procedures with Setters::, to read about an alternative form
      of the ‘set!’ syntax that helps with changing a single value in the
      depths of a compound data structure.)
 
-   • *Note Internal Definitions::, to read about using ‘define’ other
+   • *Note* Internal Definitions::, to read about using ‘define’ other
      than at top level in a Scheme program, including a discussion of
      when it works to use ‘define’ rather than ‘set!’ to change the
      value of an existing variable.
@@ -2155,12 +2155,12 @@ The corresponding forms of the alternative ‘define’ syntax are:
 
      (define (NAME . ARGS) BODY ...)
 
-For details on how these forms work, see *Note Lambda::.
+For details on how these forms work, see *Note* Lambda::.
 
    Prior to Guile 2.0, Guile provided an extension to ‘define’ syntax
 that allowed you to nest the previous extension up to an arbitrary
 depth.  These are no longer provided by default, and instead have been
-moved to *note Curried Definitions::.
+moved to *note* Curried Definitions::.
 
    (It could be argued that the alternative ‘define’ forms are rather
 confusing, especially for newcomers to the Scheme language, as they hide
@@ -2260,12 +2260,12 @@ is evaluated.
    ---------- Footnotes ----------
 
    (1) These definitions are approximate.  For the whole and detailed
-truth, see *note R5RS syntax: (r5rs)Formal syntax and semantics.
+truth, see *note* R5RS syntax: (r5rs)Formal syntax and semantics.
 
 
 File: guile.info,  Node: Eval Literal,  Next: Eval Variable,  Up: Evaluating
 
-3.3.1.1 Evaluating Literal Data
+### 3.3.1.1 Evaluating Literal Data
 ...............................
 
 When a literal data expression is evaluated, the value of the expression
@@ -2290,13 +2290,13 @@ describes that data type.
 
    Some data types do not have a read syntax.  Procedures, for example,
 cannot be expressed as literal data; they must be created using a
-‘lambda’ expression (*note Creating a Procedure::) or implicitly using
-the shorthand form of ‘define’ (*note Lambda Alternatives::).
+‘lambda’ expression (*note* Creating a Procedure::) or implicitly using
+the shorthand form of ‘define’ (*note* Lambda Alternatives::).
 
 
 File: guile.info,  Node: Eval Variable,  Next: Eval Procedure,  Prev: Eval Literal,  Up: Evaluating
 
-3.3.1.2 Evaluating a Variable Reference
+### 3.3.1.2 Evaluating a Variable Reference
 .......................................
 
 When an expression that consists simply of a variable name is evaluated,
@@ -2320,7 +2320,7 @@ variable reference expression signals an error.
 
 File: guile.info,  Node: Eval Procedure,  Next: Eval Special,  Prev: Eval Variable,  Up: Evaluating
 
-3.3.1.3 Evaluating a Procedure Invocation Expression
+### 3.3.1.3 Evaluating a Procedure Invocation Expression
 ....................................................
 
 This is where evaluation starts getting interesting!  As already noted,
@@ -2395,7 +2395,7 @@ value that is the length of the argument string, which is 12.
 
 File: guile.info,  Node: Eval Special,  Prev: Eval Procedure,  Up: Evaluating
 
-3.3.1.4 Evaluating Special Syntactic Expressions
+### 3.3.1.4 Evaluating Special Syntactic Expressions
 ................................................
 
 When a procedure invocation expression is evaluated, the procedure and
@@ -2432,7 +2432,7 @@ procedure is invoked.
 
    The rules for evaluating each special syntactic expression are
 specified individually for each special syntax.  For a summary of
-standard special syntax, see *Note Syntax Summary::.
+standard special syntax, see *Note* Syntax Summary::.
 
 
 File: guile.info,  Node: Tail Calls,  Next: The REPL,  Prev: Evaluating,  Up: About Expressions
@@ -2463,7 +2463,7 @@ on.  This recursion is a tail call, it’s the last thing done, and in
 Scheme such tail calls can be made without limit.
 
    Or consider a case where a value is returned, a version of the SRFI-1
-‘last’ function (*note SRFI-1 Selectors::) returning the last element of
+‘last’ function (*note* SRFI-1 Selectors::) returning the last element of
 a list,
 
      (define (my-last lst)
@@ -2519,7 +2519,7 @@ The following core functions make tail calls,
 
    The above are just core functions and special forms.  Tail calls in
 other modules are described with the relevant documentation, for example
-SRFI-1 ‘any’ and ‘every’ (*note SRFI-1 Searching::).
+SRFI-1 ‘any’ and ‘every’ (*note* SRFI-1 Searching::).
 
    It will be noted there are a lot of places which could potentially be
 tail calls, for instance the last call in a ‘for-each’, but only those
@@ -2564,39 +2564,39 @@ expressions, simply so that you will recognize common special syntax
 when you see it.  For a full description of each of these syntaxes,
 follow the appropriate reference.
 
-   ‘lambda’ (*note Lambda::) is used to construct procedure objects.
+   ‘lambda’ (*note* Lambda::) is used to construct procedure objects.
 
-   ‘define’ (*note Top Level::) is used to create a new variable and set
+   ‘define’ (*note* Top Level::) is used to create a new variable and set
 its initial value.
 
-   ‘set!’ (*note Top Level::) is used to modify an existing variable’s
+   ‘set!’ (*note* Top Level::) is used to modify an existing variable’s
 value.
 
-   ‘let’, ‘let*’ and ‘letrec’ (*note Local Bindings::) create an inner
+   ‘let’, ‘let*’ and ‘letrec’ (*note* Local Bindings::) create an inner
 lexical environment for the evaluation of a sequence of expressions, in
 which a specified set of local variables is bound to the values of a
 corresponding set of expressions.  For an introduction to environments,
-see *Note About Closure::.
+see *Note* About Closure::.
 
-   ‘begin’ (*note begin::) executes a sequence of expressions in order
+   ‘begin’ (*note* begin::) executes a sequence of expressions in order
 and returns the value of the last expression.  Note that this is not the
 same as a procedure which returns its last argument, because the
 evaluation of a procedure invocation expression does not guarantee to
 evaluate the arguments in order.
 
-   ‘if’ and ‘cond’ (*note Conditionals::) provide conditional evaluation
+   ‘if’ and ‘cond’ (*note* Conditionals::) provide conditional evaluation
 of argument expressions depending on whether one or more conditions
 evaluate to “true” or “false”.
 
-   ‘case’ (*note Conditionals::) provides conditional evaluation of
+   ‘case’ (*note* Conditionals::) provides conditional evaluation of
 argument expressions depending on whether a variable has one of a
 specified group of values.
 
-   ‘and’ (*note and or::) executes a sequence of expressions in order
+   ‘and’ (*note* and or::) executes a sequence of expressions in order
 until either there are no expressions left, or one of them evaluates to
 “false”.
 
-   ‘or’ (*note and or::) executes a sequence of expressions in order
+   ‘or’ (*note* and or::) executes a sequence of expressions in order
 until either there are no expressions left, or one of them evaluates to
 “true”.
 
@@ -2673,11 +2673,11 @@ File: guile.info,  Node: Local Variables,  Next: Chaining,  Prev: About Environm
 --------------------------------------
 
 We have seen how to create top level variables using the ‘define’ syntax
-(*note Definition::).  It is often useful to create variables that are
+(*note* Definition::).  It is often useful to create variables that are
 more limited in their scope, typically as part of a procedure body.  In
 Scheme, this is done using the ‘let’ syntax, or one of its modified
 forms ‘let*’ and ‘letrec’.  These syntaxes are described in full later
-in the manual (*note Local Bindings::).  Here our purpose is to
+in the manual (*note* Local Bindings::).  Here our purpose is to
 illustrate their use just enough that we can see how local variables
 work.
 
@@ -2785,7 +2785,7 @@ the corresponding lexically scoped code.
 
 File: guile.info,  Node: Scoping Example,  Up: Lexical Scope
 
-3.4.4.1 An Example of Non-Lexical Scoping
+### 3.4.4.1 An Example of Non-Lexical Scoping
 .........................................
 
 To demonstrate that non-lexical scoping does exist and can be useful, we
@@ -3188,7 +3188,7 @@ distribution.
 
    For detailed reference information on the variables, functions, and
 so on that make up Guile’s application programming interface (API), see
-*note API Reference::.
+*note* API Reference::.
 
 * Menu:
 
@@ -3210,7 +3210,7 @@ File: guile.info,  Node: Guile Scheme,  Next: Invoking Guile,  Up: Programming i
 Guile’s core language is Scheme, which is specified and described in the
 series of reports known as “RnRS”. “RnRS” is shorthand for the
 “Revised^n Report on the Algorithmic Language Scheme”.  Guile complies
-fully with R5RS (*note Introduction: (r5rs)Top.), and is largely
+fully with R5RS (*note* Introduction: (r5rs)Top.), and is largely
 compliant with R6RS and R7RS.
 
    Guile also has many extensions that go beyond these reports.  Some of
@@ -3245,7 +3245,7 @@ File: guile.info,  Node: Command-line Options,  Next: Environment Variables,  Up
 
 Here we describe Guile’s command-line processing in detail.  Guile
 processes its arguments from left to right, recognizing the switches
-described below.  For examples, see *note Scripting Examples::.
+described below.  For examples, see *note* Scripting Examples::.
 
 ‘SCRIPT ARG...’
 ‘-s SCRIPT ARG...’
@@ -3285,7 +3285,7 @@ described below.  For examples, see *note Scripting Examples::.
      Like ‘-L’, but adjusts the load path for _compiled_ files.
 
 ‘-x EXTENSION’
-     Add EXTENSION to the front of Guile’s load extension list (*note
+     Add EXTENSION to the front of Guile’s load extension list (*note*
      ‘%load-extensions’: Load Paths.).  The specified extensions are
      tried in the order given on the command line, and before the
      default load extensions.  Extensions added here are _not_ in effect
@@ -3315,7 +3315,7 @@ described below.  For examples, see *note Scripting Examples::.
      As a shorthand you can use the form ‘(symbol ...)’, that is, a list
      of only symbols that doesn’t start with ‘@’.  It is equivalent to
      ‘(@ MODULE-NAME main)’, where MODULE-NAME is ‘(symbol ...)’ form.
-     *Note Using Guile Modules:: and *note Scripting Examples::.
+     *Note* Using Guile Modules:: and *note* Scripting Examples::.
 
 ‘-ds’
      Treat a final ‘-s’ option as if it occurred at this point in the
@@ -3324,12 +3324,12 @@ described below.  For examples, see *note Scripting Examples::.
      This switch is necessary because, although the POSIX script
      invocation mechanism effectively requires the ‘-s’ option to appear
      last, the programmer may well want to run the script before other
-     actions requested on the command line.  For examples, see *note
+     actions requested on the command line.  For examples, see *note*
      Scripting Examples::.
 
 ‘\’
      Read more command-line arguments, starting from the second line of
-     the script file.  *Note The Meta Switch::.
+     the script file.  *Note* The Meta Switch::.
 
 ‘--use-srfi=LIST’
      The option ‘--use-srfi’ expects a comma-separated list of numbers,
@@ -3344,11 +3344,11 @@ described below.  For examples, see *note Scripting Examples::.
           guile --use-srfi=8,13
 
 ‘--r6rs’
-     Adapt Guile’s initial environment to better support R6RS. *Note
+     Adapt Guile’s initial environment to better support R6RS. *Note*
      R6RS Incompatibilities::, for some caveats.
 
 ‘--r7rs’
-     Adapt Guile’s initial environment to better support R7RS. *Note
+     Adapt Guile’s initial environment to better support R7RS. *Note*
      R7RS Incompatibilities::, for some caveats.
 
 ‘--debug’
@@ -3356,7 +3356,7 @@ described below.  For examples, see *note Scripting Examples::.
      debugging VM will enable support for VM hooks, which are needed for
      tracing, breakpoints, and accurate call counts when profiling.  The
      debugging VM is slower than the regular VM, though, by about ten
-     percent.  *Note VM Hooks::, for more information.
+     percent.  *Note* VM Hooks::, for more information.
 
      By default, the debugging VM engine is only used when entering an
      interactive session.  When executing a script with ‘-s’ or ‘-c’,
@@ -3375,7 +3375,7 @@ described below.  For examples, see *note Scripting Examples::.
 ‘-q’
      Do not load the initialization file, ‘.guile’.  This option only
      has an effect when running interactively; running scripts does not
-     load the ‘.guile’ file.  *Note Init File::.
+     load the ‘.guile’ file.  *Note* Init File::.
 
 ‘--listen[=P]’
      While this program runs, listen on a local port or a path for REPL
@@ -3388,7 +3388,7 @@ described below.  For examples, see *note Scripting Examples::.
      it upside down, it almost spells “Guile”.  If you have netcat
      installed, you should be able to ‘nc localhost 37146’ and get a
      Guile prompt.  Alternately you can fire up Emacs and connect to the
-     process; see *note Using Guile in Emacs:: for more details.
+     process; see *note* Using Guile in Emacs:: for more details.
 
           Note: Opening a port allows anyone who can connect to that
           port to do anything Guile can do, as the user that the Guile
@@ -3421,8 +3421,8 @@ described below.  For examples, see *note Scripting Examples::.
      For the remainder of the command line arguments, assume that files
      mentioned with ‘-l’ and expressions passed with ‘-c’ are written in
      LANG.  LANG must be the name of one of the languages supported by
-     the compiler (*note Compiler Tower::).  When run interactively, set
-     the REPL’s language to LANG (*note Using Guile Interactively::).
+     the compiler (*note* Compiler Tower::).  When run interactively, set
+     the REPL’s language to LANG (*note* Using Guile Interactively::).
 
      The default language is ‘scheme’; other interesting values include
      ‘elisp’ (for Emacs Lisp), and ‘ecmascript’.
@@ -3460,7 +3460,7 @@ those that are written as numerals.  (Note that here we are referring to
 names and values that are defined in the operating system shell from
 which Guile is invoked.  This is not the same as a Scheme environment
 that is defined within a running instance of Guile.  For a description
-of Scheme environments, *note About Environments::.)
+of Scheme environments, *note* About Environments::.)
 
    How to set environment variables before starting Guile depends on the
 operating system and, especially, the shell that you are using.  For
@@ -3476,7 +3476,7 @@ Or, detailed warnings can be turned on for a single invocation using:
 
    If you wish to retrieve or change the value of the shell environment
 variables that affect the run-time behavior of Guile from within a
-running instance of Guile, see *note Runtime Environment::.
+running instance of Guile, see *note* Runtime Environment::.
 
    Here are the environment variables that affect the run-time behavior
 of Guile:
@@ -3507,7 +3507,7 @@ of Guile:
      Guile to compile Scheme files whether they are newer than the
      compiled files or not.
 
-     *Note Compilation::.
+     *Note* Compilation::.
 
 ‘GUILE_HISTORY’
      This variable names the file that holds the Guile REPL command
@@ -3518,7 +3518,7 @@ of Guile:
 ‘GUILE_INSTALL_LOCALE’
      This is a flag that can be used to tell Guile whether or not to
      install the current locale at startup, via a call to ‘(setlocale
-     LC_ALL "")’(1).  *Note Locales::, for more information on locales.
+     LC_ALL "")’(1).  *Note* Locales::, for more information on locales.
 
      You may explicitly indicate that you do not want to install the
      locale by setting ‘GUILE_INSTALL_LOCALE’ to ‘0’, or explicitly
@@ -3534,7 +3534,7 @@ of Guile:
      be a colon-separated list of directories.  If it contains the
      special path component ‘...’ (ellipsis), then the default path is
      put in place of the ellipsis, otherwise the default path is placed
-     at the end.  The result is stored in ‘%load-compiled-path’ (*note
+     at the end.  The result is stored in ‘%load-compiled-path’ (*note*
      Load Paths::).
 
      Here is an example using the Bash shell that adds the current
@@ -3551,7 +3551,7 @@ of Guile:
      list of directories.  If it contains the special path component
      ‘...’ (ellipsis), then the default path is put in place of the
      ellipsis, otherwise the default path is placed at the end.  The
-     result is stored in ‘%load-path’ (*note Load Paths::).
+     result is stored in ‘%load-path’ (*note* Load Paths::).
 
      Here is an example using the Bash shell that prepends the current
      directory to ‘%load-path’, and adds the relative directory
@@ -3572,7 +3572,7 @@ of Guile:
      This variable may be used to augment the path that is searched for
      foreign libraries via ‘load-extension’, ‘dynamic-link’,
      ‘load-foreign-library’, or the like.  Its value should be a
-     colon-separated (semicolon on Windows) list of directories.  *Note
+     colon-separated (semicolon on Windows) list of directories.  *Note*
      Foreign Libraries::.
 
 ‘GUILE_WARN_DEPRECATED’
@@ -3582,7 +3582,7 @@ of Guile:
      features that have been marked for eventual elimination.
      ‘GUILE_WARN_DEPRECATED’ can be set to “no” to tell Guile not to
      display these warning messages, or set to “detailed” to tell Guile
-     to display more lengthy messages describing the warning.  *Note
+     to display more lengthy messages describing the warning.  *Note*
      Deprecation::.
 
 ‘HOME’
@@ -3592,7 +3592,7 @@ of Guile:
 
 ‘GUILE_JIT_THRESHOLD’
      Guile has a just-in-time (JIT) code generator that makes running
-     Guile code fast.  *Note Just-In-Time Native Code::, for more.  The
+     Guile code fast.  *Note* Just-In-Time Native Code::, for more.  The
      unit of code generation is the function.  Each function has its own
      counter that gets incremented when the function is called and at
      each loop iteration in the function.  When the counter exceeds the
@@ -3663,7 +3663,7 @@ that.  Here is the simplest case:
    • Then must come a space, followed by a command-line argument to pass
      to Guile; this should be ‘-s’.  This switch tells Guile to run a
      script, instead of soliciting the user for input from the terminal.
-     There are more elaborate things one can do here; see *note The Meta
+     There are more elaborate things one can do here; see *note* The Meta
      Switch::.
 
    • Follow this with a newline.
@@ -3675,7 +3675,7 @@ that.  Here is the simplest case:
 
    • If this source code file is not ASCII or ISO-8859-1 encoded, a
      coding declaration such as ‘coding: utf-8’ should appear in a
-     comment somewhere in the first five lines of the file: see *note
+     comment somewhere in the first five lines of the file: see *note*
      Character Encoding of Source Files::.
 
    • The rest of the file should be a Scheme program.
@@ -3817,7 +3817,7 @@ written instead like this:
        (newline))
 
    (Note the use of the meta switch ‘\’ so that the script invocation
-can include more than one Guile option: *Note The Meta Switch::.)
+can include more than one Guile option: *Note* The Meta Switch::.)
 
    These scripts use the ‘#!’ POSIX convention so that they can be
 executed using their own file names directly, as in the example command
@@ -3842,7 +3842,7 @@ any way that it chooses.  Where the set of possible options and
 arguments is complex, however, it can get tricky to extract all the
 options, check the validity of given arguments, and so on.  This task
 can be greatly simplified by taking advantage of the module ‘(ice-9
-getopt-long)’, which is distributed with Guile, *Note getopt-long::.
+getopt-long)’, which is distributed with Guile, *Note* getopt-long::.
 
 
 File: guile.info,  Node: Scripting Examples,  Prev: Command Line Handling,  Up: Guile Scripting
@@ -4024,8 +4024,8 @@ programs like ‘sed’ or the like to do the actual work.
    In Guile it’s often possible get everything done within Guile itself,
 so do give that a try first.  But if you just need to run a program and
 wait for it to finish, use ‘system*’.  If you need to run a sub-program
-and capture its output, or give it input, use ‘open-pipe’.  *Note
-Processes::, and *Note Pipes::, for more information.
+and capture its output, or give it input, use ‘open-pipe’.  *Note*
+Processes::, and *Note* Pipes::, for more information.
 
 
 File: guile.info,  Node: Using Guile Interactively,  Next: Using Guile in Emacs,  Prev: Guile Scripting,  Up: Programming in Scheme
@@ -4052,7 +4052,7 @@ have typed, then evaluates it, and then prints the result.
 
    The prompt shows you what language and module you are in.  In this
 case, the current language is ‘scheme’, and the current module is
-‘(guile-user)’.  *Note Other Languages::, for more information on
+‘(guile-user)’.  *Note* Other Languages::, for more information on
 Guile’s support for languages other than Scheme.
 
 * Menu:
@@ -4096,7 +4096,7 @@ following pair of lines.
      scheme@(guile-user)> (activate-readline)
 
    It’s a good idea to put these two lines (without the
-‘scheme@(guile-user)>’ prompts) in your ‘.guile’ file.  *Note Init
+‘scheme@(guile-user)>’ prompts) in your ‘.guile’ file.  *Note* Init
 File::, for more on ‘.guile’.
 
 
@@ -4198,7 +4198,7 @@ the online help (‘,help’) for more information.
 
 File: guile.info,  Node: Help Commands,  Next: Module Commands,  Up: REPL Commands
 
-4.4.4.1 Help Commands
+### 4.4.4.1 Help Commands
 .....................
 
 When Guile starts interactively, it notifies the user that help can be
@@ -4236,7 +4236,7 @@ useful one, as it allows the user to discover the rest of the commands.
 
 File: guile.info,  Node: Module Commands,  Next: Language Commands,  Prev: Help Commands,  Up: REPL Commands
 
-4.4.4.2 Module Commands
+### 4.4.4.2 Module Commands
 .......................
 
  -- REPL Command: module [module]
@@ -4263,7 +4263,7 @@ File: guile.info,  Node: Module Commands,  Next: Language Commands,  Prev: Help 
 
 File: guile.info,  Node: Language Commands,  Next: Compile Commands,  Prev: Module Commands,  Up: REPL Commands
 
-4.4.4.3 Language Commands
+### 4.4.4.3 Language Commands
 .........................
 
  -- REPL Command: language language
@@ -4272,7 +4272,7 @@ File: guile.info,  Node: Language Commands,  Next: Compile Commands,  Prev: Modu
 
 File: guile.info,  Node: Compile Commands,  Next: Profile Commands,  Prev: Language Commands,  Up: REPL Commands
 
-4.4.4.4 Compile Commands
+### 4.4.4.4 Compile Commands
 ........................
 
  -- REPL Command: compile exp
@@ -4296,7 +4296,7 @@ File: guile.info,  Node: Compile Commands,  Next: Profile Commands,  Prev: Langu
 
 File: guile.info,  Node: Profile Commands,  Next: Debug Commands,  Prev: Compile Commands,  Up: REPL Commands
 
-4.4.4.5 Profile Commands
+### 4.4.4.5 Profile Commands
 ........................
 
  -- REPL Command: time exp
@@ -4307,7 +4307,7 @@ File: guile.info,  Node: Profile Commands,  Next: Debug Commands,  Prev: Compile
      Profile execution of an expression.  This command compiled EXP and
      then runs it within the statprof profiler, passing all keyword
      options to the ‘statprof’ procedure.  For more on statprof and on
-     the the options available to this command, *Note Statprof::.
+     the the options available to this command, *Note* Statprof::.
 
  -- REPL Command: trace exp [#:width w] [#:max-indent i]
      Trace execution.
@@ -4323,7 +4323,7 @@ code on including the ‘(ice-9 time)’ module.
 
 File: guile.info,  Node: Debug Commands,  Next: Inspect Commands,  Prev: Profile Commands,  Up: REPL Commands
 
-4.4.4.6 Debug Commands
+### 4.4.4.6 Debug Commands
 ......................
 
 These debugging commands are only available within a recursive REPL;
@@ -4368,7 +4368,7 @@ they do not work at the top level.
  -- REPL Command: registers
      Show the VM registers associated with the current frame.
 
-     *Note Stack Layout::, for more information on VM stack frames.
+     *Note* Stack Layout::, for more information on VM stack frames.
 
  -- REPL Command: width [cols]
      Sets the number of display columns in the output of ‘,backtrace’
@@ -4385,7 +4385,7 @@ they do not work at the top level.
 
  -- REPL Command: tracepoint proc
      Set a tracepoint on the given procedure.  This will cause all calls
-     to the procedure to print out a tracing message.  *Note Tracing
+     to the procedure to print out a tracing message.  *Note* Tracing
      Traps::, for more information.
 
    The rest of the commands in this subsection all apply only when the
@@ -4398,7 +4398,7 @@ means that the program stopped because of a trap or a breakpoint.
 
  -- REPL Command: next
      Tell the debugged program to step to the next source location in
-     the same frame.  (See *note Traps:: for the details of how this
+     the same frame.  (See *note* Traps:: for the details of how this
      works.)
 
  -- REPL Command: finish
@@ -4409,7 +4409,7 @@ means that the program stopped because of a trap or a breakpoint.
 
 File: guile.info,  Node: Inspect Commands,  Next: System Commands,  Prev: Debug Commands,  Up: REPL Commands
 
-4.4.4.7 Inspect Commands
+### 4.4.4.7 Inspect Commands
 ........................
 
  -- REPL Command: inspect exp
@@ -4421,7 +4421,7 @@ File: guile.info,  Node: Inspect Commands,  Next: System Commands,  Prev: Debug 
 
 File: guile.info,  Node: System Commands,  Prev: Inspect Commands,  Up: REPL Commands
 
-4.4.4.8 System Commands
+### 4.4.4.8 System Commands
 .......................
 
  -- REPL Command: gc
@@ -4442,7 +4442,7 @@ File: guile.info,  Node: System Commands,  Prev: Inspect Commands,  Up: REPL Com
 
 ‘compile-options’
      The options used when compiling expressions entered at the REPL.
-     *Note Compilation::, for more on compilation options.
+     *Note* Compilation::, for more on compilation options.
 ‘interp’
      Whether to interpret or compile expressions given at the REPL, if
      such a choice is available.  Off by default (indicating
@@ -4455,7 +4455,7 @@ File: guile.info,  Node: System Commands,  Prev: Inspect Commands,  Up: REPL Com
      each expression.  The arguments are the current REPL and the value
      to print.  By default, ‘#f’, to use the default procedure.
 ‘value-history’
-     Whether value history is on or not.  *Note Value History::.
+     Whether value history is on or not.  *Note* Value History::.
 ‘on-error’
      What to do when an error happens.  By default, ‘debug’, meaning to
      enter the debugger.  Other values include ‘backtrace’, to show a
@@ -4467,7 +4467,7 @@ File: guile.info,  Node: System Commands,  Prev: Inspect Commands,  Up: REPL Com
 
  -- Scheme Procedure: repl-default-option-set! key value
      Set the default value of a REPL option.  This function is
-     particularly useful in a user’s init file.  *Note Init File::.
+     particularly useful in a user’s init file.  *Note* Init File::.
 
 
 File: guile.info,  Node: Error Handling,  Next: Interactive Debugging,  Prev: REPL Commands,  Up: Using Guile Interactively
@@ -4523,7 +4523,7 @@ commands allow you to
    • examine the values of variables and expressions in the context of
      each frame.
 
-*Note Debug Commands::, for documentation of the individual commands.
+*Note* Debug Commands::, for documentation of the individual commands.
 This section aims to give more of a walkthrough of a typical debugging
 session.
 
@@ -4687,7 +4687,7 @@ pleasantly shorter and easier to read, but also because this tool will
 serve to bind Guile wizards together, by allowing hackers to share code
 with each other using a CPAN-like system.
 
-   *Note Compilation::, for more on ‘guild compile’.
+   *Note* Compilation::, for more on ‘guild compile’.
 
    A complete list of guild scripts can be had by invoking ‘guild list’,
 or simply ‘guild’.
@@ -4707,18 +4707,18 @@ package.
 find them.  When Guile goes to find a Scheme file, it will search a
 “load path” to find the file: first in Guile’s own path, then in paths
 for “site packages”.  A site package is any Scheme code that is
-installed and not part of Guile itself.  *Note Load Paths::, for more on
+installed and not part of Guile itself.  *Note* Load Paths::, for more on
 load paths.
 
    There are several site paths, for historical reasons, but the one
 that should generally be used can be obtained by invoking the
-‘%site-dir’ procedure.  *Note Build Config::.  If Guile 3.0 is installed
+‘%site-dir’ procedure.  *Note* Build Config::.  If Guile 3.0 is installed
 on your system in ‘/usr/’, then ‘(%site-dir)’ will be
 ‘/usr/share/guile/site/3.0’.  Scheme files should be installed there.
 
    If you do not install compiled ‘.go’ files, Guile will compile your
 modules and programs when they are first used, and cache them in the
-user’s home directory.  *Note Compilation::, for more on
+user’s home directory.  *Note* Compilation::, for more on
 auto-compilation.  However, it is better to compile the files before
 they are installed, and to just copy the files to a place that Guile can
 find them.
@@ -4734,13 +4734,13 @@ then ‘(%site-ccache-dir)’ site packages will be
 
    Note that a ‘.go’ file will only be loaded in preference to a ‘.scm’
 file if it is newer.  For that reason, you should install your Scheme
-files first, and your compiled files second.  *Note Load Paths::, for
+files first, and your compiled files second.  *Note* Load Paths::, for
 more on the loading process.
 
    Finally, although this section is only about Scheme, sometimes you
 need to install C extensions too.  Shared libraries should be installed
 in the “extensions dir”.  This value can be had from the build config
-(*note Build Config::).  Again, if Guile 3.0 is installed on your system
+(*note* Build Config::).  Again, if Guile 3.0 is installed on your system
 in ‘/usr/’, then the extensions dir will be
 ‘/usr/lib/guile/3.0/extensions’.
 
@@ -4762,7 +4762,7 @@ scripts and for your documentation.  This means you immediately know
 where to put the files you are hacking on.
 
    In addition, the scaffold will include your basic “Autotools” setup,
-so you don’t have to take care of that yourself (*note (autoconf)The GNU
+so you don’t have to take care of that yourself (*note* (autoconf)The GNU
 Build System::, for more information on the GNU “Autotools”).  Having
 Autotools set up with your project means you can immediately start
 hacking on your project without worrying about whether your code will
@@ -4786,19 +4786,19 @@ continuations influence the control flow in a C program.
 Guile that can be called from Scheme.  Adding new data types is also
 possible and is done by defining “foreign objects”.
 
-   The *note Programming Overview:: section of this part contains
+   The *note* Programming Overview:: section of this part contains
 general musings and guidelines about programming with Guile.  It
 explores different ways to design a program around Guile, or how to
 embed Guile into existing programs.
 
    For a pedagogical yet detailed explanation of how the data
-representation of Guile is implemented, *Note Data Representation::.
+representation of Guile is implemented, *Note* Data Representation::.
 You don’t need to know the details given there to use Guile from C, but
 they are useful when you want to modify Guile itself or when you are
 just curious about how it is all done.
 
    For detailed reference information on the variables, functions etc.
-that make up Guile’s application programming interface (API), *Note API
+that make up Guile’s application programming interface (API), *Note* API
 Reference::.
 
 * Menu:
@@ -4848,14 +4848,14 @@ variables:
 
 ‘sitedir’
      The default directory where Guile looks for Scheme source and
-     compiled files (*note %site-dir: Installing Site Packages.).  Run
-     ‘pkg-config guile-3.0 --variable=sitedir’ to see its value.  *Note
+     compiled files (*note* %site-dir: Installing Site Packages.).  Run
+     ‘pkg-config guile-3.0 --variable=sitedir’ to see its value.  *Note*
      GUILE_SITE_DIR: Autoconf Macros, for more on how to use it from
      Autoconf.
 
 ‘extensiondir’
      The default directory where Guile looks for extensions—i.e., shared
-     libraries providing additional features (*note Foreign
+     libraries providing additional features (*note* Foreign
      Extensions::).  Run ‘pkg-config guile-3.0 --variable=extensiondir’
      to see its value.
 
@@ -4868,10 +4868,10 @@ variables:
      These variables allow users to deal with program name
      transformations that may be specified when configuring Guile with
      ‘--program-transform-name’, ‘--program-suffix’, or
-     ‘--program-prefix’ (*note (autoconf)Transformation Options::).
+     ‘--program-prefix’ (*note* (autoconf)Transformation Options::).
 
 See the ‘pkg-config’ man page, for more information, or its web site,
-<http://pkg-config.freedesktop.org/>.  *Note Autoconf Support::, for
+<http://pkg-config.freedesktop.org/>.  *Note* Autoconf Support::, for
 more on checking for Guile from within a ‘configure.ac’ file.
 
    ---------- Footnotes ----------
@@ -4938,7 +4938,7 @@ command-line arguments in the same manner as the stock Guile
 interpreter.  To make that straightforward, Guile provides the
 ‘scm_boot_guile’ and ‘scm_shell’ function.
 
-   For more about these functions, see *note Initialization::.
+   For more about these functions, see *note* Initialization::.
 
 
 File: guile.info,  Node: A Sample Guile Main Program,  Prev: Guile Initialization Functions,  Up: Linking Programs With Guile
@@ -5140,7 +5140,7 @@ is how to do it on GNU/Linux:
        -shared -o libguile-bessel.so -fPIC bessel.c
 
    For creating shared libraries portably, we recommend the use of GNU
-Libtool (*note Introduction: (libtool)Top.).
+Libtool (*note* Introduction: (libtool)Top.).
 
    A shared library can be loaded into a running Guile process with the
 function ‘load-extension’.  In addition to the name of the library to
@@ -5162,7 +5162,7 @@ for your operating system, and it will additionally look into the
 directories listed in the ‘LTDL_LIBRARY_PATH’ environment variable.
 
    To see how these Guile extensions via shared libraries relate to the
-module system, *Note Putting Extensions into Modules::.
+module system, *Note* Putting Extensions into Modules::.
 
 
 File: guile.info,  Node: General Libguile Concepts,  Next: Defining New Foreign Object Types,  Prev: Linking Guile with Libraries,  Up: Programming in C
@@ -5171,7 +5171,7 @@ File: guile.info,  Node: General Libguile Concepts,  Next: Defining New Foreign 
 =======================================
 
 When you want to embed the Guile Scheme interpreter into your program or
-library, you need to link it against the ‘libguile’ library (*note
+library, you need to link it against the ‘libguile’ library (*note*
 Linking Programs With Guile::).  Once you have done this, your C code
 has access to a number of data types and functions that can be used to
 invoke the interpreter, or make new functions that you have written in C
@@ -5311,7 +5311,7 @@ to Guile by third-party libraries.
 
    Also, computing with ‘SCM’ is not necessarily inefficient.  Small
 integers will be encoded directly in the ‘SCM’ value, for example, and
-do not need any additional memory on the heap.  See *note Data
+do not need any additional memory on the heap.  See *note* Data
 Representation:: to find out the details.
 
    Some special ‘SCM’ values are available to C code without needing to
@@ -5326,7 +5326,7 @@ Scheme value   C representation
 ‘scm_t_bits’.  This is an unsigned integral type of sufficient size to
 hold all information that is directly contained in a ‘SCM’ value.  The
 ‘scm_t_bits’ type is used internally by Guile to do all the bit
-twiddling explained in *note Data Representation::, but you will
+twiddling explained in *note* Data Representation::, but you will
 encounter it occasionally in low-level user code as well.
 
 
@@ -5419,14 +5419,14 @@ compiler does not know about this connection and might overwrite the
 
    To get around this problem, you can use ‘scm_remember_upto_here_1’
 and its cousins.  It will keep the compiler from overwriting the
-reference.  *Note Foreign Object Memory Management::.
+reference.  *Note* Foreign Object Memory Management::.
 
    ---------- Footnotes ----------
 
    (1) Note that Guile does not scan the C heap for references, so a
 reference to a ‘SCM’ object from a memory segment allocated with
 ‘malloc’ will have to use some other means to keep the ‘SCM’ object
-alive.  *Note Garbage Collection Functions::.
+alive.  *Note* Garbage Collection Functions::.
 
 
 File: guile.info,  Node: Control Flow,  Next: Asynchronous Signals,  Prev: Garbage Collection,  Up: General Libguile Concepts
@@ -5456,7 +5456,7 @@ reason formally about recursion than about gotos.  In C, using recursion
 exclusively would not be practical, though, since it would eat up the
 stack very quickly.  In Scheme, however, it is practical: function calls
 that appear in a “tail position” do not use any additional stack space
-(*note Tail Calls::).
+(*note* Tail Calls::).
 
    A function call is in a tail position when it is the last thing the
 calling function does.  The value returned by the called function is
@@ -5547,10 +5547,10 @@ non-locally.
 setting and resetting of the global state.  C code can use the
 corresponding ‘scm_internal_dynamic_wind’ function, or a
 ‘scm_dynwind_begin’/‘scm_dynwind_end’ pair together with suitable
-’dynwind actions’ (*note Dynamic Wind::).
+’dynwind actions’ (*note* Dynamic Wind::).
 
    Instead of coping with non-local control flow, you can also prevent
-it by erecting a _continuation barrier_, *Note Continuation Barriers::.
+it by erecting a _continuation barrier_, *Note* Continuation Barriers::.
 The function ‘scm_c_with_continuation_barrier’, for example, is
 guaranteed to return exactly once.
 
@@ -5576,7 +5576,7 @@ on its own.
 
    If you do not want to allow the running of asynchronous signal
 handlers, you can block them temporarily with
-‘scm_dynwind_block_asyncs’, for example.  *Note Asyncs::.
+‘scm_dynwind_block_asyncs’, for example.  *Note* Asyncs::.
 
    Since signal handling in Guile relies on safe points, you need to
 make sure that your functions do offer enough of them.  Normally,
@@ -5596,7 +5596,7 @@ syntactically a statement.  That is, you could use it like this:
        }
 
    Frequent execution of a safe point is even more important in multi
-threaded programs, *Note Multi-Threading::.
+threaded programs, *Note* Multi-Threading::.
 
 
 File: guile.info,  Node: Multi-Threading,  Prev: Asynchronous Signals,  Up: General Libguile Concepts
@@ -5871,7 +5871,7 @@ introspect on the foreign object.)
    To construct a foreign object and initialize its first slot, call
 ‘scm_make_foreign_object_1 (TYPE, FIRST_SLOT_VALUE)’.  There are
 similarly named constructors for initializing 0, 1, 2, or 3 slots, or
-initializing N slots via an array.  *Note Foreign Objects::, for full
+initializing N slots via an array.  *Note* Foreign Objects::, for full
 details.  Any fields that are not explicitly initialized are set to 0.
 
    To get or set the value of a slot by index, you can use the
@@ -5888,7 +5888,7 @@ automatically ensure that memory is accessible when it is needed, and
 freed when it becomes inaccessible.  If this is not the case for your
 program – for example, if you are exposing an object to Scheme that was
 allocated by some other, Guile-unaware part of your program – then you
-will probably need to implement a finalizer.  *Note Foreign Object
+will probably need to implement a finalizer.  *Note* Foreign Object
 Memory Management::, for more.
 
    Continuing the example from the previous section, if the global
@@ -5989,7 +5989,7 @@ some other way—e.g., ‘malloc’’d memory or file descriptors—it is
 possible to specify a “finalizer” function to release those resources
 when the foreign object is reclaimed.
 
-   As discussed in *note Garbage Collection::, Guile’s garbage collector
+   As discussed in *note* Garbage Collection::, Guile’s garbage collector
 will reclaim inaccessible memory as needed.  This reclamation process
 runs concurrently with the main program.  When Guile analyzes the heap
 and determines that an object’s memory can be reclaimed, that memory is
@@ -6051,7 +6051,7 @@ ports —then you might define the type like this:
    Note that the finalizer may be invoked in ways and at times you might
 not expect.  In a Guile built without threading support, finalizers are
 invoked via “asyncs”, which interleaves them with running Scheme code;
-*note Asyncs::.  If the user’s Guile is built with support for threads,
+*note* Asyncs::.  If the user’s Guile is built with support for threads,
 the finalizer will probably be called by a dedicated finalization
 thread, unless the user invokes ‘scm_run_finalizers ()’ explicitly.
 
@@ -6060,10 +6060,10 @@ and so they need to be async-safe and thread-safe.  If for some reason
 this is impossible, perhaps because you are embedding Guile in some
 application that is not itself thread-safe, you have a few options.  One
 is to use guardians instead of finalizers, and arrange to pump the
-guardians for finalizable objects.  *Note Guardians::, for more
+guardians for finalizable objects.  *Note* Guardians::, for more
 information.  The other option is to disable automatic finalization
 entirely, and arrange to call ‘scm_run_finalizers ()’ at appropriate
-points.  *Note Foreign Objects::, for more on these interfaces.
+points.  *Note* Foreign Objects::, for more on these interfaces.
 
    Finalizers are allowed to allocate memory, access GC-managed memory,
 and in general can do anything any Guile user code can do.  This was not
@@ -6126,7 +6126,7 @@ results in a garbage collection, ‘file’ might not be on the stack or
 anywhere else and could be finalized, leaving ‘read’ to read a closed
 (or, in a multi-threaded program, possibly re-used) file descriptor.
 The use of ‘scm_remember_upto_here_1’ prevents this, by creating a
-reference to ‘file’ after all data accesses.  *Note Garbage Collection
+reference to ‘file’ after all data accesses.  *Note* Garbage Collection
 Functions::.
 
    ‘scm_remember_upto_here_1’ is only needed on finalizable objects,
@@ -6166,11 +6166,11 @@ expressed as:
 
    Here we see that the result of ‘make-foreign-object-type’, which is
 the equivalent of ‘scm_make_foreign_object_type’, is a struct vtable.
-*Note Vtables::, for more information.  To instantiate the foreign
+*Note* Vtables::, for more information.  To instantiate the foreign
 object, which is really a Guile struct, we use ‘make’.  (We could have
 used ‘make-struct/no-tail’, but as an implementation detail, finalizers
 are attached in the ‘initialize’ method called by ‘make’).  To access
-the fields, we use ‘struct-ref’ and ‘struct-set!’.  *Note Structure
+the fields, we use ‘struct-ref’ and ‘struct-set!’.  *Note* Structure
 Basics::.
 
    There is a convenience syntax, ‘define-foreign-object-type’, that
@@ -6189,7 +6189,7 @@ object type could look like this:
 constructor, and a getter for the ‘fd’ field, bound to ‘fd’.
 
    Foreign object types are not only vtables but are actually GOOPS
-classes, as hinted at above.  *Note GOOPS::, for more on Guile’s
+classes, as hinted at above.  *Note* GOOPS::, for more on Guile’s
 object-oriented programming system.  Thus one can define print and
 equality methods using GOOPS:
 
@@ -6218,8 +6218,8 @@ foreign object has an associated initialization keyword argument.
      (define-method (write (file <named-file>) port)
        (format port "#<<file> ~s ~a>" (name file) (fd file)))
 
-   *Note Foreign Objects::, for full documentation on the Scheme
-interface to foreign objects.  *Note GOOPS::, for more on GOOPS.
+   *Note* Foreign Objects::, for full documentation on the Scheme
+interface to foreign objects.  *Note* GOOPS::, for more on GOOPS.
 
    As a final note, you might wonder how this system supports
 encapsulation of sensitive values.  First, we have to recognize that
@@ -6273,7 +6273,7 @@ generate a file of calls to ‘scm_c_define_gsubr’ which you can
 
    The snarfing mechanism works for many kind of initialization actions,
 not just for collecting calls to ‘scm_c_define_gsubr’.  For a full list
-of what can be done, *Note Snarfing Macros::.
+of what can be done, *Note* Snarfing Macros::.
 
    The ‘guile-snarf’ program is invoked like this:
 
@@ -6418,7 +6418,7 @@ involved in adding Guile to applications in general.
 
 File: guile.info,  Node: Dia Objective,  Next: Dia Steps,  Up: Extending Dia
 
-5.7.1.1 Deciding Why You Want to Add Guile
+### 5.7.1.1 Deciding Why You Want to Add Guile
 ..........................................
 
 First off, you should understand why you want to add Guile to Dia at
@@ -6464,7 +6464,7 @@ current page:
 
 File: guile.info,  Node: Dia Steps,  Next: Dia Objects,  Prev: Dia Objective,  Up: Extending Dia
 
-5.7.1.2 Four Steps Required to Add Guile
+### 5.7.1.2 Four Steps Required to Add Guile
 ........................................
 
 Assuming this objective, four steps are needed to achieve it.
@@ -6494,7 +6494,7 @@ declares your “foreign objects” and “primitives” to the Scheme world.
 
 File: guile.info,  Node: Dia Objects,  Next: Dia Primitives,  Prev: Dia Steps,  Up: Extending Dia
 
-5.7.1.3 How to Represent Dia Data in Scheme
+### 5.7.1.3 How to Represent Dia Data in Scheme
 ...........................................
 
 For all but the most trivial applications, you will probably want to
@@ -6606,12 +6606,12 @@ should chain through to the underlying C structure (if it still exists)
 and set its ‘guile_shape’ field to NULL.
 
    For full documentation on defining and using foreign object types,
-see *note Defining New Foreign Object Types::.
+see *note* Defining New Foreign Object Types::.
 
 
 File: guile.info,  Node: Dia Primitives,  Next: Dia Hook,  Prev: Dia Objects,  Up: Extending Dia
 
-5.7.1.4 Writing Guile Primitives for Dia
+### 5.7.1.4 Writing Guile Primitives for Dia
 ........................................
 
 Once the details of object representation are decided, writing the
@@ -6654,7 +6654,7 @@ means that usage errors like this must be caught at run time.
 
    Having written the C code for your primitives, you need to make them
 available as Scheme procedures by calling the ‘scm_c_define_gsubr’
-function.  ‘scm_c_define_gsubr’ (*note Primitive Procedures::) takes
+function.  ‘scm_c_define_gsubr’ (*note* Primitive Procedures::) takes
 arguments that specify the Scheme-level name for the primitive and how
 many required, optional and rest arguments it can accept.  The ‘square?’
 primitive always requires exactly one argument, so the call to make it
@@ -6663,12 +6663,12 @@ available in Scheme reads like this:
      scm_c_define_gsubr ("square?", 1, 0, 0, square_p);
 
    For where to put this call, see the subsection after next on the
-structure of Guile-enabled code (*note Dia Structure::).
+structure of Guile-enabled code (*note* Dia Structure::).
 
 
 File: guile.info,  Node: Dia Hook,  Next: Dia Structure,  Prev: Dia Primitives,  Up: Extending Dia
 
-5.7.1.5 Providing a Hook for the Evaluation of Scheme Code
+### 5.7.1.5 Providing a Hook for the Evaluation of Scheme Code
 ..........................................................
 
 To make the Guile integration useful, you have to design some kind of
@@ -6690,7 +6690,7 @@ by calling the ‘scm_c_eval_string’ function.
 
 File: guile.info,  Node: Dia Structure,  Next: Dia Advanced,  Prev: Dia Hook,  Up: Extending Dia
 
-5.7.1.6 Top-level Structure of Guile-enabled Dia
+### 5.7.1.6 Top-level Structure of Guile-enabled Dia
 ................................................
 
 Let’s assume that the pre-Guile Dia code looks structurally like this:
@@ -6732,7 +6732,7 @@ an ideal place for this.
 
 File: guile.info,  Node: Dia Advanced,  Prev: Dia Structure,  Up: Extending Dia
 
-5.7.1.7 Going Further with Dia and Guile
+### 5.7.1.7 Going Further with Dia and Guile
 ........................................
 
 The steps described so far implement an initial Guile integration that
@@ -6867,8 +6867,8 @@ all such languages, when compared to C, are that:
 
    In the case of Scheme, particular features that make programming
 easier — and more fun!  — are its powerful mechanisms for abstracting
-parts of programs (closures — *note About Closure::) and for iteration
-(*note while do::).
+parts of programs (closures — *note* About Closure::) and for iteration
+(*note* while do::).
 
    The evidence in support of this argument is empirical: the huge
 amount of code that has been written in extension languages for
@@ -6968,7 +6968,7 @@ designing your answers.
 
 File: guile.info,  Node: Available Functionality,  Next: Basic Constraints,  Up: Programming Options
 
-5.7.4.1 What Functionality is Already Available?
+### 5.7.4.1 What Functionality is Already Available?
 ................................................
 
 Suppose, for the sake of argument, that you would prefer to write your
@@ -7016,26 +7016,26 @@ is not already written, most of the difficulties of memory management
 can be avoided by using Guile’s C interface features from the start.
 
    For the full documentation on writing C code for Guile and connecting
-existing C code to the Guile world, see *note Defining New Foreign
-Object Types::, *note Primitive Procedures::, and *note Foreign Function
+existing C code to the Guile world, see *note* Defining New Foreign
+Object Types::, *note* Primitive Procedures::, and *note* Foreign Function
 Interface::.
 
 
 File: guile.info,  Node: Basic Constraints,  Next: Style Choices,  Prev: Available Functionality,  Up: Programming Options
 
-5.7.4.2 Functional and Performance Constraints
+### 5.7.4.2 Functional and Performance Constraints
 ..............................................
 
 
 File: guile.info,  Node: Style Choices,  Next: Program Control,  Prev: Basic Constraints,  Up: Programming Options
 
-5.7.4.3 Your Preferred Programming Style
+### 5.7.4.3 Your Preferred Programming Style
 ........................................
 
 
 File: guile.info,  Node: Program Control,  Prev: Style Choices,  Up: Programming Options
 
-5.7.4.4 What Controls Program Execution?
+### 5.7.4.4 What Controls Program Execution?
 ........................................
 
 
@@ -7130,7 +7130,7 @@ File: guile.info,  Node: Autoconf Background,  Next: Autoconf Macros,  Up: Autoc
 -------------------------
 
 As explained in the ‘GNU Autoconf Manual’, any package needs
-configuration at build-time (*note Introduction: (autoconf)Top.).  If
+configuration at build-time (*note* Introduction: (autoconf)Top.).  If
 your package uses Guile (or uses a package that in turn uses Guile), you
 probably need to know what specific Guile features are available and
 details about them.
@@ -7141,7 +7141,7 @@ execution by the ‘configure’ script, typically by adding the tests to
 your package then run ‘configure’ in the normal way.
 
    Macros are a way to make common feature tests easy to express.
-Autoconf provides a wide range of macros (*note (autoconf)Existing
+Autoconf provides a wide range of macros (*note* (autoconf)Existing
 Tests::), and Guile installation provides Guile-specific tests in the
 areas of: program detection, compilation flags reporting, and Scheme
 module checks.
@@ -7508,7 +7508,7 @@ File: guile.info,  Node: The SCM Type,  Next: Initialization,  Prev: Deprecation
 ================
 
 Guile represents all Scheme values with the single C type ‘SCM’.  For an
-introduction to this topic, *Note Dynamic Types::.
+introduction to this topic, *Note* Dynamic Types::.
 
  -- C Type: SCM
      ‘SCM’ is the user level abstract C type that is used to represent
@@ -7549,7 +7549,7 @@ The global state of Guile is initialized automatically when the first
 thread enters guile mode.
 
    When a thread wants to block outside of a Guile API function, it
-should leave guile mode temporarily with ‘scm_without_guile’, *Note
+should leave guile mode temporarily with ‘scm_without_guile’, *Note*
 Blocking::.
 
    Threads that are created by ‘call-with-new-thread’ or
@@ -7628,7 +7628,7 @@ initialize them.
      ‘command-line’ function to return the strings given by ARGC and
      ARGV.  If MAIN_FUNC modifies ARGC or ARGV, it should call
      ‘scm_set_program_arguments’ with the final list, so Scheme code
-     will know which arguments have been processed (*note Runtime
+     will know which arguments have been processed (*note* Runtime
      Environment::).
 
  -- C Function: void scm_shell (int ARGC, char **ARGV)
@@ -7636,7 +7636,7 @@ initialize them.
      executable.  This includes loading the normal Guile initialization
      files, interacting with the user or running any scripts or
      expressions specified by ‘-s’ or ‘-e’ options, and then exiting.
-     *Note Invoking Guile::, for more details.
+     *Note* Invoking Guile::, for more details.
 
      Since this function does not return, you must do all
      application-specific initialization before calling this function.
@@ -7649,7 +7649,7 @@ File: guile.info,  Node: Snarfing Macros,  Next: Data Types,  Prev: Initializati
 
 The following macros do two different things: when compiled normally,
 they expand in one way; when processed during snarfing, they cause the
-‘guile-snarf’ program to pick up some initialization code, *Note
+‘guile-snarf’ program to pick up some initialization code, *Note*
 Function Snarfing::.
 
    The descriptions below use the term ‘normally’ to refer to the case
@@ -7796,9 +7796,9 @@ The two boolean values are ‘#t’ for true and ‘#f’ for false.  They can
 also be written as ‘#true’ and ‘#false’, as per R7RS.
 
    Boolean values are returned by predicate procedures, such as the
-general equality predicates ‘eq?’, ‘eqv?’ and ‘equal?’ (*note
+general equality predicates ‘eq?’, ‘eqv?’ and ‘equal?’ (*note*
 Equality::) and numerical and string comparison operators like
-‘string=?’ (*note String Comparison::) and ‘<=’ (*note Comparison::).
+‘string=?’ (*note* String Comparison::) and ‘<=’ (*note* Comparison::).
 
      (<= 3 8)
      ⇒ #t
@@ -7813,7 +7813,7 @@ Equality::) and numerical and string comparison operators like
      ⇒
      #t
 
-   In test condition contexts like ‘if’ and ‘cond’ (*note
+   In test condition contexts like ‘if’ and ‘cond’ (*note*
 Conditionals::), where a group of subexpressions will be evaluated only
 if a CONDITION expression evaluates to “true”, “true” means any value at
 all except ‘#f’.
@@ -7888,7 +7888,7 @@ scientific functions for operating on numerical data.  This section of
 the manual documents those types and functions.
 
    You may also find it illuminating to read R5RS’s presentation of
-numbers in Scheme, which is particularly clear and accessible: see *note
+numbers in Scheme, which is particularly clear and accessible: see *note*
 (r5rs)Numbers::.
 
 * Menu:
@@ -7911,7 +7911,7 @@ numbers in Scheme, which is particularly clear and accessible: see *note
 
 File: guile.info,  Node: Numerical Tower,  Next: Integers,  Up: Numbers
 
-6.6.2.1 Scheme’s Numerical “Tower”
+### 6.6.2.1 Scheme’s Numerical “Tower”
 ..................................
 
 Scheme’s numerical “tower” consists of the following categories of
@@ -7980,7 +7980,7 @@ types in detail.
 
 File: guile.info,  Node: Integers,  Next: Reals and Rationals,  Prev: Numerical Tower,  Up: Numbers
 
-6.6.2.2 Integers
+### 6.6.2.2 Integers
 ................
 
 Integers are whole numbers, that is numbers with no fractional part,
@@ -8193,14 +8193,14 @@ fractions.)
      exact integer, otherwise an error will be signalled.  ROP must have
      been initialized with ‘mpz_init’ before this function is called.
      When ROP is no longer needed the occupied space must be freed with
-     ‘mpz_clear’.  *Note (gmp)Initializing Integers::, for details.
+     ‘mpz_clear’.  *Note* (gmp)Initializing Integers::, for details.
 
  -- C Function: SCM scm_from_mpz (mpz_t val)
      Return the ‘SCM’ value that represents VAL.
 
 
 
-6.6.2.3 Real and Rational Numbers
+### 6.6.2.3 Real and Rational Numbers
 .................................
 
 Mathematically, the real numbers are the set of numbers that describe
@@ -8343,7 +8343,7 @@ operations like IEEE 754 describes it, i.e., ‘(= +nan.0 +nan.0)’ ⇒ ‘#f�
 
 File: guile.info,  Node: Complex Numbers,  Next: Exactness,  Prev: Reals and Rationals,  Up: Numbers
 
-6.6.2.4 Complex Numbers
+### 6.6.2.4 Complex Numbers
 .......................
 
 Complex numbers are the set of numbers that describe all possible points
@@ -8389,7 +8389,7 @@ well as either of the signed zeroes ‘0.0’ or ‘-0.0’.
 
 File: guile.info,  Node: Exactness,  Next: Number Syntax,  Prev: Complex Numbers,  Up: Numbers
 
-6.6.2.5 Exact and Inexact Numbers
+### 6.6.2.5 Exact and Inexact Numbers
 .................................
 
 R5RS requires that, with few exceptions, a calculation involving inexact
@@ -8461,7 +8461,7 @@ return an exact ‘1’.
 
 File: guile.info,  Node: Number Syntax,  Next: Integer Operations,  Prev: Exactness,  Up: Numbers
 
-6.6.2.6 Read Syntax for Numerical Data
+### 6.6.2.6 Read Syntax for Numerical Data
 ......................................
 
 The read syntax for integers is a string of digits, optionally preceded
@@ -8537,7 +8537,7 @@ the special ‘not-a-number’ value.  The sign is ignored for
 
 File: guile.info,  Node: Integer Operations,  Next: Comparison,  Prev: Number Syntax,  Up: Numbers
 
-6.6.2.7 Operations on Integer Values
+### 6.6.2.7 Operations on Integer Values
 ....................................
 
  -- Scheme Procedure: odd? n
@@ -8560,7 +8560,7 @@ File: guile.info,  Node: Integer Operations,  Next: Comparison,  Prev: Number Sy
           (remainder -13 4) ⇒ -1
 
      See also ‘truncate-quotient’, ‘truncate-remainder’ and related
-     operations in *note Arithmetic::.
+     operations in *note* Arithmetic::.
 
  -- Scheme Procedure: modulo n d
  -- C Function: scm_modulo (n, d)
@@ -8572,7 +8572,7 @@ File: guile.info,  Node: Integer Operations,  Next: Comparison,  Prev: Number Sy
           (modulo -13 -4) ⇒ -1
 
      See also ‘floor-quotient’, ‘floor-remainder’ and related operations
-     in *note Arithmetic::.
+     in *note* Arithmetic::.
 
  -- Scheme Procedure: gcd x...
  -- C Function: scm_gcd (x, y)
@@ -8608,7 +8608,7 @@ File: guile.info,  Node: Integer Operations,  Next: Comparison,  Prev: Number Sy
 
 File: guile.info,  Node: Comparison,  Next: Conversion,  Prev: Integer Operations,  Up: Numbers
 
-6.6.2.8 Comparison Predicates
+### 6.6.2.8 Comparison Predicates
 .............................
 
 The C comparison functions below always takes two arguments, while the
@@ -8655,12 +8655,12 @@ numbers ‘x’ and ‘y’ for equality, for example.
 
 File: guile.info,  Node: Conversion,  Next: Complex,  Prev: Comparison,  Up: Numbers
 
-6.6.2.9 Converting Numbers To and From Strings
+### 6.6.2.9 Converting Numbers To and From Strings
 ..............................................
 
 The following procedures read and write numbers according to their
-external representation as defined by R5RS (*note R5RS Lexical
-Structure: (r5rs)Lexical structure.).  *Note the ‘(ice-9 i18n)’ module:
+external representation as defined by R5RS (*note* R5RS Lexical
+Structure: (r5rs)Lexical structure.).  *Note* the ‘(ice-9 i18n)’ module:
 Number Input and Output, for locale-dependent number parsing.
 
  -- Scheme Procedure: number->string n [radix]
@@ -8688,7 +8688,7 @@ Number Input and Output, for locale-dependent number parsing.
 
 File: guile.info,  Node: Complex,  Next: Arithmetic,  Prev: Conversion,  Up: Numbers
 
-6.6.2.10 Complex Number Operations
+### 6.6.2.10 Complex Number Operations
 ..................................
 
  -- Scheme Procedure: make-rectangular real_part imaginary_part
@@ -8733,7 +8733,7 @@ File: guile.info,  Node: Complex,  Next: Arithmetic,  Prev: Conversion,  Up: Num
 
 File: guile.info,  Node: Arithmetic,  Next: Scientific,  Prev: Complex,  Up: Numbers
 
-6.6.2.11 Arithmetic Functions
+### 6.6.2.11 Arithmetic Functions
 .............................
 
 The C arithmetic functions below always takes two arguments, while the
@@ -8978,7 +8978,7 @@ SCM_UNDEFINED)’.
 
 File: guile.info,  Node: Scientific,  Next: Bitwise Operations,  Prev: Arithmetic,  Up: Numbers
 
-6.6.2.12 Scientific Functions
+### 6.6.2.12 Scientific Functions
 .............................
 
 The following procedures accept any kind of number as arguments,
@@ -9047,7 +9047,7 @@ including complex numbers.
 
 File: guile.info,  Node: Bitwise Operations,  Next: Random,  Prev: Scientific,  Up: Numbers
 
-6.6.2.13 Bitwise Operations
+### 6.6.2.13 Bitwise Operations
 ...........................
 
 For the following bitwise functions, negative numbers are treated as
@@ -9199,7 +9199,7 @@ with infinitely many ones on the left.  It can be seen that adding 6
 
 File: guile.info,  Node: Random,  Prev: Bitwise Operations,  Up: Numbers
 
-6.6.2.14 Random Number Generation
+### 6.6.2.14 Random Number Generation
 .................................
 
 Pseudo-random numbers are generated from a random state object, which
@@ -9576,7 +9576,7 @@ File: guile.info,  Node: Character Sets,  Next: Strings,  Prev: Characters,  Up:
 
 The features described in this section correspond directly to SRFI-14.
 
-   The data type “charset” implements sets of characters (*note
+   The data type “charset” implements sets of characters (*note*
 Characters::).  Because the internal representation of character sets is
 not visible to the user, a lot of procedures for handling them are
 provided.
@@ -9596,7 +9596,7 @@ a characters and be compared to other character sets.
 
 File: guile.info,  Node: Character Set Predicates/Comparison,  Next: Iterating Over Character Sets,  Up: Character Sets
 
-6.6.4.1 Character Set Predicates/Comparison
+### 6.6.4.1 Character Set Predicates/Comparison
 ...........................................
 
 Use these procedures for testing whether an object is a character set,
@@ -9626,7 +9626,7 @@ usage in fast lookup procedures.
 
 File: guile.info,  Node: Iterating Over Character Sets,  Next: Creating Character Sets,  Prev: Character Set Predicates/Comparison,  Up: Character Sets
 
-6.6.4.2 Iterating Over Character Sets
+### 6.6.4.2 Iterating Over Character Sets
 .....................................
 
 Character set cursors are a means for iterating over the members of a
@@ -9700,7 +9700,7 @@ are provided.
 
 File: guile.info,  Node: Creating Character Sets,  Next: Querying Character Sets,  Prev: Iterating Over Character Sets,  Up: Character Sets
 
-6.6.4.3 Creating Character Sets
+### 6.6.4.3 Creating Character Sets
 ...............................
 
 New character sets are produced with these procedures.
@@ -9783,7 +9783,7 @@ New character sets are produced with these procedures.
 
 File: guile.info,  Node: Querying Character Sets,  Next: Character-Set Algebra,  Prev: Creating Character Sets,  Up: Character Sets
 
-6.6.4.4 Querying Character Sets
+### 6.6.4.4 Querying Character Sets
 ...............................
 
 Access the elements and other information of a character set with these
@@ -9841,7 +9841,7 @@ procedures.
 
 File: guile.info,  Node: Character-Set Algebra,  Next: Standard Character Sets,  Prev: Querying Character Sets,  Up: Character Sets
 
-6.6.4.5 Character-Set Algebra
+### 6.6.4.5 Character-Set Algebra
 .............................
 
 Character sets can be manipulated with the common set algebra operation,
@@ -9929,7 +9929,7 @@ designated code points, ‘char-set:designated’.
 
 File: guile.info,  Node: Standard Character Sets,  Prev: Character-Set Algebra,  Up: Character Sets
 
-6.6.4.6 Standard Character Sets
+### 6.6.4.6 Standard Character Sets
 ...............................
 
 In order to make the use of the character set data type and procedures
@@ -10093,7 +10093,7 @@ modifications to each other.
 
 File: guile.info,  Node: String Syntax,  Next: String Predicates,  Up: Strings
 
-6.6.5.1 String Read Syntax
+### 6.6.5.1 String Read Syntax
 ..........................
 
 The read syntax for strings is an arbitrarily long sequence of
@@ -10187,12 +10187,12 @@ reader option ‘r6rs-hex-escapes’.
 
      (read-enable 'r6rs-hex-escapes)
 
-   For more on reader options, *Note Scheme Read::.
+   For more on reader options, *Note* Scheme Read::.
 
 
 File: guile.info,  Node: String Predicates,  Next: String Constructors,  Prev: String Syntax,  Up: Strings
 
-6.6.5.2 String Predicates
+### 6.6.5.2 String Predicates
 .........................
 
 The following procedures can be used to check whether a given string
@@ -10217,7 +10217,7 @@ fulfills some specified property.
      Check if CHAR_PRED is true for any character in string S.
 
      CHAR_PRED can be a character to check for any equal to that, or a
-     character set (*note Character Sets::) to check for any in that
+     character set (*note* Character Sets::) to check for any in that
      set, or a predicate procedure to call.
 
      For a procedure, calls ‘(CHAR_PRED c)’ are made successively on the
@@ -10234,7 +10234,7 @@ fulfills some specified property.
      Check if CHAR_PRED is true for every character in string S.
 
      CHAR_PRED can be a character to check for every character equal to
-     that, or a character set (*note Character Sets::) to check for
+     that, or a character set (*note* Character Sets::) to check for
      every character being in that set, or a predicate procedure to
      call.
 
@@ -10250,11 +10250,11 @@ fulfills some specified property.
 
 File: guile.info,  Node: String Constructors,  Next: List/String Conversion,  Prev: String Predicates,  Up: Strings
 
-6.6.5.3 String Constructors
+### 6.6.5.3 String Constructors
 ...........................
 
 The string constructor procedures create new string objects, possibly
-initializing them with some specified character data.  See also *Note
+initializing them with some specified character data.  See also *Note*
 String Selection::, for ways to create strings from existing strings.
 
  -- Scheme Procedure: string char...
@@ -10315,7 +10315,7 @@ String Selection::, for ways to create strings from existing strings.
 
 File: guile.info,  Node: List/String Conversion,  Next: String Selection,  Prev: String Constructors,  Up: Strings
 
-6.6.5.4 List/String conversion
+### 6.6.5.4 List/String conversion
 ..............................
 
 When processing strings, it is often convenient to first convert them
@@ -10357,7 +10357,7 @@ procedures are useful for similar tasks.
 
 File: guile.info,  Node: String Selection,  Next: String Modification,  Prev: List/String Conversion,  Up: Strings
 
-6.6.5.5 String Selection
+### 6.6.5.5 String Selection
 ........................
 
 Portions of strings can be extracted by these procedures.  ‘string-ref’
@@ -10471,7 +10471,7 @@ extract substrings from longer strings.
 
      CHAR_PRED can be a character, a character set, or a predicate
      procedure to call on each character.  If CHAR_PRED is not given the
-     default is whitespace as per ‘char-set:whitespace’ (*note Standard
+     default is whitespace as per ‘char-set:whitespace’ (*note* Standard
      Character Sets::).
 
           (string-trim " x ")              ⇒ "x "
@@ -10486,7 +10486,7 @@ extract substrings from longer strings.
 
 File: guile.info,  Node: String Modification,  Next: String Comparison,  Prev: String Selection,  Up: Strings
 
-6.6.5.6 String Modification
+### 6.6.5.6 String Modification
 ...........................
 
 These procedures are for modifying strings in-place.  This means that
@@ -10534,11 +10534,11 @@ string’s memory representation is modified.
 
 File: guile.info,  Node: String Comparison,  Next: String Searching,  Prev: String Modification,  Up: Strings
 
-6.6.5.7 String Comparison
+### 6.6.5.7 String Comparison
 .........................
 
 The procedures in this section are similar to the character ordering
-predicates (*note Characters::), but are defined on character sequences.
+predicates (*note* Characters::), but are defined on character sequences.
 
    The first set is specified in R5RS and has names that end in ‘?’.
 The second set is specified in SRFI-13 and the names have not ending
@@ -10548,7 +10548,7 @@ The second set is specified in SRFI-13 and the names have not ending
 comparing strings.  For now, case-insensitive comparison is done using
 the R5RS rules, where every lower-case character that has a single
 character upper-case form is converted to uppercase before comparison.
-See *Note the ‘(ice-9 i18n)’ module: Text Collation, for
+See *Note* the ‘(ice-9 i18n)’ module: Text Collation, for
 locale-dependent string comparison.
 
  -- Scheme Procedure: string=? s1 s2 s3 ...
@@ -10757,7 +10757,7 @@ described above.
 
 File: guile.info,  Node: String Searching,  Next: Alphabetic Case Mapping,  Prev: String Comparison,  Up: Strings
 
-6.6.5.8 String Searching
+### 6.6.5.8 String Searching
 ........................
 
  -- Scheme Procedure: string-index s char_pred [start [end]]
@@ -10900,7 +10900,7 @@ File: guile.info,  Node: String Searching,  Next: Alphabetic Case Mapping,  Prev
 
 File: guile.info,  Node: Alphabetic Case Mapping,  Next: Reversing and Appending Strings,  Prev: String Searching,  Up: Strings
 
-6.6.5.9 Alphabetic Case Mapping
+### 6.6.5.9 Alphabetic Case Mapping
 ...............................
 
 These are procedures for mapping strings to their upper- or lower-case
@@ -10910,7 +10910,7 @@ equivalents, respectively, or for capitalizing strings.
 special language or context rules are considered.  The resulting strings
 are guaranteed to be the same length as the input strings.
 
-   *Note the ‘(ice-9 i18n)’ module: Character Case Mapping, for
+   *Note* the ‘(ice-9 i18n)’ module: Character Case Mapping, for
 locale-dependent case conversions.
 
  -- Scheme Procedure: string-upcase str [start [end]]
@@ -10970,7 +10970,7 @@ locale-dependent case conversions.
 
 File: guile.info,  Node: Reversing and Appending Strings,  Next: Mapping Folding and Unfolding,  Prev: Alphabetic Case Mapping,  Up: Strings
 
-6.6.5.10 Reversing and Appending Strings
+### 6.6.5.10 Reversing and Appending Strings
 ........................................
 
  -- Scheme Procedure: string-reverse str [start [end]]
@@ -11031,7 +11031,7 @@ File: guile.info,  Node: Reversing and Appending Strings,  Next: Mapping Folding
 
 File: guile.info,  Node: Mapping Folding and Unfolding,  Next: Miscellaneous String Operations,  Prev: Reversing and Appending Strings,  Up: Strings
 
-6.6.5.11 Mapping, Folding, and Unfolding
+### 6.6.5.11 Mapping, Folding, and Unfolding
 ........................................
 
  -- Scheme Procedure: string-map proc s [start [end]]
@@ -11114,7 +11114,7 @@ File: guile.info,  Node: Mapping Folding and Unfolding,  Next: Miscellaneous Str
 
 File: guile.info,  Node: Miscellaneous String Operations,  Next: Representing Strings as Bytes,  Prev: Mapping Folding and Unfolding,  Up: Strings
 
-6.6.5.12 Miscellaneous String Operations
+### 6.6.5.12 Miscellaneous String Operations
 ........................................
 
  -- Scheme Procedure: xsubstring s from [to [start [end]]]
@@ -11184,7 +11184,7 @@ File: guile.info,  Node: Miscellaneous String Operations,  Next: Representing St
 
 File: guile.info,  Node: Representing Strings as Bytes,  Next: Conversion to/from C,  Prev: Miscellaneous String Operations,  Up: Strings
 
-6.6.5.13 Representing Strings as Bytes
+### 6.6.5.13 Representing Strings as Bytes
 ......................................
 
 Out in the cold world outside of Guile, not all strings are treated in
@@ -11204,13 +11204,13 @@ for data encoded in the ISO-8859-1 character set, and then another
 request from a different user for UTF-8 data.
 
    Guile provides an “iconv” module for converting between strings and
-sequences of bytes.  *Note Bytevectors::, for more on how Guile
+sequences of bytes.  *Note* Bytevectors::, for more on how Guile
 represents raw byte sequences.  This module gets its name from the
 common UNIX command of the same name.
 
    Note that often it is sufficient to just read and write strings from
 ports instead of using these functions.  To do this, specify the port
-encoding using ‘set-port-encoding!’.  *Note Ports::, for more on ports
+encoding using ‘set-port-encoding!’.  *Note* Ports::, for more on ports
 and character encodings.
 
    Unlike the rest of the procedures in this section, you have to load
@@ -11228,8 +11228,8 @@ the ‘iconv’ module before having access to these procedures:
      ‘encoding-error’.  Pass a CONVERSION-STRATEGY argument to specify
      other behaviors.
 
-     The return value is a bytevector.  *Note Bytevectors::, for more on
-     bytevectors.  *Note Ports::, for more on character encodings and
+     The return value is a bytevector.  *Note* Bytevectors::, for more on
+     bytevectors.  *Note* Ports::, for more on character encodings and
      conversion strategies.
 
  -- Scheme Procedure: bytevector->string bytevector encoding
@@ -11240,7 +11240,7 @@ the ‘iconv’ module before having access to these procedures:
      string.  If the bytes do not form a valid encoding, by default this
      procedure raises an ‘decoding-error’.  As with
      ‘string->bytevector’, pass the optional CONVERSION-STRATEGY
-     argument to modify this behavior.  *Note Ports::, for more on
+     argument to modify this behavior.  *Note* Ports::, for more on
      character encodings and conversion strategies.
 
  -- Scheme Procedure: call-with-output-encoded-string encoding proc
@@ -11253,7 +11253,7 @@ the ‘iconv’ module before having access to these procedures:
 
 File: guile.info,  Node: Conversion to/from C,  Next: String Internals,  Prev: Representing Strings as Bytes,  Up: Strings
 
-6.6.5.14 Conversion to/from C
+### 6.6.5.14 Conversion to/from C
 .............................
 
 When creating a Scheme string from a C string or when converting a
@@ -11284,7 +11284,7 @@ the C string.
    Converting a Scheme string to a C string will often allocate fresh
 memory to hold the result.  You must take care that this memory is
 properly freed eventually.  In many cases, this can be achieved by using
-‘scm_dynwind_free’ inside an appropriate dynwind context, *Note Dynamic
+‘scm_dynwind_free’ inside an appropriate dynwind context, *Note* Dynamic
 Wind::.
 
  -- C Function: SCM scm_from_locale_string (const char *str)
@@ -11321,7 +11321,7 @@ Wind::.
  -- C Function: char * scm_to_locale_stringn (SCM str, size_t *lenp)
      Returns a C string with the same contents as STR in the character
      encoding of the current locale.  The C string must be freed with
-     ‘free’ eventually, maybe by using ‘scm_dynwind_free’, *Note Dynamic
+     ‘free’ eventually, maybe by using ‘scm_dynwind_free’, *Note* Dynamic
      Wind::.
 
      For ‘scm_to_locale_string’, the returned string is null-terminated
@@ -11335,7 +11335,7 @@ Wind::.
 
      If a character in STR cannot be represented in the character
      encoding of the current locale, the default port conversion
-     strategy is used.  *Note Ports::, for more on conversion
+     strategy is used.  *Note* Ports::, for more on conversion
      strategies.
 
      If the conversion strategy is ‘error’, an error will be raised.  If
@@ -11397,7 +11397,7 @@ should seldom be necessary if one is properly using locales.
      character.
 
      The Scheme interface to this function is ‘string->bytevector’, from
-     the ‘ice-9 iconv’ module.  *Note Representing Strings as Bytes::.
+     the ‘ice-9 iconv’ module.  *Note* Representing Strings as Bytes::.
 
  -- C Function: SCM scm_from_stringn (const char *str, size_t len, const
           char *encoding, scm_t_string_failed_conversion_handler
@@ -11409,7 +11409,7 @@ should seldom be necessary if one is properly using locales.
      with unconvertable characters.
 
      The Scheme interface to this function is ‘bytevector->string’.
-     *Note Representing Strings as Bytes::.
+     *Note* Representing Strings as Bytes::.
 
    The following conversion functions are provided as a convenience for
 the most commonly used encodings.
@@ -11465,7 +11465,7 @@ are some convenience functions for that purpose as well.
 
 File: guile.info,  Node: String Internals,  Prev: Conversion to/from C,  Up: Strings
 
-6.6.5.15 String Internals
+### 6.6.5.15 String Internals
 .........................
 
 Guile stores each string in memory as a contiguous array of Unicode code
@@ -11584,7 +11584,7 @@ not self-evaluating.  This is why we need the ‘(quote ...)’s in the
 example above: ‘(quote hello)’ evaluates to the symbol named "hello"
 itself, whereas an unquoted ‘hello’ is _read_ as the symbol named
 "hello" and evaluated as a variable reference ... about which more below
-(*note Symbol Variables::).
+(*note* Symbol Variables::).
 
 * Menu:
 
@@ -11598,7 +11598,7 @@ itself, whereas an unquoted ‘hello’ is _read_ as the symbol named
 
 File: guile.info,  Node: Symbol Data,  Next: Symbol Keys,  Up: Symbols
 
-6.6.6.1 Symbols as Discrete Data
+### 6.6.6.1 Symbols as Discrete Data
 ................................
 
 Numbers and symbols are similar to the extent that they both lend
@@ -11665,7 +11665,7 @@ for use as discrete data.
 
 File: guile.info,  Node: Symbol Keys,  Next: Symbol Variables,  Prev: Symbol Data,  Up: Symbols
 
-6.6.6.2 Symbols as Lookup Keys
+### 6.6.6.2 Symbols as Lookup Keys
 ..............................
 
 Given their efficiency and descriptive power, it is natural to use
@@ -11695,7 +11695,7 @@ possible values without becoming ambiguous:
                                (locking . manual)))
 
    With a representation like this, it is easy to use the efficient
-‘assq-XXX’ family of procedures (*note Association Lists::) to extract
+‘assq-XXX’ family of procedures (*note* Association Lists::) to extract
 or change individual pieces of information:
 
      (assq-ref car1-properties 'fuel) ⇒ unleaded
@@ -11719,14 +11719,14 @@ hash table can be obtained by calling the ‘symbol-hash’ procedure:
  -- C Function: scm_symbol_hash (symbol)
      Return a hash value for SYMBOL.
 
-   See *note Hash Tables:: for information about hash tables in general,
+   See *note* Hash Tables:: for information about hash tables in general,
 and for why you might choose to use a hash table rather than an
 association list.
 
 
 File: guile.info,  Node: Symbol Variables,  Next: Symbol Primitives,  Prev: Symbol Keys,  Up: Symbols
 
-6.6.6.3 Symbols as Denoting Variables
+### 6.6.6.3 Symbols as Denoting Variables
 .....................................
 
 When an unquoted symbol in a Scheme program is evaluated, it is
@@ -11741,15 +11741,15 @@ calculation.  Therefore evaluation of the ‘string-length’ symbol results
 in that procedure.
 
    The details of the connection between an unquoted symbol and the
-variable to which it refers are explained elsewhere.  See *note Binding
+variable to which it refers are explained elsewhere.  See *note* Binding
 Constructs::, for how associations between symbols and variables are
-created, and *note Modules::, for how those associations are affected by
+created, and *note* Modules::, for how those associations are affected by
 Guile’s module system.
 
 
 File: guile.info,  Node: Symbol Primitives,  Next: Symbol Read Syntax,  Prev: Symbol Variables,  Up: Symbols
 
-6.6.6.4 Operations Related to Symbols
+### 6.6.6.4 Operations Related to Symbols
 .....................................
 
 Given any Scheme value, you can determine whether it is a symbol using
@@ -11776,7 +11776,7 @@ case-sensitivity:
 
      If Guile is set to read symbols case-insensitively (as specified by
      R5RS), and S comes into being as part of a literal expression
-     (*note (r5rs)Literal expressions::) or by a call to the ‘read’ or
+     (*note* (r5rs)Literal expressions::) or by a call to the ‘read’ or
      ‘string-ci->symbol’ procedures, Guile converts any alphabetic
      characters in the symbol’s name to lower case before creating the
      symbol object, so the string returned here will be in lower case.
@@ -11915,14 +11915,14 @@ code.  The ‘gensym’ primitive meets this need:
    The symbols generated by ‘gensym’ are _likely_ to be unique, since
 their names begin with a space and it is only otherwise possible to
 generate such symbols if a programmer goes out of their way to do so.
-Uniqueness can be guaranteed by instead using uninterned symbols (*note
+Uniqueness can be guaranteed by instead using uninterned symbols (*note*
 Symbol Uninterned::), though they can’t be usefully written out and read
 back in.
 
 
 File: guile.info,  Node: Symbol Read Syntax,  Next: Symbol Uninterned,  Prev: Symbol Primitives,  Up: Symbols
 
-6.6.6.5 Extended Read Syntax for Symbols
+### 6.6.6.5 Extended Read Syntax for Symbols
 ........................................
 
 The read syntax for a symbol is a sequence of letters, digits, and
@@ -11936,7 +11936,7 @@ they were letters.  The set of extended alphabetic characters is:
      ! $ % & * + - . / : < = > ? @ ^ _ ~
 
    In addition to the standard read syntax defined above (which is taken
-from R5RS (*note (r5rs)Formal syntax::)), Guile provides an extended
+from R5RS (*note* (r5rs)Formal syntax::)), Guile provides an extended
 symbol read syntax that allows the inclusion of unusual characters such
 as space characters, newlines and parentheses.  If (for whatever reason)
 you need to write a symbol containing characters not mentioned above,
@@ -11965,7 +11965,7 @@ widespread usage of it is discouraged because it is not portable and not
 very readable.
 
    Alternatively, if you enable the ‘r7rs-symbols’ read option (see
-*note Scheme Read::), you can write arbitrary symbols using the same
+*note* Scheme Read::), you can write arbitrary symbols using the same
 notation used for strings, except delimited by vertical bars instead of
 double quotes.
 
@@ -11973,7 +11973,7 @@ double quotes.
      |\x3BB; is a greek lambda|
      |\| is a vertical bar|
 
-   Note that there’s also an ‘r7rs-symbols’ print option (*note Scheme
+   Note that there’s also an ‘r7rs-symbols’ print option (*note* Scheme
 Write::).  To enable the use of this notation, evaluate one or both of
 the following expressions:
 
@@ -11983,7 +11983,7 @@ the following expressions:
 
 File: guile.info,  Node: Symbol Uninterned,  Prev: Symbol Read Syntax,  Up: Symbols
 
-6.6.6.6 Uninterned Symbols
+### 6.6.6.6 Uninterned Symbols
 ..........................
 
 What makes symbols useful is that they are automatically kept unique.
@@ -12092,7 +12092,7 @@ read syntax extension to permit keywords to begin with ‘:’ as well as
 
 File: guile.info,  Node: Why Use Keywords?,  Next: Coding With Keywords,  Up: Keywords
 
-6.6.7.1 Why Use Keywords?
+### 6.6.7.1 Why Use Keywords?
 .........................
 
 Keywords are useful in contexts where a program or procedure wants to be
@@ -12142,7 +12142,7 @@ use them if they will clarify the procedure invocation at point of call.
 
 File: guile.info,  Node: Coding With Keywords,  Next: Keyword Read Syntax,  Prev: Why Use Keywords?,  Up: Keywords
 
-6.6.7.2 Coding With Keywords
+### 6.6.7.2 Coding With Keywords
 ............................
 
 If a procedure wants to support keywords, it should take a rest argument
@@ -12191,21 +12191,21 @@ Or, even more economically, like this:
        ...)
 
    For further details on ‘let-keywords’, ‘define*’ and other facilities
-provided by the ‘(ice-9 optargs)’ module, see *note Optional
+provided by the ‘(ice-9 optargs)’ module, see *note* Optional
 Arguments::.
 
    To handle keyword arguments from procedures implemented in C, use
-‘scm_c_bind_keyword_arguments’ (*note Keyword Procedures::).
+‘scm_c_bind_keyword_arguments’ (*note* Keyword Procedures::).
 
 
 File: guile.info,  Node: Keyword Read Syntax,  Next: Keyword Procedures,  Prev: Coding With Keywords,  Up: Keywords
 
-6.6.7.3 Keyword Read Syntax
+### 6.6.7.3 Keyword Read Syntax
 ...........................
 
 Guile, by default, only recognizes a keyword syntax that is compatible
 with R5RS. A token of the form ‘#:NAME’, where ‘NAME’ has the same
-syntax as a Scheme symbol (*note Symbol Read Syntax::), is the external
+syntax as a Scheme symbol (*note* Symbol Read Syntax::), is the external
 representation of the keyword named ‘NAME’.  Keyword objects print using
 this syntax as well, so values containing keyword objects can be read
 back into Guile.  When used in an expression, keywords are self-quoting
@@ -12216,11 +12216,11 @@ recognizes the alternative read syntax ‘:NAME’.  Otherwise, tokens of
 the form ‘:NAME’ are read as symbols, as required by R5RS.
 
    If the ‘keywords’ read option is set to ‘'postfix’, Guile recognizes
-the SRFI-88 read syntax ‘NAME:’ (*note SRFI-88::).  Otherwise, tokens of
+the SRFI-88 read syntax ‘NAME:’ (*note* SRFI-88::).  Otherwise, tokens of
 this form are read as symbols.
 
    To enable and disable the alternative non-R5RS keyword syntax, you
-use the ‘read-set!’ procedure documented *note Scheme Read::.  Note that
+use the ‘read-set!’ procedure documented *note* Scheme Read::.  Note that
 the ‘prefix’ and ‘postfix’ syntax are mutually exclusive.
 
      (read-set! keywords 'prefix)
@@ -12258,7 +12258,7 @@ the ‘prefix’ and ‘postfix’ syntax are mutually exclusive.
 
 File: guile.info,  Node: Keyword Procedures,  Prev: Keyword Read Syntax,  Up: Keywords
 
-6.6.7.4 Keyword Procedures
+### 6.6.7.4 Keyword Procedures
 ..........................
 
  -- Scheme Procedure: keyword? obj
@@ -12364,7 +12364,7 @@ Hence the name: A pair stores a pair of objects.
 any other Lisp dialect.  The reason is that pairs are not only used to
 make two values available as one object, but that pairs are used for
 constructing lists of values.  Because lists are so important in Scheme,
-they are described in a section of their own (*note Lists::).
+they are described in a section of their own (*note* Lists::).
 
    Pairs can literally get entered in source code or at the REPL, in the
 so-called “dotted list” syntax.  This syntax consists of an opening
@@ -12380,7 +12380,7 @@ would not be able to figure out where to split the tokens.
 
    But beware, if you want to try out these examples, you have to
 “quote” the expressions.  More information about quotation is available
-in the section *note Expression Syntax::.  The correct way to try these
+in the section *note* Expression Syntax::.  The correct way to try these
 examples is as follows.
 
      '(1 . 2)
@@ -12419,7 +12419,7 @@ of a car of a pair, or the car of the cdr of a pair, etc., the
 procedures called ‘caar’, ‘cadr’ and so on are also predefined.
 However, using these procedures is often detrimental to readability, and
 error-prone.  Thus, accessing the contents of a list is usually better
-achieved using pattern matching techniques (*note Pattern Matching::).
+achieved using pattern matching techniques (*note* Pattern Matching::).
 
  -- Scheme Procedure: car pair
  -- Scheme Procedure: cdr pair
@@ -12499,7 +12499,7 @@ achieved using pattern matching techniques (*note Pattern Matching::).
 
      ‘cadr’, ‘caddr’ and ‘cadddr’ pick out the second, third or fourth
      elements of a list, respectively.  SRFI-1 provides the same under
-     the names ‘second’, ‘third’ and ‘fourth’ (*note SRFI-1
+     the names ‘second’, ‘third’ and ‘fourth’ (*note* SRFI-1
      Selectors::).
 
  -- Scheme Procedure: set-car! pair value
@@ -12547,7 +12547,7 @@ list is a chain of pairs which looks like a list.
 
 File: guile.info,  Node: List Syntax,  Next: List Predicates,  Up: Lists
 
-6.6.9.1 List Read Syntax
+### 6.6.9.1 List Read Syntax
 ........................
 
 The syntax for lists is an opening parentheses, then all the elements of
@@ -12571,8 +12571,8 @@ makes up a list.  An example will clear that up:
      ()
 
    This example also shows that lists have to be quoted when written
-(*note Expression Syntax::), because they would otherwise be mistakingly
-taken as procedure applications (*note Simple Invocation::).
+(*note* Expression Syntax::), because they would otherwise be mistakingly
+taken as procedure applications (*note* Simple Invocation::).
 
    ---------- Footnotes ----------
 
@@ -12582,7 +12582,7 @@ elements, like a comma or a semicolon.
 
 File: guile.info,  Node: List Predicates,  Next: List Constructors,  Prev: List Syntax,  Up: Lists
 
-6.6.9.2 List Predicates
+### 6.6.9.2 List Predicates
 .......................
 
 Often it is useful to test whether a given Scheme object is a list or
@@ -12609,7 +12609,7 @@ Then, the algorithm terminates.
 
 File: guile.info,  Node: List Constructors,  Next: List Selection,  Prev: List Predicates,  Up: Lists
 
-6.6.9.3 List Constructors
+### 6.6.9.3 List Constructors
 .........................
 
 This section describes the procedures for constructing new lists.
@@ -12653,12 +12653,12 @@ that modifying the elements of the new list also modifies the elements
 of the old list.  On the other hand, applying procedures like ‘set-cdr!’
 or ‘delv!’ to the new list will not alter the old list.  If you also
 need to copy the list elements (making a deep copy), use the procedure
-‘copy-tree’ from ‘(ice-9 copy-tree)’ (*note Copying::).
+‘copy-tree’ from ‘(ice-9 copy-tree)’ (*note* Copying::).
 
 
 File: guile.info,  Node: List Selection,  Next: Append/Reverse,  Prev: List Constructors,  Up: Lists
 
-6.6.9.4 List Selection
+### 6.6.9.4 List Selection
 ......................
 
 These procedures are used to get some information about a list, or to
@@ -12694,7 +12694,7 @@ retrieve one or more elements of a list.
 
 File: guile.info,  Node: Append/Reverse,  Next: List Modification,  Prev: List Selection,  Up: Lists
 
-6.6.9.5 Append and Reverse
+### 6.6.9.5 Append and Reverse
 ..........................
 
 ‘append’ and ‘append!’ are used to concatenate two or more lists in
@@ -12748,7 +12748,7 @@ should be careful when using the side-effecting variants.
 
 File: guile.info,  Node: List Modification,  Next: List Searching,  Prev: Append/Reverse,  Up: Lists
 
-6.6.9.6 List Modification
+### 6.6.9.6 List Modification
 .........................
 
 The following procedures modify an existing list, either by changing
@@ -12780,9 +12780,9 @@ elements of the list, or by changing the list structure itself.
      removed.  This procedure mirrors ‘member’: ‘delete’ compares
      elements of LST against ITEM with ‘equal?’.
 
-     See also SRFI-1 which has an extended ‘delete’ (*note SRFI-1
+     See also SRFI-1 which has an extended ‘delete’ (*note* SRFI-1
      Deleting::), and also an ‘lset-difference’ which can delete
-     multiple ITEMs in one call (*note SRFI-1 Set Operations::).
+     multiple ITEMs in one call (*note* SRFI-1 Set Operations::).
 
  -- Scheme Procedure: delq! item lst
  -- Scheme Procedure: delv! item lst
@@ -12827,7 +12827,7 @@ elements of the list, or by changing the list structure itself.
 
 File: guile.info,  Node: List Searching,  Next: List Mapping,  Prev: List Modification,  Up: Lists
 
-6.6.9.7 List Searching
+### 6.6.9.7 List Searching
 ......................
 
 The following procedures search lists for particular elements.  They use
@@ -12857,13 +12857,13 @@ equality depends on the equality predicate used.
      LST K)’ for K less than the length of LST.  If X does not occur in
      LST, then ‘#f’ (not the empty list) is returned.
 
-     See also SRFI-1 which has an extended ‘member’ function (*note
+     See also SRFI-1 which has an extended ‘member’ function (*note*
      SRFI-1 Searching::).
 
 
 File: guile.info,  Node: List Mapping,  Prev: List Searching,  Up: Lists
 
-6.6.9.8 List Mapping
+### 6.6.9.8 List Mapping
 ....................
 
 List processing is very convenient in Scheme because the process of
@@ -12890,7 +12890,7 @@ return value.
      The return value is not specified.
 
    See also SRFI-1 which extends these functions to take lists of
-unequal lengths (*note SRFI-1 Fold and Map::).
+unequal lengths (*note* SRFI-1 Fold and Map::).
 
 
 File: guile.info,  Node: Vectors,  Next: Bit Vectors,  Prev: Lists,  Up: Data Types
@@ -12907,11 +12907,11 @@ position of the accessed element in the list.
 
    Vectors can contain any kind of Scheme object; it is even possible to
 have different types of objects in the same vector.  For vectors
-containing vectors, you may wish to use *note Arrays:: instead.  Note,
+containing vectors, you may wish to use *note* Arrays:: instead.  Note,
 too, that vectors are a special case of one dimensional non-uniform
 arrays and that array procedures operate happily on vectors.
 
-   Also see *note SRFI-43::, *note R6RS Support::, or *note R7RS
+   Also see *note* SRFI-43::, *note* R6RS Support::, or *note* R7RS
 Support::, for more comprehensive vector libraries.
 
 * Menu:
@@ -12925,7 +12925,7 @@ Support::, for more comprehensive vector libraries.
 
 File: guile.info,  Node: Vector Syntax,  Next: Vector Creation,  Up: Vectors
 
-6.6.10.1 Read Syntax for Vectors
+### 6.6.10.1 Read Syntax for Vectors
 ................................
 
 Vectors can literally be entered in source code, just like strings,
@@ -12944,7 +12944,7 @@ types: a string, a symbol and a number in hexadecimal notation.
 
 File: guile.info,  Node: Vector Creation,  Next: Vector Accessors,  Prev: Vector Syntax,  Up: Vectors
 
-6.6.10.2 Dynamic Vector Creation and Validation
+### 6.6.10.2 Dynamic Vector Creation and Validation
 ...............................................
 
 Instead of creating a vector implicitly by using the read syntax just
@@ -12997,7 +12997,7 @@ is):
 
 File: guile.info,  Node: Vector Accessors,  Next: Vector Accessing from C,  Prev: Vector Creation,  Up: Vectors
 
-6.6.10.3 Accessing and Modifying Vector Contents
+### 6.6.10.3 Accessing and Modifying Vector Contents
 ................................................
 
 ‘vector-length’ and ‘vector-ref’ return information about a given
@@ -13026,7 +13026,7 @@ vector.
      Return the contents of position K (a ‘size_t’) of VEC.
 
    A vector created by one of the dynamic vector constructor procedures
-(*note Vector Creation::) can be modified using the following
+(*note* Vector Creation::) can be modified using the following
 procedures.
 
    _NOTE:_ According to R5RS, it is an error to use any of these
@@ -13104,15 +13104,15 @@ error.
 
 File: guile.info,  Node: Vector Accessing from C,  Next: Uniform Numeric Vectors,  Prev: Vector Accessors,  Up: Vectors
 
-6.6.10.4 Vector Accessing from C
+### 6.6.10.4 Vector Accessing from C
 ................................
 
-A vector can be read and modified from C with the functions *note
-‘scm_c_vector_ref’: x-scm_c_vector_ref. and *note ‘scm_c_vector_set_x’:
+A vector can be read and modified from C with the functions *note*
+‘scm_c_vector_ref’: x-scm_c_vector_ref. and *note* ‘scm_c_vector_set_x’:
 x-scm_c_vector_set_x.  In addition to these functions, there are two
 other ways to access vectors from C that might be more efficient in
 certain situations: you can use the unsafe _vector macros_; or you can
-use the general framework for accessing all kinds of arrays (*note
+use the general framework for accessing all kinds of arrays (*note*
 Accessing Arrays from C::), which is more verbose, but can deal
 efficiently with all kinds of vectors (and arrays).  For arrays of rank
 1 whose backing store is a vector, you can use the ‘scm_vector_elements’
@@ -13132,11 +13132,11 @@ and ‘scm_vector_writable_elements’ functions as shortcuts.
 
  -- C Function: const SCM * scm_vector_elements (SCM array,
           scm_t_array_handle *handle, size_t *lenp, ssize_t *incp)
-     Acquire a *note handle: Accessing Arrays from C. for ARRAY and
+     Acquire a *note* handle: Accessing Arrays from C. for ARRAY and
      return a read-only pointer to its elements.  ARRAY must be either a
      vector, or an array of rank 1 whose backing store is a vector;
      otherwise an error is signaled.  The handle must eventually be
-     released with *note ‘scm_array_handle_release’:
+     released with *note* ‘scm_array_handle_release’:
      x-scm_array_handle_release.
 
      The variables pointed to by LENP and INCP are filled with the
@@ -13144,7 +13144,7 @@ and ‘scm_vector_writable_elements’ functions as shortcuts.
      elements) between successive elements, respectively.  Successive
      elements of ARRAY need not be contiguous in their underlying “root
      vector” returned here; hence the increment is not necessarily equal
-     to 1 and may well be negative too (*note Shared Arrays::).
+     to 1 and may well be negative too (*note* Shared Arrays::).
 
      The following example shows the typical way to use this function.
      It creates a list of all elements of ARRAY (in reverse order).
@@ -13182,18 +13182,18 @@ and ‘scm_vector_writable_elements’ functions as shortcuts.
 
 File: guile.info,  Node: Uniform Numeric Vectors,  Prev: Vector Accessing from C,  Up: Vectors
 
-6.6.10.5 Uniform Numeric Vectors
+### 6.6.10.5 Uniform Numeric Vectors
 ................................
 
 A uniform numeric vector is a vector whose elements are all of a single
 numeric type.  Guile offers uniform numeric vectors for signed and
 unsigned 8-bit, 16-bit, 32-bit, and 64-bit integers, two sizes of
 floating point values, and complex floating-point numbers of these two
-sizes.  *Note SRFI-4::, for more information.
+sizes.  *Note* SRFI-4::, for more information.
 
    For many purposes, bytevectors work just as well as uniform vectors,
 and have the advantage that they integrate well with binary input and
-output.  *Note Bytevectors::, for more information on bytevectors.
+output.  *Note* Bytevectors::, for more information on bytevectors.
 
 
 File: guile.info,  Node: Bit Vectors,  Next: Bytevectors,  Prev: Vectors,  Up: Data Types
@@ -13208,7 +13208,7 @@ are displayed as a sequence of ‘0’s and ‘1’s prefixed by ‘#*’, e.g.,
      #*00000000
 
    Bit vectors are the special case of one dimensional bit arrays, and
-can thus be used with the array procedures, *Note Arrays::.
+can thus be used with the array procedures, *Note* Arrays::.
 
  -- Scheme Procedure: bitvector? obj
      Return ‘#t’ when OBJ is a bitvector, else return ‘#f’.
@@ -13316,7 +13316,7 @@ can thus be used with the array procedures, *Note Arrays::.
  -- C Function: const scm_t_uint32 * scm_bitvector_elements (SCM vec,
           scm_t_array_handle *handle, size_t *offp, size_t *lenp,
           ssize_t *incp)
-     Like ‘scm_vector_elements’ (*note Vector Accessing from C::), but
+     Like ‘scm_vector_elements’ (*note* Vector Accessing from C::), but
      for bitvectors.  The variable pointed to by OFFP is set to the
      value returned by ‘scm_array_handle_bit_elements_offset’.  See
      ‘scm_array_handle_bit_elements’ for how to use the returned pointer
@@ -13340,8 +13340,8 @@ the Algorithmic Language Scheme (R6RS) (http://www.r6rs.org/).  It
 contains procedures to manipulate bytevectors and interpret their
 contents in a number of ways: as signed or unsigned integer of various
 sizes and endianness, as IEEE-754 floating point numbers, or as strings.
-It is a useful tool to encode and decode binary data.  The *note R7RS:
-R7RS Support. offers its own set of bytevector procedures (*note
+It is a useful tool to encode and decode binary data.  The *note* R7RS:
+R7RS Support. offers its own set of bytevector procedures (*note*
 Bytevector Procedures in R7RS::).
 
    The R6RS (Section 4.3.4) specifies an external representation for
@@ -13358,7 +13358,7 @@ i.e., they do not need to be quoted:
      ⇒ #vu8(1 53 204)
 
    Bytevectors can be used with the binary input/output primitives
-(*note Binary I/O::).
+(*note* Binary I/O::).
 
 * Menu:
 
@@ -13376,7 +13376,7 @@ i.e., they do not need to be quoted:
 
 File: guile.info,  Node: Bytevector Endianness,  Next: Bytevector Manipulation,  Up: Bytevectors
 
-6.6.12.1 Endianness
+### 6.6.12.1 Endianness
 ...................
 
 Some of the following procedures take an ENDIANNESS parameter.  The
@@ -13407,13 +13407,13 @@ of the machine it runs on.
 
    (1) Big-endian and little-endian are the most common “endiannesses”,
 but others do exist.  For instance, the GNU MP library allows “word
-order” to be specified independently of “byte order” (*note (gmp)Integer
+order” to be specified independently of “byte order” (*note* (gmp)Integer
 Import and Export::).
 
 
 File: guile.info,  Node: Bytevector Manipulation,  Next: Bytevectors as Integers,  Prev: Bytevector Endianness,  Up: Bytevectors
 
-6.6.12.2 Manipulating Bytevectors
+### 6.6.12.2 Manipulating Bytevectors
 .................................
 
 Bytevectors can be created, copied, and analyzed with the following
@@ -13484,13 +13484,13 @@ type-checking; as such they should be used with care.
    ---------- Footnotes ----------
 
    (1) R6RS only defines ‘(bytevector-fill! bv fill)’.  Arguments START
-and END are a Guile extension (cf.  *note ‘vector-fill!’:
-x-vector-fill!, *note ‘string-fill!’: x-string-fill!.).
+and END are a Guile extension (cf.  *note* ‘vector-fill!’:
+x-vector-fill!, *note* ‘string-fill!’: x-string-fill!.).
 
 
 File: guile.info,  Node: Bytevectors as Integers,  Next: Bytevectors and Integer Lists,  Prev: Bytevector Manipulation,  Up: Bytevectors
 
-6.6.12.3 Interpreting Bytevector Contents as Integers
+### 6.6.12.3 Interpreting Bytevector Contents as Integers
 .....................................................
 
 The contents of a bytevector can be interpreted as a sequence of
@@ -13617,7 +13617,7 @@ accessors, as endianness is about byte order and there is only 1 byte):
 
 File: guile.info,  Node: Bytevectors and Integer Lists,  Next: Bytevectors as Floats,  Prev: Bytevectors as Integers,  Up: Bytevectors
 
-6.6.12.4 Converting Bytevectors to/from Integer Lists
+### 6.6.12.4 Converting Bytevectors to/from Integer Lists
 .....................................................
 
 Bytevector contents can readily be converted to/from lists of signed or
@@ -13660,7 +13660,7 @@ unsigned integers:
 
 File: guile.info,  Node: Bytevectors as Floats,  Next: Bytevectors as Strings,  Prev: Bytevectors and Integer Lists,  Up: Bytevectors
 
-6.6.12.5 Interpreting Bytevector Contents as Floating Point Numbers
+### 6.6.12.5 Interpreting Bytevector Contents as Floating Point Numbers
 ...................................................................
 
 Bytevector contents can also be accessed as IEEE-754 single- or
@@ -13705,11 +13705,11 @@ long) using the procedures described here.
 
 File: guile.info,  Node: Bytevectors as Strings,  Next: Bytevectors as Arrays,  Prev: Bytevectors as Floats,  Up: Bytevectors
 
-6.6.12.6 Interpreting Bytevector Contents as Unicode Strings
+### 6.6.12.6 Interpreting Bytevector Contents as Unicode Strings
 ............................................................
 
 Bytevector contents can also be interpreted as Unicode strings encoded
-in one of the most commonly available encoding formats.  *Note
+in one of the most commonly available encoding formats.  *Note*
 Representing Strings as Bytes::, for a more generic interface.
 
      (utf8->string (u8-list->bytevector '(99 97 102 101)))
@@ -13748,11 +13748,11 @@ Representing Strings as Bytes::, for a more generic interface.
 
 File: guile.info,  Node: Bytevectors as Arrays,  Next: Bytevectors as Uniform Vectors,  Prev: Bytevectors as Strings,  Up: Bytevectors
 
-6.6.12.7 Accessing Bytevectors with the Array API
+### 6.6.12.7 Accessing Bytevectors with the Array API
 .................................................
 
 As an extension to the R6RS, Guile allows bytevectors to be manipulated
-with the “array” procedures (*note Arrays::).  When using these APIs,
+with the “array” procedures (*note* Arrays::).  When using these APIs,
 bytes are accessed one at a time as 8-bit unsigned integers:
 
      (define bv #vu8(0 1 2 3))
@@ -13777,27 +13777,27 @@ bytes are accessed one at a time as 8-bit unsigned integers:
 
 File: guile.info,  Node: Bytevectors as Uniform Vectors,  Next: Bytevector Procedures in R7RS,  Prev: Bytevectors as Arrays,  Up: Bytevectors
 
-6.6.12.8 Accessing Bytevectors with the SRFI-4 API
+### 6.6.12.8 Accessing Bytevectors with the SRFI-4 API
 ..................................................
 
-Bytevectors may also be accessed with the SRFI-4 API. *Note SRFI-4 and
+Bytevectors may also be accessed with the SRFI-4 API. *Note* SRFI-4 and
 Bytevectors::, for more information.
 
 
 File: guile.info,  Node: Bytevector Procedures in R7RS,  Next: Bytevector Slices,  Prev: Bytevectors as Uniform Vectors,  Up: Bytevectors
 
-6.6.12.9 Bytevector Procedures in R7RS
+### 6.6.12.9 Bytevector Procedures in R7RS
 ......................................
 
-The *note R7RS: R7RS Support. (Section 6.9) defines a set of bytevector
+The *note* R7RS: R7RS Support. (Section 6.9) defines a set of bytevector
 manipulation procedures, accessible with
 
      (use-modules (scheme base))
 
-   Of these, *note ‘make-bytevector’: x-make-bytevector, *note
-‘bytevector?’: x-bytevector?, *note ‘bytevector-length’:
-x-bytevector-length, *note ‘bytevector-u8-ref’: x-bytevector-u8-ref. and
-*note ‘bytevector-u8-set!’: x-bytevector-u8-set!. have the same
+   Of these, *note* ‘make-bytevector’: x-make-bytevector, *note*
+‘bytevector?’: x-bytevector?, *note* ‘bytevector-length’:
+x-bytevector-length, *note* ‘bytevector-u8-ref’: x-bytevector-u8-ref. and
+*note* ‘bytevector-u8-set!’: x-bytevector-u8-set!. have the same
 definition as in R6RS. The procedures listed below either have a
 different definition in R7RS and R6RS, or are not defined in R6RS.
 
@@ -13807,7 +13807,7 @@ different definition in R7RS and R6RS, or are not defined in R6RS.
 
           (bytevector 2 3 4) ⇒ #vu8(2 3 4)
 
-     See also *note ‘u8-list->bytevector’: x-u8-list->bytevector.
+     See also *note* ‘u8-list->bytevector’: x-u8-list->bytevector.
 
  -- Scheme Procedure: bytevector-copy bv [start [end]]
      Returns a newly allocated bytevector containing the elements of BV
@@ -13819,7 +13819,7 @@ different definition in R7RS and R6RS, or are not defined in R6RS.
           (bytevector-copy bv 2) ⇒ #vu8(2 3 4 5)
           (bytevector-copy bv 2 4) ⇒ #vu8(2 3)
 
-     See also *note the R6RS version: x-r6:bytevector-copy.
+     See also *note* the R6RS version: x-r6:bytevector-copy.
 
  -- Scheme Procedure: bytevector-copy! dst at src [start [end]]
      Copy the block of elements from bytevector SRC in the range [START
@@ -13827,7 +13827,7 @@ different definition in R7RS and R6RS, or are not defined in R6RS.
      defaults to 0 and END defaults to the length of SRC.  It is an
      error for DST to have a length less than AT + (END - START).
 
-     See also *note the R6RS version: x-r6:bytevector-copy!.  With
+     See also *note* the R6RS version: x-r6:bytevector-copy!.  With
 
           (use-modules ((rnrs bytevectors) #:prefix r6:)
                        ((scheme base) #:prefix r7:))
@@ -13847,7 +13847,7 @@ different definition in R7RS and R6RS, or are not defined in R6RS.
 
 File: guile.info,  Node: Bytevector Slices,  Prev: Bytevector Procedures in R7RS,  Up: Bytevectors
 
-6.6.12.10 Bytevector Slices
+### 6.6.12.10 Bytevector Slices
 ...........................
 
 As an extension to the R6RS specification, the ‘(rnrs bytevectors gnu)’
@@ -13936,7 +13936,7 @@ dimensional arrays.
 
 File: guile.info,  Node: Array Syntax,  Next: Array Procedures,  Up: Arrays
 
-6.6.13.1 Array Syntax
+### 6.6.13.1 Array Syntax
 .....................
 
 An array is displayed as ‘#’ followed by its rank, followed by a tag
@@ -14005,7 +14005,7 @@ single element of the array.
      is a rank-zero array with contents 12.
 
    In addition, bytevectors are also arrays, but use a different syntax
-(*note Bytevectors::):
+(*note* Bytevectors::):
 
 ‘#vu8(1 2 3)’
      is a 3-byte long bytevector, with contents 1, 2, 3.
@@ -14013,7 +14013,7 @@ single element of the array.
 
 File: guile.info,  Node: Array Procedures,  Next: Shared Arrays,  Prev: Array Syntax,  Up: Arrays
 
-6.6.13.2 Array Procedures
+### 6.6.13.2 Array Procedures
 .........................
 
 When an array is created, the range of each dimension must be specified,
@@ -14174,7 +14174,7 @@ dimension.
      Return ‘#t’ if all arguments are arrays with the same shape, the
      same type, and have corresponding elements which are either
      ‘equal?’ or ‘array-equal?’.  This function differs from ‘equal?’
-     (*note Equality::) in that all arguments must be arrays.
+     (*note* Equality::) in that all arguments must be arrays.
 
  -- Scheme Procedure: array-map! dst proc src ...
  -- Scheme Procedure: array-map-in-order! dst proc src ...
@@ -14232,7 +14232,7 @@ arrays)’.  It can be used with:
 
 File: guile.info,  Node: Shared Arrays,  Next: Arrays as arrays of arrays,  Prev: Array Procedures,  Up: Arrays
 
-6.6.13.3 Shared Arrays
+### 6.6.13.3 Shared Arrays
 ......................
 
  -- Scheme Procedure: make-shared-array oldarray mapfunc bound ...
@@ -14240,7 +14240,7 @@ File: guile.info,  Node: Shared Arrays,  Next: Arrays as arrays of arrays,  Prev
      Return a new array which shares the storage of OLDARRAY.  Changes
      made through either affect the same underlying storage.  The BOUND
      ... arguments are the shape of the new array, the same as
-     ‘make-array’ (*note Array Procedures::).
+     ‘make-array’ (*note* Array Procedures::).
 
      MAPFUNC translates coordinates from the new array to the OLDARRAY.
      It’s called as ‘(MAPFUNC newidx1 ...)’ with one parameter for each
@@ -14370,7 +14370,7 @@ File: guile.info,  Node: Shared Arrays,  Next: Arrays as arrays of arrays,  Prev
 
 File: guile.info,  Node: Arrays as arrays of arrays,  Next: Accessing Arrays from C,  Prev: Shared Arrays,  Up: Arrays
 
-6.6.13.4 Arrays as arrays of arrays
+### 6.6.13.4 Arrays as arrays of arrays
 ...................................
 
 One can see an array of rank n (an n-array) as an array of lower rank
@@ -14521,7 +14521,7 @@ function call, either implicitly or explicitly.
 
 File: guile.info,  Node: Accessing Arrays from C,  Prev: Arrays as arrays of arrays,  Up: Arrays
 
-6.6.13.5 Accessing Arrays from C
+### 6.6.13.5 Accessing Arrays from C
 ................................
 
 For interworking with external C code, Guile provides an API to allow C
@@ -14543,7 +14543,7 @@ additional synchronization to avoid modifying reserved arrays.)
    You must take care to always unreserve an array after reserving it,
 even in the presence of non-local exits.  If a non-local exit can happen
 between these two calls, you should install a dynwind context that
-releases the array when it is left (*note Dynamic Wind::).
+releases the array when it is left (*note* Dynamic Wind::).
 
    In addition, array reserving and unreserving must be properly paired.
 For instance, when reserving two or more arrays in a certain order, you
@@ -14829,7 +14829,7 @@ within that block.  The size of these blocks form a geometric series
 with ratio ‘block-growth-factor’ (2 by default).
 
    The VList structure also serves as the basis for the “VList-based
-hash lists” or “vhashes”, an immutable dictionary type (*note
+hash lists” or “vhashes”, an immutable dictionary type (*note*
 VHashes::).
 
    However, the current implementation in ‘(ice-9 vlist)’ has several
@@ -14887,7 +14887,7 @@ operations.
  -- Scheme Procedure: vlist-fold proc init vlist
  -- Scheme Procedure: vlist-fold-right proc init vlist
      Fold over VLIST, calling PROC for each element, as for SRFI-1
-     ‘fold’ and ‘fold-right’ (*note ‘fold’: SRFI-1.).
+     ‘fold’ and ‘fold-right’ (*note* ‘fold’: SRFI-1.).
 
  -- Scheme Procedure: vlist-ref vlist index
      Return the element at index INDEX in VLIST.  This is typically a
@@ -14926,7 +14926,7 @@ operations.
  -- Scheme Procedure: vlist-unfold p f g seed [tail-gen]
  -- Scheme Procedure: vlist-unfold-right p f g seed [tail]
      Return a new vlist, as for SRFI-1 ‘unfold’ and ‘unfold-right’
-     (*note ‘unfold’: SRFI-1.).
+     (*note* ‘unfold’: SRFI-1.).
 
  -- Scheme Procedure: vlist-append vlist ...
      Append the given vlists and return the resulting vlist.
@@ -14954,26 +14954,26 @@ come with its own new record interface, leading to a maze of record
 APIs.
 
    At the highest level is SRFI-9, a high-level record interface
-implemented by most Scheme implementations (*note SRFI-9 Records::).  It
+implemented by most Scheme implementations (*note* SRFI-9 Records::).  It
 defines a simple and efficient syntactic abstraction of record types and
 their associated type predicate, fields, and field accessors.  SRFI-9 is
 suitable for most uses, and this is the recommended way to create record
-types in Guile.  Similar high-level record APIs include SRFI-35 (*note
-SRFI-35::) and R6RS records (*note rnrs records syntactic::).
+types in Guile.  Similar high-level record APIs include SRFI-35 (*note*
+SRFI-35::) and R6RS records (*note* rnrs records syntactic::).
 
-   Then comes Guile’s historical “records” API (*note Records::).
+   Then comes Guile’s historical “records” API (*note* Records::).
 Record types defined this way are first-class objects.  Introspection
 facilities are available, allowing users to query the list of fields or
 the value of a specific field at run-time, without prior knowledge of
 the type.
 
    Finally, the common denominator of these interfaces is Guile’s
-“structure” API (*note Structures::).  Guile’s structures are the
+“structure” API (*note* Structures::).  Guile’s structures are the
 low-level building block for all other record APIs.  Application writers
 will normally not need to use it.
 
    Records created with these APIs may all be pattern-matched using
-Guile’s standard pattern matcher (*note Pattern Matching::).
+Guile’s standard pattern matcher (*note* Pattern Matching::).
 
 
 File: guile.info,  Node: SRFI-9 Records,  Next: Records,  Prev: Record Overview,  Up: Data Types
@@ -14983,7 +14983,7 @@ File: guile.info,  Node: SRFI-9 Records,  Next: Records,  Prev: Record Overview,
 
 SRFI-9 standardizes a syntax for defining new record types and creating
 predicate, constructor, and field getter and setter functions.  In Guile
-this is the recommended option to create new record types (*note Record
+this is the recommended option to create new record types (*note* Record
 Overview::).  It can be used with:
 
      (use-modules (srfi srfi-9))
@@ -15046,7 +15046,7 @@ then be used as for example,
 ‘define’s.  They can be redefined or ‘set!’ as desired, exported from a
 module, etc.
 
-Non-toplevel Record Definitions
+### Non-toplevel Record Definitions
 ...............................
 
 The SRFI-9 specification explicitly disallows record definitions in a
@@ -15054,7 +15054,7 @@ non-toplevel context, such as inside ‘lambda’ body or inside a LET
 block.  However, Guile’s implementation does not enforce that
 restriction.
 
-Custom Printers
+### Custom Printers
 ...............
 
 You may use ‘set-record-type-printer!’ to customize the default printing
@@ -15075,7 +15075,7 @@ This example prints the employee’s name in brackets, for instance
          (display (employee-name record) port)
          (write-char #\] port)))
 
-Functional “Setters”
+### Functional “Setters”
 ....................
 
 When writing code in a functional style, it is desirable to never alter
@@ -15175,7 +15175,7 @@ A “record type” is a first class object representing a user-defined data
 type.  A “record” is an instance of a record type.
 
    Note that in many ways, this interface is too low-level for every-day
-use.  Most uses of records are better served by SRFI-9 records.  *Note
+use.  Most uses of records are better served by SRFI-9 records.  *Note*
 SRFI-9 Records::.
 
  -- Scheme Procedure: record? obj
@@ -15224,7 +15224,7 @@ SRFI-9 Records::.
 
      R6RS defines a notion of “opaque” record types.  Given an instance
      of an opaque record type, one cannot obtain a run-time
-     representation of the record type.  *Note rnrs records
+     representation of the record type.  *Note* rnrs records
      procedural::, for full details.  The ‘#:opaque?’ flag is used by
      Guile’s R6RS layer to record this information.  The default is
      determined by whether the parent type, if any, was opaque.
@@ -15304,7 +15304,7 @@ words in fields numbered 0 upwards.  A “vtable” is a structure that
 represents a structure type, giving field types and permissions, and an
 optional print function for ‘write’ etc.
 
-   Structures are lower level than records (*note Records::).  Usually,
+   Structures are lower level than records (*note* Records::).  Usually,
 when you need to represent structured data, you just want to use
 records.  But sometimes you need to implement new kinds of structured
 data abstractions, and for that purpose structures are useful.  Indeed,
@@ -15321,12 +15321,12 @@ records in Guile are implemented with structures.
 
 File: guile.info,  Node: Vtables,  Next: Structure Basics,  Up: Structures
 
-6.6.18.1 Vtables
+### 6.6.18.1 Vtables
 ................
 
 A vtable is a structure type, specifying its layout, and other
 information.  A vtable is actually itself a structure, but there’s no
-need to worry about that initially (*note Vtable Contents::.)
+need to worry about that initially (*note* Vtable Contents::.)
 
  -- Scheme Procedure: make-vtable fields [print]
      Create a new vtable.
@@ -15381,7 +15381,7 @@ need to worry about that initially (*note Vtable Contents::.)
 
 File: guile.info,  Node: Structure Basics,  Next: Vtable Contents,  Prev: Vtables,  Up: Structures
 
-6.6.18.2 Structure Basics
+### 6.6.18.2 Structure Basics
 .........................
 
 This section describes the basic procedures for working with structures.
@@ -15389,7 +15389,7 @@ This section describes the basic procedures for working with structures.
 ‘struct-set!’ access its fields.
 
  -- Scheme Procedure: make-struct/no-tail vtable init ...
-     Create a new structure, with layout per the given VTABLE (*note
+     Create a new structure, with layout per the given VTABLE (*note*
      Vtables::).
 
      The optional INIT... arguments are initial values for the fields of
@@ -15459,13 +15459,13 @@ procedures.
  -- C Function: scm_struct_vtable (struct)
      Return the vtable that describes STRUCT.
 
-     The vtable is effectively the type of the structure.  See *note
+     The vtable is effectively the type of the structure.  See *note*
      Vtable Contents::, for more on vtables.
 
 
 File: guile.info,  Node: Vtable Contents,  Next: Meta-Vtables,  Prev: Structure Basics,  Up: Structures
 
-6.6.18.3 Vtable Contents
+### 6.6.18.3 Vtable Contents
 ........................
 
 A vtable is itself a structure.  It has a specific set of fields
@@ -15485,7 +15485,7 @@ accessor procedures.
      The field number of the layout specification in a vtable.  The
      layout specification is a symbol like ‘pwpw’ formed from the fields
      string passed to ‘make-vtable’, or created by ‘make-struct-layout’
-     (*note Meta-Vtables::).
+     (*note* Meta-Vtables::).
 
           (define v (make-vtable "pwpw" 0))
           (struct-ref v vtable-index-layout) ⇒ pwpw
@@ -15523,7 +15523,7 @@ accessor procedures.
 
 File: guile.info,  Node: Meta-Vtables,  Next: Vtable Example,  Prev: Vtable Contents,  Up: Structures
 
-6.6.18.4 Meta-Vtables
+### 6.6.18.4 Meta-Vtables
 .....................
 
 As a structure, a vtable also has a vtable, which is also a structure.
@@ -15608,7 +15608,7 @@ definition that indicates the number of fields in
  -- Scheme Procedure: make-struct-layout fields
  -- C Function: scm_make_struct_layout (fields)
      Return a structure layout symbol, from a FIELDS string.  FIELDS is
-     as described under ‘make-vtable’ (*note Vtables::).  An invalid
+     as described under ‘make-vtable’ (*note* Vtables::).  An invalid
      FIELDS string is an error.
 
    With these definitions, one can define ‘make-vtable’ in this way:
@@ -15621,7 +15621,7 @@ definition that indicates the number of fields in
 
 File: guile.info,  Node: Vtable Example,  Prev: Meta-Vtables,  Up: Structures
 
-6.6.18.5 Vtable Example
+### 6.6.18.5 Vtable Example
 .......................
 
 Let us bring these points together with an example.  Consider a simple
@@ -15792,7 +15792,7 @@ manipulating them.
 
 File: guile.info,  Node: Alist Key Equality,  Next: Adding or Setting Alist Entries,  Up: Association Lists
 
-6.6.20.1 Alist Key Equality
+### 6.6.20.1 Alist Key Equality
 ...........................
 
 All of Guile’s dedicated association list procedures, apart from
@@ -15816,7 +15816,7 @@ which do not require their entries’ keys to be unique.
 
 File: guile.info,  Node: Adding or Setting Alist Entries,  Next: Retrieving Alist Entries,  Prev: Alist Key Equality,  Up: Association Lists
 
-6.6.20.2 Adding or Setting Alist Entries
+### 6.6.20.2 Adding or Setting Alist Entries
 ........................................
 
 ‘acons’ adds a new entry to an association list and returns the combined
@@ -15930,7 +15930,7 @@ old association list before modifying it.
 
 File: guile.info,  Node: Retrieving Alist Entries,  Next: Removing Alist Entries,  Prev: Adding or Setting Alist Entries,  Up: Association Lists
 
-6.6.20.3 Retrieving Alist Entries
+### 6.6.20.3 Retrieving Alist Entries
 .................................
 
 ‘assq’, ‘assv’ and ‘assoc’ find the entry in an alist for a given key,
@@ -15949,7 +15949,7 @@ and return the ‘(KEY . VALUE)’ pair.  ‘assq-ref’, ‘assv-ref’ and
 
      ‘assq’ compares keys with ‘eq?’, ‘assv’ uses ‘eqv?’ and ‘assoc’
      uses ‘equal?’.  See also SRFI-1 which has an extended ‘assoc’
-     (*note SRFI-1 Association Lists::).
+     (*note* SRFI-1 Association Lists::).
 
  -- Scheme Procedure: assq-ref alist key
  -- Scheme Procedure: assv-ref alist key
@@ -15974,7 +15974,7 @@ and return the ‘(KEY . VALUE)’ pair.  ‘assq-ref’, ‘assv-ref’ and
 
 File: guile.info,  Node: Removing Alist Entries,  Next: Sloppy Alist Functions,  Prev: Retrieving Alist Entries,  Up: Association Lists
 
-6.6.20.4 Removing Alist Entries
+### 6.6.20.4 Removing Alist Entries
 ...............................
 
 To remove the element from an association list whose key matches a
@@ -16039,7 +16039,7 @@ in place.
 
 File: guile.info,  Node: Sloppy Alist Functions,  Next: Alist Example,  Prev: Removing Alist Entries,  Up: Association Lists
 
-6.6.20.5 Sloppy Alist Functions
+### 6.6.20.5 Sloppy Alist Functions
 ...............................
 
 ‘sloppy-assq’, ‘sloppy-assv’ and ‘sloppy-assoc’ behave like the
@@ -16097,7 +16097,7 @@ versions would silently cover up.
 
 File: guile.info,  Node: Alist Example,  Prev: Sloppy Alist Functions,  Up: Association Lists
 
-6.6.20.6 Alist Example
+### 6.6.20.6 Alist Example
 ......................
 
 Here is a longer example of how alists may be used in practice.
@@ -16143,14 +16143,14 @@ File: guile.info,  Node: VHashes,  Next: Hash Tables,  Prev: Association Lists, 
 ------------------------------------------
 
 The ‘(ice-9 vlist)’ module provides an implementation of “VList-based
-hash lists” (*note VLists::).  VList-based hash lists, or “vhashes”, are
+hash lists” (*note* VLists::).  VList-based hash lists, or “vhashes”, are
 an immutable dictionary type similar to association lists that maps
 “keys” to “values”.  However, unlike association lists, accessing a
 value given its key is typically a constant-time operation.
 
    The VHash programming interface of ‘(ice-9 vlist)’ is mostly the same
 as that of association lists found in SRFI-1, with procedure names
-prefixed by ‘vhash-’ instead of ‘alist-’ (*note SRFI-1 Association
+prefixed by ‘vhash-’ instead of ‘alist-’ (*note* SRFI-1 Association
 Lists::).
 
    In addition, vhashes can be manipulated using VList operations:
@@ -16195,7 +16195,7 @@ Lists::).
      Return a new hash list based on VHASH where KEY is associated with
      VALUE, using HASH-PROC to compute the hash of KEY.  VHASH must be
      either ‘vlist-null’ or a vhash returned by a previous call to
-     ‘vhash-cons’.  HASH-PROC defaults to ‘hash’ (*note ‘hash’
+     ‘vhash-cons’.  HASH-PROC defaults to ‘hash’ (*note* ‘hash’
      procedure: Hash Table Reference.).  With ‘vhash-consq’, the ‘hashq’
      hash function is used; with ‘vhash-consv’ the ‘hashv’ hash function
      is used.
@@ -16276,7 +16276,7 @@ difference is that association lists need time linear in the size of
 elements when searching for entries, whereas hash tables can normally
 search in constant time.  The drawback is that hash tables require a
 little bit more memory, and that you can not use the normal list
-procedures (*note Lists::) for working with them.
+procedures (*note* Lists::) for working with them.
 
 * Menu:
 
@@ -16286,7 +16286,7 @@ procedures (*note Lists::) for working with them.
 
 File: guile.info,  Node: Hash Table Examples,  Next: Hash Table Reference,  Up: Hash Tables
 
-6.6.22.1 Hash Table Examples
+### 6.6.22.1 Hash Table Examples
 ............................
 
 For demonstration purposes, this section gives a few usage examples of
@@ -16373,7 +16373,7 @@ example, count the number of elements with string values:
 
 File: guile.info,  Node: Hash Table Reference,  Prev: Hash Table Examples,  Up: Hash Tables
 
-6.6.22.2 Hash Table Reference
+### 6.6.22.2 Hash Table Reference
 .............................
 
 Like the association list functions, the hash table functions come in
@@ -16399,7 +16399,7 @@ space.
 
    For the ‘hashx-’ “extended” routines, an application supplies a HASH
 function producing an integer index like ‘hashq’ etc below, and an ASSOC
-alist search function like ‘assq’ etc (*note Retrieving Alist
+alist search function like ‘assq’ etc (*note* Retrieving Alist
 Entries::).  Here’s an example of such functions implementing
 case-insensitive hashing of string keys,
 
@@ -16421,8 +16421,8 @@ case-insensitive hashing of string keys,
 vector, so bucket lists don’t become long.  But the actual values are
 arbitrary as long as they’re in the range 0 to SIZE-1.  Helpful
 functions for forming a hash value, in addition to ‘hashq’ etc below,
-include ‘symbol-hash’ (*note Symbol Keys::), ‘string-hash’ and
-‘string-hash-ci’ (*note String Comparison::), and ‘char-set-hash’ (*note
+include ‘symbol-hash’ (*note* Symbol Keys::), ‘string-hash’ and
+‘string-hash-ci’ (*note* String Comparison::), and ‘char-set-hash’ (*note*
 Character Set Predicates/Comparison::).
 
 
@@ -16601,17 +16601,17 @@ File: guile.info,  Node: Other Types,  Prev: Hash Tables,  Up: Data Types
 6.6.23 Other Types
 ------------------
 
-Procedures are documented in their own section.  *Note Procedures::.
+Procedures are documented in their own section.  *Note* Procedures::.
 
    Variable objects are documented as part of the description of Guile’s
-module system: see *note Variables::.
+module system: see *note* Variables::.
 
-   *Note Scheduling::, for discussion of threads, mutexes, and so on.
+   *Note* Scheduling::, for discussion of threads, mutexes, and so on.
 
-   Ports are described in the section on I/O: see *note Input and
+   Ports are described in the section on I/O: see *note* Input and
 Output::.
 
-   Regular expressions are described in their own section: see *note
+   Regular expressions are described in their own section: see *note*
 Regular Expressions::.
 
    There are quite a number of additional data types documented in this
@@ -16643,7 +16643,7 @@ File: guile.info,  Node: Lambda,  Next: Primitive Procedures,  Up: Procedures
 
 A ‘lambda’ expression evaluates to a procedure.  The environment which
 is in effect when a ‘lambda’ expression is evaluated is enclosed in the
-newly created procedure, this is referred to as a “closure” (*note About
+newly created procedure, this is referred to as a “closure” (*note* About
 Closure::).
 
    When a procedure created by ‘lambda’ is called with some actual
@@ -16696,7 +16696,7 @@ enclosed in the procedure is shown with this example:
      The list in VARIABLE or VARIABLEN+1 is always newly created and the
      procedure can modify it if desired.  This is the case even when the
      procedure is invoked via ‘apply’, the required part of the list
-     argument there will be copied (*note Procedures for On the Fly
+     argument there will be copied (*note* Procedures for On the Fly
      Evaluation: Fly Evaluation.).
 
      BODY is a sequence of Scheme expressions which are evaluated in
@@ -16740,7 +16740,7 @@ File: guile.info,  Node: Compiled Procedures,  Next: Optional Arguments,  Prev: 
 6.7.3 Compiled Procedures
 -------------------------
 
-The evaluation strategy given in *note Lambda:: describes how procedures
+The evaluation strategy given in *note* Lambda:: describes how procedures
 are “interpreted”.  Interpretation operates directly on expanded Scheme
 source code, recursively calling the evaluator to obtain the value of
 nested expressions.
@@ -16754,12 +16754,12 @@ than interpreted procedures.
 being.  If Guile sees that a file is uncompiled, or that its compiled
 file is out of date, it will attempt to compile the file when it is
 loaded, and save the result to disk.  Procedures can be compiled at
-runtime as well.  *Note Read/Load/Eval/Compile::, for more information
+runtime as well.  *Note* Read/Load/Eval/Compile::, for more information
 on runtime compilation.
 
    Compiled procedures, also known as “programs”, respond to all
 procedures that operate on procedures: you can pass a program to
-‘procedure?’, ‘procedure-name’, and so on (*note Procedure
+‘procedure?’, ‘procedure-name’, and so on (*note* Procedure
 Properties::).  In addition, there are a few more accessors for
 low-level details on programs.
 
@@ -16787,7 +16787,7 @@ appropriate module first, though:
  -- Scheme Procedure: program-free-variable-set! program n val
  -- C Function: scm_program_free_variable_set_x (program, n, val)
      Accessors for a program’s free variables.  Some of the values
-     captured are actually in variable “boxes”.  *Note Variables and the
+     captured are actually in variable “boxes”.  *Note* Variables and the
      VM::, for more information.
 
      Users must not modify the returned value unless they think they’re
@@ -16804,7 +16804,7 @@ appropriate module first, though:
 
      Bindings declare names and liveness extents for block-local
      variables.  The best way to see what these are is to play around
-     with them at a REPL. *Note VM Concepts::, for more information.
+     with them at a REPL. *Note* VM Concepts::, for more information.
 
      Note that bindings information is stored in a program as part of
      its metadata thunk, so including it in the generated object code
@@ -16846,9 +16846,9 @@ appropriate module first, though:
 
      ‘arity:kw’ returns a list of ‘(KW . IDX)’ pairs, if the procedure
      has keyword arguments.  The IDX refers to the IDXth local variable;
-     *Note Variables and the VM::, for more information.  Finally
+     *Note* Variables and the VM::, for more information.  Finally
      ‘arity:allow-other-keys?’ returns a true value if other keys are
-     allowed.  *Note Optional Arguments::, for more information.
+     allowed.  *Note* Optional Arguments::, for more information.
 
      So what about ‘arity:start’ and ‘arity:end’, then?  They return the
      range of bytes in the program’s bytecode for which a given arity is
@@ -16896,7 +16896,7 @@ arbitrarily many additional arguments.  Writing procedures of variable
 arity can be useful, but unfortunately, the syntactic means for handling
 argument lists of varying length is a bit inconvenient.  It is possible
 to give names to the fixed number of arguments, but the remaining
-(optional) arguments can be only referenced as a list of values (*note
+(optional) arguments can be only referenced as a list of values (*note*
 Lambda::).
 
    For this reason, Guile provides an extension to ‘lambda’, ‘lambda*’,
@@ -16914,7 +16914,7 @@ rest list.
 
 File: guile.info,  Node: lambda* and define*,  Next: ice-9 optargs,  Up: Optional Arguments
 
-6.7.4.1 lambda* and define*.
+### 6.7.4.1 lambda* and define*.
 ............................
 
 ‘lambda*’ is like ‘lambda’, except with some extensions to allow
@@ -17006,7 +17006,7 @@ optional and keyword arguments.
 
 File: guile.info,  Node: ice-9 optargs,  Prev: lambda* and define*,  Up: Optional Arguments
 
-6.7.4.2 (ice-9 optargs)
+### 6.7.4.2 (ice-9 optargs)
 .......................
 
 Before Guile 2.0, ‘lambda*’ and ‘define*’ were implemented using macros
@@ -17022,7 +17022,7 @@ provides some macros to help with that task.
    The syntax ‘let-optional’ and ‘let-optional*’ are for destructuring
 rest argument lists and giving names to the various list elements.
 ‘let-optional’ binds all variables simultaneously, while ‘let-optional*’
-binds them sequentially, consistent with ‘let’ and ‘let*’ (*note Local
+binds them sequentially, consistent with ‘let’ and ‘let*’ (*note* Local
 Bindings::).
 
  -- library syntax: let-optional rest-arg (binding ...) body1 body2 ...
@@ -17133,7 +17133,7 @@ If no clause matches, an error is signalled.
 
    The syntax of the ‘case-lambda’ form is defined in the following EBNF
 grammar.  “Formals” means a formal argument list just like with ‘lambda’
-(*note Lambda::).
+(*note* Lambda::).
 
      <case-lambda>
         --> (case-lambda <case-lambda-clause>*)
@@ -17425,7 +17425,7 @@ all direct call sites.  This eliminates function call overhead at the
 expense of an increase in code size.  Additionally, the caller will not
 transparently use the new definition if the inline procedure is
 redefined.  It is not possible to trace an inlined procedures or install
-a breakpoint in it (*note Traps::).  For these reasons, you should not
+a breakpoint in it (*note* Traps::).  For these reasons, you should not
 make a procedure inlinable unless it demonstrably improves performance
 in a crucial way.
 
@@ -17504,8 +17504,8 @@ of transformers, consider the following example macro definition:
      ⊣ let's go
 
    In this example, the ‘when’ binding is bound with ‘define-syntax’.
-Syntax transformers are discussed in more depth in *note Syntax Rules::
-and *note Syntax Case::.
+Syntax transformers are discussed in more depth in *note* Syntax Rules::
+and *note* Syntax Case::.
 
  -- Syntax: define-syntax keyword transformer
      Bind KEYWORD to the syntax transformer obtained by evaluating
@@ -17581,7 +17581,7 @@ macro, it matches the expression against the patterns, in order, and
 rewrites the expression using the template from the first matching
 pattern.  If no pattern matches, a syntax error is signalled.
 
-6.8.2.1 Patterns
+### 6.8.2.1 Patterns
 ................
 
 We have already seen some examples of patterns in the previous section:
@@ -17667,7 +17667,7 @@ use of ‘=>’ and ‘else’ in ‘cond’ expressions.
 identifier with the same name as the literal, and both are unbound(1).
 
    Although literals can be unbound, usually they are bound to allow
-them to be imported, exported, and renamed.  *Note Modules::, for more
+them to be imported, exported, and renamed.  *Note* Modules::, for more
 information on imports and exports.  In Guile there are a few standard
 auxiliary syntax definitions, as specified by R6RS and R7RS:
 
@@ -17731,7 +17731,7 @@ following three are equivalent:
 the pattern variable will always match the macro itself (e.g., ‘cond1’),
 it is actually left unbound in the template.
 
-6.8.2.2 Hygiene
+### 6.8.2.2 Hygiene
 ...............
 
 ‘syntax-rules’ macros have a magical property: they preserve referential
@@ -17772,10 +17772,10 @@ distinction that is maintained by the syntax expander, when expanding
 hygienic macros.
 
    This discussion is mostly relevant in the context of traditional Lisp
-macros (*note Defmacros::), which do not preserve referential
+macros (*note* Defmacros::), which do not preserve referential
 transparency.  Hygiene adds to the expressive power of Scheme.
 
-6.8.2.3 Shorthands
+### 6.8.2.3 Shorthands
 ..................
 
 One often ends up writing simple one-clause ‘syntax-rules’ macros.
@@ -17790,7 +17790,7 @@ There is a convenient shorthand for this idiom, in the form of
      (define-syntax-rule (when c e ...)
        (if c (begin e ...)))
 
-6.8.2.4 Reporting Syntax Errors in Macros
+### 6.8.2.4 Reporting Syntax Errors in Macros
 .........................................
 
  -- Syntax: syntax-error message [arg ...]
@@ -17812,7 +17812,7 @@ templates.  For example:
           ((lambda (name ...) body1 body2 ...)
            val ...))))
 
-6.8.2.5 Specifying a Custom Ellipsis Identifier
+### 6.8.2.5 Specifying a Custom Ellipsis Identifier
 ...............................................
 
 When writing macros that generate macro definitions, it is convenient to
@@ -17831,11 +17831,11 @@ desired ellipsis identifier to be specified as the first operand to
      (define-quotation-macros (quote-a a) (quote-b b) (quote-c c))
      (quote-a 1 2 3) ⇒ (a 1 2 3)
 
-6.8.2.6 Further Information
+### 6.8.2.6 Further Information
 ...........................
 
 For a formal definition of ‘syntax-rules’ and its pattern language, see
-*Note Macros: (r5rs)Macros.
+*Note* Macros: (r5rs)Macros.
 
    ‘syntax-rules’ macros are simple and clean, but do they have
 limitations.  They do not lend themselves to expressive error messages:
@@ -17903,7 +17903,7 @@ macros as “programs that write programs”.  ‘syntax-case’ is simply a way
 to take apart and put together program text, and to be a valid syntax
 transformer it needs to be wrapped in a procedure.
 
-   Unlike traditional Lisp macros (*note Defmacros::), ‘syntax-case’
+   Unlike traditional Lisp macros (*note* Defmacros::), ‘syntax-case’
 macros transform syntax objects, not raw Scheme forms.  Recall the naive
 expansion of ‘my-or’ given in the previous section:
 
@@ -17976,7 +17976,7 @@ language used by ‘syntax-rules’.  Given this, Guile actually defines
 
    And that’s that.
 
-6.8.3.1 Why ‘syntax-case’?
+### 6.8.3.1 Why ‘syntax-case’?
 ..........................
 
 The examples we have shown thus far could just as well have been
@@ -18047,7 +18047,7 @@ won’t have access to the binding of ‘it’.
      Syntax objects have an associated source location.  Internally this
      is represented as a 3-element vector of filename, line, and column.
      Usually this location ultimately is provided by ‘read-syntax’;
-     *Note Annotated Scheme Read::.
+     *Note* Annotated Scheme Read::.
 
      If a syntax object is passed as SOURCE, the resulting syntax object
      will have the source location of SOURCE.  Otherwise if SOURCE is a
@@ -18056,7 +18056,7 @@ won’t have access to the binding of ‘it’.
      properties alist, those will be parsed and set as the source
      location of the resulting syntax object.  Otherwise if SOURCE is
      false, the source properties are looked up from ‘(source-properties
-     DATUM)’.  *Note Source Properties::.
+     DATUM)’.  *Note* Source Properties::.
 
    For completeness, we should mention that it is possible to strip the
 metadata from a syntax object, returning a raw Scheme datum:
@@ -18150,7 +18150,7 @@ either edition 3 or 4, in the chapter on syntax.  Dybvig was the primary
 author of the ‘syntax-case’ system.  The book itself is available online
 at <http://scheme.com/tspl4/>.
 
-6.8.3.2 Custom Ellipsis Identifiers for syntax-case Macros
+### 6.8.3.2 Custom Ellipsis Identifiers for syntax-case Macros
 ..........................................................
 
 When writing procedural macros that generate macro definitions, it is
@@ -18184,7 +18184,7 @@ form:
 the generated code, unless ‘with-ellipsis’ is included around the
 generated code.
 
-6.8.3.3 Syntax objects can be data too
+### 6.8.3.3 Syntax objects can be data too
 ......................................
 
 Generally speaking, you want the macro expander to pick apart all syntax
@@ -18226,7 +18226,7 @@ type.
 
  -- Scheme Procedure: syntax-source x
      Return the source properties that correspond to the syntax object
-     X.  *Note Source Properties::, for more information.
+     X.  *Note* Source Properties::, for more information.
 
    Guile also offers some more experimental interfaces in a separate
 module.  As was the case with the Large Hadron Collider, it is unclear
@@ -18261,7 +18261,7 @@ series, to a more than usual degree.
           A syntax transformer, either local or global.  The value is
           the transformer procedure.
      ‘syntax-parameter’
-          A syntax parameter (*note Syntax Parameters::).  By default,
+          A syntax parameter (*note* Syntax Parameters::).  By default,
           ‘syntax-local-binding’ will resolve syntax parameters, so that
           this value will not be returned.  Pass
           ‘#:resolve-syntax-parameters? #f’ to indicate that you are
@@ -18517,7 +18517,7 @@ unhygienically each time, we instead create one binding for the keyword,
 which we can then adjust later when we want the keyword to have a
 different meaning.  As no new bindings are introduced, hygiene is
 preserved.  This is similar to the dynamic binding mechanisms we have at
-run-time (*note parameters: SRFI-39.), except that the dynamic binding
+run-time (*note* parameters: SRFI-39.), except that the dynamic binding
 only occurs during macro expansion.  The code after macro expansion
 remains lexically scoped.
 
@@ -18660,18 +18660,18 @@ File: guile.info,  Node: Macro Expansion,  Next: Hygiene and the Top-Level,  Pre
 
 Usually, macros are expanded on behalf of the user as needed.  Macro
 expansion is an integral part of ‘eval’ and ‘compile’.  Users can also
-expand macros at the REPL prompt via the ‘expand’ REPL command; *Note
+expand macros at the REPL prompt via the ‘expand’ REPL command; *Note*
 Compile Commands::.
 
    Macros can also be expanded programmatically, via ‘macroexpand’, but
 the details get a bit hairy for two reasons.
 
    The first complication is that the result of macro-expansion isn’t
-Scheme: it’s Tree-IL, Guile’s high-level intermediate language.  *Note
+Scheme: it’s Tree-IL, Guile’s high-level intermediate language.  *Note*
 Tree-IL::.  As “hygienic macros” can produce identifiers that are
 distinct but have the same name, the output format needs to be able to
 represent distinctions between variable identities and names.  Again,
-*Note Tree-IL::, for all the details.  The easiest thing is to just run
+*Note* Tree-IL::, for all the details.  The easiest thing is to just run
 ‘tree-il->scheme’ on the result of macro-expansion:
 
      (macroexpand '(+ 1 2))
@@ -18708,7 +18708,7 @@ second argument to ‘macroexpand’.  But probably you want the macro
 definition to be present at compile time as well, so you pass ‘'(compile
 load eval)’ as the ESEW parameter.  In fact ‘(compile FOO #:to
 'tree-il)’ is entirely equivalent to ‘(macroexpand FOO 'c '(compile load
-eval))’; *Note The Scheme Compiler::.
+eval))’; *Note* The Scheme Compiler::.
 
    It’s a terrible interface; we know.  The macroexpander is somewhat
 tricksy regarding modes, so unless you are building a macro-expanding
@@ -18876,7 +18876,7 @@ File: guile.info,  Node: Equality,  Next: Object Properties,  Up: Utility Functi
 
 There are three kinds of core equality predicates in Scheme, described
 below.  The same kinds of comparisons arise in other functions, like
-‘memq’ and friends (*note List Searching::).
+‘memq’ and friends (*note* List Searching::).
 
    For all three tests, objects of different types are never equal.  So
 for instance a list and a vector are not ‘equal?’, even if their
@@ -18890,7 +18890,7 @@ particular object, or when working with symbols or keywords (which are
 always unique objects).
 
    ‘eqv?’ extends ‘eq?’ to look at the value of numbers and characters.
-It can for instance be used somewhat like ‘=’ (*note Comparison::) but
+It can for instance be used somewhat like ‘=’ (*note* Comparison::) but
 without an error if one operand isn’t a number.
 
    ‘equal?’ goes further, it looks (recursively) into the contents of
@@ -18920,7 +18920,7 @@ of the same pairs.  Such lists look the same (when printed), and
             (eq? n n))       ⇒ *unspecified*
 
      Generally ‘eqv?’ below should be used when comparing numbers or
-     characters.  ‘=’ (*note Comparison::) or ‘char=?’ (*note
+     characters.  ‘=’ (*note* Comparison::) or ‘char=?’ (*note*
      Characters::) can be used too.
 
      It’s worth noting that end-of-list ‘()’, ‘#t’, ‘#f’, a symbol of a
@@ -18940,7 +18940,7 @@ of the same pairs.  Such lists look the same (when printed), and
      return ‘0’.
 
      The ‘==’ operator should not be used on ‘SCM’ values, an ‘SCM’ is a
-     C type which cannot necessarily be compared using ‘==’ (*note The
+     C type which cannot necessarily be compared using ‘==’ (*note* The
      SCM Type::).
 
 
@@ -18988,8 +18988,8 @@ of the same pairs.  Such lists look the same (when printed), and
      ‘equal?’ does not support circular data structures, it may go into
      an infinite loop if asked to compare two circular lists or similar.
 
-     GOOPS object types (*note GOOPS::), including foreign object types
-     (*note Defining New Foreign Object Types::), can have an ‘equal?’
+     GOOPS object types (*note* GOOPS::), including foreign object types
+     (*note* Defining New Foreign Object Types::), can have an ‘equal?’
      implementation specialized on two values of the same type.  If
      ‘equal?’ is called on two GOOPS objects of the same type, ‘equal?’
      will dispatch out to a generic function.  This lets an application
@@ -19009,7 +19009,7 @@ available in which the additional information could be stored.  Object
 properties allow you to do just that.
 
    Guile’s representation of an object property is a
-procedure-with-setter (*note Procedures with Setters::) that can be used
+procedure-with-setter (*note* Procedures with Setters::) that can be used
 with the generalized form of ‘set!’ to set and retrieve that property
 for any Scheme object.  So, setting a property looks like this:
 
@@ -19170,7 +19170,7 @@ File: guile.info,  Node: Copying,  Next: General Conversion,  Prev: Sorting,  Up
 6.9.4 Copying Deep Structures
 -----------------------------
 
-The procedures for copying lists (*note Lists::) only produce a flat
+The procedures for copying lists (*note* Lists::) only produce a flat
 copy of the input list, and currently Guile does not even contain
 procedures for copying vectors.  The ‘(ice-9 copy-tree)’ module contains
 a ‘copy-tree’ function that can be used for this purpose, as it does not
@@ -19249,7 +19249,7 @@ application wants to run a hook, it does so using ‘run-hook’.
 
 File: guile.info,  Node: Hook Example,  Next: Hook Reference,  Up: Hooks
 
-6.9.6.1 Hook Usage by Example
+### 6.9.6.1 Hook Usage by Example
 .............................
 
 Hook usage is shown by some examples in this section.  First, we will
@@ -19305,7 +19305,7 @@ second call to ‘add-hook!’.
 
 File: guile.info,  Node: Hook Reference,  Next: C Hooks,  Prev: Hook Example,  Up: Hooks
 
-6.9.6.2 Hook Reference
+### 6.9.6.2 Hook Reference
 ......................
 
 When you create a hook with ‘make-hook’, you must specify the arity of
@@ -19328,7 +19328,7 @@ was run using ‘run-hook’.
 
    Note that the C functions in the following entries are for handling
 “Scheme-level” hooks in C. There are also “C-level” hooks which have
-their own interface (*note C Hooks::).
+their own interface (*note* C Hooks::).
 
  -- Scheme Procedure: make-hook [n_args]
  -- C Function: scm_make_hook (n_args)
@@ -19387,7 +19387,7 @@ which is identical to ‘scm_run_hook’ but does no type checking.
 
 File: guile.info,  Node: C Hooks,  Next: GC Hooks,  Prev: Hook Reference,  Up: Hooks
 
-6.9.6.3 Hooks For C Code.
+### 6.9.6.3 Hooks For C Code.
 .........................
 
 The hooks already described are intended to be populated by Scheme-level
@@ -19483,7 +19483,7 @@ specifying the hook and the call closure data for this run:
 
 File: guile.info,  Node: GC Hooks,  Next: REPL Hooks,  Prev: C Hooks,  Up: Hooks
 
-6.9.6.4 Hooks for Garbage Collection
+### 6.9.6.4 Hooks for Garbage Collection
 ....................................
 
 Whenever Guile performs a garbage collection, it calls the following
@@ -19517,7 +19517,7 @@ hooks in the order shown.
      thread has left its critical section.
 
  -- Scheme Hook: after-gc-hook
-     Scheme hook with arity 0.  This hook is run asynchronously (*note
+     Scheme hook with arity 0.  This hook is run asynchronously (*note*
      Asyncs::) soon after the GC has completed and any other events that
      were deferred during garbage collection have been processed.  (Also
      accessible from C with the name ‘scm_after_gc_hook’.)
@@ -19527,7 +19527,7 @@ initialized with hook closure data NULL, are invoked by ‘scm_c_hook_run’
 with call closure data NULL.
 
    The Scheme hook ‘after-gc-hook’ is particularly useful in conjunction
-with guardians (*note Guardians::).  Typically, if you are using a
+with guardians (*note* Guardians::).  Typically, if you are using a
 guardian, you want to call the guardian after garbage collection to see
 if any of the objects added to the guardian have been collected.  By
 adding a thunk that performs this call to ‘after-gc-hook’, you can
@@ -19537,7 +19537,7 @@ cycle.
 
 File: guile.info,  Node: REPL Hooks,  Prev: GC Hooks,  Up: Hooks
 
-6.9.6.5 Hooks into the Guile REPL
+### 6.9.6.5 Hooks into the Guile REPL
 .................................
 
 
@@ -19615,8 +19615,8 @@ been imported, the newly created variable in the current module will
 shadow the imported variable, such that the imported variable is no
 longer visible.
 
-   Attention: Scheme definitions inside local binding constructs (*note
-Local Bindings::) act differently (*note Internal Definitions::).
+   Attention: Scheme definitions inside local binding constructs (*note*
+Local Bindings::) act differently (*note* Internal Definitions::).
 
    Many people end up in a development style of adding and changing
 definitions at runtime, building out their program without restarting
@@ -19717,7 +19717,7 @@ extended lexical context.
 
      Note that while the INIT expressions may refer to the new
      variables, they may not access their values.  For example, making
-     the ‘even?’ function above creates a closure (*note About
+     the ‘even?’ function above creates a closure (*note* About
      Closure::) referencing the ‘odd?’ variable.  But ‘odd?’ can’t be
      called until after execution has entered the body.
 
@@ -19741,7 +19741,7 @@ extended lexical context.
    There is also an alternative form of the ‘let’ form, which is used
 for expressing iteration.  Because of the use as a looping construct,
 this form (the “named let”) is documented in the section about iteration
-(*note Iteration: while do.)
+(*note* Iteration: while do.)
 
 
 File: guile.info,  Node: Internal Definitions,  Next: Binding Reflection,  Prev: Local Bindings,  Up: Binding Constructs
@@ -19752,7 +19752,7 @@ File: guile.info,  Node: Internal Definitions,  Next: Binding Reflection,  Prev:
 A ‘define’ form which appears inside the body of a ‘lambda’, ‘let’,
 ‘let*’, ‘letrec’, ‘letrec*’ or equivalent expression is called an
 “internal definition”.  An internal definition differs from a top level
-definition (*note Top Level::), because the definition is only visible
+definition (*note* Top Level::), because the definition is only visible
 inside the complete body of the enclosing form.  Let us examine the
 following example.
 
@@ -19861,7 +19861,7 @@ File: guile.info,  Node: Control Mechanisms,  Next: Input and Output,  Prev: Bin
 6.11 Controlling the Flow of Program Execution
 ==============================================
 
-See *note Control Flow:: for a discussion of how the more general
+See *note* Control Flow:: for a discussion of how the more general
 control flow of Scheme affects C code.
 
 * Menu:
@@ -19904,7 +19904,7 @@ expression out of this sequence of sub-expressions.
      expressions before the last one are evaluated for their side
      effects.
 
-   The ‘begin’ syntax has another role in definition context (*note
+   The ‘begin’ syntax has another role in definition context (*note*
 Internal Definitions::).  A ‘begin’ form in a definition context
 “splices” its subforms into its place.  For example, consider the
 following procedure:
@@ -19945,7 +19945,7 @@ expressions, there can be no last value.  Sequencing zero expressions is
 an error.
 
    It would be more elegant in some ways to eliminate splicing from the
-Scheme language, and without macros (*note Macros::), that would be a
+Scheme language, and without macros (*note* Macros::), that would be a
 good idea.  But it is useful to be able to write macros that expand out
 to multiple definitions, as in ‘define-sealant’ above, so Scheme abuses
 the ‘begin’ form for these two tasks.
@@ -20151,7 +20151,7 @@ addition, Guile has an explicit looping syntax called ‘while’.
      VARIABLEs, like a new ‘let’ for each iteration.  This is done for
      VARIABLEs without STEP expressions too.  The following illustrates
      this, showing how a new ‘i’ is captured by the ‘lambda’ in each
-     iteration (*note The Concept of Closure: About Closure.).
+     iteration (*note* The Concept of Closure: About Closure.).
 
           (define lst '())
           (do ((i 1 (1+ i)))
@@ -20212,7 +20212,7 @@ arbitrary recursion.
 
  -- syntax: let variable bindings body
      For the definition of BINDINGS see the documentation about ‘let’
-     (*note Local Bindings::).
+     (*note* Local Bindings::).
 
      Named ‘let’ works as follows:
 
@@ -20262,7 +20262,7 @@ recent topic, but a very useful one to know about.
 
 File: guile.info,  Node: Prompt Primitives,  Next: Shift and Reset,  Up: Prompts
 
-6.11.5.1 Prompt Primitives
+### 6.11.5.1 Prompt Primitives
 ..........................
 
 Guile’s primitive delimited control operators are ‘call-with-prompt’ and
@@ -20291,7 +20291,7 @@ Guile’s primitive delimited control operators are ‘call-with-prompt’ and
      prompt tag allows some useful prompt and abort idioms, discussed in
      the next section.  Note that ‘default-prompt-tag’ is actually a
      parameter, and so may be dynamically rebound using ‘parameterize’.
-     *Note Parameters::.
+     *Note* Parameters::.
 
  -- Scheme Procedure: abort-to-prompt tag val1 val2 ...
      Unwind the dynamic and control context to the nearest prompt named
@@ -20365,7 +20365,7 @@ can be an important efficiency consideration to keep in mind.
 continuations”.  Escape continuations are delimited continuations whose
 only use is to make a non-local exit—i.e., to escape from the current
 continuation.  A common use of escape continuations is when handling an
-exception (*note Exceptions::).
+exception (*note* Exceptions::).
 
    The constructs below are syntactic sugar atop prompts to simplify the
 use of escape continuations.
@@ -20428,7 +20428,7 @@ control)’, so load up that module for ‘suspendable-continuation?’:
 
 File: guile.info,  Node: Shift and Reset,  Prev: Prompt Primitives,  Up: Prompts
 
-6.11.5.2 Shift, Reset, and All That
+### 6.11.5.2 Shift, Reset, and All That
 ...................................
 
 There is a whole zoo of delimited control operators, and as it does not
@@ -20547,12 +20547,12 @@ it (or rather the code that will execute when those calls return).
      VALUE)’ is later invoked, the return is the VALUE passed.
 
      Normally CONT should be called with one argument, but when the
-     location resumed is expecting multiple values (*note Multiple
+     location resumed is expecting multiple values (*note* Multiple
      Values::) then they should be passed as multiple arguments, for
      instance ‘(CONT X Y Z)’.
 
      CONT may only be used from the same side of a continuation barrier
-     as it was created (*note Continuation Barriers::), and in a
+     as it was created (*note* Continuation Barriers::), and in a
      multi-threaded program only from the thread in which it was
      created.
 
@@ -20607,7 +20607,7 @@ function returning more times than it was called.  It may help instead
 to think of it being stealthily re-entered and then program flow going
 on as normal.
 
-   ‘dynamic-wind’ (*note Dynamic Wind::) can be used to ensure setup and
+   ‘dynamic-wind’ (*note* Dynamic Wind::) can be used to ensure setup and
 cleanup code is run when a program locus is resumed or abandoned through
 the continuation mechanism.
 
@@ -20628,7 +20628,7 @@ when the elegance of the continuation mechanism outweighs the need for
 performance.
 
    Escapes upwards from loops or nested functions are generally best
-handled with prompts (*note Prompts::).  Coroutines can be efficiently
+handled with prompts (*note* Prompts::).  Coroutines can be efficiently
 implemented with cooperating threads (a thread holds a full program
 stack but doesn’t copy it around the way continuations do).
 
@@ -20698,19 +20698,19 @@ procedure which accepts these values as parameters.
    In addition to the fundamental procedures described above, Guile has
 a module which exports a syntax called ‘receive’, which is much more
 convenient.  This is in the ‘(ice-9 receive)’ and is the same as
-specified by SRFI-8 (*note SRFI-8::).
+specified by SRFI-8 (*note* SRFI-8::).
 
      (use-modules (ice-9 receive))
 
  -- library syntax: receive formals expr body ...
      Evaluate the expression EXPR, and bind the result values (zero or
      more) to the formal arguments in FORMALS.  FORMALS is a list of
-     symbols, like the argument list in a ‘lambda’ (*note Lambda::).
+     symbols, like the argument list in a ‘lambda’ (*note* Lambda::).
      After binding the variables, the expressions in BODY ... are
      evaluated in order, the return value is the result from the last
      expression.
 
-     For example getting results from ‘partition’ in SRFI-1 (*note
+     For example getting results from ‘partition’ in SRFI-1 (*note*
      SRFI-1::),
 
           (receive (odds evens)
@@ -20775,13 +20775,13 @@ won’t be going away any time soon.
 
 File: guile.info,  Node: Exception Objects,  Next: Raising and Handling Exceptions,  Up: Exceptions
 
-6.11.8.1 Exception Objects
+### 6.11.8.1 Exception Objects
 ..........................
 
 When Guile encounters an exceptional situation, it raises an exception,
 where the exception is an object that describes the exceptional
 situation.  Exception objects are structured data, built on the record
-facility (*note Records::).
+facility (*note* Records::).
 
  -- Exception Type: &exception
      The base exception type.  All exception objects are composed of
@@ -20802,7 +20802,7 @@ defined using ‘make-exception-type’.
    Exception type objects are record type objects, and as such, one can
 use ‘record-constructor’ on an exception type to get its constructor.
 The constructor will take as many arguments as the exception has fields
-(including supertypes).  *Note Records::.
+(including supertypes).  *Note* Records::.
 
    However, ‘record-predicate’ and ‘record-accessor’ aren’t usually what
 you want to use as exception type predicates and field accessors.  The
@@ -20844,7 +20844,7 @@ be different than how one might handle an error originating outside the
 program (for example, a file-not-found error).
 
    The standard exception hierarchy in Guile takes its cues from R6RS,
-though the names of some of the types are different.  *Note rnrs
+though the names of some of the types are different.  *Note* rnrs
 exceptions::, for more details.
 
    To have access to Guile’s exception type hierarchy, import the
@@ -20976,7 +20976,7 @@ exception types to the hierarchy.
 
 File: guile.info,  Node: Raising and Handling Exceptions,  Next: Throw and Catch,  Prev: Exception Objects,  Up: Exceptions
 
-6.11.8.2 Raising and Handling Exceptions
+### 6.11.8.2 Raising and Handling Exceptions
 ........................................
 
 An exception object describes an exceptional situation.  To bring that
@@ -21030,7 +21030,7 @@ the error handler there.  After all, unless the ‘raise-exception’ call
 is continuable, the exception handler needs to abort the continuation.
 To support this use case, if ‘with-exception-handler’ was invoked with
 ‘#:unwind? #t’ is true, ‘raise-exception’ will first unwind the stack by
-invoking an “escape continuation” (*note ‘call/ec’: Prompt Primitives.),
+invoking an “escape continuation” (*note* ‘call/ec’: Prompt Primitives.),
 and then invoke the handler with the continuation of the
 ‘with-exception-handler’ call.
 
@@ -21039,7 +21039,7 @@ be useful to Guile if it can determine whether an exception handler
 would indeed handle a particular exception or not.  This is especially
 the case for exceptions raised in resource-exhaustion scenarios like
 ‘stack-overflow’ or ‘out-of-memory’, where you want to immediately
-shrink resource use before recovering.  *Note Stack Overflow::.  For
+shrink resource use before recovering.  *Note* Stack Overflow::.  For
 this purpose, the ‘#:unwind-for-type’ keyword argument allows users to
 specify the kind of exception handled by an exception handler; if ‘#t’,
 all exceptions will be handled; if an exception type object, only
@@ -21049,7 +21049,7 @@ that exceptions with the given ‘exception-kind’ will be handled.
 
 File: guile.info,  Node: Throw and Catch,  Next: Exceptions and C,  Prev: Raising and Handling Exceptions,  Up: Exceptions
 
-6.11.8.3 Throw and Catch
+### 6.11.8.3 Throw and Catch
 ........................
 
 Guile only adopted ‘with-exception-handler’ and ‘raise-exception’ as its
@@ -21187,7 +21187,7 @@ relationship between structured exception objects ‘throw’.
 
 File: guile.info,  Node: Exceptions and C,  Prev: Throw and Catch,  Up: Exceptions
 
-6.11.8.4 Exceptions and C
+### 6.11.8.4 Exceptions and C
 .........................
 
 There are some specific versions of Guile’s original ‘catch’ and
@@ -21226,7 +21226,7 @@ used in C code.
      local C variable, one way to protect it is to pass a pointer to
      that variable as the data parameter, since the C compiler will then
      know the value must be held on the stack.  Another way is to use
-     ‘scm_remember_upto_here_1’ (*note Foreign Object Memory
+     ‘scm_remember_upto_here_1’ (*note* Foreign Object Memory
      Management::).
 
  -- C Function: SCM scm_c_with_throw_handler (SCM tag, scm_t_catch_body
@@ -21234,7 +21234,7 @@ used in C code.
           *handler_data, int lazy_catch_p)
      The above ‘scm_with_throw_handler’ takes Scheme procedures as body
      (thunk) and handler arguments.  ‘scm_c_with_throw_handler’ is an
-     equivalent taking C functions.  See ‘scm_c_catch’ (*note Exceptions
+     equivalent taking C functions.  See ‘scm_c_catch’ (*note* Exceptions
      and C::) for a description of the parameters, the behaviour however
      of course follows ‘with-throw-handler’.
 
@@ -21272,7 +21272,7 @@ described.
      Return the Unix error message corresponding to ERR, an integer
      ‘errno’ value.
 
-     When ‘setlocale’ has been called (*note Locales::), the message is
+     When ‘setlocale’ has been called (*note* Locales::), the message is
      in the language and charset of ‘LC_MESSAGES’.  (This is done by the
      C library.)
 
@@ -21499,7 +21499,7 @@ values, and dynamic extents is robust to multiple entries (as when a
 captured continuation is invoked more than once) and early exits (for
 example, when throwing exceptions).
 
-   Guile uses fluids to implement parameters (*note Parameters::).
+   Guile uses fluids to implement parameters (*note* Parameters::).
 Usually you just want to use parameters directly.  However it can be
 useful to know what a fluid is and how it works, so that’s what this
 section is about.
@@ -21516,7 +21516,7 @@ abstractions.
 testing whether an object is actually a fluid.  The values stored in a
 fluid can be accessed with ‘fluid-ref’ and ‘fluid-set!’.
 
-   *Note Thread Local Variables::, for further notes on fluids, threads,
+   *Note* Thread Local Variables::, for further notes on fluids, threads,
 parameters, and dynamic states.
 
  -- Scheme Procedure: make-fluid [dflt]
@@ -21562,7 +21562,7 @@ parameters, and dynamic states.
      handlers.  Using ‘fluid-ref*’ instead of an explicit stack allows
      any partial continuation captured by ‘call-with-prompt’ to only
      capture the bindings made within the limits of the prompt instead
-     of the entire continuation.  *Note Prompts::, for more on delimited
+     of the entire continuation.  *Note* Prompts::, for more on delimited
      continuations.
 
  -- Scheme Procedure: fluid-unset! fluid
@@ -21611,7 +21611,7 @@ given values.  After the procedure returns, the old values are restored.
 
  -- C Function: void scm_dynwind_fluid (SCM fluid, SCM val)
      This function must be used inside a pair of calls to
-     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note Dynamic Wind::).
+     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note* Dynamic Wind::).
      During the dynwind context, the fluid FLUID is set to VAL.
 
      More precisely, the value of the fluid is swapped with a ‘backup’
@@ -21744,7 +21744,7 @@ a parameter object than adding arguments.
             (get-input)
             ...)
 
-   Parameter objects are implemented using fluids (*note Fluids and
+   Parameter objects are implemented using fluids (*note* Fluids and
 Dynamic States::), so each dynamic state has its own parameter
 locations.  That includes the separate locations when outside any
 ‘parameterize’ form.  When a parameter is created it gets a separate
@@ -21771,7 +21771,7 @@ objects, and changes in one thread are not visible to any other.  When a
 new dynamic state or thread is created, the values of parameters in the
 originating context are copied, into new locations.
 
-   Guile’s parameters conform to SRFI-39 (*note SRFI-39::).
+   Guile’s parameters conform to SRFI-39 (*note* SRFI-39::).
 
 
 File: guile.info,  Node: Handling Errors,  Next: Continuation Barriers,  Prev: Parameters,  Up: Control Mechanisms
@@ -21781,7 +21781,7 @@ File: guile.info,  Node: Handling Errors,  Next: Continuation Barriers,  Prev: P
 
 Guile is currently in a transition from its historical ‘catch’ and
 ‘throw’ error handling and signaling operators to the new structured
-exception facility; *Note Exceptions::.  However in the meantime, here
+exception facility; *Note* Exceptions::.  However in the meantime, here
 is some documentation on errors and the older ‘catch’ and ‘throw’
 interface.
 
@@ -21853,7 +21853,7 @@ situations in which they are used:
 
    • ‘misc-error’: other errors.
 
-6.11.13.1 C Support
+### 6.11.13.1 C Support
 ...................
 
 In the following C functions, SUBR and MESSAGE parameters can be ‘NULL’
@@ -21861,7 +21861,7 @@ to give the effect of ‘#f’ described above.
 
  -- C Function: SCM scm_error (SCM KEY, const char *SUBR, const char
           *MESSAGE, SCM ARGS, SCM REST)
-     Throw an error, as per ‘scm-error’ (*note Error Reporting::).
+     Throw an error, as per ‘scm-error’ (*note* Error Reporting::).
 
  -- C Function: void scm_syserror (const char *SUBR)
  -- C Function: void scm_syserror_msg (const char *SUBR, const char
@@ -21892,10 +21892,10 @@ to give the effect of ‘#f’ described above.
      type of argument that was expected.
 
      In ‘scm_misc_error’, MESSAGE is the error message string, possibly
-     containing ‘simple-format’ escapes (*note Simple Output::), and the
+     containing ‘simple-format’ escapes (*note* Simple Output::), and the
      corresponding arguments in the ARGS list.
 
-6.11.13.2 Signalling Type Errors
+### 6.11.13.2 Signalling Type Errors
 ................................
 
 Every function visible at the Scheme level should aggressively check the
@@ -22008,7 +22008,7 @@ For example, we might display a string to a file like this:
 collecting output to a string; bytevector ports, for doing the same but
 using a bytevector as a source or sink of data; and soft ports, for
 arranging to call Scheme functions to provide input or handle output.
-*Note Port Types::.
+*Note* Port Types::.
 
    Ports should be “closed” when they are not needed by calling
 ‘close-port’ on them, as in the example above.  This will make sure that
@@ -22016,12 +22016,12 @@ any pending output is successfully written out to disk, in the case of a
 file port, or otherwise to whatever mutable store is backed by the port.
 Any error that occurs while writing out that buffered data would also be
 raised promptly at the ‘close-port’, and not later when the port is
-closed by the garbage collector.  *Note Buffering::, for more on
+closed by the garbage collector.  *Note* Buffering::, for more on
 buffered output.
 
    Closing a port also releases any precious resource the file might
 have.  Usually in Scheme a programmer doesn’t have to clean up after
-their data structures (*note Memory Management::), but most systems have
+their data structures (*note* Memory Management::), but most systems have
 strict limits on how many files can be open, both on a per-process and a
 system-wide basis.  A program that uses many files should take care not
 to hit those limits.  The same applies to similar system resources such
@@ -22042,7 +22042,7 @@ small reads and writes: without buffering, each character fetched from a
 file would involve at least one call into the kernel, and maybe more
 depending on the character and the encoding.  Instead, Guile will batch
 reads and writes into internal buffers.  However, sometimes you want to
-make output on a port show up immediately.  *Note Buffering::, for more
+make output on a port show up immediately.  *Note* Buffering::, for more
 on interfaces to control port buffering.
 
  -- Scheme Procedure: port? x
@@ -22064,7 +22064,7 @@ on interfaces to control port buffering.
      Close the specified port object.  Return ‘#t’ if it successfully
      closes a port or ‘#f’ if it was already closed.  An exception may
      be raised if an error occurs, for example when flushing buffered
-     output.  *Note Buffering::, for more on buffered output.  *Note
+     output.  *Note* Buffering::, for more on buffered output.  *Note*
      close: Ports and File Descriptors, for a procedure which can close
      file descriptors.
 
@@ -22084,7 +22084,7 @@ File: guile.info,  Node: Binary I/O,  Next: Encoding,  Prev: Ports,  Up: Input a
 
 Guile’s ports are fundamentally binary in nature: at the lowest level,
 they work on bytes.  This section describes Guile’s core binary I/O
-operations.  *Note Textual I/O::, for input and output of strings and
+operations.  *Note* Textual I/O::, for input and output of strings and
 characters.
 
    To use these routines, first include the binary I/O module:
@@ -22168,24 +22168,24 @@ defined in the default environment.
      Write the contents of BV to PORT, optionally starting at index
      START and limiting to COUNT octets.
 
-Binary I/O in R7RS
+### Binary I/O in R7RS
 ..................
 
-*note R7RS: R7RS Standard Libraries. defines the following binary I/O
+*note* R7RS: R7RS Standard Libraries. defines the following binary I/O
 procedures.  Access them with
 
      (use-modules (scheme base))
 
  -- Scheme Procedure: open-output-bytevector
      Returns a binary output port that will accumulate bytes for
-     retrieval by *note ‘get-output-bytevector’:
+     retrieval by *note* ‘get-output-bytevector’:
      x-get-output-bytevector.
 
  -- Scheme Procedure: write-u8 byte [out]
      Writes BYTE to the given binary output port OUT and returns an
      unspecified value.  OUT defaults to ‘(current-output-port)’.
 
-     See also *note ‘put-u8’: x-put-u8.
+     See also *note* ‘put-u8’: x-put-u8.
 
  -- Scheme Procedure: read-u8 [in]
      Returns the next byte available from the binary input port IN,
@@ -22193,7 +22193,7 @@ procedures.  Access them with
      are available, an end-of-file object is returned.  IN defaults to
      ‘(current-input-port)’.
 
-     See also *note ‘get-u8’: x-get-u8.
+     See also *note* ‘get-u8’: x-get-u8.
 
  -- Scheme Procedure: peek-u8 [in]
      Returns the next byte available from the binary input port IN, but
@@ -22201,12 +22201,12 @@ procedures.  Access them with
      more bytes are available, an end-of-file object is returned.  IN
      defaults to ‘(current-input-port)’.
 
-     See also *note ‘lookahead-u8’: x-lookahead-u8.
+     See also *note* ‘lookahead-u8’: x-lookahead-u8.
 
  -- Scheme Procedure: get-output-bytevector port
      Returns a bytevector consisting of the bytes that have been output
      to PORT so far in the order they were output.  It is an error if
-     PORT was not created with *note ‘open-output-bytevector’:
+     PORT was not created with *note* ‘open-output-bytevector’:
      x-open-output-bytevector.
 
           (define out (open-output-bytevector))
@@ -22292,18 +22292,18 @@ value of the ‘%default-port-encoding’ fluid.
 
  -- Scheme Variable: %default-port-encoding
      A fluid containing name of the encoding to be used by default for
-     newly created ports (*note Fluids and Dynamic States::).  As a
+     newly created ports (*note* Fluids and Dynamic States::).  As a
      special case, the value ‘#f’ is equivalent to ‘"ISO-8859-1"’.
 
    The ‘%default-port-encoding’ itself defaults to the encoding
 appropriate for the current locale, if ‘setlocale’ has been called.
-*Note Locales::, for more on locales and when you might need to call
+*Note* Locales::, for more on locales and when you might need to call
 ‘setlocale’ explicitly.
 
    Some port types have other ways of determining their initial locales.
 String ports, for example, default to the UTF-8 encoding, in order to be
 able to represent all characters regardless of the current locale.  File
-ports can optionally sniff their file for a ‘coding:’ declaration; *Note
+ports can optionally sniff their file for a ‘coding:’ declaration; *Note*
 File Ports::.  Binary ports might be initialized to the ISO-8859-1
 encoding in which each codepoint between 0 and 255 corresponds to a byte
 with that value.
@@ -22383,10 +22383,10 @@ File: guile.info,  Node: Textual I/O,  Next: Simple Output,  Prev: Encoding,  Up
 ------------------
 
 This section describes Guile’s core textual I/O operations on characters
-and strings.  *Note Binary I/O::, for input and output of bytes and
-bytevectors.  *Note Encoding::, for more on how characters relate to
-bytes.  To read general S-expressions from ports, *Note Scheme Read::.
-*Note Scheme Write::, for interfaces that write generic Scheme datums.
+and strings.  *Note* Binary I/O::, for input and output of bytes and
+bytevectors.  *Note* Encoding::, for more on how characters relate to
+bytes.  To read general S-expressions from ports, *Note* Scheme Read::.
+*Note* Scheme Write::, for interfaces that write generic Scheme datums.
 
    To use these routines, first include the textual I/O module:
 
@@ -22536,7 +22536,7 @@ File: guile.info,  Node: Simple Output,  Next: Buffering,  Prev: Textual I/O,  U
 ----------------------------
 
 Guile exports a simple formatted output function, ‘simple-format’.  For
-a more capable formatted output facility, *Note Formatted Output::.
+a more capable formatted output facility, *Note* Formatted Output::.
 
  -- Scheme Procedure: simple-format destination message . args
  -- C Function: scm_simple_format (destination, message, args)
@@ -22576,7 +22576,7 @@ is mostly transparent to the user.
 semantics.  Building correct, performant programs requires understanding
 these situations.
 
-   The first case is in random-access read/write ports (*note Random
+   The first case is in random-access read/write ports (*note* Random
 Access::).  These ports, usually backed by a file, logically operate
 over the same mutable store when both reading and writing.  So, if you
 read a character, causing the buffer to fill, then write a character,
@@ -22587,7 +22587,7 @@ you should reduce the amount that you buffer, in both directions.
 Similarly, Guile has to flush buffers before seeking.  None of these
 considerations apply to sockets, which don’t logically read from and
 write to the same mutable store, and are not seekable.  Note also that
-sockets are unbuffered by default.  *Note Network Sockets and
+sockets are unbuffered by default.  *Note* Network Sockets and
 Communication::.
 
    The second case is the more pernicious one.  If you write data to a
@@ -22633,7 +22633,7 @@ might not matter so much to you.
 
    Another way to set the buffering, for file ports, is to open the file
 with ‘0’ or ‘l’ as part of the mode string, for unbuffered or
-line-buffered ports, respectively.  *Note File Ports::, for more.
+line-buffered ports, respectively.  *Note* File Ports::, for more.
 
    Any buffered output data will be written out when the port is closed.
 To make sure to flush it at specific points in your program, use
@@ -22669,7 +22669,7 @@ ports use ‘drain-input’ to get any buffered input from that port.
 
    All of these considerations are very similar to those of streams in
 the C library, although Guile’s ports are not built on top of C streams.
-Still, it is useful to read what other systems do.  *Note
+Still, it is useful to read what other systems do.  *Note*
 (libc)Streams::, for more discussion on C streams.
 
 
@@ -22852,7 +22852,7 @@ File: guile.info,  Node: Default Ports,  Next: Port Types,  Prev: Line/Delimited
      a prompt is seen.  But an application which always prints whole
      lines could change to line buffered, or an application with a lot
      of output could go fully buffered and perhaps make explicit
-     ‘force-output’ calls (*note Buffering::) at selected points.
+     ‘force-output’ calls (*note* Buffering::) at selected points.
 
  -- Scheme Procedure: current-error-port
  -- C Function: scm_current_error_port ()
@@ -22883,7 +22883,7 @@ File: guile.info,  Node: Default Ports,  Next: Port Types,  Prev: Line/Delimited
  -- C Function: void scm_dynwind_current_output_port (SCM port)
  -- C Function: void scm_dynwind_current_error_port (SCM port)
      These functions must be used inside a pair of calls to
-     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note Dynamic Wind::).
+     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note* Dynamic Wind::).
      During the dynwind context, the indicated port is set to PORT.
 
      More precisely, the current port is swapped with a ‘backup’ value
@@ -22908,10 +22908,10 @@ File: guile.info,  Node: Port Types,  Next: Venerable Port Interfaces,  Prev: De
 
 File: guile.info,  Node: File Ports,  Next: Bytevector Ports,  Up: Port Types
 
-6.12.10.1 File Ports
+### 6.12.10.1 File Ports
 ....................
 
-The following procedures are used to open file ports.  See also *note
+The following procedures are used to open file ports.  See also *note*
 open: Ports and File Descriptors, for an interface to the Unix ‘open’
 system call.
 
@@ -22921,7 +22921,7 @@ written on a 32-bit system.
 
    Most systems have limits on how many files can be open, so it’s
 strongly recommended that file ports be closed explicitly when no longer
-required (*note Ports::).
+required (*note* Ports::).
 
  -- Scheme Procedure: open-file filename mode [#:guess-encoding=#f]
           [#:encoding=#f]
@@ -22943,7 +22943,7 @@ required (*note Ports::).
           Open a file for output, creating it if it doesn’t already
           exist.  All writes to the port will go to the end of the file.
           The "append mode" can be turned off while the port is in use
-          *note fcntl: Ports and File Descriptors.
+          *note* fcntl: Ports and File Descriptors.
 
      The following additional characters can be appended:
 
@@ -22963,7 +22963,7 @@ required (*note Ports::).
           operations are passed directly to the underlying port
           implementation without additional buffering.  This is likely
           to slow down I/O operations.  The buffering mode can be
-          changed while a port is in use (*note Buffering::).
+          changed while a port is in use (*note* Buffering::).
      ‘l’
           Add line-buffering to the port.  The port output buffer will
           be automatically flushed whenever a newline character is
@@ -22974,12 +22974,12 @@ required (*note Ports::).
 
           To provide this property, the file will be opened with the
           8-bit character encoding "ISO-8859-1", ignoring the default
-          port encoding.  *Note Ports::, for more information on port
+          port encoding.  *Note* Ports::, for more information on port
           encodings.
 
           Note that while it is possible to read and write binary data
           as characters or strings, it is usually better to treat bytes
-          as octets, and byte sequences as bytevectors.  *Note Binary
+          as octets, and byte sequences as bytevectors.  *Note* Binary
           I/O::, for more.
 
           This option had another historical meaning, for DOS
@@ -22992,10 +22992,10 @@ required (*note Ports::).
      Unless binary mode is requested, the character encoding of the new
      port is determined as follows: First, if GUESS-ENCODING is true,
      the ‘file-encoding’ procedure is used to guess the encoding of the
-     file (*note Character Encoding of Source Files::).  If
+     file (*note* Character Encoding of Source Files::).  If
      GUESS-ENCODING is false or if ‘file-encoding’ fails, ENCODING is
      used unless it is also false.  As a last resort, the default port
-     encoding is used.  *Note Ports::, for more information on port
+     encoding is used.  *Note* Ports::, for more information on port
      encodings.  It is an error to pass a non-false GUESS-ENCODING or
      ENCODING if binary mode is requested.
 
@@ -23094,13 +23094,13 @@ required (*note Ports::).
 
 File: guile.info,  Node: Bytevector Ports,  Next: String Ports,  Prev: File Ports,  Up: Port Types
 
-6.12.10.2 Bytevector Ports
+### 6.12.10.2 Bytevector Ports
 ..........................
 
  -- Scheme Procedure: open-bytevector-input-port bv [transcoder]
  -- C Function: scm_open_bytevector_input_port (bv, transcoder)
      Return an input port whose contents are drawn from bytevector BV
-     (*note Bytevectors::).
+     (*note* Bytevectors::).
 
      The TRANSCODER argument is currently not supported.
 
@@ -23135,7 +23135,7 @@ File: guile.info,  Node: Bytevector Ports,  Next: String Ports,  Prev: File Port
 
 File: guile.info,  Node: String Ports,  Next: Custom Ports,  Prev: Bytevector Ports,  Up: Port Types
 
-6.12.10.3 String Ports
+### 6.12.10.3 String Ports
 ......................
 
  -- Scheme Procedure: call-with-output-string proc
@@ -23189,17 +23189,17 @@ other types of ports.  When string ports are created, they do not
 inherit a character encoding from the current locale.  They are given a
 default locale that allows them to handle all valid string characters.
 Typically one should not modify a string port’s character encoding away
-from its default.  *Note Encoding::.
+from its default.  *Note* Encoding::.
 
 
 File: guile.info,  Node: Custom Ports,  Next: Soft Ports,  Prev: String Ports,  Up: Port Types
 
-6.12.10.4 Custom Ports
+### 6.12.10.4 Custom Ports
 ......................
 
 Custom ports allow the user to provide input and handle output via
 user-supplied procedures.  Guile currently only provides custom binary
-ports, not textual ports; for custom textual ports, *Note Soft Ports::.
+ports, not textual ports; for custom textual ports, *Note* Soft Ports::.
 We should add the R6RS custom textual port interfaces though.
 Contributions are appreciated.
 
@@ -23226,10 +23226,10 @@ Contributions are appreciated.
      when the custom binary input port is closed.
 
      The returned port is fully buffered by default, but its buffering
-     mode can be changed using ‘setvbuf’ (*note Buffering::).
+     mode can be changed using ‘setvbuf’ (*note* Buffering::).
 
      Using a custom binary input port, the ‘open-bytevector-input-port’
-     procedure (*note Bytevector Ports::) could be implemented as
+     procedure (*note* Bytevector Ports::) could be implemented as
      follows:
 
           (define (open-bytevector-input-port source)
@@ -23274,20 +23274,20 @@ Contributions are appreciated.
      as for ‘make-custom-binary-input-port’ and
      ‘make-custom-binary-output-port’.  If buffering is enabled on the
      port, as is the case by default, input will be buffered in both
-     directions; *Note Buffering::.  If the SET-POSITION! function is
+     directions; *Note* Buffering::.  If the SET-POSITION! function is
      provided and not ‘#f’, then the port will also be marked as
      random-access, causing the buffer to be flushed between reads and
      writes.
 
    ---------- Footnotes ----------
 
-   (1) This is similar in spirit to Guile’s “soft ports” (*note Soft
+   (1) This is similar in spirit to Guile’s “soft ports” (*note* Soft
 Ports::).
 
 
 File: guile.info,  Node: Soft Ports,  Next: Void Ports,  Prev: Custom Ports,  Up: Port Types
 
-6.12.10.5 Soft Ports
+### 6.12.10.5 Soft Ports
 ....................
 
 A “soft port” is a port based on a vector of procedures capable of
@@ -23295,7 +23295,7 @@ accepting or delivering characters.  It allows emulation of I/O ports.
 
  -- Scheme Procedure: make-soft-port pv modes
      Return a port capable of receiving or delivering characters as
-     specified by the MODES string (*note open-file: File Ports.).  PV
+     specified by the MODES string (*note* open-file: File Ports.).  PV
      must be a vector of length 5 or 6.  Its components are as follows:
 
        0. procedure accepting one character for output
@@ -23311,7 +23311,7 @@ accepting or delivering characters.  It allows emulation of I/O ports.
      procedures.  Thunks 2 and 4 can instead be ‘#f’ if there is no
      useful operation for them to perform.
 
-     If thunk 3 returns ‘#f’ or an ‘eof-object’ (*note eof-object?:
+     If thunk 3 returns ‘#f’ or an ‘eof-object’ (*note* eof-object?:
      (r5rs)Input.) it indicates that the port has reached end-of-file.
      For example:
 
@@ -23330,7 +23330,7 @@ accepting or delivering characters.  It allows emulation of I/O ports.
 
 File: guile.info,  Node: Void Ports,  Prev: Soft Ports,  Up: Port Types
 
-6.12.10.6 Void Ports
+### 6.12.10.6 Void Ports
 ....................
 
 This kind of port causes any data to be discarded when written to, and
@@ -23340,7 +23340,7 @@ always returns the end-of-file object when read from.
  -- C Function: scm_sys_make_void_port (mode)
      Create and return a new void port.  A void port acts like
      ‘/dev/null’.  The MODE argument specifies the input/output modes
-     for this port: see the documentation for ‘open-file’ in *note File
+     for this port: see the documentation for ‘open-file’ in *note* File
      Ports::.
 
 
@@ -23365,7 +23365,7 @@ interfaces around them, and recommend them to users.  As the R6RS I/O
 system is the most capable standard that Scheme has yet produced in this
 domain, we mostly recommend that; ‘(ice-9 binary-ports)’ and ‘(ice-9
 textual-ports)’ are wholly modelled on ‘(rnrs io ports)’.  Guile does
-not wholly copy R6RS, however; *Note R6RS Incompatibilities::.
+not wholly copy R6RS, however; *Note* R6RS Incompatibilities::.
 
    At the same time, we have many venerable port interfaces, lore handed
 down to us from our hacker ancestors.  Most of these interfaces even
@@ -23393,34 +23393,34 @@ for new users.
      ‘#t’ if the port has any input buffered, or if the file descriptor
      that backs the port polls as readable, indicating that Guile can
      fetch more bytes from the kernel.  However being able to fetch one
-     byte doesn’t mean that a full character is available; *Note
+     byte doesn’t mean that a full character is available; *Note*
      Encoding::.  Also, on many systems it’s possible for a file
      descriptor to poll as readable, but then block when it comes time
      to read bytes.  Note also that on Linux kernels, all file ports
      backed by files always poll as readable.  For non-file ports, this
      procedure always returns ‘#t’, except for soft ports, which have a
-     ‘char-ready?’ handler.  *Note Soft Ports::.
+     ‘char-ready?’ handler.  *Note* Soft Ports::.
 
      In short, this is a legacy procedure whose semantics are hard to
      provide.  However it is a useful check to see if any input is
-     buffered.  *Note Non-Blocking I/O::.
+     buffered.  *Note* Non-Blocking I/O::.
 
  -- Scheme Procedure: read-char [port]
      The same as ‘get-char’, except that PORT defaults to the current
-     input port.  *Note Textual I/O::.
+     input port.  *Note* Textual I/O::.
 
  -- Scheme Procedure: peek-char [port]
      The same as ‘lookahead-char’, except that PORT defaults to the
-     current input port.  *Note Textual I/O::.
+     current input port.  *Note* Textual I/O::.
 
  -- Scheme Procedure: unread-char cobj [port]
      The same as ‘unget-char’, except that PORT defaults to the current
-     input port, and the arguments are swapped.  *Note Textual I/O::.
+     input port, and the arguments are swapped.  *Note* Textual I/O::.
 
  -- Scheme Procedure: unread-string str port
  -- C Function: scm_unread_string (str, port)
      The same as ‘unget-string’, except that PORT defaults to the
-     current input port, and the arguments are swapped.  *Note Textual
+     current input port, and the arguments are swapped.  *Note* Textual
      I/O::.
 
  -- Scheme Procedure: newline [port]
@@ -23429,7 +23429,7 @@ for new users.
 
  -- Scheme Procedure: write-char chr [port]
      The same as ‘put-char’, except that PORT defaults to the current
-     input port, and the arguments are swapped.  *Note Textual I/O::.
+     input port, and the arguments are swapped.  *Note* Textual I/O::.
 
 
 File: guile.info,  Node: Using Ports from C,  Next: I/O Extensions,  Prev: Venerable Port Interfaces,  Up: Input and Output
@@ -23446,14 +23446,14 @@ bytes and characters in a way that works better with C.
      less than SIZE if end-of-file has been reached.
 
      Note that as this is a binary input procedure, this function does
-     not update ‘port-line’ and ‘port-column’ (*note Textual I/O::).
+     not update ‘port-line’ and ‘port-column’ (*note* Textual I/O::).
 
  -- C Function: void scm_c_write (SCM port, const void *buffer, size_t
           size)
      Write SIZE bytes at BUFFER to PORT.
 
      Note that as this is a binary output procedure, this function does
-     not update ‘port-line’ and ‘port-column’ (*note Textual I/O::).
+     not update ‘port-line’ and ‘port-column’ (*note* Textual I/O::).
 
  -- C Function: size_t scm_c_read_bytes (SCM port, SCM bv, size_t start,
           size_t count)
@@ -23469,7 +23469,7 @@ bytes and characters in a way that works better with C.
  -- C Function: void scm_unget_byte (int c, SCM port)
  -- C Function: void scm_ungetc (scm_t_wchar c, SCM port)
      Like ‘unget-bytevector’, ‘unget-byte’, and ‘unget-char’,
-     respectively.  *Note Textual I/O::.
+     respectively.  *Note* Textual I/O::.
 
  -- C Function: void scm_c_put_latin1_chars (SCM port, const scm_t_uint8
           *buf, size_t len)
@@ -23522,7 +23522,7 @@ have your port type, you can create ports with ‘scm_c_make_port’, or
      port is an input and/or an output port, respectively.  The mode
      bits may also include ‘SCM_BUF0’ or ‘SCM_BUFLINE’, indicating that
      the port should be unbuffered or line-buffered, respectively.  The
-     default is that the port will be block-buffered.  *Note
+     default is that the port will be block-buffered.  *Note*
      Buffering::.
 
      As you would imagine, ENCODING and CONVERSION_STRATEGY specify the
@@ -23568,7 +23568,7 @@ type mostly involves writing these procedures.
 
      Only a port type which implements the ‘read_wait_fd’ or
      ‘write_wait_fd’ port methods can usefully return ‘(size_t) -1’ from
-     a read or write function.  *Note Non-Blocking I/O::, for more on
+     a read or write function.  *Note* Non-Blocking I/O::, for more on
      non-blocking I/O in Guile.
 
 ‘print’
@@ -23621,7 +23621,7 @@ type mostly involves writing these procedures.
      discarded and Guile will seek the port back the buffered number of
      bytes.  Likewise seeking on a random-access port with buffered
      output, or switching to reading after writing, will flush pending
-     bytes with a call to the ‘write’ procedure.  *Note Buffering::.
+     bytes with a call to the ‘write’ procedure.  *Note* Buffering::.
 
      Indicate to Guile that your port needs this behavior by returning a
      nonzero value from your ‘random_access_p’ function.  The default
@@ -23634,7 +23634,7 @@ type mostly involves writing these procedures.
 ‘get_natural_buffer_sizes’
      Guile will internally attach buffers to ports.  An input port
      always has a read buffer and an output port always has a write
-     buffer.  *Note Buffering::.  A port buffer consists of a
+     buffer.  *Note* Buffering::.  A port buffer consists of a
      bytevector, along with some cursors into that bytevector denoting
      where to get and put data.
 
@@ -23713,13 +23713,13 @@ to read or write from this file and the read or write returns a result
 indicating that more data can only be had by doing a blocking read or
 write, Guile will block by polling on the socket’s ‘read-wait-fd’ or
 ‘write-wait-fd’, to preserve the illusion of a blocking read or write.
-*Note I/O Extensions:: for more on those internal interfaces.
+*Note* I/O Extensions:: for more on those internal interfaces.
 
    So far we have just reproduced the status quo: the file descriptor is
 non-blocking, but the operations on the port do block.  To go farther,
 it would be nice if we could suspend the “thread” using delimited
 continuations, and only resume the thread once the file descriptor is
-readable or writable.  (*Note Prompts::).
+readable or writable.  (*Note* Prompts::).
 
    But here we run into a difficulty.  The ports code is implemented in
 C, which means that although we can suspend the computation to some
@@ -23738,7 +23738,7 @@ do the following:
 in the standard library, but with two differences.  One is that when a
 read or a write would block, the suspendable port operations call out
 the value of the ‘current-read-waiter’ or ‘current-write-waiter’
-parameter, as appropriate.  *Note Parameters::.  The default read and
+parameter, as appropriate.  *Note* Parameters::.  The default read and
 write waiters do the same thing that the C read and write waiters do,
 which is to poll.  User code can parameterize the waiters, though,
 enabling the computation to suspend and allow the program to process
@@ -23898,7 +23898,7 @@ string.  If there’s a zero byte an error is thrown.
 
    Internally, patterns and input strings are converted to the current
 locale’s encoding, and then passed to the C library’s regular expression
-routines (*note (libc)Regular Expressions::).  The returned match
+routines (*note* (libc)Regular Expressions::).  The returned match
 structures always point to characters in the strings, not to individual
 bytes, even in the case of multi-byte encodings.  This ensures that the
 match structures are correct when performing matching with characters
@@ -23912,7 +23912,7 @@ encoding can lead to surprising results.
      position of STR at which to begin matching.
 
      ‘string-match’ returns a “match structure” which describes what, if
-     anything, was matched by the regular expression.  *Note Match
+     anything, was matched by the regular expression.  *Note* Match
      Structures::.  If STR does not match PATTERN at all, ‘string-match’
      returns ‘#f’.
 
@@ -23961,7 +23961,7 @@ match strings against the compiled regexp.
           (“modern”) regexps that are the default.  Basic regexps do not
           consider ‘|’, ‘+’ or ‘?’ to be special characters, and require
           the ‘{...}’ and ‘(...)’ metacharacters to be backslash-escaped
-          (*note Backslash Escapes::).  There are several other
+          (*note* Backslash Escapes::).  There are several other
           differences between basic and extended regular expressions,
           but these are the most significant.
 
@@ -23980,7 +23980,7 @@ match strings against the compiled regexp.
      the results of the match, or ‘#f’ if no match could be found.
 
      The FLAGS argument changes the matching behavior.  The following
-     flag values may be supplied, use ‘logior’ (*note Bitwise
+     flag values may be supplied, use ‘logior’ (*note* Bitwise
      Operations::) to combine them,
 
       -- Variable: regexp/notbol
@@ -24300,7 +24300,7 @@ File: guile.info,  Node: LALR(1) Parsing,  Next: PEG Parsing,  Prev: Regular Exp
 
 The ‘(system base lalr)’ module provides the ‘lalr-scm’ LALR(1) parser
 generator by Dominique Boucher (https://github.com/schemeway/lalr-scm/).
-‘lalr-scm’ uses the same algorithm as GNU Bison (*note Introduction to
+‘lalr-scm’ uses the same algorithm as GNU Bison (*note* Introduction to
 Bison: (bison)Introduction.).  Parsers are defined using the
 ‘lalr-parser’ macro.
 
@@ -24366,7 +24366,7 @@ File: guile.info,  Node: PEG Syntax Reference,  Next: PEG API Reference,  Up: PE
 6.15.1 PEG Syntax Reference
 ---------------------------
 
-Normal PEG Syntax:
+### Normal PEG Syntax:
 ..................
 
  -- PEG Pattern: sequence a b
@@ -24467,7 +24467,7 @@ Normal PEG Syntax:
        (and c (followed-by (* d))))
       (+ "e"))
 
-Extended Syntax
+### Extended Syntax
 ...............
 
 There is some extra syntax for S-expressions.
@@ -24499,7 +24499,7 @@ File: guile.info,  Node: PEG API Reference,  Next: PEG Tutorial,  Prev: PEG Synt
 6.15.2 PEG API Reference
 ------------------------
 
-Define Macros
+### Define Macros
 .............
 
 The most straightforward way to define a PEG is by using one of the
@@ -24572,7 +24572,7 @@ record with the PEG match deconstructor functions.  More complicated
      Note that in doing this, we have bound 6 variables at the toplevel
      (AS, BS, AS-OR-BS, AS-TAG, BS-TAG, and AS-OR-BS-TAG).
 
-Compile Functions
+### Compile Functions
 .................
 
 It is sometimes useful to be able to compile anonymous PEG patterns at
@@ -24600,7 +24600,7 @@ you can do the following:
      (match-pattern as "aaaaa") ⇒
      #<peg start: 0 end: 5 string: bbbbb tree: bbbbb>
 
-Parsing & Matching Functions
+### Parsing & Matching Functions
 ............................
 
 For our purposes, “parsing” means parsing a string into a tree starting
@@ -24680,7 +24680,7 @@ constraints.
           (search-for-pattern "'z'+" "aabbcc") ⇒
           #f
 
-PEG Match Records
+### PEG Match Records
 .................
 
 The ‘match-pattern’ and ‘search-for-pattern’ functions both return PEG
@@ -24733,7 +24733,7 @@ following functions.
       (tree (bs "bb"))
       (record? #t))
 
-Miscellaneous
+### Miscellaneous
 .............
 
  -- Scheme Procedure: context-flatten tst lst
@@ -24764,7 +24764,7 @@ File: guile.info,  Node: PEG Tutorial,  Next: PEG Internals,  Prev: PEG API Refe
 6.15.3 PEG Tutorial
 -------------------
 
-Parsing /etc/passwd
+### Parsing /etc/passwd
 ...................
 
 This example will show how to parse /etc/passwd using PEGs.
@@ -24975,7 +24975,7 @@ replace the ‘*’ with a ‘+’ and add a ‘?’ after the ‘nameORcomment�
 (inserting nothing into the parse tree), but continue because it didn’t
 have to match the nameORcomment to continue.
 
-Embedding Arithmetic Expressions
+### Embedding Arithmetic Expressions
 ................................
 
 We can parse simple mathematical expressions with the following PEG:
@@ -25111,7 +25111,7 @@ how we deal with the three ways the zero-or-more ‘*’ expression can
 parse).  Fortunately, most of the time we can get away with only using
 right-associativity.
 
-Simplified Functions
+### Simplified Functions
 ....................
 
 For a more tantalizing example, consider the following grammar that
@@ -25202,7 +25202,7 @@ str)’, and return its result if it succeeds.  Otherwise it will run
 the parsing functions to communicate.  The actual interface used is
 below.
 
-Parsing Function Interface
+### Parsing Function Interface
 ..........................
 
 A parsing function takes three arguments - a string, the length of that
@@ -25233,7 +25233,7 @@ interface.
    The above function can be used to match a string by running
 ‘(match-pattern match-a-b "ab")’.
 
-Code Generators and Extensible Syntax
+### Code Generators and Extensible Syntax
 .....................................
 
 PEG expressions, such as those in a ‘define-peg-pattern’ form, are
@@ -25309,7 +25309,7 @@ File: guile.info,  Node: Scheme Syntax,  Next: Scheme Read,  Up: Read/Load/Eval/
 
 File: guile.info,  Node: Expression Syntax,  Next: Comments,  Up: Scheme Syntax
 
-6.16.1.1 Expression Syntax
+### 6.16.1.1 Expression Syntax
 ..........................
 
 An expression to be evaluated takes one of the following forms.
@@ -25337,7 +25337,7 @@ SYMBOL
 
      The same sort of parenthesised form is used for a macro invocation,
      but in that case the arguments are not evaluated.  See the
-     descriptions of macros for more on this (*note Macros::, and *note
+     descriptions of macros for more on this (*note* Macros::, and *note*
      Syntax Rules::).
 
 CONSTANT
@@ -25414,7 +25414,7 @@ CONSTANT
 
 File: guile.info,  Node: Comments,  Next: Block Comments,  Prev: Expression Syntax,  Up: Scheme Syntax
 
-6.16.1.2 Comments
+### 6.16.1.2 Comments
 .................
 
 Comments in Scheme source files are written by starting them with a
@@ -25440,7 +25440,7 @@ convention is used when indenting code in Emacs’ Scheme mode.
 
 File: guile.info,  Node: Block Comments,  Next: Case Sensitivity,  Prev: Comments,  Up: Scheme Syntax
 
-6.16.1.3 Block Comments
+### 6.16.1.3 Block Comments
 .......................
 
 In addition to the standard line comments defined by R5RS, Guile has
@@ -25449,7 +25449,7 @@ This type of comment begins with the character sequence ‘#!’ and ends
 with the characters ‘!#’.
 
    These comments are compatible with the block comments in the Scheme
-Shell ‘scsh’ (*note The Scheme shell (scsh)::).  The characters ‘#!’
+Shell ‘scsh’ (*note* The Scheme shell (scsh)::).  The characters ‘#!’
 were chosen because they are the magic characters used in shell scripts
 for indicating that the name of the program for executing the script
 follows on the same line.
@@ -25460,7 +25460,7 @@ follows on the same line.
      !#
 
    More details on Guile scripting can be found in the scripting section
-(*note Guile Scripting::).
+(*note* Guile Scripting::).
 
    Similarly, Guile (starting from version 2.0) supports nested block
 comments as specified by R6RS and SRFI-30
@@ -25470,19 +25470,19 @@ comments as specified by R6RS and SRFI-30
      ⇒ 3
 
    For backward compatibility, this syntax can be overridden with
-‘read-hash-extend’ (*note ‘read-hash-extend’: Reader Extensions.).
+‘read-hash-extend’ (*note* ‘read-hash-extend’: Reader Extensions.).
 
    There is one special case where the contents of a comment can
 actually affect the interpretation of code.  When a character encoding
 declaration, such as ‘coding: utf-8’ appears in one of the first few
 lines of a source file, it indicates to Guile’s default reader that this
-source code file is not ASCII. For details see *note Character Encoding
+source code file is not ASCII. For details see *note* Character Encoding
 of Source Files::.
 
 
 File: guile.info,  Node: Case Sensitivity,  Next: Keyword Syntax,  Prev: Block Comments,  Up: Scheme Syntax
 
-6.16.1.4 Case Sensitivity
+### 6.16.1.4 Case Sensitivity
 .........................
 
 Scheme as defined in R5RS is not case sensitive when reading symbols.
@@ -25495,7 +25495,7 @@ Guile, on the contrary is case sensitive by default, so the identifiers
 
    It is possible to turn off case sensitivity in Guile by setting the
 reader option ‘case-insensitive’.  For more information on reader
-options, *Note Scheme Read::.
+options, *Note* Scheme Read::.
 
      (read-enable 'case-insensitive)
 
@@ -25506,13 +25506,13 @@ single file by placing the reader directives ‘#!fold-case’ (or
 
 File: guile.info,  Node: Keyword Syntax,  Next: Reader Extensions,  Prev: Case Sensitivity,  Up: Scheme Syntax
 
-6.16.1.5 Keyword Syntax
+### 6.16.1.5 Keyword Syntax
 .......................
 
 
 File: guile.info,  Node: Reader Extensions,  Prev: Keyword Syntax,  Up: Scheme Syntax
 
-6.16.1.6 Reader Extensions
+### 6.16.1.6 Reader Extensions
 ..........................
 
  -- Scheme Procedure: read-hash-extend chr proc
@@ -25566,7 +25566,7 @@ read option is set (or unset) on the port when the reader encounters the
 ‘#!fold-case’ or ‘#!no-fold-case’ reader directives.  Similarly, the
 ‘#!curly-infix’ reader directive sets the ‘curly-infix’ read option on
 the port, and ‘#!curly-infix-and-bracket-lists’ sets ‘curly-infix’ and
-unsets ‘square-brackets’ on the port (*note SRFI-105::).  There is
+unsets ‘square-brackets’ on the port (*note* SRFI-105::).  There is
 currently no other way to access or set the per-port read options.
 
    The boolean options may be toggled with ‘read-enable’ and
@@ -25589,9 +25589,9 @@ currently no other way to access or set the per-port read options.
      (read-enable 'case-insensitive)
 
    For more information on the effect of the ‘r6rs-hex-escapes’ and
-‘hungry-eol-escapes’ options, see (*note String Syntax::).
+‘hungry-eol-escapes’ options, see (*note* String Syntax::).
 
-   For more information on the ‘r7rs-symbols’ option, see (*note Symbol
+   For more information on the ‘r7rs-symbols’ option, see (*note* Symbol
 Read Syntax::).
 
 
@@ -25613,7 +25613,7 @@ to the compiler or interpreter.
      input port if PORT is not specified.
 
      If, after skipping white space and comments, no more bytes are
-     available from PORT, return the end-of-file object.  *Note Binary
+     available from PORT, return the end-of-file object.  *Note* Binary
      I/O::.  Otherwise, return an annotated datum.  An annotated datum
      is a syntax object which associates a source location with a datum.
      For example:
@@ -25630,19 +25630,19 @@ to the compiler or interpreter.
 
    Most users are familiar with syntax objects in the context of macros,
 which use syntax objects to associate scope information with
-identifiers.  *Note Macros::.  Here we use syntax objects to associate
+identifiers.  *Note* Macros::.  Here we use syntax objects to associate
 source location information with any datum, but without attaching scope
 information.  The Scheme compiler (‘compile’) and the interpreter
 (‘eval’) can accept syntax objects directly as input, allowing them to
-associate source information with resulting code.  *Note Compilation::,
-and *Note Fly Evaluation::.
+associate source information with resulting code.  *Note* Compilation::,
+and *Note* Fly Evaluation::.
 
    Note that there is a legacy interface for getting source locations
 into the Scheme compiler or interpreter, which is to use a side table
 that associates “source properties” with each subdatum returned by
 ‘read’, instead of wrapping the datums directly as in ‘read-syntax’.
 This has the disadvantage of not being able to annotate all kinds of
-datums.  *Note Source Properties::, for more information.
+datums.  *Note* Source Properties::, for more information.
 
 
 File: guile.info,  Node: Scheme Write,  Next: Fly Evaluation,  Prev: Annotated Scheme Read,  Up: Read/Load/Eval/Compile
@@ -25651,14 +25651,14 @@ File: guile.info,  Node: Scheme Write,  Next: Fly Evaluation,  Prev: Annotated S
 ----------------------------
 
 Any scheme value may be written to a port.  Not all values may be read
-back in (*note Scheme Read::), however.
+back in (*note* Scheme Read::), however.
 
  -- Scheme Procedure: write obj [port]
      Send a representation of OBJ to PORT or to the current output port
      if not given.
 
      The output is designed to be machine readable, and can be read back
-     with ‘read’ (*note Scheme Read::).  Strings are printed in double
+     with ‘read’ (*note* Scheme Read::).  Strings are printed in double
      quotes, with escapes if necessary, and characters are printed in
      ‘#\’ notation.
 
@@ -25732,10 +25732,10 @@ code.
      return the environment in which the implementation would evaluate
      expressions dynamically typed by the user.
 
-   *Note Environments::, for other environments.
+   *Note* Environments::, for other environments.
 
    One does not always receive code as Scheme data, of course, and this
-is especially the case for Guile’s other language implementations (*note
+is especially the case for Guile’s other language implementations (*note*
 Other Languages::).  For the case in which all you have is a string, we
 have ‘eval-string’.  There is a legacy version of this procedure in the
 default environment, but you really want the one from ‘(ice-9
@@ -25751,7 +25751,7 @@ eval-string)’, so load it up:
      returning the last expression.
 
      If the MODULE keyword argument is set, save a module excursion
-     (*note Module System Reflection::) and set the current module to
+     (*note* Module System Reflection::) and set the current module to
      MODULE before evaluation.
 
      The FILE, LINE, and COLUMN keyword arguments can be used to
@@ -25846,7 +25846,7 @@ compiled already, so they load and run quickly.
    Note that well-written Scheme programs will not typically call the
 procedures in this section, for the same reason that it is often bad
 taste to use ‘eval’.  By default, Guile automatically compiles any files
-it encounters that have not been compiled yet (*note ‘--auto-compile’:
+it encounters that have not been compiled yet (*note* ‘--auto-compile’:
 Invoking Guile.).  The compiler can also be invoked explicitly from the
 shell as ‘guild compile foo.scm’.
 
@@ -25864,9 +25864,9 @@ invalidate the auto-compilation cache, pass the ‘--fresh-auto-compile’
 option to Guile, or set the ‘GUILE_AUTO_COMPILE’ environment variable to
 ‘fresh’ (instead of to ‘0’ or ‘1’).
 
-   For more information on the compiler itself, see *note Compiling to
+   For more information on the compiler itself, see *note* Compiling to
 the Virtual Machine::.  For information on the virtual machine, see
-*note A Virtual Machine for Guile::.
+*note* A Virtual Machine for Guile::.
 
    The command-line interface to Guile’s compiler is the ‘guild compile’
 command:
@@ -25913,7 +25913,7 @@ command:
      ‘--r7rs’
           Compile in an environment whose default bindings, reader
           options, and load paths are adapted for specific Scheme
-          standards.  *Note R6RS Support::, and *Note R7RS Support::.
+          standards.  *Note* R6RS Support::, and *Note* R7RS Support::.
 
      ‘-f LANG’
      ‘--from=LANG’
@@ -25927,13 +25927,13 @@ command:
 
      ‘-T TARGET’
      ‘--target=TARGET’
-          Produce code for TARGET instead of %HOST-TYPE (*note
+          Produce code for TARGET instead of %HOST-TYPE (*note*
           %host-type: Build Config.).  Target must be a valid GNU
-          triplet, such as ‘armv5tel-unknown-linux-gnueabi’ (*note
+          triplet, such as ‘armv5tel-unknown-linux-gnueabi’ (*note*
           (autoconf)Specifying Target Triplets::).
 
      Each FILE is assumed to be UTF-8-encoded, unless it contains a
-     coding declaration as recognized by ‘file-encoding’ (*note
+     coding declaration as recognized by ‘file-encoding’ (*note*
      Character Encoding of Source Files::).
 
    The compiler can also be invoked directly by Scheme code.  These
@@ -25949,7 +25949,7 @@ interfaces are in their own module:
      procedure, the result will be a compiled procedure; otherwise
      ‘compile’ is mostly equivalent to ‘eval’.
 
-     For a discussion of languages and compiler options, *Note Compiling
+     For a discussion of languages and compiler options, *Note* Compiling
      to the Virtual Machine::.
 
  -- Scheme Procedure: compile-file file [#:output-file=#f]
@@ -25964,7 +25964,7 @@ interfaces are in their own module:
      output file name, output is written to a file in the cache
      directory, as computed by ‘(compiled-file-name FILE)’.
 
-     FROM and TO specify the source and target languages.  *Note
+     FROM and TO specify the source and target languages.  *Note*
      Compiling to the Virtual Machine::, for more information on these
      options, and on ENV and OPTS.
 
@@ -25978,7 +25978,7 @@ interfaces are in their own module:
      The default warning level, as an integer from 0 to 9.  The default
      is 1.
 
-   *Note Parameters::, for more on how to set parameters.
+   *Note* Parameters::, for more on how to set parameters.
 
  -- Scheme Procedure: compiled-file-name file
      Compute a cached location for a compiled version of a Scheme file
@@ -26009,7 +26009,7 @@ File: guile.info,  Node: Loading,  Next: Load Paths,  Prev: Compilation,  Up: Re
      READER if provided should be either ‘#f’, or a procedure with the
      signature ‘(lambda (port) ...)’ which reads the next expression
      from PORT.  If READER is ‘#f’ or absent, Guile’s built-in ‘read’
-     procedure is used (*note Scheme Read::).
+     procedure is used (*note* Scheme Read::).
 
      The READER argument takes effect by setting the value of the
      ‘current-reader’ fluid (see below) before loading the file, and
@@ -26024,7 +26024,7 @@ File: guile.info,  Node: Loading,  Next: Load Paths,  Prev: Compilation,  Up: Re
  -- Scheme Procedure: load-compiled filename
      Load the compiled file named FILENAME.
 
-     Compiling a source file (*note Read/Load/Eval/Compile::) and then
+     Compiling a source file (*note* Read/Load/Eval/Compile::) and then
      calling ‘load-compiled’ on the resulting file is equivalent to
      calling ‘load’ on the source file.
 
@@ -26045,7 +26045,7 @@ File: guile.info,  Node: Loading,  Next: Load Paths,  Prev: Compilation,  Up: Re
      used by the above loading procedures to read expressions (from the
      file that they are loading).  ‘current-reader’ is a fluid, so it
      has an independent value in each dynamic root and should be read
-     and set using ‘fluid-ref’ and ‘fluid-set!’ (*note Fluids and
+     and set using ‘fluid-ref’ and ‘fluid-set!’ (*note* Fluids and
      Dynamic States::).
 
      Changing ‘current-reader’ is typically useful to introduce local
@@ -26095,9 +26095,9 @@ the load path for code.
      the default load path ‘(list (%library-dir) (%site-dir)
      (%global-site-dir) (%package-data-dir))’.  The ‘GUILE_LOAD_PATH’
      environment variable can be used to prepend or append additional
-     directories (*note Environment Variables::).
+     directories (*note* Environment Variables::).
 
-     *Note Build Config::, for more on ‘%site-dir’ and related
+     *Note* Build Config::, for more on ‘%site-dir’ and related
      procedures.
 
  -- Scheme Procedure: load-from-path filename
@@ -26166,7 +26166,7 @@ file, it will be loaded instead of the source file, using
      has two entries: one for compiled files from Guile itself, and one
      for site packages.  The ‘GUILE_LOAD_COMPILED_PATH’ environment
      variable can be used to prepend or append additional directories
-     (*note Environment Variables::).
+     (*note* Environment Variables::).
 
    When ‘primitive-load-path’ searches the ‘%load-compiled-path’ for a
 corresponding compiled file for a relative path it does so by appending
@@ -26179,9 +26179,9 @@ the ‘%load-compiled-path’, or the ‘.go’ file is out of date, it will
 search for a corresponding auto-compiled file in the fallback path,
 possibly creating one if one does not exist.
 
-   *Note Installing Site Packages::, for more on how to correctly
-install site packages.  *Note Modules and the File System::, for more on
-the relationship between load paths and modules.  *Note Compilation::,
+   *Note* Installing Site Packages::, for more on how to correctly
+install site packages.  *Note* Modules and the File System::, for more on
+the relationship between load paths and modules.  *Note* Compilation::,
 for more on the fallback path and auto-compilation.
 
    Finally, there are a couple of helper procedures for general path
@@ -26237,7 +26237,7 @@ comment in the file.
 
    The name of the character encoding in the coding declaration is
 typically lower case and containing only letters, numbers, and hyphens,
-as recognized by ‘set-port-encoding!’ (*note ‘set-port-encoding!’:
+as recognized by ‘set-port-encoding!’ (*note* ‘set-port-encoding!’:
 Ports.).  Common examples of character encoding names are ‘utf-8’ and
 ‘iso-8859-1’, as defined by IANA
 (http://www.iana.org/assignments/character-sets).  Thus, the coding
@@ -26264,7 +26264,7 @@ code from a port, such as with the function ‘read’, instead of with
 the code to be read by the port, not other special handling is
 necessary.  The port will automatically do the character encoding
 conversion.  The functions ‘setlocale’ or by ‘set-port-encoding!’ are
-used to set port encodings (*note Ports::).
+used to set port encodings (*note* Ports::).
 
    If a port is used to read code of unknown character encoding, it can
 accomplish this in three steps.  First, the character encoding of the
@@ -26277,7 +26277,7 @@ any, again by using ‘set-port-encoding!’.  Then the code can be read as
 normal.
 
    Alternatively, one can use the ‘#:guess-encoding’ keyword argument of
-‘open-file’ and related procedures.  *Note File Ports::.
+‘open-file’ and related procedures.  *Note* File Ports::.
 
  -- Scheme Procedure: file-encoding port
  -- C Function: scm_file_encoding (port)
@@ -26287,7 +26287,7 @@ normal.
      port is rewound.
 
      Currently, the only supported method is to look for an Emacs-like
-     character coding declaration (*note how Emacs recognizes file
+     character coding declaration (*note* how Emacs recognizes file
      encoding: (emacs)Recognize Coding.).  The coding declaration is of
      the form ‘coding: XXXXX’ and must appear in a Scheme comment.
      Additional heuristics may be added in the future.
@@ -26299,7 +26299,7 @@ File: guile.info,  Node: Delayed Evaluation,  Next: Local Evaluation,  Prev: Cha
 --------------------------
 
 Promises are a convenient way to defer a calculation until its result is
-actually needed, and to run such a calculation only once.  Also *note
+actually needed, and to run such a calculation only once.  Also *note*
 SRFI-45::.
 
  -- syntax: delay expr
@@ -26401,7 +26401,7 @@ in instead of the ‘include’ form.
    Because the code is included at compile-time, it is available to the
 macroexpander.  Syntax definitions in the included file are available to
 later code in the form in which the ‘include’ appears, without the need
-for ‘eval-when’.  (*Note Eval When::.)
+for ‘eval-when’.  (*Note* Eval When::.)
 
    For the same reason, compiling a form that uses ‘include’ results in
 one compilation unit, composed of multiple files.  Loading the compiled
@@ -26573,7 +26573,7 @@ on safety.
      sandbox, for two reasons.  The first is that it’s possible for
      legacy code to forge references to any binding, if the
      ‘allow-legacy-syntax-objects?’ parameter is true.  The default for
-     this parameter is true; *note Syntax Transformer Helpers:: for the
+     this parameter is true; *note* Syntax Transformer Helpers:: for the
      details.  The parameter is bound to ‘#f’ for the duration of the
      ‘eval-in-sandbox’ call itself, but that will not be in place during
      calls to escaped procedures.
@@ -26708,7 +26708,7 @@ expressions in a REPL.
 
    The procedures of this module allow you to spawn a “REPL server”,
 which permits interaction over a local or TCP connection.  Guile itself
-uses them internally to implement the ‘--listen’ switch, *note
+uses them internally to implement the ‘--listen’ switch, *note*
 Command-line Options::.
 
  -- Scheme Procedure: make-tcp-server-socket [#:host=#f] [#:addr]
@@ -26749,7 +26749,7 @@ File: guile.info,  Node: Cooperative REPL Servers,  Prev: REPL Servers,  Up: Rea
 The procedures in this section are provided by
      (use-modules (system repl coop-server))
 
-   Whereas ordinary REPL servers run in their own threads (*note REPL
+   Whereas ordinary REPL servers run in their own threads (*note* REPL
 Servers::), sometimes it is more convenient to provide REPLs that run at
 specified times within an existing thread, for example in programs
 utilizing an event loop or in single-threaded programs.  This allows for
@@ -26790,7 +26790,7 @@ Guile uses a _garbage collector_ to manage most of its objects.  While
 the garbage collector is designed to be mostly invisible, you sometimes
 need to interact with it explicitly.
 
-   See *note Garbage Collection:: for a general discussion of how
+   See *note* Garbage Collection:: for a general discussion of how
 garbage collection relates to using Guile from C.
 
 * Menu:
@@ -26914,7 +26914,7 @@ of ‘realloc’ when appropriate, and ‘scm_gc_calloc’ and ‘scm_calloc’,
 be used in place of ‘calloc’ when appropriate.
 
    The function ‘scm_dynwind_free’ can be useful when memory should be
-freed with libc’s ‘free’ when leaving a dynwind context, *Note Dynamic
+freed with libc’s ‘free’ when leaving a dynwind context, *Note* Dynamic
 Wind::.
 
  -- C Function: void * scm_malloc (size_t SIZE)
@@ -27017,7 +27017,7 @@ _had_ to be freed with ‘scm_gc_free’.
    (2) In Guile up to 1.8, memory allocated with ‘scm_gc_malloc’ was
 _not_ visited by the collector in the mark phase.  Consequently, the GC
 had to be told explicitly about pointers to live objects contained in
-the memory block, e.g., via SMOB mark functions (*note
+the memory block, e.g., via SMOB mark functions (*note*
 ‘scm_set_smob_mark’: Smobs.)
 
 
@@ -27039,7 +27039,7 @@ doubly weak hash disappear when either the key or the value are not used
 anywhere else anymore.
 
    Object properties offer the same kind of functionality as weak key
-hashes in many situations.  (*note Object Properties::)
+hashes in many situations.  (*note* Object Properties::)
 
    Here’s an example (a little bit strained perhaps, but one of the
 examples is actually used in Guile):
@@ -27070,7 +27070,7 @@ they constitute a doubly-weak table has to be used.
 
 File: guile.info,  Node: Weak hash tables,  Next: Weak vectors,  Up: Weak References
 
-6.17.3.1 Weak hash tables
+### 6.17.3.1 Weak hash tables
 .........................
 
  -- Scheme Procedure: make-weak-key-hash-table [size]
@@ -27085,7 +27085,7 @@ File: guile.info,  Node: Weak hash tables,  Next: Weak vectors,  Up: Weak Refere
      You can modify weak hash tables in exactly the same way you would
      modify regular hash tables, with the exception of the routines that
      act on handles.  Weak tables have a different implementation behind
-     the scenes that doesn’t have handles.  *note Hash Tables::, for
+     the scenes that doesn’t have handles.  *note* Hash Tables::, for
      more on ‘hashq-ref’ et al.
 
    Note that in a weak-key hash table, the reference to the value is
@@ -27106,7 +27106,7 @@ leak.  The reverse is true for weak value tables.
 
 File: guile.info,  Node: Weak vectors,  Prev: Weak hash tables,  Up: Weak References
 
-6.17.3.2 Weak vectors
+### 6.17.3.2 Weak vectors
 .....................
 
  -- Scheme Procedure: make-weak-vector size [fill]
@@ -27255,7 +27255,7 @@ symbols (names) to Scheme objects.
    Within a module, all bindings are visible.  Certain bindings can be
 declared “public”, in which case they are added to the module’s
 so-called “export list”; this set of public bindings is called the
-module’s “public interface” (*note Creating Guile Modules::).
+module’s “public interface” (*note* Creating Guile Modules::).
 
    A client module “uses” a providing module’s bindings by either
 accessing the providing module’s public interface, or by building a
@@ -27263,7 +27263,7 @@ custom interface (and then accessing that).  In a custom interface, the
 client module can “select” which bindings to access and can also
 algorithmically “rename” bindings.  In contrast, when using the
 providing module’s public interface, the entire export list is available
-without renaming (*note Using Guile Modules::).
+without renaming (*note* Using Guile Modules::).
 
    All Guile modules have a unique “module name”, for example ‘(ice-9
 popen)’ or ‘(srfi srfi-11)’.  Module names are lists of one or more
@@ -27285,12 +27285,12 @@ File: guile.info,  Node: Using Guile Modules,  Next: Creating Guile Modules,  Pr
 --------------------------
 
 To use a Guile module is to access either its public interface or a
-custom interface (*note General Information about Modules::).  Both
+custom interface (*note* General Information about Modules::).  Both
 types of access are handled by the syntactic form ‘use-modules’, which
 accepts one or more interface specifications and, upon evaluation,
 arranges for those interfaces to be available to the current module.
 This process may include locating and loading code for a given module if
-that code has not yet been loaded, following ‘%load-path’ (*note Modules
+that code has not yet been loaded, following ‘%load-path’ (*note* Modules
 and the File System::).
 
    An “interface specification” has one of two forms.  The first
@@ -27301,7 +27301,7 @@ interface is the one accessed.  For example:
 
    Here, the interface specification is ‘(ice-9 popen)’, and the result
 is that the current module now has access to ‘open-pipe’, ‘close-pipe’,
-‘open-input-pipe’, and so on (*note Pipes::).
+‘open-input-pipe’, and so on (*note* Pipes::).
 
    Note in the previous example that if the current module had already
 defined ‘open-pipe’, that definition would be overwritten by the
@@ -27393,7 +27393,7 @@ when the binding refers to a variable.
      where VERSION-SPEC is an R6RS-compatible version reference.  An
      error will be signaled in the case in which a module with the same
      name has already been loaded, if that module specifies a version
-     and that version is not compatible with VERSION-SPEC.  *Note R6RS
+     and that version is not compatible with VERSION-SPEC.  *Note* R6RS
      Version References::, for more on version references.
 
      If the module name is not resolvable, ‘use-modules’ will signal an
@@ -27406,7 +27406,7 @@ when the binding refers to a variable.
  -- syntax: @@ module-name binding-name
      Refer to the binding named BINDING-NAME in module MODULE-NAME.  The
      binding must not have been exported by the module.  This syntax is
-     only intended for debugging purposes or as a last resort.  *Note
+     only intended for debugging purposes or as a last resort.  *Note*
      Declarative Modules::, for some limitations on the use of ‘@@’.
 
 
@@ -27440,7 +27440,7 @@ steps:
      in the following table.
 
      ‘#:use-module INTERFACE-SPECIFICATION’
-          Equivalent to a ‘(use-modules INTERFACE-SPECIFICATION)’ (*note
+          Equivalent to a ‘(use-modules INTERFACE-SPECIFICATION)’ (*note*
           Using Guile Modules::).
 
      ‘#:autoload MODULE SYMBOL-LIST’
@@ -27492,8 +27492,8 @@ steps:
           binding to remain compatible with a binding in ‘(guile)’, to
           avoid surprising the user, sometimes the bindings will be
           incompatible.  For example, SRFI-19 exports its own version of
-          ‘current-time’ (*note SRFI-19 Time::) which is not compatible
-          with the core ‘current-time’ function (*note Time::).  Guile
+          ‘current-time’ (*note* SRFI-19 Time::) which is not compatible
+          with the core ‘current-time’ function (*note* Time::).  Guile
           assumes that a user importing a module knows what she is
           doing, and uses ‘#:replace’ for this binding rather than
           ‘#:export’.
@@ -27565,7 +27565,7 @@ steps:
 
           If GOOPS has been loaded before the ‘#:duplicates’ clause is
           processed, there are additional strategies available for
-          dealing with generic functions.  *Note Merging Generics::, for
+          dealing with generic functions.  *Note* Merging Generics::, for
           more information.
 
           The default duplicate binding resolution policy is given by
@@ -27624,17 +27624,17 @@ from in the “load path”.
 
    In this case, loading ‘(ice-9 popen)’ will eventually cause Guile to
 run ‘(primitive-load-path "ice-9/popen")’.  ‘primitive-load-path’ will
-search for a file ‘ice-9/popen’ in the ‘%load-path’ (*note Load
+search for a file ‘ice-9/popen’ in the ‘%load-path’ (*note* Load
 Paths::).  For each directory in ‘%load-path’, Guile will try to find
 the file name, concatenated with the extensions from ‘%load-extensions’.
 By default, this will cause Guile to ‘stat’ ‘ice-9/popen.scm’, and then
-‘ice-9/popen’.  *Note Load Paths::, for more on ‘primitive-load-path’.
+‘ice-9/popen’.  *Note* Load Paths::, for more on ‘primitive-load-path’.
 
    If a corresponding compiled ‘.go’ file is found in the
 ‘%load-compiled-path’ or in the fallback path, and is as fresh as the
 source file, it will be loaded instead of the source file.  If no
 compiled file is found, Guile may try to compile the source file and
-cache away the resulting ‘.go’ file.  *Note Compilation::, for more on
+cache away the resulting ‘.go’ file.  *Note* Compilation::, for more on
 compilation.
 
    Once Guile finds a suitable source or compiled file is found, the
@@ -27642,7 +27642,7 @@ file will be loaded.  If, after loading the file, the module under
 consideration is still not defined, Guile will signal an error.
 
    For more information on where and how to install Scheme modules,
-*Note Installing Site Packages::.
+*Note* Installing Site Packages::.
 
 
 File: guile.info,  Node: R6RS Version References,  Next: R6RS Libraries,  Prev: Modules and the File System,  Up: Modules
@@ -27652,7 +27652,7 @@ File: guile.info,  Node: R6RS Version References,  Next: R6RS Libraries,  Prev: 
 
 Guile’s module system includes support for locating modules based on a
 declared version specifier of the same form as the one described in R6RS
-(*note R6RS Library Form: (r6rs)Library form.).  By using the
+(*note* R6RS Library Form: (r6rs)Library form.).  By using the
 ‘#:version’ keyword in a ‘define-module’ form, a module may specify a
 version as a list of zero or more exact, nonnegative integers.
 
@@ -27720,7 +27720,7 @@ File: guile.info,  Node: R6RS Libraries,  Next: Variables,  Prev: R6RS Version R
 
 In addition to the API described in the previous sections, you also have
 the option to create modules using the portable ‘library’ form described
-in R6RS (*note R6RS Library Form: (r6rs)Library form.), and to import
+in R6RS (*note* R6RS Library Form: (r6rs)Library form.), and to import
 libraries created in this format by other programmers.  Guile’s R6RS
 library implementation takes advantage of the flexibility built into the
 module system by expanding the R6RS library form into a corresponding
@@ -27764,7 +27764,7 @@ required by Schemes in which phasing is explicit).
 
      The library NAME is a non-empty list of identifiers, optionally
      ending with a version specification of the form described above
-     (*note Creating Guile Modules::).
+     (*note* Creating Guile Modules::).
 
      Each EXPORT-SPEC is the name of a variable defined or imported by
      the library, or must take the form ‘(rename (internal-name
@@ -27795,7 +27795,7 @@ required by Schemes in which phasing is explicit).
             (rename IMPORT-SET (INTERNAL-IDENTIFIER EXTERNAL-IDENTIFIER) ...)
 
      where LIBRARY-REFERENCE is a non-empty list of identifiers ending
-     with an optional version reference (*note R6RS Version
+     with an optional version reference (*note* R6RS Version
      References::), and the other sub-forms have the following
      semantics, defined recursively on nested IMPORT-SETs:
 
@@ -27927,7 +27927,7 @@ You can find other module objects with ‘resolve-module’, for example.
  -- Scheme Procedure: save-module-excursion thunk
      Call THUNK within a ‘dynamic-wind’ such that the module that is
      current at invocation time is restored when THUNK’s dynamic extent
-     is left (*note Dynamic Wind::).
+     is left (*note* Dynamic Wind::).
 
      More precisely, if THUNK escapes non-locally, the current module
      (at the time of escape) is saved, and the original current module
@@ -27943,7 +27943,7 @@ You can find other module objects with ‘resolve-module’, for example.
      can’t be found that way either, create an empty module if ENSURE is
      true, otherwise return ‘#f’.  If VERSION is true, ensure that the
      resulting module is compatible with the given version reference
-     (*note R6RS Version References::).  The name is a list of symbols.
+     (*note* R6RS Version References::).  The name is a list of symbols.
 
  -- Scheme Procedure: resolve-interface name [#:select=#f] [#:hide='()]
           [#:prefix=#f] [#:renamer=#f] [#:version=#f]
@@ -27966,7 +27966,7 @@ You can find other module objects with ‘resolve-module’, for example.
    As mentioned in the previous section, modules contain a mapping
 between identifiers (as symbols) and storage locations (as variables).
 Guile defines a number of procedures to allow access to this mapping.
-If you are programming in C, *note Accessing Modules from C::.
+If you are programming in C, *note* Accessing Modules from C::.
 
  -- Scheme Procedure: module-variable module name
      Return the variable bound to NAME (a symbol) in MODULE, or ‘#f’ if
@@ -28055,7 +28055,7 @@ compiled.
    Because it’s usually what you want, the default value of
 ‘user-modules-declarative?’ is ‘#t’.
 
-Should I Mark My Module As Declarative?
+### Should I Mark My Module As Declarative?
 .......................................
 
 In the vast majority of use cases, declarative modules are what you
@@ -28084,7 +28084,7 @@ edit the module and reload the whole thing:
 optimizations that declarative modules enable, while also being able to
 live-update the code.  If the module keeps precious program state, those
 definitions can be marked as ‘define-once’ to prevent reloads from
-overwriting them.  *Note Top Level::, for more on ‘define-once’.
+overwriting them.  *Note* Top Level::, for more on ‘define-once’.
 Incidentally, ‘define-once’ also prevents declarative-definition
 optimizations, so if there’s a limited subset of redefinable bindings,
 ‘define-once’ could be an interesting tool to mark those definitions as
@@ -28103,12 +28103,12 @@ you can mark all definitions in a module as non-declarative by adding
 controlled via the ‘(user-modules-declarative?)’ parameter mentioned
 above, but care should be taken to set this parameter when the modules
 are compiled, e.g.  via ‘(eval-when (expand) (user-modules-declarative?
-#f))’.  *Note Eval When::.
+#f))’.  *Note* Eval When::.
 
    Alternately you can prevent declarative-definition optimizations by
 compiling at the ‘-O1’ optimization level instead of the default ‘-O2’,
 or via explicitly passing ‘-Ono-letrectify’ to the ‘guild compile’
-invocation.  *Note Compilation::, for more on compiler options.
+invocation.  *Note* Compilation::, for more on compiler options.
 
    One final note.  Currently, definitions from declarative modules can
 only be inlined within the module they are defined in, and within a
@@ -28308,13 +28308,13 @@ File: guile.info,  Node: Environments,  Prev: provide and require,  Up: Modules
 Scheme, as defined in R5RS, does _not_ have a full module system.
 However it does define the concept of a top-level “environment”.  Such
 an environment maps identifiers (symbols) to Scheme objects such as
-procedures and lists: *note About Closure::.  In other words, it
+procedures and lists: *note* About Closure::.  In other words, it
 implements a set of “bindings”.
 
    Environments in R5RS can be passed as the second argument to ‘eval’
-(*note Fly Evaluation::).  Three procedures are defined to return
+(*note* Fly Evaluation::).  Three procedures are defined to return
 environments: ‘scheme-report-environment’, ‘null-environment’ and
-‘interaction-environment’ (*note Fly Evaluation::).
+‘interaction-environment’ (*note* Fly Evaluation::).
 
    In addition, in Guile any module can be used as an R5RS environment,
 i.e., passed as the second argument to ‘eval’.
@@ -28488,7 +28488,7 @@ are implemented in the ‘(system foreign-library)’ module.
           and defaults to the libdir and the extensiondir, in that
           order.  For example, if you install to ‘/opt/guile’, these
           would probably be ‘/opt/guile/lib’ and
-          ‘/opt/guile/lib/guile/3.0/extensions’, respectively.  *Note
+          ‘/opt/guile/lib/guile/3.0/extensions’, respectively.  *Note*
           Parallel Installations::, for more details on ‘extensionsdir’.
 
      Finally, if no library is found in the search path, and if LIBRARY
@@ -28526,7 +28526,7 @@ path components, for example the three components of
  -- Scheme Parameter: guile-system-extensions-path
      Parameters whose initial values are taken from
      ‘GUILE_EXTENSIONS_PATH’, ‘LTDL_LIBRARY_PATH’, and
-     ‘GUILE_SYSTEM_EXTENSIONS_PATH’, respectively.  *Note Parameters::.
+     ‘GUILE_SYSTEM_EXTENSIONS_PATH’, respectively.  *Note* Parameters::.
      The current values of these parameters are used when building the
      search path when ‘load-foreign-library’ is called, unless the
      caller explicitly passes a ‘#:search-path’ argument.
@@ -28571,7 +28571,7 @@ library.  On GNU/Linux, the compiler invocation might look like this:
    A good default place to put shared libraries that extend Guile is
 into the extensions dir.  From the command line or a build script,
 invoke ‘pkg-config --variable=extensionsdir guile-3.0’ to print the
-extensions dir.  *Note Parallel Installations::, for more details.
+extensions dir.  *Note* Parallel Installations::, for more details.
 
    Guile can load up ‘bessel.so’ via ‘load-extension’.
 
@@ -28620,7 +28620,7 @@ changing those parameters applies to other users of
 ‘load-foreign-library’ as well.
 
    Note that the new primitives that the extension adds to Guile with
-‘scm_c_define_gsubr’ (*note Primitive Procedures::) or with any of the
+‘scm_c_define_gsubr’ (*note* Primitive Procedures::) or with any of the
 other mechanisms are placed into the module that is current when the
 ‘scm_c_define_gsubr’ is executed, so to be clear about what goes vwhere
 it’s best to include the ‘load-extension’ in a module, as above.
@@ -28644,7 +28644,7 @@ module is being created:
 a lot of ceremony to have to compile a Guile-specific wrapper library
 complete with an initialization function and wraper module to allow
 Guile users to call it.  There is another way, but to get there, we have
-to talk about function pointers and function types first.  *Note Foreign
+to talk about function pointers and function types first.  *Note* Foreign
 Functions::, to skip to the good parts.
 
 
@@ -28821,7 +28821,7 @@ foreign)’ module to use these Scheme interfaces.
      arguments to the foreign function and return appropriate values.
 
      ARG_TYPES should be a list of foreign types.  ‘return_type’ should
-     be a foreign type.  *Note Foreign Types::, for more information on
+     be a foreign type.  *Note* Foreign Types::, for more information on
      foreign types.
 
      If RETURN-ERRNO? is true, or when calling
@@ -28862,7 +28862,7 @@ bessel)’:
 
    Before going on to more detailed examples, the next two sections
 discuss how to deal with data that is more complex than, say, ‘int8’.
-*Note More Foreign Functions::, to continue with foreign function
+*Note* More Foreign Functions::, to continue with foreign function
 examples.
 
 
@@ -28874,7 +28874,7 @@ File: guile.info,  Node: Void Pointers and Byte Access,  Next: Foreign Structs, 
 Wrapped pointers are untyped, so they are essentially equivalent to C
 ‘void’ pointers.  As in C, the memory region pointed to by a pointer can
 be accessed at the byte level.  This is achieved using _bytevectors_
-(*note Bytevectors::).  The ‘(rnrs bytevectors)’ module contains
+(*note* Bytevectors::).  The ‘(rnrs bytevectors)’ module contains
 procedures that can be used to convert byte sequences to Scheme objects
 such as strings, floating point numbers, or integers.
 
@@ -29101,7 +29101,7 @@ code makes ‘memcpy’ available to Scheme:
      ⇒ (0 1 2 3 4 5 6 7 0 0 0 0 0 0 0 0)
 
    One may also pass structs as values, passing structs as foreign
-pointers.  *Note Foreign Structs::, for more information on how to
+pointers.  *Note* Foreign Structs::, for more information on how to
 express struct types and struct values.
 
    “Out” arguments are passed as foreign pointers.  The memory pointed
@@ -29144,7 +29144,7 @@ procedures as “callbacks” expected by C function.
      return type should match RETURN-TYPE and ARG-TYPES.
 
    As an example, here’s how the C library’s ‘qsort’ array sorting
-function can be made accessible to Scheme (*note ‘qsort’: (libc)Array
+function can be made accessible to Scheme (*note* ‘qsort’: (libc)Array
 Sort Function.):
 
      (define qsort!
@@ -29201,7 +29201,7 @@ File: guile.info,  Node: Foreign Objects,  Next: Smobs,  Prev: Foreign Function 
 ====================
 
 This chapter contains reference information related to defining and
-working with foreign objects.  *Note Defining New Foreign Object
+working with foreign objects.  *Note* Defining New Foreign Object
 Types::, for a tutorial-like introduction to foreign objects.
 
  -- C Type: scm_t_struct_finalize
@@ -29214,9 +29214,9 @@ Types::, for a tutorial-like introduction to foreign objects.
      foreign object type.  FINALIZER indicates the finalizer, and may be
      ‘NULL’.
 
-   We recommend that finalizers be avoided if possible.  *Note Foreign
+   We recommend that finalizers be avoided if possible.  *Note* Foreign
 Object Memory Management::.  Finalizers must be async-safe and
-thread-safe.  Again, *note Foreign Object Memory Management::.  If you
+thread-safe.  Again, *note* Foreign Object Memory Management::.  If you
 are embedding Guile in an application that is not thread-safe, and you
 define foreign object types that need finalization, you might want to
 disable automatic finalization, and arrange to call
@@ -29284,7 +29284,7 @@ disable automatic finalization, and arrange to call
      Set the value of the Nth field of the foreign object OBJ to VAL,
      after portably converting to a ‘scm_t_bits’ value, if needed.
 
-   One can also access foreign objects from Scheme.  *Note Foreign
+   One can also access foreign objects from Scheme.  *Note* Foreign
 Objects and Scheme::, for some examples.
 
      (use-modules (system foreign-object))
@@ -29296,7 +29296,7 @@ Objects and Scheme::, for some examples.
      equivalent, except for the way in which the finalizer gets attached
      to instances (an internal detail).
 
-     The resulting value is a GOOPS class.  *Note GOOPS::, for more on
+     The resulting value is a GOOPS class.  *Note* GOOPS::, for more on
      classes in Guile.
 
  -- Scheme Syntax: define-foreign-object-type name constructor (slot
@@ -29314,10 +29314,10 @@ File: guile.info,  Node: Smobs,  Next: Scheduling,  Prev: Foreign Objects,  Up: 
 ==========
 
 A “smob” is a “small object”.  Before foreign objects were introduced in
-Guile 2.0.12 (*note Foreign Objects::), smobs were the preferred way to
+Guile 2.0.12 (*note* Foreign Objects::), smobs were the preferred way to
 for C code to define new kinds of Scheme objects.  With the exception of
 the so-called “applicable SMOBs” discussed below, smobs are now a legacy
-interface and are headed for eventual deprecation.  *Note Deprecation::.
+interface and are headed for eventual deprecation.  *Note* Deprecation::.
 New code should use the foreign object interface.
 
    This section contains reference information related to defining and
@@ -29364,14 +29364,14 @@ working with smobs.  For a tutorial-like introduction to smobs, see
      resources associated with OBJ consists only of memory allocated
      with ‘scm_gc_malloc’ or ‘scm_gc_malloc_pointerless’ because this
      memory is automatically reclaimed by the garbage collector when it
-     is no longer needed (*note ‘scm_gc_malloc’: Memory Blocks.).
+     is no longer needed (*note* ‘scm_gc_malloc’: Memory Blocks.).
 
-   Smob free functions must be thread-safe.  *Note Foreign Object Memory
+   Smob free functions must be thread-safe.  *Note* Foreign Object Memory
 Management::, for a discussion on finalizers and concurrency.  If you
 are embedding Guile in an application that is not thread-safe, and you
 define smob types that need finalization, you might want to disable
 automatic finalization, and arrange to call ‘scm_manually_run_finalizers
-()’ yourself.  *Note Foreign Objects::.
+()’ yourself.  *Note* Foreign Objects::.
 
  -- C Function: void scm_set_smob_mark (scm_t_bits tc, SCM (*mark) (SCM
           obj))
@@ -29525,12 +29525,12 @@ File: guile.info,  Node: Threads,  Next: Thread Local Variables,  Up: Scheduling
 
 Guile supports POSIX threads, unless it was configured with
 ‘--without-threads’ or the host lacks POSIX thread support.  When thread
-support is available, the ‘threads’ feature is provided (*note
+support is available, the ‘threads’ feature is provided (*note*
 ‘provided?’: Feature Manipulation.).
 
    The procedures below manipulate Guile threads, which are wrappers
 around the system’s POSIX threads.  For application-level parallelism,
-using higher-level constructs, such as futures, is recommended (*note
+using higher-level constructs, such as futures, is recommended (*note*
 Futures::).
 
    To use these facilities, load the ‘(ice-9 threads)’ module.
@@ -29608,7 +29608,7 @@ Futures::).
      return the given VALUES, if the cancel succeeded.
 
      Under the hood, thread cancellation uses ‘system-async-mark’ and
-     ‘abort-to-prompt’.  *Note Asyncs:: for more on asynchronous
+     ‘abort-to-prompt’.  *Note* Asyncs:: for more on asynchronous
      interrupts.
 
  -- macro: make-thread proc arg ...
@@ -29656,8 +29656,8 @@ for a given thread: a “thread-local variable”.
 
    You would think that fluids or parameters would be Guile’s answer for
 thread-local variables, since establishing a new fluid binding doesn’t
-affect bindings in other threads.  *Note Fluids and Dynamic States::, or
-*Note Parameters::.  However, new threads inherit the fluid bindings
+affect bindings in other threads.  *Note* Fluids and Dynamic States::, or
+*Note* Parameters::.  However, new threads inherit the fluid bindings
 that were in place in their creator threads.  In this way, a binding
 established using a fluid (or a parameter) in a thread can escape to
 other threads, which might not be what you want.  Or, it might escape
@@ -29734,7 +29734,7 @@ signal handlers.)
 Guile code, asynchronous interrupts are generally used either for
 profiling or for prematurely cancelling a computation.  The former case
 is mostly transparent to the program being run, by design, but the
-latter case can introduce bugs.  Like finalizers (*note Foreign Object
+latter case can introduce bugs.  Like finalizers (*note* Foreign Object
 Memory Management::), asynchronous interrupts introduce concurrency in a
 program.  An asyncronous interrupt can run in the middle of some
 mutex-protected operation, for example, and potentially corrupt the
@@ -29754,7 +29754,7 @@ temporarily.
 
    In addition to the C versions of ‘call-with-blocked-asyncs’ and
 ‘call-with-unblocked-asyncs’, C code can use ‘scm_dynwind_block_asyncs’
-and ‘scm_dynwind_unblock_asyncs’ inside a “dynamic context” (*note
+and ‘scm_dynwind_unblock_asyncs’ inside a “dynamic context” (*note*
 Dynamic Wind::) to block or unblock asyncs temporarily.
 
  -- Scheme Procedure: call-with-blocked-asyncs proc
@@ -29782,12 +29782,12 @@ Dynamic Wind::) to block or unblock asyncs temporarily.
  -- C Function: void scm_dynwind_block_asyncs ()
      During the current dynwind context, increase the blocking of asyncs
      by one level.  This function must be used inside a pair of calls to
-     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note Dynamic Wind::).
+     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note* Dynamic Wind::).
 
  -- C Function: void scm_dynwind_unblock_asyncs ()
      During the current dynwind context, decrease the blocking of asyncs
      by one level.  This function must be used inside a pair of calls to
-     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note Dynamic Wind::).
+     ‘scm_dynwind_begin’ and ‘scm_dynwind_end’ (*note* Dynamic Wind::).
 
    Sometimes you want to interrupt a thread that might be waiting for
 something to happen, for example on a file descriptor or a condition
@@ -29821,7 +29821,7 @@ wait using the following procedures:
 ‘select’, and so on all call the above routines as appropriate.
 
    Finally, note that threads can also be interrupted via POSIX signals.
-*Note Signals::.  As an implementation detail, signal handlers will
+*Note* Signals::.  As an implementation detail, signal handlers will
 effectively call ‘system-async-mark’ in a signal-safe way, eventually
 running the signal handler using the same async mechanism.  In this way
 you can temporarily inhibit signal handlers from running using the above
@@ -29915,7 +29915,7 @@ other.
    There’s no easy way around this problem on the language level.  A
 function A that uses mutexes does not necessarily compose nicely with a
 function B that uses mutexes.  For this reason we suggest using atomic
-variables when you can (*note Atomics::), as they do not have this
+variables when you can (*note* Atomics::), as they do not have this
 problem.
 
    Still, if you as a programmer are responsible for a whole system,
@@ -29934,7 +29934,7 @@ exception to be thrown?  There is no one right answer.  You might want
 to keep the mutex locked to prevent any other code from ever entering
 that critical section again.  Or, your critical section might be fine if
 you unlock the mutex “on the way out”, via an exception handler or
-‘dynamic-wind’.  *Note Exceptions::, and *Note Dynamic Wind::.
+‘dynamic-wind’.  *Note* Exceptions::, and *Note* Dynamic Wind::.
 
    But if you arrange to unlock the mutex when leaving a dynamic extent
 via ‘dynamic-wind’, what to do if control re-enters that dynamic extent
@@ -29951,7 +29951,7 @@ that code can call continuations, then you don’t have to worry about
 re-entry, and you might not have to worry about early exit either.
 
    However, do consider the possibility of asynchronous interrupts
-(*note Asyncs::).  If the user interrupts your code interactively, that
+(*note* Asyncs::).  If the user interrupts your code interactively, that
 can cause an exception; or your thread might be cancelled, which does
 the same; or the user could be running your code under some pre-emptive
 system that periodically causes lightweight task switching.  (Guile does
@@ -29965,7 +29965,7 @@ a system perspective, you would do well to avoid these hazards if you
 can by not requiring mutexes.  Instead, work with immutable data that
 can be shared between threads without hazards, or use persistent data
 structures with atomic updates based on the atomic variable library
-(*note Atomics::).
+(*note* Atomics::).
 
    There are three types of mutexes in Guile: “standard”, “recursive”,
 and “unowned”.
@@ -30036,7 +30036,7 @@ mutexes.
      increments the lock count.  An additional ‘unlock-mutex’ will be
      required to finally release.
 
-     When an asynchronous interrupt (*note Asyncs::) is scheduled for a
+     When an asynchronous interrupt (*note* Asyncs::) is scheduled for a
      thread blocked in ‘lock-mutex’, Guile will interrupt the wait, run
      the interrupts, and then resume the wait.
 
@@ -30117,7 +30117,7 @@ mutexes.
      The return value is that returned by the last body form.
 
      The lock, body and unlock form the branches of a ‘dynamic-wind’
-     (*note Dynamic Wind::), so MUTEX is automatically unlocked if an
+     (*note* Dynamic Wind::), so MUTEX is automatically unlocked if an
      error or new continuation exits the body, and is re-locked if the
      body is re-entered by a captured continuation.
 
@@ -30253,16 +30253,16 @@ lines:
 
    Note that futures are intended for the evaluation of purely
 functional expressions.  Expressions that have side-effects or rely on
-I/O may require additional care, such as explicit synchronization (*note
+I/O may require additional care, such as explicit synchronization (*note*
 Mutexes and Condition Variables::).
 
-   Guile’s futures are implemented on top of POSIX threads (*note
+   Guile’s futures are implemented on top of POSIX threads (*note*
 Threads::).  Internally, a fixed-size pool of threads is used to
 evaluate futures, such that offloading the evaluation of an expression
 to another thread doesn’t incur thread creation costs.  By default, the
 pool contains one thread per available CPU core, minus one, to account
 for the main thread.  The number of available CPU cores is determined
-using ‘current-processor-count’ (*note Processes::).
+using ‘current-processor-count’ (*note* Processes::).
 
    When a thread touches a future that has not completed yet, it
 processes any pending future while waiting for it to complete, or just
@@ -30271,7 +30271,7 @@ within a future, the execution of the calling future is suspended,
 allowing its host thread to process other futures, and resumed when the
 touched future has completed.  This suspend/resume is achieved by
 capturing the calling future’s continuation, and later reinstating it
-(*note delimited continuations: Prompts.).
+(*note* delimited continuations: Prompts.).
 
  -- Scheme Syntax: future exp
      Return a future for expression EXP.  This is equivalent to:
@@ -30311,21 +30311,21 @@ The functions described in this section are available from
      (use-modules (ice-9 threads))
 
    They provide high-level parallel constructs.  The following functions
-are implemented in terms of futures (*note Futures::).  Thus they are
+are implemented in terms of futures (*note* Futures::).  Thus they are
 relatively cheap as they re-use existing threads, and portable, since
 they automatically use one thread per available CPU core.
 
  -- syntax: parallel expr ...
      Evaluate each EXPR expression in parallel, each in its own thread.
      Return the results of N expressions as a set of N multiple values
-     (*note Multiple Values::).
+     (*note* Multiple Values::).
 
  -- syntax: letpar ((var expr) ...) body1 body2 ...
      Evaluate each EXPR in parallel, each in its own thread, then bind
      the results to the corresponding VAR variables, and then evaluate
      BODY1 BODY2 ...
 
-     ‘letpar’ is like ‘let’ (*note Local Bindings::), but all the
+     ‘letpar’ is like ‘let’ (*note* Local Bindings::), but all the
      expressions for the bindings are evaluated in parallel.
 
  -- Scheme Procedure: par-map proc lst1 lst2 ...
@@ -30339,13 +30339,13 @@ they automatically use one thread per available CPU core.
      The calls are potentially made in parallel, depending on the number
      of CPU cores available.
 
-     These functions are like ‘map’ and ‘for-each’ (*note List
+     These functions are like ‘map’ and ‘for-each’ (*note* List
      Mapping::), but make their PROC calls in parallel.
 
    Unlike those above, the functions described below take a number of
 threads as an argument.  This makes them inherently non-portable since
 the specified number of threads may differ from the number of available
-CPU cores as returned by ‘current-processor-count’ (*note Processes::).
+CPU cores as returned by ‘current-processor-count’ (*note* Processes::).
 In addition, these functions create the specified number of threads when
 they are called and terminate them upon completion, which makes them
 quite expensive.
@@ -30511,7 +30511,7 @@ Guile was configured, built and installed on your system.
      also as a part of ‘pkg-config --libs guile-3.0’ output.  The value
      for ‘guileversion’ has form X.Y.Z, and should be the same as
      returned by ‘(version)’.  The value for ‘libguileinterface’ is
-     libtool compatible and has form CURRENT:REVISION:AGE (*note Library
+     libtool compatible and has form CURRENT:REVISION:AGE (*note* Library
      interface versions: (libtool)Versioning.).  The value for
      ‘buildstamp’ is the output of the command ‘date -u +'%Y-%m-%d %T'’
      (UTC).
@@ -30522,7 +30522,7 @@ Guile was configured, built and installed on your system.
 
  -- Variable: %host-type
      The canonical host type (GNU triplet) of the host Guile was
-     configured for, e.g., ‘"x86_64-unknown-linux-gnu"’ (*note
+     configured for, e.g., ‘"x86_64-unknown-linux-gnu"’ (*note*
      (autoconf)Canonicalizing::).
 
 
@@ -30552,7 +30552,7 @@ following subsection.
 
 File: guile.info,  Node: Feature Manipulation,  Next: Common Feature Symbols,  Up: Feature Tracking
 
-6.23.2.1 Feature Manipulation
+### 6.23.2.1 Feature Manipulation
 .............................
 
 To check whether a particular feature is available, use the ‘provided?’
@@ -30579,7 +30579,7 @@ procedure:
 
 File: guile.info,  Node: Common Feature Symbols,  Prev: Feature Manipulation,  Up: Feature Tracking
 
-6.23.2.2 Common Feature Symbols
+### 6.23.2.2 Common Feature Symbols
 ...............................
 
 In general, a particular feature may be available for one of two
@@ -30592,14 +30592,14 @@ loaded by Guile has added that feature to the list.
 of Guile may define (depending on how it is built), and what they mean.
 
 ‘array’
-     Indicates support for arrays (*note Arrays::).
+     Indicates support for arrays (*note* Arrays::).
 
 ‘array-for-each’
      Indicates availability of ‘array-for-each’ and other array mapping
-     procedures (*note Arrays::).
+     procedures (*note* Arrays::).
 
 ‘char-ready?’
-     Indicates that the ‘char-ready?’ function is available (*note
+     Indicates that the ‘char-ready?’ function is available (*note*
      Venerable Port Interfaces::).
 
 ‘complex’
@@ -30607,18 +30607,18 @@ of Guile may define (depending on how it is built), and what they mean.
 
 ‘current-time’
      Indicates availability of time-related functions: ‘times’,
-     ‘get-internal-run-time’ and so on (*note Time::).
+     ‘get-internal-run-time’ and so on (*note* Time::).
 
 ‘debug-extensions’
      Indicates that the debugging evaluator is available, together with
      the options for controlling it.
 
 ‘delay’
-     Indicates support for promises (*note Delayed Evaluation::).
+     Indicates support for promises (*note* Delayed Evaluation::).
 
 ‘EIDs’
      Indicates that the ‘geteuid’ and ‘getegid’ really return effective
-     user and group IDs (*note Processes::).
+     user and group IDs (*note* Processes::).
 
 ‘inexact’
      Indicates support for inexact numbers.
@@ -30626,30 +30626,30 @@ of Guile may define (depending on how it is built), and what they mean.
 ‘i/o-extensions’
      Indicates availability of the following extended I/O procedures:
      ‘ftell’, ‘redirect-port’, ‘dup->fdes’, ‘dup2’, ‘fileno’, ‘isatty?’,
-     ‘fdopen’, ‘primitive-move->fdes’ and ‘fdes->ports’ (*note Ports and
+     ‘fdopen’, ‘primitive-move->fdes’ and ‘fdes->ports’ (*note* Ports and
      File Descriptors::).
 
 ‘net-db’
      Indicates availability of network database functions:
      ‘scm_gethost’, ‘scm_getnet’, ‘scm_getproto’, ‘scm_getserv’,
      ‘scm_sethost’, ‘scm_setnet’, ‘scm_setproto’, ‘scm_setserv’, and
-     their ‘byXXX’ variants (*note Network Databases::).
+     their ‘byXXX’ variants (*note* Network Databases::).
 
 ‘posix’
      Indicates support for POSIX functions: ‘pipe’, ‘getgroups’, ‘kill’,
-     ‘execl’ and so on (*note POSIX::).
+     ‘execl’ and so on (*note* POSIX::).
 
 ‘fork’
-     Indicates support for the POSIX ‘fork’ function (*note
+     Indicates support for the POSIX ‘fork’ function (*note*
      ‘primitive-fork’: Processes.).
 
 ‘popen’
      Indicates support for ‘open-pipe’ in the ‘(ice-9 popen)’ module
-     (*note Pipes::).
+     (*note* Pipes::).
 
 ‘random’
      Indicates availability of random number generation functions:
-     ‘random’, ‘copy-random-state’, ‘random-uniform’ and so on (*note
+     ‘random’, ‘copy-random-state’, ‘random-uniform’ and so on (*note*
      Random::).
 
 ‘reckless’
@@ -30658,35 +30658,35 @@ of Guile may define (depending on how it is built), and what they mean.
 
 ‘regex’
      Indicates support for POSIX regular expressions using
-     ‘make-regexp’, ‘regexp-exec’ and friends (*note Regexp
+     ‘make-regexp’, ‘regexp-exec’ and friends (*note* Regexp
      Functions::).
 
 ‘socket’
      Indicates availability of socket-related functions: ‘socket’,
-     ‘bind’, ‘connect’ and so on (*note Network Sockets and
+     ‘bind’, ‘connect’ and so on (*note* Network Sockets and
      Communication::).
 
 ‘sort’
-     Indicates availability of sorting and merging functions (*note
+     Indicates availability of sorting and merging functions (*note*
      Sorting::).
 
 ‘system’
-     Indicates that the ‘system’ function is available (*note
+     Indicates that the ‘system’ function is available (*note*
      Processes::).
 
 ‘threads’
-     Indicates support for multithreading (*note Threads::).
+     Indicates support for multithreading (*note* Threads::).
 
 ‘values’
      Indicates support for multiple return values using ‘values’ and
-     ‘call-with-values’ (*note Multiple Values::).
+     ‘call-with-values’ (*note* Multiple Values::).
 
    Available features in the second category depend, by definition, on
 what additional code your Guile process has loaded in.  The following
 table lists features that you might encounter for this reason.
 
 ‘defmacro’
-     Indicates that the ‘defmacro’ macro is available (*note Macros::).
+     Indicates that the ‘defmacro’ macro is available (*note* Macros::).
 
 ‘describe’
      Indicates that the ‘(oop goops describe)’ module has been loaded,
@@ -30695,11 +30695,11 @@ table lists features that you might encounter for this reason.
 
 ‘readline’
      Indicates that Guile has loaded in Readline support, for command
-     line editing (*note Readline Support::).
+     line editing (*note* Readline Support::).
 
 ‘record’
      Indicates support for record definition using ‘make-record-type’
-     and friends (*note Records::).
+     and friends (*note* Records::).
 
    Although these tables may seem exhaustive, it is probably unwise in
 practice to rely on them, as the correspondences between feature symbols
@@ -30718,14 +30718,14 @@ There are a number of runtime options available for paramaterizing
 built-in procedures, like ‘read’, and built-in behavior, like what
 happens on an uncaught error.
 
-   For more information on reader options, *Note Scheme Read::.
+   For more information on reader options, *Note* Scheme Read::.
 
-   For more information on print options, *Note Scheme Write::.
+   For more information on print options, *Note* Scheme Write::.
 
-   Finally, for more information on debugger options, *Note Debug
+   Finally, for more information on debugger options, *Note* Debug
 Options::.
 
-6.23.3.1 Examples of option use
+### 6.23.3.1 Examples of option use
 ...............................
 
 Here is an example of a session in which some read and debug option
@@ -30778,7 +30778,7 @@ implemented on top of Guile.  This allows users to write or extend
 applications in languages other than Scheme, too.  This section
 describes the languages that have been implemented.
 
-   (For details on how to implement a language, *Note Compiling to the
+   (For details on how to implement a language, *Note* Compiling to the
 Virtual Machine::.)
 
 * Menu:
@@ -30797,7 +30797,7 @@ There are currently only two ways to access other languages from within
 Guile: at the REPL, and programmatically, via ‘compile’,
 ‘read-and-compile’, and ‘compile-file’.
 
-   The REPL is Guile’s command prompt (*note Using Guile
+   The REPL is Guile’s command prompt (*note* Using Guile
 Interactively::).  The REPL has a concept of the “current language”,
 which defaults to Scheme.  The user may change that language, via the
 meta-command ‘,language’.
@@ -30825,11 +30825,11 @@ Other languages that need more parsing are better dealt with as strings.
    The easiest way to deal with syntax-heavy language is with files, via
 ‘compile-file’ and friends.  However it is possible to invoke a
 language’s reader on a port, and then compile the resulting expression
-(which is a datum at that point).  For more information, *Note
+(which is a datum at that point).  For more information, *Note*
 Compilation::.
 
    For more details on introspecting aspects of different languages,
-*Note Compiler Tower::.
+*Note* Compiler Tower::.
 
 
 File: guile.info,  Node: Emacs Lisp,  Next: ECMAScript,  Prev: Using Other Languages,  Up: Other Languages
@@ -30838,7 +30838,7 @@ File: guile.info,  Node: Emacs Lisp,  Next: ECMAScript,  Prev: Using Other Langu
 -----------------
 
 Emacs Lisp (Elisp) is a dynamically-scoped Lisp dialect used in the
-Emacs editor.  *Note Overview: (elisp)top, for more information on Emacs
+Emacs editor.  *Note* Overview: (elisp)top, for more information on Emacs
 Lisp.
 
    We hope that eventually Guile’s implementation of Elisp will be good
@@ -30859,7 +30859,7 @@ section focuses on addressing these concerns of the Elisp elect.
 
 File: guile.info,  Node: Nil,  Next: Dynamic Binding,  Up: Emacs Lisp
 
-6.24.2.1 Nil
+### 6.24.2.1 Nil
 ............
 
 ‘nil’ in ELisp is an amalgam of Scheme’s ‘#f’ and ‘'()’.  It is false,
@@ -30994,23 +30994,23 @@ well-written standard Scheme programs are correct, in Guile Scheme.
            nil))
 
    Guile can warn when compiling code that has equality comparisons with
-‘#f’, ‘'()’, or ‘nil’.  *Note Compilation::, for details.
+‘#f’, ‘'()’, or ‘nil’.  *Note* Compilation::, for details.
 
 
 File: guile.info,  Node: Dynamic Binding,  Next: Other Elisp Features,  Prev: Nil,  Up: Emacs Lisp
 
-6.24.2.2 Dynamic Binding
+### 6.24.2.2 Dynamic Binding
 ........................
 
 In contrast to Scheme, which uses “lexical scoping”, Emacs Lisp scopes
 its variables dynamically.  Guile supports dynamic scoping with its
-“fluids” facility.  *Note Fluids and Dynamic States::, for more
+“fluids” facility.  *Note* Fluids and Dynamic States::, for more
 information.
 
 
 File: guile.info,  Node: Other Elisp Features,  Prev: Dynamic Binding,  Up: Emacs Lisp
 
-6.24.2.3 Other Elisp Features
+### 6.24.2.3 Other Elisp Features
 .............................
 
 Buffer-local and mode-local variables should be mentioned here, along
@@ -31089,7 +31089,7 @@ a “locale”.  For each particular aspect that comprise those cultural
 conventions, a “locale category” is defined.  For instance, the way
 characters are classified is defined by the ‘LC_CTYPE’ category, while
 the language in which program messages are issued to the user is defined
-by the ‘LC_MESSAGES’ category (*note General Locale Information:
+by the ‘LC_MESSAGES’ category (*note* General Locale Information:
 Locales. for details).
 
    The procedures provided by this module allow the development of
@@ -31097,7 +31097,7 @@ programs that adapt automatically to any locale setting.  As we will see
 later, many of these procedures can optionally take a “locale object”
 argument.  This additional argument defines the locale settings that
 must be followed by the invoked procedure.  When it is omitted, then the
-current locale settings of the process are followed (*note ‘setlocale’:
+current locale settings of the process are followed (*note* ‘setlocale’:
 Locales.).
 
    The following procedures allow the manipulation of such locale
@@ -31111,7 +31111,7 @@ objects.
      datasets.  LOCALE-NAME should be a string denoting a particular
      locale (e.g., ‘"aa_DJ"’) and CATEGORY-LIST should be either a list
      of locale categories or a single category as used with ‘setlocale’
-     (*note ‘setlocale’: Locales.).  Optionally, if ‘base-locale’ is
+     (*note* ‘setlocale’: Locales.).  Optionally, if ‘base-locale’ is
      passed, it should be a locale object denoting settings for
      categories not listed in CATEGORY-LIST.
 
@@ -31129,7 +31129,7 @@ objects.
           (make-locale LC_MONETARY "hr_HR"
                        (make-locale LC_ALL "eo_EO"))
 
-     A ‘system-error’ exception (*note Handling Errors::) is raised by
+     A ‘system-error’ exception (*note* Handling Errors::) is raised by
      ‘make-locale’ when LOCALE-NAME does not match any of the locales
      compiled on the system.  Note that on non-GNU systems, this error
      may be raised later, when the locale object is actually used.
@@ -31141,7 +31141,7 @@ objects.
  -- Scheme Variable: %global-locale
  -- C Variable: scm_global_locale
      This variable is bound to a locale object denoting the current
-     process locale as installed using ‘setlocale ()’ (*note Locales::).
+     process locale as installed using ‘setlocale ()’ (*note* Locales::).
      It may be used like any other locale object, including as a third
      argument to ‘make-locale’, for instance.
 
@@ -31202,7 +31202,7 @@ File: guile.info,  Node: Character Case Mapping,  Next: Number Input and Output,
 The procedures below provide support for “character case mapping”, i.e.,
 to convert characters or strings to their upper-case or lower-case
 equivalent.  Note that SRFI-13 provides procedures that look similar
-(*note Alphabetic Case Mapping::).  However, the SRFI-13 procedures are
+(*note* Alphabetic Case Mapping::).  However, the SRFI-13 procedures are
 locale-independent.  Therefore, they do not take into account
 specificities of the customs in use in a particular language or region
 of the world.  For instance, while most languages using the Latin
@@ -31260,21 +31260,21 @@ taken into account.
      locale.  If BASE is specified, then it determines the base of the
      integer being read (e.g., ‘16’ for an hexadecimal number, ‘10’ for
      a decimal number); by default, decimal numbers are read.  Return
-     two values (*note Multiple Values::): an integer (on success) or
+     two values (*note* Multiple Values::): an integer (on success) or
      ‘#f’, and the number of characters read from STR (‘0’ on failure).
 
-     This function is based on the C library’s ‘strtol’ function (*note
+     This function is based on the C library’s ‘strtol’ function (*note*
      ‘strtol’: (libc)Parsing of Integers.).
 
  -- Scheme Procedure: locale-string->inexact str [locale]
  -- C Function: scm_locale_string_to_inexact (str, locale)
      Convert string STR into an inexact number according to either
      LOCALE (a locale object as returned by ‘make-locale’) or the
-     current process locale.  Return two values (*note Multiple
+     current process locale.  Return two values (*note* Multiple
      Values::): an inexact number (on success) or ‘#f’, and the number
      of characters read from STR (‘0’ on failure).
 
-     This function is based on the C library’s ‘strtod’ function (*note
+     This function is based on the C library’s ‘strtod’ function (*note*
      ‘strtod’: (libc)Parsing of Floats.).
 
  -- Scheme Procedure: number->locale-string number [fraction-digits
@@ -31291,7 +31291,7 @@ taken into account.
      Convert AMOUNT (an inexact denoting a monetary amount) into a
      string according to the cultural conventions of either LOCALE (a
      locale object) or the current locale.  If INTL? is true, then the
-     international monetary format for the given locale is used (*note
+     international monetary format for the given locale is used (*note*
      international and locale monetary formats: (libc)Currency Symbol.).
 
 
@@ -31304,7 +31304,7 @@ It is sometimes useful to obtain very specific information about a
 locale such as the word it uses for days or months, its format for
 representing floating-point figures, etc.  The ‘(ice-9 i18n)’ module
 provides support for this in a way that is similar to the libc functions
-‘nl_langinfo ()’ and ‘localeconv ()’ (*note accessing locale information
+‘nl_langinfo ()’ and ‘localeconv ()’ (*note* accessing locale information
 from C: (libc)Locale Information.).  The available functions are listed
 below.
 
@@ -31336,9 +31336,9 @@ below.
  -- Scheme Procedure: locale-era-date+time-format [locale]
  -- Scheme Procedure: locale-era-time-format [locale]
      These procedures return format strings suitable to ‘strftime’
-     (*note Time::) that may be used to display (part of) a date/time
+     (*note* Time::) that may be used to display (part of) a date/time
      according to certain constraints and to the conventions of either
-     LOCALE or the current locale (*note the ‘nl_langinfo ()’ items:
+     LOCALE or the current locale (*note* the ‘nl_langinfo ()’ items:
      (libc)The Elegant and Fast Way.).
 
  -- Scheme Procedure: locale-era [locale]
@@ -31462,12 +31462,12 @@ user interfaces:
                    (lp (read-line)))))
 
      For an internationalized yes/no string output, ‘gettext’ should be
-     used (*note Gettext Support::).
+     used (*note* Gettext Support::).
 
    Example uses of some of these functions are the implementation of the
 ‘number->locale-string’ and ‘monetary-amount->locale-string’ procedures
-(*note Number Input and Output::), as well as that the SRFI-19 date and
-time conversion to/from strings (*note SRFI-19::).
+(*note* Number Input and Output::), as well as that the SRFI-19 date and
+time conversion to/from strings (*note* SRFI-19::).
 
 
 File: guile.info,  Node: Gettext Support,  Prev: Accessing Locale Information,  Up: Internationalization
@@ -31476,7 +31476,7 @@ File: guile.info,  Node: Gettext Support,  Prev: Accessing Locale Information,  
 ----------------------
 
 Guile provides an interface to GNU ‘gettext’ for translating message
-strings (*note (gettext)Introduction::).
+strings (*note* (gettext)Introduction::).
 
    Messages are collected in domains, so different libraries and
 programs maintain different message catalogues.  The DOMAIN parameter in
@@ -31486,17 +31486,17 @@ filename).
    When ‘gettext’ is not available, or if Guile was configured
 ‘--without-nls’, dummy functions doing no translation are provided.
 When ‘gettext’ support is available in Guile, the ‘i18n’ feature is
-provided (*note Feature Tracking::).
+provided (*note* Feature Tracking::).
 
  -- Scheme Procedure: gettext msg [domain [category]]
  -- C Function: scm_gettext (msg, domain, category)
      Return the translation of MSG in DOMAIN.  DOMAIN is optional and
      defaults to the domain set through ‘textdomain’ below.  CATEGORY is
-     optional and defaults to ‘LC_MESSAGES’ (*note Locales::).
+     optional and defaults to ‘LC_MESSAGES’ (*note* Locales::).
 
      Normal usage is for MSG to be a literal string.  ‘xgettext’ can
      extract those from the source to form a message catalogue ready for
-     translators (*note Invoking the ‘xgettext’ Program:
+     translators (*note* Invoking the ‘xgettext’ Program:
      (gettext)xgettext Invocation.).
 
           (display (gettext "You are in a maze of twisty passages."))
@@ -31510,7 +31510,7 @@ provided (*note Feature Tracking::).
           (display (G_ "File not found."))
 
      ‘G_’ is also a good place to perhaps strip disambiguating extra
-     text from the message string, as for instance in *note How to use
+     text from the message string, as for instance in *note* How to use
      ‘gettext’ in GUI programs: (gettext)GUI program problems.
 
  -- Scheme Procedure: ngettext msg msgplural n [domain [category]]
@@ -31518,7 +31518,7 @@ provided (*note Feature Tracking::).
      Return the translation of MSG/MSGPLURAL in DOMAIN, with a plural
      form chosen appropriately for the number N.  DOMAIN is optional and
      defaults to the domain set through ‘textdomain’ below.  CATEGORY is
-     optional and defaults to ‘LC_MESSAGES’ (*note Locales::).
+     optional and defaults to ‘LC_MESSAGES’ (*note* Locales::).
 
      MSG is the singular form, and MSGPLURAL the plural.  When no
      translation is available, MSG is used if N = 1, or MSGPLURAL
@@ -31540,7 +31540,7 @@ provided (*note Feature Tracking::).
      It’s important to use ‘ngettext’ rather than plain ‘gettext’ for
      plurals, since the rules for singular and plural forms in English
      are not the same in other languages.  Only ‘ngettext’ will allow
-     translators to give correct forms (*note Additional functions for
+     translators to give correct forms (*note* Additional functions for
      plural forms: (gettext)Plural forms.).
 
  -- Scheme Procedure: textdomain [domain]
@@ -31673,7 +31673,7 @@ program’s state at that point by inspecting the stack and its frames.
 
 File: guile.info,  Node: Stack Capture,  Next: Stacks,  Up: Evaluation Model
 
-6.26.1.1 Stack Capture
+### 6.26.1.1 Stack Capture
 ......................
 
 A Scheme program can use the ‘make-stack’ primitive anywhere in its
@@ -31732,7 +31732,7 @@ the Scheme stack at that point.
 
 File: guile.info,  Node: Stacks,  Next: Frames,  Prev: Stack Capture,  Up: Evaluation Model
 
-6.26.1.2 Stacks
+### 6.26.1.2 Stacks
 ...............
 
  -- Scheme Procedure: stack? obj
@@ -31766,7 +31766,7 @@ File: guile.info,  Node: Stacks,  Next: Frames,  Prev: Stack Capture,  Up: Evalu
 
 File: guile.info,  Node: Frames,  Prev: Stacks,  Up: Evaluation Model
 
-6.26.1.3 Frames
+### 6.26.1.3 Frames
 ...............
 
  -- Scheme Procedure: frame? obj
@@ -31792,14 +31792,14 @@ File: guile.info,  Node: Frames,  Prev: Stacks,  Up: Evaluation Model
  -- Scheme Procedure: frame-stack-pointer frame
      Accessors for the three VM registers associated with this frame:
      the frame pointer (fp), instruction pointer (ip), and stack pointer
-     (sp), respectively.  *Note VM Concepts::, for more information.
+     (sp), respectively.  *Note* VM Concepts::, for more information.
 
  -- Scheme Procedure: frame-dynamic-link frame
  -- Scheme Procedure: frame-return-address frame
  -- Scheme Procedure: frame-mv-return-address frame
      Accessors for the three saved VM registers in a frame: the previous
      frame pointer, the single-value return address, and the
-     multiple-value return address.  *Note Stack Layout::, for more
+     multiple-value return address.  *Note* Stack Layout::, for more
      information.
 
  -- Scheme Procedure: frame-bindings frame
@@ -31842,7 +31842,7 @@ File: guile.info,  Node: Source Properties,  Next: Programmatic Error Handling, 
 
 How best to associate source locations with datums parsed from a port?
 The right way to do this is to annotate all components of each parsed
-datum.  *Note Annotated Scheme Read::, for more on ‘read-syntax’.
+datum.  *Note* Annotated Scheme Read::, for more on ‘read-syntax’.
 
    Guile only switched to use ‘read-syntax’ in 2021, however.  For the
 previous thirty years, it used a mechanism known as “source properties”.
@@ -31863,7 +31863,7 @@ limitation finally motivated the switch to ‘read-syntax’.
      otherwise return #f.
 
    The recording of source properties is controlled by the read option
-named “positions” (*note Scheme Read::).  This option is switched _on_
+named “positions” (*note* Scheme Read::).  This option is switched _on_
 by default.  Now that ‘read-syntax’ is available, however, Guile may
 change the default for this flag to off in the future.
 
@@ -31893,7 +31893,7 @@ will have values set for the ‘filename’, ‘line’ and ‘column’ propert
 
    Source properties are also associated with syntax objects.
 Procedural macros can get at the source location of their input using
-the ‘syntax-source’ accessor.  *Note Syntax Transformer Helpers::, for
+the ‘syntax-source’ accessor.  *Note* Syntax Transformer Helpers::, for
 more.
 
    Guile also defines a couple of convenience macros built on
@@ -31908,7 +31908,7 @@ more.
      ‘(current-filename)’ form appears in.  Expands to ‘#f’ if this
      information is unavailable.
 
-   If you’re stuck with defmacros (*note Defmacros::), and want to
+   If you’re stuck with defmacros (*note* Defmacros::), and want to
 preserve source information, the following helper function might be
 useful to you:
 
@@ -31940,7 +31940,7 @@ library, or from Guile itself.
 
 File: guile.info,  Node: Catching Exceptions,  Next: Pre-Unwind Debugging,  Up: Programmatic Error Handling
 
-6.26.3.1 Catching Exceptions
+### 6.26.3.1 Catching Exceptions
 ............................
 
 A common requirement is to be able to show as much useful context as
@@ -31975,12 +31975,12 @@ occurs, you might use:
      ⊣ Uncaught exception: #<&exception-with-kind-and-args ...>
      ⇒ #f
 
-   *Note Exceptions::, for full details.
+   *Note* Exceptions::, for full details.
 
 
 File: guile.info,  Node: Pre-Unwind Debugging,  Next: Standard Error Handling,  Prev: Catching Exceptions,  Up: Programmatic Error Handling
 
-6.26.3.2 Pre-Unwind Debugging
+### 6.26.3.2 Pre-Unwind Debugging
 .............................
 
 Sometimes when something goes wrong, what you want is not just a
@@ -32043,13 +32043,13 @@ case, use ‘start-stack’:
              thunk))))
 
    There are also more powerful, programmatic ways to walk the stack
-using ‘make-stack’ and friends; see the API described in *note Stacks::
-and *note Frames::.
+using ‘make-stack’ and friends; see the API described in *note* Stacks::
+and *note* Frames::.
 
 
 File: guile.info,  Node: Standard Error Handling,  Next: Stack Overflow,  Prev: Pre-Unwind Debugging,  Up: Programmatic Error Handling
 
-6.26.3.3 call-with-error-handling
+### 6.26.3.3 call-with-error-handling
 .................................
 
 The Guile REPL code (in ‘system/repl/repl.scm’ and related files) uses a
@@ -32099,7 +32099,7 @@ stack interactively in the context of the error.
 
           Valid options are ‘debug’, which will enter the debugger;
           ‘pass’, which does nothing; or ‘disabled’, which disables
-          traps entirely.  *Note Traps::, for more information.
+          traps entirely.  *Note* Traps::, for more information.
 
      PASS-KEYS
           A set of keys to ignore, as a list.
@@ -32111,7 +32111,7 @@ stack interactively in the context of the error.
 
 File: guile.info,  Node: Stack Overflow,  Next: Debug Options,  Prev: Standard Error Handling,  Up: Programmatic Error Handling
 
-6.26.3.4 Stack Overflow
+### 6.26.3.4 Stack Overflow
 .......................
 
 Every time a Scheme program makes a call that is not in tail position,
@@ -32121,7 +32121,7 @@ nobody has an infinite amount of memory, deep recursion could cause
 Guile to run out of memory.  Running out of stack memory is called
 “stack overflow”.
 
-Stack Limits
+### Stack Limits
 ............
 
 Most languages have a terrible stack overflow story.  For example, in C,
@@ -32175,7 +32175,7 @@ grow to consume up to all memory available to the Guile process, and
 when the recursive computation eventually finishes, that stack memory is
 returned to the system.
 
-Exceptional Situations
+### Exceptional Situations
 ......................
 
 Of course, it’s still possible to run out of stack memory.  The most
@@ -32192,7 +32192,7 @@ L, not ‘(cdr L)’.  Running this program would cause Guile to use up all
 memory in your system, and eventually Guile would fail to grow the
 stack.  At that point you have a problem: Guile needs to raise an
 exception to unwind the stack and return memory to the system, but the
-user might have exception handlers in place (*note Raising and Handling
+user might have exception handlers in place (*note* Raising and Handling
 Exceptions::) that want to run before the stack is unwound, and we don’t
 have any stack in which to run them.
 
@@ -32201,7 +32201,7 @@ does not run pre-unwind handlers.  Because this is such an odd case,
 Guile prints out a message on the console, in case the user was
 expecting to be able to get a backtrace from any pre-unwind handler.
 
-Runaway Recursion
+### Runaway Recursion
 .................
 
 Still, this failure mode is not so nice.  If you are running an
@@ -32242,7 +32242,7 @@ limit wants to protect itself against malicious pre-unwind handlers from
 the inner thunk, it should abort to a prompt of its own making instead
 of throwing an exception that might be caught by the inner thunk.
 
-C Stack Usage
+### C Stack Usage
 .............
 
 It is also possible for Guile to run out of space on the C stack.  If
@@ -32276,7 +32276,7 @@ consumption by avoiding loops through C trampolines.
 
 File: guile.info,  Node: Debug Options,  Prev: Stack Overflow,  Up: Programmatic Error Handling
 
-6.26.3.5 Debug options
+### 6.26.3.5 Debug options
 ......................
 
 The behavior of the ‘backtrace’ procedure and of the default error
@@ -32360,7 +32360,7 @@ how the interface hangs together.
 
 File: guile.info,  Node: VM Hooks,  Next: Trap Interface,  Up: Traps
 
-6.26.4.1 VM Hooks
+### 6.26.4.1 VM Hooks
 .................
 
 Everything that runs in Guile runs on its virtual machine, a C program
@@ -32378,10 +32378,10 @@ the ‘debug’ engine.
 
    To digress, Guile’s VM has 4 different hooks that can be fired at
 different times.  For implementation reasons, these hooks are not
-actually implemented with first-class Scheme hooks (*note Hooks::); they
+actually implemented with first-class Scheme hooks (*note* Hooks::); they
 are managed using an ad-hoc interface.
 
-   VM hooks are called with one argument: the current frame.  *Note
+   VM hooks are called with one argument: the current frame.  *Note*
 Frames::.  Since these hooks may be fired very frequently, Guile does a
 terrible thing: it allocates the frames on the C stack instead of the
 garbage-collected heap.
@@ -32421,7 +32421,7 @@ only.
      restoring a saved undelimited continuation.
 
  -- Scheme Procedure: vm-add-abort-hook!
-     Arrange to call F after aborting to a prompt.  *Note Prompts::.
+     Arrange to call F after aborting to a prompt.  *Note* Prompts::.
 
      Unfortunately, the values passed to the prompt handler are not
      easily available to F.
@@ -32450,13 +32450,13 @@ the hook procedure finishes.
  -- Scheme Procedure: set-vm-trace-level! level
      Set the “trace level” of the VM.
 
-   *Note A Virtual Machine for Guile::, for more information on Guile’s
+   *Note* A Virtual Machine for Guile::, for more information on Guile’s
 virtual machine.
 
 
 File: guile.info,  Node: Trap Interface,  Next: Low-Level Traps,  Prev: VM Hooks,  Up: Traps
 
-6.26.4.2 Trap Interface
+### 6.26.4.2 Trap Interface
 .......................
 
 The capabilities provided by hooks are great, but hooks alone rarely
@@ -32513,7 +32513,7 @@ made the current interface more than anything else.
 
 File: guile.info,  Node: Low-Level Traps,  Next: Tracing Traps,  Prev: Trap Interface,  Up: Traps
 
-6.26.4.3 Low-Level Traps
+### 6.26.4.3 Low-Level Traps
 ........................
 
 To summarize the last sections, traps are enabled or disabled, and when
@@ -32521,9 +32521,9 @@ they are enabled, they add to various VM hooks.
 
    Note, however, that _traps do not increase the VM trace level_.  So
 if you create a trap, it will be enabled, but unless something else
-increases the VM’s trace level (*note VM Hooks::), the trap will not
+increases the VM’s trace level (*note* VM Hooks::), the trap will not
 fire.  It turns out that getting the VM trace level right is tricky
-without a global view of what traps are enabled.  *Note Trap States::,
+without a global view of what traps are enabled.  *Note* Trap States::,
 for Guile’s answer to this problem.
 
    Traps are created by calling procedures.  Most of these procedures
@@ -32623,7 +32623,7 @@ separately, we discuss them all together here:
 
 File: guile.info,  Node: Tracing Traps,  Next: Trap States,  Prev: Low-Level Traps,  Up: Traps
 
-6.26.4.4 Tracing Traps
+### 6.26.4.4 Tracing Traps
 ......................
 
 The ‘(system vm trace)’ module defines a number of traps for tracing of
@@ -32674,7 +32674,7 @@ this:
      trace: (facti 24 0)
      trace: 24
 
-   The low-level traps below (*note Low-Level Traps::) share some common
+   The low-level traps below (*note* Low-Level Traps::) share some common
 options:
 
 ‘#:width’
@@ -32724,13 +32724,13 @@ procedure calls and returns within the thunk.
      Note that because this procedure manipulates the VM trace level
      directly, it doesn’t compose well with traps at the REPL.
 
-   *Note Profile Commands::, for more information on tracing at the
+   *Note* Profile Commands::, for more information on tracing at the
 REPL.
 
 
 File: guile.info,  Node: Trap States,  Next: High-Level Traps,  Prev: Tracing Traps,  Up: Traps
 
-6.26.4.5 Trap States
+### 6.26.4.5 Trap States
 ....................
 
 When multiple traps are present in a system, we begin to have a
@@ -32753,7 +32753,7 @@ or removed, and can have an associated user-visible name.
      Add a trap to the current trap state, associating the given NAME
      with it.  Returns a fresh trap identifier (an integer).
 
-     Note that usually the more specific functions detailed in *note
+     Note that usually the more specific functions detailed in *note*
      High-Level Traps:: are used in preference to this one.
 
  -- Scheme Procedure: list-traps
@@ -32779,7 +32779,7 @@ or removed, and can have an associated user-visible name.
 
 File: guile.info,  Node: High-Level Traps,  Prev: Trap States,  Up: Traps
 
-6.26.4.6 High-Level Traps
+### 6.26.4.6 High-Level Traps
 .........................
 
 The low-level trap API allows one to make traps that call procedures,
@@ -32807,7 +32807,7 @@ character-building exercise of building a mental model might be helpful.
      trap handler.
 
      Additionally, during the execution of THUNK, the VM trace level
-     (*note VM Hooks::) is set to the number of enabled traps.  This
+     (*note* VM Hooks::) is set to the number of enabled traps.  This
      ensures that traps will in fact fire.
 
      HANDLER may be ‘#f’, in which case VM hooks are not enabled as they
@@ -32833,7 +32833,7 @@ with other debugging tools.
 
  -- Scheme Procedure: add-trace-at-procedure-call! proc
      Install a trap that will print a tracing message when PROC is
-     called.  *Note Tracing Traps::, for more information.
+     called.  *Note* Tracing Traps::, for more information.
 
      This is a tracepoint.
 
@@ -32896,9 +32896,9 @@ using Scheme’s read syntax.
    That extension is a ‘.scm’ file installed alongside the ‘libguile’
 shared library.  When GDB 7.8 or later is installed and compiled with
 support for extensions written in Guile, the extension is automatically
-loaded when debugging a program linked against ‘libguile’ (*note
+loaded when debugging a program linked against ‘libguile’ (*note*
 (gdb)Auto-loading::).  Note that the directory where ‘libguile’ is
-installed must be among GDB’s auto-loading “safe directories” (*note
+installed must be among GDB’s auto-loading “safe directories” (*note*
 (gdb)Auto-loading safe path::).
 
 
@@ -33008,7 +33008,7 @@ File: guile.info,  Node: SLIB,  Next: POSIX,  Up: Guile Modules
 
 SLIB is a portable library of Scheme packages which can be used with
 Guile and other Scheme implementations.  SLIB is not included in the
-Guile distribution, but can be installed separately (*note SLIB
+Guile distribution, but can be installed separately (*note* SLIB
 installation::).  It is available from
 <http://people.csail.mit.edu/jaffer/SLIB.html>.
 
@@ -33017,7 +33017,7 @@ executed before the SLIB facilities can be used:
 
      (use-modules (ice-9 slib))
 
-‘require’ can then be used in the usual way (*note (slib)Require::).
+‘require’ can then be used in the usual way (*note* (slib)Require::).
 For example,
 
      (use-modules (ice-9 slib))
@@ -33042,7 +33042,7 @@ File: guile.info,  Node: SLIB installation,  Next: JACAL,  Up: SLIB
 7.1.1 SLIB installation
 -----------------------
 
-The following procedure works, e.g., with SLIB version 3a3 (*note SLIB
+The following procedure works, e.g., with SLIB version 3a3 (*note* SLIB
 installation: (slib)Installation.):
 
   1. Unpack SLIB and install it using ‘make install’ from its directory.
@@ -33094,7 +33094,7 @@ is usually installed as an extra package in SLIB.
      (math)
 
 For complete documentation on Jacal, please read the Jacal manual.  If
-it has been installed on line, you can look at *note Jacal: (jacal)Top.
+it has been installed on line, you can look at *note* Jacal: (jacal)Top.
 Otherwise you can find it on the web at
 <http://www-swiss.ai.mit.edu/~jaffer/JACAL.html>
 
@@ -33131,7 +33131,7 @@ File: guile.info,  Node: Conventions,  Next: Ports and File Descriptors,  Up: PO
 These interfaces provide access to operating system facilities.  They
 provide a simple wrapping around the underlying C interfaces to make
 usage from Scheme more convenient.  They are also used to implement the
-Guile port of scsh (*note The Scheme shell (scsh)::).
+Guile port of scsh (*note* The Scheme shell (scsh)::).
 
    Generally there is a single procedure for each corresponding Unix
 facility.  There are some exceptions, such as procedures implemented for
@@ -33163,11 +33163,11 @@ There are a few procedures which return a special value if they don’t
 succeed, e.g., ‘getenv’ returns ‘#f’ if it the requested string is not
 found in the environment.  These cases are noted in the documentation.
 
-   For ways to deal with exceptions, see *note Exceptions::.
+   For ways to deal with exceptions, see *note* Exceptions::.
 
    Errors which the C library would report by returning a null pointer
 or through some other means are reported by raising a ‘system-error’
-exception with ‘scm-error’ (*note Error Reporting::).  The DATA
+exception with ‘scm-error’ (*note* Error Reporting::).  The DATA
 parameter is a list containing the Unix ‘errno’ value (an integer).  For
 example,
 
@@ -33214,7 +33214,7 @@ File: guile.info,  Node: Ports and File Descriptors,  Next: File System,  Prev: 
 7.2.2 Ports and File Descriptors
 --------------------------------
 
-Conventions generally follow those of scsh, *note The Scheme shell
+Conventions generally follow those of scsh, *note* The Scheme shell
 (scsh)::.
 
    Each open file port has an associated operating system file
@@ -33261,7 +33261,7 @@ read in from the file descriptor in blocks and placed in a buffer.
 Reading a character via ‘read-char’ first goes to the buffer, filling it
 as needed.  Usually read buffering is more or less transparent, but
 write buffering can sometimes cause writes to be delayed unexpectedly,
-if you forget to call ‘force-output’.  *Note Buffering::, for more on
+if you forget to call ‘force-output’.  *Note* Buffering::, for more on
 how to control port buffers.
 
    Note however that some procedures (e.g., ‘recv!’) will accept ports
@@ -33292,7 +33292,7 @@ buffer which implements ‘peek-char’ and ‘unread-char’.
      Return a new port based on the file descriptor FDES.  Modes are
      given by the string MODES.  The revealed count of the port is
      initialized to zero.  The MODES string is the same as that accepted
-     by ‘open-file’ (*note open-file: File Ports.).
+     by ‘open-file’ (*note* open-file: File Ports.).
 
  -- Scheme Procedure: fdes->ports fdes
  -- C Function: scm_fdes_to_ports (fdes)
@@ -33340,7 +33340,7 @@ buffer which implements ‘peek-char’ and ‘unread-char’.
      Open the file named by PATH for reading and/or writing.  FLAGS is
      an integer specifying how the file should be opened.  MODE is an
      integer specifying the permission bits of the file, if it needs to
-     be created, before the umask (*note Processes::) is applied.  The
+     be created, before the umask (*note* Processes::) is applied.  The
      default is 666 (Unix itself has no default).
 
      FLAGS can be constructed by combining variables using ‘logior’.
@@ -33357,7 +33357,7 @@ buffer which implements ‘peek-char’ and ‘unread-char’.
       -- Variable: O_CREAT
           Create the file if it does not already exist.
 
-     *Note (libc)File Status Flags::, for additional flags.
+     *Note* (libc)File Status Flags::, for additional flags.
 
  -- Scheme Procedure: openat dir path flags [mode]
  -- C Function: scm_openat (dir, path, flags, mode)
@@ -33375,7 +33375,7 @@ buffer which implements ‘peek-char’ and ‘unread-char’.
 
  -- Scheme Procedure: close fd_or_port
  -- C Function: scm_close (fd_or_port)
-     Similar to ‘close-port’ (*note close-port: Ports.), but also works
+     Similar to ‘close-port’ (*note* close-port: Ports.), but also works
      on file descriptors.  A side effect of closing a file descriptor is
      that any ports using that file descriptor are moved to a different
      file descriptor and have their revealed counts set to zero.
@@ -33395,7 +33395,7 @@ buffer which implements ‘peek-char’ and ‘unread-char’.
      port can be read from the input port.  Pipes are commonly used for
      communication with a newly forked child process.  The need to flush
      the output port can be avoided by making it unbuffered using
-     ‘setvbuf’ (*note Buffering::).
+     ‘setvbuf’ (*note* Buffering::).
 
      Optionally, on systems that support it such as GNU/Linux and
      GNU/Hurd, FLAGS can specify a bitwise-or of the following
@@ -33416,7 +33416,7 @@ buffer which implements ‘peek-char’ and ‘unread-char’.
       -- Variable: PIPE_BUF
           A write of up to ‘PIPE_BUF’ many bytes to a pipe is atomic,
           meaning when done it goes into the pipe instantaneously and as
-          a contiguous block (*note Atomicity of Pipe I/O: (libc)Pipe
+          a contiguous block (*note* Atomicity of Pipe I/O: (libc)Pipe
           Atomicity.).
 
      Note that the output port is likely to block if too much data has
@@ -33450,11 +33450,11 @@ their revealed counts set to zero.
 
  -- Scheme Procedure: dup->port port/fd mode [newfd]
      Returns a new port using the new file descriptor.  MODE supplies a
-     mode string for the port (*note open-file: File Ports.).
+     mode string for the port (*note* open-file: File Ports.).
 
  -- Scheme Procedure: duplicate-port port modes
      Returns a new port which is opened on a duplicate of the file
-     descriptor underlying PORT, with mode string MODES as for *note
+     descriptor underlying PORT, with mode string MODES as for *note*
      open-file: File Ports.  The two ports will share a file position
      and file status flags.
 
@@ -33564,8 +33564,8 @@ their revealed counts set to zero.
           Unlock the file.
       -- Variable: LOCK_NB
           Don’t block when locking.  This is combined with one of the
-          other operations using ‘logior’ (*note Bitwise Operations::).
-          If ‘flock’ would block an ‘EWOULDBLOCK’ error is thrown (*note
+          other operations using ‘logior’ (*note* Bitwise Operations::).
+          If ‘flock’ would block an ‘EWOULDBLOCK’ error is thrown (*note*
           Conventions::).
 
      The return value is not specified.  FILE may be an open file
@@ -33581,9 +33581,9 @@ their revealed counts set to zero.
      for a timeout to occur.
 
      When an error occurs, this procedure throws a ‘system-error’
-     exception (*note ‘system-error’: Conventions.).  Note that ‘select’
+     exception (*note* ‘system-error’: Conventions.).  Note that ‘select’
      may return early for other reasons, for example due to pending
-     interrupts.  *Note Asyncs::, for more on interrupts.
+     interrupts.  *Note* Asyncs::, for more on interrupts.
 
      READS, WRITES and EXCEPTS can be lists or vectors, with each member
      a port or a file descriptor.  The value returned is a list of three
@@ -33624,7 +33624,7 @@ when a file descriptor is closed, Guile offers “fdes finalizers”.
 in response to garbage collection, and they can also run in response to
 explicit calls to ‘close-port’, ‘close-fdes’, or the like.  As such they
 inherit many of the pitfalls of finalizers: they may be invoked from
-concurrent threads, or not at all.  *Note Foreign Object Memory
+concurrent threads, or not at all.  *Note* Foreign Object Memory
 Management::, for more on finalizers.
 
    To use fdes finalizers, import their module;
@@ -33689,7 +33689,7 @@ files.
      The main use for ‘access?’ is to let a set-UID/GID program
      determine what the invoking user would have been allowed to do,
      without the greater (or perhaps lesser) privileges afforded by the
-     effective ID. For more on this, see *note (libc)Testing File
+     effective ID. For more on this, see *note* (libc)Testing File
      Access::.
 
  -- Scheme Procedure: stat object [exception-on-error?]
@@ -33789,7 +33789,7 @@ files.
  -- C Function: scm_chown (object, owner, group)
      Change the ownership and group of the file referred to by OBJECT to
      the integer values OWNER and GROUP.  OBJECT can be a string
-     containing a file name or, if the platform supports ‘fchown’ (*note
+     containing a file name or, if the platform supports ‘fchown’ (*note*
      (libc)File Owner::), a port or integer file descriptor which is
      open on the file.  The return value is unspecified.
 
@@ -33917,7 +33917,7 @@ wrappers.  The exact cause is unclear.
  -- C Function: scm_mkdir (path, mode)
      Create a new directory named by PATH.  If MODE is omitted then the
      permissions of the directory are set to ‘#o777’ masked with the
-     current umask (*note ‘umask’: Processes.).  Otherwise they are set
+     current umask (*note* ‘umask’: Processes.).  Otherwise they are set
      to the value specified with MODE masked with the current umask.
      The return value is unspecified.
 
@@ -33938,7 +33938,7 @@ wrappers.  The exact cause is unclear.
 
      Before using this and the procedures below, make sure to see the
      higher-level procedures for directory traversal that are available
-     (*note File Tree Walk::).
+     (*note* File Tree Walk::).
 
  -- Scheme Procedure: directory-stream? object
  -- C Function: scm_directory_stream_p (object)
@@ -34309,7 +34309,7 @@ value.  The numbers in parentheses give the usual range.
      which is a new broken down time with normalized fields.
 
      ZONE is a timezone string, or the default is the ‘TZ’ environment
-     variable or the system default (*note Specifying the Time Zone with
+     variable or the system default (*note* Specifying the Time Zone with
      ‘TZ’: (libc)TZ Variable.).  SBD-TIME is taken to be in that ZONE.
 
      The following fields of SBD-TIME are used: ‘tm:year’, ‘tm:mon’,
@@ -34342,13 +34342,13 @@ value.  The numbers in parentheses give the usual range.
      according to the given FORMAT string.
 
      FORMAT contains field specifications introduced by a ‘%’ character.
-     See *note (libc)Formatting Calendar Time::, or ‘man 3 strftime’,
+     See *note* (libc)Formatting Calendar Time::, or ‘man 3 strftime’,
      for the available formatting.
 
           (strftime "%c" (localtime (current-time)))
           ⇒ "Mon Mar 11 20:17:43 2002"
 
-     If ‘setlocale’ has been called (*note Locales::), month and day
+     If ‘setlocale’ has been called (*note* Locales::), month and day
      names are from the current locale and in the locale character set.
 
  -- Scheme Procedure: strptime format string
@@ -34414,7 +34414,7 @@ File: guile.info,  Node: Runtime Environment,  Next: Processes,  Prev: Time,  Up
      The arguments are a list of strings, the first of which is the
      invoked program name.  This is just "guile" (or the executable
      path) when run interactively, or it’s the script name when running
-     a script with ‘-s’ (*note Invoking Guile::).
+     a script with ‘-s’ (*note* Invoking Guile::).
 
           guile -L /my/extra/dir -s foo.scm abc def
 
@@ -34524,7 +34524,7 @@ File: guile.info,  Node: Processes,  Next: Signals,  Prev: Runtime Environment, 
  -- C Function: scm_umask (mode)
      If MODE is omitted, returns a decimal number representing the
      current file creation mask.  Otherwise the file creation mask is
-     set to MODE and the previous value is returned.  *Note Assigning
+     set to MODE and the previous value is returned.  *Note* Assigning
      File Permissions: (libc)Setting Permissions, for more on how to use
      umasks.
 
@@ -34578,7 +34578,7 @@ File: guile.info,  Node: Processes,  Next: Signals,  Prev: Runtime Environment, 
      Set the current set of supplementary group IDs to the integers in
      the given vector VEC.  The return value is unspecified.
 
-     Generally only the superuser can set the process group IDs (*note
+     Generally only the superuser can set the process group IDs (*note*
      Setting the Group IDs: (libc)Setting Groups.).
 
  -- Scheme Procedure: setuid id
@@ -34667,7 +34667,7 @@ File: guile.info,  Node: Processes,  Next: Signals,  Prev: Runtime Environment, 
 
        1. The process ID of the child process, or 0 if ‘WNOHANG’ was
           specified and no process was collected.
-       2. The integer status value (*note (libc)Process Completion
+       2. The integer status value (*note* (libc)Process Completion
           Status::).
 
    The following three functions can be used to decode the integer
@@ -34743,9 +34743,9 @@ status value returned by ‘waitpid’.
 
      ‘primitive-exit’ uses the C ‘exit’ function and hence runs usual C
      level cleanups (flush output streams, call ‘atexit’ functions, etc,
-     see *note (libc)Normal Termination::)).
+     see *note* (libc)Normal Termination::)).
 
-     ‘primitive-_exit’ is the ‘_exit’ system call (*note
+     ‘primitive-_exit’ is the ‘_exit’ system call (*note*
      (libc)Termination Internals::).  This terminates the program
      immediately, with neither Scheme-level nor C-level cleanups.
 
@@ -34839,7 +34839,7 @@ status value returned by ‘waitpid’.
      descriptors are inherited from the parent process.
 
    The example below shows how to spawn the ‘uname’ program with the
-‘-o’ option (*note (coreutils)uname invocation::), redirect its standard
+‘-o’ option (*note* (coreutils)uname invocation::), redirect its standard
 output to a pipe, and read from it:
 
      (use-modules (rnrs io ports))
@@ -34895,7 +34895,7 @@ output to a pipe, and read from it:
      good estimate of how many CPUs Guile can use without stepping on
      other processes’ toes.
 
-     Currently this procedure is only defined on GNU variants (*note
+     Currently this procedure is only defined on GNU variants (*note*
      ‘sched_getaffinity’: (libc)CPU Affinity.).
 
  -- Scheme Procedure: setaffinity pid mask
@@ -34903,10 +34903,10 @@ output to a pipe, and read from it:
      Install the CPU affinity mask MASK, a bitvector, for the process or
      thread with ID PID.  The return value is unspecified.
 
-     Currently this procedure is only defined on GNU variants (*note
+     Currently this procedure is only defined on GNU variants (*note*
      ‘sched_setaffinity’: (libc)CPU Affinity.).
 
-   *Note Threads::, for information on how get the number of processors
+   *Note* Threads::, for information on how get the number of processors
 available on a system.
 
 
@@ -34917,7 +34917,7 @@ File: guile.info,  Node: Signals,  Next: Terminals and Ptys,  Prev: Processes,  
 
 The following procedures raise, handle and wait for signals.
 
-   Scheme code signal handlers are run via an async (*note Asyncs::), so
+   Scheme code signal handlers are run via an async (*note* Asyncs::), so
 they’re called in the handler’s thread at the next safe opportunity.
 Generally this is after any currently executing primitive procedure
 finishes (which could be a long time for primitives that wait for an
@@ -34949,7 +34949,7 @@ external event).
       -- Variable: SIGINT
           Interrupt signal.
 
-     A full list of signals on the GNU system may be found in *note
+     A full list of signals on the GNU system may be found in *note*
      (libc)Standard Signals::.
 
  -- Scheme Procedure: raise sig
@@ -34982,7 +34982,7 @@ external event).
      thread has been given, the thread that made this call to
      ‘sigaction’ is used.
 
-     FLAGS is a ‘logior’ (*note Bitwise Operations::) of the following
+     FLAGS is a ‘logior’ (*note* Bitwise Operations::) of the following
      (where provided by the system), or ‘0’ for none.
 
       -- Variable: SA_NOCLDSTOP
@@ -35061,7 +35061,7 @@ external event).
      instance.
 
      See ‘scm_std_sleep’ and ‘scm_std_usleep’ for equivalents at the C
-     level (*note Blocking::).
+     level (*note* Blocking::).
 
  -- Scheme Procedure: getitimer which_timer
  -- Scheme Procedure: setitimer which_timer interval_seconds
@@ -35195,7 +35195,7 @@ routines.  The code is in a separate “popen” module(1):
      output pipe, the child’s standard input is the pipe and standard
      output is inherited from ‘current-output-port’.  In all cases the
      child’s standard error is inherited from ‘current-error-port’
-     (*note Default Ports::).
+     (*note* Default Ports::).
 
      If those ‘current-X-ports’ are not files of some kind, and hence
      don’t have file descriptors for the child, then ‘/dev/null’ is used
@@ -35204,7 +35204,7 @@ routines.  The code is in a separate “popen” module(1):
      Care should be taken with ‘OPEN_BOTH’, a deadlock will occur if
      both parent and child are writing, and waiting until the write
      completes before doing any reading.  Each direction has ‘PIPE_BUF’
-     bytes of buffering (*note Buffering::), which will be enough for
+     bytes of buffering (*note* Buffering::), which will be enough for
      small writes, but not for say putting a big file through a filter.
 
  -- Scheme Procedure: open-input-pipe command
@@ -35230,7 +35230,7 @@ routines.  The code is in a separate “popen” module(1):
  -- Scheme Procedure: close-pipe port
      Close a pipe created by ‘open-pipe’, wait for the process to
      terminate, and return the wait status code.  The status is as per
-     ‘waitpid’ and can be decoded with ‘status:exit-val’ etc (*note
+     ‘waitpid’ and can be decoded with ‘status:exit-val’ etc (*note*
      Processes::)
 
 
@@ -35238,7 +35238,7 @@ routines.  The code is in a separate “popen” module(1):
 can reap a pipe’s child process, causing an error from a subsequent
 ‘close-pipe’.
 
-   ‘close-port’ (*note Ports::) can close a pipe, but it doesn’t reap
+   ‘close-port’ (*note* Ports::) can close a pipe, but it doesn’t reap
 the child process.
 
    The garbage collector will close a pipe no longer in use, and reap
@@ -35278,7 +35278,7 @@ the garbage collector pick them up at some later time.
    ---------- Footnotes ----------
 
    (1) This module is only available on systems where the ‘popen’
-feature is provided (*note Common Feature Symbols::).
+feature is provided (*note* Common Feature Symbols::).
 
 
 File: guile.info,  Node: Networking,  Next: System Identification,  Prev: Pipes,  Up: POSIX
@@ -35297,13 +35297,13 @@ File: guile.info,  Node: Networking,  Next: System Identification,  Prev: Pipes,
 
 File: guile.info,  Node: Network Address Conversion,  Next: Network Databases,  Up: Networking
 
-7.2.11.1 Network Address Conversion
+### 7.2.11.1 Network Address Conversion
 ...................................
 
 This section describes procedures which convert internet addresses
 between numeric and string formats.
 
-IPv4 Address Conversion
+### IPv4 Address Conversion
 .......................
 
 An IPv4 Internet address is a 4-byte value, represented in Guile as an
@@ -35315,7 +35315,7 @@ Guile converts as necessary so that at the Scheme level its host byte
 order everywhere.
 
  -- Variable: INADDR_ANY
-     For a server, this can be used with ‘bind’ (*note Network Sockets
+     For a server, this can be used with ‘bind’ (*note* Network Sockets
      and Communication::) to allow connections from any interface on the
      machine.
 
@@ -35347,7 +35347,7 @@ order everywhere.
 
           (inet-makeaddr 127 1) ⇒ 2130706433
 
-IPv6 Address Conversion
+### IPv6 Address Conversion
 .......................
 
 An IPv6 Internet address is a 16-byte value, represented in Guile as an
@@ -35355,7 +35355,7 @@ integer in host byte order, so that say “::1” is 1.  The following
 constants are defined for convenience.
 
  -- Variable: IN6ADDR_ANY
-     For a server, this can be used with ‘bind’ (*note Network Sockets
+     For a server, this can be used with ‘bind’ (*note* Network Sockets
      and Communication::) to allow connections from any IPv6 interface
      on the machine.
 
@@ -35385,14 +35385,14 @@ its textual representation.
 
 File: guile.info,  Node: Network Databases,  Next: Network Socket Address,  Prev: Network Address Conversion,  Up: Networking
 
-7.2.11.2 Network Databases
+### 7.2.11.2 Network Databases
 ..........................
 
 This section describes procedures which query various network databases.
 Care should be taken when using the database routines since they are not
 reentrant.
 
-‘getaddrinfo’
+### ‘getaddrinfo’
 .............
 
 The ‘getaddrinfo’ procedure maps host and service names to socket
@@ -35532,13 +35532,13 @@ addresses and associated information in a protocol-independent way.
 
  -- Scheme Procedure: addrinfo:addr ai
      Return the socket address associated with AI as a ‘sockaddr’ object
-     (*note Network Socket Address::).
+     (*note* Network Socket Address::).
 
  -- Scheme Procedure: addrinfo:canonname ai
      Return a string for the canonical name associated with AI if the
      ‘AI_CANONNAME’ flag was supplied.
 
-The Host Database
+### The Host Database
 .................
 
 A “host object” is a structure that represents what is known about a
@@ -35559,7 +35559,7 @@ component:
      The length of each address for HOST, in bytes.
  -- Scheme Procedure: hostent:addr-list host
      The list of network addresses associated with HOST.  For ‘AF_INET’
-     these are integer IPv4 address (*note Network Address
+     these are integer IPv4 address (*note* Network Address
      Conversion::).
 
    The following procedures can be used to search the host database.
@@ -35612,7 +35612,7 @@ database from beginning to end.
      If STAYOPEN is omitted, this is equivalent to ‘endhostent’.
      Otherwise it is equivalent to ‘sethostent stayopen’.
 
-The Network Database
+### The Network Database
 ....................
 
 The following functions accept an object representing a network and
@@ -35662,7 +35662,7 @@ database from beginning to end.
      If STAYOPEN is omitted, this is equivalent to ‘endnetent’.
      Otherwise it is equivalent to ‘setnetent stayopen’.
 
-The Protocol Database
+### The Protocol Database
 .....................
 
 The following functions accept an object representing a protocol and
@@ -35709,7 +35709,7 @@ database from beginning to end.
      If STAYOPEN is omitted, this is equivalent to ‘endprotoent’.
      Otherwise it is equivalent to ‘setprotoent stayopen’.
 
-The Service Database
+### The Service Database
 ....................
 
 The following functions accept an object representing a service and
@@ -35773,7 +35773,7 @@ database from beginning to end.
 
 File: guile.info,  Node: Network Socket Address,  Next: Network Sockets and Communication,  Prev: Network Databases,  Up: Networking
 
-7.2.11.3 Network Socket Address
+### 7.2.11.3 Network Socket Address
 ...............................
 
 A “socket address” object identifies a socket endpoint for
@@ -35792,7 +35792,7 @@ client or server process.  A socket address object can be created with,
      according to the family.
 
      For ‘AF_INET’ the arguments are an IPv4 network address number
-     (*note Network Address Conversion::), and a port number.
+     (*note* Network Address Conversion::), and a port number.
 
      For ‘AF_INET6’ the arguments are an IPv6 network address number and
      a port number.  Optional FLOWINFO and SCOPEID arguments may be
@@ -35831,18 +35831,18 @@ The following functions access the fields of a socket address object,
      value.
 
    The functions below convert to and from the C ‘struct sockaddr’
-(*note (libc)Address Formats::).  That structure is a generic type, an
+(*note* (libc)Address Formats::).  That structure is a generic type, an
 application can cast to or from ‘struct sockaddr_in’, ‘struct
 sockaddr_in6’ or ‘struct sockaddr_un’ according to the address family.
 
    In a ‘struct sockaddr’ taken or returned, the byte ordering in the
-fields follows the C conventions (*note Byte Order Conversion:
+fields follows the C conventions (*note* Byte Order Conversion:
 (libc)Byte Order.).  This means network byte order for ‘AF_INET’ host
 address (‘sin_addr.s_addr’) and port number (‘sin_port’), and ‘AF_INET6’
 port number (‘sin6_port’).  But at the Scheme level these values are
 taken or returned in host byte order, so the port is an ordinary
 integer, and the host address likewise is an ordinary integer (as
-described in *note Network Address Conversion::).
+described in *note* Network Address Conversion::).
 
  -- C Function: struct sockaddr * scm_c_make_socket_address (SCM family,
           SCM address, SCM args, size_t *outsize)
@@ -35870,17 +35870,17 @@ described in *note Network Address Conversion::).
 
 File: guile.info,  Node: Network Sockets and Communication,  Next: Internet Socket Examples,  Prev: Network Socket Address,  Up: Networking
 
-7.2.11.4 Network Sockets and Communication
+### 7.2.11.4 Network Sockets and Communication
 ..........................................
 
 Socket ports can be created using ‘socket’ and ‘socketpair’.  The ports
 are initially unbuffered, to make reading and writing to the same port
-more reliable.  A buffer can be added to the port using ‘setvbuf’ (*note
+more reliable.  A buffer can be added to the port using ‘setvbuf’ (*note*
 Buffering::).
 
    Most systems have limits on how many files and sockets can be open,
 so it’s strongly recommended that socket ports be closed explicitly when
-no longer required (*note Ports::).
+no longer required (*note* Ports::).
 
    Some of the underlying C functions take values in network byte order,
 but the convention in Guile is that at the Scheme level everything is
@@ -35907,7 +35907,7 @@ necessary.
       -- Variable: SOCK_SEQPACKET
 
      PROTO can be obtained from a protocol name using ‘getprotobyname’
-     (*note Network Databases::).  A value of zero means the default
+     (*note* Network Databases::).  A value of zero means the default
      protocol, which is usually right.
 
      A socket cannot by used for communication until it has been
@@ -35934,7 +35934,7 @@ necessary.
 
      LEVEL is an integer specifying a protocol layer, either
      ‘SOL_SOCKET’ for socket level options, or a protocol number from
-     the ‘IPPROTO’ constants or ‘getprotoent’ (*note Network
+     the ‘IPPROTO’ constants or ‘getprotoent’ (*note* Network
      Databases::).
 
       -- Variable: SOL_SOCKET
@@ -35947,7 +35947,7 @@ necessary.
      layer.
 
      For ‘SOL_SOCKET’ level the following OPTNAMEs are defined (when
-     provided by the system).  For their meaning see *note
+     provided by the system).  For their meaning see *note*
      (libc)Socket-Level Options::, or ‘man 7 socket’.
 
       -- Variable: SO_DEBUG
@@ -35989,7 +35989,7 @@ necessary.
       -- Variable: IP_DROP_MEMBERSHIP
           These can be used only with ‘setsockopt’, not ‘getsockopt’.
           VALUE is a pair ‘(MULTIADDR . INTERFACEADDR)’ of integer IPv4
-          addresses (*note Network Address Conversion::).  MULTIADDR is
+          addresses (*note* Network Address Conversion::).  MULTIADDR is
           a multicast address to be added to or dropped from the
           interface INTERFACEADDR.  INTERFACEADDR can be ‘INADDR_ANY’ to
           have the system select the interface.  INTERFACEADDR can also
@@ -36037,7 +36037,7 @@ provided by the system).  For their meaning see ‘man 7 tcp’.
      Initiate a connection on socket port SOCK to a given address.  The
      destination is either a socket address object, or arguments the
      same as ‘make-socket-address’ would take to make such an object
-     (*note Network Socket Address::).  Return true unless the socket
+     (*note* Network Socket Address::).  Return true unless the socket
      was configured as non-blocking and the connection could not be made
      immediately.
 
@@ -36052,7 +36052,7 @@ provided by the system).  For their meaning see ‘man 7 tcp’.
  -- C Function: scm_bind (sock, fam, address, args)
      Bind socket port SOCK to the given address.  The address is either
      a socket address object, or arguments the same as
-     ‘make-socket-address’ would take to make such an object (*note
+     ‘make-socket-address’ would take to make such an object (*note*
      Network Socket Address::).  The return value is unspecified.
 
      Generally a socket is only explicitly bound to a particular address
@@ -36082,14 +36082,14 @@ provided by the system).  For their meaning see ‘man 7 tcp’.
      for non-blocking operation or not:
 
         • If there is no connection waiting and the socket was set to
-          non-blocking mode with the ‘O_NONBLOCK’ port option (*note
+          non-blocking mode with the ‘O_NONBLOCK’ port option (*note*
           ‘fcntl’: Ports and File Descriptors.), return ‘#f’ directly.
 
         • Otherwise wait until a connection is available.
 
      The return value is a pair.  The ‘car’ is a new socket port,
      connected and ready to communicate.  The ‘cdr’ is a socket address
-     object (*note Network Socket Address::) which is where the remote
+     object (*note* Network Socket Address::) which is where the remote
      connection is from (like ‘getpeername’ below).
 
      FLAGS, if given, may include ‘SOCK_CLOEXEC’ or ‘SOCK_NONBLOCK’,
@@ -36160,7 +36160,7 @@ provided by the system).  For their meaning see ‘man 7 tcp’.
      is received then excess bytes are irrevocably lost.
 
      The return value is a pair.  The ‘car’ is the number of bytes read.
-     The ‘cdr’ is a socket address object (*note Network Socket
+     The ‘cdr’ is a socket address object (*note* Network Socket
      Address::) which is where the data came from, or ‘#f’ if the origin
      is unknown.
 
@@ -36184,10 +36184,10 @@ provided by the system).  For their meaning see ‘man 7 tcp’.
      Transmit bytevector MESSAGE as a datagram socket port SOCK.  The
      destination is specified either as a socket address object, or as
      arguments the same as would be taken by ‘make-socket-address’ to
-     create such an object (*note Network Socket Address::).
+     create such an object (*note* Network Socket Address::).
 
      The destination address may be followed by an optional FLAGS
-     argument which is a ‘logior’ (*note Bitwise Operations::) of
+     argument which is a ‘logior’ (*note* Bitwise Operations::) of
      ‘MSG_OOB’, ‘MSG_PEEK’, ‘MSG_DONTROUTE’ etc.
 
      The value returned is the number of bytes transmitted – it’s
@@ -36201,12 +36201,12 @@ provided by the system).  For their meaning see ‘man 7 tcp’.
 
 File: guile.info,  Node: Internet Socket Examples,  Prev: Network Sockets and Communication,  Up: Networking
 
-7.2.11.5 Network Socket Examples
+### 7.2.11.5 Network Socket Examples
 ................................
 
 The following give examples of how to use network sockets.
 
-Internet Socket Client Example
+### Internet Socket Client Example
 ..............................
 
 The following example demonstrates an Internet socket client.  It
@@ -36222,7 +36222,7 @@ contents of the root index URL.
          (display line)
          (newline)))
 
-Internet Socket Server Example
+### Internet Socket Server Example
 ..............................
 
 The following example shows a simple Internet server which listens on
@@ -36307,7 +36307,7 @@ File: guile.info,  Node: Locales,  Next: Encryption,  Prev: System Identificatio
      If LOCALE is given then the locale for the given CATEGORY is set
      and the new value returned.  If LOCALE is not given then the
      current value is returned.  CATEGORY should be one of the following
-     values (*note Categories of Activities that Locales Affect:
+     values (*note* Categories of Activities that Locales Affect:
      (libc)Locale Categories.):
 
       -- Variable: LC_ALL
@@ -36320,11 +36320,11 @@ File: guile.info,  Node: Locales,  Next: Encryption,  Prev: System Identificatio
 
      A common usage is ‘(setlocale LC_ALL "")’, which initializes all
      categories based on standard environment variables (‘LANG’ etc).
-     For full details on categories and locale names *note Locales and
+     For full details on categories and locale names *note* Locales and
      Internationalization: (libc)Locales.
 
      Note that ‘setlocale’ affects locale settings for the whole
-     process.  *Note locale objects and ‘make-locale’: i18n
+     process.  *Note* locale objects and ‘make-locale’: i18n
      Introduction, for a thread-safe alternative.
 
 
@@ -36337,7 +36337,7 @@ Please note that the procedures in this section are not suited for
 strong encryption, they are only interfaces to the well-known and common
 system library functions of the same name.  They are just as good (or
 bad) as the underlying functions, so you should refer to your system
-documentation before using them (*note Encrypting Passwords:
+documentation before using them (*note* Encrypting Passwords:
 (libc)crypt.).
 
  -- Scheme Procedure: crypt key salt
@@ -36381,7 +36381,7 @@ and a conventional web server implementation.
 
    The material in this section is arranged in ascending order, in which
 later concepts build on previous ones.  If you prefer to start with the
-highest-level perspective, *note Web Examples::, and work your way back.
+highest-level perspective, *note* Web Examples::, and work your way back.
 
 * Menu:
 
@@ -36414,7 +36414,7 @@ subsection makes the case for expressive data types in web programming.
 
    By “expressive data types”, we mean that the data types _say_
 something about how a program solves a problem.  For example, if we
-choose to represent dates using SRFI 19 date records (*note SRFI-19::),
+choose to represent dates using SRFI 19 date records (*note* SRFI-19::),
 this indicates that there is a part of the program that will always have
 valid dates.  Error handling for a number of basic cases, like invalid
 dates, occurs on the boundary in which we produce a SRFI 19 date record
@@ -36425,7 +36425,7 @@ phases of HTTP messages: parsing and generation.
 
    Consider a server, which has to parse a request, and produce a
 response.  Guile will parse the request into an HTTP request object
-(*note Requests::), with each header parsed into an appropriate Scheme
+(*note* Requests::), with each header parsed into an appropriate Scheme
 data type.  This transition from an incoming stream of characters to
 typed data is a state change in a program—the strings might parse, or
 they might not, and something has to happen if they do not.  (Guile
@@ -36482,7 +36482,7 @@ basic idea is that HTML is either text, represented by a string, or an
 element, represented as a tagged list.  So ‘foo’ becomes ‘"foo"’, and
 ‘<b>foo</b>’ becomes ‘(b "foo")’.  Attributes, if present, go in a
 tagged list headed by ‘@’, like ‘(img (@ (src
-"http://example.com/foo.png")))’.  *Note SXML::, for more information.
+"http://example.com/foo.png")))’.  *Note* SXML::, for more information.
 
    The good thing about SXML is that HTML elements cannot be confused
 with text.  Let’s make a new definition of ‘para’:
@@ -36599,7 +36599,7 @@ associated accessors.
      valid string encoding.  Therefore this routine may signal an error
      if the decoded bytes are not valid for the given encoding.  Pass
      ‘#f’ for ENCODING if you want decoded bytes as a bytevector
-     directly.  *Note ‘set-port-encoding!’: Ports, for more information
+     directly.  *Note* ‘set-port-encoding!’: Ports, for more information
      on character encodings.
 
      If DECODE-PLUS-TO-SPACE? is true, which is the default, also
@@ -36635,7 +36635,7 @@ associated accessors.
      For example, the list ‘("scrambled eggs" "biscuits&gravy")’ encodes
      as ‘"scrambled%20eggs/biscuits%26gravy"’.
 
-Subtypes of URI
+### Subtypes of URI
 ...............
 
 As we noted above, not all URI objects have a scheme.  You might have
@@ -36699,7 +36699,7 @@ types by providing a number of low-level parsers and unparsers for
 elements of the HTTP protocol.
 
    If you are want to skip the low-level details for now and move on to
-web pages, *note Web Client::, and *note Web Server::.  Otherwise, load
+web pages, *note* Web Client::, and *note* Web Server::.  Otherwise, load
 the HTTP module, and read on.
 
      (use-modules (web http))
@@ -36707,7 +36707,7 @@ the HTTP module, and read on.
    The focus of the ‘(web http)’ module is to parse and unparse standard
 HTTP headers, representing them to Guile as native data structures.  For
 example, a ‘Date:’ header will be represented as a SRFI-19 date record
-(*note SRFI-19::), rather than as a string.
+(*note* SRFI-19::), rather than as a string.
 
    Guile tries to follow RFCs fairly strictly—the road to perdition
 being paved with compatibility hacks—though some allowances are made for
@@ -36758,7 +36758,7 @@ string name is simply its symbol name in title-case.
      port.  The default writer is ‘display’.
 
    For more on the set of headers that Guile knows about out of the box,
-*note HTTP Headers::.  To add your own, use the ‘declare-header!’
+*note* HTTP Headers::.  To add your own, use the ‘declare-header!’
 procedure:
 
  -- Scheme Procedure: declare-header! name parser validator writer
@@ -36877,7 +36877,7 @@ of the each header’s purpose and an example follow.
    For full details on the meanings of all of these headers, see the
 HTTP 1.1 standard, RFC 2616.
 
-7.3.4.1 HTTP Header Types
+### 7.3.4.1 HTTP Header Types
 .........................
 
 Here we define the types that are used below, when defining headers.
@@ -36913,7 +36913,7 @@ Here we define the types that are used below, when defining headers.
      opaque string, and the cdr is ‘#t’ if the entity tag is a “strong”
      entity tag, and ‘#f’ otherwise.
 
-7.3.4.2 General Headers
+### 7.3.4.2 General Headers
 .......................
 
 General HTTP headers may be present in any HTTP message.
@@ -36989,7 +36989,7 @@ General HTTP headers may be present in any HTTP message.
           (parse-header 'warning "123 foo \"core breach imminent\"")
           ⇒ ((123 "foo" "core-breach imminent" #f))
 
-7.3.4.3 Entity Headers
+### 7.3.4.3 Entity Headers
 ......................
 
 Entity headers may be present in any HTTP message, and refer to the
@@ -37059,7 +37059,7 @@ resource referenced in the HTTP request or response.
           (parse-header 'expires "Tue, 15 Nov 1994 08:12:31 GMT")
           ⇒ #<date ...>
 
-7.3.4.4 Request Headers
+### 7.3.4.4 Request Headers
 .......................
 
 Request headers may only appear in an HTTP request, not in a response.
@@ -37195,7 +37195,7 @@ Request headers may only appear in an HTTP request, not in a response.
           (parse-header 'user-agent "Mozilla/5.0")
           ⇒ "Mozilla/5.0"
 
-7.3.4.5 Response Headers
+### 7.3.4.5 Response Headers
 ........................
 
  -- HTTP Header: List accept-ranges
@@ -37327,7 +37327,7 @@ File: guile.info,  Node: Requests,  Next: Responses,  Prev: Transfer Codings,  U
 
    The request module contains a data type for HTTP requests.
 
-7.3.6.1 An Important Note on Character Sets
+### 7.3.6.1 An Important Note on Character Sets
 ...........................................
 
 HTTP requests consist of two parts: the request proper, consisting of a
@@ -37355,7 +37355,7 @@ bytevector is written out to the port.
    In summary, Guile reads and writes HTTP over latin-1 sockets, without
 any loss of generality.
 
-7.3.6.2 Request API
+### 7.3.6.2 Request API
 ...................
 
  -- Scheme Procedure: request? obj
@@ -37377,7 +37377,7 @@ any loss of generality.
           The request headers, as an alist of parsed values.
      ‘meta’
           An arbitrary alist of other data, for example information
-          returned in the ‘sockaddr’ from ‘accept’ (*note Network
+          returned in the ‘sockaddr’ from ‘accept’ (*note* Network
           Sockets and Communication::).
      ‘port’
           The port on which to read or write a request body, if any.
@@ -37415,7 +37415,7 @@ any loss of generality.
      request R.
 
    The various headers that are typically associated with HTTP requests
-may be accessed with these dedicated accessors.  *Note HTTP Headers::,
+may be accessed with these dedicated accessors.  *Note* HTTP Headers::,
 for more information on the format of parsed headers.
 
  -- Scheme Procedure: request-accept request [default='()]
@@ -37473,7 +37473,7 @@ File: guile.info,  Node: Responses,  Next: Web Client,  Prev: Requests,  Up: Web
 
      (use-modules (web response))
 
-   As with requests (*note Requests::), Guile offers a data type for
+   As with requests (*note* Requests::), Guile offers a data type for
 HTTP responses.  Again, the body is represented separately from the
 request.
 
@@ -37502,7 +37502,7 @@ request.
 
      As a side effect, sets the encoding on PORT to ISO-8859-1
      (latin-1), so that reading one character reads one byte.  See the
-     discussion of character sets in *note Responses::, for more
+     discussion of character sets in *note* Responses::, for more
      information.
 
  -- Scheme Procedure: build-response [#:version='(1 . 1)] [#:code=200]
@@ -37555,7 +37555,7 @@ request.
 
    As with requests, the various headers that are typically associated
 with HTTP responses may be accessed with these dedicated accessors.
-*Note HTTP Headers::, for more information on the format of parsed
+*Note* HTTP Headers::, for more information on the format of parsed
 headers.
 
  -- Scheme Procedure: response-accept-ranges response [default=#f]
@@ -37609,7 +37609,7 @@ lower-level HTTP, request, and response modules.
      dynamically loads Guile-GnuTLS for HTTPS support.
 
      See the Web site of Guile-GnuTLS
-     (https://gitlab.com/gnutls/guile/), and *note how to install the
+     (https://gitlab.com/gnutls/guile/), and *note* how to install the
      GnuTLS bindings for Guile: (gnutls-guile)Guile Preparations, for
      more information.
 
@@ -37624,7 +37624,7 @@ lower-level HTTP, request, and response modules.
           certificate’s host name does not match the server’s host name,
           and ‘invalid-certificate’ for other causes;
 
-       2. the server’s X.509 certificate (*note GnuTLS Guile reference:
+       2. the server’s X.509 certificate (*note* GnuTLS Guile reference:
           (gnutls-guile)Guile Reference.);
 
        3. the server’s host name (a string);
@@ -37697,7 +37697,7 @@ lower-level HTTP, request, and response modules.
 
      These procedures are variants of ‘http-request’ specialized with a
      specific METHOD argument, and have the same prototype: a URI
-     followed by an optional sequence of keyword arguments.  *Note
+     followed by an optional sequence of keyword arguments.  *Note*
      http-request::, for full documentation on the various keyword
      arguments.
 
@@ -37723,7 +37723,7 @@ lower-level HTTP, request, and response modules.
    ‘http-get’ is useful for making one-off requests to web sites.  If
 you are writing a web spider or some other client that needs to handle a
 number of requests in parallel, it’s better to build an event-driven URL
-fetcher, similar in structure to the web server (*note Web Server::).
+fetcher, similar in structure to the web server (*note* Web Server::).
 
    Another option, good but not as performant, would be to use threads,
 possibly via par-map or futures.
@@ -37897,7 +37897,7 @@ server:
      HTTP request and request body, and returns two or more values, the
      response and response body.
 
-     For examples, skip ahead to the next section, *note Web Examples::.
+     For examples, skip ahead to the next section, *note* Web Examples::.
 
      The response and body will be run through ‘sanitize-response’
      before sending back to the client.
@@ -37936,7 +37936,7 @@ File: guile.info,  Node: Web Examples,  Prev: Web Server,  Up: Web
 
 Well, enough about the tedious internals.  Let’s make a web application!
 
-7.3.10.1 Hello, World!
+### 7.3.10.1 Hello, World!
 ......................
 
 The first program we have to write, of course, is “Hello, World!”.  This
@@ -37967,7 +37967,7 @@ this handler:
 Visit that address in your web browser to test.  If you see the string,
 ‘Hello World!’, sweet!
 
-7.3.10.2 Inspecting the Request
+### 7.3.10.2 Inspecting the Request
 ...............................
 
 The Hello World program above is a general greeter, responding to all
@@ -38028,13 +38028,13 @@ message.  (Note that some popular web browsers won’t show
 server-generated 404 messages, showing their own instead, unless the 404
 message body is long enough.)
 
-7.3.10.3 Higher-Level Interfaces
+### 7.3.10.3 Higher-Level Interfaces
 ................................
 
 The web handler interface is a common baseline that all kinds of Guile
 web applications can use.  You will usually want to build something on
 top of it, however, especially when producing HTML. Here is a simple
-example that builds up HTML output using SXML (*note SXML::).
+example that builds up HTML output using SXML (*note* SXML::).
 
    First, load up the modules:
 
@@ -38107,7 +38107,7 @@ incoming headers in an HTML table.
    Now if you visit any local address in your web browser, we actually
 see some HTML, finally.
 
-7.3.10.4 Conclusion
+### 7.3.10.4 Conclusion
 ...................
 
 Well, this is about as far as Guile’s built-in web support goes, for
@@ -38126,8 +38126,8 @@ File: guile.info,  Node: getopt-long,  Next: SRFI Support,  Prev: Web,  Up: Guil
 
 The ‘(ice-9 getopt-long)’ facility is designed to help parse arguments
 that are passed to Guile programs on the command line, and is modelled
-after the C library’s facility of the same name (*note (libc)Getopt::).
-For a more low-level interface to command-line argument parsing, *Note
+after the C library’s facility of the same name (*note* (libc)Getopt::).
+For a more low-level interface to command-line argument parsing, *Note*
 SRFI-37::.
 
    The ‘(ice-9 getopt-long)’ module exports two procedures:
@@ -38222,7 +38222,7 @@ File: guile.info,  Node: Option Specification,  Next: Command Line Format,  Prev
 7.4.2 How to Write an Option Specification
 ------------------------------------------
 
-An option specification is an association list (*note Association
+An option specification is an association list (*note* Association
 Lists::) with one list element for each supported option.  The key of
 each list element is a symbol that names the option, while the value is
 a list of option properties:
@@ -38525,13 +38525,13 @@ other SRFIs require you to use the appropriate support module
 explicitly.
 
    There are several reasons for this inconsistency.  First, the feature
-checking syntactic form ‘cond-expand’ (*note SRFI-0::) must be available
+checking syntactic form ‘cond-expand’ (*note* SRFI-0::) must be available
 immediately, because it must be there when the user wants to check for
 the Scheme implementation, that is, before she can know that it is safe
 to use ‘use-modules’ to load SRFI support modules.  The second reason is
 that some features defined in SRFIs had been implemented in Guile before
 the developers started to add SRFI implementations as modules (for
-example SRFI-13 (*note SRFI-13::)).  In the future, it is possible that
+example SRFI-13 (*note* SRFI-13::)).  In the future, it is possible that
 SRFIs in the core library might be factored out into separate modules,
 requiring explicit module loading when they are needed.  So you should
 be prepared to have to use ‘use-modules’ someday in the future to access
@@ -38542,7 +38542,7 @@ currently does nothing, but ensures that you can write future-safe code.
    Generally, support for a specific SRFI is made available by using
 modules named ‘(srfi srfi-NUMBER)’, where NUMBER is the number of the
 SRFI needed.  Another possibility is to use the command line option
-‘--use-srfi’, which will load the necessary modules automatically (*note
+‘--use-srfi’, which will load the necessary modules automatically (*note*
 Invoking Guile::).
 
 
@@ -38613,7 +38613,7 @@ The Guile core has the following features,
    Other SRFI feature symbols are defined once their code has been
 loaded with ‘use-modules’, since only then are their bindings available.
 
-   The ‘--use-srfi’ command line option (*note Invoking Guile::) is a
+   The ‘--use-srfi’ command line option (*note* Invoking Guile::) is a
 good way to load SRFIs to satisfy ‘cond-expand’ when running a portable
 program.
 
@@ -38641,7 +38641,7 @@ yet be correctly interpreted on 1.8 and earlier versions:
                            (fluid-set! current-reader my-reader)))
 
    It should be noted that ‘cond-expand’ is separate from the
-‘*features*’ mechanism (*note Feature Tracking::), feature symbols in
+‘*features*’ mechanism (*note* Feature Tracking::), feature symbols in
 one are unrelated to those in the other.
 
 
@@ -38658,8 +38658,8 @@ manipulating lists and pairs.
 in R5RS and thus are supported by the Guile core library, some list and
 pair procedures which appear in the SRFI-1 document may not appear in
 this section.  So when looking for a particular list/pair processing
-procedure, you should also have a look at the sections *note Lists:: and
-*note Pairs::.
+procedure, you should also have a look at the sections *note* Lists:: and
+*note* Pairs::.
 
 * Menu:
 
@@ -38677,7 +38677,7 @@ procedure, you should also have a look at the sections *note Lists:: and
 
 File: guile.info,  Node: SRFI-1 Constructors,  Next: SRFI-1 Predicates,  Up: SRFI-1
 
-7.5.3.1 Constructors
+### 7.5.3.1 Constructors
 ....................
 
 New lists can be constructed by calling one of the following procedures.
@@ -38695,7 +38695,7 @@ New lists can be constructed by calling one of the following procedures.
  -- Scheme Procedure: list-copy lst
      Return a new list containing the elements of the list LST.
 
-     This function differs from the core ‘list-copy’ (*note List
+     This function differs from the core ‘list-copy’ (*note* List
      Constructors::) in accepting improper lists too.  And if LST is not
      a pair at all then it’s treated as the final tail of an improper
      list and simply returned.
@@ -38718,14 +38718,14 @@ New lists can be constructed by calling one of the following procedures.
 
 File: guile.info,  Node: SRFI-1 Predicates,  Next: SRFI-1 Selectors,  Prev: SRFI-1 Constructors,  Up: SRFI-1
 
-7.5.3.2 Predicates
+### 7.5.3.2 Predicates
 ..................
 
 The procedures in this section test specific properties of lists.
 
  -- Scheme Procedure: proper-list? obj
      Return ‘#t’ if OBJ is a proper list, or ‘#f’ otherwise.  This is
-     the same as the core ‘list?’ (*note List Predicates::).
+     the same as the core ‘list?’ (*note* List Predicates::).
 
      A proper list is a list which ends with the empty list ‘()’ in the
      usual way.  The empty list ‘()’ itself is a proper list too.
@@ -38784,7 +38784,7 @@ Non-lists are ‘dotted-list?’, finite lists are either ‘proper-list?’ or
 
 File: guile.info,  Node: SRFI-1 Selectors,  Next: SRFI-1 Length Append etc,  Prev: SRFI-1 Predicates,  Up: SRFI-1
 
-7.5.3.3 Selectors
+### 7.5.3.3 Selectors
 .................
 
  -- Scheme Procedure: first pair
@@ -38843,7 +38843,7 @@ File: guile.info,  Node: SRFI-1 Selectors,  Next: SRFI-1 Length Append etc,  Pre
 
 File: guile.info,  Node: SRFI-1 Length Append etc,  Next: SRFI-1 Fold and Map,  Prev: SRFI-1 Selectors,  Up: SRFI-1
 
-7.5.3.4 Length, Append, Concatenate, etc.
+### 7.5.3.4 Length, Append, Concatenate, etc.
 .........................................
 
  -- Scheme Procedure: length+ lst
@@ -38904,7 +38904,7 @@ File: guile.info,  Node: SRFI-1 Length Append etc,  Next: SRFI-1 Fold and Map,  
 
 File: guile.info,  Node: SRFI-1 Fold and Map,  Next: SRFI-1 Filtering and Partitioning,  Prev: SRFI-1 Length Append etc,  Up: SRFI-1
 
-7.5.3.5 Fold, Unfold & Map
+### 7.5.3.5 Fold, Unfold & Map
 ..........................
 
  -- Scheme Procedure: fold proc init lst1 lst2 ...
@@ -39117,7 +39117,7 @@ File: guile.info,  Node: SRFI-1 Fold and Map,  Next: SRFI-1 Filtering and Partit
 
 File: guile.info,  Node: SRFI-1 Filtering and Partitioning,  Next: SRFI-1 Searching,  Prev: SRFI-1 Fold and Map,  Up: SRFI-1
 
-7.5.3.6 Filtering and Partitioning
+### 7.5.3.6 Filtering and Partitioning
 ..................................
 
 Filtering means to collect all elements from a list which satisfy a
@@ -39126,14 +39126,14 @@ list elements, one which contains the elements satisfying a condition,
 and the other for the elements which don’t.
 
    The ‘filter’ and ‘filter!’ functions are implemented in the Guile
-core, *Note List Modification::.
+core, *Note* List Modification::.
 
  -- Scheme Procedure: partition pred lst
  -- Scheme Procedure: partition! pred lst
      Split LST into those elements which do and don’t satisfy the
      predicate PRED.
 
-     The return is two values (*note Multiple Values::), the first being
+     The return is two values (*note* Multiple Values::), the first being
      a list of all elements from LST which satisfy PRED, the second a
      list of those which do not.
 
@@ -39158,7 +39158,7 @@ core, *Note List Modification::.
 
 File: guile.info,  Node: SRFI-1 Searching,  Next: SRFI-1 Deleting,  Prev: SRFI-1 Filtering and Partitioning,  Up: SRFI-1
 
-7.5.3.7 Searching
+### 7.5.3.7 Searching
 .................
 
 The procedures for searching elements in lists either accept a predicate
@@ -39197,7 +39197,7 @@ searched.
      structure of the input list LST in order to produce the result.
 
      Note that the name ‘break’ conflicts with the ‘break’ binding
-     established by ‘while’ (*note while do::).  Applications wanting to
+     established by ‘while’ (*note* while do::).  Applications wanting to
      use ‘break’ from within a ‘while’ loop will need to make a new
      define under a different name.
 
@@ -39255,13 +39255,13 @@ searched.
 
           (member 5 '(3 5 1 7 2 9) <) ⇒ (7 2 9)
 
-     This version of ‘member’ extends the core ‘member’ (*note List
+     This version of ‘member’ extends the core ‘member’ (*note* List
      Searching::) by accepting an equality predicate.
 
 
 File: guile.info,  Node: SRFI-1 Deleting,  Next: SRFI-1 Association Lists,  Prev: SRFI-1 Searching,  Up: SRFI-1
 
-7.5.3.8 Deleting
+### 7.5.3.8 Deleting
 ................
 
  -- Scheme Procedure: delete x lst [=]
@@ -39283,9 +39283,9 @@ File: guile.info,  Node: SRFI-1 Deleting,  Next: SRFI-1 Association Lists,  Prev
      tail with LST.  ‘delete!’ may modify the structure of LST to
      construct its return.
 
-     These functions extend the core ‘delete’ and ‘delete!’ (*note List
+     These functions extend the core ‘delete’ and ‘delete!’ (*note* List
      Modification::) in accepting an equality predicate.  See also
-     ‘lset-difference’ (*note SRFI-1 Set Operations::) for deleting
+     ‘lset-difference’ (*note* SRFI-1 Set Operations::) for deleting
      multiple elements from a list.
 
  -- Scheme Procedure: delete-duplicates lst [=]
@@ -39315,16 +39315,16 @@ File: guile.info,  Node: SRFI-1 Deleting,  Next: SRFI-1 Association Lists,  Prev
 
 File: guile.info,  Node: SRFI-1 Association Lists,  Next: SRFI-1 Set Operations,  Prev: SRFI-1 Deleting,  Up: SRFI-1
 
-7.5.3.9 Association Lists
+### 7.5.3.9 Association Lists
 .........................
 
-Association lists are described in detail in section *note Association
+Association lists are described in detail in section *note* Association
 Lists::.  The present section only documents the additional procedures
 for dealing with association lists defined by SRFI-1.
 
  -- Scheme Procedure: assoc key alist [=]
      Return the pair from ALIST which matches KEY.  This extends the
-     core ‘assoc’ (*note Retrieving Alist Entries::) by taking an
+     core ‘assoc’ (*note* Retrieving Alist Entries::) by taking an
      optional = comparison procedure.
 
      The default comparison is ‘equal?’.  If an = parameter is given
@@ -39342,7 +39342,7 @@ for dealing with association lists defined by SRFI-1.
 
           (cons (cons KEY DATUM) ALIST)
 
-     ‘acons’ (*note Adding or Setting Alist Entries::) in the Guile core
+     ‘acons’ (*note* Adding or Setting Alist Entries::) in the Guile core
      does the same thing.
 
  -- Scheme Procedure: alist-copy alist
@@ -39369,7 +39369,7 @@ for dealing with association lists defined by SRFI-1.
 
 File: guile.info,  Node: SRFI-1 Set Operations,  Prev: SRFI-1 Association Lists,  Up: SRFI-1
 
-7.5.3.10 Set Operations on Lists
+### 7.5.3.10 Set Operations on Lists
 ................................
 
 Lists can be used to represent sets of objects.  The procedures in this
@@ -39377,12 +39377,12 @@ section operate on such lists as sets.
 
    Note that lists are not an efficient way to implement large sets.
 The procedures here typically take time MxN when operating on M and N
-element lists.  Other data structures like trees, bitsets (*note Bit
-Vectors::) or hash tables (*note Hash Tables::) are faster.
+element lists.  Other data structures like trees, bitsets (*note* Bit
+Vectors::) or hash tables (*note* Hash Tables::) are faster.
 
    All these procedures take an equality predicate as the first
 argument.  This predicate is used for testing the objects in the list
-sets for sameness.  This predicate must be consistent with ‘eq?’ (*note
+sets for sameness.  This predicate must be consistent with ‘eq?’ (*note*
 Equality::) in the sense that if two list elements are ‘eq?’ then they
 must also be equal under the predicate.  This simply means a given
 object must be equal to itself.
@@ -39503,7 +39503,7 @@ object must be equal to itself.
 
  -- Scheme Procedure: lset-diff+intersection = list1 list2 ...
  -- Scheme Procedure: lset-diff+intersection! = list1 list2 ...
-     Return two values (*note Multiple Values::), the difference and
+     Return two values (*note* Multiple Values::), the difference and
      intersection of the argument lists as per ‘lset-difference’ and
      ‘lset-intersection’ above.
 
@@ -39633,7 +39633,7 @@ functions at any time.  Would that C had modules!)
 
 File: guile.info,  Node: SRFI-4 Overview,  Next: SRFI-4 API,  Up: SRFI-4
 
-7.5.5.1 SRFI-4 - Overview
+### 7.5.5.1 SRFI-4 - Overview
 .........................
 
 Uniform numeric vectors can be useful since they consume less memory
@@ -39717,7 +39717,7 @@ clear, so this is rarely a problem.
 
 File: guile.info,  Node: SRFI-4 API,  Next: SRFI-4 and Bytevectors,  Prev: SRFI-4 Overview,  Up: SRFI-4
 
-7.5.5.2 SRFI-4 - API
+### 7.5.5.2 SRFI-4 - API
 ....................
 
 Note that the c32 and c64 functions are only available from (srfi srfi-4
@@ -39995,7 +39995,7 @@ gnu).
           scm_t_array_handle *handle, size_t *lenp, ssize_t *incp)
  -- C Function: const double * scm_c64vector_elements (SCM vec,
           scm_t_array_handle *handle, size_t *lenp, ssize_t *incp)
-     Like ‘scm_vector_elements’ (*note Vector Accessing from C::), but
+     Like ‘scm_vector_elements’ (*note* Vector Accessing from C::), but
      returns a pointer to the elements of a uniform numeric vector of
      the indicated kind.
 
@@ -40023,17 +40023,17 @@ gnu).
           scm_t_array_handle *handle, size_t *lenp, ssize_t *incp)
  -- C Function: double * scm_c64vector_writable_elements (SCM vec,
           scm_t_array_handle *handle, size_t *lenp, ssize_t *incp)
-     Like ‘scm_vector_writable_elements’ (*note Vector Accessing from
+     Like ‘scm_vector_writable_elements’ (*note* Vector Accessing from
      C::), but returns a pointer to the elements of a uniform numeric
      vector of the indicated kind.
 
 
 File: guile.info,  Node: SRFI-4 and Bytevectors,  Next: SRFI-4 Extensions,  Prev: SRFI-4 API,  Up: SRFI-4
 
-7.5.5.3 SRFI-4 - Relation to bytevectors
+### 7.5.5.3 SRFI-4 - Relation to bytevectors
 ........................................
 
-Guile implements SRFI-4 vectors using bytevectors (*note Bytevectors::).
+Guile implements SRFI-4 vectors using bytevectors (*note* Bytevectors::).
 Often when you have a numeric vector, you end up wanting to write its
 bytes somewhere, or have access to the underlying bytes, or read in
 bytes from somewhere else.  Bytevectors are very good at this sort of
@@ -40053,12 +40053,12 @@ the same to Guile.
    In this way, uniform numeric vectors may be written to and read from
 input/output ports using the procedures that operate on bytevectors.
 
-   *Note Bytevectors::, for more information.
+   *Note* Bytevectors::, for more information.
 
 
 File: guile.info,  Node: SRFI-4 Extensions,  Prev: SRFI-4 and Bytevectors,  Up: SRFI-4
 
-7.5.5.4 SRFI-4 - Guile extensions
+### 7.5.5.4 SRFI-4 - Guile extensions
 .................................
 
 Guile defines some useful extensions to SRFI-4, which are not available
@@ -40122,7 +40122,7 @@ extensions module:
      source is first copied into a temporary vector and then into the
      destination.
 
-     See also *note ‘vector-copy!’: x-vector-copy!.
+     See also *note* ‘vector-copy!’: x-vector-copy!.
 
  -- Scheme Procedure: u8vector-copy src [start [end]]
  -- Scheme Procedure: s8vector-copy src [start [end]]
@@ -40141,7 +40141,7 @@ extensions module:
      between START and END.  START defaults to 0 and END defaults to the
      length of SRC.
 
-     See also *note ‘vector-copy’: x-vector-copy.
+     See also *note* ‘vector-copy’: x-vector-copy.
 
 
 File: guile.info,  Node: SRFI-6,  Next: SRFI-8,  Prev: SRFI-4,  Up: SRFI Support
@@ -40163,7 +40163,7 @@ File: guile.info,  Node: SRFI-8,  Next: SRFI-9,  Prev: SRFI-6,  Up: SRFI Support
 ----------------------
 
 ‘receive’ is a syntax for making the handling of multiple-value
-procedures easier.  It is documented in *Note Multiple Values::.
+procedures easier.  It is documented in *Note* Multiple Values::.
 
 
 File: guile.info,  Node: SRFI-9,  Next: SRFI-10,  Prev: SRFI-8,  Up: SRFI Support
@@ -40173,7 +40173,7 @@ File: guile.info,  Node: SRFI-9,  Next: SRFI-10,  Prev: SRFI-8,  Up: SRFI Suppor
 
 This SRFI is a syntax for defining new record types and creating
 predicate, constructor, and field getter and setter functions.  It is
-documented in the “Data Types” section of the manual (*note SRFI-9
+documented in the “Data Types” section of the manual (*note* SRFI-9
 Records::).
 
 
@@ -40240,12 +40240,12 @@ part of a program can thus affect unrelated parts of a program because
 the tag is not scoped.
 
    Secondly, reader extensions can be hard to manage from a time
-perspective: when does the reader extension take effect?  *Note Eval
+perspective: when does the reader extension take effect?  *Note* Eval
 When::, for more discussion.
 
    Finally, reader extensions can easily produce objects that can’t be
 reified to an object file by the compiler.  For example if you define a
-reader extension that makes a hash table (*note Hash Tables::), then it
+reader extension that makes a hash table (*note* Hash Tables::), then it
 will work fine when run with the interpreter, and you think you have a
 neat hack.  But then if you try to compile your program, after wrangling
 with the ‘eval-when’ concerns mentioned above, the compiler will carp
@@ -40265,7 +40265,7 @@ Macros fulfill many of the same needs while preserving modular
 composition, and their interaction with ‘eval-when’ is well-known.  If
 you need brevity, instead use ‘read-hash-extend’ and make your reader
 extension expand to a macro invocation.  In that way we preserve scoping
-as much as possible.  *Note Reader Extensions::.
+as much as possible.  *Note* Reader Extensions::.
 
 
 File: guile.info,  Node: SRFI-11,  Next: SRFI-13,  Prev: SRFI-10,  Up: SRFI Support
@@ -40275,7 +40275,7 @@ File: guile.info,  Node: SRFI-11,  Next: SRFI-13,  Prev: SRFI-10,  Up: SRFI Supp
 
 This module implements the binding forms for multiple values
 ‘let-values’ and ‘let*-values’.  These forms are similar to ‘let’ and
-‘let*’ (*note Local Bindings::), but they support binding of the values
+‘let*’ (*note* Local Bindings::), but they support binding of the values
 returned by multiple-valued expressions.
 
    Write ‘(use-modules (srfi srfi-11))’ to make the bindings available.
@@ -40298,7 +40298,7 @@ File: guile.info,  Node: SRFI-13,  Next: SRFI-14,  Prev: SRFI-11,  Up: SRFI Supp
 7.5.11 SRFI-13 - String Library
 -------------------------------
 
-The SRFI-13 procedures are always available, *Note Strings::.
+The SRFI-13 procedures are always available, *Note* Strings::.
 
 
 File: guile.info,  Node: SRFI-14,  Next: SRFI-16,  Prev: SRFI-13,  Up: SRFI Support
@@ -40306,7 +40306,7 @@ File: guile.info,  Node: SRFI-14,  Next: SRFI-16,  Prev: SRFI-13,  Up: SRFI Supp
 7.5.12 SRFI-14 - Character-set Library
 --------------------------------------
 
-The SRFI-14 data type and procedures are always available, *Note
+The SRFI-14 data type and procedures are always available, *Note*
 Character Sets::.
 
 
@@ -40316,7 +40316,7 @@ File: guile.info,  Node: SRFI-16,  Next: SRFI-17,  Prev: SRFI-14,  Up: SRFI Supp
 ----------------------------
 
 SRFI-16 defines a variable-arity ‘lambda’ form, ‘case-lambda’.  This
-form is available in the default Guile environment.  *Note
+form is available in the default Guile environment.  *Note*
 Case-lambda::, for more information.
 
 
@@ -40344,7 +40344,7 @@ which may be either fetched or stored.  The same form is used for the
 location in both cases, encouraging visual clarity.  This is similar to
 the idea of an “lvalue” in C.
 
-   The mechanism for this kind of ‘set!’ is in the Guile core (*note
+   The mechanism for this kind of ‘set!’ is in the Guile core (*note*
 Procedures with Setters::).  This module adds definitions of the
 following functions as procedures with setters, allowing them to be
 targets of a ‘set!’,
@@ -40356,14 +40356,14 @@ targets of a ‘set!’,
 
      string-ref, vector-ref
 
-   The SRFI specifies ‘setter’ (*note Procedures with Setters::) as a
+   The SRFI specifies ‘setter’ (*note* Procedures with Setters::) as a
 procedure with setter, allowing the setter for a procedure to be
 changed, eg. ‘(set! (setter foo) my-new-setter-handler)’.  Currently
 Guile does not implement this, a setter can only be specified on
 creation (‘getter-with-setter’ below).
 
  -- Function: getter-with-setter
-     The same as the Guile core ‘make-procedure-with-setter’ (*note
+     The same as the Guile core ‘make-procedure-with-setter’ (*note*
      Procedures with Setters::).
 
 
@@ -40396,7 +40396,7 @@ built in terms of those primitives.
 
 File: guile.info,  Node: SRFI-18 Threads,  Next: SRFI-18 Mutexes,  Up: SRFI-18
 
-7.5.15.1 SRFI-18 Threads
+### 7.5.15.1 SRFI-18 Threads
 ........................
 
 Threads created by SRFI-18 differ in two ways from threads created by
@@ -40406,17 +40406,17 @@ until ‘thread-start!’ is called on it.  Second, SRFI-18 threads are
 constructed with a top-level exception handler that captures any
 exceptions that are thrown on thread exit.
 
-   SRFI-18 threads are disjoint from Guile’s primitive threads.  *Note
+   SRFI-18 threads are disjoint from Guile’s primitive threads.  *Note*
 Threads::, for more on Guile’s primitive facility.
 
  -- Function: current-thread
      Returns the thread that called this function.  This is the same
      procedure as the same-named built-in procedure ‘current-thread’
-     (*note Threads::).
+     (*note* Threads::).
 
  -- Function: thread? obj
      Returns ‘#t’ if OBJ is a thread, ‘#f’ otherwise.  This is the same
-     procedure as the same-named built-in procedure ‘thread?’ (*note
+     procedure as the same-named built-in procedure ‘thread?’ (*note*
      Threads::).
 
  -- Function: make-thread thunk [name]
@@ -40450,7 +40450,7 @@ Threads::, for more on Guile’s primitive facility.
 
  -- Function: thread-sleep! timeout
      The current thread waits until the point specified by the time
-     object TIMEOUT is reached (*note SRFI-18 Time::).  This blocks the
+     object TIMEOUT is reached (*note* SRFI-18 Time::).  This blocks the
      thread only if TIMEOUT represents a point in the future.  it is an
      error for TIMEOUT to be ‘#f’.
 
@@ -40464,7 +40464,7 @@ Threads::, for more on Guile’s primitive facility.
      will cause a “terminated thread exception” to be raised.
 
      ‘thread-terminate!’ is compatible with the thread cancellation
-     procedures in the core threads API (*note Threads::) in that if a
+     procedures in the core threads API (*note* Threads::) in that if a
      cleanup handler has been installed for the target thread, it will
      be called before the thread exits and its return value (or
      exception, if any) will be stored for later retrieval via a call to
@@ -40475,7 +40475,7 @@ Threads::, for more on Guile’s primitive facility.
      time value TIMEOUT is given, it specifies a point in time where the
      waiting should be aborted.  When the waiting is aborted,
      TIMEOUT-VAL is returned if it is specified; otherwise, a
-     ‘join-timeout-exception’ exception is raised (*note SRFI-18
+     ‘join-timeout-exception’ exception is raised (*note* SRFI-18
      Exceptions::).  Exceptions may also be raised if the thread was
      terminated by a call to ‘thread-terminate!’
      (‘terminated-thread-exception’ will be raised) or if the thread
@@ -40487,10 +40487,10 @@ Threads::, for more on Guile’s primitive facility.
 
 File: guile.info,  Node: SRFI-18 Mutexes,  Next: SRFI-18 Condition variables,  Prev: SRFI-18 Threads,  Up: SRFI-18
 
-7.5.15.2 SRFI-18 Mutexes
+### 7.5.15.2 SRFI-18 Mutexes
 ........................
 
-SRFI-18 mutexes are disjoint from Guile’s primitive mutexes.  *Note
+SRFI-18 mutexes are disjoint from Guile’s primitive mutexes.  *Note*
 Mutexes and Condition Variables::, for more on Guile’s primitive
 facility.
 
@@ -40534,7 +40534,7 @@ facility.
 
 File: guile.info,  Node: SRFI-18 Condition variables,  Next: SRFI-18 Time,  Prev: SRFI-18 Mutexes,  Up: SRFI-18
 
-7.5.15.3 SRFI-18 Condition variables
+### 7.5.15.3 SRFI-18 Condition variables
 ....................................
 
 SRFI-18 does not specify a “wait” function for condition variables.
@@ -40542,7 +40542,7 @@ Waiting on a condition variable can be simulated using the SRFI-18
 ‘mutex-unlock!’ function described in the previous section.
 
    SRFI-18 condition variables are disjoint from Guile’s primitive
-condition variables.  *Note Mutexes and Condition Variables::, for more
+condition variables.  *Note* Mutexes and Condition Variables::, for more
 on Guile’s primitive facility.
 
  -- Function: condition-variable? obj
@@ -40572,7 +40572,7 @@ on Guile’s primitive facility.
 
 File: guile.info,  Node: SRFI-18 Time,  Next: SRFI-18 Exceptions,  Prev: SRFI-18 Condition variables,  Up: SRFI-18
 
-7.5.15.4 SRFI-18 Time
+### 7.5.15.4 SRFI-18 Time
 .....................
 
 The SRFI-18 time functions manipulate time in two formats: a “time
@@ -40601,7 +40601,7 @@ epoch, 00:00:00 UTC, January 1, 1970.
 
 File: guile.info,  Node: SRFI-18 Exceptions,  Prev: SRFI-18 Time,  Up: SRFI-18
 
-7.5.15.5 SRFI-18 Exceptions
+### 7.5.15.5 SRFI-18 Exceptions
 ...........................
 
 SRFI-18 exceptions are identical to the exceptions provided by Guile’s
@@ -40677,7 +40677,7 @@ functions and variables described here are provided by
 
 File: guile.info,  Node: SRFI-19 Introduction,  Next: SRFI-19 Time,  Up: SRFI-19
 
-7.5.16.1 SRFI-19 Introduction
+### 7.5.16.1 SRFI-19 Introduction
 .............................
 
 This module implements time and date representations and calculations,
@@ -40715,7 +40715,7 @@ November AD 1858.  That time is julian day 2400000.5.
 
 File: guile.info,  Node: SRFI-19 Time,  Next: SRFI-19 Date,  Prev: SRFI-19 Introduction,  Up: SRFI-19
 
-7.5.16.2 SRFI-19 Time
+### 7.5.16.2 SRFI-19 Time
 .....................
 
 A “time” object has type, seconds and nanoseconds fields representing a
@@ -40768,7 +40768,7 @@ nanoseconds, the actual resolution may be lower.
      object.
 
      ‘set-time-type!’ merely changes the field, it doesn’t convert the
-     time value.  For conversions, see *note SRFI-19 Time/Date
+     time value.  For conversions, see *note* SRFI-19 Time/Date
      conversions::.
 
  -- Function: copy-time time
@@ -40779,8 +40779,8 @@ nanoseconds, the actual resolution may be lower.
      ‘time-utc’.
 
      Note that the name ‘current-time’ conflicts with the Guile core
-     ‘current-time’ function (*note Time::) as well as the SRFI-18
-     ‘current-time’ function (*note SRFI-18 Time::).  Applications
+     ‘current-time’ function (*note* Time::) as well as the SRFI-18
+     ‘current-time’ function (*note* SRFI-18 Time::).  Applications
      wanting to use more than one of these functions will need to refer
      to them by different names.
 
@@ -40819,7 +40819,7 @@ nanoseconds, the actual resolution may be lower.
 
 File: guile.info,  Node: SRFI-19 Date,  Next: SRFI-19 Time/Date conversions,  Prev: SRFI-19 Time,  Up: SRFI-19
 
-7.5.16.3 SRFI-19 Date
+### 7.5.16.3 SRFI-19 Date
 .....................
 
 A “date” object represents a date in the Gregorian calendar and a time
@@ -40899,7 +40899,7 @@ convert where necessary.
 
 File: guile.info,  Node: SRFI-19 Time/Date conversions,  Next: SRFI-19 Date to string,  Prev: SRFI-19 Date,  Up: SRFI-19
 
-7.5.16.4 SRFI-19 Time/Date conversions
+### 7.5.16.4 SRFI-19 Time/Date conversions
 ......................................
 
  -- Function: date->julian-day date
@@ -40944,7 +40944,7 @@ File: guile.info,  Node: SRFI-19 Time/Date conversions,  Next: SRFI-19 Date to s
 
      For conversions to dates, TZ-OFFSET is seconds east of Greenwich.
      The default is the local timezone, at the given time, as provided
-     by the system, using ‘localtime’ (*note Time::).
+     by the system, using ‘localtime’ (*note* Time::).
 
      On 32-bit systems, ‘localtime’ is limited to a 32-bit ‘time_t’, so
      a default TZ-OFFSET is only available for times between Dec 1901
@@ -40960,7 +40960,7 @@ File: guile.info,  Node: SRFI-19 Time/Date conversions,  Next: SRFI-19 Date to s
 
 File: guile.info,  Node: SRFI-19 Date to string,  Next: SRFI-19 String to date,  Prev: SRFI-19 Time/Date conversions,  Up: SRFI-19
 
-7.5.16.5 SRFI-19 Date to string
+### 7.5.16.5 SRFI-19 Date to string
 ...............................
 
  -- Function: date->string date [format]
@@ -40970,7 +40970,7 @@ File: guile.info,  Node: SRFI-19 Date to string,  Next: SRFI-19 String to date, 
      a locale-dependent date and time.
 
      Many of these conversion characters are the same as POSIX
-     ‘strftime’ (*note Time::), but there are some extras and some
+     ‘strftime’ (*note* Time::), but there are some extras and some
      variations.
 
      ~~     literal ~
@@ -41024,14 +41024,14 @@ File: guile.info,  Node: SRFI-19 Date to string,  Next: SRFI-19 String to date, 
    Conversions ‘~D’, ‘~x’ and ‘~X’ are not currently described here,
 since the specification and reference implementation differ.
 
-   Conversion is locale-dependent on systems that support it (*note
-Accessing Locale Information::).  *Note ‘setlocale’: Locales, for
+   Conversion is locale-dependent on systems that support it (*note*
+Accessing Locale Information::).  *Note* ‘setlocale’: Locales, for
 information on how to change the current locale.
 
 
 File: guile.info,  Node: SRFI-19 String to date,  Prev: SRFI-19 Date to string,  Up: SRFI-19
 
-7.5.16.6 SRFI-19 String to date
+### 7.5.16.6 SRFI-19 String to date
 ...............................
 
  -- Function: string->date input template
@@ -41089,8 +41089,8 @@ File: guile.info,  Node: SRFI-19 String to date,  Prev: SRFI-19 Date to string, 
      returned, instead the weekday will be derived from the day, month
      and year.
 
-     Conversion is locale-dependent on systems that support it (*note
-     Accessing Locale Information::).  *Note ‘setlocale’: Locales, for
+     Conversion is locale-dependent on systems that support it (*note*
+     Accessing Locale Information::).  *Note* ‘setlocale’: Locales, for
      information on how to change the current locale.
 
 
@@ -41198,7 +41198,7 @@ Egner.
 
    This SRFI provides access to a (pseudo) random number generator; for
 Guile’s built-in random number facilities, which SRFI-27 is implemented
-upon, *Note Random::.  With SRFI-27, random numbers are obtained from a
+upon, *Note* Random::.  With SRFI-27, random numbers are obtained from a
 _random source_, which encapsulates a random number generation algorithm
 and its state.
 
@@ -41211,7 +41211,7 @@ and its state.
 
 File: guile.info,  Node: SRFI-27 Default Random Source,  Next: SRFI-27 Random Sources,  Up: SRFI-27
 
-7.5.19.1 The Default Random Source
+### 7.5.19.1 The Default Random Source
 ..................................
 
  -- Function: random-integer n
@@ -41226,7 +41226,7 @@ File: guile.info,  Node: SRFI-27 Default Random Source,  Next: SRFI-27 Random So
  -- Function: default-random-source
      A random source from which ‘random-integer’ and ‘random-real’ have
      been derived using ‘random-source-make-integers’ and
-     ‘random-source-make-reals’ (*note SRFI-27 Random Number
+     ‘random-source-make-reals’ (*note* SRFI-27 Random Number
      Generators:: for those procedures).  Note that an assignment to
      ‘default-random-source’ does not change ‘random-integer’ or
      ‘random-real’; it is also strongly recommended not to assign a new
@@ -41235,7 +41235,7 @@ File: guile.info,  Node: SRFI-27 Default Random Source,  Next: SRFI-27 Random So
 
 File: guile.info,  Node: SRFI-27 Random Sources,  Next: SRFI-27 Random Number Generators,  Prev: SRFI-27 Default Random Source,  Up: SRFI-27
 
-7.5.19.2 Random Sources
+### 7.5.19.2 Random Sources
 .......................
 
  -- Function: make-random-source
@@ -41275,7 +41275,7 @@ reinstated with the following procedures:
 
 File: guile.info,  Node: SRFI-27 Random Number Generators,  Prev: SRFI-27 Random Sources,  Up: SRFI-27
 
-7.5.19.3 Obtaining random number generator procedures
+### 7.5.19.3 Obtaining random number generator procedures
 .....................................................
 
  -- Function: random-source-make-integers source
@@ -41349,7 +41349,7 @@ by using:
      ‘~~’
           Insert a tilde.
 
-     This procedure is the same as calling ‘simple-format’ (*note Simple
+     This procedure is the same as calling ‘simple-format’ (*note* Simple
      Output::) with ‘#f’ as the destination.
 
 
@@ -41359,7 +41359,7 @@ File: guile.info,  Node: SRFI-30,  Next: SRFI-31,  Prev: SRFI-28,  Up: SRFI Supp
 -------------------------------------------
 
 Starting from version 2.0, Guile’s ‘read’ supports SRFI-30/R6RS nested
-multi-line comments by default, *note Block Comments::.
+multi-line comments by default, *note* Block Comments::.
 
 
 File: guile.info,  Node: SRFI-31,  Next: SRFI-34,  Prev: SRFI-30,  Up: SRFI Support
@@ -41397,12 +41397,12 @@ File: guile.info,  Node: SRFI-34,  Next: SRFI-35,  Prev: SRFI-31,  Up: SRFI Supp
 
 Guile provides an implementation of SRFI-34’s exception handling
 mechanisms (http://srfi.schemers.org/srfi-34/srfi-34.html) as an
-alternative to its own built-in mechanisms (*note Exceptions::).  It can
+alternative to its own built-in mechanisms (*note* Exceptions::).  It can
 be made available as follows:
 
      (use-modules (srfi srfi-34))
 
-   *Note Raising and Handling Exceptions::, for more on
+   *Note* Raising and Handling Exceptions::, for more on
 ‘with-exception-handler’ and ‘raise’ (known as ‘raise-exception’ in core
 Guile).
 
@@ -41564,7 +41564,7 @@ conditions.
      Return true if C is of type ‘&error’ or one of its subtypes.
 
    As an implementation note, condition objects in Guile are the same as
-“exception objects”.  *Note Exception Objects::.  The ‘&condition’,
+“exception objects”.  *Note* Exception Objects::.  The ‘&condition’,
 ‘&serious’, and ‘&error’ condition types are known in core Guile as
 ‘&exception’, ‘&error’, and ‘&external-error’, respectively.
 
@@ -41576,7 +41576,7 @@ File: guile.info,  Node: SRFI-37,  Next: SRFI-38,  Prev: SRFI-35,  Up: SRFI Supp
 
 This is a processor for GNU ‘getopt_long’-style program arguments.  It
 provides an alternative, less declarative interface than ‘getopt-long’
-in ‘(ice-9 getopt-long)’ (*note The (ice-9 getopt-long) Module:
+in ‘(ice-9 getopt-long)’ (*note* The (ice-9 getopt-long) Module:
 getopt-long.).  Unlike ‘getopt-long’, it supports repeated options and
 any number of short and long names per option.  Access it with:
 
@@ -41749,11 +41749,11 @@ File: guile.info,  Node: SRFI-39,  Next: SRFI-41,  Prev: SRFI-38,  Up: SRFI Supp
 
 This SRFI adds support for dynamically-scoped parameters.  SRFI 39 is
 implemented in the Guile core; there’s no module needed to get SRFI-39
-itself.  Parameters are documented in *note Parameters::.
+itself.  Parameters are documented in *note* Parameters::.
 
    This module does export one extra function: ‘with-parameters*’.  This
 is a Guile-specific addition to the SRFI, similar to the core
-‘with-fluids*’ (*note Fluids and Dynamic States::).
+‘with-fluids*’ (*note* Fluids and Dynamic States::).
 
  -- Function: with-parameters* param-list value-list thunk
      Establish a new dynamic scope, as per ‘parameterize’ above, taking
@@ -41788,7 +41788,7 @@ again.  SRFI-41 can be made available with:
 
 File: guile.info,  Node: SRFI-41 Stream Fundamentals,  Next: SRFI-41 Stream Primitives,  Up: SRFI-41
 
-7.5.28.1 SRFI-41 Stream Fundamentals
+### 7.5.28.1 SRFI-41 Stream Fundamentals
 ....................................
 
 SRFI-41 Streams are based on two mutually-recursive abstract data types:
@@ -41810,7 +41810,7 @@ forced on demand.
 
 File: guile.info,  Node: SRFI-41 Stream Primitives,  Next: SRFI-41 Stream Library,  Prev: SRFI-41 Stream Fundamentals,  Up: SRFI-41
 
-7.5.28.2 SRFI-41 Stream Primitives
+### 7.5.28.2 SRFI-41 Stream Primitives
 ..................................
 
 This library provides eight operators: constructors for ‘stream-null’
@@ -41911,7 +41911,7 @@ creates procedures that return streams.
 
 File: guile.info,  Node: SRFI-41 Stream Library,  Prev: SRFI-41 Stream Primitives,  Up: SRFI-41
 
-7.5.28.3 SRFI-41 Stream Library
+### 7.5.28.3 SRFI-41 Stream Library
 ...............................
 
  -- Scheme Syntax: define-stream (name args ...) body ...
@@ -42382,7 +42382,7 @@ be made available with:
 
 File: guile.info,  Node: SRFI-43 Constructors,  Next: SRFI-43 Predicates,  Up: SRFI-43
 
-7.5.30.1 SRFI-43 Constructors
+### 7.5.30.1 SRFI-43 Constructors
 .............................
 
  -- Scheme Procedure: make-vector size [fill]
@@ -42465,7 +42465,7 @@ File: guile.info,  Node: SRFI-43 Constructors,  Next: SRFI-43 Predicates,  Up: S
 
 File: guile.info,  Node: SRFI-43 Predicates,  Next: SRFI-43 Selectors,  Prev: SRFI-43 Constructors,  Up: SRFI-43
 
-7.5.30.2 SRFI-43 Predicates
+### 7.5.30.2 SRFI-43 Predicates
 ...........................
 
  -- Scheme Procedure: vector? obj
@@ -42486,7 +42486,7 @@ File: guile.info,  Node: SRFI-43 Predicates,  Next: SRFI-43 Selectors,  Prev: SR
 
 File: guile.info,  Node: SRFI-43 Selectors,  Next: SRFI-43 Iteration,  Prev: SRFI-43 Predicates,  Up: SRFI-43
 
-7.5.30.3 SRFI-43 Selectors
+### 7.5.30.3 SRFI-43 Selectors
 ..........................
 
  -- Scheme Procedure: vector-ref vec i
@@ -42498,7 +42498,7 @@ File: guile.info,  Node: SRFI-43 Selectors,  Next: SRFI-43 Iteration,  Prev: SRF
 
 File: guile.info,  Node: SRFI-43 Iteration,  Next: SRFI-43 Searching,  Prev: SRFI-43 Selectors,  Up: SRFI-43
 
-7.5.30.4 SRFI-43 Iteration
+### 7.5.30.4 SRFI-43 Iteration
 ..........................
 
  -- Scheme Procedure: vector-fold kons knil vec1 vec2 ...
@@ -42549,7 +42549,7 @@ File: guile.info,  Node: SRFI-43 Iteration,  Next: SRFI-43 Searching,  Prev: SRF
 
 File: guile.info,  Node: SRFI-43 Searching,  Next: SRFI-43 Mutators,  Prev: SRFI-43 Iteration,  Up: SRFI-43
 
-7.5.30.5 SRFI-43 Searching
+### 7.5.30.5 SRFI-43 Searching
 ..........................
 
  -- Scheme Procedure: vector-index pred? vec1 vec2 ...
@@ -42630,7 +42630,7 @@ File: guile.info,  Node: SRFI-43 Searching,  Next: SRFI-43 Mutators,  Prev: SRFI
 
 File: guile.info,  Node: SRFI-43 Mutators,  Next: SRFI-43 Conversion,  Prev: SRFI-43 Searching,  Up: SRFI-43
 
-7.5.30.6 SRFI-43 Mutators
+### 7.5.30.6 SRFI-43 Mutators
 .........................
 
  -- Scheme Procedure: vector-set! vec i value
@@ -42666,7 +42666,7 @@ File: guile.info,  Node: SRFI-43 Mutators,  Next: SRFI-43 Conversion,  Prev: SRF
 
 File: guile.info,  Node: SRFI-43 Conversion,  Prev: SRFI-43 Mutators,  Up: SRFI-43
 
-7.5.30.7 SRFI-43 Conversion
+### 7.5.30.7 SRFI-43 Conversion
 ...........................
 
  -- Scheme Procedure: vector->list vec [start [end]]
@@ -42769,7 +42769,7 @@ memory usage semantics specified above:
      (force (lazy  expression)) -> (force expression)
      (force (eager value))      -> value
 
-Correct usage
+### Correct usage
 .............
 
 We now provide a general recipe for using the primitives {‘lazy’,
@@ -42812,7 +42812,7 @@ File: guile.info,  Node: SRFI-46,  Next: SRFI-55,  Prev: SRFI-45,  Up: SRFI Supp
 Guile’s core ‘syntax-rules’ supports the extensions specified by
 SRFI-46/R7RS. Tail patterns have been supported since at least Guile
 2.0, and custom ellipsis identifiers have been supported since Guile
-2.0.10.  *Note Syntax Rules::.
+2.0.10.  *Note* Syntax Rules::.
 
 
 File: guile.info,  Node: SRFI-55,  Next: SRFI-60,  Prev: SRFI-46,  Up: SRFI Support
@@ -42852,7 +42852,7 @@ for bitwise manipulations.  These functions can be obtained with,
      (use-modules (srfi srfi-60))
 
    Integers are treated as infinite precision twos-complement, the same
-as in the core logical functions (*note Bitwise Operations::).  And
+as in the core logical functions (*note* Bitwise Operations::).  And
 likewise bit indexes start from 0 for the least significant bit.  The
 following functions in this SRFI are already in the Guile core,
 
@@ -42873,7 +42873,7 @@ following functions in this SRFI are already in the Guile core,
      ‘logbit?’, ‘ash’, ‘bit-extract’ and ‘logcount’ respectively.
 
      Note that the name ‘bit-count’ conflicts with ‘bit-count’ in the
-     core (*note Bit Vectors::).
+     core (*note* Bit Vectors::).
 
  -- Function: bitwise-if mask n1 n0
  -- Function: bitwise-merge mask n1 n0
@@ -42927,7 +42927,7 @@ following functions in this SRFI are already in the Guile core,
      Return bits from N in the form of a list of ‘#t’ for 1 and ‘#f’ for
      0.  The least significant LEN bits are returned, and the first list
      element is the most significant of those bits.  If LEN is not
-     given, the default is ‘(integer-length N)’ (*note Bitwise
+     given, the default is ‘(integer-length N)’ (*note* Bitwise
      Operations::).
 
           (integer->list 6)   ⇒ (#t #t #f)
@@ -42952,7 +42952,7 @@ File: guile.info,  Node: SRFI-61,  Next: SRFI-62,  Prev: SRFI-60,  Up: SRFI Supp
 This SRFI extends RnRS ‘cond’ to support test expressions that return
 multiple values, as well as arbitrary definitions of test success.  SRFI
 61 is implemented in the Guile core; there’s no module needed to get
-SRFI-61 itself.  Extended ‘cond’ is documented in *note Simple
+SRFI-61 itself.  Extended ‘cond’ is documented in *note* Simple
 Conditional Evaluation: Conditionals.
 
 
@@ -42989,7 +42989,7 @@ File: guile.info,  Node: SRFI-69,  Next: SRFI-71,  Prev: SRFI-67,  Up: SRFI Supp
 ----------------------------------
 
 This is a portable wrapper around Guile’s built-in hash table and weak
-table support.  *Note Hash Tables::, for information on that built-in
+table support.  *Note* Hash Tables::, for information on that built-in
 support.  Above that, this hash-table interface provides association of
 equality and hash functions with tables at creation time, so variants of
 each function are not required, as well as a procedure that takes care
@@ -43010,7 +43010,7 @@ provide as such.
 
 File: guile.info,  Node: SRFI-69 Creating hash tables,  Next: SRFI-69 Accessing table items,  Up: SRFI-69
 
-7.5.39.1 Creating hash tables
+### 7.5.39.1 Creating hash tables
 .............................
 
  -- Scheme Procedure: make-hash-table [equal-proc hash-proc #:weak
@@ -43061,7 +43061,7 @@ some string ‘"foo"’ doesn’t mean that an association with key ‘"foo"’ 
 a weak-key table _won’t_ be collected; it only counts as a reference if
 the two ‘"foo"’s are ‘eq?’, regardless of EQUAL-PROC.  As such, it is
 usually only sensible to use ‘eq?’ and ‘hashq’ as the equivalence and
-hash functions for a weak table.  *Note Weak References::, for more
+hash functions for a weak table.  *Note* Weak References::, for more
 information on Guile’s built-in weak table support.
 
  -- Scheme Procedure: alist->hash-table alist [equal-proc hash-proc
@@ -43073,7 +43073,7 @@ information on Guile’s built-in weak table support.
 
 File: guile.info,  Node: SRFI-69 Accessing table items,  Next: SRFI-69 Table properties,  Prev: SRFI-69 Creating hash tables,  Up: SRFI-69
 
-7.5.39.2 Accessing table items
+### 7.5.39.2 Accessing table items
 ..............................
 
  -- Scheme Procedure: hash-table-ref table key [default-thunk]
@@ -43115,7 +43115,7 @@ File: guile.info,  Node: SRFI-69 Accessing table items,  Next: SRFI-69 Table pro
 
 File: guile.info,  Node: SRFI-69 Table properties,  Next: SRFI-69 Hash table algorithms,  Prev: SRFI-69 Accessing table items,  Up: SRFI-69
 
-7.5.39.3 Table properties
+### 7.5.39.3 Table properties
 .........................
 
  -- Scheme Procedure: hash-table-size table
@@ -43144,7 +43144,7 @@ File: guile.info,  Node: SRFI-69 Table properties,  Next: SRFI-69 Hash table alg
 
 File: guile.info,  Node: SRFI-69 Hash table algorithms,  Prev: SRFI-69 Table properties,  Up: SRFI-69
 
-7.5.39.4 Hash table algorithms
+### 7.5.39.4 Hash table algorithms
 ..............................
 
 Each hash table carries an “equivalence function” and a “hash function”,
@@ -43196,7 +43196,7 @@ File: guile.info,  Node: SRFI-87,  Next: SRFI-88,  Prev: SRFI-71,  Up: SRFI Supp
 ---------------------------------
 
 Starting from version 2.0.6, Guile’s core ‘case’ syntax supports ‘=>’ in
-clauses, as specified by SRFI-87/R7RS. *Note Conditionals::.
+clauses, as specified by SRFI-87/R7RS. *Note* Conditionals::.
 
 
 File: guile.info,  Node: SRFI-88,  Next: SRFI-98,  Prev: SRFI-87,  Up: SRFI Support
@@ -43205,9 +43205,9 @@ File: guile.info,  Node: SRFI-88,  Next: SRFI-98,  Prev: SRFI-87,  Up: SRFI Supp
 ------------------------------
 
 SRFI-88 (http://srfi.schemers.org/srfi-88/srfi-88.html) provides
-“keyword objects”, which are equivalent to Guile’s keywords (*note
+“keyword objects”, which are equivalent to Guile’s keywords (*note*
 Keywords::).  SRFI-88 keywords can be entered using the “postfix keyword
-syntax”, which consists of an identifier followed by ‘:’ (*note
+syntax”, which consists of an identifier followed by ‘:’ (*note*
 ‘postfix’ keyword syntax: Scheme Read.).  SRFI-88 can be made available
 with:
 
@@ -43219,7 +43219,7 @@ described below.
 
  -- Scheme Procedure: keyword? obj
      Return ‘#t’ if OBJ is a keyword.  This is the same procedure as the
-     same-named built-in procedure (*note ‘keyword?’: Keyword
+     same-named built-in procedure (*note* ‘keyword?’: Keyword
      Procedures.).
 
           (keyword? foo:)         ⇒ #t
@@ -43245,7 +43245,7 @@ File: guile.info,  Node: SRFI-98,  Next: SRFI-105,  Prev: SRFI-88,  Up: SRFI Sup
 -----------------------------------------------
 
 This is a portable wrapper around Guile’s built-in support for
-interacting with the current environment, *Note Runtime Environment::.
+interacting with the current environment, *Note* Runtime Environment::.
 
  -- Scheme Procedure: get-environment-variable name
      Returns a string containing the value of the environment variable
@@ -43299,7 +43299,7 @@ directive ‘#!curly-infix-and-bracket-lists’.  For example:
      [a b]    ⇒  ($bracket-list$ a b)
      [a . b]  ⇒  ($bracket-list$ a . b)
 
-   For more information on reader options, *Note Scheme Read::.
+   For more information on reader options, *Note* Scheme Read::.
 
 
 File: guile.info,  Node: SRFI-111,  Next: SRFI-171,  Prev: SRFI-105,  Up: SRFI Support
@@ -43370,7 +43370,7 @@ left-to-right, due to how transducers are initiated.
 
 File: guile.info,  Node: SRFI-171 General Discussion,  Next: SRFI-171 Applying Transducers,  Up: SRFI-171
 
-7.5.46.1 SRFI-171 General Discussion
+### 7.5.46.1 SRFI-171 General Discussion
 ....................................
 
 The concept of reducers
@@ -43447,7 +43447,7 @@ that naming, but are prepended with a t.
 
 File: guile.info,  Node: SRFI-171 Applying Transducers,  Next: SRFI-171 Reducers,  Prev: SRFI-171 General Discussion,  Up: SRFI-171
 
-7.5.46.2 Applying Transducers
+### 7.5.46.2 Applying Transducers
 .............................
 
  -- Scheme Procedure: list-transduce xform f lst
@@ -43490,7 +43490,7 @@ File: guile.info,  Node: SRFI-171 Applying Transducers,  Next: SRFI-171 Reducers
 
 File: guile.info,  Node: SRFI-171 Reducers,  Next: SRFI-171 Transducers,  Prev: SRFI-171 Applying Transducers,  Up: SRFI-171
 
-7.5.46.3 Reducers
+### 7.5.46.3 Reducers
 .................
 
  -- Scheme Procedure: rcons
@@ -43540,7 +43540,7 @@ File: guile.info,  Node: SRFI-171 Reducers,  Next: SRFI-171 Transducers,  Prev: 
 
 File: guile.info,  Node: SRFI-171 Transducers,  Next: SRFI-171 Helpers,  Prev: SRFI-171 Reducers,  Up: SRFI-171
 
-7.5.46.4 Transducers
+### 7.5.46.4 Transducers
 ....................
 
  -- Scheme Procedure: tmap proc
@@ -43704,7 +43704,7 @@ document.
 
 File: guile.info,  Node: SRFI-171 Helpers,  Prev: SRFI-171 Transducers,  Up: SRFI-171
 
-7.5.46.5 Helper functions for writing transducers
+### 7.5.46.5 Helper functions for writing transducers
 .................................................
 
 These functions are in the ‘(srfi srfi-171 meta)’ module and are only
@@ -43761,7 +43761,7 @@ File: guile.info,  Node: R6RS Support,  Next: R7RS Support,  Prev: SRFI Support,
 7.6 R6RS Support
 ================
 
-*Note R6RS Libraries::, for more information on how to define R6RS
+*Note* R6RS Libraries::, for more information on how to define R6RS
 libraries, and their integration with Guile modules.
 
 * Menu:
@@ -43793,7 +43793,7 @@ find one that is not on this list.
      because they conflict with Guile’s already-existing escapes.  The
      same is the case for R6RS treatment of escaped newlines in strings.
 
-     R6RS behavior can be turned on via a reader option.  *Note String
+     R6RS behavior can be turned on via a reader option.  *Note* String
      Syntax::, for more information.
 
    • Guile does not yet support Unicode escapes in symbols, such as
@@ -43845,7 +43845,7 @@ find one that is not on this list.
 
    • Guile does not prevent use of textual I/O procedures on binary
      ports, or vice versa.  All ports in Guile support both binary and
-     textual I/O. *Note Encoding::, for full details.
+     textual I/O. *Note* Encoding::, for full details.
 
    • Guile’s implementation of ‘equal?’ may fail to terminate when
      applied to arguments containing cycles.
@@ -43859,7 +43859,7 @@ over Guile’s historical defaults.
      While Guile’s defaults may evolve over time, the current changes
      that this procedure imposes are to add ‘.sls’ and ‘.guile.sls’ to
      the set of supported ‘%load-extensions’, to better support R6RS
-     conventions.  *Note Load Paths::.  Also, enable R6RS unicode
+     conventions.  *Note* Load Paths::.  Also, enable R6RS unicode
      escapes in strings; see the discussion above.
 
    Finally, note that the ‘--r6rs’ command-line argument will call
@@ -43889,7 +43889,7 @@ content of the library section of the Report, but is mostly intended to
 provide supplementary information about Guile’s implementation of the
 R6RS standard libraries.  For complete documentation, design rationales
 and further examples, we advise you to consult the “Standard Libraries”
-section of the Report (*note R6RS Standard Libraries: (r6rs)Standard
+section of the Report (*note* R6RS Standard Libraries: (r6rs)Standard
 Libraries.).
 
 * Menu:
@@ -43933,7 +43933,7 @@ Libraries.).
 
 File: guile.info,  Node: Library Usage,  Next: rnrs base,  Up: R6RS Standard Libraries
 
-7.6.2.1 Library Usage
+### 7.6.2.1 Library Usage
 .....................
 
 Guile implements the R6RS ‘library’ form as a transformation to a native
@@ -43947,28 +43947,28 @@ example, the R6RS “composite” library can be imported by:
 
        (use-modules ((rnrs) :version (6)))
 
-   For more information on Guile’s library implementation, see (*note
+   For more information on Guile’s library implementation, see (*note*
 R6RS Libraries::).
 
 
 File: guile.info,  Node: rnrs base,  Next: rnrs unicode,  Prev: Library Usage,  Up: R6RS Standard Libraries
 
-7.6.2.2 rnrs base
+### 7.6.2.2 rnrs base
 .................
 
 The ‘(rnrs base (6))’ library exports the procedures and syntactic forms
-described in the main section of the Report (*note R6RS Base library:
+described in the main section of the Report (*note* R6RS Base library:
 (r6rs)Base library.).  They are grouped below by the existing manual
 sections to which they correspond.
 
  -- Scheme Procedure: boolean? obj
  -- Scheme Procedure: not x
-     *Note Booleans::, for documentation.
+     *Note* Booleans::, for documentation.
 
  -- Scheme Procedure: symbol? obj
  -- Scheme Procedure: symbol->string sym
  -- Scheme Procedure: string->symbol str
-     *Note Symbol Primitives::, for documentation.
+     *Note* Symbol Primitives::, for documentation.
 
  -- Scheme Procedure: char? obj
  -- Scheme Procedure: char=?
@@ -43978,11 +43978,11 @@ sections to which they correspond.
  -- Scheme Procedure: char>=?
  -- Scheme Procedure: integer->char n
  -- Scheme Procedure: char->integer chr
-     *Note Characters::, for documentation.
+     *Note* Characters::, for documentation.
 
  -- Scheme Procedure: list? x
  -- Scheme Procedure: null? x
-     *Note List Predicates::, for documentation.
+     *Note* List Predicates::, for documentation.
 
  -- Scheme Procedure: pair? x
  -- Scheme Procedure: cons x y
@@ -44016,74 +44016,74 @@ sections to which they correspond.
  -- Scheme Procedure: cddadr pair
  -- Scheme Procedure: cdddar pair
  -- Scheme Procedure: cddddr pair
-     *Note Pairs::, for documentation.
+     *Note* Pairs::, for documentation.
 
  -- Scheme Procedure: number? obj
-     *Note Numerical Tower::, for documentation.
+     *Note* Numerical Tower::, for documentation.
 
  -- Scheme Procedure: string? obj
-     *Note String Predicates::, for documentation.
+     *Note* String Predicates::, for documentation.
 
  -- Scheme Procedure: procedure? obj
-     *Note Procedure Properties::, for documentation.
+     *Note* Procedure Properties::, for documentation.
 
  -- Scheme Syntax: define name value
  -- Scheme Syntax: set! variable-name value
-     *Note Definition::, for documentation.
+     *Note* Definition::, for documentation.
 
  -- Scheme Syntax: define-syntax keyword expression
  -- Scheme Syntax: let-syntax ((keyword transformer) ...) exp1 exp2 ...
  -- Scheme Syntax: letrec-syntax ((keyword transformer) ...) exp1 exp2
           ...
-     *Note Defining Macros::, for documentation.
+     *Note* Defining Macros::, for documentation.
 
  -- Scheme Syntax: identifier-syntax exp
-     *Note Identifier Macros::, for documentation.
+     *Note* Identifier Macros::, for documentation.
 
  -- Scheme Syntax: syntax-rules literals (pattern template) ...
-     *Note Syntax Rules::, for documentation.
+     *Note* Syntax Rules::, for documentation.
 
  -- Scheme Syntax: lambda formals body
-     *Note Lambda::, for documentation.
+     *Note* Lambda::, for documentation.
 
  -- Scheme Syntax: let bindings body
  -- Scheme Syntax: let* bindings body
  -- Scheme Syntax: letrec bindings body
  -- Scheme Syntax: letrec* bindings body
-     *Note Local Bindings::, for documentation.
+     *Note* Local Bindings::, for documentation.
 
  -- Scheme Syntax: let-values bindings body
  -- Scheme Syntax: let*-values bindings body
-     *Note SRFI-11::, for documentation.
+     *Note* SRFI-11::, for documentation.
 
  -- Scheme Syntax: begin expr1 expr2 ...
-     *Note begin::, for documentation.
+     *Note* begin::, for documentation.
 
  -- Scheme Syntax: quote expr
  -- Scheme Syntax: quasiquote expr
  -- Scheme Syntax: unquote expr
  -- Scheme Syntax: unquote-splicing expr
-     *Note Expression Syntax::, for documentation.
+     *Note* Expression Syntax::, for documentation.
 
  -- Scheme Syntax: if test consequence [alternate]
  -- Scheme Syntax: cond clause1 clause2 ...
  -- Scheme Syntax: case key clause1 clause2 ...
-     *Note Conditionals::, for documentation.
+     *Note* Conditionals::, for documentation.
 
  -- Scheme Syntax: and expr ...
  -- Scheme Syntax: or expr ...
-     *Note and or::, for documentation.
+     *Note* and or::, for documentation.
 
  -- Scheme Procedure: eq? x y
  -- Scheme Procedure: eqv? x y
  -- Scheme Procedure: equal? x y
  -- Scheme Procedure: symbol=? symbol1 symbol2 ...
-     *Note Equality::, for documentation.
+     *Note* Equality::, for documentation.
 
      ‘symbol=?’ is identical to ‘eq?’.
 
  -- Scheme Procedure: complex? z
-     *Note Complex Numbers::, for documentation.
+     *Note* Complex Numbers::, for documentation.
 
  -- Scheme Procedure: real-part z
  -- Scheme Procedure: imag-part z
@@ -44091,7 +44091,7 @@ sections to which they correspond.
  -- Scheme Procedure: make-polar x y
  -- Scheme Procedure: magnitude z
  -- Scheme Procedure: angle z
-     *Note Complex::, for documentation.
+     *Note* Complex::, for documentation.
 
  -- Scheme Procedure: sqrt z
  -- Scheme Procedure: exp z
@@ -44103,32 +44103,32 @@ sections to which they correspond.
  -- Scheme Procedure: asin z
  -- Scheme Procedure: acos z
  -- Scheme Procedure: atan z
-     *Note Scientific::, for documentation.
+     *Note* Scientific::, for documentation.
 
  -- Scheme Procedure: real? x
  -- Scheme Procedure: rational? x
  -- Scheme Procedure: numerator x
  -- Scheme Procedure: denominator x
  -- Scheme Procedure: rationalize x eps
-     *Note Reals and Rationals::, for documentation.
+     *Note* Reals and Rationals::, for documentation.
 
  -- Scheme Procedure: exact? x
  -- Scheme Procedure: inexact? x
  -- Scheme Procedure: exact z
  -- Scheme Procedure: inexact z
-     *Note Exactness::, for documentation.  The ‘exact’ and ‘inexact’
+     *Note* Exactness::, for documentation.  The ‘exact’ and ‘inexact’
      procedures are identical to the ‘inexact->exact’ and
      ‘exact->inexact’ procedures provided by Guile’s code library.
 
  -- Scheme Procedure: integer? x
-     *Note Integers::, for documentation.
+     *Note* Integers::, for documentation.
 
  -- Scheme Procedure: odd? n
  -- Scheme Procedure: even? n
  -- Scheme Procedure: gcd x ...
  -- Scheme Procedure: lcm x ...
  -- Scheme Procedure: exact-integer-sqrt k
-     *Note Integer Operations::, for documentation.
+     *Note* Integer Operations::, for documentation.
 
  -- Scheme Procedure: =
  -- Scheme Procedure: <
@@ -44138,54 +44138,54 @@ sections to which they correspond.
  -- Scheme Procedure: zero? x
  -- Scheme Procedure: positive? x
  -- Scheme Procedure: negative? x
-     *Note Comparison::, for documentation.
+     *Note* Comparison::, for documentation.
 
  -- Scheme Procedure: for-each f lst1 lst2 ...
-     *Note SRFI-1 Fold and Map::, for documentation.
+     *Note* SRFI-1 Fold and Map::, for documentation.
 
  -- Scheme Procedure: list elem ...
-     *Note List Constructors::, for documentation.
+     *Note* List Constructors::, for documentation.
 
  -- Scheme Procedure: length lst
  -- Scheme Procedure: list-ref lst k
  -- Scheme Procedure: list-tail lst k
-     *Note List Selection::, for documentation.
+     *Note* List Selection::, for documentation.
 
  -- Scheme Procedure: append lst ... obj
  -- Scheme Procedure: append
  -- Scheme Procedure: reverse lst
-     *Note Append/Reverse::, for documentation.
+     *Note* Append/Reverse::, for documentation.
 
  -- Scheme Procedure: number->string n [radix]
  -- Scheme Procedure: string->number str [radix]
-     *Note Conversion::, for documentation.
+     *Note* Conversion::, for documentation.
 
  -- Scheme Procedure: string char ...
  -- Scheme Procedure: make-string k [chr]
  -- Scheme Procedure: list->string lst
-     *Note String Constructors::, for documentation.
+     *Note* String Constructors::, for documentation.
 
  -- Scheme Procedure: string->list str [start [end]]
-     *Note List/String Conversion::, for documentation.
+     *Note* List/String Conversion::, for documentation.
 
  -- Scheme Procedure: string-length str
  -- Scheme Procedure: string-ref str k
  -- Scheme Procedure: string-copy str [start [end]]
  -- Scheme Procedure: substring str start [end]
-     *Note String Selection::, for documentation.
+     *Note* String Selection::, for documentation.
 
  -- Scheme Procedure: string=? s1 s2 s3 ...
  -- Scheme Procedure: string<? s1 s2 s3 ...
  -- Scheme Procedure: string>? s1 s2 s3 ...
  -- Scheme Procedure: string<=? s1 s2 s3 ...
  -- Scheme Procedure: string>=? s1 s2 s3 ...
-     *Note String Comparison::, for documentation.
+     *Note* String Comparison::, for documentation.
 
  -- Scheme Procedure: string-append arg ...
-     *Note Reversing and Appending Strings::, for documentation.
+     *Note* Reversing and Appending Strings::, for documentation.
 
  -- Scheme Procedure: string-for-each proc s [start [end]]
-     *Note Mapping Folding and Unfolding::, for documentation.
+     *Note* Mapping Folding and Unfolding::, for documentation.
 
  -- Scheme Procedure: + z1 ...
  -- Scheme Procedure: - z1 z2 ...
@@ -44198,7 +44198,7 @@ sections to which they correspond.
  -- Scheme Procedure: floor x
  -- Scheme Procedure: ceiling x
  -- Scheme Procedure: round x
-     *Note Arithmetic::, for documentation.
+     *Note* Arithmetic::, for documentation.
 
  -- Scheme Procedure: div x y
  -- Scheme Procedure: mod x y
@@ -44292,32 +44292,32 @@ sections to which they correspond.
  -- Scheme Procedure: make-vector len fill
  -- Scheme Procedure: list->vector l
  -- Scheme Procedure: vector->list v
-     *Note Vector Creation::, for documentation.
+     *Note* Vector Creation::, for documentation.
 
  -- Scheme Procedure: vector-length vector
  -- Scheme Procedure: vector-ref vector k
  -- Scheme Procedure: vector-set! vector k obj
  -- Scheme Procedure: vector-fill! v fill
-     *Note Vector Accessors::, for documentation.
+     *Note* Vector Accessors::, for documentation.
 
  -- Scheme Procedure: call-with-current-continuation proc
  -- Scheme Procedure: call/cc proc
-     *Note Continuations::, for documentation.
+     *Note* Continuations::, for documentation.
 
  -- Scheme Procedure: values arg ...
  -- Scheme Procedure: call-with-values producer consumer
-     *Note Multiple Values::, for documentation.
+     *Note* Multiple Values::, for documentation.
 
  -- Scheme Procedure: dynamic-wind in_guard thunk out_guard
-     *Note Dynamic Wind::, for documentation.
+     *Note* Dynamic Wind::, for documentation.
 
  -- Scheme Procedure: apply proc arg ... arglst
-     *Note Fly Evaluation::, for documentation.
+     *Note* Fly Evaluation::, for documentation.
 
 
 File: guile.info,  Node: rnrs unicode,  Next: rnrs bytevectors,  Prev: rnrs base,  Up: R6RS Standard Libraries
 
-7.6.2.3 rnrs unicode
+### 7.6.2.3 rnrs unicode
 ....................
 
 The ‘(rnrs unicode (6))’ library provides procedures for manipulating
@@ -44330,7 +44330,7 @@ Unicode characters and strings.
      These procedures translate their arguments from one Unicode
      character set to another.  ‘char-upcase’, ‘char-downcase’, and
      ‘char-titlecase’ are identical to their counterparts in the Guile
-     core library; *Note Characters::, for documentation.
+     core library; *Note* Characters::, for documentation.
 
      ‘char-foldcase’ returns the result of applying ‘char-upcase’ to its
      argument, followed by ‘char-downcase’—except in the case of the
@@ -44344,7 +44344,7 @@ Unicode characters and strings.
  -- Scheme Procedure: char-ci>=? char1 char2 char3 ...
      These procedures facilitate case-insensitive comparison of Unicode
      characters.  They are identical to the procedures provided by
-     Guile’s core library.  *Note Characters::, for documentation.
+     Guile’s core library.  *Note* Characters::, for documentation.
 
  -- Scheme Procedure: char-alphabetic? char
  -- Scheme Procedure: char-numeric? char
@@ -44354,17 +44354,17 @@ Unicode characters and strings.
  -- Scheme Procedure: char-title-case? char
      These procedures implement various Unicode character set
      predicates.  They are identical to the procedures provided by
-     Guile’s core library.  *Note Characters::, for documentation.
+     Guile’s core library.  *Note* Characters::, for documentation.
 
  -- Scheme Procedure: char-general-category char
-     *Note Characters::, for documentation.
+     *Note* Characters::, for documentation.
 
  -- Scheme Procedure: string-upcase string
  -- Scheme Procedure: string-downcase string
  -- Scheme Procedure: string-titlecase string
  -- Scheme Procedure: string-foldcase string
      These procedures perform Unicode case folding operations on their
-     input.  *Note Alphabetic Case Mapping::, for documentation.
+     input.  *Note* Alphabetic Case Mapping::, for documentation.
 
  -- Scheme Procedure: string-ci=? string1 string2 string3 ...
  -- Scheme Procedure: string-ci<? string1 string2 string3 ...
@@ -44372,29 +44372,29 @@ Unicode characters and strings.
  -- Scheme Procedure: string-ci<=? string1 string2 string3 ...
  -- Scheme Procedure: string-ci>=? string1 string2 string3 ...
      These procedures perform case-insensitive comparison on their
-     input.  *Note String Comparison::, for documentation.
+     input.  *Note* String Comparison::, for documentation.
 
  -- Scheme Procedure: string-normalize-nfd string
  -- Scheme Procedure: string-normalize-nfkd string
  -- Scheme Procedure: string-normalize-nfc string
  -- Scheme Procedure: string-normalize-nfkc string
      These procedures perform Unicode string normalization operations on
-     their input.  *Note String Comparison::, for documentation.
+     their input.  *Note* String Comparison::, for documentation.
 
 
 File: guile.info,  Node: rnrs bytevectors,  Next: rnrs lists,  Prev: rnrs unicode,  Up: R6RS Standard Libraries
 
-7.6.2.4 rnrs bytevectors
+### 7.6.2.4 rnrs bytevectors
 ........................
 
 The ‘(rnrs bytevectors (6))’ library provides procedures for working
 with blocks of binary data.  This functionality is documented in its own
-section of the manual; *Note Bytevectors::.
+section of the manual; *Note* Bytevectors::.
 
 
 File: guile.info,  Node: rnrs lists,  Next: rnrs sorting,  Prev: rnrs bytevectors,  Up: R6RS Standard Libraries
 
-7.6.2.5 rnrs lists
+### 7.6.2.5 rnrs lists
 ..................
 
 The ‘(rnrs lists (6))’ library provides procedures additional procedures
@@ -44402,28 +44402,28 @@ for working with lists.
 
  -- Scheme Procedure: find proc list
      This procedure is identical to the one defined in Guile’s SRFI-1
-     implementation.  *Note SRFI-1 Searching::, for documentation.
+     implementation.  *Note* SRFI-1 Searching::, for documentation.
 
  -- Scheme Procedure: for-all proc list1 list2 ...
  -- Scheme Procedure: exists proc list1 list2 ...
 
      The ‘for-all’ procedure is identical to the ‘every’ procedure
      defined by SRFI-1; the ‘exists’ procedure is identical to SRFI-1’s
-     ‘any’.  *Note SRFI-1 Searching::, for documentation.
+     ‘any’.  *Note* SRFI-1 Searching::, for documentation.
 
  -- Scheme Procedure: filter proc list
  -- Scheme Procedure: partition proc list
      These procedures are identical to the ones provided by SRFI-1.
-     *Note List Modification::, for a description of ‘filter’; *Note
+     *Note* List Modification::, for a description of ‘filter’; *Note*
      SRFI-1 Filtering and Partitioning::, for ‘partition’.
 
  -- Scheme Procedure: fold-right combine nil list1 list2 ...
      This procedure is identical the ‘fold-right’ procedure provided by
-     SRFI-1.  *Note SRFI-1 Fold and Map::, for documentation.
+     SRFI-1.  *Note* SRFI-1 Fold and Map::, for documentation.
 
  -- Scheme Procedure: fold-left combine nil list1 list2 ...
      This procedure is like ‘fold’ from SRFI-1, but COMBINE is called
-     with the seed as the first argument.  *Note SRFI-1 Fold and Map::,
+     with the seed as the first argument.  *Note* SRFI-1 Fold and Map::,
      for documentation.
 
  -- Scheme Procedure: remp proc list
@@ -44431,16 +44431,16 @@ for working with lists.
  -- Scheme Procedure: remv obj list
  -- Scheme Procedure: remq obj list
      ‘remove’, ‘remv’, and ‘remq’ are identical to the ‘delete’, ‘delv’,
-     and ‘delq’ procedures provided by Guile’s core library, (*note List
+     and ‘delq’ procedures provided by Guile’s core library, (*note* List
      Modification::).  ‘remp’ is identical to the alternate ‘remove’
-     procedure provided by SRFI-1; *Note SRFI-1 Deleting::.
+     procedure provided by SRFI-1; *Note* SRFI-1 Deleting::.
 
  -- Scheme Procedure: memp proc list
  -- Scheme Procedure: member obj list
  -- Scheme Procedure: memv obj list
  -- Scheme Procedure: memq obj list
      ‘member’, ‘memv’, and ‘memq’ are identical to the procedures
-     provided by Guile’s core library; *Note List Searching::, for their
+     provided by Guile’s core library; *Note* List Searching::, for their
      documentation.  ‘memp’ uses the specified predicate function ‘proc’
      to test elements of the list LIST—it behaves similarly to ‘find’,
      except that it returns the first sublist of LIST whose ‘car’
@@ -44451,19 +44451,19 @@ for working with lists.
  -- Scheme Procedure: assv obj alist
  -- Scheme Procedure: assq obj alist
      ‘assoc’, ‘assv’, and ‘assq’ are identical to the procedures
-     provided by Guile’s core library; *Note Alist Key Equality::, for
+     provided by Guile’s core library; *Note* Alist Key Equality::, for
      their documentation.  ‘assp’ uses the specified predicate function
      ‘proc’ to test keys in the association list ALIST.
 
  -- Scheme Procedure: cons* obj1 ... obj
  -- Scheme Procedure: cons* obj
      This procedure is identical to the one exported by Guile’s core
-     library.  *Note List Constructors::, for documentation.
+     library.  *Note* List Constructors::, for documentation.
 
 
 File: guile.info,  Node: rnrs sorting,  Next: rnrs control,  Prev: rnrs lists,  Up: R6RS Standard Libraries
 
-7.6.2.6 rnrs sorting
+### 7.6.2.6 rnrs sorting
 ....................
 
 The ‘(rnrs sorting (6))’ library provides procedures for sorting lists
@@ -44479,7 +44479,7 @@ and vectors.
      vector.
 
      Both ‘list-sort’ and ‘vector-sort’ are implemented in terms of the
-     ‘stable-sort’ procedure from Guile’s core library.  *Note
+     ‘stable-sort’ procedure from Guile’s core library.  *Note*
      Sorting::, for a discussion of the behavior of that procedure.
 
  -- Scheme Procedure: vector-sort! proc vector
@@ -44488,12 +44488,12 @@ and vectors.
      ‘vector-sort!’ returns an unspecified value.
 
      This procedure is implemented in terms of the ‘sort!’ procedure
-     from Guile’s core library.  *Note Sorting::, for more information.
+     from Guile’s core library.  *Note* Sorting::, for more information.
 
 
 File: guile.info,  Node: rnrs control,  Next: R6RS Records,  Prev: rnrs sorting,  Up: R6RS Standard Libraries
 
-7.6.2.7 rnrs control
+### 7.6.2.7 rnrs control
 ....................
 
 The ‘(rnrs control (6))’ library provides syntactic forms useful for
@@ -44514,23 +44514,23 @@ execution.
  -- Scheme Syntax: do ((variable init step) ...) (test expression ...)
           command ...
      This form is identical to the one provided by Guile’s core library.
-     *Note while do::, for documentation.
+     *Note* while do::, for documentation.
 
  -- Scheme Syntax: case-lambda clause ...
      This form is identical to the one provided by Guile’s core library.
-     *Note Case-lambda::, for documentation.
+     *Note* Case-lambda::, for documentation.
 
 
 File: guile.info,  Node: R6RS Records,  Next: rnrs records syntactic,  Prev: rnrs control,  Up: R6RS Standard Libraries
 
-7.6.2.8 R6RS Records
+### 7.6.2.8 R6RS Records
 ....................
 
 The manual sections below describe Guile’s implementation of R6RS
 records, which provide support for user-defined data types.  The R6RS
 records API provides a superset of the features provided by Guile’s
-“native” records, as well as those of the SRFI-9 records API; *Note
-Records::, and *note SRFI-9 Records::, for a description of those
+“native” records, as well as those of the SRFI-9 records API; *Note*
+Records::, and *note* SRFI-9 Records::, for a description of those
 interfaces.
 
    As with SRFI-9 and Guile’s native records, R6RS records are
@@ -44597,7 +44597,7 @@ compatible with either.
 
 File: guile.info,  Node: rnrs records syntactic,  Next: rnrs records procedural,  Prev: R6RS Records,  Up: R6RS Standard Libraries
 
-7.6.2.9 rnrs records syntactic
+### 7.6.2.9 rnrs records syntactic
 ..............................
 
 The ‘(rnrs records syntactic (6))’ library exports the syntactic API for
@@ -44672,7 +44672,7 @@ working with R6RS records.
 
 File: guile.info,  Node: rnrs records procedural,  Next: rnrs records inspection,  Prev: rnrs records syntactic,  Up: R6RS Standard Libraries
 
-7.6.2.10 rnrs records procedural
+### 7.6.2.10 rnrs records procedural
 ................................
 
 The ‘(rnrs records procedural (6))’ library exports the procedural API
@@ -44730,7 +44730,7 @@ for working with R6RS records.
 
 File: guile.info,  Node: rnrs records inspection,  Next: rnrs exceptions,  Prev: rnrs records procedural,  Up: R6RS Standard Libraries
 
-7.6.2.11 rnrs records inspection
+### 7.6.2.11 rnrs records inspection
 ................................
 
 The ‘(rnrs records inspection (6))’ library provides procedures useful
@@ -44779,19 +44779,19 @@ for accessing metadata about R6RS records.
 
 File: guile.info,  Node: rnrs exceptions,  Next: rnrs conditions,  Prev: rnrs records inspection,  Up: R6RS Standard Libraries
 
-7.6.2.12 rnrs exceptions
+### 7.6.2.12 rnrs exceptions
 ........................
 
 The ‘(rnrs exceptions (6))’ library provides functionality related to
 signaling and handling exceptional situations.  This functionality
-re-exports Guile’s core exception-handling primitives.  *Note
-Exceptions::, for a full discussion.  *Note SRFI-34::, for a similar
+re-exports Guile’s core exception-handling primitives.  *Note*
+Exceptions::, for a full discussion.  *Note* SRFI-34::, for a similar
 pre-R6RS facility.  In Guile, SRFI-34, SRFI-35, and R6RS exception
 handling are all built on the same core facilities, and so are
 interoperable.
 
  -- Scheme Procedure: with-exception-handler handler thunk
-     *Note Raising and Handling Exceptions::, for more information on
+     *Note* Raising and Handling Exceptions::, for more information on
      ‘with-exception-handler’.
 
  -- Scheme Syntax: guard (variable clause1 clause2 ...) body
@@ -44799,7 +44799,7 @@ interoperable.
      exception handler that binds a raised exception to VARIABLE and
      then evaluates the specified CLAUSEs as if they were part of a
      ‘cond’ expression, with the value of the first matching clause
-     becoming the value of the ‘guard’ expression (*note
+     becoming the value of the ‘guard’ expression (*note*
      Conditionals::).  If none of the clause’s test expressions
      evaluates to ‘#t’, the exception is re-raised, with the exception
      handler that was current before the evaluation of the ‘guard’ form.
@@ -44812,25 +44812,25 @@ interoperable.
      evaluates to ‘baz’.
 
  -- Scheme Procedure: raise obj
-     Equivalent to core Guile ‘(raise-exception OBJ)’.  *Note Raising
+     Equivalent to core Guile ‘(raise-exception OBJ)’.  *Note* Raising
      and Handling Exceptions::.  (Unfortunately, ‘raise’ is already
-     bound to a different function in core Guile.  *Note Signals::.)
+     bound to a different function in core Guile.  *Note* Signals::.)
 
  -- Scheme Procedure: raise-continuable obj
      Equivalent to core Guile ‘(raise-exception OBJ #:continuable? #t)’.
-     *Note Raising and Handling Exceptions::.
+     *Note* Raising and Handling Exceptions::.
 
 
 File: guile.info,  Node: rnrs conditions,  Next: R6RS I/O Conditions,  Prev: rnrs exceptions,  Up: R6RS Standard Libraries
 
-7.6.2.13 rnrs conditions
+### 7.6.2.13 rnrs conditions
 ........................
 
 The ‘(rnrs condition (6))’ library provides forms and procedures for
 constructing new condition types, as well as a library of pre-defined
 condition types that represent a variety of common exceptional
 situations.  Conditions are records of a subtype of the ‘&condition’
-record type, which is neither sealed nor opaque.  *Note R6RS Records::.
+record type, which is neither sealed nor opaque.  *Note* R6RS Records::.
 
    Conditions may be manipulated singly, as “simple conditions”, or when
 composed with other conditions to form “compound conditions”.  Compound
@@ -44854,9 +44854,9 @@ exceptions)’ module as the basis for its R6RS condition system.  Guile
 prefers to use the term “exception object” and “exception type” rather
 than “condition” or “condition type”, but that’s just a naming
 difference.  Guile also has different names for the types in the
-condition hierarchy.  *Note Exception Objects::, for full details.
+condition hierarchy.  *Note* Exception Objects::, for full details.
 
-   This library is quite similar to the SRFI-35 conditions module (*note
+   This library is quite similar to the SRFI-35 conditions module (*note*
 SRFI-35::).  Among other minor differences, the ‘(rnrs conditions)’
 library features slightly different semantics around condition field
 accessors, and comes with a larger number of pre-defined condition
@@ -44986,7 +44986,7 @@ other.  of the condition types are the same, also.
 
 File: guile.info,  Node: R6RS I/O Conditions,  Next: R6RS Transcoders,  Prev: rnrs conditions,  Up: R6RS Standard Libraries
 
-7.6.2.14 I/O Conditions
+### 7.6.2.14 I/O Conditions
 .......................
 
 These condition types are exported by both the ‘(rnrs io ports (6))’ and
@@ -45056,7 +45056,7 @@ These condition types are exported by both the ‘(rnrs io ports (6))’ and
 
 File: guile.info,  Node: R6RS Transcoders,  Next: rnrs io ports,  Prev: R6RS I/O Conditions,  Up: R6RS Standard Libraries
 
-7.6.2.15 Transcoders
+### 7.6.2.15 Transcoders
 ....................
 
 The transcoder facilities are exported by ‘(rnrs io ports)’.
@@ -45240,7 +45240,7 @@ textual port may or may not have an associated transcoder.
 
 File: guile.info,  Node: rnrs io ports,  Next: R6RS File Ports,  Prev: R6RS Transcoders,  Up: R6RS Standard Libraries
 
-7.6.2.16 rnrs io ports
+### 7.6.2.16 rnrs io ports
 ......................
 
 Guile’s binary and textual port interface was heavily inspired by R6RS,
@@ -45248,16 +45248,16 @@ so many R6RS port interfaces are documented elsewhere.  Note that R6RS
 ports are not disjoint from Guile’s native ports, so Guile-specific
 procedures will work on ports created using the R6RS API, and vice
 versa.  Also note that in Guile, all ports are both textual and binary.
-*Note Input and Output::, for more on Guile’s core port API. The R6RS
+*Note* Input and Output::, for more on Guile’s core port API. The R6RS
 ports module wraps Guile’s I/O routines in a helper that will translate
-native Guile exceptions to R6RS conditions; *Note R6RS I/O Conditions::,
-for more.  *Note R6RS File Ports::, for documentation on the R6RS file
+native Guile exceptions to R6RS conditions; *Note* R6RS I/O Conditions::,
+for more.  *Note* R6RS File Ports::, for documentation on the R6RS file
 port interface.
 
    _Note_: The implementation of this R6RS API is not complete yet.
 
  -- Scheme Procedure: eof-object? obj
-     *Note Binary I/O::, for documentation.
+     *Note* Binary I/O::, for documentation.
 
  -- Scheme Procedure: eof-object
      Return the end-of-file (EOF) object.
@@ -45269,11 +45269,11 @@ port interface.
  -- Scheme Procedure: input-port? obj
  -- Scheme Procedure: output-port? obj
  -- Scheme Procedure: call-with-port port proc
-     *Note Ports::, for documentation.
+     *Note* Ports::, for documentation.
 
  -- Scheme Procedure: port-transcoder port
-     Return a transcoder associated with the encoding of PORT.  *Note
-     Encoding::, and *Note R6RS Transcoders::.
+     Return a transcoder associated with the encoding of PORT.  *Note*
+     Encoding::, and *Note* R6RS Transcoders::.
 
  -- Scheme Procedure: binary-port? port
      Return ‘#t’ if PORT appears to be a binary port, else return ‘#f’.
@@ -45282,7 +45282,7 @@ port interface.
      whether the port was created as a binary port.  Currently, it
      returns ‘#t’ if and only if the port encoding is “ISO-8859-1”,
      because Guile uses this encoding when creating a binary port.
-     *Note Encoding::, for more details.
+     *Note* Encoding::, for more details.
 
  -- Scheme Procedure: textual-port? port
      Return ‘#t’ if PORT appears to be a textual port, else return ‘#f’.
@@ -45290,7 +45290,7 @@ port interface.
      textual ports, so this predicate is not a reliable indicator of
      whether the port was created as a textual port.  Currently, it
      always returns ‘#t’, because all ports can be used for textual I/O
-     in Guile.  *Note Encoding::, for more details.
+     in Guile.  *Note* Encoding::, for more details.
 
  -- Scheme Procedure: transcoded-port binary-port transcoder
      The ‘transcoded-port’ procedure returns a new textual port with the
@@ -45309,13 +45309,13 @@ port interface.
      output operations described in this chapter.
 
  -- Scheme Procedure: port-position port
-     Equivalent to ‘(seek PORT 0 SEEK_CUR)’.  *Note Random Access::.
+     Equivalent to ‘(seek PORT 0 SEEK_CUR)’.  *Note* Random Access::.
 
  -- Scheme Procedure: port-has-port-position? port
      Return ‘#t’ is PORT supports ‘port-position’.
 
  -- Scheme Procedure: set-port-position! port offset
-     Equivalent to ‘(seek PORT OFFSET SEEK_SET)’.  *Note Random
+     Equivalent to ‘(seek PORT OFFSET SEEK_SET)’.  *Note* Random
      Access::.
 
  -- Scheme Procedure: port-has-set-port-position!? port
@@ -45335,11 +45335,11 @@ port interface.
  -- Scheme Procedure: current-input-port
  -- Scheme Procedure: current-output-port
  -- Scheme Procedure: current-error-port
-     *Note Default Ports::.
+     *Note* Default Ports::.
 
  -- Scheme Procedure: open-bytevector-input-port bv [transcoder]
  -- Scheme Procedure: open-bytevector-output-port [transcoder]
-     *Note Bytevector Ports::.
+     *Note* Bytevector Ports::.
 
  -- Scheme Procedure: make-custom-binary-input-port id read!
           get-position set-position! close
@@ -45347,7 +45347,7 @@ port interface.
           get-position set-position! close
  -- Scheme Procedure: make-custom-binary-input/output-port id read!
           write! get-position set-position! close
-     *Note Custom Ports::.
+     *Note* Custom Ports::.
 
  -- Scheme Procedure: get-u8 port
  -- Scheme Procedure: lookahead-u8 port
@@ -45357,7 +45357,7 @@ port interface.
  -- Scheme Procedure: get-bytevector-all port
  -- Scheme Procedure: put-u8 port octet
  -- Scheme Procedure: put-bytevector port bv [start [count]]
-     *Note Binary I/O::.
+     *Note* Binary I/O::.
 
  -- Scheme Procedure: get-char textual-input-port
  -- Scheme Procedure: lookahead-char textual-input-port
@@ -45368,7 +45368,7 @@ port interface.
  -- Scheme Procedure: get-line textual-input-port
  -- Scheme Procedure: put-char port char
  -- Scheme Procedure: put-string port string [start [count]]
-     *Note Textual I/O::.
+     *Note* Textual I/O::.
 
  -- Scheme Procedure: get-datum textual-input-port count
      Reads an external representation from TEXTUAL-INPUT-PORT and
@@ -45377,7 +45377,7 @@ port interface.
      TEXTUAL-INPUT-PORT, updating TEXTUAL-INPUT-PORT to point exactly
      past the end of the external representation of the object.
 
-     Any _interlexeme space_ (comment or whitespace, *note Scheme
+     Any _interlexeme space_ (comment or whitespace, *note* Scheme
      Syntax::) in the input is first skipped.  If an end of file occurs
      after the interlexeme space, the end-of-file object is returned.
 
@@ -45411,12 +45411,12 @@ port interface.
           ‘get-datum’.
 
  -- Scheme Procedure: flush-output-port port
-     *Note Buffering::, for documentation on ‘force-output’.
+     *Note* Buffering::, for documentation on ‘force-output’.
 
 
 File: guile.info,  Node: R6RS File Ports,  Next: rnrs io simple,  Prev: rnrs io ports,  Up: R6RS Standard Libraries
 
-7.6.2.17 R6RS File Ports
+### 7.6.2.17 R6RS File Ports
 ........................
 
 The facilities described in this section are exported by the ‘(rnrs io
@@ -45425,12 +45425,12 @@ ports)’ module.
  -- Scheme Syntax: buffer-mode BUFFER-MODE-SYMBOL
      BUFFER-MODE-SYMBOL must be a symbol whose name is one of ‘none’,
      ‘line’, and ‘block’.  The result is the corresponding symbol, and
-     specifies the associated buffer mode.  *Note Buffering::, for a
+     specifies the associated buffer mode.  *Note* Buffering::, for a
      discussion of these different buffer modes.  To control the amount
      of buffering, use ‘setvbuf’ instead.  Note that only the name of
      BUFFER-MODE-SYMBOL is significant.
 
-     *Note Buffering::, for a discussion of port buffering.
+     *Note* Buffering::, for a discussion of port buffering.
 
  -- Scheme Procedure: buffer-mode? obj
      Returns ‘#t’ if the argument is a valid buffer-mode symbol, and
@@ -45438,7 +45438,7 @@ ports)’ module.
 
    When opening a file, the various procedures accept a ‘file-options’
 object that encapsulates flags to specify how the file is to be opened.
-A ‘file-options’ object is an enum-set (*note rnrs enums::) over the
+A ‘file-options’ object is an enum-set (*note* rnrs enums::) over the
 symbols constituting valid file options.
 
    A FILE-OPTIONS parameter name means that the corresponding argument
@@ -45541,12 +45541,12 @@ must be a file-options object.
 
 File: guile.info,  Node: rnrs io simple,  Next: rnrs files,  Prev: R6RS File Ports,  Up: R6RS Standard Libraries
 
-7.6.2.18 rnrs io simple
+### 7.6.2.18 rnrs io simple
 .......................
 
 The ‘(rnrs io simple (6))’ library provides convenience functions for
 performing textual I/O on ports.  This library also exports all of the
-condition types and associated procedures described in (*note R6RS I/O
+condition types and associated procedures described in (*note* R6RS I/O
 Conditions::).  In the context of this section, when stating that a
 procedure behaves “identically” to the corresponding procedure in
 Guile’s core library, this is modulo the behavior wrt.  conditions: such
@@ -45560,12 +45560,12 @@ otherwise behave identically.
  -- Scheme Procedure: eof-object
  -- Scheme Procedure: eof-object? obj
      These procedures are identical to the ones provided by the ‘(rnrs
-     io ports (6))’ library.  *Note rnrs io ports::, for documentation.
+     io ports (6))’ library.  *Note* rnrs io ports::, for documentation.
 
  -- Scheme Procedure: input-port? obj
  -- Scheme Procedure: output-port? obj
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note Ports::, for documentation.
+     library.  *Note* Ports::, for documentation.
 
  -- Scheme Procedure: call-with-input-file filename proc
  -- Scheme Procedure: call-with-output-file filename proc
@@ -45574,7 +45574,7 @@ otherwise behave identically.
  -- Scheme Procedure: with-input-from-file filename thunk
  -- Scheme Procedure: with-output-to-file filename thunk
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note File Ports::, for documentation.
+     library.  *Note* File Ports::, for documentation.
 
  -- Scheme Procedure: close-input-port input-port
  -- Scheme Procedure: close-output-port output-port
@@ -45586,12 +45586,12 @@ otherwise behave identically.
  -- Scheme Procedure: read-char
  -- Scheme Procedure: read-char textual-input-port
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note Venerable Port Interfaces::, for documentation.
+     library.  *Note* Venerable Port Interfaces::, for documentation.
 
  -- Scheme Procedure: read
  -- Scheme Procedure: read textual-input-port
      This procedure is identical to the one provided by Guile’s core
-     library.  *Note Scheme Read::, for documentation.
+     library.  *Note* Scheme Read::, for documentation.
 
  -- Scheme Procedure: display obj
  -- Scheme Procedure: display obj textual-output-port
@@ -45602,13 +45602,13 @@ otherwise behave identically.
  -- Scheme Procedure: write-char char
  -- Scheme Procedure: write-char char textual-output-port
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note Venerable Port Interfaces::, and *Note Scheme
+     library.  *Note* Venerable Port Interfaces::, and *Note* Scheme
      Write::, for documentation.
 
 
 File: guile.info,  Node: rnrs files,  Next: rnrs programs,  Prev: rnrs io simple,  Up: R6RS Standard Libraries
 
-7.6.2.19 rnrs files
+### 7.6.2.19 rnrs files
 ...................
 
 The ‘(rnrs files (6))’ library provides the ‘file-exists?’ and
@@ -45616,12 +45616,12 @@ The ‘(rnrs files (6))’ library provides the ‘file-exists?’ and
 allow the deletion of files from the file system, respectively.
 
    These procedures are identical to the ones provided by Guile’s core
-library.  *Note File System::, for documentation.
+library.  *Note* File System::, for documentation.
 
 
 File: guile.info,  Node: rnrs programs,  Next: rnrs arithmetic fixnums,  Prev: rnrs files,  Up: R6RS Standard Libraries
 
-7.6.2.20 rnrs programs
+### 7.6.2.20 rnrs programs
 ......................
 
 The ‘(rnrs programs (6))’ library provides procedures for process
@@ -45629,16 +45629,16 @@ management and introspection.
 
  -- Scheme Procedure: command-line
      This procedure is identical to the one provided by Guile’s core
-     library.  *Note Runtime Environment::, for documentation.
+     library.  *Note* Runtime Environment::, for documentation.
 
  -- Scheme Procedure: exit [status]
      This procedure is identical to the one provided by Guile’s core
-     library.  *Note Processes::, for documentation.
+     library.  *Note* Processes::, for documentation.
 
 
 File: guile.info,  Node: rnrs arithmetic fixnums,  Next: rnrs arithmetic flonums,  Prev: rnrs programs,  Up: R6RS Standard Libraries
 
-7.6.2.21 rnrs arithmetic fixnums
+### 7.6.2.21 rnrs arithmetic fixnums
 ................................
 
 The ‘(rnrs arithmetic fixnums (6))’ library provides procedures for
@@ -45646,7 +45646,7 @@ performing arithmetic operations on an implementation-dependent range of
 exact integer values, which R6RS refers to as “fixnums”.  In Guile, the
 size of a fixnum is determined by the size of the ‘SCM’ type; a single
 SCM struct is guaranteed to be able to hold an entire fixnum, making
-fixnum computations particularly efficient—(*note The SCM Type::).  On
+fixnum computations particularly efficient—(*note* The SCM Type::).  On
 32-bit systems, the most negative and most positive fixnum values are,
 respectively, -536870912 and 536870911.
 
@@ -45707,7 +45707,7 @@ their result is not itself a fixnum.
  -- Scheme Procedure: fxdiv0 fx1 fx2
  -- Scheme Procedure: fxmod0 fx1 fx2
      These procedures implement number-theoretic division on fixnums;
-     *Note (rnrs base)::, for a description of their semantics.
+     *Note* (rnrs base)::, for a description of their semantics.
 
  -- Scheme Procedure: fx+/carry fx1 fx2 fx3
      Returns the two fixnum results of the following computation:
@@ -45735,7 +45735,7 @@ their result is not itself a fixnum.
  -- Scheme Procedure: fxior fx1 ...
  -- Scheme Procedure: fxxor fx1 ...
      These procedures are identical to the ‘lognot’, ‘logand’, ‘logior’,
-     and ‘logxor’ procedures provided by Guile’s core library.  *Note
+     and ‘logxor’ procedures provided by Guile’s core library.  *Note*
      Bitwise Operations::, for documentation.
 
  -- Scheme Procedure: fxif fx1 fx2 fx3
@@ -45791,7 +45791,7 @@ their result is not itself a fixnum.
 
 File: guile.info,  Node: rnrs arithmetic flonums,  Next: rnrs arithmetic bitwise,  Prev: rnrs arithmetic fixnums,  Up: R6RS Standard Libraries
 
-7.6.2.22 rnrs arithmetic flonums
+### 7.6.2.22 rnrs arithmetic flonums
 ................................
 
 The ‘(rnrs arithmetic flonums (6))’ library provides procedures for
@@ -45863,7 +45863,7 @@ non-flonum argument.
  -- Scheme Procedure: fldiv0 fl1 fl2
  -- Scheme Procedure: flmod0 fl1 fl2
      These procedures implement number-theoretic division on flonums;
-     *Note (rnrs base)::, for a description for their semantics.
+     *Note* (rnrs base)::, for a description for their semantics.
 
  -- Scheme Procedure: flnumerator fl
  -- Scheme Procedure: fldenominator fl
@@ -45876,7 +45876,7 @@ non-flonum argument.
  -- Scheme Procedure: flround fl
      These procedures are identical to the ‘floor’, ‘ceiling’,
      ‘truncate’, and ‘round’ procedures provided by Guile’s core
-     library.  *Note Arithmetic::, for documentation.
+     library.  *Note* Arithmetic::, for documentation.
 
  -- Scheme Procedure: flexp fl
  -- Scheme Procedure: fllog fl
@@ -45890,7 +45890,7 @@ non-flonum argument.
  -- Scheme Procedure: flatan fl1 fl2
      These procedures, which compute the usual transcendental functions,
      are the flonum variants of the procedures provided by the R6RS base
-     library (*note (rnrs base)::).
+     library (*note* (rnrs base)::).
 
  -- Scheme Procedure: flsqrt fl
      Returns the square root of FL.  If FL is ‘-0.0’, -0.0 is returned;
@@ -45924,7 +45924,7 @@ standard libraries implementation.
 
 File: guile.info,  Node: rnrs arithmetic bitwise,  Next: rnrs syntax-case,  Prev: rnrs arithmetic flonums,  Up: R6RS Standard Libraries
 
-7.6.2.23 rnrs arithmetic bitwise
+### 7.6.2.23 rnrs arithmetic bitwise
 ................................
 
 The ‘(rnrs arithmetic bitwise (6))’ library provides procedures for
@@ -45933,14 +45933,14 @@ representations of fixnums.
 
    This library and the procedures it exports share functionality with
 SRFI-60, which provides support for bitwise manipulation of integers
-(*note SRFI-60::).
+(*note* SRFI-60::).
 
  -- Scheme Procedure: bitwise-not ei
  -- Scheme Procedure: bitwise-and ei1 ...
  -- Scheme Procedure: bitwise-ior ei1 ...
  -- Scheme Procedure: bitwise-xor ei1 ...
      These procedures are identical to the ‘lognot’, ‘logand’, ‘logior’,
-     and ‘logxor’ procedures provided by Guile’s core library.  *Note
+     and ‘logxor’ procedures provided by Guile’s core library.  *Note*
      Bitwise Operations::, for documentation.
 
  -- Scheme Procedure: bitwise-if ei1 ei2 ei3
@@ -45996,13 +45996,13 @@ SRFI-60, which provides support for bitwise manipulation of integers
 
 File: guile.info,  Node: rnrs syntax-case,  Next: rnrs hashtables,  Prev: rnrs arithmetic bitwise,  Up: R6RS Standard Libraries
 
-7.6.2.24 rnrs syntax-case
+### 7.6.2.24 rnrs syntax-case
 .........................
 
 The ‘(rnrs syntax-case (6))’ library provides access to the
 ‘syntax-case’ system for writing hygienic macros.  With one exception,
 all of the forms and procedures exported by this library are
-“re-exports” of Guile’s native support for ‘syntax-case’; *Note Syntax
+“re-exports” of Guile’s native support for ‘syntax-case’; *Note* Syntax
 Case::, for documentation, examples, and rationale.
 
  -- Scheme Procedure: make-variable-transformer proc
@@ -46023,7 +46023,7 @@ Case::, for documentation, examples, and rationale.
      These forms allow references to be made in the body of a
      syntax-case output expression subform to datum and non-datum
      values.  They are identical to the forms provided by Guile’s core
-     library; *Note Syntax Case::, for documentation.
+     library; *Note* Syntax Case::, for documentation.
 
  -- Scheme Procedure: identifier? obj
  -- Scheme Procedure: bound-identifier=? id1 id2
@@ -46060,14 +46060,14 @@ Case::, for documentation, examples, and rationale.
 
 File: guile.info,  Node: rnrs hashtables,  Next: rnrs enums,  Prev: rnrs syntax-case,  Up: R6RS Standard Libraries
 
-7.6.2.25 rnrs hashtables
+### 7.6.2.25 rnrs hashtables
 ........................
 
 The ‘(rnrs hashtables (6))’ library provides structures and procedures
 for creating and accessing hash tables.  The hash tables API defined by
 R6RS is substantially similar to both Guile’s native hash tables
-implementation as well as the one provided by SRFI-69; *Note Hash
-Tables::, and *note SRFI-69::, respectively.  Note that you can write
+implementation as well as the one provided by SRFI-69; *Note* Hash
+Tables::, and *note* SRFI-69::, respectively.  Note that you can write
 portable R6RS library code that manipulates SRFI-69 hash tables (by
 importing the ‘(srfi :69)’ library); however, hash tables created by one
 API cannot be used by another.
@@ -46175,7 +46175,7 @@ time of its creation.  Additionally, R6RS allows for the creation (via
  -- Scheme Procedure: string-hash string
  -- Scheme Procedure: symbol-hash symbol
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note Hash Table Reference::, for documentation.
+     library.  *Note* Hash Table Reference::, for documentation.
 
  -- Scheme Procedure: string-ci-hash string
      Returns an integer hash value for STRING based on its contents,
@@ -46185,7 +46185,7 @@ time of its creation.  Additionally, R6RS allows for the creation (via
 
 File: guile.info,  Node: rnrs enums,  Next: rnrs,  Prev: rnrs hashtables,  Up: R6RS Standard Libraries
 
-7.6.2.26 rnrs enums
+### 7.6.2.26 rnrs enums
 ...................
 
 The ‘(rnrs enums (6))’ library provides structures and procedures for
@@ -46196,7 +46196,7 @@ enumeration set.
 
    The SRFI-1 list library provides a number of procedures for
 performing set operations on lists; Guile’s ‘(rnrs enums)’
-implementation makes use of several of them.  *Note SRFI-1 Set
+implementation makes use of several of them.  *Note* SRFI-1 Set
 Operations::, for more information.
 
  -- Scheme Procedure: make-enumeration symbol-list
@@ -46266,7 +46266,7 @@ Operations::, for more information.
 
 File: guile.info,  Node: rnrs,  Next: rnrs eval,  Prev: rnrs enums,  Up: R6RS Standard Libraries
 
-7.6.2.27 rnrs
+### 7.6.2.27 rnrs
 .............
 
 The ‘(rnrs (6))’ library is a composite of all of the other R6RS
@@ -46282,7 +46282,7 @@ libraries:
 
 File: guile.info,  Node: rnrs eval,  Next: rnrs mutable-pairs,  Prev: rnrs,  Up: R6RS Standard Libraries
 
-7.6.2.28 rnrs eval
+### 7.6.2.28 rnrs eval
 ..................
 
 The ‘(rnrs eval (6)’ library provides procedures for performing
@@ -46292,18 +46292,18 @@ The ‘(rnrs eval (6)’ library provides procedures for performing
      Evaluates EXPRESSION, which must be a datum representation of a
      valid Scheme expression, in the environment specified by
      ENVIRONMENT.  This procedure is identical to the one provided by
-     Guile’s code library; *Note Fly Evaluation::, for documentation.
+     Guile’s code library; *Note* Fly Evaluation::, for documentation.
 
  -- Scheme Procedure: environment import-spec ...
      Constructs and returns a new environment based on the specified
      IMPORT-SPECs, which must be datum representations of the import
-     specifications used with the ‘import’ form.  *Note R6RS
+     specifications used with the ‘import’ form.  *Note* R6RS
      Libraries::, for documentation.
 
 
 File: guile.info,  Node: rnrs mutable-pairs,  Next: rnrs mutable-strings,  Prev: rnrs eval,  Up: R6RS Standard Libraries
 
-7.6.2.29 rnrs mutable-pairs
+### 7.6.2.29 rnrs mutable-pairs
 ...........................
 
 The ‘(rnrs mutable-pairs (6))’ library provides the ‘set-car!’ and
@@ -46311,14 +46311,14 @@ The ‘(rnrs mutable-pairs (6))’ library provides the ‘set-car!’ and
 to be modified.
 
    These procedures are identical to the ones provide by Guile’s core
-library.  *Note Pairs::, for documentation.  All pairs in Guile are
+library.  *Note* Pairs::, for documentation.  All pairs in Guile are
 mutable; consequently, these procedures will never throw the
 ‘&assertion’ condition described in the R6RS libraries specification.
 
 
 File: guile.info,  Node: rnrs mutable-strings,  Next: rnrs r5rs,  Prev: rnrs mutable-pairs,  Up: R6RS Standard Libraries
 
-7.6.2.30 rnrs mutable-strings
+### 7.6.2.30 rnrs mutable-strings
 .............................
 
 The ‘(rnrs mutable-strings (6))’ library provides the ‘string-set!’ and
@@ -46326,7 +46326,7 @@ The ‘(rnrs mutable-strings (6))’ library provides the ‘string-set!’ and
 modified “in-place.”
 
    These procedures are identical to the ones provided by Guile’s core
-library.  *Note String Modification::, for documentation.  All strings
+library.  *Note* String Modification::, for documentation.  All strings
 in Guile are mutable; consequently, these procedures will never throw
 the ‘&assertion’ condition described in the R6RS libraries
 specification.
@@ -46334,7 +46334,7 @@ specification.
 
 File: guile.info,  Node: rnrs r5rs,  Prev: rnrs mutable-strings,  Up: R6RS Standard Libraries
 
-7.6.2.31 rnrs r5rs
+### 7.6.2.31 rnrs r5rs
 ..................
 
 The ‘(rnrs r5rs (6))’ library exports bindings for some procedures
@@ -46343,24 +46343,24 @@ present in R5RS but omitted from the R6RS base library specification.
  -- Scheme Procedure: exact->inexact z
  -- Scheme Procedure: inexact->exact z
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note Exactness::, for documentation.
+     library.  *Note* Exactness::, for documentation.
 
  -- Scheme Procedure: quotient n1 n2
  -- Scheme Procedure: remainder n1 n2
  -- Scheme Procedure: modulo n1 n2
      These procedures are identical to the ones provided by Guile’s core
-     library.  *Note Integer Operations::, for documentation.
+     library.  *Note* Integer Operations::, for documentation.
 
  -- Scheme Syntax: delay expr
  -- Scheme Procedure: force promise
      The ‘delay’ form and the ‘force’ procedure are identical to their
-     counterparts in Guile’s core library.  *Note Delayed Evaluation::,
+     counterparts in Guile’s core library.  *Note* Delayed Evaluation::,
      for documentation.
 
  -- Scheme Procedure: null-environment n
  -- Scheme Procedure: scheme-report-environment n
      These procedures are identical to the ones provided by the ‘(ice-9
-     r5rs)’ Guile module.  *Note Environments::, for documentation.
+     r5rs)’ Guile module.  *Note* Environments::, for documentation.
 
 
 File: guile.info,  Node: R7RS Support,  Next: Pattern Matching,  Prev: R6RS Support,  Up: Guile Modules
@@ -46373,9 +46373,9 @@ The R7RS (https://small.r7rs.org/) standard is essentially R5RS
 organization of bindings into a standard set of modules.
 
    Happily, the syntax for R7RS modules was chosen to be compatible with
-R6RS, and so Guile’s documentation there applies.  *Note R6RS
+R6RS, and so Guile’s documentation there applies.  *Note* R6RS
 Libraries::, for more information on how to define R6RS libraries, and
-their integration with Guile modules.  *Note Library Usage::, also.
+their integration with Guile modules.  *Note* Library Usage::, also.
 
 * Menu:
 
@@ -46388,7 +46388,7 @@ File: guile.info,  Node: R7RS Incompatibilities,  Next: R7RS Standard Libraries,
 7.7.1 Incompatibilities with the R7RS
 -------------------------------------
 
-As the R7RS is a much less ambitious standard than the R6RS (*note Guile
+As the R7RS is a much less ambitious standard than the R6RS (*note* Guile
 and Scheme::), it is very easy for Guile to support.  As such, Guile is
 a fully conforming implementation of R7RS, with the exception of the
 occasional bug and a couple of unimplemented features:
@@ -46400,7 +46400,7 @@ occasional bug and a couple of unimplemented features:
 
    • As with R6RS, a number of lexical features of R7RS conflict with
      Guile’s historical syntax.  In addition to ‘r6rs-hex-escapes’ and
-     ‘hungry-eol-escapes’ (*note R6RS Incompatibilities::), the
+     ‘hungry-eol-escapes’ (*note* R6RS Incompatibilities::), the
      ‘r7rs-symbols’ reader feature needs to be explicitly enabled.
 
    Guile exposes a procedure in the root module to choose R7RS defaults
@@ -46412,7 +46412,7 @@ over Guile’s historical defaults.
      While Guile’s defaults may evolve over time, the current changes
      that this procedure imposes are to add ‘.sls’ and ‘.guile.sls’ to
      the set of supported ‘%load-extensions’, to better support R7RS
-     conventions.  *Note Load Paths::.  ‘install-r7rs!’ will also enable
+     conventions.  *Note* Load Paths::.  ‘install-r7rs!’ will also enable
      the reader options mentioned above.
 
    Finally, note that the ‘--r7rs’ command-line argument will call
@@ -46440,8 +46440,8 @@ are as follows:
 
 ‘(scheme base)’
      The core functions, mostly corresponding to R5RS minus the elements
-     listed separately below, but plus SRFI-34 error handling (*note
-     SRFI-34::), bytevectors and bytevector ports (*note Bytevectors::),
+     listed separately below, but plus SRFI-34 error handling (*note*
+     SRFI-34::), bytevectors and bytevector ports (*note* Bytevectors::),
      and some miscellaneous other new procedures.
 ‘(scheme case-lambda)’
      ‘case-lambda’.
@@ -46465,12 +46465,12 @@ are as follows:
 ‘(scheme load)’
      The ‘load’ procedure.
 ‘(scheme process-context)’
-     Environment variables.  *Note SRFI-98::.  Also, ‘commmand-line’,
+     Environment variables.  *Note* SRFI-98::.  Also, ‘commmand-line’,
      ‘emergency-exit’ (like Guile’s ‘primitive-_exit’), and ‘exit’.
 ‘(scheme r5rs)’
      The precise set of bindings exported by ‘r5rs’, but without
      ‘transcript-off’ / ‘transcript-on’, and also with the auxiliary
-     syntax definitions like ‘_’ or ‘else’.  *Note Syntax Rules::, for
+     syntax definitions like ‘_’ or ‘else’.  *Note* Syntax Rules::, for
      more on auxiliary syntax.
 ‘(scheme read)’
      The ‘read’ procedure.
@@ -46484,7 +46484,7 @@ are as follows:
      ‘display’, ‘write’, as well as ‘write-shared’ and ‘write-simple’.
 
    For complete documentation, we advise the interested user to consult
-the R7RS directly (*note (r7rs)R7RS::).
+the R7RS directly (*note* (r7rs)R7RS::).
 
 
 File: guile.info,  Node: Pattern Matching,  Next: Readline Support,  Prev: R7RS Support,  Up: Guile Modules
@@ -46709,7 +46709,7 @@ syntactic sugar macros wrapping around ‘match’.
      the results of evaluating the INIT expressions.  When called, the
      procedure matches each argument against the corresponding PATTERN,
      and returns the result(s) of evaluating the BODY expressions.
-     *Note Iteration: while do, for more on “named let”.
+     *Note* Iteration: while do, for more on “named let”.
 
  -- Scheme Syntax: match-let* ((variable expression) ...) body
      Similar to ‘match-let’, but analogously to ‘let*’, match and bind
@@ -46730,7 +46730,7 @@ syntactic sugar macros wrapping around ‘match’.
      the variables with all match variables in scope.
 
    Guile also comes with a pattern matcher specifically tailored to SXML
-trees, *Note sxml-match::.
+trees, *Note* sxml-match::.
 
 
 File: guile.info,  Node: Readline Support,  Next: Pretty Printing,  Prev: Pattern Matching,  Up: Guile Modules
@@ -46738,7 +46738,7 @@ File: guile.info,  Node: Readline Support,  Next: Pretty Printing,  Prev: Patter
 7.9 Readline Support
 ====================
 
-Guile comes with an interface module to the readline library (*note
+Guile comes with an interface module to the readline library (*note*
 (readline)Top::).  This makes interactive use much more convenient,
 because of the command-line editing features of readline.  Using ‘(ice-9
 readline)’, you can navigate through the current input line with the
@@ -46792,7 +46792,7 @@ expressions available.
    You can specify a different history file by setting the environment
 variable ‘GUILE_HISTORY’.  And you can make Guile specific
 customizations to your ‘.inputrc’ by testing for application ‘Guile’
-(*note (readline)Conditional Init Constructs::).  For instance to define
+(*note* (readline)Conditional Init Constructs::).  For instance to define
 a key inserting a matched pair of parentheses,
 
      $if Guile
@@ -46808,7 +46808,7 @@ File: guile.info,  Node: Readline Options,  Next: Readline Functions,  Prev: Loa
 The readline interface module can be tweaked in a few ways to better
 suit the user’s needs.  Configuration is done via the readline module’s
 options interface, in a similar way to the evaluator and debugging
-options (*note Runtime Options::).
+options (*note* Runtime Options::).
 
  -- Scheme Procedure: readline-options
  -- Scheme Procedure: readline-enable option-name
@@ -46856,19 +46856,19 @@ readline port below with all the usual reading functions.
  -- Function: set-readline-input-port! port
  -- Function: set-readline-output-port! port
      Set the input and output port the readline function should read
-     from and write to.  PORT must be a file port (*note File Ports::),
+     from and write to.  PORT must be a file port (*note* File Ports::),
      and should usually be a terminal.
 
      The default is the ‘current-input-port’ and ‘current-output-port’
-     (*note Default Ports::) when ‘(ice-9 readline)’ loads, which in an
+     (*note* Default Ports::) when ‘(ice-9 readline)’ loads, which in an
      interactive user session means the Unix “standard input” and
      “standard output”.
 
-7.9.3.1 Readline Port
+### 7.9.3.1 Readline Port
 .....................
 
  -- Function: readline-port
-     Return a buffered input port (*note Buffered Input::) which calls
+     Return a buffered input port (*note* Buffered Input::) which calls
      the ‘readline’ function above to get input.  This port can be used
      with all the usual reading functions (‘read’, ‘read-char’, etc),
      and the user gets the interactive editing features of readline.
@@ -46878,10 +46878,10 @@ readline port below with all the usual reading functions.
      what it previously made.
 
  -- Function: activate-readline
-     If the ‘current-input-port’ is a terminal (*note ‘isatty?’:
+     If the ‘current-input-port’ is a terminal (*note* ‘isatty?’:
      Terminals and Ptys.) then enable readline for all reading from
-     ‘current-input-port’ (*note Default Ports::) and enable readline
-     features in the interactive REPL (*note The REPL::).
+     ‘current-input-port’ (*note* Default Ports::) and enable readline
+     features in the interactive REPL (*note* The REPL::).
 
           (activate-readline)
           (read-char)
@@ -46901,11 +46901,11 @@ readline port below with all the usual reading functions.
      prompt to show further input required.  In the Guile REPL for
      instance this is an ellipsis (‘...’).
 
-     See ‘set-buffered-input-continuation?!’ (*note Buffered Input::)
+     See ‘set-buffered-input-continuation?!’ (*note* Buffered Input::)
      for an application to indicate the boundaries of logical
      expressions (assuming of course an application has such a notion).
 
-7.9.3.2 Completion
+### 7.9.3.2 Completion
 ..................
 
  -- Function: with-readline-completion-function completer thunk
@@ -46914,14 +46914,14 @@ readline port below with all the usual reading functions.
      COMPLETER can be ‘#f’ for no completion.
 
      COMPLETER will be called as ‘(COMPLETER text state)’, as described
-     in (*note (readline)How Completing Works::).  TEXT is a partial
+     in (*note* (readline)How Completing Works::).  TEXT is a partial
      word to be completed, and each COMPLETER call should return a
      possible completion string or ‘#f’ when no more.  STATE is ‘#f’ for
      the first call asking about a new TEXT then ‘#t’ while getting
      further completions of that TEXT.
 
      Here’s an example COMPLETER for user login names from the password
-     file (*note User Information::), much like readline’s own
+     file (*note* User Information::), much like readline’s own
      ‘rl_username_completion_function’,
 
           (define (username-completer-function text state)
@@ -46944,7 +46944,7 @@ readline port below with all the usual reading functions.
 
  -- Function: filename-completion-function text state
      A completion function offering filename completions.  This is
-     readline’s ‘rl_filename_completion_function’ (*note
+     readline’s ‘rl_filename_completion_function’ (*note*
      (readline)Completion Functions::).
 
  -- Function: make-completion-function string-list
@@ -46987,7 +46987,7 @@ lists and vectors.
 
      #:display? FLAG
           If FLAG is true then print using ‘display’.  The default is
-          ‘#f’ which means use ‘write’ style.  *Note Scheme Write::.
+          ‘#f’ which means use ‘write’ style.  *Note* Scheme Write::.
 
      #:per-line-prefix STRING
           Print the given STRING as a prefix on each line.  The default
@@ -47040,7 +47040,7 @@ possibly ellipsized(1), or in the worst case, displayed as #.
 
      #:display? FLAG
           If FLAG is true then print using ‘display’.  The default is
-          ‘#f’ which means use ‘write’ style.  *note Scheme Write::.
+          ‘#f’ which means use ‘write’ style.  *note* Scheme Write::.
 
      #:width COLUMNS
           Print within the given COLUMNS.  The default is 79.
@@ -47086,7 +47086,7 @@ powerful.
 
  -- Scheme Procedure: format dest fmt arg ...
      Write output specified by the FMT string to DEST.  DEST can be an
-     output port, ‘#t’ for ‘current-output-port’ (*note Default
+     output port, ‘#t’ for ‘current-output-port’ (*note* Default
      Ports::), or ‘#f’ to return the output as a string.
 
      FMT can contain literal text to be output, and ~ escapes.  Each
@@ -47124,7 +47124,7 @@ powerful.
           Object output.  Parameters: MINWIDTH, PADINC, MINPAD, PADCHAR.
 
           ~a outputs an argument like ‘display’, ~s outputs an argument
-          like ‘write’ (*note Scheme Write::).
+          like ‘write’ (*note* Scheme Write::).
 
                (format #t "~a" "foo") ⊣ foo
                (format #t "~s" "foo") ⊣ "foo"
@@ -47153,7 +47153,7 @@ powerful.
           Character.  Parameter: CHARNUM.
 
           Output a character.  The default is to simply output, as per
-          ‘write-char’ (*note Venerable Port Interfaces::).  ~@c prints
+          ‘write-char’ (*note* Venerable Port Interfaces::).  ~@c prints
           in ‘write’ style.  ~:c prints control characters (ASCII 0 to
           31) in ^X form.
 
@@ -47163,7 +47163,7 @@ powerful.
 
           If the CHARNUM parameter is given then an argument is not
           taken but instead the character is ‘(integer->char CHARNUM)’
-          (*note Characters::).  This can be used for instance to output
+          (*note* Characters::).  This can be used for instance to output
           characters given by their ASCII code.
 
                (format #t "~65c")  ⊣ A
@@ -47283,7 +47283,7 @@ powerful.
 
           Like ~f, output an exact or floating point number, but do so
           according to the current locale, or according to the given
-          locale object when the ‘:’ modifier is used (*note
+          locale object when the ‘:’ modifier is used (*note*
           ‘number->locale-string’: Number Input and Output.).
 
                (format #t "~h" 12345.5678)  ; with "C" as the current locale
@@ -47453,18 +47453,18 @@ powerful.
           ~p is designed for English plurals and there’s no attempt to
           support other languages.  ~[ conditionals (below) may be able
           to help.  When using ‘gettext’ to translate messages
-          ‘ngettext’ is probably best though (*note
+          ‘ngettext’ is probably best though (*note*
           Internationalization::).
 
      ~y
           Structured printing.  Parameters: WIDTH.
 
-          ~y outputs an argument using ‘pretty-print’ (*note Pretty
+          ~y outputs an argument using ‘pretty-print’ (*note* Pretty
           Printing::).  The result will be formatted to fit within WIDTH
           columns (79 by default), consuming multiple lines if
           necessary.
 
-          ~@y outputs an argument using ‘truncated-print’ (*note Pretty
+          ~@y outputs an argument using ‘truncated-print’ (*note* Pretty
           Printing::).  The resulting code will be formatted to fit
           within WIDTH columns (79 by default), on a single line.  The
           output will be truncated if necessary.
@@ -47541,7 +47541,7 @@ powerful.
 
                (format #f "a~3,5'*@tx") ⇒ "a****x"
 
-          ~t is implemented using ‘port-column’ (*note Textual I/O::),
+          ~t is implemented using ‘port-column’ (*note* Textual I/O::),
           so it works even there has been other output before ‘format’.
 
      ~~
@@ -47593,7 +47593,7 @@ powerful.
           Force output.  No parameters.
 
           At the end of output, call ‘force-output’ to flush any buffers
-          on the destination (*note Buffering::).  ~!  can occur
+          on the destination (*note* Buffering::).  ~!  can occur
           anywhere in the format string, but the force is done at the
           end of output.
 
@@ -47797,7 +47797,7 @@ powerful.
 
 
    Guile contains a ‘format’ procedure even when the module ‘(ice-9
-format)’ is not loaded.  The default ‘format’ is ‘simple-format’ (*note
+format)’ is not loaded.  The default ‘format’ is ‘simple-format’ (*note*
 Simple Output::), it doesn’t support all escape sequences documented in
 this section, and will signal an error if you try to use one of them.
 The reason for two versions is that the full ‘format’ is fairly large
@@ -47825,7 +47825,7 @@ File: guile.info,  Node: File Tree Walk,  Next: Queues,  Prev: Formatted Output,
 The functions in this section traverse a tree of files and directories.
 They come in two flavors: the first one is a high-level functional
 interface, and the second one is similar to the C ‘ftw’ and ‘nftw’
-routines (*note (libc)Working with Directory Trees::).
+routines (*note* (libc)Working with Directory Trees::).
 
      (use-modules (ice-9 ftw))
 
@@ -47925,7 +47925,7 @@ traversed; in fact, ‘file-system-tree’ is implemented in terms of it.
 
      The optional STAT argument defaults to ‘lstat’, which means that
      symbolic links are not followed; the ‘stat’ procedure can be used
-     instead when symbolic links are to be followed (*note stat: File
+     instead when symbolic links are to be followed (*note* stat: File
      System.).
 
      The example below illustrates the use of ‘file-system-fold’:
@@ -47971,11 +47971,11 @@ traversed; in fact, ‘file-system-tree’ is implemented in terms of it.
      that match predicate SELECT? (by default, all files).  The returned
      list of file names is sorted according to ENTRY<?, which defaults
      to ‘string-locale<?’ such that file names are sorted in the
-     locale’s alphabetical order (*note Text Collation::).  Return ‘#f’
+     locale’s alphabetical order (*note* Text Collation::).  Return ‘#f’
      when NAME is unreadable or is not a directory.
 
      This procedure is modeled after the C library function of the same
-     name (*note (libc)Scanning Directory Content::).
+     name (*note* (libc)Scanning Directory Content::).
 
  -- Scheme Procedure: ftw startname proc ['hash-size n]
      Walk the file system tree descending from STARTNAME, calling PROC
@@ -47991,7 +47991,7 @@ traversed; in fact, ‘file-system-tree’ is implemented in terms of it.
 
      FILENAME is the item visited, being STARTNAME plus a further path
      and the name of the item.  STATINFO is the return from ‘stat’
-     (*note File System::) on FILENAME.  FLAG is one of the following
+     (*note* File System::) on FILENAME.  FLAG is one of the following
      symbols,
 
      ‘regular’
@@ -48019,7 +48019,7 @@ traversed; in fact, ‘file-system-tree’ is implemented in terms of it.
 
      Optional argument symbol ‘hash-size’ and an integer can be given to
      set the size of the hash table used to track items already visited.
-     (*note Hash Table Reference::)
+     (*note* Hash Table Reference::)
 
      In the current implementation, returning non-‘#t’ from PROC is the
      only valid way to terminate ‘ftw’.  PROC must not use ‘throw’ or
@@ -48041,7 +48041,7 @@ traversed; in fact, ‘file-system-tree’ is implemented in terms of it.
 
      FILENAME is the item visited, being STARTNAME plus a further path
      and the name of the item.  STATINFO is the return from ‘stat’ on
-     FILENAME (*note File System::).  BASE is an integer offset into
+     FILENAME (*note* File System::).  BASE is an integer offset into
      FILENAME which is where the basename for this item begins.  LEVEL
      is an integer giving the directory nesting level, starting from 0
      for the contents of STARTNAME (or that item itself if it’s a file).
@@ -48102,7 +48102,7 @@ traversed; in fact, ‘file-system-tree’ is implemented in terms of it.
 
      ‘hash-size N’
           Set the size of the hash table used to track items already
-          visited.  (*note Hash Table Reference::)
+          visited.  (*note* Hash Table Reference::)
 
      ‘mount’
           Don’t cross a mount point, meaning only visit items on the
@@ -48214,7 +48214,7 @@ File: guile.info,  Node: Streams,  Next: Buffered Input,  Prev: Queues,  Up: Gui
 ============
 
 This section documents Guile’s legacy stream module.  For a more
-complete and portable stream library, *note SRFI-41::.
+complete and portable stream library, *note* SRFI-41::.
 
    A stream represents a sequence of values, each of which is calculated
 only when required.  This allows large or even infinite sequences to be
@@ -48225,7 +48225,7 @@ are available from
 
      (use-modules (ice-9 streams))
 
-   Streams are implemented using promises (*note Delayed Evaluation::),
+   Streams are implemented using promises (*note* Delayed Evaluation::),
 which is how the underlying calculation of values is made only when
 needed, and the values then retained so the calculation is not repeated.
 
@@ -48286,7 +48286,7 @@ a list, but they could be printed (infinitely) with for example
  -- Scheme Procedure: port->stream port readproc
      Return a stream which is the values obtained by reading from PORT
      using READPROC.  Each read call is ‘(READPROC PORT)’, and it should
-     return an EOF object (*note Binary I/O::) at the end of input.
+     return an EOF object (*note* Binary I/O::) at the end of input.
 
      For example a stream of characters from a file,
 
@@ -48300,12 +48300,12 @@ a list, but they could be printed (infinitely) with for example
      reverse order.
 
  -- Scheme Procedure: stream->list&length stream
-     Return two values (*note Multiple Values::), being firstly a list
+     Return two values (*note* Multiple Values::), being firstly a list
      which is the entire contents of STREAM, and secondly the number of
      elements in that list.
 
  -- Scheme Procedure: stream->reversed-list&length stream
-     Return two values (*note Multiple Values::) being firstly a list
+     Return two values (*note* Multiple Values::) being firstly a list
      which is the entire contents of STREAM, but in reverse order, and
      secondly the number of elements in that list.
 
@@ -48382,7 +48382,7 @@ too, and passed through to the reader.
 
      An application uses this by calling with a CONT flag of ‘#f’ when
      beginning to read a new logical expression.  For example with the
-     Scheme ‘read’ function (*note Scheme Read::),
+     Scheme ‘read’ function (*note* Scheme Read::),
 
           (define my-port (make-buffered-input-port my-reader))
 
@@ -48472,11 +48472,11 @@ regexec (see the regular expression documentation).
           character which was read.
      ‘expect-strings-compile-flags’
           Flags to be used when compiling a regular expression, which
-          are passed to ‘make-regexp’ *Note Regexp Functions::.  The
+          are passed to ‘make-regexp’ *Note* Regexp Functions::.  The
           default value is ‘regexp/newline’.
      ‘expect-strings-exec-flags’
           Flags to be used when executing a regular expression, which
-          are passed to regexp-exec *Note Regexp Functions::.  The
+          are passed to regexp-exec *Note* Regexp Functions::.  The
           default value is ‘regexp/noteol’, which prevents ‘$’ from
           matching the end of the string while it is still accumulating,
           but still allows it to match after a line break or at the end
@@ -48532,7 +48532,7 @@ File: guile.info,  Node: sxml-match,  Next: The Scheme shell (scsh),  Prev: Expe
 
 The ‘(sxml match)’ module provides syntactic forms for pattern matching
 of SXML trees, in a “by example” style reminiscent of the pattern
-matching of the ‘syntax-rules’ and ‘syntax-case’ macro systems.  *Note
+matching of the ‘syntax-rules’ and ‘syntax-case’ macro systems.  *Note*
 SXML::, for more information on SXML.
 
    The following example(1) provides a brief illustration, transforming
@@ -48547,7 +48547,7 @@ a music album catalog language into HTML.
    Three macros are provided: ‘sxml-match’, ‘sxml-match-let’, and
 ‘sxml-match-let*’.
 
-   Compared to a standard s-expression pattern matcher (*note Pattern
+   Compared to a standard s-expression pattern matcher (*note* Pattern
 Matching::), ‘sxml-match’ provides the following benefits:
 
    • matching of SXML elements does not depend on any degree of
@@ -48921,7 +48921,7 @@ return procedures, up to any desired depth.
      list ARGS.  This nesting may occur to arbitrary depth.
 
      ‘define*’ is similar but the formal parameter lists take additional
-     options as described in *note lambda* and define*::.  For example,
+     options as described in *note* lambda* and define*::.  For example,
           (define* ((foo #:keys (bar 'baz) (quux 'zot)) frotz #:rest rest)
             (list bar quux frotz rest))
 
@@ -49351,7 +49351,7 @@ File: guile.info,  Node: SSAX,  Next: Transforming SXML,  Prev: Reading and Writ
 Guile’s XML parser is based on Oleg Kiselyov’s powerful XML parsing
 toolkit, SSAX.
 
-7.21.3.1 History
+### 7.21.3.1 History
 ................
 
 Back in the 1990s, when the world was young again and XML was the
@@ -49382,7 +49382,7 @@ functional-style interface that can still generate optimal parsers.
 DOM-style parser built using SSAX, though it returns SXML instead of DOM
 objects.
 
-7.21.3.2 Implementation
+### 7.21.3.2 Implementation
 .......................
 
 ‘(sxml ssax)’ is a package of low-to-high level lexing and parsing
@@ -49490,7 +49490,7 @@ Recommendation: <http://www.w3.org/TR/REC-xml-names/>.
      Ralf Hinze, "Deriving Backtracking Monad Transformers," Functional
      Pearl.  Proc ICFP’00, pp.  186-197.
 
-7.21.3.3 Usage
+### 7.21.3.3 Usage
 ..............
 
  -- Scheme Procedure: current-ssax-error-port
@@ -49568,7 +49568,7 @@ File: guile.info,  Node: Transforming SXML,  Next: SXML Tree Fold,  Prev: SSAX, 
 7.21.4 Transforming SXML
 ------------------------
 
-7.21.4.1 Overview
+### 7.21.4.1 Overview
 .................
 
 SXML expression tree transformers
@@ -49617,7 +49617,7 @@ looked up.
    This is equivalent to ‘*preorder*’ described above.  However, the
 result is re-processed again, with the current stylesheet.
 
-7.21.4.2 Usage
+### 7.21.4.2 Usage
 ..............
 
  -- Scheme Procedure: SRV:send-reply . fragments
@@ -49645,7 +49645,7 @@ File: guile.info,  Node: SXML Tree Fold,  Next: SXPath,  Prev: Transforming SXML
 7.21.5 SXML Tree Fold
 ---------------------
 
-7.21.5.1 Overview
+### 7.21.5.1 Overview
 .................
 
 ‘(sxml fold)’ defines a number of variants of the “fold” algorithm for
@@ -49653,7 +49653,7 @@ use in transforming SXML trees.  Additionally it defines the layout
 operator, ‘fold-layout’, which might be described as a context-passing
 variant of SSAX’s ‘pre-post-order’.
 
-7.21.5.2 Usage
+### 7.21.5.2 Usage
 ..............
 
  -- Scheme Procedure: foldt fup fhere tree
@@ -49662,7 +49662,7 @@ variant of SSAX’s ‘pre-post-order’.
      FUP is of type [a] -> a.  FHERE is of type object -> a.
 
  -- Scheme Procedure: foldts fdown fup fhere seed tree
-     The single-threaded tree fold originally defined in SSAX. *Note
+     The single-threaded tree fold originally defined in SSAX. *Note*
      SSAX::, for more information.
 
  -- Scheme Procedure: foldts* fdown fup fhere seed tree
@@ -49672,7 +49672,7 @@ variant of SSAX’s ‘pre-post-order’.
 
  -- Scheme Procedure: fold-values proc list . seeds
      A variant of ‘fold’ that allows multi-valued seeds.  Note that the
-     order of the arguments differs from that of ‘fold’.  *Note SRFI-1
+     order of the arguments differs from that of ‘fold’.  *Note* SRFI-1
      Fold and Map::.
 
  -- Scheme Procedure: foldts*-values fdown fup fhere tree . seeds
@@ -49681,7 +49681,7 @@ variant of SSAX’s ‘pre-post-order’.
      transformation_.
 
  -- Scheme Procedure: fold-layout tree bindings params layout stylesheet
-     A traversal combinator in the spirit of ‘pre-post-order’.  *Note
+     A traversal combinator in the spirit of ‘pre-post-order’.  *Note*
      Transforming SXML::.
 
      ‘fold-layout’ was originally presented in Andy Wingo’s 2007 paper,
@@ -49758,7 +49758,7 @@ File: guile.info,  Node: SXPath,  Next: sxml ssax input-parse,  Prev: SXML Tree 
 7.21.6 SXPath
 -------------
 
-7.21.6.1 Overview
+### 7.21.6.1 Overview
 .................
 
 SXPath: SXML Query Language
@@ -49828,7 +49828,7 @@ location path is a relative path applied to the root node.
 location paths.  In both cases, the abbreviated notation can be
 mechanically expanded into the full form by simple rewriting rules.  In
 the case of SXPath the corresponding rules are given in the
-documentation of the ‘sxpath’ procedure.  *Note SXPath procedure
+documentation of the ‘sxpath’ procedure.  *Note* SXPath procedure
 documentation: sxpath-procedure-docs.
 
    The regression test suite at the end of the file ‘SXPATH-old.scm’
@@ -49839,7 +49839,7 @@ borrowed literally from the XPath specification.
    Much of the following material is taken from the SXPath sources by
 Oleg Kiselyov et al.
 
-7.21.6.2 Basic Converters and Applicators
+### 7.21.6.2 Basic Converters and Applicators
 .........................................
 
 A converter is a function mapping a nodeset (or a single node) to
@@ -49965,7 +49965,7 @@ is equivalent to ‘#f’ in denoting failure.
      prints out the node or nodeset it is applied to, prefixed with the
      TITLE.  This converter is very useful for debugging.
 
-7.21.6.3 Converter Combinators
+### 7.21.6.3 Converter Combinators
 ..............................
 
 Combinators are higher-order functions that transmogrify a converter or
@@ -50102,7 +50102,7 @@ File: guile.info,  Node: sxml ssax input-parse,  Next: sxml apply-templates,  Pr
 7.21.7 (sxml ssax input-parse)
 ------------------------------
 
-7.21.7.1 Overview
+### 7.21.7.1 Overview
 .................
 
 A simple lexer.
@@ -50132,7 +50132,7 @@ character or its neighborhood.  You can then use ‘port-column’ and
 ‘port-line’ to query the current position.  MESSAGE is the description
 of the error.  Other arguments supply more details about the problem.
 
-7.21.7.2 Usage
+### 7.21.7.2 Usage
 ..............
 
  -- Scheme Procedure: peek-next-char [port]
@@ -50162,7 +50162,7 @@ File: guile.info,  Node: sxml apply-templates,  Prev: sxml ssax input-parse,  Up
 7.21.8 (sxml apply-templates)
 -----------------------------
 
-7.21.8.1 Overview
+### 7.21.8.1 Overview
 .................
 
 Pre-order traversal of a tree and creation of a new tree:
@@ -50187,7 +50187,7 @@ place of the current node in the resulting tree.  The name of the
 function is not accidental: it resembles rather closely an
 ‘apply-templates’ function of XSLT.
 
-7.21.8.2 Usage
+### 7.21.8.2 Usage
 ..............
 
  -- Scheme Procedure: apply-templates tree templates
@@ -50215,7 +50215,7 @@ File: guile.info,  Node: texinfo,  Next: texinfo docbook,  Up: Texinfo Processin
 7.22.1 (texinfo)
 ----------------
 
-7.22.1.1 Overview
+### 7.22.1.1 Overview
 .................
 
 Texinfo processing in scheme
@@ -50249,7 +50249,7 @@ grouped under the special element, ‘%’.
 the interests of interoperability, this module provides a conversion
 function to replace the ‘%’ with ‘texinfo-arguments’.
 
-7.22.1.2 Usage
+### 7.22.1.2 Usage
 ..............
 
  -- Function: call-with-file-and-dir filename proc
@@ -50296,7 +50296,7 @@ File: guile.info,  Node: texinfo docbook,  Next: texinfo html,  Prev: texinfo,  
 7.22.2 (texinfo docbook)
 ------------------------
 
-7.22.2.1 Overview
+### 7.22.2.1 Overview
 .................
 
 This module exports procedures for transforming a limited subset of the
@@ -50305,7 +50305,7 @@ means.  The intention is to gather a number of routines and stylesheets
 so that external modules can parse specific subsets of docbook, for
 example that set generated by certain tools.
 
-7.22.2.2 Usage
+### 7.22.2.2 Usage
 ..............
 
  -- Variable: *sdocbook->stexi-rules*
@@ -50337,12 +50337,12 @@ example that set generated by certain tools.
      Oftentimes (always?)  sectioning elements have ‘<title>’ as their
      first element child; users interested in processing the ‘refsect*’
      elements into proper sectioning elements like ‘chapter’ might be
-     interested in ‘replace-titles’ and ‘filter-empty-elements’.  *Note
-     replace-titles: texinfo docbook replace-titles, and *note
+     interested in ‘replace-titles’ and ‘filter-empty-elements’.  *Note*
+     replace-titles: texinfo docbook replace-titles, and *note*
      filter-empty-elements: texinfo docbook filter-empty-elements.
 
      Returns a nodeset; that is to say, an untagged list of stexi
-     elements.  *Note SXPath::, for the definition of a nodeset.
+     elements.  *Note* SXPath::, for the definition of a nodeset.
 
  -- Function: filter-empty-elements sdocbook
      Filters out empty elements in an sdocbook nodeset.  Mostly useful
@@ -50365,20 +50365,20 @@ File: guile.info,  Node: texinfo html,  Next: texinfo indexing,  Prev: texinfo d
 7.22.3 (texinfo html)
 ---------------------
 
-7.22.3.1 Overview
+### 7.22.3.1 Overview
 .................
 
 This module implements transformation from ‘stexi’ to HTML. Note that
 the output of ‘stexi->shtml’ is actually SXML with the HTML vocabulary.
 This means that the output can be further processed, and that it must
-eventually be serialized by ‘sxml->xml’.  *Note Reading and Writing
+eventually be serialized by ‘sxml->xml’.  *Note* Reading and Writing
 XML::.
 
    References (i.e., the ‘@ref’ family of commands) are resolved by a
-“ref-resolver”.  *Note add-ref-resolver!: texinfo html
+“ref-resolver”.  *Note* add-ref-resolver!: texinfo html
 add-ref-resolver!.
 
-7.22.3.2 Usage
+### 7.22.3.2 Usage
 ..............
 
  -- Function: add-ref-resolver! proc
@@ -50403,7 +50403,7 @@ File: guile.info,  Node: texinfo indexing,  Next: texinfo string-utils,  Prev: t
 7.22.4 (texinfo indexing)
 -------------------------
 
-7.22.4.1 Overview
+### 7.22.4.1 Overview
 .................
 
 Given a piece of stexi, return an index of a specified variety.
@@ -50411,7 +50411,7 @@ Given a piece of stexi, return an index of a specified variety.
    Note that currently, ‘stexi-extract-index’ doesn’t differentiate
 between different kinds of index entries.  That’s a bug ;)
 
-7.22.4.2 Usage
+### 7.22.4.2 Usage
 ..............
 
  -- Function: stexi-extract-index tree manual-name kind
@@ -50431,13 +50431,13 @@ File: guile.info,  Node: texinfo string-utils,  Next: texinfo plain-text,  Prev:
 7.22.5 (texinfo string-utils)
 -----------------------------
 
-7.22.5.1 Overview
+### 7.22.5.1 Overview
 .................
 
 Module ‘(texinfo string-utils)’ provides various string-related
 functions useful to Guile’s texinfo support.
 
-7.22.5.2 Usage
+### 7.22.5.2 Usage
 ..............
 
  -- Function: escape-special-chars str special-chars escape-char
@@ -50611,20 +50611,20 @@ File: guile.info,  Node: texinfo plain-text,  Next: texinfo serialize,  Prev: te
 7.22.6 (texinfo plain-text)
 ---------------------------
 
-7.22.6.1 Overview
+### 7.22.6.1 Overview
 .................
 
 Transformation from stexi to plain-text.  Strives to re-create the
 output from ‘info’; comes pretty damn close.
 
-7.22.6.2 Usage
+### 7.22.6.2 Usage
 ..............
 
  -- Function: stexi->plain-text tree
      Transform TREE into plain text.  Returns a string.
 
  -- Scheme Variable: *line-width*
-     This fluid (*note Fluids and Dynamic States::) specifies the length
+     This fluid (*note* Fluids and Dynamic States::) specifies the length
      of line for the purposes of line wrapping in the
      ‘stexi->plain-text’ conversion.
 
@@ -50634,12 +50634,12 @@ File: guile.info,  Node: texinfo serialize,  Next: texinfo reflection,  Prev: te
 7.22.7 (texinfo serialize)
 --------------------------
 
-7.22.7.1 Overview
+### 7.22.7.1 Overview
 .................
 
 Serialization of ‘stexi’ to plain texinfo.
 
-7.22.7.2 Usage
+### 7.22.7.2 Usage
 ..............
 
  -- Function: stexi->texi tree
@@ -50651,7 +50651,7 @@ File: guile.info,  Node: texinfo reflection,  Prev: texinfo serialize,  Up: Texi
 7.22.8 (texinfo reflection)
 ---------------------------
 
-7.22.8.1 Overview
+### 7.22.8.1 Overview
 .................
 
 Routines to generare ‘stexi’ documentation for objects and modules.
@@ -50659,19 +50659,19 @@ Routines to generare ‘stexi’ documentation for objects and modules.
    Note that in this context, an “object” is just a value associated
 with a location.  It has nothing to do with GOOPS.
 
-7.22.8.2 Usage
+### 7.22.8.2 Usage
 ..............
 
  -- Function: module-stexi-documentation sym-name [%docs-resolver]
           [#:docs-resolver]
      Return documentation for the module named SYM-NAME.  The
-     documentation will be formatted as ‘stexi’ (*note texinfo:
+     documentation will be formatted as ‘stexi’ (*note* texinfo:
      texinfo.*).
 
  -- Function: script-stexi-documentation scriptpath
      Return documentation for given script.  The documentation will be
      taken from the script’s commentary, and will be returned in the
-     ‘stexi’ format (*note texinfo: texinfo.*).
+     ‘stexi’ format (*note* texinfo: texinfo.*).
 
  -- Function: object-stexi-documentation _ [_ ] [#:force]
 
@@ -50721,12 +50721,12 @@ with a location.  It has nothing to do with GOOPS.
      texinfo and .info creation with makeinfo.
 
      Returns a list of stexinfo forms suitable for passing to
-     ‘package-stexi-documentation’ as the prologue.  *Note texinfo
-     reflection package-stexi-documentation::, *note
+     ‘package-stexi-documentation’ as the prologue.  *Note* texinfo
+     reflection package-stexi-documentation::, *note*
      package-stexi-standard-titlepage: texinfo reflection
-     package-stexi-standard-titlepage, *note
+     package-stexi-standard-titlepage, *note*
      package-stexi-standard-copying: texinfo reflection
-     package-stexi-standard-copying, and *note
+     package-stexi-standard-copying, and *note*
      package-stexi-standard-menu: texinfo reflection
      package-stexi-standard-menu.
 
@@ -50741,7 +50741,7 @@ with a location.  It has nothing to do with GOOPS.
 
      PROLOGUE and EPILOGUE are lists of stexi forms that will be spliced
      into the output document before and after the generated modules
-     documentation, respectively.  *Note texinfo reflection
+     documentation, respectively.  *Note* texinfo reflection
      package-stexi-standard-prologue::, to create a conventional GNU
      texinfo prologue.
 
@@ -50887,11 +50887,11 @@ options are as follows.
  -- class option: #:metaclass metaclass
      The ‘#:metaclass’ class option specifies the metaclass of the class
      being defined.  METACLASS must be a class that inherits from
-     ‘<class>’.  For the use of metaclasses, see *note Metaobjects and
-     the Metaobject Protocol:: and *note Metaclasses::.
+     ‘<class>’.  For the use of metaclasses, see *note* Metaobjects and
+     the Metaobject Protocol:: and *note* Metaclasses::.
 
      If the ‘#:metaclass’ option is absent, GOOPS reuses or constructs a
-     metaclass for the new class by calling ‘ensure-metaclass’ (*note
+     metaclass for the new class by calling ‘ensure-metaclass’ (*note*
      ensure-metaclass: Class Definition Protocol.).
 
  -- class option: #:name name
@@ -50948,7 +50948,7 @@ creates a new ‘<my-complex>’ object and binds it to the Scheme variable
      corresponding values.
 
      GOOPS processes initialization argument keywords automatically for
-     slots whose definition includes the ‘#:init-keyword’ option (*note
+     slots whose definition includes the ‘#:init-keyword’ option (*note*
      init-keyword: Slot Options.).  Other keyword value pairs can only
      be processed by an ‘initialize’ method that is specialized for the
      new instance’s class.  Any unprocessed keyword value pairs are
@@ -51117,7 +51117,7 @@ specified by a keyword.  The list of possible keywords is as follows.
      the ‘define-class’ expression.  If the names are already bound (in
      that environment) to values that cannot be upgraded to generic
      functions, those values are overwritten when the ‘define-class’
-     expression is evaluated.  For more detail, see *note
+     expression is evaluated.  For more detail, see *note*
      ensure-generic: Generic Function Internals.
 
  -- slot option: #:allocation allocation
@@ -51162,7 +51162,7 @@ specified by a keyword.  The list of possible keywords is as follows.
      the class’s metaclass.  Hence new types of slot allocation can be
      implemented by defining a new metaclass and a method for
      ‘compute-get-n-set’ that is specialized for the new metaclass.  For
-     an example of how to do this, see *note Customizing Class
+     an example of how to do this, see *note* Customizing Class
      Definition::.
 
  -- slot option: #:slot-ref getter
@@ -51406,7 +51406,7 @@ File: guile.info,  Node: Accessors,  Next: Extending Primitives,  Up: Methods an
 ---------------
 
 An accessor is a generic function that can also be used with the
-generalized ‘set!’ syntax (*note Procedures with Setters::).  Guile will
+generalized ‘set!’ syntax (*note* Procedures with Setters::).  Guile will
 handle a call like
 
      (set! (accessor args...) value)
@@ -51471,7 +51471,7 @@ with a graphical package which needs to use two independent vector
 packages for 2D and 3D vectors respectively.  If both packages export
 ‘x’, what does the code using those packages end up with?
 
-   *note duplicate binding handlers: Creating Guile Modules. explains
+   *note* duplicate binding handlers: Creating Guile Modules. explains
 how this is resolved for conflicting bindings in general.  For generics,
 there is a special duplicates handler, ‘merge-generics’, which tells the
 module system to merge generic functions with the same name.  Here is an
@@ -51633,7 +51633,7 @@ addition we can do:
    The ‘define-generic’ ensures here that ‘new-+’ will be defined in the
 global environment.  Once this is done, we can add methods to the
 generic function ‘new-+’ which make a closure on the ‘+’ symbol.  A
-complete writing of the ‘new-+’ methods is shown in *note Figure 8.1:
+complete writing of the ‘new-+’ methods is shown in *note* Figure 8.1:
 fig:newplus.
 
      (define-generic new-+)
@@ -51747,7 +51747,7 @@ system will replace the null list by a list which only contains
 ‘<object>’, the root of all the classes defined by ‘define-class’.  ‘D’,
 ‘E’, ‘F’ use multiple inheritance: each class inherits from two
 previously defined classes.  Those class definitions define a hierarchy
-which is shown in *note Figure 8.2: fig:hier.  In this figure, the class
+which is shown in *note* Figure 8.2: fig:hier.  In this figure, the class
 ‘<top>’ is also shown; this class is the superclass of all Scheme
 objects.  In particular, ‘<top>’ is the superclass of all standard
 Scheme types.
@@ -51839,7 +51839,7 @@ called the Class Precedence List of the class.
 
    In fact the rules above are not quite enough to always determine a
 unique order, but they give an idea of how things work.  For example,
-for the ‘F’ class shown in *note Figure 8.2: fig:hier, the class
+for the ‘F’ class shown in *note* Figure 8.2: fig:hier, the class
 precedence list is
 
      (f d e a c b <object> <top>)
@@ -51959,7 +51959,7 @@ following.
      ‘direct-methods’ slot.
 
  -- primitive procedure: class-precedence-list class
-     Return the class precedence list for class CLASS (*note Class
+     Return the class precedence list for class CLASS (*note* Class
      Precedence List::).  This is the value of CLASS’s ‘cpl’ slot.
 
  -- primitive procedure: class-slots class
@@ -52028,44 +52028,44 @@ File: guile.info,  Node: Slots,  Next: Generic Functions,  Prev: Instances,  Up:
 
  -- procedure: slot-definition-allocation slot-def
      Extract and return the slot allocation option from SLOT-DEF.  This
-     is the value of the ‘#:allocation’ keyword (*note allocation: Slot
+     is the value of the ‘#:allocation’ keyword (*note* allocation: Slot
      Options.), or ‘#:instance’ if the ‘#:allocation’ keyword is absent.
 
  -- procedure: slot-definition-getter slot-def
      Extract and return the slot getter option from SLOT-DEF.  This is
-     the value of the ‘#:getter’ keyword (*note getter: Slot Options.),
+     the value of the ‘#:getter’ keyword (*note* getter: Slot Options.),
      or ‘#f’ if the ‘#:getter’ keyword is absent.
 
  -- procedure: slot-definition-setter slot-def
      Extract and return the slot setter option from SLOT-DEF.  This is
-     the value of the ‘#:setter’ keyword (*note setter: Slot Options.),
+     the value of the ‘#:setter’ keyword (*note* setter: Slot Options.),
      or ‘#f’ if the ‘#:setter’ keyword is absent.
 
  -- procedure: slot-definition-accessor slot-def
      Extract and return the slot accessor option from SLOT-DEF.  This is
-     the value of the ‘#:accessor’ keyword (*note accessor: Slot
+     the value of the ‘#:accessor’ keyword (*note* accessor: Slot
      Options.), or ‘#f’ if the ‘#:accessor’ keyword is absent.
 
  -- procedure: slot-definition-init-value slot-def
      Extract and return the slot init-value option from SLOT-DEF.  This
-     is the value of the ‘#:init-value’ keyword (*note init-value: Slot
+     is the value of the ‘#:init-value’ keyword (*note* init-value: Slot
      Options.), or the unbound value if the ‘#:init-value’ keyword is
      absent.
 
  -- procedure: slot-definition-init-form slot-def
      Extract and return the slot init-form option from SLOT-DEF.  This
-     is the value of the ‘#:init-form’ keyword (*note init-form: Slot
+     is the value of the ‘#:init-form’ keyword (*note* init-form: Slot
      Options.), or the unbound value if the ‘#:init-form’ keyword is
      absent.
 
  -- procedure: slot-definition-init-thunk slot-def
      Extract and return the slot init-thunk option from SLOT-DEF.  This
-     is the value of the ‘#:init-thunk’ keyword (*note init-thunk: Slot
+     is the value of the ‘#:init-thunk’ keyword (*note* init-thunk: Slot
      Options.), or ‘#f’ if the ‘#:init-thunk’ keyword is absent.
 
  -- procedure: slot-definition-init-keyword slot-def
      Extract and return the slot init-keyword option from SLOT-DEF.
-     This is the value of the ‘#:init-keyword’ keyword (*note
+     This is the value of the ‘#:init-keyword’ keyword (*note*
      init-keyword: Slot Options.), or ‘#f’ if the ‘#:init-keyword’
      keyword is absent.
 
@@ -52079,7 +52079,7 @@ File: guile.info,  Node: Slots,  Next: Generic Functions,  Prev: Instances,  Up:
      ‘#:init-keyword’ slot option or by a specialized ‘initialize’
      method, so, in general, the function returned by
      ‘slot-init-function’ may be irrelevant.  For a fuller discussion,
-     see *note init-value: Slot Options.
+     see *note* init-value: Slot Options.
 
 
 File: guile.info,  Node: Generic Functions,  Next: Accessing Slots,  Prev: Slots,  Up: Introspection
@@ -52145,25 +52145,25 @@ set using the following four primitive procedures.
      otherwise ‘#f’.
 
      ‘slot-bound?’ calls the generic function ‘slot-missing’ if OBJ does
-     not have a slot called SLOT-NAME (*note slot-missing: Accessing
+     not have a slot called SLOT-NAME (*note* slot-missing: Accessing
      Slots.).
 
  -- primitive procedure: slot-ref obj slot-name
      Return the value of the slot named SLOT-NAME in OBJ.
 
      ‘slot-ref’ calls the generic function ‘slot-missing’ if OBJ does
-     not have a slot called SLOT-NAME (*note slot-missing: Accessing
+     not have a slot called SLOT-NAME (*note* slot-missing: Accessing
      Slots.).
 
      ‘slot-ref’ calls the generic function ‘slot-unbound’ if the named
-     slot in OBJ does not have a value (*note slot-unbound: Accessing
+     slot in OBJ does not have a value (*note* slot-unbound: Accessing
      Slots.).
 
  -- primitive procedure: slot-set! obj slot-name value
      Set the value of the slot named SLOT-NAME in OBJ to VALUE.
 
      ‘slot-set!’ calls the generic function ‘slot-missing’ if OBJ does
-     not have a slot called SLOT-NAME (*note slot-missing: Accessing
+     not have a slot called SLOT-NAME (*note* slot-missing: Accessing
      Slots.).
 
    GOOPS stores information about slots in classes.  Internally, all of
@@ -52189,7 +52189,7 @@ class.
 
      ‘slot-bound-using-class?’ calls the generic function ‘slot-missing’
      if CLASS does not have a slot definition for a slot called
-     SLOT-NAME (*note slot-missing: Accessing Slots.).
+     SLOT-NAME (*note* slot-missing: Accessing Slots.).
 
  -- primitive procedure: slot-ref-using-class class obj slot-name
      Apply the “getter” closure for the slot named SLOT-NAME in CLASS to
@@ -52197,11 +52197,11 @@ class.
 
      ‘slot-ref-using-class’ calls the generic function ‘slot-missing’ if
      CLASS does not have a slot definition for a slot called SLOT-NAME
-     (*note slot-missing: Accessing Slots.).
+     (*note* slot-missing: Accessing Slots.).
 
      ‘slot-ref-using-class’ calls the generic function ‘slot-unbound’ if
      the application of the “getter” closure to OBJ returns an unbound
-     value (*note slot-unbound: Accessing Slots.).
+     value (*note* slot-unbound: Accessing Slots.).
 
  -- primitive procedure: slot-set-using-class! class obj slot-name value
      Apply the “setter” closure for the slot named SLOT-NAME in CLASS to
@@ -52209,7 +52209,7 @@ class.
 
      ‘slot-set-using-class!’ calls the generic function ‘slot-missing’
      if CLASS does not have a slot definition for a slot called
-     SLOT-NAME (*note slot-missing: Accessing Slots.).
+     SLOT-NAME (*note* slot-missing: Accessing Slots.).
 
    Slots whose allocation is per-class rather than per-instance can be
 referenced and set without needing to specify any particular instance.
@@ -52217,7 +52217,7 @@ referenced and set without needing to specify any particular instance.
  -- procedure: class-slot-ref class slot-name
      Return the value of the slot named SLOT-NAME in class CLASS.  The
      named slot must have ‘#:class’ or ‘#:each-subclass’ allocation
-     (*note allocation: Slot Options.).
+     (*note* allocation: Slot Options.).
 
      If there is no such slot with ‘#:class’ or ‘#:each-subclass’
      allocation, ‘class-slot-ref’ calls the ‘slot-missing’ generic
@@ -52228,7 +52228,7 @@ referenced and set without needing to specify any particular instance.
  -- procedure: class-slot-set! class slot-name value
      Set the value of the slot named SLOT-NAME in class CLASS to VALUE.
      The named slot must have ‘#:class’ or ‘#:each-subclass’ allocation
-     (*note allocation: Slot Options.).
+     (*note* allocation: Slot Options.).
 
      If there is no such slot with ‘#:class’ or ‘#:each-subclass’
      allocation, ‘class-slot-ref’ calls the ‘slot-missing’ generic
@@ -52271,16 +52271,16 @@ File: guile.info,  Node: GOOPS Error Handling,  Next: GOOPS Object Miscellany,  
 The procedure ‘goops-error’ is called to raise an appropriate error by
 the default methods of the following generic functions:
 
-   • ‘slot-missing’ (*note slot-missing: Accessing Slots.)
+   • ‘slot-missing’ (*note* slot-missing: Accessing Slots.)
 
-   • ‘slot-unbound’ (*note slot-unbound: Accessing Slots.)
+   • ‘slot-unbound’ (*note* slot-unbound: Accessing Slots.)
 
-   • ‘no-method’ (*note no-method: Handling Invocation Errors.)
+   • ‘no-method’ (*note* no-method: Handling Invocation Errors.)
 
-   • ‘no-applicable-method’ (*note no-applicable-method: Handling
+   • ‘no-applicable-method’ (*note* no-applicable-method: Handling
      Invocation Errors.)
 
-   • ‘no-next-method’ (*note no-next-method: Handling Invocation
+   • ‘no-next-method’ (*note* no-next-method: Handling Invocation
      Errors.)
 
    If you customize these functions for particular classes or
@@ -52543,7 +52543,7 @@ and Guile expands _this_ to something like:
 specialized class ‘<my-metaclass>’.  Note that ‘<my-metaclass>’ itself
 must previously have been defined as a subclass of ‘<class>’.  For a
 full discussion of when and how it is useful to define new metaclasses,
-see *note MOP Specification::.
+see *note* MOP Specification::.
 
    Now let’s make an instance of ‘<my-class2>’:
 
@@ -52663,7 +52663,7 @@ appropriate to the instance class.
      and any slot initialization keywords that appear in INITARGS.
 
    • The method for instances of type ‘<class>’ calls ‘(next-method)’,
-     then performs the class initializations described in *note Class
+     then performs the class initializations described in *note* Class
      Definition Protocol::.
 
    • and so on for generic functions, methods, operator classes ...
@@ -52729,7 +52729,7 @@ you write an ‘initialize’ method, for some metaclass, that does not call
 ‘next-method’ and does not call ‘compute-cpl’, then ‘compute-cpl’ will
 not be called when a class is defined with that metaclass.
 
-   A ‘(define-class ...)’ form (*note Class Definition::) expands to an
+   A ‘(define-class ...)’ form (*note* Class Definition::) expands to an
 expression which
 
    • checks that it is being evaluated only at top level
@@ -52739,13 +52739,13 @@ expression which
    • uses ‘class’ to create the new class
 
    • checks for a previous class definition for NAME and, if found,
-     handles the redefinition by invoking ‘class-redefinition’ (*note
+     handles the redefinition by invoking ‘class-redefinition’ (*note*
      Redefining a Class::).
 
  -- syntax: class name (super ...) slot-definition ... class-option ...
      Return a newly created class that inherits from SUPERs, with direct
      slots defined by SLOT-DEFINITIONs and CLASS-OPTIONs.  For the
-     format of SLOT-DEFINITIONs and CLASS-OPTIONs, see *note
+     format of SLOT-DEFINITIONs and CLASS-OPTIONs, see *note*
      define-class: Class Definition.
 
 ‘class’ expands to an expression which
@@ -52762,7 +52762,7 @@ expression which
  -- procedure: make-class supers slots class-option ...
      Return a newly created class that inherits from SUPERS, with direct
      slots defined by SLOTS and CLASS-OPTIONs.  For the format of SLOTS
-     and CLASS-OPTIONs, see *note define-class: Class Definition, except
+     and CLASS-OPTIONs, see *note* define-class: Class Definition, except
      note that for ‘make-class’, SLOTS is a separate list of slot
      definitions.
 
@@ -52914,7 +52914,7 @@ that can modify or override the default behaviour of ‘initialize’,
 ‘compute-cpl’ or ‘compute-get-n-set’.
 
    ‘compute-cpl’ computes the class precedence list (“CPL”) for the new
-class (*note Class Precedence List::), and returns it as a list of class
+class (*note* Class Precedence List::), and returns it as a list of class
 objects.  The CPL is important because it defines a superclass ordering
 that is used, when a generic function is invoked upon an instance of the
 class, to decide which of the available generic function methods is the
@@ -52927,7 +52927,7 @@ procedure, which is called by the default ‘compute-cpl’ method.
 
  -- procedure: compute-std-cpl class
      Compute and return the class precedence list for CLASS according to
-     the algorithm described in *note Class Precedence List::.
+     the algorithm described in *note* Class Precedence List::.
 
    ‘compute-slots’ computes and returns a list of all slot definitions
 for the new class.  By default, this list includes the direct slot
@@ -52946,7 +52946,7 @@ list with two elements.
    The closures returned depend on how storage for that slot is
 allocated.  The standard ‘compute-get-n-set’ method, specialized for
 classes of type ‘<class>’, handles the standard GOOPS values for the
-‘#:allocation’ slot option (*note allocation: Slot Options.).  By
+‘#:allocation’ slot option (*note* allocation: Slot Options.).  By
 defining a new ‘compute-get-n-set’ method for a more specialized
 metaclass, it is possible to support new types of slot allocation.
 
@@ -52989,7 +52989,7 @@ new type of slot allocation to do this.
        #:metaclass <batched-allocation-metaclass>)
 
    The usage of ‘compute-getter-method’ and ‘compute-setter-method’ is
-described in *note Class Definition Protocol::.
+described in *note* Class Definition Protocol::.
 
    ‘compute-cpl’ and ‘compute-get-n-set’ are called by the standard
 ‘initialize’ method for classes whose metaclass is ‘<class>’.  But
@@ -53018,7 +53018,7 @@ methods to handle TARGET as
 
    • a procedure
 
-   • a primitive generic (*note Extending Primitives::)
+   • a primitive generic (*note* Extending Primitives::)
 
    By defining further methods for ‘add-method!’, you can theoretically
 handle adding methods to further types of target.
@@ -53049,7 +53049,7 @@ File: guile.info,  Node: Method Definition Internals,  Next: Generic Function In
      PARAMETER symbols and BODY forms.
 
      The PARAMETER and BODY parameters should be as for ‘define-method’
-     (*note define-method: Methods and Generic Functions.).
+     (*note* define-method: Methods and Generic Functions.).
 
 ‘method’:
 
@@ -53080,7 +53080,7 @@ File: guile.info,  Node: Method Definition Internals,  Next: Generic Function In
      Add method METHOD to the generic function GENERIC.
 
  -- method: add-method! (proc <procedure>) (method <method>)
-     If PROC is a procedure with generic capability (*note
+     If PROC is a procedure with generic capability (*note*
      generic-capability?: Extending Primitives.), upgrade it to a
      primitive generic and add METHOD to its generic function
      definition.
@@ -53198,10 +53198,10 @@ File: guile.info,  Node: Redefining a Class,  Next: Changing the Class of an Ins
 8.12 Redefining a Class
 =======================
 
-Suppose that a class ‘<my-class>’ is defined using ‘define-class’ (*note
+Suppose that a class ‘<my-class>’ is defined using ‘define-class’ (*note*
 define-class: Class Definition.), with slots that have accessor
 functions, and that an application has created several instances of
-‘<my-class>’ using ‘make’ (*note make: Instance Creation.).  What then
+‘<my-class>’ using ‘make’ (*note* make: Instance Creation.).  What then
 happens if ‘<my-class>’ is redefined by calling ‘define-class’ again?
 
 * Menu:
@@ -53260,7 +53260,7 @@ the default behavior usually suffices, and it goes as follows.
    • All existing direct instances of ‘<my-class>’ are converted to be
      instances of the new class.  This is achieved by preserving the
      values of slots that exist in both the old and new definitions, and
-     initializing the values of new slots in the usual way (*note make:
+     initializing the values of new slots in the usual way (*note* make:
      Instance Creation.).
 
    • All existing subclasses of ‘<my-class>’ are redefined, as though
@@ -53317,13 +53317,13 @@ specialized for the relevant metaclasses.
 
  -- method: class-redefinition (old <top>) (new <class>)
      Not all classes are redefinable, and not all previous bindings are
-     classes.  *Note Redefinable Classes::.  This default method just
+     classes.  *Note* Redefinable Classes::.  This default method just
      returns NEW.
 
  -- method: class-redefinition (old <redefinable-class>) (new
           <redefinable-class>)
      This method implements GOOPS’ default class redefinition behaviour,
-     as described in *note Default Class Redefinition Behaviour::.
+     as described in *note* Default Class Redefinition Behaviour::.
      Returns the metaobject for the new class definition.
 
    The ‘class-redefinition’ method for classes with metaclass
@@ -53385,7 +53385,7 @@ existing class and for the new class.  If the new class has slots with
 the same name as slots in the existing class, the values for those slots
 are preserved.  Slots that are present only in the existing class are
 discarded.  Slots that are present only in the new class are initialized
-using the corresponding slot definition’s init function (*note
+using the corresponding slot definition’s init function (*note*
 slot-init-function: Classes.).
 
  -- generic: change-class instance new-class
@@ -54110,7 +54110,7 @@ Guile: ‘SCM’ and ‘scm_t_bits’.
 
 File: guile.info,  Node: Relationship Between SCM and scm_t_bits,  Next: Immediate Objects,  Up: The SCM Type in Guile
 
-9.2.5.1 Relationship Between ‘SCM’ and ‘scm_t_bits’
+### 9.2.5.1 Relationship Between ‘SCM’ and ‘scm_t_bits’
 ...................................................
 
 A variable of type ‘SCM’ is guaranteed to hold a valid Scheme object.  A
@@ -54125,7 +54125,7 @@ transformed into the corresponding representation as a ‘scm_t_bits’
 variable Y by using the ‘SCM_UNPACK’ macro.  Once this has been done,
 the type of the scheme object X can be derived from the content of the
 bits of the ‘scm_t_bits’ value Y, in the way illustrated by the example
-earlier in this chapter (*note Cheaper Pairs::).  Conversely, a valid
+earlier in this chapter (*note* Cheaper Pairs::).  Conversely, a valid
 bit encoding of a Scheme value as a ‘scm_t_bits’ variable can be
 transformed into the corresponding ‘SCM’ value using the ‘SCM_PACK’
 macro.
@@ -54133,7 +54133,7 @@ macro.
 
 File: guile.info,  Node: Immediate Objects,  Next: Non-Immediate Objects,  Prev: Relationship Between SCM and scm_t_bits,  Up: The SCM Type in Guile
 
-9.2.5.2 Immediate Objects
+### 9.2.5.2 Immediate Objects
 .........................
 
 A Scheme object may either be an immediate, i.e. carrying all necessary
@@ -54196,7 +54196,7 @@ these values:
 
 File: guile.info,  Node: Non-Immediate Objects,  Next: Allocating Heap Objects,  Prev: Immediate Objects,  Up: The SCM Type in Guile
 
-9.2.5.3 Non-Immediate Objects
+### 9.2.5.3 Non-Immediate Objects
 .............................
 
 A Scheme object of type ‘SCM’ that does not fulfill the ‘SCM_IMP’
@@ -54240,7 +54240,7 @@ Summary:
 
 File: guile.info,  Node: Allocating Heap Objects,  Next: Heap Object Type Information,  Prev: Non-Immediate Objects,  Up: The SCM Type in Guile
 
-9.2.5.4 Allocating Heap Objects
+### 9.2.5.4 Allocating Heap Objects
 ...............................
 
 Heap objects are heap-allocated data pointed to by non-immediate ‘SCM’
@@ -54279,7 +54279,7 @@ the term “cell” to indicate 2-word objects.
 
 File: guile.info,  Node: Heap Object Type Information,  Next: Accessing Heap Object Fields,  Prev: Allocating Heap Objects,  Up: The SCM Type in Guile
 
-9.2.5.5 Heap Object Type Information
+### 9.2.5.5 Heap Object Type Information
 ....................................
 
 Heap objects contain a type tag and are followed by a number of
@@ -54298,7 +54298,7 @@ the type of the object.
 
 File: guile.info,  Node: Accessing Heap Object Fields,  Prev: Heap Object Type Information,  Up: The SCM Type in Guile
 
-9.2.5.6 Accessing Heap Object Fields
+### 9.2.5.6 Accessing Heap Object Fields
 ....................................
 
 For a non-immediate Scheme object X, the object type can be determined
@@ -54474,7 +54474,7 @@ worlds.
 
    Also note that this decision to implement a bytecode compiler does
 not preclude ahead-of-time native compilation.  More possibilities are
-discussed in *note Extending the Compiler::.
+discussed in *note* Extending the Compiler::.
 
 
 File: guile.info,  Node: VM Concepts,  Next: Stack Layout,  Prev: Why a VM?,  Up: A Virtual Machine for Guile
@@ -54527,7 +54527,7 @@ finished).
    While the compiler is free to do whatever it wants to, as long as the
 semantics of a computation are preserved, in practice every time you
 call a function, a new frame is created.  (The notable exception of
-course is the tail call case, *note Tail Calls::.)
+course is the tail call case, *note* Tail Calls::.)
 
    The structure of the top stack frame is as follows:
 
@@ -54587,7 +54587,7 @@ frame.  Computing a stack trace involves traversing these frames.
    Each stack local in Guile is 64 bits wide, even on 32-bit
 architectures.  This allows Guile to preserve its uniform treatment of
 stack locals while allowing for unboxed arithmetic on 64-bit integers
-and floating-point numbers.  *Note Instruction Set::, for more on
+and floating-point numbers.  *Note* Instruction Set::, for more on
 unboxed arithmetic.
 
    As an implementation detail, we actually store the dynamic link as an
@@ -54628,7 +54628,7 @@ heap-allocated instead of stack-allocated, so that different closures
 that capture the same variable can see the same value.  Also, this
 allows continuations to capture a reference to the variable, instead of
 to its value at one point in time.  For these reasons, ‘set!’ variables
-are allocated in “boxes”—actually, in variable cells.  *Note
+are allocated in “boxes”—actually, in variable cells.  *Note*
 Variables::, for more information.  References to ‘set!’ variables are
 indirected through the boxes.
 
@@ -54663,10 +54663,10 @@ and a reference to any captured lexical variables.  In addition, when a
 procedure is compiled, it has associated metadata written to side
 tables, for instance a line number mapping, or its docstring.  You can
 pick apart these pieces with the accessors in ‘(system vm program)’.
-*Note Compiled Procedures::, for a full API reference.
+*Note* Compiled Procedures::, for a full API reference.
 
    A procedure may reference data that was statically allocated when the
-procedure was compiled.  For example, a pair of immediate objects (*note
+procedure was compiled.  For example, a pair of immediate objects (*note*
 Immediate Objects::) can be allocated directly in the memory segment
 that contains the compiled bytecode, and accessed directly by the
 bytecode.
@@ -54761,7 +54761,7 @@ storing local value 1 (the ‘a’ argument) into the third word (the first
 free variable).
 
    Before returning, ‘foo’ “resets the frame” to hold only one local
-(the return value), runs any pending interrupts (*note Asyncs::) and
+(the return value), runs any pending interrupts (*note* Asyncs::) and
 then returns.
 
    Note that local variables in Guile’s virtual machine are usually
@@ -54939,7 +54939,7 @@ operands can be encoded.
 ‘zi16’
 ‘i16’
 ‘i32’
-     An immediate Scheme value (*note Immediate Objects::), encoded
+     An immediate Scheme value (*note* Immediate Objects::), encoded
      directly in 16 or 32 bits.  ‘zi16’ is sign-extended; the others are
      zero-extended.
 ‘a32’
@@ -55029,10 +55029,10 @@ representation.
 
 File: guile.info,  Node: Call and Return Instructions,  Next: Function Prologue Instructions,  Up: Instruction Set
 
-9.3.7.1 Call and Return Instructions
+### 9.3.7.1 Call and Return Instructions
 ....................................
 
-As described earlier (*note Stack Layout::), Guile’s calling convention
+As described earlier (*note* Stack Layout::), Guile’s calling convention
 is that arguments are passed and values returned on the stack.
 
    For calls, both in tail position and in non-tail position, we require
@@ -55105,7 +55105,7 @@ the frame” by resetting the ‘sp’ to its former value.
 
 File: guile.info,  Node: Function Prologue Instructions,  Next: Shuffling Instructions,  Prev: Call and Return Instructions,  Up: Instruction Set
 
-9.3.7.2 Function Prologue Instructions
+### 9.3.7.2 Function Prologue Instructions
 ......................................
 
 A function call in Guile is very cheap: the VM simply hands control to
@@ -55126,7 +55126,7 @@ as costly as calling procedures with a fixed set of arguments.)
      EXPECTED, respectively, signal an error.
 
      The number of arguments is determined by subtracting the stack
-     pointer from the frame pointer (‘fp - sp’).  *Note Stack Layout::,
+     pointer from the frame pointer (‘fp - sp’).  *Note* Stack Layout::,
      for more details on stack frames.  Note that EXPECTED includes the
      procedure itself.
 
@@ -55143,8 +55143,8 @@ as costly as calling procedures with a fixed set of arguments.)
      keywords.
 
    The ‘arguments<=?’ and ‘positional-arguments<=?’ instructions are
-used to implement multiple arities, as in ‘case-lambda’.  *Note
-Case-lambda::, for more information.  *Note Branch Instructions::, for
+used to implement multiple arities, as in ‘case-lambda’.  *Note*
+Case-lambda::, for more information.  *Note* Branch Instructions::, for
 more on comparison results.
 
  -- Instruction: bind-kwargs c24:NREQ c8:FLAGS c24:NREQ-AND-OPT x8:_
@@ -55193,7 +55193,7 @@ more on comparison results.
 
 File: guile.info,  Node: Shuffling Instructions,  Next: Trampoline Instructions,  Prev: Function Prologue Instructions,  Up: Instruction Set
 
-9.3.7.3 Shuffling Instructions
+### 9.3.7.3 Shuffling Instructions
 ..............................
 
 These instructions are used to move around values on the stack.
@@ -55247,7 +55247,7 @@ the result (if any) back into place.
 
 File: guile.info,  Node: Trampoline Instructions,  Next: Non-Local Control Flow Instructions,  Prev: Shuffling Instructions,  Up: Instruction Set
 
-9.3.7.4 Trampoline Instructions
+### 9.3.7.4 Trampoline Instructions
 ...............................
 
 Though most applicable objects in Guile are procedures implemented in
@@ -55279,7 +55279,7 @@ these trampoline instructions here.
 
 File: guile.info,  Node: Non-Local Control Flow Instructions,  Next: Instrumentation Instructions,  Prev: Trampoline Instructions,  Up: Instruction Set
 
-9.3.7.5 Non-Local Control Flow Instructions
+### 9.3.7.5 Non-Local Control Flow Instructions
 ...........................................
 
  -- Instruction: capture-continuation s24:DST
@@ -55332,7 +55332,7 @@ File: guile.info,  Node: Non-Local Control Flow Instructions,  Next: Instrumenta
      escape-only, which allows an abort to this prompt to avoid reifying
      the continuation.
 
-     *Note Prompts::, for more information on prompts.
+     *Note* Prompts::, for more information on prompts.
 
  -- Instruction: throw s12:KEY s12:ARGS
      Raise an error by throwing to KEY and ARGS.  ARGS should be a list.
@@ -55354,7 +55354,7 @@ File: guile.info,  Node: Non-Local Control Flow Instructions,  Next: Instrumenta
 
 File: guile.info,  Node: Instrumentation Instructions,  Next: Intrinsic Call Instructions,  Prev: Non-Local Control Flow Instructions,  Up: Instruction Set
 
-9.3.7.6 Instrumentation Instructions
+### 9.3.7.6 Instrumentation Instructions
 ....................................
 
  -- Instruction: instrument-entry x24__ n32:DATA
@@ -55369,7 +55369,7 @@ File: guile.info,  Node: Instrumentation Instructions,  Next: Intrinsic Call Ins
      enabled.
 
  -- Instruction: handle-interrupts x24:_
-     Handle pending asynchronous interrupts (asyncs).  *Note Asyncs::.
+     Handle pending asynchronous interrupts (asyncs).  *Note* Asyncs::.
      The compiler inserts ‘handle-interrupts’ instructions before any
      call, return, or loop back-edge.
 
@@ -55381,7 +55381,7 @@ File: guile.info,  Node: Instrumentation Instructions,  Next: Intrinsic Call Ins
 
 File: guile.info,  Node: Intrinsic Call Instructions,  Next: Constant Instructions,  Prev: Instrumentation Instructions,  Up: Instruction Set
 
-9.3.7.7 Intrinsic Call Instructions
+### 9.3.7.7 Intrinsic Call Instructions
 ...................................
 
 Guile’s instruction set is low-level.  This is good because the separate
@@ -55555,13 +55555,13 @@ appropriate intrinsic IDX arguments.
      WINDER and UNWINDER for the normal dynamic-wind control flow.  Also
      note that the compiler should have inserted checks that WINDER and
      UNWINDER are thunks, if it could not prove that to be the case.
-     *Note Dynamic Wind::.
+     *Note* Dynamic Wind::.
  -- Macro Instruction: unwind
      Exit from the dynamic extent of an expression, popping the top
      entry off of the dynamic stack.
  -- Macro Instruction: push-fluid fluid value
      Dynamically bind VALUE to FLUID by creating a with-fluids object,
-     pushing that object on the dynamic stack.  *Note Fluids and Dynamic
+     pushing that object on the dynamic stack.  *Note* Fluids and Dynamic
      States::.
  -- Macro Instruction: pop-fluid
      Leave the dynamic extent of a ‘with-fluid*’ expression, restoring
@@ -55573,7 +55573,7 @@ appropriate intrinsic IDX arguments.
      Set the value of the fluid FLUID to VALUE.
  -- Macro Instruction: push-dynamic-state state
      Save the current set of fluid bindings on the dynamic stack and
-     instate the bindings from STATE instead.  *Note Fluids and Dynamic
+     instate the bindings from STATE instead.  *Note* Fluids and Dynamic
      States::.
  -- Macro Instruction: pop-dynamic-state
      Restore a saved set of fluid bindings from the dynamic stack.
@@ -55617,7 +55617,7 @@ appropriate intrinsic IDX arguments.
 
 File: guile.info,  Node: Constant Instructions,  Next: Memory Access Instructions,  Prev: Intrinsic Call Instructions,  Up: Instruction Set
 
-9.3.7.8 Constant Instructions
+### 9.3.7.8 Constant Instructions
 .............................
 
 The following instructions load literal data into a program.  There are
@@ -55705,7 +55705,7 @@ situations.
 
 File: guile.info,  Node: Memory Access Instructions,  Next: Atomic Memory Access Instructions,  Prev: Constant Instructions,  Up: Instruction Set
 
-9.3.7.9 Memory Access Instructions
+### 9.3.7.9 Memory Access Instructions
 ..................................
 
 In these instructions, the ‘/immediate’ variants represent their indexes
@@ -55757,7 +55757,7 @@ or counts as immediates; otherwise these values are unboxed u64 locals.
 
 File: guile.info,  Node: Atomic Memory Access Instructions,  Next: Tagging and Untagging Instructions,  Prev: Memory Access Instructions,  Up: Instruction Set
 
-9.3.7.10 Atomic Memory Access Instructions
+### 9.3.7.10 Atomic Memory Access Instructions
 ..........................................
 
  -- Instruction: current-thread s24:DST
@@ -55788,7 +55788,7 @@ File: guile.info,  Node: Atomic Memory Access Instructions,  Next: Tagging and U
 
 File: guile.info,  Node: Tagging and Untagging Instructions,  Next: Integer Arithmetic Instructions,  Prev: Atomic Memory Access Instructions,  Up: Instruction Set
 
-9.3.7.11 Tagging and Untagging Instructions
+### 9.3.7.11 Tagging and Untagging Instructions
 ...........................................
 
  -- Instruction: tag-char s12:DST s12:SRC
@@ -55810,7 +55810,7 @@ File: guile.info,  Node: Tagging and Untagging Instructions,  Next: Integer Arit
 
 File: guile.info,  Node: Integer Arithmetic Instructions,  Next: Floating-Point Arithmetic Instructions,  Prev: Tagging and Untagging Instructions,  Up: Instruction Set
 
-9.3.7.12 Integer Arithmetic Instructions
+### 9.3.7.12 Integer Arithmetic Instructions
 ........................................
 
  -- Instruction: uadd s8:DST s8:A s8:B
@@ -55866,7 +55866,7 @@ File: guile.info,  Node: Integer Arithmetic Instructions,  Next: Floating-Point 
 
 File: guile.info,  Node: Floating-Point Arithmetic Instructions,  Next: Comparison Instructions,  Prev: Integer Arithmetic Instructions,  Up: Instruction Set
 
-9.3.7.13 Floating-Point Arithmetic Instructions
+### 9.3.7.13 Floating-Point Arithmetic Instructions
 ...............................................
 
  -- Instruction: fadd s8:DST s8:A s8:B
@@ -55886,7 +55886,7 @@ File: guile.info,  Node: Floating-Point Arithmetic Instructions,  Next: Comparis
 
 File: guile.info,  Node: Comparison Instructions,  Next: Branch Instructions,  Prev: Floating-Point Arithmetic Instructions,  Up: Instruction Set
 
-9.3.7.14 Comparison Instructions
+### 9.3.7.14 Comparison Instructions
 ................................
 
  -- Instruction: u64=? s12:A s12:B
@@ -55965,7 +55965,7 @@ File: guile.info,  Node: Comparison Instructions,  Next: Branch Instructions,  P
 
    There are a set of macro-instructions for ‘immediate-tag=?’ and
 ‘heap-tag=?’ as well that abstract away the precise type tag values.
-*Note The SCM Type in Guile::.
+*Note* The SCM Type in Guile::.
 
  -- Macro Instruction: fixnum? x
  -- Macro Instruction: heap-object? x
@@ -56023,7 +56023,7 @@ File: guile.info,  Node: Comparison Instructions,  Next: Branch Instructions,  P
 
 File: guile.info,  Node: Branch Instructions,  Next: Raw Memory Access Instructions,  Prev: Comparison Instructions,  Up: Instruction Set
 
-9.3.7.15 Branch Instructions
+### 9.3.7.15 Branch Instructions
 ............................
 
 All offsets to branch instructions are 24-bit signed numbers, which
@@ -56079,7 +56079,7 @@ for relative jumps.
 
 File: guile.info,  Node: Raw Memory Access Instructions,  Prev: Branch Instructions,  Up: Instruction Set
 
-9.3.7.16 Raw Memory Access Instructions
+### 9.3.7.16 Raw Memory Access Instructions
 .......................................
 
 Bytevector operations correspond closely to what the current hardware
@@ -56141,7 +56141,7 @@ compared to having the VM interpret the instructions.
    The JIT compiler runs automatically, triggered by counters associated
 with each function.  The counter increments when functions are called
 and during each loop iteration.  Once a function’s counter passes a
-certain value, the function gets JIT-compiled.  *Note Instrumentation
+certain value, the function gets JIT-compiled.  *Note* Instrumentation
 Instructions::, for full details.
 
    Guile’s JIT compiler is what is known as a “template JIT”. This kind
@@ -56170,7 +56170,7 @@ instruction, bytecode and a template JIT also allows Guile programmers
 to debug their programs in terms of the bytecode model.  When a Guile
 programmer sets a breakpoint, Guile will disable the JIT for the thread
 being debugged, falling back to the interpreter (which has the
-corresponding code to run the hooks).  *Note VM Hooks::.
+corresponding code to run the hooks).  *Note* VM Hooks::.
 
    To emit native code, Guile uses a forked version of GNU Lightning.
 This "Lightening" effort, spun out as a separate project, aims to build
@@ -56199,7 +56199,7 @@ transformation.
 compiler which can already perform significant optimizations when it can
 prove they will always be valid, and its low-level bytecode which is
 able to represent the effect of those optimizations (e.g.  elided
-type-checks).  *Note Compiling to the Virtual Machine::, for more on
+type-checks).  *Note* Compiling to the Virtual Machine::, for more on
 Guile’s compiler.
 
    An ahead-of-time Scheme-to-bytecode strategy, complemented by a
@@ -56223,10 +56223,10 @@ ahead-of-time native code emission to the back-end of the compiler
 written in Scheme, to take advantage of the opportunity to do global
 register allocation and instruction selection.  Once this is working, it
 can allow Guile to experiment with speculative optimizations in Scheme
-as well.  *Note Extending the Compiler::, for more on future directions.
+as well.  *Note* Extending the Compiler::, for more on future directions.
 
    Finally, note that there are a few environment variables that can be
-tweaked to make JIT compilation happen sooner, later, or never.  *Note
+tweaked to make JIT compilation happen sooner, later, or never.  *Note*
 Environment Variables::, for more.
 
 
@@ -56241,7 +56241,7 @@ eminently hackable thing.  This section aims to describe Guile’s
 compiler in such a way that interested Scheme hackers can feel
 comfortable reading and extending it.
 
-   *Note Read/Load/Eval/Compile::, if you’re lost and you just wanted to
+   *Note* Read/Load/Eval/Compile::, if you’re lost and you just wanted to
 know how to compile your ‘.scm’ file.
 
 * Menu:
@@ -56263,7 +56263,7 @@ File: guile.info,  Node: Compiler Tower,  Next: The Scheme Compiler,  Up: Compil
 Guile’s compiler is quite simple – its _compilers_, to put it more
 accurately.  Guile defines a tower of languages, starting at Scheme and
 progressively simplifying down to languages that resemble the VM
-instruction set (*note Instruction Set::).
+instruction set (*note* Instruction Set::).
 
    Each language knows how to compile to the next, so each step is
 simple and understandable.  Furthermore, this set of languages is not
@@ -56340,7 +56340,7 @@ language to the next one in the chain.
    There is a notion of a “current language”, which is maintained in the
 ‘current-language’ parameter, defined in the core ‘(guile)’ module.
 This language is normally Scheme, and may be rebound by the user.  The
-run-time compilation interfaces (*note Read/Load/Eval/Compile::) also
+run-time compilation interfaces (*note* Read/Load/Eval/Compile::) also
 allow you to choose other source and target languages.
 
    The normal tower of languages when compiling Scheme goes like this:
@@ -56350,7 +56350,7 @@ allow you to choose other source and target languages.
    • Continuation-Passing Style (CPS)
    • Bytecode
 
-   As discussed before (*note Object File Format::), bytecode is in ELF
+   As discussed before (*note* Object File Format::), bytecode is in ELF
 format, ready to be serialized to disk.  But when compiling Scheme at
 run time, you want a Scheme value: for example, a compiled procedure.
 For this reason, so as not to break the abstraction, Guile defines a
@@ -56404,7 +56404,7 @@ compiler.
 
    ‘(compile FOO #:from 'scheme #:to 'tree-il)’ is entirely equivalent
 to calling the macro expander as ‘(macroexpand FOO 'c '(compile load
-eval))’.  *Note Macro Expansion::.  ‘compile-tree-il’, the procedure
+eval))’.  *Note* Macro Expansion::.  ‘compile-tree-il’, the procedure
 dispatched by ‘compile’ to ‘'tree-il’, is a small wrapper around
 ‘macroexpand’, to make it conform to the general form of compiler
 procedures in Guile’s language tower.
@@ -56441,7 +56441,7 @@ isolated:
      (eq? (compile '/) /)
      ⇒ #f
 
-   Similarly, changes to the ‘current-reader’ fluid (*note
+   Similarly, changes to the ‘current-reader’ fluid (*note*
 ‘current-reader’: Loading.) are isolated:
 
      (compile '(fluid-set! current-reader (lambda args 'fail)))
@@ -56473,13 +56473,13 @@ limited set of transformations.  For example, the Tree-IL type ‘<const>’
 is a record type with two fields, ‘src’ and ‘exp’.  Instances of this
 type are created via ‘make-const’.  Fields of this type are accessed via
 the ‘const-src’ and ‘const-exp’ procedures.  There is also a predicate,
-‘const?’.  *Note Records::, for more information on records.
+‘const?’.  *Note* Records::, for more information on records.
 
    All Tree-IL types have a ‘src’ slot, which holds source location
 information for the expression.  This information, if present, will be
 residualized into the compiled object code, allowing backtraces to show
 source information.  The format of ‘src’ is the same as that returned by
-Guile’s ‘source-properties’ function.  *Note Source Properties::, for
+Guile’s ‘source-properties’ function.  *Note* Source Properties::, for
 more information.
 
    Although Tree-IL objects are represented internally using records,
@@ -56653,7 +56653,7 @@ care of the rest.
      If ESCAPE-ONLY? is true, the handler should be a ‘<lambda>’ with a
      single ‘<lambda-case>’ body expression with no optional or keyword
      arguments, and no alternate, and whose first argument is
-     unreferenced.  *Note Prompts::, for more information.
+     unreferenced.  *Note* Prompts::, for more information.
 
  -- Scheme Variable: <abort> tag args tail
  -- External Representation: (abort TAG ARGS TAIL)
@@ -56723,7 +56723,7 @@ compiler.
 
 File: guile.info,  Node: An Introduction to CPS,  Next: CPS in Guile,  Up: Continuation-Passing Style
 
-9.4.4.1 An Introduction to CPS
+### 9.4.4.1 An Introduction to CPS
 ..............................
 
 Consider the following Scheme expression:
@@ -56803,7 +56803,7 @@ gives them names.
 
 File: guile.info,  Node: CPS in Guile,  Next: Building CPS,  Prev: An Introduction to CPS,  Up: Continuation-Passing Style
 
-9.4.4.2 CPS in Guile
+### 9.4.4.2 CPS in Guile
 ....................
 
 Guile’s CPS language is composed of “continuations”.  A continuation is
@@ -57089,7 +57089,7 @@ are only used in function entries.
 
 File: guile.info,  Node: Building CPS,  Next: CPS Soup,  Prev: CPS in Guile,  Up: Continuation-Passing Style
 
-9.4.4.3 Building CPS
+### 9.4.4.3 Building CPS
 ....................
 
 Unlike Tree-IL, the CPS language is built to be constructed and
@@ -57097,7 +57097,7 @@ deconstructed with abstract macros instead of via procedural
 constructors or accessors, or instead of S-expression matching.
 
    Deconstruction and matching is handled adequately by the ‘match’ form
-from ‘(ice-9 match)’.  *Note Pattern Matching::.  Construction is
+from ‘(ice-9 match)’.  *Note* Pattern Matching::.  Construction is
 handled by a set of mutually builder macros: ‘build-term’, ‘build-cont’,
 and ‘build-exp’.
 
@@ -57156,7 +57156,7 @@ value; see the specifications below for full details.
 
 File: guile.info,  Node: CPS Soup,  Next: Compiling CPS,  Prev: Building CPS,  Up: Continuation-Passing Style
 
-9.4.4.4 CPS Soup
+### 9.4.4.4 CPS Soup
 ................
 
 We describe programs in Guile’s CPS language as being a kind of “soup”
@@ -57316,7 +57316,7 @@ number of useful facilities for working with CPS values.
 
 File: guile.info,  Node: Compiling CPS,  Prev: CPS Soup,  Up: Continuation-Passing Style
 
-9.4.4.5 Compiling CPS
+### 9.4.4.5 Compiling CPS
 .....................
 
 Compiling CPS in Guile has three phases: conversion, optimization, and
@@ -57329,7 +57329,7 @@ CPS later.  Going through Tree-IL has the advantage of running Tree-IL
 optimization passes, like partial evaluation.  Also, the compiler from
 Tree-IL to CPS handles assignment conversion, in which assigned local
 variables (in Tree-IL, locals that are ‘<lexical-set>’) are converted to
-being boxed values on the heap.  *Note Variables and the VM::.
+being boxed values on the heap.  *Note* Variables and the VM::.
 
    After CPS conversion, Guile runs some optimization passes over the
 CPS. Most optimization in Guile is done on the CPS language.  The one
@@ -57371,7 +57371,7 @@ File: guile.info,  Node: Bytecode,  Next: Writing New High-Level Languages,  Pre
 --------------
 
 As mentioned before, Guile compiles all code to bytecode, and that
-bytecode is contained in ELF images.  *Note Object File Format::, for
+bytecode is contained in ELF images.  *Note* Object File Format::, for
 more on Guile’s use of ELF.
 
    To produce a bytecode image, Guile provides an assembler and a
@@ -57387,7 +57387,7 @@ from a machine-readable description of the VM. With a few exceptions for
 certain operand types, each operand of an emit procedure corresponds to
 an operand of the corresponding instruction.
 
-   Consider ‘allocate-words’, from *note Memory Access Instructions::.
+   Consider ‘allocate-words’, from *note* Memory Access Instructions::.
 It is documented as:
 
  -- Instruction: allocate-words s12:DST s12:NWORDS
@@ -57399,7 +57399,7 @@ It is documented as:
    All emit procedure take the assembler as their first argument, and
 return no useful values.
 
-   The argument types depend on the operand types.  *Note Instruction
+   The argument types depend on the operand types.  *Note* Instruction
 Set::.  Most are integers within a restricted range, though labels are
 generally expressed as opaque symbols.  Besides the emitters that
 correspond to instructions, there are a few additional helpers defined
@@ -57444,7 +57444,7 @@ works would do well do read Ian Lance Taylor’s series of articles on
 linkers.  Searching the internet should find them easily.  From the
 user’s perspective, there is only one knob to control: whether the
 resulting image will be written out to a file or not.  If the user
-passes ‘#:to-file? #t’ as part of the compiler options (*note The Scheme
+passes ‘#:to-file? #t’ as part of the compiler options (*note* The Scheme
 Compiler::), the linker will align the resulting segments on page
 boundaries, and otherwise not.
 
@@ -57523,7 +57523,7 @@ Probably the most important improvement, speed-wise, will be some form
 of optimized ahead-of-time native compilation with global register
 allocation.  A first pass could simply extend the compiler to also emit
 machine code in addition to bytecode, pre-filling the corresponding JIT
-data structures referenced by the ‘instrument-entry’ bytecodes.  *Note
+data structures referenced by the ‘instrument-entry’ bytecodes.  *Note*
 Instrumentation Instructions::.
 
    The compiler also needs help at the top end, adding new high-level
@@ -58039,7 +58039,7 @@ constants in Guile.
    When looking for a particular variable or constant, please look under
 its Scheme name as well as under its C name.  The C name can be
 constructed from the Scheme names by a simple transformation described
-in the section *Note API Overview::.
+in the section *Note* API Overview::.
 
 [index]
 * Menu:

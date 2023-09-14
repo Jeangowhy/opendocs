@@ -1552,7 +1552,7 @@ dnl # error→m4:stdin:6: fatal error: inside wrapped text
 3. https://www.gnu.org/software/make/manual
 4. https://www.sourceware.org/autobook/
 
-Windows 系统可以通过 Mysys2 安装：
+Windows 系统可以通过 Msys2 安装：
 
 1. https://packages.msys2.org/package/automake1.16
 2. https://packages.msys2.org/package/autoconf2.71
@@ -1731,7 +1731,7 @@ configure.in ----------------------->|autoconf|------> configure
                                  `-------------'
 ```
 
-源代码配置脚本 configure 除了生成构建脚本，还可能会生成一系列 config 文件，包括 config.h config.status config.log 或者 config.guess 等等。因为 configue 是一个 Linux Shell 脚本，Linux 环境下可以直接运行。Windows 系统下安装 mysys2 或者 MinGW 后也可以 `bash configure` 这样运行。
+源代码配置脚本 configure 除了生成构建脚本，还可能会生成一系列 config 文件，包括 config.h config.status config.log 或者 config.guess 等等。因为 configue 是一个 Linux Shell 脚本，Linux 环境下可以直接运行。Windows 系统下安装 msys2 或者 MinGW 后也可以 `bash configure` 这样运行。
 
 autoconf 工具根据配置脚本模板生成源代码配置脚本，执行 automake 参照 Makefile.am、config.h.in 和 configure.ac 等模板文件生成 Makefile.in，再通过 autoconf 生成的源代码配置脚本生成 Makefile 构建脚本，最后正式执行 make 编译项目。
 
@@ -1994,6 +1994,10 @@ Mingw-w64 工具套件也可以在 Windows 系统上做交叉编译：
 | arm64      | arm64-mingw-dynamic, arm64-mingw-static | aarch64-w64-mingw32-
 | arm        | arm-mingw-dynamic, arm-mingw-static     | armv7-w64-mingw32-
 
+    # 查看 GCC 支持的 CPU 架构列表
+    gcc -march=native -Q --help=target
+    # 查询编译目标三元组，例如 x86_64-pc-msys
+    gcc -dumpmachine
 
 CMake 手册中用 Build host 和 Target System 表示两个系统，但是命令行中依然是使用 build 和 host 参数：
 
@@ -3402,6 +3406,17 @@ Make 给多进程分割任务的依据是 Makefile 规则定义的依赖关系�
 1. make-4.3\tests\scripts\features\parallelism
 2. make-4.3\tests\scripts\features\jobserver
 
+NEWS: Mention the extended support for -jN on MS-Windows.
+https://github.com/sunnyden/make/commit/d3bba301cee84c6e2b150649411a0d649056a75f
+http://sv.gnu.org/bugs/index.php?group=make&report_id=111&fix_release_id=108&set=custom
+
+* The previous limit of 63 jobs under -jN on MS-Windows is now
+  increased to 4095.  That limit includes the subprocess started by
+  the $(shell) function.
+
+Version 4.2.1 (10 Jun 2016)
+
+
 
 ### 🤘 Make Guile Extending
 1. https://www.gnu.org/software/guile/manual/
@@ -3413,9 +3428,23 @@ Make 提供了一套机制给开发者编写扩展程序，即各种基于 make 
 
 Guile 是一种嵌入式脚本语言，属于 Scheme programming language 的一种，即 LISP 语言的一种方言。这类语言使用的语法非常新奇（古典），例如，调用加法算术函数 `(+ 1 2)` 得到结果为 3，嵌套调用就继续加圆括号。
 
-Guile 项目起源于 GNU Project，作为 Emacs Lisp 扩展功能得到成功应用。
+Guile 项目起源于 GNU Project，作为 Emacs Lisp 扩展功能得到成功应用。Guile 按照 Scheme 社区的学术报告 R5RS 算法语言方案实现，提供整洁的 通用数据和控制结构。Guile 超越了 R5RS 中提出的朴素语言，完全访问 POSIX 系统调用，网络支持，多线程，动态链接，外部函数调用接口，强大的字符串处理以及实际编程所需的许多其他功能。
 
-Windows 系统可以使用 mysys2 安装移植版本，这个移植平台使用 Pacman 作为软件安装管理工具，并且提供了 API 接口，可以手动查询安装包及依赖关系，并且进行手动安装程序包。安装 Guile 后就可以编写测试脚本，并通过 `guile -s hi.scm` 命令运行测试：
+2007 年，Scheme 社区同意并发布了 R6RS，这是 RnRS 系列的重要一期。R6RS 扩展核心 Scheme 语言，并标准化了许多非核心功能，包括 Guile 在内的实现，按不同以前的方式进行。随着时间的推移，Guile 已经更新，几乎包含了
+R6RS 的功能，并调整一些现有功能以符合 R6RS 规范，以及 2013 年发布的 R7RS 规范。
+
+RnRS (the Revised^n Reports on Scheme) 作为 Scheme 社区的权威报告，对其语言规范的实现者具有积极指导意义。比如，按规范实现的 rsrn base 模块，就 提供各种数据类型相关操作的模块。Guile 3.0.9 版本的源代码文档中包含了 R5RS info 格式文档，可以作为趁手的备查文档。源代码中同样包含了官方的参考手册，info 格式可以很方便地转换成其它格式，比如 Markdown。
+
+Eli Zaretskii （Stallman 的老朋友）是 2022 年自由软件进步奖的获得者。 Zaretskii 目前是 GNU Emacs 的共同维护者，GNU Emacs 是 GNU 操作系统的旗舰程序之一，三十多年来，他一直是 Emacs 的贡献者，作为共同维护者协调 200 多个活跃贡献者的工作。
+
+Eli Zaretskii Wins  Free Software Foundation (FSF) Award.
+Thank you Eli Zaretskii for releasing make-with-guile port version.
+
+0. https://github.com/sunnyden/make
+1. https://sourceforge.net/projects/ezwinports/files/make-4.4.1-without-guile-w32-bin.zip/download
+2. https://sourceforge.net/projects/ezwinports/files/make-4.4.1-with-guile-w32-bin.zip/download
+
+Windows 系统可以使用 msys2 安装移植版本，这个移植平台使用 Pacman 作为软件安装管理工具，并且提供了 API 接口，可以手动查询安装包及依赖关系，并且进行手动安装程序包。安装 Guile 后就可以编写测试脚本，并通过 `guile -s hi.scm` 命令运行测试：
 
 ```lisp
     #! /c:/mingw/bin/guile -s
@@ -3427,7 +3456,7 @@ Windows 系统可以使用 mysys2 安装移植版本，这个移植平台使用 
 
 ```sh
     whereis guile
-    guile: /usr/bin/guile.exe
+    # guile: /usr/bin/guile.exe
 ```
 
 Linix 系统中可以直接 ./hi.scm 执行脚本，Bash 会根据脚本第一行注解找到解释命令，Windows 系统则没有这种服务，需要手动使用 bash 或者解释器程序命令去调用脚本。更好的方法是使用 watch 命令监视脚本的改动，并且在出现改动时重新执行脚本：
@@ -3455,30 +3484,6 @@ Linix 系统中可以直接 ./hi.scm 执行脚本，Bash 会根据脚本第一�
 12.2.4 Example Loaded Object
 
 
-Guile 扩展不一定与正在使用的 make 一起编译，可以通过 .FEATURES 检测是否存在 guile 扩展。也可以编译源代码，调用源代码配置脚本 bash configure --with-guile 启用 Guile 进行编译，然后就可以在 Makefile 脚本中通过 guile 函数进行 LISP 编程：
-
-```makefile
-    $(info FEATURES: $(filter load% job% guile%,$(.FEATURES)) )
-    GUILD = $(filter guild%,$(.FEATURES))
-    LOAD = $(filter load%,$(.FEATURES))
-    $(info 12.1 GNU Guile Integration $(if $(GUILD),,un)supported )
-    $(info 12.2 Loading Dynamic Objects $(if $(LOAD),,un)supported )
-```
-
-Optional Packages:
-
-    --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
-    --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
-    --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
-    --with-libiconv-prefix[=DIR]  search for libiconv in DIR/include and DIR/lib
-    --without-libiconv-prefix     don't search for libiconv in includedir and libdir
-    --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
-    --without-libintl-prefix     don't search for libintl in includedir and libdir
-    --with-guile            Support GNU Guile for embedded scripting
-    --with-customs=DIR      enable remote jobs via Customs--see README.customs
-    --with-dmalloc          use dmalloc, as in http://www.dmalloc.com
-
-
 16.2 Utilities in Makefiles 手册逻列了各种可以配合 make 使用的工具：
 
      awk cat cmp cp diff echo egrep expr false grep install-info ln ls
@@ -3499,6 +3504,95 @@ Optional Packages:
 额外的文件属性处理工具：
 
      chgrp chmod chown mknod
+
+
+Guile 扩展不一定与正在使用的 make 一起编译，可以通过 .FEATURES 检测是否存在 guile 扩展。也可以编译源代码，调用源代码配置脚本 bash configure --with-guile 启用 Guile 进行编译，然后就可以在 Makefile 脚本中通过 guile 函数进行 LISP 编程：
+
+```makefile
+    $(info FEATURES: $(filter vpath% load% guile%,$(.FEATURES)) )
+    GUILE = $(filter guile%,$(.FEATURES))
+    LOAD = $(filter load%,$(.FEATURES))
+    $(info 12.1 GNU Guile Integration $(if $(GUILE),,un)supported )
+    $(info 12.2 Loading Dynamic Objects $(if $(LOAD),,un)supported )
+```
+
+Optional Packages:
+
+    --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+    --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+    --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+    --with-libiconv-prefix[=DIR]  search for libiconv in DIR/include and DIR/lib
+    --without-libiconv-prefix     don't search for libiconv in includedir and libdir
+    --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
+    --without-libintl-prefix     don't search for libintl in includedir and libdir
+    --with-guile            Support GNU Guile for embedded scripting
+    --with-customs=DIR      enable remote jobs via Customs--see README.customs
+    --with-dmalloc          use dmalloc, as in http://www.dmalloc.com
+
+GNU Make 源代码已经配置好 Windows 系统下的编译环境，build_w32.bat 会调用 MSVC 或者 Mingw 等编译工具，脚本中会检测是否安装好了 Guile 依赖库，并自动在编译时启用它。
+
+```shell
+    :ChkGuile
+    :: Build with Guile is supported only on NT and later versions
+    if not "%OS%" == "Windows_NT" goto NoGuile
+    call pkg-config --help > %OUTDIR%\guile.tmp 2> NUL
+    if ERRORLEVEL 1 goto NoPkgCfg
+
+    echo Checking for Guile 3.0
+    call pkg-config --cflags --short-errors "guile-3.0" > %OUTDIR%\gl-c3.tmp 3> NUL
+    if not ERRORLEVEL 1 set /P GUILECFLAGS= < %OUTDIR%\gl-c3.tmp
+
+    call pkg-config --libs --static --short-errors %PKGMSC% "guile-3.0" > %OUTDIR%\gl-l3.tmp 3> NUL
+    if not ERRORLEVEL 1 set /P GUILELIBS= < %OUTDIR%\gl-l3.tmp
+    # set GUILECFLAGS = -IC:/MinGW/include/guile/3.0 -I/C:/MinGW/usr  
+    # set GUILELIBS= /libpath:C:/MinGW/lib /libpath:/usr/lib/ guile-3.0.lib gc.lib /usr/lib/libgmp.dll.a ffi.lib /usr/lib/libunistring.dll.a crypt.lib /usr/lib/libiconv.dll.a /usr/lib/libintl.dll.a
+
+    :GuileDone
+    if "%GUILECFLAGS%" == "" goto :EOF
+
+    echo - Guile found: building with Guile
+    set "GUILECFLAGS=%GUILECFLAGS% -DHAVE_GUILE"
+    goto :EOF
+```
+
+源代码中使用了 pkg-config 管理依赖，需要通过它为编译定位 Guile 库文件，可以尝试使用 msys2 平台下构建的库文件：
+
+```sh
+    # https://github.com/ruby-gnome/pkg-config/tags
+    # https://community.chocolatey.org/packages/jq
+    # https://packages.msys2.org/api/search?query=pkg-config
+    # https://www.freedesktop.org/wiki/Software/pkg-config
+    # https://hyperpolyglot.org/shell
+    choco install jq
+    $url = 'https://packages.msys2.org/api/search?query=pkg-config'
+    curl -X 'GET' $url -H 'accept: application/json' | jq
+
+    kg-config --list-all | findstr guile
+    # guile-3.0          GNU Guile - GNU's Ubiquitous Intelligent Language for Extension
+```
+
+Windows 平台下编译 GNU make 4.4 并不顺利，安装依赖麻烦，并且代码有需要修改，有些符号没有定义。比如调用 MSVC CRT 库函数设置标准文件的模式时传入的参数，MinGW 使用了不同的常量名 O_BINARY 和 O_TEXT。为了让编译通过，不惜硬编码一些
+
+    src/job.c:3311:32: error: '_O_TEXT' undeclared (first use in this function); did you mean 'O_TEXT'?      
+    https://learn.microsoft.com/zh-cn/cpp/c-runtime-library/reference/setmode
+
+    rc/signame.c:43:20: error: static declaration of 'sys_siglist' follows non-static declaration
+       43 | static const char *sys_siglist[NSIG];
+          |
+
+```cpp
+        /* Create a FILE object for the batch file, and write to it the
+           commands to be executed.  Put the batch file in TEXT mode.  */
+        _setmode (temp_fd, _O_TEXT);
+        batch = _fdopen (temp_fd, "wt");
+        if (!unixy_shell)
+          fputs ("@echo off\n", batch);
+        fputs (command_ptr, batch);
+        fputc ('\n', batch);
+        fclose (batch);
+        DB (DB_JOBS, (_("Batch file contents:%s\n\t%s\n"),
+                      !unixy_shell ? "\n\t@echo off" : "", command_ptr));
+```
 
 Make 宏编程只有字符串，没有其它数据类型，如何处理 Guile 数据类型？
 
@@ -3524,9 +3618,9 @@ Guile scripts 脚本中会在启动时导出一个 Guile 模块，gnu make，并
 1. 'gmk-expand' 传入一个参数，它会以 make 宏展开式的结果返回；
 2. 'gmk-eval' 传入一个参数，无返回值，参数转换成字符串当作 Makefile 脚本，并通过 make 求值；
 
-以下 Guile 脚本演示了文件写入操作，使用 define endef 关键字定义过程。因为不能在 make 中表示 Guile ports，所以将它保存在 MKPORT 变量中，最后一行就是调用 Guile 注册函数登记模块定义：
+以下 Makefile 脚本演示内嵌 Guile 脚本实现文件写入操作，使用 Makefile 脚本中的 define endef 指令可以定义多行的过程定义。因为不能在 make 中表示 Guile ports，所以将它保存在 Guile 脚本中的 MKPORT 变量中，最后一行就是调用 Guile 注册函数登记模块定义：
 
-```lisp
+```makefile
      define GUILEIO
      ;; A simple Guile IO library for GNU make
 
@@ -3566,8 +3660,21 @@ Guile scripts 脚本中会在启动时导出一个 Guile 模块，gnu make，并
          $(LINK) < tmp.out
 ```
 
-https://www.gnu.org/software/guile/manual/guile.html#Linking-Guile-into-Programs
+Make 调用内嵌的 Guile 脚本解释器加载初始模块时可能出现错误：
+
+    Throw without catch before boot:
+    Throw to key misc-error with args ("primitive-load-path" "Unable to find file ~S in load path" ("ice-9/boot-9") #f)Aborting.
+    Cannot exit gracefully when init is in progress; aborting.  
+
+在未掌握其运行逻辑之前，这样的问题显得常抽象，完全无法想象是什么环节出了问题。可能是因为环境设置导致 Guile 解释器没有在合适的目录下查找文件吗？显然，从字面上可以得出的信息是：
+
+1. 抛出了异常，并且是 misc-error 异常；
+2. 异常参数信息似乎指向 ice-9/boot-9 模块的 primitive-load-path 方法；
+
+
 Guile 官方文档 2.3 Linking Guile into Programs 给了一个嵌入 Guile 脚本解释器的示范，示范代码只有一个 simple-guile.c 文件，实现了一个简单的嵌入式脚本语言的使用，演示了如何将 C/C++ 定义的函数导出到 Guile 脚本环境，并在脚本中调用它。
+1. https://www.gnu.org/software/guile/manual/guile.html#Linking-Guile-into-Programs
+2. 
 
 ```cpp
 #include <stdlib.h>
@@ -3610,6 +3717,122 @@ scheme@(guile-user)> (my-hostname)
 "burns"
 ```
 
+
+注意：Guile 库文件名中的版本号带点号，用引号包括避免错误，gcc: error: .0: No such file or directory。
+
+5.2.1 Guile Initialization Functions 所述，初始化方法有三种方形：
+
+1. scm_with_guile 最佳移植的初始化函数；
+2. scm_init_guile 当前进程内完成初始化，线程内可以直接调用 Guile；
+3. scm_boot_guile scm_shell 为需要增强功能的 C 函数库应用提供脚本扩展；
+
+
+Make 4.4 嵌入 Guile 实现代码在 make-4.4\src\guile.c 文件独立完成嵌入式脚本扩展，其中导出的到脚本函数通过 gmk_add_function 注册完成，可以看到代码中只向 Makefile 脚本导出了 guile 这一个函数。注册函数的参数列表除了函数名称，还有 min_args max_args flags。
+
+```cpp
+/* We could send the flocp to define_new_function(), but since guile is
+   "kind of" built-in, that didn't seem so useful.  */
+int
+guile_gmake_setup (const floc *flocp UNUSED)
+{
+  /* Create a make function "guile".  */
+  gmk_add_function ("guile", func_guile, 0, 1, GMK_FUNC_DEFAULT);
+
+  return 1;
+}
+```
+
+按照 GNU make 插件接口规定，12.2.3 Loaded Object Interface，所有导出到脚本的函数除了接收函数调用名称，还被调用时的脚本所传入的参数数量，以及参数列表。另一方面，Guile 初始化函数之一，scm_with_guile 就是最具移植性的初始化方法。此方法可以多次调用，可以多线程并发调用，内部使用全局状态服务并在这些调用中保持。开发者的函数会在这个函数回调，因为 GC 需要知道每个线程的堆栈信息。Make 就在回调函数中向 Guile 注册了 `gnu make` 模块。初始化 Guile 参考手册 6.4 Initializing Guile。
+
+```cpp
+/* This is the function registered with make  */
+static char *
+func_guile (const char *funcname UNUSED, unsigned int argc UNUSED, char **argv)
+{
+  static int init = 0;
+
+  if (! init)
+    {
+      /* Initialize the Guile interpreter.  */
+      scm_with_guile (guile_init, NULL);
+      init = 1;
+    }
+
+  if (argv[0] && argv[0][0] != '\0')
+    return scm_with_guile (internal_guile_eval, argv[0]);
+
+  return NULL;
+}
+
+/* Initialize the GNU make Guile module.  */
+static void *
+guile_init (void *arg UNUSED)
+{
+  /* Define the module.  */
+  make_mod = scm_c_define_module ("gnu make", guile_define_module, NULL);
+
+  /* Get a reference to the object-to-string translator, for later.  */
+  obj_to_str = scm_variable_ref (scm_c_module_lookup (make_mod, "obj-to-str"));
+
+  /* Import the GNU make module exports into the generic space.  */
+  scm_c_eval_string ("(use-modules (gnu make))");
+
+  return NULL;
+}
+```
+
+
+```sh
+$ gcc -o simple-guile simple-guile.c `pkg-config --cflags --libs guile-3.0`
+$ gcc -o simple-guile box/box.c `pkg-config --cflags --libs guile-3.0`
+gcc -IC:/MinGW/include/guile/3.0 -I/usr .\box\box.c
+
+$CCFLAGS= pkg-config --cflags "guile-3.0"
+$LDFLAGS= pkg-config --libs "guile-3.0"
+gcc -c -o box $CCFLAGS .\box\box.c
+gcc $LDFLAGS box
+
+gcc -c -o box.o -IC:/MinGW/include/guile/3.0 -I/usr  .\box\box.c
+gcc -LC:/MinGW/lib -l"guile-3.0" -lgc  box.o
+gcc -LC:/MinGW/lib -l"guile-3.0" -lgc -IC:/MinGW/include/guile/3.0 -I/usr  box/box.c
+gcc -LC:/MinGW/lib -L/usr/lib/../lib -lguile-3.0.dll.a -lgc -llibgmp.dll.a -lffi /usr/lib/libunistring.dll.a -lcryp -IC:/MinGW/include/guile/3.0 -I/usr  box/box.c
+
+pkg-config --cflags --short-errors --msvc-syntax "guile-3.0"
+pkg-config --cflags --short-errors "guile-3.0"
+pkg-config --libs --short-errors "guile-3.0"
+pkg-config --libs --static --short-errors "guile-3.0"
+```
+
+使用 Msys2 平台编译的依赖库链接时可能产生函数符号无定义的错误，但是链接库（静态、动态）都可以查询到有导出的函数符号，有可能是 GCC 编译器版本不匹配。MSVC 编译器生成的库文件可以使用 dumpbin 查询编译器信息，MinGW 等平台的库文件可以使用 strings 工具查询其中的字符内容。可以看到 Msys2 平台上的 libguile-devel 3.0 开发库使用了 GCC: (GNU) 11.3.0 编译器。
+
+```sh
+objdump -t C:\mingw\lib\libguile-3.0.a
+objdump -t C:\mingw\lib\libguile-3.0.dll.a
+
+dumpbin /all some.lib | findstr _MSC_VER
+strings C:\mingw\lib\libguile-3.0.a | grep GCC
+strings C:\mingw\lib\libguile-3.0.a | grep x86
+
+libguile_3.0_la-init.o:     file format pe-x86-64
+
+SYMBOL TABLE:
+[  0](sec  1)(fl 0x00)(ty  20)(scl   3) (nx 1) 0x0000000000000000 invoke_main_func
+AUX tagndx 0 ttlsiz 0x0 lnnos 0 next 0
+[  2](sec  1)(fl 0x00)(ty  20)(scl   3) (nx 0) 0x0000000000000040 really_cleanup_for_exit
+[  3](sec  1)(fl 0x00)(ty  20)(scl   3) (nx 0) 0x0000000000000050 scm_standard_stream_to_port
+[  4](sec  1)(fl 0x00)(ty  20)(scl   3) (nx 0) 0x00000000000000d0 cleanup_for_exit
+[  5](sec  1)(fl 0x00)(ty  20)(scl   2) (nx 0) 0x0000000000000130 scm_load_startup_files
+[  6](sec  1)(fl 0x00)(ty  20)(scl   2) (nx 0) 0x0000000000000190 scm_boot_guile
+[  7](sec  1)(fl 0x00)(ty  20)(scl   2) (nx 0) 0x00000000000001f0 scm_i_init_guile
+
+msys_guile_3_0_1_dll_d000182.o:     file format pe-x86-64
+
+SYMBOL TABLE:
+...
+[  5](sec  1)(fl 0x00)(ty   0)(scl   2) (nx 0) 0x0000000000000000 scm_boot_guile
+[  6](sec  3)(fl 0x00)(ty   0)(scl   2) (nx 0) 0x0000000000000000 __imp_scm_boot_guile
+[  7](sec  0)(fl 0x00)(ty   0)(scl   2) (nx 0) 0x0000000000000000 _head_msys_guile_3_0_1_dll
+```
 
 
 ### ✋ Implicit Rules
@@ -6851,7 +7074,14 @@ pacman -S mingw-w64-x86_64-cmake
 pacman -S mingw-w64-clang-x86_64-cmake
 ```
 
+2.1.1 Comparing versions before updating
+To see old and new versions of available packages, uncomment the "VerbosePkgLists" line in /etc/pacman.conf. The output of pacman -Syu will be like this:
 
+    Package (6)             Old Version  New Version  Net Change  Download Size
+
+    extra/libmariadbclient  10.1.9-4     10.1.10-1      0.03 MiB       4.35 MiB
+    extra/libpng            1.6.19-1     1.6.20-1       0.00 MiB       0.23 MiB
+    extra/mariadb           10.1.9-4     10.1.10-1      0.26 MiB      13.80 MiB
 
 
 # 🐣 CMake 编译脚本生成工具
