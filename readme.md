@@ -39,3 +39,67 @@ Load settings from /Packages/Users/RunSnippet.sublime-settings
         "jump_between_group": true,
     }
 ```
+
+
+Sublime Text 开发环境插件推荐：
+
+1. LSP for Sublime Text https://lsp.sublimetext.io/language_servers/#deno
+2. Terminus 终端模拟 https://packagecontrol.io/packages/Terminus
+3. Origami 界面窗口切分 https://packagecontrol.io/packages/Origami
+4. 程序化标签输入 https://packagecontrol.io/packages/Emmet
+5. 加强侧边栏 https://packagecontrol.io/packages/SideBarEnhancements
+6. 函数标记追踪 https://packagecontrol.io/packages/CTags
+7. 智能提示 https://packagecontrol.io/packages/SublimeCodeIntel
+8. 格式美化 https://packagecontrol.io/packages/HTML-CSS-JS%20Prettify
+9. https://github.com/Kronuz/ColorHighlight
+10. https://packagecontrol.io/packages/ColorPicker
+10. https://github.com/sokolovstas/SublimeWebInspector
+
+Color Highlighter 需要配置 ImageMagick https://imagemagick.org/ 命令行工具，推荐使用 Color Highlight：
+
+    "icon_factory.convert_command":"C:/Program Files/ImageMagick-7.1.1-Q16-HDRI/convert.exe",
+
+Origami 支持窗口分割根据 `auto_zoom_on_focus` 设置的比例自动进行伸缩，插件原功能维持 x y 两个方向使用同一比例值，需要实现两个方向单独比例调整，参考以下 PR 更新。
+
+https://github.com/Jeangowhy/Origami/pull/1
+upgrade zoom_pane(self, auto_zoom) to support auto zoom in X and Y direction，Origami settings update:
+
+```json
+// Automatically zoom the active pane.
+// Set it to true for the default zoom, or to a user-definable
+// fraction of the screen, such as "0.75" or [0.5, 0.7].
+"auto_zoom_on_focus": [0.55, 0.75],
+```
+
+Origami Keyboard shortcuts
+Default, these keyboard shortcuts are all two-stage, and are hidden behind command+k. First press command+k, then press the arrow keys with modifiers:
+
+NOTE: Windows and Linux use ctrl instead of command.
+
+    First               Then                  Action
+    command+k   ▲►▼◄          travel to an adjacent pane
+    command+k   shift+▲►▼◄  carry the current file to the destination
+    command+k   alt+▲►▼◄      clone the current file to the destination
+    command+k   ctrl+▲►▼◄     create an adjacent pane
+    command+k   ctrl+shift+▲►▼◄ destroy an adjacent pane
+    command+k   ctrl+alt+▲►▼◄   create an adjacent pane and carry the current file to the destination
+
+These keyboard shortcuts are designed to make it really easy to modify the layout of your editor.
+
+NOTE: The following keyboard shortcuts for zooming and editing pane sizes are not enabled by default due to a conflict with built-in ST features. Open the Preferences: Origami Key Bindings from the Command Palette to enable or edit them, or just use the Command Palette to trigger those commands.
+
+    First         Then        Action
+    command+k   command+z   Zoom the current pane so it takes up 90% of the screen (the fraction is changeable in the keybindings)
+    command+k   shift+command+z Un-zoom: equally space all panes
+    It is also possible to edit the pane sizes:
+
+    First         Then        Action
+    command+k   command+r   Adjust the top and bottom separator
+    command+k   command+c   Adjust the left and right separator
+
+In the keybindings you can change a mode which specifies which separation lines you want to edit. * ALL means all horizontal (or vertical) separators * RELEVANT means all horizontal (or vertical) separators which intersect the column (row) of the selected row. * NEAREST means top and bottom (or left and right) separators. This is the default mode. * BEFORE means top (or left) separator * AFTER means bottom (or right) separator
+
+Automation
+You can have Origami automatically zoom the active pane by setting `auto_zoom_on_focus` in your Origami user preferences. Set it to true for the default zoom, or set it to a user-definable fraction of the screen, such as 0.75.
+
+Origami can also automatically close a pane for you once you've closed the last file in it. Just set `auto_close_empty_panes` to true in the Origami preferences.
