@@ -2129,11 +2129,431 @@ Which is then used during the setup phase.
 
 ## 🍀 面向 makefile 编程
 
-### 🐣 Project Templates
+此教程将计划以两部分内容呈现，目标是从零基础到 GNU make 最本原的原理的掌握，这是第二部分内容，分按不同的工程类型分成多个示范项目来展示。零基本可以先看第一部分：Basic Concepts：
 
-### 🐣 Unit Test
+ 🐣 Basic Concepts
+ 🐣 Demo Projects
+
+第二部分计划提供以下工程示范：
+
+ 🐣 Scheme R6RS 语言规范文档处理 [LaTeX]
+ 🐣 Multi threaded Download
+ 🐣 C/C++ Project Templates
+ 🐣 Erlang Project Templates
+ 🐣 Unit Test
+
+完整《Makefile 光学教程》以及 GNU M4 教程参考开源文档：https://github.com/Jeangowhy/opendocs/blob/main/Makefile.md
+
+
+### 🐣 Scheme R6RS 语言规范文档处理 [LaTeX]
+
+RnRS (the Revised^n Reports on Scheme) 作为 Scheme 社区的权威报告，对其语言规范的实现者具有积极指导意义。比如，按规范实现的 rsrn base 模块，就 提供各种数据类型相关操作的模块。Guile 3.0.9 版本的源代码文档中包含了 R5RS Texinfo 格式文档，可以作为趁手的备查文档。源代码中同样包含了官方的参考手册，info 格式可以很方便地转换成其它格式，比如 Markdown。
+
+Make 提供了一套机制给开发者编写扩展程序，即各种基于 make 的工具开发，也就是手册 12 Extending GNU 'make' 和 13 Integrating GNU 'make' 中所阐述的内容，主要是 job slots 在进程间的共享。扩展 make 就是基于插件机制编写工具，并且通过脚本中的 load 指令加载和执行指定方法，或者默认的入口方法。官方已经在 GNU Make 4.2 集成 Guile。
+
+Guile 是一种嵌入式脚本语言，属于 Scheme programming language 的一种，即 LISP 语言的一种方言。这类语言使用的语法非常新奇（古典），例如，调用加法算术函数 `(+ 1 2)` 得到结果为 3，嵌套调用就继续加圆括号。
+
+
+目前 R6RS 规范报告文档共享在 https://www.r6rs.org/ 网站上，文档分为四个部分：
+
+1. Revised6 Report on the Algorithmic Language Scheme
+2. Revised6 Report on the Algorithmic Language Scheme — Standard Libraries
+3. Revised6 Report on the Algorithmic Language Scheme — Non-Normative Appendices
+4. Revised6 Report on the Algorithmic Language Scheme — Rationale
+
+R6RS 文档原始格式是 48 个 TEX 文档，外加两个书目 Bibliology，计算其它转换脚本就有 67 个原始文件。
+
+1. https://www.latex-project.org/ 
+1. https://tikzit.github.io/
+2. https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+3. https://www-cs-faculty.stanford.edu/~knuth/index.html
+4. https://www-cs-faculty.stanford.edu/~knuth/taocp.html
+5. https://lamport.azurewebsites.net/pubs/pubs.html
+
+TeX 是一个排版系统，也是 LaTeX 的基础。TeX 作者高德纳(Donald Ervin Knuth)的传奇一生中写作了一部计算机科学巨著 The Art of Computer Programming (TAOCP)。在准备出版第四卷时，出版社给了他一本已经出版的第二卷第二版书过目过目，发现那书的颜值一言难尽，觉得现有的计算机排版系统不太行，为了使自己的毕生心血看着美观，自己写一个排版系统。1978 年 TeX 第一版发布，就得到了许多人的追捧，1982 年高老爷子紧接着发布了 TeX 的第二版 TeX82。10 年后，1989 年发布了 TeX3.0，老爷子宣布，除了修改 bug 停止 TeX 的开发，因为 TeX3.0 已经非常稳定了。
+
+LaTeX 是基于 TeX 之上定义的一组宏集，相当于对 TeX 进行了一次封装。是出版物的高质量排版系统，一个文档准备系统，包括为制作技术和科学文件而设计的功能。LaTeX 是科学文献交流和出版的事实标准。LaTeX 是免费软件。LaTeX 作者是美国计算机科学家莱斯利·兰伯特 Leslie Lamport。
+
+TeX 名字源自 technology 的希腊词根，而将 Lamport 大佬的名字和 TeX 混合则得到了 LaTeX 的名字。到现在，已经出现一堆数不过来的和 TeX 扯关系的应用。
+
+LaTeX 也是宏编程的一种形式，它大量使用斜杆前缀定义宏符号，An introduction to LaTeX 文档给出以下 Hello World 文档示范：
+
+```LaTeX
+\documentclass{article}
+\title{Cartesian closed categories and the price of eggs}
+\author{Jane Doe}
+\date{September 1994}
+\begin{document}
+   \maketitle
+   Hello world!
+\end{document}
+```
+
+LaTeX 目录分区条目的宏定义：
+https://www.overleaf.com/learn/latex/Sections_and_chapters
+
+    -1  \part{part}
+    0   \chapter{chapter}
+    1   \section{section}
+    2   \subsection{subsection}
+    3   \subsubsection{subsubsection}
+    4   \paragraph{paragraph}
+    5   \subparagraph{subparagraph}
+
+现在希望将 R6RS 这些文件的内容统一归纳到一个文件，这样可以使用 Sublime Text 阅读文档时提供的快捷跳转功能，避免了文档来回切换的时间损失，更严重的是切换动作导致注意力的涣散，使文档阅读效率大大下降。
+
+文档压缩包内 Makefile 脚本已经定义好了各种格式转换的规则，但对于我的目标不是很重要，只需要它定义的文件列表：
+
+```makefile
+COMMON_TEX_FILES = \
+    commands.tex revision.tex status.tex
+
+REPORT_TEX_FILES = r6rs.tex \
+    semantics-commands.tex \
+    arith.tex \
+    base.tex \
+    basic.tex \
+    derived.tex \
+    example.tex \
+    expansion.tex \
+    intro.tex \
+    lex.tex \
+    library.tex \
+    numbers.tex \
+    programs.tex \
+    syntax.tex \
+    repository.tex \
+    semantics.tex \
+    struct.tex \
+    entry.tex \
+    mustard.tex
+
+LIB_TEX_FILES = r6rs-lib.tex \
+    bytevector.tex \
+    complib.tex \
+    convio.tex \
+    enum.tex \
+    eval.tex \
+    exc.tex \
+    hashtable.tex \
+    io.tex \
+    iocond.tex \
+    list.tex \
+    control.tex \
+    portio.tex \
+    r5rscompat.tex \
+    records.tex \
+    programlib.tex \
+    setcar.tex \
+    syntax-case.tex \
+    unicode.tex
+
+APP_TEX_FILES = r6rs-app.tex
+
+RATIONALE_TEX_FILES = r6rs-rationale.tex
+
+BIB_FILES = rrs.bib abbrevs.bib
+```
+
+
+可以使用 Node.js 平台提供的 watch 工具监视脚本，Linux 系统内置 watch 命令，只是用法上有些差别。只要监视的文件有改动就执行相应的命令，这会很方便地调试 Makefile 脚本。
+
+```sh
+    npm install -g watch
+    watch "echo ---====+ Watching +====--- && make -f Makefile tomd" -f filter.js .  
+```
+
+使用过滤器只可以监视指定的文件，过滤器文件是一个返回过滤函数的 Node.js 模块脚本，过滤函数名称随意，但需要在作为 exports 返回，然后通过 -f 或者 --filter 将文件名传递给 watch 工具：
+
+```ts
+const fs = require('node:fs')
+const path = require('node:path')
+const list = ["filter.js","m4tutor.m4","hi.scm","Makefile","EMakefile"];
+
+/**
+ * @param {string}   f   - File name
+ * @param {fs.Stats} curr - File Statments
+ */
+function filter (f, curr, prev) {
+    if (typeof f == "object" && prev === null && curr === null) {
+        // coonsole.log( f, 'Finished walking the tree ')
+    } else if (prev === null) {
+        // coonsole.log( f, 'file is a new file ')
+    } else if (curr.nlink === 0) {
+        // coonsole.log( f, 'file was removed ')
+    } else {
+        // coonsole.log( f, 'file was changed ')
+    }
+    return list.indexOf( path.basename(f) )>=0 && curr.isFile
+}
+
+module.exports = filter;
+```
+
+过滤器中的注解符号是 TypeScript 编译器支持的类型修饰符号，Sublime Text 安装 LSP 插件和 TypeScript 语言服务器后就可以提示智能提示，并且在 tsc 编译器中也可以做类型检查工作。
+
+
+为了将这些 TEX 文档按目录顺序写入同一个 TEX 文档，当然这过过程引入的文档头部定义可能会导致文档定义不符合规范，需要在 Makefile 文档中增加以下规则定义：
+
+```makefile
+CONCATED = $(COMMON_TEX_FILES) $(REPORT_TEX_FILES) $(LIB_TEX_FILES) \
+           $(APP_TEX_FILES) $(RATIONALE_TEX_FILES) $(BIB_FILES)
+
+.PHONY: $(CONCATED) 
+UNITY = r6rs.org.tex
+UNITYOUT = r6rs.org.tex
+$(file > $(UNITYOUT),) # create new file with an empty line
+
+.PHONY: $(CONCATED) 
+unity : $(CONCATED)
+    @echo "unity: = $^" >> $(UNITYOUT)
+$(CONCATED) :
+    @echo "TEX: = $@" >> $(UNITYOUT)
+```
+
+现在开始需要使用到自动变量了，它们在命令块中引用当前规则包含的各种信息：
+
+1.  `$<` 自动变量表示依赖列表中的第一个依赖项；
+2.  `$^` 自动变量表示整个依赖列表，列表中各依赖项之以空格隔开；
+3.  `$+` 类似 $^，只是按顺序包含目标在 Makefile 中的依赖列表，配合链接程序使用；
+4.  `$*` 模式匹配 % 符号匹配到的内容，称为主干 stem 并会替换依赖文件 % 符号；
+5.  函数内可以接收 $1 ~ $9 这几个参数，GNU m4 则没有这个数量限制，$0 还是一样指代宏名。
+
+这里使用了 Makefile 内置的 .PHONY 虚构目标，它的功能及目的就是不对目标文件是否存在、更新状态等等进行隐式的检测，而是在构建目标时无条件地执行命令块中定义的 shell 命令。目前只是使用 echo 命令打印文档列表，接下来就需要考虑是否需要进行格式转换？如果需要就调用系统中安装好的转换工具程序。当前就不需要做格式转换处理，Sublime Text 有可以提供阅读 TEX 格式文档的辅助插件。
+
+所以，只需要将文档内容直接写入指定文件，Makefile 脚本中有多种执行命令的形式：
+
+1. 直接使用操作系统提供的标准文件重定向功能，如 > 和 >> 分别表示写入、附加写入；
+2. 使用 shell 命令，如 cat 等等将内容写入指定文件；
+3. 使用 Makefile 内置的 file 函数，也使用标准文件重定向一样尖括号表示读写操作；
+4. 使用 Make 提供的插件扩展接口，编写自己的插件实现文件读写功能；
+
+要小心使用这些功能、函数，否则不小心传递错误参数就可以导致文件内容被覆盖，或者制造一个巨无霸文件。另外，在同一个命令块中，echo 方式输出的内容会在 file 函数输出内容之后，与命令出现的先后顺序无关，由低层数据操作逻辑决定的。
+
+接下来，需要引入一个顺号作为 TeX 文档中通过 \chapter 标记记录当前嵌入文档的序号。但是 Makefile 除了字符串，并没有直接提供数值运算的功能，解决数值运算有以下几种方法：
+
+1. 使用 shell 函数调用外部的数值计算能力，如 @echo "1+3=$(shell echo $$((1+2)))"；
+2. 使用内置宏函数、自定义函数构造出数值运算功能；
+3. 使用 Make 提供的插件扩展接口，编写自己的插件实现数值运算功能；
+
+Make 不支持在执行构建目标的命令中修改变量，这为数值处理设置了一些障碍。
+
+注意：shell 使用 `$((1+2))` 这样的表达式做数值运算，Makefile 中就需要将 $ 转义为 $$。变量 赋值和引用变量语法上也有差别，后者需要 $var 这样的表达，同样需要转义。因为 shell 命令计算结果是临时的，所有需要将它保存到文件中重复利用。即使用 .ONESHELL 或者 export 导出 shell 变量也不行，因为 .ONESHELL 只能保证命令块在当前目标构建的时候同在一个 shell 进程中捃命令，一旦更换构建目标，所有环境变量都被重置。
+
+```sh
+    # if [ -z "$$ID" ]; then export ID=1; fi
+    if [ -f "temp.id" ]; \
+        then echo $$(($(file < temp.id)+1)) > temp.id; \
+        else echo 1 > temp.id; fi
+    echo ID $(file < temp.id)
+```
+
+使用 eval 函数，比如简单的使用它来增加 info 函数调用的脚本，另外更重要的是 eval 函数提供了一种在命令块中修改变量值的途径，此外别无它法：
+
+```makefile
+$(eval ID=$$(shell echo "1+2=?" ))
+$(eval ID=$$(shell echo $$$$((1+2)) ))
+$(eval $$(info Eval info: $$(ID) ))
+$(eval ID=$$(shell echo $$$$$$$$$$$$$$$$$$ )) # what that hell?
+```
+
+但是，eval 不能循环使用同一个变量，即不能从一个变量取值并且又给它赋值：
+
+    Recursive variable 'ID' references itself (eventually).
+
+重新整理一下以上内容，编写一个不需要通过 shell 写文件来实现的步进计数函数：
+
+```makefile
+counter = $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID)
+%:
+    @echo "$@: Get ID Variable. $(call counter,1)"
+```
+
+说明一下 counter 自增函数的逻辑：首先是 eval 函数定义了一段“将要”被 make 执行的代码，即 ID
+=xxx 的变量赋值语句。并且这个值需要借助 shell 的 `$((x+y+z))` 这种算术支持。其中运行使用到的值有两个：一是来自函数调用时 call 函数传递来过的参数 $1，它表示步长值。然后另一个值来自一个为了避免 eval 函数循环引用而加入的 counter_ID 变量，这个变量使用了 $0 自动变量表示，它指代函数名称 counter，组合得到这个变量的名称。
+
+
+最后，整理以上代码片段，就可以得到需要的 Makefile 脚本：一个带有数值运算功能的脚本，它可以将 LeX 有秩序地按目录编号合并到统一的文档文件中：
+
+```makefile
+CONCATED = $(COMMON_TEX_FILES) $(REPORT_TEX_FILES) $(LIB_TEX_FILES) \
+           $(APP_TEX_FILES) $(RATIONALE_TEX_FILES) $(BIB_FILES)
+
+UNITYOUT = r6rs.org.tex
+$(file > $(UNITYOUT),) # create new file with an empty line
+counter = $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID)
+
+.PHONY: $(CONCATED) 
+unity : $(CONCATED)
+    @echo "unity: = $^" >> $(UNITYOUT)
+$(CONCATED) :
+#   @echo "TEX: = $@" >> $(UNITYOUT)
+    @echo "" >> $(UNITYOUT)
+    @echo "" >> $(UNITYOUT)
+    $(file >> $(UNITYOUT),\part{📜 File $(call counter,1): $@})
+    $(file >> $(UNITYOUT),$(file < $@))
+```
+
+
+### 🐣 GNU Make Standard Library (GMSL) 宏函数库分析
+
+The GNU Make Standard Library (GMSL) 是一系列 Makefile 宏函数，实现了以下一系列数理逻辑运算：
+https://github.com/jgrahamc/gmsl/
+
+01. Associative Arrays
+02. Integer Arithmetic Functions
+03. List Manipulation Functions
+04. Logical Operator: AND
+05. Logical Operator: NAND
+06. Logical Operator: NOR
+07. Logical Operator: NOT
+08. Logical Operator: OR
+09. Logical Operator: XOR
+10. Miscellaneous and Debugging Facilities
+11. Named Stacks
+12. Set Manipulation Function
+13. String Manipulation Functions
+
+GMSL 只有五个文件，其中两个文档，一个测试脚本，另一个 gmsl 是自助引用服务脚本，另外一个才是真实的函数库定义文件。gmsl 引用自助脚本根据 MAKEFILE_LIST 自动变量检测其本身所在目录。在没有出现 include 指令引用其它脚本时，此列表记录着当前 make 已经加载的所有脚本文件路径信息，其中最后一个就是当前脚本。脚本路径有两种基本形式：
+
+1. 相对路径：比如相对于当前目录的 Makefile；
+2. 绝对路径：比如从其它目录运行当前脚本 /pl/Makefile；
+
+根据当前脚本路径，加载函数库文件。尽管，GMSL 只加一个函数库文件，但如果是加载多个文件，这种通过入口加载整个库的处理方式是非常适当的。
+
+```makefile
+ifndef __gmsl_included
+
+true  := T
+false :=
+
+# Function:  not
+# Arguments: 1: A boolean value
+# Returns:   Returns the opposite of the arg. (true -> false, false -> true)
+not = $(if $1,$(false),$(true))
+
+__gmsl_included := $(true)
+
+__gmsl_root := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/__gmsl)
+__gmsl_root := $(patsubst %gmsl,%,$(__gmsl_root))__gmsl
+
+include $(__gmsl_root)
+endif
+```
+
+调机信息追踪机制：定义 TRACE 符号时启用函数追踪器，所有使用了追踪前缀的函数就会在调用时输出其函数名称及参数值。追踪器被当作变量嵌入到目标函数中，其中定义的自动变量 $0 $1 等等就会输出当前调用函数的相关信息。为了方便阅读代码，可以将调试用的符号清除。
+
+```makefile
+TRACE = 1
+ifdef TRACE
+Trace3 = $(warning $0('$1','$2','$3'))
+else
+Trace3 :=
+endif
+counter = $(Trace3)$(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID)
+
+all: a b c d
+    @echo "[0-9]: $(words $([0-9]))"
+
+%:
+    @echo "$@: Get ID Variable. $(call counter,1)"
+```
+
+输出内容参考：
+
+```sh
+Makefile:43: counter('1')
+a: Get ID Variable.   1
+Makefile:43: counter('1')
+b: Get ID Variable.   2
+Makefile:43: counter('1')
+c: Get ID Variable.   3
+Makefile:43: counter('1')
+d: Get ID Variable.   4
+```
+
+Make 定义函数与定义变量本质上是没有区别的，都是一样的宏定义，使用便捷的 = 定义，或者使用 defin 多行式，定义方式取决于宏定义的复杂度。差别在于使用宏符号的方式（是否使用 call 去调用），和宏体内部如何使用自动变量，$0 ~ $9 等等，通过输入列表与这些自动变量的配合，就可以对列表中的元素进行地重新排列：
+
+以上定义的 counter 自增函数就是变量风格定义的简单函数，其逻辑是借用 shell 的算术 `$((a+b))` 支持、以及内置的 eval 设置全局变量实现的计数器。
+
+```makefile
+# 8.1 Function Call Syntax
+     $(FUNCTION ARGUMENTS)
+     ${FUNCTION ARGUMENTS}
+# 8.8 The 'call' Function
+     $(call VARIABLE,PARAM,PARAM,...)
+```
+
+注意：调用内置函数与用户定义函数的区别，后者需要通过 call 内置函数去调用，VARIABLE 即 $0 自动变量对应的参数必需是函数名称，后面的参数都需要使用逗号分隔式。对于参数是列表的情形，直接使用空格作为分隔符，不需要使用括号：
+
+```makefile
+# $(call counter, 1) = 1
+# $(call counter, 2) = 3
+# $(call counter,-3) = 0
+counter = $(Trace3)$(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID)
+
+# $(call resetlist,1,a b c d) = a b c d
+# $(call resetlist,2,a b c d) = b c d
+# $(call resetlist,3,a b c d) = c d
+restlist = $(Trace3)$(wordlist $1,$(words $2),$2)
+
+# $(call reverse,1 2 3 4) = 4 3 2 1
+# $(call reverse,a b c d) = d c b a
+reverse = $(Trace3)$(strip $(if $1, $(call reverse,$(call restlist,2,$1)) $(firstword $1) ))
+
+all: a b c d
+    @echo "[0-9]: $(words $([0-9]))"
+    echo reverse: $(call reverse,$^) 
+    echo reverse: $(call reverse,1 2 3 4) 
+    @echo "$@: Get ID Variable. $(call counter,-4)"
+
+%:
+    @echo "$@: Get ID Variable. $(call counter,1)"
+```
+
+GMSL 使用一个字符列表的长度来表示一个数字，字符可以随意选择，比如“x”，然后加法就像连接列表一样容易，连接后的列表长度就是加和。这种实现就需要一种方法生成指定长度的列表
+
+
+4->“x x x x”
+
+2->“x x”
+
+4+2->“x x x x”
+
+减法有点棘手，GMSL使用联接函数生成一个与较大参数长度相同的列表，其中，较小参数的“x”将联接到元素上，形成值为“xx”的元素，然后可以过滤掉这些元素。
+
+
+
+4-2->过滤掉（“xx”，“xx xx x x”）->“x x”
+
+这些方法适用于较小的数字，但当值变大时会出现明显的问题。表示负数也不太自然：
+
+    $(call subtract,3,4) # 10
+
+Evosyn 这里提出了一个新的实现 https://evosyn.com/arithmake.html
+
 
 ### 🐣 Multi threaded Download
+
+What is the difference between curl and wget?
+
+1. wget's major strong side compared to curl is its ability to download recursively.
+2. wget is command line only. There's no lib or anything, but curl's features are powered by libcurl.
+3. wget is released under a free software copyleft license (the GNU GPL). curl is released under a free software permissive license (a MIT derivate).
+1. curl supports FTP, FTPS, GOPHER, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMTP, RTMP and RTSP. wget supports HTTP, HTTPS and FTP.
+2. curl builds and runs on more platforms than wget.
+3. curl offers upload and sending capabilities. wget only offers plain HTTP POST support.
+
+
+### 🐣 C/C++ Project Templates
+
+### 🐣 Erlang Project Templates
+
+### 🐣 Unit Test
 
 
 
@@ -2204,19 +2624,69 @@ Makefile 脚本作用指令 make 执行编译工作的规则集合，它本身�
 
 ```sh
 npm install -g watch
-watch "echo ---====+ Watching +====--- && make -f Makefile" -wait 0.2 .
-watch "echo ---====+ Watching +====--- && make -j4 -Otarget" -wait 0.2 .
+watch "echo ---====+ Watching +====--- && make -f Makefile" --wait 0.1 .
+watch "echo ---====+ Watching +====--- && make -j4 -Otarget" --wait 0.1 .
+watch "echo ---====+ Watching +====--- && make -j4 -Otarget" --wait 0.1 -f filter.js .
 ```
 
 注意，使用 watch 工具时，生成的文件最好不要放在监视中的目录下，这会触发命令的重新执行。当然，一个逻辑完全正确的 Makefile 绝不会出现重复编译。
 
 这个 watch 工具模拟了 Linux watch 工具，但是它们实现原理不一样，Node watch 是通过轮询文件状态信息实现，Linux 则提供了通用通知机制 watch_notification，建立在标准管道驱动之上，它可以有效地将来自内核的通知消息拼接到用 户空间打开的管道中，这就使用得 Linux watch 命令更加有效率。
 
+使用过滤器只可以监视指定的文件，过滤器文件是一个返回过滤函数的 Node.js 模块脚本，过滤函数名称随意，但需要在作为 exports 返回，然后通过 -f 或者 --filter 将文件名传递给 watch 工具：
+
+```js
+const fs = require('node:fs')
+
+/**
+ * @param {string}   f   - File name
+ * @param {fs.Stats} curr - File Statments
+ */
+function filter (f, curr, prev) {
+    if (typeof f == "object" && prev === null && curr === null) {
+        // Finished walking the tree
+    } else if (prev === null) {
+        // file is a new file
+    } else if (curr.nlink === 0) {
+        // file was removed
+    } else {
+        // file was changed
+    }
+    return ["filter.js","Makefile","EMakefile"].indexOf(f)>=0 && curr.isFile
+}
+
+module.exports = filter;
+```
 
 
 ### 🐣 Basic Concepts
 
 按照 GNU m4 宏编程经验， Macros 即代码生成工具，输入输出都是字符串，输入字符中所有宏符号都会被相应的宏定义内容替换。但是 make 作为一种宏编程工具，有些功能差异，它并不像 GNU m4 这种通用的宏编程工具，出于约束它的灵活性同时降低使用风险，make 增加了许多约束条件，比如在 Target 规则之外不能使用宏输出内容。
+
+GNU m4 作为一个通用的宏编程工具，它的核心概念就是字符串流，输入输出都是字符串流。宏定义的功能就是替换输入流中匹配的字符串，再将替换后的数据发送到输出流，这个过程称之为宏展开 macro expannsion。
+
+比如，以下是一个 m4tutor.m4 脚本，即字符串文件，它将作为 GNU m4 宏处理器的输入流：
+
+```makefile
+    define(say_hello, Hello World!)
+    say_hello
+    cc
+```
+
+宏处理器处理字符串输入流唯一规则就是按宏定义进行内容替换，最简单的宏定义就是使用 define 指令，或者直接通过命令行定义宏符号，如下：
+
+    m4 -Dcc=list(1,2,3) m4tutor.m4
+
+那么这个执行过程就是：读取输入流中的第一行，得到一个宏定义，最后可以输出的只有换行符。然后读取第二行内容，是一个字符串，刚好 say_hello 这个字符串对应一个宏定义，那么替换它得到 Hello World! 包含换行符，然后再输出。最后读取到一个字符串 cc，同样它对应一个宏定义，从命令行中传入的宏定义，同样要替换，得到 List(1,2,3)。整个宏脚本输出内容如下：
+
+```sh
+
+Hello World!
+list(1,2,3)
+```
+
+以上就是宏编程的一个基本流程概念：字符串替换！Makefile 脚本编程也适用这一基本原理。
+
 
 Makefile 宏编程核心概念有两个，*Target* 和 *Rule*，其次是指令 directive 用于实现 make 脚本功能的内置宏。另外就是附加的一些宏脚本编程能力，比如变量、宏指令、宏参数、include 其它脚本、Secondary Expansion 二次展开，以及各种特殊功能符号等等，它们功能上都类似 GNU m4 的宏替换过程。Makefile 规则定义就是描述如何生成 Targer 之间的逻辑关系，也就是 Target 之间可以形成的依赖网络。
 
@@ -2244,7 +2714,7 @@ Makefile 最基本的能力就是根据 Taraget 所设置的依赖决定是否�
 依赖关系链由 Target 与先决条件 prerequisites 之间的联系产生，因为先决条件中的任何项都可以被定义为 Target，也就形成了 A_Target -> Prerequisite -> B_Target -> Prerequisite 这样的链条。当执行 make A_Target 时，根据依赖链，会一起递归到最尾端的 Target 并执行其规则定义的 recipes，然后逐级返回执行上一层的 recipes，直到 A_Target 的部分。
 
 
-但是，只要这链条中间任何一环节破坏，Target 命名与上一层的先决条件不匹配，那么后面的 Target 定义即失效。除非调用 make 命令时，直接指定那些处于断链状态的 Target。依赖关系的判断，是根据宏扩展后的结果进行的，所以定义规则时，可以在规则中的 Targets 或先决条件中使用任意的宏函数，来灵活地构建依赖关系网络。
+但是，只要这链条中间任何一环节破坏，Target 命名与上一层的先决条件名称不匹配，那么后面的 Target 定义即失效。除非调用 make 命令时，直接指定那些处于断链状态的 Target。依赖关系的判断，是根据宏扩展后的结果进行的，所以定义规则时，可以在规则中的 Targets 或先决条件中使用任意的宏函数，来灵活地构建依赖关系网络。
 
 本质上，Makefile 就是一个描述依赖关系的脚本，例如如下一个 `Makefile` 规则定义：
 
@@ -2259,8 +2729,7 @@ clean:
         rm *.o temp
 ```
 
-先抛开 $ 宏调用等特殊功能符号，以上这个 Makefile 它描述的是以下这样的依赖关系，最终是构建出 all 这个目标，它代表要链接各种目标文件的可执行程序。整个依赖关系网络由规则定义，链接命令由依赖关系推断。make 命令知道扩展名为 .o 的目标文件的处理，以及如何调用 C/C++ 编译器和链接程序，通过 $(CC)
-和 $(LEX) 分别调用 C/C++ 编译器和 lex 词法解释器生成命令，两个外部命令完成相应的编译工作。这种自动推断能力就是 make 的隐含能力，具有隐含功能的规则定义也就称为 Implicit Rules，参考手册 2.5 Letting make Deduce the Recipes。除非需要，开发者可以指定编译器的各种参数以修正默认的配置：
+先抛开 $ 宏调用等特殊功能符号，以上这个 Makefile 它描述的是以下这样的依赖关系，最终是构建出 all 这个目标，它代表要链接各种目标文件的可执行程序。整个依赖关系网络由规则定义，链接命令由依赖关系推断。make 命令知道扩展名为 .o 的目标文件的处理，以及如何调用 C/C++ 编译器和链接程序，通过 $(CC) 和 $(LEX) 分别调用 C/C++ 编译器和 lex 词法解释器生成命令，两个外部命令完成相应的编译工作。这种自动推断能力就是 make 的隐含能力，具有隐含功能的规则定义也就称为 Implicit Rules，参考手册 2.5 Letting make Deduce the Recipes。除非需要，开发者可以指定编译器的各种参数以修正默认的配置：
 
                all
                 |
@@ -2276,9 +2745,200 @@ clean:
 
 这里的 Makefile 编写了两条旧风格的 suffix rule，即通过后缀识别行为/定义的规则，包含 double-suffix 和 single-suffix 两种。其中 .c .o .l 三个都是后缀，对应了 C 语言源代码、目标文件和词法规则分析器三种源文件。这种连续使用 source suffix 和 target suffix 后缀的形式就是 double-suffix，也即是双后缀形式的规则定义，从其执行结果可以知道这种规则就是将前 source 文件处理成后 target 文件。Single-suffix 则是保留 source surfix 文件后缀。
 
-一般的 Makefile 规则以冒号为分界，*Ordinary Rules*，左侧表示输出称为 `Target`，可以有多个输出，它本身就是一般的没有隐含功能的字符串标识，右侧表示输入称之为依赖或者先决条件。更复杂的规则可以参考官方文档，Complex Makefile 示例中有完整的规则参考。语法中的 recipe 单词为食谱、处方，也是规则实现、促使规则达成的意思。像以上这种规则，因为 Target 部分字符具有特殊功能的规则，称之为隐式规则 *Implit Rules*，与之对应的就是显式规则 *Explicit rule*，普通规则就是显式规则。
-
 Make 和 GNU m4 一样默认使用 # 作为注解符号。另外，如果行内容超长，可以在先进性行尾使用斜杠 \ 转义换行符号，便后一行内容与前一行内容拼接起来成为一行，即相当于断行连接。
+
+一般的 Makefile 规则以冒号为分界，*Ordinary Rules*，左侧表示输出称为 `Target`，可以有多个输出，它本身就是一般的没有隐含功能的字符串标识，右侧表示输入称之为依赖或者先决条件。更复杂的规则可以参考官方文档，Complex Makefile 示例中有完整的规则参考。语法中的 recipe 单词为食谱、处方，也是规则实现、促使规则达成的意思，就是定义构建目标时要执行的命令。像以上这种规则，因为 Target 部分字符具有特殊功能的规则，称之为隐式规则 *Implict Rules*，与之对应的就是显式规则 *Explicit rules*，普通规则就是显式规则。
+
+Implict Rules vs. Explicit rules，弄清楚隐式规则与显式规则的区别，是深入掌握各使用 make 的必要条件。
+
+要区分什么规则是显式或者是隐式，根本上来说有一个参考标准：就是会不会触发 GNU make 内置的规则，如果会触发内置规则，那么就可以认定是隐式规则。内置规则之所以称为隐式规则，是因为它们不会用户在 Makefile 脚本中将这些规则编写出来，make 会根据目标的扩展名或者磁盘对应名称的文件类型去调用相应的内置规则。这个过程是隐式的，不透明的（Makefile 脚本没有相应规则定义）。参考手册 10.2 Catalogue of Built-In Rules。
+
+所有内置规则可以通过 make -p 命令查询，它们涉及以下编程语言或者文件类型：
+
+01. Compiling C programs
+02. Compiling C++ programs
+03. Compiling Pascal programs
+04. Compiling Fortran and Ratfor programs
+05. Preprocessing Fortran and Ratfor programs
+06. Compiling Modula-2 programs
+07. Assembling and preprocessing assembler programs
+08. Linking a single object file
+09. Yacc for C programs
+10. Lex for C programs
+11. Lex for Ratfor programs
+12. Making Lint Libraries from C, Yacc, or Lex programs
+13. TeX and Web
+14. Texinfo and Info
+15. Revision Control System (RCS)
+16. Scientific Committee on Consumer Safety (SCCS)
+
+所有隐式规则涉及的文件扩展名可以通过 .SUFFIXES 内置变量中列表。
+
+以下脚本演示了各种经常出现的规则定义形式，在这里它们都可以认为是显式规，除了最后一个注解掉规则。依赖关系链上没有不清晰的环节，所有依赖，从 all 到各个 .lex 文件的依赖都有定义，所以不会触发 GNU make 内置的规则，因此它们可认为是显式规则。
+
+如果 all 只与最后一个注解掉规则 a.tex 搭配使用，那么就会触发 make 内置规则，这就有两种可能的结果：一是磁盘有相应的 .lex 文件，make 自动应用隐式规则的命令；二是缺失对应磁盘文件，Makefile 又不能提供完整的依赖关系，缺失了 b.lex 和 c.tex 两个依赖的目标规则，所以提示错误信息：No rule to make target 'b.tex' 等等。**因为其中一条依赖构建失败，那么就会导致上层目标构建失败，all 目标中的命令就不会执行。**
+
+为何让最后一条规则也“显式”起来，那么可以搭配 %.tex 这样的模式匹配规则、静态模式匹配规则，或者使用变量等等方式来解决大量文件依赖关系的处理。注意：使用这些灵活的规则非常容易触发隐式规则，并且 Makefile 可以使用 inlude 指令来引用更多的脚本文件，这会使得脚本变得异常复杂。
+
+其中，Static Pertern Rules 是非常特别的一种模式匹配规则，它不像其它规则（包括一般的模式匹配规则）可以不指定依赖，静态模式匹配规则就是为了批量处理依赖设计的。使用模式匹配符号 % 可以将匹配到的内容（stem）替换到依赖列表中的名称中形成新的依赖列表。
+
+```makefile
+LEXS = a.tex b.tex c.tex
+
+all : $(LEXS)
+    @echo all done: $^
+
+# a.tex b.tex c.tex : 
+#   @echo "Explicit rules (By Literal): $@"
+
+# %.tex :
+#   @echo "Explicit rules (By Pertern): $@"
+
+# $(LEXS) : %.tex : %
+# $(LEXS:%.tex=%):
+#   @echo "Explicit rules (Static Pertern Rules): $@ [$^]"
+
+$(LEXS):
+  @echo "Explicit rules (By Variable): $@"
+
+# a.tex:
+#     @echo "Implicit rules (By Literal): $@"
+```
+
+另外一个问题是规则的优先级问题，以下提供参考，其中前两条是定义总结：
+
+```makefile
+BIBS = rrs.bib abbrevs.bib
+
+all : $(BIBS)
+    @echo "all = $^"
+
+# Group Literal Rules
+rrs.bib :
+    @echo "rrs.bib = $@"
+abbrevs.bib :
+    @echo "abbrevs.bib = $@"
+rrs.bib abbrevs.bib :  # This rule will rewrite both rules above.
+    @echo "md = $@"
+
+# Group Double-Colon Rules
+abb%.bib ::
+    @echo "abb%.bib :: = $@"
+abbrevs.bib ::
+    @echo "abbrevs.bib:: = $@"
+rrs.bib ::
+    @echo "rrs.bib :: = $@"
+%.bib ::
+    @echo "%.bib :: = $@"
+
+# Group Pattern Rules
+%.bib : # This rule will be rewrite be the follow one.
+    @echo "%.bib 1st = $@"
+%.bib :
+    @echo "%.bib 2nd = $@"
+abb%.bib :
+    @echo "abb%.bib = $@"
+```
+
+1. Literal 字面量定义方式优先于 Double-Colon Rules，优先于 Pattern Rules；
+2. 同类形规则，Target 命名使用的字面量字符越多越优先，即信息精细度高；
+3. 单冒号规则中，新定义会覆盖旧定义，但保留依赖列表，只替换命令块；
+4. 双冒号规则各自独立执行不存在定义覆盖，但是 Target 不能同时定义单、双冒号规则；
+
+多目标规则与单目标规则不同，多目标规则中不能混用多种匹配方式，只使用字面量匹配，或者只使用模式匹配。否则就会得到 mixed implicit and normal rules 警告提示。
+
+因为 Static Pertern Rules 会形成新的依赖列表，单独考虑。双冒号规则参考手册 4.13 Double-Colon Rules。
+
+如果脚本中规则依赖已经存在定义，但是没有被执行，那么最有可能的原因有二：
+
+1. 一是可能是优先级没处理好。
+2. 二是依赖的目标文件已经存在对应的磁盘文件。
+
+解决方法就是重新整理规则定义，对于磁盘文件已经存在，但是还要执行构建命令的规则（通常不需要这样做），就可以使用 .PHONY 内置目标规则，它会忽略磁盘文件的状态信息，无条件地执行命令块。
+
+隐式规则中涉及文件搜索的算法过程参考手册：
+
+10.4 Chains of Implicit Rules
+10.8 Implicit Rule Search Algorithm
+
+对于复杂的 Makefile 脚本的调用有三大法器：
+
+1. 注解！使用注解可以最大程序地缩小 Makefile 的复杂度；
+2. 清空！将脚本运行目录下的文件清空（使用新卡件夹）再运行；
+3. 调试！GNU make 使用 -d 或者 --debug[=FLAGS] 参数打印解释器运行状态；
+
+调试信息输出参考如下，它们完整打印从 make 加载隐式规则到目标文件检测的解释过程：
+
+```sh
+GNU Make 4.3
+Built for x86_64-pc-msys
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Reading makefile 'Makefile'...
+Updating makefiles....
+ Considering target file 'Makefile'.
+  Looking for an implicit rule for 'Makefile'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.o'.
+  Trying implicit prerequisite 'Makefile.c'.
+  Trying implicit prerequisite 'Makefile.cc'.
+  Trying implicit prerequisite 'Makefile.C'.
+  Trying implicit prerequisite 'Makefile.cpp'.
+  ...
+  Looking for a rule with intermediate file 'Makefile.o'.
+   Avoiding implicit rule recursion.
+  No implicit rule found for 'Makefile'.
+  Finished prerequisites of target file 'Makefile'.
+ No need to remake target 'Makefile'.
+Updating goal targets....
+Considering target file 'all'.
+ File 'all' does not exist.
+  Considering target file 'rrs.bib'.
+   File 'rrs.bib' does not exist.
+   Finished prerequisites of target file 'rrs.bib'.
+  Must remake target 'rrs.bib'.
+Putting child 0xa00046600 (rrs.bib) PID 731 on the chain.
+Live child 0xa00046600 (rrs.bib) PID 731 
+md: = rrs.bib
+Reaping winning child 0xa00046600 PID 731 
+Removing child 0xa00046600 PID 731 from chain.
+  Successfully remade target file 'rrs.bib'.
+  Considering target file 'abbrevs.bib'.
+   Finished prerequisites of target file 'abbrevs.bib'.
+  No need to remake target 'abbrevs.bib'.
+```
+
+Make 在处理 makefiles 脚本依赖关系（include）期间，会触发 Remaking，涉及 MAKE_RESTARTS 内置变量值的更新。然后再处理构建目标的规则定义与执行命令块，这就是 make 命令执行的两个主要阶段。
+
+提炼一下调试器输出信息，大体可以总结出以下几个步骤，以下展示一个目标及其一个依赖目标的构建过程，从文件搜索检测、到依赖目标的搜索检测，最后创建新进程构建目标：
+
+1. Reading makefile 'Makefile'...
+2. Updating makefiles....
+3. Updating goal targets....
+4. Considering target file 'all'.
+4.1  File 'all' does not exist.
+4.1.1   Considering target file 'rrs.bib'.
+4.1.1.1    File 'rrs.bib' does not exist.
+4.1.1.2    Finished prerequisites of target file 'rrs.bib'.
+4.1.1.3    Must remake target 'rrs.bib'.
+5. Putting child 0xa00046600 (rrs.bib) PID 731 on the chain.
+6. Live child 0xa00046600 (rrs.bib) PID 731 
+
+很巧合，打印调试信息时出来一个 731，这是多么令人恐怖的数字啊！
+
+https://allthatsinteresting.com/unit-731
+Inside Unit 731, Japan’s Disturbing Human Experiments Program During World War II By Richard Stockton
+
+https://allthatsinteresting.com/shiro-ishii-unit-731
+The Twisted Story Of Shiro Ishii, The Josef Mengele Of World War 2 Japan By Andrew Lenoir
+
+General Shiro Ishii, the commander of Unit 731.
+
+石井四郎——一个来自地狱的外科医生、将军！
+
 
 
 ### 🐣 Rules Definition
@@ -2748,7 +3408,80 @@ Make 定义函数和定义变量差别不大，因为都是宏定义，主要是
 
 宏编程的本质就是符号替换，宏函数的返回值也就是宏体扩展后，最终替换结果的内容。
 
-Makefile 提供了一个 eval 函数，和 JavaScript 中的 eval 类似，它可以通过文本构造出宏定义：
+Makefiel 中只有一个列表循环处理函数 foreach，它与 shell 命令行中的 for 循环不同，即宏与命令行功能的差别。Makefile 中的列表只是空格分隔的字符串，此外，它们仅仅就是字符串而已，列表不需要使用括号包括，否则会得到很奇怪的输出：
+
+```makefile
+$(info info: $(foreach X,(x y z),X=$(X)))
+$(info info: $(foreach X,x y z,X=$(X)))
+# info: X=(x X=y X=z)  
+# info: X=x X=y X=z 
+```
+
+另外一个函数 let 也是用来处理列表的，不要被它的名字误导，它不是用来周全赋值的，至少不是给变量赋值。文档给出的示范用它来实现一个列表倒序函数：
+
+```makefile
+    # 8.5 The let Function
+    $(let var [var ...],[list],text)
+    reverse = $(let first rest,$1,\
+                $(if $(rest),$(call reverse,$(rest)) )$(first))
+```
+
+可以从源代码 NEWS 文档找到其更新的信息，要求 Make 4.4 版本，旧版本将不能体现此函数功能：
+
+    2020-12-06  Jouke Witteveen  <j.witteveen@gmail.com>
+
+        Create $(let ...) providing lexically scoped variables
+        Add a new function $(let ...) which allows lexically scoped variables.
+
+        * NEWS: Add information on this feature.
+        * doc/make.texi (Let Function): Document the 'let' function.
+        * src/function.c (func_let): Create the 'let' built-in function.
+        * tests/scripts/functions/let: Test the 'let' built-in function.
+
+    Version 4.4 (31 Oct 2022)
+
+    * New feature: The $(let ...) function
+      This function allows user-defined functions to define a set of local
+      variables: values can be assigned to these variables from within the
+      user-defined function and they will not impact global variable assignments.
+      Implementation provided by Jouke Witteveen <j.witteveen@gmail.com>
+
+
+Makefile 提供了一个 eval 函数，和 JavaScript 中的 eval 类似，它可以通过文本构造出 Makefile 脚本，就像是直接在脚本文件后面编写脚本代码一样：
+
+    * A new function is defined: $(eval ...).  The arguments to this
+      function should expand to makefile commands, which will then be
+      evaluated as if they had appeared in the makefile.  In combination
+      with define/endef multiline variable definitions this is an extremely
+      powerful capability.  The $(value ...) function is also sometimes
+      useful here.
+
+使用 eval 函数，比如简单的使用它来增加 info 函数调用的脚本，另外更重要的是 eval 函数提供了一种在命令块中修改变量值的途径，此外别无它法：
+
+```makefile
+$(eval ID=$$(shell echo "1+2=?" ))
+$(eval ID=$$(shell echo $$$$((1+2)) ))
+$(eval $$(info Eval info: $$(ID) ))
+$(eval ID=$$(shell echo $$$$$$$$$$$$$$$$$$ )) # what that hell?
+```
+
+但是，eval 不能循环使用同一个变量，即不能从一个变量取值并且又给它赋值：
+
+    Recursive variable 'ID' references itself (eventually).
+
+重新整理一下以上内容，编写一个不需要通过 shell 写文件来实现的步进计数函数：
+
+```makefile
+inc = $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID)
+%:
+    @echo "$@: Get ID Variable. $(call inc,1)"
+```
+
+说明一下 inc 自增函数的逻辑：首先是 eval 函数定义了一段“将要”被 make 执行的代码，即 ID
+=xxx 的变量赋值语句。并且这个值需要借助 shell 的 `$((x+y+z))` 这种算术支持。其中运行使用到的值有两个：一是来自函数调用时 call 函数传递来过的参数 $1，它表示步长值。然后另一个值来自一个为了避免 eval 函数循环引用而加入的 inc_ID 变量，这个变量使用了 $0 自动变量表示，它指代函数名称 inc，组合得到这个变量的名称。
+
+小心使用 $ 符，还需要了解 shell 系统可能与之冲突的内容，比如 Makefile 脚本中使用 `echo $$(ID)`，那么就对应 shell 环境中的 `$(ID)`，即调用 id 命令，输出 uid gid groups 等等信息。eval 函数中，还要注意二次展开问题，以上化码中，第一次展开是 eval 函数调用时导致 `$$(shel)` 展开为 `$(shel)` 函数调用并附加到正在执行的 Makefile 脚本代码后面，还有 `$$$$((1+2))` 展开为 `$$((1+2))`。在执行这些通过 eval 增加的脚本时，就会调用 shell 函数，并且 `$$((1+2))` 做二次展开变成 `$((1+2))` 执行 shell 环境中的算术运算。这个过程有点绕，但就是 Second Expansion 这回事。
 
 ```makefile
     PROGRAMS    = server client
@@ -2952,7 +3685,7 @@ foo foz: f%: bo%
 Make 自动推导能力是关联多层目标的，比如，一个目标依赖 .o 文件，那么就会自动推导出 .o 目标，继而推导出 .c 目标，这就是 C 语言的基本构建涉及的文件目标。
 
 
-### 🔁 Make Restarts
+### 🔁 Remaking & MAKE_RESTARTS
 1. https://www.gnu.org/software/make/manual/make.html#Remaking-Makefiles
 2. https://www.gnu.org/software/make/manual/make.html#Remaking-Loaded-Objects
 
@@ -3179,7 +3912,7 @@ J5 :    ; @echo build $@ : $^ ; sleep $(Delay)
         @echo do default command for prerequisites that has no target rules.
 ```
 
-使用 :: 是将未定义的目标定义为独立的目标，当然可以使用 : 定义为使用常规依赖的目标。双冒号规则有一个特点，因为它定义的是独立目标，所以没有依赖也会总是执行构建，4.13 Double-Colon Rules
+使用 :: 是将 % 匹配的目标定义为独立的目标，当然可以使用 : 定义为使用常规依赖的目标。双冒号规则有一个特点，因为它定义的是独立目标，所以没有依赖也会总是执行构建，4.13 Double-Colon Rules
 
 使用空命令目标也许不是用来定义那些没有对应磁盘文件的目标，Makefile 中可以使用内置的 Phony Targets，它专用于此目的，只需要将那些目标添加到 .PHONY 依赖列表中即可以声明它们是虚目标，不涉及对应的磁盘文件，也不会进行文件的检查确定是不要更新。所以虚目标在执行时，其规则中定义的命令部是会得到执行，而不管文件的状态。但是，另一个副作用，那么些依赖了 .PHONY 的目标，就不会因为虚目标（事实上可能有对应的磁盘文件）触发更新构建。
 
@@ -3371,7 +4104,7 @@ $(SUBDIRS) :
 
 在使用多进程编译时，特别需要注意规则的依赖定义，并且注意是否有可能多个非直接依赖的目标对同一资源访问，这可能会造成数据竞争（Data Race）甚至竞态条件（Race condition）。
 
-Make 给多进程分割任务的依据是 Makefile 规则定义的依赖关系，同一个目标的多个依赖的构建构建顺序与其在依赖列表中出现的顺序无关，只能确保当前 Target 会在所有依赖完成构建后再构建。
+Make 给多进程分割任务的依据是 Makefile 规则定义的依赖关系，同一个目标的多个依赖的构建构建顺序与其在依赖列表中出现的顺序无关，因为存在有此依赖已经完成构建的情况，只能确保当前 Target 会在所有依赖完成构建后再构建。
 
 多个进程不能同时从同一设备获取输入，为了确保一次只有一个进程尝试从终端获取输入，make 将使正在运行的进程能访问标准输入流，其它进程的标准输入流无效。如果另一方试图从标准输入中读取，通常会产生致命错误，Broken pipe signal。
 
@@ -3433,7 +4166,28 @@ Guile 项目起源于 GNU Project，作为 Emacs Lisp 扩展功能得到成功�
 2007 年，Scheme 社区同意并发布了 R6RS，这是 RnRS 系列的重要一期。R6RS 扩展核心 Scheme 语言，并标准化了许多非核心功能，包括 Guile 在内的实现，按不同以前的方式进行。随着时间的推移，Guile 已经更新，几乎包含了
 R6RS 的功能，并调整一些现有功能以符合 R6RS 规范，以及 2013 年发布的 R7RS 规范。
 
-RnRS (the Revised^n Reports on Scheme) 作为 Scheme 社区的权威报告，对其语言规范的实现者具有积极指导意义。比如，按规范实现的 rsrn base 模块，就 提供各种数据类型相关操作的模块。Guile 3.0.9 版本的源代码文档中包含了 R5RS info 格式文档，可以作为趁手的备查文档。源代码中同样包含了官方的参考手册，info 格式可以很方便地转换成其它格式，比如 Markdown。
+RnRS (the Revised^n Reports on Scheme) 作为 Scheme 社区的权威报告，对其语言规范的实现者具有积极指导意义。比如，按规范实现的 rsrn base 模块，就 提供各种数据类型相关操作的模块。Guile 3.0.9 版本的源代码文档中包含了 R5RS Texinfo 格式文档，可以作为趁手的备查文档。源代码中同样包含了官方的参考手册，info 格式可以很方便地转换成其它格式，比如 Markdown。
+
+很不幸听到了一个关于 Guile 不支持 Windows 的消息，Re: No Guile on Windows?
+https://mail.gnu.org/archive/html/guile-user/2020-07/msg00123.html
+
+尝试在 WSL 中编译 Guile，但是依赖库根本找不齐全，LISP 编程的另一方案是使用 Chez Scheme：
+
+```sh
+$cat /etc/aapt/sources.list
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to 
+# newer versions of the distribution. 
+deb http://archive.ubuntu.com/ubuntu/ focal main restricted
+deb http://security.ubuntu.com/ubuntu/ focal-security multiverse
+...
+
+$sudo apt search "GNU MP"
+$sudo apt search "libunistring"
+$sudo apt search "bdw-gc" # The Boehm-Demers-Weiser GC Library
+$sudo apt install "libunistring" "libgmp-ocaml-dev"
+$ ./configure --enable-mini-gmp
+```
+
 
 Eli Zaretskii （Stallman 的老朋友）是 2022 年自由软件进步奖的获得者。 Zaretskii 目前是 GNU Emacs 的共同维护者，GNU Emacs 是 GNU 操作系统的旗舰程序之一，三十多年来，他一直是 Emacs 的贡献者，作为共同维护者协调 200 多个活跃贡献者的工作。
 
@@ -3443,6 +4197,8 @@ Thank you Eli Zaretskii for releasing make-with-guile port version.
 0. https://github.com/sunnyden/make
 1. https://sourceforge.net/projects/ezwinports/files/make-4.4.1-without-guile-w32-bin.zip/download
 2. https://sourceforge.net/projects/ezwinports/files/make-4.4.1-with-guile-w32-bin.zip/download
+3. https://sourceforge.net/projects/ezwinports/files/guile-2.0.11-2-w32-bin.zip/download
+4. https://sourceforge.net/projects/ezwinports/files/guile-2.0.11-2-w32-src.zip/download
 
 Windows 系统可以使用 msys2 安装移植版本，这个移植平台使用 Pacman 作为软件安装管理工具，并且提供了 API 接口，可以手动查询安装包及依赖关系，并且进行手动安装程序包。安装 Guile 后就可以编写测试脚本，并通过 `guile -s hi.scm` 命令运行测试：
 
@@ -3461,7 +4217,7 @@ Windows 系统可以使用 msys2 安装移植版本，这个移植平台使用 P
 
 Linix 系统中可以直接 ./hi.scm 执行脚本，Bash 会根据脚本第一行注解找到解释命令，Windows 系统则没有这种服务，需要手动使用 bash 或者解释器程序命令去调用脚本。更好的方法是使用 watch 命令监视脚本的改动，并且在出现改动时重新执行脚本：
 
-    watch "echo ---====+ Watching +====--- && guile -ds hi.scm" -wait 0.3 . 
+    watch "echo ---====+ Watching +====--- && guile -ds hi.scm" --wait 0.1 . 
 
 除了 Guile 嵌入式脚本的支持，GNU make 还提供了一个插件接口，通过 load 指令加载插件动态链接库，此功能目前是 techonology preview 状态。
 
@@ -3660,7 +4416,7 @@ Guile scripts 脚本中会在启动时导出一个 Guile 模块，gnu make，并
          $(LINK) < tmp.out
 ```
 
-Make 调用内嵌的 Guile 脚本解释器加载初始模块时可能出现错误：
+使用 Eli Zaretskii 编译的 Make 4.4.1 调用内嵌的 Guile 脚本解释器加载初始模块时可能出现错误：
 
     Throw without catch before boot:
     Throw to key misc-error with args ("primitive-load-path" "Unable to find file ~S in load path" ("ice-9/boot-9") #f)Aborting.

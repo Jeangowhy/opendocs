@@ -62,7 +62,7 @@ OAuth 登录基本流程如下，假设开发者的应用为 App：
 [Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600/)
 [Git Book](https://git-scm.com/book/zh/v1)
 
-虽然人生不能重复，但GIT可以在我们人生的内部实现部分倒流效果，比如可以让程序员方便的保存代码的版本，并且能够快速的切换到指定的以前的版本，如果新代码出现错误，可以再次回到过去，如同通关游戏，打到某个比较好的战绩可以保存一下，防止失败后，又要重新开始。
+虽然人生不能重复，但 Git 可以在我们人生的内部实现部分倒流效果，比如可以让开发者、创作者方便的保存代码的版本，并且能够快速的切换到指定的以前的版本，如果新代码出现错误，可以再次回到过去，如同通关游戏，打到某个比较好的战绩可以保存一下，防止失败后，又要重新开始。
 
 ```sh
 > git clone --depth=1 git@github.com:git/git.git
@@ -118,7 +118,22 @@ Git 是一种分布式版本控制系统 DVCS - Distributed Version Control Syst
 | Staged   | 暂存区    | 已暂存状态 | 对已修改文件做了标记，使其包含在了下次的提交中。 |
 | Commited | 版本库    | 已提交状态 | 表示数据已经安全的保存在本地数据库中。           |
 
-上面的三种状态对应于 Git 的三个工作区域的概念：工作目录已经暂存区域，已提交到 Git 仓库。
+上面的三种状态对应于 Git 的三个工作区域的概念：
+
+1. 工作目录：即操作系统中包含 .git 文件夹的目录，.git 目录是版本数据库目录；
+2. 暂存区域：对应 .git 目录中的数据据已经在暂存区记录了文件的状态信息；
+3. 已提交状态：对应：工作区的文件内容已提交到 Git 仓库中。
+
+对于已经提交的所有文件，都会在包含完整的历史提交记录，文件历史修改数据都有记录，即表示 .git 目录下的数据已经包含文件的所有数据，即使将工作区的文件删除，也可以通过 git checkout -- * 从数据库中检出所有文件。
+
+所谓分布式，是指所有 .git 数据仓库都是一个完整独立的版本数据库，通过 git clone 命令可以从一个数据仓库克隆到另一个位置：可以是操作系统中的目录，或者是远程主机上的数据仓库，例如 github.com。比如，当前系统中的 test_branch_merge 文件有一个版本数据仓库，那么通过 clone 就可以复制它的副本：
+
+```sh
+git clone .\test_branch_merge my_test
+Cloning into 'my_test'...
+done.
+```
+
 
 - 工作区 Working Tree：
 
@@ -424,6 +439,192 @@ GitHub 有一个十分详细的针对数十种项目及语言的 .gitignore 文�
 	$ git add newFile
 
 Git 鼓励大量使用分支，所以接下来掌握分支的创建、merge 合并分支、解决合并冲突是很有必要的，这是的技能。
+
+
+# Branches merge and confict process
+
+使用 Node.js watch 工具监视文件改动，并自动重新运行指定的命令：
+
+```sh
+npm install -g watch
+watch "echo ---====+ Watching +====--- && bash .\branch_test.sh" -f "filter.js" -w 0.1 .
+```
+
+过滤器文件是一个返回过滤函数的 Node.js 模块脚本，过滤函数名称随意，但需要在作为 exports 返回，然后通过 -f 或者 --filter 将文件名传递给 watch 工具：
+
+```ts
+const fs = require('node:fs')
+
+/**
+ * @param {string}   f   - File name
+ * @param {fs.Stats} curr - File Statments
+ */
+function filter (f, curr, prev) {
+    if (typeof f == "object" && prev === null && curr === null) {
+        // coonsole.log( f, 'Finished walking the tree ')
+    } else if (prev === null) {
+        // coonsole.log( f, 'file is a new file ')
+    } else if (curr.nlink === 0) {
+        // coonsole.log( f, 'file was removed ')
+    } else {
+        // coonsole.log( f, 'file was changed ')
+    }
+    return ["filter.js","branch_test.sh"].indexOf(f)>=0 && curr.isFile
+}
+// console.log( ["filter.js","branch_test.sh"].indexOf("filter.js")>=0 )
+
+module.exports = filter;
+```
+
+通常，主分支 master 是其它分支的来源，首次创建分支一般都基于初始化的 master 分支。
+
+以下是 git 分支合并与冲突处理的演示脚本，此操作演示使用了 port.o 和 able.o 两个文件来演示分支的创建、合并与冲突内容的处理，步骤说明如下：
+
+1. Step 初始化目录结构；
+2. Step 初始化 git 数据库，为默认的 master 分支添加初始文件 port.o；
+3. Step 基于 master 创建新分支 test_branch，切换到此分支并为其添加新文件 able.o；
+4. Step 在新分支 test_branch 上删除原来的 port.o 以测试文件在合并时的处理策略；
+5. Step 切换回 master 分支，创建并添加和新分支同名的文件 able.o 以测试内容冲突处理；
+6. Step 执行 git merge test_branch 合并分支到当前的 master 分支，此时有多种可能：
+6.1. 一是可以自动处理的分支合并，不需要用户手动处理；
+6.2. 二是如果当前分支未修改相应文件，就保持与正在合并分支的文件状态一致：删除 port.o。
+6.3. 三是内容冲突，最常见操作，因为待合并分支与当前分支的文件内容有 diff 差异需要手动处理。
+7. Step 合并后分支的状态，处理方式：继续使用，或者删除；
+
+分支合并策略：
+
+	git merge --no-ff -m <remark> <name>
+
+1. fast forward 模式不保留分支合并历史，是默认的分支合并模式；
+2. recursive 递归模式保留分支合并历史，使用 --no-ff 禁用默认的快速模式。
+
+```sh
+# rm -rf test_branch_merge
+mkdir test_branch_merge
+cd test_branch_merge
+# git config --global user.email 254141203@qq.com
+# git config --global user.name Jeangowhy
+
+git init
+git config core.autocrlf true
+echo "port.o file add in test_branch." > port.o
+git add port.o
+git commit -am "add new file to master branch: port.o"
+
+git branch "test_branch"   # new branch
+git checkout "test_branch"  # working in new branch
+rm -rf port.o
+echo "able.o file add." > able.o
+git add able.o
+git commit -am "delete old file and new one: port.o -> able.o"
+
+git checkout master
+echo "port.o update in master"      > port.o
+echo "able.o file add in master" > able.o
+git add able.o
+git commit -am "update port.o in master branch"
+# Please commit your changes or stash them before you merge.
+# if port.o is not updated, it will be delete when merge into master the next step.
+
+echo "merge test_branch into masster branch"
+git merge "test_branch" 
+# CONFLICT (modify/delete): port.o deleted in test_branch and modified in HEAD.
+# Version HEAD of port.o left in tree.
+# Automatic merge failed; fix conflicts and then commit the result.
+echo "This pretends to solve confilicts content that merge from test_branch." >> able.o
+echo "You shoud actually modify file content to left the precious." >> able.o
+git commit -am "merge test_branch into masster"
+
+git checkout "test_branch"
+echo "port.o was deleted in test_branch branch."
+ls -la *.o
+cat able.o
+
+git checkout master
+echo "port.o is updated in master branch."
+ls -la *.o
+cat able.o
+
+git branch
+```
+
+说明：如果新分支持将其源分支的文件删除，在合并到源分支时，并且源分支上没有再对文件进行改动，那么合并操作就会按新分支的状删除文件。一般，新分支会以 some-feature 的形式命名，以提示此分支的功能与目标。执行 git merge 命令时，是将指定的分支内容合并到当前活动分支内。
+
+冲突内容中会出现 git 检测到的 diff 内容，并且用 <<<<<<< HEAD 表示当前读写指针是最顶端，>>>>>>> test_branch 表示待合并的分支，diff 内容分别对应 ======= 分割符的前后内容。手动解决冲突就是处理这些有冲突的内容，选择需要的留下，删除不需要的内容，甚至可以将所有内容都保留。
+
+输出内容参考：
+
+```sh
+Initialized empty Git repository in ~/test_branch_merge/.git/
+[master (root-commit) 656ce4b] add new file to master branch: port.o
+ 1 file changed, 1 insertion(+)
+ create mode 100644 port.o
+[test_branch 85d5188] delete old file and new one: port.o -> able.o
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ create mode 100644 able.o
+ delete mode 100644 port.o
+[master 501bf4f] update port.o in master branch
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 able.o
+merge test_branch into masster branch
+CONFLICT (modify/delete): port.o deleted in test_branch and modified in HEAD. Version HEAD of port.o left in tree.
+CONFLICT (add/add): Merge conflict in able.o
+Auto-merging able.o
+Automatic merge failed; fix conflicts and then commit the result.
+[master 00945e7] merge test_branch into masster
+port.o was deleted in test_branch branch.
+-rw-r--r-- 1 OCEAN None 18 Sep 15 09:09 able.o
+able.o file add.
+port.o is updated in master branch.
+-rw-r--r-- 1 OCEAN None 223 Sep 15 09:09 able.o
+-rw-r--r-- 1 OCEAN None  25 Sep 15 09:09 port.o
+<<<<<<< HEAD
+able.o file add in master
+=======
+able.o file add.
+>>>>>>> test_branch
+This pretends to solve confilicts content that merge from test_branch.
+You shoud actually modify file content to left the precious.
+* master
+  test_branch
+```
+
+最后，Linxu 和 Windows 系统使用了不同的文本换行规则，CR vs. CRLF。Unix 类系统心 CR end-of-line 作为换行标志，Windows 则以 CRLF "\r\n" 作为换行符号，Mac OS 9 系统则会使用 LF。在机械式找字机上，CR 是指打印头复位到行首，LF 是指进纸机构移动纸张前进一行。部分程序未对换行符做特别处理，则可能会导致运行出错，比如 Vim 配置文件，如果在 WSL 等系统出现 CRLF 就会出现 ^M 的错误提示。
+
+1. LF for "line feed", encoded as 0x0A, \n;
+2. CR for "carriage return", encoded as 0x0D, \r;
+
+Git 提供了自动处理两种系统的换行符号，打开 autocrlf 功能有两种不同的处理策略：
+https://markentier.tech/posts/2021/10/autocrlf-true-considered-harmful/
+
+1. core.autocrlf true 方式提交件时转换为 LF，检出时转换为 CRLF；
+2. core.autocrlf input 方式提交件时转换为 LF，但是检出时不转换；
+3. core.autocrlf false 禁用自动转换，提交检出均不转换；
+
+自动转换是指定 Git 根据当前操作系统，将  CR CRLF LF 等等换行形式转换为 LF，如果使用 autocrlf true 方式，则会在检出文件时替换回当前系统风格的换行符，autocrlf input 方式则只会在检入文件时替换所有换行符为 LF。如果收到以下警告信息，就表示开启了自动 autocrlf true：
+
+	warning: LF will be replaced by CRLF in file.
+	warning: CRLF will be replaced by LF in port.o.  
+
+手动检出所有文件：
+
+	git checkout -- *
+
+全局配置或配置文件：
+
+```sh
+# $HOME/.gitconfig
+[core]
+  autocrlf = false
+  eol = lf
+
+# If you don't want to touch the config file directly, run the following 2 commands;
+# remove `--global` if you're in a repo and want to change the setting only for it.
+git config --global core.autocrlf false
+git config --global core.eol lf
+git config core.autocrlf false
+```
+
 
 
 # .gitignore 过滤文件

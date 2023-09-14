@@ -26,6 +26,66 @@ https://sourceforge.net/project/platformdownload.php?group_id=1355&sel_platform=
 
 ANSI Common Lisp https://acl.readthedocs.io/en/latest/
 
+
+传说中的 Chez Scheme 开源了！
+
+编译试试看看香香的是不是，先安装好 Visual Studio 2019 社区版本。
+
+    **********************************************************************
+    ** Visual Studio 2019 Developer Command Prompt v16.6.1
+    ** Copyright (c) 2020 Microsoft Corporation
+    **********************************************************************
+
+安装好 MinGW 和 git，下载 Chez Scheme 源码，然后进行编译，`-j 4` 激活 4 进程利用多核心 CPU 加速编译：
+
+    >git clone https://github.com/cisco/ChezScheme.git
+    >cd ChezScheme
+    >cd wininstall
+    >set CPATH=..\boot\a6nt;..\boot
+    >make -j 4 workareas
+
+设置 CPATH 环境变量是为了让编译器找到相应的头文件：
+
+    OCEAN@DESKTOP-CBSK60R MINGW64 /c/ChezScheme-master/wininstall
+    $ make workareas
+    cd ..; ./configure -m=a6nt; C:/mingw530_32/bin/make -C a6nt
+      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                     Dload  Upload   Total   Spent    Left  Speed
+    100   140  100   140    0     0    133      0  0:00:01  0:00:01 --:--:--   135
+    100 1049k    0 1049k    0     0   3622      0 --:--:--  0:04:56 --:--:--  2899
+
+等几分钟 make 完成，在整个 a6nt 目录中就是生成的结果，\bin\a6nt下可以看到 scheme.exe，双击它即可运行。 bin、boot 子目录有运行需要的文件。
+
+Scheme 语言是 LISP 语言的一个方言或变种，它诞生于 1975 年的 MIT，对于这个有近三十年历史的编程语言来说，它并没有象 C++，java，C# 那样受到商业领域的青睐，在国内更是显为人知。但它在国外的计算机教育领域内却是有着广泛应用的，有很多人学的第一门计算机语言就是 Scheme 语言。
+
+它是一个小巧而又强大的语言，作为一个多用途的编程语言，它可以作为脚本语言使用，也可以作为应用软件的扩展语言来使用，它具有元语言特性，还有很多独到的特色，以致于它被称为编程语言中的皇后。
+
+下面是洪峰对 Scheme 语言的编程特色的归纳：
+
+- 词法定界（Lexical Scoping）
+- 动态类型（Dynamic Typing）
+- 良好的可扩展性
+- 尾递归（Tail Recursive）
+- 函数可以作为值返回
+- 支持一流的计算连续
+- 传值调用（passing-by-value）
+- 算术运算相对独立
+
+Scheme 语言的实现有很多，如 Guile、GNU/MIT-Scheme、SCI、Scheme48、DrScheme 等，它们大多是开源的，可以自由下载安装使用，并且跨平台的实现也很多。你会发现既有像 basic 的 Scheme 语言解释器，也有将 Scheme 语言编译成 C 语言的编译器，也有象 Java，将 Scheme 语言代码编译成虚拟机代码的编译器。
+
+解密Chez Scheme
+https://guenchi.github.io/0x7c06.html
+
+从用户角度最明显的：Chez自带一个Repl，简直是吊打所有语言，无论是增量编译还是虚拟机。吊打。那体验，让你用了Chez基本不想再用其他Scheme实现。这个Repl是由1000行c实现的，代码在c/expeditor.c
+
+根据论文，闭源版的代码编译速度是现在版本的2-2.5倍。闭源版除了具有优良的编译速度和执行速度，还有非同一般的稳定性：不是比其他Scheme实现，而是所有语言。所以有好多大厂，偷偷拿Chez跑模拟流片等芯片设计。Chez不流行的原因之一：它们往往和Chez之前公司签订保密协议，外界根本不知道它们用了Chez Scheme。即使是Chez开源的今天，Chez在思科的跑的项目仍然是绝密。我相信正如黑客与画家所说，这些公司正将Lisp作为自己的绝密武器。
+
+开源版本采用Nanopass架构，这个东西可以说是凝结了几代PL人的精华。基础构建于D.F. 惊绝天下的Match宏。整个架构经过几代人的迭代。这个东西可以说是现代编译器的峰顶，可以快速设计出一个编译器，而且因为拆分成小pass的原因，具有非常好的迭代性和可测试性。这个东西多牛逼？作为基石的Match宏就不是随便来个人就能写出来的。（Match宏好像是为了开发Nanopass（当时还只有雏形，也不叫这个名字）而开发的，用来匹配语法。4. Nanopass之外的代码：这些代码基本是30年来Kent Dybvig带领一代代博士生（说是毕生精力也不为过）慢慢迭代开发而来。多牛逼我也没看懂（尼玛1000多行一个的宏定义你去看懂去…），牛逼到我已经看不懂多牛逼了…这些宏在s/syntax.ss里，有好多个上千行代码的宏。写出这个完全是人类智力极限…
+
+开源版本的Chez换用图着色寄存器分配。比原版本执行速度快17-25%。对，Chez不是虚拟机也不是Jit。它是实实在在将代码编译为Native Code的。
+
+有一个性能测试 swapview，似乎 Chez Scheme 表现与 Python 相当，比 Guile 要好些。大概是 C/C++/Rust 的 1/5 ~ 1/10 效率。
+
 ## 关于LISP适合人工智能
 
 以下内容摘自徐宥 4G-Spaces <https://blog.youxu.info/2010/02/10/lisp-and-ai-2/> 
@@ -88,53 +148,6 @@ Lisp语言诞生的时候，就包含了9种新思想。其中一些我们今天
 ## Chez Scheme 的传说
 - [王垠 - Chez Scheme 的传说](http://www.yinwang.org/blog-cn/2013/03/28/chez-scheme)
 
-传说中的 Chez Scheme 开源了！
-
-编译试试看看香香的是不是，先安装好 Visual Studio 2019 社区版本。
-
-    **********************************************************************
-    ** Visual Studio 2019 Developer Command Prompt v16.6.1
-    ** Copyright (c) 2020 Microsoft Corporation
-    **********************************************************************
-
-安装好 MinGW 和 git，下载 Chez Scheme 源码，然后进行编译，`-j 4` 激活 4 进程利用多核心 CPU 加速编译：
-
-    >git clone https://github.com/cisco/ChezScheme.git
-    >cd ChezScheme
-    >cd wininstall
-    >set CPATH=..\boot\a6nt;..\boot
-    >make -j 4 workareas
-
-设置 CPATH 环境变量是为了让编译器找到相应的头文件：
-
-    OCEAN@DESKTOP-CBSK60R MINGW64 /c/ChezScheme-master/wininstall
-    $ make workareas
-    cd ..; ./configure -m=a6nt; C:/mingw530_32/bin/make -C a6nt
-      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                     Dload  Upload   Total   Spent    Left  Speed
-    100   140  100   140    0     0    133      0  0:00:01  0:00:01 --:--:--   135
-    100 1049k    0 1049k    0     0   3622      0 --:--:--  0:04:56 --:--:--  2899
-
-等几分钟 make 完成，在整个 a6nt 目录中就是生成的结果，\bin\a6nt下可以看到 scheme.exe，双击它即可运行。 bin、boot 子目录有运行需要的文件。
-
-Scheme 语言是 LISP 语言的一个方言或变种，它诞生于 1975 年的 MIT，对于这个有近三十年历史的编程语言来说，它并没有象 C++，java，C# 那样受到商业领域的青睐，在国内更是显为人知。但它在国外的计算机教育领域内却是有着广泛应用的，有很多人学的第一门计算机语言就是 Scheme 语言。
-
-它是一个小巧而又强大的语言，作为一个多用途的编程语言，它可以作为脚本语言使用，也可以作为应用软件的扩展语言来使用，它具有元语言特性，还有很多独到的特色，以致于它被称为编程语言中的皇后。
-
-下面是洪峰对 Scheme 语言的编程特色的归纳：
-
-- 词法定界（Lexical Scoping）
-- 动态类型（Dynamic Typing）
-- 良好的可扩展性
-- 尾递归（Tail Recursive）
-- 函数可以作为值返回
-- 支持一流的计算连续
-- 传值调用（passing-by-value）
-- 算术运算相对独立
-
-Scheme 语言的实现有很多，如 Guile、GNU/MIT-Scheme、SCI、Scheme48、DrScheme 等，它们大多是开源的，可以自由下载安装使用，并且跨平台的实现也很多。你会发现既有像 basic 的 Scheme 语言解释器，也有将 Scheme 语言编译成 C 语言的编译器，也有象 Java，将 Scheme 语言代码编译成虚拟机代码的编译器。
-
-
 Chez Scheme 的传说
 
 在上一篇博文的最后，我提到了 Lisp 编译器的问题。由于早期的 Lisp 编译器生成的代码效率普遍低下，成为了 Lisp 失败的主要原因之一。而现在的高性能 Lisp 编译器（比如 Chez Scheme），其实已经可以生成非常高效的代码，甚至可以匹敌 C 程序的速度。如果你看得到我脑子里的东西，就会明白这完全不是吹牛，而是科学的结论。我在这里介绍一下我写 Scheme 编译器的经历，也许你就会从根本上明白为什么我会对此这么自信。这里的介绍其实不止针对函数式语言，而且针对所有语言的编译器。
@@ -180,6 +193,8 @@ Kent 的课程编译器有很好的结构，它被叫做“nanopass 编译器构
 
 
 # ⚑ Scheme 基本语法
+https://www.gnu.org/software/guile/download/
+https://github.com/cky/guile
 
 Chez Scheme 与 DrRacket 类似，都是 Scheme 语言家族，其编程整体思路跟传统语言有很大区别。其语言结构主要采用递归的形式，顺序执行语句内容需要使用 begin 关键词。使用 define 语句来定义变量和函数，使用 let 语句来绑定某个变量的值并规定作用域，使用 time 来统计语句运行的时间。
 
@@ -205,6 +220,30 @@ Chez Scheme 与 DrRacket 类似，都是 Scheme 语言家族，其编程整体�
     ; 变量赋值
     (set! a 6)
     (printf "~a" a)
+
+支持 Unicode 标识符，吊打中文编程神棍：
+
+```lisp
+(define 阶乘
+    (lambda (x)
+      (if (zero? x)
+          1
+          (* x (阶乘 (1- x))))))
+
+(display (阶乘 36))
+```
+
+对值 6.6.8 Pairs 是 Scheme 中非常重要数据类型，它不仅让两个对象结成一个对象，可使用 cons 方法，更重要的是可以结成一个列表。Scheme REPL 交互环境中，可以直接输入“dotted list”语法形式，句点是 cons 方法的语法糖。在代码文件中也可以使用 display 或 printf 函数将它打印出来。因为圆括号是 LISP 的基本语法结构中的元素，为了表达对值，就需要使用引号转义，如 `'(1 . 2)`：
+
+```lisp
+(cons '火腿 '(鸡蛋))
+(火腿 '鸡蛋')
+```
+
+Parts 的两个组成部分在传统中称为“car” 和 “cdr”，可以通过以这两个名称命名的系列方法获取它们的值。例如，set-car! 和 set-cdr!，这俩方法不返回值，使用打印方法会显示 `#<unspecified>`。
+
+由于赋值会改变参数的值，因此它具有破坏性 (destructive)。具有破坏性的方法都以 ！结尾，以作警示。
+
 
 字符串以及 symbol（不可变字符串，带'号的字母）
 
@@ -536,7 +575,10 @@ fact-tail 计算阶乘的过程像这样：
     ⇒ (fact-rec 1 120)
     ⇒ 120
 
-## printf 打印函数
+## printf 或 display 打印函数
+
+    (display '(1 . 2) )
+    (display '(foo . bar) )
 
     (printf "~a" 15) ; 打印十进制 15
     (printf "~b" 15) ; 打印二进制 1111
@@ -566,9 +608,220 @@ fact-tail 计算阶乘的过程像这样：
     14:      <end>
     #<procedure>
 
+
+# ⚑ The Revised6 Report on the Algorithmic Language Scheme
+https://www.r6rs.org/final/r6rs.tar.gz
+
+The Revised6 Report on the Algorithmic Language Scheme
+The final versions of the main report, library report, nonnormative appendices, and rationale:
+
+1. Revised6 Report on the Algorithmic Language Scheme
+2. Revised6 Report on the Algorithmic Language Scheme — Standard Libraries
+3. Revised6 Report on the Algorithmic Language Scheme — Non-Normative Appendices
+4. Revised6 Report on the Algorithmic Language Scheme — Rationale
+
+R6RS Existing Implementations
+The following list has links to implementations of R6RS Scheme. This page makes no claims to the conformance levels of these implementations.
+
+01. BiwaScheme http://www.biwascheme.org/
+02. Chez Scheme http://www.scheme.com/
+03. Guile http://www.gnu.org/software/guile/
+04. Ikarus Scheme http://ikarus-scheme.org/
+05. IronScheme http://www.codeplex.com/IronScheme
+06. Larceny http://www.larcenists.org/
+07. Loko Scheme https://scheme.fail/
+08. Mosh http://code.google.com/p/mosh-scheme/
+09. PLT Racket http://www.racket-lang.org/
+10. Sagittarius Scheme http://code.google.com/p/sagittarius-scheme/
+11. Vicare http://marcomaggi.github.com/vicare.html
+12. Ypsilon http://code.google.com/p/ypsilon/
+
+
+
+
 # ⚑ Chez Scheme Version 9 User’s Guide
 - [Chez Scheme Version 9 User's Guide](https://cisco.github.io/ChezScheme/csug9.5/index.html)
 - [Chez Scheme Version 8 User's Guide R. Kent Dybvig](https://www.scheme.com/csug8/index.html)
+
+Chez Scheme
+Chez Scheme is both a programming language and an implementation of that language, with supporting tools and documentation.
+
+As a superset of the language described in the Revised6 Report on the Algorithmic Language Scheme (R6RS), Chez Scheme supports all standard features of Scheme, including first-class procedures, proper treatment of tail calls, continuations, user-defined records, libraries, exceptions, and hygienic macro expansion.
+
+Chez Scheme also includes extensive support for interfacing with C and other languages, support for multiple threads possibly running on multiple cores, non-blocking I/O, and many other features.
+
+The Chez Scheme implementation consists of a compiler, run-time system, and programming environment. Although an interpreter is available, all code is compiled by default. Source code is compiled on-the-fly when loaded from a source file or entered via the shell. A source file can also be precompiled into a stored binary form and automatically recompiled when its dependencies change. Whether compiling on the fly or precompiling, the compiler produces optimized machine code, with some optimization across separately compiled library boundaries. The compiler can also be directed to perform whole-program compilation, which does full cross-library optimization and also reduces a program and the libraries upon which it depends to a single binary.
+
+The run-time system interfaces with the operating system and supports, among other things, binary and textual (Unicode) I/O, automatic storage management (dynamic memory allocation and generational garbage collection), library management, and exception handling. By default, the compiler is included in the run-time system, allowing programs to be generated and compiled at run time, and storage for dynamically compiled code, just like any other dynamically allocated storage, is automatically reclaimed by the garbage collector.
+
+The programming environment includes a source-level debugger, a mechanism for producing HTML displays of profile counts and program "hot spots" when profiling is enabled during compilation, tools for inspecting memory usage, and an interactive shell interface (the expression editor, or "expeditor" for short) that supports multi-line expression editing.
+
+The R6RS core of the Chez Scheme language is described in The Scheme Programming Language, which also includes an introduction to Scheme and a set of example programs. Chez Scheme's additional language, run-time system, and programming environment features are described in the Chez Scheme User's Guide. The latter includes a shared index and a shared summary of forms, with links where appropriate to the former, so it is often the best starting point.
+
+
+Chez Scheme Version 9 User's Guide
+
+Table of Contents
+
+    Preface
+    Chapter 1. Introduction
+          1.1. Chez Scheme Syntax
+          1.2. Notational Conventions
+          1.3. Parameters
+          1.4. More Information
+    Chapter 2. Using Chez Scheme
+          2.1. Interacting with Chez Scheme
+          2.2. Expression Editor
+          2.3. The Interaction Environment
+          2.4. Using Libraries and Top-Level Programs
+          2.5. Scheme Shell Scripts
+          2.6. Optimization
+          2.7. Customization
+          2.8. Building and Distributing Applications
+          2.9. Command-Line Options
+    Chapter 3. Debugging
+          3.1. Tracing
+          3.2. The Interactive Debugger
+          3.3. The Interactive Inspector
+          3.4. The Object Inspector
+          3.5. Locating objects
+          3.6. Nested object size and composition
+    Chapter 4. Foreign Interface
+          4.1. Subprocess Communication
+          4.2. Calling out of Scheme
+          4.3. Calling into Scheme
+          4.4. Continuations and Foreign Calls
+          4.5. Foreign Data
+          4.6. Providing Access to Foreign Procedures
+          4.7. Using Other Foreign Languages
+          4.8. C Library Routines
+          4.9. Example: Socket Operations
+    Chapter 5. Binding Forms
+          5.1. Definitions
+          5.2. Multiple-value Definitions
+          5.3. Recursive Bindings
+          5.4. Fluid Bindings
+          5.5. Top-Level Bindings
+    Chapter 6. Control Structures
+          6.1. Conditionals
+          6.2. Mapping and Folding
+          6.3. Continuations
+          6.4. Engines
+    Chapter 7. Operations on Objects
+          7.1. Missing R6RS Type Predicates
+          7.2. Pairs and Lists
+          7.3. Characters
+          7.4. Strings
+          7.5. Vectors
+          7.6. Fixnum-Only Vectors
+          7.7. Bytevectors
+          7.8. Boxes
+          7.9. Symbols
+          7.10. Void
+          7.11. Sorting
+          7.12. Hashtables
+          7.13. Record Types
+          7.14. Record Equality and Hashing
+          7.15. Legacy Record Types
+          7.16. Procedures
+    Chapter 8. Numeric Operations
+          8.1. Numeric Type Predicates
+          8.2. Fixnum Operations
+          8.3. Flonum Operations
+          8.4. Inexact Complex Operations
+          8.5. Bitwise and Logical Operators
+          8.6. Random Number Generation
+          8.7. Miscellaneous Numeric Operations
+    Chapter 9. Input/Output Operations
+          9.1. Generic Ports
+          9.2. File Options
+          9.3. Transcoders
+          9.4. Port Operations
+          9.5. String Ports
+          9.6. File Ports
+          9.7. Custom Ports
+          9.8. Input Operations
+          9.9. Output Operations
+          9.10. Input/Output Operations
+          9.11. Non-Unicode Bytevector/String Conversions
+          9.12. Pretty Printing
+          9.13. Formatted Output
+          9.14. Input/Output Control Operations
+          9.15. Fasl Output
+          9.16. File System Interface
+          9.17. Generic Port Examples
+    Chapter 10. Libraries and Top-level Programs
+          10.1. Built-in Libraries
+          10.2. Running Top-level Programs
+          10.3. Library and Top-level Program Forms
+          10.4. Standalone import and export forms
+          10.5. Explicitly invoking libraries
+          10.6. Library Parameters
+          10.7. Library Inspection
+    Chapter 11. Syntactic Extension and Modules
+          11.1. Fluid Keyword Bindings
+          11.2. Syntax-Rules Transformers
+          11.3. Syntax-Case Transformers
+          11.4. Compile-time Values and Properties
+          11.5. Modules
+          11.6. Standalone import and export forms
+          11.7. Built-in Modules
+          11.8. Meta Definitions
+          11.9. Conditional expansion
+          11.10. Aliases
+          11.11. Annotations
+          11.12. Source Tables
+    Chapter 12. System Operations
+          12.1. Exceptions
+          12.2. Interrupts
+          12.3. Environments
+          12.4. Compilation, Evaluation, and Loading
+          12.5. Source Directories and Files
+          12.6. Compiler Controls
+          12.7. Profiling
+          12.8. Waiter Customization
+          12.9. Transcript Files
+          12.10. Times and Dates
+          12.11. Timing and Statistics
+          12.12. Cost Centers
+          12.13. Parameters
+          12.14. Virtual registers
+          12.15. Environmental Queries and Settings
+          12.16. Subset Modes
+    Chapter 13. Storage Management
+          13.1. Garbage Collection
+          13.2. Weak Pairs, Ephemeron Pairs, and Guardians
+          13.3. Locking Objects
+    Chapter 14. Expression Editor
+          14.1. Expression Editor Parameters
+          14.2. Key Binding
+          14.3. Editing Commands
+          14.4. Creating New Editing Commands
+    Chapter 15. Thread System
+          15.1. Thread Creation
+          15.2. Mutexes
+          15.3. Conditions
+          15.4. Locks
+          15.5. Locked increment and decrement
+          15.6. Reference counting with ftype guardians
+          15.7. Thread Parameters
+          15.8. Buffered I/O
+          15.9. Example: Bounded Queues
+    Chapter 16. Compatibility Features
+          16.1. Hash Tables
+          16.2. Extend-Syntax Macros
+          16.3. Structures
+          16.4. Compatibility File
+    Bibliography
+    Summary of Forms
+    Index
+
+Chez Scheme Version 9 User's Guide
+Copyright © 2023 Cisco Systems, Inc.
+Licensed under the Apache License Version 2.0 (full copyright notice.).
+Revised August 2023 for Chez Scheme Version 9.6.0
+about this book https://cisco.github.io/ChezScheme/csug9.6/canned/about.html
+
 
 ## command-line script
 - [Chapter 2. Using Chez Scheme - 2.5. Scheme Shell Scripts](https://www.scheme.com/csug8/use.html#./use:h5)
@@ -610,4 +863,130 @@ The --program command-line option is like --script except that the script file i
             (display sep)
             (display (car args)))
           (when newline? (newline)))))
+
+
+# ⚑ The Scheme Programming Language
+https://scheme.com/tspl4/
+
+
+The Scheme Programming Language
+
+Fourth Edition
+
+R. Kent Dybvig
+
+Illustrations by Jean-Pierre Hébert
+
+Table of Contents
+
+    Preface
+    Chapter 1. Introduction
+          1.1. Scheme Syntax
+          1.2. Scheme Naming Conventions
+          1.3. Typographical and Notational Conventions
+    Chapter 2. Getting Started
+          2.1. Interacting with Scheme
+          2.2. Simple Expressions
+          2.3. Evaluating Scheme Expressions
+          2.4. Variables and Let Expressions
+          2.5. Lambda Expressions
+          2.6. Top-Level Definitions
+          2.7. Conditional Expressions
+          2.8. Simple Recursion
+          2.9. Assignment
+    Chapter 3. Going Further
+          3.1. Syntactic Extension
+          3.2. More Recursion
+          3.3. Continuations
+          3.4. Continuation Passing Style
+          3.5. Internal Definitions
+          3.6. Libraries
+    Chapter 4. Procedures and Variable Bindings
+          4.1. Variable References
+          4.2. Lambda
+          4.3. Case-Lambda
+          4.4. Local Binding
+          4.5. Multiple Values
+          4.6. Variable Definitions
+          4.7. Assignment
+    Chapter 5. Control Operations
+          5.1. Procedure Application
+          5.2. Sequencing
+          5.3. Conditionals
+          5.4. Recursion and Iteration
+          5.5. Mapping and Folding
+          5.6. Continuations
+          5.7. Delayed Evaluation
+          5.8. Multiple Values
+          5.9. Eval
+    Chapter 6. Operations on Objects
+          6.1. Constants and Quotation
+          6.2. Generic Equivalence and Type Predicates
+          6.3. Lists and Pairs
+          6.4. Numbers
+          6.5. Fixnums
+          6.6. Flonums
+          6.7. Characters
+          6.8. Strings
+          6.9. Vectors
+          6.10. Bytevectors
+          6.11. Symbols
+          6.12. Booleans
+          6.13. Hashtables
+          6.14. Enumerations
+    Chapter 7. Input and Output
+          7.1. Transcoders
+          7.2. Opening Files
+          7.3. Standard Ports
+          7.4. String and Bytevector Ports
+          7.5. Opening Custom Ports
+          7.6. Port Operations
+          7.7. Input Operations
+          7.8. Output Operations
+          7.9. Convenience I/O
+          7.10. Filesystem Operations
+          7.11. Bytevector/String Conversions
+    Chapter 8. Syntactic Extension
+          8.1. Keyword Bindings
+          8.2. Syntax-Rules Transformers
+          8.3. Syntax-Case Transformers
+          8.4. Examples
+    Chapter 9. Records
+          9.1. Defining Records
+          9.2. Procedural Interface
+          9.3. Inspection
+    Chapter 10. Libraries and Top-Level Programs
+          10.1. Standard Libraries
+          10.2. Defining New Libraries
+          10.3. Top-Level Programs
+          10.4. Examples
+    Chapter 11. Exceptions and Conditions
+          11.1. Raising and Handling Exceptions
+          11.2. Defining Condition Types
+          11.3. Standard Condition Types
+    Chapter 12. Extended Examples
+          12.1. Matrix and Vector Multiplication
+          12.2. Sorting
+          12.3. A Set Constructor
+          12.4. Word Frequency Counting
+          12.5. Scheme Printer
+          12.6. Formatted Output
+          12.7. A Meta-Circular Interpreter for Scheme
+          12.8. Defining Abstract Objects
+          12.9. Fast Fourier Transform
+          12.10. A Unification Algorithm
+      12.11. Multitasking with Engines
+    References
+    Answers to Selected Exercises
+    Formal Syntax
+    Summary of Forms
+    Index
+
+R. Kent Dybvig / The Scheme Programming Language, Fourth Edition
+Copyright © 2009 The MIT Press. Electronically reproduced by permission.
+Illustrations © 2009 Jean-Pierre Hébert
+ISBN 978-0-262-51298-5 / LOC QA76.73.S34D93
+to order this book / about this book
+
+http://www.scheme.com
 

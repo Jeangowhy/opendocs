@@ -2752,7 +2752,7 @@ If set -P is on, then:
 -T
     If set, any trap on DEBUG and RETURN are inherited by shell functions, command substitutions, and commands executed in a subshell environment. The DEBUG and RETURN traps are normally not inherited in such cases.
 
---
+`--`
     If no arguments follow this option, then the positional parameters are unset. Otherwise, the positional parameters are set to the arguments, even if some of them begin with a ‘-’.
 
 -
@@ -3100,7 +3100,7 @@ The command argument to the -c invocation option.
 
 `BASH_LINENO`
                                                                   *BASH_LINENO*
-An array variable whose members are the line numbers in source files where each corresponding member of FUNCNAME was invoked. ${BASH_LINENO[$i]} is the line number in the source file (${BASH_SOURCE[$i+1]}) where ${FUNCNAME[$i]} was called (or ${BASH_LINENO[$i-1]} if referenced within another shell function). Use LINENO to obtain the current line number.
+An array variable whose members are the line numbers in source files where each corresponding member of FUNCNAME was invoked. `${BASH_LINENO[$i]}` is the line number in the source file (`${BASH_SOURCE[$i+1]}`) where `${FUNCNAME[$i]}` was called (or `${BASH_LINENO[$i-1]}` if referenced within another shell function). Use LINENO to obtain the current line number.
 
 `BASH_LOADABLES_PATH`
                                                           *BASH_LOADABLES_PATH*
@@ -3108,7 +3108,7 @@ A colon-separated list of directories in which the shell looks for dynamically l
 
 `BASH_REMATCH`
                                                                  *BASH_REMATCH*
-An array variable whose members are assigned by the `‘=~’` binary operator to the [[ conditional command (see [conditional constructs]). The element with index 0 is the portion of the string matching the entire regular expression. The element with index n is the portion of the string matching the nth parenthesized subexpression.
+An array variable whose members are assigned by the `=~` binary operator to the [[ conditional command (see [conditional constructs]). The element with index 0 is the portion of the string matching the entire regular expression. The element with index n is the portion of the string matching the nth parenthesized subexpression.
 
 `BASH_SOURCE`
                                                                   *BASH_SOURCE*
@@ -6673,7 +6673,7 @@ Index Entry     Section
 
     !:          |Special Parameters|
 
-#       
+#
                                                                   *index_pav_#*
 
     #:          |Special Parameters|
