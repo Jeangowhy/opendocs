@@ -6246,6 +6246,23 @@ instanceof 的右侧要求是一个构造函数，TypeScript 将细化为：
 	    // ... code goes here ...
 	}
 
+Typescript 类定义的字段字符串值（属性值字面量）可以转化为字面量类型吗？这种类型需要各 keyof 实现的 Index types 索引类型非常相似。
+
+```ts
+class T {
+    F1:string
+    F2:number
+    F3:boolean
+}
+
+function f(arg: T[keyof T]) { } // arg : string|number|boolean
+function v(arg:  keyof T) { }  // arg : key string of T
+
+f( 'string' ) // ok
+f(  123 )   // ok
+v( 'F1' )   // ok
+```
+
 ## Numeric Literal Types 数字字面量类型
 
 TypeScript还具有数字字面量类型。
@@ -6290,7 +6307,7 @@ TypeScript还具有数字字面量类型。
 - 一个类型别名包含了那些类型的联合 — 联合。
 - 此属性上的类型保护。
 
-首先我们声明了将要联合的接口。 每个接口都有 kind属性但有不同的字符串字面量类型。 kind 属性称做 可辨识的特征或 标签。 其它的属性则特定于各个接口。 注意，目前各个接口间是没有联系的。 下面我们把它们联合到一起：
+首先我们声明了将要联合的接口。 每个接口都有 kind 属性但有不同的字符串字面量类型。 kind 属性称做 可辨识的特征或 标签。 其它的属性则特定于各个接口。 注意，目前各个接口间是没有联系的。 下面我们把它们联合到一起：
 
 	type Shape = Square | Rectangle | Circle;
 
@@ -11800,13 +11817,52 @@ systemjs.config.js 为模块加载器提供了该到哪里查找应用模块的
 	npm start
 
 
-# ⚑ 在 JavaScript 工程使用 JSDoc 注解
+# ⚑ JavaScript JSDoc 注解
 - https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html
 - https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html
 - https://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 - https://www.typescriptlang.org/docs/handbook/declaration-files/dts-from-js.html
 
 JSDoc 是 JavaScript 工程的工具，可以用来激活 TypeScript 的类型检查机制。
+
+JSDoc Reference
+
+1. Types
+  1. @type
+  2. @param (or @arg or @argument)
+  3. @returns (or @return)
+  4. @typedef
+  5. @callback
+  6. @template
+  7. @satisfies
+2. Classes
+  1. Property Modifiers @public, @private, @protected, @readonly
+  2. @override
+  3. @extends (or @augments)
+  4. @implements
+  5. @class (or @constructor)
+  6. @this
+3. Documentation
+  1. @deprecated
+  2. @see
+  3. @link
+4. Other
+  1. @enum
+  2. @author
+  3. Other supported patterns
+  4. Unsupported patterns
+  5. Unsupported tags
+
+Documentation tags work in both TypeScript and JavaScript.
+
+
+```ts
+    try {
+      ...
+    } catch ( /** @ts-check {Error} */ ex ) {
+      console.warn(ex)
+    }
+```
 
 TypeScript 类型机制分为不同的严格级别：
 

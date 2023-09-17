@@ -2537,16 +2537,409 @@ GMSL 使用一个字符列表的长度来表示一个数字，字符可以随意
 Evosyn 这里提出了一个新的实现 https://evosyn.com/arithmake.html
 
 
-### 🐣 Multi threaded Download
+### 🐣 Multi threaded Download & Msys2 Packages
 
-What is the difference between curl and wget?
+GNU Make 不像 CMake 等现代的自动化构建工具，内部提供了基本的网络功能。但是，Make 可以通过 shell 与各种工具进行配合作战，一点不影响它发挥 Makefile 脚本的功能性。另外，Make 插件接口可以很方便接入 C/C++ 编写的程序，但是通常不需要这样做。直接通过 shell 配合 Node 或者 Deno 等开发平台，或者直接使用的命令行工具，如 curl 和 wget 等等就可以很好地完成网络访问功能。
 
-1. wget's major strong side compared to curl is its ability to download recursively.
-2. wget is command line only. There's no lib or anything, but curl's features are powered by libcurl.
-3. wget is released under a free software copyleft license (the GNU GPL). curl is released under a free software permissive license (a MIT derivate).
-1. curl supports FTP, FTPS, GOPHER, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMTP, RTMP and RTSP. wget supports HTTP, HTTPS and FTP.
-2. curl builds and runs on more platforms than wget.
-3. curl offers upload and sending capabilities. wget only offers plain HTTP POST support.
+关于 curl 和 wget，它们都是网络访问工具，前者依赖 libcurl，后者独立，都支持文件上传下载，分别使用 -F 和 --post-file 参数上传文件。另外，curl 默认输出到 stdout，wget 则是输出到文件，可以通过 -o stdout 重定向到标准输出文件。
+
+curl 通用性较好，并且支持常见的协议：FTP, FTPS, GOPHER, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMTP, RTMP and RTSP。wget 支持 HTTP, HTTPS and FTP。https://eternallybored.org/misc/wget/
+
+```sh
+curl https://packages.msys2.org/api/search?query=pkg-config
+curl -o pkg-config.json https://packages.msys2.org/api/search?query=pkg-config
+wget -q -O    - https://www.gnu.org/software/make/manual/html_node/index.html
+wget -q -o stdout https://www.gnu.org/software/make/manual/html_node/index.html
+wget -r -l=1 -L https://www.gnu.org/software/make/manual/html_node/index.html
+```
+
+当然，这些工具限制性较多，适用于简单的静态页面处理，这些下载工具非常专职，没有多线程模式，make 提供的多进程构建功能就可以很好地实现多线程下载。另外使用 Node 或者 Deno 平台，或者是 Python 等等，使用异步 I/O 就可以很方便实现类型多线程下载的功能。但是别忘了，这里是《面向 Makefile 编程》，并且 wget 不会检查是否已经下载过文件。
+
+另外，wget 实现了递归下载功能，很像曾经的 webzip 网站打包软件，可以下载页面上匹配条件的链接文件。需要使用 -l 和 -np 参数来避免下载整个站点，除非确实是这样的目的：
+
+    -r 或者 -recursive 激活递归下载；
+    -l, --level=Number 设置递归深度，比如 -l=2；
+    -L, --relative 只跟随相对路径，避免下载到整个站点的文件；
+    -np, --no-parent 递归下载时不搜索上层目录；
+    -nd, --no-directories不创建层级目录，统一存放到当前目录；  
+    -k, –convert-links 下载页面后将内容链接地址转换为相对链接，方便本地打开；
+    -p, --page-requisties 下载网页使用到的文件，如图片、样式表、脚本等；
+    -A, --accept=List 指定要下载的文件类型列表，用逗号分隔；  
+    -R, --reject=List 指定不要下载的文件类型列表，用逗号分隔；  
+
+使用 make 多进程下载，首先就必需“搞”到文件链接地址列表。但是 make 虽然天生就是处理字符串的宏编程工具，但是它是专职于构建系统的，提供的字符串处理函数也是基于文件名的处理。即使是其内置的 patsust 字符串替换函数，也只是按“空格”、“Tab”或“换行”作为分隔的列表进行字符串的替换操作，本身不提供向字符串插入功能字符的功能，如插入换行符这种操作是不能够的。
+
+因此，在处理 JSON 这样的数据时需要使用 jq 这样的外部工具来打配合，或者更自由的方案是编写 Node 或者 Deno 等等平台的 JavaScript/TypeScript 脚本扩展。JSON 作为一个通用数据格式规范，应该领域非常广泛，个人认为它的价值超过 XML 格式，至少比 XML 节能多了。https://jqlang.github.io/jq/
+
+jq 是命令行工具，它可以格式化 json 数据，也可以指定 filter 过滤器来查询 json 中对应的数据。最基本的就是 . 这个过滤器，它表示等值，输入什么就输出什么。然后就是各种获取指定数据的过滤器，这里介绍几种最基础最常用的：
+
+1. Object Identifier-Index: .string
+2. Object Index: [string]
+3. Array Index: [number]
+4. Array/String Slice: .[<number>:<number>] 
+
+示范使用 curl 和 jq 处理 Msys2 软件包 API 接口数据，接口返回 JSON 数据会包含软件包在 Msys2 数据库中的精确匹配、模糊匹配到的名字，：
+
+    {"query":"pkg-config","qtype":"pkg","results":{"exact":{"name":"mingw-w64-pkg-config"...
+
+如果 json 文件已经下载到本地还可以直接使用 more or less 命令配合管道操作符将文件内容传递给 jq 命令进行解析，以下命令提供参考，最终输出结果是 "mingw-w64-pkg-config"：
+
+```sh
+curl https://packages.msys2.org/api/search?query=jq | jq .results.exact.name
+curl https://packages.msys2.org/api/search?query=pkg-config | jq .results.exact.name
+more pkg-config.json | jq .results.exact.name
+less pkg-config.json | jq .results.exact.name
+```
+
+这里给 Msys2 作个简要介绍，并说明如何从 Cygwin 发展到 MinGW，再到 Msys2 交叉编译环境。
+
+1995 年 Cygnus 工程师 Steve Chamberlain 发现 Windows 系统使用的 COFF 目标文件，即可执行文件格式，与此同时 GNU 的工具链已经支持 x86 和 COFF 的目标文件，并提供 C 语言库 newlib，这是嵌入式系统上的 C 标准库的实现。他认为既然 GNU 的工具链已经能够编译生成 x86 指令集的机器码，并可链接生成 COFF 格式的目标文件，而且还提供可移植到任意平台的 C 标准库 newlib, 那么理论上只要将 GCC 根据对应目标平台重新编译，重定向作为一个交叉编译器。那么这个 GCC 编译器可以生成 Windows 平台下的可执行文件。Steve Chamberlain 开发出原型，将他这个项目命名为 Cygwin。
+
+Cygwin 的编译和调用方式需要依赖一层 POSIX 到 Windows API 的中间层，比起日渐庞大的 Cygwin, 或许一个最小化且不需要中间层 GNU 工具链更能满足一些开发的需求, 于是 Colin Peters 在 1998 年创建了一个开源项目并撰写了最初的版本，将其命名为 mingw32 (Minimalist GNU for W32)。其意思就是 Windows 上的最小化 GNU 工具链，Windows 简称为 W32。后来为了避免暗示它仅限于生成 32 位二进制文件，就移除名称中的 32 变成 MinGW。
+
+Msys 2.0 也是为 Windows 系统提供 Unix 类系统编译环境的基础平台软件，它是基于现代 Cygwin 和 MinGW，对 MSys 的独立重写版本。MSYS2 vs Cygwin，MSYS2 中的 Unix 类工具直接基于 Cygwin，因此两者存在一些功能重叠。Cygwin 专注于在 Windows 上按原样构建 Unix 软件，MSYS2 则专注于构建基于 Windows API 的本地软件。也就是说，Cygwin 移植更彻底，这就是为何 Cygwin POSIX 到 Windows 的中间层特别巨大。
+
+有了 Msys2 就可以在 Windows 开发 Unix 应用程序，并构建出可以运行在 Windows 系统环境中的应用程序。Msys2 本身基于 Cygwin 构建，结合了 Arch Linux 的 pacman 依赖管理工具，使用它可以很方便地安装需要的组件，比如 ARM 嵌入式开发需要使用 GCC 交叉编译。
+
+MSYS2 提供一个 Unix 类系统环境外，还有 shell 命令行界面和软件库，使得在 Windows 上安装、使用、构建和移植软件更加容易。这意味着 Bash, Autotools, Make, Git, GCC, GDB 等等 GNU 软件都可以通过 Pacman 软件包管理工具进行安装。
+
+比如，安装 pkg-config 应用就可以执行以下命令安装，这是一个开发环境的依赖处理工具，可以用它来检测依赖库文件的位置信息，并生成 GCC 或 MSVC 编译器命令行参数：
+
+```sh
+pacman -S pkg-config
+pkg-config --cflags --short-errors "guile-3.0"
+# -IC:/MinGW/include/guile/3.0 -I/usr 
+pkg-config --libs --static --short-errors --msvc-syntax "guile-2.0"
+# /libpath:C:/MinGW/lib /libpath:d:/usr/lib /libpath:$(libdir) /libpath:d:/usr/lib 
+# guile-2.0.lib gc.lib gmp.lib ltdl.lib ffi.lib unistring.lib intl.lib iconv.lib crypt.lib ws2_32.lib m.lib 
+```
+
+Msys2 基础软件仓库有三个：
+
+1. msys2: MSYS2-dependent software
+2. mingw64: 64-bit Windows 原生应用程序，使用 mingw-w64 x86_64 编译工具链编译；
+3. mingw32: 32-bit Windows 原生应用程序，使用 mingw-w64 i686 编译工具链编译；
+
+目前，已经发展出包括 LLVM 编译工具链的共 7 大软件仓库，它们的软件包命名规则如下：
+
+    |            | Name         | Package prefix
+    | ---------- | ------------ |-------------- |
+    | msys       | MSYS        | None
+    | mingw64    | MINGW64     | mingw-w64-x86_64-
+    | ucrt64     | UCRT64      | mingw-w64-ucrt-x86_64-
+    | clang64    | CLANG64     | mingw-w64-clang-x86_64-
+    | mingw32    | MINGW32     | mingw-w64-i686-
+    | clang32    | CLANG32     | mingw-w64-clang-i686-
+    | clangarm64 | CLANGARM64  | mingw-w64-clang-aarch64-
+     
+     Name: environment variable MSYSTEM 
+     Package: environment variable MINGW_PACKAGE_PREFIX
+
+为了避免使用长前缀名，可以使用 bash pacboy 脚本替代 pacman 执行软件包安装，在软件包名指定一个简写后缀即可：
+
+    For 64-bit MSYS2 shell:
+        name:i means i686-only
+        name:x means x86_64-only
+        name:z means clang-i686-only
+        name:c means clang-x86_64-only
+        name:u means ucrt-x86_64-only
+        name:a means clang-aarch64-only
+        name:p means MINGW_PACKAGE_PREFIX-only
+    For MSYS shell:
+        name:m means mingw-w64
+        name:l means mingw-w64-clang
+
+    For all shells:
+        name: disables any translation for name
+
+Pacboy 脚本可能需要通过 pacman 安装，如果不默认没有提供；
+
+```sh
+> pacman -S pactoys
+> bash pacboy -S jq:x
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (4) mingw-w64-x86_64-gcc-libs-13.2.0-2
+             mingw-w64-x86_64-libwinpthread-git-11.0.0.r147.gddc5b0f6e-1
+             mingw-w64-x86_64-oniguruma-6.9.8-1
+             mingw-w64-x86_64-jq-1.7-1
+
+Total Download Size:   1.52 MiB
+Total Installed Size:  6.18 MiB
+
+:: Proceed with installation? [Y/n] y
+```
+
+秉承生命就是折腾的原则，这里不使用 pacman 这么好用的软件包管理工具，因为它确实太好用了，我就想用 Makefile 锤它。
+
+Msys2 虽然提供了一套 API，但是提供的功能太简单了，只负责查软件包的名字，至于其依赖还得通过返回的 JSON 数据去对应的 Web 页面上找。因为，其本身提供的 Pacman 就提供了自动依赖处理功能。
+
+既然决定要用 Makefile 这把锤，那么就用尝试用 Node.js 给它装上舒服一点的锤把手：编写一个模块脚本处理 Web 页面的文件链接地址列表。
+
+这里使用 Node 进行 JavaScrip/TypesScript 脚本编程需要了解决的一些基本概念：
+
+1. 每个 .js 脚本文件就是一个 Node 模块；
+2. 每个脚本模块在 Node 加载运行时，会通过模块加载器传入以下参数：
+3. process 引用当前 Node 进程，可以通过它获取当前运行环境信息，包括命令行参数；
+4. module 当前模块的引用，它包含 exports 变量，用于导出模块中需要导出的符号；
+
+命令行参数保存在 `process.argv` 变量，是字符串列表，首个元素即 0 号索引对应的是 Node 进程文件路径，其次是当前脚本模块路径，后面是其它命令行参数。使用 `length` 属性可以获取命令行参数数量，甚至还可以使用 `Object.keys(process.argv).length`。
+
+Node 模块没有默认入口函数，将模块脚本传递给 node 命令就执行它，如果执行取决于模块代码逻辑。但是有一个默认导出符号 exports.default，默认导出符号和 exports 其它所有导出符号构成整个模块的可以供外部调用的接口。使用 require() 方法就可以引用其它脚本模块，或者在最新版本中，使用 import 引用 ESM 规范模块。
+
+Node 模块实现代码放到面，现在来实现 Makefile 脚本：
+
+1. 定义了 Trace 调试宏函数，设置 TRACE 变量就可以激活它打印函数调用信息；
+2. 定义了 counter 计数器，此函数借用了 shell 环境中的 $((a+b)) 算术语法；
+3. 定义了一个 PACKGE 指定记录等下载的文件列表，列表使用 file 读取；
+4. 每个待下载文件将使用静态匹配规则映射为使用 foeach 生成的 pkg1 pkg2 pkg3 ...；
+5. 获取文件列表使用 %.init 规则，调用 shell 命令执行 Node 的 JavaScript 脚本获得；
+
+counter 计数器将用来映射 PACKAGE 文件列表，每一个行使用前缀名 pkg 加序号表示，映射后的名称就可以作为规则中的 Target 命令使用，因为所以文件没有依赖关系，都是独立的构建目标。通过 -jN 指定 Makefile 运行的进程数据，即可以实现多进程下载。但有一个问题：如果手动更新列表文件，那么 Makefile 脚本执行时就会执行初始目标的构建，去调用外部脚本获取新的列表： 
+
+    make clean
+    make init
+    make download -j8
+
+```makefile
+# TRACE = 1
+ifdef TRACE
+Trace = $(warning $0('$1','$2'))
+else
+Trace :=
+endif
+
+# $(call counter, 1) = 1
+# $(call counter, 2) = 3
+# $(call counter,-3) = 0
+counter = $(Trace)$(strip $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID) )
+
+PACKAGE = packages.mk
+
+all: download
+
+download : init $(foreach X,$(file < $(PACKAGE)),pkg$(call counter,1))
+    @echo "All packages: $^"
+
+pkg% : init
+#   @echo "💻simu-download: $(word $*,$(file < $(PACKAGE)))"
+    @echo "💻simu-download: $@"
+    @sleep 0.5
+
+init : pkg-config jq
+
+pkg-config jq : % : %.init
+    @echo "|||$@"
+
+%.init : $(PACKAGE)
+    @echo "init: $@ "
+    $(shell node.exe msys2pac.js mingw64 "$*" >> $(PACKAGE))
+    touch $*.init
+
+$(PACKAGE) :
+    @echo "clear $(PACKAGE)"
+    $(shell echo "" > $(PACKAGE))
+
+clean : 
+    $(RM) pkg-config.init jq.init $(PACKAGE)
+```
+
+以下为 Node 脚本模拟扩展，供 Make 调用以获取 Msys2 软件仓库中软件包以及依赖包下载地址，暂时命名为 msys2pac.js，和 Makefile 脚本中调用一致即可。此脚本将近 200 行，对于《面向 Makefile 编程》来说，有点“夺目”了。这里就作一个简单的说明：
+
+1. 脚本中设置了一个 help() 函数，在输入参数不正确时提示使用方法；
+2. 脚本中使用了 Fetch API，这是 Node 试用特性，为了消隐警告信息重置了 warning 事件；
+3. Prefix ApiInfo PackageInfo 等等都用于说明 Msys2 API 接口返回的 JSON 数据结构引入的类型定义，目标是为启用 TypeScript LSP 服务智能提示参考；
+
+以上这些辅助性功能就占据脚本将近一半，接下来主要是三个功能函数，用于查询软件包归属的分类，并分类页面提供的地址去提供出 Web 页面的下载地址。因为依赖关系是多层的，脚本中设置了 3 层页面跳转。脚本并不一定处理好所有依赖包，目前只处理了常规的依赖包页面，还有 Virtual Package，至于会不会有其它特殊的页面还不清楚，这可能会导致脚本运行报错，就需要根据具体问题进行处理。
+
+    async function search_api(pkg)
+    async function packages_list(pkg, repo, maxLevel=3)
+    async function packages_recursive(url, level) 
+
+
+```ts
+// Filter Msys2 Package File and Dependencies
+const path = require('node:path')
+const fs = require('node:fs')
+const { stdin, stdout } = require('node:process')
+
+const argc = Object.keys(process.argv).length
+const script = path.basename(process.argv[1])
+const DOESNT = "Package doesn't exist"
+const VIRTUAL_PACKAGE = "Virtual Package"
+
+function help() {
+    console.info(`Usage of ${script}:
+----------------------------
+    node msys2pac.js repo msys2_package_name
+
+    where repo can be:
+    1. ${Prefix.repo_clang32} 
+    2. ${Prefix.repo_clang64} 
+    3. ${Prefix.repo_clangarm64}
+    4. ${Prefix.repo_mingw32} 
+    5. ${Prefix.repo_mingw64} 
+    6. ${Prefix.repo_ucrt64} 
+
+    ex.
+    node msys2pac.js ${Prefix.repo_mingw64} jq
+    `)
+}
+
+// Replce default warning event handler, and comstom it to skip known warnings
+process.removeAllListeners('warning');
+process.on('warning', (warning) => {
+  let { name, message } = warning;
+  if (name === 'ExperimentalWarning' && message.indexOf('Fetch API') > -1)
+    return;
+  if (name === 'DeprecationWarning' && message.indexOf('Obsolete loader hook') > -1)
+    return;
+
+  console.warn({warning});
+});
+
+class Prefix {
+    static arch_x86_64 = "x86_64"
+    static arch_i686 = "i686"
+    static arch_aarch64 = "aarch64"
+    static repo_clang32 = 'clang32'
+    static repo_clang64 = 'clang64'
+    static repo_clangarm64 = 'clangarm64'
+    static repo_mingw32 = 'mingw32'
+    static repo_mingw64 = 'mingw64'
+    static repo_ucrt64 = 'ucrt64'
+    static prefix_msys2 = "mingw-w64"
+    static prefix_mingw64 = "x86_64"
+    static prefix_ucrt64 = "ucrt-x86_64"
+    static prefix_clang64 = "clang-x86_64"
+    static prefix_mingw32 = "i686"
+    static prefix_clang32 = "clang-i686"
+    static prefix_clangarm64 = "clang-aarch64"
+    static repo_list() { 
+        return [ Prefix.repo_clang32, Prefix.repo_clang64, Prefix.repo_clangarm64, 
+               Prefix.repo_mingw32, Prefix.repo_mingw64, Prefix.repo_ucrt64,]
+    } 
+}
+
+class ApiInfo {
+    query = "string"
+    qtype = "string"
+    results = { exact: new PackageInfo, other: new PackageInfo }
+}
+
+class PackageInfo {
+    name = "string"
+    realname = "string"
+    url = "string"
+    version = "string"
+    descriptions = "string"
+    arches = ["string"]
+    repos = ["string"]
+    source_url = ["string"]
+    build_date = "integer"
+    licenses = ["string"]
+    groups = ["string"]
+}
+
+
+/** 
+ * @param {string} pkg
+ * @return {Promise<PackageInfo>}
+ */
+async function search_api(pkg) {
+    const url = `https://packages.msys2.org/api/search?query=${pkg}`
+    return await fetch(url).then(res=>{
+        return res.json()
+    }).then( (/** @type {ApiInfo} */ json)=>{
+        if (Object.keys(json.results.exact).length===0) {
+            throw DOESNT+' '+pkg;
+        }
+        return json.results.exact
+    }).catch(error=>{
+        console.warn( {url, pkg, error} )
+        Promise.reject('search_api()') 
+    }) 
+}
+
+/**
+ * @param {string} pkg
+ * @param {string} repo
+ * @return {Promise<string[]>} list
+ */
+async function packages_list(pkg, repo, maxLevel=3) {
+    const repo_ = Prefix["prefix_"+repo]
+    const msys_ = Prefix.prefix_msys2
+    const url = `https://packages.msys2.org/package/${msys_}-${repo_}-${pkg}?repo=${repo}`
+    return await packages_recursive(url, maxLevel-1)
+}
+
+async function packages_recursive(url, level) {
+    return await fetch(url).then(res=>{
+        return res.text()
+    }).then( async text=>{
+        if (text.indexOf(DOESNT) > -1) {
+            throw DOESNT
+        }
+        if (text.indexOf(VIRTUAL_PACKAGE) > -1) {
+            try {
+                const file = text.split('Provided By:')[1].split(/href=["']/)[1].split(/['"]/)[0]
+                if (level > 0) {
+                    return packages_recursive(file, level-1)
+                } else {
+                    return [file]
+                }
+            } catch (ex) { throw ex }
+        }
+        try {
+            const file = text.split(/File:/)[1].split(/href="/)[1].split(/'|"/)[0]
+            const deps = text.split('Dependencies:')[1].split('</ul>')[0].matchAll(/http[^"'>]+/g)
+            const list = [file]
+            for( let it of deps) {
+                if( level > 0 ) {
+                    try {
+                        const cds = await packages_recursive(it[0], level-1)
+                        list.push(...cds)
+                    } catch (ex) {
+                        list.push(ex)
+                    }
+                } else {
+                    list.push( it[0] )
+                }
+            }
+            return list
+        } catch ( /** @ts-check {Error} */ ex ) {
+            throw ex
+        }
+    }).catch(error=>{
+        console.warn( {url, level, error} )
+        Promise.reject('package_list()') 
+    }) 
+}
+
+
+const repo = process.argv[2]
+const pkg = process.argv[3]
+
+if (process.argv.length!==4) {
+    help();
+} else if ( Prefix.repo_list().indexOf(repo) !== -1) {
+    (async ()=> {
+        const res = await search_api(pkg)
+        if (res.repos.indexOf(repo) > -1) {
+            const list = await packages_list(pkg, repo);
+            stdout.write(list.join('\n')+"\n")
+        } else {
+            console.log("No match version: ", repo, res)
+        }
+    })()
+} else {
+    console.log( "Not a vaild input:", process.argv[2])
+    help()
+}
+```
+
 
 
 ### 🐣 C/C++ Project Templates
@@ -2637,6 +3030,8 @@ watch "echo ---====+ Watching +====--- && make -j4 -Otarget" --wait 0.1 -f filte
 
 ```js
 const fs = require('node:fs')
+const path = require('node:path')
+const list = ["filter.js","Makefile","EMakefile","m4tutor.m4","hi.scm"]
 
 /**
  * @param {string}   f   - File name
@@ -2652,7 +3047,7 @@ function filter (f, curr, prev) {
     } else {
         // file was changed
     }
-    return ["filter.js","Makefile","EMakefile"].indexOf(f)>=0 && curr.isFile
+    return list.indexOf( path.basename(f) )>=0 && curr.isFile
 }
 
 module.exports = filter;
