@@ -4721,3 +4721,1353 @@ ctrl+shift+space:代码提示
 问题就出在插件 AutoFileName 上，它会自动把这个字符串的斜杠删除;
 
 解决方法:在插件 AFN 的 setting-user 里添加一行 "afn_use_project_root": true 即可。
+
+
+
+# 📜 www.sublimetext.com docs
+
+Use wget to download all Sublime Text Docs:
+
+    wget -r -k -L -np  https://www.sublimetext.com/docs/index.html
+
+The following pages contain the official documentation for Sublime Text. The
+Sublime Text Unofficial Documentation https://docs.sublimetext.io/ is an
+excellent supplementary resource, with a huge amount of information not covered
+in the official documentation.
+
+1. - Usage
+    01. Tab Multi-Select  https://www.sublimetext.com/docs/tab_multi-select.html
+    02. Git Integration  https://www.sublimetext.com/docs/git_integration.html
+    03. Incremental Diff  https://www.sublimetext.com/docs/incremental_diff.html
+    04. Indexing  https://www.sublimetext.com/docs/indexing.html
+    05. Command Line Interface  https://www.sublimetext.com/docs/command_line.html
+    06. Column Selection  https://www.sublimetext.com/docs/column_selection.html
+    07. Multiple Selection with the Keyboard  https://www.sublimetext.com/docs/multiple_selection_with_the_keyboard.html
+    08. Completions  https://www.sublimetext.com/docs/completions.html
+    09. Distraction Free Mode  https://www.sublimetext.com/docs/distraction_free.html
+    10. Vintage Mode  https://www.sublimetext.com/docs/vintage.html
+    11. Projects  https://www.sublimetext.com/docs/projects.html
+
+2. - Customization
+    1. Settings  https://www.sublimetext.com/docs/settings.html
+    2. Key Bindings  https://www.sublimetext.com/docs/key_bindings.html
+    3. Font Settings  https://www.sublimetext.com/docs/font.html
+    4. Indentation Settings  https://www.sublimetext.com/docs/indentation.html
+    5. Spell Checking  https://www.sublimetext.com/docs/spell_checking.html
+    6. Build Systems  https://www.sublimetext.com/docs/build_systems.html
+    7. Packages  https://www.sublimetext.com/docs/packages.html
+    8. Selectors  https://www.sublimetext.com/docs/selectors.html
+    9. File Patterns  https://www.sublimetext.com/docs/file_patterns.html
+
+3. - Miscellaneous
+    1. GPU Rendering  https://www.sublimetext.com/docs/gpu_rendering.html
+    2. Operating System Compatibility  https://www.sublimetext.com/docs/os_compatibility.html
+    3. Linux Package Manager Repositories  https://www.sublimetext.com/docs/linux_repositories.html
+    4. Safe Mode  https://www.sublimetext.com/docs/safe_mode.html
+    5. Reverting to a Freshly Installed State  https://www.sublimetext.com/docs/revert.html
+    6. Running 3 and 4 Side by Side  https://www.sublimetext.com/docs/side_by_side.html
+    7. Accessing Previous Versions  https://www.sublimetext.com/docs/previous_versions.html
+    8. Ligatures  https://www.sublimetext.com/docs/ligatures.html
+
+4. - Package Development
+    1. Color Schemes  https://www.sublimetext.com/docs/color_schemes.html
+    2. Themes  https://www.sublimetext.com/docs/themes.html
+    3. Menus  https://www.sublimetext.com/docs/menus.html
+    4. API Environments  https://www.sublimetext.com/docs/api_environments.html
+    5. API Reference  https://www.sublimetext.com/docs/api_reference.html
+    6. Syntax Definitions  https://www.sublimetext.com/docs/syntax.html
+    7. Scope Naming  https://www.sublimetext.com/docs/scope_naming.html
+    8. minihtml Reference  https://www.sublimetext.com/docs/minihtml.html
+    9. Plugin Porting Guide  https://www.sublimetext.com/docs/porting_guide.html
+
+
+# 1. 📜 Usage
+## 01. 🖐 Tab Multi-Select
+https://www.sublimetext.com/docs/tab_multi-select.html
+
+## 02. 🖐 Git Integration
+https://www.sublimetext.com/docs/git_integration.html
+
+## 03. 🖐 Incremental Diff
+https://www.sublimetext.com/docs/incremental_diff.html
+
+## 04. 🖐 Indexing
+https://www.sublimetext.com/docs/indexing.html
+
+## 05. 🖐 Command Line Interface
+https://www.sublimetext.com/docs/command_line.html
+
+## 06. 🖐 Column Selection
+https://www.sublimetext.com/docs/column_selection.html
+
+## 07. 🖐 Multiple Selection with the Keyboard
+https://www.sublimetext.com/docs/multiple_selection_with_the_keyboard.html
+
+## 08. 🖐 Completions
+https://www.sublimetext.com/docs/completions.html
+
+## 09. 🖐 Distraction Free Mode
+https://www.sublimetext.com/docs/distraction_free.html
+
+## 10. 🖐 Vintage Mode
+https://www.sublimetext.com/docs/vintage.html
+
+## 11. 🖐 Projects
+https://www.sublimetext.com/docs/projects.html
+
+
+# 2. 📜 Customization
+## 1. 🖐 Settings
+https://www.sublimetext.com/docs/settings.html
+
+## 2. 🖐 Key Bindings
+https://www.sublimetext.com/docs/key_bindings.html
+
+## 3. 🖐 Font Settings
+https://www.sublimetext.com/docs/font.html
+
+## 4. 🖐 Indentation Settings
+https://www.sublimetext.com/docs/indentation.html
+
+## 5. 🖐 Spell Checking
+https://www.sublimetext.com/docs/spell_checking.html
+
+## 6. 🖐 Build Systems
+https://www.sublimetext.com/docs/build_systems.html
+
+## 7. 🖐 Packages
+https://www.sublimetext.com/docs/packages.html
+Packages are a collection of resource files used by Sublime Text: plugins, syntax highlighting definitions, menus, snippets and more. Sublime Text ships with several packages, and more user created ones are available.
+
+Packages are stored in .sublime-package files, which are zip files with a different extension. Packages may also be stored unzipped within a directory, or a mix of the two: any loose files in the package directory will override files stored in the .sublime-package file.
+
+1. Locations
+2. Special Packages
+3. Creating a New Package
+4. Overriding Files From a Zipped Package
+
+### 🍀 Locations🔗
+Zipped packages may be stored in:
+
+    <executable_path>/Packages/
+
+    <data_path>/Installed Packages/
+
+Loose packages may be stored in:
+
+    <data_path>/Packages/
+
+For example, the package Python is stored in `<executable_path>/Packages/Python.sublime-package`, and any files in the `<data_path>/Packages/Python/` directory will override those stored in the .sublime-package file.
+
+In general, `<executable_path>/Packages/` is for packages that ship with Sublime Text, and `<data_path>/Installed Packages/` is for packages installed by the user.
+
+### 🍀 Special Packages🔗
+There are two special packages: Default and User. Default is always ordered first, and User is always ordered last. Package ordering comes into effect when merging files between packages, for example Main.sublime-menu. Any package may contain a file called Main.sublime-menu, however this won’t override the main menu, instead the files will be merged according to the order of the packages.
+
+Packages other than Default and User are ordered alphabetically.
+
+### 🍀 Creating a New Package🔗
+To create a new package, simply create a new directory under `<data_path>/Installed Packages/`. You can access this directory from the Preferences ▶ Browse Packages menu.
+
+### 🍀 Overriding Files From a Zipped Package🔗
+To override a file in an existing package, just create a file with the same name under the Packages/`<Package Name>/` directory.
+
+For example to override the file `function.sublime-snippet` in the Python.sublime-package package that ships with Sublime Text, create a directory called Python under the `<data_path>/Packages/` directory, and place your `function.sublime-snippet` file there.
+
+
+## 8. 🖐 Selectors
+https://www.sublimetext.com/docs/selectors.html
+
+## 9. 🖐 File Patterns
+https://www.sublimetext.com/docs/file_patterns.html
+
+
+# 3. 📜 Miscellaneous
+## 1. 🖐 GPU Rendering
+https://www.sublimetext.com/docs/gpu_rendering.html
+
+## 2. 🖐 Operating System Compatibility
+https://www.sublimetext.com/docs/os_compatibility.html
+
+## 3. 🖐 Linux Package Manager Repositories
+https://www.sublimetext.com/docs/linux_repositories.html
+
+## 4. 🖐 Safe Mode
+https://www.sublimetext.com/docs/safe_mode.html
+
+## 5. 🖐 Reverting to a Freshly Installed State
+https://www.sublimetext.com/docs/revert.html
+
+## 6. 🖐 Running 3 and 4 Side by Side
+https://www.sublimetext.com/docs/side_by_side.html
+
+Sublime Text 4 will use the same data directory as Sublime Text 3, so it will pickup exactly where you left off in version 3. You can configure this, however. Sublime Text 4 chooses what data directory to use by:
+
+1. If the ST4 data directory exists, use that
+2. Otherwise, if the ST3 data directory exists, use that
+3. Finally, if neither exist, create the ST4 data directory
+
+To keep ST4 and ST3 using different data directories, you’ll need to manually create the ST4 one. The exact path for this directory depends on your operating system:
+
+    Windows: %APPDATA%\Sublime Text
+    Mac:    ~/Library/Application Support/Sublime Text
+    Linux:  ~/.config/sublime-text
+
+For reference, the ST3 data directory is in the same location, but has a 3 on the end.
+
+Mac🔗
+
+On Mac, the `~/Library` directory is hidden by default. To navigate there, select the Go ▶ Go to Folder menu item in Finder, and type in `~/Library`.
+
+
+## 7. 🖐 Accessing Previous Versions
+https://www.sublimetext.com/docs/previous_versions.html
+
+Sublime Text 4 has been released, and we’re very excited to share the major improvements with our community.
+
+It may be the case though that you wish to continue using previous versions, and that’s completely fine! You’ve got permanent access to all Sublime Text versions released before the date of your license expiry.
+
+### 🍀 How to access previous versions🔗
+
+Download and install a previous version
+
+1. Sublime Text 4 https://www.sublimetext.com/download
+2. Sublime Text 3 https://www.sublimetext.com/3
+3. Sublime Text 2 https://www.sublimetext.com/2
+4. Sublime Text 1 https://www.sublimetext.com/1
+
+(Optional): disable update checks by navigating to Preferences ▶ Settings and adding "update_check": false.
+
+### 🍀 Downloading specific versions🔗
+If you need to download a specific build of Sublime Text you can try looking up the links using this tool. Note that not all versions are available and some links may lead nowhere.
+
+01. macOS  https://download.sublimetext.com/sublime_text_build_4000_mac.zip
+02. Windows 32bit installer  https://download.sublimetext.com/sublime_text_build_4000_x32_setup.exe
+03. Windows 32bit portable zip  https://download.sublimetext.com/sublime_text_build_4000_x32.zip
+04. Windows 64bit installer  https://download.sublimetext.com/sublime_text_build_4000_x64_setup.exe
+05. Windows 64bit portable zip  https://download.sublimetext.com/sublime_text_build_4000_x64.zip
+06. Linux 64bit deb package  https://download.sublimetext.com/sublime-text_build-4000_amd64.deb
+07. Linux 64bit rpm package  https://download.sublimetext.com/sublime-text-4000-1.x86_64.rpm
+08. Linux 64bit pkg package  https://download.sublimetext.com/sublime-text-4000-1-x86_64.pkg.tar.xz
+09. Linux 64bit tar archive  https://download.sublimetext.com/sublime_text_build_4000_x64.tar.xz
+10. Linux arm64 deb package  https://download.sublimetext.com/sublime-text_build-4000_arm64.deb
+11. Linux arm64 pkg package  https://download.sublimetext.com/sublime-text-4000-1-aarch64.pkg.tar.xz
+12. Linux arm64 tar archive  https://download.sublimetext.com/sublime_text_build_4000_arm64.tar.xz
+
+JavaScript Generate
+
+```js
+var BASE_URL = 'https://download.sublimetext.com'
+var LINK_LIST_ELEMENT = document.getElementById("link-list");
+var VERSION_INPUT_ELEMENT = document.getElementById("version-input");
+
+var LINK_TEMPLATES = [
+    ['macOS', [
+        [3000, '/Sublime Text Build VERSION.dmg'],
+        [4000, '/sublime_text_build_VERSION_mac.zip'],
+    ]],
+    ['Windows 32bit installer', [
+        [3000, '/Sublime Text Build VERSION Setup.exe'],
+        [4000, '/sublime_text_build_VERSION_x32_setup.exe']
+    ]],
+    ['Windows 32bit portable zip', [
+        [3000, '/Sublime Text Build VERSION.zip'],
+        [4000, '/sublime_text_build_VERSION_x32.zip'],
+    ]],
+    ['Windows 64bit installer', [
+        [3000, '/Sublime Text Build VERSION x64 Setup.exe'],
+        [4000, '/sublime_text_build_VERSION_x64_setup.exe'],
+    ]],
+    ['Windows 64bit portable zip', [
+        [3000, '/Sublime Text Build VERSION x64.zip'],
+        [4000, '/sublime_text_build_VERSION_x64.zip'],
+    ]],
+    ['Linux 64bit deb package', [
+        [3000, '/sublime-text_build-VERSION_amd64.deb'],
+        [4000, '/sublime-text_build-VERSION_amd64.deb'],
+    ]],
+    ['Linux 64bit rpm package', [
+        [3000, '/sublime-text-VERSION-1.x86_64.rpm'],
+        [4000, '/sublime-text-VERSION-1.x86_64.rpm'],
+    ]],
+    ['Linux 64bit pkg package', [
+        [3000, '/sublime-text-VERSION-1-x86_64.pkg.tar.xz'],
+        [4000, '/sublime-text-VERSION-1-x86_64.pkg.tar.xz'],
+    ]],
+    ['Linux 32bit tar archive', [
+        [3000, '/sublime_text_3_build_VERSION_x32.tar.bz2'],
+        [4000, null],
+    ]],
+    ['Linux 64bit tar archive', [
+        [3000, '/sublime_text_3_build_VERSION_x64.tar.bz2'],
+        [4000, '/sublime_text_build_VERSION_x64.tar.xz'],
+    ]],
+    ['Linux arm64 deb package', [
+        [4000, '/sublime-text_build-VERSION_arm64.deb'],
+    ]],
+    ['Linux arm64 pkg package', [
+        [4000, '/sublime-text-VERSION-1-aarch64.pkg.tar.xz'],
+    ]],
+    ['Linux arm64 tar archive', [
+        [4000, '/sublime_text_build_VERSION_arm64.tar.xz'],
+    ]],
+];
+
+function generate_links() {
+    var version = VERSION_INPUT_ELEMENT.valueAsNumber;
+
+    var urls = [];
+    for (var i = 0; i < LINK_TEMPLATES.length; i++) {
+        var url = null;
+        for (var j = 0; j < LINK_TEMPLATES[i][1].length; ++j) {
+            if (LINK_TEMPLATES[i][1][j][0] > version) break;
+
+            url = LINK_TEMPLATES[i][1][j][1];
+        }
+
+        if (url !== null) {
+            urls.push([LINK_TEMPLATES[i][0], BASE_URL + url.replace('VERSION', version)]);
+        }
+    }
+
+    if (urls.length > 0)
+    {
+        LINK_LIST_ELEMENT.textContent = '';
+        for (var i = 0; i < urls.length; ++i) {
+            var li = document.createElement('li');
+            var link = document.createElement('a');
+            link.href = urls[i][1];
+            link.textContent = urls[i][0];
+            li.appendChild(link);
+            LINK_LIST_ELEMENT.appendChild(li);
+        }
+    }
+    else
+    {
+        LINK_LIST_ELEMENT.textContent = 'Invalid build number';
+    }
+}
+
+(function() {
+    var build = VERSION_INPUT_ELEMENT.value;
+
+    var params = new URLSearchParams(window.location.search);
+    var param_build = params.get('build');
+    if (param_build)
+        build = param_build;
+
+    if (build) {
+        VERSION_INPUT_ELEMENT.value = build;
+        generate_links();
+    }
+})();
+```
+
+### 🍀 Support🔗
+If anything doesn’t work as expected, don’t hesitate to reach out on the forum and we’ll do our best to get things working smoothly again for you. Thank you for being part of the Sublime Text family, and we hope you continue to enjoy using Sublime Text!
+
+
+## 8. 🖐 Ligatures
+https://www.sublimetext.com/docs/ligatures.html
+
+
+# 4. 📜 Package Development
+## 1. 🖐 Color Schemes
+https://www.sublimetext.com/docs/color_schemes.html
+
+## 2. 🖐 Themes
+https://www.sublimetext.com/docs/themes.html
+
+## 3. 🖐 Menus
+https://www.sublimetext.com/docs/menus.html
+
+## 4. 🖐 API Environments
+https://www.sublimetext.com/docs/api_environments.html
+
+
+
+Plugins in Sublime Text are Python files located in the root of a package. The following document describes the Python environment the plugins are run in.
+
+1. Overview
+2. Python Version
+3. Selecting the Python Version   4050
+4. Modules
+5. Pre-Installed Packages  4050
+
+### 🍀 Overview 🔗
+
+Sublime Text runs plugins in a separate process from the main editor UI. This
+process runs an executable named `plugin_host`.
+
+Running plugins in a separate process ensures the entire editor will not crash
+due to a poorly written plugin. If a plugin does cause the `plugin_host`
+to crash, a user may still save their work before re-starting Sublime Text.
+
+All plugins are run in a single `plugin_host` process, and share a single
+Python environment. Each plugin is loaded as a sub-module of a module named
+after the package. For example, a plugin in the
+file `MyPackage/my_plugin.py` will be loaded as the Python module
+`MyPackage.my_plugin`.
+
+The `plugin_host` process contains an embedded version of the Python
+programming language, and exposes an API to plugins.
+The `plugin_host` executable always uses its own embedded version of
+Python, even if the end-user has Python installed on their machine.
+
+### 🍀 Python Version 🔗
+
+By default all plugins are run using Python 3.3.6, except inside the
+`User` package which always uses the latest python. Sublime Text‘s build
+of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix
+issues with unicode paths and crashes with the `ctypes` module on 64bit
+versions of Windows.
+
+Starting in build 4050, plugins may also be run using Python 3.8. Python 3.8
+features many improvements to the language, better performance and
+continued support and bug fixes from the Python Software Foundtion.
+4050
+
+### 🍀 Selecting the Python Version 🔗
+
+To provide for backward compatibility, Sublime Text 4050 will continue to run
+all plugins using Python 3.3.
+
+Any package that wishes to use Python 3.8 must create a file
+named `.python-version` in the root of the packages. This file should
+contain either the text `3.3` or `3.8` to select the version of Python to
+use. If a file named `.python-version` is not present, or it contains
+any value other than `3.8`, then Python 3.3 will be used.
+
+All plugins in a package will use the same version of Python. Any package with
+a `.python-version` file containing `3.8` loaded in older builds of
+Sublime Text will try to run the plugins using Python 3.3.   4050
+
+### 🍀 Modules 🔗
+
+The Python environment within `plugin_host` contains all of the modules in
+https://docs.python.org/3.3/library/ The Python Standard Library, except for:
+
+    audioop
+    crypt (Not on Linux)
+    curses
+    cProfile (Not on Linux)     4050
+    fpectl                 4050   3.3
+    readline
+    lzma                   4050   3.3
+    msilib
+    nis
+    ossaudiodev
+    resource              4050   3.3
+    spwd
+    syslog
+    test
+    tkinter
+    turtle
+    wave
+
+### 🍀 Pre-Installed Packages 🔗
+
+The following the packages are pre-installed in both the Python 3.3 and 3.8 environments:
+
+https://pypi.org/project/certifi/ 
+certifi: A collection of SSL root certs for use with urllib      4050
+
+
+## 5. 🖐 API Reference
+https://www.sublimetext.com/docs/api_reference.html
+
+## 6. 🖐 Syntax Definitions
+https://www.sublimetext.com/docs/syntax.html
+
+Sublime Text can use both .sublime-syntax and .tmLanguage files for syntax highlighting. This document describes .sublime-syntax files.
+
+1. Overview
+2. Header
+3. Contexts 
+3.1. Meta Patterns
+3.2. Match Patterns
+3.3. Include Patterns
+3.4. Prototype Context
+4. Including Other Files
+5. Variables
+6. Inheritance   4075
+7. Selected Examples
+8. Testing
+9. Compatibility   4075
+
+### 🍀 Overview🔗
+Sublime Syntax files are YAML files with a small header, followed by a list of contexts. Each context has a list of patterns that describe how to highlight text in that context, and how to change the current text. http://yaml.org/
+
+Here’s a small example of a syntax file designed to highlight C.
+
+```yaml
+%YAML 1.2
+---
+name: C
+file_extensions: [c, h]
+scope: source.c
+
+contexts:
+  main:
+    - match: \b(if|else|for|while)\b
+      scope: keyword.control.c
+```
+
+At its core, a syntax definition assigns scopes (e.g., `keyword.control.c`) to areas of the text. These scopes are used by color schemes to highlight the text.
+
+This syntax file contains one context, `main`, that matches the words `[if, else, for, while]`, and assigns them the scope `keyword.control.c`. The context name `main` special: every syntax must define a main context, as it will be used at the start of the file.
+
+The `match` key is a regex, supporting features from the Oniguruma regex engine. In the above example, `\b` is used to ensure only word boundaries are matched, to ensure that words such as elsewhere are not considered keywords.
+https://raw.githubusercontent.com/kkos/oniguruma/v6.9.1/doc/RE
+
+Note that due to the YAML syntax, tab characters are not allowed within `.sublime-syntax` files.
+
+### 🍀 Header🔗
+The allowed keys in the header area are:
+
+name
+    This defines the name shown for the syntax in the menu. It’s optional, and will be derived from the file name if not used.
+
+file_extensions
+    A list of strings, defining file extensions this syntax should be used for. Extensions listed here will be shown in file dialog dropdowns on some operating systems.
+
+    If a file does not have a basename, e.g. .gitignore, the entirety of the filename including the leading . should be specified.
+
+hidden_file_extensions   4075
+    A list of strings, also defining file extensions this syntax should be used for. These extensions are not listed in file dialogs.
+
+first_line_match
+    When a file is opened without a recognized extension, the first line of the file contents will be tested against this regex, to see if the syntax should be applied.
+
+scope
+    The default scope assigned to all text in the file
+
+version   4075
+    An integer, either 1 or 2, that controls backwards compatibility. New syntaxes should target 2, as it fixes some inconsistencies in how scopes are applied.
+
+extends   4075
+    A string of a base syntax this syntax should inherit from. The base syntax must be specified using its package path, e.g. Packages/JavaScript/JavaScript.sublime-syntax. See Inheritance for an overview of syntax inheritance.
+
+hidden
+    Hidden syntax definitions won’t be shown in the menu, but can still be assigned by plugins, or included by other syntax definitions.
+
+### 🍀 Contexts🔗
+For most languages, you’ll need more than one context. For example, in C, we don’t want a for word in the middle of a string to be highlighted as a keyword. Here’s an example of how to handle this:
+
+```yaml
+%YAML 1.2
+---
+name: C
+file_extensions: [c, h]
+scope: source.c
+
+contexts:
+  main:
+    - match: \b(if|else|for|while)\b
+      scope: keyword.control.c
+    - match: '"'
+      push: string
+
+  string:
+    - meta_scope: string.quoted.double.c
+    - match: \\.
+      scope: constant.character.escape.c
+    - match: '"'
+      pop: true
+```
+
+A second pattern has been added to the main context that matches a double quote character (note that `'"'` is used for this, as a standalone quote would be a YAML syntax error), and pushes a new context, `string`, onto the context stack. This means the rest of the file will be processing using the `string` context, and not the main context, until the `string` context is popped off the stack.
+
+The `string` context introduces a new key: meta_scope. This will assign the `string.quoted.double.c `scope to all text while the `string` context is on the stack.
+
+While editing in Sublime Text, you can check what scopes have been applied to the text under the caret by pressing Ctrl+Shift+P (Mac) or Ctrl+Alt+Shift+P (Windows/Linux).
+
+The `string` context has two patterns: the first matches a backslash character followed by any other, and the second matches a quote character. Note that the last pattern specifies an action when an unescaped quote is encountered, the `string` context will be popped off the context stack, returning to assigning scopes using the main context.
+
+When a context has multiple patterns, the leftmost one will be found. When multiple patterns match at the same position, the first defined pattern will be selected.
+
+### 🍀 META PATTERNS🔗
+
+meta_scope
+    This assigns the given scope to all text within this context, including the patterns that push the context onto the stack and pop it off.
+
+meta_content_scope
+    As above, but does not apply to the text that triggers the context (e.g., in the above string example, the content scope would not get applied to the quote characters).
+
+meta_include_prototype
+    Used to stop the current context from automatically including the `prototype` context.
+
+clear_scopes
+    This setting allows removing scope names from the current stack. It can be an integer, or the value `true` to remove all scope names. It is applied before `meta_scope` and `meta_content_scope`. This is typically only used when one syntax is embedding another.
+
+meta_prepend   4075
+    A boolean, controlling context name conflict resolution during inheritance. If this is specified, the rules in this context will be inserted before any existing rules from a context with the same name in an ancestor syntax definition.
+
+meta_append   4075
+    A boolean, controlling context name conflict resolution during inheritance. If this is specified, the rules in this context will be inserted after to any existing rules from a context with the same name in an ancestor syntax definition.
+
+Meta patterns must be listed first in the context, before any match or include patterns.
+
+### 🍀 MATCH PATTERNS🔗
+A match pattern can include the following keys:
+
+match
+    The regex used to match against the text. YAML allows many strings to be written without quotes, which can help make the regex clearer, but it’s important to understand when you need to quote the regex. If your regex includes the characters #, :, -, {, [ or > then you likely need to quote it. Regexes are only ever run against a single line of text at a time.
+
+scope
+    The scope assigned to the matched text.
+
+captures
+    A mapping of numbers to scope, assigning scopes to captured portions of the match regex. See below for an example.
+
+push
+    The contexts to push onto the stack. This may be either a single context name, a list of context names, or an inline, anonymous context.
+
+pop
+    Pops contexts off the stack. The value `true` will pop a single context.
+
+    An integer greater than zero will pop the corresponding number of contexts. 4050
+
+    The pop key can be combined with `push`, `set`, `embed` and `branch`. When combined, the specified number of contexts will be popped off of the stack before the other action is performed. For `push`, `embed` and `branch` actions, the pop treats the match as if it were a lookahead, which means the match will not receive the `meta_scope` of the contexts that are popped.  4075
+
+set
+    Accepts the same arguments as push, but will first pop this context off, and then push the given context(s) onto the stack.
+
+    Any match will receive the meta_scope of the context being popped and the context being pushed.
+
+embed   3153
+    Accepts the name of a single context to push into. While similar to `push`, it pops out of any number of nested contexts as soon as the `escape` pattern is found. This makes it an ideal tool for embedding one syntax within another.
+
+    escape
+        This key is required if `embed` is used, and is a regex used to exit from the embedded context. Any backreferences in this pattern will refer to capture groups in the match regex.
+
+    embed_scope
+        A scope assigned to all text matched after the `match` and before the `escape`. Similar in concept to `meta_content_scope`.
+
+    escape_captures
+        A mapping of capture groups to scope names, for the `escape` pattern. Use capture group 0 to apply a scope to the entire escape match.
+
+branch  4050
+    Accepts the names of two or more contexts, which are attempted in order. If a `fail` action is encountered, the highlighting of the file will be restarted at the character where the `branch` occurred, and the next context will be attempted.
+
+    branch_point
+        This is the unique identifier for the `branch` and is specified when a match uses the `fail` action.
+
+    The `branch` action allows for handling syntax constructs that are ambiguous, and also allows handling constructs that span multiple lines.
+
+    For ideal performance, the contexts should be listed in the order of how likely they are to be accepted. Note: because highlighting with branches requires reprocessing an entire branch upon each change to the document, the highlighting engine will not rewind more than 128 lines when a fail occurs.
+
+fail  4050
+    Accepts the name of a branch_point to rewind to and retry the next context of. If a fail action specifies a branch_point that was never pushed on the stack, or has already been popped off of the stack, it will have no effect.
+
+    The following keys control behavior that is exclusive, and only one can be specified per match pattern:
+
+push
+pop  <4075
+set
+embed  3153
+branch  4050
+fail   4050
+
+
+### 🍀 MATCH EXAMPLES🔗
+A basic match assigning a single scope to the entire match:
+
+```yaml
+- match: \w+
+  scope: variable.parameter.c++
+```
+
+Assigning different scopes to the regex capture groups:
+
+```yaml
+- match: ^\\s*(#)\\s*\\b(include)\\b
+  captures:
+    1: meta.preprocessor.c++
+    2: keyword.control.include.c++
+```
+
+Pushing into another context named function-parameters:
+
+```yaml
+- match: \b\w+(?=\()
+  scope: entity.name.function.c++
+  push: function-parameters
+```
+
+Popping out of a context:
+
+```yaml
+    - match: \)
+
+  scope: punctuation.section.parens.end.c++
+  pop: true
+```
+
+Popping out of the current context and pushing into another:
+
+```yaml
+- match: \}
+  scope: punctuation.section.block.end.c++
+  set: file-global
+```
+
+Embedding another syntax  3153
+
+```yaml
+- match: (```)(js|javascript)
+  captures:
+    1: punctuation.section.code.begin.markdown
+    2: constant.other.markdown
+  embed: scope:source.js
+  embed_scope: meta.embedded.js.markdown
+  escape: ^```
+  escape_captures:
+    0: punctuation.section.code.end.markdown
+```
+
+Using branch to attempt one highlighting, with the ability to fallback to another:  4050
+
+```yaml
+expression:
+  - match: (?=\()
+    branch_point: open_parens
+    branch:
+      - paren_group
+      - arrow_function
+
+paren_group:
+  - match: \(
+    scope: punctuation.section.parens.begin.js
+    push:
+      - include: expressions
+      - match: \)
+        scope: punctuation.section.parens.begin.js
+        set:
+          - match: =>
+            fail: open_parens
+          - match: (?=\S)
+            pop: 2
+
+arrow_function:
+  - match: \(
+    scope: punctuation.section.parens.begin.js
+    push:
+      - match: \w+
+        scope: variable.parameter.js
+      - match: ','
+        scope: punctuation.separator.comma.js
+      - match: \)
+        scope: punctuation.section.parens.begin.js
+        set:
+          - match: =>
+            scope: storage.type.function.arrow.js
+            push: arrow_function_body
+```
+
+Using pop with another action:  4075
+
+```yaml
+paragraph:
+  - match: '(```)(py|python)'
+    captures:
+      1: punctuation.definition.code.begin.md
+      2: constant.other.language-name.md
+    pop: 1
+    embed: scope:source.python
+    embed_scope: source.python.embedded
+    escape: ^```
+    escape_captures:
+      0: punctuation.definition.code.end.md
+```
+
+### 🍀 INCLUDE PATTERNS🔗
+Frequently it’s convenient to include the contents of one context within another. For example, you may define several different contexts for parsing the C language, and almost all of them can include comments. Rather than copying the relevant match patterns into each of these contexts, you can include them:
+
+```yaml
+expr:
+  - include: comments
+  - match: \b[0-9]+\b
+    scope: constant.numeric.c
+  ...
+```
+
+Here, all the match patterns and include patterns defined in the comments context will be pulled in. They’ll be inserted at the position of the include pattern, so you can still control the pattern order. Any meta patterns defined in the comments context will be ignored.
+
+### 🍀 INCLUDING AN EXTERNAL PROTOTYPE🔗
+When including a context from another syntax, it may be desirable to also include any applicable prototype from that syntax. By default, an include pattern does not include such a prototype. If the key/value pair `apply_prototype: true` is added to the include pattern, the context does not specify `meta_include_prototype: false` and the other syntax has a `prototype` context, then those patterns will also be included.
+
+```yaml
+tags:
+  - include: scope:source.html.basic
+    apply_prototype: true
+```
+
+### 🍀 PROTOTYPE CONTEXT🔗
+With elements such as comments, it’s so common to include them that it’s simpler to make them included automatically in every context, and just list the exceptions instead. You can do this by creating a context named prototype, it will be included automatically at the top of every other context, unless the context contains the meta_include_prototype key. For example:
+
+```yaml
+prototype:
+  - include: comments
+
+string:
+  - meta_include_prototype: false
+  ...
+```
+
+In C, a /* inside a string does not start a comment, so the string context indicates that the prototype should not be included.
+
+### 🍀 Including Other Files🔗
+Sublime Syntax files support the notion of one syntax definition including another. For example, HTML can contain embedded JavaScript. Here’s an example of a basic syntax definition for HTML that does so:
+
+```yaml
+scope: text.html
+
+contexts:
+  main:
+    - match: <script>
+      push: Packages/JavaScript/JavaScript.sublime-syntax
+      with_prototype:
+        - match: (?=</script>)
+          pop: true
+    - match: "<"
+      scope: punctuation.definition.tag.begin
+    - match: ">"
+      scope: punctuation.definition.tag.end
+```
+
+Note the first rule above. It indicates that when we encounter a `<script>` tag, the main context within `JavaScript.sublime-syntax` should be pushed onto the context stack. It also defines another key, `with_prototype`. This contains a list of patterns that will be inserted into every context defined within `JavaScript.sublime-syntax`. Note that `with_prototype` is conceptually similar to the prototype context, however it will be always be inserted into every referenced context irrespective of their `meta_include_prototype` key.
+
+In this case, the pattern that’s inserted will pop off the current context while the next text is a `</script>` tag. Note that it doesn’t actually match the `</script>` tag, it’s just using a lookahead assertion, which plays two key roles here: It both allows the HTML rules to match against the end tag, highlighting it as-per normal, and it will ensure that all the JavaScript contexts will get popped off. The context stack may be in the middle of a JavaScript string, for example, but when the `</script>` is encountered, both the JavaScript string and main contexts will get popped off.
+
+Note that while Sublime Text supports both .`sublime-syntax` and `.tmLanguage` files, it’s not possible to include a .tmLanguage file within a `.sublime-syntax` one.
+
+Another common scenario is a templating language including HTML. Here’s an example of that, this time with a subset of Jinja:
+
+```yaml
+scope: text.jinja
+contexts:
+  main:
+    - match: ""
+      push: "Packages/HTML/HTML.sublime-syntax"
+      with_prototype:
+        - match: "{{"
+          push: expr
+
+  expr:
+    - match: "}}"
+      pop: true
+    - match: \b(if|else)\b
+      scope: keyword.control
+```
+
+This is quite different from the HTML-embedding-JavaScript example, because templating languages tend to operate from the inside out: by default, it needs to act as HTML, only escaping to the underlying templating language on certain expressions.
+
+In the example above, we can see it operates in HTML mode by default: the main context includes a single pattern that always matches, consuming no text, just including the HTML syntax.
+
+Where the HTML syntax is included, the Jinja syntax directives `{ { ... }}` are included via the `with_prototype` key, and thus get injected into every context in the HTML syntax (and JavaScript, by transitivity).
+
+### 🍀 Variables🔗
+It’s not uncommon for several regexes to have parts in common. To avoid repetitious typing, you can use variables:
+
+```yaml
+variables:
+  ident: '[A-Za-z_][A-Za-z_0-9]*'
+contexts:
+  main:
+    - match: '\b{{ident}}\b'
+      scope: keyword.control
+```
+
+Variables must be defined at the top level of the `.sublime-syntax` file, and are referenced within regexes via `{{varname}}`. Variables may themselves include other variables. Note that any text that doesn’t match `{{[A-Za-z0-9_]+}}` won’t be considered as a variable, so regexes can still include literal `{{` characters, for example.
+
+### 🍀 Inheritance🔗
+In situations where a syntax is a slight variant of another, with some additions or changes, inheritance is a useful tool.
+
+When inheriting a syntax, the key extends is used with a value containing the packages path to the parent syntax. The packages path will start with Packages/ and will contain the package name and syntax filename. For example:
+
+```yaml
+%YAML 1.2
+---
+name: C++
+file_extensions: [cc, cpp]
+scope: source.c++
+extends: Packages/C++/C.sublime-syntax
+```
+
+A syntax using inheritance will inherit the variables and contexts values from its parent syntax. All other top-level keys, such as file_extensions and scope will not be inherited.
+
+### 🍀 VARIABLE INHERITANCE🔗
+When extending a syntax, the variables key is merged with the parent syntax. Variables with the same name will override previous values.
+
+Variable substitution is performed after all variable values have been realized. Thus, an extending syntax may change a variable from a parent syntax, and all usage of the variable in the parent contexts will use the overridden value.
+
+### 🍀 CONTEXT INHERITANCE🔗
+The contexts in an extending syntax will be a combination of the contexts from the parent syntax, and all those defined under the contexts key.
+
+Contexts with the same name will override contexts from the parent syntax. To change the behavior when a context name is duplicated, two options are available. These meta key must be specified in the extending syntax:
+
+- meta_prepend: true — all of the patterns in the extending syntax will be inserted before those in the parent syntax.
+
+- meta_append: true — all of the patterns in the extending syntax will be inserted after those in the parent syntax.
+
+### 🍀 MULTIPLE INHERITANCE🔗
+When a syntax is derived from a combination of two other syntaxes, multiple inheritance may be used. This allows the key extends to be a list of packages paths to two or more parent syntaxes. The parent syntaxes will be processed in order, from top to bottom, and must be derived from the same base.
+
+Two examples of multiple inheritance in the default syntaxes are:
+
+Objective-C++: extends C++ and Objective-C, both which extend C
+TSX: extends JSX and TypeScript, both which extend JavaScript   4086
+
+
+### 🍀 LIMITATIONS🔗
+A syntax may extend a syntax that itself extends another syntax. There are no enforced limits on extending, other than that all syntaxes must share the same version.  4075
+
+
+### 🍀 Selected Examples🔗
+### 🍀 BRACKET BALANCING🔗
+This example highlights closing brackets without a corresponding open bracket:
+
+```yaml
+name: C
+scope: source.c
+
+contexts:
+  main:
+    - match: \(
+      push: brackets
+    - match: \)
+      scope: invalid.illegal.stray-bracket-end
+
+  brackets:
+    - match: \)
+      pop: true
+    - include: main
+```
+
+### 🍀 SEQUENTIAL CONTEXTS🔗
+This example will highlight a C style for statement containing too many semicolons:
+
+```yaml
+for_stmt:
+  - match: \(
+    set: for_stmt_expr1
+for_stmt_expr1:
+  - match: ";"
+    set: for_stmt_expr2
+  - match: \)
+    pop: true
+  - include: expr
+for_stmt_expr2:
+  - match: ";"
+    set: for_stmt_expr3
+  - match: \)
+    pop: true
+  - include: expr
+for_stmt_expr3:
+  - match: \)
+    pop: true
+  - match: ";"
+    scope: invalid.illegal.stray-semi-colon
+  - include: expr
+```
+  
+### 🍀 ADVANCED STACK USAGE🔗
+In C, symbols are often defined with the typedef keyword. So that Goto Definition can pick these up, the symbols should have the entity.name.type scope attached to them.
+
+Doing this can be a little tricky, as while typedefs are sometimes simple, they can get quite complex:
+
+typedef int coordinate_t;
+
+typedef struct
+{
+    int x;
+    int y;
+} point_t;
+To recognize these, after matching the typedef keyword, two contexts will be pushed onto the stack: the first will recognize a typename, and then pop off, while the second will recognize the introduced name for the type:
+
+main:
+  - match: \btypedef\b
+    scope: keyword.control.c
+    set: [typedef_after_typename, typename]
+
+typename:
+  - match: \bstruct\b
+    set:
+      - match: "{"
+        set:
+          - match: "}"
+            pop: true
+  - match: \b[A-Za-z_][A-Za-z_0-9]*\b
+    pop: true
+
+typedef_after_typename:
+  - match: \b[A-Za-z_][A-Za-z_0-9]*\b
+    scope: entity.name.type
+    pop: true
+In the above example, typename is a reusable context, that will read in a typename and pop itself off the stack when it’s done. It can be used in any context where a type needs to be consumed, such as within a typedef, or as a function argument.
+
+The main context uses a match pattern that pushes two contexts on the stack, with the rightmost context in the list becoming the topmost context on the stack. Once the typename context has popped itself off, the typedef_after_typename context will be at the top of the stack.
+
+Also note above the use of anonymous contexts for brevity within the typename context.
+
+### 🍀 PHP HEREDOCS🔗
+This example shows how to match against Heredocs in PHP. The match pattern in the main context captures the heredoc identifier, and the corresponding pop pattern in the heredoc context refers to this captured text with the \1 symbol:
+
+name: PHP
+scope: source.php
+
+contexts:
+  main:
+    - match: <<<([A-Za-z][A-Za-z0-9_]*)
+      push: heredoc
+
+  heredoc:
+    - meta_scope: string.unquoted.heredoc
+    - match: ^\1;
+        pop: true
+### 🍀 Testing🔗
+When building a syntax definition, rather than manually checking scopes with the show_scope_name command, you can define a syntax test file that will do the checking for you:
+
+// SYNTAX TEST "Packages/C/C.sublime-syntax"
+#pragma once
+// <- source.c meta.preprocessor.c++
+ // <- keyword.control.import
+
+// foo
+// ^ source.c comment.line
+// <- punctuation.definition.comment
+
+/* foo */
+// ^ source.c comment.block
+// <- punctuation.definition.comment.begin
+//     ^ punctuation.definition.comment.end
+
+#include "stdio.h"
+// <- meta.preprocessor.include.c++
+//       ^ meta string punctuation.definition.string.begin
+//               ^ meta string punctuation.definition.string.end
+int square(int x)
+// <- storage.type
+//  ^ meta.function entity.name.function
+//         ^ storage.type
+{
+    return x * x;
+//  ^^^^^^ keyword.control
+}
+
+"Hello, World! // not a comment";
+// ^ string.quoted.double
+//                  ^ string.quoted.double - comment
+To make one, follow these rules
+
+Ensure the file name starts with syntax_test_.
+
+Ensure the file is saved somewhere within the Packages directory: next to the corresponding .sublime-syntax file is a good choice.
+
+Ensure the first line of the file starts with: <comment_token> SYNTAX TEST "<syntax_file>". Note that the syntax file can either be a .sublime-syntax or .tmLanguage file.
+
+Once the above conditions are met, running the build command with a syntax test or syntax definition file selected will run all the Syntax Tests, and show the results in an output panel. Next Result (F4) can be used to navigate to the first failing test.
+
+Each test in the syntax test file must first start the comment token (established on the first line, it doesn’t actually have to be a comment according to the syntax), and then either a ^ or <- token.
+
+The two types of tests are:
+
+Caret: ^ this will test the following selector against the scope on the most recent non-test line. It will test it at the same column the ^ is in. Consecutive ^s will test each column against the selector.
+
+Arrow: <- this will test the following selector against the scope on the most recent non-test line. It will test it at the same column as the comment character is in.
+
+### 🍀 Compatibility🔗
+When the syntax highlighting engine of Sublime Text requires changes that will break existing syntaxes, these modifications or bug fixes are gated behind the version key.
+
+Currently there exist two versions: 1 and 2. The absence of the version key indicates version 1.
+
+The following is a list of bugs and behavior preserved in version 1 that have been fixed or changed in version 2. This list is primarily useful when understanding what to look for when updating the version of syntax.
+
+#### 🐣 embed_scope Stacks with scope of Other Syntax
+
+Description:
+
+When embedding a the main context from another syntax, the embed_scope will be combined with the scope of the other syntax. In version 2 syntaxes, the scope of the other syntax will only be included if embed_scope is not specified.
+
+Syntax 1:
+
+```sh
+scope: source.lang
+contexts:
+  paragraph:
+    - match: \(
+      scope: punctuation.section.group.begin
+      embed: scope:source.other
+      embed_scope: source.other.embedded
+      escape: \)
+      escape_captures:
+        0: punctuation.section.group.end
+```
+
+Syntax 2:
+
+```sh
+scope: source.other
+contexts:
+  main:
+    - match: '[a-zA-Z0-9_]+'
+      scope: identifier
+```
+
+Text:
+
+    'abc'
+
+Result:
+
+The text abc will get the scope source.other.embedded source.other identifier in version 1 syntaxes. In version 2 syntaxes, it will get source.other.embedded identifier.
+
+#### 🐣 Match Pattern with set and meta_content_scope
+
+Description:
+
+When performing a set action on a match, the matched text will get the meta_content_scope of the context being popped, even though pop actions don’t, and a set is the equivalent of a pop then push.
+
+Syntax:
+
+scope: source.lang
+contexts:
+  function:
+    - meta_content_scope: meta.function
+    - match: '[a-zA-Z0-9_]+'
+      scope: variable.function
+    - match: \(
+      scope: punctuation.section.group.begin
+      set: function-params
+
+  function-params:
+    - meta_scope: meta.function.params
+    - match: \)
+      scope: punctuation.section.group.end
+      pop: true
+Text:
+
+    abc()
+
+Result:
+
+The text ( should get the scope meta.function.params punctuation.section.group.begin. Instead it gets the incorrect scope meta.function meta.function.params punctuation.section.group.begin.
+
+#### 🐣 Match Pattern with set and Target with clear_scopes
+
+Description:
+
+If a set action has a target with a clear_scopes value, scopes will not be cleared properly.
+
+Syntax:
+
+scope: source.lang
+contexts:
+  main:
+    - match: \bdef\b
+      scope: keyword
+      push:
+        - function
+        - function-name
+
+  function:
+    - meta_scope: meta.function
+
+  function-name:
+    - match: '[a-zA-Z0-9_]+'
+      scope: variable.function
+    - match: \(
+      scope: punctuation.section.group.begin
+      set: function-params
+
+  function-params:
+    - meta_scope: meta.function.params
+    - clear_scopes: 1
+    - match: \)
+      scope: punctuation.section.group.end
+      pop: 2
+Text:
+
+    def abc()
+
+Result:
+
+The text ( should get the scope meta.function.params punctuation.section.group.begin. Instead it gets the incorrect scope meta.function meta.function.params punctuation.section.group.begin.
+
+#### 🐣 Embed Escape Match and Meta Scopes
+
+Description:
+
+The text matched by the escape pattern of an embed action will not get the meta_scope or meta_content_scope of the context that contains it.
+
+Syntax:
+
+scope: source.lang
+contexts:
+  context1:
+    - meta_scope: meta.group
+    - meta_content_scope: meta.content
+    - match: \'
+      scope: punctuation.begin
+      embed: embed
+      escape: \'
+      escape_captures:
+        0: punctuation.end
+
+  embed:
+    - match: '[a-z]+'
+      scope: word
+Text:
+
+    'abc'
+
+Result:
+
+The second ' should get the scope meta.group meta.content punctuation.end. Instead it gets the incorrect scope punctuation.end.
+
+#### 🐣 Multiple Target Push Actions with clear_scopes
+
+Description
+
+If multiple contexts are pushed at once, and more than one context specifies clear_scopes with a value greater than 1, the resulting scopes are incorrect.
+
+Syntax:
+
+scope: source.lang
+contexts:
+  main:
+    - meta_content_scope: meta.main
+    - match: '[a-zA-Z0-9]+\b'
+      scope: identifier
+      push:
+        - context2
+        - context3
+
+  context2:
+    - meta_scope: meta.ctx2
+    - clear_scopes: 1
+
+  context3:
+    - meta_scope: meta.ctx3
+    - clear_scopes: 1
+    - match: \n
+      pop: true
+Text:
+
+    abc 1
+
+Result:
+
+The clear_scopes values of all target contexts are added up and applied before applying the meta_scope and meta_content_scope of any targets. Thus, the text abc will be scoped meta.ctx2 meta.ctx3 identifier, instead of the correct scope of source.lang meta.ctx3 identifier.
+
+#### 🐣 Regex Capture Group Order
+
+Description:
+
+If an lower-numbered capture group matches text that occurs after text matched by a higher-numbered capture group, the lower-numbered capture group will not have its capture scope applied.
+
+Syntax:
+
+```yaml
+scope: source.lang
+contexts:
+  main:
+    - match: '(?:(x)|(y))+'
+      captures:
+        1: identifier.x
+        2: identifier.y
+```
+
+Text:
+
+    yx
+
+Result
+
+The text y is matched by capture group 2, and the text x is matched by capture group 1. x will not get scoped indentifier.x since it occurs after the match from capture group 2.
+
+## 7. 🖐 Scope Naming
+https://www.sublimetext.com/docs/scope_naming.html
+
+## 8. 🖐 minihtml Reference
+https://www.sublimetext.com/docs/minihtml.html
+
+## 9. 🖐 Plugin Porting Guide
+https://www.sublimetext.com/docs/porting_guide.html
+
+
+
+Sublime Text 3 contains some important differences from Sublime Text 2 when it
+comes to plugins, and most plugins will require at least a small amount porting
+to work. The changes are:
+
+1. Python 3.3
+2. Out of Process Plugins
+3. Asynchronous Events
+4. Restricted begin_edit() and end_edit()
+5. Zipped Packages
+6. Importing Modules
+7. Restricted API Usage at Startup
+
+### 🍀 Python 3.3 🔗
+Sublime Text 3 uses Python 3.3, while Sublime Text 2 used Python 2.6.
+Furthermore, on Mac, the system build of Python is no longer used, instead
+Sublime Text is bundled with its own version. Windows and Linux are also
+bundled with their own version, as they were previously.
+
+### 🍀 Out of Process Plugins 🔗
+Plugins are now run in a separate process, `plugin_host`. From a plugin
+authors perspective, there should be no observable difference, except that a
+crash in the plugin host will no longer bring down the main application.
+
+### 🍀 Asynchronous Events 🔗
+In Sublime Text 2, only the `set_timeout()` method was thread-safe. In Sublime
+Text 3, every API method is thread-safe. Furthermore, there are now
+asynchronous event handlers, to make writing non-blocking code easier:
+
+
+```py
+    on_modified_async()
+    on_selection_modified_async()
+    on_pre_save_async()
+    on_post_save_async()
+    on_activated_async()
+    on_deactivated_async()
+    on_new_async()
+    on_load_async()
+    on_clone_async()
+    set_timeout_async()
+```
+When writing threaded code, keep in mind that the buffer will be changing
+underneath you as your function runs.
+
+### 🍀 Restricted `begin_ 🔗edit()` and `end_edit()`
+`begin_end()` and `end_edit()` are no longer directly accessible, except in
+some special circumstances. The only way to get a valid instance of an
+`sublime.Edit` object is to place your code in a `sublime_plugin.TextCommand`
+subclass. In general, most code can be refactored by placing the code between
+`begin_edit()` and `end_edit()` in a `sublime_plugin.TextCommand`, and then
+running the command via `run_command()`.
+
+This approach removes the issue of dangling `sublime.Edit` objects, and ensures
+the repeat command and macros work as they should.
+
+### 🍀 Zipped Packages 🔗
+Packages in Sublime Text 3 are able to be run from .sublime-package
+(i.e., renamed .zip files) files directly, in contrast to Sublime Text
+2, which unzipped them prior to running.
+
+While in most changes this should lead to no differences, it is important to
+keep this in mind if you are accessing files in your package.
+
+### 🍀 Importing Modules 🔗
+Importing other plugins is simpler and more robust in Sublime Text 3, and can be
+done with a regular import statement, e.g., `import Default.comment` will
+import Packages/Default/Comment.py.
+
+### 🍀 Restricted API Usage at Startup 🔗
+Due to the `plugin_host` loading asynchronously, it is not possible to use the
+API at import time. This means that all top-level statements in your module
+must not call any functions from the `sublime` module. During startup, the API
+is in a dormant state, and will silently ignore any requests made.

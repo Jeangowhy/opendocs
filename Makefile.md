@@ -1897,7 +1897,414 @@ AC_OUTPUT
 13. AC_OUTPUT
 
 
-## 🍀 Cross-Compiling 交叉编译
+## 🍀 C.1 Index for all m4 macros
+
+    Index Entry     Section
+                                                        _       
+    __file__:       Location
+    __gnu__:        Platform macros
+    __line__:       Location
+    __os2__:        Platform macros
+    __program__:    Location
+    __unix__:       Platform macros
+    __windows__:    Platform macros
+                                                        A       
+    argn:          Shift
+    array:         Define
+    array_set:      Define
+                                                        B       
+    builtin:        Builtin
+                                                        C       
+    capitalize:      Patsubst
+    changecom:      Changecom
+    changequote:     Changequote
+    changeword:     Changeword
+    cleardivert:     Cleardivert
+    cond:          Shift
+    copy:          Composition
+    curry:         Composition
+                                                        D       
+    debugfile:      Debug Output
+    debugmode:      Debug Levels
+    decr:          Incr
+    define:        Define
+    define_blind:    Composition
+    defn:         Defn
+    divert:        Divert
+    divnum:       Divnum
+    dnl:          Dnl
+    downcase:      Patsubst
+    dquote:       Shift
+    dquote_elt:     Shift
+    dumpdef:        Dumpdef
+                                                        E       
+    errprint:       Errprint
+    esyscmd:        Esyscmd
+    eval:          Eval
+    example:        Manual
+    exch:          Arguments
+                                                        F       
+    fatal_error:     M4exit
+    foreach:        Foreach
+    foreachq:       Foreach
+    forloop:        Forloop
+    format:     Format
+                                                        I       
+    ifdef:      Ifdef
+    ifelse:     Ifelse
+    ifelse:     Ifelse
+    ifelse:     Ifelse
+    include:     Include
+    incr:       Incr
+    index:      Index macro
+    indir:      Indir
+                                                        J       
+    join:       Shift
+    joinall:      Shift
+                                                        L       
+    len:        Len
+                                                        M       
+    m4exit:     M4exit
+    m4wrap:     M4wrap
+    maketemp:       Mkstemp
+    mkstemp:        Mkstemp
+                                                        N       
+    nargs:      Pseudo Arguments
+                                                        O       
+    os2:        Platform macros
+                                                        P       
+    patsubst:       Patsubst
+    popdef:     Pushdef
+    pushdef:        Pushdef
+                                                        Q       
+    quote:      Shift
+                                                        R       
+    regexp:     Regexp
+    rename:     Composition
+    reverse:        Shift
+                                                        S       
+    shift:      Shift
+    sinclude:       Include
+    stack_foreach:      Stacks
+    stack_foreach_lifo:     Stacks
+    stack_foreach_sep:      Improved copy
+    stack_foreach_sep_lifo:     Improved copy
+    substr:     Substr
+    syscmd:     Syscmd
+    sysval:     Sysval
+                                                        T       
+    traceoff:       Trace
+    traceon:        Trace
+    translit:       Translit
+                                                        U       
+    undefine:       Undefine
+    undivert:       Undivert
+    unix:         Platform macros
+    upcase:        Patsubst
+                                                        W       
+    windows:        Platform macros
+
+
+## 🍀 C.2 Index for many concepts
+
+    Index Entry     Section
+                                                                A       
+    argument currying:      Composition
+    arguments to macros:        Macro Arguments
+    arguments to macros:        Arguments
+    arguments to macros, special:       Pseudo Arguments
+    arguments, joining:     Shift
+    arguments, more than nine:      Arguments
+    arguments, more than nine:      Shift
+    arguments, more than nine:      Improved foreach
+    arguments, quoted macro:        Quoting Arguments
+    arguments, reversing:       Shift
+    arithmetic:     Arithmetic
+    arrays:     Define
+    avoiding quadratic behavior:        Improved foreach
+                                                                B       
+    basic regular expressions:      Regexp
+    basic regular expressions:      Patsubst
+    blind macro:        Inhibiting Invocation
+    blind macro:        Ifelse
+    blind macro:        Composition
+    bug reports:        Bugs
+    builtins, indirect call of:     Builtin
+    builtins, special tokens:       Defn
+                                                                C       
+    call of builtins, indirect:     Builtin
+    call of macros, indirect:       Indir
+    case statement:     Ifelse
+    changing comment delimiters:        Changecom
+    changing quote delimiters:      Changequote
+    changing syntax:        Changeword
+    characters, translating:        Translit
+    command line:       Invoking m4
+    command line, file names on the:        Command line files
+    command line, macro definitions on the:     Preprocessor features
+    command line, options:      Invoking m4
+    commands, exit status from shell:       Sysval
+    commands, running shell:        Shell commands
+    comment delimiters, changing:       Changecom
+    comments:       Comments
+    comments, copied to output:     Changecom
+    comparing strings:      Ifelse
+    compatibility:      Compatibility
+    composing macros:       Composition
+    concatenating arguments:        Shift
+    conditional, short-circuiting:      Shift
+    conditionals:       Ifdef
+    controlling debugging output:       Debug Levels
+    copying macros:     Composition
+    counting loops:     Forloop
+    currying arguments:     Composition
+                                                                D       
+    debugging macros:       Debugging
+    debugging output, controlling:      Debug Levels
+    debugging output, saving:       Debug Output
+    decrement operator:     Incr
+    deferring expansion:        M4wrap
+    deferring output:       Diversions
+    defining new macros:        Definitions
+    definition stack:       Pushdef
+    definition stack:       Stacks
+    definitions, displaying macro:      Defn
+    definitions, displaying macro:      Dumpdef
+    deleting macros:        Undefine
+    deleting whitespace in input:       Dnl
+    delimiters, changing:       Changequote
+    delimiters, changing:       Changecom
+    discarding diverted text:       Cleardivert
+    discarding input:       Ifelse
+    discarding input:       Dnl
+    discarding input:       Divert
+    displaying macro definitions:       Dumpdef
+    diversion numbers:      Divnum
+    diverted text, discarding:      Cleardivert
+    diverting output to files:      Divert
+    dumping into frozen file:       Using frozen files
+                                                                E       
+    error messages, printing:       Errprint
+    errors, fatal:      Operation modes
+    evaluation, of integer expressions:     Eval
+    examples, understanding:        Manual
+    executing shell commands:       Shell commands
+    exit status from shell commands:        Sysval
+    exiting from m4:        M4exit
+    expansion of macros:        Macro expansion
+    expansion, deferring:       M4wrap
+    expansion, tracing macro:       Trace
+    expressions, evaluation of integer:     Eval
+    expressions, regular:       Regexp
+    expressions, regular:       Patsubst
+    extracting substrings:      Substr
+                                                                F       
+    fast loading of frozen files:       Using frozen files
+    fatal errors:       Operation modes
+    FDL, GNU Free Documentation License:        GNU Free Documentation License
+    file format, frozen file:       Frozen file format
+    file inclusion:     File Inclusion
+    file inclusion:     Undivert
+    file inclusion:     Undivert
+    file names, on the command line:        Command line files
+    files, diverting output to:     Divert
+    files, names of temporary:      Mkstemp
+    for each loops:     Foreach
+    for loops:      Forloop
+    formatted output:       Format
+    Free Documentation License (FDL), GNU:      GNU Free Documentation License
+    frozen file format:     Frozen file format
+    frozen files for fast loading:      Using frozen files
+                                                                G       
+    General Public License (GPL), GNU:      GNU General Public License
+    GNU extensions:     Inhibiting Invocation
+    GNU extensions:     Define
+    GNU extensions:     Arguments
+    GNU extensions:     Indir
+    GNU extensions:     Builtin
+    GNU extensions:     Debug Levels
+    GNU extensions:     Debug Output
+    GNU extensions:     Search Path
+    GNU extensions:     Divert
+    GNU extensions:     Undivert
+    GNU extensions:     Undivert
+    GNU extensions:     Regexp
+    GNU extensions:     Patsubst
+    GNU extensions:     Format
+    GNU extensions:     Eval
+    GNU extensions:     Esyscmd
+    GNU extensions:     Mkstemp
+    GNU extensions:     Using frozen files
+    GNU extensions:     Extensions
+    GNU Free Documentation License:     GNU Free Documentation License
+    GNU General Public License:     GNU General Public License
+    GNU M4, history of:     History
+    GPL, GNU General Public License:        GNU General Public License
+                                                                H       
+    history of m4:      History
+                                                                I       
+    included files, search path for:        Search Path
+    inclusion, of files:        File Inclusion
+    inclusion, of files:        Undivert
+    inclusion, of files:        Undivert
+    increment operator:     Incr
+    indirect call of builtins:      Builtin
+    indirect call of macros:        Indir
+    initialization, frozen state:       Using frozen files
+    input location:     Preprocessor features
+    input location:     Location
+    input tokens:       Syntax
+    input, discarding:      Ifelse
+    input, discarding:      Dnl
+    input, discarding:      Divert
+    input, saving:      M4wrap
+    integer arithmetic:     Arithmetic
+    integer expression evaluation:      Eval
+    invoking m4:        Invoking m4
+    invoking macros:        Invocation
+    iterating over lists:       Foreach
+                                                                J       
+    joining arguments:      Shift
+                                                                L       
+    length of strings:      Len
+    lexical structure of words:     Changeword
+    License, code:      Copying This Package
+    License, manual:        Copying This Manual
+    limit, nesting:     Limits control
+    literal output:     Pseudo Arguments
+    local variables:        Pushdef
+    location, input:        Preprocessor features
+    location, input:        Location
+    loops:      Shift
+    loops, counting:        Forloop
+    loops, list iteration:      Foreach
+                                                                M       
+    M4PATH:     Search Path
+    macro composition:      Composition
+    macro definitions, on the command line:     Preprocessor features
+    macro expansion, tracing:       Trace
+    macro invocation:       Invocation
+    macro, blind:       Inhibiting Invocation
+    macro, blind:       Ifelse
+    macro, blind:       Composition
+    macros, arguments to:       Macro Arguments
+    macros, arguments to:       Arguments
+    macros, copying:        Composition
+    macros, debugging:      Debugging
+    macros, displaying definitions:     Defn
+    macros, displaying definitions:     Dumpdef
+    macros, expansion of:       Macro expansion
+    macros, how to define new:      Definitions
+    macros, how to delete:      Undefine
+    macros, how to rename:      Defn
+    macros, indirect call of:       Indir
+    macros, quoted arguments to:        Quoting Arguments
+    macros, recursive:      Shift
+    macros, special arguments to:       Pseudo Arguments
+    macros, temporary redefinition of:      Pushdef
+    manipulating quotes:        Shift
+    messages, printing error:       Errprint
+    more than nine arguments:       Arguments
+    more than nine arguments:       Shift
+    more than nine arguments:       Improved foreach
+    multibranches:      Ifelse
+                                                                N       
+    names:      Names
+    nesting limit:      Limits control
+    nine arguments, more than:      Arguments
+    nine arguments, more than:      Shift
+    nine arguments, more than:      Improved foreach
+    numbers:        Manual
+                                                                O       
+    options, command line:      Invoking m4
+    output, diverting to files:     Divert
+    output, formatted:      Format
+    output, literal:        Pseudo Arguments
+    output, saving debugging:       Debug Output
+    overview of m4:     Intro
+                                                                P       
+    pattern substitution:       Patsubst
+    platform macros:        Platform macros
+    positional parameters, more than nine:      Arguments
+    POSIX:      Extensions
+    POSIXLY_CORRECT:        Invoking m4
+    POSIXLY_CORRECT:        Incompatibilities
+    preprocessor features:      Preprocessor features
+    printing error messages:        Errprint
+    pushdef stack:      Pushdef
+    pushdef stack:      Stacks
+                                                                Q       
+    quadratic behavior, avoiding:       Improved foreach
+    quote delimiters, changing:     Changequote
+    quote manipulation:     Shift
+    quoted macro arguments:     Quoting Arguments
+    quoted string:      Quoted strings
+    quoting rule of thumb:      Quoting Arguments
+                                                                R       
+    recursive macros:       Shift
+    redefinition of macros, temporary:      Pushdef
+    regular expressions:        Changeword
+    regular expressions:        Regexp
+    regular expressions:        Patsubst
+    reloading a frozen file:        Using frozen files
+    renaming macros:        Defn
+    renaming macros:        Composition
+    reporting bugs:     Bugs
+    rescanning:     Limits control
+    rescanning:     Inhibiting Invocation
+    rescanning:     Pseudo Arguments
+    rescanning:     Defn
+    rescanning:     Other Incompatibilities
+    reversing arguments:        Shift
+    rule of thumb, quoting:     Quoting Arguments
+    running shell commands:     Shell commands
+                                                                S       
+    saving debugging output:        Debug Output
+    saving input:       M4wrap
+    search path for included files:     Search Path
+    shell commands, exit status from:       Sysval
+    shell commands, running:        Shell commands
+    short-circuiting conditional:       Shift
+    special arguments to macros:        Pseudo Arguments
+    stack, macro definition:        Pushdef
+    stack, macro definition:        Stacks
+    standard error, output to:      Dumpdef
+    standard error, output to:      Trace
+    standard error, output to:      Errprint
+    status of shell commands:       Sysval
+    status, setting m4 exit:        M4exit
+    string, quoted:     Quoted strings
+    strings, length of:     Len
+    substitution by regular expression:     Patsubst
+    substrings, extracting:     Substr
+    substrings, locating:       Index macro
+    suggestions, reporting:     Bugs
+    suppressing warnings:       Macro Arguments
+    switch statement:       Ifelse
+    synchronization lines:      Preprocessor features
+    syntax, changing:       Changeword
+                                                                T       
+    temporary file names:       Mkstemp
+    temporary redefinition of macros:       Pushdef
+    TMPDIR:     Diversions
+    tokens:     Syntax
+    tokens, builtin macro:      Defn
+    tokens, special:        Other tokens
+    tracing macro expansion:        Trace
+    translating characters:     Translit
+                                                                U       
+    undefining macros:      Undefine
+    UNIX commands, exit status from:        Sysval
+    UNIX commands, running:     Shell commands
+                                                                V       
+    variables, local:       Pushdef
+                                                                W       
+    warnings, suppressing:      Macro Arguments
+    words:      Names
+    words, lexical structure of:        Changeword
+
+
+# 🐣 Cross-Compiling 交叉编译
 https://learn.microsoft.com/en-us/vcpkg/users/platforms/mingw
 https://www.llvm.org/docs/HowToCrossCompileLLVM.html
 https://clang.llvm.org/docs/CrossCompilation.html
@@ -2127,9 +2534,9 @@ Which is then used during the setup phase.
     meson compile -C build-mingw
 
 
-## 🍀 面向 makefile 编程
+# 🐣 面向 makefile 编程
 
-此教程将计划以两部分内容呈现，目标是从零基础到 GNU make 最本原的原理的掌握，这是第二部分内容，分按不同的工程类型分成多个示范项目来展示。零基本可以先看第一部分：Basic Concepts：
+此教程将计划以两部分内容呈现，目标是从零基础到 GNU make 最本原的原理的掌握，这是第二部分内容，分按不同的工程类型分成多个示范项目来展示。零基础可以先看第一部分：Basic Concepts：
 
  🐣 Basic Concepts
  🐣 Demo Projects
@@ -2145,7 +2552,7 @@ Which is then used during the setup phase.
 完整《Makefile 光学教程》以及 GNU M4 教程参考开源文档：https://github.com/Jeangowhy/opendocs/blob/main/Makefile.md
 
 
-### 🐣 Scheme R6RS 语言规范文档处理 [LaTeX]
+## 🍀 Scheme R6RS 语言规范文档处理 [LaTeX]
 
 RnRS (the Revised^n Reports on Scheme) 作为 Scheme 社区的权威报告，对其语言规范的实现者具有积极指导意义。比如，按规范实现的 rsrn base 模块，就 提供各种数据类型相关操作的模块。Guile 3.0.9 版本的源代码文档中包含了 R5RS Texinfo 格式文档，可以作为趁手的备查文档。源代码中同样包含了官方的参考手册，info 格式可以很方便地转换成其它格式，比如 Markdown。
 
@@ -2397,7 +2804,7 @@ $(CONCATED) :
 ```
 
 
-### 🐣 GNU Make Standard Library (GMSL) 宏函数库分析
+## 🍀 GNU Make Standard Library (GMSL) 宏函数库分析
 
 The GNU Make Standard Library (GMSL) 是一系列 Makefile 宏函数，实现了以下一系列数理逻辑运算：
 https://github.com/jgrahamc/gmsl/
@@ -2537,7 +2944,7 @@ GMSL 使用一个字符列表的长度来表示一个数字，字符可以随意
 Evosyn 这里提出了一个新的实现 https://evosyn.com/arithmake.html
 
 
-### 🐣 Multi threaded Download & Msys2 Packages
+## 🍀 Multi threaded Download & Msys2 Packages
 
 GNU Make 不像 CMake 等现代的自动化构建工具，内部提供了基本的网络功能。但是，Make 可以通过 shell 与各种工具进行配合作战，一点不影响它发挥 Makefile 脚本的功能性。另外，Make 插件接口可以很方便接入 C/C++ 编写的程序，但是通常不需要这样做。直接通过 shell 配合 Node 或者 Deno 等开发平台，或者直接使用的命令行工具，如 curl 和 wget 等等就可以很好地完成网络访问功能。
 
@@ -2569,14 +2976,52 @@ wget -r -l=1 -L https://www.gnu.org/software/make/manual/html_node/index.html
 
 使用 make 多进程下载，首先就必需“搞”到文件链接地址列表。但是 make 虽然天生就是处理字符串的宏编程工具，但是它是专职于构建系统的，提供的字符串处理函数也是基于文件名的处理。即使是其内置的 patsust 字符串替换函数，也只是按“空格”、“Tab”或“换行”作为分隔的列表进行字符串的替换操作，本身不提供向字符串插入功能字符的功能，如插入换行符这种操作是不能够的。
 
-因此，在处理 JSON 这样的数据时需要使用 jq 这样的外部工具来打配合，或者更自由的方案是编写 Node 或者 Deno 等等平台的 JavaScript/TypeScript 脚本扩展。JSON 作为一个通用数据格式规范，应该领域非常广泛，个人认为它的价值超过 XML 格式，至少比 XML 节能多了。https://jqlang.github.io/jq/
+因此，在处理 JSON 这样的数据时需要使用 jq 这样的外部工具来打配合，或者更自由的方案是编写 Node 或者 Deno 等等平台的 JavaScript/TypeScript 脚本扩展。JSON 作为一个通用数据格式规范，应该领域非常广泛，个人认为它的价值超过 XML 格式，至少比 XML 节能多了。 https://jqlang.github.io/jq/
 
-jq 是命令行工具，它可以格式化 json 数据，也可以指定 filter 过滤器来查询 json 中对应的数据。最基本的就是 . 这个过滤器，它表示等值，输入什么就输出什么。然后就是各种获取指定数据的过滤器，这里介绍几种最基础最常用的：
+jq 是命令行工具，它可以格式化 json 数据，也可以指定 filter 过滤器来查询 json 中对应的数据。jq 的目标是要做 JSON 数据的查询语言，就像数据库使用的 SQL 语言一样。最基本的就是 . 这个过滤器，它表示等值，输入什么就输出什么。然后就是各种获取指定数据的过滤器，这里介绍几种最基础最常用的：
 
 1. Object Identifier-Index: .string
 2. Object Index: [string]
 3. Array Index: [number]
-4. Array/String Slice: .[<number>:<number>] 
+4. Array/Object Value Iterator: .[]  .[]? 
+5. Array/String Slice: .[<number>:<number>]
+6. Array construction: []
+7. Object Construction: {}
+8. Recursive Descent: ..
+
+重新映射指定字段，构造输出 JSON，逻辑是先选择数据集再使用管道挑选需要的字段，管道有省略形式的表达，`.a.b.c` 的等价表达是 `.a | .b | .c`。另外，还支持使用函数，或者：
+
+```sh
+    jq '.[] | {myfile: .target.filed, myfile2: .target.filed2 }'
+    jq '.[] | length'
+
+    echo [{"foo": 42}, {}] | jq 'map(has("foo"))'   # Output  [true, false]
+    echo  [[0,1], ["a","b","c"]] | jq 'map(has(2))' # Output  [false, true]
+
+    curl https://packages.msys2.org/api/search?query=jq | \
+    jq '[.results.exact, .results.other[] | {n: .realname, r: .repos}]'
+```
+
+1. https://jqlang.github.io/jq/tutorial/
+2. https://jqlang.github.io/jq/manual/
+3. https://github.com/jqlang/jq/blob/master/docs/content/manual/v1.7/manual.yml
+
+官方教程示范： 
+
+    curl 'https://api.github.com/repos/jqlang/jq/commits?per_page=5' | jq '.'
+
+    jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
+
+```json
+"parents": [
+  {
+    "sha": "f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+    "url": "https://api.github.com/repos/jqlang/jq/commits/f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
+    "html_url": "https://github.com/jqlang/jq/commit/f2ad9517c72f6267ae317639ab56bbfd4a8653d4"
+  }
+]
+```
+
 
 示范使用 curl 和 jq 处理 Msys2 软件包 API 接口数据，接口返回 JSON 数据会包含软件包在 Msys2 数据库中的精确匹配、模糊匹配到的名字，：
 
@@ -2591,102 +3036,11 @@ more pkg-config.json | jq .results.exact.name
 less pkg-config.json | jq .results.exact.name
 ```
 
-这里给 Msys2 作个简要介绍，并说明如何从 Cygwin 发展到 MinGW，再到 Msys2 交叉编译环境。
-
-1995 年 Cygnus 工程师 Steve Chamberlain 发现 Windows 系统使用的 COFF 目标文件，即可执行文件格式，与此同时 GNU 的工具链已经支持 x86 和 COFF 的目标文件，并提供 C 语言库 newlib，这是嵌入式系统上的 C 标准库的实现。他认为既然 GNU 的工具链已经能够编译生成 x86 指令集的机器码，并可链接生成 COFF 格式的目标文件，而且还提供可移植到任意平台的 C 标准库 newlib, 那么理论上只要将 GCC 根据对应目标平台重新编译，重定向作为一个交叉编译器。那么这个 GCC 编译器可以生成 Windows 平台下的可执行文件。Steve Chamberlain 开发出原型，将他这个项目命名为 Cygwin。
-
-Cygwin 的编译和调用方式需要依赖一层 POSIX 到 Windows API 的中间层，比起日渐庞大的 Cygwin, 或许一个最小化且不需要中间层 GNU 工具链更能满足一些开发的需求, 于是 Colin Peters 在 1998 年创建了一个开源项目并撰写了最初的版本，将其命名为 mingw32 (Minimalist GNU for W32)。其意思就是 Windows 上的最小化 GNU 工具链，Windows 简称为 W32。后来为了避免暗示它仅限于生成 32 位二进制文件，就移除名称中的 32 变成 MinGW。
-
-Msys 2.0 也是为 Windows 系统提供 Unix 类系统编译环境的基础平台软件，它是基于现代 Cygwin 和 MinGW，对 MSys 的独立重写版本。MSYS2 vs Cygwin，MSYS2 中的 Unix 类工具直接基于 Cygwin，因此两者存在一些功能重叠。Cygwin 专注于在 Windows 上按原样构建 Unix 软件，MSYS2 则专注于构建基于 Windows API 的本地软件。也就是说，Cygwin 移植更彻底，这就是为何 Cygwin POSIX 到 Windows 的中间层特别巨大。
-
-有了 Msys2 就可以在 Windows 开发 Unix 应用程序，并构建出可以运行在 Windows 系统环境中的应用程序。Msys2 本身基于 Cygwin 构建，结合了 Arch Linux 的 pacman 依赖管理工具，使用它可以很方便地安装需要的组件，比如 ARM 嵌入式开发需要使用 GCC 交叉编译。
-
-MSYS2 提供一个 Unix 类系统环境外，还有 shell 命令行界面和软件库，使得在 Windows 上安装、使用、构建和移植软件更加容易。这意味着 Bash, Autotools, Make, Git, GCC, GDB 等等 GNU 软件都可以通过 Pacman 软件包管理工具进行安装。
-
-比如，安装 pkg-config 应用就可以执行以下命令安装，这是一个开发环境的依赖处理工具，可以用它来检测依赖库文件的位置信息，并生成 GCC 或 MSVC 编译器命令行参数：
-
-```sh
-pacman -S pkg-config
-pkg-config --cflags --short-errors "guile-3.0"
-# -IC:/MinGW/include/guile/3.0 -I/usr 
-pkg-config --libs --static --short-errors --msvc-syntax "guile-2.0"
-# /libpath:C:/MinGW/lib /libpath:d:/usr/lib /libpath:$(libdir) /libpath:d:/usr/lib 
-# guile-2.0.lib gc.lib gmp.lib ltdl.lib ffi.lib unistring.lib intl.lib iconv.lib crypt.lib ws2_32.lib m.lib 
-```
-
-Msys2 基础软件仓库有三个：
-
-1. msys2: MSYS2-dependent software
-2. mingw64: 64-bit Windows 原生应用程序，使用 mingw-w64 x86_64 编译工具链编译；
-3. mingw32: 32-bit Windows 原生应用程序，使用 mingw-w64 i686 编译工具链编译；
-
-目前，已经发展出包括 LLVM 编译工具链的共 7 大软件仓库，它们的软件包命名规则如下：
-
-    |            | Name         | Package prefix
-    | ---------- | ------------ |-------------- |
-    | msys       | MSYS        | None
-    | mingw64    | MINGW64     | mingw-w64-x86_64-
-    | ucrt64     | UCRT64      | mingw-w64-ucrt-x86_64-
-    | clang64    | CLANG64     | mingw-w64-clang-x86_64-
-    | mingw32    | MINGW32     | mingw-w64-i686-
-    | clang32    | CLANG32     | mingw-w64-clang-i686-
-    | clangarm64 | CLANGARM64  | mingw-w64-clang-aarch64-
-     
-     Name: environment variable MSYSTEM 
-     Package: environment variable MINGW_PACKAGE_PREFIX
-
-为了避免使用长前缀名，可以使用 bash pacboy 脚本替代 pacman 执行软件包安装，在软件包名指定一个简写后缀即可：
-
-    For 64-bit MSYS2 shell:
-        name:i means i686-only
-        name:x means x86_64-only
-        name:z means clang-i686-only
-        name:c means clang-x86_64-only
-        name:u means ucrt-x86_64-only
-        name:a means clang-aarch64-only
-        name:p means MINGW_PACKAGE_PREFIX-only
-    For MSYS shell:
-        name:m means mingw-w64
-        name:l means mingw-w64-clang
-
-    For all shells:
-        name: disables any translation for name
-
-Pacboy 脚本可能需要通过 pacman 安装，如果不默认没有提供；
-
-```sh
-> pacman -S pactoys
-> bash pacboy -S jq:x
-resolving dependencies...
-looking for conflicting packages...
-
-Packages (4) mingw-w64-x86_64-gcc-libs-13.2.0-2
-             mingw-w64-x86_64-libwinpthread-git-11.0.0.r147.gddc5b0f6e-1
-             mingw-w64-x86_64-oniguruma-6.9.8-1
-             mingw-w64-x86_64-jq-1.7-1
-
-Total Download Size:   1.52 MiB
-Total Installed Size:  6.18 MiB
-
-:: Proceed with installation? [Y/n] y
-```
-
 秉承生命就是折腾的原则，这里不使用 pacman 这么好用的软件包管理工具，因为它确实太好用了，我就想用 Makefile 锤它。
 
 Msys2 虽然提供了一套 API，但是提供的功能太简单了，只负责查软件包的名字，至于其依赖还得通过返回的 JSON 数据去对应的 Web 页面上找。因为，其本身提供的 Pacman 就提供了自动依赖处理功能。
 
 既然决定要用 Makefile 这把锤，那么就用尝试用 Node.js 给它装上舒服一点的锤把手：编写一个模块脚本处理 Web 页面的文件链接地址列表。
-
-这里使用 Node 进行 JavaScrip/TypesScript 脚本编程需要了解决的一些基本概念：
-
-1. 每个 .js 脚本文件就是一个 Node 模块；
-2. 每个脚本模块在 Node 加载运行时，会通过模块加载器传入以下参数：
-3. process 引用当前 Node 进程，可以通过它获取当前运行环境信息，包括命令行参数；
-4. module 当前模块的引用，它包含 exports 变量，用于导出模块中需要导出的符号；
-
-命令行参数保存在 `process.argv` 变量，是字符串列表，首个元素即 0 号索引对应的是 Node 进程文件路径，其次是当前脚本模块路径，后面是其它命令行参数。使用 `length` 属性可以获取命令行参数数量，甚至还可以使用 `Object.keys(process.argv).length`。
-
-Node 模块没有默认入口函数，将模块脚本传递给 node 命令就执行它，如果执行取决于模块代码逻辑。但是有一个默认导出符号 exports.default，默认导出符号和 exports 其它所有导出符号构成整个模块的可以供外部调用的接口。使用 require() 方法就可以引用其它脚本模块，或者在最新版本中，使用 import 引用 ESM 规范模块。
 
 Node 模块实现代码放到面，现在来实现 Makefile 脚本：
 
@@ -2746,6 +3100,606 @@ clean :
     $(RM) pkg-config.init jq.init $(PACKAGE)
 ```
 
+### 📜 Mysy2 with pkg-config
+
+
+这里给 Msys2 作个简要介绍，并说明如何从 Cygwin 发展到 MinGW，再到 Msys2 交叉编译环境。
+https://www.msys2.org/docs/what-is-msys2/
+
+1995 年 Cygnus 工程师 Steve Chamberlain 发现 Windows 系统使用的 COFF 目标文件，即可执行文件格式，与此同时 GNU 的工具链已经支持 x86 和 COFF 的目标文件，并提供 C 语言库 newlib，这是嵌入式系统上的 C 标准库的实现。他认为既然 GNU 的工具链已经能够编译生成 x86 指令集的机器码，并可链接生成 COFF 格式的目标文件，而且还提供可移植到任意平台的 C 标准库 newlib, 那么理论上只要将 GCC 根据对应目标平台重新编译，重定向作为一个交叉编译器。那么这个 GCC 编译器可以生成 Windows 平台下的可执行文件。Steve Chamberlain 开发出原型，将他这个项目命名为 Cygwin。
+
+Cygwin 的编译和调用方式需要依赖一层 POSIX 到 Windows API 的中间层，比起日渐庞大的 Cygwin, 或许一个最小化且不需要中间层 GNU 工具链更能满足一些开发的需求, 于是 Colin Peters 在 1998 年创建了一个开源项目并撰写了最初的版本，将其命名为 mingw32 (Minimalist GNU for W32)。其意思就是 Windows 上的最小化 GNU 工具链，Windows 简称为 W32。后来为了避免暗示它仅限于生成 32 位二进制文件，就移除名称中的 32 变成 MinGW。
+
+Msys 2.0 也是为 Windows 系统提供 Unix 类系统编译环境的基础平台软件，它是基于现代 Cygwin 和 MinGW，对 MSys 的独立重写版本。MSYS2 vs Cygwin，MSYS2 中的 Unix 类工具直接基于 Cygwin，因此两者存在一些功能重叠。Cygwin 专注于在 Windows 上按原样构建 Unix 软件，MSYS2 则专注于构建基于 Windows API 的本地软件。也就是说，Cygwin 移植更彻底，这就是为何 Cygwin POSIX 到 Windows 的中间层特别巨大。
+
+有了 Msys2 就可以在 Windows 开发 Unix 应用程序，并构建出可以运行在 Windows 系统环境中的应用程序。Msys2 本身基于 Cygwin 构建，结合了 Arch Linux 的 pacman 依赖管理工具，使用它可以很方便地安装需要的组件，比如 ARM 嵌入式开发需要使用 GCC 交叉编译。
+
+MSYS2 提供一个 Unix 类系统环境外，还有 shell 命令行界面和软件库，使得在 Windows 上安装、使用、构建和移植软件更加容易。这意味着 Bash, Autotools, Make, Git, GCC, GDB 等等 GNU 软件都可以通过 Pacman 软件包管理工具进行安装。
+
+比如，安装 pkg-config 应用就可以执行以下命令安装，这是一个开发环境的依赖处理工具，可以用它来检测依赖库文件的位置信息，并生成 GCC 或 MSVC 编译器命令行参数：
+
+```sh
+pacman -S pkg-config
+pkg-config --cflags --short-errors "guile-3.0"
+# -IC:/MinGW/include/guile/3.0 -I/usr 
+pkg-config --libs --static --short-errors --msvc-syntax "guile-2.0"
+# /libpath:C:/MinGW/lib /libpath:d:/usr/lib /libpath:$(libdir) /libpath:d:/usr/lib 
+# guile-2.0.lib gc.lib gmp.lib ltdl.lib ffi.lib unistring.lib intl.lib iconv.lib crypt.lib ws2_32.lib m.lib 
+```
+
+Msys2 基础软件仓库有三个：
+
+1. msys2: MSYS2-dependent software
+2. mingw64: 64-bit Windows 原生应用程序，使用 mingw-w64 x86_64 编译工具链编译；
+3. mingw32: 32-bit Windows 原生应用程序，使用 mingw-w64 i686 编译工具链编译；
+
+目前，已经发展出包括 LLVM 编译工具链的共 7 大软件仓库，它们的软件包命名规则如下：
+
+    |            | Prefix      | Name         | Package prefix      
+    | ---------- |---------| ------------ |-------------- |      
+    | msys       | /usr       | MSYS        | None      
+    | mingw64    | /mingw32   | MINGW64     | mingw-w64-x86_64-      
+    | ucrt64     | /mingw64   | UCRT64      | mingw-w64-ucrt-x86_64-      
+    | clang64    | /ucrt64     | CLANG64     | mingw-w64-clang-x86_64-      
+    | mingw32    | /clang64    | MINGW32     | mingw-w64-i686-      
+    | clang32    | /clang32    | CLANG32     | mingw-w64-clang-i686-      
+    | clangarm64 | /clangarm64 | CLANGARM64  | mingw-w64-clang-aarch64-      
+
+     Name: environment variable MSYSTEM 
+     Package: environment variable MINGW_PACKAGE_PREFIX
+
+为了避免使用长前缀名，可以使用 bash pacboy 脚本替代 pacman 执行软件包安装，在软件包名指定一个简写后缀即可：
+
+    For 64-bit MSYS2 shell:
+        name:i means i686-only
+        name:x means x86_64-only
+        name:z means clang-i686-only
+        name:c means clang-x86_64-only
+        name:u means ucrt-x86_64-only
+        name:a means clang-aarch64-only
+        name:p means MINGW_PACKAGE_PREFIX-only
+    For MSYS shell:
+        name:m means mingw-w64
+        name:l means mingw-w64-clang
+
+    For all shells:
+        name: disables any translation for name
+
+Pacboy 脚本可能需要通过 pacman 安装，如果不默认没有提供；
+
+```sh
+> pacman -S pactoys
+> bash pacboy -S jq:x
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (4) mingw-w64-x86_64-gcc-libs-13.2.0-2
+             mingw-w64-x86_64-libwinpthread-git-11.0.0.r147.gddc5b0f6e-1
+             mingw-w64-x86_64-oniguruma-6.9.8-1
+             mingw-w64-x86_64-jq-1.7-1
+
+Total Download Size:   1.52 MiB
+Total Installed Size:  6.18 MiB
+
+:: Proceed with installation? [Y/n] y
+```
+
+1. https://www.msys2.org/docs/pkgconfig/
+2. https://www.msys2.org/dev/build-process/
+
+MSYS2 shells 默认会设置以下环境变量以支持 pkgconf，这是 Msys2 中实现 pkg-confg 的依赖管理软件：
+
+    PKG_CONFIG_PATH - e.g. /ucrt64/lib/pkgconfig:/ucrt64/share/pkgconfig
+    PKG_CONFIG_SYSTEM_INCLUDE_PATH - e.g. /ucrt64/include
+    PKG_CONFIG_SYSTEM_LIBRARY_PATH - e.g. /ucrt64/lib
+
+Msys2 中涉及 Prefix / Relocation，因为 Unix 类系统中 /usr 这样的路径在 Windows 系统上无效。在依赖包配置文件 .pc 中通常会包含以下内容：
+
+    prefix=/ucrt64
+    includedir=${prefix}/include
+    libdir=${prefix}/lib
+
+可以看到 /ucrt64 这不是一个有效的 Windows 路径，这不是主要问题，它会被忽略，会根据 pkgconfig 或 pkg-config 路径中的 .pc 信息文件的路径来检测 Msys2 的顶级目录以替代默认路径前缀。
+ path, but that's not a problem because by default prefix will be ignored, or rather re-defined by pkgconf/pkg-config based on the location of the .pc file itself. It will strip off /<...>/pkgconfig from the directory of the .pc file and use the resulting path as the new prefix (as documented here, which is sightly outdated as the second parent doesn't have to be (lib|share) but can be anything)
+
+假设配置文件存在 C:/msys64/ucrt64/lib/pkgconfig/glib-2.0.pc 就会取其  C:/msys64/ucrt64 作为真正的路径前缀，滤除 lib 目录之后的内容，这个目录对应 Msys2 其中一个软件仓库，基于 VS Stuio 的通用运行时编译的软件包。使用 --dont-define-prefix 参数，可以让 pkgconf 禁用这个默认前缀处理特性。
+
+前缀路径重定向处理依赖于 ${prefix} 变量，就像以上所述，但是以下这种硬编码的绝对路径就不支持：
+
+    prefix=/ucrt64
+    includedir=/ucrt64/include
+    libdir=/ucrt64/lib
+
+因此，pkg-config 和 pkgconf 都包含一个 hack 功能，以处理像以上这种使用绝对路径的目录前缀，/ucrt64/include 替换为 ${prefix}/include，使它可以重新定向。
+https://www.bassi.io/articles/2018/03/15/pkg-config-and-paths/
+
+The above relocation logic sadly breaks down when you install the .pc into a different custom location, like /lib/mylib-1.2/pkgconfig as it will derive the wrong prefix value for them. 
+
+    --variable=NAME                 get the value of variable named NAME
+    --define-variable=NAME=VALUE    set variable NAME to VALUE
+    --print-variables               output list of variables defined by the module
+    --prefix-variable=PREFIX        set the name of the variable that pkg-config automatically sets
+
+
+### 📜 pkg-config CLI
+
+Usage:
+  pkg-config.exe [OPTION...]
+
+Help Options:
+  -h, --help                              Show help options
+
+Application Options:
+  --version                               output version of pkg-config
+  --modversion                            output version for package
+  --atleast-pkgconfig-version=VERSION     require given version of pkg-config
+  --libs                                  output all linker flags
+  --static                                output linker flags for static linking
+  --short-errors                          print short errors
+  --libs-only-l                           output -l flags
+  --libs-only-other                       output other libs (e.g. -pthread)
+  --libs-only-L                           output -L flags
+  --cflags                                output all pre-processor and compiler flags
+  --cflags-only-I                         output -I flags
+  --cflags-only-other                     output cflags not covered by the cflags-only-I option
+  --variable=NAME                         get the value of variable named NAME
+  --define-variable=NAME=VALUE            set variable NAME to VALUE
+  --exists                                return 0 if the module(s) exist
+  --print-variables                       output list of variables defined by the module
+  --uninstalled                           return 0 if the uninstalled version of one or more module(s) or their dependencies will be used
+  --atleast-version=VERSION               return 0 if the module is at least version VERSION
+  --exact-version=VERSION                 return 0 if the module is at exactly version VERSION
+  --max-version=VERSION                   return 0 if the module is at no newer than version VERSION
+  --list-all                              list all known packages
+  --debug                                 show verbose debug information
+  --print-errors                          show verbose information about missing or conflicting packages (default unless --exists or --atleast/exact/max-version given on the command line)
+  --silence-errors                        be silent about errors (default when --exists or --atleast/exact/max-version given on the command line)
+  --errors-to-stdout                      print errors from --print-errors to stdout not stderr
+  --print-provides                        print which packages the package provides
+  --print-requires                        print which packages the package requires
+  --print-requires-private                print which packages the package requires for static linking
+  --validate                              validate a package's .pc file
+  --define-prefix                         try to override the value of prefix for each .pc file found with a guesstimated value based on the location of the .pc file
+  --dont-define-prefix                    don't try to override the value of prefix for each .pc file found with a guesstimated value based on the location of the .pc file
+  --prefix-variable=PREFIX                set the name of the variable that pkg-config automatically sets
+  --msvc-syntax                           output -l and -L flags for the Microsoft compiler (cl)
+
+
+### 📜 YAML 文档规范
+https://yaml.org/spec/1.2.2
+https://github.com/yaml/yaml-spec
+
+
+https://spacelift.io/blog/yaml
+YAML Tutorial : A Complete Language Guide with Examples by Omkar Birade
+
+YAML （发音 /ˈjæməl/ ）是一种层级规格化文本文档，使用缩进表示节点层级结构，以易读易处理而流行，Sublime Text 编辑器默认支持 YAML 语法，其语法高亮功能的定义文件也是使用 YAML 文档表示。
+
+YAML 形式上比 JSON 更简洁，因为没有强制使用双引号和花括号等等，并且还支持 # 符号编写注解内容。
+
+YAML 缩进使用空白字符，但是 TAB 除外。缩进一般使用空格，尽量保持一致的缩进。
+
+YAML Syntax 定义了三种主要类型：
+
+1. Maps/Dictionaries ：YAML 手册称之为 mapping，就是键值对（key/value）数据结构；
+2. Arrays/Lists ：YAML 手册称之为 sequences，即一系列有序数据，可以有数据重复；
+3. Literals Scalars：字面量（标量）包括 Strings, numbers, boolean 等等，支持 Unicode 字符集；
+
+YAML 文档中的特殊功能字符包括以下这些：
+
+     :  {   }   [   ]   ,   &   *   #   ?   
+     |   --   <   >   =   !   %   @   \ 
+
+有三种方式可以将这些特殊字符转义，使其而作为一般字符：
+
+1. Entity Escapes ：例如 space: &#x20;  colon: &#58;  ampersand: &amp; 
+2. Unicode Escapes ：例如 space: "\u0020"  single-quote: "\u0027"  double quote: "\u0022"
+3. Quoted Escapes ：例如 &: "a & b" 或者单引号包括‘a & b'，可以相互内嵌；
+
+参考规范手册 Chapter 5. Character Productions。
+
+对于处理重复数据，YAML 文档中引入了两个功能符号 anchors `&` 和 aliases `*`。锚点即用于可以被别名锚定（被引用）的的内容，对于有大量重复数据的文档非常有用。另外，还引入 overrides `<<:` 符号用于覆盖引用内容原有的定义。
+
+引用可以用来定义文档目录，因为一般编辑器会提供索引符号目录，但是不能使用空格，可以用下划线替换。
+
+YAML 解析器的一个目标是 one-pass processing，不做多遍处理，所以引用需要先定义，否则触发发别名符号引用错误，参考 3. Processes and Models。
+
+    ReferenceError: Unresolved alias (the anchor must be set before the alias)
+
+1. Figure 3.1. Processing Overview  https://yaml.org/spec/1.2.2/img/overview2.svg
+2. Figure 3.2. Information Models   https://yaml.org/spec/1.2.2/img/model2.svg
+3. Figure 3.3. Representation Model https://yaml.org/spec/1.2.2/img/represent2.svg
+4. Figure 3.4. Serialization Model https://yaml.org/spec/1.2.2/img/serialize2.svg
+5. Figure 3.5. Presentation Model https://yaml.org/spec/1.2.2/img/present2.svg
+6. Figure 3.6. Kind/Style Combinations https://yaml.org/spec/1.2.2/img/styles2.svg
+7. Figure 3.7. Loading Failure Points https://yaml.org/spec/1.2.2/img/validity2.svg
+
+3. Processes and Models https://yaml.org/spec/1.2.2/#31-processes
+
+YAML 1.2 Reference Parsers https://github.com/yaml/yaml-reference-parser
+
+Schemas 模型是指导解释器如果处理文档符号的规则定义，比如，文档中出现的 false 这样的字符串，应该作为字符串处理还是作为布尔值算的问号。
+
+例如，以下配置了三个使用相同设置的服务，而 service4 则覆盖了版本号设置：
+
+```yaml
+---
+vars:
+  - service1:
+      config: &service_config
+           env: prod
+           retries: 3
+           version: 4.8.2
+  - service2:
+      config: *service_config
+  - service3:
+      config: *service_config
+  - service4:
+      config:
+           <<: *service_config
+           version: 4.2
+```
+
+此文档基本完全展示了 YAML 文档的结构，负号前缀表示它是序列中的一项，vars 这个序列包含四个元素。然后，键值对就是以分号为标志，其左侧部分称为 key，右侧部分称为 value。键值对即是基于 hash 算法实现的字典数据结构，通过 key 可以用来快速访问对应的值。比如，config 这个键对应的值就是 service_config 引用值，也就是三个基本的配置项。这些配置项也是键值对。
+
+不是一定要在顶层创建一个 vars 才能定义序列，只可以在文档顶层直接定义序列。并且，序列元素也不一定需要是 mapping 类型，也可以是嵌套列表，只需要将 - 后面的 key:value 移除，在后续行中使用缩进的 - 符号就可以定义嵌套的序列。
+
+注意，& 定义待引用内容时，需要紧跟 : 符号后面，如果是跟在其它字符后面则当作字符串处理。定义待引用符号就是定义标签内容，YAML 规范文档使用 labeled SS 表示 &SS。
+
+如果，编辑器有语法提示，就会将 4.8.2 版本号和字符串作一样处理，而 4.2 属于是数值，Node 平台中使用 yaml 解析器时可以获取到不同的数据类型，但是这种不一致的数据并不是一种良构文档。另外，通过 key 读取数据时，序列对应数组列表，使用下标进行对应元素的访问。但是还需要需要序列项的 key 来访问对应的数据，参考脚本如下：
+
+```js
+// import { parse, stringify } from 'c:/nodejs/node_modules/yaml/dist/index.js'
+const {parse, stringify} = require("c:/nodejs/node_modules/yaml/dist/index.js")
+const fs = require("node:fs")
+yaml = parse(fs.readFileSync('do.yaml').toString('utf8'))
+console.log( yaml.vars[0], yaml.vars[0].service1, yaml.vars[3].service4 )
+```
+
+
+YAML 映射支持高级表达形式，重新映射、紧凑形式，序列也可以使用方括号表示，参考规范文档 7.4. Flow Collection Styles。以下示例来自 YAML 规范文档：
+
+```yaml
+---
+# Example 2.11 Mapping between Sequences
+# [ Detroit Tigers, Chicago cubs ] : [ '2001-07-23' ],
+
+? - Detroit Tigers
+  - Chicago cubs
+: - 2001-07-23
+
+? [ New York Yankees,
+    Atlanta Braves ]
+: [ 2001-07-02, 2001-08-12,
+    2001-08-14 ]
+
+# Example 2.12 Compact Nested Mapping
+# Products item {item:string,quantity:number}
+items :
+  - item    : Super Hoop
+    quantity: 1
+  - item    : Basketball
+    quantity: 4
+  - item    : Big Shoes
+    quantity: 1
+```
+
+YAML 定义了 3 个默认模式:
+
+10.1. FailSafe Schema: 只可以处理 maps sequences strings 数据类型，所有 YAML 文档通用；
+10.2. JSON Schema: 支持所有 JSON 规范定义的类型，null int float 等等，包括 FailSafe；
+10.3. Core Schema: 扩展 JSON schema，可以形式表达同一类型，支持更人性化的可读文档。
+
+COre schema 模型中，支持 null | Null | NULL 这样的多种形式表示空引用，又如布尔值的多种表达形式 true | True | TRUE，可以像以下代码一样显式指定类型。参考规范文档 Chapter 10. Recommended Schemas。
+
+```yaml
+---
+# A sample yaml file
+company: !!str spacelift
+domain:
+ - !!str devops
+ - !!str devsecops
+tutorial:
+   - name: !!str yaml
+   - type: !!str awesome
+   - rank: !!int 1
+   - born: !!int 2001
+author: !!str omkarbirade
+published: !!bool true
+```
+
+这种显式类型标注称为 Targs，标注类型还有 seq map str binary int float null 等等，参考规范文档 2.4. Tags。
+
+
+```yaml
+# Example 2.19 Integers
+
+canonical: 12345
+decimal: +12345
+octal: 0o14
+hexadecimal: 0xC
+
+# Example 2.20 Floating Point
+
+canonical: 1.23015e+3
+exponential: 12.3015e+02
+fixed: 1230.15
+negative infinity: -.inf
+not a number: .nan
+
+# Example 2.21 Miscellaneous
+
+null:
+booleans: [ true, false ]
+string: '012345'
+
+# Example 2.22 Timestamps
+
+canonical: 2001-12-15T02:59:43.1Z
+iso8601: 2001-12-14t21:59:43.10-05:00
+spaced: 2001-12-14 21:59:43.10 -5
+date: 2002-12-14
+```
+
+YAML 字符串表现有多种形式，除了直接编写的字面量、引号包括的字面量，还以下几何多行字符串形式：
+
+1. `>` Folding Strings 折叠多行字符串，即多选并成一行，无结束换行符号；
+2. `|` Block strings 字符串块，HEREDOC 方式，保留所有换行符号；
+3. Chomp characters 形式，包含行末空白字符、换行符号的两种处理方式
+3.1 `>+` Preserving new line character 保留行尾的空白字符、换行符；
+3.2 `>-` Stripping new line character 清除行尾的空白字符、换行符；
+
+
+```yaml
+--- # new document
+message1: >
+    even though
+    it looks like
+    this is a multiline message,
+    it is actually not
+--- # new document
+message2: |
+    this is
+    a real multiline
+    message
+--- # new document
+message3: >+
+    This block line
+    Will be interpreted as a single
+    line with a newline character at the 
+    end
+--- # new document
+message4: >-
+    This block line
+    Will be interpreted as a single
+    line without the newline character at the
+    end
+```
+
+YAML 支持 MULTIPLE_DOCS 概念，每个 --- 符号表示一个文档的开始，可以定义多个文档。应该使用 parseAllDocuments 方法进行解析，返回的是 [Document] 列表，每个文档的符号定义保存在 contents 变量中。序列中的 mappinng 数据以 `Pair` 类型展示，此类型中使用 `Scalar` 类型的 key 和 value 属性保存键值对应的数据。
+
+```ts
+// import { parse, stringify } from 'c:/nodejs/node_modules/yaml/dist/index.js'
+const {parse, parseAllDocuments, stringify} = require("c:/nodejs/node_modules/yaml/dist/index.js")
+const fs = require("node:fs")
+yaml = parseAllDocuments(fs.readFileSync('do.yaml').toString('utf8'))
+console.log( yaml.length, yaml[0].contents.items[0], yaml[0].contents.items[0].key )
+```
+
+
+YAML 中的符号可能会触发怪异问题，The curious case of the Norway problem：
+
+```yaml
+countries:
+#Sequence 
+- GB # Great britain
+- IE # Ireland
+- FR # France
+- DE # Denmark
+- NO # Norway
+```
+
+如果尝试使用 Python 解析以上 YAML 文档，结果就是 NO 解析为布尔值，因为 PyYAML 处理 FALSE | F | NO 或者 NULL | null 是看作特殊值，而不是字符串字面量。为了避免这种意外情况，可以使用 StrictYAML 模块，它严格将符号作用字符串字面量处理，而不是特殊值。
+https://hitchdev.com/strictyaml/why/implicit-typing-removed/
+
+```py
+>>> from pyyaml import load
+>>> load(the_configuration)
+{'countries': ['GB', 'IE', 'FR', 'DE', False]}
+```
+
+使用
+Node yaml 模块则不一样，不会以同样方式解析。Node 新版本除了支持默认的 CommonJS 模块规范，还增加了对 ESM (ECMAScript Modules) 支持，使用 ESM 就需要在 package.json 配置 `{"type": "module"}`，否则就会触发以下错误：
+
+    SyntaxError: Cannot use import statement outside a module 
+
+注意，--input-type=module 方式只支持 /c 传入命令行中的代码使用。
+
+```js
+// npm install -g yaml
+// node --input-type=module -c "somecoe"
+// import { parse, stringify } from 'yaml'
+const {parse, stringify} = require("c:/nodejs/node_modules/yaml/dist/index.js")
+console.log(parse(`
+countries:
+    - GB # Great britain
+    - IE # Ireland
+    - FR # France
+    - DE # Denmark
+    - NO # Norway
+`))
+```
+
+使用 npm 安装 yaml 模块后，可以不创建 package.json 工程配置，或者安装依赖模块，可以直接给 require 或者 import 指定完整导入路径，而不是模块名。
+
+
+
+### 📜 reStructuredText 文档规范
+https://github.com/adamchainz/sublime-rst-improved
+https://docutils.sourceforge.io/rst.html
+https://docutils.sourceforge.io/docs/user/rst/cheatsheet.txt
+https://docutils.sourceforge.io/docs/user/rst/demo.html
+
+    =====================================================
+     The reStructuredText_ Cheat Sheet: Syntax Reminders
+    =====================================================
+    :Info: See <https://docutils.sourceforge.io/rst.html> for introductory docs.
+    :Author: David Goodger <goodger@python.org>
+    :Date: $Date: 2022-01-20 11:11:44 +0100 (Do, 20. JÃ¤n 2022) $
+    :Revision: $Revision: 8956 $
+    :Description: This is a "docinfo block", or bibliographic field list
+
+    .. NOTE:: If you are reading this as HTML, please read
+       `<cheatsheet.txt>`_ instead to see the input syntax examples!
+
+    Section Structure
+    =================
+    Section titles are underlined or overlined & underlined.
+
+    Body Elements
+    =============
+    Grid table:
+
+    +--------------------------------+-----------------------------------+
+    | Paragraphs are flush-left,     | Literal block, preceded by "::":: |
+    | separated by blank lines.      |                                   |
+    |                                |     Indented                      |
+    |     Block quotes are indented. |                                   |
+    +--------------------------------+ or::                              |
+    | >>> print 'Doctest block'      |                                   |
+    | Doctest block                  | > Quoted                          |
+    +--------------------------------+-----------------------------------+
+    | | Line blocks preserve line breaks & indents. [new in 0.3.6]       |
+    | |     Useful for addresses, verse, and adornment-free lists; long  |
+    |       lines can be wrapped with continuation lines.                |
+    +--------------------------------------------------------------------+
+
+    Simple tables:
+
+    ================  ============================================================
+    List Type         Examples (syntax in the `text source <cheatsheet.txt>`_)
+    ================  ============================================================
+    Bullet list       * items begin with "-", "+", or "*"
+    Enumerated list   1. items use any variation of "1.", "A)", and "(i)"
+                      #. also auto-enumerated
+    Definition list   Term is flush-left : optional classifier
+                          Definition is indented, no blank line between
+    Field list        :field name: field body
+    Option list       -o  at least 2 spaces between option & description
+    ================  ============================================================
+
+    ================  ============================================================
+    Explicit Markup   Examples (visible in the `text source`_)
+    ================  ============================================================
+    Footnote          .. [1] Manually numbered or [#] auto-numbered
+                         (even [#labelled]) or [*] auto-symbol
+    Citation          .. [CIT2002] A citation.
+    Hyperlink Target  .. _reStructuredText: https://docutils.sourceforge.io/rst.html
+                      .. _indirect target: reStructuredText_
+                      .. _internal target:
+    Anonymous Target  __ https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html
+    Directive ("::")  .. image:: images/biohazard.png
+    Substitution Def  .. |substitution| replace:: like an inline directive
+    Comment           .. is anything else
+    Empty Comment     (".." on a line by itself, with blank lines before & after,
+                      used to separate indentation contexts)
+    ================  ============================================================
+
+    Inline Markup
+    =============
+    *emphasis*; **strong emphasis**; `interpreted text`; `interpreted text
+    with role`:emphasis:; ``inline literal text``; standalone hyperlink,
+    https://docutils.sourceforge.io; named reference, reStructuredText_;
+    `anonymous reference`__; footnote reference, [1]_; citation reference,
+    [CIT2002]_; |substitution|; _`inline internal target`.
+    
+    Directive Quick Reference
+    =========================
+    See <https://docutils.sourceforge.io/docs/ref/rst/directives.html> for full info.
+
+    ================  ============================================================
+    Directive Name    Description (Docutils version added to, in [brackets])
+    ================  ============================================================
+    attention         Specific admonition; also "caution", "danger",
+                      "error", "hint", "important", "note", "tip", "warning"
+    admonition        Generic titled admonition: ``.. admonition:: By The Way``
+    image             ``.. image:: picture.png``; many options possible
+    figure            Like "image", but with optional caption and legend
+    topic             ``.. topic:: Title``; like a mini section
+    sidebar           ``.. sidebar:: Title``; like a mini parallel document
+    parsed-literal    A literal block with parsed inline markup
+    rubric            ``.. rubric:: Informal Heading``
+    epigraph          Block quote with class="epigraph"
+    highlights        Block quote with class="highlights"
+    pull-quote        Block quote with class="pull-quote"
+    compound          Compound paragraphs [0.3.6]
+    container         Generic block-level container element [0.3.10]
+    table             Create a titled table [0.3.1]
+    list-table        Create a table from a uniform two-level bullet list [0.3.8]
+    csv-table         Create a table from CSV data [0.3.4]
+    contents          Generate a table of contents
+    sectnum           Automatically number sections, subsections, etc.
+    header, footer    Create document decorations [0.3.8]
+    target-notes      Create an explicit footnote for each external target
+    math              Mathematical notation (input in LaTeX format)
+    meta              Document metadata
+    include           Read an external reST file as if it were inline
+    raw               Non-reST data passed untouched to the Writer
+    replace           Replacement text for substitution definitions
+    unicode           Unicode character code conversion for substitution defs
+    date              Generates today's date; for substitution defs
+    class             Set a "class" attribute on the next element
+    role              Create a custom interpreted text role [0.3.2]
+    default-role      Set the default interpreted text role [0.3.10]
+    title             Set the metadata document title [0.3.10]
+    ================  ============================================================
+
+    Interpreted Text Role Quick Reference
+    =====================================
+    See <https://docutils.sourceforge.io/docs/ref/rst/roles.html> for full info.
+
+    ================  ============================================================
+    Role Name         Description
+    ================  ============================================================
+    emphasis          Equivalent to *emphasis*
+    literal           Equivalent to ``literal`` but processes backslash escapes
+    math              Mathematical notation (input in LaTeX format)
+    PEP               Reference to a numbered Python Enhancement Proposal
+    RFC               Reference to a numbered Internet Request For Comments
+    raw               For non-reST data; cannot be used directly (see docs) [0.3.6]
+    strong            Equivalent to **strong**
+    sub               Subscript
+    sup               Superscript
+    title             Title reference (book, etc.); standard default role
+    ================  ============================================================
+
+
+### 📜 Node.js Module for Make
+
+
+这里使用 Node 进行 JavaScrip/TypesScript 脚本编程需要了解决的一些基本概念：
+
+1. 每个 .js 脚本文件就是一个 Node 模块；
+2. 每个脚本模块在 Node 加载运行时，会通过模块加载器传入以下参数：
+3. process 引用当前 Node 进程，可以通过它获取当前运行环境信息，包括命令行参数；
+4. module 当前模块的引用，它包含 exports 变量，用于导出模块中需要导出的符号；
+
+https://nodejs.org/api/packages.html#package-entry-points
+因为只使用一个脚本模块就可以配合 Makefile 脚本完成任务，所以不需要创建 package.json 进行工程管理设置，也不需要设置工程的入口脚本和导出文件，"main" and "exports"。
+
+命令行参数保存在 `process.argv` 变量，是字符串列表，首个元素即 0 号索引对应的是 Node 进程文件路径，其次是当前脚本模块路径，后面是其它命令行参数。使用 `length` 属性可以获取命令行参数数量，甚至还可以使用 `Object.keys(process.argv).length`。
+
+Node 模块没有默认入口函数，将模块脚本传递给 node 命令就执行它，如果执行取决于模块代码逻辑。但是有一个默认导出符号 exports.default，默认导出符号和 exports 其它所有导出符号构成整个模块的可以供外部调用的接口。使用 require() 方法就可以引用其它脚本模块，或者在最新版本中，使用 import 引用 ESM 规范模块。
+
+Node v12.0.0 引入参数来指定输入的模块规范类型，例如，指定为 ESM 模块输入，这样就可以在顶级代码块中使用 await 异步编程：
+
+    node --input-type=commonjs --eval='((msg)=>console.log({msg}))("Hello!")'
+    node --input-type=module --eval='await ((msg)=>console.log({msg}))("Hello!")'
+
+https://nodejs.org/api/packages.html#--input-type-flag
+Use mjs extension or type:"module" in package.json, to use import/export.
+CommonJS is Node default setting, use cjs extension or type:"commonjs" to use require/module.exports.
+
 以下为 Node 脚本模拟扩展，供 Make 调用以获取 Msys2 软件仓库中软件包以及依赖包下载地址，暂时命名为 msys2pac.js，和 Makefile 脚本中调用一致即可。此脚本将近 200 行，对于《面向 Makefile 编程》来说，有点“夺目”了。这里就作一个简单的说明：
 
 1. 脚本中设置了一个 help() 函数，在输入参数不正确时提示使用方法；
@@ -2776,13 +3730,13 @@ function help() {
     node msys2pac.js repo msys2_package_name
 
     where repo can be:
-    1. ${Prefix.repo_clang32} 
-    2. ${Prefix.repo_clang64} 
-    3. ${Prefix.repo_clangarm64}
-    4. ${Prefix.repo_mingw32} 
-    5. ${Prefix.repo_mingw64} 
-    6. ${Prefix.repo_ucrt64} 
-
+    1. ${Prefix.repo_clang32} ( prefix: ${Prefix.prefix_clang32} )
+    2. ${Prefix.repo_clang64} ( prefix: ${Prefix.prefix_clang64} )
+    3. ${Prefix.repo_clangarm64}( prefix: ${Prefix.prefix_clangarm64})
+    4. ${Prefix.repo_mingw32} ( prefix: ${Prefix.prefix_mingw32} )
+    5. ${Prefix.repo_mingw64} ( prefix: ${Prefix.prefix_mingw64} )
+    6. ${Prefix.repo_ucrt64} ( prefix: ${Prefix.prefix_ucrt64} )
+    
     ex.
     node msys2pac.js ${Prefix.repo_mingw64} jq
     `)
@@ -2826,7 +3780,7 @@ class Prefix {
 class ApiInfo {
     query = "string"
     qtype = "string"
-    results = { exact: new PackageInfo, other: new PackageInfo }
+    results = { exact: new PackageInfo, other: [new PackageInfo] }
 }
 
 class PackageInfo {
@@ -2853,10 +3807,14 @@ async function search_api(pkg) {
     return await fetch(url).then(res=>{
         return res.json()
     }).then( (/** @type {ApiInfo} */ json)=>{
-        if (Object.keys(json.results.exact).length===0) {
-            throw DOESNT+' '+pkg;
+        // if (Object.keys(json.results.exact).length===0) {
+        //     throw DOESNT+' '+pkg;
+        // }
+        let {exact, other} = json.results
+        if (Object.keys(exact).length) {
+            other.unshift(exact)
         }
-        return json.results.exact
+        return other
     }).catch(error=>{
         console.warn( {url, pkg, error} )
         Promise.reject('search_api()') 
@@ -2927,7 +3885,7 @@ if (process.argv.length!==4) {
 } else if ( Prefix.repo_list().indexOf(repo) !== -1) {
     (async ()=> {
         const res = await search_api(pkg)
-        if (res.repos.indexOf(repo) > -1) {
+        if (res.repos && res.repos.indexOf(repo) > -1) {
             const list = await packages_list(pkg, repo);
             stdout.write(list.join('\n')+"\n")
         } else {
@@ -2942,15 +3900,15 @@ if (process.argv.length!==4) {
 
 
 
-### 🐣 C/C++ Project Templates
+## 🍀 C/C++ Project Templates
 
-### 🐣 Erlang Project Templates
+## 🍀 Erlang Project Templates
 
-### 🐣 Unit Test
+## 🍀 Unit Test
 
 
 
-## 🍀 Makefile 光学教程
+# 🐣 Makefile 光学教程
 3. https://www.gnu.org/software/make/manual
 
 Make 是最常用的基于宏编程的构建工具，诞生于 1977 年，斯图亚特·费尔德曼（Stuart Feldman）在贝尔实验室（Bell Labs）创立，主要用于 C 语言的项目。但是实际上 ，任何只要某个文件有变化，就要重新构建的项目，都可以用 Make 构建。
@@ -3054,7 +4012,7 @@ module.exports = filter;
 ```
 
 
-### 🐣 Basic Concepts
+## 🍀 Basic Concepts
 
 按照 GNU m4 宏编程经验， Macros 即代码生成工具，输入输出都是字符串，输入字符中所有宏符号都会被相应的宏定义内容替换。但是 make 作为一种宏编程工具，有些功能差异，它并不像 GNU m4 这种通用的宏编程工具，出于约束它的灵活性同时降低使用风险，make 增加了许多约束条件，比如在 Target 规则之外不能使用宏输出内容。
 
@@ -3336,7 +4294,7 @@ General Shiro Ishii, the commander of Unit 731.
 
 
 
-### 🐣 Rules Definition
+## 🍀 Rules Definition
 1. https://www.gnu.org/software/make/manual/make.html#Rule-Example
 2. https://www.gnu.org/software/make/manual/make.html#Rule-Introduction
 3. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
@@ -3653,7 +4611,7 @@ Makefile 中有两种条件使用方式，其中一种就是 ifeq 和 ifneq 这�
 3. https://www.gnu.org/software/make/manual/make.html#index-pattern_002dspecific-variables
 
 
-### 🐣 Variables
+## 🍀 Variables
 1. https://www.gnu.org/software/make/manual/make.html#Automatic-Variables
 2. https://www.gnu.org/software/make/manual/make.html#Reading-Makefiles
 3. https://www.gnu.org/software/make/manual/make.html#MAKE-Variable
@@ -3746,7 +4704,7 @@ Makefile 一些特殊变量，6.14 Other Special Variables
 Makefile 中有许多变量由隐式规则使用，10.3 Variables Used by Implicit Rules。如果脚本中没有对 make 可以知识的文件类型提供规则定义，那么 make 就会自行推断使用相应的构建命令。比如，Target 为 C 语言源文件，则会执行 `$(CC) -c $(CFLAGS) $(CPPFLAGS)` 编译命令，并且可以多级推断，这就是 10.4 Chains of Implicit Rules。隐式规则中使用的 CFLAGS 或者 CPPFLAGS 都是隐式变量。
 
 
-### 🐣 Functions
+## 🍀 Functions
 
 Make 定义函数和定义变量差别不大，因为都是宏定义，主要是在使用方式上的差别。变量除了可以使用简化的 = 或 := 或 ::= 等等符号进行定义，还有一种通用的变量、函数定义，就是使用 define 指令定义用户宏。使用 define 指令定义宏函数时，也和变量一样，有使用 = 和 := 两种基本的绑定方式，使用 = 号或者省略 = 号表示延后绑定（deferred），是递归处理模式，宏体展开的内容始终是所使用宏符号的最后定义的值。而使用 := 的是立即绑定模式，当前定义这个宏函数时相应的宏定义是什么值，就会立即扩展变成字符串替换到宏函数体中相应的位置。
 
@@ -3917,7 +4875,7 @@ inc = $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
 GNU 还有许多高级的扩展编程能力，已经提供 GNU Glue 编程，这是一种  Scheme programming language。还可以编写扩展插件，通过 load 指令加载并运行。
 
 
-### 🔄 Secondary Expansion
+## 🔄 Secondary Expansion
 1. https://www.gnu.org/software/make/manual/make.html#Secondary-Expansion
 2. https://www.gnu.org/software/make/manual/make.html#Static-Pattern
 
@@ -4080,7 +5038,7 @@ foo foz: f%: bo%
 Make 自动推导能力是关联多层目标的，比如，一个目标依赖 .o 文件，那么就会自动推导出 .o 目标，继而推导出 .c 目标，这就是 C 语言的基本构建涉及的文件目标。
 
 
-### 🔁 Remaking & MAKE_RESTARTS
+## 🔁 Remaking & MAKE_RESTARTS
 1. https://www.gnu.org/software/make/manual/make.html#Remaking-Makefiles
 2. https://www.gnu.org/software/make/manual/make.html#Remaking-Loaded-Objects
 
@@ -4241,7 +5199,7 @@ $(info |||MAKELEVEL=$(MAKELEVEL))
     rm -f foo.mk makefile.mk makefilemk
 
 
-### ⏫ Make Jobs
+## ⏫ Make Jobs
 1. https://make.mad-scientist.net/papers/jobserver-implementation/
 2. https://www.gnu.org/software/make/manual/make.html#Parallel
 3. https://www.gnu.org/software/make/manual/make.html#MAKE-Variable
@@ -4546,7 +5504,7 @@ Version 4.2.1 (10 Jun 2016)
 
 
 
-### 🤘 Make Guile Extending
+## 🤘 Make Guile Extending
 1. https://www.gnu.org/software/guile/manual/
 2. https://www.gnu.org/software/guile/docs/guile-tut/tutorial.html
 3. https://spritely.institute/static/papers/scheme-primer.html
@@ -4986,7 +5944,7 @@ SYMBOL TABLE:
 ```
 
 
-### ✋ Implicit Rules
+## ✋ Implicit Rules
 https://www.gnu.org/software/make/manual/make.html#Suffix-Rules
 https://www.gnu.org/software/make/manual/make.html#Implicit-Rule-Search
 
@@ -5265,7 +6223,7 @@ app : port.o
 20. *RM*  删除文件命令。
 
 
-### 💻 Make CLI
+## 💻 Make CLI
 
     Usage: make [options] [target] ...
     Options:
@@ -5316,7 +6274,7 @@ app : port.o
     Report bugs to <bug-make@gnu.org>
 
 
-### 📜 Makefile Syntaxes 语法列表
+## 📜 Makefile Syntaxes 语法列表
 https://www.gnu.org/software/make/manual/make.html#Quick-Reference
 https://www.gnu.org/software/make/manual/make.html#Error-Messages
 https://www.gnu.org/software/make/manual/make.html#Complex-Makefile
@@ -5524,414 +6482,6 @@ https://www.gnu.org/software/make/manual/make.html#Concept-Index
     # 12.2.4 Example Loaded Object
     https://www.gnu.org/software/make/manual/make.html#Loaded-Object-Example
 ```
-
-
-## 🍀 C.1 Index for all m4 macros
-
-    Index Entry     Section
-                                                        _       
-    __file__:       Location
-    __gnu__:        Platform macros
-    __line__:       Location
-    __os2__:        Platform macros
-    __program__:    Location
-    __unix__:       Platform macros
-    __windows__:    Platform macros
-                                                        A       
-    argn:          Shift
-    array:         Define
-    array_set:      Define
-                                                        B       
-    builtin:        Builtin
-                                                        C       
-    capitalize:      Patsubst
-    changecom:      Changecom
-    changequote:     Changequote
-    changeword:     Changeword
-    cleardivert:     Cleardivert
-    cond:          Shift
-    copy:          Composition
-    curry:         Composition
-                                                        D       
-    debugfile:      Debug Output
-    debugmode:      Debug Levels
-    decr:          Incr
-    define:        Define
-    define_blind:    Composition
-    defn:         Defn
-    divert:        Divert
-    divnum:       Divnum
-    dnl:          Dnl
-    downcase:      Patsubst
-    dquote:       Shift
-    dquote_elt:     Shift
-    dumpdef:        Dumpdef
-                                                        E       
-    errprint:       Errprint
-    esyscmd:        Esyscmd
-    eval:          Eval
-    example:        Manual
-    exch:          Arguments
-                                                        F       
-    fatal_error:     M4exit
-    foreach:        Foreach
-    foreachq:       Foreach
-    forloop:        Forloop
-    format:     Format
-                                                        I       
-    ifdef:      Ifdef
-    ifelse:     Ifelse
-    ifelse:     Ifelse
-    ifelse:     Ifelse
-    include:     Include
-    incr:       Incr
-    index:      Index macro
-    indir:      Indir
-                                                        J       
-    join:       Shift
-    joinall:      Shift
-                                                        L       
-    len:        Len
-                                                        M       
-    m4exit:     M4exit
-    m4wrap:     M4wrap
-    maketemp:       Mkstemp
-    mkstemp:        Mkstemp
-                                                        N       
-    nargs:      Pseudo Arguments
-                                                        O       
-    os2:        Platform macros
-                                                        P       
-    patsubst:       Patsubst
-    popdef:     Pushdef
-    pushdef:        Pushdef
-                                                        Q       
-    quote:      Shift
-                                                        R       
-    regexp:     Regexp
-    rename:     Composition
-    reverse:        Shift
-                                                        S       
-    shift:      Shift
-    sinclude:       Include
-    stack_foreach:      Stacks
-    stack_foreach_lifo:     Stacks
-    stack_foreach_sep:      Improved copy
-    stack_foreach_sep_lifo:     Improved copy
-    substr:     Substr
-    syscmd:     Syscmd
-    sysval:     Sysval
-                                                        T       
-    traceoff:       Trace
-    traceon:        Trace
-    translit:       Translit
-                                                        U       
-    undefine:       Undefine
-    undivert:       Undivert
-    unix:         Platform macros
-    upcase:        Patsubst
-                                                        W       
-    windows:        Platform macros
-
-
-## 🍀 C.2 Index for many concepts
-
-    Index Entry     Section
-                                                                A       
-    argument currying:      Composition
-    arguments to macros:        Macro Arguments
-    arguments to macros:        Arguments
-    arguments to macros, special:       Pseudo Arguments
-    arguments, joining:     Shift
-    arguments, more than nine:      Arguments
-    arguments, more than nine:      Shift
-    arguments, more than nine:      Improved foreach
-    arguments, quoted macro:        Quoting Arguments
-    arguments, reversing:       Shift
-    arithmetic:     Arithmetic
-    arrays:     Define
-    avoiding quadratic behavior:        Improved foreach
-                                                                B       
-    basic regular expressions:      Regexp
-    basic regular expressions:      Patsubst
-    blind macro:        Inhibiting Invocation
-    blind macro:        Ifelse
-    blind macro:        Composition
-    bug reports:        Bugs
-    builtins, indirect call of:     Builtin
-    builtins, special tokens:       Defn
-                                                                C       
-    call of builtins, indirect:     Builtin
-    call of macros, indirect:       Indir
-    case statement:     Ifelse
-    changing comment delimiters:        Changecom
-    changing quote delimiters:      Changequote
-    changing syntax:        Changeword
-    characters, translating:        Translit
-    command line:       Invoking m4
-    command line, file names on the:        Command line files
-    command line, macro definitions on the:     Preprocessor features
-    command line, options:      Invoking m4
-    commands, exit status from shell:       Sysval
-    commands, running shell:        Shell commands
-    comment delimiters, changing:       Changecom
-    comments:       Comments
-    comments, copied to output:     Changecom
-    comparing strings:      Ifelse
-    compatibility:      Compatibility
-    composing macros:       Composition
-    concatenating arguments:        Shift
-    conditional, short-circuiting:      Shift
-    conditionals:       Ifdef
-    controlling debugging output:       Debug Levels
-    copying macros:     Composition
-    counting loops:     Forloop
-    currying arguments:     Composition
-                                                                D       
-    debugging macros:       Debugging
-    debugging output, controlling:      Debug Levels
-    debugging output, saving:       Debug Output
-    decrement operator:     Incr
-    deferring expansion:        M4wrap
-    deferring output:       Diversions
-    defining new macros:        Definitions
-    definition stack:       Pushdef
-    definition stack:       Stacks
-    definitions, displaying macro:      Defn
-    definitions, displaying macro:      Dumpdef
-    deleting macros:        Undefine
-    deleting whitespace in input:       Dnl
-    delimiters, changing:       Changequote
-    delimiters, changing:       Changecom
-    discarding diverted text:       Cleardivert
-    discarding input:       Ifelse
-    discarding input:       Dnl
-    discarding input:       Divert
-    displaying macro definitions:       Dumpdef
-    diversion numbers:      Divnum
-    diverted text, discarding:      Cleardivert
-    diverting output to files:      Divert
-    dumping into frozen file:       Using frozen files
-                                                                E       
-    error messages, printing:       Errprint
-    errors, fatal:      Operation modes
-    evaluation, of integer expressions:     Eval
-    examples, understanding:        Manual
-    executing shell commands:       Shell commands
-    exit status from shell commands:        Sysval
-    exiting from m4:        M4exit
-    expansion of macros:        Macro expansion
-    expansion, deferring:       M4wrap
-    expansion, tracing macro:       Trace
-    expressions, evaluation of integer:     Eval
-    expressions, regular:       Regexp
-    expressions, regular:       Patsubst
-    extracting substrings:      Substr
-                                                                F       
-    fast loading of frozen files:       Using frozen files
-    fatal errors:       Operation modes
-    FDL, GNU Free Documentation License:        GNU Free Documentation License
-    file format, frozen file:       Frozen file format
-    file inclusion:     File Inclusion
-    file inclusion:     Undivert
-    file inclusion:     Undivert
-    file names, on the command line:        Command line files
-    files, diverting output to:     Divert
-    files, names of temporary:      Mkstemp
-    for each loops:     Foreach
-    for loops:      Forloop
-    formatted output:       Format
-    Free Documentation License (FDL), GNU:      GNU Free Documentation License
-    frozen file format:     Frozen file format
-    frozen files for fast loading:      Using frozen files
-                                                                G       
-    General Public License (GPL), GNU:      GNU General Public License
-    GNU extensions:     Inhibiting Invocation
-    GNU extensions:     Define
-    GNU extensions:     Arguments
-    GNU extensions:     Indir
-    GNU extensions:     Builtin
-    GNU extensions:     Debug Levels
-    GNU extensions:     Debug Output
-    GNU extensions:     Search Path
-    GNU extensions:     Divert
-    GNU extensions:     Undivert
-    GNU extensions:     Undivert
-    GNU extensions:     Regexp
-    GNU extensions:     Patsubst
-    GNU extensions:     Format
-    GNU extensions:     Eval
-    GNU extensions:     Esyscmd
-    GNU extensions:     Mkstemp
-    GNU extensions:     Using frozen files
-    GNU extensions:     Extensions
-    GNU Free Documentation License:     GNU Free Documentation License
-    GNU General Public License:     GNU General Public License
-    GNU M4, history of:     History
-    GPL, GNU General Public License:        GNU General Public License
-                                                                H       
-    history of m4:      History
-                                                                I       
-    included files, search path for:        Search Path
-    inclusion, of files:        File Inclusion
-    inclusion, of files:        Undivert
-    inclusion, of files:        Undivert
-    increment operator:     Incr
-    indirect call of builtins:      Builtin
-    indirect call of macros:        Indir
-    initialization, frozen state:       Using frozen files
-    input location:     Preprocessor features
-    input location:     Location
-    input tokens:       Syntax
-    input, discarding:      Ifelse
-    input, discarding:      Dnl
-    input, discarding:      Divert
-    input, saving:      M4wrap
-    integer arithmetic:     Arithmetic
-    integer expression evaluation:      Eval
-    invoking m4:        Invoking m4
-    invoking macros:        Invocation
-    iterating over lists:       Foreach
-                                                                J       
-    joining arguments:      Shift
-                                                                L       
-    length of strings:      Len
-    lexical structure of words:     Changeword
-    License, code:      Copying This Package
-    License, manual:        Copying This Manual
-    limit, nesting:     Limits control
-    literal output:     Pseudo Arguments
-    local variables:        Pushdef
-    location, input:        Preprocessor features
-    location, input:        Location
-    loops:      Shift
-    loops, counting:        Forloop
-    loops, list iteration:      Foreach
-                                                                M       
-    M4PATH:     Search Path
-    macro composition:      Composition
-    macro definitions, on the command line:     Preprocessor features
-    macro expansion, tracing:       Trace
-    macro invocation:       Invocation
-    macro, blind:       Inhibiting Invocation
-    macro, blind:       Ifelse
-    macro, blind:       Composition
-    macros, arguments to:       Macro Arguments
-    macros, arguments to:       Arguments
-    macros, copying:        Composition
-    macros, debugging:      Debugging
-    macros, displaying definitions:     Defn
-    macros, displaying definitions:     Dumpdef
-    macros, expansion of:       Macro expansion
-    macros, how to define new:      Definitions
-    macros, how to delete:      Undefine
-    macros, how to rename:      Defn
-    macros, indirect call of:       Indir
-    macros, quoted arguments to:        Quoting Arguments
-    macros, recursive:      Shift
-    macros, special arguments to:       Pseudo Arguments
-    macros, temporary redefinition of:      Pushdef
-    manipulating quotes:        Shift
-    messages, printing error:       Errprint
-    more than nine arguments:       Arguments
-    more than nine arguments:       Shift
-    more than nine arguments:       Improved foreach
-    multibranches:      Ifelse
-                                                                N       
-    names:      Names
-    nesting limit:      Limits control
-    nine arguments, more than:      Arguments
-    nine arguments, more than:      Shift
-    nine arguments, more than:      Improved foreach
-    numbers:        Manual
-                                                                O       
-    options, command line:      Invoking m4
-    output, diverting to files:     Divert
-    output, formatted:      Format
-    output, literal:        Pseudo Arguments
-    output, saving debugging:       Debug Output
-    overview of m4:     Intro
-                                                                P       
-    pattern substitution:       Patsubst
-    platform macros:        Platform macros
-    positional parameters, more than nine:      Arguments
-    POSIX:      Extensions
-    POSIXLY_CORRECT:        Invoking m4
-    POSIXLY_CORRECT:        Incompatibilities
-    preprocessor features:      Preprocessor features
-    printing error messages:        Errprint
-    pushdef stack:      Pushdef
-    pushdef stack:      Stacks
-                                                                Q       
-    quadratic behavior, avoiding:       Improved foreach
-    quote delimiters, changing:     Changequote
-    quote manipulation:     Shift
-    quoted macro arguments:     Quoting Arguments
-    quoted string:      Quoted strings
-    quoting rule of thumb:      Quoting Arguments
-                                                                R       
-    recursive macros:       Shift
-    redefinition of macros, temporary:      Pushdef
-    regular expressions:        Changeword
-    regular expressions:        Regexp
-    regular expressions:        Patsubst
-    reloading a frozen file:        Using frozen files
-    renaming macros:        Defn
-    renaming macros:        Composition
-    reporting bugs:     Bugs
-    rescanning:     Limits control
-    rescanning:     Inhibiting Invocation
-    rescanning:     Pseudo Arguments
-    rescanning:     Defn
-    rescanning:     Other Incompatibilities
-    reversing arguments:        Shift
-    rule of thumb, quoting:     Quoting Arguments
-    running shell commands:     Shell commands
-                                                                S       
-    saving debugging output:        Debug Output
-    saving input:       M4wrap
-    search path for included files:     Search Path
-    shell commands, exit status from:       Sysval
-    shell commands, running:        Shell commands
-    short-circuiting conditional:       Shift
-    special arguments to macros:        Pseudo Arguments
-    stack, macro definition:        Pushdef
-    stack, macro definition:        Stacks
-    standard error, output to:      Dumpdef
-    standard error, output to:      Trace
-    standard error, output to:      Errprint
-    status of shell commands:       Sysval
-    status, setting m4 exit:        M4exit
-    string, quoted:     Quoted strings
-    strings, length of:     Len
-    substitution by regular expression:     Patsubst
-    substrings, extracting:     Substr
-    substrings, locating:       Index macro
-    suggestions, reporting:     Bugs
-    suppressing warnings:       Macro Arguments
-    switch statement:       Ifelse
-    synchronization lines:      Preprocessor features
-    syntax, changing:       Changeword
-                                                                T       
-    temporary file names:       Mkstemp
-    temporary redefinition of macros:       Pushdef
-    TMPDIR:     Diversions
-    tokens:     Syntax
-    tokens, builtin macro:      Defn
-    tokens, special:        Other tokens
-    tracing macro expansion:        Trace
-    translating characters:     Translit
-                                                                U       
-    undefining macros:      Undefine
-    UNIX commands, exit status from:        Sysval
-    UNIX commands, running:     Shell commands
-                                                                V       
-    variables, local:       Pushdef
-                                                                W       
-    warnings, suppressing:      Macro Arguments
-    words:      Names
-    words, lexical structure of:        Changeword
-
 
 
 # 🐣 NMake 微软自动化构建工具

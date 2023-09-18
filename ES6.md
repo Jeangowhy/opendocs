@@ -1098,6 +1098,44 @@ JavaScript 有三种方式来避免对象被修改：
 - `Object.freeze(obj)` 冰冻，所有成员都不可以修改，只读。
 
 
+## ⚡ Equality comparisons and sameness
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness
+
+| x	| y	| ==	| ===	| Object.is	| SameValueZero
+| undefined	| undefined	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| null	| null	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| true	| true	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| false	| false	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| 0	| 0	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| +0	| -0	| ✅ true	| ✅ true	| ❌ false	| ✅ true
+| +0	| 0	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| -0	| 0	| ✅ true	| ✅ true	| ❌ false	| ✅ true
+| 0n	| -0n	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| 0	| false	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| ""	| false	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| ""	| 0	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| '0'	| 0	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| '17'	| 17	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| 'foo'	| 'foo'	| ✅ true	| ✅ true	| ✅ true	| ✅ true
+| [1, 2]	| '1,2'	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| null	| false	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| null	| undefined	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| undefined	| false	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| { foo: 'bar' }	| { foo: 'bar' }	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| new String('foo')	| 'foo'	| ✅ true	| ❌ false	| ❌ false	| ❌ false
+| new String('foo')	| new String('foo')	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| 0	| null	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| 0	| NaN	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| 'foo'	| NaN	| ❌ false	| ❌ false	| ❌ false	| ❌ false
+| NaN	| NaN	| ❌ false	| ❌ false	| ✅ true	| ✅ true
+
+Compare by reference not by value:
+
+    {} == {} or {} === {} is false
+	  Object.keys({})===[]  or  Object.keys({})==[]  is false
+
+
+
 ## ⚡ 变量声明、初始化与覆盖现象
 
 以下示范考查了作用域的概念，和变量声明与初始化：
