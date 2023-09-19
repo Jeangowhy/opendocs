@@ -706,6 +706,30 @@ fi
 
 The test-commands list is executed, and if its return status is zero, the consequent-commands list is executed. If test-commands returns a non-zero status, each elif list is executed in turn, and if its exit status is zero, the corresponding more-consequents is executed and the command completes. If ‘else alternate-consequents’ is present, and the final command in the final if or elif clause has a non-zero exit status, then alternate-consequents is executed. The return status is the exit status of the last command executed, or zero if no condition tested true.
 
+```sh
+# True Group
+if [ 0 ]; then echo "# True" ; else echo "# False" ; fi
+if [ 1=2 ]; then echo "# True" ; else echo "# False" ; fi
+if [ '1' = '2' ]; then echo "# True" ; else echo "# False" ; fi
+
+# false Group
+if [ ]; then echo "# True" ; else echo "# False" ; fi
+if [ 1 = 2 ]; then echo "# True" ; else echo "# False" ; fi
+if [ '1'='2' ]; then echo "# True" ; else echo "# False" ; fi
+
+# Syntax error group
+if [ '1' = '2' ]; then echo "# True" ; else echo "# False"  fi # SYNTAX ERROR
+if []; then echo "# True" ; else echo "# False" ; fi
+# []: command not found
+
+# Extras
+sh -c "false; exit 0" ; echo "should be zero: $?"
+if [ "0" = "$?" ]; then echo "Test Pass! $?"; else echo "Test failed: $?" ; fi
+@case "$-" in *i*) echo Interactive shell. ;; *) echo Not interactie shell ;; esac
+```
+
+See also 6.4 [Bash Conditional Expressions]  4.1 [Bourne Shell Builtins] [cmd_test]
+
 
 ### ===🗝 case
                                                                          *case*
@@ -1560,7 +1584,7 @@ Within ‘[’ and ‘]’, character classes can be specified using the syntax 
     alnum   alpha   ascii   blank   cntrl   digit   graph   lower
     print   punct   space   upper   word    xdigit
 
-A character class matches any character belonging to that class. The word character class matches letters, digits, and the character ‘_’.
+A character class matches any character belonging to that class. The word character class matches letters, digits, and the character `_`.
 
 Within ‘[’ and ‘]’, an equivalence class can be specified using the syntax [=c=], which matches all characters with the same collation weight (as defined by the current locale) as the character c.
 
@@ -3719,27 +3743,27 @@ When used with [[, the ‘<’ and ‘>’ operators sort lexicographically usin
 
 Unless otherwise specified, primaries that operate on files follow symbolic links and operate on the target of the link, rather than the link itself.
 
--a file  =>  True if file exists.
--b file  =>  True if file exists and is a block special file.
--c file  =>  True if file exists and is a character special file.
--d file  =>  True if file exists and is a directory.
--e file  =>  True if file exists.
--f file  =>  True if file exists and is a regular file.
--g file  =>  True if file exists and its set-group-id bit is set.
--h file  =>  True if file exists and is a symbolic link.
--k file  =>  True if file exists and its "sticky" bit is set.
--p file  =>  True if file exists and is a named pipe (FIFO).
--r file  =>  True if file exists and is readable.
--s file  =>  True if file exists and has a size greater than zero.
--t fd    =>  True if file descriptor fd is open and refers to a terminal.
--u file  =>  True if file exists and its set-user-id bit is set.
--w file  =>  True if file exists and is writable.
--x file  =>  True if file exists and is executable.
--G file  =>  True if file exists and is owned by the effective group id.
--L file  =>  True if file exists and is a symbolic link.
--N file  =>  True if file exists and has been modified since it was last read.
--O file  =>  True if file exists and is owned by the effective user id.
--S file  =>  True if file exists and is a socket.
+-a file  🤟  True if file exists.
+-b file  🤟  True if file exists and is a block special file.
+-c file  🤟  True if file exists and is a character special file.
+-d file  🤟  True if file exists and is a directory.
+-e file  🤟  True if file exists.
+-f file  🤟  True if file exists and is a regular file.
+-g file  🤟  True if file exists and its set-group-id bit is set.
+-h file  🤟  True if file exists and is a symbolic link.
+-k file  🤟  True if file exists and its "sticky" bit is set.
+-p file  🤟  True if file exists and is a named pipe (FIFO).
+-r file  🤟  True if file exists and is readable.
+-s file  🤟  True if file exists and has a size greater than zero.
+-t fd   🤟  True if file descriptor fd is open and refers to a terminal.
+-u file  🤟  True if file exists and its set-user-id bit is set.
+-w file  🤟  True if file exists and is writable.
+-x file  🤟  True if file exists and is executable.
+-G file  🤟  True if file exists and is owned by the effective group id.
+-L file  🤟  True if file exists and is a symbolic link.
+-N file  🤟  True if file exists and has been modified since it was last read.
+-O file  🤟  True if file exists and is owned by the effective user id.
+-S file  🤟  True if file exists and is a socket.
 
     file1 -ef file2
 
@@ -3753,12 +3777,12 @@ True if file1 is newer (according to modification date) than file2, or if file1 
 
 True if file1 is older than file2, or if file2 exists and file1 does not.
 
--o optname  =>  True if the shell option optname is enabled. The list of options appears in the escription of the -o option to the set builtin (see [the set builtin]).
+-o optname  🤟  True if the shell option optname is enabled. The list of options appears in the escription of the -o option to the set builtin (see [the set builtin]).
 
--v varname  =>  True if the shell variable varname is set (has been assigned a value).
--R varname  =>  True if the shell variable varname is set and is a name reference.
--z string   =>  True if the length of string is zero.
--n string or string  => True if the length of string is non-zero.
+-v varname  🤟  True if the shell variable varname is set (has been assigned a value).
+-R varname  🤟  True if the shell variable varname is set and is a name reference.
+-z string   🤟  True if the length of string is zero.
+-n string or string  🤟 True if the length of string is non-zero.
 
     string1 == string2
     string1 = string2

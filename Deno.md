@@ -1329,7 +1329,6 @@ console.log("stdout:", textDecoder.decode(result.stdout));
 console.log("stderr:", textDecoder.decode(result.stderr));
 ```
 
-
 ### ✔Subprocesses: Spawning
 https://examples.deno.land/subprocesses-spawn
 ```js

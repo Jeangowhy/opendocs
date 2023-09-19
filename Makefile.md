@@ -2538,16 +2538,13 @@ Which is then used during the setup phase.
 
 此教程将计划以两部分内容呈现，目标是从零基础到 GNU make 最本原的原理的掌握，这是第二部分内容，分按不同的工程类型分成多个示范项目来展示。零基础可以先看第一部分：Basic Concepts：
 
- 🐣 Basic Concepts
- 🐣 Demo Projects
-
-第二部分计划提供以下工程示范：
-
- 🐣 Scheme R6RS 语言规范文档处理 [LaTeX]
- 🐣 Multi threaded Download
- 🐣 C/C++ Project Templates
- 🐣 Erlang Project Templates
- 🐣 Unit Test
+1.  🐣 Basic Concepts
+2.  🐣 Demo Projects
+2.1.  🐣 Scheme R6RS 语言规范文档处理 [LaTeX]
+2.2.  🐣 Multi threaded Download
+2.3.  🐣 C/C++ Project Templates
+2.4.  🐣 Erlang Project Templates
+2.5.  🐣 Unit Test
 
 完整《Makefile 光学教程》以及 GNU M4 教程参考开源文档：https://github.com/Jeangowhy/opendocs/blob/main/Makefile.md
 
@@ -3100,8 +3097,8 @@ clean :
     $(RM) pkg-config.init jq.init $(PACKAGE)
 ```
 
-### 📜 Mysy2 with pkg-config
 
+### 📜 Mysy2 with pkg-config
 
 这里给 Msys2 作个简要介绍，并说明如何从 Cygwin 发展到 MinGW，再到 Msys2 交叉编译环境。
 https://www.msys2.org/docs/what-is-msys2/
@@ -3200,28 +3197,108 @@ Msys2 中涉及 Prefix / Relocation，因为 Unix 类系统中 /usr 这样的路
     libdir=${prefix}/lib
 
 可以看到 /ucrt64 这不是一个有效的 Windows 路径，这不是主要问题，它会被忽略，会根据 pkgconfig 或 pkg-config 路径中的 .pc 信息文件的路径来检测 Msys2 的顶级目录以替代默认路径前缀。
- path, but that's not a problem because by default prefix will be ignored, or rather re-defined by pkgconf/pkg-config based on the location of the .pc file itself. It will strip off /<...>/pkgconfig from the directory of the .pc file and use the resulting path as the new prefix (as documented here, which is sightly outdated as the second parent doesn't have to be (lib|share) but can be anything)
 
 假设配置文件存在 C:/msys64/ucrt64/lib/pkgconfig/glib-2.0.pc 就会取其  C:/msys64/ucrt64 作为真正的路径前缀，滤除 lib 目录之后的内容，这个目录对应 Msys2 其中一个软件仓库，基于 VS Stuio 的通用运行时编译的软件包。使用 --dont-define-prefix 参数，可以让 pkgconf 禁用这个默认前缀处理特性。
 
 前缀路径重定向处理依赖于 ${prefix} 变量，就像以上所述，但是以下这种硬编码的绝对路径就不支持：
 
+```sh
     prefix=/ucrt64
     includedir=/ucrt64/include
     libdir=/ucrt64/lib
+```
 
 因此，pkg-config 和 pkgconf 都包含一个 hack 功能，以处理像以上这种使用绝对路径的目录前缀，/ucrt64/include 替换为 ${prefix}/include，使它可以重新定向。
 https://www.bassi.io/articles/2018/03/15/pkg-config-and-paths/
 
-The above relocation logic sadly breaks down when you install the .pc into a different custom location, like /lib/mylib-1.2/pkgconfig as it will derive the wrong prefix value for them. 
+以上前缀目录重定向逻辑不能在 .pc 文件安装到自定义目录的情况下生效，比如，安装到 /lib/mylib-1.2/pkgconfig，这会导致错误的目录前缀值。
+
+依赖库默认会将自身的 .pc 信息文件存入 /lib/pkgconfig 或者 /share/pkgconfig目录，默认的依赖包信息由此读取。可以向 PKG_CONFIG_PATH 等环境变量添加额外的依赖库搜索目录。
+
+
+https://people.freedesktop.org/~dbn/pkg-config-guide.html
+GLib 基础库中的 glib-2.0.pc 配置参考：
+
+```sh
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+bindir=${prefix}/bin
+glib_genmarshal=${bindir}/glib-genmarshal
+gobject_query=${bindir}/gobject-query
+glib_mkenums=${bindir}/glib-mkenums
+
+Name: GLib
+Description: C Utility Library
+Version: 2.76.5
+Requires.private: libpcre2-8 >= 10.32
+Libs: -L${libdir} -lglib-2.0 -lintl
+Libs.private: -luser32 -lkernel32 -liconv -lm -pthread
+Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include
+```
 
     --variable=NAME                 get the value of variable named NAME
     --define-variable=NAME=VALUE    set variable NAME to VALUE
     --print-variables               output list of variables defined by the module
     --prefix-variable=PREFIX        set the name of the variable that pkg-config automatically sets
 
+使用 pkg-config 检测指定依赖库所指定的目录前缀，以及使用 define-variable 覆盖依赖库 .pc 文件的默认设置：
+
+```sh
+pkg-config --variable=prefix glib-2.0
+# C:/MinGW
+pkg-config --print-errors --define-variable=prefix=/foo --variable=prefix glib-2.0
+# /foo
+pkg-config --print-variables 'glib-2.0'
+# bindir
+# glib_genmarshal
+# glib_mkenums
+# gobject_query
+# includedir
+# libdir
+# pcfiledir
+# prefix
+```
+
+使用 pkg-config 检测依赖库是否已经安装，如果有安装就返回 0 值，--print-errors 可以打印错误信息，--list-all 查询已经安装的、可以通过搜索目录搜到 .pc 信息的依赖库：
+
+```sh
+pkg-config --print-errors --exists 'glib-2.0 >= 1.3.4'
+pkg-config --exists 'glib-2.0 >= 1.3.4 libxml = 1.8.3'
+pkg-config --exists 'glib-2.0 >= 1.3.4 libxml = 1.8.3'
+pkg-config --list-all
+```
 
 ### 📜 pkg-config CLI
+
+Environment Variables
+https://man.archlinux.org/man/pkgconf.1.en
+
+*PKG_CONFIG_PATH*
+    A colon-separated (on Windows, semicolon-separated) list of directories to search for .pc files. The default directory will always be searched after searching the path; the default is `libdir/pkgconfig:datadir/pkgconfig` where libdir is the libdir where pkg-config and datadir is the datadir where pkg-config was installed.
+
+*PKG_CONFIG_DEBUG_SPEW*
+    If set, causes pkg-config to print all kinds of debugging information and report all errors.
+
+*PKG_CONFIG_TOP_BUILD_DIR*
+    A value to set for the magic variable pc_top_builddir which may appear in .pc files. If the environment variable is not set, the default value '$(top_builddir)' will be used. This variable should refer to the top builddir of the Makefile where the compile/link flags reported by pkg-config will be used. This only matters when compiling/linking against a package that hasn't yet been installed.
+
+*PKG_CONFIG_DISABLE_UNINSTALLED*
+    Normally if you request the package "foo" and the package "foo-uninstalled" exists, pkg-config will prefer the "-uninstalled" variant. This allows compilation/linking against uninstalled packages. If this environment variable is set, it disables said behavior.
+
+*PKG_CONFIG_ALLOW_SYSTEM_CFLAGS*
+    Don't strip -I/usr/include out of cflags.
+
+*PKG_CONFIG_ALLOW_SYSTEM_LIBS*
+    Don't strip -L/usr/lib out of libs
+
+*PKG_CONFIG_SYSROOT_DIR*
+    Modify -I and -L to use the directories located in target sysroot. this option is usefull when crosscompiling package that use pkg-config to determine CFLAGS anf LDFLAGS. -I and -L are modified to point to the new system root. this means that a -I/usr/include/libfoo will become -I/var/target/usr/include/libfoo with a PKG_CONFIG_SYSROOT_DIR equal to /var/target (same rule apply to -L)
+
+*PKG_CONFIG_LIBDIR*
+    Replaces the default pkg-config search directory.
+
 
 Usage:
   pkg-config.exe [OPTION...]
@@ -3263,6 +3340,8 @@ Application Options:
   --dont-define-prefix                    don't try to override the value of prefix for each .pc file found with a guesstimated value based on the location of the .pc file
   --prefix-variable=PREFIX                set the name of the variable that pkg-config automatically sets
   --msvc-syntax                           output -l and -L flags for the Microsoft compiler (cl)
+
+
 
 
 ### 📜 YAML 文档规范
@@ -3736,7 +3815,7 @@ function help() {
     4. ${Prefix.repo_mingw32} ( prefix: ${Prefix.prefix_mingw32} )
     5. ${Prefix.repo_mingw64} ( prefix: ${Prefix.prefix_mingw64} )
     6. ${Prefix.repo_ucrt64} ( prefix: ${Prefix.prefix_ucrt64} )
-    
+
     ex.
     node msys2pac.js ${Prefix.repo_mingw64} jq
     `)
@@ -3765,12 +3844,12 @@ class Prefix {
     static repo_mingw64 = 'mingw64'
     static repo_ucrt64 = 'ucrt64'
     static prefix_msys2 = "mingw-w64"
+    static prefix_clang32 = "clang-i686"
+    static prefix_clang64 = "clang-x86_64"
+    static prefix_clangarm64 = "clang-aarch64"
+    static prefix_mingw32 = "i686"
     static prefix_mingw64 = "x86_64"
     static prefix_ucrt64 = "ucrt-x86_64"
-    static prefix_clang64 = "clang-x86_64"
-    static prefix_mingw32 = "i686"
-    static prefix_clang32 = "clang-i686"
-    static prefix_clangarm64 = "clang-aarch64"
     static repo_list() { 
         return [ Prefix.repo_clang32, Prefix.repo_clang64, Prefix.repo_clangarm64, 
                Prefix.repo_mingw32, Prefix.repo_mingw64, Prefix.repo_ucrt64,]
@@ -3800,7 +3879,7 @@ class PackageInfo {
 
 /** 
  * @param {string} pkg
- * @return {Promise<PackageInfo>}
+ * @return {Promise<{exact: PackageInfo, other:PackageInfo[]}>}
  */
 async function search_api(pkg) {
     const url = `https://packages.msys2.org/api/search?query=${pkg}`
@@ -3810,11 +3889,7 @@ async function search_api(pkg) {
         // if (Object.keys(json.results.exact).length===0) {
         //     throw DOESNT+' '+pkg;
         // }
-        let {exact, other} = json.results
-        if (Object.keys(exact).length) {
-            other.unshift(exact)
-        }
-        return other
+        return json.results
     }).catch(error=>{
         console.warn( {url, pkg, error} )
         Promise.reject('search_api()') 
@@ -3885,26 +3960,403 @@ if (process.argv.length!==4) {
 } else if ( Prefix.repo_list().indexOf(repo) !== -1) {
     (async ()=> {
         const res = await search_api(pkg)
-        if (res.repos && res.repos.indexOf(repo) > -1) {
+        if ( Object.keys(res.exact).length && res.exact.repos.indexOf(repo) > -1) {
             const list = await packages_list(pkg, repo);
             stdout.write(list.join('\n')+"\n")
         } else {
-            console.log("No match version: ", repo, res)
+            console.warn("No match version: ", repo, pkg)
+            console.log( JSON.stringify(res) )
         }
     })()
 } else {
     console.log( "Not a vaild input:", process.argv[2])
     help()
 }
+
 ```
 
 
 
-## 🍀 C/C++ Project Templates
+## 🍀 C/C++ Project Templates [Glib-2.0 GObject GType]
+
+### 📜 GLib–2.0 GObject ADT 类型系统库
+
+0. https://docs.gtk.org/glib/
+1. https://docs.gtk.org/gobject/
+2. https://docs.gtk.org/gio/
+3. https://docs.gtk.org/gmodule/
+4. https://gitlab.gnome.org/GNOME/glib/
+
+Msys2 平台中使用 pacman 安装依赖库，包括安装 pkg-config 依赖库信息管理工具（使用 pkgconf 作为其兼容实现）：
+1. https://packages.msys2.org/base/pkgconf
+2. https://packages.msys2.org/base/mingw-w64-pkg-config
+
+```sh
+> pacman -Fy
+:: Synchronizing package databases...
+> pacman -S pkg-config guile libguile libguile-devel
+> pacman -S pkg-config glib2 glib2-devel
+> pacman -Q glib2 glib2-devel
+glib2 2.68.1-1
+> pkg-config --list-all
+guile-2.0             GNU Guile - GNU's Ubiquitous Intelligent Language for Extension
+guile-3.0             GNU Guile - GNU's Ubiquitous Intelligent Language for Extension
+gio-2.0                        GIO - glib I/O library
+gio-unix-2.0                   GIO unix specific APIs - unix specific headers for glib I/O library
+glib-2.0                       GLib - C Utility Library
+gmodule-2.0                    GModule - Dynamic module loader for GLib
+gmodule-export-2.0             GModule - Dynamic module loader for GLib
+gmodule-no-export-2.0          GModule - Dynamic module loader for GLib
+gobject-2.0                    GObject - GLib Type, Object, Parameter and Signal Library
+gthread-2.0                    GThread - Thread support for GLib
+```
+
+glib2                  Common C routines used by GTK+ and other libs
+
+Gobject 即 GTK 为 C 语言提供类型系统实现而开发的 Glib 基础库的扩展，用于辅助 C 语言编写面向对象程序，提供以下内容：
+
+1. 一个通用的动态类型系统（GType）
+2. 一个基本类型的实现集（如整型、枚举等）
+3. 一个基本对象类型 Gobject
+4. 一个信号系统以及一个可扩展的参数/变量体系。
+
+GObject 基于 Glib 实现动态类型系统 GType，原来是 GTK+ 的一部分，GTK+ 2.0 中将与 GUI 不相关的部份都移到 GObject 而创建了此类库，源码包含在 Glib。gobject-query 命令可以用来查询类型树。
+
+
+GObject 世界里，一个类类型定义是*实例结构体* GObject 和*类结构体* GObjectClass 两个者的组合。GObject 的继承机制需要实现实例结构体的继承和类结构体的继承，Gobject 对象的初始化可分为两个部分：类结构体初始化、实例结构体初始化。类结构体初始化函数只被调用一次，而实例结构体的初始化函数的调用次数等于对象实例化的次数。这意味着，所有对象共享的数据，可保存在类结构体中，而所有对象私有的数据，则保存在实例结构体中。为每一个对象分配一个 ID，使用引用计数方式进行内存管理。
+
+GLib 可谓 C 语言中的“STL”，在此之前，动态数组、链表、哈希表等通用容器，可能每个 C 开发者实现过 N 次以上。甚至在同一个项目里，出现几份链表的实现，也并非罕见。GLib 的开放终结了重复造轮子的恶梦。GLib 提供动态数组、单/双向链表、哈希表、多叉树、平衡二叉树、字符串等常用容器。完全面向对象设计，完全跨平台，通用的 set/get 属性访问，内部实现信号机制，官方文档 Minimum versions 要求：
+
+ * macOS: minimum version OS X 10.7 (we
+   [don’t support universal binaries](https://bugzilla.gnome.org/show_bug.cgi?id=780238);
+   some features (like notification support)
+   [require OS X 10.9](https://bugzilla.gnome.org/show_bug.cgi?id=747146)
+   * Note that older versions of macOS than what’s currently officially
+     supported by Apple are supported by GLib on a best-effort basis due to
+     still having significant user bases
+ * Windows:
+   [minimum version is Windows 8](https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1970),
+   minimum build chain is Visual Studio 2012
+   * Static builds are only supported with MinGW-based toolchains (cf
+     [this comment](https://gitlab.gnome.org/GNOME/glib/-/merge_requests/2384#note_1336662))
+ * Android: [minimum NDK version 15](https://gitlab.gnome.org/GNOME/glib/issues/1113)
+ * Linux: glibc newer than 2.5 (if using glibc; other forms of libc are supported)
+
+GStreamer 就是一个基于 GLib 构建的通用流媒体应用程序开发框架，GStreamer 最显著的用途是在构建一个播放器上，支持多种格式，包括: MP3、Ogg/Vorbis. MPEG-12、AVI、Quickime、mod 等等。 https://gstreamer.freedesktop.org/documentation/tutorials
+
+Geany 是基于 GTK+ GLib 实现的一个轻量快速的 IDE，集成了语法高亮、命令自定义、项目构建功能以及插件扩展，可以实现 Make 等外部功能集成，基本上达到轻量与快速的目标。但是远达不好好用的级别，界面设计还是停留在传统的区域分割设计，强制需要鼠标点点点（鼠标手警告）。和 Sublime Text 不在同一级别，只能和 Editplus 相比较，但也打不过人家小巧可爱。 https://www.geany.org/documentation/manual/ https://www.editplus.com/
+
+
+基于 GLib OOP 程序开发涉及以下方面的内容：
+
+1. GObject instantiation
+2. GObject properties (set/get)
+3. GObject casting
+4. GObject referencing/dereferencing
+5. glib memory management
+6. glib signals and callbacks
+7. glib main loop
+
+面向对象编程本质上是人类抽象能力集中体现，计算机编程中一切数据类型都是抽象概念。比如说，整数、浮点数它们真实存在计算机系统内吗？其实没有。它们基于人类构建出来用于表达抽象概念的机械之上才得以呈现。同样的，高级语言中的函数、类方法等等，都是抽象而来的概念，本质上它们都是 CPU 控制数据总线从磁盘加载到内存中的一段具有典型特征的代码，这些特征包括：使用 push 以及 call 指令，在返回的位置调用 pop 指令。
+
+“抽象”这一概念的最佳说明就是毕加索的《公牛》，全画几乎就是用了少量简单的线条完全概括出牛的生物结构。这副画并不是一次画成的，而是从具象的牛慢慢地，经过多次演绎才演变为最终版本的极简牛！《公牛》画作创作时间从 1945年12月5日到1946年1月17日完稿，长达 6 周有余。
+
+https://img.zcool.cn/community/027ef5556d6b720000016b627a994a.jpg
+
+说明抽象这一概念的另一个例子是数学，一个苹果和另一苹果，一个绳结和另一个绳结，这些都是具象，这些都在人数数学诞生前计数的概念，当一个苹果成为 1，一个绳结也成为 1 之后，两个苹果或者两个绳结就是 1+1=2，数学就这样诞生了！而 1、2 和 + 都是数学符号，= 号是约定规则符号。
+
+抽象就是要教会我们抓住研究对象最本质的东西，通过概括完成对复杂的事物进行系统的梳理，这就是少即是多的哲理。抽象是共通于生活、编程、艺术等等领域共通的基本能力。
+
+从抽象出发，OOP 中的类形这一概念就是对一切可能的数据结构的高度概括，类定义就可以看到是这一概念具象化的第一步，*类型实例化*则是这一概念具象化的下一步，最后*类实例化*完成了抽像概念的最终具象。这个过程就像是从抽象的牛到各种品种的牛，再到某人家的牛，从概念到具象的过程。
+
+原生类型可以认为是只有数据的对像的抽象结构（char, int, long, float, double），而复杂类型可以认为是除了数据，还封装了相应接口方法的抽象结构。C++ 入门课程一般都会学习 Abstract Data Types (ADT) 概念，通常指的是复杂的类型 (Lists, Sets, and Maps)，但是在我看来，编程中涉及的所有数据类型都是抽象数据类型，只是复杂程度不一样。
+
+回到 GLib OOP 框架，GObject 则是意图呈现上面所述的抽象过程，开发者从这个抽象（GTypeInstance 和 GTypeClass）演化出更多其它类型的实现，最终用户对这些构建出来的类型进行实例化并使用它。
+
+设计类型时就需要考虑类名选取、继承链信息、类型初始化顺序、类接口方法设计等信息，这些基本概念涉及到的主要源代码文件如下：
+
+0. 使用 GLib 框架需要引用 glib.h 头文件；
+0. 使用 GObject 框架需要引用 glib-object.h 头文件；
+1. `GObject` 各个结构声明在 gtype.h 文件；
+2. `GObject` 各个函数声明在 gobject.h 文件；
+
+一个几乎没有任何用途的示范程序如下：
+
+```cpp
+// https://www.iteye.com/blog/cloverprince-486567
+#include <glib-object.h>  
+  
+int main() {  
+    g_type_init(); // This is necessary  
+
+    return 0;  
+}  
+// gcc `pkg-config --cflags --libs gobject-2.0` example.c -o example
+```
+
+`GObject` 各个结构声明在 gtype.h 文件，逻辑说明如下：
+
+ * `GObject` 结构定义的所有字段都为私有，类型实现者不该直接访问；
+ * `GTypeInstance` 内部结构，表示类型实例的基础结构；
+ * `GTypeClass` 内部结构，表示类型基础结构，Basic Type Structures；
+ * `GType` 是一个用于标识各种类型实例数值；
+ * `GTypeInterface` 是所有接口类型的基础结构；
+ * `GTypeQuery` 是用于记录类型信息的结构；
+
+
+```cpp
+// C:\dl\pl\glib-2.78.0\gobject\gobject.h
+struct  _GObject
+{
+  GTypeInstance  g_type_instance;
+  
+  guint          ref_count;  /* (atomic) */
+  GData         *qdata;
+};
+
+typedef struct _GTypeInstance
+{
+  GTypeClass *g_class;
+} GTypeInstance;
+
+typedef struct _GTypeClass
+{
+  GType g_type;
+} GTypeClass;
+
+typedef struct _GTypeQuery
+{
+  GType     type;
+  const gchar  *type_name;
+  guint     class_size;
+  guint     instance_size;
+} GTypeQuery;
+
+typedef struct _GTypeInterface
+{
+  GType g_type;         /* iface type */
+  GType g_instance_type;
+} GTypeInterface;
+```
+
+GType支撑三种类型：
+
+基本类型，通过g_type_register_fundamental 来注册，它需要的信息由GTypeInfo和GTypeFundamentalInfo传入。比如gobject里面的GObject就是一个基本类型。由于大部分的基本类型都已经预先注册好了，基本上不用关系该类型的使用。
+
+静态类型，g_type_register_static来注册，其类型信息由GTypeInfo传入。GTK里面的各种窗口和容器类型都是通过这种方式注册的。
+
+动态类型，g_type_register_dynamic注册，其类型信息由GTypePlugin传入。之所谓分为动态和静态，是因为动态的类型可以在运行时加载和卸载。
+
+
+GLib 对象层次结构使用注册函数登记，每个类型都通过初始化函数进行状态设置，这些全局对象管理、初始化函数 _g_object_type_init 中调用 g_type_register_fundamental 注册各种 GObject 类型。
+
+```cpp
+// glib-2.78.0\gobject\gtype-private.h
+// C:\dl\pl\glib-2.78.0\gobject\gobject.c
+void    _g_value_c_init          (void); /* sync with gvalue.c */
+void    _g_value_types_init      (void); /* sync with gvaluetypes.c */
+void    _g_enum_types_init       (void); /* sync with genums.c */
+void    _g_param_type_init       (void); /* sync with gparam.c */
+void    _g_boxed_type_init       (void); /* sync with gboxed.c */
+void    _g_object_type_init      (void); /* sync with gobject.c */
+void    _g_param_spec_types_init  (void); /* sync with gparamspecs.c */
+void    _g_value_transforms_init  (void); /* sync with gvaluetransform.c */
+void    _g_signal_init           (void); /* sync with gsignal.c */
+```
 
 ## 🍀 Erlang Project Templates
 
-## 🍀 Unit Test
+## 🍀 Unit Test [CPL]
+
+为了在 Make 脚本中测试程序，需要了解各种 shell 环境中如何使用 Exit Code：
+
+    sh -c "false; exit 0" ; echo "should be zero: $?"
+
+1. Windows 传统命令行 CMD 使用 `echo %errorlevel%` 打印退出码，不等于 0 就是错误退出； 
+2. PowerShell 使用 $LASTEXITCODE 获取退出码，或者 $? 获取布尔值，True 表示正常退出；
+3. Bash 使用 $? 自动变量，比如 `echo $?` 显示 127 表示 False，程序错误退出；
+
+潜在的问题：Msys2 MinGW 编译的程序出现非法指针时，bash 不能检测到返回码，-1073741819 0xC0000005 STATUS_ACCESS_VIOLATION。2.3.1 NTSTATUS Values。
+
+使用 Msys2 没有正确安装编译器版本，或者安装在错误的平台目录下，也可能导致编译出来的程序出现内存违规访问。因此，要确保编译器正常工作，编译生成的程序能够正常执行。
+
+注意：虽然反斜杠 \ 符号在 Makefile 中并不是功能符号，它和其它一般字符一样对待，但是构建命令执行时，将它输入到 shell 中执行就会有转义字符的功能。所以，使用 make 命令时一般需要在 Makefile 当前目录下执行，如果不是，将使用斜杠 / 作为 Makefile 路径的目录分隔符。
+
+另外，更重要的是不能使用 ifeq 或者 ifneq 对被程序的输出结果进行判断。因为条件指令是立即绑定模式，不能使用自动变量，或者 eval 函数设置的变量，只有 Makefile 中已有定义的全局变量才可以使用。
+
+并且，内置函数 if 只能做字符串是否为空值的判断，不能做等值比较。Make v4.4 版本引入的 intcmp 函数才能比较数值的小于、等于、大于三种状态。所以判断结果是否相等，可以交给 shell 命令去判断。
+
+    $(intcmp LHS,RHS[,LT-PART[,EQ-PART[,GT-PART]]])  v4.4
+
+Make 还有一个做等值判断的 “诡计”是使用做局部匹配的 findstring 函数，其逻辑是：如果一个字符串 A 包含另一个字符串 B，并且这个 B 又包含 A，那么它们相等。我想可以发掘一些 GNU Make 没有直接提供，并且又可以通过组合各种逻辑实现的功能，大概是这个构建工具在功能实现上如此克制的原因吧。为此，这些专用的功能函数，可以使用专用脚本“保管”集中管理，需要引用就通过 include 指令加载，以下是 utilities.mk 函数库参考：
+
+```makefile
+# TRACE = 1
+ifdef TRACE
+Trace = $(warning $0('$1','$2'))
+else
+Trace :=
+endif
+
+# $(call counter, 1) = 1
+# $(call counter, 2) = 3
+# $(call counter,-3) = 0
+counter = $(Trace)$(strip $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID) )
+
+# $(call resetlist,1,a b c d) = a b c d
+# $(call resetlist,2,a b c d) = b c d
+# $(call resetlist,3,a b c d) = c d
+restlist = $(Trace)$(wordlist 2,$(words $1),$1)
+restlistn = $(Trace)$(wordlist $1,$(words $2),$2)
+
+# $(call reverse,1 2 3 4) = 4 3 2 1
+# $(call reverse,a b c d) = d c b a
+reverse = $(Trace)$(strip $(if $1, $(call reverse,$(call restlist,$1)) $(firstword $1) ))
+
+# $(call ifequal,a,b,true_expr,false_expr)
+ifequal = $(Trace)$(if $(findstring $(findstring $1,$2),$1),$3,$4)
+```
+
+以下是用于构建待测试程序，以及进行测试的脚本，功能说明如下：
+
+1. 测试程序 type.c 代码文件和 utilities.mk 函数库与 Makefile 共同存放于 src 目录；
+2. 在任意目录中执行 make -f Makefile 进行编译、测试，输出存放于上一级 bin 目录；
+3. 使用 GCC 编译器，DEBUG、RELEASE 两套基本配置，使用 make DEBUG=true 激活调试配置；
+4. 配置了一条 test_hello 用于测试的规则，配合 EXPACT PASS FAILED 等变量输出相应测试信息；
+5. 测试还不够完善，例如，在 PowerPC 构架 CPU 上运行测试程序就会输出 Big-Endian Machine。
+
+```makefile
+ROOT := $(patsubst %Makefile,%../,$(lastword $(MAKEFILE_LIST)))
+OUT = $(ROOT)bin/
+BIN_HELLO = $(ROOT)bin/type.exe
+$(info Makefile: $(lastword $(MAKEFILE_LIST)))
+$(info Root dir: $(ROOT))
+$(info Output dir: $(OUT))
+$(info Output binary: $(BIN_HELLO))
+
+include $(ROOT)src/utilities.mk
+
+CC = gcc
+CONFIG_DEBUG := $(CFLAGS) -g3 -O0
+CONFIG_RELEASE := $(CFLAGS) -O1 -s
+ifdef DEBUG 
+  CFLAGS = $(CONFIG_DEBUG)
+  $(info Build config for DEBUG)
+else
+  CFLAGS = $(CONFIG_RELEASE)
+  $(info Build config for RELEASE)
+endif
+
+
+EXPACT = [Hello World!: [0x0] 123]
+PASS = ++Test Pass! expact $(EXPACT)
+FAILED = --Test failed: expact $(EXPACT)
+
+all : test_hello
+    @echo $@: $^ : $(ROOT) CFLAGS:[$(CFLAGS)]
+
+test_hello : $(BIN_HELLO)
+#   @bash -c "Trigger test failed; exit 1"
+#   @if [ "0" = "$$?" ]; then $(PASS); else $(FAILED) ; fi
+    @echo $@ $(BIN_HELLO): 
+    $(eval RESULT=[$(shell $(BIN_HELLO))])
+    @echo "$(call ifequal,$(RESULT),$(EXPACT),$(PASS),$(FAILED) but got: $(RESULT))"
+
+$(BIN_HELLO) : $(ROOT)src/type.c prepare_output
+    @echo Build $@ : $<
+    @echo Compiler version: "$(shell $(CC) --version | grep gcc)"
+    $(CC) $(CFLAGS) -o $(BIN_HELLO) $(ROOT)src/type.c
+
+prepare_output : $(OUT)
+$(OUT) :
+    @pwd
+    mkdir -p "$(OUT)"
+
+clean : 
+    $(RM) $(OUT)*.*
+
+.DEFAULT_GOAL = all
+```
+
+为了让编译与测试更加自动化，可以使用 Node watch 模块实时监视并执行命令：
+
+```sh
+npm install -g watch
+watch 'echo -------watching------- && make -f Makefile' ./ 
+```
+
+Deno 也内置了 watch 功能，也可以直接通过命令行运行，但是它毕竟不是专用的 watch 工具，可以将以下功能编写到 js 或 ts 脚本文件中再执行，并且可以创造出一些自定义功能：
+
+```sh
+deno eval 'for await (const evt of Deno.watchFs("..")) { \
+    let res = new Deno.Command("make", {args:["-f", "Makefile"]}).outputSync(); \
+    console.log(new TextDecoder().decode(res.stderr), new TextDecoder().decode(res.stdout));}'
+```
+
+
+以下是作为一个要测试的使用的目标程序：
+
+```cpp
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>  // from C99 standard
+
+typedef struct _ByteChunk {
+    int type;
+} ByteChunk;
+
+int main (int argc, char * argv[]) {
+    int et = 0x1234;
+    char isBigEndian = *(char *)&et ^ 0x34;
+    if (isBigEndian == 0x26) {
+        printf("Big-Endian Machine.\n");
+    } else {
+        // printf("Little-Endian Machine.\n");
+    }
+
+    ByteChunk ms;
+    ms.type = isBigEndian==0? 0x00333231 : 0x31323300;
+    printf("Hello %s: [0x%x] %s\n", "World!", isBigEndian, (char *)&ms);
+    return 0;
+}
+```
+
+字节序 Endianness 是在处理多字节的数据时，不同的 CPU 构架使用不同的方式。
+
+比如 0x1234 这个值（十进制 4660）：
+
+| address | big-endian | little-endian |
+|---------|------------|---------------|
+| 0x0000  | 0x12       | 0x34          |
+| 0x0001  | 0x34       | 0x12          |
+
+- Big endian 方式，PowerPC 或苹果 CPU 构架使用。
+- Little endian 方式，Intel x86 系统使用。
+
+测试程序中，使用“123”字符串作为一个测试数据，由于 C 语言中的字符串使用 \0 作为结束标志，即 null-terminated string 格式。在一个四字节的整形数值中，其中三个字节位置设置为 “123”，最后一个字节需要设置为 null，否则打印函数就会因为边界失误面导出内存违规访问。通常，这个违规并不一定会发生，因为内存中有很多 null 值的位置，随意遇到一个 null 就可以终结这个字符串。但是，从逻辑上这就是违规的内存访问。
+
+字节内部的比特位也有两种序，Most Significant Bit (MSB)，在二进制数中属于最高有效位，MSB 是最高加权位。Least Significant Bit (LSB) 在二进制数中意为最低有效位。一般来说，按书写习惯，MSB 位于二进制数的最左侧，LSB 位于二进制数的最右侧。
+
+CPU 存储数据操作的最小单位是一个字节，至于字节内部的比特序如何，对于程序来说是一个黑盒子。
+
+
+使用 C 语言定义结构体或联合体时，实践中通常和 typedef 一起使用，这样方便定义结构体类型的变量。但是，至今我仍记得结构体定义与 typedef 关键字使用时出现的混乱状态，让我毕生难忘。总得来说，定义一个结构体类型和实例化结构体对象，它们有部分语法结构会因为 typedef 关键字的使用而出现重叠，这也是混乱的主要来源。
+
+假设要定义一个 ByteChunk 结构体，以及其实体变量 byteChunk，各种形式如下，当然还可以使用花括号对实例进行初始化：
+
+```cpp
+// typedef-free style
+struct ByteChunk        { /* some filds */};
+struct ByteChunk        { /* some filds */} byteChunk;
+struct ByteChunk byteChunk;
+
+// typedef style
+typedef struct          { /* some filds */} ByteChunk;
+typedef struct _ByteChunk { /* some filds */} ByteChunk;
+typedef struct _ByteChunk ByteChunk;
+ByteChunk byteChunk;
+```
 
 
 
@@ -4602,7 +5054,7 @@ Makefile 中有两种条件使用方式，其中一种就是 ifeq 和 ifneq 这�
     $(if condition,then-part[,else-part])
     $(or condition1[,condition2[,condition3…]])
     $(and condition1[,condition2[,condition3…]])
-    $(intcmp lhs,rhs[,lt-part[,eq-part[,gt-part]]])
+    $(intcmp lhs,rhs[,lt-part[,eq-part[,gt-part]]])  v4.4
 
 注意条件函数 if 的判断条件，即 condition 是空字符串 "" 决定结果也是为 then-part，除非变量没有定义。条件函数的宏体并不是一开始就扩展的，而只根据条件设定扩展对应的部分。
 
@@ -5680,7 +6132,7 @@ GNU Make 源代码已经配置好 Windows 系统下的编译环境，build_w32.b
     # guile-3.0          GNU Guile - GNU's Ubiquitous Intelligent Language for Extension
 ```
 
-Windows 平台下编译 GNU make 4.4 并不顺利，安装依赖麻烦，并且代码有需要修改，有些符号没有定义。比如调用 MSVC CRT 库函数设置标准文件的模式时传入的参数，MinGW 使用了不同的常量名 O_BINARY 和 O_TEXT。为了让编译通过，不惜硬编码一些
+Windows 平台下编译 GNU make 4.4 并不顺利，安装依赖麻烦，并且代码有需要修改，有些符号没有定义。比如调用 MSVC CRT 库函数设置标准文件的模式时传入的参数，MinGW 使用了不同的常量名 O_BINARY 和 O_TEXT。最隐蔽的符号未定义问题是错乱的编译器与正在使用的依库平台架构不一致。为了让编译通过，不惜硬编码一些
 
     src/job.c:3311:32: error: '_O_TEXT' undeclared (first use in this function); did you mean 'O_TEXT'?      
     https://learn.microsoft.com/zh-cn/cpp/c-runtime-library/reference/setmode
@@ -6436,7 +6888,7 @@ https://www.gnu.org/software/make/manual/make.html#Concept-Index
     $(if condition,then-part[,else-part])
     $(or condition1[,condition2[,condition3…]])
     $(and condition1[,condition2[,condition3…]])
-    $(intcmp lhs,rhs[,lt-part[,eq-part[,gt-part]]])
+    $(intcmp lhs,rhs[,lt-part[,eq-part[,gt-part]]])  v4.4
     # 8.5 The let Function
     $(let var [var ...],[list],text)
     reverse = $(let first rest,$1,\

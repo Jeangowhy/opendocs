@@ -4496,12 +4496,22 @@ while (running)
 
 通过网络进行数据传输隐藏着一些不容易发现的问题，因为网络上的主机构架类型各异，数据结构有所差别。
 
-首先，是字节顺序问题，Endianness。在处理多字节的数据时，不同的 CPU 构架使用不同的方式：
+首先，是字节顺序问题，Endianness。在处理多字节的数据时，不同的 CPU 构架使用不同的方式，比如 0x1234 这个值（十进制 4660）：
 
-- Big endian 方式，也就是 Most Significant Byte First，x86 CPU 构架使用。
-- Little endian 方式，也就是 Least Significant Byte First，苹果系统使用。
+| address | big-endian | little-endian |
+|---------|------------|---------------|
+| 0x0000  | 0x12       | 0x34          |
+| 0x0001  | 0x34       | 0x12          |
+
+- Big endian 方式，PowerPC 或苹果 CPU 构架使用。
+- Little endian 方式，Intel x86 系统使用。
 
 Big endian 也称为 network byte order，高位字节先行。只有发送和读取时，使用一致的字节序，才正确传递数据。比如，16-bit integer "42"，使用 big endian 记作 00000000 00101010。如果将它发送到 little endian 的机器上就会得到 10752 这个值，使用用 Big endian 记作 00101010 00000000。
+
+字节内部的比特位也有两种序，Most Significant Bit (MSB)，在二进制数中属于最高有效位，MSB 是最高加权位。Least Significant Bit (LSB) 在二进制数中意为最低有效位。一般来说，按书写习惯，MSB 位于二进制数的最左侧，LSB 位于二进制数的最右侧。
+
+CPU 存储数据操作的最小单位是一个字节，至于字节内部的比特序如何，对于程序来说是一个黑盒子。
+
 
 还有其他更奇特的字节顺序，但你可能永远都不需要处理它们。
 

@@ -69,7 +69,7 @@ TypeScript 可以理解为是 JavaScript 的一个超集，也就是说涵盖了
 3. TypeScript 解决什么问题？
 4. TypeScript 学习的路线安排。
 
-## 🐣 TypeScript 是什么？
+## 🍀🐣 TypeScript 是什么？
 
 官方网站是这样描述 TypeScript 语言的：
 
@@ -155,7 +155,7 @@ https://deno.land/manual@v1.36.1/getting_started/setup_your_environment
 
 Sublime Text + Deno lsp
 
-## 🐣 TypeScript 更好吗？
+## 🍀🐣 TypeScript 更好吗？
 
 网络上信息太多了，什么水平都有。从而很容易引导初学者进行一个怪圈：“什么语言最好？”进入这种问题怪圈不说作用很大，只能说是毫无意义。这个世界没有完美的事件。"大都好物不坚牢，彩云易散琉璃脆。"选择最适合的工具做最恰当的工作，这就是于不完美中尽善。
 
@@ -180,7 +180,7 @@ addup("1"); // "11"
 
 
 
-## 🐣 TypeScript 解决什么问题？
+## 🍀🐣 TypeScript 解决什么问题？
 
 JavaScript 一直以来的灵活性引出了一个编程语言类型的选择问题：
 
@@ -280,7 +280,7 @@ lt = [null,"NULL"];
 
 
 
-## 🐣 TypeScript 学习的路线安排
+## 🍀🐣 TypeScript 学习的路线安排
 
 以上就是 TypeScript 的最基础的内容，由于其类型系统的强大，以致官方文档中直接使用类型体操 Type Manipulation 这样的字眼。
 
@@ -320,7 +320,7 @@ https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a5
 https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
 
 
-## 🐣 TypeScript 模块化与类型声明文件
+## 🍀🐣 TypeScript 模块化与类型声明文件
 1. https://www.typescriptlang.org/docs/handbook/modules.html
 2. https://www.typescriptlang.org/docs/handbook/2/modules.html
 3. https://www.typescriptlang.org/docs/handbook/namespaces.html
@@ -681,7 +681,7 @@ console.log({m});
 tsc --showConfig
 ```
 
-## 🐣 toString 原型链方法
+## 🍀🐣 toString 原型链方法
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 JavaScript 是基于原型链 prototype chain 进行递归处理实现的类型继承机制，即原型链上层定义的方法会继承到下层的子类型中。
@@ -847,7 +847,7 @@ console.log("toString:", "" + new Book(data[0], data[1])); // call valueOf()
 ```
 
 
-## 🐣 Bundled 模块打包
+## 🍀🐣 Bundled 模块打包
 
 
 Deno 自带打包命令 `deno bundle [URL]`，可以将 TypeScript 编译输出单个 ES Module，包含所有指定输入的依赖。
@@ -1297,7 +1297,7 @@ You can have Origami automatically zoom the active pane by setting `auto_zoom_on
 Origami can also automatically close a pane for you once you've closed the last file in it. Just set `auto_close_empty_panes` to true in the Origami preferences.
 
 
-## Hello TypeScript
+## 🍀Hello TypeScript
 
 变量后面的分号跟着 TypeScript 类型注解语法，这种显式的类型提高了程序的可读壮，同时也降低了出错的可能：
 
@@ -1499,7 +1499,7 @@ function createInstance(
 }
 ```
 
-## 泛型类 Class<T>  
+## 🍀泛型类 Class<T>  
 
 根据前面的内容，可以用以下两种方式实现泛型类型：
 
@@ -1597,7 +1597,7 @@ const shapeClasses2: Array<Class2<Shape>> = [Circle, Shape];
 
 
 
-## Object type literals and interfaces 
+## 🍀Object type literals and interfaces 
 
 在 Axel Rauschmayer 的另一篇文章中提到 OLT - object literal types 语法概念，包括这时提到的构造器字面表达，有以下这几种 OLT 表达形式：
 
@@ -1677,7 +1677,7 @@ Flow 是 facebook 出品的 JavaScript 静态类型检查工具，即 Flow 是�
 与 Typescript 不同的是，它可以部分引入，不需要完全重构整个项目，所以对于一个已有一定规模的项目来说，迁移成本更小，也更加可行。除此之外，Flow 可以提供实时增量的反馈，通过运行 Flow server 不需要在每次更改项目的时候完全从头运行类型检查，提高运行效率。可以简单总结为：对于新项目，可以考虑使用 TypeScript 或者 Flow，对于已有一定规模的项目则建议使用 Flow 进行较小成本的逐步迁移来引入类型检查。React 的源码利用了 Flow 做了静态类型检查，所以了解 Flow 有助于我们阅读源码。
 
 
-## Flow 基本使用
+## 🍀Flow 基本使用
 
 安装 Flow 命令工具并初始化项目：
 
@@ -1815,7 +1815,7 @@ Flow 在 JavaScript 语法的基础上使用注解 annotation 进行了扩展，
 	}
 
 
-## Flow & TypeScript 差异比较
+## 🍀Flow & TypeScript 差异比较
 
 maybe & nullable type 可空类型
 
@@ -2518,7 +2518,7 @@ TypeScript 也没有不透明类型别名类型 opaque type，但是可以定义
 	}
 	
 
-## Flow ＆ TypeScript 上手流程比较
+## 🍀Flow ＆ TypeScript 上手流程比较
 
 让我们想象一下我们想要采用一种类型检查器的场景， 最近我们已经注意到了我们的应用程序中的很多 NaN 的出现。我们搜索源代码并找到以下代码：
 
@@ -2665,7 +2665,7 @@ TypeScript 和 Flow 都有非常好的上手过程。一个个文件地尝试是
 4. TypeScript 4.2 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-2.html
 5. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
 
-## Destructuring Assignment 解构赋值
+## 🍀Destructuring Assignment 解构赋值
 
 解构赋值功能是 ECMAScript 6 规范引入的便利功能，通过它可以便利地从一个对象中解构出需要的字段。
 
@@ -2681,7 +2681,7 @@ console.log({a, b, c});
 // }
 ```
 
-## ?: 可选属性
+## 🍀?: 可选属性
 
 TypeScript 可以定义可选类型，Optional Properties ?:，定义属性检查机制，不是某类型的一种。可选类型是指 TypeScript 不会去检查是否存在的类型，可以是 null 或 undefined，或其它任意类型。
 
@@ -2702,7 +2702,7 @@ TypeScript 可以定义可选类型，Optional Properties ?:，定义属性检�
 访问 Nullable 属性时就需要使用非空类型断言 **!** 操作符号，即表示假定这个属性存在，忽略 undefined 和 null 的情况
 
 
-## ?? 空值合并运算符
+## 🍀?? 空值合并运算符
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#nullish-coalescing
 
 ??  - Nullish Coalescing，当变量为 null 或者 undefined 时，取 ?? 后面的默认值。
@@ -2731,7 +2731,7 @@ TypeScript 可以定义可选类型，Optional Properties ?:，定义属性检�
 后一种，使用非空值断言，即使 curerent。value 未定义，也会返回空值，也就是说非空断言和空值合并同时使用时，合并的功能失效了。
 
 
-## ?. 可选链式访问符
+## 🍀?. 可选链式访问符
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#optional-chaining
 
 ?. - optional chaining operator，变量不为 null 或 undefined 时返回该对象的属性或方法。
@@ -2744,7 +2744,7 @@ TypeScript 可以定义可选类型，Optional Properties ?:，定义属性检�
 ?. 会判断表达式是否为 null 或者 undefined，若访问的目标存在，则会返回链式中的目标，否则返回 undefined。
 
 
-## ! 非空断言操作符
+## 🍀! 非空断言操作符
 
 ! - Non-null assertion 非空断言操作符，会从编译中移除 null 和 undefined 类型检查，假定类型存在，所以在实际使用的过程中，要特别注意。参考类型保护和类型断言文档 Type guards ! and type assertions。
 
@@ -2771,7 +2771,7 @@ TypeScript 可以定义可选类型，Optional Properties ?:，定义属性检�
 
 
 
-## callable 可调用类型
+## 🍀callable 可调用类型
 - TypeScript Deep Dive https://github.com/basarat/typescript-book/
 - TypeScript Deep Dive - callable types https://basarat.gitbook.io/typescript/type-system/callable
 
@@ -2838,7 +2838,7 @@ Newable
 	const bar = new Foo(); // bar is inferred to be of type string
 
 
-## as 类型断言
+## 🍀as 类型断言
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-6.html#jsx-support
 
 类型断言 Type Assertion 可以用来手动指定一个值的类型。
@@ -2854,7 +2854,7 @@ Newable
 	let cat = <Cat>{name:"Bob"};
 
 
-## === !== 类型与值比较
+## 🍀=== !== 类型与值比较
 
 TypeScript 中 ==、===、!==、!= 比较运算符：
 
@@ -2871,7 +2871,7 @@ TypeScript 中 ==、===、!==、!= 比较运算符：
 - === 比较两个运算元的值、类型是否都相等，如果都相等则结果为 true
 - !== 比较两个运算元的类型、值是否都不等，如果都不等则结果为 true
 
-## Dynamic Import 动态导入
+## 🍀Dynamic Import 动态导入
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-4.html
 
 新引入的 async 支持 await 异步操作，可以实现动态导入：
@@ -2882,7 +2882,7 @@ TypeScript 中 ==、===、!==、!= 比较运算符：
 	  return new File(zipContents, name);
 	}
 
-## Get Type Name 获取类型名称
+## 🍀Get Type Name 获取类型名称
 
 可以通过解析构造函数获取类型名称字符：
 
@@ -2895,7 +2895,7 @@ TypeScript 中 ==、===、!==、!= 比较运算符：
 这种方法只适用有命名构造函数的类型，像 JSX 中的各种组件类型不适用。
 
 
-## keyof and Lookup Types
+## 🍀keyof and Lookup Types
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html#keyof-and-lookup-types
 
 keyof T 用于提取类型中的主键作为新类型的主键，可以配合映射类型使用。
@@ -2939,7 +2939,7 @@ lookup T 使用下标读取属性值的类型：
 	let fields: (keyof FrontMetter)[] = []
 
 
-## Type Guards 类型守卫
+## 🍀Type Guards 类型守卫
 - https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-4.html#type-guards
 - https://github.com/basarat/typescript-book/blob/master/docs/types/typeGuard.md
 
@@ -3139,7 +3139,7 @@ Type Guards and callbacks，TypeScript 不假设类型守卫在回调中保持�
 	}
 
 
-## Template strings 模板字符串
+## 🍀Template strings 模板字符串
 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-4.html#template-strings
 
 TypeScript 1.4 开始支持 ES6 template strings：
@@ -3180,7 +3180,7 @@ TypeScript 1.4 开始支持 ES6 template strings：
 15. [New `unknown` top type](#)
 
 
-## Introduction
+## 🍀Introduction
 - [Do's and Don'ts](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html)
 
 作为 JavaScript 的超集，TypeScript 直接在数据类型上体现了这一特性，JavaScript 只有一些简单类型和复杂类型：
@@ -3332,13 +3332,13 @@ TypeScript 1.4 开始支持 ES6 template strings：
 	}
 
 
-## Boolean 布尔值
+## 🍀Boolean 布尔值
 
 最基本的数据类型就是简单的 true/false 值，在 JavaScript 和 TypeScript 里叫做 boolean（其它语言中也一样）。
 
 	let isDone: boolean = false;
 
-## Number 数值
+## 🍀Number 数值
 
 和 JavaScript 一样， TypeScript 里的所有数字都是浮点数。 这些浮点数的类型是 number。 除了支持十进制和十六进制字面量， TypeScript 还支持 ECMAScript 2015 中引入的二进制和八进制字面量。
 
@@ -3347,7 +3347,7 @@ TypeScript 1.4 开始支持 ES6 template strings：
 	let binaryLiteral: number = 0b1010;
 	let octalLiteral: number = 0o744;
 
-## String 字符串
+## 🍀String 字符串
 
 JavaScript 程序的另一项基本操作是处理网页或服务器端的文本数据。 像其它语言里一样，我们使用 string 表示文本数据类型。 和 JavaScript 一样，可以使用双引号（ "）或单引号（'）表示字符串。
 
@@ -3368,7 +3368,7 @@ JavaScript 程序的另一项基本操作是处理网页或服务器端的文本
 	    "I'll be " + (age + 1) + " years old next month.";
 
 
-## Array 数组
+## 🍀Array 数组
 
  TypeScript 像 JavaScript 一样可以操作数组元素。 有两种方式可以定义数组。 第一种，可以在元素类型后面接上 []，表示由此类型元素组成的一个数组：
 
@@ -3378,7 +3378,7 @@ JavaScript 程序的另一项基本操作是处理网页或服务器端的文本
 
 	let list: Array<number> = [1, 2, 3];
 
-## Tuple 元组
+## 🍀Tuple 元组
 
 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同，但对应位置的类型需要相同。比如，你可以定义一对值分别为 string 和 number 类型的元组。
 
@@ -3415,7 +3415,7 @@ JavaScript 程序的另一项基本操作是处理网页或服务器端的文本
 	const e1: Scores = [95, 50, 75, 75];
 	const sarahScores: Scores = [];
 
-## Enum 枚举
+## 🍀Enum 枚举
 https://www.typescriptlang.org/docs/handbook/enums.html
 
 enum 类型是对 JavaScript 标准数据类型的一个补充。 像 C## 等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。
@@ -3501,7 +3501,7 @@ Even though Enums are real objects that exist at runtime, the keyof keyword work
 以上示范了如何获取枚举类型的主键作为字符使用。
 
 
-## Any 任意
+## 🍀Any 任意
 
 有时候，我们会想要为那些在编程阶段还不清楚类型的变量指定一个类型。 这些值可能来自于动态的内容，比如来自用户输入或第三方代码库。 这种情况下，我们不希望类型检查器对这些值进行检查而是直接让它们通过编译阶段的检查。 那么我们可以使用 any类型来标记这些变量：
 
@@ -3525,7 +3525,7 @@ Even though Enums are real objects that exist at runtime, the keyof keyword work
 	list[1] = 100;
 
 
-## Void 无类型
+## 🍀Void 无类型
 
 某种程度上来说，void 类型像是与 any 类型相反，它表示没有任何类型。 当一个函数没有返回值时，你通常会见到其返回值类型是 void：
 
@@ -3537,7 +3537,7 @@ Even though Enums are real objects that exist at runtime, the keyof keyword work
 
 	let unusable: void = undefined;
 
-## Null and Undefined 空值与未定义
+## 🍀Null and Undefined 空值与未定义
 
 TypeScript 里，undefined 和 null 两者各自有自己的类型分别叫做 undefined 和 null。 和 void 相似，它们的本身的类型用处不是很大：
 
@@ -3552,7 +3552,7 @@ TypeScript 里，undefined 和 null 两者各自有自己的类型分别叫做 u
 注意：我们鼓励尽可能地使用 --strictNullChecks，但在本手册里我们假设这个标记是关闭的。
 
 
-## Never 不可能
+## 🍀Never 不可能
 
 never 类型表示的是那些永不存在的值的类型。 例如， never 类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或箭头函数表达式的返回值类型； 变量也可能是 never 类型，当它们被永不为真的类型保护所约束时。
 
@@ -3577,7 +3577,7 @@ never 类型是任何类型的子类型，也可以赋值给任何类型；然�
 	}
 
 
-## Object 对象
+## 🍀Object 对象
 
 object 表示非原始类型，也就是除 number，string，boolean，symbol，null 或 undefined 之外的类型。
 
@@ -3599,13 +3599,70 @@ object 表示非原始类型，也就是除 number，string，boolean，symbol�
 	create(undefined); // Error
 
 
-## Type assertions
+## 🍀 Assertions
+
+### 🐣 Const Assertions
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-3.html
+
+TypeScript 3.4 引入的 const assertions 特性：
+
+1. no literal types in that expression should be widened (e.g. no going from "hello" to string)
+2. object literals get readonly properties
+3. array literals become readonly tuples
+
+```ts
+// Type '"hello"'
+let x = "hello" as const;
+// Type 'readonly [10, 20]'
+let y = [10, 20] as const;
+// Type '{ readonly text: "hello" }'
+let z = { text: "hello" } as const;
+```
+
+Caveats
+One thing to note is that const assertions can only be applied immediately on simple literal expressions.
+Another thing to keep in mind is that const contexts don’t immediately convert an expression to be fully immutable.
+
+```ts
+let arr = [1, 2, 3, 4];
+let foo = {
+  name: "foo",
+  contents: arr,
+} as const;
+foo.name = "bar"; // error! read-only
+foo.contents = []; // error! read-only
+foo.contents.push(5); // ...works!
+```
+
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-5.html
+Const Assertions and Default Type Arguments in JSDoc
+TypeScript 4.5 brings some extra expressivity to our JSDoc support.
+
+```ts
+// In JavaScript files, you can now use JSDoc type assertions to achieve the same thing.
+// type is { prop: string }
+let a = { prop: "hello" };
+// type is { readonly prop: "hello" }
+let b = /** @type {const} */ ({ prop: "hello" });
+```
+
+
+### 🐣 Import Assertions
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-5.html
+TypeScript 4.5 supports an ECMAScript proposal for import assertions. This is a syntax used by runtimes to make sure that an import has an expected format.
+
+```ts
+import obj from "./something.json" assert { type: "json" };
+```
+
+### 🐣 Type assertions
+https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-assertions
 
 有时候你会遇到这样的情况，你会比 TypeScript 更了解某个值的详细信息。 通常这会发生在你清楚地知道一个实体具有比它现有类型更确切的类型。
 
 通过类型断言这种方式可以告诉编译器，“相信我，我知道自己在干什么”。 类型断言好比其它语言里的类型转换，但是不进行特殊的数据检查和解构。 它没有运行时的影响，只是在编译阶段起作用。 TypeScript 会假设你，程序员，已经进行了必须的检查。
 
-类型断言有两种形式。 其一是“尖括号”语法：
+类型断言有两种形式，其一是“尖括号”语法，尖括号会和 JSX/TSX 语法冲突：
 
 	let someValue: any = "this is a string";
 
@@ -3619,11 +3676,12 @@ object 表示非原始类型，也就是除 number，string，boolean，symbol�
 
 两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；然而，当你在 TypeScript 里使用 JSX 时，只有 as 语法断言是被允许的。
 
-## A note about `let`
+
+## 🍀A note about `let`
 
 你可能已经注意到了，我们使用 let 关键字来代替大家所熟悉的 JavaScript 关键字 var。 let 关键字是 JavaScript 的一个新概念，TypeScript 实现了它。 我们会在以后详细介绍它，很多常见的问题都可以通过使用 let 来解决，所以尽可能地使用 let 来代替 var 吧。
 
-## New `unknown` top type 未知
+## 🍀New `unknown` top type 未知
 - [TypeScript 3.0 Release Notes](https://www.tslang.cn/docs/release-notes/typescript-3.0.html)
 - [TypeScript Handbook](https://github.com/Microsoft/TypeScript-Handbook)
 - [TypeScript 基础类型](https://www.runoob.com/typescript/ts-type.html)
@@ -4279,7 +4337,7 @@ Babel 会转译成以下结果：
 
 
 
-## Namespace & Module 命名空间与模块
+## 🍀Namespace & Module 命名空间与模块
 
 在 TypeScript 1.5 开始，术语发生了变化，内部模块 Internal modules 现在称为名称空间。External modules 外部模块现在只是模块，与 ECMAScript 2015 的术语一致，即 model X {...} 相当于现在首选的名称空间 namespace X {...}。此外，在声明内部模块时使用 module 关键字的任何地方，都可以而且应该使用 namespace 关键字，这避免了类似名称的术语使用户感到困惑。
 
@@ -4361,7 +4419,7 @@ TypeScript 就像 ECMAScript 2015 一样，任何包含顶级导入或导出的�
 
 
 
-## AMD 异步模块加载程序
+## 🍀AMD 异步模块加载程序
 - https://requirejs.org/docs/download.html
 - https://github.com/amdjs/amdjs-api/wiki/AMD
 
@@ -4405,7 +4463,7 @@ requireJS 的应用是参照 AMD 规范实现的，适用于浏览器环境，�
 	});
 
 
-## CMD 公共模块定义
+## 🍀CMD 公共模块定义
 
 CMD - Common Module Definition 是在 AMD 基础上改进的一种规范，和 AMD 不同在于对依赖模块的执行时机处理不同，CMD 是就近依赖，而 AMD 是前置依赖。
 
@@ -4440,7 +4498,7 @@ Demo
 
 
 
-## CommonJS 服务端模块规范
+## 🍀CommonJS 服务端模块规范
 
 CommonJS 是服务端模块的规范，由于 Node.js 被广泛认知。
 
@@ -4460,7 +4518,7 @@ CommonJS 是服务端模块的规范，由于 Node.js 被广泛认知。
 
 CommonJS 加载模块是同步的，所以只有加载完成才能执行后面的操作。像 Node.js 主要用于服务器的编程，加载的模块文件一般都已经存在本地硬盘，所以加载起来比较快，不用考虑异步加载的方式，所以 CommonJS 规范比较适用。但如果是浏览器环境，要从服务器加载模块，这是就必须采用异步模式，所以就有了 AMD CMD 解决方案。
 
-## UMD 通用模块定义
+## 🍀UMD 通用模块定义
 
 UMD - Universal Module Definition 兼容 AMD 和 commonJS 规范的同时，还兼容全局引用的方式，全局变量引用方式即相当于原始的脚本，是 AMD 和 CommonJS 的一个糅合。AMD 是浏览器优先，异步加载；CommonJS 是服务器优先，同步加载。
 
@@ -4497,7 +4555,7 @@ UMD - Universal Module Definition 兼容 AMD 和 commonJS 规范的同时，还�
 例如开发一个基于 React 的组件工具，可以编译打包的时生成包含 React 代码的完全可运行程序，也可以使用 Webpack 打包 UMD 模块，单独编译成 UMD 模块，再在页面中先加载 React 的发布的 UMD模块，后加载组件的 UMD 模块也一样可以正常运行。浏览器加载脚本的流程时同步加载的，页面中先出现的脚本先执行，先引用的脚本文件先加载。
 
 
-## ESM - EcmaScript Module
+## 🍀ESM - EcmaScript Module
 - https://nodejs.org/dist/latest-v10.x/docs/api/esm.html#--experimental-modules
 
 EcmaScript Module 或 ES MODULE，是支持 import from 最新标准的。
@@ -4543,7 +4601,7 @@ ESM 特点：
 	});
 
 
-## import & export
+## 🍀import & export
 
 TypeScript 中所有声明，如：
 
@@ -4657,7 +4715,7 @@ TypeScript 3.8 版本及之后，可以使用 import 或 import type 语句导�
 	mathLib.isPrime(2);
 
 
-## exports for CommonJS & AMD
+## 🍀exports for CommonJS & AMD
 
 CommonJS 和 AMD 通常都有一个 exports 对象的概念，该对象包含一个模块的所有导出。它们还支持将 exports 对象替换为自定义的单个对象。默认导出 export default 旨在替代此行为，但是，两者不兼容。TypeScript 支持 export = 对传统的 CommonJS 和 AMD 工作流进行打包。
 
@@ -4690,7 +4748,7 @@ CommonJS 和 AMD 通常都有一个 exports 对象的概念，该对象包含一
 	});
 
 
-## Code Generation for Modules
+## 🍀Code Generation for Modules
 
 根据 TypeScript 配置的输出模块目标类型 target，编译器可以生成 Node.js (CommonJS), require.js (AMD), UMD, SystemJS, 或者 ECMAScript 2015 原生 ES6 模块。有关所生成代码中的 define、require 和 register 调用的信息，请参阅各个模块加载程序的文档。
 
@@ -4753,7 +4811,7 @@ CommonJS 和 AMD 通常都有一个 exports 对象的概念，该对象包含一
 
 
 
-## Do not use namespaces in modules
+## 🍀Do not use namespaces in modules
 
 不要在模块中使用名称空间，当第一次基于模块的组织时，一个常见的倾向是将导出对象包装在一个额外的 namespace。
 
@@ -4793,7 +4851,7 @@ Augmentations for the global scope can only be directly nested in external modul
 	<any>windows.someglobalvar
 
 
-## 声明合并基本概念
+## 🍀声明合并基本概念
 
 声明合并是指编译器将两个使用相同名称声明的独立声明合并到一个定义中。这个合并的定义具有两个原始声明的特性，可以合并任意数量的声明，不仅限于两个声明。
 
@@ -4813,7 +4871,7 @@ Augmentations for the global scope can only be directly nested in external modul
 	| Function         |           |      | X     |
 	| Variable         |           |      | X     |
 
-## Merging Interfaces
+## 🍀Merging Interfaces
 
 The simplest, and perhaps most common, type of declaration merging is interface merging. At the most basic level, the merge mechanically joins the members of both declarations into a single interface with the same name.
 
@@ -4884,7 +4942,7 @@ The resulting merged declaration of Document will be the following:
 	  createElement(tagName: any): Element;
 	}
 
-## Merging Namespaces
+## 🍀Merging Namespaces
 
 Similarly to interfaces, namespaces of the same name will also merge their members. Since namespaces create both a namespace and a value, we need to understand how both merge.
 
@@ -4935,11 +4993,11 @@ We can see this more clearly in this example:
 
 Because haveMuscles is not exported, only the animalsHaveMuscles function that shares the same un-merged namespace can see the symbol. The doAnimalsHaveMuscles function, even though it’s part of the merged Animal namespace can not see this un-exported member.
 
-## Merging Namespaces with Classes, Functions, and Enums
+## 🍀Merging Namespaces with Classes, Functions, and Enums
 
 Namespaces are flexible enough to also merge with other types of declarations. To do so, the namespace declaration must follow the declaration it will merge with. The resulting declaration has properties of both declaration types. TypeScript uses this capability to model some of the patterns in JavaScript as well as other programming languages.
 
-## Merging Namespaces with Classes
+## 🍀Merging Namespaces with Classes
 
 This gives the user a way of describing inner classes.
 
@@ -4987,11 +5045,11 @@ Similarly, namespaces can be used to extend enums with static members:
 	  }
 	}
 
-## Disallowed Merges
+## 🍀Disallowed Merges
 
 Not all merges are allowed in TypeScript. Currently, classes can not merge with other classes or with variables. For information on mimicking class merging, see the Mixins in TypeScript section.
 
-## Module Augmentation
+## 🍀Module Augmentation
 
 Although JavaScript modules do not support merging, you can patch existing objects by importing and then updating them. Let’s look at a toy Observable example:
 
@@ -5037,7 +5095,7 @@ However, there are two limitations to keep in mind:
 You can’t declare new top-level declarations in the augmentation — just patches to existing declarations.
 Default exports also cannot be augmented, only named exports (since you need to augment an export by its exported name, and default is a reserved word - see #14080 for details)
 
-## Global augmentation
+## 🍀Global augmentation
 
 You can also add declarations to the global scope from inside a module:
 
@@ -5111,7 +5169,7 @@ You can also add declarations to the global scope from inside a module:
 	flappySprite.setScale(0.8);
 	console.log(flappySprite.scale);
 
-## Constrained Mixins
+## 🍀Constrained Mixins
 
 In the above form, the mixin’s have no underlying knowledge of the class which can make it hard to create the design you want.
 
@@ -5142,7 +5200,7 @@ Then you can create mixins which only work when you have a particular base to bu
 	  };
 	}
 
-## Alternative Pattern
+## 🍀Alternative Pattern
 
 Previous versions of this document recommended a way to write mixins where you created both the runtime and type hierarchies separately, then merged them at the end:
 
@@ -5188,7 +5246,7 @@ Previous versions of this document recommended a way to write mixins where you c
 
 This pattern relies less on the compiler, and more on your codebase to ensure both runtime and type-system are correctly kept in sync.
 
-## Constraints
+## 🍀Constraints
 The mixin pattern is supported natively inside the TypeScript compiler by code flow analysis. There are a few cases where you can hit the edges of the native support.
 
 Decorators and Mixins #4881
@@ -5275,7 +5333,7 @@ TypeScript 提供的工具类型可以很好地帮助 TypeScript 代码实现通
 22. Uncapitalize<StringType>
 
 
-## Optionalize
+## 🍀Optionalize
 
 Optionalize<T extends K, K>: Remove from T the keys that are in common with K
 
@@ -5285,7 +5343,7 @@ Optionalize<T extends K, K>: Remove from T the keys that are in common with K
 	type Optionalize<T extends K, K> = Omit<T, keyof K>;
 
 
-## Nullable<T> or Maybe<T>
+## 🍀Nullable<T> or Maybe<T>
 
 Nullable<T> or Maybe<T>: Make a Type into a Maybe Type
 
@@ -5296,7 +5354,7 @@ Nullable<T> or Maybe<T>: Make a Type into a Maybe Type
 	type Maybe<T> = T | undefined
 
 
-## Dictionary<T>
+## 🍀Dictionary<T>
 
 Dictionary<T>: Dictionary of string, value pairs
 
@@ -5308,7 +5366,7 @@ Dictionary<T>: Dictionary of string, value pairs
 [key: string] 这种是映射类型语法。
 
 
-## Partial<Type> 泛型
+## 🍀Partial<Type> 泛型
 
 参考 TypeScript 提供的 Mapped Types 映射类型，Partial 可以构造出成员可选的类型，这在 JavaScript 是最基本的功能。
 
@@ -5342,7 +5400,7 @@ Dictionary<T>: Dictionary of string, value pairs
 	testPartial({a:1});
 
 
-## Readonly<Type> 泛型
+## 🍀Readonly<Type> 泛型
 
 Readonly 可以生成一个成员为只读的类型：
 
@@ -5363,7 +5421,7 @@ Readonly 可以生成一个成员为只读的类型：
 	todo.title = "Hello";
 	// Cannot assign to 'title' because it is a read-only property.
 
-## Record<Keys,Type>
+## 🍀Record<Keys,Type>
 
 Constructs an object type whose property keys are Keys and whose property values are Type. This utility can be used to map the properties of a type to another type.
 
@@ -5382,7 +5440,7 @@ Constructs an object type whose property keys are Keys and whose property values
 	nav.about;
 	//   ^ = Could not get LSP result: v.a>b
 
-## Pick<Type, Keys>
+## 🍀Pick<Type, Keys>
 
 Constructs a type by picking the set of properties Keys from Type.
 
@@ -5403,7 +5461,7 @@ Constructs a type by picking the set of properties Keys from Type.
 	// ^ = const todo: Pick
 
 
-## Omit<Type, Keys>
+## 🍀Omit<Type, Keys>
 
 Constructs a type by picking all properties from Type and then removing Keys.
 
@@ -5424,7 +5482,7 @@ Constructs a type by picking all properties from Type and then removing Keys.
 	// ^ = const todo: Pick
 
 
-## Exclude<Type, ExcludedUnion>
+## 🍀Exclude<Type, ExcludedUnion>
 
 Constructs a type by excluding from Type all union members that are assignable to ExcludedUnion.
 
@@ -5437,7 +5495,7 @@ Constructs a type by excluding from Type all union members that are assignable t
 	type T2 = Exclude<string | number | (() => void), Function>;
 	//    ^ = type T2 = string | number
 
-## Extract<Type, Union>
+## 🍀Extract<Type, Union>
 
 Constructs a type by extracting from Type all union members that are assignable to Union.
 
@@ -5447,7 +5505,7 @@ Constructs a type by extracting from Type all union members that are assignable 
 	type T1 = Extract<string | number | (() => void), Function>;
 	//    ^ = type T1 = () => void
 
-## NonNullable<Type>
+## 🍀NonNullable<Type>
 
 Constructs a type by excluding null and undefined from Type.
 
@@ -5459,7 +5517,7 @@ Constructs a type by excluding null and undefined from Type.
 
 
 
-## Parameters<Type>
+## 🍀Parameters<Type>
 
 Constructs a tuple type from the types used in the parameters of a function type Type.
 
@@ -5496,7 +5554,7 @@ Constructs a tuple type from the types used in the parameters of a function type
 	//    ^ = type T7 = neverTry
 
 
-## ConstructorParameters<Type>
+## 🍀ConstructorParameters<Type>
 
 Constructs a tuple or array type from the types of a constructor function type. It produces a tuple type with all the parameter types (or the type never if Type is not a function).
 
@@ -5518,7 +5576,7 @@ Constructs a tuple or array type from the types of a constructor function type. 
 	//    ^ = type T4 = never
 
 
-## ReturnType<Type>
+## 🍀ReturnType<Type>
 
 从函数返回值中构建类型。
 
@@ -5559,7 +5617,7 @@ Constructs a type consisting of the return type of function Type.
 	  Type 'Function' provides no match for the signature '(...args: any): any'.
 	//    ^ = type T8 = any
 
-## InstanceType<Type>
+## 🍀InstanceType<Type>
 
 Constructs a type consisting of the instance type of a constructor function in Type.
 
@@ -5587,7 +5645,7 @@ Constructs a type consisting of the instance type of a constructor function in T
 	//    ^ = type T4 = any
 
 
-## Required<Type>
+## 🍀Required<Type>
 
 Constructs a type consisting of all properties of T set to required. The opposite of Partial.
 
@@ -5602,7 +5660,7 @@ Constructs a type consisting of all properties of T set to required. The opposit
 	Property 'b' is missing in type '{ a: number; }' but required in type 'Required<Props>'.
 
 
-## ThisParameterType<Type>
+## 🍀ThisParameterType<Type>
 
 Extracts the type of the this parameter for a function type, or unknown if the function type has no this parameter.
 
@@ -5615,7 +5673,7 @@ Extracts the type of the this parameter for a function type, or unknown if the f
 	}
 
 
-## OmitThisParameter<Type>
+## 🍀OmitThisParameter<Type>
 
 Removes the this parameter from Type. If Type has no explicitly declared this parameter, the result is simply Type. Otherwise, a new function type with no this parameter is created from Type. Generics are erased and only the last overload signature is propagated into the new function type.
 
@@ -5627,7 +5685,7 @@ Removes the this parameter from Type. If Type has no explicitly declared this pa
 
 	console.log(fiveToHex());
 
-## ThisType<Type>
+## 🍀ThisType<Type>
 
 This utility does not return a transformed type. Instead, it serves as a marker for a contextual this type. Note that the --noImplicitThis flag must be enabled to use this utility.
 
@@ -5683,7 +5741,7 @@ This utility does not return a transformed type. Instead, it serves as a marker 
 	type LocaleMessageIDs = `${Lang}_${AllLocaleIDs}`;
 	//   ^ = type LocaleMessageIDs = "en_welcome_email_id" | "en_email_heading_id" | "en_footer_title_id" | "en_footer_sendoff_id" | "ja_welcome_email_id" | "ja_email_heading_id" | "ja_footer_title_id" | "ja_footer_sendoff_id" | "pt_welcome_email_id" | "pt_email_heading_id" | "pt_footer_title_id" | "pt_footer_sendoff_id"
 
-## String Unions in Types
+## 🍀String Unions in Types
 
 当基于类型中的现有字符串定义新字符串时，模板文本的威力就来了。
 
@@ -5717,7 +5775,7 @@ This utility does not return a transformed type. Instead, it serves as a marker 
 	Argument of type '"frstNameChanged"' is not assignable to parameter of type '"firstNameChanged" | "lastNameChanged" | "ageChanged"'.
 
 
-## Inference with Template Literals
+## 🍀Inference with Template Literals
 
 请注意，上一个示例没有重用原始值的类型，回调参数使用了 any，模板文本类型可以从替换位置推断。
 
@@ -5748,7 +5806,7 @@ This utility does not return a transformed type. Instead, it serves as a marker 
 	    }
 	})
 
-## Intrinsic String Manipulation Types
+## 🍀Intrinsic String Manipulation Types
 
 内在字符串操作类型包含一系列的字符串处理类型，内建于 TypeScript 4.1 中，在 .d.ts 类型定义文件里是找不到的。
 
@@ -5836,7 +5894,7 @@ TypeScript Cheat Sheets
 4. TypeScript Classes
 		https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
 
-## Intersection Types 交叉类型 &
+## 🍀Intersection Types 交叉类型 &
 
 交叉类型 Intersection Types 是将多个类型合并为一个类型。 这让我们可以把现有的多种类型叠加到一起成为一种类型，它包含了所需的所有类型的特性。
 
@@ -5876,7 +5934,7 @@ TypeScript Cheat Sheets
 	var n = jim.name;
 	jim.log();
 
-## Union Types 联合类型 |
+## 🍀Union Types 联合类型 |
 
 联合类型 Union Types 与交叉类型很有关联，但是使用上却完全不同。 偶尔你会遇到这种情况，一个代码库希望传入 number 或 string 类型的参数。 例如下面的函数：
 
@@ -5941,7 +5999,7 @@ padLeft 存在一个问题， padding 参数的类型指定成了 any。 这就�
 这里的联合类型可能有点复杂，但是你很容易就习惯了。 如果一个值的类型是 `A | B`，我们能够 确定的是它包含了 A 和 B 中共有的成员。 这个例子里， Bird 具有一个 fly 成员。 我们不能确定一个 `Bird | Fish` 类型的变量是否有 fly 方法。 如果变量在运行时是 Fish 类型，那么调用 pet.fly() 就出错了。
 
 
-## Type Guards and Differentiating Types 类型保护与区分类型
+## 🍀Type Guards and Differentiating Types 类型保护与区分类型
 
 联合类型适合于那些值可以为不同类型的情况。 但当我们想确切地了解是否为 Fish 时怎么办？ JavaScript 里常用来区分 2 个可能值的方法是检查成员是否存在。 如之前提及的，我们只能访问联合类型中共同拥有的成员。
 
@@ -6074,7 +6132,7 @@ instanceof 的右侧要求是一个构造函数，TypeScript 将细化为：
 - 以此顺序。
 
 
-## Nullable types 可以为 null 的类型
+## 🍀Nullable types 可以为 null 的类型
 
 ### Optional ? parameters and properties 可选参数和可选属性
 
@@ -6143,7 +6201,7 @@ instanceof 的右侧要求是一个构造函数，TypeScript 将细化为：
 
 
 
-## Type Aliases 类型别名
+## 🍀Type Aliases 类型别名
 
 类型别名会给一个类型起个新名字。 类型别名有时和接口很像，但是可以作用于原始值，联合类型，元组以及其它任何你需要手写的类型。
 
@@ -6208,30 +6266,32 @@ instanceof 的右侧要求是一个构造函数，TypeScript 将细化为：
 
 另一方面，如果你无法通过接口来描述一个类型并且需要使用联合类型或元组类型，这时通常会使用类型别名。
 
-## String Literal Types 字符串字面量类型
+## 🍀String Literal Types 字符串字面量类型
 - https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types
 
 字符串字面量类型允许你指定字符串必须的固定值。 在实际应用中，字符串字面量类型可以与联合类型，类型保护和类型别名很好的配合。 通过结合使用这些特性，你可以实现类似枚举类型的字符串。
 
-	type Easing = "ease-in" | "ease-out" | "ease-in-out";
-	class UIElement {
-	    animate(dx: number, dy: number, easing: Easing) {
-	        if (easing === "ease-in") {
-	            // ...
-	        }
-	        else if (easing === "ease-out") {
-	        }
-	        else if (easing === "ease-in-out") {
-	        }
-	        else {
-	            // error! should not pass null or undefined.
-	        }
-	    }
-	}
+```ts
+  type Easing = "ease-in" | "ease-out" | "ease-in-out";
+  class UIElement {
+      animate(dx: number, dy: number, easing: Easing) {
+          if (easing === "ease-in") {
+              // ...
+          }
+          else if (easing === "ease-out") {
+          }
+          else if (easing === "ease-in-out") {
+          }
+          else {
+              // error! should not pass null or undefined.
+          }
+      }
+  }
 
-	let button = new UIElement();
-	button.animate(0, 0, "ease-in");
-	button.animate(0, 0, "uneasy"); // error: "uneasy" is not allowed here
+  let button = new UIElement();
+  button.animate(0, 0, "ease-in");
+  button.animate(0, 0, "uneasy"); // error: "uneasy" is not allowed here
+```
 
 你只能从三种允许的字符中选择其一来做为参数传递，传入其它值则会产生错误。
 
@@ -6246,7 +6306,7 @@ instanceof 的右侧要求是一个构造函数，TypeScript 将细化为：
 	    // ... code goes here ...
 	}
 
-Typescript 类定义的字段字符串值（属性值字面量）可以转化为字面量类型吗？这种类型需要各 keyof 实现的 Index types 索引类型非常相似。
+Typescript 类静态成员字符串值（属性值字面量）可以转化为字面量类型吗？这种类型需要各 keyof 实现的 Index types 索引类型非常相似。
 
 ```ts
 class T {
@@ -6263,7 +6323,87 @@ f(  123 )   // ok
 v( 'F1' )   // ok
 ```
 
-## Numeric Literal Types 数字字面量类型
+以上类型定义并未到达预期，解药可能是 TypeScript 3.4 引入的 const assertions 特性：
+
+1. no literal types in that expression should be widened (e.g. no going from "hello" to string)
+2. object literals get readonly properties
+3. array literals become readonly tuples
+
+```ts
+// Type '"hello"'
+let x = "hello" as const;
+// Type 'readonly [10, 20]'
+let y = [10, 20] as const;
+// Type '{ readonly text: "hello" }'
+let z = { text: "hello" } as const;
+```
+
+以上示例中，如果没有使用常量断言，那么 x 就会是字符串类型，而不是保持“hello”字面量类型，这种阻止具有阻止类型系统扩散的特性就是常量化断言。但是这种性质还不可以让类型成员中的字符串值断言成为字面量类型。因为不存在以下这种用法：
+
+    type TV =  T[keyof T] as const
+
+一个接近的方案是使用字面量类型，并应用 as const 进行常量断言：
+
+```ts
+/**
+ * @type       { kindCircle:'circle api', kindSqure:'square api' }
+ */
+const result = { kindCircle: "circle api", kindSquare: "square api", } as const;
+function printShapes(shapes: (keyof typeof result)[]) {
+    for (const shape of shapes) {
+      // Narrows perfectly!
+      if (shape === 'kindCircle') {
+        console.log("Circle:", result[shape]);
+      } else {
+        console.log("Square:", result[shape]);
+      }
+    }
+}
+printShapes(['kindCircle', 'kindSquare'])
+```
+
+另一个类型的方案是 Template Literal Types：
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html
+
+```ts
+type World = "world";
+type Greeting = `hello ${World}`;
+// type Greeting = "hello world"
+```
+
+Template String Type Improvements
+https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-3.html
+In recent versions, TypeScript introduced a new type construct: template string types. These are types that either construct new string-like types by concatenating…
+
+```ts
+type Color = "red" | "blue";
+type Quantity = "one" | "two";
+type SeussFish = `${Quantity | Color} fish`;
+// same as
+//   type SeussFish = "one fish" | "two fish"
+//                  | "red fish" | "blue fish";
+```
+
+
+还有 Mapped Types (in keyof) 映射类型：
+
+```ts
+type Options = {
+  [K in "noImplicitAny" | "strictNullChecks" | "strictFunctionTypes"]?: boolean;
+};
+// same as
+//   type Options = {
+//       noImplicitAny?: boolean,
+//       strictNullChecks?: boolean,
+//       strictFunctionTypes?: boolean
+//   };
+
+let opt1: Options = {}
+let opt2: Options = { noImplicitAny:false }
+```
+
+
+## 🍀Numeric Literal Types 数字字面量类型
 
 TypeScript还具有数字字面量类型。
 
@@ -6283,9 +6423,9 @@ TypeScript还具有数字字面量类型。
 换句话说，当 x与 2进行比较的时候，它的值必须为 1，这就意味着上面的比较检查是非法的。
 
 
-## Enum Member Types 枚举成员类型
+## 🍀Enum Member Types 枚举成员类型
 
-## Discriminated Unions 可辨识联合
+## 🍀Discriminated Unions 可辨识联合
 
 你可以合并单例类型，联合类型，类型保护和类型别名来创建一个叫做 可辨识联合的高级模式，它也称做 标签联合或 代数数据类型。 可辨识联合在函数式编程很有用处。 一些语言会自动地为你辨识联合；而 TypeScript 则基于已有的 JavaScript 模式。 它具有 3 个要素：
 
@@ -6363,7 +6503,7 @@ TypeScript还具有数字字面量类型。
 这里， assertNever 检查 s 是否为 never 类型—即为除去所有可能情况后剩下的类型。 如果你忘记了某个 case，那么 s 将具有一个真实的类型并且你会得到一个错误。 这种方式需要你定义一个额外的函数，但是在你忘记某个 case 的时候也更加明显。
 
 
-## Polymorphic this types 多态的 this 类型
+## 🍀Polymorphic this types 多态的 this 类型
 
 多态的 this 类型表示的是某个包含类或接口的 子类型。 这被称做 F-bounded 多态性。 它能很容易的表现连贯接口间的继承，比如。 在计算器的例子里，在每个操作之后都返回 this 类型：
 
@@ -6410,7 +6550,7 @@ TypeScript还具有数字字面量类型。
 如果没有 this类型， ScientificCalculator 就不能够在继承 BasicCalculator 的同时还保持接口的连贯性。 multiply 将会返回 BasicCalculator，它并没有 sin 方法。 然而，使用 this 类型，multiply 会返回 this，在这里就是 ScientificCalculator。
 
 
-## Index types 索引类型
+## 🍀Index types 索引类型
 
 使用索引类型，编译器就能够检查使用了动态属性名的代码。 例如，一个常见的 JavaScript 模式是从对象中选取属性的子集。
 
@@ -6499,7 +6639,7 @@ keyof 和 T[K] 与字符串索引签名进行交互。 如果你有一个带有�
 	events['on']['click']();
 
 
-## Mapped Types(keyof) 映射类型
+## 🍀Mapped Types (in keyof) 映射类型
 
 一个常见的任务是将一个已知的类型每个属性都变为可选的：
 
@@ -6604,7 +6744,7 @@ Readonly， Partial 和 Pick 是同态的，但 Record 不是。 因为 Record �
 注意这个拆包推断只适用于同态的映射类型。 如果映射类型不是同态的，那么需要给拆包函数一个明确的类型参数。
 
 
-## Conditional Types - extends 条件类型
+## 🍀Conditional Types - extends 条件类型
 1. https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types
 2. https://typescript-play.js.org/#example/conditional-types
 3. https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
@@ -6923,7 +7063,7 @@ TypeScript 2.8 在 lib.d.ts 里增加了一些预定义的有条件类型：
 
 注意：Exclude 类型是建议的 Diff 类型的一种实现。我们使用 Exclude 这个名字是为了避免破坏已经定义了 Diff 的代码，并且我们感觉这个名字能更好地表达类型的语义。我们没有增加 Omit<T, K> 类型，因为它可以很容易的用 `Pick<T, Exclude<keyof T, K>>` 来表示。
 
-## distributive conditional type 条件分发
+## 🍀distributive conditional type 条件分发
 1. https://juejin.cn/post/6985463429502877726
 2. https://www.typescriptlang.org/docs/handbook/2/typeof-types.html
 3. https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
@@ -6993,7 +7133,7 @@ dispatch("INIT")
 ```
 
 
-## covariance & contravariance 协变与逆变
+## 🍀covariance & contravariance 协变与逆变
 TS中各种高级语法 https://cloud.tencent.com/developer/article/1986722
 
 逆变与协变的含义：随着某一个量的变化，随之一致变化的即为**协变** covariance，随之相反变化的即为**逆变** contravariance。
@@ -7091,7 +7231,7 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 	  return x + y;
 	};
 
-## Inferring the types
+## 🍀Inferring the types
 
 当类型信息足够时，TypeScript 可以推断出类型 Inferring the types，如 myAdd2 后面的 function 参数进行了类型推断：
 
@@ -7105,7 +7245,7 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 	  return x + y;
 	};
 
-## Optional and Default Parameters
+## 🍀Optional and Default Parameters
 
 可选参数与默认参数，Optional and Default Parameters。通常参数列表指定的参数是 Required 状态，一定要传入的：
 
@@ -7141,7 +7281,7 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 	Expected 1-2 arguments, but got 3.
 	let result4 = buildNameDef("Bob", "Adams"); // ah, just right
 
-## Rest Parameters/Spread expressions
+## 🍀Rest Parameters/Spread expressions
 - Add spread/rest higher-order types operator #10727 https://github.com/microsoft/TypeScript/issues/10727
 
 剩余参数 Rest Parameters 可以用一个参数名来接收传入函数的多个变量。
@@ -7172,7 +7312,7 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 	cpy = <any>Object.assign({}, ori);
 
 
-## this & arrow functions
+## 🍀this & arrow functions
 
 一般函数调用时，this 会关联到主调代码所控制的作用对象上，而使用箭头函数后可以将 this 绑定为箭头函数代码所在的 this 对象。
 
@@ -7243,7 +7383,7 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 
 	console.log("card: " + pickedCard.card + " of " + pickedCard.suit);
 
-## this parameters in callbacks
+## 🍀this parameters in callbacks
 
 复杂一点，定义一个参数 callback 为函数的函数：
 
@@ -7281,7 +7421,7 @@ TypeScript 给函数添加类型定义后，其相关的语法含义会更清晰
 	let h = new Handler();
 	uiElement.addClickListener(h.onClickGood);
 
-## Overloads 重载
+## 🍀Overloads 重载
 https://www.typescriptlang.org/docs/handbook/2/functions.html
 
 有些函数可以接受不同类型或不同个数的参数，并且根据参数的不同，会有不同的函数行为。这种根据参数类型不同，执行不同逻辑的行为，称为函数重载（function overload）。
@@ -7399,7 +7539,7 @@ TypeScript 提供了重载类型，只需给函数定义不同类型的列表：
 - https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html
 - https://basarat.gitbook.io/typescript/future-javascript/generators
 
-## Iterable 可迭代性
+## 🍀Iterable 可迭代性
 
 当一个对象实现了 Symbol.iterator 属性时，我们认为它是可迭代的。 一些内置的类型如 Array，Map，Set，String，Int32Array，Uint32Array 等都已经实现了各自的 Symbol.iterator。 对象上的 Symbol.iterator 函数负责返回供迭代的值。
 
@@ -7456,7 +7596,7 @@ TypeScript 提供了重载类型，只需给函数定义不同类型的列表：
 当目标为兼容 ECMAScipt 2015 的引擎时，编译器会生成相应引擎的 `for..of` 内置迭代器实现方式。
 
 
-## ES6 generators
+## 🍀ES6 generators
 
 TypeScript 1.6 增加支持 ES6 Generators 生成器 ，生成器也像函數一樣有返回類型標注。
 
@@ -7478,7 +7618,7 @@ TypeScript 1.6 增加支持 ES6 Generators 生成器 ，生成器也像函數一
 	}
 
 
-## Async Iteration
+## 🍀Async Iteration
 
 TypeScript 2.3 adds support for the async iterators and generators as described by the current [TC39 proposal](https://github.com/tc39/proposal-async-iteration).
 
@@ -7512,7 +7652,7 @@ Async Generators can also delegate calls via `yield*` to either an iterable or a
 	  })();
 	}
 
-## Stricter Generators
+## 🍀Stricter Generators
 
 TypeScript 3.6 introduces stricter checking for iterators and generator functions.
 In earlier versions, users of generators had no way to differentiate whether a value was yielded or returned from a generator.
@@ -7658,7 +7798,7 @@ tsconfig.json:
 	}
 
 
-## Decorators & Factories
+## 🍀Decorators & Factories
 
 装饰器是一种元數據編程 Meta Programming，它能够被附加到类装饰器，方法，访问符，属性，或参数上。 装饰器利用 `@expression` 这种語法方式進行求值並返回一个函数，被装饰的對象在运行时會被调用。
 
@@ -7740,7 +7880,7 @@ declare type ParameterDecorator = (target: Object, propertyKey: string | symbol,
 	error TS1238: Unable to resolve signature of class decorator when called as an expression.
 
 
-## Class Decorators
+## 🍀Class Decorators
 
 ClassDecorator 的要点：
 
@@ -7803,7 +7943,7 @@ ClassDecorator 的要点：
 	}
 
 
-## Method Decorators
+## 🍀Method Decorators
 
 MethodDecorator 要点：
 
@@ -7847,7 +7987,7 @@ MethodDecorator 要点：
 这里的 @enumerable(false) 是一个装饰器工厂。 当装饰器 @enumerable(false) 被调用时，它会修改属性描述符的 enumerable 属性。
 
 
-## Accessor Decorators
+## 🍀Accessor Decorators
 
 AccessorDecorator 要点：
 
@@ -7893,7 +8033,7 @@ AccessorDecorator 要点：
 	    };
 	}
 
-## Property Decorators
+## 🍀Property Decorators
 
 属性装饰器声明在一个属性声明之前，属性装饰器不能用在声明文件中（.d.ts），或者任何外部上下文中，比如 declare 的类里。
 
@@ -7953,7 +8093,7 @@ AccessorDecorator 要点：
 导致 TS1240 的问题可能是因为使用了错误的装饰器签名，如将方法装饰器用途属性装饰器。双或者 return 写成单独一行，而后装饰器函数当成一个整体，导致自动给返回语句插入了行尾的分号。
 
 
-## Parameter Decorators
+## 🍀Parameter Decorators
 
 ParameterDecorator 要点：
 
@@ -8020,7 +8160,7 @@ ParameterDecorator 要点：
 
 
 
-## Metadata 元编程
+## 🍀Metadata 元编程
 - http://blog.wolksoftware.com/the-end-of-javascript
 - https://github.com/tc39/proposal-decorators
 - https://www.npmjs.com/package/reflect-metadata
@@ -8277,7 +8417,7 @@ OOP 的 S.O.L.I.D 基本原则：
 - D - Dependency inversion principle 应该依赖抽象而不是具体；
 
 
-## Hello Class
+## 🍀Hello Class
 
 TypeScript 引入的类概念和 Java 的语法非常相似：
 
@@ -8294,7 +8434,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	let greeter = new Greeter("world");
 
 
-## Inheritence or Extends
+## 🍀Inheritence or Extends
 
 	class Animal {
 	    name: string;
@@ -8327,7 +8467,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	tom.move(34);
 
 
-## Public, private, protected 访问修饰
+## 🍀Public, private, protected 访问修饰
 
 ### ☛ Public by default
 
@@ -8411,7 +8551,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	let howard = new Employee("Howard", "Sales");
 	let john = new Person("John"); // Error: The 'Person' constructor is protected
 
-## Readonly modifier 
+## 🍀Readonly modifier 
 
 	class Octopus {
 	    readonly name: string;
@@ -8432,7 +8572,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	}
 
 
-## Accessors 读写器 getters/setters
+## 🍀Accessors 读写器 getters/setters
 
 可随意的成员读写
 
@@ -8472,7 +8612,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	    console.log(employee.fullName);
 	}
 
-## Static Properties 静态成员
+## 🍀Static Properties 静态成员
 
 
 	class Grid {
@@ -8491,7 +8631,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	console.log(grid1.calculateDistanceFromOrigin({x: 10, y: 10}));
 	console.log(grid2.calculateDistanceFromOrigin({x: 10, y: 10}));
 
-## Abstract Classes 抽象类
+## 🍀Abstract Classes 抽象类
 
 可以声明抽象类变量，但不能进行实例化。
 
@@ -8531,7 +8671,7 @@ TypeScript 引入的类概念和 Java 的语法非常相似：
 	department.generateReports(); // error: method doesn't exist on declared abstract type
 
 
-## Advanced Techniques
+## 🍀Advanced Techniques
 
 TypeScript 中定义类的同时，其实同时也定义了类实例类型，`let greeter: Greeter` 就是声明变量的实列类型，另外也同时创建了构造器函数，执行`new()` 时就是在执行 TypeScript 生成的 JavaScript 构造器函数。虽然这里的代码已经明显实现了`constructor`构造器，但是不写也会一样存在：
 
@@ -8590,7 +8730,7 @@ TypeScript 的核心原则之一是对值所具有的结构进行类型检查。
 
 翻译过来就是：如果某个东西长得像鸭子，像鸭子一样游泳，像鸭子一样嘎嘎叫，那它就可以被看成是一只鸭子。
 
-## Our First Interface
+## 🍀Our First Interface
 
 下面通过一个简单示例来观察接口是如何工作的：
 
@@ -8625,7 +8765,7 @@ TypeScript 的核心原则之一是对值所具有的结构进行类型检查。
 
 还有一点值得提的是，类型检查器不会去检查属性的顺序，只要相应的属性存在并且类型也是对的就可以。
 
-## Optional Properties ?:
+## 🍀Optional Properties ?:
 
 Nullable types 可以为 null 的类型，接口里的属性不全都是必需的，或者根本不存在。 可选属性在应用`option bags`模式时很常用，即给函数传入的参数对象中只有部分属性赋值了。 接口定义可选属性时，只需要在名字定义的后面加一个`?`符号：
 
@@ -8649,7 +8789,7 @@ Nullable types 可以为 null 的类型，接口里的属性不全都是必需�
 
 可选属性的好处之一是可以对可能存在的属性进行预定义，好处之二是可以捕获引用了不存在的属性时的错误。 比如，我们故意将 createSquare里的color属性名拼错，就会得到一个错误提示。
 
-## Readonly 只读属性
+## 🍀Readonly 只读属性
 
 一些对象属性只能在对象刚刚创建的时候修改其值。 你可以在属性名前用 `readonly` 来指定只读属性:
 
@@ -8679,7 +8819,7 @@ TypeScript具有`ReadonlyArray<T>`类型，它与`Array<T>`相似，只是把所
 最简单判断该用`readonly`还是`const`的方法是看要把它做为变量使用还是做为一个属性。 做为常量使用的话用 `const`，若做为属性则使用`readonly`。
 
 
-## Excess Property Checks 额外属性检查
+## 🍀Excess Property Checks 额外属性检查
 
 注意下面传入createSquare的参数拼写为`colour`而不是`color`。 在JavaScript里，这会默默地失败。
 
@@ -8723,7 +8863,7 @@ TypeScript具有`ReadonlyArray<T>`类型，它与`Array<T>`相似，只是把所
 要留意，在像上面一样的简单代码里，你可能不应该去绕开这些检查。 对于包含方法和内部状态的复杂对象字面量来讲，你可能需要使用这些技巧，但是大部额外属性检查错误是真正的`bug`! 就是说你遇到了额外类型检查出的错误，比如`option bags`，你应该去审查一下你的类型声明。 
 
 
-## Function Type 函数类型
+## 🍀Function Type 函数类型
 
 接口能够描述JavaScript中对象拥有的各种各样的外形。 除了描述带有属性的普通对象外，接口也可以描述函数类型。
 
@@ -8747,7 +8887,7 @@ TypeScript具有`ReadonlyArray<T>`类型，它与`Array<T>`相似，只是把所
 	    return result > -1;
 	}
 
-## Indexable Types 可索引类型接口
+## 🍀Indexable Types 可索引类型接口
 
 那些能够通过索引得到的类型，比如`a[10]`或`ageMap["daniel"]`具有一个**索引签名**，它描述了对象索引的类型，还有相应的索引返回值类型。 让我们看一个例子：
 
@@ -8796,7 +8936,7 @@ TypeScript支持两种索引签名：字符串和数字。 可以同时使用两
 你不能设置`myArray[2]`，因为索引签名是只读的。
 
 
-## Class Types
+## 🍀Class Types
 
 与C#或Java里接口的基本作用一样，TypeScript也能够用它来明确的强制一个类去符合某种契约。也可以在接口中描述一个方法，在类里实现它，如同下面的setTime方法一样。
 
@@ -8879,7 +9019,7 @@ TypeScript支持两种索引签名：字符串和数字。 可以同时使用两
 	let clock = new Clock(1,2);
 
 
-## Extending Interfaces 继承接口
+## 🍀Extending Interfaces 继承接口
 
 和类一样，接口也可以相互继承。 这让我们能够从一个接口里复制成员到另一个接口里，可以更灵活地将接口分割到可重用的模块里。
 
@@ -8915,7 +9055,7 @@ TypeScript支持两种索引签名：字符串和数字。 可以同时使用两
 	square.penWidth = 5.0;
 
 
-## Interface Extends Class 接口继承类
+## 🍀Interface Extends Class 接口继承类
 
 正如类章节中提到的，接口可以继承类，类可以当作接口使用。
 
@@ -8953,7 +9093,7 @@ TypeScript支持两种索引签名：字符串和数字。 可以同时使用两
 在`Control`类内部，是允许通过`SelectableControl`的实例来访问私有成员`state`的。 实际上 `SelectableControl`接口和`Control`类是一样的。 `Button`和`TextBox`类是`SelectableControl`的子类，它们都继承自`Control`并实现了接口方法`select()`，但`Image`和`Location`类并不是这样的。
 
 
-## Hybrid Types 混合类型
+## 🍀Hybrid Types 混合类型
 
 先前我们提过，接口能够描述JavaScript里丰富的类型。 因为JavaScript其动态灵活的特点，有时你会希望一个对象可以同时具有上面提到的多种类型。
 
@@ -8977,7 +9117,7 @@ TypeScript支持两种索引签名：字符串和数字。 可以同时使用两
 
 在使用JavaScript第三方库的时候，你可能需要像上面那样去完整地定义类型。
 
-## Interface vs Type alias
+## 🍀Interface vs Type alias
 - https://juejin.im/post/5c2723635188252d1d34dc7d
 
 Typescript 中的 interface 和 type 到底有什么区别
@@ -9128,7 +9268,7 @@ interface 有可选属性和只读属性
 
 在像C#和Java这样的语言中，可以使用泛型来创建可重用的组件，一个组件可以支持多种类型的数据。 这样用户就可以以自己的数据类型来使用组件。
 
-## Hello Generics
+## 🍀Hello Generics
 
 下面来创建一个`identity`函数泛型化的例子， 这个函数会返回任何传入它的值， 你可以把这个函数当成是 echo 命令。
 
@@ -9167,7 +9307,7 @@ interface 有可选属性和只读属性
 注意我们没必要使用尖括号`<>`来明确地传入类型；编译器可以查看`myString`的值，然后把`T`设置为它的类型。 类型推论帮助我们保持代码精简和高可读性。如果编译器不能够自动地推断出类型的话，只能像上面那样明确的传入`T`的类型，在一些复杂的情况下，这是可能出现的。
 
 
-## Working with Generic Type Variable
+## 🍀Working with Generic Type Variable
 
 来考虑一个需要打印参数信息的泛型函数：
 
@@ -9197,7 +9337,7 @@ interface 有可选属性和只读属性
 使用过其它语言的话，你可能对这种语法已经很熟悉了。 在下一节，会介绍如何创建自定义泛型像 `Array<T>`一样。
 
 
-## Generic Types 泛型类型
+## 🍀Generic Types 泛型类型
 
 泛型类型与非普通类型没什么不同，只是多了一个带箭括号的类型参数`<T>`在最前面，泛型字面意义就是泛化的类型，通用的类型。完全可以像函数声明一样，也可以使用不同的泛型参数名，只要在数量上和使用方式上能对应上就可以，`<T>(arg: T) => T` 和 `<U>(arg: U) => U` 就是等价的类型，最后一个`T`和`U`表示函数返回类型。
 
@@ -9242,7 +9382,7 @@ interface 有可选属性和只读属性
 除了泛型接口，我们还可以创建泛型类。 注意，无法创建泛型枚举和泛型命名空间。 
 
 
-## Generic Classes 泛型类
+## 🍀Generic Classes 泛型类
 
 泛型类看上去与泛型接口差不多，泛型类型变量`<T>`跟在类名后。
 
@@ -9268,7 +9408,7 @@ GenericNumber类的使用是十分直观的，并且你可能已经注意到了�
 我们在类那节说过，类有两部分：静态部分和实例部分。 泛型类指的是实例部分的类型，所以类的静态属性不能使用这个泛型类型。
 
 
-## Generic Constraints 泛型约束
+## 🍀Generic Constraints 泛型约束
 
 你应该会记得之前的一个例子，我们有时候想操作某类型的一组值，并且我们知道这组值具有什么样的属性。 在`loggingIdentity`例子中，我们想访问`arg`的`length`属性，但是编译器并不能证明每种类型都有`length`属性，所以就报错了。
 
@@ -9425,7 +9565,7 @@ tsconfig.json 文件可以是个空文件，那么所有默认的文件（如上
 在命令行上指定的编译选项会覆盖在 tsconfig.json 文件里的相应选项。
 
 
-## extends 继承配置
+## 🍀extends 继承配置
 
 `tsconfig.json`文件可以利用 `extends` 属性从另一个配置文件里继承配置。
 
@@ -9464,7 +9604,7 @@ tsconfig.json 文件可以是个空文件，那么所有默认的文件（如上
 	  }
 	}
 
-## compileOnSave
+## 🍀compileOnSave
 
 在最顶层设置 `compileOnSave` 标记，可以让 IDE 在保存文件的时候根据 `tsconfig.json` 重新生成文件。
 
@@ -9478,7 +9618,7 @@ tsconfig.json 文件可以是个空文件，那么所有默认的文件（如上
 要想支持这个特性需要Visual Studio 2015， TypeScript1.8.4以上并且安装atom-typescript插件。
 
 
-## Compiler Options
+## 🍀Compiler Options
 
 - `--allowJs` boolean	false	允许编译javascript文件。
 - `--allowSyntheticDefaultImports` boolean	module === "system" 或设置了 --esModuleInterop 且 module 不为 es2015 / esnext	允许从没有设置默认导出的模块中默认导入。这并不影响代码的输出，仅为了类型检查。
@@ -9942,7 +10082,7 @@ tsconfig.js 文件：
 当完成这些准备工作之后，我们就可以使用 `npm run dev` 或 `npm start` 进入 TypeScript 编程的世界了。
 
 
-## 无状态组件
+## 🍀无状态组件
 我们在某些情况下会使用到无状态组件 SFC 也就是一个函数，SFC 最好是写成 React.StatelessComponent<P>，这个无状态组件函数使用 TypeScript 来定义几乎与 JavaScript 很像，如：
 
 	import * as React from "react";
@@ -9976,7 +10116,7 @@ tsconfig.js 文件：
 
 
 
-## 有状态组件
+## 🍀有状态组件
 假设当我们需要使用到一个有状态的组件，如：因为某些操作（onClick）来改变 state时，我们需要给 state 定义一个接口，与上述的 props 类似，在编写有状态组件时，需要给 React.Component的范型传递你的类型：
 
 	export interface IHomePageState {
@@ -10008,7 +10148,7 @@ tsconfig.js 文件：
 	  }
 	}
 
-## Props & State 组件属性
+## 🍀Props & State 组件属性
 
 对于另外的一些需求，可能我们设计的组件是一个容器或者是什么别的，总之它既有Props又有State，其实从上述的有状态组件中，我们可以很清晰的察觉到 React.Component 第一个参数传的就是 Props 的类型，因此，当我们要使用 Props & State 组件时，就要如此：
 
@@ -10046,7 +10186,7 @@ tsconfig.js 文件：
 	  }
 	}
 
-## Router 组件
+## 🍀Router 组件
 当我们存在有多个页面时，就会用到 react-router-dom 路由库，因此在类型安全上，我们需要为我们的 Props 继承上 React-Router 的 Props，才能让编译通过。与上述的 Props & State 组件类似，我们要为我们定义的接口 IHomePageProps 继承 RouteComponentProps，如：
 
 	import { RouteComponentProps } from "react-router-dom";
@@ -10085,7 +10225,7 @@ tsconfig.js 文件：
 	  }
 	}
 
-## 页面级别的 Reducers
+## 🍀页面级别的 Reducers
 在我们度过了前面的几个组件之后，可能你的项目会越来越复杂，因此我们会使用到 Redux 来管理我们 React 应用的数据流，页面级别的 Reducers ，顾名思义，这是我们关联在页面容器组件里的 Action，通过这些 Action 和 Props 的结合，方便的管理数据流。
 
 这些 Action 会分为 同步 Action 和 异步 Action，这也是我们为什么会用到 redux-thunk 的原因。
@@ -10202,7 +10342,7 @@ tsconfig.js 文件：
 
 	export const HomePage = connect(mapStateToProps, actions)(HomeComponent);
 
-## Global级别的 Reducers
+## 🍀Global级别的 Reducers
 global 顾名思义，这是一种可以全局访问的 reducers ，我们要做的事情也和页面级别 reducers 非常类似，定义好 state 的接口，然后将 global 在 Store 中配置正确，如：
 
 	import { createStore, applyMiddleware, combineReducers, compose } from "redux";
@@ -10292,7 +10432,7 @@ global 顾名思义，这是一种可以全局访问的 reducers ，我们要做
 	  }
 	}
 
-## 总结
+## 🍀总结
 在使用 TypeScript 和 React 的过程中积累了不少经验，但还有一些使用的技巧没有介绍到，这就需要我们在之后的过程中去慢慢摸索了。好在我们给社区提供了一个开源的 Starter 项目，省去了你在使用中较为复杂的配置，只用按照约定根据范例进行编写即可，希望你也可以从中学习到一些有趣的知识，欢迎交流；
 
 如果你觉得这篇文章有点意思，可以关注我们的专栏，后续我们主要的精力会放在编写 《Chrome Extension 入门指南》 小书上，将我们的一些经验分享给社区。最后，贴上我们开源的TypeScript Starter 项目
@@ -10544,7 +10684,7 @@ class 组件都要指明 props 和 state 类型。只要在组件内部使用了
 - TypeScript 4.1 - React 17 JSX Factories https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html#react-17-jsx-factories
 - TypeScript 4.0 - Custom JSX Factories https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-0.html#custom-jsx-factories
 
-## 使用官方模板
+## 🍀使用官方模板
 
 TypeScript 官方提供了大量经典模板项目供学习之用，常用的 React、Vue、Angular 还有 Node.js 后端都有。这里以 React + TypeScript + JSX/TSX 为例子。
 
@@ -10585,7 +10725,7 @@ TypeScript 官方提供了大量经典模板项目供学习之用，常用的 Re
 
 
 
-## Here To Go
+## 🍀Here To Go
 
 现在试着从零开始构建工程，新建 demo 目录，执行 `npm init` 项目初始化命令，根据需要输入项目信息，使用默认值即可：
 
@@ -10668,7 +10808,7 @@ TypeScript 官方提供了大量经典模板项目供学习之用，常用的 Re
 
 
 
-## 配置 tsconfig.json
+## 🍀配置 tsconfig.json
 
 接下来需要定制 TypeScript 和 Webpack 的配置文件。直接使用 `tsc --init` 这条命令将在我们的工程中创建默认配置 `tsconfig.json` ，也可以使用 yarn 工具来根据 `package.json` 生成 `tsconfig.json`，`tslibs` 是 TypeScript Runtime 程序库，有一些辅助函数，可以弥补编译目标不支持的功能。
 
@@ -10696,7 +10836,7 @@ React 16.8 需要使用 `@types/node`，如 `Set`，需要在 `tsconfig.json` �
 	    ]
 	}
 
-## 配置 webpack.config.js
+## 🍀配置 webpack.config.js
 
 接下来时 Webpack 的配置，这时很重要的内容，流行的项目结构都市基于 Webpack 之上的。注意配置项 `entry: './src/app.tsx'` 就时主程序入口，项目的第一条代码就在这个文件里。
 
@@ -10755,7 +10895,7 @@ React 16.8 需要使用 `@types/node`，如 `Set`，需要在 `tsconfig.json` �
 	    </body>
 	</html>
 
-## NPX 使用指南
+## 🍀NPX 使用指南
 
 它的主要作用是代替npm来直接执行包（package）命令。举个例子：以前如果我们需要使用一个包的话，以create-react-app为例。
 第一步，你总得先初始化npm，然后还得安装它，然后才能使用它
@@ -10806,7 +10946,7 @@ npx 还可以执行 GitHub 上面的模块源码，或执行仓库代码
 注意，远程代码必须是一个模块，即必须包含package.json和入口脚本。
 
 
-## webpack-dev-server 开发服务器
+## 🍀webpack-dev-server 开发服务器
 [serve](https://www.npmjs.com/package/serve)
 [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 [DevServer 配置参考](https://webpack.js.org/configuration/dev-server/#devserver)
@@ -10858,7 +10998,7 @@ npx 还可以执行 GitHub 上面的模块源码，或执行仓库代码
 
 
 
-## React in TypeScript 
+## 🍀React in TypeScript 
 
 TypeScript 结合 React 后，不再可以像 JavaScript 那样随意胡写乱画了，TypeScript 的引入的强类型是入门的一道坎，换一种显式类型的编程思路将会从长远的项目项目可维护性得到极大的回报，对自己的代码信心也会随之而来。切换到 TypeScrit 后，组件的类型签名变成了 `React.Component<IProps, IState>`，在 `@types/react/index.d.ts` 可以找到类型定义。
 
@@ -11030,7 +11170,7 @@ TypeScript 结合 React 后，不再可以像 JavaScript 那样随意胡写乱�
 
 
 
-## SCSS CSS Modules 模块化
+## 🍀SCSS CSS Modules 模块化
 [CSS Modules](https://github.com/css-modules/css-modules)
 [css-loader](https://github.com/webpack-contrib/css-loader)
 
@@ -11252,7 +11392,7 @@ https://github.com/Jimdo/typings-for-css-modules-loader
 	}
 
 
-## 单文件组件支持
+## 🍀单文件组件支持
 
 ![TypeScript Fit in Vue](typescript-vue.png)
 
@@ -11276,7 +11416,7 @@ https://github.com/Jimdo/typings-for-css-modules-loader
 ✓ 可以在 SFC 组件内使用 `<style>` 或`<style scoped>` 写样式，`.ts` 写组件就不能，`scoped` 关键字可以让样式作用范围限定在当前组件，Vue 会修改样式规则后缀，如 `.frame` 会变成 `.frame[data-v-abee1218]`。
 ✓ TypeScript 默认会导出一个 `Vue.extend()` 如果忘写了，Vetur 会让程序正常运行，但是在构建时会给出错误提示。
 
-## webpack.config.js
+## 🍀webpack.config.js
 
 一份 Webpack 配置参考，配置文件中的 `output` 设置构建时文件的输出目录 `path`，它只能时指向本地磁盘的绝对目录，这里使用了 Node 的 `path` 模块来获取当前项目下的 `build` 子目录。另外一个时 `publicPath`，这个目录设置影响到程序如何去访问资源文件。可以使用相对目录，也可使用绝对目录，也可以时服务器的 URL 路径。程序编译后，资源路径就以 `publicPath` 的设置为参考。
 
@@ -11361,7 +11501,7 @@ https://github.com/Jimdo/typings-for-css-modules-loader
 	    ])
 	}
 
-## Code Samples
+## 🍀Code Samples
 
 app.jsx 主程序代码：
 
@@ -11485,7 +11625,7 @@ app.jsx 主程序代码：
 	</style> 
 
 
-## vue-class-component
+## 🍀vue-class-component
 
 `vue-class-component` 官方提供了的 TypeScript 类组件支持模块，实现了 Vue、Component 等类；Vue 社区开发的 `vue-property-decorator` 修饰符模块深度依赖了 `vue-class-component`，提供拓展多个操作符： `@Prop`、`@Emit`、`@Inject`、`@Model`、`@Provide`、`@Watch`；这两个模块为 Vue 类组件开发带来了很多便利：
 
@@ -11591,7 +11731,7 @@ app.jsx 主程序代码：
 [Angular CLI](https://github.com/angular/angular-cli)
 [Angular Tutorial](https://angular.io/tutorial)
 
-## Angular-CLI 脚手架
+## 🍀Angular-CLI 脚手架
 
 先安装 Node.js，再使用 npm 工具安装 cnpm，注册淘宝镜像，使用命令查看版本：
 
@@ -11637,7 +11777,7 @@ app.jsx 主程序代码：
 
 
 
-## Yeoman & generator-ts-angular
+## 🍀Yeoman & generator-ts-angular
 
 使用 Yeoman 和 generator-ts-angular 创建项目骨架，后者提供了一个项目生成器，即 yo 使用到的 Angular 项目生成器 `ts-angular`。先找个你喜欢的目录，然后运行下面的命令，因为一会新项目会直接创建在该目录下。
 
@@ -11671,7 +11811,7 @@ COMMAND	ALIAS	DESCRIPTION
 `xi18n` Extracts i18n messages from source code.
 
 
-## 手动搭建项目
+## 🍀手动搭建项目
 
 使用脚手架的好处就是方便初始化项目骨架，如果熟悉 Webpack 项目搭键，手动初始化项目按需要安装依赖更能优化项目结构。
 
@@ -11898,7 +12038,7 @@ TypeScript 3.7 开始，类型声明文件 .d.ts 可以从 JavaScript 的 JSDoc 
 	  },
 	}
 
-## @see 参考引用
+## 🍀@see 参考引用
 https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-1.html#editor-support-for-the-jsdoc-see-tag
 
 VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到符号定义处：
@@ -11915,7 +12055,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	function related() {}
 
 
-## @type 类型注解
+## 🍀@type 类型注解
 
 	/**
 	 * @type {string}
@@ -11990,7 +12130,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	var question;
 
 
-## Casts 类型转换
+## 🍀Casts 类型转换
 
 	/**
 	 * @type {number | string}
@@ -12001,7 +12141,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 经过转换，typeAssertedNumber 是 number 类型。
 
 
-## Import types 类型声明导入
+## 🍀Import types 类型声明导入
 
 如下两个文件：
 
@@ -12038,7 +12178,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	var x = require("./accounts").userAccount;
 
 
-## @param and @returns 参数和返回值注解
+## 🍀@param and @returns 参数和返回值注解
 
 	// Parameters may be declared in a variety of syntactic forms
 	/**
@@ -12064,7 +12204,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	function ab() {}
 
 
-## @typedef, @callback, and @param 类型定义
+## 🍀@typedef, @callback, and @param 类型定义
 
 @typedef 可以用来在注解中定义新类型：
 
@@ -12125,7 +12265,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	/** @typedef {(data: string, index?: number) => boolean} Predicate */
 
 
-## @template 泛型模板定义
+## 🍀@template 泛型模板定义
 
 使用 @template 来定义泛型函数模板：
 
@@ -12161,7 +12301,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	  // ????
 	}
 
-## Classes 类定义的注解
+## 🍀Classes 类定义的注解
 
 	class C {
 	  /**
@@ -12197,7 +12337,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 	var result = C(1);
 
 
-## @constructor 构造器注解
+## 🍀@constructor 构造器注解
 
 编译器从 this 属性来推断出构造函数，但是使用 @constructor 可以帮助提供更好的提示和更严格的编译：
 
@@ -12239,7 +12379,7 @@ VSCode 编辑器可以支持 JSDoc @see 标记，它可以帮助快速定位到�
 使用 @constructor 会在构造函数 C 中检查，可以得到 initialize 方法的建议，如果您向它传递一个数字，则会出现一个错误。如果调用 C 而不是使用 new 构造 C，编辑器也可能显示警告，这意味着可调用的构造函数不能使用 @constructor。
 
 
-## @this 指针
+## 🍀@this 指针
 - https://www.typescriptlang.org/docs/handbook/utility-types.html#thisparametertypetype
 
 TypeScript 编译器通常会指出 this 引用的对象类型，如果没有，可以使用 @this 指定：
@@ -12259,7 +12399,7 @@ TypeScript 编译器通常会指出 this 引用的对象类型，如果没有，
 	}
 
 
-## @extends 类扩展
+## 🍀@extends 类扩展
 
 当 JavaScript 类扩展泛型基类，使用 @extends 来指定泛型参数类型：
 
@@ -12273,7 +12413,7 @@ TypeScript 编译器通常会指出 this 引用的对象类型，如果没有，
 
 @extends 只用于类扩展，不用于构造函数的扩展。
 
-## @enum 枚举
+## 🍀@enum 枚举
 
 用 @enum 声明枚举类型:
 
@@ -12298,7 +12438,7 @@ TypeScript 编译器通常会指出 this 引用的对象类型，如果没有，
 	MathFuncs.add1;
 
 
-## Patterns that are known NOT to be supported
+## 🍀Patterns that are known NOT to be supported
 
 将值空间中的对象作为类型引用是行不通的，除非该对象还创建了一个类型，比如构造函数。
 
@@ -12345,7 +12485,7 @@ Nullable 类型只有在 strictNullChecks 配置打开时有效：
 	 */
 	var unionNullable;
 
-## Unsupported tags
+## 🍀Unsupported tags
 
 TypeScript 自动忽略不支持的 JSDoc 标记，以下标记有相应的 open issues 支持：
 
@@ -12356,7 +12496,7 @@ TypeScript 自动忽略不支持的 JSDoc 标记，以下标记有相应的 open
 - {@link …} (issue #35524)
 
 
-## JSDoc Property Modifiers
+## 🍀JSDoc Property Modifiers
 
 从 TypeScript 3.8 开始，JSDoc 可以使用访问修改器，@public, @private, @protected，和 TypeScript 中的 public, private, protected 一样。
 
