@@ -2541,10 +2541,11 @@ Which is then used during the setup phase.
 1.  🐣 Basic Concepts
 2.  🐣 Demo Projects
 2.1.  🐣 Scheme R6RS 语言规范文档处理 [LaTeX]
-2.2.  🐣 Multi threaded Download
-2.3.  🐣 C/C++ Project Templates
-2.4.  🐣 Erlang Project Templates
-2.5.  🐣 Unit Test
+2.2.  🐣 Multi threaded Download [Msys2 Packages]
+2.3.  🐣 C/C++ Project Templates [GLib Gobject]
+2.4.  🐣 Erlang Project Templates 
+2.5.  🐣 Unit Test [CPL] 
+
 
 完整《Makefile 光学教程》以及 GNU M4 教程参考开源文档：https://github.com/Jeangowhy/opendocs/blob/main/Makefile.md
 
@@ -2943,676 +2944,6 @@ Evosyn 这里提出了一个新的实现 https://evosyn.com/arithmake.html
 
 ## 🍀 Multi threaded Download & Msys2 Packages
 
-GNU Make 不像 CMake 等现代的自动化构建工具，内部提供了基本的网络功能。但是，Make 可以通过 shell 与各种工具进行配合作战，一点不影响它发挥 Makefile 脚本的功能性。另外，Make 插件接口可以很方便接入 C/C++ 编写的程序，但是通常不需要这样做。直接通过 shell 配合 Node 或者 Deno 等开发平台，或者直接使用的命令行工具，如 curl 和 wget 等等就可以很好地完成网络访问功能。
-
-关于 curl 和 wget，它们都是网络访问工具，前者依赖 libcurl，后者独立，都支持文件上传下载，分别使用 -F 和 --post-file 参数上传文件。另外，curl 默认输出到 stdout，wget 则是输出到文件，可以通过 -o stdout 重定向到标准输出文件。
-
-curl 通用性较好，并且支持常见的协议：FTP, FTPS, GOPHER, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS, FILE, POP3, IMAP, SMTP, RTMP and RTSP。wget 支持 HTTP, HTTPS and FTP。https://eternallybored.org/misc/wget/
-
-```sh
-curl https://packages.msys2.org/api/search?query=pkg-config
-curl -o pkg-config.json https://packages.msys2.org/api/search?query=pkg-config
-wget -q -O    - https://www.gnu.org/software/make/manual/html_node/index.html
-wget -q -o stdout https://www.gnu.org/software/make/manual/html_node/index.html
-wget -r -l=1 -L https://www.gnu.org/software/make/manual/html_node/index.html
-```
-
-当然，这些工具限制性较多，适用于简单的静态页面处理，这些下载工具非常专职，没有多线程模式，make 提供的多进程构建功能就可以很好地实现多线程下载。另外使用 Node 或者 Deno 平台，或者是 Python 等等，使用异步 I/O 就可以很方便实现类型多线程下载的功能。但是别忘了，这里是《面向 Makefile 编程》，并且 wget 不会检查是否已经下载过文件。
-
-另外，wget 实现了递归下载功能，很像曾经的 webzip 网站打包软件，可以下载页面上匹配条件的链接文件。需要使用 -l 和 -np 参数来避免下载整个站点，除非确实是这样的目的：
-
-    -r 或者 -recursive 激活递归下载；
-    -l, --level=Number 设置递归深度，比如 -l=2；
-    -L, --relative 只跟随相对路径，避免下载到整个站点的文件；
-    -np, --no-parent 递归下载时不搜索上层目录；
-    -nd, --no-directories不创建层级目录，统一存放到当前目录；  
-    -k, –convert-links 下载页面后将内容链接地址转换为相对链接，方便本地打开；
-    -p, --page-requisties 下载网页使用到的文件，如图片、样式表、脚本等；
-    -A, --accept=List 指定要下载的文件类型列表，用逗号分隔；  
-    -R, --reject=List 指定不要下载的文件类型列表，用逗号分隔；  
-
-使用 make 多进程下载，首先就必需“搞”到文件链接地址列表。但是 make 虽然天生就是处理字符串的宏编程工具，但是它是专职于构建系统的，提供的字符串处理函数也是基于文件名的处理。即使是其内置的 patsust 字符串替换函数，也只是按“空格”、“Tab”或“换行”作为分隔的列表进行字符串的替换操作，本身不提供向字符串插入功能字符的功能，如插入换行符这种操作是不能够的。
-
-因此，在处理 JSON 这样的数据时需要使用 jq 这样的外部工具来打配合，或者更自由的方案是编写 Node 或者 Deno 等等平台的 JavaScript/TypeScript 脚本扩展。JSON 作为一个通用数据格式规范，应该领域非常广泛，个人认为它的价值超过 XML 格式，至少比 XML 节能多了。 https://jqlang.github.io/jq/
-
-jq 是命令行工具，它可以格式化 json 数据，也可以指定 filter 过滤器来查询 json 中对应的数据。jq 的目标是要做 JSON 数据的查询语言，就像数据库使用的 SQL 语言一样。最基本的就是 . 这个过滤器，它表示等值，输入什么就输出什么。然后就是各种获取指定数据的过滤器，这里介绍几种最基础最常用的：
-
-1. Object Identifier-Index: .string
-2. Object Index: [string]
-3. Array Index: [number]
-4. Array/Object Value Iterator: .[]  .[]? 
-5. Array/String Slice: .[<number>:<number>]
-6. Array construction: []
-7. Object Construction: {}
-8. Recursive Descent: ..
-
-重新映射指定字段，构造输出 JSON，逻辑是先选择数据集再使用管道挑选需要的字段，管道有省略形式的表达，`.a.b.c` 的等价表达是 `.a | .b | .c`。另外，还支持使用函数，或者：
-
-```sh
-    jq '.[] | {myfile: .target.filed, myfile2: .target.filed2 }'
-    jq '.[] | length'
-
-    echo [{"foo": 42}, {}] | jq 'map(has("foo"))'   # Output  [true, false]
-    echo  [[0,1], ["a","b","c"]] | jq 'map(has(2))' # Output  [false, true]
-
-    curl https://packages.msys2.org/api/search?query=jq | \
-    jq '[.results.exact, .results.other[] | {n: .realname, r: .repos}]'
-```
-
-1. https://jqlang.github.io/jq/tutorial/
-2. https://jqlang.github.io/jq/manual/
-3. https://github.com/jqlang/jq/blob/master/docs/content/manual/v1.7/manual.yml
-
-官方教程示范： 
-
-    curl 'https://api.github.com/repos/jqlang/jq/commits?per_page=5' | jq '.'
-
-    jq '[.[] | {message: .commit.message, name: .commit.committer.name, parents: [.parents[].html_url]}]'
-
-```json
-"parents": [
-  {
-    "sha": "f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
-    "url": "https://api.github.com/repos/jqlang/jq/commits/f2ad9517c72f6267ae317639ab56bbfd4a8653d4",
-    "html_url": "https://github.com/jqlang/jq/commit/f2ad9517c72f6267ae317639ab56bbfd4a8653d4"
-  }
-]
-```
-
-
-示范使用 curl 和 jq 处理 Msys2 软件包 API 接口数据，接口返回 JSON 数据会包含软件包在 Msys2 数据库中的精确匹配、模糊匹配到的名字，：
-
-    {"query":"pkg-config","qtype":"pkg","results":{"exact":{"name":"mingw-w64-pkg-config"...
-
-如果 json 文件已经下载到本地还可以直接使用 more or less 命令配合管道操作符将文件内容传递给 jq 命令进行解析，以下命令提供参考，最终输出结果是 "mingw-w64-pkg-config"：
-
-```sh
-curl https://packages.msys2.org/api/search?query=jq | jq .results.exact.name
-curl https://packages.msys2.org/api/search?query=pkg-config | jq .results.exact.name
-more pkg-config.json | jq .results.exact.name
-less pkg-config.json | jq .results.exact.name
-```
-
-秉承生命就是折腾的原则，这里不使用 pacman 这么好用的软件包管理工具，因为它确实太好用了，我就想用 Makefile 锤它。
-
-Msys2 虽然提供了一套 API，但是提供的功能太简单了，只负责查软件包的名字，至于其依赖还得通过返回的 JSON 数据去对应的 Web 页面上找。因为，其本身提供的 Pacman 就提供了自动依赖处理功能。
-
-既然决定要用 Makefile 这把锤，那么就用尝试用 Node.js 给它装上舒服一点的锤把手：编写一个模块脚本处理 Web 页面的文件链接地址列表。
-
-Node 模块实现代码放到面，现在来实现 Makefile 脚本：
-
-1. 定义了 Trace 调试宏函数，设置 TRACE 变量就可以激活它打印函数调用信息；
-2. 定义了 counter 计数器，此函数借用了 shell 环境中的 $((a+b)) 算术语法；
-3. 定义了一个 PACKGE 指定记录等下载的文件列表，列表使用 file 读取；
-4. 每个待下载文件将使用静态匹配规则映射为使用 foeach 生成的 pkg1 pkg2 pkg3 ...；
-5. 获取文件列表使用 %.init 规则，调用 shell 命令执行 Node 的 JavaScript 脚本获得；
-
-counter 计数器将用来映射 PACKAGE 文件列表，每一个行使用前缀名 pkg 加序号表示，映射后的名称就可以作为规则中的 Target 命令使用，因为所以文件没有依赖关系，都是独立的构建目标。通过 -jN 指定 Makefile 运行的进程数据，即可以实现多进程下载。但有一个问题：如果手动更新列表文件，那么 Makefile 脚本执行时就会执行初始目标的构建，去调用外部脚本获取新的列表： 
-
-    make clean
-    make init
-    make download -j8
-
-```makefile
-# TRACE = 1
-ifdef TRACE
-Trace = $(warning $0('$1','$2'))
-else
-Trace :=
-endif
-
-# $(call counter, 1) = 1
-# $(call counter, 2) = 3
-# $(call counter,-3) = 0
-counter = $(Trace)$(strip $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
-        $(eval $0_ID=$(ID)) $(ID) )
-
-PACKAGE = packages.mk
-
-all: download
-
-download : init $(foreach X,$(file < $(PACKAGE)),pkg$(call counter,1))
-    @echo "All packages: $^"
-
-pkg% : init
-#   @echo "💻simu-download: $(word $*,$(file < $(PACKAGE)))"
-    @echo "💻simu-download: $@"
-    @sleep 0.5
-
-init : pkg-config jq
-
-pkg-config jq : % : %.init
-    @echo "|||$@"
-
-%.init : $(PACKAGE)
-    @echo "init: $@ "
-    $(shell node.exe msys2pac.js mingw64 "$*" >> $(PACKAGE))
-    touch $*.init
-
-$(PACKAGE) :
-    @echo "clear $(PACKAGE)"
-    $(shell echo "" > $(PACKAGE))
-
-clean : 
-    $(RM) pkg-config.init jq.init $(PACKAGE)
-```
-
-
-### 📜 Mysy2 with pkg-config
-
-这里给 Msys2 作个简要介绍，并说明如何从 Cygwin 发展到 MinGW，再到 Msys2 交叉编译环境。
-https://www.msys2.org/docs/what-is-msys2/
-
-1995 年 Cygnus 工程师 Steve Chamberlain 发现 Windows 系统使用的 COFF 目标文件，即可执行文件格式，与此同时 GNU 的工具链已经支持 x86 和 COFF 的目标文件，并提供 C 语言库 newlib，这是嵌入式系统上的 C 标准库的实现。他认为既然 GNU 的工具链已经能够编译生成 x86 指令集的机器码，并可链接生成 COFF 格式的目标文件，而且还提供可移植到任意平台的 C 标准库 newlib, 那么理论上只要将 GCC 根据对应目标平台重新编译，重定向作为一个交叉编译器。那么这个 GCC 编译器可以生成 Windows 平台下的可执行文件。Steve Chamberlain 开发出原型，将他这个项目命名为 Cygwin。
-
-Cygwin 的编译和调用方式需要依赖一层 POSIX 到 Windows API 的中间层，比起日渐庞大的 Cygwin, 或许一个最小化且不需要中间层 GNU 工具链更能满足一些开发的需求, 于是 Colin Peters 在 1998 年创建了一个开源项目并撰写了最初的版本，将其命名为 mingw32 (Minimalist GNU for W32)。其意思就是 Windows 上的最小化 GNU 工具链，Windows 简称为 W32。后来为了避免暗示它仅限于生成 32 位二进制文件，就移除名称中的 32 变成 MinGW。
-
-Msys 2.0 也是为 Windows 系统提供 Unix 类系统编译环境的基础平台软件，它是基于现代 Cygwin 和 MinGW，对 MSys 的独立重写版本。MSYS2 vs Cygwin，MSYS2 中的 Unix 类工具直接基于 Cygwin，因此两者存在一些功能重叠。Cygwin 专注于在 Windows 上按原样构建 Unix 软件，MSYS2 则专注于构建基于 Windows API 的本地软件。也就是说，Cygwin 移植更彻底，这就是为何 Cygwin POSIX 到 Windows 的中间层特别巨大。
-
-有了 Msys2 就可以在 Windows 开发 Unix 应用程序，并构建出可以运行在 Windows 系统环境中的应用程序。Msys2 本身基于 Cygwin 构建，结合了 Arch Linux 的 pacman 依赖管理工具，使用它可以很方便地安装需要的组件，比如 ARM 嵌入式开发需要使用 GCC 交叉编译。
-
-MSYS2 提供一个 Unix 类系统环境外，还有 shell 命令行界面和软件库，使得在 Windows 上安装、使用、构建和移植软件更加容易。这意味着 Bash, Autotools, Make, Git, GCC, GDB 等等 GNU 软件都可以通过 Pacman 软件包管理工具进行安装。
-
-比如，安装 pkg-config 应用就可以执行以下命令安装，这是一个开发环境的依赖处理工具，可以用它来检测依赖库文件的位置信息，并生成 GCC 或 MSVC 编译器命令行参数：
-
-```sh
-pacman -S pkg-config
-pkg-config --cflags --short-errors "guile-3.0"
-# -IC:/MinGW/include/guile/3.0 -I/usr 
-pkg-config --libs --static --short-errors --msvc-syntax "guile-2.0"
-# /libpath:C:/MinGW/lib /libpath:d:/usr/lib /libpath:$(libdir) /libpath:d:/usr/lib 
-# guile-2.0.lib gc.lib gmp.lib ltdl.lib ffi.lib unistring.lib intl.lib iconv.lib crypt.lib ws2_32.lib m.lib 
-```
-
-Msys2 基础软件仓库有三个：
-
-1. msys2: MSYS2-dependent software
-2. mingw64: 64-bit Windows 原生应用程序，使用 mingw-w64 x86_64 编译工具链编译；
-3. mingw32: 32-bit Windows 原生应用程序，使用 mingw-w64 i686 编译工具链编译；
-
-目前，已经发展出包括 LLVM 编译工具链的共 7 大软件仓库，它们的软件包命名规则如下：
-
-    |            | Prefix      | Name         | Package prefix      
-    | ---------- |---------| ------------ |-------------- |      
-    | msys       | /usr       | MSYS        | None      
-    | mingw64    | /mingw32   | MINGW64     | mingw-w64-x86_64-      
-    | ucrt64     | /mingw64   | UCRT64      | mingw-w64-ucrt-x86_64-      
-    | clang64    | /ucrt64     | CLANG64     | mingw-w64-clang-x86_64-      
-    | mingw32    | /clang64    | MINGW32     | mingw-w64-i686-      
-    | clang32    | /clang32    | CLANG32     | mingw-w64-clang-i686-      
-    | clangarm64 | /clangarm64 | CLANGARM64  | mingw-w64-clang-aarch64-      
-
-     Name: environment variable MSYSTEM 
-     Package: environment variable MINGW_PACKAGE_PREFIX
-
-为了避免使用长前缀名，可以使用 bash pacboy 脚本替代 pacman 执行软件包安装，在软件包名指定一个简写后缀即可：
-
-    For 64-bit MSYS2 shell:
-        name:i means i686-only
-        name:x means x86_64-only
-        name:z means clang-i686-only
-        name:c means clang-x86_64-only
-        name:u means ucrt-x86_64-only
-        name:a means clang-aarch64-only
-        name:p means MINGW_PACKAGE_PREFIX-only
-    For MSYS shell:
-        name:m means mingw-w64
-        name:l means mingw-w64-clang
-
-    For all shells:
-        name: disables any translation for name
-
-Pacboy 脚本可能需要通过 pacman 安装，如果不默认没有提供；
-
-```sh
-> pacman -S pactoys
-> bash pacboy -S jq:x
-resolving dependencies...
-looking for conflicting packages...
-
-Packages (4) mingw-w64-x86_64-gcc-libs-13.2.0-2
-             mingw-w64-x86_64-libwinpthread-git-11.0.0.r147.gddc5b0f6e-1
-             mingw-w64-x86_64-oniguruma-6.9.8-1
-             mingw-w64-x86_64-jq-1.7-1
-
-Total Download Size:   1.52 MiB
-Total Installed Size:  6.18 MiB
-
-:: Proceed with installation? [Y/n] y
-```
-
-1. https://www.msys2.org/docs/pkgconfig/
-2. https://www.msys2.org/dev/build-process/
-
-MSYS2 shells 默认会设置以下环境变量以支持 pkgconf，这是 Msys2 中实现 pkg-confg 的依赖管理软件：
-
-    PKG_CONFIG_PATH - e.g. /ucrt64/lib/pkgconfig:/ucrt64/share/pkgconfig
-    PKG_CONFIG_SYSTEM_INCLUDE_PATH - e.g. /ucrt64/include
-    PKG_CONFIG_SYSTEM_LIBRARY_PATH - e.g. /ucrt64/lib
-
-Msys2 中涉及 Prefix / Relocation，因为 Unix 类系统中 /usr 这样的路径在 Windows 系统上无效。在依赖包配置文件 .pc 中通常会包含以下内容：
-
-    prefix=/ucrt64
-    includedir=${prefix}/include
-    libdir=${prefix}/lib
-
-可以看到 /ucrt64 这不是一个有效的 Windows 路径，这不是主要问题，它会被忽略，会根据 pkgconfig 或 pkg-config 路径中的 .pc 信息文件的路径来检测 Msys2 的顶级目录以替代默认路径前缀。
-
-假设配置文件存在 C:/msys64/ucrt64/lib/pkgconfig/glib-2.0.pc 就会取其  C:/msys64/ucrt64 作为真正的路径前缀，滤除 lib 目录之后的内容，这个目录对应 Msys2 其中一个软件仓库，基于 VS Stuio 的通用运行时编译的软件包。使用 --dont-define-prefix 参数，可以让 pkgconf 禁用这个默认前缀处理特性。
-
-前缀路径重定向处理依赖于 ${prefix} 变量，就像以上所述，但是以下这种硬编码的绝对路径就不支持：
-
-```sh
-    prefix=/ucrt64
-    includedir=/ucrt64/include
-    libdir=/ucrt64/lib
-```
-
-因此，pkg-config 和 pkgconf 都包含一个 hack 功能，以处理像以上这种使用绝对路径的目录前缀，/ucrt64/include 替换为 ${prefix}/include，使它可以重新定向。
-https://www.bassi.io/articles/2018/03/15/pkg-config-and-paths/
-
-以上前缀目录重定向逻辑不能在 .pc 文件安装到自定义目录的情况下生效，比如，安装到 /lib/mylib-1.2/pkgconfig，这会导致错误的目录前缀值。
-
-依赖库默认会将自身的 .pc 信息文件存入 /lib/pkgconfig 或者 /share/pkgconfig目录，默认的依赖包信息由此读取。可以向 PKG_CONFIG_PATH 等环境变量添加额外的依赖库搜索目录。
-
-
-https://people.freedesktop.org/~dbn/pkg-config-guide.html
-GLib 基础库中的 glib-2.0.pc 配置参考：
-
-```sh
-prefix=/usr
-includedir=${prefix}/include
-libdir=${prefix}/lib
-
-bindir=${prefix}/bin
-glib_genmarshal=${bindir}/glib-genmarshal
-gobject_query=${bindir}/gobject-query
-glib_mkenums=${bindir}/glib-mkenums
-
-Name: GLib
-Description: C Utility Library
-Version: 2.76.5
-Requires.private: libpcre2-8 >= 10.32
-Libs: -L${libdir} -lglib-2.0 -lintl
-Libs.private: -luser32 -lkernel32 -liconv -lm -pthread
-Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include
-```
-
-    --variable=NAME                 get the value of variable named NAME
-    --define-variable=NAME=VALUE    set variable NAME to VALUE
-    --print-variables               output list of variables defined by the module
-    --prefix-variable=PREFIX        set the name of the variable that pkg-config automatically sets
-
-使用 pkg-config 检测指定依赖库所指定的目录前缀，以及使用 define-variable 覆盖依赖库 .pc 文件的默认设置：
-
-```sh
-pkg-config --variable=prefix glib-2.0
-# C:/MinGW
-pkg-config --print-errors --define-variable=prefix=/foo --variable=prefix glib-2.0
-# /foo
-pkg-config --print-variables 'glib-2.0'
-# bindir
-# glib_genmarshal
-# glib_mkenums
-# gobject_query
-# includedir
-# libdir
-# pcfiledir
-# prefix
-```
-
-使用 pkg-config 检测依赖库是否已经安装，如果有安装就返回 0 值，--print-errors 可以打印错误信息，--list-all 查询已经安装的、可以通过搜索目录搜到 .pc 信息的依赖库：
-
-```sh
-pkg-config --print-errors --exists 'glib-2.0 >= 1.3.4'
-pkg-config --exists 'glib-2.0 >= 1.3.4 libxml = 1.8.3'
-pkg-config --exists 'glib-2.0 >= 1.3.4 libxml = 1.8.3'
-pkg-config --list-all
-```
-
-### 📜 pkg-config CLI
-
-Environment Variables
-https://man.archlinux.org/man/pkgconf.1.en
-
-*PKG_CONFIG_PATH*
-    A colon-separated (on Windows, semicolon-separated) list of directories to search for .pc files. The default directory will always be searched after searching the path; the default is `libdir/pkgconfig:datadir/pkgconfig` where libdir is the libdir where pkg-config and datadir is the datadir where pkg-config was installed.
-
-*PKG_CONFIG_DEBUG_SPEW*
-    If set, causes pkg-config to print all kinds of debugging information and report all errors.
-
-*PKG_CONFIG_TOP_BUILD_DIR*
-    A value to set for the magic variable pc_top_builddir which may appear in .pc files. If the environment variable is not set, the default value '$(top_builddir)' will be used. This variable should refer to the top builddir of the Makefile where the compile/link flags reported by pkg-config will be used. This only matters when compiling/linking against a package that hasn't yet been installed.
-
-*PKG_CONFIG_DISABLE_UNINSTALLED*
-    Normally if you request the package "foo" and the package "foo-uninstalled" exists, pkg-config will prefer the "-uninstalled" variant. This allows compilation/linking against uninstalled packages. If this environment variable is set, it disables said behavior.
-
-*PKG_CONFIG_ALLOW_SYSTEM_CFLAGS*
-    Don't strip -I/usr/include out of cflags.
-
-*PKG_CONFIG_ALLOW_SYSTEM_LIBS*
-    Don't strip -L/usr/lib out of libs
-
-*PKG_CONFIG_SYSROOT_DIR*
-    Modify -I and -L to use the directories located in target sysroot. this option is usefull when crosscompiling package that use pkg-config to determine CFLAGS anf LDFLAGS. -I and -L are modified to point to the new system root. this means that a -I/usr/include/libfoo will become -I/var/target/usr/include/libfoo with a PKG_CONFIG_SYSROOT_DIR equal to /var/target (same rule apply to -L)
-
-*PKG_CONFIG_LIBDIR*
-    Replaces the default pkg-config search directory.
-
-
-Usage:
-  pkg-config.exe [OPTION...]
-
-Help Options:
-  -h, --help                              Show help options
-
-Application Options:
-  --version                               output version of pkg-config
-  --modversion                            output version for package
-  --atleast-pkgconfig-version=VERSION     require given version of pkg-config
-  --libs                                  output all linker flags
-  --static                                output linker flags for static linking
-  --short-errors                          print short errors
-  --libs-only-l                           output -l flags
-  --libs-only-other                       output other libs (e.g. -pthread)
-  --libs-only-L                           output -L flags
-  --cflags                                output all pre-processor and compiler flags
-  --cflags-only-I                         output -I flags
-  --cflags-only-other                     output cflags not covered by the cflags-only-I option
-  --variable=NAME                         get the value of variable named NAME
-  --define-variable=NAME=VALUE            set variable NAME to VALUE
-  --exists                                return 0 if the module(s) exist
-  --print-variables                       output list of variables defined by the module
-  --uninstalled                           return 0 if the uninstalled version of one or more module(s) or their dependencies will be used
-  --atleast-version=VERSION               return 0 if the module is at least version VERSION
-  --exact-version=VERSION                 return 0 if the module is at exactly version VERSION
-  --max-version=VERSION                   return 0 if the module is at no newer than version VERSION
-  --list-all                              list all known packages
-  --debug                                 show verbose debug information
-  --print-errors                          show verbose information about missing or conflicting packages (default unless --exists or --atleast/exact/max-version given on the command line)
-  --silence-errors                        be silent about errors (default when --exists or --atleast/exact/max-version given on the command line)
-  --errors-to-stdout                      print errors from --print-errors to stdout not stderr
-  --print-provides                        print which packages the package provides
-  --print-requires                        print which packages the package requires
-  --print-requires-private                print which packages the package requires for static linking
-  --validate                              validate a package's .pc file
-  --define-prefix                         try to override the value of prefix for each .pc file found with a guesstimated value based on the location of the .pc file
-  --dont-define-prefix                    don't try to override the value of prefix for each .pc file found with a guesstimated value based on the location of the .pc file
-  --prefix-variable=PREFIX                set the name of the variable that pkg-config automatically sets
-  --msvc-syntax                           output -l and -L flags for the Microsoft compiler (cl)
-
-
-
-
-### 📜 YAML 文档规范
-https://yaml.org/spec/1.2.2
-https://github.com/yaml/yaml-spec
-
-
-https://spacelift.io/blog/yaml
-YAML Tutorial : A Complete Language Guide with Examples by Omkar Birade
-
-YAML （发音 /ˈjæməl/ ）是一种层级规格化文本文档，使用缩进表示节点层级结构，以易读易处理而流行，Sublime Text 编辑器默认支持 YAML 语法，其语法高亮功能的定义文件也是使用 YAML 文档表示。
-
-YAML 形式上比 JSON 更简洁，因为没有强制使用双引号和花括号等等，并且还支持 # 符号编写注解内容。
-
-YAML 缩进使用空白字符，但是 TAB 除外。缩进一般使用空格，尽量保持一致的缩进。
-
-YAML Syntax 定义了三种主要类型：
-
-1. Maps/Dictionaries ：YAML 手册称之为 mapping，就是键值对（key/value）数据结构；
-2. Arrays/Lists ：YAML 手册称之为 sequences，即一系列有序数据，可以有数据重复；
-3. Literals Scalars：字面量（标量）包括 Strings, numbers, boolean 等等，支持 Unicode 字符集；
-
-YAML 文档中的特殊功能字符包括以下这些：
-
-     :  {   }   [   ]   ,   &   *   #   ?   
-     |   --   <   >   =   !   %   @   \ 
-
-有三种方式可以将这些特殊字符转义，使其而作为一般字符：
-
-1. Entity Escapes ：例如 space: &#x20;  colon: &#58;  ampersand: &amp; 
-2. Unicode Escapes ：例如 space: "\u0020"  single-quote: "\u0027"  double quote: "\u0022"
-3. Quoted Escapes ：例如 &: "a & b" 或者单引号包括‘a & b'，可以相互内嵌；
-
-参考规范手册 Chapter 5. Character Productions。
-
-对于处理重复数据，YAML 文档中引入了两个功能符号 anchors `&` 和 aliases `*`。锚点即用于可以被别名锚定（被引用）的的内容，对于有大量重复数据的文档非常有用。另外，还引入 overrides `<<:` 符号用于覆盖引用内容原有的定义。
-
-引用可以用来定义文档目录，因为一般编辑器会提供索引符号目录，但是不能使用空格，可以用下划线替换。
-
-YAML 解析器的一个目标是 one-pass processing，不做多遍处理，所以引用需要先定义，否则触发发别名符号引用错误，参考 3. Processes and Models。
-
-    ReferenceError: Unresolved alias (the anchor must be set before the alias)
-
-1. Figure 3.1. Processing Overview  https://yaml.org/spec/1.2.2/img/overview2.svg
-2. Figure 3.2. Information Models   https://yaml.org/spec/1.2.2/img/model2.svg
-3. Figure 3.3. Representation Model https://yaml.org/spec/1.2.2/img/represent2.svg
-4. Figure 3.4. Serialization Model https://yaml.org/spec/1.2.2/img/serialize2.svg
-5. Figure 3.5. Presentation Model https://yaml.org/spec/1.2.2/img/present2.svg
-6. Figure 3.6. Kind/Style Combinations https://yaml.org/spec/1.2.2/img/styles2.svg
-7. Figure 3.7. Loading Failure Points https://yaml.org/spec/1.2.2/img/validity2.svg
-
-3. Processes and Models https://yaml.org/spec/1.2.2/#31-processes
-
-YAML 1.2 Reference Parsers https://github.com/yaml/yaml-reference-parser
-
-Schemas 模型是指导解释器如果处理文档符号的规则定义，比如，文档中出现的 false 这样的字符串，应该作为字符串处理还是作为布尔值算的问号。
-
-例如，以下配置了三个使用相同设置的服务，而 service4 则覆盖了版本号设置：
-
-```yaml
----
-vars:
-  - service1:
-      config: &service_config
-           env: prod
-           retries: 3
-           version: 4.8.2
-  - service2:
-      config: *service_config
-  - service3:
-      config: *service_config
-  - service4:
-      config:
-           <<: *service_config
-           version: 4.2
-```
-
-此文档基本完全展示了 YAML 文档的结构，负号前缀表示它是序列中的一项，vars 这个序列包含四个元素。然后，键值对就是以分号为标志，其左侧部分称为 key，右侧部分称为 value。键值对即是基于 hash 算法实现的字典数据结构，通过 key 可以用来快速访问对应的值。比如，config 这个键对应的值就是 service_config 引用值，也就是三个基本的配置项。这些配置项也是键值对。
-
-不是一定要在顶层创建一个 vars 才能定义序列，只可以在文档顶层直接定义序列。并且，序列元素也不一定需要是 mapping 类型，也可以是嵌套列表，只需要将 - 后面的 key:value 移除，在后续行中使用缩进的 - 符号就可以定义嵌套的序列。
-
-注意，& 定义待引用内容时，需要紧跟 : 符号后面，如果是跟在其它字符后面则当作字符串处理。定义待引用符号就是定义标签内容，YAML 规范文档使用 labeled SS 表示 &SS。
-
-如果，编辑器有语法提示，就会将 4.8.2 版本号和字符串作一样处理，而 4.2 属于是数值，Node 平台中使用 yaml 解析器时可以获取到不同的数据类型，但是这种不一致的数据并不是一种良构文档。另外，通过 key 读取数据时，序列对应数组列表，使用下标进行对应元素的访问。但是还需要需要序列项的 key 来访问对应的数据，参考脚本如下：
-
-```js
-// import { parse, stringify } from 'c:/nodejs/node_modules/yaml/dist/index.js'
-const {parse, stringify} = require("c:/nodejs/node_modules/yaml/dist/index.js")
-const fs = require("node:fs")
-yaml = parse(fs.readFileSync('do.yaml').toString('utf8'))
-console.log( yaml.vars[0], yaml.vars[0].service1, yaml.vars[3].service4 )
-```
-
-
-YAML 映射支持高级表达形式，重新映射、紧凑形式，序列也可以使用方括号表示，参考规范文档 7.4. Flow Collection Styles。以下示例来自 YAML 规范文档：
-
-```yaml
----
-# Example 2.11 Mapping between Sequences
-# [ Detroit Tigers, Chicago cubs ] : [ '2001-07-23' ],
-
-? - Detroit Tigers
-  - Chicago cubs
-: - 2001-07-23
-
-? [ New York Yankees,
-    Atlanta Braves ]
-: [ 2001-07-02, 2001-08-12,
-    2001-08-14 ]
-
-# Example 2.12 Compact Nested Mapping
-# Products item {item:string,quantity:number}
-items :
-  - item    : Super Hoop
-    quantity: 1
-  - item    : Basketball
-    quantity: 4
-  - item    : Big Shoes
-    quantity: 1
-```
-
-YAML 定义了 3 个默认模式:
-
-10.1. FailSafe Schema: 只可以处理 maps sequences strings 数据类型，所有 YAML 文档通用；
-10.2. JSON Schema: 支持所有 JSON 规范定义的类型，null int float 等等，包括 FailSafe；
-10.3. Core Schema: 扩展 JSON schema，可以形式表达同一类型，支持更人性化的可读文档。
-
-COre schema 模型中，支持 null | Null | NULL 这样的多种形式表示空引用，又如布尔值的多种表达形式 true | True | TRUE，可以像以下代码一样显式指定类型。参考规范文档 Chapter 10. Recommended Schemas。
-
-```yaml
----
-# A sample yaml file
-company: !!str spacelift
-domain:
- - !!str devops
- - !!str devsecops
-tutorial:
-   - name: !!str yaml
-   - type: !!str awesome
-   - rank: !!int 1
-   - born: !!int 2001
-author: !!str omkarbirade
-published: !!bool true
-```
-
-这种显式类型标注称为 Targs，标注类型还有 seq map str binary int float null 等等，参考规范文档 2.4. Tags。
-
-
-```yaml
-# Example 2.19 Integers
-
-canonical: 12345
-decimal: +12345
-octal: 0o14
-hexadecimal: 0xC
-
-# Example 2.20 Floating Point
-
-canonical: 1.23015e+3
-exponential: 12.3015e+02
-fixed: 1230.15
-negative infinity: -.inf
-not a number: .nan
-
-# Example 2.21 Miscellaneous
-
-null:
-booleans: [ true, false ]
-string: '012345'
-
-# Example 2.22 Timestamps
-
-canonical: 2001-12-15T02:59:43.1Z
-iso8601: 2001-12-14t21:59:43.10-05:00
-spaced: 2001-12-14 21:59:43.10 -5
-date: 2002-12-14
-```
-
-YAML 字符串表现有多种形式，除了直接编写的字面量、引号包括的字面量，还以下几何多行字符串形式：
-
-1. `>` Folding Strings 折叠多行字符串，即多选并成一行，无结束换行符号；
-2. `|` Block strings 字符串块，HEREDOC 方式，保留所有换行符号；
-3. Chomp characters 形式，包含行末空白字符、换行符号的两种处理方式
-3.1 `>+` Preserving new line character 保留行尾的空白字符、换行符；
-3.2 `>-` Stripping new line character 清除行尾的空白字符、换行符；
-
-
-```yaml
---- # new document
-message1: >
-    even though
-    it looks like
-    this is a multiline message,
-    it is actually not
---- # new document
-message2: |
-    this is
-    a real multiline
-    message
---- # new document
-message3: >+
-    This block line
-    Will be interpreted as a single
-    line with a newline character at the 
-    end
---- # new document
-message4: >-
-    This block line
-    Will be interpreted as a single
-    line without the newline character at the
-    end
-```
-
-YAML 支持 MULTIPLE_DOCS 概念，每个 --- 符号表示一个文档的开始，可以定义多个文档。应该使用 parseAllDocuments 方法进行解析，返回的是 [Document] 列表，每个文档的符号定义保存在 contents 变量中。序列中的 mappinng 数据以 `Pair` 类型展示，此类型中使用 `Scalar` 类型的 key 和 value 属性保存键值对应的数据。
-
-```ts
-// import { parse, stringify } from 'c:/nodejs/node_modules/yaml/dist/index.js'
-const {parse, parseAllDocuments, stringify} = require("c:/nodejs/node_modules/yaml/dist/index.js")
-const fs = require("node:fs")
-yaml = parseAllDocuments(fs.readFileSync('do.yaml').toString('utf8'))
-console.log( yaml.length, yaml[0].contents.items[0], yaml[0].contents.items[0].key )
-```
-
-
-YAML 中的符号可能会触发怪异问题，The curious case of the Norway problem：
-
-```yaml
-countries:
-#Sequence 
-- GB # Great britain
-- IE # Ireland
-- FR # France
-- DE # Denmark
-- NO # Norway
-```
-
-如果尝试使用 Python 解析以上 YAML 文档，结果就是 NO 解析为布尔值，因为 PyYAML 处理 FALSE | F | NO 或者 NULL | null 是看作特殊值，而不是字符串字面量。为了避免这种意外情况，可以使用 StrictYAML 模块，它严格将符号作用字符串字面量处理，而不是特殊值。
-https://hitchdev.com/strictyaml/why/implicit-typing-removed/
-
-```py
->>> from pyyaml import load
->>> load(the_configuration)
-{'countries': ['GB', 'IE', 'FR', 'DE', False]}
-```
-
-使用
-Node yaml 模块则不一样，不会以同样方式解析。Node 新版本除了支持默认的 CommonJS 模块规范，还增加了对 ESM (ECMAScript Modules) 支持，使用 ESM 就需要在 package.json 配置 `{"type": "module"}`，否则就会触发以下错误：
-
-    SyntaxError: Cannot use import statement outside a module 
-
-注意，--input-type=module 方式只支持 /c 传入命令行中的代码使用。
-
-```js
-// npm install -g yaml
-// node --input-type=module -c "somecoe"
-// import { parse, stringify } from 'yaml'
-const {parse, stringify} = require("c:/nodejs/node_modules/yaml/dist/index.js")
-console.log(parse(`
-countries:
-    - GB # Great britain
-    - IE # Ireland
-    - FR # France
-    - DE # Denmark
-    - NO # Norway
-`))
-```
-
-使用 npm 安装 yaml 模块后，可以不创建 package.json 工程配置，或者安装依赖模块，可以直接给 require 或者 import 指定完整导入路径，而不是模块名。
-
-
-
 ### 📜 reStructuredText 文档规范
 https://github.com/adamchainz/sublime-rst-improved
 https://docutils.sourceforge.io/rst.html
@@ -3753,416 +3084,12 @@ https://docutils.sourceforge.io/docs/user/rst/demo.html
     ================  ============================================================
 
 
-### 📜 Node.js Module for Make
 
+## 🍀 C/C++ Project Templates [Glib-2.0 & ADT]
 
-这里使用 Node 进行 JavaScrip/TypesScript 脚本编程需要了解决的一些基本概念：
+### 📜 GLib–2.0 前置教程：Msys + Meson 构建工具
 
-1. 每个 .js 脚本文件就是一个 Node 模块；
-2. 每个脚本模块在 Node 加载运行时，会通过模块加载器传入以下参数：
-3. process 引用当前 Node 进程，可以通过它获取当前运行环境信息，包括命令行参数；
-4. module 当前模块的引用，它包含 exports 变量，用于导出模块中需要导出的符号；
-
-https://nodejs.org/api/packages.html#package-entry-points
-因为只使用一个脚本模块就可以配合 Makefile 脚本完成任务，所以不需要创建 package.json 进行工程管理设置，也不需要设置工程的入口脚本和导出文件，"main" and "exports"。
-
-命令行参数保存在 `process.argv` 变量，是字符串列表，首个元素即 0 号索引对应的是 Node 进程文件路径，其次是当前脚本模块路径，后面是其它命令行参数。使用 `length` 属性可以获取命令行参数数量，甚至还可以使用 `Object.keys(process.argv).length`。
-
-Node 模块没有默认入口函数，将模块脚本传递给 node 命令就执行它，如果执行取决于模块代码逻辑。但是有一个默认导出符号 exports.default，默认导出符号和 exports 其它所有导出符号构成整个模块的可以供外部调用的接口。使用 require() 方法就可以引用其它脚本模块，或者在最新版本中，使用 import 引用 ESM 规范模块。
-
-Node v12.0.0 引入参数来指定输入的模块规范类型，例如，指定为 ESM 模块输入，这样就可以在顶级代码块中使用 await 异步编程：
-
-    node --input-type=commonjs --eval='((msg)=>console.log({msg}))("Hello!")'
-    node --input-type=module --eval='await ((msg)=>console.log({msg}))("Hello!")'
-
-https://nodejs.org/api/packages.html#--input-type-flag
-Use mjs extension or type:"module" in package.json, to use import/export.
-CommonJS is Node default setting, use cjs extension or type:"commonjs" to use require/module.exports.
-
-以下为 Node 脚本模拟扩展，供 Make 调用以获取 Msys2 软件仓库中软件包以及依赖包下载地址，暂时命名为 msys2pac.js，和 Makefile 脚本中调用一致即可。此脚本将近 200 行，对于《面向 Makefile 编程》来说，有点“夺目”了。这里就作一个简单的说明：
-
-1. 脚本中设置了一个 help() 函数，在输入参数不正确时提示使用方法；
-2. 脚本中使用了 Fetch API，这是 Node 试用特性，为了消隐警告信息重置了 warning 事件；
-3. Prefix ApiInfo PackageInfo 等等都用于说明 Msys2 API 接口返回的 JSON 数据结构引入的类型定义，目标是为启用 TypeScript LSP 服务智能提示参考；
-
-以上这些辅助性功能就占据脚本将近一半，接下来主要是三个功能函数，用于查询软件包归属的分类，并分类页面提供的地址去提供出 Web 页面的下载地址。因为依赖关系是多层的，脚本中设置了 3 层页面跳转。脚本并不一定处理好所有依赖包，目前只处理了常规的依赖包页面，还有 Virtual Package，至于会不会有其它特殊的页面还不清楚，这可能会导致脚本运行报错，就需要根据具体问题进行处理。
-
-    async function search_api(pkg)
-    async function packages_list(pkg, repo, maxLevel=3)
-    async function packages_recursive(url, level) 
-
-
-```ts
-// Filter Msys2 Package File and Dependencies
-const path = require('node:path')
-const fs = require('node:fs')
-const { stdin, stdout } = require('node:process')
-
-const argc = Object.keys(process.argv).length
-const script = path.basename(process.argv[1])
-const DOESNT = "Package doesn't exist"
-const VIRTUAL_PACKAGE = "Virtual Package"
-
-function help() {
-    console.info(`Usage of ${script}:
-----------------------------
-    node msys2pac.js repo msys2_package_name
-
-    where repo can be:
-    1. ${Prefix.repo_clang32} ( prefix: ${Prefix.prefix_clang32} )
-    2. ${Prefix.repo_clang64} ( prefix: ${Prefix.prefix_clang64} )
-    3. ${Prefix.repo_clangarm64}( prefix: ${Prefix.prefix_clangarm64})
-    4. ${Prefix.repo_mingw32} ( prefix: ${Prefix.prefix_mingw32} )
-    5. ${Prefix.repo_mingw64} ( prefix: ${Prefix.prefix_mingw64} )
-    6. ${Prefix.repo_ucrt64} ( prefix: ${Prefix.prefix_ucrt64} )
-
-    ex.
-    node msys2pac.js ${Prefix.repo_mingw64} jq
-    `)
-}
-
-// Replce default warning event handler, and comstom it to skip known warnings
-process.removeAllListeners('warning');
-process.on('warning', (warning) => {
-  let { name, message } = warning;
-  if (name === 'ExperimentalWarning' && message.indexOf('Fetch API') > -1)
-    return;
-  if (name === 'DeprecationWarning' && message.indexOf('Obsolete loader hook') > -1)
-    return;
-
-  console.warn({warning});
-});
-
-class Prefix {
-    static arch_x86_64 = "x86_64"
-    static arch_i686 = "i686"
-    static arch_aarch64 = "aarch64"
-    static repo_clang32 = 'clang32'
-    static repo_clang64 = 'clang64'
-    static repo_clangarm64 = 'clangarm64'
-    static repo_mingw32 = 'mingw32'
-    static repo_mingw64 = 'mingw64'
-    static repo_ucrt64 = 'ucrt64'
-    static prefix_msys2 = "mingw-w64"
-    static prefix_clang32 = "clang-i686"
-    static prefix_clang64 = "clang-x86_64"
-    static prefix_clangarm64 = "clang-aarch64"
-    static prefix_mingw32 = "i686"
-    static prefix_mingw64 = "x86_64"
-    static prefix_ucrt64 = "ucrt-x86_64"
-    static repo_list() { 
-        return [ Prefix.repo_clang32, Prefix.repo_clang64, Prefix.repo_clangarm64, 
-               Prefix.repo_mingw32, Prefix.repo_mingw64, Prefix.repo_ucrt64,]
-    } 
-}
-
-class ApiInfo {
-    query = "string"
-    qtype = "string"
-    results = { exact: new PackageInfo, other: [new PackageInfo] }
-}
-
-class PackageInfo {
-    name = "string"
-    realname = "string"
-    url = "string"
-    version = "string"
-    descriptions = "string"
-    arches = ["string"]
-    repos = ["string"]
-    source_url = ["string"]
-    build_date = "integer"
-    licenses = ["string"]
-    groups = ["string"]
-}
-
-
-/** 
- * @param {string} pkg
- * @return {Promise<{exact: PackageInfo, other:PackageInfo[]}>}
- */
-async function search_api(pkg) {
-    const url = `https://packages.msys2.org/api/search?query=${pkg}`
-    return await fetch(url).then(res=>{
-        return res.json()
-    }).then( (/** @type {ApiInfo} */ json)=>{
-        // if (Object.keys(json.results.exact).length===0) {
-        //     throw DOESNT+' '+pkg;
-        // }
-        return json.results
-    }).catch(error=>{
-        console.warn( {url, pkg, error} )
-        Promise.reject('search_api()') 
-    }) 
-}
-
-/**
- * @param {string} pkg
- * @param {string} repo
- * @return {Promise<string[]>} list
- */
-async function packages_list(pkg, repo, maxLevel=3) {
-    const repo_ = Prefix["prefix_"+repo]
-    const msys_ = Prefix.prefix_msys2
-    const url = `https://packages.msys2.org/package/${msys_}-${repo_}-${pkg}?repo=${repo}`
-    return await packages_recursive(url, maxLevel-1)
-}
-
-async function packages_recursive(url, level) {
-    return await fetch(url).then(res=>{
-        return res.text()
-    }).then( async text=>{
-        if (text.indexOf(DOESNT) > -1) {
-            throw DOESNT
-        }
-        if (text.indexOf(VIRTUAL_PACKAGE) > -1) {
-            try {
-                const file = text.split('Provided By:')[1].split(/href=["']/)[1].split(/['"]/)[0]
-                if (level > 0) {
-                    return packages_recursive(file, level-1)
-                } else {
-                    return [file]
-                }
-            } catch (ex) { throw ex }
-        }
-        try {
-            const file = text.split(/File:/)[1].split(/href="/)[1].split(/'|"/)[0]
-            const deps = text.split('Dependencies:')[1].split('</ul>')[0].matchAll(/http[^"'>]+/g)
-            const list = [file]
-            for( let it of deps) {
-                if( level > 0 ) {
-                    try {
-                        const cds = await packages_recursive(it[0], level-1)
-                        list.push(...cds)
-                    } catch (ex) {
-                        list.push(ex)
-                    }
-                } else {
-                    list.push( it[0] )
-                }
-            }
-            return list
-        } catch ( /** @ts-check {Error} */ ex ) {
-            throw ex
-        }
-    }).catch(error=>{
-        console.warn( {url, level, error} )
-        Promise.reject('package_list()') 
-    }) 
-}
-
-
-const repo = process.argv[2]
-const pkg = process.argv[3]
-
-if (process.argv.length!==4) {
-    help();
-} else if ( Prefix.repo_list().indexOf(repo) !== -1) {
-    (async ()=> {
-        const res = await search_api(pkg)
-        if ( Object.keys(res.exact).length && res.exact.repos.indexOf(repo) > -1) {
-            const list = await packages_list(pkg, repo);
-            stdout.write(list.join('\n')+"\n")
-        } else {
-            console.warn("No match version: ", repo, pkg)
-            console.log( JSON.stringify(res) )
-        }
-    })()
-} else {
-    console.log( "Not a vaild input:", process.argv[2])
-    help()
-}
-
-```
-
-
-
-## 🍀 C/C++ Project Templates [Glib-2.0 GObject GType]
-
-### 📜 GLib–2.0 GObject ADT 类型系统库
-
-0. https://docs.gtk.org/glib/
-1. https://docs.gtk.org/gobject/
-2. https://docs.gtk.org/gio/
-3. https://docs.gtk.org/gmodule/
-4. https://gitlab.gnome.org/GNOME/glib/
-
-Msys2 平台中使用 pacman 安装依赖库，包括安装 pkg-config 依赖库信息管理工具（使用 pkgconf 作为其兼容实现）：
-1. https://packages.msys2.org/base/pkgconf
-2. https://packages.msys2.org/base/mingw-w64-pkg-config
-
-```sh
-> pacman -Fy
-:: Synchronizing package databases...
-> pacman -S pkg-config guile libguile libguile-devel
-> pacman -S pkg-config glib2 glib2-devel
-> pacman -Q glib2 glib2-devel
-glib2 2.68.1-1
-> pkg-config --list-all
-guile-2.0             GNU Guile - GNU's Ubiquitous Intelligent Language for Extension
-guile-3.0             GNU Guile - GNU's Ubiquitous Intelligent Language for Extension
-gio-2.0                        GIO - glib I/O library
-gio-unix-2.0                   GIO unix specific APIs - unix specific headers for glib I/O library
-glib-2.0                       GLib - C Utility Library
-gmodule-2.0                    GModule - Dynamic module loader for GLib
-gmodule-export-2.0             GModule - Dynamic module loader for GLib
-gmodule-no-export-2.0          GModule - Dynamic module loader for GLib
-gobject-2.0                    GObject - GLib Type, Object, Parameter and Signal Library
-gthread-2.0                    GThread - Thread support for GLib
-```
-
-glib2                  Common C routines used by GTK+ and other libs
-
-Gobject 即 GTK 为 C 语言提供类型系统实现而开发的 Glib 基础库的扩展，用于辅助 C 语言编写面向对象程序，提供以下内容：
-
-1. 一个通用的动态类型系统（GType）
-2. 一个基本类型的实现集（如整型、枚举等）
-3. 一个基本对象类型 Gobject
-4. 一个信号系统以及一个可扩展的参数/变量体系。
-
-GObject 基于 Glib 实现动态类型系统 GType，原来是 GTK+ 的一部分，GTK+ 2.0 中将与 GUI 不相关的部份都移到 GObject 而创建了此类库，源码包含在 Glib。gobject-query 命令可以用来查询类型树。
-
-
-GObject 世界里，一个类类型定义是*实例结构体* GObject 和*类结构体* GObjectClass 两个者的组合。GObject 的继承机制需要实现实例结构体的继承和类结构体的继承，Gobject 对象的初始化可分为两个部分：类结构体初始化、实例结构体初始化。类结构体初始化函数只被调用一次，而实例结构体的初始化函数的调用次数等于对象实例化的次数。这意味着，所有对象共享的数据，可保存在类结构体中，而所有对象私有的数据，则保存在实例结构体中。为每一个对象分配一个 ID，使用引用计数方式进行内存管理。
-
-GLib 可谓 C 语言中的“STL”，在此之前，动态数组、链表、哈希表等通用容器，可能每个 C 开发者实现过 N 次以上。甚至在同一个项目里，出现几份链表的实现，也并非罕见。GLib 的开放终结了重复造轮子的恶梦。GLib 提供动态数组、单/双向链表、哈希表、多叉树、平衡二叉树、字符串等常用容器。完全面向对象设计，完全跨平台，通用的 set/get 属性访问，内部实现信号机制，官方文档 Minimum versions 要求：
-
- * macOS: minimum version OS X 10.7 (we
-   [don’t support universal binaries](https://bugzilla.gnome.org/show_bug.cgi?id=780238);
-   some features (like notification support)
-   [require OS X 10.9](https://bugzilla.gnome.org/show_bug.cgi?id=747146)
-   * Note that older versions of macOS than what’s currently officially
-     supported by Apple are supported by GLib on a best-effort basis due to
-     still having significant user bases
- * Windows:
-   [minimum version is Windows 8](https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1970),
-   minimum build chain is Visual Studio 2012
-   * Static builds are only supported with MinGW-based toolchains (cf
-     [this comment](https://gitlab.gnome.org/GNOME/glib/-/merge_requests/2384#note_1336662))
- * Android: [minimum NDK version 15](https://gitlab.gnome.org/GNOME/glib/issues/1113)
- * Linux: glibc newer than 2.5 (if using glibc; other forms of libc are supported)
-
-GStreamer 就是一个基于 GLib 构建的通用流媒体应用程序开发框架，GStreamer 最显著的用途是在构建一个播放器上，支持多种格式，包括: MP3、Ogg/Vorbis. MPEG-12、AVI、Quickime、mod 等等。 https://gstreamer.freedesktop.org/documentation/tutorials
-
-Geany 是基于 GTK+ GLib 实现的一个轻量快速的 IDE，集成了语法高亮、命令自定义、项目构建功能以及插件扩展，可以实现 Make 等外部功能集成，基本上达到轻量与快速的目标。但是远达不好好用的级别，界面设计还是停留在传统的区域分割设计，强制需要鼠标点点点（鼠标手警告）。和 Sublime Text 不在同一级别，只能和 Editplus 相比较，但也打不过人家小巧可爱。 https://www.geany.org/documentation/manual/ https://www.editplus.com/
-
-
-基于 GLib OOP 程序开发涉及以下方面的内容：
-
-1. GObject instantiation
-2. GObject properties (set/get)
-3. GObject casting
-4. GObject referencing/dereferencing
-5. glib memory management
-6. glib signals and callbacks
-7. glib main loop
-
-面向对象编程本质上是人类抽象能力集中体现，计算机编程中一切数据类型都是抽象概念。比如说，整数、浮点数它们真实存在计算机系统内吗？其实没有。它们基于人类构建出来用于表达抽象概念的机械之上才得以呈现。同样的，高级语言中的函数、类方法等等，都是抽象而来的概念，本质上它们都是 CPU 控制数据总线从磁盘加载到内存中的一段具有典型特征的代码，这些特征包括：使用 push 以及 call 指令，在返回的位置调用 pop 指令。
-
-“抽象”这一概念的最佳说明就是毕加索的《公牛》，全画几乎就是用了少量简单的线条完全概括出牛的生物结构。这副画并不是一次画成的，而是从具象的牛慢慢地，经过多次演绎才演变为最终版本的极简牛！《公牛》画作创作时间从 1945年12月5日到1946年1月17日完稿，长达 6 周有余。
-
-https://img.zcool.cn/community/027ef5556d6b720000016b627a994a.jpg
-
-说明抽象这一概念的另一个例子是数学，一个苹果和另一苹果，一个绳结和另一个绳结，这些都是具象，这些都在人数数学诞生前计数的概念，当一个苹果成为 1，一个绳结也成为 1 之后，两个苹果或者两个绳结就是 1+1=2，数学就这样诞生了！而 1、2 和 + 都是数学符号，= 号是约定规则符号。
-
-抽象就是要教会我们抓住研究对象最本质的东西，通过概括完成对复杂的事物进行系统的梳理，这就是少即是多的哲理。抽象是共通于生活、编程、艺术等等领域共通的基本能力。
-
-从抽象出发，OOP 中的类形这一概念就是对一切可能的数据结构的高度概括，类定义就可以看到是这一概念具象化的第一步，*类型实例化*则是这一概念具象化的下一步，最后*类实例化*完成了抽像概念的最终具象。这个过程就像是从抽象的牛到各种品种的牛，再到某人家的牛，从概念到具象的过程。
-
-原生类型可以认为是只有数据的对像的抽象结构（char, int, long, float, double），而复杂类型可以认为是除了数据，还封装了相应接口方法的抽象结构。C++ 入门课程一般都会学习 Abstract Data Types (ADT) 概念，通常指的是复杂的类型 (Lists, Sets, and Maps)，但是在我看来，编程中涉及的所有数据类型都是抽象数据类型，只是复杂程度不一样。
-
-回到 GLib OOP 框架，GObject 则是意图呈现上面所述的抽象过程，开发者从这个抽象（GTypeInstance 和 GTypeClass）演化出更多其它类型的实现，最终用户对这些构建出来的类型进行实例化并使用它。
-
-设计类型时就需要考虑类名选取、继承链信息、类型初始化顺序、类接口方法设计等信息，这些基本概念涉及到的主要源代码文件如下：
-
-0. 使用 GLib 框架需要引用 glib.h 头文件；
-0. 使用 GObject 框架需要引用 glib-object.h 头文件；
-1. `GObject` 各个结构声明在 gtype.h 文件；
-2. `GObject` 各个函数声明在 gobject.h 文件；
-
-一个几乎没有任何用途的示范程序如下：
-
-```cpp
-// https://www.iteye.com/blog/cloverprince-486567
-#include <glib-object.h>  
-  
-int main() {  
-    g_type_init(); // This is necessary  
-
-    return 0;  
-}  
-// gcc `pkg-config --cflags --libs gobject-2.0` example.c -o example
-```
-
-`GObject` 各个结构声明在 gtype.h 文件，逻辑说明如下：
-
- * `GObject` 结构定义的所有字段都为私有，类型实现者不该直接访问；
- * `GTypeInstance` 内部结构，表示类型实例的基础结构；
- * `GTypeClass` 内部结构，表示类型基础结构，Basic Type Structures；
- * `GType` 是一个用于标识各种类型实例数值；
- * `GTypeInterface` 是所有接口类型的基础结构；
- * `GTypeQuery` 是用于记录类型信息的结构；
-
-
-```cpp
-// C:\dl\pl\glib-2.78.0\gobject\gobject.h
-struct  _GObject
-{
-  GTypeInstance  g_type_instance;
-  
-  guint          ref_count;  /* (atomic) */
-  GData         *qdata;
-};
-
-typedef struct _GTypeInstance
-{
-  GTypeClass *g_class;
-} GTypeInstance;
-
-typedef struct _GTypeClass
-{
-  GType g_type;
-} GTypeClass;
-
-typedef struct _GTypeQuery
-{
-  GType     type;
-  const gchar  *type_name;
-  guint     class_size;
-  guint     instance_size;
-} GTypeQuery;
-
-typedef struct _GTypeInterface
-{
-  GType g_type;         /* iface type */
-  GType g_instance_type;
-} GTypeInterface;
-```
-
-GType支撑三种类型：
-
-基本类型，通过g_type_register_fundamental 来注册，它需要的信息由GTypeInfo和GTypeFundamentalInfo传入。比如gobject里面的GObject就是一个基本类型。由于大部分的基本类型都已经预先注册好了，基本上不用关系该类型的使用。
-
-静态类型，g_type_register_static来注册，其类型信息由GTypeInfo传入。GTK里面的各种窗口和容器类型都是通过这种方式注册的。
-
-动态类型，g_type_register_dynamic注册，其类型信息由GTypePlugin传入。之所谓分为动态和静态，是因为动态的类型可以在运行时加载和卸载。
-
-
-GLib 对象层次结构使用注册函数登记，每个类型都通过初始化函数进行状态设置，这些全局对象管理、初始化函数 _g_object_type_init 中调用 g_type_register_fundamental 注册各种 GObject 类型。
-
-```cpp
-// glib-2.78.0\gobject\gtype-private.h
-// C:\dl\pl\glib-2.78.0\gobject\gobject.c
-void    _g_value_c_init          (void); /* sync with gvalue.c */
-void    _g_value_types_init      (void); /* sync with gvaluetypes.c */
-void    _g_enum_types_init       (void); /* sync with genums.c */
-void    _g_param_type_init       (void); /* sync with gparam.c */
-void    _g_boxed_type_init       (void); /* sync with gboxed.c */
-void    _g_object_type_init      (void); /* sync with gobject.c */
-void    _g_param_spec_types_init  (void); /* sync with gparamspecs.c */
-void    _g_value_transforms_init  (void); /* sync with gvaluetransform.c */
-void    _g_signal_init           (void); /* sync with gsignal.c */
-```
+参考 [Glib Tutorial](GLib_tutorial.md) 与 [Glib Manual](GLib_manual.md)
 
 ## 🍀 Erlang Project Templates
 
@@ -4176,7 +3103,7 @@ void    _g_signal_init           (void); /* sync with gsignal.c */
 2. PowerShell 使用 $LASTEXITCODE 获取退出码，或者 $? 获取布尔值，True 表示正常退出；
 3. Bash 使用 $? 自动变量，比如 `echo $?` 显示 127 表示 False，程序错误退出；
 
-潜在的问题：Msys2 MinGW 编译的程序出现非法指针时，bash 不能检测到返回码，-1073741819 0xC0000005 STATUS_ACCESS_VIOLATION。2.3.1 NTSTATUS Values。
+潜在的问题：Msys2 MinGW 编译的程序出现非法指针时，内存违规访问，bash 不能检测到返回码，-1073741819 0xC0000005 STATUS_ACCESS_VIOLATION。2.3.1 NTSTATUS Values。
 
 使用 Msys2 没有正确安装编译器版本，或者安装在错误的平台目录下，也可能导致编译出来的程序出现内存违规访问。因此，要确保编译器正常工作，编译生成的程序能够正常执行。
 
@@ -4324,6 +3251,10 @@ int main (int argc, char * argv[]) {
 
 字节序 Endianness 是在处理多字节的数据时，不同的 CPU 构架使用不同的方式。
 
+1. x86、6502、Z80、VAX、PDP-11 等处理器为小端序；
+2. 6800、68000、PowerPC 970、System/370、SPARC 等处理器为大端序；
+3. ARM、PowerPC、DEC Alpha、SPARC V9、MIPS、PA-RISC 及 IA64 可配置字节序。
+
 比如 0x1234 这个值（十进制 4660）：
 
 | address | big-endian | little-endian |
@@ -4331,14 +3262,31 @@ int main (int argc, char * argv[]) {
 | 0x0000  | 0x12       | 0x34          |
 | 0x0001  | 0x34       | 0x12          |
 
-- Big endian 方式，PowerPC 或苹果 CPU 构架使用。
-- Little endian 方式，Intel x86 系统使用。
+- Big endian 大端序方式，PowerPC 或苹果 CPU 构架使用。
+- Little endian 小端序方式，Intel x86 系统使用。
+
 
 测试程序中，使用“123”字符串作为一个测试数据，由于 C 语言中的字符串使用 \0 作为结束标志，即 null-terminated string 格式。在一个四字节的整形数值中，其中三个字节位置设置为 “123”，最后一个字节需要设置为 null，否则打印函数就会因为边界失误面导出内存违规访问。通常，这个违规并不一定会发生，因为内存中有很多 null 值的位置，随意遇到一个 null 就可以终结这个字符串。但是，从逻辑上这就是违规的内存访问。
 
 字节内部的比特位也有两种序，Most Significant Bit (MSB)，在二进制数中属于最高有效位，MSB 是最高加权位。Least Significant Bit (LSB) 在二进制数中意为最低有效位。一般来说，按书写习惯，MSB 位于二进制数的最左侧，LSB 位于二进制数的最右侧。
 
 CPU 存储数据操作的最小单位是一个字节，至于字节内部的比特序如何，对于程序来说是一个黑盒子。
+
+这其中有一个隐含信息：字符串按字节序保存。比如“123”这个字符串，字符“1”保存在内存代地址位置，“3”保存在高地址位置。如果在一个 int 内存空间保存，它就相当是数值的 0x00333231。如果按数值处理，就会根据不同 CPU 架构，有不同的顺序排列。因为 x86 是“反向”存储，所以它的值在 Hex 工具中看起来就和书面表达一样的顺序。
+
+并且，在类型调整时，比如 int 变为 long long 类型或者是显式转型时，因为变量地址总是指向最低字节，LSB 又总是保存在最低内存位置，所以它不需要调整原数据。这个过程可以使用以下代码证明：
+
+```cpp
+    int e1 = 0x123456;
+    int e2 = 0x12345678;
+    printf("c1: %x, c2: %x", *(char *)&e1, *(char *)&e2);
+    // c1: 56, c2: 78 <-- little-endian
+    // c1: 12, c2: 12 <-- big-endian
+```
+
+而大端序则总是将 MSB 放置在最低内存位置，所以只需要获取第一个字节就可以判断数值的正负。
+
+计算机电路先处理低位字节效率比较高，因为考虑进位借位，计算都从低位开始。所以，计算机的内部处理都是小端字节序。但是，人类通常还是书写习惯大端字节序。所以，除了计算机的内部处理，其他的场合几乎都是大端字节序，比如网络传输和文件储存。但是，如果你经常使用 Hex 工具做分析，那么小端序就更符号阅读习惯。
 
 
 使用 C 语言定义结构体或联合体时，实践中通常和 typedef 一起使用，这样方便定义结构体类型的变量。但是，至今我仍记得结构体定义与 typedef 关键字使用时出现的混乱状态，让我毕生难忘。总得来说，定义一个结构体类型和实例化结构体对象，它们有部分语法结构会因为 typedef 关键字的使用而出现重叠，这也是混乱的主要来源。
@@ -4585,7 +3533,14 @@ Implict Rules vs. Explicit rules，弄清楚隐式规则与显式规则的区别
 
 为何让最后一条规则也“显式”起来，那么可以搭配 %.tex 这样的模式匹配规则、静态模式匹配规则，或者使用变量等等方式来解决大量文件依赖关系的处理。注意：使用这些灵活的规则非常容易触发隐式规则，并且 Makefile 可以使用 inlude 指令来引用更多的脚本文件，这会使得脚本变得异常复杂。
 
-其中，Static Pertern Rules 是非常特别的一种模式匹配规则，它不像其它规则（包括一般的模式匹配规则）可以不指定依赖，静态模式匹配规则就是为了批量处理依赖设计的。使用模式匹配符号 % 可以将匹配到的内容（stem）替换到依赖列表中的名称中形成新的依赖列表。
+```makefile
+# 6.3 Advanced Features for Reference to Variables
+foo := a.o b.o l.a c.o
+bar := $(foo:.o=.c)
+# bar := a.c b.c  l.a c.c
+```
+
+其中，Static Pertern Rules 是非常特别的一种模式匹配规则，它不像其它规则（包括一般的模式匹配规则）可以不指定依赖，静态模式匹配规则就是为了批量处理依赖设计的。使用模式匹配符号 % 可以将匹配到的内容（stem）替换到依赖列表中的名称中形成新的依赖列表。当然，静态模式匹配可以省略依赖条件部分，同时也可以在 Targets 上使用高级变量引用特性，这样既可以达到不引入新的依赖，同时又可以实现对目标名称的分解处理。
 
 ```makefile
 LEXS = a.tex b.tex c.tex
@@ -4652,7 +3607,7 @@ abb%.bib :
 
 多目标规则与单目标规则不同，多目标规则中不能混用多种匹配方式，只使用字面量匹配，或者只使用模式匹配。否则就会得到 mixed implicit and normal rules 警告提示。
 
-因为 Static Pertern Rules 会形成新的依赖列表，单独考虑。双冒号规则参考手册 4.13 Double-Colon Rules。
+因为 Static Pertern Rules 通常会形成新的依赖列表，单独考虑。双冒号规则参考手册 4.13 Double-Colon Rules。
 
 如果脚本中规则依赖已经存在定义，但是没有被执行，那么最有可能的原因有二：
 
@@ -4835,6 +3790,15 @@ Static Pattern Rules 规则定义中，目标匹配模式 `target-pattern` 和�
     targets …: target-pattern: prereq-patterns …
             recipe
             …
+
+当然，静态模式匹配可以省略依赖条件部分，同时也可以在 Targets 上使用高级变量引用特性，这样既可以达到不引入新的依赖，同时又可以实现对目标名称的分解处理。
+
+```makefile
+# 6.3 Advanced Features for Reference to Variables
+foo := a.o b.o l.a c.o
+bar := $(foo:.o=.c)
+# bar := a.c b.c  l.a c.c
+```
 
 除了在规则中使用 % 模式匹配，还可以在 wildcard 函数中使用 * 通配符来获取文件或目录列表，可以同时获取多种文件类型，比如 `$(wildcard *.erl *.hrl)`，每种类型文件都是一个排序过的列表。
 
@@ -5093,6 +4057,26 @@ Makefile 中的变量应该是最简单的宏定义，变量名不能包含 char
 
 1. Substitution References 替换变量值，例如 `bar := $(foo:.o=.c)`，替换 .o 为 .c；
 2. Computed Variable Names 计算变量名，例如 `foo := $($bar)`，实际变量由 bar 变量指定;
+
+高级变量引用表达式，不仅可以用在变量赋值上，还可以在 Targets 规则声明中使用。静态模式匹配也可以在 Targets 上使用高级变量引用特性，并且省略依赖条件部分，这样既可以达到不引入新的依赖，同时又可以实现对目标名称的分解处理。示范如下，通过变量高级引用与 Static Pattern Rules 配合，就可以对大量目标的分解处理。对于，不需要执行命令的目标，还可以使用空命令规则，所谓空命令规则即使用 shell 的一个分号（语句分隔符号）作为命令块的替代，参考 5.9 Using Empty Recipes。
+
+```makefile
+targets = a b c d
+all : $(targets)
+    @echo "All done: $@ <-- $^"
+
+$(targets) : % : %.c
+    @echo "Build $@ <-- $^"
+
+$(targets:%=%.c) :
+    @echo "Compile $*.o <-- $@"
+
+c.c d.c : ; # Empty Recipes Rule to be fine!
+```
+
+注意：静态模式匹配虽然可以实现以大量目标名称的分解处理，但本身也导致目标路径定位的复杂，所以需要更小心地处理 Targets 和依赖文件的路径是否与磁盘的目录结构对应。否则就很容易导致 make 检测不到文件，而总是触发重新构建，相当于将 Makefile 最核心的依赖处理功能封禁掉。
+
+另外，Makefile 可以定义程序测试功能，只要程序重新编译，就执行测试。一个测试可以定义为一个 Target，而这个 Target 实质上没有对应的磁盘文件，但是可以使用 touch 命令将它关联到一个空文件，这个文件主要功能就是供 Make 用来做更新时间判断。
 
 变量只可以在脚本文件中定义，也可以在环境变量、命令行中定义，即 command line 类型的变量，例如 `make foo=bar`。使用 origin 函数可以获取变量定义来源信息。调用函数 `$(origin variable)` 返回的结果可能是：
 
@@ -5439,12 +4423,14 @@ clean:
 
 事实上这里的 addprefix 函数调用其实不需要二次展开，脚本输出参考：
 
+```makefile
     done %.h: foo.h -
     done %.o: port.o - port.c port.h foo.h
     port done: port - port.o
     all done: port
+```
 
-以下是 Static Patter Rules 和 Implicit Rules 合体的二次展开示范例子：
+以下是 Static Pattern Rules 和 Implicit Rules 合体的二次展开示范例子：
 
 ```makefile
 .SECONDEXPANSION:
@@ -5478,7 +4464,7 @@ foo foz: f%: bo%
     make: Circular foo <- foo dependency dropped.
     -- bar bar booo bar booo bar booo
 
-例子中使用了 Static Patter Rules，所谓静态模式规则，就是增加了 `target-pattern` 的多目标规则：
+例子中使用了 Static Pattern Rules，所谓静态模式规则，就是增加了 `target-pattern` 的多目标规则：
 
     # 4.12.1 Syntax of Static Pattern Rules
     targets …: target-pattern: prereq-patterns …

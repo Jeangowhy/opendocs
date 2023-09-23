@@ -1467,6 +1467,45 @@ class JumpToCommand(TextCommand, ViewEventListener):
         print(lp, "<===>" , rp)
 ```
 
+## ==⚡ Auto focus on Hover
+https://github.com/Jeangowhy/Origami
+
+if you want to activate a pane when mouse on hover event, set `auto_focus_on_hover` to true in the Origami preferences.
+
+    // Automatically focus a pane when View.on_hover event.
+    "auto_focus_on_hover": false,
+ 
+```py
+class TravelToPaneOnMoveCommand(sublime_plugin.EventListener, WithSettings):
+
+    # I know there is Command.want_event can trigger some input function when mouse action.
+    # But there any sublime callback like on_mouse_move?
+    # View.on_hover Event callback
+    # this callback receive a view reference, and a text point (text length), 
+    # which can be conver to window position like this below:
+    #   view.text_to_window(txtpoint)
+    # hover_zone enum defined sublime.HoverZone under sublime Python 3.8
+    #
+    # Add .python-version to support newest ST4 #174
+    # https://www.sublimetext.com/docs/api_environments.html#python-version
+    #   print({"sys.version": sys.version})
+    def on_hover(self, view, txtpoint, hover_zone):
+
+        if not self.settings().get("auto_focus_on_hover") : 
+            # or view.settings().get("origami_auto_focus_on_hover")
+            return
+
+        try:
+            window = sublime.active_window()
+            window.focus_view(view)
+            # window_id = sublime.active_window().window_id
+            # sublime_api.window_focus_view(window_id, view.view_id)
+        except Exception as ex:
+            zones = ['TEXT', 'GUTTER', 'MARGIN']
+            print("on_hover error=>", ex, {"point": txtpoint, "hover_zone": zones[hover_zone-1]})
+```
+
+
 ## ==⚡ LaTeX WebViewer/First Column/Index Rows
 
 Sublime Text 插件开发，以下功能于 Windows 平台 4121 版本正常使用：
@@ -5077,6 +5116,2137 @@ https://www.sublimetext.com/docs/color_schemes.html
 
 ## 2. 🖐 Themes
 https://www.sublimetext.com/docs/themes.html
+
+
+The look of the Sublime Text interface is controlled by themes. The term *theme*
+refers strictly to the look of the UI – buttons, select lists, the sidebar,
+tabs and so forth. The highlighting of source code, markup and prose is
+controlled by a color scheme.
+
+The theme engine for Sublime Text is based on raster graphics. PNGs are used to
+prevent texture degradation and provide full alpha control. Each element in the
+UI can have up to four layers of textures or fills applied, with properties to
+control opacity and padding. The properties set on each element can be
+conditionally changed based on user interaction and settings.
+
+Sublime Text themes are implemented via the `.sublime-theme` format. It is
+a JSON format that specifies rules for matching elements and modifying their
+appearance.
+
+01. Format
+02. Terminology
+03. General Information
+04. Inheritance
+05. Variables
+06. Colors
+07. Font Sizes
+08. Attributes
+09. Settings
+10. Properties
+11. Elements
+12. Deprecated
+13. Obsolete
+14. Customization
+
+### 🐣2.01 Format🔗
+
+A .sublime-theme file contains a single JSON document. The document
+should be (build-3179) an object containing a key “rules” with the value of (build-3179)
+an array of rules. (build-3179) An optional key “variables” with an object
+containing variable/value pairs may be added. (build-3179)
+
+*The following is an example of a .sublime-theme file, showing the
+format. A complete theme will have many more rules to cover all elements used in
+the UI.*
+
+```sh
+ [
+    // Set up the textures for a button
+    {
+        "class": "button_control",
+        "layer0.tint": "#000",
+        "layer0.opacity": 1.0,
+        "layer1.texture": "Theme - Example/textures/button_background.png",
+        "layer1.inner_margin": 4,
+        "layer1.opacity": 1.0,
+        "layer2.texture": "Theme - Example/textures/button_highlight.png",
+        "layer2.inner_margin": 4,
+        "layer2.opacity": 0.0,
+        "content_margin": [4, 8, 4, 8]
+    },
+    // Show the highlight texture when the button is hovered
+    {
+        "class": "button_control",
+        "attributes": ["hover"],
+        "layer2.opacity": 1.0
+    },
+    // Basic text label style
+    {
+        "class": "label_control",
+        "fg": [240, 240, 240],
+        "font.bold": true
+    },
+    // Brighten labels contained in a button on hover
+    {
+        "class": "label_control",
+        "parents": [{"class": "button_control", "attributes": ["hover"]}],
+        "fg": [255, 255, 255]
+    }
+]
+```
+
+### 🐣2.02 Terminology🔗
+
+The primary contents of a theme is an array of *rules*. Each *rule* object
+contains a `"class"` key used to match to an element. In addition to the
+`"class"`, matching can be further restricted by specifying `"attributes"`,
+`"settings"`, `"parents"` and `"platforms"` keys. *Properties* affect the
+look or behavior of the element.
+
+                                                                (build-3179)
+*Variables* allow reusing values throughout different *rules*. Variables may 
+contain any type of syntax, but may only be referenced by top-level keys in a *rule*.
+
+                                                                (build-3179)
+Most elements have a single class name, although a few have more than one to
+allow for both generic, and specific styling. For example, the
+`popup_control` class can be used to set styles for the auto complete and
+HTML popups, however `popup_control auto_complete_popup` may be used to
+target just the auto complete popup. Multiple `"class"` values are separated
+by a space. When a rule specified multiple class names, all must be present on
+the element for the rule to be applied.
+
+`"attributes"` are set by Sublime Text, and indicate the state of user
+interaction, or other information about the nature of an element. The value is
+an array of strings. Examples include `"hover"`, `"pressed"`
+and `"dirty"`.
+
+`"settings"` uses values from .sublime-settings files to filter rules.
+This allowing theme authors to give users the ability to tweak a theme. Themes
+may define their own settings, but there are a handful of “default” settings
+that should be supported if possible. See Settings for more details.
+
+The value for the `"settings"` key may be one of:
+
+1. array of strings
+
+    Each string is the name of boolean settings. To check for a `false`
+    value, prefix the setting name with a `!`.
+
+    Example: `["bold_folder_labels", "!always_show_minimap_viewport"]`.
+
+1. object
+
+    Each key is the name of a setting. A value may be a boolean, string, or array
+    of strings. If an array of strings is used, the setting will be matched if
+    any of the strings in the array matches the user’s value. When comparing to a
+    string, the user’s setting will be coerced to an empty string when not set.
+
+    Example: `{"bold_folder_labels": true, "file_tab_style": "rounded"}`.
+
+The `"parents"` key is an array of objects specifying the `"class"` and
+`"attributes"` that must be matched in a parent element. Note that the
+parents must be ordered from furthest to closest parent.
+
+The `"platforms"` key is an array of strings specifying the what operating
+systems to apply the rule to. Valid options
+include `"osx"`, `"windows"` and `"linux"`.
+
+*Properties* refer to all other keys in the JSON objects. Some properties are
+available on all elements, while others are specific to an individual element.
+
+### 🐣2.03 General Information🔗
+
+The follow sections discuss information about images and how to specify styles.
+
+#### ✋ Specificity🔗
+
+Unlike CSS, a Sublime Text theme does not do specificity matching when applying
+rules to elements. All rules are tested, in order, against each element.
+Subsequent rules that match will override properties from previous rules.
+
+#### ✋ Texture Images🔗
+
+All textures in a theme are specified using PNG images. Each texture should be
+saved at “normal” DPI, where each pixel in the file will be mapped to one
+device pixel. All file paths in the theme definition should reference the
+normal DPI version.
+
+A second version of each texture should also be included at double the DPI, with
+`@2x` added to the filename right before the extension. Sublime Text will
+automatically use the `@2x` version when being displayed on a high-DPI
+screen. It is also possible to specify `@3x` variants of textures for
+screens running at 300% scale or higher 3167.
+
+*SVG images are not currently supported.*
+
+#### ✋ Dimensions🔗
+
+Integer units in a theme referring to dimensions are always specified in
+device-independent pixels (DIP). Sublime Text automatically handles scaling UI
+elements based on the screen density.
+
+#### ✋ Padding &amp; Margins🔗
+
+Padding and margin may be specified in one of three ways:
+
+1. A single integer value – the same value is applied to the left, top, right and bottom
+2. An array of two integers – the first value is applied to the left and right, while the second value is applied to the top and bottom
+3. An array of four integers – the values are applied, in order, to the left, top, right and bottom
+
+                                                                (build-3179)
+### 🐣2.04 Inheritance🔗
+
+A theme may extend another theme, appending rules and overriding variables. To
+extend a theme, add a top-level key `"extends"` to the JSON object, with a
+string value of the base theme.
+
+```sh
+ {
+    "extends": "Default.sublime-theme",
+    "rules":
+    [
+        {
+            "class": "label_control",
+            "parents": [{"class": "button_control", "attributes": ["hover"]}],
+            "fg": "red"
+        }
+    ]
+}
+```
+
+The resulting list of rules will start with the base theme rules followed by the
+extending theme rules. Any variables from the extending theme will override
+variables with the same name in the base theme. Variable overrides will affect
+rules both in the base theme and the extending theme.
+
+                                                                (build-3179)
+### 🐣2.05 Variables🔗
+
+Reusable variables may be defined by a JSON object under the top-level key
+`"variables"`. Variable names are strings, however the value may be a string,
+number, boolean, array or object. Using a variable requires specifying a string
+in the format `var(example_variable_name)`.
+
+```sh
+ {
+    "variables":
+    {
+        "light_gray": "rgb(240, 240, 240)"
+    },
+    "rules":
+    [
+        {
+            "class": "label_control",
+            "fg": "var(light_gray)"
+        }
+    ]
+}
+```
+
+Variables may be used as the value for any properties, but
+the variable must be the entire value, it may not be embedded within another
+variable. The only exception to this rule is that variables may be used as the
+base color for the CSS `color()` mod function.
+
+                                                                (build-3179)
+### 🐣2.06 Colors🔗
+
+Colors may be specified by CSS or legacy color syntax:
+
+                                                                (build-3179)
+#### ✋ CSS Color Syntax🔗
+
+Since Sublime Text build 3177, colors in themes may now be specified using CSS
+syntax, as supported by minihtml Reference. This includes support for hex, `rgb()`,
+`hsl()`, variables and the color mod function. Additionally, all
+Predefined Variables that are derived from the color
+scheme are available for use.
+
+*The color white, as hex*
+
+```sh
+ #fff
+```
+
+*The color white, using `rgb()` functional notation*
+
+```sh
+ rgb(255, 255, 255)
+```
+
+*50% opacity white, using `hsl()` functional notation*
+
+```sh
+ hsla(0, 100%, 100%, 0.5)
+```
+
+*The closest color to red, as defined in the color scheme*
+
+```sh
+ var(--redish)
+```
+
+*50% opacity of the closest color to red, as defined in the color scheme*
+
+```sh
+ color(var(--redish) a(0.5)
+```
+
+                                                                (build-3179)
+#### ✋ Legacy Color Syntax🔗
+
+Prior to supporting CSS syntax for colors, themes were only able to specify
+colors using the following formats, which are now deprecated.
+
+#### RGB🔗
+Colors in the RGB color space are specified via an array of 3 or 4 numbers, with
+the first three being integers ranging from `0` to `255`
+representing the components red, green and blue. The optional fourth number is
+a float ranging from `0.0` to `1.0` that controls the opacity of
+the color.
+
+*The color white, with full opacity*
+
+```sh
+ [255, 255, 255]
+```
+
+*The color blue, with 50% opacity*
+
+```sh
+ [0, 0, 255, 0.5]
+```
+
+#### HSL🔗
+Colors may also be specified using the HSL color space by creating an array of 4
+elements, with the first being the string `"hsl"`. The second element is
+an integer from `0` to `360` specifying the hue. The third is an
+integer from `0` to `100` specifying the saturation, and the fourth
+is an integer from `0` to `100` specifying the lightness.
+
+*A dark magenta, with full opacity*
+
+```sh
+ ["hsl", 325, 100, 30]
+```
+
+A float from `0.0` to `1.0` may be added as a fifth element to
+control the opacity.
+
+*A bright teal, with 50% opacity*
+
+```sh
+ ["hsl", 180, 100, 75, 0.5]
+```
+
+#### Derived Colors🔗
+It is also possible to derive colors from the current global color scheme.
+Colors in this format are specified using arrays with specific formats. In all
+cases, the first element is the base color, which may
+be `"foreground"`, `"background"` or `"accent"`.
+
+#### Change Opacity of Base Color🔗
+To change the opacity of a base color, specify an array of 2 elements, the first
+being the base color name and the second being a float from `0.0`
+to `1.0`. The opacity will be set to the float value.
+
+*The color scheme foreground, at 90% opacity*
+
+```sh
+ ["foreground", 0.9]
+```
+
+#### De-saturate Base Color🔗
+To de-saturate a base color, specify an array with 3 elements. The first is the
+name of the base color, the second is the string `"grayscale"`, and the
+third is an integer from `0` to `100` which specifies what
+percentage of the saturation (in HSL color space) of the existing color should
+be retained. A value of `100` means no change, whereas a value
+of `0` would cause the color to be completely de-saturated.
+
+*The color scheme foreground, with the saturation adjusted to 1/4 of the
+original value.*
+
+```sh
+ ["foreground", "grayscale", 25]
+```
+
+#### Tint Base Color🔗
+5 and 6-element derived colors allow blending a color into the base color. A
+5-element colors uses an RGBA color, whereas a 6-element uses an HSLA. In both
+cases, the last element, which normally represents the opacity, controls how
+much of the secondary color is blended into the base.
+
+*The color scheme background, lightened with white*
+
+```sh
+ ["background", 255, 255, 255, 0.1]
+```
+
+*The color scheme accent, tinted with dark red*
+
+```sh
+ ["accent", "hsl", 0, 100, 30, 0.2]
+```
+
+Colors derived from the color scheme will always be based on the global color
+scheme, and will not reflect view-specific color schemes. Certain view-specific
+controls in the UI have tinting properties that allow using the view-specific
+color scheme colors.
+
+### 🐣2.07 Font Sizes🔗
+
+Font sizes may be specified in the formats:
+
+#### ✋ Numeric🔗
+
+An integer or float to specify the size of the font in pixels.
+
+*Examples: `12`, `13.5`.*
+
+                                                                (build-4050)
+#### ✋ CSS Format🔗
+
+A string of a `px` or `rem` CSS font size.
+
+*Examples: `12px`, `1.<span class="err">`2rem`*
+
+*The `rem` size is based on the global setting `font_size` for most
+elements. Elements that use a different root font size will specify in the
+description.*
+
+                                                                (build-4050)
+### 🐣2.08 Attributes🔗
+
+Attributes are specified as an array of strings. Each string is an attribute
+name. To check for the absence of an attribute, prepend a `!` to the name.
+
+The following attributes are common to all elements:
+
+`hover` - Set whenever the user’s mouse is hovered over an element.
+
+
+#### ✋ Luminosity🔗
+
+Although not available on all elements, many have attributes set based on the
+approximate luminosity of the current color scheme. Most elements have the
+attributes set based on the global color scheme. Tabs and the tab background,
+however, have the attributes based on the color scheme specific to the selected
+view.
+
+The attributes are assigned based on the `V` value of the background color,
+when represented as <a class="reference external" href="https://en.wikipedia.org/wiki/HSL_and_HSV"> HSV colors.
+
+1. `file_light` - `V` from `0.60`-`1.00`
+2. `file_medium` - `V` from `0.30`-`0.59`
+3. `file_medium_dark` - `V` from `0.10`-`0.29`
+4. `file_dark` - `V` from `0.00`-`0.09`
+
+### 🐣2.09 Settings🔗
+
+Certain Sublime Text settings are design to influence the UI. Themes should
+respect these settings and change elements based on them.
+
+1. "overlay_scroll_bars" - Permalink to this definition🔗 This should affect the style of the scroll bars – generally they should be
+semi-transparent and the `overlay` property of the
+`scroll_area_control` should be set to `true`.
+
+2. "always_show_minimap_viewport" - Permalink to this definition🔗 If the current viewport area should be highlighted on the minimap even when
+the user is not hovering over the minimap.
+
+3. "bold_folder_labels" - Permalink to this definition🔗 If folder names in the side bar should have the `font.bold` property set to `true`.
+
+4. "mouse_wheel_switches_tabs" - Permalink to this definition🔗 This is used to control mouse wheel behavior of tabs on Linux. It should be
+combined with checking for `!enable_tab_scrolling` to change the
+`mouse_wheel_switch` property of the `tabset_control`
+to `false`.
+
+5. "highlight_modified_tabs" - Permalink to this definition🔗 If the tabs of modified files should be highlighted. This setting should be
+checked in addition to the `dirty` attribute.
+
+6. "show_tab_close_buttons" - Permalink to this definition🔗 If tabs should have close buttons. (build-4095)
+
+7.0 "inactive_sheet_dimming"Permalink to this definition🔗 (build-4095) If sheets other than the one with the attribute `highlighted` should be
+visually de-emphasized using `background_modifier`.
+
+
+### 🐣2.10 Properties🔗
+
+The `"rules"` key of a .sublime-theme file is a JSON array of of
+objects describing how UI elements should be styled. Every element in the UI
+supports the following keys:
+
+`layer0.*`
+  The bottom-most texture layer for the element.
+
+`layer1.*`
+  The second texture layer for the element.
+
+`layer2.*`
+  The third texture layer for the element.
+
+`layer3.*`
+  The fourth texture layer for the element.
+
+`hit_test_level`
+ A float value setting the required opacity of a pixel for a click to be
+considering a “hit”.
+
+#### ✋ Layer Properties🔗
+
+Every element in the UI supports up to four texture layers for displaying fill
+colors and raster graphics. Each layer has dotted sub-keys in the format
+`layer#.sub-key`. Valid sub-keys include:
+
+`layer#.opacity`
+ A float value from `0.0` to `1.0` that controls the master
+opacity of the layer.
+
+Example: `0.9`
+
+`layer#.tint`
+  A color value of a fill color to apply to the layer.
+
+Example: `[255, 0, 0, 127]`
+
+`layer#.texture`
+ A string of the file path to a PNG image, relative to the Packages/
+folder.
+
+Example: `"Theme - Default/arrow_right.png"`
+
+`layer#.inner_margin`
+ Texture images are stretched to fit the element by slicing into a grid of 9
+using four lines. See padding &amp; margins for valid formats with which to
+specify the margin used to make the slices.
+
+Example: `[5, 2, 5, 2]`
+
+`layer#.draw_center`
+ A boolean that controls if the center rectangle of the 9-grid created via
+`layer#.inner_margin` should be drawn. This is an optimization that
+allows skipping an unused section of texture.
+
+Example: `false`
+
+`layer#.repeat`
+ A boolean that controls if the texture should be repeated instead of
+stretched.
+
+Example: `false`
+
+#### Value Animation🔗
+Properties specified by floats may be animated over time. Instead of providing a
+single numeric value, the animation is specified with an object including
+details of the animation. *Value animation is primarily useful for changing
+opacity over time.* The object keys are:
+
+`target`
+ A float value from `0.0` to `1.0` that controls the destination
+value.
+
+Example: `1.0`
+
+`speed`
+ A float value of `1.0` or greater that controls the relative length of
+time the animation takes.
+
+Example: `1.5`
+
+`interpolation`
+ An optional string that allow specifying the use of *smoothstep* function
+instead of the default *linear* function.
+
+Default: `"linear"`
+
+Example: `"smoothstep"`
+
+#### Texture Animation🔗
+The `layer#.texture` sub-key may be an object to specify an animation based on
+two or more PNG images. The object keys are:
+
+`keyframes`
+ An array of strings of the paths to PNG images, in order
+
+Example: `["Theme - Default/spinner.png", "Theme - Default/spinner1.png"]`
+
+`loop`
+ An optional boolean that controls if the animation should repeat
+
+Default: `false`
+
+Example: `true`
+
+`frame_time`
+ An optional float specifying how long each frame should be
+displayed. `1.0` represents 1 second.
+
+Default: `0.0333` (30 fps)
+
+Example: `0.0166` (60 fps)
+
+#### ✋ Texture Tinting Properties🔗
+
+Certain elements have an available tint value set by the background of current
+color scheme. The tint can be modified and applied to a `layer#.texture`
+image.
+
+`tint_index`
+ Controls which layer the tint is applied to. Must be an integer
+from `0` to `3`.
+
+`tint_modifier`
+ An array of four integers in the range `0` to `255`. The first
+three are blended into the RGB values from the tint color with the fourth
+value specifying how much of these RGB modifier values to apply.
+
+#### ✋ Font Properties🔗
+
+Certain textual elements allow setting the following font properties:
+
+`font.face`
+ The name of the font face.
+
+`font.size`
+  The font size.
+
+`font.bold`
+ A boolean, if the font should be bold.
+
+`font.italic`
+ A boolean, if the font should be italic.
+
+`color`
+  A color value to use for the text - the `fg` property is an
+alias for this for backwards compatibility.
+
+`shadow_color`
+  A color value to use for the text shadow.
+
+`shadow_offset`
+ A 2-element array containing the X and Y offsets of the shadow
+
+                                                                (build-4073)
+`opacity`
+ A float from `0.0` to `1.0` that is multiplied against the
+opacity of the `color` and `shadow_color` properties.
+
+
+#### ✋ Filter Label Properties🔗
+
+Labels used in the quick panel have color control based on selection and
+matching:
+
+`fg`
+  A color value for unselected, unmatched text.
+
+`match_fg`
+  A color value for unselected, matched text.
+
+`bg`
+  A color value for the background of an unselected row.
+
+`selected_fg`
+  A color value for selected, unmatched text.
+
+`selected_match_fg`
+  A color value for selected, matched text.
+
+`bg`
+  A color value for the background of a selected row.
+
+`font.face`
+ The name of the font face.
+
+`font.size`
+  The font size.
+
+#### ✋ Data Table Properties🔗
+
+Row-based tables of data provide the following properties:
+
+`dark_content`
+ If the background is dark – used to set the `dark` attribute for
+scrollbars.
+
+`row_padding`
+  Padding added to each row, in one of the formats described in Padding &amp;
+Margins</a>.
+
+#### ✋ Styled Label Properties🔗
+
+Certain labels allow for additional control over their appearance. They support
+the properties:
+
+`border_color`
+  A color value for the border of the label.
+
+`background_color`
+  A color value for the background of the label.
+
+### 🐣2.11 Elements🔗
+
+The following is an exhaustive list of the elements that comprise the Sublime
+Text UI, along with supported attributes and properties:
+
+01. Windows
+02. Side Bar
+03. Tabs
+04. Quick Panel
+05. Views
+06. Auto Complete
+07. Panels
+08. Status Bar
+09. Dialogs
+10. Scroll Bars
+11. Inputs
+12. Buttons
+13. Labels
+14. Tool Tips
+
+#### ✋ Windows🔗
+
+0. `title_bar` Attributes: Luminosity
+
+    Properties:
+    `fg`
+      A color value to use for the window title text – * Mac 10.10
+    or newer only*.
+
+    `bg`
+      A color value to use for the title bar background – * Mac
+    10.10 or newer only*.
+                                                                (build-4050)
+    `style`
+
+    The OS style to use for the title
+    bar - `"system"`, `"dark"` *(Mac/Linux only)*
+    or `"light"` *(Mac only)*.
+
+    Default: `"system"`
+
+
+0. `window`
+     This element can not be styled directly, however it can be used in a
+    `"parents"` key. The luminosity attributes are set based on the global
+    color scheme.
+     Attributes: Luminosity
+
+    `edit_window`
+     This element contains the main editor window, and is intended for use in a
+    `"parents"` key.
+
+0. `switch_project_window`
+    This element contains the Switch Project window, and is intended for use in
+    a `"parents"` key.
+
+#### ✋ Side Bar🔗
+
+0. `sidebar_container`
+     The primary sidebar container that handles scrolling.
+
+    Properties: 
+    `content_margin`
+      The margin around the `sidebar_tree`.
+
+0. `sidebar_tree`
+     A tree control containing multiple `tree_row`s.
+
+    Properties: 
+    `indent`
+     An integer amount to indent each level of the tree structure.
+
+    `indent_offset`
+     An additional indent applied to every row, for the sake of positioning
+    `disclosure_button_control` and `close_button`.
+
+    `indent_top_level`
+     A boolean if top-level rows in the tree should be indented.
+
+    `spacer_rows`
+     A boolean controlling if a blank row should be added between the *Open
+    Files* and *Folders* sections of the sidebar, when both are visible..
+
+0. `tree_row`
+     A row may contain a header, open file, folder or file.
+     Attributes: `selectable`
+     When a row is selectable.
+
+    `selected`
+     When an selectable row is selected.
+
+    `expandable`
+     When a row is expandable.
+
+    `expanded`
+     When an expandable row is expanded.
+
+0. `sidebar_heading`
+     One of the “Open Files”, “Group #” or “Folders” headings in the sidebar.
+
+    Properties: font properties
+
+                                                                (build-3179)
+    `case`
+                                                                (build-3179)
+     The case modification to use for the heading - `"upper"`,
+    `"lower"` or `"title"`.
+
+    Default: `"upper"`
+
+                                                                (build-3181)
+0. `file_system_entry``
+
+     The container holding information about a file or folder in the sidebar.
+    Contains different controls based on which section of the sidebar it is
+    within.
+
+    Within the *Open Files* section, this control will contain a
+    `sidebar_label` with the file name, plus possibly a `vcs_status_badge`.
+
+    Within the *Folders* section, this control will contain a folder or file
+    icon (either `icon_folder`, `icon_folder_loading`, `icon_folder_dup`
+    or `icon_file_type`), a `sidebar_label` with the file or folder name,
+    plus possibly a `vcs_status_badge`.
+     Attributes: `ignored`
+     **Files:** when a file is ignored.
+
+    **Folders:** when the entire folder is ignored.
+
+
+    `untracked`
+     **Files:** when a file is new or not recognized.
+
+    **Folders:** when a folder contains one or more untracked files.
+
+    `modified`
+     **Files:** when a file has been changed on disk.
+
+    **Folders:** when a folder contains one or more modified files.
+
+    `missing`
+     **Folders:** when one or more of a folder‘s files is no longer on disk.
+
+    `added`
+     **Files:** when a new file has been newly added to the index.
+
+    **Folders:** when a folder contains one or more added files.
+
+    `staged`
+     **Files:** when a modified file has been added to the index.
+
+    **Folders:** when a folder contains one or more staged files.
+
+    `deleted`
+     **Folders:** when one or more of a folder‘s files has been added to the
+    index for removal.
+
+    `unmerged`
+     **Files:** when a file is in a conflict state and needs to be resolved.
+
+    **Folders:** when a folder contains one or more unmerged files.
+
+    Properties:
+    `content_margin`
+      The margin around the contained controls.
+
+    `spacing`
+     An integer number of pixels between each contained control.
+
+
+0. `sidebar_label`
+    Names of open files, folder names and filenames.
+
+    Properties: font properties
+
+0. `close_button`
+     A button to the left of each file in the *Open Files* section.
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+0. `disclosure_button_control`
+     An expand/collapse icon present in all `tree_row`s that can be expanded
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+0. `icon_folder`
+     Used for a folder once the contents have been fully enumerated.
+
+    Properties: 
+    `content_margin`
+      For icons, the margin specifies the dimensions.
+
+0. `icon_folder_loading`
+     Used for a folder while the contents are being enumerated
+
+    Properties: 
+    `content_margin`
+      For icons, the margin specifies the dimensions.
+
+0. `icon_folder_dup`
+     Used for a folder that has been scanned previously in the sidebar. *This is
+    necessary to prevent a possibly infinite list of files due to recursive
+    symlinks.*
+
+    Properties: 
+    `content_margin`
+      For icons, the margin specifies the dimensions.
+
+0. `icon_file_type`
+     The icon for a file. The `layer0.texture` should not be set since it is
+    determined dynamically based on the `icon` setting provided
+    by .tmPreferences files.
+
+    Properties: 
+    `content_margin`
+      For icons, the margin specifies the dimensions.
+
+                                                                (build-3181)
+0. `vcs_status_badge`
+
+     An icon contained within `file_system_entry` that is used to display the
+    status of a file or folder with regards to a Git repository it is contained
+    in. This icon will only be shown if the setting `show_git_status`
+    is `true`, the file is contained within a Git repository, and the
+    file has some sort of special state within the repository. *A file that is
+    not shown via `git status` and is not ignored via a .gitignore
+    rule will have no icon.*
+     Attributes: `ignored`
+     **Files:** when a file is ignored.
+
+    **Folders:** when the entire folder is ignored.
+
+    `untracked`
+     **Files:** when a file is new or not recognized.
+
+    **Folders:** when a folder contains one or more untracked files.
+
+    `modified`
+     **Files:** when a file has been changed on disk.
+
+    **Folders:** when a folder contains one or more modified files.
+
+    `missing`
+     **Folders:** when one or more of a folder‘s files is no longer on disk.
+
+    `added`
+     **Files:** when a new file has been newly added to the index.
+
+    **Folders:** when a folder contains one or more added files.
+
+    `staged`
+     **Files:** when a modified file has been added to the index.
+
+    **Folders:** when a folder contains one or more staged files.
+
+    `deleted`
+     **Folders:** when one or more of a folder‘s files has been added to the
+    index for removal.
+
+    `unmerged`
+     **Files:** when a file is in a conflict state and needs to be resolved.
+
+    **Folders:** when a folder contains one or more unmerged files.
+
+    Properties:
+    `content_margin`
+      For icons, the margin specifies the dimensions.
+
+
+#### ✋ Tabs🔗
+
+0. `tabset_control`
+    Attributes: Luminosity
+
+    Properties:
+    texture tinting properties
+
+    `content_margin`
+      The margin around the `tab_control`s.
+
+    `tab_overlap`
+     How many DIPs the tabs should overlap.
+
+    `tab_width`
+     Default tab width when space is available.
+
+    `tab_min_width`
+     The minimum tab width before tab scrolling occurs.
+
+    `tab_height`
+     The height of the tabs in DIPs.
+
+    `mouse_wheel_switch`
+     If the mouse wheel should switch tabs – this should only be set to
+    `true` if the setting `enable_tab_scrolling` is `false`.
+
+0. `tab_control`
+    Attributes: Luminosity
+
+    `dirty`
+     When the associated view has unsaved changed.
+
+    `selected`
+     When the associated view is the active view in its group.
+
+    `transient`
+     When the associate view is a preview and not fully opened.
+
+                                                                    (build-4050)
+    `highlighted`
+
+     When the tab is for the sheet with input focus.
+
+
+                                                                    (build-4095)
+    `left`
+    (build-4095)
+     When the tab is the left-most tab in the tabset.
+
+
+                                                                    (build-4095)
+    `right`
+    (build-4095)
+     When the tab is the right-most tab in the tabset.
+
+
+                                                                    (build-4095)
+    `multiple`
+    (build-4095)
+     When the tab is part of a sheet multi-selection.
+
+
+                                                                    (build-4095)
+    `left_of_selected`
+    (build-4095)
+     When the tab is to the left of a selected tab.
+
+
+                                                                    (build-4095)
+    `left_of_hover`
+    (build-4095)
+     When the tab is to the left of a hovered tab.
+
+
+                                                                    (build-4095)
+    `right_of_selected`
+    (build-4095)
+     When the tab is to the right of a selected tab.
+
+
+                                                                    (build-4095)
+    `right_of_hover`
+    (build-4095)
+     When the tab is to the right of a hovered tab.
+
+
+                                                                    (build-4095)
+    `left_overhang`
+    (build-4095)
+     When the tab is overhanging to the left of its sheet, which can occur
+    during sheet multi-selection.
+
+
+                                                                    (build-4095)
+    `right_overhang`
+    (build-4095)
+     When the tab is overhanging to the right of its sheet, which can occur
+    during sheet multi-selection.
+
+
+    Properties:
+    texture tinting properties
+
+    `content_margin`
+      The margin around the `tab_label`.
+
+    `max_margin_trim`
+     How much of the left and right `content_margin` may be removed when
+    tab space is extremely limited.
+
+    `accent_tint_index`
+     Controls which layer the accent tint is applied to. Must be an integer
+    from `0` to `3`. The accent color is specified by the color
+    scheme.
+
+    `accent_tint_modifier`
+     An array of four integers in the range `0` to `255`. The
+    first three are blended into the RGB values from the accent tint color
+    with the fourth value specifying how much of these RGB modifier values
+    to apply.
+
+
+0. `tab_label`
+
+    Properties:
+    font properties
+
+     Attributes: `transient`
+     When the associate view is a preview and not fully opened
+
+0. `tab_close_button`
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+    `accent_tint_index`
+     Controls which layer the accent tint is applied to. Must be an integer
+    from `0` to `3`. The accent color is specified by the color
+    scheme.
+
+    `accent_tint_modifier`
+     An array of four integers in the range `0` to `255`. The
+    first three are blended into the RGB values from the accent tint color
+    with the fourth value specifying how much of these RGB modifier values
+    to apply.
+
+0. `scroll_tabs_left_button`
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+0. `scroll_tabs_right_button`
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+0. `show_tabs_dropdown_button`
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+                                                                (build-4095)
+0. `tab_connector`
+
+    Properties:
+    texture tinting properties
+
+    Attributes:
+    `left_overhang`
+     When the tab is overhanging to the left of its sheet, which can occur
+    during sheet multi-selection.
+
+    `right_overhang`
+     When the tab is overhanging to the right of its sheet, which can occur
+    during sheet multi-selection.
+
+
+#### ✋ Quick Panel🔗
+
+The quick panel is used for the various Goto functionality, the command palette
+and is available for use by plugins.
+
+0. `overlay_control`
+    The container for the quick panel, including the input and data table.
+    Specializations:
+                                                                (build-4050)
+    To allow for targeting the `overlay_control` when the quick panel
+    is being used for specific functionality, the following multi-class
+    selectors are available:
+
+
+    `overlay_control goto_file`
+     The Goto File quick panel.
+
+    `overlay_control goto_symbol`
+     The Goto Symbol quick panel.
+
+    `overlay_control goto_symbol_in_project`
+     The Goto Symbol in Project quick panel.
+
+    `overlay_control goto_line`
+     The Goto Line quick panel.
+
+    `overlay_control goto_word`
+     The Goto Anything quick panel, filtering by word.
+
+    `overlay_control command_palette`
+     The Command Palette.
+
+
+    Properties:
+    `content_margin`
+      The margin around the `quick_panel`.
+
+0. `quick_panel`
+    The data table displayed below the input. Normally the height is dynamic so
+    the layers will not be visible, however the Switch Project window will use
+    layers for the blank space below the filtered options.
+
+    Properties:
+    data table properties
+
+0. `mini_quick_panel_row`
+    A non-file row in `quick_panel`. Contains one `quick_panel_label` for
+    each line of text in the row.
+
+    Attributes: `selected`
+    When the row is selected.
+
+0. `quick_panel_row`
+    A Goto Anything file row in `quick_panel`. Also used in the Switch Project window.
+
+    Contains `quick_panel_label` with the filename, and
+    `quick_panel_path_label` for the file path.
+
+     Attributes: `selected`
+     When the row is selected.
+
+                                                                (build-4050)
+0. `quick_panel_entry`
+
+    A spacing-only container to control the spacing between
+    `quick_panel_label` and `quick_panel_path_label` controls when a row
+    has one or more detail lines.
+
+    Properties: 
+    `spacing`
+     An integer number of pixels between each line of text,
+
+
+                                                                (build-4050)
+0. `kind_container`
+
+    A container shown to the left of the symbols in the Goto Symbol and Goto
+    Symbol in Project quick panels. It contains the `kind_label` and is used
+    to indicate the kind of the symbol.
+
+    *This element is also used in `auto_complete` to show the kind of the item
+    being inserted. A `"parents"` key should be used to distinguish the two
+    uses.*
+
+    The element `kind_container` is always paired with a second class name
+    indicating the general category the kind belongs to. The categories for
+    usage in the quick panel are as follows:
+     Specializations: 
+     `kind_container kind_ambiguous`
+     When the kind of the item is unknown *– no color*.
+
+    `kind_container kind_keyword`
+     When the item is a keyword *– typically pink*.
+
+    `kind_container kind_type`
+     When the item is a data type, class, struct, interface, enum, trait,
+    etc *– typically purple*.
+
+    `kind_container kind_function`
+     When the item is a function, method, constructor or subroutine *–
+    typically red*.
+
+    `kind_container kind_namespace`
+     When the item is a namespace or module *– typically blue*.
+
+    `kind_container kind_navigation`
+     When the item is a definition, label or section *– typically yellow*.
+
+    `kind_container kind_markup`
+     When the item is a markup component, including HTML tags and CSS
+    selectors *– typically orange*.
+
+    `kind_container kind_variable`
+     When the item is a variable, member, attribute, constant or parameter *–
+    typically cyan*.
+
+    `kind_container kind_snippet`
+     When the item is a snippet *– typically green*.
+
+    `kind_container kind_color_redish`
+     When the plugin author wants to display red.
+
+    `kind_container kind_color_orangish`
+     When the plugin author wants to display orange.
+
+    `kind_container kind_color_yellowish`
+     When the plugin author wants to display yellow.
+
+    `kind_container kind_color_greenish`
+     When the plugin author wants to display green.
+
+    `kind_container kind_color_cyanish`
+     When the plugin author wants to display cyan.
+
+    `kind_container kind_color_bluish`
+     When the plugin author wants to display blue.
+
+    `kind_container kind_color_purplish`
+     When the plugin author wants to display purple.
+
+    `kind_container kind_color_pinkish`
+     When the plugin author wants to display pink.
+
+    `kind_container kind_color_dark`
+     When the plugin author wants to display a dark background.
+
+    `kind_container kind_color_light`
+     When the plugin author wants to display a light background.
+
+    Properties:
+    `content_margin`
+      A margin that is added around the `kind_label`.
+
+
+                                                                (build-4050)
+0. `kind_label`
+
+    A label showing a single unicode character, contained within the
+    `kind_container`.
+
+    *This element is also used in `auto_complete` to show the kind of the item
+    being inserted. A `"parents"` key should be used to distinguish the two
+    uses.*
+
+    Properties: font properties
+
+
+                                                                (build-4050)
+0. `symbol_container`
+
+    A container around the `quick_panel_label` when showing the Goto Symbol or
+    Goto Symbol in Project symbol lists.
+
+    Properties: 
+    `content_margin`
+      A margin that is added around the
+    `quick_panel_label`.
+
+
+0. `quick_panel_label`
+    Filenames in `quick_panel_row` and all text in `mini_quick_panel_row`.
+
+    Properties:
+    filter label properties
+
+0. `quick_panel_path_label`
+    File paths in `quick_panel_row`.
+
+    Properties:
+    filter label properties
+
+                                                                (build-4073)
+0. `quick_panel_label key_binding`
+    Key bindings show to the right-hand side of `quick_panel_row`.
+
+    Properties:
+    filter label properties
+
+
+                                                                (build-4073)
+0. `quick_panel_label hint`
+    Annotations show to the right-hand side of `quick_panel_row`.
+
+    Properties:
+    filter label properties
+
+
+                                                                (build-4083)
+0. `quick_panel_detail_label`
+
+    Detail rows in `quick_panel_row`.
+
+    Properties: 
+    `color`
+      A color value to use for the text.
+
+    `link_color`
+      A color value to use for links.
+
+    `monospace_color`
+      A color value to use for monospace text.
+
+    `monospace_background_color`
+      A color value to use for the background of monospace text.
+
+
+#### ✋ Sheets🔗
+
+                                                                (build-4095)
+0. `sheet_contents`
+
+     A sheet can have text, image or HTML contents
+     Attributes: Luminosity
+
+                                                                (build-4095)
+    `highlighted`
+    (build-4095)
+     When the sheet has input focus.
+
+    Properties:
+    `background_modifier`
+     A string with a space-separated list of adjusters that are supported by
+    the color() mod function. Used for implementing
+    inactive sheet dimming.
+
+
+#### ✋ Views🔗
+
+0. `text_area_control`
+    This element can not be styled directly since that is controlled by the
+    color scheme, however it can be used in a `"parents"` key.
+    Attributes: Luminosity
+
+0. `grid_layout_control`
+    The borders displayed between views when multiple groups are visible.
+
+    Properties: 
+    `border_color`
+      A color value to use for the border.
+
+    `border_size`
+     An integer of the border size in DIPs.
+
+0. `minimap_control`
+    Control over the display of the viewport projection on the minimap.
+
+    Properties: 
+    `viewport_color`
+      A color value to fill the viewport projection with.
+
+0. `viewport_opacity`
+    A float from `0.0` to `1.0` specifying the opacity of the
+    viewport projection.
+
+    `fold_button_control`
+    Code folding buttons in the gutter.
+    Attributes: `expanded`
+    When a section of code is unfolded.
+
+    Properties:
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+                                                                (build-4075)
+0. `popup_shadow`
+
+    A wrapper around popup windows that allows controlling the shadow.
+
+
+    `popup_control html_popup`
+    The primary container for the HTML popups used by *Show Definitions* and
+    third-party packages. The tint of the scroll bar will be set to the
+    background color of the HTML document.
+
+                                                                (build-4050)
+0. `popup_control annotation_popup`
+
+    The primary container for the annotations added to the right-hand side of
+    the editor pane by build systems and third-party packages.
+
+
+                                                                (build-4050)
+0. `annotation_close_button`
+
+    The close button shown at the left edge of `annotation_popup`.
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+
+#### ✋ Auto Complete🔗
+
+0. `popup_control auto_complete_popup`
+     The primary container for the auto complete popup.
+
+0. `auto_complete`
+     The data table for completion data. The tint is set based on the background
+    color of the color scheme applied to the view the popup is displayed in.
+
+    Properties:
+    data table properties
+
+    texture tinting properties
+
+0. `table_row`
+     A row in `auto_complete`.
+     Attributes: `selected`
+     When the user has highlighted a completion.
+
+                                                                (build-4050)
+0. `kind_container`
+
+     A container shown to the left of an auto complete item, which contains the
+    `kind_label` and is used to indicate the kind of the item.
+
+    *This element is also used in the `quick_panel` for Goto Symbol and Goto
+    Symbol in Project. A `"parents"` key should be used to distinguish the two
+    uses.*
+
+    The element `kind_container` is always paired with a second class name
+    indicating the general category the kind belongs to. The categories for
+    usage in the auto complete window are as follows:
+    
+    Specializations: 
+    `kind_container kind_ambiguous`
+     When the kind of the item is unknown *– no color*.
+
+    `kind_container kind_keyword`
+     When the item is a keyword *– typically pink*.
+
+    `kind_container kind_type`
+     When the item is a data type, class, struct, interface, enum, trait,
+    etc *– typically purple*.
+
+    `kind_container kind_function`
+     When the item is a function, method, constructor or subroutine *–
+    typically red*.
+
+    `kind_container kind_namespace`
+     When the item is a namespace or module *– typically blue*.
+
+    `kind_container kind_navigation`
+     When the item is a definition, label or section *– typically yellow*.
+
+    `kind_container kind_markup`
+     When the item is a markup component, including HTML tags and CSS
+    selectors *– typically orange*.
+
+    `kind_container kind_variable`
+     When the item is a variable, member, attribute, constant or parameter *–
+    typically cyan*.
+
+    `kind_container kind_snippet`
+     When the item is a snippet *– typically green*.
+
+    Properties:
+    `content_margin`
+      A margin that is added around the `kind_label`.
+
+
+                                                                (build-4050)
+0. `kind_label`
+
+     A label showing a single unicode character, contained within the
+    `kind_container`.
+
+    *This element is also used in the `quick_panel` for Goto Symbol and Goto
+    Symbol in Project. A `parents` key should be used to distinguish the two
+    uses.*
+
+    Properties: font properties
+
+    *The `rem` root font size is based on the font size of the editor control
+    the auto complete window is being shown for.*
+
+
+                                                                (build-4050)
+0. `trigger_container`
+
+     A container around the `auto_complete_label`.
+
+    Properties: 
+    `content_margin`
+      A margin that is added around the
+    `auto_complete_label`.
+
+
+0. `auto_complete_label`
+    Text in a `table_row`.
+
+    Properties:
+    filter label properties
+
+    `fg_blend`
+     A boolean controlling if the `fg`, `match_fg`, `selected_fg`, and
+    `selected_match_fg` values should be blended onto the foreground
+    color from the color scheme of the current view.
+
+                                                                (build-4073)
+0. `auto_complete_label auto_complete_hint`
+     The “annotation” hint displayed at the right-hand-side of a `table_row`.
+
+    Properties: font properties
+
+    *The `rem` root font size is based on the font size of the editor
+    control the auto complete window is being shown for.*
+
+
+
+    `fg_blend`
+     A boolean controlling if the `color` value should be blended onto the
+    foreground color from the color scheme of the current view.
+
+
+                                                                (build-4050)
+0. `auto_complete_detail_pane`
+
+     A detail pane displayed below the list of auto complete items, containing
+    the `auto_complete_info` spacer, with `auto_complete_kind_name_label`
+    and `auto_complete_details` inside.
+
+    Properties: 
+    `content_margin`
+      A margin that is added around the child controls.
+
+
+                                                                (build-4050)
+0. `auto_complete_info`
+
+     Provides spacing between `auto_complete_kind_name_label` and
+    `auto_complete_details`.
+
+    Properties: 
+    `spacing`
+     An integer number of pixels between each contained control.
+
+
+                                                                (build-4050)
+0. `auto_complete_kind_name_label`
+
+     A label used to display the name of the auto complete kind.
+
+    Properties: font properties
+
+    *The `rem` root font size is based on the font size of the editor
+    control the auto complete window is being shown for.*
+
+    styled label properties
+
+
+                                                                (build-4050)
+0. `auto_complete_details`
+
+     A single-line HTML control used to display the details of the auto complete
+    item.
+
+    Properties: 
+    `font.face`
+     The name of the font face.
+
+    `font.size`
+      The font size - * the `rem` root font size is based on
+    the font size of the editor control the auto complete window is being
+    shown for*.
+
+    `color`
+      A color value to use for the text.
+
+    `link_color`
+      A color value to use for links.
+
+    `monospace_color`
+      A color value to use for monospace text.
+
+    `monospace_background_color`
+      A color value to use for the background of monospace text.
+
+
+#### ✋ Panels🔗
+
+0. `panel_control find_panel`
+     The container for the Find and Incremental Find panels.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_control replace_panel`
+     The container for the Replace panel.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_control find_in_files_panel`
+     The container for the Find in Files panel.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_control input_panel`
+     The container for the input panel, which is available via the API and used
+    for things like file renaming.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_control console_panel`
+     The container for the Console.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_control output_panel`
+     The container for the output panel, which is available via the API and used
+    for build results.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_control switch_project_panel`
+     The container for the input in the Switch Project window.
+
+    Properties: 
+    `content_margin`
+      The margin around the panel contents.
+
+0. `panel_grid_control`
+     The layout grid used to position inputs on the various panels.
+
+    Properties: 
+    `inside_spacing`
+     An integer padding to place between each cell of the grid.
+
+    `outside_vspacing`
+     An integer padding to place above and below the grid.
+
+    `outside_hspacing`
+     An integer padding to place to the left and right of the grid.
+
+    `panel_close_button`
+     The button to close the open panel
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+#### ✋ Status Bar🔗
+
+0. `status_bar`
+
+    Attributes: `panel_visible`
+     When a panel is displayed above the status bar
+
+    Properties:
+    `content_margin`
+    The margin around the `sidebar_button_control`,
+    `status_container` and `status_buttons`s.
+
+                                                                (build-4050)
+0. `panel_button_control`
+
+     The panel switcher button on the left side of the status bar.
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+
+                                                                (build-4050)
+0. `sidebar_button_control`
+
+     The sidebar/panel switcher button on the left side of the status bar.
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+
+0. `status_container`
+     The area that contains the current status message.
+
+    Properties: 
+    `content_margin`
+      The margin around the status message.
+
+0. `status_button`
+     The status buttons that display, and allow changing, the indentation,
+    syntax, encoding and line endings.
+
+    Properties: 
+    `content_margin`
+      For buttons, the margin specifies the dimensions.
+
+    `min_size`
+     An array of two integers specifying the minimum width and height of a
+    button, in DIPs.
+
+                                                                (build-3181)
+0. `vcs_status`
+
+     The container holding the `vcs_branch_icon`, `label_control` with the
+    current branch name, and `vcs_changes_annotation` control.
+
+    Properties: 
+    `content_margin`
+      The margin around the contained controls.
+
+    `spacing`
+     An integer number of pixels between each contained control.
+
+
+                                                                (build-3181)
+0. `vcs_branch_icon`
+
+     An icon shown to the left of the current branch name.
+
+    Properties: 
+    `content_margin`
+      For icons, the margin specifies the dimensions.
+
+
+                                                                (build-3181)
+0. `vcs_changes_annotation`
+
+     Displays the number of files that have been added, modified or deleted.
+
+    Properties: font properties
+
+    styled label properties
+
+
+
+
+#### ✋ Dialogs🔗
+
+0. `dialog`
+    The Indexer Status and Update windows both use this class for the window
+    background.
+
+0. `progress_bar_control`
+    The progress bar container. The progress bar is displayed in the Update
+    window used for updates on Mac and Windows.
+
+0. `progress_gauge_control`
+    The bar representing the progress completed so far.
+
+    Properties: 
+    `content_margin`
+      The margin specifies the height of the bar.
+
+#### ✋ Scroll Bars🔗
+
+0. `scroll_area_control`
+    The scroll area contains the element being scrolled, along with the bar,
+    track and puck.
+     Attributes:
+                                                                (build-3186)
+    `scrollable`
+     When the control can be scrolled vertically.
+
+                                                                (build-3186)
+    `hscrollable`
+     When the control can be scrolled horizontally.
+
+    Properties:
+    `content_margin`
+    A margin that is added around the content being
+    scrolled.
+
+    `overlay`
+    Sets the scroll bars to be rendered on top of the content.
+
+    `left_shadow`
+    A color value to use when drawing a shadow to indicate the
+    area can be scrolled to the left.
+
+    `left_shadow_size`
+    An integer of the width of the shadow to draw when the area can be
+    scrolled to the left.
+
+    `top_shadow`
+    A color value to use when drawing a shadow to indicate the
+    area can be scrolled to the top.
+
+    `top_shadow_size`
+    An integer of the height of the shadow to draw when the area can be
+    scrolled to the top.
+
+    `right_shadow`
+    A color value to use when drawing a shadow to indicate the
+    area can be scrolled to the right.
+
+    `right_shadow_size`
+    An integer of the width of the shadow to draw when the area can be
+    scrolled to the right.
+
+    `bottom_shadow`
+    A color value to use when drawing a shadow to indicate the
+    area can be scrolled to the bottom.
+
+    `bottom_shadow_size`
+    An integer of the height of the shadow to draw when the area can be
+    scrolled to the bottom.
+
+0. `scroll_bar_control`
+    The scroll bar contains the scroll track. The tint is set based on the
+    background color of the element being scrolled.
+    Attributes: `dark`
+    When the scroll area content is dark, necessitating a light scroll bar.
+
+    `horizontal`
+    When the scroll bar should be horizontal instead of vertical.
+
+    Properties:
+    texture tinting properties
+
+    `content_margin`
+    A margin that is added around the scroll track.
+
+0. `scroll_track_control`
+    The track that the puck runs along. The tint is set based on the background
+    color of the element being scrolled.
+    Attributes: `dark`
+    When the scroll area content is dark, necessitating a light scroll bar.
+
+    `horizontal`
+    When the scroll bar should be horizontal instead of vertical.
+
+    Properties:
+    texture tinting properties
+
+0. `scroll_corner_control`
+    The dead space in the bottom right of a `scroll_area_control` when both
+    the vertical and horizontal scroll bars are being shown.
+    Attributes: `dark`
+    When the scroll area content is dark, necessitating a light scroll bar.
+
+    Properties:
+    texture tinting properties
+
+0. `puck_control`
+    The scroll puck, or handle. The tint is set based on the background color of
+    the element being scrolled.
+    Attributes: `dark`
+    When the scroll area content is dark, necessitating a light scroll bar.
+
+    `horizontal`
+    When the scroll bar should be horizontal instead of vertical.
+
+    Properties:
+    texture tinting properties
+
+#### ✋ Inputs🔗
+
+0. `text_line_control`
+    The text input used by the Quick Panel, Find, Replace, Find in Files and
+    Input panels.
+
+    Properties: 
+    `content_margin`
+    The margin around the text.
+
+    `color_scheme_tint`
+    A color value to use to tint the background of the color scheme.
+
+    `color_scheme_tint_2`
+    A color value to use to add a secondary tint to the
+    background of the color scheme.
+
+0. `dropdown_button_control`
+    The button to close the open panel.
+
+    Properties: 
+    `content_margin`
+    For buttons, the margin specifies the dimensions.
+
+#### ✋ Buttons🔗
+
+0. `button_control`
+    Text buttons.
+    Attributes: `pressed`
+    Set when a button is pressed down.
+
+    Properties:
+    `min_size`
+    An array of two integers specifying the minimum width and height of a
+    button, in DIPs.
+
+0. `icon_button_group`
+    A grid controlling the spacing of related icon buttons.
+
+    Properties: no layer support
+
+    `spacing`
+    An integer number of pixels between each button in the group.
+
+    Small icon-based buttons in the Find, Find in Files, and Replace panels
+
+    Attributes: `selected`
+    When an icon button is toggled on.
+
+    `left`
+    When the button is the left-most button in a group.
+
+    `right`
+    When the button is the right-most button in a group.
+
+0. `icon_regex`
+    The button to enable regex mode in the Find, Find in Files and Replace
+    panels.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_case`
+    The button to enable case-sensitive mode in the Find, Find in Files and
+    Replace panels.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_whole_word`
+    The button to enable whole-word mode in the Find, Find in Files and Replace
+    panels.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_wrap`
+    The button to enable search wrapping when using the Find and Replace
+    panels.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_in_selection`
+    The button to only search in the selection when using the Find and Replace
+    panels.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_highlight`
+    The button to enable highlighting all matches in the Find and Replace
+    panels.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_preserve_case`
+    The button to enable preserve-case mode when using the Replace panel.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_context`
+    The button to show context around matches when using the Find in Files
+    panel.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+0. `icon_use_buffer`
+    The button to display results in a buffer, instead of an output panel, when
+    using the Find in Files panel.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+                                                                (build-4073)
+0. `icon_use_gitignore`
+    The button to toggle using .gitignore to filter files in the Find in
+    Files panel.
+
+    Properties: 
+    `content_margin`
+    For icons, the margin specifies the dimensions.
+
+
+#### ✋ Labels🔗
+
+0. `label_control`
+    Labels are shown in the Find, Replace, Find in File and Input panels.
+    Additionally, labels are used in the Update window, on textual buttons and
+    for the text in the `status_container`.
+
+    *Targeting specific labels can be accomplished by using the `"parents"`
+    key.*
+
+    Properties: font properties
+
+0. `title_label_control`
+    The title label is used in the About window.
+
+    Properties: font properties
+
+#### ✋ Tool Tips🔗
+
+0. `tool_tip_control`
+    Tool tips shown when hovering over tabs and buttons.
+
+    Properties: 
+    `content_margin`
+    The margin around the tool tip text.
+
+0. `tool_tip_label_control`
+    Text shown in a tool tip
+
+    Properties: font properties
+
+### 🐣2.12 Deprecated🔗
+
+#### ✋ Color Values🔗
+
+Before build 3127, the only way to specify opacity in colors was by using a
+4-element array containing all integers from `0` to `255`. The
+fourth element controlled the opacity, such that `0` was fully
+transparent and `255` was fully opaque. The preferred format is now to
+use a float from `0.0` to `1.0`.
+
+### 🐣2.13 Obsolete🔗
+
+As the UI of Sublime Text has adapted over time, certain elements and properties
+are no longer applicable or supported.
+
+#### ✋ Elements🔗
+
+                                                                (build-4050)
+The `panel_button_control` element was removed from the status bar and
+replaced by `sidebar_button_control`.
+
+
+The `sheet_container_control` element is never visible to users in recent
+versions of Sublime Text.
+
+An element named `icon_reverse` used to exist in the find panel to control if
+searching would move forward or backwards in the view. This is now controlled
+by the *Find* and *Find Prev* buttons.
+
+The element named `quick_panel_score_label` is no longer present in the Goto
+Anything quick panel.
+
+#### ✋ Properties🔗
+
+The `blur` property used to be supported to blur the pixel data behind an
+element, however it is not currently supported for implementation reasons.
+
+### 🐣2.14 Customization🔗
+
+Users can customize a theme by creating a file with new rules that will be
+appended to the original theme definition.
+
+To create a user-specific customization of a theme, create a new file with the
+same filename as the theme, but save it in the Packages/User/
+directory.
+
+For example, to customize the Default theme, create a file
+named Packages/User/Default.sublime-theme. Adding the following rules
+to that file will increase the size of the text in the sidebar.
+
+```json
+[
+    {
+        "class": "sidebar_heading",
+        "font.size": 15,
+    },
+    {
+        "class": "sidebar_label",
+        "font.size": 14
+    }
+]
+```
 
 ## 3. 🖐 Menus
 https://www.sublimetext.com/docs/menus.html

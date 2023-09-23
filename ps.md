@@ -243,7 +243,6 @@ try{
 ```
 
 
-
 # 🚩 PowerShell 脚本编程语言
 - https://docs.microsoft.com/zh-cn/powershell/
 - https://docs.microsoft.com/en-us/powershell/
@@ -254,6 +253,10 @@ try{
     git clone git@github.com:PowerShell/PowerShell
     git clone git@github.com:MicrosoftDocs/PowerShell-Docs
 
+    https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/PowerShell-7.3.7-win-x64.msi
+    https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/PowerShell-7.3.7-win-x64.zip
+    https://github.com/PowerShell/PowerShell/archive/refs/tags/v7.3.7.zip
+    
 PowerShell 是跨平台的，带有面向对象的管道，能够调用 .NET 的脚本编程环境即 .NET CLI 接口交互，所以不要将 PowerShell 当作命令控制台。
 
 PowerShell 是一种跨平台的任务自动化和配置管理框架，由命令行管理程序和脚本语言组成。 与大多数接受并返回文本的 shell 不同，PowerShell 构建在 .NET 公共语言运行时 (CLR) 的基础之上，接受并返回 .NET 对象。 这一根本上的改变引入了全新的自动化工具和方法。

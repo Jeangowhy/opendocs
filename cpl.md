@@ -522,6 +522,8 @@ int main(int argc, char** argv)
 - https://en.cppreference.com/w/c/io/fscanf
 - https://en.cppreference.com/w/c/io/fprintf
 - https://en.cppreference.com/w/c/types/integer
+- https://en.cppreference.com/w/c/header
+- https://en.cppreference.com/w/c/string
 
 格式化输入输出是最常用的两个基本 I/O 功能，scanf 和 printf 定义在 `<stdio.h>` 头文件中。
 
@@ -574,8 +576,9 @@ Hexadecimal:    0x1.8p+0 0X1.8P+0
 
 格式化数据类型占位符号如下：
 
-- `%d` 十进制有符号整数
-- `%u` 十进制无符号整数
+- `%d` 十进制有符号整数 int
+- `%u` 十进制无符号整数 unsigned int
+- `%lu` 十进制无符号长整数 unsigned long
 - `%f` 浮点数
 - `%s` 字符串
 - `%c` 单个字符
@@ -710,6 +713,74 @@ scanf(ScanWidth(MAXWORD), buf);
 ```
 
 scanf 与 sscanf 堪称 C 的杀手级标准库函数，因为使用起来实在是太方便了，但是它们的安全隐患又是如此明显和容易被忽视。
+
+标准库 <stdlib.h> 是一个多功能函数库，除了动态内存分配，还有程序工具、算法（qsorts 和 bsearch）、字符串类型转换，以及伪随机数。
+
+0. https://en.cppreference.com/w/c/header
+1. https://en.cppreference.com/w/c/memory
+2. https://en.cppreference.com/w/c/program
+3. https://en.cppreference.com/w/c/string
+4. https://en.cppreference.com/w/c/numeric/random
+5. https://en.cppreference.com/w/c/algorithm
+6. https://en.cppreference.com/w/c/io/fprintf
+
+字符串转换是最基本的编程能力，此函数库提供以下三类字符串处理函数：
+
+1. Null-terminated byte string management
+2. Null-terminated multibyte string management
+3. Null-terminated wide string management
+
+Null-terminated byte string (NTBS) 最基本的 C 语言字符串表达形式，使用 NULL 即 0 值什么字符串结束标志，大多数字符串相关函数都会根据这个标志字节来终止内存中的字符串数据访问。比如，{'\x63','\x61','\x74','\0'} 四个字节 NTBS 保存的字符串就是 ASCII 字符集中的 "cat"。
+
+标准库提供了多种字符串转数据函数，数值转字符串通常使用 stdio 提供的方法：
+
+1. `sprintf()` 或 `snprintf()` 函数将数值转换成字符串；
+2. `itoa()` 函数在 C 语言中把整数转换为字符串；
+
+Integer to alphanumeric (itoa)，Long to alphanumeric (ltoa) 甚至是 long long 类型之间或者相反方向的转换函数。`itoa()` 这样的由数值转字符串的函数不是 ANSI C 标准函数。根据实现平台不同，它可能无法在 C 编译器上工作。`strfromf` 这样的数值转换字符串函数到 C23 规则才有定义。
+
+另外，为了兼容旧代码，还有以下几个浮点数转字符串函数，返回小数点位置和符号位：
+
+```cpp
+#include <stdlib.h>
+char    ecvt (double value, int ndigit, int * restrict decpt, int * restrict sign)
+char    fcvt (double value, int ndigit, int * restrict decpt, int * restrict sign)
+char    gcvt (double value, int ndigit, char *buf)
+```
+
+Conversions to and from numeric formats
+
+| Defined in header <stdlib.h>                                  |
+| atof        | converts a byte string to a floating-point value | (function)
+| atoi atol atoll | converts a byte string to an integer value | (function) (C99)
+| strtol strtoll | converts a byte string to an integer value | (function) (C99)
+| strtoul strtoull | converts a byte string to an unsigned integer value | (function) (C99)
+| strtof strtod strtold | converts a byte string to a floating point value | (function) (C99)
+| strfromf strfromd strfromld | converts a floating point value to a byte string | (function) (C23)
+| Defined in header <inttypes.h>                               |
+| strtoimax strtoumax | converts a byte string to intmax_t or uintmax_t | (function) (C99)
+
+```cpp
+int       atoi( const char *str );
+long      atol( const char *str );
+long long atoll( const char *str );  // (since C99)
+long      strtol( const char *str, char **str_end, int base );  // (until C99)
+long      strtol( const char *restrict str, char **restrict str_end, int base );  // (since C99)
+long long strtoll( const char *restrict str, char **restrict str_end, int base );  // (since C99)
+unsigned long      strtoul( const char  *str, char **str_end, int base );  // (until C99)
+unsigned long      strtoul( const char *restrict str, char **restrict str_end, int base );  // (since C99)
+unsigned long long strtoull( const char *restrict str, char **restrict str_end, int base );  // (since C99)
+double atof( const char* str );
+float       strtof( const char *restrict str, char **restrict str_end ); // (since C99)
+double      strtod( const char          *str, char          **str_end ); // (until C99)
+double      strtod( const char *restrict str, char **restrict str_end ); // (since C99)
+long double strtold( const char *restrict str, char **restrict str_end ); // (since C99)
+intmax_t strtoimax( const char *restrict nptr, char **restrict endptr, int base ); // (since C99)
+uintmax_t strtoumax( const char *restrict nptr, char **restrict endptr, int base ); // (since C99)
+int strfromf( char *restrict s, size_t n, const char *restrict format, float fp ); // (since C23)
+int strfromd( char *restrict s, size_t n, const char *restrict format, double fp ); // (since C23)
+int strfroml( char *restrict s, size_t n, const char *restrict format, long double fp ); // (since C23)
+```
 
 
 ### ===👉 macro 宏基础
@@ -1145,6 +1216,10 @@ FOO(BAR())  // -> foo_bar
 
 
 ### ===👉 Preprocessor C/C++ 语言预处理器
+1. https://en.cppreference.com/w/c/preprocessor
+2. https://en.cppreference.com/w/cpp/preprocessor
+3. https://en.cppreference.com/w/c/language/translation_phases
+3. https://en.cppreference.com/w/cpp/language/translation_phases
 
 预处理器 preprocessor 会在编译器生成机器码前对源代码文件进行必要的替换，或根据条件编译代码，也可以通过预处理指令与编译器进行交互。预算大概分为条件编译，字符替换即宏定义，头文件包含，其它扩展功能。包含头文件有箭括号和双引号两种表达，箭括号表示在标准库中加载，双引号表示先在当前文件所在目录查找，没有找到再从标准库中加载。
 
@@ -1171,6 +1246,7 @@ FOO(BAR())  // -> foo_bar
     # 双引号化转换，用在函数式宏定义，使用#号将宏参数转换成双引号包括的字符串
     ## 标识符拼接，在函数式宏定义中使用##号将宏参数拼接到一个Token后形成完整的标识符
     #error 预处理指令产生编译错误并终止当前的编译。
+    #warning which emits a user-defined message during compilation.
     #pragma pragma_params
     #pragma once 非标准 Non-standard pragmas
     _Pragma ( string-literal ) (since C99/C++11) 
@@ -5492,6 +5568,7 @@ Console and Port I/O Routines
 
 
 # =🚩 Standard C Library
+- https://en.cppreference.com/w/c/header
 - the Standard C Library 1992 by P.J. Plauger
 - C 的历史 https://zh.cppreference.com/w/c/language/history
 - The GNU C Library (glibc) https://www.gnu.org/software/libc/sources.html
@@ -5500,38 +5577,38 @@ Console and Port I/O Routines
 目前，已发布规范总共包括 29 个 C Standard Library header files
 
 - C89/C90 standard (ISO/IEC 9899:1990): 
-    - `<assert.h>` Conditionally compiled macro that compares its argument to zero 
-    - `<ctype.h>` Functions to determine the type contained in character data 
-    - `<errno.h>` Macros reporting error conditions 
-    - `<float.h>` Limits of float types 
-    - `<limits.h>` Sizes of basic types 
-    - `<locale.h>` Localization utilities 
-    - `<math.h>` Common mathematics functions 
-    - `<setjmp.h>` Nonlocal jumps 
-    - `<signal.h>` Signal handling 
-    - `<stdarg.h>` Variable arguments 
-    - `<stddef.h>` Common macro definitions 
-    - `<stdio.h>` Input/output 
-    - `<stdlib.h>` General utilities: memory management, program utilities, string conversions, random numbers 
-    - `<string.h>` String handling 
-    - `<time.h>` Time/date utilities 
+    01. `<assert.h>` Conditionally compiled macro that compares its argument to zero 
+    02. `<ctype.h>` Functions to determine the type contained in character data 
+    03. `<errno.h>` Macros reporting error conditions 
+    04. `<float.h>` Limits of float types 
+    05. `<limits.h>` Sizes of basic types 
+    06. `<locale.h>` Localization utilities 
+    07. `<math.h>` Common mathematics functions 
+    08. `<setjmp.h>` Nonlocal jumps 
+    09. `<signal.h>` Signal handling 
+    10. `<stdarg.h>` Variable arguments 
+    11. `<stddef.h>` Common macro definitions 
+    12. `<stdio.h>` Input/output 
+    13. `<stdlib.h>` General utilities: memory management, program utilities, string conversions, random numbers, algorithms
+    14. `<string.h>` String handling 
+    15. `<time.h>` Time/date utilities 
 - C95 standard (ISO/IEC 9899:1990/AMD 1:1995)
-    - `<iso646.h>` (`C95`) Alternative operator spellings 
-    - `<wchar.h>` (`C95`) Extended multibyte and wide character utilities 
-    - `<wctype.h>` (`C95`) Wide character classification and mapping utilities 
+    01. `<iso646.h>` (`C95`) Alternative operator spellings 
+    02. `<wchar.h>` (`C95`) Extended multibyte and wide character utilities 
+    03. `<wctype.h>` (`C95`) Wide character classification and mapping utilities 
 - C99 standard (ISO/IEC 9899:1999): 
-    - `<complex.h>` (`C99`) Complex number arithmetic 
-    - `<fenv.h>` (`C99`) Floating-point environment 
-    - `<inttypes.h>` (`C99`) Format conversion of integer types 
-    - `<stdbool.h>` (`C99`) Boolean type 
-    - `<stdint.h>` (`C99`) Fixed-width integer types 
-    - `<tgmath.h>` (`C99`) Type-generic math (macros wrapping math.h and complex.h) 
+    01. `<complex.h>` (`C99`) Complex number arithmetic 
+    02. `<fenv.h>` (`C99`) Floating-point environment 
+    03. `<inttypes.h>` (`C99`) Format conversion of integer types 
+    04. `<stdbool.h>` (`C99`) Boolean type 
+    05. `<stdint.h>` (`C99`) Fixed-width integer types 
+    06. `<tgmath.h>` (`C99`) Type-generic math (macros wrapping math.h and complex.h) 
 - C11 standard (ISO/IEC 9899:2011): 
-    - `<stdalign.h>` (`C11`) alignas and alignof convenience macros 
-    - `<stdatomic.h>` (`C11`) Atomic types 
-    - `<stdnoreturn.h>` (`C11`) noreturn convenience macros 
-    - `<threads.h>` (`C11`) Thread library 
-    - `<uchar.h>` (`C11`) UTF-16 and UTF-32 character utilities 
+    01. `<stdalign.h>` (`C11`) alignas and alignof convenience macros 
+    02. `<stdatomic.h>` (`C11`) Atomic types 
+    03. `<stdnoreturn.h>` (`C11`) noreturn convenience macros 
+    04. `<threads.h>` (`C11`) Thread library 
+    05. `<uchar.h>` (`C11`) UTF-16 and UTF-32 character utilities 
 
 有兴趣了解源代码，可以从以下位置获取 The GNU C Library (glibc)，只建议有需要才去翻：
 
@@ -5642,6 +5719,24 @@ I/O 流文件对象使用 `FILE*` 指针操作，尽管可以拷贝这样一个�
 
 I/O 流可以使用格式化或非格式化的输入输出，也可以结合 `<locale.h>` 的本地化设置，流对象都受当前的本地化设置影响，可以通过 `setlocale` 函数设置它。
 
+标准 I/O 预定义了 stdin stdout stderr 这三个最常用到的标准文：
+
+1. `stdin` expression of type FILE* associated with the input stream
+2. `stdout` expression of type FILE* associated with the output stream
+3. `stderr` expression of type FILE* associated with the error output stream (macro constant)
+
+在使用命令行执行程序时，可以对这些标准文件进行重定向操作。
+
+此库提供以下功能函数：
+
+1.  File access
+2.  Direct input/output
+3.  Unformatted input/output
+4.  Formatted input/output
+5.  File positioning
+6.  Error handling
+7.  Operations on files
+
 除了系统需要的设备信息，每个流对象还保存以下信息：
 
 - (C95) Character width: unset, narrow, or wide
@@ -5667,7 +5762,7 @@ the data consist only of printing characters and the control characters \t and \
 
 POSIX implementations do not distinguish between text and binary streams (there is no special mapping for \n or any other characters)
 
-File access 
+### 🍀1.  File access
 
 ```c
 /////////////////////////////////
@@ -5712,7 +5807,7 @@ int fwide( FILE *stream, int mode ); (since C95)
 ```
 
 
-Direct input/output 
+### 🍀2.  Direct input/output
 
 ```c
 /////////////////////////////////
@@ -5728,7 +5823,7 @@ size_t fwrite( const void *buffer, size_t size, size_t count, FILE *stream ); (u
 size_t fwrite( const void *restrict buffer, size_t size, size_t count, FILE *restrict stream ); (since C99)
 ```
 
-Unformatted input/output 
+### 🍀3.  Unformatted input/output
 
 ```c
 //////////////////////////////////////////////////
@@ -5884,7 +5979,8 @@ int main(void)
 }
 ```
 
-Formatted input/output 
+
+### 🍀4.  Formatted input/output
 
 ```c
 //////////////////////////////////////////////////
@@ -6015,7 +6111,7 @@ scanf("%d", &a);
 scanf(" %c", &c); // consume all consecutive whitespace after %d, then read a char
 ```
 
-File positioning 
+### 🍀5.  File positioning 
 
 ```c
 // returns the current file position indicator
@@ -6035,8 +6131,13 @@ int fsetpos( FILE *stream, const fpos_t *pos );
 void rewind( FILE *stream );
 ```
 
+### 🍀6.  Error handling
 
-Error handling 
+Defined in header <stdio.h>
+| clearerr  | clears errors             | (function)
+| feof    | checks for the end-of-file | (function)
+| ferror  | checks for a file error     | (function)
+| perror  | displays a character string corresponding of the current error to stderr | (function)
 
 ```c
 // clears errors
@@ -6052,7 +6153,8 @@ int ferror( FILE *stream );
 void perror( const char *s );
 ```
 
-Operations on files 
+
+### 🍀7.  Operations on files
 
 ```c
 // remove erases a file
@@ -6147,6 +6249,8 @@ C 语言标准库通常指各个标准文件头提供的编程接口，而其中
     - qsort qsort_s (C11) sorts a range of elements with unspecified type
     - bsearch bsearch_s (C11) searches an array for an element of unspecified type
 
+字符串转换处理函数与字符格式化内容组织在一起。
+
 内存管理库函数可以说是最重要的一部分，由于 C 语言没有引入动态内存回收技术，这也是 C 语言性能极好的一个原因。同时这给使用者带来了额外的内存管理责任，开发者必需自己实现内存管理。
 
 对系统中运行的程序来说，操作系统运行程序时会下放内存资源，这部分内存资源称为 User Space。
@@ -6234,8 +6338,30 @@ int main(void)
 程序退出控制还涉及系统信号的处理。
 
 
-### ===👉 Character type
+### ===👉 `<ctype.h>` Character type
 - https://en.cppreference.com/w/c/string/byte
+- https://en.cppreference.com/w/c/string/byte
+
+<ctype.h> 标准头文件提供函数与确定字符数据内容相关。
+
+Defined in header <ctype.h>
+
+| Character classification                               |
+| isalnum | checks if a character is alphanumeric | (function)  |
+| isalpha | checks if a character is alphabetic   | (function)     |
+| islower | checks if a character is lowercase   | (function)     |
+| isupper | checks if a character is an uppercase character | (function)  |
+| isdigit | checks if a character is a digit     | (function)  |
+| isxdigit | checks if a character is a hexadecimal character | (function)  |
+| iscntrl | checks if a character is a control character | (function)  |
+| isgraph | checks if a character is a graphical character | (function)  |
+| isspace | checks if a character is a space character | (function)  |
+| isblank | checks if a character is a blank character | (function) (C99) |
+| isprint | checks if a character is a printing character | (function)  |
+| ispunct | checks if a character is a punctuation character | (function)  |
+| Character manipulation                             |
+| tolower | converts a character to lowercase | (function)  |
+| toupper | converts a character to uppercase | (function)  |
 
 ```c
 /////////////////////////////////
@@ -6261,7 +6387,7 @@ int tolower(char ch) // converts a character to lowercase
 int toupper(char ch) // converts a character to uppercase
 ```
 
-### ===👉 String conversions
+### ===👉 `<string.h>` String conversions
 
 C 语言的字符串最大特色就是 Null-terminated，即字符串以字符 '\0' 为结束标志。
 
@@ -6276,108 +6402,64 @@ C 语言的字符串最大特色就是 Null-terminated，即字符串以字符 '
 - {'\x63','\x61','\x74','\0'} 表示一个 NTBS 字符串，ASCII 编码内容为 "cat"。
 - {'\xe4','\xbd','\xa0','\xe5','\xa5','\xbd','\0'} 表示一个 UTF-8 编码 NTMBS 字符串 "你好"。
 
-
-例如，UTF-8 编码就是常用的多字节编码，还有 GB18030, EUC-JP, Shift-JIS 等国家字符编码，而 UTF-16 则是双字节编码，也叫宽字符编码。
+UTF-8 编码就是常用的多字节编码，还有 GB18030, EUC-JP, Shift-JIS 等国家字符编码，而 UTF-16 则是双字节编码，也叫宽字符编码。
 
 字符串处理相关函数的定义来源：
 
-- `<string.h>`
+- `<string.h>` 单字节宽度字符串处理函数。
 - `<ctype.h>` 提供了一系列字符类型判断函数。
 - 标准库提供了大量字符串操作函数。
 
 Conversions to numeric formats 
 
-    Defined in header <stdlib.h> 
-    atof converts a byte string to a floating-point value
-    (function) 
-    atoiatolatoll
-    (C99) converts a byte string to an integer value
-    (function) 
-    strtolstrtoll
-    (C99) converts a byte string to an integer value
-    (function) 
-    strtoul strtoull
-    (C99) converts a byte string to an unsigned integer value
-    (function) 
-    strtofstrtodstrtold
-    (C99)(C99) converts a byte string to a floating point value
-    (function) 
-    Defined in header <inttypes.h> 
-    strtoimaxstrtoumax
-    (C99)(C99) converts a byte string to intmax_t or uintmax_t
-    (function) 
+    | Defined in header <stdlib.h>                             |
+    | atof      | converts a byte string to a floating-point value    | (function)
+    | atoiatolatoll | converts a byte string to an integer value          | (function) (C99)
+    | strtolstrtoll | converts a byte string to an integer value          | (function) (C99)
+    | strtoul strtoull  | converts a byte string to an unsigned integer value | (function) (C99)
+    | strtofstrtodstrtold | converts a byte string to a floating point value   | (function) (C99)
+    | Defined in header <inttypes.h>                              |
+    | strtoimaxstrtoumax  | converts a byte string to intmax_t or uintmax_t  | (function) (C99)
 
 String manipulation 
 
-    Defined in header <string.h> 
-    strcpystrcpy_s
-    (C11) copies one string to another
-    (function) 
-    strncpystrncpy_s
-    (C11) copies a certain amount of characters from one string to another
-    (function) 
-    strcatstrcat_s
-    (C11) concatenates two strings
-    (function) 
-    strncatstrncat_s
-    (C11) concatenates a certain amount of characters of two strings
-    (function) 
-    strxfrm transform a string so that strcmp would produce the same result as strcoll
-    (function) 
+    | Defined in header <string.h>                          |
+    | strcpystrcpy_s | copies one string to another  | (function)  (C11)
+    | strncpystrncpy_s | copies a certain amount of characters from one string to another  | ( function) (C11)
+    | strcatstrcat_s | concatenates two strings  | (function)  (C11)
+    | strncatstrncat_s | concatenates a certain amount of characters of two strings  | ( function) (C11)
+    | strxfrm | transform a string so that strcmp would produce the same result as strcoll  | (function) 
 
 String examination 
 
     Defined in header <string.h> 
-    strlenstrnlen_s
-    (C11) returns the length of a given string
-    (function) 
-    strcmp compares two strings
-    (function) 
-    strncmp compares a certain amount of characters of two strings
-    (function) 
-    strcoll compares two strings in accordance to the current locale
-    (function) 
-    strchr finds the first occurrence of a character
-    (function) 
-    strrchr finds the last occurrence of a character
-    (function) 
-    strspn returns the length of the maximum initial segment that consists
-    of only the characters found in another byte string
-    (function) 
-    strcspn returns the length of the maximum initial segment that consists
-    of only the characters not found in another byte string
-    (function) 
-    strpbrk finds the first location of any character in one string, in another string
-    (function) 
-    strstr finds the first occurrence of a substring of characters
-    (function) 
-    strtokstrtok_s
-    (C11) finds the next token in a byte string
-    (function) 
+    | strlenstrnlen_s | returns the length of a given string  | (function) (C11)
+    | strcmp | compares two strings  | (function)
+    | strncmp | compares a certain amount of characters of two strings  | (function)
+    | strcoll | compares two strings in accordance to the current locale  | (function)
+    | strchr | finds the first occurrence of a character  | (function)
+    | strrchr | finds the last occurrence of a character  | (function)
+    | strspn | returns the length of the maximum initial segment that consists
+    |       | of only the characters found in another byte string  | (function)
+    | strcspn | returns the length of the maximum initial segment that consists
+    |       | of only the characters not found in another byte string  | (function)
+    | strpbrk | finds the first location of any character in one string, in another string  | (function)
+    | strstr  | finds the first occurrence of a substring of characters  | (function)
+    | strtokstrtok_s | finds the next token in a byte string  | (function) (C11)
 
 Character array manipulation 
 
     Defined in header <string.h> 
-    memchr searches an array for the first occurrence of a character
-    (function) 
-    memcmp compares two buffers
-    (function) 
-    memsetmemset_s
-    (C11) fills a buffer with a character
-    (function) 
-    memcpymemcpy_s
-    (C11) copies one buffer to another
-    (function) 
-    memmovememmove_s
-    (C11) moves one buffer to another
-    (function) 
+    | memchr | searches an array for the first occurrence of a character | (function) 
+    | memcmp | compares two buffers | (function) 
+    | memsetmemset_s | fills a buffer with a character | (function) (C11)
+    | memcpymemcpy_s | copies one buffer to another | (function) (C11)
+    | memmovememmove_s | moves one buffer to another | (function) (C11)
 
 Miscellaneous 
 
     Defined in header <string.h> 
-    strerrorstrerror_sstrerrorlen_s
-    (C11)(C11) returns a text version of a given error code
-    (function) 
+    | strerrorstrerror_sstrerrorlen_s | returns a text version of a given error code | (function) (C11)
 
 
 ## ==⚡ `<setjmp.h>` Nonlocal jumps

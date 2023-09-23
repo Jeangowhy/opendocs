@@ -497,10 +497,14 @@ python -m site
 
 ```sh
 # 临时使用安装模块，或写入配置文件
-pip install –i https://pypi.tuna.tsinghua.edu.cn/simple requests
-pip install requests -i https://pypi.douban.com/simple/ --trusted-host pypi.douban.com
-pip config set global.index-url https://pypi.douban.com/simple/
+> pip install –i https://pypi.tuna.tsinghua.edu.cn/simple requests
+> pip install requests -i https://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+> pip config set global.index-url https://pypi.douban.com/simple/
 Writing to C:\Users\OCEAN\AppData\Roaming\pip\pip.ini
+> pip config edit --editor subl
+> pip config list
+global.index-url='https://pypi.douban.com/simple/'
+install.trusted-host='\nmirrors.aliyun.com\npypi.douban.com\npypi.tuna.tsinghua.edu.cn\npypi.mirrors.ustc.edu.cn\nmirrors.bfsu.edu.cn'
 ```
 
 或者在 pip 配置文件中加入 trusted-host 选项：
@@ -525,8 +529,15 @@ trusted-host =
 
 有可能因为 HTTPS 服务器安全信任问题，如 https://pypi.douban.com 就不能正常使用，导致以下协议错误、异常，可以使用 --trusted-host 强制信任 HTTP 服务器：
 
->WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', FileNotFoundError(2, 'No such file or di
-rectory'))': /pypi/simple/pip/
+    >WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', FileNotFoundError(2, 'No such file or di
+    rectory'))': /pypi/simple/pip/
+
+    WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', FileNotFoundError(2, 'No such file or directory'))': /simple/meson/
+
+
+使用 pip -i 手动指定软件源，注意 simple 后缀是固定格式，软件源参考：
+
+    pip install meson -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
 
 安装 Wireshark、Fiddler、Caharless 等网络调试软件也有可能导致 HTTPS 访问出错，以上问题就是这个原因导致的，并且没有打印完整的异常链，隐藏下面这段最重要的异常信息。如果 urllib 访问网络时出现类似以下异常基本都是这类软件导致的，这也导致了 HTTPS 服务器无法为 pip 正常使用。
 
