@@ -3615,8 +3615,8 @@ loop(V) ->
 所以一般在处理 Code replacement，热更新模块的首次发生是安全的，因为系统只有一个 current code。第二次热更新就出现了 old code，如果强制更新就可能杀死一些进程，引发一些意想不到的后果。
 要避免这种情况，一方面是在调用代码的时候使用全名函数，一方面在热更新的时候尝试使用 soft purge，避免还有进程在执行老代码而被强制终止。
 
-1. purge/1 从系统中移除 old code，并且强制终止在执行 old code 的进程；
-2. soft_purge/1 尝试移除 old code，如果仍有进程在执行老版本代码，则返回 false。
+1. `purge/1` 从系统中移除 old code，并且强制终止在执行 old code 的进程；
+2. `soft_purge/1` 尝试移除 old code，如果仍有进程在执行老版本代码，则返回 false。
 
 Beam VM 为每份代码都保存了“多个副本”，然后通过一个全局的 code index（代码索引） 确认当前使用的是哪个版本。code index 作用是当 beam 代码正在修改时（如加载，更新，或删除），允许 erlang 进程同时访问执行代码而不用加锁。code index 同时作用于 export / module / beam_catches / beam_ranges 这几个模块的结构数据。
 
@@ -3677,19 +3677,20 @@ For code replacement of funs to work, use the syntax `fun Module:FunctionName/Ar
 
 执行 erl 命令行时可以配置代码路径 Code Path 以定位 beam 文件：
 
-	-pa Dir1 Dir2 ...
+-pa Dir1 Dir2 ...
 	Adds the specified directories to the beginning of the code path, similar to code:add_pathsa/1. Note that the order of the given directories will be reversed in the resulting path.
 
 	As an alternative to -pa, if several directories are to be prepended to the code path and the directories have a common parent directory, that parent directory can be specified in environment variable ERL_LIBS; see code(3).
 
-	-pz Dir1 Dir2 ...
+-pz Dir1 Dir2 ...
 	Adds the specified directories to the end of the code path, similar to code:add_pathsz/1; see code(3).
 
-	-path Dir1 Dir2 ...
+-path Dir1 Dir2 ...
 	Replaces the path specified in the boot script; see script(4).
 
 也可以使用 code 模块提供的函数来设置模块目录，或查询现有的目录列表：
 
+```erlang
 	code:add_path(Dir) -> add_path_ret()
 	code:add_path(Dir, Cache :: cache()) -> add_path_ret()  % OTP 26.0
 	code:add_pathz(Dir) -> add_path_ret()
@@ -3709,14 +3710,15 @@ For code replacement of funs to work, use the syntax `fun Module:FunctionName/Ar
 	del_path(NameOrDir) -> boolean() | {error, What}
 	del_paths(NamesOrDirs) -> ok
 
-	code:is_loaded(Module) -> {file, Loaded} | false
-	code:load_file(Module) -> load_ret()
-	code:ensure_loaded(Module) -> {module, Module} | {error, What}
-	code:load_binary(Module, Filename, Binary) ->
+	is_loaded(Module) -> {file, Loaded} | false
+	load_file(Module) -> load_ret()
+	ensure_loaded(Module) -> {module, Module} | {error, What}
+	load_binary(Module, Filename, Binary) ->
                {module, Module} | {error, What}
 
 	purge(Module) -> boolean()
 	soft_purge(Module) -> boolean()
+```
 
 
 添加目录的方法有多种重载，看后缀识别功能：s 后缀表示添加目录列表，a 表示添加到 code path 前头，z 表示添加在 code path 列表后头。如果误将字符串传入 add_paths 等方法，目录路径将被忽略。

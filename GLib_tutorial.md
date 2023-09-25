@@ -921,7 +921,7 @@ GLib 可谓 C 语言中的“STL”，在此之前，动态数组、链表、哈
 
 GStreamer 就是一个基于 GLib 构建的通用流媒体应用程序开发框架，GStreamer 最显著的用途是在构建一个播放器上，支持多种格式，包括: MP3、Ogg/Vorbis. MPEG-12、AVI、Quickime、mod 等等。 https://gstreamer.freedesktop.org/documentation/tutorials
 
-Geany 是基于 GTK+ GLib 实现的一个轻量快速的 IDE，集成了语法高亮、命令自定义、项目构建功能以及插件扩展，可以实现 Make 等外部功能集成，基本上达到轻量与快速的目标。但是远达不好好用的级别，界面设计还是停留在传统的区域分割设计，强制需要鼠标点点点（鼠标手警告）。和 Sublime Text 不在同一级别，只能和 Notepad 或 Editplus 相比较，但也打不过人家小巧可爱。 
+Geany 是基于 GTK+ GLib 实现的一个轻量快速的 IDE，集成了语法高亮、命令自定义、项目构建功能以及插件扩展，可以实现 Make 等外部功能集成，基本上达到轻量与快速的目标。但是远达不到好用的级别，界面设计还是停留在传统的区域分割设计，强制需要鼠标点点点（鼠标手警告）。和 Sublime Text 不在同一级别，只能和 Notepad 或 Editplus 相比较，但也打不过人家小巧可爱。 
 
 基于 GLib OOP 程序开发涉及以下方面的内容：
 
@@ -947,7 +947,7 @@ https://img.zcool.cn/community/027ef5556d6b720000016b627a994a.jpg
 
 实现“类型实例”就是在创建更多的 "Class"，而“类实例化”就创建更多某种类型的具象 "Instance of Class"。这个描述可能有点拗口或混乱，换个说法就是“type instances”和“class instances”的区别。在编程中，`Type` 和 `Class` 是两个经常用到的术语，当使用 Type 时通常是指高度抽象的类型，使用 Class 则是指经过一轮具象处理的类型，就像从“牛”到“奶牛”这一过程。具象化即实例化，对抽象类型进行具象化就是具体的类型，对具体类型的具象化就是类实例。在实际的编程工作中，主要关心的是使用 `class` 关键字定义类型，使用 `new` 关键字实例化这个类型得到一个具体的“对象”。OOP 中最令人迷惑的术语大概就是 Object 一词，这个问题在 JavaScript 的实现中尤甚。
 
-动态类型语言中，典型代表有 JavaScript、TypeScript、Python、PHP 等等，这此语言更多的是使用 duck typed，即叫起来像鸭子、走起路来也像鸭子、长得也像鸭子，那么就可以认它是鸭子。这是一种生物学人类思想，是动态类型语言的基本类型实现逻辑：dynamically typed。
+动态类型语言中，典型代表有 JavaScript、TypeScript、Python、PHP 等等，这此语言更多的是使用 duck typed，即叫起来像鸭子、走起路来也像鸭子、长得也像鸭子，那么就可以认它是鸭子。这是一种生物学分类思想，是动态类型语言的基本类型实现逻辑：dynamically typed。
 
 TypeScript 示范代码如下，注意花括号是 JavaScript 中的对象字面类的表达形式。可以进行 duck = darkDuck 这样的赋值，因为 darkDuck 拥有 duck 的所有特性（这里指 gaga），相当于 C++ 继承类型系统中的子类型。返过来，并不能将 duck 赋值给 darkDuck，因为它缺失部分兼容的特性：
 
@@ -1873,7 +1873,6 @@ watch 'echo -------watching------- && meson test -C ../build-meson'
 
 最简单的类型定义就是各种内置的值类型，参考宏符号 `G_REAL_CLOSURE`，以及注册各种值类型的 `_g_value_types_init` 方法。
 
-另外，还可以使用 `g_type_fundamental_next (void)` 方法来获取自动生成的 Type ID。
 
 `GTypeInfo` 中的 n_preallocs 字段适用于 GLib 2.10 之前版本，GLib 2.10 开始忽略此字段。用于指定预分配内存空间（预先保留内存空间），0 表示不使用缓存。
 

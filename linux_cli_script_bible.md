@@ -1,5 +1,6 @@
 
 # 🚩 Linux Command Line and Shell Scripting Bible, Third Edition
+https://apprize.best/linux/command/index.html
 
 ## ==⚡ Table of Contents
                                                                     *Contents*
@@ -355,8 +356,9 @@ List of Tables
 35. |Table 4.8|     70. |Table 14.1|    
 
 
-## ==⚡ Linux ® Command Line and Shell Scripting BIBLE
+## ==⚡ Preface
                                                                             *preface*
+Linux ® Command Line and Shell Scripting BIBLE
 Third Edition
 Richard Blum
 Christine Bresnahan
@@ -471,6 +473,7 @@ the opportunity to work on this book. Also thanks to Marty Minner, the project e
 keeping things on track and making this book more presentable. Thanks, Marty, for all
 your hard work and diligence. The technical editor, Kevin E. Ryan, did a wonderful job of
 double-checking all the work in the book, plus making suggestions to improve the content.
+
 Thanks to Gwenette Gaddis, the copy editor, for her endless patience and diligence to
 make our work readable. We would also like to thank Carole McClendon at Waterside
 Productions, Inc., for arranging this opportunity for us, and for helping us out in our
@@ -660,6 +663,7 @@ Each of these parts has a specific job in the Linux system. No part is very usef
 Figure 1.1 shows a basic diagram of how the parts fit together to create the overall Linux
 system.
 
+https://apprize.best/linux/command/command.files/image001.jpg
 Figure 1.1 The Linux system
                                                                 *Figure 1.1*
 
@@ -703,6 +707,10 @@ contents of virtual memory locations back and forth from the swap space to the a
 physical memory. This allows the system to think there is more memory available than
 what physically exists, as shown in Figure 1.2.
 
+https://wiki.syslinux.org/wiki/images/thumb/a/a9/MemoryMapGeneral.png/636px-MemoryMapGeneral.png
+https://kangxiaoning.github.io/images/os/linux-process-memory-layout.png
+https://image3.slideserve.com/6817294/ia32-linux-memory-layout-l.jpg
+https://apprize.best/linux/command/command.files/image002.jpg
 Figure 1.2 The Linux system memory map
                                                                 *Figure 1.2*
 
@@ -1106,11 +1114,13 @@ as audio- and video-editing software for multimedia enthusiasts, or compilers an
 integrated development environments (IDEs) for software developers.
 The different Linux distributions are often divided into three categories:
 
-Full core Linux distributions
-Specialized distributions
-LiveCD test distributions
+1. Full core Linux distributions
+2. Specialized distributions
+3. LiveCD test distributions
+
 The following sections describe these different types of Linux distributions and show
 some examples of Linux distributions in each category.
+
 Core Linux Distributions
 A core Linux distribution contains a kernel, one or more graphical desktop environments,
 and just about every Linux application that is available, precompiled for the kernel. It
@@ -1119,27 +1129,29 @@ more popular core Linux distributions.
 
 Table 1.4 Core Linux Distributions
                                                                 *Table 1.4*
-Distribution Description
-Slackware One of the original Linux distribution sets, popular with Linux geeks
-Red Hat A commercial business distribution used mainly for Internet servers
-Fedora A spin-off from Red Hat but designed for home use
-Gentoo
-A distribution designed for advanced Linux users, containing only Linux
-source code
-openSUSE Different distributions for business and home use
-Debian Popular with Linux experts and commercial Linux products
+| Distribution |                  Description                  |
+|--------------|------------------------|
+| Slackware | One of the original Linux distribution sets, popular with Linux geeks |
+| Red Hat   | A commercial business distribution used mainly for Internet servers   |
+| Fedora    | A spin-off from Red Hat but designed for home use                     |
+| Gentoo    | A distribution designed for advanced Linux users, containing only Linux source code |
+| openSUSE  | Different distributions for business and home use                     |
+| Debian    | Popular with Linux experts and commercial Linux products              |
+
 In the early days of Linux, a distribution was released as a set of floppy disks. You had to
 download groups of files and then copy them onto disks. It would usually take 20 or more
 disks to make an entire distribution! Needless to say, this was a painful experience.
 Nowadays, with home computers commonly having CD and DVD players built in, Linux
 distributions are released as either a CD set or a single DVD. This makes installing Linux
 much easier.
+
 However, beginners still often run into problems when they install one of the core Linux
 distributions. To cover just about any situation in which someone might want to use
 Linux, a single distribution must include lots of application software. They include
 everything from high-end Internet database servers to common games. Because of the
 quantity of applications available for Linux, a complete distribution often takes four or
 more CDs.
+
 Although having lots of options available in a distribution is great for Linux geeks, it can
 become a nightmare for beginning Linux users. Most distributions ask a series of
 questions during the installation process to determine which applications to load by
@@ -1147,36 +1159,43 @@ default, what hardware is connected to the PC, and how to configure the hardware
 Beginners often find these questions confusing. As a result, they often either load way too
 many programs on their computer or don’t load enough and later discover that their
 computer won’t do what they want it to.
+
 Fortunately for beginners, there’s a much simpler way to install Linux.
 Specialized Linux Distributions
+
 A new subgroup of Linux distributions has started to appear. These are typically based on
 one of the main distributions but contain only a subset of applications that would make
 sense for a specific area of use.
+
 In addition to providing specialized software (such as only office products for business
 users), customized Linux distributions also attempt to help beginning Linux users by
 autodetecting and autoconfiguring common hardware devices. This makes installing
 Linux a much more enjoyable process.
 
 Table 1.5 shows some of the specialized Linux distributions available and what they
-                                                                *Table 1.5*
 specialize in.
+                                                                *Table 1.5*
 
 Table 1.5 Specialized Linux Distributions
                                                                 *Table 1.5*
-Distribution Description
-CentOS A free distribution built from the Red Hat Enterprise Linux source code
-Ubuntu A free distribution for school and home use
-PCLinuxOS A free distribution for home and office use
-Mint A free distribution for home entertainment use
-dyne:bolic A free distribution designed for audio and MIDI applications
-Puppy Linux A free small distribution that runs well on older PCs
+| Distribution |                    Description                    |
+|-------|----------------------------------|
+| CentOS       | A free distribution built from the Red Hat Enterprise Linux source code |
+| Ubuntu       | A free distribution for school and home use                  |
+| PCLinuxOS    | A free distribution for home and office use                  |
+| Mint         | A free distribution for home entertainment use               |
+| dyne:bolic   | A free distribution designed for audio and MIDI applications |
+| Puppy Linux  | A free small distribution that runs well on older PCs        |
+
 That’s just a small sampling of specialized Linux distributions. There are literally
 hundreds of specialized Linux distributions, and more are popping up all the time on the
 Internet. No matter what your specialty, you’ll probably find a Linux distribution made for
 you.
+
 Many of the specialized Linux distributions are based on the Debian Linux distribution.
 They use the same installation files as Debian but package only a small fraction of a full-
 blown Debian system.
+
 The Linux LiveCD
 A relatively new phenomenon in the Linux world is the bootable Linux CD distribution.
 This lets you see what a Linux system is like without actually installing it. Most modern
@@ -1186,6 +1205,7 @@ some Linux distributions create a bootable CD that contains a sample Linux syste
 contain a complete Linux system, but you’d be surprised at all the software they can cram
 in there. The result is that you can boot your PC from the CD and run a Linux distribution
 without having to install anything on your hard drive!
+
 This is an excellent way to test various Linux distributions without having to mess with
 your PC. Just pop in a CD and boot! All the Linux software will run directly from the CD.
 You can download lots of Linux LiveCDs from the Internet and burn onto a CD to test
@@ -1196,34 +1216,40 @@ Table 1.6 shows some popular Linux LiveCDs that are available.
 
 Table 1.6 Linux LiveCD Distributions
                                                                 *Table 1.6*
-Distribution Description
-Knoppix A German Linux, the first Linux LiveCD developed
-PCLinuxOS Full-blown Linux distribution on a LiveCD
-Ubuntu A worldwide Linux project, designed for many languages
-Slax A live Linux CD based on Slackware Linux
-Puppy Linux A full-featured Linux designed for older PCs
+| Distribution |                   Description                    |
+|--------------|---------------------------|
+| Knoppix      | A German Linux, the first Linux LiveCD developed       |
+| PCLinuxOS    | Full-blown Linux distribution on a LiveCD              |
+| Ubuntu       | A worldwide Linux project, designed for many languages |
+| Slax         | A live Linux CD based on Slackware Linux               |
+| Puppy Linux  | A full-featured Linux designed for older PCs           |
+
 You may notice a familiarity in this table. Many specialized Linux distributions also have
 a Linux LiveCD version. Some Linux LiveCD distributions, such as Ubuntu, allow you to
 install the Linux distribution directly from the LiveCD. This enables you to boot with the
 CD, test drive the Linux distribution, and then if you like it, install it on your hard drive.
 This feature is extremely handy and user-friendly.
+
 As with all good things, Linux LiveCDs have a few drawbacks. Because you access
 everything from the CD, applications run more slowly, especially if you’re using older,
 slower computers and CD drives. Also, because you can’t write to the CD, any changes
 you make to the Linux system will be gone the next time you reboot.
+
 But advances are being made in the Linux LiveCD world that will help to solve some of
 these problems. These advances include the ability to:
 
-Copy Linux system files from the CD to memory
-Copy system files to a file on the hard drive
-Store system settings on a USB memory stick
-Store user settings on a USB memory stick
+1. Copy Linux system files from the CD to memory
+2. Copy system files to a file on the hard drive
+3. Store system settings on a USB memory stick
+4. Store user settings on a USB memory stick
+
 Some Linux LiveCDs, such as Puppy Linux, are designed with a minimum number of
 Linux system files. The LiveCD boot scripts copy them directly into memory when the
 CD boots. This allows you to remove the CD from the computer as soon as Linux boots.
 Not only does this make your applications run much faster (because applications run faster
 from memory), but it also gives you a free CD tray to use for ripping audio CDs or playing
 video DVDs from the software included in Puppy Linux.
+
 Other Linux LiveCDs use an alternative method that allows you to remove the CD from
 the tray after booting. It involves copying the core Linux files onto the Windows hard
 drive as a single file. After the CD boots, it looks for that file and reads the system files
@@ -1248,6 +1274,7 @@ Linux shell, which is the main focus of this book, is part of the GNU core utili
 chapter also discussed the final piece of a Linux system, the Linux desktop environment.
 Things have changed over the years, and Linux now supports several graphical desktop
 environments.
+
 The chapter also discussed the various Linux distributions. A Linux distribution bundles
 the various parts of a Linux system into a simple package that you can easily install on
 your PC. The Linux distribution world consists of full-blown Linux distributions that
@@ -1255,6 +1282,7 @@ include just about every application imaginable, as well as specialized Linux di
 that include applications focused only on a special function. The Linux LiveCD craze has
 created another group of Linux distributions that allow you to easily test-drive Linux
 without even having to install it on your hard drive.
+
 In the next chapter, you look at what you need to start your command line and shell
 scripting experience. You’ll see what you need to do to get to the Linux shell utility from
 your fancy graphical desktop environment. These days, that’s not always an easy thing.
@@ -1271,6 +1299,7 @@ In This Chapter
 4. Using the GNOME terminal emulator
 5. Using the Konsole terminal emulator
 6. Using the xterm terminal emulator
+
 In the old days of Linux, all you had to work with was the shell. System
 administrators, programmers, and system users all sat at something called a Linux
 console terminal entering shell commands and viewing text output. These days, with
@@ -1295,17 +1324,20 @@ about every Linux distribution uses some type of graphical desktop environment.
 However, to enter shell commands, you still need a text display to access the shell’s CLI.
 The problem now is getting to one. Sometimes finding a way to get a CLI in a Linux
 distribution is not an easy task.
+
 Console Terminals
 One way to get to a CLI is to take the Linux system out of graphical desktop mode and
 place it in text mode. This provides nothing more than a simple shell CLI on the monitor,
 just like the days before graphical desktops. This mode is called the Linux console because
 it emulates the old days of a hard-wired console terminal and is a direct interface to the
+
 Linux system.
 When the Linux system starts, it automatically creates several virtual consoles. A virtual
 console is a terminal session that runs in Linux system memory. Instead of having several
 dumb terminals connected to the computer, most Linux distributions start five or six (or
 sometimes even more) virtual consoles that you can access from a single computer
 keyboard and monitor.
+
 Graphical Terminals
 The alternative to using a virtual console terminal is to use a terminal emulation package
 from within the Linux graphical desktop environment. A terminal emulation package
@@ -1313,6 +1345,7 @@ simulates working on a console terminal, but within a desktop graphical window. 
 2.1 shows an example of a terminal emulator running in a Linux graphical desktop
 environment.
 
+https://apprize.best/linux/command/command.files/image007.jpg
 Figure 2.1 A simple terminal emulator running on a Linux desktop
                                                                 *Figure 2.1*
 
@@ -1323,31 +1356,13 @@ components in the Linux graphical desktop environment.
 
 Table 2.1 Graphical Interface Elements
                                                                 *Table 2.1*
-Name Examples Description
-Client
-Graphical terminal emulator,
-desktop environment, network
-browser
-An application that requests graphical
-services
-Display
-Server
-Mir, Wayland Compositor,
-Xserver
-Element that manages the display (screen) and
-the input devices (keyboard, mouse, touch
-screen)
-Window
-Manager
-Compiz, Metacity, Kwin
-Element that adds borders to windows and
-provides features to move and manage
-windows
-Widgets
-Library
-Athena(Xaw), X Intrinsics
-Element that adds menus and appearance
-items for desktop environment clients
+| Name | Examples | Description
+| Client | Graphical terminal emulator, desktop environment, network browser | An application that requests graphical services
+| Display Server | Mir, Wayland Compositor, Xserver | Element that manages the display (screen) and
+the input devices (keyboard, mouse, touch screen)
+| Window Manager | Compiz, Metacity, Kwin | Element that adds borders to windows and provides features to move and manage windows
+| Widgets Library | Athena(Xaw), X Intrinsics | Element that adds menus and appearance items for desktop environment clients
+
 For dealing with the command line from the desktop, the focus is on the graphical
 terminal emulator. You can think of graphical terminal emulators as CLI terminals “in the
 GUI” and virtual console terminals as CLI terminals “outside the GUI.” Understanding the
@@ -1359,22 +1374,27 @@ various terminals and their features can enhance your command line experience.
 In the early days of Linux, when you booted up your system you would see a login prompt
 on your monitor, and that’s all. As mentioned earlier, this is called the Linux console. It
 was the only place you could enter commands for the system.
+
 Even though several virtual consoles are created at boot time, many Linux distributions
 switch to a graphical environment after the boot sequence completes. This provides the
 user with a graphical login and desktop experience. Therefore, in this case, accessing a
 virtual console is done manually.
+
 In most Linux distributions, you can access one of the Linux virtual consoles using a
 simple keystroke combination. Usually, you must hold down the Ctrl+Alt key combination
 and then press a function key (F1 through F7) for the virtual console you want to use.
 Function key F2 produces virtual console 2, key F3 produces virtual console 3, key F4
 produces virtual console 4, and so on.
+
 Note
 Linux distributions typically use the Ctrl+Alt key combination with either F1 or F7 to
 reach the graphical interface. Ubuntu uses F7, while RHEL uses F1. It is best to test
 and see where your distribution puts the graphical interface.
+
 Text mode virtual consoles use the whole screen and start with the text login screen
 displayed. An example of a text login screen from a virtual console is shown in Figure 2.2.
 
+https://apprize.best/linux/command/command.files/image008.jpg
 Figure 2.2 Linux virtual console login screen
                                                                 *Figure 2.2*
 
@@ -1382,6 +1402,7 @@ Notice in Figure 2.2 the words tty2 at the end of the first text line. The 2 in 
 that it is virtual console 2 and was reached by pressing the Ctrl+Alt+F2 key sequence. tty
 stands for teletypewriter. Teletypewriter is an old term, indicating a machine used for
 sending messages.
+
 Note
 Not all Linux distributions show the virtual console’s tty number at the login screen.
 You log into a console terminal by entering your user ID after the login: prompt and
@@ -1390,13 +1411,16 @@ before, be aware that typing your password is a different experience than in a g
 environment. In a graphical environment, you may see dots or asterisks indicating the
 password characters as you type. However, at the virtual console, nothing is displayed
 when you type your password.
+
 After logging into a virtual console, you are taken to the Linux CLI. Keep in mind that,
 within the Linux virtual console, you do not have the ability to run any graphical
 programs.
+
 After you have logged in to a virtual console, you can keep it active and switch to another
 virtual console without losing your active session. You can switch between all the virtual
 consoles, with multiple active sessions running. This feature provides a great deal of
 flexibility while you work at the CLI.
+
 Additional flexibility deals with the virtual console’s appearance. Even though it is a text
 mode console terminal, you can modify the text and background colors.
 For example, it may be easier on your eyes to set the background of the terminal to white
@@ -1423,22 +1447,22 @@ your console terminal’s readability or appearance.
 Table 2.2 setterm Options for Foreground and Background Appearance
                                                                 *Table 2.2*
 
-| Option        | Parameter Choices     | Description
-|---------------|-----------------------|----------------------------------
-| -background   | black, red, green,    | Changes the terminal’s background color to
-|               | yellow, blue, magenta,| the one specified
-|               | cyan, or white        |
-| -foreground   | black, red, green,    | Changes the terminal’s foreground color,    
-|               | yellow, blue, magenta,| specifically text, to the one specified
-|               | cyan, or white        |
-| -             |                       | Switches the background color to the
-| inversescreen | on or off             | foreground color and the foreground color
-|               |                       | to the background color
-| -reset        | None                  | Changes the terminal appearance back to its
-|               |                       | default setting and clears the screen
-| -store        | None                  | Sets the current terminal’s foreground and
-|               |                       | background colors as the values to be used
-|               |                       | for -reset
+|     Option     |   Parameter Choices    |                 Description                 |
+|----------------|------------------------|---------------------------------------------|
+| -background    | black, red, green,     | Changes the terminal’s background color to  |
+|                | yellow, blue, magenta, | the one specified                           |
+|                | cyan, or white         |                                             |
+| -foreground    | black, red, green,     | Changes the terminal’s foreground color,    |
+|                | yellow, blue, magenta, | specifically text, to the one specified     |
+|                | cyan, or white         |                                             |
+| -inversescreen | on or off              | Switches the background color to the        |
+|                |                        | foreground color and the foreground color   |
+|                |                        | to the background color                     |
+| -reset         | None                   | Changes the terminal appearance back to its |
+|                |                        | default setting and clears the screen       |
+| -store         | None                   | Sets the current terminal’s foreground and  |
+|                |                        | background colors as the values to be used  |
+|                |                        | for -reset                                  |
 
 Virtual console terminals are great for accessing the CLI outside the GUI. However,
 sometimes, you need to access the CLI and run graphical programs. Using a terminal
@@ -1458,27 +1482,27 @@ Table 2.3 along with their websites.
 Table 2.3 Popular Graphical Terminal Emulator Packages
                                                                 *Table 2.3*
 Name Website
-Eterm http://www.eterm.org
-Final Term http://finalterm.org
-GNOME Terminal https://help.gnome.org/users/gnome-terminal/stable
-Guake https://github.com/Guake/guake
-Konsole Terminal http://konsole.kde.org
-LillyTerm http://lilyterm.luna.com.tw/index.html
-LXTerminal http://wiki.lxde.org/en/LXTerminal
-mrxvt https://code.google.com/p/mrxvt
-ROXTerm http://roxterm.sourceforge.net
-rxvt http://sourceforge.net/projects/rxvt
-rxvt-unicode http://software.schmorp.de/pkg/rxvt-unicode
-Sakura https://launchpad.net/sakura
-st http://st.suckless.org
-Terminator https://launchpad.net/terminator
-Terminology http://www.enlightenment.org/p.php?p=about/terminology
-tilda http://tilda.sourceforge.net/tildaabout.php
-UXterm http://manpages.ubuntu.com/manpages/gutsy/man1/uxterm.1.html
-Wterm http://sourceforge.net/projects/wterm
-xterm http://invisible-island.net/xterm
-Xfce4 Terminal http://docs.xfce.org/apps/terminal/start
-Yakuake http://extragear.kde.org/apps/yakuake
+01. Eterm http://www.eterm.org
+02. Final Term http://finalterm.org
+03. GNOME Terminal https://help.gnome.org/users/gnome-terminal/stable
+04. Guake https://github.com/Guake/guake
+05. Konsole Terminal http://konsole.kde.org
+06. LillyTerm http://lilyterm.luna.com.tw/index.html
+07. LXTerminal http://wiki.lxde.org/en/LXTerminal
+08. mrxvt https://code.google.com/p/mrxvt
+09. ROXTerm http://roxterm.sourceforge.net
+10. rxvt http://sourceforge.net/projects/rxvt
+11. rxvt-unicode http://software.schmorp.de/pkg/rxvt-unicode
+12. Sakura https://launchpad.net/sakura
+13. st http://st.suckless.org
+14. Terminator https://launchpad.net/terminator
+15. Terminology http://www.enlightenment.org/p.php?p=about/terminology
+16. tilda http://tilda.sourceforge.net/tildaabout.php
+17. UXterm http://manpages.ubuntu.com/manpages/gutsy/man1/uxterm.1.html
+18. Wterm http://sourceforge.net/projects/wterm
+19. xterm http://invisible-island.net/xterm
+20. Xfce4 Terminal http://docs.xfce.org/apps/terminal/start
+21. Yakuake http://extragear.kde.org/apps/yakuake
 
 Although many graphical terminal emulator packages are available, the focus in this
 chapter is on three commonly used ones. Often installed in Linux distributions by default,
@@ -1494,10 +1518,12 @@ environments, such as Ubuntu Unity, also use the GNOME terminal as their default
 terminal emulator package. It is fairly easy to use and a good terminal emulator for
 individuals who are new to Linux. This chapter section walks you through the various
 parts of accessing, configuring and using the GNOME terminal emulator.
+
 Accessing the GNOME Terminal
 Each graphical desktop environment has different methods for accessing the GNOME
 terminal emulator. This section looks at accessing the GNOME Terminal in the GNOME,
 Unity, and KDE desktop environments.
+
 Note
 If you are using a different desktop environment than the ones listed in Table 2.3, you
 must look through the various menus offered in your environment to find the
@@ -1506,13 +1532,17 @@ In the GNOME desktop environment, accessing the GNOME Terminal is fairly
 straightforward. From the menu system in the upper-left corner of the window, click
 Applications , then select System Tools from the drop-down menu, and finally click
 Terminal . Written in shorthand, the directions look like the following:
-Applications ⇨ System Tools ⇨ Terminal .
+
+    Applications ⇨ System Tools ⇨ Terminal .
+
 Refer to Figure 2.1 to see a picture of the GNOME Terminal. It was accessed in a
 GNOME desktop environment on a CentOS distribution.
+
 In the Unity desktop environment, accessing the GNOME terminal takes a little more
 effort. The simplest access method is Dash ⇨ Search and type Terminal. The GNOME
 terminal shows up in the Dash home area as an application named Terminal . Click that
 icon to open the GNOME terminal emulator.
+
 Tip
 In some Linux distribution desktop environments, such as Ubuntu’s Unity, you can
 quickly access the GNOME terminal using the shortcut key combination Ctrl+Alt+T.
@@ -1520,12 +1550,14 @@ In the KDE desktop environment, the Konsole terminal emulator is the default emu
 Therefore, you must dig down through the menus to access GNOME Terminal. Start with
 the icon labeled Kickoff Application Launcher in the lower-left corner of the screen
 and then click Applications ⇨ Utilities ⇨ Terminal .
+
 In most desktop environments, you can create a launcher for accessing GNOME
 Terminal. A launcher is an icon you create on your desktop that allows you to start a
 chosen application. This is a great feature that allows you to quickly access a terminal
 emulator in the graphical desktop. It is especially helpful if you do not want to use
 shortcut keys or the shortcut key feature is not available in your desktop environment of
 choice.
+
 For example, in the GNOME desktop environment, to create a launcher, right-click your
 mouse in the middle of the desktop area; a drop-down menu appears. Select Create
 Launcher… from the menu; the Create Launcher application window opens. In the Type
@@ -1533,19 +1565,23 @@ field, select Application . Type a name for your icon in the Name field. In the 
 field, type gnome-terminal. Click Ok to save your new launcher. An icon with the name
 you gave the launcher now appears on your desktop. Double-click it to open the GNOME
 terminal emulator.
+
 Note
 When you type gnome-terminal in the Command field, you are typing the shell
 command for starting the GNOME terminal emulator. You learn in Chapter 3 how to
 add special options to commands, such as gnome-terminal, to provide special
 configuration options, and how to view all the options available to you.
+
 Several configuration options are provided by menus and short-cut keys in the application,
 which you can apply after you get the GNOME terminal emulation started. Understanding
 these options can enhance your GNOME Terminal CLI experience.
+
 The Menu Bar
 The GNOME Terminal menu bar contains the configuration and customization options
 you need to make your GNOME Terminal just the way you want it. The following tables
 briefly describe the different configuration options in the menu bar and shortcut keys
 associated with the options.
+
 Note
 As you read through these GNOME Terminal menu options, keep in mind that your
 Linux distribution’s GNOME Terminal may have slightly different menu options
@@ -1553,67 +1589,70 @@ available. This is because several Linux distributions use older versions of GNO
 Terminal.
 
 Table 2.4 shows the configuration options available within the GNOME Terminal File
-                                                                *Table 2.4*
 menu system. The File menu item contains items to create and manage your overall CLI
 terminal sessions.
 
 Table 2.4 The File Menu
                                                                 *Table 2.4*
 Name Shortcut Key Description
-Open
-Terminal
-Shift+Ctrl+N
-Starts a new shell session in a new GNOME Terminal
-window
-Open Tab
-Shift+Ctrl+T
-Starts a new shell session in a new tab in the existing
-GNOME Terminal window
-New
-Profile
-None
-Customizes a session and saves as a profile, which can be
-recalled for later use
-Save
-Contents
-None Saves the scrollback buffer contents to a text file
-Close Tab Shift+Ctrl+W
-Closes the current tab session
-Close
-Window
-Shift+Ctrl+Q Closes the current GNOME Terminal session
+1.  Open Terminal
+    - Shift+Ctrl+N
+    - Starts a new shell session in a new GNOME Terminal window
+2.  Open Tab
+    - Shift+Ctrl+T
+    - Starts a new shell session in a new tab in the existing
+    - GNOME Terminal window
+3.  New Profile
+    - None
+    - Customizes a session and saves as a profile, which can be recalled for later use
+4.  Save Contents
+    - None 
+    - Saves the scrollback buffer contents to a text file
+5.  Close Tab 
+    - Shift+Ctrl+W
+    - Closes the current tab session
+6.  Close Window
+    - Shift+Ctrl+Q 
+    - Closes the current GNOME Terminal session
+
 Notice that, as in a network browser, you can open new tabs within the GNOME Terminal
 session to start a whole new CLI session. Each tab session is considered to be an
 independent CLI session.
+
 Tip
 You do not have to click through the menu to reach options in the File menu. Most of
 the items are also available by right-clicking in the session area.
+
 The Edit menu contains items, shown in Table 2.5, for handling text within the tabs. You
 can use your mouse to copy and paste text anywhere within the session window.
 
 Table 2.5 The Edit Menu
                                                                 *Table 2.5*
 Name Shortcut Key Description
-Copy
-Shift+Ctrl+C Copies selected text to the GNOME clipboard
-Paste
-Shift+Ctrl+V Pastes text from the GNOME clipboard into a session
-Paste Filenames
-Properly pastes copied filenames and their paths
-Select All
-None Selects output in the entire scrollback buffer
-Profiles
-None Adds, deletes, or modifies GNOME Terminal profiles
-Keyboard
-Shortcuts
-None
-Creates key combinations to quickly access GNOME
-Terminal features
-Profile
-Preferences
-None Edits the current session profile
+1. Copy
+    - Shift+Ctrl+C 
+    - Copies selected text to the GNOME clipboard
+2. Paste
+    - Shift+Ctrl+V 
+    - Pastes text from the GNOME clipboard into a session
+3. Paste Filenames
+    - Properly pastes copied filenames and their paths
+4. Select All
+    - None 
+    - Selects output in the entire scrollback buffer
+5. Profiles
+    - None 
+    - Adds, deletes, or modifies GNOME Terminal profiles
+6. Keyboard Shortcuts
+    - None
+    - Creates key combinations to quickly access GNOME Terminal features
+7. Profile Preferences
+    - None 
+    - Edits the current session profile
+
 The Paste Filenames menu option is available only in later versions of GNOME
 Terminal. Therefore, you may not see that menu option on your system.
+
 The View menu, shown in Table 2.6, contains items for controlling how the CLI session
 windows appear. These options can be helpful for individuals with visual impairment.
 
@@ -1734,6 +1773,7 @@ The KDE Desktop Project created its own terminal emulation package called Konsol
 Terminal. The Konsole package incorporates basic terminal emulation features, along with
 more advanced ones expected from a graphical application. This section describes
 Konsole Terminal features and shows you how to use them.
+
 Accessing the Konsole Terminal
 The Konsole Terminal is the default terminal emulator for the KDE desktop environment.
 You can easily access it via the KDE environment’s menu system. In other desktop
@@ -1741,25 +1781,27 @@ environments, accessing the Konsole Terminal can be a little more difficult.
 In the KDE desktop environment, you can access the Konsole Terminal by clicking the
 icon labeled Kickoff Application Launcher in the lower-left corner of the screen. Then
 click Applications ⇨ System ⇨ Terminal (Konsole) .
+
 Note
 You may see two terminal menu options within the KDE menu environment. If you
 do, the Terminal menu option with the words Konsole beneath it is the Konsole
 terminal.
+
 In the GNOME desktop environment, the Konsole terminal is typically not installed by
 default. If Konsole Terminal has been installed, you can access it via the GNOME menu
 system. In the upper-left corner of the window, click Applications ⇨ System
 Tools ⇨ Konsole .
+
 Note
 You may not have the Konsole terminal emulation package installed on your system.
 If you would like to install it, read through Chapter 9 to learn how to install software
 via the command line.
+
 In the Unity desktop environment, if Konsole has been installed, you can access it via
 Dash ⇨ Search and type Konsole. The Konsole Terminal shows up in the Dash home area
 as an application named Konsole . Click that icon to open the Konsole terminal emulator.
 
 Figure 2.4 shows the Konsole Terminal. It was accessed on a KDE desktop environment
-                                                                *Figure 2.4*
-
 in a CentOS Linux distribution.
 
 Figure 2.4 The Konsole Terminal
@@ -1770,13 +1812,16 @@ applications such as the Konsole Terminal. The command you need to type for the
 launcher to start up the Konsole terminal emulator is konsole. Also, if the Konsole
 Terminal is installed, you can start it from another terminal emulator by typing konsole
 and pressing Enter.
+
 The Konsole Terminal, similar to GNOME Terminal, has several configuration options
 provided by menus and shortcut keys. The following section describes these various
 options.
+
 The Menu Bar
 The Konsole Terminal menu bar contains the configuration and customization options you
 need to easily view and change features in your terminal emulation session. The following
 tables briefly describe the menu options and associated shortcut keys.
+
 Tip
 The Konsole Terminal provides a simple menu when you right-click in the active
 session area. Several menu items are available in this easy-to-access menu.
@@ -1805,11 +1850,13 @@ Quit
 Ctrl+Shift+Q Quits the Konsole Terminal emulation application
 When you first start the Konsole Terminal, the only profile listed in the menu is Shell . As
 more profiles are created and saved, their names appear in the menu list.
+
 Note
 As you read through these Konsole Terminal menu options, keep in mind that your
 Linux distribution’s Konsole Terminal may have very different menu options
 available. This is because some Linux distributions have kept older versions of the
 Konsole Terminal emulation package.
+
 The Edit menu, shown in Table 2.11, provides options for handling text in the session.
 Also, managing tab names is in this options list.
 
@@ -1833,6 +1880,7 @@ Reset
 None
 Clears the terminal session screen and sends the reset terminal
 session control code
+
 Konsole provides an excellent method for tracking what function is taking place in each
 tab session. Using the Rename Tab menu option, you can name a tab to match its current
 task. This helps in tracking which open tab session is performing what function.
@@ -1876,12 +1924,14 @@ Ctrl++ Enlarges the font size in the window incrementally
 Decrease Text
 Size
 Ctrl+- Reduces the font size in the window incrementally
-The Monitor for Silence menu option is used for indicating tab silence. Tab silence
+T
+he Monitor for Silence menu option is used for indicating tab silence. Tab silence
 occurs when no new text appears in the current tab session for 10 seconds. This allows
 you to switch to another tab while waiting for application output to stop.
 Tab activity, toggled by the Monitor for Activity option, issues a special message when
 new text appears in the tab session. This option allows you to be notified when output
 from an application occurs.
+
 Konsole retains a history, formally called a scrollback buffer, for each tab. The history
 contains output text that has scrolled out of the terminal viewing area. By default, the last
 1,000 lines in the scrollback buffer are retained. The Scrollback menu, shown in Table
@@ -1918,9 +1968,11 @@ Reset
 Ctrl+Shift+X
 Removes scrollback buffer contents and resets the
 terminal window
+
 You can scroll back through the scrollback buffer by simply using the scrollbar in the
 viewing area. Also, you can scroll back line by line by pressing the Shift+Up Arrow or
 scroll back a page (24 lines) at a time by pressing Shift+Page Up.
+
 The Bookmarks menu options, shown in Table 2.14, provide a way to manage bookmarks
 set in the Konsole Terminal window. A bookmark enables you to save your active
 session’s directory location and then easily return there in either the same session or a new
@@ -1945,6 +1997,7 @@ New Bookmark Folder
 None Creates a new bookmark storage folder
 Edit Bookmarks
 None Edits existing bookmarks
+
 The Settings menu, shown in Table 2.15, allows you to customize and manage your
 profiles. Also, you can add a little more functionality to your current tab session. There are
 no shortcut keys to access these items.
@@ -1965,9 +2018,11 @@ Creates Konsole Terminal command keyboard shortcuts
 Configure
 Notifications
 Creates custom Konsole Terminal schemas and sessions
+
 Configure Notifications allows you to associate specific events that can occur within a
 session with different actions. When one of the events occurs, the defined action (or
 actions) is taken.
+
 The Help menu, shown in Table 2.16, provides the full Konsole handbook (if KDE
 handbooks were installed in your Linux distribution) and the standard About Konsole
 dialog box.
@@ -1989,11 +2044,12 @@ None Opens the Switch Application’s Language form
 About Konsole
 None Displays the current Konsole Terminal version
 About KDE
-Displays the current KDE desktop environment
-version
+Displays the current KDE desktop environment version
+
 Rather extensive documentation is provided to help you use the Konsole terminal
 emulator package. In addition to help items, you are provided with a Bug Report form to
 submit to the Konsole Terminal developers when you encounter a program bug.
+
 The Konsole terminal emulator package is young compared to another popular package,
 xterm. In the next section, we explore the “old-timer” xterm.
 
@@ -2003,15 +2059,18 @@ xterm. In the next section, we explore the “old-timer” xterm.
 The oldest and most basic of terminal emulation packages is xterm. The xterm package
 has been around since before the original days of X Window, a popular display server, and
 it’s often included by default in distributions.
+
 Although xterm is a full terminal emulation package, it doesn’t require many resources
 (such as memory) to operate. Because of this, the xterm package is still popular in Linux
 distributions designed to run on older hardware. Some graphical desktop environments use
 it as the default terminal emulation package.
+
 Although it doesn’t offer many fancy features, the xterm package does one thing
 extremely well: It emulates older terminals, such as the Digital Equipment Corporation
 (DEC) VT102, VT220, and Tektronix 4014 terminals. For the VT102 and VT220
 terminals, xterm can even emulate the VT series of color control codes, allowing you to
 use color in your scripts.
+
 Note
 The DEC VT102 and VT220 were dumb text terminals popular for connecting to
 Unix systems in the 1980s and early 1990s. A VT102/VT220 could display text and
@@ -2020,8 +2079,6 @@ access is still used in many business environments today, thus keeping VT102/VT2
 emulation popular.
 
 Figure 2.5 shows what the basic xterm display looks like running on a graphical Linux
-                                                                *Figure 2.5*
-
 desktop. You can see it is very basic.
 
 Figure 2.5 The xterm Terminal
@@ -2029,30 +2086,36 @@ Figure 2.5 The xterm Terminal
 
 The xterm terminal emulator can be tricky to find these days. Often, it is not included in a
 desktop environment graphical menu arrangement.
+
 Accessing xterm
 In Ubuntu’s Unity desktop, xterm is installed by default. You can access it via
 Dash ⇨ Search and type xterm. xterm shows up in the Dash home area as an application
 named XTerm . Click that icon to open the xterm terminal emulator.
+
 Note
 You may see another terminal called UXTerm when you search for xterm on Ubuntu.
 This is simply the xterm emulator package with Unicode support.
+
 In the GNOME and KDE desktop environment, xterm is not installed by default. You
 must install it first (see [chapter 9 for help on installing software packages]). After it’s
 installed, you must start xterm from another terminal emulator. Open a terminal emulator
 for CLI access, type xterm, and press Enter. Also, remember that you can create your own
 desktop launcher to startup xterm.
+
 The xterm package allows you to set individual features using command line parameters.
 The following sections discuss these features and how to change them.
 Command Line Parameters
+
 The list of xterm command line parameters is extensive. You can control lots of features to
 customize the terminal emulation features, such as enabling or disabling individual VT
 emulations.
+
 Note
 xterm has a huge number of configuration options — so many that they cannot all be
 covered here. Extensive documentation is available via the bash manual. Accessing
 the bash manual is covered in Chapter 3. In addition, the xterm development team
-provides some excellent help on its website: http://invisible-
-island.net/xterm/.
+provides some excellent help on its website: https://invisibleisland.net/xterm/.
+
 You can invoke certain configuration options by adding a parameter to the xterm
 command. For example, to have the xterm emulate a DEC VT100 terminal, type the
 command xterm -ti vt100 and press Enter. Table 2.17 shows some parameters you can
@@ -2070,6 +2133,7 @@ Parameter Description
 -ms color Specifies the color used for the text cursor
 -name name Specifies the name of the application that appears in the title bar
 -ti terminal Specifies the terminal type to emulate
+
 Some xterm command line parameters use a plus sign (+) or minus sign (-) to signify how
 a feature is set. A plus sign may turn a feature on, while a minus sign turns it off.
 However, the opposite can be true as well. A plus sign may disable a feature, while a
@@ -2078,29 +2142,23 @@ more common features you can set using the +/- command line parameters.
 
 Table 2.18 xterm +/- Command Line Parameters
                                                                 *Table 2.18*
-Parameter Description
-ah
-Enables/disables highlighted text cursor
-aw
-Enables/disables auto-line-wrap
-bc
-Enables/disables text cursor blinking
-cm
-Enables/disables recognition of ANSI color change control codes
-fullscreen
-Enables/disables full screen mode
-j Enables/disables jump scrolling
-l
-Enables/disables logging screen data to a log file
-mb
-Enables/disables margin bell
-rv
-Enables/disables reverse video colors
-t
-Enables/disables Tektronix mode
+| Parameter  |                     Description                     |
+|------------|--------------------------------|
+| ah         | Enables/disables highlighted text cursor             |
+| aw         | Enables/disables auto-line-wrap                      |
+| bc         | Enables/disables text cursor blinking                |
+| cm         | Enables/disables recognition of ANSI color change control codes |
+| fullscreen | Enables/disables full screen mode                    |
+| j          | Enables/disables jump scrolling                      |
+| l          | Enables/disables logging screen data to a log file   |
+| mb         | Enables/disables margin bell                         |
+| rv         | Enables/disables reverse video colors                |
+| t          | Enables/disables Tektronix mode                      |
+
 It is important to note that not all implementations of xterm support all these command
 line parameters. You can determine which parameters your xterm implements by using the
 -help parameter when you start xterm on your system.
+
 Now that you have been introduced to three terminal emulator packages, the big question
 is which is the best terminal emulator to use? There is no definite answer to that question.
 Which terminal emulator package you use depends upon your individual needs and
@@ -2113,26 +2171,32 @@ desires. But it is great to have so many choices.
 To start learning Linux command line commands, you need access to a CLI. In the world
 of graphical interfaces, this can sometimes be challenging. This chapter discussed
 different interfaces you should consider to get to the Linux command line.
+
 First, this chapter discussed the difference between accessing the CLI via a virtual console
 terminal (a terminal outside the GUI) and a graphical terminal emulation package (a
 terminal inside the GUI). We took a brief look at the basic differences between these two
 access methods.
+
 Next, we explored in detail accessing the CLI via a virtual console terminal, including
 specifics on how to change console terminal configuration options such as background
 color.
+
 After looking at virtual console terminals, the chapter traveled through accessing the CLI
 via a graphical terminal emulator. Primarily, we covered three different types of terminal
 emulators: GNOME Terminal, Konsole Terminal, and xterm.
+
 This chapter also covered the GNOME desktop project’s GNOME terminal emulation
 package. GNOME Terminal is typically installed by default on the GNOME desktop
 environment. It provides convenient ways to set many terminal features via menu options
 and shortcut keys.
+
 We also covered the KDE desktop project’s Konsole terminal emulation package. The
 Konsole Terminal is typically installed by default on the KDE desktop environment. It
 provides several nice features, such as the ability to monitor a terminal for silence.
 Finally, we covered the xterm terminal emulator package. xterm was the first terminal
 emulator available for Linux. It can emulate older terminal hardware such as the VT and
 Tektronix terminals.
+
 In the next chapter, you start looking at the Linux command line commands. It walks you
 through the commands necessary to navigate around the Linux filesystem, and to create,
 delete, and manipulate files.
@@ -2149,6 +2213,7 @@ In This Chapter
 4. Listing files and directories
 5. Managing files and directories
 6. Viewing file contents
+
 The default shell used in many Linux distributions is the GNU bash shell. This
 chapter describes the basic features available in the bash shell, such as the bash
 manual, tab auto-completion and how to display a file’s contents. You will walk
@@ -2163,19 +2228,23 @@ advanced commands.
 The GNU bash shell is a program that provides interactive access to the Linux system. It
 runs as a regular program and is normally started whenever a user logs in to a terminal.
 The shell that the system starts depends on your user ID configuration.
+
 The /etc/passwd file contains a list of all the system user accounts, along with some basic
 configuration information about each user. Here’s a sample entry from a /etc/passwd file:
 christine:x:501:501:Christine Bresnahan:/home/christine:/bin/bash
+
 Each entry has seven data fields, with fields separated by colons. The system uses the data
 in these fields to assign specific features for the user. Most of these entries are discussed in
 more detail in Chapter 7. For now, just pay attention to the last field, which specifies the
 user’s shell program.
+
 Note
 Though the focus is on the GNU bash shell, additional shells are reviewed in this
 book. Chapter 23 covers working with alternative shells, such as dash and tcsh.
 In the earlier /etc/passwd sample entry, the user christine has /bin/bash set as her
 default shell program. This means when christine logs into the Linux system, the bash
 shell program is automatically started.
+
 Although the bash shell program is automatically started at login, whether a shell
 command line interface (CLI) is presented depends on which login method is used. If a
 virtual console terminal is used to log in, the CLI prompt is automatically presented, and
@@ -2189,21 +2258,29 @@ the shell CLI prompt.
 After you start a terminal emulation package or log in to a Linux virtual console, you get
 access to the shell CLI prompt. The prompt is your gateway to the shell. This is the place
 where you enter shell commands.
+
 The default prompt symbol for the bash shell is the dollar sign ( $ ). This symbol indicates
 that the shell is waiting for you to enter text. Different Linux distributions use different
 formats for the prompt. On this Ubuntu Linux system, the shell prompt looks like this:
+```sh
 christine@server01:∼$
+```
 On the CentOS Linux system, it looks like this:
+```sh
 [christine@server01 ∼]$
+```
 Besides acting as your access point to the shell, the prompt can provide additional helpful
 information. In the two preceding examples, the current user ID name, christine , is
 shown in the prompt. Also, the name of the system is shown, server01 . You learn later in
 this chapter about additional items shown in the prompt.
+
 Tip
 If you are new to the CLI, keep in mind that, after you type in a shell command at the
 prompt, you need to press the Enter key for the shell to act upon your command.
+
 The shell prompt is not static. It can be changed to suit your needs. Chapter 6, “Using
 Linux Environment Variables,” covers modifying your shell CLI prompt configuration.
+
 Think of the shell CLI prompt as a helpmate, assisting you with your Linux system, giving
 you helpful insights, and letting you know when the shell is ready for new commands.
 Another helpful item in the shell is the bash Manual.
@@ -2226,23 +2303,28 @@ Figure 3.1 Manual pages for the xterm command
 Notice the xterm command DESCRIPTION paragraphs in Figure 3.1. They are rather sparse
 and full of technical jargon. The bash manual is not a step-by-step guide, but instead a
 quick reference.
+
 Tip
 If you are new to the bash shell, you may find that the man pages are not very helpful
 at first. However, get into the habit of using them, especially to read the first
 paragraph or two of a command’s DESCRIPTION section. Eventually, you will learn
 the technical lingo, and the man pages will become more helpful to you.
+
 When you use the man command to view a command’s manual pages, they are displayed
 with something called a pager. A pager is a utility that allows you to page through
 displayed text. Thus, you can page through the man pages by pressing the spacebar, or you
 can go line by line using the Enter key. In addition, you can use the arrow keys to scroll
 forward and backward through the man page text (assuming that your terminal emulation
 package supports the arrow key functions).
+
 When you are finished with the man pages, press the q key to quit. When you quit the man
 pages, you receive a shell CLI prompt, indicating the shell is waiting for your next
 command.
+
 Tip
 The bash manual even has reference information on itself. Type man man to see
-manual pages concerning the man pages
+manual pages concerning the man pages.
+
 The manual page divides information about a command into separate sections. Each
 section has a conventional naming standard as shown in Table 3.1.
 
@@ -2267,12 +2349,15 @@ Example Shows command use examples
 Authors Provides information on command developers
 Copyright Defines command code copyright status
 See Also Refers similar available commands
+
 Not every command’s man page has all the section names described in Table 3.1. Also,
 some commands have section names that are not listed in the conventional standard.
+
 Tip
 What if you can’t remember the command name? You can search the man pages
 using keywords. The syntax is man -k keyword . For example, to find commands
 dealing with the terminals, you type man -k terminal.
+
 In addition to the conventionally named sections for a man page, there are man page
 section areas. Each section area has an assigned number, starting at 1 and going to 9; they
 are listed in Table 3.2.
@@ -2289,24 +2374,30 @@ Section Number Area Contents
 7 Overviews, conventions, and miscellaneous
 8 Super user and system administration commands
 9 Kernel routines
+
 Typically, the man utility provides the lowest numbered content area for the command.
 For example, looking back to Figure 3.1 where the command man xterm was entered,
 notice that in the upper-left and upper-right display corners, the word XTERM is followed by
 a number in parentheses, (1) . This means the man pages displayed are coming from
 content area 1 (executable programs or shell commands).
+
 Occasionally, a command has man pages in multiple section content areas. For example,
 there is a command called hostname . The man pages contain information on the command
 as well as an overview section on system hostnames. To see the pages desired, you type
 man section# topic . For the command’s man pages in section 1, type man 1 hostname.
 For the overview man pages in section 7, type man 7 hostname.
+
 You can also step through an introduction to the various section content areas by typing
 man 1 intro to read about section 1, man 2 intro to read about section 2, man 3 intro to
 read about section 3, and so on.
+
 The man pages are not the only reference. There are also the information pages called info
 pages. You can learn about the info pages by typing info info.
+
 In addition, most commands accept the -help or —help option. For example, you can type
 hostname -help to see a help screen. For more information on using help, type help help.
 (See [a pattern here?])
+
 Obviously, several helpful resources are available for reference. However, many basic
 shell concepts still need detailed explanation. In the next section, we cover navigating
 through the Linux filesystem.
@@ -2319,44 +2410,56 @@ placed in your home directory. Often, you want to explore other areas in the Lin
 besides just your home directory. This section describes how to do that using shell
 commands. To start, you need to take a tour of just what the Linux filesystem looks like so
 you know where you are going.
+
 Looking at the Linux filesystem
 If you’re new to the Linux system, you may be confused by how it references files and
 directories, especially if you’re used to the way the Microsoft Windows operating system
 does that. Before exploring the Linux system, it helps to have an understanding of how it’s
 laid out.
+
 The first difference you’ll notice is that Linux does not use drive letters in pathnames. In
 the Windows world, the physical drives installed on the computer determine the pathname
 of the file. Windows assigns a letter to each physical disk drive, and each drive contains its
 own directory structure for accessing files stored on it.
+
 For example, in Windows you may be used to seeing the file paths such as:
 c:\Users\Rich\Documents\test.doc
+
 The Windows file path tells you exactly which physical disk partition contains the file
 named test.doc . For example, if you saved test.doc on a flash drive, designated by the J
 drive, the file path would be J:∖test.doc . This path indicates that the file is located at the
 root of the drive assigned the letter J .
+
 This is not the method used by Linux. Linux stores files within a single directory structure,
 called a virtual directory. The virtual directory contains file paths from all the storage
 devices installed on the computer, merged into a single directory structure.
+
 The Linux virtual directory structure contains a single base directory, called the root.
 Directories and files beneath the root directory are listed based on the directory path used
 to get to them, similar to the way Windows does it.
+
 Tip
 You’ll notice that Linux uses a forward slash ( / ) instead of a backward slash ( ∖ ) to
 denote directories in file paths. The backslash character in Linux denotes an escape
 character and causes all sorts of problems when you use it in a file path. This may
 take some getting used to if you’re coming from a Windows environment.
 In Linux, you will see file paths similar to the following:
+
 /home/Rich/Documents/test.doc
+
 This indicates the file test.doc is in the directory Documents , under the directory rich ,
 which is contained in the directory home . Notice that the path doesn’t provide any
 information as to which physical disk the file is stored on.
+
 The tricky part about the Linux virtual directory is how it incorporates each storage
 device. The first hard drive installed in a Linux system is called the root drive. The root
 drive contains the virtual directory core. Everything else builds from there.
+
 On the root drive, Linux can use special directories as mount points. Mount points are
 directories in the virtual directory where you can assign additional storage devices. Linux
 causes files and directories to appear within these mount point directories, even though
 they are physically stored on a different drive.
+
 Often system files are physically stored on the root drive. User files are typically stored on
 a separate drive or drives, as shown in Figure 3.2.
 
@@ -2365,8 +2468,6 @@ Figure 3.2 The Linux file structure
 
 
 Figure 3.2 shows two hard drives on the computer. One hard drive is associated with the
-                                                                *Figure 3.2*
-
 root of the virtual directory (indicated by a single forward slash). Other hard drives can be
 mounted anywhere in the virtual directory structure. In this example, the second hard drive
 is mounted at the location /home , which is where the user directories are located.
@@ -2377,7 +2478,7 @@ of the more common Linux virtual top-level directory names and their contents.
 Table 3.3 Common Linux Directory Names
                                                                 *Table 3.3*
 Directory Usage
-/ root of the virtual directory, where normally, no files are placed
+/   root of the virtual directory, where normally, no files are placed
 /bin binary directory, where many GNU user-level utilities are stored
 /boot boot directory, where boot files are stored
 /dev device directory, where Linux creates device nodes
@@ -2385,12 +2486,8 @@ Directory Usage
 /home home directory, where Linux creates user directories
 /lib library directory, where system and application library files are stored
 /media media directory, a common place for mount points used for removable media
-/mnt
-mount directory, another common place for mount points used for removable
-media
-/opt
-optional directory, often used to store third-party software packages and data
-files
+/mnt mount directory, another common place for mount points used for removable media
+/opt optional directory, often used to store third-party software packages and data files
 /proc process directory, where current hardware and process information is stored
 /root root home directory
 /sbin system binary directory, where many GNU admin-level utilities are stored
@@ -2398,68 +2495,83 @@ files
 /srv service directory, where local services store their files
 /sys system directory, where system hardware information files are stored
 /tmp temporary directory, where temporary work files can be created and destroyed
-/usr
-user binary directory, where the bulk of GNU user-level utilities and data files
-are stored
+/usr user binary directory, where the bulk of GNU user-level utilities and data files are stored
 /var variable directory, for files that change frequently, such as log files
+
 The common Linux directory names are based upon the Filesystem Hierarchy Standard
 (FHS). Many Linux distributions maintain compliance with FHS. Therefore, you should
 be able to easily find files on any FHS-compliant Linux systems.
+
 Note
 The FHS is occasionally updated. You may find that some Linux distributions are
 still using an older FHS standard, while other distributions only partially implement
 the current standard. To keep up to date on the FHS standard, visit its official home at
 http://www.pathname.com/fhs/.
+
 When you log in to your system and reach a shell CLI prompt, your session starts in your
 home directory. Your home directory is a unique directory assigned to your user account.
 When a user account is created, the system normally assigns a unique directory for the
 account (see [chapter 7]).
+
 You can move around the virtual directory using a graphical interface. However, to move
 around the virtual directory from a CLI prompt, you need to learn to use the cd command.
+
 Traversing directories
 You use the change directory command ( cd ) to move your shell session to another
 directory in the Linux filesystem. The cd command syntax is pretty simplistic: cd
 destination .
+
 The cd command may take a single parameter, destination , which specifies the directory
 name you want to go to. If you don’t specify a destination on the cd command, it takes
 you to your home directory.
+
 The destination parameter can be expressed using two different methods. One method is
 using an absolute directory reference. The other method uses a relative directory
 reference.
+
 The following sections describe each of these methods. The differences between these two
 methods are important to understand as you traverse the filesystem.
+
 Using absolute directory references
 You can reference a directory name within the virtual directory system using an absolute
 directory reference. The absolute directory reference defines exactly where the directory
 is in the virtual directory structure, starting at the root. Think of the absolute directory
 reference as the full name for a directory.
+
 An absolute directory reference always begins with a forward slash ( / ), indicating the
 virtual directory system’s root. Thus, to reference user binaries, contained within the bin
 directory stored within the usr directory, you would use an absolute directory reference as
 follows:
 /usr/bin
+
 With the absolute directory reference, there’s no doubt as to exactly where you want to go.
 To move to a specific location in the filesystem using the absolute directory reference, you
 just specify the full pathname in the cd command:
+```sh
 christine@server01:∼$ cd /usr/bin
 christine@server01:/usr/bin$
+```
 Notice in the preceding example that the prompt originally had a tilde ( ∼ ) in it. After the
 change to a new directory occurred, the tilde was replaced by /usr/bin . This is where a
 CLI prompt can help you keep track of where you are in the virtual directory structure.
 The tilde indicates that your shell session is located in your home directory. After you
 move out of your home directory, the absolute directory reference is shown in the prompt,
 if the prompt has been configured to do so.
+
 Note
 If your shell CLI prompt does not show your shell session’s current location, then it
 has not been configured to do so. Chapter 6 shows you how to make configuration
 changes, if you desire modifications to your CLI prompt.
+
 If your prompt has not been configured to show the shell session’s current absolute
 directory location, then you can display the location via a shell command. The pwd
 command displays the shell session’s current directory location, which is called the
 present working directory. An example of using the pwd command is shown here.
+```sh
 christine@server01:/usr/bin$ pwd
 /usr/bin
 christine@server01:/usr/bin$
+```
 Tip
 It is a good habit to use the pwd command whenever you change to a new present
 working directory. Because many shell commands operate on the present working
@@ -2467,32 +2579,41 @@ directory, you always want to make sure you are in the correct directory before
 issuing a command.
 You can move to any level within the entire Linux virtual directory structure from any
 level using the absolute directory reference:
+```sh
 christine@server01:/usr/bin$ cd /var/log
 christine@server01:/var/log$
 christine@server01:/var/log$ pwd
 /var/log
 christine@server01:/var/log$
+```
 You can also quickly jump to your home directory from any level within the Linux virtual
+```sh
 directory structure:
 christine@server01:/var/log$ cd
 christine@server01:~$
 christine@server01:∼$ pwd
 /home/christine
 christine@server01:∼$
+```
 However, if you’re just working within your own home directory structure, often using
 absolute directory references can get tedious. For example, if you’re already in the
 directory /home/christine , it seems somewhat cumbersome to have to type the
 command:
+```sh
 cd /home/christine/Documents
+```
 just to get to your Documents directory. Fortunately, there’s a simpler solution.
 Using relative directory references
+
 Relative directory references allow you to specify a destination directory reference
 relative to your current location. A relative directory reference doesn’t start with a forward
 slash ( / ).
+
 Instead, a relative directory reference starts with either a directory name (if you’re
 traversing to a directory under your current directory) or a special character. For example,
 if you are in your home directory and want to move to your Documents subdirectory, you
 can use the cd command along with a relative directory reference:
+```sh
 christine@server01:∼$ pwd
 /home/christine
 christine@server01:~$
@@ -2500,52 +2621,65 @@ christine@server01:∼$ cd Documents
 christine@server01:∼/Documents$ pwd
 /home/christine/Documents
 christine@server01:~/Documents$
+```
 In the preceding example, note that no forward slash (/) was used. Instead a relative
 directory reference was used and the present work directory was changed from
 /home/christine to /home/christine/Documents , with much less typing.
+
 Also notice in the example that if the prompt is configured to display the present working
 directory, it keeps the tilde in the display. This shows that the present working directory is
 in a directory under the user’s home directory.
+
 Tip
 If you are new to the command line and the Linux directory structure, it is
 recommended that you stick with absolute directory references for a while. After you
 become more familiar with the directory layout, switch to using relative directory
 references.
+
 You can use a relative directory reference with the cd command in any directory
 containing subdirectories. You can also use a special character to indicate a relative
 directory location.
+
 The two special characters used for relative directory references are:
 
-The single dot ( . ) to represent the current directory
-The double dot ( .. ) to represent the parent directory
+1. The single dot ( . ) to represent the current directory
+2. The double dot ( .. ) to represent the parent directory
+
 You can use the single dot, but it doesn’t make sense to use it with the cd command. Later
 in the chapter, you will see how another command uses the single dot for relative directory
 references effectively.
+
 The double dot character is extremely handy when trying to traverse a directory hierarchy.
 For example, if you are in the Documents directory under your home directory and need to
 go to your Downloads directory, also under your home directory, you can do this:
+```sh
 christine@server01:∼/Documents$ pwd
 /home/christine/Documents
 christine@server01:∼/Documents$ cd ../Downloads
 christine@server01:∼/Downloads$ pwd
 /home/christine/Downloads
 christine@server01:∼/Downloads$
+```
 The double dot character takes you back up one level to your home directory; then the
 /Downloads portion of the command takes you back down into the Downloads directory.
 You can use as many double dot characters as necessary to move around. For example, if
 you are in your home directory ( /home/christine ) and want to go to the /etc directory,
 you could type the following:
+```sh
 christine@server01:∼$ cd ../../etc
 christine@server01:/etc$ pwd
 /etc
 christine@server01:/etc$
+```
 Of course, in a case like this, you actually have to do more typing rather than just typing
 the absolute directory reference, /etc . Thus, use a relative directory reference only if it
 makes sense to do so.
+
 Note
 It’s helpful to have a long informative shell CLI prompt, as used in this chapter
 section. However, for clarity purposes, a simple $ prompt is used in the rest of the
 book’s examples.
+
 Now that you know how to traverse the directory system and confirm your present
 working directory, you can start to explore what’s contained within the various directories.
 The next section takes you through the process of looking at files within the directory
@@ -2559,33 +2693,41 @@ describes the ls command and options available to format the information it can 
 Displaying a basic listing
 The ls command at its most basic form displays the files and directories located in your
 current directory:
+```sh
 $ ls
 Desktop Downloads Music Pictures Templates Videos
 Documents examples.desktop my_script Public test_file
 $
+```
 Notice that the ls command produces the listing in alphabetical order (in columns rather
 than rows). If you’re using a terminal emulator that supports color, the ls command may
 also show different types of entries in different colors. The LS_COLORS environment
 variable controls this feature. (Environment variables are covered in Chapter 6). Different
 Linux distributions set this environment variable depending on the capabilities of the
 terminal emulator.
+
 If you don’t have a color terminal emulator, you can use the -F parameter with the ls
 command to easily distinguish files from directories. Using the -F parameter produces the
 following output:
+```sh
 $ ls -F
 Desktop/ Downloads/ Music/ Pictures/ Templates/ Videos/
 Documents/ examples.desktop my_script* Public/ test_file
 $
+```
 The -F parameter flags the directories with a forward slash ( / ), to help identify them in the
 listing. Similarly, it flags executable files (like the my_script file in the preceding code)
 with an asterisk ( * ), to help you more easily find files that can be run on the system.
+
 The basic ls command can be somewhat misleading. It shows the files and directories
 contained in the current directory, but not necessarily all of them. Linux often uses hidden
 files to store configuration information. In Linux, hidden files are files with filenames
 starting with a period ( . ). These files don’t appear in the default ls listing. Thus, they are
 called hidden files.
+
 To display hidden files along with normal files and directories, use the -a parameter. Here
 is an example of using the -a parameter with the ls command.
+```sh
 $ ls -a
 . .compiz examples.desktop Music test_file
 .. .config .gconf my_script Videos
@@ -2594,13 +2736,16 @@ $ ls -a
 .bashrc Documents .local Public .xsession-errors.old
 .cache Downloads .mozilla Templates
 $
+```
 All the files beginning with a period, hidden files, are now shown. Notice that three files
 begin with .bash . These are hidden files that are used by the bash shell environment.
 These features are covered in detail in Chapter 6.
+
 The -R parameter is another option the ls command can use. Called the recursive option,
 it shows files that are contained within subdirectories in the current directory. If you have
 lots of subdirectories, this can be quite a long listing. Here’s a simple example of what the
 -R parameter produces. The -F option was tacked on to help you see the file types:
+```sh
 $ ls -F -R
 .:
 Desktop/ Downloads/ Music/ Pictures/ Templates/ Videos/
@@ -2614,12 +2759,15 @@ ILoveLinux.mp3*
 ./Public:
 ./Templates:
 ./Videos:
+```sh
 $
+```
 Notice that the -R parameter shows the contents of the current directory, which are the
 files from a user’s home directory shown in earlier examples. It also shows each
 subdirectory in the user’s home directory and their contents. The only subdirectory
 containing a file is the Music subdirectory, and it contains the executable file,
 ILoveLinux.mp3 .
+
 Tip
 Option parameters don’t have to be entered separately as shown in the nearby
 example: ls -F -R . They can often be combined as follows: ls -FR .
@@ -2627,11 +2775,13 @@ In the previous example, there were no subdirectories within subdirectories. If 
 been further subdirectories, the -R parameter would have continued to traverse those as
 well. As you can see, for large directory structures, this can become quite a large output
 listing.
+
 Displaying a long listing
 In the basic listings, the ls command doesn’t produce much information about each file.
 For listing additional information, another popular parameter is -l . The -l parameter
 produces a long listing format, providing more information about each file in the
 directory:
+```sh
 $ ls -l
 total 48
 drwxr-xr-x 2 christine christine 4096 Apr 22 20:37 Desktop
@@ -2653,6 +2803,7 @@ drwxr-xr-x 2 christine christine 4096 Apr 22 20:37 Templates
 -rw-rw-r— 1 christine christine 0 May 21 11:28 test_file
 drwxr-xr-x 2 christine christine 4096 Apr 22 20:37 Videos
 $
+```
 The long listing format lists each file and subdirectory on a single line. In addition to the
 filename, the listing shows additional useful information. The first line in the output shows
 the total number of blocks contained within the directory. After that, each line contains the
@@ -2669,24 +2820,31 @@ The last time the file was modified
 The filename or directory name
 The -l parameter is a powerful tool to have. Armed with this parameter, you can see most
 of the information you need for any file or directory.
+
 The ls command has lots of parameters that can come in handy as you do file
 management. If you type at the shell prompt man ls , you see several pages of available
 parameters for you to use to modify the ls command output.
+
 Don’t forget that you can also combine many of the parameters. You can often find a
 parameter combination that not only displays the desired output, but also is easy to
 remember, such as ls -alF .
+
 Filtering listing output
 As you’ve seen in the examples, by default the ls command lists all the non-hidden
 directory files. Sometimes, this can be overkill, especially when you’re just looking for
 information on a few files.
+
 Fortunately, the ls command also provides a way for you to define a filter on the
 command line. It uses the filter to determine which files or directories it should display in
 the output.
+
 The filter works as a simple text-matching string. Include the filter after any command line
 parameters you want to use:
+```sh
 $ ls -l my_script
 -rwxrw-r— 1 christine christine 54 May 21 11:26 my_script
 $
+```
 When you specify the name of a specific file as the filter, the ls command only shows
 that file’s information. Sometimes, you might not know the exact filename you’re looking
 for. The ls command also recognizes standard wildcard characters and uses them to match
@@ -2694,50 +2852,63 @@ patterns within the filter:
 
 A question mark ( ? ) to represent one character
 An asterisk ( * ) to represent any number of characters
+
 The question mark can be used to replace exactly one character anywhere in the filter
 string. For example:
+```sh
 $ ls -l my_scr?pt
 -rw-rw-r— 1 christine christine 0 May 21 13:25 my_scrapt
 -rwxrw-r— 1 christine christine 54 May 21 11:26 my_script
 $
+```
 The filter my_scr?pt matched two files in the directory. Similarly, the asterisk can be used
 to match zero or more characters:
+```sh
 $ ls -l my*
 -rw-rw-r— 1 christine christine 0 May 21 13:25 my_file
 -rw-rw-r— 1 christine christine 0 May 21 13:25 my_scrapt
 -rwxrw-r— 1 christine christine 54 May 21 11:26 my_script
 $
+```
 Using the asterisk finds three different files, starting with the name my . As with the
 question mark, you can place the asterisks anywhere in the filter:
+```sh
 $ ls -l my_s*t
 -rw-rw-r— 1 christine christine 0 May 21 13:25 my_scrapt
 -rwxrw-r— 1 christine christine 54 May 21 11:26 my_script
 $
+```
 Using the asterisk and question mark in the filter is called file globbing. File globbing is
 the processing of pattern matching using wildcards. The wildcards are officially called
 metacharacter wildcards. You can use more metacharacter wildcards for file globbing
 than just the asterisk and question mark. You can also use brackets:
+```sh
 $ ls -l my_scr[ai]pt
 -rw-rw-r— 1 christine christine 0 May 21 13:25 my_scrapt
 -rwxrw-r— 1 christine christine 54 May 21 11:26 my_script
 $
+```
 In this example, we used the brackets along with two potential choices for a single
 character in that position, a or i . The brackets represent a single character position and
 give you multiple options for file globbing. You can list choices of characters, as shown in
 the preceding example, and you can specify a range of characters, such as an alphabetic
 range [a - i]:
+```sh
 $ ls -l f[a-i]ll
 -rw-rw-r— 1 christine christine 0 May 21 13:44 fall
 -rw-rw-r— 1 christine christine 0 May 21 13:44 fell
 -rw-rw-r— 1 christine christine 0 May 21 13:44 fill
 $
+```
 Also, you can specify what should not be included in the pattern match by using the
 exclamation point ( ! ):
+```sh
 $ ls -l f[!a]ll
 -rw-rw-r— 1 christine christine 0 May 21 13:44 fell
 -rw-rw-r— 1 christine christine 0 May 21 13:44 fill
 -rw-rw-r— 1 christine christine 0 May 21 13:44 full
 $
+```
 File globbing is a powerful feature when searching for files. It can also be used with other
 shell commands besides ls . You find out more about this later in the chapter.
 
@@ -2747,26 +2918,32 @@ shell commands besides ls . You find out more about this later in the chapter.
 The shell provides many file manipulation commands on the Linux filesystem. This
 section walks you through the basic shell commands you need to handle files.
 Creating files
+
 Every once in a while you run into a situation where you need to create an empty file. For
 example, sometimes applications expect a log file to be present before they can write to it.
 In these situations, you can use the touch command to easily create an empty file:
+```sh
 $ touch test_one
 $ ls -l test_one
 -rw-rw-r— 1 christine christine 0 May 21 14:17 test_one
 $
+```
 The touch command creates the new file you specify and assigns your username as the
 file owner. Notice in the preceding example that the file size is zero because the touch
 command just created an empty file.
 The touch command can also be used to change the modification time. This is done
 without changing the file contents:
+```sh
 $ ls -l test_one
 -rw-rw-r— 1 christine christine 0 May 21 14:17 test_one
 $ touch test_one
 $ ls -l test_one
 -rw-rw-r— 1 christine christine 0 May 21 14:35 test_one
 $
+```
 The modification time of test_one is now updated to 14:35 from the original time, 14:17 .
 To change only the access time, use the -a parameter with the touch command:
+```sh
 $ ls -l test_one
 -rw-rw-r— 1 christine christine 0 May 21 14:35 test_one
 $ touch -a test_one
@@ -2775,28 +2952,34 @@ $ ls -l test_one
 $ ls -l —time=atime test_one
 -rw-rw-r— 1 christine christine 0 May 21 14:55 test_one
 $
+```
 In the preceding example, notice that by using only the ls -l command, the access time
 does not display. This is because the modification time is shown by default. To see a file’s
 access time, you need to add an additional parameter, —time=atime . After we add that
 parameter in the preceding example, the file’s altered access time is displayed.
 Creating empty files and altering file timestamps is not something you will do on a Linux
 system daily. However, copying files is an action you will do often while using the shell.
+
 Copying files
 Copying files and directories from one location in the filesystem to another is a common
 practice for system administrators. The cp command provides this feature.
 In its most basic form, the cp command uses two parameters — the source object and the
-destination object: cp source destination .
+destination object: cp source destination.
+
 When both the source and destination parameters are filenames, the cp command
 copies the source file to a new destination file. The new file acts like a brand new file,
 with an updated modification time:
+```sh
 $ cp test_one test_two
 $ ls -l test_*
 -rw-rw-r— 1 christine christine 0 May 21 14:35 test_one
 -rw-rw-r— 1 christine christine 0 May 21 15:15 test_two
 $
+```
 The new file test_two shows a different modification time than the test_one file. If the
 destination file already exists, the cp command may not prompt you to this fact. It is best
 to add the -i option to force the shell to ask whether you want to overwrite a file:
+```sh
 $ ls -l test_*
 -rw-rw-r— 1 christine christine 0 May 21 14:35 test_one
 -rw-rw-r— 1 christine christine 0 May 21 15:15 test_two
@@ -2804,16 +2987,20 @@ $
 $ cp -i test_one test_two
 cp: overwrite ‘test_two’? n
 $
+```
 If you don’t answer y , the file copy does not proceed. You can also copy a file into a pre-
 existing directory:
+```sh
 $ cp -i test_one /home/christine/Documents/
 $
 $ ls -l /home/christine/Documents
 total 0
 -rw-rw-r— 1 christine christine 0 May 21 15:25 test_one
 $
+```
 The new file is now under the Documents subdirectory, using the same filename as the
 original.
+
 Note
 The preceding example uses a trailing forward slash ( / ) on the destination directory
 name. Using the slash indicates Documents is a directory and not a file. This is
@@ -2823,6 +3010,7 @@ problems can occur. In this case, attempting to copy a single file to the Docume
 subdirectory creates a file named Documents instead, and no error messages display!
 This last example used an absolute directory reference, but you can just as easily use a
 relative directory reference:
+```sh
 $ cp -i test_one Documents/
 cp: overwrite ‘Documents/test_one’? y
 $
@@ -2830,25 +3018,31 @@ $ ls -l Documents
 total 0
 -rw-rw-r— 1 christine christine 0 May 21 15:28 test_one
 $
+```
 Earlier in this chapter, you read about the special symbols that can be used in relative
 directory references. One of them, the single dot (.), is great to use with the cp command.
 Remember that the single dot represents your present working directory. If you need to
 copy a file with a long source object name to your present working directory, the single
 dot can simplify the task:
+```sh
 $ cp -i /etc/NetworkManager/NetworkManager.conf .
 $
 $ ls -l NetworkManager.conf
 -rw-r—r— 1 christine christine 76 May 21 15:55 NetworkManager.conf
 $
+```
 It’s hard to see that single dot! If you look closely, you’ll see it at the end of the first
 example code line. Using the single dot symbol is much easier than typing a full
 destination object name, when you have long source object names.
+
 Tip
 There are many more cp command parameters than those described here. Remember
 that you can see all the different available parameters available for the cp command,
 by typing man cp.
+
 The -R parameter is a powerful cp command option. It allows you to recursively copy the
 contents of an entire directory in one command:
+```sh
 $ ls -Fd *Scripts
 Scripts/
 $ ls -l Scripts/
@@ -2866,15 +3060,18 @@ total 25
 -rwxrw-r— 1 christine christine 254 May 21 16:16 SGID_search.sh
 -rwxrw-r— 1 christine christine 243 May 21 16:16 SUID_search.sh
 $
+```
 The directory Mod_Scripts did not exist prior to the cp -R command. It was created with
 the cp -R command, and the entire Scripts directory’s contents were copied into it.
 Notice that all the files in the new Mod_Scripts directory have new dates associated with
 them. Now Mod_Scripts is a complete copy of the Scripts directory.
+
 Note
 In the preceding example, the options -Fd were added to the ls command. You read
 about the -F option earlier in this chapter. However, the -d option may be new to you.
 The -d option lists a directory’s information but not its contents.
 You can also use wildcard metacharacters in your cp commands:
+```sh
 $ cp *script Mod_Scripts/
 $ ls -l Mod_Scripts
 total 26
@@ -2883,17 +3080,21 @@ total 26
 -rwxrw-r— 1 christine christine 254 May 21 16:16 SGID_search.sh
 -rwxrw-r— 1 christine christine 243 May 21 16:16 SUID_search.sh
 $
+```
 This command copied any files that ended with script to Mod_Scripts . In this case, only
 one file needed to be copied: my_script .
 When copying files, another shell feature can help you besides the single dot and wildcard
 metacharacters. It is called tab auto-complete.
+
 Using tab auto-complete
 When working at the command line, you can easily mistype a command, directory name,
 or filename. In fact, the longer a directory reference or filename, the greater the chance
 that you will mistype it.
+
 This is where tab auto-complete can be a lifesaver. Tab auto-complete allows you to start
 typing a filename or directory name and then press the tab key to have the shell complete
 it for you:
+```sh
 $ ls really*
 really_ridiculously_long_file_name
 $
@@ -2907,16 +3108,19 @@ really_ridiculously_long_file_name
 -rwxrw-r— 1 christine christine 254 May 21 16:16 SGID_search.sh
 -rwxrw-r— 1 christine christine 243 May 21 16:16 SUID_search.sh
 $
+```
 In the preceding example, we typed the command cp really and pressed the tab key, and
 the shell auto-completed the rest of the filename! Of course, the destination directory had
 to be typed, but still tab auto-complete saved the command from several potential
 typographical errors.
+
 The trick to using tab auto-complete is to give the shell enough filename characters so it
 can distinguish the desired file from other files. For example, if another filename started
 with really , pressing the tab key would not auto-complete the filename. Instead, you
 would hear a beep. If this happens, you can press the tab key again, and the shell shows
 you all the filenames starting with really . This feature allows you to see what needs to be
 typed for tab auto-complete to work properly.
+
 Linking files
 Linking files is a great option available in the Linux filesystem. If you need to maintain
 two (or more) copies of the same file on the system, instead of having separate physical
@@ -2924,13 +3128,16 @@ copies, you can use one physical copy and multiple virtual copies, called links.
 placeholder in a directory that points to the real location of the file. Two types of file links
 are available in Linux:
 
-A symbolic link
-A hard link
+1. A symbolic link
+2. A hard link
+
 A symbolic link is simply a physical file that points to another file somewhere in the
 virtual directory structure. The two symbolically linked together files do not share the
 same contents.
+
 To create a symbolic link to a file, the original file must pre-exist. We can then use the ln
 command with the -s option to create the symbolic link:
+```sh
 $ ls -l data_file
 -rw-rw-r— 1 christine christine 1092 May 21 17:27 data_file
 $
@@ -2941,27 +3148,34 @@ $ ls -l *data_file
 lrwxrwxrwx 1 christine christine 9 May 21 17:29 sl_data_file ->
 data_file
 $
+```
 In the preceding example, notice that the name of the symbolic link, sl_data_file , is
 listed second in the ln command. The —> symbol displayed after the symbolic link file’s
 long listing shows that it is symbolically linked to the file data_file .
+
 Also note the symbolic link’s file size versus the data file’s file size. The symbolic link,
 sl_data_file , is only 9 bytes, whereas the data_file is 1092 bytes. This is because
 sl_data_file is only pointing to data_file . They do not share contents and are two
 physically separate files.
+
 Another way to tell that these linked files are separate physical files is by viewing their
 inode number. The inode number of a file or directory is a unique identification number
 that the kernel assigns to each object in the filesystem. To view a file or directory’s inode
 number, add the -i parameter to the ls command:
+```sh
 $ ls -i *data_file
 296890 data_file 296891 sl_data_file
 $
+```
 The example shows that the data file’s inode number is 296890 , while the sl_data_file
 inode number is different. It is 296891 . Thus, they are different files.
+
 A hard link creates a separate virtual file that contains information about the original file
 and where to locate it. However, they are physically the same file. When you reference the
 hard link file, it’s just as if you’re referencing the original file. To create a hard link, again
 the original file must pre-exist, except that this time no parameter is needed on the ln
 command:
+```sh
 $ ls -l code_file
 -rw-rw-r— 1 christine christine 189 May 21 17:56 code_file
 $
@@ -2973,11 +3187,13 @@ code_file
 296892 -rw-rw-r— 2 christine christine 189 May 21 17:56
 hl_code_file
 $
+```
 In the preceding example, we used the ls -li command to show both the inode numbers
-and a long listing for the *code_files . Notice that both files, which are hard linked
+and a long listing for the `*code_files` . Notice that both files, which are hard linked
 together, share the name inode number. This is because they are physically the same file.
 Also notice that the link count (the third item in the listing) now shows that both files have
 two links. In addition, their file size is exactly the same size as well.
+
 Note
 You can only create a hard link between files on the same physical medium. To create
 a link between files under separate physical mediums, you must use a symbolic link.
@@ -2985,13 +3201,16 @@ Be careful when copying linked files. If you use the cp command to copy a file t
 linked to another source file, all you’re doing is making another copy of the source file.
 This can quickly get confusing. Instead of copying the linked file, you can create another
 link to the original file. You can have many links to the same file with no problems.
+
 However, you also don’t want to create soft links to other soft-linked files. This creates a
 chain of links that can be confusing — and easily broken — causing all sorts of problems.
 You may find symbolic and hard links difficult concepts. Fortunately, renaming files in the
 next section is a great deal easier to understand.
+
 Renaming files
-In the Linux world, renaming files is called moving files. The mv command is available to
+In the Linux world, renaming files is called moving files. The `mv` command is available to
 move both files and directories to another location or a new name:
+```sh
 $ ls -li f?ll
 296730 -rw-rw-r— 1 christine christine 0 May 21 13:44 fall
 296717 -rw-rw-r— 1 christine christine 0 May 21 13:44 fell
@@ -3006,9 +3225,11 @@ $ ls -li f?ll
 296742 -rw-rw-r— 1 christine christine 0 May 21 13:44 full
 296730 -rw-rw-r— 1 christine christine 0 May 21 13:44 fzll
 $
+```
 Notice that moving the file changed the name from fall to fzll , but it kept the same
 inode number and timestamp value. This is because mv affects only a file’s name.
 You can also use mv to change a file’s location:
+```sh
 $ ls -li /home/christine/fzll
 296730 -rw-rw-r— 1 christine christine 0 May 21 13:44
 /home/christine/fzll
@@ -3024,16 +3245,20 @@ $
 $ ls -li /home/christine/fzll
 ls: cannot access /home/christine/fzll: No such file or directory
 $
+```
 In the preceding example, we moved the file fzll from /home/christine to
 /home/christine/Pictures using the mv command. Again, there were no changes to the
 file’s inode number or timestamp value.
+
 Tip
 Like the cp command, you can use the -i option on the mv command. Thus, you are
 asked before the command attempts to overwrite any pre-existing files.
 The only change was to the file’s location. The fzll file no longer exists in
 /home/christine , because a copy of it was not left in its original location, as the cp
 command would have done.
+
 You can use the mv command to move a file’s location and rename it, all in one easy step:
+```sh
 $ ls -li Pictures/fzll
 296730 -rw-rw-r— 1 christine christine 0 May 21 13:44
 Pictures/fzll
@@ -3047,10 +3272,12 @@ $
 $ ls -li /home/christine/Pictures/fzll
 ls: cannot access /home/christine/Pictures/fzll:
 No such file or directory
+```
 For this example, we moved the file fzll from a subdirectory, Pictures , to the home
 directory, /home/christine , and renamed it to fall . Neither the timestamp value nor the
 inode number changed. Only the location and name were altered.
 You can also use the mv command to move entire directories and their contents:
+```sh
 $ ls -li Mod_Scripts
 total 26
 296886 -rwxrw-r— 1 christine christine 929 May 21 16:16
@@ -3078,28 +3305,36 @@ SGID_search.sh
 296884 -rwxrw-r— 1 christine christine 243 May 21 16:16
 SUID_search.sh
 $
+```
 The directory’s entire contents are unchanged. The only thing that changes is the name of
 the directory.
+
 After you know how to rename…err…move files with the mv command, you realize how
 simple it is to accomplish. Another easy, but potentially dangerous, task is deleting files.
+
 Deleting files
 Most likely at some point you’ll want to be able to delete existing files. Whether it’s to
 clean up a filesystem or to remove a software package, you always have opportunities to
 delete files.
+
 In the Linux world, deleting is called removing. The command to remove files in the bash
-shell is rm . The basic form of the rm command is simple:
+shell is `rm` . The basic form of the rm command is simple:
+```sh
 $ rm -i fall
 rm: remove regular empty file ‘fall’? y
 $
 $ ls -l fall
 ls: cannot access fall: No such file or directory
 $
+```
 Notice that the -i command parameter prompts you to make sure that you’re serious about
 removing the file. The shell has no recycle bin or trashcan. After you remove a file, it’s
 gone forever. Therefore, a good habit is to always tack on the -i parameter to the rm
 command.
+
 You can also use wildcard metacharacters to remove groups of files. However, again, use
 that -i option to protect yourself:
+```sh
 $ rm -i f?ll
 rm: remove regular empty file ‘fell’? y
 rm: remove regular empty file ‘fill’? y
@@ -3108,6 +3343,7 @@ $
 $ ls -l f?ll
 ls: cannot access f?ll: No such file or directory
 $
+```
 One other feature of the rm command, if you’re removing lots of files and don’t want to be
 bothered with the prompt, is to use the -f parameter to force the removal. Just be careful!
 
@@ -3118,23 +3354,30 @@ Linux has a few commands that work for both files and directories (such as the c
 command), and some that work only for directories. To create a new directory, you need to
 use a specific command, which is covered in this section. Removing directories can get
 interesting, so that is covered in this section as well.
+
 Creating directories
-Creating a new directory in Linux is easy — just use the mkdir command:
+Creating a new directory in Linux is easy — just use the `mkdir` command:
+```sh
 $ mkdir New_Dir
 $ ls -ld New_Dir
 drwxrwxr-x 2 christine christine 4096 May 22 09:48 New_Dir
 $
+```
 The system creates a new directory named New_Dir . Notice in the new directory’s long
 listing that the directory’s record begins with a d . This indicates that New_Dir is not a file,
 but a directory.
+
 You can create directories and subdirectories in “bulk” if needed. However, if you attempt
 this with just the mkdir command, you get the following error message:
+```sh
 $ mkdir New_Dir/Sub_Dir/Under_Dir
 mkdir: cannot create directory ‘New_Dir/Sub_Dir/Under_Dir’:
 No such file or directory
 $
+```
 To create several directories and subdirectories at the same time, you need to add the -p
 parameter:
+```sh
 $ mkdir -p New_Dir/Sub_Dir/Under_Dir
 $
 $ ls -R New_Dir
@@ -3143,17 +3386,22 @@ Sub_Dir
 New_Dir/Sub_Dir:
 Under_Dir
 New_Dir/Sub_Dir/Under_Dir:
+```sh
 $
+```
 The -p option on the mkdir command makes any missing parent directories as needed. A
 parent directory is a directory that contains other directories at the next level down the
 directory tree.
+
 Of course, after you make something, you need to know how to delete it. This is especially
 useful if you created a directory in the wrong location.
+
 Deleting directories
 Removing directories can be tricky, and for good reason. There are lots of opportunities
 for bad things to happen when you start deleting directories. The shell tries to protect us
 from accidental catastrophes as much as possible. The basic command for removing a
-directory is rmdir :
+directory is `rmdir` :
+```sh
 $ touch New_Dir/my_file
 $ ls -li New_Dir/
 total 0
@@ -3162,10 +3410,12 @@ $
 $ rmdir New_Dir
 rmdir: failed to remove ‘New_Dir’: Directory not empty
 $
+```
 By default, the rmdir command works only for removing empty directories. Because we
 created a file, my_file , in the New_Dir directory, the rmdir command refuses to remove it.
 To fix this, we must remove the file first. Then we can use the rmdir command on the now
 empty directory:
+```sh
 $ rm -i New_Dir/my_file
 rm: remove regular empty file ‘New_Dir/my_file’? y
 $
@@ -3173,11 +3423,13 @@ $ rmdir New_Dir
 $
 $ ls -ld New_Dir
 ls: cannot access New_Dir: No such file or directory
+```
 The rmdir has no -i option to ask if you want to remove the directory. This is one reason
 it is helpful that rmdir removes only empty directories.
 You can also use the rm command on entire non-empty directories. Using the -r option
 allows the command to descend into the directory, remove the files, and then remove the
 directory itself:
+```sh
 $ ls -l My_Dir
 total 0
 -rw-rw-r— 1 christine christine 0 May 22 10:02 another_file
@@ -3190,8 +3442,10 @@ $
 $ ls -l My_Dir
 ls: cannot access My_Dir: No such file or directory
 $
+```
 This also works for descending into multiple subdirectories and is especially useful when
 you have lots of directories and files to delete:
+```sh
 $ ls -FR Small_Dir
 Small_Dir:
 a_file b_file c_file Teeny_Dir/ Tiny_Dir/
@@ -3216,16 +3470,20 @@ $
 $ ls -FR Small_Dir
 ls: cannot access Small_Dir: No such file or directory
 $
+```
 Although this works, it’s somewhat awkward. Notice that you still must verify each and
 every file that gets removed. For a directory with lots of files and subdirectories, this can
 become tedious.
+
 Note
 For the rm command, the -r parameter and the -R parameter work exactly the same.
 When used with the rm command, the -R parameter also recursively traverses through
 the directory removing files. It is unusual for a shell command to have different cased
 parameters with the same function.
+
 The ultimate solution for throwing caution to the wind and removing an entire directory,
 contents and all, is the rm command with both the -r and -f parameters:
+```sh
 $ tree Small_Dir
 Small_Dir
 ├ a_file
@@ -3243,15 +3501,18 @@ $ tree Small_Dir
 Small_Dir [error opening dir]
 0 directories, 0 files
 $
+```
 The rm -rf command gives no warnings and no fanfare. This, of course, is an extremely
 dangerous tool to have, especially if have superuser privileges. Use it sparingly, and only
 after triple checking to make sure that you’re doing exactly what you want to do!
+
 Note
 Notice in the preceding example that we used the tree utility. It nicely displays
 directories, subdirectories, and their files. It’s a useful utility when you need to
 understand a directory structure, especially before removing it. This utility may not
 be installed by default in your Linux distribution. See Chapter 9 for learning about
 installing software
+
 In the last few sections, you looked at managing both files and directories. So far we
 covered everything you need to know about files, except for how to peek inside of them.
 
@@ -3261,56 +3522,74 @@ covered everything you need to know about files, except for how to peek inside o
 You can use several commands for looking inside files without having to pull out a text
 editor utility (see [chapter 10]). This section demonstrates a few of the commands you have
 available to help you examine files.
+
 Viewing the file type
 Before you go charging off trying to display a file, try to get a handle on what type of file
 it is. If you try to display a binary file, you get lots of gibberish on your monitor and may
 even lock up your terminal emulator.
+
 The file command is a handy little utility to have around. It can peek inside of a file and
 determine just what kind of file it is:
+```sh
 $ file my_file
 my_file: ASCII text
 $
+```
 The file in the preceding example is a text file. The file command determined not only
 that the file contains text but also the character code format of the text file, ASCII .
 This following example shows a file that is simply a directory. Thus, the file command
 gives you another method to distinguish a directory:
+```sh
 $ file New_Dir
 New_Dir: directory
 $
+```
 This third file command example shows a file, which is a symbolic link. Note that the
 file command even tells you to which file it is symbolically linked:
+```sh
 $ file sl_data_file
 sl_data_file: symbolic link to ‘data_file’
 $
+```
 The following example shows what the file command returns for a script file. Although
 the file is ASCII text , because it’s a script file, you can execute (run) it on the system:
+```sh
 $ file my_script
 my_script: Bourne-Again shell script, ASCII text executable
 $
+```
 The final example is a binary executable program. The file command determines the
 platform that the program was compiled for and what types of libraries it requires. This is
 an especially handy feature if you have a binary executable program from an unknown
 source:
+```sh
 $ file /bin/ls
 /bin/ls: ELF 64-bit LSB executable, x86-64, version 1 (SYSV),
 dynamically linked (uses shared libs), for GNU/Linux 2.6.24,
 […]
 $
+```
 Now that you know a quick method for viewing a file’s type, you can start displaying and
 viewing files.
+
 Viewing the whole file
 If you have a large text file on your hands, you may want to be able to see what’s inside of
 it. Linux has three different commands that can help you here.
+
 Using the cat command
 The cat command is a handy tool for displaying all the data inside a text file:
+```sh
 $ cat test1
 hello
 This is a test file.
 That we’ll use to test the cat command.
 $
+```
 Nothing too exciting, just the contents of the text file. However, the cat command has a
 few parameters that can help you out.
+
 The -n parameter numbers all the lines for you:
+```sh
 $ cat -n test1
 1 hello
 2
@@ -3319,23 +3598,29 @@ $ cat -n test1
 5
 6 That we’ll use to test the cat command.
 $
+```
 That feature will come in handy when you’re examining scripts. If you just want to
 number the lines that have text in them, the -b parameter is for you:
+```sh
 $ cat -b test1
 1 hello
 2 This is a test file.
 3 That we’ll use to test the cat command.
 $
+```
 Finally, if you don’t want tab characters to appear, use the -T parameter:
+```sh
 $ cat -T test1
 hello
 This is a test file.
 That we’ll use to∧Itest the cat command.
 $
+```
 The -T parameter replaces any tabs in the text with the ∧I character combination.
 For large files, the cat command can be somewhat annoying. The text in the file just
 quickly scrolls off the display without stopping. Fortunately, we have a simple way to
 solve this problem.
+
 Using the more command
 The main drawback of the cat command is that you can’t control what’s happening after
 you start it. To solve that problem, developers created the more command. The more
@@ -3348,6 +3633,7 @@ Figure 3.3 Using the more command to display a text file
 Notice at the bottom of the screen in Figure 3.3 that the more command displays a tag
 showing that you’re still in the more application and how far along ( 56% ) in the text file
 you are. This is the prompt for the more command.
+
 The more command is a pager utility. Remember from earlier in this chapter a pager utility
 displays selected bash manual pages when you use the man command. Similarly to
 navigating through the man pages, you can use more to navigate through a text file by
@@ -3355,36 +3641,45 @@ pressing the spacebar or you can go forward line by line using the Enter key. Wh
 are finished navigating through the file using more , press the q key to quit.
 The more command allows some rudimentary movement through the text file. For more
 advanced features, try the less command.
+
 Using the less command
 From its name, it sounds like it shouldn’t be as advanced as the more command. However,
 the less command name is actually a play on words and is an advanced version of the
 more command (the less command name comes from the phrase “less is more”). It
 provides several very handy features for scrolling both forward and backward through a
 text file, as well as some pretty advanced searching capabilities.
+
 The less command can also display a file’s contents before it finishes reading the entire
 file. The cat and more commands cannot do this.
+
 The less command operates much the same as the more command, displaying one screen
 of text from a file at a time. It supports the same command set as the more command, plus
 many more options.
+
 Tip
 To see all the options available for the less command, view its man pages by typing
 man less. You can do the same for the more command to see the reference material
 concerning its various options as well.
+
 One set of features is that the less command recognizes the up and down arrow keys as
 well as the Page Up and Page Down keys (assuming that you’re using a properly defined
 terminal). This gives you full control when viewing a file.
 Viewing parts of a file
+
 Often the data you want to view is located either right at the top or buried at the bottom of
 a text file. If the information is at the top of a large file, you still need to wait for the cat
 or more commands to load the entire file before you can view it. If the information is
 located at the bottom of a file (such as a log file), you need to wade through thousands of
 lines of text just to get to the last few entries. Fortunately, Linux has specialized
 commands to solve both of these problems.
+
 Using the tail command
 The tail command displays the last lines in a file (the file’s “tail”). By default, it shows
 the last 10 lines in the file.
+
 For these examples, we created a text file containing 20 text lines. It is displayed here in
 its entirety using the cat command:
+```sh
 $ cat log_file
 line1
 line2
@@ -3407,8 +3702,10 @@ line18
 line19
 Last line - line20
 $
+```
 Now that you have seen the entire text file, you can see the effect of using tail to view
 the file’s last 10 lines:
+```sh
 $ tail log_file
 line11
 Hello again - line 12
@@ -3421,20 +3718,25 @@ line18
 line19
 Last line - line20
 $
+```
 You can change the number of lines shown using tail by including the -n parameter. In
 this example, only the last two lines of the file are displayed, by adding -n 2 to the tail
 command:
+```sh
 $ tail -n 2 log_file
 line19
 Last line - line20
 $
+```
 The -f parameter is a pretty cool feature of the tail command. It allows you to peek
 inside a file as the file is being used by other processes. The tail command stays active
 and continues to display new lines as they appear in the text file. This is a great way to
 monitor the system log files in real-time mode.
+
 Using the head command
 The head command does what you’d expect; it displays a file’s first group of lines (the
 file’s “head”). By default, it displays the first 10 lines of text:
+```sh
 $ head log_file
 line1
 line2
@@ -3447,9 +3749,11 @@ line8
 line9
 line10
 $
+```
 Similar to the tail command, the head command supports the -n parameter so you can
 alter what’s displayed. Both commands also allow you to simply type a dash along with
 the number of lines to display, as shown here:
+```sh
 $ head -5 log_file
 line1
 line2
@@ -3457,6 +3761,7 @@ line3
 line4
 line5
 $
+```
 Usually the beginning of a file doesn’t change, so the head command doesn’t support the -
 f parameter feature as the tail command does. The head command is a handy way to just
 peek at the beginning of a file.
@@ -3469,15 +3774,18 @@ This chapter covered the basics of working with the Linux filesystem from a shel
 We began with a discussion of the bash shell and showed you how to interact with the
 shell. The command line interface (CLI) uses a prompt string to indicate when it’s ready
 for you to enter commands.
+
 The shell provides a wealth of utilities you can use to create and manipulate files. Before
 you start playing with files, you should understand how Linux stores them. This chapter
 discussed the basics of the Linux virtual directory and showed you how Linux references
 storage media devices. After describing the Linux filesystem, the chapter walked you
 through using the cd command to move around the virtual directory.
+
 After showing you how to get to a directory, the chapter demonstrated how to use the ls
 command to list the files and subdirectories. Lots of parameters can customize the output
 of the ls command. You can obtain information on files and directories by using the ls
 command.
+
 The touch command is useful for creating empty files and for changing the access or
 modification times on an existing file. The chapter also discussed using the cp command
 to copy existing files from one location to another. It walked you through the process of
@@ -3487,10 +3795,12 @@ Next, you learned how to rename files (called moving) in Linux using the mv comm
 and saw how to delete files (called removing) using the rm command. This chapter also
 showed you how to perform the same tasks with directories, using the mkdir and rmdir
 commands.
+
 Finally, the chapter closed with a discussion on viewing the contents of files. The cat ,
 more , and less commands provide easy methods for viewing the entire contents of a file,
 while the tail and head commands are great for peeking inside a file to just see a small
 portion of it.
+
 The next chapter continues the discussion on bash shell commands. We’ll look at more
 advanced administrator commands that come in handy as you administer your Linux
 system.
@@ -3507,9 +3817,8 @@ In This Chapter
 4. Sorting data
 5. Archiving data
 
-
-# =🚩 Chapter 3 covered the basics of walking through the Linux filesystem and working with files and directories. File and directory management is a major feature of the
-                                                                            *Chapter 3*
+Chapter 3 covered the basics of walking through the Linux filesystem and working with files 
+and directories. File and directory management is a major feature of the
 
 Linux shell; however, we should look at some other things before we start our script
 programming. This chapter digs into the Linux system management commands,
@@ -3537,11 +3846,13 @@ master. Most system administrators find a subset of these parameters that provid
 information they want, and they stick with using only those.
 That said, however, the basic ps command doesn’t really provide all that much
 information:
+```sh
 $ ps
 PID TTY TIME CMD
 3081 pts/0 00:00:00 bash
 3209 pts/0 00:00:00 ps
 $
+```
 Not too exciting. By default, the ps command shows only the processes that belong to the
 current user and that are running on the current terminal. In this case, we had only our
 bash shell running (remember, the shell is just another program running on the system)
@@ -3629,6 +3940,7 @@ Linux system administrators have their own sets of parameters that they use for 
 pertinent information. For example, if you need to see everything running on the system,
 use the -ef parameter combination (the ps command lets you combine parameters like
 this):
+```sh
 $ ps -ef
 UID PID PPID C STIME TTY TIME CMD
 root 1 0 0 11:29 ? 00:00:01 init [5]
@@ -3646,6 +3958,7 @@ rich 3080 3078 0 12:00 ? 00:00:00 sshd: rich@pts/0
 rich 3081 3080 0 12:00 pts/0 00:00:00 -bash
 rich 4445 3081 3 13:48 pts/0 00:00:00 ps -ef
 $
+```
 Quite a few lines have been cut from the output to save space, but you can see that lots of
 processes are running on a Linux system. This example uses two parameters: the -e
 parameter, which shows all the processes running on the system, and the -f parameter,
@@ -3662,11 +3975,13 @@ CMD: The name of the program that was started
 This produces a reasonable amount of information, which is what many system
 administrators want to see. For even more information, you can use the -l parameter,
 which produces the long format output:
+```sh
 $ ps -l
 F S UID PID PPID C PRI NI ADDR SZ WCHAN TTY TIME CMD
 0 S 500 3081 3080 0 80 0 - 1173 wait pts/0 00:00:00 bash
 0 R 500 4463 3081 1 80 0 - 1116 - pts/0 00:00:00 ps
 $
+```
 Notice the extra columns that appear when you use the -l parameter:
 
 F: System flags assigned to the process by the kernel
@@ -3755,11 +4070,13 @@ choose a parameter type based on which format you’re more comfortable with (fo
 example, if you were used to a BSD environment before using Linux).
 When you use the BSD-style parameters, the ps command automatically changes the
 output to simulate the BSD format. Here’s an example using the l parameter:
+```sh
 $ ps l
 F UID PID PPID PRI NI VSZ RSS WCHAN STAT TTY TIME COMMAND
 0 500 3081 3080 20 0 4692 1432 wait Ss pts/0 0:00 -bash
 0 500 5104 3081 20 0 4468 844 - R+ pts/0 0:00 ps l
 $
+```
 Notice that while many of the output columns are the same as when we used the Unix-
 style parameters, some different ones appear as well:
 
@@ -3931,6 +4248,7 @@ the root user.
 $ kill 3940
 -bash: kill: (3940) - Operation not permitted
 $
+```
 The TERM signal tells the process to kindly stop running. Unfortunately, if you have a
 runaway process, most likely it ignores the request. When you need to get forceful, the -s
 parameter allows you to specify other signals (either using their name or signal number).
@@ -3986,6 +4304,7 @@ commands to help you manage your removable media devices.
 The mount command
 Oddly enough, the command used to mount media is called mount . By default, the mount
 command displays a list of media devices currently mounted on the system:
+```sh
 $ mount
 /dev/mapper/VolGroup00-LogVol00 on / type ext3 (rw)
 proc on /proc type proc (rw)
@@ -3998,6 +4317,7 @@ sunrpc on /var/lib/nfs/rpc_pipefs type rpc_pipefs (rw)
 /dev/sdb1 on /media/disk type vfat
 (rw,nosuid,nodev,uhelper=hal,shortname=lower,uid=503)
 $
+```
 The mount command provides four pieces of information:
 
 The device filename of the media
@@ -4101,6 +4421,7 @@ unmounted the image file.
 Using the df command
 Sometimes, you need to see how much disk space is available on an individual device.
 The df command allows you to easily see what’s happening on all the mounted disks:
+```sh
 $ df
 Filesystem 1K-blocks Used Available Use% Mounted on
 /dev/sda2 18251068 7703964 9605024 45% /
@@ -4108,6 +4429,7 @@ Filesystem 1K-blocks Used Available Use% Mounted on
 tmpfs 119536 0 119536 0% /dev/shm
 /dev/sdb1 127462 113892 13570 90% /media/disk
 $
+```
 The df command shows each mounted filesystem that contains data. As you can see from
 the mount command earlier, some mounted devices are used for internal system purposes.
 The command displays the following:
@@ -4121,6 +4443,7 @@ The mount point where the device is mounted
 A few different command line parameters are available with the df command, most of
 which you’ll never use. One popular parameter is -h , which shows the disk space in
 human-readable form, usually as an M for megabytes or a G for gigabytes:
+```sh
 $ df -h
 Filesystem Size Used Avail Use% Mounted on
 /dev/sdb2 18G 7.4G 9.2G 45% /
@@ -4128,6 +4451,7 @@ Filesystem Size Used Avail Use% Mounted on
 tmpfs 117M 0 117M 0% /dev/shm
 /dev/sdb1 125M 112M 14M 90% /media/disk
 $
+```
 Now instead of having to decode those ugly block numbers, all the disk sizes are shown
 using “normal” sizes. The df command is invaluable in troubleshooting disk space
 problems on the system.
@@ -4147,6 +4471,7 @@ By default, the du command displays all the files, directories, and subdirectori
 current directory, and it shows how many disk blocks each file or directory takes. For a
 standard-sized directory, this can be quite a listing. Here’s a partial listing of using the du
 command:
+```sh
 $ du
 484 ./.gstreamer-0.10
 8 ./Templates
@@ -4215,7 +4540,9 @@ one
 three
 two
 $
+```
 It’s pretty simple, but things aren’t always as easy as they appear. Look at this example:
+```sh
 $ cat file2
 1
 2
@@ -4235,11 +4562,13 @@ $ sort file2
 45
 75
 $
+```
 If you were expecting the numbers to sort in numerical order, you were disappointed. By
 default, the sort command interprets numbers as characters and performs a standard
 character sort, producing output that might not be what you want. To solve this problem,
 use the -n parameter, which tells the sort command to recognize numbers as numbers
 instead of characters and to sort them based on their numerical values:
+```sh
 $ sort -n file2
 1
 2
@@ -4250,12 +4579,14 @@ $ sort -n file2
 100
 145
 $
+```
 Now, that’s much better! Another common parameter that’s used is -M , the month sort.
 Linux log files usually contain a timestamp at the beginning of the line to indicate when
 the event occurred:
 Sep 13 07:10:09 testbox smartd[2718]: Device: /dev/sda, opened
 If you sort a file that uses timestamp dates using the default sort, you get something like
 this:
+```sh
 $ sort file3
 Apr
 Aug
@@ -4270,8 +4601,10 @@ Nov
 Oct
 Sep
 $
+```
 It’s not exactly what you wanted. If you use the -M parameter, the sort command
 recognizes the three-character month nomenclature and sorts appropriately:
+```sh
 $ sort -M file3
 Jan
 Feb
@@ -4286,6 +4619,7 @@ Oct
 Nov
 Dec
 $
+```
 
 Table 4.6 shows other handy sort parameters you can use.
                                                                 *Table 4.6*
@@ -4372,6 +4706,7 @@ The -k and -t parameters are handy when sorting data that uses fields, such as t
 /etc/passwd file. Use the -t parameter to specify the field separator character, and use the
 -k parameter to specify which field to sort on. For example, to sort the password file based
 on numerical userid, just do this:
+```sh
 $ sort -t ‘:’ -k 3 -n /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/bin:/sbin/nologin
@@ -4392,6 +4727,7 @@ Now the data is perfectly sorted based on the third field, which is the numerica
 value.
 The -n parameter is great for sorting numerical outputs, such as the output of the du
 command:
+```sh
 $ du -sh * | sort -nr
 1008k mrtg-2.9.29.tar.gz
 972k bldg1
@@ -4419,12 +4755,14 @@ characters that match the specified pattern. The output from grep is the lines t
 the matching pattern.
 Here are two simple examples of using the grep command with the file1 file used in the
 “Sorting data” section:
+```sh
 $ grep three file1
 three
 $ grep t file1
 two
 three
 $
+```
 The first example searches the file file1 for text matching the pattern three. The grep
 command produces the line that contains the matching pattern. The next example searches
 the file file1 for the text matching the pattern t. In this case, two lines matched the
@@ -4434,42 +4772,52 @@ changes over its lifetime. Lots of features have been added to the grep command.
 look over the man pages for the grep command, you’ll see how versatile it really is.
 If you want to reverse the search (output lines that don’t match the pattern), use the -v
 parameter:
+```sh
 $ grep -v t file1
 one
 four
 five
 $
+```
 If you need to find the line numbers where the matching patterns are found, use the -n
 parameter:
+```sh
 $ grep -n t file1
 2:two
 3:three
 $
+```
 If you just need to see a count of how many lines contain the matching pattern, use the -c
 parameter:
+```sh
 $ grep -c t file1
 2
 $
+```
 If you need to specify more than one matching pattern, use the -e parameter to specify
 each individual pattern:
+```sh
 $ grep -e t -e f file1
 two
 three
 four
 five
 $
+```
 This example outputs lines that contain either the string t or the string f .
 By default, the grep command uses basic Unix-style regular expressions to match
 patterns. A Unix-style regular expression uses special characters to define how to look for
 matching patterns.
 For a more detailed explanation of regular expressions, see Chapter 20.
 Here’s a simple example of using a regular expression in a grep search:
+```sh
 $ grep [tf] file1
 two
 three
 four
 five
 $
+```
 The square brackets in the regular expression indicate that grep should look for matches
 that contain either a t or an f character. Without the regular expression, grep would search
 for text that would match the string tf .
@@ -4516,13 +4864,16 @@ gzip for compressing files
 gzcat for displaying the contents of compressed text files
 gunzip for uncompressing files
 These utilities work the same way as the bzip2 utilities:
+```sh
 $ gzip myprog
 $ ls -l my*
 -rwxrwxr-x 1 rich rich 2197 2007-09-13 11:29 myprog.gz
 $
+```
 The gzip command compresses the file you specify on the command line. You can also
 specify more than one filename or even use wildcard characters to compress multiple files
 at once:
+```sh
 $ gzip my*
 $ ls -l my*
 -rwxr—r— 1 rich rich 103 Sep 6 13:43 myprog.c.gz
@@ -4530,6 +4881,7 @@ $ ls -l my*
 -rwxr—r— 1 rich rich 59 Sep 6 13:46 myscript.gz
 -rwxr—r— 1 rich rich 60 Sep 6 13:44 myscript2.gz
 $
+```
 The gzip command compresses every file in the directory that matches the wildcard
 pattern.
 Archiving data
@@ -4655,28 +5007,38 @@ The default shell program is started whenever the user logs into a virtual conso
 or starts a terminal emulator in the GUI.
 In the following example, user christine has the GNU bash shell as her default shell
 program:
+```sh
 $ cat /etc/passwd
 […]
 Christine:x:501:501:Christine B:/home/Christine:/bin/bash
 $
+```
 The bash shell program resides in the /bin directory. A long listing reveals /bin/bash (the
 bash shell) is an executable program:
+```sh
 $ ls -lF /bin/bash
 -rwxr-xr-x. 1 root root 938832 Jul 18 2013 /bin/bash*
 $
+```
 Several other shell programs are on this particular CentOS distribution. They include
 tcsh , which is based off the original C shell:
+```sh
 $ ls -lF /bin/tcsh
 -rwxr-xr-x. 1 root root 387328 Feb 21 2013 /bin/tcsh*
 $
+```
 Also, the Debian based version of the ash shell, dash , is included:
+```sh
 $ ls -lF /bin/dash
 -rwxr-xr-x. 1 root root 109672 Oct 17 2012 /bin/dash*
 $
+```
 Finally, a soft link (see [chapter 3]) of the C shell points to the tcsh shell:
+```sh
 $ ls -lF /bin/csh
 lrwxrwxrwx. 1 root root 4 Mar 18 15:16 /bin/csh -> tcsh*
 $
+```
 Each of these different shell programs could be set as a user’s default shell. However, due
 to the bash shell’s popularity, it’s rare to use any other shell as a default shell.
 Note
@@ -4689,11 +5051,14 @@ default system shell. The default system shell is used for system shell scripts,
 needed at startup.
 Often, you see a distribution with its default system shell set to the bash shell using a soft
 link as shown here on this CentOS distribution:
+```sh
 $ ls -l /bin/sh
 lrwxrwxrwx. 1 root root 4 Mar 18 15:05 /bin/sh -> bash
 $
+```
 However, be aware that on some distributions, the default system shell is different than the
 default interactive shell, such as on this Ubuntu distribution:
+```sh
 $ cat /etc/passwd
 […]
 christine:x:1000:1000:Christine,,,:/home/christine:/bin/bash
@@ -4701,6 +5066,7 @@ $
 $ ls -l /bin/sh
 lrwxrwxrwx 1 root root 4 Apr 22 12:33 /bin/sh -> dash
 $
+```
 Note that the user, christine , has her default interactive shell set to /bin/bash , the bash
 shell. But the default system shell, /bin/sh , is set to the dash shell.
 Tip
@@ -4710,14 +5076,18 @@ for a bash shell script’s first line in Chapter 11 to avoid these issues.
 You are not forced to stick with your default interactive shell. You can start any shell
 available on your distribution, simply by typing its filename. For example, to start the dash
 shell, you can run it directly by typing the command /bin/dash:
+```sh
 $ /bin/dash
 $
+```
 It doesn’t look like anything happened, but the dash shell program started. The $ prompt is
 a CLI prompt for the dash shell. You can leave the dash shell program by typing the
 command exit:
+```sh
 $ exit
 exit
 $
+```
 Again, it looks like nothing happened. However, the dash shell program was exited. To
 understand this process, the next section explores the relationship between a login shell
 program and a newly started shell program.
@@ -4734,6 +5104,7 @@ prompt and waits for commands to be entered.
 Because you do not see any relevant messages when you type bash and spawn a child
 shell, another command can help bring clarity. The ps command was covered in Chapter
 4. Using this with the -f option before and after entering a child shell is useful:
+```sh
 $ ps -f
 UID PID PPID C STIME TTY TIME CMD
 501 1841 1840 0 11:50 pts/0 00:00:00 -bash
@@ -4747,6 +5118,7 @@ UID PID PPID C STIME TTY TIME CMD
 501 2430 1841 0 13:44 pts/0 00:00:00 bash
 501 2444 2430 1 13:44 pts/0 00:00:00 ps -f
 $
+```
 The first use of ps -f shows two processes. One process has a process ID of 1841
 (second column) and is running the bash shell program (last column). The second process
 (process ID 2429) is the actual ps -f command running.
@@ -4770,6 +5142,7 @@ the child shell environment. This can cause problems with items such as variable
 is covered in Chapter 6.
 A child shell is also called a subshell. A subshell can be created from a parent shell, and a
 subshell can be created from another subshell:
+```sh
 $ ps -f
 UID PID PPID C STIME TTY TIME CMD
 501 1841 1840 0 11:50 pts/0 00:00:00 -bash
@@ -4789,6 +5162,7 @@ PID TTY TIME CMD
 2562 pts/0 00:00:00 \_ bash
 2576 pts/0 00:00:00 \_ ps
 $
+```
 In the preceding example, the bash shell command was entered three times. Effectively,
 this created three subshells. The ps —forest command shows the nesting of these
 subshells. Figure 5.2 also shows this subshell nesting.
@@ -4798,6 +5172,7 @@ Figure 5.2 Subshell nesting
 
 The ps -f command can be useful in subshell nesting, because it displays who is whose
 parent via the PPID column:
+```sh
 $ ps -f
 UID PID PPID C STIME TTY TIME CMD
 501 1841 1840 0 11:50 pts/0 00:00:00 -bash
@@ -4806,6 +5181,7 @@ UID PID PPID C STIME TTY TIME CMD
 501 2562 2546 0 14:24 pts/0 00:00:00 bash
 501 2585 2562 1 14:29 pts/0 00:00:00 ps -f
 $
+```
 The bash shell program can use command line parameters to modify the shell start. Table
 5.1 lists the command line parameters available in bash.
 
@@ -4820,6 +5196,7 @@ Parameter Description
 You can find more help on the bash command and even more command line parameters
 by typing man bash. The bash —help command provides additional assistance as well.
 You can gracefully exit out of each subshell by entering the exit command:
+```sh
 $ exit
 exit
 $
@@ -4841,6 +5218,7 @@ PID TTY TIME CMD
 1841 pts/0 00:00:00 bash
 2604 pts/0 00:00:00 \_ ps
 $
+```
 Not only does the exit command allow you to leave child subshells, but you can also log
 out of your current virtual console terminal or terminal emulation software as well. Just
 type exit in the parent shell, and you gracefully exit the CLI.
@@ -4851,6 +5229,7 @@ script. One way is by using a process list.
 Looking at process lists
 On a single line, you can designate a list of commands to be run one after another. This is
 done by entering a command list using a semicolon (;) between commands:
+```sh
 $ pwd ; ls ; cd /etc ; pwd ; cd ; pwd ; ls
 /home/Christine
 Desktop Downloads Music Public Videos
@@ -4860,9 +5239,11 @@ Documents junk.dat Pictures Templates
 Desktop Downloads Music Public Videos
 Documents junk.dat Pictures Templates
 $
+```
 In the preceding example, the commands all executed one after another with no problems.
 However, this is not a process list. For a command list to be considered a process list, the
 commands must be encased in parentheses:
+```sh
 $ (pwd ; ls ; cd /etc ; pwd ; cd ; pwd ; ls)
 /home/Christine
 Desktop Downloads Music Public Videos
@@ -4872,6 +5253,7 @@ Documents junk.dat Pictures Templates
 Desktop Downloads Music Public Videos
 Documents junk.dat Pictures Templates
 $
+```
 Though the parentheses addition may not appear to be a big difference, they do cause a
 very different effect. Adding parentheses and turning the command list into a process list
 created a subshell to execute the commands.
@@ -4886,6 +5268,7 @@ needed is echo $BASH_SUBSHELL . If it returns a 0, then there is no subshell. If
 or more, then there is a subshell.
 First, the example using just a command list is executed with the echo $BASH_SUBSHELL
 tacked onto the end:
+```sh
 $ pwd ; ls ; cd /etc ; pwd ; cd ; pwd ; ls ; echo $BASH_SUBSHELL
 /home/Christine
 Desktop Downloads Music Public Videos
@@ -4899,6 +5282,7 @@ At the very end of the commands’ output, you can see the number zero ( 0 ) is 
 This indicates a subshell was not created to execute these commands.
 The results are different using a process list. The list is executed with echo
 $BASH_SUBSHELL tacked onto the end:
+```sh
 $ (pwd ; ls ; cd /etc ; pwd ; cd ; pwd ; ls ; echo $BASH_SUBSHELL)
 /home/Christine
 Desktop Downloads Music Public Videos
@@ -4913,6 +5297,7 @@ was indeed created and used for executing these commands.
 Thus, a process list is a command grouping enclosed with parentheses, which creates a
 subshell to execute the command(s). You can even create a grandchild subshell by
 embedding parentheses within a process list:
+```sh
 $ ( pwd ; echo $BASH_SUBSHELL)
 /home/Christine
 1
@@ -4943,11 +5328,14 @@ The sleep command accepts as a parameter the number of seconds you want the proc
 to wait (sleep). This command is often used to introduce pauses in shell scripts. The
 command sleep 10 causes the session to pause for 10 seconds and then return a shell CLI
 prompt:
+```sh
 $ sleep 10
 $
+```
 To put a command into background mode, the & character is tacked onto its end. Putting
 the sleep command into background mode allows a little investigation with the ps
 command:
+```sh
 $ sleep 3000&
 [1] 2396
 $ ps -f
@@ -4956,6 +5344,7 @@ christi+ 2338 2337 0 10:13 pts/9 00:00:00 -bash
 christi+ 2396 2338 0 10:17 pts/9 00:00:00 sleep 3000
 christi+ 2397 2338 0 10:17 pts/9 00:00:00 ps -f
 $
+```
 The sleep command was told to sleep for 3000 seconds (50 minutes) in the background
 ( & ). When it was put into the background, two informational items were displayed before
 the shell CLI prompt was returned. The first informational item is the background job’s
@@ -4967,20 +5356,25 @@ PID displayed when the command went into the background, 2396 .
 In addition to the ps command, you can use the jobs command to display background job
 information. The jobs command displays any user’s processes (jobs) currently running in
 background mode:
+```sh
 $ jobs
 [1]+ Running sleep 3000 &
 $
+```
 The jobs command shows the job number ( 1 ) in brackets. It also displays the job’s current
 status ( running ) as well as the command itself, ( sleep 3000 & ).
 You can see even more information by using the -l (lowercase L) parameter on the jobs
 command. The -l parameter displays the command’s PID in addition to the other
 information:
+```sh
 $ jobs -l
 [1]+ 2396 Running sleep 3000 &
 $
+```
 When the background job is finished, its completion status is displayed:
 [1]+ Done sleep 3000 &
 $
+```
 Tip
 Be aware that a background job’s completion status won’t necessarily wait till a
 convenient time to display itself. Don’t let it surprise you when a job’s completion
@@ -4991,19 +5385,23 @@ Putting process lists into the background
 As stated earlier, a process list is a command or series of commands executed within a
 subshell. Using a process list including sleep commands and displaying the
 BASH_SUBSHELL variable operates as you would expect:
+```sh
 $ (sleep 2 ; echo $BASH_SUBSHELL ; sleep 2)
 1
 $
+```
 In the preceding example, a two-second pause occurs, the number one ( 1 ) is displayed
 indicating a single subshell level (child subshell), and then another two-second pause
 occurs before the prompt returns. Nothing too dramatic here.
 Putting the same process list into background mode can cause a slightly different effect
 with command output:
+```sh
 $ (sleep 2 ; echo $BASH_SUBSHELL ; sleep 2)&
 [2] 2401
 $ 1
 [2]+ Done ( sleep 2; echo $BASH_SUBSHELL; sleep 2 )
 $
+```
 Putting the process list into the background causes a job number and process ID to appear,
 and the prompt returns. However, the odd event is that the displayed number one ( 1 ),
 indicating a single-level subshell, is displayed by the prompt! Don’t let this confuse you.
@@ -5014,9 +5412,11 @@ tied up with the subshell’s I/O.
 Of course, the process list of sleep and echo commands are just for example purposes.
 Creating backup files with tar (see [chapter 4]) is a more practical example of using
 background process lists effectively:
+```sh
 $ (tar -cf Rich.tar /home/rich ; tar -cf My.tar /home/christine)&
 [3] 2423
 $
+```
 Putting a process list in background mode is not the only way to use subshells creatively at
 the CLI. Co-processing is another method.
 Looking at co-processing
@@ -5024,27 +5424,33 @@ Co-processing does two things at the same time. It spawns a subshell in backgrou
 and executes a command within that subshell.
 To perform co-processing, the coproc command is used along with the command to be
 executed in the subshell:
+```sh
 $ coproc sleep 10
 [1] 2544
 $
+```
 Co-processing performs almost identically to putting a command in background mode,
 except for the fact that it creates a subshell. You’ll notice that when the coproc command
 and its parameters were entered, a background job was started. The background job
 number ( 1 ) and process ID ( 2544 ) were displayed on the screen.
 The jobs command allows you to display the co-processing status:
+```sh
 $ jobs
 [1]+ Running coproc COPROC sleep 10 &
 $
+```
 From the preceding example, you can see the background command executing in the
 subshell is coproc COPROC sleep 10 . The COPROC is a name given to the process by the
 coproc command. You can set the name yourself by using extended syntax for the
 command:
+```sh
 $ coproc My_Job { sleep 10; }
 [1] 2570
 $
 $ jobs
 [1]+ Running coproc My_Job { sleep 10; } &
 $
+```
 By using the extended syntax, the co-processing name was set to My_Job . Be careful here,
 because the extended syntax is a little tricky. You have to make sure that a space appears
 after the first curly bracket ( { ) and before the start of your command. Also, you have to
@@ -5057,6 +5463,7 @@ when you have multiple co-processes running, and you need to communicate with
 them all. Otherwise, just let the coproc command set the name to the default, COPROC .
 You can be really clever and combine co-processing with process lists creating nested
 subshells. Just type your process list and put the command coproc in front of it:
+```sh
 $ coproc ( sleep 10; sleep 2 )
 [1] 2574
 $
@@ -5070,6 +5477,7 @@ PID TTY TIME CMD
 2575 pts/12 00:00:00 | \_ sleep
 2576 pts/12 00:00:00 \_ ps
 $
+```
 Just remember that spawning a subshell can be expensive and slow. Creating nested
 subshells is even more so!
 Using subshells can provide flexibility at the command line as well as convenience.
@@ -5089,6 +5497,7 @@ outside of the bash shell. They are not built into the shell program. An externa
 program is typically located in /bin , /usr/bin , /sbin , or /usr/sbin .
 The ps command is an external command. You can find its filename by using both the
 which and the type commands:
+```sh
 $ which ps
 /bin/ps
 $
@@ -5098,14 +5507,17 @@ $
 $ ls -l /bin/ps
 -rwxr-xr-x 1 root root 93232 Jan 6 18:32 /bin/ps
 $
+```
 Whenever an external command is executed, a child process is created. This action is
 termed forking. Conveniently, the external command ps displays its current parent as well
 as its own forked child processes:
+```sh
 $ ps -f
 UID PID PPID C STIME TTY TIME CMD
 christi+ 2743 2742 0 17:09 pts/9 00:00:00 -bash
 christi+ 2801 2743 0 17:16 pts/9 00:00:00 ps -f
 $
+```
 Because it is an external command, when the ps command executes, a child process is
 created. In this case, the ps command’s PID is 2801 and the parent PID is 2743 . The bash
 shell process, which is the parent, has a PID of 2743 . Figure 5.3 illustrates the forking that
@@ -5129,12 +5541,14 @@ were compiled into the shell and thus are part of the shell’s toolkit. No exte
 file exists to run them.
 Both the cd and exit commands are built into the bash shell. You can tell a command is
 built-in by using the type command:
+```sh
 $ type cd
 cd is a shell builtin
 $
 $ type exit
 exit is a shell builtin
 $
+```
 Because they do not need to fork a child process to execute or open a program file, built-in
 commands are faster and more efficient. A list of GNU bash shell built-in commands is
 provided in Appendix A.
@@ -5142,6 +5556,7 @@ Be aware that some commands have multiple flavors. For example, both echo and pw
 have a built-in command flavor as well as an external command flavor. These flavors are
 slightly different. To see multiple flavors for commands, use the -a option on the type
 command:
+```sh
 $ type -a echo
 echo is a shell builtin
 echo is /bin/echo
@@ -5156,6 +5571,7 @@ $
 $ which pwd
 /bin/pwd
 $
+```
 Using the type -a command shows both types for each of the two commands. Note that
 the which command shows only the external command file.
 Tip
@@ -5165,6 +5581,7 @@ Using the history command
 A useful built-in command is the history command. The bash shell keeps track of the
 commands you have used. You can recall these commands and even reuse them.
 To see a recently used commands list, just type the history command with no options:
+```sh
 $ history
 1 ps -f
 2 pwd
@@ -5196,6 +5613,7 @@ You can set the number of commands to keep in the bash history. To do so, you ne
 to modify an environment variable called HISTSIZE (see [chapter 6]).
 You can recall and reuse the last command in your history list. This can save time and
 typing. To recall and reuse your last command, type !! and press the Enter key:
+```sh
 $ ps —forest
 PID TTY TIME CMD
 2089 pts/0 00:00:00 bash
@@ -5207,11 +5625,13 @@ PID TTY TIME CMD
 2089 pts/0 00:00:00 bash
 2745 pts/0 00:00:00 \_ ps
 $
+```
 When !! was entered, the bash shell first displayed the command it was recalling from the
 shell’s history. After the command was displayed, it was executed.
 Command history is kept in the hidden .bash_history file, which is located in the user’s
 home directory. Be careful here. The bash command history is stored in memory and then
 written out into the history file when the shell is exited:
+```sh
 $ history
 […]
 25 ps —forest
@@ -5225,11 +5645,13 @@ ls
 history
 exit
 $
+```
 Notice when the history command is run, 28 commands are listed. In the example, the
 listing is snipped for brevity. However, when the .bash_history file is displayed, only
 four commands are listed, and they don’t match the history command’s list.
 You can force the command history to be written to the .bash_history file before leaving
 a shell session. In order to force this write, use the -a option on the history command:
+```sh
 $ history -a
 $
 $ history
@@ -5265,6 +5687,7 @@ automatically updated for your other open terminal sessions. This is because the
 the history -n command.
 You can recall any command from the history list. Just enter an exclamation point and the
 command’s number from the history list:
+```sh
 $ history
 […]
 13 pwd
@@ -5287,6 +5710,7 @@ type -a pwd
 pwd is a shell builtin
 pwd is /bin/pwd
 $
+```
 Command number 20 was pulled from command history. Notice that similar to executing
 the last command in history, the bash shell first displays the command it is recalling from
 the shell’s history. After the command is displayed, it is executed.
@@ -5299,6 +5723,7 @@ create an alias name for common commands (along with their parameters) to help k
 your typing to a minimum.
 Most likely, your Linux distribution has already set some common command aliases for
 you. To see a list of the active aliases, use the alias command with the -p parameter:
+```sh
 $ alias -p
 […]
 alias egrep=‘egrep —color=auto’
@@ -5309,10 +5734,12 @@ alias la=‘ls -A’
 alias ll=‘ls -alF’
 alias ls=‘ls —color=auto’
 $
+```
 Notice that, on this Ubuntu Linux distribution, an alias is used to override the standard ls
 command. It automatically provides the —color parameter, indicating that the terminal
 supports color mode listings.
 You can create your own aliases using the alias command:
+```sh
 $ alias li=‘ls -li’
 $
 $ li
@@ -5327,9 +5754,11 @@ total 36
 532891 -rwxrw-r—. 1 Christine Christine 36 May 30 07:21 test.sh
 529588 drwxr-xr-x. 2 Christine Christine 4096 Apr 25 16:59 Videos
 $
+```
 After you define an alias value, you can use it at any time in your shell, including in shell
 scripts. Be aware that because command aliases are built-in commands, an alias is valid
 only for the shell process in which it is defined:
+```sh
 $ alias li=‘ls -li’
 $
 $ bash
@@ -5340,6 +5769,7 @@ $
 $ exit
 exit
 $
+```
 Fortunately, you can make an alias value permanent across subshells. The next chapter
 covers how to do that, along with environment variables.
 
@@ -5441,21 +5871,26 @@ snipped. Not only are many set during the login process, but how you log in can 
 which ones are set as well.
 To display an individual environment variable’s value, you can use the printenv
 command, but not the env command:
+```sh
 $ printenv HOME
 /home/Christine
 $
 $ env HOME
 env: HOME: No such file or directory
 $
+```
 You can also use the echo command to display a variable’s value. When referencing an
 environment variable in this case, you must place a dollar sign ( $ ) before the environment
 variable name:
+```sh
 $ echo $HOME
 /home/Christine
 $
+```
 Using the dollar sign along with the variable name does more than just display its current
 definition when used with the echo command. The dollar sign before a variable name
 allows the variable to be passed as a command parameter:
+```sh
 $ ls $HOME
 Desktop Downloads Music Public test.sh
 Documents junk.dat Pictures Templates Videos
@@ -5464,8 +5899,10 @@ $ ls /home/Christine
 Desktop Downloads Music Public test.sh
 Documents junk.dat Pictures Templates Videos
 $
+```
 As mentioned earlier, global environment variables are also available to any process’s
 subshells:
+```sh
 $ bash
 $
 $ ps -f
@@ -5480,6 +5917,7 @@ $
 $ exit
 exit
 $
+```
 In this example, after spawning a subshell using the bash command, the HOME environment
 variable’s current value is shown. It is set to the exact same value, /home/Christine , as it
 was in the parent shell.
@@ -5493,6 +5931,7 @@ Trying to see the local variables list is a little tricky at the CLI. Unfortunat
 command that displays only these variables. The set command displays all variables
 defined for a specific process, including both local and global environment variables and
 user-defined variables:
+```sh
 $ set
 BASH=/bin/bash
 […]
@@ -5507,6 +5946,7 @@ colors=/etc/DIR_COLORS
 my_variable=‘Hello World’
 […]
 $
+```
 All global environment variables displayed using the env or printenv commands appear
 in the set command’s output. The additional environment variables are the local
 environment and user-defined variables.
@@ -5530,6 +5970,7 @@ After you start a bash shell (or spawn a shell script), you’re allowed to crea
 defined variables that are visible within your shell process. You can assign either a
 numeric or a string value to an environment variable by assigning the variable to a value
 using the equal sign:
+```sh
 $ echo $my_variable
 $ my_variable=Hello
 $
@@ -5539,6 +5980,7 @@ That was simple! Now, any time you need to reference the my_variable user-define
 variable’s value, just reference it by the name $my_variable .
 If you need to assign a string value that contains spaces, you need to use a single or double
 quotation mark to delineate the beginning and the end of the string:
+```sh
 $ my_variable=Hello World
 -bash: World: command not found
 $
@@ -5547,6 +5989,7 @@ $
 $ echo $my_variable
 Hello World
 $
+```
 Without the quotation marks, the bash shell assumes that the next word is another
 command to process. Notice that for the local variable you defined, you used lowercase
 letters, while the system environment variables you’ve seen so far have all used uppercase
@@ -5560,11 +6003,14 @@ environment variable.
 It’s extremely important that you not use spaces between the variable name, the equal
 sign, and the value. If you put any spaces in the assignment, the bash shell interprets the
 value as a separate command:
+```sh
 $ my_variable = “Hello World”
 -bash: my_variable: command not found
 $
+```
 After you set a local variable, it’s available for use anywhere within your shell process.
 However, if you spawn another shell, it’s not available in the child shell:
+```sh
 $ my_variable=“Hello World”
 $
 $ bash
@@ -5576,12 +6022,14 @@ $
 $ echo $my_variable
 Hello World
 $
+```
 In this example, a child shell was spawned. The user-defined my_variable was not
 available in the child shell. This is demonstrated by the blank line returned after the echo
 $my_variable command. After the child shell was exited and returned to the original
 shell, the local variable was still available.
 Similarly, if you set a local variable in a child process, after you leave the child process,
 the local variable is no longer available:
+```sh
 $ echo $my_child_variable
 $ bash
 $
@@ -5595,6 +6043,7 @@ exit
 $
 $ echo $my_child_variable
 $
+```
 The local variable set within the child shell doesn’t exist after a return to the parent shell.
 You can change this behavior by turning your local user-defined variable into a global
 environment variable.
@@ -5603,6 +6052,7 @@ Global environment variables are visible from any child processes created by the
 process that sets the variable. The method used to create a global environment variable is
 to first create a local variable and then export it to the global environment.
 This is done by using the export command and the variable name minus the dollar sign:
+```sh
 $ my_variable=“I am Global now”
 $
 $ export my_variable
@@ -5621,12 +6071,14 @@ $
 $ echo $my_variable
 I am Global now
 $
+```
 After defining and exporting the local variable my_variable , a child shell was started by
 the bash command. The child shell was able to properly display the my_variable
 variable’s value. The variable kept its value, because the export command made it a
 global environment variable.
 Changing a global environment variable within a child shell does not affect the variable’s
 value in the parent shell:
+```sh
 $ my_variable=“I am Global now”
 $ export my_variable
 $
@@ -5649,12 +6101,14 @@ $
 $ echo $my_variable
 I am Global now
 $
+```
 After defining and exporting the variable my_variable , a subshell was started by the bash
 command. The subshell properly displayed the value of the my_variable global
 environment variable. The variable’s value was then changed by the child shell. However,
 the variable’s value was modified only within the child shell and not in the parent’s shell.
 A child shell cannot even use the export command to change the parent shell’s global
 environment variable’s value:
+```sh
 $ my_variable=“I am Global now”
 $ export my_variable
 $
@@ -5679,6 +6133,7 @@ $
 $ echo $my_variable
 I am Global now
 $
+```
 Even though the child shell redefined and exported the variable my_variable , the parent
 shell’s my_variable variable kept its original value.
 
@@ -5689,6 +6144,7 @@ Of course, if you can create a new environment variable, it makes sense that you
 remove an existing environment variable. You can do this with the unset command. When
 referencing the environment variable in the unset command, remember not to use the
 dollar sign:
+```sh
 $ echo $my_variable
 I am Global now
 $
@@ -5696,6 +6152,7 @@ $ unset my_variable
 $
 $ echo $my_variable
 $
+```
 Tip
 It can be confusing to remember when to use and when not to use the dollar sign with
 environment variables. Just remember this: If you are doing anything with the
@@ -5704,6 +6161,7 @@ dollar sign. The exception to this rule is using printenv to display a variable�
 When dealing with global environment variables, things get a little tricky. If you’re in a
 child process and unset a global environment variable, it applies only to the child process.
 The global environment variable is still available in the parent process:
+```sh
 $ my_variable=“I am Global now”
 $
 $ export my_variable
@@ -5725,6 +6183,7 @@ $
 $ echo $my_variable
 I am Global now
 $
+```
 Just as with modifying a variable, you cannot unset it in a child shell and have the variable
 be unset in the parent’s shell.
 
@@ -5737,268 +6196,242 @@ your Linux system. Because the bash shell is a derivative of the original Unix B
 shell, it also includes environment variables originally defined in that shell.
 
 Table 6.1 shows the environment variables that the bash shell provides that are compatible
-                                                                *Table 6.1*
 with the original Unix Bourne shell.
 
 Table 6.1 The bash Shell Bourne Variables
                                                                 *Table 6.1*
 Variable Description
-CDPATH
-A colon-separated list of directories used as a search path for the cd command
-HOME
-The current user’s home directory
-IFS
-A list of characters that separate fields used by the shell to split text strings
-MAIL
-The filename for the current user’s mailbox (The bash shell checks this file for
-new mail.)
-MAILPATH
-A colon-separated list of multiple filenames for the current user’s mailbox
-(The bash shell checks each file in this list for new mail.)
-OPTARG
-The value of the last option argument processed by the getopt command
-OPTIND
-The index value of the last option argument processed by the getopt command
-PATH
-A colon-separated list of directories where the shell looks for commands
-PS1
-The primary shell command line interface prompt string
-PS2
-The secondary shell command line interface prompt string
+01. CDPATH
+    A colon-separated list of directories used as a search path for the cd command
+02. HOME
+    The current user’s home directory
+03. IFS
+    A list of characters that separate fields used by the shell to split text strings
+04. MAIL
+    The filename for the current user’s mailbox (The bash shell checks this file for new mail.)
+05. MAILPATH
+    A colon-separated list of multiple filenames for the current user’s mailbox
+    (The bash shell checks each file in this list for new mail.)
+06. OPTARG
+    The value of the last option argument processed by the getopt command
+07. OPTIND
+    The index value of the last option argument processed by the getopt command
+08. PATH
+    A colon-separated list of directories where the shell looks for commands
+09. PS1
+    The primary shell command line interface prompt string
+10. PS2
+    The secondary shell command line interface prompt string
+
 Besides the default Bourne environment variables, the bash shell also provides a few
 variables of its own, as shown in Table 6.2.
 
 Table 6.2 The bash Shell Environment Variables
                                                                 *Table 6.2*
 Variable Description
-BASH
-The full pathname to execute the current instance of the bash
-shell
-BASH_ALIASES
-An associative array of currently set aliases
-BASH_ARGC
-A variable array that contains the number of parameters being
-passed to a subroutine or shell script
-BASH_ARCV
-A variable array that contains the parameters being passed to a
-subroutine or shell script
-BASH_CMDS
-An associative array of locations of commands the shell has
-executed
-BASH_COMMAND
-The shell command currently being or about to be executed
-BASH_ENV
-When set, each bash script attempts to execute a startup file
-defined by this variable before running.
-BASH_EXECUTION_STRING
-The command(s) passed using the bash -c option
-BASH_LINENO
-A variable array containing the source code line number of the
-currently executing shell function
-BASH_REMATCH
-A read-only variable array containing patterns and their sub-
-patterns for positive matches using the regular expression
-comparison operator, =∼
-BASH_SOURCE
-A variable array containing the source code filename of the
-currently executing shell function
-BASH_SUBSHELL
-The current nesting level of a subshell environment (The initial
-value is 0.)
-BASH_VERSINFO
-A variable array that contains the individual major and minor
-version numbers of the current instance of the bash shell
-BASH_VERSION
-The version number of the current instance of the bash shell
-BASH_XTRACEFD
-If set to a valid file descriptor (0,1,2), trace output generated
-from the ‘set -x’ debugging option can be redirected. This is
-often used to separate trace output into a file.
-BASHOPTS
-A list of bash shell options that are currently enabled
-BASHPID
-Process ID of the current bash process
-COLUMNS
-Contains the terminal width of the terminal used for the current
-instance of the bash shell
-COMP_CWORD
-An index into the variable COMP_WORDS , which contains the
-current cursor position
-COMP_LINE
-The current command line
-COMP_POINT
-The index of the current cursor position relative to the
-beginning of the current command
-COMP_KEY
-The final key used to invoke the current completion of a shell
-function
-COMP_TYPE
-An integer value representing the type of completion attempted
-that caused a completion shell function to be invoked
-COMP_WORDBREAKS
-The Readline library word separator characters for performing
-word completion
-COMP_WORDS
-An array variable that contains the individual words on the
-current command line
-COMPREPLY
-An array variable that contains the possible completion codes
-generated by a shell function
-Variable Description
-COPROC
-An array variable that holds an unnamed coprocess’ I/O file
-descriptors
-DIRSTACK
-An array variable that contains the current contents of the
-directory stack
-EMACS
-Indicates the emacs shell buffer is executing and line editing is
-disabled, when set to ‘t’
-ENV
-When set, executes the startup file defined before a bash shell
-script runs (It is used only when the bash shell has been
-invoked in POSIX mode.)
-EUID
-The numeric effective user ID of the current user
-FCEDIT
-The default editor used by the fc command
-FIGNORE
-A colon-separated list of suffixes to ignore when performing
-file name completion
-FUNCNAME
-The name of the currently executing shell function
-FUNCNEST
-Sets the maximum allowed function nesting level, when set to
-a number greater than zero (If it is exceeded, the current
-command aborts.)
-GLOBIGNORE
-A colon-separated list of patterns defining the set of filenames
-to be ignored by file name expansion
-GROUPS
-A variable array containing the list of groups of which the
-current user is a member
-histchars
-Up to three characters, which control history expansion
-HISTCMD
-The history number of the current command
-HISTCONTROL
-Controls what commands are entered in the shell history list
-HISTFILE
-The name of the file in which to save the shell history list
-( .bash_history by default)
-HISTFILESIZE
-The maximum number of lines to save in the history file
-HISTTIMEFORMAT
-Used as a formatting string to print each command’s timestamp
-in bash history, if set and not null
-HISTIGNORE
-A colon-separated list of patterns used to decide which
-commands are ignored for the history file
-HISTSIZE
-The maximum number of commands stored in the history file
-HOSTFILE
-Contains the name of the file that should be read when the shell
-needs to complete a hostname
-HOSTNAME
-The name of the current host
-HOSTTYPE
-A string describing the machine the bash shell is running on
-IGNOREEOF
-The number of consecutive EOF characters the shell must
-receive before exiting (If this value doesn’t exist, the default is
-1.)
-INPUTRC
-The name of the Readline initialization file (The default is
-.inputrc .)
-LANG
-The locale category for the shell
-LC_ALL
-Overrides the LANG variable, defining a locale category
-LC_COLLATE
-Sets the collation order used when sorting string values
-LC_CTYPE
-Determines the interpretation of characters used in filename
-expansion and pattern matching
-LC_MESSAGES
-Determines the locale setting used when interpreting double-
-quoted strings preceded by a dollar sign
-LC_NUMERIC
-Determines the locale setting used when formatting numbers
-LINENO
-The line number in a script currently executing
-LINES
-Defines the number of lines available on the terminal
-MACHTYPE
-A string defining the system type in cpu-company-system
-format
-MAPFILE
-An array variable that holds read-in text from the mapfile
-command when no array variable name is given
-MAILCHECK
-How often (in seconds) the shell should check for new mail
-(The default is 60.)
-OLDPWD
-The previous working directory used in the shell
-OPTERR
-If set to 1, the bash shell displays errors generated by the
-getopts command.
-OSTYPE
-A string defining the operating system the shell is running on
-PIPESTATUS
-A variable array containing a list of exit status values from the
-processes in the foreground process
-POSIXLY_CORRECT
-If set, bash starts in POSIX mode.
-PPID
-The process ID (PID) of the bash shell’s parent process
-PROMPT_COMMAND
-If set, the command to execute before displaying the primary
-prompt
-PROMPT_DIRTRIM
-An integer used to indicate the number of trailing directory
-names to display when using the ∖w and ∖W prompt string
-escapes (The directory names removed are replaced with one
-set of ellipses.)
-PS3
-The prompt to use for the select command
-PS4
-The prompt displayed before the command line is echoed if the
-bash -x parameter is used
-PWD
-The current working directory
-Variable Description
-RANDOM
-Returns a random number between 0 and 32767 (Assigning a
-value to this variable seeds the pseudo-random number
-generator.)
-READLINE_LINE
-Readline buffer contents when using bind -x command
-READLINE_POINT
-Readline buffer content insertion point’s current position when
-using bind -x command
-REPLY
-The default variable for the read command
-SECONDS
-The number of seconds since the shell was started (Assigning a
-value resets the timer to the value.)
-SHELL
-The full pathname to the bash shell
-SHELLOPTS
-A colon-separated list of enabled bash shell options
-SHLVL
-Indicates the shell level, incremented by one each time a new
-bash shell is started
-TIMEFORMAT
-A format specifying how the shell displays time values
-TMOUT
-The value of how long (in seconds) the select and read
-commands should wait for input (The default of zero indicates
-to wait indefinitely.)
-TMPDIR
-Directory name where the bash shell creates temporary files for
-its use
-UID
-The numeric real user ID of the current user
+01. BASH
+    The full pathname to execute the current instance of the bash shell
+02. BASH_ALIASES
+    An associative array of currently set aliases
+03. BASH_ARGC
+    A variable array that contains the number of parameters being
+    passed to a subroutine or shell script
+04. BASH_ARCV
+    A variable array that contains the parameters being passed to a subroutine or shell script
+05. BASH_CMDS
+    An associative array of locations of commands the shell has executed
+06. BASH_COMMAND
+    The shell command currently being or about to be executed
+07. BASH_ENV
+    When set, each bash script attempts to execute a startup file
+    defined by this variable before running.
+08. BASH_EXECUTION_STRING
+    The command(s) passed using the bash -c option
+09. BASH_LINENO
+    A variable array containing the source code line number of the
+    currently executing shell function
+10. BASH_REMATCH
+    A read-only variable array containing patterns and their sub-
+    patterns for positive matches using the regular expression
+    comparison operator, =∼
+11. BASH_SOURCE
+    A variable array containing the source code filename of the
+    currently executing shell function
+12. BASH_SUBSHELL
+    The current nesting level of a subshell environment (The initial value is 0.)
+13. BASH_VERSINFO
+    A variable array that contains the individual major and minor
+    version numbers of the current instance of the bash shell
+14. BASH_VERSION
+    The version number of the current instance of the bash shell
+15. BASH_XTRACEFD
+    If set to a valid file descriptor (0,1,2), trace output generated
+    from the ‘set -x’ debugging option can be redirected. This is
+    often used to separate trace output into a file.
+16. BASHOPTS
+    A list of bash shell options that are currently enabled
+17. BASHPID
+    Process ID of the current bash process
+18. COLUMNS
+    Contains the terminal width of the terminal used for the current
+    instance of the bash shell
+19. COMP_CWORD
+    An index into the variable COMP_WORDS , which contains the
+    current cursor position
+20. COMP_LINE
+    The current command line
+21. COMP_POINT
+    The index of the current cursor position relative to the
+    beginning of the current command
+22. COMP_KEY
+    The final key used to invoke the current completion of a shell function
+23. COMP_TYPE
+    An integer value representing the type of completion attempted
+    that caused a completion shell function to be invoked
+24. COMP_WORDBREAKS
+    The Readline library word separator characters for performing word completion
+25. COMP_WORDS
+    An array variable that contains the individual words on the current command line
+26. COMPREPLY
+    An array variable that contains the possible completion codes
+    generated by a shell function
+27. COPROC
+    An array variable that holds an unnamed coprocess’ I/O file descriptors
+28. DIRSTACK
+    An array variable that contains the current contents of the directory stack
+29. EMACS
+    Indicates the emacs shell buffer is executing and line editing is
+    disabled, when set to ‘t’
+30. ENV
+    When set, executes the startup file defined before a bash shell
+    script runs (It is used only when the bash shell has been
+    invoked in POSIX mode.)
+31. EUID
+    The numeric effective user ID of the current user
+32. FCEDIT
+    The default editor used by the fc command
+33. FIGNORE
+    A colon-separated list of suffixes to ignore when performing file name completion
+34. FUNCNAME
+    The name of the currently executing shell function
+35. FUNCNEST
+    Sets the maximum allowed function nesting level, when set to
+    a number greater than zero (If it is exceeded, the current command aborts.)
+36. GLOBIGNORE
+    A colon-separated list of patterns defining the set of filenames
+    to be ignored by file name expansion
+37. GROUPS
+    A variable array containing the list of groups of which the
+    current user is a member histchars
+    Up to three characters, which control history expansion
+38. HISTCMD
+    The history number of the current command
+39. HISTCONTROL
+    Controls what commands are entered in the shell history list
+40. HISTFILE
+    The name of the file in which to save the shell history list ( .bash_history by default)
+41. HISTFILESIZE
+    The maximum number of lines to save in the history file
+42. HISTTIMEFORMAT
+    Used as a formatting string to print each command’s timestamp
+    in bash history, if set and not null
+43. HISTIGNORE
+    A colon-separated list of patterns used to decide which
+    commands are ignored for the history file
+44. HISTSIZE
+    The maximum number of commands stored in the history file
+45. HOSTFILE
+    Contains the name of the file that should be read when the shell
+    needs to complete a hostname
+46. HOSTNAME
+    The name of the current host
+47. HOSTTYPE
+    A string describing the machine the bash shell is running on
+48. IGNOREEOF
+    The number of consecutive EOF characters the shell must
+    receive before exiting (If this value doesn’t exist, the default is 1.)
+49. INPUTRC
+    The name of the Readline initialization file (The default is .inputrc .)
+50. LANG
+    The locale category for the shell
+51. LC_ALL
+    Overrides the LANG variable, defining a locale category
+52. LC_COLLATE
+    Sets the collation order used when sorting string values
+53. LC_CTYPE
+    Determines the interpretation of characters used in filename
+    expansion and pattern matching
+54. LC_MESSAGES
+    Determines the locale setting used when interpreting double-
+    quoted strings preceded by a dollar sign
+55. LC_NUMERIC
+    Determines the locale setting used when formatting numbers
+56. LINENO
+    The line number in a script currently executing
+57. LINES
+    Defines the number of lines available on the terminal
+58. MACHTYPE
+    A string defining the system type in cpu-company-system format
+59. MAPFILE
+    An array variable that holds read-in text from the mapfile
+    command when no array variable name is given
+60. MAILCHECK
+    How often (in seconds) the shell should check for new mail (The default is 60.)
+61. OLDPWD
+    The previous working directory used in the shell
+62. OPTERR
+    If set to 1, the bash shell displays errors generated by the getopts command.
+63. OSTYPE
+    A string defining the operating system the shell is running on
+64. PIPESTATUS
+    A variable array containing a list of exit status values from the
+    processes in the foreground process
+65. POSIXLY_CORRECT
+    If set, bash starts in POSIX mode.
+66. PPID
+    The process ID (PID) of the bash shell’s parent process
+67. PROMPT_COMMAND
+    If set, the command to execute before displaying the primary
+    prompt
+68. PROMPT_DIRTRIM
+    An integer used to indicate the number of trailing directory
+    names to display when using the ∖w and ∖W prompt string
+    escapes (The directory names removed are replaced with one set of ellipses.)
+69. PS3
+    The prompt to use for the select command
+70. PS4
+    The prompt displayed before the command line is echoed if the
+    bash -x parameter is used
+71. PWD
+    The current working directory
+72. RANDOM
+    Returns a random number between 0 and 32767 (Assigning a
+    value to this variable seeds the pseudo-random number generator.)
+73. READLINE_LINE
+    Readline buffer contents when using bind -x command
+74. READLINE_POINT
+    Readline buffer content insertion point’s current position when using bind -x command
+75. REPLY
+    The default variable for the read command
+76. SECONDS
+    The number of seconds since the shell was started (Assigning a
+    value resets the timer to the value.)
+77. SHELL
+    The full pathname to the bash shell
+78. SHELLOPTS
+    A colon-separated list of enabled bash shell options
+79. SHLVL
+    Indicates the shell level, incremented by one each time a new bash shell is started
+80. TIMEFORMAT
+    A format specifying how the shell displays time values
+81. TMOUT
+    The value of how long (in seconds) the select and read
+    commands should wait for input (The default of zero indicates to wait indefinitely.)
+82. TMPDIR
+    Directory name where the bash shell creates temporary files for its use
+83. UID
+    The numeric real user ID of the current user
+
 You may notice that not all default environment variables are shown when the set
 command is used. When not in use, the default environment variables are not all required
 to contain a value.
@@ -6010,21 +6443,27 @@ When you enter an external command (see [chapter 5]) in the shell command line i
 (CLI), the shell must search the system to find the program. The PATH environment
 variable defines the directories it searches looking for commands and programs. On this
 Ubuntu Linux system, the PATH environment variable looks like this:
+```sh
 $ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:
 /sbin:/bin:/usr/games:/usr/local/games
 $
+```
 This shows that there are eight directories where the shell looks for commands and
 programs. The directories in the PATH are separated by colons.
-If a command’s or program’s location is not included in the PATH variable, the shell cannot
+
+f a command’s or program’s location is not included in the PATH variable, the shell cannot
 find it without an absolute directory reference. If the shell cannot find the command or
 program, it produces an error message:
+```sh
 $ myprog
 -bash: myprog: command not found
 $
+```
 The problem is that often applications place their executable programs in directories that
 aren’t in the PATH environment variable. The trick is ensuring that your PATH environment
 variable includes all the directories where your applications reside.
+
 You can add new search directories to the existing PATH environment variable without
 having to rebuild it from scratch. The individual directories listed in the PATH are separated
 by colons. All you need to do is reference the original PATH value and add any new
@@ -6251,13 +6690,16 @@ iterates through any files located in the /etc/profile.d directory. ( for statem
 discussed in detail in Chapter 13.) This provides a place for the Linux system to place
 application-specific startup files that is executed by the shell when you log in. On this
 Ubuntu Linux system, the following files are in the profile.d directory:
+```sh
 $ ls -l /etc/profile.d
 total 12
 -rw-r—r— 1 root root 40 Apr 15 06:26 appmenu-qt5.sh
 -rw-r—r— 1 root root 663 Apr 7 10:10 bash_completion.sh
 -rw-r—r— 1 root root 1947 Nov 22 2013 vte.sh
 $
+```
 You can see that this CentOs system has quite a few more files in /etc/profile.d :
+```sh
 $ ls -l /etc/profile.d
 total 80
 -rw-r—r—. 1 root root 1127 Mar 5 07:17 colorls.csh
@@ -6281,6 +6723,7 @@ total 80
 -rw-r—r—. 1 root root 269 Apr 5 2012 vim.sh
 -rw-r—r—. 1 root root 169 May 20 2009 which2.sh
 $
+```
 Notice that several files are related to specific applications on the system. Most
 applications create two startup files — one for the bash shell (using the .sh extension) and
 one for the c shell (using the .csh extension).
@@ -6304,6 +6747,7 @@ Environment files are one area where Linux distributions vary greatly. Not every
 $HOME file listed in this section exists for every user. For example, some users may
 have only the $HOME/.bash_profile file. This is normal.
 The first file found in the following ordered list is run, and the rest are ignored:
+```sh
 $HOME/.bash_profile
 $HOME/.bash_login
 $HOME/.profile
@@ -6313,6 +6757,7 @@ Tip
 Remember that $HOME represents a user’s home directory. Also, the tilde ( ∼ ) is used to
 represent a user’s home directory.
 This CentOS Linux system contains the following .bash_profile file:
+```sh
 $ cat $HOME/.bash_profile
 # .bash_profile
 # Get the aliases and functions
@@ -6323,6 +6768,7 @@ fi
 PATH=$PATH:$HOME/bin
 export PATH
 $
+```
 The .bash_profile startup file first checks to see if the startup file, .bashrc , is present in
 the HOME directory. If it’s there, the startup file executes the commands in it.
 Understanding the interactive shell process
@@ -6333,6 +6779,7 @@ commands.
 If bash is started as an interactive shell, it doesn’t process the /etc/profile file. Instead,
 it only checks for the .bashrc file in the user’s HOME directory.
 On this Linux CentOS distribution, this file looks like this:
+```sh
 $ cat .bashrc
 # .bashrc
 # Source global definitions
@@ -6341,6 +6788,7 @@ if [ -f /etc/bashrc ]; then
 fi
 # User specific aliases and functions
 $
+```
 The .bashrc file does two things. First, it checks for a common bashrc file in the /etc
 directory. Second, it provides a place for the user to enter personal command aliases
 (discussed in Chapter 5) and private script functions (described in Chapter 17).
@@ -6554,6 +7002,7 @@ The Linux system uses a special file to match the login name to a corresponding 
 value. This file is the /etc/passwd file. The /etc/passwd file contains several pieces of
 information about the user. Here’s what a typical /etc/passwd file looks like on a Linux
 system:
+```sh
 $ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/bin:/sbin/nologin
@@ -6595,33 +7044,38 @@ katie:x:502:502:katie:/home/katie:/bin/bash
 jessica:x:503:503:Jessica:/home/jessica:/bin/bash
 mysql:x:27:27:MySQL Server:/var/lib/mysql:/bin/bash
 $
+```
 The root user account is the administrator for the Linux system and is always assigned
 UID 0. As you can see, the Linux system creates lots of user accounts for various
 functions that aren’t actual users. These are called system accounts. A system account is a
 special account that services running on the system use to gain access to resources on the
 system. All services that run in background mode need to be logged in to the Linux system
 under a system user account.
+
 Before security became a big issue, these services often just logged in using the root user
 account. Unfortunately, if an unauthorized person broke into one of these services, he
 instantly gained access to the system as the root user. To prevent this, now just about
 every service that runs in background on a Linux server has its own user account to log in
 with. This way, if a troublemaker compromises a service, he still can’t necessarily get
 access to the whole system.
+
 Linux reserves UIDs below 500 for system accounts. Some services even require specific
 UIDs to work properly. When you create accounts for normal users, most Linux systems
 assign the first available UID starting at 500 (although this is not necessarily true for all
 Linux distributions).
+
 You probably noticed that the /etc/passwd file contains much more than just the login
 name and UID for the user. The fields of the /etc/passwd file contain the following
 information:
 
-The login username
-The password for the user
-The numerical UID of the user account
-The numerical group ID (GID) of the user account
-A text description of the user account (called the comment field)
-The location of the HOME directory for the user
-The default shell for the user
+1. The login username
+2. The password for the user
+3. The numerical UID of the user account
+4. The numerical group ID (GID) of the user account
+5. A text description of the user account (called the comment field)
+6. The location of the HOME directory for the user
+7. The default shell for the user
+
 The password field in the /etc/passwd file is set to an x . This doesn’t mean that all the
 user accounts have the same password. In the old days of Linux, the /etc/passwd file
 contained an encrypted version of the user’s password. However, because lots of programs
@@ -6629,38 +7083,44 @@ need to access the /etc/passwd file for user information, this became a security
 With the advent of software that could easily decrypt encrypted passwords, the bad guys
 had a field day trying to break user passwords stored in the /etc/passwd file. Linux
 developers needed to rethink that policy.
+
 Now, most Linux systems hold user passwords in a separate file (called the shadow file,
 located at /etc/shadow ). Only special programs (such as the login program) are allowed
 access to this file.
+
 The /etc/passwd file is a standard text file. You can use any text editor to manually
 perform user management functions (such as adding, modifying, or removing user
 accounts) directly in the /etc/passwd file. However, this is an extremely dangerous
 practice. If the /etc/passwd file becomes corrupt, the system can’t read it, and it prevents
 anyone (even the root user) from logging in. Instead, it’s safer to use the standard Linux
 user management utilities to perform all user management functions.
+
 The /etc/shadow file
 The /etc/shadow file provides more control over how the Linux system manages
 passwords. Only the root user has access to the /etc/shadow file, making it more secure
 than the /etc/passwd file.
+
 The /etc/shadow file contains one record for each user account on the system. A record
 looks like this:
+```sh
 rich:$1$.FfcK0ns$f1UgiyHQ25wrB/hykCn020:11627:0:99999:7:::
+```
 There are nine fields in each /etc/shadow file record:
 
-The login name corresponding to the login name in the /etc/passwd file
-The encrypted password
-The number of days since January 1, 1970, that the password was last changed
-The minimum number of days before the password can be changed
-The number of days before the password must be changed
-The number of days before password expiration that the user is warned to change the
-password
-The number of days after a password expires before the account will be disabled
-The date (stored as the number of days since January 1, 1970) since the user account
-was disabled
-A field reserved for future use
+1. The login name corresponding to the login name in the /etc/passwd file
+2. The encrypted password
+3. The number of days since January 1, 1970, that the password was last changed
+4. The minimum number of days before the password can be changed
+5. The number of days before the password must be changed
+6. The number of days before password expiration that the user is warned to change the password
+7. The number of days after a password expires before the account will be disabled
+8. The date (stored as the number of days since January 1, 1970) since the user account was disabled
+9. A field reserved for future use
+
 Using the shadow password system, the Linux system has much finer control over user
 passwords. It can control how often a user must change his or her password and when to
 disable the account if the password hasn’t been changed.
+
 Adding a new user
 The primary tool used to add new users to your Linux system is useradd . This command
 provides an easy way to create a new user account and set up the user’s HOME directory
@@ -6668,6 +7128,7 @@ structure all at once. The useradd command uses a combination of system default 
 and command line parameters to define a user account. The system defaults are set in the
 /etc/default/useradd file. To see the system default values used on your Linux
 distribution, enter the useradd command with the -D parameter:
+```sh
 # /usr/sbin/useradd -D
 GROUP=100
 HOME=/home
@@ -6677,28 +7138,32 @@ SHELL=/bin/bash
 SKEL=/etc/skel
 CREATE_MAIL_SPOOL=yes
 #
+```
+
 Note
 Some Linux distributions place the Linux user and group utilities in the /usr/sbin
 directory, which may not be in your PATH environment variable. If that’s the case in
 your Linux distribution, either add the directory to your PATH or use the absolute file
 path to run it.
+
 The -D parameter shows what defaults the useradd command uses if you don’t specify
 them in the command line when creating a new user account. This example shows the
 following default values:
 
-The new user is added to a common group with group ID 100.
-The new user has a HOME account created in the directory /home/loginname .
-The account can’t be disabled when the password expires.
-The new account can’t be set to expire at a set date.
-The new account uses the bash shell as the default shell.
-The system copies the contents of the /etc/skel directory to the user’s HOME
-directory.
-The system creates a file in the mail directory for the user account to receive mail.
+1. The new user is added to a common group with group ID 100.
+2. The new user has a HOME account created in the directory /home/loginname .
+3. The account can’t be disabled when the password expires.
+4. The new account can’t be set to expire at a set date.
+5. The new account uses the bash shell as the default shell.
+6. The system copies the contents of the /etc/skel directory to the user’s HOME directory.
+7. The system creates a file in the mail directory for the user account to receive mail.
+
 The penultimate value is interesting. The useradd command allows an administrator to
 create a default HOME directory configuration and then uses that as a template to create the
 new user’s HOME directory. This allows you to place default files for the system in every
 new user’s HOME directory automatically. In the Ubuntu Linux system, the /etc/skel
 directory has the following files:
+```sh
 $ ls -al /etc/skel
 total 32
 drwxr-xr-x 2 root root 4096 2010-04-29 08:26 .
@@ -6708,11 +7173,14 @@ drwxr-xr-x 135 root root 12288 2010-09-23 18:49 ..
 -rw-r—r— 1 root root 179 2010-03-26 08:31 examples.desktop
 -rw-r—r— 1 root root 675 2010-04-18 21:51 .profile
 $
+```
 You should recognize these files from Chapter 6. These are the standard startup files for
 the bash shell environment. The system automatically copies these default files into every
 user’s HOME directory you create.
+
 You can test this by creating a new user account using the default system parameters and
 then looking at the HOME directory for the new user:
+```sh
 # useradd -m test
 # ls -al /home/test
 total 24
@@ -6723,14 +7191,17 @@ drwxr-xr-x 4 root root 4096 2010-09-23 19:01 ..
 -rw-r—r— 1 test test 179 2010-03-26 08:31 examples.desktop
 -rw-r—r— 1 test test 675 2010-04-18 21:51 .profile
 #
+```
 By default, the useradd command doesn’t create a HOME directory, but the –m command
 line option tells it to create the HOME directory. As you can see in the example, the useradd
 command created the new HOME directory, using the files contained in the /etc/skel
 directory.
+
 Note
 To run the user account administration commands in this chapter, you either need to
 be logged in as the special root user account or use the sudo command to run the
 commands as the root user account.
+
 If you want to override a default value or behavior when creating a new user, you can do
 that with command line parameters. These are shown in Table 7.1.
 
@@ -6738,59 +7209,39 @@ Table 7.1 The useradd Command Line Parameters
                                                                 *Table 7.1*
 Parameter Description
 -c comment Adds text to the new user’s comment field
--d home_dir
-Specifies a different name for the HOME directory other than the login
-name
--e
-expire_date
-Specifies a date, in YYYY-MM-DD format, when the account will
-expire
--f
-inactive_days
-Specifies the number of days after a password expires when the account
-will be disabled. A value of 0 disables the account as soon as the
+-d home_dir Specifies a different name for the HOME directory other than the login name
+-e expire_date Specifies a date, in YYYY-MM-DD format, when the account will expire
+-f inactive_days Specifies the number of days after a password expires when the account will be disabled. A value of 0 disables the account as soon as the
 password expires; a value of -1 disables this feature.
--g
-initial_group
-Specifies the group name or GID of the user’s login group
+-g initial_group Specifies the group name or GID of the user’s login group
 -G group … Specifies one or more supplementary groups the user belongs to
--k
-Copies the /etc/skel directory contents into the user’s HOME directory
-(must use -m as well)
--m
-Creates the user’s HOME directory
--M
-Doesn’t create a user’s HOME directory (used if the default setting is to
-create one)
--n
-Creates a new group using the same name as the user’s login name
--r
-Creates a system account
+-k Copies the /etc/skel directory contents into the user’s HOME directory (must use -m as well)
+-m Creates the user’s HOME directory
+-M Doesn’t create a user’s HOME directory (used if the default setting is to create one)
+-n Creates a new group using the same name as the user’s login name
+-r Creates a system account
 -p passwd Specifies a default password for the user account
 -s shell Specifies the default login shell
 -u uid Specifies a unique UID for the account
+
 As you can see, you can override all the system default values when creating a new user
 account just by using command line parameters. However, if you find yourself having to
 override a value all the time, it’s easier to just change the system default value.
 You can change the system default new user values by using the -D parameter, along with
 a parameter representing the value you need to change. These parameters are shown in
-
 Table 7.2.
-                                                                *Table 7.2*
 
 Table 7.2 The useradd Change Default Values Parameters
                                                                 *Table 7.2*
 Parameter Description
 -b default_home Changes the location where users’ HOME directories are created
--e
-expiration_date
-Changes the expiration date on new accounts
--f inactive
-Changes the number of days after a password has expired before the
-account is disabled
+-e expiration_date Changes the expiration date on new accounts
+-f inactive Changes the number of days after a password has expired before the account is disabled
 -g group Changes the default group name or GID used
 -s shell Changes the default login shell
+
 Changing the default values is a snap:
+```sh
 # useradd -D -s /bin/tsch
 # useradd -D
 GROUP=100
@@ -6801,26 +7252,34 @@ SHELL=/bin/tsch
 SKEL=/etc/skel
 CREATE_MAIL_SPOOL=yes
 #
+```
 Now, the useradd command uses the tsch shell as the default login shell for all new user
 accounts you create.
+
 Removing a user
 If you want to remove a user from the system, the userdel command is what you need.
 By default, the userdel command removes only the user information from the
 /etc/passwd file. It doesn’t remove any files the account owns on the system.
+
 If you use the -r parameter, userdel removes the user’s HOME directory, along with the
 user’s mail directory. However, other files owned by the deleted user account may still be
 on the system. This can be a problem in some environments.
+
 Here’s an example of using the userdel command to remove an existing user account:
+```sh
 # /usr/sbin/userdel -r test
 # ls -al /home/test
 ls: cannot access /home/test: No such file or directory
 #
+```
 After using the -r parameter, the user’s old /home/test directory no longer exists.
+
 Caution
 Be careful when using the -r parameter in an environment with lots of users. You
 never know if a user had important files stored in his or her HOME directory that are
 used by someone else or another program. Always check before removing a user’s
 HOME directory!
+
 Modifying a user
 Linux provides a few different utilities for modifying the information for existing user
 accounts. Table 7.3 shows these utilities.
@@ -6828,21 +7287,16 @@ accounts. Table 7.3 shows these utilities.
 Table 7.3 User Account Modification Utilities
                                                                 *Table 7.3*
 Command Description
-usermod
-Edits user account fields, as well as specifying primary and secondary group
-membership
-passwd
-Changes the password for an existing user
-chpasswd
-Reads a file of login name and password pairs, and updates the passwords
-chage
-Changes the password’s expiration date
-chfn
-Changes the user account’s comment information
-chsh
-Changes the user account’s default shell
+usermod Edits user account fields, as well as specifying primary and secondary group membership
+passwd  Changes the password for an existing user
+chpasswd    Reads a file of login name and password pairs, and updates the passwords
+chage   Changes the password’s expiration date
+chfn    Changes the user account’s comment information
+chsh    Changes the user account’s default shell
+
 Each of these utilities provides a specific function for changing information about user
 accounts. The following sections describe each of these utilities.
+
 usermod
 The usermod command is the most robust of the user account modification utilities. It
 provides options for changing most of the fields in the /etc/passwd file. To do that, you
@@ -6855,44 +7309,55 @@ login group). However, a couple of additional parameters might come in handy:
 -L locks the account so the user can’t log in.
 -p changes the password for the account.
 -U unlocks the account so the user can log in.
+
 The -L parameter is especially handy. Use this to lock an account so a user can’t log in
 without having to remove the account and the user’s data. To return the account to normal,
 just use the -U parameter.
+
 passwd and chpasswd
 A quick way to change just the password for a user is the passwd command:
+```sh
 # passwd test
 Changing password for user test.
 New UNIX password:
 Retype new UNIX password:
 passwd: all authentication tokens updated successfully.
 #
+```
 If you just use the passwd command by itself, it changes your own password. Any user in
 the system can change his or her own password, but only the root user can change
 someone else’s password.
+
 The -e option is a handy way to force a user to change the password on the next log in.
 This allows you to set the user’s password to a simple value and forces them to change it
 to something harder that they can remember.
+
 If you ever need to do a mass password change for lots of users on the system, the
 chpasswd command can be a lifesaver. The chpasswd command reads a list of login name
 and password pairs (separated by a colon) from the standard input, automatically encrypts
 the password, and sets it for the user account. You can also use the redirection command
 to redirect a file of userid:password pairs into the command:
+```sh
 # chpasswd < users.txt
 #
+```
 chsh, chfn, and chage
 The chsh , chfn , and chage utilities are specialized for specific account modification
 functions. The chsh command allows you to quickly change the default login shell for a
 user. You must use the full pathname for the shell, and not just the shell name:
+```sh
 # chsh -s /bin/csh test
 Changing shell for test.
 Shell changed.
 #
+```
 The chfn command provides a standard method for storing information in the comments
 field in the /etc/passwd file. Instead of just inserting random text, such as names or
 nicknames, or even just leaving the comment field blank, the chfn command uses specific
 information used in the Unix finger command to store information in the comment field.
 The finger command allows you to easily find information about people on your Linux
 system:
+```sh
 # finger rich
 Login: rich Name: Rich Blum
 Directory: /home/rich Shell: /bin/bash
@@ -6900,12 +7365,15 @@ On since Thu Sep 20 18:03 (EDT) on pts/0 from 192.168.1.2
 No mail.
 No Plan.
 #
+```
 Note
 Because of security concerns, many Linux system administrators disable the finger
 command on their systems, and many Linux distributions don’t even install it by
 default.
+
 If you use the chfn command with no parameters, it queries you for the appropriate values
 to enter in to the comment field:
+```sh
 # chfn test
 Changing finger information for test.
 Name []: Ima Test
@@ -6922,11 +7390,14 @@ Never logged in.
 No mail.
 No Plan.
 #
+```
 If you now look at the entry in the /etc/passwd file, it looks like this:
+```sh
 # grep test /etc/passwd
 test:x:504:504:Ima Test,Director of Technology,(123)555-
 1234,(123)555-9876:/home/test:/bin/csh
 #
+```
 All the finger information is neatly stored away in the /etc/passwd file entry.
 Finally, the chage command helps you manage the password aging process for user
 accounts. You need to set several parameters to individual values, shown in Table 7.4.
@@ -6934,22 +7405,17 @@ accounts. You need to set several parameters to individual values, shown in Tabl
 Table 7.4 The chage Command Parameters
                                                                 *Table 7.4*
 Parameter Description
--d
-Sets the number of days since the password was last changed
--E
-Sets the date the password expires
--I
-Sets the number of days of inactivity after the password expires to lock the
-account
--m
-Sets the minimum number of days between password changes
--W
-Sets the number of days before the password expires that a warning message
-appears
+-d  Sets the number of days since the password was last changed
+-E  Sets the date the password expires
+-I  Sets the number of days of inactivity after the password expires to lock the account
+-m  Sets the minimum number of days between password changes
+-W  Sets the number of days before the password expires that a warning message appears
+
 The chage date values can be expressed using one of two methods:
 
-A date in YYYY-MM-DD format
-A numerical value representing the number of days since January 1, 1970
+1. A date in YYYY-MM-DD format
+2. A numerical value representing the number of days since January 1, 1970
+
 One neat feature of the chage command is that it allows you to set an expiration date for
 an account. Using this feature, you can create temporary user accounts that automatically
 expire on a set date, without your having to remember to delete them! Expired accounts
@@ -6961,23 +7427,28 @@ are similar to locked accounts. The account still exists, but the user can’t l
 User accounts are great for controlling security for individual users, but they aren’t so
 good at allowing groups of users to share resources. To accomplish this, the Linux system
 uses another security concept, called groups.
+
 Group permissions allow multiple users to share a common set of permissions for an
 object on the system, such as a file, directory, or device (more on that later in the
 “Decoding File Permissions” section).
+
 Linux distributions differ somewhat on how they handle default group memberships.
 Some Linux distributions create just one group that contains all the user accounts as
 members. You need to be careful if your Linux distribution does this, because your files
 may be readable by all other users on the system. Other distributions create a separate
 group account for each user to provide a little more security.
+
 Each group has a unique GID, which, like UIDs, is a unique numerical value on the
 system. Along with the GID, each group has a unique group name. You can use some
 group utilities to create and manage your own groups on the Linux system. This section
 discusses how group information is stored and how to use the group utilities to create new
 groups and modify existing groups.
+
 The /etc/group file
 Just like user accounts, group information is stored in a file on the system. The
 /etc/group file contains information about each group used on the system. These are
 examples from a typical /etc/group file on a Linux system:
+```sh
 root:x:0:root
 bin:x:1:root,bin,daemon
 daemon:x:2:root,bin,daemon
@@ -6989,20 +7460,23 @@ katie:x:502:
 jessica:x:503:
 mysql:x:27:
 test:x:504:
+```
 Like UIDs, GIDs are assigned using a special format. Groups used for system accounts are
 assigned GIDs below 500, and user groups are assigned GIDs starting at 500. The
 /etc/group file uses four fields:
 
-The group name
-The group password
-The GID
-The list of user accounts that belong to the group
+1. The group name
+2. The group password
+3. The GID
+4. The list of user accounts that belong to the group
+
 The group password allows a non-group member to temporarily become a member of the
 group by using the password. This feature is not used all that commonly, but it does exist.
 You should never add users to groups by editing the /etc/group file. Instead, use the
 usermod command (discussed earlier in the “Linux Security” section) to add a user
 account to a group. Before you can add users to different groups, you must create the
 groups.
+
 Note
 The list of user accounts is somewhat misleading. You’ll notice that there are several
 groups in the list that don’t have any users listed. This isn’t because they don’t have
@@ -7010,8 +7484,10 @@ any members. When a user account uses a group as the default group in the
 /etc/passwd file, the user account doesn’t appear in the /etc/group file as a
 member. This has caused confusion for more than one system administrator over the
 years!
+
 Creating new groups
 The groupadd command allows you to create new groups on your system:
+```sh
 # /usr/sbin/groupadd shared
 # tail /etc/group
 haldaemon:x:68:
@@ -7025,9 +7501,11 @@ mysql:x:27:
 test:x:504:
 shared:x:505:
 #
+```
 When you create a new group, no users are assigned to it by default. The groupadd
 command doesn’t provide an option for adding user accounts to the group. Instead, to add
 new users, use the usermod command:
+```sh
 # /usr/sbin/usermod -G shared rich
 # /usr/sbin/usermod -G shared test
 # tail /etc/group
@@ -7042,20 +7520,25 @@ mysql:x:27:
 test:x:504:
 shared:x:505:rich, test
 #
+```
 The shared group now has two members, test and rich. The -G parameter in usermod
 appends the new group to the list of groups for the user account.
+
 Note
 If you change the user groups for an account that is currently logged into the system,
 the user must log out and then log back in for the group changes to take effect.
+
 Caution
 Be careful when assigning groups for user accounts. If you use the -g parameter, the
 group name you specify replaces the default group for the user account. The -G
 parameter adds the group to the list of groups the user belongs to, keeping the default
 group intact.
+
 Modifying groups
 As you can see from the /etc/group file, you don’t need to modify much information
 about a group. The groupmod command allows you to change the GID (using the -g
 parameter) or the group name (using the -n parameter) of an existing group:
+```sh
 # /usr/sbin/groupmod -n sharing shared
 # tail /etc/group
 haldaemon:x:68:
@@ -7069,6 +7552,7 @@ mysql:x:27:
 test:x:504:
 sharing:x:505:test,rich
 #
+```
 When changing the name of a group, the GID and group members remain the same, only
 the group name changes. Because all security permissions are based on the GID, you can
 change the name of a group as often as you wish without adversely affecting file security.
@@ -7079,9 +7563,11 @@ change the name of a group as often as you wish without adversely affecting file
 Now that you know about users and groups, it’s time to decode the cryptic file permissions
 you’ve seen when using the ls command. This section describes how to decipher the
 permissions and where they come from.
+
 Using file permission symbols
 If you remember from Chapter 3, the ls command allows you to see the file permissions
 for files, directories, and devices on the Linux system:
+```sh
 $ ls -l
 total 68
 -rw-rw-r— 1 rich rich 50 2010-09-13 07:49 file1.gz
@@ -7093,6 +7579,7 @@ total 68
 drwxrwxr-x 2 rich rich 4096 2010-09-03 15:12 test1
 drwxrwxr-x 2 rich rich 4096 2010-09-03 15:12 test2
 $
+```
 The first field in the output listing is a code that describes the permissions for the files and
 directories. The first character in the field defines the type of the object:
 
@@ -7102,12 +7589,14 @@ l for links
 c for character devices
 b for block devices
 n for network devices
+
 After that, you see three sets of three characters. Each set of three characters defines an
 access permission triplet:
 
 r for read permission for the object
 w for write permission for the object
 x for execute permission for the object
+
 If a permission is denied, a dash appears in the location. The three sets relate the three
 levels of security for the object:
 
@@ -7121,34 +7610,43 @@ Figure 7.1 The Linux file permissions
 
 The easiest way to discuss this is to take an example and decode the file permissions one
 by one:
+```sh
 -rwxrwxr-x 1 rich rich 4882 2010-09-18 13:58 myprog
+```
 The file myprog has the following sets of permissions:
 
 rwx for the file owner (set to the login name rich)
 rwx for the file group owner (set to the group name rich)
 r-x for everyone else on the system
+
 These permissions indicate that the user login name rich can read, write, and execute the
 file (considered full permissions). Likewise, members in the group rich can also read,
 write, and execute the file. However, anyone else not in the rich group can only read and
 execute the file; the w is replaced with a dash, indicating that write permissions are not
 assigned to this security level.
+
 Default file permissions
 You may be wondering about where these file permissions come from. The answer is
 umask. The umask command sets the default permissions for any file or directory you
 create:
+```sh
 $ touch newfile
 $ ls -al newfile
 -rw-r—r— 1 rich rich 0 Sep 20 19:16 newfile
 $
+```
 The touch command created the file using the default permissions assigned to my user
 account. The umask command shows and sets the default permissions:
+```sh
 $ umask
 0022
 $
+```
 Unfortunately, the umask command setting isn’t overtly clear, and trying to understand
 exactly how it works makes things even muddier. The first digit represents a special
 security feature called the sticky bit . We’ll talk more about that later on in this chapter
 in the “Sharing Files” section.
+
 The next three digits represent the octal values of the umask for a file or directory. To
 understand how umask works, you first need to understand octal mode security settings.
 Octal mode security settings take the three rwx permission values and convert them into a
@@ -7176,36 +7674,47 @@ rw-
 110 6 Read and write permissions
 rwx
 111 7 Read, write, and execute permissions
+
 Octal mode takes the octal permissions and lists three of them in order for the three
 security levels (user, group, and everyone). Thus, the octal mode value 664 represents read
 and write permissions for the user and group, but read-only permission for everyone else.
 Now that you know about octal mode permissions, the umask value becomes even more
 confusing. The octal mode shown for the default umask on my Linux system is 0022, but
 the file I created had an octal mode permission of 644. How did that happen?
+
 The umask value is just that, a mask. It masks out the permissions you don’t want to give
 to the security level. Now we have to dive into some octal arithmetic to figure out the rest
 of the story.
+
 The umask value is subtracted from the full permission set for an object. The full
 permission for a file is mode 666 (read/write permission for all), but for a directory it’s
 777 (read/write/execute permission for all).
+
 Thus, in the example, the file starts out with permissions 666, and the umask of 022 is
 applied, leaving a file permission of 644.
+
 The umask value is normally set in the /etc/profile startup file in most Linux
 distributions (see [chapter 6]), but some prefer to set it in the /etc/login.defs file (such as
 in Ubuntu). You can specify a different default umask setting using the umask command:
+```sh
 $ umask 026
 $ touch newfile2
 $ ls -l newfile2
 -rw-r–— 1 rich rich 0 Sep 20 19:46 newfile2
 $
+```
+
 By setting the umask value to 026, the default file permissions become 640, so the new
 file now is restricted to read-only for the group members, and everyone else on the system
 has no permissions to the file.
+
 The umask value also applies to making new directories:
+```sh
 $ mkdir newdir
 $ ls -l
 drwxr-x—x 2 rich rich 4096 Sep 20 20:11 newdir/
 $
+```
 Because the default permissions for a directory are 777, the resulting permissions from the
 umask are different from those of a new file. The 026 umask value is subtracted from 777,
 leaving the 751 directory permission setting.
@@ -7217,113 +7726,143 @@ If you’ve already created a file or directory and need to change the security 
 Linux has a few different utilities available for this. This section shows you how to change
 the existing permissions, the default owner, and the default group settings for a file or
 directory.
+
 Changing permissions
 The chmod command allows you to change the security settings for files and directories.
 The format of the chmod command is:
 chmod options mode file
+
 The mode parameter allows you to set the security settings using either octal or symbolic
 mode. The octal mode settings are pretty straightforward; just use the standard three-digit
 octal code you want the file to have:
+```sh
 $ chmod 760 newfile
 $ ls -l newfile
 -rwxrw–- 1 rich rich 0 Sep 20 19:16 newfile
 $
+```
 The octal file permissions are automatically applied to the file indicated. The symbolic
 mode permissions are not so easy to implement.
+
 Instead of using the normal string of three sets of three characters, the chmod command
 takes a different approach. The following is the format for specifying a permission in
 symbolic mode:
+```sh
 [ugoa…][[+-=][rwxXstugo…]
+```
 Makes perfectly good sense, doesn’t it? The first group of characters defines to whom the
 new permissions apply:
 
-u for the user
-g for the group
-o for others (everyone else)
-a for all of the above
+1. u for the user
+2. g for the group
+3. o for others (everyone else)
+4. a for all of the above
+
 Next, a symbol is used to indicate whether you want to add the permission to the existing
 permissions (+), subtract the permission from the existing permission (−), or set the
 permissions to the value (=).
+
 Finally, the third symbol is the permission used for the setting. You may notice that there
 are more than the normal rwx values here. These are the additional settings:
 
-X assigns execute permissions only if the object is a directory or if it already had
-execute permissions.
-s sets the UID or GID on execution.
-t saves program text.
-u sets the permissions to the owner’s permissions.
-g sets the permissions to the group’s permissions.
-o sets the permissions to the other’s permissions.
+1. X assigns execute permissions only if the object is a directory or if it already had execute permissions.
+2. s sets the UID or GID on execution.
+3. t saves program text.
+4. u sets the permissions to the owner’s permissions.
+5. g sets the permissions to the group’s permissions.
+6. o sets the permissions to the other’s permissions.
+
 Using these permissions looks like this:
+```sh
 $ chmod o+r newfile
 $ ls -lF newfile
 -rwxrw-r— 1 rich rich 0 Sep 20 19:16 newfile*
 $
+```
 The o+r entry adds the read permission to whatever permissions the everyone security
 level already had.
+```sh
 $ chmod u-x newfile
 $ ls -lF newfile
 -rw-rw-r— 1 rich rich 0 Sep 20 19:16 newfile
 $
+```
 The u-x entry removes the execute permission that the user already had. Note that the –F
 option for the ls command indicates whether a file has execution permissions by adding
 an asterisk to the filename.
+
 The options parameters provide a few additional features to augment the behavior of the
 chmod command. The -R parameter performs the file and directory changes recursively.
 You can use wildcard characters for the filename specified, changing the permissions on
 multiple files with just one command.
+
 Changing ownership
 Sometimes, you need to change the owner of a file, such as when someone leaves an
 organization or a developer creates an application that needs to be owned by a system
 account when it’s in production. Linux provides two commands for doing that. The chown
 command makes it easy to change the owner of a file, and the chgrp command allows you
 to change the default group of a file.
+
 The format of the chown command is:
+```sh
 chown options owner[.group] file
+```
 You can specify either the login name or the numeric UID for the new owner of the file:
     
+```sh
     # chown dan newfile
     # ls -l newfile
     -rw-rw-r— 1 dan rich 0 Sep 20 19:16 newfile
     #
+```
 
 Simple. The chown command also allows you to change both the user and group of a file:
     
+```sh
     # chown dan.shared newfile
     # ls -l newfile
     -rw-rw-r— 1 dan shared 0 Sep 20 19:16 newfile
     #
+```
 
 If you really want to get tricky, you can just change the default group for a file:
     
+```sh
     # chown .rich newfile
     # ls -l newfile
     -rw-rw-r— 1 dan rich 0 Sep 20 19:16 newfile
     #
+```
 
 Finally, if your Linux system uses individual group names that match user login names,
 you can change both with just one entry:
     
+```sh
     # chown test. newfile
     # ls -l newfile
     -rw-rw-r— 1 test test 0 Sep 20 19:16 newfile
     #
+```
 
 The chown command uses a few different option parameters. The -R parameter allows you
 to make changes recursively through subdirectories and files, using a wildcard character.
 The -h parameter also changes the ownership of any files that are symbolically linked to
 the file.
+
 Note
 Only the root user can change the owner of a file. Any user can change the default
 group of a file, but the user must be a member of the groups the file is changed from
 and to.
+
 The chgrp command provides an easy way to change just the default group for a file or
 directory:
 
+```sh
     $ chgrp shared newfile
     $ ls -l newfile
     -rw-rw-r— 1 rich shared 0 Sep 20 19:16 newfile
     $
+```
 
 The user account must own the file, and be a member of the new group as well to be able
 to change the group. Now any member in the shared group can write to the file. This is
@@ -7336,45 +7875,52 @@ on the system can get tricky. The next section discusses how to do this.
 As you’ve probably already figured out, creating groups is the way to share access to files
 on the Linux system. However, for a complete file-sharing environment, things are more
 complicated.
+
 As you’ve already seen in the “Decoding File Permissions” section, when you create a
 new file, Linux assigns the file permissions of the new file using your default UID and
 GID. To allow others access to the file, you need to either change the security permissions
 for the everyone security group or assign the file a different default group that contains
 other users.
+
 This can be a pain in a large environment if you want to create and share documents
 among several people. Fortunately, there’s a simple solution for how to solve this problem.
 There are three additional bits of information that Linux stores for each file and directory:
 
 The set user id (SUID): When a file is executed by a user, the program runs under
 the permissions of the file owner.
+
 The set group id (SGID): For a file, the program runs under the permissions of the
 file group. For a directory, new files created in the directory use the directory group
 as the default group.
+
 The sticky bit: The file remains (sticks) in memory after the process ends.
 The SGID bit is important for sharing files. By enabling the SGID bit, you can force all
 new files created in a shared directory to be owned by the directory’s group and now the
 individual user’s group.
+
 The SGID is set using the chmod command. It’s added to the beginning of the standard
 three-digit octal value (making a four-digit octal value), or you can use the symbol s in
 symbolic mode.
-If you’re using octal mode, you’ll need to know the arrangement of the bits, shown in
 
+If you’re using octal mode, you’ll need to know the arrangement of the bits, shown in
 Table 7.6.
-                                                                *Table 7.6*
 
 Table 7.6 The chmod SUID, SGID, and Sticky Bit Octal Values
                                                                 *Table 7.6*
-Binary Octal Description
-000 0 All bits are cleared.
-001 1 The sticky bit is set.
-010 2 The SGID bit is set.
-011 3 The SGID and sticky bits are set.
-100 4 The SUID bit is set.
-101 5 The SUID and sticky bits are set.
-110 6 The SUID and SGID bits are set.
-111 7 All bits are set.
+| Binary | Octal |            Description            |
+|--------|-------|-----------------------------------|
+|    000 |     0 | All bits are cleared.             |
+|    001 |     1 | The sticky bit is set.            |
+|    010 |     2 | The SGID bit is set.              |
+|    011 |     3 | The SGID and sticky bits are set. |
+|    100 |     4 | The SUID bit is set.              |
+|    101 |     5 | The SUID and sticky bits are set. |
+|    110 |     6 | The SUID and SGID bits are set.   |
+|    111 |     7 | All bits are set.                 |
+
 So, to create a shared directory that always sets the directory group for all new files, all
 you need to do is set the SGID bit for the directory:
+```sh
 $ mkdir testdir
 $ ls -l
 drwxrwxr-x 2 rich rich 4096 Sep 20 23:12 testdir/
@@ -7389,14 +7935,17 @@ $ ls -l
 total 0
 -rw-rw-r— 1 rich shared 0 Sep 20 23:13 testfile
 $
+```
 The first step is to create a directory that you want to share using the mkdir command.
 Next, use the chgrp command to change the default group for the directory to a group that
 contains the members who need to share files (you must be a member of that group for
 this to work). Finally, set the SGID bit for the directory to ensure that any files created in
 the directory use the shared group name as the default group.
+
 For this environment to work properly, all the group members must have their umask
 values set to make files writable by group members. In the preceding example, the umask
 is changed to 002 so the files are writable by the group.
+
 After all that’s done, any member of the group can go to the shared directory and create a
 new file. As expected, the new file uses the default group of the directory, not the user
 account’s default group. Now any user in the shared group can access this file.
@@ -7412,30 +7961,36 @@ the /etc/passwd file and information about groups in the /etc/group file. Each u
 assigned a unique numeric user ID, along with a text login name to identify the user in the
 system. Groups are also assigned unique numerical group IDs and text group names. A
 group can contain one or more users to allowed shared access to system resources.
+
 Several commands are available for managing user accounts and groups. The useradd
 command allows you to create new user accounts, and the groupadd command allows you
 to create new group accounts. To modify an existing user account, use the usermod
 command. Similarly, use the groupmod command to modify group account information.
+
 Linux uses a complicated system of bits to determine access permissions for files and
 directories. Each file contains three security levels of protection: the file’s owner, a default
 group that has access to the file, and a level for everyone else on the system. Each security
 level is defined by three access bits: read, write, and execute. The combination of three
 bits is often referred to by the symbols rwx , for read, write, and execute. If a permission is
 denied, its symbol is replaced with a dash (such as r— for read-only permission).
+
 The symbolic permissions are often referred to as octal values, with the three bits
 combined into one octal value and three octal values representing the three security levels.
 Use the umask command to set the default security settings for files and directories created
 on the system. The system administrator normally sets a default umask value in the
 /etc/profile file, but you can use the umask command to change your umask value at
 any time.
+
 Use the chmod command to change security settings for files and directories. Only the
 file’s owner can change permissions for a file or directory. However, the root user can
 change the security settings for any file or directory on the system. You can use the chown
 and chgrp commands to change the default owner and group of the file.
+
 The chapter closed with a discussion on how to use the set GID bit to create a shared
 directory. The SGID bit forces any new files or directories created in a directory to use the
 default group name of the parent directory, not that of the user who created them. This
 provides an easy way to share files between users on the system.
+
 Now that you’re up to speed with file permissions, it’s time to take a closer look at how to
 work with the actual filesystem in Linux. The next chapter shows you how to create new
 partitions in Linux from the command line and then how to format the new partitions so
@@ -7452,10 +8007,12 @@ In This Chapter
 3. Managing filesystems
 4. Investigating the logical volume layout
 5. Using the Linux Logical Volume Manager
+
 When you’re working with your Linux system, one of the decisions you’ll need to
 make is what filesystem to use for the storage devices. Most Linux distributions
 kindly provide a default filesystem for you at installation time, and most beginning
 Linux users just use it without giving the topic another thought.
+
 Although using the default filesystem choice isn’t necessarily a bad thing, sometimes
 it helps to know the other options available to you. This chapter discusses the
 different filesystem options you have available in the Linux world and shows you
@@ -7680,9 +8237,11 @@ To start the fdisk command, you need to specify the device name of the storage d
 you want to partition and you need to have superuser privileges. When you don’t have
 superuser privileges and attempt to use fdisk , you’ll receive some sort of error message,
 like this one:
+```sh
 $ fdisk /dev/sdb
 Unable to open /dev/sdb
 $
+```
 Note
 Sometimes, the hardest part of creating a new disk partition is trying to find the
 physical disk on your Linux system. Linux uses a standard format for assigning
@@ -7695,6 +8254,7 @@ always a good idea to double-check to make sure you are referencing the correct
 drive before formatting the partition!
 If you do have superuser privileges and the correct device name, the fdisk command
 allows you entrance into the utility as demonstrated here on a CentOS distribution:
+```sh
 $ sudo fdisk /dev/sdb
 [sudo] password for Christine:
 Device contains neither a valid DOS partition table,
@@ -7806,6 +8366,7 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 $
+```
 The storage device partition information was written to the partition table, and Linux was
 informed of the new partition via the ioctl() call. Now that you have set up a partition on
 the storage device, you’re ready to format it with a Linux filesystem.
@@ -7843,12 +8404,14 @@ mkfs.btrfs
 Creates a Btrfs filesystem
 Not all filesystem utilities are installed by default. To determine whether you have a
 particular filesystem utility, use the type command:
+```sh
 $ type mkfs.ext4
 mkfs.ext4 is /sbin/mkfs.ext4
 $
 $ type mkfs.btrfs
 -bash: type: mkfs.btrfs: not found
 $
+```
 The preceding example on an Ubuntu system shows that the mkfs.ext4 utility is available.
 However, the Btrfs utility is not. See Chapter 9 on how to install additional software and
 utilities on your Linux distribution.
@@ -7857,6 +8420,7 @@ customize just how the filesystem is created in the partition. To see all the co
 options available, use the man command to display the manual pages for the filesystem
 command (see [chapter 3]). All the filesystem commands allow you to create a default
 filesystem with just the simple command with no options:
+```sh
 $ sudo mkfs.ext4 /dev/sdb1
 [sudo] password for Christine:
 mke2fs 1.41.12 (17-May-2010)
@@ -7880,6 +8444,7 @@ Writing superblocks and filesystem accounting information: done
 This filesystem will be automatically checked every 23 mounts or
 180 days, whichever comes first. Use tune2fs -c or -i to override.
 $
+```
 The new filesystem uses the ext4 filesystem type, which is a journaling filesystem in
 Linux. Notice that part of the creation process was to create the new journal.
 After you create the filesystem for a partition, the next step is to mount it on a virtual
@@ -7902,6 +8467,7 @@ drwxr-xr-x. 3 root root 4096 Jun 11 09:53 .
 drwxr-xr-x. 3 root root 4096 Jun 11 09:58 ..
 drwx––. 2 root root 16384 Jun 11 09:53 lost+found
 $
+```
 The mkdir command (Chapter 3) creates the mount point in the virtual directory, and the
 mount command adds the new hard drive partition to the mount point. The -t option on
 the mount command indicates what filesystem type, ext4 , you are mounting. Now you can
@@ -8125,6 +8691,7 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 $
+```
 The 8e partition type denotes that the partition will be used as part of a Linux LVM system
 and not as a direct filesystem, as you saw with the 83 partition type earlier.
 Note
@@ -8134,10 +8701,12 @@ package name lvm2 and see Chapter 9 for how to install software packages.
 The next step is to use the partition to create the actual physical volume. That’s done using
 the pvcreate command. The pvcreate command defines the physical partition to use for
 the PV. It simply tags the partition as a physical volume in the Linux LVM system:
+```sh
 $ sudo pvcreate /dev/sdb1
 dev_is_mpath: failed to get device for 8:17
 Physical volume “/dev/sdb1” successfully created
 $
+```
 Note
 Don’t let the daunting message dev_is_mpath: failed to get device for 8:17
 or similar messages frighten you. As long as you receive the successfully created
@@ -8145,6 +8714,7 @@ message, all is well. The pvcreate command checks to see whether the partition i
 multi-path (mpath) device. If it is not, it issues the daunting message.
 You can use the pvdisplay command to display a list of physical volumes you’ve created
 if you’d like to see your progress along the way:
+```sh
 $ sudo pvdisplay /dev/sdb1
 “/dev/sdb1” is a new physical volume of “2.01 GiB”
 – NEW Physical volume –
@@ -8158,6 +8728,7 @@ Free PE 0
 Allocated PE 0
 PV UUID 0FIuq2-LBod-IOWt-8VeN-tglm-Q2ik-rGU2w7
 $
+```
 The pvdisplay command shows that /dev/sdb1 is now tagged as a PV. Notice, however,
 that in the output, the VG Name is blank. The PV does not yet belong to a volume group.
 Creating Volume Groups
@@ -8169,11 +8740,14 @@ To create the volume group from the command line, you need to use the vgcreate
 command. The vgcreate command requires a few command line parameters to define the
 volume group name, as well as the name of the physical volumes you’re using to create
 the volume group:
+```sh
 $ sudo vgcreate Vol1 /dev/sdb1
 Volume group “Vol1” successfully created
 $
+```
 That’s not all too exciting for output! If you’d like to see some details about the newly
 created volume group, use the vgdisplay command:
+```sh
 $ sudo vgdisplay Vol1
 – Volume group –
 VG Name Vol1
@@ -8196,6 +8770,7 @@ Alloc PE / Size 0 / 0
 Free PE / Size 513 / 2.00 GiB
 VG UUID oe4I7e-5RA9-G9ti-ANoI-QKLz-qkX4-58Wj6e
 $
+```
 This example creates a volume group named Vol1 , using the physical volume created on
 the /dev/sdb1 partition.
 Now that you have one or more volume groups created, you’re ready to create the logical
@@ -8256,10 +8831,13 @@ Creates a snapshot logical volume
 Sets the first 1KB of data on the new logical volume to zeros
 Although the command line options may look intimidating, for most situations, you can
 get by with a minimal amount of options:
+```sh
 $ sudo lvcreate -l 100%FREE -n lvtest Vol1
 Logical volume “lvtest” created
 $
+```
 If you want to see the details of what you created, use the lvdisplay command:
+```sh
 $ sudo lvdisplay Vol1
 – Logical volume –
 LV Path /dev/Vol1/lvtest
@@ -8278,6 +8856,7 @@ Read ahead sectors auto
 - currently set to 256
 Block device 253:2
 $
+```
 Now you can see just what you created! Notice that the volume group name ( Vol1 ) is used
 to identify the volume group to use when creating the new logical volume.
 The -l parameter defines how much of the available space on the volume group specified
@@ -8292,6 +8871,7 @@ Creating the Filesystem
 After you run the lvcreate command, the logical volume exists but doesn’t have a
 filesystem. To do that, you need to use the appropriate command line program for the
 filesystem you want to create:
+```sh
 $ sudo mkfs.ext4 /dev/Vol1/lvtest
 mke2fs 1.41.12 (17-May-2010)
 Filesystem label=
@@ -8314,9 +8894,11 @@ Writing superblocks and filesystem accounting information: done
 This filesystem will be automatically checked every 28 mounts or
 180 days, whichever comes first.Use tune2fs -c or -i to override.
 $
+```
 After you’ve created the new filesystem, you can mount the volume in the virtual
 directory using the standard Linux mount command, just as if it were a physical partition.
 The only difference is that you use a special path that identifies the logical volume:
+```sh
 $ sudo mount /dev/Vol1/lvtest /mnt/my_partition
 $
 $ mount
@@ -8332,6 +8914,7 @@ drwxr-xr-x. 3 root root 4096 Jun 12 10:22 .
 drwxr-xr-x. 3 root root 4096 Jun 11 09:58 ..
 drwx––. 2 root root 16384 Jun 12 10:22 lost+found
 $
+```
 Notice that the path used in both the mkfs.ext4 and mount commands is a little odd.
 Instead of a physical partition path, the path uses the volume group name, along with the
 logical volume name. After the filesystem is mounted, you can access the new area in the
@@ -8499,6 +9082,7 @@ information about a particular package, you don’t need to go into aptitude’s
 interface. You can use aptitude as a single command at the command line:
 aptitude show package_name
 Here’s an example of displaying the details of the package mysql-client :
+```sh
 $ aptitude show mysql-client
 Package: mysql-client
 State: not installed
@@ -8520,6 +9104,7 @@ want, as this is the one considered to be in the best shape by the
 Maintainers.
 Homepage: http://dev.mysql.com/
 $
+```
 Note
 The aptitude show command indicates that the package is not installed on the
 system. It also shows detailed package information from the software repository.
@@ -8528,6 +9113,7 @@ particular software package. To get this list, you must go to the dpkg tool itse
 dpkg -L package_name
 Here’s an example of using dpkg to list all the files installed as part of the vim-common
 package:
+```sh
 $
 $ dpkg -L vim-common
 /.
@@ -8550,13 +9136,16 @@ $ dpkg -L vim-common
 /usr/share/man/it/man1
 […]
 $
+```
 You can also do the reverse — find what package a particular file belongs to:
 dpkg —search absolute_file_name
 Note that you need to use an absolute file reference for this to work:
+```sh
 $
 $ dpkg —search /usr/bin/xxd
 vim-common: /usr/bin/xxd
 $
+```
 The output shows the /usr/bin/xxd file was installed as part of the vim-common
 package.
 Installing software packages with aptitude
@@ -8568,6 +9157,7 @@ aptitude search package_name
 The beauty of the search option is that you do not need to insert wildcards around
 package_name. Wildcards are implied. Here’s an example of using aptitude to look for
 the wine software package:
+```sh
 $
 $ aptitude search wine
 p gnome-wine-icon-theme - red variation of the GNOME- …
@@ -8587,6 +9177,7 @@ p wine1.2-dev - Microsoft Windows Compatibility …
 p wine1.2-gecko - Microsoft Windows Compatibility …
 p winefish - LaTeX Editor based on Bluefish
 $
+```
 Notice that before each package name is either a p or i . If you see an i u , the package is
 currently installed on your system. If you see a p or v , it is available but not installed. As
 you can see from the preceding listing, this system does not have wine currently installed,
@@ -8596,6 +9187,7 @@ this:
 aptitude install package_name
 After you find the software package name from the search option, just plug it into the
 aptitude command using the install option:
+```sh
 $
 $ sudo aptitude install wine
 The following NEW packages will be installed:
@@ -8623,6 +9215,7 @@ Setting up gnome-exe-thumbnailer (0.6-0ubuntu1) …
 Processing triggers for libc-bin …
 ldconfig deferred processing now taking place
 $
+```
 Note
 Before the aptitude command in the preceding listing, the sudo command is used.
 The sudo command allows you to run a command as the root user. You can use the
@@ -8644,6 +9237,7 @@ Notice that this command doesn’t take a software package name as an argument. 
 because the safe-upgrade option upgrades all the installed packages to the most recent
 version available in the repository, which is safer for system stabilization.
 Here’s a sample output from running the aptitude safe-update command:
+```sh
 $
 $ sudo aptitude safe-upgrade
 The following packages will be upgraded:
@@ -8664,6 +9258,7 @@ Processing triggers for python-gmenu …
 […]
 Current status: 0 updates [-6].
 $
+```
 You can also use less-conservative options for software upgrades:
 
 aptitude full-upgrade
@@ -8685,6 +9280,7 @@ configuration files around afterward.
 To remove a software package, but not the data and configuration files, use the remove
 option of aptitude. To remove a software package and the related data and configuration
 files, use the purge option:
+```sh
 $ sudo aptitude purge wine
 [sudo] password for user:
 The following packages will be REMOVED:
@@ -8707,6 +9303,7 @@ Processing triggers for fontconfig …
 Processing triggers for ureadahead …
 Processing triggers for python-support …
 $
+```
 To see if the package has been removed, you can use the aptitude search option again.
 If you see a c in front of the package name, it means the software has been removed, but
 the configuration files have not been purged from the system. A p in front indicates the
@@ -8727,6 +9324,7 @@ install a software package from the repository. Even if a newer version is avail
 elsewhere, you may want to hold off installing it until that version is available in your
 Linux distribution’s repository
 The following is an example of a sources.list file from an Ubuntu system:
+```sh
 $ cat /etc/apt/sources.list
 #deb cdrom:[Ubuntu 14.04 LTS _Trusty Tahr_ - Release i386 (20140417)]/
 trusty main restricted
@@ -8757,6 +9355,7 @@ deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-updates universe
 deb http://extras.ubuntu.com/ubuntu trusty main
 deb-src http://extras.ubuntu.com/ubuntu trusty main
 $
+```
 First, notice that the file is full of helpful comments and warnings. The repository sources
 specified use the following structure:
 deb (or deb-src) address distribution_name package_type_list
@@ -8812,6 +9411,7 @@ zypper zipper search -I > installed_software
 To find out detailed information for a particular software package, yum really shines. It
 gives you a very verbose description of the package, and with another simple command,
 you can see whether the package is installed:
+```sh
 # yum list xterm
 Loaded plugins: langpacks, presto, refresh-packagekit
 Adding en_US to language list
@@ -8854,6 +9454,7 @@ filesystem, the versatile yum can do that, too! Just enter the command:
 yum provides file_name
 Here’s an example of trying to find what software provided the configuration file
 /etc/yum.conf :
+```sh
 #
 # yum provides /etc/yum.conf
 Loaded plugins: fastestmirror, refresh-packagekit, security
@@ -8883,8 +9484,10 @@ command for installing a software package, all its needed libraries, and package
 dependencies from a repository:
 yum install package_name
 Here’s an example of installing the xterm package that we talked about in Chapter 2:
+```sh
 $ su -
 Password:
+```sh
 # yum install xterm
 Loaded plugins: fastestmirror, refresh-packagekit, security
 Determining fastest mirrors
@@ -8981,6 +9584,7 @@ yum deplist package_name
 This command displays all the package’s library dependencies and what software package
 provides them. After you know the libraries required for a package, you can then install
 them. Here’s an example of determining the dependencies for the xterm package:
+```sh
 # yum deplist xterm
 Loaded plugins: fastestmirror, refresh-packagekit, security
 Loading mirror speeds from cached hostfile
@@ -9100,6 +9704,7 @@ sysstat-11.1.1.tar.gz .
 Click the link to download the file to your Linux system. After you have downloaded the
 file, you can unpack it.
 To unpack a software tarball, use the standard tar command:
+```sh
 #
 # tar -zxvf sysstat-11.1.1.tar.gz
 sysstat-11.1.1/
@@ -9125,6 +9730,7 @@ Now that the tarball is unpacked and the files have neatly put themselves into a
 called sysstat-11.1.1 , you can dive down into that directory and continue.
 First, use the cd command to get into the new directory and list the contents of the
 directory:
+```sh
 $ cd sysstat-11.1.1
 $ ls
 activity.c iconfig prealloc.in sa.h
@@ -9145,12 +9751,14 @@ cron nls sadf.c
 FAQ pidstat.c sadf.h
 format.c pidstat.h sadf_misc.c
 $
+```
 In the listing of the directory, you should typically see a README or AAAREADME file. It is
 very important to read this file. The actual instructions you need to finish the software’s
 installation are in this file.
 Following the advice contained in the README file, the next step is to configure sysstat
 for your system. This checks your Linux system to ensure it has the proper library
 dependencies, in addition to the proper compiler to compile the source code:
+```sh
 # ./configure
 Check programs:
 .
@@ -9206,6 +9814,7 @@ The next stage is to build the various binary files using the make command. The 
 command compiles the source code and then the linker to create the final executable files
 for the package. As with the configure command, the make command produces lots of
 output as it goes through the steps of compiling and linking all the source code files:
+```sh
 # make
 –gcc -o sadc.o -c -g -O2 -Wall -Wstrict-prototypes -pipe -O2
 -DSA_DIR="/var/log/sa" -DSADC_PATH="/usr/local/lib/sa/sadc"
@@ -9223,6 +9832,7 @@ directory! However, it’s somewhat inconvenient to have to run it from that dir
 Instead, you’ll want to install it in a common location on your Linux system. To do that,
 you need to log in as the root user account (or use the sudo command if your Linux
 distribution prefers) and then use the install option of the make command:
+```sh
 # make install
 mkdir -p /usr/local/share/man/man1
 mkdir -p /usr/local/share/man/man5
@@ -9302,6 +9912,7 @@ Before you begin your exploration of the vim editor, it’s a good idea to under
 vim package your Linux system has installed. On some distributions, you will have the
 full vim package installed and an alias for the vi command, as shown on this CentOS
 distribution:
+```sh
 $ alias vi
 alias vi=‘vim’
 $
@@ -9311,12 +9922,14 @@ $
 $ ls -l /usr/bin/vim
 -rwxr-xr-x. 1 root root 1967072 Apr 5 2012 /usr/bin/vim
 $
+```
 Notice that the program file’s long listing does not show any linked files (see [chapter 3
 for more information on linked files]). If the vim program is linked, it may be linked to a
 less than full-featured editor. Thus, it’s a good idea to check for linked files.
 On other distributions, you will find various flavors of the vim editor. Notice on this
 Ubuntu distribution that not only is there no alias for the vi command, but the
 /usr/bin/vi program file belongs to a series of file links:
+```sh
 $ alias vi
 -bash: alias: vi: not found
 $
@@ -9346,6 +9959,7 @@ multiple times to find a series of linked files’ final object, you can use the
 -f command. It immediately produces the linked file series’ final object.
 Software installations were covered in detail in Chapter 9. Installing the basic vim
 package on this Ubuntu distribution is fairly straightforward:
+```sh
 $ sudo apt-get install vim
 […]
 The following extra packages will be installed:
@@ -9359,6 +9973,7 @@ $
 $ readlink -f /usr/bin/vi
 /usr/bin/vim.basic
 $
+```
 The basic vim editor is now installed on this Ubuntu distribution, and the /usr/bin/vi
 program file’s link was automatically changed to point to /usr/bin/vim.basic . Thus,
 when the vi command is entered on this Ubuntu system, the basic vim editor is used
@@ -9367,6 +9982,7 @@ Exploring vim basics
 The vim editor works with data in a memory buffer. To start the vim editor, just type the
 vim command (or vi if there’s an alias or linked file) and the name of the file you want to
 edit:
+```sh
 $ vim myprog.c
 If you start vim without a filename, or if the file doesn’t exist, vim opens a new buffer area
 for editing. If you specify an existing file on the command line, vim reads the entire file’s
@@ -9537,6 +10153,7 @@ light and simple text editor, it is not licensed under the GPL. Not only is the 
 editor licensed under the GPL, it is also part of the GNU project.
 The nano text editor is installed on most Linux distributions by default. Everything about
 the nano text editor is simple. To open a file at the command line with nano:
+```sh
 $ nano myprog.c
 If you start nano without a filename, or if the file doesn’t exist, nano simply opens a new
 buffer area for editing. If you specify an existing file on the command line, nano reads the
@@ -9612,6 +10229,7 @@ Checking your emacs package
 Many distributions do not come with the emacs editor installed by default. You can check
 your Red Hat-based distribution, by using the which and/or yum list command as shown
 on this CentOS distribution:
+```sh
 $ which emacs
 /usr/bin/which: no emacs in (/usr/lib64/qt-3.3
 /bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:
@@ -9626,6 +10244,7 @@ it is available to be installed. (For a more thorough discussion on displaying i
 software, see Chapter 9).
 For a Debian-based distribution, check for the emacs editor package by using the which
 and/or apt-cache show command as shown on this Ubuntu distribution:
+```sh
 $ which emacs
 $
 $ sudo apt-cache show emacs
@@ -9643,10 +10262,12 @@ Bugs: https://bugs.launchpad.net/ubuntu/+filebug
 Origin: Ubuntu
 Supported: 5y
 $
+```
 The which command operates a little differently here. When it does not find the installed
 command, it simply returns the bash shell prompt. The emacs editor package is optional
 for this Ubuntu distribution, but is available to be installed. The following shows the
 emacs editor being installed on Ubuntu:
+```sh
 $ sudo apt-get install emacs
 Reading package lists… Done
 Building dependency tree
@@ -9663,9 +10284,11 @@ $
 $ which emacs
 /usr/bin/emacs
 $
+```
 Now when the which command is used, it points to the emacs program file. The emacs
 editor is ready to be used on this Ubuntu distribution.
 For the CentOS distribution, install the emacs editor using the yum install command:
+```sh
 $ sudo yum install emacs
 [sudo] password for Christine:
 […]
@@ -9689,6 +10312,7 @@ $ yum list emacs
 Installed Packages
 emacs.x86_64 1:23.1-25.el6 @base
 $
+```
 With the emacs editor successfully installed on your Linux distribution, you can begin to
 explore its different features, staring with using it on the console.
 Using emacs on the console
@@ -9700,6 +10324,7 @@ key as C- and the Meta key as M-. Thus, if you enter a Ctrl+x key combination, t
 document shows C-x. This chapter does the same so as not to confuse you.
 Exploring the basics of emacs
 To edit a file using emacs, from the command line, enter:
+```sh
 $ emacs myprog.c
 The emacs console mode window appears with a short introduction and help screen. Don’t
 be alarmed; as soon as you press a key, emacs loads the file into the active buffer and
@@ -9921,6 +10546,7 @@ in the buffer area and paste it at any other place.
 To edit a file using KWrite, you can either select KWrite from the KDE menu system on
 your desktop (some Linux distributions even create a Panel icon for it) or start it from the
 command line prompt:
+```sh
 $ kwrite factorial.sh
 The kwrite command has several command line parameters you can use to customize
 how it starts:
@@ -10117,6 +10743,7 @@ Most GNOME desktop environments include gedit in the Accessories Panel menu item
 For the Unity desktop environment, go to Dash ⇨ Search and type gedit. If you can’t find
 gedit via the menu system, you can start it from the command line prompt in a GUI
 terminal emulator:
+```sh
 $ gedit factorial.sh myprog.c
 When you start gedit with multiple files, it loads all the files into separate buffers and
 displays each one as a tabbed window within the main editor window, as shown in Figure
@@ -10339,6 +10966,7 @@ passing the results of one command to another. The shell allows you to chain com
 together into a single step.
 If you want to run two commands together, you can enter them on the same prompt line,
 separated with a semicolon:
+```sh
 $ date ; who
 Mon Feb 21 15:36:09 EST 2014
 Christine tty2 2014-02-21 15:26
@@ -10347,6 +10975,7 @@ Timothy tty1 2014-02-21 15:26
 user tty7 2014-02-19 14:03 (:0)
 user pts/0 2014-02-21 15:21 (:0.0)
 $
+```
 Congratulations, you just wrote a shell script! This simple script uses just two bash shell
 commands. The date command runs first, displaying the current date and time, followed
 by the output of the who command, showing who is currently logged on to the system.
@@ -10365,6 +10994,7 @@ To place shell commands in a text file, first you need to use a text editor (see
 to create a file and then enter the commands into the file.
 When creating a shell script file, you must specify the shell you are using in the first line
 of the file. Here’s the format for this:
+```sh
 #!/bin/bash
 In a normal shell script line, the pound sign (#) is used as a comment line. A comment line
 in a shell script isn’t processed by the shell. However, the first line of a shell script file is a
@@ -10374,6 +11004,7 @@ another shell).
 After indicating the shell, commands are entered onto each line of the file, followed by a
 carriage return. As mentioned, comments can be added by using the pound sign. An
 example looks like this:
+```sh
 #!/bin/bash
 # This script displays the date and who’s logged on
 date
@@ -10389,12 +11020,15 @@ remember what you did.
 Save this script in a file called test1 , and you are almost ready. You need to do a couple
 of things before you can run your new shell script file.
 If you try running the file now, you’ll be somewhat disappointed to see this:
+```sh
 $ test1
 bash: test1: command not found
 $
+```
 The first hurdle to jump is getting the bash shell to find your script file. If you remember
 from Chapter 6, the shell uses an environment variable called PATH to find commands. A
 quick look at the PATH environment variable demonstrates our problem:
+```sh
 $ echo $PATH
 /usr/kerberos/sbin:/usr/kerberos/bin:/usr/local/bin:/usr/bin
 :/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/user/bin $
@@ -10411,21 +11045,26 @@ shell can find them to execute.
 For this example, we use the second method to tell the shell exactly where the script file is
 located. Remember that to reference a file in the current directory, you can use the single
 dot operator in the shell:
+```sh
 $ ./test1
 bash: ./test1: Permission denied
 $
+```
 The shell found the shell script file just fine, but there’s another problem. The shell
 indicated that you don’t have permission to execute the file. A quick look at the file
 permissions should show what’s going on here:
+```sh
 $ ls -l test1
 -rw-rw-r— 1 user user 73 Sep 24 19:56 test1
 $
+```
 When the new test1 file was created, the umask value determined the default permission
 settings for the new file. Because the umask variable is set to 002 (see [chapter 7]) in
 Ubuntu, the system created the file with only read/write permissions for the file’s owner
 and group.
 The next step is to give the file owner permission to execute the file, using the chmod
 command (see [chapter 7]):
+```sh
 $ chmod u+x test1
 $ ./test1
 Mon Feb 21 15:38:19 EST 2014
@@ -10444,26 +11083,33 @@ monitor where the script is running. Many times, however, you will want to add y
 text messages to help the script user know what is happening within the script. You can do
 this with the echo command. The echo command can display a simple text string if you
 add the string following the command:
+```sh
 $ echo This is a test
 This is a test
 $
+```
 Notice that by default you don’t need to use quotes to delineate the string you’re
 displaying. However, sometimes this can get tricky if you are using quotes within your
 string:
+```sh
 $ echo Let’s see if this’ll work
 Lets see if thisll work
 $
+```
 The echo command uses either double or single quotes to delineate text strings. If you use
 them within your string, you need to use one type of quote within the text and the other
 type to delineate the string:
+```sh
 $ echo “This is a test to see if you’re paying attention”
 This is a test to see if you’re paying attention
 $ echo ‘Rich says “scripting is easy”.’
 Rich says “scripting is easy”.
 $
+```
 Now all the quotation marks appear properly in the output.
 You can add echo statements anywhere in your shell scripts where you need to display
 additional information:
+```sh
 $ cat test1
 #!/bin/bash
 # This script displays the date and who’s logged on
@@ -10472,7 +11118,9 @@ date
 echo “Let’s see who’s logged into the system:”
 who
 $
+```
 When you run this script, it produces the following output:
+```sh
 $ ./test1
 The time and date are:
 Mon Feb 21 15:41:13 EST 2014
@@ -10483,6 +11131,7 @@ Timothy tty1 2014-02-21 15:26
 user tty7 2014-02-19 14:03 (:0)
 user pts/0 2014-02-21 15:21 (:0.0)
 $
+```
 That’s nice, but what if you want to echo a text string on the same line as a command
 output? You can use the -n parameter for the echo statement to do that. Just change the
 first echo statement line to this:
@@ -10490,6 +11139,7 @@ echo -n “The time and date are: “
 You need to use quotes around the string to ensure that there’s a space at the end of the
 echoed string. The command output begins exactly where the string output stops. The
 output now looks like this:
+```sh
 $ ./test1
 The time and date are: Mon Feb 21 15:42:23 EST 2014
 Let’s see who’s logged into the system:
@@ -10499,6 +11149,7 @@ Timothy tty1 2014-02-21 15:26
 user tty7 2014-02-19 14:03 (:0)
 user pts/0 2014-02-21 15:21 (:0.0)
 $
+```
 Perfect! The echo command is a crucial piece of shell scripts that interact with users.
 You’ll find yourself using it in many situations, especially when you want to display the
 values of script variables. Let’s look at that next.
@@ -10519,6 +11170,7 @@ the name of the system, the name of the user logged in to the system, the user�
 (called UID), the default home directory of the user, and the search path used by the shell
 to find programs. You can display a complete list of active environment variables
 available by using the set command:
+```sh
 $ set
 BASH=/bin/bash
 […]
@@ -10536,6 +11188,7 @@ LOGNAME=Samantha
 You can tap into these environment variables from within your scripts by using the
 environment variable’s name preceded by a dollar sign. This is demonstrated in the
 following script:
+```sh
 $ cat test2
 #!/bin/bash
 # display user information from the system.
@@ -10543,25 +11196,30 @@ echo “User info for userid: $USER”
 echo UID: $UID
 echo HOME: $HOME
 $
+```
 The $USER , $UID , and $HOME environment variables are used to display the pertinent
 information about the logged-in user. The output should look something like this:
+```sh
 $chmod u+x test2
 $ ./test2
 User info for userid: Samantha
 UID: 1001
 HOME: /home/Samantha
 $
+```
 Notice that the environment variables in the echo commands are replaced by their current
 values when the script runs. Also notice that we were able to place the $USER system
 variable within the double quotation marks in the first string, and the shell script still
 figured out what we meant. There is a drawback to using this method, however. Look at
 what happens in this example:
+```sh
 $ echo “The cost of the item is $15”
 The cost of the item is 5
 That is obviously not what was intended. Whenever the script sees a dollar sign within
 quotes, it assumes you’re referencing a variable. In this example, the script attempted to
 display the variable $1 (which was not defined) and then the number 5 . To display an
 actual dollar sign, you must precede it with a backslash character:
+```sh
 $ echo “The cost of the item is \$15”
 The cost of the item is $15
 That’s better. The backslash allowed the shell script to interpret the dollar sign as an actual
@@ -10589,6 +11247,7 @@ The shell script automatically determines the data type used for the variable va
 Variables defined within the shell script maintain their values throughout the life of the
 shell script but are deleted when the shell script completes.
 Just like system variables, user variables can be referenced using the dollar sign:
+```sh
 $ cat test3
 #!/bin/bash
 # testing variables
@@ -10599,16 +11258,20 @@ days=5
 guest=“Jessica”
 echo “$guest checked in $days days ago”
 $
+```
 Running the script produces the following output:
+```sh
 $ chmod u+x test3
 $ ./test3
 Katie checked in 10 days ago
 Jessica checked in 5 days ago
 $
+```
 Each time the variable is referenced, it produces the value currently assigned to it. It’s
 important to remember that when referencing a variable value you use the dollar sign, but
 when referencing the variable to assign a value to it, you do not use the dollar sign. Here’s
 an example of what I mean:
+```sh
 $ cat test4
 #!/bin/bash
 # assigning a variable value to another variable
@@ -10616,18 +11279,23 @@ value1=10
 value2=$value1
 echo The resulting value is $value2
 $
+```
 When you use the value of the value1 variable in the assignment statement, you must still
 use the dollar sign. This code produces the following output:
+```sh
 $ chmod u+x test4
 $ ./test4
 The resulting value is 10
 $
+```
 If you forget the dollar sign and make the value2 assignment line look like this:
 value2=value1
 you get the following output:
+```sh
 $ ./test4
 The resulting value is value1
 $
+```
 Without the dollar sign, the shell interprets the variable name as a normal text string,
 which is most likely not what you wanted.
 Command substitution
@@ -10654,22 +11322,27 @@ The shell runs the command within the command substitution characters and assign
 output to the variable testing . Notice that there are no spaces between the assignment
 equal sign and the command substitution character. Here’s an example of creating a
 variable using the output from a normal shell command:
+```sh
 $ cat test5
 #!/bin/bash
 testing=$(date)
 echo “The date and time are: ” $testing
 $
+```
 The variable testing receives the output from the date command, and it is used in the echo
 statement to display it. Running the shell script produces the following output:
+```sh
 $ chmod u+x test5
 $ ./test5
 The date and time are: Mon Jan 31 20:23:25 EDT 2014
 $
+```
 That’s not all that exciting in this example (you could just as easily just put the command
 in the echo statement), but after you capture the command output in a variable, you can do
 anything with it.
 Here’s a popular example of how command substitution is used to capture the current date
 and use it to create a unique filename in a script:
+```sh
 #!/bin/bash
 # copy the /usr/bin directory listing to a log file
 today=$(date +%y%m%d)
@@ -10677,9 +11350,11 @@ ls /usr/bin -al > log.$today
 The today variable is assigned the output of a formatted date command. This is a common
 technique used to extract date information for log filenames. The +%y%m%d format instructs
 the date command to display the date as a two-digit year, month, and day:
+```sh
 $ date +%y%m%d
 140131
 $
+```
 The script assigns the value to a variable, which is then used as part of a filename. The file
 itself contains the redirected output (discussed in the “Redirecting Input and Output”
 section) of a directory listing. After running the script, you should see a new file in your
@@ -10713,29 +11388,35 @@ shell uses the greater-than symbol ( > ) for this:
 command > outputfile
 Anything that would appear on the monitor from the command instead is stored in the
 output file specified:
+```sh
 $ date > test6
 $ ls -l test6
 -rw-r—r— 1 user user 29 Feb 10 17:56 test6
 $ cat test6
 Thu Feb 10 17:56:58 EDT 2014
 $
+```
 The redirect operator created the file test6 (using the default umask settings) and
 redirected the output from the date command to the test6 file. If the output file already
 exists, the redirect operator overwrites the existing file with the new file data:
+```sh
 $ who > test6
 $ cat test6
 user pts/0 Feb 10 17:55
 $
+```
 Now the contents of the test6 file contain the output from the who command.
 Sometimes, instead of overwriting the file’s contents, you may need to append output from
 a command to an existing file — for example, if you’re creating a log file to document an
 action on the system. In this situation, you can use the double greater-than symbol ( >> ) to
 append data:
+```sh
 $ date >> test6
 $ cat test6
 user pts/0 Feb 10 17:55
 Thu Feb 10 18:02:14 EDT 2014
 $
+```
 The test6 file still contains the original data from the who command processed earlier —
 and now it contains the new output from the date command.
 Input redirection
@@ -10748,9 +11429,11 @@ The easy way to remember this is that the command is always listed first in the 
 line, and the redirection symbol “points” to the way the data is flowing. The less-than
 symbol indicates that the data is flowing from the input file to the command.
 Here’s an example of using input redirection with the wc command:
+```sh
 $ wc < test6
 2 11 60
 $
+```
 The wc command provides a count of text in the data. By default, it produces three values:
 
 The number of lines in the text
@@ -10793,6 +11476,7 @@ supplied by the inline input redirection.
 
 Sometimes, you need to send the output of one command to the input of another
 command. This is possible using redirection, but somewhat clunky:
+```sh
 $ rpm -qa > rpm.list
 $ sort < rpm.list
 abrt-1.1.14-1.fc14.i686
@@ -10832,6 +11516,7 @@ the first command produces output, it’s sent immediately to the second command
 intermediate files or buffer areas are used to transfer the data.
 Now, using piping you can easily pipe the output of the rpm command directly to the sort
 command to produce your results:
+```sh
 $ rpm -qa | sort
 abrt-1.1.14-1.fc14.i686
 abrt-addon-ccpp-1.1.14-1.fc14.i686
@@ -10855,6 +11540,7 @@ piping the output of commands to other commands to refine your operation.
 In this case, because the output of the sort command zooms by so quickly, you can use
 one of the text paging commands (such as less or more ) to force the output to stop at
 every screen of data:
+```sh
 $ rpm -qa | sort | more
 This command sequence runs the rpm command, pipe s the output to the sort command,
 and then pipe s that output to the more command to display the data, stopping after every
@@ -10865,6 +11551,7 @@ Figure 11.1 Using piping to send data to the more command
                                                                 *Figure 11.1*
 
 To get even fancier, you can use redirection along with piping to save your output to a file:
+```sh
 $ rpm -qa | sort > rpm.list
 $ more rpm.list
 abrt-1.1.14-1.fc14.i686
@@ -10901,6 +11588,7 @@ The expr command
 Originally, the Bourne shell provided a special command that was used for processing
 mathematical equations. The expr command allowed the processing of equations from the
 command line, but it is extremely clunky:
+```sh
 $ expr 1 + 5
 6
 The expr command recognizes a few different mathematical and string operators, shown
@@ -10960,17 +11648,22 @@ Although the standard operators work fine in the expr command, the problem occur
 when using them from a script or the command line. Many of the expr command
 operators have other meanings in the shell (such as the asterisk). Using them in the expr
 command produces odd results:
+```sh
 $ expr 5 * 2
 expr: syntax error
 $
+```
 To solve this problem, you need to use the shell escape character (the backslash) to
 identify any characters that may be misinterpreted by the shell before being passed to the
 expr command:
+```sh
 $ expr 5 \* 2
 10
 $
+```
 Now that’s really starting to get ugly! Using the expr command in a shell script is equally
 cumbersome:
+```sh
 $ cat test6
 #!/bin/bash
 # An example of using the expr command
@@ -10980,10 +11673,12 @@ var3=$(expr $var2 / $var1)
 echo The result is $var3
 To assign the result of a mathematical equation to a variable, you have to use command
 substitution to extract the output from the expr command:
+```sh
 $ chmod u+x test6
 $ ./test6
 The result is 2
 $
+```
 Fortunately, the bash shell has an improvement for processing mathematical operators as
 you shall see in the next section.
 Using brackets
@@ -10991,6 +11686,7 @@ The bash shell includes the expr command to stay compatible with the Bourne shel
 however, it also provides a much easier way of performing mathematical equations. In
 bash, when assigning a mathematical value to a variable, you can enclose the
 mathematical equation using a dollar sign and square brackets ( $[ operation ] ):
+```sh
 $ var1=$[1 + 5]
 $ echo $var1
 6
@@ -10998,8 +11694,10 @@ $ var2=$[$var1 * 2]
 $ echo $var2
 12
 $
+```
 Using brackets makes shell math much easier than with the expr command. This same
 technique also works in shell scripts:
+```sh
 $ cat test7
 #!/bin/bash
 var1=100
@@ -11008,17 +11706,21 @@ var3=45
 var4=$[$var1 * ($var2 - $var3)]
 echo The final result is $var4
 $
+```
 Running this script produces the output:
+```sh
 $ chmod u+x test7
 $ ./test7
 The final result is 500
 $
+```
 Also, notice that when using the square brackets method for calculating equations, you
 don’t need to worry about the multiplication symbol, or any other characters, being
 misinterpreted by the shell. The shell knows that it’s not a wildcard character because it is
 within the square brackets.
 There’s one major limitation to performing math in the bash shell script. Look at this
 example:
+```sh
 $ cat test8
 #!/bin/bash
 var1=100
@@ -11026,11 +11728,14 @@ var2=45
 var3=$[$var1 / $var2]
 echo The final result is $var3
 $
+```
 Now run it and see what happens:
+```sh
 $ chmod u+x test8
 $ ./test8
 The final result is 2
 $
+```
 The bash shell mathematical operators support only integer arithmetic. This is a huge
 limitation if you’re trying to do any sort of real-world mathematical calculations.
 Note
@@ -11052,6 +11757,7 @@ Expressions
 Programming statements (such as if-then statements)
 Functions
 You can access the bash calculator from the shell prompt using the bc command:
+```sh
 $ bc
 bc 1.06.95
 Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation,
@@ -11064,12 +11770,14 @@ For details type ‘warranty’.
 25.248
 quit
 $
+```
 The example starts out by entering the expression 12 * 5.4 . The bash calculator returns
 the answer. Each subsequent expression entered into the calculator is evaluated, and the
 result is displayed. To exit the bash calculator, you must enter quit .
 The floating-point arithmetic is controlled by a built-in variable called scale . You must
 set this value to the desired number of decimal places you want in your answers, or you
 won’t get what you were looking for:
+```sh
 $ bc -q
 3.44 / 5
 0
@@ -11078,11 +11786,13 @@ scale=4
 .6880
 quit
 $
+```
 The default value for the scale variable is zero. Before the scale value is set, the bash
 calculator provides the answer to zero decimal places. After you set the scale variable
 value to four, the bash calculator displays the answer to four decimal places. The -q
 command line parameter suppresses the lengthy welcome banner from the bash calculator.
 In addition to normal numbers, the bash calculator also understands variables:
+```sh
 $ bc -q
 var1=10
 var1 * 4
@@ -11092,6 +11802,7 @@ print var2
 2
 quit
 $
+```
 After a variable value is defined, you can use the variable throughout the bash calculator
 session. The print statement allows you to print variables and numbers.
 Using bc in scripts
@@ -11104,19 +11815,24 @@ The first portion, options , allows you to set variables. If you need to set mor
 variable, separate them using the semicolon. The expression parameter defines the
 mathematical expression to evaluate using bc . Here’s a quick example of doing this in a
 script:
+```sh
 $ cat test9
 #!/bin/bash
 var1=$(echo “scale=4; 3.44 / 5” | bc)
 echo The answer is $var1
 $
+```
 This example sets the scale variable to four decimal places and then specifies a specific
 calculation for the expression. Running this script produces the following output:
+```sh
 $ chmod u+x test9
 $ ./test9
 The answer is .6880
 $
+```
 Now that’s fancy! You aren’t limited to just using numbers for the expression value. You
 can also use variables defined in the shell script:
+```sh
 $ cat test10
 #!/bin/bash
 var1=100
@@ -11124,14 +11840,18 @@ var2=45
 var3=$(echo “scale=4; $var1 / $var2” | bc)
 echo The answer for this is $var3
 $
+```
 The script defines two variables, which are used within the expression sent to the bc
 command. Remember to use the dollar sign to signify the value for the variables and not
 the variables themselves. The output of this script is as follows:
+```sh
 $ ./test10
 The answer for this is 2.2222
 $
+```
 And of course, after a value is assigned to a variable, that variable can be used in yet
 another calculation:
+```sh
 $ cat test11
 #!/bin/bash
 var1=20
@@ -11140,6 +11860,7 @@ var3=$(echo “scale=4; $var1 * $var1” | bc)
 var4=$(echo “scale=4; $var3 * $var2” | bc)
 echo The final result is $var4
 $
+```
 This method works fine for short calculations, but sometimes you need to get more
 involved with your numbers. If you have more than just a couple of calculations, it gets
 confusing trying to list multiple expressions on the same command line.
@@ -11159,6 +11880,7 @@ Remember that the command substitution characters are still needed to assign the
 of the bc command to the variable.
 Now you can place all the individual bash calculator elements on separate lines in the
 script file. Here’s an example of using this technique in a script:
+```sh
 $ cat test12
 #!/bin/bash
 var1=10.46
@@ -11174,6 +11896,7 @@ EOF
 )
 echo The final answer for this mess is $var5
 $
+```
 Placing each option and expression on a separate line in your script makes things cleaner
 and easier to read and follow. The EOF string indicates the start and end of the data to
 redirect to the bc command. Of course, you must use the command substitution characters
@@ -11197,18 +11920,22 @@ Linux provides the $? special variable that holds the exit status value from the
 command that executed. You must view or use the $? variable immediately after the
 command you want to check. It changes values to the exit status of the last command
 executed by the shell:
+```sh
 $ date
 Sat Jan 15 10:01:30 EDT 2014
 $ echo $?
 0
 $
+```
 By convention, the exit status of a command that successfully completes is zero. If a
 command completes with an error, then a positive integer value is placed in the exit status:
+```sh
 $ asdfg
 -bash: asdfg: command not found
 $ echo $?
 127
 $
+```
 The invalid command returns an exit status of 127. There’s not much of a standard
 convention to Linux error exit status codes. However, you can use the guidelines shown in
 
@@ -11229,29 +11956,36 @@ Code Description
 255 Exit status out of range
 An exit status value of 126 indicates that the user didn’t have the proper permissions set to
 execute the command:
+```sh
 $ ./myprog.c
 -bash: ./myprog.c: Permission denied
 $ echo $?
 126
 $
+```
 Another common error you’ll encounter occurs if you supply an invalid parameter to a
 command:
+```sh
 $ date %t
 date: invalid date ‘%t’
 $ echo $?
 1
 $
+```
 This generates the general exit status code of 1, indicating that an unknown error occurred
 in the command.
 The exit command
 By default, your shell script exits with the exit status of the last command in your script:
+```sh
 $ ./test6
 The result is 2
 $ echo $?
 0
 $
+```
 You can change that to return your own exit status code. The exit command allows you to
 specify an exit status when your script ends:
+```sh
 $ cat test13
 #!/bin/bash
 # testing the exit status
@@ -11261,15 +11995,19 @@ var3=$[$var1 + $var2]
 echo The answer is $var3
 exit 5
 $
+```
 When you check the exit status of the script, you get the value used as the parameter of the
 exit command:
+```sh
 $ chmod u+x test13
 $ ./test13
 The answer is 40
 $ echo $?
 5
 $
+```
 You can also use variables in the exit command parameter:
+```sh
 $ cat test14
 #!/bin/bash
 # testing the exit status
@@ -11278,14 +12016,18 @@ var2=30
 var3=$[$var1 + $var2]
 exit $var3
 $
+```
 When you run this command, it produces the following exit status:
+```sh
 $ chmod u+x test14
 $ ./test14
 $ echo $?
 40
 $
+```
 You should be careful with this feature, however, because the exit status codes can only go
 up to 255. Watch what happens in this example:
+```sh
 $ cat test14b
 #!/bin/bash
 # testing the exit status
@@ -11295,12 +12037,15 @@ var3=$[$var1 * $var2]
 echo The value is $var3
 exit $var3
 $
+```
 Now when you run it, you get the following:
+```sh
 $ ./test14b
 The value is 300
 $ echo $?
 44
 $
+```
 The exit status code is reduced to fit in the 0 to 255 range. The shell does this by using
 modulo arithmetic. The modulo of a value is the remainder after a division. The resulting
 number is the remainder of the specified number divided by 256. In the case of 300 (the
@@ -11394,6 +12139,7 @@ commands listed under the then section are executed. If the exit status of the c
 anything else, the then commands aren’t executed, and the bash shell moves on to the
 next command in the script. The fi statement delineates the if-then statement’s end.
 Here’s a simple example to demonstrate this concept:
+```sh
 $ cat test1.sh
 #!/bin/bash
 # testing the if statement
@@ -11402,16 +12148,20 @@ then
 echo “It worked”
 fi
 $
+```
 This script uses the pwd command on the if line. If the command completes successfully,
 the echo statement should display the text string. When you run this script from the
 command line, you get the following results:
+```sh
 $ ./test1.sh
 /home/Christine
 It worked
 $
+```
 The shell executed the pwd command listed on the if line. Because the exit status was
 zero, it also executed the echo statement listed in the then section.
 Here’s another example:
+```sh
 $ cat test2.sh
 #!/bin/bash
 # testing a bad command
@@ -11425,6 +12175,7 @@ $ ./test2.sh
 ./test2.sh: line 3: IamNotaCommand: command not found
 We are outside the if statement
 $
+```
 In this example, we deliberately used a command, IamNotaCommand , that does not work in
 the if statement line. Because this is a bad command, it produces an exit status that’s non-
 zero, and the bash shell skips the echo statement in the then section. Also notice that the
@@ -11519,6 +12270,7 @@ commands listed in the then section are executed, just as in a normal if-then st
 When the command in the if statement line returns a non-zero exit status code, the bash
 shell executes the commands in the else section.
 Now you can copy and modify the test script to include an else section:
+```sh
 $ cp test3.sh test4.sh
 $
 $ nano test4.sh
@@ -11542,6 +12294,7 @@ $
 $ ./test4.sh
 The user NoSuchUser does not exist on this system.
 $
+```
 That’s more user-friendly. Just like the then section, the else section can contain multiple
 commands. The fi statement delineates the end of the else section.
 
@@ -11553,6 +12306,7 @@ you can nest the if-then statements:
 To check if a logon name is not in the /etc/passwd file and yet a directory for that user
 still exists, use a nested if-then statement. In this case, the nested if-then statement is
 within the primary if-then-else statement’s else code block:
+```sh
 $ ls -d /home/NoSuchUser/
 /home/NoSuchUser/
 $
@@ -11578,6 +12332,7 @@ The user NoSuchUser does not exist on this system.
 /home/NoSuchUser/
 However, NoSuchUser has a directory.
 $
+```
 The script correctly finds that although the login name has been removed from the
 /etc/passwd file, the user’s directory is still on the system. The problem with using this
 manner of nested if-then statements in a script is that the code can get hard to read, and
@@ -11596,6 +12351,7 @@ The elif statement line provides another command to evaluate, similar to the ori
 statement line. If the exit status code from the elif command is zero, bash executes the
 commands in the second then statement section. Using this method of nesting provides
 cleaner code with an easier-to-follow logic flow:
+```sh
 $ cat test5.sh
 #!/bin/bash
 # Testing nested ifs - use elif
@@ -11618,9 +12374,11 @@ $ ./test5.sh
 The user NoSuchUser does not exist on this system.
 However, NoSuchUser has a directory.
 $
+```
 You can even take this script a step further and have it check for both a non-existent user
 with a directory and a non-existent user without a directory. This is accomplished by
 adding an else statement within the nested elif :
+```sh
 $ cat test5.sh
 #!/bin/bash
 # Testing nested ifs - use elif & else
@@ -11648,12 +12406,14 @@ However, NoSuchUser has a directory.
 $
 $ sudo rmdir /home/NoSuchUser
 [sudo] password for Christine:
+```sh
 $
 $ ./test5.sh
 ls: cannot access /home/NoSuchUser: No such file or directory
 The user NoSuchUser does not exist on this system.
 And, NoSuchUser does not have a directory.
 $
+```
 Before the /home/NoSuchUser directory was removed and the test script executed the elif
 statement, a zero exit status was returned. Thus, the statements within the elif ‘s then
 code block were executed. After the /home/NoSuchUser directory was removed, a non-
@@ -11709,6 +12469,7 @@ commands
 fi
 If you leave out the condition portion of the test command statement, it exits with a
 non-zero exit status code and triggers any else block statements:
+```sh
 $ cat test6.sh
 #!/bin/bash
 # Testing the test command
@@ -11723,9 +12484,11 @@ $
 $ ./test6.sh
 No expression returns a False
 $
+```
 When you add in a condition, it is tested by the test command. For example, using the
 test command, you can determine whether a variable has content. A simple condition
 expression is needed to determine whether a variable has content:
+```sh
 $ cat test6.sh
 #!/bin/bash
 # Testing the test command
@@ -11743,9 +12506,11 @@ $
 $ ./test6.sh
 The Full expression returns a True
 $
+```
 The variable my_variable contains content ( Full ), so when the test command checks the
 condition, the exit status returns a zero. This triggers the statement in the then code block.
 As you would suspect, the opposite occurs when the variable does not contain content:
+```sh
 $ cat test6.sh
 #!/bin/bash
 # Testing the test command
@@ -11763,6 +12528,7 @@ $
 $ ./test6.sh
 The expression returns a False
 $
+```
 The bash shell provides an alternative way of testing a condition without declaring the
 test command in an if-then statement:
 if [ condition ]
@@ -11798,6 +12564,7 @@ n1 -ne n2
 Checks if n1 is not equal to n2
 The numeric test conditions can be used to evaluate both numbers and variables. Here’s an
 example of doing that:
+```sh
 $ cat numeric_test.sh
 #!/bin/bash
 # Using numeric test evaluations
@@ -11818,17 +12585,21 @@ echo “The values are different”
 fi
 #
 $
+```
 The first test condition:
 if [ $value1 -gt 5 ]
 tests if the value of the variable value1 is greater than 5. The second test condition:
 if [ $value1 -eq $value2 ]
 tests if the value of the variable value1 is equal to the value of the variable value2. Both
 numeric test conditions evaluate as expected:
+```sh
 $ ./numeric_test.sh
 The test value 10 is greater than 5
 The values are different
 $
+```
 There is a limitation to the test numeric conditions concerning floating-point values:
+```sh
 $ cat floating_point_test.sh
 #!/bin/bash
 # Using floating point numbers in test evaluations
@@ -11847,6 +12618,7 @@ The test value is 5.555
 ./floating_point_test.sh: line 8:
 [: 5.555: integer expression expected
 $
+```
 This example uses a floating-point value, stored in the value1 variable. Next, it evaluates
 the value. Something obviously went wrong.
 Remember that the only numbers the bash shell can handle are integers. This works
@@ -11877,6 +12649,7 @@ The following sections describe the different string comparisons available.
 Looking at string equality
 The equal and not equal conditions are fairly self-explanatory with strings. It’s pretty easy
 to know when two string values are the same or not:
+```sh
 $ cat test7.sh
 #!/bin/bash
 # testing string equality
@@ -11890,8 +12663,10 @@ $
 $ ./test7.sh
 Welcome rich
 $
+```
 Also, using the not equals string comparison allows you to determine if two strings have
 the same value or not:
+```sh
 $ cat test8.sh
 #!/bin/bash
 # testing string equality
@@ -11907,6 +12682,7 @@ $
 $ ./test8.sh
 This is not baduser
 $
+```
 Keep in mind that the test comparison takes all punctuation and capitalization into account
 when comparing strings for equality.
 Looking at string order
@@ -11921,6 +12697,7 @@ command.
 The first item can result in a huge problem that often goes undetected when programming
 your scripts. Here’s an example of what sometimes happens to novice shell script
 programmers:
+```sh
 $ cat badtest.sh
 #!/bin/bash
 # mis-using string comparisons
@@ -11940,12 +12717,14 @@ baseball is greater than hockey
 $ ls -l hockey
 -rw-r—r— 1 rich rich 0 Sep 30 19:08 hockey
 $
+```
 By just using the greater-than symbol itself in the script, no errors are generated, but the
 results are wrong. The script interpreted the greater-than symbol as an output redirection
 (see [chapter 15]). Thus, it created a file called hockey. Because the redirection completed
 successfully, the test condition returns a zero exit status code, which the if statement
 evaluates as though things completed successfully!
 To fix this problem, you need to properly escape the greater-than symbol:
+```sh
 $ cat test9.sh
 #!/bin/bash
 # mis-using string comparisons
@@ -11963,11 +12742,13 @@ $
 $ ./test9.sh
 baseball is less than hockey
 $
+```
 Now that answer is more along the lines of what you would expect from the string
 comparison.
 The second issue is a little more subtle, and you may not even run across it unless you are
 working with uppercase and lowercase letters. The sort command handles uppercase
 letters opposite to the way the test conditions consider them:
+```sh
 $ cat test9b.sh
 #!/bin/bash
 # testing string sort order
@@ -11988,6 +12769,7 @@ $ sort testfile
 testing
 Testing
 $
+```
 Capitalized letters are treated as less than lowercase letters in test comparisons. However,
 the sort command does the opposite. When you put the same strings in a file and use the
 sort command, the lowercase letters appear first. This is due to different ordering
@@ -12005,6 +12787,7 @@ string values and may not produce the correct results.
 Looking at string size
 The -n and -z comparisons are handy when trying to evaluate whether a variable contains
 data:
+```sh
 $ cat test10.sh
 #!/bin/bash
 # testing string length
@@ -12037,6 +12820,7 @@ The string ‘testing’ is not empty
 The string ” is empty
 The string ” is empty
 $
+```
 This example creates two string variables. The val1 variable contains a string, and the
 val2 variable is created as an empty string. The following comparisons are made as shown
 below:
@@ -12095,6 +12879,7 @@ Checking directories
 The -d test checks to see if a specified directory exists on the system. This is usually a
 good thing to do if you’re trying to write a file to a directory or before you try to change to
 a directory location:
+```sh
 $ cat test11.sh
 #!/bin/bash
 # Look before you leap
@@ -12114,12 +12899,14 @@ $
 $ ./test11.sh
 The /home/arthur directory does not exist
 $
+```
 The -d test condition checks to see if the jump_directory variable’s directory exists. If it
 does, it proceeds to use the cd command to change to the current directory and performs a
 directory listing. If it does not, the script emits a warning message and exits the script.
 Checking whether an object exists
 The -e comparison allows you to check if either a file or directory object exists before you
 attempt to use it in your script:
+```sh
 $ cat test12.sh
 #!/bin/bash
 # Check if either a directory or file exists
@@ -12163,6 +12950,7 @@ Now checking on the file, sentinel.
 OK on the filename
 Updating Current Date…
 $
+```
 The first check uses the -e comparison to determine whether the user has a $HOME
 directory. If so, the next -e comparison checks to determine whether the sentinel file
 exists in the $HOME directory. If the file doesn’t exist, the shell script notes that the file is
@@ -12173,6 +12961,7 @@ sentinel file are found, and the current date and time is appended to the file.
 Checking for a file
 The -e comparison works for both files and directories. To be sure that the object
 specified is a file and not a directory, you must use the -f comparison:
+```sh
 $ cat test13.sh
 #!/bin/bash
 # Check if either a directory or file exists
@@ -12207,11 +12996,13 @@ The item, /home/Christine, does exist.
 But is it a file?
 No, /home/Christine is not a file.
 $
+```
 This little script does lots of checking! First, it uses the -e comparison to test whether
 $HOME exists. If it does, it uses -f to test whether it’s a file. If it isn’t a file (which of course
 it isn’t), a message is displayed stating that it is not a file.
 A slight modification to the variable, item_name , replacing the directory $HOME with a file,
 $HOME/sentinel , causes a different outcome:
+```sh
 $ nano test13.sh
 $
 $ cat test13.sh
@@ -12227,6 +13018,7 @@ The item, /home/Christine/sentinel, does exist.
 But is it a file?
 Yes, /home/Christine/sentinel is a file.
 $
+```
 The test13.sh script listing is snipped, because the only item changed in the shell script
 was the item_name variable’s value. Now when the script is run, the -f test on
 $HOME/sentinel exits with a zero status, triggering the then statement, which in turn
@@ -12234,6 +13026,7 @@ outputs the message Yes, /home/Christine/sentinel is a file.
 Checking for read access
 Before trying to read data from a file, it’s usually a good idea to test whether you can read
 from the file first. You do this with the -r comparison:
+```sh
 $ cat test14.sh
 #!/bin/bash
 # testing if you can read a file
@@ -12256,6 +13049,7 @@ $
 $ ./test14.sh
 Sorry, I am unable to read the /etc/shadow file
 $
+```
 The /etc/shadow file contains the encrypted passwords for system users, so it’s not
 readable by normal users on the system. The -r comparison determined that read access to
 the file wasn’t allowed, so the test command failed and the bash shell executed the else
@@ -12264,6 +13058,7 @@ Checking for empty files
 You should use -s comparison to check whether a file is empty, especially if you don’t
 want to remove a non-empty file. Be careful because when the -s comparison succeeds, it
 indicates that a file has data in it:
+```sh
 $ cat test15.sh
 #!/bin/bash
 # Testing if a file is empty
@@ -12293,6 +13088,7 @@ $ ./test15.sh
 The /home/Christine/sentinel file exists and has data in it.
 Will not remove this file.
 $
+```
 First, the -f comparison tests whether the file exists. If it does exist, the -s comparison is
 triggered to determine whether the file is empty. An empty file will be deleted. You can
 see from the ls -l that the sentinel file is not empty, and therefore the script does not
@@ -12302,6 +13098,7 @@ The -w comparison determines whether you have permission to write to a file. The
 test16.sh script is simply an update of the test13.sh script. Now instead of just
 checking whether the item_name exists and is a file, the script also checks to see whether
 it has permission to write to the file:
+```sh
 $ cat test16.sh
 #!/bin/bash
 # Check if a file is writable.
@@ -12343,12 +13140,14 @@ $
 $ cat sentinel
 0543
 $
+```
 The item_name variable is set to $HOME/sentinel , and this file allows user write access
 (see [chapter 7 for more information on file permissions]). Thus, when the script is run, the
 -w test expressions returns a non-zero exit status and the then code block is executed,
 which writes a time stamp into the sentinel file.
 When the sentinel file user’s write access is removed via chmod , the -w test expression
 returns a non-zero status, and a time stamp is not written to the file:
+```sh
 $ chmod u-w sentinel
 $
 $ ls -l sentinel
@@ -12362,6 +13161,7 @@ Yes, /home/Christine/sentinel is a file.
 But is it writable?
 Unable to write to /home/Christine/sentinel
 $
+```
 The chmod command could be used again to grant the write permission back for the user.
 This would make the write test expression return a zero exit status and allow a write
 attempt to the file.
@@ -12369,6 +13169,7 @@ Checking whether you can run a file
 The -x comparison is a handy way to determine whether you have execute permission for
 a specific file. Although this may not be needed for most commands, if you run lots of
 scripts from your shell scripts, it could be useful:
+```sh
 $ cat test17.sh
 #!/bin/bash
 # testing file execution
@@ -12390,6 +13191,7 @@ $
 $ ./test17.sh
 Sorry, you are unable to execute the script
 $
+```
 This example shell script uses the -x comparison to test whether you have permission to
 execute the test16.sh script. If so, it runs the script. After successfully running the
 test16.sh script the first time, the permissions were changed. This time, the -x
@@ -12397,6 +13199,7 @@ comparison failed, because execute permission had been removed for the test16.sh
 script.
 Checking ownership
 The -O comparison allows you to easily test whether you’re the owner of a file:
+```sh
 $ cat test18.sh
 #!/bin/bash
 # check file ownership
@@ -12411,6 +13214,7 @@ $
 $ ./test18.sh
 Sorry, you are not the owner of the /etc/passwd file
 $
+```
 The script uses the -O comparison to test whether the user running the script is the owner
 of the /etc/passwd file. The script is run under a normal user account, so the test fails.
 Checking default group membership
@@ -12418,6 +13222,7 @@ The -G comparison checks the default group of a file, and it succeeds if it matc
 group of the default group for the user. This can be somewhat confusing because the -G
 comparison checks the default groups only and not all the groups to which the user
 belongs. Here’s an example of this:
+```sh
 $ cat test19.sh
 #!/bin/bash
 # check file group test
@@ -12440,6 +13245,7 @@ $
 $ ./test19
 The file is not owned by your group
 $
+```
 The first time the script is run, the $ HOME / testing file is in the rich group, and the -G
 comparison succeeds. Next, the group is changed to the sharing group, of which the user
 is also a member. However, the -G comparison failed, because it compares only the default
@@ -12451,6 +13257,7 @@ install a file that is older than a file already installed on the system.
 The -nt comparison determines whether a file is newer than another file. If a file is newer,
 it has a more recent file creation time. The -ot comparison determines whether a file is
 older than another file. If the file is older, it has an older file creation time:
+```sh
 $ cat test20.sh
 #!/bin/bash
 # testing file dates
@@ -12475,10 +13282,12 @@ $ ls -l test17.sh test18.sh test19.sh
 -rwxrw-r— 1 rich rich 185 2014-07-30 17:46 test18.sh
 -rwxrw-r— 1 rich rich 167 2014-07-30 17:50 test19.sh
 $
+```
 The file paths used in the comparisons are relative to the directory from which you run the
 script. This can cause problems if the files being checked are moved around. Another
 problem is that neither of these comparisons checks whether the file exists first. Try this
 test:
+```sh
 $ cat test21.sh
 #!/bin/bash
 # testing file dates
@@ -12493,6 +13302,7 @@ $
 $ ./test21.sh
 The badfile2 file is newer than badfile1
 $
+```
 This little example demonstrates that if the files don’t exist, the -nt comparison just
 returns a failed condition. It’s imperative to ensure that the files exist before trying to use
 them in the -nt or -ot comparison.
@@ -12625,6 +13435,7 @@ Double brackets work fine in the bash shell. Be aware, however, that not all she
 support double brackets.
 In pattern matching, you can define a regular expression (discussed in detail in Chapter
 20) that’s matched against the string value:
+```sh
 $ cat test24.sh
 #!/bin/bash
 # using pattern matching
@@ -12639,6 +13450,7 @@ $
 $ ./test24.sh
 Hello rich
 $
+```
 Notice in the preceding script that double equal signs ( == ) are used. These double equal
 signs designate the string to the right ( r* ) as a pattern, and pattern matching rules are
 applied. The double bracket command matches the $ USER environment variable to see
@@ -12651,6 +13463,7 @@ the then section commands.
 Often, you’ll find yourself trying to evaluate a variable’s value, looking for a specific
 value within a set of possible values. In this scenario, you end up having to write a lengthy
 if-then-else statement, like this:
+```sh
 $ cat test25.sh
 #!/bin/bash
 # looking for a possible value
@@ -12677,6 +13490,7 @@ $ ./test25.sh
 Welcome rich
 Please enjoy your visit
 $
+```
 The elif statements continue the if-then checking, looking for a specific value for the
 single comparison variable.
 Instead of having to write all the elif statements to continue checking the same variable
@@ -13247,6 +14061,7 @@ The shell developers created this format to more closely resemble the C-style fo
 command. Although this is great for C programmers, it can throw even expert shell
 programmers into a tizzy. Be careful when using the C-style for loop in your scripts.
 Here’s an example of using the C-style for command in a bash shell program:
+```sh
 $ cat test8
 #!/bin/bash
 # testing the C-style for loop
@@ -13266,6 +14081,7 @@ The next number is 8
 The next number is 9
 The next number is 10
 $
+```
 The for loop iterates through the commands using the variable defined in the for loop
 (the letter i in this example). In each iteration, the $i variable contains the value assigned
 in the for loop. After each iteration, the loop iteration process is applied to the variable,
@@ -13275,6 +14091,7 @@ The C-style for command also allows you to use multiple variables for the iterat
 loop handles each variable separately, allowing you to define a different iteration process
 for each variable. Although you can have multiple variables, you can define only one
 condition in the for loop:
+```sh
 $ cat test9
 #!/bin/bash
 # multiple variables
@@ -13294,6 +14111,7 @@ $ ./test9
 9 - 2
 10 - 1
 $
+```
 The a and b variables are each initialized with different values, and different iteration
 processes are defined. While the loop increases the a variable, it decreases the b variable
 for each iteration.
@@ -13321,6 +14139,7 @@ change, based on the commands run during the loop. If the exit status never chan
 while loop will get stuck in an infinite loop.
 The most common use of the test command is to use brackets to check a value of a shell
 variable that’s used in the loop commands:
+```sh
 $ cat test10
 #!/bin/bash
 # while command test
@@ -13342,6 +14161,7 @@ $ ./test10
 2
 1
 $
+```
 The while command defines the test condition to check for each iteration:
 while [ $var1 -gt 0 ]
 As long as the test condition is true, the while command continues to loop through the
@@ -13355,6 +14175,7 @@ The while command allows you to define multiple test commands on the while state
 line. Only the exit status of the last test command is used to determine when the loop
 stops. This can cause some interesting results if you’re not careful. Here’s an example of
 what we mean:
+```sh
 $ cat test11
 #!/bin/bash
 # testing a multicommand while loop
@@ -13390,6 +14211,7 @@ This is inside the loop
 This is inside the loop
 -1
 $
+```
 Pay close attention to what happened in this example. Two test commands were defined in
 the while statement:
 while echo $var1
@@ -13401,6 +14223,7 @@ the example how the output ends:
 This is inside the loop
 -1
 $
+```
 The while loop executed the echo statement when the var1 variable was equal to zero and
 then decreased the var1 variable value. Next, the test commands were executed for the
 next iteration. The echo test command was executed, displaying the value of the var1
@@ -13428,6 +14251,7 @@ Similar to the while command, you can have more than one test command in the unt
 command statement. Only the exit status of the last command determines if the bash shell
 executes the other commands defined.
 The following is an example of using the until command:
+```sh
 $ cat test12
 #!/bin/bash
 # using the until command
@@ -13443,10 +14267,12 @@ $ ./test12
 50
 25
 $
+```
 This example tests the var1 variable to determine when the until loop should stop. As
 soon as the value of the variable is equal to zero, the until command stops the loop. The
 same caution as for the while command applies when you use multiple test commands
 with the until command:
+```sh
 $ cat test13
 #!/bin/bash
 # using the until command
@@ -13468,6 +14294,7 @@ Inside the loop: 50
 Inside the loop: 25
 0
 $
+```
 The shell executes the test commands specified and stops only when the last command is
 true.
 
@@ -13480,6 +14307,7 @@ because you’re performing an iteration within an iteration, which multiplies t
 times commands are being run. If you don’t pay close attention to this, it can cause
 problems in your scripts.
 Here’s a simple example of nesting a for loop inside another for loop:
+```sh
 $ cat test14
 #!/bin/bash
 # nesting for loops
@@ -13505,12 +14333,14 @@ Inside loop: 1
 Inside loop: 2
 Inside loop: 3
 $
+```
 The nested loop (also called the inner loop) iterates through its values for each iteration of
 the outer loop. Notice that there’s no difference between the do and done commands for
 the two loops. The bash shell knows when the first done command is executed that it
 refers to the inner loop and not the outer loop.
 The same applies when you mix loop commands, such as placing a for loop inside a
 while loop:
+```sh
 $ cat test15
 #!/bin/bash
 # placing a for loop inside a while loop
@@ -13545,9 +14375,11 @@ Outer loop: 0
 Inner loop: 0 * 1 = 0
 Inner loop: 0 * 2 = 0
 $
+```
 Again, the shell distinguished between the do and done commands of the inner for loop
 from the same commands in the outer while loop.
 If you really want to test your brain, you can even combine until and while loops:
+```sh
 $ cat test16
 #!/bin/bash
 # using until and while loops
@@ -13581,6 +14413,7 @@ Inner loop: 1 / 2 = .5000
 Inner loop: 1 / 3 = .3333
 Inner loop: 1 / 4 = .2500
 $
+```
 The outer until loop starts with a value of 3 and continues until the value equals 0. The
 inner while loop starts with a value of 1 and continues as long as the value is less than 5.
 Each loop must change the value used in the test condition, or the loop will get stuck
@@ -13602,6 +14435,7 @@ The classic example of this is processing data in the /etc/passwd file. This req
 you iterate through the /etc/passwd file line by line and then change the IFS variable
 value to a colon so you can separate the individual components in each line.
 The following is an example of doing just that:
+```sh
 #!/bin/bash
 # changing the IFS value
 IFS.OLD=$IFS
@@ -13616,6 +14450,7 @@ echo “ $value”
 done
 done
 $
+```
 This script uses two different IFS values to parse the data. The first IFS value parses the
 individual lines in the /etc/passwd file. The inner for loop next changes the IFS value to
 the colon, which allows you to parse the individual values within the /etc/passwd lines.
@@ -13658,6 +14493,7 @@ methods.
 Breaking out of a single loop
 When the shell executes a break command, it attempts to break out of the loop that’s
 currently processing:
+```sh
 $ cat test17
 #!/bin/bash
 # breaking out of a for loop
@@ -13677,10 +14513,12 @@ Iteration number: 3
 Iteration number: 4
 The for loop is completed
 $
+```
 The for loop should normally have iterated through all the values specified in the list.
 However, when the if-then condition was satisfied, the shell executed the break
 command, which stopped the for loop.
 This technique also works for while and until loops:
+```sh
 $ cat test18
 #!/bin/bash
 # breaking out of a while loop
@@ -13702,11 +14540,13 @@ Iteration: 3
 Iteration: 4
 The while loop is completed
 $
+```
 The while loop terminated when the if-then condition was met, executing the break
 command.
 Breaking out of an inner loop
 When you’re working with multiple loops, the break command automatically terminates
 the innermost loop you’re in:
+```sh
 $ cat test19
 #!/bin/bash
 # breaking out of an inner loop
@@ -13739,6 +14579,7 @@ Inner loop: 2
 Inner loop: 3
  Inner loop: 4
 $
+```
 The for statement in the inner loop specifies to iterate until the b variable is equal to 100.
 However, the if-then statement in the inner loop specifies that when the b variable value
 is equal to 5, the break command is executed. Notice that even though the inner loop is
@@ -13750,6 +14591,7 @@ break n
 where n indicates the level of the loop to break out of. By default, n is 1, indicating to
 break out of the current loop. If you set n to a value of 2, the break command stops the
 next level of the outer loop:
+```sh
 $ cat test20
 #!/bin/bash
 # breaking out of an outer loop
@@ -13772,12 +14614,14 @@ Inner loop: 2
 Inner loop: 3
 Inner loop: 4
 $
+```
 Now when the shell executes the break command, the outer loop stops.
 The continue command
 The continue command is a way to prematurely stop processing commands inside of a
 loop but not terminate the loop completely. This allows you to set conditions within a loop
 where the shell won’t execute commands. Here’s a simple example of using the continue
 command in a for loop:
+```sh
 $ cat test21
 #!/bin/bash
 # using the continue command
@@ -13801,6 +14645,7 @@ Iteration number: 12
 Iteration number: 13
 Iteration number: 14
 $
+```
 When the conditions of the if-then statement are met (the value is greater than 5 and less
 than 10), the shell executes the continue command, which skips the rest of the commands
 in the loop, but keeps the loop going. When the if-then condition is no longer met, things
@@ -13809,6 +14654,7 @@ You can use the continue command in while and until loops, but be extremely care
 with what you’re doing. Remember that when the shell executes the continue command,
 it skips the remaining commands. If you’re incrementing your test condition variable in
 one of those conditions, bad things happen:
+```sh
 $ cat badtest3
 #!/bin/bash
 # improperly using the continue command in a while loop
@@ -13848,6 +14694,7 @@ while iteration: 6
 while iteration: 6
 while iteration: 6
 $
+```
 You’ll want to make sure you redirect the output of this script to the more command so
 you can stop things. Everything seems to be going just fine until the if-then condition is
 met, and the shell executes the continue command. When the shell executes the continue
@@ -13860,6 +14707,7 @@ loop to continue with a command line parameter:
 continue n
 where n defines the loop level to continue. Here’s an example of continuing an outer for
 loop:
+```sh
 $ cat test22
 #!/bin/bash
 # continuing an outer loop
@@ -13891,6 +14739,7 @@ Iteration 5:
  The result of 5 * 1 is 5
 The result of 5 * 2 is 10
 $
+```
 The if-then statement:
 if [ $a -gt 2 ] && [ $a -lt 4 ]
 then
@@ -13918,6 +14767,7 @@ done > output.txt
 Instead of displaying the results on the monitor, the shell redirects the results of the for
 command to the file output.txt .
 Consider the following example of redirecting the output of a for command to a file:
+```sh
 $ cat test23
 #!/bin/bash
 # redirecting the for output to a file
@@ -13939,9 +14789,11 @@ The number is 7
 The number is 8
 The number is 9
 $
+```
 The shell creates the file test23.txt and redirects the output of the for command only to
 the file. The shell displays the echo statement after the for command just as normal.
 This same technique also works for piping the output of a loop to another command:
+```sh
 $ cat test24
 #!/bin/bash
 # piping a loop to another command
@@ -13958,6 +14810,7 @@ North Dakota is the next place to go
 Tennessee is the next place to go
 This completes our travels
 $
+```
 The state values aren’t listed in any particular order in the for command list. The output
 of the for command is piped to the sort command, which changes the order of the for
 command output. Running the script indeed shows that the output was properly sorted
@@ -13992,6 +14845,7 @@ then
 echo “ $file”
 fi
 And there you have it! Putting all the pieces together into a script looks like this:
+```sh
 $ cat test25
 #!/bin/bash
 # finding files in the PATH
@@ -14008,8 +14862,10 @@ fi
 done
 done
 $
+```
 When you run the code, you get a listing of the executable files that you can use from the
 command line:
+```sh
 $ ./test25 | more
 /usr/local/bin:
 /usr/bin:
@@ -14051,6 +14907,7 @@ file. Tricky!
 To feed the data from the file into the while command, you just use a redirection symbol
 at the end of the while command.
 Putting everything together results in this script:
+```sh
 $ cat test26
 #!/bin/bash
 # process new user accounts
@@ -14061,16 +14918,20 @@ echo “adding $userid”
 useradd -c “$name” -m $userid
 done < “$input”
 $
+```
 The $input variable points to the data file and is used as the redirect data for the while
 command. The users.csv file looks like this:
+```sh
 $ cat users.csv
 rich,Richard Blum
 christine,Christine Bresnahan
 barbara,Barbara Blum
 tim,Timothy Bresnahan
 $
+```
 To run the problem, you must be the root user account, because the useradd command
 requires root privileges:
+```sh
 # ./test26
 adding rich
 adding christine
@@ -14079,6 +14940,7 @@ adding tim
 #
 Then by taking a quick look at the /etc/passwd file, you can see that the accounts have
 been created:
+```sh
 # tail /etc/passwd
 rich:x:1001:1001:Richard Blum:/home/rich:/bin/bash
 christine:x:1002:1002:Christine Bresnahan:/home/christine:/bin/bash
@@ -14142,6 +15004,7 @@ your bash shell scripts to obtain data from the person running your script.
 The most basic method of passing data to your shell script is to use command line
 parameters. Command line parameters allow you to add data values to the command line
 when you execute the script:
+```sh
 $ ./addem 10 30
 This example passes two command line parameters ( 10 and 30 ) to the script addem . The
 script handles the command line parameters using special variables. The following
@@ -14153,6 +15016,7 @@ executing. The positional parameter variables are standard numbers, with $0 bein
 script’s name, $1 being the first parameter, $2 being the second parameter, and so on, up to
 $9 for the ninth parameter.
 Here’s a simple example of using one command line parameter in a shell script:
+```sh
 $ cat test1.sh
 #!/bin/bash
 # using one command line parameter
@@ -14167,11 +15031,13 @@ $
 $ ./test1.sh 5
 The factorial of 5 is 120
 $
+```
 You can use the $1 variable just like any other variable in the shell script. The shell script
 automatically assigns the value from the command line parameter to the variable; you
 don’t need to do anything with it.
 If you need to enter more command line parameters, each parameter must be separated by
 a space on the command line:
+```sh
 $ cat test2.sh
 #!/bin/bash
 # testing two command line parameters
@@ -14186,9 +15052,11 @@ The first parameter is 2.
 The second parameter is 5.
 The total value is 10.
 $
+```
 The shell assigns each parameter to the appropriate variable.
 In the preceding example, the command line parameters used were both numerical values.
 You can also use text strings in the command line:
+```sh
 $ cat test3.sh
 #!/bin/bash
 # testing string parameters
@@ -14198,26 +15066,32 @@ $
 $ ./test3.sh Rich
 Hello Rich, glad to meet you.
 $
+```
 The shell passes the string value entered into the command line to the script. However,
 you’ll have a problem if you try to do this with a text string that contains spaces:
+```sh
 $ ./test3.sh Rich Blum
 Hello Rich, glad to meet you.
 $
+```
 Remember that each of the parameters is separated by a space, so the shell interpreted the
 space as just separating the two values. To include a space as a parameter value, you must
 use quotation marks (either single or double quotation marks):
+```sh
 $ ./test3.sh ‘Rich Blum’
 Hello Rich Blum, glad to meet you.
 $
 $ ./test3.sh “Rich Blum”
 Hello Rich Blum, glad to meet you.
 $
+```
 Note
 The quotation marks used when you pass text strings as parameters are not part of the
 data. They just delineate the beginning and the end of the data.
 If your script needs more than nine command line parameters, you can continue, but the
 variable names change slightly. After the ninth variable, you must use braces around the
 variable number, such as ${10} . Here’s an example of doing that:
+```sh
 $ cat test4.sh
 #!/bin/bash
 # handling lots of parameters
@@ -14232,12 +15106,14 @@ The tenth parameter is 10
 The eleventh parameter is 11
 The total is 110
 $
+```
 This technique allows you to add as many command line parameters to your scripts as you
 could possibly need.
 Reading the script name
 You can use the $0 parameter to determine the script name the shell started from the
 command line. This can come in handy if you’re writing a utility that can have multiple
 functions.
+```sh
 $ cat test5.sh
 #!/bin/bash
 # Testing the $0 parameter
@@ -14248,22 +15124,28 @@ $
 $ bash test5.sh
 The zero parameter is set to: test5.sh
 $
+```
 However, there is a potential problem. When using a different command to run the shell
 script, the command becomes entangled with the script name in the $0 parameter:
+```sh
 $ ./test5.sh
 The zero parameter is set to: ./test5.sh
 $
+```
 There is another potential problem. When the actual string passed is the full script path,
 and not just the script’s name, the $0 variable gets set to the full script path and name:
+```sh
 $ bash /home/Christine/test5.sh
 The zero parameter is set to: /home/Christine/test5.sh
 $
+```
 If you want to write a script that performs different functions based on just the script’s
 name, you’ll have to do a little work. You need to be able to strip off whatever path is used
 to run the script. Also, you need to be able to remove any entangled commands from the
 script.
 Fortunately, there’s a handy little command available that does just that. The basename
 command returns just the script’s name without the path:
+```sh
 $ cat test5b.sh
 #!/bin/bash
 # Using basename with the $0 parameter
@@ -14278,8 +15160,10 @@ $
 $ ./test5b.sh
 The script name is: test5b.sh
 $
+```
 Now that’s much better. You can use this technique to write scripts that perform different
 functions based on the script name used. Here’s a simple example:
+```sh
 $ cat test6.sh
 #!/bin/bash
 # Testing a Multi-function script
@@ -14314,6 +15198,7 @@ $
 $ ./multem 2 5
 The calculated value is 10
 $
+```
 The example creates two separate filenames from the test6.sh script, one by just copying
 the file to a new script ( addem ) and the other by using a symbolic link (see [chapter 3]) to
 create the new script ( multem ). In both cases, the script determines the script’s base name
@@ -14321,14 +15206,17 @@ and performs the appropriate function based on that value.
 Testing parameters
 Be careful when using command line parameters in your shell scripts. If the script is run
 without the parameters, bad things can happen:
+```sh
 $ ./addem 2
 ./addem: line 8: 2 + : syntax error: operand expected (error
 token is ” “)
 The calculated value is
 $
+```
 When the script assumes there is data in a parameter variable, and no data is present, most
 likely you’ll get an error message from your script. This is a poor way to write scripts.
 Always check your parameters to make sure the data is there before using it:
+```sh
 $ cat test7.sh
 #!/bin/bash
 # testing parameters before use
@@ -14346,6 +15234,7 @@ $
 $ ./test7.sh
 Sorry, you did not identify yourself.
 $
+```
 In this example, the -n test evaluation was used to check for data in the $1 command line
 parameter. In the next section, you’ll learn another way to check command line
 parameters.
@@ -14364,6 +15253,7 @@ the command line. The bash shell provides a special variable for this purpose.
 The special $# variable contains the number of command line parameters included when
 the script was run. You can use this special variable anywhere in the script, just like a
 normal variable:
+```sh
 $ cat test8.sh
 #!/bin/bash
 # getting the number of parameters
@@ -14382,8 +15272,10 @@ $
 $ ./test8.sh “Rich Blum”
 There were 1 parameters supplied.
 $
+```
 Now you have the ability to test the number of parameters present before trying to use
 them:
+```sh
 $ cat test9.sh
 #!/bin/bash
 # Testing parameters
@@ -14408,6 +15300,7 @@ Usage: test9.sh a b
 $ bash test9.sh 10 15
 The total is 25
 $
+```
 The if-then statement uses the -ne evaluation to perform a numeric test of the command
 line parameters supplied. If the correct number of parameters isn’t present, an error
 message displays showing the correct usage of the script.
@@ -14417,6 +15310,7 @@ little trick to get there.
 If you think this through, you might think that because the $# variable contains the value
 of the number of parameters, using the variable ${$#} would represent the last command
 line parameter variable. Try that and see what happens:
+```sh
 $ cat badtest1.sh
 #!/bin/bash
 # testing grabbing last parameter
@@ -14426,9 +15320,11 @@ $
 $ ./badtest1.sh 10
 The last parameter was 15354
 $
+```
 Wow, what happened? Obviously, something went wrong. It turns out that you can’t use
 the dollar sign within the braces. Instead, you must replace the dollar sign with an
 exclamation mark. Odd, but it works:
+```sh
 $ cat test10.sh
 #!/bin/bash
 # Grabbing the last parameter
@@ -14448,6 +15344,7 @@ $ bash test10.sh
 The last parameter is 0
 The last parameter is test10.sh
 $
+```
 Perfect. This script also assigned the $# variable value to the variable params and then
 used that variable within the special command line parameter variable format as well.
 Both versions worked. It’s also important to notice that, when there weren’t any
@@ -14469,6 +15366,7 @@ as separate words in the same string. It allows you to iterate through the value
 out each parameter supplied. This is most often accomplished using the for command.
 It can easily get confusing to figure out how these two variables operate. Let’s look at the
 difference between the two:
+```sh
 $ cat test11.sh
 #!/bin/bash
 # testing $* and $@
@@ -14482,9 +15380,11 @@ $ ./test11.sh rich barbara katie jessica
 Using the $* method: rich barbara katie jessica
 Using the $@ method: rich barbara katie jessica
 $
+```
 Notice that on the surface, both variables produce the same output, showing all the
 command line parameters provided at once.
 The following example demonstrates where the differences are:
+```sh
 $ cat test12.sh
 #!/bin/bash
 # testing $* and $@
@@ -14514,6 +15414,7 @@ $@ Parameter #2 = barbara
 $@ Parameter #3 = katie
 $@ Parameter #4 = jessica
 $
+```
 Now we’re getting somewhere. By using the for command to iterate through the special
 variables, you can see how they each treat the command line parameters differently. The
 $* variable treated all the parameters as a single parameter, while the $@ variable treated
@@ -14533,6 +15434,7 @@ This is another great way to iterate through command line parameters, especially
 don’t know how many parameters are available. You can just operate on the first
 parameter, shift the parameters over, and then operate on the first parameter again.
 Here’s a short demonstration of how this works:
+```sh
 $ cat test13.sh
 #!/bin/bash
 # demonstrating the shift command
@@ -14551,6 +15453,7 @@ Parameter #2 = barbara
 Parameter #3 = katie
 Parameter #4 = jessica
 $
+```
 The script performs a while loop, testing the length of the first parameter’s value. When
 the first parameter’s length is zero, the loop ends. After testing the first parameter, the
 shift command is used to shift all the parameters one position.
@@ -14559,6 +15462,7 @@ Be careful when working with the shift command. When a parameter is shifted out,
 its value is lost and can’t be recovered.
 Alternatively, you can perform a multiple location shift by providing a parameter to the
 shift command. Just provide the number of places you want to shift:
+```sh
 $ cat test14.sh
 #!/bin/bash
 # demonstrating a multi-position shift
@@ -14572,6 +15476,7 @@ $ ./test14.sh 1 2 3 4 5
 The original parameters: 1 2 3 4 5
 Here’s the new first parameter: 3
 $
+```
 By using values in the shift command, you can easily skip over parameters you don’t
 need.
 
@@ -14593,6 +15498,7 @@ way down the command line parameters provided with the script program. You can u
 this same technique to process command line options.
 As you extract each individual parameter, use the case statement (see [chapter 12]) to
 determine when a parameter is formatted as an option:
+```sh
 $ cat test15.sh
 #!/bin/bash
 # extracting command line options as parameters
@@ -14615,15 +15521,18 @@ Found the -b option
 Found the -c option
 -d is not an option
 $
+```
 The case statement checks each parameter for valid options. When one is found, the
 appropriate commands are run in the case statement.
 This method works, no matter in what order the options are presented on the command
 line:
+```sh
 $ ./test15.sh -d -c -a
 -d is not an option
 Found the -c option
 Found the -a option
 $
+```
 The case statement processes each option as it finds it in the command line parameters. If
 any other parameters are included on the command line, you can include commands in the
 catch-all part of the case statement to process them.
@@ -14636,6 +15545,7 @@ For Linux, this special character is the double dash ( — ). The shell uses the
 indicate the end of the option list. After seeing the double dash, your script can safely
 process the remaining command line parameters as parameters and not options.
 To check for the double dash, simply add another entry in the case statement:
+```sh
 $ cat test16.sh
 #!/bin/bash
 # extracting options and parameters
@@ -14660,10 +15570,12 @@ echo “Parameter #$count: $param”
 count=$[ $count + 1 ]
 done
 $
+```
 This script uses the break command to break out of the while loop when it encounters the
 double dash. Because we’re breaking out prematurely, we need to ensure that we stick in
 another shift command to get the double dash out of the parameter variables.
 For the first test, try running the script using a normal set of options and parameters:
+```sh
 $ ./test16.sh -c -a -b test1 test2 test3
 Found the -c option
 Found the -a option
@@ -14672,9 +15584,11 @@ test1 is not an option
 test2 is not an option
 test3 is not an option
 $
+```
 The results show that the script assumed that all the command line parameters were
 options when it processed them. Next, try the same thing, only this time using the double
 dash to separate the options from the parameters on the command line:
+```sh
 $ ./test16.sh -c -a -b — test1 test2 test3
 Found the -c option
 Found the -a option
@@ -14683,14 +15597,17 @@ Parameter #1: test1
 Parameter #2: test2
 Parameter #3: test3
 $
+```
 When the script reaches the double dash, it stops processing options and assumes that any
 remaining parameters are command line parameters.
 Processing options with values
 Some options require an additional parameter value. In these situations, the command line
 looks something like this:
+```sh
 $ ./testing.sh -a test1 -b -c -d test2
 Your script must be able to detect when your command line option requires an additional
 parameter and be able to process it appropriately. Here’s an example of how to do that:
+```sh
 $ cat test17.sh
 #!/bin/bash
 # extracting command line options and values
@@ -14722,6 +15639,7 @@ Found the -a option
 Found the -b option, with parameter value test1
 -d is not an option
 $
+```
 In this example, the case statement defines three options that it processes. The -b option
 also requires an additional parameter value. Because the parameter being processed is $1 ,
 you know that the additional parameter value is located in $2 (because all the parameters
@@ -14731,17 +15649,21 @@ shift command to shift one additional position.
 Just as with the basic feature, this process works no matter what order you place the
 options in (just remember to include the appropriate option parameter with the each
 option):
+```sh
 $ ./test17.sh -b test1 -a -d
 Found the -b option, with parameter value test1
 Found the -a option
 -d is not an option
 $
+```
 Now you have the basic ability to process command line options in your shell scripts, but
 there are limitations. For example, this doesn’t work if you try to combine multiple
 options in one parameter:
+```sh
 $ ./test17.sh -ac
 -ac is not an option
 $
+```
 It is a common practice in Linux to combine options, and if your script is going to be user-
 friendly, you’ll want to offer this feature for your users as well. Fortunately, there’s
 another method for processing options that can help you.
@@ -14765,9 +15687,11 @@ plural), is available. The getopts command is covered later in this chapter. Bec
 of their nearly identical spelling, it’s easy to get these two commands confused. Be
 careful!
 Here’s a simple example of how getopt works:
+```sh
 $ getopt ab:cd -a -b test1 -cd test2 test3
 -a -b test1 -c -d — test2 test3
 $
+```
 The optstring defines four valid option letters, a , b , c , and d . A colon (:) is placed behind
 the letter b in order to require option b to have a parameter value. When the getopt
 command runs, it examines the provided parameter list ( -a -b test1 -cd test2 test3 )
@@ -14776,14 +15700,18 @@ cd options into two separate options and inserted the double dash to separate th
 parameters on the line.
 If you specify a parameter option not in the optstring , by default the getopt command
 produces an error message:
+```sh
 $ getopt ab:cd -a -b test1 -cde test2 test3
 getopt: invalid option — e
 -a -b test1 -c -d — test2 test3
 $
+```
 If you prefer to just ignore the error messages, use getopt with the -q option:
+```sh
 $ getopt -q ab:cd -a -b test1 -cde test2 test3
 -a -b ‘test1’ -c -d — ‘test2’ ‘test3’
 $
+```
 Note that the getopt command options must be listed before the optstring . Now you
 should be ready to use this command in your scripts to process command line options.
 Using getopt in your scripts
@@ -14806,6 +15734,7 @@ Now the values of the original command line parameter variables are replaced wit
 output from the getopt command, which formats the command line parameters for us.
 Using this technique, we can now write scripts that handle our command line parameters
 for us:
+```sh
 $ cat test18.sh
 #!/bin/bash
 # Extract command line options & values with getopt
@@ -14836,14 +15765,18 @@ count=$[ $count + 1 ]
 done
 #
 $
+```
 You’ll notice this is basically the same script as in test17.sh . The only thing that changed
 is the addition of the getopt command to help format our command line parameters.
 Now when you run the script with complex options, things work much better:
+```sh
 $ ./test18.sh -ac
 Found the -a option
 Found the -c option
 $
+```
 And of course, all the original features work just fine as well:
+```sh
 $ ./test18.sh -a -b test1 -cd test2 test3 test4
 Found the -a option
 Found the -b option, with parameter value ‘test1’
@@ -14852,8 +15785,10 @@ Parameter #1: ‘test2’
 Parameter #2: ‘test3’
 Parameter #3: ‘test4’
 $
+```
 Now things are looking pretty fancy. However, there’s still one small bug that lurks in the
 getopt command. Check out this example:
+```sh
 $ ./test18.sh -a -b test1 -cd “test2 test3” test4
 Found the -a option
 Found the -b option, with parameter value ‘test1’
@@ -14862,6 +15797,7 @@ Parameter #1: ‘test2
 Parameter #2: test3’
 Parameter #3: ‘test4’
 $
+```
 The getopt command isn’t good at dealing with parameter values with spaces and
 quotation marks. It interpreted the space as the parameter separator, instead of following
 the double quotation marks and combining the two values into one parameter. Fortunately,
@@ -14888,6 +15824,7 @@ environment variable contains the value of the current location within the param
 where getopts left off. This allows you to continue processing other command line
 parameters after finishing the options.
 Let’s look at a simple example that uses the getopts command:
+```sh
 $ cat test19.sh
 #!/bin/bash
 # simple demonstration of the getopts command
@@ -14908,6 +15845,7 @@ Found the -a option
 Found the -b option, with value test1
 Found the -c option
 $
+```
 The while statement defines the getopts command, specifying what command line
 options to look for, along with the variable name ( opt ) to store them in for each iteration.
 You’ll notice something different about the case statement in this example. When the
@@ -14915,19 +15853,24 @@ getopts command parses the command line options, it strips off the leading dash,
 don’t need leading dashes in the case definitions.
 The getopts command offers several nice features. For starters, you can include spaces in
 your parameter values:
+```sh
 $ ./test19.sh -b “test1 test2” -a
 Found the -b option, with value test1 test2
 Found the -a option
 $
+```
 Another nice feature is that you can run the option letter and the parameter value together
 without a space:
+```sh
 $ ./test19.sh -abtest1
 Found the -a option
 Found the -b option, with value test1
 $
+```
 The getopts command correctly parsed the test1 value from the -b option. In addition,
 the getopts command bundles any undefined option it finds in the command line into a
 single output, the question mark:
+```sh
 $ ./test19.sh -d
 Unknown option: ?
 $
@@ -14937,12 +15880,14 @@ Found the -c option
 Unknown option: ?
 Unknown option: ?
 $
+```
 Any option letter not defined in the optstring value is sent to your code as a question
 mark.
 The getopts command knows when to stop processing options and leave the parameters
 for you to process. As getopts processes each option, it increments the OPTIND
 environment variable by one. When you’ve reached the end of the getopts processing,
 you can use the OPTIND value with the shift command to move to the parameters:
+```sh
 $ cat test20.sh
 #!/bin/bash
 # Processing options & parameters with getopts
@@ -14978,6 +15923,7 @@ Parameter 1: test2
 Parameter 2: test3
 Parameter 3: test4
 $
+```
 Now you have a full-featured command line option and parameter processing utility you
 can use in all your shell scripts!
 
@@ -15044,6 +15990,7 @@ Reading basics
 The read command accepts input either from standard input (such as from the keyboard)
 or from another file descriptor. After receiving the input, the read command places the
 data into a variable. Here’s the read command at its simplest:
+```sh
 $ cat test21.sh
 #!/bin/bash
 # testing the read command
@@ -15057,12 +16004,14 @@ $ ./test21.sh
 Enter your name: Rich Blum
 Hello Rich Blum, welcome to my program.
 $
+```
 That’s pretty simple. Notice that the echo command that produced the prompt uses the -n
 option. This suppresses the newline character at the end of the string, allowing the script
 user to enter data immediately after the string, instead of on the next line. This gives your
 scripts a more form-like appearance.
 In fact, the read command includes the -p option, which allows you to specify a prompt
 directly in the read command line:
+```sh
 $ cat test22.sh
 #!/bin/bash
 # testing the read -p option
@@ -15076,11 +16025,13 @@ $ ./test22.sh
 Please enter your age: 10
 That makes you over 3650 days old!
 $
+```
 You’ll notice in the first example that when a name was entered, the read command
 assigned both the first name and last name to the same variable. The read command
 assigns all data entered at the prompt to a single variable, or you can specify multiple
 variables. Each data value entered is assigned to the next variable in the list. If the list of
 variables runs out before the data does, the remaining data is assigned to the last variable:
+```sh
 $ cat test23.sh
 #!/bin/bash
 # entering multiple variables
@@ -15092,8 +16043,10 @@ $ ./test23.sh
 Enter your name: Rich Blum
 Checking data for Blum, Rich…
 $
+```
 You can also specify no variables on the read command line. If you do that, the read
 command places any data it receives in the special environment variable REPLY :
+```sh
 $ cat test24.sh
 #!/bin/bash
 # Testing the REPLY Environment variable
@@ -15107,6 +16060,7 @@ $ ./test24.sh
 Enter your name: Christine
 Hello Christine, welcome to my program.
 $
+```
 The REPLY environment variable contains all the data entered in the input, and it can be
 used in the shell script as any other variable.
 Timing out
@@ -15115,6 +16069,7 @@ user to enter data. If the script must go on regardless of whether any data was 
 can use the -t option to specify a timer. The -t option specifies the number of seconds for
 the read command to wait for input. When the timer expires, the read command returns a
 non-zero exit status:
+```sh
 $ cat test25.sh
 #!/bin/bash
 # timing the data entry
@@ -15135,6 +16090,7 @@ $ ./test25.sh
 Please enter your name:
 Sorry, too slow!
 $
+```
 Because the read command exits with a non-zero exit status if the timer expires, it’s easy
 to use the standard structured statements, such as an if-then statement or a while loop to
 track what happened. In this example, when the timer expires, the if statement fails, and
@@ -15142,6 +16098,7 @@ the shell executes the commands in the else section.
 Instead of timing the input, you can also set the read command to count the input
 characters. When a preset number of characters has been entered, it automatically exits,
 assigning the entered data to the variable:
+```sh
 $ cat test26.sh
 #!/bin/bash
 # getting just one character of input
@@ -15165,6 +16122,7 @@ $ ./test26.sh
 Do you want to continue [Y/N]? n
 OK, goodbye
 $
+```
 This example uses the -n option with the value of 1 , instructing the read command to
 accept only a single character before exiting. As soon as you press the single character to
 answer, the read command accepts the input and passes it to the variable. You don’t need
@@ -15354,6 +16312,7 @@ just as if it were typed on the keyboard.
 Many bash commands accept input from STDIN , especially if no files are specified on the
 command line. Here’s an example of using the cat command with data entered from
 STDIN :
+```sh
 $ cat
 this is a test
 this is a test
@@ -15363,11 +16322,13 @@ When you enter the cat command on the command line by itself, it accepts input f
 STDIN . As you enter each line, the cat command echoes the line to the display.
 However, you can also use the STDIN redirect symbol to force the cat command to accept
 input from another file other than STDIN :
+```sh
 $ cat < testfile
 This is the first line.
 This is the second line.
 This is the third line.
 $
+```
 Now the cat command uses the lines that are contained in the testfile file as the input.
 You can use this technique to input data to any shell command that accepts data from
 STDIN .
@@ -15378,6 +16339,7 @@ programs and scripts you run in the shell) is directed to the standard output, w
 monitor.
 Most bash commands direct their output to the STDOUT file descriptor by default. As shown
 in Chapter 11, you can change that using output redirection:
+```sh
 $ ls -l > test2
 $ cat test2
 total 20
@@ -15385,9 +16347,11 @@ total 20
 -rw-rw-r— 1 rich rich 0 2014-10-16 11:32 test2
 -rw-rw-r— 1 rich rich 73 2014-10-16 11:23 testfile
 $
+```
 With the output redirection symbol, all the output that normally would go to the monitor is
 instead redirected to the designated redirection file by the shell.
 You can also append data to a file. You do this using the >> symbol:
+```sh
 $ who >> test2
 $ cat test2
 total 20
@@ -15396,14 +16360,17 @@ total 20
 -rw-rw-r— 1 rich rich 73 2014-10-16 11:23 testfile
 rich pts/0 2014-10-17 15:34 (192.168.1.2)
 $
+```
 The output generated by the who command is appended to the data already in the test2
 file.
 However, if you use the standard output redirection for your scripts, you can run into a
 problem. Here’s an example of what can happen in your script:
+```sh
 $ ls -al badfile > test3
 ls: cannot access badfile: No such file or directory
 $ cat test3
 $
+```
 When a command produces an error message, the shell doesn’t redirect the error message
 to the output redirection file. The shell created the output redirection file, but the error
 message appeared on the monitor screen. Notice that there isn’t an error when trying to
@@ -15432,20 +16399,24 @@ As you saw in Table 15.1, the STDERR file descriptor is set to the value 2 . You
 redirect only error messages by placing this file descriptor value immediately before the
 redirection symbol. The value must appear immediately before the redirection symbol or it
 doesn’t work:
+```sh
 $ ls -al badfile 2> test4
 $ cat test4
 ls: cannot access badfile: No such file or directory
 $
+```
 Now when you run the command, the error message doesn’t appear on the monitor.
 Instead, the output file contains any error messages that are generated by the command.
 Using this method, the shell redirects the error messages only, not the normal data. Here’s
 another example of mixing STDOUT and STDERR messages in the same output:
+```sh
 $ ls -al test badtest test2 2> test5
 -rw-rw-r— 1 rich rich 158 2014-10-16 11:32 test2
 $ cat test5
 ls: cannot access test: No such file or directory
 ls: cannot access badtest: No such file or directory
 $
+```
 The normal STDOUT output from the ls command still goes to the default STDOUT file
 descriptor, which is the monitor. Because the command redirects file descriptor 2 output
 ( STDERR ) to an output file, the shell sends any error messages generated directly to the
@@ -15455,6 +16426,7 @@ If you want to redirect both errors and the normal output, you need to use two r
 symbols. You need to precede each with the appropriate file descriptor for the data you
 want to redirect and then have them point to the appropriate output file for holding the
 data:
+```sh
 $ ls -al test test2 test3 badtest 2> test6 1> test7
 $ cat test6
 ls: cannot access test: No such file or directory
@@ -15463,6 +16435,7 @@ $ cat test7
 -rw-rw-r— 1 rich rich 158 2014-10-16 11:32 test2
 -rw-rw-r— 1 rich rich 0 2014-10-16 11:33 test3
 $
+```
 The shell redirects the normal output of the ls command that would have gone to STDOUT
 to the test7 file using the 1> symbol. Any error messages that would have gone to STDERR
 were redirected to the test6 file using the 2> symbol.
@@ -15472,6 +16445,7 @@ through thousands of lines of normal output data.
 Alternatively, if you want, you can redirect both STDERR and STDOUT output to the same
 output file. The bash shell provides a special redirection symbol just for this purpose, the
 &> symbol:
+```sh
 $ ls -al test test2 test3 badtest &> test7
 $ cat test7
 ls: cannot access test: No such file or directory
@@ -15479,6 +16453,7 @@ ls: cannot access badtest: No such file or directory
 -rw-rw-r— 1 rich rich 158 2014-10-16 11:32 test2
 -rw-rw-r— 1 rich rich 0 2014-10-16 11:33 test3
 $
+```
 When you use the &> symbol, all the output generated by the command is sent to the same
 location, both data and errors. Notice that one of the error messages is out of order from
 what you’d expect. The error message for the badtest file (the last file to be listed)
@@ -15642,6 +16617,7 @@ You assign a file descriptor for output by using the exec command. As with the s
 file descriptors, after you assign an alternative file descriptor to a file location, that
 redirection stays permanent until you reassign it. Here’s a simple example of using an
 alternative file descriptor in a script:
+```sh
 $ cat test13
 #!/bin/bash
 # using an alternative file descriptor
@@ -15655,6 +16631,7 @@ Then this should be back on the monitor
 $ cat test13out
 and this should be stored in the file
 $
+```
 The script uses the exec command to redirect file descriptor 3 to an alternative file
 location. When the script executes the echo statements, they display on STDOUT as you
 would expect. However, the echo statements that you redirect to file descriptor 3 go to the
@@ -15670,6 +16647,7 @@ alternative file descriptor to a standard file descriptor, and vice versa. This 
 can redirect the original location of STDOUT to an alternative file descriptor and then
 redirect that file descriptor back to STDOUT . This might sound somewhat complicated, but
 in practice it’s fairly straightforward. This example will clear things up for you:
+```sh
 $ cat test14
 #!/bin/bash
 # storing STDOUT, then coming back to it
@@ -15686,6 +16664,7 @@ $ cat test14out
 This should store in the output file
 along with this line.
 $
+```
 This example is a little crazy so let’s walk through it piece by piece. First, the script
 redirects file descriptor 3 to the current location of file descriptor 1, which is STDOUT . This
 means that any output sent to file descriptor 3 goes to the monitor.
@@ -15702,6 +16681,7 @@ Creating input file descriptors
 You can redirect input file descriptors exactly the same way as output file descriptors.
 Save the STDIN file descriptor location to another file descriptor before redirecting it to a
 file; when you’re finished reading the file, you can restore STDIN to its original location:
+```sh
 $ cat test15
 #!/bin/bash
 # redirecting input file descriptors
@@ -15726,6 +16706,7 @@ Line #3: This is the third line.
 Are you done now? y
 Goodbye
 $
+```
 In this example, file descriptor 6 is used to hold the location for STDIN . The script then
 redirects STDIN to a file. All the input for the read command comes from the redirected
 STDIN , which is now the input file.
@@ -15740,6 +16721,7 @@ You need to be especially careful with this method, however. As you read and wri
 to and from a file, the shell maintains an internal pointer, indicating where it is in the file.
 Any reading or writing occurs where the file pointer last left off. This can produce some
 interesting results if you’re not careful. Look at this example:
+```sh
 $ cat test16
 #!/bin/bash
 # testing input/output file descriptor
@@ -15759,6 +16741,7 @@ This is a test line
 ine.
 This is the third line.
 $
+```
 This example uses the exec command to assign file descriptor 3 for both input and output
 sent to and from the file testfile . Next, it uses the read command to read the first line in
 the file, using the assigned file descriptor, and then it displays the read line of data in
@@ -15781,6 +16764,7 @@ script:
 exec 3>&-
 This statement closes file descriptor 3, preventing it from being used any more in the
 script. Here’s an example of what happens when you try to use a closed file descriptor:
+```sh
 $ cat badtest
 #!/bin/bash
 # testing closing file descriptors
@@ -15791,12 +16775,14 @@ echo “This won’t work” >&3
 $ ./badtest
 ./badtest: 3: Bad file descriptor
 $
+```
 After you close the file descriptor, you can’t write any data to it in your script or the shell
 produces an error message.
 There’s yet another thing to be careful of when closing file descriptors. If you open the
 same output file later on in your script, the shell replaces the existing file with a new file.
 This means that if you output any data, it overwrites the existing file. Consider the
 following example of this problem:
+```sh
 $ cat test17
 #!/bin/bash
 # testing closing file descriptors
@@ -15811,6 +16797,7 @@ This is a test line of data
 $ cat test17file
 This’ll be bad
 $
+```
 After sending a data string to the test17file file and closing the file descriptor, the script
 uses the cat command to display the contents of the file. So far, so good. Next, the script
 reopens the output file and sends another data string to it. When you display the contents
@@ -15830,6 +16817,7 @@ system to non-system-administrators. That’s why many Linux systems hide this c
 so users don’t accidentally stumble across it.
 On many Linux systems (such as Fedora) the lsof command is located in the /usr/sbin
 directory. To run it with a normal user account, I have to reference it by its full pathname:
+```sh
 $ /usr/sbin/lsof
 This produces an amazing amount of output. It displays information about every file
 currently open on the Linux system. This includes all the processes running on
@@ -15840,12 +16828,14 @@ and -d , which allows you to specify the file descriptor numbers to display.
 To easily determine the current PID of the process, you can use the special environment
 variable $$ , which the shell sets to the current PID. The -a option is used to perform a
 Boolean AND of the results of the other two options, to produce the following:
+```sh
 $ /usr/sbin/lsof -a -p $$ -d 0,1,2
 COMMAND PID USER FD TYPE DEVICE SIZE NODE NAME
 bash 3344 rich 0u CHR 136,0 2 /dev/pts/0
 bash 3344 rich 1u CHR 136,0 2 /dev/pts/0
 bash 3344 rich 2u CHR 136,0 2 /dev/pts/0
 $
+```
 This shows the default file descriptors (0, 1, and 2) for the current process (the bash shell).
 The default output of lsof contains several columns of information, described in Table
 15.2.
@@ -15873,6 +16863,7 @@ reading and writing (although it does seem odd to be able to write to STDIN and 
 STDOUT ).
 Now, let’s look at the results of the lsof command from inside a script that’s opened a
 couple of alternative file descriptors:
+```sh
 $ cat test18
 #!/bin/bash
 # testing lsof with file descriptors
@@ -15889,6 +16880,7 @@ test18 3594 rich 2u CHR 136,0 2 /dev/pts/0
 18 3594 rich 6w REG 253,0 0 360715 /home/rich/test18file2
 18 3594 rich 7r REG 253,0 73 360717 /home/rich/testfile
 $
+```
 The script creates three alternative file descriptors, two for output (3 and 6) and one for
 input (7). When the script runs the lsof command, you can see the new file descriptors in
 the output. We truncated the first part of the output so you could see the results of the
@@ -15909,16 +16901,21 @@ null file is pretty much what it says it is — a file that contains nothing. An
 shell outputs to the null file is not saved, thus the data are lost.
 The standard location for the null file on Linux systems is /dev/null . Any data you
 redirect to that location is thrown away and doesn’t appear:
+```sh
 $ ls -al > /dev/null
 $ cat /dev/null
 $
+```
 This is a common way to suppress any error messages without actually saving them:
+```sh
 $ ls -al badfile test16 2> /dev/null
 -rwxr—r— 1 rich rich 135 Oct 29 19:57 test16*
 $
+```
 You can also use the /dev/null file for input redirection as an input file. Because the
 /dev/null file contains nothing, it is often used by programmers to quickly remove data
 from an existing file without having to remove the file and re-create it:
+```sh
 $ cat testfile
 This is the first line.
 This is the second line.
@@ -15926,6 +16923,7 @@ This is the third line.
 $ cat /dev/null > testfile
 $ cat testfile
 $
+```
 The file testfile still exists on the system, but now it is empty. This is a common method
 used to clear out log files that must remain in place for applications to operate.
 
@@ -15949,13 +16947,16 @@ Creating a local temporary file
 By default, mktemp creates a file in the local directory. To create a temporary file in a local
 directory with the mktemp command, you just need to specify a filename template. The
 template consists of any text filename, plus six X’s appended to the end of the filename:
+```sh
 $ mktemp testing.XXXXXX
 $ ls -al testing*
 -rw––- 1 rich rich 0 Oct 17 21:30 testing.UfIi13
 $
+```
 The mktemp command replaces the six X’s with a six-character code to ensure the filename
 is unique in the directory. You can create multiple temporary files and be assured that each
 one is unique:
+```sh
 $ mktemp testing.XXXXXX
 testing.1DRLuV
 $ mktemp testing.XXXXXX
@@ -15968,9 +16969,11 @@ $ ls -l testing*
 -rw––- 1 rich rich 0 Oct 17 21:30 testing.UfIi13
 -rw––- 1 rich rich 0 Oct 17 21:57 testing.lVBtkW
 $
+```
 As you can see, the output of the mktemp command is the name of the file that it creates.
 When you use the mktemp command in a script, you’ll want to save that filename in a
 variable, so you can refer to it later on in the script:
+```sh
 $ cat test19
 #!/bin/bash
 # creating and using a temp file
@@ -15993,6 +16996,7 @@ This is the last line.
 $ ls -al test19*
 -rwxr—r— 1 rich rich 356 Oct 29 22:03 test19*
 $
+```
 The script uses the mktemp command to create a temporary file and assigns the filename to
 the $tempfile variable. It then uses the temporary file as the output redirection file for file
 descriptor 3. After displaying the temporary filename on STDOUT , it writes a few lines to
@@ -16002,14 +17006,17 @@ Creating a temporary file in /tmp
 The -t option forces mktemp to create the file in the temporary directory of the system.
 When you use this feature, the mktemp command returns the full pathname used to create
 the temporary file, not just the filename:
+```sh
 $ mktemp -t test.XXXXXX
 /tmp/test.xG3374
 $ ls -al /tmp/test*
 -rw––- 1 rich rich 0 2014-10-29 18:41 /tmp/test.xG3374
 $
+```
 Because the mktemp command returns the full pathname, you can then reference the
 temporary file from any directory on the Linux system, no matter where it places the
 temporary directory:
+```sh
 $ cat test20
 #!/bin/bash
 # creating a temp file in /tmp
@@ -16024,12 +17031,14 @@ The temp file is located at: /tmp/tmp.Ma3390
 This is a test file.
 This is the second line of the test.
 $
+```
 When mktemp creates the temporary file, it returns the full pathname to the environment
 variable. You can then use that value in any command to reference the temporary file.
 Creating a temporary directory
 The -d option tells the mktemp command to create a temporary directory instead of a file.
 You can then use that directory for whatever purposes you need, such as creating
 additional temporary files:
+```sh
 $ cat test21
 #!/bin/bash
 # using a temporary directory
@@ -16077,27 +17086,34 @@ filename specified on the tee command line:
 tee filename
 Because tee redirects data from STDIN , you can use it with the pipe command to redirect
 output from any command:
+```sh
 $ date | tee testfile
 Sun Oct 19 18:56:21 EDT 2014
 $ cat testfile
 Sun Oct 19 18:56:21 EDT 2014
 $
+```
 The output appears in STDOUT and is written to the file specified. Be careful: By default,
 the tee command overwrites the output file on each use:
+```sh
 $ who | tee testfile
 rich pts/0 2014-10-17 18:41 (192.168.1.2)
 $ cat testfile
 rich pts/0 2014-10-17 18:41 (192.168.1.2)
 $
+```
 If you want to append data to the file, you must use the -a option:
+```sh
 $ date | tee -a testfile
 Sun Oct 19 18:58:05 EDT 2014
 $ cat testfile
 rich pts/0 2014-10-17 18:41 (192.168.1.2)
 Sun Oct 19 18:58:05 EDT 2014
 $
+```
 Using this technique, you can both save data in files and display the data on the monitor
 for your users:
+```sh
 $ cat test22
 #!/bin/bash
 # using the tee command for logging
@@ -16114,6 +17130,7 @@ This is the start of the test
 This is the second line of the test
 This is the end of the test
 $
+```
 Now you can save a permanent copy of your output at the same time as you’re displaying
 it to your users.
 
@@ -16129,6 +17146,7 @@ which to read the data. The .csv format is used to export data from spreadsheets
 can place the database data into a spreadsheet, save the spreadsheet in .csv format, read
 the file, and create INSERT statements to insert the data into a MySQL database.
 Here’s what the script looks like:
+```sh
 $cat test23
 #!/bin/bash
 # read file and create INSERT statements for MySQL
@@ -16142,6 +17160,7 @@ INSERT INTO members (lname,fname,address,city,state,zip) VALUES
 EOF
 done < ${1}
 $
+```
 That’s a pretty short script, thanks to the file redirection that goes on! There are three
 redirection operations happening in the script. The while loop uses the read statement
 (discussed in Chapter 14) to read text from the data file. Notice in the done statement the
@@ -16165,16 +17184,21 @@ with the variables for the data read from the read statement.
 So basically the while loop reads on the data one line at a time, plugs those data values
 into the INSERT statement template, then outputs the result to the output file.
 For this experiment, I used this as the input data file:
+```sh
 $ cat members.csv
 Blum,Richard,123 Main St.,Chicago,IL,60601
 Blum,Barbara,123 Main St.,Chicago,IL,60601
 Bresnahan,Christine,456 Oak Ave.,Columbus,OH,43201
 Bresnahan,Timothy,456 Oak Ave.,Columbus,OH,43201
 $
+```
 When you run the script, nothing appears in the output on the monitor:
+```sh
 $ ./test23 < members.csv
 $
+```
 But when you look at the members.sql output file, you should see the output data:
+```sh
 $ cat members.sql
 INSERT INTO members (lname,fname,address,city,state,zip) VALUES (‘Blum’,
 ‘Richard’, ‘123 Main St.’, ‘Chicago’, ‘IL’, ‘60601’);
@@ -16187,6 +17211,7 @@ INSERT INTO members (lname,fname,address,city,state,zip) VALUES
 (‘Bresnahan’,
 ‘Timothy’, ‘456 Oak Ave.’, ‘Columbus’, ‘OH’, ‘43201’);
 $
+```
 The script worked exactly as expected! Now you can easily import the members.sql file
 into a MySQL database table (see [chapter 25]).
 
@@ -16300,9 +17325,11 @@ Interrupting a process
 The Ctrl+C key combination generates a SIGINT signal and sends it to any processes
 currently running in the shell. You can test this by running a command that normally takes
 a long time to finish and pressing the Ctrl+C key combination:
+```sh
 $ sleep 100
 ^C
 $
+```
 The Ctrl+C key combination sends a SIGINT signal, which simply stops the current
 process running in the shell. The sleep command pauses the shell’s operation for the
 specified number of seconds and returns the shell prompt. By pressing the Ctrl+C key
@@ -16319,16 +17346,19 @@ In the “Controlling the Job” section later in this chapter, you learn how to
 that’s been stopped.
 When you use the Ctrl+Z key combination, the shell informs you that the process has been
 stopped:
+```sh
 $ sleep 100
 ^Z
 [1]+ Stopped sleep 100
 $
+```
 The number in the square brackets is the job number assigned by the shell. The shell refers
 to each process running in the shell as a job and assigns each job a unique job number
 within the current shell. It assigns the first started process job number 1, the second job
 number 2, and so on.
 If you have a stopped job assigned to your shell session, bash warns you if you try to exit
 the shell:
+```sh
 $ sleep 100
 ^Z
 [1]+ Stopped sleep 100
@@ -16336,7 +17366,9 @@ $ exit
 exit
 There are stopped jobs.
 $
+```
 You can view the stopped jobs using the ps command:
+```sh
 $ sleep 100
 ^Z
 [1]+ Stopped sleep 100
@@ -16347,16 +17379,20 @@ F S UID PID PPID C PRI NI ADDR SZ WCHAN TTY TIME CMD
 0 T 501 2456 2431 0 80 0 - 25227 signal pts/0 00:00:00 sleep
 0 R 501 2458 2431 0 80 0 - 27034 - pts/0 00:00:00 ps
 $
+```
 In the S column (process state), the ps command shows the stopped job’s state as T. This
 indicates the command is either being traced or is stopped.
 If you really want to exit the shell with a stopped job still active, just type the exit
 command again. The shell exits, terminating the stopped job. Alternately, now that you
 know the PID of the stopped job, you can use the kill command to send a SIGKILL signal
 to terminate it:
+```sh
 $ kill -9 2456
 $
+```
 [1]+ Killed sleep 100
 $
+```
 When you kill the job, initially you don’t get any response. However, the next time you do
 something that produces a shell prompt (such as pressing the Enter key), you’ll see a
 message indicating that the job was killed. Each time the shell produces a prompt, it also
@@ -16376,6 +17412,7 @@ along with a space-separated list of signals you want to trap. You can specify t
 either by their numeric value or by their Linux signal name.
 Here’s a simple example of using the trap command to capture the SIGINT signal and
 govern the script’s behavior when the signal is sent:
+```sh
 $ cat test1.sh
 #!/bin/bash
 # Testing signal trapping
@@ -16397,6 +17434,7 @@ echo “This is the end of the test script”
 The trap command used in this example displays a simple text message each time it
 detects the SIGINT signal. Trapping this signal makes this script impervious to the user
 attempting to stop the program by using the bash shell keyboard Ctrl+C command:
+```sh
 $ ./test1.sh
 This is a test script
 Loop #1
@@ -16413,6 +17451,7 @@ Loop #9
 Loop #10
 This is the end of the test script
 $
+```
 Each time the Ctrl+C key combination was used, the script executed the echo statement
 specified in the trap command instead of not managing the signal and allowing the shell
 to stop the script.
@@ -16420,6 +17459,7 @@ Trapping a script exit
 Besides trapping signals in your shell script, you can trap them when the shell script exits.
 This is a convenient way to perform commands just as the shell finishes its job.
 To trap the shell script exiting, just add the EXIT signal to the trap command:
+```sh
 $ cat test2.sh
 #!/bin/bash
 # Trapping the script exit
@@ -16443,21 +17483,25 @@ Loop #4
 Loop #5
 Goodbye…
 $
+```
 When the script gets to the normal exit point, the trap is triggered, and the shell executes
 the command you specify on the trap command line. The EXIT trap also works if you
 prematurely exit the script:
+```sh
 $ ./test2.sh
 Loop #1
 Loop #2
 Loop #3
 ^CGoodbye…
 $
+```
 Because the SIGINT signal isn’t listed in the trap command list, when the Ctrl+C key
 combination is used to send that signal, the script exits. However, before the script exits,
 because the EXIT is trapped, the shell executes the trap command.
 Modifying or removing a trap
 To handle traps differently in various sections of your shell script, you simply reissue the
 trap command with new options:
+```sh
 $ cat test3.sh
 #!/bin/bash
 # Modifying a set trap
@@ -16483,9 +17527,11 @@ count=$[ $count + 1 ]
 done
 #
 $
+```
 After the signal trap is modified, the script manages the signal or signals differently.
 However, if a signal is received before the trap is modified, the script processes it per the
 original trap command:
+```sh
 $ ./test3.sh
 Loop #1
 Loop #2
@@ -16500,8 +17546,10 @@ Second Loop #3
 Second Loop #4
 Second Loop #5
 $
+```
 You can also remove a set trap. Simply add two dashes after the trap command and a list
 of the signals you want to return to default behavior:
+```sh
 $ cat test3b.sh
 #!/bin/bash
 # Removing a set trap
@@ -16540,12 +17588,14 @@ Second Loop #2
 Second Loop #3
 ^C
 $
+```
 Tip
 You can use a single dash instead of a double dash after the trap command to return
 signals to their default behavior. Both the single and double dash work properly.
 After the signal trap is removed, the script handles the SIGINT signal in its default manner,
 terminating the script. However, if a signal is received before the trap is removed, the
 script processes it per the original trap command:
+```sh
 $ ./test3b.sh
 Loop #1
 Loop #2
@@ -16558,6 +17608,7 @@ Second Loop #1
 Second Loop #2
 ^C
 $
+```
 In this example, the first Ctrl+C key combination was used to attempt to terminate the
 script prematurely. Because the signal was received before the trap was removed, the
 script executed the command specified in the trap. After the script executed the trap
@@ -16616,6 +17667,7 @@ This shows the job number and the status of the job ( Done ), along with the com
 to start the job.
 Be aware that while the background process is running, it still uses your terminal monitor
 for STDOUT and STDERR messages:
+```sh
 $ cat test5.sh
 #!/bin/bash
 # Test running in the background with output
@@ -16643,10 +17695,12 @@ Loop #5
 Test script is complete
 [1] Done ./test5.sh
 $
+```
 You’ll notice from the example that the output from the test5.sh script displays. The
 output intermixes with the shell prompt, which is why Start the test script appears
 next to the $ prompt.
 You can still issue commands while this output is occurring:
+```sh
 $ ./test5.sh &
 [1] 3319
 $ Start the test script
@@ -16668,6 +17722,7 @@ avoid this messy output.
 Running multiple background jobs
 You can start any number of background jobs at the same time from the command line
 prompt:
+```sh
 $ ./test6.sh &
 [1] 3568
 $ This is Test Script #1
@@ -16681,8 +17736,10 @@ $ ./test9.sh &
 [4] 3576
 $ Then…there was one more test script
 $
+```
 Each time you start a new job, the Linux system assigns it a new job number and PID. You
 can see that all the scripts are running using the ps command:
+```sh
 $ ps
 PID TTY TIME CMD
 2431 pts/0 00:00:00 bash
@@ -16696,6 +17753,7 @@ PID TTY TIME CMD
 3578 pts/0 00:00:00 sleep
 3579 pts/0 00:00:00 ps
 $
+```
 You must be careful when using background processes from a terminal session. Notice in
 the output from the ps command that each of the background processes is tied to the
 terminal session (pts/0) terminal. If the terminal session exits, the background process also
@@ -16718,10 +17776,12 @@ this by using the nohup command.
 The nohup command runs another command blocking any SIGHUP signals that are sent to
 the process. This prevents the process from exiting when you exit your terminal session.
 The format used for the nohup command is as follows:
+```sh
 $ nohup ./test1.sh &
 [1] 3856
 $ nohup: ignoring input and appending output to ‘nohup.out’
 $
+```
 As with a normal background process, the shell assigns the command a job number, and
 the Linux system assigns a PID number. The difference is that when you use the nohup
 command, the script ignores any SIGHUP signals sent by the terminal session if you close
@@ -16738,6 +17798,7 @@ confusing.
 The nohup.out file contains all the output that would normally be sent to the terminal
 monitor. After the process finishes running, you can view the nohup.out file for the output
 results:
+```sh
 $ cat nohup.out
 This is a test script
 Loop 1
@@ -16752,6 +17813,7 @@ Loop 9
 Loop 10
 This is the end of the test script
 $
+```
 The output appears in the nohup.out file just as if the process ran on the command line.
 
 ## ==⚡ Controlling the Job
@@ -16767,6 +17829,7 @@ section describes the commands used to view and control jobs running in your she
 Viewing jobs
 The key command for job control is the jobs command. The jobs command allows you to
 view the current jobs being handled by the shell:
+```sh
 $ cat test10.sh
 #!/bin/bash
 # Test job control
@@ -16784,10 +17847,12 @@ done
 echo “End of script…”
 #
 $
+```
 The script uses the $$ variable to display the PID that the Linux system assigns to the
 script; then it goes into a loop, sleeping for 10 seconds at a time for each iteration.
 You can start the script from the command line interface and then stop it using the Ctrl+Z
 key combination:
+```sh
 $ ./test10.sh
 Script Process ID: 1897
 Loop #1
@@ -16795,25 +17860,32 @@ Loop #2
 ^Z
 [1]+ Stopped ./test10.sh
 $
+```
 Using the same script, another job is started as a background process, using the ampersand
 symbol. To make life a little easier, the output of that script is redirected to a file so it
 doesn’t appear on the screen:
+```sh
 $ ./test10.sh > test10.out &
 [2] 1917
 $
+```
 The jobs command enables you to view the jobs assigned to the shell. The jobs command
 shows both the stopped and the running jobs, along with their job numbers and the
 commands used in the jobs:
+```sh
 $ jobs
 [1]+ Stopped ./test10.sh
 [2]- Running ./test10.sh > test10.out &
 $
+```
 You can view the various jobs’ PIDs by adding the -l parameter (lowercase L) on the jobs
 command:
+```sh
 $ jobs -l
 [1]+ 1897 Stopped ./test10.sh
 [2]- 1917 Running ./test10.sh > test10.out &
 $
+```
 The jobs command uses a few different command line parameters, as shown in Table
 16.2.
 
@@ -16854,11 +17926,14 @@ $ jobs -l
 [2]- 1952 Running ./test10.sh > test10b.out &
 [3]+ 1955 Running ./test10.sh > test10c.out &
 $
+```
 Using the kill command to send a SIGHUP signal to the default process causes the job to
 terminate. In the next jobs listing, the job that previously had the minus sign now has the
 plus sign and is the default job:
+```sh
 $ kill 1955
 $
+```
 [3]+ Terminated ./test10.sh > test10c.out
 $
 $ jobs -l
@@ -16867,11 +17942,13 @@ $ jobs -l
 $
 $ kill 1952
 $
+```
 [2]+ Terminated ./test10.sh > test10b.out
 $
 $ jobs -l
 [1]+ 1950 Running ./test10.sh > test10a.out &
 $
+```
 Although changing a background job to the default process is interesting, it doesn’t seem
 very useful. In the next section, you learn how to use commands to interact with the
 default process using no PID or job number.
@@ -16880,6 +17957,7 @@ Under bash job control, you can restart any stopped job as either a background p
 a foreground process. A foreground process takes over control of the terminal you’re
 working on, so be careful about using that feature.
 To restart a job in background mode, use the bg command:
+```sh
 $ ./test11.sh
 ^Z
 [1]+ Stopped ./test11.sh
@@ -16890,10 +17968,12 @@ $
 $ jobs
 [1]+ Running ./test11.sh &
 $
+```
 Because the job was the default job, indicated by the plus sign, only the bg command was
 needed to restart it in background mode. Notice that no PID is listed when the job is
 moved into background mode.
 If you have additional jobs, you need to use the job number along with the bg command:
+```sh
 $ ./test11.sh
 ^Z
 [1]+ Stopped ./test11.sh
@@ -16909,14 +17989,17 @@ $ jobs
 [1]+ Stopped ./test11.sh
 [2]- Running ./test12.sh &
 $
+```
 The command bg 2 was used to send the second job into background mode. Notice that
 when the jobs command was used, it listed both jobs with their status, even though the
 default job is not currently in background mode.
 To restart a job in foreground mode, use the fg command, along with the job number:
+```sh
 $ fg 2
 ./test12.sh
 This is the script’s end…
 $
+```
 Because the job is running in foreground mode, the command line interface prompt does
 not appear until the job finishes.
 
@@ -16943,6 +18026,7 @@ Using the nice command
 The nice command allows you to set the scheduling priority of a command as you start it.
 To make a command run with less priority, just use the -n command line option for nice
 to specify a new priority level:
+```sh
 $ nice -n 10 ./test4.sh > test4.out &
 [1] 4973
 $
@@ -16950,21 +18034,25 @@ $ ps -p 4973 -o pid,ppid,ni,cmd
 PID PPID NI CMD
 4973 4721 10 /bin/bash ./test4.sh
 $
+```
 Notice that you must use the nice command on the same line as the command you are
 starting. The output from the ps command confirms that the nice value (column NI ) has
 been set to 10 .
 The nice command causes the script to run at a lower priority. However, if you try to
 increase the priority of one of your commands, you might be in for a surprise:
+```sh
 $ nice -n -10 ./test4.sh > test4.out &
 [1] 4985
 $ nice: cannot set niceness: Permission denied
 [1]+ Done nice -n -10 ./test4.sh > test4.out
 $
+```
 The nice command prevents normal system users from increasing the priority of their
 commands. Notice that the job does run, even though the attempt to raise its priority with
 the nice command failed.
 You don’t have to use the -n option with the nice command. You can simply type the
 priority preceded by a dash:
+```sh
 $ nice -10 ./test4.sh > test4.out &
 [1] 4993
 $
@@ -16972,12 +18060,14 @@ $ ps -p 4993 -o pid,ppid,ni,cmd
 PID PPID NI CMD
 4993 4721 10 /bin/bash ./test4.sh
 $
+```
 However, this can get confusing when the priority is a negative number, because you must
 have a double-dash. It’s best just to use the -n option to avoid confusion.
 Using the renice command
 Sometimes, you’d like to change the priority of a command that’s already running on the
 system. That’s what the renice command is for. It allows you to specify the PID of a
 running process to change its priority:
+```sh
 $ ./test11.sh &
 [1] 5055
 $
@@ -16992,6 +18082,7 @@ $ ps -p 5055 -o pid,ppid,ni,cmd
 PID PPID NI CMD
 5055 4721 10 /bin/bash ./test11.sh
 $
+```
 The renice command automatically updates the scheduling priority of the running
 process. As with the nice command, the renice command has some limitations:
 
@@ -17063,6 +18154,7 @@ STDOUT and STDERR . Any output destined to STDOUT or STDERR is mailed to the use
 mail system.
 Here’s a simple example using the at command to schedule a job to run on a CentOS
 distribution:
+```sh
 $ cat test13.sh
 #!/bin/bash
 # Test using at command
@@ -17075,6 +18167,7 @@ echo “This is the script’s end…”
 $ at -f test13.sh now
 job 7 at 2015-07-14 12:38
 $
+```
 The at command displays the job number assigned to the job along with the time the job
 is scheduled to run. The -f option tells what script file to use and the now time designation
 directs at to run the script immediately.
@@ -17082,6 +18175,7 @@ Using e-mail for the at command’s output is inconvenient at best. The at comma
 e-mail via the sendmail application. If your system does not use sendmail, you won’t get
 any output! Therefore, it’s best to redirect STDOUT and STDERR in your scripts (see [chapter
 15]) when using the at command, as the following example shows:
+```sh
 $ cat test13b.sh
 #!/bin/bash
 # Test using at command
@@ -17099,10 +18193,12 @@ $ cat test13b.out
 This script ran at July14,12:48:18
 This is the script’s end…
 $
+```
 If you don’t want to use e-mail or redirection with at , it is best to add the -M option to
 suppress any output generated by jobs using the at command.
 Listing pending jobs
 The atq command allows you to view what jobs are pending on the system:
+```sh
 $ at -M -f test13b.sh teatime
 job 17 at 2015-07-14 16:00
 $
@@ -17121,11 +18217,13 @@ $ atq
 17 2015-07-14 16:00 a Christine
 19 2015-07-14 13:30 a Christine
 $
+```
 The job listing shows the job number, the date and time the system will run the job, and
 the job queue the job is stored in.
 Removing jobs
 After you know the information about what jobs are pending in the job queues, you can
 use the atrm command to remove a pending job:
+```sh
 $ atq
 18 2015-07-15 13:03 a Christine
 17 2015-07-14 16:00 a Christine
@@ -17137,6 +18235,7 @@ $ atq
 17 2015-07-14 16:00 a Christine
 19 2015-07-14 13:30 a Christine
 $
+```
 Just specify the job number you want to remove. You can only remove jobs that you
 submit for execution. You can’t remove jobs submitted by others.
 Scheduling regular scripts
@@ -17185,9 +18284,11 @@ Building the cron table
 Each system user can have their own cron table (including the root user) for running
 scheduled jobs. Linux provides the crontab command for handling the cron table. To list
 an existing cron table, use the -l parameter:
+```sh
 $ crontab -l
 no crontab for rich
 $
+```
 By default, each user’s cron table file doesn’t exist. To add entries to your cron table, use
 the -e parameter. When you do that, the crontab command starts a text editor (see
 Chapter 10) with the existing cron table (or an empty file if it doesn’t yet exist). Viewing cron directories
@@ -17206,6 +18307,7 @@ logrotate mlocate.cron readahead.cron
 /etc/cron.monthly:
 readahead-monthly.cron
 /etc/cron.weekly:
+```sh
 $
 ```
 
@@ -17230,11 +18332,14 @@ The anacron program deals only with programs located in the cron directories, su
 /etc/cron.monthly . It uses timestamps to determine if the jobs have been run at the
 proper scheduled interval. A timestamp file exists for each cron directory and is located in
 /var/spool/anacron :
+```sh
 $ sudo cat /var/spool/anacron/cron.monthly
 20150626
 $
+```
 The anacron program has its own table (usually located at /etc/anacrontab ) to check the
 job directories:
+```sh
 $ sudo cat /etc/anacrontab
 # /etc/anacrontab: configuration file for anacron
 # See anacron(8) and anacrontab(5) for details.
@@ -17250,6 +18355,7 @@ START_HOURS_RANGE=3-22
 7 25 cron.weekly nice run-parts /etc/cron.weekly
 @monthly 45 cron.monthly nice run-parts /etc/cron.monthly
 $
+```
 The basic format of the anacron table is slightly different from that of the cron table:
 period delay identifier command
 The period entry defines how often the jobs should be run, specified in days. The anacron
@@ -17277,6 +18383,7 @@ Therefore, you should place any scripts you want run at login time in the first 
 The bash shell runs the .bashrc file any time a new shell is started. You can test this by
 adding a simple echo statement to the .bashrc file in your home directory and starting a
 new shell:
+```sh
 $ cat .bashrc
 # .bashrc
 # Source global definitions
@@ -17292,6 +18399,7 @@ $
 $ exit
 exit
 $
+```
 The .bashrc file is also typically run from one of the bash startup files. Because the
 .bashrc file runs both when you log into the bash shell and when you start a bash shell, if
 you need a script to run in both instances, place your shell script inside this file.
@@ -17626,11 +18734,13 @@ returns the exit status of the last executed command.
 The second problem defines a limitation for using this return value technique. Because an
 exit status must be less than 256, the result of your function must produce an integer value
 less than 256. Any value over that returns an error value:
+```sh
 $ ./test5
 Enter a value: 200
 doubling the value
 The new value is 1
 $
+```
 You cannot use this return value technique if you need to return either larger integer values
 or a string value. Instead, you need to use another method, demonstrated in the next
 section.
@@ -17641,6 +18751,7 @@ of output from a function to assign to a variable:
 result=‘dbl’
 This command assigns the output of the dbl function to the $result shell variable. Here’s
 an example of using this method in a script:
+```sh
 $ cat test5b
 #!/bin/bash
 # using the echo to return a value
@@ -17659,6 +18770,7 @@ $ ./test5b
 Enter a value: 1000
 The new value is 2000
 $
+```
 The new function now uses an echo statement to display the result of the calculation. The
 script just captures the output of the dbl function instead of looking at the exit status for
 the answer.
@@ -17695,6 +18807,7 @@ command line as the function, like this:
 func1 $value1 10
 The function can then retrieve the parameter values using the parameter environment
 variables. Here’s an example of using this method to pass values to a function:
+```sh
 $ cat test6
 #!/bin/bash
 # passing parameters to a function
@@ -17728,6 +18841,7 @@ Let’s try adding just one number: 20
 Now trying adding no numbers: -1
 Finally, try adding three numbers: -1
 $
+```
 The addem function in the text6 script first checks the number of parameters passed to it
 by the script. If there aren’t any parameters, or if there are more than two parameters,
 addem returns a value of -1 . If there’s just one parameter, addem adds the parameter to
@@ -17735,6 +18849,7 @@ itself for the result. If there are two parameters, addem adds them together for
 Because the function uses the special parameter environment variables for its own
 parameter values, it can’t directly access the script parameter values from the command
 line of the script. The following example fails:
+```sh
 $ cat badtest1
 #!/bin/bash
 # trying to access script parameters inside a function
@@ -17756,9 +18871,11 @@ $ ./badtest1 10 15
 “)
 The result is
 $
+```
 Even though the function uses the $1 and $2 variables, they aren’t the same $1 and $2
 variables available in the main part of the script. Instead, if you want to use those values in
 your function, you have to manually pass them when you call the function:
+```sh
 $ cat test7
 #!/bin/bash
 # trying to access script parameters inside a function
@@ -17778,6 +18895,7 @@ Usage: badtest1 a b
 $ ./test7 10 15
 The result is 150
 $
+```
 By passing the $1 and $2 variables to the function, they become available for the function
 to use, just like any other parameter.
 Handling variables in a function
@@ -17797,6 +18915,7 @@ function. Likewise, if you define a global variable inside a function, you can r
 value in the main section of the script.
 By default, any variables you define in the script are global variables. Variables defined
 outside of a function can be accessed within the function just fine:
+```sh
 $ cat test8
 #!/bin/bash
 # using a global variable to pass a value
@@ -17811,6 +18930,7 @@ $ ./test8
 Enter a value: 450
 The new value is: 900
 $
+```
 The $value variable is defined outside of the function and assigned a value outside of the
 function. When the dbl function is called, the variable and its value are still valid inside
 the function. When the variable is assigned a new value inside the function, that new value
@@ -17819,6 +18939,7 @@ This can be a dangerous practice, however, especially if you intend to use your 
 in different shell scripts. It requires that you know exactly what variables are used in the
 function, including any variables used to calculate values not returned to the script. Here’s
 an example of how things can go bad:
+```sh
 $ cat badtest2
 #!/bin/bash
 # demonstrating a bad use of variables
@@ -17841,6 +18962,7 @@ $ ./badtest2
 The result is 22
 temp is larger
 $
+```
 Because the $temp variable was used in the function, its value is compromised in the
 script, producing a result that you may not have intended. There’s an easy way to solve
 this problem in your functions, as shown in the next section.
@@ -17856,6 +18978,7 @@ The local keyword ensures that the variable is limited to only within the functi
 variable with the same name appears outside the function in the script, the shell keeps the
 two variable values separate. Now you can easily keep your function variables separate
 from your script variables and share only the ones you want to share:
+```sh
 $ cat test9
 #!/bin/bash
 # demonstrating the local keyword
@@ -17878,6 +19001,7 @@ $ ./test9
 The result is 22
 temp is smaller
 $
+```
 Now when you use the $temp variable within the func1 function, it doesn’t affect the
 value assigned to the $temp variable in the main script.
 
@@ -18043,6 +19167,7 @@ echo $[ $result * $1 ]
 fi
 }
 The factorial function uses itself to calculate the value for the factorial:
+```sh
 $ cat test13
 #!/bin/bash
 # using recursion
@@ -18064,6 +19189,7 @@ $ ./test13
 Enter value: 5
 The factorial of 5 is: 120
 $
+```
 Using the factorial function is easy. Having created a function like this, you may want to
 use it in other scripts. Next, we look at how to do that efficiently.
 
@@ -18078,6 +19204,7 @@ your functions and then reference that single library file in as many scripts as
 The first step in the process is to create a common library file that contains the functions
 you need in your scripts. Here’s a simple library file called myfuncs that defines three
 simple functions:
+```sh
 $ cat myfuncs
 # my script functions
 function addem {
@@ -18095,6 +19222,7 @@ echo -1
 fi
 }
 $
+```
 The next step is to include the myfuncs library file in your script files that want to use any
 of the functions. This is where things get tricky.
 The problem is with the scope of shell functions. As with environment variables, shell
@@ -18105,6 +19233,7 @@ shell, but when you try to run another script that uses those functions, they ar
 available.
 This applies to scripts as well. If you try to just run the library file as a regular script file,
 the functions don’t appear in your script:
+```sh
 $ cat badtest4
 #!/bin/bash
 # using a library file the wrong way
@@ -18116,6 +19245,7 @@ $ ./badtest4
 ./badtest4: addem: command not found
 The result is
 $
+```
 The key to using function libraries is the source command. The source command
 executes commands within the current shell context instead of creating a new shell to
 execute them. You use the source command to run the library file script inside of your
@@ -18126,6 +19256,7 @@ library file in a shell script, you just need to add the following line:
 This example assumes that the myfuncs library file is located in the same directory as the
 shell script. If not, you need to use the appropriate path to access the file. Here’s an
 example of creating a script that uses the myfuncs library file:
+```sh
 $ cat test14
 #!/bin/bash
 # using functions defined in a library file
@@ -18144,6 +19275,7 @@ The result of adding them is: 15
 The result of multiplying them is: 50
 The result of dividing them is: 2
 $
+```
 The script successfully uses the functions defined in the myfuncs library file.
 
 ## ==⚡ Using Functions on the Command Line
@@ -18161,12 +19293,15 @@ Creating functions on the command line
 Because the shell interprets commands as you type them, you can define a function
 directly on the command line. You can do that in two ways.
 The first method defines the function all on one line:
+```sh
 $ function divem { echo $[ $1 / $2 ]; }
 $ divem 100 5
 20
 $
+```
 When you define the function on the command line, you must remember to include a
 semicolon at the end of each command, so the shell knows where to separate commands:
+```sh
 $ function doubleit { read -p “Enter value: ” value; echo $[
 $value * 2 ]; }
 $
@@ -18174,6 +19309,7 @@ $ doubleit
 Enter value: 20
 40
 $
+```
 The other method is to use multiple lines to define the function. When you do that, the
 bash shell uses the secondary prompt to prompt you for more commands. Using this
 method, you don’t need to place a semicolon at the end of each command; just press the
@@ -18208,6 +19344,7 @@ You can define the functions directly in the .bashrc file in your home directory
 Linux distributions already define some things in the .bashrc file, so be careful not to
 remove those items. Just add your functions to the bottom of the existing file. Here’s an
 example of doing that:
+```sh
 $ cat .bashrc
 # .bashrc
 # Source global definitions
@@ -18218,11 +19355,13 @@ function addem {
 echo $[ $1 + $2 ]
 }
 $
+```
 The function doesn’t take effect until the next time you start a new bash shell. After you
 do that, you can use the function anywhere on the system.
 Sourcing function files
 Just as in a shell script, you can use the source command (or its alias the dot operator) to
 add functions from an existing library file to your .bashrc script:
+```sh
 $ cat .bashrc
 # .bashrc
 # Source global definitions
@@ -18231,9 +19370,11 @@ if [ -r /etc/bashrc ]; then
 fi
 . /home/rich/libraries/myfuncs
 $
+```
 Make sure that you include the proper pathname to reference the library file for the bash
 shell to find. The next time you start a shell, all the functions in your library are available
 at the command line interface:
+```sh
 $ addem 10 5
 15
 $ multem 10 5
@@ -18241,10 +19382,12 @@ $ multem 10 5
 $ divem 10 5
 2
 $
+```
 Even better, the shell also passes any defined functions to child shell processes so your
 functions are automatically available for any shell scripts you run from your shell session.
 You can test this by writing a script that uses the functions without defining or sourcing
 them:
+```sh
 $ cat test15
 #!/bin/bash
 # using a function defined in the .bashrc file
@@ -18262,6 +19405,7 @@ The result of adding them is: 15
 The result of multiplying them is: 50
 The result of dividing them is: 2
 $
+```
 Even without sourcing the library file, the functions worked perfectly in the shell script.
 
 ## ==⚡ Following a Practical Example
@@ -18292,6 +19436,7 @@ Building the library
 The shtool distribution file must be configured for your specific Linux environment. To do
 that, it uses standard configure and make commands, commonly used in the C
 programming environment. To build the library file, you just need to run two commands:
+```sh
 $ ./confifgure
 $ make
 The configure command checks the software necessary to build the shtool library file. As
@@ -18300,6 +19445,7 @@ tools.
 The make command runs through the steps to build the shtool library file. The resulting file
 ( shtool ) is the full library package file. You can test the library file using the make
 command as well:
+```sh
 $ make test
 Running test suite:
 echo………..ok
@@ -18323,12 +19469,15 @@ version……..ok
 path………..ok
 OK: passed: 19/19
 $
+```
 The test mode tests all the functions available in the shtool library. If all pass, then you’re
 ready to install the library into a common location on your Linux system so all your
 scripts can use it. To do that, you can use the install option of the make command.
 However, you need to be logged in as the root user account to run it:
+```sh
 $ su
 Password:
+```sh
 # make install
 ./shtool mkdir -f -p -m 755 /usr/local
 ./shtool mkdir -f -p -m 755 /usr/local/bin
@@ -18374,12 +19523,14 @@ shtool [options] [function [options] [args]]
 Using the library
 You can use the shtool functions directly from the command line or from within your
 shell scripts. Here’s an example of using the platform function inside a shell script:
+```sh
 $ cat test16
 #!/bin/bash
 shtool platform
 $ ./test16
 Ubuntu 14.04 (iX86)
 $
+```
 The platform function returns the Linux distribution and the CPU hardware that the host
 system is using. One of my favorites is the prop function. It creates a spinning propeller
 from alternating the ∖, |, /, and – characters while something is processing. That’s a great
@@ -18387,9 +19538,11 @@ tool to help show your shell script users that something is happening in the bac
 while the script is running.
 To use the prop function, you just pipe the output of the function you want to monitor to
 the shtool script:
+```sh
 $ ls –al /usr/bin | shtool prop –p “waiting…”
 waiting…
 $
+```
 The prop function alternates between the propeller characters to indicate that something is
 happening. In this case, it’s the output from the ls command. How much of that you see
 depends on how fast your CPU can list out all the files in the /usr/bin folder ! The –p
@@ -18568,6 +19721,7 @@ case command exits.
 Putting it all together
 Now that you’ve seen all the parts that make up a shell script menu, let’s put them together
 and see how they all interoperate. Here’s an example of a full menu script:
+```sh
 $ cat menu1
 #!/bin/bash
 # simple script menu
@@ -18615,6 +19769,7 @@ read -n 1 line
 done
 clear
 $
+```
 This menu creates three functions to retrieve administrative information about the Linux
 system using common commands. It uses a while loop to continually loop through the
 menu until the customer selects option 0, which uses the break command to break out of
@@ -18636,6 +19791,7 @@ The list parameter is a space-separated list of text items that build the menu. 
 command displays each item in the list as a numbered option and then displays a special
 prompt, defined by the PS3 environment variable, for the selection.
 Here’s a simple example of the select command in action:
+```sh
 $ cat smenu1
 #!/bin/bash
 # using select in the menu
@@ -18671,9 +19827,11 @@ esac
 done
 clear
 $
+```
 The select statement must all be on one line in the code file. That’s indicated by the
 continuation character in the listing. When you run the program, it automatically produces
 the following menu:
+```sh
 $ ./smenu1
 1) Display disk space 3) Display memory usage
 2) Display logged on users 4) Exit program
@@ -18780,6 +19938,7 @@ automatically wraps the text to fit the size of the window you create, using the
 width parameters. If you want to place a title at the top of the window, you can also use
 the —title parameter, along with the text of the title. Here’s an example of using the
 msgbox widget:
+```sh
 $ dialog —title Testing —msgbox “This is a test” 10 20
 After entering this command, the message box appears on the screen of the terminal
 emulator session you’re using. Figure 18.2 shows what this looks like.
@@ -18797,10 +19956,12 @@ window — one for Yes and another for No. The user can switch between buttons b
 the mouse, the tab key, or the keyboard arrow keys. To select the button, the user can
 either press the spacebar or the Enter key.
 Here’s an example of using the yesno widget:
+```sh
 $ dialog —title “Please answer” —yesno “Is this thing on?” 10 20
 $ echo $?
 1
 $
+```
 This produces the widget shown in Figure 18.3.
 
 Figure 18.3 Using the yesno widget in the dialog command
@@ -18820,6 +19981,7 @@ Figure 18.4 The inputbox widget
 As you can see in Figure 18.4, the inputbox provides two buttons — OK and Cancel. If
 the Cancel button is selected, the exit status of the command is 1; otherwise, the exit status
 is 0:
+```sh
 $ dialog —inputbox “Enter your age:” 10 20 2>age.txt
 $ echo $?
 0
@@ -18831,6 +19993,7 @@ contents to a variable in a shell script to extract the string entered by the us
 The textbox widget
 The textbox widget is a great way to display lots of information in a window. It produces
 a scrollable window containing the text from a file specified in the parameters:
+```sh
 $ dialog —textbox /etc/passwd 15 45
 The contents of the /etc/passwd file are shown within the scrollable text window, as
 illustrated in Figure 18.5.
@@ -18845,6 +20008,7 @@ the widget.
 The menu widget
 The menu widget allows you to create a window version of the text menu we created
 earlier in this chapter. You simply provide a selection tag and the text for each item:
+```sh
 $ dialog —menu “Sys Admin Menu” 20 30 10 1 “Display disk space”
 2 “Display users” 3 “Display memory usage” 4 “Exit” 2> test.txt
 The first parameter defines a title for the menu. The next two parameters define the height
@@ -18873,6 +20037,7 @@ Figure 18.7 The fselect widget
                                                                 *Figure 18.7*
 
 The fselect widget format looks like:
+```sh
 $ dialog —title “Select a file” —fselect $HOME/ 10 50 2>file.txt
 The first parameter after the fselect option is the starting folder location used in the
 window. The fselect widget window consists of a directory listing on the left side, a file
@@ -19012,6 +20177,7 @@ Redirect STDERR to retrieve the output value.
 If you follow these two rules, you’ll have a professional-looking interactive script in no
 time. Here’s an example using dialog widgets to reproduce the system admin menu
 created earlier in the chapter:
+```sh
 $ cat menu3
 #!/bin/bash
 # using dialog to create a menu
@@ -19055,6 +20221,7 @@ done
 rm -f $temp 2> /dev/null
 rm -f $temp2 2> /dev/null
 $
+```
 The script uses the while loop with a constant true value to create an endless loop
 displaying the menu dialog. This means that, after every function, the script returns to
 displaying the menu.
@@ -19140,6 +20307,7 @@ However, when you use a kdialog window widget, it appears as a separate window i
 KDE desktop, not inside the terminal emulator session!
 The checklist and radiolist widgets allow you to define individual items in the lists
 and whether they are selected by default:
+```sh
 $kdialog —checklist “Items I need” 1 “Toothbrush” on 2 “Toothpaste”
 off 3 “Hair brush” on 4 “Deodorant” off 5 “Slippers” off
 The resulting checklist window is shown in Figure 18.9.
@@ -19152,6 +20320,7 @@ in the checklist, just click it. If you select the OK button, the kdialog sends 
 to STDOUT :
 “1” “3”
 $
+```
 When you press the Enter key, the kdialog box appears with the selections. When you
 click the OK or Cancel buttons, the kdialog command returns each tag as a string value to
 STDOUT (these are the ”1” , and ”3” values you see in the output). Your script must be able
@@ -19161,6 +20330,7 @@ You can use the kdialog window widgets in your shell scripts similarly to how yo
 the dialog widgets. The big difference is that the kdialog window widgets output values
 using STDOUT instead of STDERR .
 Here’s a script that converts the sys admin menu created earlier into a KDE application:
+```sh
 $ cat menu4
 #!/bin/bash
 # using kdialog to create a menu
@@ -19201,6 +20371,7 @@ kdialog —msgbox “Sorry, invalid selection”
 esac
 done
 $
+```
 There isn’t much difference in the script from using the kdialog command and the dialog
 command. The resulting main menu generated is shown in Figure 18.10.
 
@@ -19273,9 +20444,11 @@ Figure 18.12 The zenity file selection dialog window
 You can use the dialog window to browse to any directory location on the system (as long
 as you have the privileges to view the directory) and select a file. When you select a file,
 the zenity command returns the full file and pathname:
+```sh
 $ zenity —file-selection
 /home/ubuntu/menu5
 $
+```
 With tools like that at your disposal, the sky’s the limit with your shell script creations!
 Using zenity in scripts
 As you would expect, zenity performs well in shell scripts. Unfortunately, zenity chose not
@@ -19447,9 +20620,11 @@ Defining an editor command in the command line
 By default, the sed editor applies the specified commands to the STDIN input stream. This
 allows you to pipe data directly to the sed editor for processing. Here’s a quick example
 demonstrating how to do this:
+```sh
 $ echo “This is a test” | sed ‘s/test/big test/’
 This is a big test
 $
+```
 This example uses the s command in the sed editor. The s command substitutes a second
 text string for the first text string pattern specified between the forward slashes. In this
 example, the words big test were substituted for the word test .
@@ -19458,6 +20633,7 @@ power of using the sed editor. You can make multiple edits to data in about the 
 it takes for some of the interactive editors just to start up.
 Of course, this simple test just edited one line of data. You should get the same speedy
 results when editing complete files of data:
+```sh
 $ cat data1.txt
 The quick brown fox jumps over the lazy dog.
 The quick brown fox jumps over the lazy dog.
@@ -19470,26 +20646,31 @@ The quick brown fox jumps over the lazy cat.
 The quick brown fox jumps over the lazy cat.
 The quick brown fox jumps over the lazy cat.
 $
+```
 The sed command executes and returns the data almost instantaneously. As it processes
 each line of data, the results are displayed. You’ll start seeing results before the sed editor
 completes processing the entire file.
 It’s important to note that the sed editor doesn’t modify the data in the text file itself. It
 only sends the modified text to STDOUT . If you look at the text file, it still contains the
 original data:
+```sh
 $ cat data1.txt
 The quick brown fox jumps over the lazy dog.
 The quick brown fox jumps over the lazy dog.
 The quick brown fox jumps over the lazy dog.
 The quick brown fox jumps over the lazy dog.
 $
+```
 Using multiple editor commands in the command line
 To execute more than one command from the sed command line, just use the -e option:
+```sh
 $ sed -e ‘s/brown/green/; s/dog/cat/’ data1.txt
 The quick green fox jumps over the lazy cat.
 The quick green fox jumps over the lazy cat.
 The quick green fox jumps over the lazy cat.
 The quick green fox jumps over the lazy cat.
 $
+```
 Both commands are applied to each line of data in the file. The commands must be
 separated with a semicolon, and there shouldn’t be any spaces between the end of the
 command and the semicolon.
@@ -19497,6 +20678,7 @@ Instead of using a semicolon to separate the commands, you can use the secondary
 in the bash shell. Just enter the first single quotation mark to open the sed program script
 ( sed editor command list), and bash continues to prompt you for more commands until
 you enter the closing quotation mark:
+```sh
 $ sed -e ‘
 > s/brown/green/
 > s/fox/elephant/
@@ -19506,6 +20688,7 @@ The quick green elephant jumps over the lazy cat.
 The quick green elephant jumps over the lazy cat.
 The quick green elephant jumps over the lazy cat.
 $
+```
 You must remember to finish the command on the same line where the closing single
 quotation mark appears. After the bash shell detects the closing quotation mark, it
 processes the command. After it starts, the sed command applies each command you
@@ -19513,6 +20696,7 @@ specified to each line of data in the text file.
 Reading editor commands from a file
 Finally, if you have lots of sed commands you want to process, it is often easier to just
 store them in a separate file. Use the -f option to specify the file in the sed command:
+```sh
 $ cat script1.sed
 s/brown/green/
 s/fox/elephant/
@@ -19524,6 +20708,7 @@ The quick green elephant jumps over the lazy cat.
 The quick green elephant jumps over the lazy cat.
 The quick green elephant jumps over the lazy cat.
 $
+```
 In this case, you don’t put a semicolon after each command. The sed editor knows that
 each line contains a separate command. As with entering commands on the command line,
 the sed editor reads the commands from the specified file and applies them to each line in
@@ -19590,12 +20775,14 @@ Reading the program script from the command line
 A gawk program script is defined by opening and closing braces. You must place script
 commands between the two braces ( {} ). If you incorrectly use a parenthesis instead of a
 brace to enclose your gawk script, you get error messages, similar to the following:
+```sh
 $ gawk ‘(print “Hello World!”}’
 gawk: (print “Hello World!”}
 gawk: ∧ syntax error
 Because the gawk command line assumes that the script is a single text string, you must
 also enclose your script in single quotation marks. Here’s an example of a simple gawk
 program script specified on the command line:
+```sh
 $ gawk ‘{print “Hello World!”}’
 The program script defines a single command, the print command. The print command
 does what it says: It prints text to STDOUT . If you try running this command, you’ll be
@@ -19606,6 +20793,7 @@ If you type a line of text and press the Enter key, gawk runs the text through t
 script. Just like the sed editor, the gawk program executes the program script on each line
 of text available in the data stream. Because the program script is set to display a fixed
 text string, no matter what text you enter in the data stream, you get the same text output:
+```sh
 $ gawk ‘{print “Hello World!”}’
 This is a test
 Hello World!
@@ -19632,6 +20820,7 @@ character. The default field separation character in gawk is any whitespace char
 as the tab or space characters).
 Here’s an example gawk program that reads a text file and displays only the first data field
 value:
+```sh
 $ cat data2.txt
 One line of test text.
 Two lines of test text.
@@ -19642,10 +20831,12 @@ One
 Two
 Three
 $
+```
 This program uses the $1 field variable to display only the first data field for each line of
 text.
 If you’re reading a file that uses a different field separation character, you can specify it by
 using the -F option:
+```sh
 $ gawk -F: ‘{print $1}’ /etc/passwd
 root
 bin
@@ -19665,20 +20856,24 @@ A programming language wouldn’t be very useful if you could only execute one
 command. The gawk programming language allows you to combine commands into a
 normal program. To use multiple commands in the program script specified on the
 command line, just place a semicolon between each command:
+```sh
 $ echo “My name is Rich” | gawk ‘{$4=“Christine”; print $0}’
 My name is Christine
 $
+```
 The first command assigns a value to the $4 field variable. The second command then
 prints the entire data field. Notice from the output that the gawk program replaced the
 fourth data field in the original text with the new value.
 You can also use the secondary prompt to enter your program script commands one line at
 a time:
+```sh
 $ gawk ‘{
 > $4=“Christine”
 > print $0}’
 My name is Rich
 My name is Christine
 $
+```
 After you open the single quotation mark, the bash shell provides the secondary prompt to
 prompt you for more data. You can add your commands one at a time on each line until
 you enter the closing single quotation mark. Because no filename was defined in the
@@ -19688,6 +20883,7 @@ combination to signal the end of the data.
 Reading the program from a file
 As with the sed editor, the gawk editor allows you to store your programs in a file and
 refer to them in the command line:
+```sh
 $ cat script2.gawk
 {print $1 “‘s home directory is ” $6}
 $
@@ -19702,11 +20898,13 @@ Christine’s home directory is /home/Christine
 Samantha’s home directory is /home/Samantha
 Timothy’s home directory is /home/Timothy
 $
+```
 The script2.gawk program script uses the print command again to print the
 /etc/passwd file’s home directory data field (field variable $6 ) and the userid data field
 (field variable $1 ).
 You can specify multiple commands in the program file. To do so, just place each
 command on a separate line. You don’t need to use semicolons:
+```sh
 $ cat script3.gawk
 {
 text = “‘s home directory is “
@@ -19724,6 +20922,7 @@ Christine’s home directory is /home/Christine
 Samantha’s home directory is /home/Samantha
 Timothy’s home directory is /home/Timothy
 $
+```
 The script3.gawk program script defines a variable to hold a text string used in the print
 command. Notice that gawk programs don’t use a dollar sign when referencing a variable’s
 value, as a shell script does.
@@ -19734,14 +20933,17 @@ the line of text. Sometimes, you may need to run a script before processing data
 create a header section for a report. The BEGIN keyword is used to accomplish this. It
 forces gawk to execute the program script specified after the BEGIN keyword, before gawk
 reads the data:
+```sh
 $ gawk ‘BEGIN {print “Hello World!”}’
 Hello World!
 $
+```
 This time the print command displays the text before reading any data. However, after it
 displays the text, it quickly exits, without waiting for any data.
 The reason for this is that the BEGIN keyword only applies the specified script before it
 processes any data. If you want to process data with a normal program script, you must
 define the program using another script section:
+```sh
 $ cat data3.txt
 Line 1
 Line 2
@@ -19754,12 +20956,14 @@ Line 1
 Line 2
 Line 3
 $
+```
 Now after gawk executes the BEGIN script, it uses the second script to process any file data.
 Be careful when doing this; both of the scripts are still considered one text string on the
 gawk command line. You need to place your single quotation marks accordingly.
 Running scripts after processing data
 Like the BEGIN keyword, the END keyword allows you to specify a program script that gawk
 executes after reading the data:
+```sh
 $ gawk ‘BEGIN {print “The data3 File Contents:”}
 > {print $0}
 > END {print “End of File”}’ data3.txt
@@ -19769,11 +20973,13 @@ Line 2
 Line 3
 End of File
 $
+```
 When the gawk program is finished printing the file contents, it executes the commands in
 the END script. This is a great technique to use to add footer data to reports after all the
 normal data has been processed.
 You can put all these elements together into a nice little program script file to create a full
 report from a simple data file:
+```sh
 $ cat script4.gawk
 BEGIN {
 print “The latest list of users and shells”
@@ -19788,11 +20994,13 @@ END {
 print “This concludes the listing”
 }
 $
+```
 This script uses the BEGIN script to create a header section for the report. It also defines a
 special variable called FS . This is yet another way to define the field separation character.
 This way, you don’t have to depend on the script’s user to define the field separation
 character in the command line options.
 Here’s a somewhat truncated output from running this gawk program script:
+```sh
 $ gawk -f script4.gawk /etc/passwd
 The latest list of users and shells
 UserID Shell
@@ -19807,6 +21015,7 @@ Samantha /bin/bash
 Timothy /bin/bash
 This concludes the listing
 $
+```
 As expected, the BEGIN script created the header text, the program script processed the
 information from the specified data file (the /etc/passwd file), and the END script
 produced the footer text. The ∖t within the print command produces some nicely
@@ -19830,6 +21039,7 @@ help make your life easier.
 Substituting flags
 There’s a caveat to how the substitute command replaces matching patterns in the text
 string. Watch what happens in this example:
+```sh
 $ cat data4.txt
 This is a test of the test script.
 This is the second test of the test script.
@@ -19838,6 +21048,7 @@ $ sed ‘s/test/trial/’ data4.txt
 This is a trial of the test script.
 This is the second trial of the test script.
 $
+```
 The substitute command works fine in replacing text in multiple lines, but by default, it
 replaces only the first occurrence in each line. To get the substitute command to work
 on different occurrences of the text, you must use a substitution flag. The substitution flag
@@ -19852,19 +21063,24 @@ p , indicating that the contents of the original line should be printed
 w file, which means to write the results of the substitution to a file
 In the first type of substitution, you can specify which occurrence of the matching pattern
 the sed editor should substitute new text for:
+```sh
 $ sed ‘s/test/trial/2’ data4.txt
 This is a test of the trial script.
 This is the second test of the trial script.
 $
+```
 As a result of specifying a 2 as the substitution flag, the sed editor replaces the pattern
 only in the second occurrence in each line. The g substitution flag enables you to replace
 every occurrence of the pattern in the text:
+```sh
 $ sed ‘s/test/trial/g’ data4.txt
 This is a trial of the trial script.
 This is the second trial of the trial script.
 $
+```
 The p substitution flag prints a line that contains a matching pattern in the substitute
 command. This is most often used in conjunction with the -n sed option:
+```sh
 $ cat data5.txt
 This is a test line.
 This is a different line.
@@ -19872,10 +21088,12 @@ $
 $ sed -n ‘s/test/trial/p’ data5.txt
 This is a trial line.
 $
+```
 The -n option suppresses output from the sed editor. However, the p substitution flag
 outputs any line that has been modified. Using the two in combination produces output
 only for lines that have been modified by the substitute command.
 The w substitution flag produces the same output but stores the output in the specified file:
+```sh
 $ sed ‘s/test/trial/w test.txt’ data5.txt
 This is a trial line.
 This is a different line.
@@ -19883,6 +21101,7 @@ $
 $ cat test.txt
 This is a trial line.
 $
+```
 The normal output of the sed editor appears in STDOUT , but only the lines that include the
 matching pattern are stored in the specified output file.
 Replacing characters
@@ -19890,11 +21109,13 @@ Sometimes, you run across characters in text strings that aren’t easy to use i
 substitution pattern. One popular example in the Linux world is the forward slash (/).
 Substituting pathnames in a file can get awkward. For example, if you wanted to substitute
 the C shell for the bash shell in the /etc/passwd file, you’d have to do this:
+```sh
 $ sed ‘s/\/bin\/bash/\/bin\/csh/’ /etc/passwd
 Because the forward slash is used as the string delimiter, you must use a backslash to
 escape it if it appears in the pattern text. This often leads to confusion and mistakes.
 To solve this problem, the sed editor allows you to select a different character for the
 string delimiter in the substitute command:
+```sh
 $ sed ‘s!/bin/bash!/bin/csh!’ /etc/passwd
 In this example, the exclamation point is used for the string delimiter, making the
 pathnames much easier to read and understand.
@@ -19924,28 +21145,34 @@ continues sequentially for each new line.
 The address you specify in the command can be a single line number or a range of lines
 specified by a starting line number, a comma, and an ending line number. Here’s an
 example of specifying a line number to which the sed command will be applied:
+```sh
 $ sed ‘2s/dog/cat/’ data1.txt
 The quick brown fox jumps over the lazy dog
 The quick brown fox jumps over the lazy cat
 The quick brown fox jumps over the lazy dog
 The quick brown fox jumps over the lazy dog
 $
+```
 The sed editor modified the text only in line two per the address specified. Here’s another
 example, this time using a range of line addresses:
+```sh
 $ sed ‘2,3s/dog/cat/’ data1.txt
 The quick brown fox jumps over the lazy dog
 The quick brown fox jumps over the lazy cat
 The quick brown fox jumps over the lazy cat
 The quick brown fox jumps over the lazy dog
 $
+```
 If you want to apply a command to a group of lines starting at some point within the text,
 but continuing to the end of the text, you can use the special address, the dollar sign:
+```sh
 $ sed ‘2,$s/dog/cat/’ data1.txt
 The quick brown fox jumps over the lazy dog
 The quick brown fox jumps over the lazy cat
 The quick brown fox jumps over the lazy cat
 The quick brown fox jumps over the lazy cat
 $
+```
 Because you may not know how many lines of data are in the text, the dollar sign often
 comes in handy.
 Using text pattern filters
@@ -19957,6 +21184,7 @@ You must encapsulate the pattern you specify in forward slashes. The sed editor 
 the command only to lines that contain the text pattern you specify.
 For example, if you want to change the default shell for only the user Samantha, you’d use
 the sed command:
+```sh
 $ grep Samantha /etc/passwd
 Samantha:x:502:502::/home/Samantha:/bin/bash
 $
@@ -19968,6 +21196,7 @@ Christine:x:501:501:Christine B:/home/Christine:/bin/bash
 Samantha:x:502:502::/home/Samantha:/bin/csh
 Timothy:x:503:503::/home/Timothy:/bin/bash
 $
+```
 The command was applied only to the line with the matching text pattern. Although using
 a fixed text pattern may be useful for filtering specific values, as in the userid example,
 it’s somewhat limited in what you can do with it. The sed editor uses a feature called
@@ -19982,6 +21211,7 @@ Grouping commands
 If you need to perform more than one command on an individual line, group the
 commands together using braces. The sed editor processes each command listed on the
 address line(s):
+```sh
 $ sed ‘2{
 > s/fox/elephant/
 > s/dog/cat/
@@ -19991,8 +21221,10 @@ The quick brown elephant jumps over the lazy cat.
 The quick brown fox jumps over the lazy dog.
 The quick brown fox jumps over the lazy dog.
 $
+```
 Both commands are processed against the address. And of course, you can specify an
 address range before the grouped commands:
+```sh
 $ sed ‘3,${
 > s/brown/green/
 > s/lazy/active/
@@ -20002,6 +21234,7 @@ The quick brown fox jumps over the lazy dog.
 The quick green fox jumps over the active dog.
 The quick green fox jumps over the active dog.
 $
+```
 The sed editor applies all the commands to all the lines in the address range.
 Deleting lines
 The text substitution command isn’t the only command available in the sed editor. If you
@@ -20009,6 +21242,7 @@ need to delete specific lines of text in a text stream, you can use the delete c
 The delete command, d , pretty much does what it says. It deletes any text lines that
 match the addressing scheme supplied. Be careful with the delete command, because if
 you forget to include an addressing scheme, all the lines are deleted from the stream:
+```sh
 $ cat data1.txt
 The quick brown fox jumps over the lazy dog
 The quick brown fox jumps over the lazy dog
@@ -20017,9 +21251,11 @@ The quick brown fox jumps over the lazy dog
 $
 $ sed ‘d’ data1.txt
 $
+```
 The delete command is obviously most useful when used in conjunction with a specified
 address. This allows you to delete specific lines of text from the data stream, either by line
 number:
+```sh
 $ cat data6.txt
 This is line number 1.
 This is line number 2.
@@ -20031,22 +21267,29 @@ This is line number 1.
 This is line number 2.
 This is line number 4.
 $
+```
 or by a specific range of lines:
+```sh
 $ sed ‘2,3d’ data6.txt
 This is line number 1.
 This is line number 4.
 $
+```
 or by using the special end-of-file character:
+```sh
 $ sed ‘3,$d’ data6.txt
 This is line number 1.
 This is line number 2.
 $
+```
 The pattern-matching feature of the sed editor also applies to the delete command:
+```sh
 $ sed ‘/number 1/d’ data6.txt
 This is line number 2.
 This is line number 3.
 This is line number 4.
 $
+```
 The sed editor removes the line containing text that matches the pattern you specify.
 Note
 Remember that the sed editor doesn’t touch the original file. Any lines you delete are
@@ -20056,11 +21299,14 @@ You can also delete a range of lines using two text patterns, but be careful if 
 The first pattern you specify “turns on” the line deletion, and the second pattern “turns
 off” the line deletion. The sed editor deletes any lines between the two specified lines
 (including the specified lines):
+```sh
 $ sed ‘/1/,/3/d’ data6.txt
 This is line number 4.
 $
+```
 In addition, you must be careful because the delete feature “turns on” whenever the sed
 editor detects the start pattern in the data stream. This may produce an unexpected result:
+```sh
 $ cat data7.txt
 This is line number 1.
 This is line number 2.
@@ -20073,12 +21319,15 @@ $
 $ sed ‘/1/,/3/d’ data7.txt
 This is line number 4.
 $
+```
 The second occurrence of a line with the number 1 in it triggered the delete command
 again, deleting the rest of the lines in the data stream, because the stop pattern wasn’t
 recognized. Of course, the other obvious problem occurs if you specify a stop pattern that
 never appears in the text:
+```sh
 $ sed ‘/1/,/5/d’ data7.txt
 $
+```
 Because the delete features “turned on” at the first pattern match, but never found the end
 pattern match, the entire data stream was deleted.
 Inserting and appending text
@@ -20094,24 +21343,30 @@ sed ‘[address]command\
 new line’
 The text in new line appears in the sed editor output in the place you specify. Remember
 that when you use the insert command, the text appears before the data stream text:
+```sh
 $ echo “Test Line 2” | sed ‘i\Test Line 1’
 Test Line 1
 Test Line 2
 $
+```
 And when you use the append command, the text appears after the data stream text:
+```sh
 $ echo “Test Line 2” | sed ‘a\Test Line 1’
 Test Line 2
 Test Line 1
 $
+```
 When you use the sed editor from the command line interface prompt, you get the
 secondary prompt to enter the new line of data. You must complete the sed editor
 command on this line. After you enter the ending single quotation mark, the bash shell
 processes the command:
+```sh
 $ echo “Test Line 2” | sed ‘i\
 > Test Line 1’
 Test Line 1
 Test Line 2
 $
+```
 This works well for adding text before or after the text in the data stream, but what about
 adding text inside the data stream?
 To insert or append data inside the data stream lines, you must use addressing to tell the
@@ -20120,6 +21375,7 @@ when using these commands. You can match either a numeric line number or a text
 pattern, but you cannot use a range of addresses. This is logical, because you can only
 insert or append before or after a single line, and not a range of lines.
 Here’s an example of inserting a new line before line 3 in the data stream:
+```sh
 $ sed ‘3i\
 > This is an inserted line.’ data6.txt
 This is line number 1.
@@ -20128,7 +21384,9 @@ This is an inserted line.
 This is line number 3.
 This is line number 4.
 $
+```
 Here’s an example of appending a new line after line 3 in the data stream:
+```sh
 $ sed ‘3a\
 > This is an appended line.’ data6.txt
 This is line number 1.
@@ -20137,10 +21395,12 @@ This is line number 3.
 This is an appended line.
 This is line number 4.
 $
+```
 This uses the same process as the insert command; it just places the new text line after
 the specified line number. If you have a multiline data stream, and you want to append a
 new line of text to the end of a data stream, just use the dollar sign, which represents the
 last line of data:
+```sh
 $ sed ‘$a\
 > This is a new line of text.’ data6.txt
 This is line number 1.
@@ -20149,10 +21409,12 @@ This is line number 3.
 This is line number 4.
 This is a new line of text.
 $
+```
 The same idea applies if you want to add a new line at the beginning of the data stream.
 Just insert a new line before line number one.
 To insert or append more than one line of text, you must use a backslash on each line of
 new text until you reach the last text line where you want to insert or append text:
+```sh
 $ sed ‘1i\
 > This is one line of new text.\
 > This is another line of new text.’ data6.txt
@@ -20163,11 +21425,13 @@ This is line number 2.
 This is line number 3.
 This is line number 4.
 $
+```
 Both of the specified lines are added to the data stream.
 Changing lines
 The change command allows you to change the contents of an entire line of text in the
 data stream. It works the same way as the insert and append commands, in that you must
 specify the new line separately from the rest of the sed command:
+```sh
 $ sed ‘3c\
 > This is a changed line of text.’ data6.txt
 This is line number 1.
@@ -20175,8 +21439,10 @@ This is line number 2.
 This is a changed line of text.
 This is line number 4.
 $
+```
 In this example, the sed editor changes the text in line number 3. You can also use a text
 pattern for the address:
+```sh
 $ sed ‘/number 3/c\
 > This is a changed line of text.’ data6.txt
 This is line number 1.
@@ -20184,6 +21450,7 @@ This is line number 2.
 This is a changed line of text.
 This is line number 4.
 $
+```
 The text pattern change command changes any line of text in the data stream that it
 matches.
 $ cat data8.txt
@@ -20205,14 +21472,17 @@ This is a changed line of text.
 This is yet another line.
 This is the last line in the file.
 $
+```
 You can use an address range in the change command, but the results may not be what you
 expect:
+```sh
 $ sed ‘2,3c\
 > This is a new line of text.’ data6.txt
 This is line number 1.
 This is a new line of text.
 This is line number 4.
 $
+```
 Instead of changing both lines with the text, the sed editor uses the single line of text to
 replace both lines.
 Transforming characters
@@ -20225,6 +21495,7 @@ outchars . The second character in inchars is converted to the second character 
 outchars . This mapping continues throughout the length of the specified characters. If the
 inchars and outchars are not the same length, the sed editor produces an error message.
 Here’s a simple example of using the transform command:
+```sh
 $ sed ‘y/123/789/’ data8.txt
 This is line number 7.
 This is line number 8.
@@ -20234,13 +21505,16 @@ This is line number 7 again.
 This is yet another line.
 This is the last line in the file.
 $
+```
 As you can see from the output, each instance of the characters specified in the inchars
 pattern has been replaced by the character in the same position in the outchars pattern.
 The transform command is a global command; that is, it performs the transformation on
 any character found in the text line automatically, without regard to the occurrence:
+```sh
 $ echo “This 1 is a test of 1 try.” | sed ‘y/123/456/’
 This 4 is a test of 4 try.
 $
+```
 The sed editor transformed both instances of the matching character 1 in the text line. You
 can’t limit the transformation to a specific occurrence of the character.
 Printing revisited
@@ -20255,12 +21529,15 @@ The following sections look at these three printing commands in the sed editor.
 Printing lines
 Like the p flag in the substitution command, the p command prints a line in the sed
 editor output. On its own, this command doesn’t offer much excitement:
+```sh
 $ echo “this is a test” | sed ‘p’
 this is a test
 this is a test
 $
+```
 All it does is print the data text that you already know is there. The most common use for
 the print command is printing lines that contain matching text from a text pattern:
+```sh
 $ cat data6.txt
 This is line number 1.
 This is line number 2.
@@ -20270,16 +21547,20 @@ $
 $ sed -n ‘/number 3/p’ data6.txt
 This is line number 3.
 $
+```
 By using the -n option on the command line, you can suppress all the other lines and print
 only the line that contains the matching text pattern.
 You can also use this as a quick way to print a subset of lines in a data stream:
+```sh
 $ sed -n ‘2,3p’ data6.txt
 This is line number 2.
 This is line number 3.
 $
+```
 You can also use the print command when you need to see a line before it gets altered,
 such as with the substitution or change command. You can create a script that displays
 the line before it’s changed:
+```sh
 $ sed -n ‘/3/{
 > p
 > s/line/test/p
@@ -20287,6 +21568,7 @@ $ sed -n ‘/3/{
 This is line number 3.
 This is test number 3.
 $
+```
 This sed editor command searches for lines that contain the number 3 and executes two
 commands. First, the script uses the p command to print the original version of the line;
 then it uses the s command to substitute text, along with the p flag to print the resulting
@@ -20296,6 +21578,7 @@ The equal sign command prints the current line number for the line within the da
 stream. Line numbers are determined by using the newline character in the data stream.
 Each time a newline character appears in the data stream, the sed editor assumes that it
 terminates a line of text:
+```sh
 $ cat data1.txt
 The quick brown fox jumps over the lazy dog.
 The quick brown fox jumps over the lazy dog.
@@ -20312,8 +21595,10 @@ The quick brown fox jumps over the lazy dog.
 4
 The quick brown fox jumps over the lazy dog.
 $
+```
 The sed editor prints the line number before the actual line of text. The equal sign
 command comes in handy if you’re searching for a specific text pattern in the data stream:
+```sh
 $ sed -n ‘/number 4/{
 > =
 > p
@@ -20321,6 +21606,7 @@ $ sed -n ‘/number 4/{
 4
 This is line number 4.
 $
+```
 By using the -n option, you can have the sed editor display both the line number and text
 for the line that contains the matching text pattern.
 Listing lines
@@ -20328,21 +21614,25 @@ The list command ( l ) allows you to print both the text and nonprintable charac
 data stream. Any nonprintable characters are shown using either their octal values,
 preceded by a backslash or the standard C-style nomenclature for common nonprintable
 characters, such as ∖t for tab characters:
+```sh
 $ cat data9.txt
 This line contains tabs.
 $
 $ sed -n ‘l’ data9.txt
 This\tline\tcontains\ttabs.$
 $
+```
 The tab character locations are shown with the ∖t nomenclature. The dollar sign at the end
 of the line indicates the newline character. If you have a data stream that contains an
 escape character, the list command displays it using the octal code if necessary:
+```sh
 $ cat data10.txt
 This line contains an escape character.
 $
 $ sed -n ‘l’ data10.txt
 This line contains an escape character. \a$
 $
+```
 The data10.txt file contains an escape control code, which generates a bell sound. When
 you use the cat command to display the text file, you don’t see the escape control code;
 you just hear the sound (if your speakers are turned on). However, using the list
@@ -20358,6 +21648,7 @@ the person running the sed editor must have write permissions for the file. The 
 be any type of addressing method used in sed , such as a single line number, a text pattern,
 or a range of line numbers or text patterns.
 Here’s an example that prints only the first two lines of a data stream to a text file:
+```sh
 $ sed ‘1,2w test.txt’ data6.txt
 This is line number 1.
 This is line number 2.
@@ -20368,10 +21659,12 @@ $ cat test.txt
 This is line number 1.
 This is line number 2.
 $
+```
 Of course, if you don’t want the lines to display on STDOUT , you can use the -n option for
 the sed command.
 This is a great tool to use if you need to create a data file from a master file on the basis of
 common text values, such as those in a mailing list:
+```sh
 $ cat data11.txt
 Blum, R Browncoat
 McGuiness, A Alliance
@@ -20384,6 +21677,7 @@ $ cat Browncoats.txt
 Blum, R Browncoat
 Bresnahan, C Browncoat
 $
+```
 The sed editor writes to a destination file only the data lines that contain the text pattern.
 Reading data from a file
 You’ve already seen how to insert data into and append text to a data stream from the sed
@@ -20407,8 +21701,10 @@ This is an added line.
 This is the second added line.
 This is line number 4.
 $
+```
 The sed editor inserts into the data stream all the text lines in the data file. The same
 technique works when using a text pattern address:
+```sh
 $ sed ‘/number 2/r data12.txt’ data6.txt
 This is line number 1.
 This is line number 2.
@@ -20417,7 +21713,9 @@ This is the second added line.
 This is line number 3.
 This is line number 4.
 $
+```
 If you want to add text to the end of a data stream, just use the dollar sign address symbol:
+```sh
 $ sed ‘$r data12.txt’ data6.txt
 This is line number 1.
 This is line number 2.
@@ -20426,18 +21724,22 @@ This is line number 4.
 This is an added line.
 This is the second added line.
 $
+```
 A cool application of the read command is to use it in conjunction with a delete
 command to replace a placeholder in a file with data from another file. For example,
 suppose that you had a form stored in a text file that looked like this:
+```sh
 $ cat notice.std
 Would the following people:
 LIST
 please report to the ship’s captain.
 $
+```
 The form letter uses the generic placeholder LIST in place of a list of people. To insert the
 list of people after the placeholder, you just use the read command. However, this still
 leaves the placeholder text in the output. To remove that, just use the delete command.
 The result looks like this:
+```sh
 $ sed ‘/LIST/{
 > r data11.txt
 > d
@@ -20449,6 +21751,7 @@ Bresnahan, C Browncoat
 Harken, C Alliance
 please report to the ship’s captain.
 $
+```
 Now the placeholder text is replaced with the list of names from the data file.
 
 
@@ -20507,6 +21810,7 @@ example of using wildcard characters with the Linux ls command for listing files
 directories (see [chapter 3]).
 The asterisk wildcard character allows you to list only files that match a certain criteria.
 For example:
+```sh
 $ ls -al da*
 -rw-r—r— 1 rich rich 45 Nov 26 12:42 data
 -rw-r—r— 1 rich rich 25 Dec 4 12:40 data.tst
@@ -20516,6 +21820,7 @@ $ ls -al da*
 -rw-r—r— 1 rich rich 79 Nov 28 14:01 data4
 -rw-r—r— 1 rich rich 187 Dec 4 09:45 datatest
 $
+```
 The da* parameter instructs the ls command to list only the files whose name starts with
 da. There can be any number of characters after the da in the filename (including none).
 The ls command reads the information regarding all the files in the directory but displays
@@ -20561,6 +21866,7 @@ demonstrates how you can define text in the regular expression pattern and what 
 from the results.
 Plain text
 Chapter 18 demonstrated how to use standard text strings in the sed editor and the gawk program to filter data. Here’s an example to refresh your memory:
+```sh
 $ echo “This is a test” | sed -n ‘/test/p’
 This is a test
 $ echo “This is a test” | sed -n ‘/trial/p’
@@ -20569,6 +21875,7 @@ $ echo “This is a test” | gawk ‘/test/{print $0}’
 This is a test
 $ echo “This is a test” | gawk ‘/trial/{print $0}’
 $
+```
 The first pattern defines a single word, test. The sed editor and gawk program scripts each
 use their own version of the print command to print any lines that match the regular
 expression pattern. Because the echo statement contains the word “test” in the text string,
@@ -20585,42 +21892,54 @@ The key is matching the regular expression pattern to the data stream text. It�
 remember that regular expressions are extremely picky about matching patterns. The first
 rule to remember is that regular expression patterns are case sensitive. This means they’ll
 match only those patterns with the proper case of characters:
+```sh
 $ echo “This is a test” | sed -n ‘/this/p’
 $
 $ echo “This is a test” | sed -n ‘/This/p’
 This is a test
 $
+```
 The first attempt failed to match because the word “this” doesn’t appear in all lowercase in
 the text string, while the second attempt, which uses the uppercase letter in the pattern,
 worked just fine.
 You don’t have to limit yourself to whole words in the regular expression. If the defined
 text appears anywhere in the data stream, the regular expression matches the following:
+```sh
 $ echo “The books are expensive” | sed -n ‘/book/p’
 The books are expensive
 $
+```
 Even though the text in the data stream is books , the data in the stream contains the
 regular expression book, so the regular expression pattern matches the data. Of course, if
 you try the opposite, the regular expression fails:
+```sh
 $ echo “The book is expensive” | sed -n ‘/books/p’
 $
+```
 The complete regular expression text didn’t appear in the data stream, so the match failed
 and the sed editor didn’t display the text.
 You also don’t have to limit yourself to single text words in the regular expression. You
 can include spaces and numbers in your text string as well:
+```sh
 $ echo “This is line number 1” | sed -n ‘/ber 1/p’
 This is line number 1
 $
+```
 Spaces are treated just like any other character in the regular expression:
+```sh
 $ echo “This is line number1” | sed -n ‘/ber 1/p’
 $
+```
 If you define a space in the regular expression, it must appear in the data stream. You can
 even create a regular expression pattern that matches multiple contiguous spaces:
+```sh
 $ cat data1
 This is a normal line of text.
 This is a line with too many spaces.
 $ sed -n ‘/ /p’ data1
 This is a line with too many spaces.
 $
+```
 The line with two spaces between words matches the regular expression pattern. This is a
 great way to catch spacing problems in text files!
 Special characters
@@ -20640,26 +21959,34 @@ indicate to the regular expression engine that it should interpret the next char
 normal text character. The special character that does this is the backslash character (∖).
 For example, if you want to search for a dollar sign in your text, just precede it with a
 backslash character:
+```sh
 $ cat data2
 The cost is $4.00
 $ sed -n ‘/\$/p’ data2
 The cost is $4.00
 $
+```
 Because the backslash is a special character, if you need to use it in a regular expression
 pattern, you need to escape it as well, producing a double backslash:
+```sh
 $ echo “\ is a special character” | sed -n ‘/[[Backslash Backslash]]/p’
 \ is a special character
 $
+```
 Finally, although the forward slash isn’t a regular expression special character, if you use
 it in your regular expression pattern in the sed editor or the gawk program, you get an
 error:
+```sh
 $ echo “3 / 2” | sed -n ‘///p’
 sed: -e expression #1, char 2: No previous regular expression
 $
+```
 To use a forward slash, you need to escape that as well:
+```sh
 $ echo “3 / 2” | sed -n ‘/\//p’
 3 / 2
 $
+```
 Now the sed editor can properly interpret the regular expression pattern, and all is well.
 Anchor characters
 As shown in the “Plain Text” section, by default, when you specify a regular expression
@@ -20672,13 +21999,16 @@ data stream. If the pattern is located any place other than the start of the lin
 regular expression pattern fails.
 To use the caret character, you must place it before the pattern specified in the regular
 expression:
+```sh
 $ echo “The book store” | sed -n ‘/^book/p’
 $
 $ echo “Books are great” | sed -n ‘/^Book/p’
 Books are great
 $
+```
 The caret anchor character checks for the pattern at the beginning of each new line of data,
 as determined by the newline character:
+```sh
 $ cat data3
 This is a test line.
 this is another test line.
@@ -20687,12 +22017,15 @@ Yet more testing of this
 $ sed -n ‘/^this/p’ data3
 this is another test line.
 $
+```
 As long as the pattern appears at the start of a new line, the caret anchor catches it.
 If you position the caret character in any place other than at the beginning of the pattern, it
 acts like a normal character and not as a special character:
+```sh
 $ echo “This ^ is a test” | sed -n ‘/s ^/p’
 This ^ is a test
 $
+```
 Because the caret character is listed last in the regular expression pattern, the sed editor
 uses it as a normal character to match text.
 Note
@@ -20704,14 +22037,18 @@ Looking for the ending
 The opposite of looking for a pattern at the start of a line is looking for it at the end of a
 line. The dollar sign ( $ ) special character defines the end anchor. Add this special
 character after a text pattern to indicate that the line of data must end with the text pattern:
+```sh
 $ echo “This is a good book” | sed -n ‘/book$/p’
 This is a good book
 $ echo “This book is good” | sed -n ‘/book$/p’
 $
+```
 The problem with an ending text pattern is that you must be careful what you’re looking
 for:
+```sh
 $ echo “There are a lot of good books” | sed -n ‘/book$/p’
 $
+```
 Making the word “book” plural at the end of the line means that it no longer matches the
 regular expression pattern, even though book is in the data stream. The text pattern must
 be the last thing on the line for the pattern to match.
@@ -20719,6 +22056,7 @@ Combining anchors
 In some common situations, you can combine both the start and end anchor on the same
 line. In the first situation, suppose you want to look for a line of data containing only a
 specific text pattern:
+```sh
 $ cat data4
 this is a test of using both anchors
 I said this is a test
@@ -20727,10 +22065,12 @@ I’m sure this is a test.
 $ sed -n ‘/^this is a test$/p’ data4
 this is a test
 $
+```
 The sed editor ignores the lines that include other text besides the specified text.
 The second situation may seem a little odd at first but is extremely useful. By combining
 both anchors in a pattern with no text, you can filter blank lines from the data stream.
 Consider this example:
+```sh
 $ cat data5
 This is one test line.
 This is another test line.
@@ -20738,6 +22078,7 @@ $ sed ‘/^$/d’ data5
 This is one test line.
 This is another test line.
 $
+```
 The regular expression pattern that is defined looks for lines that have nothing between the
 start and end of the line. Because blank lines contain no text between the two newline
 characters, they match the regular expression pattern. The sed editor uses the d delete
@@ -20748,6 +22089,7 @@ The dot special character is used to match any single character except a newline
 The dot character must match a character, however; if there’s no character in the place of
 the dot, then the pattern fails.
 Let’s look at a few examples of using the dot character in a regular expression pattern:
+```sh
 $ cat data6
 This is a test of a line.
 The cat is sleeping.
@@ -20759,6 +22101,7 @@ The cat is sleeping.
 That is a very nice hat.
 This test is at line four.
 $
+```
 You should be able to figure out why the first line failed and why the second and third
 lines passed. The fourth line is a little tricky. Notice that we matched the at , but there’s no
 character in front of it to match the dot character. Ah, but there is! In regular expressions,
@@ -20775,22 +22118,27 @@ character you want to include in the class. You then use the entire class within
 just like any other wildcard character. This takes a little getting used to at first, but after
 you catch on, it can generate some pretty amazing results.
 The following is an example of creating a character class:
+```sh
 $ sed -n ‘/[ch]at/p’ data6
 The cat is sleeping.
 That is a very nice hat.
 $
+```
 Using the same data file as in the dot special character example, we came up with a
 different result. This time we managed to filter out the line that just contained the word at .
 The only words that match this pattern are cat and hat . Also notice that the line that
 started with at didn’t match as well. There must be a character in the character class that
 matches the appropriate position.
 Character classes come in handy if you’re not sure which case a character is in:
+```sh
 $ echo “Yes” | sed -n ‘/[Yy]es/p’
 Yes
 $ echo “yes” | sed -n ‘/[Yy]es/p’
 yes
 $
+```
 You can use more than one character class in a single expression:
+```sh
 $ echo “Yes” | sed -n ‘/[Yy][Ee][Ss]/p’
 Yes
 $ echo “yEs” | sed -n ‘/[Yy][Ee][Ss]/p’
@@ -20798,9 +22146,11 @@ yEs
 $ echo “yeS” | sed -n ‘/[Yy][Ee][Ss]/p’
 yeS
 $
+```
 The regular expression used three character classes to cover both lower and upper cases
 for all three character positions.
 Character classes don’t have to contain just letters; you can use numbers in them as well:
+```sh
 $ cat data7
 This line doesn’t contain a number.
 This line has 1 number on it.
@@ -20810,11 +22160,13 @@ $ sed -n ‘/[0123]/p’ data7
 This line has 1 number on it.
 This line a number 2 on it.
 $
+```
 The regular expression pattern matches any lines that contain the numbers 0, 1, 2, or 3.
 Any other numbers are ignored, as are lines without numbers in them.
 You can combine character classes to check for properly formatted numbers, such as
 phone numbers and ZIP codes. However, when you’re trying to match a specific format,
 you must be careful. Here’s an example of a ZIP code match gone wrong:
+```sh
 $ cat data8
 60633
 46201
@@ -20829,6 +22181,7 @@ $ sed -n ‘
 223001
 22203
 $
+```
 This might not have produced the result you were thinking of. It did a fine job of filtering
 out the number that was too short to be a ZIP code, because the last character class didn’t
 have a character to match against. However, it still passed the six-digit number, even
@@ -20838,6 +22191,7 @@ data stream. You may always have additional characters besides the matching patt
 characters. If you want to ensure that you match against only five numbers, you need to
 delineate them somehow, either with spaces, or as in this example, by showing that they’re
 at the start and end of the line:
+```sh
 $ sed -n ‘
 > /^[0123456789][0123456789][0123456789][0123456789][0123456789]$/p
 > ‘ data8
@@ -20845,10 +22199,12 @@ $ sed -n ‘
 46201
 22203
 $
+```
 Now that’s much better! Later in this chapter, we look at how to simplify this even further.
 One extremely popular use for character classes is parsing words that might be misspelled,
 such as data entered from a user form. You can easily create regular expressions that can
 accept common misspellings in data:
+```sh
 $ cat data9
 I need to have some maintenence done on my car.
 I’ll pay that in a seperate invoice.
@@ -20861,6 +22217,7 @@ I need to have some maintenence done on my car.
 I’ll pay that in a seperate invoice.
 After I pay for the maintenance my car will be as good as new.
 $
+```
 The two sed print commands in this example utilize regular expression character classes
 to help catch the misspelled words, maintenance and separate, in the text. The same
 regular expression pattern also matches the properly spelled occurrence of “maintenance.”
@@ -20869,9 +22226,11 @@ In regular expression patterns, you can also reverse the effect of a character c
 of looking for a character contained in the class, you can look for any character that’s not
 in the class. To do that, just place a caret character at the beginning of the character class
 range:
+```sh
 $ sed -n ‘/[^ch]at/p’ data6
 This test is at line four.
 $
+```
 By negating the character class, the regular expression pattern matches any character that’s
 neither a c nor an h, along with the text pattern. Because the space character fits this
 category, it passed the pattern match. However, even with the negation, the character class
@@ -20886,35 +22245,45 @@ specify the first character in the range, a dash, and then the last character in
 regular expression includes any character that’s within the specified character range,
 according to the character set used by the Linux system (see [chapter 2]).
 Now you can simplify the ZIP code example by specifying a range of digits:
+```sh
 $ sed -n ‘/^[0-9][0-9][0-9][0-9][0-9]$/p’ data8
 60633
 46201
 45902
 $
+```
 That saved lots of typing! Each character class matches any digit from 0 to 9. The pattern
 fails if a letter is present anywhere in the data:
+```sh
 $ echo “a8392” | sed -n ‘/^[0-9][0-9][0-9][0-9][0-9]$/p’
 $
 $ echo “1839a” | sed -n ‘/^[0-9][0-9][0-9][0-9][0-9]$/p’
 $
 $ echo “18a92” | sed -n ‘/^[0-9][0-9][0-9][0-9][0-9]$/p’
 $
+```
 The same technique works with letters:
+```sh
 $ sed -n ‘/[c-h]at/p’ data6
 The cat is sleeping.
 That is a very nice hat.
 $
+```
 The new pattern [c-h]at matches words where the first letter is between the letter c and
 the letter h. In this case, the line with only the word at failed to match the pattern.
 You can also specify multiple, non-continuous ranges in a single character class:
+```sh
 $ sed -n ‘/[a-ch-m]at/p’ data6
 The cat is sleeping.
 That is a very nice hat.
 $
+```
 The character class allows the ranges a through c, and h through m to appear before the at
 text. This range would reject any letters between d and g:
+```sh
 $ echo “I’m getting too fat.” | sed -n ‘/[a-ch-m]at/p’
 $
+```
 This pattern rejected the fat text, as it wasn’t in the specified range.
 Special character classes
 In addition to defining your own character classes, the BRE contains special character
@@ -20942,6 +22311,7 @@ Matches a punctuation character
 Matches any uppercase alphabetical character A–Z
 You use the special character classes just as you would a normal character class in your
 regular expression patterns:
+```sh
 $ echo “abc” | sed -n ‘/[[:digit:]]/p’
 $
 $ echo “abc” | sed -n ‘/[[:alpha:]]/p’
@@ -20952,11 +22322,13 @@ $ echo “This is, a test” | sed -n ‘/[[:punct:]]/p’
 This is, a test
 $ echo “This is a test” | sed -n ‘/[[:punct:]]/p’
 $
+```
 Using the special character classes is an easy way to define ranges. Instead of having to
 use a range [0–9], you can just use [[:digit:]] .
 The asterisk
 Placing an asterisk after a character signifies that the character must appear zero or more
 times in the text to match the pattern:
+```sh
 $ echo “ik” | sed -n ‘/ie*k/p’
 ik
 $ echo “iek” | sed -n ‘/ie*k/p’
@@ -20968,36 +22340,44 @@ ieeek
 $ echo “ieeeek” | sed -n ‘/ie*k/p’
 ieeeek
 $
+```
 This pattern symbol is commonly used for handling words that have a common
 misspelling or variations in language spellings. For example, if you need to write a script
 that may be used in either American or British English, you could write:
+```sh
 $ echo “I’m getting a color TV” | sed -n ‘/colou*r/p’
 I’m getting a color TV
 $ echo “I’m getting a colour TV” | sed -n ‘/colou*r/p’
 I’m getting a colour TV
 $
+```
 The u* in the pattern indicates that the letter u may or may not appear in the text to match
 the pattern. Similarly, if you know of a word that is commonly misspelled, you can
 accommodate it by using the asterisk:
+```sh
 $ echo “I ate a potatoe with my lunch.” | sed -n ‘/potatoe*/p’
 I ate a potatoe with my lunch.
 $ echo “I ate a potato with my lunch.” | sed -n ‘/potatoe*/p’
 I ate a potato with my lunch.
 $
+```
 Placing an asterisk next to the possible extra letter allows you to accept the misspelled
 word.
 Another handy feature is combining the dot special character with the asterisk special
 character. This combination provides a pattern to match any number of any characters. It’s
 often used between two text strings that may or may not appear next to each other in the
 data stream:
+```sh
 $ echo “this is a regular pattern expression” | sed -n ‘
 > /regular.*expression/p’
 this is a regular pattern expression
 $
+```
 Using this pattern, you can easily search for multiple words that may appear anywhere in a
 line of text in the data stream.
 The asterisk can also be applied to a character class. This allows you to specify a group or
 range of characters that can appear more than once in the text:
+```sh
 $ echo “bt” | sed -n ‘/b[ae]*t/p’
 bt
 $ echo “bat” | sed -n ‘/b[ae]*t/p’
@@ -21015,6 +22395,7 @@ $ echo “baeeaeeat” | sed -n ‘/b[ae]*t/p’
 baeeaeeat
 $ echo “baakeeet” | sed -n ‘/b[ae]*t/p’
 $
+```
 As long as the a and e characters appear in any combination between the b and t characters
 (including not appearing at all), the pattern matches. If any other character outside of the
 defined character class appears, the pattern match fails.
@@ -21037,6 +22418,7 @@ The question mark
 The question mark is similar to the asterisk, but with a slight twist. The question mark
 indicates that the preceding character can appear zero or one time, but that’s all. It doesn’t
 match repeating occurrences of the character:
+```sh
 $ echo “bt” | gawk ‘/be?t/{print $0}’
 bt
 $ echo “bet” | gawk ‘/be?t/{print $0}’
@@ -21045,9 +22427,11 @@ $ echo “beet” | gawk ‘/be?t/{print $0}’
 $
 $ echo “beeet” | gawk ‘/be?t/{print $0}’
 $
+```
 If the e character doesn’t appear in the text, or as long as it appears only once in the text,
 the pattern matches.
 As with the asterisk, you can use the question mark symbol along with a character class:
+```sh
 $ echo “bt” | gawk ‘/b[ae]?t/{print $0}’
 bt
 $ echo “bat” | gawk ‘/b[ae]?t/{print $0}’
@@ -21062,6 +22446,7 @@ $ echo “beat” | gawk ‘/b[ae]?t/{print $0}’
 $
 $ echo “beet” | gawk ‘/b[ae]?t/{print $0}’
 $
+```
 If zero or one character from the character class appears, the pattern match passes.
 However, if both characters appear, or if one of the characters appears twice, the pattern
 match fails.
@@ -21070,6 +22455,7 @@ The plus sign is another pattern symbol that’s similar to the asterisk, but wi
 twist than the question mark. The plus sign indicates that the preceding character can
 appear one or more times, but must be present at least once. The pattern doesn’t match if
 the character is not present:
+```sh
 $ echo “beeet” | gawk ‘/be+t/{print $0}’
 beeet
 $ echo “beet” | gawk ‘/be+t/{print $0}’
@@ -21078,8 +22464,10 @@ $ echo “bet” | gawk ‘/be+t/{print $0}’
 bet
 $ echo “bt” | gawk ‘/be+t/{print $0}’
 $
+```
 If the e character is not present, the pattern match fails. The plus sign also works with
 character classes, the same way as the asterisk and question mark do:
+```sh
 $ echo “bt” | gawk ‘/b[ae]+t/{print $0}’
 $
 $ echo “bat” | gawk ‘/b[ae]+t/{print $0}’
@@ -21093,6 +22481,7 @@ beet
 $ echo “beeat” | gawk ‘/b[ae]+t/{print $0}’
 beeat
 $
+```
 This time if either character defined in the character class appears, the text matches the
 specified pattern.
 Using braces
@@ -21109,16 +22498,19 @@ By default, the gawk program doesn’t recognize regular expression intervals. Y
 must specify the —re-interval command line option for the gawk program to
 recognize regular expression intervals.
 Here’s an example of using a simple interval of one value:
+```sh
 $ echo “bt” | gawk —re-interval ‘/be{1}t/{print $0}’
 $
 $ echo “bet” | gawk —re-interval ‘/be{1}t/{print $0}’
 bet
 $ echo “beet” | gawk —re-interval ‘/be{1}t/{print $0}’
 $
+```
 By specifying an interval of one, you restrict the number of times the character can be
 present for the string to match the pattern. If the character appears more times, the pattern
 match fails.
 Often, specifying the lower and upper limit comes in handy:
+```sh
 $ echo “bt” | gawk —re-interval ‘/be{1,2}t/{print $0}’
 $
 $ echo “bet” | gawk —re-interval ‘/be{1,2}t/{print $0}’
@@ -21127,9 +22519,11 @@ $ echo “beet” | gawk —re-interval ‘/be{1,2}t/{print $0}’
 beet
 $ echo “beeet” | gawk —re-interval ‘/be{1,2}t/{print $0}’
 $
+```
 In this example, the e character can appear once or twice for the pattern match to pass;
 otherwise, the pattern match fails.
 The interval pattern match also applies to character classes:
+```sh
 $ echo “bt” | gawk —re-interval ‘/b[ae]{1,2}t/{print $0}’
 $
 $ echo “bat” | gawk —re-interval ‘/b[ae]{1,2}t/{print $0}’
@@ -21146,6 +22540,7 @@ $ echo “baeet” | gawk —re-interval ‘/b[ae]{1,2}t/{print $0}’
 $
 $ echo “baeaet” | gawk —re-interval ‘/b[ae]{1,2}t/{print $0}’
 $
+```
 This regular expression pattern matches if there are exactly one or two instances of the
 letter a or e in the text pattern, but it fails if there are any more in any combination.
 The pipe symbol
@@ -21156,34 +22551,41 @@ text fails.
 Here’s the format for using the pipe symbol:
 expr1|expr2|…
 Here’s an example of this:
+```sh
 $ echo “The cat is asleep” | gawk ‘/cat|dog/{print $0}’
 The cat is asleep
 $ echo “The dog is asleep” | gawk ‘/cat|dog/{print $0}’
 The dog is asleep
 $ echo “The sheep is asleep” | gawk ‘/cat|dog/{print $0}’
 $
+```
 This example looks for the regular expression cat or dog in the data stream. You can’t
 place any spaces within the regular expressions and the pipe symbol, or they’re added to
 the regular expression pattern.
 The regular expressions on either side of the pipe symbol can use any regular expression
 pattern, including character classes, to define the text:
+```sh
 $ echo “He has a hat.” | gawk ‘/[ch]at|dog/{print $0}’
 He has a hat.
 $
+```
 This example would match cat , hat , or dog in the data stream text.
 Grouping expressions
 Regular expression patterns can also be grouped by using parentheses. When you group a
 regular expression pattern, the group is treated like a standard character. You can apply a
 special character to the group just as you would to a regular character. For example:
+```sh
 $ echo “Sat” | gawk ‘/Sat(urday)?/{print $0}’
 Sat
 $ echo “Saturday” | gawk ‘/Sat(urday)?/{print $0}’
 Saturday
 $
+```
 The grouping of the “urday” ending along with the question mark allows the pattern to
 match either the full day name Saturday or the abbreviated name Sat.
 It’s common to use grouping along with the pipe symbol to create groups of possible
 pattern matches:
+```sh
 $ echo “cat” | gawk ‘/(c|b)a(b|t)/{print $0}’
 cat
 $ echo “cab” | gawk ‘/(c|b)a(b|t)/{print $0}’
@@ -21196,6 +22598,7 @@ $ echo “tab” | gawk ‘/(c|b)a(b|t)/{print $0}’
 $
 $ echo “tac” | gawk ‘/(c|b)a(b|t)/{print $0}’
 $
+```
 The pattern (c|b)a(b|t) matches any combination of the letters in the first group along
 with any combination of the letters in the second group.
 
@@ -21210,18 +22613,22 @@ To start things out, let’s look at a shell script that counts the executable f
 present in the directories defined in your PATH environment variable. To do that, you need
 to parse out the PATH variable into separate directory names. Chapter 6 showed you how to
 display the PATH environment variable:
+```sh
 $ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 $
+```
 Your PATH environment variable will differ, depending on where the applications are
 located on your Linux system. The key is to recognize that each directory in the PATH is
 separated by a colon. To get a listing of directories that you can use in a script, you must
 replace each colon with a space. You now recognize that the sed editor can do just that
 using a simple regular expression:
+```sh
 $ echo $PATH | sed ‘s/:/ /g’
 /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 /usr/games /usr/local/games
 $
+```
 After you have the directories separated out, you can use them in a standard for statement
 (see [chapter 13]) to iterate through each directory:
 mypath=$(echo $PATH | sed ‘s/:/ /g’)
@@ -21233,6 +22640,7 @@ After you have each directory, you can use the ls command to list each file in e
 directory, and use another for statement to iterate through each file, incrementing a
 counter for each file.
 The final version of the script looks like this:
+```sh
 $ cat countfiles
 #!/bin/bash
 # count number of files in your PATH
@@ -21257,6 +22665,7 @@ $ ./countfiles /usr/local/sbin - 0
 /usr/games - 5
 /usr/local/games – 0
 $
+```
 Now we’re starting to see some of the power behind regular expressions!
 Validating a phone number
 The previous example showed how to incorporate the simple regular expression along
@@ -21308,21 +22717,26 @@ gawk program and filter your phone list through the script. Remember that when y
 regular expression intervals in the gawk program, you must use the —re-interval
 command line option, or you won’t get the correct results.
 Here’s the script:
+```sh
 $ cat isphone
 #!/bin/bash
 # script to filter out bad phone numbers
 gawk —re-interval ‘/^\(?[2-9][0-9]{2}\)?(| |-|\┐
 [0-9]{3}( |-|.)[0-9]{4}/{print $0}’
 $
+```
 Although you can’t tell from this listing, the gawk command is on a single line in the shell
 script. You can then redirect phone numbers to the script for processing:
+```sh
 $ echo “317-555-1234” | ./isphone
 317-555-1234
 $ echo “000-555-1234” | ./isphone
 $ echo “312 555-1234” | ./isphone
 312 555-1234
 $
+```
 Or you can redirect an entire file of phone numbers to filter out the invalid ones:
+```sh
 $ cat phonelist
 000-000-0000
 123-456-7890
@@ -21338,6 +22752,7 @@ $ cat phonelist | ./isphone
 (202) 555-9876
 234.123.4567
 $
+```
 Only the valid phone numbers that match the regular expression pattern appear.
 Parsing an e-mail address
 These days, e-mail has become a crucial form of communication. Trying to validate e-mail
@@ -21386,6 +22801,7 @@ Putting the entire pattern together results in the following:
 ^([a-zA-Z0-9_-.\+]+)@([a-zA-Z0-9_-.]+).([a-zA-Z]{2,5})$
 This pattern filters out poorly formatted e-mail addresses from a data list. Now you can
 create your script to implement the regular expression:
+```sh
 $ echo “rich@here.now” | ./isemail
 rich@here.now
 $ echo “rich@here.now.” | ./isemail
@@ -21404,6 +22820,7 @@ $ echo “rich#blum@here.now” | ./isemail
 $
 $ echo “rich*blum@here.now” | ./isemail
 $
+```
 
 
 ## ==⚡ 20. Summary
@@ -21482,6 +22899,7 @@ This may sound somewhat complicated, and sometimes it is. In this example, you h
 data file that contains five lines, two of which are empty. The goal is to remove the blank
 line after the header line but leave the blank line before the last line intact. If you write a
 sed script to just remove blank lines, you remove both blank lines:
+```sh
 $ cat data1.txt
 This is the header line.
 This is a data line.
@@ -21492,6 +22910,7 @@ This is the header line.
 This is a data line.
 This is the last line.
 $
+```
 Because the line you want to remove is blank, you don’t have any text you can search for
 to uniquely identify the line. The solution is to use the n command. In this next example,
 the script looks for a unique line that contains the word header . After the script identifies
@@ -21502,6 +22921,7 @@ This is the header line.
 This is a data line.
 This is the last line.
 $
+```
 At that point, the sed editor continues processing the command list, which uses the d
 command to delete the empty line. When the sed editor reaches the end of the command
 script, it reads the next line of text from the data stream and starts processing commands
@@ -21517,6 +22937,7 @@ This has the effect of combining two lines of text from the data stream into the
 pattern space. The lines of text are still separated by a newline character, but the sed editor
 can now treat both lines of text as one line.
 Here’s a demonstration of how the N command operates:
+```sh
 $ cat data2.txt
 This is the header line.
 This is the first data line.
@@ -21528,12 +22949,14 @@ This is the header line.
 This is the first data line. This is the second data line.
 This is the last line.
 $
+```
 The sed editor script searches for the line of text that contains the word “first” in it. When
 it finds the line, it uses the N command to combine the next line with that line. It then uses
 the substitution command ( s ) to replace the newline character with a space. The result
 is that the two lines in the text file appear as one line in the sed editor output.
 This has a practical application if you’re searching for a text phrase that may be split
 between two lines in the data file. Here’s an example:
+```sh
 $ cat data3.txt
 On Tuesday, the Linux System
 Administrator’s group meeting will be held.
@@ -21546,17 +22969,20 @@ Administrator’s group meeting will be held.
 All Desktop Users should attend.
 Thank you for your attendance.
 $
+```
 The substitution command is looking for the specific two-word phrase System
 Administrator in the text file. In the single line where the phrase appears, everything is
 fine; the substitution command can replace the text. But in the situation where the
 phrase is split between two lines, the substitution command doesn’t recognize the
 matching pattern.
 The N command helps solve this problem:
+```sh
 $ sed ‘N ; s/System.Administrator/Desktop User/’ data3.txt
 On Tuesday, the Linux Desktop User’s group meeting will be held.
 All Desktop Users should attend.
 Thank you for your attendance.
 $
+```
 By using the N command to combine the next line with the line where the first word is
 found, you can detect when a line split occurs in the phrase.
 Notice that the substitution command uses a wildcard pattern (.) between the word
@@ -21565,6 +22991,7 @@ However, when it matched the newline character, it removed it from the string, c
 two lines to merge into one line. This may not be exactly what you want.
 To solve this problem, you can use two substitution commands in the sed editor script,
 one to match the multiline occurrence and one to match the single-line occurrence:
+```sh
 $ sed ‘N
 > s/System\nAdministrator/Desktop\nUser/
 > s/System Administrator/Desktop User/
@@ -21574,6 +23001,7 @@ User’s group meeting will be held.
 All Desktop Users should attend.
 Thank you for your attendance.
 $
+```
 The first substitution command specifically looks for the newline character between the
 two search words and includes it in the replacement string. This allows you to add the
 newline character in the same place in the new text.
@@ -21582,6 +23010,7 @@ line of text into the pattern space before executing the sed editor commands. Wh
 reaches the last line of text, there isn’t a next line of text to read, so the N command causes
 the sed editor to stop. If the matching text is on the last line in the data stream, the
 commands don’t catch the matching data:
+```sh
 $ cat data4.txt
 On Tuesday, the Linux System
 Administrator’s group meeting will be held.
@@ -21595,10 +23024,12 @@ On Tuesday, the Linux Desktop
 User’s group meeting will be held.
 All System Administrators should attend.
 $
+```
 Because the System Administrator text appears in the last line in the data stream, the N
 command misses it, as there isn’t another line to read into the pattern space to combine.
 You can easily resolve this problem by moving your single-line commands before the N
 command and having only the multiline commands appear after the N command, like this:
+```sh
 $ sed ‘
 > s/System Administrator/Desktop User/
 > N
@@ -21608,30 +23039,36 @@ On Tuesday, the Linux Desktop
 User’s group meeting will be held.
 All Desktop Users should attend.
 $
+```
 Now, the substitution command that looks for the phrase in a single line works just fine
 on the last line in the data stream, and the multiline substitution command covers the
 occurrence in the middle of the data stream.
 Navigating the multiline delete command
 Chapter 19 introduced the single-line delete command ( d ). The sed editor uses it to delete the current line in the pattern space. If you’re working with the N command,
 however, you must be careful when using the single-line delete command:
+```sh
 $ sed ‘N ; /System\nAdministrator/d’ data4.txt
 All System Administrators should attend.
 $
+```
 The delete command looked for the words System and Administrator in separate lines
 and deleted both of the lines in the pattern space. This may or may not have been what you
 intended.
 The sed editor provides the multiline delete command ( D ), which deletes only the first
 line in the pattern space. It removes all characters up to and including the newline
 character:
+```sh
 $ sed ‘N ; /System\nAdministrator/D’ data4.txt
 Administrator’s group meeting will be held.
 All System Administrators should attend.
 $
+```
 The second line of text, added to the pattern space by the N command, remains intact. This
 comes in handy if you need to remove a line of text that appears before a line that you find
 a data string in.
 Here’s an example of removing a blank line that appears before the first line in a data
 stream:
+```sh
 $ cat data5.txt
 This is the header line.
 This is a data line.
@@ -21642,6 +23079,7 @@ This is the header line.
 This is a data line.
 This is the last line.
 $
+```
 This sed editor script looks for blank lines and then uses the N command to add the next
 line of text into the pattern space. If the new pattern space contents contain the word
 header , the D command removes the first line in the pattern space. Without the
@@ -21657,6 +23095,7 @@ output from the script.
 $ sed -n ‘N ; /System\nAdministrator/P’ data3.txt
 On Tuesday, the Linux System
 $
+```
 When the multiline match occurs, the P command prints only the first line in the pattern
 space. The power of the multiline P command comes into play when you combine it with
 the N and D multiline commands.
@@ -21702,6 +23141,7 @@ space (otherwise, you wouldn’t have cared about saving them in the first place
 With two buffer areas, trying to determine what line of text is in which buffer area can
 sometimes get confusing. Here’s a short example that demonstrates how to use the h and g
 commands to move data back and forth between the sed editor buffer spaces:
+```sh
 $ cat data2.txt
 This is the header line.
 This is the first data line.
@@ -21713,6 +23153,7 @@ This is the first data line.
 This is the second data line.
 This is the first data line.
 $
+```
 Look at the preceding code example step by step:
 
 1. The sed script uses a regular expression in the address to filter the line containing the
@@ -21732,10 +23173,12 @@ the first data line.
 By shuffling the text lines around using the hold space, you can force the first data line to
 appear after the second data line in the output. If you just drop the first p command, you
 can output the two lines in reverse order:
+```sh
 $ sed -n ‘/first/ {h ; n ; p ; g ; p }’ data2.txt
 This is the second data line.
 This is the first data line.
 $
+```
 This is the start of something useful. You can use this technique to create a sed script that
 reverses an entire file of text lines! To do that, however, you need to see the negating
 feature of the sed editor, which is what the next section is all about.
@@ -21749,11 +23192,13 @@ the data stream.
 The exclamation mark command ( ! ) is used to negate a command. This means in
 situations where the command would normally have been activated, it isn’t. Here’s an
 example demonstrating this feature:
+```sh
 $ sed -n ‘/header/!p’ data2.txt
 This is the first data line.
 This is the second data line.
 This is the last line.
 $
+```
 The normal p command would have printed only the line in the data2 file that contained
 the word header . By adding the exclamation mark, the opposite happens — all lines in the
 file are printed except the one that contained the word header .
@@ -21761,6 +23206,7 @@ Using the exclamation mark comes in handy in several applications. Recall that e
 the chapter, the “Navigating the next command” section showed a situation where a sed
 editor command wouldn’t operate on the last line of text in the data stream because there
 wasn’t a line after it. You can use the exclamation point to fix that problem:
+```sh
 $ sed ‘N;
 > s/System\nAdministrator/Desktop\nUser/
 > s/System Administrator/Desktop User/
@@ -21777,6 +23223,7 @@ On Tuesday, the Linux Desktop
 User’s group meeting will be held.
 All Desktop Users should attend.
 $
+```
 This example shows the exclamation mark used with the N command, along with the
 dollar sign ( $ ) special address. The dollar sign represents the last line of text in the data
 stream, so when the sed editor reaches the last line, it doesn’t execute the N command.
@@ -21814,9 +23261,11 @@ When you’ve got the entire data stream in the pattern space in reverse order, 
 to print the results. You know you have the entire data stream in the pattern space when
 you’ve reached the last line in the data stream. To print the results, just use the following
 command:
+```sh
 $p
 Those are the pieces you need to create your line-reversing sed editor script. Now try it
 out in a test run:
+```sh
 $ cat data2.txt
 This is the header line.
 This is the first data line.
@@ -21829,6 +23278,7 @@ This is the second data line.
 This is the first data line.
 This is the header line.
 $
+```
 The sed editor script performed as expected. The output from the script reverses the
 original lines in the text file. This demonstrates the power of using the hold space in your
 sed scripts. It provides an easy way to manipulate the order of lines in the script output.
@@ -21869,6 +23319,7 @@ This is the first data line.
 This is the second data line.
 Is this the last test?
 $
+```
 The branc h command skips the two substitution commands for the second and third
 lines in the data stream.
 Instead of going to the end of the script, you can define a label for the branch command to
@@ -21876,6 +23327,7 @@ jump to. Labels start with a colon and can be up to seven characters in length:
 :label2
 To specify the label, just add it after the b command. Using labels allows you to skip
 commands that match the branch address but still process other commands in the script:
+```sh
 $ sed ‘{/first/b jump1 ; s/This is the/No jump on/
 > :jump1
 > s/This is the/Jump here on/}’ data2.txt
@@ -21884,6 +23336,7 @@ Jump here on first data line
 No jump on second data line
 No jump on last line
 $
+```
 The branch command specifies that the program should jump to the script line labeled
 jump1 if the matching text “first” appears in the line. If the branch command pattern
 doesn’t match, the sed editor continues processing commands in the script, including the
@@ -21893,6 +23346,7 @@ If a line matches the branch pattern, the sed editor branches to the branch labe
 Thus, only the last substitution command is executed.
 The example shows branching to a label further down in the sed script. You can also
 branch to a label that appears earlier in the script, thus creating a looping effect:
+```sh
 $ echo “This, is, a, test, to, remove, commas.” | sed -n ‘{
 > :start
 > s/,//1p
@@ -21906,12 +23360,14 @@ This is a test to remove, commas.
 This is a test to remove commas.
 ^C
 $
+```
 Each script iteration removes the first occurrence of a comma from the text string and
 prints the string. There’s one catch to this script: It never ends. This situation creates an
 endless loop, searching for commas until you manually stop it by sending a signal with the
 Ctrl+C key combination.
 To prevent this problem, you should specify an address pattern for the branch command to
 look for. If the pattern isn’t present, the branching should stop:
+```sh
 $ echo “This, is, a, test, to, remove, commas.” | sed -n ‘{
 > :start
 > s/,//1p
@@ -21924,6 +23380,7 @@ This is a test to, remove, commas.
 This is a test to remove, commas.
 This is a test to remove commas.
 $
+```
 Now the branch command branches only if there’s a comma in the line. After the last
 comma has been removed, the branch command doesn’t execute, allowing the script to
 properly finish.
@@ -21941,6 +23398,7 @@ script if the test succeeds.
 The test command provides a cheap way to perform a basic if-then statement on the
 text in the data stream. For example, if you don’t need to make a substitution if another
 substitution was made, the test command can help:
+```sh
 $ sed ‘{
 > s/first/matched/
 > t
@@ -21951,11 +23409,13 @@ This is the matched data line
 No match on second data line
 No match on last line
 $
+```
 The first substitution command looks for the pattern text first . If it matches the pattern
 in the line, it replaces the text, and the test command jumps over the second
 substitution command. If the first substitution command doesn’t match the pattern,
 the second substitution command is processed.
 Using the test command, you can clean up the loop you tried using the branch command:
+```sh
 $ echo “This, is, a, test, to, remove, commas. ” | sed -n ‘{
 > :start
 > s/,//1p
@@ -21968,6 +23428,7 @@ This is a test to, remove, commas.
 This is a test to remove, commas.
 This is a test to remove commas.
 $
+```
 When there are no more substitutions to make, the test command doesn’t branch and
 continues with the rest of the script.
 
@@ -21979,13 +23440,16 @@ However, when using wildcard characters it’s not easy to know exactly what tex
 match the pattern.
 For example, say that you want to place double quotation marks around a word you match
 in a line. That’s simple enough if you’re just looking for one word in the pattern to match:
+```sh
 $ echo “The cat sleeps in his hat.” | sed ‘s/cat/“cat”/’
 The “cat” sleeps in his hat.
 $
+```
 But what if you use a wildcard character (.) in the pattern to match more than one word?
 $ echo “The cat sleeps in his hat.” | sed ‘s/.at/”.at”/g’
 The “.at” sleeps in his “.at”.
 $
+```
 The substitution string used the dot wildcard character to match any occurrence of a letter
 followed by “at”. Unfortunately, the replacement string doesn’t match the wildcard
 character value of the matching word.
@@ -21994,9 +23458,11 @@ The sed editor has a solution for you. The ampersand symbol ( & ) is used to rep
 matching pattern in the substitution command. Whatever text matches the pattern
 defined, you can use the ampersand symbol to recall it in the replacement pattern. This lets
 you manipulate whatever word matches the pattern defined:
+```sh
 $ echo “The cat sleeps in his hat.” | sed ‘s/.at/”&”/g’
 The “cat” sleeps in his “hat”.
 $
+```
 When the pattern matches the word cat, “cat” appears in the substituted word. When it
 matches the word hat, “hat” appears in the substituted word.
 Replacing individual words
@@ -22013,10 +23479,12 @@ When you use parentheses in the substitution command, you must use the escape
 character to identify them as grouping characters and not normal parentheses. This is
 the reverse of when you escape other special characters.
 Look at an example of using this feature in a sed editor script:
+```sh
 $ echo “The System Administrator manual” | sed ‘
 > s/\(System\) Administrator/\1 User/’
 The System User manual
 $
+```
 This substitution command uses one set of parentheses around the word System
 identifying it as a substring component. It then uses the ∖1 in the replacement pattern to
 recall the first identified component. This isn’t too exciting, but it can really be useful
@@ -22024,18 +23492,21 @@ when working with wildcard patterns.
 If you need to replace a phrase with just a single word, that’s a substring of the phrase, but
 that substring just happens to be using a wildcard character; using substring components is
 a lifesaver:
+```sh
 $ echo “That furry cat is pretty” | sed ‘s/furry \(.at\)/\1/’
 That cat is pretty
 $
 $ echo “That furry hat is pretty” | sed ‘s/furry \(.at\)/\1/’
 That hat is pretty
 $
+```
 In this situation, you can’t use the ampersand symbol, because it would replace the entire
 matching pattern. The substring component provides the answer, allowing you to select
 just which part of the pattern to use as the replacement pattern.
 This feature can be especially helpful when you need to insert text between two or more
 substring components. Here’s a script that uses substring components to insert a comma in
 long numbers:
+```sh
 $ echo “1234567” | sed ‘{
 > :start
 > s/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/
@@ -22043,6 +23514,7 @@ $ echo “1234567” | sed ‘{
 > }’
 1,234,567
 $
+```
 The script divides the matching pattern into two components:
 .*[0-9]
 [0-9]{3}
@@ -22143,12 +23615,14 @@ known sed editor scripts for performing common data-handling functions.
 Spacing with double lines
 To start things off, look at a simple sed script to insert a blank line between lines in a text
 file:
+```sh
 $ sed ‘G’ data2.txt
 This is the header line.
 This is the first data line.
 This is the second data line.
 This is the last line.
 $
+```
 That was pretty simple! The key to this trick is the default value of the hold space.
 Remember that the G command simply appends the contents of the hold space to the
 current pattern space contents. When you start the sed editor, the hold space contains an
@@ -22158,12 +23632,14 @@ You may have noticed that this script also adds a blank line to the last line in
 stream, producing a blank line at the end of the file. If you want to get rid of this, you can
 use the negate symbol and the last line symbol to ensure that the script doesn’t add the
 blank line to the last line of the data stream:
+```sh
 $ sed ‘$!G’ data2.txt
 This is the header line.
 This is the first data line.
 This is the second data line.
 This is the last line.
 $
+```
 Now that looks a little better. As long as the line isn’t the last line, the G command appends
 the contents of the hold space. When the sed editor gets to the last line, it skips the G
 command.
@@ -22171,6 +23647,7 @@ Spacing files that may have blanks
 To take double spacing one step further, what if the text file already has a few blank lines,
 but you want to double space all the lines? If you use the previous script, you’ll get some
 areas that have too many blank lines, because each existing blank line gets doubled:
+```sh
 $ cat data6.txt
 This is line one.
 This is line two.
@@ -22183,6 +23660,7 @@ This is line two.
 This is line three.
 This is line four.
 $
+```
 Now you have three blank lines where the original blank line was located. The solution to
 this problem is to first delete any blank lines from the data stream and then use the G
 command to insert new blank lines after all the lines. To delete existing blank lines, you
@@ -22190,15 +23668,18 @@ just need to use the d command with a pattern that matches a blank line:
 /∧$/d
 This pattern uses the start line tag (the caret) and the end line tag (the dollar sign). Adding
 this pattern to the script produces the desired results:
+```sh
 $ sed ‘/∧$/d ; $!G’ data6.txt
 This is line one.
 This is line two.
 This is line three.
 This is line four.
 $
+```
 Perfect! It works just as expected.
 Numbering lines in a file
 Chapter 19 showed you how to use the equal sign to display the line numbers of lines in the data stream:
+```sh
 $ sed ‘=’ data2.txt
 1
 This is the header line.
@@ -22209,6 +23690,7 @@ This is the second data line.
 4
 This is the last line.
 $
+```
 This can be a little awkward to read, because the line number is on a line above the actual
 line in the data stream. A better solution is to place the line number on the same line as the
 text.
@@ -22219,16 +23701,19 @@ After you have the output for the equal sign command, you can pipe the output to
 sed editor script that uses the N command to combine the two lines. You also need to use
 the substitution command to replace the newline character with either a space or a tab
 character. Here’s what the final solution looks like:
+```sh
 $ sed ‘=’ data2.txt | sed ‘N; s/\n/ /’
 1 This is the header line.
 2 This is the first data line.
 3 This is the second data line.
 4 This is the last line.
 $
+```
 Now that looks much better. This is a great little utility to have around when working on
 programs where you need to see the line numbers used in error messages.
 There are bash shell commands that can also add line numbers. However, they add some
 additional (and potentially unwanted spacing):
+```sh
 $ nl data2.txt
 1 This is the header line.
 2 This is the first data line.
@@ -22241,6 +23726,7 @@ $ cat -n data2.txt
 3 This is the second data line.
 4 This is the last line.
 $
+```
 The sed editor script handles the output without any additional spacing.
 Printing last lines
 So far, you’ve seen how to use the p command to print all the lines in a data stream or just
@@ -22248,9 +23734,11 @@ lines that match a specific pattern. What if you just need to work with the last
 a long listing, such as a log file?
 The dollar sign represents the last line of a data stream, so it’s easy to display just the last
 line:
+```sh
 $ sed -n ‘$p’ data2.txt
 This is the last line.
 $
+```
 Now how can you use the dollar sign symbol to display a set number of lines at the end of
 the data stream? The answer is to create a rolling window.
 A rolling window is a common way to examine blocks of text lines in the pattern space by
@@ -22263,6 +23751,7 @@ By looping through the N and D commands, you add new lines to the block of lines
 pattern space while removing old lines. The branch command is the perfect fit for the
 loop. To end the loop, just identify the last line and use the q command to quit.
 Here’s what the final sed editor script looks like:
+```sh
 $ cat data7.txt
 This is line 1.
 This is line 2.
@@ -22296,6 +23785,7 @@ This is line 13.
 This is line 14.
 This is line 15.
 $
+```
 The script first checks whether the line is the last line in the data stream. If it is, the quit
 command stops the loop. The N command appends the next line to the current line in the
 pattern space. The 11,$D command deletes the first line in the pattern space if the current
@@ -22324,6 +23814,7 @@ The range is /./ to / ∧$/. The start address in the range matches any line tha
 least one character. The end address in the range matches a blank line. Lines within this
 range aren’t deleted.
 Here’s the script in action:
+```sh
 $ cat data8.txt
 This is line one.
 This is line two.
@@ -22336,6 +23827,7 @@ This is line two.
 This is line three.
 This is line four.
 $
+```
 No matter how many blank lines appear between lines of data in the file, the output places
 only one blank line between the lines.
 Deleting leading blank lines
@@ -22350,6 +23842,7 @@ a line that contains a character and continues to the end of the data stream. An
 this range is not deleted from the output. This means that any lines before the first line that
 contain a character are deleted.
 Look at this simple script in action:
+```sh
 $ cat data9.txt
 This is line one.
 This is line two.
@@ -22358,6 +23851,7 @@ $ sed ‘/./,$!d’ data9.txt
 This is line one.
 This is line two.
 $
+```
 The test file contains two blank lines before the data lines. The script successfully removes
 both of the leading blank lines, while keeping the blank line within the data intact.
 Deleting trailing blank lines
@@ -22376,6 +23870,7 @@ pattern matches any line that contains only a newline character. When one is fou
 the last line, the delete command deletes it. If it’s not the last line, the N command
 appends the next line to it, and the branch command loops to the beginning to start over.
 Here’s the script in action:
+```sh
 $ cat data10.txt
 This is the first line.
 This is the second line.
@@ -22386,6 +23881,7 @@ $ sed ‘{
 This is the first line.
 This is the second line.
 $
+```
 The script successfully removed the blank lines from the end of the text file.
 Removing HTML tags
 These days, it’s not uncommon to download text from a website to save or use as data in
@@ -22395,6 +23891,7 @@ see is the data.
 A standard HTML web page contains several different types of HTML tags, identifying
 formatting features required to properly display the page information. Here’s a sample of
 what an HTML file looks like:
+```sh
 $ cat data11.txt
 <html>
 <head>
@@ -22408,6 +23905,7 @@ information to use in our sed script.
 </body>
 </html>
 $
+```
 HTML tags are identified by the less-than and greater-than symbols. Most HTML tags
 come in pairs. One tag starts the formatting process (for example, <b> for bolding), and
 another tag stops the formatting process (for example, </b> to turn off bolding).
@@ -22417,11 +23915,13 @@ starts with a less-than symbol (<), ends with a greater-than symbol (>), and has
 between the symbols:
 s/<.*>//g
 Unfortunately, this command has some unintended consequences:
+```sh
 $ sed ‘s/<.*>//g’ data11.txt
 This is the line in the Web page.
 This should provide some
 information to use in our sed script.
 $
+```
 Notice that the title text is missing, along with the text that was bolded and italicized. The
 sed editor literally interpreted the script to mean any text between the less-than and
 greater-than sign, including other less-than and greater-than signs! Each time the text was
@@ -22432,20 +23932,24 @@ the greater-than sign. This changes the script to:
 s/<[∧>]*>//g
 This script now works properly, displaying the data you need to see from the web page
 HTML code:
+```sh
 $ sed ‘s/<[∧>]*>//g’ data11.txt
 This is the page title
 This is the first line in the Web page.
 This should provide some useful
 information to use in our sed script.
 $
+```
 That’s a little better. To clean things up some, you can add a delete command to get rid of
 those pesky blank lines:
+```sh
 $ sed ‘s/<[∧>]*>//g ; /∧$/d’ data11.txt
 This is the page title
 This is the first line in the Web page.
 This should provide some useful
 information to use in our sed script.
 $
+```
 Now that’s much more compact; there’s only the data you need to see.
 
 
@@ -22559,6 +24063,7 @@ print $1,$2,$3
 you see the output as:
 field1 field2 field3
 You can see this in the following example:
+```sh
 $ cat data1
 data11,data12,data13,data14,data15
 data21,data22,data23,data24,data25
@@ -22568,9 +24073,11 @@ data11 data12 data13
 data21 data22 data23
 data31 data32 data33
 $
+```
 The print command automatically places the value of the OFS variable between each data
 field in the output. By setting the OFS variable, you can use any string to separate data
 fields in the output:
+```sh
 $ gawk ‘BEGIN{FS=”,”; OFS=”-“} {print $1,$2,$3}’ data1
 data11-data12-data13
 data21-data22-data23
@@ -22584,6 +24091,7 @@ data11<—>data12<—>data13
 data21<—>data22<—>data23
 data31<—>data32<—>data33
 $
+```
 The FIELDWIDTHS variable allows you to read records without using a field separator
 character. In some applications, instead of using a field separator character, data is placed
 in specific columns within the record. In these instances, you must set the FIELDWIDTHS
@@ -22591,6 +24099,7 @@ variable to match the layout of the data in the records.
 After you set the FIELDWIDTHS variable, gawk ignores the FS and calculates data fields
 based on the provided field width sizes. Here’s an example using field widths instead of
 field separator characters:
+```sh
 $ cat data1b
 1005.3247596.37
 115-2.349194.00
@@ -22600,6 +24109,7 @@ $ gawk ‘BEGIN{FIELDWIDTHS=“3 5 2 5”}{print $1,$2,$3,$4}’ data1b
 115 -2.34 91 94.00
 058 10.12 98 100.1
 $
+```
 The FIELDWIDTHS variable defines four data fields, and gawk parses the data record
 accordingly. The string of numbers in each record is split based on the defined field width
 values.
@@ -22628,6 +24138,7 @@ To solve this problem, set the RS variable to an empty string, and leave a blank
 between data records in the data stream. The gawk program interprets each blank line as a
 record separator.
 The following is an example of using this technique:
+```sh
 $ cat data2
 Riley Mullen
 123 Main Street
@@ -22646,6 +24157,7 @@ Riley Mullen (312)555-1234
 Frank Williams (317)555-9876
 Haley Snell (313)555-4938
 $
+```
 Perfect! The gawk program interpreted each line in the file as a data field and the blank
 lines as record separators.
 Data variables
@@ -22691,9 +24203,11 @@ You should recognize a few of these variables from your shell script programming
 ARGC and ARGV variables allow you to retrieve the number of command line parameters and
 their values from the shell. This can be a little tricky, however, because gawk doesn’t count
 the program script as part of the command line parameters:
+```sh
 $ gawk ‘BEGIN{print ARGC,ARGV[1]}’ data1
 2 data1
 $
+```
 The ARGC variable indicates that two parameters are on the command line. This includes
 the gawk command and the data1 parameter (remember that the program script doesn’t
 count as a parameter). The ARGV array starts with an index of 0, which represents the
@@ -22707,6 +24221,7 @@ shell environment variables. An associative array uses text for the array index 
 instead of numeric values.
 The text in the array index is the shell environment variable. The value of the array is the
 value of the shell environment variable. The following is an example of this:
+```sh
 $ gawk ‘
 > BEGIN{
 > print ENVIRON[“HOME”]
@@ -22715,6 +24230,7 @@ $ gawk ‘
 /home/rich
 /usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin
 $
+```
 The ENVIRON[”HOME”] variable retrieves the HOME environment variable value from the
 shell. Likewise, the ENVIRON[”PATH”] variable retrieves the PATH environment variable
 value. You can use this technique to retrieve any environment variable value from the shell
@@ -22723,6 +24239,7 @@ The FNR , NF , and NR variables come in handy when you’re trying to keep track
 fields and records in your gawk program. Sometimes, you’re in a situation where you don’t
 know exactly how many data fields are in a record. The NF variable allows you to specify
 the last data field in the record without having to know its position:
+```sh
 $ gawk ‘BEGIN{FS=”:”; OFS=”:”} {print $1,$NF}’ /etc/passwd
 rich:/bin/bash
 testy:/bin/csh
@@ -22731,12 +24248,14 @@ dan:/bin/bash
 mike:/bin/bash
 test:/bin/bash
 $
+```
 The NF variable contains the numerical value of the last data field in the data file. You can
 then use it as a data field variable by placing a dollar sign in front of it.
 The FNR and NR variables are similar to each other, but slightly different. The FNR variable
 contains the number of records processed in the current data file. The NR variable contains
 the total number of records processed. Let’s look at a couple of examples to see this
 difference:
+```sh
 $ gawk ‘BEGIN{FS=”,”}{print $1,“FNR=“FNR}’ data1 data1
 data11 FNR=1
 data21 FNR=2
@@ -22745,11 +24264,13 @@ data11 FNR=1
 data21 FNR=2
 data31 FNR=3
 $
+```
 In this example, the gawk program command line defines two input files. (It specifies the
 same input file twice.) The script prints the first data field value and the current value of
 the FNR variable. Notice that the FNR value was reset to 1 when the gawk program
 processed the second data file.
 Now, let’s add the NR variable and see what that produces:
+```sh
 $ gawk ‘
 > BEGIN {FS=”,”}
 > {print $1,“FNR=“FNR,“NR=“NR}
@@ -22762,6 +24283,7 @@ data21 FNR=2 NR=5
 data31 FNR=3 NR=6
 There were 6 records processed
 $
+```
 The FNR variable value was reset when gawk processed the second data file, but the NR
 variable maintained its count into the second data file. The bottom line is that if you’re
 using only one data file for input, the FNR and NR values are the same. If you’re using
@@ -22784,6 +24306,7 @@ important to remember that gawk variable names are case sensitive.
 Assigning variables in scripts
 Assigning values to variables in gawk programs is similar to doing so in a shell script,
 using an assignment statement:
+```sh
 $ gawk ‘
 > BEGIN{
 > testing=“This is a test”
@@ -22791,8 +24314,10 @@ $ gawk ‘
 > }’
 This is a test
 $
+```
 The output of the print statement is the current value of the testing variable. Like shell
 script variables, gawk variables can hold either numeric or text values:
+```sh
 $ gawk ‘
 > BEGIN{
 > testing=“This is a test”
@@ -22803,13 +24328,16 @@ $ gawk ‘
 This is a test
 45
 $
+```
 In this example, the value of the testing variable is changed from a text value to a
 numeric value.
 Assignment statements can also include mathematical algorithms to handle numeric
 values:
+```sh
 $ gawk ‘BEGIN{x=4; x= x * 2 + 3; print x}’
 11
 $
+```
 As you can see from this example, the gawk programming language includes the standard
 mathematical operators for processing numerical values. These can include the remainder
 symbol (%) and the exponentiation symbol (using either ∧ or **).
@@ -22818,6 +24346,7 @@ You can also use the gawk command line to assign values to variables for the gaw
 program. This allows you to set values outside of the normal code, changing values on the
 fly. Here’s an example of using a command line variable to display a specific data field in
 the file:
+```sh
 $ cat script1
 BEGIN{FS=”,”}
 {print $n}
@@ -22830,12 +24359,14 @@ data13
 data23
 data33
 $
+```
 This feature allows you to change the behavior of the script without necessitating that you
 change the actual script code. The first example displays the second data field in the file,
 while the second example displays the third data field, just by setting the value of the n
 variable in the command line.
 There’s one problem with using command line parameters to define variable values. When
 you set the variable, the value isn’t available in the BEGIN section of the code:
+```sh
 $ cat script2
 BEGIN{print “The starting value is”,n; FS=”,”}
 {print $n}
@@ -22845,15 +24376,18 @@ data13
 data23
 data33
 $
+```
 You can solve this using the -v command line parameter. This allows you to specify
 variables that are set before the BEGIN section of code. The -v command line parameter
 must be placed before the script code in the command line:
+```sh
 $ gawk -v n=3 -f script2 data1
 The starting value is 3
 data13
 data23
 data33
 $
+```
 Now the n variable contains the value set in the command line during the BEGIN section of
 code.
 
@@ -22882,14 +24416,17 @@ capital[“Indiana”] = “Indianapolis”
 capital[“Ohio”] = “Columbus”
 When you reference an array variable, you must include the index value to retrieve the
 appropriate data element value:
+```sh
 $ gawk ‘BEGIN{
 > capital[“Illinois”] = “Springfield”
 > print capital[“Illinois”]
 > }’
 Springfield
 $
+```
 When you reference the array variable, the data element value appears. This also works
 with numeric data element values:
+```sh
 $ gawk ‘BEGIN{
 > var[1] = 34
 > var[2] = 3
@@ -22898,6 +24435,7 @@ $ gawk ‘BEGIN{
 > }’
 37
 $
+```
 As you can see from this example, you can use array variables just as you would any other
 variable in the gawk program.
 Iterating through array variables
@@ -22914,6 +24452,7 @@ The for statement loops through the statements, each time assigning the variable
 next index value from the array associative array. It’s important to remember that the
 variable is the value of the index and not the data element value. You can easily extract the
 data element value by using the variable as the array index:
+```sh
 $ gawk ‘BEGIN{
 > var[“a”] = 1
 > var[“g”] = 2
@@ -22929,6 +24468,7 @@ Index: m - Value: 3
 Index: a - Value: 1
 Index: g - Value: 2
 $
+```
 Notice that the index values aren’t returned in any particular order, but they each reference
 the appropriate data element value. This is somewhat important to know, because you
 can’t count on the returned values being in the same order, just that the index and data
@@ -22938,6 +24478,7 @@ Removing an array index from an associative array requires a special command:
 delete array[index]
 The delete command removes the associative index value and the associated data
 element value from the array:
+```sh
 $ gawk ‘BEGIN{
 > var[“a”] = 1
 > var[“g”] = 2
@@ -22955,6 +24496,7 @@ Index: g - Value: 2
 –
 Index: a - Value: 1
 $
+```
 After you delete an index value from the associative array, you can’t retrieve it.
 
 ## ==⚡ Using Patterns
@@ -22973,17 +24515,21 @@ Chapter 20 showed how to use regular expressions as matching patterns. You can u
 filter which lines in the data stream the program script applies to.
 When using a regular expression, the regular expression must appear before the left brace
 of the program script that it controls:
+```sh
 $ gawk ‘BEGIN{FS=”,”} /11/{print $1}’ data1
 data11
 $
+```
 The regular expression /11/ matches records that contain the string 11 anywhere in the
 data fields. The gawk program matches the defined regular expression against all the data
 fields in the record, including the field separator character:
+```sh
 $ gawk ‘BEGIN{FS=”,”} /,d/{print $1}’ data1
 data11
 data21
 data31
 $
+```
 This example matches the comma used as the field separator in the regular expression.
 This is not always a good thing. It can lead to problems trying to match data specific to
 one data field that may also appear in another data field. If you need to match a regular
@@ -22992,26 +24538,33 @@ The matching operator
 The matching operator allows you to restrict a regular expression to a specific data field
 in the records. The matching operator is the tilde symbol (∼). You specify the matching
 operator, along with the data field variable, and the regular expression to match:
+```sh
 $1 ~ /^data/
 The $1 variable represents the first data field in the record. This expression filters records
 where the first data field starts with the text data. The following is an example of using the
 matching operator in a gawk program script:
+```sh
 $ gawk ‘BEGIN{FS=”,”} $2 ~ /^data2/{print $0}’ data1
 data21,data22,data23,data24,data25
 $
+```
 The matching operator compares the second data field with the regular expression /
 ∧data2/ , which indicates the string starts with the text data2 .
 This is a powerful tool that is commonly used in gawk program scripts to search for
 specific data elements in a data file:
+```sh
 $ gawk -F: ‘$1 ~ /rich/{print $1,$NF}’ /etc/passwd
 rich /bin/bash
 $
+```
 This example searches the first data field for the text rich . When it finds the pattern in a
 record, it prints the first and last data field values of the record.
 You can also negate the regular expression match by using the ! symbol:
+```sh
 $1 !~ /expression/
 If the regular expression isn’t found in the record, the program script is applied to the
 record data:
+```sh
 $ gawk –F: ‘$1 !∼ /rich/{print $1,$NF}’ /etc/passwd
 root /bin/bash
 daemon /bin/sh
@@ -23019,6 +24572,7 @@ bin /bin/sh
 sys /bin/sh
 – output truncated –
 $
+```
 In this example, the gawk program script prints the userid and shell for all the entries in the
 /etc/passwd file that don’t match the userid rich !
 Mathematical expressions
@@ -23026,6 +24580,7 @@ In addition to regular expressions, you can also use mathematical expressions in
 matching pattern. This feature comes in handy when matching numerical values in data
 fields. For example, if you want to display all the system users who belong to the root
 users group (group number 0), you could use this script:
+```sh
 $ gawk -F: ‘$4 == 0{print $1}’ /etc/passwd
 root
 sync
@@ -23033,6 +24588,7 @@ shutdown
 halt
 operator
 $
+```
 The script checks for records where the fourth data field contains the value 0. On this
 Linux system, five user accounts belong to the root user group.
 You can use any of the normal mathematical comparison expressions:
@@ -23044,11 +24600,13 @@ x >= y : Value x is greater than or equal to y.
 x > y : Value x is greater than y.
 You can also use expressions with text data, but you must be careful. Unlike regular
 expressions, expressions are an exact match. The data must match exactly with the pattern:
+```sh
 $ gawk -F, ‘$1 == “data”{print $1}’ data1
 $
 $ gawk -F, ‘$1 == “data11”{print $1}’ data1
 data11
 $
+```
 The first test doesn’t match any records because the first data field value isn’t data in any
 of the records. The second test matches one record with the value data11 .
 
@@ -23069,6 +24627,7 @@ statement1
 Or you can place it on one line, like this:
 if (condition) statement1
 Here’s a simple example demonstrating this format:
+```sh
 $ cat data4
 10
 5
@@ -23079,8 +24638,10 @@ $ gawk ‘{if ($1 > 20) print $1}’ data4
 50
 34
 $
+```
 Not too complicated. If you need to execute multiple statements in the if statement, you
 must enclose them with braces:
+```sh
 $ gawk ‘{
 > if ($1 > 20)
 > {
@@ -23091,9 +24652,11 @@ $ gawk ‘{
 100
 68
 $
+```
 Be careful that you don’t confuse the if statement braces with the braces used to start and
 stop the program script. The gawk program can detect missing braces and produces an
 error message if you mess up:
+```sh
 $ gawk ‘{
 > if ($1 > 20)
 > {
@@ -23103,8 +24666,10 @@ $ gawk ‘{
 gawk: cmd. line:6: }
 gawk: cmd. line:6: ^ unexpected newline or end of string
 $
+```
 The gawk if statement also supports the else clause, allowing you to execute one or more
 statements if the if statement condition fails. Here’s an example of using the else clause:
+```sh
 $ gawk ‘{
 > if ($1 > 20)
 > {
@@ -23121,10 +24686,12 @@ $ gawk ‘{
 100
 68
 $
+```
 You can use the else clause on a single line, but you must use a semicolon after the if
 statement section:
 if (condition) statement1; else statement2
 Here’s the same example using the single line format:
+```sh
 $ gawk ‘{if ($1 > 20) print $1 * 2; else print $1 / 2}’ data4
 5
 2.5
@@ -23132,6 +24699,7 @@ $ gawk ‘{if ($1 > 20) print $1 * 2; else print $1 / 2}’ data4
 100
 68
 $
+```
 This format is more compact but can be harder to follow.
 The while statement
 The while statement provides a basic looping feature for gawk programs. Here’s the
@@ -23143,6 +24711,7 @@ statements
 The while loop allows you to iterate over a set of data, checking a condition that stops the
 iteration. This is useful if you have multiple data values in each record that you must use
 in calculations:
+```sh
 $ cat data5
 130 120 135
 160 113 140
@@ -23162,6 +24731,7 @@ Average: 128.333
 Average: 137.667
 Average: 176.667
 $
+```
 The while statement iterates through the data fields in the record, adding each value to the
 total variable and incrementing the counter variable, i . When the counter value is equal to
 4, the while condition becomes FALSE , and the loop terminates, dropping through to the
@@ -23169,6 +24739,7 @@ next statement in the script. That statement calculates the average and prints t
 This process is repeated for each record in the data file.
 The gawk programming language supports using the break and continue statements in
 while loops, allowing you to jump out of the middle of the loop:
+```sh
 $ gawk ‘{
 > total = 0
 > i = 1
@@ -23186,6 +24757,7 @@ The average of the first two data elements is: 125
 The average of the first two data elements is: 136.5
 The average of the first two data elements is: 157.5
 $
+```
 The break statement is used to break out of the while loop if the value of the i variable is
 2.
 The do-while statement
@@ -23198,6 +24770,7 @@ statements
 This format guarantees that the statements are executed at least one time before the
 condition is evaluated. This comes in handy when you need to perform statements before
 evaluating the condition:
+```sh
 $ gawk ‘{
 > total = 0
 > i = 1
@@ -23211,6 +24784,7 @@ $ gawk ‘{
 160
 315
 $
+```
 The script reads the data fields from each record and totals them until the cumulative value
 reaches 150. If the first data field is over 150 (as seen in the second record), the script is
 guaranteed to read at least the first data field before evaluating the condition.
@@ -23219,6 +24793,7 @@ The for statement is a common method used in many programming languages for
 looping. The gawk programming language supports the C-style of for loops:
 for( variable assignment; condition; iteration process)
 This helps simplify the loop by combining several functions in one statement:
+```sh
 $ gawk ‘{
 > total = 0
 > for (i = 1; i < 4; i++)
@@ -23232,6 +24807,7 @@ Average: 128.333
 Average: 137.667
 Average: 176.667
 $
+```
 By defining the iteration counter in the for loop, you don’t have to worry about
 incrementing it yourself as you did when using the while statement.
 
@@ -23307,18 +24883,22 @@ of right justification when placing data in the formatted space.
 When using the printf statement, you have complete control over how your output
 appears. For example, in the “Built-in variables” section, we used the print command to
 display data fields from our records:
+```sh
 $ gawk ‘BEGIN{FS=”\n”; RS=””} {print $1,$4}’ data2
 Riley Mullen (312)555-1234
 Frank Williams (317)555-9876
 Haley Snell (313)555-4938
 $
+```
 You can use the printf command to help format the output so it looks better. First, let’s
 just convert the print command to a printf command and see what that does:
+```sh
 $ gawk ‘BEGIN{FS=”\n”; RS=””} {printf “%s %s\n”, $1, $4}’ data2
 Riley Mullen (312)555-1234
 Frank Williams (317)555-9876
 Haley Snell (313)555-4938
 $
+```
 That produces the same output as the print command. The printf command uses the %s
 format specifier as a placeholder for the two string values.
 Notice that you have to manually add the newline character at the end of the printf
@@ -23326,25 +24906,31 @@ command to force a new line. Without it, the printf command uses the same line o
 subsequent prints.
 This is useful if you need to print multiple things on the same line, but using separate
 printf commands:
+```sh
 $ gawk ‘BEGIN{FS=”,”} {printf “%s “, $1} END{printf “\n”}’ data1
 data11 data21 data31
 $
+```
 Both printf outputs appear on the same line. To be able to terminate the line, the END
 section prints a single newline character.
 Next, let’s use a modifier to format the first string value:
+```sh
 $ gawk ‘BEGIN{FS=”\n”; RS=””} {printf “%16s %s\n”, $1, $4}’ data2
 Riley Mullen (312)555-1234
 Frank Williams (317)555-9876
 Haley Snell (313)555-4938
 $
+```
 By adding the 16 modifier value, we force the output for the first string to use 16 spaces.
 By default, the printf command uses right justification to place the data in the format
 space. To make it left justified, just add a minus sign to the modifier:
+```sh
 $ gawk ‘BEGIN{FS=”\n”; RS=””} {printf “%-16s %s\n”, $1, $4}’ data2
 Riley Mullen (312)555-1234
 Frank Williams (317)555-9876
 Haley Snell (313)555-4938
 $
+```
 Now that looks pretty professional!
 The printf command also comes in handy when dealing with floating-point values. By
 specifying a format for the variable, you can make the output look more uniform:
@@ -23503,14 +25089,17 @@ This function converts all characters in s to lowercase.
 toupper(s)
 This function converts all characters in s to uppercase.
 Some string functions are relatively self-explanatory:
+```sh
 $ gawk ‘BEGIN{x = “testing”; print toupper(x); print length(x) }’
 TESTING
 7
 $
+```
 However, some string functions can get pretty complicated. The asort and asorti
 functions are new gawk functions that allow you to sort an array variable based on either
 the data element values ( asort ) or the index values ( asorti ). Here’s an example of using
 asort :
+```sh
 $ gawk ‘BEGIN{
 > var[“a”] = 1
 > var[“g”] = 2
@@ -23525,9 +25114,11 @@ Index: 1 - value: 1
 Index: 2 - value: 2
 Index: 3 - value: 3
 $
+```
 The new array, test , contains the newly sorted data elements of the original array, but the
 index values are now changed to numerical values, indicating the proper sort order.
 The split function is a great way to push data fields into an array for further processing:
+```sh
 $ gawk ‘BEGIN{ FS=”,”}{
 > split($0, var)
 > print var[1], var[5]
@@ -23536,6 +25127,7 @@ data11 data15
 data21 data25
 data31 data35
 $
+```
 The new array uses sequential numbers for the array index, starting with index value 1
 containing the first data field.
 Time functions
@@ -23559,6 +25151,7 @@ The time functions are often used when working with log files that contain dates
 need to compare. By converting the text representation of a date to the epoch time (the
 number of seconds since midnight, January 1, 1970), you can easily compare dates.
 The following is an example of using the time functions in a gawk program:
+```sh
 $ gawk ‘BEGIN{
 > date = systime()
 > day = strftime(“%A, %B %d, %Y”, date)
@@ -23566,6 +25159,7 @@ $ gawk ‘BEGIN{
 > }’
 Friday, December 26, 2014
 $
+```
 This example uses the systime function to retrieve the current epoch timestamp from the
 system and then uses the strftime function to convert it into a human-readable format
 using the date shell command’s date format characters.
@@ -23603,6 +25197,7 @@ Using your functions
 When you define a function, it must appear by itself before you define any programming
 sections (including the BEGIN section). This may look a little odd at first, but it helps keep
 the function code separate from the rest of the gawk program:
+```sh
 $ gawk ‘
 > function myprint()
 > {
@@ -23616,6 +25211,7 @@ Riley Mullen - (312)555-1234
 Frank Williams - (317)555-9876
 Haley Snell - (313)555-4938
 $
+```
 The function defines the myprint() function, which formats the first and fourth data fields
 in the record for printing. The gawk program then uses the function to display the data
 from the data file.
@@ -23626,6 +25222,7 @@ Obviously, having to rewrite your gawk functions every time you need them is not
 pleasant experience. However, gawk provides a way for you to combine your functions
 into a single library file that you can use in all your gawk programming.
 First, you need to create a file that contains all your gawk functions:
+```sh
 $ cat funclib
 function myprint()
 {
@@ -23640,12 +25237,14 @@ function printthird()
 print $3
 }
 $
+```
 The funclib file contains three function definitions. To use them, you need to use the -f
 command line parameter. Unfortunately, you can’t combine the -f command line
 parameter with an inline gawk script, but you can use multiple -f parameters on the same
 command line.
 Thus, to use your library, just create a file that contains your gawk program, and specify
 both the library file and your program file on the command line:
+```sh
 $ cat script4
 BEGIN{ FS=”\n”; RS=””}
 {
@@ -23656,6 +25255,7 @@ Riley Mullen - (312)555-1234
 Frank Williams - (317)555-9876
 Haley Snell - (313)555-4938
 $
+```
 Now you just need to add the funclib file to your gawk command line whenever you need
 to use a function defined in the library.
 
@@ -23668,15 +25268,18 @@ files, the key is to first group related data records together and then perform 
 calculations required on the related data.
 For example, let’s work with a data file that contains the bowling scores from a game
 between two teams, each with two players:
+```sh
 $ cat scores.txt
 Rich Blum,team1,100,115,95
 Barbara Blum,team1,110,115,100
 Christine Bresnahan,team2,120,115,118
 Tim Bresnahan,team2,125,112,116
 $
+```
 Each player has scores from three separate games in the data file, and each player is
 identified by a team name in the second column. Here’s the shell script to sort the data for
 each team and calculate the totals and averages:
+```sh
 $ cat bowling.sh
 #!/bin/bash
 for team in $(gawk –F, ‘{print $2}’ scores.txt | uniq)
@@ -23694,6 +25297,7 @@ print “Total for”, team, “is”, total, “,the average is”,avg
 }’ scores.txt
 done
 $
+```
 The first gawk statement inside the for loop filters out the team names in the data file and
 then uses the uniq function to return one value for each separate team name. The for loop
 then iterates for each separate team name.
@@ -23705,10 +25309,12 @@ record, adding each data record’s values, as long as that data record matches 
 name.
 At the end of each loop iteration, the gawk code displays the score totals, as well as the
 average of the scores. The output should look like this:
+```sh
 $ ./bowling.sh
 Total for team1 is 635, the average is 105.833
 Total for team2 is 706, the average is 117.667
 $
+```
 Now you have a handy shell script to calculate the results of all your bowling
 tournaments; you just need to plug the data from each player into the data text file and run
 the script!
@@ -23758,52 +25364,66 @@ In This Chapter
 2. Programming in the dash shell
 3. Introducing the zsh shell
 4. Writing scripts for zsh
+
 Although the bash shell is the most widely used shell in Linux distributions, it isn’t
 the only one. Now that you’ve seen the standard Linux bash shell and what you can
 do with it, it’s time to examine a few other shells available in the Linux world. This
 chapter describes two other shells that you may run into in your Linux journey and
 how they differ from the bash shell.
+
 What Is the dash Shell?
 The Debian dash shell has had an interesting past. It’s a direct descendant of the ash shell,
 a simple copy of the original Bourne shell available on Unix systems (see [chapter 1]).
+
 Kenneth Almquist created a small-scale version of the Bourne shell for Unix systems and
 called it the Almquist shell, which was then shortened to ash. This original version of the
 ash shell was extremely small and fast but without many advanced features, such as
 command line editing or history features, making it difficult to use as an interactive shell.
+
 The NetBSD Unix operating system adopted the ash shell and still uses it today as the
 default shell. The NetBSD developers customized the ash shell by adding several new
 features, making it closer to the Bourne shell. The new features include command line
 editing using both emacs and vi editor commands, as well as a history command to recall
 previously entered commands. This version of the ash shell is also used by the FreeBSD
 operating system as the default login shell.
+
 The Debian Linux distribution created its own version of the ash shell (called Debian ash,
 or dash) for inclusion in its version of Linux. For the most part, dash copies the features of
 the NetBSD version of the ash shell, providing the advanced command line editing
 capabilities.
+
 However, to add to the shell confusion, the dash shell is actually not the default shell in
 many Debian-based Linux distributions. Because of the popularity of the bash shell in
 Linux, most Debian-based Linux distributions use the bash shell as the normal login shell
 and use the dash shell only as a quick-start shell for the installation script to install the
 distribution files.
+
 The exception is the popular Ubuntu distribution. This often confuses shell script
 programmers and causes a great number of problems with running shell scripts in a Linux
 environment. The Ubuntu Linux distribution uses the bash shell as the default interactive
 shell, but uses the dash shell as the default /bin/sh shell. This “feature” really confuses
 shell script programmers.
+
 As you saw in Chapter 11, every shell script must start with a line that declares the shell
 used for the script. In our bash shell scripts, we’ve been using this:
+```sh
 #!/bin/bash
+```
 This tells the shell to use the shell program located at /bin/bash to execute the script. In
 the Unix world, the default shell was always /bin/sh . Many shell script programmers
 familiar with the Unix environment copy this into their Linux shell scripts:
+```sh
 #!/bin/sh
+```
 On most Linux distributions, the /bin/sh file is a symbolic link (see [chapter 3]) to the
 /bin/bash shell program. This allows you to easily port shell scripts designed for the
 Unix Bourne shell to the Linux environment without having to modify them.
+
 Unfortunately, the Ubuntu Linux distribution links the /bin/sh file to the /bin/dash shell
 program. Because the dash shell contains only a subset of the commands available in the
 original Bourne shell, this can — and often does — cause some shell scripts to not work
 properly.
+
 The next section walks you through the basics of the dash shell and how it differs from the
 bash shell. This is especially important to know if you write bash shell scripts that may
 need to be run in an Ubuntu environment.
@@ -23815,6 +25435,7 @@ Although both the bash shell and the dash shell are modeled after the Bourne she
 have some differences. This section walks you through the features found in the Debian
 dash shell to acquaint you with how the dash shell works before we dive into the shell
 scripting features.
+
 The dash command line parameters
 The dash shell uses command line parameters to control its behavior. Table 23.1 lists the
 command line parameters and describes what each one does.
@@ -23852,22 +25473,27 @@ present)
 Enables the emacs command line editor
 -V
 Enables the vi command line editor
+
 Debian added a few additional command line parameters to the original ash shell
 command line parameter list. The -E and -V command line parameters enable the special
 command line editing features of the dash shell.
+
 The -E command line parameter allows you to use the emacs editor commands for editing
 command line text (see [chapter 10]). You can use all the emacs commands for
 manipulating text on a single line using the Ctrl and Meta key combinations.
+
 The -V command line parameter allows you to use the vi editor commands for editing
 command line text (again, see Chapter 10). This feature allows you to switch between
 normal mode and vi editor mode on the command line by using the Esc key. When you’re
 in vi editor mode, you can use all the standard vi editor commands (such as x to delete a
 character, and i to insert text). After you finish editing the command line, you must press
 the Esc key again to exit vi editor mode.
+
 The dash environment variables
 The dash shell uses quite a few default environment variables uses to track information,
 and you can create your own environment variables as well. This section describes the
 environment variables and how dash handles them.
+
 Default environment variables
 The dash environment variables are very similar to the environment variables used in bash
 (see [chapter 6]). This is not by accident. Remember that both the dash and bash shells are
@@ -23875,8 +25501,10 @@ extensions of the Bourne shell, so they both incorporate many of its features. H
 because of its goal of simplicity, the dash shell contains significantly fewer environment
 variables than the bash shell. You need to take this into consideration when creating shell
 scripts in a dash shell environment.
+
 The dash shell uses the set command to display environment variables:
 
+```sh
     $set
     COLORTERM=”
     DESKTOP_SESSION=‘default’
@@ -23910,6 +25538,7 @@ The dash shell uses the set command to display environment variables:
     XCURSOR_THEME=‘default’
     _=‘ash’
     $
+```
 
 Your default dash shell environment will most likely differ, because different Linux
 distributions assign different default environment variables at login.
@@ -23940,10 +25569,12 @@ The dash shell also allows you to set your own environment variables. As with ba
 can define a new environment variable on the command line by using the assignment
 statement:
 
+```sh
     $ testing=10 ; export testing
     $ echo $testing
     10
     $
+```
 
 Without the export command, user-defined environment variables are visible only in the
 current shell or process.
@@ -23952,6 +25583,7 @@ Caution
 There’s one huge difference between dash variables and bash variables. The dash
 shell doesn’t support variable arrays. This small feature causes all sorts of problems
 for advanced shell script writers.
+
 The dash built-in commands
 Just as with the bash shell, the dash shell contains a set of built-in commands that it
 recognizes. You can use these commands directly from the command line interface, or you
@@ -24149,10 +25781,12 @@ that are available without the need for external utility programs. The benefit o
 commands is execution speed. The shell doesn’t have to load a utility program into
 memory before running it; the built-in commands are already in the shell memory, ready
 to go.
+
 The zsh shell provides a core set of built-in commands, plus the capability to add more
 command modules. Each command module provides a set of additional built-in commands
 for specific circumstances, such as network support and advanced math functions. You can
 add only the modules you think you need for your specific situation.
+
 This feature provides a great way to either limit the size of the zsh shell for situations that
 require a small shell size and few commands or expand the number of available built-in
 commands for situations that require faster execution speeds.
@@ -24163,6 +25797,41 @@ commands for situations that require faster execution speeds.
 This section walks you through the basics of the zsh shell, showing the built-in commands
 that are available (or can be added by installing modules), as well as the command line
 parameters and environment variables used by the zsh shell.
+
+```sh
+> zsh
+This is the Z Shell configuration function for new users,
+zsh-newuser-install.
+You are seeing this message because you have no zsh startup files
+(the files .zshenv, .zprofile, .zshrc, .zlogin in the directory
+~).  This function can help you with a few settings that should
+make your use of the shell easier.
+
+You can:
+
+(q)  Quit and do nothing.  The function will be run again next time.
+
+(0)  Exit, creating the file ~/.zshrc containing just a comment.
+     That will prevent this function being run again.
+
+(1)  Continue to the main menu.
+
+--- Type one of the keys in parentheses ---
+```
+
+在这里输入 1 进入配置界面。在配置界面中各个菜单代表的意思分别是：
+
+1：设置命令历史记录相关的选项
+2：设置命令补全系统
+3：设置热建
+4：选择各种常见的选项，只需要选择“On”或者“Off”
+0：退出，并使用空白（默认）配置
+a：终止设置并退出
+q：退出
+
+根据提示，选项相应的配置项目，然后按照喜好配置。可以配置功能热键风格，比如 Emacs 或者 VIM 热键风格。又如 4 选项配置，可以打开 Change directory given just path 功能，只需要敲目录名就可以执行 cd 命令，不过执行效率不是很高。配置好后按 ，zsh 会在 HOME 目录下生成 .zshrc 文件。然后可以编辑这个文件以启用插件和主题。
+
+
 
 ### ===🗝 Shell options
 Most shells use command line parameters to define the behavior of the shell. The zsh shell
@@ -24564,6 +26233,7 @@ This chapter discussed two popular alternative Linux shells that you may run int
 dash shell was developed as part of the Debian Linux distribution and is mainly found in
 the Ubuntu Linux distribution. It’s a smaller version of the Bourne shell, so it doesn’t
 support as many features as the bash shell, which can cause problems for script writing.
+
 The zsh shell is often found in programming environments, because it provides lots of
 cool features for shell script programmers. It uses loadable modules to load separate code
 libraries, which make using advanced functions as easy as running command line
@@ -24757,6 +26427,7 @@ repository archive directory:
 ```sh
 $ sudo mkdir /archive
 [sudo] password for Christine:
+```sh
 $
 $ ls -ld /archive
 drwxr-xr-x. 2 root root 4096 Aug 27 14:10 /archive
@@ -24787,6 +26458,7 @@ drwxr-xr-x. 2 root Archivers 4096 Aug 27 14:10 /archive
 $
 $ sudo usermod -aG Archivers Christine
 [sudo] password for Christine:
+```sh
 $
 $ sudo chmod 775 /archive
 $
@@ -24993,6 +26665,7 @@ newly created directory must have its primary group and group permissions change
 ```sh
 $ sudo mkdir /archive/hourly
 [sudo] password for Christine:
+```sh
 $
 $ sudo chgrp Archivers /archive/hourly
 $
@@ -25004,8 +26677,10 @@ $
 $ ls -ld /archive/hourly
 drwxrwxr-x. 2 root Archivers 4096 Sep 2 09:24 /archive/hourly
 $
+```
 After the new directory is set up, the Files_To_Backup configuration file for the hourly
 archives can be moved to the new directory:
+```sh
 $ cat Files_To_Backup
 /usr/local/Production/Machine_Errors
 /home/Development/Simulation_Logs
@@ -26112,6 +27787,7 @@ $ ls -l Big_Users.sh
 $
 $ sudo bash Big_Users.sh
 [sudo] password for Christine:
+```sh
 $
 $ ls disk_space*.rpt
 disk_space_090314.rpt
@@ -27290,6 +28966,7 @@ run the script, you don’t see anything appear on the command line output:
 ```sh
 $ ./diskmail rich
 But if you check your mail, you should see the sent message:
+```sh
 $ mail
 ”/var/mail/rich”: 1 message 1 new
 >N 1 Rich Blum Mon Sep 1 10:35 19/1020 Disk stats for
@@ -29067,95 +30744,136 @@ command2
 command3 }
 The sed editor applies each of the commands you specify only to lines that match the
 address specified. The sed editor processes each command listed on the address line(s):
+```sh
 $ sed ‘2{
 > s/fox/elephant/
 > s/dog/cat/
 > }’ data1
+```
 The sed editor applies each of the substitutions to the second line in the data file.
 Deleting lines
 The delete command, d , pretty much does what it says. It deletes any text lines that match
 the addressing scheme supplied. Be careful with the delete command, because if you
 forget to include an addressing scheme, all the lines are deleted from the stream:
+```sh
 $ sed ‘d’ data1
+```
 The delete command is obviously most useful when used in conjunction with a specified
 address. This allows you to delete specific lines of text from the data stream, either by line
 number:
+```sh
 $ sed ‘3d’ data6
+```
 or by a specific range of lines:
+```sh
 $ sed ‘2,3d’ data6
+```
 The pattern-matching feature of the sed editor also applies to the delete command:
+```sh
 $ sed ‘/number 1/d’ data6
+```
 Only lines matching the specified text are deleted from the stream.
 Inserting and appending text
+
 As you would expect, like any other editor, the sed editor allows you to insert and append
 text lines to the data stream. The difference between the two actions can be confusing:
 
-The insert command ( i ) adds a new line before the specified line.
-The append command ( a ) adds a new line after the specified line.
+1. The insert command ( i ) adds a new line before the specified line.
+2. The append command ( a ) adds a new line after the specified line.
+
 The format of these two commands can be confusing: You can’t use these commands on a
 single command line. You must specify the line to insert or append on a separate line by
 itself. Here’s the format for doing this:
+```sh
 sed ‘[address]command\
 new line’
+```
 The text in new line appears in the sed editor output in the place you specify. Remember
 that when you use the insert command, the text appears before the data stream text:
+```sh
 $ echo “testing” | sed ‘i\
 > This is a test’
 This is a test
 testing
 $
+```
 And when you use the append command, the text appears after the data stream text:
+```sh
 $ echo “testing” | sed ‘a\
 > This is a test’
 testing
 This is a test
 $
+```
 This allows you to insert text at the end of the normal text.
+
 Changing lines
 The change command allows you to change the contents of an entire line of text in the
 data stream. It works the same as the insert and append commands, in that you must
 specify the new line separately from the rest of the sed command:
+```sh
 $ sed ‘3c\
 > This is a changed line of text.’ data6
+```
 The backslash character is used to indicate the new line of data in the script.
+
 Transform command
 The transform command ( y ) is the only sed editor command that operates on a single
 character. The transform command uses this format:
+```sh
 [address]y/inchars/outchars/
+```
+
 The transform command performs a one-to-one mapping of the inchars and the outchars
 values. The first character in inchars is converted to the first character in outchars . The
 second character in inchars is converted to the second character in outchars . This
 mapping continues throughout the length of the specified characters. If the inchars and
 outchars are not the same length, the sed editor produces an error message.
+
 Printing lines
 Similar to the p flag in the substitution command, the p command prints a line in the sed
 editor output. The most common use for the print command is for printing lines that
 contain matching text from a text pattern:
+```sh
 $ sed -n ‘/number 3/p’ data6
 This is line number 3.
 $
+```
 The print command allows you to filter only specific lines of data from the input stream.
+
 Writing to a file
 The w command is used to write lines to a file. Here’s the format for the w command:
+```sh
 [address]w filename
+```
 The filename can be specified as either a relative or absolute pathname, but in either case,
 the person running the sed editor must have write permissions for the file. The address
 can be any type of addressing method used in sed , such as a single line number, a text
 pattern, or a range of line numbers or text patterns.
+
 Here’s an example that prints only the first two lines of a data stream to a text file:
+```sh
 $ sed ‘1,2w test’ data6
+```
 The output file test contains only the first two lines from the input stream.
+
 Reading from a file
 You’ve already seen how to insert and append text into a data stream from the sed
 command line. The read command ( r ) allows you to insert data contained in a separate
 file.
+
 Here’s the format of the read command:
+```sh
 [address]r filename
+```
 The filename parameter specifies either an absolute or relative pathname for the file that
 contains the data. You can’t use a range of addresses for the read command. You can
 specify only a single line number or text pattern address. The sed editor inserts the text
 from the file after the address.
+
+```sh
 $ sed ‘3r data’ data2
+```
 The sed editor inserts the complete text from the data file into the data2 file, starting at
 line 3 of the data2 file.
 
@@ -29166,9 +30884,12 @@ The gawk program is the GNU version of the original awk program in Unix. The awk
 program takes stream editing one step further than the sed editor by providing a
 programming language instead of just editor commands. This section describes the basics
 of the gawk program as a quick reference to its abilities.
+
 The gawk command format
 The basic format of the gawk program is as follows:
+```sh
 gawk options program file
+```
 
 Table B.2 shows the options available with the gawk program.
                                                                 *Table B.2*
@@ -29187,37 +30908,49 @@ Defines a variable and default value used in the gawk program
 keyword
 Specifies the compatibility mode or warning level for gawk . Use the help
 option to list all the available keywords.
+
 The command line options provide an easy way to customize features in the gawk
 program.
+
 Using gawk
 You can use gawk either directly from the command line or from within your shell scripts.
 This section demonstrates how to use the gawk program and how to enter scripts for gawk
 to process.
+
 Reading the program script from the command line
 A gawk program script is defined by an opening and closing brace. You must place script
 commands between the two braces. Because the gawk command line assumes that the
 script is a single text string, you must also enclose your script in single quotation marks.
 Here’s an example of a simple gawk program script specified on the command line:
+```sh
 $ gawk ‘{print $1}’
+```
 This script displays the first data field in every line of the input stream.
+
 Using multiple commands in the program script
 A programming language wouldn’t be very useful if you could execute only one
 command. The gawk programming language allows you to combine commands into a
 normal program. To use multiple commands in the program script specified on the
 command line, just place a semicolon between commands:
+```sh
 $ echo “My name is Rich” | gawk ‘{$4=“Dave”; print $0}’
 My name is Dave
 $
+```
 The script performs two commands: It replaces the fourth data field with a different value,
 and then it displays the entire data line in the stream.
+
 Reading the program from a file
 As with the sed editor, the gawk editor allows you to store your programs in a file and
 refer to them in the command line:
+```sh
 $ cat script2
 { print $5 “‘s userid is ” $1 }
 $ gawk -F: -f script2 /etc/passwd
+```
 The gawk program processes all the commands specified in the file on the input stream
 data.
+
 Running scripts before processing data
 The gawk program also allows you to specify when the program script is run. By default,
 gawk reads a line of text from the input and then executes the program script on the data in
@@ -29225,14 +30958,18 @@ the line of text. Sometimes, you may need to run a script before processing data
 create a header section for a report. To do that, you use the BEGIN keyword. This forces
 gawk to execute the program script specified after the BEGIN keyword before reading the
 data:
+```sh
 $ gawk ‘BEGIN {print “This is a test report”}’
 This is a test report
 $
+```
 You can place any type of gawk command in the BEGIN section, such as commands that
 assign default values to variables.
+
 Running scripts after processing data
 Similar to the BEGIN keyword, the END keyword allows you to specify a program script that
 gawk executes after reading the data:
+```sh
 $ gawk ‘BEGIN {print “Hello World!”} {print $0} END {print
 “byebye”}’ data1
 Hello World!
@@ -29242,24 +30979,27 @@ This is another test.
 This is another test.
 byebye
 $
+```
 The gawk program executes the code in the BEGIN section first, then processes any data in
 the input stream, and then executes the code in the END section.
+
 The gawk variables
 The gawk program is more than just an editor; it’s a complete programming environment.
 As such, lots of commands and features are associated with gawk . This section shows the
 main features you need to know for programming with gawk .
+
 Built-in variables
 The gawk program uses built-in variables to reference specific features within the program
 data. This section describes the gawk built-in variables available for you to use in your
 gawk programs and demonstrates how to use them.
+
 The gawk program defines data as records and data fields. A record is a line of data
 (delineated by the newline characters by default), and a data field is a separate data
 element within the line (delineated by a white space character, such as a space or tab, by
 default).
-The gawk program uses data field variables to reference data elements within each record.
 
+The gawk program uses data field variables to reference data elements within each record.
 Table B.3 describes these variables.
-                                                                *Table B.3*
 
 Table B.3 The gawk Data Field and Record Variables
                                                                 *Table B.3*
@@ -29283,6 +31023,7 @@ OFS
 Output field separator character
 ORS
 Output record separator character
+
 In addition to the field and record separator variables, gawk provides some other built-in
 variables to help you know what’s going on with your data and extract information from
 the shell environment. Table B.4 shows the other built-in variables in gawk .
@@ -29321,11 +31062,14 @@ RLENGTH
 The length of the substring matched in the match function
 RSTART
 The start index of the substring matched in the match function
+
 You can use the built-in variables anywhere in the gawk program script, including the
 BEGIN and END sections.
+
 Assigning variables in scripts
 Assigning values to variables in gawk programs is similar to how you assign values to
 variables in a shell script — using an assignment statement:
+```sh
 $ gawk ‘
 > BEGIN{
 > testing=“This is a test”
@@ -29333,42 +31077,56 @@ $ gawk ‘
 > }’
 This is a test
 $
+```
 After you assign a value to a variable, you can use that variable anywhere in your gawk
 script.
+
 Assigning variables in the command line
 You can also use the gawk command line to assign values to variables for the gawk
 program. This allows you to set values outside of the normal code, changing values on the
 fly. Here’s an example of using a command line variable to display a specific data field in
 the file:
+```sh
 $ cat script1
 BEGIN{FS=”,”}
 {print $n}
 $ gawk -f script1 n=2 data1
 $ gawk -f script1 n=3 data1
+```
 This feature is a great way to process data from your shell scripts in the gawk script.
 The gawk program features
+
 Some features of the gawk program make it handy for manipulating data, allowing you to
 create gawk scripts that can parse just about any type of text file, including log files.
+
 Regular expressions
 You can use either a Basic Regular Expression (BRE) or an Extended Regular Expression
 (ERE) to filter the lines in the data stream to which the program script applies.
+
 When using a regular expression, the regular expression must appear before the left brace
 of the program script that it controls:
+```sh
 $ gawk ‘BEGIN{FS=”,”} /test/{print $1}’ data1
 This is a test
 $
+```
 The matching operator
 The matching operator allows you to restrict a regular expression to a specific data field
 in the records. The matching operator is the tilde character (∼). You specify the matching
 operator, along with the data field variable, and the regular expression to match:
+```sh
 $1 ~ /^data/
+```
 This expression filters records where the first data field starts with the text data.
+
 Mathematical expressions
 In addition to regular expressions, you can also use mathematical expressions in the
 matching pattern. This feature comes in handy when matching numerical values in data
 fields. For example, if you want to display all the system users who belong to the root
 users group (group number 0), you could use this script:
+```sh
 $ gawk -F: ‘$4 == 0{print $1}’ /etc/passwd
+```
 This script displays the first data field value for all lines that contain the value 0 in the
 fourth data field.
 
