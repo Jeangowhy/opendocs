@@ -1,7 +1,236 @@
 
 # 🚩 Language Reference
 - PHP 8.1.0 Manual - Language Reference
- 
+
+PHP LSP 服务安装，Phpactor requires PHP 8.1.
+
+```sh
+# PHAR Installation
+$ curl -Lo phpactor.phar https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar
+$ curl -Lo phpactor.phar https://github.com/phpactor/phpactor/releases/download/2023.09.24.0/phpactor.phar
+# Then make it executable and symlink it somewhere in your PATH:
+$ chmod a+x phpactor.phar
+$ mv phpactor.phar ~/.local/bin/phpactor
+
+# Manual Installation
+# https://getcomposer.org/download/
+# curl -o 'composer-setup.php' https://getcomposer.org/installer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+$ cd ~/home/you/somewhere
+$ git clone https://github.com/phpactor/phpactor.git
+$ cd phpactor
+$ composer install
+$ cd /usr/local/bin
+$ sudo ln -s ~/your/projects/phpactor/bin/phpactor phpactor
+```
+
+## ==⚡ Parallel Extension Compile
+https://www.php.net/downloads.php
+https://windows.php.net/downloads/php-sdk/
+https://pecl.php.net/package/parallel
+https://www.php.net/manual/en/install.pecl.windows.php
+https://github.com/php/php-sdk-binary-tools/archive/refs/tags/php-sdk-2.2.0.zip
+
+PEAR - PHP Extension and Application Repository 是官方的扩展模块打包系统，新版本的扩展模块管理中心是 PECL，但是都不是很好用。
+
+parallel requires a build of PHP with ZTS (Zend Thread Safety) enabled (`--enable-zts`, or on non-Windows systems prior to PHP 8.0.0, `--enable-maintainer-zts`)
+
+Caution
+Zend Thread Safety cannot be enabled post build; it is a build time configuration option.
+
+parallel should build anywhere there is a working Posix Threads header (pthread.h) and ZTS build of PHP, including Windows (using the pthread-w32 project from redhat).
+
+使用 php -i 命令可以查看是否启用了线程安全模式编译，Thread Safely 对应显示为 enabled 即为线程安全模式编译的 PHP。
+
+Thread-Safety (TS) 线程安全模式编译的 PHP 对多线程运行采用加锁机制，多个线程访问某个加锁数据时，同时只能允许一个线程访问，其他线程需要等待解锁。None Thread Safely (NTS) 没有使用加锁保护，需要用户保证数据逻辑在多线程下的安全性。
+
+在线程安全模式下，还需要使用 --enable-zts 即启用 Zend Thread Safely (ZTS) 才能够使用最新的 parallel 扩展模块。
+
+首先，到 PHP 源代码下载页面获取开发包，Development package (SDK to develop PHP extensions)。工具包中有头文件和导入库，还有 phpize.bat 脚本文件，它负责基本的配置：设置编译器及头文件路径等等。
+
+Windows 环境构建新版本 PHP 环境要求：
+
+1. Visual C++ 14.0 (Visual Studio 2015) for PHP 7.0 or PHP 7.1.
+2. Visual C++ 15.0 (Visual Studio 2017) for PHP 7.2, PHP 7.3 or PHP 7.4.
+3. Visual C++ 16.0 (Visual Studio 2019) for master.
+
+另外，还需要使用到一些常用的工具，如 Bison。Windows 系统可以下载 php-sdk-binary-tools，它打包了这些工具，也可以直接使用 Msys2 环境安装。
+
+接下来，到 PECL 下载扩展模块源代码，并且在源代码目录下运行：
+
+```sh
+phpize
+./configure --with-parallel
+make
+```
+
+新版本 PHP 使用 parallel 扩展支持多线程编程，相比旧版本使用的 pthread 并不支持 Windows 系统。官方 PECL 站点只提供了 PHP 7.x 版本的 paralle 二进制文件。
+
+PHP 源代码包中的 ext/ext_skel.php 脚本以及 skeleton 目录是扩展模块骨架生成脚本，可以使用它作为扩展起步：
+
+```sh
+php ext_skel.php --ext learn_ext
+cd learn_ext
+phpize
+./configure --enabled-learn_ext
+make
+```
+
+编译完成后，扩展源代码文件 learn_ext.c 生成对应的 modules/learn_ext.so 扩展库。
+
+执行 GNU Make 可能会报错，正常情况下，此错误信息是因为规则中的命令块没有使用 TAB 作为缩进时触发的：
+
+    Makefile:77: *** missing separator.  Stop.
+
+打开 Makefile 脚本检查，可以发现使用了 !if !else !endif 等非标准宏符号，这是 NMake 的操作，应该使用 M$ 版本的 nmake 命令进行构建。
+
+另外，可能因为错误使用配置脚本，没有使用 `--enabled-learn_ext`，导致生成的 Makefile 构建目标规则错误而没有扩展库生成，构建目标依赖的 EXT_TARGETS 变量没有设置相关的模块名称。正确配置应该可以在配置脚本打印内容中的 Enabled extensions 列表中看到相关的扩展名称。否则，检查输出的警告信息，例如警告指示需要使用 Zend Thread Safely 版本的 PHP。使用启用 ZTS 编译的 PHP 会显示 php8ts.lib 依赖库，但仍需要 pthread 头文件：
+
+    WARNING: Parallel extension requires ZTS build of PHP on windows
+    WARNING: parallel not enabled; pthread headers not found
+
+    PHP Core:  php8ts.dll and php8ts.lib
+
+1. http://sources.redhat.com/pthreads-win32
+2. https://www.sourceware.org/pthreads-win32
+3. https://packages.msys2.org/search?q=pthread
+4. http://www.mirrorservice.org/sites/sourceware.org/pub/pthreads-win32/
+
+注意，Posix Threads header (pthread.h) 线程库不是 PHP pthreads 模块，Windows 系统上使用 Redhat 移植过来的 pthreads-w32 替代。PHP 旧的线程模块最后版本停止在 7.4， Halting development of pthreads for 7.4 #929。旧版本可在 PECL 中心下载 Pthreads 模块源代码，并解压到 php/ext 目录下，需要重新生成配置脚本以使用扩展模块生效：
+
+```sh
+> buildconf --force
+> configure --help | grep pthreads
+  --with-pthreads                   for pthreads support
+  
+> congifure --enable-zts --with-pthreads
+
+Checking for pthread.h ...  <not found>
+Checking for pthread.h ...  <not found>
+WARNING: pthreads not enabled; libraries and headers not found
+```
+
+启用模块并且没有提示找不到头文件，就可以正常编译。已加入模块，但提示找不到头文件，问题。
+
+使用 Msys2 编译环境，可以安装 winpthread 依赖库，此库没有提供 .pc 配置文件，pkg-config 工具不能自动检测到此依赖库，可以自行编写 lib\pkgconfig\pthread.pc：
+
+```sh
+prefix=/usr
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: pthread
+Description: POSIX Threads for Win32. MinGW-w64 winpthreads library.
+Version: 11.0.0.r170.g833753684-1
+Libs: -L${libdir} -lpthread -lwinpthread
+Cflags: -I${includedir}
+```
+
+另外，使用 MSVC 命令行环境时，需要使用正确的平台配置信息，否则编译到链接阶段会报错找不到符号。默认为 x86 平台，可以根据需要指定构建目标平台。vcvarsall.bat 是 MSVC 环境配置脚本，其它通过传递平台参数来调用它，比如 amd64_x86 就交叉编译环境，HOST=amd64，TARGET=x86：
+
+    cmd.exe /k "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+
+    C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build
+    |-- vcvars32.bat
+    |-- vcvars64.bat
+    |-- vcvarsall.bat
+    |-- vcvarsamd64_x86.bat
+    `-- vcvarsx86_amd64.bat
+
+PowerShell 环境下可以使用 Launch-VsDevShell，它使用 -Arch 或 -HostArch 参数传递编译平台信息：
+
+     &"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1" -Arch arm64
+
+Windows 系统下要 PHP 源代码可以使用 buildconf.js 脚本，如果提示工具版本不兼容，则运行更新版本的 PHP-SDK-2.0 提供的环境配置脚本。另外，配置脚本并没有提供 --with-parallel 这样的配置项，需要 另外构建这个扩展：
+
+```sh
+> cscript win32/build/buildconf.js
+> .\configure.bat --enabled-zts
+ERROR: Incompatible binary tools version. Please consult
+https://wiki.php.net/internals/windows/stepbystepbuild_sdk_2
+> phpsdk-vs16-x64.bat
+[vcvarsall.bat] Environment initialized for: 'x64'
+
+PHP SDK 2.2.0
+OS architecture:    64-bit
+Build architecture: 64-bit
+Visual C++:         14.29.30148.0
+PHP-SDK path:       C:\php-sdk-2.2.0
+
+> configure.bat --enable-zts --with-openssl --with-parallel
+> nmake
+```
+
+pthread.h 头文件有可能出现符号重复定义，临时解决方法是在头文件头部添加 HAVE_STRUCT_TIMESPEC 符号避免 pthread 重复定义 timespec：
+
+```cpp
+#if !defined( PTHREAD_H )
+#define PTHREAD_H
+#define HAVE_STRUCT_TIMESPEC
+...
+#if !defined(HAVE_STRUCT_TIMESPEC)
+#define HAVE_STRUCT_TIMESPEC
+...
+struct timespec {
+        time_t tv_sec;
+        long tv_nsec;
+};
+```
+
+下载预构建的 Pthreads-w32，它提供了 MSVC 和 GNU C (MinGW32 MSys development kit) 构建的库文件。文件命令规则参考 Readme 文档，将 MSVC 版本文件拷贝到其安装目录下以备使用，然后将 DLL 文件放到环境变量搜索路径中的目录下：
+
+    C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215
+
+```sh
+In general:
+    pthread[VG]{SE,CE,C}[c].dll
+    pthread[VG]{SE,CE,C}[c].lib
+
+where:
+    [VG] indicates the compiler
+    V   - MS VC, or
+    G   - GNU C
+
+    {SE,CE,C} indicates the exception handling scheme
+    SE  - Structured EH, or
+    CE  - C++ EH, or
+    C   - no exceptions - uses setjmp/longjmp
+
+    c   - DLL compatibility number indicating ABI and API
+          compatibility with applications built against
+          a snapshot with the same compatibility number.
+```
+
+注意，如果自行构建 PHP 源代码，就应该覆盖掉下载好的 PHP-Dev 依赖库。并且一并将 main\config.w32.h 配置文件，以及 devl 目录下生成的脚本覆盖到 PHP-Devl 开发库。它包含了编译器 以及不能随意变换编译器标识 `PHP_COMPILER_ID`，这个值会被用来检测 ABI 是否兼容。否则，使用旧版本 PHP-Dvel 文件就可能导致 PHP 加载模块时提示编译的模块不兼容（其实是同一个编译器的生成文件）。
+
+    #define PHP_COMPILER_ID "VS17"
+
+    Warning: Can't load module 'php_parallel.dll' as it's linked with 14.35, but the core is linked with 14.29
+
+    Warning: PHP Startup: parallel: Unable to initialize module
+    Module compiled with build ID=API20220829,TS,VS16
+    PHP    compiled with build ID=API20220829,TS,VS17
+
+如果是相近 PHP 版本发布的 Development package (SDK to develop PHP extensions)，也可以尝试直接修改 PHP_COMPILER_ID 值以更新编译器信息，而不必再覆盖诸多文件。
+
+    php_parallel.dll doesn't appear to be a valid Zend extension
+
+另外，parallel 应该设置为 extension 扩展，而非 zend_extension，配置文件参考如下：
+
+```sh
+extension_dir=/php-8.2.10-src/x64/Release_TS
+zend_extension=php_opcache.dll
+extension=parallel
+opcache.file_cache=/php-8.2.10-src/x64/Release_TS/test_file_cache
+opcache.enable=1
+opcache.enable_cli=1
+```
+
+
 ## ==⚡ • Basic syntax
 
 ### ===🗝 • PHP tags
