@@ -590,6 +590,8 @@ Hexadecimal:    0x1.8p+0 0X1.8P+0
 
 对于 long int 或 long long int 可以使用前缀，如 `%lld`。
 
+C++ iostream 提供 bin, oct, dec, hex 来表示常用制式的格式化。C 语言二进制格式化需要使用 <stdlib.h> 函数库的 `itoa(num, s, radix)`。
+
 新的编译器会引进 `__int64 _W64 int64_t` 等类型，要打印它们就需要对应的格式字符，加入 j 前缀，或使用 <inttypes.h> 定义的 PRId64 这类格式符号。size_t 是无符号整形数值，使用 %zu 格式字符串。
 
 ```c

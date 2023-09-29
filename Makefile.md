@@ -2854,9 +2854,11 @@ $(CONCATED) :
 ```
 
 
-## 🍀 GNU Make Standard Library (GMSL) 宏函数库分析
+## 🍀 GNU Make 数值逻辑折腾教程
 
-The GNU Make Standard Library (GMSL) 是一系列 Makefile 宏函数，实现了以下一系列数理逻辑运算：
+此教程将原计划内容已经全部呈现，从零基础到 GNU make 最本原的原理的掌握，到工程应用实例演示。但是 GNU Make 作为一个功能实现上极度自制的构建工具，也体现了它在 GNU Autotools 工具集中的反面形象：臃肿 vs. 小巧。Gnu Make 本身没有提供现成的数值计算功能，如果有，那么就是 words 可以统计列表元素的个数。如果硬要说有现成的数值计算，那些 shell 功能只能被抬上台面了。为此觉得折腾一下 GNU Make 数值运算非常有趣，顺便讲讲计算机最基本的数值处理机制：补码，以及探索 GNU Make 图灵完备性。
+
+首先来分析一下宏函数库 The GNU Make Standard Library (GMSL)，此库定义了一系列 Makefile 宏函数，实现了以下一系列数理逻辑运算：
 https://github.com/jgrahamc/gmsl/
 
 01. Associative Arrays
@@ -2900,7 +2902,7 @@ include $(__gmsl_root)
 endif
 ```
 
-调机信息追踪机制：定义 TRACE 符号时启用函数追踪器，所有使用了追踪前缀的函数就会在调用时输出其函数名称及参数值。追踪器被当作变量嵌入到目标函数中，其中定义的自动变量 $0 $1 等等就会输出当前调用函数的相关信息。为了方便阅读代码，可以将调试用的符号清除。
+调试信息追踪机制：定义 TRACE 符号时启用函数追踪器，所有使用了追踪前缀的函数就会在调用时输出其函数名称及参数值。追踪器被当作变量嵌入到目标函数中，其中定义的自动变量 $0 $1 等等就会输出当前调用函数的相关信息。为了方便阅读代码，可以将调试用的符号清除。
 
 ```makefile
 TRACE = 1
@@ -2913,7 +2915,6 @@ counter = $(Trace3)$(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )
         $(eval $0_ID=$(ID)) $(ID)
 
 all: a b c d
-    @echo "[0-9]: $(words $([0-9]))"
 
 %:
     @echo "$@: Get ID Variable. $(call counter,1)"
@@ -2932,7 +2933,7 @@ Makefile:43: counter('1')
 d: Get ID Variable.   4
 ```
 
-Make 定义函数与定义变量本质上是没有区别的，都是一样的宏定义，使用便捷的 = 定义，或者使用 defin 多行式，定义方式取决于宏定义的复杂度。差别在于使用宏符号的方式（是否使用 call 去调用），和宏体内部如何使用自动变量，$0 ~ $9 等等，通过输入列表与这些自动变量的配合，就可以对列表中的元素进行地重新排列：
+Make 定义函数与定义变量本质上是没有区别的，都是一样的宏定义，使用便捷的 = 定义，或者使用 define 多行式，定义方式取决于宏定义的复杂度。差别在于使用宏符号的方式（是否使用 call 去调用），和宏体内部如何使用自动变量，$0 ~ $9，通过输入列表与这些自动变量的配合，就可以对列表中的元素进行地重新排列：
 
 以上定义的 counter 自增函数就是变量风格定义的简单函数，其逻辑是借用 shell 的算术 `$((a+b))` 支持、以及内置的 eval 设置全局变量实现的计数器。
 
@@ -2972,26 +2973,237 @@ all: a b c d
     @echo "$@: Get ID Variable. $(call counter,1)"
 ```
 
-GMSL 使用一个字符列表的长度来表示一个数字，字符可以随意选择，比如“x”，然后加法就像连接列表一样容易，连接后的列表长度就是加和。这种实现就需要一种方法生成指定长度的列表
+GMSL 使用一个字符列表的长度来表示一个数字，字符可以随意选择，比如“x”，然后加法就像连接列表一样容易，连接后的列表长度就是加和。这种实现减法就需要一种方法生成指定长度的列表，然后利用内置函数 `join` 进行结对连接，再通过 `filter-out` 函数过滤掉（剔除）已经结对的符号，即相当于减法运算。
 
-
-4->“x x x x”
-
-2->“x x”
-
-4+2->“x x x x”
-
-减法有点棘手，GMSL使用联接函数生成一个与较大参数长度相同的列表，其中，较小参数的“x”将联接到元素上，形成值为“xx”的元素，然后可以过滤掉这些元素。
-
-
-
-4-2->过滤掉（“xx”，“xx xx x x”）->“x x”
+乘法和除法则可以转换为多次的加法、减法运算。
 
 这些方法适用于较小的数字，但当值变大时会出现明显的问题。表示负数也不太自然：
 
     $(call subtract,3,4) # 10
 
 Evosyn 这里提出了一个新的实现 https://evosyn.com/arithmake.html
+
+
+过滤器函数，包括 `filter`，以及 `patsubst` 函数都支持模式匹配。字符替换函数有两个，其中模式匹配替换是一次全局性匹配。而 `subst` 则是字符串线性匹配，从头到尾搜索一遍，匹配的字符串就替换，已经处理过不会再进行处理。
+
+```makefile
+$(info $(subst --,- -,----))       # return: - -- -
+$(info $(patsubst -%-,- -,----))   # return: - -
+$(info $(join 1 2 3,4 5 6))        # return: 14 25 36
+$(info $(filter -%,-1 -2 -3 filter -negative))      # -1 -2 -3 -negative
+$(info $(filter-out -%,-1 -2 -3 filter out positive)) # filter out positive
+```
+
+Make 提供的逻辑关系处理只有三函数函数，它们也都基于空字符的判断，自己实现逻辑函数时也应该基于这一套原则，否则就有可能导致自定义宏函数被展开（即使用条件不满足），而导致代码被执行进而产生副作用：
+
+```makefile
+$(if CONDITION,THEN-PART[,ELSE-PART])
+$(or CONDITION1[,CONDITION2[,CONDITION3...]])
+$(and CONDITION1[,CONDITION2[,CONDITION3...]])
+$(intcmp LHS,RHS[,LT-PART[,EQ-PART[,GT-PART]]]) # GNU Make 4.4
+```
+
+虽然，GNU Make 没有提供获取字符索引位置的字符，但是提供了一个 word 函数可以用来获取指定列表序号的元素。如果再构建一个方法将数值顺序打碎为列表，那么就可以对列表中的 digits 进行操作，这就可以将数值计算转换为 1 位十进制数的映射关系处理。
+
+内置函数 sort 是一个去重排序函数，它处理后的列表所有元素都是独一无二的，重复元素只保留一个副本。元素按字典序排列，例如 `$(sort 2 33 -1 -11 +1)` 返回 +1 -1 -11 2 33，注意所有元素都是字符串非数值。
+
+以下是一套基本逻辑函数，参考自 Are makefiles Turing complete?
+https://www.gangofcoders.net/solution/are-makefiles-turing-complete/
+
+```makefile
+not = $(if $1,,.)
+
+lteq = $(if $1,$(if $(findstring $1,$2),.,),.)
+gteq = $(if $2,$(if $(findstring $2,$1),.,),.)
+eq = $(and $(call lteq,$1,$2),$(call gteq,$1,$2))
+lt = $(and $(call lteq,$1,$2),$(call not,$(call gteq,$1,$2)))
+
+add = $1$2
+sub = $(if $(call not,$2),$1,$(call sub,$(call dec,$1),$(call dec,$2)))
+mul = $(if $(call not,$2),$2,$(call add,$1,$(call mul,$1,$(call dec,$2))))
+dec = $(patsubst .%,%,$1)
+inc = $(patsubst %,.%,$1)
+numeral = $(words $(subst .,. ,$1))
+
+fibo = $(if $(call lt,$1,..),$1,$(call add,$(call fibo,$(call dec,$1)),$(call fibo,$(call sub,$1,..))))
+fact = $(if $(call lt,$1,..),.,$(call mul,$1,$(call fact,$(call dec,$1))))
+
+
+go = $(or $(info $(call numeral,$(call mul,$1,$1)) $(call numeral,$(call fibo,$1)) $(call numeral,$(call fact,$1)) ),$(call go,.$1))
+
+_ := $(call go,)
+```
+
+综合 GNU Make 提供的以上函数及功能，就可以使用 - + 符号来实现加减法运算。以此俩符号的个数作为记数值，符号本身作为结果的正负号。首先，只需要尝试实现一个支持个位数带进位的加法函数。如果要实现一个通用的加法器（支持正负数的加减运算），那么就需要考虑两种基本情况：需要进位的运算、需要借位的运算。虽然在书写上正数、负数的加减存在四种不同的形式，但归纳起来就是两种：同符号值相加与同符号值相减，分别对应进位与借位两种运算。而这两种运算又可以归纳为一种情形：进位相当于高一级权重位 +1，而借位相当于高一级权重位 -1。如果采用 + - 符号数量来实现数值表达，那么，原本的进位、借位分别等价于进位一个 + 或 - 符号。
+
+所以，实现一个基于符号运算的加法器，基于 + - 两个符号的数量计数，先要对两个数进行符号判断，以确定其“进位”符号是 + 或者 -。并且还需要确定，。比如说 1 - 9，如果在不确定结果属性正、负，那么实现计算函数时就面临 1 - 9 进位“-”得 2，或者无进位得 -8 两种情况。如果知道结果应该是负数，那么就应该选择第二种计算流程。另外，对于需要借位的运算，为了避免对两个数（较大值和较小值的符号序列）运算结果的判断（进位符号），可以采取预借策略。预借较大值的高一级权重值，相当于进位多一个对手符号，而当前运算的符号序列中增加十个较大值的符号。
+
+以下 Makefile 函数库实现仅供参考，注意事项以及功能说明：
+
+1. if 函数的条件是基于字符是否为空判断的，strip 函数过滤掉空白字符避免错误检测；
+2. 这其中的符号等值判断不能调用 ifequal 这样嵌套的用户宏函数，宏体展开会产生副作用。
+3. 计算结果保留了前缀 0，而且，`$(wordlist 02,02,18 17)` 这样的表达式也正确。
+4. 为了便于通过字典序比较两数值的大小，采取 padding 在较小值序列上前缀 0。
+5. add 宏函数只能计算正整数加法，plus 则可以实现整数加减运算。
+6. 因为基于符号运算，理论只要内存足够，可以进行任意精度的整数加减运算。
+7. 处理符号运算的“进位”，取巧地采用预借，如果是异符号数运算结果产生了进位就抵消；
+
+```makefile
+# TRACE = 1
+ifdef TRACE
+Trace = $(warning $0('$1','$2','$3'))
+else
+Trace :=
+endif
+
+# $(call counter, 1) = 1
+# $(call counter, 2) = 3
+# $(call counter,-3) = 0
+counter = $(Trace)$(strip $(eval ID=$$(shell echo $$$$(( $1+$(if $($0_ID),$($0_ID),0) )) )) \
+        $(eval $0_ID=$(ID)) $(ID) )
+
+# $(call resetlist,1,a b c d) = a b c d
+# $(call resetlist,2,a b c d) = b c d
+# $(call resetlist,3,a b c d) = c d
+restlist = $(Trace)$(wordlist 2,$(words $1),$1)
+restlistn = $(Trace)$(wordlist $1,$(words $2),$2)
+
+# $(call reverse,1 2 3 4) = 4 3 2 1
+# $(call reverse,a b c d) = d c b a
+reverse = $(Trace)$(strip $(if $1, $(call reverse,$(call restlist,$1)) $(firstword $1) ))
+
+# $(call ifequal,a,b,true_expr,false_expr)
+ifequal = $(Trace)$(if $(findstring $(findstring $1,$2),$1),$3,$4)
+ifempty = $(Trace)$(if $(findstring [0],[$(words $1)]),$2,$3)
+
+equal = $(Trace)$(findstring [$1],[$2])
+empty = $(Trace)$(findstring [0],[$(words $1)])
+
+# L = $(call split,ab,123ab456ab789) # return list: 123 456 789
+# $(info $(call merge,-,$(L)))        # merge list: 123-456-789
+# $(info $(call merge,,$(L)))         # merge list: 123456789
+split =  $(Trace)$(strip $(subst $1, ,$2))
+merge=  $(Trace)$(strip $(if $2, $3$(word 1,$2)$(call merge,$1,$(call restlist,$2),$1),))
+
+# $(info $(call n2digits,114))       # return list: 1 1 4
+[0-9] := 0 1 2 3 4 5 6 7 8 9
+n2digits = $(Trace)$(strip $(if $1,$(foreach x,$([0-9]), \
+            $(if $(findstring $(findstring $1,$(subst L$x,,L$1)),$1),,\
+            $(subst $(subst L$x,,L$1)L,,$1L) $(strip $(call n2digits,$(subst L$(x),,L$(1)))))),))
+# $(info $(call add2dcarry,1,4))     # return num: 5
+# $(info $(call add2dcarry,9,9))     # return num: 1 8
+# $(info $(call add2dcarry,9,9,1))    # return num: 2 8
+# $(info $(call add2dcarry,10,9))    # error: no define
+add2dcarry = $(Trace)$(call n2digits,$(words $(wordlist 1,$1,$([0-9])) \
+            $(wordlist 1,$2,$([0-9])) $(if $(strip $3),1) ))
+# $(info add(10,20): $(call add,10,20))    # return 30
+# $(info add(15,25): $(call add,15,25))    # return 40
+# $(info add(116,25): $(call add,216,25))  # return 241
+# $(info add bignumber: $(call add,1161234551436712,25123211433213))  # 1186357762869925
+add = $(Trace)$(call merge,,$(call reverse,$(foreach x,\
+            $(join $(call reverse,$(call n2digits,$1)),$(call reverse,$(call n2digits,$2)) ),\
+            $(eval add_cache:=$(call add2dcarry,$(firstword $(call n2digits,$x)),\
+                $(wordlist 2,2,$(call n2digits,$x) 0),$(wordlist 2,2,$(call reverse,$(add_cache))) ))\
+            $(lastword $(add_cache)) )))
+
+# $(info $(call plus,-126,-6))  # return: -132
+# $(info $(call plus,11,-11))   # return: 00
+# $(info $(call plus,-12,21))   # return: 09
+# $(info $(call plus,1,-10))    # return: -09
+# $(info $(call plus,18,17))    # return: 35
+# $(info $(call plus,1161234551436712,25123211433213))  # return: 1186357762869925
+# $(info $(call plus,1186357762869925,-25123211433213))  # return: 1161234551436712
+M10 := - - - - - - - - - -
+P10 := + + + + + + + + + +
+plus = $(strip $(eval PLUS1=$(if $(findstring L-,L$1),-,+))\
+      $(eval PLUS2=$(if $(findstring L-,L$2),-,+))\
+      $(eval PLUSD1=$(call reverse,$(call n2digits,$(subst $(PLUS1),,$1))))\
+      $(eval PLUSD2=$(call reverse,$(call n2digits,$(subst $(PLUS2),,$2))))\
+      $(if $(findstring [0],[$(words $(wordlist $(words $(PLUSD1)),1,$(PLUSD2)))]),\
+        $(eval PLUSD2=$(PLUSD2) $(call restlist,$(foreach x,$(wordlist $(words $(PLUSD2)),$(words $(PLUSD1)),$(PLUSD1)),0))), \
+        $(eval PLUSD1=$(PLUSD1) $(call restlist,$(foreach x,$(wordlist $(words $(PLUSD1)),$(words $(PLUSD2)),$(PLUSD2)),0))) ) \
+      $(if $(findstring $(lastword $(sort $(call merge,,$(call reverse,$(PLUSD1))) $(call merge,,$(call reverse,$(PLUSD2))))),$1),\
+        $(call _plus,$(findstring -,$(PLUS1)),$(findstring -,$(PLUS2)),$(join $(PLUSD1),$(PLUSD2))),\
+        $(call _plus,$(findstring -,$(PLUS2)),$(findstring -,$(PLUS1)),$(join $(PLUSD2),$(PLUSD1))) ))
+_plus = $(Trace)$(eval _plus_c=)$1$(call merge,,$(call reverse,$(foreach x,$3,$(eval _plus_p=$(call n2digits,$x) 0)\
+        $(eval _plus_p=$(words $(subst ++,+ +,$(subst --,- -,$(filter-out -+,$(filter-out +-,$(join \
+          $(if $(call equal,$1,$2),,$(if $(call equal,-,$1),$(M10),$(P10)))\
+          $(wordlist 1,$(word 1,$(_plus_p)),$(if $1,$(M10),$(P10)) ), \
+          $(wordlist 1,$(word 2,$(_plus_p)),$(if $2,$(M10),$(P10)) )  \
+          $(_plus_c) \
+        ))))))) \
+        $(eval _plus_d=$(call reverse,$(call n2digits,$(_plus_p))) 0) \
+        $(if $(call equal,$1,$2), \
+          $(eval _plus_c=$(wordlist 1,$(word 2,$(_plus_d)),$(if $(call equal,-,$1),$(M10),$(P10)) )), \
+          $(eval _plus_c=$(if $(call equal,1,$(word 2,$(_plus_d))),,$(if $(call equal,-,$1),+,-)) ) ) \
+        $(word 1,$(_plus_d)) \
+        )))
+```
+
+以下谈谈计算机数值逻辑基础：补码。
+
+计算机硬件底层的数值计算设计使用的是补码，这种编码方案的妙处在于数值二进制最高比特既作为符号位使用，又作为数值位使用，并且加减法同一套操作，就使得基于二进制的 CPU 电路设计大大得到精简。
+
+数值编码涉及以下几个概念：
+
+0. 符号位，最高比特作为符号位，0 表示正数，1 表示负数；
+1. 原码 Sign-Magnitude，数值的原始编码，比如十进制的 15 对应的二进制原码就是 1111；
+2. 反码 One's Complement，原码和比特按位取反（Bitwise Not），原码 1111 的反码就是 0000；
+3. 补码 two's complement ，正数保持原码，负数保留符号位不变，先求反码再加上 1。
+
+为了简化，以上使用 4-bit 的数据来解析，最高位既作为数值使用又作为符号位。正数需要转换为补码形式，负数则直接在原码上转位符号位。例如：
+
+1. 十进制 0 的二进制补码就是 0000，反码为 1111，正数不用取反加 1 操作；
+2. 十进制 1 的二进制补码就是 0001，反码为 1110，正数不用取反加 1 操作；
+3. 十进制 -1 的补码就是 1111。-1 原码是 1001，符号位保持不变，取反再加 1 即 1111；
+4. 十进制 -15 的补码就是 1001，原码是 1111，符号位保持不变，取反加 1 即 1001。
+
+接下来有趣的事情发生了，15 + -15 = 0，对应的二进制比特运算就是：0001 + 1111 = 1 0000，舍弃掉进位，结果为 0000。如果具象化地去理解补码运算的本质，可以借用数轴，两个互补的值的叠加就是其模长。
+
+模 modulus 是一个抽象代学概念，有专门的模论 module theory 研究相关问题。
+
+将整数的补码按其在数轴上的顺序罗列出来更直观，正数相当于计算其二进制的 1，负数相当于计算其二进制的 0。注意：以下是以补码作为线索进行对比，对于一个 4bit 数，原码、反码方案因为正负零问题并不能表达 -8（超出范围）。
+
+         补码  原码  反码（保持符号位）
+     -4  1011  1100  1011
+     -3  1101  1011  1100
+     -2  1110  1010  1101
+     -1  1111  1001  1110
+      0  0000  0000  0111
+      1  0001  0001  0110
+      2  0010  0010  0101
+      3  0011  0011  0100
+      4  0100  0100  0011
+      5  0101  0101  0010
+      6  0110  0110  0001
+      7  0111  0111  0000
+     -8  1000  1000  1111
+     -7  1001  1111  1000
+     -6  1001  1010  1010
+     -5  1001  1011  1100
+
+所有编码系统的设计，都在追求连续性和唯一性。补码也是这种思维下的一种最佳选择，尽管它也不连续，但是比起原码、反码方案（有两个不连续位置在正负数交界处）好多了，只在正负极值处不连续。补码为这种连续带来的代价就是表达范围少一个 bit，负数比正数的表达范围大 1。原码方案存在两个 0 值：正负零，以及两个不连续位置。反码方案通过反转将不连续位置，但还存在正负零。补码则是通过对负值加 1 偏移，清除掉负零，使负值的极大值范围加 1。
+
+反码（对1求补）所指的 1，本质上是一个有限位计数系统里所能表示出的最大值。补码（对2求补）所指的 2 是计数系统的容量（模），就是计数系统所能表示的状态数。
+
+补码运算的原理就是“数轴”这个抽象原理的一个应用，可以形象地将“轴”理解为一根具有长度（模长）的“棍子”，不同的数对应不同的轴长，通过比较长短来得到计算结构。编程语言中的不同数据类型也代表了不同的模长，例如 char 类型模长就是 2^8。
+
+补码本质就是符号的处理，和计算机中的宏符号处理同源。用模减去一个数（无符号部分）就能得到这个数的补。对于一个 4bit 的数值，模长 2^4=16 表达为二进制的 10000，减一个数，比如 7（0111），它的补即为 9（1001），这个过程可以表述为取反加 1，隐去进位借位。
+
+C/C++ 语言中直接打印数值的补码，并且做数值计算，经常需要考虑是否有溢出的可能。例如，以下例子中的变量 c 就会出现负值溢出。对于 char 只有 8bit 可表示范围 -128 ~ 127，或者用指数形式表示 -2^8 ~ 2^8-1：
+
+```cpp
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(void) {
+    char a = -127, b = -127, c = a + b;
+    printf("a = %x, b = %x, c = %x\n [%d]", a, b, c, c);
+}
+```
+
+对于必然溢出的两个数的运算，就可以用数轴的思维（模）进行计算，或者使用刻度转盘（钟表）来形象地理解，圆盘周长就是模长。这个圆盘只有一根指针，指向两个互补数的求和值，正负数同样方式处理。对于代码中的 a b，可以它们和 -254 的绝对绝对与模 2^8=256 只差 2，这就是圆盘指针指向的位置，不考虑进位借位。
+
 
 
 ## 🍀 Multi threaded Download & Msys2 Packages
@@ -4272,6 +4484,15 @@ Makefile 中的变量应该是最简单的宏定义，变量名不能包含 char
 1. Substitution References 替换变量值，例如 `bar := $(foo:.o=.c)`，替换 .o 为 .c；
 2. Computed Variable Names 计算变量名，例如 `foo := $($bar)`，实际变量由 bar 变量指定;
 
+取变量值的简化表达是使用 $ 符号，也可以使用 value 函数取变量值。使用 $ 符号时，可以不使用圆括号，如果变量只有一个字符，如自动变量 $0 $1 $2 ... 等等：
+
+```makefile
+a = App
+ab = Able
+
+$(info a or ab? $ab) # Appb
+```
+
 高级变量引用表达式，不仅可以用在变量赋值上，还可以在 Targets 规则声明中使用。静态模式匹配也可以在 Targets 上使用高级变量引用特性，并且省略依赖条件部分，这样既可以达到不引入新的依赖，同时又可以实现对目标名称的分解处理。示范如下，通过变量高级引用与 Static Pattern Rules 配合，就可以对大量目标的分解处理。对于，不需要执行命令的目标，还可以使用空命令规则，所谓空命令规则即使用 shell 的一个分号（语句分隔符号）作为命令块的替代，参考 5.9 Using Empty Recipes。
 
 ```makefile
@@ -5384,6 +5605,28 @@ https://p6.itc.cn/q_70/images03/20220330/ccd2389c846a4098a846218252a31a06.png
 从现在的观点来看，艾达首先为了计算制作了“算法”，然后制作了“程序设计流程图”，这个珍贵的计划被认为是“第一件计算机程序”。
 
 在机械计算机时代，格雷斯·霍珀（Grace Hopper）提出了一个革命性的想法，发明了世界上第一个编译器 (Compiler)，名字叫做 A-0。将原来由计算人员（computers 一词的最早期含义）控制开关的工作变成打孔卡片，卡片上对应位置打孔或不打孔相当于 0 或 1。在当时是没有任何高级语言的存在，程序设计人员需要把程序翻译成机器码，01101010110 这样的形式，在纸上打孔，再送到机器里去控制开关（读取程序）。Grace 设计出一种程序，让人可以用类似英文的语法，把想做的事写下来，然后用这个程序把英文翻译成机器的语法，交给机器去执行。这个想法就是今日的 Compiler (编译器)。
+
+https://plato.sydney.edu.au/archives/win2017/entries/church-turing/
+https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/turing-machine/one.html
+Turing Machine 是阿兰·图灵构想的机器，尽管它很简单，但是现代的计算机无论制造工艺有多复杂，都没有超出图灵机的构想的原理。可计算性理论里，如果机器的一系列操作数据的规则（如指令集、编程语言、细胞自动机等）可以用来模拟单带图灵机，那么这个机器就符合图灵完备 Turing Complete。图灵机原型有两个重要的部件：
+
+1. 一个有状态信息的读写头，可以擦除、填写纸带内容，相当于 CPU 或程序；
+2. 一条无限长的或左右移动的纸带，上面有格子，有存储状态信息，相当于内存；
+
+数学模型中，使用 7 种符号（七元组）来描述图灵机：M={Q，Σ，Γ，δ，q0，qaccept，qreject}，其中 M 表示图灵机，Q，Σ，Γ 都是有限集合，且满足：
+
+1. Q 是状态集合；
+2. Σ 是输入字母表，其中不包含特殊的空白符；
+3. Γ 是纸带（tape）字母表，其中 Q∈Γ 且 Σ∈Γ ；
+4. δ 是转移函数，δ：Q×Γ→Q×Γ×{L，R}，其中 L，R 表示移动方向；
+5. q0 是起始状态，q0∈Q；
+6. qaccept 是接受状态；
+7. qreject 是拒绝状态，且 qreject≠qaccept。
+
+读写头内部本身能保存一个称为“状态”信息，初始状态下，读写头指向第 0 号格子， M 处于状态 q0。机器开始运行后，按照转移函数 δ 所描述的规则进行计算，改变其内部状态，并决定读写头在当前纸带的格子上做怎样的输出，然后让读写头向哪个方向移动。
+
+停机问题 (halting problem) 是逻辑数学的焦点，是第三次数学危机的解决方案。其本质问题是：给定一个图灵机和一个任意语言集合 S，是否会最终停机于每一个 s∈S。显然任意有限 S 是可判定性的、可数的 S 也可停机。
+
 
 1950 年代设计出来三个重要现代编程语言 ，时至今日仍旧广泛地被采用：
 
