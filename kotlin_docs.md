@@ -152,86 +152,86 @@ Latest stable version: v1.9.10
 07.01.1.7. [Arrays](arrays.md)
 07.01.2. [Type checks and casts](typecasts.md)
 07.02. Control flow
-07.02.1. [](control-flow.md)
-07.02.2. [](returns.md)
-07.02.3. [](exceptions.md)
-07.03. [](packages.md)
+07.02.1. [Conditions and loops](control-flow.md)
+07.02.2. [Returns and jumps](returns.md)
+07.02.3. [Exceptions](exceptions.md)
+07.03. [Packages and imports](packages.md)
 07.04. Classes and objects
-07.04.01. [](classes.md)
-07.04.02. [](inheritance.md)
-07.04.03. [](properties.md)
-07.04.04. [](interfaces.md)
-07.04.05. [](fun-interfaces.md)
-07.04.06. [](visibility-modifiers.md)
-07.04.07. [](extensions.md)
-07.04.08. [](data-classes.md)
+07.04.01. [Classes](classes.md)
+07.04.02. [Inheritance](inheritance.md)
+07.04.03. [Properties](properties.md)
+07.04.04. [Interfaces](interfaces.md)
+07.04.05. [Functional (SAM) interfaces](fun-interfaces.md)
+07.04.06. [Visibility modifiers](visibility-modifiers.md)
+07.04.07. [Extensions](extensions.md)
+07.04.08. [Data classes](data-classes.md)
 07.04.09. [Sealed classes and interfaces](sealed-classes.md)
-07.04.10. [](generics.md)
-07.04.11. [](nested-classes.md)
-07.04.12. [](enum-classes.md)
-07.04.13. [](inline-classes.md)
-07.04.14. [](object-declarations.md)
-07.04.15. [](delegation.md)
-07.04.16. [](delegated-properties.md)
-07.04.17. [](type-aliases.md)
+07.04.10. [Generics: in, out, where](generics.md)
+07.04.11. [Nested and inner classes](nested-classes.md)
+07.04.12. [Enum classes](enum-classes.md)
+07.04.13. [Inline value classes](inline-classes.md)
+07.04.14. [Object expressions and declarations](object-declarations.md)
+07.04.15. [Delegation](delegation.md)
+07.04.16. [Delegated properties](delegated-properties.md)
+07.04.17. [Type aliases](type-aliases.md)
 07.05. Functions
-07.05.1. [](functions.md)
-07.05.2. [Lambdas](lambdas.md)
-07.05.3. [](inline-functions.md)
-07.05.4. [](operator-overloading.md)
+07.05.1. [Functions](functions.md)
+07.05.2. [Higher-order functions and lambdas](lambdas.md)
+07.05.3. [Inline functions](inline-functions.md)
+07.05.4. [Operator overloading](operator-overloading.md)
 07.05.5. Builders
-07.05.5.1. [](type-safe-builders.md)
-07.05.5.2. [](using-builders-with-builder-inference.md)
-07.06. [](null-safety.md)
-07.07. [](equality.md)
-07.08. [](this-expressions.md)
-07.09. [](async-programming.md)
-07.10. [](coroutines-overview.md)
-07.11. [](annotations.md)
-07.12. [](destructuring-declarations.md)
-07.13. [](reflection.md)
+07.05.5.1. [Type-safe builders](type-safe-builders.md)
+07.05.5.2. [Using builders with builder type inference](using-builders-with-builder-inference.md)
+07.06. [Null safety](null-safety.md)
+07.07. [Equality](equality.md)
+07.08. [This expressions](this-expressions.md)
+07.09. [Asynchronous programming techniques](async-programming.md)
+07.10. [Coroutines](coroutines-overview.md)
+07.11. [Annotations](annotations.md)
+07.12. [Destructuring declarations](destructuring-declarations.md)
+07.13. [Reflection](reflection.md)
 
 ## 📜TOC08. Multiplatform development
 08.01. Kotlin Multiplatform for iOS and Android
-08.01.01. [](multiplatform-mobile-getting-started.md)
+08.01.01. [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md)
 08.01.02. [1. Set up an environment](multiplatform-mobile-setup.md)
 08.01.03. [2. Create your first cross-platform app](multiplatform-mobile-create-first-app.md)
 08.01.04. [3. Update UI](multiplatform-mobile-update-ui.md)
 08.01.05. [4. Add dependencies](multiplatform-mobile-dependencies.md)
 08.01.06. [5. Share more logic](multiplatform-mobile-upgrade-app.md)
 08.01.07. [6. Wrap up your project](multiplatform-mobile-wrap-up.md)
-08.01.08. [](multiplatform-mobile-understand-project-structure.md)
-08.01.09. [](multiplatform-mobile-integrate-in-existing-app.md)
-08.01.10. [](multiplatform-mobile-publish-apps.md)
-08.01.11. [](multiplatform-mobile-ktor-sqldelight.md)
+08.01.08. [Understand mobile project structure](multiplatform-mobile-understand-project-structure.md)
+08.01.09. [Make your Android application work on iOS – tutorial](multiplatform-mobile-integrate-in-existing-app.md)
+08.01.10. [Publish your application](multiplatform-mobile-publish-apps.md)
+08.01.11. [Create a multiplatform app using Ktor and SQLDelight – tutorial](multiplatform-mobile-ktor-sqldelight.md)
 08.02. Kotlin Multiplatform for other platforms
-08.02.1. [](multiplatform-get-started.md)
-08.02.2. [](multiplatform-discover-project.md)
+08.02.1. [Get started with Kotlin Multiplatform](multiplatform-get-started.md)
+08.02.2. [Understand Multiplatform project structure](multiplatform-discover-project.md)
 08.02.3. [Set up targets manually](multiplatform-set-up-targets.md)
-08.02.4. [](multiplatform-full-stack-app.md)
+08.02.4. [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md)
 08.03. Creating multiplatform libraries
-08.03.1. [](multiplatform-library.md)
-08.03.2. [](multiplatform-publish-lib.md)
+08.03.1. [Create and publish a multiplatform library – tutorial](multiplatform-library.md)
+08.03.2. [Publishing multiplatform libraries](multiplatform-publish-lib.md)
 08.04. Sharing code principles
-08.04.1. [](multiplatform-share-on-platforms.md)
-08.04.2. [](multiplatform-connect-to-apis.md)
-08.04.3. [](multiplatform-hierarchy.md)
-08.04.4. [](multiplatform-android-layout.md)
+08.04.1. [Share code on platforms](multiplatform-share-on-platforms.md)
+08.04.2. [Connect to platform-specific APIs](multiplatform-connect-to-apis.md)
+08.04.3. [Hierarchical project structure](multiplatform-hierarchy.md)
+08.04.4. [Android source set layout](multiplatform-android-layout.md)
 08.05. Adding dependencies
-08.05.1. [](multiplatform-add-dependencies.md)
+08.05.1. [Adding dependencies on multiplatform libraries](multiplatform-add-dependencies.md)
 08.05.2. [For Android target platforms](multiplatform-mobile-android-dependencies.md)
 08.05.3. [For iOS target platforms](multiplatform-mobile-ios-dependencies.md)
-08.06. [](multiplatform-run-tests.md)
+08.06. [Test your multiplatform app − tutorial](multiplatform-run-tests.md)
 08.07. Artifact compilation
-08.07.1. [](multiplatform-configure-compilations.md)
+08.07.1. [Configure compilations](multiplatform-configure-compilations.md)
 08.07.2. [[Experimental DSL] Build final native binaries](multiplatform-native-artifacts.md)
-08.07.3. [](multiplatform-build-native-binaries.md)
-08.08. [](multiplatform-dsl-reference.md)
-08.09. [](multiplatform-mobile-samples.md)
-08.10. [FAQ](multiplatform-mobile-faq.md)
-08.11. [](multiplatform-mobile-introduce-your-team.md)
-08.12. [Compatibility guide](multiplatform-compatibility-guide.md)
-08.13. [](multiplatform-mobile-plugin-releases.md)
+08.07.3. [Build final native binaries](multiplatform-build-native-binaries.md)
+08.08. [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md)
+08.09. [Kotlin Multiplatform for mobile samples](multiplatform-mobile-samples.md)
+08.10. [Kotlin Multiplatform for mobile FAQ](multiplatform-mobile-faq.md)
+08.11. [Introduce cross-platform mobile development to your team](multiplatform-mobile-introduce-your-team.md)
+08.12. [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md)
+08.13. [Kotlin Multiplatform Mobile plugin releases](multiplatform-mobile-plugin-releases.md)
 
 ## 📜TOC09. Platforms
 09.1. JVM
@@ -1003,7 +1003,7 @@ explains the different Kotlin basic types and how to declare them in the [next c
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
@@ -1120,7 +1120,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise
 
 Explicitly declare the correct type for each variable:
 
@@ -1549,7 +1549,7 @@ that you can use in your programs.
 
 ## Practice
 
-### Exercise 1 {initial-collapse-state="collapsed"}
+### Exercise 1
 
 You have a list of “green” numbers and a list of “red” numbers. Complete the code to print how many numbers there
 are in total.
@@ -1575,7 +1575,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed"}
+### Exercise 2
 
 You have a set of protocols supported by your server. A user requests to use a particular protocol. Complete the program
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
@@ -1609,7 +1609,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed"}
+### Exercise 3
 
 Define a map that relates integer numbers from 1 to 3 to their corresponding spelling. Use this map to spell the given 
 number.
@@ -1913,7 +1913,7 @@ Now that you know the fundamentals of Kotlin control flow, it's time to learn ho
 
 ## Practice
 
-### Exercise 1 {initial-collapse-state="collapsed"}
+### Exercise 1
 
 Using a `when` expression, update the following program so that when you input the names of GameBoy buttons, the actions
 are printed to output. 
@@ -1956,7 +1956,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed"}
+### Exercise 2
 
 You have a program that counts pizza slices until there’s a whole pizza with 8 slices. Refactor this program in two ways:
 * Use a `while` loop.
@@ -2017,7 +2017,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-exercise-2-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed"}
+### Exercise 3
 
 Write a program that simulates the [Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz) game. Your task is to print 
 numbers from 1 to 100 incrementally, replacing any number divisible by three with the word "fizz", and any number 
@@ -2055,7 +2055,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-solution-3"}
 
-### Exercise 4 {initial-collapse-state="collapsed"}
+### Exercise 4
 
 You have a list of words. Use `for` and `if` to print only the words that start with the letter `l`.
 
@@ -2918,7 +2918,7 @@ The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-s
 
 ## Practice
 
-### Exercise 1 {initial-collapse-state="collapsed"}
+### Exercise 1
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property
 for salary is mutable, otherwise you won’t get a salary boost at the end of the year! The main function demonstrates how
@@ -2950,7 +2950,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed"}
+### Exercise 2
 
 To test your code, you need a generator that can create random employees. Define a class with a fixed list of potential 
 names (inside the class body), and that is configured by a minimum and maximum salary (inside the class header). Once 
@@ -3171,7 +3171,7 @@ For more information about null safety in Kotlin, see [Null safety](null-safety.
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 
@@ -5540,7 +5540,7 @@ the template's source sets.
 
   We're currently working on an API for creating your own hierarchy templates to simplify the setup process in such cases.
 
-#### See the full hierarchy template {initial-collapse-state="collapsed"}
+#### See the full hierarchy template
 
 When you declare the targets to which your project compiles,
 the plugin picks the shared source sets from the template accordingly and creates them in your project.
@@ -6539,7 +6539,7 @@ You can find the complete scheme for the default target hierarchy in the [docume
 >
 {type="note"}
 
-#### Why replace shortcuts {initial-collapse-state="collapsed"}
+#### Why replace shortcuts
 
 Creating source sets hierarchies can be verbose, error-prone, and unfriendly for beginners. Our previous solution was to
 introduce shortcuts like `ios` that create a part of the hierarchy for you. However, working with shortcuts proved they
@@ -6762,7 +6762,7 @@ Gradle property to the `gradle.properties` file:
 kotlin.compiler.preciseCompilationResultsBackup=true
 ```
 
-#### Example of precise backup usage in JetBrains {initial-collapse-state="collapsed"}
+#### Example of precise backup usage in JetBrains
 
 In the following charts, you can see examples of using precise backup compared to full backup:
 
@@ -6788,7 +6788,7 @@ different results. The factors affecting performance include but are not limited
 * Which modules are affected by the changes and how big these modules are.
 * Whether the changes are ABI or non-ABI.
 
-#### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
+#### Evaluating optimizations with build reports
 
 To estimate the impact of the optimization on your computer for your project and your scenarios,
 you can use [Kotlin build reports](gradle-compilation-and-caches.md#build-reports).
@@ -18942,7 +18942,7 @@ associated with the name of the source set. For example:
 
 As for the common source set, files with top-level declarations should not have a suffix. For example, `commonMain/kotlin/Platform.kt`.
 
-##### Technical details {initial-collapse-state="collapsed"}
+##### Technical details
 
 We recommend following this file naming scheme in multiplatform projects due to JVM limitations: it doesn't allow
 top-level members (functions, properties).
@@ -19526,7 +19526,7 @@ Trailing commas are entirely optional – your code will still work without them
 To enable trailing commas in the IntelliJ IDEA formatter, go to **Settings/Preferences | Editor | Code Style | Kotlin**, 
 open the **Other** tab and select the **Use trailing comma** option.
 
-#### Enumerations {initial-collapse-state="collapsed"}
+#### Enumerations
 
 ```kotlin
 enum class Direction {
@@ -19537,7 +19537,7 @@ enum class Direction {
 }
 ```
 
-#### Value arguments {initial-collapse-state="collapsed"}
+#### Value arguments
 
 ```kotlin
 fun shift(x: Int, y: Int) { /*...*/ }
@@ -19552,7 +19552,7 @@ val colors = listOf(
 )
 ```
 
-#### Class properties and parameters {initial-collapse-state="collapsed"}
+#### Class properties and parameters
 
 ```kotlin
 class Customer(
@@ -19565,7 +19565,7 @@ class Customer(
 )
 ```
 
-#### Function value parameters {initial-collapse-state="collapsed"}
+#### Function value parameters
 
 ```kotlin
 fun powerOf(
@@ -19582,7 +19582,7 @@ fun print(
 ) {}
 ```
 
-#### Parameters with optional type (including setters) {initial-collapse-state="collapsed"}
+#### Parameters with optional type (including setters)
 
 ```kotlin
 val sum: (Int, Int, Int) -> Int = fun(
@@ -19595,7 +19595,7 @@ val sum: (Int, Int, Int) -> Int = fun(
 println(sum(8, 8, 8))
 ```
 
-#### Indexing suffix {initial-collapse-state="collapsed"}
+#### Indexing suffix
 
 ```kotlin
 class Surface {
@@ -19608,7 +19608,7 @@ fun getZValue(mySurface: Surface, xValue: Int, yValue: Int) =
     ]
 ```
 
-#### Parameters in lambdas {initial-collapse-state="collapsed"}
+#### Parameters in lambdas
 
 ```kotlin
 fun main() {
@@ -19622,7 +19622,7 @@ fun main() {
 }
 ```
 
-#### `when` entry {initial-collapse-state="collapsed"}
+#### `when` entry
 
 ```kotlin
 fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
@@ -19634,7 +19634,7 @@ fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
 }
 ```
 
-#### Collection literals (in annotations) {initial-collapse-state="collapsed"}
+#### Collection literals (in annotations)
 
 ```kotlin
 annotation class ApplicableFor(val services: Array<String>)
@@ -19647,7 +19647,7 @@ annotation class ApplicableFor(val services: Array<String>)
 fun run() {}
 ```
 
-#### Type arguments {initial-collapse-state="collapsed"}
+#### Type arguments
 
 ```kotlin
 fun <T1, T2> foo() {}
@@ -19659,7 +19659,7 @@ fun main() {
 }
 ```
 
-#### Type parameters {initial-collapse-state="collapsed"}
+#### Type parameters
 
 ```kotlin
 class MyMap<
@@ -19668,7 +19668,7 @@ class MyMap<
         > {}
 ```
 
-#### Destructuring declarations {initial-collapse-state="collapsed"}
+#### Destructuring declarations
 
 ```kotlin
 data class Car(val manufacturer: String, val model: String, val year: Int)
@@ -21200,165 +21200,18589 @@ val x: String? = y as? String
 Note that despite the fact that the right-hand side of `as?` is a non-nullable type `String`, the result of the cast is nullable.
 
 
+
 # 📜 07.02. Control flow
 
-# 📜 07.02.1. [](control-flow.md)
+# 📜 07.02.1. [Conditions and loops](control-flow.md)
 
-# 📜 07.02.2. [](returns.md)
+    [//]: # (title: Conditions and loops)
 
-# 📜 07.02.3. [](exceptions.md)
+## If expression
 
-# 📜 07.03. [](packages.md)
+In Kotlin, `if` is an expression: it returns a value.
+Therefore, there is no ternary operator (`condition ? then : else`) because ordinary `if` works fine in this role.
+
+```kotlin
+fun main() {
+    val a = 2
+    val b = 3
+
+    //sampleStart
+    var max = a
+    if (a < b) max = b
+
+    // With else
+    if (a > b) {
+      max = a
+    } else {
+      max = b
+    }
+
+    // As expression
+    max = if (a > b) a else b
+
+    // You can also use `else if` in expressions:
+    val maxLimit = 1
+    val maxOrLimit = if (maxLimit > a) maxLimit else if (a > b) a else b
+
+    //sampleEnd
+    println("max is $max")
+    println("maxOrLimit is $maxOrLimit")
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-if-kotlin"}
+
+Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
+
+```kotlin
+val max = if (a > b) {
+    print("Choose a")
+    a
+} else {
+    print("Choose b")
+    b
+}
+```
+
+If you're using `if` as an expression, for example, for returning its value or
+assigning it to a variable, the `else` branch is mandatory.
+
+## When expression
+
+`when` defines a conditional expression with multiple branches. It is similar to the `switch` statement in C-like languages.
+Its simple form looks like this.
+
+```kotlin
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> {
+        print("x is neither 1 nor 2")
+    }
+}
+```
+
+`when` matches its argument against all branches sequentially until some branch condition is satisfied.
+
+`when` can be used either as an expression or as a statement. If it is used as an expression, the value
+of the first matching branch becomes the value of the overall expression. If it is used as a statement, the values of
+individual branches are ignored. Just like with `if`, each branch can be a block, and its value
+is the value of the last expression in the block.
+
+The `else` branch is evaluated if none of the other branch conditions are satisfied.
+
+If `when` is used as an _expression_, the `else` branch is mandatory,
+unless the compiler can prove that all possible cases are covered with branch conditions,
+for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+
+```kotlin
+enum class Bit {
+    ZERO, ONE
+}
+
+val numericValue = when (getRandomBit()) {
+    Bit.ZERO -> 0
+    Bit.ONE -> 1
+    // 'else' is not required because all cases are covered
+}
+```
+
+In `when` _statements_, the `else` branch is mandatory in the following conditions:
+* `when` has a subject of a `Boolean`, [`enum`](enum-classes.md),
+or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
+* branches of `when` don't cover all possible cases for this subject.
+
+```kotlin
+enum class Color {
+    RED, GREEN, BLUE
+}
+
+when (getColor()) {  
+    Color.RED -> println("red")
+    Color.GREEN -> println("green")   
+    Color.BLUE -> println("blue")
+    // 'else' is not required because all cases are covered
+}
+
+when (getColor()) {
+    Color.RED -> println("red") // no branches for GREEN and BLUE
+    else -> println("not red") // 'else' is required
+}
+```
+
+
+To define a common behavior for multiple cases, combine their conditions in a single line with a comma: 
+
+```kotlin
+when (x) {
+    0, 1 -> print("x == 0 or x == 1")
+    else -> print("otherwise")
+}
+```
+
+You can use arbitrary expressions (not only constants) as branch conditions
+
+```kotlin
+when (x) {
+    s.toInt() -> print("s encodes x")
+    else -> print("s does not encode x")
+}
+```
+
+You can also check a value for being `in` or `!in` a [range](ranges.md) or a collection:
+
+```kotlin
+when (x) {
+    in 1..10 -> print("x is in the range")
+    in validNumbers -> print("x is valid")
+    !in 10..20 -> print("x is outside the range")
+    else -> print("none of the above")
+}
+```
+
+Another option is checking that a value `is` or `!is` of a particular type. Note that,
+due to [smart casts](typecasts.md#smart-casts), you can access the methods and properties of the type without
+any extra checks.
+
+```kotlin
+fun hasPrefix(x: Any) = when(x) {
+    is String -> x.startsWith("prefix")
+    else -> false
+}
+```
+
+`when` can also be used as a replacement for an `if`-`else` `if` chain.
+If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
+
+```kotlin
+when {
+    x.isOdd() -> print("x is odd")
+    y.isEven() -> print("y is even")
+    else -> print("x+y is odd")
+}
+```
+
+You can capture *when* subject in a variable using following syntax:
+
+```kotlin
+fun Request.getBody() =
+    when (val response = executeRequest()) {
+        is Success -> response.body
+        is HttpError -> throw HttpException(response.status)
+    }
+```
+
+The scope of variable introduced in *when* subject is restricted to the body of this *when*.
+
+## For loops
+
+The `for` loop iterates through anything that provides an iterator. This is equivalent to the `foreach` loop in languages like C#.
+The syntax of `for` is the following:
+
+```kotlin
+for (item in collection) print(item)
+```
+
+The body of `for` can be a block.
+
+```kotlin
+for (item: Int in ints) {
+    // ...
+}
+```
+
+As mentioned before, `for` iterates through anything that provides an iterator. This means that it:
+
+* has a member or an extension function `iterator()` that returns `Iterator<>`:
+  * has a member or an extension function `next()`
+  * has a member or an extension function `hasNext()` that returns `Boolean`.
+
+All of these three functions need to be marked as `operator`.
+
+To iterate over a range of numbers, use a [range expression](ranges.md):
+
+```kotlin
+fun main() {
+//sampleStart
+    for (i in 1..3) {
+        println(i)
+    }
+    for (i in 6 downTo 0 step 2) {
+        println(i)
+    }
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+A `for` loop over a range or an array is compiled to an index-based loop that does not create an iterator object.
+
+If you want to iterate through an array or a list with an index, you can do it this way:
+
+```kotlin
+fun main() {
+val array = arrayOf("a", "b", "c")
+//sampleStart
+    for (i in array.indices) {
+        println(array[i])
+    }
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Alternatively, you can use the `withIndex` library function:
+
+```kotlin
+fun main() {
+    val array = arrayOf("a", "b", "c")
+//sampleStart
+    for ((index, value) in array.withIndex()) {
+        println("the element at $index is $value")
+    }
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## While loops
+
+`while` and `do-while` loops execute their body continuously while their condition is satisfied.
+The difference between them is the condition checking time:
+* `while` checks the condition and, if it's satisfied, executes the body and then returns to the condition check.
+* `do-while` executes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
+executes at least once regardless of the condition. 
+
+```kotlin
+while (x > 0) {
+    x--
+}
+
+do {
+    val y = retrieveData()
+} while (y != null) // y is visible here!
+```
+
+## Break and continue in loops
+
+Kotlin supports traditional `break` and `continue` operators in loops. See [Returns and jumps](returns.md).
+
+
+# 📜 07.02.2. [Returns and jumps](returns.md)
+
+    [//]: # (title: Returns and jumps)
+
+Kotlin has three structural jump expressions:
+
+* `return` by default returns from the nearest enclosing function or [anonymous function](lambdas.md#anonymous-functions).
+* `break` terminates the nearest enclosing loop.
+* `continue` proceeds to the next step of the nearest enclosing loop.
+
+All of these expressions can be used as part of larger expressions:
+
+```kotlin
+val s = person.name ?: return
+```
+
+The type of these expressions is the [Nothing type](exceptions.md#the-nothing-type).
+
+## Break and continue labels
+
+Any expression in Kotlin may be marked with a _label_.
+Labels have the form of an identifier followed by the `@` sign, such as `abc@` or `fooBar@`.
+To label an expression, just add a label in front of it.
+
+```kotlin
+loop@ for (i in 1..100) {
+    // ...
+}
+```
+
+Now, we can qualify a `break` or a `continue` with a label:
+
+```kotlin
+loop@ for (i in 1..100) {
+    for (j in 1..100) {
+        if (...) break@loop
+    }
+}
+```
+
+A `break` qualified with a label jumps to the execution point right after the loop marked with that label.
+A `continue` proceeds to the next iteration of that loop.
+
+## Return to labels
+
+In Kotlin, functions can be nested using function literals, local functions, and object expressions.
+Qualified `return`s allow us to return from an outer function.
+The most important use case is returning from a lambda expression. Recall that when we write the following,
+the `return`-expression returns from the nearest enclosing function - `foo`:
+
+```kotlin
+//sampleStart
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return // non-local return directly to the caller of foo()
+        print(it)
+    }
+    println("this point is unreachable")
+}
+//sampleEnd
+
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Note that such non-local returns are supported only for lambda expressions passed to [inline functions](inline-functions.md).
+To return from a lambda expression, label it and qualify the `return`:
+
+```kotlin
+//sampleStart
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach lit@{
+        if (it == 3) return@lit // local return to the caller of the lambda - the forEach loop
+        print(it)
+    }
+    print(" done with explicit label")
+}
+//sampleEnd
+
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Now, it returns only from the lambda expression. Often it is more convenient to use _implicit labels_, because such a label
+has the same name as the function to which the lambda is passed.
+
+```kotlin
+//sampleStart
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach {
+        if (it == 3) return@forEach // local return to the caller of the lambda - the forEach loop
+        print(it)
+    }
+    print(" done with implicit label")
+}
+//sampleEnd
+
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Alternatively, you can replace the lambda expression with an [anonymous function](lambdas.md#anonymous-functions).
+A `return` statement in an anonymous function will return from the anonymous function itself.
+
+```kotlin
+//sampleStart
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach(fun(value: Int) {
+        if (value == 3) return  // local return to the caller of the anonymous function - the forEach loop
+        print(value)
+    })
+    print(" done with anonymous function")
+}
+//sampleEnd
+
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Note that the use of local returns in the previous three examples is similar to the use of `continue` in regular loops.
+
+There is no direct equivalent for `break`, but it can be simulated by adding another nesting lambda and non-locally returning from it:
+
+```kotlin
+//sampleStart
+fun foo() {
+    run loop@{
+        listOf(1, 2, 3, 4, 5).forEach {
+            if (it == 3) return@loop // non-local return from the lambda passed to run
+            print(it)
+        }
+    }
+    print(" done with nested loop")
+}
+//sampleEnd
+
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+When returning a value, the parser gives preference to the qualified return:
+
+```kotlin
+return@a 1
+```
+
+This means "return `1` at label `@a`" rather than "return a labeled expression `(@a 1)`".
+
+
+# 📜 07.02.3. [Exceptions](exceptions.md)
+
+    [//]: # (title: Exceptions)
+
+## Exception classes
+
+All exception classes in Kotlin inherit the `Throwable` class.
+Every exception has a message, a stack trace, and an optional cause.
+
+To throw an exception object, use the `throw` expression:
+
+```kotlin
+fun main() {
+//sampleStart
+    throw Exception("Hi There!")
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+To catch an exception, use the `try`...`catch` expression:
+
+```kotlin
+try {
+    // some code
+} catch (e: SomeException) {
+    // handler
+} finally {
+    // optional finally block
+}
+```
+
+There may be zero or more `catch` blocks, and the `finally` block may be omitted.
+However, at least one `catch` or `finally` block is required.
+
+### Try is an expression
+
+`try` is an expression, which means it can have a return value:
+
+```kotlin
+val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
+```
+
+The returned value of a `try` expression is either the last expression in the `try` block or the
+last expression in the `catch` block (or blocks).
+The contents of the `finally` block don't affect the result of the expression.
+
+## Checked exceptions
+
+Kotlin does not have checked exceptions. There are many reasons for this, but we will provide a simple example that illustrates why it is the case.
+
+The following is an example interface from the JDK implemented by the `StringBuilder` class:
+
+``` java
+Appendable append(CharSequence csq) throws IOException;
+```
+
+This signature says that every time I append a string to something (a `StringBuilder`, some kind of a log, a console, etc.),
+I have to catch the `IOExceptions`. Why? Because the implementation might be performing IO operations (`Writer` also implements `Appendable`).
+The result is code like this all over the place:
+
+```kotlin
+try {
+    log.append(message)
+} catch (IOException e) {
+    // Must be safe
+}
+```
+
+And that's not good. Just take a look at [Effective Java, 3rd Edition](https://www.oracle.com/technetwork/java/effectivejava-136174.html), Item 77: *Don't ignore exceptions*.
+
+Bruce Eckel says this about checked exceptions:
+
+> Examination of small programs leads to the conclusion that requiring exception specifications
+>could both enhance developer productivity and enhance code quality, but experience with large software projects suggests
+>a different result – decreased productivity and little or no increase in code quality.
+
+And here are some additional thoughts on the matter:
+
+* [Java's checked exceptions were a mistake](https://radio-weblogs.com/0122027/stories/2003/04/01/JavasCheckedExceptionsWereAMistake.html) (Rod Waldhoff)
+* [The Trouble with Checked Exceptions](https://www.artima.com/intv/handcuffs.html) (Anders Hejlsberg)
+
+If you want to alert callers about possible exceptions when calling Kotlin code from Java, Swift, or Objective-C,
+you can use the `@Throws` annotation. Read more about using this annotation [for Java](java-to-kotlin-interop.md#checked-exceptions)
+and [for Swift and Objective-C](native-objc-interop.md#errors-and-exceptions).
+
+## The Nothing type
+
+`throw` is an expression in Kotlin, so you can use it, for example, as part of an Elvis expression:
+
+```kotlin
+val s = person.name ?: throw IllegalArgumentException("Name required")
+```
+
+The `throw` expression has the type `Nothing`.
+This type has no values and is used to mark code locations that can never be reached.
+In your own code, you can use `Nothing` to mark a function that never returns:
+
+```kotlin
+fun fail(message: String): Nothing {
+    throw IllegalArgumentException(message)
+}
+```
+
+When you call this function, the compiler will know that the execution doesn't continue beyond the call:
+
+```kotlin
+val s = person.name ?: fail("Name required")
+println(s)     // 's' is known to be initialized at this point
+```
+
+You may also encounter this type when dealing with type inference. The nullable variant of this type,
+`Nothing?`, has exactly one possible value, which is `null`. If you use `null` to initialize
+a value of an inferred type and there's no other information that can be used to determine a more
+specific type, the compiler will infer the `Nothing?` type:
+
+```kotlin
+val x = null           // 'x' has type `Nothing?`
+val l = listOf(null)   // 'l' has type `List<Nothing?>
+```
+
+## Java interoperability
+
+Please see the section on exceptions in the [Java interoperability page](java-interop.md) for information about Java interoperability.
+
+
+# 📜 07.03. [Packages and imports](packages.md)
+
+    [//]: # (title: Packages and imports)
+
+A source file may start with a package declaration:
+
+```kotlin
+package org.example
+
+fun printMessage() { /*...*/ }
+class Message { /*...*/ }
+
+// ...
+```
+
+All the contents, such as classes and functions, of the source file are included in this package.
+So, in the example above, the full name of `printMessage()` is `org.example.printMessage`,
+and the full name of `Message` is `org.example.Message`. 
+
+If the package is not specified, the contents of such a file belong to the _default_ package with no name.
+
+## Default imports
+
+A number of packages are imported into every Kotlin file by default:
+
+- [`kotlin.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/index.html)
+- [`kotlin.annotation.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/index.html)
+- [`kotlin.collections.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html)
+- [`kotlin.comparisons.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.comparisons/index.html)
+- [`kotlin.io.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/index.html)
+- [`kotlin.ranges.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/index.html)
+- [`kotlin.sequences.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/index.html)
+- [`kotlin.text.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/index.html)
+
+Additional packages are imported depending on the target platform:
+
+- JVM:
+  - `java.lang.*`
+  - [`kotlin.jvm.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/index.html)
+
+- JS:    
+  - [`kotlin.js.*`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/index.html)
+
+## Imports
+
+Apart from the default imports, each file may contain its own `import` directives.
+
+You can import either a single name:
+
+```kotlin
+import org.example.Message // Message is now accessible without qualification
+```
+
+or all the accessible contents of a scope: package, class, object, and so on:
+
+```kotlin
+import org.example.* // everything in 'org.example' becomes accessible
+```
+
+If there is a name clash, you can disambiguate by using `as` keyword to locally rename the clashing entity:
+
+```kotlin
+import org.example.Message // Message is accessible
+import org.test.Message as TestMessage // TestMessage stands for 'org.test.Message'
+```
+
+The `import` keyword is not restricted to importing classes; you can also use it to import other declarations:
+
+  * top-level functions and properties
+  * functions and properties declared in [object declarations](object-declarations.md#object-declarations-overview)
+  * [enum constants](enum-classes.md)
+
+## Visibility of top-level declarations
+
+If a top-level declaration is marked `private`, it is private to the file it's declared in (see [Visibility modifiers](visibility-modifiers.md)).
+
 
 # 📜 07.04. Classes and objects
 
-# 📜 07.04.01. [](classes.md)
 
-# 📜 07.04.02. [](inheritance.md)
+# 📜 07.04.01. [Classes](classes.md)
 
-# 📜 07.04.03. [](properties.md)
+    [//]: # (title: Classes)
 
-# 📜 07.04.04. [](interfaces.md)
+Classes in Kotlin are declared using the keyword `class`:
 
-# 📜 07.04.05. [](fun-interfaces.md)
+```kotlin
+class Person { /*...*/ }
+```
 
-# 📜 07.04.06. [](visibility-modifiers.md)
+The class declaration consists of the class name, the class header (specifying its type parameters, the primary constructor, 
+and some other things), and the class body surrounded by curly braces. Both the header and the body are optional; if the
+class has no body, the curly braces can be omitted.
 
-# 📜 07.04.07. [](extensions.md)
+```kotlin
+class Empty
+```
 
-# 📜 07.04.08. [](data-classes.md)
+## Constructors
+
+A class in Kotlin has a _primary constructor_ and possibly one or more _secondary constructors_. The primary constructor
+is declared in the class header, and it goes after the class name and optional type parameters.
+
+```kotlin
+class Person constructor(firstName: String) { /*...*/ }
+```
+
+If the primary constructor does not have any annotations or visibility modifiers, the `constructor` keyword can be omitted:
+
+```kotlin
+class Person(firstName: String) { /*...*/ }
+```
+
+The primary constructor initializes a class instance and its properties in the class header. The class header can't contain
+any runnable code. If you want to run some code during object creation, use _initializer blocks_ inside the class body.
+Initializer blocks are declared with the `init` keyword followed by curly braces. Write any code that you want to run
+within the curly braces.
+
+During the initialization of an instance, the initializer blocks are executed in the same order as they appear in the
+class body, interleaved with the property initializers:
+
+```kotlin
+//sampleStart
+class InitOrderDemo(name: String) {
+    val firstProperty = "First property: $name".also(::println)
+    
+    init {
+        println("First initializer block that prints $name")
+    }
+    
+    val secondProperty = "Second property: ${name.length}".also(::println)
+    
+    init {
+        println("Second initializer block that prints ${name.length}")
+    }
+}
+//sampleEnd
+
+fun main() {
+    InitOrderDemo("hello")
+}
+```
+{kotlin-runnable="true"}
+
+Primary constructor parameters can be used in the initializer blocks. They can also be used in property initializers
+declared in the class body:
+
+```kotlin
+class Customer(name: String) {
+    val customerKey = name.uppercase()
+}
+```
+
+Kotlin has a concise syntax for declaring properties and initializing them from the primary constructor:
+
+```kotlin
+class Person(val firstName: String, val lastName: String, var age: Int)
+```
+
+Such declarations can also include default values of the class properties:
+
+```kotlin
+class Person(val firstName: String, val lastName: String, var isEmployed: Boolean = true)
+```
+
+You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare class properties:
+
+```kotlin
+class Person(
+    val firstName: String,
+    val lastName: String,
+    var age: Int, // trailing comma
+) { /*...*/ }
+```
+
+Much like regular properties, properties declared in the primary constructor can be mutable (`var`) or read-only (`val`).
+
+If the constructor has annotations or visibility modifiers, the `constructor` keyword is required and the modifiers go before it:
+
+```kotlin
+class Customer public @Inject constructor(name: String) { /*...*/ }
+```
+
+Learn more about [visibility modifiers](visibility-modifiers.md#constructors).
+
+### Secondary constructors
+
+A class can also declare _secondary constructors_, which are prefixed with `constructor`:
+
+```kotlin
+class Person(val pets: MutableList<Pet> = mutableListOf())
+
+class Pet {
+    constructor(owner: Person) {
+        owner.pets.add(this) // adds this pet to the list of its owner's pets
+    }
+}
+```
+
+If the class has a primary constructor, each secondary constructor needs to delegate to the primary constructor, either
+directly or indirectly through another secondary constructor(s). Delegation to another constructor of the same class is
+done using the `this` keyword:
+
+```kotlin
+class Person(val name: String) {
+    val children: MutableList<Person> = mutableListOf()
+    constructor(name: String, parent: Person) : this(name) {
+        parent.children.add(this)
+    }
+}
+```
+
+Code in initializer blocks effectively becomes part of the primary constructor. Delegation to the primary constructor
+happens at the moment of access to the first statement of a secondary constructor, so the code in all initializer blocks
+and property initializers is executed before the body of the secondary constructor.
+
+Even if the class has no primary constructor, the delegation still happens implicitly, and the initializer blocks are
+still executed:
+
+```kotlin
+//sampleStart
+class Constructors {
+    init {
+        println("Init block")
+    }
+
+    constructor(i: Int) {
+        println("Constructor $i")
+    }
+}
+//sampleEnd
+
+fun main() {
+    Constructors(1)
+}
+```
+{kotlin-runnable="true"}
+
+If a non-abstract class does not declare any constructors (primary or secondary), it will have a generated primary constructor
+with no arguments. The visibility of the constructor will be public.
+
+If you don't want your class to have a public constructor, declare an empty primary constructor with non-default visibility:
+
+```kotlin
+class DontCreateMe private constructor() { /*...*/ }
+```
+
+> On the JVM, if all of the primary constructor parameters have default values, the compiler will generate an additional parameterless constructor which will use the default values. This makes it easier to use Kotlin with libraries such as Jackson or JPA that create class instances through parameterless constructors.
+>
+> ```kotlin
+> class Customer(val customerName: String = "")
+> ```
+>
+{type="note"}
+
+## Creating instances of classes
+
+To create an instance of a class, call the constructor as if it were a regular function:
+
+```kotlin
+val invoice = Invoice()
+
+val customer = Customer("Joe Smith")
+```
+
+> Kotlin does not have a `new` keyword.
+>
+{type="note"}
+
+The process of creating instances of nested, inner, and anonymous inner classes is described in [Nested classes](nested-classes.md).
+
+## Class members
+
+Classes can contain:
+
+* [Constructors and initializer blocks](classes.md#constructors)
+* [Functions](functions.md)
+* [Properties](properties.md)
+* [Nested and inner classes](nested-classes.md)
+* [Object declarations](object-declarations.md)
+
+## Inheritance
+
+Classes can be derived from each other and form inheritance hierarchies.
+[Learn more about inheritance in Kotlin](inheritance.md).
+
+## Abstract classes
+
+A class may be declared `abstract`, along with some or all of its members.
+An abstract member does not have an implementation in its class.
+You don't need to annotate abstract classes or functions with `open`.
+
+```kotlin
+abstract class Polygon {
+    abstract fun draw()
+}
+
+class Rectangle : Polygon() {
+    override fun draw() {
+        // draw the rectangle
+    }
+}
+```
+
+You can override a non-abstract `open` member with an abstract one.
+
+```kotlin
+open class Polygon {
+    open fun draw() {
+        // some default polygon drawing method
+    }
+}
+
+abstract class WildShape : Polygon() {
+    // Classes that inherit WildShape need to provide their own
+    // draw method instead of using the default on Polygon
+    abstract override fun draw()
+}
+```
+
+## Companion objects
+
+If you need to write a function that can be called without having a class instance but that needs access to the internals
+of a class (such as a factory method), you can write it as a member of an [object declaration](object-declarations.md) inside that class.
+
+Even more specifically, if you declare a [companion object](object-declarations.md#companion-objects) inside your class,
+you can access its members using only the class name as a qualifier.
+
+
+# 📜 07.04.02. [Inheritance](inheritance.md)
+
+    [//]: # (title: Inheritance)
+
+All classes in Kotlin have a common superclass, `Any`, which is the default superclass for a class with no supertypes declared:
+
+```kotlin
+class Example // Implicitly inherits from Any
+```
+
+`Any` has three methods: `equals()`, `hashCode()`, and `toString()`. Thus, these methods are defined for all Kotlin classes.
+
+By default, Kotlin classes are final – they can't be inherited. To make a class inheritable, mark it with the `open` keyword:
+
+```kotlin
+open class Base // Class is open for inheritance
+
+```
+
+To declare an explicit supertype, place the type after a colon in the class header:
+
+```kotlin
+open class Base(p: Int)
+
+class Derived(p: Int) : Base(p)
+```
+
+If the derived class has a primary constructor, the base class can (and must) be initialized in that primary constructor
+according to its parameters.
+
+If the derived class has no primary constructor, then each secondary constructor has to initialize the base type using
+the `super` keyword or it has to delegate to another constructor which does. Note that in this case different secondary
+constructors can call different constructors of the base type:
+
+```kotlin
+class MyView : View {
+    constructor(ctx: Context) : super(ctx)
+
+    constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
+}
+```
+
+## Overriding methods
+
+Kotlin requires explicit modifiers for overridable members and overrides:
+
+```kotlin
+open class Shape {
+    open fun draw() { /*...*/ }
+    fun fill() { /*...*/ }
+}
+
+class Circle() : Shape() {
+    override fun draw() { /*...*/ }
+}
+```
+
+The `override` modifier is required for `Circle.draw()`. If it's missing, the compiler will complain. If there is no
+`open` modifier on a function, like `Shape.fill()`, declaring a method with the same signature in a subclass is not allowed,
+either with `override` or without it. The `open` modifier has no effect when added to members of a final class – a class
+without an `open` modifier.
+
+A member marked `override` is itself open, so it may be overridden in subclasses. If you want to prohibit re-overriding,
+use `final`:
+
+```kotlin
+open class Rectangle() : Shape() {
+    final override fun draw() { /*...*/ }
+}
+```
+
+## Overriding properties
+
+The overriding mechanism works on properties in the same way that it does on methods. Properties declared on a superclass
+that are then redeclared on a derived class must be prefaced with `override`, and they must have a compatible type.
+Each declared property can be overridden by a property with an initializer or by a property with a `get` method:
+
+```kotlin
+open class Shape {
+    open val vertexCount: Int = 0
+}
+
+class Rectangle : Shape() {
+    override val vertexCount = 4
+}
+```
+
+You can also override a `val` property with a `var` property, but not vice versa. This is allowed because a `val` property
+essentially declares a `get` method, and overriding it as a `var` additionally declares a `set` method in the derived class.
+
+Note that you can use the `override` keyword as part of the property declaration in a primary constructor:
+
+```kotlin
+interface Shape {
+    val vertexCount: Int
+}
+
+class Rectangle(override val vertexCount: Int = 4) : Shape // Always has 4 vertices
+
+class Polygon : Shape {
+    override var vertexCount: Int = 0  // Can be set to any number later
+}
+```
+
+## Derived class initialization order
+
+During the construction of a new instance of a derived class, the base class initialization is done as the first step
+(preceded only by evaluation of the arguments for the base class constructor), which means that it happens before the
+initialization logic of the derived class is run.
+
+```kotlin
+//sampleStart
+open class Base(val name: String) {
+
+    init { println("Initializing a base class") }
+
+    open val size: Int = 
+        name.length.also { println("Initializing size in the base class: $it") }
+}
+
+class Derived(
+    name: String,
+    val lastName: String,
+) : Base(name.replaceFirstChar { it.uppercase() }.also { println("Argument for the base class: $it") }) {
+
+    init { println("Initializing a derived class") }
+
+    override val size: Int =
+        (super.size + lastName.length).also { println("Initializing size in the derived class: $it") }
+}
+//sampleEnd
+
+fun main() {
+    println("Constructing the derived class(\"hello\", \"world\")")
+    Derived("hello", "world")
+}
+```
+{kotlin-runnable="true"}
+
+This means that when the base class constructor is executed, the properties declared or overridden in the derived class
+have not yet been initialized. Using any of those properties in the base class initialization logic (either directly or
+indirectly through another overridden `open` member implementation) may lead to incorrect behavior or a runtime failure.
+When designing a base class, you should therefore avoid using `open` members in the constructors, property initializers,
+or `init` blocks.
+
+## Calling the superclass implementation
+
+Code in a derived class can call its superclass functions and property accessor implementations using the `super` keyword:
+
+```kotlin
+open class Rectangle {
+    open fun draw() { println("Drawing a rectangle") }
+    val borderColor: String get() = "black"
+}
+
+class FilledRectangle : Rectangle() {
+    override fun draw() {
+        super.draw()
+        println("Filling the rectangle")
+    }
+
+    val fillColor: String get() = super.borderColor
+}
+```
+
+Inside an inner class, accessing the superclass of the outer class is done using the `super` keyword qualified with the
+outer class name: `super@Outer`:
+
+```kotlin
+open class Rectangle {
+    open fun draw() { println("Drawing a rectangle") }
+    val borderColor: String get() = "black"
+}
+
+//sampleStart
+class FilledRectangle: Rectangle() {
+    override fun draw() {
+        val filler = Filler()
+        filler.drawAndFill()
+    }
+    
+    inner class Filler {
+        fun fill() { println("Filling") }
+        fun drawAndFill() {
+            super@FilledRectangle.draw() // Calls Rectangle's implementation of draw()
+            fill()
+            println("Drawn a filled rectangle with color ${super@FilledRectangle.borderColor}") // Uses Rectangle's implementation of borderColor's get()
+        }
+    }
+}
+//sampleEnd
+
+fun main() {
+    val fr = FilledRectangle()
+        fr.draw()
+}
+```
+{kotlin-runnable="true"}
+
+## Overriding rules
+
+In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits multiple implementations of
+the same member from its immediate superclasses, it must override this member and provide its own implementation (perhaps,
+using one of the inherited ones).
+
+To denote the supertype from which the inherited implementation is taken, use `super` qualified by the supertype name in
+angle brackets, such as `super<Base>`:
+
+```kotlin
+open class Rectangle {
+    open fun draw() { /* ... */ }
+}
+
+interface Polygon {
+    fun draw() { /* ... */ } // interface members are 'open' by default
+}
+
+class Square() : Rectangle(), Polygon {
+    // The compiler requires draw() to be overridden:
+    override fun draw() {
+        super<Rectangle>.draw() // call to Rectangle.draw()
+        super<Polygon>.draw() // call to Polygon.draw()
+    }
+}
+```
+
+It's fine to inherit from both `Rectangle` and `Polygon`,
+but both of them have their implementations of `draw()`, so you need to override `draw()` in `Square` and provide a separate
+implementation for it to eliminate the ambiguity.
+
+
+# 📜 07.04.03. [Properties](properties.md)
+
+    [//]: # (title: Properties)
+
+## Declaring properties
+
+Properties in Kotlin classes can be declared either as mutable, using the `var` keyword, or as read-only, using the `val` keyword.
+
+```kotlin
+class Address {
+    var name: String = "Holmes, Sherlock"
+    var street: String = "Baker"
+    var city: String = "London"
+    var state: String? = null
+    var zip: String = "123456"
+}
+```
+
+To use a property, simply refer to it by its name:
+
+```kotlin
+fun copyAddress(address: Address): Address {
+    val result = Address() // there's no 'new' keyword in Kotlin
+    result.name = address.name // accessors are called
+    result.street = address.street
+    // ...
+    return result
+}
+```
+
+## Getters and setters
+
+The full syntax for declaring a property is as follows:
+
+```kotlin
+var <propertyName>[: <PropertyType>] [= <property_initializer>]
+    [<getter>]
+    [<setter>]
+```
+
+The initializer, getter, and setter are optional. The property type is optional if it can be inferred from the initializer
+or the getter's return type, as shown below:
+
+```kotlin
+var initialized = 1 // has type Int, default getter and setter
+// var allByDefault // ERROR: explicit initializer required, default getter and setter implied
+```
+
+The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with `val` instead
+of `var` and does not allow a setter:
+
+```kotlin
+val simple: Int? // has type Int, default getter, must be initialized in constructor
+val inferredType = 1 // has type Int and a default getter
+```
+
+You can define custom accessors for a property. If you define a custom getter, it will be called every time you access
+the property (this way you can implement a computed property). Here's an example of a custom getter:
+
+```kotlin
+//sampleStart
+class Rectangle(val width: Int, val height: Int) {
+    val area: Int // property type is optional since it can be inferred from the getter's return type
+        get() = this.width * this.height
+}
+//sampleEnd
+fun main() {
+    val rectangle = Rectangle(3, 4)
+    println("Width=${rectangle.width}, height=${rectangle.height}, area=${rectangle.area}")
+}
+```
+{kotlin-runnable="true"}
+
+You can omit the property type if it can be inferred from the getter:
+
+```kotlin
+val area get() = this.width * this.height
+```
+
+If you define a custom setter, it will be called every time you assign a value to the property, except its initialization.
+A custom setter looks like this:
+
+```kotlin
+var stringRepresentation: String
+    get() = this.toString()
+    set(value) {
+        setDataFromString(value) // parses the string and assigns values to other properties
+    }
+```
+
+By convention, the name of the setter parameter is `value`, but you can choose a different name if you prefer.
+
+If you need to annotate an accessor or change its visibility, but you don't want to change the default implementation,
+you can define the accessor without defining its body:
+
+```kotlin
+var setterVisibility: String = "abc"
+    private set // the setter is private and has the default implementation
+
+var setterWithAnnotation: Any? = null
+    @Inject set // annotate the setter with Inject
+```
+
+### Backing fields
+
+In Kotlin, a field is only used as a part of a property to hold its value in memory. Fields cannot be declared directly.
+However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in
+the accessors using the `field` identifier:
+
+```kotlin
+var counter = 0 // the initializer assigns the backing field directly
+    set(value) {
+        if (value >= 0)
+            field = value
+            // counter = value // ERROR StackOverflow: Using actual name 'counter' would make setter recursive
+    }
+```
+
+The `field` identifier can only be used in the accessors of the property.
+
+A backing field will be generated for a property if it uses the default implementation of at least one of the accessors,
+or if a custom accessor references it through the `field` identifier.
+
+For example, there would be no backing field in the following case:
+
+```kotlin
+val isEmpty: Boolean
+    get() = this.size == 0
+```
+
+### Backing properties
+
+If you want to do something that does not fit into this _implicit backing field_ scheme, you can always fall back to having
+a _backing property_:
+
+```kotlin
+private var _table: Map<String, Int>? = null
+public val table: Map<String, Int>
+    get() {
+        if (_table == null) {
+            _table = HashMap() // Type parameters are inferred
+        }
+        return _table ?: throw AssertionError("Set to null by another thread")
+    }
+```
+
+> On the JVM: Access to private properties with default getters and setters is optimized to avoid function call overhead.
+>
+{type="note"}
+
+## Compile-time constants
+
+If the value of a read-only property is known at compile time, mark it as a _compile time constant_ using the `const` modifier.
+Such a property needs to fulfil the following requirements:
+
+* It must be a top-level property, or a member of an [`object` declaration](object-declarations.md#object-declarations-overview) or a _[companion object](object-declarations.md#companion-objects)_.
+* It must be initialized with a value of type `String` or a primitive type
+* It cannot be a custom getter
+
+The compiler will inline usages of the constant, replacing the reference to the constant with its actual value. However, the field will not be removed and therefore can be interacted with using [reflection](reflection.md).
+
+Such properties can also be used in annotations:
+
+```kotlin
+const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
+
+@Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
+```
+
+## Late-initialized properties and variables
+
+Normally, properties declared as having a non-nullable type must be initialized in the constructor.
+However, it is often the case that doing so is not convenient. For example, properties can be initialized through dependency
+injection, or in the setup method of a unit test. In these cases, you cannot supply a non-nullable initializer in the constructor,
+but you still want to avoid null checks when referencing the property inside the body of a class.
+
+To handle such cases, you can mark the property with the `lateinit` modifier:
+
+```kotlin
+public class MyTest {
+    lateinit var subject: TestSubject
+
+    @SetUp fun setup() {
+        subject = TestSubject()
+    }
+
+    @Test fun test() {
+        subject.method()  // dereference directly
+    }
+}
+```
+
+This modifier can be used on `var` properties declared inside the body of a class (not in the primary constructor,
+and only when the property does not have a custom getter or setter), as well as for top-level properties and local variables.
+The type of the property or variable must be non-nullable, and it must not be a primitive type.
+
+Accessing a `lateinit` property before it has been initialized throws a special exception that clearly identifies the property
+being accessed and the fact that it hasn't been initialized.
+
+### Checking whether a `lateinit var` is initialized
+
+To check whether a `lateinit var` has already been initialized, use `.isInitialized` on the [reference to that property](reflection.md#property-references):
+
+```kotlin
+if (foo::bar.isInitialized) {
+    println(foo.bar)
+}
+```
+
+This check is only available for properties that are lexically accessible when declared in the same type, in one of the
+outer types, or at top level in the same file.
+
+## Overriding properties
+
+See [Overriding properties](inheritance.md#overriding-properties)
+
+## Delegated properties
+
+The most common kind of property simply reads from (and maybe writes to) a backing field, but custom getters and setters
+allow you to use properties so one can implement any sort of behavior of a property.
+Somewhere in between the simplicity of the first kind and variety of the second, there are common patterns for what properties
+can do. A few examples: lazy values, reading from a map by a given key, accessing a database, notifying a listener on access.
+
+Such common behaviors can be implemented as libraries using [delegated properties](delegated-properties.md).
+
+
+# 📜 07.04.04. [Interfaces](interfaces.md)
+
+    [//]: # (title: Interfaces)
+
+Interfaces in Kotlin can contain declarations of abstract methods, as well as method
+implementations. What makes them different from abstract classes is that interfaces cannot store state. They can have
+properties, but these need to be abstract or provide accessor implementations.
+
+An interface is defined using the keyword `interface`:
+
+```kotlin
+interface MyInterface {
+    fun bar()
+    fun foo() {
+      // optional body
+    }
+}
+```
+
+## Implementing interfaces
+
+A class or object can implement one or more interfaces:
+
+```kotlin
+class Child : MyInterface {
+    override fun bar() {
+        // body
+    }
+}
+```
+
+## Properties in interfaces
+
+You can declare properties in interfaces. A property declared in an interface can either be abstract or provide
+implementations for accessors. Properties declared in interfaces can't have backing fields, and therefore accessors
+declared in interfaces can't reference them:
+
+```kotlin
+interface MyInterface {
+    val prop: Int // abstract
+
+    val propertyWithImplementation: String
+        get() = "foo"
+
+    fun foo() {
+        print(prop)
+    }
+}
+
+class Child : MyInterface {
+    override val prop: Int = 29
+}
+```
+
+## Interfaces Inheritance
+
+An interface can derive from other interfaces, meaning it can both provide implementations for their members and declare new
+functions and properties. Quite naturally, classes implementing such an interface are only required to define
+the missing implementations:
+
+```kotlin
+interface Named {
+    val name: String
+}
+
+interface Person : Named {
+    val firstName: String
+    val lastName: String
+    
+    override val name: String get() = "$firstName $lastName"
+}
+
+data class Employee(
+    // implementing 'name' is not required
+    override val firstName: String,
+    override val lastName: String,
+    val position: Position
+) : Person
+```
+
+## Resolving overriding conflicts
+
+When you declare many types in your supertype list, you may inherit more than one implementation of the same method:
+
+```kotlin
+interface A {
+    fun foo() { print("A") }
+    fun bar()
+}
+
+interface B {
+    fun foo() { print("B") }
+    fun bar() { print("bar") }
+}
+
+class C : A {
+    override fun bar() { print("bar") }
+}
+
+class D : A, B {
+    override fun foo() {
+        super<A>.foo()
+        super<B>.foo()
+    }
+
+    override fun bar() {
+        super<B>.bar()
+    }
+}
+```
+
+Interfaces *A* and *B* both declare functions *foo()* and *bar()*. Both of them implement *foo()*, but only *B* implements
+*bar()* (*bar()* is not marked as abstract in *A*, because this is the default for interfaces if the function has no body).
+Now, if you derive a concrete class *C* from *A*, you have to override *bar()* and provide an implementation.
+
+However, if you derive *D* from *A* and *B*, you need to implement all the methods that you have
+inherited from multiple interfaces, and you need to specify how exactly *D* should implement them. This rule applies
+both to methods for which you've inherited a single implementation (*bar()*) and to those for which you've inherited multiple implementations (*foo()*).
+
+
+# 📜 07.04.05. [Functional (SAM) interfaces](fun-interfaces.md)
+
+    [//]: # (title: Functional \(SAM\) interfaces)
+
+An interface with only one abstract method is called a _functional interface_, or a _Single Abstract
+Method (SAM) interface_. The functional interface can have several non-abstract members but only one abstract member.
+
+To declare a functional interface in Kotlin, use the `fun` modifier.
+
+```kotlin
+fun interface KRunnable {
+   fun invoke()
+}
+```
+
+## SAM conversions
+
+For functional interfaces, you can use SAM conversions that help make your code more concise and readable by using
+[lambda expressions](lambdas.md#lambda-expressions-and-anonymous-functions).
+
+Instead of creating a class that implements a functional interface manually, you can use a lambda expression.
+With a SAM conversion, Kotlin can convert any lambda expression whose signature matches
+the signature of the interface's single method into the code, which dynamically instantiates the interface implementation.
+
+For example, consider the following Kotlin functional interface:
+
+```kotlin
+fun interface IntPredicate {
+   fun accept(i: Int): Boolean
+}
+```
+
+If you don't use a SAM conversion, you will need to write code like this:
+
+```kotlin
+// Creating an instance of a class
+val isEven = object : IntPredicate {
+   override fun accept(i: Int): Boolean {
+       return i % 2 == 0
+   }
+}
+```
+
+By leveraging Kotlin's SAM conversion, you can write the following equivalent code instead:
+
+```kotlin
+// Creating an instance using lambda
+val isEven = IntPredicate { it % 2 == 0 }
+```
+
+A short lambda expression replaces all the unnecessary code.
+
+```kotlin
+fun interface IntPredicate {
+   fun accept(i: Int): Boolean
+}
+
+val isEven = IntPredicate { it % 2 == 0 }
+
+fun main() {
+   println("Is 7 even? - ${isEven.accept(7)}")
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
+You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
+
+## Migration from an interface with constructor function to a functional interface
+
+Starting from 1.6.20, Kotlin supports [callable references](reflection.md#callable-references) to functional interface constructors, which
+adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
+Consider the following code:
+
+```kotlin
+interface Printer { 
+    fun print() 
+}
+
+fun Printer(block: () -> Unit): Printer = object : Printer { override fun print() = block() }
+```
+
+With callable references to functional interface constructors enabled, this code can be replaced with just a functional interface declaration:
+
+```kotlin
+fun interface Printer { 
+    fun print()
+}
+```
+
+Its constructor will be created implicitly, and any code using the `::Printer` function reference will compile. For example:
+
+```kotlin
+documentsStorage.addPrinter(::Printer)
+```
+
+Preserve the binary compatibility by marking the legacy function `Printer` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
+annotation with `DeprecationLevel.HIDDEN`:
+
+```kotlin
+@Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
+fun Printer(...) {...}
+```
+
+## Functional interfaces vs. type aliases
+
+You can also simply rewrite the above using a [type alias](type-aliases.md) for a functional type:
+
+```kotlin
+typealias IntPredicate = (i: Int) -> Boolean
+
+val isEven: IntPredicate = { it % 2 == 0 }
+
+fun main() {
+   println("Is 7 even? - ${isEven(7)}")
+}
+```
+
+However, functional interfaces and [type aliases](type-aliases.md) serve different purposes.
+Type aliases are just names for existing types – they don't create a new type, while functional interfaces do.
+You can provide extensions that are specific to a particular functional interface to be inapplicable for plain functions or their type aliases.
+
+Type aliases can have only one member, while functional interfaces can have multiple non-abstract members and one abstract member.
+Functional interfaces can also implement and extend other interfaces.
+
+Functional interfaces are more flexible and provide more capabilities than type aliases, but they can be more costly both syntactically and at runtime because they can require conversions to a specific interface.
+When you choose which one to use in your code, consider your needs:
+* If your API needs to accept a function (any function) with some specific parameter and return types – use a simple functional type or define a type alias to give a shorter name to the corresponding functional type.
+* If your API accepts a more complex entity than a function – for example, it has non-trivial contracts and/or operations on it that can't be expressed in a functional type's signature – declare a separate functional interface for it.
+
+
+# 📜 07.04.06. [Visibility modifiers](visibility-modifiers.md)
+
+    [//]: # (title: Visibility modifiers)
+
+Classes, objects, interfaces, constructors, and functions, as well as properties and their setters, can have *visibility modifiers*.
+Getters always have the same visibility as their properties.
+
+There are four visibility modifiers in Kotlin: `private`, `protected`, `internal`, and `public`.
+The default visibility is `public`.
+
+On this page, you'll learn how the modifiers apply to different types of declaring scopes.
+
+## Packages
+
+Functions, properties, classes, objects, and interfaces can be declared at the "top-level" directly inside a package:
+
+```kotlin
+// file name: example.kt
+package foo
+
+fun baz() { ... }
+class Bar { ... }
+```
+
+* If you don't use a visibility modifier, `public` is used by default, which means that your declarations will be
+  visible everywhere.
+* If you mark a declaration as `private`, it will only be visible inside the file that contains the declaration.
+* If you mark it as `internal`, it will be visible everywhere in the same [module](#modules).
+* The `protected` modifier is not available for top-level declarations.
+
+>To use a visible top-level declaration from another package, you should [import](packages.md#imports) it.
+>
+{type="note"}
+
+Examples:
+
+```kotlin
+// file name: example.kt
+package foo
+
+private fun foo() { ... } // visible inside example.kt
+
+public var bar: Int = 5 // property is visible everywhere
+    private set         // setter is visible only in example.kt
+    
+internal val baz = 6    // visible inside the same module
+```
+
+## Class members
+
+For members declared inside a class:
+
+* `private` means that the member is visible inside this class only (including all its members).
+* `protected` means that the member has the same visibility as one marked as `private`, but that it is also visible in subclasses.
+* `internal` means that any client *inside this module* who sees the declaring class sees its `internal` members.
+* `public` means that any client who sees the declaring class sees its `public` members.
+
+> In Kotlin, an outer class does not see private members of its inner classes.
+>
+{type="note"}
+
+If you override a `protected` or an `internal` member and do not specify the visibility explicitly, the overriding member
+will also have the same visibility as the original.
+
+Examples:
+
+```kotlin
+open class Outer {
+    private val a = 1
+    protected open val b = 2
+    internal open val c = 3
+    val d = 4  // public by default
+    
+    protected class Nested {
+        public val e: Int = 5
+    }
+}
+
+class Subclass : Outer() {
+    // a is not visible
+    // b, c and d are visible
+    // Nested and e are visible
+
+    override val b = 5   // 'b' is protected
+    override val c = 7   // 'c' is internal
+}
+
+class Unrelated(o: Outer) {
+    // o.a, o.b are not visible
+    // o.c and o.d are visible (same module)
+    // Outer.Nested is not visible, and Nested::e is not visible either 
+}
+```
+
+### Constructors
+
+Use the following syntax to specify the visibility of the primary constructor of a class:
+
+> You need to add an explicit `constructor` keyword.
+>
+{type="note"}
+
+```kotlin
+class C private constructor(a: Int) { ... }
+```
+
+Here the constructor is private. By default, all constructors are `public`, which effectively
+amounts to them being visible everywhere the class is visible (this means that a constructor of an `internal` class is only
+visible within the same module).
+
+### Local declarations
+
+Local variables, functions, and classes can't have visibility modifiers.
+
+## Modules
+
+The `internal` visibility modifier means that the member is visible within the same module. More specifically,
+a module is a set of Kotlin files compiled together, for example:
+
+* An IntelliJ IDEA module.
+* A Maven project.
+* A Gradle source set (with the exception that the `test` source set can access the internal declarations of `main`).
+* A set of files compiled with one invocation of the `<kotlinc>` Ant task.
+
+
+
+# 📜 07.04.07. [Extensions](extensions.md)
+
+    [//]: # (title: Extensions)
+
+Kotlin provides the ability to extend a class or an interface with new functionality
+without having to inherit from the class or use design patterns such as _Decorator_.
+This is done via special declarations called _extensions_.
+
+For example, you can write new functions for a class or an interface from a third-party library that you can't modify.
+Such functions can be called in the usual way, as if they were methods of the original class.
+This mechanism is called an _extension function_. There are also _extension properties_ that let you define
+new properties for existing classes.
+
+## Extension functions
+
+To declare an extension function, prefix its name with a _receiver type_, which refers to the type being extended.
+The following adds a `swap` function to `MutableList<Int>`:
+
+```kotlin
+fun MutableList<Int>.swap(index1: Int, index2: Int) {
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
+}
+```
+
+The `this` keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot).
+Now, you can call such a function on any `MutableList<Int>`:
+
+```kotlin
+val list = mutableListOf(1, 2, 3)
+list.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'list'
+```
+
+This function makes sense for any `MutableList<T>`, and you can make it generic:
+
+```kotlin
+fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
+}
+```
+
+You need to declare the generic type parameter before the function name to make it available in the receiver type expression.
+For more information about generics, see [generic functions](generics.md).
+
+## Extensions are resolved _statically_
+
+Extensions do not actually modify the classes they extend. By defining an extension, you are not inserting new members into
+a class, only making new functions callable with the dot-notation on variables of this type.
+
+Extension functions are dispatched _statically_. So which extension function is called is already known at compile time
+based on the receiver type. For example:
+
+```kotlin
+fun main() {
+//sampleStart
+    open class Shape
+    class Rectangle: Shape()
+    
+    fun Shape.getName() = "Shape"
+    fun Rectangle.getName() = "Rectangle"
+    
+    fun printClassName(s: Shape) {
+        println(s.getName())
+    }
+    
+    printClassName(Rectangle())
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+This example prints _Shape_, because the extension function called depends only on the declared type of the
+parameter `s`, which is the `Shape` class.
+
+If a class has a member function, and an extension function is defined which has the same receiver type,
+the same name, and is applicable to given arguments, the _member always wins_. For example:
+
+```kotlin
+fun main() {
+//sampleStart
+    class Example {
+        fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType() { println("Extension function") }
+    
+    Example().printFunctionType()
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+This code prints _Class method_.
+
+However, it's perfectly OK for extension functions to overload member functions that have the same name but a different signature:
+
+```kotlin
+fun main() {
+//sampleStart
+    class Example {
+        fun printFunctionType() { println("Class method") }
+    }
+    
+    fun Example.printFunctionType(i: Int) { println("Extension function #$i") }
+    
+    Example().printFunctionType(1)
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## Nullable receiver
+
+Note that extensions can be defined with a nullable receiver type. These extensions can be called on an object variable
+even if its value is null. If the receiver is `null`, then `this` is also `null`. So when defining an extension with a 
+nullable receiver type, we recommend performing a `this == null` check inside the function body to avoid compiler errors. 
+
+You can call `toString()` in Kotlin without checking for `null`, as the check already happens inside the extension function:
+
+```kotlin
+fun Any?.toString(): String {
+    if (this == null) return "null"
+    // After the null check, 'this' is autocast to a non-nullable type, so the toString() below
+    // resolves to the member function of the Any class
+    return toString()
+}
+```
+
+## Extension properties
+
+Kotlin supports extension properties much like it supports functions:
+
+```kotlin
+val <T> List<T>.lastIndex: Int
+    get() = size - 1
+```
+
+> Since extensions do not actually insert members into classes, there's no efficient way for an extension
+> property to have a [backing field](properties.md#backing-fields). This is why _initializers are not allowed for
+> extension properties_. Their behavior can only be defined by explicitly providing getters/setters.
+>
+{type="note"}
+
+Example:
+
+```kotlin
+val House.number = 1 // error: initializers are not allowed for extension properties
+```
+
+## Companion object extensions
+
+If a class has a [companion object](object-declarations.md#companion-objects) defined, you can also define extension
+functions and properties for the companion object. Just like regular members of the companion object,
+they can be called using only the class name as the qualifier:
+
+```kotlin
+class MyClass {
+    companion object { }  // will be called "Companion"
+}
+
+fun MyClass.Companion.printCompanion() { println("companion") }
+
+fun main() {
+    MyClass.printCompanion()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## Scope of extensions
+
+In most cases, you define extensions on the top level, directly under packages:
+
+```kotlin
+package org.example.declarations
+
+fun List<String>.getLongestString() { /*...*/}
+```
+
+To use an extension outside its declaring package, import it at the call site:
+
+```kotlin
+package org.example.usage
+
+import org.example.declarations.getLongestString
+
+fun main() {
+    val list = listOf("red", "green", "blue")
+    list.getLongestString()
+}
+```
+
+See [Imports](packages.md#imports) for more information.
+
+## Declaring extensions as members
+
+You can declare extensions for one class inside another class. Inside such an extension, there are multiple _implicit receivers_ -
+objects whose members can be accessed without a qualifier. An instance of a class in which the extension is declared is called a
+_dispatch receiver_, and an instance of the receiver type of the extension method is called an _extension receiver_.
+
+```kotlin
+class Host(val hostname: String) {
+    fun printHostname() { print(hostname) }
+}
+
+class Connection(val host: Host, val port: Int) {
+    fun printPort() { print(port) }
+
+    fun Host.printConnectionString() {
+        printHostname()   // calls Host.printHostname()
+        print(":")
+        printPort()   // calls Connection.printPort()
+    }
+
+    fun connect() {
+        /*...*/
+        host.printConnectionString()   // calls the extension function
+    }
+}
+
+fun main() {
+    Connection(Host("kotl.in"), 443).connect()
+    //Host("kotl.in").printConnectionString()  // error, the extension function is unavailable outside Connection
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+In the event of a name conflict between the members of a dispatch receiver and an extension receiver, the extension receiver takes
+precedence. To refer to the member of the dispatch receiver, you can use the [qualified `this` syntax](this-expressions.md#qualified-this).
+
+```kotlin
+class Connection {
+    fun Host.getConnectionString() {
+        toString()         // calls Host.toString()
+        this@Connection.toString()  // calls Connection.toString()
+    }
+}
+```
+
+Extensions declared as members can be declared as `open` and overridden in subclasses. This means that the dispatch of such
+functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
+
+```kotlin
+open class Base { }
+
+class Derived : Base() { }
+
+open class BaseCaller {
+    open fun Base.printFunctionInfo() {
+        println("Base extension function in BaseCaller")
+    }
+
+    open fun Derived.printFunctionInfo() {
+        println("Derived extension function in BaseCaller")
+    }
+
+    fun call(b: Base) {
+        b.printFunctionInfo()   // call the extension function
+    }
+}
+
+class DerivedCaller: BaseCaller() {
+    override fun Base.printFunctionInfo() {
+        println("Base extension function in DerivedCaller")
+    }
+
+    override fun Derived.printFunctionInfo() {
+        println("Derived extension function in DerivedCaller")
+    }
+}
+
+fun main() {
+    BaseCaller().call(Base())   // "Base extension function in BaseCaller"
+    DerivedCaller().call(Base())  // "Base extension function in DerivedCaller" - dispatch receiver is resolved virtually
+    DerivedCaller().call(Derived())  // "Base extension function in DerivedCaller" - extension receiver is resolved statically
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## Note on visibility
+
+Extensions utilize the same [visibility modifiers](visibility-modifiers.md) as regular functions declared in the same scope would.
+For example:
+
+* An extension declared at the top level of a file has access to the other `private` top-level declarations in the same file.
+* If an extension is declared outside its receiver type, it cannot access the receiver's `private` or `protected` members.
+
+
+# 📜 07.04.08. [Data classes](data-classes.md)
+
+    [//]: # (title: Data classes)
+
+Data classes in Kotlin are classes whose main purpose is to hold data. Data classes come automatically with additional
+member functions that allow you to print an instance to readable output, compare instances, copy instances, and more.
+Data classes are marked with `data`:
+
+```kotlin
+data class User(val name: String, val age: Int)
+```
+
+The compiler automatically derives the following members from all properties declared in the primary constructor:
+
+* `.equals()`/`.hashCode()` pair
+* `.toString()` of the form `"User(name=John, age=42)"`
+* [`.componentN()` functions](destructuring-declarations.md) corresponding to the properties in their order of declaration.
+* `.copy()` function (see below).
+
+To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
+
+* The primary constructor needs to have at least one parameter.
+* All primary constructor parameters need to be marked as `val` or `var`.
+* Data classes cannot be abstract, open, sealed, or inner.
+
+Additionally, the generation of data class members follows these rules with regard to the members' inheritance:
+
+* If there are explicit implementations of `.equals()`, `.hashCode()`, or `.toString()` in the data class body or
+  `final` implementations in a superclass, then these functions are not generated, and the existing
+  implementations are used.
+* If a supertype has `.componentN()` functions that are `open` and return compatible types, the
+  corresponding functions are generated for the data class and override those of the supertype. If the functions of the
+  supertype cannot be overridden due to incompatible signatures or due to their being final, an error is reported.
+* Providing explicit implementations for the `.componentN()` and `.copy()` functions is not allowed.
+
+Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
+
+> On the JVM, if the generated class needs to have a parameterless constructor, default values for the properties have
+> to be specified (see [Constructors](classes.md#constructors)).
+>
+{type="note"}
+
+```kotlin
+data class User(val name: String = "", val age: Int = 0)
+```
+
+## Properties declared in the class body
+
+The compiler only uses the properties defined inside the primary constructor for the automatically generated
+functions. To exclude a property from the generated implementations, declare it inside the class body:
+
+```kotlin
+data class Person(val name: String) {
+    var age: Int = 0
+}
+```
+
+In this example, only the `name` property can be used inside the `.toString()`, `.equals()`, `.hashCode()`, and `.copy()` implementations,
+and there is only one component function `.component1()`. The `age` property can't be used inside the `.toString()`, 
+`.equals()`, `.hashCode()`, and `.copy()` implementations because it's declared inside the class body. If two `Person` 
+objects have different ages but the same `name`, then they are treated as equal. This is because the `.equals()` function
+can only check for equality of the `name` property. For example:
+
+```kotlin
+data class Person(val name: String) {
+    var age: Int = 0
+}
+fun main() {
+//sampleStart
+    val person1 = Person("John")
+    val person2 = Person("John")
+    person1.age = 10
+    person2.age = 20
+
+    println("person1 == person2: ${person1 == person2}")
+    // person1 == person2: true
+  
+    println("person1 with age ${person1.age}: ${person1}")
+    // person1 with age 10: Person(name=John)
+  
+    println("person2 with age ${person2.age}: ${person2}")
+    // person2 with age 20: Person(name=John)
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## Copying
+
+Use the `.copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged. The implementation of this function for the `User` class above would be as follows:
+
+```kotlin
+fun copy(name: String = this.name, age: Int = this.age) = User(name, age)
+```
+
+You can then write the following:
+
+```kotlin
+val jack = User(name = "Jack", age = 1)
+val olderJack = jack.copy(age = 2)
+```
+
+## Data classes and destructuring declarations
+
+_Component functions_ generated for data classes make it possible to use them in [destructuring declarations](destructuring-declarations.md):
+
+```kotlin
+val jane = User("Jane", 35)
+val (name, age) = jane
+println("$name, $age years of age") 
+// Jane, 35 years of age
+```
+
+## Standard data classes
+
+The standard library provides the `Pair` and `Triple` classes. In most cases, though, named data classes are a better design choice
+because they make the code easier to read by providing meaningful names for the properties.
+
+
 
 # 📜 07.04.09. [Sealed classes and interfaces](sealed-classes.md)
 
-# 📜 07.04.10. [](generics.md)
+    [//]: # (title: Sealed classes and interfaces)
 
-# 📜 07.04.11. [](nested-classes.md)
+_Sealed_ classes and interfaces represent restricted class hierarchies that provide more control over inheritance.
+All direct subclasses of a sealed class are known at compile time. No other subclasses may appear outside
+the module and package within which the sealed class is defined. For example, third-party clients can't extend your sealed class in their code.
+Thus, each instance of a sealed class has a type from a limited set that is known when this class is compiled.
 
-# 📜 07.04.12. [](enum-classes.md)
+The same works for sealed interfaces and their implementations: once a module with a sealed interface is compiled,
+no new implementations can appear.
 
-# 📜 07.04.13. [](inline-classes.md)
+In some sense, sealed classes are similar to [`enum`](enum-classes.md) classes: the set of values
+for an enum type is also restricted, but each enum constant exists only as a _single instance_, whereas a subclass
+of a sealed class can have _multiple_ instances, each with its own state.
 
-# 📜 07.04.14. [](object-declarations.md)
+As an example, consider a library's API. It's likely to contain error classes to let the library users handle errors 
+that it can throw. If the hierarchy of such error classes includes interfaces or abstract classes visible in the public API,
+then nothing prevents implementing or extending them in the client code. However, the library doesn't know about errors
+declared outside it, so it can't treat them consistently with its own classes. With a sealed hierarchy of error classes,
+library authors can be sure that they know all possible error types and no other ones can appear later.
 
-# 📜 07.04.15. [](delegation.md)
+To declare a sealed class or interface, put the `sealed` modifier before its name:
 
-# 📜 07.04.16. [](delegated-properties.md)
+```kotlin
+sealed interface Error
 
-# 📜 07.04.17. [](type-aliases.md)
+sealed class IOError(): Error
+
+class FileReadError(val file: File): IOError()
+class DatabaseError(val source: DataSource): IOError()
+
+object RuntimeError : Error
+```
+
+A sealed class is [abstract](classes.md#abstract-classes) by itself, it cannot be instantiated directly and can have `abstract` members.
+
+Constructors of sealed classes can have one of two [visibilities](visibility-modifiers.md): `protected` (by default) or
+`private`:
+
+```kotlin
+sealed class IOError {
+    constructor() { /*...*/ } // protected by default
+    private constructor(description: String): this() { /*...*/ } // private is OK
+    // public constructor(code: Int): this() {} // Error: public and internal are not allowed
+}
+```
+
+## Location of direct subclasses
+
+Direct subclasses of sealed classes and interfaces must be declared in the same package. They may be top-level or nested
+inside any number of other named classes, named interfaces, or named objects. Subclasses can have any [visibility](visibility-modifiers.md)
+as long as they are compatible with normal inheritance rules in Kotlin.
+
+Subclasses of sealed classes must have a proper qualified name. They can't be local nor anonymous objects.
+
+> `enum` classes can't extend a sealed class (as well as any other class), but they can implement sealed interfaces.
+>
+{type="note"}
+
+These restrictions don't apply to indirect subclasses. If a direct subclass of a sealed class is not marked as sealed,
+it can be extended in any way that its modifiers allow:
+
+```kotlin
+sealed interface Error // has implementations only in same package and module
+
+sealed class IOError(): Error // extended only in same package and module
+open class CustomError(): Error // can be extended wherever it's visible
+```
+
+### Inheritance in multiplatform projects
+
+There is one more inheritance restriction in [multiplatform projects](multiplatform-get-started.md): direct subclasses of sealed classes must
+reside in the same source set. It applies to sealed classes without the [`expect` and `actual` modifiers](multiplatform-connect-to-apis.md).
+
+If a sealed class is declared as `expect` in a common source set and have `actual` implementations in platform source sets,
+both `expect` and `actual` versions can have subclasses in their source sets. Moreover, if you use a [hierarchical structure](multiplatform-share-on-platforms.md#share-code-on-similar-platforms),
+you can create subclasses in any source set between the `expect` and `actual` declarations. 
+
+[Learn more about the hierarchical structure of multiplatform projects](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
+
+## Sealed classes and when expression
+
+The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
+expression. 
+If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
+
+```kotlin
+fun log(e: Error) = when(e) {
+    is FileReadError -> { println("Error while reading file ${e.file}") }
+    is DatabaseError -> { println("Error while reading from database ${e.source}") }
+    is RuntimeError ->  { println("Runtime error") }
+    // the `else` clause is not required because all the cases are covered
+}
+```
+
+> `when` expressions on [`expect`](multiplatform-connect-to-apis.md) sealed classes in the common code of multiplatform projects still 
+> require an `else` branch. This happens because subclasses of `actual` platform implementations aren't known in the 
+> common code.
+>
+{type="note"}
+
+
+# 📜 07.04.10. [Generics: in, out, where](generics.md)
+
+    [//]: # (title: Generics: in, out, where)
+
+Classes in Kotlin can have type parameters, just like in Java:
+
+```kotlin
+class Box<T>(t: T) {
+    var value = t
+}
+```
+
+To create an instance of such a class, simply provide the type arguments:
+
+```kotlin
+val box: Box<Int> = Box<Int>(1)
+```
+
+But if the parameters can be inferred, for example, from the constructor arguments,
+you can omit the type arguments:
+
+```kotlin
+val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<Int>
+```
+
+## Variance
+
+One of the trickiest aspects of Java's type system is the wildcard types (see [Java Generics FAQ](http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html)).
+Kotlin doesn't have these. Instead, Kotlin has declaration-site variance and type projections.
+
+Let's think about why Java needs these mysterious wildcards. The problem is explained well in 
+[Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), 
+Item 31: _Use bounded wildcards to increase API flexibility_.
+First, generic types in Java are _invariant_, meaning that `List<String>` is _not_ a subtype of `List<Object>`.
+If `List` were not _invariant_, it would have been no better than Java's arrays, as the following code would have 
+compiled but caused an exception at runtime:
+
+```java
+// Java
+List<String> strs = new ArrayList<String>();
+List<Object> objs = strs; // !!! A compile-time error here saves us from a runtime exception later.
+objs.add(1); // Put an Integer into a list of Strings
+String s = strs.get(0); // !!! ClassCastException: Cannot cast Integer to String
+```
+
+Java prohibits such things in order to guarantee run-time safety. But this has implications. For example,
+consider the `addAll()` method from the `Collection` interface. What's the signature of this method? Intuitively,
+you'd write it this way:
+
+```java
+// Java
+interface Collection<E> ... {
+    void addAll(Collection<E> items);
+}
+```
+
+But then, you would not be able to do the following (which is perfectly safe):
+
+```java
+// Java
+void copyAll(Collection<Object> to, Collection<String> from) {
+    to.addAll(from);
+    // !!! Would not compile with the naive declaration of addAll:
+    // Collection<String> is not a subtype of Collection<Object>
+}
+```
+
+(In Java, you probably learned this the hard way, see [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), 
+Item 28: _Prefer lists to arrays_)
+
+That's why the actual signature of `addAll()` is the following:
+
+```java
+// Java
+interface Collection<E> ... {
+    void addAll(Collection<? extends E> items);
+}
+```
+
+The _wildcard type argument_ `? extends E` indicates that this method accepts a collection of objects of `E`
+_or a subtype of_ `E`, not just `E` itself. This means that you can safely _read_ `E`'s from items
+(elements of this collection are instances of a subclass of E), but _cannot write_ to
+it as you don't know what objects comply with that unknown subtype of `E`.
+In return for this limitation, you get the desired behavior: `Collection<String>` _is_ a subtype of `Collection<? extends Object>`.
+In other words, the wildcard with an _extends_\-bound (_upper_ bound) makes the type _covariant_.
+
+The key to understanding why this works is rather simple: if you can only _take_ items from a collection,
+then using a collection of `String`s and reading `Object`s from it is fine. Conversely, if you can only _put_ items
+into the collection, it's okay to take a collection of `Object`s and put `String`s into it: in Java there is
+`List<? super String>`, which accepts `String`s or any of its supertypes.
+
+The latter is called _contravariance_, and you can only call methods that take `String` as an argument on `List<? super String>`
+(for example, you can call `add(String)` or `set(int, String)`).  If you call something that returns `T` in `List<T>`,
+you don't get a `String`, but rather an `Object`.
+
+Joshua Bloch gives the name _Producers_ to objects you only _read from_ and _Consumers_ to those you only _write to_. He recommends:
+
+>"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers",
+> and proposes the following mnemonic:
+>
+>_PECS stands for Producer-Extends, Consumer-Super._
+>
+{type="tip"}
+
+> If you use a producer-object, say, `List<? extends Foo>`, you are not allowed to call `add()` or `set()` on this object,
+> but this does not mean that it is _immutable_: for example, nothing prevents you from calling `clear()`
+> to remove all the items from the list, since `clear()` does not take any parameters at all.
+>
+>The only thing guaranteed by wildcards (or other types of variance) is _type safety_. Immutability is a completely different story.
+>
+{type="note"}
+
+### Declaration-site variance
+
+Let's suppose that there is a generic interface `Source<T>` that does not have any methods that take `T` as a parameter, only methods that return `T`:
+
+```java
+// Java
+interface Source<T> {
+    T nextT();
+}
+```
+
+Then, it would be perfectly safe to store a reference to an instance of `Source<String>` in a variable of
+type `Source<Object>` - there are no consumer-methods to call. But Java does not know this, and still prohibits it:
+
+```java
+// Java
+void demo(Source<String> strs) {
+    Source<Object> objects = strs; // !!! Not allowed in Java
+    // ...
+}
+```
+
+To fix this, you should declare objects of type `Source<? extends Object>`. Doing so is meaningless,
+because you can call all the same methods on such a variable as before, so there's no value added by the more complex type.
+But the compiler does not know that.
+
+In Kotlin, there is a way to explain this sort of thing to the compiler. This is called _declaration-site variance_:
+you can annotate the _type parameter_ `T` of `Source` to make sure that it is only _returned_ (produced) from members
+of `Source<T>`, and never consumed.
+To do this, use the `out` modifier:
+
+```kotlin
+interface Source<out T> {
+    fun nextT(): T
+}
+
+fun demo(strs: Source<String>) {
+    val objects: Source<Any> = strs // This is OK, since T is an out-parameter
+    // ...
+}
+```
+
+The general rule is this: when a type parameter `T` of a class `C` is declared `out`, it may occur only in the _out_-position
+in the members of `C`, but in return `C<Base>` can safely be a supertype of `C<Derived>`.
+
+In other words, you can say that the class `C` is _covariant_ in the parameter `T`, or that `T` is a _covariant_ type parameter.
+You can think of `C` as being a _producer_ of `T`'s, and NOT a _consumer_ of `T`'s.
+
+The `out` modifier is called a _variance annotation_, and  since it is provided at the type parameter declaration site,
+it provides _declaration-site variance_.
+This is in contrast with Java's _use-site variance_ where wildcards in the type usages make the types covariant.
+
+In addition to `out`, Kotlin provides a complementary variance annotation: `in`. It makes a type parameter _contravariant_, meaning
+it can only be consumed and never produced. A good example of a contravariant type is `Comparable`:
+
+```kotlin
+interface Comparable<in T> {
+    operator fun compareTo(other: T): Int
+}
+
+fun demo(x: Comparable<Number>) {
+    x.compareTo(1.0) // 1.0 has type Double, which is a subtype of Number
+    // Thus, you can assign x to a variable of type Comparable<Double>
+    val y: Comparable<Double> = x // OK!
+}
+```
+
+The words _in_ and _out_ seem to be self-explanatory (as they've already been used successfully in C# for quite some time),
+and so the mnemonic mentioned above is not really needed.  It can in fact be rephrased at a higher level of abstraction:
+
+**[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
+
+## Type projections
+
+### Use-site variance: type projections
+
+It is very easy to declare a type parameter `T` as `out` and avoid trouble with subtyping on the use site,
+but some classes _can't_ actually be restricted to only return `T`'s!
+A good example of this is `Array`:
+
+```kotlin
+class Array<T>(val size: Int) {
+    operator fun get(index: Int): T { ... }
+    operator fun set(index: Int, value: T) { ... }
+}
+```
+
+This class can be neither co- nor contravariant in `T`. And this imposes certain inflexibilities. Consider the following function:
+
+```kotlin
+fun copy(from: Array<Any>, to: Array<Any>) {
+    assert(from.size == to.size)
+    for (i in from.indices)
+        to[i] = from[i]
+}
+```
+
+This function is supposed to copy items from one array to another. Let's try to apply it in practice:
+
+```kotlin
+val ints: Array<Int> = arrayOf(1, 2, 3)
+val any = Array<Any>(3) { "" } 
+copy(ints, any)
+//   ^ type is Array<Int> but Array<Any> was expected
+```
+
+Here you run into the same familiar problem: `Array<T>` is _invariant_ in `T`, and so neither `Array<Int>` nor `Array<Any>`
+is a subtype of the other. Why not? Again, this is because `copy` could have an unexpected behavior, for example, it may attempt to
+write a `String` to `from`, and if you actually pass an array of `Int` there, a `ClassCastException` will be thrown later.
+
+To prohibit the `copy` function from _writing_ to `from`, you can do the following:
+
+```kotlin
+fun copy(from: Array<out Any>, to: Array<Any>) { ... }
+```
+
+This is _type projection_, which means that `from` is not a simple array, but is rather a restricted (_projected_) one.
+You can only call methods that return the type parameter `T`, which in this case means that you can only call `get()`.
+This is our approach to _use-site variance_, and it corresponds to Java's `Array<? extends Object>` while being slightly simpler.
+
+You can project a type with `in` as well:
+
+```kotlin
+fun fill(dest: Array<in String>, value: String) { ... }
+```
+
+`Array<in String>` corresponds to Java's `Array<? super String>`. This means that you can pass an array of `CharSequence`
+or an array of `Object` to the `fill()` function.
+
+### Star-projections
+
+Sometimes you want to say that you know nothing about the type argument, but you still want to use it in a safe way.
+The safe way here is to define such a projection of the generic type, that every concrete instantiation of that generic
+type will be a subtype of that projection.
+
+Kotlin provides so-called _star-projection_ syntax for this:
+
+- For `Foo<out T : TUpper>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is
+  equivalent to `Foo<out TUpper>`. This means that when the `T` is unknown you can safely _read_ values of `TUpper` from `Foo<*>`.
+- For `Foo<in T>`, where `T` is a contravariant type parameter, `Foo<*>` is equivalent to `Foo<in Nothing>`. This means
+  there is nothing you can _write_ to `Foo<*>` in a safe way when `T` is unknown.
+- For `Foo<T : TUpper>`, where `T` is an invariant type parameter with the upper bound `TUpper`, `Foo<*>` is equivalent
+  to `Foo<out TUpper>` for reading values and to `Foo<in Nothing>` for writing values.
+
+If a generic type has several type parameters, each of them can be projected independently.
+For example, if the type is declared as `interface Function<in T, out U>` you could use the following star-projections:
+
+* `Function<*, String>` means `Function<in Nothing, String>`.
+* `Function<Int, *>` means `Function<Int, out Any?>`.
+* `Function<*, *>` means `Function<in Nothing, out Any?>`.
+
+> Star-projections are very much like Java's raw types, but safe.
+>
+{type="note"}
+
+## Generic functions
+
+Classes aren't the only declarations that can have type parameters. Functions can, too. Type parameters are placed _before_ the name of the function:
+
+```kotlin
+fun <T> singletonList(item: T): List<T> {
+    // ...
+}
+
+fun <T> T.basicToString(): String { // extension function
+    // ...
+}
+```
+
+To call a generic function, specify the type arguments at the call site _after_ the name of the function:
+
+```kotlin
+val l = singletonList<Int>(1)
+```
+
+Type arguments can be omitted if they can be inferred from the context, so the following example works as well:
+
+```kotlin
+val l = singletonList(1)
+```
+
+## Generic constraints
+
+The set of all possible types that can be substituted for a given type parameter may be restricted by _generic constraints_.
+
+### Upper bounds
+
+The most common type of constraint is an _upper bound_, which corresponds to Java's `extends` keyword:
+
+```kotlin
+fun <T : Comparable<T>> sort(list: List<T>) {  ... }
+```
+
+The type specified after a colon is the _upper bound_, indicating that only a subtype of `Comparable<T>` can be substituted for `T`. For example:
+
+```kotlin
+sort(listOf(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
+sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
+```
+
+The default upper bound (if there was none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
+If the same type parameter needs more than one upper bound, you need a separate _where_\-clause:
+
+```kotlin
+fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
+    where T : CharSequence,
+          T : Comparable<T> {
+    return list.filter { it > threshold }.map { it.toString() }
+}
+```
+
+The passed type must satisfy all conditions of the `where` clause simultaneously. In the above example, the `T` type
+must implement _both_ `CharSequence` and `Comparable`.
+
+## Definitely non-nullable types
+
+To make interoperability with generic Java classes and interfaces easier, Kotlin supports declaring a generic type parameter
+as **definitely non-nullable**. 
+
+To declare a generic type `T` as definitely non-nullable, declare the type with `& Any`. For example: `T & Any`.
+
+A definitely non-nullable type must have a nullable [upper bound](#upper-bounds).
+
+The most common use case for declaring definitely non-nullable types is when you want to override a Java method that 
+contains `@NotNull` as an argument. For example, consider the `load()` method:
+
+```java
+import org.jetbrains.annotations.*;
+
+public interface Game<T> {
+    public T save(T x) {}
+    @NotNull
+    public T load(@NotNull T x) {}
+}
+```
+
+To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely non-nullable:
+
+```kotlin
+interface ArcadeGame<T1> : Game<T1> {
+    override fun save(x: T1): T1
+    // T1 is definitely non-nullable
+    override fun load(x: T1 & Any): T1 & Any
+}
+```
+
+When working only with Kotlin, it's unlikely that you will need to declare definitely non-nullable types explicitly because 
+Kotlin's type inference takes care of this for you.
+
+## Type erasure
+
+The type safety checks that Kotlin performs for generic declaration usages are done at compile time.
+At runtime, the instances of generic types do not hold any information about their actual type arguments.
+The type information is said to be _erased_. For example, the instances of `Foo<Bar>` and `Foo<Baz?>` are erased to
+just `Foo<*>`.
+
+### Generics type checks and casts
+
+Due to the type erasure, there is no general way to check whether an instance of a generic type was created with certain type
+arguments at runtime, and the compiler prohibits such `is`-checks such as
+`ints is List<Int>` or `list is T` (type parameter). However, you can check an instance against a star-projected type:
+
+```kotlin
+if (something is List<*>) {
+    something.forEach { println(it) } // The items are typed as `Any?`
+}
+```
+
+Similarly, when you already have the type arguments of an instance checked statically (at compile time),
+you can make an `is`-check or a cast that involves the non-generic part of the type. Note that
+angle brackets are omitted in this case:
+
+```kotlin
+fun handleStrings(list: MutableList<String>) {
+    if (list is ArrayList) {
+        // `list` is smart-cast to `ArrayList<String>`
+    }
+}
+```
+
+The same syntax but with the type arguments omitted can be used for casts that do not take type arguments into account: `list as ArrayList`.
+
+The type arguments of generic function calls are also only checked at compile time. Inside the function bodies,
+the type parameters cannot be used for type checks, and type casts to type parameters (`foo as T`) are unchecked.
+The only exclusion is inline functions with [reified type parameters](inline-functions.md#reified-type-parameters),
+which have their actual type arguments inlined at each call site. This enables type checks and casts for the type parameters.
+However, the restrictions described above still apply for instances of generic types used inside checks or casts.
+For example, in the type check `arg is T`, if `arg` is an instance of a generic type itself, its type arguments are still erased.
+
+```kotlin
+//sampleStart
+inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
+    if (first !is A || second !is B) return null
+    return first as A to second as B
+}
+
+val somePair: Pair<Any?, Any?> = "items" to listOf(1, 2, 3)
+
+
+val stringToSomething = somePair.asPairOf<String, Any>()
+val stringToInt = somePair.asPairOf<String, Int>()
+val stringToList = somePair.asPairOf<String, List<*>>()
+val stringToStringList = somePair.asPairOf<String, List<String>>() // Compiles but breaks type safety!
+// Expand the sample for more details
+
+//sampleEnd
+
+fun main() {
+    println("stringToSomething = " + stringToSomething)
+    println("stringToInt = " + stringToInt)
+    println("stringToList = " + stringToList)
+    println("stringToStringList = " + stringToStringList)
+    //println(stringToStringList?.second?.forEach() {it.length}) // This will throw ClassCastException as list items are not String
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Unchecked casts
+
+Type casts to generic types with concrete type arguments such as `foo as List<String>` cannot be checked at runtime.  
+These unchecked casts can be used when type safety is implied by the high-level program logic but cannot be inferred 
+directly by the compiler. See the example below.
+
+```kotlin
+fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
+    TODO("Read a mapping of strings to arbitrary elements.")
+}
+
+// We saved a map with `Int`s into this file
+val intsFile = File("ints.dictionary")
+
+// Warning: Unchecked cast: `Map<String, *>` to `Map<String, Int>`
+val intsDictionary: Map<String, Int> = readDictionary(intsFile) as Map<String, Int>
+```
+A warning appears for the cast in the last line. The compiler can't fully check it at runtime and provides
+no guarantee that the values in the map are `Int`.
+
+To avoid unchecked casts, you can redesign the program structure. In the example above, you could use the
+`DictionaryReader<T>` and `DictionaryWriter<T>` interfaces with type-safe implementations for different types.
+You can introduce reasonable abstractions to move unchecked casts from the call site to the implementation details.
+Proper use of [generic variance](#variance) can also help.
+
+For generic functions, using [reified type parameters](inline-functions.md#reified-type-parameters) makes casts
+like `arg as T` checked, unless `arg`'s type has *its own* type arguments that are erased.
+
+An unchecked cast warning can be suppressed by [annotating](annotations.md) the statement or the
+declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
+
+```kotlin
+inline fun <reified T> List<*>.asListOfType(): List<T>? =
+    if (all { it is T })
+        @Suppress("UNCHECKED_CAST")
+        this as List<T> else
+        null
+```
+
+>**On the JVM**: [array types](arrays.md) (`Array<Foo>`) retain information about the erased type of
+>their elements, and type casts to an array type are partially checked: the
+>nullability and actual type arguments of the element type are still erased. For example,
+>the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, whether it is nullable or not.
+>
+{type="note"}
+
+## Underscore operator for type arguments
+
+The underscore operator `_` can be used for type arguments. Use it to automatically infer a type of the argument when other types are explicitly specified:
+
+```kotlin
+abstract class SomeClass<T> {
+    abstract fun execute() : T
+}
+
+class SomeImplementation : SomeClass<String>() {
+    override fun execute(): String = "Test"
+}
+
+class OtherImplementation : SomeClass<Int>() {
+    override fun execute(): Int = 42
+}
+
+object Runner {
+    inline fun <reified S: SomeClass<T>, T> run() : T {
+        return S::class.java.getDeclaredConstructor().newInstance().execute()
+    }
+}
+
+fun main() {
+    // T is inferred as String because SomeImplementation derives from SomeClass<String>
+    val s = Runner.run<SomeImplementation, _>()
+    assert(s == "Test")
+
+    // T is inferred as Int because OtherImplementation derives from SomeClass<Int>
+    val n = Runner.run<OtherImplementation, _>()
+    assert(n == 42)
+}
+```
+
+
+# 📜 07.04.11. [Nested and inner classes](nested-classes.md)
+
+    [//]: # (title: Nested and inner classes)
+
+Classes can be nested in other classes:
+
+```kotlin
+class Outer {
+    private val bar: Int = 1
+    class Nested {
+        fun foo() = 2
+    }
+}
+
+val demo = Outer.Nested().foo() // == 2
+```
+
+You can also use interfaces with nesting. All combinations of classes and interfaces are possible: You can nest interfaces
+in classes, classes in interfaces, and interfaces in interfaces.
+
+```kotlin
+interface OuterInterface {
+    class InnerClass
+    interface InnerInterface
+}
+
+class OuterClass {
+    class InnerClass
+    interface InnerInterface
+}
+```
+
+## Inner classes
+
+A nested class marked as `inner` can access the members of its outer class. Inner classes carry a reference to an object of an outer class:
+
+```kotlin
+class Outer {
+    private val bar: Int = 1
+    inner class Inner {
+        fun foo() = bar
+    }
+}
+
+val demo = Outer().Inner().foo() // == 1
+```
+
+See [Qualified `this` expressions](this-expressions.md) to learn about disambiguation of `this` in inner classes.
+
+## Anonymous inner classes
+
+Anonymous inner class instances are created using an [object expression](object-declarations.md#object-expressions):
+
+```kotlin
+window.addMouseListener(object : MouseAdapter() {
+
+    override fun mouseClicked(e: MouseEvent) { ... }
+
+    override fun mouseEntered(e: MouseEvent) { ... }
+})
+```
+
+> On the JVM, if the object is an instance of a functional Java interface (that means a Java interface with a single 
+> abstract method), you can create it using a lambda expression prefixed with the type of the interface:
+>
+>```kotlin
+> val listener = ActionListener { println("clicked") }
+> ```
+>
+{type="note"}
+
+
+
+# 📜 07.04.12. [Enum classes](enum-classes.md)
+
+    [//]: # (title: Enum classes)
+
+The most basic use case for enum classes is the implementation of type-safe enums:
+
+```kotlin
+enum class Direction {
+    NORTH, SOUTH, WEST, EAST
+}
+```
+Each enum constant is an object. Enum constants are separated by commas.
+
+Since each enum is an instance of the enum class, it can be initialized as:
+
+```kotlin
+enum class Color(val rgb: Int) {
+    RED(0xFF0000),
+    GREEN(0x00FF00),
+    BLUE(0x0000FF)
+}
+```
+
+## Anonymous classes
+
+Enum constants can declare their own anonymous classes with their corresponding methods, as well as with overriding base
+methods.
+
+```kotlin
+enum class ProtocolState {
+    WAITING {
+        override fun signal() = TALKING
+    },
+
+    TALKING {
+        override fun signal() = WAITING
+    };
+
+    abstract fun signal(): ProtocolState
+}
+```
+
+If the enum class defines any members, separate the constant definitions from the member definitions with a semicolon.
+
+## Implementing interfaces in enum classes
+
+An enum class can implement an interface (but it cannot derive from a class), providing either a common implementation of
+interface members for all the entries, or separate implementations for each entry within its anonymous class.
+This is done by adding the interfaces you want to implement to the enum class declaration as follows:
+
+```kotlin
+import java.util.function.BinaryOperator
+import java.util.function.IntBinaryOperator
+
+//sampleStart
+enum class IntArithmetics : BinaryOperator<Int>, IntBinaryOperator {
+    PLUS {
+        override fun apply(t: Int, u: Int): Int = t + u
+    },
+    TIMES {
+        override fun apply(t: Int, u: Int): Int = t * u
+    };
+    
+    override fun applyAsInt(t: Int, u: Int) = apply(t, u)
+}
+//sampleEnd
+
+fun main() {
+    val a = 13
+    val b = 31
+    for (f in IntArithmetics.values()) {
+        println("$f($a, $b) = ${f.apply(a, b)}")
+    }
+}
+```
+{kotlin-runnable="true"}
+
+All enum classes implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
+interface by default. Constants in the enum class are defined in the natural order. For more information, see [Ordering](collection-ordering.md).
+
+## Working with enum constants
+
+Enum classes in Kotlin have synthetic methods for listing
+the defined enum constants and getting an enum constant by its name. The signatures
+of these methods are as follows (assuming the name of the enum class is `EnumClass`):
+
+```kotlin
+EnumClass.valueOf(value: String): EnumClass
+EnumClass.values(): Array<EnumClass>
+```
+
+Below is an example of these methods in action:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+fun main() {
+    for (color in RGB.values()) println(color.toString()) // prints RED, GREEN, BLUE
+    println("The first color is: ${RGB.valueOf("RED")}") // prints "The first color is: RED"
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-kotlin"}
+
+The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
+not match any of the enum constants defined in the class.
+
+You can access the constants in an enum class in a generic way using
+the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+inline fun <reified T : Enum<T>> printAllValues() {
+    print(enumValues<T>().joinToString { it.name })
+}
+
+printAllValues<RGB>() // prints RED, GREEN, BLUE
+```
+
+> For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
+> 
+> {type="tip"}
+
+In Kotlin 1.9.0, the `entries` property is introduced as a replacement for the `values()` function. The 
+`entries` property returns a pre-allocated immutable list of your enum constants. This is particularly useful when you 
+are working with [collections](collections-overview.md) and can help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
+
+For example:
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+fun main() {
+    for (color in RGB.entries) println(color.toString())
+    // prints RED, GREEN, BLUE
+}
+```
+
+Every enum constant also has properties: [`name`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/name.html)
+and [`ordinal`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/ordinal.html), for obtaining its name and 
+position (starting from 0) in the enum class declaration:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+fun main() {
+    //sampleStart
+    println(RGB.RED.name) // prints RED
+    println(RGB.RED.ordinal) // prints 0
+    //sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
+
+
+# 📜 07.04.13. [Inline value classes](inline-classes.md)
+
+    [//]: # (title: Inline value classes)
+
+Sometimes it is necessary for business logic to create a wrapper around some type. However, it introduces runtime 
+overhead due to additional heap allocations. Moreover, if the wrapped type is primitive, the performance hit is terrible, 
+because primitive types are usually heavily optimized by the runtime, while their wrappers don't get any special treatment. 
+
+To solve such issues, Kotlin introduces a special kind of class called an _inline class_. 
+Inline classes are a subset of [value-based classes](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md). They don't have an identity and can only hold values.
+
+To declare an inline class, use the `value` modifier before the name of the class:
+
+```kotlin
+value class Password(private val s: String)
+```
+
+To declare an inline class for the JVM backend, use the `value` modifier along with the `@JvmInline` annotation before the class declaration: 
+
+```kotlin
+// For JVM backends
+@JvmInline
+value class Password(private val s: String)
+```
+
+An inline class must have a single property initialized in the primary constructor. At runtime, instances of the inline 
+class will be represented using this single property (see details about runtime representation [below](#representation)):
+
+```kotlin
+// No actual instantiation of class 'Password' happens
+// At runtime 'securePassword' contains just 'String'
+val securePassword = Password("Don't try this in production") 
+```
+
+This is the main feature of inline classes, which inspired the name *inline*: data of the class is *inlined* into its 
+usages (similar to how content of [inline functions](inline-functions.md) is inlined to call sites).
+
+## Members
+
+Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and 
+functions, have an `init` block and [secondary constructors](classes.md#secondary-constructors):
+
+```kotlin
+@JvmInline
+value class Person(private val fullName: String) {
+    init {
+        require(fullName.isNotEmpty()) {
+            "Full name shouldn't be empty"
+        }
+    }
+
+    constructor(firstName: String, lastName: String) : this("$firstName $lastName") {
+        require(lastName.isNotBlank()) {
+            "Last name shouldn't be empty"
+        }
+    }
+
+    val length: Int
+        get() = fullName.length
+
+    fun greet() {
+        println("Hello, $fullName")
+    }
+}
+
+fun main() {
+    val name1 = Person("Kotlin", "Mascot")
+    val name2 = Person("Kodee")
+    name1.greet() // the `greet()` function is called as a static method
+    println(name2.length) // property getter is called as a static method
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.9"}
+
+Inline class properties cannot have [backing fields](properties.md#backing-fields). They can only have simple computable 
+properties (no `lateinit`/delegated properties).
+
+## Inheritance
+
+Inline classes are allowed to inherit from interfaces:
+
+```kotlin
+interface Printable {
+    fun prettyPrint(): String
+}
+
+@JvmInline
+value class Name(val s: String) : Printable {
+    override fun prettyPrint(): String = "Let's $s!"
+}
+
+fun main() {
+    val name = Name("Kotlin")
+    println(name.prettyPrint()) // Still called as a static method
+}
+```
+
+It is forbidden for inline classes to participate in a class hierarchy. This means that inline classes cannot extend 
+other classes and are always `final`.
+
+## Representation
+
+In generated code, the Kotlin compiler keeps a *wrapper* for each inline class. Inline class instances can be represented 
+at runtime either as wrappers or as the underlying type. This is similar to how `Int` can be 
+[represented](numbers.md#numbers-representation-on-the-jvm) either as a primitive `int` or as the wrapper `Integer`.
+
+The Kotlin compiler will prefer using underlying types instead of wrappers to produce the most performant and optimized code. 
+However, sometimes it is necessary to keep wrappers around. As a rule of thumb, inline classes are boxed whenever they 
+are used as another type.
+
+```kotlin
+interface I
+
+@JvmInline
+value class Foo(val i: Int) : I
+
+fun asInline(f: Foo) {}
+fun <T> asGeneric(x: T) {}
+fun asInterface(i: I) {}
+fun asNullable(i: Foo?) {}
+
+fun <T> id(x: T): T = x
+
+fun main() {
+    val f = Foo(42) 
+    
+    asInline(f)    // unboxed: used as Foo itself
+    asGeneric(f)   // boxed: used as generic type T
+    asInterface(f) // boxed: used as type I
+    asNullable(f)  // boxed: used as Foo?, which is different from Foo
+    
+    // below, 'f' first is boxed (while being passed to 'id') and then unboxed (when returned from 'id') 
+    // In the end, 'c' contains unboxed representation (just '42'), as 'f' 
+    val c = id(f)  
+}
+```
+
+Because inline classes may be represented both as the underlying value and as a wrapper, [referential equality](equality.md#referential-equality) 
+is pointless for them and is therefore prohibited.
+
+Inline classes can also have a generic type parameter as the underlying type. In this case, the compiler maps it to `Any?`
+or, generally, to the upper bound of the type parameter.
+
+```kotlin
+@JvmInline
+value class UserId<T>(val value: T)
+
+fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s: Any?)
+```
+
+### Mangling
+
+Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:
+
+```kotlin
+@JvmInline
+value class UInt(val x: Int)
+
+// Represented as 'public final void compute(int x)' on the JVM
+fun compute(x: Int) { }
+
+// Also represented as 'public final void compute(int x)' on the JVM!
+fun compute(x: UInt) { }
+```
+
+To mitigate such issues, functions using inline classes are _mangled_ by adding some stable hashcode to the function name. 
+Therefore, `fun compute(x: UInt)` will be represented as `public final void compute-<hashcode>(int x)`, which solves the clash problem.
+
+### Calling from Java code
+
+You can call functions that accept inline classes from Java code. To do so, you should manually disable mangling:
+add the `@JvmName` annotation before the function declaration:
+
+```kotlin
+@JvmInline
+value class UInt(val x: Int)
+
+fun compute(x: Int) { }
+
+@JvmName("computeUInt")
+fun compute(x: UInt) { }
+```
+
+## Inline classes vs type aliases
+
+At first sight, inline classes seem very similar to [type aliases](type-aliases.md). Indeed, both seem to introduce 
+a new type and both will be represented as the underlying type at runtime.
+
+However, the crucial difference is that type aliases are *assignment-compatible* with their underlying type (and with 
+other type aliases with the same underlying type), while inline classes are not.
+
+In other words, inline classes introduce a truly _new_ type, contrary to type aliases which only introduce an alternative name 
+(alias) for an existing type:
+
+```kotlin
+typealias NameTypeAlias = String
+
+@JvmInline
+value class NameInlineClass(val s: String)
+
+fun acceptString(s: String) {}
+fun acceptNameTypeAlias(n: NameTypeAlias) {}
+fun acceptNameInlineClass(p: NameInlineClass) {}
+
+fun main() {
+    val nameAlias: NameTypeAlias = ""
+    val nameInlineClass: NameInlineClass = NameInlineClass("")
+    val string: String = ""
+
+    acceptString(nameAlias) // OK: pass alias instead of underlying type
+    acceptString(nameInlineClass) // Not OK: can't pass inline class instead of underlying type
+
+    // And vice versa:
+    acceptNameTypeAlias(string) // OK: pass underlying type instead of alias
+    acceptNameInlineClass(string) // Not OK: can't pass underlying type instead of inline class
+}
+```
+
+## Inline classes and delegation
+
+Implementation by delegation to inlined value of inlined class is allowed with interfaces:
+
+```kotlin
+interface MyInterface {
+    fun bar()
+    fun foo() = "foo"
+}
+
+@JvmInline
+value class MyInterfaceWrapper(val myInterface: MyInterface) : MyInterface by myInterface
+
+fun main() {
+    val my = MyInterfaceWrapper(object : MyInterface {
+        override fun bar() {
+            // body
+        }
+    })
+    println(my.foo()) // prints "foo"
+}
+```
+
+
+# 📜 07.04.14. [Object expressions and declarations](object-declarations.md)
+
+    [//]: # (title: Object expressions and declarations)
+
+Sometimes you need to create an object that is a slight modification of some class, without explicitly declaring a new
+subclass for it. Kotlin can handle this with _object expressions_ and _object declarations_.
+
+## Object expressions
+
+_Object expressions_ create objects of anonymous classes, that is, classes that aren't explicitly declared with the `class`
+declaration. Such classes are useful for one-time use. You can define them from scratch, inherit from existing classes,
+or implement interfaces. Instances of anonymous classes are also called _anonymous objects_ because they are defined by
+an expression, not a name.
+
+### Creating anonymous objects from scratch
+
+Object expressions start with the `object` keyword.
+
+If you just need an object that doesn't have any nontrivial supertypes, write its members in curly braces after `object`:
+
+```kotlin
+
+fun main() {
+//sampleStart
+    val helloWorld = object {
+        val hello = "Hello"
+        val world = "World"
+        // object expressions extend Any, so `override` is required on `toString()`
+        override fun toString() = "$hello $world"
+    }
+//sampleEnd
+    print(helloWorld)
+}
+```
+{kotlin-runnable="true"}
+
+### Inheriting anonymous objects from supertypes
+
+To create an object of an anonymous class that inherits from some type (or types), specify this type after `object` and a
+colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it:
+
+```kotlin
+window.addMouseListener(object : MouseAdapter() {
+    override fun mouseClicked(e: MouseEvent) { /*...*/ }
+
+    override fun mouseEntered(e: MouseEvent) { /*...*/ }
+})
+```
+
+If a supertype has a constructor, pass appropriate constructor parameters to it.
+Multiple supertypes can be specified as a comma-delimited list after the colon:
+
+```kotlin
+open class A(x: Int) {
+    public open val y: Int = x
+}
+
+interface B { /*...*/ }
+
+val ab: A = object : A(1), B {
+    override val y = 15
+}
+```
+
+### Using anonymous objects as return and value types
+
+When an anonymous object is used as a type of a local or [private](visibility-modifiers.md#packages) but not [inline](inline-functions.md)
+declaration (function or property), all its members are accessible via this function or property:
+
+```kotlin
+class C {
+    private fun getObject() = object {
+        val x: String = "x"
+    }
+
+    fun printX() {
+        println(getObject().x)
+    }
+}
+```
+
+If this function or property is public or private inline, its actual type is:
+* `Any` if the anonymous object doesn't have a declared supertype
+* The declared supertype of the anonymous object, if there is exactly one such type
+* The explicitly declared type if there is more than one declared supertype
+
+In all these cases, members added in the anonymous object are not accessible. Overridden members are accessible if they
+are declared in the actual type of the function or property:
+
+```kotlin
+interface A {
+    fun funFromA() {}
+}
+interface B
+
+class C {
+    // The return type is Any; x is not accessible
+    fun getObject() = object {
+        val x: String = "x"
+    }
+
+    // The return type is A; x is not accessible
+    fun getObjectA() = object: A {
+        override fun funFromA() {}
+        val x: String = "x"
+    }
+
+    // The return type is B; funFromA() and x are not accessible
+    fun getObjectB(): B = object: A, B { // explicit return type is required
+        override fun funFromA() {}
+        val x: String = "x"
+    }
+}
+```
+
+### Accessing variables from anonymous objects
+
+The code in object expressions can access variables from the enclosing scope:
+
+```kotlin
+fun countClicks(window: JComponent) {
+    var clickCount = 0
+    var enterCount = 0
+
+    window.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent) {
+            clickCount++
+        }
+
+        override fun mouseEntered(e: MouseEvent) {
+            enterCount++
+        }
+    })
+    // ...
+}
+```
+
+## Object declarations
+{id="object-declarations-overview"}
+
+The [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern can be useful in several cases,
+and Kotlin makes it easy to declare singletons:
+
+```kotlin
+object DataProviderManager {
+    fun registerDataProvider(provider: DataProvider) {
+        // ...
+    }
+
+    val allDataProviders: Collection<DataProvider>
+        get() = // ...
+}
+```
+
+This is called an _object declaration_, and it always has a name following the `object` keyword.
+Just like a variable declaration, an object declaration is not an expression, and it cannot be used on the right-hand side
+of an assignment statement.
+
+The initialization of an object declaration is thread-safe and done on first access.
+
+To refer to the object, use its name directly:
+
+```kotlin
+DataProviderManager.registerDataProvider(...)
+```
+
+Such objects can have supertypes:
+
+```kotlin
+object DefaultListener : MouseAdapter() {
+    override fun mouseClicked(e: MouseEvent) { ... }
+
+    override fun mouseEntered(e: MouseEvent) { ... }
+}
+```
+
+> Object declarations can't be local (that is, they can't be nested directly inside a function), but they can be nested
+> into other object declarations or non-inner classes.
+>
+{type="note"}
+
+### Data objects
+
+When printing a plain `object` declaration in Kotlin, the string representation contains both its name and the hash of the object:
+
+```kotlin
+object MyObject
+
+fun main() {
+    println(MyObject) // MyObject@1f32e575
+}
+```
+
+Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. This instructs the compiler to generate a number of functions for your object:
+
+* `toString()` returns the name of the data object
+* `equals()`/`hashCode()` pair
+
+  > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
+  >
+  {type="note"}
+
+The `toString()` function of a data object returns the name of the object:
+```kotlin
+data object MyDataObject {
+    val x: Int = 3
+}
+
+fun main() {
+    println(MyDataObject) // MyDataObject
+}
+```
+
+The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
+In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
+However, in the edge case where another object of the same type is generated at runtime (for example, by using platform reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that the objects are treated as being equal.
+
+> Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator). This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
+{type="warning"}
+
+```kotlin
+import java.lang.reflect.Constructor
+
+data object MySingleton
+
+fun main() {
+    val evilTwin = createInstanceViaReflection()
+
+    println(MySingleton) // MySingleton
+    println(evilTwin) // MySingleton
+
+    // Even when a library forcefully creates a second instance of MySingleton, its `equals` method returns true:
+    println(MySingleton == evilTwin) // true
+
+    // Do not compare data objects via ===.
+    println(MySingleton === evilTwin) // false
+}
+
+fun createInstanceViaReflection(): MySingleton {
+    // Kotlin reflection does not permit the instantiation of data objects.
+    // This creates a new MySingleton instance "by force" (i.e. Java platform reflection)
+    // Don't do this yourself!
+    return (MySingleton.javaClass.declaredConstructors[0].apply { isAccessible = true } as Constructor<MySingleton>).newInstance()
+}
+```
+
+The generated `hashCode()` function has behavior that is consistent with the `equals()` function, so that all runtime instances of a `data object` have the same hash code.
+
+#### Differences between data objects and data classes
+
+While `data object` and `data class` declarations are often used together and have some similarities, there are some functions that are not generated for a `data object`:
+
+* No `copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `copy()` function is generated. The singleton pattern restricts the instantiation of a class to a single instance, which would be violated by allowing copies of the instance to be created.
+* No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
+
+#### Using data objects with sealed hierarchies
+
+`data object` declarations are a particularly useful for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you may have defined alongside the object:
+
+```kotlin
+sealed interface ReadResult
+data class Number(val number: Int) : ReadResult
+data class Text(val text: String) : ReadResult
+data object EndOfFile : ReadResult
+
+fun printReadResult(r: ReadResult) {
+    when(r) {
+        is Number -> println("Num(${r.number}")
+        is Text -> println("Txt(${r.text}")
+        is EndOfFile -> println("EOF")
+    }
+}
+
+fun main() {
+    printReadResult(EndOfFile) // EOF
+}
+```
+
+### Companion objects
+
+An object declaration inside a class can be marked with the `companion` keyword:
+
+```kotlin
+class MyClass {
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
+}
+```
+
+Members of the companion object can be called simply by using the class name as the qualifier:
+
+```kotlin
+val instance = MyClass.create()
+```
+
+The name of the companion object can be omitted, in which case the name `Companion` will be used:
+
+```kotlin
+class MyClass {
+    companion object { }
+}
+
+val x = MyClass.Companion
+```
+
+Class members can access the private members of the corresponding companion object.
+
+The name of a class used by itself (not as a qualifier to another name) acts as a reference to the companion
+object of the class (whether named or not):
+
+```kotlin
+class MyClass1 {
+    companion object Named { }
+}
+
+val x = MyClass1
+
+class MyClass2 {
+    companion object { }
+}
+
+val y = MyClass2
+```
+
+Note that even though the members of companion objects look like static members in other languages, at runtime those
+are still instance members of real objects, and can, for example, implement interfaces:
+
+```kotlin
+interface Factory<T> {
+    fun create(): T
+}
+
+class MyClass {
+    companion object : Factory<MyClass> {
+        override fun create(): MyClass = MyClass()
+    }
+}
+
+val f: Factory<MyClass> = MyClass
+```
+
+However, on the JVM you can have members of companion objects generated as real static methods and fields if you use
+the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.md#static-fields) section
+for more detail.
+
+### Semantic difference between object expressions and declarations
+
+There is one important semantic difference between object expressions and object declarations:
+
+* Object expressions are executed (and initialized) _immediately_, where they are used.
+* Object declarations are initialized _lazily_, when accessed for the first time.
+* A companion object is initialized when the corresponding class is loaded (resolved) that matches the semantics of a Java
+  static initializer.
+
+
+# 📜 07.04.15. [Delegation](delegation.md)
+
+    [//]: # (title: Delegation)
+
+The [Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) has proven to be a good alternative to 
+implementation inheritance, and Kotlin supports it natively requiring zero boilerplate code.
+
+A class `Derived` can implement an interface `Base` by delegating all of its public members to a specified object:
+
+```kotlin
+interface Base {
+    fun print()
+}
+
+class BaseImpl(val x: Int) : Base {
+    override fun print() { print(x) }
+}
+
+class Derived(b: Base) : Base by b
+
+fun main() {
+    val b = BaseImpl(10)
+    Derived(b).print()
+}
+```
+{kotlin-runnable="true"}
+
+The `by`-clause in the supertype list for `Derived` indicates that `b` will be stored internally in objects 
+of `Derived` and the compiler will generate all the methods of `Base` that forward to `b`.
+
+## Overriding a member of an interface implemented by delegation 
+
+[Overrides](inheritance.md#overriding-methods) work as you expect: the compiler will use your `override` 
+implementations instead of those in the delegate object. If you want to add `override fun printMessage() { print("abc") }` to 
+`Derived`, the program would print *abc* instead of *10* when `printMessage` is called:
+
+```kotlin
+interface Base {
+    fun printMessage()
+    fun printMessageLine()
+}
+
+class BaseImpl(val x: Int) : Base {
+    override fun printMessage() { print(x) }
+    override fun printMessageLine() { println(x) }
+}
+
+class Derived(b: Base) : Base by b {
+    override fun printMessage() { print("abc") }
+}
+
+fun main() {
+    val b = BaseImpl(10)
+    Derived(b).printMessage()
+    Derived(b).printMessageLine()
+}
+```
+{kotlin-runnable="true"}
+
+Note, however, that members overridden in this way do not get called from the members of the 
+delegate object, which can only access its own implementations of the interface members:
+
+```kotlin
+interface Base {
+    val message: String
+    fun print()
+}
+
+class BaseImpl(val x: Int) : Base {
+    override val message = "BaseImpl: x = $x"
+    override fun print() { println(message) }
+}
+
+class Derived(b: Base) : Base by b {
+    // This property is not accessed from b's implementation of `print`
+    override val message = "Message of Derived"
+}
+
+fun main() {
+    val b = BaseImpl(10)
+    val derived = Derived(b)
+    derived.print()
+    println(derived.message)
+}
+```
+{kotlin-runnable="true"}
+
+Learn more about [delegated properties](delegated-properties.md).
+
+
+# 📜 07.04.16. [Delegated properties](delegated-properties.md)
+
+    [//]: # (title: Delegated properties)
+
+With some common kinds of properties, even though you can implement them manually every time you need them,
+it is more helpful to implement them once, add them to a library, and reuse them later. For example:
+
+* _Lazy_ properties: the value is computed only on first access.
+* _Observable_ properties: listeners are notified about changes to this property.
+* Storing properties in a _map_ instead of a separate field for each property.
+
+To cover these (and other) cases, Kotlin supports _delegated properties_:
+
+```kotlin
+class Example {
+    var p: String by Delegate()
+}
+```
+
+The syntax is: `val/var <property name>: <Type> by <expression>`. The expression after `by` is a _delegate_,
+because the `get()` (and `set()`) that correspond to the property will be delegated to its `getValue()` and `setValue()` methods.
+Property delegates don't have to implement an interface, but they have to provide a `getValue()` function (and `setValue()` for `var`s).
+
+For example:
+
+```kotlin
+import kotlin.reflect.KProperty
+
+class Delegate {
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
+        return "$thisRef, thank you for delegating '${property.name}' to me!"
+    }
+ 
+    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+        println("$value has been assigned to '${property.name}' in $thisRef.")
+    }
+}
+```
+
+When you read from `p`, which delegates to an instance of `Delegate`, the `getValue()` function from `Delegate` is called.
+Its first parameter is the object you read `p` from, and the second parameter holds a description of `p` itself
+(for example, you can take its name). 
+
+```kotlin
+val e = Example()
+println(e.p)
+```
+
+This prints:
+
+```
+Example@33a17727, thank you for delegating 'p' to me!
+```
+
+Similarly, when you assign to `p`, the `setValue()` function is called. The first two parameters are the same, and
+the third holds the value being assigned:
+
+```kotlin
+e.p = "NEW"
+```
+
+This prints:
+ 
+```
+NEW has been assigned to 'p' in Example@33a17727.
+```
+
+The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
+
+You can declare a delegated property inside a function or code block; it doesn't have to be a member of a class.
+Below you can find [an example](#local-delegated-properties).
+
+## Standard delegates
+
+The Kotlin standard library provides factory methods for several useful kinds of delegates.
+
+### Lazy properties
+
+[`lazy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) is a function that takes a lambda and returns an instance of `Lazy<T>`, which can serve as a delegate for implementing a lazy property.
+The first call to `get()` executes the lambda passed to `lazy()` and remembers the result.
+Subsequent calls to `get()` simply return the remembered result. 
+
+```kotlin
+val lazyValue: String by lazy {
+    println("computed!")
+    "Hello"
+}
+
+fun main() {
+    println(lazyValue)
+    println(lazyValue)
+}
+```
+{kotlin-runnable="true"}
+
+By default, the evaluation of lazy properties is *synchronized*: the value is computed only in one thread, but all threads
+will see the same value. If the synchronization of the initialization delegate is not required to allow multiple threads
+to execute it simultaneously, pass `LazyThreadSafetyMode.PUBLICATION` as a parameter to `lazy()`.
+
+If you're sure that the initialization will always happen in the same thread as the one where you use the property,
+you can use `LazyThreadSafetyMode.NONE`. It doesn't incur any thread-safety guarantees and related overhead.
+
+### Observable properties
+
+[`Delegates.observable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/observable.html)
+takes two arguments: the initial value and a handler for modifications.
+
+The handler is called every time you assign to the property (*after* the assignment has been performed). It has three
+parameters: the property being assigned to, the old value, and the new value:
+
+```kotlin
+import kotlin.properties.Delegates
+
+class User {
+    var name: String by Delegates.observable("<no name>") {
+        prop, old, new ->
+        println("$old -> $new")
+    }
+}
+
+fun main() {
+    val user = User()
+    user.name = "first"
+    user.name = "second"
+}
+```
+{kotlin-runnable="true"}
+
+If you want to intercept assignments and *veto* them, use [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html) instead of `observable()`.
+The handler passed to `vetoable` will be called *before* the assignment of a new property value.
+
+## Delegating to another property
+
+A property can delegate its getter and setter to another property. Such delegation is available for
+both top-level and class properties (member and extension). The delegate property can be:
+* A top-level property
+* A member or an extension property of the same class
+* A member or an extension property of another class
+
+To delegate a property to another property, use the `::` qualifier in the delegate name, for example, `this::delegate` or
+`MyClass::delegate`.
+
+```kotlin
+var topLevelInt: Int = 0
+class ClassWithDelegate(val anotherClassInt: Int)
+
+class MyClass(var memberInt: Int, val anotherClassInstance: ClassWithDelegate) {
+    var delegatedToMember: Int by this::memberInt
+    var delegatedToTopLevel: Int by ::topLevelInt
+    
+    val delegatedToAnotherClass: Int by anotherClassInstance::anotherClassInt
+}
+var MyClass.extDelegated: Int by ::topLevelInt
+```
+
+This may be useful, for example, when you want to rename a property in a backward-compatible way: introduce a new property,
+annotate the old one with the `@Deprecated` annotation, and delegate its implementation.
+
+```kotlin
+class MyClass {
+   var newName: Int = 0
+   @Deprecated("Use 'newName' instead", ReplaceWith("newName"))
+   var oldName: Int by this::newName
+}
+fun main() {
+   val myClass = MyClass()
+   // Notification: 'oldName: Int' is deprecated.
+   // Use 'newName' instead
+   myClass.oldName = 42
+   println(myClass.newName) // 42
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
+## Storing properties in a map
+
+One common use case is storing the values of properties in a map.
+This comes up often in applications for things like parsing JSON or performing other dynamic tasks.
+In this case, you can use the map instance itself as the delegate for a delegated property.
+
+```kotlin
+class User(val map: Map<String, Any?>) {
+    val name: String by map
+    val age: Int     by map
+}
+```
+
+In this example, the constructor takes a map:
+
+```kotlin
+val user = User(mapOf(
+    "name" to "John Doe",
+    "age"  to 25
+))
+```
+
+Delegated properties take values from this map through string keys, which are associated with the names of properties:
+
+```kotlin
+class User(val map: Map<String, Any?>) {
+    val name: String by map
+    val age: Int     by map
+}
+
+fun main() {
+    val user = User(mapOf(
+        "name" to "John Doe",
+        "age"  to 25
+    ))
+//sampleStart
+    println(user.name) // Prints "John Doe"
+    println(user.age)  // Prints 25
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+This also works for `var`'s properties if you use a `MutableMap` instead of a read-only `Map`:
+
+```kotlin
+class MutableUser(val map: MutableMap<String, Any?>) {
+    var name: String by map
+    var age: Int     by map
+}
+```
+
+## Local delegated properties
+
+You can declare local variables as delegated properties.
+For example, you can make a local variable lazy:
+
+```kotlin
+fun example(computeFoo: () -> Foo) {
+    val memoizedFoo by lazy(computeFoo)
+
+    if (someCondition && memoizedFoo.isValid()) {
+        memoizedFoo.doSomething()
+    }
+}
+```
+
+The `memoizedFoo` variable will be computed on first access only.
+If `someCondition` fails, the variable won't be computed at all.
+
+## Property delegate requirements
+
+For a *read-only* property (`val`), a delegate should provide an operator function `getValue()` with the following parameters:
+
+* `thisRef` must be the same type as, or a supertype of, the *property owner* (for extension properties, it should be the type being extended).
+* `property`  must be of type `KProperty<*>` or its supertype.
+
+`getValue()` must return the same type as the property (or its subtype).
+
+```kotlin
+class Resource
+
+class Owner {
+    val valResource: Resource by ResourceDelegate()
+}
+
+class ResourceDelegate {
+    operator fun getValue(thisRef: Owner, property: KProperty<*>): Resource {
+        return Resource()
+    }
+}
+```
+
+For a *mutable* property (`var`), a delegate has to additionally provide an operator function `setValue()`
+with the following parameters:
+
+* `thisRef` must be the same type as, or a supertype of, the *property owner* (for extension properties, it should be the type being extended).
+* `property` must be of type `KProperty<*>` or its supertype.
+* `value` must be of the same type as the property (or its supertype).
+ 
+```kotlin
+class Resource
+
+class Owner {
+    var varResource: Resource by ResourceDelegate()
+}
+
+class ResourceDelegate(private var resource: Resource = Resource()) {
+    operator fun getValue(thisRef: Owner, property: KProperty<*>): Resource {
+        return resource
+    }
+    operator fun setValue(thisRef: Owner, property: KProperty<*>, value: Any?) {
+        if (value is Resource) {
+            resource = value
+        }
+    }
+}
+```
+
+`getValue()` and/or `setValue()` functions can be provided either as member functions of the delegate class or as extension functions.
+The latter is handy when you need to delegate a property to an object that doesn't originally provide these functions.
+Both of the functions need to be marked with the `operator` keyword.
+
+You can create delegates as anonymous objects without creating new classes, by using the interfaces `ReadOnlyProperty` and `ReadWriteProperty` from the Kotlin standard library.
+They provide the required methods: `getValue()` is declared in `ReadOnlyProperty`; `ReadWriteProperty`
+extends it and adds `setValue()`. This means you can pass a `ReadWriteProperty` whenever a `ReadOnlyProperty` is expected.
+
+```kotlin
+fun resourceDelegate(resource: Resource = Resource()): ReadWriteProperty<Any?, Resource> =
+    object : ReadWriteProperty<Any?, Resource> {
+        var curValue = resource 
+        override fun getValue(thisRef: Any?, property: KProperty<*>): Resource = curValue
+        override fun setValue(thisRef: Any?, property: KProperty<*>, value: Resource) {
+            curValue = value
+        }
+    }
+
+val readOnlyResource: Resource by resourceDelegate()  // ReadWriteProperty as val
+var readWriteResource: Resource by resourceDelegate()
+```
+
+## Translation rules for delegated properties
+
+Under the hood, the Kotlin compiler generates auxiliary properties for some kinds of delegated properties and then delegates to them. 
+
+> For the optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
+> Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
+>
+{type="note"}
+
+For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
+simply delegates to this additional property:
+
+```kotlin
+class C {
+    var prop: Type by MyDelegate()
+}
+
+// this code is generated by the compiler instead:
+class C {
+    private val prop$delegate = MyDelegate()
+    var prop: Type
+        get() = prop$delegate.getValue(this, this::prop)
+        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
+}
+```
+
+The Kotlin compiler provides all the necessary information about `prop` in the arguments: the first argument `this`
+refers to an instance of the outer class `C`, and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
+
+### Optimized cases for delegated properties
+
+The `$delegate` field will be omitted if a delegate is:
+* A referenced property:
+
+  ```kotlin
+  class C<Type> {
+      private var impl: Type = ...
+      var prop: Type by ::impl
+  }
+  ```
+
+* A named object:
+
+  ```kotlin
+  object NamedObject {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>): String = ...
+  }
+
+  val s: String by NamedObject
+  ```
+
+* A final `val` property with a backing field and a default getter in the same module:
+
+  ```kotlin
+  val impl: ReadOnlyProperty<Any?, String> = ...
+
+  class A {
+      val s: String by impl
+  }
+  ```
+
+* A constant expression, enum entry, `this`, `null`. The example of `this`:
+
+  ```kotlin
+  class A {
+      operator fun getValue(thisRef: Any?, property: KProperty<*>) ...
+ 
+      val s by this
+  }
+  ```
+
+### Translation rules when delegating to another property
+
+When delegating to another property, the Kotlin compiler generates immediate access to the referenced property.
+This means that the compiler doesn't generate the field `prop$delegate`. This optimization helps save memory.
+
+Take the following code, for example:
+
+```kotlin
+class C<Type> {
+    private var impl: Type = ...
+    var prop: Type by ::impl
+}
+```
+
+Property accessors of the `prop` variable invoke the `impl` variable directly, skipping the delegated property's `getValue`and `setValue` operators, 
+and thus the `KProperty` reference object is not needed.
+
+For the code above, the compiler generates the following code:
+
+```kotlin
+class C<Type> {
+    private var impl: Type = ...
+
+    var prop: Type
+        get() = impl
+        set(value) {
+            impl = value
+        }
+    
+    fun getProp$delegate(): Type = impl // This method is needed only for reflection
+}
+```
+
+## Providing a delegate
+
+By defining the `provideDelegate` operator, you can extend the logic for creating the object to which the property implementation
+is delegated. If the object used on the right-hand side of `by` defines `provideDelegate` as a member or extension function,
+that function will be called to create the property delegate instance.
+
+One of the possible use cases of `provideDelegate` is to check the consistency of the property upon its initialization.
+
+For example, to check the property name before binding, you can write something like this:
+
+```kotlin
+class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
+    override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
+}
+    
+class ResourceLoader<T>(id: ResourceID<T>) {
+    operator fun provideDelegate(
+            thisRef: MyUI,
+            prop: KProperty<*>
+    ): ReadOnlyProperty<MyUI, T> {
+        checkProperty(thisRef, prop.name)
+        // create delegate
+        return ResourceDelegate()
+    }
+
+    private fun checkProperty(thisRef: MyUI, name: String) { ... }
+}
+
+class MyUI {
+    fun <T> bindResource(id: ResourceID<T>): ResourceLoader<T> { ... }
+
+    val image by bindResource(ResourceID.image_id)
+    val text by bindResource(ResourceID.text_id)
+}
+```
+
+The parameters of `provideDelegate` are the same as those of `getValue`:
+
+* `thisRef` must be the same type as, or a supertype of, the _property owner_ (for extension properties, it should be the type being extended);
+* `property` must be of type `KProperty<*>` or its supertype.
+
+The `provideDelegate` method is called for each property during the creation of the `MyUI` instance, and it performs
+the necessary validation right away.
+
+Without this ability to intercept the binding between the property and its delegate, to achieve the same functionality
+you'd have to pass the property name explicitly, which isn't very convenient:
+
+```kotlin
+// Checking the property name without "provideDelegate" functionality
+class MyUI {
+    val image by bindResource(ResourceID.image_id, "image")
+    val text by bindResource(ResourceID.text_id, "text")
+}
+
+fun <T> MyUI.bindResource(
+        id: ResourceID<T>,
+        propertyName: String
+): ReadOnlyProperty<MyUI, T> {
+    checkProperty(this, propertyName)
+    // create delegate
+}
+```
+
+In the generated code, the `provideDelegate` method is called to initialize the auxiliary `prop$delegate` property.
+Compare the generated code for the property declaration `val prop: Type by MyDelegate()` with the generated code
+[above](#translation-rules-for-delegated-properties) (when the `provideDelegate` method is not present):
+
+```kotlin
+class C {
+    var prop: Type by MyDelegate()
+}
+
+// this code is generated by the compiler 
+// when the 'provideDelegate' function is available:
+class C {
+    // calling "provideDelegate" to create the additional "delegate" property
+    private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
+    var prop: Type
+        get() = prop$delegate.getValue(this, this::prop)
+        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
+}
+```
+
+Note that the `provideDelegate` method affects only the creation of the auxiliary property and doesn't affect the code
+generated for the getter or the setter.
+
+With the `PropertyDelegateProvider` interface from the standard library, you can create delegate providers without creating new classes.
+
+```kotlin
+val provider = PropertyDelegateProvider { thisRef: Any?, property ->
+    ReadOnlyProperty<Any?, Int> {_, property -> 42 }
+}
+val delegate: Int by provider
+```
+
+
+
+# 📜 07.04.17. [Type aliases](type-aliases.md)
+
+    [//]: # (title: Type aliases)
+
+Type aliases provide alternative names for existing types.
+If the type name is too long you can introduce a different shorter name and use the new one instead.
+ 
+It's useful to shorten long generic types.
+For instance, it's often tempting to shrink collection types:
+
+```kotlin
+typealias NodeSet = Set<Network.Node>
+
+typealias FileTable<K> = MutableMap<K, MutableList<File>>
+```
+
+You can provide different aliases for function types:
+
+```kotlin
+typealias MyHandler = (Int, String, Any) -> Unit
+
+typealias Predicate<T> = (T) -> Boolean
+```
+
+You can have new names for inner and nested classes:
+
+```kotlin
+class A {
+    inner class Inner
+}
+class B {
+    inner class Inner
+}
+
+typealias AInner = A.Inner
+typealias BInner = B.Inner
+```
+
+Type aliases do not introduce new types. 
+They are equivalent to the corresponding underlying types.
+When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expands it to `(Int) -> Boolean`. 
+Thus you can pass a variable of your type whenever a general function type is required and vice versa:
+
+```kotlin
+typealias Predicate<T> = (T) -> Boolean
+
+fun foo(p: Predicate<Int>) = p(42)
+
+fun main() {
+    val f: (Int) -> Boolean = { it > 0 }
+    println(foo(f)) // prints "true"
+
+    val p: Predicate<Int> = { it > 0 }
+    println(listOf(1, -2).filter(p)) // prints "[1]"
+}
+```
+{kotlin-runnable="true"}
+
+
 
 # 📜 07.05. Functions
 
-# 📜 07.05.1. [](functions.md)
 
-# 📜 07.05.2. [Lambdas](lambdas.md)
+# 📜 07.05.1. [Functions](functions.md)
 
-# 📜 07.05.3. [](inline-functions.md)
+    [//]: # (title: Functions)
 
-# 📜 07.05.4. [](operator-overloading.md)
+Kotlin functions are declared using the `fun` keyword:
+
+```kotlin
+fun double(x: Int): Int {
+    return 2 * x
+}
+```
+
+## Function usage
+
+Functions are called using the standard approach:
+
+```kotlin
+val result = double(2)
+```
+
+Calling member functions uses dot notation:
+
+```kotlin
+Stream().read() // create instance of class Stream and call read()
+```
+
+### Parameters
+
+Function parameters are defined using Pascal notation - *name*: *type*. Parameters are separated using commas, and each
+parameter must be explicitly typed:
+
+```kotlin
+fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
+```
+
+You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare function parameters:
+
+```kotlin
+fun powerOf(
+    number: Int,
+    exponent: Int, // trailing comma
+) { /*...*/ }
+```
+
+### Default arguments
+
+Function parameters can have default values, which are used when you skip the corresponding argument. This reduces the number
+of overloads:
+
+```kotlin
+fun read(
+    b: ByteArray,
+    off: Int = 0,
+    len: Int = b.size,
+) { /*...*/ }
+```
+
+A default value is set by appending `=` to the type.
+
+Overriding methods always use the base method's default parameter values.
+When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
+
+```kotlin
+open class A {
+    open fun foo(i: Int = 10) { /*...*/ }
+}
+
+class B : A() {
+    override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
+}
+```
+
+If a default parameter precedes a parameter with no default value, the default value can only be used by calling
+the function with [named arguments](#named-arguments):
+
+```kotlin
+fun foo(
+    bar: Int = 0,
+    baz: Int,
+) { /*...*/ }
+
+foo(baz = 1) // The default value bar = 0 is used
+```
+
+If the last argument after default parameters is a [lambda](lambdas.md#lambda-expression-syntax),
+you can pass it either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
+
+```kotlin
+fun foo(
+    bar: Int = 0,
+    baz: Int = 1,
+    qux: () -> Unit,
+) { /*...*/ }
+
+foo(1) { println("hello") }     // Uses the default value baz = 1
+foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
+foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
+```
+
+### Named arguments
+
+You can name one or more of a function's arguments when calling it. This can be helpful when a function has many
+arguments and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
+
+When you use named arguments in a function call, you can freely change the order that they are listed in. If you want to
+use their default values, you can just leave these arguments out altogether.
+
+Consider the `reformat()` function, which has 4 arguments with default values.
+
+```kotlin
+fun reformat(
+    str: String,
+    normalizeCase: Boolean = true,
+    upperCaseFirstLetter: Boolean = true,
+    divideByCamelHumps: Boolean = false,
+    wordSeparator: Char = ' ',
+) { /*...*/ }
+```
+
+When calling this function, you don't have to name all its arguments:
+
+```kotlin
+reformat(
+    "String!",
+    false,
+    upperCaseFirstLetter = false,
+    divideByCamelHumps = true,
+    '_'
+)
+```
+
+You can skip all the ones with default values:
+
+```kotlin
+reformat("This is a long String!")
+```
+
+You are also able to skip specific arguments with default values, rather than omitting them all. However, after the first
+skipped argument, you must name all subsequent arguments:
+
+```kotlin
+reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
+```
+
+You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the
+`spread` operator:
+
+```kotlin
+fun foo(vararg strings: String) { /*...*/ }
+
+foo(strings = *arrayOf("a", "b", "c"))
+```
+
+> When calling Java functions on the JVM, you can't use the named argument syntax because Java bytecode does not
+> always preserve the names of function parameters.
+>
+{type="note"}
+
+### Unit-returning functions
+
+If a function does not return a useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`.
+This value does not have to be returned explicitly:
+
+```kotlin
+fun printHello(name: String?): Unit {
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+    // `return Unit` or `return` is optional
+}
+```
+
+The `Unit` return type declaration is also optional. The above code is equivalent to:
+
+```kotlin
+fun printHello(name: String?) { ... }
+```
+
+### Single-expression functions
+
+When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
+
+```kotlin
+fun double(x: Int): Int = x * 2
+```
+
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
+
+```kotlin
+fun double(x: Int) = x * 2
+```
+
+### Explicit return types
+
+Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`,
+[in which case specifying the return type is optional](#unit-returning-functions).
+
+Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow
+in the body, and the return type will be non-obvious to the reader (and sometimes even for the compiler).
+
+### Variable number of arguments (varargs)
+
+You can mark a parameter of a function (usually the last one) with the `vararg` modifier:
+
+```kotlin
+fun <T> asList(vararg ts: T): List<T> {
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
+}
+```
+
+In this case, you can pass a variable number of arguments to the function:
+
+```kotlin
+val list = asList(1, 2, 3)
+```
+
+Inside a function, a `vararg`-parameter of type `T` is visible as an array of `T`, as in the example above, where the `ts`
+variable has type `Array<out T>`.
+
+Only one parameter can be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
+subsequent parameters can be passed using named argument syntax, or, if the parameter has a function type, by passing
+a lambda outside the parentheses.
+
+When you call a `vararg`-function, you can pass arguments individually, for example `asList(1, 2, 3)`. If you already have
+an array and want to pass its contents to the function, use the *spread* operator (prefix the array with `*`):
+
+```kotlin
+val a = arrayOf(1, 2, 3)
+val list = asList(-1, 0, *a, 4)
+```
+
+If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
+into `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
+
+```kotlin
+val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
+val list = asList(-1, 0, *a.toTypedArray(), 4)
+```
+
+### Infix notation
+
+Functions marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses
+for the call). Infix functions must meet the following requirements:
+
+* They must be member functions or [extension functions](extensions.md).
+* They must have a single parameter.
+* The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
+no [default value](#default-arguments).
+
+```kotlin
+infix fun Int.shl(x: Int): Int { ... }
+
+// calling the function using the infix notation
+1 shl 2
+
+// is the same as
+1.shl(2)
+```
+
+> Infix function calls have lower precedence than arithmetic operators, type casts, and the `rangeTo` operator.
+> The following expressions are equivalent:
+> * `1 shl 2 + 3` is equivalent to `1 shl (2 + 3)`
+> * `0 until n * 2` is equivalent to `0 until (n * 2)`
+> * `xs union ys as Set<*>` is equivalent to `xs union (ys as Set<*>)`
+>
+> On the other hand, an infix function call's precedence is higher than that of the boolean operators `&&` and `||`, `is`-
+> and `in`-checks, and some other operators. These expressions are equivalent as well:
+> * `a && b xor c` is equivalent to `a && (b xor c)`
+> * `a xor b in c` is equivalent to `(a xor b) in c`
+>
+{type="note"}
+
+Note that infix functions always require both the receiver and the parameter to be specified. When you're
+calling a method on the current receiver using the infix notation, use `this` explicitly. This is required to ensure
+unambiguous parsing.
+
+```kotlin
+class MyStringCollection {
+    infix fun add(s: String) { /*...*/ }
+    
+    fun build() {
+        this add "abc"   // Correct
+        add("abc")       // Correct
+        //add "abc"        // Incorrect: the receiver must be specified
+    }
+}
+```
+
+## Function scope
+
+Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function,
+which you are required to do in languages such as Java, C#, and Scala ([top level definition is available since Scala 3](https://docs.scala-lang.org/scala3/book/taste-toplevel-definitions.html#inner-main)). In addition
+to top level functions, Kotlin functions can also be declared locally as member functions and extension functions.
+
+### Local functions
+
+Kotlin supports local functions, which are functions inside other functions:
+
+```kotlin
+fun dfs(graph: Graph) {
+    fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
+        if (!visited.add(current)) return
+        for (v in current.neighbors)
+            dfs(v, visited)
+    }
+
+    dfs(graph.vertices[0], HashSet())
+}
+```
+
+A local function can access local variables of outer functions (the closure). In the case above, `visited` can be a local variable:
+
+```kotlin
+fun dfs(graph: Graph) {
+    val visited = HashSet<Vertex>()
+    fun dfs(current: Vertex) {
+        if (!visited.add(current)) return
+        for (v in current.neighbors)
+            dfs(v)
+    }
+
+    dfs(graph.vertices[0])
+}
+```
+
+### Member functions
+
+A member function is a function that is defined inside a class or object:
+
+```kotlin
+class Sample {
+    fun foo() { print("Foo") }
+}
+```
+
+Member functions are called with dot notation:
+
+```kotlin
+Sample().foo() // creates instance of class Sample and calls foo
+```
+
+For more information on classes and overriding members see [Classes](classes.md) and [Inheritance](classes.md#inheritance).
+
+## Generic functions
+
+Functions can have generic parameters, which are specified using angle brackets before the function name:
+
+```kotlin
+fun <T> singletonList(item: T): List<T> { /*...*/ }
+```
+
+For more information on generic functions, see [Generics](generics.md).
+
+## Tail recursive functions
+
+Kotlin supports a style of functional programming known as [tail recursion](https://en.wikipedia.org/wiki/Tail_call).
+For some algorithms that would normally use loops, you can use a recursive function instead without the risk of stack overflow.
+When a function is marked with the `tailrec` modifier and meets the required formal conditions, the compiler optimizes out
+the recursion, leaving behind a fast and efficient loop based version instead:
+
+```kotlin
+val eps = 1E-10 // "good enough", could be 10^-15
+
+tailrec fun findFixPoint(x: Double = 1.0): Double =
+    if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+```
+
+This code calculates the `fixpoint` of cosine, which is a mathematical constant. It simply calls `Math.cos` repeatedly
+starting at `1.0` until the result no longer changes, yielding a result of `0.7390851332151611` for the specified
+`eps` precision. The resulting code is equivalent to this more traditional style:
+
+```kotlin
+val eps = 1E-10 // "good enough", could be 10^-15
+
+private fun findFixPoint(): Double {
+    var x = 1.0
+    while (true) {
+        val y = Math.cos(x)
+        if (Math.abs(x - y) < eps) return x
+        x = Math.cos(x)
+    }
+}
+```
+
+To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use
+tail recursion when there is more code after the recursive call, within `try`/`catch`/`finally` blocks, or on open functions.
+Currently, tail recursion is supported by Kotlin for the JVM and Kotlin/Native.
+
+**See also**:
+* [Inline functions](inline-functions.md)
+* [Extension functions](extensions.md)
+* [Higher-order functions and lambdas](lambdas.md)
+
+
+
+# 📜 07.05.2. [Higher-order functions and lambdas](lambdas.md)
+
+    [//]: # (title: Higher-order functions and lambdas)
+
+Kotlin functions are [first-class](https://en.wikipedia.org/wiki/First-class_function), which means they can
+be stored in variables and data structures, and can be passed as arguments to and returned from other
+[higher-order functions](#higher-order-functions). You can perform any operations on functions that are possible for other
+non-function values.
+
+To facilitate this, Kotlin, as a statically typed programming language, uses a family of
+[function types](#function-types) to represent functions, and provides a set of specialized language constructs, such as
+[lambda expressions](#lambda-expressions-and-anonymous-functions).
+
+## Higher-order functions
+
+A higher-order function is a function that takes functions as parameters, or returns a function.
+
+A good example of a higher-order function is the [functional programming idiom `fold`](https://en.wikipedia.org/wiki/Fold_(higher-order_function))
+for collections. It takes an initial accumulator value and a combining function and builds its return value by consecutively
+combining the current accumulator value with each collection element, replacing the accumulator value each time:
+
+```kotlin
+fun <T, R> Collection<T>.fold(
+    initial: R, 
+    combine: (acc: R, nextElement: T) -> R
+): R {
+    var accumulator: R = initial
+    for (element: T in this) {
+        accumulator = combine(accumulator, element)
+    }
+    return accumulator
+}
+```
+
+In the code above, the `combine` parameter has the [function type](#function-types) `(R, T) -> R`, so it accepts a function
+that takes two arguments of types `R` and `T` and returns a value of type `R`.
+It is [invoked](#invoking-a-function-type-instance) inside the `for` loop, and the return value is then assigned to `accumulator`.
+
+To call `fold`, you need to pass an [instance of the function type](#instantiating-a-function-type) to it as an argument,
+and lambda expressions ([described in more detail below](#lambda-expressions-and-anonymous-functions)) are widely used for
+this purpose at higher-order function call sites:
+
+```kotlin
+fun main() {
+    //sampleStart
+    val items = listOf(1, 2, 3, 4, 5)
+    
+    // Lambdas are code blocks enclosed in curly braces.
+    items.fold(0, { 
+        // When a lambda has parameters, they go first, followed by '->'
+        acc: Int, i: Int -> 
+        print("acc = $acc, i = $i, ") 
+        val result = acc + i
+        println("result = $result")
+        // The last expression in a lambda is considered the return value:
+        result
+    })
+    
+    // Parameter types in a lambda are optional if they can be inferred:
+    val joinedToString = items.fold("Elements:", { acc, i -> acc + " " + i })
+    
+    // Function references can also be used for higher-order function calls:
+    val product = items.fold(1, Int::times)
+    //sampleEnd
+    println("joinedToString = $joinedToString")
+    println("product = $product")
+}
+```
+{kotlin-runnable="true"}
+
+## Function types
+
+Kotlin uses function types, such as `(Int) -> String`, for declarations that deal with functions: `val onClick: () -> Unit = ...`.
+
+These types have a special notation that corresponds to the signatures of the functions - their parameters and return values:
+
+* All function types have a parenthesized list of parameter types and a return type: `(A, B) -> C` denotes a type that
+  represents functions that take two arguments of types `A` and `B` and return a value of type `C`.
+  The list of parameter types may be empty, as in `() -> A`. The [`Unit` return type](functions.md#unit-returning-functions)
+  cannot be omitted.
+
+* Function types can optionally have an additional *receiver* type, which is specified before the dot in the notation:
+  the type `A.(B) -> C` represents functions that can be called on a receiver object `A` with a parameter `B` and
+  return a value `C`.
+  [Function literals with receiver](#function-literals-with-receiver) are often used along with these types.
+
+* [Suspending functions](coroutines-basics.md#extract-function-refactoring) belong to a special kind of function type that have
+  a *suspend* modifier in their notation, such as `suspend () -> Unit` or `suspend A.(B) -> C`.
+
+The function type notation can optionally include names for the function parameters: `(x: Int, y: Int) -> Point`.
+These names can be used for documenting the meaning of the parameters.
+
+To specify that a function type is [nullable](null-safety.md#nullable-types-and-non-nullable-types), use parentheses as follows:
+`((Int, Int) -> Int)?`.
+
+Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit)`.
+
+> The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to the previous example, but not to `((Int) -> (Int)) -> Unit`.
+>
+{type="note"}
+
+You can also give a function type an alternative name by using [a type alias](type-aliases.md):
+
+```kotlin
+typealias ClickHandler = (Button, ClickEvent) -> Unit
+```
+
+### Instantiating a function type
+
+There are several ways to obtain an instance of a function type:
+
+* Use a code block within a function literal, in one of the following forms:
+    * a [lambda expression](#lambda-expressions-and-anonymous-functions): `{ a, b -> a + b }`,
+    * an [anonymous function](#anonymous-functions): `fun(s: String): Int { return s.toIntOrNull() ?: 0 }`
+
+  [Function literals with receiver](#function-literals-with-receiver) can be used as values of function types with receiver.
+
+* Use a callable reference to an existing declaration:
+    * a top-level, local, member, or extension [function](reflection.md#function-references): `::isOdd`, `String::toInt`,
+    * a top-level, member, or extension [property](reflection.md#property-references): `List<Int>::size`,
+    * a [constructor](reflection.md#constructor-references): `::Regex`
+
+  These include [bound callable references](reflection.md#bound-function-and-property-references) that point to a member of a particular instance: `foo::toString`.
+
+* Use instances of a custom class that implements a function type as an interface:
+
+```kotlin
+class IntTransformer: (Int) -> Int {
+    override operator fun invoke(x: Int): Int = TODO()
+}
+
+val intFunction: (Int) -> Int = IntTransformer()
+```
+
+The compiler can infer the function types for variables if there is enough information:
+
+```kotlin
+val a = { i: Int -> i + 1 } // The inferred type is (Int) -> Int
+```
+
+*Non-literal* values of function types with and without a receiver are interchangeable, so the receiver can stand in for
+the first parameter, and vice versa. For instance, a value of type `(A, B) -> C` can be passed or assigned where a value
+of type `A.(B) -> C` is expected, and the other way around:
+
+```kotlin
+fun main() {
+    //sampleStart
+    val repeatFun: String.(Int) -> String = { times -> this.repeat(times) }
+    val twoParameters: (String, Int) -> String = repeatFun // OK
+    
+    fun runTransformation(f: (String, Int) -> String): String {
+        return f("hello", 3)
+    }
+    val result = runTransformation(repeatFun) // OK
+    //sampleEnd
+    println("result = $result")
+}
+```
+{kotlin-runnable="true"}
+
+> A function type with no receiver is inferred by default, even if a variable is initialized with a reference
+> to an extension function.
+> To alter that, specify the variable type explicitly.
+>
+{type="note"}
+
+### Invoking a function type instance
+
+A value of a function type can be invoked by using its [`invoke(...)` operator](operator-overloading.md#invoke-operator):
+`f.invoke(x)` or just `f(x)`.
+
+If the value has a receiver type, the receiver object should be passed as the first argument.
+Another way to invoke a value of a function type with receiver is to prepend it with the receiver object,
+as if the value were an [extension function](extensions.md): `1.foo(2)`.
+
+Example:
+
+```kotlin
+fun main() {
+    //sampleStart
+    val stringPlus: (String, String) -> String = String::plus
+    val intPlus: Int.(Int) -> Int = Int::plus
+    
+    println(stringPlus.invoke("<-", "->"))
+    println(stringPlus("Hello, ", "world!"))
+    
+    println(intPlus.invoke(1, 1))
+    println(intPlus(1, 2))
+    println(2.intPlus(3)) // extension-like call
+    //sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+### Inline functions
+
+Sometimes it is beneficial to use [inline functions](inline-functions.md), which provide flexible control flow, for higher-order functions.
+
+## Lambda expressions and anonymous functions
+
+Lambda expressions and anonymous functions are *function literals*. Function literals are functions that are not declared
+but are passed immediately as an expression. Consider the following example:
+
+```kotlin
+max(strings, { a, b -> a.length < b.length })
+```
+
+The function `max` is a higher-order function, as it takes a function value as its second argument. This second argument
+is an expression that is itself a function, called a function literal, which is equivalent to the following named function:
+
+```kotlin
+fun compare(a: String, b: String): Boolean = a.length < b.length
+```
+
+### Lambda expression syntax
+
+The full syntactic form of lambda expressions is as follows:
+
+```kotlin
+val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
+```
+
+* A lambda expression is always surrounded by curly braces.
+* Parameter declarations in the full syntactic form go inside curly braces and have optional type annotations.
+* The body goes after the `->`.
+* If the inferred return type of the lambda is not `Unit`, the last (or possibly single) expression inside the lambda body is treated as the return value.
+
+If you leave all the optional annotations out, what's left looks like this:
+
+```kotlin
+val sum = { x: Int, y: Int -> x + y }
+```
+
+### Passing trailing lambdas
+
+According to Kotlin convention, if the last parameter of a function is a function, then a lambda expression passed as the
+corresponding argument can be placed outside the parentheses:
+
+```kotlin
+val product = items.fold(1) { acc, e -> acc * e }
+```
+
+Such syntax is also known as *trailing lambda*.
+
+If the lambda is the only argument in that call, the parentheses can be omitted entirely:
+
+```kotlin
+run { println("...") }
+```
+
+### `it`: implicit name of a single parameter
+
+It's very common for a lambda expression to have only one parameter.
+
+If the compiler can parse the signature without any parameters, the parameter does not need to be declared and `->` can
+be omitted. The parameter will be implicitly declared under the name `it`:
+
+```kotlin
+ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
+```
+
+### Returning a value from a lambda expression
+
+You can explicitly return a value from the lambda using the [qualified return](returns.md#return-to-labels) syntax.
+Otherwise, the value of the last expression is implicitly returned.
+
+Therefore, the two following snippets are equivalent:
+
+```kotlin
+ints.filter {
+    val shouldFilter = it > 0
+    shouldFilter
+}
+
+ints.filter {
+    val shouldFilter = it > 0
+    return@filter shouldFilter
+}
+```
+
+This convention, along with [passing a lambda expression outside of parentheses](#passing-trailing-lambdas), allows for
+[LINQ-style](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) code:
+
+```kotlin
+strings.filter { it.length == 5 }.sortedBy { it }.map { it.uppercase() }
+```
+
+### Underscore for unused variables
+
+If the lambda parameter is unused, you can place an underscore instead of its name:
+
+```kotlin
+map.forEach { (_, value) -> println("$value!") }
+```
+
+### Destructuring in lambdas
+
+Destructuring in lambdas is described as a part of [destructuring declarations](destructuring-declarations.md#destructuring-in-lambdas).
+
+### Anonymous functions
+
+The lambda expression syntax above is missing one thing – the ability to specify the function's return type. In most cases,
+this is unnecessary because the return type can be inferred automatically. However, if you do need to specify it explicitly,
+you can use an alternative syntax: an *anonymous function*.
+
+```kotlin
+fun(x: Int, y: Int): Int = x + y
+```
+
+An anonymous function looks very much like a regular function declaration, except its name is omitted. Its body can be
+either an expression (as shown above) or a block:
+
+```kotlin
+fun(x: Int, y: Int): Int {
+    return x + y
+}
+```
+
+The parameters and the return type are specified in the same way as for regular functions, except the parameter types can
+be omitted if they can be inferred from the context:
+
+```kotlin
+ints.filter(fun(item) = item > 0)
+```
+
+The return type inference for anonymous functions works just like for normal functions: the return type is inferred automatically
+for anonymous functions with an expression body, but it has to be specified explicitly (or is assumed to be `Unit`) for anonymous
+functions with a block body.
+
+> When passing anonymous functions as parameters, place them inside the parentheses. The shorthand syntax that allows you to leave
+> the function outside the parentheses works only for lambda expressions.
+>
+{type="note"}
+
+Another difference between lambda expressions and anonymous functions is the behavior of [non-local returns](inline-functions.md#non-local-returns).
+A `return`  statement without a label always returns from the function declared with the `fun` keyword. This means that
+a `return` inside a lambda expression will return from the enclosing function, whereas a `return` inside an anonymous
+function will return from the anonymous function itself.
+
+### Closures
+
+A lambda expression or anonymous function (as well as a [local function](functions.md#local-functions) and an [object expression](object-declarations.md#object-expressions))
+can access its *closure*, which includes the variables declared in the outer scope. The variables captured in the closure
+can be modified in the lambda:
+
+```kotlin
+var sum = 0
+ints.filter { it > 0 }.forEach {
+    sum += it
+}
+print(sum)
+```
+
+### Function literals with receiver
+
+[Function types](#function-types) with receiver, such as `A.(B) -> C`, can be instantiated with a special form of function
+literals – function literals with receiver.
+
+As mentioned above, Kotlin provides the ability [to call an instance](#invoking-a-function-type-instance) of a function
+type with receiver while providing the *receiver object*.
+
+Inside the body of the function literal, the receiver object passed to a call becomes an *implicit* `this`, so that you
+can access the members of that receiver object without any additional qualifiers, or access the receiver object using
+a [`this` expression](this-expressions.md).
+
+This behavior is similar to that of [extension functions](extensions.md), which also allow you to access the members of
+the receiver object inside the function body.
+
+Here is an example of a function literal with receiver along with its type, where `plus` is called on the receiver object:
+
+```kotlin
+val sum: Int.(Int) -> Int = { other -> plus(other) }
+```
+
+The anonymous function syntax allows you to specify the receiver type of a function literal directly.
+This can be useful if you need to declare a variable of a function type with receiver, and then to use it later.
+
+```kotlin
+val sum = fun Int.(other: Int): Int = this + other
+```
+
+Lambda expressions can be used as function literals with receiver when the receiver type can be inferred from the context.
+One of the most important examples of their usage is [type-safe builders](type-safe-builders.md):
+
+```kotlin
+class HTML {
+    fun body() { ... }
+}
+
+fun html(init: HTML.() -> Unit): HTML {
+    val html = HTML()  // create the receiver object
+    html.init()        // pass the receiver object to the lambda
+    return html
+}
+
+html {       // lambda with receiver begins here
+    body()   // calling a method on the receiver object
+}
+```
+
+
+
+
+# 📜 07.05.3. [Inline functions](inline-functions.md)
+
+    [//]: # (title: Inline functions)
+
+Using [higher-order functions](lambdas.md) imposes certain runtime penalties: each function is an object, and it captures
+a closure. A closure is a scope of variables that can be accessed in the body of the function.
+Memory allocations (both for function objects and classes) and virtual calls introduce runtime overhead.
+
+But it appears that in many cases this kind of overhead can be eliminated by inlining the lambda expressions.
+The functions shown below are good examples of this situation. The `lock()` function could be easily inlined at call-sites.
+Consider the following case:
+
+```kotlin
+lock(l) { foo() }
+```
+
+Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code:
+
+```kotlin
+l.lock()
+try {
+    foo()
+} finally {
+    l.unlock()
+}
+```
+
+To make the compiler do this, mark the `lock()` function with the `inline` modifier:
+
+```kotlin
+inline fun <T> lock(lock: Lock, body: () -> T): T { ... }
+```
+
+The `inline` modifier affects both the function itself and the lambdas passed to it: all of those will be inlined
+into the call site.
+
+Inlining may cause the generated code to grow. However, if you do it in a reasonable way (avoiding inlining large
+functions), it will pay off in performance, especially at "megamorphic" call-sites inside loops.
+
+## `noinline`
+
+If you don't want all of the lambdas passed to an inline function to be inlined, mark some of your function
+parameters with the `noinline` modifier:
+
+```kotlin
+inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) { ... }
+```
+
+Inlinable lambdas can only be called inside inline functions or passed as inlinable arguments. `noinline` lambdas,
+however, can be manipulated in any way you like, including being stored in fields or passed around.
+
+> If an inline function has no inlinable function parameters and no
+> [reified type parameters](#reified-type-parameters), the compiler will issue a warning, since inlining such functions
+> is very unlikely to be beneficial (you can use the `@Suppress("NOTHING_TO_INLINE")` annotation to suppress the warning
+> if you are sure the inlining is needed).
+>
+{type="note"}
+
+## Non-local returns
+
+In Kotlin, you can only use a normal, unqualified `return` to exit a named function or an anonymous function.
+To exit a lambda, use a [label](returns.md#return-to-labels). A bare `return` is forbidden
+inside a lambda because a lambda cannot make the enclosing function `return`:
+
+```kotlin
+fun ordinaryFunction(block: () -> Unit) {
+    println("hi!")
+}
+//sampleStart
+fun foo() {
+    ordinaryFunction {
+        return // ERROR: cannot make `foo` return here
+    }
+}
+//sampleEnd
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true" validate="false"}
+
+But if the function the lambda is passed to is inlined, the return can be inlined, as well. So it is allowed:
+
+```kotlin
+inline fun inlined(block: () -> Unit) {
+    println("hi!")
+}
+//sampleStart
+fun foo() {
+    inlined {
+        return // OK: the lambda is inlined
+    }
+}
+//sampleEnd
+fun main() {
+    foo()
+}
+```
+{kotlin-runnable="true"}
+
+Such returns (located in a lambda, but exiting the enclosing function) are called *non-local* returns. This sort of
+construct usually occurs in loops, which inline functions often enclose:
+
+```kotlin
+fun hasZeros(ints: List<Int>): Boolean {
+    ints.forEach {
+        if (it == 0) return true // returns from hasZeros
+    }
+    return false
+}
+```
+
+Note that some inline functions may call the lambdas passed to them as parameters not directly from the function body,
+but from another execution context, such as a local object or a nested function. In such cases, non-local control flow
+is also not allowed in the lambdas. To indicate that the lambda parameter of the inline function cannot use non-local
+returns, mark the lambda parameter with the `crossinline` modifier:
+
+```kotlin
+inline fun f(crossinline body: () -> Unit) {
+    val f = object: Runnable {
+        override fun run() = body()
+    }
+    // ...
+}
+```
+
+> `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them, too.
+>
+{type="note"}
+
+## Reified type parameters
+
+Sometimes you need to access a type passed as a parameter:
+
+```kotlin
+fun <T> TreeNode.findParentOfType(clazz: Class<T>): T? {
+    var p = parent
+    while (p != null && !clazz.isInstance(p)) {
+        p = p.parent
+    }
+    @Suppress("UNCHECKED_CAST")
+    return p as T?
+}
+```
+
+Here, you walk up a tree and use reflection to check whether a node has a certain type.
+It's all fine, but the call site is not very pretty:
+
+```kotlin
+treeNode.findParentOfType(MyTreeNode::class.java)
+```
+
+A better solution would be to simply pass a type to this function. You can call it as follows:
+
+```kotlin
+treeNode.findParentOfType<MyTreeNode>()
+```
+
+To enable this, inline functions support *reified type parameters*, so you can write something like this:
+
+```kotlin
+inline fun <reified T> TreeNode.findParentOfType(): T? {
+    var p = parent
+    while (p != null && p !is T) {
+        p = p.parent
+    }
+    return p as T?
+}
+```
+
+The code above qualifies the type parameter with the `reified` modifier to make it accessible inside the function,
+almost as if it were a normal class. Since the function is inlined, no reflection is needed and normal operators like `!is`
+and `as` are now available for you to use. Also, you can call the function as shown above: `myTree.findParentOfType<MyTreeNodeType>()`.
+
+Though reflection may not be needed in many cases, you can still use it with a reified type parameter:
+
+```kotlin
+inline fun <reified T> membersOf() = T::class.members
+
+fun main(s: Array<String>) {
+    println(membersOf<StringBuilder>().joinToString("\n"))
+}
+```
+
+Normal functions (not marked as inline) cannot have reified parameters.
+A type that does not have a run-time representation (for example, a non-reified type parameter or a fictitious type like
+`Nothing`) cannot be used as an argument for a reified type parameter.
+
+## Inline properties
+
+The `inline` modifier can be used on accessors of properties that don't have [backing fields](properties.md#backing-fields).
+You can annotate individual property accessors:
+
+```kotlin
+val foo: Foo
+    inline get() = Foo()
+
+var bar: Bar
+    get() = ...
+    inline set(v) { ... }
+```
+
+You can also annotate an entire property, which marks both of its accessors as `inline`:
+
+```kotlin
+inline var bar: Bar
+    get() = ...
+    set(v) { ... }
+```
+
+At the call site, inline accessors are inlined as regular inline functions.
+
+## Restrictions for public API inline functions
+
+When an inline function is `public` or `protected` but is not a part of a `private` or `internal` declaration,
+it is considered a [module](visibility-modifiers.md#modules)'s public API. It can be called in other modules and is
+inlined at such call sites as well.
+
+This imposes certain risks of binary incompatibility caused by changes in the module that declares an inline function in
+case the calling module is not re-compiled after the change.
+
+To eliminate the risk of such incompatibility being introduced by a change in a *non*-public API of a module, public
+API inline functions are not allowed to use non-public-API declarations, i.e. `private` and `internal` declarations and
+their parts, in their bodies.
+
+An `internal` declaration can be annotated with `@PublishedApi`, which allows its use in public API inline functions.
+When an `internal` inline function is marked as `@PublishedApi`, its body is checked too, as if it were public.
+
+
+# 📜 07.05.4. [Operator overloading](operator-overloading.md)
+
+    [//]: # (title: Operator overloading)
+
+Kotlin allows you to provide custom implementations for the predefined set of operators on types. These operators have
+predefined symbolic representation (like `+` or `*`) and precedence. To implement an operator, provide a [member function](functions.md#member-functions)
+or an [extension function](extensions.md) with a specific name for the corresponding type. This type becomes the left-hand side type
+for binary operations and the argument type for the unary ones.
+
+To overload an operator, mark the corresponding function with the `operator` modifier:
+
+```kotlin
+interface IndexedContainer {
+    operator fun get(index: Int)
+}
+```
+When [overriding](inheritance.md#overriding-methods) your operator overloads, you can omit `operator`:
+
+```kotlin
+class OrdersList: IndexedContainer {
+    override fun get(index: Int) { /*...*/ }   
+}
+```
+
+## Unary operations
+
+### Unary prefix operators
+
+| Expression | Translated to |
+|------------|---------------|
+| `+a` | `a.unaryPlus()` |
+| `-a` | `a.unaryMinus()` |
+| `!a` | `a.not()` |
+
+This table says that when the compiler processes, for example, an expression `+a`, it performs the following steps:
+
+* Determines the type of `a`, let it be `T`.
+* Looks up a function `unaryPlus()` with the `operator` modifier and no parameters for the receiver `T`, that means a member 
+function or an extension function.
+* If the function is absent or ambiguous, it is a compilation error.
+* If the function is present and its return type is `R`, the expression `+a` has type `R`.
+
+> These operations, as well as all the others, are optimized for [basic types](basic-types.md) and do not introduce 
+> overhead of function calls for them.
+>
+{type="note"}
+
+As an example, here's how you can overload the unary minus operator:
+
+```kotlin
+data class Point(val x: Int, val y: Int)
+
+operator fun Point.unaryMinus() = Point(-x, -y)
+
+val point = Point(10, 20)
+
+fun main() {
+   println(-point)  // prints "Point(x=-10, y=-20)"
+}
+```
+{kotlin-runnable="true"}
+
+### Increments and decrements
+
+| Expression | Translated to |
+|------------|---------------|
+| `a++` | `a.inc()` + see below |
+| `a--` | `a.dec()` + see below |
+
+The `inc()` and `dec()` functions must return a value, which will be assigned to the variable on which the
+`++` or `--` operation was used. They shouldn't mutate the object on which the `inc` or `dec` was invoked.
+
+The compiler performs the following steps for resolution of an operator in the *postfix* form, for example `a++`:
+
+* Determines the type of `a`, let it be `T`.
+* Looks up a function `inc()` with the `operator` modifier and no parameters, applicable to the receiver of type `T`.
+* Checks that the return type of the function is a subtype of `T`.
+
+The effect of computing the expression is:
+
+* Store the initial value of `a` to a temporary storage `a0`.
+* Assign the result of `a0.inc()` to `a`.
+* Return `a0` as the result of the expression.
+
+For `a--` the steps are completely analogous.
+
+For the *prefix* forms `++a` and `--a` resolution works the same way, and the effect is:
+
+* Assign the result of `a.inc()` to `a`.
+* Return the new value of `a` as a result of the expression.
+
+## Binary operations
+
+### Arithmetic operators 
+
+| Expression | Translated to |
+| -----------|-------------- |
+| `a + b` | `a.plus(b)` |
+| `a - b` | `a.minus(b)` |
+| `a * b` | `a.times(b)` |
+| `a / b` | `a.div(b)` |
+| `a % b` | `a.rem(b)` |
+| `a..b ` | `a.rangeTo(b)` |
+| `a..<b ` | `a.rangeUntil(b)` |
+
+For the operations in this table, the compiler just resolves the expression in the *Translated to* column.
+
+Below is an example `Counter` class that starts at a given value and can be incremented using the overloaded `+` operator:
+
+```kotlin
+data class Counter(val dayIndex: Int) {
+    operator fun plus(increment: Int): Counter {
+        return Counter(dayIndex + increment)
+    }
+}
+```
+
+### in operator
+
+| Expression | Translated to |
+| -----------|-------------- |
+| `a in b` | `b.contains(a)` |
+| `a !in b` | `!b.contains(a)` |
+
+For `in` and `!in` the procedure is the same, but the order of arguments is reversed.
+
+### Indexed access operator
+
+| Expression | Translated to |
+| -------|-------------- |
+| `a[i]`  | `a.get(i)` |
+| `a[i, j]`  | `a.get(i, j)` |
+| `a[i_1, ...,  i_n]`  | `a.get(i_1, ...,  i_n)` |
+| `a[i] = b` | `a.set(i, b)` |
+| `a[i, j] = b` | `a.set(i, j, b)` |
+| `a[i_1, ...,  i_n] = b` | `a.set(i_1, ..., i_n, b)` |
+
+Square brackets are translated to calls to `get` and `set` with appropriate numbers of arguments.
+
+### invoke operator
+
+| Expression | Translated to |
+|--------|---------------|
+| `a()`  | `a.invoke()` |
+| `a(i)`  | `a.invoke(i)` |
+| `a(i, j)`  | `a.invoke(i, j)` |
+| `a(i_1, ...,  i_n)`  | `a.invoke(i_1, ...,  i_n)` |
+
+Parentheses are translated to calls to `invoke` with appropriate number of arguments.
+
+### Augmented assignments
+
+| Expression | Translated to |
+|------------|---------------|
+| `a += b` | `a.plusAssign(b)` |
+| `a -= b` | `a.minusAssign(b)` |
+| `a *= b` | `a.timesAssign(b)` |
+| `a /= b` | `a.divAssign(b)` |
+| `a %= b` | `a.remAssign(b)` |
+
+For the assignment operations, for example `a += b`, the compiler performs the following steps:
+
+* If the function from the right column is available:
+  * If the corresponding binary function (that means `plus()` for `plusAssign()`) is available too, `a` is a mutable variable, and the return type of `plus` is a subtype of the type of `a`, report an error (ambiguity).
+  * Make sure its return type is `Unit`, and report an error otherwise.
+  * Generate code for `a.plusAssign(b)`.
+* Otherwise, try to generate code for `a = a + b` (this includes a type check: the type of `a + b` must be a subtype of `a`).
+
+> Assignments are *NOT* expressions in Kotlin.
+>
+{type="note"}
+
+### Equality and inequality operators
+
+| Expression | Translated to |
+|------------|---------------|
+| `a == b` | `a?.equals(b) ?: (b === null)` |
+| `a != b` | `!(a?.equals(b) ?: (b === null))` |
+
+These operators only work with the function [`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html), 
+which can be overridden to provide custom equality check implementation. Any other function with the same name (like `equals(other: Foo)`) will not be called.
+
+> `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them.
+>
+{type="note"}
+
+The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
+`null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
+
+### Comparison operators
+
+| Expression | Translated to |
+|--------|---------------|
+| `a > b`  | `a.compareTo(b) > 0` |
+| `a < b`  | `a.compareTo(b) < 0` |
+| `a >= b` | `a.compareTo(b) >= 0` |
+| `a <= b` | `a.compareTo(b) <= 0` |
+
+All comparisons are translated into calls to `compareTo`, that is required to return `Int`.
+
+### Property delegation operators
+
+`provideDelegate`, `getValue` and `setValue` operator functions are described
+in [Delegated properties](delegated-properties.md).
+
+## Infix calls for named functions
+
+You can simulate custom infix operations by using [infix function calls](functions.md#infix-notation).
+
 
 # 📜 07.05.5. Builders
 
-# 📜 07.05.5.1. [](type-safe-builders.md)
 
-# 📜 07.05.5.2. [](using-builders-with-builder-inference.md)
+# 📜 07.05.5.1. [Type-safe builders](type-safe-builders.md)
 
-# 📜 07.06. [](null-safety.md)
+    [//]: # (title: Type-safe builders)
 
-# 📜 07.07. [](equality.md)
+By using well-named functions as builders in combination with [function literals with receiver](lambdas.md#function-literals-with-receiver) 
+it is possible to create type-safe, statically-typed builders in Kotlin.
 
-# 📜 07.08. [](this-expressions.md)
+Type-safe builders allow creating Kotlin-based domain-specific languages (DSLs) suitable for building complex hierarchical 
+data structures in a semi-declarative way. Sample use cases for the builders are:
 
-# 📜 07.09. [](async-programming.md)
+* Generating markup with Kotlin code, such as [HTML](https://github.com/Kotlin/kotlinx.html) or XML
+* Configuring routes for a web server: [Ktor](https://ktor.io/docs/routing.html)
 
-# 📜 07.10. [](coroutines-overview.md)
+Consider the following code:
 
-# 📜 07.11. [](annotations.md)
+```kotlin
+import com.example.html.* // see declarations below
 
-# 📜 07.12. [](destructuring-declarations.md)
+fun result() =
+    html {
+        head {
+            title {+"XML encoding with Kotlin"}
+        }
+        body {
+            h1 {+"XML encoding with Kotlin"}
+            p  {+"this format can be used as an alternative markup to XML"}
 
-# 📜 07.13. [](reflection.md)
+            // an element with attributes and text content
+            a(href = "https://kotlinlang.org") {+"Kotlin"}
+
+            // mixed content
+            p {
+                +"This is some"
+                b {+"mixed"}
+                +"text. For more see the"
+                a(href = "https://kotlinlang.org") {+"Kotlin"}
+                +"project"
+            }
+            p {+"some text"}
+
+            // content generated by
+            p {
+                for (arg in args)
+                    +arg
+            }
+        }
+    }
+```
+
+This is completely legitimate Kotlin code.
+You can [play with this code online (modify it and run in the browser) here](https://play.kotlinlang.org/byExample/09_Kotlin_JS/06_HtmlBuilder).
+
+## How it works
+
+Assume that you need to implement a type-safe builder in Kotlin.
+First of all, define the model you want to build. In this case you need to model HTML tags.
+It is easily done with a bunch of classes.
+For example, `HTML` is a class that describes the `<html>` tag defining children like `<head>` and `<body>`.
+(See its declaration [below](#full-definition-of-the-com-example-html-package).)
+
+Now, let's recall why you can say something like this in the code:
+
+```kotlin
+html {
+ // ...
+}
+```
+
+`html` is actually a function call that takes a [lambda expression](lambdas.md) as an argument.
+This function is defined as follows:
+
+```kotlin
+fun html(init: HTML.() -> Unit): HTML {
+    val html = HTML()
+    html.init()
+    return html
+}
+```
+
+This function takes one parameter named `init`, which is itself a function.
+The type of the function is `HTML.() -> Unit`, which is a *function type with receiver*.
+This means that you need to pass an instance of type `HTML` (a *receiver*) to the function,
+and you can call members of that instance inside the function.
+
+The receiver can be accessed through the `this` keyword:
+
+```kotlin
+html {
+    this.head { ... }
+    this.body { ... }
+}
+```
+
+(`head` and `body` are member functions of `HTML`.)
+
+Now, `this` can be omitted, as usual, and you get something that looks very much like a builder already:
+
+```kotlin
+html {
+    head { ... }
+    body { ... }
+}
+```
+
+So, what does this call do? Let's look at the body of `html` function as defined above.
+It creates a new instance of `HTML`, then it initializes it by calling the function that is passed as an argument
+(in this example this boils down to calling `head` and `body` on the `HTML` instance), and then it returns this instance. 
+This is exactly what a builder should do.
+
+The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
+The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
+
+```kotlin
+fun head(init: Head.() -> Unit): Head {
+    val head = Head()
+    head.init()
+    children.add(head)
+    return head
+}
+
+fun body(init: Body.() -> Unit): Body {
+    val body = Body()
+    body.init()
+    children.add(body)
+    return body
+}
+```
+
+Actually these two functions do just the same thing, so you can have a generic version, `initTag`:
+
+```kotlin
+protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
+    tag.init()
+    children.add(tag)
+    return tag
+}
+```
+
+So, now your functions are very simple:
+
+```kotlin
+fun head(init: Head.() -> Unit) = initTag(Head(), init)
+
+fun body(init: Body.() -> Unit) = initTag(Body(), init)
+```
+
+And you can use them to build `<head>` and `<body>` tags. 
+
+One other thing to be discussed here is how you add text to tag bodies. In the example above you say something like:
+
+```kotlin
+html {
+    head {
+        title {+"XML encoding with Kotlin"}
+    }
+    // ...
+}
+```
+
+So basically, you just put a string inside a tag body, but there is this little `+` in front of it,
+so it is a function call that invokes a prefix `unaryPlus()` operation.
+That operation is actually defined by an extension function `unaryPlus()` that is a member of the `TagWithText` abstract 
+class (a parent of `Title`):
+
+```kotlin
+operator fun String.unaryPlus() {
+    children.add(TextElement(this))
+}
+```
+
+So, what the prefix `+` does here is wrapping a string into an instance of `TextElement` and adding it to the `children` collection,
+so that it becomes a proper part of the tag tree.
+
+All this is defined in a package `com.example.html` that is imported at the top of the builder example above.
+In the last section you can read through the full definition of this package.
+
+## Scope control: `@DslMarker`
+
+When using DSLs, one might have come across the problem that too many functions can be called in the context. 
+You can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, 
+like the tag `head` inside another `head`: 
+
+```kotlin
+html {
+    head {
+        head {} // should be forbidden
+    }
+    // ...
+}
+```
+
+In this example only members of the nearest implicit receiver `this@head` must be available; `head()` is a member of the 
+outer receiver `this@html`, so it must be illegal to call it.
+
+To address this problem, there is a special mechanism to control receiver scope.
+
+To make the compiler start controlling scopes you only have to annotate the types of all receivers used in the DSL with 
+the same marker annotation.
+For instance, for HTML Builders you declare an annotation `@HTMLTagMarker`:
+
+```kotlin
+@DslMarker
+annotation class HtmlTagMarker
+```
+
+An annotation class is called a DSL marker if it is annotated with the `@DslMarker` annotation.
+
+In our DSL all the tag classes extend the same superclass `Tag`.
+It's enough to annotate only the superclass with `@HtmlTagMarker` and after that the Kotlin compiler will treat all the 
+inherited classes as annotated:
+
+```kotlin
+@HtmlTagMarker
+abstract class Tag(val name: String) { ... }
+```
+
+You don't have to annotate the `HTML` or `Head` classes with `@HtmlTagMarker` because their superclass is already annotated:
+
+```
+class HTML() : Tag("html") { ... }
+class Head() : Tag("head") { ... }
+```
+
+After you've added this annotation, the Kotlin compiler knows which implicit receivers are part of the same DSL and allows to call members of the nearest receivers only: 
+
+```kotlin
+html {
+    head {
+        head { } // error: a member of outer receiver
+    }
+    // ...
+}
+```
+
+Note that it's still possible to call the members of the outer receiver, but to do that you have to specify this receiver explicitly:
+
+```kotlin
+html {
+    head {
+        this@html.head { } // possible
+    }
+    // ...
+}
+```
+
+## Full definition of the `com.example.html` package
+
+This is how the package `com.example.html` is defined (only the elements used in the example above).
+It builds an HTML tree. It makes heavy use of [extension functions](extensions.md) and
+[lambdas with receiver](lambdas.md#function-literals-with-receiver).
+
+```kotlin
+package com.example.html
+
+interface Element {
+    fun render(builder: StringBuilder, indent: String)
+}
+
+class TextElement(val text: String) : Element {
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent$text\n")
+    }
+}
+
+@DslMarker
+annotation class HtmlTagMarker
+
+@HtmlTagMarker
+abstract class Tag(val name: String) : Element {
+    val children = arrayListOf<Element>()
+    val attributes = hashMapOf<String, String>()
+
+    protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
+        tag.init()
+        children.add(tag)
+        return tag
+    }
+
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent<$name${renderAttributes()}>\n")
+        for (c in children) {
+            c.render(builder, indent + "  ")
+        }
+        builder.append("$indent</$name>\n")
+    }
+
+    private fun renderAttributes(): String {
+        val builder = StringBuilder()
+        for ((attr, value) in attributes) {
+            builder.append(" $attr=\"$value\"")
+        }
+        return builder.toString()
+    }
+
+    override fun toString(): String {
+        val builder = StringBuilder()
+        render(builder, "")
+        return builder.toString()
+    }
+}
+
+abstract class TagWithText(name: String) : Tag(name) {
+    operator fun String.unaryPlus() {
+        children.add(TextElement(this))
+    }
+}
+
+class HTML : TagWithText("html") {
+    fun head(init: Head.() -> Unit) = initTag(Head(), init)
+
+    fun body(init: Body.() -> Unit) = initTag(Body(), init)
+}
+
+class Head : TagWithText("head") {
+    fun title(init: Title.() -> Unit) = initTag(Title(), init)
+}
+
+class Title : TagWithText("title")
+
+abstract class BodyTag(name: String) : TagWithText(name) {
+    fun b(init: B.() -> Unit) = initTag(B(), init)
+    fun p(init: P.() -> Unit) = initTag(P(), init)
+    fun h1(init: H1.() -> Unit) = initTag(H1(), init)
+    fun a(href: String, init: A.() -> Unit) {
+        val a = initTag(A(), init)
+        a.href = href
+    }
+}
+
+class Body : BodyTag("body")
+class B : BodyTag("b")
+class P : BodyTag("p")
+class H1 : BodyTag("h1")
+
+class A : BodyTag("a") {
+    var href: String
+        get() = attributes["href"]!!
+        set(value) {
+            attributes["href"] = value
+        }
+}
+
+fun html(init: HTML.() -> Unit): HTML {
+    val html = HTML()
+    html.init()
+    return html
+}
+```
+
+
+
+# 📜 07.05.5.2. [Using builders with builder type inference](using-builders-with-builder-inference.md)
+
+    [//]: # (title: Using builders with builder type inference)
+
+Kotlin supports _builder type inference_ (or builder inference), which can come in useful when you are working with 
+generic builders. It helps the compiler infer the type arguments of a builder call based on the type information
+about other calls inside its lambda argument.
+
+Consider this example of [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html)
+usage:
+
+```kotlin
+fun addEntryToMap(baseMap: Map<String, Number>, additionalEntry: Pair<String, Int>?) {
+   val myMap = buildMap {
+       putAll(baseMap)
+       if (additionalEntry != null) {
+           put(additionalEntry.first, additionalEntry.second)
+       }
+   }
+}
+```
+
+There is not enough type information here to infer type arguments in a regular way, but builder inference can
+analyze the calls inside the lambda argument. Based on the type information about `putAll()` and `put()` calls,
+the compiler can automatically infer type arguments of the `buildMap()` call into `String` and `Number`. 
+Builder inference allows to omit type arguments while using generic builders.
+
+## Writing your own builders
+
+### Requirements for enabling builder inference
+
+> Before Kotlin 1.7.0, enabling builder inference for a builder function required `-Xenable-builder-inference` compiler option. 
+> In 1.7.0 the option is enabled by default.
+>
+{type="note"}
+
+To let builder inference work for your own builder, make sure its declaration has a builder lambda parameter of a
+function type with a receiver. There are also two requirements for the receiver type:
+
+1. It should use the type arguments that builder inference is supposed to infer. For example:
+   ```kotlin
+   fun <V> buildList(builder: MutableList<V>.() -> Unit) { ... }
+   ```
+   
+   > Note that passing the type parameter's type directly like `fun <T> myBuilder(builder: T.() -> Unit)` is not yet supported.
+   > 
+   {type="note"}
+
+2. It should provide public members or extensions that contain the corresponding type parameters in their signature. 
+   For example:
+   ```kotlin
+   class ItemHolder<T> {
+       private val items = mutableListOf<T>()
+
+       fun addItem(x: T) {
+           items.add(x)
+       }
+
+       fun getLastItem(): T? = items.lastOrNull()
+   }
+   
+   fun <T> ItemHolder<T>.addAllItems(xs: List<T>) {
+       xs.forEach { addItem(it) }
+   }
+
+   fun <T> itemHolderBuilder(builder: ItemHolder<T>.() -> Unit): ItemHolder<T> = 
+       ItemHolder<T>().apply(builder)
+
+   fun test(s: String) {
+       val itemHolder1 = itemHolderBuilder { // Type of itemHolder1 is ItemHolder<String>
+           addItem(s)
+       }
+       val itemHolder2 = itemHolderBuilder { // Type of itemHolder2 is ItemHolder<String>
+           addAllItems(listOf(s)) 
+       }
+       val itemHolder3 = itemHolderBuilder { // Type of itemHolder3 is ItemHolder<String?>
+           val lastItem: String? = getLastItem()
+           // ...
+       }
+   }
+   ```
+
+### Supported features
+
+Builder inference supports: 
+* Inferring several type arguments
+  ```kotlin
+  fun <K, V> myBuilder(builder: MutableMap<K, V>.() -> Unit): Map<K, V> { ... }
+  ```
+* Inferring type arguments of several builder lambdas within one call including interdependent ones
+  ```kotlin
+  fun <K, V> myBuilder(
+      listBuilder: MutableList<V>.() -> Unit,
+      mapBuilder: MutableMap<K, V>.() -> Unit
+  ): Pair<List<V>, Map<K, V>> =
+      mutableListOf<V>().apply(listBuilder) to mutableMapOf<K, V>().apply(mapBuilder)
+  
+  fun main() {
+      val result = myBuilder(
+          { add(1) },
+          { put("key", 2) }
+      )
+      // result has Pair<List<Int>, Map<String, Int>> type
+  }
+  ```
+* Inferring type arguments whose type parameters are lambda's parameter or return types
+  ```kotlin
+  fun <K, V> myBuilder1(
+      mapBuilder: MutableMap<K, V>.() -> K
+  ): Map<K, V> = mutableMapOf<K, V>().apply { mapBuilder() }
+  
+  fun <K, V> myBuilder2(
+      mapBuilder: MutableMap<K, V>.(K) -> Unit
+  ): Map<K, V> = mutableMapOf<K, V>().apply { mapBuilder(2 as K) }
+  
+  fun main() {
+      // result1 has the Map<Long, String> type inferred
+      val result1 = myBuilder1 {
+          put(1L, "value")
+          2
+      }
+      val result2 = myBuilder2 {
+          put(1, "value 1")
+          // You can use `it` as "postponed type variable" type
+          // See the details in the section below
+          put(it, "value 2")
+      }
+  }
+  ```
+
+## How builder inference works
+
+### Postponed type variables
+
+Builder inference works in terms of _postponed type variables_, which appear inside the builder lambda during builder
+inference analysis. A postponed type variable is a type argument's type, which is in the process of inferring.
+The compiler uses it to collect type information about the type argument.
+
+Consider the example with [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html):
+
+```kotlin
+val result = buildList {
+    val x = get(0)
+}
+```
+
+Here `x` has a type of postponed type variable: the `get()` call returns a value of type `E`, but `E` itself is not yet
+fixed. At this moment, a concrete type for `E` is unknown.
+
+When a value of a postponed type variable gets associated with a concrete type, builder inference collects this information
+to infer the resulting type of the corresponding type argument at the end of the builder inference analysis. For example:
+
+```kotlin
+val result = buildList {
+    val x = get(0)
+    val y: String = x
+} // result has the List<String> type inferred
+```
+
+After the postponed type variable gets assigned to a variable of the `String` type, builder inference gets the information
+that `x` is a subtype of `String`. This assignment is the last statement in the builder lambda, so the builder inference
+analysis ends with the result of inferring the type argument `E` into `String`.
+
+Note that you can always call `equals()`, `hashCode()`, and `toString()` functions with a postponed type variable as a
+receiver.
+
+### Contributing to builder inference results
+
+Builder inference can collect different varieties of type information that contribute to the analysis result.
+It considers:
+* Calling methods on a lambda's receiver that use the type parameter's type
+  ```kotlin
+  val result = buildList {
+      // Type argument is inferred into String based on the passed "value" argument
+      add("value")
+  } // result has the List<String> type inferred
+  ```
+* Specifying the expected type for calls that return the type parameter's type
+  ```kotlin
+  val result = buildList {
+      // Type argument is inferred into Float based on the expected type
+      val x: Float = get(0)
+  } // result has the List<Float> type
+  ```
+  ```kotlin
+  class Foo<T> {
+      val items = mutableListOf<T>()
+  }
+
+  fun <K> myBuilder(builder: Foo<K>.() -> Unit): Foo<K> = Foo<K>().apply(builder)
+
+  fun main() {
+      val result = myBuilder {
+          val x: List<CharSequence> = items
+          // ...
+      } // result has the Foo<CharSequence> type
+  }
+  ```
+* Passing postponed type variables' types into methods that expect concrete types
+  ```kotlin
+  fun takeMyLong(x: Long) { ... }
+
+  fun String.isMoreThat3() = length > 3
+
+  fun takeListOfStrings(x: List<String>) { ... }
+
+  fun main() {
+      val result1 = buildList {
+          val x = get(0)
+          takeMyLong(x)
+      } // result1 has the List<Long> type
+
+      val result2 = buildList {
+          val x = get(0)
+          val isLong = x.isMoreThat3()
+      // ...
+      } // result2 has the List<String> type
+  
+      val result3 = buildList {
+          takeListOfStrings(this)
+      } // result3 has the List<String> type
+  }
+  ```
+* Taking a callable reference to the lambda receiver's member
+  ```kotlin
+  fun main() {
+      val result = buildList {
+          val x: KFunction1<Int, Float> = ::get
+      } // result has the List<Float> type
+  }
+  ```
+  ```kotlin
+  fun takeFunction(x: KFunction1<Int, Float>) { ... }
+
+  fun main() {
+      val result = buildList {
+          takeFunction(::get)
+      } // result has the List<Float> type
+  }
+  ```
+
+At the end of the analysis, builder inference considers all collected type information and tries to merge it into 
+the resulting type. See the example.
+
+```kotlin
+val result = buildList { // Inferring postponed type variable E
+    // Considering E is Number or a subtype of Number
+    val n: Number? = getOrNull(0)
+    // Considering E is Int or a supertype of Int
+    add(1)
+    // E gets inferred into Int
+} // result has the List<Int> type
+```
+
+The resulting type is the most specific type that corresponds to the type information collected during the analysis.
+If the given type information is contradictory and cannot be merged, the compiler reports an error.
+
+Note that the Kotlin compiler uses builder inference only if regular type inference cannot infer a type argument.
+This means you can contribute type information outside a builder lambda, and then builder inference analysis is not
+required. Consider the example:
+
+```kotlin
+fun someMap() = mutableMapOf<CharSequence, String>()
+
+fun <E> MutableMap<E, String>.f(x: MutableMap<E, String>) { ... }
+
+fun main() {
+    val x: Map<in String, String> = buildMap {
+        put("", "")
+        f(someMap()) // Type mismatch (required String, found CharSequence)
+    }
+}
+```
+
+Here a type mismatch appears because the expected type of the map is specified outside the builder lambda. 
+The compiler analyzes all the statements inside with the fixed receiver type `Map<in String, String>`.
+
+# 📜 07.06. [Null safety](null-safety.md)
+
+    [//]: # (title: Null safety)
+
+## Nullable types and non-nullable types
+
+Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
+
+One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null
+reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException`,
+or an _NPE_ for short.
+
+The only possible causes of an NPE in Kotlin are:
+
+* An explicit call to `throw NullPointerException()`.
+* Usage of the `!!` operator that is described below.
+* Data inconsistency with regard to initialization, such as when:
+  * An uninitialized `this` available in a constructor is passed and used somewhere (a "leaking `this`").
+  * A [superclass constructor calls an open member](inheritance.md#derived-class-initialization-order) whose implementation
+  in the derived class uses an uninitialized state.
+* Java interoperation:
+  * Attempts to access a member of a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types);
+  * Nullability issues with generic types being used for Java interoperation. For example, a piece of Java code might add
+  `null` into a Kotlin `MutableList<String>`, therefore requiring a `MutableList<String?>` for working with it.
+  * Other issues caused by external Java code.
+
+In Kotlin, the type system distinguishes between references that can hold `null` (nullable references) and those that
+cannot (non-nullable references).
+For example, a regular variable of type `String` cannot hold `null`:
+
+```kotlin
+fun main() {
+//sampleStart
+    var a: String = "abc" // Regular initialization means non-nullable by default
+    a = null // compilation error
+//sampleEnd
+}
+```
+{kotlin-runnable="true" validate="false"}
+
+To allow nulls, you can declare a variable as a nullable string by writing `String?`:
+
+```kotlin
+fun main() {
+//sampleStart
+    var b: String? = "abc" // can be set to null
+    b = null // ok
+    print(b)
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say:
+
+```kotlin
+val l = a.length
+```
+
+But if you want to access the same property on `b`, that would not be safe, and the compiler reports an error:
+
+```kotlin
+val l = b.length // error: variable 'b' can be null
+```
+
+But you still need to access that property, right? There are a few ways to do so.
+
+## Checking for `null` in conditions
+
+First, you can explicitly check whether `b` is `null`, and handle the two options separately:
+
+```kotlin
+val l = if (b != null) b.length else -1
+```
+
+The compiler tracks the information about the check you performed, and allows the call to `length` inside the `if`.
+More complex conditions are supported as well:
+
+```kotlin
+fun main() {
+//sampleStart
+    val b: String? = "Kotlin"
+    if (b != null && b.length > 0) {
+        print("String of length ${b.length}")
+    } else {
+        print("Empty string")
+    }
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+Note that this only works where `b` is immutable (meaning it is a local variable that is not modified between the check and its
+usage or it is a member `val` that has a backing field and is not overridable), because otherwise it could be the case
+that `b` changes to `null` after the check.
+
+## Safe calls
+
+Your second option for accessing a property on a nullable variable is using the safe call operator `?.`:
+
+```kotlin
+fun main() {
+//sampleStart
+    val a = "Kotlin"
+    val b: String? = null
+    println(b?.length)
+    println(a?.length) // Unnecessary safe call
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+This returns `b.length` if `b` is not null, and `null` otherwise. The type of this expression is `Int?`.
+
+Safe calls are useful in chains. For example, Bob is an employee who may be assigned to a department (or not). That department
+may in turn have another employee as a department head. To obtain the name of Bob's department head (if there is one),
+you write the following:
+
+```kotlin
+bob?.department?.head?.name
+```
+
+Such a chain returns `null` if any of the properties in it is `null`.
+
+To perform a certain operation only for non-null values, you can use the safe call operator together with
+[`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html):
+
+```kotlin
+fun main() {
+//sampleStart
+    val listWithNulls: List<String?> = listOf("Kotlin", null)
+    for (item in listWithNulls) {
+         item?.let { println(it) } // prints Kotlin and ignores null
+    }
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+A safe call can also be placed on the left side of an assignment. Then, if one of the receivers in the safe calls chain
+is `null`, the assignment is skipped and the expression on the right is not evaluated at all:
+
+```kotlin
+// If either `person` or `person.department` is null, the function is not called:
+person?.department?.head = managersPool.getManager()
+```
+
+## Nullable receiver
+
+Extension functions can be defined on a [nullable receiver](extensions.md#nullable-receiver).
+This way you can specify behaviour for null values without the need to use null-checking logic at each call-site. 
+
+For example, the [`toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) function is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example, logging:
+
+```kotlin
+val person: Person? = null
+logger.debug(person.toString()) // Logs "null", does not throw an exception
+```
+
+If you want your `toString()` invocation to return a nullable string, use the [safe-call operator `?.`](#safe-calls):
+
+```kotlin
+var timestamp: Instant? = null
+val isoTimestamp = timestamp?.toString() // Returns a String? object which is `null`
+if (isoTimestamp == null) {
+   // Handle the case where timestamp was `null`
+}
+```
+
+## Elvis operator
+
+When you have a nullable reference, `b`, you can say "if `b` is not `null`, use it, otherwise use some non-null value":
+
+```kotlin
+val l: Int = if (b != null) b.length else -1
+```
+
+Instead of writing the complete `if` expression, you can also express this with the Elvis operator `?:`:
+
+```kotlin
+val l = b?.length ?: -1
+```
+
+If the expression to the left of `?:` is not `null`, the Elvis operator returns it, otherwise it returns the expression
+to the right.
+Note that the expression on the right-hand side is evaluated only if the left-hand side is `null`.
+
+Since `throw` and `return` are expressions in Kotlin, they can also be used on
+the right-hand side of the Elvis operator. This can be handy, for example, when checking function arguments:
+
+```kotlin
+fun foo(node: Node): String? {
+    val parent = node.getParent() ?: return null
+    val name = node.getName() ?: throw IllegalArgumentException("name expected")
+    // ...
+}
+```
+
+## The `!!` operator
+
+The third option is for NPE-lovers: the not-null assertion operator (`!!`) converts any value to a non-nullable
+type and throws an exception if the value is `null`. You can write `b!!`, and this will return a non-null value of `b`
+(for example, a `String` in our example) or throw an NPE if `b` is `null`:
+
+```kotlin
+val l = b!!.length
+```
+
+Thus, if you want an NPE, you can have it, but you have to ask for it explicitly and it won't appear out of the blue.
+
+## Safe casts
+
+Regular casts may result in a `ClassCastException` if the object is not of the target type.
+Another option is to use safe casts that return `null` if the attempt was not successful:
+
+```kotlin
+val aInt: Int? = a as? Int
+```
+
+## Collections of a nullable type
+
+If you have a collection of elements of a nullable type and want to filter non-nullable elements, you can do so by using
+`filterNotNull`:
+
+```kotlin
+val nullableList: List<Int?> = listOf(1, 2, null, 4)
+val intList: List<Int> = nullableList.filterNotNull()
+```
+
+## What's next?
+
+* Learn how to [handle nullability in Java and Kotlin](java-to-kotlin-nullability-guide.md).
+* Learn about generic types that are [definitely non-nullable](generics.md#definitely-non-nullable-types).
+
+
+# 📜 07.07. [Equality](equality.md)
+
+    [//]: # (title: Equality)
+
+In Kotlin there are two types of equality:
+
+* _Structural_ equality (`==` - a check for `equals()`)
+* _Referential_ equality (`===` - two references point to the same object)
+
+## Structural equality
+
+Structural equality is checked by the `==` operation and its negated counterpart `!=`.
+By convention, an expression like `a == b` is translated to:
+
+```kotlin
+a?.equals(b) ?: (b === null)
+```
+
+If `a` is not `null`, it calls the `equals(Any?)` function, otherwise (`a` is `null`) it checks that `b`
+is referentially equal to `null`.
+
+Note that there's no point in optimizing your code when comparing to `null` explicitly:
+`a == null` will be automatically translated to `a === null`.
+
+To provide a custom equals check implementation, override the
+[`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html) function.
+Functions with the same name and other signatures, like `equals(other: Foo)`, don't affect equality checks with
+the operators `==` and `!=`.
+
+Structural equality has nothing to do with comparison defined by the `Comparable<...>` interface, so only a custom 
+`equals(Any?)` implementation may affect the behavior of the operator. 
+
+## Referential equality
+
+Referential equality is checked by the `===` operation and its negated counterpart `!==`. `a === b` evaluates to
+true if and only if `a` and `b` point to the same object. For values represented by primitive types at runtime
+(for example, `Int`), the `===` equality check is equivalent to the `==` check.
+
+## Floating-point numbers equality
+
+When an equality check operands are statically known to be `Float` or `Double` (nullable or not), the check follows the 
+[IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754). 
+
+Otherwise, structural equality is used, which disagrees with the standard so that `NaN` is equal to itself, `NaN` is considered greater than any other element, including `POSITIVE_INFINITY`, and `-0.0` is not equal to `0.0`.
+
+For more information, see [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).
+
+## Array equality
+
+To compare whether two arrays have the same elements in the same order, use [`contentEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-equals.html).
+
+For more information, see [Compare arrays](arrays.md#compare-arrays).
+
+# 📜 07.08. [This expressions](this-expressions.md)
+
+    [//]: # (title: This expressions)
+
+To denote the current _receiver_, you use `this` expressions:
+
+* In a member of a [class](classes.md#inheritance), `this` refers to the current object of that class.
+* In an [extension function](extensions.md) or a [function literal with receiver](lambdas.md#function-literals-with-receiver)
+`this` denotes the _receiver_ parameter that is passed on the left-hand side of a dot.
+
+If `this` has no qualifiers, it refers to the _innermost enclosing scope_. To refer to `this` in other scopes, _label qualifiers_ are used:
+
+## Qualified this 
+
+To access `this` from an outer scope (a [class](classes.md), [extension function](extensions.md),
+or labeled [function literal with receiver](lambdas.md#function-literals-with-receiver)) you write `this@label`,
+ where `@label` is a [label](returns.md) on the scope `this` is meant to be from:
+
+```kotlin
+class A { // implicit label @A
+    inner class B { // implicit label @B
+        fun Int.foo() { // implicit label @foo
+            val a = this@A // A's this
+            val b = this@B // B's this
+
+            val c = this // foo()'s receiver, an Int
+            val c1 = this@foo // foo()'s receiver, an Int
+
+            val funLit = lambda@ fun String.() {
+                val d = this // funLit's receiver, a String
+            }
+
+            val funLit2 = { s: String ->
+                // foo()'s receiver, since enclosing lambda expression
+                // doesn't have any receiver
+                val d1 = this
+            }
+        }
+    }
+}
+```
+
+## Implicit this
+
+When you call a member function on `this`, you can skip the `this.` part.
+If you have a non-member function with the same name, use this with caution because in some cases it can be called instead:
+
+```kotlin
+fun main() {
+//sampleStart
+    fun printLine() { println("Top-level function") }
+    
+    class A {
+        fun printLine() { println("Member function") }
+
+        fun invokePrintLine(omitThis: Boolean = false)  { 
+            if (omitThis) printLine()
+            else this.printLine()
+        }
+    }
+    
+    A().invokePrintLine() // Member function
+    A().invokePrintLine(omitThis = true) // Top-level function
+//sampleEnd()
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+
+
+# 📜 07.09. [Asynchronous programming techniques](async-programming.md)
+
+    [//]: # (title: Asynchronous programming techniques)
+
+For decades, as developers we are confronted with a problem to solve - how to prevent our applications from blocking. Whether 
+we're developing desktop, mobile, or even server-side applications, we want to avoid having the user wait or what's worse cause 
+bottlenecks that would prevent an application from scaling. 
+
+There have been many approaches to solving this problem, including:
+
+* [Threading](#threading)
+* [Callbacks](#callbacks)
+* [Futures, promises, and others](#futures-promises-and-others)
+* [Reactive Extensions](#reactive-extensions)
+* [Coroutines](#coroutines)
+
+Before explaining what coroutines are, let's briefly review some of the other solutions.
+
+## Threading
+
+Threads are by far probably the most well-known approach to avoid applications from blocking.
+
+```kotlin
+fun postItem(item: Item) {
+    val token = preparePost()
+    val post = submitPost(token, item)
+    processPost(post)
+}
+
+fun preparePost(): Token {
+    // makes a request and consequently blocks the main thread
+    return token
+}
+```
+
+Let's assume in the code above that `preparePost` is a long-running process and consequently would block the user interface. What we can do is launch it in a separate thread. This would then
+allow us to avoid the UI from blocking. This is a very common technique, but has a series of drawbacks:
+
+* Threads aren't cheap. Threads require context switches which are costly.
+* Threads aren't infinite. The number of threads that can be launched is limited by the underlying operating system. In server-side applications, this could cause a major bottleneck.
+* Threads aren't always available. Some platforms, such as JavaScript do not even support threads.
+* Threads aren't easy. Debugging threads and avoiding race conditions are common problems we suffer in multi-threaded programming. 
+
+## Callbacks
+
+With callbacks, the idea is to pass one function as a parameter to another function, and have this one invoked once the process has completed.
+
+```kotlin
+fun postItem(item: Item) {
+    preparePostAsync { token -> 
+        submitPostAsync(token, item) { post -> 
+            processPost(post)
+        }
+    }
+}
+
+fun preparePostAsync(callback: (Token) -> Unit) {
+    // make request and return immediately 
+    // arrange callback to be invoked later
+}
+```
+
+This in principle feels like a much more elegant solution, but once again has several issues:
+
+* Difficulty of nested callbacks. Usually a function that is used as a callback, often ends up needing its own callback. This leads to a series of nested callbacks which
+lead to incomprehensible code. The pattern is often referred to as the titled christmas tree (braces represent branches of the tree).
+* Error handling is complicated. The nesting model makes error handling and propagation of these somewhat more complicated. 
+
+Callbacks are quite common in event-loop architectures such as JavaScript, but even there, generally people have moved away to using other approaches such as promises or reactive extensions.
+
+## Futures, promises, and others
+
+The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make a call, we're promised 
+that at some point it will return with an object called a Promise, which can then be operated on.
+
+```kotlin
+fun postItem(item: Item) {
+    preparePostAsync() 
+        .thenCompose { token -> 
+            submitPostAsync(token, item)
+        }
+        .thenAccept { post -> 
+            processPost(post)
+        }
+         
+}
+
+fun preparePostAsync(): Promise<Token> {
+    // makes request and returns a promise that is completed later
+    return promise 
+}
+```
+
+This approach requires a series of changes in how we program, in particular:
+
+* Different programming model. Similar to callbacks, the programming model moves away from a top-down imperative approach to a compositional model with chained calls. Traditional program structures 
+such as loops, exception handling, etc. usually are no longer valid in this model.
+* Different APIs. Usually there's a need to learn a completely new API such as `thenCompose` or `thenAccept`, which can also vary across platforms.
+* Specific return type. The return type moves away from the actual data that we need and instead returns a new type `Promise` which has to be introspected. 
+* Error handling can be complicated. The propagation and chaining of errors aren't always straightforward.
+
+## Reactive extensions
+
+Reactive Extensions (Rx) were introduced to C# by [Erik Meijer](https://en.wikipedia.org/wiki/Erik_Meijer_(computer_scientist)). While it was definitely used on the .NET platform
+it really didn't reach mainstream adoption until Netflix ported it over to Java, naming it RxJava. From then on, numerous ports have been provided for a variety of platforms including JavaScript (RxJS).
+
+The idea behind Rx is to move towards what's called `observable streams` whereby we now think of data as streams (infinite amounts of data) and these streams can be observed. In practical terms, Rx is simply 
+the [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) with a series of extensions which allow us to operate on the data.
+
+In approach it's quite similar to Futures, but one can think of a Future as returning a discrete element, whereas Rx returns a stream. However, similar to the previous, it also introduces 
+a complete new way of thinking about our programming model, famously phrased as 
+
+    "everything is a stream, and it's observable"
+    
+This implies a different way to approach problems and quite a significant shift from what we're used to when writing synchronous code. One benefit as opposed to Futures is that given it's ported to 
+so many platforms, generally we can find a consistent API experience no matter what we use, be it C#, Java, JavaScript, or any other language where Rx is available.
+
+In addition, Rx does introduce a somewhat nicer approach to error handling. 
+
+## Coroutines 
+
+Kotlin's approach to working with asynchronous code is using coroutines, which is the idea of suspendable computations, i.e. the idea that a function can suspend its execution at some point and resume later on. 
+
+One of the benefits however of coroutines is that when it comes to the developer, writing non-blocking code is essentially the same as writing blocking code. The programming model
+in itself doesn't really change. 
+
+Take for instance the following code:
+
+```kotlin
+fun postItem(item: Item) {
+    launch {
+        val token = preparePost()
+        val post = submitPost(token, item)
+        processPost(post)
+    }
+}
+
+suspend fun preparePost(): Token {
+    // makes a request and suspends the coroutine
+    return suspendCoroutine { /* ... */ } 
+}
+```
+
+This code will launch a long-running operation without blocking the main thread. The `preparePost` is what's called a 
+`suspendable function`, thus the keyword `suspend` prefixing it. What this means as stated above, is that the function will 
+execute, pause execution and resume at some point in time. 
+
+* The function signature remains exactly the same. The only difference is `suspend` being added to it. The return type however is the type we want to be
+returned.
+* The code is still written as if we were writing synchronous code, top-down, without the need of any special syntax, beyond the use of a function called `launch` which essentially kicks off
+the coroutine (covered in other tutorials).
+* The programming model and APIs remain the same. We can continue to use loops, exception handling, etc. and there's no need to learn a complete set of new APIs.
+* It is platform independent. Whether we're targeting JVM, JavaScript or any other platform, the code we write is the same. Under the covers the compiler takes care of adapting it to each platform.
+
+Coroutines are not a new concept, let alone invented by Kotlin. They've been around for decades and are popular in some other programming languages such as Go. What is important to note though
+is that the way they're implemented in Kotlin, most of the functionality is delegated to libraries. In fact, beyond the `suspend` keyword, no other keywords are added to the language. This is somewhat different from
+languages such as C# that have `async` and `await` as part of the syntax. With Kotlin, these are just library functions.
+
+For more information, see the [Coroutines reference](coroutines-overview.md).
+
+
+# 📜 07.10. [Coroutines](coroutines-overview.md)
+
+    [//]: # (title: Coroutines)
+
+Asynchronous or non-blocking programming is an important part of the development landscape. When creating server-side,
+desktop, or mobile applications, it's important to provide an experience that is not only fluid from the user's perspective,
+but also scalable when needed.
+
+Kotlin solves this problem in a flexible way by providing [coroutine](https://en.wikipedia.org/wiki/Coroutine) support
+at the language level and delegating most of the functionality to libraries.
+
+In addition to opening the doors to asynchronous programming, coroutines also provide a wealth of other possibilities,
+such as concurrency and actors.
+
+## How to start
+
+New to Kotlin? Take a look at the [Getting started](getting-started.md) page.
+
+### Documentation
+
+- [Coroutines guide](coroutines-guide.md)
+- [Basics](coroutines-basics.md)
+- [Channels](channels.md)
+- [Coroutine context and dispatchers](coroutine-context-and-dispatchers.md)
+- [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md)
+- [Asynchronous flow](flow.md)
+
+### Tutorials
+
+- [Asynchronous programming techniques](async-programming.md)
+- [Introduction to coroutines and channels](coroutines-and-channels.md)
+- [Debug coroutines using IntelliJ IDEA](debug-coroutines-with-idea.md)
+- [Debug Kotlin Flow using IntelliJ IDEA – tutorial](debug-flow-with-idea.md)
+- [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test)
+
+## Sample projects
+
+- [kotlinx.coroutines examples and sources](https://github.com/Kotlin/kotlin-coroutines/tree/master/examples)
+- [KotlinConf app](https://github.com/JetBrains/kotlinconf-app)
+
+
+# 📜 07.11. [Annotations](annotations.md)
+
+    [//]: # (title: Annotations)
+
+Annotations are means of attaching metadata to code. To declare an annotation, put the `annotation` modifier in front of a class:
+
+```kotlin
+annotation class Fancy
+```
+
+Additional attributes of the annotation can be specified by annotating the annotation class with meta-annotations:
+
+  * [`@Target`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/index.html) specifies the possible kinds of
+    elements which can be annotated with the annotation (such as classes, functions, properties, and expressions);
+  * [`@Retention`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/index.html) specifies whether the
+    annotation is stored in the compiled class files and whether it's visible through reflection at runtime
+    (by default, both are true);
+  * [`@Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/index.html) allows using the same annotation
+    on a single element multiple times;
+  * [`@MustBeDocumented`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-must-be-documented/index.html) specifies that the
+    annotation is part of the public API and should be included in the class or method signature shown in the
+    generated API documentation.
+
+```kotlin
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
+        AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER, 
+        AnnotationTarget.EXPRESSION)
+@Retention(AnnotationRetention.SOURCE)
+@MustBeDocumented
+annotation class Fancy
+```
+
+## Usage
+
+```kotlin
+@Fancy class Foo {
+    @Fancy fun baz(@Fancy foo: Int): Int {
+        return (@Fancy 1)
+    }
+}
+```
+
+If you need to annotate the primary constructor of a class, you need to add the `constructor` keyword
+to the constructor declaration, and add the annotations before it:
+
+```kotlin
+class Foo @Inject constructor(dependency: MyDependency) { ... }
+```
+
+You can also annotate property accessors:
+
+```kotlin
+class Foo {
+    var x: MyDependency? = null
+        @Inject set
+}
+```
+
+## Constructors
+
+Annotations can have constructors that take parameters.
+
+```kotlin
+annotation class Special(val why: String)
+
+@Special("example") class Foo {}
+```
+
+Allowed parameter types are:
+
+ * Types that correspond to Java primitive types (Int, Long etc.)
+ * Strings
+ * Classes (`Foo::class`)
+ * Enums
+ * Other annotations
+ * Arrays of the types listed above
+
+Annotation parameters cannot have nullable types, because the JVM does not support storing `null` as a value
+of an annotation attribute.
+
+If an annotation is used as a parameter of another annotation, its name is not prefixed with the `@` character:
+
+```kotlin
+annotation class ReplaceWith(val expression: String)
+
+annotation class Deprecated(
+        val message: String,
+        val replaceWith: ReplaceWith = ReplaceWith(""))
+
+@Deprecated("This function is deprecated, use === instead", ReplaceWith("this === other"))
+```
+
+If you need to specify a class as an argument of an annotation, use a Kotlin class
+([KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)). The Kotlin compiler will
+automatically convert it to a Java class, so that the Java code can access the annotations and arguments
+normally.
+
+```kotlin
+
+import kotlin.reflect.KClass
+
+annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
+
+@Ann(String::class, Int::class) class MyClass
+```
+
+## Instantiation
+
+In Java, an annotation type is a form of an interface, so you can implement it and use an instance.
+As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
+and similarly use the resulting instance.
+
+```kotlin
+annotation class InfoMarker(val info: String)
+
+fun processInfo(marker: InfoMarker): Unit = TODO()
+
+fun main(args: Array<String>) {
+    if (args.isNotEmpty())
+        processInfo(getAnnotationReflective(args))
+    else
+        processInfo(InfoMarker("default"))
+}
+```
+
+Learn more about instantiation of annotation classes in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-instantiation.md).
+
+## Lambdas
+
+Annotations can also be used on lambdas. They will be applied to the `invoke()` method into which the body
+of the lambda is generated. This is useful for frameworks like [Quasar](https://docs.paralleluniverse.co/quasar/),
+which uses annotations for concurrency control.
+
+```kotlin
+annotation class Suspendable
+
+val f = @Suspendable { Fiber.sleep(10) }
+```
+
+## Annotation use-site targets
+
+When you're annotating a property or a primary constructor parameter, there are multiple Java elements which are
+generated from the corresponding Kotlin element, and therefore multiple possible locations for the annotation in
+the generated Java bytecode. To specify how exactly the annotation should be generated, use the following syntax:
+
+```kotlin
+class Example(@field:Ann val foo,    // annotate Java field
+              @get:Ann val bar,      // annotate Java getter
+              @param:Ann val quux)   // annotate Java constructor parameter
+```
+
+The same syntax can be used to annotate the entire file. To do this, put an annotation with the target `file` at
+the top level of a file, before the package directive or before all imports if the file is in the default package:
+
+```kotlin
+@file:JvmName("Foo")
+
+package org.jetbrains.demo
+```
+
+If you have multiple annotations with the same target, you can avoid repeating the target by adding brackets after the
+target and putting all the annotations inside the brackets:
+
+```kotlin
+class Example {
+     @set:[Inject VisibleForTesting]
+     var collaborator: Collaborator
+}
+```
+
+The full list of supported use-site targets is:
+
+  * `file`
+  * `property` (annotations with this target are not visible to Java)
+  * `field`
+  * `get` (property getter)
+  * `set` (property setter)
+  * `receiver` (receiver parameter of an extension function or property)
+  * `param` (constructor parameter)
+  * `setparam` (property setter parameter)
+  * `delegate` (the field storing the delegate instance for a delegated property)
+
+To annotate the receiver parameter of an extension function, use the following syntax:
+
+```kotlin
+fun @receiver:Fancy String.myExtension() { ... }
+```
+
+If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
+being used. If there are multiple applicable targets, the first applicable target from the following list is used:
+
+  * `param`
+  * `property`
+  * `field`
+
+## Java annotations
+
+Java annotations are 100% compatible with Kotlin:
+
+```kotlin
+import org.junit.Test
+import org.junit.Assert.*
+import org.junit.Rule
+import org.junit.rules.*
+
+class Tests {
+    // apply @Rule annotation to property getter
+    @get:Rule val tempFolder = TemporaryFolder()
+
+    @Test fun simple() {
+        val f = tempFolder.newFile()
+        assertEquals(42, getTheAnswer())
+    }
+}
+```
+
+Since the order of parameters for an annotation written in Java is not defined, you can't use a regular function
+call syntax for passing the arguments. Instead, you need to use the named argument syntax:
+
+``` java
+// Java
+public @interface Ann {
+    int intValue();
+    String stringValue();
+}
+```
+
+```kotlin
+// Kotlin
+@Ann(intValue = 1, stringValue = "abc") class C
+```
+
+Just like in Java, a special case is the `value` parameter; its value can be specified without an explicit name:
+
+``` java
+// Java
+public @interface AnnWithValue {
+    String value();
+}
+```
+
+```kotlin
+// Kotlin
+@AnnWithValue("abc") class C
+```
+
+### Arrays as annotation parameters
+
+If the `value` argument in Java has an array type, it becomes a `vararg` parameter in Kotlin:
+
+``` java
+// Java
+public @interface AnnWithArrayValue {
+    String[] value();
+}
+```
+
+```kotlin
+// Kotlin
+@AnnWithArrayValue("abc", "foo", "bar") class C
+```
+
+For other arguments that have an array type, you need to use the array literal syntax or 
+`arrayOf(...)`:
+
+``` java
+// Java
+public @interface AnnWithArrayMethod {
+    String[] names();
+}
+```
+
+```kotlin
+@AnnWithArrayMethod(names = ["abc", "foo", "bar"]) 
+class C
+```
+
+### Accessing properties of an annotation instance
+
+Values of an annotation instance are exposed as properties to Kotlin code:
+
+``` java
+// Java
+public @interface Ann {
+    int value();
+}
+```
+
+```kotlin
+// Kotlin
+fun foo(ann: Ann) {
+    val i = ann.value
+}
+```
+
+### Ability to not generate JVM 1.8+ annotation targets
+
+If a Kotlin annotation has `TYPE` among its Kotlin targets, the annotation maps to `java.lang.annotation.ElementType.TYPE_USE`
+in its list of Java annotation targets. This is just like how the `TYPE_PARAMETER` Kotlin target maps to
+the `java.lang.annotation.ElementType.TYPE_PARAMETER` Java target. This is an issue for Android clients with API levels
+less than 26, which don't have these targets in the API.
+
+To avoid generating the `TYPE_USE` and `TYPE_PARAMETER` annotation targets, use the new compiler argument `-Xno-new-java-annotation-targets`.
+
+## Repeatable annotations
+
+Just like [in Java](https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html), Kotlin has repeatable annotations,
+which can be applied to a single code element multiple times. To make your annotation repeatable, mark its declaration
+with the [`@kotlin.annotation.Repeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-repeatable/)
+meta-annotation. This will make it repeatable both in Kotlin and Java. Java repeatable annotations are also supported
+from the Kotlin side.
+
+The main difference with the scheme used in Java is the absence of a _containing annotation_, which the Kotlin compiler
+generates automatically with a predefined name. For an annotation in the example below, it will generate the containing
+annotation `@Tag.Container`:
+
+```kotlin
+@Repeatable
+annotation class Tag(val name: String)
+
+// The compiler generates the @Tag.Container containing annotation
+```
+
+You can set a custom name for a containing annotation by applying the
+[`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvmrepeatable/) meta-annotation
+and passing an explicitly declared containing annotation class as an argument:
+
+```kotlin
+@JvmRepeatable(Tags::class)
+annotation class Tag(val name: String)
+
+annotation class Tags(val value: Array<Tag>)
+```
+
+To extract Kotlin or Java repeatable annotations via reflection, use the [`KAnnotatedElement.findAnnotations()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/find-annotations.html)
+function.
+
+Learn more about Kotlin repeatable annotations in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/repeatable-annotations.md).
+
+# 📜 07.12. [Destructuring declarations](destructuring-declarations.md)
+
+    [//]: # (title: Destructuring declarations)
+
+Sometimes it is convenient to *destructure* an object into a number of variables, for example:
+
+```kotlin
+val (name, age) = person 
+```
+
+This syntax is called a *destructuring declaration*. A destructuring declaration creates multiple variables at once.
+You have declared two new variables: `name` and `age`, and can use them independently:
+
+ ```kotlin
+println(name)
+println(age)
+```
+
+A destructuring declaration is compiled down to the following code:
+
+```kotlin
+val name = person.component1()
+val age = person.component2()
+```
+
+The `component1()` and `component2()` functions are another example of the *principle of conventions* widely used in Kotlin 
+(see operators like `+` and `*`, `for`-loops as an example). 
+Anything can be on the right-hand side of a destructuring declaration, as long as the required number of component 
+functions can be called on it. And, of course, there can be `component3()` and `component4()` and so on.
+
+> The `componentN()` functions need to be marked with the `operator` keyword to allow using them in a destructuring 
+>declaration.
+>
+{type="note"}
+
+Destructuring declarations also work in `for`-loops:
+
+```kotlin
+for ((a, b) in collection) { ... }
+```
+
+Variables `a` and `b` get the values returned by `component1()` and `component2()` called on elements of the collection. 
+
+## Example: returning two values from a function
+ 
+Assume that you need to return two things from a function - for example, a result object and a status of some sort.
+A compact way of doing this in Kotlin is to declare a [data class](data-classes.md) and return its instance:
+
+```kotlin
+data class Result(val result: Int, val status: Status)
+fun function(...): Result {
+    // computations
+    
+    return Result(result, status)
+}
+
+// Now, to use this function:
+val (result, status) = function(...)
+```
+
+Since data classes automatically declare `componentN()` functions, destructuring declarations work here.
+
+> You could also use the standard class `Pair` and have `function()` return `Pair<Int, Status>`, 
+> but it's often better to have your data named properly.
+>
+{type="note"}
+
+## Example: destructuring declarations and maps
+
+Probably the nicest way to traverse a map is this:
+
+```kotlin
+for ((key, value) in map) {
+   // do something with the key and the value
+}
+```
+
+To make this work, you should 
+
+* Present the map as a sequence of values by providing an `iterator()` function.
+* Present each of the elements as a pair by providing functions `component1()` and `component2()`.
+  
+And indeed, the standard library provides such extensions:
+
+```kotlin
+operator fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
+operator fun <K, V> Map.Entry<K, V>.component1() = getKey()
+operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
+```
+
+So you can freely use destructuring declarations in `for`-loops with maps (as well as collections of data class instances or similar).
+
+## Underscore for unused variables
+
+If you don't need a variable in the destructuring declaration, you can place an underscore instead of its name:
+
+```kotlin
+val (_, status) = getResult()
+```
+
+The `componentN()` operator functions are not called for the components that are skipped in this way.
+
+## Destructuring in lambdas
+
+You can use the destructuring declarations syntax for lambda parameters.
+If a lambda has a parameter of the `Pair` type (or `Map.Entry`, or any other type that has the appropriate `componentN` 
+functions), you can introduce several new parameters instead of one by putting them in parentheses:   
+
+```kotlin
+map.mapValues { entry -> "${entry.value}!" }
+map.mapValues { (key, value) -> "$value!" }
+```
+
+Note the difference between declaring two parameters and declaring a destructuring pair instead of a parameter:  
+
+```kotlin
+{ a -> ... } // one parameter
+{ a, b -> ... } // two parameters
+{ (a, b) -> ... } // a destructured pair
+{ (a, b), c -> ... } // a destructured pair and another parameter
+```
+
+If a component of the destructured parameter is unused, you can replace it with the underscore to avoid inventing its name:
+
+```kotlin
+map.mapValues { (_, value) -> "$value!" }
+```
+
+You can specify the type for the whole destructured parameter or for a specific component separately:
+
+```kotlin
+map.mapValues { (_, value): Map.Entry<Int, String> -> "$value!" }
+
+map.mapValues { (_, value: String) -> "$value!" }
+```
+
+
+
+# 📜 07.13. [Reflection](reflection.md)
+
+    [//]: # (title: Reflection)
+
+_Reflection_ is a set of language and library features that allows you to introspect the structure of your program at runtime.
+Functions and properties are first-class citizens in Kotlin, and the ability to introspect them (for example, learning the name or
+the type of a property or function at runtime) is essential when using a functional or reactive style.
+
+> Kotlin/JS provides limited support for reflection features. [Learn more about reflection in Kotlin/JS](js-reflection.md).
+>
+{type="note"}
+
+## JVM dependency
+
+On the JVM platform, the Kotlin compiler distribution includes the runtime component required for using the reflection features as a separate
+artifact, `kotlin-reflect.jar`. This is done to reduce the required size of the runtime
+library for applications that do not use reflection features.
+
+To use reflection in a Gradle or Maven project, add the dependency on `kotlin-reflect`:
+
+* In Gradle:
+
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+    dependencies {
+        implementation(kotlin("reflect"))
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+    
+    ```groovy
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
+    }
+    ```
+
+    </tab>
+    </tabs>
+
+* In Maven:
+    
+    ```xml
+    <dependencies>
+      <dependency>
+          <groupId>org.jetbrains.kotlin</groupId>
+          <artifactId>kotlin-reflect</artifactId>
+      </dependency>
+    </dependencies>
+    ```
+
+If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
+In other supported cases (IntelliJ IDEA projects that use the command-line compiler or Ant),
+it is added by default. In the command-line compiler and Ant, you can use the `-no-reflect` compiler option to exclude
+`kotlin-reflect.jar` from the classpath.
+
+## Class references
+
+The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
+statically known Kotlin class, you can use the _class literal_ syntax:
+
+```kotlin
+val c = MyClass::class
+```
+
+The reference is a [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html) type value.
+
+>On JVM: a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
+>use the `.java` property on a `KClass` instance.
+>
+{type="note"}
+
+### Bound class references
+
+You can get the reference to the class of a specific object with the same `::class` syntax by using the object as a receiver:
+
+```kotlin
+val widget: Widget = ...
+assert(widget is GoodWidget) { "Bad widget: ${widget::class.qualifiedName}" }
+```
+
+You will obtain the reference to the exact class of an object, for example, `GoodWidget` or `BadWidget`,
+regardless of the type of the receiver expression (`Widget`).
+
+## Callable references
+
+References to functions, properties, and constructors can
+also be called or used as instances of [function types](lambdas.md#function-types).
+
+The common supertype for all callable references is [`KCallable<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-callable/index.html),
+where `R` is the return value type. It is the property type for properties, and the constructed type for constructors.
+
+### Function references
+
+When you have a named function declared as below, you can call it directly (`isOdd(5)`):
+
+```kotlin
+fun isOdd(x: Int) = x % 2 != 0
+```
+
+Alternatively, you can use the function as a function type value, that is, pass it
+to another function. To do so, use the `::` operator:
+
+```kotlin
+fun isOdd(x: Int) = x % 2 != 0
+
+fun main() {
+//sampleStart
+    val numbers = listOf(1, 2, 3)
+    println(numbers.filter(::isOdd))
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Here `::isOdd` is a value of function type `(Int) -> Boolean`.
+
+Function references belong to one of the [`KFunction<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-function/index.html)
+subtypes, depending on the parameter count. For instance, `KFunction3<T1, T2, T3, R>`.
+
+`::` can be used with overloaded functions when the expected type is known from the context.
+For example:
+
+```kotlin
+fun main() {
+//sampleStart
+    fun isOdd(x: Int) = x % 2 != 0
+    fun isOdd(s: String) = s == "brillig" || s == "slithy" || s == "tove"
+    
+    val numbers = listOf(1, 2, 3)
+    println(numbers.filter(::isOdd)) // refers to isOdd(x: Int)
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
+
+```kotlin
+val predicate: (String) -> Boolean = ::isOdd   // refers to isOdd(x: String)
+```
+
+If you need to use a member of a class or an extension function, it needs to be qualified: `String::toCharArray`.
+
+Even if you initialize a variable with a reference to an extension function, the inferred function type will
+have no receiver, but it will have an additional parameter accepting a receiver object. To have a function type
+with a receiver instead, specify the type explicitly:
+
+```kotlin
+val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty
+```
+
+#### Example: function composition
+
+Consider the following function:
+
+```kotlin
+fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
+    return { x -> f(g(x)) }
+}
+```
+
+It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`.
+You can apply this function to callable references:
+
+```kotlin
+fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
+    return { x -> f(g(x)) }
+}
+
+fun isOdd(x: Int) = x % 2 != 0
+
+fun main() {
+//sampleStart
+    fun length(s: String) = s.length
+    
+    val oddLength = compose(::isOdd, ::length)
+    val strings = listOf("a", "ab", "abc")
+    
+    println(strings.filter(oddLength))
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Property references
+
+To access properties as first-class objects in Kotlin, use the `::` operator:
+
+```kotlin
+val x = 1
+
+fun main() {
+    println(::x.get())
+    println(::x.name) 
+}
+```
+
+The expression `::x` evaluates to a `KProperty0<Int>` type property object. You can read its
+value using `get()` or retrieve the property name using the `name` property. For more information, see
+the [docs on the `KProperty` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html).
+
+For a mutable property such as `var y = 1`, `::y` returns a value with the [`KMutableProperty0<Int>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html) type
+which has a `set()` method:
+
+```kotlin
+var y = 1
+
+fun main() {
+    ::y.set(2)
+    println(y)
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+A property reference can be used where a function with a single generic parameter is expected:
+
+```kotlin
+fun main() {
+//sampleStart
+    val strs = listOf("a", "bc", "def")
+    println(strs.map(String::length))
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+To access a property that is a member of a class, qualify it as follows:
+
+```kotlin
+fun main() {
+//sampleStart
+    class A(val p: Int)
+    val prop = A::p
+    println(prop.get(A(1)))
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+For an extension property:
+
+```kotlin
+val String.lastChar: Char
+    get() = this[length - 1]
+
+fun main() {
+    println(String::lastChar.get("abc"))
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Interoperability with Java reflection
+
+On the JVM platform, the standard library contains extensions for reflection classes that provide a mapping to and from Java
+reflection objects (see package `kotlin.reflect.jvm`).
+For example, to find a backing field or a Java method that serves as a getter for a Kotlin property, you can write something like this:
+
+```kotlin
+import kotlin.reflect.jvm.*
+ 
+class A(val p: Int)
+ 
+fun main() {
+    println(A::p.javaGetter) // prints "public final int A.getP()"
+    println(A::p.javaField)  // prints "private final int A.p"
+}
+```
+
+To get the Kotlin class that corresponds to a Java class, use the `.kotlin` extension property:
+
+```kotlin
+fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
+```
+
+### Constructor references
+
+Constructors can be referenced just like methods and properties. You can use them wherever the program expects a function type object
+that takes the same parameters as the constructor and returns an object of the appropriate type.
+Constructors are referenced by using the `::` operator and adding the class name. Consider the following function
+that expects a function parameter with no parameters and return type `Foo`:
+
+```kotlin
+class Foo
+
+fun function(factory: () -> Foo) {
+    val x: Foo = factory()
+}
+```
+
+Using `::Foo`, the zero-argument constructor of the class `Foo`, you can call it like this:
+
+```kotlin
+function(::Foo)
+```
+
+Callable references to constructors are typed as one of the
+[`KFunction<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-function/index.html) subtypes
+depending on the parameter count.
+
+### Bound function and property references
+
+You can refer to an instance method of a particular object:
+
+```kotlin
+fun main() {
+//sampleStart
+    val numberRegex = "\\d+".toRegex()
+    println(numberRegex.matches("29"))
+     
+    val isNumber = numberRegex::matches
+    println(isNumber("29"))
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Instead of calling the method `matches` directly, the example uses a reference to it.
+Such a reference is bound to its receiver.
+It can be called directly (like in the example above) or used whenever a function type expression is expected:
+
+```kotlin
+fun main() {
+//sampleStart
+    val numberRegex = "\\d+".toRegex()
+    val strings = listOf("abc", "124", "a70")
+    println(strings.filter(numberRegex::matches))
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Compare the types of the bound and the unbound references.
+The bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
+
+```kotlin
+val isNumber: (CharSequence) -> Boolean = numberRegex::matches
+
+val matches: (Regex, CharSequence) -> Boolean = Regex::matches
+```
+
+A property reference can be bound as well:
+
+```kotlin
+fun main() {
+//sampleStart
+    val prop = "abc"::length
+    println(prop.get())
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+You don't need to specify `this` as the receiver: `this::foo` and `::foo` are equivalent.
+
+### Bound constructor references
+
+A bound callable reference to a constructor of an [inner class](nested-classes.md#inner-classes) can
+be obtained by providing an instance of the outer class:
+
+```kotlin
+class Outer {
+    inner class Inner
+}
+
+val o = Outer()
+val boundInnerCtor = o::Inner
+```
+
 
 # 📜 08. Multiplatform development
 
+
 # 📜 08.01. Kotlin Multiplatform for iOS and Android
 
-# 📜 08.01.01. [](multiplatform-mobile-getting-started.md)
+
+# 📜 08.01.01. [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md)
+
+    [//]: # (title: Get started with Kotlin Multiplatform for mobile)
+
+Simplify cross-platform app development with Kotlin Multiplatform. Create a single codebase
+for the business logic of your iOS and Android apps.
+
+> Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
+>
+{type="note"}
+
+Kotlin Multiplatform technology simplifies the development of cross-platform projects.
+The Kotlin applications will work on different operating systems like iOS, Android, macOS, Windows, Linux, watchOS, and others.
+
+One of the major Kotlin Multiplatform use cases is sharing code between mobile platforms.
+You can share application logic between iOS and Android apps and write platform-specific code only when you need to implement a native UI or work with platform APIs.
+
+[Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), a JetBrains' declarative UI framework based on Kotlin
+and [Jetpack Compose](https://developer.android.com/jetpack/compose), gives you the option to push the sharing capabilities 
+of Kotlin Multiplatform beyond application logic. It allows you to implement your user interface once and then use it for all the platforms you target – iOS, Android, desktop, and web.
+
+* Check out our [Kotlin Multiplatform Mobile Is in Beta](https://www.youtube.com/watch?v=CngKDGBlFxk) video
+  to learn about the current state and future plans for the technology.
+* See how [different companies](https://kotlinlang.org/lp/multiplatform/case-studies) are already using Kotlin for
+  cross-platform app development in production.
+* Try [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+  JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose)
+  to share UIs among iOS, Android, desktop, and web.
+
+Get to know Kotlin Multiplatform and create a mobile app that works on both Android and iOS by completing these steps:
+
+> This tutorial describes how to share application logic between iOS and Android using Kotlin Multiplatform.
+> To learn about the full capabilities of the technology, check out [other use cases](multiplatform.md).
+>
+{type="tip"}
+
+![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
+
+![Second step](icon-2.svg){width=25}{type="joined"} [Create your first app that works both on Android and iOS with the IDE](multiplatform-mobile-create-first-app.md)
+
+![Third step](icon-3.svg){width=25}{type="joined"} [Update the user interface](multiplatform-mobile-update-ui.md)
+
+![Fourth step](icon-4.svg){width=25}{type="joined"} [Add dependencies to your project](multiplatform-mobile-dependencies.md)
+
+![Fifth step](icon-5.svg){width=25}{type="joined"} [Share more logic](multiplatform-mobile-upgrade-app.md)
+
+![Sixth step](icon-6.svg){width=25}{type="joined"} [Wrap up your project](multiplatform-mobile-wrap-up.md)
+
+## Next step
+
+Start by setting up an environment for mobile development.
+
+**[Proceed to the next part](multiplatform-mobile-setup.md)**
+
+### See also
+
+If you want to convert your existing Android project into a cross-platform app, follow these steps to make it work on iOS:
+
+![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for cross-platform mobile development](multiplatform-mobile-setup.md)
+
+![Second step](icon-2.svg){width=25}{type="joined"} [Complete this tutorial to make your Android app cross-platform](multiplatform-mobile-integrate-in-existing-app.md)
+
+## Join the community
+
+* ![Slack](slack.svg){width=25}{type="joined"} **Kotlin Slack**: get an [invitation](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* ![Stack Overflow](stackoverflow.svg){width=25}{type="joined"} **Stack Overflow**: subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* ![YouTube](youtube.svg){width=25}{type="joined"} **Kotlin YouTube channel**: subscribe and watch videos about [Kotlin Multiplatform](https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C)
 
 # 📜 08.01.02. [1. Set up an environment](multiplatform-mobile-setup.md)
 
+    [//]: # (title: Set up an environment)
+
+<microformat>
+    <p>This is the first part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial:</p>
+    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Set up an environment</strong><br/>
+       <img src="icon-2-todo.svg" width="20" alt="Second step"/> Create your first cross-platform app<br/>
+       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Update the user interface<br/>       
+       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
+       <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
+</microformat>
+
+Before you create your first application that works on both iOS and Android, you'll need to set up an environment for Kotlin Multiplatform
+Mobile development.
+
+> To write iOS-specific code and run an iOS application on a simulated or real device, you'll need a Mac with macOS.
+> This cannot be performed on other operating systems, such as Microsoft Windows. This is an Apple requirement.
+>
+{type="warning"}
+
+## Install the necessary tools
+
+We recommend that you install the latest stable versions for compatibility and better performance.
+
+<table>
+   <tr>
+      <td>Tool</td>
+      <td>Comments</td>
+   </tr>
+    <tr>
+        <td><a href="https://developer.android.com/studio">Android Studio</a></td>
+        <td>You will use Android Studio to create your multiplatform applications and run them on simulated or hardware devices.</td>
+    </tr>
+    <tr>
+        <td><a href="https://apps.apple.com/us/app/xcode/id497799835">Xcode</a></td>
+        <td>
+          <p>Most of the time, Xcode will work in the background. You will use it to add Swift or Objective-C code to your iOS application.</p>
+            <note>
+              <p>
+                We generally recommend using the latest stable versions for all tools. However, Kotlin/Native sometimes doesn't support the newest Xcode right away. If that's your case, <a href="https://developer.apple.com/download/all/?q=Xcode">install an earlier version of Xcode</a>.
+              </p>
+            </note>   
+      </td>
+   </tr>
+   <tr>
+        <td><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a></td>
+        <td>To check whether it's installed, run the following command in the Android Studio terminal or your command line: <code style="block"
+            lang="bash">java -version</code></td>
+   </tr>
+   <tr>
+        <td><a href="multiplatform-mobile-plugin-releases.md">Kotlin Multiplatform Mobile plugin</a></td>
+        <td>In Android Studio, select <strong>Settings/Preferences | Plugins</strong>, search <strong>Marketplace</strong> for <i>Kotlin Multiplatform Mobile</i>, and then install it.</td>
+   </tr>
+   <tr>
+        <td><a href="releases.md#update-to-a-new-release">Kotlin plugin</a></td>
+        <td>
+            <p>The Kotlin plugin is bundled with each Android Studio release. However, it still needs to be updated to the latest version to avoid compatibility issues.</p> 
+            <p>To update the plugin, on the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Click <strong>Update</strong> next to Kotlin. You can also check the Kotlin version in <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+            <p>The Kotlin plugin should be compatible with the Kotlin Multiplatform Mobile plugin. Refer to the <a href="multiplatform-mobile-plugin-releases.md#release-details">compatibility table</a>.</p></td>
+   </tr>
+</table>
+
+## Check your environment
+
+To make sure everything works as expected, install and run the KDoctor tool:
+
+> KDoctor works on macOS only.
+>
+{type="note"}
+
+1. In the Android Studio terminal or your command-line tool, run the following command to install the tool using Homebrew:
+
+    ```bash
+    brew install kdoctor
+    ```
+
+   If you don't have Homebrew yet, [install it](https://brew.sh/) or see the KDoctor [README](https://github.com/Kotlin/kdoctor#installation) for other ways to install it.
+2. After the installation is completed, call KDoctor in the console: 
+
+    ```bash
+    kdoctor
+    ```
+
+3. If KDoctor diagnoses any problems while checking your environment, review the output for issues and possible solutions:
+
+   * Fix any failed checks (`[x]`). You can find problem descriptions and potential solutions after the `*` symbol.
+   * Check the warnings (`[!]`) and successful messages (`[v]`). They may contain useful notes and tips, as well.
+   
+   > You may ignore KDoctor's warnings regarding the CocoaPods installation. In your first project, you will use a
+   > different iOS framework distribution option.
+   >
+   {type="tip"}
+
+## Possible issues and solutions
+
+<deflist collapsible="true">
+   <def title="Android Studio">
+      Make sure that you have Android Studio installed. You can get it from its <a href="https://developer.android.com/studio">official website.</a>
+   </def>
+   <def title="Java and JDK">
+         <list>
+           <li>Make sure that you have JDK installed. You can get it from its <a href="https://www.oracle.com/java/technologies/javase-downloads.html">official website</a>.</li>
+           <li>Android Studio uses a bundled JDK to execute Gradle tasks. To configure the Gradle JDK in Android Studio, select <strong>Settings/Preferences | Build, Execution, Deployment | Build Tools | Gradle</strong>.</li>
+           <li>You might encounter issues related to <code>JAVA_HOME</code>. This environment variable specifies the location of the Java binary required for Xcode and Gradle. If so, follow KDoctor's tips to fix the issues.</li>
+         </list>
+   </def>
+   <def title="Xcode">
+      <list>
+         <li>Make sure that you have Xcode installed. You can get it from its <a href="https://developer.apple.com/xcode/">official website</a>.</li>
+         <li>Launch Xcode in a separate window to accept its license terms and allow it to perform some necessary initial tasks.</li>
+         <li>
+            <p><code>Error: can't grab Xcode schemes</code>. If you encounter an error like this, in Xcode, select <strong>Settings/Preferences | Locations</strong>. In the <strong>Command Line Tools</strong> field, select your Xcode.</p>
+            <img src="xcode-schemes.png" alt="Xcode schemes" width="500"/>
+         </li>
+      </list>
+   </def>
+   <def title="Kotlin plugins">
+         <chunk>
+            <p><strong>Kotlin Multiplatform Mobile plugin</strong></p>
+               <list>
+                  <li>Make sure that the Kotlin Mobile Multiplatform plugin is installed and enabled. On the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Verify that you have the plugin enabled. If it's not in the <strong>Installed</strong> list, search <strong>Marketplace</strong> for it and install the plugin.</li>
+                  <li>If the plugin is outdated, click <strong>Update</strong> next to the plugin name. You can do the same in the <strong>Settings/Preferences | Tools | Plugins</strong> section.</li>
+                  <li>Check the compatibility of the Kotlin Multiplatform Mobile plugin with your version of Kotlin in the <a href="https://kotlinlang.org/docs/multiplatform-mobile-plugin-releases.html#release-details">Release details</a> table.</li>
+               </list>
+         </chunk>
+         <chunk>
+            <p><strong>Kotlin plugin</strong></p>
+            <p>Make sure that the Kotlin plugin is updated to the latest version. To do that, on the Android Studio welcome screen, select <strong>Plugins | Installed</strong>. Click <strong>Update</strong> next to Kotlin.</p>
+            <p>You can also check the Kotlin version in <strong>Tools | Kotlin | Configure Kotlin Plugin Updates</strong>.</p>
+         </chunk>
+   </def>
+   <def title="Command line">
+            <p>Make sure you have all the necessary tools installed:</p>
+            <list>
+              <li><code>command not found: brew</code> — <a href="https://brew.sh/">install Homebrew</a>.</li>
+              <li><code>command not found: java</code> — <a href="https://www.oracle.com/java/technologies/javase-downloads.html">install Java</a>.</li>
+           </list>
+    </def>
+</deflist>
+
+## Next step
+
+In the next part of the tutorial, you'll create your first cross-platform mobile application.
+
+**[Proceed to the next part](multiplatform-mobile-create-first-app.md)**
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
+
+
 # 📜 08.01.03. [2. Create your first cross-platform app](multiplatform-mobile-create-first-app.md)
+
+    [//]: # (title: Create your first cross-platform app)
+
+<microformat>
+    <p>This is the second part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
+       <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create your first cross-platform app</strong><br/>
+       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Update the user interface<br/>       
+       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
+       <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
+</microformat>
+
+Here you will learn how to create and run your first Kotlin Multiplatform application using Android Studio.
+
+## Create the project from a template
+
+1. In Android Studio, select **File | New | New Project**.
+2. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.
+
+   ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png){width=700}
+
+3. Specify a name for your first application, and click **Next**.
+
+   ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png){width=700}
+
+4. In the **iOS framework distribution** list, select the **Regular framework** option.
+
+   ![Mobile Multiplatform project - additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
+
+   > We recommend using the regular framework for your first project, as this option doesn't require third-party tools and
+   > has fewer installation issues.
+   >
+   > For more complex projects, you might need the CocoaPods dependency manager that helps handle library dependencies.
+   > To learn more about CocoaPods and how to set up an environment for them, see [CocoaPods overview and setup](native-cocoapods.md).
+   >
+   {type="tip"}
+
+5. Keep the default names for the application and shared folders. Click **Finish**.
+
+The project will be set up automatically. It may take some time to download and set up the required components when you
+do this for the first time.
+
+## Examine the project structure
+
+To view the full structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
+
+![Select the Project view](select-project-view.png){width=200}
+
+Each Kotlin Multiplatform project includes three modules:
+
+* _shared_ is a Kotlin module that contains the logic common for both Android and iOS applications – the code you share
+  between platforms. It uses [Gradle](gradle.md) as the build system that helps you automate your build process.
+* _androidApp_ is a Kotlin module that builds into an Android application. It uses Gradle as the build system.
+  The _androidApp_ module depends on and uses the shared module as a regular Android library.
+* _iosApp_ is an Xcode project that builds into an iOS application. It depends on and uses the shared module as an iOS
+  framework. The shared module can be used as a regular framework or as a [CocoaPods dependency](native-cocoapods.md),
+  based on what you've chosen in the previous step in **iOS framework distribution**. In this tutorial, it's a regular
+  framework dependency.
+
+![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=500}
+
+The shared module consists of three source sets: `androidMain`, `commonMain`, and `iosMain`. _Source set_ is a Gradle
+concept for a number of files logically grouped together where each group has its own dependencies.
+In Kotlin Multiplatform, different source sets in a shared module can target different platforms.
+
+![Source sets and modules structure](basic-project-structure-2.png){width=200}
+
+The common source set uses the common Kotlin code, and platform source sets use Kotlin flavors:
+Kotlin/JVM for `androidMain` and Kotlin/Native for `iosMain`.
+
+When the shared module is built into an Android library, common Kotlin code gets treated as Kotlin/JVM.
+When it is built into an iOS framework, common Kotlin gets treated as Kotlin/Native:
+
+![Common Kotlin, Kotlin/JVM, and Kotlin/Native](modules-structure.png)
+
+### Write common declarations
+
+The common source set contains shared code that can be used across multiple target platforms.
+It's designed to contain code that is platform-independent. If you try to use platform-specific APIs in the common source set,
+IDE will show a warning:
+
+1. Open the `Greeting.kt` file and try to access one of the Java classes, `java.util.Random().nextBoolean()`, inside the `greet()` function:
+
+   ```kotlin
+   import java.util.Random
+   
+   fun greet(): String {
+       val firstWord = if (Random().nextBoolean()) "Hi!" else "Hello!"
+   }
+   ```
+
+   Android Studio highlights that `Random` class is unresolved because you can't call specific Java functions from the common Kotlin code.
+2. Follow IDE's suggestions and replace it with `kotlin.random.Random` from the Kotlin standard library.
+   This is a multiplatform library that works on all platforms and is included automatically as a dependency.
+   The code should now compile successfully.
+3. Add a bit of unpredictability to the greeting. Update the shared code with the `reversed()` function
+   from the Kotlin standard library for reversing the text:
+
+    ```kotlin
+    import kotlin.random.Random
+    
+    class Greeting {
+        private val platform: Platform = getPlatform()
+
+        fun greet(): String {
+            val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
+
+            return "$firstWord\nGuess what it is! > ${platform.name.reversed()}!"
+        }
+    }
+    ```
+
+Writing the code only in common Kotlin has obvious limitations because it can't use any platform specifics.
+Using interfaces and the [expect/actual](multiplatform-connect-to-apis.md) mechanism solves this.
+
+### Add platform-specific implementations
+
+The common source set can define an interface or an expected declaration. Then each platform source sets,
+in this case `androidMain` and `iosMain`, has to provide actual platform-specific implementations for the expected
+declarations from the common source set.
+
+While generating the code for a specific platform, the Kotlin compiler merges expected and actual declarations
+and generates a single declaration with actual implementations.
+
+1. When creating a project in Android Studio, you get a template with the `Platform.kt` file in the `commonMain` module:
+
+    ```kotlin
+    interface Platform {
+        val name: String
+    }
+    ```
+   
+   It's a common `Platform` interface with information about the platform.
+2. Switch between the `androidMain` and the `iosMain` modules.
+   You'll see that they have different implementations of the same functionality for the Android and the iOS source sets:
+    
+    ```kotlin
+    // Platform.kt in androidMain module:
+    import android.os.Build
+    
+    class AndroidPlatform: Platform {
+        override val name: String =
+            "Android ${Build.VERSION.SDK_INT}"
+    }
+    ```
+   
+    ```kotlin
+    // Platform.kt in the iosMain module:
+    import platform.UIKit.UIDevice
+    
+    class IOSPlatform: Platform {
+        override val name: String =
+            UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+    }
+    ```
+
+    * The `name` property implementation from `AndroidPlatform` uses the Android platform code, namely the `android.os.Build`
+      dependency. This code is written in Kotlin/JVM. If you try to access `java.util.Random` here, this code will compile.
+    * The `name` property implementation from `IOSPlatform` uses iOS platform code, namely the `platform.UIKit.UIDevice`
+      dependency. It's written in Kotlin/Native, meaning you can write iOS code in Kotlin. This code becomes a part of the iOS
+      framework, which you will later call from Swift in your iOS application.
+
+3. Check the `getPlatform()` function in different source sets. Its expected declaration doesn't have a body,
+   and actual implementations are provided in the platform code:
+
+    ```kotlin
+    // Platform.kt in commonMain module:
+    expect fun getPlatform(): Platform
+    ```
+   
+    ```kotlin
+    // Platform.kt in androidMain module:
+    actual fun getPlatform(): Platform = AndroidPlatform()
+    ```
+   
+    ```kotlin
+    // Platform.kt in iosMain module:
+    actual fun getPlatform(): Platform = IOSPlatform()
+    ```
+
+Here, the common source set defines an expected `getPlatform()` function and has actual implementations,
+`AndroidPlatform()` for the Android app and `IOSPlatform()` for the iOS app, in the platform source sets.
+
+While generating the code for a specific platform, the Kotlin compiler merges expected and actual declarations
+into a single `getPlatform()` function with its actual implementations.
+
+That's why expected and actual declarations should be defined in the same package − they are merged into one declaration
+in the resulting platform code. Any invocation of the expected `getPlatform()` function in the generated platform code
+calls a correct actual implementation.
+
+Now you can run the apps to ensure everything works.
+
+#### Explore the expect/actual mechanism (optional)
+
+The template project uses the expect/actual mechanism for functions but the same works for most Kotlin declarations,
+such as properties and classes. Let's implement an expected property:
+
+1. Open `Platform.kt` in the `commonMain` module and add the following at the end of the file:
+
+    ```kotlin
+    expect val num: Int
+    ```
+
+    The Kotlin compiler complains that this property has no corresponding actual declarations in the platform modules.
+
+2. Try to provide the implementation right away with:
+
+    ```kotlin
+    expect val num: Int = 42
+    ```
+   
+    You'll get an error saying that expected declarations must not have a body, in this case an initializer.
+    The implementations must be provided in actual platform modules. Remove the initializer.
+3. Select the `num` property. Press **Option + Enter** and choose "Create actual property for module
+   ModuleName.shared.main (JVM)". IDE generates the actual property in `androidMain/Platform.kt`.
+   You can then complete the implementation:
+
+    ```kotlin
+    actual val num: Int = 1
+    ```
+
+4. Now provide the implementation for the `iosMain` module. Add the following to `iosMain/Platform.kt`:
+
+    ```kotlin
+    actual val num: Int = 2
+    ```
+
+5. Add the `num` property to the `greet()` function to see the differences:
+
+    ```kotlin
+    fun greet(): String {
+        val firstWord = if (Random.nextBoolean()) "Hi!" else "Hello!"
+    
+        return "$firstWord [$num]\nGuess what it is! > ${platform.name.reversed()}!"
+    }
+    ```
+
+## Run your application
+
+You can run your multiplatform application for both [Android](#run-your-application-on-android)
+or [iOS](#run-your-application-on-ios) from Android Studio.
+
+### Run your application on Android
+
+1. Create an [Android virtual device](https://developer.android.com/studio/run/managing-avds#createavd).
+2. In the list of run configurations, select **androidApp**.
+3. Choose your Android virtual device and click **Run**.
+
+   ![Run multiplatform app on Android](run-android.png){width=400}
+
+   ![First mobile multiplatform app on Android](first-multiplatform-project-on-android-1.png){width=300}
+
+#### Run on a different Android simulated device
+
+Learn how
+to [configure the Android Emulator and run your application on a different simulated device](https://developer.android.com/studio/run/emulator#runningapp).
+
+#### Run on a real Android device
+
+Learn how
+to [configure and connect a hardware device and run your application on it](https://developer.android.com/studio/run/device).
+
+### Run your application on iOS
+
+1. Launch Xcode in a separate window. The first time you may also need to accept its license terms and allow it to
+   perform
+   some necessary initial tasks.
+2. In Android Studio, select **iosApp** in the list of run configurations and click **Run**.
+
+   If you don't have an available iOS configuration in the list, add
+   a [new iOS simulated device](#run-on-a-new-ios-simulated-device).
+
+   ![Run multiplatform app on iOS](run-ios.png){width=450}
+
+   ![First mobile multiplatform app on iOS](first-multiplatform-project-on-ios-1.png){width=300}
+
+#### Run on a new iOS simulated device
+
+If you want to run your application on a simulated device, you can add a new run configuration.
+
+1. In the list of run configurations, click **Edit Configurations**.
+
+   ![Edit run configurations](ios-edit-configurations.png){width=450}
+
+2. Click the **+** button above the list of configurations and select **iOS Application**.
+
+   ![New run configuration for iOS application](ios-new-configuration.png)
+
+3. Name your configuration.
+4. Select the **Xcode project file**. For that, navigate to your project, for example **KotlinMultiplatformSandbox**,
+   open the`iosApp` folder and select the `.xcodeproj` file.
+
+5. In the **Execution target** list, select a simulated device and click **OK**.
+
+   ![New run configuration with iOS simulator](ios-new-simulator.png)
+
+6. Click **Run** to run your application on the new simulated device.
+
+#### Run on a real iOS device
+
+1. Connect a real iPhone device to Xcode.
+2. Make sure to code sign your app. For more information, see the [official Apple documentation](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device/).
+3. [Create a run configuration](#run-on-a-new-ios-simulated-device) by selecting an iPhone in the **Execution target** list.
+4. Click **Run** to run your application on the iPhone device.
+
+> If your build fails, follow the workaround described in [this issue](https://youtrack.jetbrains.com/issue/KT-40907).
+>
+{type="note"}
+
+## Next step
+
+In the next part of the tutorial, you'll learn how to update the UI elements using platform-specific libaries.
+
+**[Proceed to the next part](multiplatform-mobile-update-ui.md)**
+
+### See also
+
+* See how to [create and run multiplatform tests](multiplatform-run-tests.md) to check that the code works correctly.
+* Learn more about the [project structure](multiplatform-mobile-understand-project-structure.md), the shared module's
+  artifacts, and how the Android and iOS apps are produced.
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join
+  the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
+
 
 # 📜 08.01.04. [3. Update UI](multiplatform-mobile-update-ui.md)
 
+    [//]: # (title: Update the user interface)
+
+<microformat>
+    <p>This is the third part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
+       <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
+       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Update the user interface</strong><br/>       
+       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Add dependencies<br/>
+       <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
+       <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
+</microformat>
+
+To build the user interface, you'll use the [Jetpack Compose](https://developer.android.com/jetpack/compose) toolkit
+for the Android part of your project and [SwiftUI](https://developer.apple.com/xcode/swiftui/) for the iOS one.
+These are both declarative UI frameworks, and you'll see similarities in the UI implementations. In both cases,
+you store the data in the `phrases` variable and later iterate over it to produce a list of `Text` items.
+
+### Update the Android module
+
+The `androidApp` module contains an Android application, defines its main activity and the UI views, and uses the
+`shared` module as a regular Android library. The UI of the application uses the Jetpack Compose framework.
+
+Make some changes and see how it is reflected in the UI:
+
+1. Navigate to the `MainActivity.kt` file in `androidApp`.
+2. Find the `Greeting` class invocation. Select the `greet()` function and use the **Cmd + B** shortcut.
+   You'll see that it's the same class from the `shared` module you edited in the previous step.
+3. In `Greeting.kt`, update the `greet()` function:
+
+    ```kotlin
+    fun greet(): List<String> = buildList {
+        add(if (Random.nextBoolean()) "Hi!" else "Hello!")
+        add("Guess what it is! > ${platform.name.reversed()}!")
+    }
+    ```
+
+   Now it returns a list of strings.
+
+4. Go back to `MainActivity.kt`. As you can see, it doesn't compile anymore because the `GreetingView` composable
+   expects a `String` argument. Update its definition:
+
+   ```kotlin
+   @Composable
+   fun GreetingView(phrases: List<String>) {
+       LazyColumn(
+           contentPadding = PaddingValues(20.dp),
+           verticalArrangement = Arrangement.spacedBy(8.dp),
+       ) {
+           items(phrases) { phrase ->
+               Text(phrase)
+               Divider()
+           }
+       }
+   }
+   ```
+
+   Here the `LazyColumn` composable shows the list of `Text` items, adds padding around the content and a space between the list items. 
+   
+5. Follow Android Studio's suggestions to import the missing dependencies.
+6. Update the preview as well, passing a list as an argument:
+   
+   ```kotlin
+   @Preview
+   @Composable
+   fun DefaultPreview() {
+       MyApplicationTheme {
+           Greeting(listOf("Hello, Android!"))
+       }
+   }
+   ```
+
+7. Now you can run the Android app to ensure it displays the list:
+
+   ![Updated UI of Android multiplatform app](first-multiplatform-project-on-android-2.png){width=300}
+
+### Work with the iOS module in Xcode
+
+`iosApp` is an Xcode project that builds into an iOS application. It depends on and uses the `shared` module as an iOS
+framework. The UI of the app is written in Swift.
+
+Implement the same changes as in the Android app:
+
+1. Launch Xcode. Select **Open a project or file**.
+2. Navigate to your project, for example **KotlinMultiplatformSandbox**, and select the `iosApp` folder. Click **Open**.
+3. In the `ContenView.swift` file, select the `greet()` function and use the **⌃ + Cmd** shortcut.
+
+   You'll see the Objective-C declarations for the Kotlin functions defined in the `shared` module. Kotlin types are
+   represented as Objective-C types when used from Objective-C/Swift. Here the `greet()` function
+   returns `List<String>` in Kotlin and is seen from Swift as returning `NSArray<NSString>`. For more on type mappings,
+   see [Interoperability with Swift/Objective-C](native-objc-interop.md).
+
+4. If you try running the project, the build will fail. As in the Android app earlier,
+   the Swift code that uses the `greet()` function doesn't compile because its declaration is different now.
+   Change the SwiftUI code to display a list of items:
+
+   ```Swift
+   struct ContentView: View {
+       let phrases = Greeting().greet()
+   
+       var body: some View {
+           List(phrases, id: \.self) {
+               Text($0)
+           }
+       }
+   }
+   ```
+
+    * The results of the `greet()` call are stored in the `phrases` variable (`let` in Swift is similar to Kotlin's `val`).
+    * The `List` function produces a list of `Text` items.
+
+5. Run the app to see the changes:
+
+   ![Updated UI of your iOS multiplatform app](first-multiplatform-project-on-ios-2.png){width=300}
+
+## Next step
+
+In the next part of the tutorial, you'll learn about dependencies and add a third-party library to expand
+the functionality of your project.
+
+**[Proceed to the next part](multiplatform-mobile-dependencies.md)**
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join
+  the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
+
 # 📜 08.01.05. [4. Add dependencies](multiplatform-mobile-dependencies.md)
+
+    [//]: # (title: Add dependencies to your project)
+
+<microformat>
+    <p>This is the fourth part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
+        <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
+        <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-update-ui.md">Update the user interface</a><br/>
+        <img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Add dependencies</strong><br/>
+        <img src="icon-5-todo.svg" width="20" alt="Fifth step"/> Share more logic<br/>
+        <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
+</microformat>
+
+You've already created your first cross-platform Kotlin Multiplatform project! Now let's learn how to add dependencies
+to third-party libraries, which is necessary for building successful cross-platform applications.
+
+## Dependency types
+
+There are two types of dependencies that you can use in Multiplatform Mobile projects:
+
+* _Multiplatform dependencies_. These are multiplatform libraries that support multiple targets and can be used in the
+  common source set, `commonMain`.
+
+  Many modern Android libraries already have multiplatform support, like [Koin](https://insert-koin.io/),
+  [Apollo](https://www.apollographql.com/), and [Okio](https://square.github.io/okio/).
+* _Native dependencies_. These are regular libraries from relevant ecosystems. You usually work with them in native iOS
+   projects using CocoaPods or another dependency manager and in Android projects using Gradle.
+
+When you work with a shared module, you can also depend on native dependencies and use them in the native source sets,
+`androidMain` and `iosMain`. Typically, you'll need these dependencies when you want to work with platform APIs,
+for example, security storage, and there is common logic.
+
+For both types of dependencies, you can use local and external repositories.
+
+## Add a multiplatform dependency
+
+> If you have experience developing Android apps, adding a multiplatform dependency is similar to adding a
+> Gradle dependency in a regular Android project. The only difference is that you need to specify the source set.
+>
+{type="tip"}
+
+Let's now go back to the app and make the greeting a little more festive. In addition to the device information, add a
+function to display the number of days left until New Year's Day. The `kotlinx-datetime` library, which has full
+multiplatform support, is the most convenient way to work with dates in your shared code.
+
+1. Navigate to the `build.gradle.kts` file in the `shared` directory.
+2. Add the following dependency to the `commonMain` source set dependencies:
+
+   ```kotlin
+   kotlin {
+       sourceSets {
+           val commonMain by getting {
+               dependencies {
+                   implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+               }
+           } 
+       }
+   }
+   ```
+
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+
+   ![Synchronize the Gradle files](gradle-sync.png)
+
+4. In `shared/src/commonMain/kotlin`, create a new file `NewYear.kt` in the project folder.
+5. Update the file with a short function that calculates
+   the number of days from today until the New Year using the `date-time` date arithmetic:
+   
+   ```kotlin
+   import kotlinx.datetime.*
+   
+   fun daysUntilNewYear(): Int {
+       val today = Clock.System.todayIn(TimeZone.currentSystemDefault())
+       val closestNewYear = LocalDate(today.year + 1, 1, 1)
+       return today.daysUntil(closestNewYear)
+   }
+   ```
+
+6. In `Greeting.kt`, update the `greet()` function to see the result:
+    
+    ```kotlin
+    class Greeting {
+        private val platform: Platform = getPlatform()
+   
+        fun greet(): List<String> = buildList {
+            add(if (Random.nextBoolean()) "Hi!" else "Hello!")
+            add("Guess what it is! > ${platform.name.reversed()}!")
+            add("\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆")
+        }
+    }
+    ```
+
+7. To see the results, re-run your **androidApp** and **iosApp** configurations from Android Studio:
+
+![Updated mobile multiplatform app with external dependencies](first-multiplatform-project-3.png){width=500}
+
+## Next step
+
+In the next part of the tutorial, you'll add more dependencies and more complex logic to your project.
+
+**[Proceed to the next part](multiplatform-mobile-upgrade-app.md)**
+
+### See also
+
+* Discover how to work with multiplatform dependencies of all
+  kinds: [Kotlin libraries, Kotlin Multiplatform libraries, and other multiplatform projects](multiplatform-add-dependencies.md).
+* Learn how to [add Android dependencies](multiplatform-mobile-android-dependencies.md)
+  and [iOS dependencies with or without CocoaPods](multiplatform-mobile-ios-dependencies.md) for use in
+  platform-specific source sets.
+* Check out the examples of [how to use Android and iOS libraries](multiplatform-mobile-samples.md) in sample projects
+  (be sure to check the Platform APIs column).
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
 
 # 📜 08.01.06. [5. Share more logic](multiplatform-mobile-upgrade-app.md)
 
+    [//]: # (title: Share more logic between iOS and Android)
+
+<microformat>
+    <p>This is the fifth part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
+      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
+      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-update-ui.md">Update the user interface</a><br/>
+      <img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/>
+      <img src="icon-5.svg" width="20" alt="Fifth step"/> <strong>Share more logic</strong><br/>
+      <img src="icon-6-todo.svg" width="20" alt="Sixth step"/> Wrap up your project</p>
+</microformat>
+
+You've already implemented common logic using external dependencies. Now you can add more complex logic. Network
+requests and data serialization are the [most popular cases](https://kotlinlang.org/lp/multiplatform/) to share with Kotlin
+Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey
+you can use them in future projects.
+
+The updated app will retrieve data over the internet from a [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
+and display the date of the last successful launch of a SpaceX rocket.
+
+## Add more dependencies
+
+You'll need the following multiplatform libraries in your project:
+
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines), for using coroutines to write asynchronous code,
+  which allows simultaneous operations.
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization), for deserializing JSON responses into objects of entity classes used to process
+  network operations.
+* [Ktor](https://ktor.io/), a framework as an HTTP client for retrieving data over the internet.
+
+### kotlinx.coroutines
+
+To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. To do so, add the following
+line to the `build.gradle.kts` file of the shared module:
+
+```kotlin
+sourceSets {
+    val commonMain by getting {
+        dependencies {
+            // ...
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+        }
+    }
+}
+```
+
+The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts
+of `kotlinx.coroutines`.
+
+#### If you use Kotlin prior to version 1.7.20
+
+If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
+If it's not the case, add the following to the end of the `build.gradle.kts` file:
+
+```kotlin
+kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
+    binaries.all {
+        binaryOptions["memoryModel"] = "experimental"
+    }
+}
+```
+
+### kotlinx.serialization
+
+For `kotlinx.serialization`, you need the plugin required by the build system. The Kotlin serialization plugin is shipped
+with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled into the Kotlin plugin.
+
+You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
+the existing `plugins` block at the very beginning of the `build.gradle.kts` file in the shared module:
+
+```kotlin
+plugins {
+    // ...
+    kotlin("plugin.serialization") version "1.9.10"
+}
+```
+
+### Ktor
+
+You can add Ktor in the same way you've added the `kotlinx.coroutines` library. In addition to specifying the core
+dependency (`ktor-client-core`) in the common source set, you also need to:
+
+* Add the ContentNegotiation functionality (`ktor-client-content-negotiation`), responsible for serializing/deserializing
+  the content in a specific format.
+* Add the `ktor-serialization-kotlinx-json` dependency to instruct Ktor to use the JSON format and `kotlinx.serialization`
+  as a serialization library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.
+* Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets
+  (`ktor-client-android`, `ktor-client-darwin`).
+
+```kotlin
+val ktorVersion = "%ktorVersion%"
+
+sourceSets {
+    val commonMain by getting {
+        dependencies {
+            // ...
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+        }
+    }
+    val androidMain by getting {
+        dependencies {
+            implementation("io.ktor:ktor-client-android:$ktorVersion")
+        }
+    }
+    val iosMain by getting {
+        // ...
+        dependencies {
+            implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+        }
+    }
+}
+```
+
+Synchronize the Gradle files by clicking **Sync Now** in the notification.
+
+## Create API requests
+
+You'll need the [SpaceX API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs) to retrieve data and a single method to
+get the list of all launches from the **v4/launches** endpoint.
+
+### Add data model
+
+In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file in the project folder
+and add a data class which stores data from the SpaceX API:
+
+```kotlin
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class RocketLaunch (
+    @SerialName("flight_number")
+    val flightNumber: Int,
+    @SerialName("name")
+    val missionName: String,
+    @SerialName("date_utc")
+    val launchDateUTC: String,
+    @SerialName("success")
+    val launchSuccess: Boolean?,
+)
+```
+
+* The `RocketLaunch` class is marked with the `@Serializable` annotation, so that the `kotlinx.serialization` plugin can
+  automatically generate a default serializer for it.
+* The `@SerialName` annotation allows you to redefine field names, making it possible to declare properties in data classes
+  with more readable names.
+
+### Connect HTTP client
+
+1. In `Greeting.kt`, create a Ktor `HTTPClient` instance to execute network requests and parse the resulting JSON:
+
+    ```kotlin
+    import io.ktor.client.*
+    import io.ktor.client.plugins.contentnegotiation.*
+    import io.ktor.serialization.kotlinx.json.*
+    import kotlinx.serialization.json.Json
+    
+    class Greeting {
+        private val platform: Platform = getPlatform()
+        
+        private val httpClient = HttpClient {
+            install(ContentNegotiation) {
+                json(Json {
+                    prettyPrint = true
+                    isLenient = true
+                    ignoreUnknownKeys = true
+                })
+            }
+        }
+    }
+    ```
+
+   To deserialize the result of the GET request,
+   the [ContentNegotiation Ktor plugin](https://ktor.io/docs/serialization-client.html#register_json) and the JSON
+   serializer are used.
+
+2. In the `greet()` function, retrieve the information about rocket launches by calling the `httpClient.get()`
+   method and find the latest launch:
+
+    ```kotlin
+    import io.ktor.client.call.*
+    import io.ktor.client.request.*
+
+    class Greeting {
+        // ...
+        @Throws(Exception::class)
+        suspend fun greet(): List<String> = buildList {
+            val rockets: List<RocketLaunch> =
+                httpClient.get("https://api.spacexdata.com/v4/launches").body()
+            val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
+            add(if (Random.nextBoolean()) "Hi!" else "Hello!")
+            add("Guess what it is! > ${platform.name.reversed()}!")
+            add("\nThere are only ${daysUntilNewYear()} days left until New Year! 🎆")
+            add("\nThe last successful launch was ${lastSuccessLaunch.launchDateUTC} 🚀")
+        }
+    }
+    ```
+
+   The `suspend` modifier in the `greet()` function is necessary because it now contains a call to `get()`. It's a
+   suspend function that has an asynchronous operation to retrieve data over the internet and can only be called from
+   within a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+
+### Add internet access permission
+
+To access the internet, the Android application needs appropriate permission. Since all network requests are made from the
+shared module, it makes sense to add the internet access permission to its manifest.
+
+Update your `androidApp/src/main/AndroidManifest.xml` file with the access permission:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.jetbrains.simplelogin.kotlinmultiplatformsandbox" >
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
+```
+
+## Update Android and iOS apps
+
+You've already updated the API of the shared module by adding the `suspend` modifier to the `greet()` function. Now you
+need to update native (iOS, Android) parts of the project, so they can properly handle the result of calling the
+`greet()` function.
+
+### Android app
+
+As both the shared module and the Android application are written in Kotlin, using shared code from Android is
+straightforward:
+
+In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
+
+```kotlin
+import androidx.compose.runtime.*
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyApplicationTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    var phrases by remember { mutableStateOf(listOf("Loading")) }
+                    LaunchedEffect(true) {
+                        phrases = try {
+                            Greeting().greet()
+                        } catch (e: Exception) {
+                            listOf(e.localizedMessage ?: "error")
+                        }
+                    }
+                    GreetingView(phrases)
+                }
+            }
+        }
+    }
+}
+```
+
+The `greet()` function is now called inside `LaunchedEffect` to avoid recalling it on each recomposition.
+
+### iOS app
+
+For the iOS part of the project, you'll make use of the [Model–view–viewmodel](https://en.wikipedia.org/wiki/Model–view–viewmodel)
+pattern to connect the UI to the shared module, which contains all the business logic.
+
+The module is already connected to the iOS project — the Android Studio plugin wizard did all the configuration. The module
+is already imported and used in `ContentView.swift` with `import shared`.
+
+> If you see errors in Xcode regarding the shared module or when updating your code, run the **iosApp** from Android Studio.
+>
+{type="tip"}
+
+1. Get back to your iOS app in Xcode.
+2. In `iosApp/iOSApp.swift`, update the entry point for your app:
+
+   ```swift
+   @main
+   struct iOSApp: App {
+       var body: some Scene {
+           WindowGroup {
+               ContentView(viewModel: ContentView.ViewModel())
+           }
+       }
+   }
+   ```
+
+3. In `iosApp/ContentView.swift`, create a `ViewModel` class for `ContentView`, which will prepare and manage data
+   for it:
+
+    ```swift
+    import SwiftUI
+    import shared
+    
+    struct ContentView: View {
+        @ObservedObject private(set) var viewModel: ViewModel
+    
+        var body: some View {
+            List(viewModel.phrases, id: \.self) { phrase in
+                Text(phrase)
+            }
+        }
+    }
+    
+    extension ContentView {
+        class ViewModel: ObservableObject {
+            @Published var phrases: [String] = ["Loading..."]
+            init() {
+                // Data will be loaded here
+            }
+        }
+    }
+    ```
+
+    * `ViewModel` is declared as an extension to `ContentView`, as they are closely connected.
+    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
+      with the view (`ContentView`).
+    * `ContentView.ViewModel` is declared as an `ObservableObject`.
+    * The `@Published` wrapper is used for the `text` property.
+    * The `@ObservedObject` property wrapper is used to subscribe to the view model.
+
+   Now the view model will emit signals whenever this property changes.
+
+4. Call the `greet()` function, which now also loads data from the SpaceX API, and save the result in the `phrases` property:
+
+    ```swift
+    class ViewModel: ObservableObject {
+        @Published var phrases: [String] = ["Loading..."]
+        init() {
+            Greeting().greet { greeting, error in
+                DispatchQueue.main.async {
+                    if let greeting = greeting {
+                        self.phrases = greeting
+                    } else {
+                        self.phrases = [error?.localizedDescription ?? "error"]
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+    * Kotlin/Native [provides bidirectional interoperability with Objective-C](https://kotlinlang.org/docs/native-objc-interop.html#mappings), thus
+      Kotlin concepts, including `suspend` functions, are mapped to the corresponding Swift/Objective-C concepts and vice versa. When you
+      compile a Kotlin module into an Apple framework, suspending functions are available in it as functions with
+      callbacks (`completionHandler`).
+    * The `greet()` function was marked with the `@Throws(Exception::class)` annotation. So any exceptions that are
+      instances of the `Exception` class or its subclass will be propagated as `NSError`, so you can handle them in the `completionHandler`.
+    * When calling Kotlin `suspend` functions from Swift, completion handlers might be called on threads other than main,
+      see the [iOS integration](native-ios-integration.md#completion-handlers) in the Kotlin/Native memory manager.
+      That's why `DispatchQueue.main.async` is used to update `phrases` property.
+
+5. In `ContentView_Previews`, ensure that the view model is properly initialized:
+
+   ```Swift
+   struct ContentView_Previews: PreviewProvider {
+       static var previews: some View {
+           ContentView(viewModel: ContentView.ViewModel())
+       }
+   }
+   ```
+
+6. Re-run both **androidApp** and **iosApp** configurations from Android Studio to make sure your app's logic is synced:
+
+   ![Final results](multiplatform-mobile-upgrade.png){width="500"}
+
+> You can find this state of the project in our [GitHub repository](https://github.com/kotlin-hands-on/get-started-with-kmp).
+> 
+{type="note"}
+
+## Next step
+
+In the final part of the tutorial, you'll wrap up your project and see what steps to take next.
+
+**[Proceed to the next part](multiplatform-mobile-wrap-up.md)**
+
+### See also
+
+* Explore various approaches to [composition of suspending functions](composing-suspending-functions.md).
+* Learn more about the [interoperability with Objective-C frameworks and libraries](native-objc-interop.md).
+* Complete this tutorial on [networking and data storage](multiplatform-mobile-ktor-sqldelight.md).
+
+## Get help
+
+* **Kotlin Slack**. Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel.
+* **Kotlin issue tracker**. [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT).
+
+
 # 📜 08.01.07. [6. Wrap up your project](multiplatform-mobile-wrap-up.md)
 
-# 📜 08.01.08. [](multiplatform-mobile-understand-project-structure.md)
+    [//]: # (title: Wrap up your project)
 
-# 📜 08.01.09. [](multiplatform-mobile-integrate-in-existing-app.md)
+<microformat>
+    <p>This is final part of the <strong>Getting started with Kotlin Multiplatform for mobile</strong> tutorial. Before proceeding, make sure you've completed previous steps.</p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="multiplatform-mobile-setup.md">Set up an environment</a><br/>
+       <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="multiplatform-mobile-create-first-app.md">Create your first cross-platform app</a><br/>
+       <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="multiplatform-mobile-update-ui.md">Update the user interface</a><br/>
+       <img src="icon-4-done.svg" width="20" alt="Fourth step"/> <a href="multiplatform-mobile-dependencies.md">Add dependencies</a><br/>
+       <img src="icon-5-done.svg" width="20" alt="Fifth step"/> <a href="multiplatform-mobile-upgrade-app.md">Share more logic</a><br/>
+       <img src="icon-6.svg" width="20" alt="Sixth step"/> <strong>Wrap up your project</strong></p>
+</microformat>
 
-# 📜 08.01.10. [](multiplatform-mobile-publish-apps.md)
+You've created your first Multiplatform Mobile app that works both on iOS and Android! Now you know how
+to set up an environment for cross-platform mobile development, create a project in Android Studio, run your app on devices,
+and expand its functionality.
 
-# 📜 08.01.11. [](multiplatform-mobile-ktor-sqldelight.md)
+Now that you've gained some experience with Kotlin Multiplatform, you can take a look at some advanced topics and take on
+additional cross-platform mobile development tasks:
+
+<table>
+   <tr>
+      <th>Next steps</th>
+      <th>Deep dive</th>
+   </tr>
+   <tr>
+   <td>
+     <list>
+        <li><a href="multiplatform-run-tests.md">Add tests to your Kotlin Multiplatform project</a></li>
+        <li><a href="multiplatform-mobile-publish-apps.md">Publish your mobile application to app stores</a></li>
+        <li><a href="multiplatform-mobile-introduce-your-team.md">Introduce cross-platform mobile development to your team</a></li>
+        <li><a href="https://github.com/terrakok/kmm-awesome">Check out the list of useful tools and libraries</a></li>
+     </list>
+   </td>
+    <td>
+     <list>
+        <li><a href="multiplatform-mobile-understand-project-structure.md">Kotlin Multiplatform for mobile project structure</a></li>
+        <li><a href="native-objc-interop.md">Interoperability with Objective-C frameworks and libraries</a></li>
+        <li><a href="multiplatform-add-dependencies.md">Adding dependencies on multiplatform libraries</a></li>        
+        <li><a href="multiplatform-mobile-android-dependencies.md">Adding Android dependencies</a></li>
+        <li><a href="multiplatform-mobile-ios-dependencies.md">Adding iOS dependencies</a></li>
+     </list>
+   </td>
+   </tr>
+</table>
+
+<table>
+   <tr>
+      <th>Tutorials and samples</th>
+      <th>Community and feedback</th>
+   </tr>
+   <tr>
+   <td>
+     <list>
+        <li><a href="multiplatform-mobile-integrate-in-existing-app.md">Make your Android app cross-platform</a></li>
+        <li><a href="multiplatform-mobile-ktor-sqldelight.md">Create a multiplatform app using Ktor and SQLDelight</a></li>
+        <li><a href="https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme">Share UIs between iOS and Android using Compose Multiplatform</a></li>
+        <li><a href="multiplatform-mobile-samples.md">See the curated list of sample projects</a></li>
+     </list>
+   </td>
+    <td>
+     <list>
+        <li><a href="https://kotlinlang.slack.com/archives/C3PQML5NU">Join the #multiplatform channel in Kotlin Slack</a></li>
+        <li><a href="https://stackoverflow.com/questions/tagged/kotlin-multiplatform">Subscribe to the "kotlin-multiplatform" tag on Stack Overflow</a></li>        
+        <li><a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C">Subscribe to the Kotlin YouTube channel</a></li>
+        <li><a href="https://youtrack.jetbrains.com/newIssue?project=KT">Report a problem to our issue tracker</a></li>
+     </list>
+   </td>
+   </tr>
+</table>
+
+
+# 📜 08.01.08. [Understand mobile project structure](multiplatform-mobile-understand-project-structure.md)
+
+    [//]: # (title: Understand mobile project structure)
+
+The purpose of the Kotlin Multiplatform technology is unifying the development of applications with common 
+logic for Android and iOS platforms. To make this possible, it uses a mobile-specific structure of
+[Kotlin Multiplatform](multiplatform.md) projects.
+
+This page describes the structure and components of a basic cross-platform mobile project: shared module, Android app,
+and an iOS app.
+
+> This structure isn't the only possible way to organize your project; however, we recommend it as a starting point.
+>
+{type="note"}
+
+To view the complete structure of your mobile multiplatform project, switch the view from **Android** to **Project**.
+
+![Select the Project view](select-project-view.png){width=200}
+
+## Root project
+
+The root project is a Gradle project that holds the shared module and the Android application as its subprojects.
+They are linked together via the [Gradle multi-project mechanism](https://docs.gradle.org/current/userguide/multi_project_builds.html). 
+
+![Basic Multiplatform Mobile project structure](basic-project-structure.png){width=700}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+// settings.gradle.kts
+include(":shared")
+include(":androidApp")
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// settings.gradle
+include ':shared'
+include ':androidApp'
+```
+
+</tab>
+</tabs>
+
+The iOS application is produced from an Xcode project. It's stored in a separate directory within the root project.
+Xcode uses its own build system; thus, the iOS application project isn't connected with other parts of the Multiplatform Mobile project
+via Gradle. Instead, it uses the shared module as an external artifact – framework. For details on integration between
+the shared module and the iOS application, see [iOS application](#ios-application).
+
+This is a basic structure of a cross-platform mobile project:
+
+![Basic Multiplatform Mobile project directories](basic-project-dirs.png){width=400}
+
+The root project does not hold source code. You can use it to store global configuration in its `build.gradle(.kts)` or 
+`gradle.properties`, for example, add repositories or define global configuration variables.
+
+For more complex projects, you can add more modules into the root project by creating them in the IDE and linking via
+`include` declarations in the Gradle settings.
+
+## Shared module
+
+Shared module contains the core application logic used in both Android and iOS target platforms: classes, functions, and so on.
+This is a [Kotlin Multiplatform](multiplatform-get-started.md) module that compiles
+into an Android library and an iOS framework. It uses the Gradle build system with the Kotlin Multiplatform plugin applied and 
+has targets for Android and iOS.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "1.9.10"
+    // ..
+}
+
+kotlin {
+    android()
+    ios()
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
+    //..
+}
+
+kotlin {
+    android()
+    ios()
+}
+```
+
+</tab>
+</tabs>
+
+### Source sets
+
+The shared module contains the code that is common for Android and iOS applications. However, to implement the same logic
+on Android and iOS, you sometimes need to write two platform-specific versions of it.
+To handle such cases, Kotlin offers the [expect/actual](multiplatform-connect-to-apis.md) mechanism.
+The source code of the shared module is organized in three source sets accordingly:
+
+* `commonMain` stores the code that works on both platforms, including the `expect` declarations
+* `androidMain` stores Android-specific parts, including `actual` implementations
+* `iosMain` stores iOS-specific parts, including `actual` implementations
+
+Each source set has its own dependencies. Kotlin standard library is added automatically to all source sets, you don't need to declare it in the build script.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation("androidx.core:core-ktx:1.2.0")
+            }
+        }
+        val iosMain by getting 
+        // ...
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+        }
+        androidMain {
+            dependencies {
+                implementation 'androidx.core:core-ktx:1.2.0'
+            }
+        }
+        iosMain {
+        }
+
+        // ...
+    }
+}
+```
+
+</tab>
+</tabs>
+
+When you write your code, add the dependencies you need to the corresponding source sets.
+Read [Multiplatform documentation on adding dependencies](multiplatform-add-dependencies.md) for more information.
+
+Along with `*Main` source sets, there are three matching test source sets:
+
+* `commonTest`
+* `androidUnitTest`
+* `iosTest`
+
+Use them to store unit tests for common and platform-specific source sets accordingly.
+By default, they have dependencies on Kotlin test library, providing you with means for Kotlin unit testing:
+annotations, assertion functions and other. You can add dependencies on other test libraries you need.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        // ...
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+        val androidUnitTest by getting
+        val iosTest by getting
+    }
+
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        //...
+
+        commonTest {
+            dependencies {
+                implementation kotlin('test')
+            }
+        }
+        androidUnitTest {
+
+        }
+        iosTest {
+
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The main and test source sets described above are default. The Kotlin Multiplatform plugin generates them
+automatically upon target creation. In your project, you can add more source sets for specific purposes.
+For more information, see [Multiplatform DSL reference](multiplatform-dsl-reference.md#custom-source-sets).
+
+### Android library
+
+The configuration of the Android library produced from the shared module is typical for Android projects.
+To learn about Android libraries creation, see [Create an Android library](https://developer.android.com/studio/projects/android-library)
+in the Android developer documentation.
+
+To produce the Android library, a separate Gradle plugin is used in addition to Kotlin Multiplatform:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    // ...
+    id("com.android.library")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    // ...
+    id 'com.android.library'
+}
+```
+
+</tab>
+</tabs>
+
+The configuration of Android library is stored in the `android {}` top-level block of the shared module's build script:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+android {
+    // A typical Android configuration, see https://developer.android.com/build for details.
+    //  For example:
+    namespace = "com.example.kotlinmultiplatformsandbox"
+    compileSdk = 33
+    defaultConfig {
+        minSdk = 24
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+android {
+    // A typical Android configuration, see https://developer.android.com/build for details.
+    // For example:
+    namespace "com.example.kotlinmultiplatformsandbox"
+    compileSdk 33
+    defaultConfig {
+        minSdk 24
+    }
+}
+```
+
+</tab>
+</tabs>
+
+It's typical for any Android project. You can edit it to suit your needs.
+To learn more, see the [Android developer documentation](https://developer.android.com/studio/build#module-level).
+
+### iOS framework
+
+For using in iOS applications, the shared module compiles into a framework – a kind of hierarchical directory
+with shared resources used on the Apple platforms.
+This framework connects to the Xcode project that builds into an iOS application.
+
+The framework is produced via the [Kotlin/Native](native-overview.md) compiler.
+The framework configuration is stored in the `ios {}` block of the build script within `kotlin {}`.
+It defines the output type `framework` and the string identifier `baseName` that is used to form the name
+of the output artifact. Its default value matches the Gradle module name. 
+For a real project, it's likely that you'll need a more complex configuration of the framework production.
+For details, see [Multiplatform documentation](multiplatform-build-native-binaries.md).
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    // ...
+    ios {
+        binaries {
+            framework {
+                baseName = "shared"
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    // ...
+    ios {
+        binaries {
+            framework {
+                baseName = 'shared'
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Additionally, there is a Gradle task `embedAndSignAppleFrameworkForXcode`, that exposes the framework to the Xcode project
+the iOS application is built from. It uses the iOS application's project configuration to define the build
+mode (`debug` or `release`) and provide the appropriate framework version to the specified location.
+
+The task is built into the multiplatform plugin. It executes upon each build of the Xcode project to provide the latest
+version of the framework for the iOS application. For details, see [iOS application](#ios-application).
+
+> Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
+>
+{type="note"}
+
+## Android application
+
+The Android application part of a Multiplatform Mobile project is a typical Android application written in Kotlin.
+In a basic cross-platform mobile project, it uses two Gradle plugins: 
+
+* Kotlin Android
+* Android Application
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("com.android.application")
+    kotlin("android")
+} 
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+```
+
+</tab>
+</tabs>
+
+To access the shared module code, the Android application uses it as a project dependency.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    implementation(project(":shared"))
+    //..
+} 
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation project(':shared')
+    //..
+}
+```
+
+</tab>
+</tabs>
+
+Besides this dependency, the Android application uses the Kotlin standard library (which is added automatically) and some common Android dependencies:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    //..
+    implementation("androidx.core:core-ktx:1.2.0")
+    implementation("androidx.appcompat:appcompat:1.1.0")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+} 
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    //..
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}
+```
+
+</tab>
+</tabs>
+
+Add your project's Android-specific dependencies to this block.
+The build configuration of the Android application is located in the `android {}` top-level block of the build script:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+android {
+    compileSdk = 29
+    defaultConfig {
+        applicationId = "org.example.androidApp"
+        minSdk = 24
+        versionCode = 1
+        versionName = "1.0"
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+android {
+    compileSdk 29
+    defaultConfig {
+        applicationId 'org.example.androidApp'
+        minSdk 24
+        versionCode 1
+        versionName '1.0'
+    }
+    buildTypes {
+        'release' {
+            minifyEnabled false
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+It's typical for any Android project. You can edit it to suit your needs.
+To learn more, see the [Android developer documentation](https://developer.android.com/studio/build#module-level).
+
+## iOS application
+
+The iOS application is produced from an Xcode project generated automatically by the New Project wizard.
+It resides in a separate directory within the root project.
+
+![Basic Kotlin Multiplatform Xcode project](basic-xcode-project.png){width=400}
+
+For each build of the iOS application, the project obtains the latest version of the framework. To do this, it uses a
+**Run Script** build phase that executes the `embedAndSignAppleFrameworkForXcode` Gradle task from the shared module.
+This task generates the `.framework` with the required configuration, depending on the Xcode environment settings, and puts
+the artifact into the `DerivedData` Xcode directory.
+
+* If you have a custom name for the Apple framework, use `embedAndSign<Custom-name>AppleFrameworkForXcode` as the name for
+this Gradle task.
+* If you have a custom build configuration that is different from the default `Debug` or `Release`, on the **Build Settings**
+tab, add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
+
+> Use the `embedAndSignAppleFrameworkForXcode` Gradle task with Xcode project builds only; otherwise, you'll get an error.
+>
+{type="note"}
+
+![Execution of `embedAndSignAppleFrameworkForXcode` in the Xcode project settings](packforxcode-in-project-settings.png){width=700}
+
+To embed framework into the application and make the declarations from the shared module available in the source code of the iOS application, the following build settings should be configured properly:
+
+1. **Other Linker flags** under the **Linking** section:
+
+   ```text
+   $(inherited) -framework shared
+   ```
+
+   ![Configuring **Other linker flags** in the Xcode project settings](other-linker-flags-in-xcode-project-settings.png){width=700}
+
+2. **Framework Search Paths** under the **Search Paths** section:
+
+   ```text
+   $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+   ```
+
+   ![Configuring **Framework Search Paths** in the Xcode project settings](framework-search-path-in-xcode-project-settings.png){width=700}
+
+In other aspects, the Xcode part of a cross-platform mobile project is a typical iOS application project.
+To learn more about creating iOS application, see the [Xcode documentation](https://developer.apple.com/documentation/xcode#topics).
+
+
+# 📜 08.01.09. [Make your Android application work on iOS – tutorial](multiplatform-mobile-integrate-in-existing-app.md)
+
+    [//]: # (title: Make your Android application work on iOS – tutorial)
+
+Learn how to make your existing Android application cross-platform so that it works both on Android and iOS.
+You'll be able to write code and test it for both Android and iOS only once, in one place.
+
+This tutorial uses a [sample Android application](https://github.com/Kotlin/kmm-integration-sample) with a single screen
+for entering a username and password. The credentials are validated and saved to an in-memory database.
+
+> If you aren't familiar with Kotlin Multiplatform for mobile, learn how to [set up environment and create a cross-platform application from scratch](multiplatform-mobile-getting-started.md)
+> first.
+> 
+{type="tip"}
+
+## Prepare an environment for development
+
+1. [Install all the necessary tools and update them to the latest versions](multiplatform-mobile-setup.md).
+
+   > You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code
+   > and running an iOS application. These steps can't be performed on other operating systems, such as Microsoft Windows.
+   > This is due to an Apple requirement.
+   >
+   {type="note"}
+
+2. In Android Studio, create a new project from version control:
+
+   ```text
+   https://github.com/Kotlin/kmm-integration-sample
+   ```
+
+   > The `master` branch contains the project's initial state — a simple Android application. To see the final state
+   > with the iOS application and the shared module, switch to the `final` branch.
+   >
+   {type="tip"}
+
+3. Switch to the **Project** view.
+
+   ![Project view](project-view-for-integrate.png){width=200}
+
+## Make your code cross-platform
+
+To make your application work on iOS, you'll first make your code cross-platform, and then you'll reuse your
+cross-platform code in a new iOS application.
+
+To make your code cross-platform:
+
+1. [Decide what code to make cross-platform](#decide-what-code-to-make-cross-platform).
+2. [Create a shared module for cross-platform code](#create-a-shared-module-for-cross-platform-code).
+3. [Add a dependency on the shared module to your Android application](#add-a-dependency-on-the-shared-module-to-your-android-application).
+4. [Make the business logic cross-platform](#make-the-business-logic-cross-platform).
+5. [Run your cross-platform application on Android](#run-your-cross-platform-application-on-android).
+
+### Decide what code to make cross-platform
+
+Decide which code of your Android application is better to share for iOS and which to keep native. A simple rule is:
+share what you want to reuse as much as possible. The business logic is often the same for both Android and iOS,
+so it's a great candidate for reuse.
+
+In your sample Android application, the business logic is stored in the package `com.jetbrains.simplelogin.androidapp.data`.
+Your future iOS application will use the same logic, so you should make it cross-platform, as well.
+
+![Business logic to share](business-logic-to-share.png){width=350}
+
+### Create a shared module for cross-platform code
+
+The cross-platform code that is used for both iOS and Android _is stored_ in the shared module.
+The Kotlin Multiplatform plugin provides a special wizard for creating such modules.
+
+In your Android project, create a Kotlin Multiplatform shared module for your cross-platform code. Later you'll connect
+it to your existing Android application and your future iOS application.
+
+1. In Android Studio, click **File** | **New** | **New Module**.
+2. In the list of templates, select **Kotlin Multiplatform Shared Module**, enter the module name `shared`, and select
+   the **Regular framework** in the list of iOS framework distribution options.  
+   This is required for connecting the shared module to the iOS application.
+
+   ![Kotlin Multiplatform shared module](multiplatform-mobile-module-wizard.png){width=700}
+
+3. Click **Finish**.
+
+The wizard will create the Kotlin Multiplatform shared module, update the configuration files, and create files with
+classes that demonstrate the benefits of Kotlin Multiplatform.
+You can learn more about the [project structure](multiplatform-mobile-understand-project-structure.md).
+
+### Add a dependency on the shared module to your Android application
+
+To use cross-platform code in your Android application, connect the shared module to it, move the business logic code
+there, and make this code cross-platform.
+
+1. In the `build.gradle.kts` file of the shared module, ensure that `compileSdk` and `minSdk` are the same as those in
+   the `build.gradle.kts` of your Android application in the `app` module.
+
+   If they're different, update them in the `build.gradle.kts` of the shared module. Otherwise, you'll encounter a
+   compile error.
+
+2. Add a dependency on the shared module to the `build.gradle.kts` of your Android application.
+
+    ```kotlin
+    dependencies {
+        implementation (project(":shared"))
+    }
+    ```
+
+3. Synchronize the Gradle files by clicking **Sync Now** in the notification.
+
+   ![Synchronize the Gradle files](gradle-sync.png)
+
+4. In the `app/src/main/java/` directory, open the `LoginActivity` class in the `com.jetbrains.simplelogin.androidapp.ui.login`
+   package.
+5. To make sure that the shared module is successfully connected to your application, dump the `greet()` function
+   result to the log by updating the `onCreate()` method:
+
+    ```kotlin
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        Log.i("Login Activity", "Hello from shared module: " + (Greeting().greet()))
+    }
+    ```
+6. Follow Android Studio suggestions to import missing classes.
+7. Debug the `app`. On the **Logcat** tab, search for `Hello` in the log, and you'll find the greeting from the shared
+   module.
+
+   ![Greeting from the shared module](shared-module-greeting.png)
+
+### Make the business logic cross-platform
+
+You can now extract the business logic code to the Kotlin Multiplatform shared module and make it platform-independent.
+This is necessary for reusing the code for both Android and iOS.
+
+1. Move the business logic code `com.jetbrains.simplelogin.androidapp.data` from the `app` directory to
+   the `com.jetbrains.simplelogin.shared` package in the `shared/src/commonMain` directory.
+   You can drag and drop the package or refactor it by moving everything from one directory to another.
+
+   ![Drag and drop the package with the business logic code](moving-business-logic.png){width=350}
+
+2. When Android Studio asks what you'd like to do, select to move the package, and then approve the refactoring.
+
+   ![Refactor the business logic package](refactor-business-logic-package.png){width=500}
+
+3. Ignore all warnings about platform-dependent code and click **Continue**.
+
+   ![Warnings about platform-dependent code](warnings-android-specific-code.png){width=450}
+
+4. Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs
+   using [`expect` and `actual` declarations](multiplatform-connect-to-apis.md). See the following sections for details:
+
+#### Replace Android-specific code with cross-platform code
+
+To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies in the
+moved `data` directory wherever possible.
+
+1. In the `LoginDataSource` class, replace `IOException` in the `login()` function with `RuntimeException`.
+   `IOException` is not available in Kotlin.
+
+    ```kotlin
+    // Before
+    return Result.Error(IOException("Error logging in", e))
+    ```
+
+    ```kotlin
+    // After
+    return Result.Error(RuntimeException("Error logging in", e))
+    ```
+
+2. In the `LoginDataValidator` class, replace the `Patterns` class from the `android.utils` package with a Kotlin
+   regular expression matching the pattern for email validation:
+
+    ```kotlin
+    // Before
+    private fun isEmailValid(email: String) = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    ```
+
+    ```kotlin
+    // After
+    private fun isEmailValid(email: String) = emailRegex.matches(email)
+    
+    companion object {
+        private val emailRegex = 
+            ("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+").toRegex()
+    }
+    ```
+
+#### Connect to platform-specific APIs from the cross-platform code
+
+In the `LoginDataSource` class, a universally unique identifier (UUID) for `fakeUser` is generated using
+the `java.util.UUID` class, which is not available for iOS.
+
+```kotlin
+val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
+```
+
+Since the Kotlin standard library doesn't provide functionality for generating UUIDs, you still need to use
+platform-specific functionality for this case.
+
+Provide the `expect` declaration for the `randomUUID()` function in the shared code and its `actual` implementations for
+each platform – Android and iOS – in the corresponding source sets.
+You can learn more about [connecting to platform-specific APIs](multiplatform-connect-to-apis.md).
+
+1. Remove the `java.util.UUID` class from the common code:
+
+    ```kotlin
+    val fakeUser = LoggedInUser(randomUUID(), "Jane Doe")
+    ```
+
+2. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/commonMain` directory
+   and provide the `expect` declaration:
+
+    ```kotlin
+    package com.jetbrains.simplelogin.shared
+    
+    expect fun randomUUID(): String
+    ```
+
+3. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` package of the `shared/src/androidMain`
+   directory and provide the `actual` implementation for `randomUUID()` in Android:
+
+    ```kotlin
+    package com.jetbrains.simplelogin.shared
+    
+    import java.util.*
+   
+    actual fun randomUUID() = UUID.randomUUID().toString()
+    ```
+
+4. Create the `Utils.kt` file in the `com.jetbrains.simplelogin.shared` of the `shared/src/iosMain` directory and
+   provide the `actual` implementation for `randomUUID()` in iOS:
+
+    ```kotlin
+    package com.jetbrains.simplelogin.shared
+    
+    import platform.Foundation.NSUUID
+   
+    actual fun randomUUID(): String = NSUUID().UUIDString()
+    ```
+
+5. All it's left to do is to explicitly import `randomUUID` in the `LoginDataSource.kt` file of the `shared/src/commonMain`
+   directory:
+
+   ```kotlin
+   import com.jetbrains.simplelogin.shared.randomUUID
+   ```
+  
+   For Android and iOS, Kotlin will use its different platform-specific implementations.
+
+### Run your cross-platform application on Android
+
+Run your cross-platform application for Android to make sure it works.
+
+![Android login application](android-login.png){width=300}
+
+## Make your cross-platform application work on iOS
+
+Once you've made your Android application cross-platform, you can create an iOS application and reuse the shared
+business logic in it.
+
+1. [Create an iOS project in Xcode](#create-an-ios-project-in-xcode).
+2. [Connect the framework to your iOS project](#connect-the-framework-to-your-ios-project).
+3. [Use the shared module from Swift](#use-the-shared-module-from-swift).
+
+### Create an iOS project in Xcode
+
+1. In Xcode, click **File** | **New** | **Project**.
+2. Select a template for an iOS app and click **Next**.
+
+   ![iOS project template](ios-project-wizard-1.png){width=700}
+
+3. As the product name, specify **simpleLoginIOS** and click **Next**.
+
+   ![iOS project settings](ios-project-wizard-2.png){width=700}
+
+4. As the location for your project, select the directory that stores your cross-platform application, for
+   example, `kmm-integration-sample`.
+
+In Android Studio, you'll get the following structure:
+
+![iOS project in Android Studio](ios-project-in-as.png){width=194}
+
+You can rename the `simpleLoginIOS` directory to `iosApp` for consistency with other top-level directories of your
+cross-platform project.
+
+![Renamed iOS project directory in Android Studio](ios-directory-renamed-in-as.png){width=194}
+
+### Connect the framework to your iOS project
+
+Once you have the framework, you can connect it to your iOS project manually.
+
+> An alternative is to [configure integration via CocoaPods](native-cocoapods.md), but that integration is beyond the
+> scope of this tutorial.
+>
+{type="note"}
+
+Connect your framework to the iOS project manually:
+
+1. In Xcode, open the iOS project settings by double-clicking the project name.
+
+2. On the **Build Phases** tab of the project settings, click the **+** and add **New Run Script Phase**.
+
+   ![Add run script phase](xcode-run-script-phase-1.png){width=700}
+
+3. Add the following script:
+
+    ```text
+    cd "$SRCROOT/.."
+    ./gradlew :shared:embedAndSignAppleFrameworkForXcode
+    ```
+
+   ![Add the script](xcode-add-run-phase-2.png){width=700}
+
+4. Move the **Run Script** phase before the **Compile Sources** phase.
+
+   ![Move the Run Script phase](xcode-run-script-phase-3.png){width=700}
+
+5. On the **Build Settings** tab, switch to **All** build settings and specify the **Framework Search Path** under
+   **Search Paths**:
+
+   ```text
+   $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+   ```
+
+   ![Framework search path](xcode-add-framework-search-path.png){width=700}
+
+6. On the **Build Settings** tab, specify the **Other Linker flags** under **Linking**:
+
+   ```text
+   $(inherited) -framework shared
+   ```
+
+   ![Linker flag](xcode-add-flag.png){width=700}
+
+7. Build the project in Xcode. If everything is set up correctly, the project will successfully build.
+
+> If you have a custom build configuration different from the default `Debug` or `Release`, on the **Build Settings**
+> tab, add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
+>
+{type="note"}
+
+### Use the shared module from Swift
+
+1. In Xcode, open the `ContentView.swift` file and import the `shared` module:
+
+   ```swift
+   import shared
+   ```
+
+2. To check that it is properly connected, use the `greet()` function from the shared module of your cross-platform app:
+
+   ```swift
+   import SwiftUI
+   import shared
+   
+   struct ContentView: View {
+       var body: some View {
+           Text(Greeting().greet())
+           .padding()
+       }
+   }
+   ```
+
+   ![Greeting from the shared module](xcode-iphone-hello.png){width=300}
+
+3. In `ContentView.swift`, write code for using data from the shared module and rendering the application UI:
+
+   ```kotlin
+   ```
+   {src="android-ios-tutorial/ContentView.swift" initial-collapse-state="collapsed"}
+
+4. In `simpleLoginIOSApp.swift`, import the `shared` module and specify the arguments for the `ContentView()` function:
+
+    ```swift
+    import SwiftUI
+    import shared
+    
+    @main
+    struct SimpleLoginIOSApp: App {
+        var body: some Scene {
+            WindowGroup {
+                ContentView(viewModel: .init(loginRepository: LoginRepository(dataSource: LoginDataSource()), loginValidator: LoginDataValidator()))
+            }
+        }
+    }
+    ```
+
+![Simple login application](xcode-iphone-login.png){width=300}
+
+## Enjoy the results – update the logic only once
+
+Now your application is cross-platform. You can update the business logic in one place and see results on both Android
+and iOS.
+
+1. In Android Studio, change the validation logic for a user's password in the `checkPassword()` function of
+   the `LoginDataValidator` class:
+
+   ```kotlin
+   package com.jetbrains.simplelogin.shared.data
+   
+   class LoginDataValidator {
+   //...
+       fun checkPassword(password: String): Result {
+           return when {
+               password.length < 5 -> Result.Error("Password must be >5 characters")
+               password.lowercase() == "password" -> Result.Error("Password shouldn't be \"password\"")
+               else -> Result.Success
+           }
+       }
+   //...
+   }
+   ```
+
+2. Run both the iOS and Android applications from Android Studio to see the changes:
+
+   ![iOS run configuration](ios-run-configuration-simplelogin.png){width=200}
+
+   ![iOS application password error](iphone-password-error.png){width=300}
+
+   ![Android application password error](android-password-error.png){width=300}
+
+You can review the [final code for this tutorial](https://github.com/Kotlin/kmm-integration-sample/tree/final).
+
+## What else to share?
+
+You've shared the business logic of your application, but you can also decide to share other layers of your application.
+For example, the `ViewModel` class code is almost the same for [Android](https://github.com/Kotlin/kmm-integration-sample/blob/final/app/src/main/java/com/jetbrains/simplelogin/androidapp/ui/login/LoginViewModel.kt)
+and [iOS applications](https://github.com/Kotlin/kmm-integration-sample/blob/final/iosApp/SimpleLoginIOS/ContentView.swift#L84),
+and you can share it if your mobile applications should have the same presentation layer.
+
+## What's next?
+
+Once you've made your Android application cross-platform, you can move on and:
+
+* [Add dependencies on multiplatform libraries](multiplatform-add-dependencies.md)
+* [Add Android dependencies](multiplatform-mobile-android-dependencies.md)
+* [Add iOS dependencies](multiplatform-mobile-ios-dependencies.md)
+
+You can also check out community resources:
+
+* [Video: 3 ways to get your Kotlin JVM code ready for Kotlin Multiplatform Mobile](https://www.youtube.com/watch?v=X6ckI1JWjqo)
+
+
+# 📜 08.01.10. [Publish your application](multiplatform-mobile-publish-apps.md)
+
+    [//]: # (title: Publish your application)
+
+Once your mobile apps are ready for release, it's time to deliver them to the users by publishing them in app stores.
+Multiple stores are available for each platform. However, in this article we'll focus on the official ones:
+[Google Play Store](https://play.google.com/store) and [Apple App Store](https://www.apple.com/ios/app-store/).
+You'll learn how to prepare Kotlin Multiplatform applications for publishing, and we'll highlight
+the parts of this process that deserve special attention.
+
+## Android app
+
+Since [Kotlin is the main language for Android development](https://developer.android.com/kotlin),
+Kotlin Multiplatform has no obvious effect on compiling the project and building the Android app. Both the Android library produced from
+the shared module and the Android app itself are typical Android Gradle modules; they are no different from other Android
+libraries and apps. Thus, publishing the Android app from a Kotlin Multiplatform project is no different from the usual process described
+in the [Android developer documentation](https://developer.android.com/studio/publish).
+
+## iOS app
+
+The iOS app from a Kotlin Multiplatform project is built from a typical Xcode project, so the main stages involved in publishing it are
+the same as described in the [iOS developer documentation](https://developer.apple.com/ios/submit/).
+
+What is specific to Kotlin Multiplatform projects is compiling the shared Kotlin module into a framework and linking it to the Xcode project.
+Generally, all integration between the shared module and the Xcode project is done automatically by the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+However, if you don't use the plugin, bear in mind the following when building and bundling the iOS project in Xcode:
+
+* The shared Kotlin library compiles down to the native framework.
+* You need to connect the framework compiled for the specific platform to the iOS app project.
+* In the Xcode project settings, specify the path to the framework to search for the build system.
+* After building the project, you should launch and test the app to make sure that there are no issues when working with the framework in runtime.
+
+There are two ways you can connect the shared Kotlin module to the iOS project:
+* Use the [Kotlin/Native CocoaPods plugin](native-cocoapods.md), which allows you to use a multiplatform project with native targets as a CocoaPods dependency in your iOS project.
+* Manually configure your Multiplatform project to create an iOS framework and the Xcode project to obtain its latest version. The Kotlin Multiplatform Mobile plugin for Android Studio usually does this configuration. [Understand the project structure](multiplatform-mobile-understand-project-structure.md#ios-application) to implement it yourself.
+
+### Symbolicating crash reports
+
+To help developers make their apps better, iOS provides a means for analyzing app crashes. For detailed crash analysis,
+it uses special debug symbol (`.dSYM`) files that match memory addresses in crash reports with locations in the source code,
+such as functions or line numbers.
+
+By default, the release versions of iOS frameworks produced from the shared Kotlin module have an accompanying `.dSYM`
+file. This helps you analyze crashes that happen in the shared module's code.
+
+When an iOS app is rebuilt from bitcode, its `dSYM` file becomes invalid. For such cases, you can compile the shared module
+to a static framework that stores the debug information inside itself. For instructions on setting up crash report
+symbolication in binaries produced from Kotlin modules, see the [Kotlin/Native documentation](native-ios-symbolication.md).
+
+
+
+
+# 📜 08.01.11. [Create a multiplatform app using Ktor and SQLDelight – tutorial](multiplatform-mobile-ktor-sqldelight.md)
+
+    [//]: # (title: Create a multiplatform app using Ktor and SQLDelight – tutorial)
+
+This tutorial demonstrates how to use Android Studio to create a mobile application for iOS and Android using Kotlin
+Multiplatform Mobile with Ktor and SQLDelight.
+
+The application will include a module with shared code for both the iOS and Android platforms. The business logic and data
+access layers will be implemented only once in the shared module, while the UI of both applications will be native.
+
+The output will be an app that retrieves data over the internet from the
+public [SpaceX API](https://docs.spacexdata.com/?version=latest), saves it in a local database, and displays a list of
+SpaceX rocket launches together with the launch date, results, and a detailed description of the launch:
+
+![Emulator and Simulator](android-and-ios.png){width=600}
+
+You will use the following multiplatform libraries in the project:
+
+* [Ktor](https://ktor.io/docs/create-client.html) as an HTTP client for retrieving data over the internet.
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization) to deserialize JSON responses into objects
+  of entity classes.
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) to write asynchronous code.
+* [SQLDelight](https://github.com/cashapp/sqldelight) to generate Kotlin code from SQL queries and create a type-safe
+  database API.
+
+> You can find the [template project](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage) as well as the
+> source code of the [final application](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final)
+> on the corresponding GitHub repository.
+>
+{type="note"}
+
+## Before you start
+
+1. Download and install [Android Studio](https://developer.android.com/studio/).
+2. Search for the [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
+   in the Android Studio Marketplace and install it.
+
+   ![Kotlin Multiplatform Mobile plugin](multiplatform-marketplace.png){width=700}
+
+3. Download and install [Xcode](https://developer.apple.com/xcode/).
+
+For more details, see the [Set up the environment](multiplatform-mobile-setup.md) section.
+
+## Create a Multiplatform project
+
+1. In Android Studio, select **File** | **New** | **New Project**. In the list of project templates, select **Kotlin
+   Multiplatform App** and then click **Next**.
+
+   ![Kotlin Multiplatform Mobile plugin wizard](multiplatform-mobile-project-wizard-1.png){width=700}
+
+2. Name your application and click **Next**.
+3. Select **Regular framework** in the list of **iOS framework distribution** options.
+
+   ![Kotlin Multiplatform Mobile plugin wizard. Final step](multiplatform-mobile-project-wizard-3.png){width=700}
+
+4. Keep all other options default. Click **Finish**.
+5. To view the complete structure of the multiplatform mobile project, switch the view from **Android** to **Project**.
+
+   ![Project view](select-project-view.png){width=200}
+
+For more on project features and how to use them, see [Understand the project structure](multiplatform-mobile-understand-project-structure.md).
+
+> You can find the configured project [on the `master` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage).
+>
+{type="note"}
+
+## Add dependencies to the multiplatform library
+
+To add a multiplatform library to the shared module, you need to add dependency instructions (`implementation`) for all
+libraries to the `dependencies` block of the relevant source sets in the `build.gradle.kts` file.
+
+Both the `kotlinx.serialization` and SQLDelight libraries also require additional configurations.
+
+1. In the `shared` directory, specify the dependencies on all the required libraries in the `build.gradle.kts` file:
+
+    ```kotlin
+    val coroutinesVersion = "%coroutinesVersion%"
+    val ktorVersion = "%ktorVersion%"
+    val sqlDelightVersion = "%sqlDelightVersion%"
+    val dateTimeVersion = "%dateTimeVersion%"
+
+    sourceSets {
+        targetHierarchy.default()
+   
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+                implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$dateTimeVersion")
+                }
+            }
+        val androidMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-android:$ktorVersion")
+                implementation("com.squareup.sqldelight:android-driver:$sqlDelightVersion")
+            }
+        }
+        val iosMain by getting {
+            // ...
+            dependencies {
+                implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+                implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
+            }
+        }
+    }
+    ```
+
+   * Each library requires a core artifact in the common source set.
+   * Both the SQLDelight and Ktor libraries need platform drivers in the iOS and Android source sets, as well.
+   * In addition, Ktor needs the [serialization feature](https://ktor.io/docs/serialization-client.html) to use
+     `kotlinx.serialization` for processing network requests and responses.
+
+2. At the very beginning of the `build.gradle.kts` file in the same `shared` directory, add the following lines to the
+   `plugins` block:
+
+   ```kotlin
+       plugins {
+       // ...
+       kotlin("plugin.serialization") version "1.9.10"
+       id("com.squareup.sqldelight")
+   }
+   ```
+
+3. Now go to the `build.gradle.kts` file in the project _root directory_ and specify the classpath for the plugin in the
+   build system dependencies:
+
+    ```kotlin
+    buildscript {
+        
+        dependencies {
+            // ...
+            classpath("com.squareup.sqldelight:gradle-plugin:%sqlDelightVersion%")
+        }
+    }
+    ```
+
+4. Finally, define the SQLDelight version in the `gradle.properties` file in the project _root directory_ to ensure that
+   the SQLDelight versions of the plugin and the libraries are the same:
+
+    ```none
+    sqlDelightVersion=%sqlDelightVersion%
+    ```
+
+5. Sync the Gradle project.
+
+Learn more about adding [dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
+
+> You can find this state of the project [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+## Create an application data model
+
+The Kotlin Multiplatform app will contain the public `SpaceXSDK` class, the facade over networking and cache services.
+The application data model will have three entity classes with:
+
+* General information about the launch
+* A URL to external information
+* Information about the rocket
+
+1. In `shared/src/commonMain/kotlin`, add the `com.jetbrains.handson.kmm.shared.entity` package.
+2. Create the `Entity.kt` file inside the package.
+3. Declare all the data classes for basic entities:
+
+   ```kotlin
+   ```
+   {src="multiplatform-mobile-tutorial/Entity.kt" initial-collapse-state="collapsed" collapsed-title="data class RocketLaunch" lines="3-41" }
+
+Each serializable class must be marked with the `@Serializable` annotation. The `kotlinx.serialization` plugin
+automatically generates a default serializer for `@Serializable` classes unless you explicitly pass a link to a
+serializer through the annotation argument.
+
+However, you don't need to do that in this case. The `@SerialName` annotation allows you to redefine field names, which helps
+to declare properties in data classes with more easily readable names.
+
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+## Configure SQLDelight and implement cache logic
+
+### Configure SQLDelight
+
+The SQLDelight library allows you to generate a type-safe Kotlin database API from SQL queries. During compilation, the
+generator validates the SQL queries and turns them into Kotlin code that can be used in the shared module.
+
+The library is already in the project. To configure it, go to the `shared` directory and add the `sqldelight` block to
+the end of the `build.gradle.kts` file. The block will contain a list of databases and their parameters:
+
+```kotlin
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.jetbrains.handson.kmm.shared.cache"
+    }
+}
+```
+
+The `packageName` parameter specifies the package name for the generated Kotlin sources.
+
+> Consider installing the official [SQLite plugin](https://cashapp.github.io/sqldelight/multiplatform_sqlite/intellij_plugin/)
+> for working with `.sq` files.
+>
+{type="tip"}
+
+### Generate the database API
+
+First, create the `.sq` file, which will contain all the needed SQL queries. By default, the SQLDelight plugin reads
+`.sq` from the `sqldelight` folder:
+
+1. In `shared/src/commonMain`, create a new `sqldelight` directory and add
+   the `com.jetbrains.handson.kmm.shared.cache` package.
+2. Inside the package, create an `.sq` file with the name of the database, `AppDatabase.sq`. All the SQL queries for
+   the application will be in this file.
+3. The database will contain a table with data about launches. To create the table, add the following
+   code to the `AppDatabase.sq` file:
+
+   ```text
+   CREATE TABLE Launch (
+       flightNumber INTEGER NOT NULL,
+       missionName TEXT NOT NULL,
+       details TEXT,
+       launchSuccess INTEGER AS Boolean DEFAULT NULL,
+       launchDateUTC TEXT NOT NULL,
+       patchUrlSmall TEXT,
+       patchUrlLarge TEXT,
+       articleUrl TEXT
+   );
+   ```
+
+4. To insert data into the tables, declare an SQL insert function:
+
+   ```text
+   insertLaunch:
+   INSERT INTO Launch(flightNumber, missionName, details, launchSuccess, launchDateUTC, patchUrlSmall, patchUrlLarge, articleUrl)
+   VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+   ```
+
+5. To clear data in the tables, declare an SQL delete function:
+
+   ```text
+   removeAllLaunches:
+   DELETE FROM Launch;
+   ```
+
+6. In the same way, declare a function to retrieve data:
+
+   ```text
+   selectAllLaunchesInfo:
+   SELECT Launch.*
+   FROM Launch;
+   ```
+
+After the project is compiled, the generated Kotlin code will be stored in the `shared/build/generated/sqldelight`
+directory. The generator will create an interface named `AppDatabase`, as specified in `build.gradle.kts`.
+
+### Create platform database drivers
+
+To initialize `AppDatabase`, pass an `SqlDriver` instance to it. SQLDelight provides multiple platform-specific
+implementations of the SQLite driver, so you need to create them for each platform separately. You can do this by using
+[expected and actual declarations](multiplatform-connect-to-apis.md).
+
+1. Create an abstract factory for database drivers. To do this, in `shared/src/commonMain/kotlin`, create
+   the `com.jetbrains.handson.kmm.shared.cache` package and the `DatabaseDriverFactory` class inside it:
+
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared.cache
+   
+   import com.squareup.sqldelight.db.SqlDriver
+
+   expect class DatabaseDriverFactory {
+       fun createDriver(): SqlDriver
+   }
+   ```
+
+   Now provide `actual` implementations for this expected class.
+
+2. On Android, the `AndroidSqliteDriver` class implements the SQLite driver. Pass the database information and the link
+   to the context to the `AndroidSqliteDriver` class constructor.
+
+   For this, in the `shared/src/androidMain/kotlin` directory, create the `com.jetbrains.handson.kmm.shared.cache`
+   package and a `DatabaseDriverFactory` class inside it with the actual implementation:
+
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared.cache
+   
+   import android.content.Context
+   import com.squareup.sqldelight.android.AndroidSqliteDriver
+   import com.squareup.sqldelight.db.SqlDriver
+   
+   actual class DatabaseDriverFactory(private val context: Context) {
+       actual fun createDriver(): SqlDriver {
+           return AndroidSqliteDriver(AppDatabase.Schema, context, "test.db")
+       }
+   }
+   ```
+
+3. On iOS, the SQLite driver implementation is the `NativeSqliteDriver` class. In the `shared/src/iosMain/kotlin`
+   directory, create a `com.jetbrains.handson.kmm.shared.cache` package and a `DatabaseDriverFactory` class inside it with
+   the actual implementation:
+
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared.cache
+   
+   import com.squareup.sqldelight.db.SqlDriver
+   import com.squareup.sqldelight.drivers.native.NativeSqliteDriver
+
+   actual class DatabaseDriverFactory {
+       actual fun createDriver(): SqlDriver {
+           return NativeSqliteDriver(AppDatabase.Schema, "test.db")
+       }
+   }
+   ```
+
+Instances of these factories will be created later in the code of your Android and iOS projects.
+
+You can navigate through the `expect` declarations and `actual` implementations by clicking the handy gutter icon:
+
+![Expect/Actual gutter](expect-actual-gutter.png){width=500}
+
+### Implement cache
+
+So far, you have added platform database drivers and an `AppDatabase` class to perform database operations. Now create
+a `Database` class, which will wrap the `AppDatabase` class and contain the caching logic.
+
+1. In the common source set `shared/src/commonMain/kotlin`, create a new `Database` class in
+   the `com.jetbrains.handson.kmm.shared.cache` package. It will be common to both platform logics.
+
+2. To provide a driver for `AppDatabase`, pass an abstract `DatabaseDriverFactory` to the `Database` class constructor:
+
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared.cache
+   
+   import com.jetbrains.handson.kmm.shared.entity.Links
+   import com.jetbrains.handson.kmm.shared.entity.Patch
+   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
+
+   internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
+       private val database = AppDatabase(databaseDriverFactory.createDriver())
+       private val dbQuery = database.appDatabaseQueries
+   }
+   ```
+
+   This class's [visibility](visibility-modifiers.md#class-members) is set to internal, which means it is only
+   accessible from within the multiplatform module.
+
+3. Inside the `Database` class, implement some data handling operations. Add a function to clear all the tables in the
+   database in a single SQL transaction:
+
+   ```kotlin
+   internal fun clearDatabase() {
+       dbQuery.transaction {
+           dbQuery.removeAllLaunches()
+       }
+    }
+   ```
+
+4. Create a function to get a list of all the rocket launches:
+
+   ```kotlin
+   import com.jetbrains.handson.kmm.shared.entity.Links
+   import com.jetbrains.handson.kmm.shared.entity.Patch
+   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
+
+   internal fun getAllLaunches(): List<RocketLaunch> {
+       return dbQuery.selectAllLaunchesInfo(::mapLaunchSelecting).executeAsList()
+   }
+   
+   private fun mapLaunchSelecting(
+       flightNumber: Long,
+       missionName: String,
+       details: String?,
+       launchSuccess: Boolean?,
+       launchDateUTC: String,
+       patchUrlSmall: String?,
+       patchUrlLarge: String?,
+       articleUrl: String?
+   ): RocketLaunch {
+       return RocketLaunch(
+           flightNumber = flightNumber.toInt(),
+           missionName = missionName,
+           details = details,
+           launchDateUTC = launchDateUTC,
+           launchSuccess = launchSuccess,
+           links = Links(
+               patch = Patch(
+                   small = patchUrlSmall,
+                   large = patchUrlLarge
+               ),
+               article = articleUrl
+           )
+       )
+   }
+   ```
+
+   The argument passed to `selectAllLaunchesInfo` is a function that maps the database entity class to another type,
+   which in this case is the `RocketLaunch` data model class.
+
+5. Add a function to insert data into the database:
+
+    ```kotlin
+    internal fun createLaunches(launches: List<RocketLaunch>) {
+        dbQuery.transaction {
+            launches.forEach { launch ->
+                insertLaunch(launch)
+            }
+        }
+    }
+    
+    private fun insertLaunch(launch: RocketLaunch) {
+        dbQuery.insertLaunch(
+            flightNumber = launch.flightNumber.toLong(),
+            missionName = launch.missionName,
+            details = launch.details,
+            launchSuccess = launch.launchSuccess ?: false,
+            launchDateUTC = launch.launchDateUTC,
+            patchUrlSmall = launch.links.patch?.small,
+            patchUrlLarge = launch.links.patch?.large,
+            articleUrl = launch.links.article
+        )
+    }
+    ```
+
+The `Database` class instance will be created later, along with the SDK facade class.
+
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+## Implement an API service
+
+To retrieve data over the internet, you'll need the [SpaceX public API](https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs)
+and a single method to retrieve the list of all launches from the `v5/launches` endpoint.
+
+Create a class that will connect the application to the API:
+
+1. In the common source set `shared/src/commonMain/kotlin`, create the `com.jetbrains.handson.kmm.shared.network`
+   package and the `SpaceXApi` class inside it:
+
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared.network
+
+   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
+   import io.ktor.client.*
+   import io.ktor.client.call.*
+   import io.ktor.client.plugins.contentnegotiation.*
+   import io.ktor.client.request.*
+   import io.ktor.serialization.kotlinx.json.*
+   import kotlinx.serialization.json.Json
+
+   class SpaceXApi {
+       private val httpClient = HttpClient {
+           install(ContentNegotiation) {
+               json(Json {
+                   ignoreUnknownKeys = true
+                   useAlternativeNames = false
+               })
+           }
+       }
+   }
+   ```
+
+    * This class executes network requests and deserializes JSON responses into entities from the `entity` package.
+      The Ktor `HttpClient` instance initializes and stores the `httpClient` property.
+    * This code uses the [Ktor `ContentNegotiation` plugin](https://ktor.io/docs/serialization-client.html)
+      to deserialize the `GET` request result. The plugin processes the request and the response payload as JSON,
+      serializing and deserializing them using a special serializer.
+
+2. Declare the data retrieval function that will return the list of `RocketLaunch`es:
+
+   ```kotlin
+   suspend fun getAllLaunches(): List<RocketLaunch> {
+       return httpClient.get("https://api.spacexdata.com/v5/launches").body()
+   }
+   ```
+
+   * The `getAllLaunches` function has the `suspend` modifier because it contains a call of the suspend function `get()`,
+     which includes an asynchronous operation to retrieve data over the internet and can only be called from a
+     coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.
+   * The URL is defined inside the `get()` function to send requests.
+
+### Add internet access permission
+
+To access the internet, the Android application needs the appropriate permission. Since all network requests are made
+from the shared module, adding the internet access permission to this module's manifest makes sense.
+
+In the `androidApp/src/main/AndroidManifest.xml` file, add the following permission to the manifest:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+</manifest>
+```
+
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+# Build an SDK
+
+Your iOS and Android applications will communicate with the SpaceX API through the shared module, which will provide a
+public class.
+
+1. In the `com.jetbrains.handson.kmm.shared` package of the common source set, create the `SpaceXSDK` class:
+
+   ```kotlin
+   package com.jetbrains.handson.kmm.shared
+   
+   import com.jetbrains.handson.kmm.shared.cache.Database
+   import com.jetbrains.handson.kmm.shared.cache.DatabaseDriverFactory
+   import com.jetbrains.handson.kmm.shared.network.SpaceXApi
+
+   class SpaceXSDK (databaseDriverFactory: DatabaseDriverFactory) {
+       private val database = Database(databaseDriverFactory)
+       private val api = SpaceXApi()
+   }
+   ```
+
+   This class will be the facade over the `Database` and `SpaceXApi` classes.
+
+2. To create a `Database` class instance, you'll need to provide the `DatabaseDriverFactory` platform instance to it, so
+   you'll inject it from the platform code through the `SpaceXSDK` class constructor.
+
+   ```kotlin
+   import com.jetbrains.handson.kmm.shared.entity.RocketLaunch
+   
+   @Throws(Exception::class)
+   suspend fun getLaunches(forceReload: Boolean): List<RocketLaunch> {
+       val cachedLaunches = database.getAllLaunches()
+       return if (cachedLaunches.isNotEmpty() && !forceReload) {
+           cachedLaunches
+       } else {
+           api.getAllLaunches().also {
+               database.clearDatabase()
+               database.createLaunches(it)
+           }
+       }
+   }
+   ```
+
+   * The class contains one function for getting all launch information. Depending on the value of `forceReload`, it
+     returns cached values or loads the data from the internet and then updates the cache with the results. If there is
+     no cached data, it loads the data from the internet independently of the `forceReload` flag’s value.
+   * Clients of your SDK could use a `forceReload` flag to load the latest information about the launches, which would
+     allow the user to use the pull-to-refresh gesture.
+   * To handle exceptions produced by the Ktor client in Swift, the function is marked with the `@Throws` annotation.
+
+   All Kotlin exceptions are unchecked, while Swift has only checked errors. Thus, to make your Swift code aware of expected
+   exceptions, Kotlin functions should be marked with the `@Throws` annotation specifying a list of potential exception
+   classes.
+
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+## Create the Android application
+
+The Kotlin Multiplatform Mobile plugin for Android Studio has already handled the configuration for you, so the Kotlin
+Multiplatform shared module is already connected to your Android application.
+
+Before implementing the UI and the presentation logic, add all the required dependencies to
+the `androidApp/build.gradle.kts`:
+
+```kotlin
+// ...
+dependencies {
+    implementation(project(":shared"))
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
+   implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+   implementation("androidx.cardview:cardview:1.0.0")
+}
+// ...
+```
+
+### Implement the UI: display the list of rocket launches
+
+1. To implement the UI, create the `layout/activity_main.xml` file in `androidApp/src/main/res`.
+
+   The screen is based on the `ConstraintLayout` with the `SwipeRefreshLayout` inside it, which contains `RecyclerView`
+   and `FrameLayout` with a background with a `ProgressBar` across its center:
+
+   ```xml
+   ```
+   {src="multiplatform-mobile-tutorial/activity_main.xml" initial-collapse-state="collapsed" collapsed-title="androidx.constraintlayout.widget.ConstraintLayout xmlns:android" lines="1-26"}
+
+2. In `androidApp/src/main/java`, replace the implementation of the `MainActivity` class, adding the properties for the
+   UI elements:
+
+   ```kotlin
+   class MainActivity : AppCompatActivity() {
+       private lateinit var launchesRecyclerView: RecyclerView
+       private lateinit var progressBarView: FrameLayout
+       private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+   
+       override fun onCreate(savedInstanceState: Bundle?) {
+           super.onCreate(savedInstanceState)
+   
+           title = "SpaceX Launches"
+           setContentView(R.layout.activity_main)
+   
+           launchesRecyclerView = findViewById(R.id.launchesListRv)
+           progressBarView = findViewById(R.id.progressBar)
+           swipeRefreshLayout = findViewById(R.id.swipeContainer)
+       }
+   }
+   ```
+
+3. For the `RecyclerView` element to work, you need to create an adapter (as a subclass of `RecyclerView.Adapter`) that
+   will convert raw data into list item views. To do this, create a separate `LaunchesRvAdapter` class:
+
+   ```kotlin
+   class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter<LaunchesRvAdapter.LaunchViewHolder>() {
+   
+       override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LaunchViewHolder {
+           return LayoutInflater.from(parent.context)
+               .inflate(R.layout.item_launch, parent, false)
+               .run(::LaunchViewHolder)
+       }
+   
+       override fun getItemCount(): Int = launches.count()
+   
+       override fun onBindViewHolder(holder: LaunchViewHolder, position: Int) {
+           holder.bindData(launches[position])
+       }
+   
+       inner class LaunchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+           // ...
+           fun bindData(launch: RocketLaunch) {
+               // ...
+           }
+       }
+   }
+   ```
+
+4. Create an `item_launch.xml` resource file in `androidApp/src/main/res/layout/` with the items view layout:
+
+   ```xml
+   ```
+   {src="multiplatform-mobile-tutorial/item_launch.xml" initial-collapse-state="collapsed" collapsed-title="androidx.cardview.widget.CardView xmlns:android" lines="1-28"}
+
+5. In `androidApp/src/main/res/values/`, either create your appearance of the app or copy the following styles:
+
+   <tabs>
+   <tab title="colors.xml">
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <resources>
+       <color name="colorPrimary">#37474f</color>
+       <color name="colorPrimaryDark">#102027</color>
+       <color name="colorAccent">#62727b</color>
+   
+       <color name="colorSuccessful">#4BB543</color>
+       <color name="colorUnsuccessful">#FC100D</color>
+       <color name="colorNoData">#615F5F</color>
+   </resources>
+   ```
+
+   </tab>
+   <tab title="strings.xml">
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <resources>
+       <string name="app_name">SpaceLaunches</string>
+   
+       <string name="successful">Successful</string>
+       <string name="unsuccessful">Unsuccessful</string>
+       <string name="no_data">No data</string>
+   
+       <string name="launch_year_field">Launch year: %s</string>
+       <string name="mission_name_field">Launch name: %s</string>
+       <string name="launch_success_field">Launch success: %s</string>
+       <string name="details_field">Launch details: %s</string>
+   </resources>
+   ```
+
+   </tab>
+   <tab title="styles.xml">
+
+   ```xml
+   <resources>
+       <!-- Base application theme. -->
+       <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+           <!-- Customize your theme here. -->
+           <item name="colorPrimary">@color/colorPrimary</item>
+           <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+           <item name="colorAccent">@color/colorAccent</item>
+       </style>
+   </resources>
+   ```
+
+   </tab>
+   </tabs>
+
+6. Complete the implementation of the `RecyclerView.Adapter`:
+
+   ```kotlin
+   class LaunchesRvAdapter(var launches: List<RocketLaunch>) : RecyclerView.Adapter<LaunchesRvAdapter.LaunchViewHolder>() {
+       // ...
+       inner class LaunchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+           private val missionNameTextView = itemView.findViewById<TextView>(R.id.missionName)
+           private val launchYearTextView = itemView.findViewById<TextView>(R.id.launchYear)
+           private val launchSuccessTextView = itemView.findViewById<TextView>(R.id.launchSuccess)
+           private val missionDetailsTextView = itemView.findViewById<TextView>(R.id.details)
+
+           fun bindData(launch: RocketLaunch) {
+               val ctx = itemView.context
+               missionNameTextView.text = ctx.getString(R.string.mission_name_field, launch.missionName)
+               launchYearTextView.text = ctx.getString(R.string.launch_year_field, launch.launchYear.toString())
+               missionDetailsTextView.text = ctx.getString(R.string.details_field, launch.details ?: "")
+               val launchSuccess = launch.launchSuccess
+               if (launchSuccess != null ) {
+                   if (launchSuccess) {
+                       launchSuccessTextView.text = ctx.getString(R.string.successful)
+                       launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorSuccessful)))
+                   } else {
+                       launchSuccessTextView.text = ctx.getString(R.string.unsuccessful)
+                       launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorUnsuccessful)))
+                   }
+               } else {
+                   launchSuccessTextView.text = ctx.getString(R.string.no_data)
+                   launchSuccessTextView.setTextColor((ContextCompat.getColor(itemView.context, R.color.colorNoData)))
+               }
+           }
+       }
+   }
+   ```
+
+7. Update the `MainActivity` class as follows:
+
+   ```kotlin
+   class MainActivity : AppCompatActivity() {
+       // ...
+       private val launchesRvAdapter = LaunchesRvAdapter(listOf())
+   
+       override fun onCreate(savedInstanceState: Bundle?) {
+           // ...
+           launchesRecyclerView.adapter = launchesRvAdapter
+           launchesRecyclerView.layoutManager = LinearLayoutManager(this)
+   
+           swipeRefreshLayout.setOnRefreshListener {
+               swipeRefreshLayout.isRefreshing = false
+               displayLaunches(true)
+           }
+   
+           displayLaunches(false)
+       }
+   
+       private fun displayLaunches(needReload: Boolean) {
+           // TODO: Presentation logic
+       }
+   }
+   ```
+
+   Here you create an instance of `LaunchesRvAdapter`, configure the `RecyclerView` component, and implement all the
+   `LaunchesListView` interface functions. To catch the screen refresh gesture, you add a listener to the `SwipeRefreshLayout`.
+
+### Implement the presentation logic
+
+1. Create an instance of the `SpaceXSDK` class from the shared module and inject an instance of `DatabaseDriverFactory` in
+   it:
+
+   ```kotlin
+   class MainActivity : AppCompatActivity() {
+       // ...
+       private val sdk = SpaceXSDK(DatabaseDriverFactory(this))
+   }
+   ```
+
+2. Implement the private function `displayLaunches(needReload: Boolean)`. It runs the `getLaunches()` function inside
+   the coroutine launched in the main `CoroutineScope`, handles exceptions, and displays the error text in the toast message:
+
+   ```kotlin
+   class MainActivity : AppCompatActivity() {
+       private val mainScope = MainScope()
+       // ...
+       override fun onDestroy() {
+           super.onDestroy()
+           mainScope.cancel()
+       }
+       // ...
+       private fun displayLaunches(needReload: Boolean) {
+           progressBarView.isVisible = true
+           mainScope.launch {
+               kotlin.runCatching {
+                   sdk.getLaunches(needReload)
+               }.onSuccess {
+                   launchesRvAdapter.launches = it
+                   launchesRvAdapter.notifyDataSetChanged()
+               }.onFailure {
+                   Toast.makeText(this@MainActivity, it.localizedMessage, Toast.LENGTH_SHORT).show()
+               }
+               progressBarView.isVisible = false
+           }
+       }
+   }
+   ```
+
+3. Select **androidApp** from the run configurations menu, choose an emulator, and click the run button:
+
+![Android application](android-application.png){width=350}
+
+You've just created an Android application that has its business logic implemented in the Kotlin Multiplatform Mobile
+module.
+
+> You can find the state of the project after this section [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+# Create the iOS application
+
+For the iOS part of the project, you'll make use of [SwiftUI](https://developer.apple.com/xcode/swiftui/) to build the user
+interface and the "Model View View-Model" pattern to connect the UI to the shared module, which contains all the business logic.
+
+The shared module is already connected to the iOS project because the Android Studio plugin wizard has done all the configuration.
+You can import it the same way you would regular iOS dependencies: `import shared`.
+
+### Implement the UI
+
+First, you'll create a `RocketLaunchRow` SwiftUI view for displaying an item from the list. It will be based on the `HStack`
+and `VStack` views. There will be extensions on the `RocketLaunchRow` structure with useful helpers for displaying the
+data.
+
+1. Launch your Xcode app and select **Open a project or file**.
+2. Navigate to your project and select the `iosApp` folder. Click **Open**.
+3. In your Xcode project, create a new Swift file with the type **SwiftUI View**, name it `RocketLaunchRow`, and update
+   it with the following code:
+
+   ```swift
+   import SwiftUI
+   import shared
+   
+   struct RocketLaunchRow: View {
+       var rocketLaunch: RocketLaunch
+   
+       var body: some View {
+           HStack() {
+               VStack(alignment: .leading, spacing: 10.0) {
+                   Text("Launch name: \(rocketLaunch.missionName)")
+                   Text(launchText).foregroundColor(launchColor)
+                   Text("Launch year: \(String(rocketLaunch.launchYear))")
+                   Text("Launch details: \(rocketLaunch.details ?? "")")
+               }
+               Spacer()
+           }
+       }
+   }
+   
+   extension RocketLaunchRow {
+       private var launchText: String {
+           if let isSuccess = rocketLaunch.launchSuccess {
+               return isSuccess.boolValue ? "Successful" : "Unsuccessful"
+           } else {
+               return "No data"
+           }
+       }
+   
+       private var launchColor: Color {
+           if let isSuccess = rocketLaunch.launchSuccess {
+               return isSuccess.boolValue ? Color.green : Color.red
+           } else {
+               return Color.gray
+           }
+       }
+   }
+   ```
+
+   The list of launches will be displayed in the `ContentView`, which the project wizard has already created.
+
+4. Create a `ViewModel` class for the `ContentView`, which will prepare and manage the data. Declare it as an extension
+   to the `ContentView`, as they are closely connected, and then add the following code to `ContentView.swift`:
+
+   ```swift
+   // ...
+   extension ContentView {
+       enum LoadableLaunches {
+           case loading
+           case result([RocketLaunch])
+           case error(String)
+       }
+       
+      @MainActor
+      class ViewModel: ObservableObject {
+          @Published var launches = LoadableLaunches.loading
+      }
+   }
+   ```
+
+    * The [Combine framework](https://developer.apple.com/documentation/combine) connects the view model (`ContentView.ViewModel`)
+      with the view (`ContentView`).
+    * `ContentView.ViewModel` is declared as an `ObservableObject` and `@Published` wrapper is used for the `launches`
+      property, so the view model will emit signals whenever this property changes.
+
+5. Implement the body of the `ContentView` file and display the list of launches:
+
+   ```swift
+   struct ContentView: View {
+    @ObservedObject private(set) var viewModel: ViewModel
+   
+        var body: some View {
+            NavigationView {
+                listView()
+                .navigationBarTitle("SpaceX Launches")
+                .navigationBarItems(trailing:
+                    Button("Reload") {
+                        self.viewModel.loadLaunches(forceReload: true)
+                })
+            }
+        }
+   
+        private func listView() -> AnyView {
+            switch viewModel.launches {
+            case .loading:
+                return AnyView(Text("Loading...").multilineTextAlignment(.center))
+            case .result(let launches):
+                return AnyView(List(launches) { launch in
+                    RocketLaunchRow(rocketLaunch: launch)
+                })
+            case .error(let description):
+                return AnyView(Text(description).multilineTextAlignment(.center))
+            }
+        }
+    }
+   ```
+
+   The `@ObservedObject` property wrapper is used to subscribe to the view model.
+
+6. To make it compile, the `RocketLaunch` class needs to confirm the `Identifiable` protocol, as it is used as a
+   parameter for initializing the `List` Swift UIView. The `RocketLaunch` class already has a property named `id`, so
+   add the following to the bottom of `ContentView.swift`:
+
+   ```Swift
+   extension RocketLaunch: Identifiable { }
+   ```
+
+### Load the data
+
+To retrieve the data about the rocket launches in the view model, you'll need an instance of `SpaceXSDK` from the Multiplatform
+library.
+
+1. In `ContentView.swift`, pass it in through the constructor:
+
+   ```swift
+   extension ContentView {
+       // ...
+       @MainActor
+       class ViewModel: ObservableObject {
+           let sdk: SpaceXSDK
+           @Published var launches = LoadableLaunches.loading
+   
+           init(sdk: SpaceXSDK) {
+               self.sdk = sdk
+               self.loadLaunches(forceReload: false)
+           }
+   
+           func loadLaunches(forceReload: Bool) {
+               // TODO: retrieve data
+           }
+       }
+   }
+   ```
+
+2. Call the `getLaunches()` function from the `SpaceXSDK` class and save the result in the `launches` property:
+   
+   ```Swift
+   func loadLaunches(forceReload: Bool) {
+       Task {
+           do {
+               self.launches = .loading
+               let launches = try await sdk.getLaunches(forceReload: forceReload)
+               self.launches = .result(launches)
+           } catch {
+               self.launches = .error(error.localizedDescription)
+           }
+       }
+   }
+   ```
+
+   * When you compile a Kotlin module into an Apple framework, [suspending functions](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c)
+     are available in it as Swift's `async`/`await` mechanism.
+   * Since the `getLaunches` function is marked with the `@Throws(Exception::class)` annotation, any exceptions that are
+     instances of the `Exception` class or its subclass will be propagated as `NSError`. Therefore, all such errors can
+     be caught by the `loadLaunches()` function.
+
+3. Go to the entry point of the app, `iOSApp.swift`, and initialize the SDK, view, and view model:
+
+   ```swift
+   import SwiftUI
+   import shared
+   
+   @main
+   struct iOSApp: App {
+       let sdk = SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory())
+       var body: some Scene {
+           WindowGroup {
+               ContentView(viewModel: .init(sdk: sdk))
+           }
+       }
+   }
+   ```
+
+4. In Android Studio, switch to the **iosApp** configuration, choose an emulator, and run it to see the result:
+
+![iOS Application](ios-application.png){width=350}
+
+> You can find the final version of the project [on the `final` branch](https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final).
+>
+{type="note"}
+
+## What's next?
+
+This tutorial features some potentially resource-heavy operations, like parsing JSON and making requests to the database in
+the main thread. To learn about how to write concurrent code and optimize your app,
+see [How to work with concurrency](multiplatform-mobile-concurrency-overview.md).
+
+You can also check out these additional learning materials:
+
+* [Use the Ktor HTTP client in multiplatform projects](https://ktor.io/docs/http-client-engines.html#mpp-config)
+* [Make your Android application work on iOS](multiplatform-mobile-integrate-in-existing-app.md)
+* [Introduce your team to Kotlin Multiplatform Mobile](multiplatform-mobile-introduce-your-team.md)
+
 
 # 📜 08.02. Kotlin Multiplatform for other platforms
 
-# 📜 08.02.1. [](multiplatform-get-started.md)
+# 📜 08.02.1. [Get started with Kotlin Multiplatform](multiplatform-get-started.md)
 
-# 📜 08.02.2. [](multiplatform-discover-project.md)
+    [//]: # (title: Get started with Kotlin Multiplatform)
+
+Learn how to create your first Kotlin cross-platform app or library benefiting from Kotlin Multiplatform.
+
+> Kotlin Multiplatform is in [Beta](components-stability.md). It is almost stable, but migration steps may be required
+> in the future. We'll do our best to minimize any changes you have to make.
+>
+{type="note"}
+
+Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the 
+same code for [different platforms](multiplatform-dsl-reference.md#targets) while retaining the flexibility and benefits of native programming.   
+
+Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
+
+## Start from scratch
+
+* [Create and publish a multiplatform library](multiplatform-library.md). Complete a project for JVM, web,
+  and native platforms, which can be used from any other common code (for example, shared with Android and iOS).
+  Learn how to write tests that can be executed on all platforms and use an efficient implementation provided by a specific platform.
+* [Get started with Kotlin Multiplatform for mobile](multiplatform-mobile-getting-started.md). Create your first cross-platform 
+  application that works on Android and iOS with the help of the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+  Learn how to create, run, and add dependencies to multiplatform mobile applications.
+* [Share UIs between iOS and Android](https://github.com/JetBrains/compose-multiplatform-ios-android-template/#readme).
+  Create a Kotlin Multiplatform application that uses the [Compose Multiplatform UI framework](https://www.jetbrains.com/lp/compose-multiplatform/)
+  for sharing UIs between iOS and Android.
+
+## Dive deep into Kotlin Multiplatform
+
+Once you have gained some experience with Kotlin Multiplatform and want to know how to solve particular cross-platform development tasks:
+
+* [Share code on platforms](multiplatform-share-on-platforms.md) in your Kotlin Multiplatform project.
+* [Connect to platform-specific APIs](multiplatform-connect-to-apis.md) using the Kotlin mechanism of expected and actual declarations.
+* [Set up targets manually](multiplatform-set-up-targets.md) for your Kotlin Multiplatform project.
+* [Add dependencies](multiplatform-add-dependencies.md) on the standard, test, or another kotlinx library.
+* [Configure compilations](multiplatform-configure-compilations.md) for production and test purposes in your project.
+* [Create and run tests](multiplatform-run-tests.md) for JVM, JavaScript, Android, Linux, Windows, macOS, iOS, watchOS, and tvOS simulators.
+* [Publish a multiplatform library](multiplatform-publish-lib.md) to the Maven repository.
+* [Build native binaries](multiplatform-build-native-binaries.md) as executables or shared libraries, like universal frameworks or XCFrameworks.
+
+## Get help
+
+* **Kotlin Slack**: Get an [invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channel
+* **StackOverflow**: Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform)
+* **Kotlin issue tracker**: [Report a new issue](https://youtrack.jetbrains.com/newIssue?project=KT)
+
+# 📜 08.02.2. [Understand Multiplatform project structure](multiplatform-discover-project.md)
+
+    [//]: # (title: Understand Multiplatform project structure)
+
+Discover main parts of your multiplatform project:
+
+* [Multiplatform plugin](#multiplatform-plugin)
+* [Targets](#targets)
+* [Source sets](#source-sets)
+* [Compilations](#compilations)
+
+## Multiplatform plugin
+
+When you [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically applies the `kotlin-multiplatform` Gradle 
+plugin in the file `build.gradle(.kts`).
+
+You can also apply it manually.
+
+>The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later. 
+>
+{type="note"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "1.9.10"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
+}
+```
+
+</tab>
+</tabs>
+
+The `kotlin-multiplatform` plugin configures the project for creating an application or library to work on multiple platforms 
+and prepares it for building on these platforms. 
+
+In the file `build.gradle(.kts`), it creates the `kotlin` extension at the top level, which includes 
+configuration for [targets](#targets), [source sets](#source-sets), and dependencies.
+
+## Targets
+
+A multiplatform project is aimed at multiple platforms that are represented by different targets. A target is part of the 
+build that is responsible for building, testing, and packaging the application for a specific platform, such as macOS, 
+iOS, or Android. See the list of [supported platforms](multiplatform-dsl-reference.md#targets).
+
+When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle(.kts`).
+
+```kotlin
+kotlin {
+    jvm()
+    js(IR) {
+        browser {}
+    }
+ }
+```
+
+Learn how to [set up targets manually](multiplatform-set-up-targets.md).
+
+## Source sets
+
+The project includes the directory `src` with Kotlin source sets, which are collections of Kotlin code files, along with 
+their resources, dependencies, and language settings. A source set can be used in Kotlin compilations for one or more 
+target platforms. 
+
+Each source set directory includes Kotlin code files (the `kotlin` directory) and `resources`. The Project Wizard creates 
+default source sets for the `main` and `test` compilations of the common code and all added targets. 
+
+![Source sets](source-sets.png){width=300}
+
+> Source set names are case-sensitive.
+>
+{type="note"}
+
+Source sets are added to the `sourceSets` block of the top-level `kotlin` block. For example, this is the source sets
+structure you get when creating a multiplatform library with the IntelliJ IDEA project wizard:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+        val jvmMain by getting
+        val jvmTest by getting
+        val jsMain by getting
+        val jsTest by getting
+        val nativeMain by getting
+        val nativeTest by getting
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+
+        }
+        commonTest {
+            dependencies {
+                implementation kotlin('test')
+            }
+        }
+        jvmMain {
+
+        }
+        jvmTest {
+
+        }
+        jsMain {
+
+        }
+        jsTest {
+
+        }
+        nativeMain {
+
+        }
+        nativeTest {
+
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Source sets form a hierarchy, which is used for sharing the common code. In a source set shared among several targets, 
+you can use the platform-specific language features and dependencies that are available for all these targets.
+
+For example, all Kotlin/Native features are available in the `desktopMain` source set, which targets the Linux (`linuxX64`), 
+Windows (`mingwX64`), and macOS (`macosX64`) platforms.
+
+![Hierarchical structure](manual-hierarchical-structure.png)
+
+Learn how to [build the hierarchy of source sets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
+
+## Compilations
+
+Each target can have one or more compilations, for example, for production and test purposes.
+
+For each target, default compilations include:
+
+*   `main` and `test` compilations for JVM, JS, and Native targets.
+*   A compilation per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets.
+
+![Compilations](compilations.png)
+
+Each compilation has a default source set, which contains sources and dependencies specific to that compilation.
+
+Learn how to [configure compilations](multiplatform-configure-compilations.md). 
 
 # 📜 08.02.3. [Set up targets manually](multiplatform-set-up-targets.md)
 
-# 📜 08.02.4. [](multiplatform-full-stack-app.md)
+    [//]: # (title: Set up targets for Kotlin Multiplatform)
+
+You can add targets when [creating a project with the Project Wizard](multiplatform-library.md). If you need to add a target 
+later, you can do this manually using target presets for [supported platforms](multiplatform-dsl-reference.md#targets).
+
+Learn more about [additional settings for targets](multiplatform-dsl-reference.md#common-target-configuration).
+
+```kotlin
+kotlin {
+    jvm() // Create a JVM target with the default name 'jvm'
+        
+    linuxX64() {
+        /* Specify additional settings for the 'linux' target here */
+    }
+}
+```
+
+Each target can have one or more [compilations](multiplatform-configure-compilations.md). In addition to default compilations for
+test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
+
+## Distinguish several targets for one platform
+
+You can have several targets for one platform in a multiplatform library. For example, these targets can provide the same 
+API but use different libraries during runtime, such as testing frameworks and logging solutions. Dependencies on such 
+a multiplatform library may fail to resolve because it isn't clear which target to choose.
+
+To solve this, mark the targets on both the library author and consumer sides with a custom attribute, which Gradle uses 
+during dependency resolution.
+ 
+For example, consider a testing library that supports both JUnit and TestNG in the two targets. The library author needs 
+to add an attribute to both targets as follows:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+val testFrameworkAttribute = Attribute.of("com.example.testFramework", String::class.java)
+
+kotlin {
+    jvm("junit") {
+        attributes.attribute(testFrameworkAttribute, "junit")
+    }
+    jvm("testng") {
+        attributes.attribute(testFrameworkAttribute, "testng")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+def testFrameworkAttribute = Attribute.of('com.example.testFramework', String)
+
+kotlin {
+    jvm('junit') {
+        attributes.attribute(testFrameworkAttribute, 'junit')
+    }
+    jvm('testng') {
+        attributes.attribute(testFrameworkAttribute, 'testng')
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The consumer has to add the attribute to a single target where the ambiguity arises.
+
+# 📜 08.02.4. [Build a full-stack web app with Kotlin Multiplatform](multiplatform-full-stack-app.md)
+
+    [//]: # (title: Build a full-stack web app with Kotlin Multiplatform)
+
+This tutorial demonstrates how to build a connected full-stack application with IntelliJ IDEA. You will create a simple
+JSON API and learn how to use the API from a web app using Kotlin and React.
+
+The application consists of a server part using Kotlin/JVM and a web client using Kotlin/JS. Both parts will be one
+Kotlin Multiplatform project. Since the whole app will be in Kotlin, you can share libraries and programming paradigms
+(such as using Coroutines for concurrency) on both the frontend and backend.
+
+Using Kotlin throughout the whole stack also makes it possible to write classes and functions that can be used from both
+the JVM and JS targets of your application. In this tutorial, you'll primarily utilize this functionality to share a
+type-safe representation of the data between client and server.
+
+You will also use popular Kotlin multiplatform libraries and frameworks:
+
+* [`kotlinx.serialization`](https://github.com/Kotlin/kotlinx.serialization)
+* [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines)
+* The [Ktor](https://ktor.io/) framework
+
+Serialization and deserialization to and from type-safe objects is delegated to the `kotlinx.serialization`
+multiplatform library. This helps you make data communication safe and easy to implement.
+
+The output will be a simple shopping list application that allows you to plan your grocery shopping.
+
+* The user interface will be simple: a list of planned purchases and a field to enter new shopping items.
+* If a user clicks on an item in the shopping list, it will be removed.
+* The user can also specify a priority level for list entries by adding an exclamation point `!`. This information will
+  help order the shopping list.
+
+> For this tutorial, you are expected to have an understanding of Kotlin. Some knowledge about basic concepts in React
+> and Kotlin coroutines may help understand some sample code, but it is not strictly required.
+>
+{type="tip"}
+
+## Create the project
+
+Clone the [project repository](https://github.com/kotlin-hands-on/jvm-js-fullstack) from GitHub and open it in IntelliJ
+IDEA. This template already includes all of the configuration and required dependencies for all of the project parts: JVM, JS, and
+the common code.
+
+You don't need to change the Gradle configuration throughout this tutorial. If you want to get right to programming,
+feel free to move on directly to the [next section](#build-the-backend).
+
+Alternatively, you can get an understanding of the configuration and project setup in the `build.gradle.kts` file to
+prepare for other projects. Check out the sections about the Gradle structure below.
+
+#### Plugins
+
+Like all Kotlin projects targeting more than one platform, your project uses the Kotlin Multiplatform Gradle plugin. It
+provides a single point of configuration for the application targets (in this case, Kotlin/JVM and Kotlin/JS) and
+exposes several lifecycle tasks for them.
+
+Additionally, you'll need two more plugins:
+
+* The [`application`](https://docs.gradle.org/current/userguide/application_plugin.html) plugin runs the server part of
+  the application that uses JVM.
+* The [`serialization`](https://github.com/Kotlin/kotlinx.serialization#gradle) plugin provides multiplatform
+  conversions between Kotlin objects and their JSON text representation.
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "1.9.10"
+    application // to run the JVM part
+    kotlin("plugin.serialization") version "1.9.10"
+}
+```
+
+#### Targets
+
+The target configuration inside the `kotlin` block is responsible for setting up the platforms you want to support with
+your project. Configure two targets: `jvm` (server) and `js` (client). Here you'll make further adjustments to target
+configurations.
+
+```kotlin
+jvm {
+    withJava()
+}
+js {
+    browser {
+        binaries.executable()
+    }
+}
+```
+
+For more detailed information on targets, see [Understand Multiplatform project structure](multiplatform-discover-project.md#targets).
+
+#### Source sets
+
+Kotlin source sets are a collection of Kotlin sources and their resources, dependencies, and language settings that
+belong to one or more targets. You use them to set up platform-specific and common dependency blocks.
+
+```kotlin
+sourceSets {
+    val commonMain by getting {
+        dependencies {
+            // ...
+        }
+    }
+    val jvmMain by getting {
+        dependencies {
+            // ...
+        }
+    }
+    val jsMain by getting {
+        dependencies {
+            // ...
+        }
+    }
+}
+```
+
+Each source set also corresponds to a folder in the `src` directory. In your project, there are three
+folders, `commonMain`, `jsMain`, and `jvmMain`, which contain their own `resources` and `kotlin` folders.
+
+For detailed information on source sets, see [Understand Multiplatform project structure](multiplatform-discover-project.md#source-sets).
+
+## Build the backend
+
+Let's begin by writing the server side of the application. The typical API server implements
+the [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) – create, read, update, and delete.
+For the simple shopping list, you can focus solely on:
+
+* Creating new entries in the list
+* Reading entries using the API
+* Deleting entries
+
+To create the backend, you can use the Ktor framework, designed to build asynchronous servers and clients in connected
+systems. It can be set up quickly and grow as systems become more complex.
+
+You can find more information about Ktor in its [documentation](https://ktor.io/docs/welcome.html).
+
+### Run the embedded server
+
+Instantiate a server with Ktor. You need to tell
+the [embedded server](https://ktor.io/docs/create-server.html#embedded-server) that ships with Ktor to use the `Netty`
+engine on a port, in this case, `9090`.
+
+1. To define the entry point for the app, add the following code to `src/jvmMain/kotlin/Server.kt`:
+
+    ```kotlin
+    import io.ktor.http.*
+    import io.ktor.serialization.kotlinx.json.*
+    import io.ktor.server.engine.*
+    import io.ktor.server.netty.*
+    import io.ktor.server.application.*
+    import io.ktor.server.plugins.compression.*
+    import io.ktor.server.plugins.contentnegotiation.*
+    import io.ktor.server.plugins.cors.routing.*
+    import io.ktor.server.request.*
+    import io.ktor.server.response.*
+    import io.ktor.server.http.content.*
+    import io.ktor.server.routing.*
+    
+    fun main() {
+        embeddedServer(Netty, 9090) {
+            routing {
+                get("/hello") {
+                    call.respondText("Hello, API!")
+                }
+            }
+        }.start(wait = true)
+    }
+    ```
+
+    * The first API endpoint is an HTTP method, `get`, and the route under which it should be reachable, `/hello`.
+    * All imports that are needed for the rest of the tutorial have already been added.
+
+2. To start the application and see that everything works, execute the Gradle `run` task. You can use
+   the `./gradlew run` command in the terminal or run from the Gradle tool window:
+
+    ![Execute the Gradle run task](gradle-run-task.png){width=700}
+
+3. Once the application has finished compiling and the server has started up, use a web browser to navigate
+   to [`http://localhost:9090/hello`](http://localhost:9090/hello) to see the first route in action:
+
+    ![Hello, API output](hello-api-output.png){width=500}
+
+Later, like with the endpoint for GET requests to `/hello`, you'll be able to configure all of the endpoints for the API inside
+the [`routing`](https://ktor.io/docs/routing-in-ktor.html) block.
+
+### Install Ktor plugins
+
+Before continuing with the application development, install the required [plugins](https://ktor.io/docs/plugins.html) for the
+embedded servers. Ktor uses plugins to enable support for more features in the application like encoding, compression,
+logging, and authentication.
+
+Add the following lines to the top of the `embeddedServer` block in `src/jvmMain/kotlin/Server.kt`:
+
+```kotlin
+install(ContentNegotiation) {
+    json()
+}
+install(CORS) {
+    allowMethod(HttpMethod.Get)
+    allowMethod(HttpMethod.Post)
+    allowMethod(HttpMethod.Delete)
+    anyHost()
+}
+install(Compression) {
+    gzip()
+}
+routing {
+    // ...
+}
+```
+
+Each call to `install` adds one feature to the Ktor application:
+
+* [`ContentNegotiation`](https://ktor.io/docs/serialization.html) provides automatic content conversion of requests
+  based on their `Content-Type` and `Accept` headers. Together with the `json()` setting, this enables automatic
+  serialization and deserialization to and from JSON, allowing you to delegate this task to the framework.
+* [`CORS`](https://ktor.io/docs/cors.html)
+  configures [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). CORS is needed to
+  make calls from arbitrary JavaScript clients and helps prevent issues later.
+* [`Compression`](https://ktor.io/docs/compression.html) greatly reduces the amount of data to be sent to the client
+  by gzipping outgoing content when applicable.
+
+#### Related Gradle configuration for Ktor
+
+The artifacts required to use Ktor are a part of the `jvmMain` `dependencies` block in the `build.gradle.kts` file. This
+includes the server, logging, and supporting libraries for providing type-safe serialization support
+through `kotlinx.serialization`.
+
+```kotlin
+val jvmMain by getting {
+    dependencies {
+        implementation("io.ktor:ktor-serialization:$ktorVersion")
+        implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+        implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+        implementation("io.ktor:ktor-server-cors:$ktorVersion")
+        implementation("io.ktor:ktor-server-compression:$ktorVersion")
+        implementation("io.ktor:ktor-server-core-jvm:$ktorVersion")
+        implementation("io.ktor:ktor-server-netty:$ktorVersion")
+        implementation("ch.qos.logback:logback-classic:$logbackVersion")
+        implementation("org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion")
+    }
+}
+```
+
+`kotlinx.serialization` and its integration with Ktor also requires a few common artifacts to be present, which you can
+find in the `commonMain` source set:
+
+```kotlin
+val commonMain by getting {
+    dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+        implementation("io.ktor:ktor-client-core:$ktorVersion")
+    }
+}
+```
+
+### Create a data model
+
+Thanks to Kotlin Multiplatform, you can define the data model once as a common abstraction and refer to it from both the
+backend and frontend.
+
+The data model for `ShoppingListItem` should have:
+
+* A textual description of an item
+* A numeric priority for an item
+* An identifier
+
+In `src/commonMain/`, create a `kotlin/ShoppingListItem.kt` file with the following content:
+
+```kotlin
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class ShoppingListItem(val desc: String, val priority: Int) {
+    val id: Int = desc.hashCode()
+
+    companion object {
+        const val path = "/shoppingList"
+    }
+}
+```
+
+* The `@Serializable` annotation comes from the multiplatform `kotlinx.serialization` library, which allows you to define
+  models directly in common code.
+* Once you use this serializable `ShoppingListItem` class from the JVM and JS platforms, code for each platform will be
+  generated. This code takes care of serialization and deserialization.
+* The `companion object` stores additional information about the model − in this case, the `path` under which you will
+  be able to access it in the API. By referring to this variable instead of defining routes and requests as strings, you
+  can change the `path` to model operations. Any changes to the endpoint name only need to be made here - the client and
+  server are adjusted automatically.
+
+> This sample computes a simple `id` from the `hashCode()` of its description. In this case, that's enough, but when working
+> with real data, it would be preferable to include tried and tested mechanisms to generate identifiers for your objects –
+> from [UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier) to auto-incrementing IDs backed by the database of your choice.
+>
+{type="tip"}
+
+### Add items to store
+
+You can now use the `ShoppingListItem` model to instantiate some sample items and keep track of any additions or
+deletions made through the API.
+
+Because there's currently no database, create a `MutableList` to temporarily store the `ShoppingListItem`s. For that,
+add the following file-level declaration to `src/jvmMain/kotlin/Server.kt`:
+
+```kotlin
+val shoppingList = mutableListOf(
+    ShoppingListItem("Cucumbers 🥒", 1),
+    ShoppingListItem("Tomatoes 🍅", 2),
+    ShoppingListItem("Orange Juice 🍊", 3)
+)
+```
+
+The `common` classes are referred to as any other class in Kotlin – they are shared between all of the targets.
+
+### Create routes for the JSON API
+
+Add the routes that support the creation, retrieval, and deletion of `ShoppingListItem`s.
+
+1. Inside `src/jvmMain/kotlin/Server.kt`, change your `routing` block to look as follows:
+
+    ```kotlin
+    routing {
+        route(ShoppingListItem.path) {
+            get {
+                call.respond(shoppingList)
+            }
+            post {
+                shoppingList += call.receive<ShoppingListItem>()
+                call.respond(HttpStatusCode.OK)
+            }
+            delete("/{id}") {
+                val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
+                shoppingList.removeIf { it.id == id }
+                call.respond(HttpStatusCode.OK)
+            }
+        }
+    }
+    ```
+
+    Routes are grouped based on a common path. You don't have to specify the `route` path as a `String`. Instead,
+    the `path` from the `ShoppingListItem` model is used. The code behaves as follows:
+    * A `get` request to the model's path (`/shoppingList`) responds with the whole shopping list.
+    * A `post` request to the model's path (`/shoppingList`) adds an entry to the shopping list.
+    * A `delete` request to the model's path and a provided `id` (`shoppingList/47`) removes an entry from the
+      shopping list.
+
+    > You can receive objects directly from requests and respond to requests with objects (and even lists of
+    > objects) directly. Because you've set up `ContentNegotiation` with `json()` support earlier, the objects marked
+    > as `@Serializable` are automatically turned into JSON before being sent (in case of a GET request) or received
+    > (in case of a POST request).
+    >
+    {type="note"}
+
+2. Check to ensure that everything is working as planned. Restart the application, head
+   to [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList), and validate that the data is properly
+   served. You should see the example items in JSON formatting:
+
+    ![Shopping list in JSON formatting](shopping-list-json.png){width=500}
+
+To test the `post` and `delete` requests, use an HTTP client that supports `.http` files. If you're
+using IntelliJ IDEA Ultimate Edition, you can do this right from the IDE.
+
+1. In the project root, create a file called `AddShoppingListElement.http` and add a declaration of the HTTP POST request as follows:
+
+    ```http
+    POST http://localhost:9090/shoppingList
+    Content-Type: application/json
+    
+    {
+      "desc": "Peppers 🌶",
+      "priority": 5
+    }
+    ```
+
+2. With the server running, execute the request using the run button in the gutter.
+
+   If everything goes well, the "run" tool window should show `HTTP/1.1 200 OK`, and you can
+   visit [`http://localhost:9090/shoppingList`](http://localhost:9090/shoppingList) again to validate that the entry has been
+   added properly:
+
+    ![Successful connection to localhost](connection-to-localhost.png){width=700}
+
+3. Repeat this process for a file called `DeleteShoppingListElement.http`, which contains the following:
+
+    ```http
+    DELETE http://localhost:9090/shoppingList/AN_ID_GOES_HERE
+    ```
+
+   To try this request, replace `AN_ID_GOES_HERE` with an existing ID.
+
+Now you have a backend that can support all of the necessary operations for a functional shopping list. Move on to building a
+JavaScript frontend for the application, which will allow users to easily inspect, add, and check off elements from
+their shopping list.
+
+## Set up the frontend
+
+To make your version of the server usable, build a small Kotlin/JS web app that can query the server's API, display them
+in the form of a list, and allow the user to add and remove elements.
+
+### Serve the frontend
+
+Unless explicitly configured otherwise, a Kotlin Multiplatform project just means that you can build the application for
+each platform, in this case JVM and JavaScript. However, for the application to function properly, you need to have
+both the backend and the frontend compiled. In fact, you want the backend to also serve all of the assets belonging to the
+frontend – an HTML page and the corresponding `.js` file.
+
+In the template project, the adjustments to the Gradle file have already been made.
+Whenever you run the server with the `run` Gradle task, the frontend is also built and included in the resulting
+artifacts. To learn more about how this works, see the [Relevant Gradle configuration](#relevant-gradle-configuration-for-the-frontend)
+section.
+
+The template already comes with a boilerplate `index.html` file in the `src/commonMain/resources/static` folder. It has
+a `root` node for rendering components and a `script` tag that includes the application:
+
+```xml
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Full Stack Shopping List</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="shoppinglist.js"></script>
+    </body>
+</html>
+```
+{validate="false"}
+
+This file is placed in the `common` resources instead of a `jvm` source set to make tasks for running the JS application
+in the browser (`jsBrowserDevelopmentRun` and `jsBrowserProductionRun`) accessible to the file as well. It's helpful if
+you need to run only the browser application without the backend.
+
+While you don't need to make sure that the file is properly available on the server, you still need to instruct Ktor to
+provide the `.html` and `.js` files to the browser when requested.
+
+#### Relevant Gradle configuration for the frontend
+
+The Gradle configuration for the application contains a snippet that makes the execution and packaging of the
+server-side JVM application dependent on the build of your frontend application while respecting the settings
+regarding `development` and `production` from the environment variable. It makes sure that whenever a `jar` file is
+built from the application, it includes the Kotlin/JS code:
+
+```kotlin
+// include JS artifacts in any generated JAR
+tasks.getByName<Jar>("jvmJar") {
+    val taskName = if (project.hasProperty("isProduction")
+        || project.gradle.startParameter.taskNames.contains("installDist")
+    ) {
+        "jsBrowserProductionWebpack"
+    } else {
+        "jsBrowserDevelopmentWebpack"
+    }
+    val webpackTask = tasks.getByName<KotlinWebpack>(taskName)
+    dependsOn(webpackTask)
+    from(webpackTask.map { it.mainOutputFile.get().asFile }) // bring output file along into the JAR
+    into("static")
+}
+```
+
+The `jvmJar` task modified here is called by the `application` plugin, which is responsible for the `run` task, and
+the `distributions` plugin, which is responsible for the `installDist` task, amongst others. This means that the
+combined build will work when you `run` your application, and also when you prepare it for deployment to another target
+system or cloud platform.
+
+To ensure that the `run` task properly recognizes the JS artifacts, the classpath is adjusted as follows:
+
+```kotlin
+tasks.getByName<JavaExec>("run") {
+    classpath(tasks.getByName<Jar>("jvmJar")) // so that the JS artifacts generated by `jvmJar` can be found and served
+}
+```
+
+### Serve HTML and JavaScript files from Ktor
+
+For simplicity, the `index.html` file will be served on the root route `/` and expose the JavaScript artifact in the
+root directory.
+
+1. In `src/jvmMain/kotlin/Server.kt`, add the corresponding routes to the `routing` block:
+
+    ```kotlin
+    staticResources("/", "static")
+    route(ShoppingListItem.path) {
+        // ...
+    }
+    ```
+
+2. To confirm that everything went as planned, run the application again with the Gradle `run` task.
+3. Navigate to [`http://localhost:9090/`](http://localhost:9090/). You should see a page saying "Hello, Kotlin/JS":
+
+    ![Hello, Kotlin/JS output](hello-kotlin-js-output.png){width=500}
+
+### Edit configuration
+
+While you are developing, the build system generates _development_ artifacts. This means that no optimizations are
+applied when the Kotlin code is turned into JavaScript. That makes compile times faster but also results in larger JS
+files. When you deploy your application to the web, this is something you want to avoid.
+
+To instruct Gradle to generate optimized production assets, set the necessary environment
+variable. If you are running your application on a deployment system, you can
+configure it to set this environment variable during the build. If you want to try out production mode locally, you can
+do it in the terminal or by adding the variable to the run configuration:
+
+1. In IntelliJ IDEA, select the **Edit Configurations** action:
+
+    ![Edit run configuration in IntelliJ IDEA](edit-run-configurations.png){width=700}
+
+2. In the **Run/Debug Configurations** menu, set the environment variable:
+
+    ```none
+    ORG_GRADLE_PROJECT_isProduction=true
+    ```
+
+    ![Set the environment variable](set-environment-variable.png){width=700}
+
+Subsequent builds with this run configuration will perform all available optimizations for the frontend part of the
+application, including eliminating dead code. They will still be slower than development builds, so it would be good to
+remove this flag again while you are developing.
+
+## Build the frontend
+
+To render and manage user interface elements, use the popular framework [React](https://reactjs.org/) together with the
+available [wrappers](https://github.com/JetBrains/kotlin-wrappers/) for Kotlin. Setting up a full project with React
+will allow you to re-use it and its configuration as a starting point for more complex multiplatform
+applications.
+
+For a more in-depth view of typical workflows and how apps are developed with React and Kotlin/JS, see
+the [Build a web application with React and Kotlin/JS](js-react.md) tutorial.
+
+### Write the API client
+
+To display data, you need to obtain it from the server. For this, build a small API client.
+
+This API client will use the [`ktor-clients`](https://ktor.io/clients/index.html) library to send requests to HTTP
+endpoints. Ktor clients use Kotlin's coroutines to provide non-blocking networking and support plugins like the Ktor
+server.
+
+In this configuration, the `JsonFeature` uses `kotlinx.serialization` to provide a way to create typesafe HTTP requests.
+It takes care of automatically converting between Kotlin objects and their JSON representation and vice versa.
+
+By leveraging these properties, you can create an API wrapper as a set of suspending functions that either accept or
+return `ShoppingItems`. Create a file called `Api.kt` and implement them in `src/jsMain/kotlin`:
+
+```kotlin
+import io.ktor.http.*
+import io.ktor.client.*
+import io.ktor.client.call.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.request.*
+import io.ktor.serialization.kotlinx.json.*
+
+val jsonClient = HttpClient {
+    install(ContentNegotiation) {
+        json()
+    }
+}
+
+suspend fun getShoppingList(): List<ShoppingListItem> {
+    return jsonClient.get(ShoppingListItem.path).body()
+}
+
+suspend fun addShoppingListItem(shoppingListItem: ShoppingListItem) {
+    jsonClient.post(ShoppingListItem.path) {
+        contentType(ContentType.Application.Json)
+        setBody(shoppingListItem)
+    }
+}
+
+suspend fun deleteShoppingListItem(shoppingListItem: ShoppingListItem) {
+    jsonClient.delete(ShoppingListItem.path + "/${shoppingListItem.id}")
+}
+```
+
+### Build the user interface
+
+You've laid the groundwork on the client and have a clean API to access the data provided by the server. Now you can
+work on displaying the shopping list on the screen in a React application.
+
+#### Configure an entry point for the application
+
+Instead of rendering a simple "Hello, Kotlin/JS" string, make the application render a functional `App` component. For
+that, replace the content inside `src/jsMain/kotlin/Main.kt` with the following:
+
+```kotlin
+import web.dom.document
+import react.create
+import react.dom.client.createRoot
+
+fun main() {
+    val container = document.getElementById("root") ?: error("Couldn't find container!")
+    createRoot(container).render(App.create())
+}
+```
+
+#### Build and render the shopping list
+
+Next, implement the `App` component. For the shopping list application, it needs to:
+
+* Keep the "local state" of the shopping list to understand which elements to display.
+* Load the shopping list elements from the server and set the state accordingly.
+* Provide React with instructions on how to render the list.
+
+Based on these requirements, you can implement the `App` component as follows:
+
+1. Create and fill the `src/jsMain/kotlin/App.kt` file:
+
+    ```kotlin
+    import react.*
+    import kotlinx.coroutines.*
+    import react.dom.html.ReactHTML.h1
+    import react.dom.html.ReactHTML.li
+    import react.dom.html.ReactHTML.ul
+    
+    private val scope = MainScope()
+    
+    val App = FC<Props> {
+        var shoppingList by useState(emptyList<ShoppingListItem>())
+    
+        useEffectOnce {
+            scope.launch {
+                shoppingList = getShoppingList()
+            }
+        }
+    
+        h1 {
+            +"Full-Stack Shopping List"
+        }
+        ul {
+            shoppingList.sortedByDescending(ShoppingListItem::priority).forEach { item ->
+                li {
+                    key = item.toString()
+                    +"[${item.priority}] ${item.desc} "
+                }
+            }
+        }
+    }
+    ```
+
+    * Here, the Kotlin DSL is used to define the HTML representation of the application.
+    * `launch` is used to obtain the list of `ShoppingListItem`s from the API when the component is first initialized.
+    * The React hooks `useEffectOnce` and `useState` help you use React's functionality concisely. For more information on how
+      React hooks work, check out the [official React documentation](https://reactjs.org/docs/hooks-overview.html). To learn
+      more about React with Kotlin/JS, see the [Build a web application with React and Kotlin/JS](js-react.md) tutorial.
+2. Start the application using the Gradle `run` task.
+3. Navigate to [`http://localhost:9090/`](http://localhost:9090/) to see the list:
+
+    ![New shopping list rendering](new-shopping-list-rendering.png){width=500}
+
+#### Add an input field component
+
+Next, allow users to add new entries to the shopping list using a text input field. You'll need an input component that
+provides a callback when users submit their entry to the shopping list to receive input.
+
+1. Create the `src/jsMain/kotlin/InputComponent.kt` file and fill it with the following definition:
+
+    ```kotlin
+    import web.html.HTMLFormElement
+    import react.*
+    import web.html.HTMLInputElement
+    import react.dom.events.ChangeEventHandler
+    import react.dom.events.FormEventHandler
+    import web.html.InputType
+    import react.dom.html.ReactHTML.form
+    import react.dom.html.ReactHTML.input
+    
+    external interface InputProps : Props {
+        var onSubmit: (String) -> Unit
+    }
+    
+    val inputComponent = FC<InputProps> { props ->
+        val (text, setText) = useState("")
+    
+        val submitHandler: FormEventHandler<HTMLFormElement> = {
+            it.preventDefault()
+            setText("")
+            props.onSubmit(text)
+        }
+    
+        val changeHandler: ChangeEventHandler<HTMLInputElement> = {
+            setText(it.target.value)
+        }
+    
+        form {
+            onSubmit = submitHandler
+            input {
+                type = InputType.text
+                onChange = changeHandler
+                value = text
+            }
+        }
+    }
+    ```
+
+   The `inputComponent` keeps track of its internal state (what the user has typed so far) and exposes an `onSubmit`
+   handler that gets called when the user submits the form (usually by pressing the `Enter` key).
+
+2. To use this `inputComponent` from the application, add the following snippet to `src/jsMain/kotlin/App.kt` at the
+   bottom of the `FC` block (after the closing brace for the `ul` element):
+
+    ```kotlin
+    inputComponent {
+        onSubmit = { input ->
+            val cartItem = ShoppingListItem(input.replace("!", ""), input.count { it == '!' })
+            scope.launch {
+                addShoppingListItem(cartItem)
+                shoppingList = getShoppingList()
+            }
+        }
+    }
+    ```
+
+    * When users submit text, a new `ShoppingListItem` is created. Its priority is set to be the number of exclamation
+      points in the input, and its description is the input with all exclamation points removed. This turns `Peaches!! 🍑`
+      into a `ShoppingListItem(desc="Peaches 🍑", priority=2)`.
+    * The generated `ShoppingListItem` gets sent to the server with the client you've built before.
+    * Then, the UI is updated by obtaining the new list of `ShoppingListItem`s from the server, updating the application
+      state, and letting React re-render the contents.
+
+#### Implement item removal
+
+Add the ability to remove the finished items from the list so that it doesn't get too long.
+Instead of adding another UI element (like a "delete" button), you can allow users to delete an item by clicking it.
+
+To achieve this, pass a corresponding handler to `onClick` of the list elements:
+
+1. In `src/jsMain/kotlin/App.kt`, update the `li` block (inside the `ul` block):
+
+    ```kotlin
+    li {
+        key = item.toString()
+        onClick = {
+            scope.launch {
+                deleteShoppingListItem(item)
+                shoppingList = getShoppingList()
+            }
+        }
+        +"[${item.priority}] ${item.desc} "
+    }
+    ```
+
+    The API client is invoked along with the element that should be removed. The server updates the shopping list, which
+    re-renders the user interface.
+
+2. Start the application using the Gradle `run` task.
+3. Navigate to [`http://localhost:9090/`](http://localhost:9090/), and try adding and removing elements from the list:
+
+    ![Final shopping list](finished-shopping-list.gif){width=500}
+
+## Include a database to store data
+
+Currently, the application doesn't save data, meaning that the shopping list vanishes when you terminate
+the server process. To fix that, use the MongoDB database to store and retrieve shopping list items even when
+the server shuts down.
+
+MongoDB is simple, fast to set up, has library support for Kotlin, and provides simple, [NoSQL](https://en.wikipedia.org/wiki/NoSQL)
+document storage, which is more than enough for a basic application. You are free to equip your application with a different
+mechanism for data storage.
+
+To provide all of the functionality used in this section, you'll need to include several libraries from the Kotlin and
+JavaScript (npm) ecosystems. See the `jsMain` dependency block in the `build.gradle.kts` file with the full setup.
+
+### Set up MongoDB
+
+Install MongoDB Community Edition on your local machine from the [official MongoDB website](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials).
+Alternatively, you can use a containerization tool like [podman](https://podman.io/) to run a containerized instance of MongoDB.
+
+After installation, ensure that you are running the `mongodb-community` service for the rest of the tutorial. You'll use
+it to store and retrieve list entries.
+
+### Include KMongo in the process
+
+[KMongo](https://litote.org/kmongo/) is a community-created Kotlin framework that makes it easy to work with MongoDB
+from Kotlin/JVM code. It also works nicely with `kotlinx.serialization`, which is used to facilitate communication
+between client and server.
+
+By making the code use an external database, you no longer need to keep a collection of `shoppingListItems` on the
+server. Instead, set up a database client and obtain a database and a collection from it.
+
+1. Inside `src/jvmMain/kotlin/Server.kt`, remove the declaration for `shoppingList` and add the following three
+   top-level variables:
+
+    ```kotlin
+    val client = KMongo.createClient().coroutine
+    val database = client.getDatabase("shoppingList")
+    val collection = database.getCollection<ShoppingListItem>()
+    ```
+
+2. In `src/jvmMain/kotlin/Server.kt`, replace definitions for the GET, POST, and DELETE routes to a `ShoppingListItem`
+   to make use of the available collection operations:
+
+    ```kotlin
+    get {
+        call.respond(collection.find().toList())
+    }
+    post {
+        collection.insertOne(call.receive<ShoppingListItem>())
+        call.respond(HttpStatusCode.OK)
+    }
+    delete("/{id}") {
+        val id = call.parameters["id"]?.toInt() ?: error("Invalid delete request")
+        collection.deleteOne(ShoppingListItem::id eq id)
+        call.respond(HttpStatusCode.OK)
+    }
+    ```
+
+    In the DELETE request, KMongo's [type-safe queries](https://litote.org/kmongo/typed-queries/) are used to
+    obtain and remove the correct `ShoppingListItem` from the database.
+
+3. Start the server using the `run` task, and navigate to [`http://localhost:9090/`](http://localhost:9090/). On the first
+   start, you'll be greeted by an empty shopping list as is expected when querying an empty database.
+4. Add some items to your shopping list. The server will save them to the database.
+5. To check this, restart the server and reload the page.
+
+### Inspect MongoDB
+
+To see what kind of information is actually saved in the database, you can inspect the database using external tools.
+
+If you have IntelliJ IDEA Ultimate Edition or DataGrip, you can inspect the database contents with these tools.
+Alternatively, you can use the [`mongosh`](https://www.mongodb.com/docs/mongodb-shell/) command-line client.
+
+1. To connect to the local MongoDB instance, in IntelliJ IDEA Ultimate or
+   DataGrip, go to the **Database** tab and select **+** | **Data Source** | **MongoDB**:
+
+    ![Create a MongoDB data source](mongodb-data-source.png){width=700}
+
+2. If it's your first time connecting to a MongoDB database this way, you might be prompted to download missing drivers:
+
+    ![Download missing drivers for MongoDB](download-missing-drivers.png){width=700}
+
+3. When working with a local MongoDB installation that uses the default settings, no adjustments to the
+   configuration are necessary.
+   You can test the connection with the **Test Connection** button, which should output the MongoDB version and some
+   additional information.
+
+4. Click **OK**. Now you can use the **Database** window to navigate to your collection and look at everything stored in it:
+
+    ![Use the Database tool for collection analysis](database-tool.png){width=700}
+
+#### Relevant Gradle configuration for Kmongo
+
+Kmongo is added with a single dependency to the project, a specific version that includes coroutine and serialization
+support out of the box:
+
+```kotlin
+val jvmMain by getting {
+    dependencies {
+        // ...
+        implementation("org.litote.kmongo:kmongo-coroutine-serialization:$kmongoVersion")
+    }
+}
+```
+
+## Deploy to the cloud
+
+Instead of opening your app on `localhost`, you can bring it onto the web by deploying it to the cloud.
+
+To get the application running on managed infrastructure (such as cloud providers), you need to integrate it with the
+environment variables provided by the selected platform and add any required configurations to the project. Specifically,
+pass the application port and MongoDB connection string.
+
+> During application deployment, you might need to change the firewall rules to allow the application to access the
+> database. For more details, see the [MongoDB documentation](https://docs.atlas.mongodb.com/security/ip-access-list/).
+>
+{type="note"}
+
+### Specify the PORT variable
+
+On managed platforms, the port on which the application should run is often determined externally and exposed through
+the `PORT` environment variable. If present, you can respect this setting by configuring `embeddedServer`
+in `src/jvmMain/kotlin/Server.kt`:
+
+```kotlin
+fun main() {
+    val port = System.getenv("PORT")?.toInt() ?: 9090
+    embeddedServer(Netty, port) {
+        // ...
+    }
+}
+```
+
+Ktor also supports configuration files that can respect environment variables. To learn more about how to use them,
+check out the [official documentation](https://ktor.io/docs/configurations.html#hocon-overview).
+
+### Specify the MONGODB_URI variable
+
+Managed platforms often expose connection strings through environment variables – for MongoDB, this might be
+the `MONGODB_URI` string, which needs to be used by the client to connect to the database. Depending on the specific
+MongoDB instance you're trying to connect to, you might need to append the `retryWrites=false` parameter to the connection
+string.
+
+To properly satisfy these requirements, instantiate the `client` and `database` variables
+in `src/jvmMain/kotlin/Server.kt`:
+
+```kotlin
+val connectionString: ConnectionString? = System.getenv("MONGODB_URI")?.let {
+    ConnectionString("$it?retryWrites=false")
+}
+
+val client =
+    if (connectionString != null) KMongo.createClient(connectionString).coroutine else KMongo.createClient().coroutine
+val database = client.getDatabase(connectionString?.database ?: "shoppingList")
+```
+
+This ensures that the `client` is created based on this information whenever the environment variables are set.
+Otherwise (for instance, on `localhost`), the database connection is instantiated as before.
+
+### Create the Procfile
+
+Managed cloud platforms like Heroku or PaaS implementations like [Dokku](https://github.com/dokku/dokku) also handle
+the lifecycle of your application. To do so, they require an "entry point" definition. These two platforms use
+a file called `Procfile` that you have in the project root directory. It points to the output generated by the `stage` task
+(which is included in the Gradle template already):
+
+```shell
+web: ./build/install/shoppingList/bin/shoppingList
+```
+
+### Turn on production mode
+
+To turn on a compilation with optimizations for the JavaScript assets, pass another flag to the build
+process. In the **Run/Debug Configurations** menu, set the environment variable `ORG_GRADLE_PROJECT_isProduction` to `true`.
+You can set this environment variable when you deploy the application to the target environment.
+
+> You can find the finished application on GitHub on the [`final` branch](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final).
+>
+{type="note"}
+
+#### Relevant Gradle configuration
+
+The `stage` task is an alias for `installDist`:
+
+```kotlin
+// Alias "installDist" as "stage" (for cloud providers)
+tasks.create("stage") {
+    dependsOn(tasks.getByName("installDist"))
+}
+
+// only necessary until https://youtrack.jetbrains.com/issue/KT-37964 is resolved
+distributions {
+    main {
+        contents {
+            from("$buildDir/libs") {
+                rename("${rootProject.name}-jvm", rootProject.name)
+                into("lib")
+            }
+        }
+    }
+}
+```
+
+## What's next
+
+#### Add more features
+
+See how your application can be expanded and improved:
+
+* **Improve the design**. You could make use of `styled-components`, one of the libraries that have Kotlin wrappers
+  provided. If you want to see `styled-components` in action, look at
+  the [Build a web application with React and Kotlin/JS](js-react.md) tutorial.
+* **Add crossing out list items**. For now, list items just vanish with no record of them existing. Instead of deleting
+  an element, use ~~crossing out~~.
+* **Implement editing**. So far, an entry in the shopping list can't be edited. Consider adding an edit button.
+
+#### Join the community and get help
+
+You can join the official Kotlin Slack channels, [#ktor](https://slack-chats.kotlinlang.org/c/ktor), [#javascript](https://slack-chats.kotlinlang.org/c/javascript),
+and others to get help with Kotlin related problems from the community.
+
+#### Learn more about Kotlin/JS
+
+You can find additional learning materials targeting
+Kotlin/JS: [Set up a Kotlin/JS project](js-project-setup.md) and [Run Kotlin/JS](running-kotlin-js.md).
+
+#### Learn more about Ktor
+
+For in-depth information about the Ktor framework, including demo projects, check out [ktor.io](https://ktor.io/).
+
+If you run into trouble, check out the [Ktor issue tracker](https://youtrack.jetbrains.com/issues/KTOR) on YouTrack –
+and if you can't find your problem, don't hesitate to file a new issue.
+
+#### Learn more about Kotlin Multiplatform
+
+Learn more about how [multiplatform code works in Kotlin](multiplatform.md).
+
 
 # 📜 08.03. Creating multiplatform libraries
 
-# 📜 08.03.1. [](multiplatform-library.md)
 
-# 📜 08.03.2. [](multiplatform-publish-lib.md)
+# 📜 08.03.1. [Create and publish a multiplatform library – tutorial](multiplatform-library.md)
+
+    [//]: # (title: Create and publish a multiplatform library – tutorial)
+
+In this tutorial, you will learn how to create a multiplatform library for JVM, JS, and Native platforms, write common
+tests for all platforms, and publish the library to a local Maven repository.
+
+This library converts raw data – strings and byte arrays – to the [Base64](https://en.wikipedia.org/wiki/Base64) format.
+It can be used on Kotlin/JVM, Kotlin/JS, and any available Kotlin/Native platform.
+
+You will use different ways to implement the conversion to the Base64 format on different platforms:
+
+* For JVM – the [`java.util.Base64` class](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).
+* For JS – the [`base-64` npm package](https://www.npmjs.com/package/base-64).
+* For Kotlin/Native – your own implementation.
+
+You will also test your code using common tests, and then publish the library to your local Maven repository.
+
+> You can find a similar project in this [GitHub repository](https://github.com/KaterinaPetrova/mpp-sample-lib).
+>
+{type="note"}
+
+## Set up the environment
+
+You can complete this tutorial on any operating system.
+Download and install the [latest version of IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html) with the [latest Kotlin plugin](releases.md).
+
+## Create a project
+
+1. In IntelliJ IDEA, select **File | New | Project**.
+2. In the left-hand panel, select **Kotlin Multiplatform**.
+3. Enter a project name, then in the **Multiplatform** section select **Library** as the project template.
+
+   ![Select a project template](multiplatform-project-1.png)
+
+   By default, your project will use Gradle with Kotlin DSL as the build system.
+4. Specify the [JDK](https://www.jetbrains.com/help/idea/sdk.html#jdk), which is required for developing Kotlin projects.
+5. Click **Next** and then **Finish**.
+
+The wizard will create a sample multiplatform library with the following structure:
+
+![Multiplatform library structure](multiplatform-lib-structure.png){width=250}
+
+## Write cross-platform code
+
+Define the classes and interfaces you are going to implement in the common code.
+
+1. In `commonMain/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64.kt` file in the new directory.
+3. Define the `Base64Encoder` interface that converts bytes to the `Base64` format:
+
+    ```kotlin
+    package org.jetbrains.base64
+    
+    interface Base64Encoder {
+        fun encode(src: ByteArray): ByteArray
+    }
+    ```
+
+4. Define the `Base64Factory` object to provide an instance of the `Base64Encoder` interface to the common code:
+
+    ```kotlin
+    expect object Base64Factory {
+        fun createEncoder(): Base64Encoder
+    }
+    ```
+
+The factory object is marked with the `expect` keyword in the cross-platform code.
+For each platform, you should provide an `actual` implementation of the `Base64Factory` object with the platform-specific encoder.
+Learn more about [platform-specific implementations](multiplatform-connect-to-apis.md).
+
+## Provide platform-specific implementations
+
+Now you will create the `actual` implementations of the `Base64Factory` object for each platform:
+
+* [JVM](#jvm)
+* [JS](#js)
+* [Native](#native)
+
+### JVM
+
+1. In `jvmMain/kotlin`, create a new `org.jetbrains.base64` package.
+2. Create the `Base64.kt` file in the new package.
+3. Provide a simple implementation of the `Base64Factory` object that delegates to the `java.util.Base64` class:
+
+   > IDEA inspections help create `actual` implementations for an `expect` declaration.
+   >
+   {type="note"}
+
+    ```kotlin
+    package org.jetbrains.base64
+    import java.util.*
+    
+    actual object Base64Factory {
+        actual fun createEncoder(): Base64Encoder = JvmBase64Encoder
+    }
+    
+    object JvmBase64Encoder : Base64Encoder {
+        override fun encode(src: ByteArray): ByteArray = Base64.getEncoder().encode(src)
+    }
+    ```
+
+Pretty simple, right? You've provided a platform-specific implementation by using a straightforward delegation to a third-party implementation.
+
+### JS
+
+For the JS part of your project, you'll make use of the `base-64` npm package. It can be added as dependency to implement
+JS-specific functionality:
+
+1. Update your `build.gradle.kts` file by adding a dependency to the `jsMain` source set:
+
+   ```kotlin
+   kotlin {
+       // ...
+       
+       sourceSets {
+           val jsMain by getting {
+               dependencies {
+                   implementation(npm("base-64", "1.0.0"))
+               }
+           }
+       }
+   }
+   ```
+
+2. In `jsMain/kotlin`, create a new `org.jetbrains.base64` directory.
+3. Create the `Base64.kt` file in the new directory.
+4. Provide a simple implementation of the `Base64Factory` object that delegates to the `Base64` object:
+
+    ```kotlin
+    package org.jetbrains.base64
+
+    actual object Base64Factory {
+        actual fun createEncoder(): Base64Encoder = JsBase64Encoder
+    }
+
+    object JsBase64Encoder : Base64Encoder {
+        override fun encode(src: ByteArray): ByteArray {
+            val binString = src.decodeToString()
+            return Base64.encode(binString).encodeToByteArray()
+        }
+    }
+    ```
+   
+5. Create a separate file `Base64Npm.kt` in the same directory.
+6. Implement the `Base64` object using the `base-64` npm package:
+
+   ```kotlin
+   package org.jetbrains.base64
+
+   @JsModule("base-64")
+   @JsNonModule
+   external object Base64 {
+       fun encode(s: String): String
+   }
+   ```
+
+### Native
+
+Unfortunately, there is no third-party implementation available for all Kotlin/Native targets, so you need to write it yourself:
+
+1. In `nativeMain/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64.kt` file in the new directory.
+3. Provide your own implementation for the `Base64Factory` object:
+
+    ```kotlin
+    package org.jetbrains.base64
+    
+    private val BASE64_ALPHABET: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    private val BASE64_MASK: Byte = 0x3f
+    private val BASE64_PAD: Char = '='
+    private val BASE64_INVERSE_ALPHABET = IntArray(256) {
+        BASE64_ALPHABET.indexOf(it.toChar())
+    }
+    
+    private fun Int.toBase64(): Char = BASE64_ALPHABET[this]
+    
+    actual object Base64Factory {
+        actual fun createEncoder(): Base64Encoder = NativeBase64Encoder
+    }
+    
+    object NativeBase64Encoder : Base64Encoder {
+        override fun encode(src: ByteArray): ByteArray {
+            fun ByteArray.getOrZero(index: Int): Int = if (index >= size) 0 else get(index).toInt()
+            // 4n / 3 is expected Base64 payload
+            val result = ArrayList<Byte>(4 * src.size / 3)
+            var index = 0
+            while (index < src.size) {
+                val symbolsLeft = src.size - index
+                val padSize = if (symbolsLeft >= 3) 0 else (3 - symbolsLeft) * 8 / 6
+                val chunk = (src.getOrZero(index) shl 16) or (src.getOrZero(index + 1) shl 8) or src.getOrZero(index + 2)
+                index += 3
+    
+                for (i in 3 downTo padSize) {
+                    val char = (chunk shr (6 * i)) and BASE64_MASK.toInt()
+                    result.add(char.toBase64().code.toByte())
+                }
+                // Fill the pad with '='
+                repeat(padSize) { result.add(BASE64_PAD.code.toByte()) }
+            }
+    
+            return result.toByteArray()
+        }
+    }
+    ```
+
+## Test your library
+
+Now when you have `actual` implementations of the `Base64Factory` object for all platforms, it's time to test your multiplatform library.
+
+To save time on testing, you can write common tests that will be executed on all platforms instead of testing each platform separately.
+
+### Prerequisites
+
+Before writing tests, add the `encodeToString` method with the default implementation to the `Base64Encoder` interface, which is defined in `commonMain/kotlin/org/jetbrains/base64/Base64.kt`.
+This implementation converts byte arrays to strings, which are much easier to test.
+
+```kotlin
+interface Base64Encoder {
+    fun encode(src: ByteArray): ByteArray
+
+    fun encodeToString(src: ByteArray): String {
+        val encoded = encode(src)
+        return buildString(encoded.size) {
+            encoded.forEach { append(it.toInt().toChar()) }
+        }
+    }
+}
+```
+
+You can also provide a more efficient implementation of this method for a specific platform, for example, for JVM in `jvmMain/kotlin/org/jetbrains/base64/Base64.kt`:
+
+```kotlin
+object JvmBase64Encoder : Base64Encoder {
+    override fun encode(src: ByteArray): ByteArray = Base64.getEncoder().encode(src)
+    override fun encodeToString(src: ByteArray): String = Base64.getEncoder().encodeToString(src)
+}
+```
+
+One of the benefits of a multiplatform library is having a default implementation with optional platform-specific overrides.
+
+### Write common tests
+
+Now you have a string-based API that you can cover with basic tests.
+
+1. In `commonTest/kotlin`, create a new `org.jetbrains.base64` directory.
+2. Create the `Base64Test.kt` file in the new directory.
+3. Add tests to this file:
+
+    ```kotlin
+    package org.jetbrains.base64
+
+    import kotlin.test.Test
+    import kotlin.test.assertEquals
+   
+    class Base64Test {
+        @Test
+        fun testEncodeToString() {
+            checkEncodeToString("Kotlin is awesome", "S290bGluIGlzIGF3ZXNvbWU=")
+        }
+    
+        @Test
+        fun testPaddedStrings() {
+            checkEncodeToString("", "")
+            checkEncodeToString("1", "MQ==")
+            checkEncodeToString("22", "MjI=")
+            checkEncodeToString("333", "MzMz")
+            checkEncodeToString("4444", "NDQ0NA==")
+        }
+    
+        private fun checkEncodeToString(input: String, expectedOutput: String) {
+            assertEquals(expectedOutput, Base64Factory.createEncoder().encodeToString(input.asciiToByteArray()))
+        }
+    
+        private fun String.asciiToByteArray() = ByteArray(length) {
+            get(it).code.toByte()
+        }
+    }
+    ```
+
+4. In the Terminal, execute the `check` Gradle task:
+
+    ```bash
+    ./gradlew check
+    ```
+
+   > You can also run the `check` Gradle task by double-clicking it in the list of Gradle tasks.
+   >
+   {type="note"}
+
+The tests will run on all platforms (JVM, JS, and Native).
+
+### Add platform-specific tests
+
+You can also add tests that will be run only for a specific platform. For example, you can add UTF-16 tests on JVM:
+
+1. In `jvmTest/kotlin`, create the `org.jetbrains.base64` package.
+2. Create the `Base64Test.kt` file in the new package.
+3. Add tests to this file:
+
+   ```kotlin
+   package org.jetbrains.base64
+   
+   import kotlin.test.Test
+   import kotlin.test.assertEquals
+   
+   class Base64JvmTest {
+       @Test
+       fun testNonAsciiString() {
+           val utf8String = "Gödel"
+           val actual = Base64Factory.createEncoder().encodeToString(utf8String.toByteArray())
+           assertEquals("R8O2ZGVs", actual)
+       }
+   }
+   ```
+
+This test will automatically run on the JVM platform in addition to the common tests.
+
+## Publish your library to the local Maven repository
+
+Your multiplatform library is ready for publishing so that you can use it in other projects.
+
+To publish your library, use the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
+
+1. In the `build.gradle.kts` file, apply the `maven-publish` plugin and specify the group and version of your library:
+
+   ```kotlin
+   plugins {
+       kotlin("multiplatform") version "1.9.10"
+       id("maven-publish")
+   }
+   
+   group = "org.jetbrains.base64"
+   version = "1.0.0"
+   ```
+
+2. In the Terminal, run the `publishToMavenLocal` Gradle task to publish your library to your local Maven repository:
+
+    ```bash
+    ./gradlew publishToMavenLocal
+    ```
+
+   > You can also run the `publishToMavenLocal` Gradle task by double-clicking it in the list of Gradle tasks.
+   >
+   {type="note"}
+
+Your library will be published to the local Maven repository.
+
+## Publish your library to the external Maven Central repository
+
+You can go public and release your multiplatform library to [Maven Central](https://search.maven.org/), a remote repository
+where maven artifacts are stored and managed. This way, other developers will be able to find it and add as a dependency
+to their projects.
+
+### Register a Sonatype account and generate GPG keys
+
+If this is your first library, or you used the sunset Bintray to do this before, you need first to register a
+Sonatype account.
+
+You can use the GetStream article to create and set up your account. The [Registering a Sonatype account](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#registering-a-sonatype-account)
+section describes how to:
+
+1. Register a [Sonatype Jira account](https://issues.sonatype.org/secure/Signup!default.jspa).
+2. Create a new issue. You can use [our issue](https://issues.sonatype.org/browse/OSSRH-65092) as an example.
+3. Verify your domain ownership corresponding to the group ID you want to use to publish your artifacts.
+
+Then, since artifacts published on Maven Central have to be signed, follow the [Generating a GPG key pair](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#generating-a-gpg-key-pair)
+section to:
+
+1. Generate a GPG key pair for signing your artifacts.
+2. Publish your public key.
+3. Export your private key.
+
+When the Maven repository and signing keys for your library are ready, you can move on and set up your build to upload
+the library artifacts to a staging repository and then release them.
+
+### Set up publication
+
+Now you need to instruct Gradle how to publish the library. Most of the work is already done by the `maven-publish` and Kotlin
+Gradle plugins, all the required publications are created automatically. You already know the result when the library is
+published to a local Maven repository. To publish it to Maven Central, you need to take additional steps:
+
+1. Configure the public Maven repository URL and credentials.
+2. Provide a description and `javadocs` for all library components.
+3. Sign publications.
+
+You can handle all these tasks with Gradle scripts. Let's extract all the publication-related logic from the library
+module `build.script`, so you can easily reuse it for other modules in the future.
+
+The most idiomatic and flexible way to do that is to use Gradle's [precompiled script plugins](https://docs.gradle.org/current/userguide/custom_plugins.html#sec:precompiled_plugins).
+All the build logic will be provided as a precompiled script plugin and could be applied by plugin ID to every module of our library.
+
+To implement this, move the publication logic to a separate Gradle project:
+
+1. Add a new Gradle project inside your library root project. For that, create a new folder named `convention-plugins` and create a new file  `build.gradle.kts` inside of it.
+2. Place the following code into the new `build.gradle.kts` file:
+
+   ```kotlin
+   plugins {
+       `kotlin-dsl` // Is needed to turn our build logic written in Kotlin into the Gradle Plugin
+   }
+   
+   repositories {
+       gradlePluginPortal() // To use 'maven-publish' and 'signing' plugins in our own plugin
+   }
+   ```
+
+3. In the `convention-plugins` directory, create a `src/main/kotlin/convention.publication.gradle.kts` file
+   to store all the publication logic.
+4. Add all the required logic in the new file. Be sure to make changes to match your project configuration and where explicitly noted by angle brackets (i.e. `<replace-me>`):
+
+   ```kotlin
+   import org.gradle.api.publish.maven.MavenPublication
+   import org.gradle.api.tasks.bundling.Jar
+   import org.gradle.kotlin.dsl.`maven-publish`
+   import org.gradle.kotlin.dsl.signing
+   import java.util.*
+   
+   plugins {
+       `maven-publish`
+       signing
+   }
+   
+   // Stub secrets to let the project sync and build without the publication values set up
+   ext["signing.keyId"] = null
+   ext["signing.password"] = null
+   ext["signing.secretKeyRingFile"] = null
+   ext["ossrhUsername"] = null
+   ext["ossrhPassword"] = null
+   
+   // Grabbing secrets from local.properties file or from environment variables, which could be used on CI
+   val secretPropsFile = project.rootProject.file("local.properties")
+   if (secretPropsFile.exists()) {
+       secretPropsFile.reader().use {
+           Properties().apply {
+               load(it)
+           }
+       }.onEach { (name, value) ->
+           ext[name.toString()] = value
+       }
+   } else {
+       ext["signing.keyId"] = System.getenv("SIGNING_KEY_ID")
+       ext["signing.password"] = System.getenv("SIGNING_PASSWORD")
+       ext["signing.secretKeyRingFile"] = System.getenv("SIGNING_SECRET_KEY_RING_FILE")
+       ext["ossrhUsername"] = System.getenv("OSSRH_USERNAME")
+       ext["ossrhPassword"] = System.getenv("OSSRH_PASSWORD")
+   }
+   
+   val javadocJar by tasks.registering(Jar::class) {
+       archiveClassifier.set("javadoc")
+   }
+   
+   fun getExtraString(name: String) = ext[name]?.toString()
+   
+   publishing {
+       // Configure maven central repository
+       repositories {
+           maven {
+               name = "sonatype"
+               setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+               credentials {
+                   username = getExtraString("ossrhUsername")
+                   password = getExtraString("ossrhPassword")
+               }
+           }
+       }
+   
+       // Configure all publications
+       publications.withType<MavenPublication> {
+           // Stub javadoc.jar artifact
+           artifact(javadocJar.get())
+   
+           // Provide artifacts information requited by Maven Central
+           pom {
+               name.set("MPP Sample library")
+               description.set("Sample Kotlin Multiplatform library (jvm + ios + js) test")
+               url.set("https://github.com/<your-github-repo>/mpp-sample-lib")
+   
+               licenses {
+                   license {
+                       name.set("MIT")
+                       url.set("https://opensource.org/licenses/MIT")
+                   }
+               }
+               developers {
+                   developer {
+                   id.set("<your-github-profile>")
+                   name.set("<your-name>")
+                   email.set("<your-email>") 
+               }
+           }
+               scm {
+                   url.set("https://github.com/<your-github-repo>/mpp-sample-lib")
+               }
+           }
+       }
+   }
+   
+   // Signing artifacts. Signing.* extra properties values will be used
+   signing {
+       sign(publishing.publications)
+   }
+   ```
+  
+
+   Applying just `maven-publish` is enough for publishing to the local Maven repository, but not to Maven Central.
+   In the provided script, you get the credentials from `local.properties` or environment variables,
+   do all the required configuration in the `publishing` section, and sign your publications with the signing plugin.
+
+5. Go back to your library project. To ask Gradle to prebuild your plugins, update the root `settings.gradle.kts`
+   with the following:
+
+   ```kotlin
+   rootProject.name = "multiplatform-lib" // your project name
+   includeBuild("convention-plugins")
+   ```
+
+6. Now, you can apply this logic in the library's `build.script`. In the `plugins` section, replace `maven-publish` with
+   `conventional.publication`:
+
+   ```kotlin
+   plugins {
+       kotlin("multiplatform") version "1.9.10"
+       id("convention.publication")
+   }
+   ```
+
+7. Create a `local.properties` file within your library's root directory with all the necessary credentials and make sure to add it to your `.gitignore`:
+
+   ```none
+   # The GPG key pair ID (last 8 digits of its fingerprint)
+   signing.keyId=...
+   # The passphrase of the key pair
+   signing.password=...
+   # Private key you exported earlier
+   signing.secretKeyRingFile=...
+   # Your credentials for the Jira account
+   ossrhUsername=...
+   ossrhPassword=...
+   ```
+
+8. Run `./gradlew clean` and sync the project.
+
+New Gradle tasks related to the Sonatype repository should appear in the publishing group – that means that everything
+is ready for you to publish your library.
+
+### Publish your library to Maven Central
+
+To upload your library to the Sonatype repository, run the following program:
+
+```bash
+./gradlew publishAllPublicationsToSonatypeRepository
+```
+
+The staging repository will be created, and all the artifacts for all publications will be uploaded to that
+repository. All it's left to do is to check that all the artifacts you wanted to upload have made it there and to
+press the release button.
+
+These steps are described in the [Your first release](https://getstream.io/blog/publishing-libraries-to-mavencentral-2021/#your-first-release)
+section. In short, you need to:
+
+1. Go to [https://s01.oss.sonatype.org](https://s01.oss.sonatype.org) and log in using your credentials in Sonatype Jira.
+2. Find your repository in the **Staging repositories** section.
+3. Close it.
+4. Release the library.
+5. To activate the sync to Maven Central, go back to the Jira issue you created and leave a comment saying that you've
+   released your first component.
+   This step is only needed if it's your first release.
+
+Soon your library will be available at [https://repo1.maven.org/maven2](https://repo1.maven.org/maven2), and other
+developers will be able to add it as a dependency. In a couple of hours, other developers will be able to find it using
+[Maven Central Repository Search](https://search.maven.org/).
+
+## Add a dependency on the published library
+
+You can add your library to other multiplatform projects as a dependency.
+
+In the `build.gradle.kts` file, add `mavenLocal()` or `MavenCentral()` (if the library was published
+to the external repository) and add a dependency on your library:
+
+```kotlin
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.base64:multiplatform-lib:1.0.0")
+            }
+        }
+    }
+}
+```
+
+The `implementation` dependency consists of:
+
+* The group ID and version — specified earlier in the `build.gradle.kts` file
+* The artifact ID — by default, it's your project's name specified in the `settings.gradle.kts` file
+
+For more details, see the [Gradle documentation](https://docs.gradle.org/current/userguide/publishing_maven.html) on the `maven-publish` plugin.
+
+## What's next?
+
+* Learn more about [publishing multiplatform libraries](multiplatform-publish-lib.md).
+* Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
+* [Create your first cross-platform mobile application – tutorial](multiplatform-mobile-create-first-app.md).
+
+
+# 📜 08.03.2. [Publishing multiplatform libraries](multiplatform-publish-lib.md)
+
+    [//]: # (title: Publishing multiplatform libraries)
+
+You can publish a multiplatform library to a local Maven repository with the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
+Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
+where the library should be published. The plugin creates publications automatically.
+
+```kotlin
+plugins {
+    //...
+    id("maven-publish")
+}
+
+group = "com.example"
+version = "1.0"
+
+publishing {
+    repositories {
+        maven {
+            //...
+        }
+    }
+}
+```
+
+To get hands-on experience, as well as learn how to publish a multiplatform library to the external Maven Central repository,
+see the [Create and publish a multiplatform library](multiplatform-library.md) tutorial.
+
+> You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
+>
+{type="tip"}
+
+## Structure of publications
+
+When used with `maven-publish`, the Kotlin plugin automatically creates publications for each target that can be built on the current host, except for the Android target, 
+which needs an [additional step to configure publishing](#publish-an-android-library).
+
+Publications of a multiplatform library include an additional _root_ publication `kotlinMultiplatform` that stands for the 
+whole library and is automatically resolved to the appropriate platform-specific artifacts when added as a dependency to the common source set. 
+Learn more about [adding dependencies](multiplatform-add-dependencies.md).
+
+This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
+
+> Some repositories, such as Maven Central, require that the root module contains a JAR artifact without a classifier, for example `kotlinMultiplatform-1.0.jar`.  
+> The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.  
+> This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
+>
+{type="note"}
+ 
+The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
+add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
+in the publication's scope.
+
+## Avoid duplicate publications
+
+To avoid duplicate publications of modules that can be built on several platforms (like JVM and JS), 
+configure the publishing tasks for these modules to run conditionally.
+
+You can detect the platform in the script, introduce a flag such as `isMainHost` and set it to `true` for the main target 
+platform. Alternatively, you can pass the flag from an external source, for example, from CI configuration. 
+
+This simplified example ensures that publications are only uploaded when `isMainHost=true` is passed. This means that 
+a publication that can be published from multiple platforms will be published only once – from the main host.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
+    val publicationsFromMainHost = 
+        listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
+    publishing {
+        publications {
+            matching { it.name in publicationsFromMainHost }.all {
+                val targetPublication = this@all
+                tasks.withType<AbstractPublishToMaven>()
+                        .matching { it.publication == targetPublication }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm()
+    js()
+    mingwX64()
+    linuxX64()
+    def publicationsFromMainHost = 
+        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
+    publishing {
+        publications {
+            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
+                tasks.withType(AbstractPublishToMaven)
+                        .matching { it.publication == targetPublication }
+                        .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+By default, each publication includes a sources JAR that contains the sources used by the main compilation of the target. 
+
+## Publish an Android library
+
+To publish an Android library, you need to provide additional configuration.
+
+By default, no artifacts of an Android library are published. To publish artifacts produced by a set of [Android variants](https://developer.android.com/studio/build/build-variants), 
+specify the variant names in the Android target block:
+
+```kotlin
+kotlin {
+    android {
+        publishLibraryVariants("release", "debug")
+    }
+}
+
+```
+
+The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
+For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBazRelease`.
+
+The default publishing setup is as follows:
+* If the published variants have the same build type (for example, all of them are `release` or`debug`),
+  they will be compatible with any consumer build type.
+* If the published variants have different build types, then only the release variants will be compatible
+  with consumer build types that are not among the published variants. All other variants (such as `debug`)
+  will only match the same build type on the consumer side, unless the consumer project specifies the
+  [matching fallbacks](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/dsl/BuildType).
+
+If you want to make every published Android variant compatible with only the same build type used by the library consumer,
+set this Gradle property: `kotlin.android.buildTypeAttribute.keep=true`.
+
+You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
+in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
+with no classifier). This mode is disabled by default and can be enabled as follows:
+
+```kotlin
+kotlin {
+    android {
+        publishLibraryVariantsGroupedByFlavor = true
+    }
+}
+```
+
+> It is not recommended that you publish variants grouped by the product flavor in case they have different dependencies, 
+> as those will be merged into one dependency list.
+>
+{type="note"}
+
+## Disable sources publication
+
+By default, the Kotlin Multiplatform Gradle plugin publishes sources for all the specified targets. However,
+you can configure and disable sources publication with the `withSourcesJar()` API:
+
+* To disable sources publication for all the targets:
+
+  ```kotlin
+  kotlin {
+      withSourcesJar(publish = false)
+  
+      jvm()
+      linuxX64()
+  }
+  ```
+
+* To disable sources publication only for the specified target:
+
+  ```kotlin
+  kotlin {
+       // Disable sources publication only for JVM:
+      jvm {
+          withSourcesJar(publish = false)
+      }
+      linuxX64()
+  }
+  ```
+
+* To disable sources publication for all targets except for the specified target:
+
+  ```kotlin
+  kotlin {
+      // Disable sources publication for all targets except for JVM:
+      withSourcesJar(publish = false)
+  
+      jvm {
+          withSourcesJar(publish = true)
+      }
+      linuxX64()
+  }
+  ```
 
 # 📜 08.04. Sharing code principles
 
-# 📜 08.04.1. [](multiplatform-share-on-platforms.md)
 
-# 📜 08.04.2. [](multiplatform-connect-to-apis.md)
+# 📜 08.04.1. [Share code on platforms](multiplatform-share-on-platforms.md)
 
-# 📜 08.04.3. [](multiplatform-hierarchy.md)
+    [//]: # (title: Share code on platforms)
 
-# 📜 08.04.4. [](multiplatform-android-layout.md)
+With Kotlin Multiplatform, you can share the code using the mechanisms Kotlin provides: 
+ 
+* [Share code among all platforms used in your project](#share-code-on-all-platforms). Use it for sharing the common 
+business logic that applies to all platforms.     
+* [Share code among some platforms](#share-code-on-similar-platforms) included in your project but not all. You can 
+reuse code in similar platforms with a help of the hierarchical structure.
+
+If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
+declarations](multiplatform-connect-to-apis.md).
+
+## Share code on all platforms
+
+If you have business logic that is common for all platforms, you don't need to write the same code for each platform – 
+just share it in the common source set.
+
+![Code shared for all platforms](flat-structure.png)
+
+Some dependencies for source sets are set by default. You don't need to specify any `dependsOn` relations manually:
+* For all platform-specific source sets that depend on the common source set, such as `jvmMain`, `macosX64Main`, and others. 
+* Between the `main` and `test` source sets of a particular target, such as `androidMain` and `androidUnitTest`.
+
+If you need to access platform-specific APIs from the shared code, use the Kotlin mechanism of [expected and actual 
+declarations](multiplatform-connect-to-apis.md).
+
+## Share code on similar platforms
+
+You often need to create several native targets that could potentially reuse a lot of the common logic and third-party APIs.
+
+For example, in a typical multiplatform project targeting iOS, there are two iOS-related targets: one is for iOS ARM64 
+devices, the other is for the x64 simulator. They have separate platform-specific source sets, but in practice there is 
+rarely a need for different code for the device and simulator, and their dependencies are much the same. So iOS-specific 
+code could be shared between them.
+
+Evidently, in this setup it would be desirable to have a shared source set for two iOS targets, with Kotlin/Native code 
+that could still directly call any of the APIs that are common to both the iOS device and the simulator.
+
+In this case, you can share code across native targets in your project using the [hierarchical structure](multiplatform-hierarchy.md)
+using one of the following ways:
+
+* [Enabling default target hierarchy](multiplatform-hierarchy.md#default-hierarchy)
+* [Using target shortcuts](multiplatform-hierarchy.md#target-shortcuts)
+* [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration)
+
+Learn more about [sharing code in libraries](#share-code-in-libraries) and [connecting platform-specific libraries](#connect-platform-specific-libraries).
+
+## Share code in libraries
+
+Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. When a 
+[library is published](multiplatform-publish-lib.md), the API of its intermediate source sets is embedded into the library artifacts 
+along with information about the project structure. When you use this library, the intermediate source sets of your project access only those APIs of 
+the library which are available to the targets of each source set.
+
+For example, check out the following source set hierarchy from the `kotlinx.coroutines` repository:
+
+![Library hierarchical structure](lib-hierarchical-structure.png)
+
+The `concurrent` source set declares the function runBlocking and is compiled for the JVM and the native targets. 
+Once the `kotlinx.coroutines` library is updated and published with the hierarchical project structure, you can depend on 
+it and call `runBlocking` from a source set that is shared between the JVM and native targets since it matches the 
+"targets signature" of the library's `concurrent` source set.
+
+### Connect platform-specific libraries
+
+[Platform-specific libraries](native-platform-libs.md) shipped with Kotlin/Native (like Foundation, UIKit, and POSIX)
+are available in shared source sets by default. This helps you share more native code without being limited by
+platform-specific dependencies.
+
+In addition, you can enable the support for third-party libraries consumed with the [`cinterop` mechanism](native-c-interop.md).
+To do that, add the following property to your `gradle.properties`:
+
+```none
+kotlin.mpp.enableCInteropCommonization=true
+```
+
+## What's next?
+
+* Check out examples of code sharing using the Kotlin mechanism of [expect and actual declarations](multiplatform-connect-to-apis.md)
+* Learn more about [hierarchical project structure](multiplatform-hierarchy.md)
+* See our recommendations on [naming source files in multiplatform projects](coding-conventions.md#source-file-names)
+
+# 📜 08.04.2. [Connect to platform-specific APIs](multiplatform-connect-to-apis.md)
+
+    [//]: # (title: Connect to platform-specific APIs)
+
+> The `expect`/`actual` feature is in [Beta](components-stability.md). It is almost stable, but migration steps may be required in the future.
+> We'll do our best to minimize any changes you will have to make.
+>
+{type="warning"}
+
+If you're developing a multiplatform application that needs to access platform-specific APIs that implement the required
+functionality (for example, [generating a UUID](#generate-a-uuid)), use the Kotlin mechanism of _expected and actual declarations_.
+
+With this mechanism, a common source set defines an _expected declaration_, and platform source sets must provide the
+_actual declaration_ that corresponds to the expected declaration. This works for most Kotlin declarations, such as
+functions, classes, interfaces, enumerations, properties, and annotations.
+
+![Expect/actual declarations in common and platform-specific modules](expect-actual.png){width=700}
+
+The compiler ensures that every declaration marked with the `expect` keyword in the common module has the corresponding
+declarations marked with the `actual` keyword in all platform modules. The IDE provides tools that help you create the missing actual declarations.
+
+> Use expected and actual declarations only for Kotlin declarations that have platform-specific
+> dependencies. Implementing as much functionality as possible in the shared module is better, even if doing so takes
+> more time.
+>
+> Don't overuse expected and actual declarations – in some cases, an [interface](interfaces.md) may be a better choice
+> because it is more flexible and easier to test.
+>
+{type="note"}
+
+Learn how to [add dependencies on platform-specific libraries](multiplatform-add-dependencies.md).
+
+## Examples
+
+For simplicity, the following examples use intuitive target names, like iOS and Android. However, in your Gradle build files,
+you need to use a specific target name from [the list of supported targets](multiplatform-dsl-reference.md#targets).
+
+#### Generate a UUID
+
+Let's assume that you are developing iOS and Android applications using Kotlin Multiplatform and you want to
+generate a universally unique identifier (UUID):
+
+![Expect/actual declarations for getting the UUID](expect-actual-example.png){width=700}
+
+For this purpose, declare the expected function `randomUUID()` with the `expect` keyword in the common module.
+Don't include any implementation code.
+
+```kotlin
+// Common
+expect fun randomUUID(): String
+```
+
+In each platform-specific module (iOS and Android), provide the actual implementation for the function `randomUUID()`
+expected in the common module. Use the `actual` keyword to mark the actual implementation.
+
+The following examples show the implementation of this for Android and iOS.
+Platform-specific code uses the `actual` keyword and the expected name for the function.
+
+```kotlin
+// Android
+import java.util.*
+
+actual fun randomUUID() = UUID.randomUUID().toString()
+```
+
+```kotlin
+// iOS
+import platform.Foundation.NSUUID
+
+actual fun randomUUID(): String = NSUUID().UUIDString()
+```
+
+#### Implement a logging framework
+
+Another example of code sharing and interaction between the common and platform logic, JS and JVM in this case, in a minimalistic
+logging framework:
+
+```kotlin
+// Common
+enum class LogLevel {
+    DEBUG, WARN, ERROR
+}
+
+internal expect fun writeLogMessage(message: String, logLevel: LogLevel) 
+
+fun logDebug(message: String) = writeLogMessage(message, LogLevel.DEBUG)
+fun logWarn(message: String) = writeLogMessage(message, LogLevel.WARN)
+fun logError(message: String) = writeLogMessage(message, LogLevel.ERROR)
+```
+
+```kotlin
+// JVM
+internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
+    println("[$logLevel]: $message")
+}
+```
+
+For JavaScript, a completely different set of APIs is available, and the `actual` declaration will look like this.
+
+```kotlin
+// JS
+internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
+    when (logLevel) {
+        LogLevel.DEBUG -> console.log(message)
+        LogLevel.WARN -> console.warn(message)
+        LogLevel.ERROR -> console.error(message)
+    }
+}
+```
+
+#### Send and receive messages from a WebSocket
+
+Consider developing a chat platform for iOS and Android using Kotlin Multiplatform.
+Let's see how you can implement sending and receiving messages from a WebSocket.
+
+For this purpose, define a common logic that you don't need to duplicate in all platform modules –
+just add it once to the common module. However, the actual implementation of the WebSocket class differs
+from platform to platform. That's why you should use `expect`/`actual` declarations for this class.
+
+In the common module, declare the expected class `PlatformSocket()` with the `expect` keyword. Don't include any implementation code.
+
+```kotlin
+//Common
+internal expect class PlatformSocket(
+    url: String
+) {
+    fun openSocket(listener: PlatformSocketListener)
+    fun closeSocket(code: Int, reason: String)
+    fun sendMessage(msg: String)
+}
+interface PlatformSocketListener {
+    fun onOpen()
+    fun onFailure(t: Throwable)
+    fun onMessage(msg: String)
+    fun onClosing(code: Int, reason: String)
+    fun onClosed(code: Int, reason: String)
+}
+```
+
+In each platform-specific module (iOS and Android), provide the actual implementation for the class `PlatformSocket()`
+expected in the common module. Use the `actual` keyword to mark the actual implementation.
+
+The following examples show the implementation of this for Android and iOS.
+
+```kotlin
+//Android
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.WebSocket
+
+internal actual class PlatformSocket actual constructor(url: String) {
+    private val socketEndpoint = url
+    private var webSocket: WebSocket? = null
+    actual fun openSocket(listener: PlatformSocketListener) {
+        val socketRequest = Request.Builder().url(socketEndpoint).build()
+        val webClient = OkHttpClient().newBuilder().build()
+        webSocket = webClient.newWebSocket(
+            socketRequest,
+            object : okhttp3.WebSocketListener() {
+                override fun onOpen(webSocket: WebSocket, response: Response) = listener.onOpen()
+                override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) = listener.onFailure(t)
+                override fun onMessage(webSocket: WebSocket, text: String) = listener.onMessage(text)
+                override fun onClosing(webSocket: WebSocket, code: Int, reason: String) = listener.onClosing(code, reason)
+                override fun onClosed(webSocket: WebSocket, code: Int, reason: String) = listener.onClosed(code, reason)
+            }
+        )
+    }
+    actual fun closeSocket(code: Int, reason: String) {
+        webSocket?.close(code, reason)
+        webSocket = null
+    }
+    actual fun sendMessage(msg: String) {
+        webSocket?.send(msg)
+    }
+}
+```
+
+Android implementation uses the third-party library [OkHttp](https://square.github.io/okhttp/). Add the corresponding dependency to `build.gradle(.kts)` in the shared module:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+sourceSets {
+    val androidMain by getting {
+        dependencies {
+            implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+commonMain {
+    dependencies {
+        implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    }
+}
+```
+
+</tab>
+</tabs>
+
+iOS implementation uses `NSURLSession` from the standard Apple SDK and doesn't require additional dependencies.
+
+```kotlin
+//iOS
+import platform.Foundation.*
+import platform.darwin.NSObject
+
+internal actual class PlatformSocket actual constructor(url: String) {
+    private val socketEndpoint = NSURL.URLWithString(url)!!
+    private var webSocket: NSURLSessionWebSocketTask? = null
+    actual fun openSocket(listener: PlatformSocketListener) {
+        val urlSession = NSURLSession.sessionWithConfiguration(
+            configuration = NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate = object : NSObject(), NSURLSessionWebSocketDelegateProtocol {
+                override fun URLSession(
+                    session: NSURLSession,
+                    webSocketTask: NSURLSessionWebSocketTask,
+                    didOpenWithProtocol: String?
+                ) {
+                    listener.onOpen()
+                }
+                override fun URLSession(
+                    session: NSURLSession,
+                    webSocketTask: NSURLSessionWebSocketTask,
+                    didCloseWithCode: NSURLSessionWebSocketCloseCode,
+                    reason: NSData?
+                ) {
+                    listener.onClosed(didCloseWithCode.toInt(), reason.toString())
+                }
+            },
+            delegateQueue = NSOperationQueue.currentQueue()
+        )
+        webSocket = urlSession.webSocketTaskWithURL(socketEndpoint)
+        listenMessages(listener)
+        webSocket?.resume()
+    }
+    private fun listenMessages(listener: PlatformSocketListener) {
+        webSocket?.receiveMessageWithCompletionHandler { message, nsError ->
+            when {
+                nsError != null -> {
+                    listener.onFailure(Throwable(nsError.description))
+                }
+                message != null -> {
+                    message.string?.let { listener.onMessage(it) }
+                }
+            }
+            listenMessages(listener)
+        }
+    }
+    actual fun closeSocket(code: Int, reason: String) {
+        webSocket?.cancelWithCloseCode(code.toLong(), null)
+        webSocket = null
+    }
+    actual fun sendMessage(msg: String) {
+        val message = NSURLSessionWebSocketMessage(msg)
+        webSocket?.sendMessage(message) { err ->
+            err?.let { println("send $msg error: $it") }
+        }
+    }
+}
+```
+
+And here is the common logic in the common module that uses the platform-specific class `PlatformSocket()`.
+
+```kotlin
+//Common
+class AppSocket(url: String) {
+    private val ws = PlatformSocket(url)
+    var socketError: Throwable? = null
+        private set
+    var currentState: State = State.CLOSED
+        private set(value) {
+            field = value
+            stateListener?.invoke(value)
+        }
+    var stateListener: ((State) -> Unit)? = null
+        set(value) {
+            field = value
+            value?.invoke(currentState)
+        }
+    var messageListener: ((msg: String) -> Unit)? = null
+    fun connect() {
+        if (currentState != State.CLOSED) {
+            throw IllegalStateException("The socket is available.")
+        }
+        socketError = null
+        currentState = State.CONNECTING
+        ws.openSocket(socketListener)
+    }
+    fun disconnect() {
+        if (currentState != State.CLOSED) {
+            currentState = State.CLOSING
+            ws.closeSocket(1000, "The user has closed the connection.")
+        }
+    }
+    fun send(msg: String) {
+        if (currentState != State.CONNECTED) throw IllegalStateException("The connection is lost.")
+        ws.sendMessage(msg)
+    }
+    private val socketListener = object : PlatformSocketListener {
+        override fun onOpen() {
+            currentState = State.CONNECTED
+        }
+        override fun onFailure(t: Throwable) {
+            socketError = t
+            currentState = State.CLOSED
+        }
+        override fun onMessage(msg: String) {
+            messageListener?.invoke(msg)
+        }
+        override fun onClosing(code: Int, reason: String) {
+            currentState = State.CLOSING
+        }
+        override fun onClosed(code: Int, reason: String) {
+            currentState = State.CLOSED
+        }
+    }
+    enum class State {
+        CONNECTING,
+        CONNECTED,
+        CLOSING,
+        CLOSED
+    }
+}
+```
+
+## Rules for expected and actual declarations
+
+The main rules regarding expected and actual declarations are:
+* An expected declaration is marked with the `expect` keyword; the actual declaration is marked with the `actual` keyword.
+* `expect` and `actual` declarations have the same name and are located in the same package (have the same fully qualified name).
+* `expect` declarations never contain any implementation code and are abstract by default.
+* In interfaces, functions in `expect` declarations cannot have bodies, but their `actual` counterparts can be non-abstract
+and have a body. It allows the inheritors not to implement a particular function.
+
+  To indicate that common inheritors don't need to implement a function, mark it as `open`. All its `actual` implementations
+will be required to have a body:
+
+  ```kotlin
+  // Common
+  expect interface Mascot {
+      open fun display(): String
+  }
+  
+  class MascotImpl : Mascot {
+      // it's ok not to implement `display()`: all `actual`s are guaranteed to have a default implementation
+  }
+  
+  // Platform-specific
+  actual interface Mascot {
+      actual fun display(): String {
+          TODO()
+      }
+  }
+  ```
+
+During each platform compilation, the compiler ensures that every declaration marked with the `expect` keyword in the common
+or intermediate source set has the corresponding declarations marked with the `actual` keyword in all platform source sets.
+The IDE provides tools that help you create the missing actual declarations.
+
+If you have a platform-specific library that you want to use in shared code while providing your own implementation for
+another platform, you can provide a `typealias` to an existing class as the actual declaration:
+
+```kotlin
+expect class AtomicRef<V>(value: V) {
+    fun get(): V
+    fun set(value: V)
+    fun getAndSet(value: V): V
+    fun compareAndSet(expect: V, update: V): Boolean
+}
+```
+
+```kotlin
+actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
+```
+
+
+# 📜 08.04.3. [Hierarchical project structure](multiplatform-hierarchy.md)
+
+    [//]: # (title: Hierarchical project structure)
+
+Multiplatform projects support hierarchical structures.
+This means you can arrange a hierarchy of intermediate source sets for sharing the common code among some, but not all,
+[supported targets](multiplatform-dsl-reference.md#targets). Using intermediate source sets has some important advantages:
+
+* If you're a library author, and you want to provide a specialized API, you can use an intermediate source set for some,
+  but not all, targets – for example, an intermediate source set for Kotlin/Native targets but not for Kotlin/JVM ones.
+* If you want to use platform-dependent libraries in your project, you can use an intermediate source set
+  to use that specific API in several native targets. For example, you can have access to iOS-specific dependencies,
+  such as Foundation, when sharing code across all iOS targets.
+* Some libraries aren't available for particular platforms. Specifically, native libraries are only available for source
+  sets that compile to Kotlin/Native. Using an intermediate source set will solve this issue.
+
+The Kotlin toolchain ensures that each source set has access only to the API that is available for all targets to which
+that source set compiles. This prevents cases like using a Windows-specific API and then compiling it to macOS,
+resulting in linkage errors or undefined behavior at runtime.
+
+There are 3 ways to create a target hierarchy:
+
+* [Specify all targets and enable the default hierarchy](multiplatform-hierarchy.md#default-hierarchy)
+* [Use target shortcuts available for typical cases](multiplatform-hierarchy.md#target-shortcuts)
+* [Manually declare and connect the source sets](multiplatform-hierarchy.md#manual-configuration)
+
+## Default hierarchy
+
+> The default target hierarchy is [Experimental](components-stability.md#stability-levels-explained). It may
+> be changed in future Kotlin releases without prior notice.
+> For Kotlin Gradle build scripts, opting in is required with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
+>
+{type="warning"}
+
+Starting with Kotlin 1.8.20, you can set up a source set hierarchy in your multiplatform projects with the default target hierarchy.
+It's a [template](#see-the-full-hierarchy-template) for all possible targets and their shared source sets hardcoded in the Kotlin Gradle plugin.
+
+### Set up your project
+
+To set up a hierarchy, call `targetHierarchy.default()` in the `kotlin` block of your `build.gradle(.kts)` file and list
+all of the targets you need. For example:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
+kotlin {
+    // Enable the default target hierarchy:
+    targetHierarchy.default()
+
+    android()
+    iosArm64()
+    iosSimulatorArm64()
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    // Enable the default target hierarchy:
+    targetHierarchy.default {
+      
+    }
+
+    android()
+    iosArm64()
+    iosSimulatorArm64()
+}
+```
+
+</tab>
+</tabs>
+
+When you declare the final targets `android`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
+suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
+
+![An example of using the default target hierarchy](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
+
+Green source sets are actually created and present in the project, while gray ones from the default template are
+ignored. The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
+are no watchOS targets in the project.
+
+If you add a watchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
+from the `apple`, `native`, and `common` source sets is compiled to `watchosArm64` as well.
+
+> In this example, the `apple` and `native` source sets compile only to the `iosArm64` and `iosSimulatorArm64` targets.
+> Despite their names, they have access to the full iOS API.
+> This can be counter-intuitive for source sets like `native`, as you might expect that only APIs available on all
+> native targets are accessible in this source set. This behavior may change in the future.
+>
+{type="note"}
+
+### Adjust the resulting hierarchy
+
+You can further configure the resulting hierarchy manually [using the `dependsOn` relation](#manual-configuration).
+To do so, apply the `by getting` construction for the source sets created with `targetHierarchy.default()`.
+
+Consider this example of a project with a source set shared between the `jvm` and `native` targets only:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
+kotlin {
+    // Enable the default target hierarchy:
+    targetHierarchy.default()
+
+    jvm()
+    iosArm64()
+    // the rest of the necessary targets...
+
+    sourceSets {
+        val commonMain by getting
+
+        val jvmAndNativeMain by creating {
+            dependsOn(commonMain)
+        }
+
+        val nativeMain by getting {
+            dependsOn(jvmAndNativeMain)
+        }
+
+        val jvmMain by getting {
+            dependsOn(jvmAndNativeMain)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    // Enable the default target hierarchy:
+    targetHierarchy.default {
+      
+    }
+
+    jvm()
+    iosArm64()
+    // The rest of the other targets, if needed.
+
+    sourceSets {
+        commonMain {
+          
+        }
+
+        jvmAndNativeMain {
+            dependsOn(commonMain)
+        }
+
+        nativeMain {
+            dependsOn(jvmAndNativeMain)
+        }
+
+        jvmMain {
+            dependsOn(jvmAndNativeMain)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+It can be cumbersome to remove `dependsOn` relations that are automatically created by the `targetHierarchy.default()` call.
+In that case, use an entirely [manual configuration](#manual-configuration) instead of calling the default hierarchy.
+
+> We're currently working on an API to create your own target hierarchies. It will be useful for projects
+> whose hierarchy configurations are significantly different from the default template.
+>
+> This API is not ready yet, but if you're eager to try it,
+> look into the `targetHierarchy.custom { ... }` block and the declaration of `targetHierarchy.default()` as an example.
+> Keep in mind that this API is still in development. It might not be tested, and can change in further releases.
+> 
+{type="tip"}
+
+#### See the full hierarchy template
+
+When you declare the targets to which your project compiles,
+the plugin picks the shared source sets based on the specified targets from the template and creates them in your project.
+
+![Default target hierarchy](full-template-hierarchy.svg)
+
+> This example only shows the production part of the project, omitting the `Main` suffix
+> (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
+>
+{type="tip"}
+
+## Target shortcuts
+
+The Kotlin Multiplatform plugin provides some predefined target shortcuts for creating structures for common target
+combinations:
+
+| Target shortcut | Targets                                      |
+|-----------------|----------------------------------------------|
+| `ios`           | `iosArm64`, `iosX64`                         |
+| `watchos`       | `watchosArm32`, `watchosArm64`, `watchosX64` |
+| `tvos`          | `tvosArm64`, `tvosX64`                       |
+
+All shortcuts create similar hierarchical structures in the code. For example, you can use the`ios()` shortcut to create
+a multiplatform project with 2 iOS-related targets, `iosArm64` and `iosX64`, and a shared source set:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    ios() // iOS device and the iosX64 simulator target; iosMain and iosTest source sets
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    ios() // iOS device and the iosX64 simulator target; iosMain and iosTest source sets
+}
+```
+
+</tab>
+</tabs>
+
+In this case, the hierarchical structure includes the intermediate source sets `iosMain` and `iosTest`,
+which are used by the platform-specific source sets:
+
+![Code shared for iOS targets](iosmain-hierarchy.png)
+
+The resulting hierarchical structure will be equivalent to the code below:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    iosX64()
+    iosArm64()
+    
+    sourceSets {
+        val commonMain by getting
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    iosX64()
+    iosArm64()
+    
+    sourceSets {
+        iosMain {
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(it)
+            iosArm64Main.dependsOn(it)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+#### Target shortcuts and ARM64 (Apple Silicon) simulators
+
+The `ios`, `watchos`, and `tvos` target shortcuts don't include the simulator targets for ARM64 (Apple Silicon)
+platforms: `iosSimulatorArm64`, `watchosSimulatorArm64`, and `tvosSimulatorArm64`. If you use the target shortcuts
+and want to build the project for an Apple Silicon simulator, make the following adjustment to the build script:
+
+1. Add the `*SimulatorArm64` simulator target you need.
+2. Connect the simulator target with the shortcut using the `dependsOn` relation between source sets.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+
+    val iosMain by sourceSets.getting
+    val iosTest by sourceSets.getting
+    val iosSimulatorArm64Main by sourceSets.getting
+    val iosSimulatorArm64Test by sourceSets.getting
+
+    // Set up dependencies between the source sets
+    iosSimulatorArm64Main.dependsOn(iosMain)
+    iosSimulatorArm64Test.dependsOn(iosTest)
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    ios()
+    // Add the ARM64 simulator target
+    iosSimulatorArm64()
+
+    // Set up dependencies between the source sets
+    sourceSets {
+        // ...
+        iosSimulatorArm64Main {
+            dependsOn(iosMain)
+        }
+        iosSimulatorArm64Test {
+            dependsOn(iosTest)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Manual configuration
+
+You can manually introduce an intermediate source in the source set structure.
+It will hold the shared code for several targets.
+
+For example, here’s what to do if you want to share code among native Linux,
+Windows, and macOS targets (`linuxX64`, `mingwX64`, and `macosX64`):
+
+![Manually configured hierarchical structure](manual-hierarchical-structure.png)
+
+1. Add the intermediate source set `desktopMain`, which holds the shared logic for these targets.
+2. Specify the source set hierarchy using the `dependsOn` relation.
+
+The resulting hierarchical structure will look like this:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    linuxX64()
+    mingwX64()
+    macosX64()
+  
+    sourceSets {
+        val desktopMain by creating {
+            dependsOn(commonMain.get())
+        }
+        val linuxX64Main by getting {
+            dependsOn(desktopMain)
+        }
+        val mingwX64Main by getting {
+            dependsOn(desktopMain)
+        }
+        val macosX64Main by getting {
+            dependsOn(desktopMain)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    linuxX64()
+    mingwX64()
+    macosX64()
+  
+    sourceSets {
+        desktopMain {
+            dependsOn(commonMain.get())
+        }
+        linuxX64Main {
+            dependsOn(desktopMain)
+        }
+        mingwX64Main {
+            dependsOn(desktopMain)
+        }
+        macosX64Main {
+            dependsOn(desktopMain)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+You can have a shared source set for the following combinations of targets:
+
+* JVM or Android + JS + Native
+* JVM or Android + Native
+* JS + Native
+* JVM or Android + JS
+* Native
+
+Kotlin doesn't currently support sharing a source set for these combinations:
+
+* Several JVM targets
+* JVM + Android targets
+* Several JS targets
+
+If you need to access platform-specific APIs from a shared native source set, IntelliJ IDEA will help you detect common
+declarations that you can use in the shared native code.
+For other cases, use the Kotlin mechanism of [expected and actual declarations](multiplatform-connect-to-apis.md).
+
+# 📜 08.04.4. [Android source set layout](multiplatform-android-layout.md)
+
+    [//]: # (title: Android source set layout)
+
+The new Android source set layout was introduced in Kotlin 1.8.0 and became the default in 1.9.0. Follow this guide to
+understand the key differences between the deprecated and the new layouts, as well as how to migrate your projects.
+
+> You don't need to implement all the suggestions, only those that are applicable to your particular projects.
+>
+{type="tip"}
+
+## Check the compatibility
+
+The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio 2022.3 and later.
+Check your version of the Android Gradle plugin and upgrade if necessary.
+
+## Rename Kotlin source sets
+
+If applicable, rename the source sets in your project, following this pattern:
+
+| Previous source set layout             | New source set layout               |
+|----------------------------------------|-------------------------------------|
+| `targetName` + `AndroidSourceSet.name` | `targetName` + `AndroidVariantType` |
+
+`{AndroidSourceSet.name}` maps to `{KotlinSourceSet.name}` as follows:
+
+|             | Previous source set layout | New source set layout          |
+|-------------|----------------------------|--------------------------------|
+| main        | androidMain                | androidMain                    |
+| test        | androidTest                | android<b>Unit</b>Test         |
+| androidTest | android<b>Android</b>Test  | android<b>Instrumented</b>Test |
+
+## Move source files
+
+If applicable, move your source files to the new directories, following this pattern:
+
+| Previous source set layout                            | New source set layout               |
+|-------------------------------------------------------|-------------------------------------|
+| The layout had additional `/kotlin` SourceDirectories | `src/{KotlinSourceSet.name}/kotlin` |
+
+`{AndroidSourceSet.name}` maps to `{SourceDirectories included}` as follows:
+
+|             | Previous source set layout                                    | New source set layout                                                                             |
+|-------------|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| main        | src/androidMain/kotlin<br/>src/main/kotlin<br/>src/main/java  | src/androidMain/kotlin<br/>src/main/kotlin<br/>src/main/java                                      |
+| test        | src/androidTest/kotlin<br/>src/test/kotlin<br/>src/test/java  | src/android<b>Unit</b>Test/kotlin<br/>src/test/kotlin<br/>src/test/java                           |
+| androidTest | src/android<b>Android</b>Test/kotlin<br/>src/androidTest/java | src/android<b>Instrumented</b>Test/kotlin<br/>src/androidTest/java, <b>src/androidTest/kotlin</b> |
+
+## Move the AndroidManifest.xml file
+
+If you have the `AndroidManifest.xml` file in your project, move it to the new directory, following this pattern:
+
+| Previous source set layout                             | New source set layout                                 |
+|--------------------------------------------------------|-------------------------------------------------------|
+| src/{<b>Android</b>SourceSet.name}/AndroidManifest.xml | src/{<b>Kotlin</b>SourceSet.name}/AndroidManifest.xml |
+
+`{AndroidSourceSet.name}` maps to `{AndroidManifest.xml location}` as follows:
+
+|       | Previous source set layout    | New source set layout                       |
+|-------|-------------------------------|---------------------------------------------|
+| main  | src/main/AndroidManifest.xml  | src/<b>android</b>Main/AndroidManifest.xml  |
+| debug | src/debug/AndroidManifest.xml | src/<b>android</b>Debug/AndroidManifest.xml |
+
+## Check the relationship between Android and common tests
+
+The new Android source set layout changes the relationship between Android-instrumented tests (renamed to `androidInstrumentedTest` in the new layout)
+and common tests.
+
+Previously, the `dependsOn` relationship between `androidAndroidTest` and `commonTest` was the default. It meant the following:
+
+* The code in `commonTest` was available in `androidAndroidTest`.
+* `expect` declarations in `commonTest` had to have corresponding `actual` implementations in `androidAndroidTest`.
+* Tests declared in `commonTest` were also running as Android instrumented tests.
+
+In the new Android source set layout, the `dependsOn` relationship is not added by default. If you prefer the previous behavior,
+manually declare the following relationship in your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+// ...
+    sourceSets {
+        val commonTest by getting
+        val androidInstrumentedTest by getting {
+            dependsOn(commonTest)
+        }
+    }
+}
+```
+
+## Adjust the implementation of Android flavors
+
+Previously, the Kotlin Gradle plugin eagerly created source sets that corresponded to Android source sets containing `debug` and
+`release` build types or custom flavors like `demo` and `full`.
+It made the source sets accessible by using expressions like `val androidDebug by getting { ... }`.
+
+The new Android source set layout makes use of Android's [`onVariants`](https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/variant/AndroidComponentsExtension#onVariants(com.android.build.api.variant.VariantSelector,kotlin.Function1))
+to create source sets. It makes such expressions invalid,
+leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourceSet with name 'androidDebug' not found`.
+
+To work around that, use the new `invokeWhenCreated()` API in your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+// ...
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    sourceSets.invokeWhenCreated("androidFreeDebug") {
+// ...
+    }
+}
+```
 
 # 📜 08.05. Adding dependencies
 
-# 📜 08.05.1. [](multiplatform-add-dependencies.md)
+
+# 📜 08.05.1. [Adding dependencies on multiplatform libraries](multiplatform-add-dependencies.md)
+
+    [//]: # (title: Adding dependencies on multiplatform libraries)
+
+Every program requires a set of libraries to operate successfully. A Kotlin Multiplatform project can depend on
+multiplatform libraries that work for all target platforms, platform-specific libraries, and other multiplatform projects.
+
+To add a dependency on a library, update your `build.gradle(.kts)` file in the `shared` directory of your project. Set a
+dependency of the required [type](gradle-configure-project.md#dependency-types) (for example, `implementation`) in the [`dependencies`](multiplatform-dsl-reference.md#dependencies)
+block: 
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("com.example:my-library:1.0") // library shared for all source sets
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'com.example:my-library:1.0'
+            }
+        }
+    }
+}
+``` 
+
+</tab>
+</tabs>
+
+Alternatively, you can [set dependencies at the top level](gradle-configure-project.md#set-dependencies-at-top-level).
+
+## Dependency on a Kotlin library
+
+### Standard library
+
+A dependency on a standard library (`stdlib`) in each source set is added automatically. The version of the standard
+library is the same as the version of the `kotlin-multiplatform` plugin.
+
+For platform-specific source sets, the corresponding platform-specific variant of the library is used, while a common
+standard library is added to the rest. The Kotlin Gradle plugin will select the appropriate JVM standard library
+depending on the `compilerOptions.jvmTarget` [compiler option](gradle-compiler-options.md) of your Gradle build script.
+
+Learn how to [change the default behavior](gradle-configure-project.md#dependency-on-the-standard-library).
+
+### Test libraries
+
+The [`kotlin.test` API](https://kotlinlang.org/api/latest/kotlin.test/) is available for multiplatform tests. When
+you [create a multiplatform project](multiplatform-library.md), the Project Wizard automatically adds test
+dependencies to common and platform-specific source sets.
+
+If you didn't use the Project Wizard to create your project, you
+can [add the dependencies manually](gradle-configure-project.md#set-dependencies-on-test-libraries).
+
+### kotlinx libraries
+
+If you use a multiplatform library and need to [depend on the shared code](#library-shared-for-all-source-sets), set the
+dependency only once in the shared source set. Use the library base artifact name, such as `kotlinx-coroutines-core`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+            }
+        }
+    }
+}
+``` 
+
+</tab>
+</tabs>
+
+If you use a kotlinx library and need a [platform-specific dependency](#library-used-in-specific-source-sets), you can
+use platform-specific variants of libraries with suffixes such as `-jvm` or `-js`, for
+example, `kotlinx-coroutines-core-jvm`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val jvmMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%")
+            }
+        }
+    }
+}
+
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        jvmMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
+            }
+        }
+    }
+}
+``` 
+
+</tab>
+</tabs>
+
+## Dependency on Kotlin Multiplatform libraries
+
+You can add dependencies on libraries that have adopted Kotlin Multiplatform technology, such
+as [SQLDelight](https://github.com/cashapp/sqldelight). The authors of these libraries usually provide guides for adding
+their dependencies to your project.
+
+Check out this [community-maintained list of Kotlin Multiplatform libraries](https://libs.kmp.icerock.dev/).
+
+### Library shared for all source sets
+
+If you want to use a library from all source sets, you can add it only to the common source set. The Kotlin
+Multiplatform Mobile plugin will automatically add the corresponding parts to any other source sets.
+
+> You cannot set dependencies on platform-specific libraries in the common source set.
+>
+{type="warning"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-core:%ktorVersion%")
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                // dependency to a platform part of ktor-client will be added automatically
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'io.ktor:ktor-client-core:%ktorVersion%'
+            }
+        }
+        androidMain {
+            dependencies {
+                // dependency to platform part of ktor-client will be added automatically
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Library used in specific source sets
+
+If you want to use a multiplatform library just for specific source sets, you can add it exclusively to them. The
+specified library declarations will then be available only in those source sets.
+
+> Don't use a platform-specific name in such cases, like SQLDelight `native-driver` in the example below. Find the exact name in the library's documentation.
+>
+{type="note"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                // kotlinx.coroutines will be available in all source sets
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+            }
+        }
+        val androidMain by getting {
+            dependencies {}
+        }
+        val iosMain by getting {
+            dependencies {
+                // SQLDelight will be available only in the iOS source set, but not in Android or common
+                implementation("com.squareup.sqldelight:native-driver:%sqlDelightVersion%")
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                // kotlinx.coroutines will be available in all source sets
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+            }
+        }
+        androidMain {
+            dependencies {}
+        }
+        iosMain {
+            dependencies {
+                // SQLDelight will be available only in the iOS source set, but not in Android or common
+                implementation 'com.squareup.sqldelight:native-driver:%sqlDelightVersion%'
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Dependency on another multiplatform project
+
+You can connect one multiplatform project to another as a dependency. To do this, simply add a project dependency to the
+source set that needs it. If you want to use a dependency in all source sets, add it to the common one. In this case,
+other source sets will get their versions automatically.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(project(":some-other-multiplatform-module"))
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                // platform part of :some-other-multiplatform-module will be added automatically
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation project(':some-other-multiplatform-module')
+            }
+        }
+        androidMain {
+            dependencies {
+                // platform part of :some-other-multiplatform-module will be added automatically
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## What's next?
+
+Check out other resources on adding dependencies in multiplatform projects and learn more about:
+
+* [Adding Android dependencies](multiplatform-mobile-android-dependencies.md)
+* [Adding iOS dependencies](multiplatform-mobile-ios-dependencies.md)
 
 # 📜 08.05.2. [For Android target platforms](multiplatform-mobile-android-dependencies.md)
 
+    [//]: # (title: Adding Android dependencies)
+
+The workflow for adding Android-specific dependencies to a Kotlin Multiplatform module is the same as it is for pure
+Android projects: declare the dependency in your Gradle file and import the project. After that, you can use this
+dependency in your Kotlin code.
+
+We recommend declaring Android dependencies in Multiplatform Mobile projects by adding them to a specific Android source
+set. For that, update your `build.gradle(.kts)` file in the `shared` directory of your project:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+sourceSets["androidMain"].dependencies {
+    implementation("com.example.android:app-magic:12.3")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+sourceSets {
+    androidMain {
+        dependencies {
+            implementation 'com.example.android:app-magic:12.3'
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Moving what was a top-level dependency in an Android project to a specific source set in a Multiplatform Mobile project
+might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move
+a `debugImplementation` dependency from the top level of an Android project, you'll need to add an implementation
+dependency to the source set named `androidDebug`. To minimize the effort you have to put in to deal with migration
+problems like this, you can add a `dependencies` block inside the `android` block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+android {
+    //...
+    dependencies {
+        implementation("com.example.android:app-magic:12.3")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+android {
+    //...
+    dependencies {
+        implementation 'com.example.android:app-magic:12.3'
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Dependencies declared here will be treated exactly the same as dependencies from the top-level block, but declaring them
+this way will also separate Android dependencies visually in your build script and make it less confusing.
+
+Putting dependencies into a standalone `dependencies` block at the end of the script, in a way that is idiomatic to
+Android projects, is also supported. However, we strongly recommend **against** doing this because configuring a build
+script with Android dependencies in the top-level block and other target dependencies in each source set is likely to
+cause confusion.
+
+## What's next?
+
+Check out other resources on adding dependencies in multiplatform projects and learn more about:
+
+* [Adding dependencies in the official Android documentation](https://developer.android.com/studio/build/dependencies)
+* [Adding dependencies on multiplatform libraries or other multiplatform projects](multiplatform-add-dependencies.md)
+* [Adding iOS dependencies](multiplatform-mobile-ios-dependencies.md)
+
 # 📜 08.05.3. [For iOS target platforms](multiplatform-mobile-ios-dependencies.md)
 
-# 📜 08.06. [](multiplatform-run-tests.md)
+    [//]: # (title: Adding iOS dependencies)
+
+Apple SDK dependencies (such as Foundation or Core Bluetooth) are available as a set of prebuilt libraries in Kotlin
+Multiplatform Mobile projects. They do not require any additional configuration.
+
+You can also reuse other libraries and frameworks from the iOS ecosystem in your iOS source sets. Kotlin supports
+interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C with
+the `@objc` attribute. Pure Swift dependencies are not yet supported.
+
+Integration with the CocoaPods dependency manager is also supported with the same limitation – you cannot use pure Swift
+pods.
+
+We recommend [using CocoaPods](#with-cocoapods) to handle iOS dependencies in Kotlin Multiplatform projects.
+[Manage dependencies manually](#without-cocoapods) only if you want to tune the interop process specifically or if you
+have some other strong reason to do so.
+
+### With CocoaPods
+
+1. Perform [initial CocoaPods integration setup](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
+2. Add a dependency on a Pod library from the CocoaPods repository that you want to use by including the `pod()`
+   function call in `build.gradle(.kts)`  of your project.
+
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+    kotlin {
+        cocoapods {
+            //..
+            pod("Alamofire") {
+                version = "5.7.0"
+            }
+        }
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    kotlin {
+        cocoapods {
+            //..
+            pod('Alamofire') {
+                version = '5.7.0'
+            }
+        }
+    }
+    ```
+
+    </tab>
+    </tabs>
+
+   You can add the following dependencies on a Pod library:
+    * [From the CocoaPods repository](native-cocoapods-libraries.md#from-the-cocoapods-repository)
+    * [On a locally stored library](native-cocoapods-libraries.md#on-a-locally-stored-library)
+    * [From a custom Git repository](native-cocoapods-libraries.md#from-a-custom-git-repository)
+    * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
+    * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
+
+3. Re-import the project.
+
+To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:
+
+```kotlin
+import cocoapods.Alamofire.*
+```
+
+### Without CocoaPods
+
+If you don't want to use CocoaPods, you can use the cinterop tool to create Kotlin bindings for Objective-C or Swift
+declarations. This will allow you to call them from the Kotlin code.
+
+The steps differ a bit for [libraries](#add-a-library-without-cocoapods)
+and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the same.
+
+1. Download your dependency.
+2. Build it to get its binaries.
+3. Create a special `.def` file that describes this dependency to cinterop.
+4. Adjust your build script to generate bindings during the build.
+
+#### Add a library without CocoaPods
+
+1. Download the library source code and place it somewhere where you can reference it from your project.
+
+2. Build a library (library authors usually provide a guide on how to do this) and get a path to the binaries.
+
+3. In your project, create a `.def` file, for example `DateTools.def`.
+
+4. Add a first string to this file: `language = Objective-C`. If you want to use a pure C dependency, omit the language
+   property.
+
+5. Provide values for two mandatory properties:
+    * `headers` describes which headers will be processed by cinterop.
+    * `package` sets the name of the package these declarations should be put into.
+
+   For example:
+    ```none
+    headers = DateTools.h
+    package = DateTools
+    ```
+
+6. Add information about interoperability with this library to the build script:
+    * Pass the path to the `.def` file. This path can be omitted if your `.def` file has the same name as cinterop and
+      is placed in the `src/nativeInterop/cinterop/` directory.
+    * Tell cinterop where to look for header files using the `includeDirs` option.
+    * Configure linking to library binaries.
+
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+    kotlin {
+        iosX64() {
+            compilations.getByName("main") {
+                val DateTools by cinterops.creating {
+                    // Path to .def file
+                    defFile("src/nativeInterop/cinterop/DateTools.def")
+
+                    // Directories for header search (an analogue of the -I<path> compiler option)
+                    includeDirs("include/this/directory", "path/to/another/directory")
+                }
+                val anotherInterop by cinterops.creating { /* ... */ }
+            }
+
+            binaries.all {
+                // Linker options required to link to the library.
+                linkerOpts("-L/path/to/library/binaries", "-lbinaryname")
+            }
+        }
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    kotlin {
+        iosX64 {
+            compilations.main {
+                cinterops {
+                    DateTools {
+                        // Path to .def file
+                        defFile("src/nativeInterop/cinterop/DateTools.def")
+
+                        // Directories for header search (an analogue of the -I<path> compiler option)
+                        includeDirs("include/this/directory", "path/to/another/directory")
+                    }
+                    anotherInterop { /* ... */ }
+                }
+            }
+
+            binaries.all {
+                // Linker options required to link to the library.
+                linkerOpts "-L/path/to/library/binaries", "-lbinaryname"
+            }
+        }
+    }
+    ```
+
+    </tab>
+    </tabs>
+
+7. Build the project.
+
+Now you can use this dependency in your Kotlin code. To do that, import the package you've set up in the `package`
+property in the `.def` file. For the example above, this will be:
+
+```kotlin
+import DateTools.*
+```
+
+#### Add a framework without CocoaPods
+
+1. Download the framework source code and place it somewhere that you can reference it from your project.
+
+2. Build the framework (framework authors usually provide a guide on how to do this) and get a path to the binaries.
+
+3. In your project, create a `.def` file, for example `MyFramework.def`.
+
+4. Add the first string to this file: `language = Objective-C`. If you want to use a pure C dependency, omit the
+   language property.
+
+5. Provide values for these two mandatory properties:
+    * `modules` – the name of the framework that should be processed by the cinterop.
+    * `package` – the name of the package these declarations should be put into.
+
+    For example:
+    
+    ```none
+    modules = MyFramework
+    package = MyFramework
+    ```
+
+6. Add information about interoperability with the framework to the build script:
+    * Pass the path to the .def file. This path can be omitted if your `.def` file has the same name as the cinterop and
+      is placed in the `src/nativeInterop/cinterop/` directory.
+    * Pass the framework name to the compiler and linker using the `-framework` option. Pass the path to the framework
+      sources and binaries to the compiler and linker using the `-F` option.
+
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+
+    ```kotlin
+    kotlin {
+        iosX64() {
+            compilations.getByName("main") {
+                val DateTools by cinterops.creating {
+                    // Path to .def file
+                    defFile("src/nativeInterop/cinterop/DateTools.def")
+
+                    compilerOpts("-framework", "MyFramework", "-F/path/to/framework/")
+                }
+                val anotherInterop by cinterops.creating { /* ... */ }
+            }
+
+            binaries.all {
+                // Tell the linker where the framework is located.
+                linkerOpts("-framework", "MyFramework", "-F/path/to/framework/")
+            }
+       }
+    }
+    ```
+
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+
+    ```groovy
+    kotlin {
+        iosX64 {
+            compilations.main {
+                cinterops {
+                    DateTools {
+                        // Path to .def file
+                        defFile("src/nativeInterop/cinterop/MyFramework.def")
+
+                        compilerOpts("-framework", "MyFramework", "-F/path/to/framework/")
+                    }
+                    anotherInterop { /* ... */ }
+                }
+            }
+
+            binaries.all {
+                // Tell the linker where the framework is located.
+                linkerOpts("-framework", "MyFramework", "-F/path/to/framework/")
+            }
+        }
+    }
+    ```
+
+    </tab>
+    </tabs>
+
+7. Build the project.
+
+Now you can use this dependency in your Kotlin code. To do this, import the package you've set up in the package
+property in the `.def` file. For the example above, this will be:
+
+```kotlin
+import MyFramework.*
+```
+
+Learn more about [Objective-C and Swift interop](native-objc-interop.md) and
+[configuring cinterop from Gradle](multiplatform-dsl-reference.md#cinterops).
+
+## What's next?
+
+Check out other resources on adding dependencies in multiplatform projects and learn more about:
+
+* [Connecting platform-specific libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries)
+* [Adding dependencies on multiplatform libraries or other multiplatform projects](multiplatform-add-dependencies.md)
+* [Adding Android dependencies](multiplatform-mobile-android-dependencies.md)
+
+# 📜 08.06. [Test your multiplatform app − tutorial](multiplatform-run-tests.md)
+
+    [//]: # (title: Test your multiplatform app − tutorial)
+
+In this tutorial, you'll learn how to create, configure, and run tests in Kotlin Multiplatform applications.
+
+Tests for multiplatform projects can be divided into two categories:
+
+* Tests for common code. These tests can be run on any platform using any supported framework.
+* Tests for platform-specific code. These are essential to test platform-specific logic. They use a platform-specific
+  framework and can benefit from its additional features, such as a richer API and a wider range of assertions.
+
+Both categories are supported in multiplatform projects. This tutorial will first show you how to set up, create,
+and run unit tests for common code in a simple Kotlin Multiplatform project. Then you'll work with a more complex example
+that requires tests both for common and platform-specific code.
+
+> This tutorial assumes that you are familiar with:
+> * The layout of a Kotlin Multiplatform project. If this is not the case,
+    complete [this tutorial](multiplatform-mobile-getting-started.md) before you begin.
+> * The basics of popular unit testing frameworks, such as [JUnit](https://junit.org/junit5/).
+>
+{type="tip"}
+
+## Test a simple multiplatform project
+
+### Create your project
+
+1. Prepare your environment for multiplatform
+   development. [Check the list of necessary tools and update them to the latest versions if necessary](multiplatform-mobile-setup.md).
+2. In Android Studio, select **File** | **New** | **New Project**.
+3. Select **Kotlin Multiplatform App** in the list of project templates, and click **Next**.
+
+   ![Mobile Multiplatform project template](multiplatform-mobile-project-wizard-1.png){width=700}
+
+4. Name your application and click **Next**.
+
+   ![Mobile Multiplatform project - general settings](multiplatform-mobile-project-wizard-2.png){width=700}
+
+5. Leave the **Add sample tests for Shared Module** option unchecked.
+
+   This option adds extra source sets and sample code to assist you with code testing. However, to understand how to
+   create and configure tests better, you'll add them manually in this tutorial.
+
+   ![Mobile Multiplatform project. Additional settings](multiplatform-mobile-project-wizard-3.png){width=700}
+
+6. Keep all other options default values. Click **Finish**.
+
+### Write code
+
+1. To view the complete structure of your multiplatform project, switch the view from **Android** to **Project**:
+
+   ![Select the Project view](select-project-view.png){width=200}
+
+2. In `shared/src/commonMain/kotlin`, create a new `common.example.search` directory.
+3. In this directory, create a Kotlin file, `Grep.kt`, and add the following function:
+
+    ```kotlin
+    fun grep(lines: List<String>, pattern: String, action: (String) -> Unit) {
+        val regex = pattern.toRegex()
+        lines.filter(regex::containsMatchIn)
+            .forEach(action)
+    }
+    ```
+
+    This function is designed to resemble the [UNIX grep command](https://en.wikipedia.org/wiki/Grep). Here, the function
+    takes lines of text, a pattern used as a regular expression, and a function that is invoked every time a line matches
+    the pattern.
+
+### Add tests
+
+Let's test the common code. An essential part will be a source set for common tests,
+which has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API library as a dependency.
+
+1. In the `shared` directory, open the `build.gradle.kts` file. You'll see that this template project already has
+   a source set for testing the common code. Within its declaration, there is a dependency on the `kotlin.test` library:
+
+    ```kotlin
+    val commonTest by getting {
+        dependencies {
+            implementation(kotlin("test"))
+        }
+    }
+    ```
+
+   Each multiplatform project has a `commonTest` source set by default. This is where the common tests are stored.
+   All you need to do is to create a corresponding folder in your project, which must have the same name.
+
+2. Creating a new directory in `shared/src`. Choose `commonTest` containing the `kotlin` folder
+   from the list of standard options provided by the IDE:
+
+   ![Creating common test directory](create-common-test-dir.png){width=300}
+
+3. In the `kotlin` folder, create a new `common.example.search` directory.
+4. In this directory, create the `Grep.kt` file and update it with the following unit test:
+
+    ```kotlin
+    import kotlin.test.Test
+    import kotlin.test.assertContains
+    import kotlin.test.assertEquals
+    
+    class GrepTest {
+        companion object {
+            val sampleData = listOf(
+                "123 abc",
+                "abc 123",
+                "123 ABC",
+                "ABC 123"
+            )
+        }
+    
+        @Test
+        fun shouldFindMatches() {
+            val results = mutableListOf<String>()
+            grep(sampleData, "[a-z]+") {
+                results.add(it)
+            }
+    
+            assertEquals(2, results.size)
+            for (result in results) {
+                assertContains(result, "abc")
+            }
+        }
+    }
+    ```
+
+As you can see, imported annotations and assertions are neither platform nor framework-specific.
+When you run this test later, a platform-specific framework will provide the test runner.
+
+#### Explore the `kotlin.test` API
+
+The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) library provides platform-agnostic
+annotations and assertions for you to use in your tests. Annotations, such as `Test`,
+map to those provided by the selected framework or their nearest equivalent.
+
+Assertions are executed through an implementation of the [`Asserter` interface](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-asserter/).
+This interface defines the different checks commonly performed in testing. The API has a default implementation,
+but typically you will use a framework-specific implementation.
+
+For example, the JUnit 4, JUnit 5, and TestNG frameworks are all supported on JVM. On Android, a call to `assertEquals()`
+might result in a call to `asserter.assertEquals()`, where the `asserter` object is an instance of `JUnit4Asserter`.
+On iOS, the default implementation of the `Asserter` type is used in conjunction with the Kotlin/Native test runner.
+
+### Run tests
+
+You can execute the test by running:
+
+* The `shouldFindMatches()` test function using the **Run** icon in the gutter
+* The test file using its context menu
+* The `GrepTest` test class using the **Run** icon in the gutter
+
+There's also a handy <shortcut layout="macOS">⌃Ctrl ⇧Shift R</shortcut>/<shortcut layout="Windows">Ctrl+Shift+F10</shortcut> shortcut.
+Regardless of the option you choose, you'll see a list of targets to run the test on:
+
+![Run test task](run-test-tasks.png){width=300}
+
+For the `android` option, tests are run using JUnit 4. For `iosSimulatorArm64`, the Kotlin compiler detects testing
+annotations and creates a _test binary_ that is executed by Kotlin/Native's own test runner.
+
+Here is an example of the output generated by a successful test run:
+
+![Test output](run-test-results.png){width=700}
+
+## Work with more complex projects
+
+### Write tests for common code
+
+You've already created a test for common code with the `grep()` function. Now let's consider a more advanced common code
+test with the `CurrentRuntime` class. This class contains details of the platform on which the code is executed.
+For example, it might have the values "OpenJDK" and "17.0" for Android unit tests that run on a local JVM.
+
+An instance of `CurrentRuntime` should be created with the name and version of the platform as strings, where the
+version is optional. When the version is present, you only need the number at the start of the string, if available.
+
+1. In the `commonMain/kotlin` folder, create a new `org.kmp.testing` directory.
+2. In this directory, create the `CurrentRuntime.kt` file and update it with the following implementation:
+
+    ```kotlin
+    class CurrentRuntime(val name: String, rawVersion: String?) {
+        companion object {
+            val versionRegex = Regex("^[0-9]+(\\.[0-9]+)?")
+        }
+    
+        val version = parseVersion(rawVersion)
+    
+        override fun toString() = "$name version $version"
+    
+        private fun parseVersion(rawVersion: String?): String {
+            val result = rawVersion?.let { versionRegex.find(it) }
+            return result?.value ?: "unknown"
+        }
+    }
+    ```
+
+3. In the `commonTest` folder, create a new `org.kmp.testing` directory.
+4. In this directory, create the `CurrentRuntimeTest.kt` and update it with following platform and framework-agnostic test:
+
+    ```kotlin
+    import kotlin.test.Test
+    import kotlin.test.assertEquals
+
+    class CurrentRuntimeTest {
+        @Test
+        fun shouldDisplayDetails() {
+            val runtime = CurrentRuntime("MyRuntime", "1.1")
+            assertEquals("MyRuntime version 1.1", runtime.toString())
+        }
+    
+        @Test
+        fun shouldHandleNullVersion() {
+            val runtime = CurrentRuntime("MyRuntime", null)
+            assertEquals("MyRuntime version unknown", runtime.toString())
+        }
+    
+        @Test
+        fun shouldParseNumberFromVersionString() {
+            val runtime = CurrentRuntime("MyRuntime", "1.2 Alpha Experimental")
+            assertEquals("MyRuntime version 1.2", runtime.toString())
+        }
+    
+        @Test
+        fun shouldHandleMissingVersion() {
+            val runtime = CurrentRuntime("MyRuntime", "Alpha Experimental")
+            assertEquals("MyRuntime version unknown", runtime.toString())
+        }
+    }
+    ```
+
+You can run this test using any of the ways [available in the IDE](#run-tests).
+
+### Add platform-specific tests
+
+> Here, the [mechanism of expected and actual declarations](multiplatform-connect-to-apis.md)
+> is used for brevity and simplicity. In more complex code, a better approach is to use interfaces and factory functions.
+>
+{type="note"}
+
+Now you have experience writing tests for common code. Let's explore writing platform-specific tests for Android and iOS.
+
+To create an instance of `CurrentRuntime`, declare a function in the common `CurrentRuntime.kt` file as follows:
+
+```kotlin
+expect fun determineCurrentRuntime(): CurrentRuntime
+```
+
+The function should have separate implementations for each supported platform. Otherwise, the build will fail.
+As well as implementing this function on each platform, you should provide tests. Let's create them for Android and iOS.
+
+#### For Android
+
+1. In the `androidMain/kotlin` folder, create a new `org.kmp.testing` directory.
+2. In this directory, create the `AndroidRuntime.kt` file and update it with the actual implementation of the expected
+   `determineCurrentRuntime()` function:
+
+    ```kotlin
+    actual fun determineCurrentRuntime(): CurrentRuntime {
+        val name = System.getProperty("java.vm.name") ?: "Android"
+    
+        val version = System.getProperty("java.version")
+    
+        return CurrentRuntime(name, version)
+    }
+    ```
+
+3. Use the IDE's suggestions to create the `androidUnitTest/kotlin` directory:
+
+   ![Creating Android test directory](create-android-test-dir.png){width=300}
+
+4. In the `kotlin` folder, create a new `org.kmp.testing` directory.
+5. In this directory, create the `AndroidRuntimeTest.kt` file and update it with the following Android test:
+
+    ```kotlin
+    import kotlin.test.Test
+    import kotlin.test.assertContains
+    import kotlin.test.assertEquals
+    
+    class AndroidRuntimeTest {
+        @Test
+        fun shouldDetectAndroid() {
+            val runtime = determineCurrentRuntime()
+            assertContains(runtime.name, "OpenJDK")
+            assertEquals(runtime.version, "17.0")
+        }
+    }
+    ```
+
+It may seem strange that an Android-specific test is run on a local JVM. This is because these tests run as local unit
+tests on the current machine. As described in the [Android Studio documentation](https://developer.android.com/studio/test/test-in-android-studio),
+these tests are different from instrumented tests, which run on a device or an emulator.
+
+The **Kotlin Multiplatform App** template project is not configured to support these tests by default. However, it's
+possible to add additional dependencies and folders. To learn about adding support for instrumented tests, see this [Touchlab guide](https://touchlab.co/understanding-and-configuring-your-kmm-test-suite/)
+
+#### For iOS
+
+1. In the `iosMain/kotlin` folder, create a new `org.kmp.testing` directory.
+2. In this directory, create the `IOSRuntime.kt` file and update it with the actual implementation of the expected
+   `determineCurrentRuntime()` function:
+
+    ```kotlin
+    import kotlin.native.Platform
+    
+    actual fun determineCurrentRuntime(): CurrentRuntime {
+        val name = Platform.osFamily.name.lowercase()
+        return CurrentRuntime(name, null)
+    }
+    ```
+
+3. Use the IDE's suggestions to create the `iosTest/kotlin` directory:
+
+   ![Creating iOS test directory](create-ios-test-dir.png){width=300}
+
+4. In the `kotlin` folder, create a new `org.kmp.testing` directory.
+5. In this directory, create the `IOSRuntimeTest.kt` file and update it with the following iOS test:
+
+    ```kotlin
+    import kotlin.test.Test
+    import kotlin.test.assertEquals
+    
+    class IOSRuntimeTest {
+        @Test
+        fun shouldDetectOS() {
+            val runtime = determineCurrentRuntime()
+            assertEquals(runtime.name, "ios")
+            assertEquals(runtime.version, "unknown")
+        }
+    }
+    ```
+
+### Run multiple tests and analyze reports
+
+At this stage, you have the code for common, Android, and iOS implementations, as well as their tests. You should have a
+similar directory structure to this in your project:
+
+![Whole project structure](code-and-test-structure.png){width=300}
+
+You can run individual tests from the context menu or use the shortcut. One more option is to use Gradle tasks. For
+example, if you run the `allTests` Gradle task, every test in your project will be run with the corresponding test runner.
+
+![Gradle test tasks](gradle-alltests.png){width=700}
+
+When you run tests, in addition to the output in your IDE, HTML reports are generated. You can find them in
+the `shared/build/tests` directory:
+
+![HTML reports for multiplatform tests](shared-tests-folder-reports.png){width=300}
+
+Run the `allTests` task and examine its report. You'll see that:
+
+* Android and iOS tests depend on common tests.
+* Common tests always run before platform-specific ones.
+
+![HTML report for multiplatform tests](multiplatform-test-report.png){width=700}
+
+## Rules for using tests in multiplatform projects
+
+You've now created, configured, and executed tests in Kotlin Multiplatform applications.
+When working with tests in your future projects, remember:
+
+* When writing tests for common code, use only multiplatform libraries, like [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/). Add dependencies to
+  the `commonTest` source set.
+* The `Asserter` type from the `kotlin.test` API should only be used indirectly.
+  Although the `Asserter` instance is visible, you don't need to use it in your tests.
+* Always stay within the testing library API. Fortunately,
+  the compiler and the IDE prevent you from using framework-specific functionality.
+* Although it doesn't matter which framework you use for running tests in `commonTest`, it's a good idea to run your
+    tests with each framework you intend to use to check that your development environment is set up correctly.
+* When writing tests for platform-specific code, you can use the functionality of the corresponding framework, for example,
+  annotations and extensions.
+* You can run tests both from the IDE and using Gradle tasks.
+* When you run tests, HTML test reports are generated automatically.
+
+## What's next?
+
+* Explore the layout of multiplatform projects in [Understand Multiplatform project structure](multiplatform-discover-project.md).
+* Check out [Kotest](https://kotest.io/), another multiplatform testing framework that the Kotlin ecosystem provides.
+  Kotest allows writing tests in a range of styles and supports complementary approaches to regular testing.
+  These include [data-driven](https://kotest.io/docs/framework/datatesting/data-driven-testing.html)
+  and [property-based](https://kotest.io/docs/proptest/property-based-testing.html) testing.
 
 # 📜 08.07. Artifact compilation
 
-# 📜 08.07.1. [](multiplatform-configure-compilations.md)
+
+# 📜 08.07.1. [Configure compilations](multiplatform-configure-compilations.md)
+
+    [//]: # (title: Configure compilations)
+
+Kotlin multiplatform projects use compilations for producing artifacts. Each target can have one or more compilations, 
+for example, for production and test purposes.
+
+For each target, default compilations include:
+
+* `main` and `test` compilations for JVM, JS, and Native targets.
+* A [compilation](#compilation-for-android) per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets.
+
+![Compilations](compilations.png)
+
+If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
+you can [create a custom compilation](#create-a-custom-compilation).
+
+You can configure how artifacts are produced in:
+
+* [All compilations](#configure-all-compilations) in your project at once.
+* [Compilations for one target](#configure-compilations-for-one-target) since one target can have multiple compilations.
+* [A specific compilation](#configure-one-compilation).
+
+See the [list of compilation parameters](multiplatform-dsl-reference.md#compilation-parameters) and [compiler options](gradle-compiler-options.md) 
+available for all or specific targets.
+
+## Configure all compilations
+
+```kotlin
+kotlin {
+    targets.all {
+        compilations.all {
+            compilerOptions.configure {
+                allWarningsAsErrors.set(true)
+            }
+        }
+    }
+}
+```
+
+## Configure compilations for one target
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm().compilations.all {
+        compilerOptions.configure {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm().compilations.all {
+        compilerOptions.configure {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Configure one compilation
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        val main by compilations.getting {
+            compilerOptions.configure {
+                jvmTarget.set(JvmTarget.JVM_1_8)
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.main {
+            compilerOptions.configure {
+                jvmTarget.set(JvmTarget.JVM_1_8)
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Create a custom compilation
+
+If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
+create a custom compilation.
+ 
+For example, to create a custom compilation for integration tests of the `jvm()` target, add a new item to the `compilations` 
+collection. 
+ 
+> For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation 
+> does not depend on the `commonMain` and the `commonTest` source sets.
+>
+{type="note"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm() {
+        compilations {
+            val main by getting
+            
+            val integrationTest by compilations.creating {
+                defaultSourceSet {
+                    dependencies {
+                        // Compile against the main compilation's compile classpath and outputs:
+                        implementation(main.compileDependencyFiles + main.output.classesDirs)
+                        implementation(kotlin("test-junit"))
+                        /* ... */
+                    }
+                }
+                
+                // Create a test task to run the tests produced by this compilation:
+                tasks.register<Test>("integrationTest") {
+                    // Run the tests with the classpath containing the compile dependencies (including 'main'),
+                    // runtime dependencies, and the outputs of this compilation:
+                    classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
+                    
+                    // Run only the tests from this compilation's outputs:
+                    testClassesDirs = output.classesDirs
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm() {
+        compilations.create('integrationTest') {
+            defaultSourceSet {
+                dependencies {
+                    def main = compilations.main
+                    // Compile against the main compilation's compile classpath and outputs:
+                    implementation(main.compileDependencyFiles + main.output.classesDirs)
+                    implementation kotlin('test-junit')
+                    /* ... */
+                }
+            }
+           
+            // Create a test task to run the tests produced by this compilation:
+            tasks.register('jvmIntegrationTest', Test) {
+                // Run the tests with the classpath containing the compile dependencies (including 'main'),
+                // runtime dependencies, and the outputs of this compilation:
+                classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
+                
+                // Run only the tests from this compilation's outputs:
+                testClassesDirs = output.classesDirs
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+You also need to create a custom compilation in other cases, for example, if you want to combine compilations for different 
+JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a multiplatform project.
+
+## Use Java sources in JVM compilations
+
+When [creating a project with the Project Wizard](multiplatform-library.md), Java sources are included in the compilations of
+the JVM target.
+
+In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
+
+```kotlin
+kotlin {
+    jvm {
+        withJava()
+    }
+}
+```
+
+The Java source files are placed in the child directories of the Kotlin source roots. For example, the paths are:
+
+![Java source files](java-source-paths.png){width=200}
+
+The common source sets cannot include Java sources.
+
+Due to current limitations, the Kotlin plugin replaces some tasks configured by the Java plugin:
+
+* The target's JAR task instead of `jar` (for example, `jvmJar`).
+* The target's test task instead of `test` (for example, `jvmTest`).
+* The resources are processed by the equivalent tasks of the compilations instead of `*ProcessResources` tasks.
+
+The publication of this target is handled by the Kotlin plugin and doesn't require steps that are specific for the Java plugin.
+
+## Configure interop with native languages
+
+Kotlin provides [interoperability with native languages](native-c-interop.md) and DSL to configure this for a specific 
+compilation.
+
+| Native language | Supported platforms | Comments |
+|-----------------|---------------------|----------|
+| C | All platforms, except for WebAssembly | |
+| Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | |
+| Swift via Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | Kotlin can use only Swift declarations marked with the `@objc` attribute. |
+
+A compilation can interact with several native libraries. Configure interoperability in the `cinterops` block of the 
+compilation with [available parameters](multiplatform-dsl-reference.md#cinterops).
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.getByName("main") {
+            val myInterop by cinterops.creating {
+                // Def-file describing the native API.
+                // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                defFile(project.file("def-file.def"))
+                
+                // Package to place the Kotlin API generated.
+                packageName("org.sample")
+                
+                // Options to be passed to compiler by cinterop tool.
+                compilerOpts("-Ipath/to/headers")
+              
+                // Directories to look for headers.
+                includeDirs.apply {
+                    // Directories for header search (an equivalent of the -I<path> compiler option).
+                    allHeaders("path1", "path2")
+                    
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option equivalent.
+                    headerFilterOnly("path1", "path2")
+                }
+                // A shortcut for includeDirs.allHeaders.
+                includeDirs("include/directory", "another/directory")
+            }
+            
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.main {
+            cinterops {
+                myInterop {
+                    // Def-file describing the native API.
+                    // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                    defFile project.file("def-file.def")
+                    
+                    // Package to place the Kotlin API generated.
+                    packageName 'org.sample'
+                    
+                    // Options to be passed to compiler by cinterop tool.
+                    compilerOpts '-Ipath/to/headers'
+                    
+                    // Directories for header search (an eqivalent of the -I<path> compiler option).
+                    includeDirs.allHeaders("path1", "path2")
+                    
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option equivalent.
+                    includeDirs.headerFilterOnly("path1", "path2")
+                    
+                    // A shortcut for includeDirs.allHeaders.
+                    includeDirs("include/directory", "another/directory")
+                }
+                
+                anotherInterop { /* ... */ }
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Compilation for Android 
+ 
+The compilations created for an Android target by default are tied to [Android build variants](https://developer.android.com/studio/build/build-variants): 
+for each build variant, a Kotlin compilation is created under the same name.
+
+Then, for each [Android source set](https://developer.android.com/studio/build/build-variants#sourcesets) compiled for 
+each of the variants, a Kotlin source set is created under that source set name prepended by the target name, like the 
+Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target named `android`. These Kotlin 
+source sets are added to the variants' compilations accordingly.
+
+The default source set `commonMain` is added to each production (application or library) variant's compilation. 
+The `commonTest` source set is similarly added to the compilations of unit test and instrumented test variants.
+
+Annotation processing with [`kapt`](kapt.md) is also supported, but due to current limitations it requires that the Android target 
+is created before the `kapt` dependencies are configured, which needs to be done in a top-level `dependencies` block rather 
+than within Kotlin source set dependencies.
+
+```kotlin
+kotlin {
+    android { /* ... */ }
+}
+
+dependencies {
+    kapt("com.my.annotation:processor:1.0.0")
+}
+```
+
+## Compilation of the source set hierarchy 
+
+Kotlin can build a [source set hierarchy](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) with the `dependsOn` relation.
+
+![Source set hierarchy](jvm-js-main.png){width=400}
+
+If the source set `jvmMain` depends on a source set `commonMain` then:
+
+* Whenever `jvmMain` is compiled for a certain target, `commonMain` takes part in that compilation as well and is also 
+compiled into the same target binary form, such as JVM class files.
+* Sources of `jvmMain` 'see' the declarations of `commonMain`, including internal declarations, and also see the 
+[dependencies](multiplatform-add-dependencies.md) of `commonMain`, even those specified as `implementation` dependencies.
+* `jvmMain` can contain platform-specific implementations for the [expected declarations](multiplatform-connect-to-apis.md) 
+of `commonMain`.
+* The resources of `commonMain` are always processed and copied along with the resources of `jvmMain`.
+* The [language settings](multiplatform-dsl-reference.md#language-settings) of `jvmMain` and `commonMain` should be consistent.
+
+Language settings are checked for consistency in the following ways:
+* `jvmMain` should set a `languageVersion` that is greater than or equal to that of `commonMain`.
+* `jvmMain` should enable all unstable language features that `commonMain` enables (there's no such requirement for 
+bugfix features).
+* `jvmMain` should use all experimental annotations that `commonMain` uses.
+* `apiVersion`, bugfix language features, and `progressiveMode` can be set arbitrarily.
 
 # 📜 08.07.2. [[Experimental DSL] Build final native binaries](multiplatform-native-artifacts.md)
 
-# 📜 08.07.3. [](multiplatform-build-native-binaries.md)
+    [//]: # (title: Build final native binaries (Experimental DSL))
 
-# 📜 08.08. [](multiplatform-dsl-reference.md)
+> The new DSL described below is [Experimental](components-stability.md). It may be changed at any time.
+> We encourage you to use it for evaluation purposes.
+> 
+> If the new DSL doesn't work for you, see [the previous approach](multiplatform-build-native-binaries.md)
+> to building native binaries.
+> 
+{type="warning"}
 
-# 📜 08.09. [](multiplatform-mobile-samples.md)
+[Kotlin/Native targets](multiplatform-dsl-reference.md#native-targets) are compiled to the `*.klib` library artifacts,
+which can be consumed by Kotlin/Native itself as a dependency but cannot be used as a native library.
+ 
+To declare final native binaries, use the new binaries format with the `kotlinArtifacts` DSL. It represents a collection
+of native binaries built for this target in addition to the default `*.klib` artifact and provides a set of methods for declaring and configuring them.
+ 
+> The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default 
+> is a debug test executable that lets you run unit tests from the `test` compilation.
+>
+{type="note"}
 
-# 📜 08.10. [FAQ](multiplatform-mobile-faq.md)
+Kotlin artifact DSL can help you to solve a common issue: when you need to access multiple Kotlin modules from your app.
+Since the usage of several Kotlin/Native artifacts is limited, you can export multiple Kotlin modules into a single
+artifact with new DSL.
 
-# 📜 08.11. [](multiplatform-mobile-introduce-your-team.md)
+## Declare binaries
 
-# 📜 08.12. [Compatibility guide](multiplatform-compatibility-guide.md)
+The `kotlinArtifacts` element is the top-level block for artifact configuration in the Gradle build script. Use
+the following kinds of binaries to declare elements of the `kotlinArtifacts` DSL: 
 
-# 📜 08.13. [](multiplatform-mobile-plugin-releases.md)
+| Factory method | Binary kind                                                                               | Available for                                |
+|----------------|-------------------------------------------------------------------------------------------|----------------------------------------------|
+| `sharedLib`    | [Shared native library](native-faq.md#how-do-i-create-a-shared-library)                   | All native targets, except for `WebAssembly` |
+| `staticLib`    | [Static native library](native-faq.md#how-do-i-create-a-static-library-or-an-object-file) | All native targets, except for `WebAssembly` |
+| `framework`    | Objective-C framework                                                                     | macOS, iOS, watchOS, and tvOS targets only   |
+| `fatFramework` | Universal fat framework                                                                   | macOS, iOS, watchOS, and tvOS targets only   |
+| `XCFramework`  | XCFramework framework                                                                     | macOS, iOS, watchOS, and tvOS targets only   |
+
+Inside the `kotlinArtifacts` element, you can write the following blocks:
+
+* [Native.Library](#library)
+* [Native.Framework](#framework)
+* [Native.FatFramework](#fat-frameworks)
+* [Native.XCFramework](#xcframeworks)
+
+The simplest version requires the `target` (or `targets`) parameter for the selected build type. Currently, 
+two build types are available: 
+
+* `DEBUG` – produces a non-optimized binary with debug information 
+* `RELEASE` – produces an optimized binary without debug information
+
+In the `modes` parameter, you can specify build types for which you want to create binaries. The default value includes both `DEBUG`
+and `RELEASE` executable binaries:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlinArtifacts {
+    Native.Library {
+        target = iosX64 // Define your target instead
+        modes(DEBUG, RELEASE)
+        // Binary configuration
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlinArtifacts {
+    it.native.Library {
+        target = iosX64 // Define your target instead
+        modes(DEBUG, RELEASE)
+        // Binary configuration
+    }
+}
+```
+
+</tab>
+</tabs>
+
+You can also declare binaries with custom names:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlinArtifacts {
+    Native.Library("mylib") {
+        // Binary configuration
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlinArtifacts {
+    it.native.Library("mylib") {
+        // Binary configuration
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The argument sets a name prefix, which is the default name for the binary file. For example, for Windows the code 
+produces the `mylib.dll` file.
+
+## Configure binaries
+
+For the binary configuration, the following common parameters are available:
+
+| **Name**        | **Description**                                                                                                                 |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                       |
+| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                    |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md). |
+| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                         |
+| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                          |
+
+### Libraries and frameworks
+
+When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes
+of the current project but also the classes of any other multiplatform module into a single entity and export all these
+modules to it.
+
+#### Library
+
+For the library configuration, the additional `target` parameter is available:
+
+| **Name**        | **Description**                                                                                                                                        |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `target`        | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section. |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlinArtifacts {
+    Native.Library("myslib") {
+        target = linuxX64
+        isStatic = false
+        modes(DEBUG)
+        addModule(project(":lib"))
+        kotlinOptions {
+            verbose = false
+            freeCompilerArgs += "-Xmen=pool"
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlinArtifacts {
+    it.native.Library("myslib") {
+        target = linuxX64
+        it.static = false
+        modes(DEBUG)
+        addModule(project(":lib"))
+        kotlinOptions {
+            verbose = false
+            freeCompilerArgs += "-Xmen=pool"
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The registered Gradle task is `assembleMyslibSharedLibrary` that assembles all types of registered "myslib" into a dynamic library.
+
+#### Framework
+
+For the framework configuration, the following additional parameters are available:
+
+| **Name**       | **Description**                                                                                                                                                                                   |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `target`       | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section.                                            |
+| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlinArtifacts {
+    Native.Framework("myframe") {
+        modes(DEBUG, RELEASE)
+        target = iosArm64
+        isStatic = false
+        embedBitcode = EmbedBitcodeMode.MARKER
+        kotlinOptions {
+            verbose = false
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlinArtifacts {
+    it.native.Framework("myframe") {
+        modes(DEBUG, RELEASE)
+        target = iosArm64
+        it.static = false
+        embedBitcode = EmbedBitcodeMode.MARKER
+        kotlinOptions {
+            verbose = false
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The registered Gradle task is `assembleMyframeFramework` that assembles all types of registered "myframe" framework.
+
+> If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)
+> to export dependencies to binaries.
+>
+{type="tip"}
+
+### Fat frameworks
+
+By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such
+frameworks into a single universal (fat) binary. This especially makes sense for 32-bit and 64-bit iOS frameworks.
+In this case, you can use the resulting universal framework on both 32-bit and 64-bit devices.
+
+For the fat framework configuration, the following additional parameters are available:
+
+| **Name**       | **Description**                                                                                                                                                                                   |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `targets`      | Declares all targets of the project.                                                                                                                                                              |
+| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlinArtifacts {
+    Native.FatFramework("myfatframe") {
+        targets(iosX32, iosX64)
+        embedBitcode = EmbedBitcodeMode.DISABLE
+        kotlinOptions {
+            suppressWarnings = false
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlinArtifacts {
+    it.native.FatFramework("myfatframe") {
+        targets(iosX32, iosX64)
+        embedBitcode = EmbedBitcodeMode.DISABLE
+        kotlinOptions {
+            suppressWarnings = false
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The registered Gradle task is `assembleMyfatframeFatFramework` that assembles all types of registered "myfatframe" fat framework.
+
+> If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-universal-frameworks)
+> to build fat frameworks.
+>
+{type="tip"}
+
+### XCFrameworks
+
+All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and
+architectures in a single bundle. Unlike [universal (fat) frameworks](#fat-frameworks), you don't need to
+remove all unnecessary architectures before publishing the application to the App Store.
+
+For the XCFrameworks configuration, the following additional parameters are available:
+
+| **Name**       | **Description**                                                                                                                                                                                   |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `targets`      | Declares all targets of the project.                                                                                                                                                              |
+| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlinArtifacts {
+    Native.XCFramework("sdk") {
+        targets(iosX64, iosArm64, iosSimulatorArm64)
+        setModules(
+            project(":shared"),
+            project(":lib")
+        )
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlinArtifacts {
+    it.native.XCFramework("sdk") {
+        targets(iosX64, iosArm64, iosSimulatorArm64)
+        setModules(
+            project(":shared"), 
+            project(":lib")
+        )
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The registered Gradle task is `assembleSdkXCFramework` that assembles all types of registered "sdk" XCFrameworks.
+
+> If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-xcframeworks)
+> to build XCFrameworks.
+>
+{type="tip"}
+
+# 📜 08.07.3. [Build final native binaries](multiplatform-build-native-binaries.md)
+
+    [//]: # (title: Build final native binaries)
+
+By default, a Kotlin/Native target is compiled down to a `*.klib` library artifact, which can be consumed by Kotlin/Native
+itself as a dependency but cannot be executed or used as a native library.
+
+To declare final native binaries such as executables or shared libraries, use the `binaries` property of a native target.
+This property represents a collection of native binaries built for this target in addition to the default `*.klib` artifact
+and provides a set of methods for declaring and configuring them.
+
+> The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default
+> is a debug test executable that lets you run unit tests from the `test` compilation.
+>
+{type="note"}
+
+Binaries produced by the Kotlin/Native compiler can include third-party code, data, or derived work.
+This means if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
+you should always include necessary [license files](native-binary-licenses.md) into your binary distribution.
+
+## Declare binaries
+
+Use the following factory methods to declare elements of the `binaries` collection.
+
+| Factory method | Binary kind           | Available for                                |
+|----------------|-----------------------|----------------------------------------------|
+| `executable`   | Product executable    | All native targets                           |
+| `test`         | Test executable       | All native targets                           |
+| `sharedLib`    | Shared native library | All native targets, except for `WebAssembly` |
+| `staticLib`    | Static native library | All native targets, except for `WebAssembly` |
+| `framework`    | Objective-C framework | macOS, iOS, watchOS, and tvOS targets only   |
+
+The simplest version doesn't require any additional parameters and creates one binary for each build type. Currently,
+two build types are available:
+
+* `DEBUG` – produces a non-optimized binary with debug information
+* `RELEASE` – produces an optimized binary without debug information
+
+The following snippet creates two executable binaries, debug and release:
+
+```kotlin
+kotlin {
+    linuxX64 { // Define your target instead.
+        binaries {
+            executable {
+                // Binary configuration.
+            }
+        }
+    }
+}
+```
+
+You can drop the lambda if there is no need for [additional configuration](multiplatform-dsl-reference.md#native-targets):
+
+```kotlin
+binaries {
+    executable()
+}
+```
+
+You can specify for which build types to create binaries. In the following example, only the `debug` executable is created:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+binaries {
+    executable(listOf(DEBUG)) {
+        // Binary configuration.
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+    executable([DEBUG]) {
+        // Binary configuration.
+    }
+}
+```
+
+</tab>
+</tabs>
+
+You can also declare binaries with custom names:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+binaries {
+    executable("foo", listOf(DEBUG)) {
+        // Binary configuration.
+    }
+
+    // It's possible to drop the list of build types
+    // (in this case, all the available build types will be used).
+    executable("bar") {
+        // Binary configuration.
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+    executable('foo', [DEBUG]) {
+        // Binary configuration.
+    }
+
+    // It's possible to drop the list of build types
+    // (in this case, all the available build types will be used).
+    executable('bar') {
+        // Binary configuration.
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The first argument sets a name prefix, which is the default name for the binary file. For example, for Windows the code
+produces the files `foo.exe` and `bar.exe`. You can also use the name prefix to [access the binary in the build script](#access-binaries).
+
+## Access binaries
+
+You can access binaries to [configure them](multiplatform-dsl-reference.md#native-targets) or get their properties (for example, the path to an output file).
+
+You can get a binary by its unique name. This name is based on the name prefix (if it is specified), build type, and
+binary kind following the pattern: `<optional-name-prefix><build-type><binary-kind>`, for example, `releaseFramework` or
+`testDebugExecutable`.
+
+> Static and shared libraries have the suffixes static and shared respectively, for example, `fooDebugStatic` or `barReleaseShared`.
+>
+{type="note"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+// Fails if there is no such binary.
+binaries["fooDebugExecutable"]
+binaries.getByName("fooDebugExecutable")
+
+// Returns null if there is no such binary.
+binaries.findByName("fooDebugExecutable")
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// Fails if there is no such binary.
+binaries['fooDebugExecutable']
+binaries.fooDebugExecutable
+binaries.getByName('fooDebugExecutable')
+
+// Returns null if there is no such binary.
+binaries.findByName('fooDebugExecutable')
+```
+
+</tab>
+</tabs>
+
+Alternatively, you can access a binary by its name prefix and build type using typed getters.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+// Fails if there is no such binary.
+binaries.getExecutable("foo", DEBUG)
+binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
+binaries.getExecutable("bar", "DEBUG") // You also can use a string for build type.
+
+// Similar getters are available for other binary kinds:
+// getFramework, getStaticLib and getSharedLib.
+
+// Returns null if there is no such binary.
+binaries.findExecutable("foo", DEBUG)
+
+// Similar getters are available for other binary kinds:
+// findFramework, findStaticLib and findSharedLib.
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// Fails if there is no such binary.
+binaries.getExecutable('foo', DEBUG)
+binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
+binaries.getExecutable('bar', 'DEBUG') // You also can use a string for build type.
+
+// Similar getters are available for other binary kinds:
+// getFramework, getStaticLib and getSharedLib.
+
+// Returns null if there is no such binary.
+binaries.findExecutable('foo', DEBUG)
+
+// Similar getters are available for other binary kinds:
+// findFramework, findStaticLib and findSharedLib.
+```
+
+</tab>
+</tabs>
+
+## Export dependencies to binaries
+
+When building an Objective-C framework or a native library (shared or static), you may need to pack not just the classes
+of the current project, but also the classes of its dependencies. Specify which dependencies to export to a binary using
+the `export` method.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        macosMain.dependencies {
+            // Will be exported.
+            api(project(":dependency"))
+            api("org.example:exported-library:1.0")
+            // Will not be exported.
+            api("org.example:not-exported-library:1.0")
+        }
+    }
+    macosX64("macos").binaries {
+        framework {
+            export(project(":dependency"))
+            export("org.example:exported-library:1.0")
+        }
+        sharedLib {
+            // It's possible to export different sets of dependencies to different binaries.
+            export(project(':dependency'))
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        macosMain.dependencies {
+            // Will be exported.
+            api project(':dependency')
+            api 'org.example:exported-library:1.0'
+            // Will not be exported.
+            api 'org.example:not-exported-library:1.0'
+        }
+    }
+    macosX64("macos").binaries {
+        framework {
+            export project(':dependency')
+            export 'org.example:exported-library:1.0'
+        }
+        sharedLib {
+            // It's possible to export different sets of dependencies to different binaries.
+            export project(':dependency')
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+For example, you implement several modules in Kotlin and want to access them from Swift. Usage of
+several Kotlin/Native frameworks in a Swift application is limited, but you can create an umbrella framework and
+export all these modules to it.
+
+> You can export only [`api` dependencies](gradle-configure-project.md#dependency-types) of the corresponding source set.
+>
+{type="note"}
+
+When you export a dependency, it includes all of its API to the framework API.
+The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
+This disables dead code elimination for the exported dependency (and for its dependencies, to some extent).
+
+By default, export works non-transitively. This means that if you export the library `foo` depending on the library `bar`,
+only methods of `foo` are added to the output framework.
+
+You can change this behavior using the `transitiveExport` option. If set to `true`, the declarations of the library `bar`
+are exported as well.
+
+> It is not recommended to use `transitiveExport`: it adds all transitive dependencies of the exported dependencies to the framework.
+> This could increase both compilation time and binary size.
+>
+> In most cases, you don't need to add all these dependencies to the framework API.
+> Use `export` explicitly for the dependencies you need to directly access from your Swift or Objective-C code.
+>
+{type="warning"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+binaries {
+    framework {
+        export(project(":dependency"))
+        // Export transitively.
+        transitiveExport = true
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+    framework {
+        export project(':dependency')
+        // Export transitively.
+        transitiveExport = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Build universal frameworks
+
+By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such
+frameworks into a single universal (fat) binary using the [`lipo` tool](https://llvm.org/docs/CommandGuide/llvm-lipo.html).
+This operation especially makes sense for 32-bit and 64-bit iOS frameworks. In this case, you can use the resulting universal
+framework on both 32-bit and 64-bit devices.
+
+> The fat framework must have the same base name as the initial frameworks. Otherwise, you'll get an error.
+>
+{type="warning"}
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
+
+kotlin {
+    // Create and configure the targets.
+    val ios32 = watchosArm32("watchos32")
+    val ios64 = watchosArm64("watchos64")
+    configure(listOf(watchos32, watchos64)) {
+        binaries.framework {
+            baseName = "my_framework"
+        }
+    }
+    // Create a task to build a fat framework.
+    tasks.register<FatFrameworkTask>("debugFatFramework") {
+        // The fat framework must have the same base name as the initial frameworks.
+        baseName = "my_framework"
+        // The default destination directory is "<build directory>/fat-framework".
+        destinationDir = buildDir.resolve("fat-framework/debug")
+        // Specify the frameworks to be merged.
+        from(
+            ios32.binaries.getFramework("DEBUG"),
+            ios64.binaries.getFramework("DEBUG")
+        )
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
+
+kotlin {
+    // Create and configure the targets.
+    targets {
+        watchosArm32("watchos32")
+        watchosArm64("watchos64")
+        configure([watchos32, watchos64]) {
+            binaries.framework {
+                baseName = "my_framework"
+            }
+        }
+    }
+    // Create a task building a fat framework.
+    tasks.register("debugFatFramework", FatFrameworkTask) {
+        // The fat framework must have the same base name as the initial frameworks.
+        baseName = "my_framework"
+        // The default destination directory is "<build directory>/fat-framework".
+        destinationDir = file("$buildDir/fat-framework/debug")
+        // Specify the frameworks to be merged.
+        from(
+            targets.ios32.binaries.getFramework("DEBUG"),
+            targets.ios64.binaries.getFramework("DEBUG")
+        )
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Build XCFrameworks
+
+All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and architectures in a single bundle.
+Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need to remove all unnecessary architectures before publishing the application to the App Store.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
+plugins {
+    kotlin("multiplatform")
+}
+
+kotlin {
+    val xcf = XCFramework()
+    val iosTargets = listOf(iosX64(), iosArm64(), iosSimulatorArm64())
+    
+    iosTargets.forEach {
+        it.binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
+
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+}
+
+kotlin {
+    def xcf = new XCFrameworkConfig(project)
+    def iosTargets = [iosX64(), iosArm64(), iosSimulatorArm64()]
+    
+    iosTargets.forEach {
+        it.binaries.framework {
+            baseName = 'shared'
+            xcf.add(it)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle tasks:
+* `assembleXCFramework`
+* `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
+* `assembleReleaseXCFramework`
+
+If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
+CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
+generate podspec files:
+* `podPublishReleaseXCFramework`, which generates a release XCFramework along with a podspec file.
+* `podPublishDebugXCFramework`, which generates a debug XCFramework along with a podspec file.
+* `podPublishXCFramework`, which generates both debug and release XCFrameworks along with a podspec file.
+
+This can help you distribute shared parts of your project separately from mobile apps through CocoaPods. You can also use XCFrameworks
+for publishing to private or public podspec repositories.
+
+> Publishing Kotlin frameworks to public repositories is not recommended if those frameworks are built for different versions
+> of Kotlin. Doing so might lead to conflicts in the end-users' projects.
+>
+{type="warning"}
+
+## Customize the Info.plist file
+
+When producing a framework, the Kotlin/Native compiler generates the information property list file, `Info.plist`.
+You can customize its properties with the corresponding binary option:
+
+| Property                     | Binary option              |
+|------------------------------|----------------------------|
+| `CFBundleIdentifier`         | `bundleId`                 |
+| `CFBundleShortVersionString` | `bundleShortVersionString` |
+| `CFBundleVersion`            | `bundleVersion`            |
+
+To enable the feature, pass the `-Xbinary=$option=$value` compiler flag or set the `binaryOption("option", "value")`
+Gradle DSL for the specific framework:
+
+```kotlin
+binaries {
+    framework {
+        binaryOption("bundleId", "com.example.app")
+        binaryOption("bundleVersion", "2")
+    }
+}
+```
+
+# 📜 08.08. [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md)
+
+    [//]: # (title: Multiplatform Gradle DSL reference)
+
+> Multiplatform projects are in [Alpha](components-stability.md). Language features and tooling may change in future Kotlin versions.
+>
+{type="note"}
+
+The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin Multiplatform](multiplatform.md) projects.
+Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
+for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-get-started.md).
+
+## Id and version
+
+The fully qualified name of the Kotlin Multiplatform Gradle plugin is `org.jetbrains.kotlin.multiplatform`. 
+If you use the Kotlin Gradle DSL, you can apply the plugin with `kotlin("multiplatform")`.
+The plugin versions match the Kotlin release versions. The most recent version is 1.9.10.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "1.9.10"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
+}
+```
+
+</tab>
+</tabs>
+
+## Top-level blocks
+
+`kotlin` is the top-level block for multiplatform project configuration in the Gradle build script.
+Inside `kotlin`, you can write the following blocks:
+
+| **Block**        | **Description**                                                                                                          |
+|------------------|--------------------------------------------------------------------------------------------------------------------------|
+| _\<targetName\>_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section. |
+| `targets`        | All targets of the project.                                                                                              |
+| `presets`        | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                        |
+| `sourceSets`     | Configures predefined and declares custom [source sets](#source-sets) of the project.                                    |
+
+## Targets
+
+_Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
+one of the supported platforms. Kotlin provides target presets for each platform. See how to [use a target preset](multiplatform-set-up-targets.md).
+
+Each target can have one or more [compilations](#compilations). In addition to default compilations for
+test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
+
+The targets of a multiplatform project are described in the corresponding blocks inside `kotlin`, for example, `jvm`, `android`, `iosArm64`.
+The complete list of available targets is the following:
+
+<table>
+    <tr>
+        <th>Target platform</th>
+        <th>Target preset</th>
+        <th>Comments</th>
+    </tr>
+    <tr>
+        <td>Kotlin/JVM</td>
+        <td><code>jvm</code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kotlin/JS</td>
+        <td><code>js</code></td>
+        <td>
+            <p>Select the execution environment:</p>
+            <list>
+                <li><code>browser {}</code> for applications running in the browser.</li>
+                <li><code>nodejs {}</code> for applications running on Node.js.</li>
+            </list>
+            <p>Learn more in <a href="js-project-setup.md#execution-environments">Setting up a Kotlin/JS project</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Kotlin/Native</td>
+        <td></td>
+        <td>
+            <p>Learn about currently supported targets for the macOS, Linux, and Windows hosts in <a href="native-target-support.md">Kotlin/Native target support</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Android applications and libraries</td>
+        <td><code>android</code></td>
+        <td>
+            <p>Manually apply an Android Gradle plugin: <code>com.android.application</code> or <code>com.android.library</code>.</p>
+            <p>You can only create one Android target per Gradle subproject.</p>
+        </td>
+    </tr>
+</table>
+
+> A target that is not supported by the current host is ignored during building and, therefore, not published.
+>
+{type="note"}
+
+```groovy
+kotlin {
+    jvm()
+    iosX64()
+    macosX64()
+    js().browser()
+}
+```
+
+The configuration of a target can include two parts:
+
+* [Common configuration](#common-target-configuration) available for all targets.
+* Target-specific configuration.
+
+Each target can have one or more [compilations](#compilations).
+
+### Common target configuration
+
+In any target block, you can use the following declarations:
+
+| **Name**            | **Description**                                                                                                                                   | 
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `attributes`        | Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform. |
+| `preset`            | The preset that the target has been created from, if any.                                                                                         |
+| `platformType`      | Designates the Kotlin platform of this target. Available values: `jvm`, `androidJvm`, `js`, `native`, `common`.                                   |
+| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                          |
+| `components`        | The components used to setup Gradle publications.                                                                                                 |
+
+### JVM targets
+
+In addition to [common target configuration](#common-target-configuration), `jvm` targets have a specific function:
+
+| **Name**     | **Description**                                           | 
+|--------------|-----------------------------------------------------------|
+| `withJava()` | Includes Java sources into the JVM target's compilations. |
+
+Use this function for projects that contain both Java and Kotlin source files. Note that the default source directories for Java sources
+don't follow the Java plugin's defaults. Instead, they are derived from the Kotlin source sets. For example, if the JVM target
+has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources.
+Learn more about [Java sources in JVM compilations](multiplatform-configure-compilations.md#use-java-sources-in-jvm-compilations).
+
+```kotlin
+kotlin {
+    jvm {
+        withJava()
+    } 
+}
+```
+
+### JavaScript targets
+
+The `js` block describes the configuration of JavaScript targets. It can contain one of two blocks depending on the target execution environment:
+
+| **Name**  | **Description**                      | 
+|-----------|--------------------------------------|
+| `browser` | Configuration of the browser target. |
+| `nodejs`  | Configuration of the Node.js target. |
+
+Learn more about [configuring Kotlin/JS projects](js-project-setup.md).
+
+#### Browser
+
+`browser` can contain the following configuration blocks:
+
+| **Name**       | **Description**                                                            | 
+|----------------|----------------------------------------------------------------------------|
+| `testRuns`     | Configuration of test execution.                                           |
+| `runTask`      | Configuration of project running.                                          |
+| `webpackTask`  | Configuration of project bundling with [Webpack](https://webpack.js.org/). |
+| `dceTask`      | Configuration of [Dead Code Elimination](javascript-dce.md).               |
+| `distribution` | Path to output files.                                                      |
+
+```kotlin
+kotlin {
+    js().browser {
+        webpackTask { /* ... */ }
+        testRuns { /* ... */ }
+        dceTask {
+            keep("myKotlinJsApplication.org.example.keepFromDce")
+        }
+        distribution {
+            directory = File("$projectDir/customdir/")
+        }
+    }
+}
+```
+
+#### Node.js
+
+`nodejs` can contain configurations of test and run tasks:
+
+| **Name**   | **Description**                   | 
+|------------|-----------------------------------|
+| `testRuns` | Configuration of test execution.  |
+| `runTask`  | Configuration of project running. |
+
+```kotlin
+kotlin {
+    js().nodejs {
+        runTask { /* ... */ }
+        testRuns { /* ... */ }
+    }
+}
+```
+
+### Native targets
+
+For native targets, the following specific blocks are available:
+
+| **Name**    | **Description**                                          | 
+|-------------|----------------------------------------------------------|
+| `binaries`  | Configuration of [binaries](#binaries) to produce.       |
+| `cinterops` | Configuration of [interop with C libraries](#cinterops). |
+
+#### Binaries
+
+There are the following kinds of binaries:
+
+| **Name**     | **Description**        | 
+|--------------|------------------------|
+| `executable` | Product executable.    |
+| `test`       | Test executable.       |
+| `sharedLib`  | Shared library.        |
+| `staticLib`  | Static library.        |
+| `framework`  | Objective-C framework. |
+
+```kotlin
+kotlin {
+    linuxX64 { // Use your target instead.
+        binaries {
+            executable {
+                // Binary configuration.
+            }
+        }
+    }
+}
+```
+
+For binary configuration, the following parameters are available:
+
+| **Name**      | **Description**                                                                                                                                                   | 
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `compilation` | The compilation from which the binary is built. By default, `test` binaries are based on the `test` compilation while other binaries - on the `main` compilation. |
+| `linkerOpts`  | Options passed to a system linker during binary building.                                                                                                         |
+| `baseName`    | Custom base name for the output file. The final file name will be formed by adding system-dependent prefix and postfix to this base name.                         |
+| `entryPoint`  | The entry point function for executable binaries. By default, it's `main()` in the root package.                                                                  |
+| `outputFile`  | Access to the output file.                                                                                                                                        |
+| `linkTask`    | Access to the link task.                                                                                                                                          |
+| `runTask`     | Access to the run task for executable binaries. For targets other than `linuxX64`, `macosX64`, or `mingwX64` the value is `null`.                                 |
+| `isStatic`    | For Objective-C frameworks. Includes a static library instead of a dynamic one.                                                                                   |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+binaries {
+    executable("my_executable", listOf(RELEASE)) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations["test"]
+
+        // Custom command line options for the linker.
+        linkerOpts = mutableListOf("-L/lib/search/path", "-L/another/search/path", "-lmylib")
+
+        // Base name for the output file.
+        baseName = "foo"
+
+        // Custom entry point function.
+        entryPoint = "org.example.main"
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+
+    framework("my_framework" listOf(RELEASE)) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+binaries {
+    executable('my_executable', [RELEASE]) {
+        // Build a binary on the basis of the test compilation.
+        compilation = compilations.test
+
+        // Custom command line options for the linker.
+        linkerOpts = ['-L/lib/search/path', '-L/another/search/path', '-lmylib']
+
+        // Base name for the output file.
+        baseName = 'foo'
+
+        // Custom entry point function.
+        entryPoint = 'org.example.main'
+
+        // Accessing the output file.
+        println("Executable path: ${outputFile.absolutePath}")
+
+        // Accessing the link task.
+        linkTask.dependsOn(additionalPreprocessingTask)
+
+        // Accessing the run task.
+        // Note that the runTask is null for non-host platforms.
+        runTask?.dependsOn(prepareForRun)
+    }
+
+    framework('my_framework' [RELEASE]) {
+        // Include a static library instead of a dynamic one into the framework.
+        isStatic = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Learn more about [building native binaries](multiplatform-build-native-binaries.md).
+
+#### CInterops
+
+`cinterops` is a collection of descriptions for interop with native libraries.
+To provide an interop with a library, add an entry to `cinterops` and define its parameters:
+
+| **Name**       | **Description**                                       | 
+|----------------|-------------------------------------------------------|
+| `defFile`      | `def` file describing the native API.                 |
+| `packageName`  | Package prefix for the generated Kotlin API.          |
+| `compilerOpts` | Options to pass to the compiler by the cinterop tool. |
+| `includeDirs`  | Directories to look for headers.                      |
+
+Learn more how to [configure interop with native languages](multiplatform-configure-compilations.md#configure-interop-with-native-languages).
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.getByName("main") {
+            val myInterop by cinterops.creating {
+                // Def-file describing the native API.
+                // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                defFile(project.file("def-file.def"))
+
+                // Package to place the Kotlin API generated.
+                packageName("org.sample")
+
+                // Options to be passed to compiler by cinterop tool.
+                compilerOpts("-Ipath/to/headers")
+
+                // Directories for header search (an analogue of the -I<path> compiler option).
+                includeDirs.allHeaders("path1", "path2")
+
+                // A shortcut for includeDirs.allHeaders.
+                includeDirs("include/directory", "another/directory")
+            }
+
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.main {
+            cinterops {
+                myInterop {
+                    // Def-file describing the native API.
+                    // The default path is src/nativeInterop/cinterop/<interop-name>.def
+                    defFile project.file("def-file.def")
+
+                    // Package to place the Kotlin API generated.
+                    packageName 'org.sample'
+
+                    // Options to be passed to compiler by cinterop tool.
+                    compilerOpts '-Ipath/to/headers'
+
+                    // Directories for header search (an analogue of the -I<path> compiler option).
+                    includeDirs.allHeaders("path1", "path2")
+
+                    // A shortcut for includeDirs.allHeaders.
+                    includeDirs("include/directory", "another/directory")
+                }
+
+                anotherInterop { /* ... */ }
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Android targets
+
+The Kotlin Multiplatform plugin contains two specific functions for android targets.
+Two functions help you configure [build variants](https://developer.android.com/studio/build/build-variants):
+
+| **Name**                      | **Description**                                                                                                                                | 
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `publishLibraryVariants()`    | Specifies build variants to publish. Learn more about [publishing Android libraries](multiplatform-publish-lib.md#publish-an-android-library). |
+| `publishAllLibraryVariants()` | Publishes all build variants.                                                                                                                  |
+
+```kotlin
+kotlin {
+    android {
+        publishLibraryVariants("release", "debug")
+    }
+}
+```
+
+Learn more about [compilation for Android](multiplatform-configure-compilations.md#compilation-for-android).
+
+> The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
+> Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
+>
+{type="note"}
+
+## Source sets
+
+The `sourceSets` block describes source sets of the project. A source set contains Kotlin source files that participate
+in compilations together, along with their resources, dependencies, and language settings. 
+
+A multiplatform project contains [predefined](#predefined-source-sets) source sets for its targets;
+developers can also create [custom](#custom-source-sets) source sets for their needs.
+
+### Predefined source sets
+
+Predefined source sets are set up automatically upon creation of a multiplatform project.
+Available predefined source sets are the following:
+
+| **Name**                            | **Description**                                                                                                                                                                                       | 
+|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `commonMain`                        | Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main [compilations](#compilations) of a project.                                                |
+| `commonTest`                        | Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.                                                            |
+| _\<targetName\>\<compilationName\>_ | Target-specific sources for a compilation. _\<targetName\>_ is the name of a predefined target and _\<compilationName\>_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`. |
+
+With Kotlin Gradle DSL, the sections of predefined source sets should be marked `by getting`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting { /* ... */ }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin { 
+    sourceSets { 
+        commonMain { /* ... */ } 
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Learn more about [source sets](multiplatform-discover-project.md#source-sets).
+
+### Custom source sets
+
+Custom source sets are created by the project developers manually.
+To create a custom source set, add a section with its name inside the `sourceSets` section.
+If using Kotlin Gradle DSL, mark custom source sets `by creating`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin { 
+    sourceSets { 
+        val myMain by creating { /* ... */ } // create a new source set by the name 'MyMain'
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin { 
+    sourceSets { 
+        myMain { /* ... */ } // create or configure a source set by the name 'myMain' 
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Note that a newly created source set isn't connected to other ones. To use it in the project's compilations,
+[connect it with other source sets](multiplatform-hierarchy.md#manual-configuration).
+
+### Source set parameters
+
+Configurations of source sets are stored inside the corresponding blocks of `sourceSets`. A source set has the following parameters:
+
+| **Name**           | **Description**                                                                        | 
+|--------------------|----------------------------------------------------------------------------------------|
+| `kotlin.srcDir`    | Location of Kotlin source files inside the source set directory.                       |
+| `resources.srcDir` | Location of resources inside the source set directory.                                 |
+| `dependsOn`        | [Connection with another source set](multiplatform-hierarchy.md#manual-configuration). |
+| `dependencies`     | [Dependencies](#dependencies) of the source set.                                       |
+| `languageSettings` | [Language settings](#language-settings) applied to the source set.                     |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin { 
+    sourceSets { 
+        val commonMain by getting {
+            kotlin.srcDir("src")
+            resources.srcDir("res")
+
+            dependencies {
+                /* ... */
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin { 
+    sourceSets { 
+        commonMain {
+            kotlin.srcDir('src')
+            resources.srcDir('res')
+
+            dependencies {
+                /* ... */
+            }
+        }
+    }
+}
+``` 
+
+</tab>
+</tabs>
+
+## Compilations
+
+A target can have one or more compilations, for example, for production or testing. There are [predefined compilations](#predefined-compilations)
+that are added automatically upon target creation. You can additionally create [custom compilations](#custom-compilations).
+
+To refer to all or some particular compilations of a target, use the `compilations` object collection.
+From `compilations`, you can refer to a compilation by its name.
+
+Learn more about [configuring compilations](multiplatform-configure-compilations.md).
+
+### Predefined compilations
+
+Predefined compilations are created automatically for each target of a project except for Android targets.
+Available predefined compilations are the following:
+
+| **Name** | **Description**                     | 
+|----------|-------------------------------------|
+| `main`   | Compilation for production sources. |
+| `test`   | Compilation for tests.              |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        val main by compilations.getting {
+            output // get the main compilation output
+        }
+
+        compilations["test"].runtimeDependencyFiles // get the test runtime classpath
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.main.output // get the main compilation output
+        compilations.test.runtimeDependencyFiles // get the test runtime classpath
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Custom compilations
+
+In addition to predefined compilations, you can create your own custom compilations.
+To create a custom compilation, add a new item into the `compilations` collection.
+If using Kotlin Gradle DSL, mark custom compilations `by creating`.
+
+Learn more about creating a [custom compilation](multiplatform-configure-compilations.md#create-a-custom-compilation).
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm() {
+        compilations {
+            val integrationTest by compilations.creating {
+                defaultSourceSet {
+                    dependencies {
+                        /* ... */
+                    }
+                }
+
+                // Create a test task to run the tests produced by this compilation:
+                tasks.register<Test>("integrationTest") {
+                    /* ... */
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm() {
+        compilations.create('integrationTest') {
+            defaultSourceSet {
+                dependencies {
+                    /* ... */
+                }
+            }
+
+            // Create a test task to run the tests produced by this compilation:
+            tasks.register('jvmIntegrationTest', Test) {
+                /* ... */
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Compilation parameters
+
+A compilation has the following parameters:
+
+| **Name**                 | **Description**                                                                                                                     | 
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `defaultSourceSet`       | The compilation's default source set.                                                                                               |
+| `kotlinSourceSets`       | Source sets participating in the compilation.                                                                                       |
+| `allKotlinSourceSets`    | Source sets participating in the compilation and their connections via `dependsOn()`.                                               |
+| `compilerOptions`        | Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md). |
+| `compileKotlinTask`      | Gradle task for compiling Kotlin sources.                                                                                           |
+| `compileKotlinTaskName`  | Name of `compileKotlinTask`.                                                                                                        |
+| `compileAllTaskName`     | Name of the Gradle task for compiling all sources of a compilation.                                                                 |
+| `output`                 | The compilation output.                                                                                                             |
+| `compileDependencyFiles` | Compile-time dependency files (classpath) of the compilation.                                                                       |
+| `runtimeDependencyFiles` | Runtime dependency files (classpath) of the compilation.                                                                            |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        val main by compilations.getting {
+            compilerOptions.configure { 
+                // Set up the Kotlin compiler options for the 'main' compilation:
+                jvmTarget.set(JvmTarget.JVM_1_8)
+            }
+        
+            compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
+            output // get the main compilation output
+        }
+        
+        compilations["test"].runtimeDependencyFiles // get the test runtime classpath
+    }
+
+    // Configure all compilations of all targets:
+    targets.all {
+        compilations.all {
+            compilerOptions.configure {
+                allWarningsAsErrors.set(true)
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.main.compilerOptions.configure { 
+            // Setup the Kotlin compiler options for the 'main' compilation:
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+
+        compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
+        compilations.main.output // get the main compilation output
+        compilations.test.runtimeDependencyFiles // get the test runtime classpath
+    }
+
+    // Configure all compilations of all targets:
+    targets.all {
+        compilations.all {
+            compilerOptions.configure {
+                allWarningsAsError.set(true)
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Dependencies
+
+The `dependencies` block of the source set declaration contains the dependencies of this source set.
+
+Learn more about [configuring dependencies](gradle-configure-project.md).
+
+There are four types of dependencies:
+
+| **Name**         | **Description**                                                                     | 
+|------------------|-------------------------------------------------------------------------------------|
+| `api`            | Dependencies used in the API of the current module.                                 |
+| `implementation` | Dependencies used in the module but not exposed outside it.                         |
+| `compileOnly`    | Dependencies used only for compilation of the current module.                       |
+| `runtimeOnly`    | Dependencies available at runtime but not visible during compilation of any module. |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                api("com.example:foo-metadata:1.0")
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
+                implementation("com.example:foo-jvm:1.0")
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api 'com.example:foo-metadata:1.0'
+            }
+        }
+        jvmMain {
+            dependencies {
+                implementation 'com.example:foo-jvm:1.0'
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Additionally, source sets can depend on each other and form a hierarchy.
+In this case, the [`dependsOn()`](#source-set-parameters) relation is used.
+
+Source set dependencies can also be declared in the top-level `dependencies` block of the build script.
+In this case, their declarations follow the pattern `<sourceSetName><DependencyKind>`, for example, `commonMainApi`.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    "commonMainApi"("com.example:foo-common:1.0")
+    "jvm6MainApi"("com.example:foo-jvm6:1.0")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    commonMainApi 'com.example:foo-common:1.0'
+    jvm6MainApi 'com.example:foo-jvm6:1.0'
+}
+```
+
+</tab>
+</tabs>
+
+## Language settings
+
+The `languageSettings` block of a source set defines certain aspects of project analysis and build. The following language settings are available:
+
+| **Name**                | **Description**                                                                                                                                                                 | 
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `languageVersion`       | Provides source compatibility with the specified version of Kotlin.                                                                                                             |
+| `apiVersion`            | Allows using declarations only from the specified version of Kotlin bundled libraries.                                                                                          |
+| `enableLanguageFeature` | Enables the specified language feature. The available values correspond to the language features that are currently experimental or have been introduced as such at some point. |
+| `optIn`                 | Allows using the specified [opt-in annotation](opt-in-requirements.md).                                                                                                         |
+| `progressiveMode`       | Enables the [progressive mode](whatsnew13.md#progressive-mode).                                                                                                                 |
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets.all {
+        languageSettings.apply {
+            languageVersion = "1.8" // possible values: "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
+            apiVersion = "1.8" // possible values: "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
+            enableLanguageFeature("InlineClasses") // language feature name
+            optIn("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
+            progressiveMode = true // false by default
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets.all {
+        languageSettings {
+            languageVersion = '1.8' // possible values: '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
+            apiVersion = '1.8' // possible values: '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
+            enableLanguageFeature('InlineClasses') // language feature name
+            optIn('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
+            progressiveMode = true // false by default
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+
+# 📜 08.09. [Kotlin Multiplatform for mobile samples](multiplatform-mobile-samples.md)
+
+    [//]: # (title: Kotlin Multiplatform for mobile samples)
+
+This is a curated list of cross-platform mobile projects created with Kotlin Multiplatform.
+
+> You can find even more sample projects on GitHub, see the [`kotlin-multiplatform-mobile` topic](https://github.com/topics/kotlin-multiplatform-mobile).
+>
+> If you want to add your Kotlin Multiplatform project to this topic and help the community,
+> follow the instructions in the [GitHub documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository).
+>
+{type="tip"}
+
+<table>
+  <tr>
+    <td>Sample name</td>
+    <td>What's shared?</td>
+    <td>Popular libraries used</td>
+    <td>UI Framework</td>
+    <td>iOS integration</td>
+    <td>Platform APIs</td>
+    <td>Tests</td>
+    <td>Features</td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/Kotlin/kmm-basic-sample">Kotlin Multiplatform Mobile Sample</a></strong>
+    </td>
+    <td>Algorithms</td>
+    <td>-</td>
+    <td>XML, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li><code>expect</code>/<code>actual</code> declarations</li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/Kotlin/kmm-production-sample">KMM RSS Reader</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage, UI State</td>
+    <td>SQLDelight, Ktor, DateTime, multiplatform-settings, Napier, kotlinx.serialization</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li>Redux for sharing UI State</li>
+        <li>Published to Google Play and App Store</li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/KaterinaPetrova/kmm-ktor-sample">kmm-ktor-sample</a></strong>
+    </td>
+    <td>Networking</td>
+    <td>Ktor, kotlinx.serialization, Napier</td>
+    <td>XML, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>-</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li><a href="https://www.youtube.com/watch?v=_Q62iJoNOfg%26list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C%26index=2">Video tutorial</a></li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td><strong><a href="https://github.com/IlyaGulya/TodoAppDecomposeMviKotlin">TodoAppDecomposeMviKotlin</a></strong></td>
+    <td>Models, Networking, Presentation, Navigation and UI </td>
+    <td>SQLDelight, Decompose, MVIKotlin, Reaktive</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>
+      <list>
+        <li>99% of the code is shared</li>
+        <li>MVI architectural pattern</li>
+        <li>Shared UI across Android, Desktop and Web via <a href="https://www.jetbrains.com/lp/compose-mpp/">Compose Multiplatform</a></li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/KaterinaPetrova/mpp-sample-lib">mpp-sample-lib</a></strong>
+    </td>
+    <td>Algorithms</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li>Demonstrates how to create a multiplatform library (<a href="https://dev.to/kathrinpetrova/series/11926">tutorial</a>)</li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/touchlab/KaMPKit">KaMPKit</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage, ViewModels</td>
+    <td>Koin, SQLDelight, Ktor, DateTime, multiplatform-settings, Kermit</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>CocoaPods</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/joreilly/PeopleInSpace">PeopleInSpace</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage</td>
+    <td>Koin, SQLDelight, Ktor</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>CocoaPods, Swift Packages</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>
+      <p>Target list:</p>
+      <list>
+        <li>Android Wear OS</li>
+        <li>iOS</li>
+        <li>watchOS</li>
+        <li>macOS Desktop (Compose for Desktop)</li>
+        <li>Web (Compose for Web)</li>
+        <li>Web (Kotlin/JS + React Wrapper)</li>
+        <li>JVM</li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/dbaroncelli/D-KMP-sample">D-KMP-sample</a></strong>
+    </td>
+    <td>Networking, Data Storage, ViewModels, Navigation</td>
+    <td>SQLDelight, Ktor, DateTime, multiplatform-settings</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>Xcode build phases</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>
+      <list>
+        <li>Implements the MVI pattern and the unidirectional data flow</li>
+        <li>Uses Kotlin's StateFlow to trigger UI layer recompositions</li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/mitchtabian/Food2Fork-KMM">Food2Fork Recipe App</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage, Interactors</td>
+    <td>SQLDelight, Ktor, DateTime</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>CocoaPods</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/realm/realm-kotlin-samples/tree/main/Bookshelf">Bookshelf</a></strong>
+    </td>
+    <td>Models, Networking, Data Storage</td>
+    <td>Realm-Kotlin, Ktor, kotlinx.serialization</td>
+    <td>Jetpack Compose, SwiftUI</td>
+    <td>CocoaPods</td>
+    <td>-</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li> Uses <a href="https://www.mongodb.com/docs/realm/sdk/kotlin/">Realm</a> for data persistence </li>
+      </list>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong><a href="https://github.com/VictorKabata/Notflix">Notflix</a></strong>
+    </td>
+    <td>Models, Networking, Caching, ViewModels</td>
+    <td>Koin, Ktor, Multiplatform settings, kotlinx.coroutines, kotlinx.serialization, kotlinx.datetime, Napier</td>
+    <td>Jetpack Compose-Android, Compose Multiplatform-Desktop</td>
+    <td>-</td>
+    <td>✅</td>
+    <td>-</td>
+    <td>
+      <list>
+        <li>Modular architecture</li>
+        <li>Runs on desktop</li>
+        <li>Sharing viewmodel</li>
+      </list>
+    </td>
+  </tr>
+</table>
+
+
+# 📜 08.10. [Kotlin Multiplatform for mobile FAQ](multiplatform-mobile-faq.md)
+
+    [//]: # (title: Kotlin Multiplatform for mobile FAQ)
+
+### What is Kotlin Multiplatform for mobile?
+
+_Kotlin Multiplatform for mobile_ is an SDK for cross-platform mobile development. You can develop 
+multiplatform mobile applications and share parts of your applications between Android and iOS, such as core layers, 
+business logic, presentation logic, and more.
+
+Kotlin Mobile uses the [multiplatform abilities of Kotlin](multiplatform.md) and the features 
+designed for mobile development, such as CocoaPods integration and the [Android Studio Plugin](#what-is-the-kotlin-multiplatform-mobile-plugin).
+
+You may want to watch this introductory [video](https://www.youtube.com/watch?v=mdN6P6RI__k), in which Kotlin Product Marketing Manager Ekaterina Petrova explains in detail what Kotlin Multiplatform for mobile is and how you can use it in your projects. 
+With Ekaterina, you'll set up an environment and prepare for creating your first cross-platform mobile application with Kotlin Multiplatform.
+
+### Can I share UIs with Kotlin Multiplatform?
+
+Yes, you can share UIs using [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/),
+JetBrains' declarative UI framework based on Kotlin and [Jetpack Compose](https://developer.android.com/jetpack/compose). 
+This framework allows you to create shared UI components for platforms like iOS, Android, desktop, and web, helping you 
+to maintain a consistent user interface across different devices and platforms.
+
+Check out the [Compose Multiplatform FAQ](https://github.com/JetBrains/compose-multiplatform/blob/master/docs/FAQ.md#compose-multiplatform-faq)
+to learn more.
+
+### What is the Kotlin Multiplatform Mobile plugin?
+
+The _[Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)_
+for Android Studio helps you develop applications that work on both Android and iOS. 
+
+With the Kotlin Multiplatform Mobile plugin, you can:
+* Run, test, and debug the iOS part of your application on iOS targets straight from Android Studio.
+* Quickly create a new multiplatform project.
+* Add a multiplatform module into an existing project.
+
+The Kotlin Multiplatform Mobile plugin works only on macOS. This is because iOS simulators, per the Apple requirement, can run only on macOS 
+but not on any other operating systems, such as Microsoft Windows or Linux.
+
+The good news is that you can work with cross-platform projects on Android even without the Kotlin Multiplatform Mobile plugin. If you are going to work 
+with shared code or Android-specific code, you can work on any operating system supported by Android Studio.
+
+### What is Kotlin/Native and how does it relate to Kotlin Multiplatform?
+
+_[Kotlin/Native](native-overview.md)_ is a technology for compiling Kotlin code to native 
+binaries, which can run without a virtual machine. It consists of an [LLVM](https://llvm.org/)-based backend for the 
+Kotlin compiler and a native implementation of the Kotlin standard library.
+
+Kotlin/Native is primarily designed to allow compilation for platforms where virtual machines are not desirable or 
+possible, such as embedded devices and iOS. It is particularly suitable for situations when the developer needs to produce 
+a self-contained program that does not require an additional runtime or virtual machine. And that is exactly the case with 
+iOS development.
+
+Shared code, written in Kotlin, is compiled to JVM bytecode for Android with Kotlin/JVM and to native binaries for iOS 
+with Kotlin/Native. It makes the integration with Kotlin Multiplatform seamless on both platforms.
+![Kotlin/Native and Kotlin/JVM binaries](kotlin-native-and-jvm-binaries.png)
+
+### What are the plans for the technology evolution?
+
+Kotlin Multiplatform is one of the focus areas of the [Kotlin roadmap](roadmap.md). To see which parts we're 
+working on right now, check out the [roadmap details](roadmap.md#roadmap-details). 
+Most of the recent changes affect the **Kotlin Multiplatform** and **Kotlin/Native** sections.
+
+The following video presents the current state and our plans for the Kotlin Multiplatform for mobile development: 
+
+<video href="CngKDGBlFxk" title="Kotlin Multiplatform Mobile Is in Beta – Start Using It Now!"/>
+
+### Can I run an iOS application on Microsoft Windows or Linux?
+
+If you want to write iOS-specific code and run an iOS application on a simulated or real device, use a Mac with a macOS
+([use the Kotlin Multiplatform Mobile plugin for it](#what-is-the-kotlin-multiplatform-mobile-plugin)). This is because iOS simulators can run only on macOS, per 
+the Apple requirement, but cannot run on other operating systems, such as Microsoft Windows or Linux.
+
+If you are going to work with shared code or Android-specific code, you can work on any operating system supported by Android Studio.
+
+### Where can I get complete examples to play with?
+
+* [Curated samples](multiplatform-mobile-samples.md)
+* [Create a multiplatform app using Ktor and SQLDelight – tutorial](multiplatform-mobile-ktor-sqldelight.md)
+
+### In which IDE should I work on my cross-platform app?
+
+You can work in [Android Studio](https://developer.android.com/studio). Android Studio allows the use of the 
+[Kotlin Multiplatform Mobile plugin](#what-is-the-kotlin-multiplatform-mobile-plugin), which is a part of the Kotlin ecosystem. Enable the Kotlin Multiplatform Mobile plugin in Android Studio 
+if you want to write iOS-specific code and launch an iOS application on a simulated or real device. The plugin can be used only on macOS.
+
+Most of our adopters use Android Studio. However, if there is any reason for you not to use it, there is another option: 
+you can use [IntelliJ IDEA](https://www.jetbrains.com/idea/download). IntelliJ IDEA provides the ability to create 
+a multiplatform mobile application from the Project Wizard, but you won't be able to launch an iOS application from the IDE.
+
+### How can I write concurrent code in Kotlin Multiplatform projects?
+
+You can easily write concurrent code in your cross-platform mobile projects with the new [Kotlin/Native memory manager](native-memory-manager.md)
+that lifted previous limitations and aligned the behaviour between Kotlin/JVM and Kotlin/Native. The new memory manager
+has been enabled by default since Kotlin 1.7.20.
+
+### How can I speed up my Kotlin Multiplatform module compilation for iOS?
+See these [tips for improving Kotlin/Native compilation times](native-improving-compilation-time.md).
+
+## What platforms do you support?
+
+Kotlin Multiplatform supports development for:
+
+* Android applications and libraries
+* [Android NDK](https://developer.android.com/ndk) (ARM64 and ARM32)
+* Apple iOS devices and simulators
+* Apple watchOS devices and simulators
+
+The [Kotlin Multiplatform](multiplatform.md) technology also supports [other platforms](multiplatform-dsl-reference.md#targets),
+including JavaScript, Linux, Windows, and WebAssembly.
+
+# 📜 08.11. [Introduce cross-platform mobile development to your team](multiplatform-mobile-introduce-your-team.md)
+
+    [//]: # (title: Introduce cross-platform mobile development to your team)
+
+These recommendations will help you introduce your team to Kotlin Multiplatform for mobile:
+
+* [Start with empathy](#start-with-empathy)
+* [Explain how Kotlin Multiplatform works](#explain-how-it-works)
+* [Show the value using case studies](#show-the-value)
+* [Offer a proof by creating a sample project yourself](#offer-proof)
+* [Prepare for questions from your team](#prepare-for-questions)
+* [Support your team during the adaptation](#be-supportive)
+
+## Start with empathy
+
+Software development is a team game, with each critical decision needing the approval of all team members. Integrating any cross-platform technology will significantly affect the development process for your mobile application. So before you start integrating Kotlin Multiplatform in your project, you'll need to introduce your team to the technology and guide them gently to see it's worth adopting.
+
+Understanding the people who work on your project is the first step to successful integration. Your boss is responsible for delivering features with the best quality in the shortest time possible. To them, any new technology is a risk. Your colleagues have a different perspective, as well. They have experience building apps with the "native" technology stack. They know how to write the UI and business logic, work with dependencies, test, and debug code in the IDE, and they are already familiar with the language. Switching to a different ecosystem is very uncomfortable, as it always means leaving your comfort zone.
+
+Given all that, be ready to face lots of biases and answer a lot of questions when advocating for the move to Kotlin Multiplatform for mobile. As you do, never lose sight of what your team needs. Some of the advice below might be useful for preparing your pitch.
+
+## Explain how it works
+
+At this stage, you need to get rid of any preexisting bad feelings about cross-platform mobile applications and show that using Kotlin Multiplatform in your project is not only possible but also won't bring regular cross-platform problems. You should explain why there won't be any problems, such as:
+
+*   _Limitations of using all iOS and Android features_ – Whenever a task cannot be solved in the shared code or whenever you want to use specific native features, you can use the expect/actual pattern to seamlessly write platform-specific code.
+*   _Performance issues_ – Shared code written in Kotlin is compiled to different output formats for different targets: to Java bytecode for Android and to native binaries for iOS. Thus, there is no additional runtime overhead when it comes to executing this code on platforms, and the performance is comparable to native apps.
+*   _Legacy code problems_ – No matter how large your project is, your existing code will not prevent you from integrating Kotlin Multiplatform. You can start writing cross-platform code at any moment and connect it to your iOS and Android Apps as a regular dependency, or you can use the code you've already written and simply modify it to be compatible with iOS.
+
+Being able to explain _how_ technology works is important, as nobody likes when a discussion seems to rely on magic. People might think the worst if anything is unclear to them, so be careful not to make the mistake of thinking something is too obvious to warrant explanation. Instead, try to explain all the basic concepts before moving on to the next stage. This document on [multiplatform programming](multiplatform.md) could help you systemize your knowledge to prepare for this experience.
+
+## Show the value
+
+Understanding how the technology works is necessary, but not enough. Your team needs to see the gains of using it, and the way you present these gains should be related to your product. Kotlin Multiplatform allows you to use a single codebase for the business logic of iOS and Android apps. So if you develop a very thin client and the majority of the code is UI logic, then the main power of Kotlin Multiplatform Mobile will be unused in your project. However, if your application has complex business logic, for example if you have features like networking, data storage, payments, complex computations, or data synchronization, then this logic could easily be written and shared between iOS and Android so you can experience the real power of the technology.
+
+At this stage, you need to explain the main gains of using Kotlin Multiplatform in your product. One of the ways is to share stories of other companies who already benefit from the technology. The successful experience of these teams, especially ones with similar product objectives, could become a key factor in the final decision.
+
+Citing case studies of different companies who already use Kotlin Multiplatform in production could significantly help you make a compelling argument:
+
+*   **[Chalk.com](https://kotlinlang.org/lp/multiplatform/case-studies/chalk)** – The UI for each of the Chalk.com apps is native to the platform, but otherwise almost everything for their apps can be shared with Kotlin Multiplatform for mobile.
+*   **[Cash App](https://kotlinconf.com/2019/talks/video/2019/116027/)** – A lot of the app's business logic, including the ability to search through all transactions, is implemented with Kotlin Multiplatform for mobile.
+*   **[Yandex.Disk](https://kotlinlang.org/lp/multiplatform/case-studies/yandex)** – They started out by experimenting with the integration of a small feature, and as the experiment was considered successful, they implemented their whole data synchronization logic in Kotlin Multiplatform for mobile.
+
+Explore [the case studies page](https://kotlinlang.org/lp/multiplatform/case-studies) for inspirational references.
+
+## Offer proof
+
+The theory is good, but putting it into practice is ultimately most important. As one option to make your case more convincing, you can take the risky choice of devoting some of your personal free time to creating something with Kotlin Multiplatform and then bringing in the results for your team to discuss. Your prototype could be some sort of test project, which you would write from scratch and which would demonstrate features that are needed in your application. 
+[Create a multiplatform app using Ktor and SQLDelight – tutorial](multiplatform-mobile-ktor-sqldelight.md) can guide you well on this process. 
+
+The more relevant examples could be produced by experimenting with your current project. You could take one existing feature implemented in Kotlin and make it cross-platform, or you could even create a new Multiplatform Module in your existing project, take one non-priority feature from the bottom of the backlog, and implement it in the shared module. 
+[Make your Android application work on iOS – tutorial](multiplatform-mobile-integrate-in-existing-app.md) provides a step-by-step guide based on a sample project.
+
+The new [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) will allow you to accomplish either of these tasks in the shortest amount of time by using the **Kotlin Multiplatform App** or **Kotlin Multiplatform Library** wizards.
+
+## Prepare for questions
+
+No matter how detailed your pitch is, your team will have a lot of questions. Listen carefully, and try to answer them all patiently. You might expect the majority of the questions to come from the iOS part of the team, as they are the developers who aren't used to seeing Kotlin in their everyday developer routine. This list of some of the most common questions could help you here:
+
+**Q: I heard applications based on cross-platform technologies can be rejected from the AppStore. Is taking this risk worth it?**
+
+A: The Apple Store has strict guidelines for application publishing. One of the limitations is that apps may not download, install, or execute code which introduces or changes features or functionality of the app ([App Store Review Guideline 2.5.2](https://developer.apple.com/app-store/review/guidelines/#software-requirements)). This is relevant for some cross-platform technologies, but not for Kotlin Multiplatform. Shared Kotlin code compiles to native binaries with Kotlin/Native, bundles a regular iOS framework into your app, and doesn't provide the ability for dynamic code execution.
+
+**Q: Multiplatform projects are built with Gradle, and Gradle has an extremely steep learning curve. Do I need to spend a lot of time now trying to configure my project?**
+
+A: There's actually no need. There are various ways to organize the work process around building Kotlin mobile applications. First, only Android developers could be responsible for the builds, in which case the iOS team would only write code or even only consume the resulting artifact. You also can organize some workshops or practice pair programming while facing tasks that require working with Gradle, and this would increase your team's Gradle skills. You can explore different ways of organizing teamwork for multiplatform projects and choose the one that's most appropriate for your team.
+
+Also, in basic scenarios, you simply need to configure your project at the start, and then you just add dependencies to it. The new AS plugin makes configuring your project much easier, so it can now be done in a few clicks.
+
+When only the Android part of the team works with shared code, the iOS developers don't even need to learn Kotlin. But when you are ready for your team to move to the next stage, where everyone contributes to the shared code, making the transition won't take much time. The similarities between the syntax and functionality of Swift and Kotlin greatly reduce the work required to learn how to read and write shared Kotlin code. [Try it yourself!](https://play.kotlinlang.org/koans/overview)
+
+**Q: I heard that Kotlin Multiplatform for mobile is experimental technology. Does that mean that we shouldn't use it for production?**
+
+A: Experimental status means we and the whole Kotlin community are just trying out an idea, but if it doesn't work, it may be dropped anytime. However, after the release of Kotlin 1.4, **Kotlin Multiplatform for mobile is in Alpha** status. This means the Kotlin team is fully committed to working to improve and evolve this technology and will not suddenly drop it. However, before going Beta, there could be some migration issues yet. But even experimental status doesn't prevent a feature from being used successfully in production, as long as you understand all the risks. Check [the Kotlin evolution page](kotlin-evolution.md) for information about the stability statuses of Kotlin Multiplatform components.
+
+**Q: There are not enough multiplatform libraries to implement the business logic, it's much easier to find native alternatives.**
+
+A: Of course, we can't compare the number of multiplatform libraries with React Native, for example. But it took five years for React Native to expand their ecosystem to its current size. Kotlin Multiplatform for mobile is still young, but the ecosystem has tremendous potential as there are already a lot of modern libraries written in Kotlin that can be easily ported to multiplatform. 
+
+It's also a great time to be an iOS developer in the Kotlin Multiplatform open-source community because the iOS experience is in demand and there are plenty of opportunities to gain recognition from iOS-specific contributions.
+
+And the more your team digs into the technology, the more interesting and complex their questions will be. Don't worry if you don't have the answers – Kotlin Multiplatform has a large and [supportive community in the Kotlin Slack](https://kotlinlang.slack.com/archives/C3PQML5NU), where a lot of developers who already use it can help you. We would be very thankful if you could [share with us](mailto:kotlin.multiplatform.feedback@kotlinlang.org) the most popular questions asked by your team. This information will help us understand what topics need to be covered in the documentation. 
+
+## Be supportive
+
+After you decide to use Kotlin Multiplatform, there will be an adaptation period as your team experiments with the technology. And your mission will not be over yet! By providing continuous support for your teammates, you will reduce the time it takes for your team to dive into the technology and achieve their first results.
+
+Here are some tips on how you can support your team at this stage:
+
+*   Collect the questions you were asked during the previous stage on the "Kotlin Multiplatform: Frequently asked questions" wiki page and share it with your team.
+*   Create a _#kotlin-multiplatform-support_ Slack channel and become the most active user there.
+*   Organize an informal team building event with popcorn and pizza where you watch educational or inspirational videos about Kotlin Multiplatform. ["Shipping a Mobile Multiplatform Project on iOS & Android" by Ben Asher & Alec Strong](https://www.youtube.com/watch?v=je8aqW48JiA) could be a good choice.
+
+The reality is that you probably will not change people's hearts and minds in a day or even a week. But patience and attentiveness to the needs of your colleagues will undoubtedly bring results. 
+
+The Kotlin Multiplatform team looks forward to hearing [your story](mailto:kotlin.multiplatform.feedback@kotlinlang.org).
+
+_We'd like to thank the [Touchlab team](https://touchlab.co) for helping us write this article._
+
+
+# 📜 08.12. [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md)
+
+    [//]: # (title: Compatibility guide for Kotlin Multiplatform)
+
+This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you might encounter while
+developing projects with Kotlin Multiplatform.
+
+> Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
+> Stable version of Kotlin is 1.9.10.
+> 
+{type="note"}
+
+## New approach to auto-generated targets
+
+**What's changed?**
+
+Target accessors auto-generated by Gradle are no longer available inside the `kotlin.targets` block. Use
+the `findByName("targetName")` method instead.
+
+Note that such accessors are still available in the `kotlin.targets` case, for example, `kotlin.targets.linuxX64`.
+
+**What's the best practice now?**
+
+<table header-style="top">
+    <tr>
+        <td>Before</td>
+        <td>Now</td>
+    </tr>
+    <tr>
+<td>
+
+```kotlin
+kotlin {
+    targets {
+        configure(['windows',
+            'linux']) {
+        }
+    }
+}
+```
+
+</td>
+<td>
+
+```kotlin
+kotlin {
+    targets {
+        configure([findByName('windows'),
+            findByName('linux')]) {
+        }
+    }
+}
+```
+
+</td>
+    </tr>
+</table>
+
+**When do the changes take effect?**
+
+In Kotlin 1.7.20, an error is introduced when using target accessors in the `kotlin.targets` block.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-47047).
+
+## Changes in Gradle input and output compile tasks
+
+**What's changed?**
+
+Kotlin compile tasks no longer inherit the Gradle `AbstractCompile` task that has the `sourceCompatibility` and
+`targetCompatibility` inputs, making them unavailable in Kotlin users' scripts.
+
+Other breaking changes in compile tasks:
+
+**What's the best practice now?**
+
+| Before                                                              | Now                                                                                                            |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| The `SourceTask.stableSources` input is no longer available.        | Use the `sources` input instead. Also, the `setSource()` methods are still available.                          |
+| The `sourceFilesExtensions` input was removed.                      | Compile tasks still implement the `PatternFilterable` interface. Use its methods for filtering Kotlin sources. |
+| The `Gradle destinationDir: File` output was deprecated.            | Use the `destinationDirectory: DirectoryProperty` output instead.                                              |
+| The `classpath` property of the `KotlinCompile` task is deprecated. | All compile tasks now use the `libraries` input for a list of libraries required for compilation.              |
+
+**When do the changes take effect?**
+
+In Kotlin 1.7.20, inputs are not available, the output is replaced, and the `classpath` property is deprecated.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-32805).
+
+## New configuration names for dependencies on the compilation
+
+**What's changed?**
+
+Compilation configurations created by the Kotlin Multiplatform Gradle Plugin received new names.
+
+A target in the Kotlin Multiplatform project has two default compilations, `main` and `test`. Each of these compilations
+has its own default source set, for example, `jvmMain` and `jvmTest`. Previously the configuration names for the test
+compilation and its default source set were the same, which might lead to a name clash resulting in issues when a
+configuration marked with platform-specific attributes is included in another configuration.
+
+Now compilation configurations have an extra `Compilation` postfix, while projects and plugins that use old hard-coded
+configuration names no longer compile.
+
+Configuration names for dependencies on the corresponding source set stay the same.
+
+**What's the best practice now?**
+
+<table header-style="top">
+    <tr>
+        <td></td>
+        <td>Before</td>
+        <td>Now</td>
+    </tr>
+    <tr>
+        <td rowspan="2">Dependencies of the <code>jvmMain</code> compilation</td>
+<td>
+
+```kotlin
+jvm<Scope>
+```
+
+</td>
+<td>
+
+```kotlin
+jvmCompilation<Scope>
+```
+
+</td>
+    </tr>
+    <tr>
+<td>
+
+```kotlin
+dependencies {
+    add("jvmImplementation",
+        "foo.bar.baz:1.2.3")
+}
+```
+
+</td>
+<td>
+
+```kotlin
+dependencies {
+    add("jvmCompilationImplementation",
+        "foo.bar.baz:1.2.3")
+}
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Dependencies of the <code>jvmMain</code> source set</td>
+<td colspan="2">
+
+```kotlin
+jvmMain<Scope>
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Dependencies of the <code>jvmTest</code> compilation</td>
+<td>
+
+```kotlin
+jvmTest<Scope>
+```
+
+</td>
+<td>
+
+```kotlin
+jvmTestCompilation<Scope>
+```
+
+</td>
+    </tr>
+    <tr>
+        <td>Dependencies of the <code>jvmTest</code> source set</td>
+<td colspan="2">
+
+```kotlin
+jvmTest<Scope>
+```
+
+</td>
+    </tr>
+</table>
+
+The available scopes are `Api`, `Implementation`, `CompileOnly`, and `RuntimeOnly`.
+
+**When do the changes take effect?**
+
+In Kotlin 1.8.0, an error is introduced when using old configuration names in hard-coded strings.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
+
+<anchor name="deprecate-hmpp-properties"></anchor>
+
+## Deprecated Gradle properties for hierarchical structure support
+
+**What's changed?**
+
+Throughout its evolution, Kotlin was gradually introducing the support for [hierarchical structure](multiplatform-hierarchy.md),
+in multiplatform projects, an ability to have intermediate source sets between the common source set `commonMain` and
+any platform-specific one, for example, `jvmMain`.
+
+For the transition period, while the toolchain wasn't stable enough, a couple of Gradle properties were introduced,
+allowing granular opt-ins and opt-outs.
+
+Since Kotlin 1.6.20, the hierarchical project structure support has been enabled by default. However, these properties
+were kept for opting out in case of blocking issues. After processing all the feedback, we're now starting to phase out
+those properties completely.
+
+The following properties are now deprecated and will be removed in Kotlin 1.9.20:
+
+* `kotlin.internal.mpp.hierarchicalStructureByDefault`
+* `kotlin.mpp.enableCompatibilityMetadataVariant`
+* `kotlin.mpp.hierarchicalStructureSupport`
+* `kotlin.mpp.enableGranularSourceSetsMetadata`
+* `kotlin.native.enableDependencyPropagation`
+
+**What's the best practice now?**
+
+* Remove these properties from your `gradle.properties` and `local.properties` files.
+* Avoid setting them programmatically in the Gradle build scripts or your Gradle plugins.
+* In case deprecated properties are set by some third-party Gradle plugin used in your build, ask the plugin maintainers
+not to set these properties.
+
+As the default behavior of the Kotlin toolchain doesn't include such properties since 1.6.20, we don't expect
+any serious impact from removing them. Most possible consequences will be visible immediately after the project rebuild.
+
+If you're a library author and want to be extra safe, check that consumers can work with your library.
+
+**When do the changes take effect?**
+
+In 1.8.20, the Kotlin Gradle plugin shows a warning if the build sets these properties. Starting with Kotlin 1.9.0,
+the properties are silently ignored.
+
+In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotl.in/issue).
+
+<anchor name="deprecate-pre-hmpp-dependencies"></anchor>
+## Deprecated support of multiplatform libraries published in the legacy mode
+
+**What's changed?**
+
+Previously, we [have deprecated
+the legacy mode](#deprecated-gradle-properties-for-hierarchical-structure-support) in Kotlin Multiplatform projects
+preventing the publication of "legacy" binaries and encouraged you to migrate your projects to the [hierarchical structure](multiplatform-hierarchy.md).
+
+To continue phasing out "legacy" binaries from the ecosystem, starting with Kotlin 1.9.0, the use of legacy libraries
+is also discouraged. If your project uses dependencies on legacy libraries, you'll see the following warning:
+
+```none
+The dependency group:artifact:1.0 was published in the legacy mode. Support for such dependencies will be removed in the future
+```
+
+**What's the best practice now?**
+
+_If you use multiplatform libraries_, most of them have already migrated to the "hierarchical structure" mode,
+so you only need to update the library version. See the documentation of the respective libraries for details.
+
+If the library doesn't support non-legacy binaries yet, you can contact the maintainers and tell them about this
+compatibility issue.
+
+_If you're a library author_, update the Kotlin Gradle plugin to the latest version and ensure you've fixed the [deprecated Gradle properties](#deprecated-gradle-properties-for-hierarchical-structure-support).
+
+The Kotlin team is eager to help the ecosystem migrate, so if you face any issues, don't hesitate to create an [issue in YouTrack](https://kotl.in/issue).
+
+**When do the changes take effect?**
+
+* 1.9.0: introduce a deprecation warning for dependencies on legacy libraries
+* 1.9.20: raise the warning for dependencies on legacy libraries to an error
+* \> 1.9.20: the support for dependencies on legacy libraries is removed. Using such dependencies can cause build failures
+
+<anchor name="compilation-source-deprecation"></anchor>
+## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
+
+**What's changed?**
+
+The access to `KotlinCompilation.source` has been deprecated. A code like this produces a deprecation warning:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    ios()
+    
+    sourceSets {
+        val commonMain by getting 
+        val myCustomIntermediateSourceSet by creating {
+            dependsOn(commonMain)
+        }
+        
+        targets["jvm"].compilations["main"].source(myCustomIntermediateSourceSet)
+    }
+}
+```
+
+**What's the best practice now?**
+
+To replace `KotlinCompilation.source(someSourceSet)`, add the  `dependsOn` relation from the
+default source set of the `KotlinCompilation` to `someSourceSet`. We recommend referring to the source directly using `by getting`,
+which is shorter and more readable. However, you can also use `KotlinCompilation.defaultSourceSet.dependsOn(someSourceSet)`,
+which is applicable in all cases.
+
+You can change the code above in one of the following ways:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    ios()
+
+    sourceSets {
+        val commonMain by getting
+        val myCustomIntermediateSourceSet by creating {
+            dependsOn(commonMain)
+        }
+
+        // Option #1. Shorter and more readable, use it when possible:
+       val jvmMain by getting { // Usually, the name of the default source set 
+                                // is a simple concatenation of the target name and the compilation name
+            dependsOn(myCustomIntermediateSourceSet)
+        }
+        
+        // Option #2. Generic solution, use it if your build script requires a more advanced approach:
+        targets["jvm"].compilations["main"].defaultSourceSet.dependsOn(myCustomIntermediateSourceSet)
+    }
+}
+```
+
+**When do the changes take effect?**
+
+In 1.9.0, the use of `KotlinComplation.source` produces a deprecation warning.
+This API will be removed in Kotlin 1.9.20 and later,
+leading to "unresolved reference" errors on the `KotlinCompilation.source` calls.
+
+<anchor name="kotlin-js-plugin-deprecation"></anchor>
+## Migration from `kotlin-js` Gradle plugin to `kotlin-multiplatform` Gradle plugin
+
+**What's changed?**
+
+Starting with Kotlin 1.9.0, the `kotlin-js` Gradle plugin is
+deprecated. Basically, it duplicated the functionality of the `kotlin-multiplatform` plugin with the `js()` target
+and shared the same implementation under the hood. Such overlap created confusion and increased maintenance
+load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatform` Gradle plugin with the `js()` target instead.
+
+**What's the best practice now?**
+
+1. Remove the `kotlin-js` Gradle plugin from your project and apply `kotlin-multiplatform` in the `settings.gradle.kts` file
+   if you're using the `pluginManagement` block:
+
+   <tabs>
+   <tab title="kotlin-js">
+   
+   ```kotlin
+   // settings.gradle.kts
+   pluginManagement {
+       plugins {
+           // Remove the following line:
+           kotlin("js") version "1.9.0"
+       }
+       
+       repositories {
+           // ...
+       }
+   }
+   ```
+   
+   </tab>
+   <tab title="kotlin-multiplatform">
+   
+   ```kotlin
+   // settings.gradle.kts
+   pluginManagement {
+       plugins {
+           // Add the following line instead:
+           kotlin("multiplatform") version "1.9.0"
+       }
+       
+       repositories {
+           // ...
+       }
+   }
+   ```
+   
+   </tab>
+   </tabs>
+
+   In case you're using a different way of applying plugins,
+   see [the Gradle documentation](https://docs.gradle.org/current/userguide/plugins.html) for migration instructions.
+
+2. Move your source files from the `main` and `test` folders to the `jsMain` and `jsTest` folders in the same directory.
+3. Adjust dependency declarations:
+
+   * We recommend using the `sourceSets` block and configuring dependencies of respective source sets,
+     `jsMain` for production dependencies and `jsTest` for test dependencies.
+     See [Adding dependencies](multiplatform-add-dependencies.md) for more details.
+   * However, if you want to declare your dependencies in a top-level block,
+     change declarations from `api("group:artifact:1.0")` to `add("jsMainApi", "group:artifact:1.0")` and so on.
+
+      > In this case, make sure that the top-level `dependencies` block comes **after** the `kotlin` block. Otherwise, you'll get an error "Configuration not found".
+      >
+      {type="note"}
+   
+   You can change the code in your `build.gradle.kts` file in one of the following ways:
+
+   <tabs>
+   <tab title="kotlin-js">
+   
+   ```kotlin
+   // build.gradle.kts
+   plugins {
+       kotlin("js") version "1.9.0"
+   }
+   
+   dependencies {
+       testImplementation(kotlin("test"))
+       implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+   }
+   
+   kotlin {
+       js {
+           // ...
+       }
+   }
+   ```
+   
+   </tab>
+   <tab title="kotlin-multiplatform">
+   
+   ```kotlin
+   // build.gradle.kts
+   plugins {
+       kotlin("multiplatform") version "1.9.0"
+   }
+   
+   kotlin {
+       js {
+           // ...
+       }
+       
+       // Option #1. Declare dependencies in the `sourceSets` block:
+       sourceSets {
+           val jsMain by getting {
+               dependencies {
+                   // No need for the `js` prefix here, you can just copy and paste it from the top-level block
+                   implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+               }
+           }
+       }
+   }
+   
+   dependencies {
+      // Option #2. Add the `js` prefix to the dependency declaration:
+      add("jsTestImplementation", kotlin("test"))
+   }
+   ```
+   
+   </tab>
+   </tabs>
+
+4. The DSL provided by the Kotlin Gradle plugin inside the `kotlin` block remains unchanged in most cases. However,
+   if you were referring to low-level Gradle entities, like tasks and configurations, by names, you now need to adjust them,
+   usually by adding the `js` prefix. For example, you can find the `browserTest` task under the name `jsBrowserTest`.
+
+**When do the changes take effect?**
+
+In 1.9.0, the use of the `kotlin-js` Gradle plugin produces a deprecation warning.
+
+<anchor name="android-target-rename"></anchor>
+## Rename of `android` target to `androidTarget`
+
+**What's changed?**
+
+We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this way is to provide first-class
+support for the Android target. In the future, this support will be provided via a separate plugin, developed by the
+Android team from Google.
+
+To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current
+Kotlin DSL in 1.9.0. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
+from Google.
+
+**What's the best practice now?**
+
+Rename all the occurrences of  the `android` block to `androidTarget`. When the new plugin for the Android target support
+is available, migrate to the DSL from Google. It will be the preferred option to work with Android in Kotlin Multiplatform
+projects.
+
+**When do the changes take effect?**
+
+In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
+
+# 📜 08.13. [Kotlin Multiplatform Mobile plugin releases](multiplatform-mobile-plugin-releases.md)
+
+    [//]: # (title: Kotlin Multiplatform Mobile plugin releases)
+
+Since Kotlin Multiplatform Mobile is now in [Beta](kotlin-evolution.md), we are working on stabilizing the corresponding [plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
+and will be regularly releasing new versions that include new features, improvements, and bug fixes. 
+
+Ensure that you have the latest version of the Kotlin Multiplatform Mobile plugin!
+
+## Update to the new release
+
+Android Studio will suggest updating to a new Kotlin Multiplatform Mobile plugin release as soon as it is available. If you accept the suggestion, it will automatically update the plugin to the latest version. 
+You'll need to restart Android Studio to complete the plugin installation.
+
+You can check the plugin version and update it manually in **Settings/Preferences** | **Plugins**.
+
+You need a compatible version of Kotlin for the plugin to work correctly. You can find compatible versions in the [release details](#release-details).
+You can check your Kotlin version and update it in **Settings/Preferences** | **Plugins** or in **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**.
+
+>If you do not have a compatible version of Kotlin installed, the Kotlin Multiplatform Mobile plugin will be disabled. You will need to update your Kotlin 
+>version, and then enable the plugin in **Settings/Preferences** | **Plugins**.
+>
+{type="note"}
+
+## Release details
+
+The following table lists the details of the latest Kotlin Multiplatform Mobile plugin releases: 
+
+<table> 
+<tr>
+<th>
+Release info
+</th>
+<th>
+Release highlights
+</th>
+<th>
+Compatible Kotlin version
+</th>
+</tr>
+<tr>
+<td>
+
+**0.8.0**
+
+Released: 5 October, 2023
+
+</td>
+<td>
+
+* [KT-60169](https://youtrack.jetbrains.com/issue/KT-60169) Migrated on the Gradle version catalog.
+* [KT-59269](https://youtrack.jetbrains.com/issue/KT-59269) Renamed `android` to `androidTarget`.
+* [KT-59269](https://youtrack.jetbrains.com/issue/KT-59269) Updated Kotlin and dependency versions.
+* [KTIJ-26773](https://youtrack.jetbrains.com/issue/KTIJ-26773) Refactored to use `-destination` argument instead of `-sdk` and `-arch`.
+* [KTIJ-25839](https://youtrack.jetbrains.com/issue/KTIJ-25839) Refactored generated file names.
+* [KTIJ-27058](https://youtrack.jetbrains.com/issue/KTIJ-27058) Added the JVM target config.
+* [KTIJ-27160](https://youtrack.jetbrains.com/issue/KTIJ-27160) Supported Xcode 15.0.
+* [KTIJ-27158](https://youtrack.jetbrains.com/issue/KTIJ-27158) Moved the new module wizard to the experimental state.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.6.0**
+
+Released: 24 May, 2023
+
+</td>
+<td>
+
+* Support of the new Canary Android Studio Hedgehog.
+* Updated versions of Kotlin, Gradle, and libraries in the Multiplatform project.
+* Applied new [`targetHierarchy.default()`](whatsnew1820.md#new-approach-to-source-set-hierarchy) in the Multiplatform project.
+* Applied source set name suffixes to platform-specific files in the Multiplatform project.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.5.3**
+
+Released: 12 April, 2023
+
+</td>
+<td>
+
+* Updated Kotlin and Compose versions.
+* Fixed an Xcode project scheme parsing.
+* Added a scheme product type check.
+* `iosApp` scheme is now selected by default if presented.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.5.2**
+
+Released: 30 January, 2023
+
+</td>
+<td>
+
+* [Fixed a problem with Kotlin/Native debugger (slow Spotlight indexing)](https://youtrack.jetbrains.com/issue/KT-55988).
+* [Fixed Kotlin/Native debugger in multimodule projects](https://youtrack.jetbrains.com/issue/KT-24450).
+* [New build for Android Studio Giraffe 2022.3.1 Canary](https://youtrack.jetbrains.com/issue/KT-55274).
+* [Added provisioning flags for an iOS app build](https://youtrack.jetbrains.com/issue/KT-55204).
+* [Added inherited paths to the **Framework Search Paths** option in a generated iOS project](https://youtrack.jetbrains.com/issue/KT-55402).
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.5.1**
+
+Released: 30 November, 2022
+
+</td>
+<td>
+
+* [Fixed new project generation: delete an excess "app" directory](https://youtrack.jetbrains.com/issue/KTIJ-23790).
+
+</td>
+<td>
+
+* [`Kotlin 1.7.0—*`](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.5.0**
+
+Released: 22 November, 2022
+
+</td>
+<td>
+
+* [Changed the default option for iOS framework distribution: now it is **Regular framework**](https://youtrack.jetbrains.com/issue/KT-54086).
+* [Moved `MyApplicationTheme` to a separate file in a generated Android project](https://youtrack.jetbrains.com/issue/KT-53991).
+* [Updated generated Android project](https://youtrack.jetbrains.com/issue/KT-54658).
+* [Fixed an issue with unexpected erasing of new project directory](https://youtrack.jetbrains.com/issue/KTIJ-23707).
+
+</td>
+<td>
+
+* [`Kotlin 1.7.0—*`](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.3.4**
+
+Released: 12 September, 2022
+
+</td>
+<td>
+
+* [Migrated Android app to Jetpack Compose](https://youtrack.jetbrains.com/issue/KT-53162).
+* [Removed outdated HMPP flags](https://youtrack.jetbrains.com/issue/KT-52248).
+* [Removed package name from Android manifest](https://youtrack.jetbrains.com/issue/KTIJ-22633).
+* [Updated `.gitignore` for Xcode projects](https://youtrack.jetbrains.com/issue/KT-53703).
+* [Updated wizard project for better illustration expect/actual](https://youtrack.jetbrains.com/issue/KT-53928).
+* [Updated compatibility with Canary build of Android Studio](https://youtrack.jetbrains.com/issue/KTIJ-22063).
+* [Updated minimum Android SDK to 21 for Android app](https://youtrack.jetbrains.com/issue/KTIJ-22505).
+* [Fixed an issue with the first launch after installation Xcode](https://youtrack.jetbrains.com/issue/KTIJ-22645).
+* [Fixed an issues with Apple run configuration on M1](https://youtrack.jetbrains.com/issue/KTIJ-21781).
+* [Fixed an issue with `local.properties` on Windows OS](https://youtrack.jetbrains.com/issue/KTIJ-22037).
+* [Fixed an issue with Kotlin/Native debugger on Canary build of Android Studio](https://youtrack.jetbrains.com/issue/KT-53976).
+
+</td>
+<td>
+
+* [`Kotlin 1.7.0—1.7.*`](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.3.3**
+
+Released: 9 June, 2022
+
+</td>
+<td>
+
+* Updated dependency on Kotlin IDE plugin 1.7.0.
+
+</td>
+<td>
+
+* [`Kotlin 1.7.0—1.7.*`](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.3.2**
+
+Released: 4 April, 2022
+
+</td>
+<td>
+
+* Fixed the performance problem with the iOS application debug on Android Studio 2021.2 and 2021.3.
+
+</td>
+<td>
+
+* [`Kotlin 1.5.0—1.6.*`](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.3.1**
+
+Released: 15 February, 2022
+
+</td>
+<td>
+
+* [Enabled M1 iOS simulator in Kotlin Multiplatform Mobile wizards](https://youtrack.jetbrains.com/issue/KT-51105).
+* Improved performance for indexing XcProjects: [KT-49777](https://youtrack.jetbrains.com/issue/KT-49777), [KT-50779](https://youtrack.jetbrains.com/issue/KT-50779).
+* Build scripts clean up: use `kotlin("test")` instead of `kotlin("test-common")` and `kotlin("test-annotations-common")`.
+* Increase compatibility range with [Kotlin plugin version](https://youtrack.jetbrains.com/issue/KTIJ-20167).
+* [Fixed the problem with JVM debug on Windows host](https://youtrack.jetbrains.com/issue/KT-50699).
+* [Fixed the problem with the invalid version after disabling the plugin](https://youtrack.jetbrains.com/issue/KT-50966).
+
+</td>
+<td>
+
+* [`Kotlin 1.5.0—1.6.*`](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.3.0**
+
+Released: 16 November, 2021
+
+</td>
+<td>
+
+* [New Kotlin Multiplatform Library wizard](https://youtrack.jetbrains.com/issue/KTIJ-19367).
+* Support for the new type of Kotlin Multiplatform library distribution: [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks).
+* Enabled [hierarchical project structure](multiplatform-hierarchy.md#manual-configuration) for new cross-platform mobile projects.
+* Support for [explicit iOS targets declaration](https://youtrack.jetbrains.com/issue/KT-46861).
+* [Enabled Kotlin Multiplatform Mobile plugin wizards on non-Mac machines](https://youtrack.jetbrains.com/issue/KT-48614).
+* [Support for subfolders in the Kotlin Multiplatform module wizard](https://youtrack.jetbrains.com/issue/KT-47923).
+* [Support for Xcode `Assets.xcassets` file](https://youtrack.jetbrains.com/issue/KT-49571).
+* [Fixed the plugin classloader exception](https://youtrack.jetbrains.com/issue/KT-48103).
+* Updated the CocoaPods Gradle Plugin template.
+* Kotlin/Native debugger type evaluation improvements.
+* Fixed iOS device launching with Xcode 13.
+
+</td>
+<td>
+
+* [Kotlin 1.6.0](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.7**
+
+Released: August 2, 2021
+
+</td>
+<td>
+
+* [Added Xcode configuration option for AppleRunConfiguration](https://youtrack.jetbrains.com/issue/KTIJ-19054).
+* [Added support Apple M1 simulators](https://youtrack.jetbrains.com/issue/KT-47618).
+* [Added information about Xcode integration options in Project Wizard](https://youtrack.jetbrains.com/issue/KT-47466).
+* [Added error notification after a project with CocoaPods was generated, but the CocoaPods gem has not been installed](https://youtrack.jetbrains.com/issue/KT-47329).
+* [Added support Apple M1 simulator target in generated shared module with Kotlin 1.5.30](https://youtrack.jetbrains.com/issue/KT-47631).
+* [Cleared generated Xcode project with Kotlin 1.5.20](https://youtrack.jetbrains.com/issue/KT-47465).
+* Fixed launching Xcode Release configuration on a real iOS device.
+* Fixed simulator launching with Xcode 12.5.
+
+</td>
+<td>
+
+* [Kotlin 1.5.10](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.6**
+
+Released: June 10, 2021
+
+</td>
+<td>
+
+* Compatibility with Android Studio Bumblebee Canary 1.
+* Support for [Kotlin 1.5.20](whatsnew1520.md): using the new framework-packing task for Kotlin/Native in the Project Wizard.
+
+</td>
+<td>
+
+* [Kotlin 1.5.10](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.5**
+
+Released: May 25, 2021
+
+</td>
+<td>
+
+* [Fixed compatibility with Android Studio Arctic Fox 2020.3.1 Beta 1 and higher](https://youtrack.jetbrains.com/issue/KT-46834).
+
+</td>
+<td>
+
+* [Kotlin 1.5.10](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.4**
+
+Released: May 5, 2021
+
+</td>
+<td>
+
+Use this version of the plugin with Android Studio 4.2 or Android Studio 2020.3.1 Canary 8 or higher.
+* Compatibility with [Kotlin 1.5.0](whatsnew15.md).
+* [Ability to use the CocoaPods dependency manager in the Kotlin Multiplatform module for iOS integration](https://youtrack.jetbrains.com/issue/KT-45946).
+
+</td>
+<td>
+
+* [Kotlin 1.5.0](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.3**
+
+Released: April 5, 2021
+
+</td>
+<td>
+
+* [The Project Wizard: improvements in naming modules](https://youtrack.jetbrains.com/issues?q=issue%20id:%20KT-43449,%20KT-44060,%20KT-41520,%20KT-45282).
+* [Ability to use the CocoaPods dependency manager in the Project Wizard for iOS integration](https://youtrack.jetbrains.com/issue/KT-45478).
+* [Better readability of gradle.properties in new projects](https://youtrack.jetbrains.com/issue/KT-42908).
+* [Sample tests are no longer generated if "Add sample tests for Shared Module" is unchecked](https://youtrack.jetbrains.com/issue/KT-43441).
+* [Fixes and other improvements](https://youtrack.jetbrains.com/issues?q=Subsystems:%20%7BKMM%20Plugin%7D%20Type:%20Feature,%20Bug%20State:%20-Obsolete,%20-%7BAs%20designed%7D,%20-Answered,%20-Incomplete%20resolved%20date:%202021-03-10%20..%202021-03-25).
+
+</td>
+<td>
+
+* [Kotlin 1.4.30](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.2**
+
+Released: March 3, 2021
+
+</td>
+<td>
+
+* [Ability to open Xcode-related files in Xcode](https://youtrack.jetbrains.com/issue/KT-44970).
+* [Ability to set up a location for the Xcode project file in the iOS run configuration](https://youtrack.jetbrains.com/issue/KT-44968).
+* [Support for Android Studio 2020.3.1 Canary 8](https://youtrack.jetbrains.com/issue/KT-45162).
+* [Fixes and other improvements](https://youtrack.jetbrains.com/issues?q=tag:%20KMM-0.2.2%20).
+
+</td>
+<td>
+
+* [Kotlin 1.4.30](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.1**
+
+Released: February 15, 2021
+
+</td>
+<td>
+
+Use this version of the plugin with Android Studio 4.2.
+* Infrastructure improvements.
+* [Fixes and other improvements](https://youtrack.jetbrains.com/issues?q=tag:%20KMM-0.2.1%20).
+
+</td>
+<td>
+
+* [Kotlin 1.4.30](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.2.0**
+
+Released: November 23, 2020
+
+</td>
+<td>
+
+* [Support for iPad devices](https://youtrack.jetbrains.com/issue/KT-41932).
+* [Support for custom scheme names that are configured in Xcode](https://youtrack.jetbrains.com/issue/KT-41677).
+* [Ability to add custom build steps for the iOS run configuration](https://youtrack.jetbrains.com/issue/KT-41678).
+* [Ability to debug a custom Kotlin/Native binary](https://youtrack.jetbrains.com/issue/KT-40954).
+* [Simplified the code generated by Kotlin Multiplatform Mobile Wizards](https://youtrack.jetbrains.com/issue/KT-41712).
+* [Removed support for the Kotlin Android Extensions plugin](https://youtrack.jetbrains.com/issue/KT-42121), which is deprecated in Kotlin 1.4.20.
+* [Fixed saving physical device configuration after disconnecting from the host](https://youtrack.jetbrains.com/issue/KT-42390).
+* Other fixes and improvements.
+
+</td>
+<td>
+
+* [Kotlin 1.4.20](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.1.3**
+
+Released: October 2, 2020
+
+</td>
+<td>
+
+* Added compatibility with iOS 14 and Xcode 12.
+* Fixed naming in platform tests created by the Kotlin Multiplatform Mobile Wizard.
+
+</td>
+<td>
+
+* [Kotlin 1.4.10](releases.md#release-details)
+* [Kotlin 1.4.20](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.1.2**
+
+Released: September 29, 2020
+
+</td>
+<td>
+
+ * Fixed compatibility with [Kotlin 1.4.20-M1](eap.md#build-details).
+ * Enabled error reporting to JetBrains by default.
+
+</td>
+<td>
+
+* [Kotlin 1.4.10](releases.md#release-details)
+* [Kotlin 1.4.20](releases.md#release-details)
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+**0.1.1**
+
+Released: September 10, 2020
+
+</td>
+<td>
+
+* Fixed compatibility with Android Studio Canary 8 and higher.
+
+</td>
+<td>
+
+* [Kotlin 1.4.10](releases.md#release-details)
+* [Kotlin 1.4.20](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**0.1.0**
+
+Released: August 31, 2020
+
+</td>
+<td>
+
+* The first version of the Kotlin Multiplatform Mobile plugin. Learn more in the [blog post](https://blog.jetbrains.com/kotlin/2020/08/kotlin-multiplatform-mobile-goes-alpha/).
+
+</td>
+<td>
+
+* [Kotlin 1.4.0](releases.md#release-details)
+* [Kotlin 1.4.10](releases.md#release-details)
+
+</td>
+</tr>
+
+</table>
+
 
 # 📜 09. Platforms
 
@@ -21404,7 +39828,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
   > 
   > ```kotlin
   > plugins {
-  >     kotlin("jvm") version "%kotlinVersion%"
+  >     kotlin("jvm") version "1.9.10"
   >     application
   > }
   > ```
@@ -21608,7 +40032,7 @@ val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11
 }
 ```
 
-### How to enable Java synthetic property references {initial-collapse-state="collapsed"}
+### How to enable Java synthetic property references
 
 To enable this feature, set the `-language-version 2.1` compiler option. In a Gradle project, you can do so 
 by adding the following to your `build.gradle(.kts)`:
@@ -22697,11 +41121,11 @@ This allows you to add this annotation to all interfaces in the public API once,
 
 Learn more about compatibility modes:
 
-#### disable {initial-collapse-state="collapsed"}
+#### disable
 
 Default behavior. Do not generate JVM default methods and prohibit `@JvmDefault` annotation usage.
 
-#### all {initial-collapse-state="collapsed"}
+#### all
 
 Generate JVM default methods for all interface declarations with bodies in the module. Do not generate [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/) stubs 
 for interface declarations with bodies, which are generated by default in the `disable` mode. 
@@ -22715,7 +41139,7 @@ __Breaks binary compatibility__ if some client code relies on the presence of `D
 >
 {type="note"}
 
-#### all-compatibility {initial-collapse-state="collapsed"}
+#### all-compatibility
 
 In addition to the `all` mode, generate compatibility stubs in the [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
 classes. Compatibility stubs could be useful for 
@@ -23075,7 +41499,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
    * There are packages and classes under the `main/kotlin` folder that belong to the application.
    * The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
-## Explore the project Gradle build file {initial-collapse-state="collapsed"}
+## Explore the project Gradle build file
 
 Open the `build.gradle.kts` file: it is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 
@@ -23089,8 +41513,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` ta
 plugins { 
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
-    kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
-    kotlin("plugin.spring") version "%kotlinVersion%" // The Kotlin Spring plugin
+    kotlin("jvm") version "1.9.10" // The version of Kotlin to use
+    kotlin("plugin.spring") version "1.9.10" // The Kotlin Spring plugin
 }
 
 group = "com.example"
@@ -23691,7 +42115,7 @@ You should use an HTTP client to work with previously created endpoints. In Inte
 
    ![Execute GET requests](execute-get-requests.png)
 
-### Alternative way to execute requests {initial-collapse-state="collapsed"}
+### Alternative way to execute requests
 
 You can also use any other HTTP client or the cURL command-line tool. For example, run the following commands in
 the terminal to get the same result:
@@ -25885,7 +44309,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 
    ```kotlin
    plugins {
-       kotlin("multiplatform") version "%kotlinVersion%"
+       kotlin("multiplatform") version "1.9.10"
    }
    ```
    
@@ -26038,7 +44462,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
     ```kotlin
     // build.gradle.kts
     plugins {
-        kotlin("multiplatform") version "%kotlinVersion%"
+        kotlin("multiplatform") version "1.9.10"
     }
 
     repositories {
@@ -26067,7 +44491,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
     ```groovy
     // build.gradle
     plugins {
-        id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+        id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
     }
 
     repositories {
@@ -26897,7 +45321,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 
 repositories {
@@ -26929,7 +45353,7 @@ tasks.wrapper {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 
 repositories {
@@ -27128,7 +45552,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 
 repositories {
@@ -27160,7 +45584,7 @@ tasks.wrapper {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 
 repositories {
@@ -27534,7 +45958,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 
 repositories {
@@ -27566,7 +45990,7 @@ tasks.wrapper {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 
 repositories {
@@ -27824,7 +46248,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 
 repositories {
@@ -27856,7 +46280,7 @@ tasks.wrapper {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 
 repositories {
@@ -28997,7 +47421,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 
 repositories {
@@ -29025,7 +47449,7 @@ tasks.wrapper {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 
 repositories {
@@ -29526,8 +47950,8 @@ If you want to configure your project manually:
     
     ```kotlin
     plugins {
-        kotlin("multiplatform") version "%kotlinVersion%"
-        kotlin("native.cocoapods") version "%kotlinVersion%"
+        kotlin("multiplatform") version "1.9.10"
+        kotlin("native.cocoapods") version "1.9.10"
     }
     ```
 
@@ -29535,8 +47959,8 @@ If you want to configure your project manually:
     
     ```kotlin
     plugins {
-        kotlin("multiplatform") version "%kotlinVersion%"
-        kotlin("native.cocoapods") version "%kotlinVersion%"
+        kotlin("multiplatform") version "1.9.10"
+        kotlin("native.cocoapods") version "1.9.10"
     }
  
     kotlin {
@@ -29632,7 +48056,7 @@ which contains an example of Xcode integration with an existing Xcode project na
 
 ## Possible issues and solutions
 
-### CocoaPods installation {initial-collapse-state="collapsed"}
+### CocoaPods installation
 
 #### Ruby installation
 
@@ -29650,7 +48074,7 @@ install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate#
 However, `cocoapods-generate` is not compatible with Ruby 3.0.0 or later. In this case, downgrade Ruby or upgrade Kotlin
 to 1.7.0 or later.
 
-### Module not found {initial-collapse-state="collapsed"}
+### Module not found
 
 You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
 Try these workarounds to avoid this error:
@@ -30129,12 +48553,12 @@ To apply the CocoaPods plugin, add the following lines to the `build.gradle(.kts
 
 ```kotlin
 plugins {
-   kotlin("multiplatform") version "%kotlinVersion%"
-   kotlin("native.cocoapods") version "%kotlinVersion%"
+   kotlin("multiplatform") version "1.9.10"
+   kotlin("native.cocoapods") version "1.9.10"
 }
 ```
 
-The plugin versions match the [Kotlin release versions](releases.md). The latest stable version is %kotlinVersion%.
+The plugin versions match the [Kotlin release versions](releases.md). The latest stable version is 1.9.10.
 
 ## `cocoapods` block
 
@@ -30600,7 +49024,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 
 repositories {
@@ -30632,7 +49056,7 @@ tasks.wrapper {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 
 repositories {
@@ -31672,7 +50096,7 @@ Coroutines are light-weight threads that allow you to write asynchronous non-blo
 The current version of `kotlinx.coroutines`, which can be used for iOS, supports usage only in a single thread. 
 You cannot send work to other threads by changing a [dispatcher](#dispatcher-for-changing-threads).
 
-For Kotlin %kotlinVersion%, the recommended coroutines version is `%coroutinesVersion%`.
+For Kotlin 1.9.10, the recommended coroutines version is `%coroutinesVersion%`.
 
 You can suspend execution and do work on other threads while using a different mechanism for scheduling 
 and managing that work. However, this version of `kotlinx.coroutines` cannot change threads on its own.
@@ -31798,7 +50222,7 @@ provides support for using multiple threads. It is a separate branch for the rea
 
 However, you can still use the multithreaded version of `kotlinx.coroutines` in production, taking its specifics into account.
 
-The current version for Kotlin %kotlinVersion% is `%coroutinesVersion%-native-mt`. 
+The current version for Kotlin 1.9.10 is `%coroutinesVersion%-native-mt`. 
 
 To use the multithreaded version, add a dependency for the `commonMain` source set in `build.gradle(.kts)`:
 
@@ -32859,8 +51283,8 @@ You can use one of the following repositories to add Kotlin libraries to your pr
 
 | Library                       | Version          | Repository                                     |
 |-------------------------------|------------------|------------------------------------------------|
-| stdlib                        | %kotlinVersion%  | Maven Central                                  | 
-| kotlin-test                   | %kotlinVersion%  | Maven Central                                  |
+| stdlib                        | 1.9.10  | Maven Central                                  | 
+| kotlin-test                   | 1.9.10  | Maven Central                                  |
 | kotlinx-coroutines            | 1.7.2-wasm0      | Custom for experimental Kotlin/Wasm artifacts  |
 | Compose Multiplatform         | 1.4.0-dev-wasm09 | Custom for experimental Kotlin/Wasm artifacts  |
 | kotlinx-serialization         | 1.5.2-wasm0      | Custom for experimental Kotlin/Wasm artifacts  |
@@ -33221,7 +51645,7 @@ You can apply the `org.jetbrains.kotlin.multiplatform` plugin to a Gradle projec
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 ```
 
@@ -33230,7 +51654,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 ```
 
@@ -36836,7 +55260,7 @@ these types of conversions from JSON strings to Kotlin objects.
    ```kotlin
    plugins {
        // . . .
-       kotlin("plugin.serialization") version "%kotlinVersion%"
+       kotlin("plugin.serialization") version "1.9.10"
    }
    
    dependencies {
@@ -37027,7 +55451,7 @@ If the deployment is successful, you will see the URL people can use to reach th
 
 ## What's next
 
-### Add more features {initial-collapse-state="collapsed"}
+### Add more features
 
 You can use the resulting app as a jumping-off point to explore more advanced topics in the realm of React, Kotlin/JS, and more.
 
@@ -37039,22 +55463,22 @@ You can use the resulting app as a jumping-off point to explore more advanced to
 * **Complex APIs**. Lots of datasets and APIs are available. You can pull all sorts of data into your application. For example,
   you can build a visualizer for [cat photos](https://thecatapi.com/) or a [royalty-free stock photo API](https://unsplash.com/developers).
 
-### Improve the style: responsiveness and grids {initial-collapse-state="collapsed"}
+### Improve the style: responsiveness and grids
 
 The application design is still very simple and won't look great on mobile devices or in narrow windows. Explore
 more of the CSS DSL to make the app more accessible.
 
-### Join the community and get help {initial-collapse-state="collapsed"}
+### Join the community and get help
 
 The best way to report problems and get help is the [kotlin-wrappers issue tracker](https://github.com/JetBrains/kotlin-wrappers/issues).
 If you can't find a ticket for your issue, feel free to file a new one. You can also join the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 There are channels for `#javascript` and `#react`.
 
-### Learn more about coroutines {initial-collapse-state="collapsed"}
+### Learn more about coroutines
 
 If you're interested in finding out more about how you can write concurrent code, check out the tutorial on [coroutines](coroutines-and-channels.md).
 
-### Learn more about React {initial-collapse-state="collapsed"}
+### Learn more about React
 
 Now that you know the basic React concepts and how they translate to Kotlin, you can convert some other concepts outlined
 in the [official guides on React](https://reactjs.org/docs/) into Kotlin.
@@ -41992,8 +60416,8 @@ in the Kotlin Gradle DSL).
 
     ```kotlin
     plugins {
-        kotlin("jvm") version "%kotlinVersion%"
-        kotlin("plugin.serialization") version "%kotlinVersion%"
+        kotlin("jvm") version "1.9.10"
+        kotlin("plugin.serialization") version "1.9.10"
     }
     ```
 
@@ -42002,8 +60426,8 @@ in the Kotlin Gradle DSL).
 
     ```groovy
     plugins {
-        id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-        id 'org.jetbrains.kotlin.plugin.serialization' version '%kotlinVersion%'  
+        id 'org.jetbrains.kotlin.jvm' version '1.9.10'
+        id 'org.jetbrains.kotlin.plugin.serialization' version '1.9.10'  
     }
     ```
 
@@ -43517,7 +61941,7 @@ Open the `build.gradle.kts` file. This is the Gradle Kotlin build script, which 
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "%kotlinVersion%" // Kotlin version to use
+    kotlin("jvm") version "1.9.10" // Kotlin version to use
     application // Application plugin. Also see 1️⃣1 below the code
 }
 
@@ -43613,7 +62037,7 @@ from the Gradle plugins DSL:
 ```kotlin
 // replace `<...>` with the plugin name 
 plugins {
-    kotlin("<...>") version "%kotlinVersion%"
+    kotlin("<...>") version "1.9.10"
 }
 ```
 
@@ -43623,7 +62047,7 @@ plugins {
 ```groovy
 // replace `<...>` with the plugin name
 plugins {
-    id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.<...>' version '1.9.10'
 }
 ```
 
@@ -43651,7 +62075,7 @@ In the following table, there are the minimum and maximum **fully supported** ve
 >
 {type="note"}
 
-For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin %kotlinVersion% require the minimum Gradle
+For example, the Kotlin Gradle plugin and the `kotlin-multiplatform` plugin 1.9.10 require the minimum Gradle
 version of %minGradleVersion% for your project to compile.
 
 Similarly, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
@@ -43666,7 +62090,7 @@ To target the JVM, apply the Kotlin JVM plugin.
 
 ```kotlin
 plugins {
-    kotlin("jvm") version "%kotlinVersion%"
+    kotlin("jvm") version "1.9.10"
 }
 ```
 
@@ -43675,7 +62099,7 @@ plugins {
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.jvm" version "1.9.10"
 }
 ```
 
@@ -43779,7 +62203,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configu
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
-#### What can go wrong if not checking targets compatibility {initial-collapse-state="collapsed"}
+#### What can go wrong if not checking targets compatibility
 
 There are two ways of manually setting JVM targets for Kotlin and Java source sets:
 * The implicit way via [setting up a Java toolchain](#gradle-java-toolchains-support).
@@ -43798,7 +62222,7 @@ no additional settings for JVM targets:
 
 ```kotlin
 plugins {
-    kotlin("jvm") version "%kotlinVersion%"
+    kotlin("jvm") version "1.9.10"
 }
 ```
 
@@ -43807,7 +62231,7 @@ plugins {
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.jvm" version "1.9.10"
 }
 ```
 
@@ -44142,7 +62566,7 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multipl
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 ```
 
@@ -44151,7 +62575,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 ```
 
@@ -44174,7 +62598,7 @@ When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn
 
 ```kotlin
 plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("multiplatform") version "1.9.10"
 }
 ```
 
@@ -44183,7 +62607,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
 }
 ```
 
@@ -44362,7 +62786,7 @@ You can disable this behavior with the `kotlin.stdlib.jdk.variants.version.align
 kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
-##### Other ways to align versions {initial-collapse-state="collapsed"}
+##### Other ways to align versions
 
 * In case you have issues with versions alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
   Declare a platform dependency on `kotlin-bom` in your build script:
@@ -44371,14 +62795,14 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   <tab title="Kotlin" group-key="kotlin">
 
   ```kotlin
-  implementation(platform("org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%"))
+  implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.9.10"))
   ```
 
   </tab>
   <tab title="Groovy" group-key="groovy">
 
   ```groovy
-  implementation platform('org.jetbrains.kotlin:kotlin-bom:%kotlinVersion%')
+  implementation platform('org.jetbrains.kotlin:kotlin-bom:1.9.10')
   ```
 
   </tab>
@@ -44386,7 +62810,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
 * If you don't have a standard library explicitly: `kotlin.stdlib.default.dependency=false` in your `gradle.properties`,
   but one of your dependencies transitively brings some old Kotlin stdlib version, for example, `kotlin-stdlib-jdk7:1.7.20` and 
-  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `%kotlinVersion%` versions of these
+  another dependency transitively brings `kotlin-stdlib:1.8+` – in this case, you can require `1.9.10` versions of these
   transitive libraries:
 
   <tabs group="build-script">
@@ -44397,12 +62821,12 @@ kotlin.stdlib.jdk.variants.version.alignment=false
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
               version {
-                  require("%kotlinVersion%")
+                  require("1.9.10")
               }
           }
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
               version {
-                  require("%kotlinVersion%")
+                  require("1.9.10")
               }
           }
       }
@@ -44417,12 +62841,12 @@ kotlin.stdlib.jdk.variants.version.alignment=false
       constraints {
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk7") {
               version {
-                  require("%kotlinVersion%")
+                  require("1.9.10")
               }
           }
           add("implementation", "org.jetbrains.kotlin:kotlin-stdlib-jdk8") {
               version {
-                  require("%kotlinVersion%")
+                  require("1.9.10")
               }
           }
       }
@@ -44432,7 +62856,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   </tab>
   </tabs>
   
-* If you have a Kotlin version equal to `%kotlinVersion%`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%")` and 
+* If you have a Kotlin version equal to `1.9.10`: `implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")` and 
   an old version (less than `1.8.0`) of a Kotlin Gradle plugin – update the Kotlin Gradle plugin:
 
   
@@ -44442,7 +62866,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   ```kotlin
   plugins {
       // replace `<...>` with the plugin name
-      kotlin("<...>") version "%kotlinVersion%"
+      kotlin("<...>") version "1.9.10"
   }
   ```
 
@@ -44452,7 +62876,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
   ```groovy
   plugins {
       // replace `<...>` with the plugin name
-      id "org.jetbrains.kotlin.<...>" version "%kotlinVersion%"
+      id "org.jetbrains.kotlin.<...>" version "1.9.10"
   }
   ```
 
@@ -44462,7 +62886,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 * If you have an explicit old version (less than `1.8.0`) of `kotlin-stdlib-jdk7`/`kotlin-stdlib-jdk8`, for example, 
   `implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:SOME_OLD_KOTLIN_VERSION")`, and a dependency that 
   transitively brings `kotlin-stdlib:1.8+`, [replace your `kotlin-stdlib-jdk<7/8>:SOME_OLD_KOTLIN_VERSION` with 
-  `kotlin-stdlib-jdk*:%kotlinVersion%`](whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
+  `kotlin-stdlib-jdk*:1.9.10`](whatsnew18.md#updated-jvm-compilation-target) or [exclude](https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html#sec:excluding-transitive-deps) 
   a transitive `kotlin-stdlib:1.8+` from the library that brings it:
 
   <tabs group="build-script">
@@ -44938,7 +63362,7 @@ Here is a complete list of options for Gradle tasks:
 >
 {type="warning"}
 
-#### Example of additional arguments usage via freeCompilerArgs {initial-collapse-state="collapsed"}
+#### Example of additional arguments usage via freeCompilerArgs
 
 Use the attribute `freeCompilerArgs` to supply additional (including experimental) compiler arguments. You can add a single
 argument to this attribute or a list of arguments:
@@ -45135,7 +63559,7 @@ the `gradle.properties` file:
 kotlin.compiler.preciseCompilationResultsBackup=true
 ```
 
-#### Example of using precise backup at JetBrains {initial-collapse-state="collapsed"}
+#### Example of using precise backup at JetBrains
 
 In the following charts, you can see examples of using precise backup compared to full backup:
 
@@ -45159,7 +63583,7 @@ different results. The factors affecting performance include but are not limited
 * Which modules are affected by the changes and how big these modules are.
 * Whether the changes are ABI or non-ABI.
 
-#### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
+#### Evaluating optimizations with build reports
 
 To estimate the impact of the optimization on your computer for your project and your scenarios, you can use 
 [Kotlin build reports](#build-reports). Enable reports in text file format by adding the following property 
@@ -45678,7 +64102,7 @@ And want to add a dependency on the Kotlin Gradle plugin, for example:
 
 ```kotlin
 dependencies {
-    customConfiguration("org.jetbrains.kotlin:kotlin-gradle-plugin:%kotlinVersion%")
+    customConfiguration("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
 }
 ```
 
@@ -45687,7 +64111,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    customConfiguration 'org.jetbrains.kotlin:kotlin-gradle-plugin:%kotlinVersion%'
+    customConfiguration 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10'
 }
 ```
 
@@ -45781,7 +64205,7 @@ Define the version of Kotlin you want to use via the `kotlin.version` property:
 
 ```xml
 <properties>
-    <kotlin.version>%kotlinVersion%</kotlin.version>
+    <kotlin.version>1.9.10</kotlin.version>
 </properties>
 ```
 
@@ -46099,7 +64523,7 @@ write a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetb
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-bom</artifactId>
-      <version>%kotlinVersion%</version>
+      <version>1.9.10</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -46339,7 +64763,7 @@ JetBrains doesn't provide the Kotlin plugin for other IDEs.
 However, some of the other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have their own Kotlin plugins supported by the Kotlin community.
 
 You can use any text editor to write the Kotlin code, but without IDE-related features: code formatting, debugging tools, and so on.
-To use Kotlin in text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-%kotlinVersion%.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
+To use Kotlin in text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-1.9.10.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
 Also, you could use package managers, such as [Homebrew](command-line.md#homebrew), [SDKMAN!](command-line.md#sdkman), and [Snap package](command-line.md#snap-package).
 
 ## What's next?
@@ -46907,7 +65331,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:%kotlinVersion%"
+    implementation "org.jetbrains.kotlin:kotlin-osgi-bundle:1.9.10"
 }
 ```
 
@@ -46970,7 +65394,7 @@ Every Kotlin release ships with a standalone version of the compiler. You can do
 
 ### Manual install
 
-1. Download the latest version (`kotlin-compiler-%kotlinVersion%.zip`) from [GitHub Releases](%kotlinLatestUrl%).
+1. Download the latest version (`kotlin-compiler-1.9.10.zip`) from [GitHub Releases](%kotlinLatestUrl%).
 2. Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
 The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, macOS, and Linux.
 
@@ -47509,7 +65933,7 @@ Add the plugin using Gradle's plugins DSL:
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.plugin.allopen" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.9.10"
 }
 ```
 
@@ -47582,7 +66006,7 @@ Add the plugin using Gradle's plugins DSL:
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.spring" version "1.9.10"
 }
 ```
 
@@ -47671,7 +66095,7 @@ Add the plugin using Gradle's plugins DSL:
 
 ```kotlin
 plugins {
-    kotlin("plugin.noarg") version "%kotlinVersion%"
+    kotlin("plugin.noarg") version "1.9.10"
 }
 ```
 
@@ -47680,7 +66104,7 @@ plugins {
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.plugin.noarg" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.noarg" version "1.9.10"
 }
 ```
 
@@ -47749,7 +66173,7 @@ Add the plugin using the Gradle plugins DSL:
 
 ```kotlin
 plugins {
-    kotlin("plugin.jpa") version "%kotlinVersion%"
+    kotlin("plugin.jpa") version "1.9.10"
 }
 ```
 
@@ -47758,7 +66182,7 @@ plugins {
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.plugin.jpa" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.jpa" version "1.9.10"
 }
 ```
 
@@ -47896,7 +66320,7 @@ Follow these steps:
 
    ```kotlin
    plugins {
-       kotlin("kapt") version "%kotlinVersion%"
+       kotlin("kapt") version "1.9.10"
    }
    ```
 
@@ -47905,7 +66329,7 @@ Follow these steps:
 
    ```groovy
    plugins {
-       id "org.jetbrains.kotlin.kapt" version "%kotlinVersion%"
+       id "org.jetbrains.kotlin.kapt" version "1.9.10"
    }
    ```
 
@@ -48340,7 +66764,7 @@ Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle(.kts)` file:
 
 ```kotlin
 plugins {
-    kotlin("plugin.lombok") version "%kotlinVersion%"
+    kotlin("plugin.lombok") version "1.9.10"
     id("io.freefair.lombok") version "8.1.0"
 }
 ```
@@ -48350,7 +66774,7 @@ plugins {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.plugin.lombok' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.plugin.lombok' version '1.9.10'
     id 'io.freefair.lombok' version '8.1.0'
 }
 ```
@@ -48739,7 +67163,7 @@ dependencies {
 
 ```groovy
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
 }
 
 repositories {
@@ -48869,7 +67293,7 @@ dependencies {
 ```groovy
 plugins {
     id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
-    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
 }
 
 repositories {
@@ -48877,7 +67301,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.10'
     implementation project(':test-processor')
     ksp project(':test-processor')
 }
@@ -50853,7 +69277,7 @@ The first official 1.0 release was in February 2016.
 
 ### What is the current version of Kotlin?
 
-The currently released version is %kotlinVersion%, published on %kotlinReleaseDate%.  
+The currently released version is 1.9.10, published on %kotlinReleaseDate%.  
 You can find more information [on GitHub](https://github.com/jetbrains/kotlin).
 
 ### Is Kotlin free?
