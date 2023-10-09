@@ -3312,8 +3312,10 @@ Package names play exactly the same role as in Java. They allow us to separate t
 
 Defining a package is very similar to Java:
 
+```java
 // defining a package named com.yoursite
 package com.yoursite
+```
 
 To refer to some class Foo in the com.yoursite.com package you will need to use the fully qualified name com.yoursite.com.Foo, or else you can use an import statement as we'll see below.
 
@@ -3322,6 +3324,7 @@ In order to refer to any class you need a qualified reference to its package. Gr
 
 For example, Groovy provides several builder classes, such as MarkupBuilder. MarkupBuilder is inside the package groovy.xml so in order to use this class, you need to import it as shown:
 
+```java
 // importing the class MarkupBuilder
 import groovy.xml.MarkupBuilder
 
@@ -3329,6 +3332,7 @@ import groovy.xml.MarkupBuilder
 def xml = new MarkupBuilder()
 
 assert xml != null
+```
 
 #### Default imports
 Default imports are the imports that Groovy language provides by default. For example look at the following code:
@@ -3401,6 +3405,7 @@ import static Boolean.FALSE
 
 assert !FALSE //use directly, without Boolean prefix!
 ```
+
 This is similar to Java's static import capability but is a more dynamic than Java in that it allows you to define methods with the same name as an imported method as long as you have different types:
 
 ```java
@@ -6943,6 +6948,7 @@ assert lo == 3.67
 
 Groovy supports the usual if - else syntax from Java
 
+```java
 def x = false
 def y = false
 
@@ -6959,9 +6965,11 @@ if ( x ) {
 }
 
 assert x == y
+```
 
 Groovy also supports the normal Java "nested" if then else if syntax:
 
+```java
 if ( ... ) {
     ...
 } else if (...) {
@@ -6969,6 +6977,7 @@ if ( ... ) {
 } else {
     ...
 }
+```
 
 ##### switch / case
 The switch statement in Groovy is backwards compatible with Java code; so you can fall through cases sharing the same code for multiple matches.
@@ -18045,15 +18054,16 @@ Because of the way JDBC drivers are loaded, you'll need to configure Grape to at
 #### Using Grape From the Groovy Shell
 From groovysh use the method call variant:
 
-groovy.grape.Grape.grab(group:'org.springframework', module:'spring', version:'2.5.6')
+    groovy.grape.Grape.grab(group:'org.springframework', module:'spring', version:'2.5.6')
 
 #### Proxy settings
 If you are behind a firewall and/or need to use Groovy/Grape through a proxy server, you can specify those settings on the command like via the http.proxyHost and http.proxyPort system properties:
 
-groovy -Dhttp.proxyHost=yourproxy -Dhttp.proxyPort=8080 yourscript.groovy
+    groovy -Dhttp.proxyHost=yourproxy -Dhttp.proxyPort=8080 yourscript.groovy
+
 Or you can make this system-wide by adding these properties to your JAVA_OPTS environment variable:
 
-JAVA_OPTS = -Dhttp.proxyHost=yourproxy -Dhttp.proxyPort=8080
+    JAVA_OPTS = -Dhttp.proxyHost=yourproxy -Dhttp.proxyPort=8080
 
 #### Logging
 If you want to see what Grape is doing set the system property groovy.grape.report.downloads to true (e.g. add -Dgroovy.grape.report.downloads=true to invocation or JAVA_OPTS) and Grape will print the following infos to System.error:
@@ -18264,26 +18274,29 @@ This chapter will start with language specific testing features and continue wit
 Besides integrated support for JUnit, the Groovy programming language comes with features that have proven to be very valuable for test-driven development. This section gives insight on them.
 
 #### Power Assertions
-Writing tests means formulating assumptions by using assertions. In Java this can be done by using the assert keyword that has been added in J2SE 1.4. In Java, assert statements can be enabled via the JVM parameters -ea (or -enableassertions) and -da (or -disableassertions). Assertion statements in Java are disabled by default.
+Writing tests means formulating assumptions by using assertions. In Java this can be done by using the `assert` keyword that has been added in J2SE 1.4. In Java, `assert` statements can be enabled via the JVM parameters `-ea` (or -enableassertions) and `-da` (or -disableassertions). Assertion statements in Java are disabled by default.
 
-Groovy comes with a rather powerful variant of assert also known as power assertion statement. Groovy's power assert differs from the Java version in its output given the boolean expression validates to false:
+Groovy comes with a rather powerful variant of `assert` also known as power assertion statement. Groovy's power `assert` differs from the Java version in its output given the boolean expression validates to `false`:
 
+```java
 def x = 1
 assert x == 2
 
-// Output:             
+// Output:             ➊
 //
 // Assertion failed:
 // assert x == 2
 //        | |
 //        1 false
+```
 
-This section shows the std-err output
+1. This section shows the std-err output
 
-The java.lang.AssertionError that is thrown whenever the assertion can not be validated successfully, contains an extended version of the original exception message. The power assertion output shows evaluation results from the outer to the inner expression.
+The `java.lang.AssertionError` that is thrown whenever the assertion can not be validated successfully, contains an extended version of the original exception message. The power assertion output shows evaluation results from the outer to the inner expression.
 
 The power assertion statements true power unleashes in complex Boolean statements, or statements with collections or other toString-enabled classes:
 
+```java
 def x = [1,2,3,4,5]
 assert (x << 6) == [6,7,8,9,10]
 
@@ -18295,11 +18308,13 @@ assert (x << 6) == [6,7,8,9,10]
 //         | |     false
 //         | [1, 2, 3, 4, 5, 6]
 //         [1, 2, 3, 4, 5, 6]
+```
 
 Another important difference from Java is that in Groovy assertions are enabled by default. It has been a language design decision to remove the possibility to deactivate assertions. Or, as Bertrand Meyer stated, it makes no sense to take off your swim ring if you put your feet into real water.
 
 One thing to be aware of are methods with side effects inside Boolean expressions in power assertion statements. As the internal error message construction mechanism does only store references to instances under target, it happens that the error message text is invalid at rendering time in case of side-effecting methods involved:
 
+```java
 assert [[1,2,3,3,3,3,4]].first().unique() == [1,2,3]
 
 // Output:
@@ -18309,10 +18324,12 @@ assert [[1,2,3,3,3,3,4]].first().unique() == [1,2,3]
 //                          |       |        |
 //                          |       |        false
 //                          |       [1, 2, 3, 4]
-//                          [1, 2, 3, 4]           
+//                          [1, 2, 3, 4]           ➊
+```
 
-The error message shows the actual state of the collection, not the state before the unique method was applied
-If you choose to provide a custom assertion error message this can be done by using the Java syntax assert expression1 : expression2 where expression1 is the Boolean expression and expression2 is the custom error message. Be aware though that this will disable the power assert and will fully fall back to custom error messages on assertion errors.
+1. The error message shows the actual state of the collection, not the state before the unique method was applied
+
+If you choose to provide a custom assertion error message this can be done by using the Java syntax `assert expression1 : expression2` where `expression1` is the Boolean expression and `expression2` is the custom error message. Be aware though that this will disable the power assert and will fully fall back to custom error messages on assertion errors.
 
 #### Mocking and Stubbing
 Groovy has excellent built-in support for a range of mocking and stubbing alternatives. When using Java, dynamic mocking frameworks are very popular. A key reason for this is that it is hard work creating custom hand-crafted mocks using Java. Such frameworks can be used easily with Groovy if you choose but creating custom mocks is much easier in Groovy. You can often get away with simple maps or closures to build your custom mocks.
@@ -18322,6 +18339,7 @@ The following sections show ways to create mocks and stubs with Groovy language 
 ##### Map Coercion
 By using maps or expandos, we can incorporate desired behaviour of a collaborator very easily as shown here:
 
+```java
 class TranslationService {
     String convert(String key) {
         return "test"
@@ -18330,6 +18348,7 @@ class TranslationService {
 
 def service = [convert: { String key -> 'some text' }] as TranslationService
 assert 'some text' == service.convert('key.text')
+```
 
 The as operator can be used to coerce a map to a particular class. The given map keys are interpreted as method names and the values, being groovy.lang.Closure blocks, are interpreted as method code blocks.
 
@@ -18338,29 +18357,34 @@ Be aware that map coercion can get into the way if you deal with custom java.uti
 ##### Closure Coercion
 The 'as' operator can be used with closures in a neat way which is great for developer testing in simple scenarios. We haven't found this technique to be so powerful that we want to do away with dynamic mocking, but it can be very useful in simple cases none-the-less.
 
-Classes or interfaces holding a single method, including SAM (single abstract method) classes, can be used to coerce a closure block to be an object of the given type. Be aware that for doing this, Groovy internally create a proxy object descending for the given class. So the object will not be a direct instance of the given class. This important if, for example, the generated proxy object's metaclass is altered afterwards.
+Classes or interfaces holding a single method, including `SAM` (single abstract method) classes, can be used to coerce a closure block to be an object of the given type. Be aware that for doing this, Groovy internally create a proxy object descending for the given class. So the object will not be a direct instance of the given class. This important if, for example, the generated proxy object's metaclass is altered afterwards.
 
 Let's have an example on coercing a closure to be of a specific type:
 
+```java
 def service = { String key -> 'some text' } as TranslationService
 assert 'some text' == service.convert('key.text')
+```
 
-Groovy supports a feature called implicit SAM coercion. This means that the as operator is not necessary in situations where the runtime can infer the target SAM type. This type of coercion might be useful in tests to mock entire SAM classes:
+Groovy supports a feature called implicit SAM coercion. This means that the `as` operator is not necessary in situations where the runtime can infer the target SAM type. This type of coercion might be useful in tests to mock entire SAM classes:
 
+```java
 abstract class BaseService {
     abstract void doSomething()
 }
 
 BaseService service = { -> println 'doing something' }
 service.doSomething()
+```
 
 ##### MockFor and StubFor
 The Groovy mocking and stubbing classes can be found in the groovy.mock.interceptor package.
 
-The MockFor class supports (typically unit) testing of classes in isolation by allowing a strictly ordered expectation of the behavior of collaborators to be defined. A typical test scenario involves a class under test and one or more collaborators. In such a scenario it is often desirable to just test the business logic of the class under test. One strategy for doing that is to replace the collaborator instances with simplified mock objects to help isolate out the logic in the test target. MockFor allows such mocks to be created using meta-programming. The desired behavior of collaborators is defined as a behavior specification. The behavior is enforced and checked automatically.
+The `MockFor` class supports (typically unit) testing of classes in isolation by allowing a strictly ordered expectation of the behavior of collaborators to be defined. A typical test scenario involves a class under test and one or more collaborators. In such a scenario it is often desirable to just test the business logic of the class under test. One strategy for doing that is to replace the collaborator instances with simplified mock objects to help isolate out the logic in the test target. `MockFor` allows such mocks to be created using meta-programming. The desired behavior of collaborators is defined as a behavior specification. The behavior is enforced and checked automatically.
 
 Let's assume our target classes looked like this:
 
+```java
 class Person {
     String first, last
 }
@@ -18369,44 +18393,49 @@ class Family {
     Person father, mother
     def nameOfMother() { "$mother.first $mother.last" }
 }
+```
 
-With MockFor, a mock expectation is always sequence dependent and its use automatically ends with a call to verify:
+With `MockFor`, a mock expectation is always sequence dependent and its use automatically ends with a call to `verify`:
 
-def mock = new MockFor(Person)      
-mock.demand.getFirst{ 'dummy' }
-mock.demand.getLast{ 'name' }
-mock.use {                          
-    def mary = new Person(first:'Mary', last:'Smith')
-    def f = new Family(mother:mary)
-    assert f.nameOfMother() == 'dummy name'
-}
-mock.expect.verify()                
+```java
+         def mock = new MockFor(Person)      ➊
+         mock.demand.getFirst{ 'dummy' }
+         mock.demand.getLast{ 'name' }
+         mock.use {                          ➋
+             def mary = new Person(first:'Mary', last:'Smith')
+             def f = new Family(mother:mary)
+             assert f.nameOfMother() == 'dummy name'
+         }
+         mock.expect.verify()       ➌
+         ```         
 
-1. a new mock is created by a new instance of MockFor
-2. a Closure is passed to use which enables the mocking functionality
-3. a call to verify checks whether the sequence and number of method calls is as expected
+1. a new mock is created by a new instance of `MockFor`
+2. a `Closure` is passed to `use` which enables the mocking functionality
+3. a call to `verify` checks whether the sequence and number of method calls is as expected
 
-The StubFor class supports (typically unit) testing of classes in isolation by allowing a loosely-ordered expectation of the behavior of collaborators to be defined. A typical test scenario involves a class under test and one or more collaborators. In such a scenario it is often desirable to just test the business logic of the CUT. One strategy for doing that is to replace the collaborator instances with simplified stub objects to help isolate out the logic in the target class. StubFor allows such stubs to be created using meta-programming. The desired behavior of collaborators is defined as a behavior specification.
+The `StubFor` class supports (typically unit) testing of classes in isolation by allowing a loosely-ordered expectation of the behavior of collaborators to be defined. A typical test scenario involves a class under test and one or more collaborators. In such a scenario it is often desirable to just test the business logic of the CUT. One strategy for doing that is to replace the collaborator instances with simplified stub objects to help isolate out the logic in the target class. `StubFor` allows such stubs to be created using meta-programming. The desired behavior of collaborators is defined as a behavior specification.
 
 In contrast to MockFor the stub expectation checked with verify is sequence independent and its use is optional:
 
-def stub = new StubFor(Person)      
-stub.demand.with {                  
+```java
+def stub = new StubFor(Person)      ➊
+stub.demand.with {                  ➋
     getLast{ 'name' }
     getFirst{ 'dummy' }
 }
-stub.use {                          
+stub.use {                          ➌
     def john = new Person(first:'John', last:'Smith')
     def f = new Family(father:john)
     assert f.father.first == 'dummy'
     assert f.father.last == 'name'
 }
-stub.expect.verify()                
+stub.expect.verify()                ➍
+```
 
-1. a new stub is created by a new instance of StubFor
-2. the with method is used for delegating all calls inside the closure to the StubFor instance
-3. a Closure is passed to use which enables the stubbing functionality
-4. a call to verify (optional) checks whether the number of method calls is as expected
+1. a new stub is created by a new instance of `StubFor`
+2. the with method is used for delegating all calls inside the closure to the `StubFor` instance
+3. a `Closure` is passed to `use` which enables the stubbing functionality
+4. a call to `verify` (optional) checks whether the number of method calls is as expected
 
 MockFor and StubFor can not be used to test statically compiled classes e.g. for Java classes or Groovy classes that make use of @CompileStatic. To stub and/or mock these classes you can use Spock or one of the Java mocking libraries.
 
@@ -18415,6 +18444,7 @@ Groovy includes a special MetaClass the so-called ExpandoMetaClass (EMC). It all
 
 Every java.lang.Class is supplied with a special metaClass property that will give a reference to an ExpandoMetaClass instance. The expando metaclass is not restricted to custom classes, it can be used for JDK classes like for example java.lang.String as well:
 
+```java
 String.metaClass.swapCase = {->
     def sb = new StringBuffer()
     delegate.each {
@@ -18426,9 +18456,11 @@ String.metaClass.swapCase = {->
 
 def s = "heLLo, worLD!"
 assert s.swapCase() == 'HEllO, WORld!'
+```
 
 The ExpandoMetaClass is a rather good candidate for mocking functionality as it allows for more advanced stuff like mocking static methods
 
+```java
 class Book {
     String title
 }
@@ -18437,15 +18469,19 @@ Book.metaClass.static.create << { String title -> new Book(title:title) }
 
 def b = Book.create("The Stand")
 assert b.title == 'The Stand'
+```
 
 or even constructors
 
+```java
 Book.metaClass.constructor << { String title -> new Book(title:title) }
 
 def b = new Book("The Stand")
 assert b.title == 'The Stand'
+```
 
 Mocking constructors might seem like a hack that's better not even to be considered but even there might be valid use cases. An example can be found in Grails where domain class constructors are added at run-time with the help of ExpandoMetaClass. This lets the domain object register itself in the Spring application context and allows for injection of services or other beans controlled by the dependency-injection container.
+
 If you want to change the metaClass property on a per test method level you need to remove the changes that were done to the metaclass, otherwise those changes would be persistent across test method calls. Changes are removed by replacing the metaclass in the GroovyMetaClassRegistry:
 
 GroovySystem.metaClassRegistry.removeMetaClass(String)
@@ -18454,10 +18490,12 @@ Another alternative is to register a MetaClassRegistryChangeEventListener, track
 
 Besides using the ExpandoMetaClass on a class-level, there is also support for using the metaclass on a per-object level:
 
+```java
 def b = new Book(title: "The Stand")
 b.metaClass.getTitle {-> 'My Title' }
 
 assert b.title == 'My Title'
+```
 
 In this case the metaclass change is related to the instance only. Depending on the test scenario this might be a better fit than the global metaclass change.
 
@@ -18465,30 +18503,34 @@ In this case the metaclass change is related to the instance only. Depending on 
 The following section gives a brief overview on GDK methods that can be leveraged in test case scenarios, for example for test data generation.
 
 ##### Iterable#combinations
-The combinations method that is added on java.lang.Iterable compliant classes can be used to get a list of combinations from a list containing two or more sub-lists:
+The `combinations` method that is added on `java.lang.Iterable` compliant classes can be used to get a list of `combinations` from a list containing two or more sub-lists:
 
+```java
 void testCombinations() {
     def combinations = [[2, 3],[4, 5, 6]].combinations()
     assert combinations == [[2, 4], [3, 4], [2, 5], [3, 5], [2, 6], [3, 6]]
 }
+```
 
-The method could be used in test case scenarios to generate all possible argument combinations for a specific method call.
+The method could be used in test case scenarios to generate all possible argument `combinations` for a specific method call.
 
 ##### Iterable#eachCombination
-The eachCombination method that is added on java.lang.Iterable can be used to apply a function (or in this case a groovy.lang.Closure) to each if the combinations that has been built by the combinations method:
+The `eachCombination` method that is added on `java.lang.Iterable` can be used to apply a function (or in this case a `groovy.lang.Closure`) to each if the `combinations` that has been built by the `combinations` method:
 
-eachCombination is a GDK method that is added to all classes conforming to the java.lang.Iterable interface. It applies a function on each combination of the input lists:
+`eachCombination` is a GDK method that is added to all classes conforming to the `java.lang.Iterable` interface. It applies a function on each combination of the input lists:
 
+```java
 void testEachCombination() {
     [[2, 3],[4, 5, 6]].eachCombination { println it[0] + it[1] }
 }
+```
 
 The method could be used in the testing context to call methods with each of the generated combinations.
 
 #### Tool Support
 
 ##### Test Code Coverage
-Code coverage is a useful measure of the effectiveness of (unit) tests. A program with high code coverage has a lower chance to hold critical bugs than a program with no or low coverage. To get code coverage metrics, the generated byte-code usually needs to be instrumented before the tests are executed. One tool with Groovy support for this task is Cobertura.
+Code coverage is a useful measure of the effectiveness of (unit) tests. A program with high code coverage has a lower chance to hold critical bugs than a program with no or low coverage. To get code coverage metrics, the generated byte-code usually needs to be instrumented before the tests are executed. One tool with Groovy support for this task is Cobertura. http://cobertura.github.io/cobertura/
 
 Various frameworks and build tools come with Cobertura integration. For Grails, there is the code coverage plugin based on Cobertura, for Gradle there is the gradle-cobertura plugin, to name only two of them.
 
@@ -18532,13 +18574,13 @@ Several output formats can be chosen for Cobertura coverage reports and test cod
 ### ☘ 3.6.3. Testing with JUnit
 Groovy simplifies JUnit testing in the following ways:
 
-You use the same overall practices as you would when testing with Java but you can adopt much of Groovy's concise syntax in your tests making them succinct. You can even use the capabilities for writing testing domain specific languages (DSLs) if you feel so inclined.
+1. You use the same overall practices as you would when testing with Java but you can adopt much of Groovy's concise syntax in your tests making them succinct. You can even use the capabilities for writing testing domain specific languages (DSLs) if you feel so inclined.
 
-There are numerous helper classes that simplify many testing activities. The details differ in some cases depending on the version of JUnit you are using. We'll cover those details shortly.
+2. There are numerous helper classes that simplify many testing activities. The details differ in some cases depending on the version of JUnit you are using. We'll cover those details shortly.
 
-Groovy's PowerAssert mechanism is wonderful to use in your tests
+3. Groovy's PowerAssert mechanism is wonderful to use in your tests
 
-Groovy deems that tests are so important you should be able to run them as easily as scripts or classes. This is why Groovy includes an automatic test runner when using the groovy command or the GroovyConsole. This gives you some additional options over and above running your tests
+4. Groovy deems that tests are so important you should be able to run them as easily as scripts or classes. This is why Groovy includes an automatic test runner when using the groovy command or the GroovyConsole. This gives you some additional options over and above running your tests
 
 In the following sections we will have a closer look at JUnit 3, 4 and 5 Groovy integration.
 
@@ -18550,8 +18592,9 @@ Although `GroovyTestCase` inherits from TestCase doesn't mean you can't use JUni
 In this section, we will have a look at some of the methods provided by `GroovyTestCase`. A full list of these can be found in the JavaDoc documentation for `groovy.test.GroovyTestCase` , don't forget it is inherited from junit.framework.TestCase which inherits all the assert* methods.
 
 ##### Assertion Methods
-GroovyTestCase is inherited from junit.framework.TestCase therefore it inherits a large number of assertion methods being available to be called in every test method:
+`GroovyTestCase` is inherited from `junit.framework.TestCase` therefore it inherits a large number of assertion methods being available to be called in every test method:
 
+```java
 class MyTestCase extends GroovyTestCase {
 
     void testAssertions() {
@@ -18564,13 +18607,14 @@ class MyTestCase extends GroovyTestCase {
 
         assertSame x, x
     }
-
 }
+```
 
 As can be seen above, in contrast to Java it is possible to leave out the parenthesis in most situations which leads to even more readability of JUnit assertion method call expressions.
 
-An interesting assertion method that is added by GroovyTestCase is assertScript. It ensures that the given Groovy code string succeeds without any exception:
+An interesting assertion method that is added by `GroovyTestCase` is assertScript. It ensures that the given Groovy code string succeeds without any exception:
 
+```java
 void testScriptAssertions() {
     assertScript '''
         def x = 1
@@ -18579,32 +18623,38 @@ void testScriptAssertions() {
         assert x + y == 3
     '''
 }
+```
 
 ##### shouldFail Methods
-shouldFail can be used to check whether the given code block fails or not. In case it fails, the assertion does hold, otherwise the assertion fails:
+`shouldFail` can be used to check whether the given code block fails or not. In case it fails, the assertion does hold, otherwise the assertion fails:
 
+```java
 void testInvalidIndexAccess1() {
     def numbers = [1,2,3,4]
     shouldFail {
         numbers.get(4)
     }
 }
+```
 
-The example above uses the basic shouldFail method interface that takes a groovy.lang.Closure as a single argument. The Closure instance holds the code that is supposed to be breaking during run-time.
+The example above uses the basic `shouldFail` method interface that takes a `groovy.lang.Closure` as a single argument. The Closure instance holds the code that is supposed to be breaking during run-time.
 
-If we wanted to assert shouldFail on a specific java.lang.Exception type we could have done so by using the shouldFail implementation that takes the Exception class as first argument and the Closure as second argument:
+If we wanted to assert `shouldFail` on a specific `java.lang.Exception` type we could have done so by using the `shouldFail` implementation that takes the Exception class as first argument and the Closure as second argument:
 
+```java
 void testInvalidIndexAccess2() {
     def numbers = [1,2,3,4]
     shouldFail IndexOutOfBoundsException, {
         numbers.get(4)
     }
 }
+```
 
-If anything other than IndexOutOfBoundsException (or a descendant class of it) is thrown, the test case will fail.
+If anything other than `IndexOutOfBoundsException` (or a descendant class of it) is thrown, the test case will fail.
 
 A pretty nice feature of shouldFail hasn't been visible so far: it returns the exception message. This is really useful if you want to assert on the exception error message:
 
+```java
 void testInvalidIndexAccess3() {
     def numbers = [1,2,3,4]
     def msg = shouldFail IndexOutOfBoundsException, {
@@ -18614,29 +18664,35 @@ void testInvalidIndexAccess3() {
         msg.contains('Index 4 out-of-bounds for length 4') ||
         msg.contains('Index 4 out of bounds for length 4')
 }
+```
 
 ##### notYetImplemented Method
 The notYetImplemented method has been greatly influenced by HtmlUnit. It allows to write a test method but mark it as not yet implemented. As long as the test method fails and is marked with notYetImplemented the test goes green:
 
+```java
 void testNotYetImplemented1() {
-    if (notYetImplemented()) return   
+    if (notYetImplemented()) return   ➊
 
-    assert 1 == 2                     
+    assert 1 == 2                     ➋
 }
+```
 
 1. a call to notYetImplemented is necessary for GroovyTestCase to get the current method stack.
 2. as long as the test evaluates to false the test execution will be successful.
 
 An alternative to the notYetImplemented method is the @NotYetImplemented annotation. It allows for annotating a method as not yet implemented, with the exact same behavior as GroovyTestCase#notYetImplemented but without the need for the notYetImplemented method call:
 
+```java
 @NotYetImplemented
 void testNotYetImplemented2() {
     assert 1 == 2
 }
+```
 
 #### JUnit 4
-Groovy can be used to write JUnit 4 test cases without any restrictions. The groovy.test.GroovyAssert holds various static methods that can be used as replacement for the GroovyTestCase methods in JUnit 4 tests:
+Groovy can be used to write JUnit 4 test cases without any restrictions. The `groovy.test.GroovyAssert` holds various static methods that can be used as replacement for the `GroovyTestCase` methods in JUnit 4 tests:
 
+```java
 import org.junit.Test
 
 import static groovy.test.GroovyAssert.shouldFail
@@ -18652,12 +18708,15 @@ class JUnit4ExampleTests {
     }
 
 }
+```
 
-As can be seen in the example above, the static methods found in GroovyAssert are imported at the beginning of the class definition thus shouldFail can be used the same way it can be used in a GroovyTestCase.
+As can be seen in the example above, the static methods found in `GroovyAssert` are imported at the beginning of the class definition thus shouldFail can be used the same way it can be used in a `GroovyTestCase`.
 
-groovy.test.GroovyAssert descends from  that means it inherits all JUnit assertion methods. However, with the introduction of the power assertion statement, it turned out to be good practice to rely on assertion statements instead of using the JUnit assertion methods with the improved message being the main reason.
-It is worth mentioning that GroovyAssert.shouldFail is not absolutely identical to GroovyTestCase.shouldFail. While GroovyTestCase.shouldFail returns the exception message, GroovyAssert.shouldFail returns the exception itself. It takes a few more keystrokes to get the message, but in return you can access other properties and methods of the exception:
+`groovy.test.GroovyAssert` descends from `org.junit.Assert` that means it inherits all JUnit assertion methods. However, with the introduction of the power assertion statement, it turned out to be good practice to rely on assertion statements instead of using the JUnit assertion methods with the improved message being the main reason.
 
+It is worth mentioning that `GroovyAssert.shouldFail` is not absolutely identical to `GroovyTestCase.shouldFail`. While `GroovyTestCase.shouldFail` returns the exception message, `GroovyAssert.shouldFail` returns the exception itself. It takes a few more keystrokes to get the message, but in return you can access other properties and methods of the exception:
+
+```java
 @Test
 void shouldFailReturn() {
     def e = shouldFail {
@@ -18668,6 +18727,7 @@ void shouldFailReturn() {
     assert e.message == 'foo'
     assert e.cause.message == 'bar'
 }
+```
 
 #### JUnit 5
 Much of the approach and helper classes described under JUnit4 apply when using JUnit5 however JUnit5 uses some slightly different class annotations when writing your tests. See the JUnit5 documentation for more details.
@@ -18690,7 +18750,7 @@ class MyTest {
 
   private boolean isPalindrome(s) { s == s.reverse()  }
 
-  @ParameterizedTest                                                              
+  @ParameterizedTest                                          ➊
   @ValueSource(strings = [ "racecar", "radar", "able was I ere I saw elba" ])
   void palindromes(String candidate) {
     assert isPalindrome(candidate)
@@ -18704,19 +18764,22 @@ class MyTest {
 }
 ```
 
-This test requires the additional org.junit.jupiter:junit-jupiter-params dependency if not already in your project.
+1. This test requires the additional `org.junit.jupiter:junit-jupiter-params` dependency if not already in your project.
+
 You can run the tests in your IDE or build tool if it supports and is configured for JUnit5. If you run the above test in the GroovyConsole or via the groovy command, you will see a short text summary of the result of running the test:
 
 JUnit5 launcher: passed=8, failed=0, skipped=0, time=246ms
 
 More detailed information is available at the FINE logging level. You can configure your logging to display such information or do it programmatically as follows:
 
+```java
 @BeforeAll
 static void init() {
   def logger = Logger.getLogger(LoggingListener.name)
   logger.level = Level.FINE
   logger.addHandler(new ConsoleHandler(level: Level.FINE))
 }
+```
 
 ### ☘ 3.6.4. Testing with Spock
 Spock is a testing and specification framework for Java and Groovy applications. What makes it stand out from the crowd is its beautiful and highly expressive specification DSL. In practice, Spock specifications are written as Groovy classes. Although written in Groovy they can be used to test Java classes. Spock can be used for unit, integration or BDD (behavior-driven-development) testing, it doesn't put itself into a specific category of testing frameworks or libraries.
@@ -18732,19 +18795,21 @@ Spock specification classes are derived from spock.lang.Specification. A concret
 
 Let's have a look at a simple specification with a single feature method for an imaginary Stack class:
 
+```java
 class StackSpec extends Specification {
 
-    def "adding an element leads to size increase"() {  
-        setup: "a new stack instance is created"        
+    def "adding an element leads to size increase"() {  ➊
+        setup: "a new stack instance is created"        ➋
             def stack = new Stack()
 
-        when:                                           
+        when:                                           ➌
             stack.push 42
 
-        then:                                           
+        then:                                           ➍
             stack.size() == 1
     }
 }
+```
 
 1. Feature method, is by convention named with a String literal.
 2. Setup block, here is where any setup work for this feature needs to be done.
@@ -18779,45 +18844,52 @@ Although Geb can be used standalone in a Groovy script, in many scenarios it's u
 
 For example, the following @Grab dependencies can be used to run Geb with the Selenium Firefox driver in JUnit4 tests. The module that is needed for JUnit 3/4 support is geb-junit4:
 
+```java
 @Grab('org.gebish:geb-core:0.9.2')
 @Grab('org.gebish:geb-junit4:0.9.2')
 @Grab('org.seleniumhq.selenium:selenium-firefox-driver:2.26.0')
 @Grab('org.seleniumhq.selenium:selenium-support:2.26.0')
+```
 
 The central class in Geb is the geb.Browser class. As its name implies it is used to browse pages and access DOM elements:
 
+```java
 import geb.Browser
 import org.openqa.selenium.firefox.FirefoxDriver
 
-def browser = new Browser(driver: new FirefoxDriver(), baseUrl: 'http://myhost:8080/myapp')  
+def browser = new Browser(driver: new FirefoxDriver(), 
+                     baseUrl: 'http://myhost:8080/myapp')  ➊
 browser.drive {
-    go "/login"                        
+    go "/login"                        ➋
 
-    $("#username").text = 'John'       
+    $("#username").text = 'John'       ➌
     $("#password").text = 'Doe'
 
     $("#loginButton").click()
 
     assert title == "My Application - Dashboard"
 }
+```
 
 1. A new Browser instance is created. In this case it uses the Selenium FirefoxDriver and sets the baseUrl.
-2. go is used to navigate to a URL or relative URI
-3. $ together with CSS selectors is used to access the username and password DOM fields.
+2. `go` is used to navigate to a URL or relative URI
+3. $ together with CSS selectors is used to access the `username` and `password` DOM fields.
 
 The Browser class comes with a drive method that delegates all method/property calls to the current browser instance. The Browser configuration must not be done inline, it can also be externalized in a GebConfig.groovy configuration file for example. In practice, the usage of the Browser class is mostly hidden by Geb test base classes. They delegate all missing properties and method calls to the current browser instance that exists in the background:
 
+```java
 class SearchTests extends geb.junit4.GebTest {
 
     @Test
     void executeSeach() {
-        go 'http://somehost/mayapp/search'              
-        $('#searchField').text = 'John Doe'             
-        $('#searchButton').click()                      
+        go 'http://somehost/mayapp/search'              ➊
+        $('#searchField').text = 'John Doe'             ➋
+        $('#searchButton').click()                      ➌
 
-        assert $('.searchResult a').first().text() == 'Mr. John Doe' 
+        assert $('.searchResult a').first().text() == 'Mr. John Doe' ➍
     }
 }
+```
 
 1. Browser#go takes a relative or absolute link and calls the page.
 2. Browser#$ is used to access DOM content. Any CSS selectors supported by the underlying Selenium drivers are allowed
@@ -18886,15 +18958,18 @@ Notice the result is a plain map and can be handled like a normal Groovy object 
 
 In addition to maps JsonSlurper supports JSON arrays which are converted to lists.
 
+```java
 def jsonSlurper = new JsonSlurper()
 def object = jsonSlurper.parseText('{ "myList": [4, 8, 15, 16, 23, 42] }')
 
 assert object instanceof Map
 assert object.myList instanceof List
 assert object.myList == [4, 8, 15, 16, 23, 42]
+```
 
 The JSON standard supports the following primitive data types: string, number, object, true, false and null. JsonSlurper converts these JSON types into corresponding Groovy types.
 
+```java
 def jsonSlurper = new JsonSlurper()
 def object = jsonSlurper.parseText '''
     { "simple": 123,
@@ -18906,6 +18981,7 @@ assert object instanceof Map
 assert object.simple.class == Integer
 assert object.fraction.class == BigDecimal
 assert object.exponential.class == BigDecimal
+```
 
 As JsonSlurper is returning pure Groovy object instances without any special JSON classes in the back, its usage is transparent. In fact, JsonSlurper results conform to GPath expressions. GPath is a powerful expression language that is supported by multiple slurpers for different data formats (XmlSlurper for XML being one example).
 
@@ -18947,12 +19023,14 @@ The default parser implementation for JsonSlurper is JsonParserCharArray. The Js
 
 Changing the parser implementation is as easy as setting the JsonParserType with a call to JsonSlurper#setType().
 
+```java
 def jsonSlurper = new JsonSlurper(type: JsonParserType.INDEX_OVERLAY)
 def object = jsonSlurper.parseText('{ "myList": [4, 8, 15, 16, 23, 42] }')
 
 assert object instanceof Map
 assert object.myList instanceof List
 assert object.myList == [4, 8, 15, 16, 23, 42]
+```
 
 ### ☘ 3.8.2. JsonOutput
 JsonOutput is responsible for serialising Groovy objects into JSON strings. It can be seen as companion object to JsonSlurper, being a JSON parser.
@@ -18961,21 +19039,26 @@ JsonOutput comes with overloaded, static toJson methods. Each toJson implementat
 
 The result of a toJson call is a String containing the JSON code.
 
+```java
 def json = JsonOutput.toJson([name: 'John Doe', age: 42])
 
 assert json == '{"name":"John Doe","age":42}'
+```
 
 JsonOutput does not only support primitive, maps or list data types to be serialized to JSON, it goes further and even has support for serialising POGOs, that is, plain-old Groovy objects.
 
+```java
 class Person { String name }
 
 def json = JsonOutput.toJson([ new Person(name: 'John'), new Person(name: 'Max') ])
 
 assert json == '[{"name":"John"},{"name":"Max"}]'
+```
 
 #### Customizing Output
 If you need control over the serialized output you can use a JsonGenerator. The JsonGenerator.Options builder can be used to create a customized generator. One or more options can be set on this builder in order to alter the resulting output. When you are done setting the options simply call the build() method in order to get a fully configured instance that will generate output based on the options selected.
 
+```java
 class Person {
     String name
     String title
@@ -18997,9 +19080,11 @@ def generator = new JsonGenerator.Options()
     .build()
 
 assert generator.toJson(person) == '{"name":"John","dob":"1984@12"}'
+```
 
 A closure can be used to transform a type. These closure converters are registered for a given type and will be called any time that type or a subtype is encountered. The first parameter to the closure is an object matching the type for which the converter is registered and this parameter is required. The closure may take an optional second String parameter and this will be set to the key name if one is available.
 
+```java
 class Person {
     String name
     URL favoriteUrl
@@ -19028,10 +19113,12 @@ shouldFail(IllegalArgumentException) {
     new JsonGenerator.Options()
         .addConverter(Date) { Calendar cal -> }
 }
+```
 
 #### Formatted Output
 As we saw in previous examples, the JSON output is not pretty printed per default. However, the prettyPrint method in JsonOutput comes to rescue for this task.
 
+```java
 def json = JsonOutput.toJson([name: 'John Doe', age: 42])
 
 assert json == '{"name":"John Doe","age":42}'
@@ -19041,6 +19128,7 @@ assert JsonOutput.prettyPrint(json) == '''\
     "name": "John Doe",
     "age": 42
 }'''.stripIndent()
+```
 
 prettyPrint takes a String as single parameter; therefore, it can be applied on arbitrary JSON String instances, not only the result of JsonOutput.toJson.
 
@@ -19062,13 +19150,13 @@ Connecting to a database with Groovy's Sql class requires four pieces of informa
 
 For our HSQLDB database, the values will be something like that shown in the following table:
 
-Property    Value
---------    -----------------------
-url         jdbc:hsqldb:mem:yourdb
-user        sa (or your username)
-password    yourPassword
-driver      org.hsqldb.jdbcDriver
-Property    Value
+    Property    Value
+    --------    -----------------------
+    url         jdbc:hsqldb:mem:yourdb
+    user        sa (or your username)
+    password    yourPassword
+    driver      org.hsqldb.jdbcDriver
+    Property    Value
 
 Consult the documentation for the JDBC driver that you plan to use to determine the correct values for your situation.
 
@@ -19076,6 +19164,7 @@ The Sql class has a newInstance factory method which takes these parameters. You
 
 #### Connecting to HSQLDB
 
+```java
 import groovy.sql.Sql
 
 def url = 'jdbc:hsqldb:mem:yourDB'
@@ -19087,19 +19176,24 @@ def sql = Sql.newInstance(url, user, password, driver)
 // use 'sql' instance ...
 
 sql.close()
+```
 
 If you don't want to have to handle resource handling yourself (i.e. call close() manually) then you can use the withInstance variation as shown here:
 
 Connecting to HSQLDB (withInstance variation)
+
+```java
 Sql.withInstance(url, user, password, driver) { sql ->
   // use 'sql' instance ...
 }
+```
 
 #### Connecting with a DataSource
 It is often preferred to use a DataSource. You may have one available to you from a connection pool. Here we'll use the one provided as part of the HSQLDB driver jar as shown here:
 
 Connecting to HSQLDB with a DataSource
 
+```java
 import groovy.sql.Sql
 import org.hsqldb.jdbc.JDBCDataSource
 
@@ -19108,10 +19202,12 @@ def dataSource = new JDBCDataSource(
 def sql = new Sql(dataSource)
 
 // use then close 'sql' instance ...
+```
 If you have your own connection pooling, the details will be different, e.g. for Apache Commons DBCP:
 
 Connecting to HSQLDB with a DataSource using Apache Commons DBCP
 
+```java
 @Grab('org.apache.commons:commons-dbcp2:2.7.0')
 import groovy.sql.Sql
 import org.apache.commons.dbcp2.BasicDataSource
@@ -19120,15 +19216,18 @@ def ds = new BasicDataSource(driverClassName: "org.hsqldb.jdbcDriver",
     url: 'jdbc:hsqldb:mem:yourDB', username: 'sa', password: '')
 def sql = new Sql(ds)
 // use then close 'sql' instance ...
+```
 
 #### Connecting using @Grab
 The previous examples assume that the necessary database driver jar is already on your classpath. For a self-contained script you can add @Grab statements to the top of the script to automatically download the necessary jar as shown here:
 
 Connecting to HSQLDB using @Grab
 
+```java
 @Grab('org.hsqldb:hsqldb:2.7.2:jdk8')
 @GrabConfig(systemClassLoader=true)
 // create, use, and then close sql instance ...
+```
 
 The @GrabConfig statement is necessary to make sure the system classloader is used. This ensures that the driver classes and system classes like java.sql.DriverManager are in the same classloader.
 
@@ -19139,6 +19238,7 @@ You can execute arbitrary SQL commands using the execute() method. Let's have a 
 The simplest way to execute SQL is to call the execute() method passing the SQL you wish to execute as a String as shown here:
 
 Creating a table
+```java
 // ... create 'sql' instance
 sql.execute '''
   CREATE TABLE Author (
@@ -19148,6 +19248,7 @@ sql.execute '''
   );
 '''
 // close 'sql' instance ...
+```
 
 There is a variant of this method which takes a GString and another with a list of parameters. There are also other variants with similar names: executeInsert and executeUpdate. We'll see examples of these variants in other examples in this section.
 
@@ -19165,14 +19266,17 @@ You can use a special executeInsert method instead of execute. This will return 
 
 Inserting a row using executeInsert with placeholders and parameters
 
+```java
 def insertSql = 'INSERT INTO Author (firstname, lastname) VALUES (?,?)'
 def params = ['Jon', 'Skeet']
 def keys = sql.executeInsert insertSql, params
 assert keys[0] == [1]
+```
 
 In addition, both the execute and executeInsert methods allow you to use GStrings. Any '$' placeholders within the SQL are assumed to be placeholders. An escaping mechanism exists if you want to supply part of the GString with a variable in a position which isn't where normal placeholders go within SQL. See the GroovyDoc for more details. Also, executeInsert allows you to supply a list of key column names, when multiple keys are returned and you are only interested in some of them. Here is a fragment illustrating key name specification and GStrings:
 
 Inserting a row using executeInsert with a GString and specifying key names
+```java
 def first = 'Guillaume'
 def last = 'Laforge'
 def myKeyNames = ['ID']
@@ -19181,6 +19285,7 @@ def myKeys = sql.executeInsert """
   VALUES (${first}, ${last})
 """, myKeyNames
 assert myKeys[0] == [ID: 2]
+```
 
 #### Reading rows
 Reading rows of data from the database is accomplished using one of several available methods: query, eachRow, firstRow and rows.
@@ -19189,6 +19294,7 @@ Use the query method if you want to iterate through the ResultSet returned by th
 
 Reading data using query
 
+```java
 def expected = ['Dierk Koenig', 'Jon Skeet', 'Guillaume Laforge']
 
 def rowNum = 0
@@ -19199,17 +19305,20 @@ sql.query('SELECT firstname, lastname FROM Author') { resultSet ->
     assert expected[rowNum++] == "$first $last"
   }
 }
+```
 
 Use the eachRow method if you want a slightly higher-level abstraction which provides a Groovy friendly map-like abstraction for the ResultSet as shown here:
 
 Reading data using eachRow
 
+```java
 rowNum = 0
 sql.eachRow('SELECT firstname, lastname FROM Author') { row ->
   def first = row[0]
   def last = row.lastname
   assert expected[rowNum++] == "$first $last"
 }
+```
 
 Note that you can use Groovy list-style and map-style notations when accessing the row of data.
 
@@ -19217,15 +19326,20 @@ Use the firstRow method if you for similar functionality as eachRow but returnin
 
 Reading data using firstRow
 
+```java
 def first = sql.firstRow('SELECT lastname, firstname FROM Author')
 assert first.values().sort().join(',') == 'Dierk,Koenig'
+```
+
 Use the rows method if you want to process a list of map-like data structures as shown here:
 
 Reading data using rows
 
+```java
 List authors = sql.rows('SELECT firstname, lastname FROM Author')
 assert authors.size() == 3
 assert authors.collect { "$it.FIRSTNAME ${it[-1]}" } == expected
+```
 
 Note that the map-like abstraction has case-insensitive keys (hence we can use 'FIRSTNAME' or 'firstname' as the key) and also that -ve indices (a standard Groovy feature) works when using an index value (to count column numbers from the right).
 
@@ -23530,27 +23644,34 @@ However, overriding CompilationUnit is not recommended and should only be done i
 JSR-223 is a standard API for calling scripting frameworks in Java. It is available since Java 6 and aims at providing a common framework for calling multiple languages from Java. Groovy provides its own richer integration mechanisms, and if you don't plan to use multiple languages in the same application, it is recommended that you use the Groovy integration mechanisms instead of the limited JSR-223 API.
 Here is how you need to initialize the JSR-223 engine to talk to Groovy from Java:
 
+```java
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 ...
 ScriptEngineManager factory = new ScriptEngineManager();
 ScriptEngine engine = factory.getEngineByName("groovy");
+```
 
 Then you can execute Groovy scripts easily:
 
+```java
 Integer sum = (Integer) engine.eval("(1..10).sum()");
 assertEquals(Integer.valueOf(55), sum);
+```
 
 It is also possible to share variables:
 
+```java
 engine.put("first", "HELLO");
 engine.put("second", "world");
 String result = (String) engine.eval("first.toLowerCase() + ' ' + second.toUpperCase()");
 assertEquals("hello WORLD", result);
+```
 
 This next example illustrates calling an invokable function:
 
+```java
 import javax.script.Invocable;
 ...
 ScriptEngineManager factory = new ScriptEngineManager();
@@ -23561,6 +23682,7 @@ Invocable inv = (Invocable) engine;
 Object[] params = {5};
 Object result = inv.invokeFunction("factorial", params);
 assertEquals(Integer.valueOf(120), result);
+```
 
 The engine keeps per default hard references to the script functions. To change this you should set an engine level scoped attribute to the script context of the name #jsr223.groovy.engine.keep.globals with a String being phantom to use phantom references, weak to use weak references or soft to use soft references - casing is ignored. Any other string will cause the use of hard references.
 
