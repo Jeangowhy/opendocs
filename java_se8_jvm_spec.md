@@ -57,463 +57,463 @@ done
 
 # Table of Contents
 
-[Preface to the Java SE 8 Edition](jvms-0-preface8.html)
+[Preface to the Java SE 8 Edition](#-preface-to-the-java-se-8-edition)
 
 ## 🍀 TOC1. Introduction
 
-[1. Introduction](jvms-1.html)
-[1.1. A Bit of History](jvms-1.html#jvms-1.1)
-[1.2. The Java Virtual Machine](jvms-1.html#jvms-1.2)
-[1.3. Organization of the Specification](jvms-1.html#jvms-1.3)
-[1.4. Notation](jvms-1.html#jvms-1.4)
-[1.5. Feedback](jvms-1.html#jvms-1.5)
+[1. Introduction](#-chapter-1-introduction)
+[1.1. A Bit of History](#11-a-bit-of-history)
+[1.2. The Java Virtual Machine](#12-the-java-virtual-machine)
+[1.3. Organization of the Specification](#13-organization-of-the-specification)
+[1.4. Notation](#14-notation)
+[1.5. Feedback](#15-feedback)
 
 ## 🍀 TOC2. The Structure of the Java Virtual Machine
 
-[2. The Structure of the Java Virtual Machine](jvms-2.html)
-[2.1. The `class` File Format](jvms-2.html#jvms-2.1)
-[2.2. Data Types](jvms-2.html#jvms-2.2)
-[2.3. Primitive Types and Values](jvms-2.html#jvms-2.3)
-[2.3.1. Integral Types and Values](jvms-2.html#jvms-2.3.1)
-[2.3.2. Floating-Point Types, Value Sets, and Values](jvms-2.html#jvms-2.3.2)
-[2.3.3. The `returnAddress` Type and Values](jvms-2.html#jvms-2.3.3)
-[2.3.4. The `boolean` Type](jvms-2.html#jvms-2.3.4)
-[2.4. Reference Types and Values](jvms-2.html#jvms-2.4)
-[2.5. Run-Time Data Areas](jvms-2.html#jvms-2.5)
-[2.5.1. The `pc` Register](jvms-2.html#jvms-2.5.1)
-[2.5.2. Java Virtual Machine Stacks](jvms-2.html#jvms-2.5.2)
-[2.5.3. Heap](jvms-2.html#jvms-2.5.3)
-[2.5.4. Method Area](jvms-2.html#jvms-2.5.4)
-[2.5.5. Run-Time Constant Pool](jvms-2.html#jvms-2.5.5)
-[2.5.6. Native Method Stacks](jvms-2.html#jvms-2.5.6)
-[2.6. Frames](jvms-2.html#jvms-2.6)
-[2.6.1. Local Variables](jvms-2.html#jvms-2.6.1)
-[2.6.2. Operand Stacks](jvms-2.html#jvms-2.6.2)
-[2.6.3. Dynamic Linking](jvms-2.html#jvms-2.6.3)
-[2.6.4. Normal Method Invocation Completion](jvms-2.html#jvms-2.6.4)
-[2.6.5. Abrupt Method Invocation Completion](jvms-2.html#jvms-2.6.5)
-[2.7. Representation of Objects](jvms-2.html#jvms-2.7)
-[2.8. Floating-Point Arithmetic](jvms-2.html#jvms-2.8)
-[2.8.1. Java Virtual Machine Floating-Point Arithmetic and IEEE 754](jvms-2.html#jvms-2.8.1)
-[2.8.2. Floating-Point Modes](jvms-2.html#jvms-2.8.2)
-[2.8.3. Value Set Conversion](jvms-2.html#jvms-2.8.3)
-[2.9. Special Methods](jvms-2.html#jvms-2.9)
-[2.10. Exceptions](jvms-2.html#jvms-2.10)
-[2.11. Instruction Set Summary](jvms-2.html#jvms-2.11)
-[2.11.1. Types and the Java Virtual Machine](jvms-2.html#jvms-2.11.1)
-[2.11.2. Load and Store Instructions](jvms-2.html#jvms-2.11.2)
-[2.11.3. Arithmetic Instructions](jvms-2.html#jvms-2.11.3)
-[2.11.4. Type Conversion Instructions](jvms-2.html#jvms-2.11.4)
-[2.11.5. Object Creation and Manipulation](jvms-2.html#jvms-2.11.5)
-[2.11.6. Operand Stack Management Instructions](jvms-2.html#jvms-2.11.6)
-[2.11.7. Control Transfer Instructions](jvms-2.html#jvms-2.11.7)
-[2.11.8. Method Invocation and Return Instructions](jvms-2.html#jvms-2.11.8)
-[2.11.9. Throwing Exceptions](jvms-2.html#jvms-2.11.9)
-[2.11.10. Synchronization](jvms-2.html#jvms-2.11.10)
-[2.12. Class Libraries](jvms-2.html#jvms-2.12)
-[2.13. Public Design, Private Implementation](jvms-2.html#jvms-2.13)
+[2. The Structure of the Java Virtual Machine](#-chapter-2-the-structure-of-the-java-virtual-machine)
+[2.1. The `class` File Format](#21-the-class-file-format)
+[2.2. Data Types](#22-data-types)
+[2.3. Primitive Types and Values](#23-primitive-types-and-values)
+[2.3.1. Integral Types and Values](#231-integral-types-and-values)
+[2.3.2. Floating-Point Types, Value Sets, and Values](#232-floating-point-types,-value-sets,-and-values)
+[2.3.3. The `returnAddress` Type and Values](#233-the-returnaddress-type-and-values)
+[2.3.4. The `boolean` Type](#234-the-boolean-type)
+[2.4. Reference Types and Values](#24-reference-types-and-values)
+[2.5. Run-Time Data Areas](#25-run-time-data-areas)
+[2.5.1. The `pc` Register](#251-the-pc-register)
+[2.5.2. Java Virtual Machine Stacks](#252-java-virtual-machine-stacks)
+[2.5.3. Heap](#253-heap)
+[2.5.4. Method Area](#254-method-area)
+[2.5.5. Run-Time Constant Pool](#255-run-time-constant-pool)
+[2.5.6. Native Method Stacks](#256-native-method-stacks)
+[2.6. Frames](#26-frames)
+[2.6.1. Local Variables](#261-local-variables)
+[2.6.2. Operand Stacks](#262-operand-stacks)
+[2.6.3. Dynamic Linking](#263-dynamic-linking)
+[2.6.4. Normal Method Invocation Completion](#264-normal-method-invocation-completion)
+[2.6.5. Abrupt Method Invocation Completion](#265-abrupt-method-invocation-completion)
+[2.7. Representation of Objects](#27-representation-of-objects)
+[2.8. Floating-Point Arithmetic](#28-floating-point-arithmetic)
+[2.8.1. Java Virtual Machine Floating-Point Arithmetic and IEEE 754](#281-java-virtual-machine-floating-point-arithmetic-and-ieee-754)
+[2.8.2. Floating-Point Modes](#282-floating-point-modes)
+[2.8.3. Value Set Conversion](#283-value-set-conversion)
+[2.9. Special Methods](#29-special-methods)
+[2.10. Exceptions](#210-exceptions)
+[2.11. Instruction Set Summary](#211-instruction-set-summary)
+[2.11.1. Types and the Java Virtual Machine](#2111-types-and-the-java-virtual-machine)
+[2.11.2. Load and Store Instructions](#2112-load-and-store-instructions)
+[2.11.3. Arithmetic Instructions](#2113-arithmetic-instructions)
+[2.11.4. Type Conversion Instructions](#2114-type-conversion-instructions)
+[2.11.5. Object Creation and Manipulation](#2115-object-creation-and-manipulation)
+[2.11.6. Operand Stack Management Instructions](#2116-operand-stack-management-instructions)
+[2.11.7. Control Transfer Instructions](#2117-control-transfer-instructions)
+[2.11.8. Method Invocation and Return Instructions](#2118-method-invocation-and-return-instructions)
+[2.11.9. Throwing Exceptions](#2119-throwing-exceptions)
+[2.11.10. Synchronization](#21110-synchronization)
+[2.12. Class Libraries](#212-class-libraries)
+[2.13. Public Design, Private Implementation](#213-public-design,-private-implementation)
 
 ## 🍀 TOC3. Compiling for the Java Virtual Machine
 
-[3. Compiling for the Java Virtual Machine](jvms-3.html)
-[3.1. Format of Examples](jvms-3.html#jvms-3.1)
-[3.2. Use of Constants, Local Variables, and Control Constructs](jvms-3.html#jvms-3.2)
-[3.3. Arithmetic](jvms-3.html#jvms-3.3)
-[3.4. Accessing the Run-Time Constant Pool](jvms-3.html#jvms-3.4)
-[3.5. More Control Examples](jvms-3.html#jvms-3.5)
-[3.6. Receiving Arguments](jvms-3.html#jvms-3.6)
-[3.7. Invoking Methods](jvms-3.html#jvms-3.7)
-[3.8. Working with Class Instances](jvms-3.html#jvms-3.8)
-[3.9. Arrays](jvms-3.html#jvms-3.9)
-[3.10. Compiling Switches](jvms-3.html#jvms-3.10)
-[3.11. Operations on the Operand Stack](jvms-3.html#jvms-3.11)
-[3.12. Throwing and Handling Exceptions](jvms-3.html#jvms-3.12)
-[3.13. Compiling `finally`](jvms-3.html#jvms-3.13)
-[3.14. Synchronization](jvms-3.html#jvms-3.14)
-[3.15. Annotations](jvms-3.html#jvms-3.15)
+[3. Compiling for the Java Virtual Machine](#-chapter-3-compiling-for-the-java-virtual-machine)
+[3.1. Format of Examples](#31-format-of-examples)
+[3.2. Use of Constants, Local Variables, and Control Constructs](#32-use-of-constants,-local-variables,-and-control-constructs)
+[3.3. Arithmetic](#33-arithmetic)
+[3.4. Accessing the Run-Time Constant Pool](#34-accessing-the-run-time-constant-pool)
+[3.5. More Control Examples](#35-more-control-examples)
+[3.6. Receiving Arguments](#36-receiving-arguments)
+[3.7. Invoking Methods](#37-invoking-methods)
+[3.8. Working with Class Instances](#38-working-with-class-instances)
+[3.9. Arrays](#39-arrays)
+[3.10. Compiling Switches](#310-compiling-switches)
+[3.11. Operations on the Operand Stack](#311-operations-on-the-operand-stack)
+[3.12. Throwing and Handling Exceptions](#312-throwing-and-handling-exceptions)
+[3.13. Compiling `finally`](#313-compiling-finally)
+[3.14. Synchronization](#314-synchronization)
+[3.15. Annotations](#315-annotations)
 
 ## 🍀 TOC4. The `class` File Format
 
-[4. The `class` File Format](jvms-4.html)
-[4.1. The `ClassFile` Structure](jvms-4.html#jvms-4.1)
-[4.2. The Internal Form of Names](jvms-4.html#jvms-4.2)
-[4.2.1. Binary Class and Interface Names](jvms-4.html#jvms-4.2.1)
-[4.2.2. Unqualified Names](jvms-4.html#jvms-4.2.2)
-[4.3. Descriptors](jvms-4.html#jvms-4.3)
-[4.3.1. Grammar Notation](jvms-4.html#jvms-4.3.1)
-[4.3.2. Field Descriptors](jvms-4.html#jvms-4.3.2)
-[4.3.3. Method Descriptors](jvms-4.html#jvms-4.3.3)
-[4.4. The Constant Pool](jvms-4.html#jvms-4.4)
-[4.4.1. The `CONSTANT_Class_info` Structure](jvms-4.html#jvms-4.4.1)
-[4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `CONSTANT_InterfaceMethodref_info` Structures](jvms-4.html#jvms-4.4.2)
-[4.4.3. The `CONSTANT_String_info` Structure](jvms-4.html#jvms-4.4.3)
-[4.4.4. The `CONSTANT_Integer_info` and `CONSTANT_Float_info` Structures](jvms-4.html#jvms-4.4.4) 
-[4.4.5. The `CONSTANT_Long_info` and `CONSTANT_Double_info` Structures](jvms-4.html#jvms-4.4.5)
-[4.4.6. The `CONSTANT_NameAndType_info` Structure](jvms-4.html#jvms-4.4.6)
-[4.4.7. The `CONSTANT_Utf8_info` Structure](jvms-4.html#jvms-4.4.7)
-[4.4.8. The `CONSTANT_MethodHandle_info` Structure](jvms-4.html#jvms-4.4.8)
-[4.4.9. The `CONSTANT_MethodType_info` Structure](jvms-4.html#jvms-4.4.9)
-[4.4.10. The `CONSTANT_InvokeDynamic_info` Structure](jvms-4.html#jvms-4.4.10) 
-[4.5. Fields](jvms-4.html#jvms-4.5)
-[4.6. Methods](jvms-4.html#jvms-4.6)
-[4.7. Attributes](jvms-4.html#jvms-4.7)
-[4.7.1. Defining and Naming New Attributes](jvms-4.html#jvms-4.7.1)
-[4.7.2. The `ConstantValue` Attribute](jvms-4.html#jvms-4.7.2)
-[4.7.3. The `Code` Attribute](jvms-4.html#jvms-4.7.3)
-[4.7.4. The `StackMapTable` Attribute](jvms-4.html#jvms-4.7.4)
-[4.7.5. The `Exceptions` Attribute](jvms-4.html#jvms-4.7.5)
-[4.7.6. The `InnerClasses` Attribute](jvms-4.html#jvms-4.7.6)
-[4.7.7. The `EnclosingMethod` Attribute](jvms-4.html#jvms-4.7.7)
-[4.7.8. The `Synthetic` Attribute](jvms-4.html#jvms-4.7.8)
-[4.7.9. The `Signature` Attribute](jvms-4.html#jvms-4.7.9)
-[4.7.9.1. Signatures](jvms-4.html#jvms-4.7.9.1)
-[4.7.10. The `SourceFile` Attribute](jvms-4.html#jvms-4.7.10)
-[4.7.11. The `SourceDebugExtension` Attribute](jvms-4.html#jvms-4.7.11)
-[4.7.12. The `LineNumberTable` Attribute](jvms-4.html#jvms-4.7.12)
-[4.7.13. The `LocalVariableTable` Attribute](jvms-4.html#jvms-4.7.13)
-[4.7.14. The `LocalVariableTypeTable` Attribute](jvms-4.html#jvms-4.7.14)
-[4.7.15. The `Deprecated` Attribute](jvms-4.html#jvms-4.7.15)
-[4.7.16. The `RuntimeVisibleAnnotations` Attribute](jvms-4.html#jvms-4.7.16)
-[4.7.16.1. The `element_value` structure](jvms-4.html#jvms-4.7.16.1)
-[4.7.17. The `RuntimeInvisibleAnnotations` Attribute](jvms-4.html#jvms-4.7.17)
-[4.7.18. The `RuntimeVisibleParameterAnnotations` Attribute](jvms-4.html#jvms-4.7.18)
-[4.7.19. The `RuntimeInvisibleParameterAnnotations` Attribute](jvms-4.html#jvms-4.7.19)
-[4.7.20. The `RuntimeVisibleTypeAnnotations` Attribute](jvms-4.html#jvms-4.7.20)
-[4.7.20.1. The `target_info` union](jvms-4.html#jvms-4.7.20.1)
-[4.7.20.2. The `type_path` structure](jvms-4.html#jvms-4.7.20.2)
-[4.7.21. The `RuntimeInvisibleTypeAnnotations` Attribute](jvms-4.html#jvms-4.7.21)
-[4.7.22. The `AnnotationDefault` Attribute](jvms-4.html#jvms-4.7.22)
-[4.7.23. The `BootstrapMethods` Attribute](jvms-4.html#jvms-4.7.23)
-[4.7.24. The `MethodParameters` Attribute](jvms-4.html#jvms-4.7.24)
-[4.8. Format Checking](jvms-4.html#jvms-4.8)
-[4.9. Constraints on Java Virtual Machine Code](jvms-4.html#jvms-4.9)
-[4.9.1. Static Constraints](jvms-4.html#jvms-4.9.1)
-[4.9.2. Structural Constraints](jvms-4.html#jvms-4.9.2)
-[4.10. Verification of `class` Files](jvms-4.html#jvms-4.10)
-[4.10.1. Verification by Type Checking](jvms-4.html#jvms-4.10.1)
-[4.10.1.1. Accessors for Java Virtual Machine Artifacts](jvms-4.html#jvms-4.10.1.1)
-[4.10.1.2. Verification Type System](jvms-4.html#jvms-4.10.1.2)
-[4.10.1.3. Instruction Representation](jvms-4.html#jvms-4.10.1.3)
-[4.10.1.4. Stack Map Frame Representation](jvms-4.html#jvms-4.10.1.4)
-[4.10.1.5. Type Checking Abstract and Native Methods](jvms-4.html#jvms-4.10.1.5)
-[4.10.1.6. Type Checking Methods with Code](jvms-4.html#jvms-4.10.1.6)
-[4.10.1.7. Type Checking Load and Store Instructions](jvms-4.html#jvms-4.10.1.7)
-[4.10.1.8. Type Checking for `protected` Members](jvms-4.html#jvms-4.10.1.8)
-[4.10.1.9. Type Checking Instructions](jvms-4.html#jvms-4.10.1.9)
-    [[*aaload*]](jvms-4.html#jvms-4.10.1.9.aaload)
-    [[*aastore*]](jvms-4.html#jvms-4.10.1.9.aastore)
-    [[*aconst_null*]](jvms-4.html#jvms-4.10.1.9.aconst_null)
-    [[*aload*], [*aload_<n>*]](jvms-4.html#jvms-4.10.1.9.aload)
-    [[*anewarray*]](jvms-4.html#jvms-4.10.1.9.anewarray)
-    [[*areturn*]](jvms-4.html#jvms-4.10.1.9.areturn)
-    [[*arraylength*]](jvms-4.html#jvms-4.10.1.9.arraylength)
-    [[*astore*], [*astore_<n>*]](jvms-4.html#jvms-4.10.1.9.astore)
-    [[*athrow*]](jvms-4.html#jvms-4.10.1.9.athrow)
-    [[*baload*]](jvms-4.html#jvms-4.10.1.9.baload)
-    [[*bastore*]](jvms-4.html#jvms-4.10.1.9.bastore)
-    [[*bipush*]](jvms-4.html#jvms-4.10.1.9.bipush)
-    [[*caload*]](jvms-4.html#jvms-4.10.1.9.caload)
-    [[*castore*]](jvms-4.html#jvms-4.10.1.9.castore)
-    [[*checkcast*]](jvms-4.html#jvms-4.10.1.9.checkcast)
-    [[*d2f*], [*d2i*], [*d2l*]](jvms-4.html#jvms-4.10.1.9.d2f)
-    [[*dadd*]](jvms-4.html#jvms-4.10.1.9.dadd)
-    [[*daload*]](jvms-4.html#jvms-4.10.1.9.daload)
-    [[*dastore*]](jvms-4.html#jvms-4.10.1.9.dastore)
-    [[*dcmp<op>*]](jvms-4.html#jvms-4.10.1.9.dcmp_op)
-    [[*dconst_<d>*]](jvms-4.html#jvms-4.10.1.9.dconst_d)
-    [[*ddiv*]](jvms-4.html#jvms-4.10.1.9.ddiv)
-    [[*dload*], [*dload_<n>*]](jvms-4.html#jvms-4.10.1.9.dload)
-    [[*dmul*]](jvms-4.html#jvms-4.10.1.9.dmul)
-    [[*dneg*]](jvms-4.html#jvms-4.10.1.9.dneg)
-    [[*drem*]](jvms-4.html#jvms-4.10.1.9.drem)
-    [[*dreturn*]](jvms-4.html#jvms-4.10.1.9.dreturn)
-    [[*dstore*], [*dstore_<n>*]](jvms-4.html#jvms-4.10.1.9.dstore)
-    [[*dsub*]](jvms-4.html#jvms-4.10.1.9.dsub)
-    [[*dup*]](jvms-4.html#jvms-4.10.1.9.dup)
-    [[*dup_x1*]](jvms-4.html#jvms-4.10.1.9.dup_x1)
-    [[*dup_x2*]](jvms-4.html#jvms-4.10.1.9.dup_x2)
-    [[*dup2*]](jvms-4.html#jvms-4.10.1.9.dup2)
-    [[*dup2_x1*]](jvms-4.html#jvms-4.10.1.9.dup2_x1)
-    [[*dup2_x2*]](jvms-4.html#jvms-4.10.1.9.dup2_x2)
-    [[*f2d*], [*f2i*], [*f2l*]](jvms-4.html#jvms-4.10.1.9.f2d)
-    [[*fadd*]](jvms-4.html#jvms-4.10.1.9.fadd)
-    [[*faload*]](jvms-4.html#jvms-4.10.1.9.faload)
-    [[*fastore*]](jvms-4.html#jvms-4.10.1.9.fastore)
-    [[*fcmp<op>*]](jvms-4.html#jvms-4.10.1.9.fcmp_op)
-    [[*fconst_<f>*]](jvms-4.html#jvms-4.10.1.9.fconst_f)
-    [[*fdiv*]](jvms-4.html#jvms-4.10.1.9.fdiv)
-    [[*fload*], [*fload_<n>*]](jvms-4.html#jvms-4.10.1.9.fload)
-    [[*fmul*]](jvms-4.html#jvms-4.10.1.9.fmul)
-    [[*fneg*]](jvms-4.html#jvms-4.10.1.9.fneg)
-    [[*frem*]](jvms-4.html#jvms-4.10.1.9.frem)
-    [[*freturn*]](jvms-4.html#jvms-4.10.1.9.freturn)
-    [[*fstore*], [*fstore_<n>*]](jvms-4.html#jvms-4.10.1.9.fstore)
-    [[*fsub*]](jvms-4.html#jvms-4.10.1.9.fsub)
-    [[*getfield*]](jvms-4.html#jvms-4.10.1.9.getfield)
-    [[*getstatic*]](jvms-4.html#jvms-4.10.1.9.getstatic)
-    [[*goto*], [*goto_w*]](jvms-4.html#jvms-4.10.1.9.goto)
-    [[*i2b*], [*i2c*], [*i2d*], [*i2f*], [*i2l*], [*i2s*]](jvms-4.html#jvms-4.10.1.9.i2b)
-    [[*iadd*]](jvms-4.html#jvms-4.10.1.9.iadd)
-    [[*iaload*]](jvms-4.html#jvms-4.10.1.9.iaload)
-    [[*iand*]](jvms-4.html#jvms-4.10.1.9.iand)
-    [[*iastore*]](jvms-4.html#jvms-4.10.1.9.iastore)
-    [[*if_acmp<cond>*]](jvms-4.html#jvms-4.10.1.9.if_acmp_cond)
-    [[*if_icmp<cond>*]](jvms-4.html#jvms-4.10.1.9.if_icmp_cond)
-    [[*if<cond>*]](jvms-4.html#jvms-4.10.1.9.if_cond)
-    [[*ifnonnull*]](jvms-4.html#jvms-4.10.1.9.ifnonnull)
-    [[*ifnull*]](jvms-4.html#jvms-4.10.1.9.ifnull)
-    [[*iinc*]](jvms-4.html#jvms-4.10.1.9.iinc)
-    [[*iload*], [*iload_<n>*]](jvms-4.html#jvms-4.10.1.9.iload)
-    [[*imul*]](jvms-4.html#jvms-4.10.1.9.imul)
-    [[*ineg*]](jvms-4.html#jvms-4.10.1.9.ineg)
-    [[*instanceof*]](jvms-4.html#jvms-4.10.1.9.instanceof)
-    [[*invokedynamic*]](jvms-4.html#jvms-4.10.1.9.invokedynamic)
-    [[*invokeinterface*]](jvms-4.html#jvms-4.10.1.9.invokeinterface)
-    [[*invokespecial*]](jvms-4.html#jvms-4.10.1.9.invokespecial)
-    [[*invokestatic*]](jvms-4.html#jvms-4.10.1.9.invokestatic)
-    [[*invokevirtual*]](jvms-4.html#jvms-4.10.1.9.invokevirtual)
-    [[*ior*]](jvms-4.html#jvms-4.10.1.9.ior)
-    [[*irem*]](jvms-4.html#jvms-4.10.1.9.irem)
-    [[*ireturn*]](jvms-4.html#jvms-4.10.1.9.ireturn)
-    [[*ishl*], [*ishr*], [*iushr*]](jvms-4.html#jvms-4.10.1.9.ishl)
-    [[*istore*], [*istore_<n>*]](jvms-4.html#jvms-4.10.1.9.istore)
-    [[*isub*]](jvms-4.html#jvms-4.10.1.9.isub)
-    [[*ixor*]](jvms-4.html#jvms-4.10.1.9.ixor)
-    [[*l2d*], [*l2f*], [*l2i*]](jvms-4.html#jvms-4.10.1.9.l2d)
-    [[*ladd*]](jvms-4.html#jvms-4.10.1.9.ladd)
-    [[*laload*]](jvms-4.html#jvms-4.10.1.9.laload)
-    [[*land*]](jvms-4.html#jvms-4.10.1.9.land)
-    [[*lastore*]](jvms-4.html#jvms-4.10.1.9.lastore)
-    [[*lcmp*]](jvms-4.html#jvms-4.10.1.9.lcmp)
-    [[*lconst_<l>*]](jvms-4.html#jvms-4.10.1.9.lconst_l)
-    [[*ldc*], [*ldc_w*], [*ldc2_w*]](jvms-4.html#jvms-4.10.1.9.ldc)
-    [[*ldiv*]](jvms-4.html#jvms-4.10.1.9.ldiv)
-    [[*lload*], [*lload_<n>*]](jvms-4.html#jvms-4.10.1.9.lload)
-    [[*lmul*]](jvms-4.html#jvms-4.10.1.9.lmul)
-    [[*lneg*]](jvms-4.html#jvms-4.10.1.9.lneg)
-    [[*lookupswitch*]](jvms-4.html#jvms-4.10.1.9.lookupswitch)
-    [[*lor*]](jvms-4.html#jvms-4.10.1.9.lor)
-    [[*lrem*]](jvms-4.html#jvms-4.10.1.9.lrem)
-    [[*lreturn*]](jvms-4.html#jvms-4.10.1.9.lreturn)
-    [[*lshl*], [*lshr*], [*lushr*]](jvms-4.html#jvms-4.10.1.9.lshl)
-    [[*lstore*], [*lstore_<n>*]](jvms-4.html#jvms-4.10.1.9.lstore)
-    [[*lsub*]](jvms-4.html#jvms-4.10.1.9.lsub)
-    [[*lxor*]](jvms-4.html#jvms-4.10.1.9.lxor)
-    [[*monitorenter*]](jvms-4.html#jvms-4.10.1.9.monitorenter)
-    [[*monitorexit*]](jvms-4.html#jvms-4.10.1.9.monitorexit)
-    [[*multianewarray*]](jvms-4.html#jvms-4.10.1.9.multianewarray)
-    [[*new*]](jvms-4.html#jvms-4.10.1.9.new)
-    [[*newarray*]](jvms-4.html#jvms-4.10.1.9.newarray)
-    [[*nop*]](jvms-4.html#jvms-4.10.1.9.nop)
-    [[*pop*], [*pop2*]](jvms-4.html#jvms-4.10.1.9.pop)
-    [[*putfield*]](jvms-4.html#jvms-4.10.1.9.putfield)
-    [[*putstatic*]](jvms-4.html#jvms-4.10.1.9.putstatic)
-    [[*return*]](jvms-4.html#jvms-4.10.1.9.return)
-    [[*saload*]](jvms-4.html#jvms-4.10.1.9.saload)
-    [[*sastore*]](jvms-4.html#jvms-4.10.1.9.sastore)
-    [[*sipush*]](jvms-4.html#jvms-4.10.1.9.sipush)
-    [[*swap*]](jvms-4.html#jvms-4.10.1.9.swap)
-    [[*tableswitch*]](jvms-4.html#jvms-4.10.1.9.tableswitch)
-    [[*wide*]](jvms-4.html#jvms-4.10.1.9.wide)
-[4.10.2. Verification by Type Inference](jvms-4.html#jvms-4.10.2)
-[4.10.2.1. The Process of Verification by Type Inference](jvms-4.html#jvms-4.10.2.1)
-[4.10.2.2. The Bytecode Verifier](jvms-4.html#jvms-4.10.2.2)
-[4.10.2.3. Values of Types `long` and `double`](jvms-4.html#jvms-4.10.2.3)
-[4.10.2.4. Instance Initialization Methods and Newly Created Objects](jvms-4.html#jvms-4.10.2.4)
-[4.10.2.5. Exceptions and `finally`](jvms-4.html#jvms-4.10.2.5)
-[4.11. Limitations of the Java Virtual Machine](jvms-4.html#jvms-4.11)
+[4. The `class` File Format](#-chapter-4-the-class-file-format)
+[4.1. The `ClassFile` Structure](#41-the-classfile-structure)
+[4.2. The Internal Form of Names](#42-the-internal-form-of-names)
+[4.2.1. Binary Class and Interface Names](#421-binary-class-and-interface-names)
+[4.2.2. Unqualified Names](#422-unqualified-names)
+[4.3. Descriptors](#43-descriptors)
+[4.3.1. Grammar Notation](#431-grammar-notation)
+[4.3.2. Field Descriptors](#432-field-descriptors)
+[4.3.3. Method Descriptors](#433-method-descriptors)
+[4.4. The Constant Pool](#44-the-constant-pool)
+[4.4.1. The `CONSTANT_Class_info` Structure](#441-the-constant_class_info-structure)
+[4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `CONSTANT_InterfaceMethodref_info` Structures](#442-the-constant_fieldref_info,-constant_methodref_info,-and-constant_interfacemethodref_info-structures)
+[4.4.3. The `CONSTANT_String_info` Structure](#443-the-constant_string_info-structure)
+[4.4.4. The `CONSTANT_Integer_info` and `CONSTANT_Float_info` Structures](#444-the-constant_integer_info-and-constant_float_info-structures)-
+[4.4.5. The `CONSTANT_Long_info` and `CONSTANT_Double_info` Structures](#445-the-constant_long_info-and-constant_double_info-structures)
+[4.4.6. The `CONSTANT_NameAndType_info` Structure](#446-the-constant_nameandtype_info-structure)
+[4.4.7. The `CONSTANT_Utf8_info` Structure](#447-the-constant_utf8_info-structure)
+[4.4.8. The `CONSTANT_MethodHandle_info` Structure](#448-the-constant_methodhandle_info-structure)
+[4.4.9. The `CONSTANT_MethodType_info` Structure](#449-the-constant_methodtype_info-structure)
+[4.4.10. The `CONSTANT_InvokeDynamic_info` Structure](#4410-the-constant_invokedynamic_info-structure)-
+[4.5. Fields](#45-fields)
+[4.6. Methods](#46-methods)
+[4.7. Attributes](#47-attributes)
+[4.7.1. Defining and Naming New Attributes](#471-defining-and-naming-new-attributes)
+[4.7.2. The `ConstantValue` Attribute](#472-the-constantvalue-attribute)
+[4.7.3. The `Code` Attribute](#473-the-code-attribute)
+[4.7.4. The `StackMapTable` Attribute](#474-the-stackmaptable-attribute)
+[4.7.5. The `Exceptions` Attribute](#475-the-exceptions-attribute)
+[4.7.6. The `InnerClasses` Attribute](#476-the-innerclasses-attribute)
+[4.7.7. The `EnclosingMethod` Attribute](#477-the-enclosingmethod-attribute)
+[4.7.8. The `Synthetic` Attribute](#478-the-synthetic-attribute)
+[4.7.9. The `Signature` Attribute](#479-the-signature-attribute)
+[4.7.9.1. Signatures](#4791-signatures)
+[4.7.10. The `SourceFile` Attribute](#4710-the-sourcefile-attribute)
+[4.7.11. The `SourceDebugExtension` Attribute](#4711-the-sourcedebugextension-attribute)
+[4.7.12. The `LineNumberTable` Attribute](#4712-the-linenumbertable-attribute)
+[4.7.13. The `LocalVariableTable` Attribute](#4713-the-localvariabletable-attribute)
+[4.7.14. The `LocalVariableTypeTable` Attribute](#4714-the-localvariabletypetable-attribute)
+[4.7.15. The `Deprecated` Attribute](#4715-the-deprecated-attribute)
+[4.7.16. The `RuntimeVisibleAnnotations` Attribute](#4716-the-runtimevisibleannotations-attribute)
+[4.7.16.1. The `element_value` structure](#47161-the-element_value-structure)
+[4.7.17. The `RuntimeInvisibleAnnotations` Attribute](#4717-the-runtimeinvisibleannotations-attribute)
+[4.7.18. The `RuntimeVisibleParameterAnnotations` Attribute](#4718-the-runtimevisibleparameterannotations-attribute)
+[4.7.19. The `RuntimeInvisibleParameterAnnotations` Attribute](#4719-the-runtimeinvisibleparameterannotations-attribute)
+[4.7.20. The `RuntimeVisibleTypeAnnotations` Attribute](#4720-the-runtimevisibletypeannotations-attribute)
+[4.7.20.1. The `target_info` union](#47201-the-target_info-union)
+[4.7.20.2. The `type_path` structure](#47202-the-type_path-structure)
+[4.7.21. The `RuntimeInvisibleTypeAnnotations` Attribute](#4721-the-runtimeinvisibletypeannotations-attribute)
+[4.7.22. The `AnnotationDefault` Attribute](#4722-the-annotationdefault-attribute)
+[4.7.23. The `BootstrapMethods` Attribute](#4723-the-bootstrapmethods-attribute)
+[4.7.24. The `MethodParameters` Attribute](#4724-the-methodparameters-attribute)
+[4.8. Format Checking](#48-format-checking)
+[4.9. Constraints on Java Virtual Machine Code](#49-constraints-on-java-virtual-machine-code)
+[4.9.1. Static Constraints](#491-static-constraints)
+[4.9.2. Structural Constraints](#492-structural-constraints)
+[4.10. Verification of `class` Files](#410-verification-of-class-files)
+[4.10.1. Verification by Type Checking](#4101-verification-by-type-checking)
+[4.10.1.1. Accessors for Java Virtual Machine Artifacts](#41011-accessors-for-java-virtual-machine-artifacts)
+[4.10.1.2. Verification Type System](#41012-verification-type-system)
+[4.10.1.3. Instruction Representation](#41013-instruction-representation)
+[4.10.1.4. Stack Map Frame Representation](#41014-stack-map-frame-representation)
+[4.10.1.5. Type Checking Abstract and Native Methods](#41015-type-checking-abstract-and-native-methods)
+[4.10.1.6. Type Checking Methods with Code](#41016-type-checking-methods-with-code)
+[4.10.1.7. Type Checking Load and Store Instructions](#41017-type-checking-load-and-store-instructions)
+[4.10.1.8. Type Checking for `protected` Members](#41018-type-checking-for-protected-members)
+[4.10.1.9. Type Checking Instructions](#41019-type-checking-instructions)
+    [[*aaload*]](#aaload)
+    [[*aastore*]](#aastore)
+    [[*aconst_null*]](#aconst_null)
+    [[*aload*], [*aload_<n>*]](#aload_aload_n)
+    [[*anewarray*]](#anewarray)
+    [[*areturn*]](#areturn)
+    [[*arraylength*]](#arraylength)
+    [[*astore*], [*astore_<n>*]](#astore_astore_n)
+    [[*athrow*]](#athrow)
+    [[*baload*]](#baload)
+    [[*bastore*]](#bastore)
+    [[*bipush*]](#bipush)
+    [[*caload*]](#caload)
+    [[*castore*]](#castore)
+    [[*checkcast*]](#checkcast)
+    [[*d2f*], [*d2i*], [*d2l*]](#d2f_d2i_d2l)
+    [[*dadd*]](#dadd)
+    [[*daload*]](#daload)
+    [[*dastore*]](#dastore)
+    [[*dcmp<op>*]](#dcmp_op)
+    [[*dconst_<d>*]](#dconst_d)
+    [[*ddiv*]](#ddiv)
+    [[*dload*], [*dload_<n>*]](#dload_dload_n)
+    [[*dmul*]](#dmul)
+    [[*dneg*]](#dneg)
+    [[*drem*]](#drem)
+    [[*dreturn*]](#dreturn)
+    [[*dstore*], [*dstore_<n>*]](#dstore_dstore_n)
+    [[*dsub*]](#dsub)
+    [[*dup*]](#dup)
+    [[*dup_x1*]](#dup_x1)
+    [[*dup_x2*]](#dup_x2)
+    [[*dup2*]](#dup2)
+    [[*dup2_x1*]](#dup2_x1)
+    [[*dup2_x2*]](#dup2_x2)
+    [[*f2d*], [*f2i*], [*f2l*]](#f2d_f2i_f2l)
+    [[*fadd*]](#fadd)
+    [[*faload*]](#faload)
+    [[*fastore*]](#fastore)
+    [[*fcmp<op>*]](#fcmp_op)
+    [[*fconst_<f>*]](#fconst_f)
+    [[*fdiv*]](#fdiv)
+    [[*fload*], [*fload_<n>*]](#fload_fload_n)
+    [[*fmul*]](#fmul)
+    [[*fneg*]](#fneg)
+    [[*frem*]](#frem)
+    [[*freturn*]](#freturn)
+    [[*fstore*], [*fstore_<n>*]](#fstore_fstore_n)
+    [[*fsub*]](#fsub)
+    [[*getfield*]](#getfield)
+    [[*getstatic*]](#getstatic)
+    [[*goto*], [*goto_w*]](#goto_goto_w)
+    [[*i2b*], [*i2c*], [*i2d*], [*i2f*], [*i2l*], [*i2s*]](#i2b_i2c_i2d_i2f_i2l_i2s)
+    [[*iadd*]](#iadd)
+    [[*iaload*]](#iaload)
+    [[*iand*]](#iand)
+    [[*iastore*]](#iastore)
+    [[*if_acmp<cond>*]](#if_acmp_cond)
+    [[*if_icmp<cond>*]](#if_icmp_cond)
+    [[*if<cond>*]](#if_cond)
+    [[*ifnonnull*]](#ifnonnull)
+    [[*ifnull*]](#ifnull)
+    [[*iinc*]](#iinc)
+    [[*iload*], [*iload_<n>*]](#iload_iload_n)
+    [[*imul*]](#imul)
+    [[*ineg*]](#ineg)
+    [[*instanceof*]](#instanceof)
+    [[*invokedynamic*]](#invokedynamic)
+    [[*invokeinterface*]](#invokeinterface)
+    [[*invokespecial*]](#invokespecial)
+    [[*invokestatic*]](#invokestatic)
+    [[*invokevirtual*]](#invokevirtual)
+    [[*ior*]](#ior)
+    [[*irem*]](#irem)
+    [[*ireturn*]](#ireturn)
+    [[*ishl*], [*ishr*], [*iushr*]](#ishl_ishr_iushr)
+    [[*istore*], [*istore_<n>*]](#istore_istore_n)
+    [[*isub*]](#isub)
+    [[*ixor*]](#ixor)
+    [[*l2d*], [*l2f*], [*l2i*]](#l2d_l2f_l2i)
+    [[*ladd*]](#ladd)
+    [[*laload*]](#laload)
+    [[*land*]](#land)
+    [[*lastore*]](#lastore)
+    [[*lcmp*]](#lcmp)
+    [[*lconst_<l>*]](#lconst_l)
+    [[*ldc*], [*ldc_w*], [*ldc2_w*]](#ldc_ldc_w_ldc2_w)
+    [[*ldiv*]](#ldiv)
+    [[*lload*], [*lload_<n>*]](#lload_lload_n)
+    [[*lmul*]](#lmul)
+    [[*lneg*]](#lneg)
+    [[*lookupswitch*]](#lookupswitch)
+    [[*lor*]](#lor)
+    [[*lrem*]](#lrem)
+    [[*lreturn*]](#lreturn)
+    [[*lshl*], [*lshr*], [*lushr*]](#lsh_lshr_lushrl)
+    [[*lstore*], [*lstore_<n>*]](#lstore_lstore_n)
+    [[*lsub*]](#lsub)
+    [[*lxor*]](#lxor)
+    [[*monitorenter*]](#monitorenter)
+    [[*monitorexit*]](#monitorexit)
+    [[*multianewarray*]](#multianewarray)
+    [[*new*]](#new)
+    [[*newarray*]](#newarray)
+    [[*nop*]](#nop)
+    [[*pop*], [*pop2*]](#pop_pop2)
+    [[*putfield*]](#putfield)
+    [[*putstatic*]](#putstatic)
+    [[*return*]](#return)
+    [[*saload*]](#saload)
+    [[*sastore*]](#sastore)
+    [[*sipush*]](#sipush)
+    [[*swap*]](#swap)
+    [[*tableswitch*]](#tableswitch)
+    [[*wide*]](#wide)
+[4.10.2. Verification by Type Inference](#4102-verification-by-type-inference)
+[4.10.2.1. The Process of Verification by Type Inference](#41021-the-process-of-verification-by-type-inference)
+[4.10.2.2. The Bytecode Verifier](#41022-the-bytecode-verifier)
+[4.10.2.3. Values of Types `long` and `double`](#41023-values-of-types-long-and-double)
+[4.10.2.4. Instance Initialization Methods and Newly Created Objects](#41024-instance-initialization-methods-and-newly-created-objects)
+[4.10.2.5. Exceptions and `finally`](#41025-exceptions-and-finally)
+[4.11. Limitations of the Java Virtual Machine](#411-limitations-of-the-java-virtual-machine)
 
 ## 🍀 TOC5. Loading, Linking, and Initializing
 
-[5. Loading, Linking, and Initializing](jvms-5.html)
-[5.1. The Run-Time Constant Pool](jvms-5.html#jvms-5.1)
-[5.2. Java Virtual Machine Startup](jvms-5.html#jvms-5.2)
-[5.3. Creation and Loading](jvms-5.html#jvms-5.3)
-[5.3.1. Loading Using the Bootstrap Class Loader](jvms-5.html#jvms-5.3.1)
-[5.3.2. Loading Using a User-defined Class Loader](jvms-5.html#jvms-5.3.2)
-[5.3.3. Creating Array Classes](jvms-5.html#jvms-5.3.3)
-[5.3.4. Loading Constraints](jvms-5.html#jvms-5.3.4)
-[5.3.5. Deriving a Class from a `class` File Representation](jvms-5.html#jvms-5.3.5)
-[5.4. Linking](jvms-5.html#jvms-5.4)
-[5.4.1. Verification](jvms-5.html#jvms-5.4.1)
-[5.4.2. Preparation](jvms-5.html#jvms-5.4.2)
-[5.4.3. Resolution](jvms-5.html#jvms-5.4.3)
-[5.4.3.1. Class and Interface Resolution](jvms-5.html#jvms-5.4.3.1)
-[5.4.3.2. Field Resolution](jvms-5.html#jvms-5.4.3.2)
-[5.4.3.3. Method Resolution](jvms-5.html#jvms-5.4.3.3)
-[5.4.3.4. Interface Method Resolution](jvms-5.html#jvms-5.4.3.4)
-[5.4.3.5. Method Type and Method Handle Resolution](jvms-5.html#jvms-5.4.3.5)
-[5.4.3.6. Call Site Specifier Resolution](jvms-5.html#jvms-5.4.3.6)
-[5.4.4. Access Control](jvms-5.html#jvms-5.4.4)
-[5.4.5. Overriding](jvms-5.html#jvms-5.4.5)
-[5.5. Initialization](jvms-5.html#jvms-5.5)
-[5.6. Binding Native Method Implementations](jvms-5.html#jvms-5.6)
-[5.7. Java Virtual Machine Exit](jvms-5.html#jvms-5.7)
+[5. Loading, Linking, and Initializing](#-chapter-5-loading,-linking,-and-initializing)
+[5.1. The Run-Time Constant Pool](#51-the-run-time-constant-pool)
+[5.2. Java Virtual Machine Startup](#52-java-virtual-machine-startup)
+[5.3. Creation and Loading](#53-creation-and-loading)
+[5.3.1. Loading Using the Bootstrap Class Loader](#531-loading-using-the-bootstrap-class-loader)
+[5.3.2. Loading Using a User-defined Class Loader](#532-loading-using-a-user-defined-class-loader)
+[5.3.3. Creating Array Classes](#533-creating-array-classes)
+[5.3.4. Loading Constraints](#534-loading-constraints)
+[5.3.5. Deriving a Class from a `class` File Representation](#535-deriving-a-class-from-a-class-file-representation)
+[5.4. Linking](#54-linking)
+[5.4.1. Verification](#541-verification)
+[5.4.2. Preparation](#542-preparation)
+[5.4.3. Resolution](#543-resolution)
+[5.4.3.1. Class and Interface Resolution](#5431-class-and-interface-resolution)
+[5.4.3.2. Field Resolution](#5432-field-resolution)
+[5.4.3.3. Method Resolution](#5433-method-resolution)
+[5.4.3.4. Interface Method Resolution](#5434-interface-method-resolution)
+[5.4.3.5. Method Type and Method Handle Resolution](#5435-method-type-and-method-handle-resolution)
+[5.4.3.6. Call Site Specifier Resolution](#5436-call-site-specifier-resolution)
+[5.4.4. Access Control](#544-access-control)
+[5.4.5. Overriding](#545-overriding)
+[5.5. Initialization](#55-initialization)
+[5.6. Binding Native Method Implementations](#56-binding-native-method-implementations)
+[5.7. Java Virtual Machine Exit](#57-java-virtual-machine-exit)
 
 ## 🍀 TOC6. The Java Virtual Machine Instruction Set
 
-[6. The Java Virtual Machine Instruction Set](jvms-6.html)
-[6.1. Assumptions: The Meaning of "Must"](jvms-6.html#jvms-6.1)
-[6.2. Reserved Opcodes](jvms-6.html#jvms-6.2)
-[6.3. Virtual Machine Errors](jvms-6.html#jvms-6.3)
-[6.4. Format of Instruction Descriptions](jvms-6.html#jvms-6.4)
-    [mnemonic](jvms-6.html#jvms-6.4-mnemonic)
-[6.5. Instructions](jvms-6.html#jvms-6.5)
-    [[*aaload*]](jvms-6.html#jvms-6.5.aaload)
-    [[*aastore*]](jvms-6.html#jvms-6.5.aastore)
-    [[*aconst_null*]](jvms-6.html#jvms-6.5.aconst_null)
-    [[*aload*]](jvms-6.html#jvms-6.5.aload)
-    [[*aload_<n>*]](jvms-6.html#jvms-6.5.aload_n)
-    [[*anewarray*]](jvms-6.html#jvms-6.5.anewarray)
-    [[*areturn*]](jvms-6.html#jvms-6.5.areturn)
-    [[*arraylength*]](jvms-6.html#jvms-6.5.arraylength)
-    [[*astore*]](jvms-6.html#jvms-6.5.astore)
-    [[*astore_<n>*]](jvms-6.html#jvms-6.5.astore_n)
-    [[*athrow*]](jvms-6.html#jvms-6.5.athrow)
-    [[*baload*]](jvms-6.html#jvms-6.5.baload)
-    [[*bastore*]](jvms-6.html#jvms-6.5.bastore)
-    [[*bipush*]](jvms-6.html#jvms-6.5.bipush)
-    [[*caload*]](jvms-6.html#jvms-6.5.caload)
-    [[*castore*]](jvms-6.html#jvms-6.5.castore)
-    [[*checkcast*]](jvms-6.html#jvms-6.5.checkcast)
-    [[*d2f*]](jvms-6.html#jvms-6.5.d2f)
-    [[*d2i*]](jvms-6.html#jvms-6.5.d2i)
-    [[*d2l*]](jvms-6.html#jvms-6.5.d2l)
-    [[*dadd*]](jvms-6.html#jvms-6.5.dadd)
-    [[*daload*]](jvms-6.html#jvms-6.5.daload)
-    [[*dastore*]](jvms-6.html#jvms-6.5.dastore)
-    [[*dcmp<op>*]](jvms-6.html#jvms-6.5.dcmp_op)
-    [[*dconst_<d>*]](jvms-6.html#jvms-6.5.dconst_d)
-    [[*ddiv*]](jvms-6.html#jvms-6.5.ddiv)
-    [[*dload*]](jvms-6.html#jvms-6.5.dload)
-    [[*dload_<n>*]](jvms-6.html#jvms-6.5.dload_n)
-    [[*dmul*]](jvms-6.html#jvms-6.5.dmul)
-    [[*dneg*]](jvms-6.html#jvms-6.5.dneg)
-    [[*drem*]](jvms-6.html#jvms-6.5.drem)
-    [[*dreturn*]](jvms-6.html#jvms-6.5.dreturn)
-    [[*dstore*]](jvms-6.html#jvms-6.5.dstore)
-    [[*dstore_<n>*]](jvms-6.html#jvms-6.5.dstore_n)
-    [[*dsub*]](jvms-6.html#jvms-6.5.dsub)
-    [[*dup*]](jvms-6.html#jvms-6.5.dup)
-    [[*dup_x1*]](jvms-6.html#jvms-6.5.dup_x1)
-    [[*dup_x2*]](jvms-6.html#jvms-6.5.dup_x2)
-    [[*dup2*]](jvms-6.html#jvms-6.5.dup2)
-    [[*dup2_x1*]](jvms-6.html#jvms-6.5.dup2_x1)
-    [[*dup2_x2*]](jvms-6.html#jvms-6.5.dup2_x2)
-    [[*f2d*]](jvms-6.html#jvms-6.5.f2d)
-    [[*f2i*]](jvms-6.html#jvms-6.5.f2i)
-    [[*f2l*]](jvms-6.html#jvms-6.5.f2l)
-    [[*fadd*]](jvms-6.html#jvms-6.5.fadd)
-    [[*faload*]](jvms-6.html#jvms-6.5.faload)
-    [[*fastore*]](jvms-6.html#jvms-6.5.fastore)
-    [[*fcmp<op>*]](jvms-6.html#jvms-6.5.fcmp_op)
-    [[*fconst_<f>*]](jvms-6.html#jvms-6.5.fconst_f)
-    [[*fdiv*]](jvms-6.html#jvms-6.5.fdiv)
-    [[*fload*]](jvms-6.html#jvms-6.5.fload)
-    [[*fload_<n>*]](jvms-6.html#jvms-6.5.fload_n)
-    [[*fmul*]](jvms-6.html#jvms-6.5.fmul)
-    [[*fneg*]](jvms-6.html#jvms-6.5.fneg)
-    [[*frem*]](jvms-6.html#jvms-6.5.frem)
-    [[*freturn*]](jvms-6.html#jvms-6.5.freturn)
-    [[*fstore*]](jvms-6.html#jvms-6.5.fstore)
-    [[*fstore_<n>*]](jvms-6.html#jvms-6.5.fstore_n)
-    [[*fsub*]](jvms-6.html#jvms-6.5.fsub)
-    [[*getfield*]](jvms-6.html#jvms-6.5.getfield)
-    [[*getstatic*]](jvms-6.html#jvms-6.5.getstatic)
-    [[*goto*]](jvms-6.html#jvms-6.5.goto)
-    [[*goto_w*]](jvms-6.html#jvms-6.5.goto_w)
-    [[*i2b*]](jvms-6.html#jvms-6.5.i2b)
-    [[*i2c*]](jvms-6.html#jvms-6.5.i2c)
-    [[*i2d*]](jvms-6.html#jvms-6.5.i2d)
-    [[*i2f*]](jvms-6.html#jvms-6.5.i2f)
-    [[*i2l*]](jvms-6.html#jvms-6.5.i2l)
-    [[*i2s*]](jvms-6.html#jvms-6.5.i2s)
-    [[*iadd*]](jvms-6.html#jvms-6.5.iadd)
-    [[*iaload*]](jvms-6.html#jvms-6.5.iaload)
-    [[*iand*]](jvms-6.html#jvms-6.5.iand)
-    [[*iastore*]](jvms-6.html#jvms-6.5.iastore)
-    [[*iconst_<i>*]](jvms-6.html#jvms-6.5.iconst_i)
-    [[*idiv*]](jvms-6.html#jvms-6.5.idiv)
-    [[*if_acmp<cond>*]](jvms-6.html#jvms-6.5.if_acmp_cond)
-    [[*if_icmp<cond>*]](jvms-6.html#jvms-6.5.if_icmp_cond)
-    [[*if<cond>*]](jvms-6.html#jvms-6.5.if_cond)
-    [[*ifnonnull*]](jvms-6.html#jvms-6.5.ifnonnull)
-    [[*ifnull*]](jvms-6.html#jvms-6.5.ifnull)
-    [[*iinc*]](jvms-6.html#jvms-6.5.iinc)
-    [[*iload*]](jvms-6.html#jvms-6.5.iload)
-    [[*iload_<n>*]](jvms-6.html#jvms-6.5.iload_n)
-    [[*imul*]](jvms-6.html#jvms-6.5.imul)
-    [[*ineg*]](jvms-6.html#jvms-6.5.ineg)
-    [[*instanceof*]](jvms-6.html#jvms-6.5.instanceof)
-    [[*invokedynamic*]](jvms-6.html#jvms-6.5.invokedynamic)
-    [[*invokeinterface*]](jvms-6.html#jvms-6.5.invokeinterface)
-    [[*invokespecial*]](jvms-6.html#jvms-6.5.invokespecial)
-    [[*invokestatic*]](jvms-6.html#jvms-6.5.invokestatic)
-    [[*invokevirtual*]](jvms-6.html#jvms-6.5.invokevirtual)
-    [[*ior*]](jvms-6.html#jvms-6.5.ior)
-    [[*irem*]](jvms-6.html#jvms-6.5.irem)
-    [[*ireturn*]](jvms-6.html#jvms-6.5.ireturn)
-    [[*ishl*]](jvms-6.html#jvms-6.5.ishl)
-    [[*ishr*]](jvms-6.html#jvms-6.5.ishr)
-    [[*istore*]](jvms-6.html#jvms-6.5.istore)
-    [[*istore_<n>*]](jvms-6.html#jvms-6.5.istore_n)
-    [[*isub*]](jvms-6.html#jvms-6.5.isub)
-    [[*iushr*]](jvms-6.html#jvms-6.5.iushr)
-    [[*ixor*]](jvms-6.html#jvms-6.5.ixor)
-    [[*jsr*]](jvms-6.html#jvms-6.5.jsr)
-    [[*jsr_w*]](jvms-6.html#jvms-6.5.jsr_w)
-    [[*l2d*]](jvms-6.html#jvms-6.5.l2d)
-    [[*l2f*]](jvms-6.html#jvms-6.5.l2f)
-    [[*l2i*]](jvms-6.html#jvms-6.5.l2i)
-    [[*ladd*]](jvms-6.html#jvms-6.5.ladd)
-    [[*laload*]](jvms-6.html#jvms-6.5.laload)
-    [[*land*]](jvms-6.html#jvms-6.5.land)
-    [[*lastore*]](jvms-6.html#jvms-6.5.lastore)
-    [[*lcmp*]](jvms-6.html#jvms-6.5.lcmp)
-    [[*lconst_<l>*]](jvms-6.html#jvms-6.5.lconst_l)
-    [[*ldc*]](jvms-6.html#jvms-6.5.ldc)
-    [[*ldc_w*]](jvms-6.html#jvms-6.5.ldc_w)
-    [[*ldc2_w*]](jvms-6.html#jvms-6.5.ldc2_w)
-    [[*ldiv*]](jvms-6.html#jvms-6.5.ldiv)
-    [[*lload*]](jvms-6.html#jvms-6.5.lload)
-    [[*lload_<n>*]](jvms-6.html#jvms-6.5.lload_n)
-    [[*lmul*]](jvms-6.html#jvms-6.5.lmul)
-    [[*lneg*]](jvms-6.html#jvms-6.5.lneg)
-    [[*lookupswitch*]](jvms-6.html#jvms-6.5.lookupswitch)
-    [[*lor*]](jvms-6.html#jvms-6.5.lor)
-    [[*lrem*]](jvms-6.html#jvms-6.5.lrem)
-    [[*lreturn*]](jvms-6.html#jvms-6.5.lreturn)
-    [[*lshl*]](jvms-6.html#jvms-6.5.lshl)
-    [[*lshr*]](jvms-6.html#jvms-6.5.lshr)
-    [[*lstore*]](jvms-6.html#jvms-6.5.lstore)
-    [[*lstore_<n>*]](jvms-6.html#jvms-6.5.lstore_n)
-    [[*lsub*]](jvms-6.html#jvms-6.5.lsub)
-    [[*lushr*]](jvms-6.html#jvms-6.5.lushr)
-    [[*lxor*]](jvms-6.html#jvms-6.5.lxor)
-    [[*monitorenter*]](jvms-6.html#jvms-6.5.monitorenter)
-    [[*monitorexit*]](jvms-6.html#jvms-6.5.monitorexit)
-    [[*multianewarray*]](jvms-6.html#jvms-6.5.multianewarray)
-    [[*new*]](jvms-6.html#jvms-6.5.new)
-    [[*newarray*]](jvms-6.html#jvms-6.5.newarray)
-    [[*nop*]](jvms-6.html#jvms-6.5.nop)
-    [[*pop*]](jvms-6.html#jvms-6.5.pop)
-    [[*pop2*]](jvms-6.html#jvms-6.5.pop2)
-    [[*putfield*]](jvms-6.html#jvms-6.5.putfield)
-    [[*putstatic*]](jvms-6.html#jvms-6.5.putstatic)
-    [[*ret*]](jvms-6.html#jvms-6.5.ret)
-    [[*return*]](jvms-6.html#jvms-6.5.return)
-    [[*saload*]](jvms-6.html#jvms-6.5.saload)
-    [[*sastore*]](jvms-6.html#jvms-6.5.sastore)
-    [[*sipush*]](jvms-6.html#jvms-6.5.sipush)
-    [[*swap*]](jvms-6.html#jvms-6.5.swap)
-    [[*tableswitch*]](jvms-6.html#jvms-6.5.tableswitch)
-    [[*wide*]](jvms-6.html#jvms-6.5.wide)
+[6. The Java Virtual Machine Instruction Set](#-chapter-6-the-java-virtual-machine-instruction-set)
+[6.1. Assumptions: The Meaning of "Must"](#61-assumptions:-the-meaning-of-"must")
+[6.2. Reserved Opcodes](#62-reserved-opcodes)
+[6.3. Virtual Machine Errors](#63-virtual-machine-errors)
+[6.4. Format of Instruction Descriptions](#64-format-of-instruction-descriptions)
+    [mnemonic](#mnemonic)
+[6.5. Instructions](#65-instructions)
+    [[*aaload*]](#aaload)
+    [[*aastore*]](#aastore)
+    [[*aconst_null*]](#aconst_null)
+    [[*aload*]](#aload)
+    [[*aload_<n>*]](#aload_n)
+    [[*anewarray*]](#anewarray)
+    [[*areturn*]](#areturn)
+    [[*arraylength*]](#arraylength)
+    [[*astore*]](#astore)
+    [[*astore_<n>*]](#astore_n)
+    [[*athrow*]](#athrow)
+    [[*baload*]](#baload)
+    [[*bastore*]](#bastore)
+    [[*bipush*]](#bipush)
+    [[*caload*]](#caload)
+    [[*castore*]](#castore)
+    [[*checkcast*]](#checkcast)
+    [[*d2f*]](#d2f)
+    [[*d2i*]](#d2i)
+    [[*d2l*]](#d2l)
+    [[*dadd*]](#dadd)
+    [[*daload*]](#daload)
+    [[*dastore*]](#dastore)
+    [[*dcmp<op>*]](#dcmp_op)
+    [[*dconst_<d>*]](#dconst_d)
+    [[*ddiv*]](#ddiv)
+    [[*dload*]](#dload)
+    [[*dload_<n>*]](#dload_n)
+    [[*dmul*]](#dmul)
+    [[*dneg*]](#dneg)
+    [[*drem*]](#drem)
+    [[*dreturn*]](#dreturn)
+    [[*dstore*]](#dstore)
+    [[*dstore_<n>*]](#dstore_n)
+    [[*dsub*]](#dsub)
+    [[*dup*]](#dup)
+    [[*dup_x1*]](#dup_x1)
+    [[*dup_x2*]](#dup_x2)
+    [[*dup2*]](#dup2)
+    [[*dup2_x1*]](#dup2_x1)
+    [[*dup2_x2*]](#dup2_x2)
+    [[*f2d*]](#f2d)
+    [[*f2i*]](#f2i)
+    [[*f2l*]](#f2l)
+    [[*fadd*]](#fadd)
+    [[*faload*]](#faload)
+    [[*fastore*]](#fastore)
+    [[*fcmp<op>*]](#fcmp_op)
+    [[*fconst_<f>*]](#fconst_f)
+    [[*fdiv*]](#fdiv)
+    [[*fload*]](#fload)
+    [[*fload_<n>*]](#fload_n)
+    [[*fmul*]](#fmul)
+    [[*fneg*]](#fneg)
+    [[*frem*]](#frem)
+    [[*freturn*]](#freturn)
+    [[*fstore*]](#fstore)
+    [[*fstore_<n>*]](#fstore_n)
+    [[*fsub*]](#fsub)
+    [[*getfield*]](#getfield)
+    [[*getstatic*]](#getstatic)
+    [[*goto*]](#goto)
+    [[*goto_w*]](#goto_w)
+    [[*i2b*]](#i2b)
+    [[*i2c*]](#i2c)
+    [[*i2d*]](#i2d)
+    [[*i2f*]](#i2f)
+    [[*i2l*]](#i2l)
+    [[*i2s*]](#i2s)
+    [[*iadd*]](#iadd)
+    [[*iaload*]](#iaload)
+    [[*iand*]](#iand)
+    [[*iastore*]](#iastore)
+    [[*iconst_<i>*]](#iconst_i)
+    [[*idiv*]](#idiv)
+    [[*if_acmp<cond>*]](#if_acmp_cond)
+    [[*if_icmp<cond>*]](#if_icmp_cond)
+    [[*if<cond>*]](#if_cond)
+    [[*ifnonnull*]](#ifnonnull)
+    [[*ifnull*]](#ifnull)
+    [[*iinc*]](#iinc)
+    [[*iload*]](#iload)
+    [[*iload_<n>*]](#iload_n)
+    [[*imul*]](#imul)
+    [[*ineg*]](#ineg)
+    [[*instanceof*]](#instanceof)
+    [[*invokedynamic*]](#invokedynamic)
+    [[*invokeinterface*]](#invokeinterface)
+    [[*invokespecial*]](#invokespecial)
+    [[*invokestatic*]](#invokestatic)
+    [[*invokevirtual*]](#invokevirtual)
+    [[*ior*]](#ior)
+    [[*irem*]](#irem)
+    [[*ireturn*]](#ireturn)
+    [[*ishl*]](#ishl)
+    [[*ishr*]](#ishr)
+    [[*istore*]](#istore)
+    [[*istore_<n>*]](#istore_n)
+    [[*isub*]](#isub)
+    [[*iushr*]](#iushr)
+    [[*ixor*]](#ixor)
+    [[*jsr*]](#jsr)
+    [[*jsr_w*]](#jsr_w)
+    [[*l2d*]](#l2d)
+    [[*l2f*]](#l2f)
+    [[*l2i*]](#l2i)
+    [[*ladd*]](#ladd)
+    [[*laload*]](#laload)
+    [[*land*]](#land)
+    [[*lastore*]](#lastore)
+    [[*lcmp*]](#lcmp)
+    [[*lconst_<l>*]](#lconst_l)
+    [[*ldc*]](#ldc)
+    [[*ldc_w*]](#ldc_w)
+    [[*ldc2_w*]](#ldc2_w)
+    [[*ldiv*]](#ldiv)
+    [[*lload*]](#lload)
+    [[*lload_<n>*]](#lload_n)
+    [[*lmul*]](#lmul)
+    [[*lneg*]](#lneg)
+    [[*lookupswitch*]](#lookupswitch)
+    [[*lor*]](#lor)
+    [[*lrem*]](#lrem)
+    [[*lreturn*]](#lreturn)
+    [[*lshl*]](#lshl)
+    [[*lshr*]](#lshr)
+    [[*lstore*]](#lstore)
+    [[*lstore_<n>*]](#lstore_n)
+    [[*lsub*]](#lsub)
+    [[*lushr*]](#lushr)
+    [[*lxor*]](#lxor)
+    [[*monitorenter*]](#monitorenter)
+    [[*monitorexit*]](#monitorexit)
+    [[*multianewarray*]](#multianewarray)
+    [[*new*]](#new)
+    [[*newarray*]](#newarray)
+    [[*nop*]](#nop)
+    [[*pop*]](#pop)
+    [[*pop2*]](#pop2)
+    [[*putfield*]](#putfield)
+    [[*putstatic*]](#putstatic)
+    [[*ret*]](#ret)
+    [[*return*]](#return)
+    [[*saload*]](#saload)
+    [[*sastore*]](#sastore)
+    [[*sipush*]](#sipush)
+    [[*swap*]](#swap)
+    [[*tableswitch*]](#tableswitch)
+    [[*wide*]](#wide)
 
 ## 🍀 TOC7. Opcode Mnemonics by Opcode
 
-[7. Opcode Mnemonics by Opcode](jvms-7.html)
-[Index](jvms-0-index.html)
-[A. Limited License Grant](spec-license.html)
+[7. Opcode Mnemonics by Opcode](#-chapter-7-opcode-mnemonics-by-opcode)
+[Index](#-index)
+[A. Limited License Grant](#-appendix-a-limited-license-grant)
 
 ☘ Legal Notice
 -----------
@@ -550,11 +550,12 @@ Many colleagues in the Java Platform Group at Oracle have provided valuable supp
 -----------------------
 
 **Table of Contents**
-[1.1. A Bit of History](jvms-1.html#jvms-1.1)
-[1.2. The Java Virtual Machine](jvms-1.html#jvms-1.2)
-[1.3. Organization of the Specification](jvms-1.html#jvms-1.3)
-[1.4. Notation](jvms-1.html#jvms-1.4)
-[1.5. Feedback](jvms-1.html#jvms-1.5)
+
+[1.1. A Bit of History](#11-a-bit-of-history)
+[1.2. The Java Virtual Machine](#12-the-java-virtual-machine)
+[1.3. Organization of the Specification](#13-organization-of-the-specification)
+[1.4. Notation](#14-notation)
+[1.5. Feedback](#15-feedback)
 
 1.1. A Bit of History
 ---------------------
@@ -630,52 +631,52 @@ Readers are invited to report technical errors and ambiguities in _The Java® Vi
 
 Questions concerning the generation and manipulation of `class` files by `javac` (the reference compiler for the Java programming language) may be sent to `compiler-dev@openjdk.java.net`.
 
- 📜 Chapter 2. The Structure of the Java Virtual Machine
+📜 Chapter 2. The Structure of the Java Virtual Machine
 ----------------------------------------------------
 
 **Table of Contents**
 
-[2.1. The `class` File Format](jvms-2.html#jvms-2.1)
-[2.2. Data Types](jvms-2.html#jvms-2.2)
-[2.3. Primitive Types and Values](jvms-2.html#jvms-2.3)
-[2.3.1. Integral Types and Values](jvms-2.html#jvms-2.3.1)
-[2.3.2. Floating-Point Types, Value Sets, and Values](jvms-2.html#jvms-2.3.2)
-[2.3.3. The `returnAddress` Type and Values](jvms-2.html#jvms-2.3.3)
-[2.3.4. The `boolean` Type](jvms-2.html#jvms-2.3.4)
-[2.4. Reference Types and Values](jvms-2.html#jvms-2.4)
-[2.5. Run-Time Data Areas](jvms-2.html#jvms-2.5)
-[2.5.1. The `pc` Register](jvms-2.html#jvms-2.5.1)
-[2.5.2. Java Virtual Machine Stacks](jvms-2.html#jvms-2.5.2)
-[2.5.3. Heap](jvms-2.html#jvms-2.5.3)
-[2.5.4. Method Area](jvms-2.html#jvms-2.5.4)
-[2.5.5. Run-Time Constant Pool](jvms-2.html#jvms-2.5.5)
-[2.5.6. Native Method Stacks](jvms-2.html#jvms-2.5.6)
-[2.6. Frames](jvms-2.html#jvms-2.6)
-[2.6.1. Local Variables](jvms-2.html#jvms-2.6.1)
-[2.6.2. Operand Stacks](jvms-2.html#jvms-2.6.2)
-[2.6.3. Dynamic Linking](jvms-2.html#jvms-2.6.3)
-[2.6.4. Normal Method Invocation Completion](jvms-2.html#jvms-2.6.4)
-[2.6.5. Abrupt Method Invocation Completion](jvms-2.html#jvms-2.6.5)
-[2.7. Representation of Objects](jvms-2.html#jvms-2.7)
-[2.8. Floating-Point Arithmetic](jvms-2.html#jvms-2.8)
-[2.8.1. Java Virtual Machine Floating-Point Arithmetic and IEEE 754](jvms-2.html#jvms-2.8.1)
-[2.8.2. Floating-Point Modes](jvms-2.html#jvms-2.8.2)
-[2.8.3. Value Set Conversion](jvms-2.html#jvms-2.8.3)
-[2.9. Special Methods](jvms-2.html#jvms-2.9)
-[2.10. Exceptions](jvms-2.html#jvms-2.10)
-[2.11. Instruction Set Summary](jvms-2.html#jvms-2.11)
-[2.11.1. Types and the Java Virtual Machine](jvms-2.html#jvms-2.11.1)
-[2.11.2. Load and Store Instructions](jvms-2.html#jvms-2.11.2)
-[2.11.3. Arithmetic Instructions](jvms-2.html#jvms-2.11.3)
-[2.11.4. Type Conversion Instructions](jvms-2.html#jvms-2.11.4)
-[2.11.5. Object Creation and Manipulation](jvms-2.html#jvms-2.11.5)
-[2.11.6. Operand Stack Management Instructions](jvms-2.html#jvms-2.11.6)
-[2.11.7. Control Transfer Instructions](jvms-2.html#jvms-2.11.7)
-[2.11.8. Method Invocation and Return Instructions](jvms-2.html#jvms-2.11.8)
-[2.11.9. Throwing Exceptions](jvms-2.html#jvms-2.11.9)
-[2.11.10. Synchronization](jvms-2.html#jvms-2.11.10)
-[2.12. Class Libraries](jvms-2.html#jvms-2.12)
-[2.13. Public Design, Private Implementation](jvms-2.html#jvms-2.13)
+[2.1. The `class` File Format](#21-the-class-file-format)
+[2.2. Data Types](#22-data-types)
+[2.3. Primitive Types and Values](#23-primitive-types-and-values)
+[2.3.1. Integral Types and Values](#231-integral-types-and-values)
+[2.3.2. Floating-Point Types, Value Sets, and Values](#232-floating-point-types,-value-sets,-and-values)
+[2.3.3. The `returnAddress` Type and Values](#233-the-returnaddress-type-and-values)
+[2.3.4. The `boolean` Type](#234-the-boolean-type)
+[2.4. Reference Types and Values](#24-reference-types-and-values)
+[2.5. Run-Time Data Areas](#25-run-time-data-areas)
+[2.5.1. The `pc` Register](#251-the-pc-register)
+[2.5.2. Java Virtual Machine Stacks](#252-java-virtual-machine-stacks)
+[2.5.3. Heap](#253-heap)
+[2.5.4. Method Area](#254-method-area)
+[2.5.5. Run-Time Constant Pool](#255-run-time-constant-pool)
+[2.5.6. Native Method Stacks](#256-native-method-stacks)
+[2.6. Frames](#26-frames)
+[2.6.1. Local Variables](#261-local-variables)
+[2.6.2. Operand Stacks](#262-operand-stacks)
+[2.6.3. Dynamic Linking](#263-dynamic-linking)
+[2.6.4. Normal Method Invocation Completion](#264-normal-method-invocation-completion)
+[2.6.5. Abrupt Method Invocation Completion](#265-abrupt-method-invocation-completion)
+[2.7. Representation of Objects](#27-representation-of-objects)
+[2.8. Floating-Point Arithmetic](#28-floating-point-arithmetic)
+[2.8.1. Java Virtual Machine Floating-Point Arithmetic and IEEE 754](#281-java-virtual-machine-floating-point-arithmetic-and-ieee-754)
+[2.8.2. Floating-Point Modes](#282-floating-point-modes)
+[2.8.3. Value Set Conversion](#283-value-set-conversion)
+[2.9. Special Methods](#29-special-methods)
+[2.10. Exceptions](#210-exceptions)
+[2.11. Instruction Set Summary](#211-instruction-set-summary)
+[2.11.1. Types and the Java Virtual Machine](#2111-types-and-the-java-virtual-machine)
+[2.11.2. Load and Store Instructions](#2112-load-and-store-instructions)
+[2.11.3. Arithmetic Instructions](#2113-arithmetic-instructions)
+[2.11.4. Type Conversion Instructions](#2114-type-conversion-instructions)
+[2.11.5. Object Creation and Manipulation](#2115-object-creation-and-manipulation)
+[2.11.6. Operand Stack Management Instructions](#2116-operand-stack-management-instructions)
+[2.11.7. Control Transfer Instructions](#2117-control-transfer-instructions)
+[2.11.8. Method Invocation and Return Instructions](#2118-method-invocation-and-return-instructions)
+[2.11.9. Throwing Exceptions](#2119-throwing-exceptions)
+[2.11.10. Synchronization](#21110-synchronization)
+[2.12. Class Libraries](#212-class-libraries)
+[2.13. Public Design, Private Implementation](#213-public-design,-private-implementation)
 
 This document specifies an abstract machine. It does not describe any particular implementation of the Java Virtual Machine.
 
@@ -761,59 +762,12 @@ The constraints on the parameters _N_ and _K_ (and on the derived parameters _Em
 
 **Table 2.3.2-A. Floating-point value set parameters**
 
-    
-
-Parameter
-
-float
-
-float-extended-exponent
-
-double
-
-double-extended-exponent
-
-_N_
-
-24
-
-24
-
-53
-
-53
-
-_K_
-
-8
-
-≥ 11
-
-11
-
-≥ 15
-
-_Emax_
-
-+127
-
-≥ +1023
-
-+1023
-
-≥ +16383
-
-_Emin_
-
-\-126
-
-≤ -1022
-
-\-1022
-
-≤ -16382
-
-  
+| Parameter | float | float-extended-exponent | double | double-extended-exponent |
+|-----------|-------|-------------------------|--------|--------------------------|
+| _N_    | 24   | 24      | 53     | 53
+| _K_    | 8    | ≥ 11    | 11     | ≥ 15
+| _Emax_ | +127 | ≥ +1023 | +1023  | ≥ +16383
+| _Emin_ | -126 | ≤ -1022 | \-1022 | ≤ -16382
 
 Where one or both extended-exponent value sets are supported by an implementation, then for each supported extended-exponent value set there is a specific implementation-dependent constant _K_, whose value is constrained by [Table 2.3.2-A](jvms-2.html#jvms-2.3.2-140-A "Table 2.3.2-A. Floating-point value set parameters"); this value _K_ in turn dictates the values for _Emin_ and _Emax_.
 
@@ -833,7 +787,7 @@ NaNs are _unordered_, so numerical comparisons and tests for numerical equality 
 
 ### 2.3.3. The `returnAddress` Type and Values
 
-The `returnAddress` type is used by the Java Virtual Machine's _jsr_, _ret_, and _jsr\_w_ instructions ([§_jsr_](jvms-6.html#jvms-6.5.jsr "jsr"), [§_ret_](jvms-6.html#jvms-6.5.ret "ret"), [§_jsr\_w_](jvms-6.html#jvms-6.5.jsr_w "jsr_w")). The values of the `returnAddress` type are pointers to the opcodes of Java Virtual Machine instructions. Unlike the numeric primitive types, the `returnAddress` type does not correspond to any Java programming language type and cannot be modified by the running program.
+The `returnAddress` type is used by the Java Virtual Machine's _jsr_, _ret_, and _jsr_w_ instructions ([§_jsr_](jvms-6.html#jvms-6.5.jsr "jsr"), [§_ret_](jvms-6.html#jvms-6.5.ret "ret"), [§_jsr_w_](jvms-6.html#jvms-6.5.jsr_w "jsr_w")). The values of the `returnAddress` type are pointers to the opcodes of Java Virtual Machine instructions. Unlike the numeric primitive types, the `returnAddress` type does not correspond to any Java programming language type and cannot be modified by the running program.
 
 ### 2.3.4. The `boolean` Type
 
@@ -1142,11 +1096,13 @@ A Java Virtual Machine instruction consists of a one-byte _opcode_ specifying th
 
 Ignoring exceptions, the inner loop of a Java Virtual Machine interpreter is effectively
 
+```java
 do {
     atomically calculate pc and fetch opcode at pc;
     if (operands) fetch operands;
     execute the action for the opcode;
 } while (there is more to do);
+```
 
 The number and size of the operands are determined by the opcode. If an operand is more than one byte in size, then it is stored in _big-endian_ order - high-order byte first. For example, an unsigned 16-bit index into the local variables is stored as two unsigned bytes, _byte1_ and _byte2_, such that its value is (_byte1_ `<<` 8) | _byte2_.
 
@@ -1168,145 +1124,36 @@ Note that most instructions in [Table 2.11.1-A](jvms-2.html#jvms-2.11.1-220 "Tab
 
 **Table 2.11.1-A. Type support in the Java Virtual Machine instruction set**
 
-        
-
-opcode
-
-`byte`
-
-`short`
-
-`int`
-
-`long`
-
-`float`
-
-`double`
-
-`char`
-
-`reference`
-
-_Tipush_
-
-_bipush_
-
-_sipush_
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
-_Tconst_
-
- 
-
- 
-
-_iconst_
-
-_lconst_
-
-_fconst_
-
-_dconst_
-
- 
-
-_aconst_
-
-_Tload_
-
- 
-
- 
-
-_iload_
-
-_lload_
-
-_fload_
-
-_dload_
-
- 
-
-_aload_
-
-_Tstore_
-
- 
-
- 
-
-_istore_
-
-_lstore_
-
-_fstore_
-
-_dstore_
-
- 
-
-_astore_
-
-_Tinc_
-
- 
-
- 
-
-_iinc_
-
- 
-
- 
-
- 
-
- 
-
- 
-
-_Taload_
-
-_baload_
-
-_saload_
-
-_iaload_
-
-_laload_
-
-_faload_
-
-_daload_
-
-_caload_
-
-_aaload_
-
-_Tastore_
-
-_bastore_
-
-_sastore_
-
-_iastore_
-
-_lastore_
-
-_fastore_n class="emphasis">_dastore_ _castore_ _aastore_ _Tadd_     _iadd_ _ladd_ _fadd_ _dadd_     _Tsub_     _isub_ _lsub_ _fsub_ _dsub_     _Tmul_     _imul_ _lmul_ _fmul_ _dmul_     _Tdiv_     _idiv_ _ldiv_ _fdiv_ _ddiv_     _Trem_     _irem_ _lrem_ _frem_ _drem_     _Tneg_     _ineg_ _lneg_ _fneg_ _dneg_     _Tshl_     _ishl_ _lshl_         _Tshr_     _ishr_ _lshr_         _Tushr_     _iushr_ _lushr_         _Tand_     _iand_ _land_         _Tor_     _ior_ _lor_         _Txor_     _ixor_ _lxor_         _i2T_ _i2b_ _i2s_   _i2l_ _i2f_ _i2d_     _l2T_     _l2i_   _l2f_ _l2d_     _f2T_     _f2i_ _f2l_   _f2d_     _d2T_     _d2i_ _d2l_ _d2f_       _Tcmp_       _lcmp_         _Tcmpl_         _fcmpl_ _dcmpl_     _Tcmpg_         _fcmpg_ _dcmpg_     _if\_TcmpOP_     _if\_icmpOP_         _if\_acmpOP_ _Treturn_     _ireturn_ _lreturn_ _freturn_ _dreturn_   _areturn_  
+| opcode | byte | short | int | long | float | double | char | reference |
+|--------|------|-------|-----|------|-------|--------|------|-----------|
+| Tipush  | bipush | sipush |      |       |       |        |      |           |
+| Tconst  |     |    | iconst | lconst | fconst  | dconst  |    | aconst |
+| Tload   |     |    | iload  | lload  | fload   | dload   |    | aload  |
+| Tstore  |     |    | istore | lstore | fstore  | dstore  |    | astore |
+| Tinc    |     |    | iinc   |        |         |         |    |        |
+| Taload  | baload | saload  | iaload  | laload  | faload  | daload  | caload  | aaload    |
+| Tastore | bastore | sastore | iastore | lastore | fastore | dastore | castore | aastore   |
+| Tadd    |     |    | iadd   | ladd  | fadd | dadd  |     |           |
+| Tsub    |     |    | isub   | lsub  | fsub | dsub  |     |           |
+| Tmul    |     |    | imul   | lmul  | fmul | dmul  |     |           |
+| Tdiv    |     |    | idiv   | ldiv  | fdiv | ddiv  |     |           |
+| Trem    |     |    | irem   | lrem  | frem | drem  |     |           |
+| Tneg    |     |    | ineg   | lneg  | fneg | dneg  |     |           |
+| Tshl    |     |    | ishl   | lshl  |      |       |     |           |
+| Tshr    |     |    | ishr   | lshr  |      |       |     |           |
+| Tushr   |     |    | iushr  | lushr |      |       |     |           |
+| Tand    |     |    | iand   | land  |      |       |     |           |
+| Tor     |     |    | ior    | lor   |      |       |     |           |
+| Txor    |     |    | ixor   | lxor  |      |       |     |           |
+| i2T     | i2b | i2s |     | i2l   | i2f   | i2d   |      |           |
+| l2T     |     |    | l2i  |       | l2f   | l2d   |      |           |
+| f2T     |     |    | f2i  | f2l   |       | f2d   |      |           |
+| d2T     |     |    | d2i  | d2l   | d2f   |       |      |           |
+| Tcmp    |     |    |      | lcmp  |       |       |      |           |
+| Tcmpl   |     |    |      |       | fcmpl | dcmpl |      |           |
+| Tcmpg   |     |    |      |       | fcmpg | dcmpg |      |           |
+| if_TcmpOP |   |    | if_icmpOP |  |       |       |      | if_acmpOP |
+| Treturn |  |  | ireturn | lreturn | freturn | dreturn |  | areturn   |
 
 The mapping between Java Virtual Machine actual types and Java Virtual Machine computational types is summarized by [Table 2.11.1-B](jvms-2.html#jvms-2.11.1-320 "Table 2.11.1-B. Actual and Computational types in the Java Virtual Machine").
 
@@ -1314,92 +1161,37 @@ Certain Java Virtual Machine instructions such as _pop_ and _swap_ operate on th
 
 **Table 2.11.1-B. Actual and Computational types in the Java Virtual Machine**
 
-  
 
-Actual type
+|   Actual type   | Computational type | Category |
+|-----------------|--------------------|----------|
+| `boolean`       | `int`              |        1 |
+| `byte`          | `int`              |        1 |
+| `char`          | `int`              |        1 |
+| `short`         | `int`              |        1 |
+| `int`           | `int`              |        1 |
+| `float`         | `float`            |        1 |
+| `reference`     | `reference`        |        1 |
+| `returnAddress` | `returnAddress`    |        1 |
+| `long`          | `long`             |        2 |
+| `double`        | `double`           |        2 |
 
-Computational type
-
-Category
-
-`boolean`
-
-`int`
-
-1
-
-`byte`
-
-`int`
-
-1
-
-`char`
-
-`int`
-
-1
-
-`short`
-
-`int`
-
-1
-
-`int`
-
-`int`
-
-1
-
-`float`
-
-`float`
-
-1
-
-`reference`
-
-`reference`
-
-1
-
-`returnAddress`
-
-`returnAddress`
-
-1
-
-`long`
-
-`long`
-
-2
-
-`double`
-
-`double`
-
-2
-
-  
 
 ### 2.11.2. Load and Store Instructions
 
 The load and store instructions transfer values between the local variables ([§2.6.1](jvms-2.html#jvms-2.6.1 "2.6.1. Local Variables")) and the operand stack ([§2.6.2](jvms-2.html#jvms-2.6.2 "2.6.2. Operand Stacks")) of a Java Virtual Machine frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")):
 
-*   Load a local variable onto the operand stack: _iload_, _iload\_<n>_, _lload_, _lload\_<n>_, _fload_, _fload\_<n>_, _dload_, _dload\_<n>_, _aload_, _aload\_<n>_.
+*   Load a local variable onto the operand stack: _iload_, _iload_<n>_, _lload_, _lload_<n>_, _fload_, _fload_<n>_, _dload_, _dload_<n>_, _aload_, _aload_<n>_.
     
-*   Store a value from the operand stack into a local variable: _istore_, _istore\_<n>_, _lstore_, _lstore\_<n>_, _fstore_, _fstore\_<n>_, _dstore_, _dstore\_<n>_, _astore_, _astore\_<n>_.
+*   Store a value from the operand stack into a local variable: _istore_, _istore_<n>_, _lstore_, _lstore_<n>_, _fstore_, _fstore_<n>_, _dstore_, _dstore_<n>_, _astore_, _astore_<n>_.
     
-*   Load a constant on to the operand stack: _bipush_, _sipush_, _ldc_, _ldc\_w_, _ldc2\_w_, _aconst\_null_, _iconst\_m1_, _iconst\_<i>_, _lconst\_<l>_, _fconst\_<f>_, _dconst\_<d>_.
+*   Load a constant on to the operand stack: _bipush_, _sipush_, _ldc_, _ldc_w_, _ldc2_w_, _aconst_null_, _iconst_m1_, _iconst_<i>_, _lconst_<l>_, _fconst_<f>_, _dconst_<d>_.
     
 *   Gain access to more local variables using a wider index, or to a larger immediate operand: _wide_.
     
 
 Instructions that access fields of objects and elements of arrays ([§2.11.5](jvms-2.html#jvms-2.11.5 "2.11.5. Object Creation and Manipulation")) also transfer data to and from the operand stack.
 
-Instruction mnemonics shown above with trailing letters between angle brackets (for instance, _iload\_<n>_) denote families of instructions (with members _iload\_0_, _iload\_1_, _iload\_2_, and _iload\_3_ in the case of _iload\_<n>_). Such families of instructions are specializations of an additional generic instruction (_iload_) that takes one operand. For the specialized instructions, the operand is implicit and does not need to be stored or fetched. The semantics are otherwise the same (_iload\_0_ means the same thing as _iload_ with the operand _0_). The letter between the angle brackets specifies the type of the implicit operand for that family of instructions: for _<n>_, a nonnegative integer; for _<i>_, an `int`; for _<l>_, a `long`; for _<f>_, a `float`; and for _<d>_, a `double`. Forms for type `int` are used in many cases to perform operations on values of type `byte`, `char`, and `short` ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
+Instruction mnemonics shown above with trailing letters between angle brackets (for instance, _iload_<n>_) denote families of instructions (with members _iload_0_, _iload_1_, _iload_2_, and _iload_3_ in the case of _iload_<n>_). Such families of instructions are specializations of an additional generic instruction (_iload_) that takes one operand. For the specialized instructions, the operand is implicit and does not need to be stored or fetched. The semantics are otherwise the same (_iload_0_ means the same thing as _iload_ with the operand _0_). The letter between the angle brackets specifies the type of the implicit operand for that family of instructions: for _<n>_, a nonnegative integer; for _<i>_, an `int`; for _<l>_, a `long`; for _<f>_, a `float`; and for _<d>_, a `double`. Forms for type `int` are used in many cases to perform operations on values of type `byte`, `char`, and `short` ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
 
 This notation for instruction families is used throughout this specification.
 
@@ -1408,27 +1200,16 @@ This notation for instruction families is used throughout this specification.
 The arithmetic instructions compute a result that is typically a function of two values on the operand stack, pushing the result back on the operand stack. There are two main kinds of arithmetic instructions: those operating on integer values and those operating on floating-point values. Within each of these kinds, the arithmetic instructions are specialized to Java Virtual Machine numeric types. There is no direct support for integer arithmetic on values of the `byte`, `short`, and `char` types ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")), or for values of the `boolean` type; those operations are handled by instructions operating on type `int`. Integer and floating-point instructions also differ in their behavior on overflow and divide-by-zero. The arithmetic instructions are as follows:
 
 *   Add: _iadd_, _ladd_, _fadd_, _dadd_.
-    
 *   Subtract: _isub_, _lsub_, _fsub_, _dsub_.
-    
 *   Multiply: _imul_, _lmul_, _fmul_, _dmul_.
-    
 *   Divide: _idiv_, _ldiv_, _fdiv_, _ddiv_.
-    
 *   Remainder: _irem_, _lrem_, _frem_, _drem_.
-    
 *   Negate: _ineg_, _lneg_, _fneg_, _dneg_.
-    
 *   Shift: _ishl_, _ishr_, _iushr_, _lshl_, _lshr_, _lushr_.
-    
 *   Bitwise OR: _ior_, _lor_.
-    
 *   Bitwise AND: _iand_, _land_.
-    
 *   Bitwise exclusive OR: _ixor_, _lxor_.
-    
 *   Local variable increment: _iinc_.
-    
 *   Comparison: _dcmpg_, _dcmpl_, _fcmpg_, _fcmpl_, _lcmp_.
     
 
@@ -1453,14 +1234,10 @@ The type conversion instructions allow conversion between Java Virtual Machine n
 The Java Virtual Machine directly supports the following widening numeric conversions:
 
 *   `int` to `long`, `float`, or `double`
-    
 *   `long` to `float` or `double`
-    
 *   `float` to `double`
-    
 
 The widening numeric conversion instructions are _i2l_, _i2f_, _i2d_, _l2f_, _l2d_, and _f2d_. The mnemonics for these opcodes are straightforward given the naming conventions for typed instructions and the punning use of 2 to mean "to." For instance, the _i2d_ instruction converts an `int` value to a `double`.
-
 Most widening numeric conversions do not lose information about the overall magnitude of a numeric value. Indeed, conversions widening from `int` to `long` and `int` to `double` do not lose any information at all; the numeric value is preserved exactly. Conversions widening from `float` to `double` that are FP-strict ([§2.8.2](jvms-2.html#jvms-2.8.2 "2.8.2. Floating-Point Modes")) also preserve the numeric value exactly; only such conversions that are not FP-strict may lose information about the overall magnitude of the converted value.
 
 Conversions from `int` to `float`, or from `long` to `float`, or from `long` to `double`, may lose _precision_, that is, may lose some of the least significant bits of the value; the resulting floating-point value is a correctly rounded version of the integer value, using IEEE 754 round to nearest mode.
@@ -1474,13 +1251,9 @@ Note that widening numeric conversions do not exist from integral types `byte`, 
 The Java Virtual Machine also directly supports the following narrowing numeric conversions:
 
 *   `int` to `byte`, `short`, or `char`
-    
 *   `long` to `int`
-    
 *   `float` to `int` or `long`
-    
 *   `double` to `int`, `long`, or `float`
-    
 
 The narrowing numeric conversion instructions are _i2b_, _i2c_, _i2s_, _l2i_, _f2i_, _f2l_, _d2i_, _d2l_, and _d2f_. A narrowing numeric conversion can result in a value of different sign, a different order of magnitude, or both; it may thereby lose precision.
 
@@ -1530,17 +1303,17 @@ Although both class instances and arrays are objects, the Java Virtual Machine c
 
 ### 2.11.6. Operand Stack Management Instructions
 
-A number of instructions are provided for the direct manipulation of the operand stack: _pop_, _pop2_, _dup_, _dup2_, _dup\_x1_, _dup2\_x1_, _dup\_x2_, _dup2\_x2_, _swap_.
+A number of instructions are provided for the direct manipulation of the operand stack: _pop_, _pop2_, _dup_, _dup2_, _dup_x1_, _dup2_x1_, _dup_x2_, _dup2_x2_, _swap_.
 
 ### 2.11.7. Control Transfer Instructions
 
 The control transfer instructions conditionally or unconditionally cause the Java Virtual Machine to continue execution with an instruction other than the one following the control transfer instruction. They are:
 
-*   Conditional branch: _ifeq_, _ifne_, _iflt_, _ifle_, _ifgt_, _ifge_, _ifnull_, _ifnonnull_, _if\_icmpeq_, _if\_icmpne_, _if\_icmplt_, _if\_icmple_, _if\_icmpgt_ _if\_icmpge_, _if\_acmpeq_, _if\_acmpne_.
+*   Conditional branch: _ifeq_, _ifne_, _iflt_, _ifle_, _ifgt_, _ifge_, _ifnull_, _ifnonnull_, _if_icmpeq_, _if_icmpne_, _if_icmplt_, _if_icmple_, _if_icmpgt_ _if_icmpge_, _if_acmpeq_, _if_acmpne_.
     
 *   Compound conditional branch: _tableswitch_, _lookupswitch_.
     
-*   Unconditional branch: _goto_, _goto\_w_, _jsr_, _jsr\_w_, _ret_.
+*   Unconditional branch: _goto_, _goto_w_, _jsr_, _jsr_w_, _ret_.
     
 
 The Java Virtual Machine has distinct sets of instructions that conditionally branch on comparison with data of `int` and `reference` types. It also has distinct conditional branch instructions that test for the null reference and thus it is not required to specify a concrete value for `null` ([§2.4](jvms-2.html#jvms-2.4 "2.4. Reference Types and Values")).
@@ -1631,21 +1404,22 @@ The existence of a precisely defined virtual machine and object file format need
 -------------------------------------------------
 
 **Table of Contents**
-[3.1. Format of Examples](jvms-3.html#jvms-3.1)
-[3.2. Use of Constants, Local Variables, and Control Constructs](jvms-3.html#jvms-3.2)
-[3.3. Arithmetic](jvms-3.html#jvms-3.3)
-[3.4. Accessing the Run-Time Constant Pool](jvms-3.html#jvms-3.4)
-[3.5. More Control Examples](jvms-3.html#jvms-3.5)
-[3.6. Receiving Arguments](jvms-3.html#jvms-3.6)
-[3.7. Invoking Methods](jvms-3.html#jvms-3.7)
-[3.8. Working with Class Instances](jvms-3.html#jvms-3.8)
-[3.9. Arrays](jvms-3.html#jvms-3.9)
-[3.10. Compiling Switches](jvms-3.html#jvms-3.10)
-[3.11. Operations on the Operand Stack](jvms-3.html#jvms-3.11)
-[3.12. Throwing and Handling Exceptions](jvms-3.html#jvms-3.12)
-[3.13. Compiling `finally`](jvms-3.html#jvms-3.13)
-[3.14. Synchronization](jvms-3.html#jvms-3.14)
-[3.15. Annotations](jvms-3.html#jvms-3.15)
+
+[3.1. Format of Examples](#31-format-of-examples)
+[3.2. Use of Constants, Local Variables, and Control Constructs](#32-use-of-constants,-local-variables,-and-control-constructs)
+[3.3. Arithmetic](#33-arithmetic)
+[3.4. Accessing the Run-Time Constant Pool](#34-accessing-the-run-time-constant-pool)
+[3.5. More Control Examples](#35-more-control-examples)
+[3.6. Receiving Arguments](#36-receiving-arguments)
+[3.7. Invoking Methods](#37-invoking-methods)
+[3.8. Working with Class Instances](#38-working-with-class-instances)
+[3.9. Arrays](#39-arrays)
+[3.10. Compiling Switches](#310-compiling-switches)
+[3.11. Operations on the Operand Stack](#311-operations-on-the-operand-stack)
+[3.12. Throwing and Handling Exceptions](#312-throwing-and-handling-exceptions)
+[3.13. Compiling `finally`](#313-compiling-finally)
+[3.14. Synchronization](#314-synchronization)
+[3.15. Annotations](#315-annotations)
 
 The Java Virtual Machine machine is designed to support the Java programming language. Oracle's JDK software contains a compiler from source code written in the Java programming language to the instruction set of the Java Virtual Machine, and a run-time system that implements the Java Virtual Machine itself. Understanding how one compiler utilizes the Java Virtual Machine is useful to the prospective compiler writer, as well as to one trying to understand the Java Virtual Machine itself. The numbered sections in this chapter are not normative.
 
@@ -1658,21 +1432,29 @@ This chapter consists mainly of examples of source code together with annotated 
 
 The format of the examples should be familiar to anyone who has read assembly code. Each instruction takes the form:
 
-<index> <opcode> \[ <operand1> \[ <operand2>... \]\] \[<comment>\]
+```java
+<index> <opcode> [ <operand1> [ <operand2>... ]] [<comment>]
+```
 
 The `<index>` is the index of the opcode of the instruction in the array that contains the bytes of Java Virtual Machine code for this method. Alternatively, the `<index>` may be thought of as a byte offset from the beginning of the method. The `<opcode>` is the mnemonic for the instruction's opcode, and the zero or more `<operandN>` are the operands of the instruction. The optional `<comment>` is given in end-of-line comment syntax:
 
+```java
 8   _bipush 100_     // Push int constant `100`
+```
 
 Some of the material in the comments is emitted by `javap`; the rest is supplied by the authors. The `<index>` prefacing each instruction may be used as the target of a control transfer instruction. For instance, a `_goto 8_` instruction transfers control to the instruction at index 8. Note that the actual operands of Java Virtual Machine control transfer instructions are offsets from the addresses of the opcodes of those instructions; these operands are displayed by `javap` (and are shown in this chapter) as more easily read offsets into their methods.
 
 We preface an operand representing a run-time constant pool index with a hash sign and follow the instruction by a comment identifying the run-time constant pool item referenced, as in:
 
+```java
 10  _ldc #1_         // Push `float` constant `100.0`
+```
 
 or:
 
+```java
 9   _invokevirtual #4_    // Method `Example.addTwo(II)I`
+```
 
 For the purposes of this chapter, we do not worry about specifying details such as operand sizes.
 
@@ -1683,33 +1465,37 @@ Java Virtual Machine code exhibits a set of general characteristics imposed by t
 
 The `spin` method simply spins around an empty for loop 100 times:
 
+```java
 void spin() {
     int i;
     for (i = 0; i < 100; i++) {
         ;    // Loop body is empty
     }
 }
+```
 
 A compiler might compile `spin` to:
 
-0   _iconst\_0_       // Push int constant 0
-1   _istore\_1_       // Store into local variable 1 (i=0)
+```java
+0   _iconst_0_       // Push int constant 0
+1   _istore_1_       // Store into local variable 1 (i=0)
 2   _goto 8_         // First time through don't increment
 5   _iinc 1 1_       // Increment local variable 1 by 1 (i++)
-8   _iload\_1_        // Push local variable 1 (i)
+8   _iload_1_        // Push local variable 1 (i)
 9   _bipush 100_     // Push int constant 100
-11  _if\_icmplt 5_    // Compare and loop if less than (i < 100)
+11  _if_icmplt 5_    // Compare and loop if less than (i < 100)
 14  _return_         // Return void when done
+```
 
 The Java Virtual Machine is stack-oriented, with most operations taking one or more operands from the operand stack of the Java Virtual Machine's current frame or pushing results back onto the operand stack. A new frame is created each time a method is invoked, and with it is created a new operand stack and set of local variables for use by that method ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). At any one point of the computation, there are thus likely to be many frames and equally many operand stacks per thread of control, corresponding to many nested method invocations. Only the operand stack in the current frame is active.
 
-The instruction set of the Java Virtual Machine distinguishes operand types by using distinct bytecodes for operations on its various data types. The method `spin` operates only on values of type `int`. The instructions in its compiled code chosen to operate on typed data (_iconst\_0_, _istore\_1_, _iinc_, _iload\_1_, _if\_icmplt_) are all specialized for type `int`.
+The instruction set of the Java Virtual Machine distinguishes operand types by using distinct bytecodes for operations on its various data types. The method `spin` operates only on values of type `int`. The instructions in its compiled code chosen to operate on typed data (_iconst_0_, _istore_1_, _iinc_, _iload_1_, _if_icmplt_) are all specialized for type `int`.
 
-The two constants in `spin`, `0` and `100`, are pushed onto the operand stack using two different instructions. The `0` is pushed using an _iconst\_0_ instruction, one of the family of _iconst\_<i>_ instructions. The `100` is pushed using a _bipush_ instruction, which fetches the value it pushes as an immediate operand.
+The two constants in `spin`, `0` and `100`, are pushed onto the operand stack using two different instructions. The `0` is pushed using an _iconst_0_ instruction, one of the family of _iconst_<i>_ instructions. The `100` is pushed using a _bipush_ instruction, which fetches the value it pushes as an immediate operand.
 
-The Java Virtual Machine frequently takes advantage of the likelihood of certain operands (`int` constants _\-1_, _0_, _1_, _2_, _3_, _4_ and _5_ in the case of the _iconst\_<i>_ instructions) by making those operands implicit in the opcode. Because the _iconst\_0_ instruction knows it is going to push an `int` `0`, _iconst\_0_ does not need to store an operand to tell it what value to push, nor does it need to fetch or decode an operand. Compiling the push of `0` as _bipush_ _0_ would have been correct, but would have made the compiled code for `spin` one byte longer. A simple virtual machine would have also spent additional time fetching and decoding the explicit operand each time around the loop. Use of implicit operands makes compiled code more compact and efficient.
+The Java Virtual Machine frequently takes advantage of the likelihood of certain operands (`int` constants _\-1_, _0_, _1_, _2_, _3_, _4_ and _5_ in the case of the _iconst_<i>_ instructions) by making those operands implicit in the opcode. Because the _iconst_0_ instruction knows it is going to push an `int` `0`, _iconst_0_ does not need to store an operand to tell it what value to push, nor does it need to fetch or decode an operand. Compiling the push of `0` as _bipush_ _0_ would have been correct, but would have made the compiled code for `spin` one byte longer. A simple virtual machine would have also spent additional time fetching and decoding the explicit operand each time around the loop. Use of implicit operands makes compiled code more compact and efficient.
 
-The `int` `i` in `spin` is stored as Java Virtual Machine local variable _1_. Because most Java Virtual Machine instructions operate on values popped from the operand stack rather than directly on local variables, instructions that transfer values between local variables and the operand stack are common in code compiled for the Java Virtual Machine. These operations also have special support in the instruction set. In `spin`, values are transferred to and from local variables using the _istore\_1_ and _iload\_1_ instructions, each of which implicitly operates on local variable _1_. The _istore\_1_ instruction pops an `int` from the operand stack and stores it in local variable _1_. The _iload\_1_ instruction pushes the value in local variable _1_ on to the operand stack.
+The `int` `i` in `spin` is stored as Java Virtual Machine local variable _1_. Because most Java Virtual Machine instructions operate on values popped from the operand stack rather than directly on local variables, instructions that transfer values between local variables and the operand stack are common in code compiled for the Java Virtual Machine. These operations also have special support in the instruction set. In `spin`, values are transferred to and from local variables using the _istore_1_ and _iload_1_ instructions, each of which implicitly operates on local variable _1_. The _istore_1_ instruction pops an `int` from the operand stack and stores it in local variable _1_. The _iload_1_ instruction pushes the value in local variable _1_ on to the operand stack.
 
 The use (and reuse) of local variables is the responsibility of the compiler writer. The specialized load and store instructions should encourage the compiler writer to reuse local variables as much as is feasible. The resulting code is faster, more compact, and uses less space in the frame.
 
@@ -1717,84 +1503,98 @@ Certain very frequent operations on local variables are catered to specially by 
 
 The `for` loop of `spin` is accomplished mainly by these instructions:
 
+```java
 5   _iinc 1 1_       // Increment local variable 1 by 1 (i++)
-8   _iload\_1_        // Push local variable 1 (i)
+8   _iload_1_        // Push local variable 1 (i)
 9   _bipush 100_     // Push int constant 100
-11  _if\_icmplt 5_    // Compare and loop if less than (i < 100)
+11  _if_icmplt 5_    // Compare and loop if less than (i < 100)
+```
 
-The _bipush_ instruction pushes the value _100_ onto the operand stack as an `int`, then the _if\_icmplt_ instruction pops that value off the operand stack and compares it against _i_. If the comparison succeeds (the variable `i` is less than `100`), control is transferred to index _5_ and the next iteration of the `for` loop begins. Otherwise, control passes to the instruction following the _if\_icmplt_.
+The _bipush_ instruction pushes the value _100_ onto the operand stack as an `int`, then the _if_icmplt_ instruction pops that value off the operand stack and compares it against _i_. If the comparison succeeds (the variable `i` is less than `100`), control is transferred to index _5_ and the next iteration of the `for` loop begins. Otherwise, control passes to the instruction following the _if_icmplt_.
 
 If the `spin` example had used a data type other than `int` for the loop counter, the compiled code would necessarily change to reflect the different data type. For instance, if instead of an `int` the `spin` example uses a `double`, as shown:
 
+```java
 void dspin() {
     double i;
     for (i = 0.0; i < 100.0; i++) {
         ;    // Loop body is empty
     }
 }
+```
 
 the compiled code is:
 
+```java
 Method void dspin()
-0   _dconst\_0_       // Push double constant 0.0
-1   _dstore\_1_       // Store into local variables 1 and 2
+0   _dconst_0_       // Push double constant 0.0
+1   _dstore_1_       // Store into local variables 1 and 2
 2   _goto 9_         // First time through don't increment
-5   _dload\_1_        // Push local variables 1 and 2 
-6   _dconst\_1_       // Push double constant 1.0 
+5   _dload_1_        // Push local variables 1 and 2 
+6   _dconst_1_       // Push double constant 1.0 
 7   _dadd_           // Add; there is no dinc instruction
-8   _dstore\_1_       // Store result in local variables 1 and 2
-9   _dload\_1_        // Push local variables 1 and 2 
-10  _ldc2\_w #4_      // Push double constant 100.0 
-13  _dcmpg_          // There is no if\_dcmplt instruction
+8   _dstore_1_       // Store result in local variables 1 and 2
+9   _dload_1_        // Push local variables 1 and 2 
+10  _ldc2_w #4_      // Push double constant 100.0 
+13  _dcmpg_          // There is no if_dcmplt instruction
 14  _iflt 5_         // Compare and loop if less than (i < 100.0)
 17  _return_         // Return void when done
+```
 
-The instructions that operate on typed data are now specialized for type `double`. (The _ldc2\_w_ instruction will be discussed later in this chapter.)
+The instructions that operate on typed data are now specialized for type `double`. (The _ldc2_w_ instruction will be discussed later in this chapter.)
 
 Recall that `double` values occupy two local variables, although they are only accessed using the lesser index of the two local variables. This is also the case for values of type `long`. Again for example,
 
+```java
 double doubleLocals(double d1, double d2) {
     return d1 + d2;
 }
+```
 
 becomes
 
+```java
 Method double doubleLocals(double,double)
-0   _dload\_1_       // First argument in local variables 1 and 2
-1   _dload\_3_       // Second argument in local variables 3 and 4
+0   _dload_1_       // First argument in local variables 1 and 2
+1   _dload_3_       // Second argument in local variables 3 and 4
 2   _dadd_
 3   _dreturn_
+```
 
 Note that local variables of the local variable pairs used to store `double` values in `doubleLocals` must never be manipulated individually.
 
 The Java Virtual Machine's opcode size of 1 byte results in its compiled code being very compact. However, 1-byte opcodes also mean that the Java Virtual Machine instruction set must stay small. As a compromise, the Java Virtual Machine does not provide equal support for all data types: it is not completely orthogonal ([Table 2.11.1-A](jvms-2.html#jvms-2.11.1-220 "Table 2.11.1-A. Type support in the Java Virtual Machine instruction set")).
 
-For example, the comparison of values of type `int` in the `for` statement of example `spin` can be implemented using a single _if\_icmplt_ instruction; however, there is no single instruction in the Java Virtual Machine instruction set that performs a conditional branch on values of type `double`. Thus, `dspin` must implement its comparison of values of type `double` using a _dcmpg_ instruction followed by an _iflt_ instruction.
+For example, the comparison of values of type `int` in the `for` statement of example `spin` can be implemented using a single _if_icmplt_ instruction; however, there is no single instruction in the Java Virtual Machine instruction set that performs a conditional branch on values of type `double`. Thus, `dspin` must implement its comparison of values of type `double` using a _dcmpg_ instruction followed by an _iflt_ instruction.
 
 The Java Virtual Machine provides the most direct support for data of type `int`. This is partly in anticipation of efficient implementations of the Java Virtual Machine's operand stacks and local variable arrays. It is also motivated by the frequency of `int` data in typical programs. Other integral types have less direct support. There are no `byte`, `char`, or `short` versions of the store, load, or add instructions, for instance. Here is the `spin` example written using a `short`:
 
+```java
 void sspin() {
     short i;
     for (i = 0; i < 100; i++) {
         ;    // Loop body is empty
     }
 }
+```
 
 It must be compiled for the Java Virtual Machine, as follows, using instructions operating on another type, most likely `int`, converting between `short` and `int` values as necessary to ensure that the results of operations on `short` data stay within the appropriate range:
 
+```java
 Method void sspin()
-0   _iconst\_0_
-1   _istore\_1_
+0   _iconst_0_
+1   _istore_1_
 2   _goto 10_
-5   _iload\_1_        // The short is treated as though an int
-6   _iconst\_1_
+5   _iload_1_        // The short is treated as though an int
+6   _iconst_1_
 7   _iadd_
 8   _i2s_            // Truncate int to short
-9   _istore\_1_
-10  _iload\_1_
+9   _istore_1_
+10  _iload_1_
 11  _bipush 100_
-13  _if\_icmplt 5_
+13  _if_icmplt 5_
 16  _return_
+```
 
 The lack of direct support for `byte`, `char`, and `short` types in the Java Virtual Machine is not particularly painful, because values of those types are internally promoted to `int` (`byte` and `short` are sign-extended to `int`, `char` is zero-extended). Operations on `byte`, `char`, and `short` data can thus be done using `int` instructions. The only additional cost is that of truncating the values of `int` operations to valid ranges.
 
@@ -1805,47 +1605,54 @@ The `long` and floating-point types have an intermediate level of support in the
 
 The Java Virtual Machine generally does arithmetic on its operand stack. (The exception is the _iinc_ instruction, which directly increments the value of a local variable.) For instance, the `align2grain` method aligns an `int` value to a given power of 2:
 
+```java
 int align2grain(int i, int grain) {
     return ((i + grain-1) & ~(grain-1));
 }
+```
 
 Operands for arithmetic operations are popped from the operand stack, and the results of operations are pushed back onto the operand stack. Results of arithmetic subcomputations can thus be made available as operands of their nesting computation. For instance, the calculation of `~(grain-1)` is handled by these instructions:
 
-5   _iload\_2_        // Push grain
-6   _iconst\_1_       // Push int constant 1
+```java
+5   _iload_2_        // Push grain
+6   _iconst_1_       // Push int constant 1
 7   _isub_           // Subtract; push result
-8   _iconst\_m1_      // Push int constant -1
+8   _iconst_m1_      // Push int constant -1
 9   _ixor_           // Do XOR; push result
+```
 
 First `grain-1` is calculated using the contents of local variable _2_ and an immediate `int` value `1`. These operands are popped from the operand stack and their difference pushed back onto the operand stack. The difference is thus immediately available for use as one operand of the _ixor_ instruction. (Recall that `~x == -1^x`.) Similarly, the result of the _ixor_ instruction becomes an operand for the subsequent _iand_ instruction.
 
 The code for the entire method follows:
 
+```java
 Method int align2grain(int,int)
-0   _iload\_1_
-1   _iload\_2_
+0   _iload_1_
+1   _iload_2_
 2   _iadd_
-3   _iconst\_1_
+3   _iconst_1_
 4   _isub_
-5   _iload\_2_
-6   _iconst\_1_
+5   _iload_2_
+6   _iconst_1_
 7   _isub_
-8   _iconst\_m1_
+8   _iconst_m1_
 9   _ixor_
 10  _iand_
 11  _ireturn_
+```
 
 3.4. Accessing the Run-Time Constant Pool
 -----------------------------------------
 
-Many numeric constants, as well as objects, fields, and methods, are accessed via the run-time constant pool of the current class. Object access is considered later ([§3.8](jvms-3.html#jvms-3.8 "3.8. Working with Class Instances")). Data of types `int`, `long`, `float`, and `double`, as well as references to instances of class `String`, are managed using the _ldc_, _ldc\_w_, and _ldc2\_w_ instructions.
+Many numeric constants, as well as objects, fields, and methods, are accessed via the run-time constant pool of the current class. Object access is considered later ([§3.8](jvms-3.html#jvms-3.8 "3.8. Working with Class Instances")). Data of types `int`, `long`, `float`, and `double`, as well as references to instances of class `String`, are managed using the _ldc_, _ldc_w_, and _ldc2_w_ instructions.
 
-The _ldc_ and _ldc\_w_ instructions are used to access values in the run-time constant pool (including instances of class `String`) of types other than `double` and `long`. The _ldc\_w_ instruction is used in place of _ldc_ only when there is a large number of run-time constant pool items and a larger index is needed to access an item. The _ldc2\_w_ instruction is used to access all values of types `double` and `long`; there is no non-wide variant.
+The _ldc_ and _ldc_w_ instructions are used to access values in the run-time constant pool (including instances of class `String`) of types other than `double` and `long`. The _ldc_w_ instruction is used in place of _ldc_ only when there is a large number of run-time constant pool items and a larger index is needed to access an item. The _ldc2_w_ instruction is used to access all values of types `double` and `long`; there is no non-wide variant.
 
-Integral constants of types `byte`, `char`, or `short`, as well as small `int` values, may be compiled using the _bipush_, _sipush_, or _iconst\_<i>_ instructions ([§3.2](jvms-3.html#jvms-3.2 "3.2. Use of Constants, Local Variables, and Control Constructs")). Certain small floating-point constants may be compiled using the _fconst\_<f>_ and _dconst\_<d>_ instructions.
+Integral constants of types `byte`, `char`, or `short`, as well as small `int` values, may be compiled using the _bipush_, _sipush_, or _iconst_<i>_ instructions ([§3.2](jvms-3.html#jvms-3.2 "3.2. Use of Constants, Local Variables, and Control Constructs")). Certain small floating-point constants may be compiled using the _fconst_<f>_ and _dconst_<d>_ instructions.
 
 In all of these cases, compilation is straightforward. For instance, the constants for:
 
+```java
 void useManyNumeric() {
     int i = 100;
     int j = 1000000;
@@ -1854,23 +1661,26 @@ void useManyNumeric() {
     double d = 2.2;
     ...do some calculations...
 }
+```
 
 are set up as follows:
 
+```java
 Method void useManyNumeric()
 0   _bipush 100_   // Push small int constant with bipush
-2   _istore\_1_
+2   _istore_1_
 3   _ldc #1_       // Push large int constant (1000000) with ldc
-5   _istore\_2_
-6   _lconst\_1_     // A tiny long value uses small fast lconst\_1
-7   _lstore\_3_
-8   _ldc2\_w #6_    // Push long 0xffffffff (that is, an int -1)
-        // Any long constant value can be pushed with ldc2\_w
+5   _istore_2_
+6   _lconst_1_     // A tiny long value uses small fast lconst_1
+7   _lstore_3_
+8   _ldc2_w #6_    // Push long 0xffffffff (that is, an int -1)
+        // Any long constant value can be pushed with ldc2_w
 11  _lstore 5_
-13  _ldc2\_w #8_    // Push double constant 2.200000
-        // Uncommon double values are also pushed with ldc2\_w
+13  _ldc2_w #8_    // Push double constant 2.200000
+        // Uncommon double values are also pushed with ldc2_w
 16  _dstore 7_
 ...do those calculations...
+```
 
 3.5. More Control Examples
 --------------------------
@@ -1879,99 +1689,115 @@ Compilation of `for` statements was shown in an earlier section ([§3.2](jvms-3.
 
 As a further example, a `while` loop is compiled in an obvious way, although the specific control transfer instructions made available by the Java Virtual Machine vary by data type. As usual, there is more support for data of type `int`, for example:
 
+```java
 void whileInt() {
     int i = 0;
     while (i < 100) {
         i++;
     }
 }
+```
 
 is compiled to:
 
+```java
 Method void whileInt()
-0   _iconst\_0_
-1   _istore\_1_
+0   _iconst_0_
+1   _istore_1_
 2   _goto 8_
 5   _iinc 1 1_
-8   _iload\_1_
+8   _iload_1_
 9   _bipush 100_
-11  _if\_icmplt 5_
+11  _if_icmplt 5_
 14  _return_
+```
 
-Note that the test of the `while` statement (implemented using the _if\_icmplt_ instruction) is at the bottom of the Java Virtual Machine code for the loop. (This was also the case in the `spin` examples earlier.) The test being at the bottom of the loop forces the use of a _goto_ instruction to get to the test prior to the first iteration of the loop. If that test fails, and the loop body is never entered, this extra instruction is wasted. However, `while` loops are typically used when their body is expected to be run, often for many iterations. For subsequent iterations, putting the test at the bottom of the loop saves a Java Virtual Machine instruction each time around the loop: if the test were at the top of the loop, the loop body would need a trailing _goto_ instruction to get back to the top.
+Note that the test of the `while` statement (implemented using the _if_icmplt_ instruction) is at the bottom of the Java Virtual Machine code for the loop. (This was also the case in the `spin` examples earlier.) The test being at the bottom of the loop forces the use of a _goto_ instruction to get to the test prior to the first iteration of the loop. If that test fails, and the loop body is never entered, this extra instruction is wasted. However, `while` loops are typically used when their body is expected to be run, often for many iterations. For subsequent iterations, putting the test at the bottom of the loop saves a Java Virtual Machine instruction each time around the loop: if the test were at the top of the loop, the loop body would need a trailing _goto_ instruction to get back to the top.
 
 Control constructs involving other data types are compiled in similar ways, but must use the instructions available for those data types. This leads to somewhat less efficient code because more Java Virtual Machine instructions are needed, for example:
 
+```java
 void whileDouble() {
     double i = 0.0;
     while (i < 100.1) {
         i++;
     }
 }
+```
 
 is compiled to:
 
+```java
 Method void whileDouble()
-0   _dconst\_0_
-1   _dstore\_1_
+0   _dconst_0_
+1   _dstore_1_
 2   _goto 9_
-5   _dload\_1_
-6   _dconst\_1_
+5   _dload_1_
+6   _dconst_1_
 7   _dadd_
-8   _dstore\_1_
-9   _dload\_1_
-10  _ldc2\_w #4_      // Push double constant 100.1
+8   _dstore_1_
+9   _dload_1_
+10  _ldc2_w #4_      // Push double constant 100.1
 13  _dcmpg_          // To compare and branch we have to use...
 14  _iflt 5_         // ...two instructions
 17  _return_
+```
 
 Each floating-point type has two comparison instructions: _fcmpl_ and _fcmpg_ for type `float`, and _dcmpl_ and _dcmpg_ for type `double`. The variants differ only in their treatment of NaN. NaN is unordered ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")), so all floating-point comparisons fail if either of their operands is NaN. The compiler chooses the variant of the comparison instruction for the appropriate type that produces the same result whether the comparison fails on non-NaN values or encounters a NaN. For instance:
 
+```java
 int lessThan100(double d) {
     if (d < 100.0) {
-        return 1;				
+        return 1;        
     } else {
-        return -1;				
+        return -1;        
     }
 }
+```
 
 compiles to:
 
+```java
 Method int lessThan100(double)
-0   _dload\_1_
-1   _ldc2\_w #4_      // Push double constant 100.0
+0   _dload_1_
+1   _ldc2_w #4_      // Push double constant 100.0
 4   _dcmpg_          // Push 1 if d is NaN or d > 100.0;
                    // push 0 if d == 100.0
 5   _ifge 10_        // Branch on 0 or 1
-8   _iconst\_1_
+8   _iconst_1_
 9   _ireturn_
-10  _iconst\_m1_
+10  _iconst_m1_
 11  _ireturn_
+```
 
 If `d` is not NaN and is less than `100.0`, the _dcmpg_ instruction pushes an `int` _\-1_ onto the operand stack, and the _ifge_ instruction does not branch. Whether `d` is greater than `100.0` or is NaN, the _dcmpg_ instruction pushes an `int` _1_ onto the operand stack, and the _ifge_ branches. If `d` is equal to `100.0`, the _dcmpg_ instruction pushes an `int` _0_ onto the operand stack, and the _ifge_ branches.
 
 The _dcmpl_ instruction achieves the same effect if the comparison is reversed:
 
+```java
 int greaterThan100(double d) {
     if (d > 100.0) {
-        return 1;			
+        return 1;      
     } else {
-        return -1;			
+        return -1;      
     }
 }
+```
 
 becomes:
 
+```java
 Method int greaterThan100(double)
-0   _dload\_1_
-1   _ldc2\_w #4_      // Push double constant 100.0
+0   _dload_1_
+1   _ldc2_w #4_      // Push double constant 100.0
 4   _dcmpl_          // Push -1 if d is NaN or d < 100.0;
                    // push 0 if d == 100.0
 5   _ifle 10_        // Branch on 0 or -1
-8   _iconst\_1_
+8   _iconst_1_
 9   _ireturn_
-10  _iconst\_m1_
+10  _iconst_m1_
 11  _ireturn_
+```
 
 Once again, whether the comparison fails on a non-NaN value or because it is passed a NaN, the _dcmpl_ instruction pushes an `int` value onto the operand stack that causes the _ifle_ to branch. If both of the _dcmp_ instructions did not exist, one of the example methods would have had to do more work to detect NaN.
 
@@ -1980,33 +1806,41 @@ Once again, whether the comparison fails on a non-NaN value or because it is pas
 
 If _n_ arguments are passed to an instance method, they are received, by convention, in the local variables numbered _1_ through _n_ of the frame created for the new method invocation. The arguments are received in the order they were passed. For example:
 
+```java
 int addTwo(int i, int j) {
     return i + j;
 }
+```
 
 compiles to:
 
+```java
 Method int addTwo(int,int)
-0   _iload\_1_        // Push value of local variable 1 (i)
-1   _iload\_2_        // Push value of local variable 2 (j)
+0   _iload_1_        // Push value of local variable 1 (i)
+1   _iload_2_        // Push value of local variable 2 (j)
 2   _iadd_           // Add; leave int result on operand stack
 3   _ireturn_        // Return int result
+```
 
 By convention, an instance method is passed a `reference` to its instance in local variable _0_. In the Java programming language the instance is accessible via the `this` keyword.
 
 Class (`static`) methods do not have an instance, so for them this use of local variable _0_ is unnecessary. A class method starts using local variables at index _0_. If the `addTwo` method were a class method, its arguments would be passed in a similar way to the first version:
 
+```java
 static int addTwoStatic(int i, int j) {
     return i + j;
 }
+```
 
 compiles to:
 
+```java
 Method int addTwoStatic(int,int)
-0   _iload\_0_
-1   _iload\_1_
+0   _iload_0_
+1   _iload_1_
 2   _iadd_
 3   _ireturn_
+```
 
 The only difference is that the method arguments appear starting in local variable _0_ rather than _1_.
 
@@ -2015,19 +1849,23 @@ The only difference is that the method arguments appear starting in local variab
 
 The normal method invocation for a instance method dispatches on the run-time type of the object. (They are virtual, in C++ terms.) Such an invocation is implemented using the _invokevirtual_ instruction, which takes as its argument an index to a run-time constant pool entry giving the internal form of the binary name of the class type of the object, the name of the method to invoke, and that method's descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). To invoke the `addTwo` method, defined earlier as an instance method, we might write:
 
+```java
 int add12and13() {
     return addTwo(12, 13);
 }
+```
 
 This compiles to:
 
+```java
 Method int add12and13()
-0   _aload\_0_             // Push local variable 0 (this)
+0   _aload_0_             // Push local variable 0 (this)
 1   _bipush 12_           // Push int constant 12
 3   _bipush 13_           // Push int constant 13
 5   _invokevirtual #4_    // Method Example.addtwo(II)I
 8   _ireturn_             // Return int on top of operand stack;
                         // it is the int result of addTwo()
+```
 
 The invocation is set up by first pushing a `reference` to the current instance, `this`, on to the operand stack. The method invocation's arguments, `int` values `12` and `13`, are then pushed. When the frame for the `addTwo` method is created, the arguments passed to the method become the initial values of the new frame's local variables. That is, the `reference` for `this` and the two arguments, pushed onto the operand stack by the invoker, will become the initial values of local variables _0_, _1_, and _2_ of the invoked method.
 
@@ -2039,22 +1877,27 @@ The operand of the _invokevirtual_ instruction (in the example, the run-time con
 
 Invoking `addTwoStatic`, a class (`static`) variant of `addTwo`, is similar, as shown:
 
+```java
 int add12and13() {
     return addTwoStatic(12, 13);
 }
+```
 
 although a different Java Virtual Machine method invocation instruction is used:
 
+```java
 Method int add12and13()
 0   _bipush 12_
 2   _bipush 13_
 4   _invokestatic #3_     // Method Example.addTwoStatic(II)I
 7   _ireturn_
+```
 
 Compiling an invocation of a class (`static`) method is very much like compiling an invocation of an instance method, except this is not passed by the invoker. The method arguments will thus be received beginning with local variable _0_ ([§3.6](jvms-3.html#jvms-3.6 "3.6. Receiving Arguments")). The _invokestatic_ instruction is always used to invoke class methods.
 
 The _invokespecial_ instruction must be used to invoke instance initialization methods ([§3.8](jvms-3.html#jvms-3.8 "3.8. Working with Class Instances")). It is also used when invoking methods in the superclass (`super`) and when invoking `private` methods. For instance, given classes `Near` and `Far` declared as:
 
+```java
 class Near {
     int it;
     public int getItNear() {
@@ -2070,20 +1913,25 @@ class Far extends Near {
         return super.getItNear();
     }
 }
+```
 
 the method `Near.getItNear` (which invokes a `private` method) becomes:
 
+```java
 Method int getItNear()
-0   _aload\_0_
+0   _aload_0_
 1   _invokespecial #5_    // Method Near.getIt()I
 4   _ireturn_
+```
 
 The method `Far.getItFar` (which invokes a superclass method) becomes:
 
+```java
 Method int getItFar()
-0   _aload\_0_
+0   _aload_0_
 1   _invokespecial #4_    // Method Near.getItNear()I
 4   _ireturn_
+```
 
 Note that methods called using the _invokespecial_ instruction always pass `this` to the invoked method as its first argument. As usual, it is received in local variable _0_.
 
@@ -2094,20 +1942,25 @@ To invoke the target of a method handle, a compiler must form a method descripto
 
 Java Virtual Machine class instances are created using the Java Virtual Machine's _new_ instruction. Recall that at the level of the Java Virtual Machine, a constructor appears as a method with the compiler-supplied name `<init>`. This specially named method is known as the instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")). Multiple instance initialization methods, corresponding to multiple constructors, may exist for a given class. Once the class instance has been created and its instance variables, including those of the class and all of its superclasses, have been initialized to their default values, an instance initialization method of the new class instance is invoked. For example:
 
+```java
 Object create() {
     return new Object();
 }
+```
 
 compiles to:
 
+```java
 Method java.lang.Object create()
 0   _new #1_              // Class java.lang.Object
 3   _dup_
 4   _invokespecial #4_    // Method java.lang.Object.`<init>`()V
 7   _areturn_
+```
 
 Class instances are passed and returned (as `reference` types) very much like numeric values, although type `reference` has its own complement of instructions, for example:
 
+```java
 int i;                                  // An instance variable
 MyObj example() {
     MyObj o = new MyObj();
@@ -2119,49 +1972,56 @@ MyObj silly(MyObj o) {
     } else {
         return o;
     }
+```
 }
 
 becomes:
 
+```java
 Method MyObj example()
 0   _new #2_              // Class MyObj
 3   _dup_
 4   _invokespecial #5_    // Method MyObj.`<init>`()V
-7   _astore\_1_
-8   _aload\_0_
-9   _aload\_1_
+7   _astore_1_
+8   _aload_0_
+9   _aload_1_
 10  _invokevirtual #4_    // Method Example.silly(LMyObj;)LMyObj;
 13  _areturn_
 
 Method MyObj silly(MyObj)
-0   _aload\_1_
+0   _aload_1_
 1   _ifnull 6_
-4   _aload\_1_
+4   _aload_1_
 5   _areturn_
-6   _aload\_1_
+6   _aload_1_
 7   _areturn_
+```
 
 The fields of a class instance (instance variables) are accessed using the _getfield_ and _putfield_ instructions. If `i` is an instance variable of type `int`, the methods `setIt` and `getIt`, defined as:
 
+```java
 void setIt(int value) {
     i = value;
 }
 int getIt() {
     return i;
 }
+```
 
 become:
 
+```java
 Method void setIt(int)
-0   _aload\_0_
-1   _iload\_1_
+0   _aload_0_
+1   _iload_1_
 2   _putfield #4_    // Field Example.i I
 5   _return_
 
 Method int getIt()
-0   _aload\_0_
+0   _aload_0_
 1   _getfield #4_    // Field Example.i I
 4   _ireturn_
+```
 
 As with the operands of method invocation instructions, the operands of the _putfield_ and _getfield_ instructions (the run-time constant pool index _#4_) are not the offsets of the fields in the class instance. The compiler generates symbolic references to the fields of an instance, which are stored in the run-time constant pool. Those run-time constant pool items are resolved at run-time to determine the location of the field within the referenced object.
 
@@ -2170,82 +2030,94 @@ As with the operands of method invocation instructions, the operands of the _put
 
 Java Virtual Machine arrays are also objects. Arrays are created and manipulated using a distinct set of instructions. The _newarray_ instruction is used to create an array of a numeric type. The code:
 
+```java
 void createBuffer() {
-    int buffer\[\];
+    int buffer[];
     int bufsz = 100;
     int value = 12;
-    buffer = new int\[bufsz\];
-    buffer\[10\] = value;
-    value = buffer\[11\];
+    buffer = new int[bufsz];
+    buffer[10] = value;
+    value = buffer[11];
 }
+```
 
 might be compiled to:
 
+```java
 Method void createBuffer()
 0   _bipush 100_     // Push int constant 100 (bufsz)
-2   _istore\_2_       // Store bufsz in local variable 2
+2   _istore_2_       // Store bufsz in local variable 2
 3   _bipush 12_      // Push int constant 12 (value)
-5   _istore\_3_       // Store value in local variable 3
-6   _iload\_2_        // Push bufsz...
+5   _istore_3_       // Store value in local variable 3
+6   _iload_2_        // Push bufsz...
 7   _newarray int_   // ...and create new int array of that length
-9   _astore\_1_       // Store new array in buffer
-10  _aload\_1_        // Push buffer
+9   _astore_1_       // Store new array in buffer
+10  _aload_1_        // Push buffer
 11  _bipush 10_      // Push int constant 10
-13  _iload\_3_        // Push value
-14  _iastore_        // Store value at buffer\[10\]
-15  _aload\_1_        // Push buffer
+13  _iload_3_        // Push value
+14  _iastore_        // Store value at buffer[10]
+15  _aload_1_        // Push buffer
 16  _bipush 11_      // Push int constant 11
-18  _iaload_         // Push value at buffer\[11\]...
-19  _istore\_3_       // ...and store it in value
+18  _iaload_         // Push value at buffer[11]...
+19  _istore_3_       // ...and store it in value
 20  _return_
+```
 
 The _anewarray_ instruction is used to create a one-dimensional array of object references, for example:
 
+```java
 void createThreadArray() {
-    Thread threads\[\];
+    Thread threads[];
     int count = 10;
-    threads = new Thread\[count\];
-    threads\[0\] = new Thread();
+    threads = new Thread[count];
+    threads[0] = new Thread();
 }
+```
 
 becomes:
 
+```java
 Method void createThreadArray()
 0   _bipush 10_           // Push int constant 10
-2   _istore\_2_            // Initialize count to that
-3   _iload\_2_             // Push count, used by anewarray
+2   _istore_2_            // Initialize count to that
+3   _iload_2_             // Push count, used by anewarray
 4   _anewarray class #1_  // Create new array of class Thread
-7   _astore\_1_            // Store new array in threads
-8   _aload\_1_             // Push value of threads
-9   _iconst\_0_            // Push int constant 0
+7   _astore_1_            // Store new array in threads
+8   _aload_1_             // Push value of threads
+9   _iconst_0_            // Push int constant 0
 10  _new #1_              // Create instance of class Thread
 13  _dup_                 // Make duplicate reference...
 14  _invokespecial #5_    // ...for Thread's constructor
                         // Method java.lang.Thread.`<init>`()V
 17  _aastore_             // Store new Thread in array at 0
 18  _return_
+```
 
 The _anewarray_ instruction can also be used to create the first dimension of a multidimensional array. Alternatively, the _multianewarray_ instruction can be used to create several dimensions at once. For example, the three-dimensional array:
 
-int\[\]\[\]\[\] create3DArray() {
-    int grid\[\]\[\]\[\];
-    grid = new int\[10\]\[5\]\[\];
+```java
+int[][][] create3DArray() {
+    int grid[][][];
+    grid = new int[10][5][];
     return grid;
 }
+```
 
 is created by:
 
-Method int create3DArray()\[\]\[\]\[\]
+```java
+Method int create3DArray()[][][]
 0   _bipush 10_                // Push int 10 (dimension one)
-2   _iconst\_5_                 // Push int 5 (dimension two)
-3   _multianewarray #1 dim #2_ // Class \[\[\[I, a three-dimensional
+2   _iconst_5_                 // Push int 5 (dimension two)
+3   _multianewarray #1 dim #2_ // Class [[[I, a three-dimensional
                              // int array; only create the
                              // first two dimensions
-7   _astore\_1_                 // Store new array...
-8   _aload\_1_                  // ...then prepare to return it
+7   _astore_1_                 // Store new array...
+8   _aload_1_                  // ...then prepare to return it
 9   _areturn_
+```
 
-The first operand of the _multianewarray_ instruction is the run-time constant pool index to the array class type to be created. The second is the number of dimensions of that array type to actually create. The _multianewarray_ instruction can be used to create all the dimensions of the type, as the code for `create3DArray` shows. Note that the multidimensional array is just an object and so is loaded and returned by an _aload\_1_ and _areturn_ instruction, respectively. For information about array class names, see [§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure").
+The first operand of the _multianewarray_ instruction is the run-time constant pool index to the array class type to be created. The second is the number of dimensions of that array type to actually create. The _multianewarray_ instruction can be used to create all the dimensions of the type, as the code for `create3DArray` shows. Note that the multidimensional array is just an object and so is loaded and returned by an _aload_1_ and _areturn_ instruction, respectively. For information about array class names, see [§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure").
 
 All arrays have associated lengths, which are accessed via the _arraylength_ instruction.
 
@@ -2254,6 +2126,7 @@ All arrays have associated lengths, which are accessed via the _arraylength_ ins
 
 Compilation of `switch` statements uses the _tableswitch_ and _lookupswitch_ instructions. The _tableswitch_ instruction is used when the cases of the `switch` can be efficiently represented as indices into a table of target offsets. The `default` target of the `switch` is used if the value of the expression of the `switch` falls outside the range of valid indices. For instance:
 
+```java
 int chooseNear(int i) {
     switch (i) {
         case 0:  return  0;
@@ -2262,29 +2135,33 @@ int chooseNear(int i) {
         default: return -1;
     }
 }
+```
 
 compiles to:
 
+```java
 Method int chooseNear(int)
-0   _iload\_1_             // Push local variable 1 (argument i)
+0   _iload_1_             // Push local variable 1 (argument i)
 1   _tableswitch 0 to 2:_ // Valid indices are 0 through 2
       _0: 28_             // If i is 0, continue at 28
       _1: 30_             // If i is 1, continue at 30
       _2: 32_             // If i is 2, continue at 32
       _default:34_        // Otherwise, continue at 34
-28  _iconst\_0_            // i was 0; push int constant 0...
+28  _iconst_0_            // i was 0; push int constant 0...
 29  _ireturn_             // ...and return it
-30  _iconst\_1_            // i was 1; push int constant 1...
+30  _iconst_1_            // i was 1; push int constant 1...
 31  _ireturn_             // ...and return it
-32  _iconst\_2_            // i was 2; push int constant 2...
+32  _iconst_2_            // i was 2; push int constant 2...
 33  _ireturn_             // ...and return it
-34  _iconst\_m1_           // otherwise push int constant -1...
+34  _iconst_m1_           // otherwise push int constant -1...
 35  _ireturn_             // ...and return it
+```
 
 The Java Virtual Machine's _tableswitch_ and _lookupswitch_ instructions operate only on `int` data. Because operations on `byte`, `char`, or `short` values are internally promoted to `int`, a `switch` whose expression evaluates to one of those types is compiled as though it evaluated to type `int`. If the `chooseNear` method had been written using type `short`, the same Java Virtual Machine instructions would have been generated as when using type `int`. Other numeric types must be narrowed to type `int` for use in a `switch`.
 
 Where the cases of the `switch` are sparse, the table representation of the _tableswitch_ instruction becomes inefficient in terms of space. The _lookupswitch_ instruction may be used instead. The _lookupswitch_ instruction pairs `int` keys (the values of the `case` labels) with target offsets in a table. When a _lookupswitch_ instruction is executed, the value of the expression of the `switch` is compared against the keys in the table. If one of the keys matches the value of the expression, execution continues at the associated target offset. If no key matches, execution continues at the `default` target. For instance, the compiled code for:
 
+```java
 int chooseFar(int i) {
     switch (i) {
         case -100: return -1;
@@ -2293,24 +2170,27 @@ int chooseFar(int i) {
         default:   return -1;
     }
 }
+```
 
 looks just like the code for `chooseNear`, except for the _lookupswitch_ instruction:
 
+```java
 Method int chooseFar(int)
-0   _iload\_1_
+0   _iload_1_
 1   _lookupswitch 3:_
          _\-100: 36_
             _0: 38_
           _100: 40_
       _default: 42_
-36  _iconst\_m1_
+36  _iconst_m1_
 37  _ireturn_
-38  _iconst\_0_
+38  _iconst_0_
 39  _ireturn_
-40  _iconst\_1_
+40  _iconst_1_
 41  _ireturn_
-42  _iconst\_m1_
+42  _iconst_m1_
 43  _ireturn_
+```
 
 The Java Virtual Machine specifies that the table of the _lookupswitch_ instruction must be sorted by key so that implementations may use searches more efficient than a linear scan. Even so, the _lookupswitch_ instruction must search its keys for a match rather than simply perform a bounds check and index into a table like _tableswitch_. Thus, a _tableswitch_ instruction is probably more efficient than a _lookupswitch_ where space considerations permit a choice.
 
@@ -2319,28 +2199,32 @@ The Java Virtual Machine specifies that the table of the _lookupswitch_ instruct
 
 The Java Virtual Machine has a large complement of instructions that manipulate the contents of the operand stack as untyped values. These are useful because of the Java Virtual Machine's reliance on deft manipulation of its operand stack. For instance:
 
+```java
 public long nextIndex() { 
     return index++;
 }
 
 private long index = 0;
+```
 
 is compiled to:
 
+```java
 Method long nextIndex()
-0   _aload\_0_        // Push this
+0   _aload_0_        // Push this
 1   _dup_            // Make a copy of it
 2   _getfield #4_    // One of the copies of this is consumed
                    // pushing long field index,
                    // above the original this
-5   _dup2\_x1_        // The long on top of the operand stack is 
+5   _dup2_x1_        // The long on top of the operand stack is 
                    // inserted into the operand stack below the 
                    // original this
-6   _lconst\_1_       // Push long constant 1 
+6   _lconst_1_       // Push long constant 1 
 7   _ladd_           // The index value is incremented...
 8   _putfield #4_    // ...and the result stored in the field
 11  _lreturn_        // The original value of index is on top of
                    // the operand stack, ready to be returned
+```
 
 Note that the Java Virtual Machine never allows its operand stack manipulation instructions to modify or break up individual values on the operand stack.
 
@@ -2349,25 +2233,30 @@ Note that the Java Virtual Machine never allows its operand stack manipulation i
 
 Exceptions are thrown from programs using the `throw` keyword. Its compilation is simple:
 
+```java
 void cantBeZero(int i) throws TestExc {
     if (i == 0) {
         throw new TestExc();
     }
 }
+```
 
 becomes:
 
+```java
 Method void cantBeZero(int)
-0   _iload\_1_             // Push argument 1 (i)
+0   _iload_1_             // Push argument 1 (i)
 1   _ifne 12_             // If i==0, allocate instance and throw
 4   _new #1_              // Create instance of TestExc
 7   _dup_                 // One reference goes to its constructor
 8   _invokespecial #7_    // Method TestExc.`<init>`()V
 11  _athrow_              // Second reference is thrown
 12  _return_              // Never get here if we threw TestExc
+```
 
 Compilation of `try`\-`catch` constructs is straightforward. For example:
 
+```java
 void catchOne() {
     try {
         tryItOut();
@@ -2375,48 +2264,56 @@ void catchOne() {
         handleExc(e);
     }
 }
+```
 
 is compiled as:
 
+```java
 Method void catchOne()
-0   _aload\_0_             // Beginning of try block
+0   _aload_0_             // Beginning of try block
 1   _invokevirtual #6_    // Method Example.tryItOut()V
 4   _return_              // End of try block; normal return
-5   _astore\_1_            // Store thrown value in local var 1
-6   _aload\_0_             // Push this
-7   _aload\_1_             // Push thrown value
+5   _astore_1_            // Store thrown value in local var 1
+6   _aload_0_             // Push this
+7   _aload_1_             // Push thrown value
 8   _invokevirtual #5_    // Invoke handler method: 
                         // Example.handleExc(LTestExc;)V
 11  _return_              // Return after handling TestExc
 Exception table:
 From    To      Target      Type
 0       4       5           Class TestExc
+```
 
 Looking more closely, the `try` block is compiled just as it would be if the `try` were not present:
 
+```java
 Method void catchOne()
-0   _aload\_0_             // Beginning of try block
+0   _aload_0_             // Beginning of try block
 1   _invokevirtual #6_    // Method Example.tryItOut()V
 4   _return_              // End of try block; normal return
+```
 
 If no exception is thrown during the execution of the `try` block, it behaves as though the `try` were not there: `tryItOut` is invoked and `catchOne` returns.
 
 Following the `try` block is the Java Virtual Machine code that implements the single `catch` clause:
 
-5   _astore\_1_            // Store thrown value in local var 1
-6   _aload\_0_             // Push this
-7   _aload\_1_             // Push thrown value
+```java
+5   _astore_1_            // Store thrown value in local var 1
+6   _aload_0_             // Push this
+7   _aload_1_             // Push thrown value
 8   _invokevirtual #5_    // Invoke handler method: 
                         // Example.handleExc(LTestExc;)V
 11  _return_              // Return after handling TestExc
 Exception table:
 From    To      Target      Type
 0       4       5           Class TestExc
+```
 
 The invocation of `handleExc`, the contents of the `catch` clause, is also compiled like a normal method invocation. However, the presence of a `catch` clause causes the compiler to generate an exception table entry ([§2.10](jvms-2.html#jvms-2.10 "2.10. Exceptions"), [§4.7.3](jvms-4.html#jvms-4.7.3 "4.7.3. The Code Attribute")). The exception table for the `catchOne` method has one entry corresponding to the one argument (an instance of class `TestExc`) that the `catch` clause of `catchOne` can handle. If some value that is an instance of `TestExc` is thrown during execution of the instructions between indices _0_ and _4_ in `catchOne`, control is transferred to the Java Virtual Machine code at index _5_, which implements the block of the `catch` clause. If the value that is thrown is not an instance of `TestExc`, the `catch` clause of `catchOne` cannot handle it. Instead, the value is rethrown to the invoker of `catchOne`.
 
 A `try` may have multiple `catch` clauses:
 
+```java
 void catchTwo() {
     try {
         tryItOut();
@@ -2426,24 +2323,26 @@ void catchTwo() {
         handleExc(e);
     }
 }
+```
 
 Multiple `catch` clauses of a given `try` statement are compiled by simply appending the Java Virtual Machine code for each `catch` clause one after the other and adding entries to the exception table, as shown:
 
+```java
 Method void catchTwo()
-0   _aload\_0_             // Begin try block
+0   _aload_0_             // Begin try block
 1   _invokevirtual #5_    // Method Example.tryItOut()V
 4   _return_              // End of try block; normal return
-5   _astore\_1_            // Beginning of handler for TestExc1;
+5   _astore_1_            // Beginning of handler for TestExc1;
                         // Store thrown value in local var 1
-6   _aload\_0_             // Push this
-7   _aload\_1_             // Push thrown value
+6   _aload_0_             // Push this
+7   _aload_1_             // Push thrown value
 8   _invokevirtual #7_    // Invoke handler method:
                         // Example.handleExc(LTestExc1;)V
 11  _return_              // Return after handling TestExc1
-12  _astore\_1_            // Beginning of handler for TestExc2;
+12  _astore_1_            // Beginning of handler for TestExc2;
                         // Store thrown value in local var 1
-13  _aload\_0_             // Push this
-14  _aload\_1_             // Push thrown value
+13  _aload_0_             // Push this
+14  _aload_1_             // Push thrown value
 15  _invokevirtual #7_    // Invoke handler method:
                         // Example.handleExc(LTestExc2;)V
 18  _return_              // Return after handling TestExc2
@@ -2451,11 +2350,13 @@ Exception table:
 From    To      Target      Type
 0       4       5           Class TestExc1
 0       4       12          Class TestExc2
+```
 
 If during the execution of the `try` clause (between indices _0_ and _4_) a value is thrown that matches the parameter of one or more of the `catch` clauses (the value is an instance of one or more of the parameters), the first (innermost) such `catch` clause is selected. Control is transferred to the Java Virtual Machine code for the block of that `catch` clause. If the value thrown does not match the parameter of any of the `catch` clauses of `catchTwo`, the Java Virtual Machine rethrows the value without invoking code in any `catch` clause of `catchTwo`.
 
 Nested `try`\-`catch` statements are compiled very much like a `try` statement with multiple `catch` clauses:
 
+```java
 void nestedCatch() {
     try {
         try {
@@ -2467,24 +2368,26 @@ void nestedCatch() {
         handleExc2(e);
     }
 }
+```
 
 becomes:
 
+```java
 Method void nestedCatch()
-0   _aload\_0_             // Begin try block
+0   _aload_0_             // Begin try block
 1   _invokevirtual #8_    // Method Example.tryItOut()V
 4   _return_              // End of try block; normal return
-5   _astore\_1_            // Beginning of handler for TestExc1;
+5   _astore_1_            // Beginning of handler for TestExc1;
                         // Store thrown value in local var 1
-6   _aload\_0_             // Push this
-7   _aload\_1_             // Push thrown value
+6   _aload_0_             // Push this
+7   _aload_1_             // Push thrown value
 8   _invokevirtual #7_    // Invoke handler method: 
                         // Example.handleExc1(LTestExc1;)V
 11  _return_              // Return after handling TestExc1
-12  _astore\_1_            // Beginning of handler for TestExc2;
+12  _astore_1_            // Beginning of handler for TestExc2;
                         // Store thrown value in local var 1
-13  _aload\_0_             // Push this
-14  _aload\_1_             // Push thrown value
+13  _aload_0_             // Push this
+14  _aload_1_             // Push thrown value
 15  _invokevirtual #6_    // Invoke handler method:
                         // Example.handleExc2(LTestExc2;)V
 18  _return_              // Return after handling TestExc2
@@ -2492,6 +2395,7 @@ Exception table:
 From    To      Target      Type
 0       4       5           Class TestExc1
 0       12      12          Class TestExc2
+```
 
 The nesting of `catch` clauses is represented only in the exception table. The Java Virtual Machine does not enforce nesting of or any ordering of the exception table entries ([§2.10](jvms-2.html#jvms-2.10 "2.10. Exceptions")). However, because `try`\-`catch` constructs are structured, a compiler can always order the entries of the exception handler table such that, for any thrown exception and any program counter value in that method, the first exception handler that matches the thrown exception corresponds to the innermost matching `catch` clause.
 
@@ -2506,6 +2410,7 @@ As a subtle point, note that the range of a `catch` clause is inclusive on the "
 
 Compilation of a `try`\-`finally` statement is similar to that of `try`\-`catch`. Prior to transferring control outside the `try` statement, whether that transfer is normal or abrupt, because an exception has been thrown, the `finally` clause must first be executed. For this simple example:
 
+```java
 void tryFinally() {
     try {
         tryItOut();
@@ -2513,34 +2418,38 @@ void tryFinally() {
         wrapItUp();
     }
 }
+```
 
 the compiled code is:
 
+```java
 Method void tryFinally()
-0   _aload\_0_             // Beginning of try block
+0   _aload_0_             // Beginning of try block
 1   _invokevirtual #6_    // Method Example.tryItOut()V
 4   _jsr 14_              // Call finally block
 7   _return_              // End of try block
-8   _astore\_1_            // Beginning of handler for any throw
+8   _astore_1_            // Beginning of handler for any throw
 9   _jsr 14_              // Call finally block
-12  _aload\_1_             // Push thrown value
+12  _aload_1_             // Push thrown value
 13  _athrow_              // ...and rethrow value to the invoker
-14  _astore\_2_            // Beginning of finally block
-15  _aload\_0_             // Push this
+14  _astore_2_            // Beginning of finally block
+15  _aload_0_             // Push this
 16  _invokevirtual #5_    // Method Example.wrapItUp()V
 19  _ret 2_               // Return from finally block
 Exception table:
 From    To      Target      Type
 0       4       8           any
+```
 
 There are four ways for control to pass outside of the `try` statement: by falling through the bottom of that block, by returning, by executing a `break` or `continue` statement, or by raising an exception. If `tryItOut` returns without raising an exception, control is transferred to the `finally` block using a _jsr_ instruction. The _jsr_ _14_ instruction at index _4_ makes a "subroutine call" to the code for the `finally` block at index _14_ (the `finally` block is compiled as an embedded subroutine). When the `finally` block completes, the _ret_ _2_ instruction returns control to the instruction following the _jsr_ instruction at index _4_.
 
-In more detail, the subroutine call works as follows: The _jsr_ instruction pushes the address of the following instruction (_return_ at index _7_) onto the operand stack before jumping. The _astore\_2_ instruction that is the jump target stores the address on the operand stack into local variable _2_. The code for the `finally` block (in this case the _aload\_0_ and _invokevirtual_ instructions) is run. Assuming execution of that code completes normally, the _ret_ instruction retrieves the address from local variable _2_ and resumes execution at that address. The _return_ instruction is executed, and `tryFinally` returns normally.
+In more detail, the subroutine call works as follows: The _jsr_ instruction pushes the address of the following instruction (_return_ at index _7_) onto the operand stack before jumping. The _astore_2_ instruction that is the jump target stores the address on the operand stack into local variable _2_. The code for the `finally` block (in this case the _aload_0_ and _invokevirtual_ instructions) is run. Assuming execution of that code completes normally, the _ret_ instruction retrieves the address from local variable _2_ and resumes execution at that address. The _return_ instruction is executed, and `tryFinally` returns normally.
 
-A `try` statement with a `finally` clause is compiled to have a special exception handler, one that can handle any exception thrown within the `try` statement. If `tryItOut` throws an exception, the exception table for `tryFinally` is searched for an appropriate exception handler. The special handler is found, causing execution to continue at index _8_. The _astore\_1_ instruction at index _8_ stores the thrown value into local variable _1_. The following _jsr_ instruction does a subroutine call to the code for the `finally` block. Assuming that code returns normally, the _aload\_1_ instruction at index _12_ pushes the thrown value back onto the operand stack, and the following _athrow_ instruction rethrows the value.
+A `try` statement with a `finally` clause is compiled to have a special exception handler, one that can handle any exception thrown within the `try` statement. If `tryItOut` throws an exception, the exception table for `tryFinally` is searched for an appropriate exception handler. The special handler is found, causing execution to continue at index _8_. The _astore_1_ instruction at index _8_ stores the thrown value into local variable _1_. The following _jsr_ instruction does a subroutine call to the code for the `finally` block. Assuming that code returns normally, the _aload_1_ instruction at index _12_ pushes the thrown value back onto the operand stack, and the following _athrow_ instruction rethrows the value.
 
 Compiling a `try` statement with both a `catch` clause and a `finally` clause is more complex:
 
+```java
 void tryCatchFinally() {
     try {
         tryItOut();
@@ -2550,37 +2459,40 @@ void tryCatchFinally() {
         wrapItUp();
     }
 }
+```
 
 becomes:
 
+```java
 Method void tryCatchFinally()
-0   _aload\_0_             // Beginning of try block
+0   _aload_0_             // Beginning of try block
 1   _invokevirtual #4_    // Method Example.tryItOut()V
 4   _goto 16_             // Jump to finally block
-7   _astore\_3_            // Beginning of handler for TestExc;
+7   _astore_3_            // Beginning of handler for TestExc;
                         // Store thrown value in local var 3
-8   _aload\_0_             // Push this
-9   _aload\_3_             // Push thrown value
+8   _aload_0_             // Push this
+9   _aload_3_             // Push thrown value
 10  _invokevirtual #6_    // Invoke handler method:
                         // Example.handleExc(LTestExc;)V
 13  _goto 16_             // This goto is unnecessary, but was
                         // generated by javac in JDK 1.0.2
 16  _jsr 26_              // Call finally block
 19  _return_              // Return after handling TestExc
-20  _astore\_1_            // Beginning of handler for exceptions
+20  _astore_1_            // Beginning of handler for exceptions
                         // other than TestExc, or exceptions
                         // thrown while handling TestExc
 21  _jsr 26_              // Call finally block
-24  _aload\_1_             // Push thrown value...
+24  _aload_1_             // Push thrown value...
 25  _athrow_              // ...and rethrow value to the invoker
-26  _astore\_2_            // Beginning of finally block
-27  _aload\_0_             // Push this
+26  _astore_2_            // Beginning of finally block
+27  _aload_0_             // Push this
 28  _invokevirtual #5_    // Method Example.wrapItUp()V
 31  _ret 2_               // Return from finally block
 Exception table:
 From    To      Target      Type
 0       4       7           Class TestExc
 0       16      20          any
+```
 
 If the `try` statement completes normally, the _goto_ instruction at index _4_ jumps to the subroutine call for the `finally` block at index _16_. The `finally` block at index _26_ is executed, control returns to the _return_ instruction at index _19_, and `tryCatchFinally` returns normally.
 
@@ -2597,34 +2509,38 @@ For code written in the Java programming language, perhaps the most common form 
 
 The _monitorenter_ and _monitorexit_ instructions enable the compilation of `synchronized` statements. For example:
 
+```java
 void onlyMe(Foo f) {
     synchronized(f) {
         doSomething();
     }
 }
+```
 
 is compiled to:
 
+```java
 Method void onlyMe(Foo)
-0   _aload\_1_             // Push f
+0   _aload_1_             // Push f
 1   _dup_                 // Duplicate it on the stack
-2   _astore\_2_            // Store duplicate in local variable 2
+2   _astore_2_            // Store duplicate in local variable 2
 3   _monitorenter_        // Enter the monitor associated with f
-4   _aload\_0_             // Holding the monitor, pass this and...
+4   _aload_0_             // Holding the monitor, pass this and...
 5   _invokevirtual #5_    // ...call Example.doSomething()V
-8   _aload\_2_             // Push local variable 2 (f)
+8   _aload_2_             // Push local variable 2 (f)
 9   _monitorexit_         // Exit the monitor associated with f
 10  _goto 18_             // Complete the method normally
-13  _astore\_3_            // In case of any throw, end up here
-14  _aload\_2_             // Push local variable 2 (f)
+13  _astore_3_            // In case of any throw, end up here
+14  _aload_2_             // Push local variable 2 (f)
 15  _monitorexit_         // Be sure to exit the monitor!
-16  _aload\_3_             // Push thrown value...
+16  _aload_3_             // Push thrown value...
 17  _athrow_              // ...and rethrow value to the invoker
 18  _return_              // Return in the normal case
 Exception table:
 From    To      Target      Type
 4       10      13          any
 13      16      13          any
+```
 
 The compiler ensures that at any method invocation completion, a _monitorexit_ instruction will have been executed for each _monitorenter_ instruction executed since the method invocation. This is the case whether the method invocation completes normally ([§2.6.4](jvms-2.html#jvms-2.6.4 "2.6.4. Normal Method Invocation Completion")) or abruptly ([§2.6.5](jvms-2.html#jvms-2.6.5 "2.6.5. Abrupt Method Invocation Completion")). To enforce proper pairing of _monitorenter_ and _monitorexit_ instructions on abrupt method invocation completion, the compiler generates exception handlers ([§2.10](jvms-2.html#jvms-2.10 "2.10. Exceptions")) that will match any exception and whose associated code executes the necessary _monitorexit_ instructions.
 
@@ -2655,193 +2571,194 @@ When the compiler encounters an annotated package declaration that must be made 
 ----------------------------------
 
 **Table of Contents**
-[4.1. The `ClassFile` Structure](jvms-4.html#jvms-4.1)
-[4.2. The Internal Form of Names](jvms-4.html#jvms-4.2)
-[4.2.1. Binary Class and Interface Names](jvms-4.html#jvms-4.2.1)
-[4.2.2. Unqualified Names](jvms-4.html#jvms-4.2.2)
-[4.3. Descriptors](jvms-4.html#jvms-4.3)
-[4.3.1. Grammar Notation](jvms-4.html#jvms-4.3.1)
-[4.3.2. Field Descriptors](jvms-4.html#jvms-4.3.2)
-[4.3.3. Method Descriptors](jvms-4.html#jvms-4.3.3)
-[4.4. The Constant Pool](jvms-4.html#jvms-4.4)
-[4.4.1. The `CONSTANT_Class_info` Structure](jvms-4.html#jvms-4.4.1)
-[4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `CONSTANT_InterfaceMethodref_info` Structures](jvms-4.html#jvms-4.4.2)
-[4.4.3. The `CONSTANT_String_info` Structure](jvms-4.html#jvms-4.4.3)
-[4.4.4. The `CONSTANT_Integer_info` and `CONSTANT_Float_info` Structures](jvms-4.html#jvms-4.4.4)
-[4.4.5. The `CONSTANT_Long_info` and `CONSTANT_Double_info` Structures](jvms-4.html#jvms-4.4.5)
-[4.4.6. The `CONSTANT_NameAndType_info` Structure](jvms-4.html#jvms-4.4.6)
-[4.4.7. The `CONSTANT_Utf8_info` Structure](jvms-4.html#jvms-4.4.7)
-[4.4.8. The `CONSTANT_MethodHandle_info` Structure](jvms-4.html#jvms-4.4.8)
-[4.4.9. The `CONSTANT_MethodType_info` Structure](jvms-4.html#jvms-4.4.9)
-[4.4.10. The `CONSTANT_InvokeDynamic_info` Structure](jvms-4.html#jvms-4.4.10)
-[4.5. Fields](jvms-4.html#jvms-4.5)
-[4.6. Methods](jvms-4.html#jvms-4.6)
-[4.7. Attributes](jvms-4.html#jvms-4.7)
-[4.7.1. Defining and Naming New Attributes](jvms-4.html#jvms-4.7.1)
-[4.7.2. The `ConstantValue` Attribute](jvms-4.html#jvms-4.7.2)
-[4.7.3. The `Code` Attribute](jvms-4.html#jvms-4.7.3)
-[4.7.4. The `StackMapTable` Attribute](jvms-4.html#jvms-4.7.4)
-[4.7.5. The `Exceptions` Attribute](jvms-4.html#jvms-4.7.5)
-[4.7.6. The `InnerClasses` Attribute](jvms-4.html#jvms-4.7.6)
-[4.7.7. The `EnclosingMethod` Attribute](jvms-4.html#jvms-4.7.7)
-[4.7.8. The `Synthetic` Attribute](jvms-4.html#jvms-4.7.8)
-[4.7.9. The `Signature` Attribute](jvms-4.html#jvms-4.7.9)
-[4.7.9.1. Signatures](jvms-4.html#jvms-4.7.9.1)
-[4.7.10. The `SourceFile` Attribute](jvms-4.html#jvms-4.7.10)
-[4.7.11. The `SourceDebugExtension` Attribute](jvms-4.html#jvms-4.7.11)
-[4.7.12. The `LineNumberTable` Attribute](jvms-4.html#jvms-4.7.12)
-[4.7.13. The `LocalVariableTable` Attribute](jvms-4.html#jvms-4.7.13)
-[4.7.14. The `LocalVariableTypeTable` Attribute](jvms-4.html#jvms-4.7.14)
-[4.7.15. The `Deprecated` Attribute](jvms-4.html#jvms-4.7.15)
-[4.7.16. The `RuntimeVisibleAnnotations` Attribute](jvms-4.html#jvms-4.7.16)
-[4.7.16.1. The `element_value` structure](jvms-4.html#jvms-4.7.16.1)
-[4.7.17. The `RuntimeInvisibleAnnotations` Attribute](jvms-4.html#jvms-4.7.17)
-[4.7.18. The `RuntimeVisibleParameterAnnotations` Attribute](jvms-4.html#jvms-4.7.18)
-[4.7.19. The `RuntimeInvisibleParameterAnnotations` Attribute](jvms-4.html#jvms-4.7.19)
-[4.7.20. The `RuntimeVisibleTypeAnnotations` Attribute](jvms-4.html#jvms-4.7.20)
-[4.7.20.1. The `target_info` union](jvms-4.html#jvms-4.7.20.1)
-[4.7.20.2. The `type_path` structure](jvms-4.html#jvms-4.7.20.2)
-[4.7.21. The `RuntimeInvisibleTypeAnnotations` Attribute](jvms-4.html#jvms-4.7.21)
-[4.7.22. The `AnnotationDefault` Attribute](jvms-4.html#jvms-4.7.22)
-[4.7.23. The `BootstrapMethods` Attribute](jvms-4.html#jvms-4.7.23)
-[4.7.24. The `MethodParameters` Attribute](jvms-4.html#jvms-4.7.24)
-[4.8. Format Checking](jvms-4.html#jvms-4.8)
-[4.9. Constraints on Java Virtual Machine Code](jvms-4.html#jvms-4.9)
-[4.9.1. Static Constraints](jvms-4.html#jvms-4.9.1)
-[4.9.2. Structural Constraints](jvms-4.html#jvms-4.9.2)
-[4.10. Verification of `class` Files](jvms-4.html#jvms-4.10)
-[4.10.1. Verification by Type Checking](jvms-4.html#jvms-4.10.1)
-[4.10.1.1. Accessors for Java Virtual Machine Artifacts](jvms-4.html#jvms-4.10.1.1)
-[4.10.1.2. Verification Type System](jvms-4.html#jvms-4.10.1.2)
-[4.10.1.3. Instruction Representation](jvms-4.html#jvms-4.10.1.3)
-[4.10.1.4. Stack Map Frame Representation](jvms-4.html#jvms-4.10.1.4)
-[4.10.1.5. Type Checking Abstract and Native Methods](jvms-4.html#jvms-4.10.1.5)
-[4.10.1.6. Type Checking Methods with Code](jvms-4.html#jvms-4.10.1.6)
-[4.10.1.7. Type Checking Load and Store Instructions](jvms-4.html#jvms-4.10.1.7)
-[4.10.1.8. Type Checking for `protected` Members](jvms-4.html#jvms-4.10.1.8)
-[4.10.1.9. Type Checking Instructions](jvms-4.html#jvms-4.10.1.9)
-    [_aaload_](jvms-4.html#jvms-4.10.1.9.aaload)
-    [_aastore_](jvms-4.html#jvms-4.10.1.9.aastore)
-    [_aconst\_null_](jvms-4.html#jvms-4.10.1.9.aconst_null)
-    [_aload_, _aload\_<n>_](jvms-4.html#jvms-4.10.1.9.aload)
-    [_anewarray_](jvms-4.html#jvms-4.10.1.9.anewarray)
-    [_areturn_](jvms-4.html#jvms-4.10.1.9.areturn)
-    [_arraylength_](jvms-4.html#jvms-4.10.1.9.arraylength)
-    [_astore_, _astore\_<n>_](jvms-4.html#jvms-4.10.1.9.astore)
-    [_athrow_](jvms-4.html#jvms-4.10.1.9.athrow)
-    [_baload_](jvms-4.html#jvms-4.10.1.9.baload)
-    [_bastore_](jvms-4.html#jvms-4.10.1.9.bastore)
-    [_bipush_](jvms-4.html#jvms-4.10.1.9.bipush)
-    [_caload_](jvms-4.html#jvms-4.10.1.9.caload)
-    [_castore_](jvms-4.html#jvms-4.10.1.9.castore)
-    [_checkcast_](jvms-4.html#jvms-4.10.1.9.checkcast)
-    [_d2f_, _d2i_, _d2l_](jvms-4.html#jvms-4.10.1.9.d2f)
-    [_dadd_](jvms-4.html#jvms-4.10.1.9.dadd)
-    [_daload_](jvms-4.html#jvms-4.10.1.9.daload)
-    [_dastore_](jvms-4.html#jvms-4.10.1.9.dastore)
-    [_dcmp<op>_](jvms-4.html#jvms-4.10.1.9.dcmp_op)
-    [_dconst\_<d>_](jvms-4.html#jvms-4.10.1.9.dconst_d)
-    [_ddiv_](jvms-4.html#jvms-4.10.1.9.ddiv)
-    [_dload_, _dload\_<n>_](jvms-4.html#jvms-4.10.1.9.dload)
-    [_dmul_](jvms-4.html#jvms-4.10.1.9.dmul)
-    [_dneg_](jvms-4.html#jvms-4.10.1.9.dneg)
-    [_drem_](jvms-4.html#jvms-4.10.1.9.drem)
-    [_dreturn_](jvms-4.html#jvms-4.10.1.9.dreturn)
-    [_dstore_, _dstore\_<n>_](jvms-4.html#jvms-4.10.1.9.dstore)
-    [_dsub_](jvms-4.html#jvms-4.10.1.9.dsub)
-    [_dup_](jvms-4.html#jvms-4.10.1.9.dup)
-    [_dup\_x1_](jvms-4.html#jvms-4.10.1.9.dup_x1)
-    [_dup\_x2_](jvms-4.html#jvms-4.10.1.9.dup_x2)
-    [_dup2_](jvms-4.html#jvms-4.10.1.9.dup2)
-    [_dup2\_x1_](jvms-4.html#jvms-4.10.1.9.dup2_x1)
-    [_dup2\_x2_](jvms-4.html#jvms-4.10.1.9.dup2_x2)
-    [_f2d_, _f2i_, _f2l_](jvms-4.html#jvms-4.10.1.9.f2d)
-    [_fadd_](jvms-4.html#jvms-4.10.1.9.fadd)
-    [_faload_](jvms-4.html#jvms-4.10.1.9.faload)
-    [_fastore_](jvms-4.html#jvms-4.10.1.9.fastore)
-    [_fcmp<op>_](jvms-4.html#jvms-4.10.1.9.fcmp_op)
-    [_fconst\_<f>_](jvms-4.html#jvms-4.10.1.9.fconst_f)
-    [_fdiv_](jvms-4.html#jvms-4.10.1.9.fdiv)
-    [_fload_, _fload\_<n>_](jvms-4.html#jvms-4.10.1.9.fload)
-    [_fmul_](jvms-4.html#jvms-4.10.1.9.fmul)
-    [_fneg_](jvms-4.html#jvms-4.10.1.9.fneg)
-    [_frem_](jvms-4.html#jvms-4.10.1.9.frem)
-    [_freturn_](jvms-4.html#jvms-4.10.1.9.freturn)
-    [_fstore_, _fstore\_<n>_](jvms-4.html#jvms-4.10.1.9.fstore)
-    [_fsub_](jvms-4.html#jvms-4.10.1.9.fsub)
-    [_getfield_](jvms-4.html#jvms-4.10.1.9.getfield)
-    [_getstatic_](jvms-4.html#jvms-4.10.1.9.getstatic)
-    [_goto_, _goto\_w_](jvms-4.html#jvms-4.10.1.9.goto)
-    [_i2b_, _i2c_, _i2d_, _i2f_, _i2l_, _i2s_](jvms-4.html#jvms-4.10.1.9.i2b)
-    [_iadd_](jvms-4.html#jvms-4.10.1.9.iadd)
-    [_iaload_](jvms-4.html#jvms-4.10.1.9.iaload)
-    [_iand_](jvms-4.html#jvms-4.10.1.9.iand)
-    [_iastore_](jvms-4.html#jvms-4.10.1.9.iastore)
-    [_if\_acmp<cond>_](jvms-4.html#jvms-4.10.1.9.if_acmp_cond)
-    [_if\_icmp<cond>_](jvms-4.html#jvms-4.10.1.9.if_icmp_cond)
-    [_if<cond>_](jvms-4.html#jvms-4.10.1.9.if_cond)
-    [_ifnonnull_](jvms-4.html#jvms-4.10.1.9.ifnonnull)
-    [_ifnull_](jvms-4.html#jvms-4.10.1.9.ifnull)
-    [_iinc_](jvms-4.html#jvms-4.10.1.9.iinc)
-    [_iload_, _iload\_<n>_](jvms-4.html#jvms-4.10.1.9.iload)
-    [_imul_](jvms-4.html#jvms-4.10.1.9.imul)
-    [_ineg_](jvms-4.html#jvms-4.10.1.9.ineg)
-    [_instanceof_](jvms-4.html#jvms-4.10.1.9.instanceof)
-    [_invokedynamic_](jvms-4.html#jvms-4.10.1.9.invokedynamic)
-    [_invokeinterface_](jvms-4.html#jvms-4.10.1.9.invokeinterface)
-    [_invokespecial_](jvms-4.html#jvms-4.10.1.9.invokespecial)
-    [_invokestatic_](jvms-4.html#jvms-4.10.1.9.invokestatic)
-    [_invokevirtual_](jvms-4.html#jvms-4.10.1.9.invokevirtual)
-    [_ior_](jvms-4.html#jvms-4.10.1.9.ior)
-    [_irem_](jvms-4.html#jvms-4.10.1.9.irem)
-    [_ireturn_](jvms-4.html#jvms-4.10.1.9.ireturn)
-    [_ishl_, _ishr_, _iushr_](jvms-4.html#jvms-4.10.1.9.ishl)
-    [_istore_, _istore\_<n>_](jvms-4.html#jvms-4.10.1.9.istore)
-    [_isub_](jvms-4.html#jvms-4.10.1.9.isub)
-    [_ixor_](jvms-4.html#jvms-4.10.1.9.ixor)
-    [_l2d_, _l2f_, _l2i_](jvms-4.html#jvms-4.10.1.9.l2d)
-    [_ladd_](jvms-4.html#jvms-4.10.1.9.ladd)
-    [_laload_](jvms-4.html#jvms-4.10.1.9.laload)
-    [_land_](jvms-4.html#jvms-4.10.1.9.land)
-    [_lastore_](jvms-4.html#jvms-4.10.1.9.lastore)
-    [_lcmp_](jvms-4.html#jvms-4.10.1.9.lcmp)
-    [_lconst\_<l>_](jvms-4.html#jvms-4.10.1.9.lconst_l)
-    [_ldc_, _ldc\_w_, _ldc2\_w_](jvms-4.html#jvms-4.10.1.9.ldc)
-    [_ldiv_](jvms-4.html#jvms-4.10.1.9.ldiv)
-    [_lload_, _lload\_<n>_](jvms-4.html#jvms-4.10.1.9.lload)
-    [_lmul_](jvms-4.html#jvms-4.10.1.9.lmul)
-    [_lneg_](jvms-4.html#jvms-4.10.1.9.lneg)
-    [_lookupswitch_](jvms-4.html#jvms-4.10.1.9.lookupswitch)
-    [_lor_](jvms-4.html#jvms-4.10.1.9.lor)
-    [_lrem_](jvms-4.html#jvms-4.10.1.9.lrem)
-    [_lreturn_](jvms-4.html#jvms-4.10.1.9.lreturn)
-    [_lshl_, _lshr_, _lushr_](jvms-4.html#jvms-4.10.1.9.lshl)
-    [_lstore_, _lstore\_<n>_](jvms-4.html#jvms-4.10.1.9.lstore)
-    [_lsub_](jvms-4.html#jvms-4.10.1.9.lsub)
-    [_lxor_](jvms-4.html#jvms-4.10.1.9.lxor)
-    [_monitorenter_](jvms-4.html#jvms-4.10.1.9.monitorenter)
-    [_monitorexit_](jvms-4.html#jvms-4.10.1.9.monitorexit)
-    [_multianewarray_](jvms-4.html#jvms-4.10.1.9.multianewarray)
-    [_new_](jvms-4.html#jvms-4.10.1.9.new)
-    [_newarray_](jvms-4.html#jvms-4.10.1.9.newarray)
-    [_nop_](jvms-4.html#jvms-4.10.1.9.nop)
-    [_pop_, _pop2_](jvms-4.html#jvms-4.10.1.9.pop)
-    [_putfield_](jvms-4.html#jvms-4.10.1.9.putfield)
-    [_putstatic_](jvms-4.html#jvms-4.10.1.9.putstatic)
-    [_return_](jvms-4.html#jvms-4.10.1.9.return)
-    [_saload_](jvms-4.html#jvms-4.10.1.9.saload)
-    [_sastore_](jvms-4.html#jvms-4.10.1.9.sastore)
-    [_sipush_](jvms-4.html#jvms-4.10.1.9.sipush)
-    [_swap_](jvms-4.html#jvms-4.10.1.9.swap)
-    [_tableswitch_](jvms-4.html#jvms-4.10.1.9.tableswitch)
-    [_wide_](jvms-4.html#jvms-4.10.1.9.wide)
-[4.10.2. Verification by Type Inference](jvms-4.html#jvms-4.10.2)
-[4.10.2.1. The Process of Verification by Type Inference](jvms-4.html#jvms-4.10.2.1)
-[4.10.2.2. The Bytecode Verifier](jvms-4.html#jvms-4.10.2.2)
-[4.10.2.3. Values of Types `long` and `double`](jvms-4.html#jvms-4.10.2.3)
-[4.10.2.4. Instance Initialization Methods and Newly Created Objects](jvms-4.html#jvms-4.10.2.4)
-[4.10.2.5. Exceptions and `finally`](jvms-4.html#jvms-4.10.2.5)
-[4.11. Limitations of the Java Virtual Machine](jvms-4.html#jvms-4.11)
+
+[4.1. The `ClassFile` Structure](#41-the-classfile-structure)
+[4.2. The Internal Form of Names](#42-the-internal-form-of-names)
+[4.2.1. Binary Class and Interface Names](#421-binary-class-and-interface-names)
+[4.2.2. Unqualified Names](#422-unqualified-names)
+[4.3. Descriptors](#43-descriptors)
+[4.3.1. Grammar Notation](#431-grammar-notation)
+[4.3.2. Field Descriptors](#432-field-descriptors)
+[4.3.3. Method Descriptors](#433-method-descriptors)
+[4.4. The Constant Pool](#44-the-constant-pool)
+[4.4.1. The `CONSTANT_Class_info` Structure](#441-the-constant_class_info-structure)
+[4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `CONSTANT_InterfaceMethodref_info` Structures](#442-the-constant_fieldref_info,-constant_methodref_info,-and-constant_interfacemethodref_info-structures)
+[4.4.3. The `CONSTANT_String_info` Structure](#443-the-constant_string_info-structure)
+[4.4.4. The `CONSTANT_Integer_info` and `CONSTANT_Float_info` Structures](#444-the-constant_integer_info-and-constant_float_info-structures)-
+[4.4.5. The `CONSTANT_Long_info` and `CONSTANT_Double_info` Structures](#445-the-constant_long_info-and-constant_double_info-structures)
+[4.4.6. The `CONSTANT_NameAndType_info` Structure](#446-the-constant_nameandtype_info-structure)
+[4.4.7. The `CONSTANT_Utf8_info` Structure](#447-the-constant_utf8_info-structure)
+[4.4.8. The `CONSTANT_MethodHandle_info` Structure](#448-the-constant_methodhandle_info-structure)
+[4.4.9. The `CONSTANT_MethodType_info` Structure](#449-the-constant_methodtype_info-structure)
+[4.4.10. The `CONSTANT_InvokeDynamic_info` Structure](#4410-the-constant_invokedynamic_info-structure)-
+[4.5. Fields](#45-fields)
+[4.6. Methods](#46-methods)
+[4.7. Attributes](#47-attributes)
+[4.7.1. Defining and Naming New Attributes](#471-defining-and-naming-new-attributes)
+[4.7.2. The `ConstantValue` Attribute](#472-the-constantvalue-attribute)
+[4.7.3. The `Code` Attribute](#473-the-code-attribute)
+[4.7.4. The `StackMapTable` Attribute](#474-the-stackmaptable-attribute)
+[4.7.5. The `Exceptions` Attribute](#475-the-exceptions-attribute)
+[4.7.6. The `InnerClasses` Attribute](#476-the-innerclasses-attribute)
+[4.7.7. The `EnclosingMethod` Attribute](#477-the-enclosingmethod-attribute)
+[4.7.8. The `Synthetic` Attribute](#478-the-synthetic-attribute)
+[4.7.9. The `Signature` Attribute](#479-the-signature-attribute)
+[4.7.9.1. Signatures](#4791-signatures)
+[4.7.10. The `SourceFile` Attribute](#4710-the-sourcefile-attribute)
+[4.7.11. The `SourceDebugExtension` Attribute](#4711-the-sourcedebugextension-attribute)
+[4.7.12. The `LineNumberTable` Attribute](#4712-the-linenumbertable-attribute)
+[4.7.13. The `LocalVariableTable` Attribute](#4713-the-localvariabletable-attribute)
+[4.7.14. The `LocalVariableTypeTable` Attribute](#4714-the-localvariabletypetable-attribute)
+[4.7.15. The `Deprecated` Attribute](#4715-the-deprecated-attribute)
+[4.7.16. The `RuntimeVisibleAnnotations` Attribute](#4716-the-runtimevisibleannotations-attribute)
+[4.7.16.1. The `element_value` structure](#47161-the-element_value-structure)
+[4.7.17. The `RuntimeInvisibleAnnotations` Attribute](#4717-the-runtimeinvisibleannotations-attribute)
+[4.7.18. The `RuntimeVisibleParameterAnnotations` Attribute](#4718-the-runtimevisibleparameterannotations-attribute)
+[4.7.19. The `RuntimeInvisibleParameterAnnotations` Attribute](#4719-the-runtimeinvisibleparameterannotations-attribute)
+[4.7.20. The `RuntimeVisibleTypeAnnotations` Attribute](#4720-the-runtimevisibletypeannotations-attribute)
+[4.7.20.1. The `target_info` union](#47201-the-target_info-union)
+[4.7.20.2. The `type_path` structure](#47202-the-type_path-structure)
+[4.7.21. The `RuntimeInvisibleTypeAnnotations` Attribute](#4721-the-runtimeinvisibletypeannotations-attribute)
+[4.7.22. The `AnnotationDefault` Attribute](#4722-the-annotationdefault-attribute)
+[4.7.23. The `BootstrapMethods` Attribute](#4723-the-bootstrapmethods-attribute)
+[4.7.24. The `MethodParameters` Attribute](#4724-the-methodparameters-attribute)
+[4.8. Format Checking](#48-format-checking)
+[4.9. Constraints on Java Virtual Machine Code](#49-constraints-on-java-virtual-machine-code)
+[4.9.1. Static Constraints](#491-static-constraints)
+[4.9.2. Structural Constraints](#492-structural-constraints)
+[4.10. Verification of `class` Files](#410-verification-of-class-files)
+[4.10.1. Verification by Type Checking](#4101-verification-by-type-checking)
+[4.10.1.1. Accessors for Java Virtual Machine Artifacts](#41011-accessors-for-java-virtual-machine-artifacts)
+[4.10.1.2. Verification Type System](#41012-verification-type-system)
+[4.10.1.3. Instruction Representation](#41013-instruction-representation)
+[4.10.1.4. Stack Map Frame Representation](#41014-stack-map-frame-representation)
+[4.10.1.5. Type Checking Abstract and Native Methods](#41015-type-checking-abstract-and-native-methods)
+[4.10.1.6. Type Checking Methods with Code](#41016-type-checking-methods-with-code)
+[4.10.1.7. Type Checking Load and Store Instructions](#41017-type-checking-load-and-store-instructions)
+[4.10.1.8. Type Checking for `protected` Members](#41018-type-checking-for-protected-members)
+[4.10.1.9. Type Checking Instructions](#41019-type-checking-instructions)
+    [[*aaload*]](#aaload)
+    [[*aastore*]](#aastore)
+    [[*aconst_null*]](#aconst_null)
+    [[*aload*], [*aload_<n>*]](#aload_aload_n)
+    [[*anewarray*]](#anewarray)
+    [[*areturn*]](#areturn)
+    [[*arraylength*]](#arraylength)
+    [[*astore*], [*astore_<n>*]](#astore_astore_n)
+    [[*athrow*]](#athrow)
+    [[*baload*]](#baload)
+    [[*bastore*]](#bastore)
+    [[*bipush*]](#bipush)
+    [[*caload*]](#caload)
+    [[*castore*]](#castore)
+    [[*checkcast*]](#checkcast)
+    [[*d2f*], [*d2i*], [*d2l*]](#d2f_d2i_d2l)
+    [[*dadd*]](#dadd)
+    [[*daload*]](#daload)
+    [[*dastore*]](#dastore)
+    [[*dcmp<op>*]](#dcmp_op)
+    [[*dconst_<d>*]](#dconst_d)
+    [[*ddiv*]](#ddiv)
+    [[*dload*], [*dload_<n>*]](#dload_dload_n)
+    [[*dmul*]](#dmul)
+    [[*dneg*]](#dneg)
+    [[*drem*]](#drem)
+    [[*dreturn*]](#dreturn)
+    [[*dstore*], [*dstore_<n>*]](#dstore_dstore_n)
+    [[*dsub*]](#dsub)
+    [[*dup*]](#dup)
+    [[*dup_x1*]](#dup_x1)
+    [[*dup_x2*]](#dup_x2)
+    [[*dup2*]](#dup2)
+    [[*dup2_x1*]](#dup2_x1)
+    [[*dup2_x2*]](#dup2_x2)
+    [[*f2d*], [*f2i*], [*f2l*]](#f2d_f2i_f2l)
+    [[*fadd*]](#fadd)
+    [[*faload*]](#faload)
+    [[*fastore*]](#fastore)
+    [[*fcmp<op>*]](#fcmp_op)
+    [[*fconst_<f>*]](#fconst_f)
+    [[*fdiv*]](#fdiv)
+    [[*fload*], [*fload_<n>*]](#fload_fload_n)
+    [[*fmul*]](#fmul)
+    [[*fneg*]](#fneg)
+    [[*frem*]](#frem)
+    [[*freturn*]](#freturn)
+    [[*fstore*], [*fstore_<n>*]](#fstore_fstore_n)
+    [[*fsub*]](#fsub)
+    [[*getfield*]](#getfield)
+    [[*getstatic*]](#getstatic)
+    [[*goto*], [*goto_w*]](#goto_goto_w)
+    [[*i2b*], [*i2c*], [*i2d*], [*i2f*], [*i2l*], [*i2s*]](#i2b_i2c_i2d_i2f_i2l_i2s)
+    [[*iadd*]](#iadd)
+    [[*iaload*]](#iaload)
+    [[*iand*]](#iand)
+    [[*iastore*]](#iastore)
+    [[*if_acmp<cond>*]](#if_acmp_cond)
+    [[*if_icmp<cond>*]](#if_icmp_cond)
+    [[*if<cond>*]](#if_cond)
+    [[*ifnonnull*]](#ifnonnull)
+    [[*ifnull*]](#ifnull)
+    [[*iinc*]](#iinc)
+    [[*iload*], [*iload_<n>*]](#iload_iload_n)
+    [[*imul*]](#imul)
+    [[*ineg*]](#ineg)
+    [[*instanceof*]](#instanceof)
+    [[*invokedynamic*]](#invokedynamic)
+    [[*invokeinterface*]](#invokeinterface)
+    [[*invokespecial*]](#invokespecial)
+    [[*invokestatic*]](#invokestatic)
+    [[*invokevirtual*]](#invokevirtual)
+    [[*ior*]](#ior)
+    [[*irem*]](#irem)
+    [[*ireturn*]](#ireturn)
+    [[*ishl*], [*ishr*], [*iushr*]](#ishl_ishr_iushr)
+    [[*istore*], [*istore_<n>*]](#istore_istore_n)
+    [[*isub*]](#isub)
+    [[*ixor*]](#ixor)
+    [[*l2d*], [*l2f*], [*l2i*]](#l2d_l2f_l2i)
+    [[*ladd*]](#ladd)
+    [[*laload*]](#laload)
+    [[*land*]](#land)
+    [[*lastore*]](#lastore)
+    [[*lcmp*]](#lcmp)
+    [[*lconst_<l>*]](#lconst_l)
+    [[*ldc*], [*ldc_w*], [*ldc2_w*]](#ldc_ldc_w_ldc2_w)
+    [[*ldiv*]](#ldiv)
+    [[*lload*], [*lload_<n>*]](#lload_lload_n)
+    [[*lmul*]](#lmul)
+    [[*lneg*]](#lneg)
+    [[*lookupswitch*]](#lookupswitch)
+    [[*lor*]](#lor)
+    [[*lrem*]](#lrem)
+    [[*lreturn*]](#lreturn)
+    [[*lshl*], [*lshr*], [*lushr*]](#lsh_lshr_lushrl)
+    [[*lstore*], [*lstore_<n>*]](#lstore_lstore_n)
+    [[*lsub*]](#lsub)
+    [[*lxor*]](#lxor)
+    [[*monitorenter*]](#monitorenter)
+    [[*monitorexit*]](#monitorexit)
+    [[*multianewarray*]](#multianewarray)
+    [[*new*]](#new)
+    [[*newarray*]](#newarray)
+    [[*nop*]](#nop)
+    [[*pop*], [*pop2*]](#pop_pop2)
+    [[*putfield*]](#putfield)
+    [[*putstatic*]](#putstatic)
+    [[*return*]](#return)
+    [[*saload*]](#saload)
+    [[*sastore*]](#sastore)
+    [[*sipush*]](#sipush)
+    [[*swap*]](#swap)
+    [[*tableswitch*]](#tableswitch)
+    [[*wide*]](#wide)
+[4.10.2. Verification by Type Inference](#4102-verification-by-type-inference)
+[4.10.2.1. The Process of Verification by Type Inference](#41021-the-process-of-verification-by-type-inference)
+[4.10.2.2. The Bytecode Verifier](#41022-the-bytecode-verifier)
+[4.10.2.3. Values of Types `long` and `double`](#41023-values-of-types-long-and-double)
+[4.10.2.4. Instance Initialization Methods and Newly Created Objects](#41024-instance-initialization-methods-and-newly-created-objects)
+[4.10.2.5. Exceptions and `finally`](#41025-exceptions-and-finally)
+[4.11. Limitations of the Java Virtual Machine](#411-limitations-of-the-java-virtual-machine)
 
 This chapter describes the `class` file format of the Java Virtual Machine. Each `class` file contains the definition of a single class or interface. Although a class or interface need not have an external representation literally contained in a file (for instance, because the class is generated by a class loader), we will colloquially refer to any valid representation of a class or interface as being in the `class` file format.
 
@@ -2862,182 +2779,138 @@ Reference to an ASCII character in this chapter should be interpreted to mean th
 
 A `class` file consists of a single `ClassFile` structure:
 
+```java
 ClassFile {
     u4             magic;
-    u2             minor\_version;
-    u2             major\_version;
-    u2             constant\_pool\_count;
-    cp\_info        constant\_pool\[constant\_pool\_count-1\];
-    u2             access\_flags;
-    u2             this\_class;
-    u2             super\_class;
-    u2             interfaces\_count;
-    u2             interfaces\[interfaces\_count\];
-    u2             fields\_count;
-    field\_info     fields\[fields\_count\];
-    u2             methods\_count;
-    method\_info    methods\[methods\_count\];
-    u2             attributes\_count;
-    attribute\_info attributes\[attributes\_count\];
+    u2             minor_version;
+    u2             major_version;
+    u2             constant_pool_count;
+    cp_info        constant_pool[constant_pool_count-1];
+    u2             access_flags;
+    u2             this_class;
+    u2             super_class;
+    u2             interfaces_count;
+    u2             interfaces[interfaces_count];
+    u2             fields_count;
+    field_info     fields[fields_count];
+    u2             methods_count;
+    method_info    methods[methods_count];
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
 }
+```
 
 The items in the `ClassFile` structure are as follows:
 
-magic
+1. magic
 
-The `magic` item supplies the magic number identifying the `class` file format; it has the value `0xCAFEBABE`.
+    The `magic` item supplies the magic number identifying the `class` file format; it has the value `0xCAFEBABE`.
 
-minor\_version, major\_version
+2. minor_version, major_version
 
-The values of the `minor_version` and `major_version` items are the minor and major version numbers of this `class` file. Together, a major and a minor version number determine the version of the `class` file format. If a `class` file has major version number M and minor version number m, we denote the version of its `class` file format as M.m. Thus, `class` file format versions may be ordered lexicographically, for example, 1.5 < 2.0 < 2.1.
+    The values of the `minor_version` and `major_version` items are the minor and major version numbers of this `class` file. Together, a major and a minor version number determine the version of the `class` file format. If a `class` file has major version number M and minor version number m, we denote the version of its `class` file format as M.m. Thus, `class` file format versions may be ordered lexicographically, for example, 1.5 < 2.0 < 2.1.
 
-A Java Virtual Machine implementation can support a `class` file format of version v if and only if v lies in some contiguous range Mi.0 ≤ v ≤ Mj.m. The release level of the Java SE platform to which a Java Virtual Machine implementation conforms is responsible for determining the range.
+    A Java Virtual Machine implementation can support a `class` file format of version v if and only if v lies in some contiguous range Mi.0 ≤ v ≤ Mj.m. The release level of the Java SE platform to which a Java Virtual Machine implementation conforms is responsible for determining the range.
 
-Oracle's Java Virtual Machine implementation in JDK release 1.0.2 supports `class` file format versions 45.0 through 45.3 inclusive. JDK releases 1.1.\* support `class` file format versions in the range 45.0 through 45.65535 inclusive. For k ≥ 2, JDK release 1.k supports `class` file format versions in the range 45.0 through 44+k.0 inclusive.
+    Oracle's Java Virtual Machine implementation in JDK release 1.0.2 supports `class` file format versions 45.0 through 45.3 inclusive. JDK releases 1.1.* support `class` file format versions in the range 45.0 through 45.65535 inclusive. For k ≥ 2, JDK release 1.k supports `class` file format versions in the range 45.0 through 44+k.0 inclusive.
 
-constant\_pool\_count
+3. constant_pool_count
 
-The value of the `constant_pool_count` item is equal to the number of entries in the `constant_pool` table plus one. A `constant_pool` index is considered valid if it is greater than zero and less than `constant_pool_count`, with the exception for constants of type `long` and `double` noted in [§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures").
+    The value of the `constant_pool_count` item is equal to the number of entries in the `constant_pool` table plus one. A `constant_pool` index is considered valid if it is greater than zero and less than `constant_pool_count`, with the exception for constants of type `long` and `double` noted in [§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures").
 
-constant\_pool\[\]
+4. constant_pool[]
 
-The `constant_pool` is a table of structures ([§4.4](jvms-4.html#jvms-4.4 "4.4. The Constant Pool")) representing various string constants, class and interface names, field names, and other constants that are referred to within the `ClassFile` structure and its substructures. The format of each `constant_pool` table entry is indicated by its first "tag" byte.
+    The `constant_pool` is a table of structures ([§4.4](jvms-4.html#jvms-4.4 "4.4. The Constant Pool")) representing various string constants, class and interface names, field names, and other constants that are referred to within the `ClassFile` structure and its substructures. The format of each `constant_pool` table entry is indicated by its first "tag" byte.
 
-The `constant_pool` table is indexed from 1 to `constant_pool_count` - 1.
+    The `constant_pool` table is indexed from 1 to `constant_pool_count` - 1.
 
-access\_flags
+5. access_flags
 
-The value of the `access_flags` item is a mask of flags used to denote access permissions to and properties of this class or interface. The interpretation of each flag, when set, is specified in [Table 4.1-A](jvms-4.html#jvms-4.1-200-E.1 "Table 4.1-A. Class access and property modifiers").
+    The value of the `access_flags` item is a mask of flags used to denote access permissions to and properties of this class or interface. The interpretation of each flag, when set, is specified in [Table 4.1-A](jvms-4.html#jvms-4.1-200-E.1 "Table 4.1-A. Class access and property modifiers").
 
-**Table 4.1-A. Class access and property modifiers**
+    **Table 4.1-A. Class access and property modifiers**
 
-  
+    | Flag Name | Value | Interpretation |
+    |-----------|-------|----------------|
+    | `ACC_PUBLIC`     | 0x0001 | Declared `public`; may be accessed from outside its package.
+    | `ACC_FINAL`      | 0x0010 | Declared `final`; no subclasses allowed.
+    | `ACC_SUPER`      | 0x0020 | Treat superclass methods specially when invoked by the _invokespecial_ instruction.
+    | `ACC_INTERFACE`  | 0x0200 | Is an interface, not a class.
+    | `ACC_ABSTRACT`   | 0x0400 | Declared `abstract`; must not be instantiated.
+    | `ACC_SYNTHETIC`  | 0x1000 | Declared synthetic; not present in the source code.
+    | `ACC_ANNOTATION` | 0x2000 | Declared as an annotation type.
+    | `ACC_ENUM`       | 0x4000 | Declared as an `enum` type.
 
-Flag Name
 
-Value
+    An interface is distinguished by the `ACC_INTERFACE` flag being set. If the `ACC_INTERFACE` flag is not set, this `class` file defines a class, not an interface.
 
-Interpretation
+    If the `ACC_INTERFACE` flag is set, the `ACC_ABSTRACT` flag must also be set, and the `ACC_FINAL`, `ACC_SUPER`, and `ACC_ENUM` flags set must not be set.
 
-`ACC_PUBLIC`
+    If the `ACC_INTERFACE` flag is not set, any of the other flags in [Table 4.1-A](jvms-4.html#jvms-4.1-200-E.1 "Table 4.1-A. Class access and property modifiers") may be set except `ACC_ANNOTATION`. However, such a `class` file must not have both its `ACC_FINAL` and `ACC_ABSTRACT` flags set (JLS §8.1.1.2).
 
-0x0001
+    The `ACC_SUPER` flag indicates which of two alternative semantics is to be expressed by the _invokespecial_ instruction ([§_invokespecial_](jvms-6.html#jvms-6.5.invokespecial "invokespecial")) if it appears in this class or interface. Compilers to the instruction set of the Java Virtual Machine should set the `ACC_SUPER` flag. In Java SE 8 and above, the Java Virtual Machine considers the `ACC_SUPER` flag to be set in every `class` file, regardless of the actual value of the flag in the `class` file and the version of the `class` file.
 
-Declared `public`; may be accessed from outside its package.
+    The `ACC_SUPER` flag exists for backward compatibility with code compiled by older compilers for the Java programming language. In JDK releases prior to 1.0.2, the compiler generated `access_flags` in which the flag now representing `ACC_SUPER` had no assigned meaning, and Oracle's Java Virtual Machine implementation ignored the flag if it was set.
 
-`ACC_FINAL`
+    The `ACC_SYNTHETIC` flag indicates that this class or interface was generated by a compiler and does not appear in source code.
 
-0x0010
+    An annotation type must have its `ACC_ANNOTATION` flag set. If the `ACC_ANNOTATION` flag is set, the `ACC_INTERFACE` flag must also be set.
 
-Declared `final`; no subclasses allowed.
+    The `ACC_ENUM` flag indicates that this class or its superclass is declared as an enumerated type.
 
-`ACC_SUPER`
+    All bits of the `access_flags` item not assigned in [Table 4.1-A](jvms-4.html#jvms-4.1-200-E.1 "Table 4.1-A. Class access and property modifiers") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
 
-0x0020
+6. this_class
 
-Treat superclass methods specially when invoked by the _invokespecial_ instruction.
+    The value of the `this_class` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing the class or interface defined by this `class` file.
 
-`ACC_INTERFACE`
+7. super_class
 
-0x0200
+    For a class, the value of the `super_class` item either must be zero or must be a valid index into the `constant_pool` table. If the value of the `super_class` item is nonzero, the `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure representing the direct superclass of the class defined by this `class` file. Neither the direct superclass nor any of its superclasses may have the `ACC_FINAL` flag set in the `access_flags` item of its `ClassFile` structure.
 
-Is an interface, not a class.
+    If the value of the `super_class` item is zero, then this `class` file must represent the class `Object`, the only class or interface without a direct superclass.
 
-`ACC_ABSTRACT`
+    For an interface, the value of the `super_class` item must always be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure representing the class `Object`.
 
-0x0400
+8. interfaces_count
 
-Declared `abstract`; must not be instantiated.
+    The value of the `interfaces_count` item gives the number of direct superinterfaces of this class or interface type.
 
-`ACC_SYNTHETIC`
+9. interfaces[]
 
-0x1000
+    Each value in the `interfaces` array must be a valid index into the `constant_pool` table. The `constant_pool` entry at each value of `interfaces[_i_]`, where 0 ≤ _i_ < `interfaces_count`, must be a `CONSTANT_Class_info` structure representing an interface that is a direct superinterface of this class or interface type, in the left-to-right order given in the source for the type.
 
-Declared synthetic; not present in the source code.
+10. fields_count
 
-`ACC_ANNOTATION`
+    The value of the `fields_count` item gives the number of `field_info` structures in the `fields` table. The `field_info` structures represent all fields, both class variables and instance variables, declared by this class or interface type.
 
-0x2000
+11. fields[]
 
-Declared as an annotation type.
+    Each value in the `fields` table must be a `field_info` structure ([§4.5](jvms-4.html#jvms-4.5 "4.5. Fields")) giving a complete description of a field in this class or interface. The `fields` table includes only those fields that are declared by this class or interface. It does not include items representing fields that are inherited from superclasses or superinterfaces.
 
-`ACC_ENUM`
+12. methods_count
 
-0x4000
+    The value of the `methods_count` item gives the number of `method_info` structures in the `methods` table.
 
-Declared as an `enum` type.
+13. methods[]
 
-  
+    Each value in the `methods` table must be a `method_info` structure ([§4.6](jvms-4.html#jvms-4.6 "4.6. Methods")) giving a complete description of a method in this class or interface. If neither of the `ACC_NATIVE` and `ACC_ABSTRACT` flags are set in the `access_flags` item of a `method_info` structure, the Java Virtual Machine instructions implementing the method are also supplied.
 
-An interface is distinguished by the `ACC_INTERFACE` flag being set. If the `ACC_INTERFACE` flag is not set, this `class` file defines a class, not an interface.
+    The `method_info` structures represent all methods declared by this class or interface type, including instance methods, class methods, instance initialization methods ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")), and any class or interface initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")). The `methods` table does not include items representing methods that are inherited from superclasses or superinterfaces.
 
-If the `ACC_INTERFACE` flag is set, the `ACC_ABSTRACT` flag must also be set, and the `ACC_FINAL`, `ACC_SUPER`, and `ACC_ENUM` flags set must not be set.
+14. attributes_count
 
-If the `ACC_INTERFACE` flag is not set, any of the other flags in [Table 4.1-A](jvms-4.html#jvms-4.1-200-E.1 "Table 4.1-A. Class access and property modifiers") may be set except `ACC_ANNOTATION`. However, such a `class` file must not have both its `ACC_FINAL` and `ACC_ABSTRACT` flags set (JLS §8.1.1.2).
+    The value of the `attributes_count` item gives the number of attributes in the `attributes` table of this class.
 
-The `ACC_SUPER` flag indicates which of two alternative semantics is to be expressed by the _invokespecial_ instruction ([§_invokespecial_](jvms-6.html#jvms-6.5.invokespecial "invokespecial")) if it appears in this class or interface. Compilers to the instruction set of the Java Virtual Machine should set the `ACC_SUPER` flag. In Java SE 8 and above, the Java Virtual Machine considers the `ACC_SUPER` flag to be set in every `class` file, regardless of the actual value of the flag in the `class` file and the version of the `class` file.
+15. attributes[]
 
-The `ACC_SUPER` flag exists for backward compatibility with code compiled by older compilers for the Java programming language. In JDK releases prior to 1.0.2, the compiler generated `access_flags` in which the flag now representing `ACC_SUPER` had no assigned meaning, and Oracle's Java Virtual Machine implementation ignored the flag if it was set.
+    Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
 
-The `ACC_SYNTHETIC` flag indicates that this class or interface was generated by a compiler and does not appear in source code.
+    The attributes defined by this specification as appearing in the `attributes` table of a `ClassFile` structure are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
 
-An annotation type must have its `ACC_ANNOTATION` flag set. If the `ACC_ANNOTATION` flag is set, the `ACC_INTERFACE` flag must also be set.
+    The rules concerning attributes defined to appear in the `attributes` table of a `ClassFile` structure are given in.html#jvms-4.7" title="4.7. Attributes">§4.7.
 
-The `ACC_ENUM` flag indicates that this class or its superclass is declared as an enumerated type.
-
-All bits of the `access_flags` item not assigned in [Table 4.1-A](jvms-4.html#jvms-4.1-200-E.1 "Table 4.1-A. Class access and property modifiers") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
-
-this\_class
-
-The value of the `this_class` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing the class or interface defined by this `class` file.
-
-super\_class
-
-For a class, the value of the `super_class` item either must be zero or must be a valid index into the `constant_pool` table. If the value of the `super_class` item is nonzero, the `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure representing the direct superclass of the class defined by this `class` file. Neither the direct superclass nor any of its superclasses may have the `ACC_FINAL` flag set in the `access_flags` item of its `ClassFile` structure.
-
-If the value of the `super_class` item is zero, then this `class` file must represent the class `Object`, the only class or interface without a direct superclass.
-
-For an interface, the value of the `super_class` item must always be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure representing the class `Object`.
-
-interfaces\_count
-
-The value of the `interfaces_count` item gives the number of direct superinterfaces of this class or interface type.
-
-interfaces\[\]
-
-Each value in the `interfaces` array must be a valid index into the `constant_pool` table. The `constant_pool` entry at each value of `interfaces[_i_]`, where 0 ≤ _i_ < `interfaces_count`, must be a `CONSTANT_Class_info` structure representing an interface that is a direct superinterface of this class or interface type, in the left-to-right order given in the source for the type.
-
-fields\_count
-
-The value of the `fields_count` item gives the number of `field_info` structures in the `fields` table. The `field_info` structures represent all fields, both class variables and instance variables, declared by this class or interface type.
-
-fields\[\]
-
-Each value in the `fields` table must be a `field_info` structure ([§4.5](jvms-4.html#jvms-4.5 "4.5. Fields")) giving a complete description of a field in this class or interface. The `fields` table includes only those fields that are declared by this class or interface. It does not include items representing fields that are inherited from superclasses or superinterfaces.
-
-methods\_count
-
-The value of the `methods_count` item gives the number of `method_info` structures in the `methods` table.
-
-methods\[\]
-
-Each value in the `methods` table must be a `method_info` structure ([§4.6](jvms-4.html#jvms-4.6 "4.6. Methods")) giving a complete description of a method in this class or interface. If neither of the `ACC_NATIVE` and `ACC_ABSTRACT` flags are set in the `access_flags` item of a `method_info` structure, the Java Virtual Machine instructions implementing the method are also supplied.
-
-The `method_info` structures represent all methods declared by this class or interface type, including instance methods, class methods, instance initialization methods ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")), and any class or interface initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")). The `methods` table does not include items representing methods that are inherited from superclasses or superinterfaces.
-
-attributes\_count
-
-The value of the `attributes_count` item gives the number of attributes in the `attributes` table of this class.
-
-attributes\[\]
-
-Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
-
-The attributes defined by this specification as appearing in the `attributes` table of a `ClassFile` structure are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
-
-The rules concerning attributes defined to appear in the `attributes` table of a `ClassFile` structure are given in.html#jvms-4.7" title="4.7. Attributes">§4.7.
-
-The rules concerning non-predefined attributes in the `attributes` table of a `ClassFile` structure are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
+    The rules concerning non-predefined attributes in the `attributes` table of a `ClassFile` structure are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
 
 4.2. The Internal Form of Names
 -------------------------------
@@ -3075,32 +2948,26 @@ The phrase _(one of)_ on the right-hand side of a production signifies that each
 
 A _field descriptor_ represents the type of a class, instance, or local variable.
 
-FieldDescriptor:
+    FieldDescriptor:
+      FieldType
 
-[FieldType](jvms-4.html#jvms-FieldType "FieldType")
+    FieldType:
+      BaseType
+      ObjectType
+      ArrayType
 
-FieldType:
+    BaseType:
+      (one of)  
+      B C D F I J S Z
 
-[BaseType](jvms-4.html#jvms-BaseType "BaseType")  
-[ObjectType](jvms-4.html#jvms-ObjectType "ObjectType")  
-[ArrayType](jvms-4.html#jvms-ArrayType "ArrayType")
+    ObjectType:
+      L ClassName ;
 
-BaseType:
+    ArrayType:
+        [ ComponentType
 
-(one of)  
-`B` `C` `D` `F` `I` `J` `S` `Z`
-
-ObjectType:
-
-`L` ClassName `;`
-
-ArrayType:
-
-`[` [ComponentType](jvms-4.html#jvms-ComponentType "ComponentType")
-
-ComponentType:
-
-[FieldType](jvms-4.html#jvms-FieldType "FieldType")
+    ComponentType:
+        FieldType
 
 The characters of _BaseType_, the `L` and `;` of _ObjectType_, and the `[` of _ArrayType_ are all ASCII characters.
 
@@ -3112,75 +2979,18 @@ A field descriptor representing an array type is valid only if it represents a t
 
 **Table 4.3-A. Interpretation of field descriptors**
 
-  
-
-_FieldType_ term
-
-Type
-
-Interpretation
-
-`B`
-
-`byte`
-
-signed byte
-
-`C`
-
-`char`
-
-Unicode character code point in the Basic Multilingual Plane, encoded with UTF-16
-
-`D`
-
-`double`
-
-double-precision floating-point value
-
-`F`
-
-`float`
-
-single-precision floating-point value
-
-`I`
-
-`int`
-
-integer
-
-`J`
-
-`long`
-
-long integer
-
-`L` _ClassName_ `;`
-
-`reference`
-
-an instance of class _ClassName_
-
-`S`
-
-`short`
-
-signed short
-
-`Z`
-
-`boolean`
-
-`true` or `false`
-
-`[`
-
-`reference`
-
-one array dimension
-
-  
+| _FieldType_ term | Type | Interpretation |
+|------------------|------|----------------|
+| `B` | `byte` | signed byte
+| `C` | `char` | Unicode character code point in the Basic Multilingual Plane, encoded with UTF-16
+| `D` | `double` | double-precision floating-point value
+| `F` | `float` | single-precision floating-point value
+| `I` | `int` | integer
+| `J` | `long` | long integer
+| `L` _ClassName_ `;` | `reference` | an instance of class _ClassName_
+| `S` | `short` | signed short
+| `Z` | `boolean` | `true` or `false`
+| `[` | `reference` | one array dimension
 
 The field descriptor of an instance variable of type `int` is simply `I`.
 
@@ -3192,32 +3002,32 @@ The field descriptor of an instance variable of the multidimensional array type 
 
 A _method descriptor_ contains zero or more _parameter descriptors_, representing the types of parameters that the method takes, and a _return descriptor_, representing the type of the value (if any) that the method returns.
 
-MethodDescriptor:
+    MethodDescriptor:
 
-`(` {[ParameterDescriptor](jvms-4.html#jvms-ParameterDescriptor "ParameterDescriptor")} `)` [ReturnDescriptor](jvms-4.html#jvms-ReturnDescriptor "ReturnDescriptor")
+      `(` {ParameterDescriptor} `)` ReturnDescriptor
 
-ParameterDescriptor:
+    ParameterDescriptor:
 
-[FieldType](jvms-4.html#jvms-FieldType "FieldType")
+      FieldType
 
-ReturnDescriptor:
+    ReturnDescriptor:
 
-[FieldType](jvms-4.html#jvms-FieldType "FieldType")  
-[VoidDescriptor](jvms-4.html#jvms-VoidDescriptor "VoidDescriptor")
+      FieldType
+      VoidDescriptor
 
-VoidDescriptor:
+    VoidDescriptor:
 
-`V`
+      `V`
 
 The character `V` indicates that the method returns no value (its result is `void`).
 
 The method descriptor for the method:
 
-Object m(int i, double d, Thread t) {...}
+    Object m(int i, double d, Thread t) {...}
 
 is:
 
-(IDLjava/lang/Thread;)Ljava/lang/Object;
+    (IDLjava/lang/Thread;)Ljava/lang/Object;
 
 Note that the internal forms of the binary names of `Thread` and `Object` are used.
 
@@ -3232,97 +3042,55 @@ Java Virtual Machine instructions do not rely on the run-time layout of classes,
 
 All `constant_pool` table entries have the following general format:
 
-cp\_info {
+```java
+cp_info {
     u1 tag;
-    u1 info\[\];
+    u1 info[];
 }
+```
 
 Each item in the `constant_pool` table must begin with a 1-byte tag indicating the kind of `cp_info` entry. The contents of the `info` array vary with the value of `tag`. The valid tags and their values are listed in [Table 4.4-A](jvms-4.html#jvms-4.4-140 "Table 4.4-A. Constant pool tags"). Each tag byte must be followed by two or more bytes giving information about the specific constant. The format of the additional information varies with the tag value.
 
 **Table 4.4-A. Constant pool tags**
 
- 
+| Value |         Constant Type         |
+|-------|-------------------------------|
+|     7 | `CONSTANT_Class`              |
+|     9 | `CONSTANT_Fieldref`           |
+|    10 | `CONSTANT_Methodref`          |
+|    11 | `CONSTANT_InterfaceMethodref` |
+|     8 | `CONSTANT_String`             |
+|     3 | `CONSTANT_Integer`            |
+|     4 | `CONSTANT_Float`              |
+|     5 | `CONSTANT_Long`               |
+|     6 | `CONSTANT_Double`             |
+|    12 | `CONSTANT_NameAndType`        |
+|     1 | `CONSTANT_Utf8`               |
+|    15 | `CONSTANT_MethodHandle`       |
+|    16 | `CONSTANT_MethodType`         |
+|    18 | `CONSTANT_InvokeDynamic`      |
 
-Constant Type
-
-Value
-
-`CONSTANT_Class`
-
-7
-
-`CONSTANT_Fieldref`
-
-9
-
-`CONSTANT_Methodref`
-
-10
-
-`CONSTANT_InterfaceMethodref`
-
-11
-
-`CONSTANT_String`
-
-8
-
-`CONSTANT_Integer`
-
-3
-
-`CONSTANT_Float`
-
-4
-
-`CONSTANT_Long`
-
-5
-
-`CONSTANT_Double`
-
-6
-
-`CONSTANT_NameAndType`
-
-12
-
-`CONSTANT_Utf8`
-
-1
-
-`CONSTANT_MethodHandle`
-
-15
-
-`CONSTANT_MethodType`
-
-16
-
-`CONSTANT_InvokeDynamic`
-
-18
-
-  
 
 ### 4.4.1. The `CONSTANT_Class_info` Structure
 
 The `CONSTANT_Class_info` structure is used to represent a class or an interface:
 
-CONSTANT\_Class\_info {
+```java
+CONSTANT_Class_info {
     u1 tag;
-    u2 name\_index;
+    u2 name_index;
 }
+```
 
 The items of the `CONSTANT_Class_info` structure are as follows:
 
-tag
+1. tag
 
-The `tag` item has the value `CONSTANT_Class` (7).
+    The `tag` item has the value `CONSTANT_Class` (7).
 
-name\_index
+2. name_index
 
-The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid binary class or interface name encoded in internal form ([§4.2.1](jvms-4.html#jvms-4.2.1 "4.2.1. Binary Class and Interface Names")).
+    The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid binary class or interface name encoded in internal form ([§4.2.1](jvms-4.html#jvms-4.2.1 "4.2.1. Binary Class and Interface Names")).
 
 Because arrays are objects, the opcodes _anewarray_ and _multianewarray_ - but not the opcode _new_ - can reference array "classes" via `CONSTANT_Class_info` structures in the `constant_pool` table. For such array classes, the name of the class is the descriptor of the array type ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")).
 
@@ -3330,138 +3098,147 @@ For example, the class name representing the two-dimensional array type `int[][]
 
 An array type descriptor is valid only if it represents 255 or fewer dimensions.
 
-### 4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `### 4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `
+### 4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `CONSTANT_InterfaceMethodref_info` Structures
 
 Fields, methods, and interface methods are represented by similar structures:
 
-CONSTANT\_Fieldref\_info {
+```java
+CONSTANT_Fieldref_info {
     u1 tag;
-    u2 class\_index;
-    u2 name\_and\_type\_index;
+    u2 class_index;
+    u2 name_and_type_index;
 }
 
-CONSTANT\_Methodref\_info {
+CONSTANT_Methodref_info {
     u1 tag;
-    u2 class\_index;
-    u2 name\_and\_type\_index;
+    u2 class_index;
+    u2 name_and_type_index;
 }
 
-CONSTANT\_InterfaceMethodref\_info {
+CONSTANT_InterfaceMethodref_info {
     u1 tag;
-    u2 class\_index;
-    u2 name\_and\_type\_index;
+    u2 class_index;
+    u2 name_and_type_index;
 }
+```
 
 The items of these structures are as follows:
 
-tag
+1. tag
 
-The `tag` item of a `CONSTANT_Fieldref_info` structure has the value `CONSTANT_Fieldref` (9).
+    The `tag` item of a `CONSTANT_Fieldref_info` structure has the value `CONSTANT_Fieldref` (9).
 
-The `tag` item of a `CONSTANT_Methodref_info` structure has the value `CONSTANT_Methodref` (10).
+    The `tag` item of a `CONSTANT_Methodref_info` structure has the value `CONSTANT_Methodref` (10).
 
-The `tag` item of a `CONSTANT_InterfaceMethodref_info` structure has the value `CONSTANT_InterfaceMethodref` (11).
+    The `tag` item of a `CONSTANT_InterfaceMethodref_info` structure has the value `CONSTANT_InterfaceMethodref` (11).
 
-class\_index
+2. class_index
 
-The value of the `class_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing a class or interface type that has the field or method as a member.
+    The value of the `class_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing a class or interface type that has the field or method as a member.
 
-The `class_index` item of a `CONSTANT_Methodref_info` structure must be a class type, not an interface type.
+    The `class_index` item of a `CONSTANT_Methodref_info` structure must be a class type, not an interface type.
 
-The `class_index` item of a `CONSTANT_InterfaceMethodref_info` structure must be an interface type.
+    The `class_index` item of a `CONSTANT_InterfaceMethodref_info` structure must be an interface type.
 
-The `class_index` item of a `CONSTANT_Fieldref_info` structure may be either a class type or an interface type.
+    The `class_index` item of a `CONSTANT_Fieldref_info` structure may be either a class type or an interface type.
 
-name\_and\_type\_index
+3. name_and_type_index
 
-The value of the `name_and_type_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_NameAndType_info` structure ([§4.4.6](jvms-4.html#jvms-4.4.6 "4.4.6. The CONSTANT_NameAndType_info Structure")). This `constant_pool` entry indicates the name and descriptor of the field or method.
+    The value of the `name_and_type_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_NameAndType_info` structure ([§4.4.6](jvms-4.html#jvms-4.4.6 "4.4.6. The CONSTANT_NameAndType_info Structure")). This `constant_pool` entry indicates the name and descriptor of the field or method.
 
-In a `CONSTANT_Fieldref_info`, the indicated descriptor must be a field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")). Otherwise, the indicated descriptor must be a method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
+    In a `CONSTANT_Fieldref_info`, the indicated descriptor must be a field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")). Otherwise, the indicated descriptor must be a method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
 
-If the name of the method of a `CONSTANT_Methodref_info` structure begins with a '`<`' ('`\u003c`'), then the name must be the special name `<init>`, representing an instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")). The return type of such a method must be `void`.
+    If the name of the method of a `CONSTANT_Methodref_info` structure begins with a '`<`' ('`\u003c`'), then the name must be the special name `<init>`, representing an instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")). The return type of such a method must be `void`.
 
 ### 4.4.3. The `CONSTANT_String_info` Structure
 
 The `CONSTANT_String_info` structure is used to represent constant objects of the type `String`:
 
-CONSTANT\_String\_info {
+```java
+CONSTANT_String_info {
     u1 tag;
-    u2 string\_index;
+    u2 string_index;
 }
+```
 
 The items of the `CONSTANT_String_info` structure are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_String_info` structure has the value `CONSTANT_String` (8).
+    The `tag` item of the `CONSTANT_String_info` structure has the value `CONSTANT_String` (8).
 
-string\_index
+2. string_index
 
-The value of the `string_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the sequence of Unicode code points to which the `String` object is to be initialized.
+    The value of the `string_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the sequence of Unicode code points to which the `String` object is to be initialized.
 
 ### 4.4.4. The `CONSTANT_Integer_info` and `CONSTANT_Float_info` Structures
 
 The `CONSTANT_Integer_info` and `CONSTANT_Float_info` structures represent 4-byte numeric (`int` and `float`) constants:
 
-CONSTANT\_Integer\_info {
+```java
+CONSTANT_Integer_info {
     u1 tag;
     u4 bytes;
 }
 
-CONSTANT\_Float\_info {
+CONSTANT_Float_info {
     u1 tag;
     u4 bytes;
 }
+```
 
 The items of these structures are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_Integer_info` structure has the value `CONSTANT_Integer` (3).
+    The `tag` item of the `CONSTANT_Integer_info` structure has the value `CONSTANT_Integer` (3).
 
-The `tag` item of the `CONSTANT_Float_info` structure has the value `CONSTANT_Float` (4).
+    The `tag` item of the `CONSTANT_Float_info` structure has the value `CONSTANT_Float` (4).
 
-bytes
+2. bytes
 
-The `bytes` item of the `CONSTANT_Integer_info` structure represents the value of the `int` constant. The bytes of the value are stored in big-endian (high byte first) order.
+    The `bytes` item of the `CONSTANT_Integer_info` structure represents the value of the `int` constant. The bytes of the value are stored in big-endian (high byte first) order.
 
-The `bytes` item of the `CONSTANT_Float_info` structure represents the value of the `float` constant in IEEE 754 floating-point single format ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")). The bytes of the single format representation are stored in big-endian (high byte first) order.
+    The `bytes` item of the `CONSTANT_Float_info` structure represents the value of the `float` constant in IEEE 754 floating-point single format ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")). The bytes of the single format representation are stored in big-endian (high byte first) order.
 
-The value represented by the `CONSTANT_Float_info` structure is determined as follows. The bytes of the value are first converted into an `int` constant _bits_. Then:
+    The value represented by the `CONSTANT_Float_info` structure is determined as follows. The bytes of the value are first converted into an `int` constant _bits_. Then:
 
-*   If _bits_ is `0x7f800000`, the `float` value will be positive infinity.
+    *   If _bits_ is `0x7f800000`, the `float` value will be positive infinity.
+        
+    *   If _bits_ is `0xff800000`, the `float` value will be negative infinity.
+        
+    *   If _bits_ is in the range `0x7f800001` through `0x7fffffff` or in the range `0xff800001` through `0xffffffff`, the `float` value will be NaN.
+        
+    *   In all other cases, let `s`, `e`, and `m` be three values that might be computed from _bits_:
     
-*   If _bits_ is `0xff800000`, the `float` value will be negative infinity.
-    
-*   If _bits_ is in the range `0x7f800001` through `0x7fffffff` or in the range `0xff800001` through `0xffffffff`, the `float` value will be NaN.
-    
-*   In all other cases, let `s`, `e`, and `m` be three values that might be computed from _bits_:
-    
+    ```java
     int s = ((_bits_ >> 31) == 0) ? 1 : -1;
     int e = ((_bits_ >> 23) & 0xff);
     int m = (e == 0) ?
               (_bits_ & 0x7fffff) << 1 :
               (_bits_ & 0x7fffff) | 0x800000;
-    	  
+    ```
     
 
-Then the `float` value equals the result of the mathematical expression `s · m · 2e-150`.
+    Then the `float` value equals the result of the mathematical expression `s · m · 2^e-150`.
 
 ### 4.4.5. The `CONSTANT_Long_info` and `CONSTANT_Double_info` Structures
 
 The `CONSTANT_Long_info` and `CONSTANT_Double_info` represent 8-byte numeric (`long` and `double`) constants:
 
-CONSTANT\_Long\_info {
+```java
+CONSTANT_Long_info {
     u1 tag;
-    u4 high\_bytes;
-    u4 low\_bytes;
+    u4 high_bytes;
+    u4 low_bytes;
 }
 
-CONSTANT\_Double\_info {
+CONSTANT_Double_info {
     u1 tag;
-    u4 high\_bytes;
-    u4 low\_bytes;
+    u4 high_bytes;
+    u4 low_bytes;
 }
+```
 
 All 8-byte constants take up two entries in the `constant_pool` table of the `class` file. If a `CONSTANT_Long_info` or `CONSTANT_Double_info` structure is the item in the `constant_pool` table at index _n_, then the next usable item in the pool is located at index _n_+2. The `constant_pool` index _n_+1 must be valid but is considered unusable.
 
@@ -3469,111 +3246,109 @@ In retrospect, making 8-byte constants take two constant pool entries was a poor
 
 The items of these structures are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_Long_info` structure has the value `CONSTANT_Long` (5).
+    The `tag` item of the `CONSTANT_Long_info` structure has the value `CONSTANT_Long` (5).
 
-The `tag` item of the `CONSTANT_Double_info` structure has the value `CONSTANT_Double` (6).
+    The `tag` item of the `CONSTANT_Double_info` structure has the value `CONSTANT_Double` (6).
 
-high\_bytes, low\_bytes
+2. high_bytes, low_bytes
 
-The unsigned `high_bytes` and `low_bytes` items of the `CONSTANT_Long_info` structure together represent the value of the `long` constant
+    The unsigned `high_bytes` and `low_bytes` items of the `CONSTANT_Long_info` structure together represent the value of the `long` constant
 
-((long) high\_bytes << 32) + low\_bytes
-      
+    ((long) high_bytes << 32) + low_bytes
+          
 
-where the bytes of each of `high_bytes` and `low_bytes` are stored in big-endian (high byte first) order.
+    where the bytes of each of `high_bytes` and `low_bytes` are stored in big-endian (high byte first) order.
 
-The `high_bytes` and `low_bytes` items of the `CONSTANT_Double_info` structure together represent the `double` value in IEEE 754 floating-point double format ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")). The bytes of each item are stored in big-endian (high byte first) order.
+    The `high_bytes` and `low_bytes` items of the `CONSTANT_Double_info` structure together represent the `double` value in IEEE 754 floating-point double format ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")). The bytes of each item are stored in big-endian (high byte first) order.
 
-The value represented by the `CONSTANT_Double_info` structure is determined as follows. The `high_bytes` and `low_bytes` items are converted into the `long` constant _bits_, which is equal to
+    The value represented by the `CONSTANT_Double_info` structure is determined as follows. The `high_bytes` and `low_bytes` items are converted into the `long` constant _bits_, which is equal to
 
-((long) high\_bytes << 32) + low\_bytes
-      
+    ((long) high_bytes << 32) + low_bytes
+          
 
-Then:
+    Then:
 
-*   If _bits_ is `0x7ff0000000000000L`, the `double` value will be positive infinity.
-    
-*   If _bits_ is `0xfff0000000000000L`, the `double` value will be negative infinity.
-    
-*   If _bits_ is in the range `0x7ff0000000000001L` through `0x7fffffffffffffffL` or in the range `0xfff0000000000001L` through `0xffffffffffffffffL`, the double value will be NaN.
-    
-*   In all other cases, let `s`, `e`, and `m` be three values that might be computed from _bits_:
-    
-    int s = ((_bits_ >> 63) == 0) ? 1 : -1;
-    int e = (int)((_bits_ >> 52) & 0x7ffL);
-    long m = (e == 0) ?
-               (_bits_ & 0xfffffffffffffL) << 1 :
-               (_bits_ & 0xfffffffffffffL) | 0x10000000000000L;
-    	  
-    
-
-Then the floating-point value equals the `double` value of the mathematical expression `s · m · 2e-1075`.
+    *   If _bits_ is `0x7ff0000000000000L`, the `double` value will be positive infinity.
+        
+    *   If _bits_ is `0xfff0000000000000L`, the `double` value will be negative infinity.
+        
+    *   If _bits_ is in the range `0x7ff0000000000001L` through `0x7fffffffffffffffL` or in the range `0xfff0000000000001L` through `0xffffffffffffffffL`, the double value will be NaN.
+        
+    *   In all other cases, let `s`, `e`, and `m` be three values that might be computed from _bits_:
+        
+        int s = ((_bits_ >> 63) == 0) ? 1 : -1;
+        int e = (int)((_bits_ >> 52) & 0x7ffL);
+        long m = (e == 0) ?
+                   (_bits_ & 0xfffffffffffffL) << 1 :
+                   (_bits_ & 0xfffffffffffffL) | 0x10000000000000L;
+        	  
+    Then the floating-point value equals the `double` value of the mathematical expression `s · m · 2e-1075`.
 
 ### 4.4.6. The `CONSTANT_NameAndType_info` Structure
 
 The `CONSTANT_NameAndType_info` structure is used to represent a field or method, without indicating which class or interface type it belongs to:
 
-CONSTANT\_NameAndType\_info {
+```java
+CONSTANT_NameAndType_info {
     u1 tag;
-    u2 name\_index;
-    u2 descriptor\_index;
+    u2 name_index;
+    u2 descriptor_index;
 }
+```
 
 The items of the `CONSTANT_NameAndType_info` structure are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_NameAndType_info` structure has the value `CONSTANT_NameAndType` (12).
+    The `tag` item of the `CONSTANT_NameAndType_info` structure has the value `CONSTANT_NameAndType` (12).
 
-name\_index
+2. name_index
 
-The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing either the special method name `<init>` ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) or a valid unqualified name denoting a field or method ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
+    The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing either the special method name `<init>` ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) or a valid unqualified name denoting a field or method ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
 
-descriptor\_index
+3. descriptor_index
 
-The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid field descriptor or method descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors"), [§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
+    The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid field descriptor or method descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors"), [§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
 
 ### 4.4.7. The `CONSTANT_Utf8_info` Structure
 
 The `CONSTANT_Utf8_info` structure is used to represent constant string values:
 
-CONSTANT\_Utf8\_info {
+```java
+CONSTANT_Utf8_info {
     u1 tag;
     u2 length;
-    u1 bytes\[length\];
+    u1 bytes[length];
 }
+```
 
 The items of the `CONSTANT_Utf8_info` structure are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_Utf8_info` structure has the value `CONSTANT_Utf8` (1).
+    The `tag` item of the `CONSTANT_Utf8_info` structure has the value `CONSTANT_Utf8` (1).
 
-length
+2. length
 
-The value of the `length` item gives the number of bytes in the `bytes` array (not the length of the resulting string).
+    The value of the `length` item gives the number of bytes in the `bytes` array (not the length of the resulting string).
 
-bytes\[\]
+3. bytes[]
 
-The `bytes` array contains the bytes of the string.
+    The `bytes` array contains the bytes of the string.
 
-No byte may have the value `(byte)0`.
+    No byte may have the value `(byte)0`.
 
-No byte may lie in the range `(byte)0xf0` to `(byte)0xff`.
+    No byte may lie in the range `(byte)0xf0` to `(byte)0xff`.
 
-String content is encoded in modified UTF-8. Modified UTF-8 strings are encoded so that code point sequences that contain only non-null ASCII characters can be represented using only 1 byte per code point, but all code points in the Unicode codespace can be represented. Modified UTF-8 strings are not null-terminated. The encoding is as follows:*   Code points in the range '`\u0001`' to '`\u007F`' are represented by a single byte:
+String content is encoded in modified UTF-8. Modified UTF-8 strings are encoded so that code point sequences that contain only non-null ASCII characters can be represented using only 1 byte per code point, but all code points in the Unicode codespace can be represented. Modified UTF-8 strings are not null-terminated. The encoding is as follows:
+
+*   Code points in the range '`\u0001`' to '`\u007F`' are represented by a single byte:
     
     **Table 4.4.** 
     
-           
-    
-    _0_
-    
-    _bits 6-0_
-    
-      
+    _0_ _bits 6-0_
     
     The 7 bits of data in the byte give the value of the code point represented.
     
@@ -3585,35 +3360,17 @@ String content is encoded in modified UTF-8. Modified UTF-8 strings are encoded 
     
     `x`:
     
-    **Table 4.6.** 
+    **Table 4.6.**
     
-           
-    
-    _1_
-    
-    _1_
-    
-    _0_
-    
-    _bits 10-6_
+    _1_ _1_ _0_ _bits 10-6_
     
       
     
     `y`:
     
-    **Table 4.7.** 
+    **Table 4.7.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _bits 5-0_
-    
-      
-    
-      
+    _1_ _0_ _bits 5-0_
     
     The two bytes represent the code point with the value:
     
@@ -3624,53 +3381,27 @@ String content is encoded in modified UTF-8. Modified UTF-8 strings are encoded 
     
     **Table 4.8.** 
     
-     
     
     `x`:
     
-    **Table 4.9.** 
+    **Table 4.9.**
     
-           
-    
-    _1_
-    
-    _1_
-    
-    _1_
-    
-    _0_
-    
-    _bits 15-12_
+    _1_ _1_ _1_ _0_ _bits 15-12_
     
       
     
     `y`:
     
-    **Table 4.10.** 
+    **Table 4.10.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _bits 11-6_
-    
+    _1_ _0_ _bits 11-6_
       
     
     `z`:
     
-    **Table 4.11.** 
+    **Table 4.11.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _bits 5-0_
-    
-      
+    _1_ _0_ _bits 5-0_
     
       
     
@@ -3687,124 +3418,53 @@ String content is encoded in modified UTF-8. Modified UTF-8 strings are encoded 
     
     `u`:
     
-    **Table 4.13.** 
+    **Table 4.13.**
     
-           
-    
-    _1_
-    
-    _1_
-    
-    _1_
-    
-    _0_
-    
-    _1_
-    
-    _1_
-    
-    _0_
-    
-    _1_
+    _1_ _1_ _1_ _0_ _1_ _1_ _0_ _1_
     
       
     
     `v`:
     
-    **Table 4.14.** 
+    **Table 4.14.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _1_
-    
-    _0_
-    
-    _(bits 20-16)-1_
+    _1_ _0_ _1_ _0_ _(bits 20-16)-1_
     
       
     
     `w`:
     
-    **Table 4.15.** 
+    **Table 4.15.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _bits 15-10_
-    
-      
+    _1_ _0_ _bits 15-10_
     
     `x`:
     
-    **Table 4.16.** 
+    **Table 4.16.**
     
-           
-    
-    _1_
-    
-    _1_
-    
-    _1_
-    
-    _0_
-    
-    _1_
-    
-    _1_
-    
-    _0_
-    
-    _1_
+    _1_ _1_ _1_ _0_ _1_ _1_ _0_ _1_
     
       
     
     `y`:
     
-    **Table 4.17.** 
+    **Table 4.17.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _1_
-    
-    _1_
-    
-    _bits 9-6_
+    _1_ _0_ _1_ _1_ _bits 9-6_
     
       
     
     `z`:
     
-    **Table 4.18.** 
+    **Table 4.18.**
     
-           
-    
-    _1_
-    
-    _0_
-    
-    _bits 5-0_
-    
-      
-    
-      
-    
+    _1_ _0_ _bits 5-0_
+
     The six bytes represent the code point with the value:
     
     0x10000 + ((v & 0x0f) << 16) + ((w & 0x3f) << 10) +
     ((y & 0x0f) << 6) + (z & 0x3f)
         
-    
 
 The bytes of multibyte characters are stored in the `class` file in big-endian (high byte first) order.
 
@@ -3816,81 +3476,87 @@ For more information regarding the standard UTF-8 format, see Section 3.9 _Unico
 
 The `CONSTANT_MethodHandle_info` structure is used to represent a method handle:
 
-CONSTANT\_MethodHandle\_info {
+```java
+CONSTANT_MethodHandle_info {
     u1 tag;
-    u1 reference\_kind;
-    u2 reference\_index;
+    u1 reference_kind;
+    u2 reference_index;
 }
+```
 
 The items of the `CONSTANT_MethodHandle_info` structure are the following:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_MethodHandle_info` structure has the value `CONSTANT_MethodHandle` (15).
+    The `tag` item of the `CONSTANT_MethodHandle_info` structure has the value `CONSTANT_MethodHandle` (15).
 
-reference\_kind
+2. reference_kind
 
-The value of the `reference_kind` item must be in the range 1 to 9. The value denotes the _kind_ of this method handle, which characterizes its bytecode behavior ([§5.4.3.5](jvms-5.html#jvms-5.4.3.5 "5.4.3.5. Method Type and Method Handle Resolution")).
+    The value of the `reference_kind` item must be in the range 1 to 9. The value denotes the _kind_ of this method handle, which characterizes its bytecode behavior ([§5.4.3.5](jvms-5.html#jvms-5.4.3.5 "5.4.3.5. Method Type and Method Handle Resolution")).
 
-reference\_index
+3. reference_index
 
-The value of the `reference_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be as follows:
+    The value of the `reference_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be as follows:
 
-*   If the value of the `reference_kind` item is 1 (`REF_getField`), 2 (`REF_getStatic`), 3 (`REF_putField`), or 4 (`REF_putStatic`), then the `constant_pool` entry at that index must be a `CONSTANT_Fieldref_info` ([§4.4.2](jvms-4.html#jvms-4.4.2 "4.4.2. The CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info Structures")) structure representing a field for which a method handle is to be created.
-    
-*   If the value of the `reference_kind` item is 5 (`REF_invokeVirtual`) or 8 (`REF_newInvokeSpecial`), then the `constant_pool` entry at that index must be a `CONSTANT_Methodref_info` structure ([§4.4.2](jvms-4.html#jvms-4.4.2 "4.4.2. The CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info Structures")) representing a class's method or constructor ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) for which a method handle is to be created.
-    
-*   If the value of the `reference_kind` item is 6 (`REF_invokeStatic`) or 7 (`REF_invokeSpecial`), then if the `class` file version number is less than 52.0, the `constant_pool` entry at that index must be a `CONSTANT_Methodref_info` structure representing a class's method for which a method handle is to be created; if the `class` file version number is 52.0 or above, the `constant_pool` entry at that index must be either a `CONSTANT_Methodref_info` structure or a `CONSTANT_InterfaceMethodref_info` structure ([§4.4.2](jvms-4.html#jvms-4.4.2 "4.4.2. The CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info Structures")) representing a class's or interface's method for which a method handle is to be created.
-    
-*   If the value of the `reference_kind` item is 9 (`REF_invokeInterface`), then the `constant_pool` entry at that index must be a `CONSTANT_InterfaceMethodref_info` structure representing an interface's method for which a method handle is to be created.
-    
+    *   If the value of the `reference_kind` item is 1 (`REF_getField`), 2 (`REF_getStatic`), 3 (`REF_putField`), or 4 (`REF_putStatic`), then the `constant_pool` entry at that index must be a `CONSTANT_Fieldref_info` ([§4.4.2](jvms-4.html#jvms-4.4.2 "4.4.2. The CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info Structures")) structure representing a field for which a method handle is to be created.
+        
+    *   If the value of the `reference_kind` item is 5 (`REF_invokeVirtual`) or 8 (`REF_newInvokeSpecial`), then the `constant_pool` entry at that index must be a `CONSTANT_Methodref_info` structure ([§4.4.2](jvms-4.html#jvms-4.4.2 "4.4.2. The CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info Structures")) representing a class's method or constructor ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) for which a method handle is to be created.
+        
+    *   If the value of the `reference_kind` item is 6 (`REF_invokeStatic`) or 7 (`REF_invokeSpecial`), then if the `class` file version number is less than 52.0, the `constant_pool` entry at that index must be a `CONSTANT_Methodref_info` structure representing a class's method for which a method handle is to be created; if the `class` file version number is 52.0 or above, the `constant_pool` entry at that index must be either a `CONSTANT_Methodref_info` structure or a `CONSTANT_InterfaceMethodref_info` structure ([§4.4.2](jvms-4.html#jvms-4.4.2 "4.4.2. The CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info Structures")) representing a class's or interface's method for which a method handle is to be created.
+        
+    *   If the value of the `reference_kind` item is 9 (`REF_invokeInterface`), then the `constant_pool` entry at that index must be a `CONSTANT_InterfaceMethodref_info` structure representing an interface's method for which a method handle is to be created.
+        
 
-If the value of the `reference_kind` item is 5 (`REF_invokeVirtual`), 6 (`REF_invokeStatic`), 7 (`REF_invokeSpecial`), or 9 (`REF_invokeInterface`), the name of the method represented by a `CONSTANT_Methodref_info` structure or a `CONSTANT_InterfaceMethodref_info` structure must not be `<init>` or `<clinit>`.
+    If the value of the `reference_kind` item is 5 (`REF_invokeVirtual`), 6 (`REF_invokeStatic`), 7 (`REF_invokeSpecial`), or 9 (`REF_invokeInterface`), the name of the method represented by a `CONSTANT_Methodref_info` structure or a `CONSTANT_InterfaceMethodref_info` structure must not be `<init>` or `<clinit>`.
 
-If the value is 8 (`REF_newInvokeSpecial`), the name of the method represented by a `CONSTANT_Methodref_info` structure must be `<init>`.
+    If the value is 8 (`REF_newInvokeSpecial`), the name of the method represented by a `CONSTANT_Methodref_info` structure must be `<init>`.
 
 ### 4.4.9. The `CONSTANT_MethodType_info` Structure
 
 The `CONSTANT_MethodType_info` structure is used to represent a method type:
 
-CONSTANT\_MethodType\_info {
+```java
+CONSTANT_MethodType_info {
     u1 tag;
-    u2 descriptor\_index;
+    u2 descriptor_index;
 }
+```
 
 The items of the `CONSTANT_MethodType_info` structure are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_MethodType_info` structure has the value `CONSTANT_MethodType` (16).
+    The `tag` item of the `CONSTANT_MethodType_info` structure has the value `CONSTANT_MethodType` (16).
 
-descriptor\_index
+2. descriptor_index
 
-The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
+    The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
 
 ### 4.4.10. The `CONSTANT_InvokeDynamic_info` Structure
 
 The `CONSTANT_InvokeDynamic_info` structure is used by an _invokedynamic_ instruction ([§_invokedynamic_](jvms-6.html#jvms-6.5.invokedynamic "invokedynamic")) to specify a bootstrap method, the dynamic invocation name, the argument and return types of the call, and optionally, a sequence of additional constants called _static arguments_ to the bootstrap method.
 
-CONSTANT\_InvokeDynamic\_info {
+```java
+CONSTANT_InvokeDynamic_info {
     u1 tag;
-    u2 bootstrap\_method\_attr\_index;
-    u2 name\_and\_type\_index;
+    u2 bootstrap_method_attr_index;
+    u2 name_and_type_index;
 }
+```
 
 The items of the `CONSTANT_InvokeDynamic_info` structure are as follows:
 
-tag
+1. tag
 
-The `tag` item of the `CONSTANT_InvokeDynamic_info` structure has the value `CONSTANT_InvokeDynamic` (18).
+    The `tag` item of the `CONSTANT_InvokeDynamic_info` structure has the value `CONSTANT_InvokeDynamic` (18).
 
-bootstrap\_method\_attr\_index
+2. bootstrap_method_attr_index
 
-The value of the `bootstrap_method_attr_index` item must be a valid index into the `bootstrap_methods` array of the bootstrap method table ([§4.7.23](jvms-4.html#jvms-4.7.23 "4.7.23. The BootstrapMethods Attribute")) of this `class` file.
+    The value of the `bootstrap_method_attr_index` item must be a valid index into the `bootstrap_methods` array of the bootstrap method table ([§4.7.23](jvms-4.html#jvms-4.7.23 "4.7.23. The BootstrapMethods Attribute")) of this `class` file.
 
-name\_and\_type\_index
+3. name_and_type_index
 
-The value of the `name_and_type_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_NameAndType_info` structure ([§4.4.6](jvms-4.html#jvms-4.4.6 "4.4.6. The CONSTANT_NameAndType_info Structure")) representing a method name and method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
+    The value of the `name_and_type_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_NameAndType_info` structure ([§4.4.6](jvms-4.html#jvms-4.4.6 "4.4.6. The CONSTANT_NameAndType_info Structure")) representing a method name and method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
 
 4.5. Fields
 -----------
@@ -3901,119 +3567,72 @@ No two fields in one `class` file may have the same name and descriptor ([§4.3.
 
 The structure has the following format:
 
-field\_info {
-    u2             access\_flags;
-    u2             name\_index;
-    u2             descriptor\_index;
-    u2             attributes\_count;
-    attribute\_info attributes\[attributes\_count\];
+```java
+field_info {
+    u2             access_flags;
+    u2             name_index;
+    u2             descriptor_index;
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
 }
+```
 
 The items of the `field_info` structure are as follows:
 
-access\_flags
+1. access_flags
 
-The value of the `access_flags` item is a mask of flags used to denote access permission to and properties of this field. The interpretation of each flag, when set, is specified in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags").
+    The value of the `access_flags` item is a mask of flags used to denote access permission to and properties of this field. The interpretation of each flag, when set, is specified in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags").
 
-**Table 4.5-A. Field access and property flags**
+    **Table 4.5-A. Field access and property flags**
 
-  
+    | Flag Name | Value | Interpretation |
+    |-----------|-------|----------------|
+    | `ACC_PUBLIC` | 0x0001 | Declared `public`; may be accessed from outside its package.
+    | `ACC_PRIVATE` | 0x0002 | Declared `private`; usable only within the defining class.
+    | `ACC_PROTECTED` | 0x0004 | Declared `protected`; may be accessed within subclasses.
+    | `ACC_STATIC` | 0x0008 | Declared `static`.
+    | `ACC_FINAL` | 0x0010 | Declared `final`; never directly assigned to after object construction (JLS §17.5).
+    | `ACC_VOLATILE` | 0x0040 | Declared `volatile`; cannot be cached.
+    | `ACC_TRANSIENT` | 0x0080 | Declared `transient`; not written or read by a persistent object manager.
+    | `ACC_SYNTHETIC` | 0x1000 | Declared synthetic; not present in the source code.
+    | `ACC_ENUM` | 0x4000 | Declared as an element of an `enum`.
+      
 
-Flag Name
+    Fields of classes may set any of the flags in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags"). However, each field of a class may have at most one of its `ACC_PUBLIC`, `ACC_PRIVATE`, and `ACC_PROTECTED` flags set (JLS §8.3.1), and must not have both its `ACC_FINAL` and `ACC_VOLATILE` flags set (JLS §8.3.1.4).
 
-Value
+    Fields of interfaces must have their `ACC_PUBLIC`, `ACC_STATIC`, and `ACC_FINAL` flags set; they may have their `ACC_SYNTHETIC` flag set and must not have any of the other flags in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags") set (JLS §9.3).
 
-Interpretation
+    The `ACC_SYNTHETIC` flag indicates that this field was generated by a compiler and does not appear in source code.
 
-`ACC_PUBLIC`
+    The `ACC_ENUM` flag indicates that this field is used to hold an element of an enumerated type.
 
-0x0001
+    All bits of the `access_flags` item not assigned in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
 
-Declared `public`; may be accessed from outside its package.
+2. name_index
 
-`ACC_PRIVATE`
+    The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) which represents a valid unqualified name denoting a field ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
 
-0x0002
+3. descriptor_index
 
-Declared `private`; usable only within the defining class.
+    The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) which represents a valid field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")).
 
-`ACC_PROTECTED`
+4. attributes_count
 
-0x0004
+    The value of the `attributes_count` item indicates the number of additional attributes of this field.
 
-Declared `protected`; may be accessed within subclasses.
+5. attributes[]
 
-`ACC_STATIC`
+    Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
 
-0x0008
+    A field can have any number of optional attributes associated with it.
 
-Declared `static`.
+    The attributes defined by this specification as appearing in the `attributes` table of a `field_info` structure are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
 
-`ACC_FINAL`
+    The rules concerning attributes defined to appear in the `attributes` table of a `field_info` structure are given in [§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes").
 
-0x0010
+    The rules concerning non-predefined attributes in the `attributes` table of a `field_info` structure are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
 
-Declared `final`; never directly assigned to after object construction (JLS §17.5).
-
-`ACC_VOLATILE`
-
-0x0040
-
-Declared `volatile`; cannot be cached.
-
-`ACC_TRANSIENT`
-
-0x0080
-
-Declared `transient`; not written or read by a persistent object manager.
-
-`ACC_SYNTHETIC`
-
-0x1000
-
-Declared synthetic; not present in the source code.
-
-`ACC_ENUM`
-
-0x4000
-
-Declared as an element of an `enum`.
-
-  
-
-Fields of classes may set any of the flags in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags"). However, each field of a class may have at most one of its `ACC_PUBLIC`, `ACC_PRIVATE`, and `ACC_PROTECTED` flags set (JLS §8.3.1), and must not have both its `ACC_FINAL` and `ACC_VOLATILE` flags set (JLS §8.3.1.4).
-
-Fields of interfaces must have their `ACC_PUBLIC`, `ACC_STATIC`, and `ACC_FINAL` flags set; they may have their `ACC_SYNTHETIC` flag set and must not have any of the other flags in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags") set (JLS §9.3).
-
-The `ACC_SYNTHETIC` flag indicates that this field was generated by a compiler and does not appear in source code.
-
-The `ACC_ENUM` flag indicates that this field is used to hold an element of an enumerated type.
-
-All bits of the `access_flags` item not assigned in [Table 4.5-A](jvms-4.html#jvms-4.5-200-A.1 "Table 4.5-A. Field access and property flags") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
-
-name\_index
-
-The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) which represents a valid unqualified name denoting a field ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
-
-descriptor\_index
-
-The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) which represents a valid field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")).
-
-attributes\_count
-
-The value of the `attributes_count` item indicates the number of additional attributes of this field.
-
-attributes\[\]
-
-Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
-
-A field can have any number of optional attributes associated with it.
-
-The attributes defined by this specification as appearing in the `attributes` table of a `field_info` structure are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
-
-The rules concerning attributes defined to appear in the `attributes` table of a `field_info` structure are given in [§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes").
-
-The rules concerning non-predefined attributes in the `attributes` table of a `field_info` structure are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").4.6. Methods
+4.6. Methods
 ------------
 
 Each method, including each instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) and the class or interface initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")), is described by a `method_info` structure.
@@ -4022,147 +3641,84 @@ No two methods in one `class` file may have the same name and descriptor ([§4.3
 
 The structure has the following format:
 
-method\_info {
-    u2             access\_flags;
-    u2             name\_index;
-    u2             descriptor\_index;
-    u2             attributes\_count;
-    attribute\_info attributes\[attributes\_count\];
+```java
+method_info {
+    u2             access_flags;
+    u2             name_index;
+    u2             descriptor_index;
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
 }
+```
 
 The items of the `method_info` structure are as follows:
 
-access\_flags
+1. access_flags
 
-The value of the `access_flags` item is a mask of flags used to denote access permission to and properties of this method. The interpretation of each flag, when set, is specified in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags").
+    The value of the `access_flags` item is a mask of flags used to denote access permission to and properties of this method. The interpretation of each flag, when set, is specified in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags").
 
-**Table 4.6-A. Method access and property flags**
+    **Table 4.6-A. Method access and property flags**
 
-  
+    | Flag Name | Value | Interpretation |
+    |-----------|-------|----------------|
+    | `ACC_PUBLIC` | 0x0001 | Declared `public`; may be accessed from outside its package.
+    | `ACC_PRIVATE` | 0x0002 | Declared `private`; accessible only within the defining class.
+    | `ACC_PROTECTED` | 0x0004 | Declared `protected`; may be accessed within subclasses.
+    | `ACC_STATIC` | 0x0008 | Declared `static`.
+    | `ACC_FINAL` | 0x0010 | Declared `final`; must not be overridden ([§5.4.5](#545-overriding)).
+    | `ACC_SYNCHRONIZED` | 0x0020 | Declared `synchronized`; invocation is wrapped by a monitor use.
+    | `ACC_BRIDGE` | 0x0040 | A bridge method, generated by the compiler.
+    | `ACC_VARARGS` | 0x0080 | Declared with variable number of arguments.
+    | `ACC_NATIVE` | 0x0100 | Declared `native`; implemented in a language other than Java.
+    | `ACC_ABSTRACT` | 0x0400 | Declared `abstract`; no implementation is provided.
+    | `ACC_STRICT` | 0x0800 | Declared `strictfp`; floating-point mode is FP-strict.
+    | `ACC_SYNTHETIC` | 0x1000 | Declared synthetic; not present in the source code.
 
-Flag Name
+      
 
-Value
+    Methods of classes may have any of the flags in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") set. However, each method of a class may have at most one of its `ACC_PUBLIC`, `ACC_PRIVATE`, and `ACC_PROTECTED` flags set (JLS §8.4.3).
 
-Interpretation
+    Methods of interfaces may have any of the flags in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") set except `ACC_PROTECTED`, `ACC_FINAL`, `ACC_SYNCHRONIZED`, and `ACC_NATIVE` (JLS §9.4). In a `class` file whose version number is less than 52.0, each method of an interface must have its `ACC_PUBLIC` and `ACC_ABSTRACT` flags set; in a `class` file whose version number is 52.0 or above, each method of an interface must have exactly one of its `ACC_PUBLIC` and `ACC_PRIVATE` flags set.
 
-`ACC_PUBLIC`
+    If a method of a class or interface has its `ACC_ABSTRACT` flag set, it must not have any of its `ACC_PRIVATE`, `ACC_STATIC`, `ACC_FINAL`, `ACC_SYNCHRONIZED`, `ACC_NATIVE`, or `ACC_STRICT` flags set.
 
-0x0001
+    Each instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) may have at most one of its `ACC_PUBLIC`, `ACC_PRIVATE`, and `ACC_PROTECTED` flags set, and may also have its `ACC_VARARGS`, `ACC_STRICT`, and `ACC_SYNTHETIC` flags set, but must not have any of the other flags in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") set.
 
-Declared `public`; may be accessed from outside its package.
+    Class and interface initialization methods are called implicitly by the Java Virtual Machine. The value of their `access_flags` item is ignored except for the setting of the `ACC_STRICT` flag.
 
-`ACC_PRIVATE`
+    The `ACC_BRIDGE` flag is used to indicate a bridge method generated by a compiler for the Java programming language.
 
-0x0002
+    The `ACC_VARARGS` flag indicates that this method takes a variable number of arguments at the source code level. A method declared to take a variable number of arguments must be compiled with the `ACC_VARARGS` flag set to 1. All other methods must be compiled with the `ACC_VARARGS` flag set to 0.
 
-Declared `private`; accessible only within the defining class.
+    The `ACC_SYNTHETIC` flag indicates that this method was generated by a compiler and does not appear in source code, unless it is one of the methods named in [§4.7.8](jvms-4.html#jvms-4.7.8 "4.7.8. The Synthetic Attribute").
 
-`ACC_PROTECTED`
+    All bits of the `access_flags` item not assigned in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
 
-0x0004
+2. name_index
 
-Declared `protected`; may be accessed within subclasses.
+    The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing either one of the special method names `<init>` or `<clinit>` ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")), or a valid unqualified name denoting a method ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
 
-`ACC_STATIC`
+3. descriptor_index
 
-0x0008
+    The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing a valid method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
 
-Declared `static`.
+    A future edition of this specification may require that the last parameter descriptor of the method descriptor is an array type if the `ACC_VARARGS` flag is set in the `access_flags` item.
 
-`ACC_FINAL`
+4. attributes_count
 
-0x0010
+    The value of the `attributes_count` item indicates the number of additional attributes of this method.
 
-Declared `final`; must not be overridden ([§5.4.5](jvms-5.html#jvms-5.4.5 "5.4.5. Overriding")).
+5. attributes[]
 
-`ACC_SYNCHRONIZED`
+    Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
 
-0x0020
+    A method can have any number of optional attributes associated with it.
 
-Declared `synchronized`; invocation is wrapped by a monitor use.
+    The attributes defined by this specification as appearing in the `attributes` table of a `method_info` structure are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
 
-`ACC_BRIDGE`
+    The rules concerning attributes defined to appear in the `attributes` table of a `method_info` structure are given in [§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes").
 
-0x0040
-
-A bridge method, generated by the compiler.
-
-`ACC_VARARGS`
-
-0x0080
-
-Declared with variable number of arguments.
-
-`ACC_NATIVE`
-
-0x0100
-
-Declared `native`; implemented in a language other than Java.
-
-`ACC_ABSTRACT`
-
-0x0400
-
-Declared `abstract`; no implementation is provided.
-
-`ACC_STRICT`
-
-0x0800
-
-Declared `strictfp`; floating-point mode is FP-strict.
-
-`ACC_SYNTHETIC`
-
-0x1000
-
-Declared synthetic; not present in the source code.
-
-  
-
-Methods of classes may have any of the flags in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") set. However, each method of a class may have at most one of its `ACC_PUBLIC`, `ACC_PRIVATE`, and `ACC_PROTECTED` flags set (JLS §8.4.3).
-
-Methods of interfaces may have any of the flags in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") set except `ACC_PROTECTED`, `ACC_FINAL`, `ACC_SYNCHRONIZED`, and `ACC_NATIVE` (JLS §9.4). In a `class` file whose version number is less than 52.0, each method of an interface must have its `ACC_PUBLIC` and `ACC_ABSTRACT` flags set; in a `class` file whose version number is 52.0 or above, each method of an interface must have exactly one of its `ACC_PUBLIC` and `ACC_PRIVATE` flags set.
-
-If a method of a class or interface has its `ACC_ABSTRACT` flag set, it must not have any of its `ACC_PRIVATE`, `ACC_STATIC`, `ACC_FINAL`, `ACC_SYNCHRONIZED`, `ACC_NATIVE`, or `ACC_STRICT` flags set.
-
-Each instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) may have at most one of its `ACC_PUBLIC`, `ACC_PRIVATE`, and `ACC_PROTECTED` flags set, and may also have its `ACC_VARARGS`, `ACC_STRICT`, and `ACC_SYNTHETIC` flags set, but must not have any of the other flags in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") set.
-
-Class and interface initialization methods are called implicitly by the Java Virtual Machine. The value of their `access_flags` item is ignored except for the setting of the `ACC_STRICT` flag.
-
-The `ACC_BRIDGE` flag is used to indicate a bridge method generated by a compiler for the Java programming language.
-
-The `ACC_VARARGS` flag indicates that this method takes a variable number of arguments at the source code level. A method declared to take a variable number of arguments must be compiled with the `ACC_VARARGS` flag set to 1. All other methods must be compiled with the `ACC_VARARGS` flag set to 0.
-
-The `ACC_SYNTHETIC` flag indicates that this method was generated by a compiler and does not appear in source code, unless it is one of the methods named in [§4.7.8](jvms-4.html#jvms-4.7.8 "4.7.8. The Synthetic Attribute").
-
-All bits of the `access_flags` item not assigned in [Table 4.6-A](jvms-4.html#jvms-4.6-200-A.1 "Table 4.6-A. Method access and property flags") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
-
-name\_index
-
-The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing either one of the special method names `<init>` or `<clinit>` ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")), or a valid unqualified name denoting a method ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
-
-descriptor\_index
-
-The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing a valid method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")).
-
-A future edition of this specification may require that the last parameter descriptor of the method descriptor is an array type if the `ACC_VARARGS` flag is set in the `access_flags` item.
-
-attributes\_count
-
-The value of the `attributes_count` item indicates the number of additional attributes of this method.
-
-attributes\[\]
-
-Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
-
-A method can have any number of optional attributes associated with it.
-
-The attributes defined by this specification as appearing in the `attributes` table of a `method_info` structure are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
-
-The rules concerning attributes defined to appear in the `attributes` table of a `method_info` structure are given in [§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes").
-
-The rules concerning non-predefined attributes in the `attributes` table of a `method_info` structure are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
+    The rules concerning non-predefined attributes in the `attributes` table of a `method_info` structure are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
 
 4.7. Attributes
 ---------------
@@ -4171,11 +3727,13 @@ _Attributes_ are used in the `ClassFile`, `field_info`, `method_info`, and `Code
 
 All attributes have the following general format:
 
-attribute\_info {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u1 info\[attribute\_length\];
+```java
+attribute_info {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u1 info[attribute_length];
 }
+```
 
 For all attributes, the `attribute_name_index` must be a valid unsigned 16-bit index into the constant pool of the class. The `constant_pool` entry at `attribute_name_index` must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the name of the attribute. The value of the `attribute_length` item indicates the length of the subsequent information in bytes. The length does not include the initial six bytes that contain the `attribute_name_index` and `attribute_length` items.
 
@@ -4196,592 +3754,123 @@ The predefined attributes are categorized into three groups according to their p
 
 1.  Five attributes are critical to correct interpretation of the `class` file by the Java Virtual Machine:
     
-    *   `ConstantValue`
-        
-    *   `Code`
-        
-    *   `StackMapTable`
-        
-    *   `Exceptions`
-        
-    *   `BootstrapMethods`
-        
+    1. `ConstantValue`
+    2. `Code`
+    3. `StackMapTable`
+    4. `Exceptions`
+    5. `BootstrapMethods`
     
     In a `class` file of version V, each of these attributes must be recognized and correctly read by an implementation of the Java Virtual Machine if the implementation recognizes `class` files of version V, and V is at least the version where the attribute was first defined, and the attribute appears in a location where it is defined to appear.
     
 2.  Twelve attributes are critical to correct interpretation of the `class` file by the class libraries of the Java SE platform:
     
-    *   `InnerClasses`
-        
-    *   `EnclosingMethod`
-        
-    *   `Synthetic`
-        
-    *   `Signature`
-        
-    *   `RuntimeVisibleAnnotations`
-        
-    *   `RuntimeInvisibleAnnotations`
-        
-    *   `RuntimeVisibleParameterAnnotations`
-        
-    *   `RuntimeInvisibleParameterAnnotations`
-        
-    *   `RuntimeVisibleTypeAnnotations`
-        
-    *   `RuntimeInvisibleTypeAnnotations`
-        
-    *   `AnnotationDefault`
-        
-    *   `MethodParameters`
-        
+    01. `InnerClasses`
+    02. `EnclosingMethod`
+    03. `Synthetic`
+    04. `Signature`
+    05. `RuntimeVisibleAnnotations`
+    06. `RuntimeInvisibleAnnotations`
+    07. `RuntimeVisibleParameterAnnotations`
+    08. `RuntimeInvisibleParameterAnnotations`
+    09. `RuntimeVisibleTypeAnnotations`
+    10. `RuntimeInvisibleTypeAnnotations`
+    11. `AnnotationDefault`
+    12. `MethodParameters`
     
     Each of these attributes in a `class` file of version V must be recognized and correctly read by an implementation of the class libraries of the Java SE platform if the implementation recognizes `class` files of version V, and V is at least the version where the attribute was first defined, and the attribute appears in a location where it is defined to appear.
     
 3.  Six attributes are not critical to correct interpretation of the `class` file by either the Java Virtual Machine or the class libraries of the Java SE platform, but are useful for tools:
     
-    *   `SourceFile`
-        
-    *   `SourceDebugExtension`
-        
-    *   `LineNumberTable`
-        
-    *   `LocalVariableTable`
-        
-    *   `LocalVariableTypeTable`
-        
-    *   `Deprecated`
-        
-    
-    Use of these attributes by an implementation of the Java Virtual Machine or the class libraries of the Java SE platform is optional. An implementation may use the information that these attributes contain, or otherwise must silently ignore these attributes.
+    1. `SourceFile`
+    2. `SourceDebugExtension`
+    3. `LineNumberTable`
+    4. `LocalVariableTable`
+    5. `LocalVariableTypeTable`
+    6. `Deprecated`
+
+ Use of these attributes by an implementation of the Java Virtual Machine or the class libraries of the Java SE platform is optional. An implementation may use the information that these attributes contain, or otherwise must silently ignore these attributes.
     
 
 **Table 4.7-A. Predefined `class` file attributes (by section)**
 
-   
-
-Attribute
-
-Section
-
-`class` file
-
-Java SE
-
-`ConstantValue`
-
-[§4.7.2](jvms-4.html#jvms-4.7.2 "4.7.2. The ConstantValue Attribute")
-
-45.3
-
-1.0.2
-
-`Code`
-
-[§4.7.3](jvms-4.html#jvms-4.7.3 "4.7.3. The Code Attribute")
-
-45.3
-
-1.0.2
-
-`StackMapTable`
-
-[§4.7.4](jvms-4.html#jvms-4.7.4 "4.7.4. The StackMapTable Attribute")
-
-50.0
-
-6
-
-`Exceptions`
-
-[§4.7.5](jvms-4.html#jvms-4.7.5 "4.7.5. The Exceptions Attribute")
-
-45.3
-
-1.0.2
-
-`InnerClasses`
-
-[§4.7.6](jvms-4.html#jvms-4.7.6 "4.7.6. The InnerClasses Attribute")
-
-45.3
-
-1.1
-
-`EnclosingMethod`
-
-[§4.7.7](jvms-4.html#jvms-4.7.7 "4.7.7. The EnclosingMethod Attribute")
-
-49.0
-
-5.0
-
-`Synthetic`
-
-[§4.7.8](jvms-4.html#jvms-4.7.8 "4.7.8. The Synthetic Attribute")
-
-45.3
-
-1.1
-
-`Signature`
-
-[§4.7.9](jvms-4.html#jvms-4.7.9 "4.7.9. The Signature Attribute")
-
-49.0
-
-5.0
-
-`SourceFile`
-
-[§4.7.10](jvms-4.html#jvms-4.7.10 "4.7.10. The SourceFile Attribute")
-
-45.3
-
-1.0.2
-
-`SourceDebugExtension`
-
-[§4.7.11](jvms-4.html#jvms-4.7.11 "4.7.11. The SourceDebugExtension Attribute")
-
-49.0
-
-5.0
-
-`LineNumberTable`
-
-[§4.7.12](jvms-4.html#jvms-4.7.12 "4.7.12. The LineNumberTable Attribute")
-
-45.3
-
-1.0.2
-
-`LocalVariableTable`
-
-[§4.7.13](jvms-4.html#jvms-4.7.13 "4.7.13. The LocalVariableTable Attribute")
-
-45.3
-
-1.0.2
-
-`LocalVariableTypeTable`
-
-[§4.7.14](jvms-4.html#jvms-4.7.14 "4.7.14. The LocalVariableTypeTable Attribute")
-
-49.0
-
-5.0
-
-`Deprecated`
-
-[§4.7.15](jvms-4.html#jvms-4.7.15 "4.7.15. The Deprecated Attribute")
-
-45.3
-
-1.1
-
-`RuntimeVisibleAnnotations`
-
-[§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute")
-
-49.0
-
-5.0
-
-`RuntimeInvisibleAnnotations`
-
-[§4.7.17](jvms-4.html#jvms-4.7.17 "4.7.17. The RuntimeInvisibleAnnotations Attribute")
-
-49.0
-
-5.0
-
-`RuntimeVisibleParameterAnnotations`
-
-[§4.7.18](jvms-4.html#jvms-4.7.18 "4.7.18. The RuntimeVisibleParameterAnnotations Attribute")
-
-49.0
-
-5.0
-
-`RuntimeInvisibleParameterAnnotations`
-
-[§4.7.19](jvms-4.html#jvms-4.7.19 "4.7.19. The RuntimeInvisibleParameterAnnotations Attribute")
-
-49.0
-
-5.0
-
-`RuntimeVisibleTypeAnnotations`
-
-[§4.7.20](jvms-4.html#jvms-4.7.20 "4.7.20. The RuntimeVisibleTypeAnnotations Attribute")
-
-52.0
-
-8
-
-`RuntimeInvisibleTypeAnnotations`
-
-[§4.7.21](jvms-4.html#jvms-4.7.21 "4.7.21. The RuntimeInvisibleTypeAnnotations Attribute")
-
-52.0
-
-8
-
-`AnnotationDefault`
-
-[§4.7.22](jvms-4.html#jvms-4.7.22 "4.7.22. The AnnotationDefault Attribute")
-
-49.0
-
-5.0
-
-`BootstrapMethods`
-
-[§4.7.23](jvms-4.html#jvms-4.7.23 "4.7.23. The BootstrapMethods Attribute")
-
-51.0
-
-7
-
-`MethodParameters`
-
-[§4.7.24](jvms-4.html#jvms-4.7.24 "4.7.24. The MethodParameters Attribute")
-
-52.0
-
-8
-
-  
+| `class` file | Java SE | Attribute | Section |
+|--------------|---------|-----------|---------|
+| 45.3 | 1.0.2 | `ConstantValue` | [§4.7.2](#472-the-constantvalue-attribute) 
+| 45.3 | 1.0.2 | `Code` | [§4.7.3](#473-the-code-attribute) 
+| 50.0 | 6     | `StackMapTable` | [§4.7.4](#474-the-stackmaptable-attribute) | 45.3 | 1.0.2 | `Exceptions` | [§4.7.5](#475-the-exceptions-attribute)
+| 45.3 | 1.1   | `InnerClasses` | [§4.7.6](#476-the-innerclasses-attribute) 
+| 49.0 | 5.0   | `EnclosingMethod` | [§4.7.7](#477-the-enclosingmethod-attribute) 
+| 45.3 | 1.1   | `Synthetic` | [§4.7.8](#478-the-synthetic-attribute) 
+| 49.0 | 5.0   | `Signature` | [§4.7.9](#479-the-signature-attribute) 
+| 45.3 | 1.0.2 | `SourceFile` | [§4.7.10](#4710-the-sourcefile-attribute) 
+| 49.0 | 5.0   | `SourceDebugExtension` | [§4.7.11](#4711-the-sourcedebugextension-attribute) 
+| 45.3 | 1.0.2 | `LineNumberTable` | [§4.7.12](#4712-the-linenumbertable-attribute) 
+| 45.3 | 1.0.2 | `LocalVariableTable` | [§4.7.13](#4713-the-localvariabletable-attribute) 
+| 49.0 | 5.0   | `LocalVariableTypeTable` | [§4.7.14](#4714-the-localvariabletypetable-attribute) 
+| 45.3 | 1.1   | `Deprecated` | [§4.7.15](#4715-the-deprecated-attribute) 
+| 49.0 | 5.0   | `RuntimeVisibleAnnotations` | [§4.7.16](#4716-the-runtimevisibleannotations-attribute) 
+| 49.0 | 5.0   | `RuntimeInvisibleAnnotations` | [§4.7.17](#4717-the-runtimeinvisibleannotations-attribute) 
+| 49.0 | 5.0   | `RuntimeVisibleParameterAnnotations` | [§4.7.18](#4718-the-runtimevisibleparameterannotations-attribute) 
+| 49.0 | 5.0   | `RuntimeInvisibleParameterAnnotations` | [§4.7.19](#4719-the-runtimeinvisibleparameterannotations-attribute) 
+| 52.0 | 8     | `RuntimeVisibleTypeAnnotations` | [§4.7.20](#4720-the-runtimevisibletypeannotations-attribute) 
+| 52.0 | 8     | `RuntimeInvisibleTypeAnnotations` | [§4.7.21](#4721-the-runtimeinvisibletypeannotations-attribute) 
+| 49.0 | 5.0   | `AnnotationDefault` | [§4.7.22](#4722-the-annotationdefault-attribute) 
+| 51.0 | 7     | `BootstrapMethods` | [§4.7.23](#4723-the-bootstrapmethods-attribute) 
+| 52.0 | 8     | `MethodParameters` | [§4.7.24](#4724-the-methodparameters-attribute) 
 
 **Table 4.7-B. Predefined `class` file attributes (by `class` file version)**
 
-   
-
-Attribute
-
-`class` file
-
-Java SE
-
-Section
-
-`ConstantValue`
-
-45.3
-
-1.0.2
-
-[§4.7.2](jvms-4.html#jvms-4.7.2 "4.7.2. The ConstantValue Attribute")
-
-`Code`
-
-45.3
-
-1.0.2
-
-[§4.7.3](jvms-4.html#jvms-4.7.3 "4.7.3. The Code Attribute")
-
-`Exceptions`
-
-45.3
-
-1.0.2
-
-[§4.7.5](jvms-4.html#jvms-4.7.5 "4.7.5. The Exceptions Attribute")
-
-`SourceFile`
-
-45.3
-
-1.0.2
-
-[§4.7.10](jvms-4.html#jvms-4.7.10 "4.7.10. The SourceFile Attribute")
-
-`LineNumberTable`
-
-45.3
-
-1.0.2
-
-[§4.7.12](jvms-4.html#jvms-4.7.12 "4.7.12. The LineNumberTable Attribute")
-
-`LocalVariableTable`
-
-45.3
-
-1.0.2
-
-[§4.7.13](jvms-4.html#jvms-4.7.13 "4.7.13. The LocalVariableTable Attribute")
-
-`InnerClasses`
-
-45.3
-
-1.1
-
-[§4.7.6](jvms-4.html#jvms-4.7.6 "4.7.6. The InnerClasses Attribute")
-
-`Synthetic`
-
-45.3
-
-1.1
-
-[§4.7.8](jvms-4.html#jvms-4.7.8 "4.7.8. The Synthetic Attribute")
-
-`Deprecated`
-
-45.3
-
-1.1
-
-[§4.7.15](jvms-4.html#jvms-4.7.15 "4.7.15. The Deprecated Attribute")
-
-`EnclosingMethod`
-
-49.0
-
-5.0
-
-[§4.7.7](jvms-4.html#jvms-4.7.7 "4.7.7. The EnclosingMethod Attribute")
-
-`Signature`
-
-49.0
-
-5.0
-
-[§4.7.9](jvms-4.html#jvms-4.7.9 "4.7.9. The Signature Attribute")
-
-`SourceDebugExtension`
-
-49.0
-
-5.0
-
-[§4.7.11](jvms-4.html#jvms-4.7.11 "4.7.11. The SourceDebugExtension Attribute")
-
-`LocalVariableTypeTable`
-
-49.0
-
-5.0
-
-[§4.7.14](jvms-4.html#jvms-4.7.14 "4.7.14. The LocalVariableTypeTable Attribute")
-
-`RuntimeVisibleAnnotations`
-
-49.0
-
-5.0
-
-[§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute")
-
-`RuntimeInvisibleAnnotations`
-
-49.0
-
-5.0
-
-[§4.7.17](jvms-4.html#jvms-4.7.17 "4.7.17. The RuntimeInvisibleAnnotations Attribute")
-
-`RuntimeVisibleParameterAnnotations`
-
-49.0
-
-5.0
-
-[§4.7.18](jvms-4.html#jvms-4.7.18 "4.7.18. The RuntimeVisibleParameterAnnotations Attribute")
-
-`RuntimeInvisibleParameterAnnotations`
-
-49.0
-
-5.0
-
-[§4.7.19](jvms-4.html#jvms-4.7.19 "4.7.19. The RuntimeInvisibleParameterAnnotations Attribute")
-
-`AnnotationDefault`
-
-49.0
-
-5.0
-
-[§4.7.22](jvms-4.html#jvms-4.7.22 "4.7.22. The AnnotationDefault Attribute")
-
-`StackMapTable`
-
-50.0
-
-6
-
-[§4.7.4](jvms-4.html#jvms-4.7.4 "4.7.4. The StackMapTable Attribute")
-
-`BootstrapMethods`
-
-51.0
-
-7
-
-[§4.7.23](jvms-4.html#jvms-4.7.23 "4.7.23. The BootstrapMethods Attribute")
-
-`RuntimeVisibleTypeAnnotations`
-
-52.0
-
-8
-
-[§4.7.20](jvms-4.html#jvms-4.7.20 "4.7.20. The RuntimeVisibleTypeAnnotations Attribute")
-
-`RuntimeInvisibleTypeAnnotations`
-
-52.0
-
-8
-
-[§4.7.21](jvms-4.html#jvms-4.7.21 "4.7.21. The RuntimeInvisibleTypeAnnotations Attribute")
-
-`MethodParameters`
-
-52.0
-
-8
-
-[§4.7.24](jvms-4.html#jvms-4.7.24 "4.7.24. The MethodParameters Attribute")
-
+| `class` file | Java SE | Attribute | Section |
+|--------------|---------|-----------|---------|
+| 45.3 | 1.0.2 | `ConstantValue` | [§4.7.2](#472-the-constantvalue-attribute")
+| 45.3 | 1.0.2 | `Code` | [§4.7.3](#473-the-code-attribute)
+| 45.3 | 1.0.2 | `Exceptions` | [§4.7.5](#475-the-exceptions-attribute)
+| 45.3 | 1.0.2 | `SourceFile` | [§4.7.10](#4710-the-sourcefile-attribute)
+| 45.3 | 1.0.2 | `LineNumberTable` | [§4.7.12](#4712-the-linenumbertable-attribute)
+| 45.3 | 1.0.2 | `LocalVariableTable` | [§4.7.13](#4713-the-localvariabletable-attribute)
+| 45.3 | 1.1   | `InnerClasses` | [§4.7.6](#476-the-innerclasses-attribute)
+| 45.3 | 1.1   | `Synthetic` | [§4.7.8](#478-the-synthetic-attribute)
+| 45.3 | 1.1   | `Deprecated` | [§4.7.15](#4715-the-deprecated-attribute)
+| 49.0 | 5.0   | `EnclosingMethod` | [§4.7.7](#477-the-enclosingmethod-attribute)
+| 49.0 | 5.0   | `Signature` | [§4.7.9](#479-the-signature-attribute)
+| 49.0 | 5.0   | `SourceDebugExtension` | [§4.7.11](#4711-the-sourcedebugextension-attribute)
+| 49.0 | 5.0   | `LocalVariableTypeTable` | [§4.7.14](#4714-the-localvariabletypetable-attribute)
+| 49.0 | 5.0   | `RuntimeVisibleAnnotations` | [§4.7.16](#4716-the-runtimevisibleannotations-attribute)
+| 49.0 | 5.0   | `RuntimeInvisibleAnnotations` | [§4.7.17](#4717-the-runtimeinvisibleannotations-attribute)
+| 49.0 | 5.0   | `RuntimeVisibleParameterAnnotations` | [§4.7.18](#4718-the-runtimevisibleparameterannotations-attribute)
+| 49.0 | 5.0   | `RuntimeInvisibleParameterAnnotations` | [§4.7.19](#4719-the-runtimeinvisibleparameterannotations-attribute)
+| 49.0 | 5.0   | `AnnotationDefault` | [§4.7.22](#4722-the-annotationdefault-attribute)
+| 50.0 | 6     | `StackMapTable` | [§4.7.4](#474-the-stackmaptable-attribute)
+| 51.0 | 7     | `BootstrapMethods` | [§4.7.23](#4723-the-bootstrapmethods-attribute)
+| 52.0 | 8     | `RuntimeVisibleTypeAnnotations` | [§4.7.20](#4720-the-runtimevisibletypeannotations-attribute)
+| 52.0 | 8     | `RuntimeInvisibleTypeAnnotations` | [§4.7.21](#4721-the-runtimeinvisibletypeannotations-attribute)
+| 52.0 | 8     | `MethodParameters` | [§4.7.24](#4724-the-methodparameters-attribute)
   
 
 **Table 4.7-C. Predefined `class` file attributes (by location)**
 
-  
-
-Attribute
-
-Location
-
-`class` file
-
-`SourceFile`
-
-`ClassFile`
-
-45.3
-
-`InnerClasses`
-
-`ClassFile`
-
-45.3
-
-`EnclosingMethod`
-
-`ClassFile`
-
-49.0
-
-`SourceDebugExtension`
-
-`ClassFile`
-
-49.0
-
-`BootstrapMethods`
-
-`ClassFile`
-
-51.0
-
-`ConstantValue`
-
-`field_info`
-
-45.3
-
-`Code`
-
-`method_info`
-
-45.3
-
-`Exceptions`
-
-`method_info`
-
-45.3
-
-`RuntimeVisibleParameterAnnotations`, `RuntimeInvisibleParameterAnnotations`
-
-`method_info`
-
-49.0
-
-`AnnotationDefault`
-
-`method_info`
-
-49.0
-
-`MethodParameters`
-
-`method_info`
-
-52.0
-
-`Synthetic`
-
-`ClassFile`, `field_info`, `method_info`
-
-45.3
-
-`Deprecated`
-
-`ClassFile`, `field_info`, `method_info`
-
-45.3
-
-`Signature`
-
-`ClassFile`, `field_info`, `method_info`
-
-49.0
-
-`RuntimeVisibleAnnotations`, `RuntimeInvisibleAnnotations`
-
-`ClassFile`, `field_info`, `method_info`
-
-49.0
-
-`LineNumberTable`
-
-`Code`
-
-45.3
-
-`LocalVariableTable`
-
-`Code`
-
-45.3
-
-`LocalVariableTypeTable`
-
-`Code`
-
-49.0
-
-`StackMapTable`
-
-`Code`
-
-50.0
-
-`RuntimeVisibleTypeAnnotations`, `RuntimeInvisibleTypeAnnotations`
-
-`ClassFile`, `field_info`, `method_info`, `Code`
-
-52.0
-
+| `class` file | Attribute | Location |
+|--------------|-----------|----------|
+| 45.3 | `SourceFile` | `ClassFile`
+| 45.3 | `InnerClasses` | `ClassFile`
+| 49.0 | `EnclosingMethod` | `ClassFile`
+| 49.0 | `SourceDebugExtension` | `ClassFile`
+| 51.0 | `BootstrapMethods` | `ClassFile`
+| 45.3 | `ConstantValue` | `field_info`
+| 45.3 | `Code` | `method_info`
+| 45.3 | `Exceptions` | `method_info`
+| 49.0 | `RuntimeVisibleParameterAnnotations`, `RuntimeInvisibleParameterAnnotations` | `method_info`
+| 49.0 | `AnnotationDefault` | `method_info`
+| 52.0 | `MethodParameters` | `method_info`
+| 45.3 | `Synthetic` | `ClassFile`, `field_info`, `method_info`
+| 45.3 | `Deprecated` | `ClassFile`, `field_info`, `method_info`
+| 49.0 | `Signature` | `ClassFile`, `field_info`, `method_info`
+| 49.0 | `RuntimeVisibleAnnotations`, `RuntimeInvisibleAnnotations` | `ClassFile`, `field_info`, `method_info`
+| 45.3 | `LineNumberTable` | `Code`
+| 45.3 | `LocalVariableTable` | `Code`
+| 49.0 | `LocalVariableTypeTable` | `Code`
+| 50.0 | `StackMapTable` | `Code`
+| 52.0 | `RuntimeVisibleTypeAnnotations`, `RuntimeInvisibleTypeAnnotations` | `ClassFile`, `field_info`, `method_info`, `Code`
   
 
 ### 4.7.1. Defining and Naming New Attributes
@@ -4807,54 +3896,37 @@ There may be at most one `ConstantValue` attribute in the `attributes` table of 
 
 The `ConstantValue` attribute has the following format:
 
-ConstantValue\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 constantvalue\_index;
+```java
+ConstantValue_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 constantvalue_index;
 }
+```
 
 The items of the `ConstantValue_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`ConstantValue`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`ConstantValue`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item of a `ConstantValue_attribute` structure must be two.
+    The value of the `attribute_length` item of a `ConstantValue_attribute` structure must be two.
 
-constantvalue\_index
+3. constantvalue_index
 
-The value of the `constantvalue_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index gives the constant value represented by this attribute. The `constant_pool` entry must be of a type appropriate to the field, as specified in [Table 4.7.2-A](jvms-4.html#jvms-4.7.2-300-C.1 "Table 4.7.2-A. Constant value attribute types").
+    The value of the `constantvalue_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index gives the constant value represented by this attribute. The `constant_pool` entry must be of a type appropriate to the field, as specified in [Table 4.7.2-A](jvms-4.html#jvms-4.7.2-300-C.1 "Table 4.7.2-A. Constant value attribute types").
 
-**Table 4.7.2-A. Constant value attribute types**
+    **Table 4.7.2-A. Constant value attribute types**
 
- 
-
-Field Type
-
-Entry Type
-
-`long`
-
-`CONSTANT_Long`
-
-`float`
-
-`CONSTANT_Float`
-
-`double`
-
-`CONSTANT_Double`
-
-`int`, `short`, `char`, `byte`, `boolean`
-
-`CONSTANT_Integer`
-
-`String`
-
-`CONSTANT_String`
-
+    | Field Type | Entry Type |
+    |------------|------------|
+    | `long` | `CONSTANT_Long`
+    | `float` | `CONSTANT_Float`
+    | `double` | `CONSTANT_Double`
+    | `int`, `short`, `char`, `byte`, `boolean` | `CONSTANT_Integer`
+    | `String` | `CONSTANT_String`
   
 
 ### 4.7.3. The `Code` Attribute
@@ -4865,104 +3937,106 @@ If the method is either `native` or `abstract`, its `method_info` structure must
 
 The `Code` attribute has the following format:
 
-Code\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 max\_stack;
-    u2 max\_locals;
-    u4 code\_length;
-    u1 code\[code\_length\];
-    u2 exception\_table\_length;
-    {   u2 start\_pc;
-        u2 end\_pc;
-        u2 handler\_pc;
-        u2 catch\_type;
-    } exception\_table\[exception\_table\_length\];
-    u2 attributes\_count;
-    attribute\_info attributes\[attributes\_count\];
+```java
+Code_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 max_stack;
+    u2 max_locals;
+    u4 code_length;
+    u1 code[code_length];
+    u2 exception_table_length;
+    {   u2 start_pc;
+        u2 end_pc;
+        u2 handler_pc;
+        u2 catch_type;
+    } exception_table[exception_table_length];
+    u2 attributes_count;
+    attribute_info attributes[attributes_count];
 }
+```
 
 The items of the `Code_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Code`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Code`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-max\_stack
+3. max_stack
 
-The value of the `max_stack` item gives the maximum depth of the operand stack of this method ([§2.6.2](jvms-2.html#jvms-2.6.2 "2.6.2. Operand Stacks")) at any point during execution of the method.
+    The value of the `max_stack` item gives the maximum depth of the operand stack of this method ([§2.6.2](jvms-2.html#jvms-2.6.2 "2.6.2. Operand Stacks")) at any point during execution of the method.
 
-max\_locals
+4. max_locals
 
-The value of the `max_locals` item gives the number of local variables in the local variable array allocated upon invocation of this method ([§2.6.1](jvms-2.html#jvms-2.6.1 "2.6.1. Local Variables")), including the local variables used to pass parameters to the method on its invocation.
+    The value of the `max_locals` item gives the number of local variables in the local variable array allocated upon invocation of this method ([§2.6.1](jvms-2.html#jvms-2.6.1 "2.6.1. Local Variables")), including the local variables used to pass parameters to the method on its invocation.
 
-The greatest local variable index for a value of type `long` or `double` is `max_locals - 2`. The greatest local variable index for a value of any other type is `max_locals - 1`.
+    The greatest local variable index for a value of type `long` or `double` is `max_locals - 2`. The greatest local variable index for a value of any other type is `max_locals - 1`.
 
-code\_length
+5. code_length
 
-The value of the `code_length` item gives the number of bytes in the `code` array for this method.
+    The value of the `code_length` item gives the number of bytes in the `code` array for this method.
 
-The value of `code_length` must be greater than zero (as the `code` array must not be empty) and less than 65536.
+    The value of `code_length` must be greater than zero (as the `code` array must not be empty) and less than 65536.
 
-code\[\]
+6. code[]
 
-The `code` array gives the actual bytes of Java Virtual Machine code that implement the method.
+    The `code` array gives the actual bytes of Java Virtual Machine code that implement the method.
 
-When the `code` array is read into memory on a byte-addressable machine, if the first byte of the array is aligned on a 4-byte boundary, the _tableswitch_ and _lookupswitch_ 32-bit offsets will be 4-byte aligned. (Refer to the descriptions of those instructions for more information on the consequences of `code` array alignment.)
+    When the `code` array is read into memory on a byte-addressable machine, if the first byte of the array is aligned on a 4-byte boundary, the _tableswitch_ and _lookupswitch_ 32-bit offsets will be 4-byte aligned. (Refer to the descriptions of those instructions for more information on the consequences of `code` array alignment.)
 
-The detailed constraints on the contents of the `code` array are extensive and are given in a separate section ([§4.9](jvms-4.html#jvms-4.9 "4.9. Constraints on Java Virtual Machine Code")).
+    The detailed constraints on the contents of the `code` array are extensive and are given in a separate section ([§4.9](jvms-4.html#jvms-4.9 "4.9. Constraints on Java Virtual Machine Code")).
 
-exception\_table\_length
+7. exception_table_length
 
-The value of the `exception_table_length` item gives the number of entries in the `exception_table` table.
+    The value of the `exception_table_length` item gives the number of entries in the `exception_table` table.
 
-exception\_table\[\]
+8. exception_table[]
 
-Each entry in the `exception_table` array describes one exception handler in the `code` array. The order of the handlers in the `exception_table` array is significant ([§2.10](jvms-2.html#jvms-2.10 "2.10. Exceptions")).
+    Each entry in the `exception_table` array describes one exception handler in the `code` array. The order of the handlers in the `exception_table` array is significant ([§2.10](jvms-2.html#jvms-2.10 "2.10. Exceptions")).
 
-Each `exception_table` entry contains the following four items:
+    Each `exception_table` entry contains the following four items:
 
-start\_pc, end\_pc
+    1. start_pc, end_pc
 
-The values of the two items `start_pc` and `end_pc` indicate the ranges in the `code` array at which the exception handler is active. The value of `start_pc` must be a valid index into the `code` array of the opcode of an instruction. The value of `end_pc` either must be a valid index into the `code` array of the opcode of an instruction or must be equal to `code_length`, the length of the `code` array. The value of `start_pc` must be less than the value of `end_pc`.
+        The values of the two items `start_pc` and `end_pc` indicate the ranges in the `code` array at which the exception handler is active. The value of `start_pc` must be a valid index into the `code` array of the opcode of an instruction. The value of `end_pc` either must be a valid index into the `code` array of the opcode of an instruction or must be equal to `code_length`, the length of the `code` array. The value of `start_pc` must be less than the value of `end_pc`.
 
-The `start_pc` is inclusive and `end_pc` is exclusive; that is, the exception handler must be active while the program counter is within the interval \[`start_pc`, `end_pc`).
+        The `start_pc` is inclusive and `end_pc` is exclusive; that is, the exception handler must be active while the program counter is within the interval [`start_pc`, `end_pc`).
 
-The fact that `end_pc` is exclusive is a historical mistake in the design of the Java Virtual Machine: if the Java Virtual Machine code for a method is exactly 65535 bytes long and ends with an instruction that is 1 byte long, then that instruction cannot be protected by an exception handler. A compiler writer can work around this bug by limiting the maximum size of the generated Java Virtual Machine code for any method, instance initialization method, or static initializer (the size of any code array) to 65534 bytes.
+        The fact that `end_pc` is exclusive is a historical mistake in the design of the Java Virtual Machine: if the Java Virtual Machine code for a method is exactly 65535 bytes long and ends with an instruction that is 1 byte long, then that instruction cannot be protected by an exception handler. A compiler writer can work around this bug by limiting the maximum size of the generated Java Virtual Machine code for any method, instance initialization method, or static initializer (the size of any code array) to 65534 bytes.
 
-handler\_pc
+    2. handler_pc
 
-The value of the `handler_pc` item indicates the start of the exception handler. The value of the item must be a valid index into the `code` array and must be the index of the opcode of an instruction.
+        The value of the `handler_pc` item indicates the start of the exception handler. The value of the item must be a valid index into the `code` array and must be the index of the opcode of an instruction.
 
-catch\_type
+    3. catch_type
 
-If the value of the `catch_type` item is nonzero, it must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing a class of exceptions that this exception handler is designated to catch. The exception handler will be called only if the thrown exception is an instance of the given class or one of its subclasses.
+        If the value of the `catch_type` item is nonzero, it must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing a class of exceptions that this exception handler is designated to catch. The exception handler will be called only if the thrown exception is an instance of the given class or one of its subclasses.
 
-The verifier checks that the class is `Throwable` or a subclass of `Throwable` ([§4.9.2](jvms-4.html#jvms-4.9.2 "4.9.2. Structural Constraints")).
+        The verifier checks that the class is `Throwable` or a subclass of `Throwable` ([§4.9.2](jvms-4.html#jvms-4.9.2 "4.9.2. Structural Constraints")).
 
-If the value of the `catch_type` item is zero, this exception handler is called for all exceptions.
+        If the value of the `catch_type` item is zero, this exception handler is called for all exceptions.
 
-This is used to implement `finally` ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally")).
+        This is used to implement `finally` ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally")).
 
-attributes\_count
+9. attributes_count
 
-The value of the `attributes_count` item indicates the number of attributes of the `Code` attribute.
+    The value of the `attributes_count` item indicates the number of attributes of the `Code` attribute.
 
-attributes\[\]
+10. attributes[]
 
-Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
+    Each value of the `attributes` table must be an `attribute_info` structure ([§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes")).
 
-A `Code` attribute can have any number of optional attributes associated with it.
+    A `Code` attribute can have any number of optional attributes associated with it.
 
-The attributes defined by this specification as appearing in the `attributes` table of a `Code` attribute are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
+    The attributes defined by this specification as appearing in the `attributes` table of a `Code` attribute are listed in [Table 4.7-C](jvms-4.html#jvms-4.7-320 "Table 4.7-C. Predefined class file attributes (by location)").
 
-The rules concerning attributes defined to appear in the `attributes` table of a `Code` attribute are given in [§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes").
+    The rules concerning attributes defined to appear in the `attributes` table of a `Code` attribute are given in [§4.7](jvms-4.html#jvms-4.7 "4.7. Attributes").
 
-The rules concerning non-predefined attributes in the `attributes` table of a `Code` attribute are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
+    The rules concerning non-predefined attributes in the `attributes` table of a `Code` attribute are given in [§4.7.1](jvms-4.html#jvms-4.7.1 "4.7.1. Defining and Naming New Attributes").
 
 ### 4.7.4. The `StackMapTable` Attribute
 
@@ -4974,30 +4048,32 @@ In a `class` file whose version number is 50.0 or above, if a method's `Code` at
 
 The `StackMapTable` attribute has the following format:
 
-StackMapTable\_attribute {
-    u2              attribute\_name\_index;
-    u4              attribute\_length;
-    u2              number\_of\_entries;
-    stack\_map\_frame entries\[number\_of\_entries\];
+```java
+StackMapTable_attribute {
+    u2              attribute_name_index;
+    u4              attribute_length;
+    u2              number_of_entries;
+    stack_map_frame entries[number_of_entries];
 }
+```
 
 The items of the `StackMapTable_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`StackMapTable`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`StackMapTable`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-number\_of\_entries
+3. number_of_entries
 
-The value of the `number_of_entries` item gives the number of `stack_map_frame` entries in the `entries` table.
+    The value of the `number_of_entries` item gives the number of `stack_map_frame` entries in the `entries` table.
 
-entries\[\]
+4. entries[]
 
-Each entry in the `entries` table describes one stack map frame of the method. The order of the stack map frames in the `entries` table is significant.
+    Each entry in the `entries` table describes one stack map frame of the method. The order of the stack map frames in the `entries` table is significant.
 
 A _stack map frame_ specifies (either explicitly or implicitly) the bytecode offset at which it applies, and the verification types of local variables and operand stack entries for that offset.
 
@@ -5011,69 +4087,85 @@ We say that an instruction in the bytecode has a _corresponding stack map frame_
 
 A _verification type_ specifies the type of either one or two locations, where a _location_ is either a single local variable or a single operand stack entry. A verification type is represented by a discriminated union, `verification_type_info`, that consists of a one-byte tag, indicating which item of the union is in use, followed by zero or more bytes, giving more information about the tag.
 
-union verification\_type\_info {
-    Top\_variable\_info;
-    Integer\_variable\_info;
-    Float\_variable\_info;
-    Long\_variable\_info;
-    Double\_variable\_info;
-    Null\_variable\_info;
-    UninitializedThis\_variable\_info;
-    Object\_variable\_info;
-    Uninitialized\_variable\_info;
+```java
+union verification_type_info {
+    Top_variable_info;
+    Integer_variable_info;
+    Float_variable_info;
+    Long_variable_info;
+    Double_variable_info;
+    Null_variable_info;
+    UninitializedThis_variable_info;
+    Object_variable_info;
+    Uninitialized_variable_info;
 }
+```
 
 A verification type that specifies one location in the local variable array or in the operand stack is represented by the following items of the `verification_type_info` union:
 
 *   The `Top_variable_info` item indicates that the local variable has the verification type `top`.
     
-    Top\_variable\_info {
-        u1 tag = ITEM\_Top; /\* 0 \*/
+    ```java
+    Top_variable_info {
+        u1 tag = ITEM_Top; /* 0 */
     }
+    ```
         
     
 *   The `Integer_variable_info` item indicates that the location has the verification type `int`.
     
-    Integer\_variable\_info {
-        u1 tag = ITEM\_Integer; /\* 1 \*/
+    ```java
+    Integer_variable_info {
+        u1 tag = ITEM_Integer; /* 1 */
     }
+    ```
         
     
 *   The `Float_variable_info` item indicates that the location has the verification type `float`.
     
-    Float\_variable\_info {
-        u1 tag = ITEM\_Float; /\* 2 \*/
+    ```java
+    Float_variable_info {
+        u1 tag = ITEM_Float; /* 2 */
     }
+    ```
         
     
 *   The `Null_variable_info` type indicates that the location has the verification type `null`.
     
-    Null\_variable\_info {
-        u1 tag = ITEM\_Null; /\* 5 \*/
+    ```java
+    Null_variable_info {
+        u1 tag = ITEM_Null; /* 5 */
     }
+    ```
         
     
 *   The `UninitializedThis_variable_info` item indicates that the location has the verification type `uninitializedThis`.
     
-    UninitializedThis\_variable\_info {
-        u1 tag = ITEM\_UninitializedThis; /\* 6 \*/
+    ```java
+    UninitializedThis_variable_info {
+        u1 tag = ITEM_UninitializedThis; /* 6 */
     }
+    ```
         
     
 *   The `Object_variable_info` item indicates that the location has the verification type which is the class represented by the `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) found in the `constant_pool` table at the index given by `cpool_index`.
     
-    Object\_variable\_info {
-        u1 tag = ITEM\_Object; /\* 7 \*/
-        u2 cpool\_index;
+    ```java
+    Object_variable_info {
+        u1 tag = ITEM_Object; /* 7 */
+        u2 cpool_index;
     }
+    ```
         
     
 *   The `Uninitialized_variable_info` item indicates that the location has the verification type `uninitialized(Offset)`. The `Offset` item indicates the offset, in the `code` array of the `Code` attribute that contains this `StackMapTable` attribute, of the _new_ instruction ([§_new_](jvms-6.html#jvms-6.5.new "new")) that created the object being stored in the location.
     
-    Uninitialized\_variable\_info {
-        u1 tag = ITEM\_Uninitialized; /\* 8 \*/
+    ```java
+    Uninitialized_variable_info {
+        u1 tag = ITEM_Uninitialized; /* 8 */
         u2 offset;
     }
+    ```
         
     
 
@@ -5081,16 +4173,20 @@ A verification type that specifies two locations in the local variable array or 
 
 *   The `Long_variable_info` item indicates that the first of two locations has the verification type `long`.
     
-    Long\_variable\_info {
-        u1 tag = ITEM\_Long; /\* 4 \*/
+    ```java
+    Long_variable_info {
+        u1 tag = ITEM_Long; /* 4 */
     }
+    ```
         
     
 *   The `Double_variable_info` item indicates that the first of two locations has the verification type `double`.
     
-    Double\_variable\_info {
-        u1 tag = ITEM\_Double; /\* 3 \*/
+    ```java
+    Double_variable_info {
+        u1 tag = ITEM_Double; /* 3 */
     }
+    ```
         
     
 *   The `Long_variable_info` and `Double_variable_info` items indicate the verification type of the second of two locations as follows:
@@ -5107,55 +4203,62 @@ A verification type that specifies two locations in the local variable array or 
         *   It must not be the topmost location of the operand stack.
             
         *   The next location closer to the top of the operand stack has the verification type `top`.
-            
-        
-    
 
 A stack map frame is represented by a discriminated union, `stack_map_frame`, which consists of a one-byte tag, indicating which item of the union is in use, followed by zero or more bytes, giving more information about the tag.
 
-union stack\_map\_frame {
-    same\_frame;
-    same\_locals\_1\_stack\_item\_frame;
-    same\_locals\_1\_stack\_item\_frame\_extended;
-    chop\_frame;
-    same\_frame\_extended;
-    append\_frame;
-    full\_frame;
+```java
+union stack_map_frame {
+    same_frame;
+    same_locals_1_stack_item_frame;
+    same_locals_1_stack_item_frame_extended;
+    chop_frame;
+    same_frame_extended;
+    append_frame;
+    full_frame;
 }
+```
 
 The tag indicates the _frame type_ of the stack map frame:
 
-*   The frame type `same_frame` is represented by tags in the range \[0-63\]. This frame type indicates that the frame has exactly the same local variables as the previous frame and that the operand stack is empty. The `offset_delta` value for the frame is the value of the tag item, `frame_type`.
+*   The frame type `same_frame` is represented by tags in the range [0-63]. This frame type indicates that the frame has exactly the same local variables as the previous frame and that the operand stack is empty. The `offset_delta` value for the frame is the value of the tag item, `frame_type`.
     
-    same\_frame {
-        u1 frame\_type = SAME; /\* 0-63 \*/
+    ```java
+    same_frame {
+        u1 frame_type = SAME; /* 0-63 */
     }
+    ```
         
     
-*   The frame type `same_locals_1_stack_item_frame` is represented by tags in the range \[64, 127\]. This frame type indicates that the frame has exactly the same local variables as the previous frame and that the operand stack has one entry. The `offset_delta` value for the frame is given by the formula `frame_type - 64`. The verification type of the one stack entry appears after the frame type.
+*   The frame type `same_locals_1_stack_item_frame` is represented by tags in the range [64, 127]. This frame type indicates that the frame has exactly the same local variables as the previous frame and that the operand stack has one entry. The `offset_delta` value for the frame is given by the formula `frame_type - 64`. The verification type of the one stack entry appears after the frame type.
     
-    same\_locals\_1\_stack\_item\_frame {
-        u1 frame\_type = SAME\_LOCALS\_1\_STACK\_ITEM; /\* 64-127 \*/
-        verification\_type\_info stack\[1\];
+    ```java
+    same_locals_1_stack_item_frame {
+        u1 frame_type = SAME_LOCALS_1_STACK_ITEM; /* 64-127 */
+        verification_type_info stack[1];
     }
+    ```
     
-*   Tags in the range \[128-246\] are reserved for future use.
+*   Tags in the range [128-246] are reserved for future use.
     
 *   The frame type `same_locals_1_stack_item_frame_extended` is represented by the tag 247. This frame type indicates that the frame has exactly the same local variables as the previous frame and that the operand stack has one entry. The `offset_delta` value for the frame is given explicitly, unlike in the frame type `same_locals_1_stack_item_frame`. The verification type of the one stack entry appears after `offset_delta`.
     
-    same\_locals\_1\_stack\_item\_frame\_extended {
-        u1 frame\_type = SAME\_LOCALS\_1\_STACK\_ITEM\_EXTENDED; /\* 247 \*/
-        u2 offset\_delta;
-        verification\_type\_info stack\[1\];
+    ```java
+    same_locals_1_stack_item_frame_extended {
+        u1 frame_type = SAME_LOCALS_1_STACK_ITEM_EXTENDED; /* 247 */
+        u2 offset_delta;
+        verification_type_info stack[1];
     }
+    ```
         
     
-*   The frame type `chop_frame` is represented by tags in the range \[248-250\]. This frame type indicates that the frame has the same local variables as the previous frame except that the last _k_ local variables are absent, and that the operand stack is empty. The value of _k_ is given by the formula `251 - frame_type`. The `offset_delta` value for the frame is given explicitly.
+*   The frame type `chop_frame` is represented by tags in the range [248-250]. This frame type indicates that the frame has the same local variables as the previous frame except that the last _k_ local variables are absent, and that the operand stack is empty. The value of _k_ is given by the formula `251 - frame_type`. The `offset_delta` value for the frame is given explicitly.
     
-    chop\_frame {
-        u1 frame\_type = CHOP; /\* 248-250 \*/
-        u2 offset\_delta;
+    ```java
+    chop_frame {
+        u1 frame_type = CHOP; /* 248-250 */
+        u2 offset_delta;
     }
+    ```
         
     
     Assume the verification types of local variables in the previous frame are given by `locals`, an array structured as in the `full_frame` frame type. If `locals[M-1]` in the previous frame represented local variable X and `locals[M]` represented local variable Y, then the effect of removing one local variable is that `locals[M-1]` in the new frame represents local variable X and `locals[M]` is undefined.
@@ -5164,19 +4267,23 @@ The tag indicates the _frame type_ of the stack map frame:
     
 *   The frame type `same_frame_extended` is represented by the tag 251. This frame type indicates that the frame has exactly the same local variables as the previous frame and that the operand stack is empty. The `offset_delta` value for the frame is given explicitly, unlike in the frame type `same_frame`.
     
-    same\_frame\_extended {
-        u1 frame\_type = SAME\_FRAME\_EXTENDED; /\* 251 \*/
-        u2 offset\_delta;
-    }
+    ```java
+           same_frame_extended {
+               u1 frame_type = SAME_FRAME_EXTENDED; /* 251 */
+               u2 offset_delta;
+           }
        
+           ```       
     
-*   The frame type `append_frame` is represented by tags in the range \[252-254\]. This frame type indicates that the frame has the same locals as the previous frame except that _k_ additional locals are defined, and that the operand stack is empty. The value of _k_ is given by the formula `frame_type - 251`. The `offset_delta` value for the frame is given explicitly.
+*   The frame type `append_frame` is represented by tags in the range [252-254]. This frame type indicates that the frame has the same locals as the previous frame except that _k_ additional locals are defined, and that the operand stack is empty. The value of _k_ is given by the formula `frame_type - 251`. The `offset_delta` value for the frame is given explicitly.
     
-    append\_frame {
-        u1 frame\_type = APPEND; /\* 252-254 \*/
-        u2 offset\_delta;
-        verification\_type\_info locals\[frame\_type - 251\];
+    ```java
+    append_frame {
+        u1 frame_type = APPEND; /* 252-254 */
+        u2 offset_delta;
+        verification_type_info locals[frame_type - 251];
     }
+    ```
         
     
     The 0th entry in `locals` represents the verification type of the first additional local variable. If `locals[M]` represents local variable `N`, then:
@@ -5190,14 +4297,16 @@ The tag indicates the _frame type_ of the stack map frame:
     
 *   The frame type `full_frame` is represented by the tag 255. The `offset_delta` value for the frame is given explicitly.
     
-    full\_frame {
-        u1 frame\_type = FULL\_FRAME; /\* 255 \*/
-        u2 offset\_delta;
-        u2 number\_of\_locals;
-        verification\_type\_info locals\[number\_of\_locals\];
-        u2 number\_of\_stack\_items;
-        verification\_type\_info stack\[number\_of\_stack\_items\];
+    ```java
+    full_frame {
+        u1 frame_type = FULL_FRAME; /* 255 */
+        u2 offset_delta;
+        u2 number_of_locals;
+        verification_type_info locals[number_of_locals];
+        u2 number_of_stack_items;
+        verification_type_info stack[number_of_stack_items];
     }
+    ```
         
     
     The 0th entry in `locals` represents the verification type of local variable 0. If `locals[M]` represents local variable `N`, then:
@@ -5227,39 +4336,38 @@ There may be at most one `Exceptions` attribute in the `attributes` table of a `
 
 The `Exceptions` attribute has the following format:
 
-Exceptions\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 number\_of\_exceptions;
-    u2 exception\_index\_table\[number\_of\_exceptions\];
+```java
+Exceptions_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 number_of_exceptions;
+    u2 exception_index_table[number_of_exceptions];
 }
+```
 
 The items of the `Exceptions_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be the `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Exceptions`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be the `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Exceptions`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the attribute length, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the attribute length, excluding the initial six bytes.
 
-number\_of\_exceptions
+3. number_of_exceptions
 
-The value of the `number_of_exceptions` item indicates the number of entries in the `exception_index_table`.
+    The value of the `number_of_exceptions` item indicates the number of entries in the `exception_index_table`.
 
-exception\_index\_table\[\]n>
+4. exception_index_table[]
 
-Each value in the `exception_index_table` array must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing a class type that this method is declared to throw.
+    Each value in the `exception_index_table` array must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing a class type that this method is declared to throw.
 
 A method should throw an exception only if at least one of the following three criteria is met:
 
 *   The exception is an instance of `RuntimeException` or one of its subclasses.
-    
 *   The exception is an instance of `Error` or one of its subclasses.
-    
 *   The exception is an instance of one of the exception classes specified in the `exception_index_table` just described, or one of their subclasses.
-    
 
 These requirements are not enforced in the Java Virtual Machine; they are enforced only at compile time.
 
@@ -5271,136 +4379,82 @@ If the constant pool of a class or interface C contains at least one `CONSTANT_C
 
 The `InnerClasses` attribute has the following format:
 
-InnerClasses\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 number\_of\_classes;
-    {   u2 inner\_class\_info\_index;
-        u2 outer\_class\_info\_index;
-        u2 inner\_name\_index;
-        u2 inner\_class\_access\_flags;
-    } classes\[number\_of\_classes\];
+```java
+InnerClasses_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 number_of_classes;
+    {   u2 inner_class_info_index;
+        u2 outer_class_info_index;
+        u2 inner_name_index;
+        u2 inner_class_access_flags;
+    } classes[number_of_classes];
 }
+```
 
 The items of the `InnerClasses_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`InnerClasses`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`InnerClasses`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-number\_of\_classes
+3. number_of_classes
 
-The value of the `number_of_classes` item indicates the number of entries in the `classes` array.
+    The value of the `number_of_classes` item indicates the number of entries in the `classes` array.
 
-classes\[\]
+4. classes[]
 
-Every `CONSTANT_Class_info` entry in the `constant_pool` table which represents a class or interface C that is not a package member must have exactly one corresponding entry in the `classes` array.
+    Every `CONSTANT_Class_info` entry in the `constant_pool` table which represents a class or interface C that is not a package member must have exactly one corresponding entry in the `classes` array.
 
-If a class or interface has members that are classes or interfaces, its `constant_pool` table (and hence its `InnerClasses` attribute) must refer to each such member (JLS §13.1), even if that member is not otherwise mentioned by the class.
+    If a class or interface has members that are classes or interfaces, its `constant_pool` table (and hence its `InnerClasses` attribute) must refer to each such member (JLS §13.1), even if that member is not otherwise mentioned by the class.
 
-In addition, the `constant_pool` table of every nested class and nested interface must refer to its enclosing class, so altogether, every nested class and nested interface will have `InnerClasses` information for each enclosing class and for each of its own nested classes and interfaces.
+    In addition, the `constant_pool` table of every nested class and nested interface must refer to its enclosing class, so altogether, every nested class and nested interface will have `InnerClasses` information for each enclosing class and for each of its own nested classes and interfaces.
 
-Each entry in the `classes` array contains the following four items:
+    Each entry in the `classes` array contains the following four items:
 
-inner\_class\_info\_index
+    1. inner_class_info_index
 
-The value of the `inner_class_info_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure representing C. The remaining items in the `classes` array entry give information about C.
+        The value of the `inner_class_info_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure representing C. The remaining items in the `classes` array entry give information about C.
 
-outer\_class\_info\_index
+    2. outer_class_info_index
 
-If C is not a member of a class or an interface (that is, if C is a top-level class or interface (JLS §7.6) or a local class (JLS §14.3) or an anonymous class (JLS §15.9.5)), the value of the `outer_class_info_index` item must be zero.
+        If C is not a member of a class or an interface (that is, if C is a top-level class or interface (JLS §7.6) or a local class (JLS §14.3) or an anonymous class (JLS §15.9.5)), the value of the `outer_class_info_index` item must be zero.
 
-Otherwise, the value of the `outer_class_info_index` item must be a valid index into the `constant_pool` table, and the entry at that index must be a `CONSTANT_Class_info` structure representing the class or interface of which C is a member.
+        Otherwise, the value of the `outer_class_info_index` item must be a valid index into the `constant_pool` table, and the entry at that index must be a `CONSTANT_Class_info` structure representing the class or interface of which C is a member.
 
-inner\_name\_index
+    3. inner_name_index
 
-If C is anonymous (JLS §15.9.5), the value of the `inner_name_index` item must be zero.
+        If C is anonymous (JLS §15.9.5), the value of the `inner_name_index` item must be zero.
 
-Otherwise, the value of the `inner_name_index` item must be a valid index into the `constant_pool` table, and the entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) that represents the original simple name of C, as given in the source code from which this `class` file was compiled.
+        Otherwise, the value of the `inner_name_index` item must be a valid index into the `constant_pool` table, and the entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) that represents the original simple name of C, as given in the source code from which this `class` file was compiled.
 
-inner\_class\_access\_flags
+    4. inner_class_access_flags
 
-The value of the `inner_class_access_flags` item is a mask of flags used to denote access permissions to and properties of class or interface C as declared in the source code from which this `class` file was compiled. It is used by a compiler to recover the original information when source code is not available. The flags are specified in [Table 4.7.6-A](jvms-4.html#jvms-4.7.6-300-D.1-D.1 "Table 4.7.6-A. Nested class access and property flags").
+        The value of the `inner_class_access_flags` item is a mask of flags used to denote access permissions to and properties of class or interface C as declared in the source code from which this `class` file was compiled. It is used by a compiler to recover the original information when source code is not available. The flags are specified in [Table 4.7.6-A](jvms-4.html#jvms-4.7.6-300-D.1-D.1 "Table 4.7.6-A. Nested class access and property flags").
 
-**Table 4.7.6-A. Nested class access and property flags**
+        **Table 4.7.6-A. Nested class access and property flags**
 
-  
+        | Flag Name | Value | Interpretation |
+        |-----------|-------|----------------|
+        | `ACC_PUBLIC` | 0x0001 | Marked or implicitly `public` in source.
+        | `ACC_PRIVATE` | 0x0002 | Marked `private` in source.
+        | `ACC_PROTECTED` | 0x0004 | Marked `protected` in source.
+        | `ACC_STATIC` | 0x0008 | Marked or implicitly `static` in source.
+        | `ACC_FINAL` | 0x0010 | Marked `final` in source.
+        | `ACC_INTERFACE` | 0x0200 | Was an `interface` in source.
+        | `ACC_ABSTRACT` | 0x0400 | Marked or implicitly `abstract` in source.
+        | `ACC_SYNTHETIC` | 0x1000 | Declared synthetic; not present in the source code.
+        | `ACC_ANNOTATION` | 0x2000 | Declared as an annotation type.
+        | `ACC_ENUM` | 0x4000 | Declared as an `enum` type.
+          
 
-Flag Name
+        All bits of the `inner_class_access_flags` item not assigned in [Table 4.7.6-A](jvms-4.html#jvms-4.7.6-300-D.1-D.1 "Table 4.7.6-A. Nested class access and property flags") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
 
-Value
-
-Interpretation
-
-`ACC_PUBLIC`
-
-0x0001
-
-Marked or implicitly `public` in source.
-
-`ACC_PRIVATE`
-
-0x0002
-
-Marked `private` in source.
-
-`ACC_PROTECTED`
-
-0x0004
-
-Marked `protected` in source.
-
-`ACC_STATIC`
-
-0x0008
-
-Marked or implicitly `static` in source.
-
-`ACC_FINAL`
-
-0x0010
-
-Marked `final` in source.
-
-`ACC_INTERFACE`
-
-0x0200
-
-Was an `interface` in source.
-
-`ACC_ABSTRACT`
-
-0x0400
-
-Marked or implicitly `abstract` in source.
-
-`ACC_SYNTHETIC`
-
-0x1000
-
-Declared synthetic; not present in the source code.
-
-`ACC_ANNOTATION`
-
-0x2000
-
-Declared as an annotation type.
-
-`ACC_ENUM`
-
-0x4000
-
-Declared as an `enum` type.
-
-  
-
-All bits of the `inner_class_access_flags` item not assigned in [Table 4.7.6-A](jvms-4.html#jvms-4.7.6-300-D.1-D.1 "Table 4.7.6-A. Nested class access and property flags") are reserved for future use. They should be set to zero in generated `class` files and should be ignored by Java Virtual Machine implementations.
-
-If a `class` file has a version number that is 51.0 or above, and has an `InnerClasses` attribute in its `attributes` table, then for all entries in the `classes` array of the `InnerClasses` attribute, the value of the `outer_class_info_index` item must be zero if the value of the `inner_name_index` item is zero.
+    If a `class` file has a version number that is 51.0 or above, and has an `InnerClasses` attribute in its `attributes` table, then for all entries in the `classes` array of the `InnerClasses` attribute, the value of the `outer_class_info_index` item must be zero if the value of the `inner_name_index` item is zero.
 
 Oracle's Java Virtual Machine implementation does not check the consistency of an `InnerClasses` attribute against a `class` file representing a class or interface referenced by the attribute.
 
@@ -5412,36 +4466,38 @@ There may be at most one `EnclosingMethod` attribute in the `attributes` table o
 
 The `EnclosingMethod` attribute has the following format:
 
-EnclosingMethod\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 class\_index;
-    u2 method\_index;
+```java
+EnclosingMethod_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 class_index;
+    u2 method_index;
 }
+```
 
 The items of the `EnclosingMethod_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`EnclosingMethod`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`EnclosingMethod`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item must be four.
+    The value of the `attribute_length` item must be four.
 
-class\_index
+3. class_index
 
-The value of the `class_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing the innermost class that encloses the declaration of the current class.
+    The value of the `class_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Class_info` structure ([§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure")) representing the innermost class that encloses the declaration of the current class.
 
-method\_index
+4. method_index
 
-If the current class is not immediately enclosed by a method or constructor, then the value of the `method_index` item must be zero.
+    If the current class is not immediately enclosed by a method or constructor, then the value of the `method_index` item must be zero.
 
-In particular, `method_index` must be zero if the current class was immediately enclosed in source code by an instance initializer, static initializer, instance variable initializer, or class variable initializer. (The first two concern both local classes and anonymous classes, while the last two concern anonymous classes declared on the right hand side of a field assignment.)
+    In particular, `method_index` must be zero if the current class was immediately enclosed in source code by an instance initializer, static initializer, instance variable initializer, or class variable initializer. (The first two concern both local classes and anonymous classes, while the last two concern anonymous classes declared on the right hand side of a field assignment.)
 
-Otherwise, the value of the `method_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_NameAndType_info` structure ([§4.4.6](jvms-4.html#jvms-4.4.6 "4.4.6. The CONSTANT_NameAndType_info Structure")) representing the name and type of a method in the class referenced by the `class_index` attribute above.
+    Otherwise, the value of the `method_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_NameAndType_info` structure ([§4.4.6](jvms-4.html#jvms-4.4.6 "4.4.6. The CONSTANT_NameAndType_info Structure")) representing the name and type of a method in the class referenced by the `class_index` attribute above.
 
-It is the responsibility of a Java compiler to ensure that the method identified via the `method_index` is indeed the closest lexically enclosing method of the class that contains this `EnclosingMethod` attribute.
+    It is the responsibility of a Java compiler to ensure that the method identified via the `method_index` is indeed the closest lexically enclosing method of the class that contains this `EnclosingMethod` attribute.
 
 ### 4.7.8. The `Synthetic` Attribute
 
@@ -5451,20 +4507,22 @@ The `Synthetic` attribute was introduced in JDK 1.1 to support nested classes an
 
 The `Synthetic` attribute has the following format:
 
-Synthetic\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
+```java
+Synthetic_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
 }
+```
 
 The items of the `Synthetic_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Synthetic`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Synthetic`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item must be zero.
+    The value of the `attribute_length` item must be zero.
 
 ### 4.7.9. The `Signature` Attribute
 
@@ -5472,25 +4530,27 @@ The `Signature` attribute is a fixed-length attribute in the `attributes` table 
 
 The `Signature` attribute has the following format:
 
-Signature\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 signature\_index;
+```java
+Signature_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 signature_index;
 }
+```
 
 The items of the `Signature_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Signature`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Signature`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item of a `Signature_attribute` structure must be two.
+    The value of the `attribute_length` item of a `Signature_attribute` structure must be two.
 
-signature\_index
+3. signature_index
 
-The value of the `signature_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a class signature if this `Signature` attribute is an attribute of a `ClassFile` structure; a method signature if this `Signature` attribute is an attribute of a `method_info` structure; or a field signature otherwise.
+    The value of the `signature_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a class signature if this `Signature` attribute is an attribute of a `ClassFile` structure; a method signature if this `Signature` attribute is an attribute of a `method_info` structure; or a field signature otherwise.
 
 Oracle's Java Virtual Machine implementation does not check the well-formedness of `Signature` attributes during class loading or linking. Instead, `Signature` attributes are checked by methods of the Java SE platform class libraries which expose generic signatures of classes, interfaces, constructors, methods, and fields. Examples include `getGenericSuperclass` in `Class` and `toGenericString` in `java.lang.reflect.Executable`.
 
@@ -5511,7 +4571,7 @@ A Java compiler must emit a signature for any class, interface, constructor, met
 
 Signatures are specified using a grammar which follows the notation of [§4.3.1](jvms-4.html#jvms-4.3.1 "4.3.1. Grammar Notation"). In addition to that notation:
 
-*   The syntax _\[x\]_ on the right-hand side of a production denotes zero or one occurrences of _x_. That is, _x_ is an _optional symbol_. The alternative which contains the optional symbol actually defines two alternatives: one that omits the optional symbol and one that includes it.
+*   The syntax _[x]_ on the right-hand side of a production denotes zero or one occurrences of _x_. That is, _x_ is an _optional symbol_. The alternative which contains the optional symbol actually defines two alternatives: one that omits the optional symbol and one that includes it.
     
 *   A very long right-hand side may be continued on a second line by clearly indenting the second line.
     
@@ -5550,7 +4610,7 @@ Signatures rely on a hierarchy of nonterminals known as _type signatures_:
     
     ClassTypeSignature:
     
-    `L` \[[PackageSpecifier](jvms-4.html#jvms-PackageSpecifier "PackageSpecifier")\] [SimpleClassTypeSignature](jvms-4.html#jvms-SimpleClassTypeSignature "SimpleClassTypeSignature") {[ClassTypeSignatureSuffix](jvms-4.html#jvms-ClassTypeSignatureSuffix "ClassTypeSignatureSuffix")} `;`
+    `L` [[PackageSpecifier](jvms-4.html#jvms-PackageSpecifier "PackageSpecifier")] [SimpleClassTypeSignature](jvms-4.html#jvms-SimpleClassTypeSignature "SimpleClassTypeSignature") {[ClassTypeSignatureSuffix](jvms-4.html#jvms-ClassTypeSignatureSuffix "ClassTypeSignatureSuffix")} `;`
     
     PackageSpecifier:
     
@@ -5558,7 +4618,7 @@ Signatures rely on a hierarchy of nonterminals known as _type signatures_:
     
     SimpleClassTypeSignature:
     
-    Identifier \[[TypeArguments](jvms-4.html#jvms-TypeArguments "TypeArguments")\]
+    Identifier [[TypeArguments](jvms-4.html#jvms-TypeArguments "TypeArguments")]
     
     TypeArguments:
     
@@ -5566,7 +4626,7 @@ Signatures rely on a hierarchy of nonterminals known as _type signatures_:
     
     TypeArgument:
     
-    \[[WildcardIndicator](jvms-4.html#jvms-WildcardIndicator "WildcardIndicator")\] [ReferenceTypeSignature](jvms-4.html#jvms-ReferenceTypeSignature "ReferenceTypeSignature")  
+    [[WildcardIndicator](jvms-4.html#jvms-WildcardIndicator "WildcardIndicator")] [ReferenceTypeSignature](jvms-4.html#jvms-ReferenceTypeSignature "ReferenceTypeSignature")  
     `*`
     
     WildcardIndicator:
@@ -5591,7 +4651,7 @@ A _class signature_ encodes type information about a (possibly generic) class de
 
 ClassSignature:
 
-\[[TypeParameters](jvms-4.html#jvms-TypeParameters "TypeParameters")\] [SuperclassSignature](jvms-4.html#jvms-SuperclassSignature "SuperclassSignature") {[SuperinterfaceSignature](jvms-4.html#jvms-SuperinterfaceSignature "SuperinterfaceSignature")}
+[[TypeParameters](jvms-4.html#jvms-TypeParameters "TypeParameters")] [SuperclassSignature](jvms-4.html#jvms-SuperclassSignature "SuperclassSignature") {[SuperinterfaceSignature](jvms-4.html#jvms-SuperinterfaceSignature "SuperinterfaceSignature")}
 
 TypeParameters:
 
@@ -5603,7 +4663,7 @@ Identifier [ClassBound](jvms-4.html#jvms-ClassBound "ClassBound") {[InterfaceBou
 
 ClassBound:
 
-`:` \[[ReferenceTypeSignature](jvms-4.html#jvms-ReferenceTypeSignature "ReferenceTypeSignature")\]
+`:` [[ReferenceTypeSignature](jvms-4.html#jvms-ReferenceTypeSignature "ReferenceTypeSignature")]
 
 InterfaceBound:
 
@@ -5621,7 +4681,7 @@ A _method signature_ encodes type information about a (possibly generic) method 
 
 MethodSignature:
 
-\[[TypeParameters](jvms-4.html#jvms-TypeParameters "TypeParameters")\] `(` {[JavaTypeSignature](jvms-4.html#jvms-JavaTypeSignature "JavaTypeSignature")} `)` [Result](jvms-4.html#jvms-Result "Result") {[ThrowsSignature](jvms-4.html#jvms-ThrowsSignature "ThrowsSignature")}
+[[TypeParameters](jvms-4.html#jvms-TypeParameters "TypeParameters")] `(` {[JavaTypeSignature](jvms-4.html#jvms-JavaTypeSignature "JavaTypeSignature")} `)` [Result](jvms-4.html#jvms-Result "Result") {[ThrowsSignature](jvms-4.html#jvms-ThrowsSignature "ThrowsSignature")}
 
 Result:
 
@@ -5653,27 +4713,29 @@ There may be at most one `SourceFile` attribute in the `attributes` table of a `
 
 The `SourceFile` attribute has the following format:
 
-SourceFile\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 sourcefile\_index;
+```java
+SourceFile_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 sourcefile_index;
 }
+```
 
 The items of the `SourceFile_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`SourceFile`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`SourceFile`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item of a `SourceFile_attribute` structure must be two.
+    The value of the `attribute_length` item of a `SourceFile_attribute` structure must be two.
 
-sourcefile\_index
+3. sourcefile_index
 
-The value of the `sourcefile_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a string.
+    The value of the `sourcefile_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a string.
 
-The string referenced by the `sourcefile_index` item will be interpreted as indicating the name of the source file from which this `class` file was compiled. It will not be interpreted as indicating the name of a directory containing the file or an absolute path name for the file; such platform-specific additional information must be supplied by the run-time interpreter or development tool at the time the file name is actually used.
+    The string referenced by the `sourcefile_index` item will be interpreted as indicating the name of the source file from which this `class` file was compiled. It will not be interpreted as indicating the name of a directory containing the file or an absolute path name for the file; such platform-specific additional information must be supplied by the run-time interpreter or development tool at the time the file name is actually used.
 
 ### 4.7.11. The `SourceDebugExtension` Attribute
 
@@ -5683,27 +4745,29 @@ There may be at most one `SourceDebugExtension` attribute in the `attributes` ta
 
 The `SourceDebugExtension` attribute has the following format:
 
-SourceDebugExtension\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u1 debug\_extension\[attribute\_length\];
+```java
+SourceDebugExtension_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u1 debug_extension[attribute_length];
 }
+```
 
 The items of the `SourceDebugExtension_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`SourceDebugExtension`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`SourceDebugExtension`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-debug\_extension\[\]
+3. debug_extension[]
 
-The `debug_extension` array holds extended debugging information which has no semantic effect on the Java Virtual Machine. The information is represented using a modified UTF-8 string ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) with no terminating zero byte.
+    The `debug_extension` array holds extended debugging information which has no semantic effect on the Java Virtual Machine. The information is represented using a modified UTF-8 string ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) with no terminating zero byte.
 
-Note that the `debug_extension` array may denote a string longer than that which can be represented with an instance of class `String`.
+    Note that the `debug_extension` array may denote a string longer than that which can be represented with an instance of class `String`.
 
 ### 4.7.12. The `LineNumberTable` Attribute
 
@@ -5715,42 +4779,44 @@ There may be more than one `LineNumberTable` attribute _per line of a source fil
 
 The `LineNumberTable` attribute has the following format:
 
-LineNumberTable\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 line\_number\_table\_length;
-    {   u2 start\_pc;
-        u2 line\_number;	
-    } line\_number\_table\[line\_number\_table\_length\];
+```java
+LineNumberTable_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 line_number_table_length;
+    {   u2 start_pc;
+        u2 line_number;  
+    } line_number_table[line_number_table_length];
 }
+```
 
 The items of the `LineNumberTable_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`LineNumberTable`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`LineNumberTable`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-line\_number\_table\_length
+3. line_number_table_length
 
-The value of the `line_number_table_length` item indicates the number of entries in the `line_number_table` array.
+    The value of the `line_number_table_length` item indicates the number of entries in the `line_number_table` array.
 
-line\_number\_table\[\]
+4. line_number_table[]
 
-Each entry in the `line_number_table` array indicates that the line number in the original source file changes at a given point in the `code` array. Each `line_number_table` entry must contain the following two items:
+    Each entry in the `line_number_table` array indicates that the line number in the original source file changes at a given point in the `code` array. Each `line_number_table` entry must contain the following two items:
 
-start\_pc
+    1. start_pc
 
-The value of the `start_pc` item must indicate the index into the `code` array at which the code for a new line in the original source file begins.
+        The value of the `start_pc` item must indicate the index into the `code` array at which the code for a new line in the original source file begins.
 
-The value of `start_pc` must be less than the value of the `code_length` item of the `Code` attribute of which this `LineNumberTable` is an attribute.
+    The value of `start_pc` must be less than the value of the `code_length` item of the `Code` attribute of which this `LineNumberTable` is an attribute.
 
-line\_number
+    2. line_number
 
-The value of the `line_number` item must give the corresponding line number in the original source file.
+        The value of the `line_number` item must give the corresponding line number in the original source file.
 
 ### 4.7.13. The `LocalVariableTable` Attribute
 
@@ -5762,57 +4828,59 @@ There may be no more than one `LocalVariableTable` attribute _per local variable
 
 The `LocalVariableTable` attribute has the following format:
 
-LocalVariableTable\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 local\_variable\_table\_length;
-    {   u2 start\_pc;
+```java
+LocalVariableTable_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 local_variable_table_length;
+    {   u2 start_pc;
         u2 length;
-        u2 name\_index;
-        u2 descriptor\_index;
+        u2 name_index;
+        u2 descriptor_index;
         u2 index;
-    } local\_variable\_table\[local\_variable\_table\_length\];
+    } local_variable_table[local_variable_table_length];
 }
+```
 
 The items of the `LocalVariableTable_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`LocalVariableTable`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`LocalVariableTable`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-local\_variable\_table\_length
+3. local_variable_table_length
 
-The value of the `local_variable_table_length` item indicates the number of entries in the `local_variable_table` array.
+    The value of the `local_variable_table_length` item indicates the number of entries in the `local_variable_table` array.
 
-local\_variable\_table\[\]
+4. local_variable_table[]
 
-Each entry in the `local_variable_table` array indicates a range of `code` array offsets within which a local variable has a value. It also indicates the index into the local variable array of the current frame at which that local variable can be found. Each entry must contain the following five items:
+    Each entry in the `local_variable_table` array indicates a range of `code` array offsets within which a local variable has a value. It also indicates the index into the local variable array of the current frame at which that local variable can be found. Each entry must contain the following five items:
 
-start\_pc, length
+    1. start_pc, length
 
-The given local variable must have a value at indices into the `code` array in the interval \[`start_pc`, `start_pc + length`), that is, between `start_pc` inclusive and `start_pc + length` exclusive.
+        The given local variable must have a value at indices into the `code` array in the interval [`start_pc`, `start_pc + length`), that is, between `start_pc` inclusive and `start_pc + length` exclusive.
 
-The value of `start_pc` must be a valid index into the `code` array of this `Code` attribute and must be the index of the opcode of an instruction.
+        The value of `start_pc` must be a valid index into the `code` array of this `Code` attribute and must be the index of the opcode of an instruction.
 
-The value of `start_pc + length` must either be a valid index into the `code` array of this `Code` attribute and be the index of the opcode of an instruction, or it must be the first index beyond the end of that `code` array.
+        The value of `start_pc + length` must either be a valid index into the `code` array of this `Code` attribute and be the index of the opcode of an instruction, or it must be the first index beyond the end of that `code` array.
 
-name\_index
+    2. name_index
 
-The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid unqualified name denoting a local variable ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
+        The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid unqualified name denoting a local variable ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
 
-descriptor\_index
+    3. descriptor_index
 
-The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field descriptor which encodes the type of a local variable in the source program ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")).
+        The value of the `descriptor_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field descriptor which encodes the type of a local variable in the source program ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")).
 
-index
+    4. index
 
-The given local variable must be at `index` in the local variable array of the current frame.
+        The given local variable must be at `index` in the local variable array of the current frame.
 
-If the local variable at `index` is of type `double` or `long`, it occupies both `index` and `index + 1`.
+        If the local variable at `index` is of type `double` or `long`, it occupies both `index` and `index + 1`.
 
 ### 4.7.14. The `LocalVariableTypeTable` Attribute
 
@@ -5826,57 +4894,59 @@ The `LocalVariableTypeTable` attribute differs from the `LocalVariableTable` att
 
 The `LocalVariableTypeTable` attribute has the following format:
 
-LocalVariableTypeTable\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 local\_variable\_type\_table\_length;
-    {   u2 start\_pc;
+```java
+LocalVariableTypeTable_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 local_variable_type_table_length;
+    {   u2 start_pc;
         u2 length;
-        u2 name\_index;
-        u2 signature\_index;
+        u2 name_index;
+        u2 signature_index;
         u2 index;
-    } local\_variable\_type\_table\[local\_variable\_type\_table\_length\];
+    } local_variable_type_table[local_variable_type_table_length];
 }
+```
 
 The items of the `LocalVariableTypeTable_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`LocalVariableTypeTable`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`LocalVariableTypeTable`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-local\_variable\_type\_table\_length
+3. local_variable_type_table_length
 
-The value of the `local_variable_type_table_length` item indicates the number of entries in the `local_variable_type_table` array.
+    The value of the `local_variable_type_table_length` item indicates the number of entries in the `local_variable_type_table` array.
 
-local\_variable\_type\_table\[\]
+4. local_variable_type_table[]
 
-Each entry in the `local_variable_type_table` array indicates a range of `code` array offsets within which a local variable has a value. It also indicates the index into the local variable array of the current frame at which that local variable can be found. Each entry must contain the following five items:
+    Each entry in the `local_variable_type_table` array indicates a range of `code` array offsets within which a local variable has a value. It also indicates the index into the local variable array of the current frame at which that local variable can be found. Each entry must contain the following five items:
 
-start\_pc, length
+    1. start_pc, length
 
-The given local variable must have a value at indices into the `code` array in the interval \[`start_pc`, `start_pc + length`), that is, between `start_pc` inclusive and `start_pc + length` exclusive.
+        The given local variable must have a value at indices into the `code` array in the interval [`start_pc`, `start_pc + length`), that is, between `start_pc` inclusive and `start_pc + length` exclusive.
 
-The value of `start_pc` must be a valid index into the `code` array of this `Code` attribute and must be the index of the opcode of an instruction.
+        The value of `start_pc` must be a valid index into the `code` array of this `Code` attribute and must be the index of the opcode of an instruction.
 
-The value of `start_pc + length` must either be a valid index into the `code` array of this `Code` attribute and be the index of the opcode of an instruction, or it must be the first index beyond the end of that `code` array.
+        The value of `start_pc + length` must either be a valid index into the `code` array of this `Code` attribute and be the index of the opcode of an instruction, or it must be the first index beyond the end of that `code` array.
 
-name\_index
+    2. name_index
 
-The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid unqualified name denoting a local variable ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
+        The value of the `name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a valid unqualified name denoting a local variable ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
 
-signature\_index
+    3. signature_index
 
-The value of the `signature_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field signature which encodes the type of a local variable in the source program ([§4.7.9.1](jvms-4.html#jvms-4.7.9.1 "4.7.9.1. Signatures")).
+        The value of the `signature_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must contain a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field signature which encodes the type of a local variable in the source program ([§4.7.9.1](jvms-4.html#jvms-4.7.9.1 "4.7.9.1. Signatures")).
 
-index
+    4. index
 
-The given local variable must be at `index` in the local variable array of the current frame.
+        The given local variable must be at `index` in the local variable array of the current frame.
 
-If the local variable at `index` is of type `double` or `long`, it occupies both `index` and `index + 1`.
+        If the local variable at `index` is of type `double` or `long`, it occupies both `index` and `index + 1`.
 
 ### 4.7.15. The `Deprecated` Attribute
 
@@ -5886,20 +4956,22 @@ A run-time interpreter or tool that reads the `class` file format, such as a com
 
 The `Deprecated` attribute has the following format:
 
-Deprecated\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
+```java
+Deprecated_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
 }
+```
 
 The items of the `Deprecated_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Deprecated`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`Deprecated`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item must be zero.
+    The value of the `attribute_length` item must be zero.
 
 ### 4.7.16. The `RuntimeVisibleAnnotations` Attribute
 
@@ -5909,265 +4981,170 @@ There may be at most one `RuntimeVisibleAnnotations` attribute in the `attribute
 
 The `RuntimeVisibleAnnotations` attribute has the following format:
 
-RuntimeVisibleAnnotations\_attribute {
-    u2         attribute\_name\_index;
-    u4         attribute\_length;
-    u2         num\_annotations;
-    annotation annotations\[num\_annotations\];
+```java
+RuntimeVisibleAnnotations_attribute {
+    u2         attribute_name_index;
+    u4         attribute_length;
+    u2         num_annotations;
+    annotation annotations[num_annotations];
 }
+```
 
 The items of the `RuntimeVisibleAnnotations_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeVisibleAnnotations`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeVisibleAnnotations`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-num\_annotations
+3. num_annotations
 
-The value of the `num_annotations` item gives the number of run-time visible annotations represented by the structure.
+    The value of the `num_annotations` item gives the number of run-time visible annotations represented by the structure.
 
-annotations\[\]
+4. annotations[]
 
-Each entry in the `annotations` table represents a single run-time visible annotation on a declaration. The `annotation` structure has the following format:
+    Each entry in the `annotations` table represents a single run-time visible annotation on a declaration. The `annotation` structure has the following format:
 
-annotation {
-    u2 type\_index;
-    u2 num\_element\_value\_pairs;
-    {   u2            element\_name\_index;
-        element\_value value;
-    } element\_value\_pairs\[num\_element\_value\_pairs\];
-}
-      
+    ```java
+    annotation {
+        u2 type_index;
+        u2 num_element_value_pairs;
+        {   u2            element_name_index;
+            element_value value;
+        } element_value_pairs[num_element_value_pairs];
+    }
+    ```
 
-The items of the `annotation` structure are as follows:
+    The items of the `annotation` structure are as follows:
 
-type\_index
+    1. type_index
 
-The value of the `type_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")). The field descriptor denotes the type of the annotation represented by this `annotation` structure.
+        The value of the `type_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")). The field descriptor denotes the type of the annotation represented by this `annotation` structure.
 
-num\_element\_value\_pairs
+    2. num_element_value_pairs
 
-The value of the `num_element_value_pairs` item gives the number of element-value pairs of the annotation represented by this `annotation` structure.
+        The value of the `num_element_value_pairs` item gives the number of element-value pairs of the annotation represented by this `annotation` structure.
 
-element\_value\_pairs\[\]
+    3. element_value_pairs[]
 
-Each value of the `element_value_pairs` table represents a single element-value pair in the annotation represented by this `annotation` structure. Each `element_value_pairs` entry contains the following two items:
+        Each value of the `element_value_pairs` table represents a single element-value pair in the annotation represented by this `annotation` structure. Each `element_value_pairs` entry contains the following two items:
 
-element\_name\_index
+    4. element_name_index
 
-The value of the `element_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")). The `constant_pool` entry denotes the name of the element of the element-value pair represented by this `element_value_pairs` entry.
+        The value of the `element_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")). The `constant_pool` entry denotes the name of the element of the element-value pair represented by this `element_value_pairs` entry.
 
-In other words, the entry denotes an element of the annotation type specified by `type_index`.
+        In other words, the entry denotes an element of the annotation type specified by `type_index`.
 
-value
+    5. value
 
-The value of the `value` item represents the value of the element-value pair represented by this `element_value_pairs` entry.
+        The value of the `value` item represents the value of the element-value pair represented by this `element_value_pairs` entry.
 
 #### 4.7.16.1. The `element_value` structure
 
 The `element_value` structure is a discriminated union representing the value of an element-value pair. It has the following format:
 
-element\_value {
+```java
+element_value {
     u1 tag;
     union {
-        u2 const\_value\_index;
+        u2 const_value_index;
 
-        {   u2 type\_name\_index;
-            u2 const\_name\_index;
-        } enum\_const\_value;
+        {   u2 type_name_index;
+            u2 const_name_index;
+        } enum_const_value;
 
-        u2 class\_info\_index;
+        u2 class_info_index;
 
-        annotation annotation\_value;
+        annotation annotation_value;
 
-        {   u2            num\_values;
-            element\_value values\[num\_values\];
-        } array\_value;
+        {   u2            num_values;
+            element_value values[num_values];
+        } array_value;
     } value;
 }
+```
 
 The `tag` item uses a single ASCII character to indicate the type of the value of the element-value pair. This determines which item of the `value` union is in use. [Table 4.7.16.1-A](jvms-4.html#jvms-4.7.16.1-130 "Table 4.7.16.1-A. Interpretation of tag values as types") shows the valid characters for the `tag` item, the type indicated by each character, and the item used in the `value` union for each character. The table's fourth column is used in the description below of one item of the `value` union.
 
 **Table 4.7.16.1-A. Interpretation of `tag` values as types**
 
-   
-
-`tag` Item
-
-Type
-
-`value` Item
-
-Constant Type
-
-`B`
-
-`byte`
-
-`const_value_index`
-
-`CONSTANT_Integer`
-
-`C`
-
-`char`
-
-`const_value_index`
-
-`CONSTANT_Integer`
-
-`D`
-
-`double`
-
-`const_value_index`
-
-`CONSTANT_Double`
-
-`F`
-
-`float`
-
-`const_value_index`
-
-`CONSTANT_Float`
-
-`I`
-
-`int`
-
-`const_value_index`
-
-`CONSTANT_Integer`
-
-`J`
-
-`long`
-
-`const_value_index`
-
-`CONSTANT_Long`
-
-`S`
-
-`short`
-
-`const_value_index`
-
-`CONSTANT_Integer`
-
-`Z`
-
-`boolean`
-
-`const_value_index`
-
-`CONSTANT_Integer`
-
-`s`
-
-`String`
-
-`const_value_index`
-
-`CONSTANT_Utf8`
-
-`e`
-
-Enum type
-
-`enum_const_value`
-
-_Not applicable_
-
-`c`
-
-`Class`
-
-`class_info_index`
-
-_Not applicable_
-
-`@`
-
-Annotation type
-
-`annotation_value`
-
-_Not applicable_
-
-`[`
-
-Array type
-
-`array_value`
-
-_Not applicable_
-
-  
+| `tag` Item | Type | `value` Item | Constant Type |
+|------------|------|--------------|---------------|
+| `B` | `byte` | `const_value_index` | `CONSTANT_Integer`|
+| `C` | `char` | `const_value_index` | `CONSTANT_Integer`| 
+| `D` | `double` | `const_value_index` | `CONSTANT_Double`|
+| `F` | `float` | `const_value_index` | `CONSTANT_Float`| 
+| `I` | `int` | `const_value_index` | `CONSTANT_Integer`|
+| `J` | `long` | `const_value_index` | `CONSTANT_Long`|
+| `S` | `short` | `const_value_index` | `CONSTANT_Integer`| 
+| `Z` | `boolean` | `const_value_index` | `CONSTANT_Integer`|
+| `s` | `String` | `const_value_index` | `CONSTANT_Utf8`|
+| `e` |Enum type | `enum_const_value` | _Not applicable_|
+| `c` | `Class` | `class_info_index` | _Not applicable_|
+| `@` | Annotation type | `annotation_value` | _Not applicable_ |
+| `[` | Array type | `| array_value` | _Not applicable_ |
 
 The `value` item represents the value of an element-value pair. The item is a union, whose own items are as follows:
 
-const\_value\_index
+1. const_value_index
 
-The `const_value_index` item denotes either a primitive constant value or a `String` literal as the value of this element-value pair.
+    The `const_value_index` item denotes either a primitive constant value or a `String` literal as the value of this element-value pair.
 
-The value of the `const_value_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be of a type appropriate to the `tag` item, as specified in the fourth column of [Table 4.7.16.1-A](jvms-4.html#jvms-4.7.16.1-130 "Table 4.7.16.1-A. Interpretation of tag values as types").
+    The value of the `const_value_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be of a type appropriate to the `tag` item, as specified in the fourth column of [Table 4.7.16.1-A](jvms-4.html#jvms-4.7.16.1-130 "Table 4.7.16.1-A. Interpretation of tag values as types").
 
-enum\_const\_value
+2. enum_const_value
 
-The `enum_const_value` item denotes an enum constant as the value of this element-value pair.
+    The `enum_const_value` item denotes an enum constant as the value of this element-value pair.
 
-The `enum_const_value` item consists of the following two items:
+    The `enum_const_value` item consists of the following two items:
 
-type\_name\_index
+3. type_name_index
 
-The value of the `type_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")). The `constant_pool` entry gives the internal form of the binary name of the type of the enum constant representedby this `element_value` structure ([§4.2.1](jvms-4.html#jvms-4.2.1 "4.2.1. Binary Class and Interface Names")).
+    The value of the `type_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")). The `constant_pool` entry gives the internal form of the binary name of the type of the enum constant representedby this `element_value` structure ([§4.2.1](jvms-4.html#jvms-4.2.1 "4.2.1. Binary Class and Interface Names")).
 
-const\_name\_index
+4. const_name_index
 
-The value of the `const_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")). The `constant_pool` entry gives the simple name of the enum constant represented by this `element_value` structure.
+    The value of the `const_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")). The `constant_pool` entry gives the simple name of the enum constant represented by this `element_value` structure.
 
-class\_info\_index
+5. class_info_index
 
-The `class_info_index` item denotes a class literal as the value of this element-value pair.
+    The `class_info_index` item denotes a class literal as the value of this element-value pair.
 
-The `class_info_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a return descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). The return descriptor gives the type corresponding to the class literal represented by this `element_value` structure. Types correspond to class literals as follows:
+    The `class_info_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing a return descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). The return descriptor gives the type corresponding to the class literal represented by this `element_value` structure. Types correspond to class literals as follows:
 
-*   For a class literal C`.``class`, where C is the name of a class, interface, or array type, the corresponding type is C. The return descriptor in the `constant_pool` will be an _ObjectType_ or an _ArrayType_.
-    
-*   For a class literal p`.``class`, where p is the name of a primitive type, the corresponding type is p. The return descriptor in the `constant_pool` will be a _BaseType_ character.
-    
-*   For a class literal `void``.``class`, the corresponding type is `void`. The return descriptor in the `constant_pool` will be _V_.
-    
+    *   For a class literal C`.``class`, where C is the name of a class, interface, or array type, the corresponding type is C. The return descriptor in the `constant_pool` will be an _ObjectType_ or an _ArrayType_.
+        
+    *   For a class literal p`.``class`, where p is the name of a primitive type, the corresponding type is p. The return descriptor in the `constant_pool` will be a _BaseType_ character.
+        
+    *   For a class literal `void``.``class`, the corresponding type is `void`. The return descriptor in the `constant_pool` will be _V_.
+        
 
-For example, the class literal `Object.class` corresponds to the type `Object`, so the `constant_pool` entry is `Ljava/lang/Object;`, whereas the class literal `int.class` corresponds to the type `int`, so the `constant_pool` entry is `I`.
+    For example, the class literal `Object.class` corresponds to the type `Object`, so the `constant_pool` entry is `Ljava/lang/Object;`, whereas the class literal `int.class` corresponds to the type `int`, so the `constant_pool` entry is `I`.
 
-The class literal `void.class` corresponds to `void`, so the `constant_pool` entry is _V_, whereas the class literal `Void.class` corresponds to the type `Void`, so the `constant_pool` entry is `Ljava/lang/Void;`.
+    The class literal `void.class` corresponds to `void`, so the `constant_pool` entry is _V_, whereas the class literal `Void.class` corresponds to the type `Void`, so the `constant_pool` entry is `Ljava/lang/Void;`.
 
-annotation\_value
+6. annotation_value
 
-The `annotation_value` item denotes a "nested" annotation as the value of this element-value pair.
+    The `annotation_value` item denotes a "nested" annotation as the value of this element-value pair.
 
-The value of the `annotation_value` item is an `annotation` structure ([§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute")) that gives the annotation represented by this `element_value` structure.
+    The value of the `annotation_value` item is an `annotation` structure ([§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute")) that gives the annotation represented by this `element_value` structure.
 
-array\_value
+7. array_value
 
-The `array_value` item denotes an array as the value of this element-value pair.
+    The `array_value` item denotes an array as the value of this element-value pair.
 
-The `array_value` item consists of the following two items:
+    The `array_value` item consists of the following two items:
 
-num\_values
+    1. num_values
 
-The value of the `num_values` item gives the number of elements in the array represented by this `element_value` structure.
+        The value of the `num_values` item gives the number of elements in the array represented by this `element_value` structure.
 
-values\[\]
+    2. values[]
 
-Each value in the `values` table gives the corresponding element of the array represented by this `element_value` structure.
+        Each value in the `values` table gives the corresponding element of the array represented by this `element_value` structure.
 
 ### 4.7.17. The `RuntimeInvisibleAnnotations` Attribute
 
@@ -6179,30 +5156,32 @@ The `RuntimeInvisibleAnnotations` attribute is similar to the `RuntimeVisibleAnn
 
 The `RuntimeInvisibleAnnotations` attribute has the following format:
 
-RuntimeInvisibleAnnotations\_attribute {
-    u2         attribute\_name\_index;
-    u4         attribute\_length;
-    u2         num\_annotations;
-    annotation annotations\[num\_annotations\];
+```java
+RuntimeInvisibleAnnotations_attribute {
+    u2         attribute_name_index;
+    u4         attribute_length;
+    u2         num_annotations;
+    annotation annotations[num_annotations];
 }
+```
 
 The items of the `RuntimeInvisibleAnnotations_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeInvisibleAnnotations`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeInvisibleAnnotations`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-num\_annotations
+3. num_annotations
 
-The value of the `num_annotations` item gives the number of run-time invisible annotations represented by the structure.
+    The value of the `num_annotations` item gives the number of run-time invisible annotations represented by the structure.
 
-annotations\[\]
+4. annotations[]
 
-Each entry in the `annotations` table represents a single run-time invisible annotation on a declaration. The `annotation` structure is specified in [§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute").
+    Each entry in the `annotations` table represents a single run-time invisible annotation on a declaration. The `annotation` structure is specified in [§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute").
 
 ### 4.7.18. The `RuntimeVisibleParameterAnnotations` Attribute
 
@@ -6212,42 +5191,44 @@ There may be at most one `RuntimeVisibleParameterAnnotations` attribute in the `
 
 The `RuntimeVisibleParameterAnnotations` attribute has the following format:
 
-RuntimeVisibleParameterAnnotations\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u1 num\_parameters;
-    {   u2         num\_annotations;
-        annotation annotations\[num\_annotations\];
-    } parameter\_annotations\[num\_parameters\];
+```java
+RuntimeVisibleParameterAnnotations_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u1 num_parameters;
+    {   u2         num_annotations;
+        annotation annotations[num_annotations];
+    } parameter_annotations[num_parameters];
 }
+```
 
 The items of the `RuntimeVisibleParameterAnnotations_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeVisibleParameterAnnotations`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeVisibleParameterAnnotations`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-num\_parameters
+3. num_parameters
 
-The value of the `num_parameters` item gives the number of formal parameters of the method represented by the `method_info` structure on which the annotation occurs.
+    The value of the `num_parameters` item gives the number of formal parameters of the method represented by the `method_info` structure on which the annotation occurs.
 
-This duplicates information that could be extracted from the method descriptor.
+    This duplicates information that could be extracted from the method descriptor.
 
-parameter\_annotations\[\]
+4. parameter_annotations[]
 
-Each entry in the `parameter_annotations` table represents all of the run-time visible annotations on the declaration of a single formal parameter. The _i_'th entry in the table corresponds to the _i_'th formal parameter in the method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). Each `parameter_annotations` entry contains the following two items:
+    Each entry in the `parameter_annotations` table represents all of the run-time visible annotations on the declaration of a single formal parameter. The _i_'th entry in the table corresponds to the _i_'th formal parameter in the method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). Each `parameter_annotations` entry contains the following two items:
 
-num\_annotations
+5. num_annotations
 
-The value of the `num_annotations` item indicates the number of run-time visible annotations on the declaration of the formal parameter corresponding to the `parameter_annotations` entry.
+    The value of the `num_annotations` item indicates the number of run-time visible annotations on the declaration of the formal parameter corresponding to the `parameter_annotations` entry.
 
-annotations\[\]
+6. annotations[]
 
-Each entry in the `annotations` table represents a single run-time visible annotation on the declaration of the formal parameter corresponding to the `parameter_annotations` entry. The `annotation` structure is specified in [§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute").
+    Each entry in the `annotations` table represents a single run-time visible annotation on the declaration of the formal parameter corresponding to the `parameter_annotations` entry. The `annotation` structure is specified in [§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute").
 
 ### 4.7.19. The `RuntimeInvisibleParameterAnnotations` Attribute
 
@@ -6259,42 +5240,44 @@ The `RuntimeInvisibleParameterAnnotations` attribute is similar to the `RuntimeV
 
 The `RuntimeInvisibleParameterAnnotations` attribute has the following format:
 
-RuntimeInvisibleParameterAnnotations\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u1 num\_parameters;
-    {   u2         num\_annotations;
-        annotation annotations\[num\_annotations\];
-    } parameter\_annotations\[num\_parameters\];
+```java
+RuntimeInvisibleParameterAnnotations_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u1 num_parameters;
+    {   u2         num_annotations;
+        annotation annotations[num_annotations];
+    } parameter_annotations[num_parameters];
 }
+```
 
 The items of the `RuntimeInvisibleParameterAnnotations_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeInvisibleParameterAnnotations`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`RuntimeInvisibleParameterAnnotations`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-num\_parameters
+3. num_parameters
 
-The value of the `num_parameters` item gives the number of formal parameters of the method represented by the `method_info` structure on which the annotation occurs.
+    The value of the `num_parameters` item gives the number of formal parameters of the method represented by the `method_info` structure on which the annotation occurs.
 
 This duplicates information that could be extracted from the method descriptor.
 
-parameter\_annotations\[\]
+4. parameter_annotations[]
 
-Each entry in the `parameter_annotations` table represents all of the run-time invisible annotations on the declaration of a single formal parameter. The _i_'th entry in the table corresponds to the _i_'th formal parameter in the method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). Each `parameter_annotations` entry contains the following two items:
+    Each entry in the `parameter_annotations` table represents all of the run-time invisible annotations on the declaration of a single formal parameter. The _i_'th entry in the table corresponds to the _i_'th formal parameter in the method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")). Each `parameter_annotations` entry contains the following two items:
 
-num\_annotations
+    1. num_annotations
 
-The value of the `num_annotations` item indicates the number of run-time invisible annotations on the declaration of the formal parameter corresponding to the `parameter_annotations` entry.
+        The value of the `num_annotations` item indicates the number of run-time invisible annotations on the declaration of the formal parameter corresponding to the `parameter_annotations` entry.
 
-annotations\[\]
+    2. annotations[]
 
-Each entry in the `annotations` table represents a single run-time invisible annotation on the declaration of the formal parameter corresponding to the `parameter_annotations` entry. The `annotation` structure is specified in [§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute").
+        Each entry in the `annotations` table represents a single run-time invisible annotation on the declaration of the formal parameter corresponding to the `parameter_annotations` entry. The `annotation` structure is specified in [§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute").
 
 ### 4.7.20. The `RuntimeVisibleTypeAnnotations` Attribute
 
@@ -6308,316 +5291,136 @@ For example, all annotations on types in the `implements` clause of a class decl
 
 The `RuntimeVisibleTypeAnnotations` attribute has the following format:
 
-RuntimeVisibleTypeAnnotations\_attribute {
-    u2              attribute\_name\_index;
-    u4              attribute\_length;
-    u2              num\_annotations;
-    type\_annotation annotations\[num\_annotations\];
+```java
+RuntimeVisibleTypeAnnotations_attribute {
+    u2              attribute_name_index;
+    u4              attribute_length;
+    u2              num_annotations;
+    type_annotation annotations[num_annotations];
 }
+```
 
 The items of the `RuntimeVisibleTypeAnnotations_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing the string "`RuntimeVisibleTypeAnnotations`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing the string "`RuntimeVisibleTypeAnnotations`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-num\_annotations
+3. num_annotations
 
-The value of the `num_annotations` item gives the number of run-time visible type annotations represented by the structure.
+    The value of the `num_annotations` item gives the number of run-time visible type annotations represented by the structure.
 
-annotations\[\]
+4. annotations[]
 
-Each entry in the `annotations` table represents a single run-time visible annotation on a type used in a declaration or expression. The `type_annotation` structure has the following format:
+    Each entry in the `annotations` table represents a single run-time visible annotation on a type used in a declaration or expression. The `type_annotation` structure has the following format:
 
-type\_annotation {
-    u1 target\_type;
-    union {
-        type\_parameter\_target;
-        supertype\_target;
-        type\_parameter\_bound\_target;
-        empty\_target;
-        method\_formal\_parameter\_target;
-        throws\_target;
-        localvar\_target;
-        catch\_target;
-        offset\_target;
-        type\_argument\_target;
-    } target\_info;
-    type\_path target\_path;
-    u2        type\_index;
-    u2        num\_element\_value\_pairs;
-    {   u2            element\_name\_index;
-        element\_value value;
-    } element\_value\_pairs\[num\_element\_value\_pairs\];
-}
-      
+    ```java
+    type_annotation {
+        u1 target_type;
+        union {
+            type_parameter_target;
+            supertype_target;
+            type_parameter_bound_target;
+            empty_target;
+            method_formal_parameter_target;
+            throws_target;
+            localvar_target;
+            catch_target;
+            offset_target;
+            type_argument_target;
+        } target_info;
+        type_path target_path;
+        u2        type_index;
+        u2        num_element_value_pairs;
+        {   u2            element_name_index;
+            element_value value;
+        } element_value_pairs[num_element_value_pairs];
+    }
+    ```
 
-The first three items - `target_type`, `target_info`, and `target_path` - specify the precise location of the annotated type. The last three items - `type_index`, `num_element_value_pairs`, and `element_value_pairs[]` - specify the annotation's own type and element-value pairs.
+    The first three items - `target_type`, `target_info`, and `target_path` - specify the precise location of the annotated type. The last three items - `type_index`, `num_element_value_pairs`, and `element_value_pairs[]` - specify the annotation's own type and element-value pairs.
 
-The items of the `type_annotation` structure are as follows:
+    The items of the `type_annotation` structure are as follows:
 
-target\_type
+    1. target_type
 
-The value of the `target_type` item denotes the kind of target on which the annotation appears. The various kinds of target correspond to the _type contexts_ of the Java programming language where types are used in declarations and expressions (JLS §4.11).
+        The value of the `target_type` item denotes the kind of target on which the annotation appears. The various kinds of target correspond to the _type contexts_ of the Java programming language where types are used in declarations and expressions (JLS §4.11).
 
-The legal values of `target_type` are specified in [Table 4.7.20-A](jvms-4.html#jvms-4.7.20-400 "Table 4.7.20-A. Interpretation of target_type values (Part 1)") and [Table 4.7.20-B](jvms-4.html#jvms-4.7.20-410 "Table 4.7.20-B. Interpretation of target_type values (Part 2)"). Each value is a one-byte tag indicating which item of the `target_info` union follows the `target_type` item to give more information about the target.
+        The legal values of `target_type` are specified in [Table 4.7.20-A](jvms-4.html#jvms-4.7.20-400 "Table 4.7.20-A. Interpretation of target_type values (Part 1)") and [Table 4.7.20-B](jvms-4.html#jvms-4.7.20-410 "Table 4.7.20-B. Interpretation of target_type values (Part 2)"). Each value is a one-byte tag indicating which item of the `target_info` union follows the `target_type` item to give more information about the target.
 
-The kinds of target in [Table 4.7.20-A](jvms-4.html#jvms-4.7.20-400 "Table 4.7.20-A. Interpretation of target_type values (Part 1)") and [Table 4.7.20-B](jvms-4.html#jvms-4.7.20-410 "Table 4.7.20-B. Interpretation of target_type values (Part 2)") correspond to the type contexts in JLS §4.11. Namely, `target_type` values 0x10-0x17 and 0x40-0x42 correspond to type contexts 1-10, while `target_type` values 0x43-0x4B correspond to type contexts 11-16.
+        The kinds of target in [Table 4.7.20-A](jvms-4.html#jvms-4.7.20-400 "Table 4.7.20-A. Interpretation of target_type values (Part 1)") and [Table 4.7.20-B](jvms-4.html#jvms-4.7.20-410 "Table 4.7.20-B. Interpretation of target_type values (Part 2)") correspond to the type contexts in JLS §4.11. Namely, `target_type` values 0x10-0x17 and 0x40-0x42 correspond to type contexts 1-10, while `target_type` values 0x43-0x4B correspond to type contexts 11-16.
 
-The value of the `target_type` item determines whether the `type_annotation` structure appears in a `RuntimeVisibleTypeAnnotations` attribute in a `ClassFile` structure, a `field_info` structure, a `method_info` structure, or a `Code` attribute. [Table 4.7.20-C](jvms-4.html#jvms-4.7.20-420 "Table 4.7.20-C. Location of enclosing attribute for target_type values") gives the location of the `RuntimeVisibleTypeAnnotations` attribute for a `type_annotation` structure with each legal `target_type` value.
+        The value of the `target_type` item determines whether the `type_annotation` structure appears in a `RuntimeVisibleTypeAnnotations` attribute in a `ClassFile` structure, a `field_info` structure, a `method_info` structure, or a `Code` attribute. [Table 4.7.20-C](jvms-4.html#jvms-4.7.20-420 "Table 4.7.20-C. Location of enclosing attribute for target_type values") gives the location of the `RuntimeVisibleTypeAnnotations` attribute for a `type_annotation` structure with each legal `target_type` value.
 
-target\_info
+    2. target_info
 
-The value of the `target_info` item denotes precisely which type in a declaration or expression is annotated.
+        The value of the `target_info` item denotes precisely which type in a declaration or expression is annotated.
 
-The items of the `target_info` union are specified in [§4.7.20.1](jvms-4.html#jvms-4.7.20.1 "4.7.20.1. The target_info union").
+        The items of the `target_info` union are specified in [§4.7.20.1](jvms-4.html#jvms-4.7.20.1 "4.7.20.1. The target_info union").
 
-target\_path
+    3. target_path
 
-The value of the `target_path` item denotes precisely which part of the type indicated by `target_info` is annotated.
+        The value of the `target_path` item denotes precisely which part of the type indicated by `target_info` is annotated.
 
-The format of the `type_path` structure is specified in [§4.7.20.2](jvms-4.html#jvms-4.7.20.2 "4.7.20.2. The type_path structure").
+        The format of the `type_path` structure is specified in [§4.7.20.2](jvms-4.html#jvms-4.7.20.2 "4.7.20.2. The type_path structure").
 
-type\_index, num\_element\_value\_pairs, element\_value\_pairs\[\]
+    4. type_index, num_element_value_pairs, element_value_pairs[]
 
-The meaning of these items in the `type_annotation` structure is the same as their meaning in the `annotation` structure ([§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute")).
+        The meaning of these items in the `type_annotation` structure is the same as their meaning in the `annotation` structure ([§4.7.16](jvms-4.html#jvms-4.7.16 "4.7.16. The RuntimeVisibleAnnotations Attribute")).
 
 **Table 4.7.20-A. Interpretation of `target_type` values (Part 1)**
 
-  
-
-Value
-
-Kind of target
-
-`target_info` item
-
-0x00
-
-type parameter declaration of generic class or interface
-
-`type_parameter_target`
-
-0x01
-
-type parameter declaration of generic method or constructor
-
-`type_parameter_target`
-
-0x10
-
-type in `extends` or `implements` clause of class declaration (including the direct superclass or direct superinterface of an anonymous class declaration), or in `extends` clause of interface declaration
-
-`supertype_target`
-
-0x11
-
-type in bound of type parameter declaration of generic class or interface
-
-`type_parameter_bound_target`
-
-0x12
-
-type in bound of type parameter declaration of generic method or constructor
-
-`type_parameter_bound_target`
-
-0x13
-
-type in field declaration
-
-`empty_target`
-
-0x14
-
-return type of method, or type of newly constructed object
-
-`empty_target`
-
-0x15
-
-receiver type of method or constructor
-
-`empty_target`
-
-0x16
-
-type in formal parameter declaration of method, constructor, or lambda expression
-
-`formal_parameter_target`
-
-0x17
-
-type in `throws` clause of method or constructor
-
-`throws_target`
-
+| Value | Kind of target | `target_info` item |
+|-------|----------------|--------------------|
+| 0x00 | type parameter declaration of generic class or interface | `type_parameter_target`
+| 0x01 | type parameter declaration of generic method or constructor | `type_parameter_target`
+| 0x10 | type in `extends` or `implements` clause of class declaration (including the direct superclass or direct superinterface of an anonymous class declaration), or in `extends` clause of interface declaration | `supertype_target`
+| 0x11 | type in bound of type parameter declaration of generic class or interface | `type_parameter_bound_target`
+| 0x12 | type in bound of type parameter declaration of generic method or constructor | `type_parameter_bound_target`
+| 0x13 | type in field declaration | `empty_target`
+| 0x14 | return type of method, or type of newly constructed object | `empty_target`
+| 0x15 | receiver type of method or constructor | `empty_target`
+| 0x16 | type in formal parameter declaration of method, constructor, or lambda expression | `formal_parameter_target`
+| 0x17 | type in `throws` clause of method or constructor | `throws_target`
   
 
 **Table 4.7.20-B. Interpretation of `target_type` values (Part 2)**
 
-  
-
-Value
-
-Kind of target
-
-`target_info` item
-
-0x40
-
-type in local variable declaration
-
-`localvar_target`
-
-0x41
-
-type in resource variable declaration
-
-`localvar_target`
-
-0x42
-
-type in exception parameter declaration
-
-`catch_target`
-
-0x43
-
-type in _instanceof_ expression
-
-`offset_target`
-
-0x44
-
-type in _new_ expression
-
-`offset_target`
-
-0x45
-
-type in method reference expression using `::`_new_
-
-`offset_target`
-
-0x46
-
-type in method reference expression using `::`_Identifier_
-
-`offset_target`
-
-0x47
-
-type in cast expression
-
-`type_argument_target`
-
-0x48
-
-type argument for generic constructor in _new_ expression or explicit constructor invocation statement
-
-`type_argument_target`
-
-0x49
-
-type argument for generic method in method invocation expression
-
-`type_argument_target`
-
-0x4A
-
-type argument for generic constructor in method reference expression using `::`_new_
-
-`type_argument_target`
-
-0x4B
-
-type argument for generic method in method reference expression using `::`_Identifier_
-
-`type_argument_target`
-
+| Value | Kind of target | `target_info` item |
+|-------|----------------|--------------------|
+| 0x40 | type in local variable declaration | `localvar_target`
+| 0x41 | type in resource variable declaration | `localvar_target`
+| 0x42 | type in exception parameter declaration | `catch_target`
+| 0x43 | type in _instanceof_ expression | `offset_target`
+| 0x44 | type in _new_ expression | `offset_target`
+| 0x45 | type in method reference expression using `::`_new_ | `offset_target`
+| 0x46 | type in method reference expression using `::`_Identifier_ | `offset_target`
+| 0x47 | type in cast expression | `type_argument_target`
+| 0x48 | type argument for generic constructor in _new_ expression or explicit constructor invocation statement | `type_argument_target`
+| 0x49 | type argument for generic method in method invocation expression | `type_argument_target`
+| 0x4A | type argument for generic constructor in method reference expression using `::`_new_ | `type_argument_target`
+| 0x4B | type argument for generic method in method reference expression using `::`_Identifier_ | `type_argument_target`
   
 
 **Table 4.7.20-C. Location of enclosing attribute for `target_type` values**
 
-  
-
-Value
-
-Kind of target
-
-Location
-
-0x00
-
-type parameter declaration of generic class or interface
-
-`ClassFile`
-
-0x01
-
-type parameter declaration of generic method or constructor
-
-`method_info`
-
-0x10
-
-type in `extends` clause of class or interface declaration, or in `implements` clause of interface declaration
-
-`ClassFile`
-
-0x11
-
-type in bound of type parameter declaration of generic class or interface
-
-`ClassFile`
-
-0x12
-
-type in bound of type parameter declaration of generic method or constructor
-
-`method_info`
-
-0x13
-
-type in field declaration
-
-`field_info`
-
-0x14
-
-return type of method or constructor
-
-`method_info`
-
-0x15
-
-receiver type of method or constructor
-
-`method_info`
-
-0x16
-
-type in formal parameter declaration of method, constructor, or lambda expression
-
-`method_info`
-
-0x17
-
-type in `throws` clause of method or constructor
-
-`method_info`
-
-0x40-0x4B
-
-types in local variable declarations, resource variable declarations, exception parameter declarations, expressions
-
-`Code`
-
+| Value | Kind of target | Location |
+|-------|----------------|----------|
+| 0x00 | type parameter declaration of generic class or interface | `ClassFile`
+| 0x01 | type parameter declaration of generic method or constructor | `method_info`
+| 0x10 | type in `extends` clause of class or interface declaration, or in `implements` clause of interface declaration | `ClassFile`
+| 0x11 | type in bound of type parameter declaration of generic class or interface | `ClassFile`
+| 0x12 | type in bound of type parameter declaration of generic method or constructor | `method_info`
+| 0x13 | type in field declaration | `field_info`
+| 0x14 | return type of method or constructor | `method_info`
+| 0x15 | receiver type of method or constructor | `method_info`
+| 0x16 | type in formal parameter declaration of method, constructor, or lambda expression | `method_info`
+| 0x17 | type in `throws` clause of method or constructor | `method_info`
+| 0x40-0x4B | types in local variable declarations, resource variable declarations, exception parameter declarations, expressions | `Code`
   
 
 #### 4.7.20.1. The `target_info` union
@@ -6626,18 +5429,22 @@ The items of the `target_info` union (except for the first) specify precisely wh
 
 *   The `type_parameter_target` item indicates that an annotation appears on the declaration of the _i_'th type parameter of a generic class, generic interface, generic method, or generic constructor.
     
-    type\_parameter\_target {
-        u1 type\_parameter\_index;
+    ```java
+    type_parameter_target {
+        u1 type_parameter_index;
     }
+    ```
         
     
     The value of the `type_parameter_index` item specifies which type parameter declaration is annotated. A `type_parameter_index` value of `0` specifies the first type parameter declaration.
     
 *   The `supertype_target` item indicates that an annotation appears on a type in the `extends` or `implements` clause of a class or interface declaration.
     
-    supertype\_target {
-        u2 supertype\_index;
+    ```java
+    supertype_target {
+        u2 supertype_index;
     }
+    ```
         
     
     A `supertype_index` value of 65535 specifies that the annotation appears on the superclass in an `extends` clause of a class declaration.
@@ -6646,10 +5453,12 @@ The items of the `target_info` union (except for the first) specify precisely wh
 
 *   The `type_parameter_bound_target` item indicates that an annotation appears on the _i_'th bound of the _j_'th type parameter declaration of a generic class, interface, method, or constructor.
     
-    type\_parameter\_bound\_target {
-        u1 type\_parameter\_index;
-        u1 bound\_index;
+    ```java
+    type_parameter_bound_target {
+        u1 type_parameter_index;
+        u1 bound_index;
     }
+    ```
         
     
     The value of the of `type_parameter_index` item specifies which type parameter declaration has an annotated bound. A `type_parameter_index` value of `0` specifies the first type parameter declaration.
@@ -6660,17 +5469,21 @@ The items of the `target_info` union (except for the first) specify precisely wh
     
 *   The `empty_target` item indicates that an annotation appears on either the type in a field declaration, the return type of a method, the type of a newly constructed object, or the receiver type of a method or constructor.
     
-    empty\_target {
+    ```java
+    empty_target {
     }
+    ```
         
     
     Only one type appears in each of these locations, so there is no per-type information to represent in the `target_info` union.
     
 *   The `formal_parameter_target` item indicates that an annotation appears on the type in a formal parameter declaration of a method, constructor, or lambda expression.
     
-    formal\_parameter\_target {
-        u1 formal\_parameter\_index;
+    ```java
+    formal_parameter_target {
+        u1 formal_parameter_index;
     }
+    ```
         
     
     The value of the `formal_parameter_index` item specifies which formal parameter declaration has an annotated type. A `formal_parameter_index` value of `0` specifies the first formal parameter declaration.
@@ -6679,35 +5492,39 @@ The items of the `target_info` union (except for the first) specify precisely wh
     
 *   The `throws_target` item indicates that an annotation appears on the _i_'th type in the `throws` clause of a method or constructor declaration.
     
-    throws\_target {
-        u2 throws\_type\_index;
+    ```java
+    throws_target {
+        u2 throws_type_index;
     }
+    ```
         
     
     The value of the `throws_type_index` item is an index into the `exception_index_table` array of the `Exceptions` attribute of the `method_info` structure enclosing the `RuntimeVisibleTypeAnnotations` attribute.
     
 *   The `localvar_target` item indicates that an annotation appears on the type in a local variable declaration, including a variable declared as a resource in a `try`\-with-resources statement.
     
-    localvar\_target {
-        u2 table\_length;
-        {   u2 start\_pc;
+    ```java
+    localvar_target {
+        u2 table_length;
+        {   u2 start_pc;
             u2 length;
             u2 index;
-        } table\[table\_length\];
+        } table[table_length];
     }
+    ```
         
     
     The value of the `table_length` item gives the number of entries in the `table` array. Each entry indicates a range of `code` array offsets within which a local variable has a value. It also indicates the index into the local variable array of the current frame at which that local variable can be found. Each entry contains the following three items:
     
-    start\_pc, length
+    1. start_pc, length
     
-    The given local variable has a value at indices into the `code` array in the interval \[`start_pc`, `start_pc + length`), that is, between `start_pc` inclusive and `start_pc + length` exclusive.
+        The given local variable has a value at indices into the `code` array in the interval [`start_pc`, `start_pc + length`), that is, between `start_pc` inclusive and `start_pc + length` exclusive.
     
-    index
+    2. index
     
-    The given local variable must be at `index` in the local variable array of the current frame.
+        The given local variable must be at `index` in the local variable array of the current frame.
     
-    If the local variable at `index` is of type `double` or `long`, it occupies both `index` and `index + 1`.
+        If the local variable at `index` is of type `double` or `long`, it occupies both `index` and `index + 1`.
     
     A table is needed to fully specify the local variable whose type is annotated, because a single local variable may be represented with different local variable indices over multiple live ranges. The `start_pc`, `length`, and `index` items in each table entry specify the same information as a `LocalVariableTable` attribute.
     
@@ -6715,9 +5532,11 @@ The items of the `target_info` union (except for the first) specify precisely wh
     
 *   The `catch_target` item indicates that an annotation appears on the _i_'th type in an exception parameter declaration.
     
-    catch\_target {
-        u2 exception\_table\_index;
+    ```java
+    catch_target {
+        u2 exception_table_index;
     }
+    ```
         
     
     The value of the `exception_table_index` item is an index into the `exception_table` array of the `Code` attribute enclosing the `RuntimeVisibleTypeAnnotations` attribute.
@@ -6726,19 +5545,22 @@ The items of the `target_info` union (except for the first) specify precisely wh
     
 *   The `offset_target` item indicates that an annotation appears on either the type in an _instanceof_ expression or a _new_ expression, or the type before the `::` in a method reference expression.
     
-    offset\_target {
+    ```java
+    offset_target {
         u2 offset;
     }
-        
+    ```
     
     The value of the `offset` item specifies the `code` array offset of either the _instanceof_ bytecode instruction corresponding to the _instanceof_ expression, the _new_ bytecode instruction corresponding to the _new_ expression, or the bytecode instruction corresponding to the method reference expression.
     
 *   The `type_argument_target` item indicates that an annotation appears either on the _i_'th type in a cast expression, or on the _i_'th type argument in the explicit type argument list for any of the following: a _new_ expression, an explicit constructor invocation statement, a method invocation expression, or a method reference expression.
     
-    type\_argument\_target {
+    ```java
+    type_argument_target {
         u2 offset;
-        u1 type\_argument\_index;
+        u1 type_argument_index;
     }
+    ```
         
     
     The value of the `offset` item specifies the `code` array offset of either the bytecode instruction corresponding to the cast expression, the _new_ bytecode instruction corresponding to the _new_ expression, the bytecode instruction corresponding to the explicit constructor invocation statement, the bytecode instruction corresponding to the method invocation expression, or the bytecode instruction corresponding to the method reference expression.
@@ -6763,33 +5585,41 @@ Wherever a type is used in a declaration or expression, the `type_path` structur
 
 For example, consider the different parts of `String``[]``[]` that are annotated in:
 
-@Foo String\[\]\[\]   // Annotates the class type String
-String @Foo \[\]\[\]  // Annotates the array type String\[\]\[\]
-String\[\] @Foo \[\]  // Annotates the array type String\[\]
+```java
+@Foo String[][]   // Annotates the class type String
+String @Foo [][]  // Annotates the array type String[][]
+String[] @Foo []  // Annotates the array type String[]
+```
 
 or the different parts of the nested type `Outer.Middle.Inner` that are annotated in:
 
+```java
 @Foo Outer.Middle.Inner
 Outer.@Foo Middle.Inner
 Outer.Middle.@Foo Inner
+```
 
 or the different parts of the parameterized types `Map<String,Object>` and `List<...>` that are annotated in:
 
+```java
 @Foo Map<String,Object>
 Map<@Foo String,Object>
 Map<String,@Foo Object>
 
 List<@Foo ? extends String>
 List<? extends @Foo String>
+```
 
 The `type_path` structure has the following format:
 
-type\_path {
-    u1 path\_length;
-    {   u1 type\_path\_kind;
-        u1 type\_argument\_index;
-    } path\[path\_length\];
+```java
+type_path {
+    u1 path_length;
+    {   u1 type_path_kind;
+        u1 type_argument_index;
+    } path[path_length];
 }
+```
 
 The value of the `path_length` item gives the number of entries in the `path` array:
 
@@ -6797,7 +5627,7 @@ The value of the `path_length` item gives the number of entries in the `path` ar
     
 *   If the value of `path_length` is non-zero, then each entry in the `path` array represents an iterative, left-to-right step towards the precise location of the annotation in an array type, nested type, or parameterized type. (In an array type, the iteration visits the array type itself, then its component type, then the component type of that component type, and so on, until the element type is reached.) Each entry contains the following two items:
     
-    type\_path\_kind
+1. type_path_kind
     
     The legal values for the `type_path_kind` item are listed in [Table 4.7.20.2-A](jvms-4.html#jvms-4.7.20.2-220-B-A.1 "Table 4.7.20.2-A. Interpretation of type_path_kind values").
     
@@ -6805,29 +5635,15 @@ The value of the `path_length` item gives the number of entries in the `path` ar
     
      
     
-    Value
-    
-    Interpretation
-    
-    `0`
-    
-    Annotation is deeper in an array type
-    
-    `1`
-    
-    Annotation is deeper in a nested type
-    
-    `2`
-    
-    Annotation is on the bound of a wildcard type argument of a parameterized type
-    
-    `3`
-    
-    Annotation is on a type argument of a parameterized type
-    
+    | Value | Interpretation |
+    |-------|----------------|
+    | `0` | Annotation is deeper in an array type
+    | `1` | Annotation is deeper in a nested type
+    | `2` | Annotation is on the bound of a wildcard type argument of a parameterized type
+    | `3` | Annotation is on a type argument of a parameterized type
       
     
-    type\_argument\_index
+2. type_argument_index
     
     If the value of the `type_path_kind` item is `0`, `1`, or `2`, then the value of the `type_argument_index` item is `0`.
     
@@ -6836,193 +5652,55 @@ The value of the `path_length` item gives the number of entries in the `path` ar
 
 **Table 4.7.20.2-B. `type_path` structures for `@A Map<@B ? extends @C String, @D List<@E Object>>`**
 
-  
-
-Annotation
-
-`path_length`
-
-`path`
-
-`@A`
-
-`0`
-
-`[]`
-
-`@B`
-
-`1`
-
-`[{type_path_kind: 3; type_argument_index: 0}]`
-
-`@C`
-
-`2`
-
-`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 2; type_argument_index: 0}]`
-
-`@D`
-
-`1`
-
-`[{type_path_kind: 3; type_argument_index: 1}]`
-
-`@E`
-
-`2`
-
-`[{type_path_kind: 3; type_argument_index: 1}, {type_path_kind: 3; type_argument_index: 0}]`
-
+| Annotation | `path_length` | `path` |
+|------------|---------------|--------|
+| `@A` | `0` | `[]`
+| `@B` | `1` | `[{type_path_kind: 3; type_argument_index: 0}]`
+| `@C` | `2` | `[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 2; type_argument_index: 0}]`
+| `@D` | `1` | `[{type_path_kind: 3; type_argument_index: 1}]`
+| `@E` | `2` | `[{type_path_kind: 3; type_argument_index: 1}, {type_path_kind: 3; type_argument_index: 0}]`
   
 
 **Table 4.7.20.2-C. `type_path` structures for `@I String @F [] @G [] @H []`**
 
-  
-
-Annotation
-
-`path_length`
-
-`path`
-
-`@F`
-
-`0`
-
-`[]`
-
-`@G`
-
-`1`
-
-`[{type_path_kind: 0; type_argument_index: 0}]`
-
-`@H`
-
-`2`
-
-`[{type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
-
-`@I`
-
-`3`
-
-`[{type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
-
+| Annotation | `path_length` | `path` |
+|------------|---------------|--------|
+| `@F` | `0` | `[]`
+| `@G` | `1` | `[{type_path_kind: 0; type_argument_index: 0}]`
+| `@H` | `2` | `[{type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
+| `@I` | `3` | `[{type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
   
 
 **Table 4.7.20.2-D. `type_path` structures for `@A List<@B Comparable<@F Object @C [] @D [] @E []>>`**
 
-  
-
-Annotation
-
-`path_length`
-
-`path`
-
-`@A`
-
-`0`
-
-`[]`
-
-`@B`
-
-`1`
-
-`[{type_path_kind: 3; type_argument_index: 0}]`
-
-`@C`
-
-`2`
-
-`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}]`
-
-`@D`
-
-`3`
-
-`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
-
-`@E`
-
-`4`
-
-`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
-
-`@F`
-
-`5`
-
-`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
-
+| Annotation | `path_length` | `path` |
+|------------|---------------|--------|
+| `@A` | `0` |`[]`
+| `@B` | `1` |`[{type_path_kind: 3; type_argument_index: 0}]`
+| `@C` | `2` |`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}]`
+| `@D` | `3` |`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
+| `@E` | `4` |`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
+| `@F` | `5` |`[{type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
   
 
 **Table 4.7.20.2-E. `type_path` structures for `@C Outer . @B Middle . @A Inner`**
 
-  
+| Annotation | `path_length` | `path` |
+|------------|---------------|--------|
+| `@A` | `2` | `[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}]`
+| `@B` | `1` | `[{type_path_kind: 1; type_argument_index: 0}]`
+| `@C` | `0` | `[]`
 
-Annotation
-
-`path_length`
-
-`path`
-
-`@A`
-
-`2`
-
-`[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}]`
-
-`@B`
-
-`1`
-
-`[{type_path_kind: 1; type_argument_index: 0}]`
-
-`@C`
-
-`0`
-
-`[]`
-
-  
 
 **Table 4.7.20.2-F. `type_path` structures for `Outer . Middle<@D Foo . @C Bar> . Inner<@B String @A []>`**
-
   
 
-Annotation
-
-`path_length`
-
-`path`
-
-`@A`
-
-`3`
-
-`[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}]`
-
-`@B`
-
-`4`
-
-`[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
-
-`@C`
-
-`3`
-
-`[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}]`
-
-`@D`
-
-`2`
-
-`[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}]`
+| Annotation | `path_length` | `path` |
+|------------|---------------|--------|
+| `@A` | `3` | `[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}]`
+| `@B` | `4` | `[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 0; type_argument_index: 0}]`
+| `@C` | `3` | `[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}, {type_path_kind: 1; type_argument_index: 0}]`
+| `@D` | `2` | `[{type_path_kind: 1; type_argument_index: 0}, {type_path_kind: 3; type_argument_index: 0}]`
 
   
 
@@ -7036,30 +5714,32 @@ An `attributes` table contains a `RuntimeInvisibleTypeAnnotations` attribute onl
 
 The `RuntimeInvisibleTypeAnnotations` attribute has the following format:
 
-RuntimeInvisibleTypeAnnotations\_attribute {
-    u2              attribute\_name\_index;
-    u4              attribute\_length;
-    u2              num\_annotations;
-    type\_annotation annotations\[num\_annotations\];
+```java
+RuntimeInvisibleTypeAnnotations_attribute {
+    u2              attribute_name_index;
+    u4              attribute_length;
+    u2              num_annotations;
+    type_annotation annotations[num_annotations];
 }
+```
 
 The items of the `RuntimeInvisibleTypeAnnotations_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing the string "`RuntimeInvisibleTypeAnnotations`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing the string "`RuntimeInvisibleTypeAnnotations`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-num\_annotations
+3. num_annotations
 
-The value of the `num_annotations` item gives the number of run-time invisible type annotations represented by the structure.
+    The value of the `num_annotations` item gives the number of run-time invisible type annotations represented by the structure.
 
-annotations\[\]
+4. annotations[]
 
-Each entry in the `annotations` table represents a single run-time invisible annotation on a type used in a declaration or expression. The `type_annotation` structure is specified in [§4.7.20](jvms-4.html#jvms-4.7.20 "4.7.20. The RuntimeVisibleTypeAnnotations Attribute").
+    Each entry in the `annotations` table represents a single run-time invisible annotation on a type used in a declaration or expression. The `type_annotation` structure is specified in [§4.7.20](jvms-4.html#jvms-4.7.20 "4.7.20. The RuntimeVisibleTypeAnnotations Attribute").
 
 ### 4.7.22. The `AnnotationDefault` Attribute
 
@@ -7069,25 +5749,27 @@ There may be at most one `AnnotationDefault` attribute in the `attributes` table
 
 The `AnnotationDefault` attribute has the following format:
 
-AnnotationDefault\_attribute {
-    u2            attribute\_name\_index;
-    u4            attribute\_length;
-    element\_value default\_value;
+```java
+AnnotationDefault_attribute {
+    u2            attribute_name_index;
+    u4            attribute_length;
+    element_value default_value;
 }
+```
 
 The items of the `AnnotationDefault_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`AnnotationDefault`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`AnnotationDefault`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-default\_value
+3. default_value
 
-The `default_value` item represents the default value of the annotation type element represented by the `method_info` structure enclosing this `AnnotationDefault` attribute.
+    The `default_value` item represents the default value of the annotation type element represented by the `method_info` structure enclosing this `AnnotationDefault` attribute.
 
 ### 4.7.23. The `BootstrapMethods` Attribute
 
@@ -7099,51 +5781,53 @@ There may be at most one `BootstrapMethods` attribute in the `attributes` table 
 
 The `BootstrapMethods` attribute has the following format:
 
-BootstrapMethods\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u2 num\_bootstrap\_methods;
-    {   u2 bootstrap\_method\_ref;
-        u2 num\_bootstrap\_arguments;
-        u2 bootstrap\_arguments\[num\_bootstrap\_arguments\];
-    } bootstrap\_methods\[num\_bootstrap\_methods\];
+```java
+BootstrapMethods_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u2 num_bootstrap_methods;
+    {   u2 bootstrap_method_ref;
+        u2 num_bootstrap_arguments;
+        u2 bootstrap_arguments[num_bootstrap_arguments];
+    } bootstrap_methods[num_bootstrap_methods];
 }
+```
 
 The items of the `BootstrapMethods_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`BootstrapMethods`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure ([§4.4.7](jvms-4.html#jvms-4.4.7 "4.4.7. The CONSTANT_Utf8_info Structure")) representing the string "`BootstrapMethods`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
 The value of the `attribute_length` item is thus dependent on the number of _invokedynamic_ instructions in this `ClassFile` structure.
 
-num\_bootstrap\_methods
+3. num_bootstrap_methods
 
-The value of the `num_bootstrap_methods` item determines the number of bootstrap method specifiers in the `bootstrap_methods` array.
+    The value of the `num_bootstrap_methods` item determines the number of bootstrap method specifiers in the `bootstrap_methods` array.
 
-bootstrap\_methods\[\]
+4. bootstrap_methods[]
 
-Each entry in the `bootstrap_methods` table contains an index to a `CONSTANT_MethodHandle_info` structure ([§4.4.8](jvms-4.html#jvms-4.4.8 "4.4.8. The CONSTANT_MethodHandle_info Structure")) which specifies a bootstrap method, and a sequence (perhaps empty) of indexes to _static arguments_ for the bootstrap method.
+    Each entry in the `bootstrap_methods` table contains an index to a `CONSTANT_MethodHandle_info` structure ([§4.4.8](jvms-4.html#jvms-4.4.8 "4.4.8. The CONSTANT_MethodHandle_info Structure")) which specifies a bootstrap method, and a sequence (perhaps empty) of indexes to _static arguments_ for the bootstrap method.
 
-Each `bootstrap_methods` entry must contain the following three items:
+    Each `bootstrap_methods` entry must contain the following three items:
 
-bootstrap\_method\_ref
+    1. bootstrap_method_ref
 
-The value of the `bootstrap_method_ref` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_MethodHandle_info` structure ([§4.4.8](jvms-4.html#jvms-4.4.8 "4.4.8. The CONSTANT_MethodHandle_info Structure")).
+        The value of the `bootstrap_method_ref` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_MethodHandle_info` structure ([§4.4.8](jvms-4.html#jvms-4.4.8 "4.4.8. The CONSTANT_MethodHandle_info Structure")).
 
-The form of the method handle is driven by the continuing resolution of the call site specifier in [§_invokedynamic_](jvms-6.html#jvms-6.5.invokedynamic "invokedynamic"), where execution of `invoke` in `java.lang.invoke.MethodHandle` requires that the bootstrap method handle be adjustable to the actual arguments being passed, as if by a call to `java.lang.invoke.MethodHandle.asType`. Accordingly, the `reference_kind` item of the `CONSTANT_MethodHandle_info` structure should have the value 6 or 8 ([§5.4.3.5](jvms-5.html#jvms-5.4.3.5 "5.4.3.5. Method Type and Method Handle Resolution")), and the `reference_index` item should specify a static method or constructor that takes three arguments of type `java.lang.invoke.MethodHandles.Lookup`, `String`, and `java.lang.invoke.MethodType`, in that order. Otherwise, invocation of the bootstrap method handle during call site specifier resolution will complete abruptly.
+        The form of the method handle is driven by the continuing resolution of the call site specifier in [§_invokedynamic_](jvms-6.html#jvms-6.5.invokedynamic "invokedynamic"), where execution of `invoke` in `java.lang.invoke.MethodHandle` requires that the bootstrap method handle be adjustable to the actual arguments being passed, as if by a call to `java.lang.invoke.MethodHandle.asType`. Accordingly, the `reference_kind` item of the `CONSTANT_MethodHandle_info` structure should have the value 6 or 8 ([§5.4.3.5](jvms-5.html#jvms-5.4.3.5 "5.4.3.5. Method Type and Method Handle Resolution")), and the `reference_index` item should specify a static method or constructor that takes three arguments of type `java.lang.invoke.MethodHandles.Lookup`, `String`, and `java.lang.invoke.MethodType`, in that order. Otherwise, invocation of the bootstrap method handle during call site specifier resolution will complete abruptly.
 
-num\_bootstrap\_arguments
+    2. num_bootstrap_arguments
 
-The value of the `num_bootstrap_arguments` item gives the number of items in the `bootstrap_arguments` array.
+        The value of the `num_bootstrap_arguments` item gives the number of items in the `bootstrap_arguments` array.
 
-<dt>bootstrap\_arguments\[\]
+    3. bootstrap_arguments[]
 
-Each entry in the `bootstrap_arguments` array must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_String_info`, `CONSTANT_Class_info`, `CONSTANT_Integer_info`, `CONSTANT_Long_info`, `CONSTANT_Float_info`, `CONSTANT_Double_info`, `CONSTANT_MethodHandle_info`, or `CONSTANT_MethodType_info` structure ([§4.4.3](jvms-4.html#jvms-4.4.3 "4.4.3. The CONSTANT_String_info Structure"), [§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure"), [§4.4.4](jvms-4.html#jvms-4.4.4 "4.4.4. The CONSTANT_Integer_info and CONSTANT_Float_info Structures"), [§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures"), [§4.4.8](jvms-4.html#jvms-4.4.8 "4.4.8. The CONSTANT_MethodHandle_info Structure"), [§4.4.9](jvms-4.html#jvms-4.4.9 "4.4.9. The CONSTANT_MethodType_info Structure")).
+        Each entry in the `bootstrap_arguments` array must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_String_info`, `CONSTANT_Class_info`, `CONSTANT_Integer_info`, `CONSTANT_Long_info`, `CONSTANT_Float_info`, `CONSTANT_Double_info`, `CONSTANT_MethodHandle_info`, or `CONSTANT_MethodType_info` structure ([§4.4.3](jvms-4.html#jvms-4.4.3 "4.4.3. The CONSTANT_String_info Structure"), [§4.4.1](jvms-4.html#jvms-4.4.1 "4.4.1. The CONSTANT_Class_info Structure"), [§4.4.4](jvms-4.html#jvms-4.4.4 "4.4.4. The CONSTANT_Integer_info and CONSTANT_Float_info Structures"), [§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures"), [§4.4.8](jvms-4.html#jvms-4.4.8 "4.4.8. The CONSTANT_MethodHandle_info Structure"), [§4.4.9](jvms-4.html#jvms-4.4.9 "4.4.9. The CONSTANT_MethodType_info Structure")).
 
 ### 4.7.24. The `MethodParameters` Attribute
 
@@ -7153,58 +5837,60 @@ There may be at most one `MethodParameters` attribute in the `attributes` table 
 
 The `MethodParameters` attribute has the following format:
 
-MethodParameters\_attribute {
-    u2 attribute\_name\_index;
-    u4 attribute\_length;
-    u1 parameters\_count;
-    {   u2 name\_index;
-        u2 access\_flags;
-    } parameters\[parameters\_count\];
+```java
+MethodParameters_attribute {
+    u2 attribute_name_index;
+    u4 attribute_length;
+    u1 parameters_count;
+    {   u2 name_index;
+        u2 access_flags;
+    } parameters[parameters_count];
 }
+```
 
 The items of the `MethodParameters_attribute` structure are as follows:
 
-attribute\_name\_index
+1. attribute_name_index
 
-The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing the string "`MethodParameters`".
+    The value of the `attribute_name_index` item must be a valid index into the `constant_pool` table. The `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing the string "`MethodParameters`".
 
-attribute\_length
+2. attribute_length
 
-The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
+    The value of the `attribute_length` item indicates the length of the attribute, excluding the initial six bytes.
 
-parameters\_count
+3. parameters_count
 
-The value of the `parameters_count` item indicates the number of parameter descriptors in the method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")) referenced by the `descriptor_index` of the attribute's enclosing `method_info` structure.
+    The value of the `parameters_count` item indicates the number of parameter descriptors in the method descriptor ([§4.3.3](jvms-4.html#jvms-4.3.3 "4.3.3. Method Descriptors")) referenced by the `descriptor_index` of the attribute's enclosing `method_info` structure.
 
 This is not a constraint which a Java Virtual Machine implementation must enforce during format checking ([§4.8](jvms-4.html#jvms-4.8 "4.8. Format Checking")). The task of matching parameter descriptors in a method descriptor against the items in the `parameters` array below is done by the reflection libraries of the Java SE platform.
 
-parameters\[\]
+4. parameters[]
 
-Each entry in the `parameters` array contains the following pair of items:
+    Each entry in the `parameters` array contains the following pair of items:
 
-name\_index
+    1. name_index
 
-The value of the `name_index` item must either be zero or a valid index into the `constant_pool` table.
+        The value of the `name_index` item must either be zero or a valid index into the `constant_pool` table.
 
-If the value of the `name_index` item is zero, then this `parameters` element indicates a formal parameter with no name.
+        If the value of the `name_index` item is zero, then this `parameters` element indicates a formal parameter with no name.
 
-If the value of the `name_index` item is nonzero, the `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing a valid unqualified name denoting a formal parameter ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
+        If the value of the `name_index` item is nonzero, the `constant_pool` entry at that index must be a `CONSTANT_Utf8_info` structure representing a valid unqualified name denoting a formal parameter ([§4.2.2](jvms-4.html#jvms-4.2.2 "4.2.2. Unqualified Names")).
 
-access\_flags
+    2. access_flags
 
-The value of the `access_flags` item is as follows:
+        The value of the `access_flags` item is as follows:
 
-0x0010 (`ACC_FINAL`)
+        0x0010 (`ACC_FINAL`)
 
-Indicates that the formal parameter was declared `final`.
+            Indicates that the formal parameter was declared `final`.
 
-0x1000 (`ACC_SYNTHETIC`)
+        0x1000 (`ACC_SYNTHETIC`)
 
-Indicates that the formal parameter was not explicitly or implicitly declared in source code, according to the specification of the language in which the source code was written (JLS §13.1). (The formal parameter is an implementation artifact of the compiler which produced this `class` file.)
+            Indicates that the formal parameter was not explicitly or implicitly declared in source code, according to the specification of the language in which the source code was written (JLS §13.1). (The formal parameter is an implementation artifact of the compiler which produced this `class` file.)
 
-0x8000 (`ACC_MANDATED`)
+        0x8000 (`ACC_MANDATED`)
 
-Indicates that the formal parameter was implicitly declared in source code, according to the specification of the language in which the source code was written (JLS §13.1). (The formal parameter is mandated by a language specification, so all compilers for the language must emit it.)
+            Indicates that the formal parameter was implicitly declared in source code, according to the specification of the language in which the source code was written (JLS §13.1). (The formal parameter is mandated by a language specification, so all compilers for the language must emit it.)
 
 The _i_'th entry in the `parameters` array corresponds to the _i_'th parameter descriptor in the enclosing method's descriptor. (The `parameters_count` item is one byte because a method descriptor is limited to 255 parameters.) Effectively, this means the `parameters` array stores information for all the parameters of the method. One could imagine other schemes, where entries in the `parameters` array specify their corresponding parameter descriptors, but it would unduly complicate the `MethodParameters` attribute.
 
@@ -7245,7 +5931,7 @@ The static constraints on the instructions in the `code` array are as follows:
 
 *   Only instances of the instructions documented in [§6.5](jvms-6.html#jvms-6.5 "6.5. Instructions") may appear in the `code` array. Instances of instructions using the reserved opcodes ([§6.2](jvms-6.html#jvms-6.2 "6.2. Reserved Opcodes")) or any opcodes not documented in this specification must not appear in the `code` array.
     
-    If the `class` file version number is 51.0 or above, then neither the _jsr_ opcode or the _jsr\_w_ opcode may appear in the `code` array.
+    If the `class` file version number is 51.0 or above, then neither the _jsr_ opcode or the _jsr_w_ opcode may appear in the `code` array.
     
 *   The opcode of the first instruction in the `code` array begins at index `0`.
     
@@ -7258,7 +5944,7 @@ The static constraints on the instructions in the `code` array are as follows:
 
 The static constraints on the operands of instructions in the `code` array are as follows:
 
-*   The target of each jump and branch instruction (_jsr_, _jsr\_w_, _goto_, _goto\_w_, _ifeq_, _ifne_, _ifle_, _iflt_, _ifge_, _ifgt_, _ifnull_, _ifnonnull_, _if\_icmpeq_, _if\_icmpne_, _if\_icmple_, _if\_icmplt_, _if\_icmpge_, _if\_icmpgt_, _if\_acmpeq_, _if\_acmpne_) must be the opcode of an instruction within this method.
+*   The target of each jump and branch instruction (_jsr_, _jsr_w_, _goto_, _goto_w_, _ifeq_, _ifne_, _ifle_, _iflt_, _ifge_, _ifgt_, _ifnull_, _ifnonnull_, _if_icmpeq_, _if_icmpne_, _if_icmple_, _if_icmplt_, _if_icmpge_, _if_icmpgt_, _if_acmpeq_, _if_acmpne_) must be the opcode of an instruction within this method.
     
     The target of a jump or branch instruction must never be the opcode used to specify the operation to be modified by a _wide_ instruction; a jump or branch target may be the _wide_ instruction itself.
     
@@ -7274,7 +5960,7 @@ The static constraints on the operands of instructions in the `code` array are a
     
     No target of a _lookupswitch_ instruction may be the opcode used to specify the operation to be modified by a _wide_ instruction; a _lookupswitch_ target may be a _wide_ instruction itself.
     
-*   The operand of each _ldc_ instruction and each _ldc\_w_ instruction must be a valid index into the `constant_pool` table. The constant pool entry referenced by that index must be of type:
+*   The operand of each _ldc_ instruction and each _ldc_w_ instruction must be a valid index into the `constant_pool` table. The constant pool entry referenced by that index must be of type:
     
     *   `CONSTANT_Integer`, `CONSTANT_Float`, or `CONSTANT_String` if the `class` file version number is less than 49.0.
         
@@ -7283,7 +5969,7 @@ The static constraints on the operands of instructions in the `code` array are a
     *   `CONSTANT_Integer`, `CONSTANT_Float`, `CONSTANT_String`, `CONSTANT_Class`, `CONSTANT_MethodType`, or `CONSTANT_MethodHandle` if the `class` file version number is 51.0 or above.
         
     
-*   The operands of each _ldc2\_w_ instruction must represent a valid index into the `constant_pool` table. The constant pool entry referenced by that index must be of type `CONSTANT_Long` or `CONSTANT_Double`.
+*   The operands of each _ldc2_w_ instruction must represent a valid index into the `constant_pool` table. The constant pool entry referenced by that index must be of type `CONSTANT_Long` or `CONSTANT_Double`.
     
     The subsequent constant pool index must also be a valid index into the constant pool, and the constant pool entry at that index must not be used.
     
@@ -7321,11 +6007,11 @@ The static constraints on the operands of instructions in the `code` array are a
     
 *   The _index_ operand of each _iload_, _fload_, _aload_, _istore_, _fstore_, _astore_, _iinc_, and _ret_ instruction must be a non-negative integer no greater than `max_locals - 1`.
     
-    The implicit index of each _iload\_<n>_, _fload\_<n>_, _aload\_<n>_, _istore\_<n>_, _fstore\_<n>_, and _astore\_<n>_ instruction must be no greater than `max_locals - 1`.
+    The implicit index of each _iload_<n>_, _fload_<n>_, _aload_<n>_, _istore_<n>_, _fstore_<n>_, and _astore_<n>_ instruction must be no greater than `max_locals - 1`.
     
 *   The _index_ operand of each _lload_, _dload_, _lstore_, and _dstore_ instruction must be no greater than `max_locals - 2`.
     
-    The implicit index of each _lload\_<n>_, _dload\_<n>_, _lstore\_<n>_, and _dstore\_<n>_ instruction must be no greater than `max_locals - 2`.
+    The implicit index of each _lload_<n>_, _dload_<n>_, _lstore_<n>_, and _dstore_<n>_ instruction must be no greater than `max_locals - 2`.
     
 *   The _indexbyte_ operands of each _wide_ instruction modifying an _iload_, _fload_, _aload_, _istore_, _fstore_, _astore_, _iinc_, or _ret_ instruction must represent a non-negative integer no greater than `max_locals - 1`.
     
@@ -7370,7 +6056,7 @@ The structural constraints on the `code` array specify constraints on relationsh
     
 *   If there is an uninitialized class instance in a local variable in code protected by an exception handler, then i) if the handler is inside an `<init>` method, the handler must throw an exception or loop forever, and ii) if the handler is not inside an `<init>` method, the uninitialized class instance must remain uninitialized.
     
-*   There must never be an uninitialized class instance on the operand stack or in a local variable when a _jsr_ or _jsr\_w_ instruction is executed.
+*   There must never be an uninitialized class instance on the operand stack or in a local variable when a _jsr_ or _jsr_w_ instruction is executed.
     
 *   The type of every class instance that is the target of a method invocation instruction must be assignment compatible with the class or interface type specified in the instruction (JLS §5.2).
     
@@ -7413,9 +6099,9 @@ The structural constraints on the `code` array specify constraints on relationsh
     
 *   No return address (a value of type `returnAddress`) may be loaded from a local variable.
     
-*   The instruction following each _jsr_ or _jsr\_w_ instruction may be returned to only by a single _ret_ instruction.
+*   The instruction following each _jsr_ or _jsr_w_ instruction may be returned to only by a single _ret_ instruction.
     
-*   No _jsr_ or _jsr\_w_ instruction that is returned to may be used to recursively call a subroutine if that subroutine is already present in the subroutine call chain. (Subroutines can be nested when using `try`\-`finally` constructs from within a `finally` clause.)
+*   No _jsr_ or _jsr_w_ instruction that is returned to may be used to recursively call a subroutine if that subroutine is already present in the subroutine call chain. (Subroutines can be nested when using `try`\-`finally` constructs from within a `finally` clause.)
     
 *   Each instance of type `returnAddress` can be returned to at most once.
     
@@ -7468,7 +6154,7 @@ This is a pragmatic adjustment, designed to ease the transition to the new verif
 
 In cases where type checking fails but type inference is invoked and succeeds, a certain performance penalty is expected. Such a penalty is unavoidable. It also should serve as a signal to tool vendors that their output needs to be adjusted, and provides vendors with additional incentive to make these adjustments.
 
-In summary, failover to verification by type inference supports both the gradual addition of stack map frames to the Java SE platform (if they are not present in a version 50.0 `class` file, failover is allowed) and the gradual removal of the _jsr_ and _jsr\_w_ instructions from the Java SE platform (if they are present in a version 50.0 `class` file, failover is allowed).
+In summary, failover to verification by type inference supports both the gradual addition of stack map frames to the Java SE platform (if they are not present in a version 50.0 `class` file, failover is allowed) and the gradual removal of the _jsr_ and _jsr_w_ instructions from the Java SE platform (if they are present in a version 50.0 `class` file, failover is allowed).
 
 If a Java Virtual Machine implementation ever attempts to perform verification by type inference on version 50.0 class files, it must do so in all cases where verification by type checking fails.
 
@@ -7480,14 +6166,15 @@ The type checker requires a list of stack map frames for each method with a `Cod
 
 A class is type safe if all its methods are type safe, and it does not subclass a `final` class.
 
+```java
 classIsTypeSafe(Class) :-
     classClassName(Class, Name), 
     classDefiningLoader(Class, L),
     superclassChain(Name, L, Chain),
-    Chain \\= \[\],
+    Chain \\= [],
     classSuperClassName(Class, SuperclassName),
     loadedClass(SuperclassName, L, Superclass),
-    classIsNotFinal(Superclass),	 
+    classIsNotFinal(Superclass),   
     classMethods(Class, Methods), 
     checklist(methodIsTypeSafe(Class), Methods).
 
@@ -7497,6 +6184,7 @@ classIsTypeSafe(Class) :-
     isBootstrapLoader(L),
     classMethods(Class, Methods), 
     checklist(methodIsTypeSafe(Class), Methods).
+```
 
 The Prolog predicate `classIsTypeSafe` assumes that `Class` is a Prolog term representing a binary class that has been successfully parsed and loaded. This specification does not mandate the precise structure of this term, but does require that certain predicates be defined upon it.
 
@@ -7657,26 +6345,26 @@ When type checking a method's body, it is convenient to access information about
 We specify accessors to extract information from the environment.
 
 allInstructions(Environment, Instructions) :-
-    Environment = environment(\_Class, \_Method, \_ReturnType,
-                              Instructions, \_, \_).
+    Environment = environment(_Class, _Method, _ReturnType,
+                              Instructions, _, _).
 
 exceptionHandlers(Environment, Handlers) :-
-    Environment = environment(\_Class, \_Method, \_ReturnType,
-                              \_Instructions, \_, Handlers).
+    Environment = environment(_Class, _Method, _ReturnType,
+                              _Instructions, _, Handlers).
 
 maxOperandStackLength(Environment, MaxStack) :-
-    Environment = environment(\_Class, \_Method, \_ReturnType,
-                              \_Instructions, MaxStack, \_Handlers).
+    Environment = environment(_Class, _Method, _ReturnType,
+                              _Instructions, MaxStack, _Handlers).
 
 thisClass(Environment, class(ClassName, L)) :-
-    Environment = environment(Class, \_Method, \_ReturnType,
-                              \_Instructions, \_, \_),
+    Environment = environment(Class, _Method, _ReturnType,
+                              _Instructions, _, _),
     classDefiningLoader(Class, L),
     classClassName(Class, ClassName).
 
 thisMethodReturnType(Environment, ReturnType) :-
-    Environment = environment(\_Class, \_Method, ReturnType,
-                              \_Instructions, \_, \_).
+    Environment = environment(_Class, _Method, ReturnType,
+                              _Instructions, _, _).
 
 We specify additional predicates to extract higher-level information from the environment.
 
@@ -7685,12 +6373,12 @@ offsetStackFrame(Environment, Offset, StackFrame) :-
     member(stackMap(Offset, StackFrame), Instructions).
 
 currentClassLoader(Environment, Loader) :-
-    thisClass(Environment, class(\_, Loader)).
+    thisClass(Environment, class(_, Loader)).
 
 Finally, we specify a general predicate used throughout the type rules:
 
-notMember(\_, \[\]).
-notMember(X, \[A | More\]) :- X \\= A, notMember(X, More).
+notMember(_, []).
+notMember(X, [A | More]) :- X \\= A, notMember(X, More).
 
 The principle guiding the determination as to which accessors are stipulated and which are fully specified is that we do not want to over-specify the representation of the `class` file. Providing specific accessors to the `Class` or `Method` term would force us to completely specify the format for a Prolog term representing the `class` file.
 
@@ -7700,25 +6388,25 @@ The type checker enforces a type system based upon a hierarchy of _verification 
 
 Verification type hierarchy:
 
-                             top
-                 \_\_\_\_\_\_\_\_\_\_\_\_/\\\_\_\_\_\_\_\_\_\_\_\_\_
-                /                          \\
-               /                            \\
-            oneWord                       twoWord
-           /   |   \\                     /       \\
-          /    |    \\                   /         \\
-        int  float  reference        long        double
-                     /     \\
-                    /       \\\_\_\_\_\_\_\_\_\_\_\_\_\_
-                   /                      \\
-                  /                        \\
-           uninitialized                    +------------------+
-            /         \\                     |  Java reference  |
-           /           \\                    |  type hierarchy  |
-uninitializedThis  uninitialized(Offset)    +------------------+  
-                                                     |
-                                                     |
-                                                    null
+                                 top
+                     ____________/____________
+                    /                          \
+                   /                            \
+                oneWord                       twoWord
+               /   |   \                     /       \
+              /    |    \                   /         \
+            int  float  reference        long        double
+                         /     \
+                        /       _____________
+                       /                      \
+                      /                        \
+               uninitialized                    +------------------+
+                /         \                     |  Java reference  |
+               /           \                    |  type hierarchy  |
+    uninitializedThis  uninitialized(Offset)    +------------------+  
+                                                         |
+                                                         |
+                                                        null
 
 Most verification types have a direct correspondence with the primitive and reference types represented by field descriptors in [Table 4.3-A](jvms-4.html#jvms-4.3.2-200 "Table 4.3-A. Interpretation of field descriptors"):
 
@@ -7743,14 +6431,15 @@ The subtyping rules for verification types are as follows.
 
 Subtyping is reflexive.
 
-isAssignable(X, X).
+    isAssignable(X, X).
 
 The verification types which are not reference types in the Java programming language have subtype rules of the form:
 
-isAssignable(v, X) :- isAssignable(the\_direct\_supertype\_of\_v, X).
+    isAssignable(v, X) :- isAssignable(the_direct_supertype_of_v, X).
 
 That is, `v` is a subtype of `X` if the direct supertype of `v` is a subtype of `X`. The rules are:
 
+```java
 isAssignable(oneWord, top).
 isAssignable(twoWord, top).
 
@@ -7760,17 +6449,18 @@ isAssignable(long, X)   :- isAssignable(twoWord, X).
 isAssignable(double, X) :- isAssignable(twoWord, X).
 
 isAssignable(reference, X)   :- isAssignable(oneWord, X).
-isAssignable(class(\_, \_), X) :- isAssignable(reference, X).
-isAssignable(arrayOf(\_), X)  :- isAssignable(reference, X).
+isAssignable(class(_, _), X) :- isAssignable(reference, X).
+isAssignable(arrayOf(_), X)  :- isAssignable(reference, X).
 
 isAssignable(uninitialized, X)     :- isAssignable(reference, X).
 isAssignable(uninitializedThis, X) :- isAssignable(uninitialized, X).
-isAssignable(uninitialized(\_), X)  :- isAssignable(uninitialized, X).
+isAssignable(uninitialized(_), X)  :- isAssignable(uninitialized, X).
 
-isAssignable(null, class(\_, \_)).
-isAssignable(null, arrayOf(\_)).
+isAssignable(null, class(_, _)).
+isAssignable(null, arrayOf(_)).
 isAssignable(null, X) :- isAssignable(class('java/lang/Object', BL), X),
                          isBootstrapLoader(BL).
+```
 
 These subtype rules are not necessarily the most obvious formulation of subtyping. There is a clear split between subtyping rules for reference types in the Java programming language, and rules for the remaining verification types. The split allows us to state general subtyping relations between Java programming language reference types and other verification types. These relations hold independently of a Java reference type's position in the type hierarchy, and help to prevent excessive class loading by a Java Virtual Machine implementation. For example, we do not want to start climbing the Java superclass hierarchy in response to a query of the form `class(foo, L) <: twoWord`.
 
@@ -7778,6 +6468,7 @@ We also have a rule that says subtyping is reflexive, so together these rules co
 
 Subtype rules for the reference types in the Java programming language are specified recursively with `isJavaAssignable`.
 
+```java
 isAssignable(class(X, Lx), class(Y, Ly)) :-
     isJavaAssignable(class(X, Lx), class(Y, Ly)).
 
@@ -7786,22 +6477,26 @@ isAssignable(arrayOf(X), class(Y, L)) :-
 
 isAssignable(arrayOf(X), arrayOf(Y)) :-
     isJavaAssignable(arrayOf(X), arrayOf(Y)).
+```
 
 For assignments, interfaces are treated like `Object`.
 
-isJavaAssignable(class(\_, \_), class(To, L)) :-
+```java
+isJavaAssignable(class(_, _), class(To, L)) :-
     loadedClass(To, L, ToClass),
     classIsInterface(ToClass).
 
 isJavaAssignable(From, To) :-
     isJavaSubclassOf(From, To).
+```
 
 Array types are subtypes of `Object`. The intent is also that array types are subtypes of `Cloneable` and `java.io.Serializable`.
 
-isJavaAssignable(arrayOf(\_), class('java/lang/Object', BL)) :-
+```java
+isJavaAssignable(arrayOf(_), class('java/lang/Object', BL)) :-
     isBootstrapLoader(BL).
 
-isJavaAssignable(arrayOf(\_), X) :-
+isJavaAssignable(arrayOf(_), X) :-
     isArrayInterface(X).
 
 isArrayInterface(class('java/lang/Cloneable', BL)) :-
@@ -7809,9 +6504,11 @@ isArrayInterface(class('java/lang/Cloneable', BL)) :-
 
 isArrayInterface(class('java/io/Serializable', BL)) :-
     isBootstrapLoader(BL).
+```
 
 Subtyping between arrays of primitive type is the identity relation.
 
+```java
 isJavaAssignable(arrayOf(X), arrayOf(Y)) :-
     atom(X),
     atom(Y),
@@ -7821,9 +6518,11 @@ Subtyping between arrays of reference type is covariant.
 
 isJavaAssignable(arrayOf(X), arrayOf(Y)) :-
     compound(X), compound(Y), isJavaAssignable(X, Y).
+```
 
 Subclassing is reflexive.
 
+```java
 isJavaSubclassOf(class(SubclassName, L), class(SubclassName, L)).
 
 isJavaSubclassOf(class(SubclassName, LSub), class(SuperclassName, LSuper)) :-
@@ -7832,16 +6531,17 @@ isJavaSubclassOf(class(SubclassName, LSub), class(SuperclassName, LSuper)) :-
     loadedClass(SuperclassName, L, Sup),
     loadedClass(SuperclassName, LSuper, Sup).
 
-superclassChain(ClassName, L, \[class(SuperclassName, Ls) | Rest\]) :-
+superclassChain(ClassName, L, [class(SuperclassName, Ls) | Rest]) :-
     loadedClass(ClassName, L, Class),
     classSuperClassName(Class, SuperclassName),
     classDefiningLoader(Class, Ls),
     superclassChain(SuperclassName, Ls, Rest).
 
-superclassChain('java/lang/Object', L, \[\]) :-
+superclassChain('java/lang/Object', L, []) :-
     loadedClass('java/lang/Object', L, Class),
     classDefiningLoader(Class, BL),
     isBootstrapLoader(BL).
+```
 
 #### 4.10.1.3. Instruction Representation
 
@@ -7851,7 +6551,7 @@ For example, an _aload_ instruction is represented as the term `aload(N)`, which
 
 The instructions as a whole are represented as a list of terms of the form:
 
-instruction(Offset, AnInstruction)
+    instruction(Offset, AnInstruction)
 
 For example, `instruction(21, aload(1))`.
 
@@ -7877,7 +6577,7 @@ For example, an _ldc_ instruction for loading the integer 91 would be encoded as
 
 Stack map frames are represented in Prolog as a list of terms of the form:
 
-stackMap(Offset, TypeState)
+    stackMap(Offset, TypeState)
 
 where:
 
@@ -7890,7 +6590,7 @@ where:
 
 A _type state_ is a mapping from locations in the operand stack and local variables of a method to verification types. It has the form:
 
-frame(Locals, OperandStack, Flags)
+    frame(Locals, OperandStack, Flags)
 
 where:
 
@@ -7913,6 +6613,7 @@ Subtyping of verification types is extended pointwise to type states.
 
 The local variable array of a method has a fixed length by construction (see `methodInitialStackFrame` in [§4.10.1.6](jvms-4.html#jvms-4.10.1.6 "4.10.1.6. Type Checking Methods with Code")) while the operand stack grows and shrinks. Therefore, we require an explicit check on the length of the operand stacks whose assignability is desired.
 
+```java
 frameIsAssignable(frame(Locals1, StackMap1, Flags1),
                   frame(Locals2, StackMap2, Flags2)) :-
     length(StackMap1, StackMapLength),
@@ -7920,40 +6621,48 @@ frameIsAssignable(frame(Locals1, StackMap1, Flags1),
     maplist(isAssignable, Locals1, Locals2),
     maplist(isAssignable, StackMap1, StackMap2),
     subset(Flags1, Flags2).
+```
 
 The length of the operand stack must not exceed the declared maximum stack length.
 
+```java
 operandStackHasLegalLength(Environment, OperandStack) :-
     length(OperandStack, Length),
     maxOperandStackLength(Environment, MaxStack),
     Length =< MaxStack.
+```
 
 Certain array instructions ([§_aaload_](jvms-4.html#jvms-4.10.1.9.aaload "aaload"), [§_arraylength_](jvms-4.html#jvms-4.10.1.9.arraylength "arraylength"), [§_baload_](jvms-4.html#jvms-4.10.1.9.baload "baload"), [§_bastore_](jvms-4.html#jvms-4.10.1.9.bastore "bastore")) peek at the types of values on the operand stack in order to check they are array types. The following clause accesses the _i_'th element of the operand stack from a type state.
 
-nth1OperandStackIs(_i_, frame(\_Locals, OperandStack, \_Flags), Element) :-
+```java
+nth1OperandStackIs(_i_, frame(_Locals, OperandStack, _Flags), Element) :-
     nth1(_i_, OperandStack, Element).
+```
 
 Manipulation of the operand stack by load and store instructions ([§4.10.1.7](jvms-4.html#jvms-4.10.1.7 "4.10.1.7. Type Checking Load and Store Instructions")) is complicated by the fact that some types occupy two entries on the stack. The predicates given below take this into account, allowing the rest of the specification to abstract from this issue.
 
 Pop a list of types off the stack.
 
+```java
 canPop(frame(Locals, OperandStack, Flags), Types,
        frame(Locals, PoppedOperandStack, Flags)) :-
     popMatchingList(OperandStack, Types, PoppedOperandStack).
 
-popMatchingList(OperandStack, \[\], OperandStack).
-popMatchingList(OperandStack, \[P | Rest\], NewOperandStack) :-
-    popMatchingType(OperandStack, P, TempOperandStack, \_ActualType),
+popMatchingList(OperandStack, [], OperandStack).
+popMatchingList(OperandStack, [P | Rest], NewOperandStack) :-
+    popMatchingType(OperandStack, P, TempOperandStack, _ActualType),
     popMatchingList(TempOperandStack, Rest, NewOperandStack).
+```
 
 Pop an individual type off the stack. More precisely, if the logical top of the stack is some subtype of the specified type, `Type`, then pop it. If a type occupies two stack entries, then the logical top of the stack is really the type just below the top, and the top of the stack is the unusable type `top`.
 
-popMatchingType(\[ActualType | OperandStack\],
+```java
+popMatchingType([ActualType | OperandStack],
                 Type, OperandStack, ActualType) :-
     sizeOf(Type, 1),
     isAssignable(ActualType, Type).
 
-popMatchingType(\[top, ActualType | OperandStack\],
+popMatchingType([top, ActualType | OperandStack],
                 Type, OperandStack, ActualType) :-
     sizeOf(Type, 2),
     isAssignable(ActualType, Type).
@@ -7961,17 +6670,21 @@ popMatchingType(\[top, ActualType | OperandStack\],
 sizeOf(X, 2) :- isAssignable(X, twoWord).
 sizeOf(X, 1) :- isAssignable(X, oneWord).
 sizeOf(top, 1).
+```
 
 Push a logical type onto the stack. The exact behavior varies with the size of the type. If the pushed type is of size 1, we just push it onto the stack. If the pushed type is of size 2, we push it, and then push `top`.
 
+```java
 pushOperandStack(OperandStack, 'void', OperandStack).
-pushOperandStack(OperandStack, Type, \[Type | OperandStack\]) :-
+pushOperandStack(OperandStack, Type, [Type | OperandStack]) :-
     sizeOf(Type, 1).
-pushOperandStack(OperandStack, Type, \[top, Type | OperandStack\]) :-
+pushOperandStack(OperandStack, Type, [top, Type | OperandStack]) :-
     sizeOf(Type, 2).
+```
 
 Push a list of types onto the stack if there is space.
 
+```java
 canSafelyPush(Environment, InputOperandStack, Type, OutputOperandStack) :-
     pushOperandStack(InputOperandStack, Type, OutputOperandStack),
     operandStackHasLegalLength(Environment, OutputOperandStack).
@@ -7981,26 +6694,30 @@ canSafelyPushList(Environment, InputOperandStack, Types,
     canPushList(InputOperandStack, Types, OutputOperandStack),
     operandStackHasLegalLength(Environment, OutputOperandStack).
 
-canPushList(InputOperandStack, \[\], InputOperandStack).
-canPushList(InputOperandStack, \[Type | Rest\], OutputOperandStack) :-
+canPushList(InputOperandStack, [], InputOperandStack).
+canPushList(InputOperandStack, [Type | Rest], OutputOperandStack) :-
     pushOperandStack(InputOperandStack, Type, InterimOperandStack),
     canPushList(InterimOperandStack, Rest, OutputOperandStack).
+```
 
 Manipulation of the operand stack by the _dup_ instructions is specified entirely in terms of the _category_ of types for values on the stack ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
 
 Category 1 types occupy a single stack entry. Popping a logical type of category 1, `Type`, off the stack is possible if the top of the stack is `Type` and `Type` is not `top` (otherwise it could denote the upper half of a category 2 type). The result is the incoming stack, with the top entry popped off.
 
-popCategory1(\[Type | Rest\], Type, Rest) :-
+```java
+popCategory1([Type | Rest], Type, Rest) :-
     Type \\= top,
     sizeOf(Type, 1).
+```
 
 Category 2 types occupy two stack entries. Popping a logical type of category 2, `Type`, off the stack is possible if the top of the stack is type `top`, and the entry directly below it is `Type`. The result is the incoming stack, with the top two entries popped off.
 
-popCategory2(\[top, Type | Rest\], Type, Rest) :-
+popCategory2([top, Type | Rest], Type, Rest) :-
     sizeOf(Type, 2).
 
 Most of the type rules for individual instructions ([§4.10.1.9](jvms-4.html#jvms-4.10.1.9 "4.10.1.9. Type Checking Instructions")) depend on the notion of a valid _type transition_. A type transition is _valid_ if one can pop a list of expected types off the incoming type state's operand stack and replace them with an expected result type, resulting in a new valid type state. In particular, the size of the operand stack in the new type state must not exceed its maximum declared size.
 
+```java
 validTypeTransition(Environment, ExpectedTypesOnStack, ResultType,
                     frame(Locals, InputOperandStack, Flags),
                     frame(Locals, NextOperandStack, Flags)) :-
@@ -8008,11 +6725,13 @@ validTypeTransition(Environment, ExpectedTypesOnStack, ResultType,
                     InterimOperandStack),
     pushOperandStack(InterimOperandStack, ResultType, NextOperandStack),
     operandStackHasLegalLength(Environment, NextOperandStack).
+```
 
 #### 4.10.1.5. Type Checking Abstract and Native Methods
 
 `abstract` methods and `native` methods are considered to be type safe if they do not override a `final` method.
 
+```java
 methodIsTypeSafe(Class, Method) :-
     doesNotOverrideFinalMethod(Class, Method),
     methodAccessFlags(Method, AccessFlags),
@@ -8022,9 +6741,11 @@ methodIsTypeSafe(Class, Method) :-
     doesNotOverrideFinalMethod(Class, Method),
     methodAccessFlags(Method, AccessFlags),
     member(native, AccessFlags).
+```
 
 `private` methods and `static` methods are orthogonal to dynamic method dispatch, so they never override other methods ([§5.4.5](jvms-5.html#jvms-5.4.5 "5.4.5. Overriding")).
 
+```java
 doesNotOverrideFinalMethod(class('java/lang/Object', L), Method) :-
     isBootstrapLoader(L).
 
@@ -8045,29 +6766,33 @@ doesNotOverrideFinalMethodOfSuperclass(Class, Method) :-
     loadedClass(SuperclassName, L, Superclass),
     classMethods(Superclass, SuperMethodList),
     finalMethodNotOverridden(Method, Superclass, SuperMethodList).
+```
 
 `final` methods that are `private` and/or `static` are unusual, as `private` methods and `static` methods cannot be overridden per se. Therefore, if a `final` `private` method or a `final` `static` method is found, it was logically not overridden by another method.
 
+```java
 finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
     methodName(Method, Name),
     methodDescriptor(Method, Descriptor),
-    member(method(\_, Name, Descriptor), SuperMethodList),
+    member(method(_, Name, Descriptor), SuperMethodList),
     isFinal(Method, Superclass),
     isPrivate(Method, Superclass).
 
 finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
     methodName(Method, Name),
     methodDescriptor(Method, Descriptor),
-    member(method(\_, Name, Descriptor), SuperMethodList),
+    member(method(_, Name, Descriptor), SuperMethodList),
     isFinal(Method, Superclass),
     isStatic(Method, Superclass). 
+```
 
 If a non-`final` `private` method or a non-`final` `static` method is found, skip over it because it is orthogonal to overriding.
 
+```java
 finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
     methodName(Method, Name),
     methodDescriptor(Method, Descriptor),
-    member(method(\_, Name, Descriptor), SuperMethodList),
+    member(method(_, Name, Descriptor), SuperMethodList),
     isNotFinal(Method, Superclass),
     isPrivate(Method, Superclass),
     doesNotOverrideFinalMethodOfSuperclass(Superclass, Method).
@@ -8075,17 +6800,19 @@ finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
 finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
     methodName(Method, Name),
     methodDescriptor(Method, Descriptor),
-    member(method(\_, Name, Descriptor), SuperMethodList),
+    member(method(_, Name, Descriptor), SuperMethodList),
     isNotFinal(Method, Superclass),
     isStatic(Method, Superclass),
     doesNotOverrideFinalMethodOfSuperclass(Superclass, Method).
+```
 
 If a non-`final`, non-`private`, non-`static` method is found, then indeed a `final` method was not overridden. Otherwise, recurse upwards.
 
+```java
 finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
     methodName(Method, Name),
     methodDescriptor(Method, Descriptor),
-    member(method(\_, Name, Descriptor), SuperMethodList),
+    member(method(_, Name, Descriptor), SuperMethodList),
     isNotFinal(Method, Superclass),
     isNotStatic(Method, Superclass),
     isNotPrivate(Method, Superclass).
@@ -8093,24 +6820,28 @@ finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
 finalMethodNotOverridden(Method, Superclass, SuperMethodList) :-
     methodName(Method, Name),
     methodDescriptor(Method, Descriptor),
-    notMember(method(\_, Name, Descriptor), SuperMethodList),
+    notMember(method(_, Name, Descriptor), SuperMethodList),
     doesNotOverrideFinalMethodOfSuperclass(Superclass, Method).
+```
 
 #### 4.10.1.6. Type Checking Methods with Code
 
 Non-`abstract`, non-`native` methods are type correct if they have code and the code is type correct.
 
+```java
 methodIsTypeSafe(Class, Method) :-
     doesNotOverrideFinalMethod(Class, Method),
     methodAccessFlags(Method, AccessFlags),
     methodAttributes(Method, Attributes),
     notMember(native, AccessFlags),
     notMember(abstract, AccessFlags),
-    member(attribute('Code', \_), Attributes),
+    member(attribute('Code', _), Attributes),
     methodWithCodeIsTypeSafe(Class, Method).
+```
 
 A method with code is type safe if it is possible to merge the code and the stack map frames into a single stream such that each stack map frame precedes the instruction it corresponds to, and the merged stream is type correct. The method's exception handlers, if any, must also be legal.
 
+```java
 methodWithCodeIsTypeSafe(Class, Method) :-
     parseCodeAttribute(Class, Method, FrameSize, MaxStack,
                        ParsedCode, Handlers, StackMap),
@@ -8120,6 +6851,7 @@ methodWithCodeIsTypeSafe(Class, Method) :-
                               MaxStack, Handlers),
     handlersAreLegal(Environment),
     mergedCodeIsTypeSafe(Environment, MergedCode, StackFrame).
+```
 
 Let us consider exception handlers first.
 
@@ -8133,71 +6865,71 @@ An exception handler is _legal_ if its start (`Start`) is less than its end (`En
 
 An additional requirement exists for a handler inside an `<init>` method if one of the instructions covered by the handler is _invokespecial_ of an `<init>` method. In this case, the fact that a handler is running means the object under construction is likely broken, so it is important that the handler does not swallow the exception and allow the enclosing `<init>` method to return normally to the caller. Accordingly, the handler is required to either complete abruptly by throwing an exception to the caller of the enclosing `<init>` method, or to loop forever.
 
-handlersAreLegal(Environment) :-
-    exceptionHandlers(Environment, Handlers),
-    checklist(handlerIsLegal(Environment), Handlers).
+    handlersAreLegal(Environment) :-
+        exceptionHandlers(Environment, Handlers),
+        checklist(handlerIsLegal(Environment), Handlers).
 
-handlerIsLegal(Environment, Handler) :-
-    Handler = handler(Start, End, Target, \_),
-    Start < End,
-    allInstructions(Environment, Instructions),
-    member(instruction(Start, \_), Instructions),
-    offsetStackFrame(Environment, Target, \_),
-    instructionsIncludeEnd(Instructions, End),
-    currentClassLoader(Environment, CurrentLoader),
-    handlerExceptionClass(Handler, ExceptionClass, CurrentLoader), 
-    isBootstrapLoader(BL),
-    isAssignable(ExceptionClass, class('java/lang/Throwable', BL)),
-    initHandlerIsLegal(Environment, Handler).
+    handlerIsLegal(Environment, Handler) :-
+        Handler = handler(Start, End, Target, _),
+        Start < End,
+        allInstructions(Environment, Instructions),
+        member(instruction(Start, _), Instructions),
+        offsetStackFrame(Environment, Target, _),
+        instructionsIncludeEnd(Instructions, End),
+        currentClassLoader(Environment, CurrentLoader),
+        handlerExceptionClass(Handler, ExceptionClass, CurrentLoader), 
+        isBootstrapLoader(BL),
+        isAssignable(ExceptionClass, class('java/lang/Throwable', BL)),
+        initHandlerIsLegal(Environment, Handler).
 
-instructionsIncludeEnd(Instructions, End) :-
-    member(instruction(End, \_), Instructions).
-instructionsIncludeEnd(Instructions, End) :-
-    member(endOfCode(End), Instructions).
+    instructionsIncludeEnd(Instructions, End) :-
+        member(instruction(End, _), Instructions).
+    instructionsIncludeEnd(Instructions, End) :-
+        member(endOfCode(End), Instructions).
 
-handlerExceptionClass(handler(\_, \_, \_, 0),
-                      class('java/lang/Throwable', BL), \_) :-
-    isBootstrapLoader(BL).
+    handlerExceptionClass(handler(_, _, _, 0),
+                          class('java/lang/Throwable', BL), _) :-
+        isBootstrapLoader(BL).
 
-handlerExceptionClass(handler(\_, \_, \_, Name),
-                      class(Name, L), L) :-
-    Name \\= 0.
+    handlerExceptionClass(handler(_, _, _, Name),
+                          class(Name, L), L) :-
+        Name \\= 0.
 
-initHandlerIsLegal(Environment, Handler) :-
-    notInitHandler(Environment, Handler).
+    initHandlerIsLegal(Environment, Handler) :-
+        notInitHandler(Environment, Handler).
 
-notInitHandler(Environment, Handler) :-
-    Environment = environment(\_Class, Method, \_, Instructions, \_, \_),
-    isNotInit(Method).
+    notInitHandler(Environment, Handler) :-
+        Environment = environment(_Class, Method, _, Instructions, _, _),
+        isNotInit(Method).
 
-notInitHandler(Environment, Handler) :-
-    Environment = environment(\_Class, Method, \_, Instructions, \_, \_),
-    isInit(Method),
-    member(instruction(\_, invokespecial(CP)), Instructions),
-    CP = method(MethodClassName, MethodName, Descriptor),
-    MethodName \\= '`<init>`'. 
+    notInitHandler(Environment, Handler) :-
+        Environment = environment(_Class, Method, _, Instructions, _, _),
+        isInit(Method),
+        member(instruction(_, invokespecial(CP)), Instructions),
+        CP = method(MethodClassName, MethodName, Descriptor),
+        MethodName \\= '`<init>`'. 
 
 
-initHandlerIsLegal(Environment, Handler) :-
-    isInitHandler(Environment, Handler),
-    sublist(isApplicableInstruction(Target), Instructions,
-            HandlerInstructions),
-    noAttemptToReturnNormally(HandlerInstructions).
+    initHandlerIsLegal(Environment, Handler) :-
+        isInitHandler(Environment, Handler),
+        sublist(isApplicableInstruction(Target), Instructions,
+                HandlerInstructions),
+        noAttemptToReturnNormally(HandlerInstructions).
 
-isInitHandler(Environment, Handler) :-
-    Environment = environment(\_Class, Method, \_, Instructions, \_, \_),
-    isInit(Method).
-    member(instruction(\_, invokespecial(CP)), Instructions),
-    CP = method(MethodClassName, '`<init>`', Descriptor).
+    isInitHandler(Environment, Handler) :-
+        Environment = environment(_Class, Method, _, Instructions, _, _),
+        isInit(Method).
+        member(instruction(_, invokespecial(CP)), Instructions),
+        CP = method(MethodClassName, '`<init>`', Descriptor).
 
-isApplicableInstruction(HandlerStart, instruction(Offset, \_)) :-
-    Offset >= HandlerStart.
+    isApplicableInstruction(HandlerStart, instruction(Offset, _)) :-
+        Offset >= HandlerStart.
 
-noAttemptToReturnNormally(Instructions) :-
-    notMember(instruction(\_, return), Instructions).
+    noAttemptToReturnNormally(Instructions) :-
+        notMember(instruction(_, return), Instructions).
 
-noAttemptToReturnNormally(Instructions) :-
-    member(instruction(\_, athrow), Instructions). 
+    noAttemptToReturnNormally(Instructions) :-
+        member(instruction(_, athrow), Instructions). 
 
 Let us now turn to the stream of instructions and stack map frames.
 
@@ -8205,24 +6937,28 @@ Merging instructions and stack map frames into a single stream involves four cas
 
 *   Merging an empty `StackMap` and a list of instructions yields the original list of instructions.
     
-    mergeStackMapAndCode(\[\], CodeList, CodeList).
+    mergeStackMapAndCode([], CodeList, CodeList).
     
 *   Given a list of stack map frames beginning with the type state for the instruction at `Offset`, and a list of instructions beginning at `Offset`, the merged list is the head of the stack map frame list, followed by the head of the instruction list, followed by the merge of the tails of the two lists.
     
-    mergeStackMapAndCode(\[stackMap(Offset, Map) | RestMap\],
-                         \[instruction(Offset, Parse) | RestCode\],
-                         \[stackMap(Offset, Map),
-                           instruction(Offset, Parse) | RestMerge\]) :-
+    ```java
+    mergeStackMapAndCode([stackMap(Offset, Map) | RestMap],
+                         [instruction(Offset, Parse) | RestCode],
+                         [stackMap(Offset, Map),
+                           instruction(Offset, Parse) | RestMerge]) :-
         mergeStackMapAndCode(RestMap, RestCode, RestMerge).
+    ```
     
 *   Otherwise, given a list of stack map frames beginning with the type state for the instruction at `OffsetM`, and a list of instructions beginning at `OffsetP`, then, if `OffsetP < OffsetM`, the merged list consists of the head of the instruction list, followed by the merge of the stack map frame list and the tail of the instruction list.
     
-    mergeStackMapAndCode(\[stackMap(OffsetM, Map) | RestMap\],
-                         \[instruction(OffsetP, Parse) | RestCode\],
-                         \[instruction(OffsetP, Parse) | RestMerge\]) :-
+    ```java
+    mergeStackMapAndCode([stackMap(OffsetM, Map) | RestMap],
+                         [instruction(OffsetP, Parse) | RestCode],
+                         [instruction(OffsetP, Parse) | RestMerge]) :-
         OffsetP < OffsetM,
-        mergeStackMapAndCode(\[stackMap(OffsetM, Map) | RestMap\],
+        mergeStackMapAndCode([stackMap(OffsetM, Map) | RestMap],
                              RestCode, RestMerge).
+    ```
     
 *   Otherwise, the merge of the two lists is undefined. Since the instruction list has monotonically increasing offsets, the merge of the two lists is not defined unless every stack map frame offset has a corresponding instruction offset and the stack map frames are in monotonically increasing order.
     
@@ -8231,144 +6967,154 @@ To determine if the merged stream for a method is type correct, we first infer t
 
 The initial type state of a method consists of an empty operand stack and local variable types derived from the type of `this` and the arguments, as well as the appropriate flag, depending on whether this is an `<init>` method.
 
-methodInitialStackFrame(Class, Method, FrameSize, frame(Locals, \[\], Flags),
-                        ReturnType):-
-    methodDescriptor(Method, Descriptor),
-    parseMethodDescriptor(Descriptor, RawArgs, ReturnType),
-    expandTypeList(RawArgs, Args),
-    methodInitialThisType(Class, Method, ThisList),
-    flags(ThisList, Flags),
-    append(ThisList, Args, ThisArgs),
-    expandToLength(ThisArgs, FrameSize, top, Locals).
+    methodInitialStackFrame(Class, Method, FrameSize, frame(Locals, [], Flags),
+                            ReturnType):-
+        methodDescriptor(Method, Descriptor),
+        parseMethodDescriptor(Descriptor, RawArgs, ReturnType),
+        expandTypeList(RawArgs, Args),
+        methodInitialThisType(Class, Method, ThisList),
+        flags(ThisList, Flags),
+        append(ThisList, Args, ThisArgs),
+        expandToLength(ThisArgs, FrameSize, top, Locals).
 
 Given a list of types, the following clause produces a list where every type of size 2 has been substituted by two entries: one for itself, and one `top` entry. The result then corresponds to the representation of the list as 32-bit words in the Java Virtual Machine.
 
-expandTypeList(\[\], \[\]).
-expandTypeList(\[Item | List\], \[Item | Result\]) :-
-    sizeOf(Item, 1),
-    expandTypeList(List, Result).
-expandTypeList(\[Item | List\], \[Item, top | Result\]) :-
-    sizeOf(Item, 2),
-    expandTypeList(List, Result).
+    expandTypeList([], []).
+    expandTypeList([Item | List], [Item | Result]) :-
+        sizeOf(Item, 1),
+        expandTypeList(List, Result).
+    expandTypeList([Item | List], [Item, top | Result]) :-
+        sizeOf(Item, 2),
+        expandTypeList(List, Result).
 
-flags(\[uninitializedThis\], \[flagThisUninit\]).
-flags(X, \[\]) :- X \\= \[uninitializedThis\].
+    flags([uninitializedThis], [flagThisUninit]).
+    flags(X, []) :- X \\= [uninitializedThis].
 
-expandToLength(List, Size, \_Filler, List) :-
-    length(List, Size).
-expandToLength(List, Size, Filler, Result) :-
-    length(List, ListLength),
-    ListLength < Size,
-    Delta is Size - ListLength,
-    length(Extra, Delta),
-    checklist(=(Filler), Extra),
-    append(List, Extra, Result).
+    expandToLength(List, Size, _Filler, List) :-
+        length(List, Size).
+    expandToLength(List, Size, Filler, Result) :-
+        length(List, ListLength),
+        ListLength < Size,
+        Delta is Size - ListLength,
+        length(Extra, Delta),
+        checklist(=(Filler), Extra),
+        append(List, Extra, Result).
 
 For the initial type state of an instance method, we compute the type of `this` and put it in a list. The type of `this` in the `<init>` method of `Object` is `Object`; in other `<init>` methods, the type of `this` is `uninitializedThis`; otherwise, the type of `this` in an instance method is `class(N, L)` where `N` is the name of the class containing the method and `L` is its defining class loader.
 
 For the initial type state of a static method, `this` is irrelevant, so the list is empty.
 
-methodInitialThisType(\_Class, Method, \[\]) :-
-    methodAccessFlags(Method, AccessFlags),
-    member(static, AccessFlags),
-    methodName(Method, MethodName),
-    MethodName \\= '`<init>`'.
+    methodInitialThisType(_Class, Method, []) :-
+        methodAccessFlags(Method, AccessFlags),
+        member(static, AccessFlags),
+        methodName(Method, MethodName),
+        MethodName \\= '`<init>`'.
 
-methodInitialThisType(Class, Method, \[This\]) :-
-    methodAccessFlags(Method, AccessFlags),
-    notMember(static, AccessFlags),
-    instanceMethodInitialThisType(Class, Method, This).
+    methodInitialThisType(Class, Method, [This]) :-
+        methodAccessFlags(Method, AccessFlags),
+        notMember(static, AccessFlags),
+        instanceMethodInitialThisType(Class, Method, This).
 
-instanceMethodInitialThisType(Class, Method, class('java/lang/Object', L)) :-
-    methodName(Method, '`<init>`'), 
-    classDefiningLoader(Class, L),
-    isBootstrapLoader(L),
-    classClassName(Class, 'java/lang/Object').
+    instanceMethodInitialThisType(Class, Method, class('java/lang/Object', L)) :-
+        methodName(Method, '`<init>`'), 
+        classDefiningLoader(Class, L),
+        isBootstrapLoader(L),
+        classClassName(Class, 'java/lang/Object').
 
-instanceMethodInitialThisType(Class, Method, uninitializedThis) :-
-    methodName(Method, '`<init>`'), 
-    classClassName(Class, ClassName),
-    classDefiningLoader(Class, CurrentLoader),
-    superclassChain(ClassName, CurrentLoader, Chain),
-    Chain \\= \[\].
+    instanceMethodInitialThisType(Class, Method, uninitializedThis) :-
+        methodName(Method, '`<init>`'), 
+        classClassName(Class, ClassName),
+        classDefiningLoader(Class, CurrentLoader),
+        superclassChain(ClassName, CurrentLoader, Chain),
+        Chain \\= [].
 
-instanceMethodInitialThisType(Class, Method, class(ClassName, L)) :-
-    methodName(Method, MethodName),
-    MethodName \\= '`<init>`',
-    classDefiningLoader(Class, L),
-    classClassName(Class, ClassName).
+    instanceMethodInitialThisType(Class, Method, class(ClassName, L)) :-
+        methodName(Method, MethodName),
+        MethodName \\= '`<init>`',
+        classDefiningLoader(Class, L),
+        classClassName(Class, ClassName).
 
 We now compute whether the merged stream for a method is type correct, using the method's initial type state:
 
 *   If we have a stack map frame and an incoming type state, the type state must be assignable to the one in the stack map frame. We may then proceed to type check the rest of the stream with the type state given in the stack map frame.
     
-    mergedCodeIsTypeSafe(Environment, \[stackMap(Offset, MapFrame) | MoreCode\],
+    ```java
+    mergedCodeIsTypeSafe(Environment, [stackMap(Offset, MapFrame) | MoreCode],
                          frame(Locals, OperandStack, Flags)) :-
         frameIsAssignable(frame(Locals, OperandStack, Flags), MapFrame),
         mergedCodeIsTypeSafe(Environment, MoreCode, MapFrame).
+    ```
     
 *   A merged code stream is type safe relative to an incoming type state `T` if it begins with an instruction `I` that is type safe relative to `T`, and `I` _satisfies_ its exception handlers (see below), and the tail of the stream is type safe given the type state following that execution of `I`.
     
     `NextStackFrame` indicates what falls through to the following instruction. For an unconditional branch instruction, it will have the special value `afterGoto`. `ExceptionStackFrame` indicates what is passed to exception handlers.
     
-    mergedCodeIsTypeSafe(Environment, \[instruction(Offset, Parse) | MoreCode\],
+    ```java
+    mergedCodeIsTypeSafe(Environment, [instruction(Offset, Parse) | MoreCode],
                          frame(Locals, OperandStack, Flags)) :-
         instructionIsTypeSafe(Parse, Environment, Offset,
                               frame(Locals, OperandStack, Flags),
                               NextStackFrame, ExceptionStackFrame),
         instructionSatisfiesHandlers(Environment, Offset, ExceptionStackFrame),
         mergedCodeIsTypeSafe(Environment, MoreCode, NextStackFrame).
+    ```
     
 *   After an unconditional branch (indicated by an incoming type state of `afterGoto`), if we have a stack map frame giving the type state for the following instructions, we can proceed and type check them using the type state provided by the stack map frame.
     
-    mergedCodeIsTypeSafe(Environment, \[stackMap(Offset, MapFrame) | MoreCode\],
+    ```java
+    mergedCodeIsTypeSafe(Environment, [stackMap(Offset, MapFrame) | MoreCode],
                          afterGoto) :-
         mergedCodeIsTypeSafe(Environment, MoreCode, MapFrame).
+    ```
     
 *   It is illegal to have code after an unconditional branch without a stack map frame being provided for it.
     
-    mergedCodeIsTypeSafe(\_Environment, \[instruction(\_, \_) | \_MoreCode\],
+    ```java
+    mergedCodeIsTypeSafe(_Environment, [instruction(_, _) | _MoreCode],
                          afterGoto) :-
-        write\_ln('No stack frame after unconditional branch'),
+        write_ln('No stack frame after unconditional branch'),
         fail.
+    ```
     
 *   If we have an unconditional branch at the end of the code, stop.
     
-    mergedCodeIsTypeSafe(\_Environment, \[endOfCode(Offset)\],
+    ```java
+    mergedCodeIsTypeSafe(_Environment, [endOfCode(Offset)],
                          afterGoto).
+    ```
     
 
 Branching to a target is type safe if the target has an associated stack frame, `Frame`, and the current stack frame, `StackFrame`, is assignable to `Frame`.
 
-targetIsTypeSafe(Environment, StackFrame, Target) :-
-    offsetStackFrame(Environment, Target, Frame),
-    frameIsAssignable(StackFrame, Frame).
+    targetIsTypeSafe(Environment, StackFrame, Target) :-
+        offsetStackFrame(Environment, Target, Frame),
+        frameIsAssignable(StackFrame, Frame).
 
 An instruction _satisfies its exception handlers_ if it satisfies every exception handler that is applicable to the instruction.
 
-instructionSatisfiesHandlers(Environment, Offset, ExceptionStackFrame) :-
-    exceptionHandlers(Environment, Handlers),
-    sublist(isApplicableHandler(Offset), Handlers, ApplicableHandlers),
-    checklist(instructionSatisfiesHandler(Environment, ExceptionStackFrame),
-              ApplicableHandlers).
+    instructionSatisfiesHandlers(Environment, Offset, ExceptionStackFrame) :-
+        exceptionHandlers(Environment, Handlers),
+        sublist(isApplicableHandler(Offset), Handlers, ApplicableHandlers),
+        checklist(instructionSatisfiesHandler(Environment, ExceptionStackFrame),
+                  ApplicableHandlers).
 
 An exception handler is _applicable_ to an instruction if the offset of the instruction is greater or equal to the start of the handler's range and less than the end of the handler's range.
 
-isApplicableHandler(Offset, handler(Start, End, \_Target, \_ClassName)) :-
-    Offset >= Start,
-    Offset < End.
+    isApplicableHandler(Offset, handler(Start, End, _Target, _ClassName)) :-
+        Offset >= Start,
+        Offset < End.
 
 An instruction _satisfies_ an exception handler if the instructions's outgoing type state is `ExcStackFrame`, and the handler's target (the initial instruction of the handler code) is type safe assuming an incoming type state `T`. The type state `T` is derived from `ExcStackFrame` by replacing the operand stack with a stack whose sole element is the handler's exception class.
 
-instructionSatisfiesHandler(Environment, ExcStackFrame, Handler) :-
-    Handler = handler(\_, \_, Target, \_),
-    currentClassLoader(Environment, CurrentLoader),
-    handlerExceptionClass(Handler, ExceptionClass, CurrentLoader), 
-    /\* The stack consists of just the exception. \*/
-    ExcStackFrame = frame(Locals, \_, Flags),
-    TrueExcStackFrame = frame(Locals, \[ ExceptionClass \], Flags),
-    operandStackHasLegalLength(Environment, TrueExcStackFrame),
-    targetIsTypeSafe(Environment, TrueExcStackFrame, Target).
+    instructionSatisfiesHandler(Environment, ExcStackFrame, Handler) :-
+        Handler = handler(_, _, Target, _),
+        currentClassLoader(Environment, CurrentLoader),
+        handlerExceptionClass(Handler, ExceptionClass, CurrentLoader), 
+        /* The stack consists of just the exception. */
+        ExcStackFrame = frame(Locals, _, Flags),
+        TrueExcStackFrame = frame(Locals, [ ExceptionClass ], Flags),
+        operandStackHasLegalLength(Environment, TrueExcStackFrame),
+        targetIsTypeSafe(Environment, TrueExcStackFrame, Target).
 
 #### 4.10.1.7. Type Checking Load and Store Instructions
 
@@ -8376,12 +7122,14 @@ All load instructions are variations on a common pattern, varying the type of th
 
 Loading a value of type `Type` from local variable `Index` is type safe, if the type of that local variable is `ActualType`, `ActualType` is assignable to `Type`, and pushing `ActualType` onto the incoming operand stack is a valid type transition ([§4.10.1.4](jvms-4.html#jvms-4.10.1.4 "4.10.1.4. Stack Map Frame Representation")) that yields a new type state `NextStackFrame`. After execution of the load instruction, the type state will be `NextStackFrame`.
 
+```java
 loadIsTypeSafe(Environment, Index, Type, StackFrame, NextStackFrame) :-
-    StackFrame = frame(Locals, \_OperandStack, \_Flags),
+    StackFrame = frame(Locals, _OperandStack, _Flags),
     nth0(Index, Locals, ActualType),
     isAssignable(ActualType, Type),
-    validTypeTransition(Environment, \[\], ActualType, StackFrame,
+    validTypeTransition(Environment, [], ActualType, StackFrame,
                         NextStackFrame).
+```
 
 All store instructions are variations on a common pattern, varying the type of the value that the instruction stores.
 
@@ -8389,49 +7137,59 @@ In general, a store instruction is type safe if the local variable it references
 
 More precisely, the store is type safe if one can pop a type `ActualType` that "matches" `Type` (that is, is a subtype of `Type`) off the operand stack ([§4.10.1.4](jvms-4.html#jvms-4.10.1.4 "4.10.1.4. Stack Map Frame Representation")), and then legally assign that type the local variable `LIndex`.
 
-storeIsTypeSafe(\_Environment, Index, Type,
+```java
+storeIsTypeSafe(_Environment, Index, Type,
                 frame(Locals, OperandStack, Flags),
                 frame(NextLocals, NextOperandStack, Flags)) :-
     popMatchingType(OperandStack, Type, NextOperandStack, ActualType),
     modifyLocalVariable(Index, ActualType, Locals, NextLocals).
+```
 
 Given local variables `Locals`, modifying `Index` to have type `Type` results in the local variable list `NewLocals`. The modifications are somewhat involved, because some values (and their corresponding types) occupy two local variables. Hence, modifying `LN` may require modifying `LN+1` (because the type will occupy both the `N` and `N+1` slots) or `LN-1` (because local `N` used to be the upper half of the two word value/type starting at local `N-1`, and so local `N-1` must be invalidated), or both. This is described further below. We start at `L0` and count up.
 
+```java
 modifyLocalVariable(Index, Type, Locals, NewLocals) :-
     modifyLocalVariable(0, Index, Type, Locals, NewLocals).
+```
 
 Given `LocalsRest`, the suffix of the local variable list starting at index `I`, modifying local variable `Index` to have type `Type` results in the local variable list suffix `NextLocalsRest`.
 
 If `I < Index-1`, just copy the input to the output and recurse forward. If `I = Index-1`, the type of local `I` may change. This can occur if `LI` has a type of size 2. Once we set `LI+1` to the new type (and the corresponding value), the type/value of `LI` will be invalidated, as its upper half will be trashed. Then we recurse forward.
 
+```java
 modifyLocalVariable(I, Index, Type,
-                    \[Locals1 | LocalsRest\],
-                    \[Locals1 | NextLocalsRest\] ) :-
+                    [Locals1 | LocalsRest],
+                    [Locals1 | NextLocalsRest] ) :-
     I < Index - 1, 
     I1 is I + 1,
     modifyLocalVariable(I1, Index, Type, LocalsRest, NextLocalsRest).
 
 modifyLocalVariable(I, Index, Type,
-                    \[Locals1 | LocalsRest\],
-                    \[NextLocals1 | NextLocalsRest\] ) :-
+                    [Locals1 | LocalsRest],
+                    [NextLocals1 | NextLocalsRest] ) :-
     I =:= Index - 1,
     modifyPreIndexVariable(Locals1, NextLocals1),
     modifyLocalVariable(Index, Index, Type, LocalsRest, NextLocalsRest).
+```
 
 When we find the variable, and it only occupies one word, we change it to `Type` and we're done. When we find the variable, and it occupies two words, we change its type to `Type` and the next word to `top`.
 
+```java
 modifyLocalVariable(Index, Index, Type,
-                    \[\_ | LocalsRest\], \[Type | LocalsRest\]) :-
+                    [_ | LocalsRest], [Type | LocalsRest]) :-
     sizeOf(Type, 1).
 
 modifyLocalVariable(Index, Index, Type,
-                    \[\_, \_ | LocalsRest\], \[Type, top | LocalsRest\]) :-
+                    [_, _ | LocalsRest], [Type, top | LocalsRest]) :-
     sizeOf(Type, 2).
+```
 
 We refer to a local whose index immediately precedes a local whose type will be modified as a _pre-index variable_. The future type of a pre-index variable of type `InputType` is `Result`. If the type, `Type`, of the pre-index local is of size 1, it doesn't change. If the type of the pre-index local, `Type`, is 2, we need to mark the lower half of its two word value as unusable, by setting its type to `top`.
 
+```java
 modifyPreIndexVariable(Type, Type) :- sizeOf(Type, 1).
 modifyPreIndexVariable(Type, top) :- sizeOf(Type, 2).
+```
 
 #### 4.10.1.8. Type Checking for `protected` Members
 
@@ -8441,65 +7199,73 @@ The `protected` check applies only to `protected` members of superclasses of the
 
 *   If the name of a class is not the name of any superclass, it cannot be a superclass, and so it can safely be ignored.
     
+```java
     passesProtectedCheck(Environment, MemberClassName, MemberName,
                          MemberDescriptor, StackFrame) :-
         thisClass(Environment, class(CurrentClassName, CurrentLoader)),
         superclassChain(CurrentClassName, CurrentLoader, Chain),
-        notMember(class(MemberClassName, \_), Chain).
+        notMember(class(MemberClassName, _), Chain).
+```
     
 *   If the `MemberClassName` is the same as the name of a superclass, the class being resolved may indeed be a superclass. In this case, if no superclass named `MemberClassName` in a different run-time package has a `protected` member named `MemberName` with descriptor `MemberDescriptor`, the `protected` check does not apply.
     
     This is because the actual class being resolved will either be one of these superclasses, in which case we know that it is either in the same run-time package, and the access is legal; or the member in question is not `protected` and the check does not apply; or it will be a subclass, in which case the check would succeed anyway; or it will be some other class in the same run-time package, in which case the access is legal and the check need not take place; or the verifier need not flag this as a problem, since it will be caught anyway because resolution will per force fail.
     
+```java
     passesProtectedCheck(Environment, MemberClassName, MemberName,
                          MemberDescriptor, StackFrame) :-
         thisClass(Environment, class(CurrentClassName, CurrentLoader)),
         superclassChain(CurrentClassName, CurrentLoader, Chain),
-        member(class(MemberClassName, \_), Chain),
+        member(class(MemberClassName, _), Chain),
         classesInOtherPkgWithProtectedMember(
           class(CurrentClassName, CurrentLoader),
-          MemberName, MemberDescriptor, MemberClassName, Chain, \[\]).
+          MemberName, MemberDescriptor, MemberClassName, Chain, []).
+```
     
 *   If there does exist a `protected` superclass member in a different run-time package, then load `MemberClassName`; if the member in question is not `protected`, the check does not apply. (Using a superclass member that is not `protected` is trivially correct.)
     
+```java
     passesProtectedCheck(Environment, MemberClassName, MemberName,
                          MemberDescriptor,
-                         frame(\_Locals, \[Target | Rest\], \_Flags)) :-
+                         frame(_Locals, [Target | Rest], _Flags)) :-
         thisClass(Environment, class(CurrentClassName, CurrentLoader)),
         superclassChain(CurrentClassName, CurrentLoader, Chain),
-        member(class(MemberClassName, \_), Chain),
+        member(class(MemberClassName, _), Chain),
         classesInOtherPkgWithProtectedMember(
           class(CurrentClassName, CurrentLoader),
           MemberName, MemberDescriptor, MemberClassName, Chain, List),
-        List /= \[\],
+        List /= [],
         loadedClass(MemberClassName, CurrentLoader, ReferencedClass),
         isNotProtected(ReferencedClass, MemberName, MemberDescriptor).
+```
     
 *   Otherwise, use of a member of an object of type `Target` requires that `Target` be assignable to the type of the current class.
     
+```java
     passesProtectedCheck(Environment, MemberClassName, MemberName,
                          MemberDescriptor,
-                         frame(\_Locals, \[Target | Rest\], \_Flags)) :-
+                         frame(_Locals, [Target | Rest], _Flags)) :-
         thisClass(Environment, class(CurrentClassName, CurrentLoader)),
         superclassChain(CurrentClassName, CurrentLoader, Chain),
-        member(class(MemberClassName, \_), Chain),
+        member(class(MemberClassName, _), Chain),
         classesInOtherPkgWithProtectedMember(
           class(CurrentClassName, CurrentLoader),
           MemberName, MemberDescriptor, MemberClassName, Chain, List),
-        List /= \[\],
+        List /= [],
         loadedClass(MemberClassName, CurrentLoader, ReferencedClass),
         isProtected(ReferencedClass, MemberName, MemberDescriptor),
         isAssignable(Target, class(CurrentClassName, CurrentLoader)).
-    
+```
 
 The predicate `classesInOtherPkgWithProtectedMember(Class, MemberName, MemberDescriptor, MemberClassName, Chain, List)` is true if `List` is the set of classes in `Chain` with name `MemberClassName` that are in a different run-time package than `Class` which have a `protected` member named `MemberName` with descriptor `MemberDescriptor`.
 
-classesInOtherPkgWithProtectedMember(\_, \_, \_, \_, \[\], \[\]).
+```java
+classesInOtherPkgWithProtectedMember(_, _, _, _, [], []).
 
 classesInOtherPkgWithProtectedMember(Class, MemberName,
                                      MemberDescriptor, MemberClassName,
-                                     \[class(MemberClassName, L) | Tail\],
-                                     \[class(MemberClassName, L) | T\]) :-
+                                     [class(MemberClassName, L) | Tail],
+                                     [class(MemberClassName, L) | T]) :-
     differentRuntimePackage(Class, class(MemberClassName, L)),
     loadedClass(MemberClassName, L, Super),
     isProtected(Super, MemberName, MemberDescriptor),
@@ -8508,7 +7274,7 @@ classesInOtherPkgWithProtectedMember(Class, MemberName,
 
 classesInOtherPkgWithProtectedMember(Class, MemberName,
                                      MemberDescriptor, MemberClassName,
-                                     \[class(MemberClassName, L) | Tail\],
+                                     [class(MemberClassName, L) | Tail],
                                      T) :-
     differentRuntimePackage(Class, class(MemberClassName, L)),
     loadedClass(MemberClassName, L, Super),
@@ -8518,8 +7284,8 @@ classesInOtherPkgWithProtectedMember(Class, MemberName,
 
 classesInOtherPkgWithProtectedMember(Class, MemberName,
                                      MemberDescriptor, MemberClassName,
-                                     \[class(MemberClassName, L) | Tail\],
-                                     T\] :-
+                                     [class(MemberClassName, L) | Tail],
+                                     T] :-
     sameRuntimePackage(Class, class(MemberClassName, L)),
     classesInOtherPkgWithProtectedMember(
       Class, MemberName, MemberDescriptor, MemberClassName, Tail, T).
@@ -8532,10 +7298,11 @@ sameRuntimePackage(Class1, Class2) :-
 differentRuntimePackage(Class1, Class2) :-
     classDefiningLoader(Class1, L1),
     classDefiningLoader(Class2, L2),
-    L1 \\= L2.
+    L1 \= L2.
 
 differentRuntimePackage(Class1, Class2) :-
     differentPackageName(Class1, Class2).
+```
 
 #### 4.10.1.9. Type Checking Instructions
 
@@ -8548,8 +7315,8 @@ In general, the type rule for an instruction is given relative to an environment
     The type state after an instruction completes abruptly is the same as the incoming type state, except that the operand stack is empty.
     
     exceptionStackFrame(StackFrame, ExceptionStackFrame) :-
-        StackFrame = frame(Locals, \_OperandStack, Flags),
-        ExceptionStackFrame = frame(Locals, \[\], Flags).
+        StackFrame = frame(Locals, _OperandStack, Flags),
+        ExceptionStackFrame = frame(Locals, [], Flags).
         
     
 
@@ -8581,13 +7348,13 @@ Any ambiguities can be resolved by referring to the formal Prolog clauses.
 
 An _aaload_ instruction is type safe iff one can validly replace types matching `int` and an array type with component type `ComponentType` where `ComponentType` is a subtype of `Object`, with `ComponentType` yielding the outgoing type state.
 
-instructionIsTypeSafe(aaload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(aaload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     nth1OperandStackIs(2, StackFrame, ArrayType),
     arrayComponentType(ArrayType, ComponentType),
     isBootstrapLoader(BL),
     validTypeTransition(Environment,
-                        \[int, arrayOf(class('java/lang/Object', BL))\],
+                        [int, arrayOf(class('java/lang/Object', BL))],
                         ComponentType, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8600,49 +7367,49 @@ arrayComponentType(null, null).
 
 An _aastore_ instruction is type safe iff one can validly pop types matching `Object`, `int`, and an array of `Object` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(aastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(aastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     isBootstrapLoader(BL),
     canPop(StackFrame,
-           \[class('java/lang/Object', BL),
+           [class('java/lang/Object', BL),
             int,
-            arrayOf(class('java/lang/Object', BL))\],
+            arrayOf(class('java/lang/Object', BL))],
            NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `aconst_null`
 
-An _aconst\_null_ instruction is type safe if one can validly push the type `null` onto the incoming operand stack yielding the outgoing type state.
+An _aconst_null_ instruction is type safe if one can validly push the type `null` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(aconst\_null, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(aconst_null, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[\], null, StackFrame, NextStackFrame),
+    validTypeTransition(Environment, [], null, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `aload, aload_<n>`
 
 An _aload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `reference` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(aload(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(aload(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     loadIsTypeSafe(Environment, Index, reference, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _aload\_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _aload_ instruction is type safe.
+The instructions _aload_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _aload_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(aload\_0, aload(0)).
-instructionHasEquivalentTypeRule(aload\_1, aload(1)).
-instructionHasEquivalentTypeRule(aload\_2, aload(2)).
-instructionHasEquivalentTypeRule(aload\_3, aload(3)).
+instructionHasEquivalentTypeRule(aload_0, aload(0)).
+instructionHasEquivalentTypeRule(aload_1, aload(1)).
+instructionHasEquivalentTypeRule(aload_2, aload(2)).
+instructionHasEquivalentTypeRule(aload_3, aload(3)).
 
 ##### `anewarray`
 
 An _anewarray_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting either a class type or an array type, and one can legally replace a type matching `int` on the incoming operand stack with an array with component type `CP` yielding the outgoing type state.
 
-instructionIsTypeSafe(anewarray(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(anewarray(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    (CP = class(\_, \_) ; CP = arrayOf(\_)),
-    validTypeTransition(Environment, \[int\], arrayOf(CP),
+    (CP = class(_, _) ; CP = arrayOf(_)),
+    validTypeTransition(Environment, [int], arrayOf(CP),
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8650,59 +7417,59 @@ instructionIsTypeSafe(anewarray(CP), Environment, \_Offset, StackFrame,
 
 An _areturn_ instruction is type safe iff the enclosing method has a declared return type, `ReturnType`, that is a `reference` type, and one can validly pop a type matching `ReturnType` off the incoming operand stack.
 
-instructionIsTypeSafe(areturn, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(areturn, Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     thisMethodReturnType(Environment, ReturnType),
     isAssignable(ReturnType, reference),
-    canPop(StackFrame, \[ReturnType\], \_PoppedStackFrame),
+    canPop(StackFrame, [ReturnType], _PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `arraylength`
 
 An _arraylength_ instruction is type safe iff one can validly replace an array type on the incoming operand stack with the type `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(arraylength, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(arraylength, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     nth1OperandStackIs(1, StackFrame, ArrayType),
-    arrayComponentType(ArrayType, \_),
-    validTypeTransition(Environment, \[top\], int, StackFrame, NextStackFrame),
+    arrayComponentType(ArrayType, _),
+    validTypeTransition(Environment, [top], int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `astore, astore_<n>`
 
 An _astore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `reference` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(astore(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(astore(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     storeIsTypeSafe(Environment, Index, reference, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _astore\_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _astore_ instruction is type safe.
+The instructions _astore_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _astore_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(astore\_0, astore(0)).
-instructionHasEquivalentTypeRule(astore\_1, astore(1)).
-instructionHasEquivalentTypeRule(astore\_2, astore(2)).
-instructionHasEquivalentTypeRule(astore\_3, astore(3)).
+instructionHasEquivalentTypeRule(astore_0, astore(0)).
+instructionHasEquivalentTypeRule(astore_1, astore(1)).
+instructionHasEquivalentTypeRule(astore_2, astore(2)).
+instructionHasEquivalentTypeRule(astore_3, astore(3)).
 
 ##### `athrow`
 
 An _athrow_ instruction is type safe iff the top of the operand stack matches `Throwable`.
 
-instructionIsTypeSafe(athrow, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(athrow, _Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     isBootstrapLoader(BL),
-    canPop(StackFrame, \[class('java/lang/Throwable', BL)\], \_PoppedStackFrame),
+    canPop(StackFrame, [class('java/lang/Throwable', BL)], _PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `baload`
 
 A _baload_ instruction is type safe iff one can validly replace types matching `int` and a small array type on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(baload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(baload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :
     nth1OperandStackIs(2, StackFrame, ArrayType),
     isSmallArray(ArrayType),
-    validTypeTransition(Environment, \[int, top\], int,
+    validTypeTransition(Environment, [int, top], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8716,11 +7483,11 @@ isSmallArray(null).
 
 A _bastore_ instruction is type safe iff one can validly pop types matching `int`, `int` and a small array type off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(bastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(bastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     nth1OperandStackIs(3, StackFrame, ArrayType),
     isSmallArray(ArrayType),
-    canPop(StackFrame, \[int, int, top\], NextStackFrame),
+    canPop(StackFrame, [int, int, top], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `bipush`
@@ -8733,9 +7500,9 @@ instructionHasEquivalentTypeRule(bipush(Value), sipush(Value)).
 
 A _caload_ instruction is type safe iff one can validly replace types matching `int` and array of `char` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(caload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(caload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, arrayOf(char)\], int,
+    validTypeTransition(Environment, [int, arrayOf(char)], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8743,20 +7510,20 @@ instructionIsTypeSafe(caload, Environment, \_Offset, StackFrame,
 
 A _castore_ instruction is type safe iff one can validly pop types matching `int`, `int` and array of `char` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(castore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(castore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[int, int, arrayOf(char)\], NextStackFrame),
+    canPop(StackFrame, [int, int, arrayOf(char)], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `checkcast`
 
 A _checkcast_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting either a class or an array, and one can validly replace the type `Object` on top of the incoming operand stack with the type denoted by `CP` yielding the outgoing type state.
 
-instructionIsTypeSafe(checkcast(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(checkcast(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    (CP = class(\_, \_) ; CP = arrayOf(\_)),
+    (CP = class(_, _) ; CP = arrayOf(_)),
     isBootstrapLoader(BL),
-    validTypeTransition(Environment, \[class('java/lang/Object', BL)\], CP,
+    validTypeTransition(Environment, [class('java/lang/Object', BL)], CP,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8764,25 +7531,25 @@ instructionIsTypeSafe(checkcast(CP), Environment, \_Offset, StackFrame,
 
 A _d2f_ instruction is type safe if one can validly pop `double` off the incoming operand stack and replace it with `float`, yielding the outgoing type state.
 
-instructionIsTypeSafe(d2f, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(d2f, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[double\], float,
+    validTypeTransition(Environment, [double], float,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 A _d2i_ instruction is type safe if one can validly pop `double` off the incoming operand stack and replace it with `int`, yielding the outgoing type state.
 
-instructionIsTypeSafe(d2i, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(d2i, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[double\], int,
+    validTypeTransition(Environment, [double], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 A _d2l_ instruction is type safe if one can validly pop `double` off the incoming operand stack and replace it with `long`, yielding the outgoing type state.
 
-instructionIsTypeSafe(d2l, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(d2l, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[double\], long,
+    validTypeTransition(Environment, [double], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8790,9 +7557,9 @@ instructionIsTypeSafe(d2l, Environment, \_Offset, StackFrame,
 
 A _dadd_ instruction is type safe iff one can validly replace types matching `double` and `double` on the incoming operand stack with `double` yielding the outgoing type state.
 
-instructionIsTypeSafe(dadd, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dadd, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :-
-    validTypeTransition(Environment, \[double, double\], double,
+    validTypeTransition(Environment, [double, double], double,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8800,9 +7567,9 @@ instructionIsTypeSafe(dadd, Environment, \_Offset, StackFrame,
 
 A _daload_ instruction is type safe iff one can validly replace types matching `int` and array of `double` on the incoming operand stack with `double` yielding the outgoing type state.
 
-instructionIsTypeSafe(daload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(daload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, arrayOf(double)\], double,
+    validTypeTransition(Environment, [int, arrayOf(double)], double,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8810,18 +7577,18 @@ instructionIsTypeSafe(daload, Environment, \_Offset, StackFrame,
 
 A _dastore_ instruction is type safe iff one can validly pop types matching `double`, `int` and array of `double` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(dastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[double, int, arrayOf(double)\], NextStackFrame),
+    canPop(StackFrame, [double, int, arrayOf(double)], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `dcmp<op>`
 
 A _dcmpg_ instruction is type safe iff one can validly replace types matching `double` and `double` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(dcmpg, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dcmpg, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[double, double\], int,
+    validTypeTransition(Environment, [double, double], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8831,16 +7598,16 @@ instructionHasEquivalentTypeRule(dcmpl, dcmpg).
 
 ##### `dconst_<d>`
 
-A _dconst\_0_ instruction is type safe if one can validly push the type `double` onto the incoming operand stack yielding the outgoing type state.
+A _dconst_0_ instruction is type safe if one can validly push the type `double` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(dconst\_0, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dconst_0, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[\], double, StackFrame, NextStackFrame),
+    validTypeTransition(Environment, [], double, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-A _dconst\_1_ instruction is type safe iff the equivalent _dconst\_0_ instruction is type safe.
+A _dconst_1_ instruction is type safe iff the equivalent _dconst_0_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(dconst\_1, dconst\_0).
+instructionHasEquivalentTypeRule(dconst_1, dconst_0).
 
 ##### `ddiv`
 
@@ -8852,17 +7619,17 @@ instructionHasEquivalentTypeRule(ddiv, dadd).
 
 A _dload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `double` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(dload(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dload(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     loadIsTypeSafe(Environment, Index, double, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _dload\_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _dload_ instruction is type safe.
+The instructions _dload_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _dload_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(dload\_0, dload(0)).
-instructionHasEquivalentTypeRule(dload\_1, dload(1)).
-instructionHasEquivalentTypeRule(dload\_2, dload(2)).
-instructionHasEquivalentTypeRule(dload\_3, dload(3)).
+instructionHasEquivalentTypeRule(dload_0, dload(0)).
+instructionHasEquivalentTypeRule(dload_1, dload(1)).
+instructionHasEquivalentTypeRule(dload_2, dload(2)).
+instructionHasEquivalentTypeRule(dload_3, dload(3)).
 
 ##### `dmul`
 
@@ -8874,9 +7641,9 @@ instructionHasEquivalentTypeRule(dmul, dadd).
 
 A _dneg_ instruction is type safe iff there is a type matching `double` on the incoming operand stack. The _dneg_ instruction does not alter the type state.
 
-instructionIsTypeSafe(dneg, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dneg, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[double\], double,
+    validTypeTransition(Environment, [double], double,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -8890,27 +7657,27 @@ instructionHasEquivalentTypeRule(drem, dadd).
 
 A _dreturn_ instruction is type safe if the enclosing method has a declared return type of `double`, and one can validly pop a type matching `double` off the incoming operand stack.
 
-instructionIsTypeSafe(dreturn, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dreturn, Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     thisMethodReturnType(Environment, double),
-    canPop(StackFrame, \[double\], \_PoppedStackFrame),
+    canPop(StackFrame, [double], _PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `dstore, dstore_<n>`
 
 A _dstore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `double` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(dstore(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dstore(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     storeIsTypeSafe(Environment, Index, double, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _dstore\_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _dstore_ instruction is type safe.
+The instructions _dstore_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _dstore_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(dstore\_0, dstore(0)).
-instructionHasEquivalentTypeRule(dstore\_1, dstore(1)).
-instructionHasEquivalentTypeRule(dstore\_2, dstore(2)).
-instructionHasEquivalentTypeRule(dstore\_3, dstore(3)).
+instructionHasEquivalentTypeRule(dstore_0, dstore(0)).
+instructionHasEquivalentTypeRule(dstore_1, dstore(1)).
+instructionHasEquivalentTypeRule(dstore_2, dstore(2)).
+instructionHasEquivalentTypeRule(dstore_3, dstore(3)).
 
 ##### `dsub`
 
@@ -8922,69 +7689,69 @@ instructionHasEquivalentTypeRule(dsub, dadd).
 
 A _dup_ instruction is type safe iff one can validly replace a category 1 type, `Type`, with the types `Type`, `Type`, yielding the outgoing type state.
 
-instructionIsTypeSafe(dup, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dup, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :-
     StackFrame = frame(Locals, InputOperandStack, Flags),
-    popCategory1(InputOperandStack, Type, \_),
+    popCategory1(InputOperandStack, Type, _),
     canSafelyPush(Environment, InputOperandStack, Type, OutputOperandStack),
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `dup_x1`
 
-A _dup\_x1_ instruction is type safe iff one can validly replace two category 1 types, `Type1`, and `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
+A _dup_x1_ instruction is type safe iff one can validly replace two category 1 types, `Type1`, and `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
 
-instructionIsTypeSafe(dup\_x1, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dup_x1, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     StackFrame = frame(Locals, InputOperandStack, Flags),
     popCategory1(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Rest),
-    canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
+    canSafelyPushList(Environment, Rest, [Type1, Type2, Type1],
                       OutputOperandStack),
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `dup_x2`
 
-A _dup\_x2_ instruction is type safe iff it is a _type safe form_ of the _dup\_x2_ instruction.
+A _dup_x2_ instruction is type safe iff it is a _type safe form_ of the _dup_x2_ instruction.
 
-instructionIsTypeSafe(dup\_x2, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dup_x2, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     StackFrame = frame(Locals, InputOperandStack, Flags),
-    dup\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack),
+    dup_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack),
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-A _dup\_x2_ instruction is a _type safe form_ of the _dup\_x2_ instruction iff it is a _type safe form 1_ _dup\_x2_ instruction or a _type safe form 2_ _dup\_x2_ instruction.
+A _dup_x2_ instruction is a _type safe form_ of the _dup_x2_ instruction iff it is a _type safe form 1_ _dup_x2_ instruction or a _type safe form 2_ _dup_x2_ instruction.
 
-dup\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup\_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-dup\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup\_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-A _dup\_x2_ instruction is a _type safe form 1_ _dup\_x2_ instruction iff one can validly replace three category 1 types, `Type1`, `Type2`, `Type3` on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, yielding the outgoing type state.
+A _dup_x2_ instruction is a _type safe form 1_ _dup_x2_ instruction iff one can validly replace three category 1 types, `Type1`, `Type2`, `Type3` on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, yielding the outgoing type state.
 
-dup\_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory1(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Stack2),
     popCategory1(Stack2, Type3, Rest),
-    canSafelyPushList(Environment, Rest, \[Type1, Type3, Type2, Type1\],
+    canSafelyPushList(Environment, Rest, [Type1, Type3, Type2, Type1],
                       OutputOperandStack).
 
-A _dup\_x2_ instruction is a _type safe form 2_ _dup\_x2_ instruction iff one can validly replace a category 1 type, `Type1`, and a category 2 type, `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
+A _dup_x2_ instruction is a _type safe form 2_ _dup_x2_ instruction iff one can validly replace a category 1 type, `Type1`, and a category 2 type, `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
 
-dup\_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory1(InputOperandStack, Type1, Stack1),
     popCategory2(Stack1, Type2, Rest),
-    canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
+    canSafelyPushList(Environment, Rest, [Type1, Type2, Type1],
                       OutputOperandStack).
 
 ##### `dup2`
 
 A _dup2_ instruction is type safe iff it is a _type safe form_ of the _dup2_ instruction.
 
-instructionIsTypeSafe(dup2, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dup2, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :-
     StackFrame = frame(Locals, InputOperandStack, Flags),
     dup2FormIsTypeSafe(Environment,InputOperandStack, OutputOperandStack),
@@ -9003,148 +7770,148 @@ A _dup2_ instruction is a _type safe form 1_ _dup2_ instruction iff one can vali
 
 dup2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack):-
     popCategory1(InputOperandStack, Type1, TempStack),
-    popCategory1(TempStack, Type2, \_),
-    canSafelyPushList(Environment, InputOperandStack, \[Type1, Type2\],
+    popCategory1(TempStack, Type2, _),
+    canSafelyPushList(Environment, InputOperandStack, [Type1, Type2],
                       OutputOperandStack).
 
 A _dup2_ instruction is a _type safe form 2_ _dup2_ instruction iff one can validly replace a category 2 type, `Type` on the incoming operand stack with the types `Type`, `Type`, yielding the outgoing type state.
 
 dup2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack):-
-    popCategory2(InputOperandStack, Type, \_),
+    popCategory2(InputOperandStack, Type, _),
     canSafelyPush(Environment, InputOperandStack, Type, OutputOperandStack).
 
 ##### `dup2_x1`
 
-A _dup2\_x1_ instruction is type safe iff it is a _type safe form_ of the _dup2\_x1_ instruction.
+A _dup2_x1_ instruction is type safe iff it is a _type safe form_ of the _dup2_x1_ instruction.
 
-instructionIsTypeSafe(dup2\_x1, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dup2_x1, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     StackFrame = frame(Locals, InputOperandStack, Flags),
-    dup2\_x1FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack),
+    dup2_x1FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack),
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-A _dup2\_x1_ instruction is a _type safe form_ of the _dup2\_x1_ instruction iff it is a _type safe form 1_ _dup2\_x1_ instruction or a _type safe form 2_ _dup\_x2_ instruction.
+A _dup2_x1_ instruction is a _type safe form_ of the _dup2_x1_ instruction iff it is a _type safe form 1_ _dup2_x1_ instruction or a _type safe form 2_ _dup_x2_ instruction.
 
-dup2\_x1FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup2\_x1Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup2_x1FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup2_x1Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-dup2\_x1FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup2\_x1Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup2_x1FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup2_x1Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-A _dup2\_x1_ instruction is a _type safe form 1_ _dup2\_x1_ instruction iff one can validly replace three category 1 types, `Type1`, `Type2`, `Type3`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, `Type2`, yielding the outgoing type state.
+A _dup2_x1_ instruction is a _type safe form 1_ _dup2_x1_ instruction iff one can validly replace three category 1 types, `Type1`, `Type2`, `Type3`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, `Type2`, yielding the outgoing type state.
 
-dup2\_x1Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup2_x1Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory1(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Stack2),
     popCategory1(Stack2, Type3, Rest),
-    canSafelyPushList(Environment, Rest, \[Type2, Type1, Type3, Type2, Type1\],
+    canSafelyPushList(Environment, Rest, [Type2, Type1, Type3, Type2, Type1],
                       OutputOperandStack).
 
-A _dup2\_x1_ instruction is a _type safe form 2_ _dup2\_x1_ instruction iff one can validly replace a category 2 type, `Type1`, and a category 1 type, `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
+A _dup2_x1_ instruction is a _type safe form 2_ _dup2_x1_ instruction iff one can validly replace a category 2 type, `Type1`, and a category 1 type, `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
 
-dup2\_x1Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup2_x1Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory2(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Rest),
-    canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
+    canSafelyPushList(Environment, Rest, [Type1, Type2, Type1],
                       OutputOperandStack).
 
 ##### `dup2_x2`
 
-A _dup2\_x2_ instruction is type safe iff it is a _type safe form_ of the _dup2\_x2_ instruction.
+A _dup2_x2_ instruction is type safe iff it is a _type safe form_ of the _dup2_x2_ instruction.
 
-instructionIsTypeSafe(dup2\_x2, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(dup2_x2, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     StackFrame = frame(Locals, InputOperandStack, Flags),
-    dup2\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack),
+    dup2_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack),
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-A _dup2\_x2_ instruction is a _type safe form_ of the _dup2\_x2_ instruction iff one of the following holds:
+A _dup2_x2_ instruction is a _type safe form_ of the _dup2_x2_ instruction iff one of the following holds:
 
-*   it is a _type safe form 1_ _dup2\_x2_ instruction.
+*   it is a _type safe form 1_ _dup2_x2_ instruction.
     
-*   it is a _type safe form 2_ _dup2\_x2_ instruction.
+*   it is a _type safe form 2_ _dup2_x2_ instruction.
     
-*   it is a _type safe form 3_ _dup2\_x2_ instruction.
+*   it is a _type safe form 3_ _dup2_x2_ instruction.
     
-*   it is a _type safe form 4_ _dup2\_x2_ instruction.
+*   it is a _type safe form 4_ _dup2_x2_ instruction.
     
 
-dup2\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup2\_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup2_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup2_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-dup2\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup2\_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup2_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup2_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-dup2\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup2\_x2Form3IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup2_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup2_x2Form3IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-dup2\_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
-    dup2\_x2Form4IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
+dup2_x2FormIsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+    dup2_x2Form4IsTypeSafe(Environment, InputOperandStack, OutputOperandStack).
 
-A _dup2\_x2_ instruction is a _type safe form 1_ _dup2\_x2_ instruction iff one can validly replace four category 1 types, `Type1`, `Type2`, `Type3`, `Type4`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type4`, `Type1`, `Type2`, yielding the outgoing type state.
+A _dup2_x2_ instruction is a _type safe form 1_ _dup2_x2_ instruction iff one can validly replace four category 1 types, `Type1`, `Type2`, `Type3`, `Type4`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type4`, `Type1`, `Type2`, yielding the outgoing type state.
 
-dup2\_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup2_x2Form1IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory1(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Stack2),
     popCategory1(Stack2, Type3, Stack3),
     popCategory1(Stack3, Type4, Rest),
     canSafelyPushList(Environment, Rest,
-                      \[Type2, Type1, Type4, Type3, Type2, Type1\],
+                      [Type2, Type1, Type4, Type3, Type2, Type1],
                       OutputOperandStack).
 
-A _dup2\_x2_ instruction is a _type safe form 2_ _dup2\_x2_ instruction iff one can validly replace a category 2 type, `Type1`, and two category 1 types, `Type2`, `Type3`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, yielding the outgoing type state.
+A _dup2_x2_ instruction is a _type safe form 2_ _dup2_x2_ instruction iff one can validly replace a category 2 type, `Type1`, and two category 1 types, `Type2`, `Type3`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, yielding the outgoing type state.
 
-dup2\_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup2_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory2(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Stack2),
     popCategory1(Stack2, Type3, Rest),
     canSafelyPushList(Environment, Rest,
-                      \[Type1, Type3, Type2, Type1\],
+                      [Type1, Type3, Type2, Type1],
                       OutputOperandStack).
 
-A _dup2\_x2_ instruction is a _type safe form 3_ _dup2\_x2_ instruction iff one can validly replace two category 1 types, `Type1`, `Type2`, and a category 2 type, `Type3`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, `Type2`, yielding the outgoing type state.
+A _dup2_x2_ instruction is a _type safe form 3_ _dup2_x2_ instruction iff one can validly replace two category 1 types, `Type1`, `Type2`, and a category 2 type, `Type3`, on the incoming operand stack with the types `Type1`, `Type2`, `Type3`, `Type1`, `Type2`, yielding the outgoing type state.
 
-dup2\_x2Form3IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup2_x2Form3IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory1(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Stack2),
     popCategory2(Stack2, Type3, Rest),
     canSafelyPushList(Environment, Rest,
-                      \[Type2, Type1, Type3, Type2, Type1\],
+                      [Type2, Type1, Type3, Type2, Type1],
                       OutputOperandStack).
 
-A _dup2\_x2_ instruction is a _type safe form 4_ _dup2\_x2_ instruction iff one can validly replace two category 2 types, `Type1`, `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
+A _dup2_x2_ instruction is a _type safe form 4_ _dup2_x2_ instruction iff one can validly replace two category 2 types, `Type1`, `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
 
-dup2\_x2Form4IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
+dup2_x2Form4IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory2(InputOperandStack, Type1, Stack1),
     popCategory2(Stack1, Type2, Rest),
-    canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
+    canSafelyPushList(Environment, Rest, [Type1, Type2, Type1],
                       OutputOperandStack).
 
 ##### `f2d, f2i, f2l`
 
 An _f2d_ instruction is type safe if one can validly pop `float` off the incoming operand stack and replace it with `double`, yielding the outgoing type state.
 
-instructionIsTypeSafe(f2d, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(f2d, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[float\], double,
+    validTypeTransition(Environment, [float], double,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 An _f2i_ instruction is type safe if one can validly pop `float` off the incoming operand stack and replace it with `int`, yielding the outgoing type state.
 
-instructionIsTypeSafe(f2i, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(f2i, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[float\], int,
+    validTypeTransition(Environment, [float], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 An _f2l_ instruction is type safe if one can validly pop `float` off the incoming operand stack and replace it with `long`, yielding the outgoing type state.
 
-instructionIsTypeSafe(f2l, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(f2l, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[float\], long,
+    validTypeTransition(Environment, [float], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9152,9 +7919,9 @@ instructionIsTypeSafe(f2l, Environment, \_Offset, StackFrame,
 
 An _fadd_ instruction is type safe iff one can validly replace types matching `float` and `float` on the incoming operand stack with `float` yielding the outgoing type state.
 
-instructionIsTypeSafe(fadd, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fadd, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[float, float\], float,
+    validTypeTransition(Environment, [float, float], float,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9162,9 +7929,9 @@ instructionIsTypeSafe(fadd, Environment, \_Offset, StackFrame,
 
 An _faload_ instruction is type safe iff one can validly replace types matching `int` and array of `float` on the incoming operand stack with `float` yielding the outgoing type state.
 
-instructionIsTypeSafe(faload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(faload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, arrayOf(float)\], float,
+    validTypeTransition(Environment, [int, arrayOf(float)], float,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9172,18 +7939,18 @@ instructionIsTypeSafe(faload, Environment, \_Offset, StackFrame,
 
 An _fastore_ instruction is type safe iff one can validly pop types matching `float`, `int` and array of `float` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(fastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[float, int, arrayOf(float)\], NextStackFrame),
+    canPop(StackFrame, [float, int, arrayOf(float)], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `fcmp<op>`
 
 An _fcmpg_ instruction is type safe iff one can validly replace types matching `float` and `float` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(fcmpg, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fcmpg, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[float, float\], int,
+    validTypeTransition(Environment, [float, float], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9193,17 +7960,17 @@ instructionHasEquivalentTypeRule(fcmpl, fcmpg).
 
 ##### `fconst_<f>`
 
-An _fconst\_0_ instruction is type safe if one can validly push the type `float` onto the incoming operand stack yielding the outgoing type state.
+An _fconst_0_ instruction is type safe if one can validly push the type `float` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(fconst\_0, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fconst_0, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[\], float, StackFrame, NextStackFrame),
+    validTypeTransition(Environment, [], float, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 The rules for the other variants of _fconst_ are equivalent.
 
-instructionHasEquivalentTypeRule(fconst\_1, fconst\_0).
-instructionHasEquivalentTypeRule(fconst\_2, fconst\_0).
+instructionHasEquivalentTypeRule(fconst_1, fconst_0).
+instructionHasEquivalentTypeRule(fconst_2, fconst_0).
 
 ##### `fdiv`
 
@@ -9215,17 +7982,17 @@ instructionHasEquivalentTypeRule(fdiv, fadd).
 
 An _fload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `float` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(fload(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fload(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     loadIsTypeSafe(Environment, Index, float, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _fload\_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _fload_ instruction is type safe.
+The instructions _fload_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _fload_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(fload\_0, fload(0)).
-instructionHasEquivalentTypeRule(fload\_1, fload(1)).
-instructionHasEquivalentTypeRule(fload\_2, fload(2)).
-instructionHasEquivalentTypeRule(fload\_3, fload(3)).
+instructionHasEquivalentTypeRule(fload_0, fload(0)).
+instructionHasEquivalentTypeRule(fload_1, fload(1)).
+instructionHasEquivalentTypeRule(fload_2, fload(2)).
+instructionHasEquivalentTypeRule(fload_3, fload(3)).
 
 ##### `fmul`
 
@@ -9237,9 +8004,9 @@ instructionHasEquivalentTypeRule(fmul, fadd).
 
 An _fneg_ instruction is type safe iff there is a type matching `float` on the incoming operand stack. The _fneg_ instruction does not alter the type state.
 
-instructionIsTypeSafe(fneg, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fneg, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[float\], float,
+    validTypeTransition(Environment, [float], float,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9253,27 +8020,27 @@ instructionHasEquivalentTypeRule(frem, fadd).
 
 An _freturn_ instruction is type safe if the enclosing method has a declared return type of `float`, and one can validly pop a type matching `float` off the incoming operand stack.
 
-instructionIsTypeSafe(freturn, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(freturn, Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     thisMethodReturnType(Environment, float),
-    canPop(StackFrame, \[float\], \_PoppedStackFrame),
+    canPop(StackFrame, [float], _PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `fstore, fstore_<n>`
 
 An _fstore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `float` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(fstore(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(fstore(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     storeIsTypeSafe(Environment, Index, float, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _fstore\_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _fstore_ instruction is type safe.
+The instructions _fstore_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _fstore_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(fstore\_0, fstore(0)).
-instructionHasEquivalentTypeRule(fstore\_1, fstore(1)).
-instructionHasEquivalentTypeRule(fstore\_2, fstore(2)).
-instructionHasEquivalentTypeRule(fstore\_3, fstore(3)).
+instructionHasEquivalentTypeRule(fstore_0, fstore(0)).
+instructionHasEquivalentTypeRule(fstore_1, fstore(1)).
+instructionHasEquivalentTypeRule(fstore_2, fstore(2)).
+instructionHasEquivalentTypeRule(fstore_3, fstore(3)).
 
 ##### `fsub`
 
@@ -9285,13 +8052,13 @@ instructionHasEquivalentTypeRule(fsub, fadd).
 
 A _getfield_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, declared in a class `FieldClass`, and one can validly replace a type matching `FieldClass` with type `FieldType` on the incoming operand stack yielding the outgoing type state. `FieldClass` must not be an array type. `protected` fields are subject to additional checks ([§4.10.1.8](jvms-4.html#jvms-4.10.1.8 "4.10.1.8. Type Checking for protected Members")).
 
-instructionIsTypeSafe(getfield(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(getfield(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     CP = field(FieldClass, FieldName, FieldDescriptor),
     parseFieldDescriptor(FieldDescriptor, FieldType),
     passesProtectedCheck(Environment, FieldClass, FieldName,
                          FieldDescriptor, StackFrame),
-    validTypeTransition(Environment, \[class(FieldClass)\], FieldType,
+    validTypeTransition(Environment, [class(FieldClass)], FieldType,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9299,11 +8066,11 @@ instructionIsTypeSafe(getfield(CP), Environment, \_Offset, StackFrame,
 
 A _getstatic_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, and one can validly push `FieldType` on the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(getstatic(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(getstatic(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    CP = field(\_FieldClass, \_FieldName, FieldDescriptor),
+    CP = field(_FieldClass, _FieldName, FieldDescriptor),
     parseFieldDescriptor(FieldDescriptor, FieldType),
-    validTypeTransition(Environment, \[\], FieldType,
+    validTypeTransition(Environment, [], FieldType,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9311,14 +8078,14 @@ instructionIsTypeSafe(getstatic(CP), Environment, \_Offset, StackFrame,
 
 A _goto_ instruction is type safe iff its target operand is a valid branch target.
 
-instructionIsTypeSafe(goto(Target), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(goto(Target), Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :-
     targetIsTypeSafe(Environment, StackFrame, Target),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-A _goto\_w_ instruction is type safe iff the equivalent _goto_ instruction is type safe.
+A _goto_w_ instruction is type safe iff the equivalent _goto_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(goto\_w(Target), goto(Target)).
+instructionHasEquivalentTypeRule(goto_w(Target), goto(Target)).
 
 ##### `i2b, i2c, i2d, i2f, i2l, i2s`
 
@@ -9332,25 +8099,25 @@ instructionHasEquivalentTypeRule(i2c, ineg).
 
 An _i2d_ instruction is type safe if one can validly pop `int` off the incoming operand stack and replace it with `double`, yielding the outgoing type state.
 
-instructionIsTypeSafe(i2d, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(i2d, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int\], double,
+    validTypeTransition(Environment, [int], double,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 An _i2f_ instruction is type safe if one can validly pop `int` off the incoming operand stack and replace it with `float`, yielding the outgoing type state.
 
-instructionIsTypeSafe(i2f, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(i2f, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int\], float,
+    validTypeTransition(Environment, [int], float,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 An _i2l_ instruction is type safe if one can validly pop `int` off the incoming operand stack and replace it with `long`, yielding the outgoing type state.
 
-instructionIsTypeSafe(i2l, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(i2l, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int\], long,
+    validTypeTransition(Environment, [int], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9362,9 +8129,9 @@ instructionHasEquivalentTypeRule(i2s, ineg).
 
 An _iadd_ instruction is type safe iff one can validly replace types matching `int` and `int` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(iadd, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(iadd, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, int\], int,
+    validTypeTransition(Environment, [int, int], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9372,9 +8139,9 @@ instructionIsTypeSafe(iadd, Environment, \_Offset, StackFrame,
 
 An _iaload_ instruction is type safe iff one can validly replace types matching `int` and array of `int` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(iaload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(iaload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, arrayOf(int)\], int,
+    validTypeTransition(Environment, [int, arrayOf(int)], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9388,50 +8155,50 @@ instructionHasEquivalentTypeRule(iand, iadd).
 
 An _iastore_ instruction is type safe iff one can validly pop types matching `int`, `int` and array of `int` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(iastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(iastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[int, int, arrayOf(int)\], NextStackFrame),
+    canPop(StackFrame, [int, int, arrayOf(int)], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `if_acmp<cond>`
 
-An _if\_acmpeq_ instruction is type safe iff one can validly pop types matching `reference` and `reference` on the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
+An _if_acmpeq_ instruction is type safe iff one can validly pop types matching `reference` and `reference` on the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
-instructionIsTypeSafe(if\_acmpeq(Target), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(if_acmpeq(Target), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[reference, reference\], NextStackFrame),
+    canPop(StackFrame, [reference, reference], NextStackFrame),
     targetIsTypeSafe(Environment, NextStackFrame, Target),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The rule for _if\_acmpne_ is identical.
+The rule for _if_acmpne_ is identical.
 
-instructionHasEquivalentTypeRule(if\_acmpne(Target), if\_acmpeq(Target)).
+instructionHasEquivalentTypeRule(if_acmpne(Target), if_acmpeq(Target)).
 
 ##### `if_icmp<cond>`
 
-An _if\_icmpeq_ instruction is type safe iff one can validly pop types matching `int` and `int` on the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
+An _if_icmpeq_ instruction is type safe iff one can validly pop types matching `int` and `int` on the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
-instructionIsTypeSafe(if\_icmpeq(Target), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(if_icmpeq(Target), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[int, int\], NextStackFrame),
+    canPop(StackFrame, [int, int], NextStackFrame),
     targetIsTypeSafe(Environment, NextStackFrame, Target),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The rules for all other variants of the _if\_icmp<cond>_ instruction are identical.
+The rules for all other variants of the _if_icmp<cond>_ instruction are identical.
 
-instructionHasEquivalentTypeRule(if\_icmpge(Target), if\_icmpeq(Target)).
-instructionHasEquivalentTypeRule(if\_icmpgt(Target), if\_icmpeq(Target)).
-instructionHasEquivalentTypeRule(if\_icmple(Target), if\_icmpeq(Target)).
-instructionHasEquivalentTypeRule(if\_icmplt(Target), if\_icmpeq(Target)).
-instructionHasEquivalentTypeRule(if\_icmpne(Target), if\_icmpeq(Target)).
+instructionHasEquivalentTypeRule(if_icmpge(Target), if_icmpeq(Target)).
+instructionHasEquivalentTypeRule(if_icmpgt(Target), if_icmpeq(Target)).
+instructionHasEquivalentTypeRule(if_icmple(Target), if_icmpeq(Target)).
+instructionHasEquivalentTypeRule(if_icmplt(Target), if_icmpeq(Target)).
+instructionHasEquivalentTypeRule(if_icmpne(Target), if_icmpeq(Target)).
 
 ##### `if<cond>`
 
 An _ifeq_ instruction is type safe iff one can validly pop a type matching `int` off the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
-instructionIsTypeSafe(ifeq(Target), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ifeq(Target), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :-
-    canPop(StackFrame, \[int\], NextStackFrame), 
+    canPop(StackFrame, [int], NextStackFrame), 
     targetIsTypeSafe(Environment, NextStackFrame, Target),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9447,9 +8214,9 @@ instructionHasEquivalentTypeRule(ifne(Target), ifeq(Target)).
 
 An _ifnonnull_ instruction is type safe iff one can validly pop a type matching `reference` off the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
-instructionIsTypeSafe(ifnonnull(Target), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ifnonnull(Target), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[reference\], NextStackFrame),
+    canPop(StackFrame, [reference], NextStackFrame),
     targetIsTypeSafe(Environment, NextStackFrame, Target),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9463,9 +8230,9 @@ instructionHasEquivalentTypeRule(ifnull(Target), ifnonnull(Target)).
 
 An _iinc_ instruction with first operand `Index` is type safe iff `LIndex` has type `int`. The _iinc_ instruction does not change the type state.
 
-instructionIsTypeSafe(iinc(Index, \_Value), \_Environment, \_Offset,
+instructionIsTypeSafe(iinc(Index, _Value), _Environment, _Offset,
                       StackFrame, StackFrame, ExceptionStackFrame) :-
-    StackFrame = frame(Locals, \_OperandStack, \_Flags),
+    StackFrame = frame(Locals, _OperandStack, _Flags),
     nth0(Index, Locals, int),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9473,17 +8240,17 @@ instructionIsTypeSafe(iinc(Index, \_Value), \_Environment, \_Offset,
 
 An _iload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `int` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(iload(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(iload(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     loadIsTypeSafe(Environment, Index, int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _iload\_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _iload_ instruction is type safe.
+The instructions _iload_<n>_, for 0 ≤ _n_ ≤ 3, are typesafe iff the equivalent _iload_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(iload\_0, iload(0)).
-instructionHasEquivalentTypeRule(iload\_1, iload(1)).
-instructionHasEquivalentTypeRule(iload\_2, iload(2)).
-instructionHasEquivalentTypeRule(iload\_3, iload(3)).
+instructionHasEquivalentTypeRule(iload_0, iload(0)).
+instructionHasEquivalentTypeRule(iload_1, iload(1)).
+instructionHasEquivalentTypeRule(iload_2, iload(2)).
+instructionHasEquivalentTypeRule(iload_3, iload(3)).
 
 ##### `imul`
 
@@ -9495,20 +8262,20 @@ instructionHasEquivalentTypeRule(imul, iadd).
 
 An _ineg_ instruction is type safe iff there is a type matching `int` on the incoming operand stack. The _ineg_ instruction does not alter the type state.
 
-instructionIsTypeSafe(ineg, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ineg, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int\], int, StackFrame, NextStackFrame),
+    validTypeTransition(Environment, [int], int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `instanceof`
 
 An _instanceof_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting either a class or an array, and one can validly replace the type `Object` on top of the incoming operand stack with type `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(instanceof(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(instanceof(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    (CP = class(\_, \_) ; CP = arrayOf(\_)),
+    (CP = class(_, _) ; CP = arrayOf(_)),
     isBootstrapLoader(BL),
-    validTypeTransition(Environment, \[class('java/lang/Object', BL)\], int,
+    validTypeTransition(Environment, [class('java/lang/Object', BL)], int,
                         StackFrame,NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9525,7 +8292,7 @@ An _invokedynamic_ instruction is type safe iff all of the following are true:
 *   One can validly replace types matching the argument types given in `Descriptor` on the incoming operand stack with the return type given in `Descriptor`, yielding the outgoing type state.
     
 
-instructionIsTypeSafe(invokedynamic(CP,0,0), Environment, \_Offset,
+instructionIsTypeSafe(invokedynamic(CP,0,0), Environment, _Offset,
                       StackFrame, NextStackFrame, ExceptionStackFrame) :- 
     CP = dmethod(CallSiteName, Descriptor),
     CallSiteName \\= '`<init>`',
@@ -9551,18 +8318,18 @@ An _invokeinterface_ instruction is type safe iff all of the following are true:
 *   One can validly replace types matching the type `MethodIntfName` and the argument types given in `Descriptor` on the incoming operand stack with the return type given in `Descriptor`, yielding the outgoing type state.
     
 
-instructionIsTypeSafe(invokeinterface(CP, Count, 0), Environment, \_Offset,
+instructionIsTypeSafe(invokeinterface(CP, Count, 0), Environment, _Offset,
                       StackFrame, NextStackFrame, ExceptionStackFrame) :- 
     CP = imethod(MethodIntfName, MethodName, Descriptor),
     MethodName \\= '`<init>`',
     MethodName \\= '`<clinit>`',
-    parseMethodDescriptor(Descriptor, OperandArgList, ReturnType), currentClassLoader(Environment, CurrentLoader), reverse(\[class(MethodIntfName, CurrentLoader) | OperandArgList\], StackArgList), canPop(StackFrame, StackArgList, TempFrame), validTypeTransition(Environment, \[\], ReturnType, TempFrame, NextStackFrame), countIsValid(Count, StackFrame, TempFrame), exceptionStackFrame(StackFrame, ExceptionStackFrame).
+    parseMethodDescriptor(Descriptor, OperandArgList, ReturnType), currentClassLoader(Environment, CurrentLoader), reverse([class(MethodIntfName, CurrentLoader) | OperandArgList], StackArgList), canPop(StackFrame, StackArgList, TempFrame), validTypeTransition(Environment, [], ReturnType, TempFrame, NextStackFrame), countIsValid(Count, StackFrame, TempFrame), exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 The `Count` operand of an _invokeinterface_ instruction is valid if it equals the size of the arguments to the instruction. This is equal to the difference between the size of `InputFrame` and `OutputFrame`.
 
 countIsValid(Count, InputFrame, OutputFrame) :-
-    InputFrame = frame(\_Locals1, OperandStack1, \_Flags1),
-    OutputFrame = frame(\_Locals2, OperandStack2, \_Flags2),
+    InputFrame = frame(_Locals1, OperandStack1, _Flags1),
+    OutputFrame = frame(_Locals2, OperandStack2, _Flags2),
     length(OperandStack1, Length1),
     length(OperandStack2, Length2),
     Count =:= Length1 - Length2.
@@ -9585,21 +8352,21 @@ An _invokespecial_ instruction is type safe iff all of the following are true:
         
     
 
-instructionIsTypeSafe(invokespecial(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(invokespecial(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     CP = method(MethodClassName, MethodName, Descriptor),
     MethodName \\= '`<init>`',
     MethodName \\= '`<clinit>`',
     parseMethodDescriptor(Descriptor, OperandArgList, ReturnType),
     thisClass(Environment, class(CurrentClassName, CurrentLoader)), 
-    reverse(\[class(CurrentClassName, CurrentLoader) | OperandArgList\],
+    reverse([class(CurrentClassName, CurrentLoader) | OperandArgList],
             StackArgList),
     validTypeTransition(Environment, StackArgList, ReturnType,
                         StackFrame, NextStackFrame),
-    reverse(\[class(MethodClassName, CurrentLoader) | OperandArgList\],
+    reverse([class(MethodClassName, CurrentLoader) | OperandArgList],
             StackArgList2),
     validTypeTransition(Environment, StackArgList2, ReturnType,
-                        StackFrame, \_ResultStackFrame),
+                        StackFrame, _ResultStackFrame),
     isAssignable(class(CurrentClassName, CurrentLoader),
                  class(MethodClassName, CurrentLoader)).
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
@@ -9616,14 +8383,14 @@ instructionIsTypeSafe(invokespecial(CP), Environment, \_Offset, StackFrame,
         
     
 
-instructionIsTypeSafe(invokespecial(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(invokespecial(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :-
     CP = method(MethodClassName, '`<init>`', Descriptor),
     parseMethodDescriptor(Descriptor, OperandArgList, void), 
     reverse(OperandArgList, StackArgList),
     canPop(StackFrame, StackArgList, TempFrame),
     TempFrame = frame(Locals, FullOperandStack, Flags),
-    FullOperandStack = \[UninitializedArg | OperandStack\],
+    FullOperandStack = [UninitializedArg | OperandStack],
     currentClassLoader(Environment, CurrentLoader),
     rewrittenUninitializedType(UninitializedArg, Environment,
                                class(MethodClassName, CurrentLoader), This), 
@@ -9631,7 +8398,7 @@ instructionIsTypeSafe(invokespecial(CP), Environment, \_Offset, StackFrame,
     substitute(UninitializedArg, This, OperandStack, NextOperandStack),
     substitute(UninitializedArg, This, Locals, NextLocals),
     NextStackFrame = frame(NextLocals, NextOperandStack, NextFlags),
-    ExceptionStackFrame = frame(Locals, \[\], Flags),
+    ExceptionStackFrame = frame(Locals, [], Flags),
     passesProtectedCheck(Environment, MethodClassName, '`<init>`',
                          Descriptor, NextStackFrame).
 
@@ -9651,20 +8418,20 @@ rewrittenUninitializedType(uninitializedThis, Environment,
                            MethodClass, MethodClass) :-
     MethodClass = class(MethodClassName, CurrentLoader),
     thisClass(Environment, class(thisClassName, thisLoader)),
-    superclassChain(thisClassName, thisLoader, \[MethodClass | Rest\]).
+    superclassChain(thisClassName, thisLoader, [MethodClass | Rest]).
 
 rewrittenUninitializedType(uninitialized(Address), Environment,
                            MethodClass, MethodClass) :-
     allInstructions(Environment, Instructions),
     member(instruction(Address, new(MethodClass)), Instructions).
 
-rewrittenInitializationFlags(uninitializedThis, \_Flags, \[\]).
-rewrittenInitializationFlags(uninitialized(\_), Flags, Flags).
+rewrittenInitializationFlags(uninitializedThis, _Flags, []).
+rewrittenInitializationFlags(uninitialized(_), Flags, Flags).
 
-substitute(\_Old, \_New, \[\], \[\]).
-substitute(Old, New, \[Old | FromRest\], \[New | ToRest\]) :-
+substitute(_Old, _New, [], []).
+substitute(Old, New, [Old | FromRest], [New | ToRest]) :-
     substitute(Old, New, FromRest, ToRest).
-substitute(Old, New, \[From1 | FromRest\], \[From1 | ToRest\]) :-
+substitute(Old, New, [From1 | FromRest], [From1 | ToRest]) :-
     From1 \\= Old,
     substitute(Old, New, FromRest, ToRest).
 
@@ -9687,9 +8454,9 @@ An _invokestatic_ instruction is type safe iff all of the following are true:
 *   One can validly replace types matching the argument types given in `Descriptor` on the incoming operand stack with the return type given in `Descriptor`, yielding the outgoing type state.
     
 
-instructionIsTypeSafe(invokestatic(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(invokestatic(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    CP = method(\_MethodClassName, MethodName, Descriptor),
+    CP = method(_MethodClassName, MethodName, Descriptor),
     MethodName \\= '`<init>`',
     MethodName \\= '`<clinit>`',
     parseMethodDescriptor(Descriptor, OperandArgList, ReturnType), 
@@ -9713,7 +8480,7 @@ An _invokevirtual_ instruction is type safe iff all of the following are true:
 *   If the method is `protected`, the usage conforms to the special rules governing access to `protected` members ([§4.10.1.8](jvms-4.html#jvms-4.10.1.8 "4.10.1.8. Type Checking for protected Members")).
     
 
-instructionIsTypeSafe(invokevirtual(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(invokevirtual(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     CP = method(MethodClassName, MethodName, Descriptor),
     MethodName \\= '`<init>`',
@@ -9721,7 +8488,7 @@ instructionIsTypeSafe(invokevirtual(CP), Environment, \_Offset, StackFrame,
     parseMethodDescriptor(Descriptor, OperandArgList, ReturnType), 
     reverse(OperandArgList, ArgList),
     currentClassLoader(Environment, CurrentLoader),
-    reverse(\[class(MethodClassName, CurrentLoader) | OperandArgList\],
+    reverse([class(MethodClassName, CurrentLoader) | OperandArgList],
             StackArgList),
     validTypeTransition(Environment, StackArgList, ReturnType,
                         StackFrame, NextStackFrame),
@@ -9746,10 +8513,10 @@ instructionHasEquivalentTypeRule(irem, iadd).
 
 An _ireturn_ instruction is type safe if the enclosing method has a declared return type of `int`, and one can validly pop a type matching `int` off the incoming operand stack.
 
-instructionIsTypeSafe(ireturn, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ireturn, Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     thisMethodReturnType(Environment, int),
-    canPop(StackFrame, \[int\], \_PoppedStackFrame),
+    canPop(StackFrame, [int], _PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `ishl, ishr, iushr`
@@ -9770,17 +8537,17 @@ instructionHasEquivalentTypeRule(iushr, iadd).
 
 An _istore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `int` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(istore(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(istore(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     storeIsTypeSafe(Environment, Index, int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _istore\_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _istore_ instruction is type safe.
+The instructions _istore_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _istore_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(istore\_0, istore(0)).
-instructionHasEquivalentTypeRule(istore\_1, istore(1)).
-instructionHasEquivalentTypeRule(istore\_2, istore(2)).
-instructionHasEquivalentTypeRule(istore\_3, istore(3)).
+instructionHasEquivalentTypeRule(istore_0, istore(0)).
+instructionHasEquivalentTypeRule(istore_1, istore(1)).
+instructionHasEquivalentTypeRule(istore_2, istore(2)).
+instructionHasEquivalentTypeRule(istore_3, istore(3)).
 
 ##### `isub`
 
@@ -9798,25 +8565,25 @@ instructionHasEquivalentTypeRule(ixor, iadd).
 
 An _l2d_ instruction is type safe if one can validly pop `long` off the incoming operand stack and replace it with `double`, yielding the outgoing type state.
 
-instructionIsTypeSafe(l2d, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(l2d, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[long\], double,
+    validTypeTransition(Environment, [long], double,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 An _l2f_ instruction is type safe if one can validly pop `long` off the incoming operand stack and replace it with `float`, yielding the outgoing type state.
 
-instructionIsTypeSafe(l2f, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(l2f, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[long\], float,
+    validTypeTransition(Environment, [long], float,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 An _l2i_ instruction is type safe if one can validly pop `long` off the incoming operand stack and replace it with `int`, yielding the outgoing type state.
 
-instructionIsTypeSafe(l2i, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(l2i, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[long\], int,
+    validTypeTransition(Environment, [long], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9824,9 +8591,9 @@ instructionIsTypeSafe(l2i, Environment, \_Offset, StackFrame,
 
 An _ladd_ instruction is type safe iff one can validly replace types matching `long` and `long` on the incoming operand stack with `long` yielding the outgoing type state.
 
-instructionIsTypeSafe(ladd, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ladd, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[long, long\], long,
+    validTypeTransition(Environment, [long, long], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9834,9 +8601,9 @@ instructionIsTypeSafe(ladd, Environment, \_Offset, StackFrame,
 
 An _laload_ instruction is type safe iff one can validly replace types matching `int` and array of `long` on the incoming operand stack with `long` yielding the outgoing type state.
 
-instructionIsTypeSafe(laload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(laload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, arrayOf(long)\], long,
+    validTypeTransition(Environment, [int, arrayOf(long)], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9850,64 +8617,64 @@ instructionHasEquivalentTypeRule(land, ladd).
 
 An _lastore_ instruction is type safe iff one can validly pop types matching `long`, `int` and array of `long` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(lastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[long, int, arrayOf(long)\], NextStackFrame),
+    canPop(StackFrame, [long, int, arrayOf(long)], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `lcmp`
 
 A _lcmp_ instruction is type safe iff one can validly replace types matching `long` and `long` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(lcmp, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lcmp, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[long, long\], int,
+    validTypeTransition(Environment, [long, long], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `lconst_<l>`
 
-An _lconst\_0_ instruction is type safe if one can validly push the type `long` onto the incoming operand stack yielding the outgoing type state.
+An _lconst_0_ instruction is type safe if one can validly push the type `long` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(lconst\_0, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lconst_0, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[\], long, StackFrame, NextStackFrame),
+    validTypeTransition(Environment, [], long, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-An _lconst\_1_ instruction is type safe iff the equivalent _lconst\_0_ instruction is type safe.
+An _lconst_1_ instruction is type safe iff the equivalent _lconst_0_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(lconst\_1, lconst\_0).
+instructionHasEquivalentTypeRule(lconst_1, lconst_0).
 
 ##### `ldc, ldc_w, ldc2_w`
 
 An _ldc_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting an entity of type `Type`, where `Type` is either `int`, `float`, `String`, `Class`, `java.lang.invoke.MethodType`, or `java.lang.invoke.MethodHandle`, and one can validly push `Type` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(ldc(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ldc(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    functor(CP, Tag, \_),
+    functor(CP, Tag, _),
     isBootstrapLoader(BL),
-    member(\[Tag, Type\], \[
-        \[int, int\],
-        \[float, float\],
-        \[string, class('java/lang/String', BL)\],
-        \[classConst, class('java/lang/Class', BL)\],
-        \[methodTypeConst, class('java/lang/invoke/MethodType', BL)\],
-        \[methodHandleConst, class('java/lang/invoke/MethodHandle', BL)\],
-    \]),
-    validTypeTransition(Environment, \[\], Type, StackFrame, NextStackFrame),
+    member([Tag, Type], [
+        [int, int],
+        [float, float],
+        [string, class('java/lang/String', BL)],
+        [classConst, class('java/lang/Class', BL)],
+        [methodTypeConst, class('java/lang/invoke/MethodType', BL)],
+        [methodHandleConst, class('java/lang/invoke/MethodHandle', BL)],
+    ]),
+    validTypeTransition(Environment, [], Type, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-An _ldc\_w_ instruction is type safe iff the equivalent _ldc_ instruction is type safe.
+An _ldc_w_ instruction is type safe iff the equivalent _ldc_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(ldc\_w(CP), ldc(CP))
+instructionHasEquivalentTypeRule(ldc_w(CP), ldc(CP))
 
-An _ldc2\_w_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting an entity of type `Tag`, where `Tag` is either `long` or `double`, and one can validly push `Tag` onto the incoming operand stack yielding the outgoing type state.
+An _ldc2_w_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting an entity of type `Tag`, where `Tag` is either `long` or `double`, and one can validly push `Tag` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(ldc2\_w(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(ldc2_w(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    functor(CP, Tag, \_),
-    member(Tag, \[long, double\]), 
-    validTypeTransition(Environment, \[\], Tag, StackFrame, NextStackFrame),
+    functor(CP, Tag, _),
+    member(Tag, [long, double]), 
+    validTypeTransition(Environment, [], Tag, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `ldiv`
@@ -9920,17 +8687,17 @@ instructionHasEquivalentTypeRule(ldiv, ladd).
 
 An _lload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `long` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(lload(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lload(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     loadIsTypeSafe(Environment, Index, long, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _lload\_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _lload_ instruction is type safe.
+The instructions _lload_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _lload_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(lload\_0, lload(0)).
-instructionHasEquivalentTypeRule(lload\_1, lload(1)).
-instructionHasEquivalentTypeRule(lload\_2, lload(2)).
-instructionHasEquivalentTypeRule(lload\_3, lload(3)).
+instructionHasEquivalentTypeRule(lload_0, lload(0)).
+instructionHasEquivalentTypeRule(lload_1, lload(1)).
+instructionHasEquivalentTypeRule(lload_2, lload(2)).
+instructionHasEquivalentTypeRule(lload_3, lload(3)).
 
 ##### `lmul`
 
@@ -9942,9 +8709,9 @@ instructionHasEquivalentTypeRule(lmul, ladd).
 
 An _lneg_ instruction is type safe iff there is a type matching `long` on the incoming operand stack. The _lneg_ instruction does not alter the type state.
 
-instructionIsTypeSafe(lneg, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lneg, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[long\], long,
+    validTypeTransition(Environment, [long], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9952,10 +8719,10 @@ instructionIsTypeSafe(lneg, Environment, \_Offset, StackFrame,
 
 A _lookupswitch_ instruction is type safe if its keys are sorted, one can validly pop `int` off the incoming operand stack yielding a new type state `BranchStackFrame`, and all of the instruction's targets are valid branch targets assuming `BranchStackFrame` as their incoming type state.
 
-instructionIsTypeSafe(lookupswitch(Targets, Keys), Environment, \_, StackFrame, 
+instructionIsTypeSafe(lookupswitch(Targets, Keys), Environment, _, StackFrame, 
                       afterGoto, ExceptionStackFrame) :-
     sort(Keys, Keys),
-    canPop(StackFrame, \[int\], BranchStackFrame),
+    canPop(StackFrame, [int], BranchStackFrame),
     checklist(targetIsTypeSafe(Environment, BranchStackFrame), Targets),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -9975,19 +8742,19 @@ instructionHasEquivalentTypeRule(lrem, ladd).
 
 An _lreturn_ instruction is type safe if the enclosing method has a declared return type of `long`, and one can validly pop a type matching `long` off the incoming operand stack.
 
-instructionIsTypeSafe(lreturn, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lreturn, Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     thisMethodReturnType(Environment, long),
-    canPop(StackFrame, \[long\], \_PoppedStackFrame),
+    canPop(StackFrame, [long], _PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `lshl, lshr, lushr`
 
 An _lshl_ instruction is type safe if one can validly replace the types `int` and `long` on the incoming operand stack with the type `long` yielding the outgoing type state.
 
-instructionIsTypeSafe(lshl, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lshl, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, long\], long,
+    validTypeTransition(Environment, [int, long], long,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10003,17 +8770,17 @@ instructionHasEquivalentTypeRule(lushr, lshl).
 
 An _lstore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `long` is type safe and yields an outgoing type state `NextStackFrame`.
 
-instructionIsTypeSafe(lstore(Index), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(lstore(Index), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     storeIsTypeSafe(Environment, Index, long, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-The instructions _lstore\_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _lstore_ instruction is type safe.
+The instructions _lstore_<n>_, for 0 ≤ _n_ ≤ 3, are type safe iff the equivalent _lstore_ instruction is type safe.
 
-instructionHasEquivalentTypeRule(lstore\_0, lstore(0)).
-instructionHasEquivalentTypeRule(lstore\_1, lstore(1)).
-instructionHasEquivalentTypeRule(lstore\_2, lstore(2)).
-instructionHasEquivalentTypeRule(lstore\_3, lstore(3)).
+instructionHasEquivalentTypeRule(lstore_0, lstore(0)).
+instructionHasEquivalentTypeRule(lstore_1, lstore(1)).
+instructionHasEquivalentTypeRule(lstore_2, lstore(2)).
+instructionHasEquivalentTypeRule(lstore_3, lstore(3)).
 
 ##### `lsub`
 
@@ -10031,9 +8798,9 @@ instructionHasEquivalentTypeRule(lxor, ladd).
 
 A _monitorenter_ instruction is type safe iff one can validly pop a type matching `reference` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(monitorenter, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(monitorenter, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :-
-    canPop(StackFrame, \[reference\], NextStackFrame),
+    canPop(StackFrame, [reference], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `monitorexit`
@@ -10046,14 +8813,14 @@ instructionHasEquivalentTypeRule(monitorexit, monitorenter).
 
 A _multianewarray_ instruction with operands `CP` and `Dim` is type safe iff `CP` refers to a constant pool entry denoting an array type whose dimension is greater or equal to `Dim`, `Dim` is strictly positive, and one can validly replace `Dim` `int` types on the incoming operand stack with the type denoted byliteral">CP yielding the outgoing type state.
 
-instructionIsTypeSafe(multianewarray(CP, Dim), Environment, \_Offset,
+instructionIsTypeSafe(multianewarray(CP, Dim), Environment, _Offset,
                       StackFrame, NextStackFrame, ExceptionStackFrame) :- 
-    CP = arrayOf(\_),
+    CP = arrayOf(_),
     classDimension(CP, Dimension),
     Dimension >= Dim,
     Dim > 0, 
-    /\* Make a list of Dim ints \*/
-    findall(int, between(1, Dim, \_), IntList),
+    /* Make a list of Dim ints */
+    findall(int, between(1, Dim, _), IntList),
     validTypeTransition(Environment, IntList, CP,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
@@ -10064,7 +8831,7 @@ classDimension(arrayOf(X), Dimension) :-
     classDimension(X, Dimension1), 
     Dimension is Dimension1 + 1.	
 
-classDimension(\_, Dimension) :-
+classDimension(_, Dimension) :-
     Dimension = 0. 
 
 ##### `new`
@@ -10074,11 +8841,11 @@ A _new_ instruction with operand `CP` at offset `Offset` is type safe iff `CP` r
 instructionIsTypeSafe(new(CP), Environment, Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     StackFrame = frame(Locals, OperandStack, Flags), 
-    CP = class(\_, \_), 
+    CP = class(_, _), 
     NewItem = uninitialized(Offset),
     notMember(NewItem, OperandStack),
     substitute(NewItem, top, Locals, NewLocals),
-    validTypeTransition(Environment, \[\], NewItem,
+    validTypeTransition(Environment, [], NewItem,
                         frame(NewLocals, OperandStack, Flags),
                         NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
@@ -10089,10 +8856,10 @@ The `substitute` predicate is defined in the rule for _invokespecial_ ([§_invok
 
 A _newarray_ instruction with operand `TypeCode` is type safe iff `TypeCode` corresponds to the primitive type `ElementType`, and one can validly replace the type `int` on the incoming operand stack with the type 'array of `ElementType`', yielding the outgoing type state.
 
-instructionIsTypeSafe(newarray(TypeCode), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(newarray(TypeCode), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    primitiveArrayInfo(TypeCode, \_TypeChar, ElementType, \_VerifierType),
-    validTypeTransition(Environment, \[int\], arrayOf(ElementType),
+    primitiveArrayInfo(TypeCode, _TypeChar, ElementType, _VerifierType),
+    validTypeTransition(Environment, [int], arrayOf(ElementType),
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10111,7 +8878,7 @@ primitiveArrayInfo(11, 0'J, long,    long).
 
 A _nop_ instruction is always type safe. The _nop_ instruction does not affect the type state.
 
-instructionIsTypeSafe(nop, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(nop, _Environment, _Offset, StackFrame,
                       StackFrame, ExceptionStackFrame) :-
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10119,9 +8886,9 @@ instructionIsTypeSafe(nop, \_Environment, \_Offset, StackFrame,
 
 A _pop_ instruction is type safe iff one can validly pop a category 1 type off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(pop, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(pop, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    StackFrame = frame(Locals, \[Type | Rest\], Flags),
+    StackFrame = frame(Locals, [Type | Rest], Flags),
     Type \\= top,
     sizeOf(Type, 1),
     NextStackFrame = frame(Locals, Rest, Flags),
@@ -10129,7 +8896,7 @@ instructionIsTypeSafe(pop, \_Environment, \_Offset, StackFrame,
 
 A _pop2_ instruction is type safe iff it is a _type safe form_ of the _pop2_ instruction.
 
-instructionIsTypeSafe(pop2, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(pop2, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     StackFrame = frame(Locals, InputOperandStack, Flags),
     pop2SomeFormIsTypeSafe(InputOperandStack, OutputOperandStack),
@@ -10146,27 +8913,27 @@ pop2SomeFormIsTypeSafe(InputOperandStack, OutputOperandStack) :-
 
 A _pop2_ instruction is a _type safe form 1_ _pop2_ instruction iff one can validly pop two types of size 1 off the incoming operand stack yielding the outgoing type state.
 
-pop2Form1IsTypeSafe(\[Type1, Type2 | Rest\], Rest) :-
+pop2Form1IsTypeSafe([Type1, Type2 | Rest], Rest) :-
     sizeOf(Type1, 1),
     sizeOf(Type2, 1).
 
 A _pop2_ instruction is a _type safe form 2_ _pop2_ instruction iff one can validly pop a type of size 2 off the incoming operand stack yielding the outgoing type state.
 
-pop2Form2IsTypeSafe(\[top, Type | Rest\], Rest) :- sizeOf(Type, 2).
+pop2Form2IsTypeSafe([top, Type | Rest], Rest) :- sizeOf(Type, 2).
 
 ##### `putfield`
 
 A _putfield_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, declared in a class `FieldClass`, and one can validly pop types matching `FieldType` and `FieldClass` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(putfield(CP), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(putfield(CP), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
     CP = field(FieldClass, FieldName, FieldDescriptor),
     parseFieldDescriptor(FieldDescriptor, FieldType),	
-    canPop(StackFrame, \[FieldType\], PoppedFrame),
+    canPop(StackFrame, [FieldType], PoppedFrame),
     passesProtectedCheck(Environment, FieldClass, FieldName,
                          FieldDescriptor, PoppedFrame),
     currentClassLoader(Environment, CurrentLoader),
-    canPop(StackFrame, \[FieldType, class(FieldClass, CurrentLoader)\],
+    canPop(StackFrame, [FieldType, class(FieldClass, CurrentLoader)],
            NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10174,11 +8941,11 @@ instructionIsTypeSafe(putfield(CP), Environment, \_Offset, StackFrame,
 
 A _putstatic_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, and one can validly pop a type matching `FieldType` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(putstatic(CP), \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(putstatic(CP), _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    CP = field(\_FieldClass, \_FieldName, FieldDescriptor),
+    CP = field(_FieldClass, _FieldName, FieldDescriptor),
     parseFieldDescriptor(FieldDescriptor, FieldType),
-    canPop(StackFrame, \[FieldType\], NextStackFrame),
+    canPop(StackFrame, [FieldType], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `return`
@@ -10190,10 +8957,10 @@ A _return_ instruction is type safe if the enclosing method declares a `void` re
 *   `this` has already been completely initialized at the point where the instruction occurs.
     
 
-instructionIsTypeSafe(return, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(return, Environment, _Offset, StackFrame,
                       afterGoto, ExceptionStackFrame) :- 
     thisMethodReturnType(Environment, void),
-    StackFrame = frame(\_Locals, \_OperandStack, Flags),
+    StackFrame = frame(_Locals, _OperandStack, Flags),
     notMember(flagThisUninit, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10201,9 +8968,9 @@ instructionIsTypeSafe(return, Environment, \_Offset, StackFrame,
 
 An _saload_ instruction is type safe iff one can validly replace types matching `int` and array of `short` on the incoming operand stack with `int` yielding the outgoing type state.
 
-instructionIsTypeSafe(saload, Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(saload, Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[int, arrayOf(short)\], int,
+    validTypeTransition(Environment, [int, arrayOf(short)], int,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10211,40 +8978,40 @@ instructionIsTypeSafe(saload, Environment, \_Offset, StackFrame,
 
 An _sastore_ instruction is type safe iff one can validly pop types matching `int`, `int`, and array of `short` off the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(sastore, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(sastore, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    canPop(StackFrame, \[int, int, arrayOf(short)\], NextStackFrame),
+    canPop(StackFrame, [int, int, arrayOf(short)], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `sipush`
 
 An _sipush_ instruction is type safe iff one can validly push the type `int` onto the incoming operand stack yielding the outgoing type state.
 
-instructionIsTypeSafe(sipush(\_Value), Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(sipush(_Value), Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    validTypeTransition(Environment, \[\], int, StackFrame, NextStackFrame),
+    validTypeTransition(Environment, [], int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `swap`
 
 A _swap_ instruction is type safe iff one can validly replace two category 1 types, `Type1` and `Type2`, on the incoming operand stack with the types `Type2` and `Type1` yielding the outgoing type state.
 
-instructionIsTypeSafe(swap, \_Environment, \_Offset, StackFrame,
+instructionIsTypeSafe(swap, _Environment, _Offset, StackFrame,
                       NextStackFrame, ExceptionStackFrame) :- 
-    StackFrame = frame(\_Locals, \[Type1, Type2 | Rest\], \_Flags),
+    StackFrame = frame(_Locals, [Type1, Type2 | Rest], _Flags),
     sizeOf(Type1, 1),
     sizeOf(Type2, 1),
-    NextStackFrame = frame(\_Locals, \[Type2, Type1 | Rest\], \_Flags),
+    NextStackFrame = frame(_Locals, [Type2, Type1 | Rest], _Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
 ##### `tableswitch`
 
 A _tableswitch_ instruction is type safe if its keys are sorted, one can validly pop `int` off the incoming operand stack yielding a new type state `BranchStackFrame`, and all of the instruction's targets are valid branch targets assuming `BranchStackFrame` as their incoming type state.
 
-instructionIsTypeSafe(tableswitch(Targets, Keys), Environment, \_Offset,
+instructionIsTypeSafe(tableswitch(Targets, Keys), Environment, _Offset,
                       StackFrame, afterGoto, ExceptionStackFrame) :- 
     sort(Keys, Keys), 
-    canPop(StackFrame, \[int\], BranchStackFrame),
+    canPop(StackFrame, [int], BranchStackFrame),
     checklist(targetIsTypeSafe(Environment, BranchStackFrame), Targets),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
@@ -10385,9 +9152,9 @@ can be implemented by the following:
 ...
 new #1            // Allocate uninitialized space for myClass
 dup               // Duplicate object on the operand stack
-iload\_1           // Push i
-iload\_2           // Push j
-iload\_3           // Push k
+iload_1           // Push i
+iload_2           // Push j
+iload_3           // Push k
 invokespecial #5  // Invoke myClass.`<init>`
 ...
 
@@ -10496,29 +9263,30 @@ The following limitations of the Java Virtual Machine are implicit in the `class
 ---------------------------------------------
 
 **Table of Contents**
-[5.1. The Run-Time Constant Pool](jvms-5.html#jvms-5.1)
-[5.2. Java Virtual Machine Startup](jvms-5.html#jvms-5.2)
-[5.3. Creation and Loading](jvms-5.html#jvms-5.3)
-[5.3.1. Loading Using the Bootstrap Class Loader](jvms-5.html#jvms-5.3.1)
-[5.3.2. Loading Using a User-defined Class Loader](jvms-5.html#jvms-5.3.2)
-[5.3.3. Creating Array Classes](jvms-5.html#jvms-5.3.3)
-[5.3.4. Loading Constraints](jvms-5.html#jvms-5.3.4)
-[5.3.5. Deriving a Class from a `class` File Representation](jvms-5.html#jvms-5.3.5)
-[5.4. Linking](jvms-5.html#jvms-5.4)
-[5.4.1. Verification](jvms-5.html#jvms-5.4.1)
-[5.4.2. Preparation](jvms-5.html#jvms-5.4.2)
-[5.4.3. Resolution](jvms-5.html#jvms-5.4.3)
-[5.4.3.1. Class and Interface Resolution](jvms-5.html#jvms-5.4.3.1)
-[5.4.3.2. Field Resolution](jvms-5.html#jvms-5.4.3.2)
-[5.4.3.3. Method Resolution](jvms-5.html#jvms-5.4.3.3)
-[5.4.3.4. Interface Method Resolution](jvms-5.html#jvms-5.4.3.4)
-[5.4.3.5. Method Type and Method Handle Resolution](jvms-5.html#jvms-5.4.3.5)
-[5.4.3.6. Call Site Specifier Resolution](jvms-5.html#jvms-5.4.3.6)
-[5.4.4. Access Control](jvms-5.html#jvms-5.4.4)
-[5.4.5. Overriding](jvms-5.html#jvms-5.4.5)
-[5.5. Initialization](jvms-5.html#jvms-5.5)
-[5.6. Binding Native Method Implementations](jvms-5.html#jvms-5.6)
-[5.7. Java Virtual Machine Exit](jvms-5.html#jvms-5.7)
+
+[5.1. The Run-Time Constant Pool](#51-the-run-time-constant-pool)
+[5.2. Java Virtual Machine Startup](#52-java-virtual-machine-startup)
+[5.3. Creation and Loading](#53-creation-and-loading)
+[5.3.1. Loading Using the Bootstrap Class Loader](#531-loading-using-the-bootstrap-class-loader)
+[5.3.2. Loading Using a User-defined Class Loader](#532-loading-using-a-user-defined-class-loader)
+[5.3.3. Creating Array Classes](#533-creating-array-classes)
+[5.3.4. Loading Constraints](#534-loading-constraints)
+[5.3.5. Deriving a Class from a `class` File Representation](#535-deriving-a-class-from-a-class-file-representation)
+[5.4. Linking](#54-linking)
+[5.4.1. Verification](#541-verification)
+[5.4.2. Preparation](#542-preparation)
+[5.4.3. Resolution](#543-resolution)
+[5.4.3.1. Class and Interface Resolution](#5431-class-and-interface-resolution)
+[5.4.3.2. Field Resolution](#5432-field-resolution)
+[5.4.3.3. Method Resolution](#5433-method-resolution)
+[5.4.3.4. Interface Method Resolution](#5434-interface-method-resolution)
+[5.4.3.5. Method Type and Method Handle Resolution](#5435-method-type-and-method-handle-resolution)
+[5.4.3.6. Call Site Specifier Resolution](#5436-call-site-specifier-resolution)
+[5.4.4. Access Control](#544-access-control)
+[5.4.5. Overriding](#545-overriding)
+[5.5. Initialization](#55-initialization)
+[5.6. Binding Native Method Implementations](#56-binding-native-method-implementations)
+[5.7. Java Virtual Machine Exit](#57-java-virtual-machine-exit)
 
 The Java Virtual Machine dynamically loads, links and initializes classes and interfaces. Loading is the process of finding the binary representation of a class or interface type with a particular name and _creating_ a class or interface from that binary representation. Linking is the process of taking a class or interface and combining it into the run-time state of the Java Virtual Machine so that it can be executed. Initialization of a class or interface consists of executing the class or interface initialization method `<clinit>` ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")).
 
@@ -10535,7 +9303,7 @@ The `constant_pool` table ([§4.4](jvms-4.html#jvms-4.4 "4.4. The Constant Pool"
     
     *   For a nonarray class or an interface, the name is the binary name ([§4.2.1](jvms-4.html#jvms-4.2.1 "4.2.1. Binary Class and Interface Names")) of the class or interface.
         
-    *   For an array class of _n_ dimensions, the name begins with _n_ occurrences of the ASCII "\[" character followed by a representation of the element type:
+    *   For an array class of _n_ dimensions, the name begins with _n_ occurrences of the ASCII "[" character followed by a representation of the element type:
         
         *   If the element type is a primitive type, it is represented by the corresponding field descriptor ([§4.3.2](jvms-4.html#jvms-4.3.2 "4.3.2. Field Descriptors")).
             
@@ -10810,7 +9578,7 @@ Preparation may occur at any time following creation but must be completed prior
 
 ### 5.4.3. Resolution
 
-The Java Virtual Machine instructions _anewarray_, _checkcast_, _getfield_, _getstatic_, _instanceof_, _invokedynamic_, _invokeinterface_, _invokespecial_, _invokestatic_, _invokevirtual_, _ldc_, _ldc\_w_, _multianewarray_, _new_, _putfield_, and _putstatic_ make symbolic references to the run-time constant pool. Execution of any of these instructions requires resolution of its symbolic reference.
+The Java Virtual Machine instructions _anewarray_, _checkcast_, _getfield_, _getstatic_, _instanceof_, _invokedynamic_, _invokeinterface_, _invokespecial_, _invokestatic_, _invokevirtual_, _ldc_, _ldc_w_, _multianewarray_, _new_, _putfield_, and _putstatic_ make symbolic references to the run-time constant pool. Execution of any of these instructions requires resolution of its symbolic reference.
 
 _Resolution_ is the process of dynamically determining concrete values from symbolic references in the run-time constant pool.
 
@@ -11006,68 +9774,17 @@ Symbolic references by an instruction sequence to fields or methods are indicate
 
 **Table 5.4.3.5-A. Bytecode Behaviors for Method Handles**
 
-  
-
-Kind
-
-Description
-
-Interpretation
-
-1
-
-`REF_getField`
-
-`getfield C.f:T`
-
-2
-
-`REF_getStatic`
-
-`getstatic C.f:T`
-
-3
-
-`REF_putField`
-
-`putfield C.f:T`
-
-4
-
-`REF_putStatic`
-
-`putstatic C.f:T`
-
-5
-
-`REF_invokeVirtual`
-
-`invokevirtual C.m:(A*)T`
-
-6
-
-`REF_invokeStatic`
-
-`invokestatic C.m:(A*)T`
-
-7
-
-`REF_invokeSpecial`
-
-`invokespecial C.m:(A*)T`
-
-8
-
-`REF_newInvokeSpecial`
-
-``new C; dup; invokespecial C.`<init>`:(A*)V``
-
-9
-
-`REF_invokeInterface`
-
-`invokeinterface C.m:(A*)T`
-
+| Kind | Description | Interpretation |
+|------|-------------|----------------|
+| 1 | `REF_getField` | `getfield C.f:T`
+| 2 | `REF_getStatic` | `getstatic C.f:T`
+| 3 | `REF_putField` | `putfield C.f:T`
+| 4 | `REF_putStatic` | `putstatic C.f:T`
+| 5 | `REF_invokeVirtual` | `invokevirtual C.m:(A*)T`
+| 6 | `REF_invokeStatic` | `invokestatic C.m:(A*)T`
+| 7 | `REF_invokeSpecial` | `invokespecial C.m:(A*)T`
+| 8 | `REF_newInvokeSpecial` | ``new C; dup; invokespecial C.`<init>`:(A*)V``
+| 9 | `REF_invokeInterface` | `invokeinterface C.m:(A*)T`
   
 
 Let `MH` be the symbolic reference to a method handle ([§5.1](jvms-5.html#jvms-5.1 "5.1. The Run-Time Constant Pool")) being resolved. Then:
@@ -11076,16 +9793,16 @@ Let `MH` be the symbolic reference to a method handle ([§5.1](jvms-5.html#jvms-
     
     (R is derived from the `CONSTANT_Fieldref`, `CONSTANT_Methodref`, or `CONSTANT_InterfaceMethodref` structure referred to by the `reference_index` item of the `CONSTANT_MethodHandle` from which `MH` is derived.)
     
-*   Let T be the type of the field referenced by R, or the return type of the method referenced by R. Let A\* be the sequence (perhaps empty) of parameter types of the method referenced by R.
+*   Let T be the type of the field referenced by R, or the return type of the method referenced by R. Let A* be the sequence (perhaps empty) of parameter types of the method referenced by R.
     
-    (T and A\* are derived from the `CONSTANT_NameAndType` structure referred to by the `name_and_type_index` item in the `CONSTANT_Fieldref`, `CONSTANT_Methodref`, or `CONSTANT_InterfaceMethodref` structure from which R is derived.)
+    (T and A* are derived from the `CONSTANT_NameAndType` structure referred to by the `name_and_type_index` item in the `CONSTANT_Fieldref`, `CONSTANT_Methodref`, or `CONSTANT_InterfaceMethodref` structure from which R is derived.)
     
 
 To resolve `MH`, all symbolic references to classes, interfaces, fields, and methods in `MH`'s bytecode behavior are resolved, using the following three steps:
 
 *   First, R is resolved.
     
-*   Second, resolution occurs as if of unresolved symbolic references to classes and interfaces whose names correspond to each type in A\*, and to the type T, in that order.
+*   Second, resolution occurs as if of unresolved symbolic references to classes and interfaces whose names correspond to each type in A*, and to the type T, in that order.
     
 *   Third, a reference to an instance of `java.lang.invoke.MethodType` is obtained as if by resolution of an unresolved symbolic reference to a method type that contains the method descriptor specified in [Table 5.4.3.5-B](jvms-5.html#jvms-5.4.3.5-260 "Table 5.4.3.5-B. Method Descriptors for Method Handles") for the kind of `MH`.
     
@@ -11098,69 +9815,18 @@ The intent is that resolving a method handle can be done in exactly the same cir
 
 **Table 5.4.3.5-B. Method Descriptors for Method Handles**
 
-  
+| Kind | Description | Method descriptor |
+|------|-------------|-------------------|
+| 1 | `REF_getField` | `(C)T`
+| 2 | `REF_getStatic` | `()T`
+| 3 | `REF_putField` | `(C,T)V`
+| 4 | `REF_putStatic` | `(T)V`
+| 5 | `REF_invokeVirtual` | `(C,A*)T`
+| 6 | `REF_invokeStatic` | `(A*)T`
+| 7 | `REF_invokeSpecial` | `(C,A*)T`
+| 8 | `REF_newInvokeSpecial` | `(A*)C`
+| 9 | `REF_invokeInterface` | `(C,A*)T`
 
-Kind
-
-Description
-
-Method descriptor
-
-1
-
-`REF_getField`
-
-`(C)T`
-
-2
-
-`REF_getStatic`
-
-`()T`
-
-3
-
-`REF_putField`
-
-`(C,T)V`
-
-4
-
-`REF_putStatic`
-
-`(T)V`
-
-5
-
-`REF_invokeVirtual`
-
-`(C,A*)T`
-
-6
-
-`REF_invokeStatic`
-
-`(A*)T`
-
-7
-
-`REF_invokeSpecial`
-
-`(C,A*)T`
-
-8
-
-`REF_newInvokeSpecial`
-
-`(A*)C`
-
-9
-
-`REF_invokeInterface`
-
-`(C,A*)T`
-
-  
 
 The result of successful method handle resolution is a `reference` to an instance of `java.lang.invoke.MethodHandle` which represents the method handle `MH`.
 
@@ -11172,7 +9838,7 @@ If the method referenced by R has the `ACC_VARARGS` flag set ([§4.6](jvms-4.htm
 
 A variable arity method handle performs argument list boxing (JLS §15.12.4.2) when invoked via `invoke`, while its behavior with respect to `invokeExact` is as if the `ACC_VARARGS` flag were not set.
 
-Method handle resolution throws an `IncompatibleClassChangeError` if the method referenced by R has the `ACC_VARARGS` flag set and either A\* is an empty sequence or the last parameter type in A\* is not an array type. That is, creation of a variable arity method handle fails.
+Method handle resolution throws an `IncompatibleClassChangeError` if the method referenced by R has the `ACC_VARARGS` flag set and either A* is an empty sequence or the last parameter type in A* is not an array type. That is, creation of a variable arity method handle fails.
 
 An implementation of the Java Virtual Machine is not required to intern method types or method handles. That is, two distinct symbolic references to method types or method handles which are structurally identical might not resolve to the same instance of `java.lang.invoke.MethodType` or `java.lang.invoke.MethodHandle` respectively.
 
@@ -11299,7 +9965,7 @@ For each class or interface C, there is a unique initialization lock `LC`. The m
     
 7.  Next, if C is a class rather than an interface, and its superclass has not yet been initialized, then let SC be its superclass and let SI1, ..., SIn be all superinterfaces of C (whether direct or indirect) that declare at least one non-`abstract`, non-`static` method. The order of superinterfaces is given by a recursive enumeration over the superinterface hierarchy of each interface directly implemented by C. For each interface I directly implemented by C (in the order of the `interfaces` array of C), the enumeration recurs on I's superinterfaces (in the order of the `interfaces` array of I) before returning I.
     
-    For each S in the list \[ SC, SI1, ..., SIn \], recursively perform this entire procedure for S. If necessary, verify and prepare S first.
+    For each S in the list [ SC, SI1, ..., SIn ], recursively perform this entire procedure for S. If necessary, verify and prepare S first.
     
     If the initialization of S completes abruptly because of a thrown exception, then acquire `LC`, label the `Class` object for C as erroneous, notify all waiting threads, release `LC`, and complete abruptly, throwing the same exception that resulted from initializing SC.
     
@@ -11333,162 +9999,161 @@ In addition, the JNI (Java Native Interface) Specification describes termination
 ---------------------------------------------------
 
 **Table of Contents**
-
-[6.1. Assumptions: The Meaning of "Must"](jvms-6.html#jvms-6.1)
-[6.2. Reserved Opcodes](jvms-6.html#jvms-6.2)
-[6.3. Virtual Machine Errors](jvms-6.html#jvms-6.3)
-[6.4. Format of Instruction Descriptions](jvms-6.html#jvms-6.4)
-[mnemonic](jvms-6.html#jvms-6.4-mnemonic)
-[6.5. Instructions](jvms-6.html#jvms-6.5)
-[_aaload_](jvms-6.html#jvms-6.5.aaload)
-[_aastore_](jvms-6.html#jvms-6.5.aastore)
-[_aconst\_null_](jvms-6.html#jvms-6.5.aconst_null)
-[_aload_](jvms-6.html#jvms-6.5.aload)
-[_aload\_<n>_](jvms-6.html#jvms-6.5.aload_n)
-[_anewarray_](jvms-6.html#jvms-6.5.anewarray)
-[_areturn_](jvms-6.html#jvms-6.5.areturn)
-[_arraylength_](jvms-6.html#jvms-6.5.arraylength)
-[_astore_](jvms-6.html#jvms-6.5.astore)
-[_astore\_<n>_](jvms-6.html#jvms-6.5.astore_n)
-[_athrow_](jvms-6.html#jvms-6.5.athrow)
-[_baload_](jvms-6.html#jvms-6.5.baload)
-[_bastore_](jvms-6.html#jvms-6.5.bastore)
-[_bipush_](jvms-6.html#jvms-6.5.bipush)
-[_caload_](jvms-6.html#jvms-6.5.caload)
-[_castore_](jvms-6.html#jvms-6.5.castore)
-[_checkcast_](jvms-6.html#jvms-6.5.checkcast)
-[_d2f_](jvms-6.html#jvms-6.5.d2f)
-[_d2i_](jvms-6.html#jvms-6.5.d2i)
-[_d2l_](jvms-6.html#jvms-6.5.d2l)
-[_dadd_](jvms-6.html#jvms-6.5.dadd)
-[_daload_](jvms-6.html#jvms-6.5.daload)
-[_dastore_](jvms-6.html#jvms-6.5.dastore)
-[_dcmp<op>_](jvms-6.html#jvms-6.5.dcmp_op)
-[_dconst\_<d>_](jvms-6.html#jvms-6.5.dconst_d)
-[_ddiv_](jvms-6.html#jvms-6.5.ddiv)
-[_dload_](jvms-6.html#jvms-6.5.dload)
-[_dload\_<n>_](jvms-6.html#jvms-6.5.dload_n)
-[_dmul_](jvms-6.html#jvms-6.5.dmul)
-[_dneg_](jvms-6.html#jvms-6.5.dneg)
-[_drem_](jvms-6.html#jvms-6.5.drem)
-[_dreturn_](jvms-6.html#jvms-6.5.dreturn)
-[_dstore_](jvms-6.html#jvms-6.5.dstore)
-[_dstore\_<n>_](jvms-6.html#jvms-6.5.dstore_n)
-[_dsub_](jvms-6.html#jvms-6.5.dsub)
-[_dup_](jvms-6.html#jvms-6.5.dup)
-[_dup\_x1_](jvms-6.html#jvms-6.5.dup_x1)
-[_dup\_x2_](jvms-6.html#jvms-6.5.dup_x2)
-[_dup2_](jvms-6.html#jvms-6.5.dup2)
-[_dup2\_x1_](jvms-6.html#jvms-6.5.dup2_x1)
-[_dup2\_x2_](jvms-6.html#jvms-6.5.dup2_x2)
-[_f2d_](jvms-6.html#jvms-6.5.f2d)
-[_f2i_](jvms-6.html#jvms-6.5.f2i)
-[_f2l_](jvms-6.html#jvms-6.5.f2l)
-[_fadd_](jvms-6.html#jvms-6.5.fadd)
-[_faload_](jvms-6.html#jvms-6.5.faload)
-[_fastore_](jvms-6.html#jvms-6.5.fastore)
-[_fcmp<op>_](jvms-6.html#jvms-6.5.fcmp_op)
-[_fconst\_<f>_](jvms-6.html#jvms-6.5.fconst_f)
-[_fdiv_](jvms-6.html#jvms-6.5.fdiv)
-[_fload_](jvms-6.html#jvms-6.5.fload)
-[_fload\_<n>_](jvms-6.html#jvms-6.5.fload_n)
-[_fmul_](jvms-6.html#jvms-6.5.fmul)
-[_fneg_](jvms-6.html#jvms-6.5.fneg)
-[_frem_](jvms-6.html#jvms-6.5.frem)
-[_freturn_](jvms-6.html#jvms-6.5.freturn)
-[_fstore_](jvms-6.html#jvms-6.5.fstore)
-[_fstore\_<n>_](jvms-6.html#jvms-6.5.fstore_n)
-[_fsub_](jvms-6.html#jvms-6.5.fsub)
-[_getfield_](jvms-6.html#jvms-6.5.getfield)
-[_getstatic_](jvms-6.html#jvms-6.5.getstatic)
-[_goto_](jvms-6.html#jvms-6.5.goto)
-[_goto\_w_](jvms-6.html#jvms-6.5.goto_w)
-[_i2b_](jvms-6.html#jvms-6.5.i2b)
-[_i2c_](jvms-6.html#jvms-6.5.i2c)
-[_i2d_](jvms-6.html#jvms-6.5.i2d)
-[_i2f_](jvms-6.html#jvms-6.5.i2f)
-[_i2l_](jvms-6.html#jvms-6.5.i2l)
-[_i2s_](jvms-6.html#jvms-6.5.i2s)
-[_iadd_](jvms-6.html#jvms-6.5.iadd)
-[_iaload_](jvms-6.html#jvms-6.5.iaload)
-[_iand_](jvms-6.html#jvms-6.5.iand)
-[_iastore_](jvms-6.html#jvms-6.5.iastore)
-[_iconst\_<i>_](jvms-6.html#jvms-6.5.iconst_i)
-[_idiv_](jvms-6.html#jvms-6.5.idiv)
-[_if\_acmp<cond>_](jvms-6.html#jvms-6.5.if_acmp_cond)
-[_if\_icmp<cond>_](jvms-6.html#jvms-6.5.if_icmp_cond)
-[_if<cond>_](jvms-6.html#jvms-6.5.if_cond)
-[_ifnonnull_](jvms-6.html#jvms-6.5.ifnonnull)
-[_ifnull_](jvms-6.html#jvms-6.5.ifnull)
-[_iinc_](jvms-6.html#jvms-6.5.iinc)
-[_iload_](jvms-6.html#jvms-6.5.iload)
-[_iload\_<n>_](jvms-6.html#jvms-6.5.iload_n)
-[_imul_](jvms-6.html#jvms-6.5.imul)
-[_ineg_](jvms-6.html#jvms-6.5.ineg)
-[_instanceof_](jvms-6.html#jvms-6.5.instanceof)
-[_invokedynamic_](jvms-6.html#jvms-6.5.invokedynamic)
-[_invokeinterface_](jvms-6.html#jvms-6.5.invokeinterface)
-[_invokespecial_](jvms-6.html#jvms-6.5.invokespecial)
-[_invokestatic_](jvms-6.html#jvms-6.5.invokestatic)
-[_invokevirtual_](jvms-6.html#jvms-6.5.invokevirtual)
-[_ior_](jvms-6.html#jvms-6.5.ior)
-[_irem_](jvms-6.html#jvms-6.5.irem)
-[_ireturn_](jvms-6.html#jvms-6.5.ireturn)
-[_ishl_](jvms-6.html#jvms-6.5.ishl)
-[_ishr_](jvms-6.html#jvms-6.5.ishr)
-[_istore_](jvms-6.html#jvms-6.5.istore)
-[_istore\_<n>_](jvms-6.html#jvms-6.5.istore_n)
-[_isub_](jvms-6.html#jvms-6.5.isub)
-[_iushr_](jvms-6.html#jvms-6.5.iushr)
-[_ixor_](jvms-6.html#jvms-6.5.ixor)
-[_jsr_](jvms-6.html#jvms-6.5.jsr)
-[_jsr\_w_](jvms-6.html#jvms-6.5.jsr_w)
-[_l2d_](jvms-6.html#jvms-6.5.l2d)
-[_l2f_](jvms-6.html#jvms-6.5.l2f)
-[_l2i_](jvms-6.html#jvms-6.5.l2i)
-[_ladd_](jvms-6.html#jvms-6.5.ladd)
-[_laload_](jvms-6.html#jvms-6.5.laload)
-[_land_](jvms-6.html#jvms-6.5.land)
-[_lastore_](jvms-6.html#jvms-6.5.lastore)
-[_lcmp_](jvms-6.html#jvms-6.5.lcmp)
-[_lconst\_<l>_](jvms-6.html#jvms-6.5.lconst_l)
-[_ldc_](jvms-6.html#jvms-6.5.ldc)
-[_ldc\_w_](jvms-6.html#jvms-6.5.ldc_w)
-[_ldc2\_w_](jvms-6.html#jvms-6.5.ldc2_w)
-[_ldiv_](jvms-6.html#jvms-6.5.ldiv)
-[_lload_](jvms-6.html#jvms-6.5.lload)
-[_lload\_<n>_](jvms-6.html#jvms-6.5.lload_n)
-[_lmul_](jvms-6.html#jvms-6.5.lmul)
-[_lneg_](jvms-6.html#jvms-6.5.lneg)
-[_lookupswitch_](jvms-6.html#jvms-6.5.lookupswitch)
-[_lor_](jvms-6.html#jvms-6.5.lor)
-[_lrem_](jvms-6.html#jvms-6.5.lrem)
-[_lreturn_](jvms-6.html#jvms-6.5.lreturn)
-[_lshl_](jvms-6.html#jvms-6.5.lshl)
-[_lshr_](jvms-6.html#jvms-6.5.lshr)
-[_lstore_](jvms-6.html#jvms-6.5.lstore)
-[_lstore\_<n>_](jvms-6.html#jvms-6.5.lstore_n)
-[_lsub_](jvms-6.html#jvms-6.5.lsub)
-[_lushr_](jvms-6.html#jvms-6.5.lushr)
-[_lxor_](jvms-6.html#jvms-6.5.lxor)
-[_monitorenter_](jvms-6.html#jvms-6.5.monitorenter)
-[_monitorexit_](jvms-6.html#jvms-6.5.monitorexit)
-[_multianewarray_](jvms-6.html#jvms-6.5.multianewarray)
-[_new_](jvms-6.html#jvms-6.5.new)
-[_newarray_](jvms-6.html#jvms-6.5.newarray)
-[_nop_](jvms-6.html#jvms-6.5.nop)
-[_pop_](jvms-6.html#jvms-6.5.pop)
-[_pop2_](jvms-6.html#jvms-6.5.pop2)
-[_putfield_](jvms-6.html#jvms-6.5.putfield)
-[_putstatic_](jvms-6.html#jvms-6.5.putstatic)
-[_ret_](jvms-6.html#jvms-6.5.ret)
-[_return_](jvms-6.html#jvms-6.5.return)
-[_saload_](jvms-6.html#jvms-6.5.saload)
-[_sastore_](jvms-6.html#jvms-6.5.sastore)
-[_sipush_](jvms-6.html#jvms-6.5.sipush)
-[_swap_](jvms-6.html#jvms-6.5.swap)
-[_tableswitch_](jvms-6.html#jvms-6.5.tableswitch)
-[_wide_](jvms-6.html#jvms-6.5.wide)
+[6.1. Assumptions: The Meaning of "Must"](#61-assumptions:-the-meaning-of-"must")
+[6.2. Reserved Opcodes](#62-reserved-opcodes)
+[6.3. Virtual Machine Errors](#63-virtual-machine-errors)
+[6.4. Format of Instruction Descriptions](#64-format-of-instruction-descriptions)
+    [mnemonic](#mnemonic)
+[6.5. Instructions](#65-instructions)
+    [[*aaload*]](#aaload)
+    [[*aastore*]](#aastore)
+    [[*aconst_null*]](#aconst_null)
+    [[*aload*]](#aload)
+    [[*aload_<n>*]](#aload_n)
+    [[*anewarray*]](#anewarray)
+    [[*areturn*]](#areturn)
+    [[*arraylength*]](#arraylength)
+    [[*astore*]](#astore)
+    [[*astore_<n>*]](#astore_n)
+    [[*athrow*]](#athrow)
+    [[*baload*]](#baload)
+    [[*bastore*]](#bastore)
+    [[*bipush*]](#bipush)
+    [[*caload*]](#caload)
+    [[*castore*]](#castore)
+    [[*checkcast*]](#checkcast)
+    [[*d2f*]](#d2f)
+    [[*d2i*]](#d2i)
+    [[*d2l*]](#d2l)
+    [[*dadd*]](#dadd)
+    [[*daload*]](#daload)
+    [[*dastore*]](#dastore)
+    [[*dcmp<op>*]](#dcmp_op)
+    [[*dconst_<d>*]](#dconst_d)
+    [[*ddiv*]](#ddiv)
+    [[*dload*]](#dload)
+    [[*dload_<n>*]](#dload_n)
+    [[*dmul*]](#dmul)
+    [[*dneg*]](#dneg)
+    [[*drem*]](#drem)
+    [[*dreturn*]](#dreturn)
+    [[*dstore*]](#dstore)
+    [[*dstore_<n>*]](#dstore_n)
+    [[*dsub*]](#dsub)
+    [[*dup*]](#dup)
+    [[*dup_x1*]](#dup_x1)
+    [[*dup_x2*]](#dup_x2)
+    [[*dup2*]](#dup2)
+    [[*dup2_x1*]](#dup2_x1)
+    [[*dup2_x2*]](#dup2_x2)
+    [[*f2d*]](#f2d)
+    [[*f2i*]](#f2i)
+    [[*f2l*]](#f2l)
+    [[*fadd*]](#fadd)
+    [[*faload*]](#faload)
+    [[*fastore*]](#fastore)
+    [[*fcmp<op>*]](#fcmp_op)
+    [[*fconst_<f>*]](#fconst_f)
+    [[*fdiv*]](#fdiv)
+    [[*fload*]](#fload)
+    [[*fload_<n>*]](#fload_n)
+    [[*fmul*]](#fmul)
+    [[*fneg*]](#fneg)
+    [[*frem*]](#frem)
+    [[*freturn*]](#freturn)
+    [[*fstore*]](#fstore)
+    [[*fstore_<n>*]](#fstore_n)
+    [[*fsub*]](#fsub)
+    [[*getfield*]](#getfield)
+    [[*getstatic*]](#getstatic)
+    [[*goto*]](#goto)
+    [[*goto_w*]](#goto_w)
+    [[*i2b*]](#i2b)
+    [[*i2c*]](#i2c)
+    [[*i2d*]](#i2d)
+    [[*i2f*]](#i2f)
+    [[*i2l*]](#i2l)
+    [[*i2s*]](#i2s)
+    [[*iadd*]](#iadd)
+    [[*iaload*]](#iaload)
+    [[*iand*]](#iand)
+    [[*iastore*]](#iastore)
+    [[*iconst_<i>*]](#iconst_i)
+    [[*idiv*]](#idiv)
+    [[*if_acmp<cond>*]](#if_acmp_cond)
+    [[*if_icmp<cond>*]](#if_icmp_cond)
+    [[*if<cond>*]](#if_cond)
+    [[*ifnonnull*]](#ifnonnull)
+    [[*ifnull*]](#ifnull)
+    [[*iinc*]](#iinc)
+    [[*iload*]](#iload)
+    [[*iload_<n>*]](#iload_n)
+    [[*imul*]](#imul)
+    [[*ineg*]](#ineg)
+    [[*instanceof*]](#instanceof)
+    [[*invokedynamic*]](#invokedynamic)
+    [[*invokeinterface*]](#invokeinterface)
+    [[*invokespecial*]](#invokespecial)
+    [[*invokestatic*]](#invokestatic)
+    [[*invokevirtual*]](#invokevirtual)
+    [[*ior*]](#ior)
+    [[*irem*]](#irem)
+    [[*ireturn*]](#ireturn)
+    [[*ishl*]](#ishl)
+    [[*ishr*]](#ishr)
+    [[*istore*]](#istore)
+    [[*istore_<n>*]](#istore_n)
+    [[*isub*]](#isub)
+    [[*iushr*]](#iushr)
+    [[*ixor*]](#ixor)
+    [[*jsr*]](#jsr)
+    [[*jsr_w*]](#jsr_w)
+    [[*l2d*]](#l2d)
+    [[*l2f*]](#l2f)
+    [[*l2i*]](#l2i)
+    [[*ladd*]](#ladd)
+    [[*laload*]](#laload)
+    [[*land*]](#land)
+    [[*lastore*]](#lastore)
+    [[*lcmp*]](#lcmp)
+    [[*lconst_<l>*]](#lconst_l)
+    [[*ldc*]](#ldc)
+    [[*ldc_w*]](#ldc_w)
+    [[*ldc2_w*]](#ldc2_w)
+    [[*ldiv*]](#ldiv)
+    [[*lload*]](#lload)
+    [[*lload_<n>*]](#lload_n)
+    [[*lmul*]](#lmul)
+    [[*lneg*]](#lneg)
+    [[*lookupswitch*]](#lookupswitch)
+    [[*lor*]](#lor)
+    [[*lrem*]](#lrem)
+    [[*lreturn*]](#lreturn)
+    [[*lshl*]](#lshl)
+    [[*lshr*]](#lshr)
+    [[*lstore*]](#lstore)
+    [[*lstore_<n>*]](#lstore_n)
+    [[*lsub*]](#lsub)
+    [[*lushr*]](#lushr)
+    [[*lxor*]](#lxor)
+    [[*monitorenter*]](#monitorenter)
+    [[*monitorexit*]](#monitorexit)
+    [[*multianewarray*]](#multianewarray)
+    [[*new*]](#new)
+    [[*newarray*]](#newarray)
+    [[*nop*]](#nop)
+    [[*pop*]](#pop)
+    [[*pop2*]](#pop2)
+    [[*putfield*]](#putfield)
+    [[*putstatic*]](#putstatic)
+    [[*ret*]](#ret)
+    [[*return*]](#return)
+    [[*saload*]](#saload)
+    [[*sastore*]](#sastore)
+    [[*sipush*]](#sipush)
+    [[*swap*]](#swap)
+    [[*tableswitch*]](#tableswitch)
+    [[*wide*]](#wide)
 
 A Java Virtual Machine instruction consists of an opcode specifying the operation to be performed, followed by zero or more operands embodying values to be operated upon. This chapter gives details about the format of each Java Virtual Machine instruction and the operation it performs.
 
@@ -11573,11 +10238,11 @@ Each cell in the instruction format diagram represents a single 8-bit byte. The 
 
 Keep in mind that there are "operands" generated at compile time and embedded within Java Virtual Machine instructions, as well as "operands" calculated at run time and supplied on the operand stack. Although they are supplied from several different areas, all these operands represent the same thing: values to be operated upon by the Java Virtual Machine instruction being executed. By implicitly taking many of its operands from its operand stack, rather than representing them explicitly in its compiled code as additional operand bytes, register numbers, etc., the Java Virtual Machine's code stays compact.
 
-Some instructions are presented as members of a family of related instructions sharing a single description, format, and operand stack diagram. As such, a family of instructions includes several opcodes and opcode mnemonics; only the family mnemonic appears in the instruction format diagram, and a separate forms line lists all member mnemonics and opcodes. For example, the Forms line for the _lconst\_<l>_ family of instructions, giving mnemonic and opcode information for the two instructions in that family (_lconst\_0_ and _lconst\_1_), is
+Some instructions are presented as members of a family of related instructions sharing a single description, format, and operand stack diagram. As such, a family of instructions includes several opcodes and opcode mnemonics; only the family mnemonic appears in the instruction format diagram, and a separate forms line lists all member mnemonics and opcodes. For example, the Forms line for the _lconst_<l>_ family of instructions, giving mnemonic and opcode information for the two instructions in that family (_lconst_0_ and _lconst_1_), is
 
-_lconst\_0_ = 9 (0x9)
+_lconst_0_ = 9 (0x9)
 
-_lconst\_1_ = 10 (0xa)
+_lconst_1_ = 10 (0xa)
 
 In the description of the Java Virtual Machine instructions, the effect of an instruction's execution on the operand stack ([§2.6.2](jvms-2.html#jvms-2.6.2 "2.6.2. Operand Stacks")) of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")) is represented textually, with the stack growing from left to right and each value represented separately. Thus,
 
@@ -11698,11 +10363,11 @@ Push `null`
 #### Format
 
   
-_aconst\_null_  
+_aconst_null_  
 
 #### Forms
 
-_aconst\_null_ = 1 (0x1)
+_aconst_null_ = 1 (0x1)
 
 #### Operand Stack
 
@@ -11759,17 +10424,17 @@ Load `reference` from local variable
 #### Format
 
   
-_aload\_<n>_  
+_aload_<n>_  
 
 #### Forms
 
-_aload\_0_ = 42 (0x2a)
+_aload_0_ = 42 (0x2a)
 
-_aload\_1_ = 43 (0x2b)
+_aload_1_ = 43 (0x2b)
 
-_aload\_2_ = 44 (0x2c)
+_aload_2_ = 44 (0x2c)
 
-_aload\_3_ = 45 (0x2d)
+_aload_3_ = 45 (0x2d)
 
 #### Operand Stack
 
@@ -11779,13 +10444,13 @@ _aload\_3_ = 45 (0x2d)
 
 #### Description
 
-The <_n_\> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_\> must contain a `reference`. The _objectref_ in the local variable at <_n_\> is pushed onto the operand stack.
+The <_n_> must be an index into the local variable array of the current frame ([§2.6](#26-frames)). The local variable at <_n_> must contain a `reference`. The _objectref_ in the local variable at <_n_> is pushed onto the operand stack.
 
 #### Notes
 
-An _aload\_<n>_ instruction cannot be used to load a value of type `returnAddress` from a local variable onto the operand stack. This asymmetry with the corresponding _astore\_<n>_ instruction ([§_astore\_<n>_](jvms-6.html#jvms-6.5.astore_n "astore_<n>")) is intentional.
+An _aload_<n>_ instruction cannot be used to load a value of type `returnAddress` from a local variable onto the operand stack. This asymmetry with the corresponding _astore_<n>_ instruction ([§astore_<n>](#astore_n)) is intentional.
 
-Each of the _aload\_<n>_ instructions is the same as _aload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _aload_<n>_ instructions is the same as _aload_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `anewarray`
 
@@ -11845,7 +10510,7 @@ _areturn_ = 176 (0xb0)
 
 ..., _objectref_ →
 
-\[empty\]
+[empty]
 
 #### Description
 
@@ -11931,17 +10596,17 @@ Store `reference` into local variable
 #### Format
 
   
-_astore\_<n>_  
+_astore_<n>_  
 
 #### Forms
 
-_astore\_0_ = 75 (0x4b)
+_astore_0_ = 75 (0x4b)
 
-_astore\_1_ = 76 (0x4c)
+_astore_1_ = 76 (0x4c)
 
-_astore\_2_ = 77 (0x4d)
+_astore_2_ = 77 (0x4d)
 
-_astore\_3_ = 78 (0x4e)
+_astore_3_ = 78 (0x4e)
 
 #### Operand Stack
 
@@ -11951,15 +10616,15 @@ _astore\_3_ = 78 (0x4e)
 
 #### Description
 
-The <_n_\> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _objectref_ on the top of the operand stack must be of type `returnAddress` or of type `reference`. It is popped from the operand stack, and the value of the local variable at <_n_\> is set to _objectref_.
+The <_n_> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _objectref_ on the top of the operand stack must be of type `returnAddress` or of type `reference`. It is popped from the operand stack, and the value of the local variable at <_n_> is set to _objectref_.
 
 #### Notes
 
-An _astore\_<n>_ instruction is used with an _objectref_ of type `returnAddress` when implementing the `finally` clauses of the Java programming language ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally")).
+An _astore_<n>_ instruction is used with an _objectref_ of type `returnAddress` when implementing the `finally` clauses of the Java programming language ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally")).
 
-An _aload\_<n>_ instruction ([§_aload\_<n>_](jvms-6.html#jvms-6.5.aload_n "aload_<n>")) cannot be used to load a value of type `returnAddress` from a local variable onto the operand stack. This asymmetry with the corresponding _astore\_<n>_ instruction is intentional.
+An _aload_<n>_ instruction ([§aload_n](#aload_n)) cannot be used to load a value of type `returnAddress` from a local variable onto the operand stack. This asymmetry with the corresponding _astore_<n>_ instruction is intentional.
 
-Each of the _astore\_<n>_ instructions is the same as _astore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _astore_<n>_ instructions is the same as _astore_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `athrow`
 
@@ -12502,23 +11167,23 @@ Push `double`
 #### Format
 
   
-_dconst\_<d>_  
+_dconst_<d>_  
 
 #### Forms
 
-_dconst\_0_ = 14 (0xe)
+_dconst_0_ = 14 (0xe)
 
-_dconst\_1_ = 15 (0xf)
+_dconst_1_ = 15 (0xf)
 
 #### Operand Stack
 
 ... →
 
-..., <_d_\>
+..., <_d_>
 
 #### Description
 
-Push the `double` constant <_d_\> (0.0 or 1.0) onto the operand stack.
+Push the `double` constant <_d_> (0.0 or 1.0) onto the operand stack.
 
 ### `ddiv`
 
@@ -12605,17 +11270,17 @@ Load `double` from local variable
 #### Format
 
   
-_dload\_<n>_  
+_dload_<n>_  
 
 #### Forms
 
-_dload\_0_ = 38 (0x26)
+_dload_0_ = 38 (0x26)
 
-_dload\_1_ = 39 (0x27)
+_dload_1_ = 39 (0x27)
 
-_dload\_2_ = 40 (0x28)
+_dload_2_ = 40 (0x28)
 
-_dload\_3_ = 41 (0x29)
+_dload_3_ = 41 (0x29)
 
 #### Operand Stack
 
@@ -12625,11 +11290,11 @@ _dload\_3_ = 41 (0x29)
 
 #### Description
 
-Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_\> must contain a `double`. The _value_ of the local variable at <_n_\> is pushed onto the operand stack.
+Both <_n_> and <_n_>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_> must contain a `double`. The _value_ of the local variable at <_n_> is pushed onto the operand stack.
 
 #### Notes
 
-Each of the _dload\_<n>_ instructions is the same as _dload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _dload_<n>_ instructions is the same as _dload_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `dmul`
 
@@ -12654,7 +11319,7 @@ _dmul_ = 107 (0x6b)
 
 #### Description
 
-Both _value1_ and _value2_ must be of type `double`. The values are popped from the operand stack and undergo value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value1_' and _value2_'. The `double` result is _value1_' \* _value2_'. The _result_ is pushed onto the operand stack.
+Both _value1_ and _value2_ must be of type `double`. The values are popped from the operand stack and undergo value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value1_' and _value2_'. The `double` result is _value1_' * _value2_'. The _result_ is pushed onto the operand stack.
 
 The result of a _dmul_ instruction is governed by the rules of IEEE arithmetic:
 
@@ -12746,7 +11411,7 @@ The result of a _drem_ instruction is governed by these rules:
     
 *   If the dividend is a zero and the divisor is finite, the result equals the dividend.
     
-*   In the remaining cases, where neither operand is an infinity, a zero, or NaN, the floating-point remainder _result_ from a dividend _value1_' and a divisor _value2_' is defined by the mathematical relation _result_ = _value1_' - (_value2_' \* _q_), where _q_ is an integer that is negative only if _value1_' / _value2_' is negative, and positive only if_value1_' / _value2_' is positive, and whose magnitude is as large as possible without exceeding the magnitude of the true mathematical quotient of _value1_' and _value2_'.
+*   In the remaining cases, where neither operand is an infinity, a zero, or NaN, the floating-point remainder _result_ from a dividend _value1_' and a divisor _value2_' is defined by the mathematical relation _result_ = _value1_' - (_value2_' * _q_), where _q_ is an integer that is negative only if _value1_' / _value2_' is negative, and positive only if_value1_' / _value2_' is positive, and whose magnitude is as large as possible without exceeding the magnitude of the true mathematical quotient of _value1_' and _value2_'.
 
 Despite the fact that division by zero may occur, evaluation of a _drem_ instruction never throws a run-time exception. Overflow, underflow, or loss of precision cannot occur.
 
@@ -12773,7 +11438,7 @@ _dreturn_ = 175 (0xaf)
 
 ..., _value_ →
 
-\[empty\]
+[empty]
 
 #### Description
 
@@ -12826,17 +11491,17 @@ Store `double` into local variable
 #### Format
 
   
-_dstore\_<n>_  
+_dstore_<n>_  
 
 #### Forms
 
-_dstore\_0_ = 71 (0x47)
+_dstore_0_ = 71 (0x47)
 
-_dstore\_1_ = 72 (0x48)
+_dstore_1_ = 72 (0x48)
 
-_dstore\_2_ = 73 (0x49)
+_dstore_2_ = 73 (0x49)
 
-_dstore\_3_ = 74 (0x4a)
+_dstore_3_ = 74 (0x4a)
 
 #### Operand Stack
 
@@ -12846,11 +11511,11 @@ _dstore\_3_ = 74 (0x4a)
 
 #### Description
 
-Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `double`. It is popped from the operand stack and undergoes value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value_'. The local variables at <_n_\> and <_n_\>+1 are set to _value_'.
+Both <_n_> and <_n_>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `double`. It is popped from the operand stack and undergoes value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value_'. The local variables at <_n_> and <_n_>+1 are set to _value_'.
 
 #### Notes
 
-Each of the _dstore\_<n>_ instructions is the same as _dstore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _dstore_<n>_ instructions is the same as _dstore_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `dsub`
 
@@ -12917,11 +11582,11 @@ Duplicate the top operand stack value and insert two values down
 #### Format
 
   
-_dup\_x1_  
+_dup_x1_  
 
 #### Forms
 
-_dup\_x1_ = 90 (0x5a)
+_dup_x1_ = 90 (0x5a)
 
 #### Operand Stack
 
@@ -12933,7 +11598,7 @@ _dup\_x1_ = 90 (0x5a)
 
 Duplicate the top value on the operand stack and insert the duplicated value two values down in the operand stack.
 
-The _dup\_x1_ instruction must not be used unless both _value1_ and _value2_ are values of a category 1 computational type ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
+The _dup_x1_ instruction must not be used unless both _value1_ and _value2_ are values of a category 1 computational type ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
 
 ### `dup_x2`
 
@@ -12944,11 +11609,11 @@ Duplicate the top operand stack value and insert two or three values down
 #### Format
 
   
-_dup\_x2_  
+_dup_x2_  
 
 #### Forms
 
-_dup\_x2_ = 91 (0x5b)
+_dup_x2_ = 91 (0x5b)
 
 #### Operand Stack
 
@@ -13018,11 +11683,11 @@ Duplicate the top one or two operand stack values and insert two or three values
 #### Format
 
   
-_dup2\_x1_  
+_dup2_x1_  
 
 #### Forms
 
-_dup2\_x1_ = 93 (0x5d)
+_dup2_x1_ = 93 (0x5d)
 
 #### Operand Stack
 
@@ -13055,11 +11720,11 @@ Duplicate the top one or two operand stack values and insert two, three, or four
 #### Format
 
   
-_dup2\_x2_  
+_dup2_x2_  
 
 #### Forms
 
-_dup2\_x2_ = 94 (0x5e)
+_dup2_x2_ = 94 (0x5e)
 
 #### Operand Stack
 
@@ -13362,25 +12027,25 @@ Push `float`
 #### Format
 
   
-_fconst\_<f>_  
+_fconst_<f>_  
 
 #### Forms
 
-_fconst\_0_ = 11 (0xb)
+_fconst_0_ = 11 (0xb)
 
-_fconst\_1_ = 12 (0xc)
+_fconst_1_ = 12 (0xc)
 
-_fconst\_2_ = 13 (0xd)
+_fconst_2_ = 13 (0xd)
 
 #### Operand Stack
 
 ... →
 
-..., <_f_\>
+..., <_f_>
 
 #### Description
 
-Push the `float` constant <_f_\> (0.0, 1.0, or 2.0) onto the operand stack.
+Push the `float` constant <_f_> (0.0, 1.0, or 2.0) onto the operand stack.
 
 ### `fdiv`
 
@@ -13467,17 +12132,17 @@ Load `float` from local variable
 #### Format
 
   
-_fload\_<n>_  
+_fload_<n>_  
 
 #### Forms
 
-_fload\_0_ = 34 (0x22)
+_fload_0_ = 34 (0x22)
 
-_fload\_1_ = 35 (0x23)
+_fload_1_ = 35 (0x23)
 
-_fload\_2_ = 36 (0x24)
+_fload_2_ = 36 (0x24)
 
-_fload\_3_ = 37 (0x25)
+_fload_3_ = 37 (0x25)
 
 #### Operand Stack
 
@@ -13487,11 +12152,11 @@ _fload\_3_ = 37 (0x25)
 
 #### Description
 
-The <_n_\> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_\> must contain a `float`. The _value_ of the local variable at <_n_\> is pushed onto the operand stack.
+The <_n_> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_> must contain a `float`. The _value_ of the local variable at <_n_> is pushed onto the operand stack.
 
 #### Notes
 
-Each of the _fload\_<n>_ instructions is the same as _fload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _fload_<n>_ instructions is the same as _fload_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `fmul`
 
@@ -13516,7 +12181,7 @@ _fmul_ = 106 (0x6a)
 
 #### Description
 
-Both _value1_ and _value2_ must be of type `float`. The values are popped from the operand stack and undergo value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value1_' and _value2_'. The `float` _result_ is _value1_' \* _value2_'. The _result_ is pushed onto the operand stack.
+Both _value1_ and _value2_ must be of type `float`. The values are popped from the operand stack and undergo value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value1_' and _value2_'. The `float` _result_ is _value1_' * _value2_'. The _result_ is pushed onto the operand stack.
 
 The result of an _fmul_ instruction is governed by the rules of IEEE arithmetic:
 
@@ -13606,7 +12271,7 @@ The result of an _frem_ instruction is governed by these rules:
     
 *   If the dividend is a zero and the divisor is finite, the result equals the dividend.
     
-*   In the remaining cases, where neither operand is an infinity, a zero, or NaN, the floating-point remainder _result_ from a dividend _value1_' and a divisor _value2_' is defined by the mathematical relation _result_ = _value1_' - (_value2_' \* _q_), where _q_ is an integer that is negative only if _value1_' / _value2_' is negative and positive only if _value1_' / _value2_' is positive, and whose magnitude is as large as possible without exceeding the magnitude of the true mathematical quotient of _value1_' and _value2_'.
+*   In the remaining cases, where neither operand is an infinity, a zero, or NaN, the floating-point remainder _result_ from a dividend _value1_' and a divisor _value2_' is defined by the mathematical relation _result_ = _value1_' - (_value2_' * _q_), where _q_ is an integer that is negative only if _value1_' / _value2_' is negative and positive only if _value1_' / _value2_' is positive, and whose magnitude is as large as possible without exceeding the magnitude of the true mathematical quotient of _value1_' and _value2_'.
     
 
 Despite the fact that division by zero may occur, evaluation of an _frem_ instruction never throws a run-time exception. Overflow, underflow, or loss of precision cannot occur.
@@ -13634,7 +12299,7 @@ _freturn_ = 174 (0xae)
 
 ..., _value_ →
 
-\[empty\]
+[empty]
 
 #### Description
 
@@ -13687,17 +12352,17 @@ Store `float` into local variable
 #### Format
 
   
-_fstore\_<n>_  
+_fstore_<n>_  
 
 #### Forms
 
-_fstore\_0_ = 67 (0x43)
+_fstore_0_ = 67 (0x43)
 
-_fstore\_1_ = 68 (0x44)
+_fstore_1_ = 68 (0x44)
 
-_fstore\_2_ = 69 (0x45)
+_fstore_2_ = 69 (0x45)
 
-_fstore\_3_ = 70 (0x46)
+_fstore_3_ = 70 (0x46)
 
 #### Operand Stack
 
@@ -13707,11 +12372,11 @@ _fstore\_3_ = 70 (0x46)
 
 #### Description
 
-The <_n_\> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `float`. It is popped from the operand stack and undergoes value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value_'. The value of the local variable at <_n_\> is set to _value_'.
+The <_n_> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `float`. It is popped from the operand stack and undergoes value set conversion ([§2.8.3](jvms-2.html#jvms-2.8.3 "2.8.3. Value Set Conversion")), resulting in _value_'. The value of the local variable at <_n_> is set to _value_'.
 
 #### Notes
 
-Each of the _fstore\_<n>_ instructions is the same as _fstore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _fstore_<n>_ instructions is the same as _fstore_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `fsub`
 
@@ -13860,7 +12525,7 @@ Branch always (wide index)
 #### Format
 
   
-_goto\_w_  
+_goto_w_  
 _branchbyte1_  
 _branchbyte2_  
 _branchbyte3_  
@@ -13868,7 +12533,7 @@ _branchbyte4_
 
 #### Forms
 
-_goto\_w_ = 200 (0xc8)
+_goto_w_ = 200 (0xc8)
 
 #### Operand Stack
 
@@ -13876,11 +12541,11 @@ No change
 
 #### Description
 
-The unsigned bytes _branchbyte1_, _branchbyte2_, _branchbyte3_, and _branchbyte4_ are used to construct a signed 32-bit _branchoffset_, where _branchoffset_ is (_branchbyte1_ `<<` 24) | (_branchbyte2_ `<<` 16) | (_branchbyte3_ `<<` 8) | _branchbyte4_. Execution proceeds at that offset from the address of the opcode of this _goto\_w_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _goto\_w_ instruction.
+The unsigned bytes _branchbyte1_, _branchbyte2_, _branchbyte3_, and _branchbyte4_ are used to construct a signed 32-bit _branchoffset_, where _branchoffset_ is (_branchbyte1_ `<<` 24) | (_branchbyte2_ `<<` 16) | (_branchbyte3_ `<<` 8) | _branchbyte4_. Execution proceeds at that offset from the address of the opcode of this _goto_w_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _goto_w_ instruction.
 
 #### Notes
 
-Although the _goto\_w_ instruction takes a 4-byte branch offset, other factors limit the size of a method to 65535 bytes ([§4.11](jvms-4.html#jvms-4.11 "4.11. Limitations of the Java Virtual Machine")). This limit may be raised in a future release of the Java Virtual Machine.
+Although the _goto_w_ instruction takes a 4-byte branch offset, other factors limit the size of a method to 65535 bytes ([§4.11](jvms-4.html#jvms-4.11 "4.11. Limitations of the Java Virtual Machine")). This limit may be raised in a future release of the Java Virtual Machine.
 
 ### `i2b`
 
@@ -14180,37 +12845,37 @@ Push `int` constant
 #### Format
 
   
-_iconst\_<i>_  
+_iconst_<i>_  
 
 #### Forms
 
-_iconst\_m1_ = 2 (0x2)
+_iconst_m1_ = 2 (0x2)
 
-_iconst\_0_ = 3 (0x3)
+_iconst_0_ = 3 (0x3)
 
-_iconst\_1_ = 4 (0x4)
+_iconst_1_ = 4 (0x4)
 
-_iconst\_2_ = 5 (0x5)
+_iconst_2_ = 5 (0x5)
 
-_iconst\_3_ = 6 (0x6)
+_iconst_3_ = 6 (0x6)
 
-_iconst\_4_ = 7 (0x7)
+_iconst_4_ = 7 (0x7)
 
-_iconst\_5_ = 8 (0x8)
+_iconst_5_ = 8 (0x8)
 
 #### Operand Stack
 
 ... →
 
-..., <_i_\>
+..., <_i_>
 
 #### Description
 
-Push the `int` constant <_i_\> (-1, 0, 1, 2, 3, 4 or 5) onto the operand stack.
+Push the `int` constant <_i_> (-1, 0, 1, 2, 3, 4 or 5) onto the operand stack.
 
 #### Notes
 
-Each of this family of instructions is equivalent to _bipush_ <_i_\> for the respective value of <_i_\>, except that the operand <_i_\> is implicit.
+Each of this family of instructions is equivalent to _bipush_ <_i_> for the respective value of <_i_>, except that the operand <_i_> is implicit.
 
 ### `idiv`
 
@@ -14254,15 +12919,15 @@ Branch if `reference` comparison succeeds
 #### Format
 
   
-_if\_acmp<cond>_  
+_if_acmp<cond>_  
 _branchbyte1_  
 _branchbyte2_  
 
 #### Forms
 
-_if\_acmpeq_ = 165 (0xa5)
+_if_acmpeq_ = 165 (0xa5)
 
-_if\_acmpne_ = 166 (0xa6)
+_if_acmpne_ = 166 (0xa6)
 
 #### Operand Stack
 
@@ -14274,14 +12939,14 @@ _if\_acmpne_ = 166 (0xa6)
 
 Both _value1_ and _value2_ must be of type `reference`. They are both popped from the operand stack and compared. The results of the comparison are as follows:
 
-*   _if\_acmpeq_ succeeds if and only if _value1_ = _value2_
+*   _if_acmpeq_ succeeds if and only if _value1_ = _value2_
     
-*   _if\_acmpne_ succeeds if and only if _value1_ ≠ _value2_
+*   _if_acmpne_ succeeds if and only if _value1_ ≠ _value2_
     
 
-If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are used to construct a signed 16-bit offset, where the offset is calculated to be (_branchbyte1_ `<<` 8) | _branchbyte2_. Execution then proceeds at that offset from the address of the opcode of this _if\_acmp<cond>_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _if\_acmp<cond>_ instruction.
+If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are used to construct a signed 16-bit offset, where the offset is calculated to be (_branchbyte1_ `<<` 8) | _branchbyte2_. Execution then proceeds at that offset from the address of the opcode of this _if_acmp<cond>_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _if_acmp<cond>_ instruction.
 
-Otherwise, if the comparison fails, execution proceeds at the address of the instruction following this _if\_acmp<cond>_ instruction.
+Otherwise, if the comparison fails, execution proceeds at the address of the instruction following this _if_acmp<cond>_ instruction.
 
 ### `if_icmp<cond>`
 
@@ -14292,23 +12957,23 @@ Branch if `int` comparison succeeds
 #### Format
 
   
-_if\_icmp<cond>_  
+_if_icmp<cond>_  
 _branchbyte1_  
 _branchbyte2_  
 
 #### Forms
 
-_if\_icmpeq_ = 159 (0x9f)
+_if_icmpeq_ = 159 (0x9f)
 
-_if\_icmpne_ = 160 (0xa0)
+_if_icmpne_ = 160 (0xa0)
 
-_if\_icmplt_ = 161 (0xa1)
+_if_icmplt_ = 161 (0xa1)
 
-_if\_icmpge_ = 162 (0xa2)
+_if_icmpge_ = 162 (0xa2)
 
-_if\_icmpgt_ = 163 (0xa3)
+_if_icmpgt_ = 163 (0xa3)
 
-_if\_icmple_ = 164 (0xa4)
+_if_icmple_ = 164 (0xa4)
 
 #### Operand Stack
 
@@ -14320,22 +12985,22 @@ _if\_icmple_ = 164 (0xa4)
 
 Both _value1_ and _value2_ must be of type `int`. They are both popped from the operand stack and compared. All comparisons are signed. The results of the comparison are as follows:
 
-*   _if\_icmpeq_ succeeds if and only if _value1_ = _value2_
+*   _if_icmpeq_ succeeds if and only if _value1_ = _value2_
     
-*   _if\_icmpne_ succeeds if and only if _value1_ ≠ _value2_
+*   _if_icmpne_ succeeds if and only if _value1_ ≠ _value2_
     
-*   _if\_icmplt_ succeeds if and only if _value1_ < _value2_
+*   _if_icmplt_ succeeds if and only if _value1_ < _value2_
     
-*   _if\_icmple_ succeeds if and only if _value1_ ≤ _value2_
+*   _if_icmple_ succeeds if and only if _value1_ ≤ _value2_
     
-*   _if\_icmpgt_ succeeds if and only if _value1_ > _value2_
+*   _if_icmpgt_ succeeds if and only if _value1_ > _value2_
     
-*   _if\_icmpge_ succeeds if and only if _value1_ ≥ _value2_
+*   _if_icmpge_ succeeds if and only if _value1_ ≥ _value2_
     
 
-If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are used to construct a signed 16-bit offset, where the offset is calculated to be (_branchbyte1_ `<<` 8) | _branchbyte2_. Execution then proceeds at that offset from the address of the opcode of this _if\_icmp<cond>_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _if\_icmp<cond>_ instruction.
+If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are used to construct a signed 16-bit offset, where the offset is calculated to be (_branchbyte1_ `<<` 8) | _branchbyte2_. Execution then proceeds at that offset from the address of the opcode of this _if_icmp<cond>_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _if_icmp<cond>_ instruction.
 
-Otherwise, execution proceeds at the address of the instruction following this _if\_icmp<cond>_ instruction.
+Otherwise, execution proceeds at the address of the instruction following this _if_icmp<cond>_ instruction.
 
 ### `if<cond>`
 
@@ -14515,17 +13180,17 @@ Load `int` from local variable
 #### Format
 
   
-_iload\_<n>_  
+_iload_<n>_  
 
 #### Forms
 
-_iload\_0_ = 26 (0x1a)
+_iload_0_ = 26 (0x1a)
 
-_iload\_1_ = 27 (0x1b)
+_iload_1_ = 27 (0x1b)
 
-_iload\_2_ = 28 (0x1c)
+_iload_2_ = 28 (0x1c)
 
-_iload\_3_ = 29 (0x1d)
+_iload_3_ = 29 (0x1d)
 
 #### Operand Stack
 
@@ -14535,11 +13200,11 @@ _iload\_3_ = 29 (0x1d)
 
 #### Description
 
-The <_n_\> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_\> must contain an `int`. The _value_ of the local variable at <_n_\> is pushed onto the operand stack.
+The <_n_> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_> must contain an `int`. The _value_ of the local variable at <_n_> is pushed onto the operand stack.
 
 #### Notes
 
-Each of the _iload\_<n>_ instructions is the same as _iload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _iload_<n>_ instructions is the same as _iload_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `imul`
 
@@ -14564,7 +13229,7 @@ _imul_ = 104 (0x68)
 
 #### Description
 
-Both _value1_ and _value2_ must be of type `int`. The values are popped from the operand stack. The `int` _result_ is _value1_ \* _value2_. The _result_ is pushed onto the operand stack.
+Both _value1_ and _value2_ must be of type `int`. The values are popped from the operand stack. The `int` _result_ is _value1_ * _value2_. The _result_ is pushed onto the operand stack.
 
 The result is the 32 low-order bits of the true mathematical result in a sufficiently wide two's-complement format, represented as a value of type `int`. If overflow occurs, then the sign of the result may not be the same as the sign of the mathematical multiplication of the two values.
 
@@ -14690,7 +13355,7 @@ _invokedynamic_ = 186 (0xba)
 
 #### Operand Stack
 
-..., \[_arg1_, \[_arg2_ ...\]\] →
+..., [_arg1_, [_arg2_ ...]] →
 
 ...
 
@@ -14788,7 +13453,7 @@ _invokeinterface_ = 185 (0xb9)
 
 #### Operand Stack
 
-..., _objectref_, \[_arg1_, \[_arg2_ ...\]\] →
+..., _objectref_, [_arg1_, [_arg2_ ...]] →
 
 ...
 
@@ -14871,7 +13536,7 @@ _invokespecial_ = 183 (0xb7)
 
 #### Operand Stack
 
-..., _objectref_, \[_arg1_, \[_arg2_ ...\]\] →
+..., _objectref_, [_arg1_, [_arg2_ ...]] →
 
 ...
 
@@ -14967,7 +13632,7 @@ _invokestatic_ = 184 (0xb8)
 
 #### Operand Stack
 
-..., \[_arg1_, \[_arg2_ ...\]\] →
+..., [_arg1_, [_arg2_ ...]] →
 
 ...
 
@@ -15029,7 +13694,7 @@ _invokevirtual_ = 182 (0xb6)
 
 #### Operand Stack
 
-..., _objectref_, \[_arg1_, \[_arg2_ ...\]\] →
+..., _objectref_, [_arg1_, [_arg2_ ...]] →
 
 ...
 
@@ -15170,7 +13835,7 @@ _irem_ = 112 (0x70)
 
 #### Description
 
-Both _value1_ and _value2_ must be of type `int`. The values are popped from the operand stack. The `int` _result_ is _value1_ - (_value1_ / _value2_) \* _value2_. The _result_ is pushed onto the operand stack.
+Both _value1_ and _value2_ must be of type `int`. The values are popped from the operand stack. The `int` _result_ is _value1_ - (_value1_ / _value2_) * _value2_. The _result_ is pushed onto the operand stack.
 
 The result of the _irem_ instruction is such that `(a/b)*b + (a%b)` is equal to `a`. This identity holds even in the special case in which the dividend is the negative `int` of largest possible magnitude for its type and the divisor is -1 (the remainder is 0). It follows from this rule that the result of the remainder operation can be negative only if the dividend is negative and can be positive only if the dividend is positive. Moreover, the magnitude of the result is always less than the magnitude of the divisor.
 
@@ -15197,7 +13862,7 @@ _ireturn_ = 172 (0xac)
 
 ..., _value_ →
 
-\[empty\]
+[empty]
 
 #### Description
 
@@ -15308,17 +13973,17 @@ Store `int` into local variable
 #### Format
 
   
-_istore\_<n>_  
+_istore_<n>_  
 
 #### Forms
 
-_istore\_0_ = 59 (0x3b)
+_istore_0_ = 59 (0x3b)
 
-_istore\_1_ = 60 (0x3c)
+_istore_1_ = 60 (0x3c)
 
-_istore\_2_ = 61 (0x3d)
+_istore_2_ = 61 (0x3d)
 
-_istore\_3_ = 62 (0x3e)
+_istore_3_ = 62 (0x3e)
 
 #### Operand Stack
 
@@ -15328,11 +13993,11 @@ _istore\_3_ = 62 (0x3e)
 
 #### Description
 
-The <_n_\> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `int`. It is popped from the operand stack, and the value of the local variable at <_n_\> is set to _value_.
+The <_n_> must be an index into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `int`. It is popped from the operand stack, and the value of the local variable at <_n_> is set to _value_.
 
 #### Notes
 
-Each of the _istore\_<n>_ instructions is the same as _istore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _istore_<n>_ instructions is the same as _istore_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `isub`
 
@@ -15461,7 +14126,7 @@ Jump subroutine (wide index)
 #### Format
 
   
-_jsr\_w_  
+_jsr_w_  
 _branchbyte1_  
 _branchbyte2_  
 _branchbyte3_  
@@ -15469,7 +14134,7 @@ _branchbyte4_
 
 #### Forms
 
-_jsr\_w_ = 201 (0xc9)
+_jsr_w_ = 201 (0xc9)
 
 #### Operand Stack
 
@@ -15479,15 +14144,15 @@ _jsr\_w_ = 201 (0xc9)
 
 #### Description
 
-The _address_ of the opcode of the instruction immediately following this _jsr\_w_ instruction is pushed onto the operand stack as a value of type `returnAddress`. The unsigned _branchbyte1_, _branchbyte2_, _branchbyte3_, and _branchbyte4_ are used to construct a signed 32-bit offset, where the offset is (_branchbyte1_ `<<` 24) | (_branchbyte2_ `<<` 16) | (_branchbyte3_ `<<` 8) | _branchbyte4_. Execution proceeds at that offset from the address of this _jsr\_w_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _jsr\_w_ instruction.
+The _address_ of the opcode of the instruction immediately following this _jsr_w_ instruction is pushed onto the operand stack as a value of type `returnAddress`. The unsigned _branchbyte1_, _branchbyte2_, _branchbyte3_, and _branchbyte4_ are used to construct a signed 32-bit offset, where the offset is (_branchbyte1_ `<<` 24) | (_branchbyte2_ `<<` 16) | (_branchbyte3_ `<<` 8) | _branchbyte4_. Execution proceeds at that offset from the address of this _jsr_w_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _jsr_w_ instruction.
 
 #### Notes
 
-Note that _jsr\_w_ pushes the address onto the operand stack and _ret_ ([§_ret_](jvms-6.html#jvms-6.5.ret "ret")) gets it out of a local variable. This asymmetry is intentional.
+Note that _jsr_w_ pushes the address onto the operand stack and _ret_ ([§_ret_](jvms-6.html#jvms-6.5.ret "ret")) gets it out of a local variable. This asymmetry is intentional.
 
-In Oracle's implementation of a compiler for the Java programming language prior to Java SE 6, the _jsr\_w_ instruction was used with the _ret_ instruction in the implementation of the `finally` clause ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally"), [§4.10.2.5](jvms-4.html#jvms-4.10.2.5 "4.10.2.5. Exceptions and finally")).
+In Oracle's implementation of a compiler for the Java programming language prior to Java SE 6, the _jsr_w_ instruction was used with the _ret_ instruction in the implementation of the `finally` clause ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally"), [§4.10.2.5](jvms-4.html#jvms-4.10.2.5 "4.10.2.5. Exceptions and finally")).
 
-Although the _jsr\_w_ instruction takes a 4-byte branch offset, other factors limit the size of a method to 65535 bytes ([§4.11](jvms-4.html#jvms-4.11 "4.11. Limitations of the Java Virtual Machine")). This limit may be raised in a future release of the Java Virtual Machine.
+Although the _jsr_w_ instruction takes a 4-byte branch offset, other factors limit the size of a method to 65535 bytes ([§4.11](jvms-4.html#jvms-4.11 "4.11. Limitations of the Java Virtual Machine")). This limit may be raised in a future release of the Java Virtual Machine.
 
 ### `l2d`
 
@@ -15726,23 +14391,23 @@ Push `long` constant
 #### Format
 
   
-_lconst\_<l>_  
+_lconst_<l>_  
 
 #### Forms
 
-_lconst\_0_ = 9 (0x9)
+_lconst_0_ = 9 (0x9)
 
-_lconst\_1_ = 10 (0xa)
+_lconst_1_ = 10 (0xa)
 
 #### Operand Stack
 
 ... →
 
-..., <_l_\>
+..., <_l_>
 
 #### Description
 
-Push the `long` constant <_l_\> (0 or 1) onto the operand stack.
+Push the `long` constant <_l_> (0 or 1) onto the operand stack.
 
 ### `ldc`
 
@@ -15797,13 +14462,13 @@ Push item from run-time constant pool (wide index)
 #### Format
 
   
-_ldc\_w_  
+_ldc_w_  
 _indexbyte1_  
 _indexbyte2_  
 
 #### Forms
 
-_ldc\_w_ = 19 (0x13)
+_ldc_w_ = 19 (0x13)
 
 #### Operand Stack
 
@@ -15831,9 +14496,9 @@ During resolution of a symbolic reference to a method type or method handle, any
 
 #### Notes
 
-The _ldc\_w_ instruction is identical to the _ldc_ instruction ([§_ldc_](jvms-6.html#jvms-6.5.ldc "ldc")) except for its wider run-time constant pool index.
+The _ldc_w_ instruction is identical to the _ldc_ instruction ([§_ldc_](jvms-6.html#jvms-6.5.ldc "ldc")) except for its wider run-time constant pool index.
 
-The _ldc\_w_ instruction can only be used to push a value of type `float` taken from the float value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `float` in the constant pool ([§4.4.4](jvms-4.html#jvms-4.4.4 "4.4.4. The CONSTANT_Integer_info and CONSTANT_Float_info Structures")) must be taken from the float value set.
+The _ldc_w_ instruction can only be used to push a value of type `float` taken from the float value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `float` in the constant pool ([§4.4.4](jvms-4.html#jvms-4.4.4 "4.4.4. The CONSTANT_Integer_info and CONSTANT_Float_info Structures")) must be taken from the float value set.
 
 ### `ldc2_w`
 
@@ -15844,13 +14509,13 @@ Push `long` or `double` from run-time constant pool (wide index)
 #### Format
 
   
-_ldc2\_w_  
+_ldc2_w_  
 _indexbyte1_  
 _indexbyte2_  
 
 #### Forms
 
-_ldc2\_w_ = 20 (0x14)
+_ldc2_w_ = 20 (0x14)
 
 #### Operand Stack
 
@@ -15864,9 +14529,9 @@ The unsigned _indexbyte1_ and _indexbyte2_ are assembled into an unsigned 16-bit
 
 #### Notes
 
-Only a wide-index version of the _ldc2\_w_ instruction exists; there is no _ldc2_ instruction that pushes a `long` or `double` with a single-byte index.
+Only a wide-index version of the _ldc2_w_ instruction exists; there is no _ldc2_ instruction that pushes a `long` or `double` with a single-byte index.
 
-The _ldc2\_w_ instruction can only be used to push a value of type `double` taken from the double value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `double` in the constant pool ([§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures")) must be taken from the double value set.
+The _ldc2_w_ instruction can only be used to push a value of type `double` taken from the double value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `double` in the constant pool ([§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures")) must be taken from the double value set.
 
 ### `ldiv`
 
@@ -15940,17 +14605,17 @@ Load `long` from local variable
 #### Format
 
   
-_lload\_<n>_  
+_lload_<n>_  
 
 #### Forms
 
-_lload\_0_ = 30 (0x1e)
+_lload_0_ = 30 (0x1e)
 
-_lload\_1_ = 31 (0x1f)
+_lload_1_ = 31 (0x1f)
 
-_lload\_2_ = 32 (0x20)
+_lload_2_ = 32 (0x20)
 
-_lload\_3_ = 33 (0x21)
+_lload_3_ = 33 (0x21)
 
 #### Operand Stack
 
@@ -15960,11 +14625,11 @@ _lload\_3_ = 33 (0x21)
 
 #### Description
 
-Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_\> must contain a `long`. The _value_ of the local variable at <_n_\> is pushed onto the operand stack.
+Both <_n_> and <_n_>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The local variable at <_n_> must contain a `long`. The _value_ of the local variable at <_n_> is pushed onto the operand stack.
 
 #### Notes
 
-Each of the _lload\_<n>_ instructions is the same as _lload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _lload_<n>_ instructions is the same as _lload_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `lmul`
 
@@ -15989,7 +14654,7 @@ _lmul_ = 105 (0x69)
 
 #### Description
 
-Both _value1_ and _value2_ must be of type `long`. The values are popped from the operand stack. The `long` _result_ is _value1_ \* _value2_. The _result_ is pushed onto the operand stack.
+Both _value1_ and _value2_ must be of type `long`. The values are popped from the operand stack. The `long` _result_ is _value1_ * _value2_. The _result_ is pushed onto the operand stack.
 
 The result is the 64 low-order bits of the true mathematical result in a sufficiently wide two's-complement format, represented as a value of type `long`. If overflow occurs, the sign of the result may not be the same as the sign of the mathematical multiplication of the two values.
 
@@ -16119,7 +14784,7 @@ _lrem_ = 113 (0x71)
 
 #### Description
 
-Both _value1_ and _value2_ must be of type `long`. The values are popped from the operand stack. The `long` _result_ is _value1_ - (_value1_ / _value2_) \* _value2_. The _result_ is pushed onto the operand stack.
+Both _value1_ and _value2_ must be of type `long`. The values are popped from the operand stack. The `long` _result_ is _value1_ - (_value1_ / _value2_) * _value2_. The _result_ is pushed onto the operand stack.
 
 The result of the _lrem_ instruction is such that `(a/b)*b + (a%b)` is equal to `a`. This identity holds even in the special case in which the dividend is the negative `long` of largest possible magnitude for its type and the divisor is -1 (the remainder is 0). It follows from this rule that the result of the remainder operation can be negative only if the dividend is negative and can be positive only if the dividend is positive; moreover, the magnitude of the result is always less than the magnitude of the divisor.
 
@@ -16146,7 +14811,7 @@ _lreturn_ = 173 (0xad)
 
 ..., _value_ →
 
-\[empty\]
+[empty]
 
 #### Description
 
@@ -16257,17 +14922,17 @@ Store `long` into local variable
 #### Format
 
   
-_lstore\_<n>_  
+_lstore_<n>_  
 
 #### Forms
 
-_lstore\_0_ = 63 (0x3f)
+_lstore_0_ = 63 (0x3f)
 
-_lstore\_1_ = 64 (0x40)
+_lstore_1_ = 64 (0x40)
 
-_lstore\_2_ = 65 (0x41)
+_lstore_2_ = 65 (0x41)
 
-_lstore\_3_ = 66 (0x42)
+_lstore_3_ = 66 (0x42)
 
 #### Operand Stack
 
@@ -16277,11 +14942,11 @@ _lstore\_3_ = 66 (0x42)
 
 #### Description
 
-Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `long`. It is popped from the operand stack, and the local variables at <_n_\> and <_n_\>+1 are set to _value_.
+Both <_n_> and <_n_>+1 must be indices into the local variable array of the current frame ([§2.6](jvms-2.html#jvms-2.6 "2.6. Frames")). The _value_ on the top of the operand stack must be of type `long`. It is popped from the operand stack, and the local variables at <_n_> and <_n_>+1 are set to _value_.
 
 #### Notes
 
-Each of the _lstore\_<n>_ instructions is the same as _lstore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
+Each of the _lstore_<n>_ instructions is the same as _lstore_ with an _index_ of <_n_>, except that the operand <_n_> is implicit.
 
 ### `lsub`
 
@@ -16482,7 +15147,7 @@ _multianewarray_ = 197 (0xc5)
 
 #### Operand Stack
 
-..., _count1_, \[_count2_, ...\] →
+..., _count1_, [_count2_, ...] →
 
 ..., _arrayref_
 
@@ -16583,45 +15248,16 @@ The _atype_ is a code that indicates the type of array to create. It must take o
 
 **Table 6.5.newarray-A. Array type codes**
 
- 
-
-Array Type
-
-_atype_
-
-`T_BOOLEAN`
-
-4
-
-`T_CHAR`
-
-5
-
-`T_FLOAT`
-
-6
-
-`T_DOUBLE`
-
-7
-
-`T_BYTE`
-
-8
-
-`T_SHORT`
-
-9
-
-`T_INT`
-
-10
-
-`T_LONG`
-
-11
-
-  
+|  Array Type | _atype_ |
+|-------------|---------|
+| `T_BOOLEAN` |       4 |
+| `T_CHAR`    |       5 |
+| `T_FLOAT`   |       6 |
+| `T_DOUBLE`  |       7 |
+| `T_BYTE`    |       8 |
+| `T_SHORT`   |       9 |
+| `T_INT`     |      10 |
+| `T_LONG`    |      11 |
 
 A new array whose components are of type _atype_ and of length _count_ is allocated from the garbage-collected heap. A `reference` _arrayref_ to this new array object is pushed into the operand stack. Each of the elements of the new array is initialized to the default initial value ([§2.3](jvms-2.html#jvms-2.3 "2.3. Primitive Types and Values"), [§2.4](jvms-2.html#jvms-2.4 "2.4. Reference Types and Values")) for the element type of the array type.
 
@@ -16840,7 +15476,7 @@ The _index_ is an unsigned byte between 0 and 255, inclusive. The local variable
 
 Note that _jsr_ ([§_jsr_](jvms-6.html#jvms-6.5.jsr "jsr")) pushes the address onto the operand stack and _ret_ gets it out of a local variable. This asymmetry is intentional.
 
-In Oracle's implementation of a compiler for the Java programming language prior to Java SE 6, the _ret_ instruction was used with the _jsr_ and _jsr\_w_ instructions ([§_jsr_](jvms-6.html#jvms-6.5.jsr "jsr"), [§_jsr\_w_](jvms-6.html#jvms-6.5.jsr_w "jsr_w")) in the implementation of the `finally` clause ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally"), [§4.10.2.5](jvms-4.html#jvms-4.10.2.5 "4.10.2.5. Exceptions and finally")).
+In Oracle's implementation of a compiler for the Java programming language prior to Java SE 6, the _ret_ instruction was used with the _jsr_ and _jsr_w_ instructions ([§_jsr_](jvms-6.html#jvms-6.5.jsr "jsr"), [§_jsr_w_](jvms-6.html#jvms-6.5.jsr_w "jsr_w")) in the implementation of the `finally` clause ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally"), [§4.10.2.5](jvms-4.html#jvms-4.10.2.5 "4.10.2.5. Exceptions and finally")).
 
 The _ret_ instruction should not be confused with the _return_ instruction ([§_return_](jvms-6.html#jvms-6.5.return "return")). A _return_ instruction returns control from a method to its invoker, without passing any value back to the invoker.
 
@@ -16865,7 +15501,7 @@ _return_ = 177 (0xb1)
 
 ... →
 
-\[empty\]
+[empty]
 
 #### Description
 
@@ -17105,26 +15741,26 @@ Opcode value 186 was not used prior to Java SE 7.
 Constants
 
 `00 (0x00)`    nop  
-`01 (0x01)`    aconst\_null  
-`02 (0x02)`    iconst\_m1  
-`03 (0x03)`    iconst\_0  
-`04 (0x04)`    iconst\_1  
-`05 (0x05)`    iconst\_2  
-`06 (0x06)`    iconst\_3  
-`07 (0x07)`    iconst\_4  
-`08 (0x08)`    iconst\_5  
-`09 (0x09)`    lconst\_0  
-`10 (0x0a)`    lconst\_1  
-`11 (0x0b)`    fconst\_0  
-`12 (0x0c)`    fconst\_1  
-`13 (0x0d)`    fconst\_2  
-`14 (0x0e)`    dconst\_0  
-`15 (0x0f)`    dconst\_1  
+`01 (0x01)`    aconst_null  
+`02 (0x02)`    iconst_m1  
+`03 (0x03)`    iconst_0  
+`04 (0x04)`    iconst_1  
+`05 (0x05)`    iconst_2  
+`06 (0x06)`    iconst_3  
+`07 (0x07)`    iconst_4  
+`08 (0x08)`    iconst_5  
+`09 (0x09)`    lconst_0  
+`10 (0x0a)`    lconst_1  
+`11 (0x0b)`    fconst_0  
+`12 (0x0c)`    fconst_1  
+`13 (0x0d)`    fconst_2  
+`14 (0x0e)`    dconst_0  
+`15 (0x0f)`    dconst_1  
 `16 (0x10)`    bipush  
 `17 (0x11)`    sipush  
 `18 (0x12)`    ldc  
-`19 (0x13)`    ldc\_w  
-`20 (0x14)`    ldc2\_w  
+`19 (0x13)`    ldc_w  
+`20 (0x14)`    ldc2_w  
 
 Loads
 
@@ -17133,26 +15769,26 @@ Loads
 `23 (0x17)`    fload  
 `24 (0x18)`    dload  
 `25 (0x19)`    aload  
-`26 (0x1a)`    iload\_0  
-`27 (0x1b)`    iload\_1  
-`28 (0x1c)`    iload\_2  
-`29 (0x1d)`    iload\_3  
-`30 (0x1e)`    lload\_0  
-`31 (0x1f)`    lload\_1  
-`32 (0x20)`    lload\_2  
-`33 (0x21)`    lload\_3  
-`34 (0x22)`    fload\_0  
-`35 (0x23)`    fload\_1  
-`36 (0x24)`    fload\_2  
-`37 (0x25)`    fload\_3  
-`38 (0x26)`    dload\_0  
-`39 (0x27)`    dload\_1  
-`40 (0x28)`    dload\_2  
-`41 (0x29)`    dload\_3  
-`42 (0x2a)`    aload\_0  
-`43 (0x2b)`    aload\_1  
-`44 (0x2c)`    aload\_2  
-`45 (0x2d)`    aload\_3  
+`26 (0x1a)`    iload_0  
+`27 (0x1b)`    iload_1  
+`28 (0x1c)`    iload_2  
+`29 (0x1d)`    iload_3  
+`30 (0x1e)`    lload_0  
+`31 (0x1f)`    lload_1  
+`32 (0x20)`    lload_2  
+`33 (0x21)`    lload_3  
+`34 (0x22)`    fload_0  
+`35 (0x23)`    fload_1  
+`36 (0x24)`    fload_2  
+`37 (0x25)`    fload_3  
+`38 (0x26)`    dload_0  
+`39 (0x27)`    dload_1  
+`40 (0x28)`    dload_2  
+`41 (0x29)`    dload_3  
+`42 (0x2a)`    aload_0  
+`43 (0x2b)`    aload_1  
+`44 (0x2c)`    aload_2  
+`45 (0x2d)`    aload_3  
 `46 (0x2e)`    iaload  
 `47 (0x2f)`    laload  
 `48 (0x30)`    faload  
@@ -17169,26 +15805,26 @@ Stores
 `56 (0x38)`    fstore  
 `57 (0x39)`    dstore  
 `58 (0x3a)`    astore  
-`59 (0x3b)`    istore\_0  
-`60 (0x3c)`    istore\_1  
-`61 (0x3d)`    istore\_2  
-`62 (0x3e)`    istore\_3  
-`63 (0x3f)`    lstore\_0  
-`64 (0x40)`    lstore\_1  
-`65 (0x41)`    lstore\_2  
-`66 (0x42)`    lstore\_3  
-`67 (0x43)`    fstore\_0  
-`68 (0x44)`    fstore\_1  
-`69 (0x45)`    fstore\_2  
-`70 (0x46)`    fstore\_3  
-`71 (0x47)`    dstore\_0  
-`72 (0x48)`    dstore\_1  
-`73 (0x49)`    dstore\_2  
-`74 (0x4a)`    dstore\_3  
-`75 (0x4b)`    astore\_0  
-`76 (0x4c)`    astore\_1  
-`77 (0x4d)`    astore\_2  
-`78 (0x4e)`    astore\_3  
+`59 (0x3b)`    istore_0  
+`60 (0x3c)`    istore_1  
+`61 (0x3d)`    istore_2  
+`62 (0x3e)`    istore_3  
+`63 (0x3f)`    lstore_0  
+`64 (0x40)`    lstore_1  
+`65 (0x41)`    lstore_2  
+`66 (0x42)`    lstore_3  
+`67 (0x43)`    fstore_0  
+`68 (0x44)`    fstore_1  
+`69 (0x45)`    fstore_2  
+`70 (0x46)`    fstore_3  
+`71 (0x47)`    dstore_0  
+`72 (0x48)`    dstore_1  
+`73 (0x49)`    dstore_2  
+`74 (0x4a)`    dstore_3  
+`75 (0x4b)`    astore_0  
+`76 (0x4c)`    astore_1  
+`77 (0x4d)`    astore_2  
+`78 (0x4e)`    astore_3  
 `79 (0x4f)`    iastore  
 `80 (0x50)`    lastore  
 `81 (0x51)`    fastore  
@@ -17206,11 +15842,11 @@ Stack
 `87 (0x57)`    pop  
 `88 (0x58)`    pop2  
 `89 (0x59)`    dup  
-`90 (0x5a)`    dup\_x1  
-`91 (0x5b)`    dup\_x2  
+`90 (0x5a)`    dup_x1  
+`91 (0x5b)`    dup_x2  
 `92 (0x5c)`    dup2  
-`93 (0x5d)`    dup2\_x1  
-`94 (0x5e)`    dup2\_x2  
+`93 (0x5d)`    dup2_x1  
+`94 (0x5e)`    dup2_x2  
 `95 (0x5f)`    swap  
 
 Math
@@ -17288,14 +15924,14 @@ Comparisons
 `156 (0x9c)`    ifge  
 `157 (0x9d)`    ifgt  
 `158 (0x9e)`    ifle  
-`159 (0x9f)`    if\_icmpeq  
-`160 (0xa0)`    if\_icmpne  
-`161 (0xa1)`    if\_icmplt  
-`162 (0xa2)`    if\_icmpge  
-`163 (0xa3)`    if\_icmpgt  
-`164 (0xa4)`    if\_icmple  
-`165 (0xa5)`    if\_acmpeq  
-`166 (0xa6)`    if\_acmpne  
+`159 (0x9f)`    if_icmpeq  
+`160 (0xa0)`    if_icmpne  
+`161 (0xa1)`    if_icmplt  
+`162 (0xa2)`    if_icmpge  
+`163 (0xa3)`    if_icmpgt  
+`164 (0xa4)`    if_icmple  
+`165 (0xa5)`    if_acmpeq  
+`166 (0xa6)`    if_acmpne  
       
 
 **Table 7.4.** 
@@ -17346,8 +15982,8 @@ Extended
 `197 (0xc5)`    multianewarray  
 `198 (0xc6)`    ifnull  
 `199 (0xc7)`    ifnonnull  
-`200 (0xc8)`    goto\_w  
-`201 (0xc9)`    jsr\_w  
+`200 (0xc8)`    goto_w  
+`201 (0xc9)`    jsr_w  
       
 
 Reserved
@@ -17380,15 +16016,15 @@ accessing the run-time constant pool, [3.4](jvms-3.html#jvms-3.4)
 accessors for Java Virtual Machine artifacts, [4.10.1.1](jvms-4.html#jvms-4.10.1.1)
 type checking instructions, [4.10.1.9](jvms-4.html#jvms-4.10.1.9-100)
 verification by type checking, [4.10.1](jvms-4.html#jvms-4.10.1-400-A)
-aconst\_null, [4.10.1.9.aconst\_null](jvms-4.html#jvms-4.10.1.9.aconst_null), [6.5.aconst\_null](jvms-6.html#jvms-6.5.aconst_null)
+aconst_null, [4.10.1.9.aconst_null](jvms-4.html#jvms-4.10.1.9.aconst_null), [6.5.aconst_null](jvms-6.html#jvms-6.5.aconst_null)
 actual and computational types in the Java Virtual Machine, [2.11.1](jvms-2.html#jvms-2.11.1-320)
 types and the Java Virtual Machine, [2.11.1](jvms-2.html#jvms-2.11.1-300), [2.11.1](jvms-2.html#jvms-2.11.1-310)
 aload, [6.5.aload](jvms-6.html#jvms-6.5.aload)
 astore, [6.5.astore](jvms-6.html#jvms-6.5.astore.notes-200)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-aload, aload\_<n>, [4.10.1.9.aload](jvms-4.html#jvms-4.10.1.9.aload)
-aload\_<n>, [6.5.aload\_n](jvms-6.html#jvms-6.5.aload_n)
-astore\_<n>, [6.5.astore\_n](jvms-6.html#jvms-6.5.astore_n.notes-200)
+aload, aload_<n>, [4.10.1.9.aload](jvms-4.html#jvms-4.10.1.9.aload)
+aload_<n>, [6.5.aload_n](jvms-6.html#jvms-6.5.aload_n)
+astore_<n>, [6.5.astore_n](jvms-6.html#jvms-6.5.astore_n.notes-200)
 anewarray, [4.10.1.9.anewarray](jvms-4.html#jvms-4.10.1.9.anewarray), [6.5.anewarray](jvms-6.html#jvms-6.5.anewarray)
 multianewarray, [6.5.multianewarray](jvms-6.html#jvms-6.5.multianewarray.notes-100)
 AnnotationDefault attribute, [4.7.22](jvms-4.html#jvms-4.7.22)
@@ -17410,9 +16046,9 @@ assumptions: the meaning of "must", [6.1](jvms-6.html#jvms-6.1)
 astore, [6.5.astore](jvms-6.html#jvms-6.5.astore)
 aload, [6.5.aload](jvms-6.html#jvms-6.5.aload.notes-100)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-astore, astore\_<n>, [4.10.1.9.astore](jvms-4.html#jvms-4.10.1.9.astore)
-astore\_<n>, [6.5.astore\_n](jvms-6.html#jvms-6.5.astore_n)
-aload\_<n>, [6.5.aload\_n](jvms-6.html#jvms-6.5.aload_n.notes-100)
+astore, astore_<n>, [4.10.1.9.astore](jvms-4.html#jvms-4.10.1.9.astore)
+astore_<n>, [6.5.astore_n](jvms-6.html#jvms-6.5.astore_n)
+aload_<n>, [6.5.aload_n](jvms-6.html#jvms-6.5.aload_n.notes-100)
 athrow, [4.10.1.9.athrow](jvms-4.html#jvms-4.10.1.9.athrow), [6.5.athrow](jvms-6.html#jvms-6.5.athrow)
 abrupt method invocation completion, [2.6.5](jvms-2.html#jvms-2.6.5-100)
 Exceptions, [2.10](jvms-2.html#jvms-2.10-110-A)
@@ -17434,9 +16070,9 @@ newarray, [6.5.newarray](jvms-6.html#jvms-6.5.newarray.notes-100)
 stack map frame representation, [4.10.1.4](jvms-4.html#jvms-4.10.1.4-330)
 binary class and interface names, [4.2.1](jvms-4.html#jvms-4.2.1)
 annotations, [3.15](jvms-3.html#jvms-3.15-200-D)
-CONSTANT\_Class\_info structure, [4.4.1](jvms-4.html#jvms-4.4.1-200-B)
+CONSTANT_Class_info structure, [4.4.1](jvms-4.html#jvms-4.4.1-200-B)
 creation and loading, [5.3](jvms-5.html#jvms-5.3-300)
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-A)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-A)
 field descriptors, [4.3.2](jvms-4.html#jvms-4.3.2-130)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-A-A), [5.1](jvms-5.html#jvms-5.1-110-A-B-B)
 binding native method implementations, [5.6](jvms-5.html#jvms-5.6)
@@ -17454,7 +16090,7 @@ loading constraints, [5.3.4](jvms-5.html#jvms-5.3.4-120)
 notation, [1.4](jvms-1.html#jvms-1.4-110)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23)
 call site specifier resolution, [5.4.3.6](jvms-5.html#jvms-5.4.3.6-100-A)
-CONSTANT\_InvokeDynamic\_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-200-B)
+CONSTANT_InvokeDynamic_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-200-B)
 bytecode behaviors for method handles, [5.4.3.5](jvms-5.html#jvms-5.4.3.5-220)
 method type and method handle resolution, [5.4.3.5](jvms-5.html#jvms-5.4.3.5-200)
 bytecode verifier, [4.10.2.2](jvms-4.html#jvms-4.10.2.2)
@@ -17478,7 +16114,7 @@ field resolution, [5.4.3.2](jvms-5.html#jvms-5.4.3.2-100)
 instanceof, [6.5.instanceof](jvms-6.html#jvms-6.5.instanceof.desc-210), [6.5.instanceof](jvms-6.html#jvms-6.5.instanceof.linking-100)
 interface method resolution, [5.4.3.4](jvms-5.html#jvms-5.4.3.4-100)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-220), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.linking-100)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-220), [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.linking-100)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-220), [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.linking-100)
 method resolution, [5.4.3.3](jvms-5.html#jvms-5.4.3.3-100), [5.4.3.3](jvms-5.html#jvms-5.4.3.3-200-B-A)
 method type and method handle resolution, [5.4.3.5](jvms-5.html#jvms-5.4.3.5-100)
 multianewarray, [6.5.multianewarray](jvms-6.html#jvms-6.5.multianewarray.desc-200), [6.5.multianewarray](jvms-6.html#jvms-6.5.multianewarray.linking-100)
@@ -17543,9 +16179,9 @@ verification by type checking, [4.10.1](jvms-4.html#jvms-4.10.1-210)
 verification of class files, [4.10](jvms-4.html#jvms-4.10-300a)
 compiling finally, [3.13](jvms-3.html#jvms-3.13)
 astore, [6.5.astore](jvms-6.html#jvms-6.5.astore.notes-100)
-astore\_<n>, [6.5.astore\_n](jvms-6.html#jvms-6.5.astore_n.notes-100)
+astore_<n>, [6.5.astore_n](jvms-6.html#jvms-6.5.astore_n.notes-100)
 jsr, [6.5.jsr](jvms-6.html#jvms-6.5.jsr.notes-200)
-jsr\_w, [6.5.jsr\_w](jvms-6.html#jvms-6.5.jsr_w.notes-200)
+jsr_w, [6.5.jsr_w](jvms-6.html#jvms-6.5.jsr_w.notes-200)
 more control examples, [3.5](jvms-3.html#jvms-3.5-100)
 ret, [6.5.ret](jvms-6.html#jvms-6.5.ret.notes-200)
 compiling for the Java Virtual Machine, [3](jvms-3.html)
@@ -17563,8 +16199,8 @@ invokespecial, [6.5.invokespecial](jvms-6.html#jvms-6.5.invokespecial.desc-100)
 invokestatic, [6.5.invokestatic](jvms-6.html#jvms-6.5.invokestatic.desc-100)
 invokevirtual, [6.5.invokevirtual](jvms-6.html#jvms-6.5.invokevirtual.desc-100)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-100), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-210), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-220), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-230)
-ldc2\_w, [6.5.ldc2\_w](jvms-6.html#jvms-6.5.ldc2_w.desc-100)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-100), [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-210), [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-230)
+ldc2_w, [6.5.ldc2_w](jvms-6.html#jvms-6.5.ldc2_w.desc-100)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-100), [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-210), [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-230)
 method type and method handle resolution, [5.4.3.5](jvms-5.html#jvms-5.4.3.5-230)
 putfield, [6.5.putfield](jvms-6.html#jvms-6.5.putfield.desc-100)
 putstatic, [6.5.putstatic](jvms-6.html#jvms-6.5.putstatic.desc-100)
@@ -17574,68 +16210,68 @@ constant pool tags, [4.4](jvms-4.html#jvms-4.4-140)
 constant pool, [4.4](jvms-4.html#jvms-4.4-130)
 constant value attribute types, [4.7.2](jvms-4.html#jvms-4.7.2-300-C.1)
 ConstantValue attribute, [4.7.2](jvms-4.html#jvms-4.7.2-300-C)
-CONSTANT\_Class\_info structure, [4.4.1](jvms-4.html#jvms-4.4.1)
+CONSTANT_Class_info structure, [4.4.1](jvms-4.html#jvms-4.4.1)
 arrays, [3.9](jvms-3.html#jvms-3.9-320)
 binary class and interface names, [4.2.1](jvms-4.html#jvms-4.2.1-100)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-C)
 ClassFile structure, [4.1](jvms-4.html#jvms-4.1-200-F)
 Code attribute, [4.7.3](jvms-4.html#jvms-4.7.3-300-H.1-C)
-CONSTANT\_Fieldref\_info, CONSTANT\_Methodref\_info, and CONSTANT\_InterfaceMethodref\_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-B)
+CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-B)
 EnclosingMethod attribute, [4.7.7](jvms-4.html#jvms-4.7.7-300-C)
 Exceptions attribute, [4.7.5](jvms-4.html#jvms-4.7.5-300-D)
 InnerClasses attribute, [4.7.6](jvms-4.html#jvms-4.7.6-110)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-220)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-220)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-A)
 StackMapTable attribute, [4.7.4](jvms-4.html#jvms-4.7.4-520-F)
-CONSTANT\_Fieldref\_info, CONSTANT\_Methodref\_info, and CONSTANT\_InterfaceMethodref\_info structures, [4.4.2](jvms-4.html#jvms-4.4.2)
-CONSTANT\_MethodHandle\_info structure, [4.4.8](jvms-4.html#jvms-4.4.8-200-C-A), [4.4.8](jvms-4.html#jvms-4.4.8-200-C-B), [4.4.8](jvms-4.html#jvms-4.4.8-200-C-C)
+CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info structures, [4.4.2](jvms-4.html#jvms-4.4.2)
+CONSTANT_MethodHandle_info structure, [4.4.8](jvms-4.html#jvms-4.4.8-200-C-A), [4.4.8](jvms-4.html#jvms-4.4.8-200-C-B), [4.4.8](jvms-4.html#jvms-4.4.8-200-C-C)
 instruction representation, [4.10.1.3](jvms-4.html#jvms-4.10.1.3-130)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-B), [5.1](jvms-5.html#jvms-5.1-110-C), [5.1](jvms-5.html#jvms-5.1-110-D)
-CONSTANT\_Integer\_info and CONSTANT\_Float\_info structures, [4.4.4](jvms-4.html#jvms-4.4.4)
+CONSTANT_Integer_info and CONSTANT_Float_info structures, [4.4.4](jvms-4.html#jvms-4.4.4)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-C)
 floating-point types, value sets, and values, [2.3.2](jvms-2.html#jvms-2.3.2-180)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.notes-100)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.notes-200)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.notes-200)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-200-B), [5.1](jvms-5.html#jvms-5.1-200-B.1)
-CONSTANT\_InvokeDynamic\_info structure, [4.4.10](jvms-4.html#jvms-4.4.10)
+CONSTANT_InvokeDynamic_info structure, [4.4.10](jvms-4.html#jvms-4.4.10)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-110)
 instruction representation, [4.10.1.3](jvms-4.html#jvms-4.10.1.3-130)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-G)
-CONSTANT\_Long\_info and CONSTANT\_Double\_info structures, [4.4.5](jvms-4.html#jvms-4.4.5)
+CONSTANT_Long_info and CONSTANT_Double_info structures, [4.4.5](jvms-4.html#jvms-4.4.5)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-C)
 ClassFile structure, [4.1](jvms-4.html#jvms-4.1-200-C)
 floating-point types, value sets, and values, [2.3.2](jvms-2.html#jvms-2.3.2-180)
-ldc2\_w, [6.5.ldc2\_w](jvms-6.html#jvms-6.5.ldc2_w.notes-200)
+ldc2_w, [6.5.ldc2_w](jvms-6.html#jvms-6.5.ldc2_w.notes-200)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-200-B), [5.1](jvms-5.html#jvms-5.1-200-B.1)
-CONSTANT\_MethodHandle\_info structure, [4.4.8](jvms-4.html#jvms-4.4.8)
+CONSTANT_MethodHandle_info structure, [4.4.8](jvms-4.html#jvms-4.4.8)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-D), [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-A), [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-C)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-E)
-CONSTANT\_MethodType\_info structure, [4.4.9](jvms-4.html#jvms-4.4.9)
+CONSTANT_MethodType_info structure, [4.4.9](jvms-4.html#jvms-4.4.9)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-C)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-F)
-CONSTANT\_NameAndType\_info structure, [4.4.6](jvms-4.html#jvms-4.4.6)
+CONSTANT_NameAndType_info structure, [4.4.6](jvms-4.html#jvms-4.4.6)
 binary class and interface names, [4.2.1](jvms-4.html#jvms-4.2.1-100)
-CONSTANT\_Fieldref\_info, CONSTANT\_Methodref\_info, and CONSTANT\_InterfaceMethodref\_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C)
-CONSTANT\_InvokeDynamic\_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-200-C)
+CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C)
+CONSTANT_InvokeDynamic_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-200-C)
 EnclosingMethod attribute, [4.7.7](jvms-4.html#jvms-4.7.7-300-D.1)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-300)
-CONSTANT\_String\_info structure, [4.4.3](jvms-4.html#jvms-4.4.3)
+CONSTANT_String_info structure, [4.4.3](jvms-4.html#jvms-4.4.3)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-D.1-C)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-200-A)
-CONSTANT\_Utf8\_info structure, [4.4.7](jvms-4.html#jvms-4.4.7)
+CONSTANT_Utf8_info structure, [4.4.7](jvms-4.html#jvms-4.4.7)
 AnnotationDefault attribute, [4.7.22](jvms-4.html#jvms-4.7.22-300-A)
 attributes, [4.7](jvms-4.html#jvms-4.7-130)
 binary class and interface names, [4.2.1](jvms-4.html#jvms-4.2.1-100)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-300-A)
 Code attribute, [4.7.3](jvms-4.html#jvms-4.7.3-300-A)
-CONSTANT\_Class\_info structure, [4.4.1](jvms-4.html#jvms-4.4.1-200-B)
-CONSTANT\_MethodType\_info structure, [4.4.9](jvms-4.html#jvms-4.4.9-200-B)
-CONSTANT\_NameAndType\_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-B), [4.4.6](jvms-4.html#jvms-4.4.6-200-C)
-CONSTANT\_String\_info structure, [4.4.3](jvms-4.html#jvms-4.4.3-200-B)
+CONSTANT_Class_info structure, [4.4.1](jvms-4.html#jvms-4.4.1-200-B)
+CONSTANT_MethodType_info structure, [4.4.9](jvms-4.html#jvms-4.4.9-200-B)
+CONSTANT_NameAndType_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-B), [4.4.6](jvms-4.html#jvms-4.4.6-200-C)
+CONSTANT_String_info structure, [4.4.3](jvms-4.html#jvms-4.4.3-200-B)
 ConstantValue attribute, [4.7.2](jvms-4.html#jvms-4.7.2-300-A)
 Deprecated attribute, [4.7.15](jvms-4.html#jvms-4.7.15-300-A)
 descriptors, [4.3](jvms-4.html#jvms-4.3-100)
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-A), [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-B), [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-C.1)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-A), [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-B), [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-C.1)
 EnclosingMethod attribute, [4.7.7](jvms-4.html#jvms-4.7.7-300-A)
 Exceptions attribute, [4.7.5](jvms-4.html#jvms-4.7.5-300-A)
 fields, [4.5](jvms-4.html#jvms-4.5-200-B), [4.5](jvms-4.html#jvms-4.5-200-C)
@@ -17699,8 +16335,8 @@ dastore, [4.10.1.9.dastore](jvms-4.html#jvms-4.10.1.9.dastore), [6.5.dastore](jv
 data types, [2.2](jvms-2.html#jvms-2.2)
 baload, [6.5.baload](jvms-6.html#jvms-6.5.baload.notes-100)
 bastore, [6.5.bastore](jvms-6.html#jvms-6.5.bastore.notes-100)
-dcmp<op>, [4.10.1.9.dcmp\_op](jvms-4.html#jvms-4.10.1.9.dcmp_op), [6.5.dcmp\_op](jvms-6.html#jvms-6.5.dcmp_op)
-dconst\_<d>, [4.10.1.9.dconst\_d](jvms-4.html#jvms-4.10.1.9.dconst_d), [6.5.dconst\_d](jvms-6.html#jvms-6.5.dconst_d)
+dcmp<op>, [4.10.1.9.dcmp_op](jvms-4.html#jvms-4.10.1.9.dcmp_op), [6.5.dcmp_op](jvms-6.html#jvms-6.5.dcmp_op)
+dconst_<d>, [4.10.1.9.dconst_d](jvms-4.html#jvms-4.10.1.9.dconst_d), [6.5.dconst_d](jvms-6.html#jvms-6.5.dconst_d)
 ddiv, [4.10.1.9.ddiv](jvms-4.html#jvms-4.10.1.9.ddiv), [6.5.ddiv](jvms-6.html#jvms-6.5.ddiv)
 defineclass, [5.3.5](jvms-5.html#jvms-5.3.5)
 creation and loading, [5.3](jvms-5.html#jvms-5.3-520)
@@ -17723,28 +16359,28 @@ binary class and interface names, [4.2.1](jvms-4.html#jvms-4.2.1-100)
 format checking, [4.8](jvms-4.html#jvms-4.8-100-E)
 dload, [6.5.dload](jvms-6.html#jvms-6.5.dload)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-dload, dload\_<n>, [4.10.1.9.dload](jvms-4.html#jvms-4.10.1.9.dload)
-dload\_<n>, [6.5.dload\_n](jvms-6.html#jvms-6.5.dload_n)
+dload, dload_<n>, [4.10.1.9.dload](jvms-4.html#jvms-4.10.1.9.dload)
+dload_<n>, [6.5.dload_n](jvms-6.html#jvms-6.5.dload_n)
 dmul, [4.10.1.9.dmul](jvms-4.html#jvms-4.10.1.9.dmul), [6.5.dmul](jvms-6.html#jvms-6.5.dmul)
 dneg, [4.10.1.9.dneg](jvms-4.html#jvms-4.10.1.9.dneg), [6.5.dneg](jvms-6.html#jvms-6.5.dneg)
 drem, [4.10.1.9.drem](jvms-4.html#jvms-4.10.1.9.drem), [6.5.drem](jvms-6.html#jvms-6.5.drem)
 dreturn, [4.10.1.9.dreturn](jvms-4.html#jvms-4.10.1.9.dreturn), [6.5.dreturn](jvms-6.html#jvms-6.5.dreturn)
 dstore, [6.5.dstore](jvms-6.html#jvms-6.5.dstore)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-dstore, dstore\_<n>, [4.10.1.9.dstore](jvms-4.html#jvms-4.10.1.9.dstore)
-dstore\_<n>, [6.5.dstore\_n](jvms-6.html#jvms-6.5.dstore_n)
+dstore, dstore_<n>, [4.10.1.9.dstore](jvms-4.html#jvms-4.10.1.9.dstore)
+dstore_<n>, [6.5.dstore_n](jvms-6.html#jvms-6.5.dstore_n)
 dsub, [4.10.1.9.dsub](jvms-4.html#jvms-4.10.1.9.dsub), [6.5.dsub](jvms-6.html#jvms-6.5.dsub)xmlns:rx="http://www.renderx.com/XSL/Extensions">dup, [4.10.1.9.dup](jvms-4.html#jvms-4.10.1.9.dup), [6.5.dup](jvms-6.html#jvms-6.5.dup)
 operand stacks, [2.6.2](jvms-2.html#jvms-2.6.2-310)
 dup2, [4.10.1.9.dup2](jvms-4.html#jvms-4.10.1.9.dup2), [6.5.dup2](jvms-6.html#jvms-6.5.dup2)
-dup2\_x1, [4.10.1.9.dup2\_x1](jvms-4.html#jvms-4.10.1.9.dup2_x1), [6.5.dup2\_x1](jvms-6.html#jvms-6.5.dup2_x1)
-dup2\_x2, [4.10.1.9.dup2\_x2](jvms-4.html#jvms-4.10.1.9.dup2_x2), [6.5.dup2\_x2](jvms-6.html#jvms-6.5.dup2_x2)
-dup\_x1, [4.10.1.9.dup\_x1](jvms-4.html#jvms-4.10.1.9.dup_x1), [6.5.dup\_x1](jvms-6.html#jvms-6.5.dup_x1)
-dup\_x2, [4.10.1.9.dup\_x2](jvms-4.html#jvms-4.10.1.9.dup_x2), [6.5.dup\_x2](jvms-6.html#jvms-6.5.dup_x2)
+dup2_x1, [4.10.1.9.dup2_x1](jvms-4.html#jvms-4.10.1.9.dup2_x1), [6.5.dup2_x1](jvms-6.html#jvms-6.5.dup2_x1)
+dup2_x2, [4.10.1.9.dup2_x2](jvms-4.html#jvms-4.10.1.9.dup2_x2), [6.5.dup2_x2](jvms-6.html#jvms-6.5.dup2_x2)
+dup_x1, [4.10.1.9.dup_x1](jvms-4.html#jvms-4.10.1.9.dup_x1), [6.5.dup_x1](jvms-6.html#jvms-6.5.dup_x1)
+dup_x2, [4.10.1.9.dup_x2](jvms-4.html#jvms-4.10.1.9.dup_x2), [6.5.dup_x2](jvms-6.html#jvms-6.5.dup_x2)
 dynamic linking, [2.6.3](jvms-2.html#jvms-2.6.3)
 
 ### Index E
 
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1)
 EnclosingMethod attribute, [4.7.7](jvms-4.html#jvms-4.7.7)
 Exceptions, [2.10](jvms-2.html#jvms-2.10)
 abrupt method invocation completion, [2.6.5](jvms-2.html#jvms-2.6.5-100)
@@ -17757,7 +16393,7 @@ Virtual Machine errors, [6.3](jvms-6.html#jvms-6.3-100-A)
 Exceptions and finally, [4.10.2.5](jvms-4.html#jvms-4.10.2.5)
 compiling finally, [3.13](jvms-3.html#jvms-3.13-100)
 jsr, [6.5.jsr](jvms-6.html#jvms-6.5.jsr.notes-200)
-jsr\_w, [6.5.jsr\_w](jvms-6.html#jvms-6.5.jsr_w.notes-200)
+jsr_w, [6.5.jsr_w](jvms-6.html#jvms-6.5.jsr_w.notes-200)
 ret, [6.5.ret](jvms-6.html#jvms-6.5.ret.notes-200)
 Exceptions attribute, [4.7.5](jvms-4.html#jvms-4.7.5)
 
@@ -17770,17 +16406,17 @@ f2l, [6.5.f2l](jvms-6.html#jvms-6.5.f2l)
 fadd, [4.10.1.9.fadd](jvms-4.html#jvms-4.10.1.9.fadd), [6.5.fadd](jvms-6.html#jvms-6.5.fadd)
 faload, [4.10.1.9.faload](jvms-4.html#jvms-4.10.1.9.faload), [6.5.faload](jvms-6.html#jvms-6.5.faload)
 fastore, [4.10.1.9.fastore](jvms-4.html#jvms-4.10.1.9.fastore), [6.5.fastore](jvms-6.html#jvms-6.5.fastore)
-fcmp<op>, [4.10.1.9.fcmp\_op](jvms-4.html#jvms-4.10.1.9.fcmp_op), [6.5.fcmp\_op](jvms-6.html#jvms-6.5.fcmp_op)
-fconst\_<f>, [4.10.1.9.fconst\_f](jvms-4.html#jvms-4.10.1.9.fconst_f), [6.5.fconst\_f](jvms-6.html#jvms-6.5.fconst_f)
+fcmp<op>, [4.10.1.9.fcmp_op](jvms-4.html#jvms-4.10.1.9.fcmp_op), [6.5.fcmp_op](jvms-6.html#jvms-6.5.fcmp_op)
+fconst_<f>, [4.10.1.9.fconst_f](jvms-4.html#jvms-4.10.1.9.fconst_f), [6.5.fconst_f](jvms-6.html#jvms-6.5.fconst_f)
 fdiv, [4.10.1.9.fdiv](jvms-4.html#jvms-4.10.1.9.fdiv), [6.5.fdiv](jvms-6.html#jvms-6.5.fdiv)
 feedback, [1.5](jvms-1.html#jvms-1.5)
 field access and property flags, [4.5](jvms-4.html#jvms-4.5-200-A.1)
 fields, [4.5](jvms-4.html#jvms-4.5-200-A), [4.5](jvms-4.html#jvms-4.5-200-A.2), [4.5](jvms-4.html#jvms-4.5-200-A.3), [4.5](jvms-4.html#jvms-4.5-200-A.6)
 field descriptors, [4.3.2](jvms-4.html#jvms-4.3.2)
-CONSTANT\_Class\_info structure, [4.4.1](jvms-4.html#jvms-4.4.1-300)
-CONSTANT\_Fieldref\_info, CONSTANT\_Methodref\_info, and CONSTANT\_InterfaceMethodref\_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C.1)
-CONSTANT\_NameAndType\_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-C)
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-A)
+CONSTANT_Class_info structure, [4.4.1](jvms-4.html#jvms-4.4.1-300)
+CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C.1)
+CONSTANT_NameAndType_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-C)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-B.1-A)
 fields, [4.5](jvms-4.html#jvms-4.5-110), [4.5](jvms-4.html#jvms-4.5-200-C)
 instruction representation, [4.10.1.3](jvms-4.html#jvms-4.10.1.3-140)
 LocalVariableTable attribute, [4.7.13](jvms-4.html#jvms-4.7.13-300-D-C)
@@ -17812,23 +16448,23 @@ Synthetic attribute, [4.7.8](jvms-4.html#jvms-4.7.8-100)
 fload, [6.5.fload](jvms-6.html#jvms-6.5.fload)
 types and the Java Virtual Machine, [2.11.1](jvms-2.html#jvms-2.11.1-100)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-fload, fload\_<n>, [4.10.1.9.fload](jvms-4.html#jvms-4.10.1.9.fload)
-fload\_<n>, [6.5.fload\_n](jvms-6.html#jvms-6.5.fload_n)
+fload, fload_<n>, [4.10.1.9.fload](jvms-4.html#jvms-4.10.1.9.fload)
+fload_<n>, [6.5.fload_n](jvms-6.html#jvms-6.5.fload_n)
 floating-point arithmetic, [2.8](jvms-2.html#jvms-2.8)
 floating-point modes, [2.8.2](jvms-2.html#jvms-2.8.2)
 d2f, [6.5.d2f](jvms-6.html#jvms-6.5.d2f.desc-200)
 f2d, [6.5.f2d](jvms-6.html#jvms-6.5.f2d.notes-100)
 type conversion instructions, [2.11.4](jvms-2.html#jvms-2.11.4-130)
 floating-point types, value sets, and values, [2.3.2](jvms-2.html#jvms-2.3.2)
-CONSTANT\_Integer\_info and CONSTANT\_Float\_info structures, [4.4.4](jvms-4.html#jvms-4.4.4-200-B.1)
-CONSTANT\_Long\_info and CONSTANT\_Double\_info structures, [4.4.5](jvms-4.html#jvms-4.4.5-200-B.3)
+CONSTANT_Integer_info and CONSTANT_Float_info structures, [4.4.4](jvms-4.html#jvms-4.4.4-200-B.1)
+CONSTANT_Long_info and CONSTANT_Double_info structures, [4.4.5](jvms-4.html#jvms-4.4.5-200-B.3)
 d2f, [6.5.d2f](jvms-6.html#jvms-6.5.d2f.desc-200), [6.5.d2f](jvms-6.html#jvms-6.5.d2f.desc-210)
 f2d, [6.5.f2d](jvms-6.html#jvms-6.5.f2d.notes-100)
 floating-point modes, [2.8.2](jvms-2.html#jvms-2.8.2-300)
 invokedynamic, [6.5.invokedynamic](jvms-6.html#jvms-6.5.invokedynamic.desc-140-E)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.notes-100)
-ldc2\_w, [6.5.ldc2\_w](jvms-6.html#jvms-6.5.ldc2_w.notes-200)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.notes-200)
+ldc2_w, [6.5.ldc2_w](jvms-6.html#jvms-6.5.ldc2_w.notes-200)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.notes-200)
 more control examples, [3.5](jvms-3.html#jvms-3.5-300)
 primitive types and values, [2.3](jvms-2.html#jvms-2.3-110)
 floating-point value set parameters, [2.3.2](jvms-2.html#jvms-2.3.2-140-A)
@@ -17841,30 +16477,30 @@ format of examples, [3.1](jvms-3.html#jvms-3.1)
 format of instruction descriptions, [6.4](jvms-6.html#jvms-6.4)
 frames, [2.6](jvms-2.html#jvms-2.6)
 aload, [6.5.aload](jvms-6.html#jvms-6.5.aload.desc-100)
-aload\_<n>, [6.5.aload\_n](jvms-6.html#jvms-6.5.aload_n.desc-100)
+aload_<n>, [6.5.aload_n](jvms-6.html#jvms-6.5.aload_n.desc-100)
 anewarray, [6.5.anewarray](jvms-6.html#jvms-6.5.anewarray.desc-100)
 areturn, [6.5.areturn](jvms-6.html#jvms-6.5.areturn.desc-100)
 astore, [6.5.astore](jvms-6.html#jvms-6.5.astore.desc-100)
-astore\_<n>, [6.5.astore\_n](jvms-6.html#jvms-6.5.astore_n.desc-100)
+astore_<n>, [6.5.astore_n](jvms-6.html#jvms-6.5.astore_n.desc-100)
 athrow, [6.5.athrow](jvms-6.html#jvms-6.5.athrow.desc-100)
 checkcast, [6.5.checkcast](jvms-6.html#jvms-6.5.checkcast.desc-100)
 dload, [6.5.dload](jvms-6.html#jvms-6.5.dload.desc-100)
-dload\_<n>, [6.5.dload\_n](jvms-6.html#jvms-6.5.dload_n.desc-100)
+dload_<n>, [6.5.dload_n](jvms-6.html#jvms-6.5.dload_n.desc-100)
 dreturn, [6.5.dreturn](jvms-6.html#jvms-6.5.dreturn.desc-100)
 dstore, [6.5.dstore](jvms-6.html#jvms-6.5.dstore.desc-100)
-dstore\_<n>, [6.5.dstore\_n](jvms-6.html#jvms-6.5.dstore_n.desc-100)
+dstore_<n>, [6.5.dstore_n](jvms-6.html#jvms-6.5.dstore_n.desc-100)
 dynamic linking, [2.6.3](jvms-2.html#jvms-2.6.3-100)
 fload, [6.5.fload](jvms-6.html#jvms-6.5.fload.desc-100)
-fload\_<n>, [6.5.fload\_n](jvms-6.html#jvms-6.5.fload_n.desc-100)
+fload_<n>, [6.5.fload_n](jvms-6.html#jvms-6.5.fload_n.desc-100)
 format of instruction descriptions, [6.4](jvms-6.html#jvms-6.4-300)
 freturn, [6.5.freturn](jvms-6.html#jvms-6.5.freturn.desc-100)
 fstore, [6.5.fstore](jvms-6.html#jvms-6.5.fstore.desc-100)
-fstore\_<n>, [6.5.fstore\_n](jvms-6.html#jvms-6.5.fstore_n.desc-100)
+fstore_<n>, [6.5.fstore_n](jvms-6.html#jvms-6.5.fstore_n.desc-100)
 getfield, [6.5.getfield](jvms-6.html#jvms-6.5.getfield.desc-100)
 getstatic, [6.5.getstatic](jvms-6.html#jvms-6.5.getstatic.desc-100)
 iinc, [6.5.iinc](jvms-6.html#jvms-6.5.iinc.desc-100)
 iload, [6.5.iload](jvms-6.html#jvms-6.5.iload.desc-100)
-iload\_<n>, [6.5.iload\_n](jvms-6.html#jvms-6.5.iload_n.desc-100)
+iload_<n>, [6.5.iload_n](jvms-6.html#jvms-6.5.iload_n.desc-100)
 instanceof, [6.5.instanceof](jvms-6.html#jvms-6.5.instanceof.desc-100)
 invokedynamic, [6.5.invokedynamic](jvms-6.html#jvms-6.5.invokedynamic.desc-110)
 invokeinterface, [6.5.invokeinterface](jvms-6.html#jvms-6.5.invokeinterface.desc-100)
@@ -17873,19 +16509,19 @@ invokestatic, [6.5.invokestatic](jvms-6.html#jvms-6.5.invokestatic.desc-100)
 invokevirtual, [6.5.invokevirtual](jvms-6.html#jvms-6.5.invokevirtual.desc-100)
 ireturn, [6.5.ireturn](jvms-6.html#jvms-6.5.ireturn.desc-100)
 istore, [6.5.istore](jvms-6.html#jvms-6.5.istore.desc-100)
-istore\_<n>, [6.5.istore\_n](jvms-6.html#jvms-6.5.istore_n.desc-100)
+istore_<n>, [6.5.istore_n](jvms-6.html#jvms-6.5.istore_n.desc-100)
 Java Virtual Machine stacks, [2.5.2](jvms-2.html#jvms-2.5.2-100)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-100)
-ldc2\_w, [6.5.ldc2\_w](jvms-6.html#jvms-6.5.ldc2_w.desc-100)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-100)
+ldc2_w, [6.5.ldc2_w](jvms-6.html#jvms-6.5.ldc2_w.desc-100)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-100)
 limitations of the Java Virtual Machine, [4.11](jvms-4.html#jvms-4.11-100-E), [4.11](jvms-4.html#jvms-4.11-100-F)
 lload, [6.5.lload](jvms-6.html#jvms-6.5.lload.desc-100)
-lload\_<n>, [6.5.lload\_n](jvms-6.html#jvms-6.5.lload_n.desc-100)
+lload_<n>, [6.5.lload_n](jvms-6.html#jvms-6.5.lload_n.desc-100)
 load and store instructions, [2.11.2](jvms-2.html#jvms-2.11.2-100)
 local variables, [2.6.1](jvms-2.html#jvms-2.6.1-100)
 lreturn, [6.5.lreturn](jvms-6.html#jvms-6.5.lreturn.desc-100)
 lstore, [6.5.lstore](jvms-6.html#jvms-6.5.lstore.desc-100)
-lstore\_<n>, [6.5.lstore\_n](jvms-6.html#jvms-6.5.lstore_n.desc-100)
+lstore_<n>, [6.5.lstore_n](jvms-6.html#jvms-6.5.lstore_n.desc-100)
 multianewarray, [6.5.multianewarray](jvms-6.html#jvms-6.5.multianewarray.desc-200)
 new, [6.5.new](jvms-6.html#jvms-6.5.new.desc-100)
 normal method invocation completion, [2.6.4](jvms-2.html#jvms-2.6.4-110)
@@ -17901,8 +16537,8 @@ frem, [4.10.1.9.frem](jvms-4.html#jvms-4.10.1.9.frem), [6.5.frem](jvms-6.html#jv
 freturn, [4.10.1.9.freturn](jvms-4.html#jvms-4.10.1.9.freturn), [6.5.freturn](jvms-6.html#jvms-6.5.freturn)
 fstore, [6.5.fstore](jvms-6.html#jvms-6.5.fstore)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-fstore, fstore\_<n>, [4.10.1.9.fstore](jvms-4.html#jvms-4.10.1.9.fstore)
-fstore\_<n>, [6.5.fstore\_n](jvms-6.html#jvms-6.5.fstore_n)
+fstore, fstore_<n>, [4.10.1.9.fstore](jvms-4.html#jvms-4.10.1.9.fstore)
+fstore_<n>, [6.5.fstore_n](jvms-6.html#jvms-6.5.fstore_n)
 fsub, [4.10.1.9.fsub](jvms-4.html#jvms-4.10.1.9.fsub), [6.5.fsub](jvms-6.html#jvms-6.5.fsub)
 
 ### Index G
@@ -17911,8 +16547,8 @@ getfield, [4.10.1.9.getfield](jvms-4.html#jvms-4.10.1.9.getfield), [6.5.getfield
 getstatic, [4.10.1.9.getstatic](jvms-4.html#jvms-4.10.1.9.getstatic), [6.5.getstatic](jvms-6.html#jvms-6.5.getstatic)
 initialization, [5.5](jvms-5.html#jvms-5.5-110-A)
 goto, [6.5.goto](jvms-6.html#jvms-6.5.goto)
-goto, goto\_w, [4.10.1.9.goto](jvms-4.html#jvms-4.10.1.9.goto)
-goto\_w, [6.5.goto\_w](jvms-6.html#jvms-6.5.goto_w)
+goto, goto_w, [4.10.1.9.goto](jvms-4.html#jvms-4.10.1.9.goto)
+goto_w, [6.5.goto_w](jvms-6.html#jvms-6.5.goto_w)
 grammar notation, [4.3.1](jvms-4.html#jvms-4.3.1)
 signatures, [4.7.9.1](jvms-4.html#jvms-4.7.9.1-200)
 
@@ -17934,11 +16570,11 @@ operand stacks, [2.6.2](jvms-2.html#jvms-2.6.2-210)
 iaload, [4.10.1.9.iaload](jvms-4.html#jvms-4.10.1.9.iaload), [6.5.iaload](jvms-6.html#jvms-6.5.iaload)
 iand, [4.10.1.9.iand](jvms-4.html#jvms-4.10.1.9.iand), [6.5.iand](jvms-6.html#jvms-6.5.iand)
 iastore, [4.10.1.9.iastore](jvms-4.html#jvms-4.10.1.9.iastore), [6.5.iastore](jvms-6.html#jvms-6.5.iastore)
-iconst\_<i>, [6.5.iconst\_i](jvms-6.html#jvms-6.5.iconst_i)
+iconst_<i>, [6.5.iconst_i](jvms-6.html#jvms-6.5.iconst_i)
 idiv, [6.5.idiv](jvms-6.html#jvms-6.5.idiv)
-if<cond>, [4.10.1.9.if\_cond](jvms-4.html#jvms-4.10.1.9.if_cond), [6.5.if\_cond](jvms-6.html#jvms-6.5.if_cond)
-if\_acmp<cond>, [4.10.1.9.if\_acmp\_cond](jvms-4.html#jvms-4.10.1.9.if_acmp_cond), [6.5.if\_acmp\_cond](jvms-6.html#jvms-6.5.if_acmp_cond)
-if\_icmp<cond>, [4.10.1.9.if\_icmp\_cond](jvms-4.html#jvms-4.10.1.9.if_icmp_cond), [6.5.if\_icmp\_cond](jvms-6.html#jvms-6.5.if_icmp_cond)
+if<cond>, [4.10.1.9.if_cond](jvms-4.html#jvms-4.10.1.9.if_cond), [6.5.if_cond](jvms-6.html#jvms-6.5.if_cond)
+if_acmp<cond>, [4.10.1.9.if_acmp_cond](jvms-4.html#jvms-4.10.1.9.if_acmp_cond), [6.5.if_acmp_cond](jvms-6.html#jvms-6.5.if_acmp_cond)
+if_icmp<cond>, [4.10.1.9.if_icmp_cond](jvms-4.html#jvms-4.10.1.9.if_icmp_cond), [6.5.if_icmp_cond](jvms-6.html#jvms-6.5.if_icmp_cond)
 ifnonnull, [4.10.1.9.ifnonnull](jvms-4.html#jvms-4.10.1.9.ifnonnull), [6.5.ifnonnull](jvms-6.html#jvms-6.5.ifnonnull)
 ifnull, [4.10.1.9.ifnull](jvms-4.html#jvms-4.10.1.9.ifnull), [6.5.ifnull](jvms-6.html#jvms-6.5.ifnull)
 iinc, [4.10.1.9.iinc](jvms-4.html#jvms-4.10.1.9.iinc), [6.5.iinc](jvms-6.html#jvms-6.5.iinc)
@@ -17946,8 +16582,8 @@ wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
 iload, [6.5.iload](jvms-6.html#jvms-6.5.iload)
 types and the Java Virtual Machine, [2.11.1](jvms-2.html#jvms-2.11.1-100)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-iload, iload\_<n>, [4.10.1.9.iload](jvms-4.html#jvms-4.10.1.9.iload)
-iload\_<n>, [6.5.iload\_n](jvms-6.html#jvms-6.5.iload_n)
+iload, iload_<n>, [4.10.1.9.iload](jvms-4.html#jvms-4.10.1.9.iload)
+iload_<n>, [6.5.iload_n](jvms-6.html#jvms-6.5.iload_n)
 imul, [4.10.1.9.imul](jvms-4.html#jvms-4.10.1.9.imul), [6.5.imul](jvms-6.html#jvms-6.5.imul)
 ineg, [4.10.1.9.ineg](jvms-4.html#jvms-4.10.1.9.ineg), [6.5.ineg](jvms-6.html#jvms-6.5.ineg)
 initialization, [5.5](jvms-5.html#jvms-5.5)
@@ -17981,17 +16617,17 @@ interpretation of field descriptors, [4.3.2](jvms-4.html#jvms-4.3.2-200)
 field descriptors, [4.3.2](jvms-4.html#jvms-4.3.2-140)
 verification type system, [4.10.1.2](jvms-4.html#jvms-4.10.1.2-110)
 interpretation of tag values as types, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-130)
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-120), [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-A.1)
-interpretation of target\_type values (part 1), [4.7.20](jvms-4.html#jvms-4.7.20-400)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-120), [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-A.1)
+interpretation of target_type values (part 1), [4.7.20](jvms-4.html#jvms-4.7.20-400)
 RuntimeVisibleTypeAnnotations attribute, [4.7.20](jvms-4.html#jvms-4.7.20-300-D.3-A.1)
-interpretation of target\_type values (part 2), [4.7.20](jvms-4.html#jvms-4.7.20-410)
+interpretation of target_type values (part 2), [4.7.20](jvms-4.html#jvms-4.7.20-410)
 RuntimeVisibleTypeAnnotations attribute, [4.7.20](jvms-4.html#jvms-4.7.20-300-D.3-A.1)
-interpretation of type\_path\_kind values, [4.7.20.2](jvms-4.html#jvms-4.7.20.2-220-B-A.1)
-type\_path structure, [4.7.20.2](jvms-4.html#jvms-4.7.20.2-220-B-A)
+interpretation of type_path_kind values, [4.7.20.2](jvms-4.html#jvms-4.7.20.2-220-B-A.1)
+type_path structure, [4.7.20.2](jvms-4.html#jvms-4.7.20.2-220-B-A)
 introduction, [1](jvms-1.html)
 invokedynamic, [4.10.1.9.invokedynamic](jvms-4.html#jvms-4.10.1.9.invokedynamic), [6.5.invokedynamic](jvms-6.html#jvms-6.5.invokedynamic)
 BootstrapMethods attribute, [4.7.23](jvms-4.html#jvms-4.7.23-100)
-CONSTANT\_InvokeDynamic\_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-100)
+CONSTANT_InvokeDynamic_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-100)
 run-time constant pool, [5.1](jvms-5.html#jvms-5.1-110-G-A)
 invokeinterface, [4.10.1.9.invokeinterface](jvms-4.html#jvms-4.10.1.9.invokeinterface), [6.5.invokeinterface](jvms-6.html#jvms-6.5.invokeinterface)
 invokespecial, [4.10.1.9.invokespecial](jvms-4.html#jvms-4.10.1.9.invokespecial), [6.5.invokespecial](jvms-6.html#jvms-6.5.invokespecial)
@@ -18012,8 +16648,8 @@ ishl, ishr, iushr, [4.10.1.9.ishl](jvms-4.html#jvms-4.10.1.9.ishl)
 ishr, [6.5.ishr](jvms-6.html#jvms-6.5.ishr)
 istore, [6.5.istore](jvms-6.html#jvms-6.5.istore)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-istore, istore\_<n>, [4.10.1.9.istore](jvms-4.html#jvms-4.10.1.9.istore)
-istore\_<n>, [6.5.istore\_n](jvms-6.html#jvms-6.5.istore_n)
+istore, istore_<n>, [4.10.1.9.istore](jvms-4.html#jvms-4.10.1.9.istore)
+istore_<n>, [6.5.istore_n](jvms-6.html#jvms-6.5.istore_n)
 isub, [4.10.1.9.isub](jvms-4.html#jvms-4.10.1.9.isub), [6.5.isub](jvms-6.html#jvms-6.5.isub)
 iushr, [6.5.iushr](jvms-6.html#jvms-6.5.iushr)
 ixor, [4.10.1.9.ixor](jvms-4.html#jvms-4.10.1.9.ixor), [6.5.ixor](jvms-6.html#jvms-6.5.ixor)
@@ -18031,7 +16667,7 @@ initialization, [5.5](jvms-5.html#jvms-5.5-110-F)
 jsr, [6.5.jsr](jvms-6.html#jvms-6.5.jsr)
 ret, [6.5.ret](jvms-6.html#jvms-6.5.ret.notes-100), [6.5.ret](jvms-6.html#jvms-6.5.ret.notes-200)
 returnaddress type and values, [2.3.3](jvms-2.html#jvms-2.3.3-100)
-jsr\_w, [6.5.jsr\_w](jvms-6.html#jvms-6.5.jsr_w)
+jsr_w, [6.5.jsr_w](jvms-6.html#jvms-6.5.jsr_w)
 ret, [6.5.ret](jvms-6.html#jvms-6.5.ret.notes-200)
 returnaddress type and values, [2.3.3](jvms-2.html#jvms-2.3.3-100)
 
@@ -18046,25 +16682,25 @@ laload, [4.10.1.9.laload](jvms-4.html#jvms-4.10.1.9.laload), [6.5.laload](jvms-6
 land, [4.10.1.9.land](jvms-4.html#jvms-4.10.1.9.land), [6.5.land](jvms-6.html#jvms-6.5.land)
 lastore, [4.10.1.9.lastore](jvms-4.html#jvms-4.10.1.9.lastore), [6.5.lastore](jvms-6.html#jvms-6.5.lastore)
 lcmp, [4.10.1.9.lcmp](jvms-4.html#jvms-4.10.1.9.lcmp), [6.5.lcmp](jvms-6.html#jvms-6.5.lcmp)
-lconst\_<l>, [4.10.1.9.lconst\_l](jvms-4.html#jvms-4.10.1.9.lconst_l), [6.5.lconst\_l](jvms-6.html#jvms-6.5.lconst_l)
+lconst_<l>, [4.10.1.9.lconst_l](jvms-4.html#jvms-4.10.1.9.lconst_l), [6.5.lconst_l](jvms-6.html#jvms-6.5.lconst_l)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc)
 call site specifier resolution, [5.4.3.6](jvms-5.html#jvms-5.4.3.6-100-C)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.notes-100)
-ldc, ldc\_w, ldc2\_w, [4.10.1.9.ldc](jvms-4.html#jvms-4.10.1.9.ldc)
-ldc2\_w, [6.5.ldc2\_w](jvms-6.html#jvms-6.5.ldc2_w)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.notes-100)
+ldc, ldc_w, ldc2_w, [4.10.1.9.ldc](jvms-4.html#jvms-4.10.1.9.ldc)
+ldc2_w, [6.5.ldc2_w](jvms-6.html#jvms-6.5.ldc2_w)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w)
 ldiv, [4.10.1.9.ldiv](jvms-4.html#jvms-4.10.1.9.ldiv), [6.5.ldiv](jvms-6.html#jvms-6.5.ldiv)
 limitations of the Java Virtual Machine, [4.11](jvms-4.html#jvms-4.11)
-goto\_w, [6.5.goto\_w](jvms-6.html#jvms-6.5.goto_w.notes-100)
-jsr\_w, [6.5.jsr\_w](jvms-6.html#jvms-6.5.jsr_w.notes-300)
+goto_w, [6.5.goto_w](jvms-6.html#jvms-6.5.goto_w.notes-100)
+jsr_w, [6.5.jsr_w](jvms-6.html#jvms-6.5.jsr_w.notes-300)
 method descriptors, [4.3.3](jvms-4.html#jvms-4.3.3-210)
 LineNumberTable attribute, [4.7.12](jvms-4.html#jvms-4.7.12)
 linking, [5.4](jvms-5.html#jvms-5.4)
 verification of class files, [4.10](jvms-4.html#jvms-4.10-110)
 lload, [6.5.lload](jvms-6.html#jvms-6.5.lload)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-lload, lload\_<n>, [4.10.1.9.lload](jvms-4.html#jvms-4.10.1.9.lload)
-lload\_<n>, [6.5.lload\_n](jvms-6.html#jvms-6.5.lload_n)
+lload, lload_<n>, [4.10.1.9.lload](jvms-4.html#jvms-4.10.1.9.lload)
+lload_<n>, [6.5.lload_n](jvms-6.html#jvms-6.5.lload_n)
 lmul, [4.10.1.9.lmul](jvms-4.html#jvms-4.10.1.9.lmul), [6.5.lmul](jvms-6.html#jvms-6.5.lmul)
 lneg,9.lneg">4.10.1.9.lneg, [6.5.lneg](jvms-6.html#jvms-6.5.lneg)
 load and store instructions, [2.11.2](jvms-2.html#jvms-2.11.2)
@@ -18092,7 +16728,7 @@ load and store instructions, [2.11.2](jvms-2.html#jvms-2.11.2-100)
 method descriptors, [4.3.3](jvms-4.html#jvms-4.3.3-210)
 LocalVariableTable attribute, [4.7.13](jvms-4.html#jvms-4.7.13)
 LocalVariableTypeTable attribute, [4.7.14](jvms-4.html#jvms-4.7.14)
-location of enclosing attribute for target\_type values, [4.7.20](jvms-4.html#jvms-4.7.20-420)
+location of enclosing attribute for target_type values, [4.7.20](jvms-4.html#jvms-4.7.20-420)
 RuntimeVisibleTypeAnnotations attribute, [4.7.20](jvms-4.html#jvms-4.7.20-300-D.3-A.2)
 lookupswitch, [4.10.1.9.lookupswitch](jvms-4.html#jvms-4.10.1.9.lookupswitch), [6.5.lookupswitch](jvms-6.html#jvms-6.5.lookupswitch)
 instruction set summary, [2.11](jvms-2.html#jvms-2.11-210)
@@ -18104,8 +16740,8 @@ lshl, lshr, lushr, [4.10.1.9.lshl](jvms-4.html#jvms-4.10.1.9.lshl)
 lshr, [6.5.lshr](jvms-6.html#jvms-6.5.lshr)
 lstore, [6.5.lstore](jvms-6.html#jvms-6.5.lstore)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
-lstore, lstore\_<n>, [4.10.1.9.lstore](jvms-4.html#jvms-4.10.1.9.lstore)
-lstore\_<n>, [6.5.lstore\_n](jvms-6.html#jvms-6.5.lstore_n)
+lstore, lstore_<n>, [4.10.1.9.lstore](jvms-4.html#jvms-4.10.1.9.lstore)
+lstore_<n>, [6.5.lstore_n](jvms-6.html#jvms-6.5.lstore_n)
 lsub, [4.10.1.9.lsub](jvms-4.html#jvms-4.10.1.9.lsub), [6.5.lsub](jvms-6.html#jvms-6.5.lsub)
 lushr, [6.5.lushr](jvms-6.html#jvms-6.5.lushr)
 lxor, [4.10.1.9.lxor](jvms-4.html#jvms-4.10.1.9.lxor), [6.5.lxor](jvms-6.html#jvms-6.5.lxor)
@@ -18119,11 +16755,11 @@ creation and loading, [5.3](jvms-5.html#jvms-5.3-100)
 run-time constant pool, [2.5.5](jvms-2.html#jvms-2.5.5-110)
 method descriptors, [4.3.3](jvms-4.html#jvms-4.3.3)
 areturn, [6.5.areturn](jvms-6.html#jvms-6.5.areturn.desc-100)
-CONSTANT\_Fieldref\_info, CONSTANT\_Methodref\_info, and CONSTANT\_InterfaceMethodref\_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C.1)
-CONSTANT\_InvokeDynamic\_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-200-C)
-CONSTANT\_MethodType\_info structure, [4.4.9](jvms-4.html#jvms-4.4.9-200-B)
-CONSTANT\_NameAndType\_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-C)
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-C.1)
+CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C.1)
+CONSTANT_InvokeDynamic_info structure, [4.4.10](jvms-4.html#jvms-4.4.10-200-C)
+CONSTANT_MethodType_info structure, [4.4.9](jvms-4.html#jvms-4.4.9-200-B)
+CONSTANT_NameAndType_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-C)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-C.1)
 instruction representation, [4.10.1.3](jvms-4.html#jvms-4.10.1.3-140)
 invokeinterface, [6.5.invokeinterface](jvms-6.html#jvms-6.5.invokeinterface.desc-100)
 invokespecial, [6.5.invokespecial](jvms-6.html#jvms-6.5.invokespecial.desc-100)
@@ -18154,11 +16790,11 @@ invoking methods, [3.7](jvms-3.html#jvms-3.7-400)
 loading constraints, [5.3.4](jvms-5.html#jvms-5.3.4-130)
 method type and method handle resolution, [5.4.3.5](jvms-5.html#jvms-5.4.3.5)
 call site specifier resolution, [5.4.3.6](jvms-5.html#jvms-5.4.3.6-100-A), [5.4.3.6](jvms-5.html#jvms-5.4.3.6-100-B), [5.4.3.6](jvms-5.html#jvms-5.4.3.6-200)
-CONSTANT\_MethodHandle\_info structure, [4.4.8](jvms-4.html#jvms-4.4.8-200-B)
+CONSTANT_MethodHandle_info structure, [4.4.8](jvms-4.html#jvms-4.4.8-200-B)
 initialization, [5.5](jvms-5.html#jvms-5.5-110-B)
 invokevirtual, [6.5.invokevirtual](jvms-6.html#jvms-6.5.invokevirtual.desc-410), [6.5.invokevirtual](jvms-6.html#jvms-6.5.invokevirtual.desc-420), [6.5.invokevirtual](jvms-6.html#jvms-6.5.invokevirtual.linking-120)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-230), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.linking-110)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-230), [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.linking-110)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-230), [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.linking-110)
 special methods, [2.9](jvms-2.html#jvms-2.9-310)
 MethodParameters attribute, [4.7.24](jvms-4.html#jvms-4.7.24)
 methods, [4.6](jvms-4.html#jvms-4.6)
@@ -18202,8 +16838,8 @@ lreturn, [6.5.lreturn](jvms-6.html#jvms-6.5.lreturn.desc-100)
 monitorenter, [6.5.monitorenter](jvms-6.html#jvms-6.5.monitorenter.notes-100)
 return, [6.5.return](jvms-6.html#jvms-6.5.return.desc-100)
 more control examples, [3.5](jvms-3.html#jvms-3.5)
-dcmp<op>, [6.5.dcmp\_op](jvms-6.html#jvms-6.5.dcmp_op.notes-100)
-fcmp<op>, [6.5.fcmp\_op](jvms-6.html#jvms-6.5.fcmp_op.notes-100)
+dcmp<op>, [6.5.dcmp_op](jvms-6.html#jvms-6.5.dcmp_op.notes-100)
+fcmp<op>, [6.5.fcmp_op](jvms-6.html#jvms-6.5.fcmp_op.notes-100)
 multianewarray, [4.10.1.9.multianewarray](jvms-4.html#jvms-4.10.1.9.multianewarray), [6.5.multianewarray](jvms-6.html#jvms-6.5.multianewarray)
 
 ### Index N
@@ -18234,7 +16870,7 @@ notation, [1.4](jvms-1.html#jvms-1.4)
 Object creation and manipulation, [2.11.5](jvms-2.html#jvms-2.11.5)
 load and store instructions, [2.11.2](jvms-2.html#jvms-2.11.2-110)
 opcode mnemonics by opcode, [7](jvms-7.html)
-operand stack, [6.5.dup2](jvms-6.html#jvms-6.5.dup2.stack), [6.5.dup2\_x1](jvms-6.html#jvms-6.5.dup2_x1.stack), [6.5.dup2\_x2](jvms-6.html#jvms-6.5.dup2_x2.stack), [6.5.dup\_x2](jvms-6.html#jvms-6.5.dup_x2.stack), [6.5.pop2](jvms-6.html#jvms-6.5.pop2.stack)
+operand stack, [6.5.dup2](jvms-6.html#jvms-6.5.dup2.stack), [6.5.dup2_x1](jvms-6.html#jvms-6.5.dup2_x1.stack), [6.5.dup2_x2](jvms-6.html#jvms-6.5.dup2_x2.stack), [6.5.dup_x2](jvms-6.html#jvms-6.5.dup_x2.stack), [6.5.pop2](jvms-6.html#jvms-6.5.pop2.stack)
 operand stack management instructions, [2.11.6](jvms-2.html#jvms-2.11.6)
 operand stacks, [2.6.2](jvms-2.html#jvms-2.6.2)
 Code attribute, [4.7.3](jvms-4.html#jvms-4.7.3-300-C)
@@ -18302,7 +16938,7 @@ creation and loading, [5.3](jvms-5.html#jvms-5.3-510)
 loading constraints, [5.3.4](jvms-5.html#jvms-5.3.4-120)
 ret, [6.5.ret](jvms-6.html#jvms-6.5.ret)
 jsr, [6.5.jsr](jvms-6.html#jvms-6.5.jsr.notes-100)
-jsr\_w, [6.5.jsr\_w](jvms-6.html#jvms-6.5.jsr_w.notes-100)
+jsr_w, [6.5.jsr_w](jvms-6.html#jvms-6.5.jsr_w.notes-100)
 returnaddress type and values, [2.3.3](jvms-2.html#jvms-2.3.3-100)
 wide, [6.5.wide](jvms-6.html#jvms-6.5.wide.desc-100)
 return, [4.10.1.9.return](jvms-4.html#jvms-4.10.1.9.return), [6.5.return](jvms-6.html#jvms-6.5.return)
@@ -18320,8 +16956,8 @@ invokespecial, [6.5.invokespecial](jvms-6.html#jvms-6.5.invokespecial.desc-100)
 invokestatic, [6.5.invokestatic](jvms-6.html#jvms-6.5.invokestatic.desc-100)
 invokevirtual, [6.5.invokevirtual](jvms-6.html#jvms-6.5.invokevirtual.desc-100)
 ldc, [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-100), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-210), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-220), [6.5.ldc](jvms-6.html#jvms-6.5.ldc.desc-230)
-ldc2\_w, [6.5.ldc2\_w](jvms-6.html#jvms-6.5.ldc2_w.desc-100)
-ldc\_w, [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-100), [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-210), [6.5.ldc\_w](jvms-6.html#jvms-6.5.ldc_w.desc-230)
+ldc2_w, [6.5.ldc2_w](jvms-6.html#jvms-6.5.ldc2_w.desc-100)
+ldc_w, [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-100), [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-210), [6.5.ldc_w](jvms-6.html#jvms-6.5.ldc_w.desc-230)
 method type and method handle resolution, [5.4.3.5](jvms-5.html#jvms-5.4.3.5-230)
 putfield, [6.5.putfield](jvms-6.html#jvms-6.5.putfield.desc-100)
 putstatic, [6.5.putstatic](jvms-6.html#jvms-6.5.putstatic.desc-100)
@@ -18333,7 +16969,7 @@ RuntimeInvisibleParameterAnnotations attribute, [4.7.19](jvms-4.html#jvms-4.7.19
 RuntimeInvisibleTypeAnnotations attribute, [4.7.21](jvms-4.html#jvms-4.7.21)
 RuntimeVisibleAnnotations attribute, [4.7.16](jvms-4.html#jvms-4.7.16)
 annotations, [3.15](jvms-3.html#jvms-3.15-100)
-element\_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-D.1)
+element_value structure, [4.7.16.1](jvms-4.html#jvms-4.7.16.1-200-D.1)
 RuntimeInvisibleAnnotations attribute, [4.7.17](jvms-4.html#jvms-4.7.17-300-D)
 RuntimeInvisibleParameterAnnotations attribute, [4.7.19](jvms-4.html#jvms-4.7.19-300-D-B)
 RuntimeVisibleParameterAnnotations attribute, [4.7.18](jvms-4.html#jvms-4.7.18-300-D-B)
@@ -18356,9 +16992,9 @@ SourceFile attribute, [4.7.10](jvms-4.html#jvms-4.7.10)
 special methods, [2.9](jvms-2.html#jvms-2.9)
 ClassFile structure, [4.1](jvms-4.html#jvms-4.1-200-M.1)
 Code attribute, [4.7.3](jvms-4.html#jvms-4.7.3-100)
-CONSTANT\_Fieldref\_info, CONSTANT\_Methodref\_info, and CONSTANT\_InterfaceMethodref\_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C.2)
-CONSTANT\_MethodHandle\_info structure, [4.4.8](jvms-4.html#jvms-4.4.8-200-C-B)
-CONSTANT\_NameAndType\_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-B)
+CONSTANT_Fieldref_info, CONSTANT_Methodref_info, and CONSTANT_InterfaceMethodref_info structures, [4.4.2](jvms-4.html#jvms-4.4.2-200-C.2)
+CONSTANT_MethodHandle_info structure, [4.4.8](jvms-4.html#jvms-4.4.8-200-C-B)
+CONSTANT_NameAndType_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-B)
 ConstantValue attribute, [4.7.2](jvms-4.html#jvms-4.7.2-100-A)
 constraints on Java Virtual Machine Code, [4.9](jvms-4.html#jvms-4.9-100)
 initialization, [5.5](jvms-5.html#jvms-5.5-100)
@@ -18414,7 +17050,7 @@ methods, [4.6](jvms-4.html#jvms-4.6-200-A.9)
 
 tableswitch, [4.10.1.9.tableswitch](jvms-4.html#jvms-4.10.1.9.tableswitch), [6.5.tableswitch](jvms-6.html#jvms-6.5.tableswitch)
 instruction set summary, [2.11](jvms-2.html#jvms-2.11-210)
-target\_info union, [4.7.20.1](jvms-4.html#jvms-4.7.20.1)
+target_info union, [4.7.20.1](jvms-4.html#jvms-4.7.20.1)
 RuntimeVisibleTypeAnnotations attribute, [4.7.20](jvms-4.html#jvms-4.7.20-300-D.3-B.1)
 throwing and handling Exceptions, [3.12](jvms-3.html#jvms-3.12)
 Exceptions, [2.10](jvms-2.html#jvms-2.10-430)
@@ -18441,16 +17077,16 @@ type conversion instructions, [2.11.4](jvms-2.html#jvms-2.11.4)
 type support in the Java Virtual Machine instruction set, [2.11.1](jvms-2.html#jvms-2.11.1-220)
 types and the Java Virtual Machine, [2.11.1](jvms-2.html#jvms-2.11.1-200), [2.11.1](jvms-2.html#jvms-2.11.1-210)
 use of constants, local variables, and control constructs, [3.2](jvms-3.html#jvms-3.2-500)
-type\_path structure, [4.7.20.2](jvms-4.html#jvms-4.7.20.2)
+type_path structure, [4.7.20.2](jvms-4.html#jvms-4.7.20.2)
 RuntimeVisibleTypeAnnotations attribute, [4.7.20](jvms-4.html#jvms-4.7.20-300-D.3-C.1)
 types and the Java Virtual Machine, [2.11.1](jvms-2.html#jvms-2.11.1)
 arithmetic instructions, [2.11.3](jvms-2.html#jvms-2.11.3-100)
 control transfer instructions, [2.11.7](jvms-2.html#jvms-2.11.7-120)
 data types, [2.2](jvms-2.html#jvms-2.2-110)
 dup, [6.5.dup](jvms-6.html#jvms-6.5.dup.desc-110)
-dup\_x1, [6.5.dup\_x1](jvms-6.html#jvms-6.5.dup_x1.desc-110)
+dup_x1, [6.5.dup_x1](jvms-6.html#jvms-6.5.dup_x1.desc-110)
 load and store instructions, [2.11.2](jvms-2.html#jvms-2.11.2-200)
-operand stack, [6.5.dup2](jvms-6.html#jvms-6.5.dup2.stack-110), [6.5.dup2](jvms-6.html#jvms-6.5.dup2.stack-210), [6.5.dup2\_x1](jvms-6.html#jvms-6.5.dup2_x1.stack-110), [6.5.dup2\_x1](jvms-6.html#jvms-6.5.dup2_x1.stack-210), [6.5.dup2\_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-110), [6.5.dup2\_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-210), [6.5.dup2\_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-310), [6.5.dup2\_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-410), [6.5.dup\_x2](jvms-6.html#jvms-6.5.dup_x2.stack-110), [6.5.dup\_x2](jvms-6.html#jvms-6.5.dup_x2.stack-210), [6.5.pop2](jvms-6.html#jvms-6.5.pop2.stack-110), [6.5.pop2](jvms-6.html#jvms-6.5.pop2.stack-210)
+operand stack, [6.5.dup2](jvms-6.html#jvms-6.5.dup2.stack-110), [6.5.dup2](jvms-6.html#jvms-6.5.dup2.stack-210), [6.5.dup2_x1](jvms-6.html#jvms-6.5.dup2_x1.stack-110), [6.5.dup2_x1](jvms-6.html#jvms-6.5.dup2_x1.stack-210), [6.5.dup2_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-110), [6.5.dup2_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-210), [6.5.dup2_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-310), [6.5.dup2_x2](jvms-6.html#jvms-6.5.dup2_x2.stack-410), [6.5.dup_x2](jvms-6.html#jvms-6.5.dup_x2.stack-110), [6.5.dup_x2](jvms-6.html#jvms-6.5.dup_x2.stack-210), [6.5.pop2](jvms-6.html#jvms-6.5.pop2.stack-110), [6.5.pop2](jvms-6.html#jvms-6.5.pop2.stack-210)
 pop, [6.5.pop](jvms-6.html#jvms-6.5.pop.desc-110)
 stack map frame representation, [4.10.1.4](jvms-4.html#jvms-4.10.1.4-500)
 swap, [6.5.swap](jvms-6.html#jvms-6.5.swap.desc-200)
@@ -18460,7 +17096,7 @@ type conversion instructions, [2.11.4](jvms-2.html#jvms-2.11.4-170)
 
 unqualified names, [4.2.2](jvms-4.html#jvms-4.2.2)
 binary class and interface names, [4.2.1](jvms-4.html#jvms-4.2.1-200)
-CONSTANT\_NameAndType\_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-B)
+CONSTANT_NameAndType_info structure, [4.4.6](jvms-4.html#jvms-4.4.6-200-B)
 fields, [4.5](jvms-4.html#jvms-4.5-200-B)
 LocalVariableTable attribute, [4.7.13](jvms-4.html#jvms-4.7.13-300-D-B)
 LocalVariableTypeTable attribute, [4.7.14](jvms-4.html#jvms-4.7.14-300-D-B)
@@ -18481,21 +17117,21 @@ d2i, [6.5.d2i](jvms-6.html#jvms-6.5.d2i.desc-100)
 d2l, [6.5.d2l](jvms-6.html#jvms-6.5.d2l.desc-100)
 dadd, [6.5.dadd](jvms-6.html#jvms-6.5.dadd.desc-100)
 dastore, [6.5.dastore](jvms-6.html#jvms-6.5.dastore.desc-100)
-dcmp<op>, [6.5.dcmp\_op](jvms-6.html#jvms-6.5.dcmp_op.desc-100)
+dcmp<op>, [6.5.dcmp_op](jvms-6.html#jvms-6.5.dcmp_op.desc-100)
 ddiv, [6.5.ddiv](jvms-6.html#jvms-6.5.ddiv.desc-100)
 dmul, [6.5.dmul](jvms-6.html#jvms-6.5.dmul.desc-100)
 dneg, [6.5.dneg](jvms-6.html#jvms-6.5.dneg.desc-100)
 drem, [6.5.drem](jvms-6.html#jvms-6.5.drem.desc-100)
 dreturn, [6.5.dreturn](jvms-6.html#jvms-6.5.dreturn.desc-100)
 dstore, [6.5.dstore](jvms-6.html#jvms-6.5.dstore.desc-100)
-dstore\_<n>, [6.5.dstore\_n](jvms-6.html#jvms-6.5.dstore_n.desc-100)
+dstore_<n>, [6.5.dstore_n](jvms-6.html#jvms-6.5.dstore_n.desc-100)
 dsub, [6.5.dsub](jvms-6.html#jvms-6.5.dsub.desc-100)
 f2d, [6.5.f2d](jvms-6.html#jvms-6.5.f2d.desc-100)
 f2i, [6.5.f2i](jvms-6.html#jvms-6.5.f2i.desc-100)
 f2l, [6.5.f2l](jvms-6.html#jvms-6.5.f2l.desc-100)
 fadd, [6.5.fadd](jvms-6.html#jvms-6.5.fadd.desc-100)
 fastore, [6.5.fastore](jvms-6.html#jvms-6.5.fastore.desc-100)
-fcmp<op>, [6.5.fcmp\_op](jvms-6.html#jvms-6.5.fcmp_op.desc-100)
+fcmp<op>, [6.5.fcmp_op](jvms-6.html#jvms-6.5.fcmp_op.desc-100)
 fdiv, [6.5.fdiv](jvms-6.html#jvms-6.5.fdiv.desc-100)
 floating-point modes, [2.8.2](jvms-2.html#jvms-2.8.2-300)
 fmul, [6.5.fmul](jvms-6.html#jvms-6.5.fmul.desc-100)
@@ -18503,7 +17139,7 @@ fneg, [6.5.fneg](jvms-6.html#jvms-6.5.fneg.desc-100)
 frem, [6.5.frem](jvms-6.html#jvms-6.5.frem.desc-100)
 freturn, [6.5.freturn](jvms-6.html#jvms-6.5.freturn.desc-100)
 fstore, [6.5.fstore](jvms-6.html#jvms-6.5.fstore.desc-100)
-fstore\_<n>, [6.5.fstore\_n](jvms-6.html#jvms-6.5.fstore_n.desc-100)
+fstore_<n>, [6.5.fstore_n](jvms-6.html#jvms-6.5.fstore_n.desc-100)
 fsub, [6.5.fsub](jvms-6.html#jvms-6.5.fsub.desc-100)
 invokeinterface, [6.5.invokeinterface](jvms-6.html#jvms-6.5.invokeinterface.desc-310), [6.5.invokeinterface](jvms-6.html#jvms-6.5.invokeinterface.desc-320)
 invokespecial, [6.5.invokespecial](jvms-6.html#jvms-6.5.invokespecial.desc-410), [6.5.invokespecial](jvms-6.html#jvms-6.5.invokespecial.desc-420)
