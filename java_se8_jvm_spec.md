@@ -1,3 +1,4 @@
+
 # The Java® Virtual Machine Specification
 
       The Java® Virtual Machine Specification
@@ -3329,7 +3330,7 @@ For example, the class name representing the two-dimensional array type `int[][]
 
 An array type descriptor is valid only if it represents 255 or fewer dimensions.
 
-### 4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `CONSTANT_InterfaceMethodref_info` Structures
+### 4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `### 4.4.2. The `CONSTANT_Fieldref_info`, `CONSTANT_Methodref_info`, and `
 
 Fields, methods, and interface methods are represented by similar structures:
 
@@ -8534,7 +8535,9 @@ differentRuntimePackage(Class1, Class2) :-
     L1 \\= L2.
 
 differentRuntimePackage(Class1, Class2) :-
-    differentPackageName(Class1, Class2).#### 4.10.1.9. Type Checking Instructions
+    differentPackageName(Class1, Class2).
+
+#### 4.10.1.9. Type Checking Instructions
 
 In general, the type rule for an instruction is given relative to an environment `Environment` that defines the class and method in which the instruction occurs ([§4.10.1.1](jvms-4.html#jvms-4.10.1.1 "4.10.1.1. Accessors for Java Virtual Machine Artifacts")), and the offset `Offset` within the method at which the instruction occurs. The rule states that if the incoming type state `StackFrame` fulfills certain requirements, then:
 
@@ -8574,7 +8577,7 @@ The English language description of each rule is intended to be readable, intuit
 
 Any ambiguities can be resolved by referring to the formal Prolog clauses.
 
-##### _aaload_
+##### `aaload`
 
 An _aaload_ instruction is type safe iff one can validly replace types matching `int` and an array type with component type `ComponentType` where `ComponentType` is a subtype of `Object`, with `ComponentType` yielding the outgoing type state.
 
@@ -8593,7 +8596,7 @@ The component type of an array of `X` is `X`. We define the component type of `n
 arrayComponentType(arrayOf(X), X).
 arrayComponentType(null, null).
 
-##### _aastore_
+##### `aastore`
 
 An _aastore_ instruction is type safe iff one can validly pop types matching `Object`, `int`, and an array of `Object` off the incoming operand stack yielding the outgoing type state.
 
@@ -8607,7 +8610,7 @@ instructionIsTypeSafe(aastore, \_Environment, \_Offset, StackFrame,
            NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _aconst\_null_
+##### `aconst_null`
 
 An _aconst\_null_ instruction is type safe if one can validly push the type `null` onto the incoming operand stack yielding the outgoing type state.
 
@@ -8616,7 +8619,7 @@ instructionIsTypeSafe(aconst\_null, Environment, \_Offset, StackFrame,
     validTypeTransition(Environment, \[\], null, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _aload_, _aload\_<n>_
+##### `aload, aload_<n>`
 
 An _aload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `reference` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -8632,7 +8635,7 @@ instructionHasEquivalentTypeRule(aload\_1, aload(1)).
 instructionHasEquivalentTypeRule(aload\_2, aload(2)).
 instructionHasEquivalentTypeRule(aload\_3, aload(3)).
 
-##### _anewarray_
+##### `anewarray`
 
 An _anewarray_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting either a class type or an array type, and one can legally replace a type matching `int` on the incoming operand stack with an array with component type `CP` yielding the outgoing type state.
 
@@ -8643,7 +8646,7 @@ instructionIsTypeSafe(anewarray(CP), Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _areturn_
+##### `areturn`
 
 An _areturn_ instruction is type safe iff the enclosing method has a declared return type, `ReturnType`, that is a `reference` type, and one can validly pop a type matching `ReturnType` off the incoming operand stack.
 
@@ -8654,7 +8657,7 @@ instructionIsTypeSafe(areturn, Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[ReturnType\], \_PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _arraylength_
+##### `arraylength`
 
 An _arraylength_ instruction is type safe iff one can validly replace an array type on the incoming operand stack with the type `int` yielding the outgoing type state.
 
@@ -8665,7 +8668,7 @@ instructionIsTypeSafe(arraylength, Environment, \_Offset, StackFrame,
     validTypeTransition(Environment, \[top\], int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _astore_, _astore\_<n>_
+##### `astore, astore_<n>`
 
 An _astore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `reference` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -8681,7 +8684,7 @@ instructionHasEquivalentTypeRule(astore\_1, astore(1)).
 instructionHasEquivalentTypeRule(astore\_2, astore(2)).
 instructionHasEquivalentTypeRule(astore\_3, astore(3)).
 
-##### _athrow_
+##### `athrow`
 
 An _athrow_ instruction is type safe iff the top of the operand stack matches `Throwable`.
 
@@ -8691,7 +8694,7 @@ instructionIsTypeSafe(athrow, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[class('java/lang/Throwable', BL)\], \_PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _baload_
+##### `baload`
 
 A _baload_ instruction is type safe iff one can validly replace types matching `int` and a small array type on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -8709,7 +8712,7 @@ isSmallArray(arrayOf(byte)).
 isSmallArray(arrayOf(boolean)).
 isSmallArray(null).
 
-##### _bastore_
+##### `bastore`
 
 A _bastore_ instruction is type safe iff one can validly pop types matching `int`, `int` and a small array type off the incoming operand stack yielding the outgoing type state.
 
@@ -8720,13 +8723,13 @@ instructionIsTypeSafe(bastore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[int, int, top\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _bipush_
+##### `bipush`
 
 A _bipush_ instruction is type safe iff the equivalent _sipush_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(bipush(Value), sipush(Value)).
 
-##### _caload_
+##### `caload`
 
 A _caload_ instruction is type safe iff one can validly replace types matching `int` and array of `char` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -8736,7 +8739,7 @@ instructionIsTypeSafe(caload, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _castore_
+##### `castore`
 
 A _castore_ instruction is type safe iff one can validly pop types matching `int`, `int` and array of `char` off the incoming operand stack yielding the outgoing type state.
 
@@ -8745,7 +8748,7 @@ instructionIsTypeSafe(castore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[int, int, arrayOf(char)\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _checkcast_
+##### `checkcast`
 
 A _checkcast_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting either a class or an array, and one can validly replace the type `Object` on top of the incoming operand stack with the type denoted by `CP` yielding the outgoing type state.
 
@@ -8757,7 +8760,7 @@ instructionIsTypeSafe(checkcast(CP), Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _d2f_, _d2i_, _d2l_
+##### `d2f, d2i, d2l`
 
 A _d2f_ instruction is type safe if one can validly pop `double` off the incoming operand stack and replace it with `float`, yielding the outgoing type state.
 
@@ -8783,7 +8786,7 @@ instructionIsTypeSafe(d2l, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _dadd_
+##### `dadd`
 
 A _dadd_ instruction is type safe iff one can validly replace types matching `double` and `double` on the incoming operand stack with `double` yielding the outgoing type state.
 
@@ -8793,7 +8796,7 @@ instructionIsTypeSafe(dadd, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _daload_
+##### `daload`
 
 A _daload_ instruction is type safe iff one can validly replace types matching `int` and array of `double` on the incoming operand stack with `double` yielding the outgoing type state.
 
@@ -8803,7 +8806,7 @@ instructionIsTypeSafe(daload, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _dastore_
+##### `dastore`
 
 A _dastore_ instruction is type safe iff one can validly pop types matching `double`, `int` and array of `double` off the incoming operand stack yielding the outgoing type state.
 
@@ -8812,7 +8815,7 @@ instructionIsTypeSafe(dastore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[double, int, arrayOf(double)\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _dcmp<op>_
+##### `dcmp<op>`
 
 A _dcmpg_ instruction is type safe iff one can validly replace types matching `double` and `double` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -8826,7 +8829,7 @@ A _dcmpl_ instruction is type safe iff the equivalent _dcmpg_ instruction is typ
 
 instructionHasEquivalentTypeRule(dcmpl, dcmpg).
 
-##### _dconst\_<d>_
+##### `dconst_<d>`
 
 A _dconst\_0_ instruction is type safe if one can validly push the type `double` onto the incoming operand stack yielding the outgoing type state.
 
@@ -8839,13 +8842,13 @@ A _dconst\_1_ instruction is type safe iff the equivalent _dconst\_0_ instructio
 
 instructionHasEquivalentTypeRule(dconst\_1, dconst\_0).
 
-##### _ddiv_
+##### `ddiv`
 
 A _ddiv_ instruction is type safe iff the equivalent _dadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(ddiv, dadd).
 
-##### _dload_, _dload\_<n>_
+##### `dload, dload_<n>`
 
 A _dload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `double` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -8861,13 +8864,13 @@ instructionHasEquivalentTypeRule(dload\_1, dload(1)).
 instructionHasEquivalentTypeRule(dload\_2, dload(2)).
 instructionHasEquivalentTypeRule(dload\_3, dload(3)).
 
-##### _dmul_
+##### `dmul`
 
 A _dmul_ instruction is type safe iff the equivalent _dadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(dmul, dadd).
 
-##### _dneg_
+##### `dneg`
 
 A _dneg_ instruction is type safe iff there is a type matching `double` on the incoming operand stack. The _dneg_ instruction does not alter the type state.
 
@@ -8877,13 +8880,13 @@ instructionIsTypeSafe(dneg, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _drem_
+##### `drem`
 
 A _drem_ instruction is type safe iff the equivalent _dadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(drem, dadd).
 
-##### _dreturn_
+##### `dreturn`
 
 A _dreturn_ instruction is type safe if the enclosing method has a declared return type of `double`, and one can validly pop a type matching `double` off the incoming operand stack.
 
@@ -8893,7 +8896,7 @@ instructionIsTypeSafe(dreturn, Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[double\], \_PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _dstore_, _dstore\_<n>_
+##### `dstore, dstore_<n>`
 
 A _dstore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `double` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -8909,13 +8912,13 @@ instructionHasEquivalentTypeRule(dstore\_1, dstore(1)).
 instructionHasEquivalentTypeRule(dstore\_2, dstore(2)).
 instructionHasEquivalentTypeRule(dstore\_3, dstore(3)).
 
-##### _dsub_
+##### `dsub`
 
 A _dsub_ instruction is type safe iff the equivalent _dadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(dsub, dadd).
 
-##### _dup_
+##### `dup`
 
 A _dup_ instruction is type safe iff one can validly replace a category 1 type, `Type`, with the types `Type`, `Type`, yielding the outgoing type state.
 
@@ -8927,7 +8930,7 @@ instructionIsTypeSafe(dup, Environment, \_Offset, StackFrame,
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _dup\_x1_
+##### `dup_x1`
 
 A _dup\_x1_ instruction is type safe iff one can validly replace two category 1 types, `Type1`, and `Type2`, on the incoming operand stack with the types `Type1`, `Type2`, `Type1`, yielding the outgoing type state.
 
@@ -8941,7 +8944,7 @@ instructionIsTypeSafe(dup\_x1, Environment, \_Offset, StackFrame,
     NextStackFrame = frame(Locals, OutputOperandStack, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _dup\_x2_
+##### `dup_x2`
 
 A _dup\_x2_ instruction is type safe iff it is a _type safe form_ of the _dup\_x2_ instruction.
 
@@ -8977,7 +8980,7 @@ dup\_x2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
                       OutputOperandStack).
 
-##### _dup2_
+##### `dup2`
 
 A _dup2_ instruction is type safe iff it is a _type safe form_ of the _dup2_ instruction.
 
@@ -9010,7 +9013,7 @@ dup2Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack):-
     popCategory2(InputOperandStack, Type, \_),
     canSafelyPush(Environment, InputOperandStack, Type, OutputOperandStack).
 
-##### _dup2\_x1_
+##### `dup2_x1`
 
 A _dup2\_x1_ instruction is type safe iff it is a _type safe form_ of the _dup2\_x1_ instruction.
 
@@ -9044,7 +9047,9 @@ dup2\_x1Form2IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     popCategory2(InputOperandStack, Type1, Stack1),
     popCategory1(Stack1, Type2, Rest),
     canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
-                      OutputOperandStack).##### _dup2\_x2_
+                      OutputOperandStack).
+
+##### `dup2_x2`
 
 A _dup2\_x2_ instruction is type safe iff it is a _type safe form_ of the _dup2\_x2_ instruction.
 
@@ -9117,7 +9122,7 @@ dup2\_x2Form4IsTypeSafe(Environment, InputOperandStack, OutputOperandStack) :-
     canSafelyPushList(Environment, Rest, \[Type1, Type2, Type1\],
                       OutputOperandStack).
 
-##### _f2d_, _f2i_, _f2l_
+##### `f2d, f2i, f2l`
 
 An _f2d_ instruction is type safe if one can validly pop `float` off the incoming operand stack and replace it with `double`, yielding the outgoing type state.
 
@@ -9143,7 +9148,7 @@ instructionIsTypeSafe(f2l, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _fadd_
+##### `fadd`
 
 An _fadd_ instruction is type safe iff one can validly replace types matching `float` and `float` on the incoming operand stack with `float` yielding the outgoing type state.
 
@@ -9153,7 +9158,7 @@ instructionIsTypeSafe(fadd, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _faload_
+##### `faload`
 
 An _faload_ instruction is type safe iff one can validly replace types matching `int` and array of `float` on the incoming operand stack with `float` yielding the outgoing type state.
 
@@ -9163,7 +9168,7 @@ instructionIsTypeSafe(faload, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _fastore_
+##### `fastore`
 
 An _fastore_ instruction is type safe iff one can validly pop types matching `float`, `int` and array of `float` off the incoming operand stack yielding the outgoing type state.
 
@@ -9172,7 +9177,7 @@ instructionIsTypeSafe(fastore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[float, int, arrayOf(float)\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _fcmp<op>_
+##### `fcmp<op>`
 
 An _fcmpg_ instruction is type safe iff one can validly replace types matching `float` and `float` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -9186,7 +9191,7 @@ An _fcmpl_ instruction is type safe iff the equivalent _fcmpg_ instruction is ty
 
 instructionHasEquivalentTypeRule(fcmpl, fcmpg).
 
-##### _fconst\_<f>_
+##### `fconst_<f>`
 
 An _fconst\_0_ instruction is type safe if one can validly push the type `float` onto the incoming operand stack yielding the outgoing type state.
 
@@ -9200,13 +9205,13 @@ The rules for the other variants of _fconst_ are equivalent.
 instructionHasEquivalentTypeRule(fconst\_1, fconst\_0).
 instructionHasEquivalentTypeRule(fconst\_2, fconst\_0).
 
-##### _fdiv_
+##### `fdiv`
 
 An _fdiv_ instruction is type safe iff the equivalent _fadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(fdiv, fadd).
 
-##### _fload_, _fload\_<n>_
+##### `fload, fload_<n>`
 
 An _fload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `float` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -9222,13 +9227,13 @@ instructionHasEquivalentTypeRule(fload\_1, fload(1)).
 instructionHasEquivalentTypeRule(fload\_2, fload(2)).
 instructionHasEquivalentTypeRule(fload\_3, fload(3)).
 
-##### _fmul_
+##### `fmul`
 
 An _fmul_ instruction is type safe iff the equivalent _fadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(fmul, fadd).
 
-##### _fneg_
+##### `fneg`
 
 An _fneg_ instruction is type safe iff there is a type matching `float` on the incoming operand stack. The _fneg_ instruction does not alter the type state.
 
@@ -9238,13 +9243,13 @@ instructionIsTypeSafe(fneg, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _frem_
+##### `frem`
 
 An _frem_ instruction is type safe iff the equivalent _fadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(frem, fadd).
 
-##### _freturn_
+##### `freturn`
 
 An _freturn_ instruction is type safe if the enclosing method has a declared return type of `float`, and one can validly pop a type matching `float` off the incoming operand stack.
 
@@ -9254,7 +9259,7 @@ instructionIsTypeSafe(freturn, Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[float\], \_PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _fstore_, _fstore\_<n>_
+##### `fstore, fstore_<n>`
 
 An _fstore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `float` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -9270,13 +9275,13 @@ instructionHasEquivalentTypeRule(fstore\_1, fstore(1)).
 instructionHasEquivalentTypeRule(fstore\_2, fstore(2)).
 instructionHasEquivalentTypeRule(fstore\_3, fstore(3)).
 
-##### _fsub_
+##### `fsub`
 
 An _fsub_ instruction is type safe iff the equivalent _fadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(fsub, fadd).
 
-##### _getfield_
+##### `getfield`
 
 A _getfield_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, declared in a class `FieldClass`, and one can validly replace a type matching `FieldClass` with type `FieldType` on the incoming operand stack yielding the outgoing type state. `FieldClass` must not be an array type. `protected` fields are subject to additional checks ([§4.10.1.8](jvms-4.html#jvms-4.10.1.8 "4.10.1.8. Type Checking for protected Members")).
 
@@ -9290,7 +9295,7 @@ instructionIsTypeSafe(getfield(CP), Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _getstatic_
+##### `getstatic`
 
 A _getstatic_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, and one can validly push `FieldType` on the incoming operand stack yielding the outgoing type state.
 
@@ -9302,7 +9307,7 @@ instructionIsTypeSafe(getstatic(CP), Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _goto_, _goto\_w_
+##### `goto, goto_w`
 
 A _goto_ instruction is type safe iff its target operand is a valid branch target.
 
@@ -9315,7 +9320,7 @@ A _goto\_w_ instruction is type safe iff the equivalent _goto_ instruction is ty
 
 instructionHasEquivalentTypeRule(goto\_w(Target), goto(Target)).
 
-##### _i2b_, _i2c_, _i2d_, _i2f_, _i2l_, _i2s_
+##### `i2b, i2c, i2d, i2f, i2l, i2s`
 
 An _i2b_ instruction is type safe iff the equivalent _ineg_ instruction is type safe.
 
@@ -9353,7 +9358,7 @@ An _i2s_ instruction is type safe iff the equivalent _ineg_ instruction is type 
 
 instructionHasEquivalentTypeRule(i2s, ineg).
 
-##### _iadd_
+##### `iadd`
 
 An _iadd_ instruction is type safe iff one can validly replace types matching `int` and `int` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -9363,7 +9368,7 @@ instructionIsTypeSafe(iadd, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _iaload_
+##### `iaload`
 
 An _iaload_ instruction is type safe iff one can validly replace types matching `int` and array of `int` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -9373,13 +9378,13 @@ instructionIsTypeSafe(iaload, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _iand_
+##### `iand`
 
 An _iand_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(iand, iadd).
 
-##### _iastore_
+##### `iastore`
 
 An _iastore_ instruction is type safe iff one can validly pop types matching `int`, `int` and array of `int` off the incoming operand stack yielding the outgoing type state.
 
@@ -9388,7 +9393,7 @@ instructionIsTypeSafe(iastore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[int, int, arrayOf(int)\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _if\_acmp<cond>_
+##### `if_acmp<cond>`
 
 An _if\_acmpeq_ instruction is type safe iff one can validly pop types matching `reference` and `reference` on the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
@@ -9402,7 +9407,7 @@ The rule for _if\_acmpne_ is identical.
 
 instructionHasEquivalentTypeRule(if\_acmpne(Target), if\_acmpeq(Target)).
 
-##### _if\_icmp<cond>_
+##### `if_icmp<cond>`
 
 An _if\_icmpeq_ instruction is type safe iff one can validly pop types matching `int` and `int` on the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
@@ -9420,7 +9425,7 @@ instructionHasEquivalentTypeRule(if\_icmple(Target), if\_icmpeq(Target)).
 instructionHasEquivalentTypeRule(if\_icmplt(Target), if\_icmpeq(Target)).
 instructionHasEquivalentTypeRule(if\_icmpne(Target), if\_icmpeq(Target)).
 
-##### _if<cond>_
+##### `if<cond>`
 
 An _ifeq_ instruction is type safe iff one can validly pop a type matching `int` off the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
@@ -9438,7 +9443,7 @@ instructionHasEquivalentTypeRule(ifle(Target), ifeq(Target)).
 instructionHasEquivalentTypeRule(iflt(Target), ifeq(Target)).
 instructionHasEquivalentTypeRule(ifne(Target), ifeq(Target)).
 
-##### _ifnonnull_
+##### `ifnonnull`
 
 An _ifnonnull_ instruction is type safe iff one can validly pop a type matching `reference` off the incoming operand stack yielding the outgoing type state `NextStackFrame`, and the operand of the instruction, `Target`, is a valid branch target assuming an incoming type state of `NextStackFrame`.
 
@@ -9448,13 +9453,13 @@ instructionIsTypeSafe(ifnonnull(Target), Environment, \_Offset, StackFrame,
     targetIsTypeSafe(Environment, NextStackFrame, Target),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _ifnull_
+##### `ifnull`
 
 An _ifnull_ instruction is type safe iff the equivalent _ifnonnull_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(ifnull(Target), ifnonnull(Target)).
 
-##### _iinc_
+##### `iinc`
 
 An _iinc_ instruction with first operand `Index` is type safe iff `LIndex` has type `int`. The _iinc_ instruction does not change the type state.
 
@@ -9464,7 +9469,7 @@ instructionIsTypeSafe(iinc(Index, \_Value), \_Environment, \_Offset,
     nth0(Index, Locals, int),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _iload_, _iload\_<n>_
+##### `iload, iload_<n>`
 
 An _iload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `int` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -9480,13 +9485,13 @@ instructionHasEquivalentTypeRule(iload\_1, iload(1)).
 instructionHasEquivalentTypeRule(iload\_2, iload(2)).
 instructionHasEquivalentTypeRule(iload\_3, iload(3)).
 
-##### _imul_
+##### `imul`
 
 An _imul_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(imul, iadd).
 
-##### _ineg_
+##### `ineg`
 
 An _ineg_ instruction is type safe iff there is a type matching `int` on the incoming operand stack. The _ineg_ instruction does not alter the type state.
 
@@ -9495,7 +9500,7 @@ instructionIsTypeSafe(ineg, Environment, \_Offset, StackFrame,
     validTypeTransition(Environment, \[int\], int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _instanceof_
+##### `instanceof`
 
 An _instanceof_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting either a class or an array, and one can validly replace the type `Object` on top of the incoming operand stack with type `int` yielding the outgoing type state.
 
@@ -9507,7 +9512,7 @@ instructionIsTypeSafe(instanceof(CP), Environment, \_Offset, StackFrame,
                         StackFrame,NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _invokedynamic_
+##### `invokedynamic`
 
 An _invokedynamic_ instruction is type safe iff all of the following are true:
 
@@ -9531,7 +9536,7 @@ instructionIsTypeSafe(invokedynamic(CP,0,0), Environment, \_Offset,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _invokeinterface_
+##### `invokeinterface`
 
 An _invokeinterface_ instruction is type safe iff all of the following are true:
 
@@ -9562,7 +9567,7 @@ countIsValid(Count, InputFrame, OutputFrame) :-
     length(OperandStack2, Length2),
     Count =:= Length1 - Length2.
 
-##### _invokespecial_
+##### `invokespecial`
 
 An _invokespecial_ instruction is type safe iff all of the following are true:
 
@@ -9669,7 +9674,7 @@ In this situation, the original frame holds an uninitialized object in local var
 
 If not for this situation, the flags of the exception stack frame would always be the same as the flags of the input stack frame.
 
-##### _invokestatic_
+##### `invokestatic`
 
 An _invokestatic_ instruction is type safe iff all of the following are true:
 
@@ -9693,7 +9698,7 @@ instructionIsTypeSafe(invokestatic(CP), Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _invokevirtual_
+##### `invokevirtual`
 
 An _invokevirtual_ instruction is type safe iff all of the following are true:
 
@@ -9725,19 +9730,19 @@ instructionIsTypeSafe(invokevirtual(CP), Environment, \_Offset, StackFrame,
                          Descriptor, PoppedFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _ior_
+##### `ior`
 
 An _ior_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(ior, iadd).
 
-##### _irem_
+##### `irem`
 
 An _irem_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(irem, iadd).
 
-##### _ireturn_
+##### `ireturn`
 
 An _ireturn_ instruction is type safe if the enclosing method has a declared return type of `int`, and one can validly pop a type matching `int` off the incoming operand stack.
 
@@ -9747,7 +9752,7 @@ instructionIsTypeSafe(ireturn, Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[int\], \_PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _ishl_, _ishr_, _iushr_
+##### `ishl, ishr, iushr`
 
 An _ishl_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
@@ -9761,7 +9766,7 @@ An _iushr_ instruction is type safe iff the equivalent _iadd_ instruction is typ
 
 instructionHasEquivalentTypeRule(iushr, iadd).
 
-##### _istore_, _istore\_<n>_
+##### `istore, istore_<n>`
 
 An _istore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `int` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -9777,19 +9782,19 @@ instructionHasEquivalentTypeRule(istore\_1, istore(1)).
 instructionHasEquivalentTypeRule(istore\_2, istore(2)).
 instructionHasEquivalentTypeRule(istore\_3, istore(3)).
 
-##### _isub_
+##### `isub`
 
 An _isub_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(isub, iadd).
 
-##### _ixor_
+##### `ixor`
 
 An _ixor_ instruction is type safe iff the equivalent _iadd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(ixor, iadd).
 
-##### _l2d_, _l2f_, _l2i_
+##### `l2d, l2f, l2i`
 
 An _l2d_ instruction is type safe if one can validly pop `long` off the incoming operand stack and replace it with `double`, yielding the outgoing type state.
 
@@ -9815,7 +9820,7 @@ instructionIsTypeSafe(l2i, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _ladd_
+##### `ladd`
 
 An _ladd_ instruction is type safe iff one can validly replace types matching `long` and `long` on the incoming operand stack with `long` yielding the outgoing type state.
 
@@ -9825,7 +9830,7 @@ instructionIsTypeSafe(ladd, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _laload_
+##### `laload`
 
 An _laload_ instruction is type safe iff one can validly replace types matching `int` and array of `long` on the incoming operand stack with `long` yielding the outgoing type state.
 
@@ -9835,13 +9840,13 @@ instructionIsTypeSafe(laload, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _land_
+##### `land`
 
 An _land_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(land, ladd).
 
-##### _lastore_
+##### `lastore`
 
 An _lastore_ instruction is type safe iff one can validly pop types matching `long`, `int` and array of `long` off the incoming operand stack yielding the outgoing type state.
 
@@ -9850,7 +9855,7 @@ instructionIsTypeSafe(lastore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[long, int, arrayOf(long)\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _lcmp_
+##### `lcmp`
 
 A _lcmp_ instruction is type safe iff one can validly replace types matching `long` and `long` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -9860,7 +9865,7 @@ instructionIsTypeSafe(lcmp, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _lconst\_<l>_
+##### `lconst_<l>`
 
 An _lconst\_0_ instruction is type safe if one can validly push the type `long` onto the incoming operand stack yielding the outgoing type state.
 
@@ -9873,7 +9878,7 @@ An _lconst\_1_ instruction is type safe iff the equivalent _lconst\_0_ instructi
 
 instructionHasEquivalentTypeRule(lconst\_1, lconst\_0).
 
-##### _ldc_, _ldc\_w_, _ldc2\_w_
+##### `ldc, ldc_w, ldc2_w`
 
 An _ldc_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting an entity of type `Type`, where `Type` is either `int`, `float`, `String`, `Class`, `java.lang.invoke.MethodType`, or `java.lang.invoke.MethodHandle`, and one can validly push `Type` onto the incoming operand stack yielding the outgoing type state.
 
@@ -9905,13 +9910,13 @@ instructionIsTypeSafe(ldc2\_w(CP), Environment, \_Offset, StackFrame,
     validTypeTransition(Environment, \[\], Tag, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _ldiv_
+##### `ldiv`
 
 An _ldiv_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(ldiv, ladd).
 
-##### _lload_, _lload\_<n>_
+##### `lload, lload_<n>`
 
 An _lload_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a load instruction with operand `Index` and type `long` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -9927,13 +9932,13 @@ instructionHasEquivalentTypeRule(lload\_1, lload(1)).
 instructionHasEquivalentTypeRule(lload\_2, lload(2)).
 instructionHasEquivalentTypeRule(lload\_3, lload(3)).
 
-##### _lmul_
+##### `lmul`
 
 An _lmul_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(lmul, ladd).
 
-##### _lneg_
+##### `lneg`
 
 An _lneg_ instruction is type safe iff there is a type matching `long` on the incoming operand stack. The _lneg_ instruction does not alter the type state.
 
@@ -9943,7 +9948,7 @@ instructionIsTypeSafe(lneg, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _lookupswitch_
+##### `lookupswitch`
 
 A _lookupswitch_ instruction is type safe if its keys are sorted, one can validly pop `int` off the incoming operand stack yielding a new type state `BranchStackFrame`, and all of the instruction's targets are valid branch targets assuming `BranchStackFrame` as their incoming type state.
 
@@ -9954,19 +9959,19 @@ instructionIsTypeSafe(lookupswitch(Targets, Keys), Environment, \_, StackFrame,
     checklist(targetIsTypeSafe(Environment, BranchStackFrame), Targets),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _lor_
+##### `lor`
 
 A _lor_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(lor, ladd).
 
-##### _lrem_
+##### `lrem`
 
 An _lrem_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(lrem, ladd).
 
-##### _lreturn_
+##### `lreturn`
 
 An _lreturn_ instruction is type safe if the enclosing method has a declared return type of `long`, and one can validly pop a type matching `long` off the incoming operand stack.
 
@@ -9976,7 +9981,7 @@ instructionIsTypeSafe(lreturn, Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[long\], \_PoppedStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _lshl_, _lshr_, _lushr_
+##### `lshl, lshr, lushr`
 
 An _lshl_ instruction is type safe if one can validly replace the types `int` and `long` on the incoming operand stack with the type `long` yielding the outgoing type state.
 
@@ -9994,7 +9999,7 @@ An _lushr_ instruction is type safe iff the equivalent _lshl_ instruction is typ
 
 instructionHasEquivalentTypeRule(lushr, lshl).
 
-##### _lstore_, _lstore\_<n>_
+##### `lstore, lstore_<n>`
 
 An _lstore_ instruction with operand `Index` is type safe and yields an outgoing type state `NextStackFrame`, if a store instruction with operand `Index` and type `long` is type safe and yields an outgoing type state `NextStackFrame`.
 
@@ -10010,19 +10015,19 @@ instructionHasEquivalentTypeRule(lstore\_1, lstore(1)).
 instructionHasEquivalentTypeRule(lstore\_2, lstore(2)).
 instructionHasEquivalentTypeRule(lstore\_3, lstore(3)).
 
-##### _lsub_
+##### `lsub`
 
 An _lsub_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(lsub, ladd).
 
-##### _lxor_
+##### `lxor`
 
 An _lxor_ instruction is type safe iff the equivalent _ladd_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(lxor, ladd).
 
-##### _monitorenter_
+##### `monitorenter`
 
 A _monitorenter_ instruction is type safe iff one can validly pop a type matching `reference` off the incoming operand stack yielding the outgoing type state.
 
@@ -10031,13 +10036,13 @@ instructionIsTypeSafe(monitorenter, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[reference\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _monitorexit_
+##### `monitorexit`
 
 A _monitorexit_ instruction is type safe iff the equivalent _monitorenter_ instruction is type safe.
 
 instructionHasEquivalentTypeRule(monitorexit, monitorenter).
 
-##### _multianewarray_
+##### `multianewarray`
 
 A _multianewarray_ instruction with operands `CP` and `Dim` is type safe iff `CP` refers to a constant pool entry denoting an array type whose dimension is greater or equal to `Dim`, `Dim` is strictly positive, and one can validly replace `Dim` `int` types on the incoming operand stack with the type denoted byliteral">CP yielding the outgoing type state.
 
@@ -10062,7 +10067,7 @@ classDimension(arrayOf(X), Dimension) :-
 classDimension(\_, Dimension) :-
     Dimension = 0. 
 
-##### _new_
+##### `new`
 
 A _new_ instruction with operand `CP` at offset `Offset` is type safe iff `CP` refers to a constant pool entry denoting a class type, the type `uninitialized(Offset)` does not appear in the incoming operand stack, and one can validly push `uninitialized(Offset)` onto the incoming operand stack and replace `uninitialized(Offset)` with `top` in the incoming local variables yielding the outgoing type state.
 
@@ -10080,7 +10085,7 @@ instructionIsTypeSafe(new(CP), Environment, Offset, StackFrame,
 
 The `substitute` predicate is defined in the rule for _invokespecial_ ([§_invokespecial_](jvms-4.html#jvms-4.10.1.9.invokespecial "invokespecial")).
 
-##### _newarray_
+##### `newarray`
 
 A _newarray_ instruction with operand `TypeCode` is type safe iff `TypeCode` corresponds to the primitive type `ElementType`, and one can validly replace the type `int` on the incoming operand stack with the type 'array of `ElementType`', yielding the outgoing type state.
 
@@ -10102,7 +10107,7 @@ primitiveArrayInfo(9,  0'S, short,   int).
 primitiveArrayInfo(10, 0'I, int,     int). 
 primitiveArrayInfo(11, 0'J, long,    long).
 
-##### _nop_
+##### `nop`
 
 A _nop_ instruction is always type safe. The _nop_ instruction does not affect the type state.
 
@@ -10110,7 +10115,7 @@ instructionIsTypeSafe(nop, \_Environment, \_Offset, StackFrame,
                       StackFrame, ExceptionStackFrame) :-
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _pop_, _pop2_
+##### `pop, pop2`
 
 A _pop_ instruction is type safe iff one can validly pop a category 1 type off the incoming operand stack yielding the outgoing type state.
 
@@ -10149,7 +10154,7 @@ A _pop2_ instruction is a _type safe form 2_ _pop2_ instruction iff one can vali
 
 pop2Form2IsTypeSafe(\[top, Type | Rest\], Rest) :- sizeOf(Type, 2).
 
-##### _putfield_
+##### `putfield`
 
 A _putfield_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, declared in a class `FieldClass`, and one can validly pop types matching `FieldType` and `FieldClass` off the incoming operand stack yielding the outgoing type state.
 
@@ -10165,7 +10170,7 @@ instructionIsTypeSafe(putfield(CP), Environment, \_Offset, StackFrame,
            NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _putstatic_
+##### `putstatic`
 
 A _putstatic_ instruction with operand `CP` is type safe iff `CP` refers to a constant pool entry denoting a field whose declared type is `FieldType`, and one can validly pop a type matching `FieldType` off the incoming operand stack yielding the outgoing type state.
 
@@ -10176,7 +10181,7 @@ instructionIsTypeSafe(putstatic(CP), \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[FieldType\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _return_
+##### `return`
 
 A _return_ instruction is type safe if the enclosing method declares a `void` return type, and either:
 
@@ -10192,7 +10197,7 @@ instructionIsTypeSafe(return, Environment, \_Offset, StackFrame,
     notMember(flagThisUninit, Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _saload_
+##### `saload`
 
 An _saload_ instruction is type safe iff one can validly replace types matching `int` and array of `short` on the incoming operand stack with `int` yielding the outgoing type state.
 
@@ -10202,7 +10207,7 @@ instructionIsTypeSafe(saload, Environment, \_Offset, StackFrame,
                         StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _sastore_
+##### `sastore`
 
 An _sastore_ instruction is type safe iff one can validly pop types matching `int`, `int`, and array of `short` off the incoming operand stack yielding the outgoing type state.
 
@@ -10211,7 +10216,7 @@ instructionIsTypeSafe(sastore, \_Environment, \_Offset, StackFrame,
     canPop(StackFrame, \[int, int, arrayOf(short)\], NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _sipush_
+##### `sipush`
 
 An _sipush_ instruction is type safe iff one can validly push the type `int` onto the incoming operand stack yielding the outgoing type state.
 
@@ -10220,7 +10225,7 @@ instructionIsTypeSafe(sipush(\_Value), Environment, \_Offset, StackFrame,
     validTypeTransition(Environment, \[\], int, StackFrame, NextStackFrame),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _swap_
+##### `swap`
 
 A _swap_ instruction is type safe iff one can validly replace two category 1 types, `Type1` and `Type2`, on the incoming operand stack with the types `Type2` and `Type1` yielding the outgoing type state.
 
@@ -10232,7 +10237,7 @@ instructionIsTypeSafe(swap, \_Environment, \_Offset, StackFrame,
     NextStackFrame = frame(\_Locals, \[Type2, Type1 | Rest\], \_Flags),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _tableswitch_
+##### `tableswitch`
 
 A _tableswitch_ instruction is type safe if its keys are sorted, one can validly pop `int` off the incoming operand stack yielding a new type state `BranchStackFrame`, and all of the instruction's targets are valid branch targets assuming `BranchStackFrame` as their incoming type state.
 
@@ -10243,7 +10248,7 @@ instructionIsTypeSafe(tableswitch(Targets, Keys), Environment, \_Offset,
     checklist(targetIsTypeSafe(Environment, BranchStackFrame), Targets),
     exceptionStackFrame(StackFrame, ExceptionStackFrame).
 
-##### _wide_
+##### `wide`
 
 The _wide_ instructions follow the same rules as the instructions they widen.
 
@@ -11522,7 +11527,7 @@ A Java Virtual Machine implementation throws an object that is an instance of a 
 
 Java Virtual Machine instructions are represented in this chapter by entries of the form shown below, in alphabetical order and each beginning on a new page.
 
-### mnemonic
+### `mnemonic`
 
 #### Operation
 
@@ -11589,7 +11594,7 @@ In the First Edition of _The Java® Virtual Machine Specification_, values on th
 6.5. Instructions
 -----------------
 
-### _aaload_
+### `aaload`
 
 #### Operation
 
@@ -11620,7 +11625,7 @@ If _arrayref_ is `null`, _aaload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _aaload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _aastore_
+### `aastore`
 
 #### Operation
 
@@ -11631,7 +11636,9 @@ Store into `reference` array
   
 _aastore_  
 
-#### Forms_aastore_ = 83 (0x53)
+#### Forms
+
+_aastore_ = 83 (0x53)
 
 #### Operand Stack
 
@@ -11682,7 +11689,7 @@ Otherwise, if _index_ is not within the bounds of the array referenced by _array
 
 Otherwise, if _arrayref_ is not `null` and the actual type of _value_ is not assignment compatible (JLS §5.2) with the actual type of the components of the array, _aastore_ throws an `ArrayStoreException`.
 
-### _aconst\_null_
+### `aconst_null`
 
 #### Operation
 
@@ -11711,7 +11718,7 @@ Push the `null` object `reference` onto the operand stack.
 
 The Java Virtual Machine does not mandate a concrete value for `null`.
 
-### _aload_
+### `aload`
 
 #### Operation
 
@@ -11743,7 +11750,7 @@ The _aload_ instruction cannot be used to load a value of type `returnAddress` f
 
 The _aload_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _aload\_<n>_
+### `aload_<n>`
 
 #### Operation
 
@@ -11780,7 +11787,7 @@ An _aload\_<n>_ instruction cannot be used to load a value of type `returnAddres
 
 Each of the _aload\_<n>_ instructions is the same as _aload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _anewarray_
+### `anewarray`
 
 #### Operation
 
@@ -11819,7 +11826,7 @@ Otherwise, if _count_ is less than zero, the _anewarray_ instruction throws a `N
 
 The _anewarray_ instruction is used to create a single dimension of an array of object references or part of a multidimensional array.
 
-### _areturn_
+### `areturn`
 
 #### Operation
 
@@ -11852,7 +11859,7 @@ If the Java Virtual Machine implementation does not enforce the rules on structu
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the first of those rules is violated during invocation of the current method, then _areturn_ throws an `IllegalMonitorStateException`.
 
-### _arraylength_
+### `arraylength`
 
 #### Operation
 
@@ -11881,7 +11888,7 @@ The _arrayref_ must be of type `reference` and must refer to an array. It is pop
 
 If the _arrayref_ is `null`, the _arraylength_ instruction throws a `NullPointerException`.
 
-### _astore_
+### `astore`
 
 #### Operation
 
@@ -11915,7 +11922,7 @@ The _aload_ instruction ([§_aload_](jvms-6.html#jvms-6.5.aload "aload")) cannot
 
 The _astore_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _astore\_<n>_
+### `astore_<n>`
 
 #### Operation
 
@@ -11954,7 +11961,7 @@ An _aload\_<n>_ instruction ([§_aload\_<n>_](jvms-6.html#jvms-6.5.aload_n "aloa
 
 Each of the _astore\_<n>_ instructions is the same as _astore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _athrow_
+### `athrow`
 
 #### Operation
 
@@ -11995,7 +12002,7 @@ Otherwise, if the Java Virtual Machine implementation enforces the rules on stru
 
 The operand stack diagram for the _athrow_ instruction may be misleading: If a handler for this exception is matched in the current method, the _athrow_ instruction discards all the values on the operand stack, then pushes the thrown object onto the operand stack. However, if no handler is matched in the current method and the exception is thrown farther up the method invocation chain, then the operand stack of the method (if any) that handles the exception is cleared and _objectref_ is pushed onto that empty operand stack. All intervening frames from the method that threw the exception up to, but not including, the method that handles the exception are discarded.
 
-### _baload_
+### `baload`
 
 #### Operation
 
@@ -12030,7 +12037,7 @@ Otherwise, if _index_ is not within the bounds of the array referenced by _array
 
 The _baload_ instruction is used to load values from both `byte` and `boolean` arrays. In Oracle's Java Virtual Machine implementation, `boolean` arrays - that is, arrays of type `T_BOOLEAN` ([§2.2](jvms-2.html#jvms-2.2 "2.2. Data Types"), [§_newarray_](jvms-6.html#jvms-6.5.newarray "newarray")) - are implemented as arrays of 8-bit values. Other implementations may implement packed `boolean` arrays; the _baload_ instruction of such implementations must be used to access those arrays.
 
-### _bastore_
+### `bastore`
 
 #### Operation
 
@@ -12065,7 +12072,7 @@ Otherwise, if _index_ is not within the bounds of the array referenced by _array
 
 The _bastore_ instruction is used to store values into both `byte` and `boolean` arrays. In Oracle's Java Virtual Machine implementation, `boolean` arrays - that is, arrays of type `T_BOOLEAN` ([§2.2](jvms-2.html#jvms-2.2 "2.2. Data Types"), [§_newarray_](jvms-6.html#jvms-6.5.newarray "newarray")) - are implemented as arrays of 8-bit values. Other implementations may implement packed `boolean` arrays; in such implementations the _bastore_ instruction must be able to store `boolean` values into packed `boolean` arrays as well as `byte` values into `byte` arrays.
 
-### _bipush_
+### `bipush`
 
 #### Operation
 
@@ -12091,7 +12098,7 @@ _bipush_ = 16 (0x10)
 
 The immediate _byte_ is sign-extended to an `int` _value_. That _value_ is pushed onto the operand stack.
 
-### _caload_
+### `caload`
 
 #### Operation
 
@@ -12122,7 +12129,7 @@ If _arrayref_ is `null`, _caload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _caload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _castore_
+### `castore`
 
 #### Operation
 
@@ -12153,7 +12160,7 @@ If _arrayref_ is `null`, _castore_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _castore_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _checkcast_
+### `checkcast`
 
 #### Operation
 
@@ -12227,7 +12234,7 @@ Otherwise, if _objectref_ cannot be cast to the resolved class, array, or interf
 
 The _checkcast_ instruction is very similar to the _instanceof_ instruction ([§_instanceof_](jvms-6.html#jvms-6.5.instanceof "instanceof")). It differs in its treatment of `null`, its behavior when its test fails (_checkcast_ throws an exception, _instanceof_ pushes a result code), and its effect on the operand stack.
 
-### _d2f_
+### `d2f`
 
 #### Operation
 
@@ -12262,7 +12269,7 @@ A finite _value_' too small to be represented as a `float` is converted to a zer
 
 The _d2f_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_' and may also lose precision.
 
-### _d2i_
+### `d2i`
 
 #### Operation
 
@@ -12298,7 +12305,7 @@ The _value_ on the top of the operand stack must be of type `double`. It is popp
 
 The _d2i_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_' and may also lose precision.
 
-### _d2l_
+### `d2l`
 
 #### Operation
 
@@ -12334,7 +12341,7 @@ The _value_ on the top of the operand stack must be of type `double`. It is popp
 
 The _d2l_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_' and may also lose precision.
 
-### _dadd_
+### `dadd`
 
 #### Operation
 
@@ -12382,7 +12389,7 @@ The result of a _dadd_ instruction is governed by the rules of IEEE arithmetic:
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, or loss of precision may occur, execution of a _dadd_ instruction never throws a run-time exception.
 
-### _daload_
+### `daload`
 
 #### Operation
 
@@ -12413,7 +12420,7 @@ If _arrayref_ is `null`, _daload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _daload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _dastore_
+### `dastore`
 
 #### Operation
 
@@ -12444,7 +12451,7 @@ If _arrayref_ is `null`, _dastore_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _dastore_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _dcmp<op>_
+### `dcmp<op>`
 
 #### Operation
 
@@ -12486,7 +12493,7 @@ Floating-point comparison is performed in accordance with IEEE 754. All values o
 
 The _dcmpg_ and _dcmpl_ instructions differ only in their treatment of a comparison involving NaN. NaN is unordered, so any `double` comparison fails if either or both of its operands are NaN. With both _dcmpg_ and _dcmpl_ available, any `double` comparison may be compiled to push the same _result_ onto the operand stack whether the comparison fails on non-NaN values or fails because it encountered a NaN. For more information, see [§3.5](jvms-3.html#jvms-3.5 "3.5. More Control Examples").
 
-### _dconst\_<d>_
+### `dconst_<d>`
 
 #### Operation
 
@@ -12513,7 +12520,7 @@ _dconst\_1_ = 15 (0xf)
 
 Push the `double` constant <_d_\> (0.0 or 1.0) onto the operand stack.
 
-### _ddiv_
+### `ddiv`
 
 #### Operation
 
@@ -12559,7 +12566,7 @@ The result of a _ddiv_ instruction is governed by the rules of IEEE arithmetic:
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, division by zero, or loss of precision may occur, execution of a _ddiv_ instruction never throws a run-time exception.
 
-### _dload_
+### `dload`
 
 #### Operation
 
@@ -12589,7 +12596,7 @@ The _index_ is an unsigned byte. Both _index_ and _index_+1 must be indices into
 
 The _dload_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _dload\_<n>_
+### `dload_<n>`
 
 #### Operation
 
@@ -12624,7 +12631,7 @@ Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the cu
 
 Each of the _dload\_<n>_ instructions is the same as _dload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _dmul_
+### `dmul`
 
 #### Operation
 
@@ -12664,7 +12671,7 @@ The result of a _dmul_ instruction is governed by the rules of IEEE arithmetic:
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, or loss of precision may occur, execution of a _dmul_ instruction never throws a run-time exception.
 
-### _dneg_
+### `dneg`
 
 #### Operation
 
@@ -12700,7 +12707,7 @@ Special cases of interest:
 *   If the operand is a zero, the result is the zero of opposite sign.
     
 
-### _drem_
+### `drem`
 
 #### Operation
 
@@ -12747,7 +12754,7 @@ Despite the fact that division by zero may occur, evaluation of a _drem_ instruc
 
 The IEEE 754 remainder operation may be computed by the library routine `Math.IEEEremainder`.
 
-### _dreturn_
+### `dreturn`
 
 #### Operation
 
@@ -12780,7 +12787,7 @@ If the Java Virtual Machine implementation does not enforce the rules on structu
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the first of those rules is violated during invocation of the current method, then _dreturn_ throws an `IllegalMonitorStateException`.
 
-### _dstore_
+### `dstore`
 
 #### Operation
 
@@ -12810,7 +12817,7 @@ The _index_ is an unsigned byte. Both _index_ and _index_+1 must be indices into
 
 The _dstore_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _dstore\_<n>_
+### `dstore_<n>`
 
 #### Operation
 
@@ -12845,7 +12852,7 @@ Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the cu
 
 Each of the _dstore\_<n>_ instructions is the same as _dstore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _dsub_
+### `dsub`
 
 #### Operation
 
@@ -12874,7 +12881,7 @@ For `double` subtraction, it is always the case that `a-b` produces the same res
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, or loss of precision may occur, execution of a _dsub_ instruction never throws a run-time exception.
 
-### _dup_
+### `dup`
 
 #### Operation
 
@@ -12901,7 +12908,7 @@ Duplicate the top value on the operand stack and push the duplicated value onto 
 
 The _dup_ instruction must not be used unless _value_ is a value of a category 1 computational type ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
 
-### _dup\_x1_
+### `dup_x1`
 
 #### Operation
 
@@ -12928,7 +12935,7 @@ Duplicate the top value on the operand stack and insert the duplicated value two
 
 The _dup\_x1_ instruction must not be used unless both _value1_ and _value2_ are values of a category 1 computational type ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
 
-### _dup\_x2_
+### `dup_x2`
 
 #### Operation
 
@@ -12965,7 +12972,7 @@ where _value1_ is a value of a category 1 computational type and _value2_ is a v
 
 Duplicate the top value on the operand stack and insert the duplicated value two or three values down in the operand stack.
 
-### _dup2_
+### `dup2`
 
 #### Operation
 
@@ -13002,7 +13009,7 @@ where _value_ is a value of a category 2 computational type ([§2.11.1](jvms-2.h
 
 Duplicate the top one or two values on the operand stack and push the duplicated value or values back onto the operand stack in the original order.
 
-### _dup2\_x1_
+### `dup2_x1`
 
 #### Operation
 
@@ -13039,7 +13046,7 @@ where _value1_ is a value of a category 2 computational type and _value2_ is a v
 
 Duplicate the top one or two values on the operand stack and insert the duplicated values, in the original order, one value beneath the original value or values in the operand stack.
 
-### _dup2\_x2_
+### `dup2_x2`
 
 #### Operation
 
@@ -13092,7 +13099,7 @@ where _value1_ and _value2_ are both values of a category 2 computational type (
 
 Duplicate the top one or two values on the operand stack and insert the duplicated values, in the original order, into the operand stack.
 
-### _f2d_
+### `f2d`
 
 #### Operation
 
@@ -13123,7 +13130,7 @@ Where an _f2d_ instruction is FP-strict ([§2.8.2](jvms-2.html#jvms-2.8.2 "2.8.2
 
 Where an _f2d_ instruction is not FP-strict, the result of the conversion may be taken from the double-extended-exponent value set; it is not necessarily rounded to the nearest representable value in the double value set. However, if the operand _value_ is taken from the float-extended-exponent value set and the target result is constrained to the double value set, rounding of _value_ may be required.
 
-### _f2i_
+### `f2i`
 
 #### Operation
 
@@ -13158,7 +13165,7 @@ The _value_ on the top of the operand stack must be of type `float`. It is poppe
 
 The _f2i_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_' and may also lose precision.
 
-### _f2l_
+### `f2l`
 
 #### Operation
 
@@ -13194,7 +13201,7 @@ The _value_ on the top of the operand stack must be of type `float`. It is poppe
 
 The _f2l_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_' and may also lose precision.
 
-### _fadd_
+### `fadd`
 
 #### Operation
 
@@ -13242,7 +13249,7 @@ The result of an _fadd_ instruction is governed by the rules of IEEE arithmetic:
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, or loss of precision may occur, execution of an _fadd_ instruction never throws a run-time exception.
 
-### _faload_
+### `faload`
 
 #### Operation
 
@@ -13273,7 +13280,7 @@ If _arrayref_ is `null`, _faload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _faload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _fastore_
+### `fastore`
 
 #### Operation
 
@@ -13304,7 +13311,7 @@ If _arrayref_ is `null`, _fastore_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _fastore_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _fcmp<op>_
+### `fcmp<op>`
 
 #### Operation
 
@@ -13346,7 +13353,7 @@ Floating-point comparison is performed in accordance with IEEE 754. All values o
 
 The _fcmpg_ and _fcmpl_ instructions differ only in their treatment of a comparison involving NaN. NaN is unordered, so any `float` comparison fails if either or both of its operands are NaN. With both _fcmpg_ and _fcmpl_ available, any `float` comparison may be compiled to push the same _result_ onto the operand stack whether the comparison fails on non-NaN values or fails because it encountered a NaN. For more information, see [§3.5](jvms-3.html#jvms-3.5 "3.5. More Control Examples").
 
-### _fconst\_<f>_
+### `fconst_<f>`
 
 #### Operation
 
@@ -13375,7 +13382,7 @@ _fconst\_2_ = 13 (0xd)
 
 Push the `float` constant <_f_\> (0.0, 1.0, or 2.0) onto the operand stack.
 
-### _fdiv_
+### `fdiv`
 
 #### Operation
 
@@ -13421,7 +13428,7 @@ The result of an _fdiv_ instruction is governed by the rules of IEEE arithmetic:
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, division by zero, or loss of precision may occur, execution of an _fdiv_ instruction never throws a run-time exception.
 
-### _fload_
+### `fload`
 
 #### Operation
 
@@ -13451,7 +13458,7 @@ The _index_ is an unsigned byte that must be an index into the local variable ar
 
 The _fload_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _fload\_<n>_
+### `fload_<n>`
 
 #### Operation
 
@@ -13486,7 +13493,7 @@ The <_n_\> must be an index into the local variable array of the current frame (
 
 Each of the _fload\_<n>_ instructions is the same as _fload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _fmul_
+### `fmul`
 
 #### Operation
 
@@ -13526,7 +13533,7 @@ The result of an _fmul_ instruction is governed by the rules of IEEE arithmetic:
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, or loss of precision may occur, execution of an _fmul_ instruction never throws a run-time exception.
 
-### _fneg_
+### `fneg`
 
 #### Operation
 
@@ -13560,7 +13567,7 @@ Special cases of interest:
 *   If the operand is a zero, the result is the zero of opposite sign.
     
 
-### _frem_
+### `frem`
 
 #### Operation
 
@@ -13608,7 +13615,7 @@ Despite the fact that division by zero may occur, evaluation of an _frem_ instru
 
 The IEEE 754 remainder operation may be computed by the library routine `Math.IEEEremainder`.
 
-### _freturn_
+### `freturn`
 
 #### Operation
 
@@ -13641,7 +13648,7 @@ If the Java Virtual Machine implementation does not enforce the rules on structu
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the first of those rules is violated during invocation of the current method, then _freturn_ throws an `IllegalMonitorStateException`.
 
-### _fstore_
+### `fstore`
 
 #### Operation
 
@@ -13671,7 +13678,7 @@ The _index_ is an unsigned byte that must be an index into the local variable ar
 
 The _fstore_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _fstore\_<n>_
+### `fstore_<n>`
 
 #### Operation
 
@@ -13706,7 +13713,7 @@ The <_n_\> must be an index into the local variable array of the current frame (
 
 Each of the _fstore\_<n>_ instructions is the same as _fstore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _fsub_
+### `fsub`
 
 #### Operation
 
@@ -13735,7 +13742,7 @@ For `float` subtraction, it is always the case that `a-b` produces the same resu
 
 The Java Virtual Machine requires support of gradual underflow as defined by IEEE 754. Despite the fact that overflow, underflow, or loss of precision may occur, execution of an _fsub_ instruction never throws a run-time exception.
 
-### _getfield_
+### `getfield`
 
 #### Operation
 
@@ -13778,7 +13785,7 @@ Otherwise, if _objectref_ is `null`, the _getfield_ instruction throws a `NullPo
 
 The _getfield_ instruction cannot be used to access the `length` field of an array. The _arraylength_ instruction ([§_arraylength_](jvms-6.html#jvms-6.5.arraylength "arraylength")) is used instead.
 
-### _getstatic_
+### `getstatic`
 
 #### Operation
 
@@ -13819,7 +13826,7 @@ Otherwise, if the resolved field is not a `static` (class) field or an interface
 
 Otherwise, if execution of this _getstatic_ instruction causes initialization of the referenced class or interface, _getstatic_ may throw an `Error` as detailed in [§5.5](jvms-5.html#jvms-5.5 "5.5. Initialization").
 
-### _goto_
+### `goto`
 
 #### Operation
 
@@ -13844,7 +13851,7 @@ No change
 
 The unsigned bytes _branchbyte1_ and _branchbyte2_ are used to construct a signed 16-bit _branchoffset_, where _branchoffset_ is (_branchbyte1_ `<<` 8) | _branchbyte2_. Execution proceeds at that offset from the address of the opcode of this _goto_ instruction. The target address must be that of an opcode of an instruction within the method that contains this _goto_ instruction.
 
-### _goto\_w_
+### `goto_w`
 
 #### Operation
 
@@ -13875,7 +13882,7 @@ The unsigned bytes _branchbyte1_, _branchbyte2_, _branchbyte3_, and _branchbyte4
 
 Although the _goto\_w_ instruction takes a 4-byte branch offset, other factors limit the size of a method to 65535 bytes ([§4.11](jvms-4.html#jvms-4.11 "4.11. Limitations of the Java Virtual Machine")). This limit may be raised in a future release of the Java Virtual Machine.
 
-### _i2b_
+### `i2b`
 
 #### Operation
 
@@ -13904,7 +13911,7 @@ The _value_ on the top of the operand stack must be of type `int`. It is popped 
 
 The _i2b_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_. The _result_ may also not have the same sign as _value_.
 
-### _i2c_
+### `i2c`
 
 #### Operation
 
@@ -13912,8 +13919,9 @@ Convert `int` to `char`
 
 #### Format
 
-  
-_i2c_#### Forms
+_i2c_
+
+#### Forms
 
 _i2c_ = 146 (0x92)
 
@@ -13931,7 +13939,7 @@ The _value_ on the top of the operand stack must be of type `int`. It is popped 
 
 The _i2c_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_. The _result_ (which is always positive) may also not have the same sign as _value_.
 
-### _i2d_
+### `i2d`
 
 #### Operation
 
@@ -13960,7 +13968,7 @@ The _value_ on the top of the operand stack must be of type `int`. It is popped 
 
 The _i2d_ instruction performs a widening primitive conversion (JLS §5.1.2). Because all values of type `int` are exactly representable by type `double`, the conversion is exact.
 
-### _i2f_
+### `i2f`
 
 #### Operation
 
@@ -13989,7 +13997,7 @@ The _value_ on the top of the operand stack must be of type `int`. It is popped 
 
 The _i2f_ instruction performs a widening primitive conversion (JLS §5.1.2), but may result in a loss of precision because values of type `float` have only 24 significand bits.
 
-### _i2l_
+### `i2l`
 
 #### Operation
 
@@ -14018,7 +14026,7 @@ The _value_ on the top of the operand stack must be of type `int`. It is popped 
 
 The _i2l_ instruction performs a widening primitive conversion (JLS §5.1.2). Because all values of type `int` are exactly representable by type `long`, the conversion is exact.
 
-### _i2s_
+### `i2s`
 
 #### Operation
 
@@ -14047,7 +14055,7 @@ The _value_ on the top of the operand stack must be of type `int`. It is popped 
 
 The _i2s_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_. The _result_ may also not have the same sign as _value_.
 
-### _iadd_
+### `iadd`
 
 #### Operation
 
@@ -14076,7 +14084,7 @@ The result is the 32 low-order bits of the true mathematical result in a suffici
 
 Despite the fact that overflow may occur, execution of an _iadd_ instruction never throws a run-time exception.
 
-### _iaload_
+### `iaload`
 
 #### Operation
 
@@ -14107,7 +14115,7 @@ If _arrayref_ is `null`, _iaload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _iaload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _iand_
+### `iand`
 
 #### Operation
 
@@ -14132,7 +14140,7 @@ _iand_ = 126 (0x7e)
 
 Both _value1_ and _value2_ must be of type `int`. They are popped from the operand stack. An `int` _result_ is calculated by taking the bitwise AND (conjunction) of _value1_ and _value2_. The _result_ is pushed onto the operand stack.
 
-### _iastore_
+### `iastore`
 
 #### Operation
 
@@ -14163,7 +14171,7 @@ If _arrayref_ is `null`, _iastore_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _iastore_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _iconst\_<i>_
+### `iconst_<i>`
 
 #### Operation
 
@@ -14204,7 +14212,7 @@ Push the `int` constant <_i_\> (-1, 0, 1, 2, 3, 4 or 5) onto the operand stack.
 
 Each of this family of instructions is equivalent to _bipush_ <_i_\> for the respective value of <_i_\>, except that the operand <_i_\> is implicit.
 
-### _idiv_
+### `idiv`
 
 #### Operation
 
@@ -14237,7 +14245,7 @@ There is one special case that does not satisfy this rule: if the dividend is th
 
 If the value of the divisor in an `int` division is 0, _idiv_ throws an `ArithmeticException`.
 
-### _if\_acmp<cond>_
+### `if_acmp<cond>`
 
 #### Operation
 
@@ -14275,7 +14283,7 @@ If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are use
 
 Otherwise, if the comparison fails, execution proceeds at the address of the instruction following this _if\_acmp<cond>_ instruction.
 
-### _if\_icmp<cond>_
+### `if_icmp<cond>`
 
 #### Operation
 
@@ -14329,7 +14337,7 @@ If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are use
 
 Otherwise, execution proceeds at the address of the instruction following this _if\_icmp<cond>_ instruction.
 
-### _if<cond>_
+### `if<cond>`
 
 #### Operation
 
@@ -14381,7 +14389,7 @@ If the comparison succeeds, the unsigned _branchbyte1_ and _branchbyte2_ are use
 
 Otherwise, execution proceeds at the address of the instruction following this _if<cond>_ instruction.
 
-### _ifnonnull_
+### `ifnonnull`
 
 #### Operation
 
@@ -14410,7 +14418,7 @@ The _value_ must be of type `reference`. It is popped from the operand stack. If
 
 Otherwise, execution proceeds at the address of the instruction following this _ifnonnull_ instruction.
 
-### _ifnull_
+### `ifnull`
 
 #### Operation
 
@@ -14439,7 +14447,7 @@ The _value_ must of type `reference`. It is popped from the operand stack. If _v
 
 Otherwise, execution proceeds at the address of the instruction following this _ifnull_ instruction.
 
-### _iinc_
+### `iinc`
 
 #### Operation
 
@@ -14468,7 +14476,7 @@ The _index_ is an unsigned byte that must be an index into the local variable ar
 
 The _iinc_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index and to increment it by a two-byte immediate signed value.
 
-### _iload_
+### `iload`
 
 #### Operation
 
@@ -14498,7 +14506,7 @@ The _index_ is an unsigned byte that must be an index into the local variable ar
 
 The _iload_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _iload\_<n>_
+### `iload_<n>`
 
 #### Operation
 
@@ -14533,7 +14541,7 @@ The <_n_\> must be an index into the local variable array of the current frame (
 
 Each of the _iload\_<n>_ instructions is the same as _iload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _imul_
+### `imul`
 
 #### Operation
 
@@ -14562,7 +14570,7 @@ The result is the 32 low-order bits of the true mathematical result in a suffici
 
 Despite the fact that overflow may occur, execution of an _imul_ instruction never throws a run-time exception.
 
-### _ineg_
+### `ineg`
 
 #### Operation
 
@@ -14591,7 +14599,7 @@ For `int` values, negation is the same as subtraction from zero. Because the Jav
 
 For all `int` values `x`, `-x` equals `(~x)+1`.
 
-### _instanceof_
+### `instanceof`
 
 #### Operation
 
@@ -14661,7 +14669,7 @@ During resolution of the symbolic reference to the class, array, or interface ty
 
 The _instanceof_ instruction is very similar to the _checkcast_ instruction ([§_checkcast_](jvms-6.html#jvms-6.5.checkcast "checkcast")). It differs in its treatment of `null`, its behavior when its test fails (_checkcast_ throws an exception, _instanceof_ pushes a result code), and its effect on the operand stack.
 
-### _invokedynamic_
+### `invokedynamic`
 
 #### Operation
 
@@ -14759,7 +14767,7 @@ Otherwise, during the continuing resolution of the call site specifier, if the t
 
 If this specific dynamic call site completed resolution of its call site specifier, it implies that a non-`null` `reference` to an instance of `java.lang.invoke.CallSite` is bound to this dynamic call site. Therefore, the operand stack item which represents a `reference` to the target of the call site object is never `null`. Similarly, it implies that the method descriptor in the call site specifier is semantically equal to the type descriptor of the _method handle to be invoked_ as if by execution of an _invokevirtual_ instruction. Together, these invariants mean that an _invokedynamic_ instruction which is bound to a call site object never throws a `NullPointerException` or a `java.lang.invoke.WrongMethodTypeException`.
 
-### _invokeinterface_
+### `invokeinterface`
 
 #### Operation
 
@@ -14844,7 +14852,7 @@ The _nargs_ argument values and _objectref_ are not one-to-one with the first _n
 
 The selection logic allows a non-`abstract` method declared in a superinterface to be selected. Methods in interfaces are only considered if there is no matching method in the class hierarchy. In the event that there are two non-`abstract` methods in the superinterface hierarchy, with neither more specific than the other, an error occurs; there is no attempt to disambiguate (for example, one may be the referenced method and one may be unrelated, but we do not prefer the referenced method). On the other hand, if there are many `abstract` methods but only one non-`abstract` method, the non-`abstract` method is selected (unless an `abstract` method is more specific).
 
-### _invokespecial_
+### `invokespecial`
 
 #### Operation
 
@@ -14940,7 +14948,7 @@ The _nargs_ argument values and _objectref_ are not one-to-one with the first _n
 
 The _invokespecial_ instruction handles invocation of a `private` interface method, a non-`abstract` interface method referenced via a direct superinterface, and a non-`abstract` interface method referenced via a superclass. In these cases, the rules for selection are essentially the same as those for _invokeinterface_ (except that the search starts from a different class).
 
-### _invokestatic_
+### `invokestatic`
 
 #### Operation
 
@@ -15002,7 +15010,7 @@ Otherwise, if the resolved method is `native` and the code that implements the m
 
 The _nargs_ argument values are not one-to-one with the first _nargs_ local variables. Argument values of types `long` and `double` must be stored in two consecutive local variables, thus more than _nargs_ local variables may be required to pass _nargs_ argument values to the invoked method.
 
-### _invokevirtual_
+### `invokevirtual`
 
 #### Operation
 
@@ -15114,7 +15122,7 @@ The _nargs_ argument values and _objectref_ are not one-to-one with the first _n
 
 It is possible that the symbolic reference of an _invokevirtual_ instruction resolves to an interface method. In this case, it is possible that there is no overriding method in the class hierarchy, but that a non-`abstract` interface method matches the resolved method's descriptor. The selection logic matches such a method, using the same rules as for _invokeinterface_.
 
-### _ior_
+### `ior`
 
 #### Operation
 
@@ -15139,7 +15147,7 @@ _ior_ = 128 (0x80)
 
 Both _value1_ and _value2_ must be of type `int`. They are popped from the operand stack. An `int` _result_ is calculated by taking the bitwise inclusive OR of _value1_ and _value2_. The _result_ is pushed onto the operand stack.
 
-### _irem_
+### `irem`
 
 #### Operation
 
@@ -15170,7 +15178,7 @@ The result of the _irem_ instruction is such that `(a/b)*b + (a%b)` is equal to 
 
 If the value of the divisor for an `int` remainder operator is 0, _irem_ throws an `ArithmeticException`.
 
-### _ireturn_
+### `ireturn`
 
 #### Operation
 
@@ -15203,7 +15211,7 @@ If the Java Virtual Machine implementation does not enforce the rules on structu
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the first of those rules is violated during invocation of the current method, then _ireturn_ throws an `IllegalMonitorStateException`.
 
-### _ishl_
+### `ishl`
 
 #### Operation
 
@@ -15232,7 +15240,7 @@ Both _value1_ and _value2_ must be of type `int`. The values are popped from the
 
 This is equivalent (even if overflow occurs) to multiplication by 2 to the power _s_. The shift distance actually used is always in the range 0 to 31, inclusive, as if _value2_ were subjected to a bitwise logical AND with the mask value 0x1f.
 
-### _ishr_
+### `ishr`
 
 #### Operation
 
@@ -15261,7 +15269,7 @@ Both _value1_ and _value2_ must be of type `int`. The values are popped from the
 
 The resulting value is _floor_(_value1_ / 2_s_), where _s_ is _value2_ & 0x1f. For non-negative _value1_, this is equivalent to truncating `int` division by 2 to the power _s_. The shift distance actually used is always in the range 0 to 31, inclusive, as if _value2_ were subjected to a bitwise logical AND with the mask value 0x1f.
 
-### _istore_
+### `istore`
 
 #### Operation
 
@@ -15273,7 +15281,9 @@ Store `int` into local variable
 _istore_  
 _index_  
 
-#### Forms_istore_ = 54 (0x36)
+#### Forms
+
+_istore_ = 54 (0x36)
 
 #### Operand Stack
 
@@ -15289,7 +15299,7 @@ The _index_ is an unsigned byte that must be an index into the local variable ar
 
 The _istore_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _istore\_<n>_
+### `istore_<n>`
 
 #### Operation
 
@@ -15324,7 +15334,7 @@ The <_n_\> must be an index into the local variable array of the current frame (
 
 Each of the _istore\_<n>_ instructions is the same as _istore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _isub_
+### `isub`
 
 #### Operation
 
@@ -15355,7 +15365,7 @@ The result is the 32 low-order bits of the true mathematical result in a suffici
 
 Despite the fact that overflow may occur, execution of an _isub_ instruction never throws a run-time exception.
 
-### _iushr_
+### `iushr`
 
 #### Operation
 
@@ -15384,7 +15394,7 @@ Both _value1_ and _value2_ must be of type `int`. The values are popped from the
 
 If _value1_ is positive and _s_ is _value2_ & 0x1f, the result is the same as that of _value1_ `>>` _s_; if _value1_ is negative, the result is equal to the value of the expression (_value1_ `>>` _s_) + (2 `<<` ~_s_). The addition of the (2 `<<` ~_s_) term cancels out the propagated sign bit. The shift distance actually used is always in the range 0 to 31, inclusive.
 
-### _ixor_
+### `ixor`
 
 #### Operation
 
@@ -15409,7 +15419,7 @@ _ixor_ = 130 (0x82)
 
 Both _value1_ and _value2_ must be of type `int`. They are popped from the operand stack. An `int` _result_ is calculated by taking the bitwise exclusive OR of _value1_ and _value2_. The _result_ is pushed onto the operand stack.
 
-### _jsr_
+### `jsr`
 
 #### Operation
 
@@ -15442,7 +15452,7 @@ Note that _jsr_ pushes the address onto the operand stack and _ret_ ([§_ret_](j
 
 In Oracle's implementation of a compiler for the Java programming language prior to Java SE 6, the _jsr_ instruction was used with the _ret_ instruction in the implementation of the `finally` clause ([§3.13](jvms-3.html#jvms-3.13 "3.13. Compiling finally"), [§4.10.2.5](jvms-4.html#jvms-4.10.2.5 "4.10.2.5. Exceptions and finally")).
 
-### _jsr\_w_
+### `jsr_w`
 
 #### Operation
 
@@ -15479,7 +15489,7 @@ In Oracle's implementation of a compiler for the Java programming language prior
 
 Although the _jsr\_w_ instruction takes a 4-byte branch offset, other factors limit the size of a method to 65535 bytes ([§4.11](jvms-4.html#jvms-4.11 "4.11. Limitations of the Java Virtual Machine")). This limit may be raised in a future release of the Java Virtual Machine.
 
-### _l2d_
+### `l2d`
 
 #### Operation
 
@@ -15508,7 +15518,7 @@ The _value_ on the top of the operand stack must be of type `long`. It is popped
 
 The _l2d_ instruction performs a widening primitive conversion (JLS §5.1.2) that may lose precision because values of type `double` have only 53 significand bits.
 
-### _l2f_
+### `l2f`
 
 #### Operation
 
@@ -15537,7 +15547,7 @@ The _value_ on the top of the operand stack must be of type `long`. It is popped
 
 The _l2f_ instruction performs a widening primitive conversion (JLS §5.1.2) that may lose precision because values of type `float` have only 24 significand bits.
 
-### _l2i_
+### `l2i`
 
 #### Operation
 
@@ -15566,7 +15576,7 @@ The _value_ on the top of the operand stack must be of type `long`. It is popped
 
 The _l2i_ instruction performs a narrowing primitive conversion (JLS §5.1.3). It may lose information about the overall magnitude of _value_. The _result_ may also not have the same sign as value.
 
-### _ladd_
+### `ladd`
 
 #### Operation
 
@@ -15595,7 +15605,7 @@ The result is the 64 low-order bits of the true mathematical result in a suffici
 
 Despite the fact that overflow may occur, execution of an _ladd_ instruction never throws a run-time exception.
 
-### _laload_
+### `laload`
 
 #### Operation
 
@@ -15626,7 +15636,7 @@ If _arrayref_ is `null`, _laload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _laload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _land_
+### `land`
 
 #### Operation
 
@@ -15651,7 +15661,7 @@ _land_ = 127 (0x7f)
 
 Both _value1_ and _value2_ must be of type `long`. They are popped from the operand stack. A `long` _result_ is calculated by taking the bitwise AND of _value1_ and _value2_. The _result_ is pushed onto the operand stack.
 
-### _lastore_
+### `lastore`
 
 #### Operation
 
@@ -15682,7 +15692,7 @@ If _arrayref_ is `null`, _lastore_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _lastore_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _lcmp_e">
+### `lcmp_e"`
 
 #### Operation
 
@@ -15707,7 +15717,7 @@ _lcmp_ = 148 (0x94)
 
 Both _value1_ and _value2_ must be of type `long`. They are both popped from the operand stack, and a signed integer comparison is performed. If _value1_ is greater than _value2_, the `int` value 1 is pushed onto the operand stack. If _value1_ is equal to _value2_, the `int` value 0 is pushed onto the operand stack. If _value1_ is less than _value2_, the `int` value -1 is pushed onto the operand stack.
 
-### _lconst\_<l>_
+### `lconst_<l>`
 
 #### Operation
 
@@ -15734,7 +15744,7 @@ _lconst\_1_ = 10 (0xa)
 
 Push the `long` constant <_l_\> (0 or 1) onto the operand stack.
 
-### _ldc_
+### `ldc`
 
 #### Operation
 
@@ -15778,7 +15788,7 @@ During resolution of a symbolic reference to a method type or method handle, any
 
 The _ldc_ instruction can only be used to push a value of type `float` taken from the float value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `float` in the constant pool ([§4.4.4](jvms-4.html#jvms-4.4.4 "4.4.4. The CONSTANT_Integer_info and CONSTANT_Float_info Structures")) must be taken from the float value set.
 
-### _ldc\_w_
+### `ldc_w`
 
 #### Operation
 
@@ -15825,7 +15835,7 @@ The _ldc\_w_ instruction is identical to the _ldc_ instruction ([§_ldc_](jvms-6
 
 The _ldc\_w_ instruction can only be used to push a value of type `float` taken from the float value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `float` in the constant pool ([§4.4.4](jvms-4.html#jvms-4.4.4 "4.4.4. The CONSTANT_Integer_info and CONSTANT_Float_info Structures")) must be taken from the float value set.
 
-### _ldc2\_w_
+### `ldc2_w`
 
 #### Operation
 
@@ -15858,7 +15868,7 @@ Only a wide-index version of the _ldc2\_w_ instruction exists; there is no _ldc2
 
 The _ldc2\_w_ instruction can only be used to push a value of type `double` taken from the double value set ([§2.3.2](jvms-2.html#jvms-2.3.2 "2.3.2. Floating-Point Types, Value Sets, and Values")) because a constant of type `double` in the constant pool ([§4.4.5](jvms-4.html#jvms-4.4.5 "4.4.5. The CONSTANT_Long_info and CONSTANT_Double_info Structures")) must be taken from the double value set.
 
-### _ldiv_
+### `ldiv`
 
 #### Operation
 
@@ -15891,7 +15901,7 @@ There is one special case that does not satisfy this rule: if the dividend is th
 
 If the value of the divisor in a `long` division is 0, _ldiv_ throws an `ArithmeticException`.
 
-### _lload_
+### `lload`
 
 #### Operation
 
@@ -15921,7 +15931,7 @@ The _index_ is an unsigned byte. Both _index_ and _index_+1 must be indices into
 
 The _lload_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _lload\_<n>_
+### `lload_<n>`
 
 #### Operation
 
@@ -15956,7 +15966,7 @@ Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the cu
 
 Each of the _lload\_<n>_ instructions is the same as _lload_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _lmul_
+### `lmul`
 
 #### Operation
 
@@ -15985,7 +15995,7 @@ The result is the 64 low-order bits of the true mathematical result in a suffici
 
 Despite the fact that overflow may occur, execution of an _lmul_ instruction never throws a run-time exception.
 
-### _lneg_
+### `lneg`
 
 #### Operation
 
@@ -16014,7 +16024,7 @@ For `long` values, negation is the same as subtraction from zero. Because the Ja
 
 For all `long` values `x`, `-x` equals `(~x)+1`.
 
-### _lookupswitch_
+### `lookupswitch`
 
 #### Operation
 
@@ -16061,7 +16071,7 @@ The alignment required of the 4-byte operands of the _lookupswitch_ instruction 
 
 The _match-offset_ pairs are sorted to support lookup routines that are quicker than linear search.
 
-### _lor_
+### `lor`
 
 #### Operation
 
@@ -16086,7 +16096,7 @@ _lor_ = 129 (0x81)
 
 Both _value1_ and _value2_ must be of type `long`. They are popped from the operand stack. A `long` _result_ is calculated by taking the bitwise inclusive OR of _value1_ and _value2_. The _result_ is pushed onto the operand stack.
 
-### _lrem_
+### `lrem`
 
 #### Operation
 
@@ -16117,7 +16127,7 @@ The result of the _lrem_ instruction is such that `(a/b)*b + (a%b)` is equal to 
 
 If the value of the divisor for a `long` remainder operator is 0, _lrem_ throws an `ArithmeticException`.
 
-### _lreturn_
+### `lreturn`
 
 #### Operation
 
@@ -16150,7 +16160,7 @@ If the Java Virtual Machine implementation does not enforce the rules on structu
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the first of those rules is violated during invocation of the current method, then _lreturn_ throws an `IllegalMonitorStateException`.
 
-### _lshl_
+### `lshl`
 
 #### Operation
 
@@ -16179,7 +16189,7 @@ The _value1_ must be of type `long`, and _value2_ must be of type `int`. The val
 
 This is equivalent (even if overflow occurs) to multiplication by 2 to the power _s_. The shift distance actually used is therefore always in the range 0 to 63, inclusive, as if _value2_ were subjected to a bitwise logical AND with the mask value 0x3f.
 
-### _lshr_
+### `lshr`
 
 #### Operation
 
@@ -16208,7 +16218,7 @@ The _value1_ must be of type `long`, and _value2_ must be of type `int`. The val
 
 The resulting value is _floor_(_value1_ / 2_s_), where _s_ is _value2_ & 0x3f. For non-negative _value1_, this is equivalent to truncating `long` division by 2 to the power _s_. The shift distance actually used is therefore always in the range 0 to 63, inclusive, as if _value2_ were subjected to a bitwise logical AND with the mask value 0x3f.
 
-### _lstore_
+### `lstore`
 
 #### Operation
 
@@ -16238,7 +16248,7 @@ The _index_ is an unsigned byte. Both _index_ and _index_+1 must be indices into
 
 The _lstore_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _lstore\_<n>_
+### `lstore_<n>`
 
 #### Operation
 
@@ -16273,7 +16283,7 @@ Both <_n_\> and <_n_\>+1 must be indices into the local variable array of the cu
 
 Each of the _lstore\_<n>_ instructions is the same as _lstore_ with an _index_ of <_n_\>, except that the operand <_n_\> is implicit.
 
-### _lsub_
+### `lsub`
 
 #### Operation
 
@@ -16304,7 +16314,7 @@ The result is the 64 low-order bits of the true mathematical result in a suffici
 
 Despite the fact that overflow may occur, execution of an _lsub_ instruction never throws a run-time exception.
 
-### _lushr_
+### `lushr`
 
 #### Operation
 
@@ -16333,7 +16343,7 @@ The _value1_ must be of type `long`, and _value2_ must be of type `int`. The val
 
 If _value1_ is positive and _s_ is _value2_ & 0x3f, the result is the same as that of _value1_ `>>` _s_; if _value1_ is negative, the result is equal to the value of the expression (_value1_ `>>` _s_) + (2L `<<` ~_s_). The addition of the (2L `<<` ~_s_) term cancels out the propagated sign bit. The shift distance actually used is always in the range 0 to 63, inclusive.
 
-### _lxor_
+### `lxor`
 
 #### Operation
 
@@ -16358,7 +16368,7 @@ _lxor_ = 131 (0x83)
 
 Both _value1_ and _value2_ must be of type `long`. They are popped from the operand stack. A `long` _result_ is calculated by taking the bitwise exclusive OR of _value1_ and _value2_. The _result_ is pushed onto the operand stack.
 
-### _monitorenter_
+### `monitorenter`
 
 #### Operation
 
@@ -16404,7 +16414,7 @@ The association of a monitor with an object may be managed in various ways that 
 
 The synchronization constructs of the Java programming language require support for operations on monitors besides entry and exit. These include waiting on a monitor (`Object.wait`) and notifying other threads waiting on a monitor (`Object.notifyAll` and `Object.notify`). These operations are supported in the standard package `java.lang` supplied with the Java Virtual Machine. No explicit support for these operations appears in the instruction set of the Java Virtual Machine.
 
-### _monitorexit_
+### `monitorexit`
 
 #### Operation
 
@@ -16441,7 +16451,9 @@ Otherwise, if the thread that executes _monitorexit_ is not the owner of the mon
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the second of those rules is violated by the execution of this _monitorexit_ instruction, then _monitorexit_ throws an `IllegalMonitorStateException`.
 
-#### Notes\> One or more _monitorexit_ instructions may be used with a _monitorenter_ instruction ([§_monitorenter_](jvms-6.html#jvms-6.5.monitorenter "monitorenter")) to implement a `synchronized` statement in the Java programming language ([§3.14](jvms-3.html#jvms-3.14 "3.14. Synchronization")). The _monitorenter_ and _monitorexit_ instructions are not used in the implementation of `synchronized` methods, although they can be used to provide equivalent locking semantics.
+#### Notes
+
+One or more _monitorexit_ instructions may be used with a _monitorenter_ instruction ([§_monitorenter_](jvms-6.html#jvms-6.5.monitorenter "monitorenter")) to implement a `synchronized` statement in the Java programming language ([§3.14](jvms-3.html#jvms-3.14 "3.14. Synchronization")). The _monitorenter_ and _monitorexit_ instructions are not used in the implementation of `synchronized` methods, although they can be used to provide equivalent locking semantics.
 
 The Java Virtual Machine supports exceptions thrown within `synchronized` methods and `synchronized` statements differently:
 
@@ -16450,7 +16462,7 @@ The Java Virtual Machine supports exceptions thrown within `synchronized` method
 *   When an exception is thrown from within a `synchronized` statement, exit from the monitor entered prior to the execution of the `synchronized` statement is achieved using the Java Virtual Machine's exception handling mechanism ([§3.14](jvms-3.html#jvms-3.14 "3.14. Synchronization")).
     
 
-### _multianewarray_
+### `multianewarray`
 
 #### Operation
 
@@ -16498,7 +16510,7 @@ It may be more efficient to use _newarray_ or _anewarray_ ([§_newarray_](jvms-6
 
 The array class referenced via the run-time constant pool may have more dimensions than the _dimensions_ operand of the _multianewarray_ instruction. In that case, only the first _dimensions_ of the dimensions of the array are created.
 
-### _new_
+### `new`
 
 #### Operation
 
@@ -16541,7 +16553,7 @@ Otherwise, if execution of this _new_ instruction causes initialization of the r
 
 The _new_ instruction does not completely create a new instance; instance creation is not completed until an instance initialization method ([§2.9](jvms-2.html#jvms-2.9 "2.9. Special Methods")) has been invoked on the uninitialized instance.
 
-### _newarray_
+### `newarray`
 
 #### Operation
 
@@ -16621,7 +16633,7 @@ If _count_ is less than zero, _newarray_ throws a `NegativeArraySizeException`.
 
 In Oracle's Java Virtual Machine implementation, arrays of type `boolean` (_atype_ is `T_BOOLEAN`) are stored as arrays of 8-bit values and are manipulated using the _baload_ and _bastore_ instructions ([§_baload_](jvms-6.html#jvms-6.5.baload "baload"), [§_bastore_](jvms-6.html#jvms-6.5.bastore "bastore")) which also access arrays of type `byte`. Other implementations may implement packed `boolean` arrays; the _baload_ and _bastore_ instructions must still be used to access those arrays.
 
-### _nop_
+### `nop`
 
 #### Operation
 
@@ -16644,7 +16656,7 @@ No change
 
 Do nothing.
 
-### _pop_
+### `pop`
 
 #### Operation
 
@@ -16671,7 +16683,7 @@ Pop the top value from the operand stack.
 
 The _pop_ instruction must not be used unless _value_ is a value of a category 1 computational type ([§2.11.1](jvms-2.html#jvms-2.11.1 "2.11.1. Types and the Java Virtual Machine")).
 
-### _pop2_
+### `pop2`
 
 #### Operation
 
@@ -16708,7 +16720,7 @@ where _value_ is a value of a category 2 computational type ([§2.11.1](jvms-2.h
 
 Pop the top one or two values from the operand stack.
 
-### _putfield_
+### `putfield`
 
 #### Operation
 
@@ -16751,7 +16763,7 @@ Otherwise, if the field is `final`, it must be declared in the current class, an
 
 Otherwise, if _objectref_ is `null`, the _putfield_ instruction throws a `NullPointerException`.
 
-### _putstatic_
+### `putstatic`
 
 #### Operation
 
@@ -16800,7 +16812,7 @@ Otherwise, if execution of this _putstatic_ instruction causes initialization of
 
 A _putstatic_ instruction may be used only to set the value of an interface field on the initialization of that field. Interface fields may be assigned to only once, on execution of an interface variable initialization expression when the interface is initialized ([§5.5](jvms-5.html#jvms-5.5 "5.5. Initialization"), JLS §9.3.1).
 
-### _ret_
+### `ret`
 
 #### Operation
 
@@ -16834,7 +16846,7 @@ The _ret_ instruction should not be confused with the _return_ instruction ([§_
 
 The _ret_ opcode can be used in conjunction with the _wide_ instruction ([§_wide_](jvms-6.html#jvms-6.5.wide "wide")) to access a local variable using a two-byte unsigned index.
 
-### _return_
+### `return`
 
 #### Operation
 
@@ -16867,7 +16879,7 @@ If the Java Virtual Machine implementation does not enforce the rules on structu
 
 Otherwise, if the Java Virtual Machine implementation enforces the rules on structured locking described in [§2.11.10](jvms-2.html#jvms-2.11.10 "2.11.10. Synchronization") and if the first of those rules is violated during invocation of the current method, then _return_ throws an `IllegalMonitorStateException`.
 
-### _saload_
+### `saload`
 
 #### Operation
 
@@ -16898,7 +16910,7 @@ If _arrayref_ is `null`, _saload_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _saload_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _sastore_
+### `sastore`
 
 #### Operation
 
@@ -16929,7 +16941,7 @@ If _arrayref_ is `null`, _sastore_ throws a `NullPointerException`.
 
 Otherwise, if _index_ is not within the bounds of the array referenced by _arrayref_, the _sastore_ instruction throws an `ArrayIndexOutOfBoundsException`.
 
-### _sipush_
+### `sipush`
 
 #### Operation
 
@@ -16956,7 +16968,7 @@ _sipush_ = 17 (0x11)
 
 The immediate unsigned _byte1_ and _byte2_ values are assembled into an intermediate `short`, where the value of the `short` is (_byte1_ `<<` 8) | _byte2_. The intermediate value is then sign-extended to an `int` _value_. That _value_ is pushed onto the operand stack.
 
-### _swap_
+### `swap`
 
 #### Operation
 
@@ -16987,7 +16999,7 @@ The _swap_ instruction must not be used unless _value1_ and _value2_ are both va
 
 The Java Virtual Machine does not provide an instruction implementing a swap on operands of category 2 computational types.
 
-### _tableswitch_
+### `tableswitch`
 
 #### Operation
 
@@ -17034,7 +17046,7 @@ The target address that can be calculated from each jump table offset, as well a
 
 The alignment required of the 4-byte operands of the _tableswitch_ instruction guarantees 4-byte alignment of those operands if and only if the method that contains the _tableswitch_ starts on a 4-byte boundary.
 
-### _wide_
+### `wide`
 
 #### Operation
 
