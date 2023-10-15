@@ -4656,26 +4656,6 @@ This plugin requires features added to Godot 3.5
     git commit -m "Welcome to Godot Tour!"
     git push origin master
 ```
-<!-- 
-github-recovery-codes.txt
-
-    50ae9-a6438
-    07419-b92e9
-    f985e-157ee
-    d9397-bea24
-    8ec6c-fb375
-    89d80-27bea
-    9fc36-42790
-    f60ec-c9f8f
-    7144d-c127e
-    6ddec-f4fc3
-    3d0f5-a5e44
-    c5224-3ddf2
-    0156c-a5f3e
-    f2a36-88cf1
-    552af-80475
-    cf28b-9621b
- -->
 
 COC 是一个 NVim 上使用的自动完成功能插件，其本身并不提供具体语言的补全功能，而是一个通过插件机制和
 LSP 服务提供补全功能的平台。执行 `:CocInfo` 命令查询安装是否成功：
@@ -4965,9 +4945,11 @@ static void _editor_init() {
     "quiet": true,
     "working_dir": "${file_path:${project_path}}",
     "env": {
-        "PATH":"c:/download/games",
-        "Godot":"Godot_v3.5.1-stable_win64.exe",
-        "Godot4":"Godot_v4.0-beta16_win64.exe",
+        "PATH":"c:/dl/games;c:/dl/games/Godot_v3.5.3-stable_mono_win64;c:/dl/games/Godot_v4.1.2-stable_mono_win64",
+        "Godot":"Godot_v3.5.3-stable_win64.exe",
+        "Godot4":"Godot_v4.1.2-stable_win64.exe",
+        "Godot3Discrete":"Godot_v3.5.3-stable_mono_win64.exe --gpu-index 0",
+        "Godot4Discrete":"Godot_v4.1.2-stable_mono_win64.exe --gpu-index 0",
     },
     "variants":
     [
@@ -4977,12 +4959,16 @@ static void _editor_init() {
         {"name": "3.5 Run GDScript[GUI]", "shell_cmd": "%Godot% -s \"${file}\"", },
         {"name": "3.5 Run Scene",       "shell_cmd": "%Godot% -e \"${file}\"", },
         {"name": "3.5 Run Project",     "shell_cmd": "%Godot% --path \"${file_path}\"", },
+        {"name": "3.5 Run Project [GPU]",     "shell_cmd": "%Godot3Discrete% --path \"${file_path}\"", },
+        {"name": "3.5 Open Project", "shell_cmd": "%Godot3Discrete% \"${project_path}/project.godot\" & echo ---", },
         {"name": "4.x Help",            "shell_cmd": "%Godot4% --help", },
         {"name": "4.x Check GDScript",  "shell_cmd": "%Godot4% --headless --check-only -s \"${file}\"", },
         {"name": "4.x Run GDScript",    "shell_cmd": "%Godot4% --headless -s \"${file}\"", },
         {"name": "4.x Run GDScript[GUI]", "shell_cmd": "%Godot4% -s \"${file}\"", },
         {"name": "4.x Run Scene",       "shell_cmd": "%Godot4% \"${file}\"", },
         {"name": "4.x Run Project",     "shell_cmd": "%Godot4% --path \"${file_path}\"", },
+        {"name": "4.x Run Project [GPU]",     "shell_cmd": "%Godot4Discrete% --path \"${file_path}\"", },
+        {"name": "4.x Open Project", "shell_cmd": "%Godot4Discrete% \"${project_path}/project.godot\" & echo ---", },
     ]
 }
 ```

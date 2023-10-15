@@ -7,8 +7,6 @@ END-INFO-DIR-ENTRY
 
 20 February 1998
 
-
-File: r5rs.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 
 # 📜 Revised(5) Report on the Algorithmic Language Scheme
 ****************************************************
@@ -47,41 +45,23 @@ The first three chapters present the fundamental ideas of the language
 and describe the notational conventions used for describing the language
 and for writing programs in the language.
 
-Chapters *note Expressions:: and *note Program structure:: describe the
+Chapters *note Expressions::* and *note Program structure::* describe the
 syntax and semantics of expressions, programs, and definitions.
 
-Chapter *note Standard procedures:: describes Scheme's built-in
+Chapter *note Standard procedures::* describes Scheme's built-in
 procedures, which include all of the language's data manipulation and
 input/output primitives.
 
-Chapter *note Formal syntax and semantics:: provides a formal syntax for
+Chapter *note Formal syntax and semantics::* provides a formal syntax for
 Scheme written in extended BNF, along with a formal denotational
 semantics.  An example of the use of the language follows the formal
 syntax and semantics.
 
 The report concludes with a list of references and an alphabetic index.
 
-* Menu:
-
-* Introduction::
-* Overview of Scheme::
-* Lexical conventions::
-* Basic concepts::
-* Expressions::
-* Program structure::
-* Standard procedures::
-* Formal syntax and semantics::
-* Notes::
-* Additional material::
-* Example::
-* Bibliography::
-* Index::
-
 Contents
 ********
 
-* Menu:
-
 * Introduction::
 * Overview of Scheme::
 * Lexical conventions::
@@ -96,13 +76,9 @@ Contents
 * Bibliography::
 * Index::
 
-
-File: r5rs.info,  Node: Introduction,  Next: Overview of Scheme,  Prev: Top,  Up: Top
 
 # 📜 Introduction
 ************
-
-* Menu:
 
 * Background::
 * Acknowledgements::
@@ -134,8 +110,6 @@ to support hygienic macros, which permit the syntax of a
 block-structured language to be extended in a consistent and reliable
 manner.
 
-
-File: r5rs.info,  Node: Background,  Next: Acknowledgements,  Prev: Introduction,  Up: Introduction
 
 Background
 ==========
@@ -168,10 +142,8 @@ particular, we encourage implementors of Scheme to use this report as a
 starting point for manuals and other documentation, modifying it as
 necessary.
 
-
-File: r5rs.info,  Node: Acknowledgements,  Prev: Background,  Up: Introduction
 
-Acknowledgements
+ements
 ================
 
 We would like to thank the following people for their help: Alan Bawden,
@@ -204,28 +176,22 @@ University work was provided by NSF grants NCS 83-04567 and NCS
 
 
 
-
-File: r5rs.info,  Node: Overview of Scheme,  Next: Lexical conventions,  Prev: Introduction,  Up: Top
 
 # 📜 1 Overview of Scheme
 ********************
-
-* Menu:
 
 * Semantics::
 * Syntax::
 * Notation and terminology::
 
-
-File: r5rs.info,  Node: Semantics,  Next: Syntax,  Prev: Overview of Scheme,  Up: Overview of Scheme
 
 1.1 Semantics
 =============
 
 This section gives an overview of Scheme's semantics.  A detailed
-informal semantics is the subject of chapters *note Basic concepts::
-through *note Standard procedures::.  For reference purposes, section
-*note Formal semantics:: provides a formal semantics of Scheme.
+informal semantics is the subject of chapters *note Basic concepts::*
+through *note Standard procedures::*.  For reference purposes, section
+*note Formal semantics::* provides a formal semantics of Scheme.
 
 Following Algol, Scheme is a statically scoped programming language.
 Each use of a variable is associated with a lexically apparent binding
@@ -254,7 +220,7 @@ recursive procedure.  Thus with a properly tail-recursive
 implementation, iteration can be expressed using the ordinary
 procedure-call mechanics, so that special iteration constructs are
 useful only as syntactic sugar.  See section *note Proper tail
-recursion::.
+recursion::*.
 
 Scheme procedures are objects in their own right.  Procedures can be
 created dynamically, stored in data structures, returned as results of
@@ -265,7 +231,7 @@ One distinguishing feature of Scheme is that continuations, which in
 most other languages only operate behind the scenes, also have
 "first-class" status.  Continuations are useful for implementing a wide
 variety of advanced control constructs, including non-local exits,
-backtracking, and coroutines.  See section *note Control features::.
+backtracking, and coroutines.  See section *note Control features::*.
 
 Arguments to Scheme procedures are always passed by value, which means
 that the actual argument expressions are evaluated before the procedure
@@ -285,8 +251,6 @@ distinction between exact arithmetic, which corresponds to the
 mathematical ideal, and inexact arithmetic on approximations.  As in
 Common Lisp, exact arithmetic is not limited to integers.
 
-
-File: r5rs.info,  Node: Syntax,  Next: Notation and terminology,  Prev: Semantics,  Up: Overview of Scheme
 
 1.2 Syntax
 ==========
@@ -301,18 +265,14 @@ data.
 
 The 'read' procedure performs syntactic as well as lexical decomposition
 of the data it reads.  The 'read' procedure parses its input as data
-(section *note External representation::), not as program.
+(section *note External representation::*), not as program.
 
 The formal syntax of Scheme is described in section *note Formal
-syntax::.
+syntax::*.
 
-
-File: r5rs.info,  Node: Notation and terminology,  Prev: Syntax,  Up: Overview of Scheme
 
 1.3 Notation and terminology
 ============================
-
-* Menu:
 
 * Primitive; library; and optional features::
 * Error situations and unspecified behavior::
@@ -320,8 +280,8 @@ File: r5rs.info,  Node: Notation and terminology,  Prev: Syntax,  Up: Overview o
 * Evaluation examples::
 * Naming conventions::
 
-
-File: r5rs.info,  Node: Primitive; library; and optional features,  Next: Error situations and unspecified behavior,  Prev: Notation and terminology,  Up: Notation and terminology
+
+
 
 1.3.1 Primitive; library; and optional features
 -----------------------------------------------
@@ -339,8 +299,6 @@ other, primitive, features.  They are redundant in the strict sense of
 the word, but they capture common patterns of usage, and are therefore
 provided as convenient abbreviations.
 
-
-File: r5rs.info,  Node: Error situations and unspecified behavior,  Next: Entry format,  Prev: Primitive; library; and optional features,  Up: Notation and terminology
 
 1.3.2 Error situations and unspecified behavior
 -----------------------------------------------
@@ -375,13 +333,11 @@ expression must evaluate to some object without signalling an error, but
 the value depends on the implementation; this report explicitly does not
 say what value should be returned.
 
-
-File: r5rs.info,  Node: Entry format,  Next: Evaluation examples,  Prev: Error situations and unspecified behavior,  Up: Notation and terminology
 
 1.3.3 Entry format
 ------------------
 
-Chapters *note Expressions:: and *note Standard procedures:: are
+Chapters *note Expressions::* and *note Standard procedures::* are
 organized into entries.  Each entry describes one language feature or a
 group of related features, where a feature is either a syntactic
 construct or a built-in procedure.  An entry begins with one or more
@@ -394,7 +350,7 @@ for required, primitive features, or
  -- QUALIFIER CATEGORY: TEMPLATE
 
 where QUALIFIER is either "library" or "optional" as defined in section
-*note Primitive; library; and optional features::.
+*note Primitive; library; and optional features::*.
 
 If CATEGORY is "syntax", the entry describes an expression type, and the
 template gives the syntax of the expression type.  Components of
@@ -433,7 +389,7 @@ one or two arguments.
 It is an error for an operation to be presented with an argument that it
 is not specified to handle.  For succinctness, we follow the convention
 that if an argument name is also the name of a type listed in section
-*note Disjointness of types::, then that argument must be of the named
+*note Disjointness of types::*, then that argument must be of the named
 type.  For example, the header line for vector-ref given above dictates
 that the first argument to vector-ref must be a vector.  The following
 naming conventions also imply type restrictions:
@@ -441,7 +397,7 @@ naming conventions also imply type restrictions:
      OBJ
           any object
      LIST, LIST1, ... LISTJ, ...
-          list (see section *note Pairs and lists::)
+          list (see section *note Pairs and lists::*)
      Z, Z1, ... ZJ, ...
           complex number
      X, X1, ... XJ, ...
@@ -455,8 +411,6 @@ naming conventions also imply type restrictions:
      K, K1, ... KJ, ...
           exact non-negative integer
 
-
-File: r5rs.info,  Node: Evaluation examples,  Next: Naming conventions,  Prev: Entry format,  Up: Notation and terminology
 
 1.3.4 Evaluation examples
 -------------------------
@@ -472,11 +426,9 @@ means that the expression (* 5 8) evaluates to the object 40.  Or, more
 precisely: the expression given by the sequence of characters "(* 5 8)"
 evaluates, in the initial environment, to an object that may be
 represented externally by the sequence of characters "40".  See section
-*note External representations:: for a discussion of external
+*note External representations::* for a discussion of external
 representations of objects.
 
-
-File: r5rs.info,  Node: Naming conventions,  Prev: Evaluation examples,  Up: Notation and terminology
 
 1.3.5 Naming conventions
 ------------------------
@@ -485,7 +437,7 @@ By convention, the names of procedures that always return a boolean
 value usually end in "'?'".  Such procedures are called predicates.
 
 By convention, the names of procedures that store values into previously
-allocated locations (see section *note Storage model::) usually end in
+allocated locations (see section *note Storage model::*) usually end in
 "'!'".  Such procedures are called mutation procedures.  By convention,
 the value returned by a mutation procedure is unspecified.
 
@@ -494,13 +446,9 @@ an object of one type and return an analogous object of another type.
 For example, 'list->vector' takes a list and returns a vector whose
 elements are the same as those of the list.
 
-
-File: r5rs.info,  Node: Lexical conventions,  Next: Basic concepts,  Prev: Overview of Scheme,  Up: Top
 
 # 📜 2 Lexical conventions
 *********************
-
-* Menu:
 
 * Identifiers::
 * Whitespace and comments::
@@ -508,14 +456,12 @@ File: r5rs.info,  Node: Lexical conventions,  Next: Basic concepts,  Prev: Overv
 
 This section gives an informal account of some of the lexical
 conventions used in writing Scheme programs.  For a formal syntax of
-Scheme, see section *note Formal syntax::.
+Scheme, see section *note Formal syntax::*.
 
 Upper and lower case forms of a letter are never distinguished except
 within character and string constants.  For example, 'Foo' is the same
 identifier as 'FOO', and #x1AB is the same number as #X1ab.
 
-
-File: r5rs.info,  Node: Identifiers,  Next: Whitespace and comments,  Prev: Lexical conventions,  Up: Lexical conventions
 
 2.1 Identifiers
 ===============
@@ -542,21 +488,19 @@ were letters.  The following are extended alphabetic characters:
 
      ! $ % & * + - . / : < = > ? @ ^ _ ~
 
-See section *note Lexical structure:: for a formal syntax of
+See section *note Lexical structure::* for a formal syntax of
 identifiers.
 
 Identifiers have two uses within Scheme programs:
 
    * Any identifier may be used as a variable or as a syntactic keyword
-     (see sections *note Variables; syntactic keywords; and regions::
-     and *note Macros::).
+     (see sections *note Variables; syntactic keywords; and regions::*
+     and *note Macros::*).
 
    * When an identifier appears as a literal or within a literal (see
-     section *note Literal expressions::), it is being used to denote a
-     _symbol_ (see section *note Symbols::).
+     section *note Literal expressions::*), it is being used to denote a
+     _symbol_ (see section *note Symbols::*).
 
-
-File: r5rs.info,  Node: Whitespace and comments,  Next: Other notations,  Prev: Identifiers,  Up: Lexical conventions
 
 2.2 Whitespace and comments
 ===========================
@@ -585,49 +529,47 @@ number.
              (* n (fact (- n 1))))))
 
 
-
-File: r5rs.info,  Node: Other notations,  Prev: Whitespace and comments,  Up: Lexical conventions
 
 2.3 Other notations
 ===================
 
-For a description of the notations used for numbers, see section *note
-Numbers::.
+For a description of the notations used for numbers, see section 
+*note Numbers::*.
 
 . + -
      These are used in numbers, and may also occur anywhere in an
      identifier except as the first character.  A delimited plus or
      minus sign by itself is also an identifier.  A delimited period
      (not occurring within a number or identifier) is used in the
-     notation for pairs (section *note Pairs and lists::), and to
-     indicate a rest-parameter in a formal parameter list (section *note
-     Procedures::).  A delimited sequence of three successive periods is
+     notation for pairs (section *note Pairs and lists::*), and to
+     indicate a rest-parameter in a formal parameter list (section 
+     *note Procedures::*).  A delimited sequence of three successive periods is
      also an identifier.
 
 ( )
      Parentheses are used for grouping and to notate lists (section
-     *note Pairs and lists::).
+     *note Pairs and lists::*).
 
 '
      The single quote character is used to indicate literal data
-     (section *note Literal expressions::).
+     (section *note Literal expressions::*).
 
 `
      The backquote character is used to indicate almost-constant data
-     (section *note Quasiquotation::).
+     (section *note Quasiquotation::*).
 
 , ,@
      The character comma and the sequence comma at-sign are used in
-     conjunction with backquote (section *note Quasiquotation::).
+     conjunction with backquote (section *note Quasiquotation::*).
 
 "
      The double quote character is used to delimit strings (section
-     *note Strings::).
+     *note Strings::*).
 
 \
      Backslash is used in the syntax for character constants (section
-     *note Characters::) and as an escape character within string
-     constants (section *note Strings::).
+     *note Characters::*) and as an escape character within string
+     constants (section *note Strings::*).
 
 [ ] { } |
      Left and right square brackets and curly braces and vertical bar
@@ -638,26 +580,22 @@ Numbers::.
      character that immediately follows it:
 
 #t #f
-     These are the boolean constants (section *note Booleans::).
+     These are the boolean constants (section *note Booleans::*).
 
 #\
-     This introduces a character constant (section *note Characters::).
+     This introduces a character constant (section *note Characters::*).
 
 #(
-     This introduces a vector constant (section *note Vectors::).
+     This introduces a vector constant (section *note Vectors::*).
      Vector constants are terminated by ) .
 
 #e #i #b #o #d #x
      These are used in the notation for numbers (section *note Syntax of
-     numerical constants::).
+     numerical constants::*).
 
-
-File: r5rs.info,  Node: Basic concepts,  Next: Expressions,  Prev: Lexical conventions,  Up: Top
 
 # 📜 3 Basic concepts
 ****************
-
-* Menu:
 
 * Variables; syntactic keywords; and regions::
 * Disjointness of types::
@@ -665,8 +603,6 @@ File: r5rs.info,  Node: Basic concepts,  Next: Expressions,  Prev: Lexical conve
 * Storage model::
 * Proper tail recursion::
 
-
-File: r5rs.info,  Node: Variables; syntactic keywords; and regions,  Next: Disjointness of types,  Prev: Basic concepts,  Up: Basic concepts
 
 3.1 Variables; syntactic keywords; and regions
 ==============================================
@@ -688,13 +624,13 @@ syntactic keywords to those new syntaxes, while other expression types
 create new locations and bind variables to those locations.  These
 expression types are called _binding constructs_.
 
-Those that bind syntactic keywords are listed in section *note Macros::.
+Those that bind syntactic keywords are listed in section *note Macros::*.
 The most fundamental of the variable binding constructs is the 'lambda'
 expression, because all other variable binding constructs can be
 explained in terms of 'lambda' expressions.  The other variable binding
 constructs are 'let', 'let*', 'letrec', and 'do' expressions (see
-sections *note Procedures::, *note Binding constructs::, and *note
-Iteration::).
+sections *note Procedures::*, *note Binding constructs::*, and 
+*note Iteration::*).
 
 Like Algol and Pascal, and unlike most other dialects of Lisp except for
 Common Lisp, Scheme is a statically scoped language with block
@@ -707,12 +643,10 @@ a 'lambda' expression, for example, then its region is the entire
 binding of the identifier that established the innermost of the regions
 containing the use.  If there is no binding of the identifier whose
 region contains the use, then the use refers to the binding for the
-variable in the top level environment, if any (chapters *note
-Expressions:: and *note Standard procedures::); if there is no binding
+variable in the top level environment, if any (chapters 
+*note Expressions::* and *note Standard procedures::*); if there is no binding
 for the identifier, it is said to be "unbound".
 
-
-File: r5rs.info,  Node: Disjointness of types,  Next: External representations,  Prev: Variables; syntactic keywords; and regions,  Up: Basic concepts
 
 3.2 Disjointness of types
 =========================
@@ -734,12 +668,10 @@ the above predicates.
 
 Although there is a separate boolean type, any Scheme value can be used
 as a boolean value for the purpose of a conditional test.  As explained
-in section *note Booleans::, all values count as true in such a test
+in section *note Booleans::*, all values count as true in such a test
 except for #f.  This report uses the word "true" to refer to any Scheme
 value except #f, and the word "false" to refer to #f.
 
-
-File: r5rs.info,  Node: External representations,  Next: Storage model,  Prev: Disjointness of types,  Up: Basic concepts
 
 3.3 External representations
 ============================
@@ -753,18 +685,18 @@ the integers 8 and 13 is the sequence of characters "(8 13)".
 The external representation of an object is not necessarily unique.  The
 integer 28 also has representations "#e28.000" and "#x1c", and the list
 in the previous paragraph also has the representations "( 08 13 )" and
-"(8 . (13 . ()))" (see section *note Pairs and lists::).
+"(8 . (13 . ()))" (see section *note Pairs and lists::*).
 
 Many objects have standard external representations, but some, such as
 procedures, do not have standard representations (although particular
 implementations may define representations for them).
 
 An external representation may be written in a program to obtain the
-corresponding object (see 'quote', section *note Literal expressions::).
+corresponding object (see 'quote', section *note Literal expressions::*).
 
 External representations can also be used for input and output.  The
-procedure 'read' (section *note Input::) parses external
-representations, and the procedure 'write' (section *note Output::)
+procedure 'read' (section *note Input::*) parses external
+representations, and the procedure 'write' (section *note Output::*)
 generates them.  Together, they provide an elegant and powerful
 input/output facility.
 
@@ -783,10 +715,8 @@ treat programs as data (or vice versa).
 The syntax of external representations of various kinds of objects
 accompanies the description of the primitives for manipulating the
 objects in the appropriate sections of chapter *note Standard
-procedures::.
+procedures::*.
 
-
-File: r5rs.info,  Node: Storage model,  Next: Proper tail recursion,  Prev: External representations,  Up: Basic concepts
 
 3.4 Storage model
 =================
@@ -800,7 +730,7 @@ but the string continues to denote the same locations as before.
 
 An object fetched from a location, by a variable reference or by a
 procedure such as 'car', 'vector-ref', or 'string-ref', is equivalent in
-the sense of 'eqv?' (section *note Equivalence predicates::) to the
+the sense of 'eqv?' (section *note Equivalence predicates::*) to the
 object last stored in the location before the fetch.
 
 Every location is marked to show whether it is in use.  No variable or
@@ -821,8 +751,6 @@ the other procedures listed in this report are mutable.  It is an error
 to attempt to store a new value into a location that is denoted by an
 immutable object.
 
-
-File: r5rs.info,  Node: Proper tail recursion,  Prev: Storage model,  Up: Basic concepts
 
 3.5 Proper tail recursion
 =========================
@@ -877,8 +805,8 @@ determined with respect to a particular lambda expression.
 
    * If one of the following expressions is in a tail context, then the
      subexpressions shown as <tail expression> are in a tail context.
-     These were derived from rules in the grammar given in chapter *note
-     Formal syntax and semantics:: by replacing some occurrences of
+     These were derived from rules in the grammar given in chapter 
+     *note Formal syntax and semantics::* by replacing some occurrences of
      <expression> with <tail expression>.  Only those rules that contain
      tail contexts are shown here.
 
@@ -954,13 +882,9 @@ tail context, but it is not a call and thus is not a tail call.
      ignored, because in that case the effect of the 'let' is explicitly
      unspecified and implementation-dependent.)
 
-
-File: r5rs.info,  Node: Expressions,  Next: Program structure,  Prev: Basic concepts,  Up: Top
 
 # 📜 4 Expressions
 *************
-
-* Menu:
 
 * Primitive expression types::
 * Derived expression types::
@@ -972,15 +896,11 @@ expression types are not semantically primitive, but can instead be
 defined as macros.  With the exception of 'quasiquote', whose macro
 definition is complex, the derived expressions are classified as library
 features.  Suitable definitions are given in section *note Derived
-expression type::.
+expression type::*.
 
-
-File: r5rs.info,  Node: Primitive expression types,  Next: Derived expression types,  Prev: Expressions,  Up: Expressions
 
 4.1 Primitive expression types
 ==============================
-
-* Menu:
 
 * Variable references::
 * Literal expressions::
@@ -989,8 +909,6 @@ File: r5rs.info,  Node: Primitive expression types,  Next: Derived expression ty
 * Conditionals::
 * Assignments::
 
-
-File: r5rs.info,  Node: Variable references,  Next: Literal expressions,  Prev: Primitive expression types,  Up: Primitive expression types
 
 4.1.1 Variable references
 -------------------------
@@ -998,7 +916,7 @@ File: r5rs.info,  Node: Variable references,  Next: Literal expressions,  Prev: 
  -- syntax: <variable>
 
      An expression consisting of a variable (section *note Variables;
-     syntactic keywords; and regions::) is a variable reference.  The
+     syntactic keywords; and regions::*) is a variable reference.  The
      value of the variable reference is the value stored in the location
      to which the variable is bound.  It is an error to reference an
      unbound variable.
@@ -1007,8 +925,6 @@ File: r5rs.info,  Node: Variable references,  Next: Literal expressions,  Prev: 
      x                                      ==>  28
 
 
-
-File: r5rs.info,  Node: Literal expressions,  Next: Procedure calls,  Prev: Variable references,  Up: Primitive expression types
 
 4.1.2 Literal expressions
 -------------------------
@@ -1020,8 +936,8 @@ File: r5rs.info,  Node: Literal expressions,  Next: Procedure calls,  Prev: Vari
  -- syntax: <constant>
 
      '(quote <datum>)' evaluates to <datum>.  <Datum> may be any
-     external representation of a Scheme object (see section *note
-     External representations::).  This notation is used to include
+     external representation of a Scheme object (see section 
+     *note External representations::*).  This notation is used to include
      literal constants in Scheme code.
 
 
@@ -1053,12 +969,10 @@ File: r5rs.info,  Node: Literal expressions,  Next: Procedure calls,  Prev: Vari
      #t                                     ==>  #t
 
 
-     As noted in section *note Storage model::, it is an error to alter
+     As noted in section *note Storage model::*, it is an error to alter
      a constant (i.e.  the value of a literal expression) using a
      mutation procedure like 'set-car!' or 'string-set!'.
 
-
-File: r5rs.info,  Node: Procedure calls,  Next: Procedures,  Prev: Literal expressions,  Up: Primitive expression types
 
 4.1.3 Procedure calls
 ---------------------
@@ -1080,10 +994,10 @@ File: r5rs.info,  Node: Procedure calls,  Next: Procedures,  Prev: Literal expre
      the initial environment; for example, the addition and
      multiplication procedures in the above examples are the values of
      the variables '+' and '*'.  New procedures are created by
-     evaluating lambda expressions (see section *note Procedures::).
+     evaluating lambda expressions (see section *note Procedures::*).
 
      Procedure calls may return any number of values (see 'values' in
-     section *note Control features::).  With the exception of 'values'
+     section *note Control features::*).  With the exception of 'values'
      the procedures available in the initial environment return one
      value or, for procedures such as 'apply', pass on the values
      returned by a call to one of their arguments.
@@ -1107,8 +1021,6 @@ File: r5rs.info,  Node: Procedure calls,  Next: Procedures,  Prev: Literal expre
           at least one subexpression, so () is not a syntactically valid
           expression.
 
-
-File: r5rs.info,  Node: Procedures,  Next: Conditionals,  Prev: Procedure calls,  Up: Primitive expression types
 
 4.1.4 Procedures
 ----------------
@@ -1174,10 +1086,8 @@ File: r5rs.info,  Node: Procedures,  Next: Conditionals,  Prev: Procedure calls,
      Each procedure created as the result of evaluating a lambda
      expression is (conceptually) tagged with a storage location, in
      order to make 'eqv?' and 'eq?' work on procedures (see section
-     *note Equivalence predicates::).
+     *note Equivalence predicates::*).
 
-
-File: r5rs.info,  Node: Conditionals,  Next: Assignments,  Prev: Procedures,  Up: Primitive expression types
 
 4.1.5 Conditionals
 ------------------
@@ -1189,8 +1099,8 @@ File: r5rs.info,  Node: Conditionals,  Next: Assignments,  Prev: Procedures,  Up
      expressions.
 
      _Semantics:_ An 'if' expression is evaluated as follows: first,
-     <test> is evaluated.  If it yields a true value (see section *note
-     Booleans::), then <consequent> is evaluated and its value(s)
+     <test> is evaluated.  If it yields a true value (see section 
+     *note Booleans::*), then <consequent> is evaluated and its value(s)
      is(are) returned.  Otherwise <alternate> is evaluated and its
      value(s) is(are) returned.  If <test> yields a false value and no
      <alternate> is specified, then the result of the expression is
@@ -1203,8 +1113,6 @@ File: r5rs.info,  Node: Conditionals,  Next: Assignments,  Prev: Procedures,  Up
          (+ 3 2))                           ==>  1
 
 
-
-File: r5rs.info,  Node: Assignments,  Prev: Conditionals,  Up: Primitive expression types
 
 4.1.6 Assignments
 -----------------
@@ -1222,13 +1130,9 @@ File: r5rs.info,  Node: Assignments,  Prev: Conditionals,  Up: Primitive express
      (+ x 1)                                ==>  5
 
 
-
-File: r5rs.info,  Node: Derived expression types,  Next: Macros,  Prev: Primitive expression types,  Up: Expressions
 
 4.2 Derived expression types
 ============================
-
-* Menu:
 
 * Conditional::
 * Binding constructs::
@@ -1238,13 +1142,11 @@ File: r5rs.info,  Node: Derived expression types,  Next: Macros,  Prev: Primitiv
 * Quasiquotation::
 
 The constructs in this section are hygienic, as discussed in section
-*note Macros::.  For reference purposes, section *note Derived
-expression type:: gives macro definitions that will convert most of the
+*note Macros::*.  For reference purposes, section *note Derived
+expression type::* gives macro definitions that will convert most of the
 constructs described in this section into the primitive constructs
 described in the previous section.
 
-
-File: r5rs.info,  Node: Conditional,  Next: Binding constructs,  Prev: Derived expression types,  Up: Derived expression types
 
 4.2.1 Conditionals
 ------------------
@@ -1269,7 +1171,7 @@ File: r5rs.info,  Node: Conditional,  Next: Binding constructs,  Prev: Derived e
 
      _Semantics:_ A 'cond' expression is evaluated by evaluating the
      <test> expressions of successive <clause>s in order until one of
-     them evaluates to a true value (see section *note Booleans::).
+     them evaluates to a true value (see section *note Booleans::*).
      When a <test> evaluates to a true value, then the remaining
      <expression>s in its <clause> are evaluated in order, and the
      result(s) of the last <expression> in the <clause> is(are) returned
@@ -1315,7 +1217,7 @@ File: r5rs.info,  Node: Conditional,  Next: Binding constructs,  Prev: Derived e
      _Semantics:_ A 'case' expression is evaluated as follows.  <Key> is
      evaluated and its result is compared against each <datum>.  If the
      result of evaluating <key> is equivalent (in the sense of 'eqv?';
-     see section *note Equivalence predicates::) to a <datum>, then the
+     see section *note Equivalence predicates::*) to a <datum>, then the
      expressions in the corresponding <clause> are evaluated from left
      to right and the result(s) of the last expression in the <clause>
      is(are) returned as the result(s) of the 'case' expression.  If the
@@ -1341,7 +1243,7 @@ File: r5rs.info,  Node: Conditional,  Next: Binding constructs,  Prev: Derived e
 
      The <test> expressions are evaluated from left to right, and the
      value of the first expression that evaluates to a false value (see
-     section *note Booleans::) is returned.  Any remaining expressions
+     section *note Booleans::*) is returned.  Any remaining expressions
      are not evaluated.  If all the expressions evaluate to true values,
      the value of the last expression is returned.  If there are no
      expressions then #t is returned.
@@ -1356,7 +1258,7 @@ File: r5rs.info,  Node: Conditional,  Next: Binding constructs,  Prev: Derived e
 
      The <test> expressions are evaluated from left to right, and the
      value of the first expression that evaluates to a true value (see
-     section *note Booleans::) is returned.  Any remaining expressions
+     section *note Booleans::*) is returned.  Any remaining expressions
      are not evaluated.  If all expressions evaluate to false values,
      the value of the last expression is returned.  If there are no
      expressions then #f is returned.
@@ -1368,8 +1270,6 @@ File: r5rs.info,  Node: Conditional,  Next: Binding constructs,  Prev: Derived e
          (/ 3 0))                           ==>  (b c)
 
 
-
-File: r5rs.info,  Node: Binding constructs,  Next: Sequencing,  Prev: Conditional,  Up: Derived expression types
 
 4.2.2 Binding constructs
 ------------------------
@@ -1411,7 +1311,7 @@ recursive definitions.
          (* z x)))                          ==>  35
 
 
-     See also named 'let', section *note Iteration::.
+     See also named 'let', section *note Iteration::*.
 
  -- library syntax: let* <bindings> <body>
 
@@ -1477,8 +1377,6 @@ recursive definitions.
      'letrec', all the <init>s are lambda expressions and the
      restriction is satisfied automatically.
 
-
-File: r5rs.info,  Node: Sequencing,  Next: Iteration,  Prev: Binding constructs,  Up: Derived expression types
 
 4.2.3 Sequencing
 ----------------
@@ -1500,8 +1398,6 @@ File: r5rs.info,  Node: Sequencing,  Next: Iteration,  Prev: Binding constructs,
                _and prints_  4 plus 1 equals 5
 
 
-
-File: r5rs.info,  Node: Iteration,  Next: Delayed evaluation,  Prev: Sequencing,  Up: Derived expression types
 
 4.2.4 Iteration
 ---------------
@@ -1522,7 +1418,7 @@ File: r5rs.info,  Node: Iteration,  Next: Delayed evaluation,  Prev: Sequencing,
      phase begins.
 
      Each iteration begins by evaluating <test>; if the result is false
-     (see section *note Booleans::), then the <command> expressions are
+     (see section *note Booleans::*), then the <command> expressions are
      evaluated in order for effect, the <step> expressions are evaluated
      in some unspecified order, the <variable>s are bound to fresh
      locations, the results of the <step>s are stored in the bindings of
@@ -1577,8 +1473,6 @@ File: r5rs.info,  Node: Iteration,  Next: Delayed evaluation,  Prev: Sequencing,
                ==>  ((6 1 3) (-5 -2))
 
 
-
-File: r5rs.info,  Node: Delayed evaluation,  Next: Quasiquotation,  Prev: Iteration,  Up: Derived expression types
 
 4.2.5 Delayed evaluation
 ------------------------
@@ -1592,11 +1486,9 @@ File: r5rs.info,  Node: Delayed evaluation,  Next: Quasiquotation,  Prev: Iterat
      evaluate <expression>, and deliver the resulting value.  The effect
      of <expression> returning multiple values is unspecified.
 
-     See the description of 'force' (section *note Control features::)
+     See the description of 'force' (section *note Control features::*)
      for a more complete description of 'delay'.
 
-
-File: r5rs.info,  Node: Quasiquotation,  Prev: Delayed evaluation,  Up: Derived expression types
 
 4.2.6 Quasiquotation
 --------------------
@@ -1663,13 +1555,9 @@ File: r5rs.info,  Node: Quasiquotation,  Prev: Delayed evaluation,  Up: Derived 
      'quasiquote', 'unquote', or 'unquote-splicing' appear in positions
      within a <qq template> otherwise than as described above.
 
-
-File: r5rs.info,  Node: Macros,  Prev: Derived expression types,  Up: Expressions
 
-4.3 Macros
+os
 ==========
-
-* Menu:
 
 * Binding constructs for syntactic keywords::
 * Pattern language::
@@ -1708,15 +1596,13 @@ thus preserve Scheme's lexical scoping [Kohlbecker86], [ hygienic],
      (variable or keyword), the identifier will in effect be renamed
      throughout its scope to avoid conflicts with other identifiers.
      Note that a 'define' at top level may or may not introduce a
-     binding; see section *note Definitions::.
+     binding; see section *note Definitions::*.
 
    * If a macro transformer inserts a free reference to an identifier,
      the reference refers to the binding that was visible where the
      transformer was specified, regardless of any local bindings that
      may surround the use of the macro.
 
-
-File: r5rs.info,  Node: Binding constructs for syntactic keywords,  Next: Pattern language,  Prev: Macros,  Up: Macros
 
 4.3.1 Binding constructs for syntactic keywords
 -----------------------------------------------
@@ -1724,7 +1610,7 @@ File: r5rs.info,  Node: Binding constructs for syntactic keywords,  Next: Patter
 'Let-syntax' and 'letrec-syntax' are analogous to 'let' and 'letrec',
 but they bind syntactic keywords to macro transformers instead of
 binding variables to locations that contain values.  Syntactic keywords
-may also be bound at top level; see section *note Syntax definitions::.
+may also be bound at top level; see section *note Syntax definitions::*.
 
  -- syntax: let-syntax <bindings> <body>
 
@@ -1791,8 +1677,6 @@ may also be bound at top level; see section *note Syntax definitions::.
                 y)))                        ==>  7
 
 
-
-File: r5rs.info,  Node: Pattern language,  Prev: Binding constructs for syntactic keywords,  Up: Macros
 
 4.3.2 Pattern language
 ----------------------
@@ -1925,8 +1809,8 @@ A <transformer spec> has the following form:
      identifier is inserted as a bound identifier then it is in effect
      renamed to prevent inadvertent captures of free identifiers.
 
-     As an example, if 'let' and 'cond' are defined as in section *note
-     Derived expression type:: then they are hygienic (as required) and
+     As an example, if 'let' and 'cond' are defined as in section 
+     *note Derived expression type::* then they are hygienic (as required) and
      the following is not an error.
 
      (let ((=> #f))
@@ -1951,27 +1835,21 @@ A <transformer spec> has the following form:
 
      which would result in an invalid procedure call.
 
-
-File: r5rs.info,  Node: Program structure,  Next: Standard procedures,  Prev: Expressions,  Up: Top
 
 # 📜 5 Program structure
 *******************
-
-* Menu:
 
 * Programs::
 * Definitions::
 * Syntax definitions::
 
-
-File: r5rs.info,  Node: Programs,  Next: Definitions,  Prev: Program structure,  Up: Program structure
 
 5.1 Programs
 ============
 
 A Scheme program consists of a sequence of expressions, definitions, and
-syntax definitions.  Expressions are described in chapter *note
-Expressions::; definitions and syntax definitions are the subject of the
+syntax definitions.  Expressions are described in chapter 
+*note Expressions::*; definitions and syntax definitions are the subject of the
 rest of the present chapter.
 
 Programs are typically stored in files or entered interactively to a
@@ -1992,13 +1870,9 @@ At the top level of a program (begin <form1> ...,) is equivalent to the
 sequence of expressions, definitions, and syntax definitions that form
 the body of the 'begin'.
 
-
-File: r5rs.info,  Node: Definitions,  Next: Syntax definitions,  Prev: Programs,  Up: Program structure
 
 5.2 Definitions
 ===============
-
-* Menu:
 
 * Top level definitions::
 * Internal definitions::
@@ -2032,8 +1906,6 @@ A definition should have one of the following forms:
             (lambda <formal> <body>)).
 
 
-
-File: r5rs.info,  Node: Top level definitions,  Next: Internal definitions,  Prev: Definitions,  Up: Definitions
 
 5.2.1 Top level definitions
 ---------------------------
@@ -2068,8 +1940,6 @@ possible variables are bound to locations, most of which contain
 undefined values.  Top level definitions in such an implementation are
 truly equivalent to assignments.
 
-
-File: r5rs.info,  Node: Internal definitions,  Prev: Top level definitions,  Up: Definitions
 
 5.2.2 Internal definitions
 --------------------------
@@ -2110,10 +1980,8 @@ Wherever an internal definition may occur (begin <definition1> ...,) is
 equivalent to the sequence of definitions that form the body of the
 'begin'.
 
-
-File: r5rs.info,  Node: Syntax definitions,  Prev: Definitions,  Up: Program structure
 
-5.3 Syntax definitions
+x definitions
 ======================
 
 Syntax definitions are valid only at the top level of a <program>.
@@ -2154,13 +2022,9 @@ errors:
          (plus foo x)))
 
 
-
-File: r5rs.info,  Node: Standard procedures,  Next: Formal syntax and semantics,  Prev: Program structure,  Up: Top
 
 # 📜 6 Standard procedures
 *********************
-
-* Menu:
 
 * Equivalence predicates::
 * Numbers::
@@ -2180,14 +2044,12 @@ easily be written in terms of other built-in procedures are identified
 as "library procedures".
 
 A program may use a top-level definition to bind any variable.  It may
-subsequently alter any such binding by an assignment (see *note
-Assignments::).  These operations do not modify the behavior of Scheme's
+subsequently alter any such binding by an assignment (see 
+*note Assignments::*).  These operations do not modify the behavior of Scheme's
 built-in procedures.  Altering any top-level binding that has not been
 introduced by a definition has an unspecified effect on the behavior of
 the built-in procedures.
 
-
-File: r5rs.info,  Node: Equivalence predicates,  Next: Numbers,  Prev: Standard procedures,  Up: Standard procedures
 
 6.1 Equivalence predicates
 ==========================
@@ -2219,31 +2081,31 @@ coarsest.  'Eqv?' is slightly less discriminating than 'eq?'.
 
 
                _Note:_ This assumes that neither OBJ1 nor OBJ2 is an
-               "uninterned symbol" as alluded to in section *note
-               Symbols::.  This report does not presume to specify the
+               "uninterned symbol" as alluded to in section 
+               *note Symbols::*.  This report does not presume to specify the
                behavior of 'eqv?' on implementation-dependent
                extensions.
 
         * OBJ1 and OBJ2 are both numbers, are numerically equal (see
-          '=', section *note Numbers::), and are either both exact or
+          '=', section *note Numbers::*), and are either both exact or
           both inexact.
 
         * OBJ1 and OBJ2 are both characters and are the same character
-          according to the 'char=?' procedure (section *note
-          Characters::).
+          according to the 'char=?' procedure (section 
+          *note Characters::*).
 
         * both OBJ1 and OBJ2 are the empty list.
 
         * OBJ1 and OBJ2 are pairs, vectors, or strings that denote the
-          same locations in the store (section *note Storage model::).
+          same locations in the store (section *note Storage model::*).
 
         * OBJ1 and OBJ2 are procedures whose location tags are equal
-          (section *note Procedures::).
+          (section *note Procedures::*).
 
      The 'eqv?' procedure returns #f if:
 
-        * OBJ1 and OBJ2 are of different types (section *note
-          Disjointness of types::).
+        * OBJ1 and OBJ2 are of different types (section 
+          *note Disjointness of types::*).
 
         * one of OBJ1 and OBJ2 is #t but the other is #f.
 
@@ -2416,13 +2278,9 @@ coarsest.  'Eqv?' is slightly less discriminating than 'eq?'.
              (lambda (y) y))                ==>  _unspecified_
 
 
-
-File: r5rs.info,  Node: Numbers,  Next: Other data types,  Prev: Equivalence predicates,  Up: Standard procedures
 
 6.2 Numbers
 ===========
-
-* Menu:
 
 * Numerical types::
 * Exactness::
@@ -2448,8 +2306,6 @@ and integer to refer to both mathematical numbers and Scheme numbers.
 Machine representations such as fixed point and floating point are
 referred to by names such as fixnum and flonum.
 
-
-File: r5rs.info,  Node: Numerical types,  Next: Exactness,  Prev: Numbers,  Up: Numbers
 
 6.2.1 Numerical types
 ---------------------
@@ -2489,8 +2345,6 @@ In order to catch uses of inexact numbers where exact numbers are
 required, Scheme explicitly distinguishes exact from inexact numbers.
 This distinction is orthogonal to the dimension of type.
 
-
-File: r5rs.info,  Node: Exactness,  Next: Implementation restrictions,  Prev: Numerical types,  Up: Numbers
 
 6.2.2 Exactness
 ---------------
@@ -2514,7 +2368,7 @@ Rational operations such as '+' should always produce exact results when
 given exact arguments.  If the operation is unable to produce an exact
 result, then it may either report the violation of an implementation
 restriction or it may silently coerce its result to an inexact value.
-See section *note Implementation restrictions::.
+See section *note Implementation restrictions::*.
 
 With the exception of 'inexact->exact', the operations described in this
 section must generally return inexact results when given any inexact
@@ -2524,14 +2378,12 @@ its arguments.  For example, multiplication of any number by an exact
 zero may produce an exact zero result, even if the other argument is
 inexact.
 
-
-File: r5rs.info,  Node: Implementation restrictions,  Next: Syntax of numerical constants,  Prev: Exactness,  Up: Numbers
 
 6.2.3 Implementation restrictions
 ---------------------------------
 
 Implementations of Scheme are not required to implement the whole tower
-of subtypes given in section *note Numerical types::, but they must
+of subtypes given in section *note Numerical types::*, but they must
 implement a coherent subset consistent with both the purposes of the
 implementation and the spirit of the Scheme language.  For example, an
 implementation in which all numbers are real may still be quite useful.
@@ -2612,14 +2464,12 @@ represent as an exact number, then it may either report a violation of
 an implementation restriction or it may silently represent the constant
 by an inexact number.
 
-
-File: r5rs.info,  Node: Syntax of numerical constants,  Next: Numerical operations,  Prev: Implementation restrictions,  Up: Numbers
 
 6.2.4 Syntax of numerical constants
 -----------------------------------
 
 The syntax of the written representations for numbers is described
-formally in section *note Lexical structure::.  Note that case is not
+formally in section *note Lexical structure::*.  Note that case is not
 significant in numerical constants.
 
 A number may be written in binary, octal, decimal, or hexadecimal by the
@@ -2656,13 +2506,11 @@ default to be set by the user.
             Extend to long -- .600000000000000
 
 
-
-File: r5rs.info,  Node: Numerical operations,  Next: Numerical input and output,  Prev: Syntax of numerical constants,  Up: Numbers
 
 6.2.5 Numerical operations
 --------------------------
 
-The reader is referred to section *note Entry format:: for a summary of
+The reader is referred to section *note Entry format::* for a summary of
 the naming conventions used to specify restrictions on the types of
 arguments to numerical routines.
 
@@ -3036,13 +2884,11 @@ true in implementations that use flonums to represent inexact numbers.
      These procedures implement the natural one-to-one correspondence
      between exact and inexact integers throughout an
      implementation-dependent range.  See section *note Implementation
-     restrictions::.
+     restrictions::*.
 
 
 
 
-
-File: r5rs.info,  Node: Numerical input and output,  Prev: Numerical operations,  Up: Numbers
 
 6.2.6 Numerical input and output
 --------------------------------
@@ -3118,13 +2964,9 @@ File: r5rs.info,  Node: Numerical input and output,  Prev: Numerical operations,
           'string->number' may return #f whenever a decimal point is
           used.
 
-
-File: r5rs.info,  Node: Other data types,  Next: Control features,  Prev: Numbers,  Up: Standard procedures
 
 6.3 Other data types
 ====================
-
-* Menu:
 
 * Booleans::
 * Pairs and lists::
@@ -3136,8 +2978,6 @@ File: r5rs.info,  Node: Other data types,  Next: Control features,  Prev: Number
 This section describes operations on some of Scheme's non-numeric data
 types: booleans, pairs, lists, symbols, characters, strings and vectors.
 
-
-File: r5rs.info,  Node: Booleans,  Next: Pairs and lists,  Prev: Other data types,  Up: Other data types
 
 6.3.1 Booleans
 --------------
@@ -3191,8 +3031,6 @@ quoted in programs.
      (boolean? '())                         ==>  #f
 
 
-
-File: r5rs.info,  Node: Pairs and lists,  Next: Symbols,  Prev: Booleans,  Up: Other data types
 
 6.3.2 Pairs and lists
 ---------------------
@@ -3285,9 +3123,9 @@ denote two-element lists whose first elements are the symbols 'quote',
 second element in each case is <datum>.  This convention is supported so
 that arbitrary Scheme programs may be represented as lists.  That is,
 according to Scheme's grammar, every <expression> is also a <datum> (see
-section *note External representation::).  Among other things, this
+section *note External representation::*).  Among other things, this
 permits the use of the 'read' procedure to parse Scheme programs.  See
-section *note External representations::.
+section *note External representations::*.
 
  -- procedure: pair? obj
 
@@ -3505,8 +3343,6 @@ section *note External representations::.
           have question marks in their names because they return useful
           values rather than just #t or #f.
 
-
-File: r5rs.info,  Node: Symbols,  Next: Characters,  Prev: Pairs and lists,  Up: Other data types
 
 6.3.3 Symbols
 -------------
@@ -3520,8 +3356,8 @@ applications; for instance, they may be used the way enumerated values
 are used in Pascal.
 
 The rules for writing a symbol are exactly the same as the rules for
-writing an identifier; see sections *note Identifiers:: and *note
-Lexical structure::.
+writing an identifier; see sections *note Identifiers::* and 
+*note Lexical structure::*.
 
 It is guaranteed that any symbol that has been returned as part of a
 literal expression, or read using the 'read' procedure, and subsequently
@@ -3557,7 +3393,7 @@ or letters in the non-standard case.
 
      Returns the name of SYMBOL as a string.  If the symbol was part of
      an object returned as the value of a literal expression (section
-     *note Literal expressions::) or by a call to the 'read' procedure,
+     *note Literal expressions::*) or by a call to the 'read' procedure,
      and its name contains alphabetic characters, then the string
      returned will contain characters in the implementation's preferred
      standard case--some implementations will prefer upper case, others
@@ -3606,8 +3442,6 @@ or letters in the non-standard case.
                ==>  #t
 
 
-
-File: r5rs.info,  Node: Characters,  Next: Strings,  Prev: Symbols,  Up: Other data types
 
 6.3.4 Characters
 ----------------
@@ -3730,8 +3564,6 @@ between upper case and lower case.  The procedures that ignore case have
      of 'char-upcase' is upper case and the result of 'char-downcase' is
      lower case.
 
-
-File: r5rs.info,  Node: Strings,  Next: Vectors,  Prev: Characters,  Up: Other data types
 
 6.3.5 Strings
 -------------
@@ -3868,10 +3700,8 @@ between upper and lower case.  The versions that ignore case have
      Stores CHAR in every element of the given STRING and returns an
      unspecified value.
 
-
-File: r5rs.info,  Node: Vectors,  Prev: Strings,  Up: Other data types
 
-6.3.6 Vectors
+ctors
 -------------
 
 Vectors are heterogeneous structures whose elements are indexed by
@@ -3976,8 +3806,6 @@ constants must be quoted:
      Stores FILL in every element of VECTOR.  The value returned by
      'vector-fill!' is unspecified.
 
-
-File: r5rs.info,  Node: Control features,  Next: Eval,  Prev: Other data types,  Up: Standard procedures
 
 6.4 Control features
 ====================
@@ -4059,7 +3887,7 @@ is also described here.
  -- library procedure: force promise
 
      Forces the value of PROMISE (see 'delay', section *note Delayed
-     evaluation::).  If no value has been computed for the promise, then
+     evaluation::*).  If no value has been computed for the promise, then
      a value is computed and returned.  The value of the promise is
      cached (or "memoized") so that if it is forced a second time, the
      previously computed value is returned.
@@ -4364,8 +4192,6 @@ is also described here.
                     connect talk2 disconnect)
 
 
-
-File: r5rs.info,  Node: Eval,  Next: Input and output,  Prev: Control features,  Up: Standard procedures
 
 6.5 Eval
 ========
@@ -4422,21 +4248,15 @@ File: r5rs.info,  Node: Eval,  Next: Input and output,  Prev: Control features, 
      return the environment in which the implementation would evaluate
      expressions dynamically typed by the user.
 
-
-File: r5rs.info,  Node: Input and output,  Prev: Eval,  Up: Standard procedures
 
-6.6 Input and output
+ and output
 ====================
-
-* Menu:
 
 * Ports::
 * Input::
 * Output::
 * System interface::
 
-
-File: r5rs.info,  Node: Ports,  Next: Input,  Prev: Input and output,  Up: Input and output
 
 6.6.1 Ports
 -----------
@@ -4518,16 +4338,9 @@ port is a Scheme object that can accept characters.
      These routines have no effect if the file has already been closed.
      The value returned is unspecified.
 
-
-File: r5rs.info,  Node: Input,  Next: Output,  Prev: Ports,  Up: Input and output
 
-6.6.2 Input
+ut
 -----------
-
- 
-
-
-
 
 
  -- library procedure: read
@@ -4535,8 +4348,8 @@ File: r5rs.info,  Node: Input,  Next: Output,  Prev: Ports,  Up: Input and outpu
 
      'Read' converts external representations of Scheme objects into the
      objects themselves.  That is, it is a parser for the nonterminal
-     <datum> (see sections *note External representation:: and *note
-     Pairs and lists::).  'Read' returns the next object parsable from
+     <datum> (see sections *External representation* and 
+     *note Pairs and lists::*).  'Read' returns the next object parsable from
      the given input PORT, updating PORT to point to the first character
      past the end of the external representation of the object.
 
@@ -4605,8 +4418,6 @@ File: r5rs.info,  Node: Input,  Next: Output,  Prev: Ports,  Up: Input and outpu
           of file would be indistinguishable from an interactive port
           that has no ready characters.
 
-
-File: r5rs.info,  Node: Output,  Next: System interface,  Prev: Input,  Up: Input and output
 
 6.6.3 Output
 ------------
@@ -4660,10 +4471,8 @@ File: r5rs.info,  Node: Output,  Next: System interface,  Prev: Input,  Up: Inpu
      PORT argument may be omitted, in which case it defaults to the
      value returned by 'current-output-port'.
 
-
-File: r5rs.info,  Node: System interface,  Prev: Output,  Up: Input and output
 
-6.6.4 System interface
+stem interface
 ----------------------
 
 Questions of system interface generally fall outside of the domain of
@@ -4696,13 +4505,9 @@ deserve description here.
      some implementations may relax this restriction.  The values
      returned by these procedures are unspecified.
 
-
-File: r5rs.info,  Node: Formal syntax and semantics,  Next: Notes,  Prev: Standard procedures,  Up: Top
 
 # 📜 7 Formal syntax and semantics
 *****************************
-
-* Menu:
 
 * Formal syntax::
 * Formal semantics::
@@ -4711,13 +4516,9 @@ File: r5rs.info,  Node: Formal syntax and semantics,  Next: Notes,  Prev: Standa
 This chapter provides formal descriptions of what has already been
 described informally in previous chapters of this report.
 
-
-File: r5rs.info,  Node: Formal syntax,  Next: Formal semantics,  Prev: Formal syntax and semantics,  Up: Formal syntax and semantics
 
 7.1 Formal syntax
 =================
-
-* Menu:
 
 * Lexical structure::
 * External representation::
@@ -4737,8 +4538,6 @@ The following extensions to BNF are used to make the description more
 concise: <thing>* means zero or more occurrences of <thing>; and
 <thing>+ means at least one <thing>.
 
-
-File: r5rs.info,  Node: Lexical structure,  Next: External representation,  Prev: Formal syntax,  Up: Formal syntax
 
 7.1.1 Lexical structure
 -----------------------
@@ -4847,13 +4646,11 @@ in decimal radix.
 <digit 16> --> <digit 10> | a | b | c | d | e | f
 
 
-
-File: r5rs.info,  Node: External representation,  Next: Expression,  Prev: Lexical structure,  Up: Formal syntax
 
 7.1.2 External representations
 ------------------------------
 
-<Datum> is what the 'read' procedure (section *note Input::)
+<Datum> is what the 'read' procedure (section *note Input::*)
 successfully parses.  Note that any string that parses as an
 <expression> will also parse as a <datum>.
 
@@ -4869,8 +4666,6 @@ successfully parses.  Note that any string that parses as an
 <vector> --> #(<datum>*)
 
 
-
-File: r5rs.info,  Node: Expression,  Next: Quasiquotations,  Prev: External representation,  Up: Formal syntax
 
 7.1.3 Expressions
 -----------------
@@ -4951,8 +4746,6 @@ File: r5rs.info,  Node: Expression,  Next: Quasiquotations,  Prev: External repr
 
 
 
-
-File: r5rs.info,  Node: Quasiquotations,  Next: Transformers,  Prev: Expression,  Up: Formal syntax
 
 7.1.4 Quasiquotations
 ---------------------
@@ -4988,8 +4781,6 @@ with either an <unquotation D> or a <splicing unquotation D>.  The
 interpretation as an <unquotation> or <splicing unquotation D> takes
 precedence.
 
-
-File: r5rs.info,  Node: Transformers,  Next: Programs and definitions,  Prev: Quasiquotations,  Up: Formal syntax
 
 7.1.5 Transformers
 ------------------
@@ -5021,8 +4812,6 @@ File: r5rs.info,  Node: Transformers,  Next: Programs and definitions,  Prev: Qu
 
 
 
-
-File: r5rs.info,  Node: Programs and definitions,  Prev: Transformers,  Up: Formal syntax
 
 7.1.6 Programs and definitions
 ------------------------------
@@ -5042,8 +4831,6 @@ File: r5rs.info,  Node: Programs and definitions,  Prev: Transformers,  Up: Form
 
 
 
-
-File: r5rs.info,  Node: Formal semantics,  Next: Derived expression type,  Prev: Formal syntax,  Up: Formal syntax and semantics
 
 7.2 Formal semantics
 ====================
@@ -5056,15 +4843,13 @@ and notation used here are described in [STOY77].
      incompatible with TeXinfo.  See the Formal semantics section of the
      original document from which this was derived.
 
-
-File: r5rs.info,  Node: Derived expression type,  Prev: Formal semantics,  Up: Formal syntax and semantics
 
 7.3 Derived expression types
 ============================
 
 This section gives macro definitions for the derived expression types in
 terms of the primitive expression types (literal, variable, call,
-'lambda', 'if', 'set!').  See section *note Control features:: for a
+'lambda', 'if', 'set!').  See section *note Control features::* for a
 possible definition of 'delay'.
 
 
@@ -5251,20 +5036,14 @@ The expression '(if #f #f)' is used to obtain an unspecific value.
           y)))
 
 
-
-File: r5rs.info,  Node: Notes,  Next: Additional material,  Prev: Formal syntax and semantics,  Up: Top
 
 Notes
 *****
 
-* Menu:
-
 * Language changes::
 
-
-File: r5rs.info,  Node: Language changes,  Prev: Notes,  Up: Notes
 
-Language changes
+changes
 ================
 
 This section enumerates the changes that have been made to Scheme since
@@ -5304,8 +5083,6 @@ the "Revised^4 report" [R4RS] was published.
    * ''@'' can be used within identifiers.  ''|'' is reserved for
      possible future extensions.
 
-
-File: r5rs.info,  Node: Additional material,  Next: Example,  Prev: Notes,  Up: Top
 
 # 📜 Additional material
 *******************
@@ -5317,8 +5094,6 @@ The Internet Scheme Repository at
 contains an extensive Scheme bibliography, as well as papers, programs,
 implementations, and other material related to Scheme.
 
-
-File: r5rs.info,  Node: Example,  Next: Bibliography,  Prev: Additional material,  Up: Top
 
 Example
 *******
@@ -5451,8 +5226,6 @@ which models a damped oscillator.
           .01))
 
 
-
-File: r5rs.info,  Node: Bibliography,  Next: Index,  Prev: Example,  Up: Top
 
 # 📜 Bibliography
 ************
@@ -5579,8 +5352,6 @@ File: r5rs.info,  Node: Bibliography,  Next: Index,  Prev: Example,  Up: Top
    * [TImanual85] Texas Instruments, Inc.  TI Scheme Language Reference
      Manual.  Preliminary version 1.0, November 1985.
 
-
-File: r5rs.info,  Node: Index,  Prev: Bibliography,  Up: Top
 
 # 📜 Alphabetic index of definitions of concepts, keywords, and procedures
 *********************************************************************
@@ -5598,8 +5369,6 @@ Concepts
 ========
 
  [index ]
-* Menu:
-
 * ':                                     Literal expressions. (line  12)
 * ,:                                     Quasiquotation.      (line  15)
 * ,@:                                    Quasiquotation.      (line  18)
@@ -5744,8 +5513,6 @@ Procedures
 ==========
 
  [index ]
-* Menu:
-
 *          ...:                          Pairs and lists.     (line 162)
 * '<datum>:                              Literal expressions. (line   8)
 * *:                                     Numerical operations.
@@ -6043,8 +5810,6 @@ References
 ==========
 
  [index ]
-* Menu:
-
 * Bawden88:                              Bibliography.        (line  10)
 * CLtL:                                  Bibliography.        (line 114)
 * howtoprint:                            Bibliography.        (line  14)
@@ -6077,7 +5842,6 @@ References
 * TImanual85:                            Bibliography.        (line 125)
 
 
-
 Tag Table:
 Node: Top242
 Node: Introduction2747
@@ -6165,5 +5929,5 @@ Node: Additional material202889
 Node: Example203240
 Node: Bibliography207064
 Node: Index212714
-
+
 End Tag Table

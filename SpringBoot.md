@@ -3861,7 +3861,6 @@ Kotlin 和 Java 数据类型对比：
 - [Groovy Program structure](http://groovy-lang.org/structure.html)
 - [Groovy Bean Definition DSL](https://docs.spring.io/spring/docs/4.3.11.RELEASE/spring-framework-reference/htmlsingle/)
 - [Groovy DSL - Domain-Specific Languages](http://www.groovy-lang.org/dsls.html)
-- []()
 
 最初的 Java 技术工程师曾做过一个了不起的决定，将语言从运行时中分离出来，最终使 200 多种语言可在 Java 平台上运行。该基础架构对平台保持长久活力非常关键，因为计算机编程语言的寿命通常很短。自 2008 年以来，每年由 Oracle 主办的 JVM 语言峰会都会为 JVM 上替代语言的实现者提供与平台工程师公开合作的机会。
 

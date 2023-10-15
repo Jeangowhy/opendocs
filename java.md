@@ -315,6 +315,2710 @@ Java 技术书籍大全 PDF (https://github.com/dahuoyzs/javapdf)
 
 
 
+# 🚩 Java Version History
+https://learnku.com/articles/49657
+https://www.javatpoint.com/history-of-java
+
+自上个世纪计算机信息革命开始，C 语言从 1970 年代发迹，并成功催生出 C++ 这样的面向对象编程言语，但是 C/C++ 作为系统开发级别的高级语言，它们在直接操作硬件底层上具有非常开放的特性，并且需要开发者手动管理内存，这使得日益增加的软件工程安全需求变得越来越迫切。
+
+基于以上历史背景，Sun Microsystems 公司于 1995 年 5 月推出的 Java 面向对象程序设计语言和 Java 平台，由 James Gosling, Mike Sheridan, Patrick Naughton 带领 Green Team 同事们共同研发。
+
+Sun 公司终于抵挡不住开源社区和 Java 社区的种种压力，最终被迫开放 Java 虚拟机和编译器的源代码。2006 年 11 月 13 日，Sun Microsystems 正式宣布 Java 开源，不过，十年之后，对于 Java 开源的争议依旧存在。批评者认为，Java 并没有像官方说的那样完全开源，其实只开放了 SDK，而 Java SE 和 Java EE TCKs 仍然是闭源。最初 IBM 呼吁将 Java 捐给 Apache 软件基金会，使用 Apache 许可证分发，但 Sun 最终决定在 GPL 许可证下开源 Java。GPL 许可证要求衍生版本需要公开分发。Gosling 称这能让 Java 更好的适应开源社区。Sun 在 2010 年被甲骨文收购，Java 也落到了甲骨文手中，由甲骨文主导 Java 的演化。
+
+随着 Java 开源，JVM 底层的公开，基于 JVM 实现的脚本、语言也在大量衍生：
+
+1. *JRuby*：Java 语言实现的 Ruby 脚本解释器。
+2. *Fantom*：其前身 Fan 是一个基于 Java 和 .NET 平台的脚本引擎。
+3. *Jython*：继承 Java 和 CPython 二者的特性的脚本语言。
+4. *Groovy*：就是 JVM 上的脚本语言，吸取 Python 等语言特征，提升 Java 开发者的效率。
+5. *Clojure*：就是 JVM 上的 Lisp，解决 Java 语法和 Lisp 差别太大的缺点。
+6. *Scala*：一种多范式的编程语言，整合 OOP 和 FP 的各种特性。
+7. *Kotlin*：目标就是替换掉 Java，大量应用于 Android 开发。
+
+为什么说 Kotlin 是未来，相比起 Java 语言，Kotlin 的优势确实非常明显：
+
+1. 高效率：Kotlin 是一种跨平台的静态类型语言，关键特性包括 null 安全性、协程、数据类型、扩展函数等。前期开发效率更高，中期线上问题更少，后期代码更容易维护。
+2. 兼容性：Kotlin 可以与 Java 混合编程，项目可以渐进式迁移 Java 到 Kotlin。
+3. 代码风格更友好、更快捷，语法不似 Java 复杂，不需冗余类定义函数和静态对象。
+
+Java 主要特性：
+
+1. *简单*：自动内存管理，基于 C++ 但消除复杂的 C++ 功能，如指针、多继承。
+2. *面向对象*：Java 将一切问题都看做对象与对象之间的交互，将对象抽象成方法与属性的集合。
+3. *分布性*：包含操作分布性与数据分布性两个方面。操作分布性是指由多个主机共同完成一项功能，数据分布性是分布在多台主机上的数据当做一个完成的整体处理。
+4. *跨平台*：Java 语言编写的应用程序，不受平台限制，可以由一种平台迁移到另一种平台。
+5. *解释型*：使用 Java 语言编写的源码被转化为字节码，字节码只有被 JVM 解释成机器码才能被计算机执行。
+6. *安全性*：Java 语言的底层设计可以有效避免非法操作。
+7. *健壮性*：Java 提供了许多机制防止运行时出现严重错误，如编译时类型检查、异常处理。
+8. *多线程*：Java 支持多线程，允许进程内部多个线程同时工作。
+
+Java 运行环境 Java Runtime Environment (JRE) 包含了 Java 虚拟机、基础类库，是在任何平台上运行 Java 编写的程序都需要用到的软件环境，提供给终端用户使用。
+
+JRE 类库分为四类构成，参考文档首页的 Description of Java Conceptual Diagram：
+1. https://docs.oracle.com/javase/7/docs/
+2. https://docs.oracle.com/javase/7/docs/technotes/guides/language/index.html
+3. https://docs.oracle.com/javase/specs/index.html
+
+User Interface Toolkits:
+
+	JavaFX
+	Swing	Java 2D	AWT	Accessibility
+	Drag and Drop	Input Methods	Image I/O	Print Service	Sound
+
+Integration Libraries: 
+
+	IDL	JDBC	JNDI	RMI	RMI-IIOP	Scripting
+
+Other Base Libraries: 
+
+	Beans	Int'l Support	Input/Output	JMX
+	JNI	Math	Networking	Override Mechanism
+	Security	Serialization	Extension Mechanism	XML JAXP
+
+lang and util Base Libraries:
+
+	lang and util	Collections	Concurrency Utilities	JAR
+	Logging	Management	Preferences API	Ref Objects
+	Reflection	Regular Expressions	Versioning	Zip	Instrumentation
+
+
+1. Java 的类库，包含了编译 Java 程序所需要的最核心文件。
+1.01. 核心库文件，其中有
+1.02. 数据结构的库，包括列表、字典和树等
+1.03. XML 分析库
+1.04. 安全方面应用库
+1.05. 国际化和本地化应用库
+1.06. 综合库文件，包含了程序员和其他系统通信的功能文件。
+1.07. JDBC，即 Java 数据库联通的 API
+1.08. JNDI，即 Java 命名和目录接口
+1.09. RMI 和 CORBA 用于重新分发软件
+1.10. 用户界面库文件，包含：
+1.11. AWT，即抽象窗口开发包，提供了产生图形用户界面所需要的功能
+1.12. Swing 库
+1.13. 其他用于回访媒体文件、录音、截图的库
+2. 一个用于执行软件的 Java 虚拟机（JVM）
+3. 插件，可以在浏览器里面使用
+4. JWS，可以让终端用户连接到互联网
+5. 许可文件和文档
+
+JDK (Java Development Kit) 作为 Java 语言的基础软件开发工具包，其版本主要根据设备类型分类：
+
+1. Java ME（Java Micro Edition)
+2. Java EE（Java Enterprise Edition)
+3. Java SE（Java Standard Edition)
+4. LTS(Long-term support)
+
+Java SE JDK 版本发布时间表：
+
+| 发行日期	| 版本		| 名称		|
+| 1996-01-23	| JDK 1.0		| Oak(橡树)		|
+| 1997-02-19	| JDK 1.1		| none（无）		|
+| 1997-09-12	| JDK 1.1.4		| Sparkler（宝石）		|
+| 1997-12-13	| JDK 1.1.5		| Pumpkin（南瓜）		|
+| 1998-04-24	| JDK 1.1.6		| Abigail（阿比盖尔–女子名）		|
+| 1998-09-28	| JDK 1.1.7		| Brutus（布鲁图–古罗马政治家和将军）		|
+| 1999-04-08	| JDK 1.1.8		| Chelsea（切尔西–城市名）		|
+| 1998-12-04	| J2SE 1.2		| Playground（运动场）	|
+| 1999-03-30	| J2SE 1.2.1		| none（无）		|
+| 1999-07-08	| J2SE 1.2.2		| Cricket（蟋蟀）		|
+| 2000-05-08	| J2SE 1.3		| Kestrel（美洲红隼）	|
+| 2001-05-17	| J2SE 1.3.1		| Ladybird（瓢虫）		|
+| 2002-02-13	| J2SE 1.4.0		| Merlin（灰背隼）	|
+| 2002-09-16	| J2SE 1.4.1		| grasshopper（蚱蜢）	|
+| 2003-06-26	| J2SE 1.4.2		| Mantis（螳螂）		|
+| 2004-09-30	| Java SE 5.0 (1.5.0)	| Tiger（老虎）	|
+| 2006-04-00	| Java SE 6.0 (1.6.0)	| Mustang（野马）	|
+| 2011-07-28	| Java SE 7.0 (1.7.0)	| Dolphin（海豚）	|
+| 2014-03-18	| Java SE 8.0 (1.8.0)	| Spider（蜘蛛）	|
+| 2017-09-21	| Java SE 9.0		| none（无）		|
+| 2018-03-21	| Java SE 10.0		| none（无）		|
+| 2018-09-25	| Java SE 11.0		| none（无）		|
+| 2019-03-19 	| Java SE 12.0		| none（无）		|
+| 2019-09-17 	| Java SE 13.0		| none（无）		|
+| 2020-03-17 	| Java SE 14.0		| none（无）		|
+
+
+发展历史
+
+01. 1991 年 Green 项目成立，James Gosling 等人开发 Oak 语言以支持有线电视交换盒、PDA 等的微处理器的嵌入式开发。
+02. 1994 年将 Oak 语言更名为 Java。
+03. 1995 年 5 月 23 日，Java 语言诞生。
+04. 1996 年 1 月 23 日，Sun 公司发布了 Java 的第一个开发工具包 JDK 1.0。
+05. 1996 年 4 月，10 个最主要的操作系统供应商申明将在其产品中嵌入 Java 技术。
+06. 1996 年 9 月，约 8.3 万个网页应用了 JAVA 技术来制作。
+07. 1996 年 10 月，Sun 发布第一个 JIT 编译器。
+08. 1997 年 2 月 18 日，JDK1.1 发布。
+09. 1997 年 4 月 2 日，JavaOne 会议召开，参与者逾一万人，创当时全球同类会议规模之纪录。
+10. 1997 年 9 月，JavaDeveloperConnection 社区成员超过十万。
+11. 1998 年 2 月，JDK1.1 被下载超过 2,000,000 次。
+12. 1998 年 12 月 8 日，Sun 公司发布了第二代 Java 平台的 3 个版本：
+	J2ME 应用于移动、无线及有限资源的环境；
+	J2SE 应用于桌面环境；
+	J2EE 应用于基于 Java 的应用服务器。
+13. 1999 年 6 月，第三个 Java 版本发布，并命名为 JavaSE、JavaEE、JavaME。
+14. 2000 年 5 月 8 日， JDK1.3，J2SE 1.3 发布。
+15. 2000 年 5 月 29 日，JDK1.4 发布。
+16. 2001 年 9 月 24 日，J2EE1.3 发布。
+17. 2002 年 2 月 26 日，J2SE1.4 发布。
+18. 2004 年 9 月 30 日，J2SE1.5 发布，并命名为 Java SE 5.0 以突显其里程碑意义。
+19. 2005 年 6 月，JavaOne 大会召开并发布 JavaSE6，更名为：Java EE、Java SE、Java ME。
+20. 2009 年 4 月 20 日，Oracle 公司每股 7.5 美元收购 Sun 总价值 74 亿美元
+21. 2011 年 7 月 28 日，Oracle 发布 Java SE 7
+22. 2014 年 3 月 18 日，Java SE 8 发布
+23. 2017 年 9 月 21 日，Java SE 9 发布
+24. 2018 年 3 月 21 日，Java SE 10 发布
+25. 2018 年 9 月 25 日，Java SE 11 发布
+26. 2019 年 3 月 20 日，Java SE 12 发布
+27. 2019 年 9 月 17 日，Java SE 13 发布
+28. 2020 年 3 月 17 日，Java SE 14 发布
+
+
+首个 JDK 1.0 版本从 1996 年初发布，至今有二十多个版本，早期版本号使用 1.x 命令，从 ava SE 9 开始不再使用这种命名风格。J2SE 1.4 开始由 Java Community Process（JCP）管理，使用 Java Specification Requests （JSRs）文档来建议和定义对 Java 平台内容的新增和修改。
+
+Java 标准库（JCL）经过多年发展，从 JDK 1.0 中的几百个类暴增到 J2SE 5 的三千多个类。随着技术进步，API 也不断推陈出新，许多 JDK 1.0 原本的类和方法被弃用。
+
+Java 7 发布后，Oracle 承诺回到以前每两年发布一次的发布周期。2013 年 Oracle 却宣布他们将 Java 8 延迟一年发表，官方表示是为了修复 Java 的安全漏洞。
+
+2017 年 9 月，Java 平台的主架构师 Mark Reinhold 发出提议，要求将 Java 的功能更新周期从之前的每两年一个新版本缩减到每六个月一个新版本。该提议获得了通过，并在提出后不久生效。
+
+Java 8 与 Java 11 为目前提供支持的 LTS（长期支持）版本；Java 10 是上一个快速发布版本，且已不再被支持。随着 Java 11 的发布，Java 10 自当日起不再被支持。Oracle 将在 2019 年 1 月前为商业用途中的 Java 8 长期支持，而针对非商用的更新将继续提供，直至 2020 年 12 月；此外，AdoptOpenJDK 也为 Java 8 提供免费更新。针对 Java 11 的长期支持将不再由 Oracle 提供，而是改由 OpenJDK 社区的 AdoptOpenJDK 提供。
+
+# 🚩 JUnit, Maven, Gradle 单元测试与项目管理
+1. https://junit.org/junit5/docs/current/user-guide/
+2. https://ant.apache.org/manual/tutorial-HelloWorldWithAnt.html
+3. https://github.com/junit-team/junit4/wiki/Getting-started
+
+JUnit 作为应用最广泛的 Java 单元测试工具，一般会搭配各种项目管理工具使用。IDE 默认提供相应的项目配置，可以通选项进行配置修改。可以跳过 IDE，直接调用各种项目管理工具提供的命令行工具。
+
+常用的 Java 项目管理工具有以下三个，前后有依赖关系：
+
+0. Ant 早期的构建工具，使用类似 GNU Make 的 Target 构建概念，但是缺失依赖库管理。
+1. Maven 基于 Project Object Model（pom.xml）配置文件，支持构建、依赖、文档和发布等任务。
+2. Gradle 是一种基于 Groovy 语言的构建自动化工具，配置脚本比 pom.xml 更加精简。
+
+JUnit 4 WIki
+
+```sh
+git clone --depth=1 git@github.com:junit-team/junit4.wiki
+```
+
+JUnit 依赖：
+
+```xml
+<!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>3.8.2</version>
+    <scope>test</scope>
+</dependency>
+<!-- https://mvnrepository.com/artifact/junit/junit/4.12 -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+```
+
+JUnit 各版本的命名空间：
+
+```java
+// JUnit 3 
+import junit.framework.TestCase
+import junit.framework.Test;
+import junit.framework.Assert;
+import groovy.test.GroovyTestCase;
+// JUnit 4 
+import org.junit.Test;
+import org.junit.Assert.assertEquals;
+import groovy.test.GroovyAssert;
+import static org.junit.Assert.assertEquals;
+// JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions.assertEquals;
+```
+
+使用 JUnit 3 编写测试程序需要继承 TestCase，主要用于 Java 5 之前的代码。升级到 JUnit 4 则可以直接使用 @Test 等注解将 public 方法标记为测试案列。
+
+以下以 JUnit 4 为例，演示单元测试的使用流程：
+
+1. 编写 Java 程序，此为待测试的程序；
+2. 使用 JUnit 依赖库编写测试程序；
+3. 编译程序，并使用 JUnit JUnitCore 运行测试程序；
+
+测试程序也可以实现 static main 入口函数，而不必通过 JUnitCore 运行测试程序。
+
+按约定，工程目录按以下约定形式存放不同的代码文件：
+
+1. src/main/java  存放 Java 源程序代码；
+2. src/main/groovy 存放 Groovy 源程序代码；
+3. src/test/java  存放 Java 测试程序代码；
+4. src/test/groovy 存放 Groovy 测试程序代码；
+
+创建 `Calculator.java` 代码文件，内容参考如下：
+
+```java
+public class Calculator {
+  public int evaluate(String expression) {
+    int sum = 0;
+    for (String summand: expression.split("\\+"))
+      sum += Integer.valueOf(summand);
+    return sum;
+  }
+}
+```
+
+使用 JUnit 4 类库创建 `CalculatorTest.java` 作为测试程序，代码参考如下，注意 public 关键字的使用，否则测试引擎检测不到：
+
+```java
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class CalculatorTest {
+  @Test
+  public void evaluatesExpression() {
+    Calculator calculator = new Calculator();
+    int sum = calculator.evaluate("1+2+3");
+    assertEquals(6, sum);
+  }
+}
+```
+
+编译程序、测试程序，并使用 JUnitCore 运行测试程序：
+
+```sh
+# Now compile Calculator class:
+javac Calculator.java
+# The Java compiler creates a file `Calculator.class`.
+
+# Compile the test. On Linux or MacOS
+javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar CalculatorTest.java
+# and on Windows
+javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar CalculatorTest.java
+# The Java compiler creates a file `CalculatorTest.class`.
+
+## Run the test
+# Run the test from the command line. On Linux or MacOS
+java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore CalculatorTest
+# and on Windows
+java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore CalculatorTest
+```
+
+测试程序输出参考：
+
+```sh
+    JUnit version 4.12
+    .
+    Time: 0,006
+    
+    OK (1 test)
+```
+
+JUnit 3 也提供了一个 junit.runner.BaseTestRunner，但是它并没有入口函数，不能直接运行。应该使用 junit.textui.TestRunner 或者 junit.swingui.TestRunner。JUnit 5 使用 junit-platform-console-standalone 运行测试程序。使用 Maven 管理项目，可以使用 `mvn test` 命令运行测试：
+
+```sh
+javap 'jar:file:c:/gradle/lib/junit-4.13.2.jar!/org/junit/runner/JUnitCore.class'
+javap 'jar:file:~/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar!/junit/runner/BaseTestRunner.class'
+javap 'jar:file:~/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar!/junit/textui/TestRunner.class'
+
+java -cp 'c:/gradle/lib/junit-4.13.2.jar;target/test-classes;.' org.junit.runner.JUnitCore mgid.AppTest
+# java -cp '.;target/test-classes;c:/gradle/lib/junit-4.13.2.jar' org.junit.runner.JUnitCore
+
+export CLASSPATH="C:/gradle/lib/junit-4.13.2.jar;"\
+	"~/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar;"\
+	"C:/Groovy/lib/hamcrest-core-1.3.jar;"\
+	"C:/groovy-3.0.4/lib/groovy-3.0.4.jar;"\
+	"C:/groovy-3.0.4/lib/groovy-test-3.0.4.jar;"\
+	"C:/Groovy/lib/groovy-4.0.15.jar;"\
+	"C:/Groovy/lib/groovy-test-4.0.15.jar;$CLASSPATH;"\
+	"build/classes/java/main;build/classes/java/test;"\
+	"build/classes/groovy/main;build/classes/groovy/test;"\
+	"build/classes/kotlin/main;build/classes/kotlin/test;"\
+	"target/classes;target/test-classes;.;"
+
+java org.junit.runner.JUnitCore mgid.AppTest
+java junit.textui.TestRunner mgid.AppTest
+
+javap org.junit.runner.JUnitCore
+javap junit.textui.TestRunner
+
+mvn test -Dtest=mgid.AppTest
+mvn test -Dtest=SecondUnitTest
+mvn test -Dtest=FirstUnitTest,SecondUnitTest
+mvn test -Dtest="package.to.test.**"
+```
+
+使用脚本编译更新过的代码文件，配合 watch 工具监视 src 目录，如果编译成功就执行 UnboundedWildcards：
+
+```sh
+cat > jc << EOF
+#! /usr/bin/env sh
+echo ------- Java compiling -------; 
+javas=`find src/main/java`; 
+for it in $javas; 
+	do if [ $it -nt timestamp ]; 
+		then javac -d build/classes/java/main $it; 
+	fi; 
+done
+if [ $? = 0 ]; then java $1; fi
+touch timestamp;
+EOF
+watch "sh -c './jc UnboundedWildcards'" src
+```
+
+注意：命令行运行 jar 程序时，放置在 CLASSPATH 列表的路径不要包含任何前导空格，否则会导致找不到入口。
+
+为了方便使用，可以将常用的 jar 文件路径配置到 CLASSPATH 系统环境变量中，当前值可以通过 System 对象获取：
+
+```java
+System.getProperty ("java.class.path").replace (';', '\n');
+```
+
+以下使用脚本编写 JUnit 3 测试程序，按照约定，将其保存到相应的脚本文件：
+
+1. src/test/groovy/My.goory 
+2. src/test/groovy/MyTest.goory 
+
+```java
+// 1. src/test/groovy/My.goory 
+class My {
+    static void main(String... args) {
+        println "Hello Groovy!"
+    }
+}
+
+// 2. src/test/groovy/MyTest.goory 
+import groovy.test.GroovyTestCase
+
+class MyTest extends GroovyTestCase
+{
+    static void main(String... args)
+    {
+        println "MyTest run... args=" + String.join(',', args)
+        new MyTest().testAssertions()
+    }
+
+    void testAssertions()
+    {
+        println "java --version".execute().text
+        assertEquals "Hello Groovy!", "java My".execute().text.trim()
+    }
+}
+
+// Groovy Test Suite
+import groovy.util.GroovyTestSuite 
+import junit.framework.Test 
+import junit.textui.TestRunner 
+
+class AllTests { 
+   static Test suite() { 
+      def allTests = new GroovyTestSuite() 
+      allTests.addTestSuite(MyTest.class) 
+      allTests.addTestSuite(MoreTest.class) 
+      return allTests 
+   } 
+} 
+
+TestRunner.run(AllTests.suite())
+```
+
+测试代码中调用了 `java My` 命令运行 My.class，因为已经将类输出目录设置到了 CLASSPATH 环境变量中，包括 Mavrn 编译输出目录，所以就不需要在命令行中设置 -cp 参数。 
+
+Groovy 脚本编写 JUnit 3 测试程序，只需要继承 `groovy.test.GroovyTestCase`，继承自 `junit.framework.TestCase`，然后就可以调用 JUnit 断言。Test Suite 可选，目的是将所有测试集中起来处理。
+
+JUnit 4 则使用 `groovy.test.GroovyAssert`，继承自 `org.junit.Assert`，其中定义了 shouldFail 静态方法。JUnit 4 使用 @Before @Test @After 等等注解。这些注解应用于非静态、且无参数的方法。
+
+```java
+import org.junit.Test;
+import org.junit.Before;
+import static groovy.test.GroovyAssert.*
+
+class MyTest
+{
+    @Before
+    void init()
+    {
+        println "MyTest run..."
+    }
+
+    @Test
+    void testAssertions()
+    {
+        print "java --version".execute().text
+        assertEquals "Hello Groovy!", "java My".execute().text.trim()
+    }
+}
+```
+
+Groovy 提供了一些专用的测试方法，例如 `shouldFail`，可用于 JUnit 3 或者 JUnit 4。用于检查给定代码块（闭包）是否失败，如果是，代码块中的断言将保持，否则断言将失败。它接收一个 `groovy.lang.Closure`，可以指定此闭包可能触发的异常类型。
+
+```java
+void testInvalidIndexAccess2() {
+    def numbers = [1,2,3,4]
+    shouldFail IndexOutOfBoundsException, {
+        numbers.get(4)
+    }
+}
+```
+
+Groovy 脚本可以很方便地通过 execute 方法调用外部程序并获取其 stdin stdout stderr 标准 I/O 文件的数据，但是注意，直接通过 text 属性获取的内容会自动添加换行符号，这会导致测试出错：
+
+	junit.framework.ComparisonFailure: expected:<Hello Groovy![]> but was:<Hello Groovy![
+	]>
+
+导入静态方法时，如 Assert.assertEquals，缺失 static 关键字会报错，会将它当作非静态对象导入，进而引发类型无法定位错误。
+
+	groovy unable to resolve class org.junit.Assert.assertEquals
+
+参考 Groovy 官方文档：
+
+1.3. Program structure - 1.3.2. Imports
+3.6. Testing Guide - 3.6.3. Testing with JUnit
+
+JUnitCore 运算的测试程序要求只能有一个构建器，如果是 Groovy 脚本代码，它会生成两个构建器
+
+```sh
+$ mvn test-compile; java org.junit.runner.JUnitCore MyTest
+1) initializationError(MyTest)
+java.lang.IllegalArgumentException: Test class can only have one constructor
+
+$ javap MyTest | grep MyTest\(
+  public MyTest();
+  public MyTest(groovy.lang.Binding);
+```
+
+另外，Groovy 脚本中调用方法可以省略括号，但是参数列表还是需要使用逗号分隔符，否则就会因为 Groovy 找不到对应的方法签名而触发异常：
+
+	groovy.lang.MissingMethodException: No signature of method
+
+
+
+## 🍀 JUnit Configuration
+
+JUnit 5 架构改动较大，按官方文档所述：
+
+	JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage
+
+JUnit Platform 运行于 JVM，它相当于一个测试环境容器，并且在其上运行 JUnit 测试引擎（Jupiter 或者 Vintage），junit-platform-launcher 插件负责启动测试平台，以运行 junit-jupiter 或者 junit-vintage-engine 插件所代表的测试引擎。
+
+1. JUnit Jupiter 是新的编程模型和扩展模型的组合，用于编写 JUnit 5 测试和扩展。
+2. JUnit Vintage 提供的测试引擎用于编写 JUnit 3 或者 JUnit 4 的测试程序。
+
+Maven 项目中配置 JUnit 3 或者 JUnit 4 依赖：
+
+```xml
+<!-- https://mvnrepository.com/artifact/junit/junit 
+testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+testImplementation 'junit:junit:4.13.2'
+-->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+</dependency>
+```
+
+Maven 项目中配置 JUnit 5 依赖，只需要添加 junit-jupiter-engine 依赖：
+https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine 
+testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
+-->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.10.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api 
+testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
+-->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.10.0</version>
+    <scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher 
+testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.10.0'
+-->
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-launcher</artifactId>
+    <version>1.10.0</version>
+    <scope>test</scope>
+</dependency>
+
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>5.9.1</version>
+            </dependency>
+        </dependencies>
+    </plugin>
+```
+
+新版本的 JUnit 5 使用 junit-jupiter-api:5.7.0 替代旧的注解，命令空间以及注解名称更新参考如下：
+
+	import org.junit.jupiter.api.Test
+	import org.junit.jupiter.api.Assertions.*
+	import org.junit.jupiter.api.Assumptions.*
+
+	@BeforeEach @AfterEach         ==》 @Before    @After
+	@BeforeAll  @AfterAll          ==》 @BeforeClass @AfterClass
+	@Disabled                      ==》 @Ignore
+	@Tag                           ==》 @Category
+	@ExtendWith                    ==》 @RunWith
+	@ExtendWith @RegisterExtension ==》 @Rule @ClassRule
+
+配合 Maven 项目管理工具时，`mvn test` 有可能不执行 JUnit 4 的测试程序，Maven 找不到要运行的 JUnit 4 测试，可能原因是默认的配置使用 TestNG 测试供应程序。
+
+Maven 支持以下测试工具，默认会使用 TestNG 作为单元测试供应程序，在命令输出消息中可以看到 Configuring TestNG。
+
+1. TestNG    - artifactId: surefire-testng
+2. JUnit 3.8 - artifactId: surefire-junit3
+3. JUnit 4.x - artifactId: surefire-junit4, surefire-junit47
+4. JUnit 5.x - artifactId: surefire-junit-platform
+5. POJO
+
+TestNG 全称 Testing, Next Generation。TestNG 脱胎于业界标杆的 JUnit，但比 JUnit 更加强大和易用。它几乎涵盖所有类型的测试：单元、组件、集成和前端（Selenium+TestNG）等。
+
+Surefire 插件 Provider Selection 检测逻辑：
+
+```sh
+if the JUnit 5 Platform Engine is present in the project
+    use junit-platform
+if the JUnit version in the project >= 4.7 and the <<<parallel>>> configuration parameter has ANY value
+    use junit47 provider
+if JUnit >= 4.0 is present
+    use junit4 provider
+else
+    use junit3.8.1
+```
+
+通过配置 maven-surefire-plugin 插件，手动指定 JUnit 4 作为单元测试供应程序，执行 `mvn test` 命令时，应该可以看到以下信息：
+https://maven.apache.org/surefire/maven-surefire-plugin/
+
+	Using configured provider org.apache.maven.surefire.junitcore.JUnitCoreProvider
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin
+implementation group: 'org.apache.maven.plugins', name: 'maven-surefire-plugin', version: '3.1.2'
+	org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test		Sep 24, 2012
+	org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test		Jun 06, 2023	 -->
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.1.2</version>
+    <scope>test</scope>
+</dependency>
+
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.1.2</version>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.maven.surefire</groupId>
+        <artifactId>surefire-junit4</artifactId>
+        <version>3.1.2</version>
+      </dependency>
+    </dependencies>
+  </plugin>
+```
+
+
+## 🍀 JDK & Groovy Version
+
+Java 程序编译后会记录一个 JDK 主版本号，当运行环境提供的 Java 版本达不到版本要求时，就会触发如下异常。使用最新版 JDK 17 可能导致旧版本 Gradle 运行出错，Major version 61 即 JDK 17：
+
+	BUG! exception in phase 'semantic analysis' in source unit 'src\test\groovy\MyTest.groovy' 
+	Unsupported class file major version 61
+
+使用 Groovy 编译器时就可能出现此错误，类似地，Gradle 7.5.x 并不适配 Java 19，这种情况也会导致 major 版本问题，可以降低 JDK 版本，或者升级 Gradle 版本。Groovy 启动脚本记录的是 Java 入口类，脚本会自动加载入口类所归属的依赖包，比如 groovy-4.0.15.jar。但是，如果将 Groovy 依赖包设置到 CLASSPATH 环境变量中，那么脚本就会按环境变量设置为准。
+
+Java 17 命令行有四种使用形式：
+
+```sh
+# (to execute a class)
+java [options] <mainclass> [args...]
+# (to execute a jar file)
+java [options] -jar <jarfile> [args...]
+# (to execute the main class in a module)
+java [options] -m <module>[/<mainclass>] [args...]
+java [options] --module <module>[/<mainclass>] [args...]
+# (to execute a single source-file program)
+java [options] <sourcefile> [args]
+```
+
+参数设置有多种，非标准选项因不同的虚拟机而异，HotSpot、OpenJ9、GraalVM、Azul Zing 等：
+https://docs.oracle.com/en/java/javase/17/docs/specs/man/java.html#java-command-line-argument-files
+
+0. General options，例如 -cp -classpath 或者 --class-path 指定类目录列表；
+1. Standard options 使用 -D<name>=<value> 形式设置系统属性；
+2. Extra-options 使用 `java -X` 命令查询，例如使用 `-Xms` 和 `-Xmx` 设置堆内存大小；
+3. Advanced options 设置 JVM Runtime、JIT 编译器、GC 等等，使用 -XX 形式，例如 `-XX:+PrintFlagsFinal`；
+4. @argument files 使用文本文件设置所有参数，再使用 @ 符号指定其路径；
+
+Java 9 引入 Platform Module System (JPMS)，使用 `java --list-modules` 命令列表当前所有模块，也可以使用 -p 参数加载指定模块。
+
+注意：@argfile 文件，参数和值可以分行编写。参数中的空格应该使用双引号包括，反引号原样编写，加载配置文件是会自动进行转义，并给参数值添加双引号包括。开放的双引号后面换行符号会被过滤，像 -cp 列表中的路径还是需要使用 : 或者 ; 分隔符号。
+
+1. groovy 命令对应主类：`groovy.ui.GroovyMain`
+2. groovysh 命令对应主类：`org.apache.groovy.groovysh.Main` 
+3. groovyConsole 命令对应主类：`groovy.console.ui.Console` 
+4. groovyc 命令对应主类：`org.codehaus.groovy.tools.FileSystemCompiler`
+5. grape 命令对应主类：`org.codehaus.groovy.tools.GrapeMain`
+6. 通用入口类为 `org.codehaus.groovy.tools.GroovyStarter`
+
+```sh
+cat >> argfile << EOF
+-classpath
+C:/Groovy/lib/jline-2.14.6.jar;\
+C:/Groovy/lib/groovy-swing-4.0.15.jar;\
+C:/Groovy/lib/javaparser-core-3.25.5.jar;\
+C:/Groovy/lib/groovy-4.0.15.jar;\
+C:/Groovy/lib/groovy-console-4.0.15.jar;\
+C:/Groovy/lib/groovy-groovysh-4.0.15.jar;
+EOF
+java @argfile groovy.ui.GroovyMain
+java @argfile groovy.console.ui.Console
+java @argfile org.apache.groovy.groovysh.Main
+
+java -Dkotlin.repl.ideMode=true -Dfile.encoding=UTF-8 @argfile groovy.console.ui.Console
+java -Dsun.awt.keepWorkingSetOnMinimize=true -classpath C:/Groovy//lib/groovy-4.0.15.jar \
+	-Dscript.name=/c/Groovy/bin/groovyconsole \
+	-Dprogram.name=groovyconsole \
+	-Dgroovy.starter.conf=C:/Groovy//conf/groovy-starter.conf \
+	-Dgroovy.home=C:/Groovy/ \
+	-Dtools.jar=C:/jdk-17/lib/tools.jar \
+	org.codehaus.groovy.tools.GroovyStarter \
+	--main groovy.console.ui.Console \
+	--conf C:/Groovy//conf/groovy-starter.conf \
+	--classpath "C:/jdk-14.0.2/jars/antlr-4.10.1-complete.jar;:."
+```
+
+使用公共入口的一个好处就是可以利用入口类提供的各种功能，比如给 --main 参数指定的主类设置 classpath 参数，或者指定 Groovy 配置，参考以下配置文件 groovy-starter.conf：
+
+```sh
+    # load required libraries
+    load !{groovy.home}/lib/*.jar
+
+    # load user specific libraries
+    load !{user.home}/.groovy/lib/*.jar
+
+    # tools.jar for ant tasks
+    load ${tools.jar}
+```
+
+以下是 Android Studio 集成 Groovy Shell 的脚本解析配置，其中 -p 参数设置在入口类之后，所以它不是直接给 Java 命令的参数，而是给 Groovy 命令指定的一个控制台逐行读取数据处理脚本，用户通过它来与 Groovy 解析器交互：
+
+```sh
+cat > argfile_as << EOF
+-classpath
+C:\Program" "Files\Android\Android" "Studio\lib\groovy.jar;.
+EOF
+java "-Dgroovy.home=/" -Dfile.encoding=UTF-8 @argfile_as \
+	org.codehaus.groovy.tools.GroovyStarter --main groovy.ui.GroovyMain \
+	-p "C:/Program Files/Android/Android Studio/plugins/Groovy/lib/console.groovy"
+```
+
+其中 console.groovy 脚本内容如下，主要是读取用户输入并调用 GroovyShell 逐行解析：
+
+```js
+// Copyright 2000-2018 JetBrains s.r.o. 
+// Use of this source code is governed by the Apache 2.0 license 
+// that can be found in the LICENSE file.
+
+Binding bind
+try {
+  bind = scriptBinding
+}
+catch (MissingPropertyException ignore) {
+  bind = scriptBinding = new Binding()
+}
+try {
+  print line
+  def result = new GroovyShell(bind).run(((String)line).replaceAll('###\\\\n', '\n'), 'ideaGroovyConsole.groovy')
+  System.out.println()
+  if (result != null) {
+    System.out.println 'ee2d5778-e2f4-4705-84ef-0847535c32f4' + result
+  }
+}
+catch (Throwable e) {
+  e.printStackTrace()
+}
+```
+
+Garpe 是在 Groovy 脚本里内嵌式的 Jar 包依赖管理器，使用 Grape 命令可以快速添加 maven 仓库依赖到脚本的 classpath。
+
+```js
+import com.jidesoft.swing.JideSplitButton
+@Grab(group='com.jidesoft', module='jide-oss', version='[2.2.1,2.3.0)')
+public class TestClassAnnotation {
+    public static String testMethod () {
+        return JideSplitButton.class.name
+    }
+}
+
+@Grapes([
+   @Grab(group='commons-primitives', module='commons-primitives', version='1.0'),
+   @Grab(group='org.ccil.cowan.tagsoup', module='tagsoup', version='0.9.7')])
+class Example {
+// ...
+}
+```
+
+```sh
+$ grape install org.springframework spring 2.5.6
+:: resolving dependencies :: caller#all-caller;working50
+        confs: [default]
+        found org.springframework#spring;2.5.6 in ibiblio
+        found commons-logging#commons-logging;1.1.1 in localm2
+downloading https://repo1.maven.org/maven2/org/springframework/spring/2.5.6/spring-2.5.6.jar ...
+        [SUCCESSFUL ] org.springframework#spring;2.5.6!spring.jar (322371ms)
+
+$ grape list
+
+commons-logging commons-logging  [1.1.1]
+org.apache apache  [4]
+org.apache.commons commons-parent  [5]
+org.springframework spring  [2.5.6, 5.3.30]
+
+4 Grape modules cached
+5 Grape module versions cached
+
+commons-logging-1.1.1.jar
+```
+
+以下是 IntelliJ IDEA 中设置的 Kotlin REPL 命令行（实验性功能），直接调用 K2JVMCompiler  编译器，使用 XML 格式进行数据交互：
+
+```sh
+cat > argfile_kotlin_repl << EOF
+-classpath
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-compiler.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-stdlib.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-reflect.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-script-runtime.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/trove4j.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-daemon.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-compiler.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-compiler-impl.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-common.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/kotlin-scripting-jvm.jar;\
+C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc/lib/annotations-13.0.jar;
+org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
+-cp
+build/classes/production/My_Application;build/classes/test/My_Application
+-jvm-target
+1.8
+-kotlin-home
+"C:/Program Files/Android/Android Studio/plugins/Kotlin/kotlinc"
+EOF
+java -Dkotlin.repl.ideMode=true -Dfile.encoding=UTF-8 @argfile_kotlin_repl
+<?xml version="1.0" encoding="UTF-8"?><output type="INITIAL_PROMPT">Welcome to Kotlin version 1.9.0-release-358 (JRE 17.0.8+9-LTS-211)#n</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="INITIAL_PROMPT">Type :help for help, :quit for quit#n</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="INTERNAL_ERROR">print("ABC")</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="USER_OUTPUT">ABC</output>
+<?xml version="1.0" encoding="UTF-8"?><output type="SUCCESS">#n</output>
+```
+
+使用 java 和 javap 命令查询类文件来源、以及其所使用的 JDK 主版本号：
+
+```sh
+$ javap -verbose org.codehaus.groovy.ast.decompiled.AsmDecompiler | grep major
+  major version: 52
+$ java -verbose org.codehaus.groovy.tools.GrapeMain | grep GrapeMain
+[0.085s][info][class,load] org.codehaus.groovy.tools.GrapeMain source /groovy/lib/groovy-3.0.4.jar
+```
+
+List of Java Major Minor Versions
+https://code2care.org/java/list-of-java-major-minor-version-numbers/
+
+	Java version			Major Version	Hex Code
+	Java SE 21 (YTR)		65		(0x41)
+	Java SE 20			64		(0x40)
+	Java SE 19			63		(0x3F)
+	Java SE 18			62		(0x3E)
+	Java SE 17			61		(0x3D)
+	Java SE 16			60		(0x3C)
+	Java SE 15			59		(0x3B)
+	Java SE 14			58		(0x3A)
+	Java SE 13			57		(0x39)
+	Java SE 12			56		(0x38)
+	Java SE 11			55		(0x37)
+	Java SE 10			54		(0x36)
+	Java SE 9			53		(0x35)
+	Java SE 8			52		(0x34)
+	Java SE 7			51		(0x33)
+	Java SE 6.0			50		(0x32)
+	Java SE 5.0			49		(0x31)
+	JDK 1.4				48		(0x30)
+	JDK 1.3				47		(0x2F)
+	JDK 1.2				46		(0x2E)
+	JDK 1.1				45		(0x2D)
+
+Java -verbose 输出的详细信息中包含了各种类加载来源：
+
+	source: __ClassDefiner__
+	source: __JVM_LookupDefineClass__
+	source: __dynamic_proxy__
+	source: /myaid/target/classes/
+	source: /groovy/lib/groovy-3.0.4.jar
+	source: groovy.lang.MetaClassImpl
+	source: java.lang.Class
+	source: java.lang.Module
+	source: jdk.nio.zipfs.ZipFileSystem
+	source: jdk.nio.zipfs.ZipFileSystemProvider
+	source: jrt:/java.base
+	source: jrt:/jdk.zipfs
+	source: org.codehaus.groovy.vmplugin.VMPluginFactory
+	source: org.codehaus.groovy.vmplugin.v9.ClassFinder$1
+	source: org.codehaus.groovy.vmplugin.v9.Java9
+	source: shared objects file
+
+根据 Java 类文件加载机制，这些类有以下来源形式：
+
+1. 从本地文件系统内加载 class 文件：source: /myaid/target/classes/
+2. 从 JAR 包加载 class 文件：source: /groovy/lib/groovy-3.0.4.jar
+3. 通过网络加载 class 文件。
+4. Java 源文件动态编译、并加载：source: shared objects file
+5. Inner 内部类：source: java.lang.Class java.lang.Module
+6. 运行时类库：source: jrt:/java.base
+7. Dynamic Proxy Class API：source: __dynamic_proxy__
+
+Bash 虽然提供变量字符串扩展（替换）处理，但是不能插入换行符，即使用 `$'\n'` 这种形式也不可以，需要借助 sed 或 gawk 等外部命令，它们也是 Linux 系统命令行的基本工具，参考官方手册  3.5 Shell Expansions 3.5.3 Shell Parameter Expansion (String manipulate) ，以及 Linux Command Line and Shell Scripting Bible - Chapter 19 Introducing sed and gawk。
+
+```sh
+$ echo ${CLASSPATH//\\//} | sed 's/;/\n/g'
+C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar
+C:/jdk-14.0.2/jars/antlr-4.10.1-complete.jar
+C:/gradle/lib/junit-4.13.2.jar
+C:/users/ocean/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar
+C:/Groovy/lib/groovy-test-4.0.15.jar
+C:/groovy-3.0.4/lib/groovy-test-3.0.4.jar
+C:/Groovy/lib/hamcrest-core-1.3.jar
+target/classes
+target/test-classes
+build/classes/java/main
+build/classes/java/test
+build/classes/groovy/main
+build/classes/groovy/test
+build/classes/groovy/main
+build/classes/groovy/test
+.
+C:/kotlin/kotlinc/lib/kotlin-compiler.jar
+C:/groovy/lib/groovy-4.0.15.jar
+C:/groovy-3.0.4/lib/groovy-3.0.4.jar
+```
+
+## 🍀 Groovy 脚本项目
+0. https://github.com/apache/groovy
+0. https://groovy-lang.org/documentation.html
+1. https://docs.gradle.org/current/userguide/groovy_plugin.html
+2. https://groovy.apache.org/download.html
+3. https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
+
+Groovy 虽然可以称为脚本，但是和 Java 一样也可以编译为字节码再运行，分别使用 javac 和 groovyc 编译器命令将源码翻译成二进制码，然后交给 JVM 解释执行。
+
+简洁算是 Groovy 的最基本特性，作为一种脚本，Groovy 也具有动态特性。Groovy ProcessGroovyMethods 提供 exexute 机制，可以非常方便地执行系统外部程序、命令。3.3. Groovy Development Kit - 3.3.1. Working with IO - Executing External Processes 
+
+使用 `groovy my.groovy` 命令执行以下 my.groovy 脚本，它演示如何轻松地利用 Groovy 脚本字符串提供的方法和系统进程进行交互：
+
+```js
+// For Unix system
+println("pwd && groovy -v".execute().text)
+// For Windows system
+println("groovy.bat -v".execute().text)
+println("cmd /C groovy -v".execute().text)
+println( "C:/groovy-3.0.4/bin/groovy.bat -v".execute().text)
+
+def process = "cmd.exe /c set".execute()
+process.in.eachLine { line -> println (line) }
+```
+
+Windows 系统上，因为 groovy 是以批处理脚本文件 .bat 形式定义的命令，所以需要使用 cmd.exe 程序执行它，或者指定脚本文件全名。
+
+直接使用 exectue 的输出虽然方便，但是如果发生错误，则没有结果输出。这就需要使用 `ProcessGroovyMethods` 提供的 I/O 消费方法进行处理：
+
+```sh
+def stdout_stderr = new StringBuilder()
+def ps = "java MyApp".execute()
+ps.consumeProcessOutput(stdout_stderr, stdout_stderr)
+ps.waitForOrKill(3000)
+println("Out: [$stdout_stderr]")
+```
+
+每个脚本文件对应一个 `Script` 抽象类型，使用 javap 命令可以查看类文件信息，包括反编译字节码指令。脚本中字符串和各种符号将会定义在常量池中，Constant pool。脚本中 execute() 方法返回一个 java.lang.Process 实例，通过它访问 stdin stdout stderr 等标准 I/O 文件，这些接口包装在 `ProcessGroovyMethods`。
+
+对于打包在 .jar 中的类文件，可以使用 `jar:file:xxx.jar!/path/to/some.class` 指定路径：
+
+```sh
+$ javap 'jar:file:c:/gradle/lib/junit-4.13.2.jar!/org/junit/runner/JUnitCore.class'
+$ javap 'jar:file:~/.m2/repository/junit/junit/3.8.2/junit-3.8.2.jar!/junit/runner/BaseTestRunner.class'
+```
+
+Groovy 脚本中执行的方法会编译为 `CallSite` call() 方式的调用，包括脚本中的 exexute() 这样的方法。Groovy 编译器根据调用的方法创建对应的 `CallSiteArray` 对象作为参数，利用这种方式来支持很多的动态特性。这里涉及的类型定义在 org.codehaus.groovy.runtime 包或者其子包中。
+
+Groovy 闭包用于定义匿名函数非常方便，以上代码中的花括号搭配 -> 符号就是闭包标志。
+
+编译脚本会生成与文件同名的类，脚本内容将包装在 `run()` 方法中，供 `InvokerHelper` 调用。同时还会生成一个 main 方法，作为整个脚本的入口。脚本中定义的类是 Groovy Class，编译时会按类名称生成对应的 .class 文件。脚本中定义的类都会隐含地实现 `GroovyObject` 接口，包括 `Script` 这个抽象类型。如果要直接执行，则脚本中定义的入口类必须定义 static main 方法。示范如下，事实上，在脚本中编写 `println "Hello Groovy!"` 一条语句，就等价以下完整代码，使用 InvokerHelper 执行 Groovy Class：
+
+```java
+import org.codehaus.groovy.runtime.InvokerHelper
+
+class Main extends Script {
+    def run() {
+        println "Hello Groovy!"
+    }
+    static void main(String[] args) {
+        InvokerHelper.runScript(Main, args)
+    }
+}
+```
+
+脚本程序结构参考官方文档：1. Groovy Language Specification - 1.3. Program structure 以及 1.3.3. Scripts versus classes
+
+执行 Groovy 编译器生成的 .class 文件时，需保证类路径中有 groovy-x.x.x.jar，否则会因为找不到 GroovyObject 这样的基础类型而触发入口错误，由脚本中设置的继承类型触发：
+
+```sh
+java -cp "C:/groovy/lib/groovy-4.0.15.jar;C:/groovy/lib/groovy-test-4.0.15.jar;." Main
+# Hello Groovy!
+
+java -cp "." Main
+# Error: Could not find or load main class my
+# Caused by: java.lang.NoClassDefFoundError: groovy/lang/GroovyObject
+# Caused by: java.lang.NoClassDefFoundError: groovy/lang/Script 
+# Caused by: java.lang.NoClassDefFoundError: groovy/test/GroovyTestCase 
+java NotRealClass
+# Error: Could not find or load main class NotRealClass
+# Caused by: java.lang.ClassNotFoundException: NotRealClass 
+```
+
+另外，运行 Groovy 测试脚本时，需要将 Groovy Test 依赖包添加到 CLASSPATH 列表，否则会出现断言方法缺失问题：
+
+```sh
+groovy.lang.MissingMethodException: 
+No signature of method: MyTest.assertEquals() is applicable for argument types: (String, String) 
+```
+
+注意：区别不同的入口类型错误：
+
+1. 由于 Groovy 依赖未加载，导致 GroovyObject 或 Script 等类型丢失而不能加载入口类；
+2. Java 运行一个不存在（未定位到的类定义）入口类型，警告信息就会包含这个类型；
+
+Groovy 测试工具由独立的 jar 包提供，应该将 groovy-test-4.0.15.jar 这样的依赖包添加到 CLASSPATH 列表。否则就会因为 GroovyTestCase 未加载导致不能加载入口类。
+
+使用 -cp 参数指定 CLASSPATH 列表，使用分号或冒号（Unix）分隔多个路径，并且不能有前置空格。重复设置 -cp 参数会覆盖旧值，比如，以下命令就可能导致运行出错：
+
+	java -cp "C:/groovy/lib/groovy-4.0.15.jar;C:/groovy/lib/groovy-test-4.0.15.jar;" -cp . Main
+
+使用 javap 命令可以检测指定类型是否存在入口函数，也可以用来反汇编字节码：
+
+```sh
+$ javap -verbose MyTest
+$ javap MyTest
+Compiled from "MyTest.groovy"
+public class MyTest extends groovy.test.GroovyTestCase implements groovy.lang.GroovyObject {
+  public static transient boolean __$stMC;
+  public MyTest();
+  public static void main(java.lang.String...);
+  public void testAssertions();
+  protected groovy.lang.MetaClass $getStaticMetaClass();
+  public groovy.lang.MetaClass getMetaClass();
+  public void setMetaClass(groovy.lang.MetaClass);
+}
+```
+
+使用以下类型可以动态运行 Groovy 脚本：
+
+1. *GroovyShell* 代表 groovy shell，可以运行任意脚本，使用 `Binding` 绑定参数；
+2. *Eval* 通过封装 GroovyShell 提供几个便于使用的脚本执行方法；
+3. *GroovyClassLoader* 类型可以加载 Groovy Class，使用 `parseClass()` 方法；
+4. *GroovyScriptEngine* 引擎类 run 方法在运行时加载脚本，监听到脚本变化时重新加载；
+5. *InvokerHelper* 静态助手类，使字节码生成、执行更容易；
+
+参考官方文档 3.20. Integrating Groovy in a Java application
+
+执行以下命令将脚本编译成字节码文件 my.class：
+
+```sh
+$ groovyc -d ./groovy/lang/Script my.groovy
+$ javap -verbose groovy.lang.Script.my
+$ javap -cp ./groovy/lang/Script my
+
+Compiled from "my.groovy"
+public class my extends groovy.lang.Script {
+  public static transient boolean __$stMC;
+  public my();
+  public my(groovy.lang.Binding);
+  public static void main(java.lang.String...);
+  public java.lang.Object run();
+  protected groovy.lang.MetaClass $getStaticMetaClass();
+}
+```
+
+如果在 .groovy 文件定义和文件同名的类，则意味着用 Groovy 编写 Java 代码，而不是再作为一般脚本使用，IDEA 称之为 Groovy Class。Groovy 默认导入以下模块：
+
+```java
+import java.io.*
+import java.lang.*
+import java.math.BigDecimal
+import java.math.BigInteger
+import java.net.*
+import java.util.*
+import groovy.lang.*
+import groovy.util.*
+```
+
+Groovy 默认导入的类型位于主依赖包，用于测试的 groovy.test.GroovyTestCase 等类型没有导入，并且，测试工具通过另外独立的包提供。对于 Groovy 4..15，这些包对应为：groovy-4.0.15.jar groovy-test-4.0.15.jar
+
+按照项目习惯约定，Groovy 脚本应该保存在 src\main\groovy 或者  src\test\groovy 子目录。代码单元测试参考 3.6. Testing Guide -  3.6.3. Testing with JUnit
+
+GMavenPlus Wiki - Choosing Your Build Tool 页面罗列了 Groovy 脚本项目的几种配置方式：
+https://github.com/groovy/GMavenPlus/wiki/Choosing-Your-Build-Tool
+
+```sh
+# 下载 GMavenPlus WIki 页面
+git clone --depth=1 git@github.com:groovy/GMavenPlus.wiki
+```
+
+1. groovyc Ant Task (推荐使用)
+2. GMaven 1
+3. GMaven 2
+4. GMavenPlus (推荐使用)
+5. Groovy Eclipse Compiler Plugin for Maven
+6. Buildr
+7. Gradle (推荐使用)
+
+GMavenPlus 重写了 GMaven 插件，它们为 Maven 项目集成 Groovy 脚本，参考文档 2.2. Compiling Groovy - 2.2.5. Maven integration 以及 2.3.2. GMavenPlus Maven Plugin。
+
+使用 Maven 或 Gradle 创建 Groovy 脚本项目需要 Groovy 依赖以及相应的插件配置。分别在 build.gradle 和 pom.xml 配置文件中设置相应依赖。
+
+Gradle 配置参考官方文档，主要是 Grooy API 和 Groovy Plugin 配置，此插件为 Grandl 添加以下任务支持，执行 `gradle test` 命令时就会编译并运行相应的 Groovy 脚本：
+
+1. `compileGroovy` — GroovyCompile 依赖 `compileJava` 任务，编译 Groovy 代码；
+2. `compileTestGroovy` — GroovyCompile 依赖 `compileTestJava` 任务，编译 Groovy 测试代码；
+3. `compileSourceSetGroovy` — GroovyCompile 依赖 `compileSourceSetJava` 任务，编译 sourceSet 目录下的代码集；
+4. `groovydoc` — Groovydoc 为代码生成 API 文档；
+
+```js
+plugins {
+    id 'groovy'
+}
+dependencies {
+	// https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all
+	//implementation 'org.codehaus.groovy:groovy-all:3.0.19'
+	//implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '3.0.10', ext: 'pom'
+	api 'org.codehaus.groovy:groovy-all:3.0.10'
+}
+```
+
+Maven 项目中配置 Groovy 脚本就显得啰嗦一点，先添加 groovy-all 依赖：
+
+```xml
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>3.0.10</version>
+      <type>pom</type>
+    </dependency>
+```
+
+Maven 文档给出一个使用 Ant plugin 直接运行 groovyc Ant Task 编译 Groovy 项目的配置示范，此插件运行于 `mvn compile` 和 `mvn test-compile` 阶段。
+
+```xml
+      <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <executions>
+              <execution>
+                  <id>compile</id>
+                  <phase>compile</phase>
+                  <configuration>
+                      <tasks>
+                          <mkdir dir="${basedir}/src/main/groovy"/>
+                          <taskdef name="groovyc"
+                              classname="org.codehaus.groovy.ant.Groovyc">
+                              <classpath refid="maven.compile.classpath"/>
+                          </taskdef>
+                          <mkdir dir="${project.build.outputDirectory}"/>
+                          <groovyc destdir="${project.build.outputDirectory}"
+                              srcdir="${basedir}/src/main/groovy/" listfiles="true">
+                              <classpath refid="maven.compile.classpath"/>
+                          </groovyc>
+                      </tasks>
+                  </configuration>
+                  <goals>
+                      <goal>run</goal>
+                  </goals>
+              </execution>
+              <execution>
+                  <id>test-compile</id>
+                  <phase>test-compile</phase>
+                  <configuration>
+                      <tasks>
+                          <mkdir dir="${basedir}/src/test/groovy"/>
+                          <taskdef name="groovyc"
+                              classname="org.codehaus.groovy.ant.Groovyc">
+                              <classpath refid="maven.test.classpath"/>
+                          </taskdef>
+                          <mkdir dir="${project.build.testOutputDirectory}"/>
+                          <groovyc destdir="${project.build.testOutputDirectory}"
+                              srcdir="${basedir}/src/test/groovy/" listfiles="true">
+                              <classpath refid="maven.test.classpath"/>
+                          </groovyc>
+                      </tasks>
+                  </configuration>
+                  <goals>
+                      <goal>run</goal>
+                  </goals>
+              </execution>
+          </executions>
+      </plugin>
+```
+
+Ant Plugin 配置了两个 execution 节点，分别用于程序、测试程序的编译，对应的代码目录按习惯约定存放在 groovy 目录下，编译生成的文件则按对应的项目配置指定：
+
+	${project.build.outputDirectory}
+	${project.build.testOutputDirectory}
+
+项目配置为 Groovy 类型后，执行 `mvn test` 命令时，原有的 Java 测试程序可能不会被执行，并且还需要引入 SLF4J 依赖包，否则报错。
+
+	SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+	SLF4J: Defaulting to no-operation (NOP) logger implementation
+	SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+	Configuring TestNG with: org.apache.maven.surefire.testng.conf.TestNG652Configurator@7f63425a
+
+```xml
+    <dependency>  
+      <groupId>org.slf4j</groupId> 
+      <artifactId>slf4j-nop</artifactId> 
+      <version>1.7.2</version> 
+    </dependency>
+```
+
+根据 GMavenPlus Wiki 文档指示，Ant Plugin 直接执行 groovyc Ant Task 这种配置方式由 Groovy 团队维护，会随着 Groovy 新版本发布更新。这种配置方式有以下缺点：
+
+1. It's Ant, so there's more configuration and less convention than either of the Maven options
+2. Uses stubs for mixed compilation
+3. If you're using the AntRun plugin on a mixed Groovy/Java project, you'll need to have javac handle you Java instead of the Maven Compiler Plugin
+4. Doesn't support Groovy mojos, except through Java 5 annotations
+5. Doesn't support execution of Groovy scripts
+6. Doesn't support interactive shell/console on your project
+
+码桩 stub 泛指：系统 S 有某个依赖 D，但是用另外的模块 X 来代替 D。模块 X 就被称为一个 stub。
+
+A stub is a controllable replacement for an Existing Dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly.
+
+Groovy 脚本中编写测试程序：
+
+1. JUnit 3 使用 groovy.test.GroovyTestCase（junit.framework.TestCase 子类）或者使用 assertScript
+2. JUnit 4 使用 @Test 注解，以及 groovy.test.GroovyAssert，此类继承自 org.junit.Assert。
+3. JUnit 5 使用特殊的 @ParameterizedTest @TestFactory 注解；
+
+使用 Gradle 时注意，执行 `gradle test` 命令时，会重置 CLASSPATH 环境变量，并且 Groovy 脚本中调用其它 shell 命令解析器是，也可能不会将 CLASSPATH 传递给新的 shell 进程。这些隐藏的行为会导致需要通过 shell 执行的 Java 程序运行异常，而 Maven 没有这样的问题：
+
+```sh
+# println "cmd /C set".execute().text
+# print "Enquire cp by Java API: [${System.getenv("CLASSPATH")}]"
+# Use Gradle API provider.environmentVariable("CLASSPATH").get()
+CLASSPATH=~/.gradle/wrapper/dists/gradle-8.3-bin/lib/gradle-launcher-8.3.jar
+# println "bash -c 'set'".execute().text
+CLASSPATH=
+```
+
+```java ,groovy
+import org.junit.Test;
+import org.junit.Before;
+import static groovy.test.GroovyAssert.assertEquals
+
+class MyTest
+{
+    @Before
+    void init()
+    {
+        println "MyTest run..."
+    }
+
+    @Test
+    void testAssertions()
+    {
+        println "Enquire cp by Java API: [${System.getenv("CLASSPATH")}]"
+        print_exe "java My"
+
+        if (System.getenv("CLASSPATH").contains("groovy")) {
+            assertEquals "Hello Groovy!", "java My".execute().text.trim()
+        } else {
+            assertEquals "Hello Groovy!", "groovy.bat src/main/groovy/My.groovy".execute().text.trim()
+        }
+    }
+
+    static void print_exe(String command) {
+        def stdout_stderr = new StringBuilder()
+        def ps = command.execute()
+        ps.consumeProcessOutput(stdout_stderr, stdout_stderr)
+        ps.waitForOrKill(3000)
+        println("Out: [$stdout_stderr]")
+    }
+}
+```
+
+
+## 🍀 Kotlin 编程
+1. https://kotlinlang.org/docs/getting-started.html
+2. https://github.com/JetBrains/kotlin/releases/tag/v1.9.10
+3. https://github.com/JetBrains/kotlin-web-site/
+
+为 Sublime Text 安装 LSP 插件支持，支持语言包括 Java、Groovy、Kotlin：
+
+1. https://lsp.sublimetext.io/language_servers/#kotlin
+2. https://packagecontrol.io/packages/Kotlin
+3. https://github.com/fwcd/KotlinLanguageServer
+4. https://github.com/GroovyLanguageServer/groovy-language-server
+5. https://github.com/sublimelsp/LSP-jdtls
+5. http://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.29.0-202309291511.tar.gz
+
+Java LSP 支持使用移植到 Sublime Text 环境的 [Eclipse JDT language server](https://projects.eclipse.org/projects/eclipse.jdt.ls)。
+
+```json
+"clients":
+{
+    "kotlinls": {
+        "enabled": true,
+        "command": ["c:/kotlin/server/bin/kotlin-language-server.bat"], // Update the PATH
+        "selector": "source.Kotlin",
+        "settings": {
+            "kotlin": {
+                // put your server settings here
+            }
+        }
+    },
+    "groovy": {
+        "enabled": true,
+        "command": ["java", "-jar", "c:/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"], // Update the PATH
+        "selector": "source.groovy",
+    },
+    "Java(jdtls)": {
+        "command": ["java", 
+            "-jar", "C:/kotlin/jdtls/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar", 
+            "-configuration", "C:/kotlin/jdtls/config_win",
+            "-data", "C:/kotlin/jdtls/data"
+        ],
+        "selector": "source.java",
+        "syntaxes": ["Packages/Java/Java.sublime-syntax"],
+        "languageId": "java"
+    },
+}
+```
+
+```sh
+jars=;
+for jar in c:/kotlin/server/lib/*.jar; 
+do jars+="$jar;"; 
+done; 
+java -cp $jars org.javacs.kt.MainKt
+```
+
+使用 Sublime Text 命令面板中的 Troubleshoot Server 或者 Toggle Log Panel 提供的信息进行调试，如果不能正常提供智能提示，就根据面板输出的信息调整设置。比如根据 Java 类型加载失败等异常信息，添加相应的依赖 JAR 文件路径到 CLASSPATH 环境变量中。
+
+Kotlink LSP 启动脚本中已经设置好 CLASSPATH，还需要添加指定版本的 lib/`kotlin-stdlib.jar`。另外 Kotlin LSP 插件也会读取用户主目录下 .config 子目录的 classpath ( classpath.bar on Windows ) 脚本获取 CLASSPATH 列表：
+
+* Example of the `~/.config/kotlin-language-server/classpath` on Linux:
+```bash
+#!/bin/bash
+# echo /my/path/kotlin-compiler-1.4.10/lib/kotlin-stdlib.jar:/my/path/my-lib.jar
+for jar in /c/kotlin/server/lib/*.jar; do jars+="$jar;"; done; echo $jars
+```
+
+* Example of the `%HOMEPATH%\.config\kotlin-language-server\classpath.bat` on Windows:
+
+```sh
+@ehoc off
+echo C:/kotlin/server/lib/kotlin-stdlib-1.9.10.jar;C:/kotlin/server/lib/kotlin-script-runtime-1.9.10.jar;
+```
+
+	org.eclipse.lsp4j.jsonrpc.ResponseErrorException: workspace/executeClientCommand
+
+Sublime Text 插件系统基于 Python 脚本，它包含 GIL 全局锁，这可以保证线程之安全，但缺点是不能并行执行插件代码。所以在插件安装过程需要下载大文件，或者插件执行分析大量文件的任务时，就会导致 LSP 智能提示服务暂未处于不可用状态。
+
+Kotlin 是 JetBrains 开发的基于 JVM、基于 Sclar 语言、跨平台、开源、静态类型编程语言，官方文档使用 Markdown 开源格式。
+
+Kotlin 主要应用领域：
+
+1. Multiplatform - Share code on your terms and for different platforms
+2. Server-side - Modern development experience with familiar JVM technology
+3. Multiplatform libraries - Create a library that works across several platforms
+4. Android - Recommended by Google for building Android apps
+5. Data Science - From building data pipelines to productionizing machine learning models.
+
+Kotlin/Native 支持编译不需要或不可能使用虚拟机的平台，适用于生成不需要额外运行时或虚拟机的自包含程序，目前支持如下原生目标平台：
+
+1. macOS
+2. iOS, tvOS, watchOS
+3. Linux
+4. Windows (MinGW)
+5. Android NDK
+
+Kotlin 编译器工具链随 IntelliJ IDEA 和 Android Studio 等开发软件分发。如果已经安装 Android Studio 就可以在其安装目录下找到，可以创建软链接方便使用：
+
+```sh
+# PowerShell
+$in = @"
+C:\Program Files\Android\Android Studio\plugins\Kotlin
+C:\kotlin
+"@ -split "\n"
+new-item -type SymbolicLink -target $in[0] -path $in[1]
+```
+
+这此软件附带的是 Kotlin 基础编译工具链，也可以在官网下载最新的 kotlin-compiler-1.9.10 或者包含 Kotlin Native (LLVM backend) 多平台支持的完整版本：
+
+1. `kapt` 调用 kotlinc 运行 *org.jetbrains.kotlin.kapt.cli.KaptCli*，kotlin-annotation-processing-cli.jar；
+2. `kotlin` 调用 kotlinc 运行 Kotlin 程序；
+3. `kotlin-dce-js` 调用 kotlic 运行 *org.jetbrains.kotlin.cli.js.dce.K2JSDce* 清除无效代码；
+4. `kotlinc-js` 调用 kotlin 运行 *org.jetbrains.kotlin.cli.js.K2JSCompiler*；
+5. `kotlinc-jvm` 调用 kotlinc；
+6. `kotlinc` 主脚本，调用 kotlin-runner.jar 或者 kotlin-preloader.jar 入口加载编译器；
+
+Kotlin/Native 专用工具链：
+
+1. `cinterop` C 语言程序互调用工具，调用 *run_konan cinterop*；
+2. `generate-platform` 调用 *run_konan generatePlatformLibraries*；
+3. `jsinterop` JS 语言程序互调用工*具，调用 *run_konan jsinterop*；
+4. `klib` 创建库文件，调用 *run_konan klib*；
+5. `konan-lldb` 同上，调用 *lldb 并传递 konan_lldb.py 脚本*；
+6. `konanc` Kotlin Native 编译器，调用 *run_konan konanc*；
+7. `kotlinc-native` 同上，调用 *run_konan konanc*；
+8. `run_konan` 主脚本，执行 kotlin-native-compiler-embeddable.jar 入口程序；
+
+参考文档 09.2.3. Get started with Kotlin/Native using the command-line compiler
+
+在当代，计算机编程语言、脚本类型层出不穷，但是语言特性未曾超出已知编程范式，OOP、FP 是最常见的
+
+系统开发级别工业主流编程语言发展路线大概是：C --> C++ --> Java --> C# --> Rust，脚本语言更加繁荣，Lua、Python、JavaScript，还有各种系统 Shell 脚本。它些语言特性也随着版本更替不断地升级语法，基本上是向着使用更便利的方向发展。值得一提的是，LISP 作为最早期的三大编程语言之一，虽然它使用大量圆括号，但是它的语法包容能力极强。
+
+Kotlin 作为 Java 的继承，它在功能上也不断地简化 Java 冗余的语法，和 C# 一样添加了一些常用的特性。比如集合聚合数据操作，C# 有 Linq 查询语言，Kotlin 也有集合标准库：
+
+```java ,kotlin
+val ords = listOf("first", "second", "thired", "forth")
+println (ords.groupBy {it.first().uppercase()})
+println (ords.slice(setOf(3,1,0)))
+// {F=[first, forth], S=[second], T=[thired]}
+// [forth, second, first]
+
+val nums = (1..20).toList()
+println (nums.windowed(2, 3))
+println (nums.windowed(2, 3) { it.sum() })
+println (nums.elementAtOrElse(20) { index -> index + 1 })
+// [[1, 2], [4, 5], [7, 8], [10, 11], [13, 14], [16, 17], [19, 20]]
+// [3, 9, 15, 21, 27, 33, 39]
+// 21
+```
+
+除了通用的集合操作，还 List、Set、Map 专用方法，参考文档 Standard library：
+10.1.16. List-specific operations
+10.1.17. Set-specific operations
+10.1.18. Map-specific operations
+
+
+使用 `gradle init` 初始命令就可以自动创建 Groovy 或者 Kotlin 项目配置脚本，只需要根据操作步骤提示，选择相应的语言作为实现语言。主要是配置使用 groovy 插件和 org.jetbrains.kotlin.jvm 插件。
+0. https://docs.gradle.org/current/userguide/building_java_projects.html
+1. https://docs.gradle.org/current/userguide/groovy_plugin.html
+2. https://docs.gradle.org/current/samples/index.html#kotlin
+3. https://docs.gradle.org/current/samples/sample_building_kotlin_applications.html
+4. https://kotlinlang.org/docs/gradle-configure-project.html
+
+```sh
+// https://mvnrepository.com/artifact/org.jetbrains.kotlin.jvm
+implementation 'org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin:1.9.10'
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
+}
+```
+
+Kotlin 未正式发布的版本称为“找鸟版”，Early Access Preview (EAP)，一般使用最新发布版本即可，一并发布的还有 Kotlin Gradle plugin (KGP)  等插件，其版本号与 Kotlin 版本号保持一致。
+
+Kotlin 语言的一个主要目标是多平台开发，所以它为 Gradle 构建系统提供多个插件来构建项目，这个插件称为 Kotlin Gradle plugin (KGP)。另外，手机平台开发使用 Android Gradle plugin (AGP)，它们和 Gradle 版本兼容性要求如下：
+
+| KGP version | Gradle versions |  AGP versions |
+|-------------|-----------------|---------------|
+| 1.9.0       | 6.8.3 – 7.6.0   | 4.2.2 – 7.4.0 |
+| 1.8.20      | 6.8.3 – 7.6.0   | 4.1.3 – 7.4.0 |
+| 1.8.0       | 6.8.3 – 7.3.3   | 4.1.3 – 7.2.1 |
+| 1.7.20      | 6.7.1 – 7.1.1   | 3.6.4 – 7.0.4 |
+| 1.7.0       | 6.7.1 – 7.0.2   | 3.4.3 – 7.0.2 |
+| 1.6.20      | 6.1.1 - 7.0.2   | 3.4.3 - 7.0.2 |
+
+|       Target       |                KGP                 |
+|--------------------|------------------------------------|
+| JVM                | org.jetbrains.kotlin.jvm           |
+| Multiple platforms | org.jetbrains.kotlin.multiplatform |
+| JavaScript         | org.jetbrains.kotlin.multiplatform |
+| Android            | Android Gradle plugin (AGP)        |
+
+Kotlin 官方多平台手机端插件是 Kotlin Multiplatform Mobile (com.jetbrains.kmm) ，此插件提供了 project templates。
+0. https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile
+1. https://kotlinlang.org/docs/gradle-configure-project.html
+2. https://developer.android.com/studio/releases/gradle-plugin
+
+插件给 Grandle 新增两个 Kotlin 代码编译任务，与 Java 编译任务关联如下：
+
+* `compileKotlin` and `compileJava`
+* `compileTestKotlin` and `compileTestJava`
+
+KGP 插件会检查 JVM target 兼容性设置，包括以下 Gradle compiler options：
+1. `jvmTarget` attribute in the `kotlin` extension or task
+2. [`targetCompatibility`](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)
+
+假定 `compileKotlin` 和 `compileJava` 任务分别配置了：`jvmTarget=1.8`，`targetCompatibility=15`。Gradle 8.0+ 版本中，插件检测到配置不一致，默认触发错误，可以在 `build.gradle(.kts)` 脚本中配置 `kotlin.jvm.target.validation.mode` 选项，使用以下枚举值，枚举类型定义为 `JvmTargetValidationMode`：
+
+* `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.
+* `warning` – the plugin prints a warning message; the default value for projects on Gradle less than 8.0.
+* `ignore` – the plugin skips the check and doesn't produce any messages.
+
+```js ,groovy
+import org.jetbrains.kotlin.gradle.tasks.*
+import org.jetbrains.kotlin.gradle.dsl.jvm.*
+tasks.withType(KotlinJvmCompile.class).configureEach {
+    jvmTargetValidationMode = JvmTargetValidationMode.WARNING
+}
+```
+
+JVM target compatibility 问题在以下两种情况下触发：
+
+* Explicitly set different values of `jvmTarget` and `targetCompatibility`.
+* Have a default configuration, and your JDK is not equal to `1.8`.
+
+> `compileJava` task (current target is 15) and `compileKotlin` task (current target is 17) jvm target compatibility should be set to the same Java version.
+
+如果构建脚本中没有设置 `jvmTarget` 属性，其默认值是 `null`，编译器转换为默认值 `1.8`。另外，`targetCompatibility` 属性值等于当前 Gradle 使用的 JDK 版本，或者通过 Java toolchain 配置指定的版本。假设当前使用 JDK 17，那么编译、发布的库 Gradle Module Metadata 数据就会带有：`org.gradle.jvm.version=17`。这就导致版本错配了，主程序使用的是 JDK 17，而字节码使用的是 JVM Target 1.8。
+
+为避免出现以上 JVM target 不兼容的错误，可以手动设置对齐的 JVM 版本，或者配置 [Gradle 7.6 Java Toolchains for JVM projects] 工具链配置，Gradle 会根据指定 Java 语言版本执行构建任务，并且会在缺失工具链时检查本地已经安装编译器，或者根据配置 repositories 自动下载，此功能用于：
+
+1. 配置使用不同于 Gradle 运行编译、测试、运行程序所使用的 JDK、JRE 版本；
+2. 使用还未发布的“找鸟版”Java 语言版本进行编译、测试程序代码。
+
+```groovy
+// Gradle 7.6 Java Toolchains for JVM projects
+java {
+    toolchain {
+        vendor = JvmVendorSpec.IBM
+        implementation = JvmImplementation.J9
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+```
+
+Kotlin 和 Java 源代码集设置 JVM targets 有以下两种方式：
+
+* 使用隐式设置 [Grandle Java toolchain].
+* 显式设置 `kotlin` 扩展或者任务的 `jvmTarget` 属性，设置 `java` 扩展或任务的 `targetCompatibility` 属性。
+
+```grooovy
+import org.jetbrains.kotlin.gradle.tasks.*
+import org.jetbrains.kotlin.gradle.dsl.*
+tasks.withType(KotlinCompilationTask.class).configureEach {
+    // compilerOptions.languageVersion = KotlinVersion.KOTLIN_2_0
+    // compilerOptions.jvmTarget = JvmTarget.JVM_20
+    compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_1_9)
+    compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
+}
+```
+
+What's new in Kotlin 1.7.0 - Changes in compile tasks 文档提到 Kotlin 编译任务不再继承 Gradle `AbstractCompile` 任务，只继承 `DefaultTask`，抽象任务类型中定义了 `sourceCompatibility` 和 `targetCompatibility` 输入。所以，这些输入在新版本的 Kotlin 用户脚本中不可用。
+
+参考文档：
+1. Tools - Build tools - Gradle - Configure a Gradle project
+1. Tools - Build tools - Gradle - Compiler options in KGP
+2. https://docs.gradle.org/current/userguide/toolchains.html
+3. https://docs.gradle.org/current/userguide/kotlin_dsl.html
+4. https://kotlinlang.org/docs/gradle-compiler-options.html
+
+### ☘ Kotlin JUnit Testing
+1. https://docs.gradle.org/current/userguide/kotlin_dsl.html
+2. https://docs.gradle.org/current/samples/index.html#kotlin
+3. https://kotlinlang.org/docs/gradle-configure-project.html
+3. https://kotlinlang.org/docs/jvm-test-using-junit.html
+
+Kotlin 提供以下测试模块：
+1. `kotlin.test` 支持全平台的测试模块 top-level 断言函数集；
+2. `kotlin.test.junit` JUnit 专用测试模块；
+3. `kotlin.test.junit5` JUnit5 专用测试模块；
+4. `kotlin.test.testng` TestNG 专用测试模块；
+
+Gradle 使用 Groovy DSL 配置一个基本的 Kotlin 项目，build.gradle 脚本参考如下：
+
+```sh
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'                     ➊
+    id 'application'                                                   ➋
+}
+
+repositories {
+    mavenCentral()                                                     ➌
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'       ➍
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.9.3'  ➎
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'com.google.guava:guava:32.1.1-jre'                 ➏
+}
+
+application {
+    mainClass = 'demo.AppKt'                                           ➐
+}
+
+tasks.named('test') {
+    useJUnitPlatform()                                                 ➑
+}
+```
+
+1. Apply the `org.jetbrains.kotlin.jvm` Plugin to add support for `Kotlin`.
+2. Apply the application plugin to add support for building a CLI application in Java.
+3. Use Maven Central for resolving dependencies.
+4. Use the Kotlin `JUnit 5` integration.
+5. Use the `JUnit 5` integration.
+6. This dependency is used by the application.
+7. Define the main class for the application.
+8. Use `JUnit Platform` for unit tests.
+
+Guava 是谷歌提供的一个 Java 类库，功能包括：新的集合类型、不可变集合、Reflection、EventBus、以及用于并发、简化 I/O、Hash、缓存、字符串等的
+ 实用工具。
+
+自动生成的示范程序和测试程序代码如下：
+
+```java ,kotlin
+/*
+ * Generated src/main/kotlin/demo/App.kt
+ * This Kotlin source file was generated by the Gradle 'init' task.
+ */
+package demo
+
+class App {
+    val greeting: String
+        get() {
+            return "Hello World!"
+        }
+}
+
+fun main() {
+    println(App().greeting)
+}
+
+/*
+ * Generated src/test/kotlin/demo/AppTest.kt
+ * This Kotlin source file was generated by the Gradle 'init' task.
+ */
+package demo
+
+import kotlin.test.Test
+import kotlin.test.assertNotNull
+
+class AppTest {
+    @Test fun appHasAGreeting() {
+        val classUnderTest = App()
+        assertNotNull(classUnderTest.greeting, "app should have a greeting")
+    }
+}
+```
+
+```java
+// src/main/kotlin/KtApp.kt
+package mgid;
+
+class MyKtApp {
+    fun run(msg:String = "Hi, there!") {
+        println("Hello Kotlin! " + msg)
+    }
+}
+fun main(args:Array<String>) {
+    MyKtApp().run(args[0])
+}
+// src/test/kotlin/KtAppTest.kt
+```
+
+以上测试代码使用的是 Kotlin 全平台测试包，也可以使用 JUnit 专用测试模块：
+
+
+### ☘ Kotlin Scripting
+
+Kotlin 有三种代码文件类型：
+
+1. `.kt` 扩展名表示 Kotlin 基本代码文件；
+2. `.kts` 扩展名表示 Kotlin 脚本文件，Gradle 项目管理中使用 build.gradle(.kts)；
+3. `.ktm` 扩展名表示 Kotlin 模块文件；
+
+```java ,kotlin
+import kotlin.collections.listOf
+
+fun main(args:Array<String>) {
+    println("Hello Kotlin/Native! " + args.joinToString(", "))
+    val nums = listOf("1st", "2nd", "3rd","forth", "fifth");
+    val (match, rest) = nums.partition { it.length <= 3 }
+    println(match)
+    println(rest)
+}
+```
+
+```bash
+kotlinc-native hello.kt -o hello
+kotlinc hello.kt -d hello
+kotlinc hello.kt -include-runtime -d hello.jar
+java -jar hello.jar
+
+kotlinc hello.kts -d hello
+# Evaluate the given Kotlin script (*.kts) file with top-level executable code
+kotlinc -script hello.kts
+```
+
+使用原生编译器生成可执行程序，Kotlin 会根据系统差异下载所需的依赖文件，例如 WIndows 平台的会下载 Msys2 或者 LLVM 编译器等等工具，即使已经安装，还是会下载一份保存到用户主目录下的 .konan/dependencies 子目录下。编译得到的可执行程序文件容量较大，即使只有一条 print 函数调用语句，也需要占用 MB 级别容量。
+
+尝试使用 kotlinc-native 编译 kts 脚本文件，虽然使用相同代码，但是编译脚本文件就会导致编译器前端触发异常，类型声明分析失败：
+
+	error: compilation failed: Front-end Internal error: Failed to analyze declaration Hello
+	Descriptor wasn't found for declaration SCRIPT
+
+Kotlinc 编译 kt 代码文件则生成的类名中包含 Kt 后缀，例如 `HelloKt.class`，尽管定义了 main 函数，编译器还是会创建一个可接收命令行参数的 `static void main` 入口方法。而代码中的 `fun main()` 方法会被 public final void 修饰。
+
+Kotlinc 编译 kts 脚本文件生成 .class 类文件，其中的脚本代码默认由 `ScriptTemplateWithArgs` 子类包装，类名为文件名，并且会以大写字母开头。虽然定义了 main 函数，但是不是静态的入口函数。此编译在 kotlinc 1.3.72 (JRE 17.0.8+9-LTS-211) 上执行，在最新版本的 kotlinc 1.9.10 上提示 no source file，并不能编译脚本。
+
+```sh
+$ kotlinc hello.kts
+$ java Hello
+Error: Main method not found in class Hello, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+$ javap Hello
+Compiled from "hello.kts"
+public class Hello extends kotlin.script.templates.standard.ScriptTemplateWithArgs {
+  public final void main();
+  public Hello(java.lang.String[]);
+}
+
+$ javap SomeKt
+Compiled from "hello.kt"
+public final class SomeKt {
+  public static final void main();
+  public static void main(java.lang.String[]);
+}
+```
+
+如果 kts 脚本中没有定义 main 函数，那么编译器就会自动添加一个静态入口函数。
+
+使用默认参数值时，编译器为生成的类设置后缀为 `$default` 包装方法：
+
+```java ,kotlin
+package mgid;
+
+class MyKtApp {
+    fun run(msg:String = "Hi, there!") {
+        println("Hello Kotlin! " + msg)
+    }
+}
+/*
+$ kotlinc KtApp.kt
+$ javap mgid.MyKtApp
+Compiled from "KtApp.kt"
+public final class mgid.MyKtApp {
+  public mgid.MyKtApp();
+  public final void run(java.lang.String);
+  public static void run$default(mgid.MyKtApp, java.lang.String, int, java.lang.Object);
+}*/
+```
+
+Kotlin 可以直接运行脚本，使用 -script 命令选项，此时作为 Top-level 脚本执行，脚本中可以直接使用 `args` 接收命令行参数。传递给脚本的参数写在后面，也可以跟在 -- 符号之后，此符号本身没有作用，只是作为一个提示。
+
+```java ,kotlin
+class SomeScript {
+	companion object {
+		@JvmStatic
+		fun somemain(args:Array<String>) {
+			println("Hello Kotlin!" + args.joinToString() { it })
+		}
+	}
+}
+SomeScript.somemain(args)
+```
+
+假设以上脚本保存在 some.kts 文件，使用 kotlinc 编译它就会得到以下 4 个类文件：
+
+1. `Some.class` 按文件名生成的模板类，继承 kotlin.script.templates.standard.ScriptTemplateWithArgs；
+2. `Some$SomeScript.class` 脚本中定义的 SomeScript 类；
+3. `Some$SomeScript$Companion.class` SomeScript 类中使用的伴随对象；
+4. `Some$SomeScript$Companion$somemain$1.class` 伴随对象内 joinToString 方法中使用的 lambda；
+
+```sh
+$ kotlinc some.kts
+$ for file in *.class; do javap $file >> class.md; done;
+public class Some extends kotlin.script.templates.standard.ScriptTemplateWithArgs {
+  public static final void main(java.lang.String[]);
+  public Some(java.lang.String[]);
+}
+Compiled from "some.kts"
+public final class Some$SomeScript {
+  public static final Some$SomeScript$Companion Companion;
+  public Some$SomeScript();
+  static {};
+  public static final void somemain(java.lang.String[]);
+}
+Compiled from "some.kts"
+public final class Some$SomeScript$Companion {
+  public final void somemain(java.lang.String[]);
+  public Some$SomeScript$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+Compiled from "some.kts"
+final class Some$SomeScript$Companion$somemain$1 extends kotlin.jvm.internal.Lambda implements kotlin.jvm.functions.Function1<java.lang.String, java.lang.String> {
+  public static final Some$SomeScript$Companion$somemain$1 INSTANCE;
+  public java.lang.Object invoke(java.lang.Object);
+  public final java.lang.String invoke(java.lang.String);
+  Some$SomeScript$Companion$somemain$1();
+  static {};
+}
+```
+
+总结一下代码文件与编译生成类文件的关系，假定文件名为 some.kt 或者 some.kts：
+1. `some.kt` 代码文件定义了 SomeClass 类型，那么就生成 *SomeClass.class*，并且不会另外生成包装入口函数，因此代码中的 `fun main()` 不能作为入口函数执行；
+2. `some.kt` 代码文件中没定义 class，那么就生成 *SomeKt.class*。如果代码中定义的主函数签名是 `fun main()`，那么就由 SomeKt 提供的包装入口函数去调用。如果代码中的主函数签名是 `fun main(args:Array<String>)`，则编译器不会另外生成包装入口函数；
+3. `some.kts` 代码文件定义了 SomeClass 类型，那么就生成 *Some.class* 和 *Some$SomeClass.class*；
+4. `some.kts` 代码文件中没定义 class，那么就只生成 `Some.class`；
+
+即使使用旧版本 Kotlin 1.3 编译 mts 脚本生成包含静态入口函数的类（将 main 函数改名，或者使用其它方法定义静态入口），需要使用 RunnerKt.runCompiledScript() 方法执行。但也不能直接执行，会报错：
+
+```sh
+java.lang.NoClassDefFoundError: kotlin/script/experimental/jvm/RunnerKt at Some.main(Unknown Source) 
+Caused by: java.lang.ClassNotFoundException: kotlin.script.experimental.jvm.RunnerKt
+
+Exception in thread "main" java.lang.IllegalArgumentException: Cannot find metadata for script Some
+        at kotlin.script.experimental.jvm.impl.KJvmCompiledScriptKt.createScriptFromClassLoader(  KJvmCompiledScript.kt:194)
+        at kotlin.script.experimental.jvm.RunnerKt.runCompiledScript(runner.kt:19  )
+        at Some.main(Unknown Source)
+```
+
+可以看到这是实验性功能，依赖类型相关 JAR 需要添加到 CLASSPATH 列表中：
+
+```sh
+export CLASSPATH="$CLASSPATH;C:/kotlin/kotlinc/lib/kotlin-scripting-jvm.jar;"
+kotlinc some.kts
+java Some
+```
+
+Kotlin 没有 Java 那样的静态类型声明，但可以通过以下方式声明静态对象：
+
+1. `companion object` - 伴随对象，声明单例的方式；
+2. @JvmField @JvmStatic - 使用注解标签声明静态的对象；
+3. object 静态单例，和 `companion object` 类似；
+4. const 常量，脱离类的束缚，会生成一个 kotlin.kt 专用文件；
+
+Kotlin CLI scripting 脚本编程目前还是实验性功能，参考文档 
+09.2.3. Get started with Kotlin/Native using the command-line compiler
+09.5.1. Get started with Kotlin custom scripting – tutorial
+15.1.1. Kotlin command-line compiler
+
+KTS 比 Groovy 更适合用于编写 Gradle 脚本，因为 Kotlin 代码可读性更高。但是作为基于 JVM 的脚本，它们两者都存在性能问题，特别是首次冷启动时间比一般脚本要慢得多。
+
+参考以下来自在 Gradle CI 上运行的性能测试数据，分别是 Gradle 6.8/7.4/8.0 版本性能分析，通过几个常见测试来分析脚本性能：https://github.com/gradle/gradle/issues/15886
+
+1. 首次运行，等价清除所有 build cache 后再运行；
+2. buildSrc abi 改动，可以理解为大多数缓存失效，大部分代码需要重新编译；
+3. buildSrc non-abi 改动，即 buildSrc 中的普通修改；
+4. 无改动
+
+这些测试运行在一个包含大量 subProject 的大型项目中，并且它们在 Groovy 和 Kotlin DSL 上运行以进行比较。
+
+|     Use case     |  Groovy |  Kotlin |        Differences        |
+|------------------|---------|---------|---------------------------|
+| First use        | 🟢 33.5s | 🔴 76.2s | Groovy DSL is 2.2x faster |
+| buildSrc abi     | 🟢 13.2s | 🔴 42.3s | Groovy DSL is 3.2x faster |
+| buildSrc non-abi | 🔴 13s   | 🟢 5.2s  | Kotlin DSL is 2.5x faster |
+| Nothing changes  | 🔵 1.7s  | 🔵 1.8s  | Similar performance       |
+
+|     Use Case     |   Groovy  |   Kotlin  |         Difference        |
+|------------------|-----------|-----------|---------------------------|
+| First use        | 🟢 38.855s | 🔴 63.54s  | Groovy DSL is 1.6x faster |
+| buildSrc abi     | 🟢 25.307  | 🔴 35.014s | Groovy DSL is 1.4x faster |
+| buildSrc non-abi | 🔴 24.526s | 🟢 4.732s  | Kotlin DSL is 5x faster   |
+
+| Use case				| Groovy	| Kotlin	| Differences	|
+|-----------------------|-----------|-----------|---------------|
+| **First use**			| 🟢 30s	| 🔴 75s	| Groovy DSL is 2.5x faster
+| **`buildSrc` abi**	| 🟢 9s	| 🔴 35s	| Groovy DSL is 3.8x faster
+| **`buildSrc` non-abi**| 🔴 9s	| 🟢 5.5s	| Kotlin DSL is 1.7x faster
+| **configuration**		| 🟢 1.9s| 🔴 2.2s	| Groovy DSL is 0.15x faster
+
+测试数据可以看出，Gradle 7.4 版本上，KTS 脚本性能才有一定改善。
+
+Kotlin 现在是 Android 官方推荐语言，Gradle 构建脚本、实现语言的统一有利于整个项目开发维护，并且 Kotlin DSL 支持源码跳转、编译时检查错误、代码自动补全和语法高亮等等功能。
+
+
+
+### ☘ Kotlin/JS React Web 开发
+
+Kotlin/JS 提供了转换 Kotlin 代码、Kotlin 标准库以及任何兼容的 JavaScript 依赖项的能力。Kotlin/JS 目前的实现支持目标是 ES6，Kotlin 1.9.0 版本中推荐 `kotlin-multiplatform` Gradle 插件，它提供 `js()` target。旧版本的 `kotlin-js` 插件不建议使用。参考文档 What's new in Kotlin 1.9.0。
+
+```sh
+# Development server and continuous compilation
+./gradlew run --continuous
+```
+
+Kotlin Web 应用开发参考文档：
+09.4.3. Development server and continuous compilation
+09.4.10. Build a web application with React and Kotlin/JS — tutorial
+
+Kotlin Wasm 目前是实验性特性，WebAssembly (Wasm) 是 Web 二进制程序，基于 stack-based virtual machine。可以在 Gradle 项目配置脚本中设置 browser 或者 node 运行环境。
+
+1. https://kotlinlang.org/docs/js-overview.html
+2. https://kotlinlang.org/docs/js-project-setup.html
+3. https://kotlinlang.org/docs/js-project-setup.html
+
+```sh
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
+}
+kotlin {
+    js {
+        useEsModules() // Enables ES6 modules
+        browser {  }
+        node {  }
+        binaries.executable()
+    }
+}
+dependencies {
+    implementation npm('react', '> 14.0.0 <=16.9.0')
+}
+// Enables ES6 classes generation
+tasks.withType<KotlinJsCompile>().configureEach {
+    kotlinOptions {
+        useEsClasses = true
+    }
+}
+```
+
+Kotlin 1.4.0 开始支持 Kotlin/JS IR 编译器后端，替换旧版的 Kotlin/JS compiler，通过 Kotlin Multiplatform 插件启用，Gradle 配置脚本中可以传递编译类型给 js 方法，类型设置如下：
+
+1. `IR` 使用新的 Kotlin intermediate representation (IR) 编译器后端；
+2. `LEGACY` 使用旧版 Kotlin/JS compiler 后端；
+3. `BOTH` 同时启用 IR 和旧编译器；
+
+```sh
+kotlin {
+    js(IR) { // or: LEGACY, BOTH
+        // ...
+        binaries.executable() // not applicable to BOTH, see details below
+    }
+}
+```
+
+Kotlink/JS 依赖配置主要是 NPM 依赖的处理，按照 package.json 的依赖配置，还有以下形式：
+
+1. devDependencies, via devNpm(...),
+2. optionalDependencies via optionalNpm(...), and
+3. peerDependencies via peerNpm(...).
+
+运行 Kotlin/JS 项目：
+
+```sh
+./gradlew jsRun
+./gradlew jsRun --continuous
+./gradlew jsRun -t
+```
+
+
+## 🍀 Maven 项目管理
+1. https://maven.apache.org/download.cgi
+2. https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
+3. https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+4. https://maven.apache.org/pom.html
+
+Maven 配置文件可以描述项目的结构和依赖关系，使用插件来执行各种构建任务。
+
+1. 约定优于配置： Maven 默认约定包括项目目录结构等，减少了项目配置的复杂性。
+2. 标准化构建流程： 标准化构建生命周期包括编译、测试、打包、部署等阶段。
+3. 自动依赖管理： Maven 依赖仓库（运程或本地）可以自动解决项目的依赖关系。
+4. 丰富的插件： 插件可用于执行各种任务，如编译、测试、部署、生成文档等。
+5. 可维护配置： Maven 的构建配置保存在 POM 文件中，使构建配置易于维护和共享。
+
+Maven 项目管理工具，一些基本的操作命令参考：
+
+```sh
+mvn archetype:generate   # 生成、选择项目模板
+mvn dependency:tree    # 打印依赖树
+mvn validate       # 验证项目
+mvn compile        # 编译程序
+mvn test-compile   # 编译测试程序
+mvn test          # 执行单元测试
+mvn package       # 构建、打包项目
+mvn clean         # 清理项目
+mvn install       # 装到依赖包到 Maven 本地资源库
+mvn site          # 为您的项目生成信息文档站点
+mvn site-deploy   # WebDAV 部署，自动生成的文档站点，打包为 WAR 文件
+mvn tomcat:deploy #  WAR 文件部署到 Tomcat
+```
+
+Maven 提供了数种项目模板原型：
+https://maven.apache.org/archetype/index.html
+
+1: maven-archetype-archetype (An archetype which contains a sample archetype.)
+2: maven-archetype-j2ee-simple (An archetype which contains a simplifed sample J2EE application.)
+3: maven-archetype-plugin (An archetype which contains a sample Maven plugin.)
+4: maven-archetype-plugin-site (An archetype which contains a sample Maven plugin site.)
+5: maven-archetype-portlet (An archetype which contains a sample JSR-268 Portlet.)
+6: maven-archetype-profiles ()
+7: maven-archetype-quickstart (An archetype which contains a sample Maven project.)
+8: maven-archetype-site (An archetype which contains a sample Maven site which demonstrates
+      some of the supported document types like APT, XDoc, and FML and demonstrates how
+      to i18n your site. This archetype can be layered upon an existing Maven project.)
+9: maven-archetype-site-simple (An archetype which contains a sample Maven site.)
+10: maven-archetype-webapp (An archetype which contains a sample Maven Webapp project.)
+
+可以使用 mvn archetype:generate 逐步按提示操作，或者设置参数使用 Batch mode 创建项目：
+
+	mvn -B archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4
+
+选好项目原型，Maven 还会询问项目细节，按要求输入项目细节。
+
+- groupId 指定一个唯一的命名空间；
+- artifactId 项目名，会创建相应的子目录；
+
+可以使用相同值，但是一般上 groupId 表示一组项目共用的 ID，而 artifactId 用于标志某个工程。比如 org.apache.maven.plugins 这个 groupId 就有相当插件与之相关。
+
+项目结构参考：
+
+```sh
+$ tree myaid/
+myaid/
+|-- pom.xml
+`-- src
+    |-- main
+    |   `-- java
+    |       `-- mgid
+    |           `-- App.java
+    `-- test
+        `-- java
+            `-- mgid
+                `-- AppTest.java
+```
+
+Maven 支持多个项目，只需要将项目目录作为模块添加到顶层 pom.xml：
+
+```xml
+  <modules>
+    <module>my-app</module>
+    <module>my-webapp</module>
+  </modules>
+```
+
+执行 `mvn compile` 命令开始编译项目，执行 `mvn test` 进行单元测试，初始模板中只包含 `assertTrue( true )` 测试断言。为了对主程序的打印内容进行测试，可以使用以下方法调用 shell 命令并获取输出内容：
+
+	ProcessBuilder command("java", "-cp", "target/classes", "mygid.App");
+	Runtime.getRuntime().exec(["java", "-cp", "target/classes", "mygid.App"])
+
+打包后，直接运行 **java -jar demo.jar** 就可以启动你的应用了！
+
+使用新版本的 maven-compiler-plugin 插件，不再支持旧版 JDK 5，需要在 Maven 配置文件 pom.xml 增加 JDK 版本设置，或者修改插件默认设置：
+https://maven.apache.org/plugins/maven-compiler-plugin/
+
+	Source option 5 is no longer supported. Use 7 or later.  
+
+资源构建中使用的 JDK 6、7、8 版本一般对应 1.6，1.7，1.8 的写法。注意，plugins 要写在 build 标签内部，不然无法识别
+
+```xml
+<project 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>mgid</groupId>
+  <artifactId>myaid</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>myaid</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+    <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+        </configuration>
+      </plugin> 
+    </plugins> 
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+```
+
+App.java 代码参考：
+
+```java
+package mgid;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}
+```
+
+AppTest.java 测试代码参考，使用 Junit 3 编写测试程序，需要扩展 TestCase 基类：
+
+```java
+package mgid;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest 
+    extends TestCase
+{
+    /**
+     * Create the test case
+     *
+     * @param testName name of the test case
+     */
+    public AppTest( String testName )
+    {
+        super( testName );
+    }
+
+    /**
+     * @return the suite of tests being tested
+     */
+    public static Test suite()
+    {
+        return new TestSuite( AppTest.class );
+    }
+
+    /**
+     * Rigourous Test :-)
+     */
+    public void testApp() throws IOException
+    {
+        // assertTrue( true );
+        Process ps = Runtime.getRuntime().exec(
+            new String[]{"java", "-cp", "target/classes", "mgid.App"});
+        // ProcessBuilder pb = new ProcessBuilder();
+        // ProcessBuilder pt = pb.command("java", "-cp", "target/classes", "mgid.App");
+
+        try {
+            // Process ps = pt.start();
+            BufferedReader reader = new BufferedReader(
+                                new InputStreamReader(ps.getInputStream()));
+            String line;
+            while ( (line = ps.errorReader().readLine()) !=null) {
+                System.out.println("Error: " + line);
+            }
+            while ((line = reader.readLine()) != null ) {
+                System.out.println("Read line: " + line);
+                assertEquals("Hello World!", line);
+            }
+        } catch (IOException ex) {
+            throw ex;
+        }
+    }
+}
+```
+
+测试报告参考：
+
+```sh
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running mgid.AppTest
+Read line: Hello World!
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+```
+
+## 🍀 Gradle 项目管理
+1. https://gradle.org/releases/
+2. https://docs.gradle.org/current/samples/sample_building_java_applications_multi_project.html
+3. https://docs.gradle.org/8.3/userguide/command_line_interface.html
+
+Gradle 主要特点如下，其默认配置脚本是 build.gradle：
+
+1. 声明式：Gradle 使用更简洁、更易读的 Groovy DSL 编写构建脚本。
+2. 灵活性：Gradle 支持多项目、变体和自定义构建逻辑。
+3. 依赖管理：支持自动从 Maven 仓库或其他仓库下载所需的库。
+4. 插件化：丰富的插件以及各种任务定制，如编译、测试、打包、部署等。
+5. 增量构建：自动判断需要重新构建的文件，从而提高构建效率。
+
+Gradle 官方开源代码中包含非常完整的文档源文件，毕竟是作为一个源代码压缩包 50MB 的构建工具。文档位于 gradle-8.4.0/subprojects/docs 目录下，使用 AsciiDoc 格式，
+
+和 GNU Make 处理依赖关系一样，Gradle 也会处理依赖的更新关系，GNU Make 脚本中的 Targets 等价于 Gradle 脚本中的 Tasks。当一个 build.gradle 更新后，Gradle 就需要重新生成 Task Graphs，根据其依赖关系、更新状态来决定要执行什么构建任务。
+
+参考官方文档 Authoring Gradle Builds - Learning the Basics - Understanding the Build Lifecycle
+1. https://docs.gradle.org/current/userguide/build_lifecycle.html
+2. https://docs.gradle.org/current/userguide/img/task-dag-examples.png
+
+典型的 Gradle 构建流程包含如下步骤：
+1. Initialization
+1.1. Detects the settings file.
+1.2. Evaluates the settings file to determine projects and subprojects.
+1.3. Creates a Project instance for every project.
+2. Configuration
+2.1. Evaluates the build scripts of every project participating in the build.
+2.2. Creates a task graph for requested tasks.
+3. Execution
+3.1. Schedules and executes each of the selected tasks in the order of their dependencies.
+
+可以使用 Groovy 或者 Kotlin 脚本作为构建规则配置文件 build.gradle(.kts)，推荐效率更快的 Groovy 脚本。Gradle 构建系统中有三类脚本，脚本中可以使用的全局对象参考 Gradle DSLs and API 文档。
+
+|  Type of script | Delegates to instance of | File name
+|-----------------|--------------------------|
+| Build script    | Project                  | build.gradle
+| Init script     | Gradle                   | init.gradle
+| Settings script | Settings                 | gradle.properties
+1. https://docs.gradle.org/current/userguide/groovy_build_script_primer.html
+2. https://docs.gradle.org/current/userguide/tutorial_using_tasks.html
+3. https://docs.gradle.org/current/dsl/index.html
+4. Project https://docs.gradle.org/current/dsl/org.gradle.api.Project.html
+5. Task https://docs.gradle.org/current/dsl/org.gradle.api.Task.html
+6. Gradle https://docs.gradle.org/current/dsl/org.gradle.api.invocation.Gradle.html
+7. Settings https://docs.gradle.org/current/dsl/org.gradle.api.initialization.Settings.html
+
+主要是 Project 和 Task 对象，整个构建脚本 build.gradle 就可以看作是一个 Project 对象，它包含一系列内置的 Task，用户可以随时向 `TaskContainer` 注册自己的任务，比如 `tasks.register('hello')` 。脚本中，可以使用 `ProviderFactory` 系统环境变量，也可以直接使用 Java API `System.getenv()`。还经常使用 TaskContainer.withType() 方法给指定的任务添加设置。 
+
+构建脚本的编译、执行可以使用 `ScriptHandler` 对象来管理，可以使用 buildscript 脚本块设置，在此脚本块中设置 classpath，它会用于加载 build script 依赖的插件，例如以下例子中使用的 Base64 编码器。
+
+```sh
+mport org.apache.commons.codec.binary.Base64
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
+    }
+}
+
+def classpath = providers.environmentVariable("CLASSPATH").get()
+defaultTasks 'taskY', 'taskX'
+
+tasks.register('encode') {
+    doLast {
+        def byte[] encodedString = new Base64().encode('hello world\n'.getBytes())
+        println new String(encodedString)
+    }
+}
+
+tasks.register('taskX') {
+    dependsOn 'taskY', 'encode'
+    doFirst { println "taskX begin..." }
+    doLast {
+        println "CLASSPATH: " + classpath
+    }
+}
+
+tasks.register('taskY') {
+    doLast {
+        3.times { println "taskY $it" }
+    }
+}
+# > gradle -q task1
+# taskY 0
+# taskY 1
+# taskY 2
+# taskX
+# aGVsbG8gd29ybGQK
+# taskX begin...
+# CLASSPATH:~/.gradle/wrapper/dists/gradle-8.3/lib/gradle-launcher-8.3.jar
+```
+
+Gradle 提供 Maven 兼容功能，执行 `gradle init` 命令初始化项目，此命令会生成以下脚本：
+
+1. gradle: Gradle start up script for UNIX-like sytem.
+2. gradlew.bat: Gradle startup script for Windows.
+3. build.gradle 主项目构建脚本。
+4. settings.gradle 主项目配置脚本。
+5. gradle\wrapper\gradle-wrapper.properties 包装程序的配置文件，包含指定 Gradle 版本。
+
+Gradle 初始化任务还可以根据 pom.xml 项目配置生成 build.gradle 配置脚本。
+
+1. https://docs.gradle.org/current/userguide/dependency_management.html
+2. https://docs.gradle.org/current/userguide/compatibility.html
+3. https://docs.gradle.org/current/userguide/upgrading_version_8.html
+
+启动脚本负责配置 Gradle Wrapper 运行环境，包括下载包装程序配置文件中指定的 Gradle 二进制程序包，如果当前系统没配置好相应 Gradle 版本。所有下载到的 Gradle 会保存在用户目录下的 .gradle 子目录内。
+
+实际开发中，可能会遇到的不同的项目需要不同版本的 Gradle 问题。Gradle Wrapper 就是对 Gradle 的一层包装，官方使用包装程序解决 Gradle 版本问题，初始化项目配置就会在 gradle 目录下存放一个包装程序，其中指定了项目当前配置的 Gradle 版本。
+
+以下是 gradle-wrapper.properties 配置参考：
+
+```sh
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.3-bin.zip
+networkTimeout=10000
+validateDistributionUrl=true
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+```
+
+使用 `gradle wrapper` 命令可以生成 Gradle wrapper 文件，还可以指定版本等等，具体操作参考：
+
+```sh
+	gradle help --task wrapper
+	gradle --version
+	# Gradle 8.3
+	$ ./gradlew wrapper --gradle-version 7.2
+	$ ./gradlew --version
+	# Gradle 7.2
+```
+
+注意使用的 Gradle 版本差异，可能会出现以下错误：
+
+	Could not find method testCompile() for arguments
+	Could not find method compile() for arguments
+	Could not find method application() for arguments xxx of type org.gradle.api.Project.
+	Could not find method testRuntime() for arguments xxx of type ...DefaultDependencyHandler.
+
+出现此错误原因是 Gradle 版本更新，Gradle 7 移除了 compile 和 runtime 方法，使用 testImplementation 替换 testCompile，因此换一下就好，依赖定义形式参考如下：
+
+Gradle 6.9 升级到 Gradle 7 版本的差别参考官方文档：Upgrading your build from Gradle 6.x to 7.0
+
+Table 1. Common configuration upgrades
+https://docs.gradle.org/current/userguide/upgrading_version_6.html
+
+	Removed Configuration	   New Configuration
+	---------------------      --------------------------
+	compile                    api or implementation
+	runtime                    runtimeOnly
+	testRuntime                testRuntimeOnly
+	testCompile                testImplementation
+	<sourceSet>Runtime         <sourceSet>RuntimeOnly
+	<sourceSet>Compile         <sourceSet>Implementation
+
+```js
+dependencies {
+	// testCompile group: 'junit', name: 'junit', version: '4.13.1'
+    testImplementation group: 'junit', name: 'junit', version: '4.13.1'
+
+    implementation 'com.google.guava:guava:31.1-jre' 
+    testImplementation 'junit:junit:3.8.1'
+}
+```
+
+用户主目录 .gradle 子目录下创建 init.gradle 文件可以配置依赖库的远程服务器：
+https://developer.aliyun.com/mvn/guide
+
+```js
+allprojects {
+    repositories {
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/nexus/content/repositories/central/" }
+    }
+}
+```
+
+Gradle 网络功能可能导致卡顿，运行如下命令可以获取构建报告，HTML 格式展示：
+
+	gradle build -profile
+
+一个不常见的问题是 Gradle Startup 时间长，可能占用了整个构建过程的大部分时间。
+https://docs.gradle.org/current/userguide/performance.html
+
+用户主目录中 .gradle/gradle.properties 配置文件可以全局地控制 Gradle 行为，比如是否启用 daemon 服务程序、并行编译等等：
+
+```sh
+#Enable daemon
+org.gradle.daemon=true
+
+# Try and findout the best heap size for your project build.
+org.gradle.jvmargs=-Xmx5120m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+
+# Modularise your project and enable parallel build
+org.gradle.parallel=true
+
+# Enable configure on demand.
+org.gradle.configureondemand=true
+```
+
+Java 17 移除了 MaxPermSize 虚拟机配置选项，可以在配置文件中删除：
+
+	Unrecognized VM option 'MaxPermSize=512m' 
+
+
+Gradle 初始化命令一般流程涉及以下内容：
+
+1. Select type of project to generate: asic, pplication, ibrary, Gradle plugin
+2. Split functionality across multiple subprojects? app or app with library projects
+3. Select implementation language: `C++`, `Groovy`, `Java`, `Kotlin`, `Scala`, `Swift`
+4. Select build script DSL: `Groovy`, `Kotlin`
+5. Select test framework: `JUnit 4`, `TestNG`, `Spock`, `JUnit Jupiter`
+6. Project name (default: demo)
+7. Source package (default: demo)
+
+如果使用 Groovy 脚本作为配置文件，那么需要注意，配置脚本中的方法调用、属性赋值的差别。因为 Groovy 语法上参考了 Python 等新式脚本，所以可以省略圆括号，参数列表依然使用逗号作为参数的分隔符。而属性值的修改，则需要使用 = 进行赋值。
+
+Gradle 配置脚本中的依赖项声明形式：
+
+```sh
+dependencies {
+    implementation 'org.hibernate:hibernate-core:3.6.7.Final'
+    api 'com.google.guava:guava:23.0'
+    testImplementation 'junit:junit:4.+'
+}
+```
+
+implementation (supersedes compile) — used for compilation and runtime
+testImplementation — test equivalent of implementation
+
+0. `compileOnly` 仅在编译时使用的依赖项，不需要在运行时 CLASSPATH 列表中出现。
+1. `runtimeOnly`，取代旧版本的 runtime，只用于运行时的依赖项。
+2. `testCompileOnly` — same as compileOnly except it’s for the tests
+3. `testRuntimeOnly` — test equivalent of runtimeOnly
+4. `implementation`，取代旧版本 compile，编译项目源代码以及运行时的依赖项。
+5. `testImplementation` 编译和运行项目测试程序所需的依赖项，比如 JUnit 这种。
+6. `api` 编译项目源代码所需的依赖项，并且这些依赖项是项目 API 的一部分。
+
+Java Library Plugin，`id ('java-library')` 激活，它可以为 JVM 项目提供以下功能：
+
+1. `compileJava` 任务支持，编译 `src/main/java` 目录下的源代码文件；
+2. `compileTestJava` 任务支持，编译 `src/test/java` 目录下的测试程序代码；
+3. `test` 任务支持，运行 `src/test/java` 中的测试程序；
+4. `jar` 任务支持，打包主类和 `src/main/resources` 资源到一个 JAR 文件，命名规则：project-version.jar
+5. `javadoc` 任务支持，生成所有主类型 Javadoc 文档；
+
+
+使用 `gradle tasks` 命令可以查看当前项目可操作的构建任务。项目任务分为 6 组：
+
+1. Build tasks
+2. Build Setup tasks
+3. Documentation tasks
+4. Help tasks
+5. Publishing tasks
+6. Verification tasks
+
+Gradle 命令参考如下，按项目管理流程罗列：
+
+```sh
+$ gradle --version
+
+Gradle 6.6
+Kotlin:       1.3.72
+Groovy:       2.5.12
+Ant:          Apache Ant(TM) version 1.10.8 compiled on May 10 2020
+JVM:          17.0.8 (Oracle Corporation 17.0.8+9-LTS-211)
+
+$ gradle help
+Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
+# To run a build, run gradle <task> ...
+# To see a list of available tasks, run gradle tasks
+# To see more detail about a task, run gradle help --task <task>
+# To see a list of command-line options, run gradle --help
+
+# Common tasks
+$ gradle tasks
+$ gradle init
+$ gradle test --tests package.AppTest
+$ gradle clean test --tests My*Test
+$ ./gradlew check
+$ ./gradlew test
+$ ./gradlew projects
+$ ./gradlew properties
+$ ./gradlew dependencies
+$ ./gradlew build
+$ ./gradlew compileJava
+$ ./gradlew compileTestJava
+$ ./gradlew publish
+$ ./gradlew jar
+$ ./gradlew run
+$ ./gradlew clean
+```
+
+Gradle 多项目工程配置可以使用 --include-build 命令行参数，或者 `includeBuild` 以及 `include` 指令包含子项目，可以在 settings.gradle 设置。子项目使用冒号前缀，冒号表示根项目。使用 `gradle -q projects` 命令可以查询项目关系。也可以对指定子项目执行命令，例如 `gradle :app:build`。
+1. https://docs.gradle.org/current/userguide/intro_multi_project_builds.html
+2. https://docs.gradle.org/current/userguide/organizing_gradle_projects.html
+
+```sh
+include ':app1', ':app2', ':app3', ':common'
+includeBuild 'my-app'
+includeBuild 'my-utils'
+```
+
+为了同步管理各个子项目的依赖，避免各个子项目分散处理依赖，可以使用 buildSrc 模块。Gradle 运行时会检查项目中是否存 buildSrc 目录，并尝试编译、测试这个模块的代码，然后将其加入构建脚本的类路径中。
+
+首次启动 Gradle 会先常驻一个 Daemon 服务程序以加速后续的命令执行。
+
+Gradle JVM 插件参考如下，其中 application 插件定义应用程序，gradle run 命令用于执行这些定义好的应用程序：
+
+1. Java Library Plugin  https://docs.gradle.org/current/userguide/java_library_plugin.html
+2. Java Application Plugin  https://docs.gradle.org/current/userguide/application_plugin.html
+3. Java Platform Plugin  https://docs.gradle.org/current/userguide/java_platform_plugin.html
+4. Groovy Plugin  https://docs.gradle.org/current/userguide/groovy_plugin.html
+5. Scala Plugin  https://docs.gradle.org/current/userguide/scala_plugin.html
+
+计划弃用或不推荐的插件：
+
+1. application 插件，Gradle 9.0 计划删除，替代：`application { }`。
+2. base 插件，Gradle 9.0 计划删除，替代：`base { }`。
+3. java (java-library) 插件，Gradle 9.0 计划删除，替代：`java { }`。
+4. war 插件，Gradle 9.0 计划删除，替代：`war { }`。
+5. ear 插件，Gradle 9.0 计划删除，替代：`ear { }`。
+6. project-report 插件，Gradle 9.0 计划删除，替代：`tasks.withType(HtmlDependencyReportTask) `。
+
+根据 JUnit 版本不同，在缺失 JVM Test Suite 插件时，需要手动声明测试运行时 classpath：https://docs.gradle.org/current/userguide/jvm_test_suite_plugin.html
+
+1. JUnit 5 需要 junit-platform-launcher 的 `runtimeOnly` 以及测试引擎的 `implementation` 依赖；
+2. JUnit 4 只需要 junit 4 的 `implementation` 依赖；
+3. JUnit 3 需要 junit 4 的 `runtimeOnly` 以及 junit 3 的 `compileOnly`；
+
+```js
+dependencies {
+    // If using JUnit Jupiter
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // If using JUnit Vintage
+    testCompileOnly("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.9.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // If using JUnit 4
+    testImplementation("junit:junit:4.13.2")
+
+    // If using JUnit 3
+    testCompileOnly("junit:junit:3.8.2")
+    testRuntimeOnly("junit:junit:4.13.2")
+}
+```
+
+测试程序中导入依赖库也需要根据所使用的 JUnit 版本导入相应的命令空间：
+
+	import org.junit.jupiter.api.Test;
+	import static org.junit.jupiter.api.Assertions.assertEquals;
+
+使用 `gradle -Dtest.single=App test` 命令可以执行单个测试，测试程序名中可以使用 * 通配符来运行多个测试。可以直接调用 java 命令运行测试程序，一般运行 Gradle 后会自动下载 junit 依赖库，将其路径添加到 classpath 即可以运行测试程序：
+
+	$ java -cp 'target/test-classes;c:/gradle/lib/junit-4.13.2.jar' mgid.AppTest
+
+编辑 Maven conf/setting.xml 配置文件，启用本地仓库，这样就可以缓存下载过的依赖包。下次编译时，会优先从本地的仓库中找依赖包，其次从 Maven 服务中心仓库去下载。默认本地仓库路径是：${user.home}/.m2/repository
+
+0. https://docs.gradle.org/current/userguide/java_testing.html
+1. https://docs.gradle.org/current/userguide/jvm_test_suite_plugin.html
+2. https://docs.gradle.org/current/userguide/upgrading_version_8.html#test_suites
+
+以下配置同时启用 Jupiter 和 Vintage，这样就可以支持 JUnit 3 和 JUnit 4，以及 JUnit 5：
+
+```js
+dependencies {   
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    testCompileOnly 'junit:junit:4.13'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(Test) {
+    enabled true
+    ignoreFailures false
+    useJUnitPlatform()  // Work with jupiter or vintage engine
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}
+```
+
+Gradle 默认测试报告为 HTML 格式，并且存放于 build/reports/tests/test/index.html
+1. https://mvnrepository.com/artifact/org.junit.platform/junit-platform-gradle-plugin
+2. https://docs.gradle.org/current/userguide/java_testing.html#using_junit5
+
+Gradle 构建脚本参考：
+
+```js
+/*
+ * This file was generated by the Gradle 'init' task.
+ */
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('http://repo.maven.apache.org/maven2')
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:3.8.1'
+}
+
+group = 'mgid'
+version = '1.0-SNAPSHOT'
+description = 'myaid'
+sourceCompatibility = '17'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+```
+
+执行 `gradle test` 无法启动测试，并且报告中显示以下内容，那么就是没有配置好测试 JUint 等测试引擎，根据正确的依赖配置修改 build.gradle 脚本：
+
+	Could not start Gradle Test Executor
+	Could not complete execution for Gradle Test Executor
+
+	Cannot create Launcher without at least one TestEngine; 
+	consider adding an engine implementation JAR to the classpath
+
+
+# 🚩 I/O Streams 流式数据处理
+
+I/O 是程序最最基础的功能，从早期机械式计算机的开关状态输入，当时是人工控制开关的状态，再到纸质卡片打孔式数据输入，再到电子电路、晶体管开关、集成电路，数据的本质没有改变，但是在硬件实现上工艺却越来起复制，甚至让人觉得抽象得很！
+
+将早期机械开关机构和 CPU、内存等集成电路中的晶体管开关放到一起，不难发现数据即开关状态的数据，I/O 操作即通过开关数据的读写实现对应天关电路状态的切换。
+
+I/O 字面意思（Input/Output）即输入/输出，通常指 CPU 与内部存储器、外部存储器，或其他周边设备内部内存之间的数据输入和输出。
+
+从 C 语言时代开即，标准 I/O 文件（stdin stdou stderr）就是一个程序的标准配置，到 C++、Java、C#，再到现在的 Kotlin 语言，它们编写程序虽然在语言语法上各有差异，但是程序 I/O 基础结构上并没有太多不同：都不约而同地使用流式接口设计。
+
+标准 I/O 文件和操作系统有密切联系，分别使用 0 1 2 文件号码表示，可以在命令行中进行管道操作、重定向操作。Linux Command Line and Shell Scripting Bible 一书对标准文件输入、输出重定向操作有详细描述，此书作者是 Christine Bresnahan，内容详尽到几乎可以用啰嗦来形容，能十分体现女性的思维。
+
+因为标准 I/O 都是缓存区方式的数据操作，如果下游程序没有 I/O 数据消费行为，那么上游的程序就有可能写满缓存，并且可能触发错误。
+
+比如使用 Node 处理标准 I/O 文件，就对 process 模块中提供的 stdin stdout stderr 对象进行操作：
+
+```js
+/** 
+ * npm install turndown
+ * npm install @types/node
+ * $ java_spec=https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-0-preface8.html
+ * $ curl $java_spec | index.js
+ * $ echo "<h1>Title</h1><p>paragraph</p>" | node index.js
+ * HTML data:31<h1>Title</H1><p>paragraph</p>
+ * Title
+ * =====
+ * 
+ * paragraph
+ */
+
+/// <reference types="node" />
+var TurndownService = require('turndown')
+
+var turndownService = new TurndownService()
+var markdown = turndownService.turndown('<h1>Hello world!</h1>')
+process.stdout.write(markdown)
+
+process.stdin.on("data", (it) => {
+  console.log('HTML data:' + it.length + it.toString());
+  process.stdout.write(turndownService.turndown(it.toString()));
+})
+```
+
+使用 marked 模块转换 Markdown 为 HTML：
+
+```sh
+# https://github.com/mixmark-io/turndown
+# https://www.npmjs.com/package/marked
+$ npx install -g marked
+$ echo "# title" | npx marked
+<h1>title</h1>
+```
+
+代码中使用 turndown 工具将 HTML 转换为 Markdwon 文本，首先需要使用 NPM 安装此模块。至于 @types/node 是辅助性模块，它为 TypeScript 解析器提供类型声明信息，可以为 TypeScript LSP 智能提示提供参照信息。
+
+使用 curl 命 HTML 页面，再通过 | 管道操作符号将数据流导向 Node 程序，即通过 process.stdin.on 注册的 `data` 事件输入的数据。Node 可以通过 console 对象向用户控制台输出信息，也可以直接使用 process.stdout 标准文件输出。
+
+Python 脚本中的 I/O 处理也类似，注意：html2markdown 并不是专业工具，仅作演示之用。：
+
+```py
+import html2markdown
+import sys
+
+literal = '<h1>Title</h1><pre><code>Here is some code</code></pre>'
+lines = sys.stdin.readlines()
+print(html2markdown.convert(literal))
+print(html2markdown.convert(''.join(lines)))
+```
+
+Python 脚本中的标准 I/O 文件定义在 sys 模块，FAQ: Why doesn't closing sys.stdout (stdin, stderr) really close it? 描述，执行 ``sys.stdout.close()`` 只是关闭了 Python 脚本级别的文件对象，并未真正关闭 C file descriptor，这需要调用 os 模块的方法，文件号可以使用默认的 0 1 2：
+
+```py
+   os.close(stdin.fileno())
+   os.close(stdout.fileno())
+   os.close(stderr.fileno())
+```
+
+1. Python-3.10.2\Doc\faq\library.rst
+2. Python-3.10.2\Doc\library\io.rst
+3. Python-3.10.2\Doc\library\os.rst
+4. Python-3.10.2\Doc\library\sys.rst
+
+Java IO 各种 Stream，如 InputStream、OutputStream 类似，只不过 Channel 是双向的，而 Stream 是单向的。通道的作用是将数据移入或移出道各种 I/O 源，即可读又可写。
+
+
+# 🚩 Java Native Interface (JNI)
+1. https://docs.oracle.com/en/java/javase/17/docs/specs/jni/index.html
+2. https://docs.oracle.com/javase/8/docs/technotes/guides/jni/index.html
+
+
 # 🚩 Java Virtual Machine
 - [Oracle's OpenJDK](http://openjdk.java.net/)
 - [Java Language and Virtual Machine Specifications](https://docs.oracle.com/javase/specs/)
@@ -329,25 +3033,37 @@ Java 技术书籍大全 PDF (https://github.com/dahuoyzs/javapdf)
 - [一文看懂分布式事务](https://www.cnblogs.com/jimoer/p/12113286.html)
 - [Core Java I Fundamentals & II Advanced Topics](https://horstmann.com/corejava/index.html)
 
+按照 Java virtual machine (VM) 文档所述，JVM 有两种实现形式:
+
+在客户应用程序平台上，JDK 附带的是 Java HotSpot Client VM (client VM)，目标是快速启动、降低内存占用，启动程序时使用 -client 命令行参数。
+
+在所有平台上 JDK 都附带 Java HotSpot Server VM (server VM) 虚拟机，设计目标是最大化实现高效执行应用，启动程序时使用 -server 命令行参数。
+
+高版本的 64 位 JVM 只有 Server 模式，Java 的发展方向也是重点发展大内存的 Server 模式。
+
+作为一个参照，V8 引擎则完全不同，因为 V8 为 Chrome 浏览器服务，发展方向是小内存路线。不论是 Node.js，还是 Deno，作为一个服务端 JS 运行环境，都是推荐开发者根据 CPU 数量开启多个进程。V8 每个新版本除了对最新 es 特性的支持，以及性能优化外，另一个优化方向就是减少内存占用，还有就是减少电量消耗。
+
+JVM 的优化方向是 Server 端，而 V8 则是 PC 端，随着移动端的兴起 V8 的优化方向又多了电量消耗。2018 年开始的 V8 Lite 项目，通过牺牲性能减少了 22%-32% 的内存占用。
+
 Java 虚拟机规范有多种实现，其中 HotSpot VM 是 Oracle JDK 和 Open JDK 中所带的虚拟机，也是目前使用范围最广的 Java 虚拟机。OpenJDK 作为开源的软件技术，已经普及使用。
 
 Google Android Dalvik VM 不能称作正统的 Java 虚拟机，它没有遵循 Java 虚拟机规范，不能直接执行 Java 的 Class 文件，使用的是寄存器架构而不是 JVM 中常见的栈结构。但是它与 Java 又有千丝万缕的联系，它执行的 dex （Dalvik Executable）文件可以由 Class 文件转化而来，使用 Java 语法编写应用程序，可以直接使用大部分的 Java API 等。
 
 在 Java 发展之初，设计者就曾考虑过并实现了让其他语言运行在 Java 虚拟机之上的可能，发布规范文档也是拆分成 Java 语言规范和 Java 虚拟机规范两部分。时至今日，商业和开源机构已经在 Java 语言之外发展出一大批在 Java 虚拟机上运行的语言，如 Groovy、JRuby、Scala 等。
 
-JVM 对 Java 是无感的，不管什么语言，只要按 JVM 规范实现 class，JVM 就可以解析并运行它。实现语言无关性的基础仍然是虚拟机和字节码存储格式，Java 虚拟机不和任何语言绑定，它只与 Class 文件的二进制文件格式相关联，理论上讲，任一门功能性语言都可以表示为一个能被 Java 虚拟机所接受的有效的 Class 文件。
+不管什么语言，只要按 JVM 规范实现 class，JVM 就可以解析并运行它。实现语言无关性的基础仍然是虚拟机和字节码存储格式规范，Java 虚拟机规范除了定义 Class 文件的二进制文件格式，还定义了字节码指令集。理论上讲，任一门功能性语言都可以表示为一个能被 Java 虚拟机所接受的有效的 Class 文件。
 
 可以将 JVM 理解为一台实现了高级汇编语言的机器，而且这种高级汇编语言具有 OOP 类对象封装的概念，真的非常高级。
 
 The Java® Virtual Machine Specification 8 文档有 7 个章节，分别讲解了 JVM 各个层面的内容：
 
-- [Chapter1. Introduction](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-1.html)
-- [Chapter2. The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html)
-- [Chapter3. Compiling for the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-3.html)
-- [Chapter4. The class File Format](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html)
-- [Chapter5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)
-- [Chapter6. The Java Virtual Machine Instruction Set](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html)
-- [Chapter7. Opcode Mnemonics by Opcode](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-7.html)
+- [1. Introduction](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-1.html)
+- [2. The Structure of the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html)
+- [3. Compiling for the Java Virtual Machine](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-3.html)
+- [4. The class File Format](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html)
+- [5. Loading, Linking, and Initializing](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-5.html)
+- [6. The Java Virtual Machine Instruction Set](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html)
+- [7. Opcode Mnemonics by Opcode](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-7.html)
 
 前面 5 章，除了开始作了一个介绍，其它基本在讲 JVM 基本原理和结构，JVM 编译原理，还有 JVM 引导，Java 字节码文件的结构和类的加载流程，这些都是非常实用的技术，最后面两章主要是字节码指令的参考文档。
 
@@ -438,6 +3154,369 @@ JDK 9 引入模块化系统 Java Platform Module System 是一次重要升级，
 	module exampleTwo {
 	    requires example;
 	}
+
+
+## ⚡ Java 源代码结构
+
+OpenJDK 开源代码以及规范文档下载：
+
+1. https://hg.openjdk.org/jdk8u/jdk8u60/jdk/
+2. https://hg.openjdk.org/jdk8u/jdk8u60/hotspot/
+3. https://docs.oracle.com/javase/specs/jvms/se8/html/index.html
+4. https://docs.oracle.com/javase/specs/jls/se8/html/index.html
+
+Java 整个系统实现上大体可以划分为三块内容：
+
+1. Java Virtural Machine (JVM)
+2. Java Development Kit (JDK)
+3. Java Runtime Environemt (JRE)
+
+JVM 实现：虚拟机是整个 Java 系统的基底，没有它就不能运行 Java 程序，更不能跨平台。JVM 源代码就是根据 JVM 规范实现一个可以运行 Java 字节码的虚拟机器。
+
+JRE 即运行时环境，所谓运行即程序运行时需要的系统环境，包含 JVM 环境支持，基础类型库支持，或者扩展类型库的支持。
+
+JDK 作为开发工具包，它本身包含 JRE。运行时是以 Java 代码形式实现的，JRE 也就可以看作是 Java 语言编写的用于初始化 Java 运行时环境的程序。另外 JDK 安装包中包含的模块包：lib/src.zip 是语言模块和工具模块源代码，和 JDK 源代码有文件重叠。模块包中 jdk.compiler 模块提供了传统编译器入口，com.sun.tools.javac 和 sjavac。
+
+JDK 源代码本身不包含独立打包的 lib/src.zip 模块代码，但是包含 JRE 源代码。SDK 主体源代码就是根据 Java 语言规范实现 Jaav 程序的编译（生成字节码）和加载运行，此外还包含了 Java 编译器、各种工具的实现源代码，
+
+在版本历史上，JDK 8 和 JDK 9 是两个重大的更新，其更新的特性分别多达 56 和 91 个，相比一般的版本更新只有 10 ~ 20 个左右。
+https://blogs.oracle.com/java/post/the-arrival-of-java-21
+
+阅读源代码时，根据需要选择下载代码包，比如，ClassLoader 类型，它在运行时、JVM 源代码中都有同名类型的实现：
+
+1. jdk-8u60-hotspot/src/share/vm/classfile/classLoader.cpp
+2. jdk-8u60/src/share/classes/java/lang/ClassLoader.java
+3. jdk-8u60/src/share/native/java/lang/ClassLoader.c
+
+虽然类型同名，但是功能是完全不同，C++ 实现的 JVM 类加载器是将 .class 字节码加载到虚拟机中运行。而另一方是将 .class 等类型加载到 Java 运行时环境，供应用程序使用。
+
+JDK 源代码中 share 目录存放的是平台无关的代码，包括 JRE 源代码，也包含部分 C/C++ Native 实现代码，比如 `System` 模块就是一个 C/C++ 实现的模块。
+
+### ☘ HashMap tableSizeFor()
+
+以下是 JDK 8 和 JDK 14 两个版本的 HashMap 对象的容量调整方法。输入参数是当前 HashMap 实例的初始容量，输出是目标调整容量。
+
+```java
+	static final int MAXIMUM_CAPACITY = 1 << 30;
+    /**
+     * Returns a power of two size for the given target capacity.
+     */
+    static final int tableSizeFor(int cap) {
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
+
+    /**
+     * Returns a power of two size for the given target capacity.
+     */
+    static final int tableSizeFor(int cap) {
+        int n = -1 >>> Integer.numberOfLeadingZeros(cap - 1);
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+    }
+    public static int numberOfLeadingZeros(int i) {
+        // HD, Figure 5-6
+        if (i == 0)
+            return 32;
+        int n = 1;
+        if (i >>> 16 == 0) { n += 16; i <<= 16; }
+        if (i >>> 24 == 0) { n +=  8; i <<=  8; }
+        if (i >>> 28 == 0) { n +=  4; i <<=  4; }
+        if (i >>> 30 == 0) { n +=  2; i <<=  2; }
+        n -= i >>> 31;
+        return n;
+    }
+```
+
+Java 原始类型里没有无符号类型，Hash 桶最大容量设置为 2^31，最高位保留作为符号位。没有使用 long 数据类型，可能是性能与空间上的综合考虑。
+
+当初始化HashMap时，如果指定了初始容量initialCapacity，
+哈希桶的数目必须是 2^n 次幂，因此，实例初始化时要把 initialCapacity 转化为指定值的最小 2^n 次幂数，例如 initialCapacity = 2，那么就原样返回，initialCapacity = 3，那么就调整为 4。这个方法的巧妙处在于，移位与位或运算的组合。首先通过无符号右移 1 位，再叠加原值，使得最高位的 1 向低位扩散（这个词很贴切），下次再移位时就可以加倍距离，因此使用 1 2 4 8 16 这样的移位，相当是二分法的优化处理算法。
+
+这种算法的不足之处在于，存在冗余操作，如果指定的容量较小，容量为 9 = 1001，只需要执行到 `n |= n >>> 2`，那么后面的三条无符号右移位（`>>>`）都是无效用的操作。这种情况在 JDK 11 中已经得到优化。通过引入 numberOfLeadingZeros 方法求解前导 0 的数量来解决，但是这种引用额外函数的方法有多大效率提升呢？从指令层面上看，额外的函数需要增加调用成本，并且函数体内还有多个 if 语句。
+
+改进后的方法使用 -1（ 32-bit 都置位）按前导 0 的数量，进行无符号右移，最后加 1 使其进位。前缀 0 的判断算法还是二分法，对于一个 32-bit 整数，依次按 16-bit、8-bit、4-bit、2-bit、1-bit 逐级细分处理。可以想象为一个逐级缩小的数据窗口，将要处理的数据从全局到最后一个 bit 的处理过程。算法设计的过程也很妙，先判断左侧 16-bit 是否为 0，如果是就二分处理右侧 16-bit，否则直接处理左侧。
+
+最后的 `n -= i >>> 31` 相当于 `n -= i==2^31? 1 : 0`，也就是数据窗口集聚到最后 1 bit，输入数据 i 的原始值的最低或最高 bit。
+
+### ☘ equals() & hashCode() 等值判断
+
+Java 一般情况下的等值比较是对象内存地址的比较，如果地址不同，两者就是必然不相同。
+
+```java
+    // jdk-8u60/src/share/classes/java/lang/Object.java
+    public boolean equals(Object obj) {
+        return (this == obj);
+    }
+    // jdk-8u60/src/share/classes/java/util/Objects.java
+    public static boolean equals(Object a, Object b) {
+        return (a == b) || (a != null && a.equals(b));
+    }
+    public static int hash(Object... values) {
+        return Arrays.hashCode(values);
+    }
+
+    // jdk-8u60/src/share/classes/java/util/Arrays.java
+    public static int hashCode(long a[]) {
+        if (a == null)
+            return 0;
+
+        int result = 1;
+        for (long element : a) {
+            int elementHash = (int)(element ^ (element >>> 32));
+            result = 31 * result + elementHash;
+        }
+
+        return result;
+    }
+```
+
+Java 打印出来的对象信息其格式和 JVM 规范一致，方括号表示一个数组，@ 后面表示 hash code，而不是内存地址。
+
+使用以下程序测试 hash 码的生成，每次运行时，hash 码总是按算法生成的序列依次分配给需要使用 hash 码的对象。所以，程序每次运行，输出 a 和 b 变量对应的 hash 码总是固定值。将它们的输出顺序调换一下，那么首先生成的 hash 码就会分配给变量 b，而不是 a，也可以手动调用需要使用 hash 码的方法触发其生成：
+
+```java
+public class HashCode {
+    public static void main(String[] args) {
+        int[] a = new int[1];
+        int[] b = new int[1];
+        // b.hashCode(); // hash code generatiion
+        System.out.format("a = %s\nb = %s\n", a, b);
+    }
+}
+// ------- Java output -------
+// a = [I@6f496d9f
+// b = [I@723279cf
+```
+
+当用户类型有需要，可以重新实现 `equals()` 方法的逻辑，比如 String 类型，它就通过重新实现其逻辑，先判断地址、再判断字符串长度，最后再比较各个字符：
+
+```java
+    // jdk-8u60/src/share/classes/java/lang/String.java
+    public int hashCode() {
+        int h = hash;
+        if (h == 0 && value.length > 0) {
+            char val[] = value;
+
+            for (int i = 0; i < value.length; i++) {
+                h = 31 * h + val[i];
+            }
+            hash = h;
+        }
+        return h;
+    }
+    public boolean equals(Object anObject) {
+        if (this == anObject) {
+            return true;
+        }
+        if (anObject instanceof String) {
+            String anotherString = (String)anObject;
+            int n = value.length;
+            if (n == anotherString.value.length) {
+                char v1[] = value;
+                char v2[] = anotherString.value;
+                int i = 0;
+                while (n-- != 0) {
+                    if (v1[i] != v2[i])
+                        return false;
+                    i++;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+```
+
+为何 hashCode() 方法会和等值产生联系呢？原因很直接：是出于性能考虑。并且 `hashCode()` 方法主要是为 hash tables 相关的数据类型服务，如 `HashMap`、`LinkedHashMap`。
+
+
+Java 集合类型是联系非常密切的常用数据类型，它们之间的联系可以参考 Thinking in Java - 13. Holding Your Objects - Summary 展示的分类图 Simple Container Taxonomy：
+
+https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ325.png
+
+从 String 对象实现的 `equals` 方法可以看到，不同类型实现的等值判断逻辑是不一样的，也就是算法上具有不同的时间复杂度。通过给对象内存中引入一个 hash code（需要使用时生成），那么就可以先通过比较 hash code 的一致性来确定对象相等，否则再调用对象的 `equals` 方法。
+
+Hash Table 字面意思是散列数据表，哈希表这种数据结构的特点是快速查找、插入，其算法时间复杂度为常数。哈希表的核心是一个 hash 函数，即一个映射输入数据与其内存地址的函数（函数的本质就是映射），`key --hash()--> address`，这就是这种数据结构高效率的关键。
+
+比如，以下是用于演示 hash table 基本原理的 StringHashTable，其中的 simpleHash 相当简单（简陋），只获取 key 首字母的值再取 hash table 内存空间模得到 hash 值。只提供简单的 set 和 get 方法，不对哈希冲突做任何处理，只是直接覆盖旧值：
+
+```java
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+public class StringHashTable {
+    int length;
+    int[] values;
+    String[] keys;
+    StringHashTable(int len) {
+        length = len;
+        values = new int[len];
+        keys = new String[len];
+    }
+    int simpleHash(String key){
+        return (int) key.charAt(0) % length;
+    }
+    boolean set(String key, int value) {
+        int id = simpleHash(key);
+        boolean old = keys[id] != null;
+        values[id] = value;
+        keys[id] = key;
+        return old;
+    }
+    int get(String key) {
+        return values[simpleHash(key)];
+    }
+    public static void main(String[] args) {
+        StringHashTable sht = new StringHashTable(32);
+        sht.set("abc", 123);
+        sht.set("xyz", 321);
+        sht.set("汉字", 678);
+        System.out.format("abc ==> %d\n", sht.get("abc"));
+        System.out.format("xyz ==> %d\n", sht.get("xyz"));
+        System.out.format("汉字 ==> %d\n", sht.get("汉字"));
+        System.out.format("values = %s\n keys = %s\n", 
+            Arrays.stream(sht.values).mapToObj(String::valueOf).collect(Collectors.joining(", ")), 
+            Arrays.asList(sht.keys));
+    }
+}
+```
+
+以上哈希表实现虽然的简单，但是它绝对没有哈希洪水攻击问题 :)。
+
+Java 基础类库中的 HashMap 设计绝对不会这样简单，Hash 函数的设计原则：
+
+1. 一致性：如果 `a==b` 则 `hash(a)==hash(b)`。
+2. 高效性：计算高效便捷，O(1)，相当直接使用动态数组，在适当的情况下 resize。
+3. 均匀性：哈希值的分布越均匀越好，这就是对取模法中模为质数的原因。
+
+Hash 算法可视化演示参考 Data Structure Visualizations，它提供了以下三种 Hash Table 的实现演示：
+https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
+1. Open Hash Tables (Closed Addressing)
+2. Closed Hash Tables (Open Addressing)
+3. Closed Hash Tables, using buckets
+
+旧金山大学网站上提供的 hash table 算法演示只是演示了 key 如何存储，实际使用中通常需要同时使用 key 和 value，通过 key 操作 value。并且使用非常小的空间演示数据是如何存取的，小空间的演示可以很容易观察到哈希冲突现象。在实际应用中，会优化算法，尽量避免哈希冲突的发生。
+
+桶式哈希算法实现中的桶（buckets）是一块内存空间，抽象为一个个用于存放数据的桶。演示页面上，使用一块连续的内存空间，并按 bucket 所占内存空间等长度划分。最后保留一块内存作为溢出区，即哈希冲突导致哈希桶空间存满数据后使用的备用内存空间。
+
+开放寻址、封闭寻址是两类在处理哈希冲突时采取的不同算法思维。
+
+所谓开放寻址，Closed Hashing，是指主表地址空间开放。出现哈希冲突时，按原映射顺延到某个空闲位置来存放数据，此实现方式也称为拉链法哈希表。
+
+所谓封闭寻址，Open Hashing，是指主表空间封闭，在哈希冲突时，通过主表的 Slot 扩展链表来提供新空间，它是在哈希表之外建立的新空间，所以称为开放哈希。
+
+从函数的定义可以知道，输入数据拥有无限可能，但是实现 hash 函数时却要受到硬件限制，只能尽量将输入均匀地分布在有限的内存空间中。所以，hash 算法本身存在一个巨大的缺陷：哈希冲突。这个问题可能被恶意利用，比如哈希洪水攻击（Hash-Flooding Attack），这也是一种拒绝服务攻击（Denial of Service），服务器一旦遭遇哈希洪水，其服务器资源必然会耗尽，导致无法提供正常服务。
+
+正常情况下，假设要连续插入 n 个元素到哈希表中，时间复杂度为 O(n)，当经常遇到哈希冲突，那么就需要额外的操作，此时为哈希表的最差时间复杂度 O(n²)。
+
+追根问底，`hashCode()` 或者 System.identityHashCode() 方法的实现依赖于 JVM 的实现，可以参考 OpenJDK 源码的实现：
+
+```cpp
+	// jdk-8u60/src/share/native/java/lang/System.c
+	// jdk-8u60/src/share/native/java/lang/Object.c
+	static JNINativeMethod methods[] = {
+	    {"hashCode",    "()I",                    (void *)&JVM_IHashCode},
+	    {"wait",        "(J)V",                   (void *)&JVM_MonitorWait},
+	    {"notify",      "()V",                    (void *)&JVM_MonitorNotify},
+	    {"notifyAll",   "()V",                    (void *)&JVM_MonitorNotifyAll},
+	    {"clone",       "()Ljava/lang/Object;",   (void *)&JVM_Clone},
+	};
+	// jdk-8u60/src/share/javavm/export/jvm.h
+	JNIEXPORT jint JNICALL
+	JVM_IHashCode(JNIEnv *env, jobject obj);
+
+	// hotspot/src/share/vm/prims/jvm.cpp
+	JVM_ENTRY(jint, JVM_IHashCode(JNIEnv* env, jobject handle))
+	  JVMWrapper("JVM_IHashCode");
+	  // as implemented in the classic virtual machine; return 0 if object is NULL
+	  return handle == NULL ? 0 : ObjectSynchronizer::FastHashCode (THREAD, JNIHandles::resolve_non_null(handle)) ;
+	JVM_END
+```
+
+生成 hash 码的方法最终定位到 `ObjectSynchronizer` 对象同步类型文件中定义的 `gen_next_hash()`，它提供了 6 种算法，使用 global.hhp 文件中定义的全局符号 `hashCode` 来选择，或者使用 JVM 命令行参参数 `-XX:hashCode=n` 指定算法，OpenJDK 8 默认使用最后一种：
+
+	hashCode() generation possibilities:
+	* MD5Digest of {obj,stwRandom}
+	* CRC32 of {obj,stwRandom} or any linear-feedback shift register function.
+	* A DES- or AES-style SBox[] mechanism
+	* One of the Phi-based schemes, such as:
+	  2654435761 = 2^32 * Phi (golden ratio)
+	  HashCodeValue = ((uintptr_t(obj) >> 3) * 2654435761) ^ GVars.stwRandom ;
+	* A variation of Marsaglia's shift-xor RNG scheme.
+	* (obj ^ stwRandom) is appealing, but can result
+	  in undesirable regularity in the hashCode values of adjacent objects
+	  (objects allocated back-to-back, in particular).  This could potentially
+	  result in hashtable collisions and reduced hashtable efficiency.
+	  There are simple ways to "diffuse" the middle address bits over the
+	  generated hashCode values
+
+JVM 底层定义的 `oopDesc` (其子类型 `markOopDesc`、`instanceOopDesc`、`arrayOopDesc` 等等) 记录 hash 码，并且位于对象内存空间的前面。在首次需要使用 hash code 但如果 Ordinary Object Pointers (OOPs) 数据中还未记录生成的值，就会调用 `get_next_hash()` 方法生成 hash code。此处的 OOP 是指 Java 对象的指针，也即是类型在内存中的布局。
+
+这样是为了在64 位机器上能对指针进行压缩。因为从32位平台到64位时，主要就是指针由4字节变为了8字节，所以通常64位HotSpot VM消耗的内存会比32位的大，造成堆内存损失，不过从JDK 1.6 update14开始，64位的HotSpot VM正式支持了-XX:+UseCompressedOops命令（默认开启）。此命令可以压缩指针，起到节约内存占用的作用。
+
+另外OpenJDK8使用Metaspace存储元数据，在-XX:+UseCompressedOops命令之外，额外增加了一个新的命令叫做-XX:+UseCompressedClassPointer。这个命令打开后，类元信息中的指针也用32位的Compressed版本。而这些指针指向的空间被称作“Compressed Class Space”。默认大小是1G，可以通过-XX:CompressedClassSpaceSize命令调整。
+
+
+
+使用 Java Object Layout (JOL) 可以打印 Java 对象的内存布局信息。
+https://mvnrepository.com/artifact/org.openjdk.jol/jol-core
+
+```cpp
+// hotspot/src/share/vm/oops/oop.hpp
+// hotspot/src/share/vm/oops/markOop.hpp
+// hotspot/src/share/vm/runtime/synchronizer.cpp
+intptr_t ObjectSynchronizer::FastHashCode (Thread * Self, oop obj) {
+  // ...
+  markOop mark = ReadStableMark (obj);
+
+  // object should remain ineligible for biased locking
+  assert (!mark->has_bias_pattern(), "invariant") ;
+
+  if (mark->is_neutral()) {
+    hash = mark->hash();              // this is a normal header
+    if (hash) {                       // if it has hash, just return it
+      return hash;
+    }
+    hash = get_next_hash(Self, obj);  // allocate a new hash code
+    temp = mark->copy_set_hash(hash); // merge the hash code into header
+    // use (machine word version) atomic operation to install the hash
+  // ...
+
+static inline intptr_t get_next_hash(Thread * Self, oop obj) {
+  // ...
+
+// hotspot/src/share/vm/runtime/globals.hpp:
+  product(intx, hashCode, 5, "(Unstable) select hashCode generation algorithm") \
+```
+
+OpenJDK 默认的 hashCode 方法的实现和对象内存地址无关，版本 6 和 7 中的实现使用随机生成的数字，在版本 8 中，它是基于线程状态的数字。
+
+Mark word 不仅用来存储 hash code，它还用于多线程锁，以及应用于垃圾回收机制。
+
+JVM 向来使用分代，JDK 7 Hotspot 团队首次公布了 G1（Garbage-First），并在 JDK9 中用 G1 作为默认的垃圾收集器替代早期的 CMS 垃圾收集器。
+
+早期 GC 算法：
+
+1. 1960年，John McCarthy 发布 GC 标记-清除算法（Mark-Sweep）；
+2. 1960年，George E. Collins 发布引用计数算法（Reference Count）；
+3. 1963年，Marvin L. Minsky 发布 GC 复制收集算法（Copy and Collection）；
+
+分代垃圾回收 (Generational GC) 引入对象存活年龄的概念，通过优先回收容易成为垃圾的对象，提高垃圾回收效率。此算法的理论根据是：大部分对象在生成后马上变成了垃圾，很少有对象能活得很久。对新生代对象执行的 GC 称为 minor GC，新生代存活一定 GC 次数后将晋升 (promotion) 或者老化 (aging) 作为老年代对象。
+
+G1 种最核心的两个概念：
+
+1. `Heap Region`：堆内存空间分成相对独立等分，方便分别进行 GC。各自物理上不一定连续，逻辑上构成连续的堆地址空间。
+2. `Remember Set`：记录了哪些 Region 中存在对当前执行 GC 的 Region 中的对象引用。
+
+为什么要重新设计一个 G1 垃圾收集器？论文中给出的理由：现有的垃圾收集器无法满足 软实时（Soft Real-time） 特性，即让 GC 停顿能大致控制在某个阈值以内，但是又不必像实时系统那样非常严格。这也是很多业务系统都有的诉求。
+
+在过去的设计中，JVM 堆内存被分割成几个区域 —— Eden、Survivor、Old 的大小都是预先划分好的。对于总内存 64GB 的机器，可能 Old 区大小就有 32GB，即使用并行的方式收集一次仍然需要数秒。近十年，随着内存越来越大，这一问题也变得更为严重。
 
 
 ## ⚡ GC 垃圾回收
@@ -1685,6 +4764,55 @@ JVM中class和Meta信息存放在PermGen space区域。如果加载的class文�
 
 
 
+# 🚩 Exceptiions vs. Errors
+
+异常与错误是程序运行中的两种状态，错误是系统层面的，错误不可能是正确，通常导致程序终止，比如系统内存损坏。异常是程序运行的一种非正常现象，通常是数据逻辑问题，通常可以通过处理异常恢复程序正确运行。
+
+从类型系统中的定义就可以体现它们的差别：
+
+1. `OutOfMemoryError`: Java Virtual Machine (JVM) 运行出现内存不足时触发；
+2. `StackOverflowError`: 程序栈内存溢出（所分配的栈内存不足）时触发；
+3. `NoClassDefFoundError`: 请求的类型未能加载到内存时触发；
+
+1. `NullPointerException`: 访问空引用对象时触发；
+2. `IllegalArgumentException`: 方法参数传递错误时触发；
+3. `IOException`: 操作 I/O 失败时触发；
+
+程序逻辑错误大部分可以在编译其检查并且排除，而部分需要依赖运行时数据的问题，则不能直接在编译期处理，这部分问题称为 Runtime Exception，根据处理状态，可以分为 Uncheked  和 Checked Exception。
+
+Java 语言中的 `Exception` 和 `Error` 都继承自 Throwable，可以配合 try 或 throws 使用。try-catch-finally 结构中，catch 用于捕捉、处理异常，它和 finally 是可选的，但必需有其一。finally 是清场处理，一定会执行，即使 catch 块中使用了 return 语句。但它本身不处理异常，并且，在 finally 中再触发异常时会导致现有的异常信息丢失！
+
+实用中，为了包含层层传递的异常堆栈信息，并且又需要抛出自定义异常类型，那么就需要使用 `initCause(deeper_exptiion)` 方法包装更底层抛出的异常对象信息。打印 stacktrace 信息时，被包装的异常信息就以 Caused by 的形式展示。
+
+```java
+package mgid;
+import java.lang.Exception;
+
+public class App 
+{
+    static void trigger() throws Exception {
+        try {
+            throw new Exception("original exceptiion");
+        } catch (Exception e) {
+            Exception c = new Exception("Chaining exception");
+            c.initCause(e);
+            return
+            // throw c;
+            // System.out.println("Dead code here.");
+        } finally {
+            System.out.println("Finally. Always execute, event return above.");
+        }
+    }
+    public static void main( String[] args ) throws Exception
+    {
+        System.out.println( "Hello World!" );
+        try {
+            trigger();
+        } finally {}
+    }
+}
+```
+
 # 🚩 Java 网课大纲
 
 模块一：JVM 进阶 - Java开发者大厂面试必知必会
@@ -2307,6 +5435,7 @@ https://docs.oracle.com/javase/7/docs/api/java/security/MessageDigest.html
 		}
 		
 	}
+
 
 
 # 🚩 Base64 

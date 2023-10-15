@@ -2268,7 +2268,7 @@ fun main() {
 
 ## Functions practice
 
-### Exercise 1 {initial-collapse-state="collapsed" id="functions-exercise-1"}
+### Exercise 1
 
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
 area of that circle.
@@ -2305,7 +2305,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" id="functions-exercise-2"}
+### Exercise 2
 
 Rewrite the `circleArea` function from the previous exercise as a single-expression function.
 
@@ -2333,7 +2333,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" id="functions-exercise-3"}
+### Exercise 3
 
 You have a function that translates a time interval given in hours, minutes, and seconds into seconds. In most cases,
 you need to pass only one or two function parameters while the rest are equal to 0. Improve the function and the code that
@@ -2598,7 +2598,7 @@ The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in
 
 ## Lambda expressions practice
 
-### Exercise 1 {initial-collapse-state="collapsed" id="lambdas-exercise-1"}
+### Exercise 1
 
 You have a list of actions supported by a web service, a common prefix for all requests, and an ID of a particular resource.
 To request an action `title` over the resource with ID: 5, you need to create the following URL: `https://example.com/book-info/5/title`.
@@ -2628,7 +2628,7 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" id="lambdas-exercise-2"}
+### Exercise 2
 
 Write a function that takes an `Int` value and an action (a function with type `() -> Unit`) which then repeats the 
 action the given number of times. Then use this function to print “Hello” 5 times.
@@ -2797,7 +2797,7 @@ class Contact(val id: Int, var email: String) {
 fun main() {
     val contact = Contact(1, "mary@gmail.com")
     // Calls member function printId()
-    contact.printId()           
+    contact.printId()
     // 1
 }
 ```
@@ -61962,7 +61962,7 @@ tasks.test { // See 5️⃣
 }
 
 kotlin { // Extension for easy setup
-    jvmToolchain(%jvmLTSVersionSupportedByKotlin%) // Target version of generated JVM bytecode. See 7️⃣
+    jvmToolchain(17) // Target version of generated JVM bytecode. See 7️⃣
 }
 
 application {
@@ -62242,9 +62242,9 @@ When there is no explicit information about the `jvmTarget` value in the build s
 and the compiler translates it to the default value `1.8`. The `targetCompatibility` equals 
 the current Gradle's JDK version, which is equal to your JDK version (unless you use 
 a [Java toolchain approach](gradle-configure-project.md#gradle-java-toolchains-support)). Assuming that your JDK version is 
-`%jvmLTSVersionSupportedByKotlin%`, your published library artifact will [declare itself compatible](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
-with JDK %jvmLTSVersionSupportedByKotlin%+: `org.gradle.jvm.version=%jvmLTSVersionSupportedByKotlin%`, which is wrong. 
-In this case, you have to use Java %jvmLTSVersionSupportedByKotlin% in your main project to add this library, even though the bytecode's 
+`17`, your published library artifact will [declare itself compatible](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html) 
+with JDK 17+: `org.gradle.jvm.version=17`, which is wrong. 
+In this case, you have to use Java 17 in your main project to add this library, even though the bytecode's 
 version is `1.8`. [Configure a toolchain](gradle-configure-project.md#gradle-java-toolchains-support) 
 to solve this issue.
 
@@ -62302,7 +62302,7 @@ kotlin {
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
     // For example:
-    jvmToolchain(%jvmLTSVersionSupportedByKotlin%)
+    jvmToolchain(17)
 }
 ```
 
@@ -62317,7 +62317,7 @@ kotlin {
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
     // For example:
-    jvmToolchain(%jvmLTSVersionSupportedByKotlin%)
+    jvmToolchain(17)
 }
 ```
 
@@ -63427,7 +63427,7 @@ tasks
         compilerOptions
             .languageVersion
             .set(
-              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
+              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
             )
     }
 ```
@@ -63440,7 +63440,7 @@ tasks
     .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
     .configureEach {
         compilerOptions.languageVersion = 
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0
 }
 ```
 
@@ -63472,7 +63472,7 @@ Some of the `compilerOptions` use the new types instead of the `String` type:
 | Option | Type | Example |
 |--------|------|---------|
 | `jvmTarget` | [`JvmTarget`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JvmTarget.kt) | `compilerOptions.jvmTarget.set(JvmTarget.JVM_11)` |
-| `apiVersion` and `languageVersion` | [`KotlinVersion`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinVersion.kt) | `compilerOptions.languageVersion.set(KotlinVersion.%gradleLanguageVersion%)` |
+| `apiVersion` and `languageVersion` | [`KotlinVersion`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/KotlinVersion.kt) | `compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_2_0)` |
 | `main` | [`JsMainFunctionExecutionMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsMainFunctionExecutionMode.kt) | `compilerOptions.main.set(JsMainFunctionExecutionMode.NO_CALL)` |
 | `moduleKind` | [`JsModuleKind`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsModuleKind.kt) | `compilerOptions.moduleKind.set(JsModuleKind.MODULE_ES)` |
 | `sourceMapEmbedSources` | [`JsSourceMapEmbedMode`](https://github.com/JetBrains/kotlin/blob/1.8.0/libraries/tools/kotlin-gradle-compiler-types/src/generated/kotlin/org/jetbrains/kotlin/gradle/dsl/JsSourceMapEmbedMode.kt) | `compilerOptions.sourceMapEmbedSources.set(JsSourceMapEmbedMode.SOURCE_MAP_SOURCE_CONTENT_INLINING)` |

@@ -12,6 +12,9 @@
 - [Scheme 语言概要二](https://www.ibm.com/developerworks/cn/linux/l-schm/index2.html)
 - [为什么教小学生 x=x+1 是错误的？浅议少儿编程教育的误区](https://www.cnblogs.com/bluedoctor/p/12895220.html)
 
+Structure and Interpretation of Computer Programs
+https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html
+
 2018年8月23日13:28:02
 
 最近手上的任务有点受阻，去找写《On Lisp》的大牛Paul Graham 的书《Hackers & Painters》来看看
@@ -349,7 +352,7 @@ vector 数据结构（类似 Java 的数组），与 list 的区别详解（6.6.
 
 ## 形式 (Form)
 
-人可以通过实践来学习一件事，这对于 Lisp 来说特别有效，因为 Lisp 是一门交互式的语言。任何 Lisp 系统都含有一个交互式的前端，叫做顶层(toplevel)。一个最简单的 Lisp 表达式是整数，系统会打印出它的值，接着打印出另一个提示符，告诉你它在等待更多的输入。
+任何 Lisp 系统都含有一个交互式的前端，叫做顶层(toplevel)。一个最简单的 Lisp 表达式是整数，系统会打印出它的值，接着打印出另一个提示符，告诉你它在等待更多的输入。
 
 在这个情况里，打印的值与输入的值相同。称之为对自身求值。当我们输入需要做某些计算来求值的表达式时，生活变得更加有趣了。举例来说，如果我们想把两个数相加，日常生活中用 + 时，它必须有两个实参，一个在左，一个在右。前序表示法的灵活性代表着，在 Lisp 里， + 可以接受任意数量的实参，包含了没有实参：
 
@@ -379,7 +382,27 @@ Lisp 表示法另一个美丽的地方是：它就是如此简单。所有的 Li
    5
 
 
-## 求值 (Evaluation) & 保护 (quote)
+
+## Variable & Binding
+
+```lisp
+; 4.1.1 Variable references
+; 4.2.2 Binding constructs
+(define x 1)
+(display (assv 'z '((z (+ x 1)))))(newline)
+(display (number->string (let ((x 2) (y 3)) (* x y)) 2 ))(newline)
+
+(letrec (
+    (isEven? (lambda (n) (if (zero? n) #t (isOdd? (- n 1)))))
+    (isOdd? (lambda (n) (if (zero? n) #f (isEven? (- n 1))))) 
+  )
+  (display (isEven? 88))(newline)
+  (display (isEven? 89))(newline)
+  )
+```
+
+
+## 求值 (Evaluation) & 字面量 (quote)
 
 在 Lisp 里，+ 是函数，然而如 (+ 2 3) 的表达式，是函数调用。
 
@@ -405,14 +428,82 @@ Lisp 表示法另一个美丽的地方是：它就是如此简单。所有的 Li
    (+ 3 5)
 
 
+## Condition & Case
+
+```lisp
+(cond ((> 3 2) 'greater)
+   ((< 3 2) 'less))                 ==>  greater
+
+(cond ((> 3 3) 'greater)
+   ((< 3 3) 'less)
+   (else 'equal))                   ==>  equal
+
+(cond ((assv 'b '((a 1) (b 2))) => cadr)
+   (else #f))                       ==>  2
+
+(display (case (* 2 3) 
+  ((1 3 5 7) 'prime)
+  ((2 4 6 8) 'composite)
+  ))(newline)
+
+(and (= 2 2) (> 2 1))                  ==>  #t
+(and (= 2 2) (< 2 1))                  ==>  #f
+(and 1 2 'c '(f g))                    ==>  (f g)
+(and)                                  ==>  #t
+
+(or (= 2 2) (> 2 1))                   ==>  #t
+(or (= 2 2) (< 2 1))                   ==>  #t
+(or #f #f #f)                          ==>  #f
+(or (memq 'b '(a b c))
+    (/ 3 0))                           ==>  (b c)
+```
+
+
+## Do Loop
+
+4.2.4 Iteration
+
+ -- library syntax: do ((<variable1> <init1> <step1>) ...) (<test>
+          <expression> ...) <command> ...
+
+ -- library syntax: let <variable> <bindings> <body>
+
+```lisp
+ (do ((vec (make-vector 5))
+      (i 0 (+ i 1)))
+     ((= i 5) vec)
+   (vector-set! vec i i))               ==>  #(0 1 2 3 4)
+
+ (let ((x '(1 3 5 7 9)))
+   (do ((x x (cdr x))
+        (sum 0 (+ sum (car x))))
+       ((null? x) sum)))                ==>  25
+
+ (let loop ((numbers '(3 -2 1 6 -5))
+            (nonneg '())
+            (neg '()))
+   (cond ((null? numbers) (list nonneg neg))
+         ((>= (car numbers) 0)
+          (loop (cdr numbers)
+                (cons (car numbers) nonneg)
+                neg))
+         ((< (car numbers) 0)
+          (loop (cdr numbers)
+                nonneg
+                (cons (car numbers) neg)))))
+               ==>  ((6 1 3) (-5 -2))
+```
+
 ## 中断循环（break loop）
 
 如果你试着输入 Lisp 不能理解的东西，它会打印一个错误讯息，接着带你到一种叫做中断循环（break loop）的顶层。 中断循环给予有经验的程序员一个机会，来找出错误的原因，不过最初你只会想知道如何从中断循环中跳出。 如何返回顶层取决于你所使用的 Common Lisp 实现。在这个假定的实现环境中，输入 :abort 跳出：
 
+```lisp
    > (/ 1 0)
    Error: Division by zero
          Options: :abort, :backtrace
    >> :abort
+```
 
 ## 数据 (Data)
 
@@ -474,60 +565,42 @@ Lisp 表示法另一个美丽的地方是：它就是如此简单。所有的 Li
    > (third '(a b c d))
    C
 
-## if 条件判断 & 空值与逻辑
+## Empty 空值与逻辑
 
-在 Common Lisp 里有两种方法来表示空列表。你可以用一对不包括任何东西的括号来表示，或用符号 nil 来表示空表。
+在 Common Lisp 里有两种方法来表示空列表：一对不包括任何东西的圆括号，或用 nil 符号来表示空表。
 
-你不需要引用 nil （但引用也无妨），因为和t一样 nil 是对自身求值的。
+你不需要引用 nil （但引用也无妨），因为和 #t 一样 nil 是对自身求值的。
 
-nil 同时也表示逻辑假，和真值 t 相对应。
-(null nil) 返回 t，null 函数运算列表是否为空。
-(not nil)，返回 t，not 函数运算逻辑是否为假。
+1. nil 同时也表示逻辑假，和真值 #t 相对应。
+2. (null nil) 返回 #t，null 函数运算列表是否为空。
+3. (not nil)，返回 #t，not 函数运算逻辑是否为假。
 
-   > (if 0 (+ 1) (+ 2) )
-   1
-   > (if 1 (+ 1) (+ 2))
-   1
-   > (if nil (+ 1) (+ 2))
-   2
-   > (if () (+ 1) (+ 2))
-   2
+```lisp
+(if nil (+ 1) (+ 0))                 ==>  0
+(if () (+ 1) (+ 0))                  ==>  0
+(if 0 (+ 1) (+ 0))                   ==>  1
+(if 1 (+ 1) (+ 0))                   ==>  1
 
-   > (if 't (+ 1) (+ 2))
-   1
-   > (if 'T (+ 1) (+ 2))
-   1
-   > (if T (+ 1) (+ 2))
-   1
-   > (if '(T) (+ 1) (+ 2))
-   1
-   > (if (not 'T) (+ 1) (+ 2))
-   2
-   > (if (not T) (+ 1) (+ 2))
-   2
+(if 't (+ 1) (+ 0))                  ==>  1
+(if 'T (+ 1) (+ 0))                  ==>  1
+(if T (+ 1) (+ 0))                   ==>  1
+(if '(T) (+ 1) (+ 0))                ==>  1
+(if (not 'T) (+ 1) (+ 0))            ==>  0
+(if (not T) (+ 1) (+ 0))             ==>  0
 
-   > ( null () )
-   T
-   > ( null nil )
-   T
-   > ( null t )
-   NIL
+( null () )                          ==>  T
+( null nil )                         ==>  T
+( null t )                           ==>  NIL
 
-   > ( not () )
-   T
-   > ( not nil )
-   T
-   > ( not T )
-   NIL
+( not () )                           ==>  T
+( not nil )                          ==>  T
+( not T )                            ==>  NIL
 
-   > ( null (not T) )
-   T
-   > ( null (not nil) )
-   NIL
-   > ( null (not (not T)) )
-   NIL
-   > ( null (not (not ())) )
-   T
+( null (not T) )                     ==>  T
+( null (not nil) )                   ==>  NIL
+( null (not (not T)) )               ==>  NIL
+( null (not (not ())) )              ==>  T
+```
 
 ## Recursive Function
 - https://www.kancloud.cn/kancloud/yast-cn/64468
@@ -541,6 +614,7 @@ nil 同时也表示逻辑假，和真值 t 相对应。
 
 (fact 5)的计算过程如下：
 
+```lisp
     (fact 5)
     ⇒ 5 * (fact 4)
     ⇒ 5 * 4 * (fact 3)
@@ -551,11 +625,13 @@ nil 同时也表示逻辑假，和真值 t 相对应。
     ⇒ 5 * 4 * 6
     ⇒ 5 * 24
     ⇒ 120
+```
 
 普通的递归调用并不高效因为它既浪费存储空间又具有函数调用开销。与之相反，尾递归函数包含了计算结果，当计算结束时直接将其返回。特别地，由于 Scheme 规范要求尾递归调用转化为循环，因此尾递归调用就不存在函数调用开销。
 
 fact 函数的尾递归版本 fact-tail
 
+```lisp
     (define (fact-tail n)
       (fact-rec n n))
 
@@ -564,9 +640,11 @@ fact 函数的尾递归版本 fact-tail
           p
           (let ((m (- n 1)))
         (fact-rec m (* p m)))))
+```
 
 fact-tail 计算阶乘的过程像这样：
 
+```lisp
     (fact-tail 5)
     ⇒ (fact-rec 5 5)
     ⇒ (fact-rec 4 20)
@@ -574,19 +652,23 @@ fact-tail 计算阶乘的过程像这样：
     ⇒ (fact-rec 2 120)
     ⇒ (fact-rec 1 120)
     ⇒ 120
+```
 
 ## printf 或 display 打印函数
 
+```lisp
     (display '(1 . 2) )
     (display '(foo . bar) )
 
     (printf "~a" 15) ; 打印十进制 15
     (printf "~b" 15) ; 打印二进制 1111
+```
 
 ## assembly-output 汇编代码输出
 
 使用 Chez Scheme 一个未文档化的 API，可以查看你的代码被编译成了怎样的汇编代码：
 
+```lisp
 > (#%$assembly-output #t)
 > (lambda (x) x)
 
@@ -607,6 +689,7 @@ fact-tail 计算阶乘的过程像这样：
     10:      jmp            (disp 0 %sfp)
     14:      <end>
     #<procedure>
+```
 
 
 # ⚑ The Revised6 Report on the Algorithmic Language Scheme
@@ -636,7 +719,25 @@ The following list has links to implementations of R6RS Scheme. This page makes 
 11. Vicare http://marcomaggi.github.com/vicare.html
 12. Ypsilon http://code.google.com/p/ypsilon/
 
+RnRS 报告文档是 Scheme 社区官方语言规范，它的目标读者是 Scheme 语言的实现者，文档规范了 Scheme 语言的基本概念、严格递归、语法、表达式、字面量等等的实现细节要求。这些指导性内容也可以作为学习 Scheme 语言的教材。
 
+Lisp 本义是 LISt Processing，而这个列表处理的过程就是符号逻辑运算。最近使用 GNU Make 实现了一个基于符号运算的加法器，隐约感觉 Scheme 的列表处理就是基于符号运算，以及综合了递归、lambda 片子等等语言特性的工具。如下摘自规范文档的演示代码片断，就是说明 Scheme 的符号处理过程：
+
+```lisp
+; 4.1.3 Procedure calls
+(+ 3 4)                                ==>  7
+((if #f + *) 3 4)                      ==>  12
+```
+
+同样出于符号处理的思维，掌握一点 GNU M4 通用宏编程经验将大大提升学习 Scheme 的效率。
+
+Lambda calculus 是一种形式化的计算模型，1930 年代阿隆佐·丘奇（Alonzo Church）首次提出，用于研究可计算性和函数定义的基本原理。它被认为是计算机科学中的基本理论，对于函数式编程和编程语言的设计有着深远的影响。
+
+Lambda 演算的基本概念是“函数抽象”和“函数应用”。函数抽象指的是将一个函数定义为一个参数和一个表达式的形式，而函数应用指的是将一个函数应用于一个参数的过程。Lambda演算中的所有计算都是通过这两种基本操作进行的。
+
+Lambda 演算中的表达式由变量、函数抽象和函数应用组成。变量是一个标识符，表示一个值或一个函数。函数抽象由一个参数和一个表达式组成，表示一个函数的定义。函数应用由一个函数和一个参数组成，表示函数调用的过程。
+
+Lambda 演算中的每个表达式都可以通过一系列的替换规则进行简化。这些规则包括“β-规约”和“α-变换”，其中“β-规约”表示函数应用的过程，而“α-变换”用于避免名称冲突。
 
 
 # ⚑ Chez Scheme Version 9 User’s Guide

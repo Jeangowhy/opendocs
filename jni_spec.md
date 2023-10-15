@@ -17,7 +17,8 @@ process.stdin.on("data", (it) => {
   process.stdout.write(turndownService.turndown(it.toString()));
 })
 EOF
-pages="https://docs.oracle.com/en/java/javase/17/docs/specs/jni/intro.html \
+pages="https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/jniTOC.html \
+     https://docs.oracle.com/en/java/javase/17/docs/specs/jni/intro.html \
      https://docs.oracle.com/en/java/javase/17/docs/specs/jni/design.html \
      https://docs.oracle.com/en/java/javase/17/docs/specs/jni/types.html \
      https://docs.oracle.com/en/java/javase/17/docs/specs/jni/functions.html \

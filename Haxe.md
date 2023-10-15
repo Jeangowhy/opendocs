@@ -439,7 +439,7 @@ Creating a haxelib package https://lib.haxe.org/documentation/creating-a-haxelib
     C:\HaxeToolkit\haxe\lib\random\1,2,0\src\Random.hx
     C:\HaxeToolkit\haxe\lib\random\1,4,1\src\Random.hx
 
-```haxe
+```ts
     import Random;
 
     class Main {
@@ -453,7 +453,7 @@ Creating a haxelib package https://lib.haxe.org/documentation/creating-a-haxelib
 
 A taste of haXe
 
-```haxe
+```ts
     class Game {
       // haXe applications have a static entry point called main
       static function main() {
@@ -573,16 +573,56 @@ HaxeFlixel Powered by open source cross-platform tech:
 
     Haxe + OpenFL + Flixel = HaxeFlixel
 
+1. https://github.com/HaxeFlixel/flixel-docs
+2. https://flixel.org/about.html
+3. https://lib.haxe.org/p/lime/
+4. https://github.com/openfl/lime
+
 Flixel is a free Flash Actionscript library created by Adam Saltsman.
 It provides some base classes for creating 2D Flash games and other content.
 It was originally built up from Saltsman's work on several games such as
 Gravity Hook, Fathom, and Canabalt.
-https://github.com/HaxeFlixel/flixel-docs
-https://flixel.org/about.html
 
-Lime is a foundational Haxe framework for cross-platform development
-https://lib.haxe.org/p/lime/
-https://github.com/openfl/lime
+Features
+01. Flixel includes some basic features common to
+02. many game engines or other game libraries.
+03. Display thousands of moving objects
+04. Basic collisions between objects
+05. Group objects together for simplicity
+06. Easily generate and emit particles
+07. Create game levels using tilemaps
+08. Text display, save games, scrolling
+09. Mouse & keyboard input
+10. Math & color utilities
+11. Record and play back replays
+12. Powerful interactive debugger
+13. Camera system for split screen
+14. Pathfinding and following
+15. Easy object recycling
+
+Lime is a flexible, lightweight layer for Haxe cross-platform developers.
+
+Lime supports native, Flash and HTML5 targets with unified support for:
+
+1. Windowing
+2. Input
+3. Events
+4. Audio
+5. Render contexts
+6. Network access
+7. Assets
+
+Lime does not include a renderer, but exposes the current context:
+
+1. Cairo
+2. Canvas
+3. DOM
+4. Flash
+5. GL
+
+The GL context is based upon the WebGL standard, implemented for both OpenGL and OpenGL ES as needed.
+
+Lime provides a unified audio API, but also provides access to OpenAL for advanced audio on native targets.
 
 The Open Flash Library (OpenFL) for fast 2D development, previously known as
 NME (Native Media Engine), is an innovative framework designed to provide fast,
@@ -596,15 +636,29 @@ https://lime.openfl.org/docs/command-line-tools/basic-commands/
 
 
 Install HaxeFlixel
+https://lib.haxe.org/p/flixel
 
 To install the latest stable version of HaxeFlixel, open a command prompt
 and run the following [Haxelib](http://lib.haxe.org/) commands:
 
 ``` bash
+haxelib search flixel
+# flixel-ui
+# flixel-demos
+# flixel-templates
+# flixel-addons
+# flixel-tools
+# flixel
 haxelib install lime
 haxelib install openfl
 haxelib install flixel
 ```
+
+可选安装 flixel-demos，些模块提供了大量 Flixel 特性显示案例，可供参考。
+https://haxeflixel.com/demos/
+
+Flixel Addons 是功能扩展插件，比如 Spine 动画扩展接口，通过 flixel.addons.editors.spine.FlxSpine 模块加载基于骨骼的 Spine 动画。
+https://haxeflixel.com/demos/FlxSpine/
 
 After the installation is complete, you can compile games to HTML5, Flash and
 Neko out of the box.
@@ -730,7 +784,7 @@ prompt you for a choice, by number or name.
 检查 flixel-tools 源代码 src\commands\Create.hx 可以知道它通过 sys.io.Process 调用
 `haxelib path flixel-demos` 命令，获取其返回的库路径信息：
 
-```haxe
+```ts
     // flixel-tools-dev\src\utils\CommandUtils.hx
     final proc = new Process("haxelib", ["path", name]);
 
@@ -770,7 +824,7 @@ your project being created automatically.
 
 Then add some code into PlayState.hx.
 
-```haxe
+```ts
     package;
 
     import flixel.FlxState;
@@ -859,6 +913,45 @@ Lime Command-Line Tools (8.0.1)
   upgrade -- Upgrade a library from haxelib
   setup -- Setup Lime or a specific platform
 ```
+
+Lime 支持的目标平台参考如下，Android 平台需要安装 SDK 和 NDK：
+https://developer.android.google.cn/tools
+https://developer.android.google.cn/ndk/downloads
+
+```sh
+$ lime help build
+Compile and package for the specified project and target
+
+ Usage: lime build (project) <target> [options]
+
+ Targets:
+
+  air -- Create an AIR application
+  android -- Create an Android application
+  emscripten -- Create an Emscripten application
+  flash -- Create a Flash SWF application
+  html5 -- Create an HTML5 application
+  ios -- Create an iOS application
+  linux -- Create a Linux application
+  mac -- Create a macOS application
+  tvos -- Create a tvOS application
+  windows -- Create a Windows application
+
+ Target Aliases:
+
+  cpp -- Alias for host platform (using -cpp)
+  neko -- Alias for host platform (using -neko)
+  macos -- Alias for mac
+  nodejs -- Alias for host platform (using -nodejs)
+  java -- Alias for host platform (using -java)
+  cs -- Alias for host platform (using -cs)
+  hl/hashlink -- Alias for host platform (using -hl)
+  uwp/winjs -- Alias for windows -uwp
+  rpi/raspberrypi -- Alias for linux -rpi
+  electron -- Alias for html5 -electron
+  webassembly/wasm -- Alias for emscripten -webassembly
+```
+
 
 ## 🐥 HaxeFlixel Docs
 https://github.com/HaxeFlixel/flixel-docs
@@ -2133,7 +2226,7 @@ https://github.com/armory3d/armory/wiki/traits
 选择 `WalkNavigation` 类型以控制相机运动，如果当前对象不是相机，那么运行时控制台就会输出
 初始化函数执行类型转换失败的信息：
 
-```haxe
+```ts
     function init() {
         keyboard = Input.getKeyboard();
         gamepad = Input.getGamepad();
@@ -2155,7 +2248,7 @@ https://github.com/armory3d/armory/wiki/traits
 使用标注 `@prop` 可以将属性与 UI 面板关连，例如内置的 Bundled Scripts：
 armsdk\armory\Sources\armory\trait\SimpleMoveObject.hx
 
-```haxe
+```ts
     /**
         Simple script to move an object around using the keyboard with WSAD+QE.
         Can be used for testing and debuging.
@@ -2346,7 +2439,7 @@ Preferences - File - Save & Load。如果文件已经采用非压缩式保存，
 添加 Armory Traits 脚本时，如果工程 Sources 目录下已有脚本文件，可以在 Class 列表中指定
 要使用的 Traits 类型定义，如果列表没有类型数据记录，可以点击 Refresh 按钮刷新以读取类型信息。
 
-```haxe
+```ts
     // armory_examples-22.06\wasm_call\Sources\arm\MyTrait.hx
     package arm;
 
@@ -2560,7 +2653,7 @@ API 获取到的 CanvasScript 对象总是为 Armory Traits 列表中最上面�
 以下是 CanvasTrait.hx 演示代码，假定场景中 Canvas UI 设计包含 Image 和 Button 控件各一个。
 点击 Button 触发 on_click() 处理函数，并切换 Image 的显示状态：
 
-```haxe
+```ts
     package arm;
 
     import armory.system.Event;
@@ -2630,7 +2723,7 @@ GUI 设计有两种模式：
 到内存的一个位置上，以 `Handle` 类型的形式，这个位置可以通过 CanvasScript.getHandle()
 方法返回的控件数据 方法获取，根据控件类型从返回的数据中获取相应的字段：
 
-```haxe
+```ts
     Event.add("on_click",   () -> {
         trace("on_click:",
             canvasScript.getHandle("TextInput").text,
@@ -2644,7 +2737,7 @@ GUI 设计有两种模式：
 
 Zui 定义的 Handle 类型的数据字段：
 
-```haxe
+```ts
 class Handle {
     public var selected = false;
     public var position = 0;
@@ -2909,7 +3002,7 @@ Blender 节点编辑器，所以 Armory 逻辑节点都按分类组织：
 来复制 Blender 中的逻辑节点树。并且不能在逻辑节点编辑器中直接通过 Ctrl-X/C 等快捷键复制节点，
 需要通过 Logic Node Editor 的菜单执行复制动作。
 
-```haxe
+```ts
     package armory.logicnode;
 
     class ClearConsoleNode extends LogicNode {
@@ -2938,7 +3031,7 @@ Blender 节点编辑器，所以 Armory 逻辑节点都按分类组织：
 
 以代码方式使用 Logic Trait 并不是它的目的，只能开发者有了解它的需要。
 
-```haxe
+```ts
     package arm.node;
 
     import armory.logicnode.LogicTree;
@@ -3541,7 +3634,7 @@ Logic Node API 参考：
 考虑到逻辑节点的连接具有高度灵活性，防止用户直接因为使用字符串指定相机而不是指定对象，代码就需要
 考虑两种情况，当设置的参数不为字符串时就使用 `cast(camera, CameraObject)` 进行安全转型。
 
-```haxe
+```ts
     package armory.logicnode;
 
     import iron.math.Mat4;
@@ -3814,7 +3907,7 @@ Armory 构架、Iron Trait 事件回调，以及相关属性、程序与逻辑�
 `CaseIndexNode` 节点有一个 Compare 和多个 Value 输入进行比较，如果比较到相等值则输出索引号，
 否则输出 null：
 
-```haxe
+```ts
     // armory\logicnode\CaseIndexNode.hx
     override function get(from: Dynamic): Int {
         var value = inputs[0].get();
@@ -3872,7 +3965,7 @@ New logic tree variable system https://github.com/armory3d/armory/pull/2439
 中就会包含类似以下的代码。`ObjectNode` 相当是一个代理，它的 `get()` 方法检查到使用了默认值，
 就会返回 tree.object，也即是 owner 对象：
 
-```haxe
+```ts
     package arm.node;
 
     import armory.logicnode.LogicNode;
@@ -3965,7 +4058,7 @@ Trace: Error: End before you begin
 注意，编写代码或表达式时双引号的使用，因为引擎只是简单地将内容内嵌到生成的逻辑节点树类定义文件中，
 如果直接编写 "99 + 1" 这样的表达式，就会因为双引号配对导致语言错误。
 
-```haxe
+```ts
     var expr = "var x = 4; 1 + 2 * x";
     var parser = new hscript.Parser();
     var ast = parser.parseString(expr);
@@ -3983,7 +4076,7 @@ Trace: Error: End before you begin
 hscript 模块。默认状态没有启用 hscript，总是输出 null，并且也不会提示。添加以下代码就可以
 在缺失相关模块功能支持时，提示用户安装和启用 hscript 模块：
 
-```haxe
+```ts
     #if hscript
     // ...
     #else
@@ -4013,7 +4106,7 @@ hscript 模块。默认状态没有启用 hscript，总是输出 null，并且�
 在生成的 `LogicTree` 类定义中，有两个专用的 Map 类型的属性用来管理函数节点的连接配置等等信息。
 `FunctionNode` 节点定义的函数，比如 MyFun 就会对应生成代码文件中的一个同名的函数：
 
-```haxe
+```ts
     var functionNodes:Map<String, armory.logicnode.FunctionNode>;
     var functionOutputNodes:Map<String, armory.logicnode.FunctionOutputNode>;
 
@@ -4037,7 +4130,7 @@ hscript 模块。默认状态没有启用 hscript，总是输出 null，并且�
 另外，因为调用函数节点是直接在 Trait/Any 端口中指定的对象中查找相关的函数，所以这个端口就应该
 输入一个 `Self Trait`。通常是 LogicTree，因为逻辑节点的方法会在它的生成代码中定义。
 
-```haxe
+```ts
     package armory.logicnode;
 
     import iron.object.Object;
@@ -4117,7 +4210,7 @@ Armory 只提供了三个设置材质属性的节点，可以设置 `RGB`, `Valu
 回调函数中并没有获取到相应参数的回调。而逻辑节点通过 `UniformsManager` 设置的材质属性却可以生效。
 多功能节点分组下，还有一个 `Get Application Time` 节点，还可以可以获取前后两帧的时间差：
 
-```haxe
+```ts
     class TimeNode extends LogicNode {
 
         override function get(from: Int): Dynamic {
@@ -4138,7 +4231,7 @@ Iron Uniforms API 执行时有一个逻辑，比如说 `setObjectConstant()` 方
 为了在 Haxe 脚本中实现颜色的不断更新随机值，以下示例代码的基础上，增加了 color 变量，并通过
 `UniformsManager` 去注册相应的着色器常量 Links 函数。
 
-```haxe
+```ts
     package arm;
 
     import iron.math.Vec4;
@@ -4217,7 +4310,7 @@ Trait 扩展设置、物理系统、声音，Canvas 2D 画面绘画，甚至是�
 基础，那么很多功能函数基本上看一眼就知道可以用它来干什么了。比如说以下代码片段提供了注解，那么在
 掌握 GLSL 着色器编程基础的条件下，很快就可以领悟，这些变量会传递到着色器程序中作为 [uniforms]。
 
-```haxe
+```ts
     // Data used in uniforms
     public var tileOffsetX: Array<Float> = [0.0];
     public var tileOffsetY: Array<Float> = [0.0];
@@ -4229,7 +4322,7 @@ Trait 扩展设置、物理系统、声音，Canvas 2D 画面绘画，甚至是�
 通过它的前缀也可以知道它是 Render Path 相关的功能，这是定制游戏渲染引擎的技术细节。需要有相当的
 基础才能完全掌握这些代码存在的目的：
 
-```haxe
+```ts
     public function new(data: LightData) {
         super();
 
@@ -4306,7 +4399,7 @@ armory.object.Uniforms 和都需要调用 iron.object.Uniforms 提供的数据�
 可以看到 Haxe 的另一种怪异语法，数组元素是长长的映射路径。另一种怪异的语法是构造函数在只有一条
 语句的情况下，可以省略花括号，这是一种偷懒语法： HaxeManual/AbstractArrayAccessOrder.hx
 
-```haxe
+```ts
     // armsdk\iron\Sources\iron\object\Uniforms.hx
     public static var externalTextureLinks: Array<Object->MaterialData->String->kha.Image> = null;
     public static var externalMat4Links: Array<Object->MaterialData->String->Mat4> = null;
@@ -4341,7 +4434,7 @@ armory.object.Uniforms 和都需要调用 iron.object.Uniforms 提供的数据�
 
 Haxe 语言中的 Arrow Function 使用 -> 箭头表示匿名函数，如下所示：
 
-```haxe
+```ts
     // HaxeManual\assets\ArrowFunction.hx
     // HaxeManual\assets\Bind.hx
     var myConcat = (a:String, b:String) -> a + b;
@@ -4353,7 +4446,7 @@ Haxe 语言中的 Arrow Function 使用 -> 箭头表示匿名函数，如下所�
 Haxe 数组声明中这种连续的 -> 会让人有种误解，学习过链表数据结构的人可能直观地认为这就是链表结构，
 但其实它是函数原型的表达。以下程序演示了如何使用这种怪异的数组声明表达：
 
-```haxe
+```ts
     // haxe -cp ./path/to/MainAWeird.hx -m MainAWeird --interp
     class MainAWeird {
       static var Links: Array<String->Dynamic> = [];
@@ -4402,7 +4495,7 @@ Iron Uniforms 有三对核心方法，它们在每一帧都会被 `RenderPath` �
 需要判断 link 参数传递的值，是否与目标的属性值一致，然后再作处理。如果不一致，则返回 `null`
 告诉引擎不需要理会当前值。如果回调函数已经返回一个值，那么同类的其它回调函数就会被跳过。
 
-```haxe
+```ts
     public static function setContextConstants(g: Graphics, context: ShaderContext, bindParams: Array<String>)
     public static function setObjectConstants(g: Graphics, context: ShaderContext, object: Object)
     static public function setMaterialConstants(g: Graphics, context: ShaderContext, materialContext: MaterialContext)
@@ -4437,7 +4530,7 @@ GLSL 常量管理器中管理三种着色器常量，登记在相应的多级 Ma
 材质数据对象 `MaterialData` 作为二级映射的 Key，使用字符串作为第三级映射的 Key。这三种数据
 对应有三个回调方法，它们由 Iron Uniforms 类型进行回调，以获取相应的材质属性数据：
 
-```haxe
+```ts
     // class UniformsManager extends Trait{
     static var floatsMap = new Map<Object, Map<MaterialData, Map<String, Null<kha.FastFloat>>>>();
     static var vectorsMap = new Map<Object, Map<MaterialData, Map<String, Vec4>>>();
@@ -4476,7 +4569,7 @@ class MaterialNode(ArmLogicVariableNodeMixin, ArmLogicTreeNode):
 这是 Iron 的场景文件 .arm 格式定义。也就是说，了解 Iron 对象的层次结构，还必须对 .arm 场景
 文件格式有一定了解：
 
-```haxe
+```ts
     // iron\Sources\iron\object\MeshObject.hx
     class MeshObject extends Object {
         public var data: MeshData = null;
@@ -4548,7 +4641,7 @@ Iron Uniforms `setObjectConstants()` 方法处理这些纹理数据，下表显�
 |                           |                 | setObjectConstant()  externalMat4Links    |
 
 
-```haxe
+```ts
     // class UniformsManager extends Trait{
     // Method to set map Object -> Material -> Link -> Texture
     public static function setTextureValue(material: MaterialData, object: Object, link: String, value: kha.Image) {
@@ -4663,7 +4756,7 @@ Armory Traits 列表中添加 Canvas Trait 扩展使用，否则不会触发 `On
     throw "Begin before you end";
     |   |   |-- armory\trait\internal\CanvasScript.hx
 
-```haxe
+```ts
     public static function getActiveCanvas(): CanvasScript {
         var activeCanvas = Scene.active.getTrait(CanvasScript);
         if (activeCanvas == null) activeCanvas = Scene.active.camera.getTrait(CanvasScript);
@@ -4733,7 +4826,7 @@ Background 节点的 Strength 调整对 Armory 无效，除非 `Armory Project -
 armory_examples-22.06\render_to_texture\Sources\arm\MyTrait.hx
 
 
-```haxe
+```ts
 class DrawCameraTextureNode extends LogicNode {
 
     var cam: CameraObject;
@@ -4868,7 +4961,7 @@ iron\Sources\iron\data\ShaderData.hx
 如果同时，存在 `UniformsManager` 和 Iron `Uniforms` 注册的资源，那么常量管理器的设置优先。
 `Uniforms` 注册的回调不一定有机会调用，以下代码就是因为 `UniformsManager` 重置了原有链接关系。
 
-```haxe
+```ts
     package arm;
 
     import iron.math.Vec4;
@@ -5008,7 +5101,7 @@ Kha.Image `createRenderTarget()` 方法创建一个 RenderTarget 对象，就是
 并打开画布上下文。注意 `begin()` 和 `end()` 方法之间的 `runOutput(0)`，就是它调用后续的
 逻辑节点，在画布上下文打开期间绘画：
 
-```haxe
+```ts
     // armory\logicnode\DrawToMaterialImageNode.hx
     override function run(from: Int) {
         var object = inputs[1].get();
@@ -5082,7 +5175,7 @@ Kha.Image `createRenderTarget()` 方法创建一个 RenderTarget 对象，就是
     |   |-- iron\object\Transform.hx
     |   `-- iron\object\Uniforms.hx
 
-```haxe
+```ts
     // armory\logicnode\GetPropertyNode.hx
     override function get(from: Int): Dynamic {
         var object: iron.object.Object = inputs[0].get();
@@ -5122,7 +5215,7 @@ Kha.Image `createRenderTarget()` 方法创建一个 RenderTarget 对象，就是
 逻辑节点代码中的 runOutput(0) 和 runOutput(1) 就是执行相应的控制流输出端口，即对应节点的
 **On Start** 和 **On Stop**，等价于触发两个事件：
 
-```haxe
+```ts
     override function run(from: Int) {
         switch (from) {
             case 0: // Start
@@ -5263,7 +5356,7 @@ Armory Engine 逻辑节点相关代码文件：
 
 PlaySoundNode 和 PlaySoundRawNode 使用到的 API：
 
-```haxe
+```ts
     override function run(from: Int) {
         var object: SpeakerObject = cast(inputs[1].get(), SpeakerObject);
         if (object == null) return;
@@ -5960,7 +6053,7 @@ JSON 数据作为存档，这是一种通用的字符串数据格式，Haxe 等�
 
 文件读写与 JSON 数据读写服务 API 如下：
 
-```haxe
+```ts
     // Save to the file
     var s = haxe.Json.stringify(data);
 
@@ -6000,7 +6093,7 @@ iron.system.Storage，由其静态数据成员提供 `get()` 和 `set()` 方法�
 
 例如，Krom 平台下，使用前面提到的 API：
 
-```haxe
+```ts
     override public function read(): Blob {
         var data: BytesData = Krom.readStorage(name);
         return data != null ? Blob.fromBytes(Bytes.ofData(data)) : null;
@@ -6079,7 +6172,7 @@ iron.Trait 类型的 **object** 属性引用了当前 trait 归属的所有者�
 
 Main.hx 入口类代码：
 
-```haxe
+```ts
     package ;
     class Main {
         public static inline var projectName = 'SaveLoadMechanism';
@@ -6107,7 +6200,7 @@ Main.hx 入口类代码：
 
 CubeController.hx 控制器类代码：
 
-```haxe
+```ts
     package arm;
 
     import iron.math.Vec4;
@@ -6132,7 +6225,7 @@ CubeController.hx 控制器类代码：
 
 SaveLoadMechanism.hx 档案读写工具类代码：
 
-```haxe
+```ts
     package arm;
 
     import armory.trait.internal.CanvasScript;
@@ -12765,7 +12858,7 @@ Haxe 4.3.0 版本有些功能并没有打印出来，比如编译服务的启动
     haxe-4.3.0\src\compiler\compiler.ml
     haxe-4.3.0\tests\misc\projects\Issue4651\CompServer.hx
 
-```haxe
+```ts
 class CompServer {
     static function main() {
         var port = 4000;
@@ -13110,7 +13203,7 @@ To get a list of supported Haxe compiler flags, use `haxe --help-defines`.
 
 Implementation
 
-```haxe
+```ts
 class Main {
   static function main() {
     #if introduce
@@ -13171,7 +13264,7 @@ Welcome, super user!
 
 This macro function automatically assigns parameters of method to local variables.
 
-```haxe
+```ts
 import haxe.macro.Context;
 import haxe.macro.Expr;
 using Lambda;
@@ -13198,7 +13291,7 @@ class MyMacros {
 
 Usage
 
-```haxe
+```ts
 class Test {
   public var name:String;
   public var x:Float;
@@ -13212,7 +13305,7 @@ class Test {
 
 This will be the same as writing this manually:
 
-```haxe
+```ts
 class Test {
   public var name:String;
   public var x:Float;
@@ -13285,7 +13378,7 @@ confusing at first, it is very pragmatic when dealing with callback-based code.
 This kind of expressions will be transformed from `return someVoid();` to
 `someVoid(); return;`. For example:
 
-```haxe
+```ts
     function getContent(fileName:String, callback:String->Void):Void {
       if (fileName == "")
         // invoke callback and return early if `fileName` is empty string
@@ -13748,7 +13841,7 @@ arguments and return types.
 
 We have already "seen" Void in the initial "Hello World" example:
 
-```haxe
+```ts
     /**
         Multi-line comments for documentation.
     **/
@@ -13860,7 +13953,7 @@ leaving the details of class fields for Class Fields.
 
 The following code example serves as the basis for the remainder of this section:
 
-```haxe
+```ts
     class Point {
       var x:Int;
       var y:Int;
@@ -13942,7 +14035,7 @@ It is very easy to come up with examples where the usage of `Dynamic` can
 cause problems at runtime. Consider compiling the following two lines to
 a static target:
 
-```haxe
+```ts
 var d:Dynamic = 1;
 d.foo;
 ```
@@ -13962,7 +14055,7 @@ surprising results in examples such as this:
 
 [code asset](assets/DynamicInferenceIssue.hx)
 
-```haxe
+```ts
     class Main {
       static function main() {
         var jsonData = '[1, 2, 3]';
@@ -14004,7 +14097,7 @@ without a [type parameter]. If such a type parameter is provided, the semantics
 described in [Dynamic] are constrained to all fields being compatible with
 the parameter type:
 
-```haxe
+```ts
     var att : Dynamic<String> = xml.attributes;
     // valid, value is a String
     att.name = "Nicolas";
@@ -14023,7 +14116,7 @@ that are intended to hold collections of objects by the string key. Basically,
 
 [code asset](assets/DynamicAccess.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         var user:haxe.DynamicAccess<Dynamic> = {};
@@ -14054,7 +14147,7 @@ associated with the type system.
 
 The implementation is quite simple:
 
-```haxe
+```ts
 abstract Any(Dynamic) from Dynamic to Dynamic {}
 ```
 
@@ -14063,7 +14156,7 @@ or whether it supports fields or operations - this is up to the user to handle.
 
 [code asset](assets/Any.hx)
 
-```haxe
+```ts
     class Main {
       static function setAnyValue(value:Any) {
         trace(value);
@@ -14107,7 +14200,7 @@ in order to modify or augment their behavior:
 
 [code asset](assets/MyAbstract.hx#L1-L5)
 
-```haxe
+```ts
 abstract AbstractInt(Int) {
   inline public function new(i:Int) {
     this = i;
@@ -14197,7 +14290,7 @@ The following code example shows an example of **direct** casting:
 
 [code asset](assets/ImplicitCastDirect.hx)
 
-```haxe
+```ts
     abstract MyAbstract(Int) from Int to Int {
       inline function new(i:Int) {
         this = i;
@@ -14223,7 +14316,7 @@ Class field casts have the same semantics, but are defined completely differentl
 
 [code asset](assets/ImplicitCastField.hx)
 
-```haxe
+```ts
     abstract MyAbstract(Int) {
       inline function new(i:Int) {
         this = i;
@@ -14271,7 +14364,7 @@ var b = _ImplicitCastField.MyAbstract_Impl_.toArray(a);
 This can be further optimized by [inlining] both cast functions, turning
 the output into the following:
 
-```haxe
+```ts
 var a = Std.parseInt("3");
 var b = [a];
 ```
@@ -14315,7 +14408,7 @@ By design, implicit casts are **not transitive**, as the following example shows
 
 [code asset](assets/ImplicitTransitiveCast.hx)
 
-```haxe
+```ts
     abstract A(Int) {
       public function new()
         this = 0;
@@ -14362,7 +14455,7 @@ arguments of type `Int`. Using abstracts, however, makes it possible to define
 custom array access methods. The Haxe [Standard Library] uses this in its `Map`
 type, where the following two methods can be found:
 
-```haxe
+```ts
     @:arrayAccess
     public inline function get(key:K) {
       return this.get(key);
@@ -14383,7 +14476,7 @@ The methods `get` and `arrayWrite` seen above then allow for the following usage
 
 [code asset](assets/AbstractArrayAccess.hx)
 
-```haxe
+```ts
     class Main {
       public static function main() {
         var map = new Map();
@@ -14409,7 +14502,7 @@ consistently checked from top to bottom:
 
 [code asset](assets/AbstractArrayAccessOrder.hx)
 
-```haxe
+```ts
     abstract AString(String) {
       public function new(s)
         this = s;
@@ -14489,7 +14582,7 @@ consider typedefs to actually **be** the structure.
 
 A typedef can give a name to any other type:
 
-```haxe
+```ts
 typedef IA = Array<Int>;
 ```
 
@@ -14498,7 +14591,7 @@ While this saves only a few keystrokes in this particular case, it can make
 a larger difference for more complex, compound types. Again, this is why
 typedef and structures seem so connected:
 
-```haxe
+```ts
 typedef User = {
   var age : Int;
   var name : String;
@@ -14509,7 +14602,7 @@ Typedefs are not textual replacements, but are actually real types. They can
 even have [type parameters] as the `Iterable` type from the Haxe Standard Library
 demonstrates:
 
-```haxe
+```ts
 typedef Iterable<T> = {
   function iterator() : Iterator<T>;
 }
@@ -14558,7 +14651,7 @@ that module. This allows a single .hx file to contain multiple types, which
 can be accessed unqualified from within the module, and by using
 `package.Module.Type` from other modules:
 
-```haxe
+```ts
 var e:haxe.macro.Expr.ExprDef;
 ```
 
@@ -14566,7 +14659,7 @@ Here the sub-type `ExprDef` within module `haxe.macro.Expr` is accessed.
 
 An example sub-type declaration would look like the following :
 
-```haxe
+```ts
 // a/A.hx
 package a;
 
@@ -14575,7 +14668,7 @@ class A { public function new() {} }
 class B { public function new() {} }
 ```
 
-```haxe
+```ts
 // Main.hx
 import a.A;
 
@@ -14598,7 +14691,7 @@ In the example above `ExprDef` is generated as `haxe.macro.ExprDef`.
 
 Sub-types can also be made private:
 
-```haxe
+```ts
 private class C { ... }
 private enum E { ... }
 private typedef T { ... }
@@ -14623,7 +14716,7 @@ If a type path is used multiple times in a .hx file, it might make sense to use 
 [code asset](assets/Import.hx)
 [code asset](assets/ImportWildcard.hx)
 
-```haxe
+```ts
 import haxe.ds.StringMap;  // Import Type
 import haxe.macro.Expr;    // Import all type from a module: Binop etc.
 import Math.random;        // Import static method: random()
@@ -14857,7 +14950,7 @@ Variable fields hold values, a characteristic which they share with most
 
 [code asset](assets/VariableField.hx)
 
-```haxe
+```ts
     class Main {
       static var example:String = "bar";
 
@@ -14934,7 +15027,7 @@ as the following example shows:
 
 [code asset](assets/Property2.hx)
 
-```haxe
+```ts
     class Main {
       // read from outside, write only within Main
       public var ro(default, null):Int;
@@ -15027,7 +15120,7 @@ We can also look at the next example to learn more about arguments and return ty
 [code asset](assets/MethodField.hx)
 [code asset](assets/OverrideCallParent.hx)
 
-```haxe
+```ts
     class Base {
       public function new() {}
 
@@ -15079,7 +15172,7 @@ Fields are by default **private**, meaning that only the class and its
 sub-classes may access them. They can be made **public** by using the
 `public` access modifier, allowing access from anywhere.
 
-```haxe
+```ts
     class MyClass {
       static public function available() {
         unavailable();
@@ -15101,7 +15194,7 @@ The example demonstrates visibility through **static** fields, but the rules
 for member fields are equivalent. The following example demonstrates visibility
 behavior for when inheritance is involved.
 
-```haxe
+```ts
     class Base {
       public function new() {}
 
@@ -15151,7 +15244,7 @@ of calls to them. This can be a powerful optimization tool but should be used
 judiciously as not all functions are good candidates for inline behavior.
 The following example demonstrates the basic usage:
 
-```haxe
+```ts
     class Main {
       static inline function mid(s1:Int, s2:Int) {
         return (s1 + s2) / 2;
@@ -15187,7 +15280,7 @@ everywhere in place of the variable itself.
 
 The following code demonstrates the usage of an inline variable:
 
-```haxe
+```ts
     class Main {
       static inline final language = "Haxe";
 
@@ -15224,7 +15317,7 @@ Methods can be denoted with the `dynamic` keyword to make them (re-)bindable:
 
 [code asset](assets/DynamicFunction.hx)
 
-```haxe
+```ts
     class Main {
       static dynamic function test() {
         return "original";
@@ -15327,7 +15420,7 @@ as the result type of the expression.
 
 The ternary conditional operator is a shorter form of [`if`]:
 
-```haxe
+```ts
     trace(true ? "Haxe" : "Neko"); // Haxe
     trace(1 == 2 ? 3 : 4); // 4
 
@@ -15418,7 +15511,7 @@ Functions calls consist of an arbitrary subject expression followed by an
 opening parenthesis `(`, a comma `,` separated list of expressions as
 arguments and a closing parenthesis `)`.
 
-```haxe
+```ts
     subject(); // call with no arguments
     subject(e1); // call with one argument
     subject(e1, e2); // call with two arguments
@@ -15438,7 +15531,7 @@ The `var` keyword allows declaring multiple variables, separated by comma `,`.
 Each variable has a valid [identifier] and optionally a value assignment following
 the assignment operator `=`. Variables can also have an explicit type-hint.
 
-```haxe
+```ts
     var a; // declare local `a`
     var b:Int; // declare variable `b` of type Int
     // declare variable `c`, initialized to value 1
@@ -15458,7 +15551,7 @@ Variables declared with `final` instead of `var` can only be assigned a value on
 
 [code asset](assets/Final.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         final a = "hello";
@@ -15480,7 +15573,7 @@ be modified using its methods:
 
 [code asset](assets/FinalMutable.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         final a = [1, 2, 3];
@@ -15504,7 +15597,7 @@ expressions. The syntax follows [class field methods](class-field-method):
 
 [code asset](assets/LocalFunction.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         var value = 1;
@@ -15524,7 +15617,7 @@ The scoping is equivalent to that of [variables](expression-var) and for
 the most part writing a named local function can be considered equal to
 assigning an unnamed local function to a local variable:
 
-```haxe
+```ts
     var myLocalFunction = function(a) { }
 ```
 
@@ -15546,7 +15639,7 @@ argument, and an arrow function with zero arguments should be declared with `() 
 
 [code asset](assets/ArrowFunction.hx)
 
-```haxe
+```ts
     class Main {
       static public function main()
       {
@@ -15591,7 +15684,7 @@ again separated by comma `,`, with a closing parenthesis `)` at the end.
 
 [code asset](assets/New.hx)
 
-```haxe
+```ts
     class Main<T> {
       static public function main() {
         new Main<Int>(12, "foo");
@@ -15622,7 +15715,7 @@ if it is an `Iterator<T>` itself.
 Variable `v` is then available within loop body `e2` and holds the value of
 the individual elements of collection `e1`.
 
-```haxe
+```ts
     var list = ["apple", "pear", "banana"];
     for (v in list) {
       trace(v);
@@ -15647,7 +15740,7 @@ cannot be used as right-side expression. However, we'll later introduce
 
 The control flow of loops can be affected by [`break`] and [`continue`] expressions.
 
-```haxe
+```ts
     for (i in 0...10) {
       if (i == 2) continue; // skip 2
       if (i == 5) break; // stop at 5
@@ -15673,7 +15766,7 @@ that `e1` either has a `keyValueIterator` method returning returning a
 `KeyValueIterator<K, V>`, or if it is a `KeyValueIterator<K, V>` itself.
 Here `K` and `V` refer to the type of the keys and the values, respectively.
 
-```haxe
+```ts
     var map = [1 => 101, 2 => 102, 3 => 103];
     for (key => value in map) {
       trace(key, value);
@@ -15703,7 +15796,7 @@ Case expressions either start with the `case` keyword and are followed by
 a pattern expression, or consist of the `default` keyword. In both cases
 a colon `:` and an optional case body expression follows:
 
-```haxe
+```ts
     switch subject {
       case pattern1: case-body-expression-1;
       case pattern2: case-body-expression-2;
@@ -15720,7 +15813,7 @@ case body expressions and the default expression must [unify].
 Each case (including the default one) is also a variable scope, which affects
 [variable shadowing].
 
-```haxe
+```ts
     switch (0) {
       case 0:
         var a = "foo";
@@ -15762,7 +15855,7 @@ throwing.
 
 Haxe allows catching values using its `try/catch` syntax:
 
-```haxe
+```ts
     try try-expr
     catch (varName1:Type1) catch-expr-1
     catch (varName2:Type2) catch-expr-2
@@ -15796,7 +15889,7 @@ However, since the check has to be done at runtime there are several restriction
 Instead of `Dynamic` and `Any` it's possible (and recommended) to omit the
 type hint for wildcard catches:
 
-```haxe
+```ts
     try {
       doSomething();
     } catch(e) { // All exceptions will be caught here
@@ -15812,7 +15905,7 @@ or `Any` as the catch type.
 
 To get a string representation of the exception `Std.string(e)` could be used.
 
-```haxe
+```ts
     try {
       doSomething();
     } catch(e:Any) { // All exceptions will be caught here
@@ -15825,7 +15918,7 @@ To get a string representation of the exception `Std.string(e)` could be used.
 If the catch type is `haxe.Exception` or one of its descendants, then the
 exception stack is available in the `stack` property of the exception instance.
 
-```haxe
+```ts
     try {
       doSomething();
     } catch(e:haxe.Exception) {
@@ -15838,7 +15931,7 @@ Haxe 3.* and Haxe 4.0
 The exception call stack is available via `haxe.CallStack.exceptionStack()`
 inside of a `catch` block:
 
-```haxe
+```ts
     try {
       doSomething();
     } catch(e:Dynamic) {
@@ -15853,7 +15946,7 @@ inside of a `catch` block:
 Even if an instance of `haxe.Exception` is thrown again, it still preserves
 all the original information, including the stack.
 
-```haxe
+```ts
     import haxe.Exception;
 
     class Main {
@@ -15897,7 +15990,7 @@ For example here's a Haxe code, which being compiled to PHP target catches
 and rethrows all exceptions in the inner `try/catch`. And rethrown exceptions
 are still catchable using their target native types:
 
-```haxe
+```ts
     try {
       try {
         (null:Dynamic).callNonExistentMethod();
@@ -15924,7 +16017,7 @@ exception instance again.
 
 To do so just pass an exception to a new exception instance:
 
-```haxe
+```ts
     try {
       doSomething();
     } catch(e:haxe.Exception) {
@@ -15950,7 +16043,7 @@ One use-case is to make error logs more readable.
 Chained exceptions are available through `previous` property of
 `haxe.Exception` instances:
 
-```haxe
+```ts
     try {
       try {
         doSomething();
@@ -15967,7 +16060,7 @@ Chained exceptions are available through `previous` property of
 Another use-case is creating a library, which does not expose internal exceptions
 as public API, but still provides information about exceptions reasons:
 
-```haxe
+```ts
     import haxe.Exception;
 
     class MyLibException extends Exception {}
@@ -15999,7 +16092,7 @@ A `return` expression can come with or without a value expression:
 It leaves the control-flow of the innermost function it is declared in, which
 has to be distinguished when [local functions] are involved:
 
-```haxe
+```ts
     function f1() {
       function f2() {
         return;
@@ -16023,7 +16116,7 @@ or inferred by previous `return` expressions) of the function it returns from.
 The `break` keyword leaves the control flow of the innermost loop
 (`for` or `while`) it is declared in, stopping further iterations:
 
-```haxe
+```ts
     while (true) {
       expression1;
       if (condition) break;
@@ -16045,7 +16138,7 @@ The `continue` keyword ends the current iteration of the innermost loop
 (`for` or `while`) it is declared in, causing the loop condition to be
 checked for the next iteration:
 
-```haxe
+```ts
     while (true) {
       expression1;
       if (condition) continue;
@@ -16064,7 +16157,7 @@ The typer ensures that it appears only within a loop.
 
 Haxe allows two kinds of casts:
 
-```haxe
+```ts
     cast expr;         // 1. unsafe cast
     cast (expr, Type); // 2. safe cast
 ```
@@ -16077,7 +16170,7 @@ Unsafe casts do not introduce any [dynamic] types, as the following example:
 
 [code asset](assets/UnsafeCast.hx)
 
-```haxe
+```ts
     class Main {
       public static function main() {
         var i = 1;
@@ -16107,7 +16200,7 @@ for safe casts:
 
 [code asset](assets/SafeCast.hx)
 
-```haxe
+```ts
     class Base {
       public function new() {}
     }
@@ -16167,7 +16260,7 @@ This allows a finer-grained control of inlining, unlike the [inline access modif
 
 [code asset](assets/InlineCallsite.hx)
 
-```haxe
+```ts
     class Main {
       static function mid(s1:Int, s2:Int) {
         return (s1 + s2) / 2;
@@ -16300,7 +16393,7 @@ Structure can be expressed through algebraic data types (ADT), which are known
 as enums in the Haxe Language. Furthermore, Haxe supports their generalized
 variant known as **GADT**.
 
-```haxe
+```ts
     enum Result {
       Success(data:Array<Int>);
       UserError(msg:String);
@@ -16329,7 +16422,7 @@ functionality to allow iteration.
 Functions in Haxe are not limited to class fields and can be declared in
 expressions as well, allowing powerful closures.
 
-```haxe
+```ts
     var buffer = "";
     function append(s:String) {
       buffer += s;
@@ -16344,7 +16437,7 @@ expressions as well, allowing powerful closures.
 Add metadata to fields, classes or expressions. This can communicate information
 to the compiler, macros, or runtime classes.
 
-```haxe
+```ts
     class MyClass {
       @range(1, 8) var value:Int;
     }
@@ -16356,7 +16449,7 @@ to the compiler, macros, or runtime classes.
 Existing classes and other types can be augmented with additional functionality
 through using static extensions.
 
-```haxe
+```ts
     using StringTools;
     "  Me & You    ".trim().htmlEscape();
 ```
@@ -16373,7 +16466,7 @@ current context.
 Any function can be applied partially, providing the values of some arguments
 and leaving the rest to be filled in later.
 
-```haxe
+```ts
     var map = new haxe.ds.IntMap();
     var setToTwelve = map.set.bind(_, 12);
     setToTwelve(1);
@@ -16386,7 +16479,7 @@ Complex structures can be matched against patterns, extracting information
 from an enum or a structure and defining specific operations for specific
 value combination.
 
-```haxe
+```ts
     var a = {foo: 12};
     switch a {
       case {foo: i}: trace(i);
@@ -16399,7 +16492,7 @@ value combination.
 Variable class fields can be designed as properties with custom read and write
 access, allowing fine grained access control.
 
-```haxe
+```ts
     public var color(get,set);
     function get_color() {
       return element.style.backgroundColor;
@@ -16421,7 +16514,7 @@ Types can be parametrized with type parameters, allowing typed containers and
 other complex data structures. Type parameters can also be constrained to
 certain types and respect variance rules.
 
-```haxe
+```ts
     class Main<A> {
       static function main() {
         new Main<String>("foo");
@@ -16450,7 +16543,7 @@ This example demonstrates usage of conditional compilation:
 
 [code asset](assets/ConditionalCompilation.hx)
 
-```haxe
+```ts
     class Main {
       public static function main() {
         #if !debug
@@ -16568,7 +16661,7 @@ to the compiler. This feature works as follows:
 
 As an example, we can have the following directory structure:
 
-```haxe
+```ts
 /somepackage/Example.hx
 /somepackage/Example.js.hx
 /Main.hx
@@ -16596,7 +16689,7 @@ due to the introduction of **String Interpolation**. Special identifiers,
 denoted by the dollar sign `$` within a String enclosed by single-quote `'`
 characters, are evaluated as if they were concatenated identifiers:
 
-```haxe
+```ts
     var x = 12;
     // The value of x is 12
     trace('The value of x is $x');
@@ -16605,7 +16698,7 @@ characters, are evaluated as if they were concatenated identifiers:
 Furthermore, it is possible to include whole expressions in the string
 by using `${expr}`, with `expr` being any valid Haxe expression:
 
-```haxe
+```ts
     var x = 12;
     // The sum of 12 and 3 is 15
     trace('The sum of $x and 3 is ${x + 3}');
@@ -16615,7 +16708,7 @@ String interpolation is a compile-time feature and has no impact on the runtime.
 The above example is equivalent to manual concatenation, which is exactly what
 the compiler generates:
 
-```haxe
+```ts
     trace("The sum of " + x + " and 3 is " + (x + 3));
 ```
 
@@ -16657,7 +16750,7 @@ Variable `a` is initialized to an array holding the numbers 0 to 9.
 The compiler generates code which adds the value of each loop iteration
 to the array, so the following code would be equivalent:
 
-```haxe
+```ts
     var a = [];
     for (i in 0...10) a.push(i);
 ```
@@ -16666,7 +16759,7 @@ Variable `b` is initialized to an array with the same values, but through a
 different comprehension style using `while` instead of `for`. Again,
 the following code would be equivalent:
 
-```haxe
+```ts
     var i = 0;
     var b = [];
     while(i < 10) b.push(i++);
@@ -16677,7 +16770,7 @@ so the following works as expected:
 
 [code asset](assets/AdvArrayComprehension.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         var a = [
@@ -16699,7 +16792,7 @@ Map comprehension in Haxe is similar to array comprehension, but just like
 
 [code asset](assets/MapComprehension.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         var a = [for (i in 0...5) i => 'number ${i}'];
@@ -16716,7 +16809,7 @@ Variable `a` is initialized to an `Map` holding keys from 0 to 4 and
 string values. The compiler generates code which adds the value of
 each loop iteration to the map, so the following code would be equivalent:
 
-```haxe
+```ts
     var a = new Map();
     for (i in 0...5) a.set(i, 'number ${i}');
 ```
@@ -16725,7 +16818,7 @@ Variable `b` is initialized to an `Map` with the same keys and values,
 but through a different comprehension style using `while` instead of `for`.
 Again, the following code would be equivalent:
 
-```haxe
+```ts
     var i = 0;
     var b = new Map();
     while(i < 5) b.set(i, 'number ${i++}');
@@ -16736,7 +16829,7 @@ so the following works as expected:
 
 [code asset](assets/AdvMapComprehension.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         var a = [
@@ -16762,7 +16855,7 @@ number of arguments in order to create a new function. This is demonstrated here
 
 [code asset](assets/Bind.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         var map = new haxe.ds.IntMap<String>();
@@ -16800,7 +16893,7 @@ the original function becomes a non-optional argument of the result function.
 
 [code asset](assets/BindOptional.hx)
 
-```haxe
+```ts
     class Main {
       static function test(a:Int, ?b:String):Void {}
 
@@ -16845,7 +16938,7 @@ These metadata information can be obtained at runtime through the
 
 [code asset](assets/Meta.hx)
 
-```haxe
+```ts
     import haxe.rtti.Meta;
 
     @author("Nicolas")
@@ -16943,7 +17036,7 @@ the class `MyClass`:
 
 [code asset](assets/ACL2.hx)
 
-```haxe
+```ts
     class MyClass {
       @:allow(Main.main)
       static private var foo:Int;
@@ -16961,7 +17054,7 @@ may force access:
 
 [code asset](assets/ACL3.hx)
 
-```haxe
+```ts
     class MyClass {
       static private var foo:Int;
     }
@@ -17004,7 +17097,7 @@ implementing that interface:
 
 [code asset](assets/ACL4.hx)
 
-```haxe
+```ts
     interface I {}
 
     class MyClass {
@@ -17047,7 +17140,7 @@ The following example demonstrates constructor inlining:
 
 [code asset](assets/NewInline.hx)
 
-```haxe
+```ts
     class Point {
       public var x:Float;
       public var y:Float;
@@ -17655,7 +17748,7 @@ may be duplicated by a macro and used multiple times in the returned expression:
 
 [code asset](assets/MacroArguments.hx)
 
-```haxe
+```ts
     import haxe.macro.Expr;
 
     class MainMacro {
@@ -17691,7 +17784,7 @@ but it allows constraining the type of accepted expressions. This is useful when
 
 [code asset](assets/ExprOf.hx)
 
-```haxe
+```ts
     import haxe.macro.Expr;
 
     using Main;
@@ -17720,7 +17813,7 @@ A macro can be declared to expect [Constant Expressions] arguments:
 
 [code asset](assets/MacroArgumentsConst.hx)
 
-```haxe
+```ts
     class Main {
       static public function main() {
         const("foo", 1, 1.5, true);
@@ -17744,7 +17837,7 @@ an arbitrary number of extra arguments which are available from that array:
 
 [code asset](assets/MacroArgumentsRest.hx)
 
-```haxe
+```ts
     import haxe.macro.Expr;
 
     class Main {
@@ -17837,7 +17930,7 @@ syntax as shown here:
 
 [code asset](assets/ClassReification.hx)
 
-```haxe
+```ts
     class Main {
       macro static function generateClass(funcName:String) {
         var c = macro class MyClass {
@@ -17925,7 +18018,7 @@ metadata.
 
 As an example, here is `Welcome.hx`:
 
-```haxe
+```ts
     import haxe.macro.Expr;
 
     class Welcome {
@@ -17943,7 +18036,7 @@ As an example, here is `Welcome.hx`:
 
 And `Main.hx`:
 
-```haxe
+```ts
     @:build(Welcome.build())
     class Main {
       public static function main() {}
@@ -18273,7 +18366,7 @@ its Unicode character point:
 A string **literal** is a sequence of characters inside a pair of double quotes
 or single quotes:
 
-```haxe
+```ts
         var a = "foo";
         var b = 'foo';
         trace(a == b); // true
@@ -18285,7 +18378,7 @@ The only difference between the two forms is that single-quoted literals allow
 String literals may occupy multiple lines; In which case, each line of the
 string will be punctuated with a '\n' newline character.
 
-```haxe
+```ts
         var str = "Line one
         Line two
         Line three";
@@ -18295,7 +18388,7 @@ string will be punctuated with a '\n' newline character.
 Note that indentation will also be included in the string, such as with the
 example below.
 
-```haxe
+```ts
         class X {
           function foo() {
             var str = "a
@@ -18422,7 +18515,7 @@ and add own test methods. Every test method name must start with "`test`".
 
 [code asset](assets/UnitTestCase.hx)
 
-```haxe
+```ts
     class MyTestCase extends haxe.unit.TestCase {
       public function testBasic() {
         assertEquals("A", "A");
@@ -18438,7 +18531,7 @@ Add the [TestCase] using the `add` method and call `run` to start the test.
 
 [code asset](assets/UnitTestRunner.hx)
 
-```haxe
+```ts
     class Main {
       static function main() {
         var r = new haxe.unit.TestRunner();
@@ -18476,7 +18569,7 @@ To run code before or after the test, override the functions `setup` and `tearDo
 
 [code asset](assets/UnitTestSetup.hx)
 
-```haxe
+```ts
     class MyTestCase extends haxe.unit.TestCase {
       var value:String;
 
@@ -18494,7 +18587,7 @@ To run code before or after the test, override the functions `setup` and `tearDo
 
 With complex objects, it can be difficult to generate expected values to compare to the actual ones. It can also be a problem that `assertEquals` doesn't do a deep comparison. One way around these issues is to use a string as the expected value and compare it to the actual value converted to a string using `Std.string`. Below is a trivial example using an array.
 
-```haxe
+```ts
         public function testArray() {
           var actual = [1,2,3];
           assertEquals("[1, 2, 3]", Std.string(actual));
@@ -18910,7 +19003,7 @@ metadata like `@:bitmap`, `@:font`, `@:sound` or `@:file`.
 Haxe provides developers with a powerful logging/trace system. Simply call
 `trace` within functions:
 
-```haxe
+```ts
 trace("Hello world!");
 ```
 
@@ -18930,7 +19023,7 @@ all trace calls are redirected.
 
 [code asset](assets/CustomTrace.hx)
 
-```haxe
+```ts
         class Main {
           static function main() {
             haxe.Log.trace = function(v:Dynamic, ?infos:haxe.PosInfos) {
@@ -18994,7 +19087,7 @@ parameter is not set, its default value will always be replaced by the compiler:
 
 [code asset](assets/AssertTrace.hx)
 
-```haxe
+```ts
     class Main {
       static function assert(cond:Bool, ?pos:haxe.PosInfos) {
         if (!cond)
@@ -19019,7 +19112,7 @@ This is useful to evaluate if an expression has a certain type, mostly when
 dealing with [Type inference], which leaves the definition of the type up to
 the compiler.
 
-```haxe
+```ts
     var myValue = "foo";
     $type(myValue); // String
 ```
@@ -19273,7 +19366,7 @@ Windows 平台可以使用以下命令编译并执行这个程序，Linux 等平
     kha.System.start({title: "Empty", width: 640, height: 480}, init);
     kha.System.notifyOnFrames(game.render);
 
-```haxe
+```ts
     package;
 
     import kha.System;
@@ -19368,7 +19461,7 @@ Haxe 将类型实例化时就会调用 new() 方法。整个流程和直接使�
 
 Empty.hx 代码参考：
 
-```haxe
+```ts
 package;
 
 import kha.Framebuffer;
@@ -19514,7 +19607,7 @@ uniform 表示在整个渲染管道的执行流程中不变的数据，而 varyi
     }
 ```
 
-```haxe
+```ts
     package;
 
     import kha.Framebuffer;
@@ -20164,7 +20257,7 @@ armsdk\armory\Sources\armory\data\Config.hx
 
 注意，`Config` 保存与读取的路径不一定对应，保存路径相对于程序当前工作目录，而读取是工程打包目录。
 
-```haxe
+```ts
     package armory.data;
 
     class Config {
@@ -20539,7 +20632,7 @@ Transparent BSDF 着色器，过滤掉了材质的其它内容。然后将材质
 2. 场景对象的 `getRawObjectByName()` 方法获取对象原始数据；
 3. 场景对象的 `createObject()` 方法生成实例，可以接收一个父对象用于放置对象；
 
-```haxe
+```ts
     // Spawn object from scene hierarchy, including children
     iron.Scene.active.spawnObject("Cube", null, function(object:iron.object.Object) {
         object.transform.loc.set(0, 4, 0);
@@ -20849,7 +20942,7 @@ Iron Uniforms 和 `UniformsManager` 提供了材质处理函数，用户只需�
 回调函数在 `register()` 方法中设置。并由 Iron Uniforms API 在处理的过程中进行回调，因此
 **Links** 也可以看作是一组回调函数，它们用来向着色器注入数据。
 
-```haxe
+```ts
     package arm;
 
     import iron.Scene;
@@ -21158,7 +21251,7 @@ Armory Props - Export。
 Recast config 配置包括网络单元大小、宽高、半径、最大爬升、最大爬坡度等等用于导航算法的配置数据。
 单元格式越大控制越粗放，预留给障碍物的缓冲区就越大，生成的导航网络就越小，角色也可能与障碍物重叠。
 
-```haxe
+```ts
     @prop public var cellSize:      Float = 0.3; // voxelization cell size
     @prop public var cellHeight:    Float = 0.2; // voxelization cell height
     @prop public var agentHeight:   Float = 2.0; // agent capsule height
@@ -21226,7 +21319,7 @@ NavAgent 对象的配置数据不再生效，当逻辑节点调用相应的方�
 NavAgentController 虽然可以临时修改 NavAgent 配置数据，但在执行 GoTolocationNode
 方法后，数据就会复原：
 
-```haxe
+```ts
     package arm;
 
     import armory.system.Assert.assert;
@@ -21338,7 +21431,7 @@ Blender Fluid 流体模拟算法不仅可以模拟水体，还可以模拟火焰
 程序入口类也会自动生成，它的功能就是定义一个静态入口函数 main，可以不定义 new() 构建函数。
 入口类可以对 iron 等构架进行配置，然后调用 `armory.system.Starter` 启动函数。
 
-```haxe
+```ts
     package;
 
     class Main {
@@ -21488,7 +21581,7 @@ Iron 框架提供了用户输入接口，iron.system.Input 空间下定义的类
     8. `Keyboard` 虚拟输入具像化，接入 `kha.input.Keyboard` 键盘输入；
     9. `Gamepad` 虚拟输入具像化，接入 `kha.input.Gamepad` 游戏手柄输入；
 
-```haxe
+```ts
     package arm;
 
     import iron.system.Input;
@@ -21517,7 +21610,7 @@ Iron 框架提供了用户输入接口，iron.system.Input 空间下定义的类
     }
 ```
 
-```haxe
+```ts
     package arm;
 
     import kha.input.Mouse;
@@ -21803,7 +21896,7 @@ World 向量进行额外的旋转。
     armsdk\iron\Sources\iron\object\Transform.hx:31
     armsdk\armory\Sources\armory\logicnode\SetRotationNode.hx:22
 
-```haxe
+```ts
     package armory.logicnode;
 
     import iron.object.Object;
@@ -21868,7 +21961,7 @@ Iron 框架的 Input 抽象将鼠标等输入设备的状态设计成了缓存�
 拖拽的触发条件 `mouse.down()` 改变成 `mouse.moved`，代码片段参考如下。将新改造的扩展脚本
 保存到 WalkNavigation 同目录下，即可以当作 Bundled Scripts 使用，注意清理后重新构造工程：
 
-```haxe
+```ts
     package armory.trait;
 
     import iron.Trait;
@@ -22047,7 +22140,7 @@ Provided by National Gallery of Arts.
 7. `renderPath.drawMeshes()` 方法绘制所有可视网格，注意绘制时先设置活动相机镜头；
 
 
-```haxe
+```ts
     package arm;
 
     import iron.Scene;
@@ -22208,7 +22301,7 @@ Driver 列表的选择项，深入定制就要涉及着色器程序的设计：
         |   `-- celshade\renderpath\RenderPathCreator.hx
         `-- Libraries\driver_celshade\blender.py
 
-```haxe
+```ts
     package arm.renderpath;
 
     import iron.RenderPath;
@@ -22290,7 +22383,7 @@ Render Path - `Create Render Target` 相当于调用 `createRenderTarget()` 创�
 渲染目标创建后应该重复利用，所以使用 `On Init` 节点提供事件流。
 
 
-```haxe
+```ts
     package arm;
 
     class MyTrait extends iron.Trait {
@@ -22557,7 +22650,7 @@ Rotate Object 节点中 object 没有指定受控目标，则控制 Trait 所附
 
 官方三个 Tilesheet 教程都使用了相同对象动画控制器 AnimControl.hx：
 
-```haxe
+```ts
     package arm;
 
     class AnimControl extends iron.Trait {
@@ -22611,7 +22704,7 @@ Iron 提供，用来操作几何体，tilesheet 就是其中之一，`Tilesheet`
 Tween 缓动曲线动画示范，示例场景中只有一个 Cube 模型，并为其对象属性添加了 Armory Traits 扩展。
 其中 Haxe 脚本代码扩展使用了 Tween 缓动曲线：
 
-```haxe
+```ts
     package arm;
 
     import iron.system.Tween;
@@ -22767,7 +22860,7 @@ Zui UI 框架的控件。
 所以，Armory Traits 列表中的 NodeTree 逻辑节点扩展激活时，就会以 `Set Canvas Text`
 节点中设置的字符串值为准，并在按钮上显示。
 
-```Haxe
+```ts
     package arm;
 
     import iron.Scene;
@@ -22858,7 +22951,7 @@ NodeTree 逻辑节点树中使用到的节点说明：
 将节点附加到 Cube 对象的 Armory Traits 列表后，可以省略移动对象的指定，使用默认值，即当前
 逻辑节点所附着的对象。
 
-```haxe
+```ts
     package arm;
 
     class MyTrait extends iron.Trait {
@@ -23099,7 +23192,7 @@ As the scene is being built asynchronously, `onInit` events can get called at a 
 
 The UI canvas of UI traits ([`CanvasScript`](https://api.armory3d.org/armory/trait/internal/CanvasScript.html)) is also loaded asynchronously and possibly unavailable at the time of the trait's instantiation. To reliably call functions of `CanvasScript` traits, make sure to only call them from within a callback that is passed to [`CanvasScript.notifyOnReady()`](https://api.armory3d.org/armory/trait/internal/CanvasScript.html#notifyOnReady):
 
-```haxe
+```ts
 canvas = Scene.active.getTrait(CanvasScript);
 canvas.notifyOnReady(() -> {
     // Here you can safely interact with the canvas
@@ -23127,7 +23220,7 @@ The following data types are supported:
 
 ### Properties Example
 
-```haxe
+```ts
     package arm;
 
     import iron.object.CameraObject;
@@ -23233,7 +23326,7 @@ Armory 事件模型使用 Observer Pattern 编程模式，程序中涉及事件�
 `TEvent` 代表 listener，在注册一个事件处理函数时就会返回一个侦听对象，调用其 `onEvent()`
 就表示触发相应的事件。
 
-```haxe
+```ts
     typedef TEvent = {
         /** The name of the events this listener is listening to. **/
         var name: String;
@@ -23255,7 +23348,7 @@ Armory 事件模型使用 Observer Pattern 编程模式，程序中涉及事件�
 2. Update 持续地在每一帧触发；
 3. Custom 结合 `Eevnt` 对象，根据 Observer Pattern 编程模式进行自定义;
 
-```haxe
+```ts
     class OnEventNode extends LogicNode {
 
         public var property1: String; // Init, Update, Custom

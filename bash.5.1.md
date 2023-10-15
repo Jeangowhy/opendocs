@@ -1262,7 +1262,7 @@ Bash also performs tilde expansion on words satisfying the conditions of variabl
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.3 Shell Parameter Expansion
+## ⚡ 3.5.3 Shell Parameter Expansion (String manipulate)
                                                     *Shell Parameter Expansion*
 
 The ‘$’ character introduces parameter expansion, command substitution, or arithmetic expansion. The parameter name or symbol to be expanded may be enclosed in braces, which are optional but serve to protect the variable to be expanded from characters immediately following it which could be interpreted as part of the name.
@@ -1429,6 +1429,7 @@ The word is expanded to produce a pattern and matched according to the rules des
 The word is expanded to produce a pattern and matched according to the rules described below (see [pattern matching]). If the pattern matches a trailing portion of the expanded value of parameter, then the result of the expansion is the value of parameter with the shortest matching pattern (the ‘%’ case) or the longest matching pattern (the ‘%%’ case) deleted. If parameter is ‘@’ or `‘*’`, the pattern removal operation is applied to each positional parameter in turn, and the expansion is the resultant list. If parameter is an array variable subscripted with ‘@’ or `‘*’`, the pattern removal operation is applied to each member of the array in turn, and the expansion is the resultant list.
 
     ${parameter/pattern/string}
+    ${parameter//pattern/string}
 
 The pattern is expanded to produce a pattern just as in filename expansion. Parameter is expanded and the longest match of pattern against its value is replaced with string. The match is performed according to the rules described below (see [pattern matching]). If pattern begins with ‘/’, all matches of pattern are replaced with string. Normally only the first match is replaced. If pattern begins with ‘#’, it must match at the beginning of the expanded value of parameter. If pattern begins with ‘%’, it must match at the end of the expanded value of parameter. If string is null, matches of pattern are deleted and the / following pattern may be omitted. If the nocasematch shell option (see [the description of shopt in the shopt builtin]) is enabled, the match is performed without regard to the case of alphabetic characters. If parameter is ‘@’ or `‘*’`, the substitution operation is applied to each positional parameter in turn, and the expansion is the resultant list. If parameter is an array variable subscripted with ‘@’ or `‘*’`, the substitution operation is applied to each member of the array in turn, and the expansion is the resultant list.
 

@@ -22,6 +22,81 @@
 - https://www.sublimetext.com/docs/3/api_reference.html
 - Package Control https://packagecontrol.io/docs
 
+## ==⚡ LSP-jdtls Java 语言服务器
+https://github.com/sublimelsp/LSP-jdtls
+https://download.oracle.com/java/17/archive/jdk-17.0.8_windows-x64_bin.exe
+
+安装 jdtls 插件，此插件会将 [Eclipse JDT language server](https://projects.eclipse.org/projects/eclipse.jdt.ls) 移植到 Sublime Text 环境。
+
+To use this package, you must have:
+
+- The [LSP](https://packagecontrol.io/packages/LSP) package.
+- A Java SDK (>= 17).
+- It's recommended to have `JAVA_HOME` defined in your environment variables. Otherwise, specify `java.home` in the plugin settings.
+
+LSP-jdtls 插件表现有点神经质，在国内的网络条件下 Github 服务器访问不稳定，每次启动插件都会导致重新下载所有文件（只要有一个文件未安装）。需要手动修改一下安装脚本的 install_or_update() 方法，或者给已经安装的文件加只读属性避免被删除。
+
+手动安装需要的依赖包和对应解压文目录可以参考 LSP-jdtls 插件的 constants.py 脚本：
+
+```sh
+# Sublime Text 3\Package Storage\LSP-jdtls\server\jdtls-1.29.0-202309291511\bin\jdtls
+http://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.29.0-202309291511.tar.gz
+
+# Sublime Text 3\Package Storage\LSP-jdtls\server\lombok-1.18.26.jar
+https://repo1.maven.org/maven2/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar
+
+# Sublime Text 3\Package Storage\LSP-jdtls\server\vscode-java-debug-0.49.0\extension\package.json
+https://github.com/microsoft/vscode-java-debug/releases/download/0.49.0/vscjava.vscode-java-debug-0.49.0.vsix
+
+# Sublime Text 3\Package Storage\LSP-jdtls\server\vscode-java-test-0.38.1\extension\package.json
+https://github.com/microsoft/vscode-java-test/releases/download/0.38.1/vscjava.vscode-java-test-0.38.1.vsix
+
+# Sublime Text 3\Package Storage\LSP-jdtls\server\vscode-java-decompiler-5eaf2fcf73ba6763f1eba69047f631fba80f9a50"
+https://github.com/dgileadi/vscode-java-decompiler/archive/5eaf2fcf73ba6763f1eba69047f631fba80f9a50.zip
+```
+
+插件提供了以下命令：
+
+1. LSP-jdtls: Build Workspace  *lsp_jdtls_build_workspace*   Builds the project
+2. LSP-jdtls: Refresh Workspace  *lsp_jdtls_refresh_workspace*   Refreshes all files
+3. LSP-jdtls: Generate tests...  *lsp_jdtls_generate_tests*   Generate a test method in the associated test class
+4. LSP-jdtls: Goto Test  *LSP-jdtls: Goto *  *lsp_jdtls_goto_test*   Jump to test and implementation
+5. LSP-jdtls: Run Test Class  *lsp_jdtls_run_test_class*   Runs the test class in the active view
+6. LSP-jdtls: Run Test At Cursor  *lsp_jdtls_run_test_at_cursor*   Runs the test at the first cursor
+7. LSP-jdtls: Run Test...  *lsp_jdtls_run_test*   Opens a panel to run a test in the active view
+8. LSP-jdtls: Clear data  *jdtls_clear_data*   Clears the server data directory
+
+提供的测试功能可以配合 JUnit5、JUnit、TestNG 使用，其中三个 Run Test 功能需要安装 SublimeDebugger 插件，功能不稳定仅供体验。可以使用 Maven 项目管理工具提供的 `mvn test` 命令进行单元测试：
+https://github.com/daveleroy/SublimeDebugger
+
+这些测试功能都是通过移植的 Visual Studio Code 插件提供：
+https://code.visualstudio.com/docs/java/java-testing
+https://junit.org/junit5/docs/current/user-guide/
+
+```java
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class AppTest
+{
+    @test
+    public void test()
+    {
+        assertEquals(2, 1+1);
+    }
+}
+
+public class hi 
+{
+    static public void main(String args[])
+    {
+        System.out.print(String.join("\n", args));
+    }
+}
+```
+
+
 ## ==⚡ Sublime API 探索
 
 将 Python 脚本放到 Sublime 安装包目录下就可以被插件管理器加载执行，可以使用以下脚本测试脚本解析器的版本及位置，并且最简单的插件只需要继承指定的类型就只可以实现：
