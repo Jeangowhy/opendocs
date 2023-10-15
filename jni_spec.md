@@ -333,11 +333,11 @@ JNI Interface Functions and Pointers
 
 Native code accesses Java VM features by calling JNI functions. JNI functions are available through an _interface pointer_. An interface pointer is a pointer to a pointer. This pointer points to an array of pointers, each of which points to an interface function. Every interface function is at a predefined offset inside the array. The following figure, [Interface Pointer](#interface-pointer), illustrates the organization of an interface pointer.
 
-![Interface pointer](images/interface-pointer.gif)
+![Interface pointer](https://docs.oracle.com/en/java/javase/17/docs/specs/jni/images/interface-pointer.gif)
 
 Interface pointer
 
-[Description of Figure Interface Pointer](interface-pointer.html)
+[Description of Figure Interface Pointer](https://docs.oracle.com/en/java/javase/17/docs/specs/jni/interface-pointer.html)
 
 The JNI interface is organized like a C++ virtual function table or a COM interface. The advantage to using an interface table, rather than hard-wired function entries, is that the JNI name space becomes separate from the native code. A VM can easily provide multiple versions of JNI function tables. For example, the VM may support two JNI function tables:
 
@@ -378,39 +378,21 @@ The mapping produces a native method name by concatenating the following compone
 
 1.  the prefix `Java_`
 2.  given the binary name, in internal form, of the class which declares the `native` method: the result of escaping the name.
-3.  an underscore ("_")
+3.  an underscore (`_`)
 4.  the escaped method name
-5.  if the `native` method declaration is overloaded: two underscores ("__") followed by the escaped parameter descriptor (JVMS 4.3.3) of the method declaration.
+5.  if the `native` method declaration is overloaded: two underscores (`__`) followed by the escaped parameter descriptor (JVMS 4.3.3) of the method declaration.
 
 Escaping leaves every alphanumeric ASCII character (`A-Za-z0-9`) unchanged, and replaces each UTF-16 code unit in the table below with the corresponding escape sequence. If the name to be escaped contains a surrogate pair, then the high-surrogate code unit and the low-surrogate code unit are escaped separately. The result of escaping is a string consisting only of the ASCII characters `A-Za-z0-9` and underscore.
 
- 
+| UTF-16 code unit | Escape sequence |
+|------------------|-----------------|
+| Forward slash (`/`, U+002F)       | _  |
+| Underscore (`_`, U+005F)          | _1 |
+| Semicolon (`;`, U+003B)           | _2 |
+| Left square bracket (`[`, U+005B) | _3 |
+| Any UTF-16 code unit `\u`_WXYZ_ that does not represent alphanumeric ASCII (`A-Za-z0-9`), forward slash, underscore, semicolon, or left square bracket | `_0wxyz` where `w`, `x`, `y`, and `z` are the lower-case forms of the hexadecimal digits `W`, `X`, `Y`, and `Z`. (For example, `U+ABCD` becomes `_0abcd`.)
 
-UTF-16 code unit
-
-Escape sequence
-
-Forward slash (`/`, U+002F)
-
-_
-
-Underscore (`_`, U+005F)
-
-_1
-
-Semicolon (`;`, U+003B)
-
-_2
-
-Left square bracket (`[`, U+005B)
-
-_3
-
-Any UTF-16 code unit `\u`_WXYZ_ that does not represent alphanumeric ASCII (`A-Za-z0-9`), forward slash, underscore, semicolon, or left square bracket
-
-`_0wxyz` where `w`, `x`, `y`, and `z` are the lower-case forms of the hexadecimal digits `W`, `X`, `Y`, and `Z`. (For example, `U+ABCD` becomes `_0abcd`.)
-
-Escaping is necessary for two reasons. First, to ensure that class and method names in Java source code, which may include Unicode characters, translate into valid function names in C source code. Second, to ensure that the parameter descriptor of a `native` method, which uses ";" and "\[" characters to encode parameter types, can be encoded in a C function name.
+Escaping is necessary for two reasons. First, to ensure that class and method names in Java source code, which may include Unicode characters, translate into valid function names in C source code. Second, to ensure that the parameter descriptor of a `native` method, which uses ";" and "[" characters to encode parameter types, can be encoded in a C function name.
 
 When a Java program invokes a `native` method, the VM searches the native library by looking first for the short version of the native method name, that is, the name without the escaped argument signature. If a native method with the short name is not found, then the VM looks for the long version of the native method name, that is, the name including the escaped argument signature.
 
@@ -443,9 +425,9 @@ Long names in the native library are not necessary if a `native` method in Java 
 
 Note that escape sequences can safely begin `_0`, `_1`, etc, because class and method names in Java source code never begin with a number. However, that is not the case in class files that were not generated from Java source code. To preserve the 1:1 mapping to a native method name, the VM checks the resulting name as follows. If the process of escaping any precursor string from the `native` method declaration (class or method name, or argument type) causes a "`0`", "`1`", "`2`", or "`3`" character from the precursor string to appear unchanged in the result _either_ immediately after an underscore _or_ at the beginning of the escaped string (where it will follow an underscore in the fully assembled name), then the escaping process is said to have "failed". In such cases, no native library search is performed, and the attempt to link the `native` method invocation will throw `UnsatisfiedLinkError`. It would be possible to extend the present simple mapping scheme to cover such cases, but the complexity costs would outweigh any benefit.
 
-Both the native methods and the interface APIs follow the standard library-calling convention on a given platform. For example, UNIX systems use the C calling convention, while Win32 systems use __stdcall.
+Both the native methods and the interface APIs follow the standard library-calling convention on a given platform. For example, UNIX systems use the C calling convention, while Win32 systems use `__stdcall`.
 
-Native methods can also be explicitly linked using the [`RegisterNatives` function](functions.html#registering-native-methods). Be aware that `RegisterNatives` can change the documented behavior of the JVM (including cryptographic algorithms, correctness, security, type safety), by changing the native code to be executed for a given native Java method. Therefore use applications that have native libraries utilizing the `RegisterNatives` function with caution.
+Native methods can also be explicitly linked using the [`RegisterNatives` function](#registering-native-methods). Be aware that `RegisterNatives` can change the documented behavior of the JVM (including cryptographic algorithms, correctness, security, type safety), by changing the native code to be executed for a given native Java method. Therefore use applications that have native libraries utilizing the `RegisterNatives` function with caution.
 
 ### Native Method Arguments
 
@@ -684,65 +666,17 @@ The following table describes Java primitive types and their machine-dependent n
 
 Primitive Types and Native Equivalents
 
-Java Type
-
-Native Type
-
-Description
-
-boolean
-
-jboolean
-
-unsigned 8 bits
-
-byte
-
-jbyte
-
-signed 8 bits
-
-char
-
-jchar
-
-unsigned 16 bits
-
-short
-
-jshort
-
-signed 16 bits
-
-int
-
-jint
-
-signed 32 bits
-
-long
-
-jlong
-
-signed 64 bits
-
-float
-
-jfloat
-
-32 bits
-
-double
-
-jdouble
-
-64 bits
-
-void
-
-void
-
-not applicable
+| Java Type | Native Type | Description |
+|-----------|-------------|-------------|
+| boolean | jboolean | unsigned 8 bits  |
+| byte    | jbyte    | signed 8 bits    |
+| char    | jchar    | unsigned 16 bits |
+| short   | jshort   | signed 16 bits   |
+| int     | jint     | signed 32 bits   |
+| long    | jlong    | signed 64 bits   |
+| float   | jfloat   | 32 bits          |
+| double  | jdouble  | 64 bits          |
+| void    | void     | not applicable   |
 
 The following definition is provided for convenience.
 
@@ -820,53 +754,19 @@ The JNI uses the Java VM’s representation of type signatures. The following ta
 
 Java VM Type Signatures
 
-Type Signature
-
-Java Type
-
-`Z`
-
-boolean
-
-`B`
-
-byte
-
-`C`
-
-char
-
-`S`
-
-short
-
-`I`
-
-int
-
-`J`
-
-long
-
-`F`
-
-float
-
-`D`
-
-double
-
-`L` fully-qualified-class `;`
-
-fully-qualified-class
-
-`[` type
-
-type\[\]
-
-`(` arg-types `)` ret-type
-
-method type
+| Type Signature | Java Type |
+|----------------|-----------|
+| `Z` | boolean
+| `B` | byte
+| `C` | char
+| `S` | short
+| `I` | int
+| `J` | long
+| `F` | float
+| `D` | double
+| `L` fully-qualified-class `;` | fully-qualified-class
+| `[` type | type[]
+| `(` arg-types `)` ret-type | method type
 
 For example, the Java method:
 
@@ -1351,49 +1251,18 @@ Version Information
 
 Returns the version of the native method interface. For Java SE Platform 10 and later, it returns `JNI_VERSION_10`. The following table gives the version of JNI included in each release of the Java SE Platform (for older versions of JNI, the JDK release is used instead of the Java SE Platform):
 
-Java SE Platform
-
-JNI Version
-
-1.1
-
-`JNI_VERSION_1_1`
-
-1.2
-
-`JNI_VERSION_1_2`
-
-1.3
-
-`JNI_VERSION_1_2`
-
-1.4
-
-`JNI_VERSION_1_4`
-
-5.0
-
-`JNI_VERSION_1_4`
-
-6
-
-`JNI_VERSION_1_6`
-
-7
-
-`JNI_VERSION_1_6`
-
-8
-
-`JNI_VERSION_1_8`
-
-9
-
-`JNI_VERSION_9`
-
-10+
-
-`JNI_VERSION_10`
+| Java SE Platform | JNI Version |
+|------------------|-------------|
+| 1.1 | `JNI_VERSION_1_1`
+| 1.2 | `JNI_VERSION_1_2`
+| 1.3 | `JNI_VERSION_1_2`
+| 1.4 | `JNI_VERSION_1_4`
+| 5.0 | `JNI_VERSION_1_4`
+| 6   | `JNI_VERSION_1_6`
+| 7   | `JNI_VERSION_1_6`
+| 8   | `JNI_VERSION_1_8`
+| 9   | `JNI_VERSION_9`
+| 10+ | `JNI_VERSION_10`
 
 #### LINKAGE:
 
@@ -2222,45 +2091,17 @@ The following table describes the _Get<type>Field_ routine name and result type.
 
 _Get<type>Field_ Family of Accessor Routines
 
-_Get<type>Field_ Routine Name
-
-Native Type
-
-`GetObjectField()`
-
-jobject
-
-`GetBooleanField()`
-
-jboolean
-
-`GetByteField()`
-
-jbyte
-
-`GetCharField()`
-
-jchar
-
-`GetShortField()`
-
-jshort
-
-`GetIntField()`
-
-jint
-
-`GetLongField()`
-
-jlong
-
-`GetFloatField()`
-
-jfloat
-
-`GetDoubleField()`
-
-jdouble
+| Get<type>Field Routine Name | Native Type |
+|-----------------------------|-------------|
+| `GetObjectField()`  | jobject  |
+| `GetBooleanField()` | jboolean |
+| `GetByteField()`    | jbyte    |
+| `GetCharField()`    | jchar    |
+| `GetShortField()`   | jshort   |
+| `GetIntField()`     | jint     |
+| `GetLongField()`    | jlong    |
+| `GetFloatField()`   | jfloat   |
+| `GetDoubleField()`  | jdouble  |
 
 #### LINKAGE:
 
@@ -2268,45 +2109,17 @@ Indices in the JNIEnv interface function table:
 
 _Get<type>Field_ Family of Accessor Routines
 
-_Get<type>Field_ Routine Name
-
-Index
-
-`GetObjectField()`
-
-95
-
-`GetBooleanField()`
-
-96
-
-`GetByteField()`
-
-97
-
-`GetCharField()`
-
-98
-
-`GetShortField()`
-
-99
-
-`GetIntField()`
-
-100
-
-`GetLongField()`
-
-101
-
-`GetFloatField()`
-
-102
-
-`GetDoubleField()`
-
-103
+| Get<type>Field Routine Name | Index |
+|-----------------------------|-------|
+| `GetObjectField()`  |  95 |
+| `GetBooleanField()` |  96 |
+| `GetByteField()`    |  97 |
+| `GetCharField()`    |  98 |
+| `GetShortField()`   |  99 |
+| `GetIntField()`     | 100 |
+| `GetLongField()`    | 101 |
+| `GetFloatField()`   | 102 |
+| `GetDoubleField()`  | 103 |
 
 #### PARAMETERS:
 
@@ -2330,45 +2143,17 @@ The following table describes the _Set<type>Field_ routine name and value type. 
 
 _Set<type>Field_ Family of Accessor Routines
 
-_Set<type>Field_ Routine
-
-Native Type
-
-`SetObjectField()`
-
-jobject
-
-`SetBooleanField()`
-
-jboolean
-
-`SetByteField()`
-
-jbyte
-
-`SetCharField()`
-
-jchar
-
-`SetShortField()`
-
-jshort
-
-`SetIntField()`
-
-jint
-
-`SetLongField()`
-
-jlong
-
-`SetFloatField()`
-
-jfloat
-
-`SetDoubleField()`
-
-jdouble
+| Set<type>Field Routine | Native Type |
+|------------------------|-------------|
+| `SetObjectField()`  | jobject  |
+| `SetBooleanField()` | jboolean |
+| `SetByteField()`    | jbyte    |
+| `SetCharField()`    | jchar    |
+| `SetShortField()`   | jshort   |
+| `SetIntField()`     | jint     |
+| `SetLongField()`    | jlong    |
+| `SetFloatField()`   | jfloat   |
+| `SetDoubleField()`  | jdouble  |
 
 #### LINKAGE:
 
@@ -2376,45 +2161,17 @@ Indices in the JNIEnv interface function table.
 
 _Set<type>Field_ Family of Accessor Routines
 
-_Set<type>Field_ Routine
-
-Index
-
-`SetObjectField()`
-
-104
-
-`SetBooleanField()`
-
-105
-
-`SetByteField()`
-
-106
-
-`SetCharField()`
-
-107
-
-`SetShortField()`
-
-108
-
-`SetIntField()`
-
-109
-
-`SetLongField()`
-
-110
-
-`SetFloatField()`
-
-111
-
-`SetDoubleField()`
-
-112
+| Set<type>Field Routine | Index |
+|------------------------|-------|
+| `SetObjectField()`  | 104 |
+| `SetBooleanField()` | 105 |
+| `SetByteField()`    | 106 |
+| `SetCharField()`    | 107 |
+| `SetShortField()`   | 108 |
+| `SetIntField()`     | 109 |
+| `SetLongField()`    | 110 |
+| `SetFloatField()`   | 111 |
+| `SetDoubleField()`  | 112 |
 
 #### PARAMETERS:
 
@@ -2497,69 +2254,48 @@ The following table describes each of the method calling routines according to t
 
 Instance Method Calling Routines  
 
-_Call<type>Method_ Routine Name
+| Call<type>Method Routine Name | Native Type |
+|-------------------------------|-------------|
+| `CallVoidMethod()`          | void
+| `CallVoidMethodA()`         |
+| `CallVoidMethodV()`         |
+|-------------------------------|-------------|
+| `CallObjectMethod()`        | jobject
+| `CallObjectMethodA()`       |
+| `CallObjectMethodV()`       |
+|-------------------------------|-------------|
+| `CallBooleanMethod()`       | jboolean
+| `CallBooleanMethodA()`      |
+| `CallBooleanMethodV()`      |
+|-------------------------------|-------------|
+| `CallByteMethod()`          | jbyte
+| `CallByteMethodA()`         |
+| `CallByteMethodV()`         |
+|-------------------------------|-------------|
+| `CallCharMethod()`          | jchar
+| `CallCharMethodA()`         |
+| `CallCharMethodV()`         |
+|-------------------------------|-------------|
+| `CallShortMethod()`         | jshort
+| `CallShortMethodA()`        |
+| `CallShortMethodV()`        |
+|-------------------------------|-------------|
+| `CallIntMethod()`           | jint
+| `CallIntMethodA()`          |
+| `CallIntMethodV()`          |
+|-------------------------------|-------------|
+| `CallLongMethod()`          | jlong
+| `CallLongMethodA()`         |
+| `CallLongMethodV()`         |
+|-------------------------------|-------------|
+| `CallFloatMethod()`         | jfloat
+| `CallFloatMethodA()`        |
+| `CallFloatMethodV()`        |
+|-------------------------------|-------------|
+| `CallDoubleMethod()`        | jdouble
+| `CallDoubleMethodA()`       |
+| `CallDoubleMethodV()`       |
 
-Native Type
-
-`CallVoidMethod()`  
-`CallVoidMethodA()`  
-`CallVoidMethodV()`
-
-void
-
-`CallObjectMethod()`  
-`CallObjectMethodA()`  
-`CallObjectMethodV()`
-
-jobject
-
-`CallBooleanMethod()`  
-`CallBooleanMethodA()`  
-`CallBooleanMethodV()`
-
-jboolean
-
-`CallByteMethod()`  
-`CallByteMethodA()`  
-`CallByteMethodV()`
-
-jbyte
-
-`CallCharMethod()`  
-`CallCharMethodA()`  
-`CallCharMethodV()`
-
-jchar
-
-`CallShortMethod()`  
-`CallShortMethodA()`  
-`CallShortMethodV()`
-
-jshort
-
-`CallIntMethod()`  
-`CallIntMethodA()`  
-`CallIntMethodV()`
-
-jint
-
-`CallLongMethod()`  
-`CallLongMethodA()`  
-`CallLongMethodV()`
-
-jlong
-
-`CallFloatMethod()`  
-`CallFloatMethodA()`  
-`CallFloatMethodV()`
-
-jfloat
-
-`CallDoubleMethod()`  
-`CallDoubleMethodA()`  
-`CallDoubleMethodV()`
-
-jdouble
 
 #### LINKAGE:
 
@@ -2567,89 +2303,47 @@ Indices in the JNIEnv interface function table:
 
 Instance Method Calling Routines  
 
-_Call<type>Method_ Routine Name
-
-Index
-
-`CallVoidMethod()`  
-`CallVoidMethodA()`  
-`CallVoidMethodV()`
-
-61  
-63  
-62
-
-`CallObjectMethod()`  
-`CallObjectMethodA()`  
-`CallObjectMethodV()`
-
-34  
-36  
-35
-
-`CallBooleanMethod()`  
-`CallBooleanMethodA()`  
-`CallBooleanMethodV()`
-
-37  
-39  
-38
-
-`CallByteMethod()`  
-`CallByteMethodA()`  
-`CallByteMethodV()`
-
-40  
-42  
-41
-
-`CallCharMethod()`  
-`CallCharMethodA()`  
-`CallCharMethodV()`
-
-43  
-45  
-44
-
-`CallShortMethod()`  
-`CallShortMethodA()`  
-`CallShortMethodV()`
-
-46  
-48  
-47
-
-`CallIntMethod()`  
-`CallIntMethodA()`  
-`CallIntMethodV()`
-
-49  
-51  
-50
-
-`CallLongMethod()`  
-`CallLongMethodA()`  
-`CallLongMethodV()`
-
-52  
-54  
-53
-
-`CallFloatMethod()`  
-`CallFloatMethodA()`  
-`CallFloatMethodV()`
-
-55  
-57  
-56
-
-`CallDoubleMethod()`  
-`CallDoubleMethodA()`  
-`CallDoubleMethodV()`
-
-58  
-60  
-59
+| Call<type>Method Routine Name | Index |
+|-------------------------------|-------|
+| `CallVoidMethod()`      | 61
+| `CallVoidMethodA()`     | 63
+| `CallVoidMethodV()`     | 62
+|-------------------------------|-------|
+| `CallObjectMethod()`    | 34
+| `CallObjectMethodA()`   | 36
+| `CallObjectMethodV()`   | 35
+|-------------------------------|-------|
+| `CallBooleanMethod()`   | 37
+| `CallBooleanMethodA()`  | 39
+| `CallBooleanMethodV()`  | 38
+|-------------------------------|-------|
+| `CallByteMethod()`      | 40
+| `CallByteMethodA()`     | 42
+| `CallByteMethodV()`     | 41
+|-------------------------------|-------|
+| `CallCharMethod()`      | 43
+| `CallCharMethodA()`     | 45
+| `CallCharMethodV()`     | 44
+|-------------------------------|-------|
+| `CallShortMethod()`     | 46
+| `CallShortMethodA()`    | 48
+| `CallShortMethodV()`    | 47
+|-------------------------------|-------|
+| `CallIntMethod()`       | 49
+| `CallIntMethodA()`      | 51
+| `CallIntMethodV()`      | 50
+|-------------------------------|-------|
+| `CallLongMethod()`      | 52
+| `CallLongMethodA()`     | 54
+| `CallLongMethodV()`     | 53
+|-------------------------------|-------|
+| `CallFloatMethod()`     | 55
+| `CallFloatMethodA()`    | 57
+| `CallFloatMethodV()`    | 56
+|-------------------------------|-------|
+| `CallDoubleMethod()`    | 58
+| `CallDoubleMethodA()`   | 60
+| `CallDoubleMethodV()`   | 59
 
 #### PARAMETERS:
 
@@ -2709,69 +2403,48 @@ The following table describes each of the method calling routines according to t
 
 _CallNonvirtual<type>Method_ Routines  
 
-_CallNonvirtual<type>Method_ Routine Name
+| CallNonvirtual<type>Method Routine Name | Native Type |
+|-----------------------------------------|-------------|
+| `CallNonvirtualVoidMethod()`     | void
+| `CallNonvirtualVoidMethodA()`    | 
+| `CallNonvirtualVoidMethodV()`    | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualObjectMethod()`   | jobject
+| `CallNonvirtualObjectMethodA()`  | 
+| `CallNonvirtualObjectMethodV()`  | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualBooleanMethod()`  | jboolean
+| `CallNonvirtualBooleanMethodA()` | 
+| `CallNonvirtualBooleanMethodV()` | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualByteMethod()`     | jbyte
+| `CallNonvirtualByteMethodA()`    | 
+| `CallNonvirtualByteMethodV()`    | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualCharMethod()`     | jchar
+| `CallNonvirtualCharMethodA()`    | 
+| `CallNonvirtualCharMethodV()`    | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualShortMethod()`    | jshort
+| `CallNonvirtualShortMethodA()`   | 
+| `CallNonvirtualShortMethodV()`   | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualIntMethod()`      | jint
+| `CallNonvirtualIntMethodA()`     | 
+| `CallNonvirtualIntMethodV()`     | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualLongMethod()`     | jlong
+| `CallNonvirtualLongMethodA()`    | 
+| `CallNonvirtualLongMethodV()`    | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualFloatMethod()`    | jfloat
+| `CallNonvirtualFloatMethodA()`   | 
+| `CallNonvirtualFloatMethodV()`   | 
+|-----------------------------------------|-------------|
+| `CallNonvirtualDoubleMethod()`   | jdouble
+| `CallNonvirtualDoubleMethodA()`  | 
+| `CallNonvirtualDoubleMethodV()`  | 
 
-Native Type
-
-`CallNonvirtualVoidMethod()`  
-`CallNonvirtualVoidMethodA()`  
-`CallNonvirtualVoidMethodV()`
-
-void
-
-`CallNonvirtualObjectMethod()`  
-`CallNonvirtualObjectMethodA()`  
-`CallNonvirtualObjectMethodV()`
-
-jobject
-
-`CallNonvirtualBooleanMethod()`  
-`CallNonvirtualBooleanMethodA()`  
-`CallNonvirtualBooleanMethodV()`
-
-jboolean
-
-`CallNonvirtualByteMethod()`  
-`CallNonvirtualByteMethodA()`  
-`CallNonvirtualByteMethodV()`
-
-jbyte
-
-`CallNonvirtualCharMethod()`  
-`CallNonvirtualCharMethodA()`  
-`CallNonvirtualCharMethodV()`
-
-jchar
-
-`CallNonvirtualShortMethod()`  
-`CallNonvirtualShortMethodA()`  
-`CallNonvirtualShortMethodV()`
-
-jshort
-
-`CallNonvirtualIntMethod()`  
-`CallNonvirtualIntMethodA()`  
-`CallNonvirtualIntMethodV()`
-
-jint
-
-`CallNonvirtualLongMethod()`  
-`CallNonvirtualLongMethodA()`  
-`CallNonvirtualLongMethodV()`
-
-jlong
-
-`CallNonvirtualFloatMethod()`  
-`CallNonvirtualFloatMethodA()`  
-`CallNonvirtualFloatMethodV()`
-
-jfloat
-
-`CallNonvirtualDoubleMethod()`  
-`CallNonvirtualDoubleMethodA()`  
-`CallNonvirtualDoubleMethodV()`
-
-jdouble
 
 #### LINKAGE:
 
@@ -2779,89 +2452,47 @@ Indices in the JNIEnv interface function table.
 
 _CallNonvirtual<type>Method_ Routines  
 
-_CallNonvirtual<type>Method_ Routine Name
-
-Index
-
-`CallNonvirtualVoidMethod()`  
-`CallNonvirtualVoidMethodA()`  
-`CallNonvirtualVoidMethodV()`
-
-91  
-93  
-92
-
-`CallNonvirtualObjectMethod()`  
-`CallNonvirtualObjectMethodA()`  
-`CallNonvirtualObjectMethodV()`
-
-64  
-66  
-65
-
-`CallNonvirtualBooleanMethod()`  
-`CallNonvirtualBooleanMethodA()`  
-`CallNonvirtualBooleanMethodV()`
-
-67  
-69  
-68
-
-`CallNonvirtualByteMethod()`  
-`CallNonvirtualByteMethodA()`  
-`CallNonvirtualByteMethodV()`
-
-70  
-72  
-71
-
-`CallNonvirtualCharMethod()`  
-`CallNonvirtualCharMethodA()`  
-`CallNonvirtualCharMethodV()`
-
-73  
-75  
-74
-
-`CallNonvirtualShortMethod()`  
-`CallNonvirtualShortMethodA()`  
-`CallNonvirtualShortMethodV()`
-
-76  
-78  
-77
-
-`CallNonvirtualIntMethod()`  
-`CallNonvirtualIntMethodA()`  
-`CallNonvirtualIntMethodV()`
-
-79  
-81  
-80
-
-`CallNonvirtualLongMethod()`  
-`CallNonvirtualLongMethodA()`  
-`CallNonvirtualLongMethodV()`
-
-82  
-84  
-83
-
-`CallNonvirtualFloatMethod()`  
-`CallNonvirtualFloatMethodA()`  
-`CallNonvirtualFloatMethodV()`
-
-85  
-87  
-86
-
-`CallNonvirtualDoubleMethod()`  
-`CallNonvirtualDoubleMethodA()`  
-`CallNonvirtualDoubleMethodV()`
-
-88  
-90  
-89
+| CallNonvirtual<type>Method Routine Name | Index |
+|-----------------------------------------|-------|
+| `CallNonvirtualVoidMethod()`       | 91
+| `CallNonvirtualVoidMethodA()`      | 93
+| `CallNonvirtualVoidMethodV()`      | 92
+|-----------------------------------------|-------|
+| `CallNonvirtualObjectMethod()`     | 64
+| `CallNonvirtualObjectMethodA()`    | 66
+| `CallNonvirtualObjectMethodV()`    | 65
+|-----------------------------------------|-------|
+| `CallNonvirtualBooleanMethod()`    | 67
+| `CallNonvirtualBooleanMethodA()`   | 69
+| `CallNonvirtualBooleanMethodV()`   | 68
+|-----------------------------------------|-------|
+| `CallNonvirtualByteMethod()`       | 70
+| `CallNonvirtualByteMethodA()`      | 72
+| `CallNonvirtualByteMethodV()`      | 71
+|-----------------------------------------|-------|
+| `CallNonvirtualCharMethod()`       | 73
+| `CallNonvirtualCharMethodA()`      | 75
+| `CallNonvirtualCharMethodV()`      | 74
+|-----------------------------------------|-------|
+| `CallNonvirtualShortMethod()`      | 76
+| `CallNonvirtualShortMethodA()`     | 78
+| `CallNonvirtualShortMethodV()`     | 77
+|-----------------------------------------|-------|
+| `CallNonvirtualIntMethod()`        | 79
+| `CallNonvirtualIntMethodA()`       | 81
+| `CallNonvirtualIntMethodV()`       | 80
+|-----------------------------------------|-------|
+| `CallNonvirtualLongMethod()`       | 82
+| `CallNonvirtualLongMethodA()`      | 84
+| `CallNonvirtualLongMethodV()`      | 83
+|-----------------------------------------|-------|
+| `CallNonvirtualFloatMethod()`      | 85
+| `CallNonvirtualFloatMethodA()`     | 87
+| `CallNonvirtualFloatMethodV()`     | 86
+|-----------------------------------------|-------|
+| `CallNonvirtualDoubleMethod()`     | 88
+| `CallNonvirtualDoubleMethodA()`    | 90
+| `CallNonvirtualDoubleMethodV()`    | 89
 
 #### PARAMETERS:
 
@@ -2940,45 +2571,17 @@ The following table describes the family of get routine names and result types. 
 
 _GetStatic<type>Field_ Family of Accessor Routines
 
-_GetStatic<type>Field_ Routine Name
-
-Native Type
-
-`GetStaticObjectField()`
-
-jobject
-
-`GetStaticBooleanField()`
-
-jboolean
-
-`GetStaticByteField()`
-
-jbyte
-
-`GetStaticCharField()`
-
-jchar
-
-`GetStaticShortField()`
-
-jshort
-
-`GetStaticIntField()`
-
-jint
-
-`GetStaticLongField()`
-
-jlong
-
-`GetStaticFloatField()`
-
-jfloat
-
-`GetStaticDoubleField()`
-
-jdouble
+| GetStatic<type>Field Routine Name | Native Type |
+|-----------------------------------|-------------|
+| `GetStaticObjectField()`  | jobject  |
+| `GetStaticBooleanField()` | jboolean |
+| `GetStaticByteField()`    | jbyte    |
+| `GetStaticCharField()`    | jchar    |
+| `GetStaticShortField()`   | jshort   |
+| `GetStaticIntField()`     | jint     |
+| `GetStaticLongField()`    | jlong    |
+| `GetStaticFloatField()`   | jfloat   |
+| `GetStaticDoubleField()`  | jdouble  |
 
 #### LINKAGE:
 
@@ -2986,45 +2589,17 @@ Indices in the JNIEnv interface function table.
 
 _GetStatic<type>Field_ Family of Accessor Routines
 
-_GetStatic<type>Field_ Routine Name
-
-Index
-
-`GetStaticObjectField()`
-
-145
-
-`GetStaticBooleanField()`
-
-146
-
-`GetStaticByteField()`
-
-147
-
-`GetStaticCharField()`
-
-148
-
-`GetStaticShortField()`
-
-149
-
-`GetStaticIntField()`
-
-150
-
-`GetStaticLongField()`
-
-151
-
-`GetStaticFloatField()`
-
-152
-
-`GetStaticDoubleField()`
-
-153
+| GetStatic<type>Field Routine Name | Index |
+|-----------------------------------|-------|
+| `GetStaticObjectField()`  | 145 |
+| `GetStaticBooleanField()` | 146 |
+| `GetStaticByteField()`    | 147 |
+| `GetStaticCharField()`    | 148 |
+| `GetStaticShortField()`   | 149 |
+| `GetStaticIntField()`     | 150 |
+| `GetStaticLongField()`    | 151 |
+| `GetStaticFloatField()`   | 152 |
+| `GetStaticDoubleField()`  | 153 |
 
 #### PARAMETERS:
 
@@ -3048,45 +2623,17 @@ The following table describes the set routine name and value types. You should r
 
 _SetStatic<type>Field_ Family of Accessor Routines
 
-_SetStatic<type>Field_ Routine Name
-
-NativeType
-
-`SetStaticObjectField()`
-
-jobject
-
-`SetStaticBooleanField()`
-
-jboolean
-
-`SetStaticByteField()`
-
-jbyte
-
-`SetStaticCharField()`
-
-jchar
-
-`SetStaticShortField()`
-
-jshort
-
-`SetStaticIntField()`
-
-jint
-
-`SetStaticLongField()`
-
-jlong
-
-`SetStaticFloatField()`
-
-jfloat
-
-`SetStaticDoubleField()`
-
-jdouble
+| SetStatic<type>Field Routine Name | NativeType |
+|-----------------------------------|------------|
+| `SetStaticObjectField()`  | jobject  |
+| `SetStaticBooleanField()` | jboolean |
+| `SetStaticByteField()`    | jbyte    |
+| `SetStaticCharField()`    | jchar    |
+| `SetStaticShortField()`   | jshort   |
+| `SetStaticIntField()`     | jint     |
+| `SetStaticLongField()`    | jlong    |
+| `SetStaticFloatField()`   | jfloat   |
+| `SetStaticDoubleField()`  | jdouble  |
 
 #### LINKAGE:
 
@@ -3094,45 +2641,17 @@ Indices in the JNIEnv interface function table.
 
 _SetStatic<type>Field_ Family of Accessor Routines
 
-_SetStatic<type>Field_ Routine Name
-
-Index
-
-`SetStaticObjectField()`
-
-154
-
-`SetStaticBooleanField()`
-
-155
-
-`SetStaticByteField()`
-
-156
-
-`SetStaticCharField()`
-
-157
-
-`SetStaticShortField()`
-
-158
-
-`SetStaticIntField()`
-
-159
-
-`SetStaticLongField()`
-
-160
-
-`SetStaticFloatField()`
-
-161
-
-`SetStaticDoubleField()`
-
-162
+| SetStatic<type>Field Routine Name | Index |
+|-----------------------------------|-------|
+| `SetStaticObjectField()`  | 154 |
+| `SetStaticBooleanField()` | 155 |
+| `SetStaticByteField()`    | 156 |
+| `SetStaticCharField()`    | 157 |
+| `SetStaticShortField()`   | 158 |
+| `SetStaticIntField()`     | 159 |
+| `SetStaticLongField()`    | 160 |
+| `SetStaticFloatField()`   | 161 |
+| `SetStaticDoubleField()`  | 162 |
 
 #### PARAMETERS:
 
@@ -3211,69 +2730,47 @@ The following table describes each of the method calling routines according to t
 
 _CallStatic<type>Method_ Calling Routines  
 
-_CallStatic<type>Method_ Routine Name
-
-Native Type
-
-`CallStaticVoidMethod()`  
-`CallStaticVoidMethodA()`  
-`CallStaticVoidMethodV()`
-
-void
-
-`CallStaticObjectMethod()`  
-`CallStaticObjectMethodA()`  
-`CallStaticObjectMethodV()`
-
-jobject
-
-`CallStaticBooleanMethod()`  
-`CallStaticBooleanMethodA()`  
-`CallStaticBooleanMethodV()`
-
-jboolean
-
-`CallStaticByteMethod()`  
-`CallStaticByteMethodA()`  
-`CallStaticByteMethodV()`
-
-jbyte
-
-`CallStaticCharMethod()`  
-`CallStaticCharMethodA()`  
-`CallStaticCharMethodV()`
-
-jchar
-
-`CallStaticShortMethod()`  
-`CallStaticShortMethodA()`  
-`CallStaticShortMethodV()`
-
-jshort
-
-`CallStaticIntMethod()`  
-`CallStaticIntMethodA()`  
-`CallStaticIntMethodV()`
-
-jint
-
-`CallStaticLongMethod()`  
-`CallStaticLongMethodA()`  
-`CallStaticLongMethodV()`
-
-jlong
-
-`CallStaticFloatMethod()`  
-`CallStaticFloatMethodA()`  
-`CallStaticFloatMethodV()`
-
-jfloat
-
-`CallStaticDoubleMethod()`  
-`CallStaticDoubleMethodA()`  
-`CallStaticDoubleMethodV()`
-
-jdouble
+| CallStatic<type>Method Routine Name | Native Type |
+|-----------------------------------|-------|
+| `CallStaticVoidMethod()`     | void
+| `CallStaticVoidMethodA()`    | 
+| `CallStaticVoidMethodV()`    | 
+|-----------------------------------|-------|
+| `CallStaticObjectMethod()`   | jobject
+| `CallStaticObjectMethodA()`  | 
+| `CallStaticObjectMethodV()`  | 
+|-----------------------------------|-------|
+| `CallStaticBooleanMethod()`  | jboolean
+| `CallStaticBooleanMethodA()` | 
+| `CallStaticBooleanMethodV()` | 
+|-----------------------------------|-------|
+| `CallStaticByteMethod()`     | jbyte
+| `CallStaticByteMethodA()`    | 
+| `CallStaticByteMethodV()`    | 
+|-----------------------------------|-------|
+| `CallStaticCharMethod()`     | jchar
+| `CallStaticCharMethodA()`    | 
+| `CallStaticCharMethodV()`    | 
+|-----------------------------------|-------|
+| `CallStaticShortMethod()`    | jshort
+| `CallStaticShortMethodA()`   | 
+| `CallStaticShortMethodV()`   | 
+|-----------------------------------|-------|
+| `CallStaticIntMethod()`      | jint
+| `CallStaticIntMethodA()`     | 
+| `CallStaticIntMethodV()`     | 
+|-----------------------------------|-------|
+| `CallStaticLongMethod()`     | jlong
+| `CallStaticLongMethodA()`    | 
+| `CallStaticLongMethodV()`    | 
+|-----------------------------------|-------|
+| `CallStaticFloatMethod()`    | jfloat
+| `CallStaticFloatMethodA()`   | 
+| `CallStaticFloatMethodV()`   | 
+|-----------------------------------|-------|
+| `CallStaticDoubleMethod()`   | jdouble
+| `CallStaticDoubleMethodA()`  | 
+| `CallStaticDoubleMethodV()`  | 
 
 #### LINKAGE:
 
@@ -3281,89 +2778,48 @@ Indices in the JNIEnv interface function table.
 
 _CallStatic<type>Method_ Calling Routines  
 
-_CallStatic<type>Method_ Routine Name
-
-Index
-
-`CallStaticVoidMethod()`  
-`CallStaticVoidMethodA()`  
-`CallStaticVoidMethodV()`
-
-141  
-143  
-142
-
-`CallStaticObjectMethod()`  
-`CallStaticObjectMethodA()`  
-`CallStaticObjectMethodV()`
-
-114  
-116  
-115
-
-`CallStaticBooleanMethod()`  
-`CallStaticBooleanMethodA()`  
-`CallStaticBooleanMethodV()`
-
-117  
-119  
-118
-
-`CallStaticByteMethod()`  
-`CallStaticByteMethodA()`  
-`CallStaticByteMethodV()`
-
-120  
-122  
-121
-
-`CallStaticCharMethod()`  
-`CallStaticCharMethodA()`  
-`CallStaticCharMethodV()`
-
-123  
-125  
-124
-
-`CallStaticShortMethod()`  
-`CallStaticShortMethodA()`  
-`CallStaticShortMethodV()`
-
-126  
-128  
-127
-
-`CallStaticIntMethod()`  
-`CallStaticIntMethodA()`  
-`CallStaticIntMethodV()`
-
-129  
-131  
-130
-
-`CallStaticLongMethod()`  
-`CallStaticLongMethodA()`  
-`CallStaticLongMethodV()`
-
-132  
-134  
-133
-
-`CallStaticFloatMethod()`  
-`CallStaticFloatMethodA()`  
-`CallStaticFloatMethodV()`
-
-135  
-137  
-136
-
-`CallStaticDoubleMethod()`  
-`CallStaticDoubleMethodA()`  
-`CallStaticDoubleMethodV()`
-
-138  
-140  
-139
+| CallStatic<type>Method Routine Name | Index |
+|------------------------------|-----|
+|   `CallStaticVoidMethod()`   | 141 |
+|  `CallStaticVoidMethodA()`   | 143 |
+|  `CallStaticVoidMethodV()`   | 142 |
+|------------------------------|-----|
+| `CallStaticObjectMethod()`   | 114 |
+| `CallStaticObjectMethodA()`  | 116 |
+| `CallStaticObjectMethodV()`  | 115 |
+|------------------------------|-----|
+| `CallStaticBooleanMethod()`  | 117 |
+| `CallStaticBooleanMethodA()` | 119 |
+| `CallStaticBooleanMethodV()` | 118 |
+|------------------------------|-----|
+| `CallStaticByteMethod()`     | 120 |
+| `CallStaticByteMethodA()`    | 122 |
+| `CallStaticByteMethodV()`    | 121 |
+|------------------------------|-----|
+| `CallStaticCharMethod()`     | 123 |
+| `CallStaticCharMethodA()`    | 125 |
+| `CallStaticCharMethodV()`    | 124 |
+|------------------------------|-----|
+| `CallStaticShortMethod()`    | 126 |
+| `CallStaticShortMethodA()`   | 128 |
+| `CallStaticShortMethodV()`   | 127 |
+|------------------------------|-----|
+| `CallStaticIntMethod()`      | 129 |
+| `CallStaticIntMethodA()`     | 131 |
+| `CallStaticIntMethodV()`     | 130 |
+|------------------------------|-----|
+| `CallStaticLongMethod()`     | 132 |
+| `CallStaticLongMethodA()`    | 134 |
+| `CallStaticLongMethodV()`    | 133 |
+|------------------------------|-----|
+| `CallStaticFloatMethod()`    | 135 |
+| `CallStaticFloatMethodA()`   | 137 |
+| `CallStaticFloatMethodV()`   | 136 |
+|------------------------------|-----|
+| `CallStaticDoubleMethod()`   | 138 |
+| `CallStaticDoubleMethodA()`  | 140 |
+| `CallStaticDoubleMethodV()`  | 139 |
+|------------------------------|-----|
 
 #### PARAMETERS:
 
@@ -3785,41 +3241,16 @@ A family of operations used to construct a new primitive array object. The follo
 
 _New<PrimitiveType>Array_ Family of Array Constructors
 
-_New<PrimitiveType>Array_ Routines
-
-Array Type
-
-`NewBooleanArray()`
-
-jbooleanArray
-
-`NewByteArray()`
-
-jbyteArray
-
-`NewCharArray()`
-
-jcharArray
-
-`NewShortArray()`
-
-jshortArray
-
-`NewIntArray()`
-
-jintArray
-
-`NewLongArray()`
-
-jlongArray
-
-`NewFloatArray()`
-
-jfloatArray
-
-`NewDoubleArray()`
-
-jdoubleArray
+| New<PrimitiveType>Array Routines | Array Type |
+|----------------------------------|------------|
+| `NewBooleanArray()` | jbooleanArray |
+| `NewByteArray()`    | jbyteArray    |
+| `NewCharArray()`    | jcharArray    |
+| `NewShortArray()`   | jshortArray   |
+| `NewIntArray()`     | jintArray     |
+| `NewLongArray()`    | jlongArray    |
+| `NewFloatArray()`   | jfloatArray   |
+| `NewDoubleArray()`  | jdoubleArray  |
 
 #### LINKAGE:
 
@@ -3827,41 +3258,16 @@ Indices in the JNIEnv interface function table.
 
 _New<PrimitiveType>Array_ Family of Array Constructors
 
-_New<PrimitiveType>Array_ Routines
-
-Index
-
-`NewBooleanArray()`
-
-175
-
-`NewByteArray()`
-
-176
-
-`NewCharArray()`
-
-177
-
-`NewShortArray()`
-
-178
-
-`NewIntArray()`
-
-179
-
-`NewLongArray()`
-
-180
-
-`NewFloatArray()`
-
-181
-
-`NewDoubleArray()`
-
-182
+| New<PrimitiveType>Array Routines | Index |
+|----------------------------------|-------|
+| `NewBooleanArray()` | 175 |
+| `NewByteArray()`    | 176 |
+| `NewCharArray()`    | 177 |
+| `NewShortArray()`   | 178 |
+| `NewIntArray()`     | 179 |
+| `NewLongArray()`    | 180 |
+| `NewFloatArray()`   | 181 |
+| `NewDoubleArray()`  | 182 |
 
 #### PARAMETERS:
 
@@ -3895,35 +3301,16 @@ Regardless of how boolean arrays are represented in the Java VM, `GetBooleanArra
 
 _Get<PrimitiveType>ArrayElements_ Family of Accessor Routines
 
-_Get<PrimitiveType>ArrayElements_ Routines
-
-Array Type
-
-Native Type
-
-`GetBooleanArrayElements()`
-
-jbooleanArray
-
-jboolean
-
-`GetByteArrayElements()`
-
-jbyteArray
-
-jbyte
-
-`GetCharArrayElements()`
-
-jcharArray
-
-jchar
-
-`GetShortArrayElements()`
-
-jshortArray
-
-jshorte>GetIntArrayElements() jintArray jint `GetLongArrayElements()` jlongArray jlong `GetFloatArrayElements()` jfloatArray jfloat `GetDoubleArrayElements()` jdoubleArray jdouble
+| Get<PrimitiveType>ArrayElements Routines | Array Type | Native Type |
+|------------------------------------------|------------|-------------|
+| `GetBooleanArrayElements()` | jbooleanArray | jboolean |
+| `GetByteArrayElements()`    | jbyteArray    | jbyte    |
+| `GetCharArrayElements()`    | jcharArray    | jchar    |
+| `GetShortArrayElements()`   | jshortArray   | jshorte  |
+| `GetIntArrayElements()`     | jintArray     | jint     |
+| `GetLongArrayElements()`    | jlongArray    | jlong    |
+| `GetFloatArrayElements()`   | jfloatArray   | jfloat   |
+`GetDoubleArrayElements()` | jdoubleArray | jdouble
 
 #### LINKAGE:
 
@@ -3931,41 +3318,16 @@ Indices in the JNIEnv interface function table.
 
 _Get<PrimitiveType>ArrayElements_ Family of Accessor Routines
 
-_Get<PrimitiveType>ArrayElements_ Routines
-
-Index
-
-`GetBooleanArrayElements()`
-
-183
-
-`GetByteArrayElements()`
-
-184
-
-`GetCharArrayElements()`
-
-185
-
-`GetShortArrayElements()`
-
-186
-
-`GetIntArrayElements()`
-
-187
-
-`GetLongArrayElements()`
-
-188
-
-`GetFloatArrayElements()`
-
-189
-
-`GetDoubleArrayElements()`
-
-190
+| Get<PrimitiveType>ArrayElements Routines | Index |
+|------------------------------------------|-------|
+| `GetBooleanArrayElements()` | 183 |
+| `GetByteArrayElements()`    | 184 |
+| `GetCharArrayElements()`    | 185 |
+| `GetShortArrayElements()`   | 186 |
+| `GetIntArrayElements()`     | 187 |
+| `GetLongArrayElements()`    | 188 |
+| `GetFloatArrayElements()`   | 189 |
+| `GetDoubleArrayElements()`  | 190 |
 
 #### PARAMETERS:
 
@@ -3993,21 +3355,11 @@ The `mode` argument provides information on how the array buffer should be relea
 
 Primitive Array Release Modes
 
-mode
-
-actions
-
-`0`
-
-copy back the content and free the `elems` buffer
-
-`JNI_COMMIT`
-
-copy back the content but do not free the `elems` buffer
-
-`JNI_ABORT`
-
-free the buffer without copying back the possible changes
+| mode | actions |
+|------|---------|
+| `0`          | copy back the content and free the `elems` buffer         |
+| `JNI_COMMIT` | copy back the content but do not free the `elems` buffer  |
+| `JNI_ABORT`  | free the buffer without copying back the possible changes |
 
 In most cases, programmers pass "0" as the `mode` argument to ensure consistent behavior for both pinned and copied arrays. The other options give the programmer more control over memory management and should be used with extreme care. If `JNI_COMMIT` is passed as the `mode` argument when `elems` is a copy of the elements in `array`, then a final call to _Release<PrimitiveType>ArrayElements_ passing a `mode` argument of "0" or `JNI_ABORT`, should be made to free the `elems` buffer.
 
@@ -4019,59 +3371,16 @@ The next table describes the specific routines that comprise the family of primi
 
 _Release<PrimitiveType>ArrayElements_ Family of Array Routines
 
-_Release<PrimitiveType>ArrayElements_ Routines
-
-Array Type
-
-Native Type
-
-`ReleaseBooleanArrayElements()`
-
-jbooleanArray
-
-jboolean
-
-`ReleaseByteArrayElements()`
-
-jbyteArray
-
-jbyte
-
-`ReleaseCharArrayElements()`
-
-jcharArray
-
-jchar
-
-`ReleaseShortArrayElements()`
-
-jshortArray
-
-jshort
-
-`ReleaseIntArrayElements()`
-
-jintArray
-
-jint
-
-`ReleaseLongArrayElements()`
-
-jlongArray
-
-jlong
-
-`ReleaseFloatArrayElements()`
-
-jfloatArray
-
-jfloat
-
-`ReleaseDoubleArrayElements()`
-
-jdoubleArray
-
-jdouble
+| Release<PrimitiveType>ArrayElements Routines | Array Type | Native Type |
+|----------------------------------------------|------------|-------------|
+| `ReleaseBooleanArrayElements()` | jbooleanArray | jboolean |
+| `ReleaseByteArrayElements()`    | jbyteArray    | jbyte    |
+| `ReleaseCharArrayElements()`    | jcharArray    | jchar    |
+| `ReleaseShortArrayElements()`   | jshortArray   | jshort   |
+| `ReleaseIntArrayElements()`     | jintArray     | jint     |
+| `ReleaseLongArrayElements()`    | jlongArray    | jlong    |
+| `ReleaseFloatArrayElements()`   | jfloatArray   | jfloat   |
+| `ReleaseDoubleArrayElements()`  | jdoubleArray  | jdouble  |
 
 #### LINKAGE:
 
@@ -4079,41 +3388,16 @@ Indices in the JNIEnv interface function table.
 
 _Release<PrimitiveType>ArrayElements_ Family of Array Routines
 
-_Release<PrimitiveType>ArrayElements_ Routines
-
-Index
-
-`ReleaseBooleanArrayElements()`
-
-191
-
-`ReleaseByteArrayElements()`
-
-192
-
-`ReleaseCharArrayElements()`
-
-193
-
-`ReleaseShortArrayElements()`
-
-194
-
-`ReleaseIntArrayElements()`
-
-195
-
-`ReleaseLongArrayElements()`
-
-196
-
-`ReleaseFloatArrayElements()`
-
-197
-
-`ReleaseDoubleArrayElements()`
-
-198
+| Release<PrimitiveType>ArrayElements Routines | Index |
+|----------------------------------------------|-------|
+| `ReleaseBooleanArrayElements()` | 191 |
+| `ReleaseByteArrayElements()`    | 192 |
+| `ReleaseCharArrayElements()`    | 193 |
+| `ReleaseShortArrayElements()`   | 194 |
+| `ReleaseIntArrayElements()`     | 195 |
+| `ReleaseLongArrayElements()`    | 196 |
+| `ReleaseFloatArrayElements()`   | 197 |
+| `ReleaseDoubleArrayElements()`  | 198 |
 
 #### PARAMETERS:
 
@@ -4139,59 +3423,16 @@ The following table describes the specific primitive array element accessors. Yo
 
 _Get<PrimitiveType>ArrayRegion_ Family of Array Accessor Routines
 
-_Get<PrimitiveType>ArrayRegion_ Routine
-
-Array Type
-
-Native Type
-
-`GetBooleanArrayRegion()`
-
-jbooleanArray
-
-jboolean
-
-`GetByteArrayRegion()`
-
-jbyteArray
-
-jbyte
-
-`GetCharArrayRegion()`
-
-jcharArray
-
-jchar
-
-`GetShortArrayRegion()`
-
-jshortArray
-
-jhort
-
-`GetIntArrayRegion()`
-
-jintArray
-
-jint
-
-`GetLongArrayRegion()`
-
-jlongArray
-
-jlong
-
-`GetFloatArrayRegion()`
-
-jfloatArray
-
-jloat
-
-`GetDoubleArrayRegion()`
-
-jdoubleArray
-
-jdouble
+| Get<PrimitiveType>ArrayRegion Routine | Array Type | Native Type |
+|---------------------------------------|------------|-------------|
+| `GetBooleanArrayRegion()` | jbooleanArray | jboolean |
+| `GetByteArrayRegion()`    | jbyteArray    | jbyte    |
+| `GetCharArrayRegion()`    | jcharArray    | jchar    |
+| `GetShortArrayRegion()`   | jshortArray   | jhort    |
+| `GetIntArrayRegion()`     | jintArray     | jint     |
+| `GetLongArrayRegion()`    | jlongArray    | jlong    |
+| `GetFloatArrayRegion()`   | jfloatArray   | jloat    |
+| `GetDoubleArrayRegion()`  | jdoubleArray  | jdouble  |
 
 #### LINKAGE:
 
@@ -4199,41 +3440,16 @@ Indices in the JNIEnv interface function table.
 
 _Get<PrimitiveType>ArrayRegion_ Family of Array Accessor Routines
 
-_Get<PrimitiveType>ArrayRegion_ Routine
-
-Index
-
-`GetBooleanArrayRegion()`
-
-199
-
-`GetByteArrayRegion()`
-
-200
-
-`GetCharArrayRegion()`
-
-201
-
-`GetShortArrayRegion()`
-
-202
-
-`GetIntArrayRegion()`
-
-203
-
-`GetLongArrayRegion()`
-
-204
-
-`GetFloatArrayRegion()`
-
-205
-
-`GetDoubleArrayRegion()`
-
-206
+| Get<PrimitiveType>ArrayRegion Routine | Index |
+|---------------------------------------|-------|
+| `GetBooleanArrayRegion()` | 199 |
+| `GetByteArrayRegion()`    | 200 |
+| `GetCharArrayRegion()`    | 201 |
+| `GetShortArrayRegion()`   | 202 |
+| `GetIntArrayRegion()`     | 203 |
+| `GetLongArrayRegion()`    | 204 |
+| `GetFloatArrayRegion()`   | 205 |
+| `GetDoubleArrayRegion()`  | 206 |
 
 #### PARAMETERS:
 
@@ -4265,59 +3481,16 @@ The following table describes the specific primitive array element accessors. Yo
 
 _Set<PrimitiveType>ArrayRegion_ Family of Array Accessor Routines
 
-_Set<PrimitiveType>ArrayRegion_ Routine
-
-Array Type
-
-Native Type
-
-`SetBooleanArrayRegion()`
-
-jbooleanArray
-
-jboolean
-
-`SetByteArrayRegion()`
-
-jbyteArray
-
-jbyte
-
-`SetCharArrayRegion()`
-
-jcharArray
-
-jchar
-
-`SetShortArrayRegion()`
-
-jshortArray
-
-jshort
-
-`SetIntArrayRegion()`
-
-jintArray
-
-jint
-
-`SetLongArrayRegion()`
-
-jlongArray
-
-jlong
-
-`SetFloatArrayRegion()`
-
-jfloatArray
-
-jfloat
-
-`SetDoubleArrayRegion()`
-
-jdoubleArray
-
-jdouble
+| Set<PrimitiveType>ArrayRegion Routine | Array Type | Native Type |
+|---------------------------------------|------------|-------------|
+| `SetBooleanArrayRegion()` }jbooleanArray | jboolean |
+| `SetByteArrayRegion()` }jbyteArray       | jbyte    |
+| `SetCharArrayRegion()` }jcharArray       | jchar    |
+| `SetShortArrayRegion()` }jshortArray     | jshort   |
+| `SetIntArrayRegion()` }jintArray         | jint     |
+| `SetLongArrayRegion()` }jlongArray       | jlong    |
+| `SetFloatArrayRegion()` }jfloatArray     | jfloat   |
+| `SetDoubleArrayRegion()` }jdoubleArray   | jdouble  |
 
 #### LINKAGE:
 
@@ -4325,41 +3498,16 @@ Indices in the JNIEnv interface function table.
 
 _Set<PrimitiveType>ArrayRegion_ Family of Array Accessor Routines
 
-_Set<PrimitiveType>ArrayRegion_ Routine
-
-Index
-
-`SetBooleanArrayRegion()`
-
-207
-
-`SetByteArrayRegion()`
-
-208
-
-`SetCharArrayRegion()`
-
-209
-
-`SetShortArrayRegion()`
-
-210
-
-`SetIntArrayRegion()`
-
-211
-
-`SetLongArrayRegion()`
-
-212
-
-`SetFloatArrayRegion()`
-
-213
-
-`SetDoubleArrayRegion()`
-
-214
+| Set<PrimitiveType>ArrayRegion Routine | Index |
+|---------------------------------------|-------|
+| `SetBooleanArrayRegion()` | 207 |
+| `SetByteArrayRegion()`    | 208 |
+| `SetCharArrayRegion()`    | 209 |
+| `SetShortArrayRegion()`   | 210 |
+| `SetIntArrayRegion()`     | 211 |
+| `SetLongArrayRegion()`    | 212 |
+| `SetFloatArrayRegion()`   | 213 |
+| `SetDoubleArrayRegion()`  | 214 |
 
 #### PARAMETERS:
 
@@ -5105,31 +4253,25 @@ The `options` field is an array of the following type:
 
 The size of the array is denoted by the nOptions field in `JavaVMInitArgs`. If `ignoreUnrecognized` is `JNI_TRUE`, `JNI_CreateJavaVM` ignores all unrecognized option strings that begin with "`-X`" or "`_`". If `ignoreUnrecognized` is `JNI_FALSE`, `JNI_CreateJavaVM` returns `JNI_ERR` as soon as it encounters any unrecognized option strings. All Java VMs must recognize the following set of standard options:
 
-Standard Options  
+Standard Options
 
-optionString
+| optionString | meaning |
+|--------------|---------|
 
-meaning
+1. `-D<name>=<value>`
+    Set a system property
 
-`-D<name>=<value>`
+2. `-verbose[:class|gc|jni]`
+    Enable verbose output. The options can be followed by a comma-separated list of names indicating what kind of messages will be printed by the VM. For example, "`-verbose:gc,class`" instructs the VM to print GC and class loading related messages. Standard names include: `gc`, `class`, and `jni`. All nonstandard (VM-specific) names must begin with "`X`".
 
-Set a system property
+3. `vfprintf`
+    `extraInfo` is a pointer to the `vfprintf` hook.
 
-`-verbose[:class|gc|jni]`
+4. `exit`
+    `extraInfo` is a pointer to the `exit` hook.
 
-Enable verbose output. The options can be followed by a comma-separated list of names indicating what kind of messages will be printed by the VM. For example, "`-verbose:gc,class`" instructs the VM to print GC and class loading related messages. Standard names include: `gc`, `class`, and `jni`. All nonstandard (VM-specific) names must begin with "`X`".
-
-`vfprintf`
-
-`extraInfo` is a pointer to the `vfprintf` hook.
-
-`exit`
-
-`extraInfo` is a pointer to the `exit` hook.
-
-`abort`
-
-`extraInfo` is a pointer to the `abort` hook.
+5. `abort`
+    `extraInfo` is a pointer to the `abort` hook.
 
 The module related options, `--add-reads`, `--add-exports`, `--add-opens`, `--add-modules`, `--limit-modules`, `--module-path`, `--patch-module`, and `--upgrade-module-path` must be passed as option strings using their "option=value" format instead of their "option value" format. (Note the required `=` between "option" and "value".) For example, to export `java.management/sun.management` to `ALL-UNNAMED` pass option string `"--add-exports=java.management/sun.management=ALL-UNNAMED"`.
 
