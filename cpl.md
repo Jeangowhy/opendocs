@@ -786,14 +786,70 @@ int strfroml( char *restrict s, size_t n, const char *restrict format, long doub
 
 
 ### ===👉 macro 宏基础
+1. https://sourceforge.net/p/predef/wiki/Compilers/
+2. https://en.cppreference.com/w/cpp/preprocessor
+3. https://cplusplus.com/doc/tutorial/preprocessor/
 
 使用宏 macro 定义可以在编译器预处理阶段 preprocessor 替换代码生成宏定义的功能，合理利用宏能提高程序的运行效率。
+
+宏处理器即执行字符串替换的处理程序，其输入是字符串（包含宏符号定义），输出也是字符串。GNU M4 是一个通用的宏处理程序，C/C++ 宏处理程序即是 M4 的演化版本。
 
 可以将宏当作是一段在编译器中运行的脚本，会在程序编译过程中产生一些新的代码。
 
 宏基本语法如下：
 
     #define MacroName　　Contents
+
+Preprocessor directives 参考：
+
+```c
+// Source file inclusion (#include)
+#include <header>
+#include "file" 
+
+// macro definitions (#define, #undef)
+#define TABLE_SIZE 100
+int table1[TABLE_SIZE];
+int table2[TABLE_SIZE];
+#undef TABLE_SIZE
+
+// Conditional inclusions (#ifdef, #ifndef, #if, #endif, #else and #elif)
+#ifdef TABLE_SIZE
+int table[TABLE_SIZE];
+#endif
+
+#if TABLE_SIZE>200
+#  undef TABLE_SIZE
+#  define TABLE_SIZE 200
+#elif TABLE_SIZE<50
+#  undef TABLE_SIZE
+#  define TABLE_SIZE 50
+#else
+#  undef TABLE_SIZE
+#  define TABLE_SIZE 100
+#endif
+
+// Line control (#line)
+#line number "filename"
+
+// Cause an error or warning (since C++23) 
+#ifndef __cplusplus
+#error A C++ compiler is required!
+#warning A C++ compiler is required!
+#endif 
+// Pragma directive (#pragma)
+// Predefined macro names
+__LINE__      // Integer value representing the current line in the source code file being compiled.
+__FILE__      // A string literal containing the presumed name of the source file being compiled.
+__DATE__     // A string literal in the form "Mmm dd yyyy" containing the date in which the compilation process began.
+__TIME__     // A string literal in the form "hh:mm:ss" containing the time at which the compilation process began.
+__cplusplus    // An integer value. All C++ compilers have this constant defined to some value. 
+            // Its value depends on the version of the standard supported by the compiler:
+            // 199711L: ISO C++ 1998/2003
+            // 201103L: ISO C++ 2011
+__STDC_HOSTED__  // 1 if the implementation is a hosted implementation (with all standard headers available)
+                // 0 otherwise.
+```
 
 如下，定义 OGLDEV_FILE_ERROR 宏用来打印文件打开的错误消息：
 
