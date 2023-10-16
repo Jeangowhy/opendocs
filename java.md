@@ -3017,6 +3017,300 @@ Java IO 各种 Stream，如 InputStream、OutputStream 类似，只不过 Channe
 # 🚩 Java Native Interface (JNI)
 1. https://docs.oracle.com/en/java/javase/17/docs/specs/jni/index.html
 2. https://docs.oracle.com/javase/8/docs/technotes/guides/jni/index.html
+3. https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html
+
+JNI 是 Java 实现与原生环境互调用的接口，所谓“原生”是指 Java 虚拟机所使用的实现语言，也就是 C/C++。这也是编程编程领域中的原生一词的一般含义，因为 C/C++ 作为计算机工业的系统编程语言，具有强大的生态位优势。
+
+Android NDK 也是通过 JNI 实现 C/C++ 扩展，因为 Android 是 Linux 系统，所以它加载的总是以 .so 为扩展名动态库。
+
+Java 发展历史中形成了多种 JNI 接口：
+
+1. JDK 1.0 native method interface (NMI)
+2. Netscape's Java Runtime Interface (JRI)
+3. Microsoft's Raw Native Interface and Java/COM interface
+
+其中 JDK 1.0 Native Method Interface 有两个主要缺陷导致该接口不被常用 Java 虚拟机采用：
+
+首先，本机代码将 Java 对象中的字段作为 C 结构的成员进行访问。然而，Java 语言规范并没有定义对象在内存中的布局方式。如果 Java 虚拟机在内存中以不同的方式布置对象，那么程序员将不得不重新编译原生方法库。
+
+其次，JDK1.0 的原生接口依赖于保守的垃圾收集器。不受限制的使用 `unbound` 使得必要执行保守垃圾收集器扫描原生堆栈。
+
+一个统一的、经过深思熟虑的标准接口为每个人提供了以下好处：
+
+1. Each VM vendor can support a larger body of native code.
+2. Tool builders will not have to maintain different kinds of native method interfaces.
+3. Application programmers will be able to write one version of their native code and this version will run on different VMs.
+
+实现标准原生方法接口须满足以下要求：
+
+1. *Binary compatibility* - The primary goal is binary compatibility of native method libraries across all Java VM implementations on a given platform. Programmers should maintain only one version of their native method libraries for a given platform.
+2. *Efficiency* - To support time-critical code, the native method interface must impose little overhead. All known techniques to ensure VM-independence (and thus binary compatibility) carry a certain amount of overhead. We must somehow strike a compromise between efficiency and VM-independence.
+3. *Functionality* - The interface must expose enough Java VM internals to allow native methods to accomplish useful tasks.
+
+JNI 接口是 Java 代码与 C/C++ 代码沟通的桥梁，使用其动态加载的模块方法必须先注册：
+1. JNI 扩展方法实现在 C/C++ 代码中；
+2. JNI 扩展方法的声明在 Java 类中，使用 `native` 关键字关联原生方法。
+
+CPP 代码中注册 JNI 方法有静态注册和动态注册两种形式，前者根据 JNI 命令规范直接定义对应名字的 C/C++ 函数，后者使用 `RegisterNatives` 函数注册。
+
+编译好扩展库，可以在 Java 代码中调用 `System.load()` 或者 `System.loadLibrary()` 方法加载动态连接库，根据系统不同，可以是 .dll 或者 .so 库，前者指定的路径是绝对路径。后者指定的是库名，会自动拼接 lib 前缀和 .so 后缀，比如加载 stdc 就是加载 libstdc.so 动态库文件，并在当前目录和系统路径搜索动态库。它们内部还会调用 `nativeLoad()` 加载动态库。
+
+JDK 没有提供直接卸载 so 库的方法，而是伴随 ClassLoader 卸载时卸载。
+
+JNI 规范文档所述动态库有以下生命周期函数，Library Lifecycle Function Hooks：
+https://github.com/Jeangowhy/opendocs/blob/main/jni_spec.md#library-lifecycle-function-hooks
+
+```cpp
+jint JNI_OnLoad(JavaVM *vm, void *reserved);
+void JNI_OnUnload(JavaVM *vm, void *reserved);
+jint JNI_Onload_<L>(JavaVM *vm, void *reserved);
+void JNI_OnUnload_<L>(JavaVM *vm, void *reserved);
+```
+
+安装 JDK 后，就可以在安装目录找到 `include/jni.h` 和 `lib/jvm.lib` 等依赖文件，还有依赖硬件平台的 `jni_md.h`，编译扩展库时需要引用。JDK 8 开始使用 `javac -h` 命令替代 javah 工具，为正在编译的 Java 程序生成相应的 C/C++ 头文件。比如编译以下 HelloNative.java 就生成 HelloNativeJNI.h：
+
+```java
+package NM;
+
+public class HelloNative {
+    static native String nativeHello(String name);
+    static {
+        System.loadLibrary("NM_HelloNative");
+        // System.load("/c/kotlin/myaid/NM_HelloNative.dll");
+    }
+    public static void main(String[] args) {
+        System.out.format("from native: %s\n", nativeHello("NM"));
+        System.out.format("from native: %s\n", nativeHello("汉语"));
+    }
+}
+```
+
+Java 程序编译与头文件生成命令参考，头文件已经为 native 方法添加好的原型声明，只需要根据原型声明提供具体实现定义：
+
+```sh
+$ javac -h . src/main/java/NM/HelloNative.java
+$ ls
+NM_HelloNative.h
+```
+
+生成的 C/C++ 头文件参考如下，可以看到 JNI 方法名前缀包含的 Java 类型的完整信息，格式为 `Java_PACKAGES_CLASS_native`。代码中的符号说明：
+
+1. `__cplusplus` 宏符号在 C++ 编译环境下有定义，此时就会启用 `extern "C"` 以避免导出的 API 函数命名受到 C++ 函数重载机制 name mangling 影响：
+2. `JNIEXPORT` 宏符号标记导出函数， Windwos 系统取值 `__declspec(dllexport)`；
+3. `JNIIMPORT` 宏符号标记导入函数，Windwos 系统取值 `__declspec(dllimport)`；
+4. `JNICALL` 宏符号表示函数调用约定，Windows 系统下使用 `__stdcall`，Linux 系统使用 C/C++ 默认值；
+
+语言间的互调用涉及大量的数据类型转换工作，JNI 也一样，参考规范文档 [Chapter 3: JNI Types and Data Structures](jni_spec.md#chapter-3-jni-types-and-data-structures)。代码中的 `jstring` 对应 String 类型，`jclass` 对应 Class 类型。根据 JNI 方法实现形式不同，静态函数或类成员方法，参数也有不同形式：
+
+1. native 静态方法：`jclass` 类型参数引用其所注册类的 Class 对象；
+2. native 实例方法：`jobject` 类型参数引用调用此 native 方法的对象。
+
+最重要的是 `JNIEnv`，对应一个 JVM 虚拟机环境状态对象引用，此结构体包含 Interface Function Table，通过它可以调用所有 JNI 函数，例如字符转换函数 `GetStringUTFChars`、`GetStringUTFChars`、`GetStringUTFChars` 等等，`GetStringUTFLength` 获取的是 UTF 字符串占用的字节数，使用 `GetStringLength` 并不能准确处理 UTF 字符串。
+
+调用 JNI 函数有 C 和 C++ 两种形式：
+
+```cpp
+// We use inlined functions for C++ so that programmers can write:
+   env->FindClass("java/lang/String")
+// in C:
+   (*env)->FindClass(env, "java/lang/String")
+```
+
+注意，使用 `GetStringUTFChars` 函数获取 C 字符串，需要调用 `ReleaseStringUTFChars` 函数来释放它在 Java 堆中分配内存。
+
+调用 Java 类定义的方法则需要按 JVM 规范编码，先获取方法 ID 编码（函数名与签名组合的一种表达），再根据 ID 调用对应的方法：
+
+1. GetMethodID -> CallObjectMethod
+2. GetStaticMethodID -> CallStaticObjectMethod
+
+函数签名字符串构造参考 JNI 规范文档 [3. JNI Types and Data Structures](#chapter-3-jni-types-and-data-structures) Java VM Type Signatures：
+
+| Type Signature | Java Type |
+|----------------|-----------|
+| `Z` | boolean
+| `B` | byte
+| `C` | char
+| `S` | short
+| `I` | int
+| `J` | long
+| `F` | float
+| `D` | double
+| `V` | void
+| `L` fully-qualified-class `;` | fully-qualified-class
+| `[` type | type[]
+| `(` arg-types `)` ret-type | method type
+
+使用 `java -h . HelloNative.java` 命令生成的 C/C++ 头文件参考：
+
+```cpp
+/* DO NOT EDIT THIS FILE - it is machine generated */
+#include <jni.h>
+/* Header for class NM_HelloNative */
+
+#ifndef _Included_NM_HelloNative
+#define _Included_NM_HelloNative
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*
+ * Class:     NM_HelloNative
+ * Method:    nativeHello
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_NM_HelloNative_nativeHello
+  (JNIEnv *, jclass, jstring);
+
+#ifdef __cplusplus
+}
+#endif
+#endif
+```
+
+使用 C++ 语言实现 `Hello()` JNI 方法：
+
+```cpp
+#include <cstdlib>
+#include <cstdio>
+#include <iostream>
+#include "NM_HelloNative.h"
+
+using namespace std;
+
+JNIEXPORT jstring JNICALL Java_NM_HelloNative_nativeHello
+    (JNIEnv * jni, jclass cls, jstring name) {
+    jboolean iscopy;
+    const char * cstr = jni->GetStringUTFChars(name, &iscopy);
+    jsize len = jni->GetStringUTFLength(name);
+
+    char buf[100] = {"UNINSTALLIZED"};
+    cout << "Name Length: " << len << endl;
+    sprintf( buf, "Hello %s [native]", cstr);
+    printf("jclass @:%X %s\n", cls, buf);
+    
+    jni->ReleaseStringUTFChars(name, cstr);
+    return jni->NewStringUTF(buf);
+}
+```
+
+注意：gcc 和 g++ 命令的区别，它们分别为 C 和 C++ 代码提供默认编译配置，使用 gcc 编译 C++ 代码可能会因为缺失默认配置导致编译错误，例如语言规范定义的符号无定义等。Windows 系统下使用 MinGW 编译工具会遇到 `__int64` 这种类型无定义问题，因为这是 MSVC 编译器提供的定义，JDK Windows 版本中的头文件 jni_md.h 中使用，可以修改它以适用 GCC 编译器：
+
+```cpp
+#ifdef __GNUC__
+#  ifdef _LP64
+typedef long jlong;
+#  else
+typedef long long jlong;
+#  endif
+#else
+typedef __int64 jlong;
+#endif
+```
+
+GCC 编译器使用 -E 
+```sh
+echo __GNUC__ | gcc -E -
+```
+
+编译 JNI 扩展模块，生成动态链接库，并运行测试。如果使用 `System.load()` 方法加载动态库，可以使用 `java.library.path` 选项添加动态库所在目录。
+
+```sh
+g++ -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/win32" -shared -o NM_HelloNative.dll NM_HelloNative.cpp
+
+java NM.HelloNative
+Exception in thread "main" java.lang.UnsatisfiedLinkError: no NM_HelloNative in java.library.path: .
+        at java.base/java.lang.ClassLoader.loadLibrary(ClassLoader.java:2429)
+        at java.base/java.lang.Runtime.loadLibrary0(Runtime.java:818)
+        at java.base/java.lang.System.loadLibrary(System.java:1989)
+        at NM.HelloNative.<clinit>(HelloNative.java:6)
+
+java -Djava.library.path=. NM.HelloNative
+Name Length: 2
+from native: Hello NM [native]
+jclass @:50EFF3A8 Hello NM [native]
+Name Length: 6
+jclass @:50EFF3A8 Hello 姹夎 [native]
+from native: Hello 汉语 [native]
+```
+
+如果搜索目录没有相应的动态库文件，则触发异常，可以从异常信息中观察到加载动态库的流程。
+
+Shell 输出的字符编码问题：源代码中 UTF 编码的“汉语”错误地显示为“姹夎”。这是因为 UTF 字符集错误地作为 GBK 编码转换为 UTF
+编码，如果再转换一次就是变成“濮瑰顕?”。C/C++ 代码中打印的 UTF8 字符串乱码，只需要设置正确的 shell 环境即可以解决，Windows 使用 `chcp 65001` 命令设置 Unidode 模式。Linux 可以设置 `LC_ALL` 和 `LC_CTYPE=en_US.UTF-8`。
+
+Java 源文件使用 GBK 编码，操作系统默认环境编码也为 GBK，那么编译的时候，JVM 将按照 GBK 编码将字节数组解析为字符，然后将字符转换为 Unicode 格式的字节数组存储。当打印字符串时，JVM 会检测操作系统本地的语言环境，Unicode 编码数据会转换为 GBK，然后操作系统将 GBK 格式的内容显示出来。
+
+执行 Java 程序时，可以使用 `-Dfile.encoding=UTF-8` 告诉解析器使用 UTF8 编码处理文件。
+
+当源码文件本身是 UTF-8 编码，就需要使用 `-encoding utf-8` 通知编译器，否则就可能错误地按照系统语言设置将 UTF8 数据进行转码，从而引起编码不一致导致乱码。
+
+
+Windows 系统上使用 MinGW 编译器编译以上程序时，这只是 jstring 基本类型转换，使用 sprintf 进行格式转换，发生奇怪的问题，无法使用 printf 或者 cout 向标准输出文件打印内容。程序有时正确输出 Java 程序的运行结构，有时打印 Segmentation fault 退出，更多情况是挂起没有任何输出并且占用大量 CPU 时间。这种由于编译兼容问题导致的错误需要从编译工具链层面进行处理，应该使用 MinGW 编译的 JDK。目前 MSys2 未提供有 JDK 安装包，也不能使用 Pacman 工具进行安装。
+
+使用 MSVC 编译器，需要根据所安装的 JDK 平台选择相应的 x86 (32-bit) 或者 amd64 (64-bit) 编译环境：
+
+```sh
+cmd.exe
+%comspec% /k "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsamd64_x86.bat"
+%comspec% /k "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvarsx86_amd64.bat"
+bash
+cl -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/win32" -LD -EHsc NM_HelloNative.cpp
+```
+
+为了方便执行 JNI 模块的编译与测试运行，将命令写入 buid 脚本，通过调用脚本来完成一系列的操作：
+
+```sh
+#! /usr/bin/env sh
+echo ------- JNI compiling -------; 
+# g++ -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/win32" -shared -o NM_HelloNative.dll NM_HelloNative.cpp
+# %comspec% /k "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsamd64_x86.bat"
+cl -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/win32" -LD -EHsc NM_HelloNative.cpp
+
+echo ------- Java compiling -------; 
+javas=`find src/main/java`; 
+for it in $javas; 
+    do if [ $it -nt timestamp ]; 
+        then javac -encoding utf-8 -d build/classes/java/main $it; 
+    fi; 
+done; 
+if [ $? = 0 ]; then java -Djava.library.path=. $1 $*; fi
+touch timestamp;
+```
+
+只需要先执行 MSVC 环境初始化脚本，然后再执行 `bash -c './build NM.HelloNative'` 就完成 JNI 和 Java 程序的编译与运行。
+
+
+默认配置只在 JVM 系统崩溃时打印日志文件，并没用启用 Minidump 功能，因为此内存记录文件非常大。它记录了 crash 时的状态信息，可用以事后分析 crash 原因。日志文件中也记录一些信息，包括 Java 命令运行环境、CPU 硬件和操作系统、Global flags、Heap 内存信息、GC 状态信息、动态库加载，还有调用栈信息。Java frames 将代码为多类 (J=compiled Java code, j=interpreted, Vv=VM code)，可以用于定性问题所在代码位置。其中，原生方法入口只记录到 StubRoutines::call_stub。通过系统崩溃日志一般只能定位到发生位置，但不能确定具体原因。
+
+```sh
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  NM.HelloNative.nativeHello(Ljava/lang/String;)Ljava/lang/String;+0
+j  NM.HelloNative.main([Ljava/lang/String;)V+13
+v  ~StubRoutines::call_stub
+```
+
+| Frame Types | Description |
+|-------------|-------------|
+| j	| Java code interpreted by the JVM at runtime
+| J	| Java code compiled just in time by the JVM
+| A	| Java code compiled ahead-of-time, by jaotc
+| C	| Native C code from external library, not residing in the JVM
+| V	| Native code from library part of the JVM
+| v	| Native code genereted by the JVM
+
+
+可用以调试的命令行参数参考：
+
+0. `-Xcheck:jni` 一般 JNI 问题诊断；
+1. `-verbose:class` 查看类加载情况；
+2. `-verbose:gc` 查看虚拟机中内存回收情况；
+3. `-verbose:jni` 查看原生方法调用情况；
+4. `-XX:+CreateMinidumpOnCrash` 或者 JDK9+ `-XX:CreateCoredumpOnCrash` 启用 Minidump；
+
+参考 
+Troubleshooting Guide
+https://docs.oracle.com/en/java/javase/15/troubleshoot/general-java-troubleshooting.html
+Preface Troubleshooting Guide for Java SE 6 with HotSpot VM
+https://www.oracle.com/java/technologies/javase/preface.html
 
 
 # 🚩 Java Virtual Machine
@@ -3499,7 +3793,7 @@ OpenJDK 默认的 hashCode 方法的实现和对象内存地址无关，版本 6
 
 Mark word 不仅用来存储 hash code，它还用于多线程锁，以及应用于垃圾回收机制。
 
-JVM 向来使用分代，JDK 7 Hotspot 团队首次公布了 G1（Garbage-First），并在 JDK9 中用 G1 作为默认的垃圾收集器替代早期的 CMS 垃圾收集器。
+JVM 向来使用分代，JDK 7 Hotspot 团队首次公布了 G1（Garbage-First），并在 JDK9 中用 G1 作为默认的垃圾收集器替代早期的 Concurrent Mark Sweep (CMS) 垃圾收集器。
 
 早期 GC 算法：
 
