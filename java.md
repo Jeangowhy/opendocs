@@ -3569,7 +3569,13 @@ Java 一般情况下的等值比较是对象内存地址的比较，如果地址
     }
 ```
 
-Java 打印出来的对象信息其格式和 JVM 规范一致，方括号表示一个数组，@ 后面表示 hash code，而不是内存地址。
+Java 打印出来的对象信息其格式和 JVM 规范一致，方括号表示一个数组，@ 后面表示 hash code，这是一个 int 类型数值，而不是对象内存地址。Hash code 可以用于标一个对象，对于同一类型的对象来说，具有唯一性。
+
+为何 hashCode() 方法会和等值关系产生联系呢？原因很直接：出于性能考虑。并且 `hashCode()` 方法主要是为 hash tables 相关的数据类型服务，如 `HashSet`、`HashMap`、`LinkedHashMap` 等基于哈希表的数据结构。
+
+Java 集合类型是联系非常密切的常用数据类型，它们之间的联系可以参考 Thinking in Java - 13. Holding Your Objects - Summary 展示的分类图 Simple Container Taxonomy：
+
+https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ325.png
 
 使用以下程序测试 hash 码的生成，每次运行时，hash 码总是按算法生成的序列依次分配给需要使用 hash 码的对象。所以，程序每次运行，输出 a 和 b 变量对应的 hash 码总是固定值。将它们的输出顺序调换一下，那么首先生成的 hash 码就会分配给变量 b，而不是 a，也可以手动调用需要使用 hash 码的方法触发其生成：
 
@@ -3626,14 +3632,59 @@ public class HashCode {
     }
 ```
 
-为何 hashCode() 方法会和等值产生联系呢？原因很直接：是出于性能考虑。并且 `hashCode()` 方法主要是为 hash tables 相关的数据类型服务，如 `HashMap`、`LinkedHashMap`。
+从 String 对象实现的 `equals` 方法可以看到，不同类型实现的等值判断逻辑是不一样的，也就是算法上具有不同的时间复杂度。当对象与 hash table 数据结构结合使用时，通过给对象内存中引入一个 hash code（需要使用时生成），那么就可以先通过比较 hash code 的一致性来确定对象相等，如果 hash code 确实一致再调用对象的 `equals` 方法。
 
+以下是一个测试程序，使用了 HashSet 数据结构，集合的特性：元素具有唯一性不重复。自定义类型 Pair 等值逻辑：任意实例 x y 属性使用相同的一组数值，即为相等。程序运行输出内容参考，可以看到：哈希集合添加第三个元素时发现与第一个元素具有相同的 hash code 然后再调用 equals 方法确认：
 
-Java 集合类型是联系非常密切的常用数据类型，它们之间的联系可以参考 Thinking in Java - 13. Holding Your Objects - Summary 展示的分类图 Simple Container Taxonomy：
+```sh
+	Pair.hashCode(): 3
+	Pair.hashCode(): 2
+	Pair.hashCode(): 3
+	Pair.equals(<Pair x=[1] y=[2] />)
+	[<Pair x=[1] y=[3] />, <Pair x=[1] y=[2] />]
+```
 
-https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ325.png
+```java
+import java.util.HashSet;
+import java.lang.Override;
 
-从 String 对象实现的 `equals` 方法可以看到，不同类型实现的等值判断逻辑是不一样的，也就是算法上具有不同的时间复杂度。通过给对象内存中引入一个 hash code（需要使用时生成），那么就可以先通过比较 hash code 的一致性来确定对象相等，否则再调用对象的 `equals` 方法。
+class Pair {
+    public int x = 0;
+    public int y = 0;
+    Pair(int x, int y) { this.x = x; this.y = y; }
+    public String toString() { 
+        return String.format("<Pair x=[%d] y=[%d] />", x, y); 
+    }
+    @Override
+    public boolean equals(Object it) {
+        if (it instanceof Pair) {
+            System.out.format("Pair.equals(%s)\n", (Pair)it);
+            return ((Pair)it).x == x && ((Pair)it).y == y ||
+                 ((Pair)it).y == x && ((Pair)it).x == y;
+        }
+        return false;
+    }
+    @Override
+    public int hashCode() {
+        System.out.format("Pair.hashCode(): %X\n", x ^ y);
+        return x ^ y;
+    }
+}
+
+public class HashCode {
+    public static void main(String[] args) {
+        HashSet<Pair> hs = new HashSet<>();
+        hs.add(new Pair(1, 2));
+        hs.add(new Pair(1, 3));
+        hs.add(new Pair(2, 1));
+        System.out.println(hs);
+    }
+}
+```
+
+PS：Xor (eXclusive OR) “异或”逻辑运算，也叫半加运算，其运算法则相当于不带进位的二进制加法，非常适合 Pair 等值判断这种情形，它可以将两个数值包含的信息“打包”为一个数，并且此值可以再 Xor 原始数据还原出另一个输入数值，这一特性使得它广泛用于数据加密、备份。
+
+参考 That XOR Trick，有这样一道题：一个数组包含 n-1 个值，即值范围是 [1, n]且没有重复，请找出缺少的那个数字。解决方法：将数组所有元素与 1 ~ n 这些值进行 Xor 运算，其结果就是缺少的那一个数。因为这种方法中数组中的每个元素都会出现两次，除了缺失的那一个数只有一个，那么相同的值进行异或运算就会得到 0，最终只剩下缺少的那个数字。
 
 Hash Table 字面意思是散列数据表，哈希表这种数据结构的特点是快速查找、插入，其算法时间复杂度为常数。哈希表的核心是一个 hash 函数，即一个映射输入数据与其内存地址的函数（函数的本质就是映射），`key --hash()--> address`，这就是这种数据结构高效率的关键。
 
@@ -3752,14 +3803,12 @@ https://www.cs.usfca.edu/~galles/visualization/Algorithms.html
 
 JVM 底层定义的 `oopDesc` (其子类型 `markOopDesc`、`instanceOopDesc`、`arrayOopDesc` 等等) 记录 hash 码，并且位于对象内存空间的前面。在首次需要使用 hash code 但如果 Ordinary Object Pointers (OOPs) 数据中还未记录生成的值，就会调用 `get_next_hash()` 方法生成 hash code。此处的 OOP 是指 Java 对象的指针，也即是类型在内存中的布局。
 
-这样是为了在64 位机器上能对指针进行压缩。因为从32位平台到64位时，主要就是指针由4字节变为了8字节，所以通常64位HotSpot VM消耗的内存会比32位的大，造成堆内存损失，不过从JDK 1.6 update14开始，64位的HotSpot VM正式支持了-XX:+UseCompressedOops命令（默认开启）。此命令可以压缩指针，起到节约内存占用的作用。
-
-另外OpenJDK8使用Metaspace存储元数据，在-XX:+UseCompressedOops命令之外，额外增加了一个新的命令叫做-XX:+UseCompressedClassPointer。这个命令打开后，类元信息中的指针也用32位的Compressed版本。而这些指针指向的空间被称作“Compressed Class Space”。默认大小是1G，可以通过-XX:CompressedClassSpaceSize命令调整。
-
-
-
 使用 Java Object Layout (JOL) 可以打印 Java 对象的内存布局信息。
 https://mvnrepository.com/artifact/org.openjdk.jol/jol-core
+
+32 位平台到 64 位，指针将由 4 字节变为了 8 字节，这会导致指针占用的空间加倍。所以，通常 64-bit HotSpot VM 为了避免造成堆内存损失，不过从 JDK 1.6 update 14 开始正式支持 `-XX:+UseCompressedOops`命令行参数（默认开启），用于压缩指针，起到节约内存占用的作用。
+
+OpenJDK8 还使用 Metaspace 存储元数据，相应增加 `-XX:+UseCompressedClassPointer` 用于压缩元信息中的指针。这些压缩后的指针指向的空间称为“Compressed Class Space”。默认大小是 1G，可以通过 `-XX:CompressedClassSpaceSize` 调整。
 
 ```cpp
 // hotspot/src/share/vm/oops/oop.hpp
@@ -4291,10 +4340,6 @@ Netty 通过触发事件从应用程序中抽象出 Selector，从而避免手�
 - 安排进一步行动
 
 该 EventLoop 本身是由只有一个线程驱动，它给一个 Channel 处理所有的 I/O 事件，并且在 EventLoop 的生命周期内不会改变。这个简单而强大的线程模型消除你可能对你的 ChannelHandler 同步的任何关注，这样你就可以专注于提供正确的回调逻辑来执行。该 API 是简单和紧凑。
-
-
-
-
 
 
 ## ⚡ class File Format
