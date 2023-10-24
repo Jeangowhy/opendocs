@@ -1280,6 +1280,8 @@ Engine.set_physics_ticks_per_second(fps/3)
 get_tree().paused = true
 ```
 
+设置 `Engine.time_scale` 可以调整游戏循环的执行周期时间。
+
 你可以使用两种类型的处理：
 
 其中，`_process()` 这个事件处理回调函数在早期版本中，也称为 `_idle()` 即空闲事件处理。相对的，

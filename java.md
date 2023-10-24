@@ -3011,7 +3011,46 @@ Python 脚本中的标准 I/O 文件定义在 sys 模块，FAQ: Why doesn't clos
 3. Python-3.10.2\Doc\library\os.rst
 4. Python-3.10.2\Doc\library\sys.rst
 
-Java IO 各种 Stream，如 InputStream、OutputStream 类似，只不过 Channel 是双向的，而 Stream 是单向的。通道的作用是将数据移入或移出道各种 I/O 源，即可读又可写。
+Java 的整个发展历史中，先后引入了多种 I/O 模型，依次为：
+
+1. Java 早期版本使用阻塞式 I/O，Blocking I/O (BIO)；
+2. Java 1.4 加入非阻塞式 New I/O (NIO)，Non-Blocking I/O；
+3. Java 1.7 升级到 NIO 2 异步 I/O，Asynchronous I/O (AIO)。
+
+这里涉及了两组对立的概念：阻塞 (Block)和非阻塞 (Non-Block)，以及同步 (Synchronization) 和异步 (Asynchronous)。前一组描述线程执行等待处理方式，后一组描述执行的秩序。这些是基于操作系统层面的概念，以两 A B 条读取文件的代码语句为例：
+
+1. 阻塞方式执行：执行 A 语句，并等等返回结果，直到获取结果后再执行 B 语句。
+2. 非阻塞方式执行：执行 A 语句，尝试获取结果，并且立即返回，并继续执行 B 语句。
+3. 同步方式执行：先执行 A 语句读取完文件后，再执行 B 语句。
+4. 异步方式执行：执行 A 语句，在其反回结果之前就执行 B 语句。
+
+阻塞式 I/O，BIO，是面向字节流或字符流编程的 I/O 方式。定义了各种 Stream，如 InputStream、OutputStream。
+
+由于阻塞式 I/O 效率太低，不利于开发高效的并发处理应用，而异步 I/O 则是克服了阻塞式 I/O 的问题，使用其非常适用于高并发应用开发。Nodejs 等平台默认就使用异步 I/O 事件处理模型。
+
+异步 I/O 可以使用不同的方式来实现线程间的任务消息处理：
+
+1. 状态：监听被调用者的状态，调用者按时间同期地轮询状态信息，效率较低。
+2. 通知：当被调用者执行完成后，通知调用者，效率较高。
+3. 回调：当被调用者执行完成后，执行调用者预设的回调处理函数。
+
+异步 I/O 本质就是堆叠等待时间实现更高效的处理能力，就如你自己做早餐，又要煎蛋又要煮咖啡，那么按异步操作就是：先开火烧水，再开火煎蛋，水开了再冲咖啡，然后蛋也熟了。如果按同步、阻塞的方式，先要煎蛋，等它熟了再烧水冲咖啡，这个过程将所有等待时间串连了起来，相当低效率。
+
+《Unix 网络编程》介绍了五种 I/O 模型，而 Java NIO 使用的是**多路复用 I/O 模型**。
+
+1. Blocking I/O       阻塞 I/O 模型；
+2. Non-blocking IO    非阻塞 I/O 模型；
+3. I/O multiplexing   多路复用 I/O 模型；
+4. Signal driven I/O  信号驱动 I/O 模型；
+5. Asynchronous I/O   异步 I/O 模型；
+
+NIO 的 3 个核心概念：Channel、Buffer、Selector。
+
+Channel 是对 IO 输入/输出系统的抽象，是 IO 源与目标之间的连接通道，NIO 的通道类似于传统 IO 中的各种“流”。NIO 模型的 Channel 中的数据流是双向的，相对于 BIO Stream 则是单向的。通道的作用是将数据移入或移出道各种 I/O 源，即可读又可写。
+
+此外 Channel map() 方法可以将“一块”数据直接映射到内存中，因此 NIO 可以说是面向块处理的，而传统 I/O 是面向流处理的。但是 Channel 是一个接口，实现类有 FileChannel、SocketChannel、ServerSocketChannel、DatagramChannel，程序不能直接访问 Channel 中的数据，必须通过 Buffer（缓冲区）作为中介。
+
+Buffer 是一个抽象容器类型，其底层持有了一个具体类型的数组来存放具体数据，除 boolean 之外的基本数据类型都有对应的实现，比如 ByteBuffer 和 CharBuffer，通过 Channel 读写的数据需要通过 Buffer。
 
 
 # 🚩 Java Native Interface (JNI)
@@ -3575,7 +3614,7 @@ Java 打印出来的对象信息其格式和 JVM 规范一致，方括号表示�
 
 Java 集合类型是联系非常密切的常用数据类型，它们之间的联系可以参考 Thinking in Java - 13. Holding Your Objects - Summary 展示的分类图 Simple Container Taxonomy：
 
-https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ325.png
+![Simple Container Taxonomy](https://www.linuxtopia.org/online_books/programming_books/thinking_in_java/TIJ325.png)
 
 使用以下程序测试 hash 码的生成，每次运行时，hash 码总是按算法生成的序列依次分配给需要使用 hash 码的对象。所以，程序每次运行，输出 a 和 b 变量对应的 hash 码总是固定值。将它们的输出顺序调换一下，那么首先生成的 hash 码就会分配给变量 b，而不是 a，也可以手动调用需要使用 hash 码的方法触发其生成：
 

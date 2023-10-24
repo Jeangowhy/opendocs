@@ -378,6 +378,9 @@ ffmpeg将视频导出成多张图片
 
 上面命令中，有两个输入文件，一个是封面图片cover.jpg，另一个是音频文件input.mp3。-loop 1参数表示图片无限循环，-shortest参数表示音频文件结束，输出视频就结束。
 
+视频音频同步调整：
+
+    ffmpeg -i input_video.mp4 -itsoffset <offset> -i input_video.mp4 -c copy -map 0:v -map 1:a output.mp4
 
 音/视频倒放
 
