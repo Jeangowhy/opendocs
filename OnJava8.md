@@ -20,37 +20,38 @@ EPISODE 192
 📜01. Introduction
 📜02. What is an Object?
 📜03. Installing Java and the Book Examples
-📜04. Operators
-📜05. Control Flow
-📜06. Housekeeping
-📜07. Implementation Hiding
-📜08. Reuse
-📜09. Polymorphism
-📜10. Interfaces
-📜11. Inner Classes
-📜12. Collections
-📜13. Functional Programming
-📜14. Streams
-📜15. Exceptions
-📜16. Validating Your Code
-📜17. Files
-📜18. Strings
-📜19. Reflection
-📜20. Generics
-📜21. Arrays
-📜22. Enumerations
-📜23. Annotations
-📜24. Concurrent Programming
-📜25. Patterns
-📜Appendix: Supplements
-📜Appendix: I/O Streams
-📜Appendix: Standard I/O
-📜Appendix: Understanding equals() and hashCode()
-📜Appendix: Low-Level Concurrency
-📜Appendix: Data Compression
-📜Appendix: Object Serialization
-📜Appendix: The Positive Legacy of C++ and Java
-📜Appendix: Becoming a Programmer
+📜04. Objects Everywhere
+📜05. Operators
+📜06. Control Flow
+📜07. Housekeeping
+📜08. Implementation Hiding
+📜09. Reuse
+📜10. Polymorphism
+📜11. Interfaces
+📜12. Inner Classes
+📜13. Collections
+📜14. Functional Programming
+📜15. Streams
+📜16. Exceptions
+📜17. Validating Your Code
+📜18. Files
+📜19. Strings
+📜20. Reflection
+📜21. Generics
+📜22. Arrays
+📜23. Enumerations
+📜24. Annotations
+📜25. Concurrent Programming
+📜26. Patterns
+📜Appendix A: Supplements
+📜Appendix B: I/O Streams
+📜Appendix C: Standard I/O
+📜Appendix D: Understanding equals() and hashCode()
+📜Appendix E: Low-Level Concurrency
+📜Appendix F: Data Compression
+📜Appendix G: Object Serialization
+📜Appendix H: The Positive Legacy of C++ and Java
+📜Appendix I: Becoming a Programmer
 
 📜Copyright
 📜00. Preface
@@ -91,302 +92,303 @@ EPISODE 192
     03.03 Installing Java
     03.04 Verify Your Installation
     03.05 Installing and Running the Book Examples
-    03.06 Objects Everywhere
-    03.07 You Manipulate Objects with References
-    03.08 You Must Create All the Objects
-    03.09 Comments
-    03.10 You Never Need to Destroy an Object
-    03.11 Creating New Data Types: class
-    03.12 Methods, Arguments, and Return Values
-    03.13 Writing a Java Program
-    03.14 Your First Java Program
-    03.15 Coding Style
-    03.16 Summary
-📜04. Operators
-    04.01 Using Java Operators
-    04.02 Precedence
-    04.03 Assignment
-    04.04 Mathematical Operators
-    04.05 Auto Increment and Decrement
-    04.06 Relational Operators
-    04.07 Logical Operators
-    04.08 Literals
-    04.09 Bitwise Operators
-    04.10 Shift Operators
-    04.11 Ternary if-else Operator
-    04.12 String Operator + and +=
-    04.13 Common Pitfalls When Using Operators
-    04.14 Casting Operators
-    04.15 Java Has No “sizeof”
-    04.16 A Compendium of Operators
-    04.17 Summary
-📜05. Control Flow
-    05.01 true and false
-    05.02 if-else
-    05.03 Iteration Statements
-    05.04 For-in Syntax
-    05.05 return
-    05.06 break and continue
-    05.07 The Infamous “Goto”
-    05.08 switch
-    05.09 Switching on Strings
-    05.10 Summary
-📜06. Housekeeping
-    06.01 Guaranteed Initialization with the Constructor
-    06.02 Method Overloading
-    06.03 Zero-Argument Constructors
-    06.04 The this Keyword
-    06.05 Cleanup: Finalization and Garbage Collection
-    06.06 Member Initialization
-    06.07 Constructor Initialization
-    06.08 Array Initialization
-    06.09 Enumerated Types
-    06.10 New Feature: Local Variable Type Inference
-    06.11 Summary
-📜07. Implementation Hiding
-    07.1 package: the Library Unit
-    07.2 Java Access Specifiers
-    07.3 Interface and Implementation
-    07.4 Class Access
-    07.5 New Feature: Modules
-    07.6 Summary
-📜08. Reuse
-    08.01 Composition Syntax
-    08.02 Inheritance Syntax
-    08.03 Delegation
-    08.04 Combining Composition and Inheritance
-    08.05 Choosing Composition vs. Inheritance
-    08.06 protected
-    08.07 Upcasting
-    08.08 The final Keyword
-    08.09 Initialization and Class Loading
-    08.10 Summary
-📜09. Polymorphism
-    09.01 Upcasting Revisited
-    09.02 The Twist
-    09.03 Constructors and Polymorphism
-    09.04 Covariant Return Types
-    09.05 Designing with Inheritance
-    09.06 Summary
-📜10. Interfaces
-    10.01 Abstract Classes and Methods
-    10.02 Defining Interfaces
-    10.03 Abstract Classes vs. Interfaces
-    10.04 Complete Decoupling
-    10.05 Combining Multiple Interfaces
-    10.06 Extending an Interface with Inheritance
-    10.07 Adapting to an Interface
-    10.08 Fields in Interfaces
-    10.09 Nesting Interfaces
-    10.10 Interfaces and Factories
-    10.11 New Feature: private Methods in Interfaces
-    10.12 New Feature: Sealed Classes and Interfaces
-    10.13 Summary
-📜11. Inner Classes
-    11.01 Creating Inner Classes
-    11.02 The Link to the Outer Class
-    11.03 Using .this and .new
-    11.04 Inner Classes and Upcasting
-    11.05 Inner Classes in Methods and Scopes
-    11.06 Anonymous Inner Classes
-    11.07 Nested Classes
-    11.08 Why Inner Classes?
-    11.09 Inheriting from Inner Classes
-    11.10 Can Inner Classes Be Overridden?
-    11.11 Local Inner Classes
-    11.12 Inner-Class Identifiers
+📜04. Objects Everywhere
+    04.01. Objects Everywhere
+    04.02. You Manipulate Objects with References
+    04.03. You Must Create All the Objects
+    04.04. Comments
+    04.05. You Never Need to Destroy an Object
+    04.06. Creating New Data Types: class
+    04.07. Methods, Arguments, and Return Values
+    04.08. Writing a Java Program
+    04.09. Your First Java Program
+    04.10. Coding Style
+    04.11. Summary
+📜05. Operators
+    05.01 Using Java Operators
+    05.02 Precedence
+    05.03 Assignment
+    05.04 Mathematical Operators
+    05.05 Auto Increment and Decrement
+    05.06 Relational Operators
+    05.07 Logical Operators
+    05.08 Literals
+    05.09 Bitwise Operators
+    05.10 Shift Operators
+    05.11 Ternary if-else Operator
+    05.12 String Operator + and +=
+    05.13 Common Pitfalls When Using Operators
+    05.14 Casting Operators
+    05.15 Java Has No “sizeof”
+    05.16 A Compendium of Operators
+    05.17 Summary
+📜06. Control Flow
+    06.01 true and false
+    06.02 if-else
+    06.03 Iteration Statements
+    06.04 For-in Syntax
+    06.05 return
+    06.06 break and continue
+    06.07 The Infamous “Goto”
+    06.08 switch
+    06.09 Switching on Strings
+    06.10 Summary
+📜07. Housekeeping
+    07.01 Guaranteed Initialization with the Constructor
+    07.02 Method Overloading
+    07.03 Zero-Argument Constructors
+    07.04 The this Keyword
+    07.05 Cleanup: Finalization and Garbage Collection
+    07.06 Member Initialization
+    07.07 Constructor Initialization
+    07.08 Array Initialization
+    07.09 Enumerated Types
+    07.10 New Feature: Local Variable Type Inference
+    07.11 Summary
+📜08. Implementation Hiding
+    08.1 package: the Library Unit
+    08.2 Java Access Specifiers
+    08.3 Interface and Implementation
+    08.4 Class Access
+    08.5 New Feature: Modules
+    08.6 Summary
+📜09. Reuse
+    09.01 Composition Syntax
+    09.02 Inheritance Syntax
+    09.03 Delegation
+    09.04 Combining Composition and Inheritance
+    09.05 Choosing Composition vs. Inheritance
+    09.06 protected
+    09.07 Upcasting
+    09.08 The final Keyword
+    09.09 Initialization and Class Loading
+    09.10 Summary
+📜10. Polymorphism
+    10.01 Upcasting Revisited
+    10.02 The Twist
+    10.03 Constructors and Polymorphism
+    10.04 Covariant Return Types
+    10.05 Designing with Inheritance
+    10.06 Summary
+📜11. Interfaces
+    11.01 Abstract Classes and Methods
+    11.02 Defining Interfaces
+    11.03 Abstract Classes vs. Interfaces
+    11.04 Complete Decoupling
+    11.05 Combining Multiple Interfaces
+    11.06 Extending an Interface with Inheritance
+    11.07 Adapting to an Interface
+    11.08 Fields in Interfaces
+    11.09 Nesting Interfaces
+    11.10 Interfaces and Factories
+    11.11 New Feature: private Methods in Interfaces
+    11.12 New Feature: Sealed Classes and Interfaces
     11.13 Summary
-📜12. Collections
-    12.01 Generics and Type-Safe Collections
-    12.02 Basic Concepts
-    12.03 Adding Groups of Elements
-    12.04 Printing Collections
-    12.05 List
-    12.06 Iterators
-    12.07 LinkedList
-    12.08 Stack
-    12.09 Set
-    12.10 Map
-    12.11 New Feature: Records
-    12.12 Queue
-    12.13 Collection vs. Iterator
-    12.14 for-in and Iterators
-    12.15 Summary
-📜13. Functional Programming
-    13.01 Old vs. New
-    13.02 Lambda Expressions
-    13.03 Method References
-    13.04 Functional Interfaces
-    13.05 Higher-Order Functions
-    13.06 Closures
-    13.07 Function Composition
-    13.08 Currying and Partial Evaluation
-    13.09 Pure Functional Programming
-    13.10 Summary
-📜14. Streams
-    14.01 Java 8 Stream Support
-    14.02 Stream Creation
-    14.03 Intermediate Operations
-    14.04 Optional
-    14.05 Terminal Operations
-    14.06 Summary
-📜15. Exceptions
-    15.01 Concepts
-    15.02 Basic Exceptions
-    15.03 Catching an Exception
-    15.04 Creating Your Own Exceptions
-    15.05 The Exception Specification
-    15.06 Catching Any Exception
-    15.07 Standard Java Exceptions
-    15.08 New Feature: Better NullPointerException Reporting
-    15.09 Performing Cleanup with finally
-    15.10 Exception Restrictions
-    15.11 Constructors
-    15.12 Try-With-Resources
-    15.13 Exception Matching
-    15.14 Alternative Approaches
-    15.15 Exception Guidelines
-    15.16 Summary
-📜16. Validating Your Code
-    16.01 Testing
-    16.02 Preconditions
-    16.03 Test-Driven Development
-    16.04 Logging
-    16.05 Debugging
-    16.06 Benchmarking
-    16.07 Profiling and Optimizing
-    16.08 Style Checking
-    16.09 Static Error Analysis
-    16.10 Code Reviews
-    16.11 Pair Programming
-    16.12 Refactoring
-    16.13 Continuous Integration
-    16.14 Summary
-📜17. Files
-    17.01 File and Directory Paths
-    17.02 Directories
-    17.03 File Systems
-    17.04 Watching a Path
-    17.05 Finding Files
-    17.06 Reading & Writing Files
-    17.07 Summary
-📜18. Strings
-    18.01 Immutable Strings
-    18.02 Overloading + vs. StringBuilder
-    18.03 Unintended Recursion
-    18.04 Operations on Strings
-    18.05 Formatting Output
-    18.06 New Feature: Text Blocks
-    18.07 Regular Expressions
-    18.08 Scanning Input
-    18.09 StringTokenizer
-    18.10 Summary
-📜19. Reflection
-    19.01 The Need for Reflection
-    19.02 The Class Object
-    19.03 Checking Before a Cast
-    19.04 Registered Factories
-    19.05 Instanceof vs. Class Equivalence
-    19.06 Runtime Class Information
-    19.07 Dynamic Proxies
-    19.08 Using Optional
-    19.09 Interfaces and Type Information
+📜12. Inner Classes
+    12.01 Creating Inner Classes
+    12.02 The Link to the Outer Class
+    12.03 Using .this and .new
+    12.04 Inner Classes and Upcasting
+    12.05 Inner Classes in Methods and Scopes
+    12.06 Anonymous Inner Classes
+    12.07 Nested Classes
+    12.08 Why Inner Classes?
+    12.09 Inheriting from Inner Classes
+    12.10 Can Inner Classes Be Overridden?
+    12.11 Local Inner Classes
+    12.12 Inner-Class Identifiers
+    12.13 Summary
+📜13. Collections
+    13.01 Generics and Type-Safe Collections
+    13.02 Basic Concepts
+    13.03 Adding Groups of Elements
+    13.04 Printing Collections
+    13.05 List
+    13.06 Iterators
+    13.07 LinkedList
+    13.08 Stack
+    13.09 Set
+    13.10 Map
+    13.11 New Feature: Records
+    13.12 Queue
+    13.13 Collection vs. Iterator
+    13.14 for-in and Iterators
+    13.15 Summary
+📜14. Functional Programming
+    14.01 Old vs. New
+    14.02 Lambda Expressions
+    14.03 Method References
+    14.04 Functional Interfaces
+    14.05 Higher-Order Functions
+    14.06 Closures
+    14.07 Function Composition
+    14.08 Currying and Partial Evaluation
+    14.09 Pure Functional Programming
+    14.10 Summary
+📜15. Streams
+    15.01 Java 8 Stream Support
+    15.02 Stream Creation
+    15.03 Intermediate Operations
+    15.04 Optional
+    15.05 Terminal Operations
+    15.06 Summary
+📜16. Exceptions
+    16.01 Concepts
+    16.02 Basic Exceptions
+    16.03 Catching an Exception
+    16.04 Creating Your Own Exceptions
+    16.05 The Exception Specification
+    16.06 Catching Any Exception
+    16.07 Standard Java Exceptions
+    16.08 New Feature: Better NullPointerException Reporting
+    16.09 Performing Cleanup with finally
+    16.10 Exception Restrictions
+    16.11 Constructors
+    16.12 Try-With-Resources
+    16.13 Exception Matching
+    16.14 Alternative Approaches
+    16.15 Exception Guidelines
+    16.16 Summary
+📜17. Validating Your Code
+    17.01 Testing
+    17.02 Preconditions
+    17.03 Test-Driven Development
+    17.04 Logging
+    17.05 Debugging
+    17.06 Benchmarking
+    17.07 Profiling and Optimizing
+    17.08 Style Checking
+    17.09 Static Error Analysis
+    17.10 Code Reviews
+    17.11 Pair Programming
+    17.12 Refactoring
+    17.13 Continuous Integration
+    17.14 Summary
+📜18. Files
+    18.01 File and Directory Paths
+    18.02 Directories
+    18.03 File Systems
+    18.04 Watching a Path
+    18.05 Finding Files
+    18.06 Reading & Writing Files
+    18.07 Summary
+📜19. Strings
+    19.01 Immutable Strings
+    19.02 Overloading + vs. StringBuilder
+    19.03 Unintended Recursion
+    19.04 Operations on Strings
+    19.05 Formatting Output
+    19.06 New Feature: Text Blocks
+    19.07 Regular Expressions
+    19.08 Scanning Input
+    19.09 StringTokenizer
     19.10 Summary
-📜20. Generics
-    20.01 Comparison with C++
-    20.02 Simple Generics
-    20.03 Generic Interfaces
-    20.04 Generic Methods
-    20.05 Building Complex Models
-    20.06 The Mystery of Erasure
-    20.07 Compensating for Erasure
-    20.08 Bounds
-    20.09 Wildcards
-    20.10 Issues
-    20.11 Self-Bounded Types
-    20.12 Dynamic Type Safety
-    20.13 Exceptions
-    20.14 Mixins
-    20.15 Latent Typing
-    20.16 Compensating for the Lack of (Direct) Latent Typing
-    20.17 Assisted Latent Typing in Java 8
-    20.18 Summary: Is Casting Really So Bad?
-📜21. Arrays
-    21.01 Why Arrays are Special
-    21.02 Arrays are First-Class Objects
-    21.03 Returning an Array
-    21.04 Multidimensional Arrays
-    21.05 Arrays and Generics
-    21.06 Arrays.fill()
-    21.07 Arrays.setAll()
-    21.08 Incremental Generators
-    21.09 Random Generators
-    21.10 Generics and Primitive Arrays
-    21.11 Modifying Existing Array Elements
-    21.12 An Aside On Parallelism
-    21.13 Arrays Utilities
-    21.14 Copying an Array
-    21.15 Comparing Arrays
-    21.16 Streams and Arrays
-    21.17 Sorting Arrays
-    21.18 Searching with Arrays.binarySearch()
-    21.19 Accumulating with parallelPrefix()
-    21.20 Summary
-📜22. Enumerations
-    22.01 Basic enum Features
-    22.02 Adding Methods to an enum
-    22.03 enums in switch Statements
-    22.04 The Mystery of values()
-    22.05 Implements, not Inherits
-    22.06 Random Selection
-    22.07 Using Interfaces for Organization
-    22.08 Using EnumSet Instead of Flags
-    22.09 Using EnumMap
-    22.10 Constant-Specific Methods
-    22.11 Multiple Dispatching
-    22.12 New Features to Support Pattern Matching
-    22.13 New Feature: Arrow in switch
-    22.14 New Feature: case null in switch
-    22.15 New Feature: switch as an Expression
-    22.16 New Feature: Smart Casts
-    22.17 New Feature: Pattern Matching
-    22.18 Summary
-📜23. Annotations
-    23.01 Basic Syntax
-    23.02 Writing Annotation Processors
-    23.03 Using javac to Process Annotations
-    23.04 Annotation-Based Unit Testing
-    23.05 Summary
-📜24. Concurrent Programming
-    24.01 The Terminology Problem
-    24.02 Concurrency Superpowers
-    24.03 Concurrency is for Speed
-    24.04 The Four Maxims of Java Concurrency
-    24.05 The Brutal Truth
-    24.06 The Rest of the Chapter
-    24.07 Parallel Streams
-    24.08 Creating and Running Tasks
-    24.09 Terminating Long-Running Tasks
-    24.10 CompletableFutures
-    24.11 Deadlock
-    24.12 Constructors are not Thread-Safe
-    24.13 Effort, Complexity, Cost
-    24.14 Summary
-📜25. Patterns
-    25.01 The Pattern Concept
-    25.02 Singleton
-    25.03 Classifying Patterns
-    25.04 Template Method
-    25.05 Fronting for an Implementation
-    25.06 Factories: Encapsulating Object Creation
-    25.07 Function Objects
-    25.08 Changing the Interface
-    25.09 Interpreter: Runtime Flexibility
-    25.10 Callbacks
-    25.11 Multiple Dispatching
-    25.12 Pattern Refactoring
-    25.13 Summary
-📜Appendix: Supplements
+📜20. Reflection
+    20.01 The Need for Reflection
+    20.02 The Class Object
+    20.03 Checking Before a Cast
+    20.04 Registered Factories
+    20.05 Instanceof vs. Class Equivalence
+    20.06 Runtime Class Information
+    20.07 Dynamic Proxies
+    20.08 Using Optional
+    20.09 Interfaces and Type Information
+    20.10 Summary
+📜21. Generics
+    21.01 Comparison with C++
+    21.02 Simple Generics
+    21.03 Generic Interfaces
+    21.04 Generic Methods
+    21.05 Building Complex Models
+    21.06 The Mystery of Erasure
+    21.07 Compensating for Erasure
+    21.08 Bounds
+    21.09 Wildcards
+    21.10 Issues
+    21.11 Self-Bounded Types
+    21.12 Dynamic Type Safety
+    21.13 Exceptions
+    21.14 Mixins
+    21.15 Latent Typing
+    21.16 Compensating for the Lack of (Direct) Latent Typing
+    21.17 Assisted Latent Typing in Java 8
+    21.18 Summary: Is Casting Really So Bad?
+📜22. Arrays
+    22.01 Why Arrays are Special
+    22.02 Arrays are First-Class Objects
+    22.03 Returning an Array
+    22.04 Multidimensional Arrays
+    22.05 Arrays and Generics
+    22.06 Arrays.fill()
+    22.07 Arrays.setAll()
+    22.08 Incremental Generators
+    22.09 Random Generators
+    22.10 Generics and Primitive Arrays
+    22.11 Modifying Existing Array Elements
+    22.12 An Aside On Parallelism
+    22.13 Arrays Utilities
+    22.14 Copying an Array
+    22.15 Comparing Arrays
+    22.16 Streams and Arrays
+    22.17 Sorting Arrays
+    22.18 Searching with Arrays.binarySearch()
+    22.19 Accumulating with parallelPrefix()
+    22.20 Summary
+📜23. Enumerations
+    23.01 Basic enum Features
+    23.02 Adding Methods to an enum
+    23.03 enums in switch Statements
+    23.04 The Mystery of values()
+    23.05 Implements, not Inherits
+    23.06 Random Selection
+    23.07 Using Interfaces for Organization
+    23.08 Using EnumSet Instead of Flags
+    23.09 Using EnumMap
+    23.10 Constant-Specific Methods
+    23.11 Multiple Dispatching
+    23.12 New Features to Support Pattern Matching
+    23.13 New Feature: Arrow in switch
+    23.14 New Feature: case null in switch
+    23.15 New Feature: switch as an Expression
+    23.16 New Feature: Smart Casts
+    23.17 New Feature: Pattern Matching
+    23.18 Summary
+📜24. Annotations
+    24.01 Basic Syntax
+    24.02 Writing Annotation Processors
+    24.03 Using javac to Process Annotations
+    24.04 Annotation-Based Unit Testing
+    24.05 Summary
+📜25. Concurrent Programming
+    25.01 The Terminology Problem
+    25.02 Concurrency Superpowers
+    25.03 Concurrency is for Speed
+    25.04 The Four Maxims of Java Concurrency
+    25.05 The Brutal Truth
+    25.06 The Rest of the Chapter
+    25.07 Parallel Streams
+    25.08 Creating and Running Tasks
+    25.09 Terminating Long-Running Tasks
+    25.10 CompletableFutures
+    25.11 Deadlock
+    25.12 Constructors are not Thread-Safe
+    25.13 Effort, Complexity, Cost
+    25.14 Summary
+📜26. Patterns
+    26.01 The Pattern Concept
+    26.02 Singleton
+    26.03 Classifying Patterns
+    26.04 Template Method
+    26.05 Fronting for an Implementation
+    26.06 Factories: Encapsulating Object Creation
+    26.07 Function Objects
+    26.08 Changing the Interface
+    26.09 Interpreter: Runtime Flexibility
+    26.10 Callbacks
+    26.11 Multiple Dispatching
+    26.12 Pattern Refactoring
+    26.13 Summary
+📜Appendix A: Supplements
     A01 On Java 8 Example Code
     A02 Hands-On Java eSeminar
     A03 Appendix: Programming Guidelines
@@ -403,7 +405,7 @@ EPISODE 192
     A14 Controlling Cloneability
     A15 Immutable Classes
     A16 Summary
-📜Appendix: I/O Streams
+📜Appendix B: I/O Streams
     B01 Types of InputStream
     B02 Types of OutputStream
     B03 Adding Attributes and Useful Interfaces
@@ -411,7 +413,7 @@ EPISODE 192
     B05 Off By Itself: RandomAccessFile
     B06 Typical Uses of I/O Streams
     B07 Summary
-📜Appendix: Standard I/O
+📜Appendix C: Standard I/O
     C01 Reading from Standard Input
     C02 Changing System.out to a PrintWriter
     C03 Redirecting Standard I/O
@@ -424,7 +426,7 @@ EPISODE 192
     C10 Data Manipulation with Buffers
     C11 Memory-Mapped Files
     C12 File Locking
-📜Appendix: Understanding equals() and hashCode()
+📜Appendix D: Understanding equals() and hashCode()
     D01 A Canonical equals()
     D02 Hashing and Hash Codes
     D03 Tuning a HashMap
@@ -445,7 +447,7 @@ EPISODE 192
     D18 Holding References
     D19 Java 1.0/1.1 Collections
     D20 Summary
-📜Appendix: Low-Level Concurrency
+📜Appendix E: Low-Level Concurrency
     E01 What is a Thread?
     E02 Catching Exceptions
     E03 Sharing Resources
@@ -454,11 +456,11 @@ EPISODE 192
     E06 Critical Sections
     E07 Library Components
     E08 Summary
-📜Appendix: Data Compression
+📜Appendix F: Data Compression
     F01 Simple Compression with GZIP
     F02 Multifile Storage with Zip
     F03 Java Archives (Jars)
-📜Appendix: Object Serialization
+📜Appendix G: Object Serialization
     G01 Overview
     G02 Finding the Class
     G03 Controlling Serialization
@@ -470,8 +472,8 @@ EPISODE 192
     G09 How to Argue about Typing
     G10 The Cost of Productivity
     G11 Static vs. Dynamic
-📜Appendix: The Positive Legacy of C++ and Java
-📜Appendix: Becoming a Programmer
+📜Appendix H: The Positive Legacy of C++ and Java
+📜Appendix I: Becoming a Programmer
     I01 How I Got Started in Programming
     I02 A Career in Computing
     I03 The Mythical 5%
@@ -2020,111 +2022,113 @@ clear vision ofwhy you took that direction.
 
 ##  🍀03.05 Installing and Running the Book Examples
 
-##  🍀03.06 Objects Everywhere
+# 📜04. Objects Everywhere
 
-##  🍀03.07 You Manipulate Objects with References
+##  🍀04.01. Objects Everywhere
 
-##  🍀03.08 You Must Create All the Objects
+##  🍀04.02. You Manipulate Objects with References
 
-##  🍀03.09 Comments
+##  🍀04.03. You Must Create All the Objects
 
-##  🍀03.10 You Never Need to Destroy an Object
+##  🍀04.04. Comments
 
-##  🍀03.11 Creating New Data Types: class
+##  🍀04.05. You Never Need to Destroy an Object
 
-##  🍀03.12 Methods, Arguments, and Return Values
+##  🍀04.06. Creating New Data Types: class
 
-##  🍀03.13 Writing a Java Program
+##  🍀04.07. Methods, Arguments, and Return Values
 
-##  🍀03.14 Your First Java Program
+##  🍀04.08. Writing a Java Program
 
-##  🍀03.15 Coding Style
+##  🍀04.09. Your First Java Program
 
-##  🍀03.16 Summary
+##  🍀04.10. Coding Style
 
-# 📜04. Operators
+##  🍀04.11. Summary
 
-##  🍀04.01 Using Java Operators
+# 📜05. Operators
 
-##  🍀04.02 Precedence
+##  🍀05.01 Using Java Operators
 
-##  🍀04.03 Assignment
+##  🍀05.02 Precedence
 
-##  🍀04.04 Mathematical Operators
+##  🍀05.03 Assignment
 
-##  🍀04.05 Auto Increment and Decrement
+##  🍀05.04 Mathematical Operators
 
-##  🍀04.06 Relational Operators
+##  🍀05.05 Auto Increment and Decrement
 
-##  🍀04.07 Logical Operators
+##  🍀05.06 Relational Operators
 
-##  🍀04.08 Literals
+##  🍀05.07 Logical Operators
 
-##  🍀04.09 Bitwise Operators
+##  🍀05.08 Literals
 
-##  🍀04.10 Shift Operators
+##  🍀05.09 Bitwise Operators
 
-##  🍀04.11 Ternary if-else Operator
+##  🍀05.10 Shift Operators
 
-##  🍀04.12 String Operator + and +=
+##  🍀05.11 Ternary if-else Operator
 
-##  🍀04.13 Common Pitfalls When Using Operators
+##  🍀05.12 String Operator + and +=
 
-##  🍀04.14 Casting Operators
+##  🍀05.13 Common Pitfalls When Using Operators
 
-##  🍀04.15 Java Has No “sizeof”
+##  🍀05.14 Casting Operators
 
-##  🍀04.16 A Compendium of Operators
+##  🍀05.15 Java Has No “sizeof”
 
-##  🍀04.17 Summary
+##  🍀05.16 A Compendium of Operators
 
-# 📜05. Control Flow
+##  🍀05.17 Summary
 
-##  🍀05.01 true and false
+# 📜06. Control Flow
 
-##  🍀05.02 if-else
+##  🍀06.01 true and false
 
-##  🍀05.03 Iteration Statements
+##  🍀06.02 if-else
 
-##  🍀05.04 For-in Syntax
+##  🍀06.03 Iteration Statements
 
-##  🍀05.05 return
+##  🍀06.04 For-in Syntax
 
-##  🍀05.06 break and continue
+##  🍀06.05 return
 
-##  🍀05.07 The Infamous “Goto”
+##  🍀06.06 break and continue
 
-##  🍀05.08 switch
+##  🍀06.07 The Infamous “Goto”
 
-##  🍀05.09 Switching on Strings
+##  🍀06.08 switch
 
-##  🍀05.10 Summary
+##  🍀06.09 Switching on Strings
 
-# 📜06. Housekeeping
+##  🍀06.10 Summary
 
-##  🍀06.01 Guaranteed Initialization with the Constructor
+# 📜07. Housekeeping
 
-##  🍀06.02 Method Overloading
+##  🍀07.01 Guaranteed Initialization with the Constructor
 
-##  🍀06.03 Zero-Argument Constructors
+##  🍀07.02 Method Overloading
 
-##  🍀06.04 The this Keyword
+##  🍀07.03 Zero-Argument Constructors
 
-##  🍀06.05 Cleanup: Finalization and Garbage Collection
+##  🍀07.04 The this Keyword
 
-##  🍀06.06 Member Initialization
+##  🍀07.05 Cleanup: Finalization and Garbage Collection
 
-##  🍀06.07 Constructor Initialization
+##  🍀07.06 Member Initialization
 
-##  🍀06.08 Array Initialization
+##  🍀07.07 Constructor Initialization
 
-##  🍀06.09 Enumerated Types
+##  🍀07.08 Array Initialization
 
-##  🍀06.10 New Feature: Local Variable Type Inference
+##  🍀07.09 Enumerated Types
 
-##  🍀06.11 Summary
+##  🍀07.10 New Feature: Local Variable Type Inference
 
-# 📜07. Implementation Hiding
+##  🍀07.11 Summary
+
+# 📜08. Implementation Hiding
 
     Accesscontrol (or implementationhiding) is about “not getting it right the
     first time.”
@@ -2182,7 +2186,7 @@ a class is in the same package or in a separate package. So to begin this chapte
 learn how library components are placed into packages. Then you can understand
 the complete meaning ofthe access specifiers.
 
-##  🍀07.1 package: the Library Unit
+##  🍀08.1 package: the Library Unit
 A package contains a group ofclasses, organized together under a single namespace.
 For example, there’s a utility library that’s part of the standard Java distribution,
 organized under the namespace java. util . One of the classes in java. util is
@@ -2568,7 +2572,7 @@ This is the standard for many projects, and integrated development environments
 will usually do it automatically. The path to the compiled code must still be found
 by the JVM through the CLASSPATH.
 
-##  🍀07.2 Java Access Specifiers
+##  🍀08.2 Java Access Specifiers
 The Java access specifiers public , protected , and private are placed in front of
 definitions for members in your class, both fields and methods. Each access specifier
 only controls the access for that particular definition.
@@ -2874,7 +2878,7 @@ Thus, declaring a constructor public inside a package-access class doesn’t act
 make it public , and it should probably be flagged with a compiler error at the point
 of declaration.
 
-##  🍀07.3 Interface and Implementation
+##  🍀08.3 Interface and Implementation
 Access control is often called implementation hiding. Wrapping data and methods
 within classes in combination with implementation hiding is called encapsulation.⁷³
 The result is a data type with characteristics and behaviors.
@@ -2918,7 +2922,7 @@ ofthe class browser, a tool that shows all available classes and what you can do
 them (i.e., what members are available). In Java, the JDK documentation gives the
 same effect as a class browser.
 
-##  🍀07.4 Class Access
+##  🍀08.4 Class Access
 Access specifiers also determine which classes within a library are available to the
 users ofthat library. Ifyou want a class to be available to a client programmer, you
 use the public keyword on the entire class definition. This controls whether the
@@ -3032,10 +3036,10 @@ created as a static private member of Soup2 , so there’s one and only one, and
 you can’t get at it except through the public method access( ) .
 
 
-##  🍀07.5 New Feature: Modules
+##  🍀08.5 New Feature: Modules
 https://www.oracle.com/corporate/features/understanding-java-9-modules.html
 
-##  🍀07.6 Summary
+##  🍀08.6 Summary
 Boundaries are important in any relationship, respected by all parties involved. When
 you create a library, you establish a relationship with the user of that library—the
 client programmer—who is another programmer, but one using your library to build
@@ -3074,477 +3078,2646 @@ underlying implementation ofa class.
 When you have the ability to change the underlying implementation, you not only
 have the freedom to improve your design, you also have the freedom to make mis
 
-# 📜08. Reuse
+# 📜09. Reuse
 
-##  🍀08.01 Composition Syntax
+##  🍀09.01 Composition Syntax
 
-##  🍀08.02 Inheritance Syntax
+##  🍀09.02 Inheritance Syntax
 
-##  🍀08.03 Delegation
+##  🍀09.03 Delegation
 
-##  🍀08.04 Combining Composition and Inheritance
+##  🍀09.04 Combining Composition and Inheritance
 
-##  🍀08.05 Choosing Composition vs. Inheritance
+##  🍀09.05 Choosing Composition vs. Inheritance
 
-##  🍀08.06 protected
+##  🍀09.06 protected
 
-##  🍀08.07 Upcasting
+##  🍀09.07 Upcasting
 
-##  🍀08.08 The final Keyword
+##  🍀09.08 The final Keyword
 
-##  🍀08.09 Initialization and Class Loading
+##  🍀09.09 Initialization and Class Loading
 
-##  🍀08.10 Summary
+##  🍀09.10 Summary
 
-# 📜09. Polymorphism
+# 📜10. Polymorphism
 
-##  🍀09.01 Upcasting Revisited
+##  🍀10.01 Upcasting Revisited
 
-##  🍀09.02 The Twist
+##  🍀10.02 The Twist
 
-##  🍀09.03 Constructors and Polymorphism
+##  🍀10.03 Constructors and Polymorphism
 
-##  🍀09.04 Covariant Return Types
+##  🍀10.04 Covariant Return Types
 
-##  🍀09.05 Designing with Inheritance
+##  🍀10.05 Designing with Inheritance
 
-##  🍀09.06 Summary
+##  🍀10.06 Summary
 
-# 📜10. Interfaces
+# 📜11. Interfaces
 
-##  🍀10.01 Abstract Classes and Methods
+##  🍀11.01 Abstract Classes and Methods
 
-##  🍀10.02 Defining Interfaces
+##  🍀11.02 Defining Interfaces
 
-##  🍀10.03 Abstract Classes vs. Interfaces
+##  🍀11.03 Abstract Classes vs. Interfaces
 
-##  🍀10.04 Complete Decoupling
+##  🍀11.04 Complete Decoupling
 
-##  🍀10.05 Combining Multiple Interfaces
+##  🍀11.05 Combining Multiple Interfaces
 
-##  🍀10.06 Extending an Interface with Inheritance
+##  🍀11.06 Extending an Interface with Inheritance
 
-##  🍀10.07 Adapting to an Interface
+##  🍀11.07 Adapting to an Interface
 
-##  🍀10.08 Fields in Interfaces
+##  🍀11.08 Fields in Interfaces
 
-##  🍀10.09 Nesting Interfaces
+##  🍀11.09 Nesting Interfaces
 
-##  🍀10.10 Interfaces and Factories
+##  🍀11.10 Interfaces and Factories
 
-##  🍀10.11 New Feature: private Methods in Interfaces
+##  🍀11.11 New Feature: private Methods in Interfaces
 
-##  🍀10.12 New Feature: Sealed Classes and Interfaces
-
-##  🍀10.13 Summary
-
-# 📜11. Inner Classes
-
-##  🍀11.01 Creating Inner Classes
-
-##  🍀11.02 The Link to the Outer Class
-
-##  🍀11.03 Using .this and .new
-
-##  🍀11.04 Inner Classes and Upcasting
-
-##  🍀11.05 Inner Classes in Methods and Scopes
-
-##  🍀11.06 Anonymous Inner Classes
-
-##  🍀11.07 Nested Classes
-
-##  🍀11.08 Why Inner Classes?
-
-##  🍀11.09 Inheriting from Inner Classes
-
-##  🍀11.10 Can Inner Classes Be Overridden?
-
-##  🍀11.11 Local Inner Classes
-
-##  🍀11.12 Inner-Class Identifiers
+##  🍀11.12 New Feature: Sealed Classes and Interfaces
 
 ##  🍀11.13 Summary
 
-# 📜12. Collections
+# 📜12. Inner Classes
 
-##  🍀12.01 Generics and Type-Safe Collections
+##  🍀12.01 Creating Inner Classes
 
-##  🍀12.02 Basic Concepts
+##  🍀12.02 The Link to the Outer Class
 
-##  🍀12.03 Adding Groups of Elements
+##  🍀12.03 Using .this and .new
 
-##  🍀12.04 Printing Collections
+##  🍀12.04 Inner Classes and Upcasting
 
-##  🍀12.05 List
+##  🍀12.05 Inner Classes in Methods and Scopes
 
-##  🍀12.06 Iterators
+##  🍀12.06 Anonymous Inner Classes
 
-##  🍀12.07 LinkedList
+##  🍀12.07 Nested Classes
 
-##  🍀12.08 Stack
+##  🍀12.08 Why Inner Classes?
 
-##  🍀12.09 Set
+##  🍀12.09 Inheriting from Inner Classes
 
-##  🍀12.10 Map
+##  🍀12.10 Can Inner Classes Be Overridden?
 
-##  🍀12.11 New Feature: Records
+##  🍀12.11 Local Inner Classes
 
-##  🍀12.12 Queue
+##  🍀12.12 Inner-Class Identifiers
 
-##  🍀12.13 Collection vs. Iterator
+##  🍀12.13 Summary
 
-##  🍀12.14 for-in and Iterators
+# 📜13. Collections
 
-##  🍀12.15 Summary
+##  🍀13.01 Generics and Type-Safe Collections
 
-# 📜13. Functional Programming
+##  🍀13.02 Basic Concepts
 
-##  🍀13.01 Old vs. New
+##  🍀13.03 Adding Groups of Elements
 
-##  🍀13.02 Lambda Expressions
+##  🍀13.04 Printing Collections
 
-##  🍀13.03 Method References
+##  🍀13.05 List
 
-##  🍀13.04 Functional Interfaces
+##  🍀13.06 Iterators
 
-##  🍀13.05 Higher-Order Functions
+##  🍀13.07 LinkedList
 
-##  🍀13.06 Closures
+##  🍀13.08 Stack
 
-##  🍀13.07 Function Composition
+##  🍀13.09 Set
 
-##  🍀13.08 Currying and Partial Evaluation
+##  🍀13.10 Map
 
-##  🍀13.09 Pure Functional Programming
+##  🍀13.11 New Feature: Records
 
-##  🍀13.10 Summary
+##  🍀13.12 Queue
 
-# 📜14. Streams
+##  🍀13.13 Collection vs. Iterator
 
-##  🍀14.01 Java 8 Stream Support
+##  🍀13.14 for-in and Iterators
 
-##  🍀14.02 Stream Creation
+##  🍀13.15 Summary
 
-##  🍀14.03 Intermediate Operations
+# 📜14. Functional Programming
 
-##  🍀14.04 Optional
+##  🍀14.01 Old vs. New
 
-##  🍀14.05 Terminal Operations
+##  🍀14.02 Lambda Expressions
 
-##  🍀14.06 Summary
+##  🍀14.03 Method References
 
-# 📜15. Exceptions
+##  🍀14.04 Functional Interfaces
 
-##  🍀15.01 Concepts
+##  🍀14.05 Higher-Order Functions
 
-##  🍀15.02 Basic Exceptions
+##  🍀14.06 Closures
 
-##  🍀15.03 Catching an Exception
+##  🍀14.07 Function Composition
 
-##  🍀15.04 Creating Your Own Exceptions
+##  🍀14.08 Currying and Partial Evaluation
 
-##  🍀15.05 The Exception Specification
+##  🍀14.09 Pure Functional Programming
 
-##  🍀15.06 Catching Any Exception
+##  🍀14.10 Summary
 
-##  🍀15.07 Standard Java Exceptions
+# 📜15. Streams
+Collections optimize the storage ofobjects. Streams are about processing
+groups ofobjects.
 
-##  🍀15.08 New Feature: Better NullPointerException Reporting
+A stream is a sequence ofelements that is not associated with any particular storage
+mechanism—indeed, we say that streams have “no storage.”
 
-##  🍀15.09 Performing Cleanup with finally
+Instead of iterating through elements in a collection, with a stream you draw
+elements from a pipe and operate on them. These pipes are typically strung together
+to form a pipeline ofoperations upon the stream.
 
-##  🍀15.10 Exception Restrictions
+Most of the time, the reason you store objects in a collection is to process them,
+so you’ll find yourself moving away from collections as the primary focus of your
+programming, and towards streams.
 
-##  🍀15.11 Constructors
-
-##  🍀15.12 Try-With-Resources
-
-##  🍀15.13 Exception Matching
-
-##  🍀15.14 Alternative Approaches
-
-##  🍀15.15 Exception Guidelines
-
-##  🍀15.16 Summary
-
-# 📜16. Validating Your Code
-
-##  🍀16.01 Testing
-
-##  🍀16.02 Preconditions
-
-##  🍀16.03 Test-Driven Development
-
-##  🍀16.04 Logging
-
-##  🍀16.05 Debugging
-
-##  🍀16.06 Benchmarking
-
-##  🍀16.07 Profiling and Optimizing
-
-##  🍀16.08 Style Checking
-
-##  🍀16.09 Static Error Analysis
-
-##  🍀16.10 Code Reviews
-
-##  🍀16.11 Pair Programming
-
-##  🍀16.12 Refactoring
-
-##  🍀16.13 Continuous Integration
-
-##  🍀16.14 Summary
-
-# 📜17. Files
-
-##  🍀17.01 File and Directory Paths
-
-##  🍀17.02 Directories
-
-##  🍀17.03 File Systems
-
-##  🍀17.04 Watching a Path
-
-##  🍀17.05 Finding Files
-
-##  🍀17.06 Reading & Writing Files
-
-##  🍀17.07 Summary
-
-# 📜18. Strings
-
-##  🍀18.01 Immutable Strings
-
-##  🍀18.02 Overloading + vs. StringBuilder
-
-##  🍀18.03 Unintended Recursion
-
-##  🍀18.04 Operations on Strings
-
-##  🍀18.05 Formatting Output
-
-##  🍀18.06 New Feature: Text Blocks
-
-##  🍀18.07 Regular Expressions
-
-##  🍀18.08 Scanning Input
-
-##  🍀18.09 StringTokenizer
-
-##  🍀18.10 Summary
-
-# 📜19. Reflection
-
-##  🍀19.01 The Need for Reflection
-
-##  🍀19.02 The Class Object
-
-##  🍀19.03 Checking Before a Cast
-
-##  🍀19.04 Registered Factories
-
-##  🍀19.05 Instanceof vs. Class Equivalence
-
-##  🍀19.06 Runtime Class Information
-
-##  🍀19.07 Dynamic Proxies
-
-##  🍀19.08 Using Optional
-
-##  🍀19.09 Interfaces and Type Information
+One of the core benefits of streams is that they make your programs smaller and
+easier to understand. Lambda expressions and method references come into their
+own when used with streams. Streams make Java 8 particularly attractive.⁹⁸
+Forexample, supposeyouwantto displayarandomselectionofunique int s between
+5 and 20, sorted. The fact that you’re sorting them might make you focus first on
+choosing a sorted collection, and work around that. But with streams, you simply
+state what you want done:
+
+⁹⁸ I found a number ofsites very useful when creating this chapter, including Java2s and LambdaFAQ.
+
+```java
+// streams/Randoms.java
+import java.util.*;
+public class Randoms {
+    public static void main( String[] args) {
+    new Random( 47)
+        .ints( 5, 20)
+        .distinct( )
+        .limit( 7)
+        .sorted( )
+        .forEach( System.out: : println);
+    }
+}
+/* Output:
+6
+10
+13
+16
+17
+18
+19
+*/
+```
+We startbyseedingthe Random object(to produce identicaloutputwhenthe program
+runs). The ints( ) method produces a stream and is overloaded in a number of
+ways—two arguments set the bounds ofthe values produced. This produces a stream
+of random ints . We tell it to make them unique using the intermediate stream
+operation distinct( ) , then choose the first seven using limit( ) . Then we tell it
+we want the elements to be sorted( ) . Finally, we’d like to display each item so we
+use forEach( ) , which performs an operation on each stream object, according to
+the function we pass it. Here, we pass a method reference System. out: : println
+which it uses to show each item on the console.
+
+Note that Randoms. java declares no variables. Streams can model systems that have
+state without ever using assignment or mutable data, and this can be very helpful.
+Declarative programming is a style where we state what we want done, rather than
+specifying how, and it’s what you see in functional programming. Notice it’s much
+more difficult to understand the imperative form:
+
+```java
+// streams/ImperativeRandoms. java
+import java.util.*;
+public class ImperativeRandoms {
+    public static void main( String[] args) {
+        Random rand = new Random( 47);
+        SortedSet<Integer> rints = new TreeSet<>( );
+        while( rints.size( ) < 7) {
+            int r = rand.nextInt( 20);
+            if( r < 5) continue;
+                rints.add( r);
+        }
+        System.out.println( rints);
+    }
+}
+/* Output:
+[7, 8, 9, 11 , 1 3, 1 5, 1 8]
+*/
+```
+In Randoms. java , we didn’t have to define any variables at all, but here we have
+three: rand , rints and r . The code is further complicated bythe fact that nextInt( )
+has no option for a lower bound—its built-in lower bound is always zero, so we must
+generate extra values and filter out the ones that are less than five.
+
+Notice how you must study the code to figure out what’s going on, whereas in
+Randoms. java , the code just tells you what it’s doing. This clarity is one of the
+most compelling reasons for using Java 8 streams.
+
+Explicitly writing the mechanics of iteration as in ImperativeRandoms. java is
+called externaliteration. In Randoms , you don’t see any ofthese mechanisms and so
+it is called internaliteration, a core characteristic ofstreams programming. Internal
+iteration produces more readable code, but it also makes it easier to use multiple
+processors: By loosening control of how iteration happens, you can hand that
+control over to a parallelizing mechanism. You’ll learn about this in the Concurrent
+Programming chapter.
+
+Another important aspect of streams is that they are lazy, which means they are
+only evaluated when absolutely necessary. You can think ofa stream as a “delayed
+list.” Because ofdelayed evaluation, streams enable us to represent very large (even
+infinite) sequences without memory concerns.
+
+##  🍀15.01 Java 8 Stream Support
+The Java designers faced a conundrum. They had an existing set of libraries, used
+not only within the Java libraries themselves, but in millions oflines ofcode written
+by users. How would they integrate the new, fundamental concept of streams into
+existing libraries?
+
+Insimplecases like Random , theycouldjustaddmoremethods. As longas theexisting
+methods were not changed, legacy code would not get disturbed.
+
+The big challenge came from libraries that used interfaces. Collection classes are an
+essential part of this, because you want to convert collections into streams. But if
+you add a new method to an interface, you break every class that implements your
+interface but doesn’t implement your new method.
+
+The solution, introduced in Java 8, is default methods in interfaces, which were
+covered in the Interfaces chapter. With default methods, the Java designers could
+shoehorn stream methods into existing classes, and they added virtually every
+operation you might need. There are three types of operations: creating streams,
+modifying elements of a stream (intermediate operations), and consuming stream
+elements (terminal operations). This last type often means collecting elements of a
+stream (typically into a collection).
+We’ll look at each type ofoperation.
+
+##  🍀15.02 Stream Creation
+You can easily turn a group of items into a stream using Stream. of( ) ( Bubble is
+defined later in the chapter):
+```java
+// streams/StreamOf.java
+import java.util.stream.*;
+public class StreamOf {
+    public static void main(String[] args) {
+        Stream.of(
+            new Bubble(1), new Bubble(2), new Bubble(3))
+            .forEach(System.out:: println);
+        Stream.of("It' s ", "a ", "wonderful ",
+            "day ", "for ", "pie! ")
+            .forEach(System.out:: print);
+        System.out.println();
+        Stream.of(3.14159, 2.718, 1.618)
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+Bubble(1 )
+Bubble(2)
+Bubble(3)
+It's a wonderful day for pie!
+3.14159
+2.71 8
+1.61 8
+*/
+```
+
+In addition, every Collection can produce a stream using the stream() method:
+```java
+// streams/Coll ectionToStream.java
+import java.util.*;
+import java.util.stream.*;
+public class CollectionToStream {
+    public static void main(String[] args) {
+        List < Bubble > bubbles = Arrays.asList(
+            new Bubble(1), new Bubble(2), new Bubble(3));
+        System.out.println(
+            bubbles.stream()
+            .mapToInt(b -> b.i)
+            .sum());
+        Set < String > w = new HashSet < > (Arrays.asList(
+            "It' s a wonderful day for pie! ".split(" ")));
+        w.stream()
+            .map(x -> x + " ")
+            .forEach(System.out:: print);
+        System.out.println();
+        Map < String, Double > m = new HashMap < > ();
+        m.put("pi", 3.14159);
+        m.put("e", 2.718);
+        m.put("phi", 1.618);
+        m.entrySet().stream()
+            .map(e -> e.getKey() + ": " + e.getValue())
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+6
+a pie! It's for wonderful day
+phi: 1.618
+e: 2.718
+pi: 3.14159
+*/
+```
+After creating a List<Bubble> , we simply ask it for a stream( ) , the common
+method for all collections. The intermediate map( ) operation takes each element in
+a stream and applies an operation to create a new element, which it then passes on
+down the stream. The normal map( ) takes objects and produces objects, but there are
+special versions when the output stream holds a numeric type. Here, mapToInt( )
+converts from an object stream to an IntStream containing Integers. There are
+similarly-named operations for Float and Double .
+
+To define w we take a String and apply the split( ) function, which splits the
+String according to its argument. You’ll see later that this argument can be quite
+sophisticated, but here we are just telling it to split at spaces.
+
+To produce a stream from a Map collection, we first call entrySet( ) to produce a
+stream of objects that each contains both a key and its associated value, then pull
+that apart using getKey( ) and getValue( ) .
+
+### ☘ Random Number Streams
+The Random class has been enhanced with a set ofmethods to produce streams:
+
+```java
+// streams/RandomGenerators.java
+import jav.utila.*;
+import java.util.stream.*;
+public class RandomGenerators {
+    public static < T > void show(Stream < T > stream) {
+        stream
+            .limit(4)
+            .forEach(System.out:: println);
+        System.out.println("++++++++");
+    }
+    public static void main(String[] args) {
+        Random rand = new Random(47);
+        show(rand.ints().boxed());
+        show(rand.longs().boxed());
+        show(rand.doubles().boxed());
+        // Control the lower and upper bounds:
+        show(rand.ints(10, 20).boxed());
+        show(rand.longs(50, 100).boxed());
+        show(rand.doubles(20, 30).boxed());
+        // Control the stream size:
+        show(rand.ints(2).boxed());
+        show(rand.longs(2).boxed());
+        show(rand.doubles(2).boxed());
+        // Control the stream size and bounds:
+        show(rand.ints(3, 3, 9).boxed());
+        show(rand.longs(3, 12, 22).boxed());
+        show(rand.doubles(3, 11.5, 12.3).boxed());
+    }
+}
+/* Output:
+-1172028779
+1717241110
+-2014573909
+229403722
+++++++++
+2955289354441303771
+3476817843704654257
+-8917117694134521474
+4941259272818818752
+++++++++
+0.2613610344283964
+0.0508673570556899
+0.8037155449603999
+0.7620665811558285
+++++++++
+16
+10
+11
+12
+++++++++
+65
+99
+54
+58
+++++++++
+29.86777681078574
+24.83968447804611
+20.09247112332014
+24.046793846338723
+++++++++
+1169976606
+1947946283
+++++++++
+2970202997824602425
+-2325326920272830366
+++++++++
+0.7024254510631527
+0.6648552384607359
+++++++++
+6
+7
+7
+++++++++
+17
+12
+20
+++++++++
+12.27872414236691
+11.732085449736195
+12.196509449817267
+++++++++
+*/
+```
+To eliminateredundantcode, Icreatedthegenericmethod show( Stream<T> stream)
+(I’mcheating abit here byusing the generics feature before its chapter, but the payoff
+is worth it). The T type parameter can be anything, so it works with Integer , Long
+and Double . However, the Random class only produces the primitive types int , long
+and double . Fortunately, the boxed( ) stream operation automatically converts the
+primitives to their boxed counterparts, thus enabling show( ) to accept the stream.
+We can use Random to create a Supplier for any set of objects. Here’s an example
+that supplies String objects, taken from this text file:
+
+    // streams/Cheese.dat
+    Not much of a cheese shop really, is it?
+    Finest in the district, sir.
+    And what leads you to that conclusion?
+    Well, it' s so clean.
+    It' s certainly uncontaminated by cheese.
+
+We use the Files class to read all the lines from a file into a List<String> :
+```java
+// streams/RandomWords.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+import java.io.*;
+import java.nio.file.*;
+public class RandomWords implements Supplier < String > {
+    List < String > words = new ArrayList < > ();
+    Random rand = new Random(47);
+    RandomWords(String fname) throws IOException {
+        List < String > lines =
+            Files.readAllLines(Paths.get(fname));
+        // Skip the first l ine:
+        for (String line: lines.subList(1, lines.size())) {
+            for (String word: line.split("[ .?, ] +"))
+                words.add(word.toLowerCase());
+        }
+    }
+    @Override public String get() {
+        return words.get(rand.nextInt(words.size()));
+    }
+    @Override public String toString() {
+        return words.stream()
+            .collect(Collectors.joining(" "));
+    }
+    public static void
+    main(String[] args) throws Exception {
+        System.out.println(
+            Stream.generate(new RandomWords("Cheese.dat"))
+            .limit(10)
+            .collect(Collectors.joining(" ")));
+    }
+}
+/* Output:
+it shop sir the much cheese by conclusion district is
+*/
+```
+Here you see a slightly more sophisticated use of split( ) . In the constructor, each
+line is split( ) on either a space or any of the punctuation characters defined
+within the square brackets. The + after the closing square bracket indicates “the
+previous thing, one or more times.”
+
+You’ll note that the constructor uses imperative programming (external iteration) for
+its loops. In future examples you’ll see how we eliminate even this. The older forms
+are not particularly bad, but it often just feels nicer to use streams everywhere.
+In toString( ) and main( ) you see the collect( ) operation, which combines all
+thestreamelementsaccordingto itsargument. Whenyouuse Collectors. joining( ) ,
+you get a String result, with each element separated by the argument to joining( ) .
+There are numerous other Collectors to produce different results.
+
+In main( ) , we see apreviewof Stream. generate( ) , which takes any Supplier<T>
+and produces a stream of T objects.
+
+### ☘ Ranges of int
+The IntStream class provides a range( ) method to produce a stream that is a
+sequence of int s. This can be convenient when writing loops:
+
+```java
+// streams/Ranges.java
+import static java.util.stream.IntStream.*;
+public class Ranges {
+    public static void main(String[] args) {
+        // The traditional way:
+        int result = 0;
+        for (int i = 10; i < 20; i++)
+            result += i;
+        System.out.println(result);
+        // for-in with a range:
+        result = 0;
+        for (int i: range(10, 20).toArray())
+            result += i;
+        System.out.println(result);
+        // Use streams:
+        System.out.println(range(10, 20).sum());
+    }
+}
+/* Output:
+145
+145
+145
+*/
+```
+The first approach shown in main( ) is the traditional way ofwriting a for loop. In
+the secondapproach, we create a range( ) andturnitinto anarraywhichthenworks
+in a for-in statement. Ifyou’re able, however, it’s always nice to go full-streams as in
+the third approach. In each case, we sum the integers in the range, and, conveniently,
+there’s a sum( ) operation for streams.
+
+Note that IntStream. range( ) is more limited than onjava. Range. range( ) . Be-
+cause ofits optional third step argument, the latter has the ability to generate ranges
+that step by more than one, and that can count down from a higher value to a lower
+one.
+
+To replace simple for loops, here’s a repeat( ) utility:
+```java
+// onjava/Repeat.java
+package onjava;
+import static java.util.stream.IntStream.*;
+public class Repeat {
+    public static void repeat(int n, Runnable action) {
+        range(0, n).forEach(i -> action.run());
+    }
+}
+```
+
+The resulting loops are arguably cleaner:
+```java
+// streams/Looping.java
+import static onjava.Repeat.*;
+public class Looping {
+    static void hi() { System.out.println("Hi! "); }
+    public static void main(String[] args) {
+        repeat(3, () -> System.out.println("Looping! "));
+        repeat(2, Looping:: hi);
+    }
+}
+/* Output:
+Looping!
+Looping!
+Looping!
+Hi!
+Hi!
+*/
+```
+It might not be worth it, however, to include and explain repeat( ) in your code.
+It seems like a reasonably transparent tool, but it depends on how your team and
+company works.
+
+### ☘ generate()
+RandomWords. java used Supplier<T> with Stream. generate( ) . Here’s a second
+example:
+```java
+// streams/Generator.java
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
+public class Generator implements Supplier<String> {
+    Random rand = new Random( 47);
+    char[] letters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray( );
+    @Override public String get( ) {
+        return "" + letters[rand.nextInt( letters.length)] ;
+    }
+    public static void main( String[] args) {
+        String word = Stream.generate( new Generator( ))
+            .limit( 30)
+            .collect( Collectors.joining( ));
+            System.out.println( word);
+    }
+}
+/* Output:
+YNZBRNYGCFOWZNTCQRGSEGZMMJMROE
+*/
+```
+The uppercase letters of the alphabet are selected using Random.nextInt( ) . The
+argument tells it the largest acceptable random number, so the array bounds are
+respected.
+
+Ifyouwantto create astreamofidenticalobjects, simplypass alambdathatproduces
+those objects to generate( ) :
+```java
+// streams/Dupl icator.java
+import java.util.stream.*;
+public class Duplicator {
+    public static void main( String[] args) {
+        Stream.generate( ( ) -> "duplicate")
+        .limit( 3)
+        .forEach( System.out: : println);
+    }
+}
+/* Output:
+dupl icate
+dupl icate
+dupl icate
+*/
+```
+Here’s the Bubble class used in earlier examples in this chapter. Note it contains its
+own static generator method:
+```java
+// streams/Bubble.java
+import java.util.function.*;
+public class Bubble {
+    public final int i;
+    public Bubble( int n) { i = n; }
+    @Override public String toString( ) {
+        return "Bubble( " + i + ")";
+    }
+    private static int count = 0;
+    public static Bubble bubbler( ) {
+        return new Bubble( count++);
+    }
+}
+```
+Because bubbler( ) is interface-compatible with Supplier<Bubble> , we can pass
+its method reference to Stream.generate( ) :
+```java
+// streams/Bubbles.java
+import java.util.stream.*;
+public class Bubbles {
+    public static void main( String[] args) {
+    Stream.generate( Bubble: : bubbler)
+        .limit( 5)
+        .forEach( System.out: : println);
+    }
+}
+/* Output:
+Bubble(0)
+Bubble(1 )
+Bubble(2)
+Bubble(3)
+Bubble(4)
+*/
+```
+This is an alternative approach to creating a separate factory class. In many ways it’s
+neater, but it’s a matter oftaste and code organization—you can always just create a
+completely different factory class.
+
+### ☘ iterate()
+Stream. iterate( ) starts with a seed (the first argument) and passes it to the
+method (the second argument). The result is added to the stream and also stored
+for use as the first argument the next time iterate( ) is called, and so on. We can
+iterate( ) a Fibonacci sequence (which you first encountered in the last chapter):
+```java
+// streams/Fibonacci.java
+import java.util.stream.*;
+public class Fibonacci {
+    int x = 1;
+    Stream < Integer > numbers() {
+        return Stream.iterate(0, i -> {
+            int result = x + i;
+            x = i;
+            return result;
+        });
+    }
+    public static void main(String[] args) {
+        new Fibonacci().numbers()
+            .skip(20) // Don't use the first 20
+            .limit(10) // Then take 1 0 of them
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+6765
+10946
+1771 1
+28657
+46368
+75025
+121393
+196418
+317811
+514229
+*/
+```
+The Fibonacci sequence sums the last two elements in the sequence to produce the
+next one. iterate( ) only remembers the result, so we must use x to keep track of
+the other element.
+
+In main( ) , we use the skip( ) operation, which you haven’t seen before. It simply
+discards the number ofstream elements specified by its argument. Here, we discard
+the first 20 items.
+
+### ☘ Stream Builders
+In the Builder design pattern, you create a builder object, give it multiple pieces of
+construction information, and finally perform the “build” act. The Stream library
+provides such a Builder . Here, we revisit the process of reading a file and turning
+it into a stream ofwords:
+```java
+// streams/FileToWordsBuilder.java
+import java.io.*;
+import java.nio.file.*;
+import java.util.stream.*;
+public class FileToWordsBuilder {
+    Stream.Builder < String > builder = Stream.builder();
+    public FileToWordsBuilder(String filePath)
+    throws Exception {
+        Files.lines(Paths.get(filePath))
+            .skip(1) // Skip the comment line at the beginning
+            .forEach(line -> {
+                for (String w: line.split("[ .?,]+"))
+                    builder.add(w);
+            });
+    }
+    Stream < String > stream() { return builder.build(); }
+    public static void
+    main(String[] args) throws Exception {
+        new FileToWordsBuilder("Cheese.dat").stream()
+            .limit(7)
+            .map(w -> w + " ")
+            .forEach(System.out:: print);
+    }
+}
+/* Output:
+Not much of a cheese shop real ly
+*/
+```
+Notice that the constructor adds all the words from the file (except the first line,
+which is the comment containing the file path information), but it doesn’t call
+build( ) . This means, as long as you don’t call stream( ) , you can continue to add
+words to the builder object. In a more complete version ofthis class, you might add
+a flag to see whether build( ) has been called, and a method to add further words
+if possible. Trying to add to a Stream. Builder after calling build( ) produces an
+exception.
+
+### ☘ Arrays
+The Arrays class contains static methods named stream( ) that convert arrays
+to streams. We can rewrite main( ) from interfaces/Machine. java to create a
+stream and apply execute( ) to each element:
+```java
+// streams/Machine2. java
+import java. util. *;
+import onjava. Operations;
+public class Machine2 {
+    public static void main( String[] args) {
+        Arrays. stream( new Operations[] {
+        ( ) -> Operations. show( "Bing"),
+        ( ) -> Operations. show( "Crack"),
+        ( ) -> Operations. show( "Twist"),
+        ( ) -> Operations. show( "Pop")
+        }). forEach( Operations: : execute);
+    }
+}
+/* Output:
+Bing
+Crack
+Twist
+Pop
+*/
+```
+The new Operations[] expression dynamically creates a typed array of Opera-
+tions objects.
+
+The stream( ) methods can also produce an IntStream , LongStream and Dou-
+bleStream :
+```java
+// streams/ArrayStreams.java
+import java.util.*;
+import java.util.stream.*;
+public class ArrayStreams {
+    public static void main(String[] args) {
+        Arrays.stream(
+                new double[] { 3.14159, 2.718, 1.618 })
+            .forEach(n -> System.out.format("%f ", n));
+        System.out.println();
+        Arrays.stream(new int[] { 1, 3, 5 })
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        Arrays.stream(new long[] { 11, 22, 44, 66 })
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        // Select a subrange:
+        Arrays.stream(
+                new int[] { 1, 3, 5, 7, 15, 28, 37 }, 3, 6)
+            .forEach(n -> System.out.format("%d ", n));
+    }
+}
+/* Output:
+3.141590 2.718000 1.618000
+1 3 5
+11 22 44 66
+7 15 28
+*/
+```
+The last call to stream( ) has two additional arguments: the first tells stream( )
+where to start selecting elements from the array, and the second tells it where to stop.
+Each different type of stream( ) method also has this version.
+
+### ☘ Regular Expressions
+Java’s regular expressions are covered in the Strings chapter. Java 8 added a new
+method splitAsStream( ) to the java. util. regex. Pattern class, which takes a
+sequence ofcharacters and splits it into a stream, according to the formula you hand
+it. There’s a constraint, which is that the input is a CharSequence , so you cannot
+feed a stream into splitAsStream( ) .
+
+We’ll look again at the process ofturning a file into words. This time, we use streams
+to turn the file into a single String , then regularexpressionsto split the String into
+a stream ofwords:
+```java
+// streams/FileToWordsRegexp.java
+import java.io.*;
+import java.nio.file.*;
+import java.util.stream.*;
+import java.util.regex.Pattern;
+public class FileToWordsRegexp {
+    private String all;
+    public FileToWordsRegexp(String filePath)
+    throws Exception {
+        all = Files.lines(Paths.get(filePath))
+            .skip(1) // First (comment) line
+            .collect(Collectors.joining(" "));
+    }
+    public Stream < String > stream() {
+        return Pattern
+            .compile("[ .,?]+").splitAsStream(all);
+    }
+    public static void
+    main(String[] args) throws Exception {
+        FileToWordsRegexp fw =
+            new FileToWordsRegexp("Cheese.dat");
+        fw.stream()
+            .limit(7)
+            .map(w -> w + " ")
+            .forEach(System.out:: print);
+        fw.stream()
+            .skip(7)
+            .limit(2)
+            .map(w -> w + " ")
+            .forEach(System.out:: print);
+    }
+}
+/* Output:
+Not much of a cheese shop real ly is it
+*/
+```
+The constructor reads all the lines in the file (again, skipping the first comment line)
+and turns them into a single String ). Now, when you call stream( ) , you get a
+stream as before, but this time you can come back and call stream( ) multiple times,
+creating a new stream from the stored String each time. The limit here is that the
+whole file must be stored in memory; most of the time that probably won’t be an
+issue but it loses important benefits ofstreams:
+
+1. They “don’t require storage.” Of course they actually require some internal
+storage, but it’s only a fraction ofthe sequence, and nothing like what it takes
+to hold the entire sequence.
+2. They are lazily evaluated.
+
+Fortunately, we’ll see how to solve this problem a bit later.
+
+##  🍀15.03 Intermediate Operations
+
+These operations take objects in from one stream and feed objects out the back end
+as another stream, to be connected to other operations.
+
+### ☘ Tracing and Debugging
+The peek( ) operationis intendedas anaidto debugging. Itallowsyouto viewstream
+objects without modifying them:
+
+```java
+// streams/Peeking.java
+class Peeking {
+    public static void
+    main(String[] args) throws Exception {
+        FileToWords.stream("Cheese.dat")
+            .skip(21)
+            .limit(4)
+            .map(w -> w + " ")
+            .peek(System.out::print)
+            .map(String::toUpperCase)
+            .peek(System.out::print)
+            .map(String::toLowerCase)
+            .forEach(System.out::print);
+    }
+}
+/* Output:
+Well WELL well it IT it s S s so SO so
+*/
+```
+FileToWords is defined shortly, but it acts like the versions we’ve seen already:
+producing a stream of String objects. We peek( ) at them as they travel through
+the pipeline.
+
+Because peek( ) takes a function that conforms to the Consumer functional interface,
+which has no return value, it’s not possible to replace the objects in the stream with
+different ones. You can only look at them.
+
+### ☘ Sorting Stream Elements
+You sawthe use of sorted( ) with the default comparison in Randoms.java . There’s
+a second form of sorted( ) that takes a Comparator argument:
+```java
+// streams/SortedComparator.java
+import java.util.*;
+public class SortedComparator {
+    public static void
+    main(String[] args) throws Exception {
+        FileToWords.stream("Cheese.dat")
+            .skip(10)
+            .limit(10)
+            .sorted(Comparator.reverseOrder())
+            .map(w -> w + " ")
+            .forEach(System.out:: print);
+    }
+}
+/* Output:
+you what to the that sir l eads in district And
+*/
+```
+You can pass in a lambda function as the argument for sorted( ) , but there are also
+pre-defined Comparator s—here we use one that reverses the “natural order.”
+
+### ☘ Removing Elements
+• distinct( ) : In Randoms. java , distinct( ) removed duplicates from the
+stream. Using distinct( ) is far less work than creating a Set to eliminate
+duplicates.
+• filter( Predicate) : The filteroperationkeeps onlythe elements thatproduce
+true when passed to the argument: the filterfunction.
+
+In this example, the filter function isPrime( ) detects prime numbers:
+```java
+// streams/Prime.java
+import java.util.stream.*;
+import static java.util.stream.LongStream.*;
+public class Prime {
+    public static boolean isPrime(long n) {
+        return rangeClosed(2, (long) Math.sqrt(n))
+            .noneMatch(i -> n % i == 0);
+    }
+    public LongStream numbers() {
+        return iterate(2, i -> i + 1)
+            .filter(Prime::isPrime);
+    }
+    public static void main(String[] args) {
+        new Prime().numbers()
+            .limit(10)
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        new Prime().numbers()
+            .skip(90)
+            .limit(10)
+            .forEach(n -> System.out.format("%d ", n));
+    }
+}
+/* Output:
+2 3 5 7 11 1 3 1 7 19 23 29
+467 479 487 491 499 503 509 521 523 541
+*/
+```
+rangeClosed( ) includes the top boundary value. The noneMatch( ) operation
+returns true ifno modulus produces zero, and false ifanyequalzero. noneMatch( )
+quits after the first failure rather than trying them all.
+
+### ☘ Applying a function to every element
+• map( Function) : Applies Function to every object in the input stream, passing
+on the result values as the output stream.
+• mapToInt( ToIntFunction) : As above, but results in an IntStream .
+• mapToLong( ToLongFunction) : As above, but results in a LongStream .
+• mapToDouble( ToDoubleFunction) : As above, but results in a DoubleStream .
+
+Here, we map( ) various Function s onto a stream of String s:
+```java
+// streams/FunctionMap.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class FunctionMap {
+    static String[] elements = { "12", "", "23", "45" };
+    static Stream < String > testStream() {
+        return Arrays.stream(elements);
+    }
+    static void
+    test(String descr, Function < String, String > func) {
+        System.out.println(" ---( " + descr + " )---");
+        testStream()
+            .map(func)
+            .forEach(System.out:: println);
+    }
+    public static void main(String[] args) {
+        test("add brackets", s -> "[" + s + "] ");
+        test("Increment", s -> {
+            try {
+                return Integer.parseInt(s) + 1 + "";
+            } catch (NumberFormatException e) {
+                return s;
+            }
+        });
+        test("Replace", s -> s.replace("2", "9"));
+        test("Take last digit", s -> s.length() > 0 ?
+            s.charAt(s.length() - 1) + "" : s);
+    }
+}
+/* Output:
+---( add brackets )---
+[12]
+[]
+[23]
+[45]
+---( Increment )---
+13
+24
+46
+---( Replace )---
+19
+93
+45
+---( Take l ast digit )---
+2
+3
+5
+*/
+```
+In the “Increment” test, we use Integer. parseInt( ) to attempt to turn the String
+into an Integer . If the String can’t be represented as an Integer it throws a
+NumberFormatException and we just fall back to putting the original String back
+on the output stream.
+
+In the above example, the map( ) maps from a String to a String , but there’s no
+reason you can’t produce a different type than you take in, thus changing the type
+ofthe stream from that point on. Here’s what it looks like:
+```java
+// streams/FunctionMap2.java
+// Different input and output types
+import java.util.*;
+import java.util.stream.*;
+class Numbered {
+    final int n;
+    Numbered(int n) { this.n = n; }
+    @Override public String toString() {
+        return "Numbered( " + n + ")";
+    }
+}
+class FunctionMap2 {
+    public static void main(String[] args) {
+        Stream.of(1, 5, 7, 9, 11, 13)
+            .map(Numbered:: new)
+            .forEach(System.out::println);
+    }
+}
+/* Output:
+Numbered(1)
+Numbered(5)
+Numbered(7)
+Numbered(9)
+Numbered(11 )
+Numbered(13)
+*/
+```
+We take int s and turn them into Numbered s using the constructor Numbered::new .
+Ifthe result type produced by Function is one ofthe numeric types, you must use
+the appropriate mapTo -operations instead:
+```java
+// streams/FunctionMap3.java
+// Producing numeric output streams
+import java.util.*;
+import java.util.stream.*;
+class FunctionMap3 {
+    public static void main(String[] args) {
+        Stream.of("5", "7", "9")
+            .mapToInt(Integer:: parseInt)
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        Stream.of("17", "19", "23")
+            .mapToLong(Long:: parseLong)
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        Stream.of("17", "1.9", ".23")
+            .mapToDouble(Double:: parseDouble)
+            .forEach(n -> System.out.format("%f ", n));
+    }
+}
+/* Output:
+5 7 9
+17 19 23
+17.000000 1.900000 0.230000
+*/
+```
+It’s unfortunate that the Java designers didn’t make the initial effort to eliminate
+primitive types.
+
+### ☘ Combining Streams During map()
+Suppose you’ve got a stream of incoming elements, and you’re applying a map( )
+function to them. You’ve found some lovelyfunctionality for your function you can’t
+findanywhere else, butthere’s aproblem: thatfunctionalityproduces astream. What
+you want is to produce a stream ofelements, but instead you’re producing a stream
+ofstreams ofelements.
+
+flatMap( ) does two things: it takes your stream-producing function and applies it
+to incoming elements (just like map( ) does), then it takes each stream and “flattens”
+it into elements. So what comes out is just elements.
+• flatMap( Function) : Use when Function produces a stream.
+• flatMapToInt( Function) : For a Function that produces an IntStream .
+• flatMapToLong( Function) : For a Function that produces a LongStream .
+• flatMapToDouble( Function) : Fora Function thatproducesa DoubleStream .
+
+To see how this works, we’ll start with a contrived function for map( ) , which takes
+in an Integer and produces a stream of String s:
+```java
+// streams/StreamOfStreams.java
+import java.util.stream.*;
+public class StreamOfStreams {
+    public static void main(String[] args) {
+        Stream.of(1, 2, 3)
+            .map(i -> Stream.of("Gonzo", "Kermit", "Beaker"))
+            .map(e -> e.getClass().getName())
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+java.util.stream.ReferencePipeline$Head
+java.util.stream.ReferencePipeline$Head
+java.util.stream.ReferencePipeline$Head
+*/
+```
+We were naively hoping for a stream of String , but what we got instead was a
+stream of“heads” to other streams. We can easily solve this with flatMap( ) :
+```java
+// streams/FlatMap.java
+import java.util.stream.*;
+public class FlatMap {
+    public static void main( String[] args) {
+    Stream.of( 1, 2, 3)
+    .flatMap(
+        i -> Stream.of( "Gonzo", "Fozzie", "Beaker"))
+    .forEach( System.out::println);
+    }
+}
+/* Output:
+Gonzo
+Fozzie
+Beaker
+Gonzo
+Fozzie
+Beaker
+Gonzo
+Fozzie
+Beaker
+*/
+```
+So each stream that comes back from the mapping is automatically flattened into its
+component Strings.
+
+Here’s another demonstration. We start with a stream ofinteger, then use each one
+to create that many random numbers:
+```java
+// streams/StreamOfRandoms.java
+import java.util.*;
+import java.util.stream.*;
+public class StreamOfRandoms {
+    static Random rand = new Random(47);
+    public static void main(String[] args) {
+        Stream.of(1, 2, 3, 4, 5)
+            .flatMapToInt(i -> IntStream.concat(
+                rand.ints(0, 100).limit(i), IntStream.of(-1)))
+            .forEach(n -> System.out.format("%d ", n));
+    }
+}
+/* Output:
+58 -1 55 93 -1 61 61 29 -1 68 0 22 7 -1 88 28 51 89 9
+-1
+*/
+```
+I’ve introduced concat( ) here, which combines two streams in argument order. So,
+at the end ofeach stream ofrandom Integer , I’m adding a -1 to use as a marker, so
+you can see that the final stream is indeed being created from a group of flattened
+streams.
+
+Because rand. ints( ) produces an IntStream , I must use the special Integer
+versions of flatMap( ) , concat( ) , and of( ) .
+
+Let’s take one more look at the task ofbreaking a file into a stream ofwords. Our last
+encounter was FileToWordsRegexp. java , which had the problem that it required
+us to read the whole file into a List of lines—thus requiring storage for that List .
+What we really want is to create a stream ofwords without requiring intermediate
+storage. Once again, this is exactly the problem solved by flatMap( ) :
+
+```java
+// streams/FileToWords.java
+import java.nio.file.*;
+import java.util.stream.*;
+import java.util.regex.Pattern;
+public class FileToWords {
+    public static Stream<String> stream( String filePath)
+    throws Exception {
+        return Files.lines( Paths.get( filePath))
+        .skip( 1) // First (comment) line
+        .flatMap( line ->
+            Pattern.compile( "\\W+").splitAsStream( line));
+    }
+}
+```
+stream( ) is now a static method because it can accomplish the whole stream-
+creation process by itself.
+
+Note the use of \\W+ as the regular-expression pattern. The \\W means a “non-word
+character,” andthe + means “one ormore.” Lowercase \\w refers to a“wordcharacter.”
+The problem we had before was that Pattern. compile( ). splitAsStream( ) produces 
+a stream result, which means invoking map( ) on the incoming stream oflines
+produces a stream of streams of words, when what we want is simply a stream
+of words. Fortunately, flatMap( ) flattens a stream of streams of elements into
+a simple stream of elements. Alternatively, we could have used String. split( ) ,
+which produces an array, which can be converted using Arrays. stream( ) :
+
+    .flatMap( line -> Arrays. stream( line. split( "\\W+"))))
+
+Because we have a true stream (rather than a stream based on a stored collection as
+in FileToWordsRegexp. java ), every time we want a new stream we must create it
+from scratch, because it can’t be reused:
+
+```java
+// streams/FileToWordsTest.java
+import java.util.stream.*;
+public class FileToWordsTest {
+    public static void
+    main(String[] args) throws Exception {
+        FileToWords.stream("Cheese.dat")
+            .limit(7)
+            .forEach(s -> System.out.format("%s ", s));
+        System.out.println();
+        FileToWords.stream("Cheese.dat")
+            .skip(7)
+            .limit(2)
+            .forEach(s -> System.out.format("%s ", s));
+    }
+}
+/* Output:
+Not much of a cheese shop real ly
+is it
+*/
+```
+Here, the %s in System.out.format( ) indicates that the argument is a String .
+
+
+##  🍀15.04 Optional
+Before we can look at terminal operations, we must consider what happens if you
+ask for an object in a stream and there’s nothing there. We like to connect up our
+streams for the “happy path” and assume nothing will break. Putting a null in a
+stream is a good way to break it. Is there some kind ofobject we can use that will act
+as a holder for a stream element, but can also kindly tell us (that is, no exceptions) if
+the element we’re looking for isn’t there?
+
+This idea is implemented as the Optional type. Certain standard stream operations
+return Optional objects because they cannot guarantee the desired result will exist.
+These include:
+
+1. • findFirst( ) returns an Optional containing the first element. Ifthe stream
+is empty, it returns Optional. empty .
+
+2. • findAny( ) returns an Optional containing any element, or Optional. empty
+ifthe stream is empty.
+
+3. • max( ) and min( ) return an Optional containing the maximum or minimum
+values in the stream, or an Optional. empty ifthe stream is empty.
+
+4. • The version of reduce( ) that does not start with an “identity” object (the
+“identity” object becomes the default result in the other version of reduce( )
+so there’s no risk ofan empty result) wraps its return value in an Optional .
+
+5. • For the numerical streams IntStream , LongStream and DoubleStream , the
+average( ) operation wraps its result in an Optional in case the stream is
+empty.
+
+Here are simple tests ofall ofthese operations upon empty streams:
+```java
+// streams/OptionalsFromEmptyStreams.java
+import java.util.*;
+import java.util.stream.*;
+class OptionalsFromEmptyStreams {
+    public static void main( String[] args) {
+        System.out.println( Stream.<String>empty( )
+            .findFirst( ));
+        System.out.println( Stream.<String>empty( )
+            .findAny( ));
+        System.out.println( Stream.<String>empty( )
+            .max( String.CASE_INSENSITIVE_ORDER));
+        System.out.println( Stream.<String>empty( )
+            .min( String.CASE_INSENSITIVE_ORDER));
+        System.out.println( Stream.<String>empty( )
+            .reduce( ( s1, s2) -> s1 + s2));
+        System.out.println( IntStream.empty( )
+            .average( ));
+    }
+}
+/* Output:
+Optional.empty
+Optional.empty
+Optional.empty
+Optional.empty
+Optional.empty
+OptionalDouble.empty
+*/
+```
+Instead of throwing an exception because the stream is empty, you get an Op-
+tional. empty object. Optional has a toString( ) which displays useful informa-
+tion.
+
+Note the creation ofthe emptystreamvia Stream. <String>empty( ) . Ifyoujust say
+Stream. empty( ) withoutanycontextinformation, Javadoesn’tknowwhatthe type
+is; this syntax solves the problem. If the compiler has enough context information,
+as in:
+
+    Stream<String> s = Stream. empty( );
+
+It can infer the type for the empty( ) call.
+
+This example shows the two basic activities for an Optional :
+```java
+// streams/OptionalBasics.java
+import java.util.*;
+import java.util.stream.*;
+class OptionalBasics {
+    static void test( Optional<String> optString) {
+        if( optString.isPresent( ))
+            System.out.println( optString.get( ));
+        else
+            System.out.println( "Nothing inside! ");
+    }
+    public static void main( String[] args) {
+        test( Stream.of( "Epithets").findFirst( ));
+        test( Stream.<String>empty( ).findFirst( ));
+    }
+}
+/* Output:
+Epithets
+Nothing inside!
+*/
+```
+When you receive an Optional , you first discover whether there’s anything inside
+by calling isPresent( ) . Ifthere is, you fetch it using get( ) .
+
+### ☘ Convenience Functions
+There are a number of convenience functions for unpacking Optionals, which
+simplifies the above process of “checking and doing something with the contained
+object”:
+
+1. • ifPresent( Consumer) : Call the Consumer with the value if it’s there, other-
+wise do nothing.
+
+2. • orElse( otherObject) : Produce the object if it’s there, otherwise produce
+otherObject .
+
+3. • orElseGet( Supplier) : Produce the object if it’s there, otherwise produce a
+replacement object using the Supplier function.
+
+4. • orElseThrow( Supplier) : Produce the object if it’s there, otherwise produce
+an exception using the Supplier function.
+
+Here are simple demonstrations for the different convenience functions:
+```java
+// streams/Optionals.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+public class Optionals {
+    static void basics(Optional < String > optString) {
+        if (optString.isPresent())
+            System.out.println(optString.get());
+        else
+            System.out.println("Nothing inside! ");
+    }
+    static void ifPresent(Optional < String > optString) {
+        optString.ifPresent(System.out::println);
+    }
+    static void orElse(Optional < String > optString) {
+        System.out.println(optString.orElse("Nada"));
+    }
+    static void orElseGet(Optional < String > optString) {
+        System.out.println(
+            optString.orElseGet(() -> "Generated"));
+    }
+    static void orElseThrow(Optional < String > optString) {
+        try {
+            System.out.println(optString.orElseThrow(
+                () -> new Exception("Supplied")));
+        } catch (Exception e) {
+            System.out.println("Caught " + e);
+        }
+    }
+    static void test(String testName,
+        Consumer < Optional < String >> cos) {
+        System.out.println(" === " + testName + " === ");
+        cos.accept(Stream.of("Epithets").findFirst());
+        cos.accept(Stream.< String > empty().findFirst());
+    }
+    public static void main(String[] args) {
+        test("basics", Optionals::basics);
+        test("ifPresent", Optionals::ifPresent);
+        test("orElse", Optionals::orElse);
+        test("orElseGet", Optionals::orElseGet);
+        test("orElseThrow", Optionals::orElseThrow);
+    }
+}
+/* Output:
+=== basics ===
+Epithets
+Nothing inside!
+=== ifPresent ===
+Epithets
+=== orElse ===
+Epithets
+Nada
+=== orElseGet ===
+Epithets
+Generated
+=== orElseThrow ===
+Epithets
+Caught java.lang.Exception: Supplied
+*/
+```
+The test( ) method prevents code duplication by taking a Consumer that matches
+all the example methods.
+
+orElseThrow( ) uses the catch keyword to capture the exception that is thrown by
+
+orElseThrow( ) . You’ll learn about this in detail in the Exceptions chapter.
+
+### ☘ Creating Optionals
+When you’re writing your own code that produces Optionals, there are three
+static methods you can use:
+• empty( ) : Produces an Optional with nothing inside.
+• of( value) : Ifyou already know that value is not null , use this to wrap it in
+an Optional .
+• ofNullable( value) : Use this if you don’t know that value is not null .
+
+It automatically produces Optional. empty if value is null , and otherwise
+wraps value inside an Optional .
+
+You can see how these work:
+```java
+// streams/CreatingOptionals.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class CreatingOptionals {
+    static void
+    test(String testName, Optional < String > opt) {
+        System.out.println(" === " + testName + " === ");
+        System.out.println(opt.orElse("Null"));
+    }
+    public static void main(String[] args) {
+        test("empty", Optional.empty());
+        test("of", Optional.of("Howdy"));
+        try {
+            test("of", Optional.of(null));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        test("ofNullable", Optional.ofNullable("Hi"));
+        test("ofNullable", Optional.ofNullable(null));
+    }
+}
+/* Output:
+=== empty ===
+Null
+=== of ===
+Howdy
+java.lang.NullPointerException
+=== ofNullable ===
+Hi
+=== ofNullable ===
+Null
+*/
+```
+Ifwe try to create an Optional by passing null to of( ) , it blows up. ofNullable( )
+handles null gracefully, so it seems the safest one to use.
+
+### ☘ Operations on Optional Objects
+Three methods enable post-processing on Optionals, so if your stream pipeline
+produces an Optional you can do one more thing at the end:
+
+1. • filter( Predicate) : Apply the Predicate to the contents of the Optional
+and return the result. Ifthe Optional fails the Predicate , convert it to empty .
+Ifthe Optional is already empty , just pass it through.
+
+2. • map( Function) : If the Optional is not empty , apply Function to the con-
+tents of the Optional and return the result. Otherwise, pass through the
+Optional. empty .
+
+3. • flatMap( Function) : Justlike map( ) , butthe suppliedmappingfunctionwraps
+the results in Optional objects so flatMap( ) doesn’t do any wrapping at the
+end.
+
+None ofthese are available for the numeric Optionals.
+
+The normal stream filter( ) removes elements from the stream if the Predicate
+returns false . Optional. filter( ) doesn’t delete the Optional ifthe Predicate
+fails—it leaves it, but converts it to empty . This example explores filter( ) :
+```java
+// streams/OptionalFilter.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class OptionalFilter {
+    static String[] elements = {
+        "Foo", "", "Bar", "Baz", "Bingo"
+    };
+    static Stream < String > testStream() {
+        return Arrays.stream(elements);
+    }
+    static void
+    test(String descr, Predicate < String > pred) {
+        System.out.println(" ---( " + descr + " )---");
+        for (int i = 0; i <= elements.length; i++) {
+            System.out.println(
+                testStream()
+                .skip(i)
+                .findFirst()
+                .filter(pred));
+        }
+    }
+    public static void main(String[] args) {
+        test("true", str -> true);
+        test("false", str -> false);
+        test("str ! = \"\"", str -> str! = "");
+        test("str.length( ) == 3", str -> str.length() == 3);
+        test("startsWith( \"B\")",
+            str -> str.startsWith("B"));
+    }
+}
+/* Output:
+---( true )---
+Optional [Foo]
+Optional []
+Optional [Bar]
+Optional [Baz]
+Optional [Bingo]
+Optional.empty
+---( false )---
+Optional.empty
+Optional.empty
+Optional.empty
+Optional.empty
+Optional.empty
+Optional.empty
+---( str != "" )---
+Optional [Foo]
+Optional.empty
+Optional [Bar]
+Optional [Baz]
+Optional [Bingo]
+Optional.empty
+---( str.length() == 3 )---
+Optional [Foo]
+Optional.empty
+Optional [Bar]
+Optional [Baz]
+Optional.empty
+Optional.empty
+---( startsWith("B") )---
+Optional.empty
+Optional.empty
+Optional [Bar]
+Optional [Baz]
+Optional [Bingo]
+Optional.empty
+*/
+```
+Although the output looks like a stream, pay special attention to the for loop inside
+test( ) . It’s restarting the stream each time through the for loop, and skipping the
+number of elements set by the for -loop index, which is what makes it end up on
+each successive element in the stream. Then it does a findFirst( ) to take the first
+remaining element, which comes back wrapped in an Optional .
+
+Unlike the usual for loop, this index isn’t bounded by i < elements. length , but
+rather i <= elements. length , so the final element actually overruns the stream.
+Conveniently, this automaticallybecomes an Optional. empty , which you see at the
+end ofeach test.
+
+Like map( ) , Optional. map( ) applies a function, but in the case of Optional , it
+only applies the mapping function ifthe Optional is not empty . It also extracts the
+contents ofthe Optional to hand to the mapping function:
+```java
+// streams/OptionalMap.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class OptionalMap {
+    static String[] elements = { "12", "", "23", "45" };
+    static Stream < String > testStream() {
+        return Arrays.stream(elements);
+    }
+    static void
+    test(String descr, Function < String, String > func) {
+        System.out.println(" ---( " + descr + " )---");
+        for (int i = 0; i <= elements.length; i++) {
+            System.out.println(
+                testStream()
+                .skip(i)
+                .findFirst() // Produces an Optional
+                .map(func));
+        }
+    }
+    public static void main(String[] args) {
+        // If Optional is not empty, map() first extracts
+        // the contents which it then passes
+        // to the function:
+        test("Add brackets", s -> "[" + s + "] ");
+        test("Increment", s -> {
+            try {
+                return Integer.parseInt(s) + 1 + "";
+            } catch (NumberFormatException e) {
+                return s;
+            }
+        });
+        test("Replace", s -> s.replace("2", "9"));
+        test("Take last digit", s -> s.length() > 0 ? s.charAt(s.length() - 1) + "" : s);
+    }
+    // After the function is finished, map() wraps the
+    // result in an Optional before returning it:
+}
+/* Output:
+---( Add brackets )---
+Optional [[1 2]]
+Optional [[]]
+Optional [[23]]
+Optional [[45]]
+Optional.empty
+---( Increment )---
+Optional [13]
+Optional []
+Optional [24]
+Optional [46]
+Optional.empty
+---( Replace )---
+Optional [19]
+Optional []
+Optional [93]
+Optional [45]
+Optional.empty
+---( Take l ast digit )---
+Optional [2]
+Optional []
+Optional [3]
+Optional [5]
+Optional.empty
+*/
+```
+The result ofthe mapping function is automatically wrapped back into an Optional .
+As you can see, an Optional. empty is simply passed through, without applying the
+mapping function.
+
+The flatMap( ) for Optional is applied to amapping function that already produces
+an Optional , so flatMap( ) doesn’t wrap the result in an Optional , the way map( )
+does:
+```java
+// streams/OptionalFlatMap.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+class OptionalFlatMap {
+    static String[] elements = { "12", "", "23", "45" };
+    static Stream < String > testStream() {
+        return Arrays.stream(elements);
+    }
+    static void test(String descr,
+        Function < String, Optional < String >> func) {
+        System.out.println(" ---( " + descr + " )---");
+        for (int i = 0; i <= elements.length; i++) {
+            System.out.println(
+                testStream()
+                .skip(i)
+                .findFirst()
+                .flatMap(func));
+        }
+    }
+    public static void main(String[] args) {
+        test("Add brackets",
+            s -> Optional.of("[" + s + "] "));
+        test("Increment", s -> {
+            try {
+                return Optional.of(
+                    Integer.parseInt(s) + 1 + "");
+            } catch (NumberFormatException e) {
+                return Optional.of(s);
+            }
+        });
+        test("Replace",
+            s -> Optional.of(s.replace("2", "9")));
+        test("Take last digit",
+            s -> Optional.of(s.length() > 0 ?
+                s.charAt(s.length() - 1) + "" :
+                s));
+    }
+}
+/* Output:
+---( Add brackets )---
+Optional [[1 2]]
+Optional [[]]
+Optional [[23]]
+Optional [[45]]
+Optional.empty
+---( Increment )---
+Optional [13]
+Optional []
+Optional [24]
+Optional [46]
+Optional.empty
+---( Replace )---
+Optional [19]
+Optional []
+Optional [93]
+Optional [45]
+Optional.empty
+---( Take l ast digit )---
+Optional [2]
+Optional []
+Optional [3]
+Optional [5]
+Optional.empty
+*/
+```
+Like map( ) , flatMap( ) unpacks the contents of non-empty Optionals to hand to
+the mapping function. The only difference is that flatMap( ) doesn’t wrap the result
+in an Optional , because the mapping function has already done that. In the above
+example, I’ve explicitly done the wrapping inside each mapping function, but clearly
+Optional. flatMap( ) is designed for functions already producing Optionals by
+themselves.
+
+### ☘ Streams of Optionals
+Suppose you have a generator that might produce null values. If you create a
+stream of these using that generator, you’ll naturally want to wrap the elements
+in Optionals. Here’s what it looks like:
+```java
+// streams/Signal.java
+import java.util.*;
+import java.util.stream.*;
+import java.util.function.*;
+public class Signal {
+    private final String msg;
+    public Signal(String msg) { this.msg = msg; }
+    public String getMsg() { return msg; }
+    @Override public String toString() {
+        return "Signal( " + msg + ")";
+    }
+    static Random rand = new Random(47);
+    public static Signal morse() {
+        switch (rand.nextInt(4)) {
+            case 1:
+                return new Signal("dot");
+            case 2:
+                return new Signal("dash");
+            default:
+                return null;
+        }
+    }
+    public static Stream < Optional < Signal >> stream() {
+        return Stream.generate(Signal:: morse)
+            .map(signal -> Optional.ofNullable(signal));
+    }
+}
+```
+When you use this stream, you’ll have to figure out how you want to unpack the
+Optionals:
+
+```java
+// streams/StreamOfOptionals.java
+import java.util.*;
+import java.util.stream.*;
+public class StreamOfOptionals {
+    public static void main(String[] args) {
+        Signal.stream()
+            .limit(10)
+            .forEach(System.out:: println);
+        System.out.println(" ---");
+        Signal.stream()
+            .limit(10)
+            .filter(Optional:: isPresent)
+            .map(Optional:: get)
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+Optional [Signal (dash)]
+Optional [Signal (dot)]
+Optional [Signal (dash)]
+Optional .empty
+Optional .empty
+Optional [Signal (dash)]
+Optional .empty
+Optional [Signal (dot)]
+Optional [Signal (dash)]
+Optional [Signal (dash)]
+---
+Signal(dot)
+Signal(dot)
+Signal(dash)
+Signal(dash)
+*/
+```
+Here, I use filter( ) to keep only the non- empty Optional s, then use map( ) to
+get( ) the values. Because each situation requires you to decide the meaning of“no
+value,” you usually need a different approach for each application.
+
+##  🍀15.05 Terminal Operations
+These operations take a stream and produce a final result; they do not feed anything
+to a back-end stream. Thus, a terminal operation is always the last thing you can do
+within a pipeline.
+
+### ☘ Convert to an Array
+• toArray( ) : Converts the stream elements into an array ofthe proper type.
+• toArray( generator) : The generator is for allocating your own array stor-
+age, in special cases.
+
+This is useful if the stream operations produce something you must use in array
+form. For example, suppose we want to capture random numbers in a way that we
+can reuse them as a stream, such that we get the identical stream each time. We can
+do this by storing them in an array:
+```java
+// streams/RandInts.java
+package streams;
+import java.util.*;
+import java.util.stream.*;
+public class RandInts {
+    private static int[] rints =
+        new Random( 47).ints( 0, 1000).limit( 100).toArray( );
+    public static IntStream rands( ) {
+        return Arrays.stream( rints);
+    }
+}
+```
+A stream of100 random int s between 0 and 1000 is converted to an array and stored
+in rints so that each time you call rands( ) you get a repeat ofthe same stream.
+
+### ☘ Apply a Final Operation to Every Element
+• forEach( Consumer) : You’ve already seen this used many times with Sys-
+tem. out: : println as the Consumer function.
+• forEachOrdered( Consumer) : This version ensures that the order on which
+the elements are operated on by forEach is the original stream order.
+
+The first form is explicitly designed to operate on elements in any order, which only
+makes sense if you introduce the parallel( ) operation. We won’t look at this in
+depth until the Concurrent Programming chapter, but here’s a quick introduction:
+parallel( ) tells Java to try to run operations on multiple processors. It can do this
+precisely because we use streams—it can split the stream into multiple streams (often,
+one stream per processor) and run each stream on a different processor. Because we
+use internal iteration rather than external iteration, this is possible.
+
+Before you get too excited about the seeming ease of parallel( ) , it’s actuallyrather
+tricky to use, so hold offuntil we get to the Concurrent Programming chapter.
+
+We can get an idea of the effect and of the need for forEachOrdered( Consumer)
+by introducing parallel( ) into an example:
+```java
+// streams/ForEach.java
+import java.util.*;
+import java.util.stream.*;
+import static streams.RandInts.*;
+public class ForEach {
+    static final int SZ = 14;
+    public static void main(String[] args) {
+        rands().limit(SZ)
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        rands().limit(SZ)
+            .parallel()
+            .forEach(n -> System.out.format("%d ", n));
+        System.out.println();
+        rands().limit(SZ)
+            .parallel()
+            .forEachOrdered(n -> System.out.format("%d ", n));
+    }
+}
+/* Output:
+258 555 693 861 961 429 868 200 522 207 288 1 28 551 589
+551 589 861 555 288 128 429 207 693 200 258 522 868 961
+258 555 693 861 961 429 868 200 522 207 288 1 28 551 589
+*/
+```
+I’ve isolated sz to make it easy to try different sizes. However, even a sz of 14
+produces interesting results. In the first stream, we don’t use parallel( ) and so
+display the results in the order they appear from rands( ) . The second stream does
+introduce parallel( ) and, even for such a small stream, you see that the output is
+not in the same order as before. That’s because multiple processors are working on
+the problem, and if you run the program multiple times you’ll see that this output
+is different, due to the non-deterministic factors produced by having more than one
+processor working on the problem at the same time.
+
+Thefinalstreamstilluses parallel( ) butforcestheresultbackinto itsoriginalorder
+using forEachOrdered( ) . Thus, using forEachOrdered( ) for non-parallel( )
+streams doesn’t have any effect.
+
+### ☘ Collecting
+• collect( Collector) : Uses the Collector to accumulate stream elements
+into a result collection.
+• collect( Supplier, BiConsumer, BiConsumer) : As above, but Supplier
+creates a new result collection, the first BiConsumer is a function for including
+the next element into the result, and the second BiConsumer is used for
+combining two values.
+
+You’ve only seen a few examples of Collectors objects. If you look at the docu-
+mentation for java. util. stream. Collectors , you’ll see that some of them are
+quite sophisticated. For example, we can collect into any specific kind ofcollection.
+Suppose we want our items to end up inside of a TreeSet so they are always
+sorted. There’s no specific toTreeSet( ) method in Collectors , but you can use
+Collectors. toCollection( ) and hand it the constructor reference for any type
+of Collection . This program pulls the words from a file into a TreeSet :
+```java
+// streams/TreeSetOfWords.java
+import java.util.*;
+import java.nio.file.*;
+import java.util.stream.*;
+public class TreeSetOfWords {
+    public static void
+    main(String[] args) throws Exception {
+        Set < String > words2 =
+            Files.lines(Paths.get("TreeSetOfWords. java"))
+            .flatMap(s -> Arrays.stream(s.split("\\W+")))
+            .filter(s -> !s.matches("\\d+")) // No numbers
+            .map(String:: trim)
+            .filter(s -> s.length() > 2)
+            .limit(100)
+            .collect(Collectors.toCollection(TreeSet:: new));
+        System.out.println(words2);
+    }
+}
+/* Output:
+[Arrays, Col lectors, Exception, Files, Output, Paths,
+Set, String, System, TreeSet, TreeSetOfWords, args,
+class, collect, fil e, filter, flatMap, get, import,
+java, length, l imit, lines, main, map, matches, new,
+nio, numbers, out, println, public, split, static,
+stream, streams, throws, toCol lection, trim, util,
+void, words2]
+*/
+```
+Files. lines( ) opens the Path and turns it into a Stream of lines. The next line
+splits those lines on boundaries of one or more non-word characters ( \\W+ ), which
+produces an array which is turned into a Stream with Arrays. stream( ) , and the
+result is flat-mapped back into a Stream of words. The matches( \\d+) finds and
+removes Strings that are all digits (note that words2 makes it through). Next we
+apply String. trim( ) to shave offany surrounding whitespace, filter( ) out any
+words less than a length ofthree, take only the first 100 words, and finally put them
+into a TreeSet .
+
+We can produce a Map from a stream:
+```java
+// streams/MapCollector.java
+import java.util.*;
+import java.util.stream.*;
+class Pair {
+    public final Character c;
+    public final Integer i;
+    Pair(Character c, Integer i) {
+        this.c = c;
+        this.i = i;
+    }
+    public Character getC() { return c; }
+    public Integer getI() { return i; }
+    @Override public String toString() {
+        return "Pair( " + c + ", " + i + ")";
+    }
+}
+class RandomPair {
+    Random rand = new Random(47);
+    // An infinite iterator of random capital letters:
+    Iterator < Character > capChars = rand.ints(65, 91)
+        .mapToObj(i -> (char) i)
+        .iterator();
+    public Stream < Pair > stream() {
+        return rand.ints(100, 1000).distinct()
+            .mapToObj(i -> new Pair(capChars.next(), i));
+    }
+}
+public class MapCollector {
+    public static void main(String[] args) {
+        Map < Integer, Character > map =
+            new RandomPair().stream()
+            .limit(8)
+            .collect(
+                Collectors.toMap(Pair:: getI, Pair:: getC));
+        System.out.println(map);
+    }
+}
+/* Output:
+{688=W, 309=C, 293=B, 761=N, 858=N, 668=G, 622=F,
+751=N}
+*/
+```
+Pair is just a basic data object. RandomPair creates a stream ofrandomly-generated
+Pair objects. It would be nice ifwe could just somehow combine two streams, but
+Java fights us on this one. So I create a stream of int s and use mapToObj to turn
+that into a stream of Pair s. The capChars randomly-generated Iterator ofcapital
+letters starts as a stream, then the iterator( ) method allows us to use it in the
+stream( ) method. As far as I can tell, this is the only way to combine more than
+one stream to produce a new stream ofobjects.
+
+Here, we use the simplest form of Collectors. toMap( ) , which just needs functions
+to fetch keys and values from the stream. There are additional forms, one ofwhich
+takes a function to handle the case when you get a key collision.
+
+Most of the time, you’ll be able to find a predefined Collector that will do what
+you need bylooking through java. util. stream. Collectors . In the rare situation
+when you don’t, you can use the second form of collect( ) . I’ll basically leave that
+as a more advanced exercise, but here’s one example to give the basic idea:
+
+```java
+// streams/SpecialCollector.java
+import java.util.*;
+import java.util.stream.*;
+public class SpecialCollector {
+    public static void
+    main(String[] args) throws Exception {
+        ArrayList < String > words =
+            FileToWords.stream("Cheese.dat")
+            .collect(ArrayList:: new,
+                ArrayList:: add,
+                ArrayList:: addAll);
+        words.stream()
+            .filter(s -> s.equals("cheese"))
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+cheese
+cheese
+*/
+```
+Here, the ArrayList methods already do what you need but it seems more likely
+that ifyou must use this form of collect( ) you’ll have to create special definitions.
+
+### ☘ Combining All Stream Elements
+• reduce( BinaryOperator) : Uses BinaryOperator to combine all stream ele-
+ments. Returns an Optional because the stream might be empty.
+• reduce( identity, BinaryOperator) : As above, but using identity as the
+initial value for the combination. Thus, if the stream is empty, you still get
+identity as the result.
+• reduce( identity, BiFunction, BinaryOperator) : This is more complicated 
+(so we won’t cover it), but is included because it can be more efficient.
+
+You can usually express this more simply by combining explicit map( ) and
+reduce( ) operations.
+
+Here’s a contrived example to demonstrate reduce( ) :
+```java
+// streams/Reduce.java
+import java.util.*;
+import java.util.stream.*;
+class Frobnitz {
+    int size;
+    Frobnitz(int sz) { size = sz; }
+    @Override public String toString() {
+        return "Frobnitz( " + size + ")";
+    }
+    // Generator:
+    static Random rand = new Random(47);
+    static final int BOUND = 100;
+    static Frobnitz supply() {
+        return new Frobnitz(rand.nextInt(BOUND));
+    }
+}
+public class Reduce {
+    public static void main(String[] args) {
+        Stream.generate(Frobnitz:: supply)
+            .limit(10)
+            .peek(System.out:: println)
+            .reduce((fr0, fr1) -> fr0.size < 50 ? fr0 : fr1)
+            .ifPresent(System.out:: println);
+    }
+}
+/* Output:
+Frobnitz(58)
+Frobnitz(55)
+Frobnitz(93)
+Frobnitz(61)
+Frobnitz(61)
+Frobnitz(29)
+Frobnitz(68)
+Frobnitz(0)
+Frobnitz(22)
+Frobnitz(7)
+Frobnitz(29)
+*/
+```
+
+Frobnitz contains its own generator named supply( ) ; we can pass a method
+reference to Stream. generate( ) because it is signature-compatible as a Sup-
+plier<Frobnitz> (This signature compatibility is called structural conformance).
+We use the reduce( ) method without the first-argument “starter value”, which
+means it produces an Optional . The Optional. ifPresent( ) method calls a Con-
+sumer<Frobnitz> ( println conforms because it can take a String by converting
+the Frobnitz via toString( ) ) only ifthe result is non-empty .
+
+The first argument in the lambda expression, fr0 , is the result that is carried over
+from the last invocation ofthis reduce( ) , and the second argument, fr1 , is the new
+value that’s coming in from the stream.
+
+The reduce( ) lambda uses a ternary if-else to take fr0 if its size is less than
+50, otherwise it takes fr1 , the next one in the sequence. As a result, you get the
+first Frobnitz with a size less than 50—it just keeps holding onto that one once
+you’ve found it, even though other candidates appear. Although this is a rather odd
+constraint, it does give you a bit more insight into reduce( ) .
+
+### ☘ Matching
+• allMatch( Predicate) : Returns true ifevery element ofthe stream produces
+true when provided to the supplied Predicate . This will short-circuit upon
+the first false ; it won’t continue the calculation once it finds one false .
+• anyMatch( Predicate) : Returns true if any element of the stream produces
+true when provided to the supplied Predicate . This will short-circuit upon
+the first true .
+• noneMatch( Predicate) : Returns true if no elements of the stream produce
+true when provided to the supplied Predicate . This will short-circuit upon
+the first true .
+
+You’ve seen an example of noneMatch( ) in Prime. java ; the usage of allMatch( )
+and anyMatch( ) are virtually identical.
+
+Let’s explore the short-circuiting behavior. To create a show( ) method that elimi-
+nates repeated code, we must first discover how to generically describe all three of
+the matcher operations, which we then turn into an interface called Matcher :
+```java
+// streams/Matching.java
+// Demonstrates short-circuiting of *Match() operations
+import java.util.stream.*;
+import java.util.function.*;
+import static streams.RandInts.*;
+interface Matcher extends
+BiPredicate < Stream < Integer > , Predicate < Integer >> {}
+public class Matching {
+    static void show(Matcher match, int val) {
+        System.out.println(
+            match.test(
+                IntStream.rangeClosed(1, 9)
+                .boxed()
+                .peek(n -> System.out.format("%d ", n)),
+                n -> n < val));
+    }
+    public static void main(String[] args) {
+        show(Stream:: allMatch, 10);
+        show(Stream:: allMatch, 4);
+        show(Stream:: anyMatch, 2);
+        show(Stream:: anyMatch, 0);
+        show(Stream:: noneMatch, 5);
+        show(Stream:: noneMatch, 0);
+    }
+}
+/* Output:
+1 2 3 4 5 6 7 8 9 true
+1 2 3 4 false
+1 true
+1 2 3 4 5 6 7 8 9 false
+1 fal se
+1 2 3 4 5 6 7 8 9 true
+*/
+```
+
+BiPredicate is a binary predicate, which only means it takes two arguments and
+returns true or false . The first argument is the stream of numbers we are going
+to test, and the second argument is the Predicate itself. Because Matcher fits
+the pattern of all the `Stream::*Match` functions, we can pass each one to show( ) .
+The call to match. test( ) is translated into an invocation ofthe `Stream::*Match`
+function.
+
+show( ) takes a Matcher and a val indicating the maximum number in the predicate’s 
+test n < val . It generates a stream of Integer s from 1 through 9. The peek( )
+is to showus howfar the test gets before it short-circuits. You can see fromthe output
+that the short-circuiting happens every time.
+
+### ☘ Selecting an Element
+• findFirst( ) : returns an Optional containing the first element ofthe stream,
+or Optional. empty ifthe stream has no elements.
+• findAny( ) : returns an Optional containing some element of the stream, or
+Optional. empty ifthe stream has no elements.
+```java
+// streams/SelectEl ement.java
+import java.util.*;
+import java.util.stream.*;
+import static streams.RandInts.*;
+public class SelectElement {
+    public static void main(String[] args) {
+        System.out.println(rands().findFirst().getAsInt());
+        System.out.println(
+            rands().parallel().findFirst().getAsInt());
+        System.out.println(rands().findAny().getAsInt());
+        System.out.println(
+            rands().parallel().findAny().getAsInt());
+    }
+}
+/* Output:
+258
+258
+258
+242
+*/
+```
+findFirst( ) will always select the first element in the stream, whether or not the
+stream is parallel( ) . For a non-parallel( ) stream, findAny( ) chooses the first
+element(although from the definition it has the optionto choose anyelement). In this
+example, making the stream parallel( ) introduces the possibility that findAny( )
+chooses other than the first element.
+
+If you must select the last element in a stream, use reduce( ) :
+```java
+// streams/LastElement.java
+import java.util.*;
+import java.util.stream.*;
+public class LastElement {
+    public static void main(String[] args) {
+        OptionalInt last = IntStream.range(10, 20)
+            .reduce((n1, n2) - > n2);
+        System.out.println(last.orElse(-1));
+        // Non-numeric object:
+        Optional < String > lastobj =
+            Stream.of("one", "two", "three")
+            .reduce((n1, n2) - > n2);
+        System.out.println(
+            lastobj.orElse("Nothing there! "));
+    }
+}
+/* Output:
+19
+three
+*/
+
+```
+The argument to reduce( ) just replaces the last two elements with the last element,
+ultimately producing only the last element. If the stream is numeric, you must use
+the appropriate numeric optional type, otherwise you use a typed Optional as in
+Optional<String> .
+
+### ☘ Informational
+• count( ) : The number ofelements in this stream.
+• max( Comparator) : The “maximum” element of this stream as determined by
+the Comparator .
+• min( Comparator) : The “minimum” element of this stream as determined by
+the Comparator .
+
+String s have a predefined Comparator , which simplifies our example:
+```java
+// streams/Informational.java
+import java.util.stream.*;
+import java.util.function.*;
+public class Informational {
+    public static void
+    main(String[] args) throws Exception {
+        System.out.println(
+            FileToWords.stream("Cheese.dat").count());
+        System.out.println(
+            FileToWords.stream("Cheese.dat")
+            .min(String.CASE_INSENSITIVE_ORDER)
+            .orElse("NONE"));
+        System.out.println(
+            FileToWords.stream("Cheese.dat")
+            .max(String.CASE_INSENSITIVE_ORDER)
+            .orElse("NONE"));
+    }
+}
+/* Output:
+32
+a
+you
+*/
+```
+min( ) and max( ) return Optional s, which I unpack using orElse( ) ;
+
+### ☘ Information for Numeric Streams
+• average( ) : The usual meaning.
+• max( ) & min( ) : These don’tneeda Comparator because they work on numeric streams.
+• sum( ) : Add up the values in the stream.
+• summaryStatistics( ) : Produces potentially useful data. It’s not quite clear
+why they felt the need for this one because you can produce all the data yourself
+with the direct methods.
+```java
+// streams/NumericStreamInfo.java
+import java.util.stream.*;
+import static streams.RandInts.*;
+public class NumericStreamInfo {
+    public static void main(String[] args) {
+        System.out.println(rands().average().getAsDouble());
+        System.out.println(rands().max().getAsInt());
+        System.out.println(rands().min().getAsInt());
+        System.out.println(rands().sum());
+        System.out.println(rands().summaryStatistics());
+    }
+}
+/* Output:
+507. 94
+998
+8
+50794
+IntSummaryStatistics{count=100, sum=50794, min=8,
+average=507. 940000, max=998}
+*/
+```
+The same operations are available for LongStream s and DoubleStream s.
+
+##  🍀15.06 Summary
+
+Streams change—and greatly improve—the nature of Java programming, and may
+stem the flow of Java programmers to functional JVM languages like Kotlin and
+Scala. I use streams whenever possible throughout the rest ofthis book.
+
+# 📜16. Exceptions
+
+##  🍀16.01 Concepts
+
+##  🍀16.02 Basic Exceptions
+
+##  🍀16.03 Catching an Exception
+
+##  🍀16.04 Creating Your Own Exceptions
+
+##  🍀16.05 The Exception Specification
+
+##  🍀16.06 Catching Any Exception
+
+##  🍀16.07 Standard Java Exceptions
+
+##  🍀16.08 New Feature: Better NullPointerException Reporting
+
+##  🍀16.09 Performing Cleanup with finally
+
+##  🍀16.10 Exception Restrictions
+
+##  🍀16.11 Constructors
+
+##  🍀16.12 Try-With-Resources
+
+##  🍀16.13 Exception Matching
+
+##  🍀16.14 Alternative Approaches
+
+##  🍀16.15 Exception Guidelines
+
+##  🍀16.16 Summary
+
+# 📜17. Validating Your Code
+
+##  🍀17.01 Testing
+
+##  🍀17.02 Preconditions
+
+##  🍀17.03 Test-Driven Development
+
+##  🍀17.04 Logging
+
+##  🍀17.05 Debugging
+
+##  🍀17.06 Benchmarking
+
+##  🍀17.07 Profiling and Optimizing
+
+##  🍀17.08 Style Checking
+
+##  🍀17.09 Static Error Analysis
+
+##  🍀17.10 Code Reviews
+
+##  🍀17.11 Pair Programming
+
+##  🍀17.12 Refactoring
+
+##  🍀17.13 Continuous Integration
+
+##  🍀17.14 Summary
+
+# 📜18. Files
+
+##  🍀18.01 File and Directory Paths
+
+##  🍀18.02 Directories
+
+##  🍀18.03 File Systems
+
+##  🍀18.04 Watching a Path
+
+##  🍀18.05 Finding Files
+
+##  🍀18.06 Reading & Writing Files
+
+##  🍀18.07 Summary
+
+# 📜19. Strings
+
+##  🍀19.01 Immutable Strings
+
+##  🍀19.02 Overloading + vs. StringBuilder
+
+##  🍀19.03 Unintended Recursion
+
+##  🍀19.04 Operations on Strings
+
+##  🍀19.05 Formatting Output
+
+##  🍀19.06 New Feature: Text Blocks
+
+##  🍀19.07 Regular Expressions
+
+##  🍀19.08 Scanning Input
+
+##  🍀19.09 StringTokenizer
 
 ##  🍀19.10 Summary
 
-# 📜20. Generics
+# 📜20. Reflection
 
-##  🍀20.01 Comparison with C++
+##  🍀20.01 The Need for Reflection
 
-##  🍀20.02 Simple Generics
+##  🍀20.02 The Class Object
 
-##  🍀20.03 Generic Interfaces
+##  🍀20.03 Checking Before a Cast
 
-##  🍀20.04 Generic Methods
+##  🍀20.04 Registered Factories
 
-##  🍀20.05 Building Complex Models
+##  🍀20.05 Instanceof vs. Class Equivalence
 
-##  🍀20.06 The Mystery of Erasure
+##  🍀20.06 Runtime Class Information
 
-##  🍀20.07 Compensating for Erasure
+##  🍀20.07 Dynamic Proxies
 
-##  🍀20.08 Bounds
+##  🍀20.08 Using Optional
 
-##  🍀20.09 Wildcards
+##  🍀20.09 Interfaces and Type Information
 
-##  🍀20.10 Issues
+##  🍀20.10 Summary
 
-##  🍀20.11 Self-Bounded Types
+# 📜21. Generics
 
-##  🍀20.12 Dynamic Type Safety
+##  🍀21.01 Comparison with C++
 
-##  🍀20.13 Exceptions
+##  🍀21.02 Simple Generics
 
-##  🍀20.14 Mixins
+##  🍀21.03 Generic Interfaces
 
-##  🍀20.15 Latent Typing
+##  🍀21.04 Generic Methods
 
-##  🍀20.16 Compensating for the Lack of (Direct) Latent Typing
+##  🍀21.05 Building Complex Models
 
-##  🍀20.17 Assisted Latent Typing in Java 8
+##  🍀21.06 The Mystery of Erasure
 
-##  🍀20.18 Summary: Is Casting Really So Bad?
+##  🍀21.07 Compensating for Erasure
 
-# 📜21. Arrays
+##  🍀21.08 Bounds
 
-##  🍀21.01 Why Arrays are Special
+##  🍀21.09 Wildcards
 
-##  🍀21.02 Arrays are First-Class Objects
+##  🍀21.10 Issues
 
-##  🍀21.03 Returning an Array
+##  🍀21.11 Self-Bounded Types
 
-##  🍀21.04 Multidimensional Arrays
+##  🍀21.12 Dynamic Type Safety
 
-##  🍀21.05 Arrays and Generics
+##  🍀21.13 Exceptions
 
-##  🍀21.06 Arrays.fill()
+##  🍀21.14 Mixins
 
-##  🍀21.07 Arrays.setAll()
+##  🍀21.15 Latent Typing
 
-##  🍀21.08 Incremental Generators
+##  🍀21.16 Compensating for the Lack of (Direct) Latent Typing
 
-##  🍀21.09 Random Generators
+##  🍀21.17 Assisted Latent Typing in Java 8
 
-##  🍀21.10 Generics and Primitive Arrays
+##  🍀21.18 Summary: Is Casting Really So Bad?
 
-##  🍀21.11 Modifying Existing Array Elements
+# 📜22. Arrays
 
-##  🍀21.12 An Aside On Parallelism
+##  🍀22.01 Why Arrays are Special
 
-##  🍀21.13 Arrays Utilities
+##  🍀22.02 Arrays are First-Class Objects
 
-##  🍀21.14 Copying an Array
+##  🍀22.03 Returning an Array
 
-##  🍀21.15 Comparing Arrays
+##  🍀22.04 Multidimensional Arrays
 
-##  🍀21.16 Streams and Arrays
+##  🍀22.05 Arrays and Generics
 
-##  🍀21.17 Sorting Arrays
+##  🍀22.06 Arrays.fill()
 
-##  🍀21.18 Searching with Arrays.binarySearch()
+##  🍀22.07 Arrays.setAll()
 
-##  🍀21.19 Accumulating with parallelPrefix()
+##  🍀22.08 Incremental Generators
 
-##  🍀21.20 Summary
+##  🍀22.09 Random Generators
 
-# 📜22. Enumerations
+##  🍀22.10 Generics and Primitive Arrays
 
-##  🍀22.01 Basic enum Features
+##  🍀22.11 Modifying Existing Array Elements
 
-##  🍀22.02 Adding Methods to an enum
+##  🍀22.12 An Aside On Parallelism
 
-##  🍀22.03 enums in switch Statements
+##  🍀22.13 Arrays Utilities
 
-##  🍀22.04 The Mystery of values()
+##  🍀22.14 Copying an Array
 
-##  🍀22.05 Implements, not Inherits
+##  🍀22.15 Comparing Arrays
 
-##  🍀22.06 Random Selection
+##  🍀22.16 Streams and Arrays
 
-##  🍀22.07 Using Interfaces for Organization
+##  🍀22.17 Sorting Arrays
 
-##  🍀22.08 Using EnumSet Instead of Flags
+##  🍀22.18 Searching with Arrays.binarySearch()
 
-##  🍀22.09 Using EnumMap
+##  🍀22.19 Accumulating with parallelPrefix()
 
-##  🍀22.10 Constant-Specific Methods
+##  🍀22.20 Summary
 
-##  🍀22.11 Multiple Dispatching
+# 📜23. Enumerations
 
-##  🍀22.12 New Features to Support Pattern Matching
+##  🍀23.01 Basic enum Features
 
-##  🍀22.13 New Feature: Arrow in switch
+##  🍀23.02 Adding Methods to an enum
 
-##  🍀22.14 New Feature: case null in switch
+##  🍀23.03 enums in switch Statements
 
-##  🍀22.15 New Feature: switch as an Expression
+##  🍀23.04 The Mystery of values()
 
-##  🍀22.16 New Feature: Smart Casts
+##  🍀23.05 Implements, not Inherits
 
-##  🍀22.17 New Feature: Pattern Matching
+##  🍀23.06 Random Selection
 
-##  🍀22.18 Summary
+##  🍀23.07 Using Interfaces for Organization
 
-# 📜23. Annotations
+##  🍀23.08 Using EnumSet Instead of Flags
 
-##  🍀23.01 Basic Syntax
+##  🍀23.09 Using EnumMap
 
-##  🍀23.02 Writing Annotation Processors
+##  🍀23.10 Constant-Specific Methods
 
-##  🍀23.03 Using javac to Process Annotations
+##  🍀23.11 Multiple Dispatching
 
-##  🍀23.04 Annotation-Based Unit Testing
+##  🍀23.12 New Features to Support Pattern Matching
 
-##  🍀23.05 Summary
+##  🍀23.13 New Feature: Arrow in switch
 
-# 📜24. Concurrent Programming
+##  🍀23.14 New Feature: case null in switch
 
-##  🍀24.01 The Terminology Problem
+##  🍀23.15 New Feature: switch as an Expression
 
-##  🍀24.02 Concurrency Superpowers
+##  🍀23.16 New Feature: Smart Casts
 
-##  🍀24.03 Concurrency is for Speed
+##  🍀23.17 New Feature: Pattern Matching
 
-##  🍀24.04 The Four Maxims of Java Concurrency
+##  🍀23.18 Summary
 
-##  🍀24.05 The Brutal Truth
+# 📜24. Annotations
 
-##  🍀24.06 The Rest of the Chapter
+##  🍀24.01 Basic Syntax
 
-##  🍀24.07 Parallel Streams
+##  🍀24.02 Writing Annotation Processors
 
-##  🍀24.08 Creating and Running Tasks
+##  🍀24.03 Using javac to Process Annotations
 
-##  🍀24.09 Terminating Long-Running Tasks
+##  🍀24.04 Annotation-Based Unit Testing
 
-##  🍀24.10 CompletableFutures
+##  🍀24.05 Summary
 
-##  🍀24.11 Deadlock
+# 📜25. Concurrent Programming
 
-##  🍀24.12 Constructors are not Thread-Safe
+##  🍀25.01 The Terminology Problem
 
-##  🍀24.13 Effort, Complexity, Cost
+##  🍀25.02 Concurrency Superpowers
 
-##  🍀24.14 Summary
+##  🍀25.03 Concurrency is for Speed
 
-# 📜25. Patterns
+##  🍀25.04 The Four Maxims of Java Concurrency
 
-##  🍀25.01 The Pattern Concept
+##  🍀25.05 The Brutal Truth
 
-##  🍀25.02 Singleton
+##  🍀25.06 The Rest of the Chapter
 
-##  🍀25.03 Classifying Patterns
+##  🍀25.07 Parallel Streams
 
-##  🍀25.04 Template Method
+##  🍀25.08 Creating and Running Tasks
 
-##  🍀25.05 Fronting for an Implementation
+##  🍀25.09 Terminating Long-Running Tasks
 
-##  🍀25.06 Factories: Encapsulating Object Creation
+##  🍀25.10 CompletableFutures
 
-##  🍀25.07 Function Objects
+##  🍀25.11 Deadlock
 
-##  🍀25.08 Changing the Interface
+##  🍀25.12 Constructors are not Thread-Safe
 
-##  🍀25.09 Interpreter: Runtime Flexibility
+##  🍀25.13 Effort, Complexity, Cost
 
-##  🍀25.10 Callbacks
+##  🍀25.14 Summary
 
-##  🍀25.11 Multiple Dispatching
+# 📜26. Patterns
 
-##  🍀25.12 Pattern Refactoring
+##  🍀26.01 The Pattern Concept
 
-##  🍀25.13 Summary
+##  🍀26.02 Singleton
+
+##  🍀26.03 Classifying Patterns
+
+##  🍀26.04 Template Method
+
+##  🍀26.05 Fronting for an Implementation
+
+##  🍀26.06 Factories: Encapsulating Object Creation
+
+##  🍀26.07 Function Objects
+
+##  🍀26.08 Changing the Interface
+
+##  🍀26.09 Interpreter: Runtime Flexibility
+
+##  🍀26.10 Callbacks
+
+##  🍀26.11 Multiple Dispatching
+
+##  🍀26.12 Pattern Refactoring
+
+##  🍀26.13 Summary
 
 # 📜Appendix: Supplements
 
