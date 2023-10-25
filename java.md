@@ -2929,9 +2929,14 @@ tasks.withType(JavaCompile) {
 	consider adding an engine implementation JAR to the classpath
 
 
-# 🚩 I/O Streams 流式数据处理
+# 🚩 I/O and Streams 流式数据处理
 
 I/O 是程序最最基础的功能，从早期机械式计算机的开关状态输入，当时是人工控制开关的状态，再到纸质卡片打孔式数据输入，再到电子电路、晶体管开关、集成电路，数据的本质没有改变，但是在硬件实现上工艺却越来起复制，甚至让人觉得抽象得很！
+
+尽管，I/O 和流式数据处理经常混为一谈，但是它们是两个完全不同的概念。
+
+“流式”Streams 是 I/O 数据处理的一种模式，进行流动式数据处理的一种抽象模型，各类型的数据序列就如同水流，这些数据序列称之为 elements，通过流式接口定义的各种方法进行处理。
+
 
 将早期机械开关机构和 CPU、内存等集成电路中的晶体管开关放到一起，不难发现数据即开关状态的数据，I/O 操作即通过开关数据的读写实现对应天关电路状态的切换。
 
@@ -3024,8 +3029,6 @@ Java 的整个发展历史中，先后引入了多种 I/O 模型，依次为：
 3. 同步方式执行：先执行 A 语句读取完文件后，再执行 B 语句。
 4. 异步方式执行：执行 A 语句，在其反回结果之前就执行 B 语句。
 
-阻塞式 I/O，BIO，是面向字节流或字符流编程的 I/O 方式。定义了各种 Stream，如 InputStream、OutputStream。
-
 由于阻塞式 I/O 效率太低，不利于开发高效的并发处理应用，而异步 I/O 则是克服了阻塞式 I/O 的问题，使用其非常适用于高并发应用开发。Nodejs 等平台默认就使用异步 I/O 事件处理模型。
 
 异步 I/O 可以使用不同的方式来实现线程间的任务消息处理：
@@ -3044,13 +3047,112 @@ Java 的整个发展历史中，先后引入了多种 I/O 模型，依次为：
 4. Signal driven I/O  信号驱动 I/O 模型；
 5. Asynchronous I/O   异步 I/O 模型；
 
-NIO 的 3 个核心概念：Channel、Buffer、Selector。
+阻塞式 I/O，BIO，是面向字节流或字符流编程的 I/O 方式。I/O 与 Streams 数据处理模式结合，这些相关的类型也就使用 Input、Output 和 Stream 等字符，并且根据具体的 I/O 设备类型命名。InputStream、OutputStream 和 Reader、Writer 是整个 I/O 体系的基类，前一对处理字节数据，后一对处理字符数据。
 
-Channel 是对 IO 输入/输出系统的抽象，是 IO 源与目标之间的连接通道，NIO 的通道类似于传统 IO 中的各种“流”。NIO 模型的 Channel 中的数据流是双向的，相对于 BIO Stream 则是单向的。通道的作用是将数据移入或移出道各种 I/O 源，即可读又可写。
+01. 基础 I/O 流抽象基类：
+	01.1. 输入流：可读取数据，基类：InputStream 或者 Reader
+	01.2. 输出流：可写入数据，基类：OutputStream 或者 Writer
+02. 文件（File）：FileInputStream FileOutputStream FileReader FileWriter
+03. 内存缓冲区（Buffer）：BufferedInputStream BufferedOutputStream BufferedReader BufferedWriter
+04. 字符串流对象（String）：StringReader StringWriter
+05. 网络设备缓冲区（Socket）：SocketInputStream 或 SocketOutputStream
+06. 字符流转字节流：InputStreamReader OutputStreamWriter
+07. 对象流：ObjectInputStream ObjectOutputStream
+08. 打印流：PrintStream(OutputStream) PrintWriter
+09. 元素推回流：PushbackInputStream PushbackReader
+10. 字节数组流：ByteArrayInputStream ByteArrayOutputStream ByteArrayReader ByteArrayWriter
+11. 管道流：PipedInputStream PipedOutputStream PipedReader PipedWriter
+12. 过滤器：FilterInputStream FilterOutputStream FilterReader FilterWriter
+13. 机器无关的数据流：DataInputStream DataOutputStream
 
-此外 Channel map() 方法可以将“一块”数据直接映射到内存中，因此 NIO 可以说是面向块处理的，而传统 I/O 是面向流处理的。但是 Channel 是一个接口，实现类有 FileChannel、SocketChannel、ServerSocketChannel、DatagramChannel，程序不能直接访问 Channel 中的数据，必须通过 Buffer（缓冲区）作为中介。
+Java System 全局模块定义了 Standard I/O 相关的属性和方法：
 
-Buffer 是一个抽象容器类型，其底层持有了一个具体类型的数组来存放具体数据，除 boolean 之外的基本数据类型都有对应的实现，比如 ByteBuffer 和 CharBuffer，通过 Channel 读写的数据需要通过 Buffer。
+```java
+public final static InputStream in = null;
+public final static PrintStream out = null;
+public final static PrintStream err = null;
+public static void setIn(InputStream in);
+public static void setOut(PrintStream out);
+public static void setErr(PrintStream err);
+```
+
+使用 ByteArrayOutputStream 搭配 BufferedOutputStream 替换掉 stdout 就可以实现标准输出内容的截取，实现 Redirecting standard I/O。注意使用 flush() 排空缓冲区数据，否则数据不会及时写入 ByteArrayOutputStream 对象：
+
+```java
+import java.io.*;
+import java.lang.Exception;
+
+public class Redirection {
+    public static void main( String[] args ) throws Exception
+    {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(10000);
+        OutputStream outstream = new BufferedOutputStream( baos );
+        PrintStream console = System.out;
+        System.out.println("Redirection standard I/O:");
+        System.setOut(new PrintStream(outstream));
+        try {
+            mgid.App.main(args);
+        } finally {
+            System.out.format("ByteArray size: %d\n", baos.size());
+            System.out.flush(); // force write data to baos.
+            System.out.format("ByteArray size flushed: %d\n", baos.size());
+            System.out.flush(); // force write data to baos.
+            System.setOut(console);
+            System.out.format("Cat: \n %s", baos.toString());
+        }
+    }
+}
+```
+
+以下是扩展自 java.util.stream.BaseStream 的基础流接口：
+
+1. `DoubleStream` 处理 double 数值序列和聚合操作；
+2. `IntStream` 处理 int 数值序列和聚合操作；
+3. `LongStream` 处理 long 数值序列和聚合操作；
+4. `Stream<T>` A sequence of elements supporting sequential and parallel aggregate operations.
+
+流式数据处理的基本特征：
+
+1. 无存储。流式对象只是数据处理的形式，不是一种存储数据的结构。
+2. 为函数式编程而生。流式对象中对任何数据的修改都不会影响数据源。
+3. 惰性执行。流式对象上的操作只在用户消费数据时才会执行。
+4. 可消费性 (Consumable)。数据只“消费”一次，再次使用只能重新生成流对象。
+
+流式操作分为为两类，二者特点如下：
+
+1. 中间操作 (intermediate operations)，新生成一个标记了该操作的 stream 对象。
+1.1. 无状态操作：如 filter，map，不需要获得先前遍历过的元素的状态。 
+1.2. 有状态操作：如 distinct，sorted, 需要得到先前访问的元素的状态。
+2. 结束操作 (terminal operations)，触发实际计算，并且以 pipeline 方式执行。
+
+有状态的操作在产生结果前需要获得完整的输入，操作一个并行流时，可能需要多次传入数据或者需要缓存数据。
+
+大部分情况下可以使用 Collection 对象的 `stream()` `parallelStream()` 方法或者 Stream 对象 `of()` 方法得到一个流对象，参考代码：
+
+```java
+int[] arr = new int[]{1,2,3};
+IntStream stream1 = Arrays.stream(arr);
+
+String[] stringArr = new String[]{"Hello", "imooc"};
+Stream<String> stream2 = Arrays.stream(stringArr);
+
+List<String> strings = Arrays.asList("abc", "");
+long count = strings.parallelStream().filter(it -> it.isEmpty()).count();
+
+Stream<Integer> stream = Stream.of(1, 2, 3);
+```
+
+Stream 是泛型流对象，它除了 of() 方法，还提供一系列流接口方法：
+
+1. 流对象生成：generate()
+2. LongStream 或者 IntStream 闭区间数值序列：range()
+3. 元素迭代：forEach()
+4. 元素过滤：filter()
+5. 元素排序：sorted()
+6. 集合转换：collect()
+7. 映射操作：map() mapToInt() flatMap()
+8. 聚合操作：count() max() min() average() sum()
+9. 其它操作：findFirst() findAny()
 
 
 # 🚩 Java Native Interface (JNI)
@@ -4146,9 +4248,17 @@ JDK 自带可视化监控工具 JConsole，是一种基于 JMX 的可视化监�
 - [Java1.4 从 BIO 模型发展到 NIO 模型](https://www.cnblogs.com/kendoziyu/p/java-develop-from-bio-to-nio.html)
 - [Java NIO 对象分类](https://www.cnblogs.com/jimoer/p/11575610.html)
 
-Java 1.4 引入 java.nio 包，使用这些 API 可以实现一个 BIO 模型，也可以实现 NIO 模型。
+Java 1.4 引入 java.nio 包，正式支持 Non-blocking I/O 模型。
 
 **NIO** - Non-blocking I/O 也称为 New I/O，是 Java 一种同步非阻塞 I/O 模型，也是 I/O 多路复用的基础，已经被越来越多地应用到大型应用服务器，成为解决高并发与大量连接、I/O 处理问题的有效方式。
+
+NIO 的 3 个核心概念：Channel、Buffer、Selector。
+
+Channel 是对 IO 输入/输出系统的抽象，是 IO 源与目标之间的连接通道，NIO 的通道类似于传统 IO 中的各种“流”。NIO 模型的 Channel 中的数据流是双向的，相对于 BIO Stream 则是单向的。通道的作用是将数据移入或移出道各种 I/O 源，即可读又可写。
+
+此外 Channel map() 方法可以将“一块”数据直接映射到内存中，因此 NIO 可以说是面向块处理的，而传统 I/O 是面向流处理的。但是 Channel 是一个接口，实现类有 FileChannel、SocketChannel、ServerSocketChannel、DatagramChannel，程序不能直接访问 Channel 中的数据，必须通过 Buffer（缓冲区）作为中介。
+
+Buffer 是一个抽象容器类型，其底层持有了一个具体类型的数组来存放具体数据，除 boolean 之外的基本数据类型都有对应的实现，比如 ByteBuffer 和 CharBuffer，通过 Channel 读写的数据需要通过 Buffer。
 
 先来认识几个概念：
 
