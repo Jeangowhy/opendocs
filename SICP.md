@@ -787,6 +787,7 @@ or alternatively as
 (define (>= x y)  
   (not (< x y)))  
 
+<a name="_thm_1.1"></a>
 **Exercise 1.1.**  Below is a sequence of expressions. What is the result printed by the interpreter in response to each expression? Assume that the sequence is to be evaluated in the order in which it is presented.
 
 10  
@@ -810,17 +811,21 @@ or alternatively as
          (else -1))  
    (+ a 1))  
 
+<a name="_thm_1.2"></a>
 **Exercise 1.2.**  Translate the following expression into prefix form
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-3.gif)
 
+<a name="_thm_1.3"></a>
 **Exercise 1.3.**  Define a procedure that takes three numbers as arguments and returns the sum of the squares of the two larger numbers.
 
+<a name="_thm_1.4"></a>
 **Exercise 1.4.**  Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following procedure:
 
 (define (a-plus-abs-b a b)  
   ((if (> b 0) + -) a b))  
 
+<a name="_thm_1.5"></a>
 **Exercise 1.5.**  Ben Bitdiddle has invented a test to determine whether the interpreter he is faced with is using applicative-order evaluation or normal-order evaluation. He defines the following two procedures:
 
 (define (p) (p))  
@@ -939,6 +944,7 @@ _1000.000369924366_
 
 The sqrt program also illustrates that the simple procedural language we have introduced so far is sufficient for writing any purely numerical program that one could write in, say, C or Pascal. This might seem surprising, since we have not included in our language any iterative (looping) constructs that direct the computer to do something over and over again. Sqrt-iter, on the other hand, demonstrates how iteration can be accomplished using no special construct other than the ordinary ability to call a procedure.[24](#footnote_Temp_36)
 
+<a name="_thm_1.6"></a>
 **Exercise 1.6.**  Alyssa P. Hacker doesn't see why if needs to be provided as a special form. \`\`Why can't I just define it as an ordinary procedure in terms of cond?'' she asks. Alyssa's friend Eva Lu Ator claims this can indeed be done, and she defines a new version of if:
 
 (define (new-if predicate then-clause else-clause)  
@@ -963,8 +969,10 @@ Delighted, Alyssa uses new-if to rewrite the square-root program:
 
 What happens when Alyssa attempts to use this to compute square roots? Explain.
 
+<a name="_thm_1.7"></a>
 **Exercise 1.7.**  The good-enough? test used in computing square roots will not be very effective for finding the square roots of very small numbers. Also, in real computers, arithmetic operations are almost always performed with limited precision. This makes our test inadequate for very large numbers. Explain these statements, with examples showing how the test fails for small and large numbers. An alternative strategy for implementing good-enough? is to watch how guess changes from one iteration to the next and to stop when the change is a very small fraction of the guess. Design a square-root procedure that uses this kind of end test. Does this work better for small and large numbers?
 
+<a name="_thm_1.8"></a>
 **Exercise 1.8.**  Newton's method for cube roots is based on the fact that if _y_ is an approximation to the cube root of _x_, then a better approximation is given by the value
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-5.gif)
@@ -1196,6 +1204,7 @@ In contrasting iteration and recursion, we must be careful not to confuse the no
 
 One reason that the distinction between process and procedure may be confusing is that most implementations of common languages (including Ada, Pascal, and C) are designed in such a way that the interpretation of any recursive procedure consumes an amount of memory that grows with the number of procedure calls, even when the process described is, in principle, iterative. As a consequence, these languages can describe iterative processes only by resorting to special-purpose \`\`looping constructs'' such as do, repeat, until, for, and while. The implementation of Scheme we shall consider in chapter 5 does not share this defect. It will execute an iterative process in constant space, even if the iterative process is described by a recursive procedure. An implementation with this property is called _tail-recursive_. With a tail-recursive implementation, iteration can be expressed using the ordinary procedure call mechanism, so that special iteration constructs are useful only as syntactic sugar.[31](#footnote_Temp_48)
 
+<a name="_thm_1.9"></a>
 **Exercise 1.9.**  Each of the following two procedures defines a method for adding two positive integers in terms of the procedures inc, which increments its argument by 1, and dec, which decrements its argument by 1.
 
 (define (+ a b)  
@@ -1210,6 +1219,7 @@ One reason that the distinction between process and procedure may be confusing i
 
 Using the substitution model, illustrate the process generated by each procedure in evaluating (+ 4 5). Are these processes iterative or recursive?
 
+<a name="_thm_1.10"></a>
 **Exercise 1.10.**  The following procedure computes a mathematical function called Ackermann's function.
 
 (define (A x y)  
@@ -1343,14 +1353,17 @@ _292_
 
 Count-change generates a tree-recursive process with redundancies similar to those in our first implementation of fib. (It will take quite a while for that 292 to be computed.) On the other hand, it is not obvious how to design a better algorithm for computing the result, and we leave this problem as a challenge. The observation that a tree-recursive process may be highly inefficient but often easy to specify and understand has led people to propose that one could get the best of both worlds by designing a \`\`smart compiler'' that could transform tree-recursive procedures into more efficient procedures that compute the same result.[34](#footnote_Temp_54)
 
+<a name="_thm_1.11"></a>
 **Exercise 1.11.**  A function _f_ is defined by the rule that _f_(_n_) = _n_ if _n_<3 and _f_(_n_) = _f_(_n_ - 1) + 2_f_(_n_ - 2) + 3_f_(_n_ - 3) if _n_\> 3. Write a procedure that computes _f_ by means of a recursive process. Write a procedure that computes _f_ by means of an iterative process.
 
+<a name="_thm_1.12"></a>
 **Exercise 1.12.**  The following pattern of numbers is called _Pascal's triangle_.
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-17.gif)
 
 The numbers at the edge of the triangle are all 1, and each number inside the triangle is the sum of the two numbers above it.[35](#footnote_Temp_57) Write a procedure that computes elements of Pascal's triangle by means of a recursive process.
 
+<a name="_thm_1.13"></a>
 **Exercise 1.13.**  Prove that _F__i__b_(_n_) is the closest integer to ф_n_/√5, where ф = (1 + √5)/2. Hint: Let ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-G-D-12.gif) = (1 - √5)/2. Use induction and the definition of the Fibonacci numbers (see section [1.2.2](#_sec_1.2.2)) to prove that _F__i__b_(_n_) = (ф_n_ - ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/book-Z-G-D-12.gif)_n_)/√5.
 
 <a name="_sec_1.2.3"></a>
@@ -1371,8 +1384,10 @@ For instance, with the linear recursive process for computing factorial describe
 
 Orders of growth provide only a crude description of the behavior of a process. For example, a process requiring _n_2 steps and a process requiring 1000_n_2 steps and a process requiring 3_n_2 + 10_n_ + 17 steps all have Θ(_n_2) order of growth. On the other hand, order of growth provides a useful indication of how we may expect the behavior of the process to change as we change the size of the problem. For a Θ(_n_) (linear) process, doubling the size will roughly double the amount of resources used. For an exponential process, each increment in problem size will multiply the resource utilization by a constant factor. In the remainder of section [1.2](#_sec_1.2) we will examine two algorithms whose order of growth is logarithmic, so that doubling the problem size increases the resource requirement by a constant amount.
 
+<a name="_thm_1.14"></a>
 **Exercise 1.14.**  Draw the tree illustrating the process generated by the count-change procedure of section [1.2.2](#_sec_1.2.2) in making change for 11 cents. What are the orders of growth of the space and number of steps used by this process as the amount to be changed increases?
 
+<a name="_thm_1.15"></a>
 **Exercise 1.15.**  The sine of an angle (specified in radians) can be computed by making use of the approximation sin _x_ ≈ _x_ if _x_ is sufficiently small, and the trigonometric identity
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-19.gif)
@@ -1447,8 +1462,10 @@ The process evolved by fast-expt grows logarithmically with _n_ in both space an
 
 The difference between Θ(log _n_) growth and Θ(_n_) growth becomes striking as _n_ becomes large. For example, fast-expt for _n_ = 1000 requires only 14 multiplications.[38](#footnote_Temp_63) It is also possible to use the idea of successive squaring to devise an iterative algorithm that computes exponentials with a logarithmic number of steps (see exercise [1.16](#_thm_1.16)), although, as is often the case with iterative algorithms, this is not written down so straightforwardly as the recursive algorithm.[39](#footnote_Temp_64)
 
+<a name="_thm_1.16"></a>
 **Exercise 1.16.**  Design a procedure that evolves an iterative exponentiation process that uses successive squaring and uses a logarithmic number of steps, as does fast-expt. (Hint: Using the observation that (_b__n_/2)2 = (_b_2)_n_/2, keep, along with the exponent _n_ and the base _b_, an additional state variable _a_, and define the state transformation in such a way that the product _a_ _b__n_ is unchanged from state to state. At the beginning of the process _a_ is taken to be 1, and the answer is given by the value of _a_ at the end of the process. In general, the technique of defining an _invariant quantity_ that remains unchanged from state to state is a powerful way to think about the design of iterative algorithms.)
 
+<a name="_thm_1.17"></a>
 **Exercise 1.17.**  The exponentiation algorithms in this section are based on performing exponentiation by means of repeated multiplication. In a similar way, one can perform integer multiplication by means of repeated addition. The following multiplication procedure (in which it is assumed that our language can only add, not multiply) is analogous to the expt procedure:
 
 (define (\* a b)  
@@ -1458,8 +1475,10 @@ The difference between Θ(log _n_) growth and Θ(_n_) growth becomes striking as
 
 This algorithm takes a number of steps that is linear in b. Now suppose we include, together with addition, operations double, which doubles an integer, and halve, which divides an (even) integer by 2. Using these, design a multiplication procedure analogous to fast-expt that uses a logarithmic number of steps.
 
+<a name="_thm_1.18"></a>
 **Exercise 1.18.**  Using the results of exercises [1.16](#_thm_1.16) and [1.17](#_thm_1.17), devise a procedure that generates an iterative process for multiplying two integers in terms of adding, doubling, and halving and uses a logarithmic number of steps.[40](#footnote_Temp_68)
 
+<a name="_thm_1.19"></a>
 **Exercise 1.19.**   There is a clever algorithm for computing the Fibonacci numbers in a logarithmic number of steps. Recall the transformation of the state variables _a_ and _b_ in the fib-iter process of section [1.2.2](#_sec_1.2.2): _a_ ← _a_ + _b_ and _b_ ← _a_. Call this transformation _T_, and observe that applying _T_ over and over again _n_ times, starting with 1 and 0, produces the pair _F__i__b_(_n_ + 1) and _F__i__b_(_n_). In other words, the Fibonacci numbers are produced by applying _T__n_, the nth power of the transformation _T_, starting with the pair (1,0). Now consider _T_ to be the special case of _p_ = 0 and _q_ = 1 in a family of transformations _T__p__q_, where _T__p__q_ transforms the pair (_a_,_b_) according to _a_ ← _b__q_ + _a__q_ + _a__p_ and _b_ ← _b__p_ + _a__q_. Show that if we apply such a transformation _T__p__q_ twice, the effect is the same as using a single transformation _T__p_'_q_' of the same form, and compute _p_' and _q_' in terms of _p_ and _q_. This gives us an explicit way to square these transformations, and thus we can compute _T__n_ using successive squaring, as in the fast-expt procedure. Put this all together to complete the following procedure, which runs in a logarithmic number of steps:[41](#footnote_Temp_70)
 
 (define (fib n)  
@@ -1509,6 +1528,7 @@ The fact that the number of steps required by Euclid's Algorithm has logarithmic
 
 We can use this theorem to get an order-of-growth estimate for Euclid's Algorithm. Let _n_ be the smaller of the two inputs to the procedure. If the process takes _k_ steps, then we must have _n_\> _F__i__b_ (_k_) ≈ ф_k_/√5\. Therefore the number of steps _k_ grows as the logarithm (to the base ф) of _n_. Hence, the order of growth is Θ(log _n_).
 
+<a name="_thm_1.20"></a>
 **Exercise 1.20.**  The process that a procedure generates is of course dependent on the rules used by the interpreter. As an example, consider the iterative gcd procedure given above. Suppose we were to interpret this procedure using normal-order evaluation, as discussed in section [1.1.5](#_sec_1.1.5). (The normal-order-evaluation rule for if is described in exercise [1.5](#_thm_1.5).) Using the substitution method (for normal order), illustrate the process generated in evaluating (gcd 206 40) and indicate the remainder operations that are actually performed. How many remainder operations are actually performed in the normal-order evaluation of (gcd 206 40)? In the applicative-order evaluation?
 
 <a name="_sec_1.2.6"></a>
@@ -1588,8 +1608,10 @@ Unfortunately, this assertion is not quite correct. There do exist numbers that 
 
 The existence of tests for which one can prove that the chance of error becomes arbitrarily small has sparked interest in algorithms of this type, which have come to be known as _probabilistic algorithms_. There is a great deal of research activity in this area, and probabilistic algorithms have been fruitfully applied to many fields.[48](#footnote_Temp_81)
 
+<a name="_thm_1.21"></a>
 **Exercise 1.21.**  Use the smallest-divisor procedure to find the smallest divisor of each of the following numbers: 199, 1999, 19999.
 
+<a name="_thm_1.22"></a>
 **Exercise 1.22.**  Most Lisp implementations include a primitive called runtime that returns an integer that specifies the amount of time the system has been running (measured, for example, in microseconds). The following timed-prime-test procedure, when called with an integer _n_, prints _n_ and checks to see if _n_ is prime. If _n_ is prime, the procedure prints three asterisks followed by the amount of time used in performing the test.
 
 (define (timed-prime-test n)  
@@ -1605,10 +1627,13 @@ The existence of tests for which one can prove that the chance of error becomes 
 
 Using this procedure, write a procedure search-for-primes that checks the primality of consecutive odd integers in a specified range. Use your procedure to find the three smallest primes larger than 1000; larger than 10,000; larger than 100,000; larger than 1,000,000. Note the time needed to test each prime. Since the testing algorithm has order of growth of Θ(√_n_), you should expect that testing for primes around 10,000 should take about √10 times as long as testing for primes around 1000. Do your timing data bear this out? How well do the data for 100,000 and 1,000,000 support the √_n_ prediction? Is your result compatible with the notion that programs on your machine run in time proportional to the number of steps required for the computation?
 
+<a name="_thm_1.23"></a>
 **Exercise 1.23.**  The smallest-divisor procedure shown at the start of this section does lots of needless testing: After it checks to see if the number is divisible by 2 there is no point in checking to see if it is divisible by any larger even numbers. This suggests that the values used for test-divisor should not be 2, 3, 4, 5, 6, ..., but rather 2, 3, 5, 7, 9, .... To implement this change, define a procedure next that returns 3 if its input is equal to 2 and otherwise returns its input plus 2. Modify the smallest-divisor procedure to use (next test-divisor) instead of (+ test-divisor 1). With timed-prime-test incorporating this modified version of smallest-divisor, run the test for each of the 12 primes found in exercise [1.22](#_thm_1.22). Since this modification halves the number of test steps, you should expect it to run about twice as fast. Is this expectation confirmed? If not, what is the observed ratio of the speeds of the two algorithms, and how do you explain the fact that it is different from 2?
 
+<a name="_thm_1.24"></a>
 **Exercise 1.24.**  Modify the timed-prime-test procedure of exercise [1.22](#_thm_1.22) to use fast-prime? (the Fermat method), and test each of the 12 primes you found in that exercise. Since the Fermat test has Θ(log _n_) growth, how would you expect the time to test primes near 1,000,000 to compare with the time needed to test primes near 1000? Do your data bear this out? Can you explain any discrepancy you find?
 
+<a name="_thm_1.25"></a>
 **Exercise 1.25.**  Alyssa P. Hacker complains that we went to a lot of extra work in writing expmod. After all, she says, since we already know how to compute exponentials, we could have simply written
 
 (define (expmod base exp m)  
@@ -1616,6 +1641,7 @@ Using this procedure, write a procedure search-for-primes that checks the primal
 
 Is she correct? Would this procedure serve as well for our fast prime tester? Explain.
 
+<a name="_thm_1.26"></a>
 **Exercise 1.26.**  Louis Reasoner is having great difficulty doing exercise [1.24](#_thm_1.24). His fast-prime? test seems to run more slowly than his prime? test. Louis calls his friend Eva Lu Ator over to help. When they examine Louis's code, they find that he has rewritten the expmod procedure to use an explicit multiplication, rather than calling square:
 
 (define (expmod base exp m)  
@@ -1630,8 +1656,10 @@ Is she correct? Would this procedure serve as well for our fast prime tester? Ex
 
 \`\`I don't see what difference that could make,'' says Louis. \`\`I do.'' says Eva. \`\`By writing the procedure like that, you have transformed the Θ(log _n_) process into a Θ(_n_) process.'' Explain.
 
+<a name="_thm_1.27"></a>
 **Exercise 1.27.**  Demonstrate that the Carmichael numbers listed in footnote [47](#footnote_Temp_80) really do fool the Fermat test. That is, write a procedure that takes an integer _n_ and tests whether _a__n_ is congruent to _a_ modulo _n_ for every _a_<_n_, and try your procedure on the given Carmichael numbers.
 
+<a name="_thm_1.28"></a>
 **Exercise 1.28.**  One variant of the Fermat test that cannot be fooled is called the _Miller-Rabin test_ (Miller 1976; Rabin 1980). This starts from an alternate form of Fermat's Little Theorem, which states that if _n_ is a prime number and _a_ is any positive integer less than _n_, then _a_ raised to the (_n_ - 1)st power is congruent to 1 modulo _n_. To test the primality of a number _n_ by the Miller-Rabin test, we pick a random number _a_<_n_ and raise _a_ to the (_n_ - 1)st power modulo _n_ using the expmod procedure. However, whenever we perform the squaring step in expmod, we check to see if we have discovered a \`\`nontrivial square root of 1 modulo _n_,'' that is, a number not equal to 1 or _n_ - 1 whose square is equal to 1 modulo _n_. It is possible to prove that if such a nontrivial square root of 1 exists, then _n_ is not prime. It is also possible to prove that if _n_ is an odd number that is not prime, then, for at least half the numbers _a_<_n_, computing _a__n_\-1 in this way will reveal a nontrivial square root of 1 modulo _n_. (This is why the Miller-Rabin test cannot be fooled.) Modify the expmod procedure to signal if it discovers a nontrivial square root of 1, and use this to implement the Miller-Rabin test with a procedure analogous to fermat-test. Check your procedure by testing various known primes and non-primes. Hint: One convenient way to make expmod signal is to have it return 0.
 
 * * *
@@ -1812,12 +1840,14 @@ _.249999875000001_
 
 (The exact value of the integral of cube between 0 and 1 is 1/4.)
 
+<a name="_thm_1.29"></a>
 **Exercise 1.29.**  Simpson's Rule is a more accurate method of numerical integration than the method illustrated above. Using Simpson's Rule, the integral of a function _f_ between _a_ and _b_ is approximated as
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-29.gif)
 
 where _h_ = (_b_ - _a_)/_n_, for some even integer _n_, and _y__k_ = _f_(_a_ + _k__h_). (Increasing _n_ increases the accuracy of the approximation.) Define a procedure that takes as arguments _f_, _a_, _b_, and _n_ and returns the value of the integral, computed using Simpson's Rule. Use your procedure to integrate cube between 0 and 1 (with _n_ = 100 and _n_ = 1000), and compare the results to those of the integral procedure shown above.
 
+<a name="_thm_1.30"></a>
 **Exercise 1.30.**  The sum procedure above generates a linear recursion. The procedure can be rewritten so that the sum is performed iteratively. Show how to do this by filling in the missing expressions in the following definition:
 
 (define (sum term a next b)  
@@ -1827,6 +1857,7 @@ where _h_ = (_b_ - _a_)/_n_, for some even integer _n_, and _y__k_ = _f_(_a_ + _
         (iter <_??_\> <_??_\>)))  
   (iter <_??_\> <_??_\>))  
 
+<a name="_thm_1.31"></a>
 **Exercise 1.31.**    
 a.  The sum procedure is only the simplest of a vast number of similar abstractions that can be captured as higher-order procedures.[51](#footnote_Temp_95) Write an analogous procedure called product that returns the product of the values of a function at points over a given range. Show how to define factorial in terms of product. Also use product to compute approximations to π using the formula[52](#footnote_Temp_96)
 
@@ -1834,6 +1865,7 @@ a.  The sum procedure is only the simplest of a vast number of similar abstracti
 
 b.  If your product procedure generates a recursive process, write one that generates an iterative process. If it generates an iterative process, write one that generates a recursive process.
 
+<a name="_thm_1.32"></a>
 **Exercise 1.32.**  a. Show that sum and product (exercise [1.31](#_thm_1.31)) are both special cases of a still more general notion called accumulate that combines a collection of terms, using some general accumulation function:
 
 (accumulate combiner null-value term a next b)  
@@ -1842,6 +1874,7 @@ Accumulate takes as arguments the same term and range specifications as sum and 
 
 b. If your accumulate procedure generates a recursive process, write one that generates an iterative process. If it generates an iterative process, write one that generates a recursive process.
 
+<a name="_thm_1.33"></a>
 **Exercise 1.33.**  You can obtain an even more general version of accumulate (exercise [1.32](#_thm_1.32)) by introducing the notion of a _filter_ on the terms to be combined. That is, combine only those terms derived from values in the range that satisfy a specified condition. The resulting filtered-accumulate abstraction takes the same arguments as accumulate, together with an additional predicate of one argument that specifies the filter. Write filtered-accumulate as a procedure. Show how to express the following using filtered-accumulate:
 
 a. the sum of the squares of the prime numbers in the interval _a_ to _b_ (assuming that you have a prime? predicate already written)
@@ -2007,6 +2040,7 @@ Sometimes we can use internal definitions to get the same effect as with let. Fo
 
 We prefer, however, to use let in situations like this and to use internal define only for internal procedures.[54](#footnote_Temp_101)
 
+<a name="_thm_1.34"></a>
 **Exercise 1.34.**  Suppose we define the procedure
 
 (define (f g)  
@@ -2126,10 +2160,13 @@ One way to control such oscillations is to prevent the guesses from changing so 
 
 With this modification, the square-root procedure works. In fact, if we unravel the definitions, we can see that the sequence of approximations to the square root generated here is precisely the same as the one generated by our original square-root procedure of section [1.1.7](#_sec_1.1.7). This approach of averaging successive approximations to a solution, a technique we that we call _average damping_, often aids the convergence of fixed-point searches.
 
+<a name="_thm_1.35"></a>
 **Exercise 1.35.**  Show that the golden ratio ф (section [1.2.2](#_sec_1.2.2)) is a fixed point of the transformation _x_ ↦ 1 + 1/_x_, and use this fact to compute ф by means of the fixed-point procedure.
 
+<a name="_thm_1.36"></a>
 **Exercise 1.36.**  Modify fixed-point so that it prints the sequence of approximations it generates, using the newline and display primitives shown in exercise [1.22](#_thm_1.22). Then find a solution to _x__x_ = 1000 by finding a fixed point of _x_ ↦ log(1000)/log(_x_). (Use Scheme's primitive log procedure, which computes natural logarithms.) Compare the number of steps this takes with and without average damping. (Note that you cannot start fixed-point with a guess of 1, as this would cause division by log(1) = 0.)
 
+<a name="_thm_1.37"></a>
 **Exercise 1.37.**  a. An infinite _continued fraction_ is an expression of the form
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-34.gif)
@@ -2148,8 +2185,10 @@ for successive values of k. How large must you make k in order to get an approxi
 
 b. If your cont-frac procedure generates a recursive process, write one that generates an iterative process. If it generates an iterative process, write one that generates a recursive process.
 
+<a name="_thm_1.38"></a>
 **Exercise 1.38.**  In 1737, the Swiss mathematician Leonhard Euler published a memoir _De Fractionibus Continuis_, which included a continued fraction expansion for _e_ - 2, where _e_ is the base of the natural logarithms. In this fraction, the _N__i_ are all 1, and the _D__i_ are successively 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, .... Write a program that uses your cont-frac procedure from exercise [1.37](#_thm_1.37) to approximate _e_, based on Euler's expansion.
 
+<a name="_thm_1.39"></a>
 **Exercise 1.39.**  A continued fraction representation of the tangent function was published in 1770 by the German mathematician J.H. Lambert:
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch1-Z-G-36.gif)
@@ -2269,21 +2308,25 @@ In general, programming languages impose restrictions on the ways in which compu
 
 Lisp, unlike other common programming languages, awards procedures full first-class status. This poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.[66](#footnote_Temp_123)
 
+<a name="_thm_1.40"></a>
 **Exercise 1.40.**  Define a procedure cubic that can be used together with the newtons-method procedure in expressions of the form
 
 (newtons-method (cubic a b c) 1)  
 
 to approximate zeros of the cubic _x_3 + _a__x_2 + _b__x_ + _c_.
 
+<a name="_thm_1.41"></a>
 **Exercise 1.41.**  Define a procedure double that takes a procedure of one argument as argument and returns a procedure that applies the original procedure twice. For example, if inc is a procedure that adds 1 to its argument, then (double inc) should be a procedure that adds 2. What value is returned by
 
 (((double (double double)) inc) 5)  
 
+<a name="_thm_1.42"></a>
 **Exercise 1.42.**  Let _f_ and _g_ be two one-argument functions. The _composition_ _f_ after _g_ is defined to be the function _x_ ↦ _f_(_g_(_x_)). Define a procedure compose that implements composition. For example, if inc is a procedure that adds 1 to its argument,
 
 ((compose square inc) 6)  
 _49_  
 
+<a name="_thm_1.43"></a>
 **Exercise 1.43.**  If _f_ is a numerical function and _n_ is a positive integer, then we can form the nth repeated application of _f_, which is defined to be the function whose value at _x_ is _f_(_f_(...(_f_(_x_))...)). For example, if _f_ is the function _x_ ↦ _x_ + 1, then the nth repeated application of _f_ is the function _x_ ↦ _x_ + _n_. If _f_ is the operation of squaring a number, then the nth repeated application of _f_ is the function that raises its argument to the 2nth power. Write a procedure that takes as inputs a procedure that computes _f_ and a positive integer _n_ and returns the procedure that computes the nth repeated application of _f_. Your procedure should be able to be used as follows:
 
 ((repeated square 2) 5)  
@@ -2291,10 +2334,13 @@ _625_
 
 Hint: You may find it convenient to use compose from exercise [1.42](#_thm_1.42).
 
+<a name="_thm_1.44"></a>
 **Exercise 1.44.**  The idea of _smoothing_ a function is an important concept in signal processing. If _f_ is a function and _d__x_ is some small number, then the smoothed version of _f_ is the function whose value at a point _x_ is the average of _f_(_x_ - _d__x_), _f_(_x_), and _f_(_x_ + _d__x_). Write a procedure smooth that takes as input a procedure that computes _f_ and returns a procedure that computes the smoothed _f_. It is sometimes valuable to repeatedly smooth a function (that is, smooth the smoothed function, and so on) to obtained the __n_\-fold smoothed function_. Show how to generate the _n_\-fold smoothed function of any given function using smooth and repeated from exercise [1.43](#_thm_1.43).
 
+<a name="_thm_1.45"></a>
 **Exercise 1.45.**  We saw in section [1.3.3](#_sec_1.3.3) that attempting to compute square roots by naively finding a fixed point of _y_ ↦ _x_/_y_ does not converge, and that this can be fixed by average damping. The same method works for finding cube roots as fixed points of the average-damped _y_ ↦ _x_/_y_2. Unfortunately, the process does not work for fourth roots -- a single average damp is not enough to make a fixed-point search for _y_ ↦ _x_/_y_3 converge. On the other hand, if we average damp twice (i.e., use the average damp of the average damp of _y_ ↦ _x_/_y_3) the fixed-point search does converge. Do some experiments to determine how many average damps are required to compute nth roots as a fixed-point search based upon repeated average damping of _y_ ↦ _x_/_y__n_\-1. Use this to implement a simple procedure for computing nth roots using fixed-point, average-damp, and the repeated procedure of exercise [1.43](#_thm_1.43). Assume that any arithmetic operations you need are available as primitives.
 
+<a name="_thm_1.46"></a>
 **Exercise 1.46.**  Several of the numerical methods described in this chapter are instances of an extremely general computational strategy known as _iterative improvement_. Iterative improvement says that, to compute something, we start with an initial guess for the answer, test if the guess is good enough, and otherwise improve the guess and continue the process using the improved guess as the new guess. Write a procedure iterative-improve that takes two procedures as arguments: a method for telling whether a guess is good enough and a method for improving a guess. Iterative-improve should return as its value a procedure that takes a guess as argument and keeps improving the guess until it is good enough. Rewrite the sqrt procedure of section [1.1.7](#_sec_1.1.7) and the fixed-point procedure of section [1.3.3](#_sec_1.3.3) in terms of iterative-improve.
 
 * * *
@@ -2517,6 +2563,7 @@ _2/3_
 
 as desired. This modification was accomplished by changing the constructor make-rat without changing any of the procedures (such as add-rat and mul-rat) that implement the actual operations.
 
+<a name="_thm_2.1"></a>
 **Exercise 2.1.**  Define a better version of make-rat that handles both positive and negative arguments. Make-rat should normalize the sign so that if the rational number is positive, both the numerator and denominator are positive, and if the rational number is negative, only the numerator is negative.
 
 <a name="_sec_2.1.2"></a>
@@ -2548,6 +2595,7 @@ The difference between this implementation and the previous one lies in when we 
 
 Constraining the dependence on the representation to a few interface procedures helps us design programs as well as modify them, because it allows us to maintain the flexibility to consider alternate implementations. To continue with our simple example, suppose we are designing a rational-number package and we can't decide initially whether to perform the gcd at construction time or at selection time. The data-abstraction methodology gives us a way to defer that decision without losing the ability to make progress on the rest of the system.
 
+<a name="_thm_2.2"></a>
 **Exercise 2.2.**  Consider the problem of representing line segments in a plane. Each segment is represented as a pair of points: a starting point and an ending point. Define a constructor make-segment and selectors start-segment and end-segment that define the representation of segments in terms of points. Furthermore, a point can be represented as a pair of numbers: the _x_ coordinate and the _y_ coordinate. Accordingly, specify a constructor make-point and selectors x-point and y-point that define this representation. Finally, using your selectors and constructors, define a procedure midpoint-segment that takes a line segment as argument and returns its midpoint (the point whose coordinates are the average of the coordinates of the endpoints). To try your procedures, you'll need a way to print points:
 
 (define (print-point p)  
@@ -2558,6 +2606,7 @@ Constraining the dependence on the representation to a few interface procedures 
   (display (y-point p))  
   (display ")"))  
 
+<a name="_thm_2.3"></a>
 **Exercise 2.3.**  Implement a representation for rectangles in a plane. (Hint: You may want to make use of exercise [2.2](#_thm_2.2).) In terms of your constructors and selectors, create procedures that compute the perimeter and the area of a given rectangle. Now implement a different representation for rectangles. Can you design your system with suitable abstraction barriers, so that the same perimeter and area procedures will work using either representation?
 
 <a name="_sec_2.1.3"></a>
@@ -2591,6 +2640,7 @@ The subtle point to notice is that the value returned by (cons x y) is a procedu
 
 The point of exhibiting the procedural representation of pairs is not that our language works this way (Scheme, and Lisp systems in general, implement pairs directly, for efficiency reasons) but that it could work this way. The procedural representation, although obscure, is a perfectly adequate way to represent pairs, since it fulfills the only conditions that pairs need to fulfill. This example also demonstrates that the ability to manipulate procedures as objects automatically provides the ability to represent compound data. This may seem a curiosity now, but procedural representations of data will play a central role in our programming repertoire. This style of programming is often called _message passing_, and we will be using it as a basic tool in chapter 3 when we address the issues of modeling and simulation.
 
+<a name="_thm_2.4"></a>
 **Exercise 2.4.**  Here is an alternative procedural representation of pairs. For this representation, verify that (car (cons x y)) yields x for any objects x and y.
 
 (define (cons x y)  
@@ -2601,8 +2651,10 @@ The point of exhibiting the procedural representation of pairs is not that our l
 
 What is the corresponding definition of cdr? (Hint: To verify that this works, make use of the substitution model of section [1.1.5](#_sec_1.1.5).)
 
+<a name="_thm_2.5"></a>
 **Exercise 2.5.**  Show that we can represent pairs of nonnegative integers using only numbers and arithmetic operations if we represent the pair _a_ and _b_ as the integer that is the product 2_a_ 3_b_. Give the corresponding definitions of the procedures cons, car, and cdr.
 
+<a name="_thm_2.6"></a>
 **Exercise 2.6.**  In case representing pairs as procedures wasn't mind-boggling enough, consider that, in a language that can manipulate procedures, we can get by without numbers (at least insofar as nonnegative integers are concerned) by implementing 0 and the operation of adding 1 as
 
 (define zero (lambda (f) (lambda (x) x)))  
@@ -2651,18 +2703,23 @@ To divide two intervals, Alyssa multiplies the first by the reciprocal of the se
                 (make-interval (/ 1.0 (upper-bound y))  
                                (/ 1.0 (lower-bound y)))))  
 
+<a name="_thm_2.7"></a>
 **Exercise 2.7.**  Alyssa's program is incomplete because she has not specified the implementation of the interval abstraction. Here is a definition of the interval constructor:
 
 (define (make-interval a b) (cons a b))  
 
 Define selectors upper-bound and lower-bound to complete the implementation.
 
+<a name="_thm_2.8"></a>
 **Exercise 2.8.**  Using reasoning analogous to Alyssa's, describe how the difference of two intervals may be computed. Define a corresponding subtraction procedure, called sub-interval.
 
+<a name="_thm_2.9"></a>
 **Exercise 2.9.**  The _width_ of an interval is half of the difference between its upper and lower bounds. The width is a measure of the uncertainty of the number specified by the interval. For some arithmetic operations the width of the result of combining two intervals is a function only of the widths of the argument intervals, whereas for others the width of the combination is not a function of the widths of the argument intervals. Show that the width of the sum (or difference) of two intervals is a function only of the widths of the intervals being added (or subtracted). Give examples to show that this is not true for multiplication or division.
 
+<a name="_thm_2.10"></a>
 **Exercise 2.10.**  Ben Bitdiddle, an expert systems programmer, looks over Alyssa's shoulder and comments that it is not clear what it means to divide by an interval that spans zero. Modify Alyssa's code to check for this condition and to signal an error if it occurs.
 
+<a name="_thm_2.11"></a>
 **Exercise 2.11.**  In passing, Ben also cryptically comments: \`\`By testing the signs of the endpoints of the intervals, it is possible to break mul-interval into nine cases, only one of which requires more than two multiplications.'' Rewrite this procedure using Ben's suggestion.
 
 After debugging her program, Alyssa shows it to a potential user, who complains that her program solves the wrong problem. He wants a program that can deal with numbers represented as a center value and an additive tolerance; for example, he wants to work with intervals such as 3.5± 0.15 rather than \[3.35, 3.65\]. Alyssa returns to her desk and fixes this problem by supplying an alternate constructor and alternate selectors:
@@ -2676,8 +2733,10 @@ After debugging her program, Alyssa shows it to a potential user, who complains 
 
 Unfortunately, most of Alyssa's users are engineers. Real engineering situations usually involve measurements with only a small uncertainty, measured as the ratio of the width of the interval to the midpoint of the interval. Engineers usually specify percentage tolerances on the parameters of devices, as in the resistor specifications given earlier.
 
+<a name="_thm_2.12"></a>
 **Exercise 2.12.**  Define a constructor make-center-percent that takes a center and a percentage tolerance and produces the desired interval. You must also define a selector percent that produces the percentage tolerance for a given interval. The center selector is the same as the one shown above.
 
+<a name="_thm_2.13"></a>
 **Exercise 2.13.**  Show that under the assumption of small percentage tolerances there is a simple formula for the approximate percentage tolerance of the product of two intervals in terms of the tolerances of the factors. You may simplify the problem by assuming that all numbers are positive.
 
 After considerable work, Alyssa P. Hacker delivers her finished system. Several years later, after she has forgotten all about it, she gets a frenzied call from an irate user, Lem E. Tweakit. It seems that Lem has noticed that the formula for parallel resistors can be written in two algebraically equivalent ways:
@@ -2701,10 +2760,13 @@ He has written the following two programs, each of which computes the parallel-r
 
 Lem complains that Alyssa's program gives different answers for the two ways of computing. This is a serious complaint.
 
+<a name="_thm_2.14"></a>
 **Exercise 2.14.**  Demonstrate that Lem is right. Investigate the behavior of the system on a variety of arithmetic expressions. Make some intervals _A_ and _B_, and use them in computing the expressions _A_/_A_ and _A_/_B_. You will get the most insight by using intervals whose width is a small percentage of the center value. Examine the results of the computation in center-percent form (see exercise [2.12](#_thm_2.12)).
 
+<a name="_thm_2.15"></a>
 **Exercise 2.15.**  Eva Lu Ator, another user, has also noticed the different intervals computed by different but algebraically equivalent expressions. She says that a formula to compute with intervals using Alyssa's system will produce tighter error bounds if it can be written in such a form that no variable that represents an uncertain number is repeated. Thus, she says, par2 is a \`\`better'' program for parallel resistances than par1. Is she right? Why?
 
+<a name="_thm_2.16"></a>
 **Exercise 2.16.**  Explain, in general, why equivalent algebraic expressions may lead to different answers. Can you devise an interval-arithmetic package that does not have this shortcoming, or is this task impossible? (Warning: This problem is very difficult.)
 
 * * *
@@ -2866,16 +2928,19 @@ Append is also implemented using a recursive plan. To append lists list1 and lis
       list2  
       (cons (car list1) (append (cdr list1) list2))))  
 
+<a name="_thm_2.17"></a>
 **Exercise 2.17.**  Define a procedure last-pair that returns the list that contains only the last element of a given (nonempty) list:
 
 (last-pair (list 23 72 149 34))  
 _(34)_  
 
+<a name="_thm_2.18"></a>
 **Exercise 2.18.**  Define a procedure reverse that takes a list as argument and returns a list of the same elements in reverse order:
 
 (reverse (list 1 4 9 16 25))  
 _(25 16 9 4 1)_  
 
+<a name="_thm_2.19"></a>
 **Exercise 2.19.**  Consider the change-counting program of section [1.2.2](#_sec_1.2.2). It would be nice to be able to easily change the currency used by the program, so that we could compute the number of ways to change a British pound, for example. As the program is written, the knowledge of the currency is distributed partly into the procedure first-denomination and partly into the procedure count-change (which knows that there are five kinds of U.S. coins). It would be nicer to be able to supply a list of coins to be used for making change.
 
 We want to rewrite the procedure cc so that its second argument is a list of the values of the coins to use rather than an integer specifying which coins to use. We could then have lists that defined each kind of currency:
@@ -2902,6 +2967,7 @@ To do this will require changing the program cc somewhat. It will still have the
 
 Define the procedures first-denomination, except-first-denomination, and no-more? in terms of primitive operations on list structures. Does the order of the list coin-values affect the answer produced by cc? Why or why not?
 
+<a name="_thm_2.20"></a>
 **Exercise 2.20.**  The procedures +, \*, and list take arbitrary numbers of arguments. One way to define such procedures is to use define with _dotted-tail notation_. In a procedure definition, a parameter list that has a dot before the last parameter name indicates that, when the procedure is called, the initial parameters (if any) will have as values the initial arguments, as usual, but the final parameter's value will be a _list_ of any remaining arguments. For instance, given the definition
 
 (define (f x y . z) _<body>_)  
@@ -2963,6 +3029,7 @@ Now we can give a new definition of scale-list in terms of map:
 
 Map is an important construct, not only because it captures a common pattern, but because it establishes a higher level of abstraction in dealing with lists. In the original definition of scale-list, the recursive structure of the program draws attention to the element-by-element processing of the list. Defining scale-list in terms of map suppresses that level of detail and emphasizes that scaling transforms a list of elements to a list of results. The difference between the two definitions is not that the computer is performing a different process (it isn't) but that we think about the process differently. In effect, map helps establish an abstraction barrier that isolates the implementation of procedures that transform lists from the details of how the elements of the list are extracted and combined. Like the barriers shown in figure [2.1](#_fig_2.1), this abstraction gives us the flexibility to change the low-level details of how sequences are implemented, while preserving the conceptual framework of operations that transform sequences to sequences. Section [2.2.3](#_sec_2.2.3) expands on this use of sequences as a framework for organizing programs.
 
+<a name="_thm_2.21"></a>
 **Exercise 2.21.**  The procedure square-list takes a list of numbers as argument and returns a list of the squares of those numbers.
 
 (square-list (list 1 2 3 4))  
@@ -2977,6 +3044,7 @@ Here are two different definitions of square-list. Complete both of them by fill
 (define (square-list items)  
   (map <_??_\> <_??_\>))  
 
+<a name="_thm_2.22"></a>
 **Exercise 2.22.**  Louis Reasoner tries to rewrite the first square-list procedure of exercise [2.21](#_thm_2.21) so that it evolves an iterative process:
 
 (define (square-list items)  
@@ -3003,6 +3071,7 @@ Louis then tries to fix his bug by interchanging the arguments to cons:
 
 This doesn't work either. Explain.
 
+<a name="_thm_2.23"></a>
 **Exercise 2.23.**  The procedure for-each is similar to map. It takes as arguments a procedure and a list of elements. However, rather than forming a list of the results, for-each just applies the procedure to each of the elements in turn, from left to right. The values returned by applying the procedure to the elements are not used at all -- for-each is used with procedures that perform an action, such as printing. For example,
 
 (for-each (lambda (x) (newline) (display x))  
@@ -3077,8 +3146,10 @@ To aid in writing recursive procedures on trees, Scheme provides the primitive p
         (else (+ (count-leaves (car x))  
                  (count-leaves (cdr x))))))  
 
+<a name="_thm_2.24"></a>
 **Exercise 2.24.**  Suppose we evaluate the expression (list 1 (list 2 (list 3 4))). Give the result printed by the interpreter, the corresponding box-and-pointer structure, and the interpretation of this as a tree (as in figure [2.6](#_fig_2.6)).
 
+<a name="_thm_2.25"></a>
 **Exercise 2.25.**  Give combinations of cars and cdrs that will pick 7 from each of the following lists:
 
 (1 3 (5 7) 9)  
@@ -3087,6 +3158,7 @@ To aid in writing recursive procedures on trees, Scheme provides the primitive p
   
 (1 (2 (3 (4 (5 (6 7))))))  
 
+<a name="_thm_2.26"></a>
 **Exercise 2.26.**  Suppose we define x and y to be two lists:
 
 (define x (list 1 2 3))  
@@ -3100,6 +3172,7 @@ What result is printed by the interpreter in response to evaluating each of the 
   
 (list x y)  
 
+<a name="_thm_2.27"></a>
 **Exercise 2.27.**  Modify your reverse procedure of exercise [2.18](#_thm_2.18) to produce a deep-reverse procedure that takes a list as argument and returns as its value the list with its elements reversed and with all sublists deep-reversed as well. For example,
 
 (define x (list (list 1 2) (list 3 4)))  
@@ -3113,6 +3186,7 @@ _((3 4) (1 2))_
 (deep-reverse x)  
 _((4 3) (2 1))_  
 
+<a name="_thm_2.28"></a>
 **Exercise 2.28.**  Write a procedure fringe that takes as argument a tree (represented as a list) and returns a list whose elements are all the leaves of the tree arranged in left-to-right order. For example,
 
 (define x (list (list 1 2) (list 3 4)))  
@@ -3123,6 +3197,7 @@ _(1 2 3 4)_
 (fringe (list x x))  
 _(1 2 3 4 1 2 3 4)_  
 
+<a name="_thm_2.29"></a>
 **Exercise 2.29.**  A binary mobile consists of two branches, a left branch and a right branch. Each branch is a rod of a certain length, from which hangs either a weight or another binary mobile. We can represent a binary mobile using compound data by constructing it from two branches (for example, using list):
 
 (define (make-mobile left right)  
@@ -3174,6 +3249,7 @@ Another way to implement scale-tree is to regard the tree as a sequence of sub-t
 
 Many tree operations can be implemented by similar combinations of sequence operations and recursion.
 
+<a name="_thm_2.30"></a>
 **Exercise 2.30.**  Define a procedure square-tree analogous to the square-list procedure of exercise [2.21](#_thm_2.21). That is, square-list should behave as follows:
 
 (square-tree  
@@ -3184,10 +3260,12 @@ _(1 (4 (9 16) 25) (36 49))_
 
 Define square-tree both directly (i.e., without using any higher-order procedures) and also by using map and recursion.
 
+<a name="_thm_2.31"></a>
 **Exercise 2.31.**  Abstract your answer to exercise [2.30](#_thm_2.30) to produce a procedure tree-map with the property that square-tree could be defined as
 
 (define (square-tree tree) (tree-map square tree))  
 
+<a name="_thm_2.32"></a>
 **Exercise 2.32.**  We can represent a set as a list of distinct elements, and we can represent the set of all subsets of the set as a list of lists. For example, if the set is (1 2 3), then the set of all subsets is (() (3) (2) (2 3) (1) (1 3) (1 2) (1 2 3)). Complete the following definition of a procedure that generates the set of subsets of a set and give a clear explanation of why it works:
 
 (define (subsets s)  
@@ -3354,6 +3432,7 @@ These examples give just a hint of the vast range of operations that can be expr
 
 Sequences, implemented here as lists, serve as a conventional interface that permits us to combine processing modules. Additionally, when we uniformly represent structures as sequences, we have localized the data-structure dependencies in our programs to a small number of sequence operations. By changing these, we can experiment with alternative representations of sequences, while leaving the overall design of our programs intact. We will exploit this capability in section [3.5](#_sec_3.5), when we generalize the sequence-processing paradigm to admit infinite sequences.
 
+<a name="_thm_2.33"></a>
 **Exercise 2.33.**  Fill in the missing expressions to complete the following definitions of some basic list-manipulation operations as accumulations:
 
 (define (map p sequence)  
@@ -3363,6 +3442,7 @@ Sequences, implemented here as lists, serve as a conventional interface that per
 (define (length sequence)  
   (accumulate <_??_\> 0 sequence))  
 
+<a name="_thm_2.34"></a>
 **Exercise 2.34.**  Evaluating a polynomial in _x_ at a given value of _x_ can be formulated as an accumulation. We evaluate the polynomial
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-18.gif)
@@ -3382,11 +3462,13 @@ For example, to compute 1 + 3_x_ + 5_x_3 + _x_5 at _x_ = 2 you would evaluate
 
 (horner-eval 2 (list 1 3 0 5 0 1))  
 
+<a name="_thm_2.35"></a>
 **Exercise 2.35.**  Redefine count-leaves from section [2.2.2](#_sec_2.2.2) as an accumulation:
 
 (define (count-leaves t)  
   (accumulate <_??_\> <_??_\> (map <_??_\> <_??_\>)))  
 
+<a name="_thm_2.36"></a>
 **Exercise 2.36.**  The procedure accumulate-n is similar to accumulate except that it takes as its third argument a sequence of sequences, which are all assumed to have the same number of elements. It applies the designated accumulation procedure to combine all the first elements of the sequences, all the second elements of the sequences, and so on, and returns a sequence of the results. For instance, if s is a sequence containing four sequences, ((1 2 3) (4 5 6) (7 8 9) (10 11 12)), then the value of (accumulate-n + 0 s) should be the sequence (22 26 30). Fill in the missing expressions in the following definition of accumulate-n:
 
 (define (accumulate-n op init seqs)  
@@ -3395,6 +3477,7 @@ For example, to compute 1 + 3_x_ + 5_x_3 + _x_5 at _x_ = 2 you would evaluate
       (cons (accumulate op init <_??_\>)  
             (accumulate-n op init <_??_\>))))  
 
+<a name="_thm_2.37"></a>
 **Exercise 2.37.**  Suppose we represent vectors _v_ = (_v__i_) as sequences of numbers, and matrices _m_ = (_m__i__j_) as sequences of vectors (the rows of the matrix). For example, the matrix
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-20.gif)
@@ -3418,6 +3501,7 @@ Fill in the missing expressions in the following procedures for computing the ot
   (let ((cols (transpose n)))  
     (map <_??_\> m)))  
 
+<a name="_thm_2.38"></a>
 **Exercise 2.38.**  The accumulate procedure is also known as fold-right, because it combines the first element of the sequence with the result of combining all the elements to the right. There is also a fold-left, which is similar to fold-right, except that it combines elements working in the opposite direction:
 
 (define (fold-left op initial sequence)  
@@ -3437,6 +3521,7 @@ What are the values of
 
 Give a property that op should satisfy to guarantee that fold-right and fold-left will produce the same values for any sequence.
 
+<a name="_thm_2.39"></a>
 **Exercise 2.39.**   Complete the following definitions of reverse (exercise [2.18](#_thm_2.18)) in terms of fold-right and fold-left from exercise [2.38](#_thm_2.38):
 
 (define (reverse sequence)  
@@ -3505,10 +3590,13 @@ Notice how this strategy reduces the problem of generating permutations of _S_ t
   (filter (lambda (x) (not (= x item)))  
           sequence))  
 
+<a name="_thm_2.40"></a>
 **Exercise 2.40.**  Define a procedure unique-pairs that, given an integer _n_, generates the sequence of pairs (_i_,_j_) with 1< _j_< _i_< _n_. Use unique-pairs to simplify the definition of prime-sum-pairs given above.
 
+<a name="_thm_2.41"></a>
 **Exercise 2.41.**  Write a procedure to find all ordered triples of distinct positive integers _i_, _j_, and _k_ less than or equal to a given integer _n_ that sum to a given integer _s_.
 
+<a name="_thm_2.42"></a>
 **Exercise 2.42.**  
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-23.gif)
@@ -3535,6 +3623,7 @@ We implement this solution as a procedure queens, which returns a sequence of al
 
 In this procedure rest-of-queens is a way to place _k_ - 1 queens in the first _k_ - 1 columns, and new-row is a proposed row in which to place the queen for the _k_th column. Complete the program by implementing the representation for sets of board positions, including the procedure adjoin-position, which adjoins a new row-column position to a set of positions, and empty-board, which represents an empty set of positions. You must also write the procedure safe?, which determines for a set of positions, whether the queen in the _k_th column is safe with respect to the others. (Note that we need only check whether the new queen is safe -- the other queens are already guaranteed safe with respect to each other.)
 
+<a name="_thm_2.43"></a>
 **Exercise 2.43.**  Louis Reasoner is having a terrible time doing exercise [2.42](#_thm_2.42). His queens procedure seems to work, but it runs extremely slowly. (Louis never does manage to wait long enough for it to solve even the 6× 6 case.) When Louis asks Eva Lu Ator for help, she points out that he has interchanged the order of the nested mappings in the flatmap, writing it as
 
 (flatmap  
@@ -3646,6 +3735,7 @@ By placing four copies of a corner-split appropriately, we obtain a pattern call
     (let ((half (beside (flip-horiz quarter) quarter)))  
       (below (flip-vert half) half))))  
 
+<a name="_thm_2.44"></a>
 **Exercise 2.44.**  Define the procedure up-split used by corner-split. It is similar to right-split, except that it switches the roles of below and beside.
 
 <a name="_sec_Temp_206"></a>
@@ -3676,6 +3766,7 @@ and square-limit can be expressed as[25](#footnote_Temp_208)
                                   rotate180 flip-vert)))  
     (combine4 (corner-split painter n))))  
 
+<a name="_thm_2.45"></a>
 **Exercise 2.45.**  Right-split and up-split can be expressed as instances of a general splitting operation. Define a procedure split with the property that evaluating
 
 (define right-split (split beside below))  
@@ -3718,10 +3809,12 @@ returns the same vector as
 
 (origin-frame a-frame)  
 
+<a name="_thm_2.46"></a>
 **Exercise 2.46.**  A two-dimensional vector **v** running from the origin to a point can be represented as a pair consisting of an _x_\-coordinate and a _y_\-coordinate. Implement a data abstraction for vectors by giving a constructor make-vect and corresponding selectors xcor-vect and ycor-vect. In terms of your selectors and constructor, implement procedures add-vect, sub-vect, and scale-vect that perform the operations vector addition, vector subtraction, and multiplying a vector by a scalar:
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-44.gif)
 
+<a name="_thm_2.47"></a>
 **Exercise 2.47.**  Here are two possible constructors for frames:
 
 (define (make-frame origin edge1 edge2)  
@@ -3753,8 +3846,10 @@ The segments are given using coordinates with respect to the unit square. For ea
 
 Representing painters as procedures erects a powerful abstraction barrier in the picture language. We can create and intermix all sorts of primitive painters, based on a variety of graphics capabilities. The details of their implementation do not matter. Any procedure can serve as a painter, provided that it takes a frame as argument and draws something scaled to fit the frame.[28](#footnote_Temp_216)
 
+<a name="_thm_2.48"></a>
 **Exercise 2.48.**  A directed line segment in the plane can be represented as a pair of vectors -- the vector running from the origin to the start-point of the segment, and the vector running from the origin to the end-point of the segment. Use your vector representation from exercise [2.46](#_thm_2.46) to define a representation for segments with a constructor make-segment and selectors start-segment and end-segment.
 
+<a name="_thm_2.49"></a>
 **Exercise 2.49.**  Use segments->painter to define the following primitive painters:
 
 a.  The painter that draws the outline of the designated frame.
@@ -3834,8 +3929,10 @@ Frame transformation is also the key to defining means of combining two or more 
 
 Observe how the painter data abstraction, and in particular the representation of painters as procedures, makes beside easy to implement. The beside procedure need not know anything about the details of the component painters other than that each painter will draw something in its designated frame.
 
+<a name="_thm_2.50"></a>
 **Exercise 2.50.**  Define the transformation flip-horiz, which flips painters horizontally, and transformations that rotate painters counterclockwise by 180 degrees and 270 degrees.
 
+<a name="_thm_2.51"></a>
 **Exercise 2.51.**  Define the below operation for painters. Below takes two painters as arguments. The resulting painter, given a frame, draws with the first painter in the bottom of the frame and with the second painter in the top. Define below in two different ways -- first by writing a procedure that is analogous to the beside procedure given above, and again in terms of beside and suitable rotation operations (from exercise [2.50](#_thm_2.50)).
 
 <a name="_sec_Temp_224"></a>
@@ -3852,6 +3949,7 @@ As a tiny example of stratification, our picture language uses primitive element
 
 Stratified design helps make programs _robust_, that is, it makes it likely that small changes in a specification will require correspondingly small changes in the program. For instance, suppose we wanted to change the image based on wave shown in figure [2.9](#_fig_2.9). We could work at the lowest level to change the detailed appearance of the wave element; we could work at the middle level to change the way corner-split replicates the wave; we could work at the highest level to change how square-limit arranges the four copies of the corner. In general, each level of a stratified design provides a different vocabulary for expressing the characteristics of the system, and a different kind of ability to change it.
 
+<a name="_thm_2.52"></a>
 **Exercise 2.52.**  Make changes to the square limit of wave shown in figure [2.9](#_fig_2.9) by working at each of the levels described above. In particular:
 
 a.  Add some segments to the primitive wave painter of exercise  [2.49](#_thm_2.49) (to add a smile, for example).
@@ -4019,6 +4117,7 @@ is false, whereas the value of
 
 is (apple pear).
 
+<a name="_thm_2.53"></a>
 **Exercise 2.53.**  What would the interpreter print in response to evaluating each of the following expressions?
 
 (list 'a 'b 'c)  
@@ -4032,6 +4131,7 @@ is (apple pear).
   
 (memq 'red '(red shoes blue socks))  
 
+<a name="_thm_2.54"></a>
 **Exercise 2.54.**  Two lists are said to be equal? if they contain equal elements arranged in the same order. For example,
 
 (equal? '(this is a list) '(this is a list))  
@@ -4042,6 +4142,7 @@ is true, but
 
 is false. To be more precise, we can define equal? recursively in terms of the basic eq? equality of symbols by saying that a and b are equal? if they are both symbols and the symbols are eq?, or if they are both lists such that (car a) is equal? to (car b) and (cdr a) is equal? to (cdr b). Using this idea, implement equal? as a procedure.[36](#footnote_Temp_233)
 
+<a name="_thm_2.55"></a>
 **Exercise 2.55.**  Eva Lu Ator types to the interpreter the expression
 
 (car ''abracadabra)  
@@ -4232,18 +4333,21 @@ _(+ (\* x y) (\* y (+ x 3)))_
 
 Although this is quite an improvement, the third example shows that there is still a long way to go before we get a program that puts expressions into a form that we might agree is \`\`simplest.'' The problem of algebraic simplification is complex because, among other reasons, a form that may be simplest for one purpose may not be for another.
 
+<a name="_thm_2.56"></a>
 **Exercise 2.56.**  Show how to extend the basic differentiator to handle more kinds of expressions. For instance, implement the differentiation rule
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-50.gif)
 
 by adding a new clause to the deriv program and defining appropriate procedures exponentiation?, base, exponent, and make-exponentiation. (You may use the symbol \*\* to denote exponentiation.) Build in the rules that anything raised to the power 0 is 1 and anything raised to the power 1 is the thing itself.
 
+<a name="_thm_2.57"></a>
 **Exercise 2.57.**  Extend the differentiation program to handle sums and products of arbitrary numbers of (two or more) terms. Then the last example above could be expressed as
 
 (deriv '(\* x y (+ x 3)) 'x)  
 
 Try to do this by changing only the representation for sums and products, without changing the deriv procedure at all. For example, the addend of a sum would be the first term, and the augend would be the sum of the rest of the terms.
 
+<a name="_thm_2.58"></a>
 **Exercise 2.58.**  Suppose we want to modify the differentiation program so that it works with ordinary mathematical notation, in which + and \* are infix rather than prefix operators. Since the differentiation program is defined in terms of abstract data, we can modify it to work with different representations of expressions solely by changing the predicates, selectors, and constructors that define the representation of the algebraic expressions on which the differentiator is to operate.
 
 a. Show how to do this in order to differentiate algebraic expressions presented in infix form, such as (x + (3 \* (x + (y + 2)))). To simplify the task, assume that + and \* always take two arguments and that expressions are fully parenthesized.
@@ -4287,8 +4391,10 @@ For intersection-set we can use a recursive strategy. If we know how to form the
 
 In designing a representation, one of the issues we should be concerned with is efficiency. Consider the number of steps required by our set operations. Since they all use element-of-set?, the speed of this operation has a major impact on the efficiency of the set implementation as a whole. Now, in order to check whether an object is a member of a set, element-of-set? may have to scan the entire set. (In the worst case, the object turns out not to be in the set.) Hence, if the set has _n_ elements, element-of-set? might take up to _n_ steps. Thus, the number of steps required grows as Θ(_n_). The number of steps required by adjoin-set, which uses this operation, also grows as Θ(_n_). For intersection-set, which does an element-of-set? check for each element of set1, the number of steps required grows as the product of the sizes of the sets involved, or Θ(_n_2) for two sets of size _n_. The same will be true of union-set.
 
+<a name="_thm_2.59"></a>
 **Exercise 2.59.**  Implement the union-set operation for the unordered-list representation of sets.
 
+<a name="_thm_2.60"></a>
 **Exercise 2.60.**  We specified that a set would be represented as a list with no duplicates. Now suppose we allow duplicates. For instance, the set {1,2,3} could be represented as the list (2 3 2 1 3 2 2). Design procedures element-of-set?, adjoin-set, union-set, and intersection-set that operate on this representation. How does the efficiency of each compare with the corresponding procedure for the non-duplicate representation? Are there applications for which you would use this representation in preference to the non-duplicate one?
 
 <a name="_sec_Temp_244"></a>
@@ -4324,8 +4430,10 @@ We obtain a more impressive speedup with intersection-set. In the unordered repr
 
 To estimate the number of steps required by this process, observe that at each step we reduce the intersection problem to computing intersections of smaller sets -- removing the first element from set1 or set2 or both. Thus, the number of steps required is at most the sum of the sizes of set1 and set2, rather than the product of the sizes as with the unordered representation. This is Θ(_n_) growth rather than Θ(_n_2) -- a considerable speedup, even for sets of moderate size.
 
+<a name="_thm_2.61"></a>
 **Exercise 2.61.**  Give an implementation of adjoin-set using the ordered representation. By analogy with element-of-set? show how to take advantage of the ordering to produce a procedure that requires on the average about half as many steps as with the unordered representation.
 
+<a name="_thm_2.62"></a>
 **Exercise 2.62.**  Give a Θ(_n_) implementation of union-set for sets represented as ordered lists.
 
 <a name="_sec_Temp_247"></a>
@@ -4378,6 +4486,7 @@ The above claim that searching the tree can be performed in a logarithmic number
 
 **Figure 2.17:**  Unbalanced tree produced by adjoining 1 through 7 in sequence.
 
+<a name="_thm_2.63"></a>
 **Exercise 2.63.**  Each of the following two procedures converts a binary tree to a list.
 
 (define (tree->list-1 tree)  
@@ -4400,6 +4509,7 @@ a. Do the two procedures produce the same result for every tree? If not, how do 
 
 b. Do the two procedures have the same order of growth in the number of steps required to convert a balanced tree with _n_ elements to a list? If not, which one grows more slowly?
 
+<a name="_thm_2.64"></a>
 **Exercise 2.64.**  The following procedure list->tree converts an ordered list to a balanced binary tree. The helper procedure partial-tree takes as arguments an integer _n_ and list of at least _n_ elements and constructs a balanced tree containing the first _n_ elements of the list. The result returned by partial-tree is a pair (formed with cons) whose car is the constructed tree and whose cdr is the list of elements not included in the tree.
 
 (define (list->tree elements)  
@@ -4425,6 +4535,7 @@ a. Write a short paragraph explaining as clearly as you can how partial-tree wor
 
 b. What is the order of growth in the number of steps required by list->tree to convert a list of _n_ elements?
 
+<a name="_thm_2.65"></a>
 **Exercise 2.65.**  Use the results of exercises [2.63](#_thm_2.63) and  [2.64](#_thm_2.64) to give Θ(_n_) implementations of union-set and intersection-set for sets implemented as (balanced) binary trees.[41](#footnote_Temp_254)
 
 <a name="_sec_Temp_255"></a>
@@ -4445,6 +4556,7 @@ Now we represent the data base as a set of records. To locate the record with a 
 
 Of course, there are better ways to represent large sets than as unordered lists. Information-retrieval systems in which records have to be \`\`randomly accessed'' are typically implemented by a tree-based method, such as the binary-tree representation discussed previously. In designing such a system the methodology of data abstraction can be a great help. The designer can create an initial implementation using a simple, straightforward representation such as unordered lists. This will be unsuitable for the eventual system, but it can be useful in providing a \`\`quick and dirty'' data base with which to test the rest of the system. Later on, the data representation can be modified to be more sophisticated. If the data base is accessed in terms of abstract selectors and constructors, this change in representation will not require any changes to the rest of the system.
 
+<a name="_thm_2.66"></a>
 **Exercise 2.66.**  Implement the lookup procedure for the case where the set of records is structured as a binary tree, ordered by the numerical values of the keys.
 
 <a name="_sec_2.3.4"></a>
@@ -4644,6 +4756,7 @@ The following procedure takes a list of symbol-frequency pairs such as ((A 4) (B
                                (cadr pair))  _; frequency_  
                     (make-leaf-set (cdr pairs))))))  
 
+<a name="_thm_2.67"></a>
 **Exercise 2.67.**  Define an encoding tree and a sample message:
 
 (define sample-tree  
@@ -4657,6 +4770,7 @@ The following procedure takes a list of symbol-frequency pairs such as ((A 4) (B
 
 Use the decode procedure to decode the message, and give the result.
 
+<a name="_thm_2.68"></a>
 **Exercise 2.68.**  The encode procedure takes as arguments a message and a tree and produces the list of bits that gives the encoded message.
 
 (define (encode message tree)  
@@ -4667,6 +4781,7 @@ Use the decode procedure to decode the message, and give the result.
 
 Encode-symbol is a procedure, which you must write, that returns the list of bits that encodes a given symbol according to a given tree. You should design encode-symbol so that it signals an error if the symbol is not in the tree at all. Test your procedure by encoding the result you obtained in exercise [2.67](#_thm_2.67) with the sample tree and seeing whether it is the same as the original sample message.
 
+<a name="_thm_2.69"></a>
 **Exercise 2.69.**  The following procedure takes as its argument a list of symbol-frequency pairs (where no symbol appears in more than one pair) and generates a Huffman encoding tree according to the Huffman algorithm.
 
 (define (generate-huffman-tree pairs)  
@@ -4674,6 +4789,7 @@ Encode-symbol is a procedure, which you must write, that returns the list of bit
 
 Make-leaf-set is the procedure given above that transforms the list of pairs into an ordered set of leaves. Successive-merge is the procedure you must write, using make-code-tree to successively merge the smallest-weight elements of the set until there is only one element left, which is the desired Huffman tree. (This procedure is slightly tricky, but not really complicated. If you find yourself designing a complex procedure, then you are almost certainly doing something wrong. You can take significant advantage of the fact that we are using an ordered set representation.)
 
+<a name="_thm_2.70"></a>
 **Exercise 2.70.**  The following eight-symbol alphabet with associated relative frequencies was designed to efficiently encode the lyrics of 1950s rock songs. (Note that the \`\`symbols'' of an \`\`alphabet'' need not be individual letters.)
 
 A
@@ -4724,8 +4840,10 @@ Sha boom
 
 How many bits are required for the encoding? What is the smallest number of bits that would be needed to encode this song if we used a fixed-length code for the eight-symbol alphabet?
 
+<a name="_thm_2.71"></a>
 **Exercise 2.71.**  Suppose we have a Huffman tree for an alphabet of _n_ symbols, and that the relative frequencies of the symbols are 1, 2, 4, ..., 2_n_\-1. Sketch the tree for _n_\=5; for _n_\=10. In such a tree (for general _n_) how many bits are required to encode the most frequent symbol? the least frequent symbol?
 
+<a name="_thm_2.72"></a>
 **Exercise 2.72.**  Consider the encoding procedure that you designed in exercise [2.68](#_thm_2.68). What is the order of growth in the number of steps needed to encode a symbol? Be sure to include the number of steps needed to search the symbol list at each node encountered. To answer this question in general is difficult. Consider the special case where the relative frequencies of the _n_ symbols are as described in exercise [2.71](#_thm_2.71), and give the order of growth (as a function of _n_) of the number of steps needed to encode the most frequent and least frequent symbols in the alphabet.
 
 * * *
@@ -5085,6 +5203,7 @@ We can also extract from the table the constructors to be used by the programs e
 (define (make-from-mag-ang r a)  
   ((get 'make-from-mag-ang 'polar) r a))  
 
+<a name="_thm_2.73"></a>
 **Exercise 2.73.**  Section [2.3.2](#_sec_2.3.2) described a program that performs symbolic differentiation:
 
 (define (deriv exp var)  
@@ -5124,6 +5243,7 @@ d.  In this simple algebraic manipulator the type of an expression is the algebr
 
 What corresponding changes to the derivative system are required?
 
+<a name="_thm_2.74"></a>
 **Exercise 2.74.**  Insatiable Enterprises, Inc., is a highly decentralized conglomerate company consisting of a large number of independent divisions located all over the world. The company's computer facilities have just been interconnected by means of a clever network-interfacing scheme that makes the entire network appear to any user to be a single computer. Insatiable's president, in her first attempt to exploit the ability of the network to extract administrative information from division files, is dismayed to discover that, although all the division files have been implemented as data structures in Scheme, the particular data structure used varies from division to division. A meeting of division managers is hastily called to search for a strategy to integrate the files that will satisfy headquarters' needs while preserving the existing autonomy of the divisions.
 
 Show how such a strategy can be implemented with data-directed programming. As an example, suppose that each division's personnel records consist of a single file, which contains a set of records keyed on employees' names. The structure of the set varies from division to division. Furthermore, each employee's record is itself a set (structured differently from division to division) that contains information keyed under identifiers such as address and salary. In particular:
@@ -5163,8 +5283,10 @@ Note that the value returned by make-from-real-imag is a procedure -- the intern
 
 This style of programming is called _message passing_. The name comes from the image that a data object is an entity that receives the requested operation name as a \`\`message.'' We have already seen an example of message passing in section [2.1.3](#_sec_2.1.3), where we saw how cons, car, and cdr could be defined with no data objects but only procedures. Here we see that message passing is not a mathematical trick but a useful technique for organizing systems with generic operations. In the remainder of this chapter we will continue to use data-directed programming, rather than message passing, to discuss generic arithmetic operations. In chapter 3 we will return to message passing, and we will see that it can be a powerful tool for structuring simulation programs.
 
+<a name="_thm_2.75"></a>
 **Exercise 2.75.**  Implement the constructor make-from-mag-ang in message-passing style. This procedure should be analogous to the make-from-real-imag procedure given above.
 
+<a name="_thm_2.76"></a>
 **Exercise 2.76.**  As a large system with generic operations evolves, new types of data objects or new operations may be needed. For each of the three strategies -- generic operations with explicit dispatch, data-directed style, and message-passing-style -- describe the changes that must be made to a system in order to add new types or new operations. Which organization would be most appropriate for a system in which new types must often be added? Which would be most appropriate for a system in which new operations must often be added?
 
 * * *
@@ -5329,6 +5451,7 @@ What we have here is a two-level tag system. A typical complex number, such as 3
 
 In the above packages, we used add-rat, add-complex, and the other arithmetic procedures exactly as originally written. Once these definitions are internal to different installation procedures, however, they no longer need names that are distinct from each other: we could simply name them add, sub, mul, and div in both packages.
 
+<a name="_thm_2.77"></a>
 **Exercise 2.77.**  Louis Reasoner tries to evaluate the expression (magnitude z) where z is the object shown in figure [2.24](#_fig_2.24). To his surprise, instead of the answer 5 he gets an error message from apply-generic, saying there is no method for the operation magnitude on the types (complex). He shows this interaction to Alyssa P. Hacker, who says \`\`The problem is that the complex-number selectors were never defined for complex numbers, just for polar and rectangular numbers. All you have to do to make this work is add the following to the complex package:''
 
 (put 'real-part '(complex) real-part)  
@@ -5338,10 +5461,13 @@ In the above packages, we used add-rat, add-complex, and the other arithmetic pr
 
 Describe in detail why this works. As an example, trace through all the procedures called in evaluating the expression (magnitude z) where z is the object shown in figure [2.24](#_fig_2.24). In particular, how many times is apply-generic invoked? What procedure is dispatched to in each case?
 
+<a name="_thm_2.78"></a>
 **Exercise 2.78.**  The internal procedures in the scheme-number package are essentially nothing more than calls to the primitive procedures +, \-, etc. It was not possible to use the primitives of the language directly because our type-tag system requires that each data object have a type attached to it. In fact, however, all Lisp implementations do have a type system, which they use internally. Primitive predicates such as symbol? and number? determine whether data objects have particular types. Modify the definitions of type-tag, contents, and attach-tag from section [2.4.2](#_sec_2.4.2) so that our generic system takes advantage of Scheme's internal type system. That is to say, the system should work as before except that ordinary numbers should be represented simply as Scheme numbers rather than as pairs whose car is the symbol scheme-number.
 
+<a name="_thm_2.79"></a>
 **Exercise 2.79.**  Define a generic equality predicate equ? that tests the equality of two numbers, and install it in the generic arithmetic package. This operation should work for ordinary numbers, rational numbers, and complex numbers.
 
+<a name="_thm_2.80"></a>
 **Exercise 2.80.**  Define a generic predicate \=zero? that tests if its argument is zero, and install it in the generic arithmetic package. This operation should work for ordinary numbers, rational numbers, and complex numbers.
 
 <a name="_sec_2.5.2"></a>
@@ -5434,6 +5560,7 @@ Yet another advantage of a tower over a more general hierarchy is that it gives 
 
 If the data types in our system can be naturally arranged in a tower, this greatly simplifies the problems of dealing with generic operations on different types, as we have seen. Unfortunately, this is usually not the case. Figure [2.26](#_fig_2.26) illustrates a more complex arrangement of mixed types, this one showing relations among different types of geometric figures. We see that, in general, a type may have more than one subtype. Triangles and quadrilaterals, for instance, are both subtypes of polygons. In addition, a type may have more than one supertype. For example, an isosceles right triangle may be regarded either as an isosceles triangle or as a right triangle. This multiple-supertypes issue is particularly thorny, since it means that there is no unique way to \`\`raise'' a type in the hierarchy. Finding the \`\`correct'' supertype in which to apply an operation to an object may involve considerable searching through the entire type network on the part of a procedure such as apply-generic. Since there generally are multiple subtypes for a type, there is a similar problem in coercing a value \`\`down'' the type hierarchy. Dealing with large numbers of interrelated types while still preserving modularity in the design of large systems is very difficult, and is an area of much current research.[52](#footnote_Temp_289)
 
+<a name="_thm_2.81"></a>
 **Exercise 2.81.**  Louis Reasoner has noticed that apply-generic may try to coerce the arguments to each other's type even if they already have the same type. Therefore, he reasons, we need to put procedures in the coercion table to "coerce" arguments of each type to their own type. For example, in addition to the scheme-number->complex coercion shown above, he would do:
 
 (define (scheme-number->scheme-number n) n)  
@@ -5458,14 +5585,19 @@ b. Is Louis correct that something had to be done about coercion with arguments 
 
 c. Modify apply-generic so that it doesn't try coercion if the two arguments have the same type.
 
+<a name="_thm_2.82"></a>
 **Exercise 2.82.**  Show how to generalize apply-generic to handle coercion in the general case of multiple arguments. One strategy is to attempt to coerce all the arguments to the type of the first argument, then to the type of the second argument, and so on. Give an example of a situation where this strategy (and likewise the two-argument version given above) is not sufficiently general. (Hint: Consider the case where there are some suitable mixed-type operations present in the table that will not be tried.)
 
+<a name="_thm_2.83"></a>
 **Exercise 2.83.**  Suppose you are designing a generic arithmetic system for dealing with the tower of types shown in figure [2.25](#_fig_2.25): integer, rational, real, complex. For each type (except complex), design a procedure that raises objects of that type one level in the tower. Show how to install a generic raise operation that will work for each type (except complex).
 
+<a name="_thm_2.84"></a>
 **Exercise 2.84.**  Using the raise operation of exercise [2.83](#_thm_2.83), modify the apply-generic procedure so that it coerces its arguments to have the same type by the method of successive raising, as discussed in this section. You will need to devise a way to test which of two types is higher in the tower. Do this in a manner that is \`\`compatible'' with the rest of the system and will not lead to problems in adding new levels to the tower.
 
+<a name="_thm_2.85"></a>
 **Exercise 2.85.**  This section mentioned a method for \`\`simplifying'' a data object by lowering it in the tower of types as far as possible. Design a procedure drop that accomplishes this for the tower described in exercise [2.83](#_thm_2.83). The key is to decide, in some general way, whether an object can be lowered. For example, the complex number 1.5 + 0_i_ can be lowered as far as real, the complex number 1 + 0_i_ can be lowered as far as integer, and the complex number 2 + 3_i_ cannot be lowered at all. Here is a plan for determining whether an object can be lowered: Begin by defining a generic operation project that \`\`pushes'' an object down in the tower. For example, projecting a complex number would involve throwing away the imaginary part. Then a number can be dropped if, when we project it and raise the result back to the type we started with, we end up with something equal to what we started with. Show how to implement this idea in detail, by writing a drop procedure that drops an object as far as possible. You will need to design the various projection operations[53](#footnote_Temp_295) and install project as a generic operation in the system. You will also need to make use of a generic equality predicate, such as described in exercise [2.79](#_thm_2.79). Finally, use drop to rewrite apply-generic from exercise [2.84](#_thm_2.84) so that it \`\`simplifies'' its answers.
 
+<a name="_thm_2.86"></a>
 **Exercise 2.86.**  Suppose we want to handle complex numbers whose real parts, imaginary parts, magnitudes, and angles can be either ordinary numbers, rational numbers, or other numbers we might wish to add to the system. Describe and implement the changes to the system needed to accommodate this. You will have to define operations such as sine and cosine that are generic over ordinary numbers and rational numbers.
 
 <a name="_sec_2.5.3"></a>
@@ -5633,14 +5765,19 @@ Users of the polynomial package will create (tagged) polynomials by means of the
 (define (make-polynomial var terms)  
   ((get 'make 'polynomial) var terms))  
 
+<a name="_thm_2.87"></a>
 **Exercise 2.87.**  Install \=zero? for polynomials in the generic arithmetic package. This will allow adjoin-term to work for polynomials with coefficients that are themselves polynomials.
 
+<a name="_thm_2.88"></a>
 **Exercise 2.88.**  Extend the polynomial system to include subtraction of polynomials. (Hint: You may find it helpful to define a generic negation operation.)
 
+<a name="_thm_2.89"></a>
 **Exercise 2.89.**  Define procedures that implement the term-list representation described above as appropriate for dense polynomials.
 
+<a name="_thm_2.90"></a>
 **Exercise 2.90.**  Suppose we want to have a polynomial system that is efficient for both sparse and dense polynomials. One way to do this is to allow both kinds of term-list representations in our system. The situation is analogous to the complex-number example of section [2.4](#_sec_2.4), where we allowed both rectangular and polar representations. To do this we must distinguish different types of term lists and make the operations on term lists generic. Redesign the polynomial system to implement this generalization. This is a major effort, not a local change.
 
+<a name="_thm_2.91"></a>
 **Exercise 2.91.**  A univariate polynomial can be divided by another one to produce a polynomial quotient and a polynomial remainder. For example,
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-76.gif)
@@ -5676,6 +5813,7 @@ On the other hand, polynomial algebra is a system for which the data types canno
 
 It should not be surprising that controlling coercion is a serious problem in the design of large-scale algebraic-manipulation systems. Much of the complexity of such systems is concerned with relationships among diverse types. Indeed, it is fair to say that we do not yet completely understand coercion. In fact, we do not yet completely understand the concept of a data type. Nevertheless, what we know provides us with powerful structuring and modularity principles to support the design of large systems.
 
+<a name="_thm_2.92"></a>
 **Exercise 2.92.**  By imposing an ordering on variables, extend the polynomial package so that addition and multiplication of polynomials works for polynomials in different variables. (This is not easy!)
 
 <a name="_sec_Temp_312"></a>
@@ -5694,6 +5832,7 @@ The system should be able to add, subtract, multiply, and divide rational functi
 
 If we modify our rational-arithmetic package so that it uses generic operations, then it will do what we want, except for the problem of reducing fractions to lowest terms.
 
+<a name="_thm_2.93"></a>
 **Exercise 2.93.**  Modify the rational-arithmetic package to use generic operations, but change make-rat so that it does not attempt to reduce fractions to lowest terms. Test your system by calling make-rational on two polynomials to produce a rational function
 
 (define p1 (make-polynomial 'x '((2 1)(0 1))))  
@@ -5718,6 +5857,7 @@ Using this, we could make the obvious modification to define a GCD operation tha
 
 where remainder-terms picks out the remainder component of the list returned by the term-list division operation div-terms that was implemented in exercise [2.91](#_thm_2.91).
 
+<a name="_thm_2.94"></a>
 **Exercise 2.94.**  Using div-terms, implement the procedure remainder-terms and use this to define gcd-terms as above. Now write a procedure gcd-poly that computes the polynomial GCD of two polys. (The procedure should signal an error if the two polys are not in the same variable.) Install in the system a generic operation greatest-common-divisor that reduces to gcd-poly for polynomials and to ordinary gcd for ordinary numbers. As a test, try
 
 (define p1 (make-polynomial 'x '((4 1) (3 -1) (2 -2) (1 2))))  
@@ -5726,6 +5866,7 @@ where remainder-terms picks out the remainder component of the list returned by 
 
 and check your result by hand.
 
+<a name="_thm_2.95"></a>
 **Exercise 2.95.**  Define _P_1, _P_2, and _P_3 to be the polynomials
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch2-Z-G-79.gif)
@@ -5740,6 +5881,7 @@ We can solve the problem exhibited in exercise [2.95](#_thm_2.95) if we use the 
 
 More precisely, if _P_ and _Q_ are polynomials, let _O_1 be the order of _P_ (i.e., the order of the largest term of _P_) and let _O_2 be the order of _Q_. Let _c_ be the leading coefficient of _Q_. Then it can be shown that, if we multiply _P_ by the _integerizing factor_ _c_1+_O_1 -_O_2, the resulting polynomial can be divided by _Q_ by using the div-terms algorithm without introducing any fractions. The operation of multiplying the dividend by this constant and then dividing is sometimes called the _pseudodivision_ of _P_ by _Q_. The remainder of the division is called the _pseudoremainder_.
 
+<a name="_thm_2.96"></a>
 **Exercise 2.96.**  a.    Implement the procedure pseudoremainder-terms, which is just like remainder-terms except that it multiplies the dividend by the integerizing factor described above before calling div-terms. Modify gcd-terms to use pseudoremainder-terms, and verify that greatest-common-divisor now produces an answer with integer coefficients on the example in exercise [2.95](#_thm_2.95).
 
 b.    The GCD now has integer coefficients, but they are larger than those of _P_1. Modify gcd-terms so that it removes common factors from the coefficients of the answer by dividing all the coefficients by their (integer) greatest common divisor.
@@ -5752,6 +5894,7 @@ Thus, here is how to reduce a rational function to lowest terms:
     
 *   The result of this operation will be a numerator and denominator with integer coefficients. The coefficients will normally be very large because of all of the integerizing factors, so the last step is to remove the redundant factors by computing the (integer) greatest common divisor of all the coefficients of the numerator and the denominator and dividing through by this factor.
 
+<a name="_thm_2.97"></a>
 **Exercise 2.97.**  a. Implement this algorithm as a procedure reduce-terms that takes two term lists n and d as arguments and returns a list nn, dd, which are n and d reduced to lowest terms via the algorithm given above. Also write a procedure reduce-poly, analogous to add-poly, that checks to see if the two polys have the same variable. If so, reduce-poly strips off the variable and passes the problem to reduce-terms, then reattaches the variable to the two term lists supplied by reduce-terms.
 
 b. Define a procedure analogous to reduce-terms that does what the original make-rat did for integers:
@@ -5969,6 +6112,7 @@ Each call to acc returns the locally defined deposit or withdraw procedure, whic
 
 will produce a completely separate account object, which maintains its own local balance.
 
+<a name="_thm_3.1"></a>
 **Exercise 3.1.**  An _accumulator_ is a procedure that is called repeatedly with a single numeric argument and accumulates its arguments into a sum. Each time it is called, it returns the currently accumulated sum. Write a procedure make-accumulator that generates accumulators, each maintaining an independent sum. The input to make-accumulator should specify the initial value of the sum; for example
 
 (define A (make-accumulator 5))  
@@ -5977,6 +6121,7 @@ _15_
 (A 10)  
 _25_  
 
+<a name="_thm_3.2"></a>
 **Exercise 3.2.**  In software-testing applications, it is useful to be able to count the number of times a given procedure is called during the course of a computation. Write a procedure make-monitored that takes as input a procedure, f, that itself takes one input. The result returned by make-monitored is a third procedure, say mf, that keeps track of the number of times it has been called by maintaining an internal counter. If the input to mf is the special symbol how-many-calls?, then mf returns the value of the counter. If the input is the special symbol reset-count, then mf resets the counter to zero. For any other input, mf returns the result of calling f on that input and increments the counter. For instance, we could make a monitored version of the sqrt procedure:
 
 (define s (make-monitored sqrt))  
@@ -5987,6 +6132,7 @@ _10_
 (s 'how-many-calls?)  
 _1_  
 
+<a name="_thm_3.3"></a>
 **Exercise 3.3.**  Modify the make-account procedure so that it creates password-protected accounts. That is, make-account should take a symbol as an additional argument, as in
 
 (define acc (make-account 100 'secret-password))  
@@ -5999,6 +6145,7 @@ _60_
 ((acc 'some-other-password 'deposit) 50)  
 _"Incorrect password"_  
 
+<a name="_thm_3.4"></a>
 **Exercise 3.4.**  Modify the make-account procedure of exercise [3.3](#_thm_3.3) by adding another local state variable so that, if an account is accessed more than seven consecutive times with an incorrect password, it invokes the procedure call-the-cops.
 
 <a name="_sec_3.1.2"></a>
@@ -6068,6 +6215,7 @@ The general phenomenon illustrated by the Monte Carlo example is this: From the 
 
 It is tempting to conclude this discussion by saying that, by introducing assignment and the technique of hiding state in local variables, we are able to structure systems in a more modular fashion than if all state had to be manipulated explicitly, by passing additional parameters. Unfortunately, as we shall see, the story is not so simple.
 
+<a name="_thm_3.5"></a>
 **Exercise 3.5.**  _Monte Carlo integration_ is a method of estimating definite integrals by means of Monte Carlo simulation. Consider computing the area of a region of space described by a predicate _P_(_x_, _y_) that is true for points (_x_, _y_) in the region and false for points not in the region. For example, the region contained within a circle of radius 3 centered at (5, 7) is described by the predicate that tests whether (_x_ - 5)2 + (_y_ - 7)2< 32. To estimate the area of the region described by such a predicate, begin by choosing a rectangle that contains the region. For example, a rectangle with diagonally opposite corners at (2, 4) and (8, 10) contains the circle above. The desired integral is the area of that portion of the rectangle that lies in the region. We can estimate the integral by picking, at random, points (_x_,_y_) that lie in the rectangle, and testing _P_(_x_, _y_) for each point to determine whether the point lies in the region. If we try this with many points, then the fraction of points that fall in the region should give an estimate of the proportion of the rectangle that lies in the region. Hence, multiplying this fraction by the area of the entire rectangle should produce an estimate of the integral.
 
 Implement Monte Carlo integration as a procedure estimate-integral that takes as arguments a predicate P, upper and lower bounds x1, x2, y1, and y2 for the rectangle, and the number of trials to perform in order to produce the estimate. Your procedure should use the same monte-carlo procedure that was used above to estimate π. Use your estimate-integral to produce an estimate of π by measuring the area of a unit circle.
@@ -6078,6 +6226,7 @@ You will find it useful to have a procedure that returns a number chosen at rand
   (let ((range (- high low)))  
     (+ low (random range))))  
 
+<a name="_thm_3.6"></a>
 **Exercise 3.6.**  It is useful to be able to reset a random-number generator to produce a sequence starting from a given value. Design a new rand procedure that is called with an argument that is either the symbol generate or the symbol reset and behaves as follows: (rand 'generate) produces a new random number; ((rand 'reset) <_new-value_\>) resets the internal state variable to the designated <_new-value_\>. Thus, by resetting the state, one can generate repeatable sequences. These are very handy to have when testing and debugging programs that use random numbers.
 
     <a name="_sec_3.1.3"></a>
@@ -6225,6 +6374,7 @@ This does not change the results produced by the program, but it does introduce 
 
 would have produced a different, incorrect result. In general, programming with assignment forces us to carefully consider the relative orders of the assignments to make sure that each statement is using the correct version of the variables that have been changed. This issue simply does not arise in functional programs.[11](#footnote_Temp_339) The complexity of imperative programs becomes even worse if we consider applications in which several processes execute concurrently. We will return to this in section [3.4](#_sec_3.4). First, however, we will address the issue of providing a computational model for expressions that involve assignment, and explore the uses of objects with local state in designing simulations.
 
+<a name="_thm_3.7"></a>
 **Exercise 3.7.**  Consider the bank account objects created by make-account, with the password modification described in exercise [3.3](#_thm_3.3). Suppose that our banking system requires the ability to make joint accounts. Define a procedure make-joint that accomplishes this. Make-joint should take three arguments. The first is a password-protected account. The second argument must match the password with which the account was defined in order for the make-joint operation to proceed. The third argument is a new password. Make-joint is to create an additional access to the original account using the new password. For example, if peter-acc is a bank account with password open-sesame, then
 
 (define paul-acc  
@@ -6232,6 +6382,7 @@ would have produced a different, incorrect result. In general, programming with 
 
 will allow one to make transactions on peter-acc using the name paul-acc and the password rosebud. You may wish to modify your solution to exercise [3.3](#_thm_3.3) to accommodate this new feature.
 
+<a name="_thm_3.8"></a>
 **Exercise 3.8.**  When we defined the evaluation model in section [1.1.3](#_sec_1.1.3), we said that the first step in evaluating an expression is to evaluate its subexpressions. But we never specified the order in which the subexpressions should be evaluated (e.g., left to right or right to left). When we introduce assignment, the order in which the arguments to a procedure are evaluated can make a difference to the result. Define a simple procedure f such that evaluating (+ (f 0) (f 1)) will return 0 if the arguments to + are evaluated from left to right but will return 1 if the arguments are evaluated from right to left.
 
 * * *
@@ -6368,6 +6519,7 @@ The important point to observe is that each call to square creates a new environ
 
 After the subexpressions are evaluated, the results are returned. The values generated by the two calls to square are added by sum-of-squares, and this result is returned by f. Since our focus here is on the environment structures, we will not dwell on how these returned values are passed from call to call; however, this is also an important aspect of the evaluation process, and we will return to it in detail in chapter 5.
 
+<a name="_thm_3.9"></a>
 **Exercise 3.9.**  In section [1.2.1](#_sec_1.2.1) we used the substitution model to analyze two procedures for computing factorials, a recursive version
 
 (define (factorial n)  
@@ -6460,6 +6612,7 @@ This produces the environment structure of figure [3.10](#_fig_3.10), which show
 
 **Figure 3.10:**  Using (define W2 (make-withdraw 100)) to create a second object.
 
+<a name="_thm_3.10"></a>
 **Exercise 3.10.**  In the make-withdraw procedure, the local variable balance is created as a parameter of make-withdraw. We could also create the local state variable explicitly, using let, as follows:
 
 (define (make-withdraw initial-amount)  
@@ -6524,6 +6677,7 @@ After the local procedures were defined, the expression (sqrt-iter 1.0) was eval
     
 *   The local procedures can access the arguments of the enclosing procedure, simply by using parameter names as free variables. This is because the body of the local procedure is evaluated in an environment that is subordinate to the evaluation environment for the enclosing procedure.
 
+<a name="_thm_3.11"></a>
 **Exercise 3.11.**  In section [3.2.3](#_sec_3.2.3) we saw how the environment model described the behavior of procedures with local state. Now we have seen how internal definitions work. A typical message-passing procedure contains both of these aspects. Consider the bank account procedure of section [3.1.1](#_sec_3.1.1):
 
 (define (make-account balance)  
@@ -6621,6 +6775,7 @@ Cons builds new list structure by creating new pairs, while set-car! and set-cdr
     (set-cdr! new y)  
     new))  
 
+<a name="_thm_3.12"></a>
 **Exercise 3.12.**  The following procedure for appending lists was introduced in section [2.2.1](#_sec_2.2.1):
 
 (define (append x y)  
@@ -6658,6 +6813,7 @@ _(a b c d)_
 
 What are the missing <_response_\>s? Draw box-and-pointer diagrams to explain your answer.
 
+<a name="_thm_3.13"></a>
 **Exercise 3.13.**  Consider the following make-cycle procedure, which uses the last-pair procedure defined in exercise [3.12](#_thm_3.12):
 
 (define (make-cycle x)  
@@ -6670,6 +6826,7 @@ Draw a box-and-pointer diagram that shows the structure z created by
 
 What happens if we try to compute (last-pair z)?
 
+<a name="_thm_3.14"></a>
 **Exercise 3.14.**  The following procedure is quite useful, although obscure:
 
 (define (mystery x)  
@@ -6732,8 +6889,10 @@ One way to detect sharing in list structures is to use the predicate eq?, which 
 
 As will be seen in the following sections, we can exploit sharing to greatly extend the repertoire of data structures that can be represented by pairs. On the other hand, sharing can also be dangerous, since modifications made to structures will also affect other structures that happen to share the modified parts. The mutation operations set-car! and set-cdr! should be used with care; unless we have a good understanding of how our data objects are shared, mutation can have unanticipated results.[20](#footnote_Temp_357)
 
+<a name="_thm_3.15"></a>
 **Exercise 3.15.**  Draw box-and-pointer diagrams to explain the effect of set-to-wow! on the structures z1 and z2 above.
 
+<a name="_thm_3.16"></a>
 **Exercise 3.16.**  Ben Bitdiddle decides to write a procedure to count the number of pairs in any list structure. \`\`It's easy,'' he reasons. \`\`The number of pairs in any structure is the number in the car plus the number in the cdr plus one more to count the current pair.'' So Ben writes the following procedure:
 
 (define (count-pairs x)  
@@ -6745,10 +6904,13 @@ As will be seen in the following sections, we can exploit sharing to greatly ext
 
 Show that this procedure is not correct. In particular, draw box-and-pointer diagrams representing list structures made up of exactly three pairs for which Ben's procedure would return 3; return 4; return 7; never return at all.
 
+<a name="_thm_3.17"></a>
 **Exercise 3.17.**  Devise a correct version of the count-pairs procedure of exercise [3.16](#_thm_3.16) that returns the number of distinct pairs in any structure. (Hint: Traverse the structure, maintaining an auxiliary data structure that is used to keep track of which pairs have already been counted.)
 
+<a name="_thm_3.18"></a>
 **Exercise 3.18.**  Write a procedure that examines a list and determines whether it contains a cycle, that is, whether a program that tried to find the end of the list by taking successive cdrs would go into an infinite loop. Exercise [3.13](#_thm_3.13) constructed such lists.
 
+<a name="_thm_3.19"></a>
 **Exercise 3.19.**  Redo exercise [3.18](#_thm_3.18) using an algorithm that takes only a constant amount of space. (This requires a very clever idea.)
 
 <a name="_sec_Temp_363"></a>
@@ -6789,6 +6951,7 @@ The same observation is true for mutable data. We can implement mutable data obj
 
 Assignment is all that is needed, theoretically, to account for the behavior of mutable data. As soon as we admit set! to our language, we raise all the issues, not only of assignment, but of mutable data in general.[21](#footnote_Temp_364)
 
+<a name="_thm_3.20"></a>
 **Exercise 3.20.**  Draw environment diagrams to illustrate the evaluation of the sequence of expressions
 
 (define x (cons 1 2))  
@@ -6919,6 +7082,7 @@ To delete the item at the front of the queue, we merely modify the front pointer
          (set-front-ptr! queue (cdr (front-ptr queue)))  
          queue))) 
 
+<a name="_thm_3.21"></a>
 **Exercise 3.21.**  Ben Bitdiddle decides to test the queue implementation described above. He types in the procedures to the Lisp interpreter and proceeds to try them out:
 
 (define q1 (make-queue))  
@@ -6933,6 +7097,7 @@ _(() b)_
 
 \`\`It's all wrong!'' he complains. \`\`The interpreter's response shows that the last item is inserted into the queue twice. And when I delete both items, the second b is still there, so the queue isn't empty, even though it's supposed to be.'' Eva Lu Ator suggests that Ben has misunderstood what is happening. \`\`It's not that the items are going into the queue twice,'' she explains. \`\`It's just that the standard Lisp printer doesn't know how to make sense of the queue representation. If you want to see the queue printed correctly, you'll have to define your own print procedure for queues.'' Explain what Eva Lu is talking about. In particular, show why Ben's examples produce the printed results that they do. Define a procedure print-queue that takes a queue as input and prints the sequence of items in the queue.
 
+<a name="_thm_3.22"></a>
 **Exercise 3.22.**  Instead of representing a queue as a pair of pointers, we can build a queue as a procedure with local state. The local state will consist of pointers to the beginning and the end of an ordinary list. Thus, the make-queue procedure will have the form
 
 (define (make-queue)  
@@ -6944,6 +7109,7 @@ _(() b)_
 
 Complete the definition of make-queue and provide implementations of the queue operations using this representation.
 
+<a name="_thm_3.23"></a>
 **Exercise 3.23.**  A _deque_ (\`\`double-ended queue'') is a sequence in which items can be inserted and deleted at either the front or the rear. Operations on deques are the constructor make-deque, the predicate empty-deque?, selectors front-deque and rear-deque, and mutators front-insert-deque!, rear-insert-deque!, front-delete-deque!, and rear-delete-deque!. Show how to represent deques using pairs, and give implementations of the operations.[23](#footnote_Temp_370) All operations should be accomplished in Θ(1) steps.
 
 <a name="_sec_3.3.3"></a>
@@ -7081,12 +7247,16 @@ Using make-table, we could implement the get and put operations used in section 
 
 Get takes as arguments two keys, and put takes as arguments two keys and a value. Both operations access the same local table, which is encapsulated within the object created by the call to make-table.
 
+<a name="_thm_3.24"></a>
 **Exercise 3.24.**  In the table implementations above, the keys are tested for equality using equal? (called by assoc). This is not always the appropriate test. For instance, we might have a table with numeric keys in which we don't need an exact match to the number we're looking up, but only a number within some tolerance of it. Design a table constructor make-table that takes as an argument a same-key? procedure that will be used to test \`\`equality'' of keys. Make-table should return a dispatch procedure that can be used to access appropriate lookup and insert! procedures for a local table.
 
+<a name="_thm_3.25"></a>
 **Exercise 3.25.**  Generalizing one- and two-dimensional tables, show how to implement a table in which values are stored under an arbitrary number of keys and different values may be stored under different numbers of keys. The lookup and insert! procedures should take as input a list of keys used to access the table.
 
+<a name="_thm_3.26"></a>
 **Exercise 3.26.**  To search a table as implemented above, one needs to scan through the list of records. This is basically the unordered list representation of section [2.3.3](#_sec_2.3.3). For large tables, it may be more efficient to structure the table in a different manner. Describe a table implementation where the (key, value) records are organized using a binary tree, assuming that keys can be ordered in some way (e.g., numerically or alphabetically). (Compare exercise [2.66](#_thm_2.66) of chapter 2.)
 
+<a name="_thm_3.27"></a>
 **Exercise 3.27.**  _Memoization_ (also called _tabulation_) is a technique that enables a procedure to record, in a local table, values that have previously been computed. This technique can make a vast difference in the performance of a program. A memoized procedure maintains a table in which values of previous calls are stored using as keys the arguments that produced the values. When the memoized procedure is asked to compute a value, it first checks the table to see if the value is already there and, if so, just returns that value. Otherwise, it computes the new value in the ordinary way and stores this in the table. As an example of memoization, recall from section [1.2.2](#_sec_1.2.2) the exponential process for computing Fibonacci numbers:
 
 (define (fib n)  
@@ -7235,10 +7405,13 @@ An and-gate is a little more complex. The action procedure must be run if either
   (add-action! a2 and-action-procedure)  
   'ok)  
 
+<a name="_thm_3.28"></a>
 **Exercise 3.28.**  Define an or-gate as a primitive function box. Your or-gate constructor should be similar to and-gate.
 
+<a name="_thm_3.29"></a>
 **Exercise 3.29.**  Another way to construct an or-gate is as a compound digital logic device, built from and-gates and inverters. Define a procedure or-gate that accomplishes this. What is the delay time of the or-gate in terms of and-gate-delay and inverter-delay?
 
+<a name="_thm_3.30"></a>
 **Exercise 3.30.**  Figure [3.27](#_fig_3.27) shows a _ripple-carry adder_ formed by stringing together _n_ full-adders. This is the simplest form of parallel adder for adding two _n_\-bit binary numbers. The inputs A1, A2, A3, ..., A_n_ and B1, B2, B3, ..., B_n_ are the two binary numbers to be added (each A_k_ and B_k_ is a 0 or a 1). The circuit generates S1, S2, S3, ..., S_n_, the _n_ bits of the sum, and C, the carry from the addition. Write a procedure ripple-carry-adder that generates this circuit. The procedure should take as arguments three lists of _n_ wires each -- the A_k_, the B_k_, and the S_k_ -- and also another wire C. The major drawback of the ripple-carry adder is the need to wait for the carry signals to propagate. What is the delay needed to obtain the complete output from an _n_\-bit ripple-carry adder, expressed in terms of the delays for and-gates, or-gates, and inverters?
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-27.gif)
@@ -7388,6 +7561,7 @@ _done_
 
 The carry changes to 1 at time 11 and the sum changes to 0 at time 16.
 
+<a name="_thm_3.31"></a>
 **Exercise 3.31.**   The internal procedure accept-action-procedure! defined in make-wire specifies that when a new action procedure is added to a wire, the procedure is immediately run. Explain why this initialization is necessary. In particular, trace through the half-adder example in the paragraphs above and say how the system's response would differ if we had defined accept-action-procedure! as
 
 (define (accept-action-procedure! proc)  
@@ -7471,6 +7645,7 @@ The first agenda item is found at the head of the queue in the first time segmen
         (set-current-time! agenda (segment-time first-seg))  
         (front-queue (segment-queue first-seg)))))  
 
+<a name="_thm_3.32"></a>
 **Exercise 3.32.**  The procedures to be run during each time segment of the agenda are kept in a queue. Thus, the procedures for each segment are called in the order in which they were added to the agenda (first in, first out). Explain why this order must be used. In particular, trace the behavior of an and-gate whose inputs change from 0,1 to 1,0 in the same segment and say how the behavior would differ if we stored a segment's procedures in an ordinary list, adding and removing procedures only at the front (last in, first out).
 
 <a name="_sec_3.3.5"></a>
@@ -7768,8 +7943,10 @@ The connector's procedure me serves as a dispatch to the other internal procedur
 (define (connect connector new-constraint)  
   ((connector 'connect) new-constraint))  
 
+<a name="_thm_3.33"></a>
 **Exercise 3.33.**  Using primitive multiplier, adder, and constant constraints, define a procedure averager that takes three connectors a, b, and c as inputs and establishes the constraint that the value of c is the average of the values of a and b.
 
+<a name="_thm_3.34"></a>
 **Exercise 3.34.**  Louis Reasoner wants to build a squarer, a constraint device with two terminals such that the value of connector b on the second terminal will always be the square of the value a on the first terminal. He proposes the following simple device made from a multiplier:
 
 (define (squarer a b)  
@@ -7777,6 +7954,7 @@ The connector's procedure me serves as a dispatch to the other internal procedur
 
 There is a serious flaw in this idea. Explain.
 
+<a name="_thm_3.35"></a>
 **Exercise 3.35.**  Ben Bitdiddle tells Louis that one way to avoid the trouble in exercise [3.34](#_thm_3.34) is to define a squarer as a new primitive constraint. Fill in the missing portions in Ben's outline for a procedure to implement such a constraint:
 
 (define (squarer a b)  
@@ -7791,6 +7969,7 @@ There is a serious flaw in this idea. Explain.
   <_rest of definition_\>  
   me)  
 
+<a name="_thm_3.36"></a>
 **Exercise 3.36.**  Suppose we evaluate the following sequence of expressions in the global environment:
 
 (define a (make-connector))  
@@ -7803,6 +7982,7 @@ At some time during evaluation of the set-value!, the following expression from 
 
 Draw an environment diagram showing the environment in which the above expression is evaluated.
 
+<a name="_thm_3.37"></a>
 **Exercise 3.37.**  The celsius-fahrenheit-converter procedure is cumbersome when compared with a more expression-oriented style of definition, such as
 
 (define (celsius-fahrenheit-converter x)  
@@ -7941,6 +8121,7 @@ A less stringent restriction on concurrency would ensure that a concurrent syste
 
 There are still weaker requirements for correct execution of concurrent programs. A program for simulating diffusion (say, the flow of heat in an object) might consist of a large number of processes, each one representing a small volume of space, that update their values concurrently. Each process repeatedly changes its value to the average of its own value and its neighbors' values. This algorithm converges to the right answer independent of the order in which the operations are done; there is no need for any restrictions on concurrent use of the shared values.
 
+<a name="_thm_3.38"></a>
 **Exercise 3.38.**  Suppose that Peter, Paul, and Mary share a joint bank account that initially contains $100. Concurrently, Peter deposits $10, Paul withdraws $20, and Mary withdraws half the money in the account, by executing the following commands:
 
 Peter:
@@ -8053,6 +8234,7 @@ Here is a version of the make-account procedure from section [3.1.1](#_sec_3.1.1
 
 With this implementation, two processes cannot be withdrawing from or depositing into a single account concurrently. This eliminates the source of the error illustrated in figure [3.29](#_fig_3.29), where Peter changes the account balance between the times when Paul accesses the balance to compute the new value and when Paul actually performs the assignment. On the other hand, each account has its own serializer, so that deposits and withdrawals for different accounts can proceed concurrently.
 
+<a name="_thm_3.39"></a>
 **Exercise 3.39.**  Which of the five possibilities in the parallel execution shown above remain if we instead serialize execution as follows:
 
 (define x 10)  
@@ -8062,6 +8244,7 @@ With this implementation, two processes cannot be withdrawing from or depositing
 (parallel-execute (lambda () (set! x ((s (lambda () (\* x x))))))  
                   (s (lambda () (set! x (+ x 1)))))  
 
+<a name="_thm_3.40"></a>
 **Exercise 3.40.**  Give all possible values of x that can result from executing
 
 (define x 10)  
@@ -8078,6 +8261,7 @@ Which of these possibilities remain if we instead use serialized procedures:
 (parallel-execute (s (lambda () (set! x (\* x x))))  
                   (s (lambda () (set! x (\* x x x)))))  
 
+<a name="_thm_3.41"></a>
 **Exercise 3.41.**  Ben Bitdiddle worries that it would be better to implement the bank account as follows (where the commented line has been changed):
 
 (define (make-account balance)  
@@ -8103,6 +8287,7 @@ Which of these possibilities remain if we instead use serialized procedures:
 
 because allowing unserialized access to the bank balance can result in anomalous behavior. Do you agree? Is there any scenario that demonstrates Ben's concern?
 
+<a name="_thm_3.42"></a>
 **Exercise 3.42.**  Ben Bitdiddle suggests that it's a waste of time to create a new serialized procedure in response to every withdraw and deposit message. He says that make-account could be changed so that the calls to protected are done outside the dispatch procedure. That is, an account would return the same serialized procedure (which was created at the same time as the account) each time it is asked for a withdrawal procedure.
 
 (define (make-account balance)  
@@ -8180,8 +8365,10 @@ Exporting the serializer in this way gives us enough flexibility to implement a 
      account1  
      account2)))  
 
+<a name="_thm_3.43"></a>
 **Exercise 3.43.**  Suppose that the balances in three accounts start out as $10, $20, and $30, and that multiple processes run, exchanging the balances in the accounts. Argue that if the processes are run sequentially, after any number of concurrent exchanges, the account balances should be $10, $20, and $30 in some order. Draw a timing diagram like the one in figure [3.29](#_fig_3.29) to show how this condition can be violated if the exchanges are implemented using the first version of the account-exchange program in this section. On the other hand, argue that even with this exchange program, the sum of the balances in the accounts will be preserved. Draw a timing diagram to show how even this condition would be violated if we did not serialize the transactions on individual accounts.
 
+<a name="_thm_3.44"></a>
 **Exercise 3.44.**  Consider the problem of transferring an amount from one account to another. Ben Bitdiddle claims that this can be accomplished with the following procedure, even if there are multiple people concurrently transferring money among multiple accounts, using any account mechanism that serializes deposit and withdrawal transactions, for example, the version of make-account in the text above.
 
 (define (transfer from-account to-account amount)  
@@ -8190,6 +8377,7 @@ Exporting the serializer in this way gives us enough flexibility to implement a 
 
 Louis Reasoner claims that there is a problem here, and that we need to use a more sophisticated method, such as the one required for dealing with the exchange problem. Is Louis right? If not, what is the essential difference between the transfer problem and the exchange problem? (You should assume that the balance in from-account is at least amount.)
 
+<a name="_thm_3.45"></a>
 **Exercise 3.45.**  Louis Reasoner thinks our bank-account system is unnecessarily complex and error-prone now that deposits and withdrawals aren't automatically serialized. He suggests that make-account-and-serializer should have exported the serializer (for use by such procedures as serialized-exchange) in addition to (rather than instead of) using it to serialize accounts and deposits as make-account did. He proposes to redefine accounts as follows:
 
 (define (make-account-and-serializer balance)  
@@ -8261,8 +8449,10 @@ However, this implementation of test-and-set! does not suffice as it stands. The
 
 The actual implementation of test-and-set! depends on the details of how our system runs concurrent processes. For example, we might be executing concurrent processes on a sequential processor using a time-slicing mechanism that cycles through the processes, permitting each process to run for a short time before interrupting it and moving on to the next process. In that case, test-and-set! can work by disabling time slicing during the testing and setting.[46](#footnote_Temp_430) Alternatively, multiprocessing computers provide instructions that support atomic operations directly in hardware.[47](#footnote_Temp_431)
 
+<a name="_thm_3.46"></a>
 **Exercise 3.46.**  Suppose that we implement test-and-set! using an ordinary procedure as shown in the text, without attempting to make the operation atomic. Draw a timing diagram like the one in figure [3.29](#_fig_3.29) to demonstrate how the mutex implementation can fail by allowing two processes to acquire the mutex at the same time.
 
+<a name="_thm_3.47"></a>
 **Exercise 3.47.**  A semaphore (of size _n_) is a generalization of a mutex. Like a mutex, a semaphore supports acquire and release operations, but it is more general in that up to _n_ processes can acquire it concurrently. Additional processes that attempt to acquire the semaphore must wait for release operations. Give implementations of semaphores
 
 a. in terms of mutexes
@@ -8277,8 +8467,10 @@ Now that we have seen how to implement serializers, we can see that account exch
 
 One way to avoid the deadlock in this situation is to give each account a unique identification number and rewrite serialized-exchange so that a process will always attempt to enter a procedure protecting the lowest-numbered account first. Although this method works well for the exchange problem, there are other situations that require more sophisticated deadlock-avoidance techniques, or where deadlock cannot be avoided at all. (See exercises [3.48](#_thm_3.48) and [3.49](#_thm_3.49).)[48](#footnote_Temp_435)
 
+<a name="_thm_3.48"></a>
 **Exercise 3.48.**  Explain in detail why the deadlock-avoidance method described above, (i.e., the accounts are numbered, and each process attempts to acquire the smaller-numbered account first) avoids deadlock in the exchange problem. Rewrite serialized-exchange to incorporate this idea. (You will also need to modify make-account so that each account is created with a number, which can be accessed by sending an appropriate message.)
 
+<a name="_thm_3.49"></a>
 **Exercise 3.49.**  Give a scenario where the deadlock-avoidance mechanism described above does not work. (Hint: In the exchange problem, each process knows in advance which accounts it will need to get access to. Consider a situation where a process must get access to some shared resources before it can know which additional shared resources it will require.)
 
 <a name="_sec_Temp_438"></a>
@@ -8550,6 +8742,7 @@ Delay is then defined so that (delay <_exp_\>) is equivalent to
 
 and force is as defined previously.[58](#footnote_Temp_450)
 
+<a name="_thm_3.50"></a>
 **Exercise 3.50.**  Complete the following definition, which generalizes stream-map to allow procedures that take multiple arguments, analogous to map in section [2.2.3](#_sec_2.2.3), footnote [12](#footnote_Temp_166).
 
 (define (stream-map proc . argstreams)  
@@ -8560,6 +8753,7 @@ and force is as defined previously.[58](#footnote_Temp_450)
        (apply stream-map  
               (cons proc (map <_??_\> argstreams))))))  
 
+<a name="_thm_3.51"></a>
 **Exercise 3.51.**  In order to take a closer look at delayed evaluation, we will use the following procedure, which simply returns its argument after printing it:
 
 (define (show x)  
@@ -8572,6 +8766,7 @@ What does the interpreter print in response to evaluating each expression in the
 (stream-ref x 5)  
 (stream-ref x 7)  
 
+<a name="_thm_3.52"></a>
 **Exercise 3.52.**  Consider the sequence of expressions
 
 (define sum 0)  
@@ -8761,16 +8956,20 @@ This definition is not so straightforward as it appears, because we will test wh
 
 This is a recursive definition, since primes is defined in terms of the prime? predicate, which itself uses the primes stream. The reason this procedure works is that, at any point, enough of the primes stream has been generated to test the primality of the numbers we need to check next. That is, for every _n_ we test for primality, either _n_ is not prime (in which case there is a prime already generated that divides it) or _n_ is prime (in which case there is a prime already generated -- i.e., a prime less than _n_ -- that is greater than √_n_).[63](#footnote_Temp_459)
 
+<a name="_thm_3.53"></a>
 **Exercise 3.53.**  Without running the program, describe the elements of the stream defined by
 
 (define s (cons-stream 1 (add-streams s s)))  
 
+<a name="_thm_3.54"></a>
 **Exercise 3.54.**  Define a procedure mul-streams, analogous to add-streams, that produces the elementwise product of its two input streams. Use this together with the stream of integers to complete the following definition of the stream whose nth element (counting from 0) is _n_ + 1 factorial:
 
 (define factorials (cons-stream 1 (mul-streams <_??_\> <_??_\>)))  
 
+<a name="_thm_3.55"></a>
 **Exercise 3.55.**  Define a procedure partial-sums that takes as argument a stream _S_ and returns the stream whose elements are _S_0, _S_0 + _S_1, _S_0 + _S_1 + _S_2, .... For example, (partial-sums integers) should be the stream 1, 3, 6, 10, 15, ....
 
+<a name="_thm_3.56"></a>
 **Exercise 3.56.**  A famous problem, first raised by R. Hamming, is to enumerate, in ascending order with no repetitions, all positive integers with no prime factors other than 2, 3, or 5. One obvious way to do this is to simply test each integer in turn to see whether it has any factors other than 2, 3, and 5. But this is very inefficient, since, as the integers get larger, fewer and fewer of them fit the requirement. As an alternative, let us call the required stream of numbers S and notice the following facts about it.
 
 *   S begins with 1.
@@ -8804,8 +9003,10 @@ Then the required stream may be constructed with merge, as follows:
 
 Fill in the missing expressions in the places marked <_??_\> above.
 
+<a name="_thm_3.57"></a>
 **Exercise 3.57.**  How many additions are performed when we compute the nth Fibonacci number using the definition of fibs based on the add-streams procedure? Show that the number of additions would be exponentially greater if we had implemented (delay <_exp_\>) simply as (lambda () <_exp_\>), without using the optimization provided by the memo-proc procedure described in section [3.5.1](#_sec_3.5.1).[64](#footnote_Temp_465)
 
+<a name="_thm_3.58"></a>
 **Exercise 3.58.**  Give an interpretation of the stream computed by the following procedure:
 
 (define (expand num den radix)  
@@ -8815,6 +9016,7 @@ Fill in the missing expressions in the places marked <_??_\> above.
 
 (Quotient is a primitive that returns the integer quotient of two integers.) What are the successive elements produced by (expand 1 7 10) ? What is produced by (expand 3 8 10) ?
 
+<a name="_thm_3.59"></a>
 **Exercise 3.59.**  In section [2.5.3](#_sec_2.5.3) we saw how to implement a polynomial arithmetic system representing polynomials as lists of terms. In a similar way, we can work with _power series_, such as
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-36.gif)
@@ -8843,6 +9045,7 @@ Show how to generate the series for sine and cosine, starting from the facts tha
 (define sine-series  
   (cons-stream 0 <_??_\>))  
 
+<a name="_thm_3.60"></a>
 **Exercise 3.60.**  With power series represented as streams of coefficients as in exercise [3.59](#_thm_3.59), adding series is implemented by add-streams. Complete the definition of the following procedure for multiplying series:
 
 (define (mul-series s1 s2)  
@@ -8850,12 +9053,14 @@ Show how to generate the series for sine and cosine, starting from the facts tha
 
 You can test your procedure by verifying that _s__i__n_2 _x_ + _c__o__s_2 _x_ = 1, using the series from exercise [3.59](#_thm_3.59).
 
+<a name="_thm_3.61"></a>
 **Exercise 3.61.**  Let _S_ be a power series (exercise [3.59](#_thm_3.59)) whose constant term is 1. Suppose we want to find the power series 1/_S_, that is, the series _X_ such that _S_ · _X_ = 1. Write _S_ = 1 + _S__R_ where _S__R_ is the part of _S_ after the constant term. Then we can solve for _X_ as follows:
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-40.gif)
 
 In other words, _X_ is the power series whose constant term is 1 and whose higher-order terms are given by the negative of _S__R_ times _X_. Use this idea to write a procedure invert-unit-series that computes 1/_S_ for a power series _S_ with constant term 1. You will need to use mul-series from exercise [3.60](#_thm_3.60).
 
+<a name="_thm_3.62"></a>
 **Exercise 3.62.**  Use the results of exercises [3.60](#_thm_3.60) and [3.61](#_thm_3.61) to define a procedure div-series that divides two power series. Div-series should work for any two series, provided that the denominator series begins with a nonzero constant term. (If the denominator has a zero constant term, then div-series should signal an error.) Show how to use div-series together with the result of exercise [3.59](#_thm_3.59) to generate the power series for tangent.
 
 <a name="_sec_3.5.3"></a>
@@ -8980,6 +9185,7 @@ _3.141592653589778_
 
 The result is impressive. Taking eight terms of the sequence yields the correct value of π to 14 decimal places. If we had used only the original π sequence, we would need to compute on the order of 1013 terms (i.e., expanding the series far enough so that the individual terms are less then 10\-13) to get that much accuracy! We could have implemented these acceleration techniques without using streams. But the stream formulation is particularly elegant and convenient because the entire sequence of states is available to us as a data structure that can be manipulated with a uniform set of operations.
 
+<a name="_thm_3.63"></a>
 **Exercise 3.63.**  Louis Reasoner asks why the sqrt-stream procedure was not written in the following more straightforward way, without the local variable guesses:
 
 (define (sqrt-stream x)  
@@ -8990,11 +9196,13 @@ The result is impressive. Taking eight terms of the sequence yields the correct 
 
 Alyssa P. Hacker replies that this version of the procedure is considerably less efficient because it performs redundant computation. Explain Alyssa's answer. Would the two versions still differ in efficiency if our implementation of delay used only (lambda () <_exp_\>) without using the optimization provided by memo-proc (section [3.5.1](#_sec_3.5.1))?
 
+<a name="_thm_3.64"></a>
 **Exercise 3.64.**  Write a procedure stream-limit that takes as arguments a stream and a number (the tolerance). It should examine the stream until it finds two successive elements that differ in absolute value by less than the tolerance, and return the second of the two elements. Using this, we could compute square roots up to a given tolerance by
 
 (define (sqrt x tolerance)  
   (stream-limit (sqrt-stream x) tolerance))  
 
+<a name="_thm_3.65"></a>
 **Exercise 3.65.**  Use the series
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-44.gif)
@@ -9076,10 +9284,13 @@ We can thus generate the required stream of pairs as
                 (stream-cdr t))  
     (pairs (stream-cdr s) (stream-cdr t)))))  
 
+<a name="_thm_3.66"></a>
 **Exercise 3.66.**  Examine the stream (pairs integers integers). Can you make any general comments about the order in which the pairs are placed into the stream? For example, about how many pairs precede the pair (1,100)? the pair (99,100)? the pair (100,100)? (If you can make precise mathematical statements here, all the better. But feel free to give more qualitative answers if you find yourself getting bogged down.)
 
+<a name="_thm_3.67"></a>
 **Exercise 3.67.**  Modify the pairs procedure so that (pairs integers integers) will produce the stream of _all_ pairs of integers (_i_,_j_) (without the condition _i_ < _j_). Hint: You will need to mix in an additional stream.
 
+<a name="_thm_3.68"></a>
 **Exercise 3.68.**  Louis Reasoner thinks that building a stream of pairs from three parts is unnecessarily complicated. Instead of separating the pair (_S_0,_T_0) from the rest of the pairs in the first row, he proposes to work with the whole first row, as follows:
 
 (define (pairs s t)  
@@ -9090,16 +9301,20 @@ We can thus generate the required stream of pairs as
 
 Does this work? Consider what happens if we evaluate (pairs integers integers) using Louis's definition of pairs.
 
+<a name="_thm_3.69"></a>
 **Exercise 3.69.**  Write a procedure triples that takes three infinite streams, _S_, _T_, and _U_, and produces the stream of triples (_S__i_,_T__j_,_U__k_) such that _i_ < _j_ < _k_. Use triples to generate the stream of all Pythagorean triples of positive integers, i.e., the triples (_i_,_j_,_k_) such that _i_ < _j_ and _i_2 + _j_2 = _k_2.
 
+<a name="_thm_3.70"></a>
 **Exercise 3.70.**  It would be nice to be able to generate streams in which the pairs appear in some useful order, rather than in the order that results from an _ad hoc_ interleaving process. We can use a technique similar to the merge procedure of exercise [3.56](#_thm_3.56), if we define a way to say that one pair of integers is \`\`less than'' another. One way to do this is to define a \`\`weighting function'' _W_(_i_,_j_) and stipulate that (_i_1,_j_1) is less than (_i_2,_j_2) if _W_(_i_1,_j_1) < _W_(_i_2,_j_2). Write a procedure merge-weighted that is like merge, except that merge-weighted takes an additional argument weight, which is a procedure that computes the weight of a pair, and is used to determine the order in which elements should appear in the resulting merged stream.[69](#footnote_Temp_485) Using this, generalize pairs to a procedure weighted-pairs that takes two streams, together with a procedure that computes a weighting function, and generates the stream of pairs, ordered according to weight. Use your procedure to generate
 
 a. the stream of all pairs of positive integers (_i_,_j_) with _i_ < _j_ ordered according to the sum _i_ + _j_
 
 b. the stream of all pairs of positive integers (_i_,_j_) with _i_ < _j_, where neither _i_ nor _j_ is divisible by 2, 3, or 5, and the pairs are ordered according to the sum 2 _i_ + 3 _j_ + 5 _i_ _j_.
 
+<a name="_thm_3.71"></a>
 **Exercise 3.71.**  Numbers that can be expressed as the sum of two cubes in more than one way are sometimes called _Ramanujan numbers_, in honor of the mathematician Srinivasa Ramanujan.[70](#footnote_Temp_487) Ordered streams of pairs provide an elegant solution to the problem of computing these numbers. To find a number that can be written as the sum of two cubes in two different ways, we need only generate the stream of pairs of integers (_i_,_j_) weighted according to the sum _i_3 + _j_3 (see exercise [3.70](#_thm_3.70)), then search the stream for two consecutive pairs with the same weight. Write a procedure to generate the Ramanujan numbers. The first such number is 1,729. What are the next five?
 
+<a name="_thm_3.72"></a>
 **Exercise 3.72.**  In a similar way to exercise [3.71](#_thm_3.71) generate a stream of all numbers that can be written as the sum of two squares in three different ways (showing how they can be so written).
 
 <a name="_sec_Temp_489"></a>
@@ -9125,6 +9340,7 @@ and returns the stream of values _S_ = (_S__i_). The following integral procedur
 
 Figure [3.32](#_fig_3.32) is a picture of a signal-processing system that corresponds to the integral procedure. The input stream is scaled by _d__t_ and passed through an adder, whose output is passed back through the same adder. The self-reference in the definition of int is reflected in the figure by the feedback loop that connects the output of the adder to one of the inputs.
 
+<a name="_thm_3.73"></a>
 **Exercise 3.73.**  
 
  ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-50.gif)        _v_ = _v_0 + (1/_C_)∫0_t__i_ _d__t_ + _R_ _i_      
@@ -9137,6 +9353,7 @@ We can model electrical circuits using streams to represent the values of curren
 
 Write a procedure RC that models this circuit. RC should take as inputs the values of _R_, _C_, and _d__t_ and should return a procedure that takes as inputs a stream representing the current _i_ and an initial value for the capacitor voltage _v_0 and produces as output the stream of voltages _v_. For example, you should be able to use RC to model an RC circuit with _R_ = 5 ohms, _C_ = 1 farad, and a 0.5-second time step by evaluating (define RC1 (RC 5 1 0.5)). This defines RC1 as a procedure that takes a stream representing the time sequence of currents and an initial capacitor voltage and produces the output stream of voltages.
 
+<a name="_thm_3.74"></a>
 **Exercise 3.74.**  Alyssa P. Hacker is designing a system to process signals coming from physical sensors. One important feature she wishes to produce is a signal that describes the _zero crossings_ of the input signal. That is, the resulting signal should be + 1 whenever the input signal changes from negative to positive, - 1 whenever the input signal changes from positive to negative, and 0 otherwise. (Assume that the sign of a 0 input is positive.) For example, a typical input signal with its associated zero-crossing signal would be
 
 ...1  2  1.5  1  0.5  -0.1  -2  -3  -2  -0.5  0.2  3  4 ...... 0  0    0  0    0     -1  0   0   0     0    1  0  0 ...
@@ -9158,6 +9375,7 @@ Alyssa's boss, Eva Lu Ator, walks by and suggests that this program is approxima
 
 Complete the program by supplying the indicated <_expression_\>.
 
+<a name="_thm_3.75"></a>
 **Exercise 3.75.**  Unfortunately, Alyssa's zero-crossing detector in exercise [3.74](#_thm_3.74) proves to be insufficient, because the noisy signal from the sensor leads to spurious zero crossings. Lem E. Tweakit, a hardware specialist, suggests that Alyssa smooth the signal to filter out the noise before extracting the zero crossings. Alyssa takes his advice and decides to extract the zero crossings from the signal constructed by averaging each value of the sense data with the previous value. She explains the problem to her assistant, Louis Reasoner, who attempts to implement the idea, altering Alyssa's program as follows:
 
 (define (make-zero-crossings input-stream last-value)  
@@ -9168,6 +9386,7 @@ Complete the program by supplying the indicated <_expression_\>.
 
 This does not correctly implement Alyssa's plan. Find the bug that Louis has installed and fix it without changing the structure of the program. (Hint: You will need to increase the number of arguments to make-zero-crossings.)
 
+<a name="_thm_3.76"></a>
 **Exercise 3.76.**  Eva Lu Ator has a criticism of Louis's approach in exercise [3.75](#_thm_3.75). The program he wrote is not modular, because it intermixes the operation of smoothing with the zero-crossing extraction. For example, the extractor should not have to be changed if Alyssa finds a better way to condition her input signal. Help Louis by writing a procedure smooth that takes a stream as input and produces a stream in which each element is the average of two successive input stream elements. Then use smooth as a component to implement the zero-crossing detector in a more modular style.
 
 <a name="_sec_3.5.4"></a>
@@ -9222,6 +9441,7 @@ In general, every caller of integral must now delay the integrand argument. We c
 (stream-ref (solve (lambda (y) y) 1 0.001) 1000)  
 _2.716924_
 
+<a name="_thm_3.77"></a>
 **Exercise 3.77.**  The integral procedure used above was analogous to the \`\`implicit'' definition of the infinite stream of integers in section [3.5.2](#_sec_3.5.2). Alternatively, we can give a definition of integral that is more like integers-starting-from (also in section [3.5.2](#_sec_3.5.2)):
 
 (define (integral integrand initial-value dt)  
@@ -9235,6 +9455,7 @@ _2.716924_
 
 When used in systems with loops, this procedure has the same problem as does our original version of integral. Modify the procedure so that it expects the integrand as a delayed argument and hence can be used in the solve procedure shown above.
 
+<a name="_thm_3.78"></a>
 **Exercise 3.78.**  
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-53.gif)
@@ -9247,8 +9468,10 @@ Consider the problem of designing a signal-processing system to study the homoge
 
 The output stream, modeling _y_, is generated by a network that contains a loop. This is because the value of _d_2_y_/_d__t_2 depends upon the values of _y_ and _d__y_/_d__t_ and both of these are determined by integrating _d_2_y_/_d__t_2. The diagram we would like to encode is shown in figure [3.35](#_fig_3.35). Write a procedure solve-2nd that takes as arguments the constants _a_, _b_, and _d__t_ and the initial values _y_0 and _d__y_0 for _y_ and _d__y_/_d__t_ and generates the stream of successive values of _y_.
 
+<a name="_thm_3.79"></a>
 **Exercise 3.79.**  Generalize the solve-2nd procedure of exercise [3.78](#_thm_3.78) so that it can be used to solve general second-order differential equations _d_2 _y_/_d__t_2 = _f_(_d__y_/_d__t_, _y_).
 
+<a name="_thm_3.80"></a>
 **Exercise 3.80.**  A _series RLC circuit_ consists of a resistor, a capacitor, and an inductor connected in series, as shown in figure [3.36](#_fig_3.36). If _R_, _L_, and _C_ are the resistance, inductance, and capacitance, then the relations between voltage (_v_) and current (_i_) for the three components are described by the equations
 
 ![](https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/full-text/book/ch3-Z-G-55.gif)
@@ -9330,8 +9553,10 @@ The cesaro-stream is now fed to a monte-carlo procedure, which produces a stream
 
 There is considerable modularity in this approach, because we still can formulate a general monte-carlo procedure that can deal with arbitrary experiments. Yet there is no assignment or local state.
 
+<a name="_thm_3.81"></a>
 **Exercise 3.81.**  Exercise [3.6](#_thm_3.6) discussed generalizing the random-number generator to allow one to reset the random-number sequence so as to produce repeatable sequences of \`\`random'' numbers. Produce a stream formulation of this same generator that operates on an input stream of requests to generate a new random number or to reset the sequence to a specified value and that produces the desired stream of random numbers. Don't use assignment in your solution.
 
+<a name="_thm_3.82"></a>
 **Exercise 3.82.**  Redo exercise [3.5](#_thm_3.5) on Monte Carlo integration in terms of streams. The stream version of estimate-integral will not have an argument telling how many trials to perform. Instead, it will produce a stream of estimates based on successively more trials.
 
 <a name="_sec_Temp_503"></a>
@@ -9635,6 +9860,7 @@ Definitions of variables are handled in a similar manner.[7](#footnote_Temp_523)
 
 We have chosen here to return the symbol ok as the value of an assignment or a definition.[8](#footnote_Temp_524)
 
+<a name="_thm_4.1"></a>
 **Exercise 4.1.**  Notice that we cannot tell whether the metacircular evaluator evaluates operands from left to right or from right to left. Its evaluation order is inherited from the underlying Lisp: If the arguments to cons in list-of-values are evaluated from left to right, then list-of-values will evaluate operands from left to right; and if the arguments to cons are evaluated from right to left, then list-of-values will evaluate operands from right to left.
 
 Write a version of list-of-values that evaluates operands from left to right regardless of the order of evaluation in the underlying Lisp. Also write a version of list-of-values that evaluates operands from right to left.
@@ -9807,14 +10033,17 @@ We include syntax procedures that extract the parts of a cond expression, and a 
 
 Expressions (such as cond) that we choose to implement as syntactic transformations are called _derived expressions_. Let expressions are also derived expressions (see exercise [4.6](#_thm_4.6)).[13](#footnote_Temp_531)
 
+<a name="_thm_4.2"></a>
 **Exercise 4.2.**  Louis Reasoner plans to reorder the cond clauses in eval so that the clause for procedure applications appears before the clause for assignments. He argues that this will make the interpreter more efficient: Since programs usually contain more applications than assignments, definitions, and so on, his modified eval will usually check fewer clauses than the original eval before identifying the type of an expression.
 
 a. What is wrong with Louis's plan? (Hint: What will Louis's evaluator do with the expression (define x 3)?)
 
 b. Louis is upset that his plan didn't work. He is willing to go to any lengths to make his evaluator recognize procedure applications before it checks for most other kinds of expressions. Help him by changing the syntax of the evaluated language so that procedure applications start with call. For example, instead of (factorial 3) we will now have to write (call factorial 3) and instead of (+ 1 2) we will have to write (call + 1 2).
 
+<a name="_thm_4.3"></a>
 **Exercise 4.3.**  Rewrite eval so that the dispatch is done in data-directed style. Compare this with the data-directed differentiation procedure of exercise [2.73](#_thm_2.73). (You may use the car of a compound expression as the type of the expression, as is appropriate for the syntax implemented in this section.) .
 
+<a name="_thm_4.4"></a>
 **Exercise 4.4.**  Recall the definitions of the special forms and and or from chapter 1:
 
 *   and: The expressions are evaluated from left to right. If any expression evaluates to false, false is returned; any remaining expressions are not evaluated. If all the expressions evaluate to true values, the value of the last expression is returned. If there are no expressions then true is returned.
@@ -9823,6 +10052,7 @@ b. Louis is upset that his plan didn't work. He is willing to go to any lengths 
 
 Install and and or as new special forms for the evaluator by defining appropriate syntax procedures and evaluation procedures eval-and and eval-or. Alternatively, show how to implement and and or as derived expressions.
 
+<a name="_thm_4.5"></a>
 **Exercise 4.5.**  Scheme allows an additional syntax for cond clauses, (<_test_\> => <_recipient_\>). If <_test_\> evaluates to a true value, then <_recipient_\> is evaluated. Its value must be a procedure of one argument; this procedure is then invoked on the value of the <_test_\>, and the result is returned as the value of the cond expression. For example
 
 (cond ((assoc 'b '((a 1) (b 2))) => cadr)  
@@ -9830,6 +10060,7 @@ Install and and or as new special forms for the evaluator by defining appropriat
 
 returns 2. Modify the handling of cond so that it supports this extended syntax.
 
+<a name="_thm_4.6"></a>
 **Exercise 4.6.**  Let expressions are derived expressions, because
 
 (let ((<_var1_\> <_exp1_\>) ... (<_var_n__\> <_exp_n__\>))  
@@ -9845,6 +10076,7 @@ is equivalent to
 
 Implement a syntactic transformation let->combination that reduces evaluating let expressions to evaluating combinations of the type shown above, and add the appropriate clause to eval to handle let expressions.
 
+<a name="_thm_4.7"></a>
 **Exercise 4.7.**  Let\* is similar to let, except that the bindings of the let variables are performed sequentially from left to right, and each binding is made in an environment in which all of the preceding bindings are visible. For example
 
 (let\* ((x 3)  
@@ -9858,6 +10090,7 @@ returns 39. Explain how a let\* expression can be rewritten as a set of nested l
 
 or must we explicitly expand let\* in terms of non-derived expressions?
 
+<a name="_thm_4.8"></a>
 **Exercise 4.8.**  \`\`Named let'' is a variant of let that has the form
 
 (let <_var_\> <_bindings_\> <_body_\>)  
@@ -9874,8 +10107,10 @@ The <_bindings_\> and <_body_\> are just as in ordinary let, except that <_var_\
 
 Modify let->combination of exercise [4.6](#_thm_4.6) to also support named let.
 
+<a name="_thm_4.9"></a>
 **Exercise 4.9.**  Many languages support a variety of iteration constructs, such as do, for, while, and until. In Scheme, iterative processes can be expressed in terms of ordinary procedure calls, so special iteration constructs provide no essential gain in computational power. On the other hand, such constructs are often convenient. Design some iteration constructs, give examples of their use, and show how to implement them as derived expressions.
 
+<a name="_thm_4.10"></a>
 **Exercise 4.10.**  By using data abstraction, we were able to write an eval procedure that is independent of the particular syntax of the language to be evaluated. To illustrate this, design and implement a new syntax for Scheme by modifying the procedures in this section, without changing eval or apply.
 
 <a name="_sec_4.1.3"></a>
@@ -10011,10 +10246,13 @@ To define a variable, we search the first frame for a binding for the variable, 
 
 The method described here is only one of many plausible ways to represent environments. Since we used data abstraction to isolate the rest of the evaluator from the detailed choice of representation, we could change the environment representation if we wanted to. (See exercise [4.11](#_thm_4.11).) In a production-quality Lisp system, the speed of the evaluator's environment operations -- especially that of variable lookup -- has a major impact on the performance of the system. The representation described here, although conceptually simple, is not efficient and would not ordinarily be used in a production system.[15](#footnote_Temp_545)
 
+<a name="_thm_4.11"></a>
 **Exercise 4.11.**  Instead of representing a frame as a pair of lists, we can represent a frame as a list of bindings, where each binding is a name-value pair. Rewrite the environment operations to use this alternative representation.
 
+<a name="_thm_4.12"></a>
 **Exercise 4.12.**  The procedures set-variable-value!, define-variable!, and lookup-variable-value can be expressed in terms of more abstract procedures for traversing the environment structure. Define abstractions that capture the common patterns and redefine the three procedures in terms of these abstractions.
 
+<a name="_thm_4.13"></a>
 **Exercise 4.13.**  Scheme allows us to create new bindings for variables by means of define, but provides no way to get rid of bindings. Implement for the evaluator a special form make-unbound! that removes the binding of a given symbol from the environment in which the make-unbound! expression is evaluated. This problem is not completely specified. For example, should we remove only the binding in the first frame of the environment? Complete the specification and justify any choices you make.
 
 <a name="_sec_4.1.4"></a>
@@ -10111,6 +10349,7 @@ _;;; M-Eval input:_
 _;;; M-Eval value:_  
 _(a b c d e f)_  
 
+<a name="_thm_4.14"></a>
 **Exercise 4.14.**  Eva Lu Ator and Louis Reasoner are each experimenting with the metacircular evaluator. Eva types in the definition of map, and runs some test programs that use it. They work fine. Louis, in contrast, has installed the system version of map as a primitive for the metacircular evaluator. When he tries it, things go terribly wrong. Explain why Louis's map fails even though Eva's works.
 
 <a name="_sec_4.1.5"></a>
@@ -10150,6 +10389,7 @@ and
 
 will both return 25.[22](#footnote_Temp_556)
 
+<a name="_thm_4.15"></a>
 **Exercise 4.15.**  Given a one-argument procedure p and an object a, p is said to \`\`halt'' on a if evaluating the expression (p a) returns a value (as opposed to terminating with an error message or running forever). Show that it is impossible to write a procedure halts? that correctly determines whether p halts on a for any procedure p and object a. Use the following reasoning: If you had such a procedure halts?, you could implement the following program:
 
 (define (run-forever) (run-forever))  
@@ -10204,6 +10444,7 @@ where \*unassigned\* is a special symbol that causes looking up a variable to si
 
 An alternative strategy for scanning out internal definitions is shown in exercise [4.18](#_thm_4.18). Unlike the transformation shown above, this enforces the restriction that the defined variables' values can be evaluated without using any of the variables' values.[25](#footnote_Temp_560)
 
+<a name="_thm_4.16"></a>
 **Exercise 4.16.**  In this exercise we implement the method just described for interpreting internal definitions. We assume that the evaluator supports let (see exercise [4.6](#_thm_4.6)).
 
 a.  Change lookup-variable-value (section [4.1.3](#_sec_4.1.3)) to signal an error if the value it finds is the symbol \*unassigned\*.
@@ -10212,8 +10453,10 @@ b.  Write a procedure scan-out-defines that takes a procedure body and returns a
 
 c.  Install scan-out-defines in the interpreter, either in make-procedure or in procedure-body (see section [4.1.3](#_sec_4.1.3)). Which place is better? Why?
 
+<a name="_thm_4.17"></a>
 **Exercise 4.17.**  Draw diagrams of the environment in effect when evaluating the expression <_e3_\> in the procedure in the text, comparing how this will be structured when definitions are interpreted sequentially with how it will be structured if definitions are scanned out as described. Why is there an extra frame in the transformed program? Explain why this difference in environment structure can never make a difference in the behavior of a correct program. Design a way to make the interpreter implement the \`\`simultaneous'' scope rule for internal definitions without constructing the extra frame.
 
+<a name="_thm_4.18"></a>
 **Exercise 4.18.**  Consider an alternative strategy for scanning out definitions that translates the example in the text to
 
 (lambda <_vars_\>  
@@ -10234,6 +10477,7 @@ Here a and b are meant to represent new variable names, created by the interpret
 
 Will this procedure work if internal definitions are scanned out as shown in this exercise? What if they are scanned out as shown in the text? Explain.
 
+<a name="_thm_4.19"></a>
 **Exercise 4.19.**  Ben Bitdiddle, Alyssa P. Hacker, and Eva Lu Ator are arguing about the desired result of evaluating the expression
 
 (let ((a 1))  
@@ -10245,6 +10489,7 @@ Will this procedure work if internal definitions are scanned out as shown in thi
 
 Ben asserts that the result should be obtained using the sequential rule for define: b is defined to be 11, then a is defined to be 5, so the result is 16. Alyssa objects that mutual recursion requires the simultaneous scope rule for internal procedure definitions, and that it is unreasonable to treat procedure names differently from other names. Thus, she argues for the mechanism implemented in exercise [4.16](#_thm_4.16). This would lead to a being unassigned at the time that the value for b is to be computed. Hence, in Alyssa's view the procedure should produce an error. Eva has a third opinion. She says that if the definitions of a and b are truly meant to be simultaneous, then the value 5 for a should be used in evaluating b. Hence, in Eva's view a should be 5, b should be 15, and the result should be 20. Which (if any) of these viewpoints do you support? Can you devise a way to implement internal definitions so that they behave as Eva prefers?[26](#footnote_Temp_565)
 
+<a name="_thm_4.20"></a>
 **Exercise 4.20.**  Because internal definitions look sequential but are actually simultaneous, some people prefer to avoid them entirely, and use the special form letrec instead. Letrec looks like let, so it is not surprising that the variables it binds are bound simultaneously and have the same scope as each other. The sample procedure f above can be written without internal definitions, but with exactly the same meaning, as
 
 (define (f x)  
@@ -10278,6 +10523,7 @@ a. Implement letrec as a derived expression, by transforming a letrec expression
 
 b. Louis Reasoner is confused by all this fuss about internal definitions. The way he sees it, if you don't like to use define inside a procedure, you can just use let. Illustrate what is loose about his reasoning by drawing an environment diagram that shows the environment in which the <_rest of body of f_\> is evaluated during evaluation of the expression (f 5), with f defined as in this exercise. Draw an environment diagram for the same evaluation, but with let in place of letrec in the definition of f.
 
+<a name="_thm_4.21"></a>
 **Exercise 4.21.**  Amazingly, Louis's intuition in exercise [4.20](#_thm_4.20) is correct. It is indeed possible to specify recursive procedures without using letrec (or even define), although the method for accomplishing this is much more subtle than Louis imagined. The following expression computes 10 factorial by applying a recursive factorial procedure:[27](#footnote_Temp_568)
 
 ((lambda (n)  
@@ -10439,8 +10685,10 @@ To analyze an application, we analyze the operator and operands and construct an
 
 Our new evaluator uses the same data structures, syntax procedures, and run-time support procedures as in sections [4.1.2](#_sec_4.1.2),  [4.1.3](#_sec_4.1.3), and [4.1.4](#_sec_4.1.4).
 
+<a name="_thm_4.22"></a>
 **Exercise 4.22.**  Extend the evaluator in this section to support the special form let. (See exercise [4.6](#_thm_4.6).)
 
+<a name="_thm_4.23"></a>
 **Exercise 4.23.**  Alyssa P. Hacker doesn't understand why analyze-sequence needs to be so complicated. All the other analysis procedures are straightforward transformations of the corresponding evaluation procedures (or eval clauses) in section [4.1.1](#_sec_4.1.1). She expected analyze-sequence to look like this:
 
 (define (analyze-sequence exps)  
@@ -10457,6 +10705,7 @@ Eva Lu Ator explains to Alyssa that the version in the text does more of the wor
 
 Compare the two versions of analyze-sequence. For example, consider the common case (typical of procedure bodies) where the sequence has just one expression. What work will the execution procedure produced by Alyssa's program do? What about the execution procedure produced by the program in the text above? How do the two versions compare for a sequence with two expressions?
 
+<a name="_thm_4.24"></a>
 **Exercise 4.24.**  Design and carry out some experiments to compare the speed of the original metacircular evaluator with the version in this section. Use your results to estimate the fraction of time that is spent in analysis versus execution for various procedures.
 
 * * *
@@ -10567,6 +10816,7 @@ If the body of a procedure is entered before an argument has been evaluated we s
 
 A striking example of a procedure that can usefully be made non-strict is cons (or, in general, almost any constructor for data structures). One can do useful computation, combining elements to form data structures and operating on the resulting data structures, even if the values of the elements are not known. It makes perfect sense, for instance, to compute the length of a list without knowing the values of the individual elements in the list. We will exploit this idea in section [4.2.3](#_sec_4.2.3) to implement the streams of chapter 3 as lists formed of non-strict cons pairs.
 
+<a name="_thm_4.25"></a>
 **Exercise 4.25.**  Suppose that (in ordinary applicative-order Scheme) we define unless as shown above and then define factorial in terms of unless as
 
 (define (factorial n)  
@@ -10576,6 +10826,7 @@ A striking example of a procedure that can usefully be made non-strict is cons (
 
 What happens if we attempt to evaluate (factorial 5)? Will our definitions work in a normal-order language?
 
+<a name="_thm_4.26"></a>
 **Exercise 4.26.**  Ben Bitdiddle and Alyssa P. Hacker disagree over the importance of lazy evaluation for implementing things such as unless. Ben points out that it's possible to implement unless in applicative order as a special form. Alyssa counters that, if one did that, unless would be merely syntax, not a procedure that could be used in conjunction with higher-order procedures. Fill in the details on both sides of the argument. Show how to implement unless as a derived expression (like cond or let), and give an example of a situation where it might be useful to have unless available as a procedure, rather than as a special form.
 
 <a name="_sec_4.2.2"></a>
@@ -10721,6 +10972,7 @@ Actually, what we want for our interpreter is not quite this, but rather thunks 
 
 Notice that the same delay-it procedure works both with and without memoization.
 
+<a name="_thm_4.27"></a>
 **Exercise 4.27.**  Suppose we type in the following definitions to the lazy evaluator:
 
 (define count 0)  
@@ -10744,8 +10996,10 @@ count
 _;;; L-Eval value:_  
 <_response_\>  
 
+<a name="_thm_4.28"></a>
 **Exercise 4.28.**  Eval uses actual-value rather than eval to evaluate the operator before passing it to apply, in order to force the value of the operator. Give an example that demonstrates the need for this forcing.
 
+<a name="_thm_4.29"></a>
 **Exercise 4.29.**  Exhibit a program that you would expect to run much more slowly without memoization than with memoization. Also, consider the following interaction, where the id procedure is defined as in exercise [4.27](#_thm_4.27) and count starts at 0:
 
 (define (square x)  
@@ -10761,6 +11015,7 @@ _;;; L-Eval value:_
 
 Give the responses both when the evaluator memoizes and when it does not.
 
+<a name="_thm_4.30"></a>
 **Exercise 4.30.**  Cy D. Fect, a reformed C programmer, is worried that some side effects may never take place, because the lazy evaluator doesn't force the expressions in a sequence. Since the value of an expression in a sequence other than the last one is not used (the expression is there only for its effect, such as assigning to a variable or printing), there can be no subsequent use of this value (e.g., as an argument to a primitive procedure) that will cause it to be forced. Cy thus thinks that when evaluating sequences, we must force all expressions in the sequence except the final one. He proposes to modify eval-sequence from section [4.1.1](#_sec_4.1.1) to use actual-value rather than eval:
 
 (define (eval-sequence exps env)  
@@ -10807,6 +11062,7 @@ c. Cy also points out that changing eval-sequence as he proposes does not affect
 
 d. How do you think sequences ought to be treated in the lazy evaluator? Do you like Cy's approach, the approach in the text, or some other approach?
 
+<a name="_thm_4.31"></a>
 **Exercise 4.31.**  The approach taken in this section is somewhat unpleasant, because it makes an incompatible change to Scheme. It might be nicer to implement lazy evaluation as an _upward-compatible extension_, that is, so that ordinary Scheme programs will work as before. We can do this by extending the syntax of procedure declarations to let the user control whether or not arguments are to be delayed. While we're at it, we may as well also give the user the choice between delaying with and without memoization. For example, the definition
 
 (define (f a (b lazy) c (d lazy-memo))  
@@ -10874,14 +11130,17 @@ _;;; L-Eval input:_
 _;;; L-Eval value:_  
 _2.716924_
 
+<a name="_thm_4.32"></a>
 **Exercise 4.32.**  Give some examples that illustrate the difference between the streams of chapter 3 and the \`\`lazier'' lazy lists described in this section. How can you take advantage of this extra laziness?
 
+<a name="_thm_4.33"></a>
 **Exercise 4.33.**  Ben Bitdiddle tests the lazy list implementation given above by evaluating the expression
 
 (car '(a b c))  
 
 To his surprise, this produces an error. After some thought, he realizes that the \`\`lists'' obtained by reading in quoted expressions are different from the lists manipulated by the new definitions of cons, car, and cdr. Modify the evaluator's treatment of quoted expressions so that quoted lists typed at the driver loop will produce true lazy lists.
 
+<a name="_thm_4.34"></a>
 **Exercise 4.34.**  Modify the driver loop for the evaluator so that lazy pairs and lists will print in some reasonable way. (What are you going to do about infinite lists?) You may also need to modify the representation of lazy pairs so that the evaluator can identify them in order to print them.
 
 * * *
@@ -11024,6 +11283,7 @@ _;;; Starting a new problem_
 _;;; Amb-Eval value:_  
 _(30 11)_  
 
+<a name="_thm_4.35"></a>
 **Exercise 4.35.**  Write a procedure an-integer-between that returns an integer between two given bounds. This can be used to implement a procedure that finds Pythagorean triples, i.e., triples of integers (_i_,_j_,_k_) between the given bounds such that _i_ < _j_ and _i_2 + _j_2 = _k_2, as follows:
 
 (define (a-pythagorean-triple-between low high)  
@@ -11033,8 +11293,10 @@ _(30 11)_
         (require (= (+ (\* i i) (\* j j)) (\* k k)))  
         (list i j k)))))  
 
+<a name="_thm_4.36"></a>
 **Exercise 4.36.**  Exercise [3.69](#_thm_3.69) discussed how to generate the stream of _all_ Pythagorean triples, with no upper bound on the size of the integers to be searched. Explain why simply replacing an-integer-between by an-integer-starting-from in the procedure in exercise [4.35](#_thm_4.35) is not an adequate way to generate arbitrary Pythagorean triples. Write a procedure that actually will accomplish this. (That is, write a procedure for which repeatedly typing try-again would in principle eventually generate all Pythagorean triples.)
 
+<a name="_thm_4.37"></a>
 **Exercise 4.37.**  Ben Bitdiddle claims that the following method for generating Pythagorean triples is more efficient than the one in exercise [4.35](#_thm_4.35). Is he correct? (Hint: Consider the number of possibilities that must be explored.)
 
 (define (a-pythagorean-triple-between low high)  
@@ -11090,14 +11352,19 @@ Evaluating the expression (multiple-dwelling) produces the result
 
 Although this simple procedure works, it is very slow. Exercises [4.39](#_thm_4.39) and [4.40](#_thm_4.40) discuss some possible improvements.
 
+<a name="_thm_4.38"></a>
 **Exercise 4.38.**  Modify the multiple-dwelling procedure to omit the requirement that Smith and Fletcher do not live on adjacent floors. How many solutions are there to this modified puzzle?
 
+<a name="_thm_4.39"></a>
 **Exercise 4.39.**  Does the order of the restrictions in the multiple-dwelling procedure affect the answer? Does it affect the time to find an answer? If you think it matters, demonstrate a faster program obtained from the given one by reordering the restrictions. If you think it does not matter, argue your case.
 
+<a name="_thm_4.40"></a>
 **Exercise 4.40.**  In the multiple dwelling problem, how many sets of assignments are there of people to floors, both before and after the requirement that floor assignments be distinct? It is very inefficient to generate all possible assignments of people to floors and then leave it to backtracking to eliminate them. For example, most of the restrictions depend on only one or two of the person-floor variables, and can thus be imposed before floors have been selected for all the people. Write and demonstrate a much more efficient nondeterministic procedure that solves this problem based upon generating only those possibilities that are not already ruled out by previous restrictions. (Hint: This will require a nest of let expressions.)
 
+<a name="_thm_4.41"></a>
 **Exercise 4.41.**  Write an ordinary Scheme program to solve the multiple dwelling puzzle.
 
+<a name="_thm_4.42"></a>
 **Exercise 4.42.**  Solve the following \`\`Liars'' puzzle (from Phillips 1934):
 
 > Five schoolgirls sat for an examination. Their parents -- so they thought -- showed an undue degree of interest in the result. They therefore agreed that, in writing home about the examination, each girl should make one true statement and one untrue one. The following are the relevant passages from their letters:
@@ -11110,12 +11377,14 @@ Although this simple procedure works, it is very slow. Exercises [4.39](#_thm_4.
 > 
 > What in fact was the order in which the five girls were placed?
 
+<a name="_thm_4.43"></a>
 **Exercise 4.43.**  Use the amb evaluator to solve the following puzzle:[49](#footnote_Temp_616)
 
 > Mary Ann Moore's father has a yacht and so has each of his four friends: Colonel Downing, Mr. Hall, Sir Barnacle Hood, and Dr. Parker. Each of the five also has one daughter and each has named his yacht after a daughter of one of the others. Sir Barnacle's yacht is the Gabrielle, Mr. Moore owns the Lorna; Mr. Hall the Rosalind. The Melissa, owned by Colonel Downing, is named after Sir Barnacle's daughter. Gabrielle's father owns the yacht that is named after Dr. Parker's daughter. Who is Lorna's father?
 
 Try to write the program so that it runs efficiently (see exercise [4.40](#_thm_4.40)). Also determine how many solutions there are if we are not told that Mary Ann's last name is Moore.
 
+<a name="_thm_4.44"></a>
 **Exercise 4.44.**  Exercise [2.42](#_thm_2.42) described the \`\`eight-queens puzzle'' of placing queens on a chessboard so that no two attack each other. Write a nondeterministic program to solve this puzzle.
 
 <a name="_sec_Temp_618"></a>
@@ -11264,10 +11533,13 @@ Asking the evaluator to try again yields
                              (simple-noun-phrase  
                               (article the) (noun cat)))))))  
 
+<a name="_thm_4.45"></a>
 **Exercise 4.45.**  With the grammar given above, the following sentence can be parsed in five different ways: \`\`The professor lectures to the student in the class with the cat.'' Give the five parses and explain the differences in shades of meaning among them.
 
+<a name="_thm_4.46"></a>
 **Exercise 4.46.**  The evaluators in sections [4.1](#_sec_4.1) and [4.2](#_sec_4.2) do not determine what order operands are evaluated in. We will see that the amb evaluator evaluates them from left to right. Explain why our parsing program wouldn't work if the operands were evaluated in some other order.
 
+<a name="_thm_4.47"></a>
 **Exercise 4.47.**  Louis Reasoner suggests that, since a verb phrase is either a verb or a verb phrase followed by a prepositional phrase, it would be much more straightforward to define the procedure parse-verb-phrase as follows (and similarly for noun phrases):
 
 (define (parse-verb-phrase)  
@@ -11278,8 +11550,10 @@ Asking the evaluator to try again yields
 
 Does this work? Does the program's behavior change if we interchange the order of expressions in the amb?
 
+<a name="_thm_4.48"></a>
 **Exercise 4.48.**  Extend the grammar given above to handle more complex sentences. For example, you could extend noun phrases and verb phrases to include adjectives and adverbs, or you could handle compound sentences.[53](#footnote_Temp_626)
 
+<a name="_thm_4.49"></a>
 **Exercise 4.49.**  Alyssa P. Hacker is more interested in generating interesting sentences than in parsing them. She reasons that by simply changing the procedure parse-word so that it ignores the \`\`input sentence'' and instead always succeeds and generates an appropriate word, we can use the programs we had built for parsing to do generation instead. Implement Alyssa's idea, and show the first half-dozen or so sentences generated.[54](#footnote_Temp_628)
 
 <a name="_sec_4.3.3"></a>
@@ -11583,8 +11857,10 @@ The success continuation for the call to ambeval is more subtle. We print the ob
 
 The initial call to internal-loop uses a try-again procedure that complains that there is no current problem and restarts the driver loop. This is the behavior that will happen if the user types try-again when there is no evaluation in progress.
 
+<a name="_thm_4.50"></a>
 **Exercise 4.50.**  Implement a new special form ramb that is like amb except that it searches alternatives in a random order, rather than from left to right. Show how this can help with Alyssa's problem in exercise [4.49](#_thm_4.49).
 
+<a name="_thm_4.51"></a>
 **Exercise 4.51.**  Implement a new kind of assignment called permanent-set! that is not undone upon failure. For example, we can choose two distinct elements from a list and count the number of trials required to make a successful choice as follows:
 
 (define count 0)  
@@ -11603,6 +11879,7 @@ _(a c 3)_
 
 What values would have been displayed if we had used set! here rather than permanent-set! ?
 
+<a name="_thm_4.52"></a>
 **Exercise 4.52.**  Implement a new construct called if-fail that permits the user to catch the failure of an expression. If-fail takes two expressions. It evaluates the first expression as usual and returns as usual if the evaluation succeeds. If the evaluation fails, however, the value of the second expression is returned, as in the following example:
 
 _;;; Amb-Eval input:_  
@@ -11622,6 +11899,7 @@ _;;; Starting a new problem_
 _;;; Amb-Eval value:_  
 _8_  
 
+<a name="_thm_4.53"></a>
 **Exercise 4.53.**  With permanent-set! as described in exercise [4.51](#_thm_4.51) and if-fail as in exercise [4.52](#_thm_4.52), what will be the result of evaluating
 
 (let ((pairs '()))  
@@ -11630,6 +11908,7 @@ _8_
              (amb))  
            pairs))  
 
+<a name="_thm_4.54"></a>
 **Exercise 4.54.**  If we had not realized that require could be implemented as an ordinary procedure that uses amb, to be defined by the user as part of a nondeterministic program, we would have had to implement it as a special form. This would require syntax procedures
 
 (define (require? exp) (tagged-list? exp 'require))  
@@ -11896,6 +12175,7 @@ We can describe the query language's processing of simple queries as follows:
 
 Note that if the pattern has no variables, the query reduces to a determination of whether that pattern is in the data base. If so, the empty assignment, which assigns no values to variables, satisfies that pattern for that data base.
 
+<a name="_thm_4.55"></a>
 **Exercise 4.55.**  Give simple queries that retrieve the following information from the data base:
 
 a. all people supervised by Ben Bitdiddle;
@@ -11972,6 +12252,7 @@ will be satisfied by assignments to the pattern variables for which the <_predic
 (and (salary ?person ?amount)  
      (lisp-value > ?amount 30000))  
 
+<a name="_thm_4.56"></a>
 **Exercise 4.56.**  Formulate compound queries that retrieve the following information:
 
 a. the names of all people who are supervised by Ben Bitdiddle, together with their addresses;
@@ -12028,14 +12309,17 @@ As in the case of compound procedures, rules can be used as parts of other rules
 
 says that a staff person is outranked by a boss in the organization if the boss is the person's supervisor or (recursively) if the person's supervisor is outranked by the boss.
 
+<a name="_thm_4.57"></a>
 **Exercise 4.57.**  Define a rule that says that person 1 can replace person 2 if either person 1 does the same job as person 2 or someone who does person 1's job can also do person 2's job, and if person 1 and person 2 are not the same person. Using your rule, give queries that find the following:
 
 a.  all people who can replace Cy D. Fect;
 
 b.  all people who can replace someone who is being paid more than they are, together with the two salaries.
 
+<a name="_thm_4.58"></a>
 **Exercise 4.58.**  Define a rule that says that a person is a \`\`big shot'' in a division if the person works in the division but does not have a supervisor who works in the division.
 
+<a name="_thm_4.59"></a>
 **Exercise 4.59.**  Ben Bitdiddle has missed one meeting too many. Fearing that his habit of forgetting meetings could cost him his job, Ben decides to do something about it. He adds all the weekly meetings of the firm to the Microshaft data base by asserting the following:
 
 (meeting accounting (Monday 9am))  
@@ -12056,6 +12340,7 @@ b. Alyssa P. Hacker is unimpressed. She thinks it would be much more useful to b
 
 c. Alyssa arrives at work on Wednesday morning and wonders what meetings she has to attend that day. Having defined the above rule, what query should she make to find this out?
 
+<a name="_thm_4.60"></a>
 **Exercise 4.60.**  By giving the query
 
 (lives-near ?person (Hacker Alyssa P))  
@@ -12120,6 +12405,7 @@ _;;; Query results:_
 
 The query system may seem to exhibit quite a bit of intelligence in using the rules to deduce the answers to the queries above. Actually, as we will see in the next section, the system is following a well-determined algorithm in unraveling the rules. Unfortunately, although the system works impressively in the append case, the general methods may break down in more complex cases, as we will see in section [4.4.3](#_sec_4.4.3).
 
+<a name="_thm_4.61"></a>
 **Exercise 4.61.**  The following rules implement a next-to relation that finds adjacent elements of a list:
 
 (rule (?x next-to ?y in (?x ?y . ?u)))  
@@ -12133,8 +12419,10 @@ What will the response be to the following queries?
   
 (?x next-to 1 in (2 1 3 1))  
 
+<a name="_thm_4.62"></a>
 **Exercise 4.62.**  Define rules to implement the last-pair operation of exercise [2.17](#_thm_2.17), which returns a list containing the last element of a nonempty list. Check your rules on queries such as (last-pair (3) ?x), (last-pair (1 2 3) ?x), and (last-pair (2 ?x) (3)). Do your rules work correctly on queries such as (last-pair ?x (3)) ?
 
+<a name="_thm_4.63"></a>
 **Exercise 4.63.**  The following data base (see Genesis 4) traces the genealogy of the descendants of Ada back to Adam, by way of Cain:
 
 (son Adam Cain)  
@@ -12390,6 +12678,7 @@ The trouble is that our implementation of not really is meant to serve as a filt
 
 There is also a much more serious way in which the not of the query language differs from the not of mathematical logic. In logic, we interpret the statement \`\`not _P_'' to mean that _P_ is not true. In the query system, however, \`\`not _P_'' means that _P_ is not deducible from the knowledge in the data base. For example, given the personnel data base of section [4.4.1](#_sec_4.4.1), the system would happily deduce all sorts of not statements, such as that Ben Bitdiddle is not a baseball fan, that it is not raining outside, and that 2 + 2 is not 4.[78](#footnote_Temp_688) In other words, the not of logic programming languages reflects the so-called _closed world assumption_ that all relevant information has been included in the data base.[79](#footnote_Temp_689)
 
+<a name="_thm_4.64"></a>
 **Exercise 4.64.**  Louis Reasoner mistakenly deletes the outranked-by rule (section [4.4.1](#_sec_4.4.1)) from the data base. When he realizes this, he quickly reinstalls it. Unfortunately, he makes a slight change in the rule, and types it in as
 
 (rule (outranked-by ?staff-person ?boss)  
@@ -12403,6 +12692,7 @@ Just after Louis types this information into the system, DeWitt Aull comes by to
 
 After answering, the system goes into an infinite loop. Explain why.
 
+<a name="_thm_4.65"></a>
 **Exercise 4.65.**  Cy D. Fect, looking forward to the day when he will rise in the organization, gives a query to find all the wheels (using the wheel rule of section [4.4.1](#_sec_4.4.1)):
 
 (wheel ?who)  
@@ -12418,6 +12708,7 @@ _;;; Query results:_
 
 Why is Oliver Warbucks listed four times?
 
+<a name="_thm_4.66"></a>
 **Exercise 4.66.**  Ben has been generalizing the query system to provide statistics about the company. For example, to find the total salaries of all the computer programmers one will be able to say
 
 (sum ?amount  
@@ -12433,10 +12724,13 @@ where accumulation-function can be things like sum, average, or maximum. Ben rea
 
 What has Ben just realized? Outline a method he can use to salvage the situation.
 
+<a name="_thm_4.67"></a>
 **Exercise 4.67.**  Devise a way to install a loop detector in the query system so as to avoid the kinds of simple loops illustrated in the text and in exercise [4.64](#_thm_4.64). The general idea is that the system should maintain some sort of history of its current chain of deductions and should not begin processing a query that it is already working on. Describe what kind of information (patterns and frames) is included in this history, and how the check should be made. (After you study the details of the query-system implementation in section [4.4.4](#_sec_4.4.4), you may want to modify the system to include your loop detector.)
 
+<a name="_thm_4.68"></a>
 **Exercise 4.68.**  Define rules to implement the reverse operation of exercise [2.18](#_thm_2.18), which returns a list containing the same elements as a given list in reverse order. (Hint: Use append-to-form.) Can your rules answer both (reverse (1 2 3) ?x) and (reverse ?x (1 2 3)) ?
 
+<a name="_thm_4.69"></a>
 **Exercise 4.69.**  Beginning with the data base and the rules you formulated in exercise [4.63](#_thm_4.63), devise a rule for adding \`\`greats'' to a grandson relationship. This should enable the system to deduce that Irad is the great-grandson of Adam, or that Jabal and Jubal are the great-great-great-great-great-grandsons of Adam. (Hint: Represent the fact about Irad, for example, as ((great grandson) Adam Irad). Write rules that determine if a list ends in the word grandson. Use this to express a rule that allows one to derive the relationship ((great . ?rel) ?x ?y), where ?rel is a list ending in grandson.) Check your rules on queries such as ((great grandson) ?g ?ggs) and (?relationship Adam Irad).
 
 <a name="_sec_4.4.4"></a>
@@ -12840,6 +13134,7 @@ The index will be used to retrieve items that might match a pattern if the patte
 (define (use-index? pat)  
   (constant-symbol? (car pat)))  
 
+<a name="_thm_4.70"></a>
 **Exercise 4.70.**  What is the purpose of the let bindings in the procedures add-assertion! and add-rule! ? What would be wrong with the following implementation of add-assertion! ? Hint: Recall the definition of the infinite stream of ones in section [3.5.2](#_sec_3.5.2): (define ones (cons-stream 1 ones)).
 
 (define (add-assertion! assertion)  
@@ -12989,6 +13284,7 @@ Frames are represented as lists of bindings, which are variable-value pairs:
 (define (extend variable value frame)  
   (cons (make-binding variable value) frame))  
 
+<a name="_thm_4.71"></a>
 **Exercise 4.71.**  Louis Reasoner wonders why the simple-query and disjoin procedures (section [4.4.4.2](#_sec_4.4.4.2)) are implemented using explicit delay operations, rather than being defined as follows:
 
 (define (simple-query query-pattern frame-stream)  
@@ -13006,8 +13302,10 @@ Frames are represented as lists of bindings, which are variable-value pairs:
 
 Can you give examples of queries where these simpler definitions would lead to undesirable behavior?
 
+<a name="_thm_4.72"></a>
 **Exercise 4.72.**  Why do disjoin and stream-flatmap interleave the streams rather than simply append them? Give examples that illustrate why interleaving works better. (Hint: Why did we use interleave in section [3.5.3](#_sec_3.5.3)?)
 
+<a name="_thm_4.73"></a>
 **Exercise 4.73.**  Why does flatten-stream use delay explicitly? What would be wrong with defining it as follows:
 
 (define (flatten-stream stream)  
@@ -13017,6 +13315,7 @@ Can you give examples of queries where these simpler definitions would lead to u
        (stream-car stream)  
        (flatten-stream (stream-cdr stream)))))  
 
+<a name="_thm_4.74"></a>
 **Exercise 4.74.**  Alyssa P. Hacker proposes to use a simpler version of stream-flatmap in negate, lisp-value, and find-assertions. She observes that the procedure that is mapped over the frame stream in these cases always produces either the empty stream or a singleton stream, so no interleaving is needed when combining these streams.
 
 a. Fill in the missing expressions in Alyssa's program.
@@ -13030,6 +13329,7 @@ a. Fill in the missing expressions in Alyssa's program.
 
 b. Does the query system's behavior change if we change it in this way?
 
+<a name="_thm_4.75"></a>
 **Exercise 4.75.**  Implement for the query language a new special form called unique. Unique should succeed if there is precisely one item in the data base satisfying a specified query. For example,
 
 (unique (job ?x (computer wizard)))  
@@ -13058,14 +13358,18 @@ The real problem is to write the procedure uniquely-asserted. This should take a
 
 Test your implementation by forming a query that lists all people who supervise precisely one person.
 
+<a name="_thm_4.76"></a>
 **Exercise 4.76.**  Our implementation of and as a series combination of queries (figure [4.5](#_fig_4.5)) is elegant, but it is inefficient because in processing the second query of the and we must scan the data base for each frame produced by the first query. If the data base has _N_ elements, and a typical query produces a number of output frames proportional to _N_ (say _N_/_k_), then scanning the data base for each frame produced by the first query will require _N_2/_k_ calls to the pattern matcher. Another approach would be to process the two clauses of the and separately, then look for all pairs of output frames that are compatible. If each query produces _N_/_k_ output frames, then this means that we must perform _N_2/_k_2 compatibility checks -- a factor of _k_ fewer than the number of matches required in our current method.
 
 Devise an implementation of and that uses this strategy. You must implement a procedure that takes two frames as inputs, checks whether the bindings in the frames are compatible, and, if so, produces a frame that merges the two sets of bindings. This operation is similar to unification.
 
+<a name="_thm_4.77"></a>
 **Exercise 4.77.**  In section [4.4.3](#_sec_4.4.3) we saw that not and lisp-value can cause the query language to give \`\`wrong'' answers if these filtering operations are applied to frames in which variables are unbound. Devise a way to fix this shortcoming. One idea is to perform the filtering in a \`\`delayed'' manner by appending to the frame a \`\`promise'' to filter that is fulfilled only when enough variables have been bound to make the operation possible. We could wait to perform filtering until all other operations have been performed. However, for efficiency's sake, we would like to perform filtering as soon as possible so as to cut down on the number of intermediate frames generated.
 
+<a name="_thm_4.78"></a>
 **Exercise 4.78.**  Redesign the query language as a nondeterministic program to be implemented using the evaluator of section [4.3](#_sec_4.3), rather than as a stream process. In this approach, each query will produce a single answer (rather than the stream of all answers) and the user can type try-again to see more answers. You should find that much of the mechanism we built in this section is subsumed by nondeterministic search and backtracking. You will probably also find, however, that your new query language has subtle differences in behavior from the one implemented here. Can you find examples that illustrate this difference?
 
+<a name="_thm_4.79"></a>
 **Exercise 4.79.**  When we implemented the Lisp evaluator in section [4.1](#_sec_4.1), we saw how to use local environments to avoid name conflicts between the parameters of procedures. For example, in evaluating
 
 (define (square x)  
@@ -13194,6 +13498,7 @@ In order for the data paths to actually compute GCDs, the buttons must be pushed
 
 **Figure 5.2:**  Controller for a GCD machine.
 
+<a name="_thm_5.1"></a>
 **Exercise 5.1.**  Design a register machine to compute factorials using the iterative algorithm specified by the following procedure. Draw data-path and controller diagrams for this machine.
 
 (define (factorial n)  
@@ -13275,6 +13580,7 @@ This form of description is easier to read than the kind illustrated in figure [
 
 In spite of these disadvantages, we will use this register-machine language throughout this chapter, because we will be more concerned with understanding controllers than with understanding the elements and connections in data paths. We should keep in mind, however, that data-path design is crucial in designing real machines.
 
+<a name="_thm_5.2"></a>
 **Exercise 5.2.**  Use the register-machine language to describe the iterative factorial machine of exercise [5.1](#_thm_5.1).
 
 <a name="_sec_Temp_714"></a>
@@ -13351,6 +13657,7 @@ in the GCD controller definition is replaced by a sequence of instructions that 
 
 **Figure 5.6:**  Controller instruction sequence for the GCD machine in figure [5.5](#_fig_5.5).
 
+<a name="_thm_5.3"></a>
 **Exercise 5.3.**  Design a machine to compute square roots using Newton's method, as described in section [1.1.7](#_sec_1.1.7):
 
 (define (sqrt x)  
@@ -13580,6 +13887,7 @@ Just as with factorial, we can implement the recursive Fibonacci computation as 
 
 **Figure 5.12:**  Controller for a machine to compute Fibonacci numbers.
 
+<a name="_thm_5.4"></a>
 **Exercise 5.4.**  Specify register machines that implement each of the following procedures. For each machine, write a controller instruction sequence and draw a diagram showing the data paths.
 
 a. Recursive exponentiation:
@@ -13598,8 +13906,10 @@ b. Iterative exponentiation:
         (expt-iter (- counter 1) (\* b product))))  
   (expt-iter n 1))  
 
+<a name="_thm_5.5"></a>
 **Exercise 5.5.**  Hand-simulate the factorial and Fibonacci machines, using some nontrivial input (requiring execution of at least one recursive call). Show the contents of the stack at each significant point in the execution.
 
+<a name="_thm_5.6"></a>
 **Exercise 5.6.**  Ben Bitdiddle observes that the Fibonacci machine's controller sequence has an extra save and an extra restore, which can be removed to make a faster machine. Where are these instructions?
 
 <a name="_sec_5.1.5"></a>
@@ -13697,6 +14007,7 @@ _2_
 
 This computation will run much more slowly than a gcd procedure written in Scheme, because we will simulate low-level machine instructions, such as assign, by much more complex operations.
 
+<a name="_thm_5.7"></a>
 **Exercise 5.7.**  Use the simulator to test the machines you designed in exercise [5.4](#_thm_5.4).
 
 <a name="_sec_5.2.1"></a>
@@ -13930,6 +14241,7 @@ Entries will be looked up in the table with
         (cdr val)  
         (error "Undefined label -- ASSEMBLE" label-name))))  
 
+<a name="_thm_5.8"></a>
 **Exercise 5.8.**  The following register-machine code is ambiguous, because the label here is defined more than once:
 
 start  
@@ -14155,10 +14467,13 @@ Observe that the treatment of operation expressions is very much like the treatm
         (cadr val)  
         (error "Unknown operation -- ASSEMBLE" symbol))))  
 
+<a name="_thm_5.9"></a>
 **Exercise 5.9.**  The treatment of machine operations above permits them to operate on labels as well as on constants and the contents of registers. Modify the expression-processing procedures to enforce the condition that operations can be used only with registers and constants.
 
+<a name="_thm_5.10"></a>
 **Exercise 5.10.**  Design a new syntax for register-machine instructions and modify the simulator to use your new syntax. Can you implement your new syntax without changing any part of the simulator except the syntax procedures in this section?
 
+<a name="_thm_5.11"></a>
 **Exercise 5.11.**  When we introduced save and restore in section [5.1.4](#_sec_5.1.4), we didn't specify what would happen if you tried to restore a register that was not the last one saved, as in the sequence
 
 (save y)  
@@ -14173,6 +14488,7 @@ b.  (restore y) puts into y the last value saved on the stack, but only if that 
 
 c.  (restore y) puts into y the last value saved from y regardless of what other registers were saved after y and not restored. Modify the simulator to behave this way. You will have to associate a separate stack with each register. You should make the initialize-stack operation initialize all the register stacks.
 
+<a name="_thm_5.12"></a>
 **Exercise 5.12.**  The simulator can be used to help determine the data paths required for implementing a machine with a given controller. Extend the assembler to store the following information in the machine model:
 
 *   a list of all instructions, with duplicates removed, sorted by instruction type (assign, goto, and so on);
@@ -14185,6 +14501,7 @@ c.  (restore y) puts into y the last value saved from y regardless of what other
 
 Extend the message-passing interface to the machine to provide access to this new information. To test your analyzer, define the Fibonacci machine from figure [5.12](#_fig_5.12) and examine the lists you constructed.
 
+<a name="_thm_5.13"></a>
 **Exercise 5.13.**  Modify the simulator so that it uses the controller sequence to determine what registers the machine has rather than requiring a list of registers as an argument to make-machine. Instead of pre-allocating the registers in make-machine, you can allocate them one at a time when they are first seen during assembly of the instructions.
 
 <a name="_sec_5.2.4"></a>
@@ -14239,16 +14556,22 @@ Here is the new version of make-stack:
 
 Exercises [5.15](#_thm_5.15) through [5.19](#_thm_5.19) describe other useful monitoring and debugging features that can be added to the register-machine simulator.
 
+<a name="_thm_5.14"></a>
 **Exercise 5.14.**  Measure the number of pushes and the maximum stack depth required to compute _n_! for various small values of _n_ using the factorial machine shown in figure [5.11](#_fig_5.11). From your data determine formulas in terms of _n_ for the total number of push operations and the maximum stack depth used in computing _n_! for any _n_ > 1. Note that each of these is a linear function of _n_ and is thus determined by two constants. In order to get the statistics printed, you will have to augment the factorial machine with instructions to initialize the stack and print the statistics. You may want to also modify the machine so that it repeatedly reads a value for _n_, computes the factorial, and prints the result (as we did for the GCD machine in figure [5.4](#_fig_5.4)), so that you will not have to repeatedly invoke get-register-contents, set-register-contents!, and start.
 
+<a name="_thm_5.15"></a>
 **Exercise 5.15.**  Add _instruction counting_ to the register machine simulation. That is, have the machine model keep track of the number of instructions executed. Extend the machine model's interface to accept a new message that prints the value of the instruction count and resets the count to zero.
 
+<a name="_thm_5.16"></a>
 **Exercise 5.16.**  Augment the simulator to provide for _instruction tracing_. That is, before each instruction is executed, the simulator should print the text of the instruction. Make the machine model accept trace-on and trace-off messages to turn tracing on and off.
 
+<a name="_thm_5.17"></a>
 **Exercise 5.17.**  Extend the instruction tracing of exercise [5.16](#_thm_5.16) so that before printing an instruction, the simulator prints any labels that immediately precede that instruction in the controller sequence. Be careful to do this in a way that does not interfere with instruction counting (exercise [5.15](#_thm_5.15)). You will have to make the simulator retain the necessary label information.
 
+<a name="_thm_5.18"></a>
 **Exercise 5.18.**  Modify the make-register procedure of section [5.2.1](#_sec_5.2.1) so that registers can be traced. Registers should accept messages that turn tracing on and off. When a register is traced, assigning a value to the register should print the name of the register, the old contents of the register, and the new contents being assigned. Extend the interface to the machine model to permit you to turn tracing on and off for designated machine registers.
 
+<a name="_thm_5.19"></a>
 **Exercise 5.19.**  Alyssa P. Hacker wants a _breakpoint_ feature in the simulator to help her debug her machine designs. You have been hired to install this feature for her. She wants to be able to specify a place in the controller sequence where the simulator will stop and allow her to examine the state of the machine. You are to implement a procedure
 
 (set-breakpoint <_machine_\> <_label_\> <_n_\>)  
@@ -14404,6 +14727,7 @@ and (perform (op initialize-stack)) can be implemented as
 
 These operations can be further expanded in terms of the vector operations given above. In conventional computer architectures, however, it is usually advantageous to allocate the stack as a separate vector. Then pushing and popping the stack can be accomplished by incrementing or decrementing an index into that vector.
 
+<a name="_thm_5.20"></a>
 **Exercise 5.20.**  Draw the box-and-pointer representation and the memory-vector representation (as in figure [5.14](#_fig_5.14)) of the list structure produced by
 
 (define x (cons 1 2))  
@@ -14411,6 +14735,7 @@ These operations can be further expanded in terms of the vector operations given
 
 with the free pointer initially p1. What is the final value of free ? What pointers represent the values of x and y ?
 
+<a name="_thm_5.21"></a>
 **Exercise 5.21.**  Implement register machines for the following procedures. Assume that the list-structure memory operations are available as machine primitives.
 
 a. Recursive count-leaves:
@@ -14431,6 +14756,7 @@ b. Recursive count-leaves with explicit counter:
                             (count-iter (car tree) n)))))  
   (count-iter tree 0))  
 
+<a name="_thm_5.22"></a>
 **Exercise 5.22.**  Exercise [3.12](#_thm_3.12) of section [3.3.1](#_sec_3.3.1) presented an append procedure that appends two lists to form a new list and an append! procedure that splices two lists together. Design a register machine to implement each of these procedures. Assume that the list-structure memory operations are available as primitive operations.
 
 <a name="_sec_5.3.2"></a>
@@ -14898,10 +15224,13 @@ ev-definition-1
   (assign val (const ok))  
   (goto (reg continue))  
 
+<a name="_thm_5.23"></a>
 **Exercise 5.23.**  Extend the evaluator to handle derived expressions such as cond, let, and so on (section [4.1.2](#_sec_4.1.2)). You may \`\`cheat'' and assume that the syntax transformers such as cond->if are available as machine operations.[28](#footnote_Temp_781)
 
+<a name="_thm_5.24"></a>
 **Exercise 5.24.**  Implement cond as a new basic special form without reducing it to if. You will have to construct a loop that tests the predicates of successive cond clauses until you find one that is true, and then use ev-sequence to evaluate the actions of the clause.
 
+<a name="_thm_5.25"></a>
 **Exercise 5.25.**  Modify the evaluator so that it uses normal-order evaluation, based on the lazy evaluator of section [4.2](#_sec_4.2).
 
 <a name="_sec_5.4.4"></a>
@@ -15008,6 +15337,7 @@ _120_
 
 Note that the driver loop of the evaluator reinitializes the stack at the start of each interaction, so that the statistics printed will refer only to stack operations used to evaluate the previous expression.
 
+<a name="_thm_5.26"></a>
 **Exercise 5.26.**  Use the monitored stack to explore the tail-recursive property of the evaluator (section [5.4.2](#_sec_5.4.2)). Start the evaluator and define the iterative factorial procedure from section [1.2.1](#_sec_1.2.1):
 
 (define (factorial n)  
@@ -15024,6 +15354,7 @@ a. You will find that the maximum depth required to evaluate _n_! is independent
 
 b. Determine from your data a formula in terms of _n_ for the total number of push operations used in evaluating _n_! for any _n_ \> 1. Note that the number of operations used is a linear function of _n_ and is thus determined by two constants.
 
+<a name="_thm_5.27"></a>
 **Exercise 5.27.**  For comparison with exercise [5.26](#_thm_5.26), explore the behavior of the following procedure for computing factorials recursively:
 
 (define (factorial n)  
@@ -15047,8 +15378,10 @@ factorial
 
 The maximum depth is a measure of the amount of space used by the evaluator in carrying out the computation, and the number of pushes correlates well with the time required.
 
+<a name="_thm_5.28"></a>
 **Exercise 5.28.**  Modify the definition of the evaluator by changing eval-sequence as described in section [5.4.2](#_sec_5.4.2) so that the evaluator is no longer tail-recursive. Rerun your experiments from exercises [5.26](#_thm_5.26) and [5.27](#_thm_5.27) to demonstrate that both versions of the factorial procedure now require space that grows linearly with their input.
 
+<a name="_thm_5.29"></a>
 **Exercise 5.29.**  Monitor the stack operations in the tree-recursive Fibonacci computation:
 
 (define (fib n)  
@@ -15060,6 +15393,7 @@ a. Give a formula in terms of _n_ for the maximum depth of the stack required to
 
 b. Give a formula for the total number of pushes used to compute _F__i__b_(_n_) for _n_ \> 2. You should find that the number of pushes (which correlates well with the time used) grows exponentially with _n_. Hint: Let _S_(_n_) be the number of pushes used in computing _F__i__b_(_n_). You should be able to argue that there is a formula that expresses _S_(_n_) in terms of _S_(_n_ - 1), _S_(_n_ - 2), and some fixed \`\`overhead'' constant _k_ that is independent of _n_. Give the formula, and say what _k_ is. Then show that _S_(_n_) can be expressed as _a_ _F__i__b_(_n_ + 1) + _b_ and give the values of _a_ and _b_.
 
+<a name="_thm_5.30"></a>
 **Exercise 5.30.**  Our evaluator currently catches and signals only two kinds of errors -- unknown expression types and unknown procedure types. Other errors will take us out of the evaluator read-eval-print loop. When we run the evaluator using the register-machine simulator, these errors are caught by the underlying Scheme system. This is analogous to the computer crashing when a user program makes an error.[32](#footnote_Temp_793) It is a large project to make a real error system work, but it is well worth the effort to understand what is involved here.
 
 a. Errors that occur in the evaluation process, such as an attempt to access an unbound variable, could be caught by changing the lookup operation to make it return a distinguished condition code, which cannot be a possible value of any user variable. The evaluator can test for this condition code and then do what is necessary to go to signal-error. Find all of the places in the evaluator where such a change is necessary and fix them. This is lots of work.
@@ -15261,6 +15595,7 @@ We sometimes need to construct an instruction sequence with no statements:
 
 The procedures for combining instruction sequences are shown in section [5.5.4](#_sec_5.5.4).
 
+<a name="_thm_5.31"></a>
 **Exercise 5.31.**  In evaluating a procedure application, the explicit-control evaluator always saves and restores the env register around the evaluation of the operator, saves and restores env around the evaluation of each operand (except the final one), saves and restores argl around the evaluation of each operand, and saves and restores proc around the evaluation of the operand sequence. For each of the following combinations, say which of these save and restore operations are superfluous and thus could be eliminated by the compiler's preserving mechanism:
 
 (f 'x 'y)  
@@ -15271,6 +15606,7 @@ The procedures for combining instruction sequences are shown in section [5.5.4](
   
 (f (g 'x) 'y)  
 
+<a name="_thm_5.32"></a>
 **Exercise 5.32.**  Using the preserving mechanism, the compiler will avoid saving and restoring env around the evaluation of the operator of a combination in the case where the operator is a symbol. We could also build such optimizations into the evaluator. Indeed, the explicit-control evaluator of section [5.4](#_sec_5.4) already performs a similar optimization, by treating combinations with no operands as a special case.
 
 a. Extend the explicit-control evaluator to recognize as a separate class of expressions combinations whose operator is a symbol, and to take advantage of this fact in evaluating such expressions.
@@ -15848,6 +16184,7 @@ The true branch, which is the constant 1, compiles (with target val and linkage 
 
 The code for the false branch is another a procedure call, where the procedure is the value of the symbol \*, and the arguments are n and the result of another procedure call (a call to factorial). Each of these calls sets up proc and argl and its own primitive and compound branches. Figure [5.17](#_fig_5.17) shows the complete compilation of the definition of the factorial procedure. Notice that the possible save and restore of continue and env around the predicate, shown above, are in fact generated, because these registers are modified by the procedure call in the predicate and needed for the procedure call and the return linkage in the branches.
 
+<a name="_thm_5.33"></a>
 **Exercise 5.33.**  Consider the following definition of a factorial procedure, which is slightly different from the one given above:
 
 (define (factorial-alt n)  
@@ -15857,6 +16194,7 @@ The code for the false branch is another a procedure call, where the procedure i
 
 Compile this procedure and compare the resulting code with that produced for factorial. Explain any differences you find. Does either program execute more efficiently than the other?
 
+<a name="_thm_5.34"></a>
 **Exercise 5.34.**  Compile the iterative factorial procedure
 
 (define (factorial n)  
@@ -15975,6 +16313,7 @@ _;; assign the procedure to the variable factorial_
 
 **Figure 5.17:**  (continued)
 
+<a name="_thm_5.35"></a>
 **Exercise 5.35.**  What expression was compiled to produce the code shown in figure [5.18](#_fig_5.18)?
 
   (assign val (op make-compiled-procedure) (label entry16)  
@@ -16039,10 +16378,13 @@ after-lambda15
 
 **Figure 5.18:**  (continued)
 
+<a name="_thm_5.36"></a>
 **Exercise 5.36.**  What order of evaluation does our compiler produce for operands of a combination? Is it left-to-right, right-to-left, or some other order? Where in the compiler is this order determined? Modify the compiler so that it produces some other order of evaluation. (See the discussion of order of evaluation for the explicit-control evaluator in section [5.4.1](#_sec_5.4.1).) How does changing the order of operand evaluation affect the efficiency of the code that constructs the argument list?
 
+<a name="_thm_5.37"></a>
 **Exercise 5.37.**  One way to understand the compiler's preserving mechanism for optimizing stack usage is to see what extra operations would be generated if we did not use this idea. Modify preserving so that it always generates the save and restore operations. Compile some simple expressions and identify the unnecessary stack operations that are generated. Compare the code to that generated with the preserving mechanism intact.
 
+<a name="_thm_5.38"></a>
 **Exercise 5.38.**  Our compiler is clever about avoiding unnecessary stack operations, but it is not clever at all when it comes to compiling calls to the primitive procedures of the language in terms of the primitive operations supplied by the machine. For example, consider how much code is compiled to compute (+ a 1): The code sets up an argument list in argl, puts the primitive addition procedure (which it finds by looking up the symbol + in the environment) into proc, and tests whether the procedure is primitive or compound. The compiler always generates code to perform the test, as well as code for primitive and compound branches (only one of which will be executed). We have not shown the part of the controller that implements primitives, but we presume that these instructions make use of primitive arithmetic operations in the machine's data paths. Consider how much less code would be generated if the compiler could _open-code_ primitives -- that is, if it could generate code to directly use these primitive machine operations. The expression (+ a 1) might be compiled into something as simple as [43](#footnote_Temp_822)
 
 (assign val (op lookup-variable-value) (const a) (reg env))  
@@ -16100,10 +16442,13 @@ One way for the compiler to produce code that uses lexical addressing is to main
 
 Exercises [5.39](#_thm_5.39) through [5.43](#_thm_5.43) describe how to complete this sketch of the lexical-addressing strategy in order to incorporate lexical lookup into the compiler. Exercise [5.44](#_thm_5.44) describes another use for the compile-time environment.
 
+<a name="_thm_5.39"></a>
 **Exercise 5.39.**  Write a procedure lexical-address-lookup that implements the new lookup operation. It should take two arguments -- a lexical address and a run-time environment -- and return the value of the variable stored at the specified lexical address. Lexical-address-lookup should signal an error if the value of the variable is the symbol \*unassigned\*.[46](#footnote_Temp_826) Also write a procedure lexical-address-set! that implements the operation that changes the value of the variable at a specified lexical address.
 
+<a name="_thm_5.40"></a>
 **Exercise 5.40.**  Modify the compiler to maintain the compile-time environment as described above. That is, add a compile-time-environment argument to compile and the various code generators, and extend it in compile-lambda-body.
 
+<a name="_thm_5.41"></a>
 **Exercise 5.41.**  Write a procedure find-variable that takes as arguments a variable and a compile-time environment and returns the lexical address of the variable with respect to that environment. For example, in the program fragment that is shown above, the compile-time environment during the compilation of expression <_e1_\> is ((y z) (a b c d e) (x y)). Find-variable should produce
 
 (find-variable 'c '((y z) (a b c d e) (x y)))  
@@ -16115,10 +16460,13 @@ _(2 0)_
 (find-variable 'w '((y z) (a b c d e) (x y)))  
 _not-found_  
 
+<a name="_thm_5.42"></a>
 **Exercise 5.42.**  Using find-variable from exercise [5.41](#_thm_5.41), rewrite compile-variable and compile-assignment to output lexical-address instructions. In cases where find-variable returns not-found (that is, where the variable is not in the compile-time environment), you should have the code generators use the evaluator operations, as before, to search for the binding. (The only place a variable that is not found at compile time can be is in the global environment, which is part of the run-time environment but is not part of the compile-time environment.[47](#footnote_Temp_830) Thus, if you wish, you may have the evaluator operations look directly in the global environment, which can be obtained with the operation (op get-global-environment), instead of having them search the whole run-time environment found in env.) Test the modified compiler on a few simple cases, such as the nested lambda combination at the beginning of this section.
 
+<a name="_thm_5.43"></a>
 **Exercise 5.43.**  We argued in section [4.1.6](#_sec_4.1.6) that internal definitions for block structure should not be considered \`\`real'' defines. Rather, a procedure body should be interpreted as if the internal variables being defined were installed as ordinary lambda variables initialized to their correct values using set!. Section [4.1.6](#_sec_4.1.6) and exercise [4.16](#_thm_4.16) showed how to modify the metacircular interpreter to accomplish this by scanning out internal definitions. Modify the compiler to perform the same transformation before it compiles a procedure body.
 
+<a name="_thm_5.44"></a>
 **Exercise 5.44.**  In this section we have focused on the use of the compile-time environment to produce lexical addresses. But there are other uses for compile-time environments. For instance, in exercise [5.38](#_thm_5.38) we increased the efficiency of compiled code by open-coding primitive procedures. Our implementation treated the names of open-coded procedures as reserved words. If a program were to rebind such a name, the mechanism described in exercise [5.38](#_thm_5.38) would still open-code it as a primitive, ignoring the new binding. For example, consider the procedure
 
 (lambda (+ \* a b x y)  
@@ -16215,6 +16563,7 @@ With the programs in this section, we can now experiment with the alternative ex
 
 The alternatives of interpretation and compilation also lead to different strategies for porting languages to new computers. Suppose that we wish to implement Lisp for a new machine. One strategy is to begin with the explicit-control evaluator of section [5.4](#_sec_5.4) and translate its instructions to instructions for the new machine. A different strategy is to begin with the compiler and change the code generators so that they generate code for the new machine. The second strategy allows us to run any Lisp program on the new machine by first compiling it with the compiler running on our original Lisp system, and linking it with a compiled version of the run-time library.[53](#footnote_Temp_839) Better yet, we can compile the compiler itself, and run this on the new machine to compile other Lisp programs.[54](#footnote_Temp_840) Or we can compile one of the interpreters of section [4.1](#_sec_4.1) to produce an interpreter that runs on the new machine.
 
+<a name="_thm_5.45"></a>
 **Exercise 5.45.**  By comparing the stack operations used by compiled code to the stack operations used by the evaluator for the same computation, we can determine the extent to which the compiler optimizes use of the stack, both in speed (reducing the total number of stack operations) and in space (reducing the maximum stack depth). Comparing this optimized stack use to the performance of a special-purpose machine for the same computation gives some indication of the quality of the compiler.
 
 a. Exercise [5.27](#_thm_5.27) asked you to determine, as a function of _n_, the number of pushes and the maximum stack depth needed by the evaluator to compute _n_! using the recursive factorial procedure given above. Exercise [5.14](#_thm_5.14) asked you to do the same measurements for the special-purpose factorial machine shown in figure [5.11](#_fig_5.11). Now perform the same analysis using the compiled factorial procedure.
@@ -16225,6 +16574,7 @@ Compare the ratios for special-purpose versus interpreted code to the ratios for
 
 b. Can you suggest improvements to the compiler that would help it generate code that would come closer in performance to the hand-tailored version?
 
+<a name="_thm_5.46"></a>
 **Exercise 5.46.**  Carry out an analysis like the one in exercise [5.45](#_thm_5.45) to determine the effectiveness of compiling the tree-recursive Fibonacci procedure
 
 (define (fib n)  
@@ -16234,6 +16584,7 @@ b. Can you suggest improvements to the compiler that would help it generate code
 
 compared to the effectiveness of using the special-purpose Fibonacci machine of figure [5.12](#_fig_5.12). (For measurement of the interpreted performance, see exercise [5.29](#_thm_5.29).) For Fibonacci, the time resource used is not linear in _n_; hence the ratios of stack operations will not approach a limiting value that is independent of _n_.
 
+<a name="_thm_5.47"></a>
 **Exercise 5.47.**  This section described how to modify the explicit-control evaluator so that interpreted code can call compiled procedures. Show how to modify the compiler so that compiled procedures can call not only primitive procedures and compiled procedures, but interpreted procedures as well. This requires modifying compile-procedure-call to handle the case of compound (interpreted) procedures. Be sure to handle all the same target and linkage combinations as in compile-proc-appl. To do the actual procedure application, the code needs to jump to the evaluator's compound-apply entry point. This label cannot be directly referenced in object code (since the assembler requires that all labels referenced by the code it is assembling be defined there), so we will add a register called compapp to the evaluator machine to hold this entry point, and add an instruction to initialize it:
 
   (assign compapp (label compound-apply))  
@@ -16243,6 +16594,7 @@ read-eval-print-loop
 
 To test your code, start by defining a procedure f that calls a procedure g. Use compile-and-go to compile the definition of f and start the evaluator. Now, typing at the evaluator, define g and try to call f.
 
+<a name="_thm_5.48"></a>
 **Exercise 5.48.**  The compile-and-go interface implemented in this section is awkward, since the compiler can be called only once (when the evaluator machine is started). Augment the compiler-interpreter interface by providing a compile-and-run primitive that can be called from within the explicit-control evaluator as follows:
 
 _;;; EC-Eval input:_  
@@ -16258,12 +16610,16 @@ _;;; EC-Eval input:_
 _;;; EC-Eval value:_  
 _120_  
 
+<a name="_thm_5.49"></a>
 **Exercise 5.49.**  As an alternative to using the explicit-control evaluator's read-eval-print loop, design a register machine that performs a read-compile-execute-print loop. That is, the machine should run a loop that reads an expression, compiles it, assembles and executes the resulting code, and prints the result. This is easy to run in our simulated setup, since we can arrange to call the procedures compile and assemble as \`\`register-machine operations.''
 
+<a name="_thm_5.50"></a>
 **Exercise 5.50.**  Use the compiler to compile the metacircular evaluator of section [4.1](#_sec_4.1) and run this program using the register-machine simulator. (To compile more than one definition at a time, you can package the definitions in a begin.) The resulting interpreter will run very slowly because of the multiple levels of interpretation, but getting all the details to work is an instructive exercise.
 
+<a name="_thm_5.51"></a>
 **Exercise 5.51.**  Develop a rudimentary implementation of Scheme in C (or some other low-level language of your choice) by translating the explicit-control evaluator of section [5.4](#_sec_5.4) into C. In order to run this code you will need to also provide appropriate storage-allocation routines and other run-time support.
 
+<a name="_thm_5.52"></a>
 **Exercise 5.52.**  As a counterpoint to exercise [5.51](#_thm_5.51), modify the compiler so that it compiles Scheme procedures into sequences of C instructions. Compile the metacircular evaluator of section [4.1](#_sec_4.1) to produce a Scheme interpreter written in C.
 
 * * *
