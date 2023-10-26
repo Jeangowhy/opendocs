@@ -566,8 +566,8 @@ in this update.
 • Objects Everywhere: Fixed primitive data type table (superscript values were
 missing).
 • Operators: Rewrote “Testing Object Equivalence” section.
-• ImplementationHiding: Rewrote onjava/Range. java andadded onjava/Tes-
-tRange. java .
+• ImplementationHiding: Rewrote onjava/Range.java andadded onjava/Tes-
+tRange.java .
 • Changed “RTTI” to “Reflection” throughout the book, including changing the
 Type Information chapter name to Reflection.
 • Fixed the swapped images in Reuse and Polymorphism.
@@ -2273,7 +2273,7 @@ the umbrella of the name hiding , and anyone who wants to use that name must
 either fully specify the name or use the import keyword in combination with hiding ,
 using the choices given previously. (Note that the convention for Javapackage names
 is to use all lowercase letters, even for intermediate words.)
-For example, suppose the name of a file is MyClass. java . This means there can
+For example, suppose the name of a file is MyClass.java . This means there can
 only be one public class in that file, and the name of that class must be MyClass
 (including the capitalization):
 ```java
@@ -2504,7 +2504,7 @@ public class Range {
     }
 }
 ```
-The location of Range. java must be in a directory that starts at one of the
+The location of Range.java must be in a directory that starts at one of the
 CLASSPATH locations, then continues into onjava . After compiling, the methods
 can be used anywhere in your system using an import static statement. Here are
 a few basic tests to verify that it’s working correctly:
@@ -2632,7 +2632,7 @@ public class Cookie {
     void bite( ) { System. out. println( "bite"); }
 }
 ```
-Remember, the class file produced by Cookie. java must reside in a subdirectory
+Remember, the class file produced by Cookie.java must reside in a subdirectory
 called dessert , in a directory under hiding (indicating the Implementation Hiding
 chapter ofthis book) that must be under one ofthe CLASSPATH directories. Don’t
 make the mistake of thinking that Java will always look at the current directory as
@@ -2658,7 +2658,7 @@ Cookie constructor
 
 You can create a Cookie object because its constructor is public and the class is
 public . (We’lllookmoreatthe conceptofa public class later.) However, the bite( )
-member is inaccessible inside Dinner. java because bite( ) provides access only
+member is inaccessible inside Dinner.java because bite( ) provides access only
 within package dessert , so the compiler prevents you from using it.
 
 ### The Default Package
@@ -2690,7 +2690,7 @@ Initially, these seem like completely foreign files, and yet Cake is able to cre
 Pie object and call its f( ) method. (Note you must have . in your CLASSPATH
 for the files to compile.) You’d typically think Pie and f( ) have package access and
 are therefore not available to Cake . They dohave package access—that part is correct.
-The reason they are available in Cake. java is because they are in the same directory
+The reason they are available in Cake.java is because they are in the same directory
 and have no explicit package name. Java treats files like this as implicitly part ofthe
 “default package” for that directory, and thus they provide package access to all the
 other files in that directory.
@@ -2772,7 +2772,7 @@ particular member and grant access to derived classes but not the world in gener
 That’s what protected does. protected also gives package access—that is, other
 classes in the same package can access protected elements.
 
-Ifyou refer backto the file Cookie. java , the following class cannotcall the package-
+Ifyou refer backto the file Cookie.java , the following class cannotcall the package-
 access member bite( ) :
 ```java
 // hiding/ChocolateChip.java
@@ -2867,7 +2867,7 @@ public class CreatePackageAccessObject {
 ```
 If you compile this file by hand, you’ll get a compiler error message:
 ```sh
-CreatePackageAccessObject. java: 6: error:
+CreatePackageAccessObject.java: 6: error:
 PublicConstructor is not public in hiding.packageaccess;
 cannot be accessed from outside package
 new PublicConstructor( );
@@ -2901,7 +2901,7 @@ top and see first what’s important to them (the public members, because they c
 be accessed outside the file), and stop reading when they encounter the non- public
 members, which are part ofthe internal implementation:
 ```java
-// hiding/OrganizedByAccess. java
+// hiding/OrganizedByAccess.java
 public class OrganizedByAccess {
     public void pub1( ) { /* . . . */ }
     public void pub2( ) { /* . . . */ }
@@ -2948,7 +2948,7 @@ than one public class inside a compilation unit produces a compile-time error
 message.
 2. The name of the public class must exactly match the name of the file
 containing the compilation unit, including capitalization. So for Widget , the
-name of the file must be Widget. java , not widget. java or WIDGET. java .
+name of the file must be Widget.java , not widget.java or WIDGET.java .
 Again, you’ll get a compile-time error ifthey don’t agree.
 3. It is possible, though not typical, for a compilation unit to lack a public class.
 Here, you can name the file whatever you like (although naming it arbitrarily
@@ -2977,7 +2977,7 @@ creating an object ofthat class:
 These are introduced in the Inner Classes chapter.
 
 ```java
-// hiding/Lunch. java
+// hiding/Lunch.java
 // Demonstrates class access specifiers. Make a class
 // effectively private with private constructors:
 class Soup1 {
@@ -3202,27 +3202,1633 @@ have the freedom to improve your design, you also have the freedom to make mis
 
 ##  🍀13.15 Summary
 
+
 # 📜14. Functional Programming
 
+    A functional programming language manipulates pieces ofcode as easily
+    as it manipulates data. Although Java is not a functional language, Java
+    8 Lambda Expressions and Method References allow you to program in a
+    functional style.
+
+In the early days of the computer age, memory was scarce and precious. Nearly
+everyone programmed in assembly language. People knew about compilers, but the
+merethoughtoftheinefficientcodegenerationfromsuchathing—manybytes would
+certainly be generated that hand-coded assembly would never produce!
+
+Often, just to fit a program into limited memory, programmers saved code space by
+modifying in-memorycode to make itdo something different, whiletheprogramwas
+executing. This technique is called self-modifyingcode, and as long as a program was
+small enough for a handful ofpeople to maintain all the tricky and arcane assembly
+code, you could probably get it to work.
+
+Memory got cheaper and processors got faster. The C language appeared and
+was thought of as “high level” by most assembly-language programmers. Others
+discovered that C could make them significantly more productive. And with C, it
+still wasn’t that hard to create self-modifying code.
+
+With cheaper hardware, programs grew in size and complexity. It became difficult
+just to get programs to work. We sought ways to make code more consistent and
+understandable. Self-modifying code, in its purest form, turns out to be a really
+bad idea because it’s very hard to be quite sure what it is doing. It’s also difficult
+to test, because are you testing the output, some code in transition, the process of
+modification, etc.?
+
+And yet, the idea of using code to somehow manipulate other code remains
+intriguing, as long as there is some way to make it safer.
+
+From a code creation, maintenance, and reliability standpoint this idea is quite
+compelling. If, instead of writing lots of code from scratch, you start with existing
+small pieces that are understandable, well-tested, and reliable. Then compose them
+together to create new code. Wouldn’t that make us more productive and at the same
+time create more robust code?
+
+This is what functionalprogramming(FP) is about. By incorporating existing code to
+produce new functionality instead ofwriting everything from scratch, you get more
+reliable code, faster. This theory seems to hold up, at least in some situations. On the
+way, functional languages have produced nice syntax which some non-functional
+languages have appropriated.
+
+You can also think ofit this way:
+
+    OO abstracts data, FP abstracts behavior.
+
+A pure functional language goes further in its endeavor for safety. It imposes the
+additional constraint that all data must be immutable: set once and never changed.
+Values are handed to a function which then produces new values but never modifies
+anything external to itself (including its arguments or elements outside of that
+function’s scope). When this is enforced, you know that any bugs are not caused by
+so-called side effects, because the function only creates and returns a result, nothing
+else.
+
+Even better, the “immutable objects and no side effects” paradigm solves one ofthe
+most fundamental andvexing problems in parallel programming (when parts ofyour
+program are running simultaneously on multiple processors). This is the problem of
+mutablesharedstate, which means different parts ofyour code (running on different
+processors) can try to modify the same piece of memory at the same time (Who
+wins? Nobody knows). If functions never modify existing values but only produce
+newvalues—the definition ofapure functional language—there can be no contention
+over memory. Thus, pure functional languages are often put forward as the solution
+to parallel programming (there are also other viable solutions).
+
+Be aware, then, that there are numerous motivations behind functional languages,
+which means describing them can be somewhat confusing. It often depends on
+perspective. The reasons span “it’s for parallel programming,” to “code reliability”
+and “code creation and library reuse.”⁸⁵ Also remember that the arguments for FP—
+in particular, that programmers will create more robust code, faster—are still at least
+partly hypothetical. We have seen some good results,⁸⁶ but we haven’t proven that a
+pure functional language is the best approach to solving the programming problem.
+
+Ideas from FP are worth incorporating into non-FP languages. This happened in
+Python, forexample, to the great benefit of that language. Java 8 adds its ownfeatures
+from FP, which we explore in this chapter.
+
+⁸⁵ Pasting functionality together is a rather different approach, but it still enables a kind oflibrary.
+⁸⁶ For example, a version ofthis eBook was produced using Pandoc, a program written in the 
+pure functional language Haskell.
+
 ##  🍀14.01 Old vs. New
+Ordinarily, methods produce different results depending on the data we pass. What
+if you want a method to behave differently from one call to the next? Ifwe pass code
+to the method, we can control its behavior.
+
+Previously, we’ve done this by creating an object containing the desired behavior
+inside a method, then passing that object to the method we want to control. The
+following example shows this, then adds the Java 8 approaches: method references
+and lambda expressions.
+
+```java
+// functional/Strategize.java
+interface Strategy {
+    String approach(String msg);
+}
+class Soft implements Strategy {
+    @Override
+    public String approach(String msg) {
+        return msg.toLowerCase() + "?";
+    }
+}
+class Unrelated {
+    static String twice(String msg) {
+        return msg + " " + msg;
+    }
+}
+public class Strategize {
+    Strategy strategy;
+    String msg;
+    Strategize(String msg) {
+        strategy = new Soft(); // [1 ]
+        this.msg = msg;
+    }
+    void communicate() {
+        System.out.println(strategy.approach(msg));
+    }
+    void changeStrategy(Strategy strategy) {
+        this.strategy = strategy;
+    }
+    public static void main(String[] args) {
+        Strategy[] strategies = {
+            new Strategy() { // [2]
+                public String approach(String msg) {
+                    return msg.toUpperCase() + "! ";
+                }
+            },
+            msg - > msg.substring(0, 5), // [3]
+            Unrelated:: twice // [4]
+        };
+        Strategize s = new Strategize("Hello there");
+        s.communicate();
+        for (Strategy newStrategy: strategies) {
+            s.changeStrategy(newStrategy); // [5]
+            s.communicate(); // [6]
+        }
+    }
+}
+/* Output:
+hell o there?
+HELLO THERE!
+Hell o
+Hell o there Hel lo there
+*/
+```
+Strategy provides the interface that carries functionality in its single `approach( )`
+method. By creating different Strategy objects you create different behavior.
+
+Traditionally we implement this behavior by making a class that implements the
+Strategy interface, as in Soft.
+
+1.  [1] In Strategize , youcansee that Soft is the defaultstrategy, as itis assigned
+    in the constructor.
+2.  [2] A slightly less verbose and more spontaneous approach is to create an
+    anonymous inner class. There’s still a fair amount ofrepetitious code, and you
+    always have to look at it until you say “oh, I see, they’re using an anonymous
+    inner class.”
+3.  [3] This is the Java 8 lambda expression, distinguished by the arrow ->
+    separating the argument and function body. To the right of the arrow is the
+    expression that is returned from the lambda. This achieves the same effect as
+    the class definition and anonymous inner class, but with a lot less code.
+4.  [4] This is the Java 8 method reference, distinguished by the `::` . To the left of
+    the `::` is the name ofa class or object, and to the right ofthe `::` is the name of
+    a method, but without an argument list.
+5.  [5] After using the default Soft strategy, we step through all the strategies in
+    the array and place each one into s using changeStrategy( ) .
+6.  [6] Now, each call to communicate( ) produces different behavior, depending
+    on the strategy“code object” that’s beingusedatthe moment. We pass behavior,
+    rather than only passing data.⁸⁷
+
+Prior to Java 8, we have been able to pass functionality via [1] and [2] However, the
+syntax has been so awkward to write and read that we’ve only done it when forced.
+Method references and lambda expressions make it possible to pass functionality
+when you want to, instead ofonly when you must.
+
+⁸⁷ Sometimes functional languages describe this as “code as data.”
 
 ##  🍀14.02 Lambda Expressions
+Lambda Expressions are function definitions written using the minimum possible
+syntax:
+
+1.  Lambda expressions produce functions, not classes. On the Java Virtual Ma-
+    chine (JVM), everythingis aclass, so there arevarious manipulations performed
+    behind the scenes that make lambdas look like functions—but as a programmer,
+    you can happily pretend they are “just functions.”
+
+2.  The lambda syntax is as spare as possible, precisely to make lambdas easy to
+    write and use.
+
+You saw one lambda expression in Strategize.java , but there are other syntax
+variations:
+
+```java
+// functional/LambdaExpressions.java
+interface Description {
+    String brief();
+}
+interface Body {
+    String detailed(String head);
+}
+interface Multi {
+    String twoArg(String head, Double d);
+}
+public class LambdaExpressions {
+    static Body bod = h -> h + " No Parens! ";      // [1 ]
+    static Body bod2 = (h) -> h + " More details";  // [2]
+    static Description desc = () -> "Short info";   // [3]
+    static Multi mult = (h, n) -> h + n;            // [4]
+    static Description moreLines = () -> {          // [5]
+        System.out.println("moreLines( )");
+        return "from moreLines( )";
+    };
+    public static void main(String[] args) {
+        System.out.println(bod.detailed("Oh! "));
+        System.out.println(bod2.detailed("Hi! "));
+        System.out.println(desc.brief());
+        System.out.println(mult.twoArg("Pi! ", 3.14159));
+        System.out.println(moreLines.brief());
+    }
+}
+/* Output:
+Oh! No Parens!
+Hi! More details
+Short info
+Pi! 3.14159
+moreLines()
+from moreLines()
+*/
+```
+We start with three interfaces, each with a single method (you’ll understand the
+significance of this shortly). However, each method has a different number of
+arguments, in order to demonstrate lambda expression syntax.
+
+The basic syntax ofany lambda expression is:
+1. The arguments.
+2. Followed by the `->` , which you might choose to read as “produces.”
+3. Everything after the `->` is the method body.
+    1.  [1] With a single argument, you can just say it without parentheses. This,
+        however, is a special case.
+    2.  [2] The normal case is to use parentheses around the arguments. For consis-
+        tency, you can also use parentheses around a single argument, although this is
+        not commonly done.
+    3.  [3] With no arguments, you must use parentheses to indicate an empty
+        argument list.
+    4.  [4] For more than one argument, place them in a parenthesized argument list.
+        So far, all the lambda expression method bodies have been a single line. The result
+        ofthat expression automatically becomes the return value ofthe lambda expression,
+        and it’s illegal to use the return keyword here. This is another way that lambda
+        expressions abbreviate the syntax for describing functionality.
+    5.  [5] If you do need multiple lines in your lambda expression, you must put those
+        lines inside curlybraces. Inthis situation, yourevertto using return to produce
+        a value from the lambda expression.
+
+Lambda expressions typically produce more readable code than anonymous inner
+classes, so we’ll use them when possible in this book.
+
+### ☘ Recursion
+A recursive function is one that calls itself. It’s possible to write recursive lambda
+expressions, with a caveat: The recursive method must be an instance variable or a
+static variable, otherwise you’ll get a compile-time error. We’ll create an example
+for each case.
+
+Both examples need an interface that accepts an int and produces an int :
+```java
+// functional/IntCall.java
+interface IntCall {
+    int call( int arg);
+}
+```
+A factorial⁸⁸ for an integer n multiplies together all the positive integers less than or
+equal to n . A factorial function is a common recursive example:
+```java
+// functional/RecursiveFactorial.java
+public class RecursiveFactorial {
+    static IntCall fact;
+    public static void main(String[] args) {
+        fact = n -> n == 0 ? 1 : n * fact.call(n - 1);
+        for (int i = 0; i <= 10; i++)
+            System.out.println(fact.call(i));
+    }
+}
+/* Output:
+1
+1
+2
+6
+24
+120
+720
+5040
+40320
+362880
+3628800
+*/
+```
+⁸⁸ https://en.wikipedia.org/wiki/Factorial
+
+Here, fact is a static variable. Note the use of the ternary if-else. The recursive
+function will keep calling itselfuntil i == 0 . All recursive functions have some kind
+of“stop condition,” otherwise they’ll recurse infinitely and produce an exception.
+
+We can implement a Fibonacci sequence⁸⁹ as arecursive lambda expression, this time
+using an instance variable:
+```java
+// functional/RecursiveFibonacci.java
+public class RecursiveFibonacci {
+    IntCall fib;
+    RecursiveFibonacci() {
+        fib = n -> n == 0 ? 0 :
+            n == 1 ? 1 :
+            fib.call(n - 1) + fib.call(n - 2);
+    }
+    int fibonacci(int n) { return fib.call(n); }
+    public static void main(String[] args) {
+        RecursiveFibonacci rf = new RecursiveFibonacci();
+        for (int i = 0; i <= 10; i++)
+            System.out.println(rf.fibonacci(i));
+    }
+}
+/* Output:
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+*/
+```
+The Fibonacci sequence sums the last two elements in the sequence to produce the
+next one.
+⁸⁹ https://en.wikipedia.org/wiki/Fibonacci_number
 
 ##  🍀14.03 Method References
+Java 8 Method References refer to methods without the extra baggage required by
+previous versions of Java. A method reference is a class name or an object name,
+followed by a : : ⁹⁰, then the name ofthe method:
+
+⁹⁰ This syntax came from C++.
+
+```java
+// functional/MethodReferences.java
+import java.util.*;
+interface Callable {                               // [1]
+    void call(String s);
+}
+class Describe {
+    void show(String msg) {                        // [2]
+        System.out.println(msg);
+    }
+}
+public class MethodReferences {
+    static void hello(String name) {               // [3]
+        System.out.println("Hello, " + name);
+    }
+    static class Description {
+        String about;
+        Description(String desc) { about = desc; }
+        void help(String msg) {                    // [4]
+            System.out.println(about + " " + msg);
+        }
+    }
+    static class Helper {
+        static void assist(String msg) {           // [5]
+            System.out.println(msg);
+        }
+    }
+    public static void main(String[] args) {
+        Describe d = new Describe();
+        Callable c = d::show;                      // [6]
+        c.call("call( )");                         // [7]
+        c = MethodReferences::hello;               // [8]
+        c.call("Bob");
+        c = new Description("valuable")::help;     // [9]
+        c.call("information");
+        c = Helper::assist;                        // [10]
+        c.call("Help! ");
+    }
+}
+/* Output:
+call( )
+Hello, Bob
+valuable information
+Help!
+*/
+```
+1.  [1] We start out with a single-method interface (again, you’ll soon learn the
+    importance ofthis).
+2.  [2] The signature (argument types and return type) of show( ) conforms to the
+    signature of Callable ’s call( ) .
+3.  [3] hello( ) is also signature-conformant to call( ) .
+4.  [4] … as is help( ) , a non- static method within a static inner class.
+5.  [5] assist( ) is a static method inside a static inner class.
+6.  [6] We assign a method reference for the Describe object to a Callable —
+    which doesn’t have a show( ) method but rather a call( ) method. However,
+    Java seems fine with this seemingly-odd assignment, because the method
+    reference is signature-conformant to Callable ’s call( ) method.
+7.  [7] We can now invoke show( ) by calling call( ) , because Java maps call( )
+    onto show( ) .
+8.  [8] This is a static method reference.
+9.  [9] This is another version of [6]: a method reference for a method attached to
+    a live object, which is sometimes called a boundmethodreference.
+10. [10] Finally, getting a method reference for a static method ofa static inner
+    class looks just like the outer-class version at [8].
+    This isn’t an exhaustive example; we’ll look at all the variations ofmethod references
+    shortly.
+
+### ☘ Runnable
+The `Runnable` interface has been in Java since version 1.0, so no import is necessary.
+It also conforms to the special single-method interface format: Its method `run( )`
+takes no arguments and has no return value. We can therefore use a lambda
+expression and a method reference as a `Runnable` :
+
+```java
+// functional/RunnableMethodReference.java
+// Method references with interface Runnable
+class Go {
+    static void go() {
+        System.out.println("Go::go( )");
+    }
+}
+public class RunnableMethodReference {
+    public static void main(String[] args) {
+        new Thread(new Runnable() {
+            public void run() {
+                System.out.println("Anonymous");
+            }
+        }).start();
+        new Thread(
+            () -> System.out.println("lambda")
+        ).start();
+        new Thread(Go::go).start();
+    }
+}
+/* Output:
+Anonymous
+lambda
+Go::go()
+*/
+```
+A Thread object takes a Runnable as its constructor argument, and has a method
+start( ) which calls run( ) . Notice that only the anonymous inner class is required
+to have a method named run( ) .
+
+### ☘ Unbound Method References
+An unboundmethodreference refers to an ordinary (non-static) method, without an
+associated object. To apply an unbound reference, you must supply the object:
+
+```java
+// functional/UnboundMethodReference.java
+// Method reference without an object
+class X {
+    String f() { return "X::f( )"; }
+}
+interface MakeString {
+    String make();
+}
+interface TransformX {
+    String transform(X x);
+}
+public class UnboundMethodReference {
+    public static void main(String[] args) {
+        // MakeString ms = X::f;             // [1]
+        TransformX sp = X::f;
+        X x = new X();
+        System.out.println(sp.transform(x)); // [2]
+        System.out.println(x.f()); // Same effect
+    }
+}
+/* Output:
+X::f()
+X::f()
+*/
+```
+So far, we’ve seen references to methods that have the same signature as their
+associated interface. At [1], we try to do the same thing for f( ) in X , attempting to
+assign to a MakeString . This produces an error from the compiler about an “invalid
+method reference,” even though make( ) has the same signature as f( ) . The problem
+is that there’s actually another (hidden) argument involved: our old friend this . You
+can’t call f( ) without an X object to call it upon. Thus, `X::f` represents an unbound
+method reference, because it hasn’t been “bound” to an object.
+
+To solve the problem we need an X object, so our interface actually needs an extra
+argument, as you see in `TransformX` . If you assign `X::f` to a `TransformX` , 
+Java is happy. We must now make a second mental adjustment—with an unbound reference,
+the signature ofthe functionalmethod (the single method in the interface) no longer
+quite matches the signature of the method reference. There’s a good reason, which
+is that you need an object to call the method on.
+
+The result at [2] is a bit of a brain-teaser. I take the unbound reference and call
+transform( ) on it, passing it an X , and somehow that results in the call to x. f( ) .
+Java knows it must take the first argument, which is effectively this , and call the
+method on it.
+
+If your method has more arguments, just follow the pattern of the first argument
+taking this :
+```java
+// functional/MultiUnbound.java
+// Unbound methods with multiple arguments
+class This {
+    void two(int i, double d) {}
+    void three(int i, double d, String s) {}
+    void four(int i, double d, String s, char c) {}
+}
+interface TwoArgs {
+    void call2(This athis, int i, double d);
+}
+interface ThreeArgs {
+    void call3(This athis, int i, double d, String s);
+}
+interface FourArgs {
+    void call4(
+        This athis, int i, double d, String s, char c);
+}
+public class MultiUnbound {
+    public static void main(String[] args) {
+        TwoArgs twoargs = This::two;
+        ThreeArgs threeargs = This::three;
+        FourArgs fourargs = This::four;
+        This athis = new This();
+        twoargs.call2(athis, 11, 3.14);
+        threeargs.call3(athis, 11, 3.14, "Three");
+        fourargs.call4(athis, 11, 3.14, "Four", 'Z');
+    }
+}
+```
+To make a point, I named the class This and the first arguments for the functional
+methods athis , but you should choose other names to prevent confusion in produc-
+tion code.
+
+### ☘ Constructor Method References
+You can also capture a reference for a constructor, and later call that constructor via
+the reference.
+
+```java
+// functional/CtorReference.java
+class Dog {
+    String name;
+    int age = -1; // For "unknown"
+    Dog() { name = "stray"; }
+    Dog(String nm) { name = nm; }
+    Dog(String nm, int yrs) { name = nm;
+        age = yrs; }
+}
+interface MakeNoArgs {
+    Dog make();
+}
+interface Make1Arg {
+    Dog make(String nm);
+}
+interface Make2Args {
+    Dog make(String nm, int age);
+}
+public class CtorReference {
+    public static void main(String[] args) {
+        MakeNoArgs mna = Dog::new; // [1 ]
+        Make1Arg m1a = Dog::new; // [2]
+        Make2Args m2a = Dog::new; // [3]
+        Dog dn = mna.make();
+        Dog d1 = m1a.make("Comet");
+        Dog d2 = m2a.make("Ralph", 4);
+    }
+}
+```
+Dog has three constructors, and the make( ) methods inside the functional interfaces
+reflect the constructor argument lists (the make( ) methods can have different
+names).
+
+Notice how we use `Dog::new` for each of [1], [2], and [3]. There’s only one name for
+all three `constructors:::new` . But the constructor reference is assigned to a different
+interface in each case, and the compiler can detect from that which constructor
+reference to use.
+
+The compiler can see that calling your functional method ( make( ) , in this example)
+means to call the constructor.
 
 ##  🍀14.04 Functional Interfaces
+Both method references and lambda expressions must be assigned, and those
+assignations require type information for the compiler to ensure type correctness.
+Lambda expressions in particular introduce new requirements. Consider:
+
+    x -> x. toString( )
+
+We see that the return type must be a String , but what type is x ? Because lambda
+expressions include a form of type inference (the compiler figures some things out
+about types instead of requiring the programmer to be explicit), the compiler must
+somehow be able to deduce the type of x .
+
+Here’s a second example:
+
+    ( x, y) -> x + y
+
+Now x and y can be any types that support the + operator, including two different
+numeric types or a String and some other type that will automatically convert to a
+String (this includes most types). But when this lambda expression is assigned, the
+compiler must determine the exact types of x and y to generate the correct code.
+The same issue holds true for method references. Suppose you want to pass
+
+    System.out::println
+
+to a method you are writing—what type do you give for the method’s argument?
+To solve this problem, Java 8 introduces java. util. function containing a set of
+interfaces whicharetargettypes forlambdaexpressions andmethodreferences. Each
+interface contains only one abstract method, called the functionalmethod.
+
+This “functional method” pattern can be enforced using the @FunctionalInterface
+annotation when you write interfaces:
+```java
+// functional/FunctionalAnnotation.java
+@FunctionalInterface
+interface Functional {
+    String goodbye( String arg);
+}
+interface FunctionalNoAnn {
+    String goodbye( String arg);
+}
+/*
+@Functional Interface
+interface NotFunctional {
+  String goodbye(String arg);
+  String hel lo(String arg);
+}
+Produces error message:
+NotFunctional is not a functional interface
+multiple non-overriding abstract methods
+found in interface NotFunctional
+*/
+public class FunctionalAnnotation {
+    public String goodbye(String arg) {
+        return "Goodbye, " + arg;
+    }
+    public static void main(String[] args) {
+        FunctionalAnnotation fa =
+            new FunctionalAnnotation();
+        Functional f = fa:: goodbye;
+        FunctionalNoAnn fna = fa:: goodbye;
+        // Functional fac = fa; // Incompatible
+        Functional fl = a -> "Goodbye, " + a;
+        FunctionalNoAnn fnal = a -> "Goodbye, " + a;
+    }
+}
+```
+The @FunctionalInterface annotation is optional; Java treats both Functional
+and FunctionalNoAnn as functional interfaces in main( ) . The value of
+@FunctionalInterface is seen in the definition of NotFunctional : More than one 
+method in your interface produces a compile-time error message.
+
+Look closely at what happens in the definitions of f and fna . Functional and
+FunctionalNoAnn define interfaces. Yet what is assigned is just the method goodbye .
+
+First, this is only a method and not a class. Second, it’s not even a method of a class
+that implements one ofthose interfaces. This is a bit ofmagic that was added to Java 8:
+if you assign a method reference or a lambda expression to a functional interface
+(and the types fit), Java will adapt your assignment to the target interface. Under
+the covers, the compiler wraps your method reference or lambda expression in an
+instance ofa class that implements the target interface.
+
+A @FunctionalInterface is also called a Single AbstractMethod (SAM) type.
+Even though FunctionalAnnotation does fit the Functional mold, if we try to
+assign a FunctionalAnnotation directly to a Functional as in the definition for
+fac , Java won’t let us—which we expect because it doesn’t explicitly implement
+Functional . The only surprise is that Java 8 allows us to assign functions to
+interfaces, which results in a much nicer, simpler syntax.
+
+The goal of java. util. function is to create a complete-enough set of target
+interfaces that you don’t ordinarily need to define your own. Mostly because of
+primitive types, this produces a small explosion ofinterfaces. If you understand the
+naming pattern, you can generally detect what a particular interface does by looking
+at the name. Here are the basic naming guidelines:
+
+1.  If it only deals with objects, not primitives, then it’s just a straightforward name,
+    like Function, Consumer, Predicate, etc. The argument types are added via generics.
+2.  If it takes a primitive argument, this is denoted by the first part ofthe name, as
+    in LongConsumer , DoubleFunction , IntPredicate , etc. An exception to this
+    is the primitive Supplier types.
+3.  If it returns a primitive result, this is indicated with To , as in 
+    ToLongFunction<T> and IntToLongFunction .
+4.  If it returns the same type as its argument(s), it’s an Operator , with 
+    UnaryOperator for one argument and BinaryOperator for two arguments.
+5.  If it takes two arguments and returns a boolean , it’s a Predicate .
+6.  If it takes two arguments of different types, there’s a Bi in the name.
+
+This table describes the target types in java. util. function (with noted exceptions):
+
+| Characteristic | Name Functional Method | Usage |
+|----------------|------------------------|-------|
+
+1.  No arguments; Returns nothing
+    Runnable (java.lang) run( )
+    Runnable
+2.  No arguments; Returns any type
+    Supplier get( ) getAstype( )
+    Supplier<T> BooleanSupplier IntSupplier LongSupplier DoubleSupplier
+3.  No arguments; Returns any type
+    Callable (java.util.concurrent) call( )
+    Callable<V>
+4.  One argument; Returns nothing
+    Consumer accept( ) Consumer<T>
+    IntConsumer LongConsumer DoubleConsumer
+5.  Two-argument Consumer
+    BiConsumer accept( )
+    BiConsumer<T, U>
+6.  Two-argument Consumer ; First arg is a reference; Secondarg is a primitive
+    ObjtypeConsumer accept()
+    ObjIntConsumer<T> ObjLongConsumer<T> ObjDoubleConsumer<T>
+7.  One argument; Returns a different type
+    Function apply( ) Totype & typeTotype: applyAstype( )
+    Function<T, R> IntFunction<R> LongFunction<R> DoubleFunction<R> ToIntFunction<T> ToLongFunction<T> ToDoubleFunction<T> IntToLongFunction IntToDoubleFunction LongToIntFunction LongToDoubleFunction DoubleToIntFunction DoubleToLongFunction
+8.  One argument; Returns the same type
+    UnaryOperator apply( ) UnaryOperator<T>
+    IntUnaryOperator LongUnaryOperator DoubleUnaryOperator
+9.  Two arguments, same type; Returns the same type
+    BinaryOperator apply( ) BinaryOperator<T>
+    IntBinaryOperator LongBinaryOperator DoubleBinaryOperator
+10. Two arguments, same type; Returns int
+    Comparator (java.util) compare( )
+    Comparator<T> 
+11. Two arguments; Returns boolean
+    Predicate test( ) Predicate<T>
+    BiPredicate<T, U> IntPredicate LongPredicate DoublePredicate
+12. Primitive argument; Returns a primitive
+    typeTotypeFunction applyAstype ( )
+    IntToLongFunction IntToDoubleFunction LongToIntFunction LongToDoubleFunction DoubleToIntFunction DoubleToLongFunction
+13. Two arguments; Different types
+    Bioperation (method name varies)
+    BiFunction<T, U, R> BiConsumer<T, U> BiPredicate<T, U> ToIntBiFunction<T, U> ToLongBiFunction<T, U> ToDoubleBiFunction<T, U>
+
+You might imagine additional rows for further illumination, but this table gives the
+general idea, and should allow you to, more or less, deduce the functional interface
+you need.
+
+You can see that some choices were made in creating java. util. function . 
+For example, whyno IntComparator , LongComparator and DoubleComparator ? There’s
+a BooleanSupplier but no other interfaces where Boolean is represented. There’s
+a generic BiConsumer , but no BiConsumer s for all the int , long and double
+variations (I can sympathize with why they gave up on that one). Are these oversights
+or did someone decide that the usage ofthe other permutations were too small (and
+how did they come to that conclusion)?
+
+You can also see how much complexity the primitive types add to Java. They were
+included in the first version of the language because of efficiency concerns—which
+were mitigated fairly soon. Now, for the lifetime ofthe language, we are stuck with
+the effects ofa poor language design choice.
+
+Here’s an example that enumerates all the different Function variants, applied to
+lambda expressions:
+
+```java
+// functional/FunctionVariants.java
+import java.util.function.*;
+class Foo {}
+class Bar {
+    Foo f;
+    Bar(Foo f) { this.f = f; }
+}
+class IBaz {
+    int i;
+    IBaz(int i) {
+        this.i = i;
+    }
+}
+class LBaz {
+    long l;
+    LBaz(long l) {
+        this.l = l;
+    }
+}
+class DBaz {
+    double d;
+    DBaz(double d) {
+        this.d = d;
+    }
+}
+public class FunctionVariants {
+    static Function < Foo, Bar > f1 = f -> new Bar(f);
+    static IntFunction < IBaz > f2 = i -> new IBaz(i);
+    static LongFunction < LBaz > f3 = l -> new LBaz(l);
+    static DoubleFunction < DBaz > f4 = d -> new DBaz(d);
+    static ToIntFunction < IBaz > f5 = ib -> ib.i;
+    static ToLongFunction < LBaz > f6 = lb -> lb.l;
+    static ToDoubleFunction < DBaz > f7 = db -> db.d;
+    static IntToLongFunction f8 = i -> i;
+    static IntToDoubleFunction f9 = i -> i;
+    static LongToIntFunction f10 = l -> (int) l;
+    static LongToDoubleFunction f11 = l -> l;
+    static DoubleToIntFunction f12 = d -> (int) d;
+    static DoubleToLongFunction f13 = d -> (long) d;
+    public static void main(String[] args) {
+        Bar b = f1.apply(new Foo());
+        IBaz ib = f2.apply(11);
+        LBaz lb = f3.apply(11);
+        DBaz db = f4.apply(11);
+        int i = f5.applyAsInt(ib);
+        long l = f6.applyAsLong(lb);
+        double d = f7.applyAsDouble(db);
+        l = f8.applyAsLong(12);
+        d = f9.applyAsDouble(12);
+        i = f10.applyAsInt(12);
+        d = f11.applyAsDouble(12);
+        i = f12.applyAsInt(13. 0);
+        l = f13.applyAsLong(13. 0);
+    }
+}
+```
+These lambda expressions attempt to produce the simplest code that will fit the
+signature. In some cases casts were necessary, otherwise the compiler complains
+about truncation errors.
+
+Each test in main( ) shows the different kinds of apply methods in the Function
+interfaces. Each one produces a call to its associated lambda expression.
+
+Method references have their own magic:
+
+```java
+// functional/MethodConversion.java
+import java.util.function.*;
+class In1 {}
+class In2 {}
+public class MethodConversion {
+    static void accept(In1 i1, In2 i2) {
+        System.out.println("accept( )");
+    }
+    static void someOtherName(In1 i1, In2 i2) {
+        System.out.println("someOtherName( )");
+    }
+    public static void main(String[] args) {
+        BiConsumer < In1, In2 > bic;
+        bic = MethodConversion::accept;
+        bic.accept(new In1(), new In2());
+        bic = MethodConversion::someOtherName;
+        // bic.someOtherName(new In1(), new In2()); // Nope
+        bic.accept(new In1(), new In2());
+    }
+}
+/* Output:
+accept()
+someOtherName()
+*/
+```
+Look up the documentation for BiConsumer . You’ll see its functional method is
+accept( ) . Indeed, ifwe name our method accept( ) , it works as amethod reference.
+But we can give it a completely different name like someOtherName( ) and it works
+as well, as long as the argument types and return type are the same as BiConsumer ’s
+accept( ) .
+
+Thus, when working with functional interfaces, the name doesn’t matter—only the
+argument types and return type. Java performs a mapping of your name onto the
+functional method of the interface. To invoke your method, you call the functional
+method name ( accept( ) , in this case), not your method name.
+
+Now we’ll look at all the class-based functionals (that is, those that don’t involve
+primitives), applied to method references. Again, I’ve created the simplest methods
+that fit the functional signatures:
+
+```java
+// functional/ClassFunctionals.java
+import java.util.*;
+import java.util.function.*;
+class AA {}
+class BB {}
+class CC {}
+public class ClassFunctionals {
+    static AA f1() { return new AA(); }
+    static int f2(AA aa1, AA aa2) { return 1; }
+    static void f3(AA aa) {}
+    static void f4(AA aa, BB bb) {}
+    static CC f5(AA aa) { return new CC(); }
+    static CC f6(AA aa, BB bb) { return new CC(); }
+    static boolean f7(AA aa) { return true; }
+    static boolean f8(AA aa, BB bb) { return true; }
+    static AA f9(AA aa) { return new AA(); }
+    static AA f10(AA aa1, AA aa2) { return new AA(); }
+    public static void main(String[] args) {
+        Supplier < AA > s = ClassFunctionals:: f1;
+        s.get();
+        Comparator < AA > c = ClassFunctionals:: f2;
+        c.compare(new AA(), new AA());
+        Consumer < AA > cons = ClassFunctionals:: f3;
+        cons.accept(new AA());
+        BiConsumer < AA, BB > bicons = ClassFunctionals:: f4;
+        bicons.accept(new AA(), new BB());
+        Function < AA, CC > f = ClassFunctionals:: f5;
+        CC cc = f.apply(new AA());
+        BiFunction < AA, BB, CC > bif = ClassFunctionals:: f6;
+        cc = bif.apply(new AA(), new BB());
+        Predicate < AA > p = ClassFunctionals:: f7;
+        boolean result = p.test(new AA());
+        BiPredicate < AA, BB > bip = ClassFunctionals:: f8;
+        result = bip.test(new AA(), new BB());
+        UnaryOperator < AA > uo = ClassFunctionals:: f9;
+        AA aa = uo.apply(new AA());
+        BinaryOperator < AA > bo = ClassFunctionals:: f10;
+        aa = bo.apply(new AA(), new AA());
+    }
+}
+```
+Note that each method name is arbitrary ( f1( ) , f2( ) , etc.), but as you just saw, once
+the method reference is assigned to a functional interface, you can call the functional
+method associated with that interface. In this example, these are get( ) , compare( ) ,
+accept( ) , apply( ) , and test( ) .
+
+### ☘ Functional Interfaces with More Arguments
+The interfaces in java. util. function are limited. There’s a BiFunction , but it
+stops there. What if you need an interface for three-argument functions? Those
+interfaces are fairly straightforward, so it’s easy to look at the Java library source
+code and make our own:
+
+```java
+// functional/TriFunction.java
+@FunctionalInterface
+public interface TriFunction < T, U, V, R > {
+    R apply(T t, U u, V v);
+}
+```
+
+A short test will verify it works:
+
+```java
+// functional/TriFunctionTest.java
+public class TriFunctionTest {
+    static int f(int i, long l, double d) { return 99; }
+    public static void main(String[] args) {
+        TriFunction < Integer, Long, Double, Integer > tf =
+            TriFunctionTest:: f;
+        tf = (i, l, d) - > 12;
+    }
+}
+```
+We test both a method reference and a lambda expression.
+
+### ☘ Missing Primitive Functionals
+Let’s revisit BiConsumer , to see how we would create the various missing 
+permutations involving int , long and double 
+
+```java
+// functional/BiConsumerPermutations.java
+import java.util.function.*;
+public class BiConsumerPermutations {
+    static BiConsumer < Integer, Double > bicid = (i, d) - >
+        System.out.format("%d, %f%n", i, d);
+    static BiConsumer < Double, Integer > bicdi = (d, i) - >
+        System.out.format("%d, %f%n", i, d);
+    static BiConsumer < Integer, Long > bicil = (i, l) - >
+        System.out.format("%d, %d%n", i, l);
+    public static void main(String[] args) {
+        bicid.accept(47, 11.34);
+        bicdi.accept(22.45, 92);
+        bicil.accept(1, 11 L);
+    }
+}
+/* Output:
+47, 11.340000
+92, 22.450000
+1, 11
+*/
+```
+For display, I use System. out. format( ) which is like System. out. println( )
+except it provides far more display options. Here, the %f says I’m giving it n as a
+floating-point value, and the %d says that n is an integral value. I’m able to include
+spaces, and it doesn’t add a newline unless you put in a %n —it will also accept the
+traditional \n for newlines, but %n is automatically cross-platform, which is another
+reason to use format( ) .
+
+The example simply uses the appropriate wrapper types, and boxing and unboxing
+takes care ofconverting back and forth between primitives. We can also use wrapped
+types with, for example, Function , instead ofits predefined primitive variations:
+```java
+// functional/FunctionWithWrapped.java
+import java.util.function.*;
+public class FunctionWithWrapped {
+    public static void main( String[] args) {
+        Function<Integer, Double> fid = i -> ( double)i;
+        IntToDoubleFunction fid2 = i -> i;
+    }
+}
+```
+
+Without the cast, you get an error message: “Integer cannot be converted to Double,”
+whereas the IntToDoubleFunction version has no such problem. The Java library
+code for IntToDoubleFunction looks like this:
+
+```java
+@FunctionalInterface
+public interface IntToDoubleFunction {
+    double applyAsDouble( int value);
+}
+```
+
+Because we can simply write Function<Integer, Double> and produce working
+results, it’s clear that the only reason for the primitive variants ofthe functionals is
+to prevent the autoboxing and autounboxing involved with passing arguments and
+returning results. That is, for performance.
+
+It seems safe to conjecture that the reason some of the functional types have
+definitions and others don’t is because ofprojected frequency ofuse.
+Ofcourse, ifperformance actually becomes a problem because ofa missing primitive
+functional, you can easily write your own interface(using the Java library sources for
+reference)—although it seems unlikely this is your performance bottleneck.
 
 ##  🍀14.05 Higher-Order Functions
+This name can sound intimidating, but:
+
+    A higher-order function⁹¹ is simply a function that consumes or produces functions.
+
+⁹¹ https://en.wikipedia.org/wiki/Higher-order_function
+
+Let’s first look at producing a function:
+
+```java
+// functional/ProduceFunction.java
+import java.util.function.*;
+interface
+FuncSS extends Function < String, String > {} // [1 ]
+public class ProduceFunction {
+    static FuncSS produce() {
+        return s -> s.toLowerCase(); // [2]
+    }
+    public static void main(String[] args) {
+        FuncSS f = produce();
+        System.out.println(f.apply("YELLING"));
+    }
+}
+/* Output:
+yelling
+*/
+```
+Here, produce( ) is the higher-order function.
+1.  [1] Using inheritance, you can easily create an alias for a specialized interface.
+2.  [2] With lambda expressions, it becomes almost effortless to create and return
+    a function from within a method.
+
+To consume a function, the consuming method must describe the function type
+correctly in its argument list:
+
+```java
+// functional/ConsumeFunction.java
+import java.util.function.*;
+class One {}
+class Two {}
+public class ConsumeFunction {
+    static Two consume(Function < One, Two > onetwo) {
+        return onetwo.apply(new One());
+    }
+    public static void main(String[] args) {
+        Two two = consume(one -> new Two());
+    }
+}
+```
+
+Things get particularly interesting when you produce a new function based on the
+consumed function:
+
+```java
+// functional/TransformFunction.java
+import java.util.function.*;
+class I {
+    @Override public String toString() { return "I"; }
+}
+class O {
+    @Override public String toString() { return "O"; }
+}
+public class TransformFunction {
+    static Function < I, O > transform(Function < I, O > in ) {
+        return in.andThen(o -> {
+            System.out.println(o);
+            return o;
+        });
+    }
+    public static void main(String[] args) {
+        Function < I, O > f2 = transform(i -> {
+            System.out.println(i);
+            return new O();
+        });
+        O o = f2.apply(new I());
+    }
+}
+/* Output:
+I
+O
+*/
+```
+here, transform( ) produces a function with the same signature as the one passed
+in, but you can produce any kind you’d like.
+
+This uses a default method in the Function interface called and Then( ) which is
+specifically designed for manipulating functions. As the name implies, andThen( ) is
+invoked after the in function is called (there’s also compose( ) , which applies the new
+function before the in function). To attach an and Then( ) function, we simply pass
+that function as an argument. What comes out of transform( ) is a new function,
+which combines the action of in with that ofthe andThen( ) argument.
 
 ##  🍀14.06 Closures
+In ProduceFunction.java in the previous section, we returned a lambda function
+from a method. That example kept things simple, but there are some issues we must
+explore around returning lambdas. These issues are summarized by the term closure.
+Closures are important because they make it easy to produce functions.
+
+Consider a more complex lambda, one that uses variables outside its function scope.
+What happens when you return that function? That is, what does it reference for
+those “outside” variables when you call the function? It becomes quite challenging if
+the language doesn’t automatically solve this problem. Languages that do solve it are
+said to support closures, or to be lexically scoped (the term variable capture is also
+used). Java 8 provides limited, but reasonable, closure support, which we’ll examine
+using some simple examples.
+
+First, here’s a method to return a function that accesses an object field and a method
+argument:
+
+```java
+// functional/Closure1.java
+import java.util.function.*;
+public class Closure1 {
+    int i;
+    IntSupplier makeFun( int x) {
+        return ( ) -> x + i++;
+    }
+}
+```
+
+Under further consideration, this use of `i` isn’t that big of a challenge, because the
+objectis likely to exist after you call `makeFun( )` —indeed, thegarbagecollectoralmost
+certainly preserves an object with extant functions tied back to it this way.⁹² Of
+course, if you call `makeFun( )` multiple times for the same object, you’ll end up with
+several functions all sharing the same storage for `i` :
+
+⁹² I have not tested this statement.
+
+```java
+// functional/SharedStorage.java
+import java.util.function.*;
+public class SharedStorage {
+    public static void main(String[] args) {
+        Closure1 c1 = new Closure1();
+        IntSupplier f1 = c1.makeFun(0);
+        IntSupplier f2 = c1.makeFun(0);
+        IntSupplier f3 = c1.makeFun(0);
+        System.out.println(f1.getAsInt());
+        System.out.println(f2.getAsInt());
+        System.out.println(f3.getAsInt());
+    }
+}
+/* Output:
+0
+1
+2
+*/
+```
+
+Every call to `getAsInt( )` increments i , demonstrating that the storage is shared.
+What if i is local to `makeFun( )` ? Under normal circumstances, i is gone when
+`makeFun( )` completes. It still compiles, however:
+
+```java
+// functional/Closure2.java
+import java.util.function.*;
+public class Closure2 {
+    IntSupplier makeFun(int x) {
+        int i = 0;
+        return () -> x + i;
+    }
+}
+```
+
+The `IntSupplier` returned by `makeFun( )` “closes over” i and x , thus both are still
+valid when you invoke the returned function. Notice, however, I didn’t increment i
+as in Closure1.java . Trying to increment it produces a compile-time error:
+
+```java
+// functional/Closure3.java
+// {WillNotCompile}
+import java.util.function.*;
+public class Closure3 {
+    IntSupplier makeFun(int x) {
+        int i = 0;
+        // Neither x++ nor i++ will work:
+        return () -> x++ + i++;
+    }
+}
+```
+
+The error, repeated for both x and i , is:
+
+    local variables referenced from a lambda
+    expression must be final or effectively final
+
+Clearly, if we make x and i final it will work, because then we can’t increment
+either one:
+
+```java
+// functional/Closure4.java
+import java.util.function.*;
+public class Closure4 {
+    IntSupplier makeFun(final int x) {
+        final int i = 0;
+        return () -> x + i;
+    }
+}
+```
+
+But why did Closure2.java work when x and i were not final ? This is where
+the meaning of“effectively” final appears. The term was created for Java 8 to say
+you haven’t explicitly declared a variable to be final but you’re still treating it that
+way—you aren’t changing it. A local variable is effectively final ifits initial value is
+never changed.
+
+If x and i are changed elsewhere in the method (but not inside of the returned
+function), the compiler still considers it an error. Each increment produces a separate
+error message:
+
+```java
+// functional/Closure5.java
+// {Will NotCompile}
+import java.util.function.*;
+public class Closure5 {
+    IntSupplier makeFun(int x) {
+        int i = 0;
+        i++;
+        x++;
+        return () -> x + i;
+    }
+}
+```
+
+To be “effectively final” means you could apply the final keyword to the variable
+declaration without changing any ofthe rest ofthe code. It’s actually final , you just
+haven’t bothered to say so.
+
+We can actually fix the issue in Closure5.java by assigning x and i to final
+variables before using them in the closure:
+
+```java
+// functional/Closure6.java
+import java.util.function.*;
+public class Closure6 {
+    IntSupplier makeFun(int x) {
+        int i = 0;
+        i++;
+        x++;
+        final int iFinal = i;
+        final int xFinal = x;
+        return () -> xFinal + iFinal;
+    }
+}
+```
+
+We never change `iFinal` and `xFinal` after assignment so the use of final here is
+redundant.
+
+What if you’re using references? We can change from `int` to `Integer` :
+
+```java
+// functional/Closure7.java
+// {Will NotCompile}
+import java.util.function.*;
+public class Closure7 {
+    IntSupplier makeFun(int x) {
+        Integer i = 0;
+        i = i + 1;
+        return () -> x + i;
+    }
+}
+```
+
+The compiler is still smart enough to see that i is being changed. The wrapper types
+might be getting special treatment, so let’s try a List :
+
+```java
+// functional/Closure8.java
+import java.util.*;
+import java.util.function.*;
+public class Closure8 {
+    Supplier < List < Integer >> makeFun() {
+        final List < Integer > ai = new ArrayList < > ();
+        ai.add(1);
+        return () -> ai;
+    }
+    public static void main(String[] args) {
+        Closure8 c7 = new Closure8();
+        List < Integer >
+            l1 = c7.makeFun().get(),
+            l2 = c7.makeFun().get();
+        System.out.println(l1);
+        System.out.println(l2);
+        l1.add(42);
+        l2.add(96);
+        System.out.println(l1);
+        System.out.println(l2);
+    }
+}
+/* Output:
+[1]
+[1]
+[1, 42]
+[1, 96]
+*/
+```
+
+This time it works: we modify the contents ofthe List without producing a compile-
+time error. When you look at the output from this example, it does seem pretty
+safe, because each time `makeFun( )` is called, a brand new `ArrayList` is created
+and returned—which means it is not shared, so each generated closure has its own
+separate `ArrayList` and they can’t interfere with each other.
+
+And notice I’ve declared `ai` to be final , although for this example you can take
+final off and get the same results (try it!). The final keyword applied to object
+references only says that the reference doesn’t get reassigned. It doesn’t say you
+can’t modify the object itself.
+
+Looking at the difference between Closure7.java and Closure8.java , we see that
+Closure7.java actually has a reassignment of `i` . Maybe that’s the trigger for the
+“effectively final” error message:
+
+```java
+// functional/Closure9.java
+// {Will NotCompile}
+import java.util.*;
+import java.util.function.*;
+public class Closure9 {
+    Supplier < List < Integer >> makeFun() {
+        List < Integer > ai = new ArrayList < > ();
+        ai = new ArrayList < > (); // Reassignment
+        return () -> ai;
+    }
+}
+```
+
+The reassignment does indeed trigger the message. If you only modify the object
+that’s pointed to, Java accepts it. And that’s probably safe as long as no one else ever
+gets the reference to that object (that would mean you have more than one entity
+that can modify the object, at which point things can get very confusing).⁹³
+
+⁹³ This will make additional sense in the Concurrent Programming chapter, when you’ll 
+
+There’s a conundrum, however, if we now look back at Closure1.java . `i` is
+modified without compiler complaints. It is neither final nor “effectively final.”
+understand that mutating shared variables is “not thread-safe.”
+
+Because `i` is a member of the surrounding class, it’s certainly safe to do this (other
+than the fact you are creating multiple functions that share mutable memory). Indeed,
+you can argue that no variable capture occurs in that case. And to be sure, the
+error message for Closure3.java specifically refers to local variables. Thus, the
+rule isn’t as simple as saying “any variable defined outside the lambda must be final
+or effectively final.” Instead, you must think in terms of captured variables being
+effectively final. If it’s a field in an object, it has an independent lifetime and doesn’t
+need any special capturing in order to exist later, when the lambda is called.
+
+### ☘ Inner Classes as Closures
+We can duplicate our example using an anonymous inner class:
+
+```java
+// functional/AnonymousClosure.java
+import java.util.function.*;
+public class AnonymousClosure {
+    IntSupplier makeFun( int x) {
+        int i = 0;
+        // Same rules apply:
+        // i++; // Not "effectively final "
+        // x++; // Ditto
+        return new IntSupplier( ) {
+            public int getAsInt( ) { return x + i; }
+        };
+    }
+}
+```
+
+It turns out that as long as there have been inner classes, there have been closures
+(Java 8 just makes closures easier). Prior to Java 8, the requirement was that x and i
+be explicitly declared final . With Java 8, the rule for inner classes has been relaxed
+to include “effectively final .”
 
 ##  🍀14.07 Function Composition
+Function composition basically means “pasting functions together to create new
+functions,” and it’s commonly considered a part of functional programming. You
+saw one example of function composition in TransformFunction. java with the
+use of andThen( ) . Some of the java. util. function interfaces contain methods
+to support function composition.⁹⁴
+
+⁹⁴ The reason interfaces can support methods is that they are Java 8 default methods, which 
+you’ll learn about in the next chapter.
+
+| Compositional Method | Supporting Interfaces |
+|----------------------|-----------------------|
+
+`andThen(argument)` Performs the original operation followed by the argument operation.
+
+    Function BiFunction Consumer
+    BiConsumer IntConsumer LongConsumer
+    DoubleConsumer UnaryOperator
+    IntUnaryOperator LongUnaryOperator
+    DoubleUnaryOperator BinaryOperator
+
+`compose(argument)` Performs the argument operation followed by the original operation.
+
+    Function UnaryOperator
+    IntUnaryOperator LongUnaryOperator
+    DoubleUnaryOperator
+
+`and(argument)` Short-circuiting logical AND ofthe original predicate and the argument predicate.
+
+    Predicate BiPredicate IntPredicate
+    LongPredicate DoublePredicate
+
+`or(argument)` Short-circuiting logical OR ofthe original predicate and the argument predicate.
+
+    Predicate BiPredicate IntPredicate
+    LongPredicate DoublePredicate
+
+`negate( )` A predicate that is the logical negation of this predicate.
+
+    Predicate BiPredicate IntPredicate
+    LongPredicate DoublePredicate
+
+This example uses both compose( ) and andThen( ) from Function :
+
+```java
+// functional/FunctionComposition.java
+import java.util.function.*;
+public class FunctionComposition {
+    static Function < String, String >
+        f1 = s -> {
+            System.out.println(s);
+            return s.replace('A', '_');
+        },
+        f2 = s -> s.substring(3),
+        f3 = s -> s.toLowerCase(),
+        f4 = f1.compose(f2).andThen(f3);
+    public static void main(String[] args) {
+        System.out.println(
+            f4.apply("GO AFTER ALL AMBULANCES"));
+    }
+}
+/* Output:
+AFTER ALL AMBULANCES
+_fter _ll _mbul_nces
+*/
+```
+
+The important thing to see here is that we are creating a new function f4 , which can
+then be called using apply( ) (almost) like any other function.⁹⁵
+
+⁹⁵ Some languages, Python for example, allow composed functions to be called exactly like any 
+other function. But this is Java, so we take what we can get.
+
+By the time f1 gets the String , it’s already had the first three characters stripped
+off by `f2` . That’s because the call to `compose(f2)` means f2 gets called before f1 .
+Here’s a demonstration of the logical operations for Predicate :
+
+```java
+// functional/PredicateComposition.java
+import java.util.function.*;
+import java.util.stream.*;
+public class PredicateComposition {
+    static Predicate < String >
+        p1 = s -> s.contains("bar"),
+        p2 = s -> s.length() < 5,
+        p3 = s -> s.contains("foo"),
+        p4 = p1.negate().and(p2).or(p3);
+    public static void main(String[] args) {
+        Stream.of("bar", "foobar", "foobaz", "fongopuckey")
+            .filter(p4)
+            .forEach(System.out:: println);
+    }
+}
+/* Output:
+foobar
+foobaz
+*/
+```
+
+`p4` takes all the predicates and combines them into a more complex predicate, which
+reads: “If the String does NOT contain ‘bar’ AND the length is less than 5, OR it
+contains ‘foo’, the result is true .”
+
+Because it produces such clear syntax, I’ve cheated a bit in main( ) and borrowed
+from the next chapter. First I create a “stream” (a sequence) of String objects, then
+feed each one to the filter( ) operation. filter( ) uses our `p4` predicate to decide
+which object in the stream to keep, and which to discard. Finally, forEach( ) applies
+the println method reference to each surviving object.
+
+You can see from the output how `p4` works: anything with a “foo” survives, even if
+its length is greater than five. “fongopuckey” is too long and doesn’t have a “bar”
+to save it.
 
 ##  🍀14.08 Currying and Partial Evaluation
+Currying⁹⁶ is named after Haskell Curry, one ofits inventors and possibly the only
+computerpersonto have an importantthing namedaftereachofhis names (the other
+is the Haskell programming language). Currying means starting with a function that
+takes multiple arguments and turning it into a sequence offunctions, each ofwhich
+only takes a single argument.
+
+⁹⁶ https://en.wikipedia.org/wiki/Currying
+
+```java
+// functional/CurryingAndPartials.java
+import java.util.function.*;
+public class CurryingAndPartials {
+    // Uncurried:
+    static String uncurried(String a, String b) {
+        return a + b;
+    }
+    public static void main(String[] args) {
+        // Curried function:
+        Function < String, Function < String, String >> sum =
+            a -> b -> a + b; // [1]
+        System.out.println(uncurried("Hi ", "Ho"));
+        Function < String, String >
+            hi = sum.apply("Hi "); // [2]
+        System.out.println(hi.apply("Ho"));
+        // Partial application:
+        Function < String, String > sumHi =
+            sum.apply("Hup ");
+        System.out.println(sumHi.apply("Ho"));
+        System.out.println(sumHi.apply("Hey"));
+    }
+}
+/* Output:
+Hi Ho
+Hi Ho
+Hup Ho
+Hup Hey
+*/
+```
+
+1.  [1] This is the tricky line: a cascade of arrows. And notice how, in the function
+    interface declaration, Function has another Function as its second argument.
+2.  [2] The goal of currying is to be able to create a new function by providing a
+    single argument, so you nowhave an “argumented function” and the remaining
+    “free argument.” In effect, you start with a two-argument function and end up
+    with a one-argument function.
+
+You can curry a three-argument function by adding another level:
+
+```java
+// functional/Curry3Args.java
+import java.util.function.*;
+public class Curry3Args {
+    public static void main(String[] args) {
+        Function < String,
+            Function < String,
+            Function < String, String >>> sum =
+            a -> b -> c -> a + b + c;
+        Function < String,
+            Function < String, String >> hi =
+            sum.apply("Hi ");
+        Function < String, String > ho =
+            hi.apply("Ho ");
+        System.out.println(ho.apply("Hup"));
+    }
+}
+/* Output:
+Hi Ho Hup
+*/
+```
+
+For each level of arrow-cascading, you wrap another Function around the type
+declaration.
+
+When dealing with primitives and boxing, use the appropriate functional interfaces:
+
+```java
+// functional/CurriedIntAdd.java
+import java.util.function.*;
+public class CurriedIntAdd {
+    public static void main(String[] args) {
+        IntFunction < IntUnaryOperator >
+            curriedIntAdd = a -> b -> a + b;
+        IntUnaryOperator add4 = curriedIntAdd.apply(4);
+        System.out.println(add4.applyAsInt(5));
+    }
+}
+/* Output:
+9
+*/
+```
+
+You can find more examples of currying on the Internet. Usually these are in
+languages other than Java, but ifyou understand the basic concepts they should be
+fairly easy to translate.
 
 ##  🍀14.09 Pure Functional Programming
+It’s possible, with much discipline, to write pure functional programs in languages
+without functional support, even in a language as primitive as C. Java makes it
+easier than that, but you must carefully make everything final and ensure that
+all your methods and functions have no side effects. Because Java is by nature not
+an immutable language, you don’t get any help from the compiler if you make a
+mistake.
+
+There are third-party tools to help you⁹⁷, butit’s arguably easier to use a language like
+Scala or Clojure, designed from the start for immutability. These languages make it
+possibleto have part of your project in Java, and if you must write in a pure functional
+style, other parts in Scala(which requires some discipline) or Clojure (which requires
+much less). Although you’ll see in the Concurrent Programming chapter that Java
+does support parallelism, if that is a core part of your project you might consider
+using something like Scala or Clojure for at least part ofthe project.
+
+⁹⁷ See, for example, Immutables and Mutability Detector.
 
 ##  🍀14.10 Summary
+Lambda expressions and method references do not turn Java into a functional
+language, but rather provide support for programming in a more functional style.
+They are a huge improvement to Java because they allow you to write more succinct,
+cleaner, and easier-to-understand code. In the following chapter you’ll see how they
+enable streams. If you’re like me, you’ll love streams.
+
+These features are likely to satisfy a large portion of Java programmers who have
+become antsy and jealous about new, more functional languages like Clojure and
+Scala, and stem the flow ofJava programmers to those languages (or at least prepare
+them better ifthey still decide to move).
+
+Lambdas and method references are far from perfect, however—we forever pay the
+price ofthe rash decisions made by the Java designers in the heady, early days ofthe
+language. In particular, there is no generic lambda, so lambdas really aren’t first class
+citizens in Java. This doesn’t mean Java 8 isn’t a big improvement, but it does mean
+that, like many Java features, you eventually reach a point where you start getting
+frustrated.
+
+As you come up the learning curve, remember you can get help from IDEs like
+NetBeans, IntelliJ Idea, and Eclipse, which will suggest when you can use a lambda
+expression or method reference (and often rewrite the code for you!).
+
 
 # 📜15. Streams
 Collections optimize the storage ofobjects. Streams are about processing
@@ -3282,14 +4888,14 @@ use forEach( ) , which performs an operation on each stream object, according to
 the function we pass it. Here, we pass a method reference System. out: : println
 which it uses to show each item on the console.
 
-Note that Randoms. java declares no variables. Streams can model systems that have
+Note that Randoms.java declares no variables. Streams can model systems that have
 state without ever using assignment or mutable data, and this can be very helpful.
 Declarative programming is a style where we state what we want done, rather than
 specifying how, and it’s what you see in functional programming. Notice it’s much
 more difficult to understand the imperative form:
 
 ```java
-// streams/ImperativeRandoms. java
+// streams/ImperativeRandoms.java
 import java.util.*;
 public class ImperativeRandoms {
     public static void main( String[] args) {
@@ -3307,16 +4913,16 @@ public class ImperativeRandoms {
 [7, 8, 9, 11 , 1 3, 1 5, 1 8]
 */
 ```
-In Randoms. java , we didn’t have to define any variables at all, but here we have
+In Randoms.java , we didn’t have to define any variables at all, but here we have
 three: rand , rints and r . The code is further complicated bythe fact that nextInt( )
 has no option for a lower bound—its built-in lower bound is always zero, so we must
 generate extra values and filter out the ones that are less than five.
 
 Notice how you must study the code to figure out what’s going on, whereas in
-Randoms. java , the code just tells you what it’s doing. This clarity is one of the
+Randoms.java , the code just tells you what it’s doing. This clarity is one of the
 most compelling reasons for using Java 8 streams.
 
-Explicitly writing the mechanics of iteration as in ImperativeRandoms. java is
+Explicitly writing the mechanics of iteration as in ImperativeRandoms.java is
 called externaliteration. In Randoms , you don’t see any ofthese mechanisms and so
 it is called internaliteration, a core characteristic ofstreams programming. Internal
 iteration produces more readable code, but it also makes it easier to use multiple
@@ -3668,7 +5274,7 @@ It seems like a reasonably transparent tool, but it depends on how your team and
 company works.
 
 ### ☘ generate()
-RandomWords. java used Supplier<T> with Stream. generate( ) . Here’s a second
+RandomWords.java used Supplier<T> with Stream. generate( ) . Here’s a second
 example:
 ```java
 // streams/Generator.java
@@ -3845,10 +5451,10 @@ exception.
 
 ### ☘ Arrays
 The Arrays class contains static methods named stream( ) that convert arrays
-to streams. We can rewrite main( ) from interfaces/Machine. java to create a
+to streams. We can rewrite main( ) from interfaces/Machine.java to create a
 stream and apply execute( ) to each element:
 ```java
-// streams/Machine2. java
+// streams/Machine2.java
 import java. util. *;
 import onjava. Operations;
 public class Machine2 {
@@ -4029,7 +5635,7 @@ You can pass in a lambda function as the argument for sorted( ) , but there are 
 pre-defined Comparator s—here we use one that reverses the “natural order.”
 
 ### ☘ Removing Elements
-• distinct( ) : In Randoms. java , distinct( ) removed duplicates from the
+• distinct( ) : In Randoms.java , distinct( ) removed duplicates from the
 stream. Using distinct( ) is far less work than creating a Set to eliminate
 duplicates.
 • filter( Predicate) : The filteroperationkeeps onlythe elements thatproduce
@@ -4287,7 +5893,7 @@ Because rand. ints( ) produces an IntStream , I must use the special Integer
 versions of flatMap( ) , concat( ) , and of( ) .
 
 Let’s take one more look at the task ofbreaking a file into a stream ofwords. Our last
-encounter was FileToWordsRegexp. java , which had the problem that it required
+encounter was FileToWordsRegexp.java , which had the problem that it required
 us to read the whole file into a List of lines—thus requiring storage for that List .
 What we really want is to create a stream ofwords without requiring intermediate
 storage. Once again, this is exactly the problem solved by flatMap( ) :
@@ -4322,7 +5928,7 @@ which produces an array, which can be converted using Arrays. stream( ) :
     .flatMap( line -> Arrays. stream( line. split( "\\W+"))))
 
 Because we have a true stream (rather than a stream based on a stored collection as
-in FileToWordsRegexp. java ), every time we want a new stream we must create it
+in FileToWordsRegexp.java ), every time we want a new stream we must create it
 from scratch, because it can’t be reused:
 
 ```java
@@ -5021,7 +6627,7 @@ public class TreeSetOfWords {
     public static void
     main(String[] args) throws Exception {
         Set < String > words2 =
-            Files.lines(Paths.get("TreeSetOfWords. java"))
+            Files.lines(Paths.get("TreeSetOfWords.java"))
             .flatMap(s -> Arrays.stream(s.split("\\W+")))
             .filter(s -> !s.matches("\\d+")) // No numbers
             .map(String:: trim)
@@ -5219,7 +6825,7 @@ the first true .
 true when provided to the supplied Predicate . This will short-circuit upon
 the first true .
 
-You’ve seen an example of noneMatch( ) in Prime. java ; the usage of allMatch( )
+You’ve seen an example of noneMatch( ) in Prime.java ; the usage of allMatch( )
 and anyMatch( ) are virtually identical.
 
 Let’s explore the short-circuiting behavior. To create a show( ) method that elimi-

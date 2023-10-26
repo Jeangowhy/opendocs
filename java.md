@@ -2654,6 +2654,10 @@ Kotlin 现在是 Android 官方推荐语言，Gradle 构建脚本、实现语言
 
 
 
+### ☘ Kotlin Coroutines
+
+所谓协程 Coroutines 即协作线程，Cooperation + Routines，相对于操作系统的线程（基本的操作系统任务调度单元），协程是线程之内实现的轻量级“线程”。
+
 ### ☘ Kotlin/JS React Web 开发
 
 Kotlin/JS 提供了转换 Kotlin 代码、Kotlin 标准库以及任何兼容的 JavaScript 依赖项的能力。Kotlin/JS 目前的实现支持目标是 ES6，Kotlin 1.9.0 版本中推荐 `kotlin-multiplatform` Gradle 插件，它提供 `js()` target。旧版本的 `kotlin-js` 插件不建议使用。参考文档 What's new in Kotlin 1.9.0。
