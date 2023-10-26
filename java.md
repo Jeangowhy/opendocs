@@ -1635,7 +1635,7 @@ java -cp $jars org.javacs.kt.MainKt
 Kotlink LSP 启动脚本中已经设置好 CLASSPATH，还需要添加指定版本的 lib/`kotlin-stdlib.jar`。另外 Kotlin LSP 插件也会读取用户主目录下 .config 子目录的 classpath ( classpath.bar on Windows ) 脚本获取 CLASSPATH 列表：
 
 * Example of the `~/.config/kotlin-language-server/classpath` on Linux:
-```bash
+```sh
 #!/bin/bash
 # echo /my/path/kotlin-compiler-1.4.10/lib/kotlin-stdlib.jar:/my/path/my-lib.jar
 for jar in /c/kotlin/server/lib/*.jar; do jars+="$jar;"; done; echo $jars
@@ -1647,8 +1647,6 @@ for jar in /c/kotlin/server/lib/*.jar; do jars+="$jar;"; done; echo $jars
 @ehoc off
 echo C:/kotlin/server/lib/kotlin-stdlib-1.9.10.jar;C:/kotlin/server/lib/kotlin-script-runtime-1.9.10.jar;
 ```
-
-	org.eclipse.lsp4j.jsonrpc.ResponseErrorException: workspace/executeClientCommand
 
 Sublime Text 插件系统基于 Python 脚本，它包含 GIL 全局锁，这可以保证线程之安全，但缺点是不能并行执行插件代码。所以在插件安装过程需要下载大文件，或者插件执行分析大量文件的任务时，就会导致 LSP 智能提示服务暂未处于不可用状态。
 
@@ -1847,6 +1845,365 @@ What's new in Kotlin 1.7.0 - Changes in compile tasks 文档提到 Kotlin 编译
 3. https://docs.gradle.org/current/userguide/kotlin_dsl.html
 4. https://kotlinlang.org/docs/gradle-compiler-options.html
 
+### ☘ from Java to Kotlin
+https://github.com/amitshekhariitbhu/from-java-to-kotlin
+
+Kotlin 可以看作是经过简洁语法处理后的 Java 语言，得益于 JVM，Kotlin 可以很方便地将源代码转译为 Java 代码，所以具有良好的兼容性。如果已经掌握 Java 的语法，那么就可以通过了解各种简化特性的对比来快速掌握 Kotlin 语言。
+
+从语法结构上看，Kotlin 使用和 TypeScript 相似的变量声明语法，在冒号后声明类型。还有 Any 类型和 Nullable 类型信息机制，几乎一致。语句结束的分号也是可选项，只要前后是语句，就可以省略分号。
+
+这些现代编程语言特性如此相似，一个重要的原因是 LLVM、ANTLR 等等编译器构架或工具的成熟，C# 语言也是使用 ANTLR 工具实现语法解析器。ANTLR 4 是一个非常强大的语法解析器生成工具，可以替换 Lex/Yacc 或者 Flex/Bison 等语法、词法解析器相关的生成工具。
+
+ANTLR 全称 ANother Tool for Language Recognition，是一种解析器生成工具（parser generator），基于自顶向下的递归下降 LL 算法生成语法解析器，而 YACC、Bison 等传统工具都基于 LALR 算法生成解析器。
+
+官方文档 Welcome to our tour of Kotlin 提供一些基础特性的使用教程：
+
+https://kotlinlang.org/docs/kotlin-tour-welcome.html
+[Welcome to our tour of Kotlin!](kotlin-tour-welcome.md)
+02.1. [Hello world](kotlin-tour-hello-world.md)
+02.2. [Basic types](kotlin-tour-basic-types.md)
+02.3. [Collections](kotlin-tour-collections.md)
+02.4. [Control flow](kotlin-tour-control-flow.md)
+02.5. [Functions](kotlin-tour-functions.md)
+02.6. [Classes](kotlin-tour-classes.md)
+02.7. [Null safety](kotlin-tour-null-safety.md)
+
+以下是 Java vs. Kotlin 特性对比列表。
+
+#### 💦 入口函数简化
+
+	```java
+	// Java
+	public class Main {
+		public static void main (String[] args) { /*...*/ }
+	}
+	// Kotlin
+	fun main (args:Array<String>) { /*...*/ }
+	```
+
+	省略了入口类的定义，直接使用 `fun main()` 函数作为入口，入口函数可以不接收参数。编译器会自动生成入口类，类名称为文件名，并且后缀 Kt，例如 `main.kt` 生成 `MainKt` 入口类。
+
+	Kotlin 代码文件可以直接编写语句，它们是 Top-level 环境下运行，Kotlin 脚本也一样。如果，没有 Top-level 代码语句，只有类型定义，则不会以生成入口类。而是按照类型定义，生成相应的类文件。而 Java 则强制要求文件名与公开类名称要一致。
+
+	由于 Kotlin 没有 `static` 关键字，所以不能在类定义中声明静态入口方法。但可以通过以下方式声明具有静态特征的对象：
+
+	1. `companion object` - 伴随对象，声明单例的方式；
+	2. @JvmField @JvmStatic - 使用注解标签声明静态的对象；
+	3. object 静态单例，和 `companion object` 类似；
+	4. const 常量，脱离类的束缚，会生成一个 kotlin.kt 专用文件；
+
+#### 💦 标准输出内容打印简化
+
+	```java
+	// Java
+	System.out.print("Java");
+	System.out.println("Java");
+	// Kotlin
+	print("Kotlin")
+	println("Kotlin")
+	```
+
+#### 💦 常量、变量声明语法形式差异
+
+	```java
+	// Java
+	String var1 = "Variable";
+	final String CONST = "Constant";
+	// Kotlin
+	var var1 = "Variable"
+	val CONST = "Constant"
+	```
+
+#### 💦 Null 和 Nullable 类型
+
+	```java
+	// Java null
+	final String name = null;
+	String otherName;
+	otherName = null;
+	if(text != null){
+	  int length = text.length();
+	}
+	// Kotlin Nullable Types
+	val name : String? = null
+	var otherName : String?
+	otherName = null
+	val length = text?.length
+	```
+
+	Kotlin 和 TypeScript 一样使用 Nullable 类型，除非显式定义，否则不能将 `null` 赋值给变量。通过引入 ? 运算符号，可以很方便地定义、访问 Nullable 类型。
+
+
+#### 💦 三元运算符与 if-else when 表达式
+
+	```java
+	// Java
+	int a = 10; 
+	int b = 11; 
+	int c = a > b ? a : b;
+	// Kotlin
+	val a = 10
+	val b = 11
+	val c = if (a > b) a else b
+
+	val var_name = a ?: "Default"
+	var var_name = when(var2){
+	    condition1 -> value1
+	    condition2 -> value2
+	    ┇
+	    else -> value_default
+	}
+	```
+
+	Kotlin 没有三元运算符 Ternary Operator ( condition ? true_stat : false_stat)。
+
+	Kotlin 编写的语句，更普遍地，可以将它们看作是表达式，可以将 if-else 或者 if-else-if 阶梯结构当作一个值看待，因此和 Python 一样使用 ternary expression。
+
+	参考文档 07.02. Control flow - If expression
+
+	在 Kotlin 中检查变量是否为 null 使用 Elvis 运算符 (?:) 更简洁，而不是使用 if-else。
+	我们可以使用 Elvis Operator 编写简洁紧凑的代码，而不是编写 if-else。
+
+#### 💦 字符串拼接与模板插值
+
+	```java
+	// Java
+	String goods = "apples";
+	String count = 2;
+	String message = "There are " + count + " " + goods;
+	// Kotlin
+	val goods = "apples"
+	val count = 2
+    val message = "There ${if (count>1) "are" else "is"} $count $goods"
+	```
+
+	参考文档 06. Basics -  String templates
+
+#### 💦 更方便的 Range 区间数值
+
+	```java
+	// Java
+	import java.util.stream.*;
+
+	public class JMain {
+		public static void main (String[] args) {
+			int x = 10;
+			IntStream range = IntStream.range(1, 10);
+			Boolean yes = range.anyMatch(it -> it == x);
+			System.out.println(yes? "fits in range":"not in range");
+		}
+	}
+	// Kotlin
+	val x = 10
+	val y = 9
+	if (x in 1..y+1) {
+	    println("fits in range")
+	}
+	```
+
+	注意，`IntStream.range()` 方法返回的是半开闭区间，不包含第二个参数指定的终止值。
+
+	Kotlin Range 使用的是全闭区间，生成的数值序列包含起始值、终止值。
+
+#### 💦 多行字符串内容使用 HereDoc 
+
+	```java
+	// Java
+	String text = 
+		"|First Line\n"+
+		"|Second Line\n"+
+		"|Third Line";
+	// Kotlin
+	val heredoc = """
+        |First Line
+        |Second Line
+        |Third Line
+        """.trimMargin()
+	```
+
+#### 💦 更方便的集体操作
+
+	```java
+	// Java
+	final List<Integer> listOfNumber = Arrays.asList(1, 2, 3);
+	final Map<Integer, String> keyValue = new HashMap<Integer, String>();
+	map.put(1, "Amit");
+	map.put(2, "Ali");
+	map.put(3, "Mindorks");
+	// Kotlin
+	val listOfNumber = listOf(1, 2, 3, )
+	val keyValue = mapOf(1 to "Amit",
+	                 2 to "Ali",
+	                 3 to "Mindorks")
+	```
+
+#### 💦 Lambda 无处不在
+
+	```java
+	// Java 8 Lambda
+	import java.util.stream.*;
+
+	public class JMain {
+		public static void main (String[] args) {
+			// String[] list = new String[]{"1", "2", "3"};
+			Stream<String> ss = "123".chars().mapToObj( it -> "No."+String.valueOf((char)it));
+			for (String it : ss.toArray (String[]::new))
+				System.out.println(it);
+		}
+	}
+	// Kotlin
+	class Main {
+	    fun main(args:Array<String>) {
+	        for (it in args) {
+	            println(it)
+	        }
+	    }
+	}
+
+	fun main() {
+	    Main().main(Array<String>(3){ it -> "No."+it.toString()})
+	}
+	```
+
+	Kotlin 创建数组时需要指定一个初始化 lambda 方法。
+
+#### 💦 更方便的遍历迭代
+
+	```java
+	// Java
+	for (Character it : "123".toCharArray()) {
+	  System.out.println(it);
+	}
+
+	for (Character it : "123".toCharArray()) {
+	  if(it > '1') {
+	    System.out.println(it);
+	  }
+	}
+	// Kotlin
+	"123".toCharArray().forEach { println(it) }
+	"123".toCharArray().filter { it > '1' }.forEach { println(it) }
+	```
+
+#### 💦 Data class 简化 getter/setter 属性接口
+
+	```java
+	// Java
+	public class Developer {
+
+		private String name;
+		private int age;
+
+		public Developer(String name, int age) {
+		    this.name = name;
+		    this.age = age;
+		}
+
+		public String getName() {
+		    return name;
+		}
+
+		public void setName(String name) {
+		    this.name = name;
+		}
+
+		public int getAge() {
+		    return age;
+		}
+
+		public void setAge(int age) {
+		    this.age = age;
+		}
+
+		@Override
+		public boolean equals(Object o) {
+		    if (this == o) return true;
+		    if (o == null || getClass() != o.getClass()) return false;
+
+		    Developer developer = (Developer) o;
+
+		    if (age != developer.age) return false;
+		    return name != null ? name.equals(developer.name) : developer.name == null;
+		}
+
+		@Override
+		public int hashCode() {
+		    int result = name != null ? name.hashCode() : 0;
+		    result = 31 * result + age;
+		    return result;
+		}
+
+		@Override
+		public String toString() {
+		    return "Developer(" +
+		         "name=" + name + ", age=" + age +
+		         ')';
+		}
+	}
+	// Kotlin
+	data class Developer(val name: String, val age: Int)
+	```
+
+#### 💦 Initialization block
+
+	```java
+	// Java
+	public class User {
+	    {  //Initialization block
+	        System.out.println("Init block");
+	    }
+	}
+	// Kotlin
+	class User {
+	    init { // Initialization block
+	        println("Init block")
+	    }
+	}
+	```
+
+#### 💦 Initialization block
+
+	```java
+	// Java
+	public class User {
+	    {  //Initialization block
+	        System.out.println("Init block");
+	    }
+	}
+	// Kotlin
+	class User {
+	    init { // Initialization block
+	        println("Init block")
+	    }
+	}
+	```
+
+#### 💦 Class methods
+
+	```java
+	// Java
+	public class Utils {
+
+	    private Utils() {
+	      // This utility class is not publicly instantiable
+	    }
+
+	    public static int triple(int value) {
+	        return 3 * value;
+	    }
+
+	}
+
+	int result = Utils.triple(1);
+
+	// Kotlin
+	fun Int.triple(): Int {
+	  return this * 3
+	}
+
+	var result = 3.triple()
+	```
+
 ### ☘ Kotlin JUnit Testing
 1. https://docs.gradle.org/current/userguide/kotlin_dsl.html
 2. https://docs.gradle.org/current/samples/index.html#kotlin
@@ -1936,6 +2293,8 @@ class AppTest {
 }
 ```
 
+以上测试代码使用的是 Kotlin 全平台测试包，也可以使用 JUnit 专用测试模块：
+
 ```java
 // src/main/kotlin/KtApp.kt
 package mgid;
@@ -1949,10 +2308,139 @@ fun main(args:Array<String>) {
     MyKtApp().run(args[0])
 }
 // src/test/kotlin/KtAppTest.kt
+package mgid;
+
+import java.io.*;
+import org.junit.Test;
+import org.junit.Assert.assertEquals;
+
+class KtAppTest {
+    @Test
+    fun allAsserts() {
+        System.out.println("KtAppTest run...");
+
+        val baos = ByteArrayOutputStream(10000);
+        val console = System.out;
+        System.setOut(PrintStream(baos));
+        MyKtApp().run();
+        System.setOut(console);
+
+        assertEquals("Hello Kotlin! Hi, there!\r\n", baos.toString());
+        println("KtAppTest completed.");
+    }
+}
 ```
 
-以上测试代码使用的是 Kotlin 全平台测试包，也可以使用 JUnit 专用测试模块：
+注意：KtApp.kt 文件定义的主类与文件名不一致，编译器会自动生成入口类 `KtAppKt`。
 
+执行 Gradle 测试任务命令，以检查测试程序是否正确运行：
+
+```sh
+$ gradle test --tests mgid.KtAppTest
+Reusing configuration cache.
+
+> Task :test
+
+KtAppTest > allAsserts STANDARD_OUT
+    KtAppTest run...
+    KtAppTest completed.
+
+KtAppTest > allAsserts PASSED
+```
+
+以下 build.gradle 配置在同一个 Gradle Java 项目中启用 Groovy、Kotlin 编程：
+
+```ts ,kotlin
+import org.jetbrains.kotlin.gradle.tasks.*
+import org.jetbrains.kotlin.gradle.dsl.jvm.*
+import org.jetbrains.kotlin.gradle.dsl.*
+
+plugins {
+    id ('java-library')
+    id 'maven-publish'
+    id 'application'
+    id 'groovy'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.10'
+}
+
+group = 'mgid'
+version = '1.0-SNAPSHOT'
+description = 'myaid'
+java.sourceCompatibility = JavaVersion.VERSION_15
+
+application {
+    mainClass = 'mgid.App'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    api 'org.codehaus.groovy:groovy-all:3.0.10'
+    api 'org.slf4j:slf4j-nop:1.7.2'
+    testImplementation 'org.apache.maven.plugins:maven-surefire-plugin:3.1.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
+    testCompileOnly 'junit:junit:4.13'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+// Gradle 7.6 Java Toolchains for JVM projects
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(KotlinCompilationTask.class).configureEach {
+    // compilerOptions.languageVersion = KotlinVersion.KOTLIN_2_0
+    // compilerOptions.jvmTarget = JvmTarget.JVM_20
+    compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_1_9)
+    compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
+}
+tasks.withType(KotlinJvmCompile.class).configureEach {
+    jvmTargetValidationMode = JvmTargetValidationMode.WARNING
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    enabled true
+    ignoreFailures false
+    useJUnitPlatform()  // Work with jupiter or vintage engine
+    testLogging {
+        exceptionFormat "full"
+        events /*"started", */"skipped", "passed", "failed"
+        showStandardStreams true
+    }
+    // junitPlatform { details 'tree'}
+}
+
+// tasks.named('test', Test) {
+//     enabled true
+//     useJUnitPlatform()
+// }
+```
 
 ### ☘ Kotlin Scripting
 
@@ -3076,7 +3564,9 @@ public static void setOut(PrintStream out);
 public static void setErr(PrintStream err);
 ```
 
-使用 ByteArrayOutputStream 搭配 BufferedOutputStream 替换掉 stdout 就可以实现标准输出内容的截取，实现 Redirecting standard I/O。注意使用 flush() 排空缓冲区数据，否则数据不会及时写入 ByteArrayOutputStream 对象：
+使用 ByteArrayOutputStream 搭配 BufferedOutputStream 替换掉 stdout 就可以实现标准输出内容的截取，实现 Redirecting standard I/O。
+
+注意：因为使用了缓冲流，需要配合 flush() 排空缓冲区数据，否则数据不会及时写入 ByteArrayOutputStream 对象：
 
 ```java
 import java.io.*;
