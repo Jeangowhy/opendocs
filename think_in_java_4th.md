@@ -44716,8 +44716,10 @@ Solutions to selected exercises can be found in the electronic document The Thin
 Java Annotated Solution Guide, available for sale from www.MindView.net.
 
 # 📜 23. Concurrency
-Up to this point, you've been learning about sequential
-programming. Everything in a program happens one step at a time.
+
+    Up to this point, you've been learning about sequential
+    programming. Everything in a program happens one step at a time.
+
 A large subset of programming problems can be solved using sequential programming. For
 some problems, however, it becomes convenient or even essential to execute several parts of
 a program in parallel, so that those portions either appear to be executing concurrently, or if
