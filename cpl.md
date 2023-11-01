@@ -198,6 +198,19 @@ C 标准 ISO 规范命名参考：
 - ISO/IEC 9899:2018 — C18
 - ISO/IEC 9899:202x — C2x 下一个版本的 C 标准，预计将于 2022 年 12 月 1 日完成。
 
+规范草案文档 PDF 格式下载：https://iso-9899.info/wiki/The_Standard
+
+C2x Not available N3096 [2023-04-02] 
+https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3096.pdf
+C17 ISO/IEC 9899:2018 N2310 [2018-11-11] (early C2x draft)
+https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf
+C11 ISO/IEC 9899:2011 N1570 [2011-04-04]
+https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf
+C99 ISO/IEC 9899:1999 N1256 [2007-09-07]
+https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf
+C89 ISO/IEC 9899:1990 Not available
+
+
 使用 GCC 编译工具编译生成可执行程序：
 
     gcc -o hello.exe helloworld.c

@@ -64,6 +64,33 @@
     解谜元素中以创造独特的游戏体验。
     https://indienova.com/g/rewinder
 
+- 🌟Else Heart.Break() by Erik Svedäng
+    http://elseheartbreak.com/
+    https://www.bilibili.com/video/BV1pw411F7VA/
+
+    A game about friendship, love and technology in a place where bits have replaced atoms.
+    
+    Intro
+    Sebastian has just landed his first job in the distant city of Dorisburg. He moves there to start his adult life and figure out who he really wants to be. Among a strange collection of people, hackers and activists he finds some true friends – perhaps even love. But can they stop the terrible deeds of the people ruling the city? And who will get their heart broken in the end?”
+
+    Else Heart.Break() is a reimagination of the adventure game: a fantastic story set in a 
+    fully dynamic and interactive world. Instead of rigid puzzles you will learn (with the help from other characters in the game) how the reality of the game can be changed through programming and how any problem can be solved in whatever way you find suitable.
+
+    From the creators of Blueberry Garden, Clairvoyance and Kometen, a new and unforgettable adventure!
+
+    Developed with support from Nordic Game Program.
+
+    Information
+    1. An expansive 3D world, begging to be explored.
+    2. Many hours of engaging story, set in a meticulously simulated city, with people that feel truly alive.
+    3. A challenging game where your actions matter and nothing can ever be unsaid or undone.
+    4. Tons of every-day objects and computers that work and can be modified.
+    5. A laid-back experience where you can just go to the café and have a coffee whenever things get too hectic.
+    6. A delicious soundtrack with over 50 songs.
+
+    值得一提的是，这游戏的作者把游戏的核心逻辑代码开源放在的GH上：
+    https://github.com/eriksvedang/GameWorld2
+
 - 🌟Half Life: Alyx
     Half Life: Alyx 最好的VR游戏 https://www.bilibili.com/video/BV1i54y1t7qB
     老师在《半条命：Alyx》开数学课 https://www.bilibili.com/video/BV1B7411C7TL/

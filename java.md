@@ -1870,53 +1870,86 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 
 以下是 Java vs. Kotlin 特性对比列表。
 
-#### 💦 入口函数简化
+#### 💦 简化入口函数 main()
 
-	```java
+```java
 	// Java
 	public class Main {
 		public static void main (String[] args) { /*...*/ }
 	}
 	// Kotlin
 	fun main (args:Array<String>) { /*...*/ }
-	```
+```
 
-	省略了入口类的定义，直接使用 `fun main()` 函数作为入口，入口函数可以不接收参数。编译器会自动生成入口类，类名称为文件名，并且后缀 Kt，例如 `main.kt` 生成 `MainKt` 入口类。
+代码文件中编写 Top-level 函数后，编译器就会生成入口类，其名称为文件名，并且后缀 Kt，例如 `main.kt` 生成 `MainKt` 入口类，这就是 Kotlin 代码的基本组织形式。正是因为 Kotlin 编译器会默认生成的这个包装类，因此可以在 Top-level 定义类、函数、属性，这和 Java 中显式定义的包含静态入口函数的公开类具有同等作用。
 
-	Kotlin 代码文件可以直接编写语句，它们是 Top-level 环境下运行，Kotlin 脚本也一样。如果，没有 Top-level 代码语句，只有类型定义，则不会以生成入口类。而是按照类型定义，生成相应的类文件。而 Java 则强制要求文件名与公开类名称要一致。
+Kotlin Multiplatform 项目使用公共代码共享机制，将相同功能的代码作为多个平台共享的代码以实现复用。代码文件名根据不同平台使用前缀或后缀，公共代码文件一般不使用后缀，参考如下：
+https://kotlinlang.org/docs/coding-conventions.html
 
-	由于 Kotlin 没有 `static` 关键字，所以不能在类定义中声明静态入口方法。但可以通过以下方式声明具有静态特征的对象：
+1. jvmMain/kotlin/Platform.jvm.kt
+2. androidMain/kotlin/Platform.android.kt
+3. iosMain/kotlin/Platform.ios.kt
+4. commonMain/kotlin/Platform.kt
 
-	1. `companion object` - 伴随对象，声明单例的方式；
-	2. @JvmField @JvmStatic - 使用注解标签声明静态的对象；
-	3. object 静态单例，和 `companion object` 类似；
-	4. const 常量，脱离类的束缚，会生成一个 kotlin.kt 专用文件；
+Kotlin 省略了入口类的定义，直接使用 `fun main()` 函数作为入口，入口函数可以不接收参数。编译器会自动生成入口类，参考以下 javap 命令查询得到的信息：➊ 为用户定义的无参数入口函数 `main()`，注意用户定义的函数使用 `final` 修饰，➋ 为 Kotlin 编译自动生成的默认入口函数。
+
+```sh
+$ javap MainKt
+Compiled from "main.kt"
+public final class MainKt {
+  public static final int triple(Developer);
+  public static final void main();   ➊
+  public static void main(java.lang.String[]);   ➋
+}
+```
+
+Kotlin 代码文件可以直接编写语句，它们是 Top-level 环境下运行，Kotlin 脚本也一样。如果，没有 Top-level 代码语句，只有类型定义，则不会以生成入口类。而是按照类型定义，生成相应的类文件。而 Java 则强制要求文件名与公开类名称要一致。
+
+由于 Kotlin 没有 `static` 关键字，所以不能在类定义中声明静态入口方法。但可以通过以下方式声明具有静态特征的对象：
+
+1. `companion object` - 伴随对象，声明单例的方式；
+2. @JvmField @JvmStatic - 使用注解标签声明静态的对象；
+3. object 静态单例，和 `companion object` 类似；
+4. const 常量，脱离类的束缚，会生成一个 kotlin.kt 专用文件；
+
+Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或属性会触发以下错误：
+
+	error: expecting a top level declaration
+
+通常情况下，这个错误会在以下情况下发生：
+
+1. 试图在一个函数内定义函数、属性。
+2. 试图在一个代码块中定义函数、属性。
+3. 在 Top-level 直接编写语句，而不是定义类型、函数或者属性。
+
+解决这个问题只需要移动类型、函数或属性定义到正确的位置。确保你只在类、接口或文件的顶层定义函数或属性。
+
 
 #### 💦 标准输出内容打印简化
 
-	```java
+```java
 	// Java
 	System.out.print("Java");
 	System.out.println("Java");
 	// Kotlin
 	print("Kotlin")
 	println("Kotlin")
-	```
+```
 
 #### 💦 常量、变量声明语法形式差异
 
-	```java
+```java
 	// Java
 	String var1 = "Variable";
 	final String CONST = "Constant";
 	// Kotlin
 	var var1 = "Variable"
 	val CONST = "Constant"
-	```
+```
 
 #### 💦 Null 和 Nullable 类型
 
-	```java
+```java
 	// Java null
 	final String name = null;
 	String otherName;
@@ -1929,14 +1962,14 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	var otherName : String?
 	otherName = null
 	val length = text?.length
-	```
+```
 
 	Kotlin 和 TypeScript 一样使用 Nullable 类型，除非显式定义，否则不能将 `null` 赋值给变量。通过引入 ? 运算符号，可以很方便地定义、访问 Nullable 类型。
 
 
 #### 💦 三元运算符与 if-else when 表达式
 
-	```java
+```java
 	// Java
 	int a = 10; 
 	int b = 11; 
@@ -1953,7 +1986,7 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	    ┇
 	    else -> value_default
 	}
-	```
+```
 
 	Kotlin 没有三元运算符 Ternary Operator ( condition ? true_stat : false_stat)。
 
@@ -1966,7 +1999,7 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 
 #### 💦 字符串拼接与模板插值
 
-	```java
+```java
 	// Java
 	String goods = "apples";
 	String count = 2;
@@ -1975,13 +2008,13 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	val goods = "apples"
 	val count = 2
     val message = "There ${if (count>1) "are" else "is"} $count $goods"
-	```
+```
 
 	参考文档 06. Basics -  String templates
 
 #### 💦 更方便的 Range 区间数值
 
-	```java
+```java
 	// Java
 	import java.util.stream.*;
 
@@ -1999,7 +2032,7 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	if (x in 1..y+1) {
 	    println("fits in range")
 	}
-	```
+```
 
 	注意，`IntStream.range()` 方法返回的是半开闭区间，不包含第二个参数指定的终止值。
 
@@ -2007,7 +2040,7 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 
 #### 💦 多行字符串内容使用 HereDoc 
 
-	```java
+```java
 	// Java
 	String text = 
 		"|First Line\n"+
@@ -2019,11 +2052,11 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
         |Second Line
         |Third Line
         """.trimMargin()
-	```
+```
 
 #### 💦 更方便的集体操作
 
-	```java
+```java
 	// Java
 	final List<Integer> listOfNumber = Arrays.asList(1, 2, 3);
 	final Map<Integer, String> keyValue = new HashMap<Integer, String>();
@@ -2035,11 +2068,11 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	val keyValue = mapOf(1 to "Amit",
 	                 2 to "Ali",
 	                 3 to "Mindorks")
-	```
+```
 
 #### 💦 Lambda 无处不在
 
-	```java
+```java
 	// Java 8 Lambda
 	import java.util.stream.*;
 
@@ -2063,13 +2096,13 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	fun main() {
 	    Main().main(Array<String>(3){ it -> "No."+it.toString()})
 	}
-	```
+```
 
 	Kotlin 创建数组时需要指定一个初始化 lambda 方法。
 
 #### 💦 更方便的遍历迭代
 
-	```java
+```java
 	// Java
 	for (Character it : "123".toCharArray()) {
 	  System.out.println(it);
@@ -2083,11 +2116,11 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	// Kotlin
 	"123".toCharArray().forEach { println(it) }
 	"123".toCharArray().filter { it > '1' }.forEach { println(it) }
-	```
+```
 
 #### 💦 Data class 简化 getter/setter 属性接口
 
-	```java
+```java
 	// Java
 	public class Developer {
 
@@ -2142,11 +2175,11 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	}
 	// Kotlin
 	data class Developer(val name: String, val age: Int)
-	```
+```
 
 #### 💦 Initialization block
 
-	```java
+```java
 	// Java
 	public class User {
 	    {  //Initialization block
@@ -2159,11 +2192,11 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	        println("Init block")
 	    }
 	}
-	```
+```
 
 #### 💦 Initialization block
 
-	```java
+```java
 	// Java
 	public class User {
 	    {  //Initialization block
@@ -2176,11 +2209,11 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	        println("Init block")
 	    }
 	}
-	```
+```
 
-#### 💦 Class methods
+#### 💦 Extension methods of Class
 
-	```java
+```java
 	// Java
 	public class Utils {
 
@@ -2202,7 +2235,10 @@ https://kotlinlang.org/docs/kotlin-tour-welcome.html
 	}
 
 	var result = 3.triple()
-	```
+```
+
+Kotlin 这种扩展能力可以很方便地扩展 Nullable receiver，默认定义了 `Any?.toString()` 方法，所以对 null 对象调用 toString() 并不会触发异常，这个扩展方法会返回 "null" 字符串。
+
 
 ### ☘ Kotlin JUnit Testing
 1. https://docs.gradle.org/current/userguide/kotlin_dsl.html
@@ -2655,8 +2691,154 @@ Kotlin 现在是 Android 官方推荐语言，Gradle 构建脚本、实现语言
 
 
 ### ☘ Kotlin Coroutines
+1. https://amitshekhar.me/blog/kotlin-coroutines
+2. https://kotlinlang.org/docs/coroutines-overview.html
+3. https://github.com/Kotlin/kotlinx.coroutines
+4. https://github.com/Kotlin/coroutines-examples
+5. https://github.com/JetBrains/kotlinconf-app
 
-所谓协程 Coroutines 即协作线程，Cooperation + Routines，相对于操作系统的线程（基本的操作系统任务调度单元），协程是线程之内实现的轻量级“线程”。
+所谓协程 Coroutines 即协作线程，Cooperation + Routines，相对于操作系统的线程（基本的操作系统任务调度单元），协程是线程之内实现的轻量级“线程”。协程的任务切换不需要进行操作系统层面的线程切换，大大提高了单线程的并发效率。
+
+在云原生时代背景下，编程语言之间百花斗艳着实热闹，GO 语言的成功，让我们重新审视并真正见识到了协程的威力。
+
+Erlang Processes 就是基于 Actor Model 模型实现的轻量级进程，注意它不是操作系统层面上的进程。Actor Model 模型中的任务就是一个Actor，任务之间通过消息传递的方式来进行交互，而不采用共享的方式。Actor 可以看做是轻量级进程或线程，通常在一般的 PC 主机上就可以创建几十万个 Actor。
+
+协程概念早在 1963 年正式提出，它的诞生甚至早于 1967 年出现的线程概念。Unix 系统早期并没有“线程”概念，上世纪 80 年代才引入线程，借助进程机制实现线程。进程是操作系统分配资源的最小单元，线程是任务调度的最小单元。
+
+协程作为一种并发机制的一种形式，不是并行运行，因为通常它们是运行于单一线程之中。因此协程之间的数据共享是安全的，不存在多线程竞争的问题，不需要使用同步锁。
+
+和线程的抢占式调度不同，协程的调度方式如其名，是基于协作的调度方式，协程执行的任务代码中需要加入特定代码来主动让出 CPU 时间，通常使用回调函数或者 yield 等关键字，让协程任务调度程序执行其它协程。协程任务调度就是切换当前线程要执行函数，主要工作是保存、恢复函数调用堆栈信息，以及根据访问标识控制协程的执行流程。
+
+回调或通知机制是处理各种长时间任务的传统方法，但是在语法上，会使用代码显得不那么简洁。在一些复杂的场景下，还可能形成深层的回调嵌套，称之为 "callback hell"。而协程、响应式、异步编程等 non-blocking 编程工具的出现，使得实现同样的功能代码更简洁。
+
+Asynchronous programming techniques
+
+1. Threading
+2. Callbacks
+3. Futures, promises, and others
+4. Reactive Extensions
+5. Coroutines
+
+JVM 上的第三方协程实现有 Kilim 和 Quasar 等等：
+
+1. https://github.com/kilim/kilim
+2. https://github.com/puniverse/quasar
+3. https://github.com/offbynull/coroutines
+
+Quasar 框架通过 Bytecode Instrumentation API 在 Java Runtime 环境初始化之前进行代码插桩，也就是通过 Java Agent 接口修改 JVM 运行时。通过插桩代码检查所有抛出 SuspendExecution 异常的方法，并修其改字节码，并通过 Instrumentation 更新到虚拟机中。
+
+启动 JVM 是使用参数 -javaagent:path-to-quasar-core.jar=vdc，其中附加的 vdc 用于查看那些 Quasar 修改过字节码的方法信息。如果一个方法抛出 SuspendExecution，但是其内部没有阻塞协程的方法，就不会被认为是异步方法。
+
+Bytecode Instrumentation 有三种形式：
+
+1. *Static Instrumentation*: 
+	The class file is instrumented before it is loaded into the VM - for example, by creating a duplicate directory of `*.class` files which have been modified to add the instrumentation. This method is extremely awkward and, in general, an agent cannot know the origin of the class files which will be loaded.
+2. *Load-Time Instrumentation*: 
+	When a class file is loaded by the VM, the raw bytes of the class file are sent for instrumentation to the agent. The ClassFileLoadHook event, triggered by the class load, provides this functionality. This mechanism provides efficient and complete access to one-time instrumentation.
+3. *Dynamic Instrumentation*: 
+	A class which is already loaded (and possibly even running) is modified. This optional feature is provided by the ClassFileLoadHook event, triggered by calling the RetransformClasses function. Classes can be modified multiple times and can be returned to their original state. The mechanism allows instrumentation which changes during the course of execution.
+
+代理的入口 `premain` 方法，以及编写 Manifest 清单文件参考 java.lang.instrument API 文档。
+
+1. https://docs.oracle.com/en/java/javase/20/docs/specs/jvmti.html
+2. https://docs.oracle.com/javase/8/docs/technotes/guides/jpda/index.html
+3. https://docs.oracle.com/en/java/javase/17/docs/api/java.instrument/java/lang/instrument/package-summary.html
+
+JVM 设计设计之初，考虑了虚拟机状态监控、DEBUG、线程和内存分析等功能需求，提供了相应的事件驱动的高级接口，根据不同的 JDK 版本和 JVM 规范发展而有所更新：
+
+1. JDK 1.5 提供性能分析接口 JVM PI（Java Virtual Machine Profiler Interface）。
+2. JDK 1.5 提供虚拟机调试接口 JVM DI（Java Virtual Machine Debug Interface）。
+3. JDK 1.5 版本后以上两者合二为一，作为虚拟机工具接口 JVM TI（JVMTM Tool Interface）。
+
+JVM TI 接口是 Java Platform Debugger Architecture (JPDA) 调试框架的组成部分，此构架主要是给工具开发商提供调试工具开发接口。
+
+JPDA 构架分层设计示意图如下：
+
+	           Components                          Debugger Interfaces
+
+	                /    |--------------|
+	               /     |     VM       |
+	 debuggee ----(      |--------------|  <--- JVM TI - Java VM Tool Interface
+	               \     |   back-end   |
+	                \    |--------------|
+	                /           |
+	 comm channel -(            |  <----------- JDWP - Java Debug Wire Protocol
+	                \           |
+	                     |--------------|
+	                     |  front-end   |
+	                     |--------------|  <--- JDI - Java Debug Interface
+	                     |      UI      |
+	                     |--------------|
+
+1. 最底层是 JVM TI ，定义调试服务的接口，JVM 负责实现 JVM TI 接口。
+2. 中间层是 Java Debug Wire Protocol (JDWP)，定义被调试进程、调试器前端之间的通信协议。
+3. 应用层是 Java Debug Interface (JDI)，工具开发商用于开发 debugger 程序，实现远程调试。
+
+JVM PI 接口可以监控就 JVM 发生的各种事件，比如，JVM 创建、关闭、Java 类被加载、创建对象或 GC 回收等 37 种事件。
+
+JVM TI 是开发和监控工具使用的编程接口，它提供了一种方法，用于检查状态和控制在 Java 虚拟机中运行的应用程序的执行。旨在为需要访问 JVM 状态的所有工具提供统一的开发接口，功能包括但不限于：评测、调试、监视、线程分析和覆盖率分析工具。
+
+JVM TI 是一个双向接口，JVM TI 的客户端即是 Agent，通过 JVM 事件通知处理感兴趣的事件。JVM TI 接口用 C/C++ 语言暴露 Native API，以动态或者静态链接库的形式加载到 JVM 并运行。也可以使用 Java 语言编写工具包，Java Agent 使用 jar 包的形式加载。
+
+Kotlin Coroutines 是异步编程框架，引入了 suspend 挂起函数的概念，使得异步代码更加直观和容易理解。Kotlin Coroutines 关键优点：
+
+1. 简洁可读：使用 suspend 关键字定义异步函数，代码的可读性更高。
+2. 内置取消和超时处理，方便中止异步任务的执行。
+3. 协程作用域，`supervisorScope` 或者 `coroutineScope`，管理协程的生命周期，防止资源泄漏。
+4. 并发组合器，用于执行协程，包括 async/await 和 launch (无返回值)，使并发编程更加容易。
+
+![](https://kotlinlang.org/docs/images/suspension-process.gif)
+
+向 Grandle 工程配置脚本添加 kotlinx-coroutines 依赖以启用协程：
+
+```sh
+dependencies {
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+}
+
+plugins {
+    // For build.gradle.kts (Kotlin DSL)
+    kotlin("jvm") version "1.8.20"
+    
+    // For build.gradle (Groovy DSL)
+    id "org.jetbrains.kotlin.jvm" version "1.8.20"
+}
+
+repositories {
+    mavenCentral()
+}
+```
+
+```ts ,kotlin
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    val deferred: Deferred<Int> = async {
+        loadData()
+    }
+    println("waiting...")
+    println(deferred.await())
+
+    val deferreds: List<Deferred<Int>> = (1..3).map {
+        async {
+            delay(1000L * it)
+            println("Loading $it")
+            it
+        }
+    }
+    val sum = deferreds.awaitAll().sum()
+    println("$sum")
+}
+
+suspend fun loadData(): Int {
+    println("loading...")
+    delay(1000L)
+    println("loaded!")
+    return 42
+}
+```
+
 
 ### ☘ Kotlin/JS React Web 开发
 
