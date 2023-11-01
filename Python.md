@@ -653,6 +653,104 @@ python -m pip wheel --wheel-dir DIR -r requirements.txt
 python -m pip install --no-index --find-links=DIR -r requirements.txt
 ```
 
+## ==⚡ Shell execute
+
+Python 提供多种模式创建 shell 进程，参考标准库 `multiprocessing` --- Process-based parallelism：
+  *spawn*
+    The parent process starts a fresh Python interpreter process.  The
+    child process will only inherit those resources necessary to run
+    the process object's :meth:`~Process.run` method.  In particular,
+    unnecessary file descriptors and handles from the parent process
+    will not be inherited.  Starting a process using this method is
+    rather slow compared to using *fork* or *forkserver*.
+
+1. *spawn* 方式：慢但是通用，创建子进程运行 Python 解析器，并继承必要资源以运行 `Process.run`；
+2. *fork* 方式：使用 os.fork 方法创建子进程，仅支持 Unix 系统；
+3. *forkserver* 方式：server 进程以单线程运行，父进程通过 server 执行 fork 产生子进程；
+
+Windows 仅支持 spawn， Unix 支持 fork、spawn、forkserver（部分系统支持）。
+
+通过 os.system() 调用系统 shell 外部命令、脚本，filename 最好是全路径，使用 os.popen() 方式则可获取程序输出数据，直接使用 subprocess 模块则拥有更多灵活性：
+
+```py
+    import os
+    os.system("python filename")
+    os.popen(filename)
+
+    import subprocess
+
+    ps = subprocess.Popen(["cat"], stdin=subprocess.PIPE, 
+         stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    output, errors = ps.communicate(input="Hello from the other side!")
+    ps.wait()
+    print(output, errors)
+```
+
+另外，os 模块提供了一系列 spawn 方法，不同变体在处理外部定位、参数传递上有差异：
+
+|          Spawn Variants         |    Arguments     |  Use PATH?   |   Use Env?  |
+|---------------------------------|------------------|--------------|-------------|
+| spawnl(mode, path, ...)         | l - by varags    |              |             |
+| spawnle(mode, path, ..., env)   | l - by varags    |              | e - Use Env |
+| spawnlp(mode, file, ...)        | l - by varags    | p - uss PATH |             |
+| spawnlpe(mode, file, ..., env)  | l - by varags    | p - uss PATH | e - Use Env |
+| spawnv(mode, path, args)        | v - by an Aarray |              |             |
+| spawnve(mode, path, args, env)  | v - by an Aarray |              | e - Use Env |
+| spawnvp(mode, file, args)       | v - by an Aarray | p - uss PATH |             |
+| spawnvpe(mode, file, args, env) | v - by an Aarray | p - uss PATH | e - Use Env |
+
+```py
+    (arg, shell) = ("/c", "C:/Windows/System32/cmd.exe")
+    (arg, shell) = ("-c", "C:/msys64/usr/bin/bash.exe")
+    env = {"PATH":"C:/msys64/usr/bin/"}
+    # os.execlp('bash', '-c', code) # this method will cause Sublime plugin-host exit.
+    # ecode = os.system("bash -c '%s ; sleep 3'" % code)
+    # for cmd shell
+    # pid = os.spawnle(os.P_NOWAIT, shell, "'%s %s'" %(arg, code), env)
+    # pid = os.spawnve(os.P_NOWAIT, shell, ["'%s %s'" %(arg, code)], env)
+    # for bash shell
+    pid = os.spawnv(os.P_NOWAIT, shell, [shell, arg, "'%s"%(code)])
+    # pid = os.spawnv(os.P_NOWAIT, shell, [shell, arg, "'%s'" %(code)])
+    # pid = os.spawnle(os.P_NOWAIT, shell, shell, arg, "'%s'" %(code), env)
+    # pid = os.spawnve(os.P_NOWAIT, shell, [shell, arg, "'%s'" % (code)], env)
+    # excode = os.spawnv(os.P_WAIT, shell, [shell, arg, "'%s"%(code)])
+    # print("exit code: ", shell, arg, excode)
+    # (pid, ecode_shift8) = os.waitpid(pid, 0)
+    # print("exit code: ", shell, arg, pid, ecode_shift8>>8)
+```
+
+还有一个差异就在于线程的阻塞状态，os.P_WAIT 或者 os.waitpid() 等待线程进入阻塞状态。
+
+不同的 shell 有不同的调用方式，可以使用以下命令进行测试：
+
+```sh
+# for Windows
+pwd && sleep 1
+echo 123 && C:/msys64/usr/bin/sleep.exe 1
+C:/msys64/usr/bin/pwd.exe && C:/msys64/usr/bin/sleep.exe 1
+# for Unix/Linuxt
+pwd; sleep 5
+pwd; /usr/bin/sleep.exe 1
+C:/msys64/usr/bin/pwd.exe; C:/msys64/usr/bin/sleep.exe 1
+```
+
+虽然，spawnle 和 spawnve 两个变体不使用当前进程的 PATH 环境变量来定位命令文件，
+但是可以通过 env 参数来设置 PATH。
+
+根据函数返回的 exit code 来判断命令运行状态，Bash 退出码取值 [0, 255] 含义：
+
+- 0   命令正常执行并退出；
+- 128 exit 方法的参数错误；
+- 127 命令文件找不到，所以子进行不能执行相应命令；
+- 126 命令文件存在，但它不是可执行程序；
+- 2   内置命令执行错误，一般是因为参数传递错误，或者缺失参数；
+- 1    通用错误码，可以表示任何可能的错误；
+- 128+n  信号"n"触发的致命错误，例如 kill -9 终止脚本，$? = 137 = 128 + 9；
+- 130  Control-C 或者 D 强制终止，触发 SIGINT 2 信号, $? = 130 = 128 + 2；
+
+参考 bash 文档：
+3.2.4 Lists of Commands
+3.7.5 Exit Status
 
 
 ## ==⚡ Import Package.Modules
@@ -758,12 +856,6 @@ __path__ = extend_path(__path__, __name__)
     python -m pkgName.modulName
 
 只要脚本文件可以在指定的目录中被搜索到，就可以被执行，搜索目录包括当前目录、`PYTHONPATH` 等环境变量指定的目录，以及 `sys.path` 指定的目录搜索列表等等。当然作为入口执行的脚本，还是默认为模块名为 __main__，包名则是命令参数中指定的 pkgName 如果有指定。也可能是空值而不是 `None` 或具体的包名，如果执行的是顶级模块。
-
-通过 os.system() 系统调用执行外部脚本，filename 最好是全路径，使用 os.popen() 方式则可获取程序输出数据：
-
-    import os
-    os.system("python filename")
-    os.popen(filename)
 
 另一方面，如果你知道自己在做什么，也可以用 *modname.itemname* 这种语法来使用模块中的全局变量。
 
@@ -5309,10 +5401,10 @@ type("abc".encode()) is bytes  # true
 
 Python 是 OOP 语言，一切皆对象，判断相等有两种形式：
 
-- == 运算符，只进行值判断，会调用 __eq__ 魔术函数；
-- is 运算符，判断引用是不是同一个对象，利用 id() 函数可以确定是否是同一个引用；
-- id() 标识函数用于获取对象的存储单元地址；
-
+1. `==` 运算符，只进行值判断，会调用 __eq__ 魔术函数；
+2. `is` 运算符，判断引用是不是同一个对象，利用 id() 函数可以确定是否是同一个引用；
+3. `id()` 标识函数用于获取对象的存储单元地址；
+4. `isinstance()` 判断对象是否为指定的类型。
 
 ```py
 a = "hello"
