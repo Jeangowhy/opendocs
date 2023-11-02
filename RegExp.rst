@@ -112,7 +112,37 @@ Mastering Regular Expressions
     * C.1 Regular Expression Tester软件
     * C.2 获得这套应用程序的一份副本
     * 附录D
+    * D.1. 基本的元字符 
+    * D.2. 数量元字符
+    * D.3. 位置元字符
+    * D.4. 特殊字符元字符
+    * D.5. 回溯引用和前后查找
+    * D.6. 大小写转换
+    * D.7. 匹配模式
     * 索引
+    * Index Symbols
+    * Index A
+    * Index B
+    * Index C
+    * Index D
+    * Index E
+    * Index F
+    * Index G
+    * Index H
+    * Index I
+    * Index J
+    * Index L
+    * Index M
+    * Index N
+    * Index O
+    * Index P
+    * Index R
+    * Index S
+    * Index T
+    * Index U
+    * Index V
+    * Index W
+    * Index X - Y - Z
 
 
 版权声明
@@ -4337,6 +4367,7 @@ Java 语言中的正则表达式匹配功能主要是通过 java.util.regex.matc
 *  ● 不支持使用 ``\b`` 匹配退格符。
 *  ● 不支持 ``\z``。
 
+===================================================
 附录B 常见问题的正则表 达式解决方案
 ===================================================
 
@@ -5100,6 +5131,8 @@ B.13 小结
 动。我们把这些模式作为欢迎大家进入正则表达式世界的礼物，希望它们能帮助你拓展思路
 并在此基础上构造出更精彩更实用的模式来。
 
+
+===================================================
 附录C 正则表达式测试器
 ===================================================
 
@@ -5172,240 +5205,324 @@ http：//www.forta.com/books/0672325667/
 找到申请加入相关团队的联系办法。 
 最后，欢迎大家进入正则表达式的精彩世界！
 
-附录 D
+===================================================
+附录 D.
+===================================================
+
+D.1. 基本的元字符 
 ===================================================
 
 .. code-block::
 
-    基本的元字符 
-    元字符 说 明 章
-    . 匹配任意单个字符 2
-    | 逻辑或操作符 3
-    [] 匹配字符集合中的一个字符 3
-    [^] 对字符集合求非 3
-    - 定义一个区间（例如 [A-Z] ） 3
-    \ 对下一个字符转义 2
-    数量元字符
-    元字符 说 明 章
-    * 匹配前一个字符（子表达式）的零次或多次重复 5
-    *?
-    * 的懒惰型版本 5
-    + 匹配前一个字符（子表达式）的一次或多次重复 5
-    +?
-    + 的懒惰型版本 5
-    ? 匹配前一个字符（子表达式）的零次或一次重复 5
-    {n} 匹配前一个字符（子表达式）的 n 次重复 5
-    {m, n} 匹配前一个字符（子表达式）至少 m 次且至多 n 次重复 5
-    {n, } 匹配前一个字符（子表达式） n 次或更多次重复 5
-    {n, }?
-    {n } 的懒惰型版本 5
-    位置元字符
-    元字符 说 明 章
-    ^ 匹配字符串的开头 6
-    \A 匹配字符串的开头 6
-    $ 匹配字符串的结束 6
-    \Z 匹配字符串的结束 6
-    \ 匹配单词的开头 6
-    \> 匹配单词的结束 6
-    \b 匹配单词边界（开头和结束） 6
-    \B
-    \b 的反义 6
-    特殊字符元字符
-    元字符 说 明 章
-    [\b] 退格字符 4
-    \c 匹配一个控制字符 4
-    \d 匹配任意数字字符 4
-    \D
-    \d 的反义 4
-    \f 换页符 4
-    \n 换行符 4
-    \r 回车符 4
-    \s 匹配一个空白字符 4
-    \S
-    \s 的反义 4
-    \t 制表符（Tab字符） 4
-    \v 垂直制表符 4
-    \w 匹配任意字母数字字符或下划线字符 4
-    \W
-    \w 的反义 4
-    \x 匹配一个十六进制数字 4
-    \0 匹配一个八进制数字 4
-    回溯引用和前后查找
-    元字符 说 明 章
-    () 定义一个子表达式 7
-    \1 匹配第1个子表达式； \2 代表第2个子表达式，依次类
-    推
-    8
-    ?= 向前查找 9
-    ? 向后查找 9
-    ?! 负向前查找 9
-    ?!= 负向后查找 9
-    ?() 条件（ if then ） 10
-    ?()| 条件（ if then else ） 10
-    大小写转换
-    元字符 说 明 章
-    \E
-    结束 \L 或 \U 转换 8
-    \l
-    把下一个字符转换为小写 8
-    \L
-    把后面的字符转换为小写，直到遇见 \E 为止 8
-    \u
-    把下一个字符转换为大写 8
-    \U
-    把后面的字符转换为大写，直到遇见 \E 为止 8
-    匹配模式
-    元字符 说 明 章
-    (?m)
-    分行匹配模式 6
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    .                 匹配任意单个字符 2
+    |                 逻辑或操作符 3
+    []                 匹配字符集合中的一个字符 3
+    [^]                 对字符集合求非 3
+    -                 定义一个区间（例如 [A-Z] ） 3
+    \                 对下一个字符转义 2
+    ========  ===============================
+
+D.2. 数量元字符
+===================================================
+
+.. code-block::
+
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    *                匹配前一个字符（子表达式）的零次或多次重复 5
+    *?               * 的懒惰型版本 5
+    +                匹配前一个字符（子表达式）的一次或多次重复 5
+    +?               + 的懒惰型版本 5
+    ?                匹配前一个字符（子表达式）的零次或一次重复 5
+    {n}              匹配前一个字符（子表达式）的 n 次重复 5
+    {m, n}           匹配前一个字符（子表达式）至少 m 次且至多 n 次重复 5
+    {n, }            匹配前一个字符（子表达式） n 次或更多次重复 5
+    {n, }?           {n } 的懒惰型版本 5
+    ========  ===============================
+
+D.3. 位置元字符
+===================================================
+
+.. code-block::
+
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    ^               匹配字符串的开头 6
+    \A              匹配字符串的开头 6
+    $               匹配字符串的结束 6
+    \Z              匹配字符串的结束 6
+    \               匹配单词的开头 6
+    \>              匹配单词的结束 6
+    \b              匹配单词边界（开头和结束） 6
+    \B              \b 的反义 6
+    ========  ===============================
+
+D.4. 特殊字符元字符
+===================================================
+
+.. code-block::
+
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    [\b]            退格字符 4
+    \c              匹配一个控制字符 4
+    \d              匹配任意数字字符 4
+    \D              \d 的反义 4
+    \f              换页符 4
+    \n              换行符 4
+    \r              回车符 4
+    \s              匹配一个空白字符 4
+    \S              \s 的反义 4
+    \t              制表符（Tab字符） 4
+    \v              垂直制表符 4
+    \w              匹配任意字母数字字符或下划线字符 4
+    \W              \w 的反义 4
+    \x              匹配一个十六进制数字 4
+    \0              匹配一个八进制数字 4
+    ========  ===============================
+
+D.5. 回溯引用和前后查找
+===================================================
+
+.. code-block::
+
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    ()              定义一个子表达式 7
+    \1              匹配第1个子表达式； \2 代表第2个子表达式，依次类推 8
+    ?=              向前查找 9
+    ?               向后查找 9
+    ?!              负向前查找 9
+    ?!=             负向后查找 9
+    ?()             条件（ if then ） 10
+    ?()|            条件（ if then else ） 10
+    ========  ===============================
+
+D.6. 大小写转换
+===================================================
+
+.. code-block::
+
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    \E              结束 \L 或 \U 转换 8
+    \l              把下一个字符转换为小写 8
+    \L              把后面的字符转换为小写，直到遇见 \E 为止 8
+    \u              把下一个字符转换为大写 8
+    \U              把后面的字符转换为大写，直到遇见 \E 为止 8
+    ========  ===============================
+
+D.7. 匹配模式
+===================================================
+
+.. code-block::
+
+    ========  ===============================
+    元字符              说明章节
+    ========  ===============================
+    (?m)            分行匹配模式 6
+    ========  ===============================
 
 
+===================================================
 索  引
 ===================================================
 
 索引中页码为英文原书页码，与本书中页边标注的页码一致。
 
+Index Symbols
+===================================================
+
 .. code-block::
 
-    Symbols
-    （asterisk）,zero or more character searches （（星号），零个或多个字符搜索），44-45
-    \（backslashes）（\（反斜线）），60
-    metacharacters, escaping（元字符、转义），28-29
-    special character searches（特殊字符搜索），16-17
-    \< metacharacters（元字符），60
-    \A metacharacters（元字符），65
-    \B metacharacters（元字符），59
-    \b word boundaries（单词边界），57-59
-    \Z metacharacters（元字符），65
-    [ ]（brackets），（[ ]（方括号））
-    character set matches（字符集合匹配），19-21，27
-    character set range matches（字符集合区间匹配），21-22
-    escaping（转义），28-29
-    ^（carrot），（^（上箭头））
-    ?m metacharacters（?m元字符），65
-    “anything but” character set matches（“取非”字符集合匹配），25-26
-    character set matches（字符集合匹配），60
-    string boundaries（字符串边界），60-63
-    {}（curly brackets）（{}（花括号））
-    “at least” interval matches（“至少重复多少次”匹配），51-52
-    exact interval matches（“精确重复多少次”匹配），49-50
-    range interval matches（重复次数的区间），50-51
-    $（dollar sign） （$（美元符号））
-    ?m metacharacters（?m元字符），65
-    string boundaries（字符串边界），60-63
-    -（hyphen），character set range matches（-（连字符），字符集合区间匹配），22-24
-    ()（parentheses），metacharacters subexpressions, （( )（圆括号），元字符子表达式），67-73
-    .（period）（英文句号）
-    special character searches（特殊字符搜索），12, 16-18, 27
-    unknown character searches（未知字符搜索），12
-    +（plus sign），（+（加号））
-    character set searches（字符集合搜索），41-43
+    =========================  ====================
+    （asterisk）,zero or more 
+    character searches          （（星号），零个或多个字符搜索），44-45
+    \（backslashes）            （\（反斜线）），60
+    metacharacters, escaping    （元字符、转义），28-29
+    special character searches  （特殊字符搜索），16-17
+    \< metacharacters           （元字符），60
+    \A metacharacters           （元字符），65
+    \B metacharacters           （元字符），59
+    \b word boundaries          （单词边界），57-59
+    \Z metacharacters           （元字符），65
+    [ ]（brackets），           （[ ]（方括号））
+    character set matches        （字符集合匹配），19-21，27
+    character set range matches （字符集合区间匹配），21-22
+    escaping                    （转义），28-29
+    ^（carrot），               （^（上箭头））
+    ?m metacharacters           （?m元字符），65
+    “anything but” 
+    character set matches       （“取非”字符集合匹配），25-26
+    character set matches       （字符集合匹配），60
+    string boundaries          （字符串边界），60-63
+    {}（curly brackets）        （{}（花括号））
+    “at least” interval matches （“至少重复多少次”匹配），51-52
+    exact interval matches      （“精确重复多少次”匹配），49-50
+    range interval matches      （重复次数的区间），50-51
+    $（dollar sign）            （$（美元符号））
+    ?m metacharacters           （?m元字符），65
+    string boundaries           （字符串边界），60-63
+    -（hyphen），
+    character set range matches （-（连字符），字符集合区间匹配），22-24
+    ()（parentheses），
+    metacharacters subexpressions, （( )（圆括号），元字符子表达式），67-73
+    .（period）                （英文句号）
+    special character searches （特殊字符搜索），12, 16-18, 27
+    unknown character searches （未知字符搜索），12
+    +（plus sign），           （+（加号））
+    character set searches     （字符集合搜索），41-43
     one or more character searches（一个或多个字符搜索），41-42
-    ?（question mark），zero or more character searches （?（问号）零个或多个字符搜索），
+    ?（question mark），
+    zero or more character searches （?（问号）零个或多个字符搜索），
     46-48
-    ?=（lookahead operators）（?=（向前查找操作符）），87-89, 92-93
+    ?=（lookahead operators）   （?=（向前查找操作符）），87-89, 92-93
     ?!（negative lookahead operators）（?!（负向前查找操作符）），93
-    ?<=（lookbehind operators）（?<=（向后查找操作符）），89-91
+    ?<=（lookbehind operators） （?<=（向后查找操作符）），89-91
     ?=（lookahead operators），combining with （?=（向前查找操作符），组合使用），92-93
     versus ?
     ?
-    ?m metacharacters （?m元字符），63-64
-    A
+    ?m metacharacters           （?m元字符），63-64
+    =========================  ====================
+
+Index A
+===================================================
+
+.. code-block::
+
+    =========================  ====================
     alphanumeric metacharacters（字母数字元字符），34-35
-    American Express credit cards (regular expression examples),（美国运通信用卡（正则表达式的
-    例子）），132
-    any character matches（任意字符匹配），12-16
+    American Express credit cards 
+    (regular expression examples),（美国运通信用卡（正则表达式的例子）），132
+    any character matches      （任意字符匹配），12-16
     “anything but” character set matches（“取非”字符集合匹配），25-26
     ASP usage examples (regular expressions)（ASP用法示例（正则表达式）），109-110
     ASP.NET usage examples (regular expressions) （ASP.NET用法示例（正则表达式）），110
     asterisk (), zero or more character searches（星号（），零个或多个字符搜索），44-45
     “at least” interval matches（“至少重复多少次”匹配），51-52
-    B
+    =========================  ====================
+
+Index B
+===================================================
+
+.. code-block::
+
+    =========================  ====================
     backreference conditions, syntax of（回溯引用条件，语法），98-99
-    backreferences（回溯引用），74-80
-    conditions, syntax of（条件，语法），98-99
-    lazy quantifiers（懒惰型限定符），76
-    replaces（替换），81-83
-    syntax of（语法），79
-    backslashes ()（反斜线（\））
-    metacharacters, escaping（元字符，转义），28-29
-    special character searches（特殊字符搜索），16-17
-    brackets（[ ]），（方括号）（[ ]）
-    character set matches（字符集合匹配），19-21, 27
+    backreferences             （回溯引用），74-80
+    conditions, syntax of      （条件，语法），98-99
+    lazy quantifiers           （懒惰型限定符），76
+    replaces                   （替换），81-83
+    syntax of                  （语法），79
+    backslashes ()             （反斜线（\））
+    metacharacters, escaping   （元字符，转义），28-29
+    special character searches （特殊字符搜索），16-17
+    brackets（[ ]），          （方括号）（[ ]）
+    character set matches      （字符集合匹配），19-21, 27
     character set range matches（字符集合区间匹配），21-22
-    escaping（转义），28-29
-    C
+    escaping                   （转义），28-29
+    =========================  ====================
+
+Index C
+===================================================
+
+.. code-block::
+
+    =========================  ====================
     C# usage examples (regular expressions)（C#用法示例（正则表达式）），110
-    Canadian postal codes (regular expression examples)（加拿大邮政编码（正则表达式的例
-    子）），121
-    carrot（^）（上箭头符号（^））
-    ?m metacharacters（?m元字符），65
+    Canadian postal codes 
+    (regular expression examples) （加拿大邮政编码（正则表达式的例子）），121
+    carrot（^）                   （上箭头符号（^））
+    ?m metacharacters             （?m元字符），65
     “anything but” character set matches（“取非”字符集合匹配），25-26
-    character set matches（字符集合匹配），60
-    string boundaries（字符串边界），60-63
+    character set matches         （字符集合匹配），60
+    string boundaries             （字符串边界），60-63
     case conversion matacharacters（大小写转换元字符），84-85
-    case sensitivity（区分字母的大小写情况），12
-    character set matches（字符集合匹配），21
-    digit matacharacters（数字元字符），34
-    character set matches（字符集合匹配）
-    ^（carrot），^（上箭头符号），60
-    case sensitivity（区分字母的大小写情况），21
-    multiple character matches（多字符匹配），19-21
-    character set range matches（字符集合区间匹配），21-25
-    character set searches（字符集合搜索），41-43
-    characters, converting case（字符，大小写转换），84-85
-    ColdFusion usage examples (regular expressions)（ColdFusion用法示例（正则表达式）），
-    107-108
-    combining（组合）
+    case sensitivity             （区分字母的大小写情况），12
+    character set matches        （字符集合匹配），21
+    digit matacharacters         （数字元字符），34
+    character set matches        （字符集合匹配）
+    ^（carrot），                （上箭头符号），60
+    case sensitivity             （区分字母的大小写情况），21
+    multiple character matches   （多字符匹配），19-21
+    character set range matches  （字符集合区间匹配），21-25
+    character set searches       （字符集合搜索），41-43
+    characters, converting case  （字符，大小写转换），84-85
+    ColdFusion usage examples 
+    (regular expressions)        （ColdFusion用法示例（正则表达式）），107-108
+    combining                   （组合）
     multiple character set range（多个字符集合区间），24
-    whitespace metacharacters（空白元字符），31
-    conditions （条件）
+    whitespace metacharacters   （空白元字符），31
+    conditions                  （条件）
     backreference conditions, syntax of（回溯引用条件，语法），98-99
-    defining（定义），98
+    defining                    （定义），98
     else expressions, syntax of（else表达式，语法），100-101
-    embedding（嵌入），97-98
-    lookaround conditions（向前查找条件），101-103
-    credit card numbers (regular expression examples)（信用卡号码（正则表达式的例子）），
-    130-135
-    curly brackets（{}）（花括号（{}））
-    “at least” interval matches（“至少重复多少次”匹配），51-52
-    exact interval matches（“精确重复多少次”匹配），49-50
-    range interval matches（重复次数的区间），50-51
-    D
-    defining（定义）
-    conditions（条件），98
-    regular expressions（正则表达式），6
+    embedding                   （嵌入），97-98
+    lookaround conditions        （ 向前查找条件），101-103
+    credit card numbers 
+    (regular expression examples)（信用卡号码（正则表达式的例子）），130-135
+    curly brackets（{}）         （花括号（{}））
+    “at least” interval matches  （“至少重复多少次”匹配），51-52
+    exact interval matches       （“精确重复多少次”匹配），49-50
+    range interval matches       （重复次数的区间），50-51
+    =========================  ====================
+
+Index D
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    defining                    （定义）
+    conditions                  （条件），98
+    regular expressions         （正则表达式），6
     development of regular expressions（正则表达式的发展史），7
-    digit metacharacters（数字元字符），33-34
-    Diners Club credit cards (regular expression examples)（Diners Club信用卡（正则表达式的例
-    子）），133-134
-    Discover credit cards (regular expression examples)（Discover信用卡（正则表达式的例子）），
-    133
-    Dreamweaver usage examples (regular expressions)（Dreamweaver用法示例（正则表达式）），
-    108
-    E
-    else expressions（else表达式）
-    email addresses (regular expression examples)（电子邮件地址（正则表达式的例子）），127
-    embedding conditions（嵌入条件），97-98
-    escaping（转义）
-    metacharacters（元字符），28-29, 32
-    special characters（特殊字符），17
-    \ (backslash)（\（反斜线）），16
-    . (period)（英文句号），12,18,27
-    exact interval matches（“精确重复多少次”匹配），49-50
+    digit metacharacters        （数字元字符），33-34
+    Diners Club credit cards
+    (regular expression examples)（Diners Club信用卡（正则表达式的例子）），133-134
+    Discover credit cards 
+    (regular expression examples)（Discover信用卡（正则表达式的例子）），133
+    Dreamweaver usage examples 
+    (regular expressions)        （Dreamweaver用法示例（正则表达式）），108
+    =========================  ====================
+
+Index E
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    else expressions            （else表达式）
+    email addresses 
+    (regular expression examples)（电子邮件地址（正则表达式的例子）），127
+    embedding conditions         （嵌入条件），97-98
+    escaping                     （转义）
+    metacharacters               （元字符），28-29, 32
+    special characters           （特殊字符），17
+    \ (backslash)                （\（反斜线）），16
+    . (period)                   （英文句号），12,18,27
+    exact interval matches       （“精确重复多少次”匹配），49-50
     examples of regular expressions（正则表达式的例子），7
-    Canadian postal codes（加拿大邮政编码），121
-    credit card numbers（信用卡号码），130-135
-    email addresses（电子邮件地址）,127
-    HTML comments（HTML注释），128-129
-    IP addresses（IP地址），124
-    JavaScript comments（JavaScript注释），129-130
+    Canadian postal codes        （加拿大邮政编码），121
+    credit card numbers          （信用卡号码），130-135
+    email addresses              （电子邮件地址）,127
+    HTML comments                （HTML注释），128-129
+    IP addresses                 （IP地址），124
+    JavaScript comments          （JavaScript注释），129-130
     North American Phone Numbers（北美电话号码），118-120
-    United Kingdom postcodes（英国邮政编码），122
-    URLs（URL地址），125-127
-    U.S. social security numbers（美国社会安全号码），123
-    U.S. ZIP codes（美国邮政编码（ZIP编码）），120-121
-    usage examples（用法示例）
+    United Kingdom postcodes     （英国邮政编码），122
+    URLs                         （URL地址），125-127
+    U.S. social security numbers （美国社会安全号码），123
+    U.S. ZIP codes               （美国邮政编码（ZIP编码）），120-121
+    usage examples               （用法示例）
     ASP，109-110
     ASP.NET，110
     C#，110
@@ -5420,239 +5537,345 @@ http：//www.forta.com/books/0672325667/
     Perl, 114
     PHP, 115
     Visual Studio .NET, 112-113
-    F
-    find operations (Regular Expression Tester)（查找操作（见附录C）），137
+    =========================  ====================
+
+Index F
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    find operations 
+    (Regular Expression Tester)         （查找操作（见附录C）），137
     functionality of regular expressions（正则表达式的用途），7-8
-    G
-    greedy quantifiers（贪婪型限定符），53-55
-    grep usage examples (regular expressions)（grep用法示例（正则表达式））104-105
-    grouping subexpressions（子表达式的划分），67-71
-    H
-    hexadecimal value metacharacters（十六进制值元字符），36
+    =========================  ====================
+
+Index G
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    greedy quantifiers          （贪婪型限定符），53-55
+    grep usage examples 
+    (regular expressions)（      grep 用法示例（正则表达式））104-105
+    grouping subexpressions     （子表达式的划分），67-71
+    =========================  ====================
+
+Index H
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    hexadecimal value metacharacters  （十六进制值元字符），36
     HomeSite usage examples (regular expressions)（HomeSite用法示例（正则表达式）），108-109
     HTML comments (regular expression examples)（HTML注释（正则表达式的例子）），128-129
     hyphen (-), character set range matches（连字符（-），字符集合区间匹配），22-24
-    I
-    intervals（重复次数），49
-    “at least” interval matches（“至少重复多少次”匹配），51-52
-    exact interval matches（“精确重复多少次”匹配），49-50
-    range interval matches（重复次数的区间），50-51
+    =========================  ====================
+
+Index I
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    intervals                   （重复次数），49
+    “at least” interval matches （“至少重复多少次”匹配），51-52
+    exact interval matches      （“精确重复多少次”匹配），49-50
+    range interval matches      （重复次数的区间），50-51
     IP addresses (regular expression examples)（IP地址（正则表达式的例子）），124
-    J
-    Java usage examples (regular expressions)（Java用法示例（正则表达式）），116-117
-    JavaScript comments (regular expression examples)（JavaScript注释（正则表达式的例子）），
-    129-130
-    JavaScript usage examples (regular expressions) （JavaScript 用 法 示 例 （正 则 表 达 式）），
-    105-106
-    L
+    =========================  ====================
+
+Index J
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    Java usage examples 
+    (regular expressions)        （Java用法示例（正则表达式）），116-117
+    JavaScript comments 
+    (regular expression examples)（JavaScript注释（正则表达式的例子）），129-130
+    JavaScript usage examples 
+    (regular expressions)        （JavaScript 用法示例（正则表达式）），105-106
+    =========================  ====================
+
+Index L
+===================================================
+
+.. code-block::
+
+    =========================  ====================
     language of regular expression（正则表达式语言），6
-    lazy quantifiers（懒惰型限定符），53-55, 76
-    literal text matches（纯文本匹配），10-11
-    lookahead operators (?=)（向前查找操作符（?=）），87-89, 92-93
-    lookarounds（前后查找），86
-    conditions（条件），101-103
-    lookahead expressions（向前查找表达式），87-89, 92-93
-    lookbehind expressions（向后查找表达式），89-91
+    lazy quantifiers             （懒惰型限定符），53-55, 76
+    literal text matches         （纯文本匹配），10-11
+    lookahead operators (?=)     （向前查找操作符（?=）），87-89, 92-93
+    lookarounds                  （前后查找），86
+    conditions                   （条件），101-103
+    lookahead expressions        （向前查找表达式），87-89, 92-93
+    lookbehind expressions       （向后查找表达式），89-91
     combining with lookahead expressions（与向前查找表达式结合使用），92-93
     versus negative lookbehind expressions（对向后查找表达式进行取非），94-95
     lookbehind operators（?<=）（向后查找操作符（?<=）），89-91
     lookahead operators（?=），combining with（与向前查找操作符（?=）结合使用），92-93
     versus negative lookbehind operators（?
     lowercase character conversion（小写字符转换），84-85
-    M
-    Macromedia ColdFusion usage examples (regular expressions), Macromedia Cold- Fusion（用法示
-    例（正则表达式）），107-108
-    Macromedia Dreamweaver usage examples (regular expressions), Macromedia Dreamweaver（用法
-    示例（正则表达式）），108
-    Macromedia HomeSite usage examples (regular expressions), Macromedia HomeSite（用法示例
-    （正则表达式）），108-109
-    MasterCard credit cards (regular expression examples)（MasterCard信用卡（正则表达式的例
-    子）），130-131
-    matching（匹配）
-    alphanumeric metacharacters（字母数字元字符），34-35
-    any characters（任意字符），12-16
-    “anything but” character sets（“取非”字符集合），25-26
-    “at least” intervals（“至少重复多少次”匹配），51-52
-    backreferences,（回溯引用），77-80
-    character sets（字符集合）
-    ^ (carrot)（^（上箭头符号）），60
-    + (plus sign) metacharacters（+（加号）元字符），41-43
-    case sensitivity（区分字母的大小写情况），21
-    multiple character matches（多字符匹配），19-21
-    ranges（区间），21-25
-    digit metacharacters（数字元字符），33-34
-    exact intervals（“精确重复多少次”匹配），49-50
+    =========================  ====================
+
+Index M
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    Macromedia ColdFusion usage examples
+    (regular expressions), Macromedia Cold- Fusion（用法示例（正则表达式）），107-108
+    Macromedia Dreamweaver usage examples 
+    (regular expressions), Macromedia Dreamweaver（用法示例（正则表达式）），108
+    Macromedia HomeSite usage examples 
+    (regular expressions), Macromedia HomeSite   （用法示例（正则表达式）），108-109
+    MasterCard credit cards
+    (regular expression examples)    （MasterCard信用卡（正则表达式的例子）），130-131
+    matching                         （匹配）
+    alphanumeric metacharacters      （字母数字元字符），34-35
+    any characters                   （任意字符），12-16
+    “anything but” character sets    （“取非”字符集合），25-26
+    “at least” intervals             （“至少重复多少次”匹配），51-52
+    backreferences,                  （回溯引用），77-80
+    character sets                   （字符集合）
+    ^ (carrot)                       （^（上箭头符号）），60
+    + (plus sign) metacharacters     （+（加号）元字符），41-43
+    case sensitivity                 （区分字母的大小写情况），21
+    multiple character matches       （多字符匹配），19-21
+    ranges                          （区间），21-25
+    digit metacharacters            （数字元字符），33-34
+    exact intervals                 （“精确重复多少次”匹配），49-50
     hexadecimal value metacharacters（十六进制值元字符），36
-    literal text（纯文本），10-11
-    multiple characters（多字符）
+    literal text                    （纯文本），10-11
+    multiple characters             （多字符）
     “anything but” character set matches（“取非”字符集合匹配），25-26
-    character set matches（字符集合匹配），19-21
-    character set range matches（字符集合区间匹配），21-25
-    nonwhitespace metacharacters（非空白元字符），36
-    octal value metacharacters（八进制值元字符），36
-    one or more characters（一个或多个字符），41-42
-    over matching（过度匹配），53-55
-    position matching（位置匹配），56
-    \b word boundaries（\b 边界单词），57-59
-    ^ (carrot) string boundaries（^（上箭头符号）字符串边界），60-63
+    character set matches           （字符集合匹配），19-21
+    character set range matches     （字符集合区间匹配），21-25
+    nonwhitespace metacharacters    （非空白元字符），36
+    octal value metacharacters      （八进制值元字符），36
+    one or more characters          （一个或多个字符），41-42
+    over matching                   （过度匹配），53-55
+    position matching               （位置匹配），56
+    \b word boundaries              （\b 边界单词），57-59
+    ^ (carrot) string boundaries    （^（上箭头符号）字符串边界），60-63
     $ (dollar sign) string boundaries, $（（美元符号）字符串边界），60-63
-    range intervals（重复次数的区间），50-51
-    single characters（单个字符）
-    case sensitivity（区分字母的大小写），12
-    literal text matches（纯文本匹配），10-11
-    special character matches,（特殊字符匹配），16-18
-    unknown character matches（未知字符匹配）
-    special characters（特殊字符），16-18
-    static text（静态文本），10-11
-    unknown characters（未知字符），12-16
-    whitespace metacharacters（空白元字符），30-31, 36
-    zero or more characters（零个或多个字符），44-45
-    zero or one character（零个或一个字符），46-48
-    metacharacter searches（元字符搜索）
-    . (period)（.（英文句号）），12, 18
-    \ (backslash)（\（反斜线）），16-17
-    metacharacters（元字符）
+    range intervals                （重复次数的区间），50-51
+    single characters              （单个字符）
+    case sensitivity               （区分字母的大小写），12
+    literal text matches           （纯文本匹配），10-11
+    special character matches,     （特殊字符匹配），16-18
+    unknown character matches      （未知字符匹配）
+    special characters            （特殊字符），16-18
+    static text                   （静态文本），10-11
+    unknown characters            （未知字符），12-16
+    whitespace metacharacters     （空白元字符），30-31, 36
+    zero or more characters       （零个或多个字符），44-45
+    zero or one character         （零个或一个字符），46-48
+    metacharacter searches        （元字符搜索）
+    . (period)                    （.（英文句号）），12, 18
+    \ (backslash)                 （\（反斜线）），16-17
+    metacharacters                （元字符）
     (asterisk), zero or more character searches（（星号），零个或多个字符搜索），44-45
     \<，60
     \A，65
     \B，59
-    \b word boundaries（\b 单词边界），57-59
+    \b word boundaries            （\b 单词边界），57-59
     \Z，65
-    [ ] (brackets)（[ ]（方括号））
-    character set matches（字符集合匹配），19-21, 27
-    character set range matches（字符集合区间匹配），21-22
-    escaping,（转义），28-29
-    ^ (carrot)（ ^（上箭头））
-    ?m metacharacters（?m元字符），65
+    [ ] (brackets)                （[ ]（方括号））
+    character set matches         （字符集合匹配），19-21, 27
+    character set range matches   （字符集合区间匹配），21-22
+    escaping,                     （转义），28-29
+    ^ (carrot)                    （ ^（上箭头））
+    ?m metacharacters             （?m元字符），65
     “anything but” character set matches（“取非”字符集合匹配），25-26
-    character set matches（字符集合匹配），60
-    string boundaries（字符串边界），60-63
-    {} (curly brackets)（{}（花括号））
-    “at least” interval matches（“至少重复多少次”匹配），51-52
-    exact interval matches（“精确重复多少次”匹配），49-50
-    range interval matches（重复次数的区间），50-51
-    $ (dollar sign)（$（美元符号））
-    ?m metacharacters（?m元字符），65
-    string boundaries（字符串边界），60-63
+    character set matches         （字符集合匹配），60
+    string boundaries             （字符串边界），60-63
+    {} (curly brackets)           （{}（花括号））
+    “at least” interval matches   （“至少重复多少次”匹配），51-52
+    exact interval matches        （“精确重复多少次”匹配），49-50
+    range interval matches        （重复次数的区间），50-51
+    $ (dollar sign)               （$（美元符号））
+    ?m metacharacters             （?m元字符），65
+    string boundaries             （字符串边界），60-63
     - (hyphen), character set range matches（-（连字符）， 字符集合区间匹配），22-24
     ( ) (parentheses) , metacharacters subex- pressions（( )（圆括号），元字符子表达式），67-73
-    .(period)（英文句号），12, 16-18, 27
-    + (plus sign)（+（加号））
-    character set searches（字符集合搜索），41-43
+    .(period)                     （英文句号），12, 16-18, 27
+    + (plus sign)                 （+（加号））
+    character set searches        （字符集合搜索），41-43
     one or more character searches（一个或多个字符搜索），41-42
     ? (question mark), zero or more character searches（（问号），零个或多个字符搜索），46-48
-    ?m metacharacterc（?m元字符），63-64
-    alphanumeric（字母数字），34-35
-    character case conversion（字母大小写转换），84-85
-    digit（数字），33-34
-    escaping（转义），28-29, 32
-    hexadecimal value（十六进制值），36
-    nonwhitespace（非空白字符），36
-    octal value（八进制值），36
-    POSIX character classes（POSIX字符类），37-38
-    whitespace（空白字符），30-31, 36
-    Microsoft ASP usage examples (regular expressions)（Microsoft ASP用法示例（正则表达式））
-    109-110
-    Microsoft ASP.NET usage examples (regular expressions)（Microsoft ASP.NET用法示例（正则表
-    达式）），110
-    Microsoft C# usage examples (regular expressions)（Microsoft C#用法示例（正则表达式）），
-    110
-    Microsoft .NET usage examples (regular expressions)（Microsoft .NET用法示例（正则表达
-    式）），110-112
-    Microsoft Visual Studio .NET usage examples (regular expressions)（Microsoft Visual Studio .NET
-    用法示例（正则表达式）），112-113
-    multiple character matches（多字符匹配）
+    ?m metacharacterc             （?m元字符），63-64
+    alphanumeric                  （字母数字），34-35
+    character case conversion     （字母大小写转换），84-85
+    digit                         （数字），33-34
+    escaping                      （转义），28-29, 32
+    hexadecimal value             （十六进制值），36
+    nonwhitespace                 （非空白字符），36
+    octal value                   （八进制值），36
+    POSIX character classes       （POSIX字符类），37-38
+    whitespace                    （空白字符），30-31, 36
+    Microsoft ASP usage examples 
+    (regular expressions)（Microsoft ASP用法示例（正则表达式））109-110
+    Microsoft ASP.NET usage examples 
+    (regular expressions)（Microsoft ASP.NET用法示例（正则表达式）），110
+    Microsoft C# usage examples 
+    (regular expressions)（Microsoft C#用法示例（正则表达式）），110
+    Microsoft .NET usage examples
+    (regular expressions)（Microsoft .NET用法示例（正则表达式）），110-112
+    Microsoft Visual Studio .NET usage examples 
+    (regular expressions)（Microsoft Visual Studio .NET 用法示例（正则表达式）），112-113
+    multiple character matches      （多字符匹配）
     “anything but” character set matches（“取非”字符集合匹配），25-26
-    character set matches（字符集合匹配），19-21
-    character set range matches（字符集合区间匹配），21-25
+    character set matches          （字符集合匹配），19-21
+    character set range matches    （字符集合区间匹配），21-25
     multiple character set ranges, combining（多个字符集合区间，组合），24
-    multiple lookahead expressions（多个向前查找表达式），89
-    multiline mode（“分行匹配”模式），63-64
-    MySQL usage examples (regular expressions)（MySQL用法示例（正则表达式）），113-114
-    N
-    named captures（命名捕获），80
+    multiple lookahead expressions （多个向前查找表达式），89
+    multiline mode                 （“分行匹配”模式），63-64
+    MySQL usage examples 
+    (regular expressions)          （MySQL用法示例（正则表达式）），113-114
+    =========================  ====================
+
+Index N
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    named captures                   （命名捕获），80
     negative lookahead operators (?!)（负向前查找操作符（?!）），93
-    negative lookarounds（负前后查找），93-95
+    negative lookarounds             （负前后查找），93-95
     negative lookbehind operators (?
-    nesting subexpressions（嵌套子表达式），71-73
-    .NET usage examples (regular expressions)（.NET用法示例（正则表达式）），110-112
-    nonwhitespace metacharacters（非空白元字符），36
-    North American Phone numbers(regular expression examples)（北美电话号码（正则表达式的例
-    子）），118-120
-    O
-    octal value metacharacters（八进制值元字符），36
-    one or more character searches, + (plus sign) metacharacters（一个或多个字符搜索，+（加号）元
-    字符），41-42
-    over matching（过度匹配），53-55
-    P
+    nesting subexpressions           （嵌套子表达式），71-73
+    .NET usage examples 
+    (regular expressions)            （.NET用法示例（正则表达式）），110-112
+    nonwhitespace metacharacters     （非空白元字符），36
+    North American Phone numbers
+    (regular expression examples)    （北美电话号码（正则表达式的例子）），118-120
+    =========================  ====================
+
+Index O
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    octal value metacharacters   （八进制值元字符），36
+    one or more character searches, 
+    + (plus sign) metacharacters （一个或多个字符搜索，+（加号）元字符），41-42
+    over matching                （过度匹配），53-55
+    =========================  ====================
+
+Index P
+===================================================
+
+.. code-block::
+
+    =========================  ====================
     parentheses ( ) metacharacter subexpressions（圆括号（）元字符子表达式）
-    grouping（分组），67-71
-    nesting（嵌套），71-73
-    patterns（模式，见正则表达式）
-    period (.) 英文句号（.）
-    special character searches（特殊字符搜索），12, 16-18, 27
-    unknown character searches（未知字符搜索），12
+    grouping                   （分组），67-71
+    nesting                    （嵌套），71-73
+    patterns                   （模式，见正则表达式）
+    period (.)                  英文句号（.）
+    special character searches （特殊字符搜索），12, 16-18, 27
+    unknown character searches （未知字符搜索），12
     Perl usage examples (regular expressions)（Perl用法示例（正则表达式）），114
     PHP usage examples (regular expressions)（PHP用法示例（正则表达式）），115
     plus sign (+), one or more character searches（加号（+），一个或多个字符搜索），41-42
-    position matching（位置匹配），56
-    \b word boundaries（单词边界），57-59
+    position matching           （位置匹配），56
+    \b word boundaries          （单词边界），57-59
     ^ (corrot) string boundaries（^（上箭头）字符串边界），60-63
     $ (dollar sign) string boundaries（（美元符号）字符串边界），60-63
-    positive lookarounds（正前后查找）
-    See lookarounds（参见“前后查找”）
-    POSIX character classes（POSIX字符类），37-38
-    problem scenarios（问题场景），3-4
-    Q question mark (?), zero or more character searches（问号（?），零个或多个字符搜索），
-    46-48
-    R
-    range interval matches（重复次数的区间），50-51
-    reformatting text（对文本进行重新排版），83
-    Regular Expression Tester（正则表达式测试器），136
-    downloading（下载），138
-    find operations（查找操作），137
-    replace operations（替换操作），137-138
-    Web site（Web站点），8
-    replace operations (Regular Expression Tester)（替换操作（正则表达式测试器）），137-138
-    replaces（替换），6, 81-83
-    replacing text（替换文本），81
-    S
-    searches（搜索），5
-    single character matches（单个字符匹配）
-    case sensitivity（区分字母的大小写情况），12
-    literal text matches（纯文本匹配），10-11
-    special character matches（特殊字符匹配），16-18
-    unknown character matches（未知字符匹配），12-16
-    special character matches（特殊字符匹配），16-18
-    static text matches（静态文本匹配），10-11
-    string boundaries（字符串边界）
-    ^ (carrot)（^（上箭头）），60-63
-    $ dollar sign)（$（美元符号）），60-63
-    multiline mode（“分行匹配”模式），63-64
-    subexpressions（子表达式）66
-    backreferences（回溯引用），74-80
-    lazy quantifiers（懒惰型限定符），76
-    replaces（替换），81-83
-    syntax of（语法），79
-    grouping（划分），67-71
-    named captures（命名捕获），80
-    nesting（嵌套），71-73
-    syntax of（语法），80
-    text, reformatting（文本，重新排版），80
-    Sun Java usage examples (regular expressions)（Sun Java用法示例（正则表达式）），116-117
-    T
-    text（文本）
-    reformatting（重新排版），83
-    replacing（替换），81
-    U
-    U.S. social security numbers (regular expression examples)（美国社会安全号码（正则表达式的
-    例子）），123
-    U.S. ZIP codes (regular expression examples)（美国邮政编码（正则表达式的例子）），120-121
-    United Kingdom postcodes (regular expres- sion examples)（英国邮政编码（正则表达式的例
-    子）），122
-    unknown character matches（未知字符匹配），12-16
-    uppercase character conversion（大写字母转换），84-85
-    URLs (regular expression examples)（URL地址（正则表达式的例子）），125-127
+    positive lookarounds        （正前后查找）
+    See lookarounds             （参见“前后查找”）
+    POSIX character classes     （POSIX字符类），37-38
+    problem scenarios           （问题场景），3-4
+    Q question mark (?), 
+    zero or more character searches（问号（?），零个或多个字符搜索），46-48
+    ===================== ====  ====================
+
+Index R
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    range interval matches      （重复次数的区间），50-51
+    reformatting text           （对文本进行重新排版），83
+    Regular Expression Tester   （正则表达式测试器），136
+    downloading                 （下载），138
+    find operations             （查找操作），137
+    replace operations          （替换操作），137-138
+    Web site                    （Web站点），8
+    replace operations 
+    (Regular Expression Tester) （替换操作（正则表达式测试器）），137-138
+    replaces                    （替换），6, 81-83
+    replacing text              （替换文本），81
+    =========================  ====================
+
+Index S
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    searches                     （搜索），5
+    single character matches     （单个字符匹配）
+    case sensitivity             （区分字母的大小写情况），12
+    literal text matches         （纯文本匹配），10-11
+    special character matches    （特殊字符匹配），16-18
+    unknown character matches    （未知字符匹配），12-16
+    special character matches    （特殊字符匹配），16-18
+    static text matches          （静态文本匹配），10-11
+    string boundaries            （字符串边界）
+    ^ (carrot)                    （^（上箭头）），60-63
+    $ dollar sign)                （$（美元符号）），60-63
+    multiline mode                （“分行匹配”模式），63-64
+    subexpressions                （子表达式）66
+    backreferences                （回溯引用），74-80
+    lazy quantifiers              （懒惰型限定符），76
+    replaces                      （替换），81-83
+    syntax of                     （语法），79
+    grouping                      （划分），67-71
+    named captures                （命名捕获），80
+    nesting                       （嵌套），71-73
+    syntax of                     （语法），80
+    text, reformatting            （文本，重新排版），80
+    Sun Java usage examples 
+    (regular expressions)         （Sun Java用法示例（正则表达式）），116-117
+    =========================  ====================
+
+Index T
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    text                       （文本）
+    reformatting              （重新排版），83
+    replacing                 （替换），81
+    =========================  ====================
+
+Index U
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    U.S. social security numbers
+    (regular expression examples)（美国社会安全号码（正则表达式的例子）），123
+    U.S. ZIP codes 
+    (regular expression examples)（美国邮政编码（正则表达式的例子）），120-121
+    United Kingdom postcodes 
+    (regular expres- sion examples)     （英国邮政编码（正则表达式的例子）），122
+    unknown character matches           （未知字符匹配），12-16
+    uppercase character conversion      （大写字母转换），84-85
+    URLs (regular expression examples)  （URL地址（正则表达式的例子）），125-127
     usage examples (regular expressions)（用法示例（正则表达式））
     ASP 109-110
     ASP.NET 110
@@ -5668,15 +5891,38 @@ http：//www.forta.com/books/0672325667/
     Perl 114
     PHP 115
     Visual Studio .NET 112-113
-    V
-    Visa credit cards (regular expression examples)（Visa信用卡（正则表达式的例子）），132
-    Visual Studio .NET usage examples (regular expressions)（Visual Studio .NET用法示例（正则表
-    达式）），112-113
-    W
-    whitespace metacharacters（空白元字符），30-31, 36
-    word boundaries（单词边界），57-59
-    X - Y - Z
-    zero or more character searches（零个或多个字符搜索）
-    * (asterisk) metacharacters（*（星号）元字符），44-45
+    =========================  ====================
+
+Index V
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    Visa credit cards 
+    (regular expression examples)（Visa信用卡（正则表达式的例子）），132
+    Visual Studio .NET usage examples 
+    (regular expressions)        （Visual Studio .NET用法示例（正则表达式）），112-113
+    =========================  ====================
+
+Index W
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    whitespace metacharacters   （空白元字符），30-31, 36
+    word boundaries             （单词边界），57-59
+    =========================  ====================
+
+Index X - Y - Z
+===================================================
+
+.. code-block::
+
+    =========================  ====================
+    zero or more character searches （零个或多个字符搜索）
+    * (asterisk) metacharacters     （*（星号）元字符），44-45
     ? (question mark) metacharacters（?（问号）元字符），46-48
+    =========================  ====================
 
