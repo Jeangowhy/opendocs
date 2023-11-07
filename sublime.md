@@ -1205,14 +1205,11 @@ Official API Documentation on the Command interface(opens new window)
 
 作为一个重度 Sublime Text 用户，掌握 Plugin-host 插件机制及插件开发是非常必要的，有些稀奇古怪的想法功能都可以实现。
 
-在 MD 文档中执行 Python 代码片段，比如 MD 文档中有以下代码片段，按注解提示配置好插件上下文菜单，保持光标在代码块上，按 F6 就可以执行：
+在 MD 文档中执行 Python 代码片段，比如 MD 文档中有以下代码片段，按注解提示配置好插件上下文菜单，保持光标在代码块上，按 F6 就可以执行。
 
-```py
-import sys
-import datetime
-
-'''
 Context.sublime-menu config for RunSnippetCommand:
+
+```json
 [
     {
         "caption": "Run Snippet code",
@@ -1228,21 +1225,6 @@ Context.sublime-menu config for RunSnippetCommand:
         "context": [ { "key": "panel_visible", "operand": true } ]
     },
 ]
-'''
-
-newline = ("\n    ** ")
-
-print(datetime.datetime.now())
-print("*" * 80)
-print(newline+newline.join(sys.path))
-print("*" * 80)
-
-# print(f'''
-# 	{datetime.datetime.now()}
-# 	{"*" * 80}
-# 	** {newline.join(sys.path)}
-# 	{"*" * 80}
-# 	''')
 ```
 
 Sublime Text 4 插件宿主支持 Python 3.3 3.8，但在 Packages 目录安装的插件默认是 Plugin-Host 3.3，某些 Python 3.8 新功能不能使用。
@@ -1251,88 +1233,130 @@ RunSnippetCommand 插件实现代码，可以根据 Sublime 选择器实现更�
 
 
 ```py
-import sublime_api as sapi
-from sublime import *
-from sublime_plugin import *
-
 
 class RunSnippetCommand(TextCommand):
     __dict__ = ['lang_type','code_snippets']
-    selector = "source.python"
+    coderegion = None
+    selectorActive = None
+    selectors = { "source.bash": "execute_bash",
+         "text.html.markdown": "execute_bash",
+         "text.restructured": "execute_bash",
+         "source.shell.bash": "execute_bash",
+         "source.python":"execute_py"}
 
     def __init__(self, view):
         self.view = view
         pass
+        # scope_name
 
     def run(self, edit):
-        self.snippet_test(True)
-        # self.view.insert(edit, 0, "Hello, RunSnipetCommand!")
-        pass
+        if self.selectorActive is None or self.coderegion is None:
+            return
+
+        method = getattr(self, self.selectors[self.selectorActive], None)
+        print("run snippet agent", self.selectorActive, self.coderegion, method, isinstance(method, type(self.run)))
+        if method and isinstance(method, type(self.run)):
+            method(self.coderegion)
 
     def is_enabled(self, *args):
-        return self.snippet_test()
+        ok = self.snippet_test()
+        Logger.message("RunSnippet is_enabled(self, edit): %s" % ok)
+        return ok 
 
-    def message(self, content):
-        msg = f"⚡RS: {content}"
-        sublime.status_message(msg)
-        print(msg)
-        pass
+    def execute_bash(self, region:Region):
+        view = self.view
+        code = view.substr(region) or view.substr(view.line(region))
+        code = code.replace('\n', ";").replace(';;', ';')
+        print("execute_bash:", region, code[0:40], "...")
+        (arg, shell) = ("/c", "C:/Windows/System32/cmd.exe")
+        (arg, shell) = ("-c", "C:/msys64/usr/bin/bash.exe")
+        env = {"PATH":"C:/msys64/usr/bin/"}
+        # os.execlp('bash', '-c', code) # this method will cause Sublime plugin-host exit.
+        # ecode = os.system("bash -c '%s ; sleep 3'" % code)
+        # for cmd shell
+        # pid = os.spawnle(os.P_NOWAIT, shell, "'%s %s'" %(arg, code), env)
+        # pid = os.spawnve(os.P_NOWAIT, shell, ["'%s %s'" %(arg, code)], env)
+        # for bash shell
+        pid = os.spawnv(os.P_NOWAIT, shell, [shell, arg, "'%s"%(code)])
+        # pid = os.spawnv(os.P_NOWAIT, shell, [shell, arg, "'%s'" %(code)])
+        # pid = os.spawnle(os.P_NOWAIT, shell, shell, arg, "'%s'" %(code), env)
+        # pid = os.spawnve(os.P_NOWAIT, shell, [shell, arg, "'%s'" % (code)], env)
+        # excode = os.spawnv(os.P_WAIT, shell, [shell, arg, "'%s"%(code)])
+        # print("exit code: ", shell, arg, excode)
+        # (pid, ecode_shift8) = os.waitpid(pid, 0)
+        # print("exit code: ", shell, arg, pid, ecode_shift8>>8)
 
-    def execute_snippet(self, code):
+
+    def execute_py_(self, code):
         window = active_window()
         execpanel = window.find_output_panel("exec")
         if execpanel is None:
             execpanel = View(window.create_output_panel("exec", True))
 
-        execpanel.settings().set("auto_indent", False)
-        execpanel.sel().clear()
-        execpanel.sel().add(Region(0))
-        execpanel.run_command("insert", {"characters":f"""\n{"⚡" * 40}\n"""})
         try:
+            print("execute_py: view[%s]" % execpanel.view_id)
+            execpanel.settings().set("auto_indent", False)
+            execpanel.sel().clear()
+            execpanel.sel().add(Region(0))
+            execpanel.run_command("insert", {"characters":"""\n%s\n""" % ("⚡" * 40)})
             # code = compile(code, "string", "exec")
             exec(code)
         except Exception as ex:
-            print(f"execute_snippet error: {ex=}")
+            print("execute_py error: %s" % ex)
+            # print("execute_py error: {0}".format(ex))
             # print(f"tb: {ex.__traceback__}")
             raise
 
-    def snippet_test(self, execute=False):
-        regionset = self.view.sel()
-        self.code_snippets = []
+    def execute_py(self, region:Region):
+        scope = self.selectorActive
 
-        for region in regionset:
-            scope:str = self.view.scope_name(region.a)
-            if scope.find(self.selector)>-1:
-                if not execute: return True
-                self.snippet_region(region)
-        return False
-
-    def snippet_region(self, region):
         if region.a != region.b:
             code = self.view.substr(region)
+            print("snippet_python range:", scope, code[0:40], "...")
             self.code_snippets.append(code)
-            self.execute_snippet(code)
+            self.execute_py_(code)
+        elif scope=="source.python":
+            code = self.view.substr(Region(0, self.view.size()))
+            print("snippet_python scope:", scope, code[0:40], "...")
+            self.execute_py_(code)
         else:
-            scope:str = self.view.scope_name(region.a)
             (a, b) = self.view.full_line(region)
-            if scope.find(self.selector)<0: return None
             start = self.lookup_boundary(Region(a), "```py", min)
             end = self.lookup_boundary(Region(a), "```", max)
 
             if start != None and end:
                 codesnippet = Region(start.b+1, end.a-1)
                 code = self.view.substr(codesnippet)
+                print("snippet_python block:", scope, code[0:40], "...")
                 self.view.sel().add(codesnippet)
-                self.execute_snippet(code)
+                self.execute_py_(code)
 
-    def lookup_boundary(self, region, tag, direction=max, maxline= 500) -> Region or None:
+    def snippet_test(self, execute=False):
+        regionset = self.view.sel()
+        self.code_snippets = []
+
+        for region in regionset:
+            scope = self.view.scope_name(region.a)
+            print("RunSnippet test:", scope)
+            for it in self.selectors:
+                if scope.find(it)>-1:
+                    self.selectorActive = it
+                    self.coderegion = region
+                    if not execute: return True
+        self.selectorActive = None
+        return False
+
+
+    def lookup_boundary(self, region, tag, direction=max, maxline= 300) -> Region or None:
         a = direction(region.a, region.b)
 
-        while a>1 and (maxline:=maxline-1)>-1:
+        maxline = maxline-1
+        while a>1 and (maxline)>-1:
             rgn = self.view.line(a)
             line = self.view.substr(rgn)
             a = direction(rgn.a-1, rgn.b+1)
             if line.startswith(tag): return rgn
+            maxline -= 1
 
         size = self.view.size()
         if maxline==-1 or a==direction(-1, size+1): return None
@@ -2047,7 +2071,7 @@ Text input handlers always forward the entered text to the command, while list i
 - 插件方法 *input* 返回一个输入处理器后，进入用户输入交互流程；
 - 进入准备阶段，内部方法 *setup_* 依次调用以下初始化方法：
 	- *name(self)* 默认返回类名，下划线分隔大写字母，不包括 input_handler 后缀，用来确认插件 run 方法接收字符串的参数名。
-	- *initial_text(self) -> str* 需要返回一个字符串，作为输入框的默认值；
+	- *initial_text(self, args:dict) -> str* 需要返回一个字符串，作为输入框的默认值；
 	- *initial_selection(self)* 这是一个通知性调用，插件开发者可以在这里做一些关于文件选区的处理；
 	- *placeholder(self)* 
 - 如果用户按 ESC 取消输入，就会触发 *cancel* 方法，并结束本轮流程；
@@ -2058,8 +2082,8 @@ Text input handlers always forward the entered text to the command, while list i
 
 通过 *want_event() -> bool* 方法返回值可以控制验证、确认函数是否需要使用 event 参数：
 
-- self.validate(v, event)
-- self.confirm(v, event)
+- self.validate(v, text, event)
+- self.confirm(v, text, event)
 
 参数 event 包含控制组合键的状态信息，如：
 
@@ -2068,13 +2092,90 @@ Text input handlers always forward the entered text to the command, while list i
 - 只按下 Ctrl： {'modifier_keys': {'ctrl': True, 'primary': True}}
 - 同时按下 Ctrl+Alt+Shift：{'modifier_keys': {'alt': True, 'ctrl': True, 'primary': True, 'shift': True}}
 
-输入处理插件接口 *CommandInputHandler* 有三种：
+Sublime Plugin 主要类型继承关系如下，输入处理插件接口是 *CommandInputHandler*：
 
-- BackInputHandler(CommandInputHandler): 只定义了 name(self) 方法，返回 "_Back"；
-- TextInputHandler(CommandInputHandler): 基本字符串输入实现，定义了内部的配置方法；
-- ListInputHandler(CommandInputHandler): 带候选内容列表的输入实现，定义了内部的配置方法；
+1. class Summary:
+2. class MultiCompletionList:
+3. class CommandInputHandler:
+3.1. class `BackInputHandler`(CommandInputHandler): 输入回退处理，调用 next_input 处理多输入时，用于回退用户输入。用户输入以 input handler stack 形式管理，每增加一个输入就将数据入栈。此类型只定义了 name(self) 方法，返回 `_Back`；
+3.2. class `TextInputHandler`(CommandInputHandler): 字符串输入处理处理；
+3.3. class `ListInputHandler`(CommandInputHandler): 带候选内容列表的输入处理；
+4. class Command:
+4.1. class `ApplicationCommand`(Command): 此插件每个 Sublime 进程只配置一个；
+4.2. class `WindowCommand`(Command): 此插件每个 Window 对象配置一个；
+4.3. class `TextCommand`(Command): 此插件每个 View 对象配置一个；
+05. class `EventListener`: Window 对象的事件处理；
+06. class `ViewEventListener`: View 对象的事件处理；
+07. class `TextChangeListener`: Buffer 对象内容改动事件处理；
+08. class MultizipImporter(importlib.abc.MetaPathFinder):
+09. class ZipResourceReader(importlib.abc.ResourceReader):
+10. class ZipLoader(importlib.abc.InspectLoader):
+
+Sublime Text 主进程对应 `ApplicationCommand` 插件，主进程可以多开 Window 进程，它对应的是 `WindowCommand` 插件。每个 Window 中可以创建多个 View，对应 `TextCommand` 插件，每个 View 对应一个 Buffer，Buffer 对应文件的数据。这种数据与视图分离的结构，可以实现 View split 功能，也就是为同一个 Buffer 创建多个 View。
+
+如果需要处理用户输入，插件实例中就可以创输入处理器。插件基类通过 sublime_api 内部方法 `view_can_accept_input()` 来调用用户插件的 `input()` 方法获取一个 `CommandInputHandler` 对象来激活输入面板。当用户插件缺失输入参数，并且又定义了 `input()` 方法时触发。注意 `name()` 方法返回的参数名需要和插件 `run()` 方法参数名称的一致。
+
+```py
+
+class ApplicationCommand(Command):
+
+    def run_(self, edit_token, args):
+
+            if 'required positional argument' in str(e):
+                if sublime_api.can_accept_input(self.name(), args):
+                    sublime.active_window().run_command(
+                        'show_overlay',
+                        {
+                            'overlay': 'command_palette',
+                            'command': self.name(),
+                            'args': args
+                        }
+                    )
+                    return
+
+
+class WindowCommand(Command):
+
+    def run_(self, edit_token, args):
+
+            if 'required positional argument' in str(e):
+                if sublime_api.window_can_accept_input(self.window.id(), self.name(), args):
+                    sublime_api.window_run_command(
+                        self.window.id(),
+                        'show_overlay',
+                        {
+                            'overlay': 'command_palette',
+                            'command': self.name(),
+                            'args': args
+                        }
+                    )
+                    return
+
+
+class TextCommand(Command):
+
+    def run_(self, edit_token, args):
+
+            if 'required positional argument' in str(e):
+                if sublime_api.view_can_accept_input(self.view.id(), self.name(), args):
+                    sublime_api.window_run_command(
+                        sublime_api.view_window(self.view.id()),
+                        'show_overlay',
+                        {
+                            'overlay': 'command_palette',
+                            'command': self.name(),
+                            'args': args
+                        }
+                    )
+                    return
+```
 
 一般文本输入实现与列表候选输入实现的差别在于内部配置方法的配置 setup_(self, args)，以下是这两种配置的对比：
+
+```py
+class TextInputHandler(CommandInputHandler):
+
+    def setup_(self, args):
 
         props = {
             "initial_text": self.initial_text(),
@@ -2083,12 +2184,18 @@ Text input handlers always forward the entered text to the command, while list i
             "type": "text",
         }
 
+
+class ListInputHandler(CommandInputHandler):
+
+    def setup_(self, args):
+
         props = {
             "initial_text": self.initial_text(),
             "placeholder_text": self.placeholder(),
             "selected": selected_item_index,
             "type": "list",
         }
+```
 
 可以看到异同点在于：
 
@@ -2135,7 +2242,7 @@ TypeError: run() missing 1 required positional argument: 'text'
 >>> window.run_command("type_pad",{"text":"abc"})
 abc
 
-了解这此后，就可以在 *input* 方法中依次创建多个输入处理器，供用户输入多个参数，并且完全输入后，参数再汇总传入 *run* 函数。因为，多个输入处理器就需要多个命名参数对应接收处理，构造 *CommandInputHandler* 实例时，可以记录一个参数名，并且通过 *name()* 函数返回给插件加载程序使用。
+了解这些机制后，就可以在 *input* 方法中依次创建多个输入处理器，供用户输入多个参数，并且完全输入后，参数再汇总传入 *run* 函数。因为，多个输入处理器就需要多个命名参数对应接收处理，构造 *CommandInputHandler* 实例时，可以记录一个参数名，并且通过 *name()* 函数返回给插件加载程序使用。
 
 
 在使用多个输入处理器的情况下，*next_input* 函数就起作用了，通过它可以让用户连续输入多组数据。
@@ -2168,7 +2275,7 @@ def next_input(self, args):
 ]
 ```
 
-TypePad 插件示范代码如下，包含 SimpleInputHandler、SimpleListInputHandler、MultipleInputHandler 三种形式，都统一通过 TypePadCommand 插件命令调用，如果分开处理会更简洁：
+TypePad 插件示范代码如下，包含 SimpleInputHandler、SimpleListInputHandler、MultipleInputHandler 三种形式，都统一通过 TypePadCommand 插件命令调用，使用 `parameters` 变量保存各构造器对应的参数列表，通过 `getattr(TypePad, typeid)` 来获取相应的输入事件处理器类型，TypePad 根据传入参数执行实例化，如果分开处理会更简洁：
 
 ```py
 import sublime
@@ -2414,6 +2521,338 @@ def _handle_apply_patches(self, message):
                 )
 
         self._buffer = self._current_buffer 
+```
+
+
+## ==⚡ RegexpSelection
+
+Regexp to Selection 插件接收用户输入的正则表达式，并选择当前文档中有匹配的内容。
+用户输入信息通过 sublime_plugin.CommandInputHandler 接口进行处理。只要用户运行插件，
+Sublime Text 就会尝试通过插件的 `input()` 方法获取一个输入处理器。这个过程中，插件
+可以通过定义输入方法逻辑，来决定是否需要用户参与。如果需要用户输入数据，Sublime
+就是按插件提供的 CommandInputHandler 实例来创建相应的 UI 供用户操作以提供数据输入。
+
+CommandInputHandler 接口有两种基本形式：
+
+1. sublime_plugin.TextInputHandler 输入字符串；
+2. sublime_plugin.ListInputHandler 提供预置列表选项供用户选择；
+
+插件中定义的输入处理器应该覆盖 `name()` 方法，返回字符串，它要和插件的 `run()` 
+输入的参数同名，默认返回值是 "text"。如果插件命令需要多个参数，Sublime 就会尝试
+通过 `next_input()` 方法来获取新 CommandInputHandler 实例来算是另一个参数的输入。
+此方法会接收一个 map 类型参数，记录了用户当前已经输入的参数，映射对象的 key 和
+插件运行方法的参数列表中的变量名一致。
+
+CommandInputHandler 接口提供了三个和输入数据验证相关的方法：
+
+- 用户按下回车输入数据时，就会调用 *validate(self, text) -> bool* 进行有效性验证；
+- 返回 True 通过验证，Sublime 会调用 *confirm(self, text) -> None* 通知插件已经确认；
+- 获取到足够数据后，就调用插件主运行方法 *run(self, edit, text)* 正式执行插件命令；
+- 通过 *want_event() -> bool* 方法返回值可以控制验证、确认函数是否需要使用 event 参数；
+
+处理参数名称的另一个方法，就是使用 CommandInputHandler 接口默认的命名机制：按参数名
+来命名 CommandInputHandler 接口实现类型的名称，即参数名 + InputHandler 后缀的方式命名。
+例如，RegexpSelection 插件的运行函数需要使用一个 `regexp` 参数名，那么就可以定义一个
+`RegexpInputHandler`，接口默认实现方法会将后缀部分过滤，提取出相应的参数名称：
+
+```py
+class CommandInputHandler:
+
+    def name(self) -> str:
+        """
+        The command argument name this input handler is editing. Defaults to
+        ``foo_bar`` for an input handler named ``FooBarInputHandler``.
+        """
+        clsname = self.__class__.__name__
+        name = clsname[0].lower()
+        last_upper = False
+        for c in clsname[1:]:
+            if c.isupper() and not last_upper:
+                name += '_'
+                name += c.lower()
+            else:
+                name += c
+            last_upper = c.isupper()
+        if name.endswith("_input_handler"):
+            name = name[0:-14]
+        return name
+```
+
+为了支持历史记录，定义了 `HistoryInputHandler`，这是一个 ListInputHandler。需要通过 
+`list_items` 方法返回一个列表供用户选择，也就是从 TextInputHandler 的文本输入，
+转变为列表选择方式输入。因为输入的数据还是作为插件的 regexp 参数变量名，
+所以需要覆盖 `name` 方法。测试中，Sublime 4152 版本无法导入 typing.override 标注，
+因此无法使用此标注来标明方法的覆盖状态。
+
+`RegexpInputHandler` 插件及输入处理器的代码参考：
+
+```py
+import sublime
+import sublime_plugin as sp
+from sublime import *
+from sublime_plugin import *
+import typing
+from typing import Optional, TypedDict, List
+
+
+class History(List[str]):
+    pass
+
+
+class Modifiers(TypedDict):
+
+    alt: bool
+    ctrl: bool
+    primary: bool
+    shift: bool
+
+
+class Event():
+
+    modifier_keys: Modifiers
+
+
+class RegexpSelection(sp.WindowCommand):
+
+    # Type Hint cause error under Python 3.8.12: TypeError 'type' object is not subscriptable
+    # Python 3.8 :class:`typing.Protocol` :pep:`544` Structural subtyping (static duck typing) 
+    # Python 3.10 - PEP 604: New Type Union Operator ``X | Y``
+    # use List, TypedDict ... instead of ``history: list[str] = list()``
+    history: History = History()
+
+    def run(self, regexp:str, history = 0):
+        if self.has_history(history):
+            regexp = self.history[history]
+        else:
+            self.history.append(regexp)
+        print("RegexpSelection run:", regexp, history)
+        (res, regions) = RegexpSelection.find_all(regexp)
+        view = self.window.active_view()
+        if view:
+            selection = view.sel()
+            the1st = selection[0] if len(selection) else Region(0)
+            selection.clear()
+            if the1st.a == the1st.b:
+                selection.add_all(iter(regions))
+                return
+
+            mi = min(the1st.a, the1st.b)
+            mx = max(the1st.a, the1st.b)
+            for it in regions:
+                if mi < it.a < mx:
+                    selection.add(it)
+
+    def has_history(self, index):
+        if index != None and index != 0 and \
+          index >= -len(self.history) and index < len(self.history):
+            return self.history[index] != ""
+        return False
+
+    def input(self, args):
+        print("RegexpSelection input:", args)
+        regexp = args.get('regexp')
+        history = args.get('history')
+        if regexp == "history":
+            return HistoryInputHandler()
+        last = self.has_history(history)
+        if (history is None or not last ) and (regexp is None or regexp == ""):
+            return RegexpInputHandler(self.history[-1] if len(self.history) else "")
+
+    @classmethod
+    def find_all (cls, regexp: str):
+        win  = sublime.active_window()
+        view = win.active_view()
+        res: list[str] = list()
+        fmt: str = "$0"
+        regions: list[Region] = list()
+        if view:
+            regions = view.find_all(regexp, FindFlags.NONE, fmt, res  )
+        return (res, regions)
+
+
+class RegexpInputHandler(sp.TextInputHandler):
+
+    def __init__(self, default:str) -> None:
+        super().__init__()
+        self.default = default
+
+    # args name to transport data in command.run(self, XXX, YYY...)
+    # or use super implementation:
+    #     class XXXInputHandler(subime_plugin.TextInputHandler)
+    def name(self) -> str:
+        name = super().name()
+        print("RegexpSelection name:", name)
+        return name
+
+    def placeholder(self): # a text show as backgroud of input box in GUI
+        return "Text as RegexpSelection" 
+
+    def initial_text(self):
+        return self.default
+
+    def validate(self, text: str, event: Event) -> bool:
+        print("RegexpSelection validate:", text)
+        return True
+
+    def confirm(self, test:str, event: Event):
+        print("RegexpSelection confirm:", event)
+        return True
+
+    def want_event(self) -> bool:
+        return True
+
+    def next_input(self, args:dict) -> Optional[CommandInputHandler]:
+        regexp = args.get('regexp')
+        print("RegexpSelection next_input", regexp)
+        presets = [
+            '\n#+ +',
+            '(\\w+\\.)*(\\w+\\.?)?<[A-z<> ,?]+?>',
+            '\\n\\n(?=[-+=#~.`\'"^*]{3, })([-+=#~.`\'"^*]+)\\n.+\\n\\1',
+            '\\n\\n(?![-+=#~.`\'"^*]{3, }).+\\n(?=[-+=#~.`\'"^*]{3,}).+',
+            '\\n\\n(?=[^-+=#~.\'"^*]{3, })[^ ]+.+\\n(?![-+=#~.\'"^*]{3, })',
+            ' +def [_\\w][_\\w\\d]+ *\\(([_\\w][_\\w\\d]+,?)*\\)',
+            ' *class [_\\w][_\\w\\d]+ *\\(([_\\w][_\\w\\d]+.?,?)*\\)',
+            ' +class [_\\w][_\\w\\d]+ *\\(([_\\w][_\\w\\d]+.?,?)*\\)',
+            ' +class [_\\w][_\\w\\d]+ *\\(([_\\w][_\\w\\d]+,?)*\\)',]
+        if 'history test' == regexp:
+            for it in presets:
+                RegexpSelection.history.append(it)
+        elif 'history' != regexp:
+            return super().next_input(args)
+        return HistoryInputHandler()
+
+    def initial_selection(self) -> list:
+        sel: list[tuple[int, int]] = list()
+        sel.append( (int(0), len(self.default)) )
+        return sel
+
+    def preview(self, text): # return some text/html preview on GUI
+        if text is None or text == "":
+            return ""
+        (res, regions) = RegexpSelection.find_all(text)
+        his = len(RegexpSelection.history)
+        hint = ("Type 'history' to review [%s]." % his) if his else ""
+        return sublime.Html("{}<hr><p>Matchs: {} Regions for {} ... </p>"
+            .format(hint, len(regions), res[0:3]))
+
+
+# ImportError: cannot import name 'override' from 'typing' 
+# (C:\Program Files\Sublime Text\Lib\python3.8.zip\typing.pyc)
+# from typing import override, overload
+
+class HistoryInputHandler(sp.ListInputHandler) :
+
+    # @override
+    def name(self) -> str:
+        return "regexp"
+
+    # @override
+    def list_items(self) -> History:
+        history = RegexpSelection.history
+        print("RegexSelection list_items:", history)
+        return history if len(history) else History(["history list is empty"])
+
+    # @override
+    def preview(self, text) -> Html:
+        (res, regions) = RegexpSelection.find_all(text)
+        return sublime.Html("<hr><p>Matchs: {} Regions for {} .. </p>"
+            .format( len(regions), res[0:3]))
+```
+
+创建 Sublime 命令配置文件，以使用插件功能可在 Command Palette 搜索到，命令配置文件
+名称可以根据需要的指定，或默认值名 Default，但扩展必须是 .sublime-commands：
+
+1. RunSnippet.sublime-commands
+2. Default.sublime-commands
+
+命令配置文件主要功能是向命令面板提供插件访问途径，另一个功能是记录命令的不同用法。
+例如，将以下正则表达式添加到配置文件中，用户就可以直接执行：
+
+    =====================   =============================
+    1. Java Generics:      (\w+\.)*(\w+\.?)?<[A-z<> ,?]+?>
+    2. reStructuredText    
+    3. Section Title:      \n\n(?=[-+=#~.`'"^*]{3, })([-+=#~.`'"^*]+)\n.+\n\1
+    4. Subtitle:           \n\n(?![-+=#~.`'"^*]{3, }).+\n(?=[-+=#~.`'"^*]{3,}).+
+    5. paragraphs begin:   \n\n(?=[^-+=#~.'"^*]{3, })[^ ]+.+\n(?![-+=#~.'"^*]{3, })
+    =====================   =============================
+
+```json
+[
+    {
+        "caption": "RunSnippet: Regexp to Selection",
+        "command": "regexp_selection",
+        // "args": {"regexp":"selection by regular expression"}
+    },
+    {
+        "caption": "RunSnippet: Regexp to Selection [redo last]",
+        "command": "regexp_selection",
+        "args": {"regexp":"", "history":-1},
+    },
+    {
+        "caption": "RunSnippet: Regexp to Selection [history]",
+        "command": "regexp_selection",
+        "args": {"regexp":"history"},
+    },
+    {
+        "caption": "RunSnippet: Regexp to Selection [Java Generics]",
+        "command": "regexp_selection",
+        "args": {"regexp":"(\\w+\\.)*(\\w+\\.?)?<[A-z<> ,?]+?>"},
+    },
+    {
+        "caption": "RunSnippet: Regexp to Selection [reStructuredText Section Title]",
+        "command": "regexp_selection",
+        "args": {"regexp":"\\n\\n(?=[-+=#~.`'\"^*]{3, })([-+=#~.`'\"^*]+)\\n.+\\n\\1"},
+    },
+    {
+        "caption": "RunSnippet: Regexp to Selection [reStructuredText Subtitle]",
+        "command": "regexp_selection",
+        "args": {"regexp":"\\n\\n(?![-+=#~.`'\"^*]{3, }).+\\n(?=[-+=#~.`'\"^*]{3,}).+"},
+    },
+    {
+        "caption": "RunSnippet: Regexp to Selection [reStructuredText paragraphs begin]",
+        "command": "regexp_selection",
+        "args": {"regexp":"\\n\\n(?=[^-+=#~.'\"^*]{3, })[^ ]+.+\\n(?![-+=#~.'\"^*]{3, })"},
+    },
+    // ************************************ //
+    {
+        "caption": "RunSnippet: SendTo",
+        "command": "send_to",
+        "args": {}
+    },
+    {
+        "caption": "RunSnippet: Run Snippet code",
+        "command": "run_snippet",
+    },
+    {
+        "caption": "RunSnippet: Jupm to ...",
+        "command": "jump_to",
+    },
+    {
+        "caption": "RunSnippet: Open Result Panel",
+        "command": "show_panel",
+        "args":  {"panel": "output.exec"},
+    },
+    {
+        "caption": "RunSnippet: First Column",
+        "command": "first_column",
+        "args": {"paths": [],"files": []},
+
+    },
+    {
+        "caption": "RunSnippet: Index Rows",
+        "command": "index_rows",
+        "args": {"paths": [],"files": []},
+    },
+    {
+        "caption": "RunSnippet: Edit Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/RunSnippet/Default.sublime-keymap",
+            "user_file": "${packages}/User/Default ($platform).sublime-keymap",
+            "default": "[\n\t$0\n]\n",
+        }
+    }
+]
 ```
 
 
@@ -3011,7 +3450,7 @@ Methods Return Value    Description
 - *word(point)* Region  Returns the word that contains the point.
 - *word(region)*    Region  Returns a modified copy of region such that it starts at the beginning of a word, and ends at the end of a word. Note that it may span several words.
 - *find(pattern,* from_position, <flags>)    Region  Returns the first Region matching the regex pattern, starting from the given point, or None if it can't be found. The optional flags parameter may be sublime.LITERAL, sublime.IGNORECASE, or the two ORed together.
-- *find_all(pattern, <flags>, <format>, <extractions>)*  [Region]    Returns all (non-overlapping) regions matching the regex pattern. The optional flags parameter may be sublime.LITERAL, sublime.IGNORECASE, or the two ORed together. If a format string is given, then all matches will be formatted with the formatted string and placed into the extractions list.
+- *find_all(pattern, <flags>, <format>, <extractions>)*  [Region]    Returns all (non-overlapping) regions matching the regex pattern. The optional flags parameter may be sublime.LITERAL, sublime.IGNORECASE, or the two ORed together. If a format string is given, like this "$0", then all matches will be formatted with the formatted string and placed into the extractions list.
 - *rowcol(point)*   (int, int)  Calculates the 0 based line and column numbers of the point.
 - *text_point(row,* col) int Calculates the character offset of the given, 0 based, row and column. Note that 'col' is interpreted as the number of characters to advance past the beginning of the row.
 - *extract_scope(point)* Region  Returns the extents of the syntax name assigned to the character at the given point.

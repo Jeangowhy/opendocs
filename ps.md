@@ -8216,6 +8216,45 @@ The effective execution policy is determined by the order of precedence as follo
 - *LocalMachine*. Default scope that affects all users of the computer.
 
 
+## ⚡ XML
+https://learn.microsoft.com/zh-cn/dotnet/api/system.xml.xmldocument
+
+数据文件 books.xml：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<books xmlns="http://www.contoso.com/books">  
+  <book genre="novel" ISBN="1-861001-57-8" publicationdate="1823-01-28">  
+    <title>Pride And Prejudice</title>  
+    <price>24.95</price>  
+  </book>  
+  <book genre="novel" ISBN="1-861002-30-1" publicationdate="1985-01-01">  
+    <title>The Handmaid's Tale</title>  
+    <price>29.95</price>  
+  </book>  
+  <book genre="novel" ISBN="1-861001-45-3" publicationdate="1811-01-01">  
+    <title>Sense and Sensibility</title>  
+    <price>19.95</price>  
+  </book>  
+</books>  
+```
+
+```sh
+$url = "books.xml"
+# $xml = [xml](new-object System.Net.WebClient).DownloadString($url)
+$xml = [System.Xml.XmlDocument]::new()
+$xml.load($url)
+$xml.LoadXml( (Get-Content "books.xml") )
+
+> $xml.books.book.Count
+3
+> $xml.LoadXml( "<book>A book</book>" )
+> $xml.Name
+#document
+> $xml.book
+A book
+```
+
 ## ⚡ Download
 - https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest
 

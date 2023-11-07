@@ -922,7 +922,8 @@ If you need to protect special characters such as newlines in file names, use fi
 
 You can use Parallel to move files from the current directory when the number of files is too large to process with one mv invocation:
 
-printf '%s\n' * | parallel mv {} destdir
+    printf '%s\n' * | parallel mv {} destdir
+
 As you can see, the {} is replaced with each line read from standard input. While using ls will work in most instances, it is not sufficient to deal with all filenames. printf is a shell builtin, and therefore is not subject to the kernel’s limit on the number of arguments to a program, so you can use `‘*’` (but see below about the dotglob shell option). If you need to accommodate special characters in filenames, you can use
 
     printf '%s\0' * | parallel -0 mv {} destdir
@@ -996,7 +997,7 @@ or
 
     function fname [()] compound-command [ redirections ]
 
-This defines a shell function named fname. The reserved word function is optional. If the function reserved word is supplied, the parentheses are optional. The body of the function is the compound command compound-command (see [compound commands]). That command is usually a list enclosed between { and }, but may be any compound command listed above, with one exception: If the function reserved word is used, but the parentheses are not supplied, the braces are required. compound-command is executed whenever fname is specified as the name of a command. When the shell is in POSIX mode (see [bash POSIx mode]), fname must be a valid shell name and may not be the same as one of the special builtins (see [special builtins]). In default mode, a function name can be any unquoted shell word that does not contain ‘$’. Any redirections (see [redirections]) associated with the shell function are performed when the function is executed. A function definition may be deleted using the -f option to the unset builtin (see [bourne shell builtins]).
+This defines a shell function named `fname`. The reserved word function is optional. If the function reserved word is supplied, the parentheses are optional. The body of the function is the compound command compound-command (see [compound commands]). That command is usually a list enclosed between { and }, but may be any compound command listed above, with one exception: If the function reserved word is used, but the parentheses are not supplied, the braces are required. compound-command is executed whenever `fname` is specified as the name of a command. When the shell is in POSIX mode (see [bash POSIx mode]), `fname` must be a valid shell name and may not be the same as one of the special builtins (see [special builtins]). In default mode, a function name can be any unquoted shell word that does not contain ‘$’. Any redirections (see [redirections]) associated with the shell function are performed when the function is executed. A function definition may be deleted using the -f option to the unset builtin (see [bourne shell builtins]).
 
 The exit status of a function definition is zero unless a syntax error occurs or a readonly function with the same name already exists. When executed, the exit status of a function is the exit status of the last command executed in the body.
 
@@ -1020,8 +1021,9 @@ For example, if a variable var is declared as local in function func1, and func1
 
 The following script demonstrates this behavior. When executed, the script displays
 
+    In func2, var = func1 local
+
 ```sh
-In func2, var = func1 local
 func1()
 {
     local var='func1 local'
@@ -1122,7 +1124,7 @@ If the control variable in a for loop has the nameref attribute, the list of wor
 ## ⚡ 3.4.1 Positional Parameters
                                                         *Positional Parameters*
 
-A positional parameter is a parameter denoted by one or more digits, other than the single digit 0. Positional parameters are assigned from the shell’s arguments when it is invoked, and may be reassigned using the set builtin command. Positional parameter N may be referenced as ${N}, or as $N when N consists of a single digit. Positional parameters may not be assigned to with assignment statements. The set and shift builtins are used to set and unset them (see [shell builtin commands]). The positional parameters are temporarily replaced when a shell function is executed (see [shell functions]).
+A positional parameter is a parameter denoted by one or more digits, other than the single digit 0. Positional parameters are assigned from the shell’s arguments when it is invoked, and may be reassigned using the set builtin command. Positional parameter N may be referenced as `${N}`, or as `$N` when N consists of a single digit. Positional parameters may not be assigned to with assignment statements. The set and shift builtins are used to set and unset them (see [shell builtin commands]). The positional parameters are temporarily replaced when a shell function is executed (see [shell functions]).
 
 When a positional parameter consisting of more than a single digit is expanded, it must be enclosed in braces.
 
@@ -1136,13 +1138,13 @@ When a positional parameter consisting of more than a single digit is expanded, 
 The shell treats several parameters specially. These parameters may only be referenced; assignment to them is not allowed.
 
 *
-    ($*) Expands to the positional parameters, starting from one. When the expansion is not within double quotes, each positional parameter expands to a separate word. In contexts where it is performed, those words are subject to further word splitting and filename expansion. When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable. That is, "$*" is equivalent to "$1c$2c…", where c is the first character of the value of the IFS variable. If IFS is unset, the parameters are separated by spaces. If IFS is null, the parameters are joined without intervening separators.
+    (`$*`) Expands to the positional parameters, starting from one. When the expansion is not within double quotes, each positional parameter expands to a separate word. In contexts where it is performed, those words are subject to further word splitting and filename expansion. When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable. That is, "`$*`" is equivalent to "$1c$2c…", where c is the first character of the value of the IFS variable. If IFS is unset, the parameters are separated by spaces. If IFS is null, the parameters are joined without intervening separators.
 
 @
     ($@) Expands to the positional parameters, starting from one. In contexts where word splitting is performed, this expands each positional parameter to a separate word; if not within double quotes, these words are subject to word splitting. In contexts where word splitting is not performed, this expands to a single word with each positional parameter separated by a space. When the expansion occurs within double quotes, and word splitting is performed, each parameter expands to a separate word. That is, "$@" is equivalent to "$1" "$2" …. If the double-quoted expansion occurs within a word, the expansion of the first parameter is joined with the beginning part of the original word, and the expansion of the last parameter is joined with the last part of the original word. When there are no positional parameters, "$@" and $@ expand to nothing (i.e., they are removed).
 
-#
-    ($#) Expands to the number of positional parameters in decimal.
+`#`
+    (`$#`) Expands to the number of positional parameters in decimal.
 
 ?
     ($?) Expands to the exit status of the most recently executed foreground pipeline.
