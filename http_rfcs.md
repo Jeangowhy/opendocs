@@ -1,17 +1,21 @@
 # 🚩 HTTP
-[RFC 1945 - Hypertext Transfer Protocol -- HTTP/1.0](http://www.rfc-editor.org/info/rfc1945)
-[RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1](http://www.rfc-editor.org/rfc/rfc2616.html)
-[RFC 2818 - HTTP Over TLS](https://www.rfc-editor.org/rfc/rfc2818.html)
-[RFC 6101 - The Secure Sockets Layer (SSL) Protocol V3.0](https://www.rfc-editor.org/rfc/rfc6101.html)
+- [RFC 1945 - Hypertext Transfer Protocol -- HTTP/1.0](http://www.rfc-editor.org/info/rfc1945)
+- [RFC 2616 - Hypertext Transfer Protocol -- HTTP/1.1](http://www.rfc-editor.org/rfc/rfc2616.html)
+- [RFC 2818 - HTTP Over TLS](https://www.rfc-editor.org/rfc/rfc2818.html)
+- [RFC 6101 - The Secure Sockets Layer (SSL) Protocol V3.0](https://www.rfc-editor.org/rfc/rfc6101.html)
+- https://www.rfc-editor.org/rfc-index.txt
 - https://www.rfc-editor.org/rfc/rfc7231.html
 - https://www.rfc-editor.org/rfc/rfc9110
+- https://www.rfc-editor.org/rfc/rfc9113.txt
 
-- [Hypertext Transfer Protocol -- HTTP/1.0](#atoc) 
-- [Hypertext Transfer Protocol -- HTTP/1.1](#btoc) 
-- [Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](#etop)
-- [RFC 9110 HTTP Semantics](#ftop)
+
+- [Hypertext Transfer Protocol -- HTTP/1.0](#atoc)
+- [Hypertext Transfer Protocol -- HTTP/1.1](#btoc)
+- [Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](#etoc)
 - [HTTP Over TLS](#ctoc)
 - [The Secure Sockets Layer (SSL) Protocol Version 3.0](#dtoc)
+- [RFC 9110 HTTP Semantics](#ftoc)
+- [RFC 9113 HTTP/2](#gtoc)
 
 
 超文本传输协议 HTTP - HyperText Transfer Protocol 是互联网上应用最为广泛的一种网络协议，所有的 WWW 文件都必须遵守这个标准，设计 HTTP 最初的目的是为了提供一种发布和接收 HTML 页面的方法。
@@ -88,7 +92,7 @@ Upgrade-Insecure-Requests:1
 对于篡改302的攻击，建议服务器开启HTTP Strict Transport Security功能，这个功能的含义是：
 ‍当用户已经安全的登录开启过htst功能的网站 (支持hsts功能的站点会在响应头中插入：Strict-Transport-Security) 之后，支持htst的浏览器(比如chrome. firefox)会自动将这个域名加入到HSTS列表，下次即使用户使用http访问这个网站，支持htst功能的浏览器就会自动发送https请求（前提是用户没有清空缓存，如果清空了缓存第一次访问还是明文，后续浏览器接收到服务器响应头中的Strict-Transport-Security，就会把域名加入到hsts缓存中，然后才会在发送请求前将http内部转换成https），而不是先发送http，然后重定向到https，这样就能避免中途的302重定向URL被篡改。‍‍进一步提高通信的安全性。‍‍‍ 
 
-Hypertext Transfer Protocol -- HTTP/1.0
+/Hypertext Transfer Protocol -- HTTP/1.0
 ========================================================
 
 https://www.rfc-editor.org/rfc/rfc1945.txt
@@ -270,7 +274,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
 
 
-1.1  Purpose
+//1.1  Purpose
 --------------------------------------------------------
 
 
@@ -302,7 +306,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    basic hypermedia access to resources available from diverse
    applications and simplifying the implementation of user agents.
 
-1.2  Terminology
+//1.2  Terminology
 --------------------------------------------------------
 
 
@@ -425,7 +429,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    server, proxy, gateway, or tunnel, switching behavior based on the
    nature of each request.
 
-1.3  Overall Operation
+//1.3  Overall Operation
 --------------------------------------------------------
 
 
@@ -528,7 +532,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    any case, the closing of the connection by either or both parties
    always terminates the current request, regardless of its status.
 
-1.4  HTTP and MIME
+//1.4  HTTP and MIME
 --------------------------------------------------------
 
 
@@ -543,7 +547,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
 
 
-2.1  Augmented BNF
+//2.1  Augmented BNF
 --------------------------------------------------------
 
 
@@ -655,7 +659,7 @@ RFC 1945                        HTTP/1.0                        May 1996
        implementations that fail to accept anything beyond the common
        forms.
 
-2.2  Basic Rules
+//2.2  Basic Rules
 --------------------------------------------------------
 
 
@@ -763,7 +767,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
 
 
-3.1  HTTP Version
+//3.1  HTTP Version
 --------------------------------------------------------
 
 
@@ -848,7 +852,7 @@ Berners-Lee, et al           Informational               [Page 13](#atoc){id=a13
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-3.2  Uniform Resource Identifiers
+//3.2  Uniform Resource Identifiers
 --------------------------------------------------------
 
 
@@ -950,7 +954,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    case-insensitive), eliding the [ ":" port ] if the port is 80, and
    replacing an empty abs_path with "/".
 
-3.3  Date/Time Formats
+//3.3  Date/Time Formats
 --------------------------------------------------------
 
 
@@ -1026,7 +1030,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
        presentation, request logging, etc.
 
-3.4  Character Sets
+//3.4  Character Sets
 --------------------------------------------------------
 
 
@@ -1090,7 +1094,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    the exception that no label is preferred over the labels US-ASCII or
    ISO-8859-1.
 
-3.5  Content Codings
+//3.5  Content Codings
 --------------------------------------------------------
 
 
@@ -1140,7 +1144,7 @@ Berners-Lee, et al           Informational               [Page 18](#atoc){id=a18
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-3.6  Media Types
+//3.6  Media Types
 --------------------------------------------------------
 
 
@@ -1244,7 +1248,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    breaks between body-parts. Multipart body-parts may contain HTTP
    header fields which are significant to the meaning of that part.
 
-3.7  Product Tokens
+//3.7  Product Tokens
 --------------------------------------------------------
 
 
@@ -1285,7 +1289,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
 
 
-4.1  Message Types
+//4.1  Message Types
 --------------------------------------------------------
 
 
@@ -1335,7 +1339,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    Use of the Simple-Request format is discouraged because it prevents
    the server from identifying the media type of the returned entity.
 
-4.2  Message Headers
+//4.2  Message Headers
 --------------------------------------------------------
 
 
@@ -1379,7 +1383,7 @@ Berners-Lee, et al           Informational               [Page 22](#atoc){id=a22
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-4.3  General Header Fields
+//4.3  General Header Fields
 --------------------------------------------------------
 
 
@@ -1424,7 +1428,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    an HTTP/0.9 Simple-Response. An HTTP/1.0 client capable of receiving
    a Full-Response should never generate a Simple-Request.
 
-5.1  Request-Line
+//5.1  Request-Line
 --------------------------------------------------------
 
 
@@ -1520,7 +1524,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    RFC 1738 [4]. The origin server must decode the Request-URI in order
    to properly interpret the request.
 
-5.2  Request Header Fields
+//5.2  Request Header Fields
 --------------------------------------------------------
 
 
@@ -1578,7 +1582,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    accordingly. Note that the Simple-Response consists only of the
    entity body and is terminated by the server closing the connection.
 
-6.1  Status-Line
+//6.1  Status-Line
 --------------------------------------------------------
 
 
@@ -1692,7 +1696,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    include human-readable information which will explain the unusual
    status.
 
-6.2  Response Header Fields
+//6.2  Response Header Fields
 --------------------------------------------------------
 
 
@@ -1740,7 +1744,7 @@ Berners-Lee, et al           Informational               [Page 28](#atoc){id=a28
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-7.1  Entity Header Fields
+//7.1  Entity Header Fields
 --------------------------------------------------------
 
 
@@ -1763,7 +1767,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    be assumed to be recognizable by the recipient. Unrecognized header
    fields should be ignored by the recipient and forwarded by proxies.
 
-7.2  Entity Body
+//7.2  Entity Body
 --------------------------------------------------------
 
 
@@ -1863,7 +1867,7 @@ Berners-Lee, et al           Informational               [Page 30](#atoc){id=a30
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-8.1  GET
+//8.1  GET
 --------------------------------------------------------
 
 
@@ -1882,7 +1886,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    allowing cached entities to be refreshed without requiring multiple
    requests or transferring unnecessary data.
 
-8.2  HEAD
+//8.2  HEAD
 --------------------------------------------------------
 
 
@@ -1899,7 +1903,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    GET. If an If-Modified-Since header field is included with a HEAD
    request, it should be ignored.
 
-8.3  POST
+//8.3  POST
 --------------------------------------------------------
 
 
@@ -1962,7 +1966,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    method(s) it can follow and any metainformation required in the
    response.
 
-9.1  Informational 1xx
+//9.1  Informational 1xx
 --------------------------------------------------------
 
 
@@ -1973,7 +1977,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    However, they may be useful for experimental applications which are
    outside the scope of this specification.
 
-9.2  Successful 2xx
+//9.2  Successful 2xx
 --------------------------------------------------------
 
 
@@ -2050,7 +2054,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    new metainformation in the form of entity headers, which should
    apply to the document currently in the user agent's active view.
 
-9.3  Redirection 3xx
+//9.3  Redirection 3xx
 --------------------------------------------------------
 
 
@@ -2138,7 +2142,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    cache should update its cached entity to reflect any new field
    values given in the 304 response.
 
-9.4  Client Error 4xx
+//9.4  Client Error 4xx
 --------------------------------------------------------
 
 
@@ -2216,7 +2220,7 @@ Berners-Lee, et al           Informational               [Page 36](#atoc){id=a36
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-9.5  Server Error 5xx
+//9.5  Server Error 5xx
 --------------------------------------------------------
 
 
@@ -2259,8 +2263,8 @@ RFC 1945                        HTTP/1.0                        May 1996
        that a server must use it when becoming overloaded. Some
        servers may wish to simply refuse the connection.
 
-10.  Header Field Definitions
---------------------------------------------------------
+/10.  Header Field Definitions
+========================================================
 
 
    This section defines the syntax and semantics of all commonly used
@@ -2276,7 +2280,7 @@ Berners-Lee, et al           Informational               [Page 37](#atoc){id=a37
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-10.1  Allow
+//10.1  Allow
 --------------------------------------------------------
 
 
@@ -2305,7 +2309,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    The Allow header field does not indicate what methods are implemented
    by the server.
 
-10.2  Authorization
+//10.2  Authorization
 --------------------------------------------------------
 
 
@@ -2336,7 +2340,7 @@ Berners-Lee, et al           Informational               [Page 38](#atoc){id=a38
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-10.3  Content-Encoding
+//10.3  Content-Encoding
 --------------------------------------------------------
 
 
@@ -2358,7 +2362,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    by the Request-URI. Typically, the resource is stored with this
    encoding and is only decoded before rendering or analogous usage.
 
-10.4  Content-Length
+//10.4  Content-Length
 --------------------------------------------------------
 
 
@@ -2396,7 +2400,7 @@ Berners-Lee, et al           Informational               [Page 39](#atoc){id=a39
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-10.5  Content-Type
+//10.5  Content-Type
 --------------------------------------------------------
 
 
@@ -2413,7 +2417,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    Further discussion of methods for identifying the media type of an
    entity is provided in Section 7.2.1.
 
-10.6  Date
+//10.6  Date
 --------------------------------------------------------
 
 
@@ -2458,7 +2462,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
       usage.
 
-10.7  Expires
+//10.7  Expires
 --------------------------------------------------------
 
 
@@ -2514,7 +2518,7 @@ Berners-Lee, et al           Informational               [Page 41](#atoc){id=a41
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-10.8  From
+//10.8  From
 --------------------------------------------------------
 
 
@@ -2549,7 +2553,7 @@ RFC 1945                        HTTP/1.0                        May 1996
       recommended that the user be able to disable, enable, and modify
       the value of this field at any time prior to a request.
 
-10.9  If-Modified-Since
+//10.9  If-Modified-Since
 --------------------------------------------------------
 
 
@@ -2596,7 +2600,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    The purpose of this feature is to allow efficient updates of cached
    information with a minimum amount of transaction overhead.
 
-10.10  Last-Modified
+//10.10  Last-Modified
 --------------------------------------------------------
 
 
@@ -2635,7 +2639,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    future, the server must replace that date with the message
    origination date.
 
-10.11  Location
+//10.11  Location
 --------------------------------------------------------
 
 
@@ -2650,7 +2654,7 @@ RFC 1945                        HTTP/1.0                        May 1996
 
        Location: http://www.w3.org/hypertext/WWW/NewLocation.html
 
-10.12  Pragma
+//10.12  Pragma
 --------------------------------------------------------
 
 
@@ -2679,7 +2683,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    specific recipient; however, any pragma directive not relevant to a
    recipient should be ignored by that recipient.
 
-10.13  Referer
+//10.13  Referer
 --------------------------------------------------------
 
 
@@ -2717,7 +2721,7 @@ RFC 1945                        HTTP/1.0                        May 1996
       respectively enable/disable the sending of Referer and From
       information.
 
-10.14  Server
+//10.14  Server
 --------------------------------------------------------
 
 
@@ -2755,7 +2759,7 @@ RFC 1945                        HTTP/1.0                        May 1996
       Note: Some existing servers fail to restrict themselves to the
       product token syntax within the Server field.
 
-10.15  User-Agent
+//10.15  User-Agent
 --------------------------------------------------------
 
 
@@ -2784,7 +2788,7 @@ RFC 1945                        HTTP/1.0                        May 1996
        Note: Some existing clients fail to restrict themselves to
        the product token syntax within the User-Agent field.
 
-10.16  WWW-Authenticate
+//10.16  WWW-Authenticate
 --------------------------------------------------------
 
 
@@ -2812,8 +2816,8 @@ Berners-Lee, et al           Informational               [Page 46](#atoc){id=a46
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-11.  Access Authentication
---------------------------------------------------------
+/11.  Access Authentication
+========================================================
 
 
    HTTP provides a simple challenge-response authentication mechanism
@@ -2890,7 +2894,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    request containing Authorization. HTTP/1.0 does not provide a means
    for a client to be authenticated with a proxy.
 
-11.1  Basic Authentication Scheme
+//11.1  Basic Authentication Scheme
 --------------------------------------------------------
 
 
@@ -2943,8 +2947,8 @@ RFC 1945                        HTTP/1.0                        May 1996
    accordingly. In spite of this, clients should implement the scheme in
    order to communicate with servers that use it.
 
-12.  Security Considerations
---------------------------------------------------------
+/12.  Security Considerations
+========================================================
 
 
    This section is meant to inform application developers, information
@@ -2953,7 +2957,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    definitive solutions to the problems revealed, though it does make
    some suggestions for reducing security risks.
 
-12.1  Authentication of Clients
+//12.1  Authentication of Clients
 --------------------------------------------------------
 
 
@@ -2964,7 +2968,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    authentication schemes and encryption mechanisms from being employed
    to increase security.
 
-12.2  Safe Methods
+//12.2  Safe Methods
 --------------------------------------------------------
 
 
@@ -2996,7 +3000,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    distinction here is that the user did not request the side-effects,
    so therefore cannot be held accountable for them.
 
-12.3  Abuse of Server Log Information
+//12.3  Abuse of Server Log Information
 --------------------------------------------------------
 
 
@@ -3008,7 +3012,7 @@ RFC 1945                        HTTP/1.0                        May 1996
    such material is not distributed without the permission of any
    individuals that are identifiable by the published results.
 
-12.4  Transfer of Sensitive Information
+//12.4  Transfer of Sensitive Information
 --------------------------------------------------------
 
 
@@ -3050,7 +3054,7 @@ Berners-Lee, et al           Informational               [Page 50](#atoc){id=a50
 RFC 1945                        HTTP/1.0                        May 1996
 
 
-12.5  Attacks Based On File and Path Names
+//12.5  Attacks Based On File and Path Names
 --------------------------------------------------------
 
 
@@ -3071,8 +3075,8 @@ RFC 1945                        HTTP/1.0                        May 1996
    information. Experience has shown that minor bugs in such HTTP server
    implementations have turned into security risks.
 
-13.  Acknowledgments
---------------------------------------------------------
+/13.  Acknowledgments
+========================================================
 
 
    This specification makes heavy use of the augmented BNF and generic
@@ -3136,8 +3140,8 @@ RFC 1945                        HTTP/1.0                        May 1996
        Francois Yergeau                   Mary Ellen Zurko
        Jean-Philippe Martin-Flatin
 
-14. References
---------------------------------------------------------
+/14. References
+========================================================
 
 
    [1]  Anklesaria, F., McCahill, M., Lindner, P., Johnson, D.,
@@ -3236,8 +3240,8 @@ RFC 1945                        HTTP/1.0                        May 1996
         Part 8: Latin/Hebrew alphabet, ISO 8859-8, 1988.
         Part 9: Latin alphabet No. 5, ISO 8859-9, 1990.
 
-15.  Authors' Addresses
---------------------------------------------------------
+/15.  Authors' Addresses
+========================================================
 
 
    Tim Berners-Lee
@@ -3616,7 +3620,7 @@ D.2.10 URI
 Berners-Lee, et al           Informational               [Page 60](#atoc){id=a60}
 
 
-Hypertext Transfer Protocol -- HTTP/1.1
+/Hypertext Transfer Protocol -- HTTP/1.1
 ========================================================
 
 https://www.rfc-editor.org/rfc/rfc2616.txt
@@ -3981,11 +3985,11 @@ RFC 2616                        HTTP/1.1                       June 1999
 - 20   Index ....................................................... [175](#b175)
 - 21   Full Copyright Statement .................................... [176](#b176)
 
-1 Introduction
---------------------------------------------------------
+/1 Introduction
+========================================================
 
 
-1.1 Purpose
+//1.1 Purpose
 --------------------------------------------------------
 
 
@@ -4035,7 +4039,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    and WAIS [10] protocols. In this way, HTTP allows basic hypermedia
    access to resources available from diverse applications.
 
-1.2 Requirements
+//1.2 Requirements
 --------------------------------------------------------
 
 
@@ -4051,7 +4055,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    level requirements but not all the SHOULD level requirements for its
    protocols is said to be "conditionally compliant."
 
-1.3 Terminology
+//1.3 Terminology
 --------------------------------------------------------
 
 
@@ -4258,7 +4262,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       messages: "inbound" means "traveling toward the origin server",
       and "outbound" means "traveling toward the user agent"
 
-1.4 Overall Operation
+//1.4 Overall Operation
 --------------------------------------------------------
 
 
@@ -4372,11 +4376,11 @@ RFC 2616                        HTTP/1.1                       June 1999
    one or more request/response exchanges, although connections may be
    closed for a variety of reasons (see section 8.1).
 
-2 Notational Conventions and Generic Grammar
---------------------------------------------------------
+/2 Notational Conventions and Generic Grammar
+========================================================
 
 
-2.1 Augmented BNF
+//2.1 Augmented BNF
 --------------------------------------------------------
 
 
@@ -4468,7 +4472,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       of "token" below), since they would otherwise be interpreted as a
       single token.
 
-2.2 Basic Rules
+//2.2 Basic Rules
 --------------------------------------------------------
 
 
@@ -4572,11 +4576,11 @@ RFC 2616                        HTTP/1.1                       June 1999
 
        quoted-pair    = "\" CHAR
 
-3 Protocol Parameters
---------------------------------------------------------
+/3 Protocol Parameters
+========================================================
 
 
-3.1 HTTP Version
+//3.1 HTTP Version
 --------------------------------------------------------
 
 
@@ -4641,7 +4645,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       Note: Converting between versions of HTTP may involve modification
       of header fields required or forbidden by the versions involved.
 
-3.2 Uniform Resource Identifiers
+//3.2 Uniform Resource Identifiers
 --------------------------------------------------------
 
 
@@ -4745,7 +4749,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       http://ABC.com/%7Esmith/home.html
       http://ABC.com:/%7esmith/home.html
 
-3.3 Date/Time Formats
+//3.3 Date/Time Formats
 --------------------------------------------------------
 
 
@@ -4825,7 +4829,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
        delta-seconds  = 1*DIGIT
 
-3.4 Character Sets
+//3.4 Character Sets
 --------------------------------------------------------
 
 
@@ -4903,7 +4907,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    recipient's preference, when initially displaying a document. See
    section 3.7.1.
 
-3.5 Content Codings
+//3.5 Content Codings
 --------------------------------------------------------
 
 
@@ -4969,7 +4973,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    publicly available and adequate for independent implementation, and
    conform to the purpose of content coding defined in this section.
 
-3.6 Transfer Codings
+//3.6 Transfer Codings
 --------------------------------------------------------
 
 
@@ -5101,7 +5105,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    "chunked" transfer-coding, and MUST ignore chunk-extension extensions
    they do not understand.
 
-3.7 Media Types
+//3.7 Media Types
 --------------------------------------------------------
 
 
@@ -5221,7 +5225,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       for carrying form data suitable for processing via the POST
       request method, as described in RFC 1867 [15].
 
-3.8 Product Tokens
+//3.8 Product Tokens
 --------------------------------------------------------
 
 
@@ -5256,7 +5260,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    the same product SHOULD only differ in the product-version portion of
    the product value).
 
-3.9 Quality Values
+//3.9 Quality Values
 --------------------------------------------------------
 
 
@@ -5276,7 +5280,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    "Quality values" is a misnomer, since these values merely represent
    relative degradation in desired quality.
 
-3.10 Language Tags
+//3.10 Language Tags
 --------------------------------------------------------
 
 
@@ -5314,7 +5318,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    last three tags above are not registered tags; all but the last are
    examples of tags which could be registered in future.)
 
-3.11 Entity Tags
+//3.11 Entity Tags
 --------------------------------------------------------
 
 
@@ -5345,7 +5349,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    requests on different URIs does not imply the equivalence of those
    entities.
 
-3.12 Range Units
+//3.12 Range Units
 --------------------------------------------------------
 
 
@@ -5372,11 +5376,11 @@ RFC 2616                        HTTP/1.1                       June 1999
    HTTP/1.1 has been designed to allow implementations of applications
    that do not depend on knowledge of ranges.
 
-4 HTTP Message
---------------------------------------------------------
+/4 HTTP Message
+========================================================
 
 
-4.1 Message Types
+//4.1 Message Types
 --------------------------------------------------------
 
 
@@ -5408,7 +5412,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    BNF, an HTTP/1.1 client MUST NOT preface or follow a request with an
    extra CRLF.
 
-4.2 Message Headers
+//4.2 Message Headers
 --------------------------------------------------------
 
 
@@ -5465,7 +5469,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    interpretation of the combined field value, and thus a proxy MUST NOT
    change the order of these field values when a message is forwarded.
 
-4.3 Message Body
+//4.3 Message Body
 --------------------------------------------------------
 
 
@@ -5514,7 +5518,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    MUST NOT include a message-body. All other responses do include a
    message-body, although it MAY be of zero length.
 
-4.4 Message Length
+//4.4 Message Length
 --------------------------------------------------------
 
 
@@ -5590,7 +5594,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    the message-body. HTTP/1.1 user agents MUST notify the user when an
    invalid length is received and detected.
 
-4.5 General Header Fields
+//4.5 General Header Fields
 --------------------------------------------------------
 
 
@@ -5624,8 +5628,8 @@ RFC 2616                        HTTP/1.1                       June 1999
    be general-header fields. Unrecognized header fields are treated as
    entity-header fields.
 
-5 Request
---------------------------------------------------------
+/5 Request
+========================================================
 
 
    A request message from a client to a server includes, within the
@@ -5639,7 +5643,7 @@ RFC 2616                        HTTP/1.1                       June 1999
                         CRLF
                         [ message-body ]          ; Section 4.3
 
-5.1 Request-Line
+//5.1 Request-Line
 --------------------------------------------------------
 
 
@@ -5781,7 +5785,7 @@ Fielding, et al.            Standards Track                    [Page 37](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-5.2 The Resource Identified by a Request
+//5.2 The Resource Identified by a Request
 --------------------------------------------------------
 
 
@@ -5814,7 +5818,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    something unique to a particular host) in order to determine what
    exact resource is being requested.
 
-5.3 Request Header Fields
+//5.3 Request Header Fields
 --------------------------------------------------------
 
 
@@ -5859,8 +5863,8 @@ RFC 2616                        HTTP/1.1                       June 1999
    be request-header fields. Unrecognized header fields are treated as
    entity-header fields.
 
-6 Response
---------------------------------------------------------
+/6 Response
+========================================================
 
 
    After receiving and interpreting a request message, a server responds
@@ -5873,7 +5877,7 @@ RFC 2616                        HTTP/1.1                       June 1999
                        CRLF
                        [ message-body ]          ; Section 7.2
 
-6.1 Status-Line
+//6.1 Status-Line
 --------------------------------------------------------
 
 
@@ -5995,7 +5999,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    with the response, since that entity is likely to include human-
    readable information which will explain the unusual status.
 
-6.2 Response Header Fields
+//6.2 Response Header Fields
 --------------------------------------------------------
 
 
@@ -6029,8 +6033,8 @@ RFC 2616                        HTTP/1.1                       June 1999
    be response-header fields. Unrecognized header fields are treated as
    entity-header fields.
 
-7 Entity
---------------------------------------------------------
+/7 Entity
+========================================================
 
 
    Request and Response messages MAY transfer an entity if not otherwise
@@ -6041,7 +6045,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    In this section, both sender and recipient refer to either the client
    or the server, depending on who sends and who receives the entity.
 
-7.1 Entity Header Fields
+//7.1 Entity Header Fields
 --------------------------------------------------------
 
 
@@ -6077,7 +6081,7 @@ Fielding, et al.            Standards Track                    [Page 42](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-7.2 Entity Body
+//7.2 Entity Body
 --------------------------------------------------------
 
 
@@ -6139,11 +6143,11 @@ Fielding, et al.            Standards Track                    [Page 43](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-8 Connections
---------------------------------------------------------
+/8 Connections
+========================================================
 
 
-8.1 Persistent Connections
+//8.1 Persistent Connections
 --------------------------------------------------------
 
 
@@ -6361,7 +6365,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    active users. These guidelines are intended to improve HTTP response
    times and avoid congestion.
 
-8.2 Message Transmission Requirements
+//8.2 Message Transmission Requirements
 --------------------------------------------------------
 
 
@@ -6564,8 +6568,8 @@ RFC 2616                        HTTP/1.1                       June 1999
       - SHOULD close the connection if it has not completed sending the
         request message.
 
-9 Method Definitions
---------------------------------------------------------
+/9 Method Definitions
+========================================================
 
 
    The set of common methods for HTTP/1.1 is defined below. Although
@@ -6575,7 +6579,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    The Host request-header field (section 14.23) MUST accompany all
    HTTP/1.1 requests.
 
-9.1 Safe and Idempotent Methods
+//9.1 Safe and Idempotent Methods
 --------------------------------------------------------
 
 
@@ -6633,7 +6637,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    (provided that no concurrent operations are being executed on the
    same set of resources).
 
-9.2 OPTIONS
+//9.2 OPTIONS
 --------------------------------------------------------
 
 
@@ -6696,7 +6700,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    no Max-Forwards field is present in the request, then the forwarded
    request MUST NOT include a Max-Forwards field.
 
-9.3 GET
+//9.3 GET
 --------------------------------------------------------
 
 
@@ -6737,7 +6741,7 @@ Fielding, et al.            Standards Track                    [Page 53](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-9.4 HEAD
+//9.4 HEAD
 --------------------------------------------------------
 
 
@@ -6758,7 +6762,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    or Last-Modified), then the cache MUST treat the cache entry as
    stale.
 
-9.5 POST
+//9.5 POST
 --------------------------------------------------------
 
 
@@ -6812,7 +6816,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
    See section 15.1.3 for security considerations.
 
-9.6 PUT
+//9.6 PUT
 --------------------------------------------------------
 
 
@@ -6875,7 +6879,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    entity-headers in the PUT request SHOULD be applied to the resource
    created or modified by the PUT.
 
-9.7 DELETE
+//9.7 DELETE
 --------------------------------------------------------
 
 
@@ -6898,7 +6902,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    one or more currently cached entities, those entries SHOULD be
    treated as stale. Responses to this method are not cacheable.
 
-9.8 TRACE
+//9.8 TRACE
 --------------------------------------------------------
 
 
@@ -6931,7 +6935,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    request message in the entity-body, with a Content-Type of
    "message/http". Responses to this method MUST NOT be cached.
 
-9.9 CONNECT
+//9.9 CONNECT
 --------------------------------------------------------
 
 
@@ -6948,7 +6952,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    method(s) it can follow and any metainformation required in the
    response.
 
-10.1 Informational 1xx
+//10.1 Informational 1xx
 --------------------------------------------------------
 
 
@@ -7012,7 +7016,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    protocol might be advantageous when delivering resources that use
    such features.
 
-10.2 Successful 2xx
+//10.2 Successful 2xx
 --------------------------------------------------------
 
 
@@ -7186,7 +7190,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    A cache that does not support the Range and Content-Range headers
    MUST NOT cache 206 (Partial) responses.
 
-10.3 Redirection 3xx
+//10.3 Redirection 3xx
 --------------------------------------------------------
 
 
@@ -7429,7 +7433,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    request unless it can be confirmed by the user, since this might
    change the conditions under which the request was issued.
 
-10.4 Client Error 4xx
+//10.4 Client Error 4xx
 --------------------------------------------------------
 
 
@@ -7733,7 +7737,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    the server has unambiguous evidence that the request could not be met
    by the next-hop server.
 
-10.5 Server Error 5xx
+//10.5 Server Error 5xx
 --------------------------------------------------------
 
 
@@ -7869,7 +7873,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    information provided by the origin server in order to provide
    server-driven negotiation for subsequent requests.
 
-12.1 Server-driven Negotiation
+//12.1 Server-driven Negotiation
 --------------------------------------------------------
 
 
@@ -7935,7 +7939,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    by caches and section 14.44 for use of the Vary header field by
    servers.
 
-12.2 Agent-driven Negotiation
+//12.2 Agent-driven Negotiation
 --------------------------------------------------------
 
 
@@ -7979,7 +7983,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    unwilling or unable to provide a varying response using server-driven
    negotiation.
 
-12.3 Transparent Negotiation
+//12.3 Transparent Negotiation
 --------------------------------------------------------
 
 
@@ -8299,7 +8303,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    support disconnected operation, or high availability in the face of
    poor connectivity.
 
-13.2 Expiration Model
+//13.2 Expiration Model
 --------------------------------------------------------
 
 
@@ -8627,7 +8631,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    deterministically between responses generated during the same second,
    if their expiration times overlap.
 
-13.3 Validation Model
+//13.3 Validation Model
 --------------------------------------------------------
 
 
@@ -8969,7 +8973,7 @@ Fielding, et al.            Standards Track                    [Page 90](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-13.4 Response Cacheability
+//13.4 Response Cacheability
 --------------------------------------------------------
 
 
@@ -9027,7 +9031,7 @@ Fielding, et al.            Standards Track                    [Page 91](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-13.5 Constructing Responses From Caches
+//13.5 Constructing Responses From Caches
 --------------------------------------------------------
 
 
@@ -9229,7 +9233,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    every response, and using the incoming response if these values are
    equal or missing), and MUST discard the other partial information.
 
-13.6 Caching Negotiated Responses
+//13.6 Caching Negotiated Responses
 --------------------------------------------------------
 
 
@@ -9302,7 +9306,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    existing entry SHOULD NOT be returned in response to future requests
    and SHOULD be deleted from the cache.
 
-13.7 Shared and Non-Shared Caches
+//13.7 Shared and Non-Shared Caches
 --------------------------------------------------------
 
 
@@ -9325,7 +9329,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    shared caches in order to prevent loss of privacy or failure of
    access controls.
 
-13.8 Errors or Incomplete Response Cache Behavior
+//13.8 Errors or Incomplete Response Cache Behavior
 --------------------------------------------------------
 
 
@@ -9346,7 +9350,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    includes the "must-revalidate" cache-control directive (see section
    14.9).
 
-13.9 Side Effects of GET and HEAD
+//13.9 Side Effects of GET and HEAD
 --------------------------------------------------------
 
 
@@ -9366,7 +9370,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    means that responses from HTTP/1.0 servers for such URIs SHOULD NOT
    be taken from a cache. See section 9.1.1 for related information.
 
-13.10 Invalidation After Updates or Deletions
+//13.10 Invalidation After Updates or Deletions
 --------------------------------------------------------
 
 
@@ -9413,7 +9417,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    understand SHOULD invalidate any entities referred to by the
    Request-URI.
 
-13.11 Write-Through Mandatory
+//13.11 Write-Through Mandatory
 --------------------------------------------------------
 
 
@@ -9441,7 +9445,7 @@ Fielding, et al.            Standards Track                    [Page 98](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-13.12 Cache Replacement
+//13.12 Cache Replacement
 --------------------------------------------------------
 
 
@@ -9457,7 +9461,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       Note: a new response that has an older Date header value than
       existing cached responses is not cacheable.
 
-13.13 History Lists
+//13.13 History Lists
 --------------------------------------------------------
 
 
@@ -9511,7 +9515,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    recipient refer to either the client or the server, depending on who
    sends and who receives the entity.
 
-14.1 Accept
+//14.1 Accept
 --------------------------------------------------------
 
 
@@ -9627,7 +9631,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       a closed system which cannot interact with other rendering agents,
       this default set ought to be configurable by the user.
 
-14.2 Accept-Charset
+//14.2 Accept-Charset
 --------------------------------------------------------
 
 
@@ -9661,7 +9665,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    an error response with the 406 (not acceptable) status code, though
    the sending of an unacceptable response is also allowed.
 
-14.3 Accept-Encoding
+//14.3 Accept-Encoding
 --------------------------------------------------------
 
 
@@ -9743,7 +9747,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       associated with content-codings. This means that qvalues will not
       work and are not permitted with x-gzip or x-compress.
 
-14.4 Accept-Language
+//14.4 Accept-Language
 --------------------------------------------------------
 
 
@@ -9816,7 +9820,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       user agent might suggest in such a case to add "en" to get the
       best matching behavior.
 
-14.5 Accept-Ranges
+//14.5 Accept-Ranges
 --------------------------------------------------------
 
 
@@ -9850,7 +9854,7 @@ Fielding, et al.            Standards Track                   [Page 105](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.6 Age
+//14.6 Age
 --------------------------------------------------------
 
 
@@ -9874,7 +9878,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       own cache. Caches SHOULD use an arithmetic type of at least 31
       bits of range.
 
-14.7 Allow
+//14.7 Allow
 --------------------------------------------------------
 
 
@@ -9914,7 +9918,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       understand all the methods specified, since the user agent might
       have other means of communicating with the origin server.
 
-14.8 Authorization
+//14.8 Authorization
 --------------------------------------------------------
 
 
@@ -9968,7 +9972,7 @@ Fielding, et al.            Standards Track                   [Page 107](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.9 Cache-Control
+//14.9 Cache-Control
 --------------------------------------------------------
 
 
@@ -10492,7 +10496,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    cacheability) such that the cache behavior will remain minimally
    correct even if the cache does not understand the extension(s).
 
-14.10 Connection
+//14.10 Connection
 --------------------------------------------------------
 
 
@@ -10544,7 +10548,7 @@ Fielding, et al.            Standards Track                   [Page 117](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.11 Content-Encoding
+//14.11 Content-Encoding
 --------------------------------------------------------
 
 
@@ -10582,7 +10586,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    Additional information about the encoding parameters MAY be provided
    by other entity-header fields not defined by this specification.
 
-14.12 Content-Language
+//14.12 Content-Language
 --------------------------------------------------------
 
 
@@ -10634,7 +10638,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    Content-Language MAY be applied to any media type -- it is not
    limited to textual documents.
 
-14.13 Content-Length
+//14.13 Content-Length
 --------------------------------------------------------
 
 
@@ -10673,7 +10677,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    to being transferred, unless this is prohibited by the rules in
    section 4.4.
 
-14.14 Content-Location
+//14.14 Content-Location
 --------------------------------------------------------
 
 
@@ -10720,7 +10724,7 @@ Fielding, et al.            Standards Track                   [Page 120](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.15 Content-MD5
+//14.15 Content-MD5
 --------------------------------------------------------
 
 
@@ -10790,7 +10794,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       Lastly, HTTP allows transmission of text types with any of several
       line break conventions and not just the canonical form using CRLF.
 
-14.16 Content-Range
+//14.16 Content-Range
 --------------------------------------------------------
 
 
@@ -10909,7 +10913,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       an unsatisfiable Range request-header, since not all servers
       implement this request-header.
 
-14.17 Content-Type
+//14.17 Content-Type
 --------------------------------------------------------
 
 
@@ -10926,7 +10930,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    Further discussion of methods for identifying the media type of an
    entity is provided in section 7.2.1.
 
-14.18 Date
+//14.18 Date
 --------------------------------------------------------
 
 
@@ -11010,7 +11014,7 @@ Fielding, et al.            Standards Track                   [Page 125](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.19 ETag
+//14.19 ETag
 --------------------------------------------------------
 
 
@@ -11028,7 +11032,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       ETag: W/"xyzzy"
       ETag: ""
 
-14.20 Expect
+//14.20 Expect
 --------------------------------------------------------
 
 
@@ -11081,7 +11085,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
    See section 8.2.3 for the use of the 100 (continue) status.
 
-14.21 Expires
+//14.21 Expires
 --------------------------------------------------------
 
 
@@ -11138,7 +11142,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    non-cacheable indicates that the response is cacheable, unless
    indicated otherwise by a Cache-Control header field (section 14.9).
 
-14.22 From
+//14.22 From
 --------------------------------------------------------
 
 
@@ -11173,7 +11177,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    user be able to disable, enable, and modify the value of this field
    at any time prior to a request.
 
-14.23 Host
+//14.23 Host
 --------------------------------------------------------
 
 
@@ -11217,7 +11221,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    See sections 5.2 and 19.6.1.1 for other requirements relating to
    Host.
 
-14.24 If-Match
+//14.24 If-Match
 --------------------------------------------------------
 
 
@@ -11285,7 +11289,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    either an If-None-Match or an If-Modified-Since header fields is
    undefined by this specification.
 
-14.25 If-Modified-Since
+//14.25 If-Modified-Since
 --------------------------------------------------------
 
 
@@ -11370,7 +11374,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    and either an If-Match or an If-Unmodified-Since header fields is
    undefined by this specification.
 
-14.26 If-None-Match
+//14.26 If-None-Match
 --------------------------------------------------------
 
 
@@ -11449,7 +11453,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    either an If-Match or an If-Unmodified-Since header fields is
    undefined by this specification.
 
-14.27 If-Range
+//14.27 If-Range
 --------------------------------------------------------
 
 
@@ -11490,7 +11494,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    response. If the entity tag does not match, then the server SHOULD
    return the entire entity using a 200 (OK) response.
 
-14.28 If-Unmodified-Since
+//14.28 If-Unmodified-Since
 --------------------------------------------------------
 
 
@@ -11520,7 +11524,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    field and either an If-None-Match or an If-Modified-Since header
    fields is undefined by this specification.
 
-14.29 Last-Modified
+//14.29 Last-Modified
 --------------------------------------------------------
 
 
@@ -11562,7 +11566,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
    HTTP/1.1 servers SHOULD send Last-Modified whenever feasible.
 
-14.30 Location
+//14.30 Location
 --------------------------------------------------------
 
 
@@ -11594,7 +11598,7 @@ Fielding, et al.            Standards Track                   [Page 135](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.31 Max-Forwards
+//14.31 Max-Forwards
 --------------------------------------------------------
 
 
@@ -11622,7 +11626,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    defined by this specification and for any extension methods for which
    it is not explicitly referred to as part of that method definition.
 
-14.32 Pragma
+//14.32 Pragma
 --------------------------------------------------------
 
 
@@ -11669,7 +11673,7 @@ RFC 2616                        HTTP/1.1                       June 1999
       header field is not actually specified, it does not provide a
       reliable replacement for "Cache-Control: no-cache" in a response
 
-14.33 Proxy-Authenticate
+//14.33 Proxy-Authenticate
 --------------------------------------------------------
 
 
@@ -11689,7 +11693,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    some circumstances will appear as if the proxy is forwarding the
    Proxy-Authenticate header field.
 
-14.34 Proxy-Authorization
+//14.34 Proxy-Authorization
 --------------------------------------------------------
 
 
@@ -11720,7 +11724,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    the mechanism by which the proxies cooperatively authenticate a given
    request.
 
-14.35 Range
+//14.35 Range
 --------------------------------------------------------
 
 
@@ -11862,7 +11866,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    SHOULD store the entire received response in its cache if that is
    consistent with its cache allocation policies.
 
-14.36 Referer
+//14.36 Referer
 --------------------------------------------------------
 
 
@@ -11894,7 +11898,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    relative to the Request-URI. The URI MUST NOT include a fragment. See
    section 15.1.3 for security considerations.
 
-14.37 Retry-After
+//14.37 Retry-After
 --------------------------------------------------------
 
 
@@ -11915,7 +11919,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
    In the latter example, the delay is 2 minutes.
 
-14.38 Server
+//14.38 Server
 --------------------------------------------------------
 
 
@@ -11950,7 +11954,7 @@ Fielding, et al.            Standards Track                   [Page 141](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-14.39 TE
+//14.39 TE
 --------------------------------------------------------
 
 
@@ -12017,7 +12021,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    transfer-coding  is "chunked". A message with no transfer-coding is
    always acceptable.
 
-14.40 Trailer
+//14.40 Trailer
 --------------------------------------------------------
 
 
@@ -12045,7 +12049,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
       . Trailer
 
-14.41 Transfer-Encoding
+//14.41 Transfer-Encoding
 --------------------------------------------------------
 
 
@@ -12076,7 +12080,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    Many older HTTP/1.0 applications do not understand the Transfer-
    Encoding header.
 
-14.42 Upgrade
+//14.42 Upgrade
 --------------------------------------------------------
 
 
@@ -12137,7 +12141,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    will only be useful if both the client and server associate the name
    with the same protocol.
 
-14.43 User-Agent
+//14.43 User-Agent
 --------------------------------------------------------
 
 
@@ -12158,7 +12162,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
        User-Agent: CERN-LineMode/2.15 libwww/2.17b3
 
-14.44 Vary
+//14.44 Vary
 --------------------------------------------------------
 
 
@@ -12210,7 +12214,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    The "*" value MUST NOT be generated by a proxy server; it may only be
    generated by an origin server.
 
-14.45  Via
+//14.45  Via
 --------------------------------------------------------
 
 
@@ -12305,7 +12309,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    replaced by pseudonyms. Applications MUST NOT combine entries which
    have different received-protocol values.
 
-14.46 Warning
+//14.46 Warning
 --------------------------------------------------------
 
 
@@ -12438,7 +12442,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    of the warning-values are deleted for this reason, the Warning header
    MUST be deleted as well.
 
-14.47 WWW-Authenticate
+//14.47 WWW-Authenticate
 --------------------------------------------------------
 
 
@@ -12475,7 +12479,7 @@ Fielding, et al.            Standards Track                   [Page 150](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-15.1 Personal Information
+//15.1 Personal Information
 --------------------------------------------------------
 
 
@@ -12626,7 +12630,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    configurability SHOULD warn users about the loss of privacy which can
    be involved.
 
-15.2 Attacks Based On File and Path Names
+//15.2 Attacks Based On File and Path Names
 --------------------------------------------------------
 
 
@@ -12655,7 +12659,7 @@ Fielding, et al.            Standards Track                   [Page 153](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-15.3 DNS Spoofing
+//15.3 DNS Spoofing
 --------------------------------------------------------
 
 
@@ -12689,7 +12693,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    likelihood of a user's experiencing failure in accessing sites which
    use that strategy.
 
-15.4 Location Headers and Spoofing
+//15.4 Location Headers and Spoofing
 --------------------------------------------------------
 
 
@@ -12699,7 +12703,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    said organizations to make sure that they do not attempt to
    invalidate resources over which they have no authority.
 
-15.5 Content-Disposition Issues
+//15.5 Content-Disposition Issues
 --------------------------------------------------------
 
 
@@ -12717,7 +12721,7 @@ Fielding, et al.            Standards Track                   [Page 154](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-15.6 Authentication Credentials and Idle Clients
+//15.6 Authentication Credentials and Idle Clients
 --------------------------------------------------------
 
 
@@ -12745,7 +12749,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    encouraged to provide a readily accessible mechanism for discarding
    cached credentials under user control.
 
-15.7 Proxies and Caching
+//15.7 Proxies and Caching
 --------------------------------------------------------
 
 
@@ -13241,7 +13245,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
 
 
-19.1 Internet Media Type message/http and application/http
+//19.1 Internet Media Type message/http and application/http
 --------------------------------------------------------
 
 
@@ -13297,7 +13301,7 @@ Fielding, et al.            Standards Track                   [Page 164](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-19.2 Internet Media Type multipart/byteranges
+//19.2 Internet Media Type multipart/byteranges
 --------------------------------------------------------
 
 
@@ -13364,7 +13368,7 @@ RFC 2616                        HTTP/1.1                       June 1999
          multipart/x-byteranges, which is almost, but not quite
          compatible with the version documented in HTTP/1.1.
 
-19.3 Tolerant Applications
+//19.3 Tolerant Applications
 --------------------------------------------------------
 
 
@@ -13417,7 +13421,7 @@ RFC 2616                        HTTP/1.1                       June 1999
         zone other than GMT, it MUST be converted into GMT using the
         most conservative possible conversion.
 
-19.4 Differences Between HTTP Entities and RFC 2045 Entities
+//19.4 Differences Between HTTP Entities and RFC 2045 Entities
 --------------------------------------------------------
 
 
@@ -13582,7 +13586,7 @@ RFC 2616                        HTTP/1.1                       June 1999
    does not interpret the content or any MIME header lines that might be
    contained therein.
 
-19.5 Additional Features
+//19.5 Additional Features
 --------------------------------------------------------
 
 
@@ -13639,7 +13643,7 @@ RFC 2616                        HTTP/1.1                       June 1999
 
    See section 15.5 for Content-Disposition security issues.
 
-19.6 Compatibility with Previous Versions
+//19.6 Compatibility with Previous Versions
 --------------------------------------------------------
 
 
@@ -13950,8 +13954,8 @@ Fielding, et al.            Standards Track                   [Page 175](#btoc){
 RFC 2616                        HTTP/1.1                       June 1999
 
 
-21.  Full Copyright Statement
---------------------------------------------------------
+/21.  Full Copyright Statement
+========================================================
 
 
    Copyright (C) The Internet Society (1999).  All Rights Reserved.
@@ -14076,7 +14080,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
    designed to provide channel-oriented security. This document
    describes how to use HTTP over TLS.
 
-1.1.  Requirements Terminology
+//1.1.  Requirements Terminology
 --------------------------------------------------------
 
 
@@ -14092,7 +14096,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
    Conceptually, HTTP/TLS is very simple. Simply use HTTP over TLS
    precisely as you would use HTTP over TCP.
 
-2.1.  Connection Initiation
+//2.1.  Connection Initiation
 --------------------------------------------------------
 
 
@@ -14104,7 +14108,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
    "application data".  Normal HTTP behavior, including retained
    connections should be followed.
 
-2.2.  Connection Closure
+//2.2.  Connection Closure
 --------------------------------------------------------
 
 
@@ -14204,7 +14208,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
    connection after sending the closure alert, thus generating an
    incomplete close on the client side.
 
-2.3.  Port Number
+//2.3.  Port Number
 --------------------------------------------------------
 
 
@@ -14218,7 +14222,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
    transport. TLS only presumes a reliable connection-oriented data
    stream.
 
-2.4.  URI Format
+//2.4.  URI Format
 --------------------------------------------------------
 
 
@@ -14233,7 +14237,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
 
 
 
-3.1.  Server Identity
+//3.1.  Server Identity
 --------------------------------------------------------
 
 
@@ -14298,7 +14302,7 @@ RFC 2818                     HTTP Over TLS                      May 2000
    examine the certificate presented by the server to determine if it
    meets their expectations.
 
-3.2.  Client Identity
+//3.2.  Client Identity
 --------------------------------------------------------
 
 
@@ -14426,7 +14430,7 @@ Acknowledgement
 Rescorla                     Informational                      [Page 7](#ctoc){id=c7}
 
 
-The Secure Sockets Layer (SSL) Protocol Version 3.0
+/The Secure Sockets Layer (SSL) Protocol Version 3.0
 ========================================================
 
 https://www.rfc-editor.org/rfc/rfc6101.txt
@@ -14787,7 +14791,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    presentation language is to document SSL only, not to have general
    application beyond that particular goal.
 
-4.1.  Basic Block Size
+//4.1.  Basic Block Size
 --------------------------------------------------------
 
 
@@ -14803,7 +14807,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    This byte ordering for multi-byte values is the commonplace network
    byte order or big-endian format.
 
-4.2.  Miscellaneous
+//4.2.  Miscellaneous
 --------------------------------------------------------
 
 
@@ -14811,7 +14815,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    denoted by enclosing them in "[[ ]]" double brackets.  Single-byte
    entities containing uninterpreted data are of type opaque.
 
-4.3.  Vectors
+//4.3.  Vectors
 --------------------------------------------------------
 
 
@@ -14868,7 +14872,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
         uint16 longer<0..800>;
               /* zero to 400 16-bit unsigned integers */
 
-4.4.  Numbers
+//4.4.  Numbers
 --------------------------------------------------------
 
 
@@ -14882,7 +14886,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
         uint8 uint32[4];
         uint8 uint64[8];
 
-4.5.  Enumerateds
+//4.5.  Enumerateds
 --------------------------------------------------------
 
 
@@ -14932,7 +14936,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
 
         enum { low, medium, high } Amount;
 
-4.6.  Constructed Types
+//4.6.  Constructed Types
 --------------------------------------------------------
 
 
@@ -15029,7 +15033,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    is a narrowed type of a VariantRecord containing a variant_body of
    type V2.
 
-4.7.  Cryptographic Attributes
+//4.7.  Cryptographic Attributes
 --------------------------------------------------------
 
 
@@ -15079,7 +15083,7 @@ Freier, et al.                  Historic                       [Page 11](#dtoc){
 RFC 6101              The SSL Protocol Version 3.0           August 2011
 
 
-4.8.  Constants
+//4.8.  Constants
 --------------------------------------------------------
 
 
@@ -15109,7 +15113,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    result.  Received data is decrypted, verified, decompressed, and
    reassembled, then delivered to higher level clients.
 
-5.1.  Session and Connection States
+//5.1.  Session and Connection States
 --------------------------------------------------------
 
 
@@ -15204,7 +15208,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
       appropriate sequence number is set to zero.  Sequence numbers are
       of type uint64 and may not exceed 2^64-1.
 
-5.2.  Record Layer
+//5.2.  Record Layer
 --------------------------------------------------------
 
 
@@ -15447,7 +15451,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    is provided by the handshake protocol.  The IV for subsequent records
    is the last ciphertext block from the previous record.
 
-5.3.  Change Cipher Spec Protocol
+//5.3.  Change Cipher Spec Protocol
 --------------------------------------------------------
 
 
@@ -15473,7 +15477,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    session, the change cipher spec message is sent after the hello
    messages.
 
-5.4.  Alert Protocol
+//5.4.  Alert Protocol
 --------------------------------------------------------
 
 
@@ -15610,7 +15614,7 @@ Freier, et al.                  Historic                       [Page 20](#dtoc){
 RFC 6101              The SSL Protocol Version 3.0           August 2011
 
 
-5.5.  Handshake Protocol Overview
+//5.5.  Handshake Protocol Overview
 --------------------------------------------------------
 
 
@@ -15738,7 +15742,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    The contents and significance of each message will be presented in
    detail in the following sections.
 
-5.6.  Handshake Protocol
+//5.6.  Handshake Protocol
 --------------------------------------------------------
 
 
@@ -16484,7 +16488,7 @@ Freier, et al.                  Historic                       [Page 35](#dtoc){
 RFC 6101              The SSL Protocol Version 3.0           August 2011
 
 
-5.7.  Application Data Protocol
+//5.7.  Application Data Protocol
 --------------------------------------------------------
 
 
@@ -16502,7 +16506,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    determined by the cipher_suite selected by the server and revealed in
    the server hello message.
 
-6.1.  Asymmetric Cryptographic Computations
+//6.1.  Asymmetric Cryptographic Computations
 --------------------------------------------------------
 
 
@@ -16571,7 +16575,7 @@ RFC 6101              The SSL Protocol Version 3.0           August 2011
    in the key exchange message; the master_secret is only used for MAC
    computations.
 
-6.2.  Symmetric Cryptographic Calculations and the CipherSpec
+//6.2.  Symmetric Cryptographic Calculations and the CipherSpec
 --------------------------------------------------------
 
 
@@ -18304,7 +18308,7 @@ Freier, et al.                  Historic                       [Page 67](#dtoc){
 
 
 
-Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content
+/Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content
 ========================================================
 
 https://www.rfc-editor.org/rfc/rfc7231.html
@@ -18367,7 +18371,7 @@ Status of This Memo
 
 
 
-Fielding & Reschke           Standards Track                    [Page 1]
+Fielding & Reschke           Standards Track                    [Page 1](#te01){id=pe01}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18423,7 +18427,7 @@ Copyright Notice
 
 
 
-Fielding & Reschke           Standards Track                    [Page 2]
+Fielding & Reschke           Standards Track                    [Page 2](#te02){id=pe02}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18431,160 +18435,160 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 [Table of Contents](){id=etoc}
 --------------------------------------------------------
 
-   1. Introduction ....................................................6
-      1.1. Conformance and Error Handling .............................6
-      1.2. Syntax Notation ............................................6
-   2. Resources .......................................................7
-   3. Representations .................................................7
-      3.1. Representation Metadata ....................................8
-           3.1.1. Processing Representation Data ......................8
-           3.1.2. Encoding for Compression or Integrity ..............11
-           3.1.3. Audience Language ..................................13
-           3.1.4. Identification .....................................14
-      3.2. Representation Data .......................................17
-      3.3. Payload Semantics .........................................17
-      3.4. Content Negotiation .......................................18
-           3.4.1. Proactive Negotiation ..............................19
-           3.4.2. Reactive Negotiation ...............................20
-   4. Request Methods ................................................21
-      4.1. Overview ..................................................21
-      4.2. Common Method Properties ..................................22
-           4.2.1. Safe Methods .......................................22
-           4.2.2. Idempotent Methods .................................23
-           4.2.3. Cacheable Methods ..................................24
-      4.3. Method Definitions ........................................24
-           4.3.1. GET ................................................24
-           4.3.2. HEAD ...............................................25
-           4.3.3. POST ...............................................25
-           4.3.4. PUT ................................................26
-           4.3.5. DELETE .............................................29
-           4.3.6. CONNECT ............................................30
-           4.3.7. OPTIONS ............................................31
-           4.3.8. TRACE ..............................................32
-   5. Request Header Fields ..........................................33
-      5.1. Controls ..................................................33
-           5.1.1. Expect .............................................34
-           5.1.2. Max-Forwards .......................................36
-      5.2. Conditionals ..............................................36
-      5.3. Content Negotiation .......................................37
-           5.3.1. Quality Values .....................................37
-           5.3.2. Accept .............................................38
-           5.3.3. Accept-Charset .....................................40
-           5.3.4. Accept-Encoding ....................................41
-           5.3.5. Accept-Language ....................................42
-      5.4. Authentication Credentials ................................44
-      5.5. Request Context ...........................................44
-           5.5.1. From ...............................................44
-           5.5.2. Referer ............................................45
-           5.5.3. User-Agent .........................................46
+- 1. Introduction ............................................... [6](#pe06){id=te06}
+-    1.1. Conformance and Error Handling ........................ [6](#pe06){id=te06}
+-    1.2. Syntax Notation ....................................... [6](#pe06){id=te06}
+- 2. Resources .................................................. [7](#pe07){id=te07}
+- 3. Representations ............................................ [7](#pe07){id=te07}
+-    3.1. Representation Metadata ............................... [8](#pe08){id=te08}
+-         3.1.1. Processing Representation Data ................. [8](#pe08){id=te08}
+-         3.1.2. Encoding for Compression or Integrity ......... [11](#pe11){id=te11}
+-         3.1.3. Audience Language ............................. [13](#pe13){id=te13}
+-         3.1.4. Identification ................................ [14](#pe14){id=te14}
+-    3.2. Representation Data .................................. [17](#pe17){id=te17}
+-    3.3. Payload Semantics .................................... [17](#pe17){id=te17}
+-    3.4. Content Negotiation .................................. [18](#pe18){id=te18}
+-         3.4.1. Proactive Negotiation ......................... [19](#pe19){id=te19}
+-         3.4.2. Reactive Negotiation .......................... [20](#pe20){id=te20}
+- 4. Request Methods ........................................... [21](#pe21){id=te21}
+-    4.1. Overview ............................................. [21](#pe21){id=te21}
+-    4.2. Common Method Properties ............................. [22](#pe22){id=te22}
+-         4.2.1. Safe Methods .................................. [22](#pe22){id=te22}
+-         4.2.2. Idempotent Methods ............................ [23](#pe23){id=te23}
+-         4.2.3. Cacheable Methods ............................. [24](#pe24){id=te24}
+-    4.3. Method Definitions ................................... [24](#pe24){id=te24}
+-         4.3.1. GET ........................................... [24](#pe24){id=te24}
+-         4.3.2. HEAD .......................................... [25](#pe25){id=te25}
+-         4.3.3. POST .......................................... [25](#pe25){id=te25}
+-         4.3.4. PUT ........................................... [26](#pe26){id=te26}
+-         4.3.5. DELETE ........................................ [29](#pe29){id=te29}
+-         4.3.6. CONNECT ....................................... [30](#pe30){id=te30}
+-         4.3.7. OPTIONS ....................................... [31](#pe31){id=te31}
+-         4.3.8. TRACE ......................................... [32](#pe32){id=te32}
+- 5. Request Header Fields ..................................... [33](#pe33){id=te33}
+-    5.1. Controls ............................................. [33](#pe33){id=te33}
+-         5.1.1. Expect ........................................ [34](#pe34){id=te34}
+-         5.1.2. Max-Forwards .................................. [36](#pe36){id=te36}
+-    5.2. Conditionals ......................................... [36](#pe36){id=te36}
+-    5.3. Content Negotiation .................................. [37](#pe37){id=te37}
+-         5.3.1. Quality Values ................................ [37](#pe37){id=te37}
+-         5.3.2. Accept ........................................ [38](#pe38){id=te38}
+-         5.3.3. Accept-Charset ................................ [40](#pe40){id=te40}
+-         5.3.4. Accept-Encoding ............................... [41](#pe41){id=te41}
+-         5.3.5. Accept-Language ............................... [42](#pe42){id=te42}
+-    5.4. Authentication Credentials ........................... [44](#pe44){id=te44}
+-    5.5. Request Context ...................................... [44](#pe44){id=te44}
+-         5.5.1. From .......................................... [44](#pe44){id=te44}
+-         5.5.2. Referer ....................................... [45](#pe45){id=te45}
+-         5.5.3. User-Agent .................................... [46](#pe46){id=te46}
 
 
 
-Fielding & Reschke           Standards Track                    [Page 3]
+Fielding & Reschke           Standards Track                    [Page 3](#te03){id=pe03}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-   6. Response Status Codes ..........................................47
-      6.1. Overview of Status Codes ..................................48
-      6.2. Informational 1xx .........................................50
-           6.2.1. 100 Continue .......................................50
-           6.2.2. 101 Switching Protocols ............................50
-      6.3. Successful 2xx ............................................51
-           6.3.1. 200 OK .............................................51
-           6.3.2. 201 Created ........................................52
-           6.3.3. 202 Accepted .......................................52
-           6.3.4. 203 Non-Authoritative Information ..................52
-           6.3.5. 204 No Content .....................................53
-           6.3.6. 205 Reset Content ..................................53
-      6.4. Redirection 3xx ...........................................54
-           6.4.1. 300 Multiple Choices ...............................55
-           6.4.2. 301 Moved Permanently ..............................56
-           6.4.3. 302 Found ..........................................56
-           6.4.4. 303 See Other ......................................57
-           6.4.5. 305 Use Proxy ......................................58
-           6.4.6. 306 (Unused) .......................................58
-           6.4.7. 307 Temporary Redirect .............................58
-      6.5. Client Error 4xx ..........................................58
-           6.5.1. 400 Bad Request ....................................58
-           6.5.2. 402 Payment Required ...............................59
-           6.5.3. 403 Forbidden ......................................59
-           6.5.4. 404 Not Found ......................................59
-           6.5.5. 405 Method Not Allowed .............................59
-           6.5.6. 406 Not Acceptable .................................60
-           6.5.7. 408 Request Timeout ................................60
-           6.5.8. 409 Conflict .......................................60
-           6.5.9. 410 Gone ...........................................60
-           6.5.10. 411 Length Required ...............................61
-           6.5.11. 413 Payload Too Large .............................61
-           6.5.12. 414 URI Too Long ..................................61
-           6.5.13. 415 Unsupported Media Type ........................62
-           6.5.14. 417 Expectation Failed ............................62
-           6.5.15. 426 Upgrade Required ..............................62
-      6.6. Server Error 5xx ..........................................62
-           6.6.1. 500 Internal Server Error ..........................63
-           6.6.2. 501 Not Implemented ................................63
-           6.6.3. 502 Bad Gateway ....................................63
-           6.6.4. 503 Service Unavailable ............................63
-           6.6.5. 504 Gateway Timeout ................................63
-           6.6.6. 505 HTTP Version Not Supported .....................64
-   7. Response Header Fields .........................................64
-      7.1. Control Data ..............................................64
-ed            7.1.1. Origination Date ...................................65
-           7.1.2. Location ...........................................68
-           7.1.3. Retry-After ........................................69
+- 6. Response Status Codes ..................................... [47](#pe47){id=te47}
+-    6.1. Overview of Status Codes ............................. [48](#pe48){id=te48}
+-    6.2. Informational 1xx .................................... [50](#pe50){id=te50}
+-         6.2.1. 100 Continue .................................. [50](#pe50){id=te50}
+-         6.2.2. 101 Switching Protocols ....................... [50](#pe50){id=te50}
+-    6.3. Successful 2xx ....................................... [51](#pe51){id=te51}
+-         6.3.1. 200 OK ........................................ [51](#pe51){id=te51}
+-         6.3.2. 201 Created ................................... [52](#pe52){id=te52}
+-         6.3.3. 202 Accepted .................................. [52](#pe52){id=te52}
+-         6.3.4. 203 Non-Authoritative Information ............. [52](#pe52){id=te52}
+-         6.3.5. 204 No Content ................................ [53](#pe53){id=te53}
+-         6.3.6. 205 Reset Content ............................. [53](#pe53){id=te53}
+-    6.4. Redirection 3xx ...................................... [54](#pe54){id=te54}
+-         6.4.1. 300 Multiple Choices .......................... [55](#pe55){id=te55}
+-         6.4.2. 301 Moved Permanently ......................... [56](#pe56){id=te56}
+-         6.4.3. 302 Found ..................................... [56](#pe56){id=te56}
+-         6.4.4. 303 See Other ................................. [57](#pe57){id=te57}
+-         6.4.5. 305 Use Proxy ................................. [58](#pe58){id=te58}
+-         6.4.6. 306 (Unused) .................................. [58](#pe58){id=te58}
+-         6.4.7. 307 Temporary Redirect ........................ [58](#pe58){id=te58}
+-    6.5. Client Error 4xx ..................................... [58](#pe58){id=te58}
+-         6.5.1. 400 Bad Request ............................... [58](#pe58){id=te58}
+-         6.5.2. 402 Payment Required .......................... [59](#pe59){id=te59}
+-         6.5.3. 403 Forbidden ................................. [59](#pe59){id=te59}
+-         6.5.4. 404 Not Found ................................. [59](#pe59){id=te59}
+-         6.5.5. 405 Method Not Allowed ........................ [59](#pe59){id=te59}
+-         6.5.6. 406 Not Acceptable ............................ [60](#pe60){id=te60}
+-         6.5.7. 408 Request Timeout ........................... [60](#pe60){id=te60}
+-         6.5.8. 409 Conflict .................................. [60](#pe60){id=te60}
+-         6.5.9. 410 Gone ...................................... [60](#pe60){id=te60}
+-         6.5.10. 411 Length Required .......................... [61](#pe61){id=te61}
+-         6.5.11. 413 Payload Too Large ........................ [61](#pe61){id=te61}
+-         6.5.12. 414 URI Too Long ............................. [61](#pe61){id=te61}
+-         6.5.13. 415 Unsupported Media Type ................... [62](#pe62){id=te62}
+-         6.5.14. 417 Expectation Failed ....................... [62](#pe62){id=te62}
+-         6.5.15. 426 Upgrade Required ......................... [62](#pe62){id=te62}
+-    6.6. Server Error 5xx ..................................... [62](#pe62){id=te62}
+-         6.6.1. 500 Internal Server Error ..................... [63](#pe63){id=te63}
+-         6.6.2. 501 Not Implemented ........................... [63](#pe63){id=te63}
+-         6.6.3. 502 Bad Gateway ............................... [63](#pe63){id=te63}
+-         6.6.4. 503 Service Unavailable ....................... [63](#pe63){id=te63}
+-         6.6.5. 504 Gateway Timeout ........................... [63](#pe63){id=te63}
+-         6.6.6. 505 HTTP Version Not Supported ................ [64](#pe64){id=te64}
+- 7. Response Header Fields .................................... [64](#pe64){id=te64}
+-    7.1. Control Data ......................................... [64](#pe64){id=te64}
+-         7.1.1. Origination Date .............................. [65](#pe65){id=te65}
+-         7.1.2. Location ...................................... [68](#pe68){id=te68}
+-         7.1.3. Retry-After ................................... [69](#pe69){id=te69}
 
 
 
-Fielding & Reschke           Standards Track                    [Page 4]
+Fielding & Reschke           Standards Track                    [Page 4](#te04){id=pe04}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-           7.1.4. Vary ...............................................70
-      7.2. Validator Header Fields ...................................71
-      7.3. Authentication Challenges .................................72
-      7.4. Response Context ..........................................72
-           7.4.1. Allow ..............................................72
-           7.4.2. Server .............................................73
-   8. IANA Considerations ............................................73
-      8.1. Method Registry ...........................................73
-           8.1.1. Procedure ..........................................74
-           8.1.2. Considerations for New Methods .....................74
-           8.1.3. Registrations ......................................75
-      8.2. Status Code Registry ......................................75
-           8.2.1. Procedure ..........................................75
-           8.2.2. Considerations for New Status Codes ................76
-           8.2.3. Registrations ......................................76
-      8.3. Header Field Registry .....................................77
-           8.3.1. Considerations for New Header Fields ...............78
-           8.3.2. Registrations ......................................80
-      8.4. Content Coding Registry ...................................81
-           8.4.1. Procedure ..........................................81
-           8.4.2. Registrations ......................................81
-   9. Security Considerations ........................................81
-      9.1. Attacks Based on File and Path Names ......................82
-      9.2. Attacks Based on Command, Code, or Query Injection ........82
-      9.3. Disclosure of Personal Information ........................83
-      9.4. Disclosure of Sensitive Information in URIs ...............83
-      9.5. Disclosure of Fragment after Redirects ....................84
-      9.6. Disclosure of Product Information .........................84
-      9.7. Browser Fingerprinting ....................................84
-   10. Acknowledgments ...............................................85
-   11. References ....................................................85
-      11.1. Normative References .....................................85
-      11.2. Informative References ...................................86
-   Appendix A. Differences between HTTP and MIME .....................89
-      A.1. MIME-Version ..............................................89
-      A.2. Conversion to Canonical Form ..............................89
-      A.3. Conversion of Date Formats ................................90
-      A.4. Conversion of Content-Encoding ............................90
-      A.5. Conversion of Content-Transfer-Encoding ...................90
-      A.6. MHTML and Line Length Limitations .........................90
-   Appendix B. Changes from RFC 2616 .................................91
-   Appendix C. Imported ABNF .........................................93
-   Appendix D. Collected ABNF ........................................94
-   Index .............................................................97
+-         7.1.4. Vary .......................................... [70](#pe70){id=te70}
+-    7.2. Validator Header Fields .............................. [71](#pe71){id=te71}
+-    7.3. Authentication Challenges ............................ [72](#pe72){id=te72}
+-    7.4. Response Context ..................................... [72](#pe72){id=te72}
+-         7.4.1. Allow ......................................... [72](#pe72){id=te72}
+-         7.4.2. Server ........................................ [73](#pe73){id=te73}
+- 8. IANA Considerations ....................................... [73](#pe73){id=te73}
+-    8.1. Method Registry ...................................... [73](#pe73){id=te73}
+-         8.1.1. Procedure ..................................... [74](#pe74){id=te74}
+-         8.1.2. Considerations for New Methods ................ [74](#pe74){id=te74}
+-         8.1.3. Registrations ................................. [75](#pe75){id=te75}
+-    8.2. Status Code Registry ................................. [75](#pe75){id=te75}
+-         8.2.1. Procedure ..................................... [75](#pe75){id=te75}
+-         8.2.2. Considerations for New Status Codes ........... [76](#pe76){id=te76}
+-         8.2.3. Registrations ................................. [76](#pe76){id=te76}
+-    8.3. Header Field Registry ................................ [77](#pe77){id=te77}
+-         8.3.1. Considerations for New Header Fields .......... [78](#pe78){id=te78}
+-         8.3.2. Registrations ................................. [80](#pe80){id=te80}
+-    8.4. Content Coding Registry .............................. [81](#pe81){id=te81}
+-         8.4.1. Procedure ..................................... [81](#pe81){id=te81}
+-         8.4.2. Registrations ................................. [81](#pe81){id=te81}
+- 9. Security Considerations ................................... [81](#pe81){id=te81}
+-    9.1. Attacks Based on File and Path Names ................. [82](#pe82){id=te82}
+-    9.2. Attacks Based on Command, Code, or Query Injection ... [82](#pe82){id=te82}
+-    9.3. Disclosure of Personal Information ................... [83](#pe83){id=te83}
+-    9.4. Disclosure of Sensitive Information in URIs .......... [83](#pe83){id=te83}
+-    9.5. Disclosure of Fragment after Redirects ............... [84](#pe84){id=te84}
+-    9.6. Disclosure of Product Information .................... [84](#pe84){id=te84}
+-    9.7. Browser Fingerprinting ............................... [84](#pe84){id=te84}
+- 10. Acknowledgments .......................................... [85](#pe85){id=te85}
+- 11. References ............................................... [85](#pe85){id=te85}
+-    11.1. Normative References ................................ [85](#pe85){id=te85}
+-    11.2. Informative References .............................. [86](#pe86){id=te86}
+- Appendix A. Differences between HTTP and MIME ................ [89](#pe89){id=te89}
+-    A.1. MIME-Version ......................................... [89](#pe89){id=te89}
+-    A.2. Conversion to Canonical Form ......................... [89](#pe89){id=te89}
+-    A.3. Conversion of Date Formats ........................... [90](#pe90){id=te90}
+-    A.4. Conversion of Content-Encoding ....................... [90](#pe90){id=te90}
+-    A.5. Conversion of Content-Transfer-Encoding .............. [90](#pe90){id=te90}
+-    A.6. MHTML and Line Length Limitations .................... [90](#pe90){id=te90}
+- Appendix B. Changes from RFC 2616 ............................ [91](#pe91){id=te91}
+- Appendix C. Imported ABNF .................................... [93](#pe93){id=te93}
+- Appendix D. Collected ABNF ................................... [94](#pe94){id=te94}
+- Index ........................................................ [97](#pe97){id=te97}
 
 
 
@@ -18592,12 +18596,13 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                    [Page 5]
+Fielding & Reschke           Standards Track                    [Page 5](#te05){id=pe05}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-1.  Introduction
+/1.  Introduction
+========================================================
 
    Each Hypertext Transfer Protocol (HTTP) message is either a request
    or a response.  A server listens on a connection for a request,
@@ -18627,7 +18632,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    selection algorithms that are collectively referred to as "content
    negotiation" (Section 3.4).
 
-1.1.  Conformance and Error Handling
+//1.1.  Conformance and Error Handling
+--------------------------------------------------------
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
@@ -18636,7 +18642,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    Conformance criteria and considerations regarding error handling are
    defined in Section 2.5 of [RFC7230].
 
-1.2.  Syntax Notation
+//1.2.  Syntax Notation
+--------------------------------------------------------
 
    This specification uses the Augmented Backus-Naur Form (ABNF)
    notation of [RFC5234] with a list extension, defined in Section 7 of
@@ -18648,7 +18655,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                    [Page 6]
+Fielding & Reschke           Standards Track                    [Page 6](#te06){id=pe06}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18657,7 +18664,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    scheme", "charset", and "protocol element" as they are defined in
    [RFC6365].
 
-2.  Resources
+/2.  Resources
+========================================================
 
    The target of an HTTP request is called a "resource".  HTTP does not
    limit the nature of a resource; it merely defines an interface that
@@ -18679,7 +18687,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    itself, as described in Section 4.2.1, the method semantics take
    precedence.
 
-3.  Representations
+/3.  Representations
+========================================================
 
    Considering that a resource could be anything, and that the uniform
    interface provided by HTTP is similar to a window through which one
@@ -18704,7 +18713,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                    [Page 7]
+Fielding & Reschke           Standards Track                    [Page 7](#te07){id=pe07}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18713,7 +18722,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    constructing the payload for 200 (OK) and 304 (Not Modified)
    responses to GET (Section 4.3.1).
 
-3.1.  Representation Metadata
+//3.1.  Representation Metadata
+--------------------------------------------------------
 
    Representation header fields provide metadata about the
    representation.  When a message includes a payload body, the
@@ -18760,7 +18770,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                    [Page 8]
+Fielding & Reschke           Standards Track                    [Page 8](#te08){id=pe08}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18816,7 +18826,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                    [Page 9]
+Fielding & Reschke           Standards Track                    [Page 9](#te08){id=pe09}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18872,7 +18882,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 10]
+Fielding & Reschke           Standards Track                   [Page 10](#te08){id=pe10}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18928,7 +18938,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 11]
+Fielding & Reschke           Standards Track                   [Page 11](#te11){id=pe11}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -18984,7 +18994,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 12]
+Fielding & Reschke           Standards Track                   [Page 12](#te11){id=pe12}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19040,7 +19050,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 13]
+Fielding & Reschke           Standards Track                   [Page 13](#te13){id=pe13}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19096,7 +19106,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 14]
+Fielding & Reschke           Standards Track                   [Page 14](#te14){id=pe14}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19152,7 +19162,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 15]
+Fielding & Reschke           Standards Track                   [Page 15](#te14){id=pe15}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19208,7 +19218,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 16]
+Fielding & Reschke           Standards Track                   [Page 16](#te14){id=pe16}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19230,7 +19240,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    wanted the latter semantics, it would have applied the PUT directly
    to the Content-Location URI.
 
-3.2.  Representation Data
+//3.2.  Representation Data
+--------------------------------------------------------
 
    The representation data associated with an HTTP message is either
    provided as the payload body of the message or referred to by the
@@ -19244,7 +19255,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
      representation-data := Content-Encoding( Content-Type( bits ) )
 
-3.3.  Payload Semantics
+//3.3.  Payload Semantics
+--------------------------------------------------------
 
    Some HTTP messages transfer a complete or partial representation as
    the message "payload".  In some cases, a payload might contain only
@@ -19264,7 +19276,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 17]
+Fielding & Reschke           Standards Track                   [Page 17](#te17){id=pe17}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19295,7 +19307,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    | Transfer-Encoding | Section 3.3.1 of [RFC7230] |
    +-------------------+----------------------------+
 
-3.4.  Content Negotiation
+//3.4.  Content Negotiation
+--------------------------------------------------------
 
    When responses convey payload information, whether indicating a
    success or an error, the origin server often has different ways of
@@ -19320,7 +19333,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 18]
+Fielding & Reschke           Standards Track                   [Page 18](#te18){id=pe18}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19376,7 +19389,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 19]
+Fielding & Reschke           Standards Track                   [Page 19](#te19){id=pe19}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19432,7 +19445,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 20]
+Fielding & Reschke           Standards Track                   [Page 20](#te20){id=pe20}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19445,9 +19458,11 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    selection, though it does not prevent such a mechanism from being
    developed as an extension.
 
-4.  Request Methods
+/4.  Request Methods
+========================================================
 
-4.1.  Overview
+//4.1.  Overview
+--------------------------------------------------------
 
    The request method token is the primary source of request semantics;
    it indicates the purpose for which the client has made this request
@@ -19488,7 +19503,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 21]
+Fielding & Reschke           Standards Track                   [Page 21](#te21){id=pe21}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19531,7 +19546,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    server but not allowed for the target resource, the origin server
    SHOULD respond with the 405 (Method Not Allowed) status code.
 
-4.2.  Common Method Properties
+//4.2.  Common Method Properties
+--------------------------------------------------------
 
 4.2.1.  Safe Methods
 
@@ -19544,7 +19560,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 22]
+Fielding & Reschke           Standards Track                   [Page 22](#te22){id=pe22}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19600,7 +19616,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 23]
+Fielding & Reschke           Standards Track                   [Page 23](#te23){id=pe23}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19629,7 +19645,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    cacheable, although the overwhelming majority of cache
    implementations only support GET and HEAD.
 
-4.3.  Method Definitions
+//4.3.  Method Definitions
+--------------------------------------------------------
 
 4.3.1.  GET
 
@@ -19656,7 +19673,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 24]
+Fielding & Reschke           Standards Track                   [Page 24](#te24){id=pe24}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19712,7 +19729,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 25]
+Fielding & Reschke           Standards Track                   [Page 25](#te25){id=pe25}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19768,7 +19785,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 26]
+Fielding & Reschke           Standards Track                   [Page 26](#te26){id=pe26}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19824,7 +19841,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 27]
+Fielding & Reschke           Standards Track                   [Page 27](#te26){id=pe27}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19880,7 +19897,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 28]
+Fielding & Reschke           Standards Track                   [Page 28](#te26){id=pe28}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19936,7 +19953,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 29]
+Fielding & Reschke           Standards Track                   [Page 29](#te29){id=pe29}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -19992,7 +20009,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 30]
+Fielding & Reschke           Standards Track                   [Page 30](#te30){id=pe30}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20048,7 +20065,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 31]
+Fielding & Reschke           Standards Track                   [Page 31](#te31){id=pe31}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20104,7 +20121,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 32]
+Fielding & Reschke           Standards Track                   [Page 32](#te32){id=pe32}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20129,7 +20146,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
    Responses to the TRACE method are not cacheable.
 
-5.  Request Header Fields
+/5.  Request Header Fields
+========================================================
 
    A client sends request header fields to provide more information
    about the request context, make the request conditional based on the
@@ -20138,7 +20156,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    processing.  These fields act as request modifiers, similar to the
    parameters on a programming language method invocation.
 
-5.1.  Controls
+//5.1.  Controls
+--------------------------------------------------------
 
    Controls are request header fields that direct specific handling of
    the request.
@@ -20160,7 +20179,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 33]
+Fielding & Reschke           Standards Track                   [Page 33](#te33){id=pe33}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20216,7 +20235,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 34]
+Fielding & Reschke           Standards Track                   [Page 34](#te34){id=pe34}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20272,7 +20291,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 35]
+Fielding & Reschke           Standards Track                   [Page 35](#te34){id=pe35}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20319,7 +20338,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    A recipient MAY ignore a Max-Forwards header field received with any
    other request methods.
 
-5.2.  Conditionals
+//5.2.  Conditionals
+--------------------------------------------------------
 
    The HTTP conditional request header fields [RFC7232] allow a client
    to place a precondition on the state of the target resource, so that
@@ -20328,7 +20348,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 36]
+Fielding & Reschke           Standards Track                   [Page 36](#te36){id=pe36}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20352,7 +20372,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    | If-Range            | Section 3.2 of [RFC7233] |
    +---------------------+--------------------------+
 
-5.3.  Content Negotiation
+//5.3.  Content Negotiation
+--------------------------------------------------------
 
    The following request header fields are sent by a user agent to
    engage in proactive negotiation of the response content, as defined
@@ -20384,7 +20405,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 37]
+Fielding & Reschke           Standards Track                   [Page 37](#te37){id=pe37}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20440,7 +20461,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 38]
+Fielding & Reschke           Standards Track                   [Page 38](#te38){id=pe38}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20496,7 +20517,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 39]
+Fielding & Reschke           Standards Track                   [Page 39](#te38){id=pe39}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20552,7 +20573,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 40]
+Fielding & Reschke           Standards Track                   [Page 40](#te40){id=pe40}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20608,7 +20629,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 41]
+Fielding & Reschke           Standards Track                   [Page 41](#te41){id=pe41}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20664,7 +20685,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 42]
+Fielding & Reschke           Standards Track                   [Page 42](#te42){id=pe42}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20720,12 +20741,13 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 43]
+Fielding & Reschke           Standards Track                   [Page 43](#te42){id=pe43}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-5.4.  Authentication Credentials
+//5.4.  Authentication Credentials
+--------------------------------------------------------
 
    Two header fields are used for carrying authentication credentials,
    as defined in [RFC7235].  Note that various custom mechanisms for
@@ -20739,7 +20761,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    | Proxy-Authorization | Section 4.4 of [RFC7235] |
    +---------------------+--------------------------+
 
-5.5.  Request Context
+//5.5.  Request Context
+--------------------------------------------------------
 
    The following request header fields provide additional information
    about the request context, including information about the user, user
@@ -20776,7 +20799,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 44]
+Fielding & Reschke           Standards Track                   [Page 44](#te44){id=pe44}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20832,7 +20855,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 45]
+Fielding & Reschke           Standards Track                   [Page 45](#te45){id=pe45}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20888,7 +20911,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 46]
+Fielding & Reschke           Standards Track                   [Page 46](#te46){id=pe46}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20907,7 +20930,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    that identified user agent, even if they might not work as well for
    the actual user agent being used.
 
-6.  Response Status Codes
+/6.  Response Status Codes
+========================================================
 
    The status-code element is a three-digit integer code giving the
    result of the attempt to understand and satisfy the request.
@@ -20944,7 +20968,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 47]
+Fielding & Reschke           Standards Track                   [Page 47](#te47){id=pe47}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -20952,7 +20976,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    o  5xx (Server Error): The server failed to fulfill an apparently
       valid request
 
-6.1.  Overview of Status Codes
+//6.1.  Overview of Status Codes
+--------------------------------------------------------
 
    The status codes listed below are defined in this specification,
    Section 4 of [RFC7232], Section 4 of [RFC7233], and Section 3 of
@@ -21000,7 +21025,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 48]
+Fielding & Reschke           Standards Track                   [Page 48](#te48){id=pe48}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21056,7 +21081,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 49]
+Fielding & Reschke           Standards Track                   [Page 49](#te48){id=pe49}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21066,7 +21091,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    list of status codes is maintained by IANA.  See Section 8.2 for
    details.
 
-6.2.  Informational 1xx
+//6.2.  Informational 1xx
+--------------------------------------------------------
 
    The 1xx (Informational) class of status code indicates an interim
    response for communicating connection status or request progress
@@ -21112,7 +21138,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 50]
+Fielding & Reschke           Standards Track                   [Page 50](#te50){id=pe50}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21127,7 +21153,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    switching to a real-time, synchronous protocol might be advantageous
    when delivering resources that use such features.
 
-6.3.  Successful 2xx
+//6.3.  Successful 2xx
+--------------------------------------------------------
 
    The 2xx (Successful) class of status code indicates that the client's
    request was successfully received, understood, and accepted.
@@ -21168,7 +21195,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 51]
+Fielding & Reschke           Standards Track                   [Page 51](#te51){id=pe51}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21224,7 +21251,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 52]
+Fielding & Reschke           Standards Track                   [Page 52](#te52){id=pe52}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21280,7 +21307,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 53]
+Fielding & Reschke           Standards Track                   [Page 53](#te53){id=pe53}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21300,7 +21327,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    connection immediately after sending the blank line terminating the
    header section.
 
-6.4.  Redirection 3xx
+//6.4.  Redirection 3xx
+--------------------------------------------------------
 
    The 3xx (Redirection) class of status code indicates that further
    action needs to be taken by the user agent in order to fulfill the
@@ -21336,7 +21364,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 54]
+Fielding & Reschke           Standards Track                   [Page 54](#te54){id=pe54}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21392,7 +21420,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 55]
+Fielding & Reschke           Standards Track                   [Page 55](#te55){id=pe55}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21448,7 +21476,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 56]
+Fielding & Reschke           Standards Track                   [Page 56](#te56){id=pe56}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21504,7 +21532,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 57]
+Fielding & Reschke           Standards Track                   [Page 57](#te57){id=pe57}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21540,7 +21568,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
       Permanently) ([RFC7238], however, defines the status code 308
       (Permanent Redirect) for this purpose).
 
-6.5.  Client Error 4xx
+//6.5.  Client Error 4xx
+--------------------------------------------------------
 
    The 4xx (Client Error) class of status code indicates that the client
    seems to have erred.  Except when responding to a HEAD request, the
@@ -21560,7 +21589,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 58]
+Fielding & Reschke           Standards Track                   [Page 58](#te58){id=pe58}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21616,7 +21645,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 59]
+Fielding & Reschke           Standards Track                   [Page 59](#te59){id=pe59}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21672,7 +21701,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 60]
+Fielding & Reschke           Standards Track                   [Page 60](#te60){id=pe60}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21728,7 +21757,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 61]
+Fielding & Reschke           Standards Track                   [Page 61](#te61){id=pe61}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21772,7 +21801,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
      This service requires use of the HTTP/3.0 protocol.
 
-6.6.  Server Error 5xx
+//6.6.  Server Error 5xx
+--------------------------------------------------------
 
    The 5xx (Server Error) class of status code indicates that the server
    is aware that it has erred or is incapable of performing the
@@ -21784,7 +21814,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 62]
+Fielding & Reschke           Standards Track                   [Page 62](#te62){id=pe62}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21840,7 +21870,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 63]
+Fielding & Reschke           Standards Track                   [Page 63](#te63){id=pe63}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21857,7 +21887,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    that version is not supported and what other protocols are supported
    by that server.
 
-7.  Response Header Fields
+/7.  Response Header Fields
+========================================================
 
    The response header fields allow the server to pass additional
    information about the response beyond what is placed in the
@@ -21869,7 +21900,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    general, the precise semantics might be further refined by the
    semantics of the request method and/or response status code.
 
-7.1.  Control Data
+//7.1.  Control Data
+--------------------------------------------------------
 
    Response header fields can supply control data that supplements the
    status code, directs caching, or instructs the client where to go
@@ -21896,7 +21928,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 64]
+Fielding & Reschke           Standards Track                   [Page 64](#te64){id=pe64}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -21952,7 +21984,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 65]
+Fielding & Reschke           Standards Track                   [Page 65](#te65){id=pe65}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22008,7 +22040,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 66]
+Fielding & Reschke           Standards Track                   [Page 66](#te65){id=pe66}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22064,7 +22096,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 67]
+Fielding & Reschke           Standards Track                   [Page 67](#te65){id=pe67}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22120,7 +22152,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 68]
+Fielding & Reschke           Standards Track                   [Page 68](#te68){id=pe68}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22176,7 +22208,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 69]
+Fielding & Reschke           Standards Track                   [Page 69](#te69){id=pe69}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22232,7 +22264,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 70]
+Fielding & Reschke           Standards Track                   [Page 70](#te70){id=pe70}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22255,7 +22287,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    considers the variance less significant than the performance cost of
    Vary's impact on caching.
 
-7.2.  Validator Header Fields
+//7.2.  Validator Header Fields
+--------------------------------------------------------
 
    Validator header fields convey metadata about the selected
    representation (Section 3).  In responses to safe requests, validator
@@ -22288,12 +22321,13 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 71]
+Fielding & Reschke           Standards Track                   [Page 71](#te71){id=pe71}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-7.3.  Authentication Challenges
+//7.3.  Authentication Challenges
+--------------------------------------------------------
 
    Authentication challenges indicate what mechanisms are available for
    the client to provide authentication credentials in future requests.
@@ -22305,7 +22339,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    | Proxy-Authenticate | Section 4.3 of [RFC7235] |
    +--------------------+--------------------------+
 
-7.4.  Response Context
+//7.4.  Response Context
+--------------------------------------------------------
 
    The remaining response header fields provide more information about
    the target resource for potential use in later requests.
@@ -22344,7 +22379,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 72]
+Fielding & Reschke           Standards Track                   [Page 72](#te72){id=pe72}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22380,9 +22415,11 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    implementation details that might make it (slightly) easier for
    attackers to find and exploit known security holes.
 
-8.  IANA Considerations
+/8.  IANA Considerations
+========================================================
 
-8.1.  Method Registry
+//8.1.  Method Registry
+--------------------------------------------------------
 
    The "Hypertext Transfer Protocol (HTTP) Method Registry" defines the
    namespace for the request method token (Section 4).  The method
@@ -22400,7 +22437,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 73]
+Fielding & Reschke           Standards Track                   [Page 73](#te73){id=pe73}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22456,7 +22493,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 74]
+Fielding & Reschke           Standards Track                   [Page 74](#te74){id=pe74}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22479,7 +22516,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    | TRACE   | yes  | yes        | Section 4.3.8 |
    +---------+------+------------+---------------+
 
-8.2.  Status Code Registry
+//8.2.  Status Code Registry
+--------------------------------------------------------
 
    The "Hypertext Transfer Protocol (HTTP) Status Code Registry" defines
    the namespace for the response status-code token (Section 6).  The
@@ -22512,7 +22550,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 75]
+Fielding & Reschke           Standards Track                   [Page 75](#te75){id=pe75}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22568,7 +22606,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 76]
+Fielding & Reschke           Standards Track                   [Page 76](#te76){id=pe76}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22614,7 +22652,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    | 505   | HTTP Version Not Supported    | Section 6.6.6  |
    +-------+-------------------------------+----------------+
 
-8.3.  Header Field Registry
+//8.3.  Header Field Registry
+--------------------------------------------------------
 
    HTTP header fields are registered within the "Message Headers"
    registry located at
@@ -22624,7 +22663,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 77]
+Fielding & Reschke           Standards Track                   [Page 77](#te77){id=pe77}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22680,7 +22719,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 78]
+Fielding & Reschke           Standards Track                   [Page 78](#te78){id=pe78}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22736,7 +22775,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 79]
+Fielding & Reschke           Standards Track                   [Page 79](#te78){id=pe79}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22792,12 +22831,13 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 80]
+Fielding & Reschke           Standards Track                   [Page 80](#te80){id=pe80}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-8.4.  Content Coding Registry
+//8.4.  Content Coding Registry
+--------------------------------------------------------
 
    The "HTTP Content Coding Registry" defines the namespace for content
    coding names (Section 4.2 of [RFC7230]).  The content coding registry
@@ -22834,7 +22874,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    |          | Accept-Encoding)                       |               |
    +----------+----------------------------------------+---------------+
 
-9.  Security Considerations
+/9.  Security Considerations
+========================================================
 
    This section is meant to inform developers, information providers,
    and users of known security concerns relevant to HTTP semantics and
@@ -22848,7 +22889,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 81]
+Fielding & Reschke           Standards Track                   [Page 81](#te81){id=pe81}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22858,7 +22899,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    organizations maintain topical information and links to current
    research on Web application security (e.g., [OWASP]).
 
-9.1.  Attacks Based on File and Path Names
+//9.1.  Attacks Based on File and Path Names
+--------------------------------------------------------
 
    Origin servers frequently make use of their local file system to
    manage the mapping from effective request URI to resource
@@ -22883,7 +22925,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    disclosure of configuration and source files that are not meant to be
    served.
 
-9.2.  Attacks Based on Command, Code, or Query Injection
+//9.2.  Attacks Based on Command, Code, or Query Injection
+--------------------------------------------------------
 
    Origin servers often use parameters within the URI as a means of
    identifying system services, selecting database entries, or choosing
@@ -22904,7 +22947,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 82]
+Fielding & Reschke           Standards Track                   [Page 82](#te82){id=pe82}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -22921,7 +22964,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    later processed, such as within log files, monitoring tools, or when
    included within a data format that allows embedded scripts.
 
-9.3.  Disclosure of Personal Information
+//9.3.  Disclosure of Personal Information
+--------------------------------------------------------
 
    Clients are often privy to large amounts of personal information,
    including both information provided by the user to interact with
@@ -22930,7 +22974,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    activity over time (e.g., history, bookmarks, etc.).  Implementations
    need to prevent unintentional disclosure of personal information.
 
-9.4.  Disclosure of Sensitive Information in URIs
+//9.4.  Disclosure of Sensitive Information in URIs
+--------------------------------------------------------
 
    URIs are intended to be shared, not secured, even when they identify
    secure resources.  URIs are often shown on displays, added to
@@ -22960,12 +23005,13 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 83]
+Fielding & Reschke           Standards Track                   [Page 83](#te83){id=pe83}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-9.5.  Disclosure of Fragment after Redirects
+//9.5.  Disclosure of Fragment after Redirects
+--------------------------------------------------------
 
    Although fragment identifiers used within URI references are not sent
    in requests, implementers ought to be aware that they will be visible
@@ -22978,7 +23024,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    redirects to other sites include a (possibly empty) fragment
    component in order to block that inheritance.
 
-9.6.  Disclosure of Product Information
+//9.6.  Disclosure of Product Information
+--------------------------------------------------------
 
    The User-Agent (Section 5.5.3), Via (Section 5.7.1 of [RFC7230]), and
    Server (Section 7.4.2) header fields often reveal information about
@@ -22993,7 +23040,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    allows intermediaries to replace sensitive machine names with
    pseudonyms.
 
-9.7.  Browser Fingerprinting
+//9.7.  Browser Fingerprinting
+--------------------------------------------------------
 
    Browser fingerprinting is a set of techniques for identifying a
    specific user agent over time through its unique set of
@@ -23016,7 +23064,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 84]
+Fielding & Reschke           Standards Track                   [Page 84](#te84){id=pe84}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23051,13 +23099,16 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    As an extreme privacy measure, proxies could filter the proactive
    negotiation header fields in relayed requests.
 
-10.  Acknowledgments
+/10.  Acknowledgments
+========================================================
 
    See Section 10 of [RFC7230].
 
-11.  References
+/11.  References
+========================================================
 
-11.1.  Normative References
+//11.1.  Normative References
+--------------------------------------------------------
 
    [RFC2045]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
               Extensions (MIME) Part One: Format of Internet Message
@@ -23072,7 +23123,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 85]
+Fielding & Reschke           Standards Track                   [Page 85](#te85){id=pe85}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23113,7 +23164,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    [RFC7235]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Authentication", RFC 7235, June 2014.
 
-11.2.  Informative References
+//11.2.  Informative References
+--------------------------------------------------------
 
    [BCP13]    Freed, N., Klensin, J., and T. Hansen, "Media Type
               Specifications and Registration Procedures", BCP 13,
@@ -23128,7 +23180,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 86]
+Fielding & Reschke           Standards Track                   [Page 86](#te86){id=pe86}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23184,7 +23236,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 87]
+Fielding & Reschke           Standards Track                   [Page 87](#te86){id=pe87}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23240,12 +23292,13 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 88]
+Fielding & Reschke           Standards Track                   [Page 88](#te86){id=pe88}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-Appendix A.  Differences between HTTP and MIME
+/Appendix A.  Differences between HTTP and MIME
+========================================================
 
    HTTP/1.1 uses many of the constructs defined for the Internet Message
    Format [RFC5322] and the Multipurpose Internet Mail Extensions (MIME)
@@ -23264,7 +23317,8 @@ Appendix A.  Differences between HTTP and MIME
    aware of these differences and provide the appropriate conversions
    where necessary.
 
-A.1.  MIME-Version
+//A.1.  MIME-Version
+--------------------------------------------------------
 
    HTTP is not a MIME-compliant protocol.  However, messages can include
    a single MIME-Version header field to indicate what version of the
@@ -23274,7 +23328,8 @@ A.1.  MIME-Version
    Senders are responsible for ensuring full conformance (where
    possible) when exporting HTTP messages to strict MIME environments.
 
-A.2.  Conversion to Canonical Form
+//A.2.  Conversion to Canonical Form
+--------------------------------------------------------
 
    MIME requires that an Internet mail body part be converted to
    canonical form prior to being transferred, as described in Section 4
@@ -23296,7 +23351,7 @@ A.2.  Conversion to Canonical Form
 
 
 
-Fielding & Reschke           Standards Track                   [Page 89]
+Fielding & Reschke           Standards Track                   [Page 89](#te89){id=pe89}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23306,7 +23361,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    form.  Therefore, the canonical form is recommended for any content
    that uses such checksums in HTTP.
 
-A.3.  Conversion of Date Formats
+//A.3.  Conversion of Date Formats
+--------------------------------------------------------
 
    HTTP/1.1 uses a restricted set of date formats (Section 7.1.1.1) to
    simplify the process of date comparison.  Proxies and gateways from
@@ -23314,7 +23370,8 @@ A.3.  Conversion of Date Formats
    a message conforms to one of the HTTP/1.1 formats and rewrite the
    date if necessary.
 
-A.4.  Conversion of Content-Encoding
+//A.4.  Conversion of Content-Encoding
+--------------------------------------------------------
 
    MIME does not include any concept equivalent to HTTP/1.1's
    Content-Encoding header field.  Since this acts as a modifier on the
@@ -23326,7 +23383,8 @@ A.4.  Conversion of Content-Encoding
    to perform a function equivalent to Content-Encoding.  However, this
    parameter is not part of the MIME standards).
 
-A.5.  Conversion of Content-Transfer-Encoding
+//A.5.  Conversion of Content-Transfer-Encoding
+--------------------------------------------------------
 
    HTTP does not use the Content-Transfer-Encoding field of MIME.
    Proxies and gateways from MIME-compliant protocols to HTTP need to
@@ -23341,7 +23399,8 @@ A.5.  Conversion of Content-Transfer-Encoding
    appropriate Content-Transfer-Encoding if doing so will improve the
    likelihood of safe transport over the destination protocol.
 
-A.6.  MHTML and Line Length Limitations
+//A.6.  MHTML and Line Length Limitations
+--------------------------------------------------------
 
    HTTP implementations that share code with MHTML [RFC2557]
    implementations need to be aware of MIME line length limitations.
@@ -23352,7 +23411,7 @@ A.6.  MHTML and Line Length Limitations
 
 
 
-Fielding & Reschke           Standards Track                   [Page 90]
+Fielding & Reschke           Standards Track                   [Page 90](#te90){id=pe90}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23361,7 +23420,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    of [RFC7233]), does not interpret the content or any MIME header
    lines that might be contained therein.
 
-Appendix B.  Changes from RFC 2616
+/Appendix B.  Changes from RFC 2616
+========================================================
 
    The primary changes in this revision have been editorial in nature:
    extracting the messaging syntax and partitioning HTTP semantics into
@@ -23408,7 +23468,7 @@ Appendix B.  Changes from RFC 2616
 
 
 
-Fielding & Reschke           Standards Track                   [Page 91]
+Fielding & Reschke           Standards Track                   [Page 91](#te91){id=pe91}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23464,7 +23524,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 92]
+Fielding & Reschke           Standards Track                   [Page 92](#te91){id=pe92}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23498,7 +23558,8 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
    The Content-MD5 header field has been removed because it was
    inconsistently implemented with respect to partial responses.
 
-Appendix C.  Imported ABNF
+/Appendix C.  Imported ABNF
+========================================================
 
    The following core rules are included by reference, as defined in
    Appendix B.1 of [RFC5234]: ALPHA (letters), CR (carriage return),
@@ -23520,7 +23581,7 @@ Appendix C.  Imported ABNF
 
 
 
-Fielding & Reschke           Standards Track                   [Page 93]
+Fielding & Reschke           Standards Track                   [Page 93](#te93){id=pe93}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23528,154 +23589,153 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
      quoted-string = <quoted-string, see [RFC7230], Section 3.2.6>
      token         = <token, see [RFC7230], Section 3.2.6>
 
-Appendix D.  Collected ABNF
+/Appendix D.  Collected ABNF
+========================================================
 
    In the collected ABNF below, list rules are expanded as per Section
    1.2 of [RFC7230].
 
-   Accept = [ ( "," / ( media-range [ accept-params ] ) ) *( OWS "," [
-    OWS ( media-range [ accept-params ] ) ] ) ]
-   Accept-Charset = *( "," OWS ) ( ( charset / "*" ) [ weight ] ) *( OWS
-    "," [ OWS ( ( charset / "*" ) [ weight ] ) ] )
-   Accept-Encoding = [ ( "," / ( codings [ weight ] ) ) *( OWS "," [ OWS
-    ( codings [ weight ] ) ] ) ]
-   Accept-Language = *( "," OWS ) ( language-range [ weight ] ) *( OWS
-    "," [ OWS ( language-range [ weight ] ) ] )
-   Allow = [ ( "," / method ) *( OWS "," [ OWS method ] ) ]
+    Accept = [ ( "," / ( media-range [ accept-params ] ) ) *( OWS "," [
+     OWS ( media-range [ accept-params ] ) ] ) ]
+    Accept-Charset = *( "," OWS ) ( ( charset / "*" ) [ weight ] ) *( OWS
+     "," [ OWS ( ( charset / "*" ) [ weight ] ) ] )
+    Accept-Encoding = [ ( "," / ( codings [ weight ] ) ) *( OWS "," [ OWS
+     ( codings [ weight ] ) ] ) ]
+    Accept-Language = *( "," OWS ) ( language-range [ weight ] ) *( OWS
+     "," [ OWS ( language-range [ weight ] ) ] )
+    Allow = [ ( "," / method ) *( OWS "," [ OWS method ] ) ]
 
-   BWS = <BWS, see [RFC7230], Section 3.2.3>
+    BWS = <BWS, see [RFC7230], Section 3.2.3>
 
-   Content-Encoding = *( "," OWS ) content-coding *( OWS "," [ OWS
-    content-coding ] )
-   Content-Language = *( "," OWS ) language-tag *( OWS "," [ OWS
-    language-tag ] )
-   Content-Location = absolute-URI / partial-URI
-   Content-Type = media-type
+    Content-Encoding = *( "," OWS ) content-coding *( OWS "," [ OWS
+     content-coding ] )
+    Content-Language = *( "," OWS ) language-tag *( OWS "," [ OWS
+     language-tag ] )
+    Content-Location = absolute-URI / partial-URI
+    Content-Type = media-type
 
-   Date = HTTP-date
+    Date = HTTP-date
 
-   Expect = "100-continue"
+    Expect = "100-continue"
 
-   From = mailbox
+    From = mailbox
 
-   GMT = %x47.4D.54 ; GMT
+    GMT = %x47.4D.54 ; GMT
 
-   HTTP-date = IMF-fixdate / obs-date
+    HTTP-date = IMF-fixdate / obs-date
 
-   IMF-fixdate = day-name "," SP date1 SP time-of-day SP GMT
+    IMF-fixdate = day-name "," SP date1 SP time-of-day SP GMT
 
-   Location = URI-reference
+    Location = URI-reference
 
-   Max-Forwards = 1*DIGIT
+    Max-Forwards = 1*DIGIT
 
-   OWS = <OWS, see [RFC7230], Section 3.2.3>
+    OWS = <OWS, see [RFC7230], Section 3.2.3>
 
-   RWS = <RWS, see [RFC7230], Section 3.2.3>
-   Referer = absolute-URI / partial-URI
-   Retry-After = HTTP-date / delay-seconds
+    RWS = <RWS, see [RFC7230], Section 3.2.3>
+    Referer = absolute-URI / partial-URI
+    Retry-After = HTTP-date / delay-seconds
 
 
 
-Fielding & Reschke           Standards Track                   [Page 94]
+Fielding & Reschke           Standards Track                   [Page 94](#te94){id=pe94}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-   Server = product *( RWS ( product / comment ) )
+    Server = product *( RWS ( product / comment ) )
 
-   URI-reference = <URI-reference, see [RFC7230], Section 2.7>
-   User-Agent = product *( RWS ( product / comment ) )
+    URI-reference = <URI-reference, see [RFC7230], Section 2.7>
+    User-Agent = product *( RWS ( product / comment ) )
 
-   Vary = "*" / ( *( "," OWS ) field-name *( OWS "," [ OWS field-name ]
-    ) )
+    Vary = "*" / ( *( "," OWS ) field-name *( OWS "," [ OWS field-name ]
+     ) )
 
-   absolute-URI = <absolute-URI, see [RFC7230], Section 2.7>
-   accept-ext = OWS ";" OWS token [ "=" ( token / quoted-string ) ]
-   accept-params = weight *accept-ext
-   asctime-date = day-name SP date3 SP time-of-day SP year
+    absolute-URI = <absolute-URI, see [RFC7230], Section 2.7>
+    accept-ext = OWS ";" OWS token [ "=" ( token / quoted-string ) ]
+    accept-params = weight *accept-ext
+    asctime-date = day-name SP date3 SP time-of-day SP year
 
-   charset = token
-   codings = content-coding / "identity" / "*"
-   comment = <comment, see [RFC7230], Section 3.2.6>
-   content-coding = token
+    charset = token
+    codings = content-coding / "identity" / "*"
+    comment = <comment, see [RFC7230], Section 3.2.6>
+    content-coding = token
 
-   date1 = day SP month SP year
-   date2 = day "-" month "-" 2DIGIT
-   date3 = month SP ( 2DIGIT / ( SP DIGIT ) )
-   day = 2DIGIT
-   day-name = %x4D.6F.6E ; Mon
-    / %x54.75.65 ; Tue
-    / %x57.65.64 ; Wed
-    / %x54.68.75 ; Thu
-    / %x46.72.69 ; Fri
-    / %x53.61.74 ; Sat
-    / %x53.75.6E ; Sun
-   day-name-l = %x4D.6F.6E.64.61.79 ; Monday
-    / %x54.75.65.73.64.61.79 ; Tuesday
-    / %x57.65.64.6E.65.73.64.61.79 ; Wednesday
-    / %x54.68.75.72.73.64.61.79 ; Thursday
-    / %x46.72.69.64.61.79 ; Friday
-    / %x53.61.74.75.72.64.61.79 ; Saturday
-    / %x53.75.6E.64.61.79 ; Sunday
-   delay-seconds = 1*DIGIT
+    date1 = day SP month SP year
+    date2 = day "-" month "-" 2DIGIT
+    date3 = month SP ( 2DIGIT / ( SP DIGIT ) )
+    day = 2DIGIT
+    day-name = %x4D.6F.6E ; Mon
+     / %x54.75.65 ; Tue
+     / %x57.65.64 ; Wed
+     / %x54.68.75 ; Thu
+     / %x46.72.69 ; Fri
+     / %x53.61.74 ; Sat
+     / %x53.75.6E ; Sun
+    day-name-l = %x4D.6F.6E.64.61.79 ; Monday
+     / %x54.75.65.73.64.61.79 ; Tuesday
+     / %x57.65.64.6E.65.73.64.61.79 ; Wednesday
+     / %x54.68.75.72.73.64.61.79 ; Thursday
+     / %x46.72.69.64.61.79 ; Friday
+     / %x53.61.74.75.72.64.61.79 ; Saturday
+     / %x53.75.6E.64.61.79 ; Sunday
+    delay-seconds = 1*DIGIT
 
-   field-name = <comment, see [RFC7230], Section 3.2>
+    field-name = <comment, see [RFC7230], Section 3.2>
 
-   hour = 2DIGIT
+    hour = 2DIGIT
 
-   language-range = <language-range, see [RFC4647], Section 2.1>
-   language-tag = <Language-Tag, see [RFC5646], Section 2.1>
+    language-range = <language-range, see [RFC4647], Section 2.1>
+    language-tag = <Language-Tag, see [RFC5646], Section 2.1>
 
-   mailbox = <mailbox, see [RFC5322], Section 3.4>
-   media-range = ( "*/*" / ( type "/*" ) / ( type "/" subtype ) ) *( OWS
-    ";" OWS parameter )
+    mailbox = <mailbox, see [RFC5322], Section 3.4>
+    media-range = ( "*/*" / ( type "/*" ) / ( type "/" subtype ) ) *( OWS
+     ";" OWS parameter )
 
 
 
-Fielding & Reschke           Standards Track                   [Page 95]
+Fielding & Reschke           Standards Track                   [Page 95](#te94){id=pe95}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-   media-type = type "/" subtype *( OWS ";" OWS parameter )
-   method = token
-   minute = 2DIGIT
-   month = %x4A.61.6E ; Jan
-    / %x46.65.62 ; Feb
-    / %x4D.61.72 ; Mar
-    / %x41.70.72 ; Apr
-    / %x4D.61.79 ; May
-    / %x4A.75.6E ; Jun
-    / %x4A.75.6C ; Jul
-    / %x41.75.67 ; Aug
-    / %x53.65.70 ; Sep
-    / %x4F.63.74 ; Oct
-    / %x4E.6F.76 ; Nov
-    / %x44.65.63 ; Dec
+    media-type = type "/" subtype *( OWS ";" OWS parameter )
+    method = token
+    minute = 2DIGIT
+    month = %x4A.61.6E ; Jan
+     / %x46.65.62 ; Feb
+     / %x4D.61.72 ; Mar
+     / %x41.70.72 ; Apr
+     / %x4D.61.79 ; May
+     / %x4A.75.6E ; Jun
+     / %x4A.75.6C ; Jul
+     / %x41.75.67 ; Aug
+     / %x53.65.70 ; Sep
+     / %x4F.63.74 ; Oct
+     / %x4E.6F.76 ; Nov
+     / %x44.65.63 ; Dec
 
-   obs-date = rfc850-date / asctime-date
+    obs-date = rfc850-date / asctime-date
 
-   parameter = token "=" ( token / quoted-string )
-   partial-URI = <partial-URI, see [RFC7230], Section 2.7>
-   product = token [ "/" product-version ]
-   product-version = token
-   quoted-string = <quoted-string, see [RFC7230], Section 3.2.6>
-   qvalue = ( "0" [ "." *3DIGIT ] ) / ( "1" [ "." *3"0" ] )
+    parameter = token "=" ( token / quoted-string )
+    partial-URI = <partial-URI, see [RFC7230], Section 2.7>
+    product = token [ "/" product-version ]
+    product-version = token
+    quoted-string = <quoted-string, see [RFC7230], Section 3.2.6>
+    qvalue = ( "0" [ "." *3DIGIT ] ) / ( "1" [ "." *3"0" ] )
 
-   rfc850-date = day-name-l "," SP date2 SP time-of-day SP GMT
+    rfc850-date = day-name-l "," SP date2 SP time-of-day SP GMT
 
-   second = 2DIGIT
-   subtype = token
+    second = 2DIGIT
+    subtype = token
 
-   time-of-day = hour ":" minute ":" second
-   token = <token, see [RFC7230], Section 3.2.6>
-   type = token
+    time-of-day = hour ":" minute ":" second
+    token = <token, see [RFC7230], Section 3.2.6>
+    type = token
 
-   weight = OWS ";" OWS "q=" qvalue
+    weight = OWS ";" OWS "q=" qvalue
 
-   year = 4DIGIT
-
-
+    year = 4DIGIT
 
 
 
@@ -23688,12 +23748,15 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 96]
+
+
+Fielding & Reschke           Standards Track                   [Page 96](#te94){id=pe96}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
-Index
+/Index
+========================================================
 
    1
       1xx Informational (status code class)  50
@@ -23744,7 +23807,7 @@ Index
 
 
 
-Fielding & Reschke           Standards Track                   [Page 97]
+Fielding & Reschke           Standards Track                   [Page 97](#te97){id=pe97}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23800,7 +23863,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 98]
+Fielding & Reschke           Standards Track                   [Page 98](#te97){id=pe98}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23856,7 +23919,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                   [Page 99]
+Fielding & Reschke           Standards Track                   [Page 99](#te97){id=pe99}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23912,7 +23975,7 @@ RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
 
 
-Fielding & Reschke           Standards Track                  [Page 100]
+Fielding & Reschke           Standards Track                  [Page 100](#te08){id=pe100}
 
 RFC 7231             HTTP/1.1 Semantics and Content            June 2014
 
@@ -23968,8 +24031,16218 @@ Authors' Addresses
 
 
 
-Fielding & Reschke           Standards Track                  [Page 101]
+Fielding & Reschke           Standards Track                  [Page 101](#te08){id=pe101}
 
 
+/HTTP Semantics
+========================================================
+
+https://www.rfc-editor.org/rfc/rfc9110.txt
+--------------------------------------------------------
 
 
+
+
+
+Internet Engineering Task Force (IETF)                  R. Fielding, Ed.
+Request for Comments: 9110                                         Adobe
+STD: 97                                               M. Nottingham, Ed.
+Obsoletes: 2818, 7230, 7231, 7232, 7233, 7235,                    Fastly
+           7538, 7615, 7694                              J. Reschke, Ed.
+Updates: 3864                                                 greenbytes
+Category: Standards Track                                      June 2022
+ISSN: 2070-1721
+
+
+                             HTTP Semantics
+
+Abstract
+
+   The Hypertext Transfer Protocol (HTTP) is a stateless application-
+   level protocol for distributed, collaborative, hypertext information
+   systems.  This document describes the overall architecture of HTTP,
+   establishes common terminology, and defines aspects of the protocol
+   that are shared by all versions.  In this definition are core
+   protocol elements, extensibility mechanisms, and the "http" and
+   "https" Uniform Resource Identifier (URI) schemes.
+
+   This document updates RFC 3864 and obsoletes RFCs 2818, 7231, 7232,
+   7233, 7235, 7538, 7615, 7694, and portions of 7230.
+
+Status of This Memo
+
+   This is an Internet Standards Track document.
+
+   This document is a product of the Internet Engineering Task Force
+   (IETF).  It represents the consensus of the IETF community.  It has
+   received public review and has been approved for publication by the
+   Internet Engineering Steering Group (IESG).  Further information on
+   Internet Standards is available in Section 2 of RFC 7841.
+
+   Information about the current status of this document, any errata,
+   and how to provide feedback on it may be obtained at
+   https://www.rfc-editor.org/info/rfc9110.
+
+Copyright Notice
+
+   Copyright (c) 2022 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Revised BSD License text as described in Section 4.e of the
+   Trust Legal Provisions and are provided without warranty as described
+   in the Revised BSD License.
+
+   This document may contain material from IETF Documents or IETF
+   Contributions published or made publicly available before November
+   10, 2008.  The person(s) controlling the copyright in some of this
+   material may not have granted the IETF Trust the right to allow
+   modifications of such material outside the IETF Standards Process.
+   Without obtaining an adequate license from the person(s) controlling
+   the copyright in such materials, this document may not be modified
+   outside the IETF Standards Process, and derivative works of it may
+   not be created outside the IETF Standards Process, except to format
+   it for publication as an RFC or to translate it into languages other
+   than English.
+
+[Table of Contents](){id=ftoc}
+--------------------------------------------------------
+
+- 1.  Introduction ............................................. [℗](#pfch1){id=tfch1}
+-   1.1.  Purpose .............................................. [℗](#pf1_1){id=tf1_1}
+-   1.2.  History and Evolution ................................ [℗](#pf1_2){id=tf1_2}
+-   1.3.  Core Semantics ....................................... [℗](#pf1_3){id=tf1_3}
+-   1.4.  Specifications Obsoleted by This Document ............ [℗](#pf1_4){id=tf1_4}
+- 2.  Conformance .............................................. [℗](#pfch2){id=tfch2}
+-   2.1.  Syntax Notation ...................................... [℗](#pf2_1){id=tf2_1}
+-   2.2.  Requirements Notation ................................ [℗](#pf2_2){id=tf2_2}
+-   2.3.  Length Requirements .................................. [℗](#pf2_3){id=tf2_3}
+-   2.4.  Error Handling ....................................... [℗](#pf2_4){id=tf2_4}
+-   2.5.  Protocol Version ..................................... [℗](#pf2_5){id=tf2_5}
+- 3.  Terminology and Core Concepts ............................ [℗](#pfch3){id=tfch3}
+-   3.1.  Resources ............................................ [℗](#pf3_1){id=tf3_1}
+-   3.2.  Representations ...................................... [℗](#pf3_2){id=tf3_2}
+-   3.3.  Connections, Clients, and Servers .................... [℗](#pf3_3){id=tf3_3}
+-   3.4.  Messages ............................................. [℗](#pf3_4){id=tf3_4}
+-   3.5.  User Agents .......................................... [℗](#pf3_5){id=tf3_5}
+-   3.6.  Origin Server ........................................ [℗](#pf3_6){id=tf3_6}
+-   3.7.  Intermediaries ....................................... [℗](#pf3_7){id=tf3_7}
+-   3.8.  Caches ............................................... [℗](#pf3_8){id=tf3_8}
+-   3.9.  Example Message Exchange ............................. [℗](#pf3_9){id=tf3_9}
+- 4.  Identifiers in HTTP ...................................... [℗](#pfch4){id=tfch4}
+-   4.1.  URI References ....................................... [℗](#pf4_1){id=tf4_1}
+-   4.2.  HTTP-Related URI Schemes ............................. [℗](#pf4_2){id=tf4_2}
+-     4.2.1.  http URI Scheme .................................. [℗](#pf4_2_1){id=tf4_2_1}
+-     4.2.2.  https URI Scheme ................................. [℗](#pf4_2_2){id=tf4_2_2}
+-     4.2.3.  http(s) Normalization and Comparison ............. [℗](#pf4_2_3){id=tf4_2_3}
+-     4.2.4.  Deprecation of userinfo in http(s) URIs .......... [℗](#pf4_2_4){id=tf4_2_4}
+-     4.2.5.  http(s) References with Fragment Identifiers ..... [℗](#pf4_2_5){id=tf4_2_5}
+-   4.3.  Authoritative Access ................................. [℗](#pf4_3){id=tf4_3}
+-     4.3.1.  URI Origin ....................................... [℗](#pf4_3_1){id=tf4_3_1}
+-     4.3.2.  http Origins ..................................... [℗](#pf4_3_2){id=tf4_3_2}
+-     4.3.3.  https Origins .................................... [℗](#pf4_3_3){id=tf4_3_3}
+-     4.3.4.  https Certificate Verification ................... [℗](#pf4_3_4){id=tf4_3_4}
+-     4.3.5.  IP-ID Reference Identity ......................... [℗](#pf4_3_5){id=tf4_3_5}
+- 5.  Fields ................................................... [℗](#pfch5){id=tfch5}
+-   5.1.  Field Names .......................................... [℗](#pf5_1){id=tf5_1}
+-   5.2.  Field Lines and Combined Field Value ................. [℗](#pf5_2){id=tf5_2}
+-   5.3.  Field Order .......................................... [℗](#pf5_3){id=tf5_3}
+-   5.4.  Field Limits ......................................... [℗](#pf5_4){id=tf5_4}
+-   5.5.  Field Values ......................................... [℗](#pf5_5){id=tf5_5}
+-   5.6.  Common Rules for Defining Field Values ............... [℗](#pf5_6){id=tf5_6}
+-     5.6.1.  Lists (#rule ABNF Extension) ..................... [℗](#pf5_6_1){id=tf5_6_1}
+-       5.6.1.1.  Sender Requirements .......................... [℗](#pf5_6_1_1){id=tf5_6_1_1}
+-       5.6.1.2.  Recipient Requirements ....................... [℗](#pf5_6_1_2){id=tf5_6_1_2}
+-     5.6.2.  Tokens ........................................... [℗](#pf5_6_2){id=tf5_6_2}
+-     5.6.3.  Whitespace ....................................... [℗](#pf5_6_3){id=tf5_6_3}
+-     5.6.4.  Quoted Strings ................................... [℗](#pf5_6_4){id=tf5_6_4}
+-     5.6.5.  Comments ......................................... [℗](#pf5_6_5){id=tf5_6_5}
+-     5.6.6.  Parameters ....................................... [℗](#pf5_6_6){id=tf5_6_6}
+-     5.6.7.  Date/Time Formats ................................ [℗](#pf5_6_7){id=tf5_6_7}
+- 6.  Message Abstraction ...................................... [℗](#pfch6){id=tfch6}
+-   6.1.  Framing and Completeness ............................. [℗](#pf6_1){id=tf6_1}
+-   6.2.  Control Data ......................................... [℗](#pf6_2){id=tf6_2}
+-   6.3.  Header Fields ........................................ [℗](#pf6_3){id=tf6_3}
+-   6.4.  Content .............................................. [℗](#pf6_4){id=tf6_4}
+-     6.4.1.  Content Semantics ................................ [℗](#pf6_4_1){id=tf6_4_1}
+-     6.4.2.  Identifying Content .............................. [℗](#pf6_4_2){id=tf6_4_2}
+-   6.5.  Trailer Fields ....................................... [℗](#pf6_5){id=tf6_5}
+-     6.5.1.  Limitations on Use of Trailers ................... [℗](#pf6_5_1){id=tf6_5_1}
+-     6.5.2.  Processing Trailer Fields ........................ [℗](#pf6_5_2){id=tf6_5_2}
+-   6.6.  Message Metadata ..................................... [℗](#pf6_6){id=tf6_6}
+-     6.6.1.  Date ............................................. [℗](#pf6_6_1){id=tf6_6_1}
+-     6.6.2.  Trailer .......................................... [℗](#pf6_6_2){id=tf6_6_2}
+- 7.  Routing HTTP Messages .................................... [℗](#pfch7){id=tfch7}
+-   7.1.  Determining the Target Resource ...................... [℗](#pf7_1){id=tf7_1}
+-   7.2.  Host and :authority .................................. [℗](#pf7_2){id=tf7_2}
+-   7.3.  Routing Inbound Requests ............................. [℗](#pf7_3){id=tf7_3}
+-     7.3.1.  To a Cache ....................................... [℗](#pf7_3_1){id=tf7_3_1}
+-     7.3.2.  To a Proxy ....................................... [℗](#pf7_3_2){id=tf7_3_2}
+-     7.3.3.  To the Origin .................................... [℗](#pf7_3_3){id=tf7_3_3}
+-   7.4.  Rejecting Misdirected Requests ....................... [℗](#pf7_4){id=tf7_4}
+-   7.5.  Response Correlation ................................. [℗](#pf7_5){id=tf7_5}
+-   7.6.  Message Forwarding ................................... [℗](#pf7_6){id=tf7_6}
+-     7.6.1.  Connection ....................................... [℗](#pf7_6_1){id=tf7_6_1}
+-     7.6.2.  Max-Forwards ..................................... [℗](#pf7_6_2){id=tf7_6_2}
+-     7.6.3.  Via .............................................. [℗](#pf7_6_3){id=tf7_6_3}
+-   7.7.  Message Transformations .............................. [℗](#pf7_7){id=tf7_7}
+-   7.8.  Upgrade .............................................. [℗](#pf7_8){id=tf7_8}
+- 8.  Representation Data and Metadata ......................... [℗](#pfch8){id=tfch8}
+-   8.1.  Representation Data .................................. [℗](#pf8_1){id=tf8_1}
+-   8.2.  Representation Metadata .............................. [℗](#pf8_2){id=tf8_2}
+-   8.3.  Content-Type ......................................... [℗](#pf8_3){id=tf8_3}
+-     8.3.1.  Media Type ....................................... [℗](#pf8_3_1){id=tf8_3_1}
+-     8.3.2.  Charset .......................................... [℗](#pf8_3_2){id=tf8_3_2}
+-     8.3.3.  Multipart Types .................................. [℗](#pf8_3_3){id=tf8_3_3}
+-   8.4.  Content-Encoding ..................................... [℗](#pf8_4){id=tf8_4}
+-     8.4.1.  Content Codings .................................. [℗](#pf8_4_1){id=tf8_4_1}
+-       8.4.1.1.  Compress Coding .............................. [℗](#pf8_4_1_1){id=tf8_4_1_1}
+-       8.4.1.2.  Deflate Coding ............................... [℗](#pf8_4_1_2){id=tf8_4_1_2}
+-       8.4.1.3.  Gzip Coding .................................. [℗](#pf8_4_1_3){id=tf8_4_1_3}
+-   8.5.  Content-Language ..................................... [℗](#pf8_5){id=tf8_5}
+-     8.5.1.  Language Tags .................................... [℗](#pf8_5_1){id=tf8_5_1}
+-   8.6.  Content-Length ....................................... [℗](#pf8_6){id=tf8_6}
+-   8.7.  Content-Location ..................................... [℗](#pf8_7){id=tf8_7}
+-   8.8.  Validator Fields ..................................... [℗](#pf8_8){id=tf8_8}
+-     8.8.1.  Weak versus Strong ............................... [℗](#pf8_8_1){id=tf8_8_1}
+-     8.8.2.  Last-Modified .................................... [℗](#pf8_8_2){id=tf8_8_2}
+-       8.8.2.1.  Generation ................................... [℗](#pf8_8_2_1){id=tf8_8_2_1}
+-       8.8.2.2.  Comparison ................................... [℗](#pf8_8_2_2){id=tf8_8_2_2}
+-     8.8.3.  ETag ............................................. [℗](#pf8_8_3){id=tf8_8_3}
+-       8.8.3.1.  Generation ................................... [℗](#pf8_8_3_1){id=tf8_8_3_1}
+-       8.8.3.2.  Comparison ................................... [℗](#pf8_8_3_2){id=tf8_8_3_2}
+-       8.8.3.3.  Example: Entity Tags Varying on Content-Negotiated Resources ... [℗](#pf8_8_3_3){id=tf8_8_3_3}
+- 9.  Methods .................................................. [℗](#pfch9){id=tfch9}
+-   9.1.  Overview ............................................. [℗](#pf9_1){id=tf9_1}
+-   9.2.  Common Method Properties ............................. [℗](#pf9_2){id=tf9_2}
+-     9.2.1.  Safe Methods ..................................... [℗](#pf9_2_1){id=tf9_2_1}
+-     9.2.2.  Idempotent Methods ............................... [℗](#pf9_2_2){id=tf9_2_2}
+-     9.2.3.  Methods and Caching .............................. [℗](#pf9_2_3){id=tf9_2_3}
+-   9.3.  Method Definitions ................................... [℗](#pf9_3){id=tf9_3}
+-     9.3.1.  GET .............................................. [℗](#pf9_3_1){id=tf9_3_1}
+-     9.3.2.  HEAD ............................................. [℗](#pf9_3_2){id=tf9_3_2}
+-     9.3.3.  POST ............................................. [℗](#pf9_3_3){id=tf9_3_3}
+-     9.3.4.  PUT .............................................. [℗](#pf9_3_4){id=tf9_3_4}
+-     9.3.5.  DELETE ........................................... [℗](#pf9_3_5){id=tf9_3_5}
+-     9.3.6.  CONNECT .......................................... [℗](#pf9_3_6){id=tf9_3_6}
+-     9.3.7.  OPTIONS .......................................... [℗](#pf9_3_7){id=tf9_3_7}
+-     9.3.8.  TRACE ............................................ [℗](#pf9_3_8){id=tf9_3_8}
+- 10. Message Context .......................................... [℗](#pf10){id=tf10}
+-   10.1.  Request Context Fields .............................. [℗](#pf10_1){id=tf10_1}
+-     10.1.1.  Expect .......................................... [℗](#pf10_1_1){id=tf10_1_1}
+-     10.1.2.  From ............................................ [℗](#pf10_1_2){id=tf10_1_2}
+-     10.1.3.  Referer ......................................... [℗](#pf10_1_3){id=tf10_1_3}
+-     10.1.4.  TE .............................................. [℗](#pf10_1_4){id=tf10_1_4}
+-     10.1.5.  User-Agent ...................................... [℗](#pf10_1_5){id=tf10_1_5}
+-   10.2.  Response Context Fields ............................. [℗](#pf10_2){id=tf10_2}
+-     10.2.1.  Allow ........................................... [℗](#pf10_2_1){id=tf10_2_1}
+-     10.2.2.  Location ........................................ [℗](#pf10_2_2){id=tf10_2_2}
+-     10.2.3.  Retry-After ..................................... [℗](#pf10_2_3){id=tf10_2_3}
+-     10.2.4.  Server .......................................... [℗](#pf10_2_4){id=tf10_2_4}
+- 11. HTTP Authentication ...................................... [℗](#pf11){id=tf11}
+-   11.1.  Authentication Scheme ............................... [℗](#pf11_1){id=tf11_1}
+-   11.2.  Authentication Parameters ........................... [℗](#pf11_2){id=tf11_2}
+-   11.3.  Challenge and Response .............................. [℗](#pf11_3){id=tf11_3}
+-   11.4.  Credentials ......................................... [℗](#pf11_4){id=tf11_4}
+-   11.5.  Establishing a Protection Space (Realm) ............. [℗](#pf11_5){id=tf11_5}
+-   11.6.  Authenticating Users to Origin Servers .............. [℗](#pf11_6){id=tf11_6}
+-     11.6.1.  WWW-Authenticate ................................ [℗](#pf11_6_1){id=tf11_6_1}
+-     11.6.2.  Authorization ................................... [℗](#pf11_6_2){id=tf11_6_2}
+-     11.6.3.  Authentication-Info ............................. [℗](#pf11_6_3){id=tf11_6_3}
+-   11.7.  Authenticating Clients to Proxies ................... [℗](#pf11_7){id=tf11_7}
+-     11.7.1.  Proxy-Authenticate .............................. [℗](#pf11_7_1){id=tf11_7_1}
+-     11.7.2.  Proxy-Authorization ............................. [℗](#pf11_7_2){id=tf11_7_2}
+-     11.7.3.  Proxy-Authentication-Info ....................... [℗](#pf11_7_3){id=tf11_7_3}
+- 12. Content Negotiation ...................................... [℗](#pf12){id=tf12}
+-   12.1.  Proactive Negotiation ............................... [℗](#pf12_1){id=tf12_1}
+-   12.2.  Reactive Negotiation ................................ [℗](#pf12_2){id=tf12_2}
+-   12.3.  Request Content Negotiation ......................... [℗](#pf12_3){id=tf12_3}
+-   12.4.  Content Negotiation Field Features .................. [℗](#pf12_4){id=tf12_4}
+-     12.4.1.  Absence ......................................... [℗](#pf12_4_1){id=tf12_4_1}
+-     12.4.2.  Quality Values .................................. [℗](#pf12_4_2){id=tf12_4_2}
+-     12.4.3.  Wildcard Values ................................. [℗](#pf12_4_3){id=tf12_4_3}
+-   12.5.  Content Negotiation Fields .......................... [℗](#pf12_5){id=tf12_5}
+-     12.5.1.  Accept .......................................... [℗](#pf12_5_1){id=tf12_5_1}
+-     12.5.2.  Accept-Charset .................................. [℗](#pf12_5_2){id=tf12_5_2}
+-     12.5.3.  Accept-Encoding ................................. [℗](#pf12_5_3){id=tf12_5_3}
+-     12.5.4.  Accept-Language ................................. [℗](#pf12_5_4){id=tf12_5_4}
+-     12.5.5.  Vary ............................................ [℗](#pf12_5_5){id=tf12_5_5}
+- 13. Conditional Requests ..................................... [℗](#pf13){id=tf13}
+-   13.1.  Preconditions ....................................... [℗](#pf13_1){id=tf13_1}
+-     13.1.1.  If-Match ........................................ [℗](#pf13_1_1){id=tf13_1_1}
+-     13.1.2.  If-None-Match ................................... [℗](#pf13_1_2){id=tf13_1_2}
+-     13.1.3.  If-Modified-Since ............................... [℗](#pf13_1_3){id=tf13_1_3}
+-     13.1.4.  If-Unmodified-Since ............................. [℗](#pf13_1_4){id=tf13_1_4}
+-     13.1.5.  If-Range ........................................ [℗](#pf13_1_5){id=tf13_1_5}
+-   13.2.  Evaluation of Preconditions ......................... [℗](#pf13_2){id=tf13_2}
+-     13.2.1.  When to Evaluate ................................ [℗](#pf13_2_1){id=tf13_2_1}
+-     13.2.2.  Precedence of Preconditions ..................... [℗](#pf13_2_2){id=tf13_2_2}
+- 14. Range Requests ........................................... [℗](#pf14){id=tf14}
+-   14.1.  Range Units ......................................... [℗](#pf14_1){id=tf14_1}
+-     14.1.1.  Range Specifiers ................................ [℗](#pf14_1_1){id=tf14_1_1}
+-     14.1.2.  Byte Ranges ..................................... [℗](#pf14_1_2){id=tf14_1_2}
+-   14.2.  Range ............................................... [℗](#pf14_2){id=tf14_2}
+-   14.3.  Accept-Ranges ....................................... [℗](#pf14_3){id=tf14_3}
+-   14.4.  Content-Range ....................................... [℗](#pf14_4){id=tf14_4}
+-   14.5.  Partial PUT ......................................... [℗](#pf14_5){id=tf14_5}
+-   14.6.  Media Type multipart/byteranges ..................... [℗](#pf14_6){id=tf14_6}
+- 15. Status Codes ............................................. [℗](#pf15){id=tf15}
+-   15.1.  Overview of Status Codes ............................ [℗](#pf15_1){id=tf15_1}
+-   15.2.  Informational 1xx ................................... [℗](#pf15_2){id=tf15_2}
+-     15.2.1.  100 Continue .................................... [℗](#pf15_2_1){id=tf15_2_1}
+-     15.2.2.  101 Switching Protocols ......................... [℗](#pf15_2_2){id=tf15_2_2}
+-   15.3.  Successful 2xx ...................................... [℗](#pf15_3){id=tf15_3}
+-     15.3.1.  200 OK .......................................... [℗](#pf15_3_1){id=tf15_3_1}
+-     15.3.2.  201 Created ..................................... [℗](#pf15_3_2){id=tf15_3_2}
+-     15.3.3.  202 Accepted .................................... [℗](#pf15_3_3){id=tf15_3_3}
+-     15.3.4.  203 Non-Authoritative Information ............... [℗](#pf15_3_4){id=tf15_3_4}
+-     15.3.5.  204 No Content .................................. [℗](#pf15_3_5){id=tf15_3_5}
+-     15.3.6.  205 Reset Content ............................... [℗](#pf15_3_6){id=tf15_3_6}
+-     15.3.7.  206 Partial Content ............................. [℗](#pf15_3_7){id=tf15_3_7}
+-       15.3.7.1.  Single Part ................................. [℗](#pf15_3_7_1){id=tf15_3_7_1}
+-       15.3.7.2.  Multiple Parts .............................. [℗](#pf15_3_7_2){id=tf15_3_7_2}
+-       15.3.7.3.  Combining Parts ............................. [℗](#pf15_3_7_3){id=tf15_3_7_3}
+-   15.4.  Redirection 3xx ..................................... [℗](#pf15_4){id=tf15_4}
+-     15.4.1.  300 Multiple Choices ............................ [℗](#pf15_4_1){id=tf15_4_1}
+-     15.4.2.  301 Moved Permanently ........................... [℗](#pf15_4_2){id=tf15_4_2}
+-     15.4.3.  302 Found ....................................... [℗](#pf15_4_3){id=tf15_4_3}
+-     15.4.4.  303 See Other ................................... [℗](#pf15_4_4){id=tf15_4_4}
+-     15.4.5.  304 Not Modified ................................ [℗](#pf15_4_5){id=tf15_4_5}
+-     15.4.6.  305 Use Proxy ................................... [℗](#pf15_4_6){id=tf15_4_6}
+-     15.4.7.  306 (Unused) .................................... [℗](#pf15_4_7){id=tf15_4_7}
+-     15.4.8.  307 Temporary Redirect .......................... [℗](#pf15_4_8){id=tf15_4_8}
+-     15.4.9.  308 Permanent Redirect .......................... [℗](#pf15_4_9){id=tf15_4_9}
+-   15.5.  Client Error 4xx .................................... [℗](#pf15_5){id=tf15_5}
+-     15.5.1.  400 Bad Request ................................. [℗](#pf15_5_1){id=tf15_5_1}
+-     15.5.2.  401 Unauthorized ................................ [℗](#pf15_5_2){id=tf15_5_2}
+-     15.5.3.  402 Payment Required ............................ [℗](#pf15_5_3){id=tf15_5_3}
+-     15.5.4.  403 Forbidden ................................... [℗](#pf15_5_4){id=tf15_5_4}
+-     15.5.5.  404 Not Found ................................... [℗](#pf15_5_5){id=tf15_5_5}
+-     15.5.6.  405 Method Not Allowed .......................... [℗](#pf15_5_6){id=tf15_5_6}
+-     15.5.7.  406 Not Acceptable .............................. [℗](#pf15_5_7){id=tf15_5_7}
+-     15.5.8.  407 Proxy Authentication Required ............... [℗](#pf15_5_8){id=tf15_5_8}
+-     15.5.9.  408 Request Timeout ............................. [℗](#pf15_5_9){id=tf15_5_9}
+-     15.5.10. 409 Conflict .................................... [℗](#pf15_5_10){id=tf15_5_10}
+-     15.5.11. 410 Gone ........................................ [℗](#pf15_5_11){id=tf15_5_11}
+-     15.5.12. 411 Length Required ............................. [℗](#pf15_5_12){id=tf15_5_12}
+-     15.5.13. 412 Precondition Failed ......................... [℗](#pf15_5_13){id=tf15_5_13}
+-     15.5.14. 413 Content Too Large ........................... [℗](#pf15_5_14){id=tf15_5_14}
+-     15.5.15. 414 URI Too Long ................................ [℗](#pf15_5_15){id=tf15_5_15}
+-     15.5.16. 415 Unsupported Media Type ...................... [℗](#pf15_5_16){id=tf15_5_16}
+-     15.5.17. 416 Range Not Satisfiable ....................... [℗](#pf15_5_17){id=tf15_5_17}
+-     15.5.18. 417 Expectation Failed .......................... [℗](#pf15_5_18){id=tf15_5_18}
+-     15.5.19. 418 (Unused) .................................... [℗](#pf15_5_19){id=tf15_5_19}
+-     15.5.20. 421 Misdirected Request ......................... [℗](#pf15_5_20){id=tf15_5_20}
+-     15.5.21. 422 Unprocessable Content ....................... [℗](#pf15_5_21){id=tf15_5_21}
+-     15.5.22. 426 Upgrade Required ............................ [℗](#pf15_5_22){id=tf15_5_22}
+-   15.6.  Server Error 5xx .................................... [℗](#pf15_6){id=tf15_6}
+-     15.6.1.  500 Internal Server Error ....................... [℗](#pf15_6_1){id=tf15_6_1}
+-     15.6.2.  501 Not Implemented ............................. [℗](#pf15_6_2){id=tf15_6_2}
+-     15.6.3.  502 Bad Gateway ................................. [℗](#pf15_6_3){id=tf15_6_3}
+-     15.6.4.  503 Service Unavailable ......................... [℗](#pf15_6_4){id=tf15_6_4}
+-     15.6.5.  504 Gateway Timeout ............................. [℗](#pf15_6_5){id=tf15_6_5}
+-     15.6.6.  505 HTTP Version Not Supported .................. [℗](#pf15_6_6){id=tf15_6_6}
+- 16. Extending HTTP ........................................... [℗](#pf16){id=tf16}
+-   16.1.  Method Extensibility ................................ [℗](#pf16_1){id=tf16_1}
+-     16.1.1.  Method Registry ................................. [℗](#pf16_1_1){id=tf16_1_1}
+-     16.1.2.  Considerations for New Methods .................. [℗](#pf16_1_2){id=tf16_1_2}
+-   16.2.  Status Code Extensibility ........................... [℗](#pf16_2){id=tf16_2}
+-     16.2.1.  Status Code Registry ............................ [℗](#pf16_2_1){id=tf16_2_1}
+-     16.2.2.  Considerations for New Status Codes ............. [℗](#pf16_2_2){id=tf16_2_2}
+-   16.3.  Field Extensibility ................................. [℗](#pf16_3){id=tf16_3}
+-     16.3.1.  Field Name Registry ............................. [℗](#pf16_3_1){id=tf16_3_1}
+-     16.3.2.  Considerations for New Fields ................... [℗](#pf16_3_2){id=tf16_3_2}
+-       16.3.2.1.  Considerations for New Field Names .......... [℗](#pf16_3_2_1){id=tf16_3_2_1}
+-       16.3.2.2.  Considerations for New Field Values ......... [℗](#pf16_3_2_2){id=tf16_3_2_2}
+-   16.4.  Authentication Scheme Extensibility ................. [℗](#pf16_4){id=tf16_4}
+-     16.4.1.  Authentication Scheme Registry .................. [℗](#pf16_4_1){id=tf16_4_1}
+-     16.4.2.  Considerations for New Authentication Schemes ... [℗](#pf16_4_2){id=tf16_4_2}
+-   16.5.  Range Unit Extensibility ............................ [℗](#pf16_5){id=tf16_5}
+-     16.5.1.  Range Unit Registry ............................. [℗](#pf16_5_1){id=tf16_5_1}
+-     16.5.2.  Considerations for New Range Units .............. [℗](#pf16_5_2){id=tf16_5_2}
+-   16.6.  Content Coding Extensibility ........................ [℗](#pf16_6){id=tf16_6}
+-     16.6.1.  Content Coding Registry ......................... [℗](#pf16_6_1){id=tf16_6_1}
+-     16.6.2.  Considerations for New Content Codings .......... [℗](#pf16_6_2){id=tf16_6_2}
+-   16.7.  Upgrade Token Registry .............................. [℗](#pf16_7){id=tf16_7}
+- 17. Security Considerations .................................. [℗](#pf17){id=tf17}
+-   17.1.  Establishing Authority .............................. [℗](#pf17_1){id=tf17_1}
+-   17.2.  Risks of Intermediaries ............................. [℗](#pf17_2){id=tf17_2}
+-   17.3.  Attacks Based on File and Path Names ................ [℗](#pf17_3){id=tf17_3}
+-   17.4.  Attacks Based on Command, Code, or Query Injection .. [℗](#pf17_4){id=tf17_4}
+-   17.5.  Attacks via Protocol Element Length ................. [℗](#pf17_5){id=tf17_5}
+-   17.6.  Attacks Using Shared-Dictionary Compression ......... [℗](#pf17_6){id=tf17_6}
+-   17.7.  Disclosure of Personal Information .................. [℗](#pf17_7){id=tf17_7}
+-   17.8.  Privacy of Server Log Information ................... [℗](#pf17_8){id=tf17_8}
+-   17.9.  Disclosure of Sensitive Information in URIs ......... [℗](#pf17_9){id=tf17_9}
+-   17.10. Application Handling of Field Names ................. [℗](#pf17_10){id=tf17_10}
+-   17.11. Disclosure of Fragment after Redirects .............. [℗](#pf17_11){id=tf17_11}
+-   17.12. Disclosure of Product Information ................... [℗](#pf17_12){id=tf17_12}
+-   17.13. Browser Fingerprinting .............................. [℗](#pf17_13){id=tf17_13}
+-   17.14. Validator Retention ................................. [℗](#pf17_14){id=tf17_14}
+-   17.15. Denial-of-Service Attacks Using Range ............... [℗](#pf17_15){id=tf17_15}
+-   17.16. Authentication Considerations ....................... [℗](#pf17_16){id=tf17_16}
+-     17.16.1.  Confidentiality of Credentials ................. [℗](#pf17_16_1){id=tf17_16_1}
+-     17.16.2.  Credentials and Idle Clients ................... [℗](#pf17_16_2){id=tf17_16_2}
+-     17.16.3.  Protection Spaces .............................. [℗](#pf17_16_3){id=tf17_16_3}
+-     17.16.4.  Additional Response Fields ..................... [℗](#pf17_16_4){id=tf17_16_4}
+- 18. IANA Considerations ...................................... [℗](#pf18){id=tf18}
+-   18.1.  URI Scheme Registration ............................. [℗](#pf18_1){id=tf18_1}
+-   18.2.  Method Registration ................................. [℗](#pf18_2){id=tf18_2}
+-   18.3.  Status Code Registration ............................ [℗](#pf18_3){id=tf18_3}
+-   18.4.  Field Name Registration ............................. [℗](#pf18_4){id=tf18_4}
+-   18.5.  Authentication Scheme Registration .................. [℗](#pf18_5){id=tf18_5}
+-   18.6.  Content Coding Registration ......................... [℗](#pf18_6){id=tf18_6}
+-   18.7.  Range Unit Registration ............................. [℗](#pf18_7){id=tf18_7}
+-   18.8.  Media Type Registration ............................. [℗](#pf18_8){id=tf18_8}
+-   18.9.  Port Registration ................................... [℗](#pf18_9){id=tf18_9}
+-   18.10. Upgrade Token Registration .......................... [℗](#pf18_10){id=tf18_10}
+- 19. References ............................................... [℗](#pf19){id=tf19}
+-   19.1.  Normative References ................................ [℗](#pf19_1){id=tf19_1}
+-   19.2.  Informative References .............................. [℗](#pf19_2){id=tf19_2}
+- Appendix A.  Collected ABNF .................................. [℗](#pfAppA){id=tfAppA}
+- Appendix B.  Changes from Previous RFCs ...................... [℗](#pfAppB){id=tfAppB}
+-   B.1.  Changes from RFC 2818 ................................ [℗](#pfB_1){id=tfB_1}
+-   B.2.  Changes from RFC 7230 ................................ [℗](#pfB_2){id=tfB_2}
+-   B.3.  Changes from RFC 7231 ................................ [℗](#pfB_3){id=tfB_3}
+-   B.4.  Changes from RFC 7232 ................................ [℗](#pfB_4){id=tfB_4}
+-   B.5.  Changes from RFC 7233 ................................ [℗](#pfB_5){id=tfB_5}
+-   B.6.  Changes from RFC 7235 ................................ [℗](#pfB_6){id=tfB_6}
+-   B.7.  Changes from RFC 7538 ................................ [℗](#pfB_7){id=tfB_7}
+-   B.8.  Changes from RFC 7615 ................................ [℗](#pfB_8){id=tfB_8}
+-   B.9.  Changes from RFC 7694 ................................ [℗](#pfB_9){id=tfB_9}
+- Acknowledgements ............................................. [℗](#pfAck){id=tfAck}
+- Index ........................................................ [℗](#pfIndex){id=tfIndex}
+- Authors' Addresses ........................................... [℗](#pfAuthors){id=tfAuthors}
+
+[℗](#tfch1){id=pfch1}
+
+/1.  Introduction
+========================================================
+
+
+[℗](#tfch1){id=pf1_1}
+
+//1.1.  Purpose
+--------------------------------------------------------
+
+   The Hypertext Transfer Protocol (HTTP) is a family of stateless,
+   application-level, request/response protocols that share a generic
+   interface, extensible semantics, and self-descriptive messages to
+   enable flexible interaction with network-based hypertext information
+   systems.
+
+   HTTP hides the details of how a service is implemented by presenting
+   a uniform interface to clients that is independent of the types of
+   resources provided.  Likewise, servers do not need to be aware of
+   each client's purpose: a request can be considered in isolation
+   rather than being associated with a specific type of client or a
+   predetermined sequence of application steps.  This allows general-
+   purpose implementations to be used effectively in many different
+   contexts, reduces interaction complexity, and enables independent
+   evolution over time.
+
+   HTTP is also designed for use as an intermediation protocol, wherein
+   proxies and gateways can translate non-HTTP information systems into
+   a more generic interface.
+
+   One consequence of this flexibility is that the protocol cannot be
+   defined in terms of what occurs behind the interface.  Instead, we
+   are limited to defining the syntax of communication, the intent of
+   received communication, and the expected behavior of recipients.  If
+   the communication is considered in isolation, then successful actions
+   ought to be reflected in corresponding changes to the observable
+   interface provided by servers.  However, since multiple clients might
+   act in parallel and perhaps at cross-purposes, we cannot require that
+   such changes be observable beyond the scope of a single response.
+
+[℗](#tfch1){id=pf1_2}
+
+//1.2.  History and Evolution
+--------------------------------------------------------
+
+   HTTP has been the primary information transfer protocol for the World
+   Wide Web since its introduction in 1990.  It began as a trivial
+   mechanism for low-latency requests, with a single method (GET) to
+   request transfer of a presumed hypertext document identified by a
+   given pathname.  As the Web grew, HTTP was extended to enclose
+   requests and responses within messages, transfer arbitrary data
+   formats using MIME-like media types, and route requests through
+   intermediaries.  These protocols were eventually defined as HTTP/0.9
+   and HTTP/1.0 (see [HTTP/1.0]).
+
+   HTTP/1.1 was designed to refine the protocol's features while
+   retaining compatibility with the existing text-based messaging
+   syntax, improving its interoperability, scalability, and robustness
+   across the Internet.  This included length-based data delimiters for
+   both fixed and dynamic (chunked) content, a consistent framework for
+   content negotiation, opaque validators for conditional requests,
+   cache controls for better cache consistency, range requests for
+   partial updates, and default persistent connections.  HTTP/1.1 was
+   introduced in 1995 and published on the Standards Track in 1997
+   [RFC2068], revised in 1999 [RFC2616], and revised again in 2014
+   ([RFC7230] through [RFC7235]).
+
+   HTTP/2 ([HTTP/2]) introduced a multiplexed session layer on top of
+   the existing TLS and TCP protocols for exchanging concurrent HTTP
+   messages with efficient field compression and server push.  HTTP/3
+   ([HTTP/3]) provides greater independence for concurrent messages by
+   using QUIC as a secure multiplexed transport over UDP instead of TCP.
+
+   All three major versions of HTTP rely on the semantics defined by
+   this document.  They have not obsoleted each other because each one
+   has specific benefits and limitations depending on the context of
+   use.  Implementations are expected to choose the most appropriate
+   transport and messaging syntax for their particular context.
+
+   This revision of HTTP separates the definition of semantics (this
+   document) and caching ([CACHING]) from the current HTTP/1.1 messaging
+   syntax ([HTTP/1.1]) to allow each major protocol version to progress
+   independently while referring to the same core semantics.
+
+[℗](#tfch1){id=pf1_3}
+
+//1.3.  Core Semantics
+--------------------------------------------------------
+
+   HTTP provides a uniform interface for interacting with a resource
+   (Section 3.1) -- regardless of its type, nature, or implementation --
+   by sending messages that manipulate or transfer representations
+   (Section 3.2).
+
+   Each message is either a request or a response.  A client constructs
+   request messages that communicate its intentions and routes those
+   messages toward an identified origin server.  A server listens for
+   requests, parses each message received, interprets the message
+   semantics in relation to the identified target resource, and responds
+   to that request with one or more response messages.  The client
+   examines received responses to see if its intentions were carried
+   out, determining what to do next based on the status codes and
+   content received.
+
+   HTTP semantics include the intentions defined by each request method
+   (Section 9), extensions to those semantics that might be described in
+   request header fields, status codes that describe the response
+   (Section 15), and other control data and resource metadata that might
+   be given in response fields.
+
+   Semantics also include representation metadata that describe how
+   content is intended to be interpreted by a recipient, request header
+   fields that might influence content selection, and the various
+   selection algorithms that are collectively referred to as "content
+   negotiation" (Section 12).
+
+[℗](#tfch1){id=pf1_4}
+
+//1.4.  Specifications Obsoleted by This Document
+--------------------------------------------------------
+
+    +============================================+===========+=====+
+    | Title                                      | Reference | See |
+    +============================================+===========+=====+
+    | HTTP Over TLS                              | [RFC2818] | B.1 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP/1.1 Message Syntax and Routing [*]    | [RFC7230] | B.2 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP/1.1 Semantics and Content             | [RFC7231] | B.3 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP/1.1 Conditional Requests              | [RFC7232] | B.4 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP/1.1 Range Requests                    | [RFC7233] | B.5 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP/1.1 Authentication                    | [RFC7235] | B.6 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP Status Code 308 (Permanent Redirect)  | [RFC7538] | B.7 |
+    +--------------------------------------------+-----------+-----+
+    | HTTP Authentication-Info and Proxy-        | [RFC7615] | B.8 |
+    | Authentication-Info Response Header Fields |           |     |
+    +--------------------------------------------+-----------+-----+
+    | HTTP Client-Initiated Content-Encoding     | [RFC7694] | B.9 |
+    +--------------------------------------------+-----------+-----+
+
+                                Table 1
+
+       [*] This document only obsoletes the portions of RFC 7230 that are
+       independent of the HTTP/1.1 messaging syntax and connection
+       management; the remaining bits of RFC 7230 are obsoleted by
+       "HTTP/1.1" [HTTP/1.1].
+
+[℗](#tfch2){id=pfch2}
+
+/2.  Conformance
+========================================================
+
+
+[℗](#tfch2){id=pf2_1}
+
+//2.1.  Syntax Notation
+--------------------------------------------------------
+
+   This specification uses the Augmented Backus-Naur Form (ABNF)
+   notation of [RFC5234], extended with the notation for case-
+   sensitivity in strings defined in [RFC7405].
+
+   It also uses a list extension, defined in Section 5.6.1, that allows
+   for compact definition of comma-separated lists using a "#" operator
+   (similar to how the `*` operator indicates repetition).  Appendix A
+   shows the collected grammar with all list operators expanded to
+   standard ABNF notation.
+
+   As a convention, ABNF rule names prefixed with "obs-" denote obsolete
+   grammar rules that appear for historical reasons.
+
+   The following core rules are included by reference, as defined in
+   Appendix B.1 of [RFC5234]: ALPHA (letters), CR (carriage return),
+   CRLF (CR LF), CTL (controls), DIGIT (decimal 0-9), DQUOTE (double
+   quote), HEXDIG (hexadecimal 0-9/A-F/a-f), HTAB (horizontal tab), LF
+   (line feed), OCTET (any 8-bit sequence of data), SP (space), and
+   VCHAR (any visible US-ASCII character).
+
+   Section 5.6 defines some generic syntactic components for field
+   values.
+
+   This specification uses the terms "character", "character encoding
+   scheme", "charset", and "protocol element" as they are defined in
+   [RFC6365].
+
+[℗](#tfch2){id=pf2_2}
+
+//2.2.  Requirements Notation
+--------------------------------------------------------
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   This specification targets conformance criteria according to the role
+   of a participant in HTTP communication.  Hence, requirements are
+   placed on senders, recipients, clients, servers, user agents,
+   intermediaries, origin servers, proxies, gateways, or caches,
+   depending on what behavior is being constrained by the requirement.
+   Additional requirements are placed on implementations, resource
+   owners, and protocol element registrations when they apply beyond the
+   scope of a single communication.
+
+   The verb "generate" is used instead of "send" where a requirement
+   applies only to implementations that create the protocol element,
+   rather than an implementation that forwards a received element
+   downstream.
+
+   An implementation is considered conformant if it complies with all of
+   the requirements associated with the roles it partakes in HTTP.
+
+   A sender MUST NOT generate protocol elements that do not match the
+   grammar defined by the corresponding ABNF rules.  Within a given
+   message, a sender MUST NOT generate protocol elements or syntax
+   alternatives that are only allowed to be generated by participants in
+   other roles (i.e., a role that the sender does not have for that
+   message).
+
+   Conformance to HTTP includes both conformance to the particular
+   messaging syntax of the protocol version in use and conformance to
+   the semantics of protocol elements sent.  For example, a client that
+   claims conformance to HTTP/1.1 but fails to recognize the features
+   required of HTTP/1.1 recipients will fail to interoperate with
+   servers that adjust their responses in accordance with those claims.
+   Features that reflect user choices, such as content negotiation and
+   user-selected extensions, can impact application behavior beyond the
+   protocol stream; sending protocol elements that inaccurately reflect
+   a user's choices will confuse the user and inhibit choice.
+
+   When an implementation fails semantic conformance, recipients of that
+   implementation's messages will eventually develop workarounds to
+   adjust their behavior accordingly.  A recipient MAY employ such
+   workarounds while remaining conformant to this protocol if the
+   workarounds are limited to the implementations at fault.  For
+   example, servers often scan portions of the User-Agent field value,
+   and user agents often scan the Server field value, to adjust their
+   own behavior with respect to known bugs or poorly chosen defaults.
+
+[℗](#tfch2){id=pf2_3}
+
+//2.3.  Length Requirements
+--------------------------------------------------------
+
+   A recipient SHOULD parse a received protocol element defensively,
+   with only marginal expectations that the element will conform to its
+   ABNF grammar and fit within a reasonable buffer size.
+
+   HTTP does not have specific length limitations for many of its
+   protocol elements because the lengths that might be appropriate will
+   vary widely, depending on the deployment context and purpose of the
+   implementation.  Hence, interoperability between senders and
+   recipients depends on shared expectations regarding what is a
+   reasonable length for each protocol element.  Furthermore, what is
+   commonly understood to be a reasonable length for some protocol
+   elements has changed over the course of the past three decades of
+   HTTP use and is expected to continue changing in the future.
+
+   At a minimum, a recipient MUST be able to parse and process protocol
+   element lengths that are at least as long as the values that it
+   generates for those same protocol elements in other messages.  For
+   example, an origin server that publishes very long URI references to
+   its own resources needs to be able to parse and process those same
+   references when received as a target URI.
+
+   Many received protocol elements are only parsed to the extent
+   necessary to identify and forward that element downstream.  For
+   example, an intermediary might parse a received field into its field
+   name and field value components, but then forward the field without
+   further parsing inside the field value.
+
+[℗](#tfch2){id=pf2_4}
+
+//2.4.  Error Handling
+--------------------------------------------------------
+
+   A recipient MUST interpret a received protocol element according to
+   the semantics defined for it by this specification, including
+   extensions to this specification, unless the recipient has determined
+   (through experience or configuration) that the sender incorrectly
+   implements what is implied by those semantics.  For example, an
+   origin server might disregard the contents of a received
+   Accept-Encoding header field if inspection of the User-Agent header
+   field indicates a specific implementation version that is known to
+   fail on receipt of certain content codings.
+
+   Unless noted otherwise, a recipient MAY attempt to recover a usable
+   protocol element from an invalid construct.  HTTP does not define
+   specific error handling mechanisms except when they have a direct
+   impact on security, since different applications of the protocol
+   require different error handling strategies.  For example, a Web
+   browser might wish to transparently recover from a response where the
+   Location header field doesn't parse according to the ABNF, whereas a
+   systems control client might consider any form of error recovery to
+   be dangerous.
+
+   Some requests can be automatically retried by a client in the event
+   of an underlying connection failure, as described in Section 9.2.2.
+
+[℗](#tfch2){id=pf2_5}
+
+//2.5.  Protocol Version
+--------------------------------------------------------
+
+   HTTP's version number consists of two decimal digits separated by a
+   "." (period or decimal point).  The first digit (major version)
+   indicates the messaging syntax, whereas the second digit (minor
+   version) indicates the highest minor version within that major
+   version to which the sender is conformant (able to understand for
+   future communication).
+
+   While HTTP's core semantics don't change between protocol versions,
+   their expression "on the wire" can change, and so the HTTP version
+   number changes when incompatible changes are made to the wire format.
+   Additionally, HTTP allows incremental, backwards-compatible changes
+   to be made to the protocol without changing its version through the
+   use of defined extension points (Section 16).
+
+   The protocol version as a whole indicates the sender's conformance
+   with the set of requirements laid out in that version's corresponding
+   specification(s).  For example, the version "HTTP/1.1" is defined by
+   the combined specifications of this document, "HTTP Caching"
+   [CACHING], and "HTTP/1.1" [HTTP/1.1].
+
+   HTTP's major version number is incremented when an incompatible
+   message syntax is introduced.  The minor number is incremented when
+   changes made to the protocol have the effect of adding to the message
+   semantics or implying additional capabilities of the sender.
+
+   The minor version advertises the sender's communication capabilities
+   even when the sender is only using a backwards-compatible subset of
+   the protocol, thereby letting the recipient know that more advanced
+   features can be used in response (by servers) or in future requests
+   (by clients).
+
+   When a major version of HTTP does not define any minor versions, the
+   minor version "0" is implied.  The "0" is used when referring to that
+   protocol within elements that require a minor version identifier.
+
+[℗](#tfch3){id=pfch3}
+
+/3.  Terminology and Core Concepts
+========================================================
+
+
+   HTTP was created for the World Wide Web (WWW) architecture and has
+   evolved over time to support the scalability needs of a worldwide
+   hypertext system.  Much of that architecture is reflected in the
+   terminology used to define HTTP.
+
+[℗](#tfch3){id=pf3_1}
+
+//3.1.  Resources
+--------------------------------------------------------
+
+   The target of an HTTP request is called a "resource".  HTTP does not
+   limit the nature of a resource; it merely defines an interface that
+   might be used to interact with resources.  Most resources are
+   identified by a Uniform Resource Identifier (URI), as described in
+   Section 4.
+
+   One design goal of HTTP is to separate resource identification from
+   request semantics, which is made possible by vesting the request
+   semantics in the request method (Section 9) and a few request-
+   modifying header fields.  A resource cannot treat a request in a
+   manner inconsistent with the semantics of the method of the request.
+   For example, though the URI of a resource might imply semantics that
+   are not safe, a client can expect the resource to avoid actions that
+   are unsafe when processing a request with a safe method (see
+   Section 9.2.1).
+
+   HTTP relies upon the Uniform Resource Identifier (URI) standard [URI]
+   to indicate the target resource (Section 7.1) and relationships
+   between resources.
+
+[℗](#tfch3){id=pf3_2}
+
+//3.2.  Representations
+--------------------------------------------------------
+
+   A "representation" is information that is intended to reflect a past,
+   current, or desired state of a given resource, in a format that can
+   be readily communicated via the protocol.  A representation consists
+   of a set of representation metadata and a potentially unbounded
+   stream of representation data (Section 8).
+
+   HTTP allows "information hiding" behind its uniform interface by
+   defining communication with respect to a transferable representation
+   of the resource state, rather than transferring the resource itself.
+   This allows the resource identified by a URI to be anything,
+   including temporal functions like "the current weather in Laguna
+   Beach", while potentially providing information that represents that
+   resource at the time a message is generated [REST].
+
+   The uniform interface is similar to a window through which one can
+   observe and act upon a thing only through the communication of
+   messages to an independent actor on the other side.  A shared
+   abstraction is needed to represent ("take the place of") the current
+   or desired state of that thing in our communications.  When a
+   representation is hypertext, it can provide both a representation of
+   the resource state and processing instructions that help guide the
+   recipient's future interactions.
+
+   A target resource might be provided with, or be capable of
+   generating, multiple representations that are each intended to
+   reflect the resource's current state.  An algorithm, usually based on
+   content negotiation (Section 12), would be used to select one of
+   those representations as being most applicable to a given request.
+   This "selected representation" provides the data and metadata for
+   evaluating conditional requests (Section 13) and constructing the
+   content for 200 (OK), 206 (Partial Content), and 304 (Not Modified)
+   responses to GET (Section 9.3.1).
+
+[℗](#tfch3){id=pf3_3}
+
+//3.3.  Connections, Clients, and Servers
+--------------------------------------------------------
+
+   HTTP is a client/server protocol that operates over a reliable
+   transport- or session-layer "connection".
+
+   An HTTP "client" is a program that establishes a connection to a
+   server for the purpose of sending one or more HTTP requests.  An HTTP
+   "server" is a program that accepts connections in order to service
+   HTTP requests by sending HTTP responses.
+
+   The terms client and server refer only to the roles that these
+   programs perform for a particular connection.  The same program might
+   act as a client on some connections and a server on others.
+
+   HTTP is defined as a stateless protocol, meaning that each request
+   message's semantics can be understood in isolation, and that the
+   relationship between connections and messages on them has no impact
+   on the interpretation of those messages.  For example, a CONNECT
+   request (Section 9.3.6) or a request with the Upgrade header field
+   (Section 7.8) can occur at any time, not just in the first message on
+   a connection.  Many implementations depend on HTTP's stateless design
+   in order to reuse proxied connections or dynamically load balance
+   requests across multiple servers.
+
+   As a result, a server MUST NOT assume that two requests on the same
+   connection are from the same user agent unless the connection is
+   secured and specific to that agent.  Some non-standard HTTP
+   extensions (e.g., [RFC4559]) have been known to violate this
+   requirement, resulting in security and interoperability problems.
+
+[℗](#tfch3){id=pf3_4}
+
+//3.4.  Messages
+--------------------------------------------------------
+
+   HTTP is a stateless request/response protocol for exchanging
+   "messages" across a connection.  The terms "sender" and "recipient"
+   refer to any implementation that sends or receives a given message,
+   respectively.
+
+   A client sends requests to a server in the form of a "request"
+   message with a method (Section 9) and request target (Section 7.1).
+   The request might also contain header fields (Section 6.3) for
+   request modifiers, client information, and representation metadata,
+   content (Section 6.4) intended for processing in accordance with the
+   method, and trailer fields (Section 6.5) to communicate information
+   collected while sending the content.
+
+   A server responds to a client's request by sending one or more
+   "response" messages, each including a status code (Section 15).  The
+   response might also contain header fields for server information,
+   resource metadata, and representation metadata, content to be
+   interpreted in accordance with the status code, and trailer fields to
+   communicate information collected while sending the content.
+
+[℗](#tfch3){id=pf3_5}
+
+//3.5.  User Agents
+--------------------------------------------------------
+
+   The term "user agent" refers to any of the various client programs
+   that initiate a request.
+
+   The most familiar form of user agent is the general-purpose Web
+   browser, but that's only a small percentage of implementations.
+   Other common user agents include spiders (web-traversing robots),
+   command-line tools, billboard screens, household appliances, scales,
+   light bulbs, firmware update scripts, mobile apps, and communication
+   devices in a multitude of shapes and sizes.
+
+   Being a user agent does not imply that there is a human user directly
+   interacting with the software agent at the time of a request.  In
+   many cases, a user agent is installed or configured to run in the
+   background and save its results for later inspection (or save only a
+   subset of those results that might be interesting or erroneous).
+   Spiders, for example, are typically given a start URI and configured
+   to follow certain behavior while crawling the Web as a hypertext
+   graph.
+
+   Many user agents cannot, or choose not to, make interactive
+   suggestions to their user or provide adequate warning for security or
+   privacy concerns.  In the few cases where this specification requires
+   reporting of errors to the user, it is acceptable for such reporting
+   to only be observable in an error console or log file.  Likewise,
+   requirements that an automated action be confirmed by the user before
+   proceeding might be met via advance configuration choices, run-time
+   options, or simple avoidance of the unsafe action; confirmation does
+   not imply any specific user interface or interruption of normal
+   processing if the user has already made that choice.
+
+[℗](#tfch3){id=pf3_6}
+
+//3.6.  Origin Server
+--------------------------------------------------------
+
+   The term "origin server" refers to a program that can originate
+   authoritative responses for a given target resource.
+
+   The most familiar form of origin server are large public websites.
+   However, like user agents being equated with browsers, it is easy to
+   be misled into thinking that all origin servers are alike.  Common
+   origin servers also include home automation units, configurable
+   networking components, office machines, autonomous robots, news
+   feeds, traffic cameras, real-time ad selectors, and video-on-demand
+   platforms.
+
+   Most HTTP communication consists of a retrieval request (GET) for a
+   representation of some resource identified by a URI.  In the simplest
+   case, this might be accomplished via a single bidirectional
+   connection (===) between the user agent (UA) and the origin server
+   (O).
+
+            request   >
+       UA ======================================= O
+                                   <   response
+
+                                  Figure 1
+
+[℗](#tfch3){id=pf3_7}
+
+//3.7.  Intermediaries
+--------------------------------------------------------
+
+   HTTP enables the use of intermediaries to satisfy requests through a
+   chain of connections.  There are three common forms of HTTP
+   "intermediary": proxy, gateway, and tunnel.  In some cases, a single
+   intermediary might act as an origin server, proxy, gateway, or
+   tunnel, switching behavior based on the nature of each request.
+
+            >             >             >             >
+       UA =========== A =========== B =========== C =========== O
+                  <             <             <             <
+
+                                  Figure 2
+
+   The figure above shows three intermediaries (A, B, and C) between the
+   user agent and origin server.  A request or response message that
+   travels the whole chain will pass through four separate connections.
+   Some HTTP communication options might apply only to the connection
+   with the nearest, non-tunnel neighbor, only to the endpoints of the
+   chain, or to all connections along the chain.  Although the diagram
+   is linear, each participant might be engaged in multiple,
+   simultaneous communications.  For example, B might be receiving
+   requests from many clients other than A, and/or forwarding requests
+   to servers other than C, at the same time that it is handling A's
+   request.  Likewise, later requests might be sent through a different
+   path of connections, often based on dynamic configuration for load
+   balancing.
+
+   The terms "upstream" and "downstream" are used to describe
+   directional requirements in relation to the message flow: all
+   messages flow from upstream to downstream.  The terms "inbound" and
+   "outbound" are used to describe directional requirements in relation
+   to the request route: inbound means "toward the origin server",
+   whereas outbound means "toward the user agent".
+
+   A "proxy" is a message-forwarding agent that is chosen by the client,
+   usually via local configuration rules, to receive requests for some
+   type(s) of absolute URI and attempt to satisfy those requests via
+   translation through the HTTP interface.  Some translations are
+   minimal, such as for proxy requests for "http" URIs, whereas other
+   requests might require translation to and from entirely different
+   application-level protocols.  Proxies are often used to group an
+   organization's HTTP requests through a common intermediary for the
+   sake of security services, annotation services, or shared caching.
+   Some proxies are designed to apply transformations to selected
+   messages or content while they are being forwarded, as described in
+   Section 7.7.
+
+   A "gateway" (a.k.a. "reverse proxy") is an intermediary that acts as
+   an origin server for the outbound connection but translates received
+   requests and forwards them inbound to another server or servers.
+   Gateways are often used to encapsulate legacy or untrusted
+   information services, to improve server performance through
+   "accelerator" caching, and to enable partitioning or load balancing
+   of HTTP services across multiple machines.
+
+   All HTTP requirements applicable to an origin server also apply to
+   the outbound communication of a gateway.  A gateway communicates with
+   inbound servers using any protocol that it desires, including private
+   extensions to HTTP that are outside the scope of this specification.
+   However, an HTTP-to-HTTP gateway that wishes to interoperate with
+   third-party HTTP servers needs to conform to user agent requirements
+   on the gateway's inbound connection.
+
+   A "tunnel" acts as a blind relay between two connections without
+   changing the messages.  Once active, a tunnel is not considered a
+   party to the HTTP communication, though the tunnel might have been
+   initiated by an HTTP request.  A tunnel ceases to exist when both
+   ends of the relayed connection are closed.  Tunnels are used to
+   extend a virtual connection through an intermediary, such as when
+   Transport Layer Security (TLS, [TLS13]) is used to establish
+   confidential communication through a shared firewall proxy.
+
+   The above categories for intermediary only consider those acting as
+   participants in the HTTP communication.  There are also
+   intermediaries that can act on lower layers of the network protocol
+   stack, filtering or redirecting HTTP traffic without the knowledge or
+   permission of message senders.  Network intermediaries are
+   indistinguishable (at a protocol level) from an on-path attacker,
+   often introducing security flaws or interoperability problems due to
+   mistakenly violating HTTP semantics.
+
+   For example, an "interception proxy" [RFC3040] (also commonly known
+   as a "transparent proxy" [RFC1919]) differs from an HTTP proxy
+   because it is not chosen by the client.  Instead, an interception
+   proxy filters or redirects outgoing TCP port 80 packets (and
+   occasionally other common port traffic).  Interception proxies are
+   commonly found on public network access points, as a means of
+   enforcing account subscription prior to allowing use of non-local
+   Internet services, and within corporate firewalls to enforce network
+   usage policies.
+
+[℗](#tfch3){id=pf3_8}
+
+//3.8.  Caches
+--------------------------------------------------------
+
+   A "cache" is a local store of previous response messages and the
+   subsystem that controls its message storage, retrieval, and deletion.
+   A cache stores cacheable responses in order to reduce the response
+   time and network bandwidth consumption on future, equivalent
+   requests.  Any client or server MAY employ a cache, though a cache
+   cannot be used while acting as a tunnel.
+
+   The effect of a cache is that the request/response chain is shortened
+   if one of the participants along the chain has a cached response
+   applicable to that request.  The following illustrates the resulting
+   chain if B has a cached copy of an earlier response from O (via C)
+   for a request that has not been cached by UA or A.
+
+               >             >
+          UA =========== A =========== B - - - - - - C - - - - - - O
+                     <             <
+
+                                  Figure 3
+
+   A response is "cacheable" if a cache is allowed to store a copy of
+   the response message for use in answering subsequent requests.  Even
+   when a response is cacheable, there might be additional constraints
+   placed by the client or by the origin server on when that cached
+   response can be used for a particular request.  HTTP requirements for
+   cache behavior and cacheable responses are defined in [CACHING].
+
+   There is a wide variety of architectures and configurations of caches
+   deployed across the World Wide Web and inside large organizations.
+   These include national hierarchies of proxy caches to save bandwidth
+   and reduce latency, content delivery networks that use gateway
+   caching to optimize regional and global distribution of popular
+   sites, collaborative systems that broadcast or multicast cache
+   entries, archives of pre-fetched cache entries for use in off-line or
+   high-latency environments, and so on.
+
+[℗](#tfch3){id=pf3_9}
+
+//3.9.  Example Message Exchange
+--------------------------------------------------------
+
+   The following example illustrates a typical HTTP/1.1 message exchange
+   for a GET request (Section 9.3.1) on the URI "http://www.example.com/
+   hello.txt":
+
+   Client request:
+
+   GET /hello.txt HTTP/1.1
+   User-Agent: curl/7.64.1
+   Host: www.example.com
+   Accept-Language: en, mi
+
+   Server response:
+
+   HTTP/1.1 200 OK
+   Date: Mon, 27 Jul 2009 12:28:53 GMT
+   Server: Apache
+   Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+   ETag: "34aa387-d-1568eb00"
+   Accept-Ranges: bytes
+   Content-Length: 51
+   Vary: Accept-Encoding
+   Content-Type: text/plain
+
+   Hello World! My content includes a trailing CRLF.
+
+[℗](#tfch4){id=pfch4}
+
+/4.  Identifiers in HTTP
+========================================================
+
+
+   Uniform Resource Identifiers (URIs) [URI] are used throughout HTTP as
+   the means for identifying resources (Section 3.1).
+
+[℗](#tfch4){id=pf4_1}
+
+//4.1.  URI References
+--------------------------------------------------------
+
+   URI references are used to target requests, indicate redirects, and
+   define relationships.
+
+   The definitions of "URI-reference", "absolute-URI", "relative-part",
+   "authority", "port", "host", "path-abempty", "segment", and "query"
+   are adopted from the URI generic syntax.  An "absolute-path" rule is
+   defined for protocol elements that can contain a non-empty path
+   component.  (This rule differs slightly from the path-abempty rule of
+   RFC 3986, which allows for an empty path, and path-absolute rule,
+   which does not allow paths that begin with "//".)  A "partial-URI"
+   rule is defined for protocol elements that can contain a relative URI
+   but not a fragment component.
+
+     URI-reference = <URI-reference, see [URI], Section 4.1>
+     absolute-URI  = <absolute-URI, see [URI], Section 4.3>
+     relative-part = <relative-part, see [URI], Section 4.2>
+     authority     = <authority, see [URI], Section 3.2>
+     uri-host      = <host, see [URI], Section 3.2.2>
+     port          = <port, see [URI], Section 3.2.3>
+     path-abempty  = <path-abempty, see [URI], Section 3.3>
+     segment       = <segment, see [URI], Section 3.3>
+     query         = <query, see [URI], Section 3.4>
+
+     absolute-path = 1*( "/" segment )
+     partial-URI   = relative-part [ "?" query ]
+
+   Each protocol element in HTTP that allows a URI reference will
+   indicate in its ABNF production whether the element allows any form
+   of reference (URI-reference), only a URI in absolute form (absolute-
+   URI), only the path and optional query components (partial-URI), or
+   some combination of the above.  Unless otherwise indicated, URI
+   references are parsed relative to the target URI (Section 7.1).
+
+   It is RECOMMENDED that all senders and recipients support, at a
+   minimum, URIs with lengths of 8000 octets in protocol elements.  Note
+   that this implies some structures and on-wire representations (for
+   example, the request line in HTTP/1.1) will necessarily be larger in
+   some cases.
+
+[℗](#tfch4){id=pf4_2}
+
+//4.2.  HTTP-Related URI Schemes
+--------------------------------------------------------
+
+   IANA maintains the registry of URI Schemes [BCP35] at
+   <https://www.iana.org/assignments/uri-schemes/>.  Although requests
+   might target any URI scheme, the following schemes are inherent to
+   HTTP servers:
+
+   +============+====================================+=========+
+   | URI Scheme | Description                        | Section |
+   +============+====================================+=========+
+   | http       | Hypertext Transfer Protocol        | 4.2.1   |
+   +------------+------------------------------------+---------+
+   | https      | Hypertext Transfer Protocol Secure | 4.2.2   |
+   +------------+------------------------------------+---------+
+
+                              Table 2
+
+   Note that the presence of an "http" or "https" URI does not imply
+   that there is always an HTTP server at the identified origin
+   listening for connections.  Anyone can mint a URI, whether or not a
+   server exists and whether or not that server currently maps that
+   identifier to a resource.  The delegated nature of registered names
+   and IP addresses creates a federated namespace whether or not an HTTP
+   server is present.
+
+[℗](#tf4_2){id=pf4_2_1}
+
+4.2.1.  http URI Scheme
+--------------------------------------------------------
+
+   The "http" URI scheme is hereby defined for minting identifiers
+   within the hierarchical namespace governed by a potential HTTP origin
+   server listening for TCP ([TCP]) connections on a given port.
+
+     http-URI = "http" "://" authority path-abempty [ "?" query ]
+
+   The origin server for an "http" URI is identified by the authority
+   component, which includes a host identifier ([URI], Section 3.2.2)
+   and optional port number ([URI], Section 3.2.3).  If the port
+   subcomponent is empty or not given, TCP port 80 (the reserved port
+   for WWW services) is the default.  The origin determines who has the
+   right to respond authoritatively to requests that target the
+   identified resource, as defined in Section 4.3.2.
+
+   A sender MUST NOT generate an "http" URI with an empty host
+   identifier.  A recipient that processes such a URI reference MUST
+   reject it as invalid.
+
+   The hierarchical path component and optional query component identify
+   the target resource within that origin server's namespace.
+
+[℗](#tf4_2){id=pf4_2_2}
+
+4.2.2.  https URI Scheme
+--------------------------------------------------------
+
+   The "https" URI scheme is hereby defined for minting identifiers
+   within the hierarchical namespace governed by a potential origin
+   server listening for TCP connections on a given port and capable of
+   establishing a TLS ([TLS13]) connection that has been secured for
+   HTTP communication.  In this context, "secured" specifically means
+   that the server has been authenticated as acting on behalf of the
+   identified authority and all HTTP communication with that server has
+   confidentiality and integrity protection that is acceptable to both
+   client and server.
+
+     https-URI = "https" "://" authority path-abempty [ "?" query ]
+
+   The origin server for an "https" URI is identified by the authority
+   component, which includes a host identifier ([URI], Section 3.2.2)
+   and optional port number ([URI], Section 3.2.3).  If the port
+   subcomponent is empty or not given, TCP port 443 (the reserved port
+   for HTTP over TLS) is the default.  The origin determines who has the
+   right to respond authoritatively to requests that target the
+   identified resource, as defined in Section 4.3.3.
+
+   A sender MUST NOT generate an "https" URI with an empty host
+   identifier.  A recipient that processes such a URI reference MUST
+   reject it as invalid.
+
+   The hierarchical path component and optional query component identify
+   the target resource within that origin server's namespace.
+
+   A client MUST ensure that its HTTP requests for an "https" resource
+   are secured, prior to being communicated, and that it only accepts
+   secured responses to those requests.  Note that the definition of
+   what cryptographic mechanisms are acceptable to client and server are
+   usually negotiated and can change over time.
+
+   Resources made available via the "https" scheme have no shared
+   identity with the "http" scheme.  They are distinct origins with
+   separate namespaces.  However, extensions to HTTP that are defined as
+   applying to all origins with the same host, such as the Cookie
+   protocol [COOKIE], allow information set by one service to impact
+   communication with other services within a matching group of host
+   domains.  Such extensions ought to be designed with great care to
+   prevent information obtained from a secured connection being
+   inadvertently exchanged within an unsecured context.
+
+[℗](#tf4_2){id=pf4_2_3}
+
+4.2.3.  http(s) Normalization and Comparison
+--------------------------------------------------------
+
+   URIs with an "http" or "https" scheme are normalized and compared
+   according to the methods defined in Section 6 of [URI], using the
+   defaults described above for each scheme.
+
+   HTTP does not require the use of a specific method for determining
+   equivalence.  For example, a cache key might be compared as a simple
+   string, after syntax-based normalization, or after scheme-based
+   normalization.
+
+   Scheme-based normalization (Section 6.2.3 of [URI]) of "http" and
+   "https" URIs involves the following additional rules:
+
+   *  If the port is equal to the default port for a scheme, the normal
+      form is to omit the port subcomponent.
+
+   *  When not being used as the target of an OPTIONS request, an empty
+      path component is equivalent to an absolute path of "/", so the
+      normal form is to provide a path of "/" instead.
+
+   *  The scheme and host are case-insensitive and normally provided in
+      lowercase; all other components are compared in a case-sensitive
+      manner.
+
+   *  Characters other than those in the "reserved" set are equivalent
+      to their percent-encoded octets: the normal form is to not encode
+      them (see Sections 2.1 and 2.2 of [URI]).
+
+   For example, the following three URIs are equivalent:
+
+      http://example.com:80/~smith/home.html
+      http://EXAMPLE.com/%7Esmith/home.html
+      http://EXAMPLE.com:/%7esmith/home.html
+
+   Two HTTP URIs that are equivalent after normalization (using any
+   method) can be assumed to identify the same resource, and any HTTP
+   component MAY perform normalization.  As a result, distinct resources
+   SHOULD NOT be identified by HTTP URIs that are equivalent after
+   normalization (using any method defined in Section 6.2 of [URI]).
+
+[℗](#tf4_2){id=pf4_2_4}
+
+4.2.4.  Deprecation of userinfo in http(s) URIs
+--------------------------------------------------------
+
+   The URI generic syntax for authority also includes a userinfo
+   subcomponent ([URI], Section 3.2.1) for including user authentication
+   information in the URI.  In that subcomponent, the use of the format
+   "user:password" is deprecated.
+
+   Some implementations make use of the userinfo component for internal
+   configuration of authentication information, such as within command
+   invocation options, configuration files, or bookmark lists, even
+   though such usage might expose a user identifier or password.
+
+   A sender MUST NOT generate the userinfo subcomponent (and its "@"
+   delimiter) when an "http" or "https" URI reference is generated
+   within a message as a target URI or field value.
+
+   Before making use of an "http" or "https" URI reference received from
+   an untrusted source, a recipient SHOULD parse for userinfo and treat
+   its presence as an error; it is likely being used to obscure the
+   authority for the sake of phishing attacks.
+
+[℗](#tf4_2){id=pf4_2_5}
+
+4.2.5.  http(s) References with Fragment Identifiers
+--------------------------------------------------------
+
+   Fragment identifiers allow for indirect identification of a secondary
+   resource, independent of the URI scheme, as defined in Section 3.5 of
+   [URI].  Some protocol elements that refer to a URI allow inclusion of
+   a fragment, while others do not.  They are distinguished by use of
+   the ABNF rule for elements where fragment is allowed; otherwise, a
+   specific rule that excludes fragments is used.
+
+      |  *Note:* The fragment identifier component is not part of the
+      |  scheme definition for a URI scheme (see Section 4.3 of [URI]),
+      |  thus does not appear in the ABNF definitions for the "http" and
+      |  "https" URI schemes above.
+
+[℗](#tfch4){id=pf4_3}
+
+//4.3.  Authoritative Access
+--------------------------------------------------------
+
+   Authoritative access refers to dereferencing a given identifier, for
+   the sake of access to the identified resource, in a way that the
+   client believes is authoritative (controlled by the resource owner).
+   The process for determining whether access is granted is defined by
+   the URI scheme and often uses data within the URI components, such as
+   the authority component when the generic syntax is used.  However,
+   authoritative access is not limited to the identified mechanism.
+
+   Section 4.3.1 defines the concept of an origin as an aid to such
+   uses, and the subsequent subsections explain how to establish that a
+   peer has the authority to represent an origin.
+
+   See Section 17.1 for security considerations related to establishing
+   authority.
+
+[℗](#tf4_3){id=pf4_3_1}
+
+4.3.1.  URI Origin
+--------------------------------------------------------
+
+   The "origin" for a given URI is the triple of scheme, host, and port
+   after normalizing the scheme and host to lowercase and normalizing
+   the port to remove any leading zeros.  If port is elided from the
+   URI, the default port for that scheme is used.  For example, the URI
+
+      https://Example.Com/happy.js
+
+   would have the origin
+
+      { "https", "example.com", "443" }
+
+   which can also be described as the normalized URI prefix with port
+   always present:
+
+      https://example.com:443
+
+   Each origin defines its own namespace and controls how identifiers
+   within that namespace are mapped to resources.  In turn, how the
+   origin responds to valid requests, consistently over time, determines
+   the semantics that users will associate with a URI, and the
+   usefulness of those semantics is what ultimately transforms these
+   mechanisms into a resource for users to reference and access in the
+   future.
+
+   Two origins are distinct if they differ in scheme, host, or port.
+   Even when it can be verified that the same entity controls two
+   distinct origins, the two namespaces under those origins are distinct
+   unless explicitly aliased by a server authoritative for that origin.
+
+   Origin is also used within HTML and related Web protocols, beyond the
+   scope of this document, as described in [RFC6454].
+
+[℗](#tf4_3){id=pf4_3_2}
+
+4.3.2.  http Origins
+--------------------------------------------------------
+
+   Although HTTP is independent of the transport protocol, the "http"
+   scheme (Section 4.2.1) is specific to associating authority with
+   whomever controls the origin server listening for TCP connections on
+   the indicated port of whatever host is identified within the
+   authority component.  This is a very weak sense of authority because
+   it depends on both client-specific name resolution mechanisms and
+   communication that might not be secured from an on-path attacker.
+   Nevertheless, it is a sufficient minimum for binding "http"
+   identifiers to an origin server for consistent resolution within a
+   trusted environment.
+
+   If the host identifier is provided as an IP address, the origin
+   server is the listener (if any) on the indicated TCP port at that IP
+   address.  If host is a registered name, the registered name is an
+   indirect identifier for use with a name resolution service, such as
+   DNS, to find an address for an appropriate origin server.
+
+   When an "http" URI is used within a context that calls for access to
+   the indicated resource, a client MAY attempt access by resolving the
+   host identifier to an IP address, establishing a TCP connection to
+   that address on the indicated port, and sending over that connection
+   an HTTP request message containing a request target that matches the
+   client's target URI (Section 7.1).
+
+   If the server responds to such a request with a non-interim HTTP
+   response message, as described in Section 15, then that response is
+   considered an authoritative answer to the client's request.
+
+   Note, however, that the above is not the only means for obtaining an
+   authoritative response, nor does it imply that an authoritative
+   response is always necessary (see [CACHING]).  For example, the Alt-
+   Svc header field [ALTSVC] allows an origin server to identify other
+   services that are also authoritative for that origin.  Access to
+   "http" identified resources might also be provided by protocols
+   outside the scope of this document.
+
+[℗](#tf4_3){id=pf4_3_3}
+
+4.3.3.  https Origins
+--------------------------------------------------------
+
+   The "https" scheme (Section 4.2.2) associates authority based on the
+   ability of a server to use the private key corresponding to a
+   certificate that the client considers to be trustworthy for the
+   identified origin server.  The client usually relies upon a chain of
+   trust, conveyed from some prearranged or configured trust anchor, to
+   deem a certificate trustworthy (Section 4.3.4).
+
+   In HTTP/1.1 and earlier, a client will only attribute authority to a
+   server when they are communicating over a successfully established
+   and secured connection specifically to that URI origin's host.  The
+   connection establishment and certificate verification are used as
+   proof of authority.
+
+   In HTTP/2 and HTTP/3, a client will attribute authority to a server
+   when they are communicating over a successfully established and
+   secured connection if the URI origin's host matches any of the hosts
+   present in the server's certificate and the client believes that it
+   could open a connection to that host for that URI.  In practice, a
+   client will make a DNS query to check that the origin's host contains
+   the same server IP address as the established connection.  This
+   restriction can be removed by the origin server sending an equivalent
+   ORIGIN frame [RFC8336].
+
+   The request target's host and port value are passed within each HTTP
+   request, identifying the origin and distinguishing it from other
+   namespaces that might be controlled by the same server (Section 7.2).
+   It is the origin's responsibility to ensure that any services
+   provided with control over its certificate's private key are equally
+   responsible for managing the corresponding "https" namespaces or at
+   least prepared to reject requests that appear to have been
+   misdirected (Section 7.4).
+
+   An origin server might be unwilling to process requests for certain
+   target URIs even when they have the authority to do so.  For example,
+   when a host operates distinct services on different ports (e.g., 443
+   and 8000), checking the target URI at the origin server is necessary
+   (even after the connection has been secured) because a network
+   attacker might cause connections for one port to be received at some
+   other port.  Failing to check the target URI might allow such an
+   attacker to replace a response to one target URI (e.g.,
+   "https://example.com/foo") with a seemingly authoritative response
+   from the other port (e.g., "https://example.com:8000/foo").
+
+   Note that the "https" scheme does not rely on TCP and the connected
+   port number for associating authority, since both are outside the
+   secured communication and thus cannot be trusted as definitive.
+   Hence, the HTTP communication might take place over any channel that
+   has been secured, as defined in Section 4.2.2, including protocols
+   that don't use TCP.
+
+   When an "https" URI is used within a context that calls for access to
+   the indicated resource, a client MAY attempt access by resolving the
+   host identifier to an IP address, establishing a TCP connection to
+   that address on the indicated port, securing the connection end-to-
+   end by successfully initiating TLS over TCP with confidentiality and
+   integrity protection, and sending over that connection an HTTP
+   request message containing a request target that matches the client's
+   target URI (Section 7.1).
+
+   If the server responds to such a request with a non-interim HTTP
+   response message, as described in Section 15, then that response is
+   considered an authoritative answer to the client's request.
+
+   Note, however, that the above is not the only means for obtaining an
+   authoritative response, nor does it imply that an authoritative
+   response is always necessary (see [CACHING]).
+
+[℗](#tf4_3){id=pf4_3_4}
+
+4.3.4.  https Certificate Verification
+--------------------------------------------------------
+
+   To establish a secured connection to dereference a URI, a client MUST
+   verify that the service's identity is an acceptable match for the
+   URI's origin server.  Certificate verification is used to prevent
+   server impersonation by an on-path attacker or by an attacker that
+   controls name resolution.  This process requires that a client be
+   configured with a set of trust anchors.
+
+   In general, a client MUST verify the service identity using the
+   verification process defined in Section 6 of [RFC6125].  The client
+   MUST construct a reference identity from the service's host: if the
+   host is a literal IP address (Section 4.3.5), the reference identity
+   is an IP-ID, otherwise the host is a name and the reference identity
+   is a DNS-ID.
+
+   A reference identity of type CN-ID MUST NOT be used by clients.  As
+   noted in Section 6.2.1 of [RFC6125], a reference identity of type CN-
+   ID might be used by older clients.
+
+   A client might be specially configured to accept an alternative form
+   of server identity verification.  For example, a client might be
+   connecting to a server whose address and hostname are dynamic, with
+   an expectation that the service will present a specific certificate
+   (or a certificate matching some externally defined reference
+   identity) rather than one matching the target URI's origin.
+
+   In special cases, it might be appropriate for a client to simply
+   ignore the server's identity, but it must be understood that this
+   leaves a connection open to active attack.
+
+   If the certificate is not valid for the target URI's origin, a user
+   agent MUST either obtain confirmation from the user before proceeding
+   (see Section 3.5) or terminate the connection with a bad certificate
+   error.  Automated clients MUST log the error to an appropriate audit
+   log (if available) and SHOULD terminate the connection (with a bad
+   certificate error).  Automated clients MAY provide a configuration
+   setting that disables this check, but MUST provide a setting which
+   enables it.
+
+[℗](#tf4_3){id=pf4_3_5}
+
+4.3.5.  IP-ID Reference Identity
+--------------------------------------------------------
+
+   A server that is identified using an IP address literal in the "host"
+   field of an "https" URI has a reference identity of type IP-ID.  An
+   IP version 4 address uses the "IPv4address" ABNF rule, and an IP
+   version 6 address uses the "IP-literal" production with the
+   "IPv6address" option; see Section 3.2.2 of [URI].  A reference
+   identity of IP-ID contains the decoded bytes of the IP address.
+
+   An IP version 4 address is 4 octets, and an IP version 6 address is
+   16 octets.  Use of IP-ID is not defined for any other IP version.
+   The iPAddress choice in the certificate subjectAltName extension does
+   not explicitly include the IP version and so relies on the length of
+   the address to distinguish versions; see Section 4.2.1.6 of
+   [RFC5280].
+
+   A reference identity of type IP-ID matches if the address is
+   identical to an iPAddress value of the subjectAltName extension of
+   the certificate.
+
+[℗](#tfch5){id=pfch5}
+
+/5.  Fields
+========================================================
+
+
+   HTTP uses "fields" to provide data in the form of extensible name/
+   value pairs with a registered key namespace.  Fields are sent and
+   received within the header and trailer sections of messages
+   (Section 6).
+
+[℗](#tfch5){id=pf5_1}
+
+//5.1.  Field Names
+--------------------------------------------------------
+
+   A field name labels the corresponding field value as having the
+   semantics defined by that name.  For example, the Date header field
+   is defined in Section 6.6.1 as containing the origination timestamp
+   for the message in which it appears.
+
+     field-name     = token
+
+   Field names are case-insensitive and ought to be registered within
+   the "Hypertext Transfer Protocol (HTTP) Field Name Registry"; see
+   Section 16.3.1.
+
+   The interpretation of a field does not change between minor versions
+   of the same major HTTP version, though the default behavior of a
+   recipient in the absence of such a field can change.  Unless
+   specified otherwise, fields are defined for all versions of HTTP.  In
+   particular, the Host and Connection fields ought to be recognized by
+   all HTTP implementations whether or not they advertise conformance
+   with HTTP/1.1.
+
+   New fields can be introduced without changing the protocol version if
+   their defined semantics allow them to be safely ignored by recipients
+   that do not recognize them; see Section 16.3.
+
+   A proxy MUST forward unrecognized header fields unless the field name
+   is listed in the Connection header field (Section 7.6.1) or the proxy
+   is specifically configured to block, or otherwise transform, such
+   fields.  Other recipients SHOULD ignore unrecognized header and
+   trailer fields.  Adhering to these requirements allows HTTP's
+   functionality to be extended without updating or removing deployed
+   intermediaries.
+
+[℗](#tfch5){id=pf5_2}
+
+//5.2.  Field Lines and Combined Field Value
+--------------------------------------------------------
+
+   Field sections are composed of any number of "field lines", each with
+   a "field name" (see Section 5.1) identifying the field, and a "field
+   line value" that conveys data for that instance of the field.
+
+   When a field name is only present once in a section, the combined
+   "field value" for that field consists of the corresponding field line
+   value.  When a field name is repeated within a section, its combined
+   field value consists of the list of corresponding field line values
+   within that section, concatenated in order, with each field line
+   value separated by a comma.
+
+   For example, this section:
+
+   Example-Field: Foo, Bar
+   Example-Field: Baz
+
+   contains two field lines, both with the field name "Example-Field".
+   The first field line has a field line value of "Foo, Bar", while the
+   second field line value is "Baz".  The field value for "Example-
+   Field" is the list "Foo, Bar, Baz".
+
+[℗](#tfch5){id=pf5_3}
+
+//5.3.  Field Order
+--------------------------------------------------------
+
+   A recipient MAY combine multiple field lines within a field section
+   that have the same field name into one field line, without changing
+   the semantics of the message, by appending each subsequent field line
+   value to the initial field line value in order, separated by a comma
+   (",") and optional whitespace (OWS, defined in Section 5.6.3).  For
+   consistency, use comma SP.
+
+   The order in which field lines with the same name are received is
+   therefore significant to the interpretation of the field value; a
+   proxy MUST NOT change the order of these field line values when
+   forwarding a message.
+
+   This means that, aside from the well-known exception noted below, a
+   sender MUST NOT generate multiple field lines with the same name in a
+   message (whether in the headers or trailers) or append a field line
+   when a field line of the same name already exists in the message,
+   unless that field's definition allows multiple field line values to
+   be recombined as a comma-separated list (i.e., at least one
+   alternative of the field's definition allows a comma-separated list,
+   such as an ABNF rule of #(values) defined in Section 5.6.1).
+
+      |  *Note:* In practice, the "Set-Cookie" header field ([COOKIE])
+      |  often appears in a response message across multiple field lines
+      |  and does not use the list syntax, violating the above
+      |  requirements on multiple field lines with the same field name.
+      |  Since it cannot be combined into a single field value,
+      |  recipients ought to handle "Set-Cookie" as a special case while
+      |  processing fields.  (See Appendix A.2.3 of [Kri2001] for
+      |  details.)
+
+   The order in which field lines with differing field names are
+   received in a section is not significant.  However, it is good
+   practice to send header fields that contain additional control data
+   first, such as Host on requests and Date on responses, so that
+   implementations can decide when not to handle a message as early as
+   possible.
+
+   A server MUST NOT apply a request to the target resource until it
+   receives the entire request header section, since later header field
+   lines might include conditionals, authentication credentials, or
+   deliberately misleading duplicate header fields that could impact
+   request processing.
+
+[℗](#tfch5){id=pf5_4}
+
+//5.4.  Field Limits
+--------------------------------------------------------
+
+   HTTP does not place a predefined limit on the length of each field
+   line, field value, or on the length of a header or trailer section as
+   a whole, as described in Section 2.  Various ad hoc limitations on
+   individual lengths are found in practice, often depending on the
+   specific field's semantics.
+
+   A server that receives a request header field line, field value, or
+   set of fields larger than it wishes to process MUST respond with an
+   appropriate 4xx (Client Error) status code.  Ignoring such header
+   fields would increase the server's vulnerability to request smuggling
+   attacks (Section 11.2 of [HTTP/1.1]).
+
+   A client MAY discard or truncate received field lines that are larger
+   than the client wishes to process if the field semantics are such
+   that the dropped value(s) can be safely ignored without changing the
+   message framing or response semantics.
+
+[℗](#tfch5){id=pf5_5}
+
+//5.5.  Field Values
+--------------------------------------------------------
+
+   HTTP field values consist of a sequence of characters in a format
+   defined by the field's grammar.  Each field's grammar is usually
+   defined using ABNF ([RFC5234]).
+
+     field-value    = *field-content
+     field-content  = field-vchar
+                      [ 1*( SP / HTAB / field-vchar ) field-vchar ]
+     field-vchar    = VCHAR / obs-text
+     obs-text       = %x80-FF
+
+   A field value does not include leading or trailing whitespace.  When
+   a specific version of HTTP allows such whitespace to appear in a
+   message, a field parsing implementation MUST exclude such whitespace
+   prior to evaluating the field value.
+
+   Field values are usually constrained to the range of US-ASCII
+   characters [USASCII].  Fields needing a greater range of characters
+   can use an encoding, such as the one defined in [RFC8187].
+   Historically, HTTP allowed field content with text in the ISO-8859-1
+   charset [ISO-8859-1], supporting other charsets only through use of
+   [RFC2047] encoding.  Specifications for newly defined fields SHOULD
+   limit their values to visible US-ASCII octets (VCHAR), SP, and HTAB.
+   A recipient SHOULD treat other allowed octets in field content (i.e.,
+   obs-text) as opaque data.
+
+   Field values containing CR, LF, or NUL characters are invalid and
+   dangerous, due to the varying ways that implementations might parse
+   and interpret those characters; a recipient of CR, LF, or NUL within
+   a field value MUST either reject the message or replace each of those
+   characters with SP before further processing or forwarding of that
+   message.  Field values containing other CTL characters are also
+   invalid; however, recipients MAY retain such characters for the sake
+   of robustness when they appear within a safe context (e.g., an
+   application-specific quoted string that will not be processed by any
+   downstream HTTP parser).
+
+   Fields that only anticipate a single member as the field value are
+   referred to as "singleton fields".
+
+   Fields that allow multiple members as the field value are referred to
+   as "list-based fields".  The list operator extension of Section 5.6.1
+   is used as a common notation for defining field values that can
+   contain multiple members.
+
+   Because commas (",") are used as the delimiter between members, they
+   need to be treated with care if they are allowed as data within a
+   member.  This is true for both list-based and singleton fields, since
+   a singleton field might be erroneously sent with multiple members and
+   detecting such errors improves interoperability.  Fields that expect
+   to contain a comma within a member, such as within an HTTP-date or
+   URI-reference element, ought to be defined with delimiters around
+   that element to distinguish any comma within that data from potential
+   list separators.
+
+   For example, a textual date and a URI (either of which might contain
+   a comma) could be safely carried in list-based field values like
+   these:
+
+   Example-URIs: "http://example.com/a.html,foo",
+                 "http://without-a-comma.example.com/"
+   Example-Dates: "Sat, 04 May 1996", "Wed, 14 Sep 2005"
+
+   Note that double-quote delimiters are almost always used with the
+   quoted-string production (Section 5.6.4); using a different syntax
+   inside double-quotes will likely cause unnecessary confusion.
+
+   Many fields (such as Content-Type, defined in Section 8.3) use a
+   common syntax for parameters that allows both unquoted (token) and
+   quoted (quoted-string) syntax for a parameter value (Section 5.6.6).
+   Use of common syntax allows recipients to reuse existing parser
+   components.  When allowing both forms, the meaning of a parameter
+   value ought to be the same whether it was received as a token or a
+   quoted string.
+
+      |  *Note:* For defining field value syntax, this specification
+      |  uses an ABNF rule named after the field name to define the
+      |  allowed grammar for that field's value (after said value has
+      |  been extracted from the underlying messaging syntax and
+      |  multiple instances combined into a list).
+
+[℗](#tfch5){id=pf5_6}
+
+//5.6.  Common Rules for Defining Field Values
+--------------------------------------------------------
+
+[℗](#tf5_6){id=pf5_6_1}
+
+5.6.1.  Lists (#rule ABNF Extension)
+--------------------------------------------------------
+
+   A #rule extension to the ABNF rules of [RFC5234] is used to improve
+   readability in the definitions of some list-based field values.
+
+   A construct "#" is defined, similar to "*", for defining comma-
+   delimited lists of elements.  The full form is "<n>#<m>element"
+   indicating at least <n> and at most <m> elements, each separated by a
+   single comma (",") and optional whitespace (OWS, defined in
+   Section 5.6.3).
+
+[℗](#tf5_6){id=pf5_6_1_1}
+
+5.6.1.1.  Sender Requirements
+--------------------------------------------------------
+
+   In any production that uses the list construct, a sender MUST NOT
+   generate empty list elements.  In other words, a sender has to
+   generate lists that satisfy the following syntax:
+
+     1#element => element *( OWS "," OWS element )
+
+   and:
+
+     #element => [ 1#element ]
+
+   and for n >= 1 and m > 1:
+
+     <n>#<m>element => element <n-1>*<m-1>( OWS "," OWS element )
+
+   Appendix A shows the collected ABNF for senders after the list
+   constructs have been expanded.
+
+[℗](#tf5_6){id=pf5_6_1_2}
+
+5.6.1.2.  Recipient Requirements
+--------------------------------------------------------
+
+   Empty elements do not contribute to the count of elements present.  A
+   recipient MUST parse and ignore a reasonable number of empty list
+   elements: enough to handle common mistakes by senders that merge
+   values, but not so much that they could be used as a denial-of-
+   service mechanism.  In other words, a recipient MUST accept lists
+   that satisfy the following syntax:
+
+     #element => [ element ] *( OWS "," OWS [ element ] )
+
+   Note that because of the potential presence of empty list elements,
+   the RFC 5234 ABNF cannot enforce the cardinality of list elements,
+   and consequently all cases are mapped as if there was no cardinality
+   specified.
+
+   For example, given these ABNF productions:
+
+     example-list      = 1#example-list-elmt
+     example-list-elmt = token ; see Section 5.6.2
+
+   Then the following are valid values for example-list (not including
+   the double quotes, which are present for delimitation only):
+
+     "foo,bar"
+     "foo ,bar,"
+     "foo , ,bar,charlie"
+
+   In contrast, the following values would be invalid, since at least
+   one non-empty element is required by the example-list production:
+
+     ""
+     ","
+     ",   ,"
+
+[℗](#tf5_6){id=pf5_6_2}
+
+5.6.2.  Tokens
+--------------------------------------------------------
+
+   Tokens are short textual identifiers that do not include whitespace
+   or delimiters.
+
+     token          = 1*tchar
+
+     tchar          = "!" / "#" / "$" / "%" / "&" / "'" / "*"
+                    / "+" / "-" / "." / "^" / "_" / "`" / "|" / "~"
+                    / DIGIT / ALPHA
+                    ; any VCHAR, except delimiters
+
+   Many HTTP field values are defined using common syntax components,
+   separated by whitespace or specific delimiting characters.
+   Delimiters are chosen from the set of US-ASCII visual characters not
+   allowed in a token (DQUOTE and "(),/:;<=>?@[\]{}").
+
+[℗](#tf5_6){id=pf5_6_3}
+
+5.6.3.  Whitespace
+--------------------------------------------------------
+
+   This specification uses three rules to denote the use of linear
+   whitespace: OWS (optional whitespace), RWS (required whitespace), and
+   BWS ("bad" whitespace).
+
+   The OWS rule is used where zero or more linear whitespace octets
+   might appear.  For protocol elements where optional whitespace is
+   preferred to improve readability, a sender SHOULD generate the
+   optional whitespace as a single SP; otherwise, a sender SHOULD NOT
+   generate optional whitespace except as needed to overwrite invalid or
+   unwanted protocol elements during in-place message filtering.
+
+   The RWS rule is used when at least one linear whitespace octet is
+   required to separate field tokens.  A sender SHOULD generate RWS as a
+   single SP.
+
+   OWS and RWS have the same semantics as a single SP.  Any content
+   known to be defined as OWS or RWS MAY be replaced with a single SP
+   before interpreting it or forwarding the message downstream.
+
+   The BWS rule is used where the grammar allows optional whitespace
+   only for historical reasons.  A sender MUST NOT generate BWS in
+   messages.  A recipient MUST parse for such bad whitespace and remove
+   it before interpreting the protocol element.
+
+   BWS has no semantics.  Any content known to be defined as BWS MAY be
+   removed before interpreting it or forwarding the message downstream.
+
+     OWS            = *( SP / HTAB )
+                    ; optional whitespace
+     RWS            = 1*( SP / HTAB )
+                    ; required whitespace
+     BWS            = OWS
+                    ; "bad" whitespace
+
+[℗](#tf5_6){id=pf5_6_4}
+
+5.6.4.  Quoted Strings
+--------------------------------------------------------
+
+   A string of text is parsed as a single value if it is quoted using
+   double-quote marks.
+
+     quoted-string  = DQUOTE *( qdtext / quoted-pair ) DQUOTE
+     qdtext         = HTAB / SP / %x21 / %x23-5B / %x5D-7E / obs-text
+
+   The backslash octet ("\") can be used as a single-octet quoting
+   mechanism within quoted-string and comment constructs.  Recipients
+   that process the value of a quoted-string MUST handle a quoted-pair
+   as if it were replaced by the octet following the backslash.
+
+     quoted-pair    = "\" ( HTAB / SP / VCHAR / obs-text )
+
+   A sender SHOULD NOT generate a quoted-pair in a quoted-string except
+   where necessary to quote DQUOTE and backslash octets occurring within
+   that string.  A sender SHOULD NOT generate a quoted-pair in a comment
+   except where necessary to quote parentheses ["(" and ")"] and
+   backslash octets occurring within that comment.
+
+[℗](#tf5_6){id=pf5_6_5}
+
+5.6.5.  Comments
+--------------------------------------------------------
+
+   Comments can be included in some HTTP fields by surrounding the
+   comment text with parentheses.  Comments are only allowed in fields
+   containing "comment" as part of their field value definition.
+
+     comment        = "(" *( ctext / quoted-pair / comment ) ")"
+     ctext          = HTAB / SP / %x21-27 / %x2A-5B / %x5D-7E / obs-text
+
+[℗](#tf5_6){id=pf5_6_6}
+
+5.6.6.  Parameters
+--------------------------------------------------------
+
+   Parameters are instances of name/value pairs; they are often used in
+   field values as a common syntax for appending auxiliary information
+   to an item.  Each parameter is usually delimited by an immediately
+   preceding semicolon.
+
+     parameters      = *( OWS ";" OWS [ parameter ] )
+     parameter       = parameter-name "=" parameter-value
+     parameter-name  = token
+     parameter-value = ( token / quoted-string )
+
+   Parameter names are case-insensitive.  Parameter values might or
+   might not be case-sensitive, depending on the semantics of the
+   parameter name.  Examples of parameters and some equivalent forms can
+   be seen in media types (Section 8.3.1) and the Accept header field
+   (Section 12.5.1).
+
+   A parameter value that matches the token production can be
+   transmitted either as a token or within a quoted-string.  The quoted
+   and unquoted values are equivalent.
+
+      |  *Note:* Parameters do not allow whitespace (not even "bad"
+      |  whitespace) around the "=" character.
+
+[℗](#tf5_6){id=pf5_6_7}
+
+5.6.7.  Date/Time Formats
+--------------------------------------------------------
+
+   Prior to 1995, there were three different formats commonly used by
+   servers to communicate timestamps.  For compatibility with old
+   implementations, all three are defined here.  The preferred format is
+   a fixed-length and single-zone subset of the date and time
+   specification used by the Internet Message Format [RFC5322].
+
+     HTTP-date    = IMF-fixdate / obs-date
+
+   An example of the preferred format is
+
+     Sun, 06 Nov 1994 08:49:37 GMT    ; IMF-fixdate
+
+   Examples of the two obsolete formats are
+
+     Sunday, 06-Nov-94 08:49:37 GMT   ; obsolete RFC 850 format
+     Sun Nov  6 08:49:37 1994         ; ANSI C's asctime() format
+
+   A recipient that parses a timestamp value in an HTTP field MUST
+   accept all three HTTP-date formats.  When a sender generates a field
+   that contains one or more timestamps defined as HTTP-date, the sender
+   MUST generate those timestamps in the IMF-fixdate format.
+
+   An HTTP-date value represents time as an instance of Coordinated
+   Universal Time (UTC).  The first two formats indicate UTC by the
+   three-letter abbreviation for Greenwich Mean Time, "GMT", a
+   predecessor of the UTC name; values in the asctime format are assumed
+   to be in UTC.
+
+   A "clock" is an implementation capable of providing a reasonable
+   approximation of the current instant in UTC.  A clock implementation
+   ought to use NTP ([RFC5905]), or some similar protocol, to
+   synchronize with UTC.
+
+   Preferred format:
+
+     IMF-fixdate  = day-name "," SP date1 SP time-of-day SP GMT
+     ; fixed length/zone/capitalization subset of the format
+     ; see Section 3.3 of [RFC5322]
+
+     day-name     = %s"Mon" / %s"Tue" / %s"Wed"
+                  / %s"Thu" / %s"Fri" / %s"Sat" / %s"Sun"
+
+     date1        = day SP month SP year
+                  ; e.g., 02 Jun 1982
+
+     day          = 2DIGIT
+     month        = %s"Jan" / %s"Feb" / %s"Mar" / %s"Apr"
+                  / %s"May" / %s"Jun" / %s"Jul" / %s"Aug"
+                  / %s"Sep" / %s"Oct" / %s"Nov" / %s"Dec"
+     year         = 4DIGIT
+
+     GMT          = %s"GMT"
+
+     time-of-day  = hour ":" minute ":" second
+                  ; 00:00:00 - 23:59:60 (leap second)
+
+     hour         = 2DIGIT
+     minute       = 2DIGIT
+     second       = 2DIGIT
+
+   Obsolete formats:
+
+     obs-date     = rfc850-date / asctime-date
+
+     rfc850-date  = day-name-l "," SP date2 SP time-of-day SP GMT
+     date2        = day "-" month "-" 2DIGIT
+                  ; e.g., 02-Jun-82
+
+     day-name-l   = %s"Monday" / %s"Tuesday" / %s"Wednesday"
+                  / %s"Thursday" / %s"Friday" / %s"Saturday"
+                  / %s"Sunday"
+
+     asctime-date = day-name SP date3 SP time-of-day SP year
+     date3        = month SP ( 2DIGIT / ( SP 1DIGIT ))
+                  ; e.g., Jun  2
+
+   HTTP-date is case sensitive.  Note that Section 4.2 of [CACHING]
+   relaxes this for cache recipients.
+
+   A sender MUST NOT generate additional whitespace in an HTTP-date
+   beyond that specifically included as SP in the grammar.  The
+   semantics of day-name, day, month, year, and time-of-day are the same
+   as those defined for the Internet Message Format constructs with the
+   corresponding name ([RFC5322], Section 3.3).
+
+   Recipients of a timestamp value in rfc850-date format, which uses a
+   two-digit year, MUST interpret a timestamp that appears to be more
+   than 50 years in the future as representing the most recent year in
+   the past that had the same last two digits.
+
+   Recipients of timestamp values are encouraged to be robust in parsing
+   timestamps unless otherwise restricted by the field definition.  For
+   example, messages are occasionally forwarded over HTTP from a non-
+   HTTP source that might generate any of the date and time
+   specifications defined by the Internet Message Format.
+
+      |  *Note:* HTTP requirements for timestamp formats apply only to
+      |  their usage within the protocol stream.  Implementations are
+      |  not required to use these formats for user presentation,
+      |  request logging, etc.
+
+[℗](#tfch6){id=pfch6}
+
+/6.  Message Abstraction
+========================================================
+
+
+   Each major version of HTTP defines its own syntax for communicating
+   messages.  This section defines an abstract data type for HTTP
+   messages based on a generalization of those message characteristics,
+   common structure, and capacity for conveying semantics.  This
+   abstraction is used to define requirements on senders and recipients
+   that are independent of the HTTP version, such that a message in one
+   version can be relayed through other versions without changing its
+   meaning.
+
+   A "message" consists of the following:
+
+   *  control data to describe and route the message,
+
+   *  a headers lookup table of name/value pairs for extending that
+      control data and conveying additional information about the
+      sender, message, content, or context,
+
+   *  a potentially unbounded stream of content, and
+
+   *  a trailers lookup table of name/value pairs for communicating
+      information obtained while sending the content.
+
+   Framing and control data is sent first, followed by a header section
+   containing fields for the headers table.  When a message includes
+   content, the content is sent after the header section, potentially
+   followed by a trailer section that might contain fields for the
+   trailers table.
+
+   Messages are expected to be processed as a stream, wherein the
+   purpose of that stream and its continued processing is revealed while
+   being read.  Hence, control data describes what the recipient needs
+   to know immediately, header fields describe what needs to be known
+   before receiving content, the content (when present) presumably
+   contains what the recipient wants or needs to fulfill the message
+   semantics, and trailer fields provide optional metadata that was
+   unknown prior to sending the content.
+
+   Messages are intended to be "self-descriptive": everything a
+   recipient needs to know about the message can be determined by
+   looking at the message itself, after decoding or reconstituting parts
+   that have been compressed or elided in transit, without requiring an
+   understanding of the sender's current application state (established
+   via prior messages).  However, a client MUST retain knowledge of the
+   request when parsing, interpreting, or caching a corresponding
+   response.  For example, responses to the HEAD method look just like
+   the beginning of a response to GET but cannot be parsed in the same
+   manner.
+
+   Note that this message abstraction is a generalization across many
+   versions of HTTP, including features that might not be found in some
+   versions.  For example, trailers were introduced within the HTTP/1.1
+   chunked transfer coding as a trailer section after the content.  An
+   equivalent feature is present in HTTP/2 and HTTP/3 within the header
+   block that terminates each stream.
+
+[℗](#tfch6){id=pf6_1}
+
+//6.1.  Framing and Completeness
+--------------------------------------------------------
+
+   Message framing indicates how each message begins and ends, such that
+   each message can be distinguished from other messages or noise on the
+   same connection.  Each major version of HTTP defines its own framing
+   mechanism.
+
+   HTTP/0.9 and early deployments of HTTP/1.0 used closure of the
+   underlying connection to end a response.  For backwards
+   compatibility, this implicit framing is also allowed in HTTP/1.1.
+   However, implicit framing can fail to distinguish an incomplete
+   response if the connection closes early.  For that reason, almost all
+   modern implementations use explicit framing in the form of length-
+   delimited sequences of message data.
+
+   A message is considered "complete" when all of the octets indicated
+   by its framing are available.  Note that, when no explicit framing is
+   used, a response message that is ended by the underlying connection's
+   close is considered complete even though it might be
+   indistinguishable from an incomplete response, unless a transport-
+   level error indicates that it is not complete.
+
+[℗](#tfch6){id=pf6_2}
+
+//6.2.  Control Data
+--------------------------------------------------------
+
+   Messages start with control data that describe its primary purpose.
+   Request message control data includes a request method (Section 9),
+   request target (Section 7.1), and protocol version (Section 2.5).
+   Response message control data includes a status code (Section 15),
+   optional reason phrase, and protocol version.
+
+   In HTTP/1.1 ([HTTP/1.1]) and earlier, control data is sent as the
+   first line of a message.  In HTTP/2 ([HTTP/2]) and HTTP/3 ([HTTP/3]),
+   control data is sent as pseudo-header fields with a reserved name
+   prefix (e.g., ":authority").
+
+   Every HTTP message has a protocol version.  Depending on the version
+   in use, it might be identified within the message explicitly or
+   inferred by the connection over which the message is received.
+   Recipients use that version information to determine limitations or
+   potential for later communication with that sender.
+
+   When a message is forwarded by an intermediary, the protocol version
+   is updated to reflect the version used by that intermediary.  The Via
+   header field (Section 7.6.3) is used to communicate upstream protocol
+   information within a forwarded message.
+
+   A client SHOULD send a request version equal to the highest version
+   to which the client is conformant and whose major version is no
+   higher than the highest version supported by the server, if this is
+   known.  A client MUST NOT send a version to which it is not
+   conformant.
+
+   A client MAY send a lower request version if it is known that the
+   server incorrectly implements the HTTP specification, but only after
+   the client has attempted at least one normal request and determined
+   from the response status code or header fields (e.g., Server) that
+   the server improperly handles higher request versions.
+
+   A server SHOULD send a response version equal to the highest version
+   to which the server is conformant that has a major version less than
+   or equal to the one received in the request.  A server MUST NOT send
+   a version to which it is not conformant.  A server can send a 505
+   (HTTP Version Not Supported) response if it wishes, for any reason,
+   to refuse service of the client's major protocol version.
+
+   A recipient that receives a message with a major version number that
+   it implements and a minor version number higher than what it
+   implements SHOULD process the message as if it were in the highest
+   minor version within that major version to which the recipient is
+   conformant.  A recipient can assume that a message with a higher
+   minor version, when sent to a recipient that has not yet indicated
+   support for that higher version, is sufficiently backwards-compatible
+   to be safely processed by any implementation of the same major
+   version.
+
+[℗](#tfch6){id=pf6_3}
+
+//6.3.  Header Fields
+--------------------------------------------------------
+
+   Fields (Section 5) that are sent or received before the content are
+   referred to as "header fields" (or just "headers", colloquially).
+
+   The "header section" of a message consists of a sequence of header
+   field lines.  Each header field might modify or extend message
+   semantics, describe the sender, define the content, or provide
+   additional context.
+
+      |  *Note:* We refer to named fields specifically as a "header
+      |  field" when they are only allowed to be sent in the header
+      |  section.
+
+[℗](#tfch6){id=pf6_4}
+
+//6.4.  Content
+--------------------------------------------------------
+
+   HTTP messages often transfer a complete or partial representation as
+   the message "content": a stream of octets sent after the header
+   section, as delineated by the message framing.
+
+   This abstract definition of content reflects the data after it has
+   been extracted from the message framing.  For example, an HTTP/1.1
+   message body (Section 6 of [HTTP/1.1]) might consist of a stream of
+   data encoded with the chunked transfer coding -- a sequence of data
+   chunks, one zero-length chunk, and a trailer section -- whereas the
+   content of that same message includes only the data stream after the
+   transfer coding has been decoded; it does not include the chunk
+   lengths, chunked framing syntax, nor the trailer fields
+   (Section 6.5).
+
+      |  *Note:* Some field names have a "Content-" prefix.  This is an
+      |  informal convention; while some of these fields refer to the
+      |  content of the message, as defined above, others are scoped to
+      |  the selected representation (Section 3.2).  See the individual
+      |  field's definition to disambiguate.
+
+[℗](#tf6_4){id=pf6_4_1}
+
+6.4.1.  Content Semantics
+--------------------------------------------------------
+
+   The purpose of content in a request is defined by the method
+   semantics (Section 9).
+
+   For example, a representation in the content of a PUT request
+   (Section 9.3.4) represents the desired state of the target resource
+   after the request is successfully applied, whereas a representation
+   in the content of a POST request (Section 9.3.3) represents
+   information to be processed by the target resource.
+
+   In a response, the content's purpose is defined by the request
+   method, response status code (Section 15), and response fields
+   describing that content.  For example, the content of a 200 (OK)
+   response to GET (Section 9.3.1) represents the current state of the
+   target resource, as observed at the time of the message origination
+   date (Section 6.6.1), whereas the content of the same status code in
+   a response to POST might represent either the processing result or
+   the new state of the target resource after applying the processing.
+
+   The content of a 206 (Partial Content) response to GET contains
+   either a single part of the selected representation or a multipart
+   message body containing multiple parts of that representation, as
+   described in Section 15.3.7.
+
+   Response messages with an error status code usually contain content
+   that represents the error condition, such that the content describes
+   the error state and what steps are suggested for resolving it.
+
+   Responses to the HEAD request method (Section 9.3.2) never include
+   content; the associated response header fields indicate only what
+   their values would have been if the request method had been GET
+   (Section 9.3.1).
+
+   2xx (Successful) responses to a CONNECT request method
+   (Section 9.3.6) switch the connection to tunnel mode instead of
+   having content.
+
+   All 1xx (Informational), 204 (No Content), and 304 (Not Modified)
+   responses do not include content.
+
+   All other responses do include content, although that content might
+   be of zero length.
+
+[℗](#tf6_4){id=pf6_4_2}
+
+6.4.2.  Identifying Content
+--------------------------------------------------------
+
+   When a complete or partial representation is transferred as message
+   content, it is often desirable for the sender to supply, or the
+   recipient to determine, an identifier for a resource corresponding to
+   that specific representation.  For example, a client making a GET
+   request on a resource for "the current weather report" might want an
+   identifier specific to the content returned (e.g., "weather report
+   for Laguna Beach at 20210720T1711").  This can be useful for sharing
+   or bookmarking content from resources that are expected to have
+   changing representations over time.
+
+   For a request message:
+
+   *  If the request has a Content-Location header field, then the
+      sender asserts that the content is a representation of the
+      resource identified by the Content-Location field value.  However,
+      such an assertion cannot be trusted unless it can be verified by
+      other means (not defined by this specification).  The information
+      might still be useful for revision history links.
+
+   *  Otherwise, the content is unidentified by HTTP, but a more
+      specific identifier might be supplied within the content itself.
+
+   For a response message, the following rules are applied in order
+   until a match is found:
+
+   1.  If the request method is HEAD or the response status code is 204
+       (No Content) or 304 (Not Modified), there is no content in the
+       response.
+
+   2.  If the request method is GET and the response status code is 200
+       (OK), the content is a representation of the target resource
+       (Section 7.1).
+
+   3.  If the request method is GET and the response status code is 203
+       (Non-Authoritative Information), the content is a potentially
+       modified or enhanced representation of the target resource as
+       provided by an intermediary.
+
+   4.  If the request method is GET and the response status code is 206
+       (Partial Content), the content is one or more parts of a
+       representation of the target resource.
+
+   5.  If the response has a Content-Location header field and its field
+       value is a reference to the same URI as the target URI, the
+       content is a representation of the target resource.
+
+   6.  If the response has a Content-Location header field and its field
+       value is a reference to a URI different from the target URI, then
+       the sender asserts that the content is a representation of the
+       resource identified by the Content-Location field value.
+       However, such an assertion cannot be trusted unless it can be
+       verified by other means (not defined by this specification).
+
+   7.  Otherwise, the content is unidentified by HTTP, but a more
+       specific identifier might be supplied within the content itself.
+
+[℗](#tfch6){id=pf6_5}
+
+//6.5.  Trailer Fields
+--------------------------------------------------------
+
+   Fields (Section 5) that are located within a "trailer section" are
+   referred to as "trailer fields" (or just "trailers", colloquially).
+   Trailer fields can be useful for supplying message integrity checks,
+   digital signatures, delivery metrics, or post-processing status
+   information.
+
+   Trailer fields ought to be processed and stored separately from the
+   fields in the header section to avoid contradicting message semantics
+   known at the time the header section was complete.  The presence or
+   absence of certain header fields might impact choices made for the
+   routing or processing of the message as a whole before the trailers
+   are received; those choices cannot be unmade by the later discovery
+   of trailer fields.
+
+[℗](#tf6_5){id=pf6_5_1}
+
+6.5.1.  Limitations on Use of Trailers
+--------------------------------------------------------
+
+   A trailer section is only possible when supported by the version of
+   HTTP in use and enabled by an explicit framing mechanism.  For
+   example, the chunked transfer coding in HTTP/1.1 allows a trailer
+   section to be sent after the content (Section 7.1.2 of [HTTP/1.1]).
+
+   Many fields cannot be processed outside the header section because
+   their evaluation is necessary prior to receiving the content, such as
+   those that describe message framing, routing, authentication, request
+   modifiers, response controls, or content format.  A sender MUST NOT
+   generate a trailer field unless the sender knows the corresponding
+   header field name's definition permits the field to be sent in
+   trailers.
+
+   Trailer fields can be difficult to process by intermediaries that
+   forward messages from one protocol version to another.  If the entire
+   message can be buffered in transit, some intermediaries could merge
+   trailer fields into the header section (as appropriate) before it is
+   forwarded.  However, in most cases, the trailers are simply
+   discarded.  A recipient MUST NOT merge a trailer field into a header
+   section unless the recipient understands the corresponding header
+   field definition and that definition explicitly permits and defines
+   how trailer field values can be safely merged.
+
+   The presence of the keyword "trailers" in the TE header field
+   (Section 10.1.4) of a request indicates that the client is willing to
+   accept trailer fields, on behalf of itself and any downstream
+   clients.  For requests from an intermediary, this implies that all
+   downstream clients are willing to accept trailer fields in the
+   forwarded response.  Note that the presence of "trailers" does not
+   mean that the client(s) will process any particular trailer field in
+   the response; only that the trailer section(s) will not be dropped by
+   any of the clients.
+
+   Because of the potential for trailer fields to be discarded in
+   transit, a server SHOULD NOT generate trailer fields that it believes
+   are necessary for the user agent to receive.
+
+[℗](#tf6_5){id=pf6_5_2}
+
+6.5.2.  Processing Trailer Fields
+--------------------------------------------------------
+
+   The "Trailer" header field (Section 6.6.2) can be sent to indicate
+   fields likely to be sent in the trailer section, which allows
+   recipients to prepare for their receipt before processing the
+   content.  For example, this could be useful if a field name indicates
+   that a dynamic checksum should be calculated as the content is
+   received and then immediately checked upon receipt of the trailer
+   field value.
+
+   Like header fields, trailer fields with the same name are processed
+   in the order received; multiple trailer field lines with the same
+   name have the equivalent semantics as appending the multiple values
+   as a list of members.  Trailer fields that might be generated more
+   than once during a message MUST be defined as a list-based field even
+   if each member value is only processed once per field line received.
+
+   At the end of a message, a recipient MAY treat the set of received
+   trailer fields as a data structure of name/value pairs, similar to
+   (but separate from) the header fields.  Additional processing
+   expectations, if any, can be defined within the field specification
+   for a field intended for use in trailers.
+
+[℗](#tfch6){id=pf6_6}
+
+//6.6.  Message Metadata
+--------------------------------------------------------
+
+   Fields that describe the message itself, such as when and how the
+   message has been generated, can appear in both requests and
+   responses.
+
+[℗](#tf6_6){id=pf6_6_1}
+
+6.6.1.  Date
+--------------------------------------------------------
+
+   The "Date" header field represents the date and time at which the
+   message was originated, having the same semantics as the Origination
+   Date Field (orig-date) defined in Section 3.6.1 of [RFC5322].  The
+   field value is an HTTP-date, as defined in Section 5.6.7.
+
+     Date = HTTP-date
+
+   An example is
+
+   Date: Tue, 15 Nov 1994 08:12:31 GMT
+
+   A sender that generates a Date header field SHOULD generate its field
+   value as the best available approximation of the date and time of
+   message generation.  In theory, the date ought to represent the
+   moment just before generating the message content.  In practice, a
+   sender can generate the date value at any time during message
+   origination.
+
+   An origin server with a clock (as defined in Section 5.6.7) MUST
+   generate a Date header field in all 2xx (Successful), 3xx
+   (Redirection), and 4xx (Client Error) responses, and MAY generate a
+   Date header field in 1xx (Informational) and 5xx (Server Error)
+   responses.
+
+   An origin server without a clock MUST NOT generate a Date header
+   field.
+
+   A recipient with a clock that receives a response message without a
+   Date header field MUST record the time it was received and append a
+   corresponding Date header field to the message's header section if it
+   is cached or forwarded downstream.
+
+   A recipient with a clock that receives a response with an invalid
+   Date header field value MAY replace that value with the time that
+   response was received.
+
+   A user agent MAY send a Date header field in a request, though
+   generally will not do so unless it is believed to convey useful
+   information to the server.  For example, custom applications of HTTP
+   might convey a Date if the server is expected to adjust its
+   interpretation of the user's request based on differences between the
+   user agent and server clocks.
+
+[℗](#tf6_6){id=pf6_6_2}
+
+6.6.2.  Trailer
+--------------------------------------------------------
+
+   The "Trailer" header field provides a list of field names that the
+   sender anticipates sending as trailer fields within that message.
+   This allows a recipient to prepare for receipt of the indicated
+   metadata before it starts processing the content.
+
+     Trailer = #field-name
+
+   For example, a sender might indicate that a signature will be
+   computed as the content is being streamed and provide the final
+   signature as a trailer field.  This allows a recipient to perform the
+   same check on the fly as it receives the content.
+
+   A sender that intends to generate one or more trailer fields in a
+   message SHOULD generate a Trailer header field in the header section
+   of that message to indicate which fields might be present in the
+   trailers.
+
+   If an intermediary discards the trailer section in transit, the
+   Trailer field could provide a hint of what metadata was lost, though
+   there is no guarantee that a sender of Trailer will always follow
+   through by sending the named fields.
+
+[℗](#tfch7){id=pfch7}
+
+/7.  Routing HTTP Messages
+========================================================
+
+
+   HTTP request message routing is determined by each client based on
+   the target resource, the client's proxy configuration, and
+   establishment or reuse of an inbound connection.  The corresponding
+   response routing follows the same connection chain back to the
+   client.
+
+[℗](#tfch7){id=pf7_1}
+
+//7.1.  Determining the Target Resource
+--------------------------------------------------------
+
+   Although HTTP is used in a wide variety of applications, most clients
+   rely on the same resource identification mechanism and configuration
+   techniques as general-purpose Web browsers.  Even when communication
+   options are hard-coded in a client's configuration, we can think of
+   their combined effect as a URI reference (Section 4.1).
+
+   A URI reference is resolved to its absolute form in order to obtain
+   the "target URI".  The target URI excludes the reference's fragment
+   component, if any, since fragment identifiers are reserved for
+   client-side processing ([URI], Section 3.5).
+
+   To perform an action on a "target resource", the client sends a
+   request message containing enough components of its parsed target URI
+   to enable recipients to identify that same resource.  For historical
+   reasons, the parsed target URI components, collectively referred to
+   as the "request target", are sent within the message control data and
+   the Host header field (Section 7.2).
+
+   There are two unusual cases for which the request target components
+   are in a method-specific form:
+
+   *  For CONNECT (Section 9.3.6), the request target is the host name
+      and port number of the tunnel destination, separated by a colon.
+
+   *  For OPTIONS (Section 9.3.7), the request target can be a single
+      asterisk ("*").
+
+   See the respective method definitions for details.  These forms MUST
+   NOT be used with other methods.
+
+   Upon receipt of a client's request, a server reconstructs the target
+   URI from the received components in accordance with their local
+   configuration and incoming connection context.  This reconstruction
+   is specific to each major protocol version.  For example, Section 3.3
+   of [HTTP/1.1] defines how a server determines the target URI of an
+   HTTP/1.1 request.
+
+      |  *Note:* Previous specifications defined the recomposed target
+      |  URI as a distinct concept, the "effective request URI".
+
+[℗](#tfch7){id=pf7_2}
+
+//7.2.  Host and :authority
+--------------------------------------------------------
+
+   The "Host" header field in a request provides the host and port
+   information from the target URI, enabling the origin server to
+   distinguish among resources while servicing requests for multiple
+   host names.
+
+   In HTTP/2 [HTTP/2] and HTTP/3 [HTTP/3], the Host header field is, in
+   some cases, supplanted by the ":authority" pseudo-header field of a
+   request's control data.
+
+     Host = uri-host [ ":" port ] ; Section 4
+
+   The target URI's authority information is critical for handling a
+   request.  A user agent MUST generate a Host header field in a request
+   unless it sends that information as an ":authority" pseudo-header
+   field.  A user agent that sends Host SHOULD send it as the first
+   field in the header section of a request.
+
+   For example, a GET request to the origin server for
+   <http://www.example.org/pub/WWW/> would begin with:
+
+   GET /pub/WWW/ HTTP/1.1
+   Host: www.example.org
+
+   Since the host and port information acts as an application-level
+   routing mechanism, it is a frequent target for malware seeking to
+   poison a shared cache or redirect a request to an unintended server.
+   An interception proxy is particularly vulnerable if it relies on the
+   host and port information for redirecting requests to internal
+   servers, or for use as a cache key in a shared cache, without first
+   verifying that the intercepted connection is targeting a valid IP
+   address for that host.
+
+[℗](#tfch7){id=pf7_3}
+
+//7.3.  Routing Inbound Requests
+--------------------------------------------------------
+
+   Once the target URI and its origin are determined, a client decides
+   whether a network request is necessary to accomplish the desired
+   semantics and, if so, where that request is to be directed.
+
+[℗](#tf7_3){id=pf7_3_1}
+
+7.3.1.  To a Cache
+--------------------------------------------------------
+
+   If the client has a cache [CACHING] and the request can be satisfied
+   by it, then the request is usually directed there first.
+
+[℗](#tf7_3){id=pf7_3_2}
+
+7.3.2.  To a Proxy
+--------------------------------------------------------
+
+   If the request is not satisfied by a cache, then a typical client
+   will check its configuration to determine whether a proxy is to be
+   used to satisfy the request.  Proxy configuration is implementation-
+   dependent, but is often based on URI prefix matching, selective
+   authority matching, or both, and the proxy itself is usually
+   identified by an "http" or "https" URI.
+
+   If an "http" or "https" proxy is applicable, the client connects
+   inbound by establishing (or reusing) a connection to that proxy and
+   then sending it an HTTP request message containing a request target
+   that matches the client's target URI.
+
+[℗](#tf7_3){id=pf7_3_3}
+
+7.3.3.  To the Origin
+--------------------------------------------------------
+
+   If no proxy is applicable, a typical client will invoke a handler
+   routine (specific to the target URI's scheme) to obtain access to the
+   identified resource.  How that is accomplished is dependent on the
+   target URI scheme and defined by its associated specification.
+
+   Section 4.3.2 defines how to obtain access to an "http" resource by
+   establishing (or reusing) an inbound connection to the identified
+   origin server and then sending it an HTTP request message containing
+   a request target that matches the client's target URI.
+
+   Section 4.3.3 defines how to obtain access to an "https" resource by
+   establishing (or reusing) an inbound secured connection to an origin
+   server that is authoritative for the identified origin and then
+   sending it an HTTP request message containing a request target that
+   matches the client's target URI.
+
+[℗](#tfch7){id=pf7_4}
+
+//7.4.  Rejecting Misdirected Requests
+--------------------------------------------------------
+
+   Once a request is received by a server and parsed sufficiently to
+   determine its target URI, the server decides whether to process the
+   request itself, forward the request to another server, redirect the
+   client to a different resource, respond with an error, or drop the
+   connection.  This decision can be influenced by anything about the
+   request or connection context, but is specifically directed at
+   whether the server has been configured to process requests for that
+   target URI and whether the connection context is appropriate for that
+   request.
+
+   For example, a request might have been misdirected, deliberately or
+   accidentally, such that the information within a received Host header
+   field differs from the connection's host or port.  If the connection
+   is from a trusted gateway, such inconsistency might be expected;
+   otherwise, it might indicate an attempt to bypass security filters,
+   trick the server into delivering non-public content, or poison a
+   cache.  See Section 17 for security considerations regarding message
+   routing.
+
+   Unless the connection is from a trusted gateway, an origin server
+   MUST reject a request if any scheme-specific requirements for the
+   target URI are not met.  In particular, a request for an "https"
+   resource MUST be rejected unless it has been received over a
+   connection that has been secured via a certificate valid for that
+   target URI's origin, as defined by Section 4.2.2.
+
+   The 421 (Misdirected Request) status code in a response indicates
+   that the origin server has rejected the request because it appears to
+   have been misdirected (Section 15.5.20).
+
+[℗](#tfch7){id=pf7_5}
+
+//7.5.  Response Correlation
+--------------------------------------------------------
+
+   A connection might be used for multiple request/response exchanges.
+   The mechanism used to correlate between request and response messages
+   is version dependent; some versions of HTTP use implicit ordering of
+   messages, while others use an explicit identifier.
+
+   All responses, regardless of the status code (including interim
+   responses) can be sent at any time after a request is received, even
+   if the request is not yet complete.  A response can complete before
+   its corresponding request is complete (Section 6.1).  Likewise,
+   clients are not expected to wait any specific amount of time for a
+   response.  Clients (including intermediaries) might abandon a request
+   if the response is not received within a reasonable period of time.
+
+   A client that receives a response while it is still sending the
+   associated request SHOULD continue sending that request unless it
+   receives an explicit indication to the contrary (see, e.g.,
+   Section 9.5 of [HTTP/1.1] and Section 6.4 of [HTTP/2]).
+
+[℗](#tfch7){id=pf7_6}
+
+//7.6.  Message Forwarding
+--------------------------------------------------------
+
+   As described in Section 3.7, intermediaries can serve a variety of
+   roles in the processing of HTTP requests and responses.  Some
+   intermediaries are used to improve performance or availability.
+   Others are used for access control or to filter content.  Since an
+   HTTP stream has characteristics similar to a pipe-and-filter
+   architecture, there are no inherent limits to the extent an
+   intermediary can enhance (or interfere) with either direction of the
+   stream.
+
+   Intermediaries are expected to forward messages even when protocol
+   elements are not recognized (e.g., new methods, status codes, or
+   field names) since that preserves extensibility for downstream
+   recipients.
+
+   An intermediary not acting as a tunnel MUST implement the Connection
+   header field, as specified in Section 7.6.1, and exclude fields from
+   being forwarded that are only intended for the incoming connection.
+
+   An intermediary MUST NOT forward a message to itself unless it is
+   protected from an infinite request loop.  In general, an intermediary
+   ought to recognize its own server names, including any aliases, local
+   variations, or literal IP addresses, and respond to such requests
+   directly.
+
+   An HTTP message can be parsed as a stream for incremental processing
+   or forwarding downstream.  However, senders and recipients cannot
+   rely on incremental delivery of partial messages, since some
+   implementations will buffer or delay message forwarding for the sake
+   of network efficiency, security checks, or content transformations.
+
+[℗](#tf7_6){id=pf7_6_1}
+
+7.6.1.  Connection
+--------------------------------------------------------
+
+   The "Connection" header field allows the sender to list desired
+   control options for the current connection.
+
+     Connection        = #connection-option
+     connection-option = token
+
+   Connection options are case-insensitive.
+
+   When a field aside from Connection is used to supply control
+   information for or about the current connection, the sender MUST list
+   the corresponding field name within the Connection header field.
+   Note that some versions of HTTP prohibit the use of fields for such
+   information, and therefore do not allow the Connection field.
+
+   Intermediaries MUST parse a received Connection header field before a
+   message is forwarded and, for each connection-option in this field,
+   remove any header or trailer field(s) from the message with the same
+   name as the connection-option, and then remove the Connection header
+   field itself (or replace it with the intermediary's own control
+   options for the forwarded message).
+
+   Hence, the Connection header field provides a declarative way of
+   distinguishing fields that are only intended for the immediate
+   recipient ("hop-by-hop") from those fields that are intended for all
+   recipients on the chain ("end-to-end"), enabling the message to be
+   self-descriptive and allowing future connection-specific extensions
+   to be deployed without fear that they will be blindly forwarded by
+   older intermediaries.
+
+   Furthermore, intermediaries SHOULD remove or replace fields that are
+   known to require removal before forwarding, whether or not they
+   appear as a connection-option, after applying those fields'
+   semantics.  This includes but is not limited to:
+
+   *  Proxy-Connection (Appendix C.2.2 of [HTTP/1.1])
+
+   *  Keep-Alive (Section 19.7.1 of [RFC2068])
+
+   *  TE (Section 10.1.4)
+
+   *  Transfer-Encoding (Section 6.1 of [HTTP/1.1])
+
+   *  Upgrade (Section 7.8)
+
+   A sender MUST NOT send a connection option corresponding to a field
+   that is intended for all recipients of the content.  For example,
+   Cache-Control is never appropriate as a connection option
+   (Section 5.2 of [CACHING]).
+
+   Connection options do not always correspond to a field present in the
+   message, since a connection-specific field might not be needed if
+   there are no parameters associated with a connection option.  In
+   contrast, a connection-specific field received without a
+   corresponding connection option usually indicates that the field has
+   been improperly forwarded by an intermediary and ought to be ignored
+   by the recipient.
+
+   When defining a new connection option that does not correspond to a
+   field, specification authors ought to reserve the corresponding field
+   name anyway in order to avoid later collisions.  Such reserved field
+   names are registered in the "Hypertext Transfer Protocol (HTTP) Field
+   Name Registry" (Section 16.3.1).
+
+[℗](#tf7_6){id=pf7_6_2}
+
+7.6.2.  Max-Forwards
+--------------------------------------------------------
+
+   The "Max-Forwards" header field provides a mechanism with the TRACE
+   (Section 9.3.8) and OPTIONS (Section 9.3.7) request methods to limit
+   the number of times that the request is forwarded by proxies.  This
+   can be useful when the client is attempting to trace a request that
+   appears to be failing or looping mid-chain.
+
+     Max-Forwards = 1*DIGIT
+
+   The Max-Forwards value is a decimal integer indicating the remaining
+   number of times this request message can be forwarded.
+
+   Each intermediary that receives a TRACE or OPTIONS request containing
+   a Max-Forwards header field MUST check and update its value prior to
+   forwarding the request.  If the received value is zero (0), the
+   intermediary MUST NOT forward the request; instead, the intermediary
+   MUST respond as the final recipient.  If the received Max-Forwards
+   value is greater than zero, the intermediary MUST generate an updated
+   Max-Forwards field in the forwarded message with a field value that
+   is the lesser of a) the received value decremented by one (1) or b)
+   the recipient's maximum supported value for Max-Forwards.
+
+   A recipient MAY ignore a Max-Forwards header field received with any
+   other request methods.
+
+[℗](#tf7_6){id=pf7_6_3}
+
+7.6.3.  Via
+--------------------------------------------------------
+
+   The "Via" header field indicates the presence of intermediate
+   protocols and recipients between the user agent and the server (on
+   requests) or between the origin server and the client (on responses),
+   similar to the "Received" header field in email (Section 3.6.7 of
+   [RFC5322]).  Via can be used for tracking message forwards, avoiding
+   request loops, and identifying the protocol capabilities of senders
+   along the request/response chain.
+
+     Via = #( received-protocol RWS received-by [ RWS comment ] )
+
+     received-protocol = [ protocol-name "/" ] protocol-version
+                       ; see Section 7.8
+     received-by       = pseudonym [ ":" port ]
+     pseudonym         = token
+
+   Each member of the Via field value represents a proxy or gateway that
+   has forwarded the message.  Each intermediary appends its own
+   information about how the message was received, such that the end
+   result is ordered according to the sequence of forwarding recipients.
+
+   A proxy MUST send an appropriate Via header field, as described
+   below, in each message that it forwards.  An HTTP-to-HTTP gateway
+   MUST send an appropriate Via header field in each inbound request
+   message and MAY send a Via header field in forwarded response
+   messages.
+
+   For each intermediary, the received-protocol indicates the protocol
+   and protocol version used by the upstream sender of the message.
+   Hence, the Via field value records the advertised protocol
+   capabilities of the request/response chain such that they remain
+   visible to downstream recipients; this can be useful for determining
+   what backwards-incompatible features might be safe to use in
+   response, or within a later request, as described in Section 2.5.
+   For brevity, the protocol-name is omitted when the received protocol
+   is HTTP.
+
+   The received-by portion is normally the host and optional port number
+   of a recipient server or client that subsequently forwarded the
+   message.  However, if the real host is considered to be sensitive
+   information, a sender MAY replace it with a pseudonym.  If a port is
+   not provided, a recipient MAY interpret that as meaning it was
+   received on the default port, if any, for the received-protocol.
+
+   A sender MAY generate comments to identify the software of each
+   recipient, analogous to the User-Agent and Server header fields.
+   However, comments in Via are optional, and a recipient MAY remove
+   them prior to forwarding the message.
+
+   For example, a request message could be sent from an HTTP/1.0 user
+   agent to an internal proxy code-named "fred", which uses HTTP/1.1 to
+   forward the request to a public proxy at p.example.net, which
+   completes the request by forwarding it to the origin server at
+   www.example.com.  The request received by www.example.com would then
+   have the following Via header field:
+
+   Via: 1.0 fred, 1.1 p.example.net
+
+   An intermediary used as a portal through a network firewall SHOULD
+   NOT forward the names and ports of hosts within the firewall region
+   unless it is explicitly enabled to do so.  If not enabled, such an
+   intermediary SHOULD replace each received-by host of any host behind
+   the firewall by an appropriate pseudonym for that host.
+
+   An intermediary MAY combine an ordered subsequence of Via header
+   field list members into a single member if the entries have identical
+   received-protocol values.  For example,
+
+   Via: 1.0 ricky, 1.1 ethel, 1.1 fred, 1.0 lucy
+
+   could be collapsed to
+
+   Via: 1.0 ricky, 1.1 mertz, 1.0 lucy
+
+   A sender SHOULD NOT combine multiple list members unless they are all
+   under the same organizational control and the hosts have already been
+   replaced by pseudonyms.  A sender MUST NOT combine members that have
+   different received-protocol values.
+
+[℗](#tfch7){id=pf7_7}
+
+//7.7.  Message Transformations
+--------------------------------------------------------
+
+   Some intermediaries include features for transforming messages and
+   their content.  A proxy might, for example, convert between image
+   formats in order to save cache space or to reduce the amount of
+   traffic on a slow link.  However, operational problems might occur
+   when these transformations are applied to content intended for
+   critical applications, such as medical imaging or scientific data
+   analysis, particularly when integrity checks or digital signatures
+   are used to ensure that the content received is identical to the
+   original.
+
+   An HTTP-to-HTTP proxy is called a "transforming proxy" if it is
+   designed or configured to modify messages in a semantically
+   meaningful way (i.e., modifications, beyond those required by normal
+   HTTP processing, that change the message in a way that would be
+   significant to the original sender or potentially significant to
+   downstream recipients).  For example, a transforming proxy might be
+   acting as a shared annotation server (modifying responses to include
+   references to a local annotation database), a malware filter, a
+   format transcoder, or a privacy filter.  Such transformations are
+   presumed to be desired by whichever client (or client organization)
+   chose the proxy.
+
+   If a proxy receives a target URI with a host name that is not a fully
+   qualified domain name, it MAY add its own domain to the host name it
+   received when forwarding the request.  A proxy MUST NOT change the
+   host name if the target URI contains a fully qualified domain name.
+
+   A proxy MUST NOT modify the "absolute-path" and "query" parts of the
+   received target URI when forwarding it to the next inbound server
+   except as required by that forwarding protocol.  For example, a proxy
+   forwarding a request to an origin server via HTTP/1.1 will replace an
+   empty path with "/" (Section 3.2.1 of [HTTP/1.1]) or "*"
+   (Section 3.2.4 of [HTTP/1.1]), depending on the request method.
+
+   A proxy MUST NOT transform the content (Section 6.4) of a response
+   message that contains a no-transform cache directive (Section 5.2.2.6
+   of [CACHING]).  Note that this does not apply to message
+   transformations that do not change the content, such as the addition
+   or removal of transfer codings (Section 7 of [HTTP/1.1]).
+
+   A proxy MAY transform the content of a message that does not contain
+   a no-transform cache directive.  A proxy that transforms the content
+   of a 200 (OK) response can inform downstream recipients that a
+   transformation has been applied by changing the response status code
+   to 203 (Non-Authoritative Information) (Section 15.3.4).
+
+   A proxy SHOULD NOT modify header fields that provide information
+   about the endpoints of the communication chain, the resource state,
+   or the selected representation (other than the content) unless the
+   field's definition specifically allows such modification or the
+   modification is deemed necessary for privacy or security.
+
+[℗](#tfch7){id=pf7_8}
+
+//7.8.  Upgrade
+--------------------------------------------------------
+
+   The "Upgrade" header field is intended to provide a simple mechanism
+   for transitioning from HTTP/1.1 to some other protocol on the same
+   connection.
+
+   A client MAY send a list of protocol names in the Upgrade header
+   field of a request to invite the server to switch to one or more of
+   the named protocols, in order of descending preference, before
+   sending the final response.  A server MAY ignore a received Upgrade
+   header field if it wishes to continue using the current protocol on
+   that connection.  Upgrade cannot be used to insist on a protocol
+   change.
+
+     Upgrade          = #protocol
+
+     protocol         = protocol-name ["/" protocol-version]
+     protocol-name    = token
+     protocol-version = token
+
+   Although protocol names are registered with a preferred case,
+   recipients SHOULD use case-insensitive comparison when matching each
+   protocol-name to supported protocols.
+
+   A server that sends a 101 (Switching Protocols) response MUST send an
+   Upgrade header field to indicate the new protocol(s) to which the
+   connection is being switched; if multiple protocol layers are being
+   switched, the sender MUST list the protocols in layer-ascending
+   order.  A server MUST NOT switch to a protocol that was not indicated
+   by the client in the corresponding request's Upgrade header field.  A
+   server MAY choose to ignore the order of preference indicated by the
+   client and select the new protocol(s) based on other factors, such as
+   the nature of the request or the current load on the server.
+
+   A server that sends a 426 (Upgrade Required) response MUST send an
+   Upgrade header field to indicate the acceptable protocols, in order
+   of descending preference.
+
+   A server MAY send an Upgrade header field in any other response to
+   advertise that it implements support for upgrading to the listed
+   protocols, in order of descending preference, when appropriate for a
+   future request.
+
+   The following is a hypothetical example sent by a client:
+
+   GET /hello HTTP/1.1
+   Host: www.example.com
+   Connection: upgrade
+   Upgrade: websocket, IRC/6.9, RTA/x11
+
+   The capabilities and nature of the application-level communication
+   after the protocol change is entirely dependent upon the new
+   protocol(s) chosen.  However, immediately after sending the 101
+   (Switching Protocols) response, the server is expected to continue
+   responding to the original request as if it had received its
+   equivalent within the new protocol (i.e., the server still has an
+   outstanding request to satisfy after the protocol has been changed,
+   and is expected to do so without requiring the request to be
+   repeated).
+
+   For example, if the Upgrade header field is received in a GET request
+   and the server decides to switch protocols, it first responds with a
+   101 (Switching Protocols) message in HTTP/1.1 and then immediately
+   follows that with the new protocol's equivalent of a response to a
+   GET on the target resource.  This allows a connection to be upgraded
+   to protocols with the same semantics as HTTP without the latency cost
+   of an additional round trip.  A server MUST NOT switch protocols
+   unless the received message semantics can be honored by the new
+   protocol; an OPTIONS request can be honored by any protocol.
+
+   The following is an example response to the above hypothetical
+   request:
+
+   HTTP/1.1 101 Switching Protocols
+   Connection: upgrade
+   Upgrade: websocket
+
+   [... data stream switches to websocket with an appropriate response
+   (as defined by new protocol) to the "GET /hello" request ...]
+
+   A sender of Upgrade MUST also send an "Upgrade" connection option in
+   the Connection header field (Section 7.6.1) to inform intermediaries
+   not to forward this field.  A server that receives an Upgrade header
+   field in an HTTP/1.0 request MUST ignore that Upgrade field.
+
+   A client cannot begin using an upgraded protocol on the connection
+   until it has completely sent the request message (i.e., the client
+   can't change the protocol it is sending in the middle of a message).
+   If a server receives both an Upgrade and an Expect header field with
+   the "100-continue" expectation (Section 10.1.1), the server MUST send
+   a 100 (Continue) response before sending a 101 (Switching Protocols)
+   response.
+
+   The Upgrade header field only applies to switching protocols on top
+   of the existing connection; it cannot be used to switch the
+   underlying connection (transport) protocol, nor to switch the
+   existing communication to a different connection.  For those
+   purposes, it is more appropriate to use a 3xx (Redirection) response
+   (Section 15.4).
+
+   This specification only defines the protocol name "HTTP" for use by
+   the family of Hypertext Transfer Protocols, as defined by the HTTP
+   version rules of Section 2.5 and future updates to this
+   specification.  Additional protocol names ought to be registered
+   using the registration procedure defined in Section 16.7.
+
+[℗](#tfch8){id=pfch8}
+
+/8.  Representation Data and Metadata
+========================================================
+
+
+[℗](#tfch8){id=pf8_1}
+
+//8.1.  Representation Data
+--------------------------------------------------------
+
+   The representation data associated with an HTTP message is either
+   provided as the content of the message or referred to by the message
+   semantics and the target URI.  The representation data is in a format
+   and encoding defined by the representation metadata header fields.
+
+   The data type of the representation data is determined via the header
+   fields Content-Type and Content-Encoding.  These define a two-layer,
+   ordered encoding model:
+
+     representation-data := Content-Encoding( Content-Type( data ) )
+
+[℗](#tfch8){id=pf8_2}
+
+//8.2.  Representation Metadata
+--------------------------------------------------------
+
+   Representation header fields provide metadata about the
+   representation.  When a message includes content, the representation
+   header fields describe how to interpret that data.  In a response to
+   a HEAD request, the representation header fields describe the
+   representation data that would have been enclosed in the content if
+   the same request had been a GET.
+
+[℗](#tfch8){id=pf8_3}
+
+//8.3.  Content-Type
+--------------------------------------------------------
+
+   The "Content-Type" header field indicates the media type of the
+   associated representation: either the representation enclosed in the
+   message content or the selected representation, as determined by the
+   message semantics.  The indicated media type defines both the data
+   format and how that data is intended to be processed by a recipient,
+   within the scope of the received message semantics, after any content
+   codings indicated by Content-Encoding are decoded.
+
+     Content-Type = media-type
+
+   Media types are defined in Section 8.3.1.  An example of the field is
+
+   Content-Type: text/html; charset=ISO-8859-4
+
+   A sender that generates a message containing content SHOULD generate
+   a Content-Type header field in that message unless the intended media
+   type of the enclosed representation is unknown to the sender.  If a
+   Content-Type header field is not present, the recipient MAY either
+   assume a media type of "application/octet-stream" ([RFC2046],
+   Section 4.5.1) or examine the data to determine its type.
+
+   In practice, resource owners do not always properly configure their
+   origin server to provide the correct Content-Type for a given
+   representation.  Some user agents examine the content and, in certain
+   cases, override the received type (for example, see [Sniffing]).
+   This "MIME sniffing" risks drawing incorrect conclusions about the
+   data, which might expose the user to additional security risks (e.g.,
+   "privilege escalation").  Furthermore, distinct media types often
+   share a common data format, differing only in how the data is
+   intended to be processed, which is impossible to distinguish by
+   inspecting the data alone.  When sniffing is implemented,
+   implementers are encouraged to provide a means for the user to
+   disable it.
+
+   Although Content-Type is defined as a singleton field, it is
+   sometimes incorrectly generated multiple times, resulting in a
+   combined field value that appears to be a list.  Recipients often
+   attempt to handle this error by using the last syntactically valid
+   member of the list, leading to potential interoperability and
+   security issues if different implementations have different error
+   handling behaviors.
+
+[℗](#tf8_3){id=pf8_3_1}
+
+8.3.1.  Media Type
+--------------------------------------------------------
+
+   HTTP uses media types [RFC2046] in the Content-Type (Section 8.3) and
+   Accept (Section 12.5.1) header fields in order to provide open and
+   extensible data typing and type negotiation.  Media types define both
+   a data format and various processing models: how to process that data
+   in accordance with the message context.
+
+     media-type = type "/" subtype parameters
+     type       = token
+     subtype    = token
+
+   The type and subtype tokens are case-insensitive.
+
+   The type/subtype MAY be followed by semicolon-delimited parameters
+   (Section 5.6.6) in the form of name/value pairs.  The presence or
+   absence of a parameter might be significant to the processing of a
+   media type, depending on its definition within the media type
+   registry.  Parameter values might or might not be case-sensitive,
+   depending on the semantics of the parameter name.
+
+   For example, the following media types are equivalent in describing
+   HTML text data encoded in the UTF-8 character encoding scheme, but
+   the first is preferred for consistency (the "charset" parameter value
+   is defined as being case-insensitive in [RFC2046], Section 4.1.2):
+
+     text/html;charset=utf-8
+     Text/HTML;Charset="utf-8"
+     text/html; charset="utf-8"
+     text/html;charset=UTF-8
+
+   Media types ought to be registered with IANA according to the
+   procedures defined in [BCP13].
+
+[℗](#tf8_3){id=pf8_3_2}
+
+8.3.2.  Charset
+--------------------------------------------------------
+
+   HTTP uses "charset" names to indicate or negotiate the character
+   encoding scheme ([RFC6365], Section 2) of a textual representation.
+   In the fields defined by this document, charset names appear either
+   in parameters (Content-Type), or, for Accept-Encoding, in the form of
+   a plain token.  In both cases, charset names are matched case-
+   insensitively.
+
+   Charset names ought to be registered in the IANA "Character Sets"
+   registry (<https://www.iana.org/assignments/character-sets>)
+   according to the procedures defined in Section 2 of [RFC2978].
+
+      |  *Note:* In theory, charset names are defined by the "mime-
+      |  charset" ABNF rule defined in Section 2.3 of [RFC2978] (as
+      |  corrected in [Err1912]).  That rule allows two characters that
+      |  are not included in "token" ("{" and "}"), but no charset name
+      |  registered at the time of this writing includes braces (see
+      |  [Err5433]).
+
+[℗](#tf8_3){id=pf8_3_3}
+
+8.3.3.  Multipart Types
+--------------------------------------------------------
+
+   MIME provides for a number of "multipart" types -- encapsulations of
+   one or more representations within a single message body.  All
+   multipart types share a common syntax, as defined in Section 5.1.1 of
+   [RFC2046], and include a boundary parameter as part of the media type
+   value.  The message body is itself a protocol element; a sender MUST
+   generate only CRLF to represent line breaks between body parts.
+
+   HTTP message framing does not use the multipart boundary as an
+   indicator of message body length, though it might be used by
+   implementations that generate or process the content.  For example,
+   the "multipart/form-data" type is often used for carrying form data
+   in a request, as described in [RFC7578], and the "multipart/
+   byteranges" type is defined by this specification for use in some 206
+   (Partial Content) responses (see Section 15.3.7).
+
+[℗](#tfch8){id=pf8_4}
+
+//8.4.  Content-Encoding
+--------------------------------------------------------
+
+   The "Content-Encoding" header field indicates what content codings
+   have been applied to the representation, beyond those inherent in the
+   media type, and thus what decoding mechanisms have to be applied in
+   order to obtain data in the media type referenced by the Content-Type
+   header field.  Content-Encoding is primarily used to allow a
+   representation's data to be compressed without losing the identity of
+   its underlying media type.
+
+     Content-Encoding = #content-coding
+
+   An example of its use is
+
+   Content-Encoding: gzip
+
+   If one or more encodings have been applied to a representation, the
+   sender that applied the encodings MUST generate a Content-Encoding
+   header field that lists the content codings in the order in which
+   they were applied.  Note that the coding named "identity" is reserved
+   for its special role in Accept-Encoding and thus SHOULD NOT be
+   included.
+
+   Additional information about the encoding parameters can be provided
+   by other header fields not defined by this specification.
+
+   Unlike Transfer-Encoding (Section 6.1 of [HTTP/1.1]), the codings
+   listed in Content-Encoding are a characteristic of the
+   representation; the representation is defined in terms of the coded
+   form, and all other metadata about the representation is about the
+   coded form unless otherwise noted in the metadata definition.
+   Typically, the representation is only decoded just prior to rendering
+   or analogous usage.
+
+   If the media type includes an inherent encoding, such as a data
+   format that is always compressed, then that encoding would not be
+   restated in Content-Encoding even if it happens to be the same
+   algorithm as one of the content codings.  Such a content coding would
+   only be listed if, for some bizarre reason, it is applied a second
+   time to form the representation.  Likewise, an origin server might
+   choose to publish the same data as multiple representations that
+   differ only in whether the coding is defined as part of Content-Type
+   or Content-Encoding, since some user agents will behave differently
+   in their handling of each response (e.g., open a "Save as ..." dialog
+   instead of automatic decompression and rendering of content).
+
+   An origin server MAY respond with a status code of 415 (Unsupported
+   Media Type) if a representation in the request message has a content
+   coding that is not acceptable.
+
+[℗](#tf8_4){id=pf8_4_1}
+
+8.4.1.  Content Codings
+--------------------------------------------------------
+
+   Content coding values indicate an encoding transformation that has
+   been or can be applied to a representation.  Content codings are
+   primarily used to allow a representation to be compressed or
+   otherwise usefully transformed without losing the identity of its
+   underlying media type and without loss of information.  Frequently,
+   the representation is stored in coded form, transmitted directly, and
+   only decoded by the final recipient.
+
+     content-coding   = token
+
+   All content codings are case-insensitive and ought to be registered
+   within the "HTTP Content Coding Registry", as described in
+   Section 16.6
+
+   Content-coding values are used in the Accept-Encoding
+   (Section 12.5.3) and Content-Encoding (Section 8.4) header fields.
+
+[℗](#tf8_4){id=pf8_4_1_1}
+
+8.4.1.1.  Compress Coding
+--------------------------------------------------------
+
+   The "compress" coding is an adaptive Lempel-Ziv-Welch (LZW) coding
+   [Welch] that is commonly produced by the UNIX file compression
+   program "compress".  A recipient SHOULD consider "x-compress" to be
+   equivalent to "compress".
+
+[℗](#tf8_4){id=pf8_4_1_2}
+
+8.4.1.2.  Deflate Coding
+--------------------------------------------------------
+
+   The "deflate" coding is a "zlib" data format [RFC1950] containing a
+   "deflate" compressed data stream [RFC1951] that uses a combination of
+   the Lempel-Ziv (LZ77) compression algorithm and Huffman coding.
+
+      |  *Note:* Some non-conformant implementations send the "deflate"
+      |  compressed data without the zlib wrapper.
+
+[℗](#tf8_4){id=pf8_4_1_3}
+
+8.4.1.3.  Gzip Coding
+--------------------------------------------------------
+
+   The "gzip" coding is an LZ77 coding with a 32-bit Cyclic Redundancy
+   Check (CRC) that is commonly produced by the gzip file compression
+   program [RFC1952].  A recipient SHOULD consider "x-gzip" to be
+   equivalent to "gzip".
+
+[℗](#tfch8){id=pf8_5}
+
+//8.5.  Content-Language
+--------------------------------------------------------
+
+   The "Content-Language" header field describes the natural language(s)
+   of the intended audience for the representation.  Note that this
+   might not be equivalent to all the languages used within the
+   representation.
+
+     Content-Language = #language-tag
+
+   Language tags are defined in Section 8.5.1.  The primary purpose of
+   Content-Language is to allow a user to identify and differentiate
+   representations according to the users' own preferred language.
+   Thus, if the content is intended only for a Danish-literate audience,
+   the appropriate field is
+
+   Content-Language: da
+
+   If no Content-Language is specified, the default is that the content
+   is intended for all language audiences.  This might mean that the
+   sender does not consider it to be specific to any natural language,
+   or that the sender does not know for which language it is intended.
+
+   Multiple languages MAY be listed for content that is intended for
+   multiple audiences.  For example, a rendition of the "Treaty of
+   Waitangi", presented simultaneously in the original Maori and English
+   versions, would call for
+
+   Content-Language: mi, en
+
+   However, just because multiple languages are present within a
+   representation does not mean that it is intended for multiple
+   linguistic audiences.  An example would be a beginner's language
+   primer, such as "A First Lesson in Latin", which is clearly intended
+   to be used by an English-literate audience.  In this case, the
+   Content-Language would properly only include "en".
+
+   Content-Language MAY be applied to any media type -- it is not
+   limited to textual documents.
+
+[℗](#tf8_5){id=pf8_5_1}
+
+8.5.1.  Language Tags
+--------------------------------------------------------
+
+   A language tag, as defined in [RFC5646], identifies a natural
+   language spoken, written, or otherwise conveyed by human beings for
+   communication of information to other human beings.  Computer
+   languages are explicitly excluded.
+
+   HTTP uses language tags within the Accept-Language and
+   Content-Language header fields.  Accept-Language uses the broader
+   language-range production defined in Section 12.5.4, whereas
+   Content-Language uses the language-tag production defined below.
+
+     language-tag = <Language-Tag, see [RFC5646], Section 2.1>
+
+   A language tag is a sequence of one or more case-insensitive subtags,
+   each separated by a hyphen character ("-", %x2D).  In most cases, a
+   language tag consists of a primary language subtag that identifies a
+   broad family of related languages (e.g., "en" = English), which is
+   optionally followed by a series of subtags that refine or narrow that
+   language's range (e.g., "en-CA" = the variety of English as
+   communicated in Canada).  Whitespace is not allowed within a language
+   tag.  Example tags include:
+
+     fr, en-US, es-419, az-Arab, x-pig-latin, man-Nkoo-GN
+
+   See [RFC5646] for further information.
+
+[℗](#tfch8){id=pf8_6}
+
+//8.6.  Content-Length
+--------------------------------------------------------
+
+   The "Content-Length" header field indicates the associated
+   representation's data length as a decimal non-negative integer number
+   of octets.  When transferring a representation as content, Content-
+   Length refers specifically to the amount of data enclosed so that it
+   can be used to delimit framing (e.g., Section 6.2 of [HTTP/1.1]).  In
+   other cases, Content-Length indicates the selected representation's
+   current length, which can be used by recipients to estimate transfer
+   time or to compare with previously stored representations.
+
+     Content-Length = 1*DIGIT
+
+   An example is
+
+   Content-Length: 3495
+
+   A user agent SHOULD send Content-Length in a request when the method
+   defines a meaning for enclosed content and it is not sending
+   Transfer-Encoding.  For example, a user agent normally sends Content-
+   Length in a POST request even when the value is 0 (indicating empty
+   content).  A user agent SHOULD NOT send a Content-Length header field
+   when the request message does not contain content and the method
+   semantics do not anticipate such data.
+
+   A server MAY send a Content-Length header field in a response to a
+   HEAD request (Section 9.3.2); a server MUST NOT send Content-Length
+   in such a response unless its field value equals the decimal number
+   of octets that would have been sent in the content of a response if
+   the same request had used the GET method.
+
+   A server MAY send a Content-Length header field in a 304 (Not
+   Modified) response to a conditional GET request (Section 15.4.5); a
+   server MUST NOT send Content-Length in such a response unless its
+   field value equals the decimal number of octets that would have been
+   sent in the content of a 200 (OK) response to the same request.
+
+   A server MUST NOT send a Content-Length header field in any response
+   with a status code of 1xx (Informational) or 204 (No Content).  A
+   server MUST NOT send a Content-Length header field in any 2xx
+   (Successful) response to a CONNECT request (Section 9.3.6).
+
+   Aside from the cases defined above, in the absence of Transfer-
+   Encoding, an origin server SHOULD send a Content-Length header field
+   when the content size is known prior to sending the complete header
+   section.  This will allow downstream recipients to measure transfer
+   progress, know when a received message is complete, and potentially
+   reuse the connection for additional requests.
+
+   Any Content-Length field value greater than or equal to zero is
+   valid.  Since there is no predefined limit to the length of content,
+   a recipient MUST anticipate potentially large decimal numerals and
+   prevent parsing errors due to integer conversion overflows or
+   precision loss due to integer conversion (Section 17.5).
+
+   Because Content-Length is used for message delimitation in HTTP/1.1,
+   its field value can impact how the message is parsed by downstream
+   recipients even when the immediate connection is not using HTTP/1.1.
+   If the message is forwarded by a downstream intermediary, a Content-
+   Length field value that is inconsistent with the received message
+   framing might cause a security failure due to request smuggling or
+   response splitting.
+
+   As a result, a sender MUST NOT forward a message with a Content-
+   Length header field value that is known to be incorrect.
+
+   Likewise, a sender MUST NOT forward a message with a Content-Length
+   header field value that does not match the ABNF above, with one
+   exception: a recipient of a Content-Length header field value
+   consisting of the same decimal value repeated as a comma-separated
+   list (e.g, "Content-Length: 42, 42") MAY either reject the message as
+   invalid or replace that invalid field value with a single instance of
+   the decimal value, since this likely indicates that a duplicate was
+   generated or combined by an upstream message processor.
+
+[℗](#tfch8){id=pf8_7}
+
+//8.7.  Content-Location
+--------------------------------------------------------
+
+   The "Content-Location" header field references a URI that can be used
+   as an identifier for a specific resource corresponding to the
+   representation in this message's content.  In other words, if one
+   were to perform a GET request on this URI at the time of this
+   message's generation, then a 200 (OK) response would contain the same
+   representation that is enclosed as content in this message.
+
+     Content-Location = absolute-URI / partial-URI
+
+   The field value is either an absolute-URI or a partial-URI.  In the
+   latter case (Section 4), the referenced URI is relative to the target
+   URI ([URI], Section 5).
+
+   The Content-Location value is not a replacement for the target URI
+   (Section 7.1).  It is representation metadata.  It has the same
+   syntax and semantics as the header field of the same name defined for
+   MIME body parts in Section 4 of [RFC2557].  However, its appearance
+   in an HTTP message has some special implications for HTTP recipients.
+
+   If Content-Location is included in a 2xx (Successful) response
+   message and its value refers (after conversion to absolute form) to a
+   URI that is the same as the target URI, then the recipient MAY
+   consider the content to be a current representation of that resource
+   at the time indicated by the message origination date.  For a GET
+   (Section 9.3.1) or HEAD (Section 9.3.2) request, this is the same as
+   the default semantics when no Content-Location is provided by the
+   server.  For a state-changing request like PUT (Section 9.3.4) or
+   POST (Section 9.3.3), it implies that the server's response contains
+   the new representation of that resource, thereby distinguishing it
+   from representations that might only report about the action (e.g.,
+   "It worked!").  This allows authoring applications to update their
+   local copies without the need for a subsequent GET request.
+
+   If Content-Location is included in a 2xx (Successful) response
+   message and its field value refers to a URI that differs from the
+   target URI, then the origin server claims that the URI is an
+   identifier for a different resource corresponding to the enclosed
+   representation.  Such a claim can only be trusted if both identifiers
+   share the same resource owner, which cannot be programmatically
+   determined via HTTP.
+
+   *  For a response to a GET or HEAD request, this is an indication
+      that the target URI refers to a resource that is subject to
+      content negotiation and the Content-Location field value is a more
+      specific identifier for the selected representation.
+
+   *  For a 201 (Created) response to a state-changing method, a
+      Content-Location field value that is identical to the Location
+      field value indicates that this content is a current
+      representation of the newly created resource.
+
+   *  Otherwise, such a Content-Location indicates that this content is
+      a representation reporting on the requested action's status and
+      that the same report is available (for future access with GET) at
+      the given URI.  For example, a purchase transaction made via a
+      POST request might include a receipt document as the content of
+      the 200 (OK) response; the Content-Location field value provides
+      an identifier for retrieving a copy of that same receipt in the
+      future.
+
+   A user agent that sends Content-Location in a request message is
+   stating that its value refers to where the user agent originally
+   obtained the content of the enclosed representation (prior to any
+   modifications made by that user agent).  In other words, the user
+   agent is providing a back link to the source of the original
+   representation.
+
+   An origin server that receives a Content-Location field in a request
+   message MUST treat the information as transitory request context
+   rather than as metadata to be saved verbatim as part of the
+   representation.  An origin server MAY use that context to guide in
+   processing the request or to save it for other uses, such as within
+   source links or versioning metadata.  However, an origin server MUST
+   NOT use such context information to alter the request semantics.
+
+   For example, if a client makes a PUT request on a negotiated resource
+   and the origin server accepts that PUT (without redirection), then
+   the new state of that resource is expected to be consistent with the
+   one representation supplied in that PUT; the Content-Location cannot
+   be used as a form of reverse content selection identifier to update
+   only one of the negotiated representations.  If the user agent had
+   wanted the latter semantics, it would have applied the PUT directly
+   to the Content-Location URI.
+
+[℗](#tfch8){id=pf8_8}
+
+//8.8.  Validator Fields
+--------------------------------------------------------
+
+   Resource metadata is referred to as a "validator" if it can be used
+   within a precondition (Section 13.1) to make a conditional request
+   (Section 13).  Validator fields convey a current validator for the
+   selected representation (Section 3.2).
+
+   In responses to safe requests, validator fields describe the selected
+   representation chosen by the origin server while handling the
+   response.  Note that, depending on the method and status code
+   semantics, the selected representation for a given response is not
+   necessarily the same as the representation enclosed as response
+   content.
+
+   In a successful response to a state-changing request, validator
+   fields describe the new representation that has replaced the prior
+   selected representation as a result of processing the request.
+
+   For example, an ETag field in a 201 (Created) response communicates
+   the entity tag of the newly created resource's representation, so
+   that the entity tag can be used as a validator in later conditional
+   requests to prevent the "lost update" problem.
+
+   This specification defines two forms of metadata that are commonly
+   used to observe resource state and test for preconditions:
+   modification dates (Section 8.8.2) and opaque entity tags
+   (Section 8.8.3).  Additional metadata that reflects resource state
+   has been defined by various extensions of HTTP, such as Web
+   Distributed Authoring and Versioning [WEBDAV], that are beyond the
+   scope of this specification.
+
+[℗](#tf8_8){id=pf8_8_1}
+
+8.8.1.  Weak versus Strong
+--------------------------------------------------------
+
+   Validators come in two flavors: strong or weak.  Weak validators are
+   easy to generate but are far less useful for comparisons.  Strong
+   validators are ideal for comparisons but can be very difficult (and
+   occasionally impossible) to generate efficiently.  Rather than impose
+   that all forms of resource adhere to the same strength of validator,
+   HTTP exposes the type of validator in use and imposes restrictions on
+   when weak validators can be used as preconditions.
+
+   A "strong validator" is representation metadata that changes value
+   whenever a change occurs to the representation data that would be
+   observable in the content of a 200 (OK) response to GET.
+
+   A strong validator might change for reasons other than a change to
+   the representation data, such as when a semantically significant part
+   of the representation metadata is changed (e.g., Content-Type), but
+   it is in the best interests of the origin server to only change the
+   value when it is necessary to invalidate the stored responses held by
+   remote caches and authoring tools.
+
+   Cache entries might persist for arbitrarily long periods, regardless
+   of expiration times.  Thus, a cache might attempt to validate an
+   entry using a validator that it obtained in the distant past.  A
+   strong validator is unique across all versions of all representations
+   associated with a particular resource over time.  However, there is
+   no implication of uniqueness across representations of different
+   resources (i.e., the same strong validator might be in use for
+   representations of multiple resources at the same time and does not
+   imply that those representations are equivalent).
+
+   There are a variety of strong validators used in practice.  The best
+   are based on strict revision control, wherein each change to a
+   representation always results in a unique node name and revision
+   identifier being assigned before the representation is made
+   accessible to GET.  A collision-resistant hash function applied to
+   the representation data is also sufficient if the data is available
+   prior to the response header fields being sent and the digest does
+   not need to be recalculated every time a validation request is
+   received.  However, if a resource has distinct representations that
+   differ only in their metadata, such as might occur with content
+   negotiation over media types that happen to share the same data
+   format, then the origin server needs to incorporate additional
+   information in the validator to distinguish those representations.
+
+   In contrast, a "weak validator" is representation metadata that might
+   not change for every change to the representation data.  This
+   weakness might be due to limitations in how the value is calculated
+   (e.g., clock resolution), an inability to ensure uniqueness for all
+   possible representations of the resource, or a desire of the resource
+   owner to group representations by some self-determined set of
+   equivalency rather than unique sequences of data.
+
+   An origin server SHOULD change a weak entity tag whenever it
+   considers prior representations to be unacceptable as a substitute
+   for the current representation.  In other words, a weak entity tag
+   ought to change whenever the origin server wants caches to invalidate
+   old responses.
+
+   For example, the representation of a weather report that changes in
+   content every second, based on dynamic measurements, might be grouped
+   into sets of equivalent representations (from the origin server's
+   perspective) with the same weak validator in order to allow cached
+   representations to be valid for a reasonable period of time (perhaps
+   adjusted dynamically based on server load or weather quality).
+   Likewise, a representation's modification time, if defined with only
+   one-second resolution, might be a weak validator if it is possible
+   for the representation to be modified twice during a single second
+   and retrieved between those modifications.
+
+   Likewise, a validator is weak if it is shared by two or more
+   representations of a given resource at the same time, unless those
+   representations have identical representation data.  For example, if
+   the origin server sends the same validator for a representation with
+   a gzip content coding applied as it does for a representation with no
+   content coding, then that validator is weak.  However, two
+   simultaneous representations might share the same strong validator if
+   they differ only in the representation metadata, such as when two
+   different media types are available for the same representation data.
+
+   Strong validators are usable for all conditional requests, including
+   cache validation, partial content ranges, and "lost update"
+   avoidance.  Weak validators are only usable when the client does not
+   require exact equality with previously obtained representation data,
+   such as when validating a cache entry or limiting a web traversal to
+   recent changes.
+
+[℗](#tf8_8){id=pf8_8_2}
+
+8.8.2.  Last-Modified
+--------------------------------------------------------
+
+   The "Last-Modified" header field in a response provides a timestamp
+   indicating the date and time at which the origin server believes the
+   selected representation was last modified, as determined at the
+   conclusion of handling the request.
+
+     Last-Modified = HTTP-date
+
+   An example of its use is
+
+   Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT
+
+[℗](#tf8_8){id=pf8_8_2_1}
+
+8.8.2.1.  Generation
+--------------------------------------------------------
+
+   An origin server SHOULD send Last-Modified for any selected
+   representation for which a last modification date can be reasonably
+   and consistently determined, since its use in conditional requests
+   and evaluating cache freshness ([CACHING]) can substantially reduce
+   unnecessary transfers and significantly improve service availability
+   and scalability.
+
+   A representation is typically the sum of many parts behind the
+   resource interface.  The last-modified time would usually be the most
+   recent time that any of those parts were changed.  How that value is
+   determined for any given resource is an implementation detail beyond
+   the scope of this specification.
+
+   An origin server SHOULD obtain the Last-Modified value of the
+   representation as close as possible to the time that it generates the
+   Date field value for its response.  This allows a recipient to make
+   an accurate assessment of the representation's modification time,
+   especially if the representation changes near the time that the
+   response is generated.
+
+   An origin server with a clock (as defined in Section 5.6.7) MUST NOT
+   generate a Last-Modified date that is later than the server's time of
+   message origination (Date, Section 6.6.1).  If the last modification
+   time is derived from implementation-specific metadata that evaluates
+   to some time in the future, according to the origin server's clock,
+   then the origin server MUST replace that value with the message
+   origination date.  This prevents a future modification date from
+   having an adverse impact on cache validation.
+
+   An origin server without a clock MUST NOT generate a Last-Modified
+   date for a response unless that date value was assigned to the
+   resource by some other system (presumably one with a clock).
+
+[℗](#tf8_8){id=pf8_8_2_2}
+
+8.8.2.2.  Comparison
+--------------------------------------------------------
+
+   A Last-Modified time, when used as a validator in a request, is
+   implicitly weak unless it is possible to deduce that it is strong,
+   using the following rules:
+
+   *  The validator is being compared by an origin server to the actual
+      current validator for the representation and,
+
+   *  That origin server reliably knows that the associated
+      representation did not change twice during the second covered by
+      the presented validator;
+
+   or
+
+   *  The validator is about to be used by a client in an
+      If-Modified-Since, If-Unmodified-Since, or If-Range header field,
+      because the client has a cache entry for the associated
+      representation, and
+
+   *  That cache entry includes a Date value which is at least one
+      second after the Last-Modified value and the client has reason to
+      believe that they were generated by the same clock or that there
+      is enough difference between the Last-Modified and Date values to
+      make clock synchronization issues unlikely;
+
+   or
+
+   *  The validator is being compared by an intermediate cache to the
+      validator stored in its cache entry for the representation, and
+
+   *  That cache entry includes a Date value which is at least one
+      second after the Last-Modified value and the cache has reason to
+      believe that they were generated by the same clock or that there
+      is enough difference between the Last-Modified and Date values to
+      make clock synchronization issues unlikely.
+
+   This method relies on the fact that if two different responses were
+   sent by the origin server during the same second, but both had the
+   same Last-Modified time, then at least one of those responses would
+   have a Date value equal to its Last-Modified time.
+
+[℗](#tf8_8){id=pf8_8_3}
+
+8.8.3.  ETag
+--------------------------------------------------------
+
+   The "ETag" field in a response provides the current entity tag for
+   the selected representation, as determined at the conclusion of
+   handling the request.  An entity tag is an opaque validator for
+   differentiating between multiple representations of the same
+   resource, regardless of whether those multiple representations are
+   due to resource state changes over time, content negotiation
+   resulting in multiple representations being valid at the same time,
+   or both.  An entity tag consists of an opaque quoted string, possibly
+   prefixed by a weakness indicator.
+
+     ETag       = entity-tag
+
+     entity-tag = [ weak ] opaque-tag
+     weak       = %s"W/"
+     opaque-tag = DQUOTE *etagc DQUOTE
+     etagc      = %x21 / %x23-7E / obs-text
+                ; VCHAR except double quotes, plus obs-text
+
+      |  *Note:* Previously, opaque-tag was defined to be a quoted-
+      |  string ([RFC2616], Section 3.11); thus, some recipients might
+      |  perform backslash unescaping.  Servers therefore ought to avoid
+      |  backslash characters in entity tags.
+
+   An entity tag can be more reliable for validation than a modification
+   date in situations where it is inconvenient to store modification
+   dates, where the one-second resolution of HTTP-date values is not
+   sufficient, or where modification dates are not consistently
+   maintained.
+
+   Examples:
+
+   ETag: "xyzzy"
+   ETag: W/"xyzzy"
+   ETag: ""
+
+   An entity tag can be either a weak or strong validator, with strong
+   being the default.  If an origin server provides an entity tag for a
+   representation and the generation of that entity tag does not satisfy
+   all of the characteristics of a strong validator (Section 8.8.1),
+   then the origin server MUST mark the entity tag as weak by prefixing
+   its opaque value with "W/" (case-sensitive).
+
+   A sender MAY send the ETag field in a trailer section (see
+   Section 6.5).  However, since trailers are often ignored, it is
+   preferable to send ETag as a header field unless the entity tag is
+   generated while sending the content.
+
+[℗](#tf8_8){id=pf8_8_3_1}
+
+8.8.3.1.  Generation
+--------------------------------------------------------
+
+   The principle behind entity tags is that only the service author
+   knows the implementation of a resource well enough to select the most
+   accurate and efficient validation mechanism for that resource, and
+   that any such mechanism can be mapped to a simple sequence of octets
+   for easy comparison.  Since the value is opaque, there is no need for
+   the client to be aware of how each entity tag is constructed.
+
+   For example, a resource that has implementation-specific versioning
+   applied to all changes might use an internal revision number, perhaps
+   combined with a variance identifier for content negotiation, to
+   accurately differentiate between representations.  Other
+   implementations might use a collision-resistant hash of
+   representation content, a combination of various file attributes, or
+   a modification timestamp that has sub-second resolution.
+
+   An origin server SHOULD send an ETag for any selected representation
+   for which detection of changes can be reasonably and consistently
+   determined, since the entity tag's use in conditional requests and
+   evaluating cache freshness ([CACHING]) can substantially reduce
+   unnecessary transfers and significantly improve service availability,
+   scalability, and reliability.
+
+[℗](#tf8_8){id=pf8_8_3_2}
+
+8.8.3.2.  Comparison
+--------------------------------------------------------
+
+   There are two entity tag comparison functions, depending on whether
+   or not the comparison context allows the use of weak validators:
+
+   "Strong comparison":  two entity tags are equivalent if both are not
+      weak and their opaque-tags match character-by-character.
+
+   "Weak comparison":  two entity tags are equivalent if their opaque-
+      tags match character-by-character, regardless of either or both
+      being tagged as "weak".
+
+   The example below shows the results for a set of entity tag pairs and
+   both the weak and strong comparison function results:
+
+   +========+========+===================+=================+
+   | ETag 1 | ETag 2 | Strong Comparison | Weak Comparison |
+   +========+========+===================+=================+
+   | W/"1"  | W/"1"  | no match          | match           |
+   +--------+--------+-------------------+-----------------+
+   | W/"1"  | W/"2"  | no match          | no match        |
+   +--------+--------+-------------------+-----------------+
+   | W/"1"  | "1"    | no match          | match           |
+   +--------+--------+-------------------+-----------------+
+   | "1"    | "1"    | match             | match           |
+   +--------+--------+-------------------+-----------------+
+
+                            Table 3
+
+[℗](#tf8_8){id=pf8_8_3_3}
+
+8.8.3.3.  Example: Entity Tags Varying on Content-Negotiated Resources
+--------------------------------------------------------
+
+   Consider a resource that is subject to content negotiation
+   (Section 12), and where the representations sent in response to a GET
+   request vary based on the Accept-Encoding request header field
+   (Section 12.5.3):
+
+   >> Request:
+
+   GET /index HTTP/1.1
+   Host: www.example.com
+   Accept-Encoding: gzip
+
+   In this case, the response might or might not use the gzip content
+   coding.  If it does not, the response might look like:
+
+   >> Response:
+
+   HTTP/1.1 200 OK
+   Date: Fri, 26 Mar 2010 00:05:00 GMT
+   ETag: "123-a"
+   Content-Length: 70
+   Vary: Accept-Encoding
+   Content-Type: text/plain
+
+   Hello World!
+   Hello World!
+   Hello World!
+   Hello World!
+   Hello World!
+
+   An alternative representation that does use gzip content coding would
+   be:
+
+   >> Response:
+
+   HTTP/1.1 200 OK
+   Date: Fri, 26 Mar 2010 00:05:00 GMT
+   ETag: "123-b"
+   Content-Length: 43
+   Vary: Accept-Encoding
+   Content-Type: text/plain
+   Content-Encoding: gzip
+
+   ...binary data...
+
+      |  *Note:* Content codings are a property of the representation
+      |  data, so a strong entity tag for a content-encoded
+      |  representation has to be distinct from the entity tag of an
+      |  unencoded representation to prevent potential conflicts during
+      |  cache updates and range requests.  In contrast, transfer
+      |  codings (Section 7 of [HTTP/1.1]) apply only during message
+      |  transfer and do not result in distinct entity tags.
+
+[℗](#tfch9){id=pfch9}
+
+/9.  Methods
+========================================================
+
+
+[℗](#tfch9){id=pf9_1}
+
+//9.1.  Overview
+--------------------------------------------------------
+
+   The request method token is the primary source of request semantics;
+   it indicates the purpose for which the client has made this request
+   and what is expected by the client as a successful result.
+
+   The request method's semantics might be further specialized by the
+   semantics of some header fields when present in a request if those
+   additional semantics do not conflict with the method.  For example, a
+   client can send conditional request header fields (Section 13.1) to
+   make the requested action conditional on the current state of the
+   target resource.
+
+   HTTP is designed to be usable as an interface to distributed object
+   systems.  The request method invokes an action to be applied to a
+   target resource in much the same way that a remote method invocation
+   can be sent to an identified object.
+
+     method = token
+
+   The method token is case-sensitive because it might be used as a
+   gateway to object-based systems with case-sensitive method names.  By
+   convention, standardized methods are defined in all-uppercase US-
+   ASCII letters.
+
+   Unlike distributed objects, the standardized request methods in HTTP
+   are not resource-specific, since uniform interfaces provide for
+   better visibility and reuse in network-based systems [REST].  Once
+   defined, a standardized method ought to have the same semantics when
+   applied to any resource, though each resource determines for itself
+   whether those semantics are implemented or allowed.
+
+   This specification defines a number of standardized methods that are
+   commonly used in HTTP, as outlined by the following table.
+
+   +=========+============================================+=========+
+   | Method  | Description                                | Section |
+   | Name    |                                            |         |
+   +=========+============================================+=========+
+   | GET     | Transfer a current representation of the   | 9.3.1   |
+   |         | target resource.                           |         |
+   +---------+--------------------------------------------+---------+
+   | HEAD    | Same as GET, but do not transfer the       | 9.3.2   |
+   |         | response content.                          |         |
+   +---------+--------------------------------------------+---------+
+   | POST    | Perform resource-specific processing on    | 9.3.3   |
+   |         | the request content.                       |         |
+   +---------+--------------------------------------------+---------+
+   | PUT     | Replace all current representations of the | 9.3.4   |
+   |         | target resource with the request content.  |         |
+   +---------+--------------------------------------------+---------+
+   | DELETE  | Remove all current representations of the  | 9.3.5   |
+   |         | target resource.                           |         |
+   +---------+--------------------------------------------+---------+
+   | CONNECT | Establish a tunnel to the server           | 9.3.6   |
+   |         | identified by the target resource.         |         |
+   +---------+--------------------------------------------+---------+
+   | OPTIONS | Describe the communication options for the | 9.3.7   |
+   |         | target resource.                           |         |
+   +---------+--------------------------------------------+---------+
+   | TRACE   | Perform a message loop-back test along the | 9.3.8   |
+   |         | path to the target resource.               |         |
+   +---------+--------------------------------------------+---------+
+
+                                Table 4
+
+   All general-purpose servers MUST support the methods GET and HEAD.
+   All other methods are OPTIONAL.
+
+   The set of methods allowed by a target resource can be listed in an
+   Allow header field (Section 10.2.1).  However, the set of allowed
+   methods can change dynamically.  An origin server that receives a
+   request method that is unrecognized or not implemented SHOULD respond
+   with the 501 (Not Implemented) status code.  An origin server that
+   receives a request method that is recognized and implemented, but not
+   allowed for the target resource, SHOULD respond with the 405 (Method
+   Not Allowed) status code.
+
+   Additional methods, outside the scope of this specification, have
+   been specified for use in HTTP.  All such methods ought to be
+   registered within the "Hypertext Transfer Protocol (HTTP) Method
+   Registry", as described in Section 16.1.
+
+[℗](#tfch9){id=pf9_2}
+
+//9.2.  Common Method Properties
+--------------------------------------------------------
+
+[℗](#tf9_2){id=pf9_2_1}
+
+9.2.1.  Safe Methods
+--------------------------------------------------------
+
+   Request methods are considered "safe" if their defined semantics are
+   essentially read-only; i.e., the client does not request, and does
+   not expect, any state change on the origin server as a result of
+   applying a safe method to a target resource.  Likewise, reasonable
+   use of a safe method is not expected to cause any harm, loss of
+   property, or unusual burden on the origin server.
+
+   This definition of safe methods does not prevent an implementation
+   from including behavior that is potentially harmful, that is not
+   entirely read-only, or that causes side effects while invoking a safe
+   method.  What is important, however, is that the client did not
+   request that additional behavior and cannot be held accountable for
+   it.  For example, most servers append request information to access
+   log files at the completion of every response, regardless of the
+   method, and that is considered safe even though the log storage might
+   become full and cause the server to fail.  Likewise, a safe request
+   initiated by selecting an advertisement on the Web will often have
+   the side effect of charging an advertising account.
+
+   Of the request methods defined by this specification, the GET, HEAD,
+   OPTIONS, and TRACE methods are defined to be safe.
+
+   The purpose of distinguishing between safe and unsafe methods is to
+   allow automated retrieval processes (spiders) and cache performance
+   optimization (pre-fetching) to work without fear of causing harm.  In
+   addition, it allows a user agent to apply appropriate constraints on
+   the automated use of unsafe methods when processing potentially
+   untrusted content.
+
+   A user agent SHOULD distinguish between safe and unsafe methods when
+   presenting potential actions to a user, such that the user can be
+   made aware of an unsafe action before it is requested.
+
+   When a resource is constructed such that parameters within the target
+   URI have the effect of selecting an action, it is the resource
+   owner's responsibility to ensure that the action is consistent with
+   the request method semantics.  For example, it is common for Web-
+   based content editing software to use actions within query
+   parameters, such as "page?do=delete".  If the purpose of such a
+   resource is to perform an unsafe action, then the resource owner MUST
+   disable or disallow that action when it is accessed using a safe
+   request method.  Failure to do so will result in unfortunate side
+   effects when automated processes perform a GET on every URI reference
+   for the sake of link maintenance, pre-fetching, building a search
+   index, etc.
+
+[℗](#tf9_2){id=pf9_2_2}
+
+9.2.2.  Idempotent Methods
+--------------------------------------------------------
+
+   A request method is considered "idempotent" if the intended effect on
+   the server of multiple identical requests with that method is the
+   same as the effect for a single such request.  Of the request methods
+   defined by this specification, PUT, DELETE, and safe request methods
+   are idempotent.
+
+   Like the definition of safe, the idempotent property only applies to
+   what has been requested by the user; a server is free to log each
+   request separately, retain a revision control history, or implement
+   other non-idempotent side effects for each idempotent request.
+
+   Idempotent methods are distinguished because the request can be
+   repeated automatically if a communication failure occurs before the
+   client is able to read the server's response.  For example, if a
+   client sends a PUT request and the underlying connection is closed
+   before any response is received, then the client can establish a new
+   connection and retry the idempotent request.  It knows that repeating
+   the request will have the same intended effect, even if the original
+   request succeeded, though the response might differ.
+
+   A client SHOULD NOT automatically retry a request with a non-
+   idempotent method unless it has some means to know that the request
+   semantics are actually idempotent, regardless of the method, or some
+   means to detect that the original request was never applied.
+
+   For example, a user agent can repeat a POST request automatically if
+   it knows (through design or configuration) that the request is safe
+   for that resource.  Likewise, a user agent designed specifically to
+   operate on a version control repository might be able to recover from
+   partial failure conditions by checking the target resource
+   revision(s) after a failed connection, reverting or fixing any
+   changes that were partially applied, and then automatically retrying
+   the requests that failed.
+
+   Some clients take a riskier approach and attempt to guess when an
+   automatic retry is possible.  For example, a client might
+   automatically retry a POST request if the underlying transport
+   connection closed before any part of a response is received,
+   particularly if an idle persistent connection was used.
+
+   A proxy MUST NOT automatically retry non-idempotent requests.  A
+   client SHOULD NOT automatically retry a failed automatic retry.
+
+[℗](#tf9_2){id=pf9_2_3}
+
+9.2.3.  Methods and Caching
+--------------------------------------------------------
+
+   For a cache to store and use a response, the associated method needs
+   to explicitly allow caching and to detail under what conditions a
+   response can be used to satisfy subsequent requests; a method
+   definition that does not do so cannot be cached.  For additional
+   requirements see [CACHING].
+
+   This specification defines caching semantics for GET, HEAD, and POST,
+   although the overwhelming majority of cache implementations only
+   support GET and HEAD.
+
+[℗](#tfch9){id=pf9_3}
+
+//9.3.  Method Definitions
+--------------------------------------------------------
+
+[℗](#tf9_3){id=pf9_3_1}
+
+9.3.1.  GET
+--------------------------------------------------------
+
+   The GET method requests transfer of a current selected representation
+   for the target resource.  A successful response reflects the quality
+   of "sameness" identified by the target URI (Section 1.2.2 of [URI]).
+   Hence, retrieving identifiable information via HTTP is usually
+   performed by making a GET request on an identifier associated with
+   the potential for providing that information in a 200 (OK) response.
+
+   GET is the primary mechanism of information retrieval and the focus
+   of almost all performance optimizations.  Applications that produce a
+   URI for each important resource can benefit from those optimizations
+   while enabling their reuse by other applications, creating a network
+   effect that promotes further expansion of the Web.
+
+   It is tempting to think of resource identifiers as remote file system
+   pathnames and of representations as being a copy of the contents of
+   such files.  In fact, that is how many resources are implemented (see
+   Section 17.3 for related security considerations).  However, there
+   are no such limitations in practice.
+
+   The HTTP interface for a resource is just as likely to be implemented
+   as a tree of content objects, a programmatic view on various database
+   records, or a gateway to other information systems.  Even when the
+   URI mapping mechanism is tied to a file system, an origin server
+   might be configured to execute the files with the request as input
+   and send the output as the representation rather than transfer the
+   files directly.  Regardless, only the origin server needs to know how
+   each resource identifier corresponds to an implementation and how
+   that implementation manages to select and send a current
+   representation of the target resource.
+
+   A client can alter the semantics of GET to be a "range request",
+   requesting transfer of only some part(s) of the selected
+   representation, by sending a Range header field in the request
+   (Section 14.2).
+
+   Although request message framing is independent of the method used,
+   content received in a GET request has no generally defined semantics,
+   cannot alter the meaning or target of the request, and might lead
+   some implementations to reject the request and close the connection
+   because of its potential as a request smuggling attack (Section 11.2
+   of [HTTP/1.1]).  A client SHOULD NOT generate content in a GET
+   request unless it is made directly to an origin server that has
+   previously indicated, in or out of band, that such a request has a
+   purpose and will be adequately supported.  An origin server SHOULD
+   NOT rely on private agreements to receive content, since participants
+   in HTTP communication are often unaware of intermediaries along the
+   request chain.
+
+   The response to a GET request is cacheable; a cache MAY use it to
+   satisfy subsequent GET and HEAD requests unless otherwise indicated
+   by the Cache-Control header field (Section 5.2 of [CACHING]).
+
+   When information retrieval is performed with a mechanism that
+   constructs a target URI from user-provided information, such as the
+   query fields of a form using GET, potentially sensitive data might be
+   provided that would not be appropriate for disclosure within a URI
+   (see Section 17.9).  In some cases, the data can be filtered or
+   transformed such that it would not reveal such information.  In
+   others, particularly when there is no benefit from caching a
+   response, using the POST method (Section 9.3.3) instead of GET can
+   transmit such information in the request content rather than within
+   the target URI.
+
+[℗](#tf9_3){id=pf9_3_2}
+
+9.3.2.  HEAD
+--------------------------------------------------------
+
+   The HEAD method is identical to GET except that the server MUST NOT
+   send content in the response.  HEAD is used to obtain metadata about
+   the selected representation without transferring its representation
+   data, often for the sake of testing hypertext links or finding recent
+   modifications.
+
+   The server SHOULD send the same header fields in response to a HEAD
+   request as it would have sent if the request method had been GET.
+   However, a server MAY omit header fields for which a value is
+   determined only while generating the content.  For example, some
+   servers buffer a dynamic response to GET until a minimum amount of
+   data is generated so that they can more efficiently delimit small
+   responses or make late decisions with regard to content selection.
+   Such a response to GET might contain Content-Length and Vary fields,
+   for example, that are not generated within a HEAD response.  These
+   minor inconsistencies are considered preferable to generating and
+   discarding the content for a HEAD request, since HEAD is usually
+   requested for the sake of efficiency.
+
+   Although request message framing is independent of the method used,
+   content received in a HEAD request has no generally defined
+   semantics, cannot alter the meaning or target of the request, and
+   might lead some implementations to reject the request and close the
+   connection because of its potential as a request smuggling attack
+   (Section 11.2 of [HTTP/1.1]).  A client SHOULD NOT generate content
+   in a HEAD request unless it is made directly to an origin server that
+   has previously indicated, in or out of band, that such a request has
+   a purpose and will be adequately supported.  An origin server SHOULD
+   NOT rely on private agreements to receive content, since participants
+   in HTTP communication are often unaware of intermediaries along the
+   request chain.
+
+   The response to a HEAD request is cacheable; a cache MAY use it to
+   satisfy subsequent HEAD requests unless otherwise indicated by the
+   Cache-Control header field (Section 5.2 of [CACHING]).  A HEAD
+   response might also affect previously cached responses to GET; see
+   Section 4.3.5 of [CACHING].
+
+[℗](#tf9_3){id=pf9_3_3}
+
+9.3.3.  POST
+--------------------------------------------------------
+
+   The POST method requests that the target resource process the
+   representation enclosed in the request according to the resource's
+   own specific semantics.  For example, POST is used for the following
+   functions (among others):
+
+   *  Providing a block of data, such as the fields entered into an HTML
+      form, to a data-handling process;
+
+   *  Posting a message to a bulletin board, newsgroup, mailing list,
+      blog, or similar group of articles;
+
+   *  Creating a new resource that has yet to be identified by the
+      origin server; and
+
+   *  Appending data to a resource's existing representation(s).
+
+   An origin server indicates response semantics by choosing an
+   appropriate status code depending on the result of processing the
+   POST request; almost all of the status codes defined by this
+   specification could be received in a response to POST (the exceptions
+   being 206 (Partial Content), 304 (Not Modified), and 416 (Range Not
+   Satisfiable)).
+
+   If one or more resources has been created on the origin server as a
+   result of successfully processing a POST request, the origin server
+   SHOULD send a 201 (Created) response containing a Location header
+   field that provides an identifier for the primary resource created
+   (Section 10.2.2) and a representation that describes the status of
+   the request while referring to the new resource(s).
+
+   Responses to POST requests are only cacheable when they include
+   explicit freshness information (see Section 4.2.1 of [CACHING]) and a
+   Content-Location header field that has the same value as the POST's
+   target URI (Section 8.7).  A cached POST response can be reused to
+   satisfy a later GET or HEAD request.  In contrast, a POST request
+   cannot be satisfied by a cached POST response because POST is
+   potentially unsafe; see Section 4 of [CACHING].
+
+   If the result of processing a POST would be equivalent to a
+   representation of an existing resource, an origin server MAY redirect
+   the user agent to that resource by sending a 303 (See Other) response
+   with the existing resource's identifier in the Location field.  This
+   has the benefits of providing the user agent a resource identifier
+   and transferring the representation via a method more amenable to
+   shared caching, though at the cost of an extra request if the user
+   agent does not already have the representation cached.
+
+[℗](#tf9_3){id=pf9_3_4}
+
+9.3.4.  PUT
+--------------------------------------------------------
+
+   The PUT method requests that the state of the target resource be
+   created or replaced with the state defined by the representation
+   enclosed in the request message content.  A successful PUT of a given
+   representation would suggest that a subsequent GET on that same
+   target resource will result in an equivalent representation being
+   sent in a 200 (OK) response.  However, there is no guarantee that
+   such a state change will be observable, since the target resource
+   might be acted upon by other user agents in parallel, or might be
+   subject to dynamic processing by the origin server, before any
+   subsequent GET is received.  A successful response only implies that
+   the user agent's intent was achieved at the time of its processing by
+   the origin server.
+
+   If the target resource does not have a current representation and the
+   PUT successfully creates one, then the origin server MUST inform the
+   user agent by sending a 201 (Created) response.  If the target
+   resource does have a current representation and that representation
+   is successfully modified in accordance with the state of the enclosed
+   representation, then the origin server MUST send either a 200 (OK) or
+   a 204 (No Content) response to indicate successful completion of the
+   request.
+
+   An origin server SHOULD verify that the PUT representation is
+   consistent with its configured constraints for the target resource.
+   For example, if an origin server determines a resource's
+   representation metadata based on the URI, then the origin server
+   needs to ensure that the content received in a successful PUT request
+   is consistent with that metadata.  When a PUT representation is
+   inconsistent with the target resource, the origin server SHOULD
+   either make them consistent, by transforming the representation or
+   changing the resource configuration, or respond with an appropriate
+   error message containing sufficient information to explain why the
+   representation is unsuitable.  The 409 (Conflict) or 415 (Unsupported
+   Media Type) status codes are suggested, with the latter being
+   specific to constraints on Content-Type values.
+
+   For example, if the target resource is configured to always have a
+   Content-Type of "text/html" and the representation being PUT has a
+   Content-Type of "image/jpeg", the origin server ought to do one of:
+
+   a.  reconfigure the target resource to reflect the new media type;
+
+   b.  transform the PUT representation to a format consistent with that
+       of the resource before saving it as the new resource state; or,
+
+   c.  reject the request with a 415 (Unsupported Media Type) response
+       indicating that the target resource is limited to "text/html",
+       perhaps including a link to a different resource that would be a
+       suitable target for the new representation.
+
+   HTTP does not define exactly how a PUT method affects the state of an
+   origin server beyond what can be expressed by the intent of the user
+   agent request and the semantics of the origin server response.  It
+   does not define what a resource might be, in any sense of that word,
+   beyond the interface provided via HTTP.  It does not define how
+   resource state is "stored", nor how such storage might change as a
+   result of a change in resource state, nor how the origin server
+   translates resource state into representations.  Generally speaking,
+   all implementation details behind the resource interface are
+   intentionally hidden by the server.
+
+   This extends to how header and trailer fields are stored; while
+   common header fields like Content-Type will typically be stored and
+   returned upon subsequent GET requests, header and trailer field
+   handling is specific to the resource that received the request.  As a
+   result, an origin server SHOULD ignore unrecognized header and
+   trailer fields received in a PUT request (i.e., not save them as part
+   of the resource state).
+
+   An origin server MUST NOT send a validator field (Section 8.8), such
+   as an ETag or Last-Modified field, in a successful response to PUT
+   unless the request's representation data was saved without any
+   transformation applied to the content (i.e., the resource's new
+   representation data is identical to the content received in the PUT
+   request) and the validator field value reflects the new
+   representation.  This requirement allows a user agent to know when
+   the representation it sent (and retains in memory) is the result of
+   the PUT, and thus it doesn't need to be retrieved again from the
+   origin server.  The new validator(s) received in the response can be
+   used for future conditional requests in order to prevent accidental
+   overwrites (Section 13.1).
+
+   The fundamental difference between the POST and PUT methods is
+   highlighted by the different intent for the enclosed representation.
+   The target resource in a POST request is intended to handle the
+   enclosed representation according to the resource's own semantics,
+   whereas the enclosed representation in a PUT request is defined as
+   replacing the state of the target resource.  Hence, the intent of PUT
+   is idempotent and visible to intermediaries, even though the exact
+   effect is only known by the origin server.
+
+   Proper interpretation of a PUT request presumes that the user agent
+   knows which target resource is desired.  A service that selects a
+   proper URI on behalf of the client, after receiving a state-changing
+   request, SHOULD be implemented using the POST method rather than PUT.
+   If the origin server will not make the requested PUT state change to
+   the target resource and instead wishes to have it applied to a
+   different resource, such as when the resource has been moved to a
+   different URI, then the origin server MUST send an appropriate 3xx
+   (Redirection) response; the user agent MAY then make its own decision
+   regarding whether or not to redirect the request.
+
+   A PUT request applied to the target resource can have side effects on
+   other resources.  For example, an article might have a URI for
+   identifying "the current version" (a resource) that is separate from
+   the URIs identifying each particular version (different resources
+   that at one point shared the same state as the current version
+   resource).  A successful PUT request on "the current version" URI
+   might therefore create a new version resource in addition to changing
+   the state of the target resource, and might also cause links to be
+   added between the related resources.
+
+   Some origin servers support use of the Content-Range header field
+   (Section 14.4) as a request modifier to perform a partial PUT, as
+   described in Section 14.5.
+
+   Responses to the PUT method are not cacheable.  If a successful PUT
+   request passes through a cache that has one or more stored responses
+   for the target URI, those stored responses will be invalidated (see
+   Section 4.4 of [CACHING]).
+
+[℗](#tf9_3){id=pf9_3_5}
+
+9.3.5.  DELETE
+--------------------------------------------------------
+
+   The DELETE method requests that the origin server remove the
+   association between the target resource and its current
+   functionality.  In effect, this method is similar to the "rm" command
+   in UNIX: it expresses a deletion operation on the URI mapping of the
+   origin server rather than an expectation that the previously
+   associated information be deleted.
+
+   If the target resource has one or more current representations, they
+   might or might not be destroyed by the origin server, and the
+   associated storage might or might not be reclaimed, depending
+   entirely on the nature of the resource and its implementation by the
+   origin server (which are beyond the scope of this specification).
+   Likewise, other implementation aspects of a resource might need to be
+   deactivated or archived as a result of a DELETE, such as database or
+   gateway connections.  In general, it is assumed that the origin
+   server will only allow DELETE on resources for which it has a
+   prescribed mechanism for accomplishing the deletion.
+
+   Relatively few resources allow the DELETE method -- its primary use
+   is for remote authoring environments, where the user has some
+   direction regarding its effect.  For example, a resource that was
+   previously created using a PUT request, or identified via the
+   Location header field after a 201 (Created) response to a POST
+   request, might allow a corresponding DELETE request to undo those
+   actions.  Similarly, custom user agent implementations that implement
+   an authoring function, such as revision control clients using HTTP
+   for remote operations, might use DELETE based on an assumption that
+   the server's URI space has been crafted to correspond to a version
+   repository.
+
+   If a DELETE method is successfully applied, the origin server SHOULD
+   send
+
+   *  a 202 (Accepted) status code if the action will likely succeed but
+      has not yet been enacted,
+
+   *  a 204 (No Content) status code if the action has been enacted and
+      no further information is to be supplied, or
+
+   *  a 200 (OK) status code if the action has been enacted and the
+      response message includes a representation describing the status.
+
+   Although request message framing is independent of the method used,
+   content received in a DELETE request has no generally defined
+   semantics, cannot alter the meaning or target of the request, and
+   might lead some implementations to reject the request and close the
+   connection because of its potential as a request smuggling attack
+   (Section 11.2 of [HTTP/1.1]).  A client SHOULD NOT generate content
+   in a DELETE request unless it is made directly to an origin server
+   that has previously indicated, in or out of band, that such a request
+   has a purpose and will be adequately supported.  An origin server
+   SHOULD NOT rely on private agreements to receive content, since
+   participants in HTTP communication are often unaware of
+   intermediaries along the request chain.
+
+   Responses to the DELETE method are not cacheable.  If a successful
+   DELETE request passes through a cache that has one or more stored
+   responses for the target URI, those stored responses will be
+   invalidated (see Section 4.4 of [CACHING]).
+
+[℗](#tf9_3){id=pf9_3_6}
+
+9.3.6.  CONNECT
+--------------------------------------------------------
+
+   The CONNECT method requests that the recipient establish a tunnel to
+   the destination origin server identified by the request target and,
+   if successful, thereafter restrict its behavior to blind forwarding
+   of data, in both directions, until the tunnel is closed.  Tunnels are
+   commonly used to create an end-to-end virtual connection, through one
+   or more proxies, which can then be secured using TLS (Transport Layer
+   Security, [TLS13]).
+
+   CONNECT uses a special form of request target, unique to this method,
+   consisting of only the host and port number of the tunnel
+   destination, separated by a colon.  There is no default port; a
+   client MUST send the port number even if the CONNECT request is based
+   on a URI reference that contains an authority component with an
+   elided port (Section 4.1).  For example,
+
+   CONNECT server.example.com:80 HTTP/1.1
+   Host: server.example.com
+
+   A server MUST reject a CONNECT request that targets an empty or
+   invalid port number, typically by responding with a 400 (Bad Request)
+   status code.
+
+   Because CONNECT changes the request/response nature of an HTTP
+   connection, specific HTTP versions might have different ways of
+   mapping its semantics into the protocol's wire format.
+
+   CONNECT is intended for use in requests to a proxy.  The recipient
+   can establish a tunnel either by directly connecting to the server
+   identified by the request target or, if configured to use another
+   proxy, by forwarding the CONNECT request to the next inbound proxy.
+   An origin server MAY accept a CONNECT request, but most origin
+   servers do not implement CONNECT.
+
+   Any 2xx (Successful) response indicates that the sender (and all
+   inbound proxies) will switch to tunnel mode immediately after the
+   response header section; data received after that header section is
+   from the server identified by the request target.  Any response other
+   than a successful response indicates that the tunnel has not yet been
+   formed.
+
+   A tunnel is closed when a tunnel intermediary detects that either
+   side has closed its connection: the intermediary MUST attempt to send
+   any outstanding data that came from the closed side to the other
+   side, close both connections, and then discard any remaining data
+   left undelivered.
+
+   Proxy authentication might be used to establish the authority to
+   create a tunnel.  For example,
+
+   CONNECT server.example.com:443 HTTP/1.1
+   Host: server.example.com:443
+   Proxy-Authorization: basic aGVsbG86d29ybGQ=
+
+   There are significant risks in establishing a tunnel to arbitrary
+   servers, particularly when the destination is a well-known or
+   reserved TCP port that is not intended for Web traffic.  For example,
+   a CONNECT to "example.com:25" would suggest that the proxy connect to
+   the reserved port for SMTP traffic; if allowed, that could trick the
+   proxy into relaying spam email.  Proxies that support CONNECT SHOULD
+   restrict its use to a limited set of known ports or a configurable
+   list of safe request targets.
+
+   A server MUST NOT send any Transfer-Encoding or Content-Length header
+   fields in a 2xx (Successful) response to CONNECT.  A client MUST
+   ignore any Content-Length or Transfer-Encoding header fields received
+   in a successful response to CONNECT.
+
+   A CONNECT request message does not have content.  The interpretation
+   of data sent after the header section of the CONNECT request message
+   is specific to the version of HTTP in use.
+
+   Responses to the CONNECT method are not cacheable.
+
+[℗](#tf9_3){id=pf9_3_7}
+
+9.3.7.  OPTIONS
+--------------------------------------------------------
+
+   The OPTIONS method requests information about the communication
+   options available for the target resource, at either the origin
+   server or an intervening intermediary.  This method allows a client
+   to determine the options and/or requirements associated with a
+   resource, or the capabilities of a server, without implying a
+   resource action.
+
+   An OPTIONS request with an asterisk ("*") as the request target
+   (Section 7.1) applies to the server in general rather than to a
+   specific resource.  Since a server's communication options typically
+   depend on the resource, the "*" request is only useful as a "ping" or
+   "no-op" type of method; it does nothing beyond allowing the client to
+   test the capabilities of the server.  For example, this can be used
+   to test a proxy for HTTP/1.1 conformance (or lack thereof).
+
+   If the request target is not an asterisk, the OPTIONS request applies
+   to the options that are available when communicating with the target
+   resource.
+
+   A server generating a successful response to OPTIONS SHOULD send any
+   header that might indicate optional features implemented by the
+   server and applicable to the target resource (e.g., Allow), including
+   potential extensions not defined by this specification.  The response
+   content, if any, might also describe the communication options in a
+   machine or human-readable representation.  A standard format for such
+   a representation is not defined by this specification, but might be
+   defined by future extensions to HTTP.
+
+   A client MAY send a Max-Forwards header field in an OPTIONS request
+   to target a specific recipient in the request chain (see
+   Section 7.6.2).  A proxy MUST NOT generate a Max-Forwards header
+   field while forwarding a request unless that request was received
+   with a Max-Forwards field.
+
+   A client that generates an OPTIONS request containing content MUST
+   send a valid Content-Type header field describing the representation
+   media type.  Note that this specification does not define any use for
+   such content.
+
+   Responses to the OPTIONS method are not cacheable.
+
+[℗](#tf9_3){id=pf9_3_8}
+
+9.3.8.  TRACE
+--------------------------------------------------------
+
+   The TRACE method requests a remote, application-level loop-back of
+   the request message.  The final recipient of the request SHOULD
+   reflect the message received, excluding some fields described below,
+   back to the client as the content of a 200 (OK) response.  The
+   "message/http" format (Section 10.1 of [HTTP/1.1]) is one way to do
+   so.  The final recipient is either the origin server or the first
+   server to receive a Max-Forwards value of zero (0) in the request
+   (Section 7.6.2).
+
+   A client MUST NOT generate fields in a TRACE request containing
+   sensitive data that might be disclosed by the response.  For example,
+   it would be foolish for a user agent to send stored user credentials
+   (Section 11) or cookies [COOKIE] in a TRACE request.  The final
+   recipient of the request SHOULD exclude any request fields that are
+   likely to contain sensitive data when that recipient generates the
+   response content.
+
+   TRACE allows the client to see what is being received at the other
+   end of the request chain and use that data for testing or diagnostic
+   information.  The value of the Via header field (Section 7.6.3) is of
+   particular interest, since it acts as a trace of the request chain.
+   Use of the Max-Forwards header field allows the client to limit the
+   length of the request chain, which is useful for testing a chain of
+   proxies forwarding messages in an infinite loop.
+
+   A client MUST NOT send content in a TRACE request.
+
+   Responses to the TRACE method are not cacheable.
+
+[℗](#tfch10){id=pfch10}
+
+/10.  Message Context
+========================================================
+
+
+[℗](#tfch10){id=pf10_1}
+
+//10.1.  Request Context Fields
+--------------------------------------------------------
+
+   The request header fields below provide additional information about
+   the request context, including information about the user, user
+   agent, and resource behind the request.
+
+[℗](#tf10_1){id=pf10_1_1}
+
+10.1.1.  Expect
+--------------------------------------------------------
+
+   The "Expect" header field in a request indicates a certain set of
+   behaviors (expectations) that need to be supported by the server in
+   order to properly handle this request.
+
+     Expect =      #expectation
+     expectation = token [ "=" ( token / quoted-string ) parameters ]
+
+   The Expect field value is case-insensitive.
+
+   The only expectation defined by this specification is "100-continue"
+   (with no defined parameters).
+
+   A server that receives an Expect field value containing a member
+   other than 100-continue MAY respond with a 417 (Expectation Failed)
+   status code to indicate that the unexpected expectation cannot be
+   met.
+
+   A "100-continue" expectation informs recipients that the client is
+   about to send (presumably large) content in this request and wishes
+   to receive a 100 (Continue) interim response if the method, target
+   URI, and header fields are not sufficient to cause an immediate
+   success, redirect, or error response.  This allows the client to wait
+   for an indication that it is worthwhile to send the content before
+   actually doing so, which can improve efficiency when the data is huge
+   or when the client anticipates that an error is likely (e.g., when
+   sending a state-changing method, for the first time, without
+   previously verified authentication credentials).
+
+   For example, a request that begins with
+
+   PUT /somewhere/fun HTTP/1.1
+   Host: origin.example.com
+   Content-Type: video/h264
+   Content-Length: 1234567890987
+   Expect: 100-continue
+
+   allows the origin server to immediately respond with an error
+   message, such as 401 (Unauthorized) or 405 (Method Not Allowed),
+   before the client starts filling the pipes with an unnecessary data
+   transfer.
+
+   Requirements for clients:
+
+   *  A client MUST NOT generate a 100-continue expectation in a request
+      that does not include content.
+
+   *  A client that will wait for a 100 (Continue) response before
+      sending the request content MUST send an Expect header field
+      containing a 100-continue expectation.
+
+   *  A client that sends a 100-continue expectation is not required to
+      wait for any specific length of time; such a client MAY proceed to
+      send the content even if it has not yet received a response.
+      Furthermore, since 100 (Continue) responses cannot be sent through
+      an HTTP/1.0 intermediary, such a client SHOULD NOT wait for an
+      indefinite period before sending the content.
+
+   *  A client that receives a 417 (Expectation Failed) status code in
+      response to a request containing a 100-continue expectation SHOULD
+      repeat that request without a 100-continue expectation, since the
+      417 response merely indicates that the response chain does not
+      support expectations (e.g., it passes through an HTTP/1.0 server).
+
+   Requirements for servers:
+
+   *  A server that receives a 100-continue expectation in an HTTP/1.0
+      request MUST ignore that expectation.
+
+   *  A server MAY omit sending a 100 (Continue) response if it has
+      already received some or all of the content for the corresponding
+      request, or if the framing indicates that there is no content.
+
+   *  A server that sends a 100 (Continue) response MUST ultimately send
+      a final status code, once it receives and processes the request
+      content, unless the connection is closed prematurely.
+
+   *  A server that responds with a final status code before reading the
+      entire request content SHOULD indicate whether it intends to close
+      the connection (e.g., see Section 9.6 of [HTTP/1.1]) or continue
+      reading the request content.
+
+   Upon receiving an HTTP/1.1 (or later) request that has a method,
+   target URI, and complete header section that contains a 100-continue
+   expectation and an indication that request content will follow, an
+   origin server MUST send either:
+
+   *  an immediate response with a final status code, if that status can
+      be determined by examining just the method, target URI, and header
+      fields, or
+
+   *  an immediate 100 (Continue) response to encourage the client to
+      send the request content.
+
+   The origin server MUST NOT wait for the content before sending the
+   100 (Continue) response.
+
+   Upon receiving an HTTP/1.1 (or later) request that has a method,
+   target URI, and complete header section that contains a 100-continue
+   expectation and indicates a request content will follow, a proxy MUST
+   either:
+
+   *  send an immediate response with a final status code, if that
+      status can be determined by examining just the method, target URI,
+      and header fields, or
+
+   *  forward the request toward the origin server by sending a
+      corresponding request-line and header section to the next inbound
+      server.
+
+   If the proxy believes (from configuration or past interaction) that
+   the next inbound server only supports HTTP/1.0, the proxy MAY
+   generate an immediate 100 (Continue) response to encourage the client
+   to begin sending the content.
+
+[℗](#tf10_1){id=pf10_1_2}
+
+10.1.2.  From
+--------------------------------------------------------
+
+   The "From" header field contains an Internet email address for a
+   human user who controls the requesting user agent.  The address ought
+   to be machine-usable, as defined by "mailbox" in Section 3.4 of
+   [RFC5322]:
+
+     From    = mailbox
+
+     mailbox = <mailbox, see [RFC5322], Section 3.4>
+
+   An example is:
+
+   From: spider-admin@example.org
+
+   The From header field is rarely sent by non-robotic user agents.  A
+   user agent SHOULD NOT send a From header field without explicit
+   configuration by the user, since that might conflict with the user's
+   privacy interests or their site's security policy.
+
+   A robotic user agent SHOULD send a valid From header field so that
+   the person responsible for running the robot can be contacted if
+   problems occur on servers, such as if the robot is sending excessive,
+   unwanted, or invalid requests.
+
+   A server SHOULD NOT use the From header field for access control or
+   authentication, since its value is expected to be visible to anyone
+   receiving or observing the request and is often recorded within
+   logfiles and error reports without any expectation of privacy.
+
+[℗](#tf10_1){id=pf10_1_3}
+
+10.1.3.  Referer
+--------------------------------------------------------
+
+   The "Referer" [sic] header field allows the user agent to specify a
+   URI reference for the resource from which the target URI was obtained
+   (i.e., the "referrer", though the field name is misspelled).  A user
+   agent MUST NOT include the fragment and userinfo components of the
+   URI reference [URI], if any, when generating the Referer field value.
+
+     Referer = absolute-URI / partial-URI
+
+   The field value is either an absolute-URI or a partial-URI.  In the
+   latter case (Section 4), the referenced URI is relative to the target
+   URI ([URI], Section 5).
+
+   The Referer header field allows servers to generate back-links to
+   other resources for simple analytics, logging, optimized caching,
+   etc.  It also allows obsolete or mistyped links to be found for
+   maintenance.  Some servers use the Referer header field as a means of
+   denying links from other sites (so-called "deep linking") or
+   restricting cross-site request forgery (CSRF), but not all requests
+   contain it.
+
+   Example:
+
+   Referer: http://www.example.org/hypertext/Overview.html
+
+   If the target URI was obtained from a source that does not have its
+   own URI (e.g., input from the user keyboard, or an entry within the
+   user's bookmarks/favorites), the user agent MUST either exclude the
+   Referer header field or send it with a value of "about:blank".
+
+   The Referer header field value need not convey the full URI of the
+   referring resource; a user agent MAY truncate parts other than the
+   referring origin.
+
+   The Referer header field has the potential to reveal information
+   about the request context or browsing history of the user, which is a
+   privacy concern if the referring resource's identifier reveals
+   personal information (such as an account name) or a resource that is
+   supposed to be confidential (such as behind a firewall or internal to
+   a secured service).  Most general-purpose user agents do not send the
+   Referer header field when the referring resource is a local "file" or
+   "data" URI.  A user agent SHOULD NOT send a Referer header field if
+   the referring resource was accessed with a secure protocol and the
+   request target has an origin differing from that of the referring
+   resource, unless the referring resource explicitly allows Referer to
+   be sent.  A user agent MUST NOT send a Referer header field in an
+   unsecured HTTP request if the referring resource was accessed with a
+   secure protocol.  See Section 17.9 for additional security
+   considerations.
+
+   Some intermediaries have been known to indiscriminately remove
+   Referer header fields from outgoing requests.  This has the
+   unfortunate side effect of interfering with protection against CSRF
+   attacks, which can be far more harmful to their users.
+   Intermediaries and user agent extensions that wish to limit
+   information disclosure in Referer ought to restrict their changes to
+   specific edits, such as replacing internal domain names with
+   pseudonyms or truncating the query and/or path components.  An
+   intermediary SHOULD NOT modify or delete the Referer header field
+   when the field value shares the same scheme and host as the target
+   URI.
+
+[℗](#tf10_1){id=pf10_1_4}
+
+10.1.4.  TE
+--------------------------------------------------------
+
+   The "TE" header field describes capabilities of the client with
+   regard to transfer codings and trailer sections.
+
+   As described in Section 6.5, a TE field with a "trailers" member sent
+   in a request indicates that the client will not discard trailer
+   fields.
+
+   TE is also used within HTTP/1.1 to advise servers about which
+   transfer codings the client is able to accept in a response.  As of
+   publication, only HTTP/1.1 uses transfer codings (see Section 7 of
+   [HTTP/1.1]).
+
+   The TE field value is a list of members, with each member (aside from
+   "trailers") consisting of a transfer coding name token with an
+   optional weight indicating the client's relative preference for that
+   transfer coding (Section 12.4.2) and optional parameters for that
+   transfer coding.
+
+     TE                 = #t-codings
+     t-codings          = "trailers" / ( transfer-coding [ weight ] )
+     transfer-coding    = token *( OWS ";" OWS transfer-parameter )
+     transfer-parameter = token BWS "=" BWS ( token / quoted-string )
+
+   A sender of TE MUST also send a "TE" connection option within the
+   Connection header field (Section 7.6.1) to inform intermediaries not
+   to forward this field.
+
+[℗](#tf10_1){id=pf10_1_5}
+
+10.1.5.  User-Agent
+--------------------------------------------------------
+
+   The "User-Agent" header field contains information about the user
+   agent originating the request, which is often used by servers to help
+   identify the scope of reported interoperability problems, to work
+   around or tailor responses to avoid particular user agent
+   limitations, and for analytics regarding browser or operating system
+   use.  A user agent SHOULD send a User-Agent header field in each
+   request unless specifically configured not to do so.
+
+     User-Agent = product *( RWS ( product / comment ) )
+
+   The User-Agent field value consists of one or more product
+   identifiers, each followed by zero or more comments (Section 5.6.5),
+   which together identify the user agent software and its significant
+   subproducts.  By convention, the product identifiers are listed in
+   decreasing order of their significance for identifying the user agent
+   software.  Each product identifier consists of a name and optional
+   version.
+
+     product         = token ["/" product-version]
+     product-version = token
+
+   A sender SHOULD limit generated product identifiers to what is
+   necessary to identify the product; a sender MUST NOT generate
+   advertising or other nonessential information within the product
+   identifier.  A sender SHOULD NOT generate information in
+   product-version that is not a version identifier (i.e., successive
+   versions of the same product name ought to differ only in the
+   product-version portion of the product identifier).
+
+   Example:
+
+   User-Agent: CERN-LineMode/2.15 libwww/2.17b3
+
+   A user agent SHOULD NOT generate a User-Agent header field containing
+   needlessly fine-grained detail and SHOULD limit the addition of
+   subproducts by third parties.  Overly long and detailed User-Agent
+   field values increase request latency and the risk of a user being
+   identified against their wishes ("fingerprinting").
+
+   Likewise, implementations are encouraged not to use the product
+   tokens of other implementations in order to declare compatibility
+   with them, as this circumvents the purpose of the field.  If a user
+   agent masquerades as a different user agent, recipients can assume
+   that the user intentionally desires to see responses tailored for
+   that identified user agent, even if they might not work as well for
+   the actual user agent being used.
+
+[℗](#tfch10){id=pf10_2}
+
+//10.2.  Response Context Fields
+--------------------------------------------------------
+
+   The response header fields below provide additional information about
+   the response, beyond what is implied by the status code, including
+   information about the server, about the target resource, or about
+   related resources.
+
+[℗](#tf10_2){id=pf10_2_1}
+
+10.2.1.  Allow
+--------------------------------------------------------
+
+   The "Allow" header field lists the set of methods advertised as
+   supported by the target resource.  The purpose of this field is
+   strictly to inform the recipient of valid request methods associated
+   with the resource.
+
+     Allow = #method
+
+   Example of use:
+
+   Allow: GET, HEAD, PUT
+
+   The actual set of allowed methods is defined by the origin server at
+   the time of each request.  An origin server MUST generate an Allow
+   header field in a 405 (Method Not Allowed) response and MAY do so in
+   any other response.  An empty Allow field value indicates that the
+   resource allows no methods, which might occur in a 405 response if
+   the resource has been temporarily disabled by configuration.
+
+   A proxy MUST NOT modify the Allow header field -- it does not need to
+   understand all of the indicated methods in order to handle them
+   according to the generic message handling rules.
+
+[℗](#tf10_2){id=pf10_2_2}
+
+10.2.2.  Location
+--------------------------------------------------------
+
+   The "Location" header field is used in some responses to refer to a
+   specific resource in relation to the response.  The type of
+   relationship is defined by the combination of request method and
+   status code semantics.
+
+     Location = URI-reference
+
+   The field value consists of a single URI-reference.  When it has the
+   form of a relative reference ([URI], Section 4.2), the final value is
+   computed by resolving it against the target URI ([URI], Section 5).
+
+   For 201 (Created) responses, the Location value refers to the primary
+   resource created by the request.  For 3xx (Redirection) responses,
+   the Location value refers to the preferred target resource for
+   automatically redirecting the request.
+
+   If the Location value provided in a 3xx (Redirection) response does
+   not have a fragment component, a user agent MUST process the
+   redirection as if the value inherits the fragment component of the
+   URI reference used to generate the target URI (i.e., the redirection
+   inherits the original reference's fragment, if any).
+
+   For example, a GET request generated for the URI reference
+   "http://www.example.org/~tim" might result in a 303 (See Other)
+   response containing the header field:
+
+   Location: /People.html#tim
+
+   which suggests that the user agent redirect to
+   "http://www.example.org/People.html#tim"
+
+   Likewise, a GET request generated for the URI reference
+   "http://www.example.org/index.html#larry" might result in a 301
+   (Moved Permanently) response containing the header field:
+
+   Location: http://www.example.net/index.html
+
+   which suggests that the user agent redirect to
+   "http://www.example.net/index.html#larry", preserving the original
+   fragment identifier.
+
+   There are circumstances in which a fragment identifier in a Location
+   value would not be appropriate.  For example, the Location header
+   field in a 201 (Created) response is supposed to provide a URI that
+   is specific to the created resource.
+
+      |  *Note:* Some recipients attempt to recover from Location header
+      |  fields that are not valid URI references.  This specification
+      |  does not mandate or define such processing, but does allow it
+      |  for the sake of robustness.  A Location field value cannot
+      |  allow a list of members because the comma list separator is a
+      |  valid data character within a URI-reference.  If an invalid
+      |  message is sent with multiple Location field lines, a recipient
+      |  along the path might combine those field lines into one value.
+      |  Recovery of a valid Location field value from that situation is
+      |  difficult and not interoperable across implementations.
+
+      |  *Note:* The Content-Location header field (Section 8.7) differs
+      |  from Location in that the Content-Location refers to the most
+      |  specific resource corresponding to the enclosed representation.
+      |  It is therefore possible for a response to contain both the
+      |  Location and Content-Location header fields.
+
+[℗](#tf10_2){id=pf10_2_3}
+
+10.2.3.  Retry-After
+--------------------------------------------------------
+
+   Servers send the "Retry-After" header field to indicate how long the
+   user agent ought to wait before making a follow-up request.  When
+   sent with a 503 (Service Unavailable) response, Retry-After indicates
+   how long the service is expected to be unavailable to the client.
+   When sent with any 3xx (Redirection) response, Retry-After indicates
+   the minimum time that the user agent is asked to wait before issuing
+   the redirected request.
+
+   The Retry-After field value can be either an HTTP-date or a number of
+   seconds to delay after receiving the response.
+
+     Retry-After = HTTP-date / delay-seconds
+
+   A delay-seconds value is a non-negative decimal integer, representing
+   time in seconds.
+
+     delay-seconds  = 1*DIGIT
+
+   Two examples of its use are
+
+   Retry-After: Fri, 31 Dec 1999 23:59:59 GMT
+   Retry-After: 120
+
+   In the latter example, the delay is 2 minutes.
+
+[℗](#tf10_2){id=pf10_2_4}
+
+10.2.4.  Server
+--------------------------------------------------------
+
+   The "Server" header field contains information about the software
+   used by the origin server to handle the request, which is often used
+   by clients to help identify the scope of reported interoperability
+   problems, to work around or tailor requests to avoid particular
+   server limitations, and for analytics regarding server or operating
+   system use.  An origin server MAY generate a Server header field in
+   its responses.
+
+     Server = product *( RWS ( product / comment ) )
+
+   The Server header field value consists of one or more product
+   identifiers, each followed by zero or more comments (Section 5.6.5),
+   which together identify the origin server software and its
+   significant subproducts.  By convention, the product identifiers are
+   listed in decreasing order of their significance for identifying the
+   origin server software.  Each product identifier consists of a name
+   and optional version, as defined in Section 10.1.5.
+
+   Example:
+
+   Server: CERN/3.0 libwww/2.17
+
+   An origin server SHOULD NOT generate a Server header field containing
+   needlessly fine-grained detail and SHOULD limit the addition of
+   subproducts by third parties.  Overly long and detailed Server field
+   values increase response latency and potentially reveal internal
+   implementation details that might make it (slightly) easier for
+   attackers to find and exploit known security holes.
+
+[℗](#tfch11){id=pfch11}
+
+/11.  HTTP Authentication
+========================================================
+
+
+[℗](#tfch11){id=pf11_1}
+
+//11.1.  Authentication Scheme
+--------------------------------------------------------
+
+   HTTP provides a general framework for access control and
+   authentication, via an extensible set of challenge-response
+   authentication schemes, which can be used by a server to challenge a
+   client request and by a client to provide authentication information.
+   It uses a case-insensitive token to identify the authentication
+   scheme:
+
+     auth-scheme    = token
+
+   Aside from the general framework, this document does not specify any
+   authentication schemes.  New and existing authentication schemes are
+   specified independently and ought to be registered within the
+   "Hypertext Transfer Protocol (HTTP) Authentication Scheme Registry".
+   For example, the "basic" and "digest" authentication schemes are
+   defined by [RFC7617] and [RFC7616], respectively.
+
+[℗](#tfch11){id=pf11_2}
+
+//11.2.  Authentication Parameters
+--------------------------------------------------------
+
+   The authentication scheme is followed by additional information
+   necessary for achieving authentication via that scheme as either a
+   comma-separated list of parameters or a single sequence of characters
+   capable of holding base64-encoded information.
+
+     token68        = 1*( ALPHA / DIGIT /
+                          "-" / "." / "_" / "~" / "+" / "/" ) *"="
+
+   The token68 syntax allows the 66 unreserved URI characters ([URI]),
+   plus a few others, so that it can hold a base64, base64url (URL and
+   filename safe alphabet), base32, or base16 (hex) encoding, with or
+   without padding, but excluding whitespace ([RFC4648]).
+
+   Authentication parameters are name/value pairs, where the name token
+   is matched case-insensitively and each parameter name MUST only occur
+   once per challenge.
+
+     auth-param     = token BWS "=" BWS ( token / quoted-string )
+
+   Parameter values can be expressed either as "token" or as "quoted-
+   string" (Section 5.6).  Authentication scheme definitions need to
+   accept both notations, both for senders and recipients, to allow
+   recipients to use generic parsing components regardless of the
+   authentication scheme.
+
+   For backwards compatibility, authentication scheme definitions can
+   restrict the format for senders to one of the two variants.  This can
+   be important when it is known that deployed implementations will fail
+   when encountering one of the two formats.
+
+[℗](#tfch11){id=pf11_3}
+
+//11.3.  Challenge and Response
+--------------------------------------------------------
+
+   A 401 (Unauthorized) response message is used by an origin server to
+   challenge the authorization of a user agent, including a
+   WWW-Authenticate header field containing at least one challenge
+   applicable to the requested resource.
+
+   A 407 (Proxy Authentication Required) response message is used by a
+   proxy to challenge the authorization of a client, including a
+   Proxy-Authenticate header field containing at least one challenge
+   applicable to the proxy for the requested resource.
+
+     challenge   = auth-scheme [ 1*SP ( token68 / #auth-param ) ]
+
+      |  *Note:* Many clients fail to parse a challenge that contains an
+      |  unknown scheme.  A workaround for this problem is to list well-
+      |  supported schemes (such as "basic") first.
+
+   A user agent that wishes to authenticate itself with an origin server
+   -- usually, but not necessarily, after receiving a 401 (Unauthorized)
+   -- can do so by including an Authorization header field with the
+   request.
+
+   A client that wishes to authenticate itself with a proxy -- usually,
+   but not necessarily, after receiving a 407 (Proxy Authentication
+   Required) -- can do so by including a Proxy-Authorization header
+   field with the request.
+
+[℗](#tfch11){id=pf11_4}
+
+//11.4.  Credentials
+--------------------------------------------------------
+
+   Both the Authorization field value and the Proxy-Authorization field
+   value contain the client's credentials for the realm of the resource
+   being requested, based upon a challenge received in a response
+   (possibly at some point in the past).  When creating their values,
+   the user agent ought to do so by selecting the challenge with what it
+   considers to be the most secure auth-scheme that it understands,
+   obtaining credentials from the user as appropriate.  Transmission of
+   credentials within header field values implies significant security
+   considerations regarding the confidentiality of the underlying
+   connection, as described in Section 17.16.1.
+
+     credentials = auth-scheme [ 1*SP ( token68 / #auth-param ) ]
+
+   Upon receipt of a request for a protected resource that omits
+   credentials, contains invalid credentials (e.g., a bad password) or
+   partial credentials (e.g., when the authentication scheme requires
+   more than one round trip), an origin server SHOULD send a 401
+   (Unauthorized) response that contains a WWW-Authenticate header field
+   with at least one (possibly new) challenge applicable to the
+   requested resource.
+
+   Likewise, upon receipt of a request that omits proxy credentials or
+   contains invalid or partial proxy credentials, a proxy that requires
+   authentication SHOULD generate a 407 (Proxy Authentication Required)
+   response that contains a Proxy-Authenticate header field with at
+   least one (possibly new) challenge applicable to the proxy.
+
+   A server that receives valid credentials that are not adequate to
+   gain access ought to respond with the 403 (Forbidden) status code
+   (Section 15.5.4).
+
+   HTTP does not restrict applications to this simple challenge-response
+   framework for access authentication.  Additional mechanisms can be
+   used, such as authentication at the transport level or via message
+   encapsulation, and with additional header fields specifying
+   authentication information.  However, such additional mechanisms are
+   not defined by this specification.
+
+   Note that various custom mechanisms for user authentication use the
+   Set-Cookie and Cookie header fields, defined in [COOKIE], for passing
+   tokens related to authentication.
+
+[℗](#tfch11){id=pf11_5}
+
+//11.5.  Establishing a Protection Space (Realm)
+--------------------------------------------------------
+
+   The "realm" authentication parameter is reserved for use by
+   authentication schemes that wish to indicate a scope of protection.
+
+   A "protection space" is defined by the origin (see Section 4.3.1) of
+   the server being accessed, in combination with the realm value if
+   present.  These realms allow the protected resources on a server to
+   be partitioned into a set of protection spaces, each with its own
+   authentication scheme and/or authorization database.  The realm value
+   is a string, generally assigned by the origin server, that can have
+   additional semantics specific to the authentication scheme.  Note
+   that a response can have multiple challenges with the same auth-
+   scheme but with different realms.
+
+   The protection space determines the domain over which credentials can
+   be automatically applied.  If a prior request has been authorized,
+   the user agent MAY reuse the same credentials for all other requests
+   within that protection space for a period of time determined by the
+   authentication scheme, parameters, and/or user preferences (such as a
+   configurable inactivity timeout).
+
+   The extent of a protection space, and therefore the requests to which
+   credentials might be automatically applied, is not necessarily known
+   to clients without additional information.  An authentication scheme
+   might define parameters that describe the extent of a protection
+   space.  Unless specifically allowed by the authentication scheme, a
+   single protection space cannot extend outside the scope of its
+   server.
+
+   For historical reasons, a sender MUST only generate the quoted-string
+   syntax.  Recipients might have to support both token and quoted-
+   string syntax for maximum interoperability with existing clients that
+   have been accepting both notations for a long time.
+
+[℗](#tfch11){id=pf11_6}
+
+//11.6.  Authenticating Users to Origin Servers
+--------------------------------------------------------
+
+[℗](#tf11_6){id=pf11_6_1}
+
+11.6.1.  WWW-Authenticate
+--------------------------------------------------------
+
+   The "WWW-Authenticate" response header field indicates the
+   authentication scheme(s) and parameters applicable to the target
+   resource.
+
+     WWW-Authenticate = #challenge
+
+   A server generating a 401 (Unauthorized) response MUST send a WWW-
+   Authenticate header field containing at least one challenge.  A
+   server MAY generate a WWW-Authenticate header field in other response
+   messages to indicate that supplying credentials (or different
+   credentials) might affect the response.
+
+   A proxy forwarding a response MUST NOT modify any WWW-Authenticate
+   header fields in that response.
+
+   User agents are advised to take special care in parsing the field
+   value, as it might contain more than one challenge, and each
+   challenge can contain a comma-separated list of authentication
+   parameters.  Furthermore, the header field itself can occur multiple
+   times.
+
+   For instance:
+
+   WWW-Authenticate: Basic realm="simple", Newauth realm="apps",
+                    type=1, title="Login to \"apps\""
+
+   This header field contains two challenges, one for the "Basic" scheme
+   with a realm value of "simple" and another for the "Newauth" scheme
+   with a realm value of "apps".  It also contains two additional
+   parameters, "type" and "title".
+
+   Some user agents do not recognize this form, however.  As a result,
+   sending a WWW-Authenticate field value with more than one member on
+   the same field line might not be interoperable.
+
+      |  *Note:* The challenge grammar production uses the list syntax
+      |  as well.  Therefore, a sequence of comma, whitespace, and comma
+      |  can be considered either as applying to the preceding
+      |  challenge, or to be an empty entry in the list of challenges.
+      |  In practice, this ambiguity does not affect the semantics of
+      |  the header field value and thus is harmless.
+
+[℗](#tf11_6){id=pf11_6_2}
+
+11.6.2.  Authorization
+--------------------------------------------------------
+
+   The "Authorization" header field allows a user agent to authenticate
+   itself with an origin server -- usually, but not necessarily, after
+   receiving a 401 (Unauthorized) response.  Its value consists of
+   credentials containing the authentication information of the user
+   agent for the realm of the resource being requested.
+
+     Authorization = credentials
+
+   If a request is authenticated and a realm specified, the same
+   credentials are presumed to be valid for all other requests within
+   this realm (assuming that the authentication scheme itself does not
+   require otherwise, such as credentials that vary according to a
+   challenge value or using synchronized clocks).
+
+   A proxy forwarding a request MUST NOT modify any Authorization header
+   fields in that request.  See Section 3.5 of [CACHING] for details of
+   and requirements pertaining to handling of the Authorization header
+   field by HTTP caches.
+
+[℗](#tf11_6){id=pf11_6_3}
+
+11.6.3.  Authentication-Info
+--------------------------------------------------------
+
+   HTTP authentication schemes can use the "Authentication-Info"
+   response field to communicate information after the client's
+   authentication credentials have been accepted.  This information can
+   include a finalization message from the server (e.g., it can contain
+   the server authentication).
+
+   The field value is a list of parameters (name/value pairs), using the
+   "auth-param" syntax defined in Section 11.3.  This specification only
+   describes the generic format; authentication schemes using
+   Authentication-Info will define the individual parameters.  The
+   "Digest" Authentication Scheme, for instance, defines multiple
+   parameters in Section 3.5 of [RFC7616].
+
+     Authentication-Info = #auth-param
+
+   The Authentication-Info field can be used in any HTTP response,
+   independently of request method and status code.  Its semantics are
+   defined by the authentication scheme indicated by the Authorization
+   header field (Section 11.6.2) of the corresponding request.
+
+   A proxy forwarding a response is not allowed to modify the field
+   value in any way.
+
+   Authentication-Info can be sent as a trailer field (Section 6.5) when
+   the authentication scheme explicitly allows this.
+
+[℗](#tfch11){id=pf11_7}
+
+//11.7.  Authenticating Clients to Proxies
+--------------------------------------------------------
+
+[℗](#tf11_7){id=pf11_7_1}
+
+11.7.1.  Proxy-Authenticate
+--------------------------------------------------------
+
+   The "Proxy-Authenticate" header field consists of at least one
+   challenge that indicates the authentication scheme(s) and parameters
+   applicable to the proxy for this request.  A proxy MUST send at least
+   one Proxy-Authenticate header field in each 407 (Proxy Authentication
+   Required) response that it generates.
+
+     Proxy-Authenticate = #challenge
+
+   Unlike WWW-Authenticate, the Proxy-Authenticate header field applies
+   only to the next outbound client on the response chain.  This is
+   because only the client that chose a given proxy is likely to have
+   the credentials necessary for authentication.  However, when multiple
+   proxies are used within the same administrative domain, such as
+   office and regional caching proxies within a large corporate network,
+   it is common for credentials to be generated by the user agent and
+   passed through the hierarchy until consumed.  Hence, in such a
+   configuration, it will appear as if Proxy-Authenticate is being
+   forwarded because each proxy will send the same challenge set.
+
+   Note that the parsing considerations for WWW-Authenticate apply to
+   this header field as well; see Section 11.6.1 for details.
+
+[℗](#tf11_7){id=pf11_7_2}
+
+11.7.2.  Proxy-Authorization
+--------------------------------------------------------
+
+   The "Proxy-Authorization" header field allows the client to identify
+   itself (or its user) to a proxy that requires authentication.  Its
+   value consists of credentials containing the authentication
+   information of the client for the proxy and/or realm of the resource
+   being requested.
+
+     Proxy-Authorization = credentials
+
+   Unlike Authorization, the Proxy-Authorization header field applies
+   only to the next inbound proxy that demanded authentication using the
+   Proxy-Authenticate header field.  When multiple proxies are used in a
+   chain, the Proxy-Authorization header field is consumed by the first
+   inbound proxy that was expecting to receive credentials.  A proxy MAY
+   relay the credentials from the client request to the next proxy if
+   that is the mechanism by which the proxies cooperatively authenticate
+   a given request.
+
+[℗](#tf11_7){id=pf11_7_3}
+
+11.7.3.  Proxy-Authentication-Info
+--------------------------------------------------------
+
+   The "Proxy-Authentication-Info" response header field is equivalent
+   to Authentication-Info, except that it applies to proxy
+   authentication (Section 11.3) and its semantics are defined by the
+   authentication scheme indicated by the Proxy-Authorization header
+   field (Section 11.7.2) of the corresponding request:
+
+     Proxy-Authentication-Info = #auth-param
+
+   However, unlike Authentication-Info, the Proxy-Authentication-Info
+   header field applies only to the next outbound client on the response
+   chain.  This is because only the client that chose a given proxy is
+   likely to have the credentials necessary for authentication.
+   However, when multiple proxies are used within the same
+   administrative domain, such as office and regional caching proxies
+   within a large corporate network, it is common for credentials to be
+   generated by the user agent and passed through the hierarchy until
+   consumed.  Hence, in such a configuration, it will appear as if
+   Proxy-Authentication-Info is being forwarded because each proxy will
+   send the same field value.
+
+   Proxy-Authentication-Info can be sent as a trailer field
+   (Section 6.5) when the authentication scheme explicitly allows this.
+
+[℗](#tfch12){id=pfch12}
+
+/12.  Content Negotiation
+========================================================
+
+
+   When responses convey content, whether indicating a success or an
+   error, the origin server often has different ways of representing
+   that information; for example, in different formats, languages, or
+   encodings.  Likewise, different users or user agents might have
+   differing capabilities, characteristics, or preferences that could
+   influence which representation, among those available, would be best
+   to deliver.  For this reason, HTTP provides mechanisms for content
+   negotiation.
+
+   This specification defines three patterns of content negotiation that
+   can be made visible within the protocol: "proactive" negotiation,
+   where the server selects the representation based upon the user
+   agent's stated preferences; "reactive" negotiation, where the server
+   provides a list of representations for the user agent to choose from;
+   and "request content" negotiation, where the user agent selects the
+   representation for a future request based upon the server's stated
+   preferences in past responses.
+
+   Other patterns of content negotiation include "conditional content",
+   where the representation consists of multiple parts that are
+   selectively rendered based on user agent parameters, "active
+   content", where the representation contains a script that makes
+   additional (more specific) requests based on the user agent
+   characteristics, and "Transparent Content Negotiation" ([RFC2295]),
+   where content selection is performed by an intermediary.  These
+   patterns are not mutually exclusive, and each has trade-offs in
+   applicability and practicality.
+
+   Note that, in all cases, HTTP is not aware of the resource semantics.
+   The consistency with which an origin server responds to requests,
+   over time and over the varying dimensions of content negotiation, and
+   thus the "sameness" of a resource's observed representations over
+   time, is determined entirely by whatever entity or algorithm selects
+   or generates those responses.
+
+[℗](#tfch12){id=pf12_1}
+
+//12.1.  Proactive Negotiation
+--------------------------------------------------------
+
+   When content negotiation preferences are sent by the user agent in a
+   request to encourage an algorithm located at the server to select the
+   preferred representation, it is called "proactive negotiation"
+   (a.k.a., "server-driven negotiation").  Selection is based on the
+   available representations for a response (the dimensions over which
+   it might vary, such as language, content coding, etc.) compared to
+   various information supplied in the request, including both the
+   explicit negotiation header fields below and implicit
+   characteristics, such as the client's network address or parts of the
+   User-Agent field.
+
+   Proactive negotiation is advantageous when the algorithm for
+   selecting from among the available representations is difficult to
+   describe to a user agent, or when the server desires to send its
+   "best guess" to the user agent along with the first response (when
+   that "best guess" is good enough for the user, this avoids the round-
+   trip delay of a subsequent request).  In order to improve the
+   server's guess, a user agent MAY send request header fields that
+   describe its preferences.
+
+   Proactive negotiation has serious disadvantages:
+
+   *  It is impossible for the server to accurately determine what might
+      be "best" for any given user, since that would require complete
+      knowledge of both the capabilities of the user agent and the
+      intended use for the response (e.g., does the user want to view it
+      on screen or print it on paper?);
+
+   *  Having the user agent describe its capabilities in every request
+      can be both very inefficient (given that only a small percentage
+      of responses have multiple representations) and a potential risk
+      to the user's privacy;
+
+   *  It complicates the implementation of an origin server and the
+      algorithms for generating responses to a request; and,
+
+   *  It limits the reusability of responses for shared caching.
+
+   A user agent cannot rely on proactive negotiation preferences being
+   consistently honored, since the origin server might not implement
+   proactive negotiation for the requested resource or might decide that
+   sending a response that doesn't conform to the user agent's
+   preferences is better than sending a 406 (Not Acceptable) response.
+
+   A Vary header field (Section 12.5.5) is often sent in a response
+   subject to proactive negotiation to indicate what parts of the
+   request information were used in the selection algorithm.
+
+   The request header fields Accept, Accept-Charset, Accept-Encoding,
+   and Accept-Language are defined below for a user agent to engage in
+   proactive negotiation of the response content.  The preferences sent
+   in these fields apply to any content in the response, including
+   representations of the target resource, representations of error or
+   processing status, and potentially even the miscellaneous text
+   strings that might appear within the protocol.
+
+[℗](#tfch12){id=pf12_2}
+
+//12.2.  Reactive Negotiation
+--------------------------------------------------------
+
+   With "reactive negotiation" (a.k.a., "agent-driven negotiation"),
+   selection of content (regardless of the status code) is performed by
+   the user agent after receiving an initial response.  The mechanism
+   for reactive negotiation might be as simple as a list of references
+   to alternative representations.
+
+   If the user agent is not satisfied by the initial response content,
+   it can perform a GET request on one or more of the alternative
+   resources to obtain a different representation.  Selection of such
+   alternatives might be performed automatically (by the user agent) or
+   manually (e.g., by the user selecting from a hypertext menu).
+
+   A server might choose not to send an initial representation, other
+   than the list of alternatives, and thereby indicate that reactive
+   negotiation by the user agent is preferred.  For example, the
+   alternatives listed in responses with the 300 (Multiple Choices) and
+   406 (Not Acceptable) status codes include information about available
+   representations so that the user or user agent can react by making a
+   selection.
+
+   Reactive negotiation is advantageous when the response would vary
+   over commonly used dimensions (such as type, language, or encoding),
+   when the origin server is unable to determine a user agent's
+   capabilities from examining the request, and generally when public
+   caches are used to distribute server load and reduce network usage.
+
+   Reactive negotiation suffers from the disadvantages of transmitting a
+   list of alternatives to the user agent, which degrades user-perceived
+   latency if transmitted in the header section, and needing a second
+   request to obtain an alternate representation.  Furthermore, this
+   specification does not define a mechanism for supporting automatic
+   selection, though it does not prevent such a mechanism from being
+   developed.
+
+[℗](#tfch12){id=pf12_3}
+
+//12.3.  Request Content Negotiation
+--------------------------------------------------------
+
+   When content negotiation preferences are sent in a server's response,
+   the listed preferences are called "request content negotiation"
+   because they intend to influence selection of an appropriate content
+   for subsequent requests to that resource.  For example, the Accept
+   (Section 12.5.1) and Accept-Encoding (Section 12.5.3) header fields
+   can be sent in a response to indicate preferred media types and
+   content codings for subsequent requests to that resource.
+
+   Similarly, Section 3.1 of [RFC5789] defines the "Accept-Patch"
+   response header field, which allows discovery of which content types
+   are accepted in PATCH requests.
+
+[℗](#tfch12){id=pf12_4}
+
+//12.4.  Content Negotiation Field Features
+--------------------------------------------------------
+
+[℗](#tf12_4){id=pf12_4_1}
+
+12.4.1.  Absence
+--------------------------------------------------------
+
+   For each of the content negotiation fields, a request that does not
+   contain the field implies that the sender has no preference on that
+   dimension of negotiation.
+
+   If a content negotiation header field is present in a request and
+   none of the available representations for the response can be
+   considered acceptable according to it, the origin server can either
+   honor the header field by sending a 406 (Not Acceptable) response or
+   disregard the header field by treating the response as if it is not
+   subject to content negotiation for that request header field.  This
+   does not imply, however, that the client will be able to use the
+   representation.
+
+      |  *Note:* A user agent sending these header fields makes it
+      |  easier for a server to identify an individual by virtue of the
+      |  user agent's request characteristics (Section 17.13).
+
+[℗](#tf12_4){id=pf12_4_2}
+
+12.4.2.  Quality Values
+--------------------------------------------------------
+
+   The content negotiation fields defined by this specification use a
+   common parameter, named "q" (case-insensitive), to assign a relative
+   "weight" to the preference for that associated kind of content.  This
+   weight is referred to as a "quality value" (or "qvalue") because the
+   same parameter name is often used within server configurations to
+   assign a weight to the relative quality of the various
+   representations that can be selected for a resource.
+
+   The weight is normalized to a real number in the range 0 through 1,
+   where 0.001 is the least preferred and 1 is the most preferred; a
+   value of 0 means "not acceptable".  If no "q" parameter is present,
+   the default weight is 1.
+
+     weight = OWS ";" OWS "q=" qvalue
+     qvalue = ( "0" [ "." 0*3DIGIT ] )
+            / ( "1" [ "." 0*3("0") ] )
+
+   A sender of qvalue MUST NOT generate more than three digits after the
+   decimal point.  User configuration of these values ought to be
+   limited in the same fashion.
+
+[℗](#tf12_4){id=pf12_4_3}
+
+12.4.3.  Wildcard Values
+--------------------------------------------------------
+
+   Most of these header fields, where indicated, define a wildcard value
+   ("*") to select unspecified values.  If no wildcard is present,
+   values that are not explicitly mentioned in the field are considered
+   unacceptable.  Within Vary, the wildcard value means that the
+   variance is unlimited.
+
+      |  *Note:* In practice, using wildcards in content negotiation has
+      |  limited practical value because it is seldom useful to say, for
+      |  example, "I prefer image/* more or less than (some other
+      |  specific value)".  By sending Accept: */*;q=0, clients can
+      |  explicitly request a 406 (Not Acceptable) response if a more
+      |  preferred format is not available, but they still need to be
+      |  able to handle a different response since the server is allowed
+      |  to ignore their preference.
+
+[℗](#tfch12){id=pf12_5}
+
+//12.5.  Content Negotiation Fields
+--------------------------------------------------------
+
+[℗](#tf12_5){id=pf12_5_1}
+
+12.5.1.  Accept
+--------------------------------------------------------
+
+   The "Accept" header field can be used by user agents to specify their
+   preferences regarding response media types.  For example, Accept
+   header fields can be used to indicate that the request is
+   specifically limited to a small set of desired types, as in the case
+   of a request for an in-line image.
+
+   When sent by a server in a response, Accept provides information
+   about which content types are preferred in the content of a
+   subsequent request to the same resource.
+
+     Accept = #( media-range [ weight ] )
+
+     media-range    = ( "*/*"
+                        / ( type "/" "*" )
+                        / ( type "/" subtype )
+                      ) parameters
+
+   The asterisk "*" character is used to group media types into ranges,
+   with "*/*" indicating all media types and "type/*" indicating all
+   subtypes of that type.  The media-range can include media type
+   parameters that are applicable to that range.
+
+   Each media-range might be followed by optional applicable media type
+   parameters (e.g., charset), followed by an optional "q" parameter for
+   indicating a relative weight (Section 12.4.2).
+
+   Previous specifications allowed additional extension parameters to
+   appear after the weight parameter.  The accept extension grammar
+   (accept-params, accept-ext) has been removed because it had a
+   complicated definition, was not being used in practice, and is more
+   easily deployed through new header fields.  Senders using weights
+   SHOULD send "q" last (after all media-range parameters).  Recipients
+   SHOULD process any parameter named "q" as weight, regardless of
+   parameter ordering.
+
+      |  *Note:* Use of the "q" parameter name to control content
+      |  negotiation would interfere with any media type parameter
+      |  having the same name.  Hence, the media type registry disallows
+      |  parameters named "q".
+
+   The example
+
+   Accept: audio/*; q=0.2, audio/basic
+
+   is interpreted as "I prefer audio/basic, but send me any audio type
+   if it is the best available after an 80% markdown in quality".
+
+   A more elaborate example is
+
+   Accept: text/plain; q=0.5, text/html,
+          text/x-dvi; q=0.8, text/x-c
+
+   Verbally, this would be interpreted as "text/html and text/x-c are
+   the equally preferred media types, but if they do not exist, then
+   send the text/x-dvi representation, and if that does not exist, send
+   the text/plain representation".
+
+   Media ranges can be overridden by more specific media ranges or
+   specific media types.  If more than one media range applies to a
+   given type, the most specific reference has precedence.  For example,
+
+   Accept: text/*, text/plain, text/plain;format=flowed, */*
+
+   have the following precedence:
+
+   1.  text/plain;format=flowed
+
+   2.  text/plain
+
+   3.  text/*
+
+   4.  */*
+
+   The media type quality factor associated with a given type is
+   determined by finding the media range with the highest precedence
+   that matches the type.  For example,
+
+   Accept: text/*;q=0.3, text/plain;q=0.7, text/plain;format=flowed,
+          text/plain;format=fixed;q=0.4, */*;q=0.5
+
+   would cause the following values to be associated:
+
+   +==========================+===============+
+   | Media Type               | Quality Value |
+   +==========================+===============+
+   | text/plain;format=flowed | 1             |
+   +--------------------------+---------------+
+   | text/plain               | 0.7           |
+   +--------------------------+---------------+
+   | text/html                | 0.3           |
+   +--------------------------+---------------+
+   | image/jpeg               | 0.5           |
+   +--------------------------+---------------+
+   | text/plain;format=fixed  | 0.4           |
+   +--------------------------+---------------+
+   | text/html;level=3        | 0.7           |
+   +--------------------------+---------------+
+
+                     Table 5
+
+      |  *Note:* A user agent might be provided with a default set of
+      |  quality values for certain media ranges.  However, unless the
+      |  user agent is a closed system that cannot interact with other
+      |  rendering agents, this default set ought to be configurable by
+      |  the user.
+
+[℗](#tf12_5){id=pf12_5_2}
+
+12.5.2.  Accept-Charset
+--------------------------------------------------------
+
+   The "Accept-Charset" header field can be sent by a user agent to
+   indicate its preferences for charsets in textual response content.
+   For example, this field allows user agents capable of understanding
+   more comprehensive or special-purpose charsets to signal that
+   capability to an origin server that is capable of representing
+   information in those charsets.
+
+     Accept-Charset = #( ( token / "*" ) [ weight ] )
+
+   Charset names are defined in Section 8.3.2.  A user agent MAY
+   associate a quality value with each charset to indicate the user's
+   relative preference for that charset, as defined in Section 12.4.2.
+   An example is
+
+   Accept-Charset: iso-8859-5, unicode-1-1;q=0.8
+
+   The special value "*", if present in the Accept-Charset header field,
+   matches every charset that is not mentioned elsewhere in the field.
+
+      |  *Note:* Accept-Charset is deprecated because UTF-8 has become
+      |  nearly ubiquitous and sending a detailed list of user-preferred
+      |  charsets wastes bandwidth, increases latency, and makes passive
+      |  fingerprinting far too easy (Section 17.13).  Most general-
+      |  purpose user agents do not send Accept-Charset unless
+      |  specifically configured to do so.
+
+[℗](#tf12_5){id=pf12_5_3}
+
+12.5.3.  Accept-Encoding
+--------------------------------------------------------
+
+   The "Accept-Encoding" header field can be used to indicate
+   preferences regarding the use of content codings (Section 8.4.1).
+
+   When sent by a user agent in a request, Accept-Encoding indicates the
+   content codings acceptable in a response.
+
+   When sent by a server in a response, Accept-Encoding provides
+   information about which content codings are preferred in the content
+   of a subsequent request to the same resource.
+
+   An "identity" token is used as a synonym for "no encoding" in order
+   to communicate when no encoding is preferred.
+
+     Accept-Encoding  = #( codings [ weight ] )
+     codings          = content-coding / "identity" / "*"
+
+   Each codings value MAY be given an associated quality value (weight)
+   representing the preference for that encoding, as defined in
+   Section 12.4.2.  The asterisk "*" symbol in an Accept-Encoding field
+   matches any available content coding not explicitly listed in the
+   field.
+
+   Examples:
+
+   Accept-Encoding: compress, gzip
+   Accept-Encoding:
+   Accept-Encoding: *
+   Accept-Encoding: compress;q=0.5, gzip;q=1.0
+   Accept-Encoding: gzip;q=1.0, identity; q=0.5, *;q=0
+
+   A server tests whether a content coding for a given representation is
+   acceptable using these rules:
+
+   1.  If no Accept-Encoding header field is in the request, any content
+       coding is considered acceptable by the user agent.
+
+   2.  If the representation has no content coding, then it is
+       acceptable by default unless specifically excluded by the Accept-
+       Encoding header field stating either "identity;q=0" or "*;q=0"
+       without a more specific entry for "identity".
+
+   3.  If the representation's content coding is one of the content
+       codings listed in the Accept-Encoding field value, then it is
+       acceptable unless it is accompanied by a qvalue of 0.  (As
+       defined in Section 12.4.2, a qvalue of 0 means "not acceptable".)
+
+   A representation could be encoded with multiple content codings.
+   However, most content codings are alternative ways to accomplish the
+   same purpose (e.g., data compression).  When selecting between
+   multiple content codings that have the same purpose, the acceptable
+   content coding with the highest non-zero qvalue is preferred.
+
+   An Accept-Encoding header field with a field value that is empty
+   implies that the user agent does not want any content coding in
+   response.  If a non-empty Accept-Encoding header field is present in
+   a request and none of the available representations for the response
+   have a content coding that is listed as acceptable, the origin server
+   SHOULD send a response without any content coding unless the identity
+   coding is indicated as unacceptable.
+
+   When the Accept-Encoding header field is present in a response, it
+   indicates what content codings the resource was willing to accept in
+   the associated request.  The field value is evaluated the same way as
+   in a request.
+
+   Note that this information is specific to the associated request; the
+   set of supported encodings might be different for other resources on
+   the same server and could change over time or depend on other aspects
+   of the request (such as the request method).
+
+   Servers that fail a request due to an unsupported content coding
+   ought to respond with a 415 (Unsupported Media Type) status and
+   include an Accept-Encoding header field in that response, allowing
+   clients to distinguish between issues related to content codings and
+   media types.  In order to avoid confusion with issues related to
+   media types, servers that fail a request with a 415 status for
+   reasons unrelated to content codings MUST NOT include the Accept-
+   Encoding header field.
+
+   The most common use of Accept-Encoding is in responses with a 415
+   (Unsupported Media Type) status code, in response to optimistic use
+   of a content coding by clients.  However, the header field can also
+   be used to indicate to clients that content codings are supported in
+   order to optimize future interactions.  For example, a resource might
+   include it in a 2xx (Successful) response when the request content
+   was big enough to justify use of a compression coding but the client
+   failed do so.
+
+[℗](#tf12_5){id=pf12_5_4}
+
+12.5.4.  Accept-Language
+--------------------------------------------------------
+
+   The "Accept-Language" header field can be used by user agents to
+   indicate the set of natural languages that are preferred in the
+   response.  Language tags are defined in Section 8.5.1.
+
+     Accept-Language = #( language-range [ weight ] )
+     language-range  =
+               <language-range, see [RFC4647], Section 2.1>
+
+   Each language-range can be given an associated quality value
+   representing an estimate of the user's preference for the languages
+   specified by that range, as defined in Section 12.4.2.  For example,
+
+   Accept-Language: da, en-gb;q=0.8, en;q=0.7
+
+   would mean: "I prefer Danish, but will accept British English and
+   other types of English".
+
+   Note that some recipients treat the order in which language tags are
+   listed as an indication of descending priority, particularly for tags
+   that are assigned equal quality values (no value is the same as q=1).
+   However, this behavior cannot be relied upon.  For consistency and to
+   maximize interoperability, many user agents assign each language tag
+   a unique quality value while also listing them in order of decreasing
+   quality.  Additional discussion of language priority lists can be
+   found in Section 2.3 of [RFC4647].
+
+   For matching, Section 3 of [RFC4647] defines several matching
+   schemes.  Implementations can offer the most appropriate matching
+   scheme for their requirements.  The "Basic Filtering" scheme
+   ([RFC4647], Section 3.3.1) is identical to the matching scheme that
+   was previously defined for HTTP in Section 14.4 of [RFC2616].
+
+   It might be contrary to the privacy expectations of the user to send
+   an Accept-Language header field with the complete linguistic
+   preferences of the user in every request (Section 17.13).
+
+   Since intelligibility is highly dependent on the individual user,
+   user agents need to allow user control over the linguistic preference
+   (either through configuration of the user agent itself or by
+   defaulting to a user controllable system setting).  A user agent that
+   does not provide such control to the user MUST NOT send an Accept-
+   Language header field.
+
+      |  *Note:* User agents ought to provide guidance to users when
+      |  setting a preference, since users are rarely familiar with the
+      |  details of language matching as described above.  For example,
+      |  users might assume that on selecting "en-gb", they will be
+      |  served any kind of English document if British English is not
+      |  available.  A user agent might suggest, in such a case, to add
+      |  "en" to the list for better matching behavior.
+
+[℗](#tf12_5){id=pf12_5_5}
+
+12.5.5.  Vary
+--------------------------------------------------------
+
+   The "Vary" header field in a response describes what parts of a
+   request message, aside from the method and target URI, might have
+   influenced the origin server's process for selecting the content of
+   this response.
+
+     Vary = #( "*" / field-name )
+
+   A Vary field value is either the wildcard member "*" or a list of
+   request field names, known as the selecting header fields, that might
+   have had a role in selecting the representation for this response.
+   Potential selecting header fields are not limited to fields defined
+   by this specification.
+
+   A list containing the member "*" signals that other aspects of the
+   request might have played a role in selecting the response
+   representation, possibly including aspects outside the message syntax
+   (e.g., the client's network address).  A recipient will not be able
+   to determine whether this response is appropriate for a later request
+   without forwarding the request to the origin server.  A proxy MUST
+   NOT generate "*" in a Vary field value.
+
+   For example, a response that contains
+
+   Vary: accept-encoding, accept-language
+
+   indicates that the origin server might have used the request's
+   Accept-Encoding and Accept-Language header fields (or lack thereof)
+   as determining factors while choosing the content for this response.
+
+   A Vary field containing a list of field names has two purposes:
+
+   1.  To inform cache recipients that they MUST NOT use this response
+       to satisfy a later request unless the later request has the same
+       values for the listed header fields as the original request
+       (Section 4.1 of [CACHING]) or reuse of the response has been
+       validated by the origin server.  In other words, Vary expands the
+       cache key required to match a new request to the stored cache
+       entry.
+
+   2.  To inform user agent recipients that this response was subject to
+       content negotiation (Section 12) and a different representation
+       might be sent in a subsequent request if other values are
+       provided in the listed header fields (proactive negotiation).
+
+   An origin server SHOULD generate a Vary header field on a cacheable
+   response when it wishes that response to be selectively reused for
+   subsequent requests.  Generally, that is the case when the response
+   content has been tailored to better fit the preferences expressed by
+   those selecting header fields, such as when an origin server has
+   selected the response's language based on the request's
+   Accept-Language header field.
+
+   Vary might be elided when an origin server considers variance in
+   content selection to be less significant than Vary's performance
+   impact on caching, particularly when reuse is already limited by
+   cache response directives (Section 5.2 of [CACHING]).
+
+   There is no need to send the Authorization field name in Vary because
+   reuse of that response for a different user is prohibited by the
+   field definition (Section 11.6.2).  Likewise, if the response content
+   has been selected or influenced by network region, but the origin
+   server wants the cached response to be reused even if recipients move
+   from one region to another, then there is no need for the origin
+   server to indicate such variance in Vary.
+
+[℗](#tfch13){id=pfch13}
+
+/13.  Conditional Requests
+========================================================
+
+
+   A conditional request is an HTTP request with one or more request
+   header fields that indicate a precondition to be tested before
+   applying the request method to the target resource.  Section 13.2
+   defines when to evaluate preconditions and their order of precedence
+   when more than one precondition is present.
+
+   Conditional GET requests are the most efficient mechanism for HTTP
+   cache updates [CACHING].  Conditionals can also be applied to state-
+   changing methods, such as PUT and DELETE, to prevent the "lost
+   update" problem: one client accidentally overwriting the work of
+   another client that has been acting in parallel.
+
+[℗](#tfch13){id=pf13_1}
+
+//13.1.  Preconditions
+--------------------------------------------------------
+
+   Preconditions are usually defined with respect to a state of the
+   target resource as a whole (its current value set) or the state as
+   observed in a previously obtained representation (one value in that
+   set).  If a resource has multiple current representations, each with
+   its own observable state, a precondition will assume that the mapping
+   of each request to a selected representation (Section 3.2) is
+   consistent over time.  Regardless, if the mapping is inconsistent or
+   the server is unable to select an appropriate representation, then no
+   harm will result when the precondition evaluates to false.
+
+   Each precondition defined below consists of a comparison between a
+   set of validators obtained from prior representations of the target
+   resource to the current state of validators for the selected
+   representation (Section 8.8).  Hence, these preconditions evaluate
+   whether the state of the target resource has changed since a given
+   state known by the client.  The effect of such an evaluation depends
+   on the method semantics and choice of conditional, as defined in
+   Section 13.2.
+
+   Other preconditions, defined by other specifications as extension
+   fields, might place conditions on all recipients, on the state of the
+   target resource in general, or on a group of resources.  For
+   instance, the "If" header field in WebDAV can make a request
+   conditional on various aspects of multiple resources, such as locks,
+   if the recipient understands and implements that field ([WEBDAV],
+   Section 10.4).
+
+   Extensibility of preconditions is only possible when the precondition
+   can be safely ignored if unknown (like If-Modified-Since), when
+   deployment can be assumed for a given use case, or when
+   implementation is signaled by some other property of the target
+   resource.  This encourages a focus on mutually agreed deployment of
+   common standards.
+
+[℗](#tf13_1){id=pf13_1_1}
+
+13.1.1.  If-Match
+--------------------------------------------------------
+
+   The "If-Match" header field makes the request method conditional on
+   the recipient origin server either having at least one current
+   representation of the target resource, when the field value is "*",
+   or having a current representation of the target resource that has an
+   entity tag matching a member of the list of entity tags provided in
+   the field value.
+
+   An origin server MUST use the strong comparison function when
+   comparing entity tags for If-Match (Section 8.8.3.2), since the
+   client intends this precondition to prevent the method from being
+   applied if there have been any changes to the representation data.
+
+     If-Match = "*" / #entity-tag
+
+   Examples:
+
+   If-Match: "xyzzy"
+   If-Match: "xyzzy", "r2d2xxxx", "c3piozzzz"
+   If-Match: *
+
+   If-Match is most often used with state-changing methods (e.g., POST,
+   PUT, DELETE) to prevent accidental overwrites when multiple user
+   agents might be acting in parallel on the same resource (i.e., to
+   prevent the "lost update" problem).  In general, it can be used with
+   any method that involves the selection or modification of a
+   representation to abort the request if the selected representation's
+   current entity tag is not a member within the If-Match field value.
+
+   When an origin server receives a request that selects a
+   representation and that request includes an If-Match header field,
+   the origin server MUST evaluate the If-Match condition per
+   Section 13.2 prior to performing the method.
+
+   To evaluate a received If-Match header field:
+
+   1.  If the field value is "*", the condition is true if the origin
+       server has a current representation for the target resource.
+
+   2.  If the field value is a list of entity tags, the condition is
+       true if any of the listed tags match the entity tag of the
+       selected representation.
+
+   3.  Otherwise, the condition is false.
+
+   An origin server that evaluates an If-Match condition MUST NOT
+   perform the requested method if the condition evaluates to false.
+   Instead, the origin server MAY indicate that the conditional request
+   failed by responding with a 412 (Precondition Failed) status code.
+   Alternatively, if the request is a state-changing operation that
+   appears to have already been applied to the selected representation,
+   the origin server MAY respond with a 2xx (Successful) status code
+   (i.e., the change requested by the user agent has already succeeded,
+   but the user agent might not be aware of it, perhaps because the
+   prior response was lost or an equivalent change was made by some
+   other user agent).
+
+   Allowing an origin server to send a success response when a change
+   request appears to have already been applied is more efficient for
+   many authoring use cases, but comes with some risk if multiple user
+   agents are making change requests that are very similar but not
+   cooperative.  For example, multiple user agents writing to a common
+   resource as a semaphore (e.g., a nonatomic increment) are likely to
+   collide and potentially lose important state transitions.  For those
+   kinds of resources, an origin server is better off being stringent in
+   sending 412 for every failed precondition on an unsafe method.  In
+   other cases, excluding the ETag field from a success response might
+   encourage the user agent to perform a GET as its next request to
+   eliminate confusion about the resource's current state.
+
+   A client MAY send an If-Match header field in a GET request to
+   indicate that it would prefer a 412 (Precondition Failed) response if
+   the selected representation does not match.  However, this is only
+   useful in range requests (Section 14) for completing a previously
+   received partial representation when there is no desire for a new
+   representation.  If-Range (Section 13.1.5) is better suited for range
+   requests when the client prefers to receive a new representation.
+
+   A cache or intermediary MAY ignore If-Match because its
+   interoperability features are only necessary for an origin server.
+
+   Note that an If-Match header field with a list value containing "*"
+   and other values (including other instances of "*") is syntactically
+   invalid (therefore not allowed to be generated) and furthermore is
+   unlikely to be interoperable.
+
+[℗](#tf13_1){id=pf13_1_2}
+
+13.1.2.  If-None-Match
+--------------------------------------------------------
+
+   The "If-None-Match" header field makes the request method conditional
+   on a recipient cache or origin server either not having any current
+   representation of the target resource, when the field value is "*",
+   or having a selected representation with an entity tag that does not
+   match any of those listed in the field value.
+
+   A recipient MUST use the weak comparison function when comparing
+   entity tags for If-None-Match (Section 8.8.3.2), since weak entity
+   tags can be used for cache validation even if there have been changes
+   to the representation data.
+
+     If-None-Match = "*" / #entity-tag
+
+   Examples:
+
+   If-None-Match: "xyzzy"
+   If-None-Match: W/"xyzzy"
+   If-None-Match: "xyzzy", "r2d2xxxx", "c3piozzzz"
+   If-None-Match: W/"xyzzy", W/"r2d2xxxx", W/"c3piozzzz"
+   If-None-Match: *
+
+   If-None-Match is primarily used in conditional GET requests to enable
+   efficient updates of cached information with a minimum amount of
+   transaction overhead.  When a client desires to update one or more
+   stored responses that have entity tags, the client SHOULD generate an
+   If-None-Match header field containing a list of those entity tags
+   when making a GET request; this allows recipient servers to send a
+   304 (Not Modified) response to indicate when one of those stored
+   responses matches the selected representation.
+
+   If-None-Match can also be used with a value of "*" to prevent an
+   unsafe request method (e.g., PUT) from inadvertently modifying an
+   existing representation of the target resource when the client
+   believes that the resource does not have a current representation
+   (Section 9.2.1).  This is a variation on the "lost update" problem
+   that might arise if more than one client attempts to create an
+   initial representation for the target resource.
+
+   When an origin server receives a request that selects a
+   representation and that request includes an If-None-Match header
+   field, the origin server MUST evaluate the If-None-Match condition
+   per Section 13.2 prior to performing the method.
+
+   To evaluate a received If-None-Match header field:
+
+   1.  If the field value is "*", the condition is false if the origin
+       server has a current representation for the target resource.
+
+   2.  If the field value is a list of entity tags, the condition is
+       false if one of the listed tags matches the entity tag of the
+       selected representation.
+
+   3.  Otherwise, the condition is true.
+
+   An origin server that evaluates an If-None-Match condition MUST NOT
+   perform the requested method if the condition evaluates to false;
+   instead, the origin server MUST respond with either a) the 304 (Not
+   Modified) status code if the request method is GET or HEAD or b) the
+   412 (Precondition Failed) status code for all other request methods.
+
+   Requirements on cache handling of a received If-None-Match header
+   field are defined in Section 4.3.2 of [CACHING].
+
+   Note that an If-None-Match header field with a list value containing
+   "*" and other values (including other instances of "*") is
+   syntactically invalid (therefore not allowed to be generated) and
+   furthermore is unlikely to be interoperable.
+
+[℗](#tf13_1){id=pf13_1_3}
+
+13.1.3.  If-Modified-Since
+--------------------------------------------------------
+
+   The "If-Modified-Since" header field makes a GET or HEAD request
+   method conditional on the selected representation's modification date
+   being more recent than the date provided in the field value.
+   Transfer of the selected representation's data is avoided if that
+   data has not changed.
+
+     If-Modified-Since = HTTP-date
+
+   An example of the field is:
+
+   If-Modified-Since: Sat, 29 Oct 1994 19:43:31 GMT
+
+   A recipient MUST ignore If-Modified-Since if the request contains an
+   If-None-Match header field; the condition in If-None-Match is
+   considered to be a more accurate replacement for the condition in If-
+   Modified-Since, and the two are only combined for the sake of
+   interoperating with older intermediaries that might not implement
+   If-None-Match.
+
+   A recipient MUST ignore the If-Modified-Since header field if the
+   received field value is not a valid HTTP-date, the field value has
+   more than one member, or if the request method is neither GET nor
+   HEAD.
+
+   A recipient MUST ignore the If-Modified-Since header field if the
+   resource does not have a modification date available.
+
+   A recipient MUST interpret an If-Modified-Since field value's
+   timestamp in terms of the origin server's clock.
+
+   If-Modified-Since is typically used for two distinct purposes: 1) to
+   allow efficient updates of a cached representation that does not have
+   an entity tag and 2) to limit the scope of a web traversal to
+   resources that have recently changed.
+
+   When used for cache updates, a cache will typically use the value of
+   the cached message's Last-Modified header field to generate the field
+   value of If-Modified-Since.  This behavior is most interoperable for
+   cases where clocks are poorly synchronized or when the server has
+   chosen to only honor exact timestamp matches (due to a problem with
+   Last-Modified dates that appear to go "back in time" when the origin
+   server's clock is corrected or a representation is restored from an
+   archived backup).  However, caches occasionally generate the field
+   value based on other data, such as the Date header field of the
+   cached message or the clock time at which the message was received,
+   particularly when the cached message does not contain a Last-Modified
+   header field.
+
+   When used for limiting the scope of retrieval to a recent time
+   window, a user agent will generate an If-Modified-Since field value
+   based on either its own clock or a Date header field received from
+   the server in a prior response.  Origin servers that choose an exact
+   timestamp match based on the selected representation's Last-Modified
+   header field will not be able to help the user agent limit its data
+   transfers to only those changed during the specified window.
+
+   When an origin server receives a request that selects a
+   representation and that request includes an If-Modified-Since header
+   field without an If-None-Match header field, the origin server SHOULD
+   evaluate the If-Modified-Since condition per Section 13.2 prior to
+   performing the method.
+
+   To evaluate a received If-Modified-Since header field:
+
+   1.  If the selected representation's last modification date is
+       earlier or equal to the date provided in the field value, the
+       condition is false.
+
+   2.  Otherwise, the condition is true.
+
+   An origin server that evaluates an If-Modified-Since condition SHOULD
+   NOT perform the requested method if the condition evaluates to false;
+   instead, the origin server SHOULD generate a 304 (Not Modified)
+   response, including only those metadata that are useful for
+   identifying or updating a previously cached response.
+
+   Requirements on cache handling of a received If-Modified-Since header
+   field are defined in Section 4.3.2 of [CACHING].
+
+[℗](#tf13_1){id=pf13_1_4}
+
+13.1.4.  If-Unmodified-Since
+--------------------------------------------------------
+
+   The "If-Unmodified-Since" header field makes the request method
+   conditional on the selected representation's last modification date
+   being earlier than or equal to the date provided in the field value.
+   This field accomplishes the same purpose as If-Match for cases where
+   the user agent does not have an entity tag for the representation.
+
+     If-Unmodified-Since = HTTP-date
+
+   An example of the field is:
+
+   If-Unmodified-Since: Sat, 29 Oct 1994 19:43:31 GMT
+
+   A recipient MUST ignore If-Unmodified-Since if the request contains
+   an If-Match header field; the condition in If-Match is considered to
+   be a more accurate replacement for the condition in If-Unmodified-
+   Since, and the two are only combined for the sake of interoperating
+   with older intermediaries that might not implement If-Match.
+
+   A recipient MUST ignore the If-Unmodified-Since header field if the
+   received field value is not a valid HTTP-date (including when the
+   field value appears to be a list of dates).
+
+   A recipient MUST ignore the If-Unmodified-Since header field if the
+   resource does not have a modification date available.
+
+   A recipient MUST interpret an If-Unmodified-Since field value's
+   timestamp in terms of the origin server's clock.
+
+   If-Unmodified-Since is most often used with state-changing methods
+   (e.g., POST, PUT, DELETE) to prevent accidental overwrites when
+   multiple user agents might be acting in parallel on a resource that
+   does not supply entity tags with its representations (i.e., to
+   prevent the "lost update" problem).  In general, it can be used with
+   any method that involves the selection or modification of a
+   representation to abort the request if the selected representation's
+   last modification date has changed since the date provided in the If-
+   Unmodified-Since field value.
+
+   When an origin server receives a request that selects a
+   representation and that request includes an If-Unmodified-Since
+   header field without an If-Match header field, the origin server MUST
+   evaluate the If-Unmodified-Since condition per Section 13.2 prior to
+   performing the method.
+
+   To evaluate a received If-Unmodified-Since header field:
+
+   1.  If the selected representation's last modification date is
+       earlier than or equal to the date provided in the field value,
+       the condition is true.
+
+   2.  Otherwise, the condition is false.
+
+   An origin server that evaluates an If-Unmodified-Since condition MUST
+   NOT perform the requested method if the condition evaluates to false.
+   Instead, the origin server MAY indicate that the conditional request
+   failed by responding with a 412 (Precondition Failed) status code.
+   Alternatively, if the request is a state-changing operation that
+   appears to have already been applied to the selected representation,
+   the origin server MAY respond with a 2xx (Successful) status code
+   (i.e., the change requested by the user agent has already succeeded,
+   but the user agent might not be aware of it, perhaps because the
+   prior response was lost or an equivalent change was made by some
+   other user agent).
+
+   Allowing an origin server to send a success response when a change
+   request appears to have already been applied is more efficient for
+   many authoring use cases, but comes with some risk if multiple user
+   agents are making change requests that are very similar but not
+   cooperative.  In those cases, an origin server is better off being
+   stringent in sending 412 for every failed precondition on an unsafe
+   method.
+
+   A client MAY send an If-Unmodified-Since header field in a GET
+   request to indicate that it would prefer a 412 (Precondition Failed)
+   response if the selected representation has been modified.  However,
+   this is only useful in range requests (Section 14) for completing a
+   previously received partial representation when there is no desire
+   for a new representation.  If-Range (Section 13.1.5) is better suited
+   for range requests when the client prefers to receive a new
+   representation.
+
+   A cache or intermediary MAY ignore If-Unmodified-Since because its
+   interoperability features are only necessary for an origin server.
+
+[℗](#tf13_1){id=pf13_1_5}
+
+13.1.5.  If-Range
+--------------------------------------------------------
+
+   The "If-Range" header field provides a special conditional request
+   mechanism that is similar to the If-Match and If-Unmodified-Since
+   header fields but that instructs the recipient to ignore the Range
+   header field if the validator doesn't match, resulting in transfer of
+   the new selected representation instead of a 412 (Precondition
+   Failed) response.
+
+   If a client has a partial copy of a representation and wishes to have
+   an up-to-date copy of the entire representation, it could use the
+   Range header field with a conditional GET (using either or both of
+   If-Unmodified-Since and If-Match.)  However, if the precondition
+   fails because the representation has been modified, the client would
+   then have to make a second request to obtain the entire current
+   representation.
+
+   The "If-Range" header field allows a client to "short-circuit" the
+   second request.  Informally, its meaning is as follows: if the
+   representation is unchanged, send me the part(s) that I am requesting
+   in Range; otherwise, send me the entire representation.
+
+     If-Range = entity-tag / HTTP-date
+
+   A valid entity-tag can be distinguished from a valid HTTP-date by
+   examining the first three characters for a DQUOTE.
+
+   A client MUST NOT generate an If-Range header field in a request that
+   does not contain a Range header field.  A server MUST ignore an If-
+   Range header field received in a request that does not contain a
+   Range header field.  An origin server MUST ignore an If-Range header
+   field received in a request for a target resource that does not
+   support Range requests.
+
+   A client MUST NOT generate an If-Range header field containing an
+   entity tag that is marked as weak.  A client MUST NOT generate an If-
+   Range header field containing an HTTP-date unless the client has no
+   entity tag for the corresponding representation and the date is a
+   strong validator in the sense defined by Section 8.8.2.2.
+
+   A server that receives an If-Range header field on a Range request
+   MUST evaluate the condition per Section 13.2 prior to performing the
+   method.
+
+   To evaluate a received If-Range header field containing an HTTP-date:
+
+   1.  If the HTTP-date validator provided is not a strong validator in
+       the sense defined by Section 8.8.2.2, the condition is false.
+
+   2.  If the HTTP-date validator provided exactly matches the
+       Last-Modified field value for the selected representation, the
+       condition is true.
+
+   3.  Otherwise, the condition is false.
+
+   To evaluate a received If-Range header field containing an
+   entity-tag:
+
+   1.  If the entity-tag validator provided exactly matches the ETag
+       field value for the selected representation using the strong
+       comparison function (Section 8.8.3.2), the condition is true.
+
+   2.  Otherwise, the condition is false.
+
+   A recipient of an If-Range header field MUST ignore the Range header
+   field if the If-Range condition evaluates to false.  Otherwise, the
+   recipient SHOULD process the Range header field as requested.
+
+   Note that the If-Range comparison is by exact match, including when
+   the validator is an HTTP-date, and so it differs from the "earlier
+   than or equal to" comparison used when evaluating an
+   If-Unmodified-Since conditional.
+
+[℗](#tfch13){id=pf13_2}
+
+//13.2.  Evaluation of Preconditions
+--------------------------------------------------------
+
+[℗](#tf13_2){id=pf13_2_1}
+
+13.2.1.  When to Evaluate
+--------------------------------------------------------
+
+   Except when excluded below, a recipient cache or origin server MUST
+   evaluate received request preconditions after it has successfully
+   performed its normal request checks and just before it would process
+   the request content (if any) or perform the action associated with
+   the request method.  A server MUST ignore all received preconditions
+   if its response to the same request without those conditions, prior
+   to processing the request content, would have been a status code
+   other than a 2xx (Successful) or 412 (Precondition Failed).  In other
+   words, redirects and failures that can be detected before significant
+   processing occurs take precedence over the evaluation of
+   preconditions.
+
+   A server that is not the origin server for the target resource and
+   cannot act as a cache for requests on the target resource MUST NOT
+   evaluate the conditional request header fields defined by this
+   specification, and it MUST forward them if the request is forwarded,
+   since the generating client intends that they be evaluated by a
+   server that can provide a current representation.  Likewise, a server
+   MUST ignore the conditional request header fields defined by this
+   specification when received with a request method that does not
+   involve the selection or modification of a selected representation,
+   such as CONNECT, OPTIONS, or TRACE.
+
+   Note that protocol extensions can modify the conditions under which
+   preconditions are evaluated or the consequences of their evaluation.
+   For example, the immutable cache directive (defined by [RFC8246])
+   instructs caches to forgo forwarding conditional requests when they
+   hold a fresh response.
+
+   Although conditional request header fields are defined as being
+   usable with the HEAD method (to keep HEAD's semantics consistent with
+   those of GET), there is no point in sending a conditional HEAD
+   because a successful response is around the same size as a 304 (Not
+   Modified) response and more useful than a 412 (Precondition Failed)
+   response.
+
+[℗](#tf13_2){id=pf13_2_2}
+
+13.2.2.  Precedence of Preconditions
+--------------------------------------------------------
+
+   When more than one conditional request header field is present in a
+   request, the order in which the fields are evaluated becomes
+   important.  In practice, the fields defined in this document are
+   consistently implemented in a single, logical order, since "lost
+   update" preconditions have more strict requirements than cache
+   validation, a validated cache is more efficient than a partial
+   response, and entity tags are presumed to be more accurate than date
+   validators.
+
+   A recipient cache or origin server MUST evaluate the request
+   preconditions defined by this specification in the following order:
+
+   1.  When recipient is the origin server and If-Match is present,
+       evaluate the If-Match precondition:
+
+       *  if true, continue to step 3
+
+       *  if false, respond 412 (Precondition Failed) unless it can be
+          determined that the state-changing request has already
+          succeeded (see Section 13.1.1)
+
+   2.  When recipient is the origin server, If-Match is not present, and
+       If-Unmodified-Since is present, evaluate the If-Unmodified-Since
+       precondition:
+
+       *  if true, continue to step 3
+
+       *  if false, respond 412 (Precondition Failed) unless it can be
+          determined that the state-changing request has already
+          succeeded (see Section 13.1.4)
+
+   3.  When If-None-Match is present, evaluate the If-None-Match
+       precondition:
+
+       *  if true, continue to step 5
+
+       *  if false for GET/HEAD, respond 304 (Not Modified)
+
+       *  if false for other methods, respond 412 (Precondition Failed)
+
+   4.  When the method is GET or HEAD, If-None-Match is not present, and
+       If-Modified-Since is present, evaluate the If-Modified-Since
+       precondition:
+
+       *  if true, continue to step 5
+
+       *  if false, respond 304 (Not Modified)
+
+   5.  When the method is GET and both Range and If-Range are present,
+       evaluate the If-Range precondition:
+
+       *  if true and the Range is applicable to the selected
+          representation, respond 206 (Partial Content)
+
+       *  otherwise, ignore the Range header field and respond 200 (OK)
+
+   6.  Otherwise,
+
+       *  perform the requested method and respond according to its
+          success or failure.
+
+   Any extension to HTTP that defines additional conditional request
+   header fields ought to define the order for evaluating such fields in
+   relation to those defined in this document and other conditionals
+   that might be found in practice.
+
+[℗](#tfch14){id=pfch14}
+
+/14.  Range Requests
+========================================================
+
+
+   Clients often encounter interrupted data transfers as a result of
+   canceled requests or dropped connections.  When a client has stored a
+   partial representation, it is desirable to request the remainder of
+   that representation in a subsequent request rather than transfer the
+   entire representation.  Likewise, devices with limited local storage
+   might benefit from being able to request only a subset of a larger
+   representation, such as a single page of a very large document, or
+   the dimensions of an embedded image.
+
+   Range requests are an OPTIONAL feature of HTTP, designed so that
+   recipients not implementing this feature (or not supporting it for
+   the target resource) can respond as if it is a normal GET request
+   without impacting interoperability.  Partial responses are indicated
+   by a distinct status code to not be mistaken for full responses by
+   caches that might not implement the feature.
+
+[℗](#tfch14){id=pf14_1}
+
+//14.1.  Range Units
+--------------------------------------------------------
+
+   Representation data can be partitioned into subranges when there are
+   addressable structural units inherent to that data's content coding
+   or media type.  For example, octet (a.k.a. byte) boundaries are a
+   structural unit common to all representation data, allowing
+   partitions of the data to be identified as a range of bytes at some
+   offset from the start or end of that data.
+
+   This general notion of a "range unit" is used in the Accept-Ranges
+   (Section 14.3) response header field to advertise support for range
+   requests, the Range (Section 14.2) request header field to delineate
+   the parts of a representation that are requested, and the
+   Content-Range (Section 14.4) header field to describe which part of a
+   representation is being transferred.
+
+     range-unit       = token
+
+   All range unit names are case-insensitive and ought to be registered
+   within the "HTTP Range Unit Registry", as defined in Section 16.5.1.
+
+   Range units are intended to be extensible, as described in
+   Section 16.5.
+
+[℗](#tf14_1){id=pf14_1_1}
+
+14.1.1.  Range Specifiers
+--------------------------------------------------------
+
+   Ranges are expressed in terms of a range unit paired with a set of
+   range specifiers.  The range unit name determines what kinds of
+   range-spec are applicable to its own specifiers.  Hence, the
+   following grammar is generic: each range unit is expected to specify
+   requirements on when int-range, suffix-range, and other-range are
+   allowed.
+
+   A range request can specify a single range or a set of ranges within
+   a single representation.
+
+     ranges-specifier = range-unit "=" range-set
+     range-set        = 1#range-spec
+     range-spec       = int-range
+                      / suffix-range
+                      / other-range
+
+   An int-range is a range expressed as two non-negative integers or as
+   one non-negative integer through to the end of the representation
+   data.  The range unit specifies what the integers mean (e.g., they
+   might indicate unit offsets from the beginning, inclusive numbered
+   parts, etc.).
+
+     int-range     = first-pos "-" [ last-pos ]
+     first-pos     = 1*DIGIT
+     last-pos      = 1*DIGIT
+
+   An int-range is invalid if the last-pos value is present and less
+   than the first-pos.
+
+   A suffix-range is a range expressed as a suffix of the representation
+   data with the provided non-negative integer maximum length (in range
+   units).  In other words, the last N units of the representation data.
+
+     suffix-range  = "-" suffix-length
+     suffix-length = 1*DIGIT
+
+   To provide for extensibility, the other-range rule is a mostly
+   unconstrained grammar that allows application-specific or future
+   range units to define additional range specifiers.
+
+     other-range   = 1*( %x21-2B / %x2D-7E )
+                   ; 1*(VCHAR excluding comma)
+
+   A ranges-specifier is invalid if it contains any range-spec that is
+   invalid or undefined for the indicated range-unit.
+
+   A valid ranges-specifier is "satisfiable" if it contains at least one
+   range-spec that is satisfiable, as defined by the indicated
+   range-unit.  Otherwise, the ranges-specifier is "unsatisfiable".
+
+[℗](#tf14_1){id=pf14_1_2}
+
+14.1.2.  Byte Ranges
+--------------------------------------------------------
+
+   The "bytes" range unit is used to express subranges of a
+   representation data's octet sequence.  Each byte range is expressed
+   as an integer range at some offset, relative to either the beginning
+   (int-range) or end (suffix-range) of the representation data.  Byte
+   ranges do not use the other-range specifier.
+
+   The first-pos value in a bytes int-range gives the offset of the
+   first byte in a range.  The last-pos value gives the offset of the
+   last byte in the range; that is, the byte positions specified are
+   inclusive.  Byte offsets start at zero.
+
+   If the representation data has a content coding applied, each byte
+   range is calculated with respect to the encoded sequence of bytes,
+   not the sequence of underlying bytes that would be obtained after
+   decoding.
+
+   Examples of bytes range specifiers:
+
+   *  The first 500 bytes (byte offsets 0-499, inclusive):
+
+           bytes=0-499
+
+   *  The second 500 bytes (byte offsets 500-999, inclusive):
+
+           bytes=500-999
+
+   A client can limit the number of bytes requested without knowing the
+   size of the selected representation.  If the last-pos value is
+   absent, or if the value is greater than or equal to the current
+   length of the representation data, the byte range is interpreted as
+   the remainder of the representation (i.e., the server replaces the
+   value of last-pos with a value that is one less than the current
+   length of the selected representation).
+
+   A client can refer to the last N bytes (N > 0) of the selected
+   representation using a suffix-range.  If the selected representation
+   is shorter than the specified suffix-length, the entire
+   representation is used.
+
+   Additional examples, assuming a representation of length 10000:
+
+   *  The final 500 bytes (byte offsets 9500-9999, inclusive):
+
+           bytes=-500
+
+      Or:
+
+           bytes=9500-
+
+   *  The first and last bytes only (bytes 0 and 9999):
+
+           bytes=0-0,-1
+
+   *  The first, middle, and last 1000 bytes:
+
+           bytes= 0-999, 4500-5499, -1000
+
+   *  Other valid (but not canonical) specifications of the second 500
+      bytes (byte offsets 500-999, inclusive):
+
+           bytes=500-600,601-999
+           bytes=500-700,601-999
+
+   For a GET request, a valid bytes range-spec is satisfiable if it is
+   either:
+
+   *  an int-range with a first-pos that is less than the current length
+      of the selected representation or
+
+   *  a suffix-range with a non-zero suffix-length.
+
+   When a selected representation has zero length, the only satisfiable
+   form of range-spec in a GET request is a suffix-range with a non-zero
+   suffix-length.
+
+   In the byte-range syntax, first-pos, last-pos, and suffix-length are
+   expressed as decimal number of octets.  Since there is no predefined
+   limit to the length of content, recipients MUST anticipate
+   potentially large decimal numerals and prevent parsing errors due to
+   integer conversion overflows.
+
+[℗](#tfch14){id=pf14_2}
+
+//14.2.  Range
+--------------------------------------------------------
+
+   The "Range" header field on a GET request modifies the method
+   semantics to request transfer of only one or more subranges of the
+   selected representation data (Section 8.1), rather than the entire
+   selected representation.
+
+     Range = ranges-specifier
+
+   A server MAY ignore the Range header field.  However, origin servers
+   and intermediate caches ought to support byte ranges when possible,
+   since they support efficient recovery from partially failed transfers
+   and partial retrieval of large representations.
+
+   A server MUST ignore a Range header field received with a request
+   method that is unrecognized or for which range handling is not
+   defined.  For this specification, GET is the only method for which
+   range handling is defined.
+
+   An origin server MUST ignore a Range header field that contains a
+   range unit it does not understand.  A proxy MAY discard a Range
+   header field that contains a range unit it does not understand.
+
+   A server that supports range requests MAY ignore or reject a Range
+   header field that contains an invalid ranges-specifier
+   (Section 14.1.1), a ranges-specifier with more than two overlapping
+   ranges, or a set of many small ranges that are not listed in
+   ascending order, since these are indications of either a broken
+   client or a deliberate denial-of-service attack (Section 17.15).  A
+   client SHOULD NOT request multiple ranges that are inherently less
+   efficient to process and transfer than a single range that
+   encompasses the same data.
+
+   A server that supports range requests MAY ignore a Range header field
+   when the selected representation has no content (i.e., the selected
+   representation's data is of zero length).
+
+   A client that is requesting multiple ranges SHOULD list those ranges
+   in ascending order (the order in which they would typically be
+   received in a complete representation) unless there is a specific
+   need to request a later part earlier.  For example, a user agent
+   processing a large representation with an internal catalog of parts
+   might need to request later parts first, particularly if the
+   representation consists of pages stored in reverse order and the user
+   agent wishes to transfer one page at a time.
+
+   The Range header field is evaluated after evaluating the precondition
+   header fields defined in Section 13.1, and only if the result in
+   absence of the Range header field would be a 200 (OK) response.  In
+   other words, Range is ignored when a conditional GET would result in
+   a 304 (Not Modified) response.
+
+   The If-Range header field (Section 13.1.5) can be used as a
+   precondition to applying the Range header field.
+
+   If all of the preconditions are true, the server supports the Range
+   header field for the target resource, the received Range field-value
+   contains a valid ranges-specifier with a range-unit supported for
+   that target resource, and that ranges-specifier is satisfiable with
+   respect to the selected representation, the server SHOULD send a 206
+   (Partial Content) response with content containing one or more
+   partial representations that correspond to the satisfiable
+   range-spec(s) requested.
+
+   The above does not imply that a server will send all requested
+   ranges.  In some cases, it may only be possible (or efficient) to
+   send a portion of the requested ranges first, while expecting the
+   client to re-request the remaining portions later if they are still
+   desired (see Section 15.3.7).
+
+   If all of the preconditions are true, the server supports the Range
+   header field for the target resource, the received Range field-value
+   contains a valid ranges-specifier, and either the range-unit is not
+   supported for that target resource or the ranges-specifier is
+   unsatisfiable with respect to the selected representation, the server
+   SHOULD send a 416 (Range Not Satisfiable) response.
+
+[℗](#tfch14){id=pf14_3}
+
+//14.3.  Accept-Ranges
+--------------------------------------------------------
+
+   The "Accept-Ranges" field in a response indicates whether an upstream
+   server supports range requests for the target resource.
+
+     Accept-Ranges     = acceptable-ranges
+     acceptable-ranges = 1#range-unit
+
+   For example, a server that supports byte-range requests
+   (Section 14.1.2) can send the field
+
+   Accept-Ranges: bytes
+
+   to indicate that it supports byte range requests for that target
+   resource, thereby encouraging its use by the client for future
+   partial requests on the same request path.  Range units are defined
+   in Section 14.1.
+
+   A client MAY generate range requests regardless of having received an
+   Accept-Ranges field.  The information only provides advice for the
+   sake of improving performance and reducing unnecessary network
+   transfers.
+
+   Conversely, a client MUST NOT assume that receiving an Accept-Ranges
+   field means that future range requests will return partial responses.
+   The content might change, the server might only support range
+   requests at certain times or under certain conditions, or a different
+   intermediary might process the next request.
+
+   A server that does not support any kind of range request for the
+   target resource MAY send
+
+   Accept-Ranges: none
+
+   to advise the client not to attempt a range request on the same
+   request path.  The range unit "none" is reserved for this purpose.
+
+   The Accept-Ranges field MAY be sent in a trailer section, but is
+   preferred to be sent as a header field because the information is
+   particularly useful for restarting large information transfers that
+   have failed in mid-content (before the trailer section is received).
+
+[℗](#tfch14){id=pf14_4}
+
+//14.4.  Content-Range
+--------------------------------------------------------
+
+   The "Content-Range" header field is sent in a single part 206
+   (Partial Content) response to indicate the partial range of the
+   selected representation enclosed as the message content, sent in each
+   part of a multipart 206 response to indicate the range enclosed
+   within each body part (Section 14.6), and sent in 416 (Range Not
+   Satisfiable) responses to provide information about the selected
+   representation.
+
+     Content-Range       = range-unit SP
+                           ( range-resp / unsatisfied-range )
+
+     range-resp          = incl-range "/" ( complete-length / "*" )
+     incl-range          = first-pos "-" last-pos
+     unsatisfied-range   = "*/" complete-length
+
+     complete-length     = 1*DIGIT
+
+   If a 206 (Partial Content) response contains a Content-Range header
+   field with a range unit (Section 14.1) that the recipient does not
+   understand, the recipient MUST NOT attempt to recombine it with a
+   stored representation.  A proxy that receives such a message SHOULD
+   forward it downstream.
+
+   Content-Range might also be sent as a request modifier to request a
+   partial PUT, as described in Section 14.5, based on private
+   agreements between client and origin server.  A server MUST ignore a
+   Content-Range header field received in a request with a method for
+   which Content-Range support is not defined.
+
+   For byte ranges, a sender SHOULD indicate the complete length of the
+   representation from which the range has been extracted, unless the
+   complete length is unknown or difficult to determine.  An asterisk
+   character ("*") in place of the complete-length indicates that the
+   representation length was unknown when the header field was
+   generated.
+
+   The following example illustrates when the complete length of the
+   selected representation is known by the sender to be 1234 bytes:
+
+   Content-Range: bytes 42-1233/1234
+
+   and this second example illustrates when the complete length is
+   unknown:
+
+   Content-Range: bytes 42-1233/*
+
+   A Content-Range field value is invalid if it contains a range-resp
+   that has a last-pos value less than its first-pos value, or a
+   complete-length value less than or equal to its last-pos value.  The
+   recipient of an invalid Content-Range MUST NOT attempt to recombine
+   the received content with a stored representation.
+
+   A server generating a 416 (Range Not Satisfiable) response to a byte-
+   range request SHOULD send a Content-Range header field with an
+   unsatisfied-range value, as in the following example:
+
+   Content-Range: bytes */1234
+
+   The complete-length in a 416 response indicates the current length of
+   the selected representation.
+
+   The Content-Range header field has no meaning for status codes that
+   do not explicitly describe its semantic.  For this specification,
+   only the 206 (Partial Content) and 416 (Range Not Satisfiable) status
+   codes describe a meaning for Content-Range.
+
+   The following are examples of Content-Range values in which the
+   selected representation contains a total of 1234 bytes:
+
+   *  The first 500 bytes:
+
+      Content-Range: bytes 0-499/1234
+
+   *  The second 500 bytes:
+
+      Content-Range: bytes 500-999/1234
+
+   *  All except for the first 500 bytes:
+
+      Content-Range: bytes 500-1233/1234
+
+   *  The last 500 bytes:
+
+      Content-Range: bytes 734-1233/1234
+
+[℗](#tfch14){id=pf14_5}
+
+//14.5.  Partial PUT
+--------------------------------------------------------
+
+   Some origin servers support PUT of a partial representation when the
+   user agent sends a Content-Range header field (Section 14.4) in the
+   request, though such support is inconsistent and depends on private
+   agreements with user agents.  In general, it requests that the state
+   of the target resource be partly replaced with the enclosed content
+   at an offset and length indicated by the Content-Range value, where
+   the offset is relative to the current selected representation.
+
+   An origin server SHOULD respond with a 400 (Bad Request) status code
+   if it receives Content-Range on a PUT for a target resource that does
+   not support partial PUT requests.
+
+   Partial PUT is not backwards compatible with the original definition
+   of PUT.  It may result in the content being written as a complete
+   replacement for the current representation.
+
+   Partial resource updates are also possible by targeting a separately
+   identified resource with state that overlaps or extends a portion of
+   the larger resource, or by using a different method that has been
+   specifically defined for partial updates (for example, the PATCH
+   method defined in [RFC5789]).
+
+[℗](#tfch14){id=pf14_6}
+
+//14.6.  Media Type multipart/byteranges
+--------------------------------------------------------
+
+   When a 206 (Partial Content) response message includes the content of
+   multiple ranges, they are transmitted as body parts in a multipart
+   message body ([RFC2046], Section 5.1) with the media type of
+   "multipart/byteranges".
+
+   The "multipart/byteranges" media type includes one or more body
+   parts, each with its own Content-Type and Content-Range fields.  The
+   required boundary parameter specifies the boundary string used to
+   separate each body part.
+
+   Implementation Notes:
+
+   1.  Additional CRLFs might precede the first boundary string in the
+       body.
+
+   2.  Although [RFC2046] permits the boundary string to be quoted, some
+       existing implementations handle a quoted boundary string
+       incorrectly.
+
+   3.  A number of clients and servers were coded to an early draft of
+       the byteranges specification that used a media type of
+       "multipart/x-byteranges", which is almost (but not quite)
+       compatible with this type.
+
+   Despite the name, the "multipart/byteranges" media type is not
+   limited to byte ranges.  The following example uses an "exampleunit"
+   range unit:
+
+   HTTP/1.1 206 Partial Content
+   Date: Tue, 14 Nov 1995 06:25:24 GMT
+   Last-Modified: Tue, 14 July 04:58:08 GMT
+   Content-Length: 2331785
+   Content-Type: multipart/byteranges; boundary=THIS_STRING_SEPARATES
+
+   --THIS_STRING_SEPARATES
+   Content-Type: video/example
+   Content-Range: exampleunit 1.2-4.3/25
+
+   ...the first range...
+   --THIS_STRING_SEPARATES
+   Content-Type: video/example
+   Content-Range: exampleunit 11.2-14.3/25
+
+   ...the second range
+   --THIS_STRING_SEPARATES--
+
+   The following information serves as the registration form for the
+   "multipart/byteranges" media type.
+
+   Type name:  multipart
+
+   Subtype name:  byteranges
+
+   Required parameters:  boundary
+
+   Optional parameters:  N/A
+
+   Encoding considerations:  only "7bit", "8bit", or "binary" are
+      permitted
+
+   Security considerations:  see Section 17
+
+   Interoperability considerations:  N/A
+
+   Published specification:  RFC 9110 (see Section 14.6)
+
+   Applications that use this media type:  HTTP components supporting
+      multiple ranges in a single request
+
+   Fragment identifier considerations:  N/A
+
+   Additional information:  Deprecated alias names for this type:  N/A
+
+                            Magic number(s):  N/A
+
+                            File extension(s):  N/A
+
+                            Macintosh file type code(s):  N/A
+
+   Person and email address to contact for further information:  See Aut
+      hors' Addresses section.
+
+   Intended usage:  COMMON
+
+   Restrictions on usage:  N/A
+
+   Author:  See Authors' Addresses section.
+
+   Change controller:  IESG
+
+[℗](#tfch15){id=pfch15}
+
+/15.  Status Codes
+========================================================
+
+
+   The status code of a response is a three-digit integer code that
+   describes the result of the request and the semantics of the
+   response, including whether the request was successful and what
+   content is enclosed (if any).  All valid status codes are within the
+   range of 100 to 599, inclusive.
+
+   The first digit of the status code defines the class of response.
+   The last two digits do not have any categorization role.  There are
+   five values for the first digit:
+
+   *  1xx (Informational): The request was received, continuing process
+
+   *  2xx (Successful): The request was successfully received,
+      understood, and accepted
+
+   *  3xx (Redirection): Further action needs to be taken in order to
+      complete the request
+
+   *  4xx (Client Error): The request contains bad syntax or cannot be
+      fulfilled
+
+   *  5xx (Server Error): The server failed to fulfill an apparently
+      valid request
+
+   HTTP status codes are extensible.  A client is not required to
+   understand the meaning of all registered status codes, though such
+   understanding is obviously desirable.  However, a client MUST
+   understand the class of any status code, as indicated by the first
+   digit, and treat an unrecognized status code as being equivalent to
+   the x00 status code of that class.
+
+   For example, if a client receives an unrecognized status code of 471,
+   it can see from the first digit that there was something wrong with
+   its request and treat the response as if it had received a 400 (Bad
+   Request) status code.  The response message will usually contain a
+   representation that explains the status.
+
+   Values outside the range 100..599 are invalid.  Implementations often
+   use three-digit integer values outside of that range (i.e., 600..999)
+   for internal communication of non-HTTP status (e.g., library errors).
+   A client that receives a response with an invalid status code SHOULD
+   process the response as if it had a 5xx (Server Error) status code.
+
+   A single request can have multiple associated responses: zero or more
+   "interim" (non-final) responses with status codes in the
+   "informational" (1xx) range, followed by exactly one "final" response
+   with a status code in one of the other ranges.
+
+[℗](#tfch15){id=pf15_1}
+
+//15.1.  Overview of Status Codes
+--------------------------------------------------------
+
+   The status codes listed below are defined in this specification.  The
+   reason phrases listed here are only recommendations -- they can be
+   replaced by local equivalents or left out altogether without
+   affecting the protocol.
+
+   Responses with status codes that are defined as heuristically
+   cacheable (e.g., 200, 203, 204, 206, 300, 301, 308, 404, 405, 410,
+   414, and 501 in this specification) can be reused by a cache with
+   heuristic expiration unless otherwise indicated by the method
+   definition or explicit cache controls [CACHING]; all other status
+   codes are not heuristically cacheable.
+
+   Additional status codes, outside the scope of this specification,
+   have been specified for use in HTTP.  All such status codes ought to
+   be registered within the "Hypertext Transfer Protocol (HTTP) Status
+   Code Registry", as described in Section 16.2.
+
+[℗](#tfch15){id=pf15_2}
+
+//15.2.  Informational 1xx
+--------------------------------------------------------
+
+   The 1xx (Informational) class of status code indicates an interim
+   response for communicating connection status or request progress
+   prior to completing the requested action and sending a final
+   response.  Since HTTP/1.0 did not define any 1xx status codes, a
+   server MUST NOT send a 1xx response to an HTTP/1.0 client.
+
+   A 1xx response is terminated by the end of the header section; it
+   cannot contain content or trailers.
+
+   A client MUST be able to parse one or more 1xx responses received
+   prior to a final response, even if the client does not expect one.  A
+   user agent MAY ignore unexpected 1xx responses.
+
+   A proxy MUST forward 1xx responses unless the proxy itself requested
+   the generation of the 1xx response.  For example, if a proxy adds an
+   "Expect: 100-continue" header field when it forwards a request, then
+   it need not forward the corresponding 100 (Continue) response(s).
+
+[℗](#tf15_2){id=pf15_2_1}
+
+15.2.1.  100 Continue
+--------------------------------------------------------
+
+   The 100 (Continue) status code indicates that the initial part of a
+   request has been received and has not yet been rejected by the
+   server.  The server intends to send a final response after the
+   request has been fully received and acted upon.
+
+   When the request contains an Expect header field that includes a
+   100-continue expectation, the 100 response indicates that the server
+   wishes to receive the request content, as described in
+   Section 10.1.1.  The client ought to continue sending the request and
+   discard the 100 response.
+
+   If the request did not contain an Expect header field containing the
+   100-continue expectation, the client can simply discard this interim
+   response.
+
+[℗](#tf15_2){id=pf15_2_2}
+
+15.2.2.  101 Switching Protocols
+--------------------------------------------------------
+
+   The 101 (Switching Protocols) status code indicates that the server
+   understands and is willing to comply with the client's request, via
+   the Upgrade header field (Section 7.8), for a change in the
+   application protocol being used on this connection.  The server MUST
+   generate an Upgrade header field in the response that indicates which
+   protocol(s) will be in effect after this response.
+
+   It is assumed that the server will only agree to switch protocols
+   when it is advantageous to do so.  For example, switching to a newer
+   version of HTTP might be advantageous over older versions, and
+   switching to a real-time, synchronous protocol might be advantageous
+   when delivering resources that use such features.
+
+[℗](#tfch15){id=pf15_3}
+
+//15.3.  Successful 2xx
+--------------------------------------------------------
+
+   The 2xx (Successful) class of status code indicates that the client's
+   request was successfully received, understood, and accepted.
+
+[℗](#tf15_3){id=pf15_3_1}
+
+15.3.1.  200 OK
+--------------------------------------------------------
+
+   The 200 (OK) status code indicates that the request has succeeded.
+   The content sent in a 200 response depends on the request method.
+   For the methods defined by this specification, the intended meaning
+   of the content can be summarized as:
+
+   +================+============================================+
+   | Request Method | Response content is a representation of:   |
+   +================+============================================+
+   | GET            | the target resource                        |
+   +----------------+--------------------------------------------+
+   | HEAD           | the target resource, like GET, but without |
+   |                | transferring the representation data       |
+   +----------------+--------------------------------------------+
+   | POST           | the status of, or results obtained from,   |
+   |                | the action                                 |
+   +----------------+--------------------------------------------+
+   | PUT, DELETE    | the status of the action                   |
+   +----------------+--------------------------------------------+
+   | OPTIONS        | communication options for the target       |
+   |                | resource                                   |
+   +----------------+--------------------------------------------+
+   | TRACE          | the request message as received by the     |
+   |                | server returning the trace                 |
+   +----------------+--------------------------------------------+
+
+                               Table 6
+
+   Aside from responses to CONNECT, a 200 response is expected to
+   contain message content unless the message framing explicitly
+   indicates that the content has zero length.  If some aspect of the
+   request indicates a preference for no content upon success, the
+   origin server ought to send a 204 (No Content) response instead.  For
+   CONNECT, there is no content because the successful result is a
+   tunnel, which begins immediately after the 200 response header
+   section.
+
+   A 200 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+   In 200 responses to GET or HEAD, an origin server SHOULD send any
+   available validator fields (Section 8.8) for the selected
+   representation, with both a strong entity tag and a Last-Modified
+   date being preferred.
+
+   In 200 responses to state-changing methods, any validator fields
+   (Section 8.8) sent in the response convey the current validators for
+   the new representation formed as a result of successfully applying
+   the request semantics.  Note that the PUT method (Section 9.3.4) has
+   additional requirements that might preclude sending such validators.
+
+[℗](#tf15_3){id=pf15_3_2}
+
+15.3.2.  201 Created
+--------------------------------------------------------
+
+   The 201 (Created) status code indicates that the request has been
+   fulfilled and has resulted in one or more new resources being
+   created.  The primary resource created by the request is identified
+   by either a Location header field in the response or, if no Location
+   header field is received, by the target URI.
+
+   The 201 response content typically describes and links to the
+   resource(s) created.  Any validator fields (Section 8.8) sent in the
+   response convey the current validators for a new representation
+   created by the request.  Note that the PUT method (Section 9.3.4) has
+   additional requirements that might preclude sending such validators.
+
+[℗](#tf15_3){id=pf15_3_3}
+
+15.3.3.  202 Accepted
+--------------------------------------------------------
+
+   The 202 (Accepted) status code indicates that the request has been
+   accepted for processing, but the processing has not been completed.
+   The request might or might not eventually be acted upon, as it might
+   be disallowed when processing actually takes place.  There is no
+   facility in HTTP for re-sending a status code from an asynchronous
+   operation.
+
+   The 202 response is intentionally noncommittal.  Its purpose is to
+   allow a server to accept a request for some other process (perhaps a
+   batch-oriented process that is only run once per day) without
+   requiring that the user agent's connection to the server persist
+   until the process is completed.  The representation sent with this
+   response ought to describe the request's current status and point to
+   (or embed) a status monitor that can provide the user with an
+   estimate of when the request will be fulfilled.
+
+[℗](#tf15_3){id=pf15_3_4}
+
+15.3.4.  203 Non-Authoritative Information
+--------------------------------------------------------
+
+   The 203 (Non-Authoritative Information) status code indicates that
+   the request was successful but the enclosed content has been modified
+   from that of the origin server's 200 (OK) response by a transforming
+   proxy (Section 7.7).  This status code allows the proxy to notify
+   recipients when a transformation has been applied, since that
+   knowledge might impact later decisions regarding the content.  For
+   example, future cache validation requests for the content might only
+   be applicable along the same request path (through the same proxies).
+
+   A 203 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_3){id=pf15_3_5}
+
+15.3.5.  204 No Content
+--------------------------------------------------------
+
+   The 204 (No Content) status code indicates that the server has
+   successfully fulfilled the request and that there is no additional
+   content to send in the response content.  Metadata in the response
+   header fields refer to the target resource and its selected
+   representation after the requested action was applied.
+
+   For example, if a 204 status code is received in response to a PUT
+   request and the response contains an ETag field, then the PUT was
+   successful and the ETag field value contains the entity tag for the
+   new representation of that target resource.
+
+   The 204 response allows a server to indicate that the action has been
+   successfully applied to the target resource, while implying that the
+   user agent does not need to traverse away from its current "document
+   view" (if any).  The server assumes that the user agent will provide
+   some indication of the success to its user, in accord with its own
+   interface, and apply any new or updated metadata in the response to
+   its active representation.
+
+   For example, a 204 status code is commonly used with document editing
+   interfaces corresponding to a "save" action, such that the document
+   being saved remains available to the user for editing.  It is also
+   frequently used with interfaces that expect automated data transfers
+   to be prevalent, such as within distributed version control systems.
+
+   A 204 response is terminated by the end of the header section; it
+   cannot contain content or trailers.
+
+   A 204 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_3){id=pf15_3_6}
+
+15.3.6.  205 Reset Content
+--------------------------------------------------------
+
+   The 205 (Reset Content) status code indicates that the server has
+   fulfilled the request and desires that the user agent reset the
+   "document view", which caused the request to be sent, to its original
+   state as received from the origin server.
+
+   This response is intended to support a common data entry use case
+   where the user receives content that supports data entry (a form,
+   notepad, canvas, etc.), enters or manipulates data in that space,
+   causes the entered data to be submitted in a request, and then the
+   data entry mechanism is reset for the next entry so that the user can
+   easily initiate another input action.
+
+   Since the 205 status code implies that no additional content will be
+   provided, a server MUST NOT generate content in a 205 response.
+
+[℗](#tf15_3){id=pf15_3_7}
+
+15.3.7.  206 Partial Content
+--------------------------------------------------------
+
+   The 206 (Partial Content) status code indicates that the server is
+   successfully fulfilling a range request for the target resource by
+   transferring one or more parts of the selected representation.
+
+   A server that supports range requests (Section 14) will usually
+   attempt to satisfy all of the requested ranges, since sending less
+   data will likely result in another client request for the remainder.
+   However, a server might want to send only a subset of the data
+   requested for reasons of its own, such as temporary unavailability,
+   cache efficiency, load balancing, etc.  Since a 206 response is self-
+   descriptive, the client can still understand a response that only
+   partially satisfies its range request.
+
+   A client MUST inspect a 206 response's Content-Type and Content-Range
+   field(s) to determine what parts are enclosed and whether additional
+   requests are needed.
+
+   A server that generates a 206 response MUST generate the following
+   header fields, in addition to those required in the subsections
+   below, if the field would have been sent in a 200 (OK) response to
+   the same request: Date, Cache-Control, ETag, Expires,
+   Content-Location, and Vary.
+
+   A Content-Length header field present in a 206 response indicates the
+   number of octets in the content of this message, which is usually not
+   the complete length of the selected representation.  Each
+   Content-Range header field includes information about the selected
+   representation's complete length.
+
+   A sender that generates a 206 response to a request with an If-Range
+   header field SHOULD NOT generate other representation header fields
+   beyond those required because the client already has a prior response
+   containing those header fields.  Otherwise, a sender MUST generate
+   all of the representation header fields that would have been sent in
+   a 200 (OK) response to the same request.
+
+   A 206 response is heuristically cacheable; i.e., unless otherwise
+   indicated by explicit cache controls (see Section 4.2.2 of
+   [CACHING]).
+
+[℗](#tf15_3){id=pf15_3_7_1}
+
+15.3.7.1.  Single Part
+--------------------------------------------------------
+
+   If a single part is being transferred, the server generating the 206
+   response MUST generate a Content-Range header field, describing what
+   range of the selected representation is enclosed, and a content
+   consisting of the range.  For example:
+
+   HTTP/1.1 206 Partial Content
+   Date: Wed, 15 Nov 1995 06:25:24 GMT
+   Last-Modified: Wed, 15 Nov 1995 04:58:08 GMT
+   Content-Range: bytes 21010-47021/47022
+   Content-Length: 26012
+   Content-Type: image/gif
+
+   ... 26012 bytes of partial image data ...
+
+[℗](#tf15_3){id=pf15_3_7_2}
+
+15.3.7.2.  Multiple Parts
+--------------------------------------------------------
+
+   If multiple parts are being transferred, the server generating the
+   206 response MUST generate "multipart/byteranges" content, as defined
+   in Section 14.6, and a Content-Type header field containing the
+   "multipart/byteranges" media type and its required boundary
+   parameter.  To avoid confusion with single-part responses, a server
+   MUST NOT generate a Content-Range header field in the HTTP header
+   section of a multiple part response (this field will be sent in each
+   part instead).
+
+   Within the header area of each body part in the multipart content,
+   the server MUST generate a Content-Range header field corresponding
+   to the range being enclosed in that body part.  If the selected
+   representation would have had a Content-Type header field in a 200
+   (OK) response, the server SHOULD generate that same Content-Type
+   header field in the header area of each body part.  For example:
+
+   HTTP/1.1 206 Partial Content
+   Date: Wed, 15 Nov 1995 06:25:24 GMT
+   Last-Modified: Wed, 15 Nov 1995 04:58:08 GMT
+   Content-Length: 1741
+   Content-Type: multipart/byteranges; boundary=THIS_STRING_SEPARATES
+
+   --THIS_STRING_SEPARATES
+   Content-Type: application/pdf
+   Content-Range: bytes 500-999/8000
+
+   ...the first range...
+   --THIS_STRING_SEPARATES
+   Content-Type: application/pdf
+   Content-Range: bytes 7000-7999/8000
+
+   ...the second range
+   --THIS_STRING_SEPARATES--
+
+   When multiple ranges are requested, a server MAY coalesce any of the
+   ranges that overlap, or that are separated by a gap that is smaller
+   than the overhead of sending multiple parts, regardless of the order
+   in which the corresponding range-spec appeared in the received Range
+   header field.  Since the typical overhead between each part of a
+   "multipart/byteranges" is around 80 bytes, depending on the selected
+   representation's media type and the chosen boundary parameter length,
+   it can be less efficient to transfer many small disjoint parts than
+   it is to transfer the entire selected representation.
+
+   A server MUST NOT generate a multipart response to a request for a
+   single range, since a client that does not request multiple parts
+   might not support multipart responses.  However, a server MAY
+   generate a "multipart/byteranges" response with only a single body
+   part if multiple ranges were requested and only one range was found
+   to be satisfiable or only one range remained after coalescing.  A
+   client that cannot process a "multipart/byteranges" response MUST NOT
+   generate a request that asks for multiple ranges.
+
+   A server that generates a multipart response SHOULD send the parts in
+   the same order that the corresponding range-spec appeared in the
+   received Range header field, excluding those ranges that were deemed
+   unsatisfiable or that were coalesced into other ranges.  A client
+   that receives a multipart response MUST inspect the Content-Range
+   header field present in each body part in order to determine which
+   range is contained in that body part; a client cannot rely on
+   receiving the same ranges that it requested, nor the same order that
+   it requested.
+
+[℗](#tf15_3){id=pf15_3_7_3}
+
+15.3.7.3.  Combining Parts
+--------------------------------------------------------
+
+   A response might transfer only a subrange of a representation if the
+   connection closed prematurely or if the request used one or more
+   Range specifications.  After several such transfers, a client might
+   have received several ranges of the same representation.  These
+   ranges can only be safely combined if they all have in common the
+   same strong validator (Section 8.8.1).
+
+   A client that has received multiple partial responses to GET requests
+   on a target resource MAY combine those responses into a larger
+   continuous range if they share the same strong validator.
+
+   If the most recent response is an incomplete 200 (OK) response, then
+   the header fields of that response are used for any combined response
+   and replace those of the matching stored responses.
+
+   If the most recent response is a 206 (Partial Content) response and
+   at least one of the matching stored responses is a 200 (OK), then the
+   combined response header fields consist of the most recent 200
+   response's header fields.  If all of the matching stored responses
+   are 206 responses, then the stored response with the most recent
+   header fields is used as the source of header fields for the combined
+   response, except that the client MUST use other header fields
+   provided in the new response, aside from Content-Range, to replace
+   all instances of the corresponding header fields in the stored
+   response.
+
+   The combined response content consists of the union of partial
+   content ranges within the new response and all of the matching stored
+   responses.  If the union consists of the entire range of the
+   representation, then the client MUST process the combined response as
+   if it were a complete 200 (OK) response, including a Content-Length
+   header field that reflects the complete length.  Otherwise, the
+   client MUST process the set of continuous ranges as one of the
+   following: an incomplete 200 (OK) response if the combined response
+   is a prefix of the representation, a single 206 (Partial Content)
+   response containing "multipart/byteranges" content, or multiple 206
+   (Partial Content) responses, each with one continuous range that is
+   indicated by a Content-Range header field.
+
+[℗](#tfch15){id=pf15_4}
+
+//15.4.  Redirection 3xx
+--------------------------------------------------------
+
+   The 3xx (Redirection) class of status code indicates that further
+   action needs to be taken by the user agent in order to fulfill the
+   request.  There are several types of redirects:
+
+   1.  Redirects that indicate this resource might be available at a
+       different URI, as provided by the Location header field, as in
+       the status codes 301 (Moved Permanently), 302 (Found), 307
+       (Temporary Redirect), and 308 (Permanent Redirect).
+
+   2.  Redirection that offers a choice among matching resources capable
+       of representing this resource, as in the 300 (Multiple Choices)
+       status code.
+
+   3.  Redirection to a different resource, identified by the Location
+       header field, that can represent an indirect response to the
+       request, as in the 303 (See Other) status code.
+
+   4.  Redirection to a previously stored result, as in the 304 (Not
+       Modified) status code.
+
+      |  *Note:* In HTTP/1.0, the status codes 301 (Moved Permanently)
+      |  and 302 (Found) were originally defined as method-preserving
+      |  ([HTTP/1.0], Section 9.3) to match their implementation at
+      |  CERN; 303 (See Other) was defined for a redirection that
+      |  changed its method to GET.  However, early user agents split on
+      |  whether to redirect POST requests as POST (according to then-
+      |  current specification) or as GET (the safer alternative when
+      |  redirected to a different site).  Prevailing practice
+      |  eventually converged on changing the method to GET.  307
+      |  (Temporary Redirect) and 308 (Permanent Redirect) [RFC7538]
+      |  were later added to unambiguously indicate method-preserving
+      |  redirects, and status codes 301 and 302 have been adjusted to
+      |  allow a POST request to be redirected as GET.
+
+   If a Location header field (Section 10.2.2) is provided, the user
+   agent MAY automatically redirect its request to the URI referenced by
+   the Location field value, even if the specific status code is not
+   understood.  Automatic redirection needs to be done with care for
+   methods not known to be safe, as defined in Section 9.2.1, since the
+   user might not wish to redirect an unsafe request.
+
+   When automatically following a redirected request, the user agent
+   SHOULD resend the original request message with the following
+   modifications:
+
+   1.  Replace the target URI with the URI referenced by the redirection
+       response's Location header field value after resolving it
+       relative to the original request's target URI.
+
+   2.  Remove header fields that were automatically generated by the
+       implementation, replacing them with updated values as appropriate
+       to the new request.  This includes:
+
+       1.  Connection-specific header fields (see Section 7.6.1),
+
+       2.  Header fields specific to the client's proxy configuration,
+           including (but not limited to) Proxy-Authorization,
+
+       3.  Origin-specific header fields (if any), including (but not
+           limited to) Host,
+
+       4.  Validating header fields that were added by the
+           implementation's cache (e.g., If-None-Match,
+           If-Modified-Since), and
+
+       5.  Resource-specific header fields, including (but not limited
+           to) Referer, Origin, Authorization, and Cookie.
+
+   3.  Consider removing header fields that were not automatically
+       generated by the implementation (i.e., those present in the
+       request because they were added by the calling context) where
+       there are security implications; this includes but is not limited
+       to Authorization and Cookie.
+
+   4.  Change the request method according to the redirecting status
+       code's semantics, if applicable.
+
+   5.  If the request method has been changed to GET or HEAD, remove
+       content-specific header fields, including (but not limited to)
+       Content-Encoding, Content-Language, Content-Location,
+       Content-Type, Content-Length, Digest, Last-Modified.
+
+   A client SHOULD detect and intervene in cyclical redirections (i.e.,
+   "infinite" redirection loops).
+
+      |  *Note:* An earlier version of this specification recommended a
+      |  maximum of five redirections ([RFC2068], Section 10.3).
+      |  Content developers need to be aware that some clients might
+      |  implement such a fixed limitation.
+
+[℗](#tf15_4){id=pf15_4_1}
+
+15.4.1.  300 Multiple Choices
+--------------------------------------------------------
+
+   The 300 (Multiple Choices) status code indicates that the target
+   resource has more than one representation, each with its own more
+   specific identifier, and information about the alternatives is being
+   provided so that the user (or user agent) can select a preferred
+   representation by redirecting its request to one or more of those
+   identifiers.  In other words, the server desires that the user agent
+   engage in reactive negotiation to select the most appropriate
+   representation(s) for its needs (Section 12).
+
+   If the server has a preferred choice, the server SHOULD generate a
+   Location header field containing a preferred choice's URI reference.
+   The user agent MAY use the Location field value for automatic
+   redirection.
+
+   For request methods other than HEAD, the server SHOULD generate
+   content in the 300 response containing a list of representation
+   metadata and URI reference(s) from which the user or user agent can
+   choose the one most preferred.  The user agent MAY make a selection
+   from that list automatically if it understands the provided media
+   type.  A specific format for automatic selection is not defined by
+   this specification because HTTP tries to remain orthogonal to the
+   definition of its content.  In practice, the representation is
+   provided in some easily parsed format believed to be acceptable to
+   the user agent, as determined by shared design or content
+   negotiation, or in some commonly accepted hypertext format.
+
+   A 300 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+      |  *Note:* The original proposal for the 300 status code defined
+      |  the URI header field as providing a list of alternative
+      |  representations, such that it would be usable for 200, 300, and
+      |  406 responses and be transferred in responses to the HEAD
+      |  method.  However, lack of deployment and disagreement over
+      |  syntax led to both URI and Alternates (a subsequent proposal)
+      |  being dropped from this specification.  It is possible to
+      |  communicate the list as a Link header field value [RFC8288]
+      |  whose members have a relationship of "alternate", though
+      |  deployment is a chicken-and-egg problem.
+
+[℗](#tf15_4){id=pf15_4_2}
+
+15.4.2.  301 Moved Permanently
+--------------------------------------------------------
+
+   The 301 (Moved Permanently) status code indicates that the target
+   resource has been assigned a new permanent URI and any future
+   references to this resource ought to use one of the enclosed URIs.
+   The server is suggesting that a user agent with link-editing
+   capability can permanently replace references to the target URI with
+   one of the new references sent by the server.  However, this
+   suggestion is usually ignored unless the user agent is actively
+   editing references (e.g., engaged in authoring content), the
+   connection is secured, and the origin server is a trusted authority
+   for the content being edited.
+
+   The server SHOULD generate a Location header field in the response
+   containing a preferred URI reference for the new permanent URI.  The
+   user agent MAY use the Location field value for automatic
+   redirection.  The server's response content usually contains a short
+   hypertext note with a hyperlink to the new URI(s).
+
+      |  *Note:* For historical reasons, a user agent MAY change the
+      |  request method from POST to GET for the subsequent request.  If
+      |  this behavior is undesired, the 308 (Permanent Redirect) status
+      |  code can be used instead.
+
+   A 301 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_4){id=pf15_4_3}
+
+15.4.3.  302 Found
+--------------------------------------------------------
+
+   The 302 (Found) status code indicates that the target resource
+   resides temporarily under a different URI.  Since the redirection
+   might be altered on occasion, the client ought to continue to use the
+   target URI for future requests.
+
+   The server SHOULD generate a Location header field in the response
+   containing a URI reference for the different URI.  The user agent MAY
+   use the Location field value for automatic redirection.  The server's
+   response content usually contains a short hypertext note with a
+   hyperlink to the different URI(s).
+
+      |  *Note:* For historical reasons, a user agent MAY change the
+      |  request method from POST to GET for the subsequent request.  If
+      |  this behavior is undesired, the 307 (Temporary Redirect) status
+      |  code can be used instead.
+
+[℗](#tf15_4){id=pf15_4_4}
+
+15.4.4.  303 See Other
+--------------------------------------------------------
+
+   The 303 (See Other) status code indicates that the server is
+   redirecting the user agent to a different resource, as indicated by a
+   URI in the Location header field, which is intended to provide an
+   indirect response to the original request.  A user agent can perform
+   a retrieval request targeting that URI (a GET or HEAD request if
+   using HTTP), which might also be redirected, and present the eventual
+   result as an answer to the original request.  Note that the new URI
+   in the Location header field is not considered equivalent to the
+   target URI.
+
+   This status code is applicable to any HTTP method.  It is primarily
+   used to allow the output of a POST action to redirect the user agent
+   to a different resource, since doing so provides the information
+   corresponding to the POST response as a resource that can be
+   separately identified, bookmarked, and cached.
+
+   A 303 response to a GET request indicates that the origin server does
+   not have a representation of the target resource that can be
+   transferred by the server over HTTP.  However, the Location field
+   value refers to a resource that is descriptive of the target
+   resource, such that making a retrieval request on that other resource
+   might result in a representation that is useful to recipients without
+   implying that it represents the original target resource.  Note that
+   answers to the questions of what can be represented, what
+   representations are adequate, and what might be a useful description
+   are outside the scope of HTTP.
+
+   Except for responses to a HEAD request, the representation of a 303
+   response ought to contain a short hypertext note with a hyperlink to
+   the same URI reference provided in the Location header field.
+
+[℗](#tf15_4){id=pf15_4_5}
+
+15.4.5.  304 Not Modified
+--------------------------------------------------------
+
+   The 304 (Not Modified) status code indicates that a conditional GET
+   or HEAD request has been received and would have resulted in a 200
+   (OK) response if it were not for the fact that the condition
+   evaluated to false.  In other words, there is no need for the server
+   to transfer a representation of the target resource because the
+   request indicates that the client, which made the request
+   conditional, already has a valid representation; the server is
+   therefore redirecting the client to make use of that stored
+   representation as if it were the content of a 200 (OK) response.
+
+   The server generating a 304 response MUST generate any of the
+   following header fields that would have been sent in a 200 (OK)
+   response to the same request:
+
+   *  Content-Location, Date, ETag, and Vary
+
+   *  Cache-Control and Expires (see [CACHING])
+
+   Since the goal of a 304 response is to minimize information transfer
+   when the recipient already has one or more cached representations, a
+   sender SHOULD NOT generate representation metadata other than the
+   above listed fields unless said metadata exists for the purpose of
+   guiding cache updates (e.g., Last-Modified might be useful if the
+   response does not have an ETag field).
+
+   Requirements on a cache that receives a 304 response are defined in
+   Section 4.3.4 of [CACHING].  If the conditional request originated
+   with an outbound client, such as a user agent with its own cache
+   sending a conditional GET to a shared proxy, then the proxy SHOULD
+   forward the 304 response to that client.
+
+   A 304 response is terminated by the end of the header section; it
+   cannot contain content or trailers.
+
+[℗](#tf15_4){id=pf15_4_6}
+
+15.4.6.  305 Use Proxy
+--------------------------------------------------------
+
+   The 305 (Use Proxy) status code was defined in a previous version of
+   this specification and is now deprecated (Appendix B of [RFC7231]).
+
+[℗](#tf15_4){id=pf15_4_7}
+
+15.4.7.  306 (Unused)
+--------------------------------------------------------
+
+   The 306 status code was defined in a previous version of this
+   specification, is no longer used, and the code is reserved.
+
+[℗](#tf15_4){id=pf15_4_8}
+
+15.4.8.  307 Temporary Redirect
+--------------------------------------------------------
+
+   The 307 (Temporary Redirect) status code indicates that the target
+   resource resides temporarily under a different URI and the user agent
+   MUST NOT change the request method if it performs an automatic
+   redirection to that URI.  Since the redirection can change over time,
+   the client ought to continue using the original target URI for future
+   requests.
+
+   The server SHOULD generate a Location header field in the response
+   containing a URI reference for the different URI.  The user agent MAY
+   use the Location field value for automatic redirection.  The server's
+   response content usually contains a short hypertext note with a
+   hyperlink to the different URI(s).
+
+[℗](#tf15_4){id=pf15_4_9}
+
+15.4.9.  308 Permanent Redirect
+--------------------------------------------------------
+
+   The 308 (Permanent Redirect) status code indicates that the target
+   resource has been assigned a new permanent URI and any future
+   references to this resource ought to use one of the enclosed URIs.
+   The server is suggesting that a user agent with link-editing
+   capability can permanently replace references to the target URI with
+   one of the new references sent by the server.  However, this
+   suggestion is usually ignored unless the user agent is actively
+   editing references (e.g., engaged in authoring content), the
+   connection is secured, and the origin server is a trusted authority
+   for the content being edited.
+
+   The server SHOULD generate a Location header field in the response
+   containing a preferred URI reference for the new permanent URI.  The
+   user agent MAY use the Location field value for automatic
+   redirection.  The server's response content usually contains a short
+   hypertext note with a hyperlink to the new URI(s).
+
+   A 308 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+      |  *Note:* This status code is much younger (June 2014) than its
+      |  sibling codes and thus might not be recognized everywhere.  See
+      |  Section 4 of [RFC7538] for deployment considerations.
+
+[℗](#tfch15){id=pf15_5}
+
+//15.5.  Client Error 4xx
+--------------------------------------------------------
+
+   The 4xx (Client Error) class of status code indicates that the client
+   seems to have erred.  Except when responding to a HEAD request, the
+   server SHOULD send a representation containing an explanation of the
+   error situation, and whether it is a temporary or permanent
+   condition.  These status codes are applicable to any request method.
+   User agents SHOULD display any included representation to the user.
+
+[℗](#tf15_5){id=pf15_5_1}
+
+15.5.1.  400 Bad Request
+--------------------------------------------------------
+
+   The 400 (Bad Request) status code indicates that the server cannot or
+   will not process the request due to something that is perceived to be
+   a client error (e.g., malformed request syntax, invalid request
+   message framing, or deceptive request routing).
+
+[℗](#tf15_5){id=pf15_5_2}
+
+15.5.2.  401 Unauthorized
+--------------------------------------------------------
+
+   The 401 (Unauthorized) status code indicates that the request has not
+   been applied because it lacks valid authentication credentials for
+   the target resource.  The server generating a 401 response MUST send
+   a WWW-Authenticate header field (Section 11.6.1) containing at least
+   one challenge applicable to the target resource.
+
+   If the request included authentication credentials, then the 401
+   response indicates that authorization has been refused for those
+   credentials.  The user agent MAY repeat the request with a new or
+   replaced Authorization header field (Section 11.6.2).  If the 401
+   response contains the same challenge as the prior response, and the
+   user agent has already attempted authentication at least once, then
+   the user agent SHOULD present the enclosed representation to the
+   user, since it usually contains relevant diagnostic information.
+
+[℗](#tf15_5){id=pf15_5_3}
+
+15.5.3.  402 Payment Required
+--------------------------------------------------------
+
+   The 402 (Payment Required) status code is reserved for future use.
+
+[℗](#tf15_5){id=pf15_5_4}
+
+15.5.4.  403 Forbidden
+--------------------------------------------------------
+
+   The 403 (Forbidden) status code indicates that the server understood
+   the request but refuses to fulfill it.  A server that wishes to make
+   public why the request has been forbidden can describe that reason in
+   the response content (if any).
+
+   If authentication credentials were provided in the request, the
+   server considers them insufficient to grant access.  The client
+   SHOULD NOT automatically repeat the request with the same
+   credentials.  The client MAY repeat the request with new or different
+   credentials.  However, a request might be forbidden for reasons
+   unrelated to the credentials.
+
+   An origin server that wishes to "hide" the current existence of a
+   forbidden target resource MAY instead respond with a status code of
+   404 (Not Found).
+
+[℗](#tf15_5){id=pf15_5_5}
+
+15.5.5.  404 Not Found
+--------------------------------------------------------
+
+   The 404 (Not Found) status code indicates that the origin server did
+   not find a current representation for the target resource or is not
+   willing to disclose that one exists.  A 404 status code does not
+   indicate whether this lack of representation is temporary or
+   permanent; the 410 (Gone) status code is preferred over 404 if the
+   origin server knows, presumably through some configurable means, that
+   the condition is likely to be permanent.
+
+   A 404 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_5){id=pf15_5_6}
+
+15.5.6.  405 Method Not Allowed
+--------------------------------------------------------
+
+   The 405 (Method Not Allowed) status code indicates that the method
+   received in the request-line is known by the origin server but not
+   supported by the target resource.  The origin server MUST generate an
+   Allow header field in a 405 response containing a list of the target
+   resource's currently supported methods.
+
+   A 405 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_5){id=pf15_5_7}
+
+15.5.7.  406 Not Acceptable
+--------------------------------------------------------
+
+   The 406 (Not Acceptable) status code indicates that the target
+   resource does not have a current representation that would be
+   acceptable to the user agent, according to the proactive negotiation
+   header fields received in the request (Section 12.1), and the server
+   is unwilling to supply a default representation.
+
+   The server SHOULD generate content containing a list of available
+   representation characteristics and corresponding resource identifiers
+   from which the user or user agent can choose the one most
+   appropriate.  A user agent MAY automatically select the most
+   appropriate choice from that list.  However, this specification does
+   not define any standard for such automatic selection, as described in
+   Section 15.4.1.
+
+[℗](#tf15_5){id=pf15_5_8}
+
+15.5.8.  407 Proxy Authentication Required
+--------------------------------------------------------
+
+   The 407 (Proxy Authentication Required) status code is similar to 401
+   (Unauthorized), but it indicates that the client needs to
+   authenticate itself in order to use a proxy for this request.  The
+   proxy MUST send a Proxy-Authenticate header field (Section 11.7.1)
+   containing a challenge applicable to that proxy for the request.  The
+   client MAY repeat the request with a new or replaced
+   Proxy-Authorization header field (Section 11.7.2).
+
+[℗](#tf15_5){id=pf15_5_9}
+
+15.5.9.  408 Request Timeout
+--------------------------------------------------------
+
+   The 408 (Request Timeout) status code indicates that the server did
+   not receive a complete request message within the time that it was
+   prepared to wait.
+
+   If the client has an outstanding request in transit, it MAY repeat
+   that request.  If the current connection is not usable (e.g., as it
+   would be in HTTP/1.1 because request delimitation is lost), a new
+   connection will be used.
+
+[℗](#tf15_5){id=pf15_5_10}
+
+15.5.10.  409 Conflict
+--------------------------------------------------------
+
+   The 409 (Conflict) status code indicates that the request could not
+   be completed due to a conflict with the current state of the target
+   resource.  This code is used in situations where the user might be
+   able to resolve the conflict and resubmit the request.  The server
+   SHOULD generate content that includes enough information for a user
+   to recognize the source of the conflict.
+
+   Conflicts are most likely to occur in response to a PUT request.  For
+   example, if versioning were being used and the representation being
+   PUT included changes to a resource that conflict with those made by
+   an earlier (third-party) request, the origin server might use a 409
+   response to indicate that it can't complete the request.  In this
+   case, the response representation would likely contain information
+   useful for merging the differences based on the revision history.
+
+[℗](#tf15_5){id=pf15_5_11}
+
+15.5.11.  410 Gone
+--------------------------------------------------------
+
+   The 410 (Gone) status code indicates that access to the target
+   resource is no longer available at the origin server and that this
+   condition is likely to be permanent.  If the origin server does not
+   know, or has no facility to determine, whether or not the condition
+   is permanent, the status code 404 (Not Found) ought to be used
+   instead.
+
+   The 410 response is primarily intended to assist the task of web
+   maintenance by notifying the recipient that the resource is
+   intentionally unavailable and that the server owners desire that
+   remote links to that resource be removed.  Such an event is common
+   for limited-time, promotional services and for resources belonging to
+   individuals no longer associated with the origin server's site.  It
+   is not necessary to mark all permanently unavailable resources as
+   "gone" or to keep the mark for any length of time -- that is left to
+   the discretion of the server owner.
+
+   A 410 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_5){id=pf15_5_12}
+
+15.5.12.  411 Length Required
+--------------------------------------------------------
+
+   The 411 (Length Required) status code indicates that the server
+   refuses to accept the request without a defined Content-Length
+   (Section 8.6).  The client MAY repeat the request if it adds a valid
+   Content-Length header field containing the length of the request
+   content.
+
+[℗](#tf15_5){id=pf15_5_13}
+
+15.5.13.  412 Precondition Failed
+--------------------------------------------------------
+
+   The 412 (Precondition Failed) status code indicates that one or more
+   conditions given in the request header fields evaluated to false when
+   tested on the server (Section 13).  This response status code allows
+   the client to place preconditions on the current resource state (its
+   current representations and metadata) and, thus, prevent the request
+   method from being applied if the target resource is in an unexpected
+   state.
+
+[℗](#tf15_5){id=pf15_5_14}
+
+15.5.14.  413 Content Too Large
+--------------------------------------------------------
+
+   The 413 (Content Too Large) status code indicates that the server is
+   refusing to process a request because the request content is larger
+   than the server is willing or able to process.  The server MAY
+   terminate the request, if the protocol version in use allows it;
+   otherwise, the server MAY close the connection.
+
+   If the condition is temporary, the server SHOULD generate a
+   Retry-After header field to indicate that it is temporary and after
+   what time the client MAY try again.
+
+[℗](#tf15_5){id=pf15_5_15}
+
+15.5.15.  414 URI Too Long
+--------------------------------------------------------
+
+   The 414 (URI Too Long) status code indicates that the server is
+   refusing to service the request because the target URI is longer than
+   the server is willing to interpret.  This rare condition is only
+   likely to occur when a client has improperly converted a POST request
+   to a GET request with long query information, when the client has
+   descended into an infinite loop of redirection (e.g., a redirected
+   URI prefix that points to a suffix of itself) or when the server is
+   under attack by a client attempting to exploit potential security
+   holes.
+
+   A 414 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_5){id=pf15_5_16}
+
+15.5.16.  415 Unsupported Media Type
+--------------------------------------------------------
+
+   The 415 (Unsupported Media Type) status code indicates that the
+   origin server is refusing to service the request because the content
+   is in a format not supported by this method on the target resource.
+
+   The format problem might be due to the request's indicated
+   Content-Type or Content-Encoding, or as a result of inspecting the
+   data directly.
+
+   If the problem was caused by an unsupported content coding, the
+   Accept-Encoding response header field (Section 12.5.3) ought to be
+   used to indicate which (if any) content codings would have been
+   accepted in the request.
+
+   On the other hand, if the cause was an unsupported media type, the
+   Accept response header field (Section 12.5.1) can be used to indicate
+   which media types would have been accepted in the request.
+
+[℗](#tf15_5){id=pf15_5_17}
+
+15.5.17.  416 Range Not Satisfiable
+--------------------------------------------------------
+
+   The 416 (Range Not Satisfiable) status code indicates that the set of
+   ranges in the request's Range header field (Section 14.2) has been
+   rejected either because none of the requested ranges are satisfiable
+   or because the client has requested an excessive number of small or
+   overlapping ranges (a potential denial of service attack).
+
+   Each range unit defines what is required for its own range sets to be
+   satisfiable.  For example, Section 14.1.2 defines what makes a bytes
+   range set satisfiable.
+
+   A server that generates a 416 response to a byte-range request SHOULD
+   generate a Content-Range header field specifying the current length
+   of the selected representation (Section 14.4).
+
+   For example:
+
+   HTTP/1.1 416 Range Not Satisfiable
+   Date: Fri, 20 Jan 2012 15:41:54 GMT
+   Content-Range: bytes */47022
+
+      |  *Note:* Because servers are free to ignore Range, many
+      |  implementations will respond with the entire selected
+      |  representation in a 200 (OK) response.  That is partly because
+      |  most clients are prepared to receive a 200 (OK) to complete the
+      |  task (albeit less efficiently) and partly because clients might
+      |  not stop making an invalid range request until they have
+      |  received a complete representation.  Thus, clients cannot
+      |  depend on receiving a 416 (Range Not Satisfiable) response even
+      |  when it is most appropriate.
+
+[℗](#tf15_5){id=pf15_5_18}
+
+15.5.18.  417 Expectation Failed
+--------------------------------------------------------
+
+   The 417 (Expectation Failed) status code indicates that the
+   expectation given in the request's Expect header field
+   (Section 10.1.1) could not be met by at least one of the inbound
+   servers.
+
+[℗](#tf15_5){id=pf15_5_19}
+
+15.5.19.  418 (Unused)
+--------------------------------------------------------
+
+   [RFC2324] was an April 1 RFC that lampooned the various ways HTTP was
+   abused; one such abuse was the definition of an application-specific
+   418 status code, which has been deployed as a joke often enough for
+   the code to be unusable for any future use.
+
+   Therefore, the 418 status code is reserved in the IANA HTTP Status
+   Code Registry.  This indicates that the status code cannot be
+   assigned to other applications currently.  If future circumstances
+   require its use (e.g., exhaustion of 4NN status codes), it can be re-
+   assigned to another use.
+
+[℗](#tf15_5){id=pf15_5_20}
+
+15.5.20.  421 Misdirected Request
+--------------------------------------------------------
+
+   The 421 (Misdirected Request) status code indicates that the request
+   was directed at a server that is unable or unwilling to produce an
+   authoritative response for the target URI.  An origin server (or
+   gateway acting on behalf of the origin server) sends 421 to reject a
+   target URI that does not match an origin for which the server has
+   been configured (Section 4.3.1) or does not match the connection
+   context over which the request was received (Section 7.4).
+
+   A client that receives a 421 (Misdirected Request) response MAY retry
+   the request, whether or not the request method is idempotent, over a
+   different connection, such as a fresh connection specific to the
+   target resource's origin, or via an alternative service [ALTSVC].
+
+   A proxy MUST NOT generate a 421 response.
+
+[℗](#tf15_5){id=pf15_5_21}
+
+15.5.21.  422 Unprocessable Content
+--------------------------------------------------------
+
+   The 422 (Unprocessable Content) status code indicates that the server
+   understands the content type of the request content (hence a 415
+   (Unsupported Media Type) status code is inappropriate), and the
+   syntax of the request content is correct, but it was unable to
+   process the contained instructions.  For example, this status code
+   can be sent if an XML request content contains well-formed (i.e.,
+   syntactically correct), but semantically erroneous XML instructions.
+
+[℗](#tf15_5){id=pf15_5_22}
+
+15.5.22.  426 Upgrade Required
+--------------------------------------------------------
+
+   The 426 (Upgrade Required) status code indicates that the server
+   refuses to perform the request using the current protocol but might
+   be willing to do so after the client upgrades to a different
+   protocol.  The server MUST send an Upgrade header field in a 426
+   response to indicate the required protocol(s) (Section 7.8).
+
+   Example:
+
+   HTTP/1.1 426 Upgrade Required
+   Upgrade: HTTP/3.0
+   Connection: Upgrade
+   Content-Length: 53
+   Content-Type: text/plain
+
+   This service requires use of the HTTP/3.0 protocol.
+
+[℗](#tfch15){id=pf15_6}
+
+//15.6.  Server Error 5xx
+--------------------------------------------------------
+
+   The 5xx (Server Error) class of status code indicates that the server
+   is aware that it has erred or is incapable of performing the
+   requested method.  Except when responding to a HEAD request, the
+   server SHOULD send a representation containing an explanation of the
+   error situation, and whether it is a temporary or permanent
+   condition.  A user agent SHOULD display any included representation
+   to the user.  These status codes are applicable to any request
+   method.
+
+[℗](#tf15_6){id=pf15_6_1}
+
+15.6.1.  500 Internal Server Error
+--------------------------------------------------------
+
+   The 500 (Internal Server Error) status code indicates that the server
+   encountered an unexpected condition that prevented it from fulfilling
+   the request.
+
+[℗](#tf15_6){id=pf15_6_2}
+
+15.6.2.  501 Not Implemented
+--------------------------------------------------------
+
+   The 501 (Not Implemented) status code indicates that the server does
+   not support the functionality required to fulfill the request.  This
+   is the appropriate response when the server does not recognize the
+   request method and is not capable of supporting it for any resource.
+
+   A 501 response is heuristically cacheable; i.e., unless otherwise
+   indicated by the method definition or explicit cache controls (see
+   Section 4.2.2 of [CACHING]).
+
+[℗](#tf15_6){id=pf15_6_3}
+
+15.6.3.  502 Bad Gateway
+--------------------------------------------------------
+
+   The 502 (Bad Gateway) status code indicates that the server, while
+   acting as a gateway or proxy, received an invalid response from an
+   inbound server it accessed while attempting to fulfill the request.
+
+[℗](#tf15_6){id=pf15_6_4}
+
+15.6.4.  503 Service Unavailable
+--------------------------------------------------------
+
+   The 503 (Service Unavailable) status code indicates that the server
+   is currently unable to handle the request due to a temporary overload
+   or scheduled maintenance, which will likely be alleviated after some
+   delay.  The server MAY send a Retry-After header field
+   (Section 10.2.3) to suggest an appropriate amount of time for the
+   client to wait before retrying the request.
+
+      |  *Note:* The existence of the 503 status code does not imply
+      |  that a server has to use it when becoming overloaded.  Some
+      |  servers might simply refuse the connection.
+
+[℗](#tf15_6){id=pf15_6_5}
+
+15.6.5.  504 Gateway Timeout
+--------------------------------------------------------
+
+   The 504 (Gateway Timeout) status code indicates that the server,
+   while acting as a gateway or proxy, did not receive a timely response
+   from an upstream server it needed to access in order to complete the
+   request.
+
+[℗](#tf15_6){id=pf15_6_6}
+
+15.6.6.  505 HTTP Version Not Supported
+--------------------------------------------------------
+
+   The 505 (HTTP Version Not Supported) status code indicates that the
+   server does not support, or refuses to support, the major version of
+   HTTP that was used in the request message.  The server is indicating
+   that it is unable or unwilling to complete the request using the same
+   major version as the client, as described in Section 2.5, other than
+   with this error message.  The server SHOULD generate a representation
+   for the 505 response that describes why that version is not supported
+   and what other protocols are supported by that server.
+
+[℗](#tfch16){id=pfch16}
+
+/16.  Extending HTTP
+========================================================
+
+
+   HTTP defines a number of generic extension points that can be used to
+   introduce capabilities to the protocol without introducing a new
+   version, including methods, status codes, field names, and further
+   extensibility points within defined fields, such as authentication
+   schemes and cache directives (see Cache-Control extensions in
+   Section 5.2.3 of [CACHING]).  Because the semantics of HTTP are not
+   versioned, these extension points are persistent; the version of the
+   protocol in use does not affect their semantics.
+
+   Version-independent extensions are discouraged from depending on or
+   interacting with the specific version of the protocol in use.  When
+   this is unavoidable, careful consideration needs to be given to how
+   the extension can interoperate across versions.
+
+   Additionally, specific versions of HTTP might have their own
+   extensibility points, such as transfer codings in HTTP/1.1
+   (Section 6.1 of [HTTP/1.1]) and HTTP/2 SETTINGS or frame types
+   ([HTTP/2]).  These extension points are specific to the version of
+   the protocol they occur within.
+
+   Version-specific extensions cannot override or modify the semantics
+   of a version-independent mechanism or extension point (like a method
+   or header field) without explicitly being allowed by that protocol
+   element.  For example, the CONNECT method (Section 9.3.6) allows
+   this.
+
+   These guidelines assure that the protocol operates correctly and
+   predictably, even when parts of the path implement different versions
+   of HTTP.
+
+[℗](#tfch16){id=pf16_1}
+
+//16.1.  Method Extensibility
+--------------------------------------------------------
+
+[℗](#tf16_1){id=pf16_1_1}
+
+16.1.1.  Method Registry
+--------------------------------------------------------
+
+   The "Hypertext Transfer Protocol (HTTP) Method Registry", maintained
+   by IANA at <https://www.iana.org/assignments/http-methods>, registers
+   method names.
+
+   HTTP method registrations MUST include the following fields:
+
+   *  Method Name (see Section 9)
+
+   *  Safe ("yes" or "no", see Section 9.2.1)
+
+   *  Idempotent ("yes" or "no", see Section 9.2.2)
+
+   *  Pointer to specification text
+
+   Values to be added to this namespace require IETF Review (see
+   [RFC8126], Section 4.8).
+
+[℗](#tf16_1){id=pf16_1_2}
+
+16.1.2.  Considerations for New Methods
+--------------------------------------------------------
+
+   Standardized methods are generic; that is, they are potentially
+   applicable to any resource, not just one particular media type, kind
+   of resource, or application.  As such, it is preferred that new
+   methods be registered in a document that isn't specific to a single
+   application or data format, since orthogonal technologies deserve
+   orthogonal specification.
+
+   Since message parsing (Section 6) needs to be independent of method
+   semantics (aside from responses to HEAD), definitions of new methods
+   cannot change the parsing algorithm or prohibit the presence of
+   content on either the request or the response message.  Definitions
+   of new methods can specify that only a zero-length content is allowed
+   by requiring a Content-Length header field with a value of "0".
+
+   Likewise, new methods cannot use the special host:port and asterisk
+   forms of request target that are allowed for CONNECT and OPTIONS,
+   respectively (Section 7.1).  A full URI in absolute form is needed
+   for the target URI, which means either the request target needs to be
+   sent in absolute form or the target URI will be reconstructed from
+   the request context in the same way it is for other methods.
+
+   A new method definition needs to indicate whether it is safe
+   (Section 9.2.1), idempotent (Section 9.2.2), cacheable
+   (Section 9.2.3), what semantics are to be associated with the request
+   content (if any), and what refinements the method makes to header
+   field or status code semantics.  If the new method is cacheable, its
+   definition ought to describe how, and under what conditions, a cache
+   can store a response and use it to satisfy a subsequent request.  The
+   new method ought to describe whether it can be made conditional
+   (Section 13.1) and, if so, how a server responds when the condition
+   is false.  Likewise, if the new method might have some use for
+   partial response semantics (Section 14.2), it ought to document this,
+   too.
+
+      |  *Note:* Avoid defining a method name that starts with "M-",
+      |  since that prefix might be misinterpreted as having the
+      |  semantics assigned to it by [RFC2774].
+
+[℗](#tfch16){id=pf16_2}
+
+//16.2.  Status Code Extensibility
+--------------------------------------------------------
+
+[℗](#tf16_2){id=pf16_2_1}
+
+16.2.1.  Status Code Registry
+--------------------------------------------------------
+
+   The "Hypertext Transfer Protocol (HTTP) Status Code Registry",
+   maintained by IANA at <https://www.iana.org/assignments/http-status-
+   codes>, registers status code numbers.
+
+   A registration MUST include the following fields:
+
+   *  Status Code (3 digits)
+
+   *  Short Description
+
+   *  Pointer to specification text
+
+   Values to be added to the HTTP status code namespace require IETF
+   Review (see [RFC8126], Section 4.8).
+
+[℗](#tf16_2){id=pf16_2_2}
+
+16.2.2.  Considerations for New Status Codes
+--------------------------------------------------------
+
+   When it is necessary to express semantics for a response that are not
+   defined by current status codes, a new status code can be registered.
+   Status codes are generic; they are potentially applicable to any
+   resource, not just one particular media type, kind of resource, or
+   application of HTTP.  As such, it is preferred that new status codes
+   be registered in a document that isn't specific to a single
+   application.
+
+   New status codes are required to fall under one of the categories
+   defined in Section 15.  To allow existing parsers to process the
+   response message, new status codes cannot disallow content, although
+   they can mandate a zero-length content.
+
+   Proposals for new status codes that are not yet widely deployed ought
+   to avoid allocating a specific number for the code until there is
+   clear consensus that it will be registered; instead, early drafts can
+   use a notation such as "4NN", or "3N0" .. "3N9", to indicate the
+   class of the proposed status code(s) without consuming a number
+   prematurely.
+
+   The definition of a new status code ought to explain the request
+   conditions that would cause a response containing that status code
+   (e.g., combinations of request header fields and/or method(s)) along
+   with any dependencies on response header fields (e.g., what fields
+   are required, what fields can modify the semantics, and what field
+   semantics are further refined when used with the new status code).
+
+   By default, a status code applies only to the request corresponding
+   to the response it occurs within.  If a status code applies to a
+   larger scope of applicability -- for example, all requests to the
+   resource in question or all requests to a server -- this must be
+   explicitly specified.  When doing so, it should be noted that not all
+   clients can be expected to consistently apply a larger scope because
+   they might not understand the new status code.
+
+   The definition of a new final status code ought to specify whether or
+   not it is heuristically cacheable.  Note that any response with a
+   final status code can be cached if the response has explicit
+   freshness information.  A status code defined as heuristically
+   cacheable is allowed to be cached without explicit freshness
+   information.  Likewise, the definition of a status code can place
+   constraints upon cache behavior if the must-understand cache
+   directive is used.  See [CACHING] for more information.
+
+   Finally, the definition of a new status code ought to indicate
+   whether the content has any implied association with an identified
+   resource (Section 6.4.2).
+
+[℗](#tfch16){id=pf16_3}
+
+//16.3.  Field Extensibility
+--------------------------------------------------------
+
+   HTTP's most widely used extensibility point is the definition of new
+   header and trailer fields.
+
+   New fields can be defined such that, when they are understood by a
+   recipient, they override or enhance the interpretation of previously
+   defined fields, define preconditions on request evaluation, or refine
+   the meaning of responses.
+
+   However, defining a field doesn't guarantee its deployment or
+   recognition by recipients.  Most fields are designed with the
+   expectation that a recipient can safely ignore (but forward
+   downstream) any field not recognized.  In other cases, the sender's
+   ability to understand a given field might be indicated by its prior
+   communication, perhaps in the protocol version or fields that it sent
+   in prior messages, or its use of a specific media type.  Likewise,
+   direct inspection of support might be possible through an OPTIONS
+   request or by interacting with a defined well-known URI [RFC8615] if
+   such inspection is defined along with the field being introduced.
+
+[℗](#tf16_3){id=pf16_3_1}
+
+16.3.1.  Field Name Registry
+--------------------------------------------------------
+
+   The "Hypertext Transfer Protocol (HTTP) Field Name Registry" defines
+   the namespace for HTTP field names.
+
+   Any party can request registration of an HTTP field.  See
+   Section 16.3.2 for considerations to take into account when creating
+   a new HTTP field.
+
+   The "Hypertext Transfer Protocol (HTTP) Field Name Registry" is
+   located at <https://www.iana.org/assignments/http-fields/>.
+   Registration requests can be made by following the instructions
+   located there or by sending an email to the "ietf-http-wg@w3.org"
+   mailing list.
+
+   Field names are registered on the advice of a designated expert
+   (appointed by the IESG or their delegate).  Fields with the status
+   'permanent' are Specification Required ([RFC8126], Section 4.6).
+
+   Registration requests consist of the following information:
+
+   Field name:
+      The requested field name.  It MUST conform to the field-name
+      syntax defined in Section 5.1, and it SHOULD be restricted to just
+      letters, digits, and hyphen ('-') characters, with the first
+      character being a letter.
+
+   Status:
+      "permanent", "provisional", "deprecated", or "obsoleted".
+
+   Specification document(s):
+      Reference to the document that specifies the field, preferably
+      including a URI that can be used to retrieve a copy of the
+      document.  Optional but encouraged for provisional registrations.
+      An indication of the relevant section(s) can also be included, but
+      is not required.
+
+   And optionally:
+
+   Comments:  Additional information, such as about reserved entries.
+
+   The expert(s) can define additional fields to be collected in the
+   registry, in consultation with the community.
+
+   Standards-defined names have a status of "permanent".  Other names
+   can also be registered as permanent if the expert(s) finds that they
+   are in use, in consultation with the community.  Other names should
+   be registered as "provisional".
+
+   Provisional entries can be removed by the expert(s) if -- in
+   consultation with the community -- the expert(s) find that they are
+   not in use.  The expert(s) can change a provisional entry's status to
+   permanent at any time.
+
+   Note that names can be registered by third parties (including the
+   expert(s)) if the expert(s) determines that an unregistered name is
+   widely deployed and not likely to be registered in a timely manner
+   otherwise.
+
+[℗](#tf16_3){id=pf16_3_2}
+
+16.3.2.  Considerations for New Fields
+--------------------------------------------------------
+
+   HTTP header and trailer fields are a widely used extension point for
+   the protocol.  While they can be used in an ad hoc fashion, fields
+   that are intended for wider use need to be carefully documented to
+   ensure interoperability.
+
+   In particular, authors of specifications defining new fields are
+   advised to consider and, where appropriate, document the following
+   aspects:
+
+   *  Under what conditions the field can be used; e.g., only in
+      responses or requests, in all messages, only on responses to a
+      particular request method, etc.
+
+   *  Whether the field semantics are further refined by their context,
+      such as their use with certain request methods or status codes.
+
+   *  The scope of applicability for the information conveyed.  By
+      default, fields apply only to the message they are associated
+      with, but some response fields are designed to apply to all
+      representations of a resource, the resource itself, or an even
+      broader scope.  Specifications that expand the scope of a response
+      field will need to carefully consider issues such as content
+      negotiation, the time period of applicability, and (in some cases)
+      multi-tenant server deployments.
+
+   *  Under what conditions intermediaries are allowed to insert,
+      delete, or modify the field's value.
+
+   *  If the field is allowable in trailers; by default, it will not be
+      (see Section 6.5.1).
+
+   *  Whether it is appropriate or even required to list the field name
+      in the Connection header field (i.e., if the field is to be hop-
+      by-hop; see Section 7.6.1).
+
+   *  Whether the field introduces any additional security
+      considerations, such as disclosure of privacy-related data.
+
+   Request header fields have additional considerations that need to be
+   documented if the default behavior is not appropriate:
+
+   *  If it is appropriate to list the field name in a Vary response
+      header field (e.g., when the request header field is used by an
+      origin server's content selection algorithm; see Section 12.5.5).
+
+   *  If the field is intended to be stored when received in a PUT
+      request (see Section 9.3.4).
+
+   *  If the field ought to be removed when automatically redirecting a
+      request due to security concerns (see Section 15.4).
+
+[℗](#tf16_3){id=pf16_3_2_1}
+
+16.3.2.1.  Considerations for New Field Names
+--------------------------------------------------------
+
+   Authors of specifications defining new fields are advised to choose a
+   short but descriptive field name.  Short names avoid needless data
+   transmission; descriptive names avoid confusion and "squatting" on
+   names that might have broader uses.
+
+   To that end, limited-use fields (such as a header confined to a
+   single application or use case) are encouraged to use a name that
+   includes that use (or an abbreviation) as a prefix; for example, if
+   the Foo Application needs a Description field, it might use "Foo-
+   Desc"; "Description" is too generic, and "Foo-Description" is
+   needlessly long.
+
+   While the field-name syntax is defined to allow any token character,
+   in practice some implementations place limits on the characters they
+   accept in field-names.  To be interoperable, new field names SHOULD
+   constrain themselves to alphanumeric characters, "-", and ".", and
+   SHOULD begin with a letter.  For example, the underscore ("_")
+   character can be problematic when passed through non-HTTP gateway
+   interfaces (see Section 17.10).
+
+   Field names ought not be prefixed with "X-"; see [BCP178] for further
+   information.
+
+   Other prefixes are sometimes used in HTTP field names; for example,
+   "Accept-" is used in many content negotiation headers, and "Content-"
+   is used as explained in Section 6.4.  These prefixes are only an aid
+   to recognizing the purpose of a field and do not trigger automatic
+   processing.
+
+[℗](#tf16_3){id=pf16_3_2_2}
+
+16.3.2.2.  Considerations for New Field Values
+--------------------------------------------------------
+
+   A major task in the definition of a new HTTP field is the
+   specification of the field value syntax: what senders should
+   generate, and how recipients should infer semantics from what is
+   received.
+
+   Authors are encouraged (but not required) to use either the ABNF
+   rules in this specification or those in [RFC8941] to define the
+   syntax of new field values.
+
+   Authors are advised to carefully consider how the combination of
+   multiple field lines will impact them (see Section 5.3).  Because
+   senders might erroneously send multiple values, and both
+   intermediaries and HTTP libraries can perform combination
+   automatically, this applies to all field values -- even when only a
+   single value is anticipated.
+
+   Therefore, authors are advised to delimit or encode values that
+   contain commas (e.g., with the quoted-string rule of Section 5.6.4,
+   the String data type of [RFC8941], or a field-specific encoding).
+   This ensures that commas within field data are not confused with the
+   commas that delimit a list value.
+
+   For example, the Content-Type field value only allows commas inside
+   quoted strings, which can be reliably parsed even when multiple
+   values are present.  The Location field value provides a counter-
+   example that should not be emulated: because URIs can include commas,
+   it is not possible to reliably distinguish between a single value
+   that includes a comma from two values.
+
+   Authors of fields with a singleton value (see Section 5.5) are
+   additionally advised to document how to treat messages where the
+   multiple members are present (a sensible default would be to ignore
+   the field, but this might not always be the right choice).
+
+[℗](#tfch16){id=pf16_4}
+
+//16.4.  Authentication Scheme Extensibility
+--------------------------------------------------------
+
+[℗](#tf16_4){id=pf16_4_1}
+
+16.4.1.  Authentication Scheme Registry
+--------------------------------------------------------
+
+   The "Hypertext Transfer Protocol (HTTP) Authentication Scheme
+   Registry" defines the namespace for the authentication schemes in
+   challenges and credentials.  It is maintained at
+   <https://www.iana.org/assignments/http-authschemes>.
+
+   Registrations MUST include the following fields:
+
+   *  Authentication Scheme Name
+
+   *  Pointer to specification text
+
+   *  Notes (optional)
+
+   Values to be added to this namespace require IETF Review (see
+   [RFC8126], Section 4.8).
+
+[℗](#tf16_4){id=pf16_4_2}
+
+16.4.2.  Considerations for New Authentication Schemes
+--------------------------------------------------------
+
+   There are certain aspects of the HTTP Authentication framework that
+   put constraints on how new authentication schemes can work:
+
+   *  HTTP authentication is presumed to be stateless: all of the
+      information necessary to authenticate a request MUST be provided
+      in the request, rather than be dependent on the server remembering
+      prior requests.  Authentication based on, or bound to, the
+      underlying connection is outside the scope of this specification
+      and inherently flawed unless steps are taken to ensure that the
+      connection cannot be used by any party other than the
+      authenticated user (see Section 3.3).
+
+   *  The authentication parameter "realm" is reserved for defining
+      protection spaces as described in Section 11.5.  New schemes MUST
+      NOT use it in a way incompatible with that definition.
+
+   *  The "token68" notation was introduced for compatibility with
+      existing authentication schemes and can only be used once per
+      challenge or credential.  Thus, new schemes ought to use the auth-
+      param syntax instead, because otherwise future extensions will be
+      impossible.
+
+   *  The parsing of challenges and credentials is defined by this
+      specification and cannot be modified by new authentication
+      schemes.  When the auth-param syntax is used, all parameters ought
+      to support both token and quoted-string syntax, and syntactical
+      constraints ought to be defined on the field value after parsing
+      (i.e., quoted-string processing).  This is necessary so that
+      recipients can use a generic parser that applies to all
+      authentication schemes.
+
+      *Note:* The fact that the value syntax for the "realm" parameter
+      is restricted to quoted-string was a bad design choice not to be
+      repeated for new parameters.
+
+   *  Definitions of new schemes ought to define the treatment of
+      unknown extension parameters.  In general, a "must-ignore" rule is
+      preferable to a "must-understand" rule, because otherwise it will
+      be hard to introduce new parameters in the presence of legacy
+      recipients.  Furthermore, it's good to describe the policy for
+      defining new parameters (such as "update the specification" or
+      "use this registry").
+
+   *  Authentication schemes need to document whether they are usable in
+      origin-server authentication (i.e., using WWW-Authenticate), and/
+      or proxy authentication (i.e., using Proxy-Authenticate).
+
+   *  The credentials carried in an Authorization header field are
+      specific to the user agent and, therefore, have the same effect on
+      HTTP caches as the "private" cache response directive
+      (Section 5.2.2.7 of [CACHING]), within the scope of the request in
+      which they appear.
+
+      Therefore, new authentication schemes that choose not to carry
+      credentials in the Authorization header field (e.g., using a newly
+      defined header field) will need to explicitly disallow caching, by
+      mandating the use of cache response directives (e.g., "private").
+
+   *  Schemes using Authentication-Info, Proxy-Authentication-Info, or
+      any other authentication related response header field need to
+      consider and document the related security considerations (see
+      Section 17.16.4).
+
+[℗](#tfch16){id=pf16_5}
+
+//16.5.  Range Unit Extensibility
+--------------------------------------------------------
+
+[℗](#tf16_5){id=pf16_5_1}
+
+16.5.1.  Range Unit Registry
+--------------------------------------------------------
+
+   The "HTTP Range Unit Registry" defines the namespace for the range
+   unit names and refers to their corresponding specifications.  It is
+   maintained at <https://www.iana.org/assignments/http-parameters>.
+
+   Registration of an HTTP Range Unit MUST include the following fields:
+
+   *  Name
+
+   *  Description
+
+   *  Pointer to specification text
+
+   Values to be added to this namespace require IETF Review (see
+   [RFC8126], Section 4.8).
+
+[℗](#tf16_5){id=pf16_5_2}
+
+16.5.2.  Considerations for New Range Units
+--------------------------------------------------------
+
+   Other range units, such as format-specific boundaries like pages,
+   sections, records, rows, or time, are potentially usable in HTTP for
+   application-specific purposes, but are not commonly used in practice.
+   Implementors of alternative range units ought to consider how they
+   would work with content codings and general-purpose intermediaries.
+
+[℗](#tfch16){id=pf16_6}
+
+//16.6.  Content Coding Extensibility
+--------------------------------------------------------
+
+[℗](#tf16_6){id=pf16_6_1}
+
+16.6.1.  Content Coding Registry
+--------------------------------------------------------
+
+   The "HTTP Content Coding Registry", maintained by IANA at
+   <https://www.iana.org/assignments/http-parameters/>, registers
+   content-coding names.
+
+   Content coding registrations MUST include the following fields:
+
+   *  Name
+
+   *  Description
+
+   *  Pointer to specification text
+
+   Names of content codings MUST NOT overlap with names of transfer
+   codings (per the "HTTP Transfer Coding Registry" located at
+   <https://www.iana.org/assignments/http-parameters/>) unless the
+   encoding transformation is identical (as is the case for the
+   compression codings defined in Section 8.4.1).
+
+   Values to be added to this namespace require IETF Review (see
+   Section 4.8 of [RFC8126]) and MUST conform to the purpose of content
+   coding defined in Section 8.4.1.
+
+[℗](#tf16_6){id=pf16_6_2}
+
+16.6.2.  Considerations for New Content Codings
+--------------------------------------------------------
+
+   New content codings ought to be self-descriptive whenever possible,
+   with optional parameters discoverable within the coding format
+   itself, rather than rely on external metadata that might be lost
+   during transit.
+
+[℗](#tfch16){id=pf16_7}
+
+//16.7.  Upgrade Token Registry
+--------------------------------------------------------
+
+   The "Hypertext Transfer Protocol (HTTP) Upgrade Token Registry"
+   defines the namespace for protocol-name tokens used to identify
+   protocols in the Upgrade header field.  The registry is maintained at
+   <https://www.iana.org/assignments/http-upgrade-tokens>.
+
+   Each registered protocol name is associated with contact information
+   and an optional set of specifications that details how the connection
+   will be processed after it has been upgraded.
+
+   Registrations happen on a "First Come First Served" basis (see
+   Section 4.4 of [RFC8126]) and are subject to the following rules:
+
+   1.  A protocol-name token, once registered, stays registered forever.
+
+   2.  A protocol-name token is case-insensitive and registered with the
+       preferred case to be generated by senders.
+
+   3.  The registration MUST name a responsible party for the
+       registration.
+
+   4.  The registration MUST name a point of contact.
+
+   5.  The registration MAY name a set of specifications associated with
+       that token.  Such specifications need not be publicly available.
+
+   6.  The registration SHOULD name a set of expected "protocol-version"
+       tokens associated with that token at the time of registration.
+
+   7.  The responsible party MAY change the registration at any time.
+       The IANA will keep a record of all such changes, and make them
+       available upon request.
+
+   8.  The IESG MAY reassign responsibility for a protocol token.  This
+       will normally only be used in the case when a responsible party
+       cannot be contacted.
+
+[℗](#tfch17){id=pfch17}
+
+/17.  Security Considerations
+========================================================
+
+
+   This section is meant to inform developers, information providers,
+   and users of known security concerns relevant to HTTP semantics and
+   its use for transferring information over the Internet.
+   Considerations related to caching are discussed in Section 7 of
+   [CACHING], and considerations related to HTTP/1.1 message syntax and
+   parsing are discussed in Section 11 of [HTTP/1.1].
+
+   The list of considerations below is not exhaustive.  Most security
+   concerns related to HTTP semantics are about securing server-side
+   applications (code behind the HTTP interface), securing user agent
+   processing of content received via HTTP, or secure use of the
+   Internet in general, rather than security of the protocol.  The
+   security considerations for URIs, which are fundamental to HTTP
+   operation, are discussed in Section 7 of [URI].  Various
+   organizations maintain topical information and links to current
+   research on Web application security (e.g., [OWASP]).
+
+[℗](#tfch17){id=pf17_1}
+
+//17.1.  Establishing Authority
+--------------------------------------------------------
+
+   HTTP relies on the notion of an "authoritative response": a response
+   that has been determined by (or at the direction of) the origin
+   server identified within the target URI to be the most appropriate
+   response for that request given the state of the target resource at
+   the time of response message origination.
+
+   When a registered name is used in the authority component, the "http"
+   URI scheme (Section 4.2.1) relies on the user's local name resolution
+   service to determine where it can find authoritative responses.  This
+   means that any attack on a user's network host table, cached names,
+   or name resolution libraries becomes an avenue for attack on
+   establishing authority for "http" URIs.  Likewise, the user's choice
+   of server for Domain Name Service (DNS), and the hierarchy of servers
+   from which it obtains resolution results, could impact the
+   authenticity of address mappings; DNS Security Extensions (DNSSEC,
+   [RFC4033]) are one way to improve authenticity, as are the various
+   mechanisms for making DNS requests over more secure transfer
+   protocols.
+
+   Furthermore, after an IP address is obtained, establishing authority
+   for an "http" URI is vulnerable to attacks on Internet Protocol
+   routing.
+
+   The "https" scheme (Section 4.2.2) is intended to prevent (or at
+   least reveal) many of these potential attacks on establishing
+   authority, provided that the negotiated connection is secured and the
+   client properly verifies that the communicating server's identity
+   matches the target URI's authority component (Section 4.3.4).
+   Correctly implementing such verification can be difficult (see
+   [Georgiev]).
+
+   Authority for a given origin server can be delegated through protocol
+   extensions; for example, [ALTSVC].  Likewise, the set of servers for
+   which a connection is considered authoritative can be changed with a
+   protocol extension like [RFC8336].
+
+   Providing a response from a non-authoritative source, such as a
+   shared proxy cache, is often useful to improve performance and
+   availability, but only to the extent that the source can be trusted
+   or the distrusted response can be safely used.
+
+   Unfortunately, communicating authority to users can be difficult.
+   For example, "phishing" is an attack on the user's perception of
+   authority, where that perception can be misled by presenting similar
+   branding in hypertext, possibly aided by userinfo obfuscating the
+   authority component (see Section 4.2.1).  User agents can reduce the
+   impact of phishing attacks by enabling users to easily inspect a
+   target URI prior to making an action, by prominently distinguishing
+   (or rejecting) userinfo when present, and by not sending stored
+   credentials and cookies when the referring document is from an
+   unknown or untrusted source.
+
+[℗](#tfch17){id=pf17_2}
+
+//17.2.  Risks of Intermediaries
+--------------------------------------------------------
+
+   HTTP intermediaries are inherently situated for on-path attacks.
+   Compromise of the systems on which the intermediaries run can result
+   in serious security and privacy problems.  Intermediaries might have
+   access to security-related information, personal information about
+   individual users and organizations, and proprietary information
+   belonging to users and content providers.  A compromised
+   intermediary, or an intermediary implemented or configured without
+   regard to security and privacy considerations, might be used in the
+   commission of a wide range of potential attacks.
+
+   Intermediaries that contain a shared cache are especially vulnerable
+   to cache poisoning attacks, as described in Section 7 of [CACHING].
+
+   Implementers need to consider the privacy and security implications
+   of their design and coding decisions, and of the configuration
+   options they provide to operators (especially the default
+   configuration).
+
+   Intermediaries are no more trustworthy than the people and policies
+   under which they operate; HTTP cannot solve this problem.
+
+[℗](#tfch17){id=pf17_3}
+
+//17.3.  Attacks Based on File and Path Names
+--------------------------------------------------------
+
+   Origin servers frequently make use of their local file system to
+   manage the mapping from target URI to resource representations.  Most
+   file systems are not designed to protect against malicious file or
+   path names.  Therefore, an origin server needs to avoid accessing
+   names that have a special significance to the system when mapping the
+   target resource to files, folders, or directories.
+
+   For example, UNIX, Microsoft Windows, and other operating systems use
+   ".." as a path component to indicate a directory level above the
+   current one, and they use specially named paths or file names to send
+   data to system devices.  Similar naming conventions might exist
+   within other types of storage systems.  Likewise, local storage
+   systems have an annoying tendency to prefer user-friendliness over
+   security when handling invalid or unexpected characters,
+   recomposition of decomposed characters, and case-normalization of
+   case-insensitive names.
+
+   Attacks based on such special names tend to focus on either denial-
+   of-service (e.g., telling the server to read from a COM port) or
+   disclosure of configuration and source files that are not meant to be
+   served.
+
+[℗](#tfch17){id=pf17_4}
+
+//17.4.  Attacks Based on Command, Code, or Query Injection
+--------------------------------------------------------
+
+   Origin servers often use parameters within the URI as a means of
+   identifying system services, selecting database entries, or choosing
+   a data source.  However, data received in a request cannot be
+   trusted.  An attacker could construct any of the request data
+   elements (method, target URI, header fields, or content) to contain
+   data that might be misinterpreted as a command, code, or query when
+   passed through a command invocation, language interpreter, or
+   database interface.
+
+   For example, SQL injection is a common attack wherein additional
+   query language is inserted within some part of the target URI or
+   header fields (e.g., Host, Referer, etc.).  If the received data is
+   used directly within a SELECT statement, the query language might be
+   interpreted as a database command instead of a simple string value.
+   This type of implementation vulnerability is extremely common, in
+   spite of being easy to prevent.
+
+   In general, resource implementations ought to avoid use of request
+   data in contexts that are processed or interpreted as instructions.
+   Parameters ought to be compared to fixed strings and acted upon as a
+   result of that comparison, rather than passed through an interface
+   that is not prepared for untrusted data.  Received data that isn't
+   based on fixed parameters ought to be carefully filtered or encoded
+   to avoid being misinterpreted.
+
+   Similar considerations apply to request data when it is stored and
+   later processed, such as within log files, monitoring tools, or when
+   included within a data format that allows embedded scripts.
+
+[℗](#tfch17){id=pf17_5}
+
+//17.5.  Attacks via Protocol Element Length
+--------------------------------------------------------
+
+   Because HTTP uses mostly textual, character-delimited fields, parsers
+   are often vulnerable to attacks based on sending very long (or very
+   slow) streams of data, particularly where an implementation is
+   expecting a protocol element with no predefined length (Section 2.3).
+
+   To promote interoperability, specific recommendations are made for
+   minimum size limits on fields (Section 5.4).  These are minimum
+   recommendations, chosen to be supportable even by implementations
+   with limited resources; it is expected that most implementations will
+   choose substantially higher limits.
+
+   A server can reject a message that has a target URI that is too long
+   (Section 15.5.15) or request content that is too large
+   (Section 15.5.14).  Additional status codes related to capacity
+   limits have been defined by extensions to HTTP [RFC6585].
+
+   Recipients ought to carefully limit the extent to which they process
+   other protocol elements, including (but not limited to) request
+   methods, response status phrases, field names, numeric values, and
+   chunk lengths.  Failure to limit such processing can result in
+   arbitrary code execution due to buffer or arithmetic overflows, and
+   increased vulnerability to denial-of-service attacks.
+
+[℗](#tfch17){id=pf17_6}
+
+//17.6.  Attacks Using Shared-Dictionary Compression
+--------------------------------------------------------
+
+   Some attacks on encrypted protocols use the differences in size
+   created by dynamic compression to reveal confidential information;
+   for example, [BREACH].  These attacks rely on creating a redundancy
+   between attacker-controlled content and the confidential information,
+   such that a dynamic compression algorithm using the same dictionary
+   for both content will compress more efficiently when the attacker-
+   controlled content matches parts of the confidential content.
+
+   HTTP messages can be compressed in a number of ways, including using
+   TLS compression, content codings, transfer codings, and other
+   extension or version-specific mechanisms.
+
+   The most effective mitigation for this risk is to disable compression
+   on sensitive data, or to strictly separate sensitive data from
+   attacker-controlled data so that they cannot share the same
+   compression dictionary.  With careful design, a compression scheme
+   can be designed in a way that is not considered exploitable in
+   limited use cases, such as HPACK ([HPACK]).
+
+[℗](#tfch17){id=pf17_7}
+
+//17.7.  Disclosure of Personal Information
+--------------------------------------------------------
+
+   Clients are often privy to large amounts of personal information,
+   including both information provided by the user to interact with
+   resources (e.g., the user's name, location, mail address, passwords,
+   encryption keys, etc.) and information about the user's browsing
+   activity over time (e.g., history, bookmarks, etc.).  Implementations
+   need to prevent unintentional disclosure of personal information.
+
+[℗](#tfch17){id=pf17_8}
+
+//17.8.  Privacy of Server Log Information
+--------------------------------------------------------
+
+   A server is in the position to save personal data about a user's
+   requests over time, which might identify their reading patterns or
+   subjects of interest.  In particular, log information gathered at an
+   intermediary often contains a history of user agent interaction,
+   across a multitude of sites, that can be traced to individual users.
+
+   HTTP log information is confidential in nature; its handling is often
+   constrained by laws and regulations.  Log information needs to be
+   securely stored and appropriate guidelines followed for its analysis.
+   Anonymization of personal information within individual entries
+   helps, but it is generally not sufficient to prevent real log traces
+   from being re-identified based on correlation with other access
+   characteristics.  As such, access traces that are keyed to a specific
+   client are unsafe to publish even if the key is pseudonymous.
+
+   To minimize the risk of theft or accidental publication, log
+   information ought to be purged of personally identifiable
+   information, including user identifiers, IP addresses, and user-
+   provided query parameters, as soon as that information is no longer
+   necessary to support operational needs for security, auditing, or
+   fraud control.
+
+[℗](#tfch17){id=pf17_9}
+
+//17.9.  Disclosure of Sensitive Information in URIs
+--------------------------------------------------------
+
+   URIs are intended to be shared, not secured, even when they identify
+   secure resources.  URIs are often shown on displays, added to
+   templates when a page is printed, and stored in a variety of
+   unprotected bookmark lists.  Many servers, proxies, and user agents
+   log or display the target URI in places where it might be visible to
+   third parties.  It is therefore unwise to include information within
+   a URI that is sensitive, personally identifiable, or a risk to
+   disclose.
+
+   When an application uses client-side mechanisms to construct a target
+   URI out of user-provided information, such as the query fields of a
+   form using GET, potentially sensitive data might be provided that
+   would not be appropriate for disclosure within a URI.  POST is often
+   preferred in such cases because it usually doesn't construct a URI;
+   instead, POST of a form transmits the potentially sensitive data in
+   the request content.  However, this hinders caching and uses an
+   unsafe method for what would otherwise be a safe request.
+   Alternative workarounds include transforming the user-provided data
+   prior to constructing the URI or filtering the data to only include
+   common values that are not sensitive.  Likewise, redirecting the
+   result of a query to a different (server-generated) URI can remove
+   potentially sensitive data from later links and provide a cacheable
+   response for later reuse.
+
+   Since the Referer header field tells a target site about the context
+   that resulted in a request, it has the potential to reveal
+   information about the user's immediate browsing history and any
+   personal information that might be found in the referring resource's
+   URI.  Limitations on the Referer header field are described in
+   Section 10.1.3 to address some of its security considerations.
+
+[℗](#tfch17){id=pf17_10}
+
+//17.10.  Application Handling of Field Names
+--------------------------------------------------------
+
+   Servers often use non-HTTP gateway interfaces and frameworks to
+   process a received request and produce content for the response.  For
+   historical reasons, such interfaces often pass received field names
+   as external variable names, using a name mapping suitable for
+   environment variables.
+
+   For example, the Common Gateway Interface (CGI) mapping of protocol-
+   specific meta-variables, defined by Section 4.1.18 of [RFC3875], is
+   applied to received header fields that do not correspond to one of
+   CGI's standard variables; the mapping consists of prepending "HTTP_"
+   to each name and changing all instances of hyphen ("-") to underscore
+   ("_").  This same mapping has been inherited by many other
+   application frameworks in order to simplify moving applications from
+   one platform to the next.
+
+   In CGI, a received Content-Length field would be passed as the meta-
+   variable "CONTENT_LENGTH" with a string value matching the received
+   field's value.  In contrast, a received "Content_Length" header field
+   would be passed as the protocol-specific meta-variable
+   "HTTP_CONTENT_LENGTH", which might lead to some confusion if an
+   application mistakenly reads the protocol-specific meta-variable
+   instead of the default one.  (This historical practice is why
+   Section 16.3.2.1 discourages the creation of new field names that
+   contain an underscore.)
+
+   Unfortunately, mapping field names to different interface names can
+   lead to security vulnerabilities if the mapping is incomplete or
+   ambiguous.  For example, if an attacker were to send a field named
+   "Transfer_Encoding", a naive interface might map that to the same
+   variable name as the "Transfer-Encoding" field, resulting in a
+   potential request smuggling vulnerability (Section 11.2 of
+   [HTTP/1.1]).
+
+   To mitigate the associated risks, implementations that perform such
+   mappings are advised to make the mapping unambiguous and complete for
+   the full range of potential octets received as a name (including
+   those that are discouraged or forbidden by the HTTP grammar).  For
+   example, a field with an unusual name character might result in the
+   request being blocked, the specific field being removed, or the name
+   being passed with a different prefix to distinguish it from other
+   fields.
+
+[℗](#tfch17){id=pf17_11}
+
+//17.11.  Disclosure of Fragment after Redirects
+--------------------------------------------------------
+
+   Although fragment identifiers used within URI references are not sent
+   in requests, implementers ought to be aware that they will be visible
+   to the user agent and any extensions or scripts running as a result
+   of the response.  In particular, when a redirect occurs and the
+   original request's fragment identifier is inherited by the new
+   reference in Location (Section 10.2.2), this might have the effect of
+   disclosing one site's fragment to another site.  If the first site
+   uses personal information in fragments, it ought to ensure that
+   redirects to other sites include a (possibly empty) fragment
+   component in order to block that inheritance.
+
+[℗](#tfch17){id=pf17_12}
+
+//17.12.  Disclosure of Product Information
+--------------------------------------------------------
+
+   The User-Agent (Section 10.1.5), Via (Section 7.6.3), and Server
+   (Section 10.2.4) header fields often reveal information about the
+   respective sender's software systems.  In theory, this can make it
+   easier for an attacker to exploit known security holes; in practice,
+   attackers tend to try all potential holes regardless of the apparent
+   software versions being used.
+
+   Proxies that serve as a portal through a network firewall ought to
+   take special precautions regarding the transfer of header information
+   that might identify hosts behind the firewall.  The Via header field
+   allows intermediaries to replace sensitive machine names with
+   pseudonyms.
+
+[℗](#tfch17){id=pf17_13}
+
+//17.13.  Browser Fingerprinting
+--------------------------------------------------------
+
+   Browser fingerprinting is a set of techniques for identifying a
+   specific user agent over time through its unique set of
+   characteristics.  These characteristics might include information
+   related to how it uses the underlying transport protocol, feature
+   capabilities, and scripting environment, though of particular
+   interest here is the set of unique characteristics that might be
+   communicated via HTTP.  Fingerprinting is considered a privacy
+   concern because it enables tracking of a user agent's behavior over
+   time ([Bujlow]) without the corresponding controls that the user
+   might have over other forms of data collection (e.g., cookies).  Many
+   general-purpose user agents (i.e., Web browsers) have taken steps to
+   reduce their fingerprints.
+
+   There are a number of request header fields that might reveal
+   information to servers that is sufficiently unique to enable
+   fingerprinting.  The From header field is the most obvious, though it
+   is expected that From will only be sent when self-identification is
+   desired by the user.  Likewise, Cookie header fields are deliberately
+   designed to enable re-identification, so fingerprinting concerns only
+   apply to situations where cookies are disabled or restricted by the
+   user agent's configuration.
+
+   The User-Agent header field might contain enough information to
+   uniquely identify a specific device, usually when combined with other
+   characteristics, particularly if the user agent sends excessive
+   details about the user's system or extensions.  However, the source
+   of unique information that is least expected by users is proactive
+   negotiation (Section 12.1), including the Accept, Accept-Charset,
+   Accept-Encoding, and Accept-Language header fields.
+
+   In addition to the fingerprinting concern, detailed use of the
+   Accept-Language header field can reveal information the user might
+   consider to be of a private nature.  For example, understanding a
+   given language set might be strongly correlated to membership in a
+   particular ethnic group.  An approach that limits such loss of
+   privacy would be for a user agent to omit the sending of Accept-
+   Language except for sites that have been explicitly permitted,
+   perhaps via interaction after detecting a Vary header field that
+   indicates language negotiation might be useful.
+
+   In environments where proxies are used to enhance privacy, user
+   agents ought to be conservative in sending proactive negotiation
+   header fields.  General-purpose user agents that provide a high
+   degree of header field configurability ought to inform users about
+   the loss of privacy that might result if too much detail is provided.
+   As an extreme privacy measure, proxies could filter the proactive
+   negotiation header fields in relayed requests.
+
+[℗](#tfch17){id=pf17_14}
+
+//17.14.  Validator Retention
+--------------------------------------------------------
+
+   The validators defined by this specification are not intended to
+   ensure the validity of a representation, guard against malicious
+   changes, or detect on-path attacks.  At best, they enable more
+   efficient cache updates and optimistic concurrent writes when all
+   participants are behaving nicely.  At worst, the conditions will fail
+   and the client will receive a response that is no more harmful than
+   an HTTP exchange without conditional requests.
+
+   An entity tag can be abused in ways that create privacy risks.  For
+   example, a site might deliberately construct a semantically invalid
+   entity tag that is unique to the user or user agent, send it in a
+   cacheable response with a long freshness time, and then read that
+   entity tag in later conditional requests as a means of re-identifying
+   that user or user agent.  Such an identifying tag would become a
+   persistent identifier for as long as the user agent retained the
+   original cache entry.  User agents that cache representations ought
+   to ensure that the cache is cleared or replaced whenever the user
+   performs privacy-maintaining actions, such as clearing stored cookies
+   or changing to a private browsing mode.
+
+[℗](#tfch17){id=pf17_15}
+
+//17.15.  Denial-of-Service Attacks Using Range
+--------------------------------------------------------
+
+   Unconstrained multiple range requests are susceptible to denial-of-
+   service attacks because the effort required to request many
+   overlapping ranges of the same data is tiny compared to the time,
+   memory, and bandwidth consumed by attempting to serve the requested
+   data in many parts.  Servers ought to ignore, coalesce, or reject
+   egregious range requests, such as requests for more than two
+   overlapping ranges or for many small ranges in a single set,
+   particularly when the ranges are requested out of order for no
+   apparent reason.  Multipart range requests are not designed to
+   support random access.
+
+[℗](#tfch17){id=pf17_16}
+
+//17.16.  Authentication Considerations
+--------------------------------------------------------
+
+   Everything about the topic of HTTP authentication is a security
+   consideration, so the list of considerations below is not exhaustive.
+   Furthermore, it is limited to security considerations regarding the
+   authentication framework, in general, rather than discussing all of
+   the potential considerations for specific authentication schemes
+   (which ought to be documented in the specifications that define those
+   schemes).  Various organizations maintain topical information and
+   links to current research on Web application security (e.g.,
+   [OWASP]), including common pitfalls for implementing and using the
+   authentication schemes found in practice.
+
+[℗](#tf17_16){id=pf17_16_1}
+
+17.16.1.  Confidentiality of Credentials
+--------------------------------------------------------
+
+   The HTTP authentication framework does not define a single mechanism
+   for maintaining the confidentiality of credentials; instead, each
+   authentication scheme defines how the credentials are encoded prior
+   to transmission.  While this provides flexibility for the development
+   of future authentication schemes, it is inadequate for the protection
+   of existing schemes that provide no confidentiality on their own, or
+   that do not sufficiently protect against replay attacks.
+   Furthermore, if the server expects credentials that are specific to
+   each individual user, the exchange of those credentials will have the
+   effect of identifying that user even if the content within
+   credentials remains confidential.
+
+   HTTP depends on the security properties of the underlying transport-
+   or session-level connection to provide confidential transmission of
+   fields.  Services that depend on individual user authentication
+   require a secured connection prior to exchanging credentials
+   (Section 4.2.2).
+
+[℗](#tf17_16){id=pf17_16_2}
+
+17.16.2.  Credentials and Idle Clients
+--------------------------------------------------------
+
+   Existing HTTP clients and user agents typically retain authentication
+   information indefinitely.  HTTP does not provide a mechanism for the
+   origin server to direct clients to discard these cached credentials,
+   since the protocol has no awareness of how credentials are obtained
+   or managed by the user agent.  The mechanisms for expiring or
+   revoking credentials can be specified as part of an authentication
+   scheme definition.
+
+   Circumstances under which credential caching can interfere with the
+   application's security model include but are not limited to:
+
+   *  Clients that have been idle for an extended period, following
+      which the server might wish to cause the client to re-prompt the
+      user for credentials.
+
+   *  Applications that include a session termination indication (such
+      as a "logout" or "commit" button on a page) after which the server
+      side of the application "knows" that there is no further reason
+      for the client to retain the credentials.
+
+   User agents that cache credentials are encouraged to provide a
+   readily accessible mechanism for discarding cached credentials under
+   user control.
+
+[℗](#tf17_16){id=pf17_16_3}
+
+17.16.3.  Protection Spaces
+--------------------------------------------------------
+
+   Authentication schemes that solely rely on the "realm" mechanism for
+   establishing a protection space will expose credentials to all
+   resources on an origin server.  Clients that have successfully made
+   authenticated requests with a resource can use the same
+   authentication credentials for other resources on the same origin
+   server.  This makes it possible for a different resource to harvest
+   authentication credentials for other resources.
+
+   This is of particular concern when an origin server hosts resources
+   for multiple parties under the same origin (Section 11.5).  Possible
+   mitigation strategies include restricting direct access to
+   authentication credentials (i.e., not making the content of the
+   Authorization request header field available), and separating
+   protection spaces by using a different host name (or port number) for
+   each party.
+
+[℗](#tf17_16){id=pf17_16_4}
+
+17.16.4.  Additional Response Fields
+--------------------------------------------------------
+
+   Adding information to responses that are sent over an unencrypted
+   channel can affect security and privacy.  The presence of the
+   Authentication-Info and Proxy-Authentication-Info header fields alone
+   indicates that HTTP authentication is in use.  Additional information
+   could be exposed by the contents of the authentication-scheme
+   specific parameters; this will have to be considered in the
+   definitions of these schemes.
+
+[℗](#tfch18){id=pfch18}
+
+/18.  IANA Considerations
+========================================================
+
+
+   The change controller for the following registrations is: "IETF
+   (iesg@ietf.org) - Internet Engineering Task Force".
+
+[℗](#tfch18){id=pf18_1}
+
+//18.1.  URI Scheme Registration
+--------------------------------------------------------
+
+   IANA has updated the "Uniform Resource Identifier (URI) Schemes"
+   registry [BCP35] at <https://www.iana.org/assignments/uri-schemes/>
+   with the permanent schemes listed in Table 2 in Section 4.2.
+
+[℗](#tfch18){id=pf18_2}
+
+//18.2.  Method Registration
+--------------------------------------------------------
+
+   IANA has updated the "Hypertext Transfer Protocol (HTTP) Method
+   Registry" at <https://www.iana.org/assignments/http-methods> with the
+   registration procedure of Section 16.1.1 and the method names
+   summarized in the following table.
+
+                 +=========+======+============+=========+
+                 | Method  | Safe | Idempotent | Section |
+                 +=========+======+============+=========+
+                 | CONNECT | no   | no         | 9.3.6   |
+                 +---------+------+------------+---------+
+                 | DELETE  | no   | yes        | 9.3.5   |
+                 +---------+------+------------+---------+
+                 | GET     | yes  | yes        | 9.3.1   |
+                 +---------+------+------------+---------+
+                 | HEAD    | yes  | yes        | 9.3.2   |
+                 +---------+------+------------+---------+
+                 | OPTIONS | yes  | yes        | 9.3.7   |
+                 +---------+------+------------+---------+
+                 | POST    | no   | no         | 9.3.3   |
+                 +---------+------+------------+---------+
+                 | PUT     | no   | yes        | 9.3.4   |
+                 +---------+------+------------+---------+
+                 | TRACE   | yes  | yes        | 9.3.8   |
+                 +---------+------+------------+---------+
+                 | *       | no   | no         | 18.2    |
+                 +---------+------+------------+---------+
+
+                                  Table 7
+
+   The method name "*" is reserved because using "*" as a method name
+   would conflict with its usage as a wildcard in some fields (e.g.,
+   "Access-Control-Request-Method").
+
+[℗](#tfch18){id=pf18_3}
+
+//18.3.  Status Code Registration
+--------------------------------------------------------
+
+   IANA has updated the "Hypertext Transfer Protocol (HTTP) Status Code
+   Registry" at <https://www.iana.org/assignments/http-status-codes>
+   with the registration procedure of Section 16.2.1 and the status code
+   values summarized in the following table.
+
+            +=======+===============================+=========+
+            | Value | Description                   | Section |
+            +=======+===============================+=========+
+            | 100   | Continue                      | 15.2.1  |
+            +-------+-------------------------------+---------+
+            | 101   | Switching Protocols           | 15.2.2  |
+            +-------+-------------------------------+---------+
+            | 200   | OK                            | 15.3.1  |
+            +-------+-------------------------------+---------+
+            | 201   | Created                       | 15.3.2  |
+            +-------+-------------------------------+---------+
+            | 202   | Accepted                      | 15.3.3  |
+            +-------+-------------------------------+---------+
+            | 203   | Non-Authoritative Information | 15.3.4  |
+            +-------+-------------------------------+---------+
+            | 204   | No Content                    | 15.3.5  |
+            +-------+-------------------------------+---------+
+            | 205   | Reset Content                 | 15.3.6  |
+            +-------+-------------------------------+---------+
+            | 206   | Partial Content               | 15.3.7  |
+            +-------+-------------------------------+---------+
+            | 300   | Multiple Choices              | 15.4.1  |
+            +-------+-------------------------------+---------+
+            | 301   | Moved Permanently             | 15.4.2  |
+            +-------+-------------------------------+---------+
+            | 302   | Found                         | 15.4.3  |
+            +-------+-------------------------------+---------+
+            | 303   | See Other                     | 15.4.4  |
+            +-------+-------------------------------+---------+
+            | 304   | Not Modified                  | 15.4.5  |
+            +-------+-------------------------------+---------+
+            | 305   | Use Proxy                     | 15.4.6  |
+            +-------+-------------------------------+---------+
+            | 306   | (Unused)                      | 15.4.7  |
+            +-------+-------------------------------+---------+
+            | 307   | Temporary Redirect            | 15.4.8  |
+            +-------+-------------------------------+---------+
+            | 308   | Permanent Redirect            | 15.4.9  |
+            +-------+-------------------------------+---------+
+            | 400   | Bad Request                   | 15.5.1  |
+            +-------+-------------------------------+---------+
+            | 401   | Unauthorized                  | 15.5.2  |
+            +-------+-------------------------------+---------+
+            | 402   | Payment Required              | 15.5.3  |
+            +-------+-------------------------------+---------+
+            | 403   | Forbidden                     | 15.5.4  |
+            +-------+-------------------------------+---------+
+            | 404   | Not Found                     | 15.5.5  |
+            +-------+-------------------------------+---------+
+            | 405   | Method Not Allowed            | 15.5.6  |
+            +-------+-------------------------------+---------+
+            | 406   | Not Acceptable                | 15.5.7  |
+            +-------+-------------------------------+---------+
+            | 407   | Proxy Authentication Required | 15.5.8  |
+            +-------+-------------------------------+---------+
+            | 408   | Request Timeout               | 15.5.9  |
+            +-------+-------------------------------+---------+
+            | 409   | Conflict                      | 15.5.10 |
+            +-------+-------------------------------+---------+
+            | 410   | Gone                          | 15.5.11 |
+            +-------+-------------------------------+---------+
+            | 411   | Length Required               | 15.5.12 |
+            +-------+-------------------------------+---------+
+            | 412   | Precondition Failed           | 15.5.13 |
+            +-------+-------------------------------+---------+
+            | 413   | Content Too Large             | 15.5.14 |
+            +-------+-------------------------------+---------+
+            | 414   | URI Too Long                  | 15.5.15 |
+            +-------+-------------------------------+---------+
+            | 415   | Unsupported Media Type        | 15.5.16 |
+            +-------+-------------------------------+---------+
+            | 416   | Range Not Satisfiable         | 15.5.17 |
+            +-------+-------------------------------+---------+
+            | 417   | Expectation Failed            | 15.5.18 |
+            +-------+-------------------------------+---------+
+            | 418   | (Unused)                      | 15.5.19 |
+            +-------+-------------------------------+---------+
+            | 421   | Misdirected Request           | 15.5.20 |
+            +-------+-------------------------------+---------+
+            | 422   | Unprocessable Content         | 15.5.21 |
+            +-------+-------------------------------+---------+
+            | 426   | Upgrade Required              | 15.5.22 |
+            +-------+-------------------------------+---------+
+            | 500   | Internal Server Error         | 15.6.1  |
+            +-------+-------------------------------+---------+
+            | 501   | Not Implemented               | 15.6.2  |
+            +-------+-------------------------------+---------+
+            | 502   | Bad Gateway                   | 15.6.3  |
+            +-------+-------------------------------+---------+
+            | 503   | Service Unavailable           | 15.6.4  |
+            +-------+-------------------------------+---------+
+            | 504   | Gateway Timeout               | 15.6.5  |
+            +-------+-------------------------------+---------+
+            | 505   | HTTP Version Not Supported    | 15.6.6  |
+            +-------+-------------------------------+---------+
+
+                                  Table 8
+
+[℗](#tfch18){id=pf18_4}
+
+//18.4.  Field Name Registration
+--------------------------------------------------------
+
+   This specification updates the HTTP-related aspects of the existing
+   registration procedures for message header fields defined in
+   [RFC3864].  It replaces the old procedures as they relate to HTTP by
+   defining a new registration procedure and moving HTTP field
+   definitions into a separate registry.
+
+   IANA has created a new registry titled "Hypertext Transfer Protocol
+   (HTTP) Field Name Registry" as outlined in Section 16.3.1.
+
+   IANA has moved all entries in the "Permanent Message Header Field
+   Names" and "Provisional Message Header Field Names" registries (see
+   <https://www.iana.org/assignments/message-headers/>) with the
+   protocol 'http' to this registry and has applied the following
+   changes:
+
+   1.  The 'Applicable Protocol' field has been omitted.
+
+   2.  Entries that had a status of 'standard', 'experimental',
+       'reserved', or 'informational' have been made to have a status of
+       'permanent'.
+
+   3.  Provisional entries without a status have been made to have a
+       status of 'provisional'.
+
+   4.  Permanent entries without a status (after confirmation that the
+       registration document did not define one) have been made to have
+       a status of 'provisional'.  The expert(s) can choose to update
+       the entries' status if there is evidence that another is more
+       appropriate.
+
+   IANA has annotated the "Permanent Message Header Field Names" and
+   "Provisional Message Header Field Names" registries with the
+   following note to indicate that HTTP field name registrations have
+   moved:
+
+      |  *Note*
+      |  
+      |  HTTP field name registrations have been moved to
+      |  [https://www.iana.org/assignments/http-fields] per [RFC9110].
+
+   IANA has updated the "Hypertext Transfer Protocol (HTTP) Field Name
+   Registry" with the field names listed in the following table.
+
+   +===========================+============+=========+============+
+   | Field Name                | Status     | Section | Comments   |
+   +===========================+============+=========+============+
+   | Accept                    | permanent  | 12.5.1  |            |
+   +---------------------------+------------+---------+------------+
+   | Accept-Charset            | deprecated | 12.5.2  |            |
+   +---------------------------+------------+---------+------------+
+   | Accept-Encoding           | permanent  | 12.5.3  |            |
+   +---------------------------+------------+---------+------------+
+   | Accept-Language           | permanent  | 12.5.4  |            |
+   +---------------------------+------------+---------+------------+
+   | Accept-Ranges             | permanent  | 14.3    |            |
+   +---------------------------+------------+---------+------------+
+   | Allow                     | permanent  | 10.2.1  |            |
+   +---------------------------+------------+---------+------------+
+   | Authentication-Info       | permanent  | 11.6.3  |            |
+   +---------------------------+------------+---------+------------+
+   | Authorization             | permanent  | 11.6.2  |            |
+   +---------------------------+------------+---------+------------+
+   | Connection                | permanent  | 7.6.1   |            |
+   +---------------------------+------------+---------+------------+
+   | Content-Encoding          | permanent  | 8.4     |            |
+   +---------------------------+------------+---------+------------+
+   | Content-Language          | permanent  | 8.5     |            |
+   +---------------------------+------------+---------+------------+
+   | Content-Length            | permanent  | 8.6     |            |
+   +---------------------------+------------+---------+------------+
+   | Content-Location          | permanent  | 8.7     |            |
+   +---------------------------+------------+---------+------------+
+   | Content-Range             | permanent  | 14.4    |            |
+   +---------------------------+------------+---------+------------+
+   | Content-Type              | permanent  | 8.3     |            |
+   +---------------------------+------------+---------+------------+
+   | Date                      | permanent  | 6.6.1   |            |
+   +---------------------------+------------+---------+------------+
+   | ETag                      | permanent  | 8.8.3   |            |
+   +---------------------------+------------+---------+------------+
+   | Expect                    | permanent  | 10.1.1  |            |
+   +---------------------------+------------+---------+------------+
+   | From                      | permanent  | 10.1.2  |            |
+   +---------------------------+------------+---------+------------+
+   | Host                      | permanent  | 7.2     |            |
+   +---------------------------+------------+---------+------------+
+   | If-Match                  | permanent  | 13.1.1  |            |
+   +---------------------------+------------+---------+------------+
+   | If-Modified-Since         | permanent  | 13.1.3  |            |
+   +---------------------------+------------+---------+------------+
+   | If-None-Match             | permanent  | 13.1.2  |            |
+   +---------------------------+------------+---------+------------+
+   | If-Range                  | permanent  | 13.1.5  |            |
+   +---------------------------+------------+---------+------------+
+   | If-Unmodified-Since       | permanent  | 13.1.4  |            |
+   +---------------------------+------------+---------+------------+
+   | Last-Modified             | permanent  | 8.8.2   |            |
+   +---------------------------+------------+---------+------------+
+   | Location                  | permanent  | 10.2.2  |            |
+   +---------------------------+------------+---------+------------+
+   | Max-Forwards              | permanent  | 7.6.2   |            |
+   +---------------------------+------------+---------+------------+
+   | Proxy-Authenticate        | permanent  | 11.7.1  |            |
+   +---------------------------+------------+---------+------------+
+   | Proxy-Authentication-Info | permanent  | 11.7.3  |            |
+   +---------------------------+------------+---------+------------+
+   | Proxy-Authorization       | permanent  | 11.7.2  |            |
+   +---------------------------+------------+---------+------------+
+   | Range                     | permanent  | 14.2    |            |
+   +---------------------------+------------+---------+------------+
+   | Referer                   | permanent  | 10.1.3  |            |
+   +---------------------------+------------+---------+------------+
+   | Retry-After               | permanent  | 10.2.3  |            |
+   +---------------------------+------------+---------+------------+
+   | Server                    | permanent  | 10.2.4  |            |
+   +---------------------------+------------+---------+------------+
+   | TE                        | permanent  | 10.1.4  |            |
+   +---------------------------+------------+---------+------------+
+   | Trailer                   | permanent  | 6.6.2   |            |
+   +---------------------------+------------+---------+------------+
+   | Upgrade                   | permanent  | 7.8     |            |
+   +---------------------------+------------+---------+------------+
+   | User-Agent                | permanent  | 10.1.5  |            |
+   +---------------------------+------------+---------+------------+
+   | Vary                      | permanent  | 12.5.5  |            |
+   +---------------------------+------------+---------+------------+
+   | Via                       | permanent  | 7.6.3   |            |
+   +---------------------------+------------+---------+------------+
+   | WWW-Authenticate          | permanent  | 11.6.1  |            |
+   +---------------------------+------------+---------+------------+
+   | *                         | permanent  | 12.5.5  | (reserved) |
+   +---------------------------+------------+---------+------------+
+
+                                Table 9
+
+   The field name "*" is reserved because using that name as an HTTP
+   header field might conflict with its special semantics in the Vary
+   header field (Section 12.5.5).
+
+   IANA has updated the "Content-MD5" entry in the new registry to have
+   a status of 'obsoleted' with references to Section 14.15 of [RFC2616]
+   (for the definition of the header field) and Appendix B of [RFC7231]
+   (which removed the field definition from the updated specification).
+
+[℗](#tfch18){id=pf18_5}
+
+//18.5.  Authentication Scheme Registration
+--------------------------------------------------------
+
+   IANA has updated the "Hypertext Transfer Protocol (HTTP)
+   Authentication Scheme Registry" at <https://www.iana.org/assignments/
+   http-authschemes> with the registration procedure of Section 16.4.1.
+   No authentication schemes are defined in this document.
+
+[℗](#tfch18){id=pf18_6}
+
+//18.6.  Content Coding Registration
+--------------------------------------------------------
+
+   IANA has updated the "HTTP Content Coding Registry" at
+   <https://www.iana.org/assignments/http-parameters/> with the
+   registration procedure of Section 16.6.1 and the content coding names
+   summarized in the table below.
+
+   +============+===========================================+=========+
+   | Name       | Description                               | Section |
+   +============+===========================================+=========+
+   | compress   | UNIX "compress" data format [Welch]       | 8.4.1.1 |
+   +------------+-------------------------------------------+---------+
+   | deflate    | "deflate" compressed data ([RFC1951])     | 8.4.1.2 |
+   |            | inside the "zlib" data format ([RFC1950]) |         |
+   +------------+-------------------------------------------+---------+
+   | gzip       | GZIP file format [RFC1952]                | 8.4.1.3 |
+   +------------+-------------------------------------------+---------+
+   | identity   | Reserved                                  | 12.5.3  |
+   +------------+-------------------------------------------+---------+
+   | x-compress | Deprecated (alias for compress)           | 8.4.1.1 |
+   +------------+-------------------------------------------+---------+
+   | x-gzip     | Deprecated (alias for gzip)               | 8.4.1.3 |
+   +------------+-------------------------------------------+---------+
+
+                                 Table 10
+
+[℗](#tfch18){id=pf18_7}
+
+//18.7.  Range Unit Registration
+--------------------------------------------------------
+
+   IANA has updated the "HTTP Range Unit Registry" at
+   <https://www.iana.org/assignments/http-parameters/> with the
+   registration procedure of Section 16.5.1 and the range unit names
+   summarized in the table below.
+
+   +=================+==================================+=========+
+   | Range Unit Name | Description                      | Section |
+   +=================+==================================+=========+
+   | bytes           | a range of octets                | 14.1.2  |
+   +-----------------+----------------------------------+---------+
+   | none            | reserved as keyword to indicate  | 14.3    |
+   |                 | range requests are not supported |         |
+   +-----------------+----------------------------------+---------+
+
+                               Table 11
+
+[℗](#tfch18){id=pf18_8}
+
+//18.8.  Media Type Registration
+--------------------------------------------------------
+
+   IANA has updated the "Media Types" registry at
+   <https://www.iana.org/assignments/media-types> with the registration
+   information in Section 14.6 for the media type "multipart/
+   byteranges".
+
+   IANA has updated the registry note about "q" parameters with a link
+   to Section 12.5.1 of this document.
+
+[℗](#tfch18){id=pf18_9}
+
+//18.9.  Port Registration
+--------------------------------------------------------
+
+   IANA has updated the "Service Name and Transport Protocol Port Number
+   Registry" at <https://www.iana.org/assignments/service-names-port-
+   numbers/> for the services on ports 80 and 443 that use UDP or TCP
+   to:
+
+   1.  use this document as "Reference", and
+
+   2.  when currently unspecified, set "Assignee" to "IESG" and
+       "Contact" to "IETF_Chair".
+
+[℗](#tfch18){id=pf18_10}
+
+//18.10.  Upgrade Token Registration
+--------------------------------------------------------
+
+   IANA has updated the "Hypertext Transfer Protocol (HTTP) Upgrade
+   Token Registry" at <https://www.iana.org/assignments/http-upgrade-
+   tokens> with the registration procedure described in Section 16.7 and
+   the upgrade token names summarized in the following table.
+
+   +======+===================+=========================+=========+
+   | Name | Description       | Expected Version Tokens | Section |
+   +======+===================+=========================+=========+
+   | HTTP | Hypertext         | any DIGIT.DIGIT (e.g.,  | 2.5     |
+   |      | Transfer Protocol | "2.0")                  |         |
+   +------+-------------------+-------------------------+---------+
+
+                               Table 12
+
+[℗](#tfch19){id=pfch19}
+
+/19.  References
+========================================================
+
+
+[℗](#tfch19){id=pf19_1}
+
+//19.1.  Normative References
+--------------------------------------------------------
+
+   [CACHING]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP Caching", STD 98, RFC 9111,
+              DOI 10.17487/RFC9111, June 2022,
+              <https://www.rfc-editor.org/info/rfc9111>.
+
+   [RFC1950]  Deutsch, P. and J-L. Gailly, "ZLIB Compressed Data Format
+              Specification version 3.3", RFC 1950,
+              DOI 10.17487/RFC1950, May 1996,
+              <https://www.rfc-editor.org/info/rfc1950>.
+
+   [RFC1951]  Deutsch, P., "DEFLATE Compressed Data Format Specification
+              version 1.3", RFC 1951, DOI 10.17487/RFC1951, May 1996,
+              <https://www.rfc-editor.org/info/rfc1951>.
+
+   [RFC1952]  Deutsch, P., "GZIP file format specification version 4.3",
+              RFC 1952, DOI 10.17487/RFC1952, May 1996,
+              <https://www.rfc-editor.org/info/rfc1952>.
+
+   [RFC2046]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
+              Extensions (MIME) Part Two: Media Types", RFC 2046,
+              DOI 10.17487/RFC2046, November 1996,
+              <https://www.rfc-editor.org/info/rfc2046>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC4647]  Phillips, A., Ed. and M. Davis, Ed., "Matching of Language
+              Tags", BCP 47, RFC 4647, DOI 10.17487/RFC4647, September
+              2006, <https://www.rfc-editor.org/info/rfc4647>.
+
+   [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
+              Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
+              <https://www.rfc-editor.org/info/rfc4648>.
+
+   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", STD 68, RFC 5234,
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/info/rfc5234>.
+
+   [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk, "Internet X.509 Public Key
+              Infrastructure Certificate and Certificate Revocation List
+              (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
+              <https://www.rfc-editor.org/info/rfc5280>.
+
+   [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
+              DOI 10.17487/RFC5322, October 2008,
+              <https://www.rfc-editor.org/info/rfc5322>.
+
+   [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
+              Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
+              September 2009, <https://www.rfc-editor.org/info/rfc5646>.
+
+   [RFC6125]  Saint-Andre, P. and J. Hodges, "Representation and
+              Verification of Domain-Based Application Service Identity
+              within Internet Public Key Infrastructure Using X.509
+              (PKIX) Certificates in the Context of Transport Layer
+              Security (TLS)", RFC 6125, DOI 10.17487/RFC6125, March
+              2011, <https://www.rfc-editor.org/info/rfc6125>.
+
+   [RFC6365]  Hoffman, P. and J. Klensin, "Terminology Used in
+              Internationalization in the IETF", BCP 166, RFC 6365,
+              DOI 10.17487/RFC6365, September 2011,
+              <https://www.rfc-editor.org/info/rfc6365>.
+
+   [RFC7405]  Kyzivat, P., "Case-Sensitive String Support in ABNF",
+              RFC 7405, DOI 10.17487/RFC7405, December 2014,
+              <https://www.rfc-editor.org/info/rfc7405>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [TCP]      Postel, J., "Transmission Control Protocol", STD 7,
+              RFC 793, DOI 10.17487/RFC0793, September 1981,
+              <https://www.rfc-editor.org/info/rfc793>.
+
+   [TLS13]    Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://www.rfc-editor.org/info/rfc8446>.
+
+   [URI]      Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI): Generic Syntax", STD 66,
+              RFC 3986, DOI 10.17487/RFC3986, January 2005,
+              <https://www.rfc-editor.org/info/rfc3986>.
+
+   [USASCII]  American National Standards Institute, "Coded Character
+              Set -- 7-bit American Standard Code for Information
+              Interchange", ANSI X3.4, 1986.
+
+   [Welch]    Welch, T., "A Technique for High-Performance Data
+              Compression", IEEE Computer 17(6),
+              DOI 10.1109/MC.1984.1659158, June 1984,
+              <https://ieeexplore.ieee.org/document/1659158/>.
+
+[℗](#tfch19){id=pf19_2}
+
+//19.2.  Informative References
+--------------------------------------------------------
+
+   [ALTSVC]   Nottingham, M., McManus, P., and J. Reschke, "HTTP
+              Alternative Services", RFC 7838, DOI 10.17487/RFC7838,
+              April 2016, <https://www.rfc-editor.org/info/rfc7838>.
+
+   [BCP13]    Freed, N. and J. Klensin, "Multipurpose Internet Mail
+              Extensions (MIME) Part Four: Registration Procedures",
+              BCP 13, RFC 4289, December 2005.
+
+              Freed, N., Klensin, J., and T. Hansen, "Media Type
+              Specifications and Registration Procedures", BCP 13,
+              RFC 6838, January 2013.
+
+              <https://www.rfc-editor.org/info/bcp13>
+
+   [BCP178]   Saint-Andre, P., Crocker, D., and M. Nottingham,
+              "Deprecating the "X-" Prefix and Similar Constructs in
+              Application Protocols", BCP 178, RFC 6648, June 2012.
+
+              <https://www.rfc-editor.org/info/bcp178>
+
+   [BCP35]    Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
+              and Registration Procedures for URI Schemes", BCP 35,
+              RFC 7595, June 2015.
+
+              <https://www.rfc-editor.org/info/bcp35>
+
+   [BREACH]   Gluck, Y., Harris, N., and A. Prado, "BREACH: Reviving the
+              CRIME Attack", July 2013,
+              <http://breachattack.com/resources/
+              BREACH%20-%20SSL,%20gone%20in%2030%20seconds.pdf>.
+
+   [Bujlow]   Bujlow, T., Carela-Español, V., Solé-Pareta, J., and P.
+              Barlet-Ros, "A Survey on Web Tracking: Mechanisms,
+              Implications, and Defenses", In Proceedings of the IEEE
+              105(8), DOI 10.1109/JPROC.2016.2637878, August 2017,
+              <https://doi.org/10.1109/JPROC.2016.2637878>.
+
+   [COOKIE]   Barth, A., "HTTP State Management Mechanism", RFC 6265,
+              DOI 10.17487/RFC6265, April 2011,
+              <https://www.rfc-editor.org/info/rfc6265>.
+
+   [Err1912]  RFC Errata, Erratum ID 1912, RFC 2978,
+              <https://www.rfc-editor.org/errata/eid1912>.
+
+   [Err5433]  RFC Errata, Erratum ID 5433, RFC 2978,
+              <https://www.rfc-editor.org/errata/eid5433>.
+
+   [Georgiev] Georgiev, M., Iyengar, S., Jana, S., Anubhai, R., Boneh,
+              D., and V. Shmatikov, "The Most Dangerous Code in the
+              World: Validating SSL Certificates in Non-Browser
+              Software", In Proceedings of the 2012 ACM Conference on
+              Computer and Communications Security (CCS '12), pp. 38-49,
+              DOI 10.1145/2382196.2382204, October 2012,
+              <https://doi.org/10.1145/2382196.2382204>.
+
+   [HPACK]    Peon, R. and H. Ruellan, "HPACK: Header Compression for
+              HTTP/2", RFC 7541, DOI 10.17487/RFC7541, May 2015,
+              <https://www.rfc-editor.org/info/rfc7541>.
+
+   [HTTP/1.0] Berners-Lee, T., Fielding, R., and H. Frystyk, "Hypertext
+              Transfer Protocol -- HTTP/1.0", RFC 1945,
+              DOI 10.17487/RFC1945, May 1996,
+              <https://www.rfc-editor.org/info/rfc1945>.
+
+   [HTTP/1.1] Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP/1.1", STD 99, RFC 9112, DOI 10.17487/RFC9112,
+              June 2022, <https://www.rfc-editor.org/info/rfc9112>.
+
+   [HTTP/2]   Thomson, M., Ed. and C. Benfield, Ed., "HTTP/2", RFC 9113,
+              DOI 10.17487/RFC9113, June 2022,
+              <https://www.rfc-editor.org/info/rfc9113>.
+
+   [HTTP/3]   Bishop, M., Ed., "HTTP/3", RFC 9114, DOI 10.17487/RFC9114,
+              June 2022, <https://www.rfc-editor.org/info/rfc9114>.
+
+   [ISO-8859-1]
+              International Organization for Standardization,
+              "Information technology -- 8-bit single-byte coded graphic
+              character sets -- Part 1: Latin alphabet No. 1", ISO/
+              IEC 8859-1:1998, 1998.
+
+   [Kri2001]  Kristol, D., "HTTP Cookies: Standards, Privacy, and
+              Politics", ACM Transactions on Internet Technology 1(2),
+              November 2001, <http://arxiv.org/abs/cs.SE/0105018>.
+
+   [OWASP]    The Open Web Application Security Project,
+              <https://www.owasp.org/>.
+
+   [REST]     Fielding, R.T., "Architectural Styles and the Design of
+              Network-based Software Architectures", Doctoral
+              Dissertation, University of California, Irvine, September
+              2000, <https://roy.gbiv.com/pubs/dissertation/top.htm>.
+
+   [RFC1919]  Chatel, M., "Classical versus Transparent IP Proxies",
+              RFC 1919, DOI 10.17487/RFC1919, March 1996,
+              <https://www.rfc-editor.org/info/rfc1919>.
+
+   [RFC2047]  Moore, K., "MIME (Multipurpose Internet Mail Extensions)
+              Part Three: Message Header Extensions for Non-ASCII Text",
+              RFC 2047, DOI 10.17487/RFC2047, November 1996,
+              <https://www.rfc-editor.org/info/rfc2047>.
+
+   [RFC2068]  Fielding, R., Gettys, J., Mogul, J., Frystyk, H., and T.
+              Berners-Lee, "Hypertext Transfer Protocol -- HTTP/1.1",
+              RFC 2068, DOI 10.17487/RFC2068, January 1997,
+              <https://www.rfc-editor.org/info/rfc2068>.
+
+   [RFC2145]  Mogul, J. C., Fielding, R., Gettys, J., and H. Frystyk,
+              "Use and Interpretation of HTTP Version Numbers",
+              RFC 2145, DOI 10.17487/RFC2145, May 1997,
+              <https://www.rfc-editor.org/info/rfc2145>.
+
+   [RFC2295]  Holtman, K. and A. Mutz, "Transparent Content Negotiation
+              in HTTP", RFC 2295, DOI 10.17487/RFC2295, March 1998,
+              <https://www.rfc-editor.org/info/rfc2295>.
+
+   [RFC2324]  Masinter, L., "Hyper Text Coffee Pot Control Protocol
+              (HTCPCP/1.0)", RFC 2324, DOI 10.17487/RFC2324, 1 April
+              1998, <https://www.rfc-editor.org/info/rfc2324>.
+
+   [RFC2557]  Palme, J., Hopmann, A., and N. Shelness, "MIME
+              Encapsulation of Aggregate Documents, such as HTML
+              (MHTML)", RFC 2557, DOI 10.17487/RFC2557, March 1999,
+              <https://www.rfc-editor.org/info/rfc2557>.
+
+   [RFC2616]  Fielding, R., Gettys, J., Mogul, J., Frystyk, H.,
+              Masinter, L., Leach, P., and T. Berners-Lee, "Hypertext
+              Transfer Protocol -- HTTP/1.1", RFC 2616,
+              DOI 10.17487/RFC2616, June 1999,
+              <https://www.rfc-editor.org/info/rfc2616>.
+
+   [RFC2617]  Franks, J., Hallam-Baker, P., Hostetler, J., Lawrence, S.,
+              Leach, P., Luotonen, A., and L. Stewart, "HTTP
+              Authentication: Basic and Digest Access Authentication",
+              RFC 2617, DOI 10.17487/RFC2617, June 1999,
+              <https://www.rfc-editor.org/info/rfc2617>.
+
+   [RFC2774]  Nielsen, H., Leach, P., and S. Lawrence, "An HTTP
+              Extension Framework", RFC 2774, DOI 10.17487/RFC2774,
+              February 2000, <https://www.rfc-editor.org/info/rfc2774>.
+
+   [RFC2818]  Rescorla, E., "HTTP Over TLS", RFC 2818,
+              DOI 10.17487/RFC2818, May 2000,
+              <https://www.rfc-editor.org/info/rfc2818>.
+
+   [RFC2978]  Freed, N. and J. Postel, "IANA Charset Registration
+              Procedures", BCP 19, RFC 2978, DOI 10.17487/RFC2978,
+              October 2000, <https://www.rfc-editor.org/info/rfc2978>.
+
+   [RFC3040]  Cooper, I., Melve, I., and G. Tomlinson, "Internet Web
+              Replication and Caching Taxonomy", RFC 3040,
+              DOI 10.17487/RFC3040, January 2001,
+              <https://www.rfc-editor.org/info/rfc3040>.
+
+   [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
+              Procedures for Message Header Fields", BCP 90, RFC 3864,
+              DOI 10.17487/RFC3864, September 2004,
+              <https://www.rfc-editor.org/info/rfc3864>.
+
+   [RFC3875]  Robinson, D. and K. Coar, "The Common Gateway Interface
+              (CGI) Version 1.1", RFC 3875, DOI 10.17487/RFC3875,
+              October 2004, <https://www.rfc-editor.org/info/rfc3875>.
+
+   [RFC4033]  Arends, R., Austein, R., Larson, M., Massey, D., and S.
+              Rose, "DNS Security Introduction and Requirements",
+              RFC 4033, DOI 10.17487/RFC4033, March 2005,
+              <https://www.rfc-editor.org/info/rfc4033>.
+
+   [RFC4559]  Jaganathan, K., Zhu, L., and J. Brezak, "SPNEGO-based
+              Kerberos and NTLM HTTP Authentication in Microsoft
+              Windows", RFC 4559, DOI 10.17487/RFC4559, June 2006,
+              <https://www.rfc-editor.org/info/rfc4559>.
+
+   [RFC5789]  Dusseault, L. and J. Snell, "PATCH Method for HTTP",
+              RFC 5789, DOI 10.17487/RFC5789, March 2010,
+              <https://www.rfc-editor.org/info/rfc5789>.
+
+   [RFC5905]  Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch,
+              "Network Time Protocol Version 4: Protocol and Algorithms
+              Specification", RFC 5905, DOI 10.17487/RFC5905, June 2010,
+              <https://www.rfc-editor.org/info/rfc5905>.
+
+   [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
+              DOI 10.17487/RFC6454, December 2011,
+              <https://www.rfc-editor.org/info/rfc6454>.
+
+   [RFC6585]  Nottingham, M. and R. Fielding, "Additional HTTP Status
+              Codes", RFC 6585, DOI 10.17487/RFC6585, April 2012,
+              <https://www.rfc-editor.org/info/rfc6585>.
+
+   [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Message Syntax and Routing",
+              RFC 7230, DOI 10.17487/RFC7230, June 2014,
+              <https://www.rfc-editor.org/info/rfc7230>.
+
+   [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
+              DOI 10.17487/RFC7231, June 2014,
+              <https://www.rfc-editor.org/info/rfc7231>.
+
+   [RFC7232]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Conditional Requests", RFC 7232,
+              DOI 10.17487/RFC7232, June 2014,
+              <https://www.rfc-editor.org/info/rfc7232>.
+
+   [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
+              "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
+              RFC 7233, DOI 10.17487/RFC7233, June 2014,
+              <https://www.rfc-editor.org/info/rfc7233>.
+
+   [RFC7234]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
+              RFC 7234, DOI 10.17487/RFC7234, June 2014,
+              <https://www.rfc-editor.org/info/rfc7234>.
+
+   [RFC7235]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Authentication", RFC 7235,
+              DOI 10.17487/RFC7235, June 2014,
+              <https://www.rfc-editor.org/info/rfc7235>.
+
+   [RFC7538]  Reschke, J., "The Hypertext Transfer Protocol Status Code
+              308 (Permanent Redirect)", RFC 7538, DOI 10.17487/RFC7538,
+              April 2015, <https://www.rfc-editor.org/info/rfc7538>.
+
+   [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
+              Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
+              DOI 10.17487/RFC7540, May 2015,
+              <https://www.rfc-editor.org/info/rfc7540>.
+
+   [RFC7578]  Masinter, L., "Returning Values from Forms: multipart/
+              form-data", RFC 7578, DOI 10.17487/RFC7578, July 2015,
+              <https://www.rfc-editor.org/info/rfc7578>.
+
+   [RFC7615]  Reschke, J., "HTTP Authentication-Info and Proxy-
+              Authentication-Info Response Header Fields", RFC 7615,
+              DOI 10.17487/RFC7615, September 2015,
+              <https://www.rfc-editor.org/info/rfc7615>.
+
+   [RFC7616]  Shekh-Yusef, R., Ed., Ahrens, D., and S. Bremer, "HTTP
+              Digest Access Authentication", RFC 7616,
+              DOI 10.17487/RFC7616, September 2015,
+              <https://www.rfc-editor.org/info/rfc7616>.
+
+   [RFC7617]  Reschke, J., "The 'Basic' HTTP Authentication Scheme",
+              RFC 7617, DOI 10.17487/RFC7617, September 2015,
+              <https://www.rfc-editor.org/info/rfc7617>.
+
+   [RFC7694]  Reschke, J., "Hypertext Transfer Protocol (HTTP) Client-
+              Initiated Content-Encoding", RFC 7694,
+              DOI 10.17487/RFC7694, November 2015,
+              <https://www.rfc-editor.org/info/rfc7694>.
+
+   [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
+              Writing an IANA Considerations Section in RFCs", BCP 26,
+              RFC 8126, DOI 10.17487/RFC8126, June 2017,
+              <https://www.rfc-editor.org/info/rfc8126>.
+
+   [RFC8187]  Reschke, J., "Indicating Character Encoding and Language
+              for HTTP Header Field Parameters", RFC 8187,
+              DOI 10.17487/RFC8187, September 2017,
+              <https://www.rfc-editor.org/info/rfc8187>.
+
+   [RFC8246]  McManus, P., "HTTP Immutable Responses", RFC 8246,
+              DOI 10.17487/RFC8246, September 2017,
+              <https://www.rfc-editor.org/info/rfc8246>.
+
+   [RFC8288]  Nottingham, M., "Web Linking", RFC 8288,
+              DOI 10.17487/RFC8288, October 2017,
+              <https://www.rfc-editor.org/info/rfc8288>.
+
+   [RFC8336]  Nottingham, M. and E. Nygren, "The ORIGIN HTTP/2 Frame",
+              RFC 8336, DOI 10.17487/RFC8336, March 2018,
+              <https://www.rfc-editor.org/info/rfc8336>.
+
+   [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
+              (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
+              <https://www.rfc-editor.org/info/rfc8615>.
+
+   [RFC8941]  Nottingham, M. and P-H. Kamp, "Structured Field Values for
+              HTTP", RFC 8941, DOI 10.17487/RFC8941, February 2021,
+              <https://www.rfc-editor.org/info/rfc8941>.
+
+   [Sniffing] WHATWG, "MIME Sniffing",
+              <https://mimesniff.spec.whatwg.org>.
+
+   [WEBDAV]   Dusseault, L., Ed., "HTTP Extensions for Web Distributed
+              Authoring and Versioning (WebDAV)", RFC 4918,
+              DOI 10.17487/RFC4918, June 2007,
+              <https://www.rfc-editor.org/info/rfc4918>.
+
+[℗](#tfAppA){id=pfAppA}
+
+/Appendix A.  Collected ABNF
+========================================================
+
+
+    In the collected ABNF below, list rules are expanded per
+    Section 5.6.1.
+
+    Accept = [ ( media-range [ weight ] ) *( OWS "," OWS ( media-range [
+     weight ] ) ) ]
+    Accept-Charset = [ ( ( token / "*" ) [ weight ] ) *( OWS "," OWS ( (
+     token / "*" ) [ weight ] ) ) ]
+    Accept-Encoding = [ ( codings [ weight ] ) *( OWS "," OWS ( codings [
+     weight ] ) ) ]
+    Accept-Language = [ ( language-range [ weight ] ) *( OWS "," OWS (
+     language-range [ weight ] ) ) ]
+    Accept-Ranges = acceptable-ranges
+    Allow = [ method *( OWS "," OWS method ) ]
+    Authentication-Info = [ auth-param *( OWS "," OWS auth-param ) ]
+    Authorization = credentials
+
+    BWS = OWS
+
+    Connection = [ connection-option *( OWS "," OWS connection-option )
+     ]
+    Content-Encoding = [ content-coding *( OWS "," OWS content-coding )
+     ]
+    Content-Language = [ language-tag *( OWS "," OWS language-tag ) ]
+    Content-Length = 1*DIGIT
+    Content-Location = absolute-URI / partial-URI
+    Content-Range = range-unit SP ( range-resp / unsatisfied-range )
+    Content-Type = media-type
+
+    Date = HTTP-date
+
+    ETag = entity-tag
+    Expect = [ expectation *( OWS "," OWS expectation ) ]
+
+    From = mailbox
+
+    GMT = %x47.4D.54 ; GMT
+
+    HTTP-date = IMF-fixdate / obs-date
+    Host = uri-host [ ":" port ]
+
+    IMF-fixdate = day-name "," SP date1 SP time-of-day SP GMT
+    If-Match = "*" / [ entity-tag *( OWS "," OWS entity-tag ) ]
+    If-Modified-Since = HTTP-date
+    If-None-Match = "*" / [ entity-tag *( OWS "," OWS entity-tag ) ]
+    If-Range = entity-tag / HTTP-date
+    If-Unmodified-Since = HTTP-date
+
+    Last-Modified = HTTP-date
+    Location = URI-reference
+
+    Max-Forwards = 1*DIGIT
+
+    OWS = *( SP / HTAB )
+
+    Proxy-Authenticate = [ challenge *( OWS "," OWS challenge ) ]
+    Proxy-Authentication-Info = [ auth-param *( OWS "," OWS auth-param )
+     ]
+    Proxy-Authorization = credentials
+
+    RWS = 1*( SP / HTAB )
+    Range = ranges-specifier
+    Referer = absolute-URI / partial-URI
+    Retry-After = HTTP-date / delay-seconds
+
+    Server = product *( RWS ( product / comment ) )
+
+    TE = [ t-codings *( OWS "," OWS t-codings ) ]
+    Trailer = [ field-name *( OWS "," OWS field-name ) ]
+
+    URI-reference = <URI-reference, see [URI], Section 4.1>
+    Upgrade = [ protocol *( OWS "," OWS protocol ) ]
+    User-Agent = product *( RWS ( product / comment ) )
+
+    Vary = [ ( "*" / field-name ) *( OWS "," OWS ( "*" / field-name ) )
+     ]
+    Via = [ ( received-protocol RWS received-by [ RWS comment ] ) *( OWS
+     "," OWS ( received-protocol RWS received-by [ RWS comment ] ) ) ]
+
+    WWW-Authenticate = [ challenge *( OWS "," OWS challenge ) ]
+
+    absolute-URI = <absolute-URI, see [URI], Section 4.3>
+    absolute-path = 1*( "/" segment )
+    acceptable-ranges = range-unit *( OWS "," OWS range-unit )
+    asctime-date = day-name SP date3 SP time-of-day SP year
+    auth-param = token BWS "=" BWS ( token / quoted-string )
+    auth-scheme = token
+    authority = <authority, see [URI], Section 3.2>
+
+    challenge = auth-scheme [ 1*SP ( token68 / [ auth-param *( OWS ","
+     OWS auth-param ) ] ) ]
+    codings = content-coding / "identity" / "*"
+    comment = "(" *( ctext / quoted-pair / comment ) ")"
+    complete-length = 1*DIGIT
+    connection-option = token
+    content-coding = token
+    credentials = auth-scheme [ 1*SP ( token68 / [ auth-param *( OWS ","
+     OWS auth-param ) ] ) ]
+    ctext = HTAB / SP / %x21-27 ; '!'-'''
+     / %x2A-5B ; '*'-'['
+     / %x5D-7E ; ']'-'~'
+     / obs-text
+
+    date1 = day SP month SP year
+    date2 = day "-" month "-" 2DIGIT
+    date3 = month SP ( 2DIGIT / ( SP DIGIT ) )
+    day = 2DIGIT
+    day-name = %x4D.6F.6E ; Mon
+     / %x54.75.65 ; Tue
+     / %x57.65.64 ; Wed
+     / %x54.68.75 ; Thu
+     / %x46.72.69 ; Fri
+     / %x53.61.74 ; Sat
+     / %x53.75.6E ; Sun
+    day-name-l = %x4D.6F.6E.64.61.79 ; Monday
+     / %x54.75.65.73.64.61.79 ; Tuesday
+     / %x57.65.64.6E.65.73.64.61.79 ; Wednesday
+     / %x54.68.75.72.73.64.61.79 ; Thursday
+     / %x46.72.69.64.61.79 ; Friday
+     / %x53.61.74.75.72.64.61.79 ; Saturday
+     / %x53.75.6E.64.61.79 ; Sunday
+    delay-seconds = 1*DIGIT
+
+    entity-tag = [ weak ] opaque-tag
+    etagc = "!" / %x23-7E ; '#'-'~'
+     / obs-text
+    expectation = token [ "=" ( token / quoted-string ) parameters ]
+
+    field-content = field-vchar [ 1*( SP / HTAB / field-vchar )
+     field-vchar ]
+    field-name = token
+    field-value = *field-content
+    field-vchar = VCHAR / obs-text
+    first-pos = 1*DIGIT
+
+    hour = 2DIGIT
+    http-URI = "http://" authority path-abempty [ "?" query ]
+    https-URI = "https://" authority path-abempty [ "?" query ]
+
+    incl-range = first-pos "-" last-pos
+    int-range = first-pos "-" [ last-pos ]
+
+    language-range = <language-range, see [RFC4647], Section 2.1>
+    language-tag = <Language-Tag, see [RFC5646], Section 2.1>
+    last-pos = 1*DIGIT
+
+    mailbox = <mailbox, see [RFC5322], Section 3.4>
+    media-range = ( "*/*" / ( type "/*" ) / ( type "/" subtype ) )
+     parameters
+    media-type = type "/" subtype parameters
+    method = token
+    minute = 2DIGIT
+    month = %x4A.61.6E ; Jan
+     / %x46.65.62 ; Feb
+     / %x4D.61.72 ; Mar
+     / %x41.70.72 ; Apr
+     / %x4D.61.79 ; May
+     / %x4A.75.6E ; Jun
+     / %x4A.75.6C ; Jul
+     / %x41.75.67 ; Aug
+     / %x53.65.70 ; Sep
+     / %x4F.63.74 ; Oct
+     / %x4E.6F.76 ; Nov
+     / %x44.65.63 ; Dec
+
+    obs-date = rfc850-date / asctime-date
+    obs-text = %x80-FF
+    opaque-tag = DQUOTE *etagc DQUOTE
+    other-range = 1*( %x21-2B ; '!'-'+'
+     / %x2D-7E ; '-'-'~'
+     )
+
+    parameter = parameter-name "=" parameter-value
+    parameter-name = token
+    parameter-value = ( token / quoted-string )
+    parameters = *( OWS ";" OWS [ parameter ] )
+    partial-URI = relative-part [ "?" query ]
+    path-abempty = <path-abempty, see [URI], Section 3.3>
+    port = <port, see [URI], Section 3.2.3>
+    product = token [ "/" product-version ]
+    product-version = token
+    protocol = protocol-name [ "/" protocol-version ]
+    protocol-name = token
+    protocol-version = token
+    pseudonym = token
+
+    qdtext = HTAB / SP / "!" / %x23-5B ; '#'-'['
+     / %x5D-7E ; ']'-'~'
+     / obs-text
+    query = <query, see [URI], Section 3.4>
+    quoted-pair = "\" ( HTAB / SP / VCHAR / obs-text )
+    quoted-string = DQUOTE *( qdtext / quoted-pair ) DQUOTE
+    qvalue = ( "0" [ "." *3DIGIT ] ) / ( "1" [ "." *3"0" ] )
+
+    range-resp = incl-range "/" ( complete-length / "*" )
+    range-set = range-spec *( OWS "," OWS range-spec )
+    range-spec = int-range / suffix-range / other-range
+    range-unit = token
+    ranges-specifier = range-unit "=" range-set
+    received-by = pseudonym [ ":" port ]
+    received-protocol = [ protocol-name "/" ] protocol-version
+    relative-part = <relative-part, see [URI], Section 4.2>
+    rfc850-date = day-name-l "," SP date2 SP time-of-day SP GMT
+
+    second = 2DIGIT
+    segment = <segment, see [URI], Section 3.3>
+    subtype = token
+    suffix-length = 1*DIGIT
+    suffix-range = "-" suffix-length
+
+    t-codings = "trailers" / ( transfer-coding [ weight ] )
+    tchar = "!" / "#" / "$" / "%" / "&" / "'" / "*" / "+" / "-" / "." /
+     "^" / "_" / "`" / "|" / "~" / DIGIT / ALPHA
+    time-of-day = hour ":" minute ":" second
+    token = 1*tchar
+    token68 = 1*( ALPHA / DIGIT / "-" / "." / "_" / "~" / "+" / "/" )
+     *"="
+    transfer-coding = token *( OWS ";" OWS transfer-parameter )
+    transfer-parameter = token BWS "=" BWS ( token / quoted-string )
+    type = token
+
+    unsatisfied-range = "*/" complete-length
+    uri-host = <host, see [URI], Section 3.2.2>
+
+    weak = %x57.2F ; W/
+    weight = OWS ";" OWS "q=" qvalue
+
+    year = 4DIGIT
+
+[℗](#tfAppB ){id=pfAppB}
+
+/Appendix B.  Changes from Previous RFCs
+========================================================
+
+
+[℗](#tfAppB){id=pfB_1}
+
+//B.1.  Changes from RFC 2818
+--------------------------------------------------------
+
+   None.
+
+[℗](#tfAppB){id=pfB_2}
+
+//B.2.  Changes from RFC 7230
+--------------------------------------------------------
+
+   The sections introducing HTTP's design goals, history, architecture,
+   conformance criteria, protocol versioning, URIs, message routing, and
+   header fields have been moved here.
+
+   The requirement on semantic conformance has been replaced with
+   permission to ignore or work around implementation-specific failures.
+   (Section 2.2)
+
+   The description of an origin and authoritative access to origin
+   servers has been extended for both "http" and "https" URIs to account
+   for alternative services and secured connections that are not
+   necessarily based on TCP.  (Sections 4.2.1, 4.2.2, 4.3.1, and 7.3.3)
+
+   Explicit requirements have been added to check the target URI
+   scheme's semantics and reject requests that don't meet any associated
+   requirements.  (Section 7.4)
+
+   Parameters in media type, media range, and expectation can be empty
+   via one or more trailing semicolons.  (Section 5.6.6)
+
+   "Field value" now refers to the value after multiple field lines are
+   combined with commas -- by far the most common use.  To refer to a
+   single header line's value, use "field line value".  (Section 6.3)
+
+   Trailer field semantics now transcend the specifics of chunked
+   transfer coding.  The use of trailer fields has been further limited
+   to allow generation as a trailer field only when the sender knows the
+   field defines that usage and to allow merging into the header section
+   only if the recipient knows the corresponding field definition
+   permits and defines how to merge.  In all other cases,
+   implementations are encouraged either to store the trailer fields
+   separately or to discard them instead of merging.  (Section 6.5.1)
+
+   The priority of the absolute form of the request URI over the Host
+   header field by origin servers has been made explicit to align with
+   proxy handling.  (Section 7.2)
+
+   The grammar definition for the Via field's "received-by" was expanded
+   in RFC 7230 due to changes in the URI grammar for host [URI] that are
+   not desirable for Via. For simplicity, we have removed uri-host from
+   the received-by production because it can be encompassed by the
+   existing grammar for pseudonym.  In particular, this change removed
+   comma from the allowed set of characters for a host name in received-
+   by.  (Section 7.6.3)
+
+[℗](#tfAppB){id=pfB_3}
+
+//B.3.  Changes from RFC 7231
+--------------------------------------------------------
+
+   Minimum URI lengths to be supported by implementations are now
+   recommended.  (Section 4.1)
+
+   The following have been clarified: CR and NUL in field values are to
+   be rejected or mapped to SP, and leading and trailing whitespace
+   needs to be stripped from field values before they are consumed.
+   (Section 5.5)
+
+   Parameters in media type, media range, and expectation can be empty
+   via one or more trailing semicolons.  (Section 5.6.6)
+
+   An abstract data type for HTTP messages has been introduced to define
+   the components of a message and their semantics as an abstraction
+   across multiple HTTP versions, rather than in terms of the specific
+   syntax form of HTTP/1.1 in [HTTP/1.1], and reflect the contents after
+   the message is parsed.  This makes it easier to distinguish between
+   requirements on the content (what is conveyed) versus requirements on
+   the messaging syntax (how it is conveyed) and avoids baking
+   limitations of early protocol versions into the future of HTTP.
+   (Section 6)
+
+   The terms "payload" and "payload body" have been replaced with
+   "content", to better align with its usage elsewhere (e.g., in field
+   names) and to avoid confusion with frame payloads in HTTP/2 and
+   HTTP/3.  (Section 6.4)
+
+   The term "effective request URI" has been replaced with "target URI".
+   (Section 7.1)
+
+   Restrictions on client retries have been loosened to reflect
+   implementation behavior.  (Section 9.2.2)
+
+   The fact that request bodies on GET, HEAD, and DELETE are not
+   interoperable has been clarified.  (Sections 9.3.1, 9.3.2, and 9.3.5)
+
+   The use of the Content-Range header field (Section 14.4) as a request
+   modifier on PUT is allowed.  (Section 9.3.4)
+
+   A superfluous requirement about setting Content-Length has been
+   removed from the description of the OPTIONS method.  (Section 9.3.7)
+
+   The normative requirement to use the "message/http" media type in
+   TRACE responses has been removed.  (Section 9.3.8)
+
+   List-based grammar for Expect has been restored for compatibility
+   with RFC 2616.  (Section 10.1.1)
+
+   Accept and Accept-Encoding are allowed in response messages; the
+   latter was introduced by [RFC7694].  (Section 12.3)
+
+   "Accept Parameters" (accept-params and accept-ext ABNF production)
+   have been removed from the definition of the Accept field.
+   (Section 12.5.1)
+
+   The Accept-Charset field is now deprecated.  (Section 12.5.2)
+
+   The semantics of `*` in the Vary header field when other values are
+   present was clarified.  (Section 12.5.5)
+
+   Range units are compared in a case-insensitive fashion.
+   (Section 14.1)
+
+   The use of the Accept-Ranges field is not restricted to origin
+   servers.  (Section 14.3)
+
+   The process of creating a redirected request has been clarified.
+   (Section 15.4)
+
+   Status code 308 (previously defined in [RFC7538]) has been added so
+   that it's defined closer to status codes 301, 302, and 307.
+   (Section 15.4.9)
+
+   Status code 421 (previously defined in Section 9.1.2 of [RFC7540])
+   has been added because of its general applicability. 421 is no longer
+   defined as heuristically cacheable since the response is specific to
+   the connection (not the target resource).  (Section 15.5.20)
+
+   Status code 422 (previously defined in Section 11.2 of [WEBDAV]) has
+   been added because of its general applicability.  (Section 15.5.21)
+
+[℗](#tfAppB){id=pfB_4}
+
+//B.4.  Changes from RFC 7232
+--------------------------------------------------------
+
+   Previous revisions of HTTP imposed an arbitrary 60-second limit on
+   the determination of whether Last-Modified was a strong validator to
+   guard against the possibility that the Date and Last-Modified values
+   are generated from different clocks or at somewhat different times
+   during the preparation of the response.  This specification has
+   relaxed that to allow reasonable discretion.  (Section 8.8.2.2)
+
+   An edge-case requirement on If-Match and If-Unmodified-Since has been
+   removed that required a validator not to be sent in a 2xx response if
+   validation fails because the change request has already been applied.
+   (Sections 13.1.1 and 13.1.4)
+
+   The fact that If-Unmodified-Since does not apply to a resource
+   without a concept of modification time has been clarified.
+   (Section 13.1.4)
+
+   Preconditions can now be evaluated before the request content is
+   processed rather than waiting until the response would otherwise be
+   successful.  (Section 13.2)
+
+[℗](#tfAppB){id=pfB_5}
+
+//B.5.  Changes from RFC 7233
+--------------------------------------------------------
+
+   Refactored the range-unit and ranges-specifier grammars to simplify
+   and reduce artificial distinctions between bytes and other
+   (extension) range units, removing the overlapping grammar of other-
+   range-unit by defining range units generically as a token and placing
+   extensions within the scope of a range-spec (other-range).  This
+   disambiguates the role of list syntax (commas) in all range sets,
+   including extension range units, for indicating a range-set of more
+   than one range.  Moving the extension grammar into range specifiers
+   also allows protocol specific to byte ranges to be specified
+   separately.
+
+   It is now possible to define Range handling on extension methods.
+   (Section 14.2)
+
+   Described use of the Content-Range header field (Section 14.4) as a
+   request modifier to perform a partial PUT.  (Section 14.5)
+
+[℗](#tfAppB){id=pfB_6}
+
+//B.6.  Changes from RFC 7235
+--------------------------------------------------------
+
+   None.
+
+[℗](#tfAppB){id=pfB_7}
+
+//B.7.  Changes from RFC 7538
+--------------------------------------------------------
+
+   None.
+
+[℗](#tfAppB){id=pfB_8}
+
+//B.8.  Changes from RFC 7615
+--------------------------------------------------------
+
+   None.
+
+[℗](#tfAppB){id=pfB_9}
+
+//B.9.  Changes from RFC 7694
+--------------------------------------------------------
+
+   This specification includes the extension defined in [RFC7694] but
+   leaves out examples and deployment considerations.
+
+[℗](#tfAck){id=pfAck}
+
+/Acknowledgements
+========================================================
+
+   Aside from the current editors, the following individuals deserve
+   special recognition for their contributions to early aspects of HTTP
+   and its core specifications: Marc Andreessen, Tim Berners-Lee, Robert
+   Cailliau, Daniel W. Connolly, Bob Denny, John Franks, Jim Gettys,
+   Jean-François Groff, Phillip M. Hallam-Baker, Koen Holtman, Jeffery
+   L. Hostetler, Shel Kaphan, Dave Kristol, Yves Lafon, Scott
+   D. Lawrence, Paul J. Leach, Håkon W. Lie, Ari Luotonen, Larry
+   Masinter, Rob McCool, Jeffrey C. Mogul, Lou Montulli, David Morris,
+   Henrik Frystyk Nielsen, Dave Raggett, Eric Rescorla, Tony Sanders,
+   Lawrence C. Stewart, Marc VanHeyningen, and Steve Zilles.
+
+   This document builds on the many contributions that went into past
+   specifications of HTTP, including [HTTP/1.0], [RFC2068], [RFC2145],
+   [RFC2616], [RFC2617], [RFC2818], [RFC7230], [RFC7231], [RFC7232],
+   [RFC7233], [RFC7234], and [RFC7235].  The acknowledgements within
+   those documents still apply.
+
+   Since 2014, the following contributors have helped improve this
+   specification by reporting bugs, asking smart questions, drafting or
+   reviewing text, and evaluating issues:
+
+   Alan Egerton, Alex Rousskov, Amichai Rothman, Amos Jeffries, Anders
+   Kaseorg, Andreas Gebhardt, Anne van Kesteren, Armin Abfalterer, Aron
+   Duby, Asanka Herath, Asbjørn Ulsberg, Asta Olofsson, Attila Gulyas,
+   Austin Wright, Barry Pollard, Ben Burkert, Benjamin Kaduk, Björn
+   Höhrmann, Brad Fitzpatrick, Chris Pacejo, Colin Bendell, Cory
+   Benfield, Cory Nelson, Daisuke Miyakawa, Dale Worley, Daniel
+   Stenberg, Danil Suits, David Benjamin, David Matson, David Schinazi,
+   Дилян Палаузов (Dilyan Palauzov), Eric Anderson, Eric Rescorla, Éric
+   Vyncke, Erik Kline, Erwin Pe, Etan Kissling, Evert Pot, Evgeny
+   Vrublevsky, Florian Best, Francesca Palombini, Igor Lubashev, James
+   Callahan, James Peach, Jeffrey Yasskin, Kalin Gyokov, Kannan Goundan,
+   奥 一穂 (Kazuho Oku), Ken Murchison, Krzysztof Maczyński, Lars Eggert,
+   Lucas Pardue, Martin Duke, Martin Dürst, Martin Thomson, Martynas
+   Jusevičius, Matt Menke, Matthias Pigulla, Mattias Grenfeldt, Michael
+   Osipov, Mike Bishop, Mike Pennisi, Mike Taylor, Mike West, Mohit
+   Sethi, Murray Kucherawy, Nathaniel J. Smith, Nicholas Hurley, Nikita
+   Prokhorov, Patrick McManus, Piotr Sikora, Poul-Henning Kamp, Rick van
+   Rein, Robert Wilton, Roberto Polli, Roman Danyliw, Samuel Williams,
+   Semyon Kholodnov, Simon Pieters, Simon Schüppel, Stefan Eissing,
+   Taylor Hunt, Todd Greer, Tommy Pauly, Vasiliy Faronov, Vladimir
+   Lashchev, Wenbo Zhu, William A. Rowe Jr., Willy Tarreau, Xingwei Liu,
+   Yishuai Li, and Zaheduzzaman Sarker.
+
+
+[℗](#tfIndex){id=pfIndex}
+
+/Index
+========================================================
+
+   1 2 3 4 5 A B C D E F G H I L M N O P R S T U V W X
+
+      1
+
+         100 Continue (status code)  *_Section 15.2.1_*
+         100-continue (expect value)  *_Section 10.1.1_*
+         101 Switching Protocols (status code)  *_Section 15.2.2_*
+         1xx Informational (status code class)  *_Section 15.2_*
+
+      2
+
+         200 OK (status code)  *_Section 15.3.1_*
+         201 Created (status code)  *_Section 15.3.2_*
+         202 Accepted (status code)  *_Section 15.3.3_*
+         203 Non-Authoritative Information (status code)  *_Section 15.3
+            .4_*
+         204 No Content (status code)  *_Section 15.3.5_*
+         205 Reset Content (status code)  *_Section 15.3.6_*
+         206 Partial Content (status code)  *_Section 15.3.7_*
+         2xx Successful (status code class)  *_Section 15.3_*
+
+      3
+
+         300 Multiple Choices (status code)  *_Section 15.4.1_*
+         301 Moved Permanently (status code)  *_Section 15.4.2_*
+         302 Found (status code)  *_Section 15.4.3_*
+         303 See Other (status code)  *_Section 15.4.4_*
+         304 Not Modified (status code)  *_Section 15.4.5_*
+         305 Use Proxy (status code)  *_Section 15.4.6_*
+         306 (Unused) (status code)  *_Section 15.4.7_*
+         307 Temporary Redirect (status code)  *_Section 15.4.8_*
+         308 Permanent Redirect (status code)  *_Section 15.4.9_*
+         3xx Redirection (status code class)  *_Section 15.4_*
+
+      4
+
+         400 Bad Request (status code)  *_Section 15.5.1_*
+         401 Unauthorized (status code)  *_Section 15.5.2_*
+         402 Payment Required (status code)  *_Section 15.5.3_*
+         403 Forbidden (status code)  *_Section 15.5.4_*
+         404 Not Found (status code)  *_Section 15.5.5_*
+         405 Method Not Allowed (status code)  *_Section 15.5.6_*
+         406 Not Acceptable (status code)  *_Section 15.5.7_*
+         407 Proxy Authentication Required (status code)  *_Section 15.5
+            .8_*
+         408 Request Timeout (status code)  *_Section 15.5.9_*
+         409 Conflict (status code)  *_Section 15.5.10_*
+         410 Gone (status code)  *_Section 15.5.11_*
+         411 Length Required (status code)  *_Section 15.5.12_*
+         412 Precondition Failed (status code)  *_Section 15.5.13_*
+         413 Content Too Large (status code)  *_Section 15.5.14_*
+         414 URI Too Long (status code)  *_Section 15.5.15_*
+         415 Unsupported Media Type (status code)  *_Section 15.5.16_*
+         416 Range Not Satisfiable (status code)  *_Section 15.5.17_*
+         417 Expectation Failed (status code)  *_Section 15.5.18_*
+         418 (Unused) (status code)  *_Section 15.5.19_*
+         421 Misdirected Request (status code)  *_Section 15.5.20_*
+         422 Unprocessable Content (status code)  *_Section 15.5.21_*
+         426 Upgrade Required (status code)  *_Section 15.5.22_*
+         4xx Client Error (status code class)  *_Section 15.5_*
+
+      5
+
+         500 Internal Server Error (status code)  *_Section 15.6.1_*
+         501 Not Implemented (status code)  *_Section 15.6.2_*
+         502 Bad Gateway (status code)  *_Section 15.6.3_*
+         503 Service Unavailable (status code)  *_Section 15.6.4_*
+         504 Gateway Timeout (status code)  *_Section 15.6.5_*
+         505 HTTP Version Not Supported (status code)  *_Section 15.6.6_
+            *
+         5xx Server Error (status code class)  *_Section 15.6_*
+
+      A
+
+         accelerator  *_Section 3.7, Paragraph 6_*
+         Accept header field  *_Section 12.5.1_*
+         Accept-Charset header field  *_Section 12.5.2_*
+         Accept-Encoding header field  *_Section 12.5.3_*
+         Accept-Language header field  *_Section 12.5.4_*
+         Accept-Ranges header field  *_Section 14.3_*
+         Allow header field  *_Section 10.2.1_*
+         Authentication-Info header field  *_Section 11.6.3_*
+         authoritative response  *_Section 17.1_*
+         Authorization header field  *_Section 11.6.2_*
+
+      B
+
+         browser  *_Section 3.5_*
+
+      C
+
+         cache  *_Section 3.8_*
+         cacheable  *_Section 3.8, Paragraph 4_*
+         client  *_Section 3.3_*
+         clock  *_Section 5.6.7_*
+         complete  *_Section 6.1_*
+         compress (Coding Format)  Section 8.4.1.1
+         compress (content coding)  *_Section 8.4.1_*
+         conditional request  *_Section 13_*
+         CONNECT method  *_Section 9.3.6_*
+         connection  *_Section 3.3_*
+         Connection header field  *_Section 7.6.1_*
+         content  Section 6.4
+         content coding  *_Section 8.4.1_*
+         content negotiation  Section 1.3, Paragraph 4
+         Content-Encoding header field  *_Section 8.4_*
+         Content-Language header field  *_Section 8.5_*
+         Content-Length header field  *_Section 8.6_*
+         Content-Location header field  *_Section 8.7_*
+         Content-MD5 header field  *_Section 18.4, Paragraph 10_*
+         Content-Range header field  *_Section 14.4_*; Section 14.5
+         Content-Type header field  *_Section 8.3_*
+         control data  *_Section 6.2_*
+
+      D
+
+         Date header field  *_Section 6.6.1_*
+         deflate (Coding Format)  Section 8.4.1.2
+         deflate (content coding)  *_Section 8.4.1_*
+         DELETE method  *_Section 9.3.5_*
+         Delimiters  Section 5.6.2, Paragraph 3
+         downstream  *_Section 3.7, Paragraph 4_*
+
+      E
+
+         effective request URI  *_Section 7.1, Paragraph 8.1_*
+         ETag field  *_Section 8.8.3_*
+         Expect header field  *_Section 10.1.1_*
+
+      F
+
+         field  *_Section 5_*; Section 6.3
+         field line  Section 5.2, Paragraph 1
+         field line value  Section 5.2, Paragraph 1
+         field name  Section 5.2, Paragraph 1
+         field value  Section 5.2, Paragraph 2
+         Fields
+            *  *_Section 18.4, Paragraph 9_*
+            Accept  *_Section 12.5.1_*
+            Accept-Charset  *_Section 12.5.2_*
+            Accept-Encoding  *_Section 12.5.3_*
+            Accept-Language  *_Section 12.5.4_*
+            Accept-Ranges  *_Section 14.3_*
+            Allow  *_Section 10.2.1_*
+            Authentication-Info  *_Section 11.6.3_*
+            Authorization  *_Section 11.6.2_*
+            Connection  *_Section 7.6.1_*
+            Content-Encoding  *_Section 8.4_*
+            Content-Language  *_Section 8.5_*
+            Content-Length  *_Section 8.6_*
+            Content-Location  *_Section 8.7_*
+            Content-MD5  *_Section 18.4, Paragraph 10_*
+            Content-Range  *_Section 14.4_*; Section 14.5
+            Content-Type  *_Section 8.3_*
+            Date  *_Section 6.6.1_*
+            ETag  *_Section 8.8.3_*
+            Expect  *_Section 10.1.1_*
+            From  *_Section 10.1.2_*
+            Host  *_Section 7.2_*
+            If-Match  *_Section 13.1.1_*
+            If-Modified-Since  *_Section 13.1.3_*
+            If-None-Match  *_Section 13.1.2_*
+            If-Range  *_Section 13.1.5_*
+            If-Unmodified-Since  *_Section 13.1.4_*
+            Last-Modified  *_Section 8.8.2_*
+            Location  *_Section 10.2.2_*
+            Max-Forwards  *_Section 7.6.2_*
+            Proxy-Authenticate  *_Section 11.7.1_*
+            Proxy-Authentication-Info  *_Section 11.7.3_*
+            Proxy-Authorization  *_Section 11.7.2_*
+            Range  *_Section 14.2_*
+            Referer  *_Section 10.1.3_*
+            Retry-After  *_Section 10.2.3_*
+            Server  *_Section 10.2.4_*
+            TE  *_Section 10.1.4_*
+            Trailer  *_Section 6.6.2_*
+            Upgrade  *_Section 7.8_*
+            User-Agent  *_Section 10.1.5_*
+            Vary  *_Section 12.5.5_*
+            Via  *_Section 7.6.3_*
+            WWW-Authenticate  *_Section 11.6.1_*
+         Fragment Identifiers  Section 4.2.5
+         From header field  *_Section 10.1.2_*
+
+      G
+
+         gateway  *_Section 3.7, Paragraph 6_*
+         GET method  *_Section 9.3.1_*
+         Grammar
+            ALPHA  *_Section 2.1_*
+            Accept  *_Section 12.5.1_*
+            Accept-Charset  *_Section 12.5.2_*
+            Accept-Encoding  *_Section 12.5.3_*
+            Accept-Language  *_Section 12.5.4_*
+            Accept-Ranges  *_Section 14.3_*
+            Allow  *_Section 10.2.1_*
+            Authentication-Info  *_Section 11.6.3_*
+            Authorization  *_Section 11.6.2_*
+            BWS  *_Section 5.6.3_*
+            CR  *_Section 2.1_*
+            CRLF  *_Section 2.1_*
+            CTL  *_Section 2.1_*
+            Connection  *_Section 7.6.1_*
+            Content-Encoding  *_Section 8.4_*
+            Content-Language  *_Section 8.5_*
+            Content-Length  *_Section 8.6_*
+            Content-Location  *_Section 8.7_*
+            Content-Range  *_Section 14.4_*
+            Content-Type  *_Section 8.3_*
+            DIGIT  *_Section 2.1_*
+            DQUOTE  *_Section 2.1_*
+            Date  *_Section 6.6.1_*
+            ETag  *_Section 8.8.3_*
+            Expect  *_Section 10.1.1_*
+            From  *_Section 10.1.2_*
+            GMT  *_Section 5.6.7_*
+            HEXDIG  *_Section 2.1_*
+            HTAB  *_Section 2.1_*
+            HTTP-date  *_Section 5.6.7_*
+            Host  *_Section 7.2_*
+            IMF-fixdate  *_Section 5.6.7_*
+            If-Match  *_Section 13.1.1_*
+            If-Modified-Since  *_Section 13.1.3_*
+            If-None-Match  *_Section 13.1.2_*
+            If-Range  *_Section 13.1.5_*
+            If-Unmodified-Since  *_Section 13.1.4_*
+            LF  *_Section 2.1_*
+            Last-Modified  *_Section 8.8.2_*
+            Location  *_Section 10.2.2_*
+            Max-Forwards  *_Section 7.6.2_*
+            OCTET  *_Section 2.1_*
+            OWS  *_Section 5.6.3_*
+            Proxy-Authenticate  *_Section 11.7.1_*
+            Proxy-Authentication-Info  *_Section 11.7.3_*
+            Proxy-Authorization  *_Section 11.7.2_*
+            RWS  *_Section 5.6.3_*
+            Range  *_Section 14.2_*
+            Referer  *_Section 10.1.3_*
+            Retry-After  *_Section 10.2.3_*
+            SP  *_Section 2.1_*
+            Server  *_Section 10.2.4_*
+            TE  *_Section 10.1.4_*
+            Trailer  *_Section 6.6.2_*
+            URI-reference  *_Section 4.1_*
+            Upgrade  *_Section 7.8_*
+            User-Agent  *_Section 10.1.5_*
+            VCHAR  *_Section 2.1_*
+            Vary  *_Section 12.5.5_*
+            Via  *_Section 7.6.3_*
+            WWW-Authenticate  *_Section 11.6.1_*
+            absolute-URI  *_Section 4.1_*
+            absolute-path  *_Section 4.1_*
+            acceptable-ranges  *_Section 14.3_*
+            asctime-date  *_Section 5.6.7_*
+            auth-param  *_Section 11.2_*
+            auth-scheme  *_Section 11.1_*
+            authority  *_Section 4.1_*
+            challenge  *_Section 11.3_*
+            codings  *_Section 12.5.3_*
+            comment  *_Section 5.6.5_*
+            complete-length  *_Section 14.4_*
+            connection-option  *_Section 7.6.1_*
+            content-coding  *_Section 8.4.1_*
+            credentials  *_Section 11.4_*
+            ctext  *_Section 5.6.5_*
+            date1  *_Section 5.6.7_*
+            day  *_Section 5.6.7_*
+            day-name  *_Section 5.6.7_*
+            day-name-l  *_Section 5.6.7_*
+            delay-seconds  *_Section 10.2.3_*
+            entity-tag  *_Section 8.8.3_*
+            etagc  *_Section 8.8.3_*
+            field-content  *_Section 5.5_*
+            field-name  *_Section 5.1_*; Section 6.6.2
+            field-value  *_Section 5.5_*
+            field-vchar  *_Section 5.5_*
+            first-pos  *_Section 14.1.1_*; Section 14.4
+            hour  *_Section 5.6.7_*
+            http-URI  *_Section 4.2.1_*
+            https-URI  *_Section 4.2.2_*
+            incl-range  *_Section 14.4_*
+            int-range  *_Section 14.1.1_*
+            language-range  *_Section 12.5.4_*
+            language-tag  *_Section 8.5.1_*
+            last-pos  *_Section 14.1.1_*; Section 14.4
+            media-range  *_Section 12.5.1_*
+            media-type  *_Section 8.3.1_*
+            method  *_Section 9.1_*
+            minute  *_Section 5.6.7_*
+            month  *_Section 5.6.7_*
+            obs-date  *_Section 5.6.7_*
+            obs-text  *_Section 5.5_*
+            opaque-tag  *_Section 8.8.3_*
+            other-range  *_Section 14.1.1_*
+            parameter  *_Section 5.6.6_*
+            parameter-name  *_Section 5.6.6_*
+            parameter-value  *_Section 5.6.6_*
+            parameters  *_Section 5.6.6_*
+            partial-URI  *_Section 4.1_*
+            port  *_Section 4.1_*
+            product  *_Section 10.1.5_*
+            product-version  *_Section 10.1.5_*
+            protocol-name  *_Section 7.6.3_*
+            protocol-version  *_Section 7.6.3_*
+            pseudonym  *_Section 7.6.3_*
+            qdtext  *_Section 5.6.4_*
+            query  *_Section 4.1_*
+            quoted-pair  *_Section 5.6.4_*
+            quoted-string  *_Section 5.6.4_*
+            qvalue  *_Section 12.4.2_*
+            range-resp  *_Section 14.4_*
+            range-set  *_Section 14.1.1_*
+            range-spec  *_Section 14.1.1_*
+            range-unit  *_Section 14.1_*
+            ranges-specifier  *_Section 14.1.1_*
+            received-by  *_Section 7.6.3_*
+            received-protocol  *_Section 7.6.3_*
+            rfc850-date  *_Section 5.6.7_*
+            second  *_Section 5.6.7_*
+            segment  *_Section 4.1_*
+            subtype  *_Section 8.3.1_*
+            suffix-length  *_Section 14.1.1_*
+            suffix-range  *_Section 14.1.1_*
+            t-codings  *_Section 10.1.4_*
+            tchar  *_Section 5.6.2_*
+            time-of-day  *_Section 5.6.7_*
+            token  *_Section 5.6.2_*
+            token68  *_Section 11.2_*
+            transfer-coding  *_Section 10.1.4_*
+            transfer-parameter  *_Section 10.1.4_*
+            type  *_Section 8.3.1_*
+            unsatisfied-range  *_Section 14.4_*
+            uri-host  *_Section 4.1_*
+            weak  *_Section 8.8.3_*
+            weight  *_Section 12.4.2_*
+            year  *_Section 5.6.7_*
+         gzip (Coding Format)  Section 8.4.1.3
+         gzip (content coding)  *_Section 8.4.1_*
+
+      H
+
+         HEAD method  *_Section 9.3.2_*
+         Header Fields
+            Accept  *_Section 12.5.1_*
+            Accept-Charset  *_Section 12.5.2_*
+            Accept-Encoding  *_Section 12.5.3_*
+            Accept-Language  *_Section 12.5.4_*
+            Accept-Ranges  *_Section 14.3_*
+            Allow  *_Section 10.2.1_*
+            Authentication-Info  *_Section 11.6.3_*
+            Authorization  *_Section 11.6.2_*
+            Connection  *_Section 7.6.1_*
+            Content-Encoding  *_Section 8.4_*
+            Content-Language  *_Section 8.5_*
+            Content-Length  *_Section 8.6_*
+            Content-Location  *_Section 8.7_*
+            Content-MD5  *_Section 18.4, Paragraph 10_*
+            Content-Range  *_Section 14.4_*; Section 14.5
+            Content-Type  *_Section 8.3_*
+            Date  *_Section 6.6.1_*
+            ETag  *_Section 8.8.3_*
+            Expect  *_Section 10.1.1_*
+            From  *_Section 10.1.2_*
+            Host  *_Section 7.2_*
+            If-Match  *_Section 13.1.1_*
+            If-Modified-Since  *_Section 13.1.3_*
+            If-None-Match  *_Section 13.1.2_*
+            If-Range  *_Section 13.1.5_*
+            If-Unmodified-Since  *_Section 13.1.4_*
+            Last-Modified  *_Section 8.8.2_*
+            Location  *_Section 10.2.2_*
+            Max-Forwards  *_Section 7.6.2_*
+            Proxy-Authenticate  *_Section 11.7.1_*
+            Proxy-Authentication-Info  *_Section 11.7.3_*
+            Proxy-Authorization  *_Section 11.7.2_*
+            Range  *_Section 14.2_*
+            Referer  *_Section 10.1.3_*
+            Retry-After  *_Section 10.2.3_*
+            Server  *_Section 10.2.4_*
+            TE  *_Section 10.1.4_*
+            Trailer  *_Section 6.6.2_*
+            Upgrade  *_Section 7.8_*
+            User-Agent  *_Section 10.1.5_*
+            Vary  *_Section 12.5.5_*
+            Via  *_Section 7.6.3_*
+            WWW-Authenticate  *_Section 11.6.1_*
+         header section  *_Section 6.3_*
+         Host header field  *_Section 7.2_*
+         http URI scheme  *_Section 4.2.1_*
+         https URI scheme  *_Section 4.2.2_*
+
+      I
+
+         idempotent  *_Section 9.2.2_*
+         If-Match header field  *_Section 13.1.1_*
+         If-Modified-Since header field  *_Section 13.1.3_*
+         If-None-Match header field  *_Section 13.1.2_*
+         If-Range header field  *_Section 13.1.5_*
+         If-Unmodified-Since header field  *_Section 13.1.4_*
+         inbound  *_Section 3.7, Paragraph 4_*
+         incomplete  *_Section 6.1_*
+         interception proxy  *_Section 3.7, Paragraph 10_*
+         intermediary  *_Section 3.7_*
+
+      L
+
+         Last-Modified header field  *_Section 8.8.2_*
+         list-based field  Section 5.5, Paragraph 7
+         Location header field  *_Section 10.2.2_*
+
+      M
+
+         Max-Forwards header field  *_Section 7.6.2_*
+         Media Type
+            multipart/byteranges  *_Section 14.6_*
+            multipart/x-byteranges  Section 14.6, Paragraph 4, Item 3
+         message  Section 3.4; *_Section 6_*
+         message abstraction  *_Section 6_*
+         messages  *_Section 3.4_*
+         metadata  *_Section 8.8_*
+         Method
+            *  *_Section 18.2, Paragraph 3_*
+            CONNECT  *_Section 9.3.6_*
+            DELETE  *_Section 9.3.5_*
+            GET  *_Section 9.3.1_*
+            HEAD  *_Section 9.3.2_*
+            OPTIONS  *_Section 9.3.7_*
+            POST  *_Section 9.3.3_*
+            PUT  *_Section 9.3.4_*
+            TRACE  *_Section 9.3.8_*
+         multipart/byteranges Media Type  *_Section 14.6_*
+         multipart/x-byteranges Media Type  Section 14.6, Paragraph 4,
+            Item 3
+
+      N
+
+         non-transforming proxy  *_Section 7.7_*
+
+      O
+
+         OPTIONS method  *_Section 9.3.7_*
+         origin  *_Section 4.3.1_*; Section 11.5
+         origin server  *_Section 3.6_*
+         outbound  *_Section 3.7, Paragraph 4_*
+
+      P
+
+         phishing  *_Section 17.1_*
+         POST method  *_Section 9.3.3_*
+         Protection Space  Section 11.5
+         proxy  *_Section 3.7, Paragraph 5_*
+         Proxy-Authenticate header field  *_Section 11.7.1_*
+         Proxy-Authentication-Info header field  *_Section 11.7.3_*
+         Proxy-Authorization header field  *_Section 11.7.2_*
+         PUT method  *_Section 9.3.4_*
+
+      R
+
+         Range header field  *_Section 14.2_*
+         Realm  Section 11.5
+         recipient  *_Section 3.4_*
+         Referer header field  *_Section 10.1.3_*
+         representation  *_Section 3.2_*
+         request  *_Section 3.4_*
+         request target  *_Section 7.1_*
+         resource  *_Section 3.1_*; Section 4
+         response  *_Section 3.4_*
+         Retry-After header field  *_Section 10.2.3_*
+         reverse proxy  *_Section 3.7, Paragraph 6_*
+
+      S
+
+         safe  *_Section 9.2.1_*
+         satisfiable range  *_Section 14.1.1_*
+         secured  *_Section 4.2.2_*
+         selected representation  *_Section 3.2, Paragraph 4_*;
+            Section 8.8; Section 13.1
+         self-descriptive  *_Section 6_*
+         sender  *_Section 3.4_*
+         server  *_Section 3.3_*
+         Server header field  *_Section 10.2.4_*
+         singleton field  Section 5.5, Paragraph 6
+         spider  *_Section 3.5_*
+         Status Code  Section 15
+         Status Codes
+            Final  Section 15, Paragraph 7
+            Informational  Section 15, Paragraph 7
+            Interim  Section 15, Paragraph 7
+         Status Codes Classes
+            1xx Informational  *_Section 15.2_*
+            2xx Successful  *_Section 15.3_*
+            3xx Redirection  *_Section 15.4_*
+            4xx Client Error  *_Section 15.5_*
+            5xx Server Error  *_Section 15.6_*
+
+      T
+
+         target resource  *_Section 7.1_*
+         target URI  *_Section 7.1_*
+         TE header field  *_Section 10.1.4_*
+         TRACE method  *_Section 9.3.8_*
+         Trailer Fields  *_Section 6.5_*
+            ETag  *_Section 8.8.3_*
+         Trailer header field  *_Section 6.6.2_*
+         trailer section  *_Section 6.5_*
+         trailers  *_Section 6.5_*
+         transforming proxy  *_Section 7.7_*
+         transparent proxy  *_Section 3.7, Paragraph 10_*
+         tunnel  *_Section 3.7, Paragraph 8_*
+
+      U
+
+         unsatisfiable range  *_Section 14.1.1_*
+         Upgrade header field  *_Section 7.8_*
+         upstream  *_Section 3.7, Paragraph 4_*
+         URI  *_Section 4_*
+            origin  *_Section 4.3.1_*
+         URI reference  *_Section 4.1_*
+         URI scheme
+            http  *_Section 4.2.1_*
+            https  *_Section 4.2.2_*
+         user agent  *_Section 3.5_*
+         User-Agent header field  *_Section 10.1.5_*
+
+      V
+
+         validator  *_Section 8.8_*
+            strong  *_Section 8.8.1_*
+            weak  *_Section 8.8.1_*
+         Vary header field  *_Section 12.5.5_*
+         Via header field  *_Section 7.6.3_*
+
+      W
+
+         WWW-Authenticate header field  *_Section 11.6.1_*
+
+      X
+
+         x-compress (content coding)  *_Section 8.4.1_*
+         x-gzip (content coding)  *_Section 8.4.1_*
+
+Authors' Addresses
+
+   Roy T. Fielding (editor)
+   Adobe
+   345 Park Ave
+   San Jose, CA 95110
+   United States of America
+   Email: fielding@gbiv.com
+   URI:   https://roy.gbiv.com/
+
+
+   Mark Nottingham (editor)
+   Fastly
+   Prahran
+   Australia
+   Email: mnot@mnot.net
+   URI:   https://www.mnot.net/
+
+
+   Julian Reschke (editor)
+   greenbytes GmbH
+   Hafenweg 16
+   48155 Münster
+   Germany
+   Email: julian.reschke@greenbytes.de
+   URI:   https://greenbytes.de/tech/webdav/
+
+
+/HTTP/2
+========================================================
+https://www.rfc-editor.org/rfc/rfc9113.txt
+
+
+
+
+
+
+Internet Engineering Task Force (IETF)                   M. Thomson, Ed.
+Request for Comments: 9113                                       Mozilla
+Obsoletes: 7540, 8740                                   C. Benfield, Ed.
+Category: Standards Track                                     Apple Inc.
+ISSN: 2070-1721                                                June 2022
+
+
+                                 HTTP/2
+
+Abstract
+
+   This specification describes an optimized expression of the semantics
+   of the Hypertext Transfer Protocol (HTTP), referred to as HTTP
+   version 2 (HTTP/2).  HTTP/2 enables a more efficient use of network
+   resources and a reduced latency by introducing field compression and
+   allowing multiple concurrent exchanges on the same connection.
+
+   This document obsoletes RFCs 7540 and 8740.
+
+Status of This Memo
+
+   This is an Internet Standards Track document.
+
+   This document is a product of the Internet Engineering Task Force
+   (IETF).  It represents the consensus of the IETF community.  It has
+   received public review and has been approved for publication by the
+   Internet Engineering Steering Group (IESG).  Further information on
+   Internet Standards is available in Section 2 of RFC 7841.
+
+   Information about the current status of this document, any errata,
+   and how to provide feedback on it may be obtained at
+   https://www.rfc-editor.org/info/rfc9113.
+
+Copyright Notice
+
+   Copyright (c) 2022 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Revised BSD License text as described in Section 4.e of the
+   Trust Legal Provisions and are provided without warranty as described
+   in the Revised BSD License.
+
+[Table of Contents](){id=gtoc}
+--------------------------------------------------------
+
+- 1.  Introduction ............................................... [℗](#pgch1){id=tgch1}
+- 2.  HTTP/2 Protocol Overview ................................... [℗](#pgch2){id=tgch2}
+-   2.1.  Document Organization .................................. [℗](#pg2_1){id=tg2_1}
+-   2.2.  Conventions and Terminology ............................ [℗](#pg2_2){id=tg2_2}
+- 3.  Starting HTTP/2 ............................................ [℗](#pgch3){id=tgch3}
+-   3.1.  HTTP/2 Version Identification .......................... [℗](#pg3_1){id=tg3_1}
+-   3.2.  Starting HTTP/2 for "https" URIs ....................... [℗](#pg3_2){id=tg3_2}
+-   3.3.  Starting HTTP/2 with Prior Knowledge ................... [℗](#pg3_3){id=tg3_3}
+-   3.4.  HTTP/2 Connection Preface .............................. [℗](#pg3_4){id=tg3_4}
+- 4.  HTTP Frames ................................................ [℗](#pgch4){id=tgch4}
+-   4.1.  Frame Format ........................................... [℗](#pg4_1){id=tg4_1}
+-   4.2.  Frame Size ............................................. [℗](#pg4_2){id=tg4_2}
+-   4.3.  Field Section Compression and Decompression ............ [℗](#pg4_3){id=tg4_3}
+-     4.3.1.  Compression State .................................. [℗](#pg4_3_1){id=tg4_3_1}
+- 5.  Streams and Multiplexing ................................... [℗](#pgch5){id=tgch5}
+-   5.1.  Stream States .......................................... [℗](#pg5_1){id=tg5_1}
+-     5.1.1.  Stream Identifiers ................................. [℗](#pg5_1_1){id=tg5_1_1}
+-     5.1.2.  Stream Concurrency ................................. [℗](#pg5_1_2){id=tg5_1_2}
+-   5.2.  Flow Control ........................................... [℗](#pg5_2){id=tg5_2}
+-     5.2.1.  Flow-Control Principles ............................ [℗](#pg5_2_1){id=tg5_2_1}
+-     5.2.2.  Appropriate Use of Flow Control .................... [℗](#pg5_2_2){id=tg5_2_2}
+-     5.2.3.  Flow-Control Performance ........................... [℗](#pg5_2_3){id=tg5_2_3}
+-   5.3.  Prioritization ......................................... [℗](#pg5_3){id=tg5_3}
+-     5.3.1.  Background on Priority in RFC 7540 ................. [℗](#pg5_3_1){id=tg5_3_1}
+-     5.3.2.  Priority Signaling in This Document ................ [℗](#pg5_3_2){id=tg5_3_2}
+-   5.4.  Error Handling ......................................... [℗](#pg5_4){id=tg5_4}
+-     5.4.1.  Connection Error Handling .......................... [℗](#pg5_4_1){id=tg5_4_1}
+-     5.4.2.  Stream Error Handling .............................. [℗](#pg5_4_2){id=tg5_4_2}
+-     5.4.3.  Connection Termination ............................. [℗](#pg5_4_3){id=tg5_4_3}
+-   5.5.  Extending HTTP/2 ....................................... [℗](#pg5_5){id=tg5_5}
+- 6.  Frame Definitions .......................................... [℗](#pgch6){id=tgch6}
+-   6.1.  DATA ................................................... [℗](#pg6_1){id=tg6_1}
+-   6.2.  HEADERS ................................................ [℗](#pg6_2){id=tg6_2}
+-   6.3.  PRIORITY ............................................... [℗](#pg6_3){id=tg6_3}
+-   6.4.  RST_STREAM ............................................. [℗](#pg6_4){id=tg6_4}
+-   6.5.  SETTINGS ............................................... [℗](#pg6_5){id=tg6_5}
+-     6.5.1.  SETTINGS Format .................................... [℗](#pg6_5_1){id=tg6_5_1}
+-     6.5.2.  Defined Settings ................................... [℗](#pg6_5_2){id=tg6_5_2}
+-     6.5.3.  Settings Synchronization ........................... [℗](#pg6_5_3){id=tg6_5_3}
+-   6.6.  PUSH_PROMISE ........................................... [℗](#pg6_6){id=tg6_6}
+-   6.7.  PING ................................................... [℗](#pg6_7){id=tg6_7}
+-   6.8.  GOAWAY ................................................. [℗](#pg6_8){id=tg6_8}
+-   6.9.  WINDOW_UPDATE .......................................... [℗](#pg6_9){id=tg6_9}
+-     6.9.1.  The Flow-Control Window ............................ [℗](#pg6_9_1){id=tg6_9_1}
+-     6.9.2.  Initial Flow-Control Window Size ................... [℗](#pg6_9_2){id=tg6_9_2}
+-     6.9.3.  Reducing the Stream Window Size .................... [℗](#pg6_9_3){id=tg6_9_3}
+-   6.10. CONTINUATION ........................................... [℗](#pg6_10){id=tg6_10}
+- 7.  Error Codes ................................................ [℗](#pgch7){id=tgch7}
+- 8.  Expressing HTTP Semantics in HTTP/2 ........................ [℗](#pgch8){id=tgch8}
+-   8.1.  HTTP Message Framing ................................... [℗](#pg8_1){id=tg8_1}
+-     8.1.1.  Malformed Messages ................................. [℗](#pg8_1_1){id=tg8_1_1}
+-   8.2.  HTTP Fields ............................................ [℗](#pg8_2){id=tg8_2}
+-     8.2.1.  Field Validity ..................................... [℗](#pg8_2_1){id=tg8_2_1}
+-     8.2.2.  Connection-Specific Header Fields .................. [℗](#pg8_2_2){id=tg8_2_2}
+-     8.2.3.  Compressing the Cookie Header Field ................ [℗](#pg8_2_3){id=tg8_2_3}
+-   8.3.  HTTP Control Data ...................................... [℗](#pg8_3){id=tg8_3}
+-     8.3.1.  Request Pseudo-Header Fields ....................... [℗](#pg8_3_1){id=tg8_3_1}
+-     8.3.2.  Response Pseudo-Header Fields ...................... [℗](#pg8_3_2){id=tg8_3_2}
+-   8.4.  Server Push ............................................ [℗](#pg8_4){id=tg8_4}
+-     8.4.1.  Push Requests ...................................... [℗](#pg8_4_1){id=tg8_4_1}
+-     8.4.2.  Push Responses ..................................... [℗](#pg8_4_2){id=tg8_4_2}
+-   8.5.  The CONNECT Method ..................................... [℗](#pg8_5){id=tg8_5}
+-   8.6.  The Upgrade Header Field ............................... [℗](#pg8_6){id=tg8_6}
+-   8.7.  Request Reliability .................................... [℗](#pg8_7){id=tg8_7}
+-   8.8.  Examples ............................................... [℗](#pg8_8){id=tg8_8}
+-     8.8.1.  Simple Request ..................................... [℗](#pg8_8_1){id=tg8_8_1}
+-     8.8.2.  Simple Response .................................... [℗](#pg8_8_2){id=tg8_8_2}
+-     8.8.3.  Complex Request .................................... [℗](#pg8_8_3){id=tg8_8_3}
+-     8.8.4.  Response with Body ................................. [℗](#pg8_8_4){id=tg8_8_4}
+-     8.8.5.  Informational Responses ............................ [℗](#pg8_8_5){id=tg8_8_5}
+- 9.  HTTP/2 Connections ......................................... [℗](#pgch9){id=tgch9}
+-   9.1.  Connection Management .................................. [℗](#pg9_1){id=tg9_1}
+-     9.1.1.  Connection Reuse ................................... [℗](#pg9_1_1){id=tg9_1_1}
+-   9.2.  Use of TLS Features .................................... [℗](#pg9_2){id=tg9_2}
+-     9.2.1.  TLS 1.2 Features ................................... [℗](#pg9_2_1){id=tg9_2_1}
+-     9.2.2.  TLS 1.2 Cipher Suites .............................. [℗](#pg9_2_2){id=tg9_2_2}
+-     9.2.3.  TLS 1.3 Features ................................... [℗](#pg9_2_3){id=tg9_2_3}
+- 10. Security Considerations .................................... [℗](#pgch10){id=tgch10}
+-   10.1.  Server Authority ...................................... [℗](#pg10_1){id=tg10_1}
+-   10.2.  Cross-Protocol Attacks ................................ [℗](#pg10_2){id=tg10_2}
+-   10.3.  Intermediary Encapsulation Attacks .................... [℗](#pg10_3){id=tg10_3}
+-   10.4.  Cacheability of Pushed Responses ...................... [℗](#pg10_4){id=tg10_4}
+-   10.5.  Denial-of-Service Considerations ...................... [℗](#pg10_5){id=tg10_5}
+-     10.5.1.  Limits on Field Block Size ........................ [℗](#pg10_5_1){id=tg10_5_1}
+-     10.5.2.  CONNECT Issues .................................... [℗](#pg10_5_2){id=tg10_5_2}
+-   10.6.  Use of Compression .................................... [℗](#pg10_6){id=tg10_6}
+-   10.7.  Use of Padding ........................................ [℗](#pg10_7){id=tg10_7}
+-   10.8.  Privacy Considerations ................................ [℗](#pg10_8){id=tg10_8}
+-   10.9.  Remote Timing Attacks ................................. [℗](#pg10_9){id=tg10_9}
+- 11. IANA Considerations ........................................ [℗](#pgch11){id=tgch11}
+-   11.1.  HTTP2-Settings Header Field Registration .............. [℗](#pg11_1){id=tg11_1}
+-   11.2.  The h2c Upgrade Token ................................. [℗](#pg11_2){id=tg11_2}
+- 12. References ................................................. [℗](#pgch12){id=tgch12}
+-   12.1.  Normative References .................................. [℗](#pg12_1){id=tg12_1}
+-   12.2.  Informative References ................................ [℗](#pg12_2){id=tg12_2}
+- Appendix A.  Prohibited TLS 1.2 Cipher Suites .................. [℗](#pgAppA){id=tgAppA}
+- Appendix B.  Changes from RFC 7540 ............................. [℗](#pgAppB){id=tgAppB}
+- Acknowledgments ................................................ 
+- Contributors ................................................... 
+- Authors' Addresses ............................................. 
+
+[℗](#tgch1){id=pgch1}
+
+/1.  Introduction
+========================================================
+
+   The performance of applications using the Hypertext Transfer Protocol
+   (HTTP, [HTTP]) is linked to how each version of HTTP uses the
+   underlying transport, and the conditions under which the transport
+   operates.
+
+   Making multiple concurrent requests can reduce latency and improve
+   application performance.  HTTP/1.0 allowed only one request to be
+   outstanding at a time on a given TCP [TCP] connection.  HTTP/1.1
+   [HTTP/1.1] added request pipelining, but this only partially
+   addressed request concurrency and still suffers from application-
+   layer head-of-line blocking.  Therefore, HTTP/1.0 and HTTP/1.1
+   clients use multiple connections to a server to make concurrent
+   requests.
+
+   Furthermore, HTTP fields are often repetitive and verbose, causing
+   unnecessary network traffic as well as causing the initial TCP
+   congestion window to quickly fill.  This can result in excessive
+   latency when multiple requests are made on a new TCP connection.
+
+   HTTP/2 addresses these issues by defining an optimized mapping of
+   HTTP's semantics to an underlying connection.  Specifically, it
+   allows interleaving of messages on the same connection and uses an
+   efficient coding for HTTP fields.  It also allows prioritization of
+   requests, letting more important requests complete more quickly,
+   further improving performance.
+
+   The resulting protocol is more friendly to the network because fewer
+   TCP connections can be used in comparison to HTTP/1.x.  This means
+   less competition with other flows and longer-lived connections, which
+   in turn lead to better utilization of available network capacity.
+   Note, however, that TCP head-of-line blocking is not addressed by
+   this protocol.
+
+   Finally, HTTP/2 also enables more efficient processing of messages
+   through use of binary message framing.
+
+   This document obsoletes RFCs 7540 and 8740.  Appendix B lists notable
+   changes.
+
+[℗](#tgch2){id=pgch2}
+
+/2.  HTTP/2 Protocol Overview
+========================================================
+
+   HTTP/2 provides an optimized transport for HTTP semantics.  HTTP/2
+   supports all of the core features of HTTP but aims to be more
+   efficient than HTTP/1.1.
+
+   HTTP/2 is a connection-oriented application-layer protocol that runs
+   over a TCP connection ([TCP]).  The client is the TCP connection
+   initiator.
+
+   The basic protocol unit in HTTP/2 is a frame (Section 4.1).  Each
+   frame type serves a different purpose.  For example, HEADERS and DATA
+   frames form the basis of HTTP requests and responses (Section 8.1);
+   other frame types like SETTINGS, WINDOW_UPDATE, and PUSH_PROMISE are
+   used in support of other HTTP/2 features.
+
+   Multiplexing of requests is achieved by having each HTTP request/
+   response exchange associated with its own stream (Section 5).
+   Streams are largely independent of each other, so a blocked or
+   stalled request or response does not prevent progress on other
+   streams.
+
+   Effective use of multiplexing depends on flow control and
+   prioritization.  Flow control (Section 5.2) ensures that it is
+   possible to efficiently use multiplexed streams by restricting data
+   that is transmitted to what the receiver is able to handle.
+   Prioritization (Section 5.3) ensures that limited resources are used
+   most effectively.  This revision of HTTP/2 deprecates the priority
+   signaling scheme from [RFC7540].
+
+   Because HTTP fields used in a connection can contain large amounts of
+   redundant data, frames that contain them are compressed
+   (Section 4.3).  This has especially advantageous impact upon request
+   sizes in the common case, allowing many requests to be compressed
+   into one packet.
+
+   Finally, HTTP/2 adds a new, optional interaction mode whereby a
+   server can push responses to a client (Section 8.4).  This is
+   intended to allow a server to speculatively send data to a client
+   that the server anticipates the client will need, trading off some
+   network usage against a potential latency gain.  The server does this
+   by synthesizing a request, which it sends as a PUSH_PROMISE frame.
+   The server is then able to send a response to the synthetic request
+   on a separate stream.
+
+[℗](#tgch2){id=pg2_1}
+
+//2.1.  Document Organization
+--------------------------------------------------------
+
+   The HTTP/2 specification is split into four parts:
+
+   *  Starting HTTP/2 (Section 3) covers how an HTTP/2 connection is
+      initiated.
+
+   *  The frame (Section 4) and stream (Section 5) layers describe the
+      way HTTP/2 frames are structured and formed into multiplexed
+      streams.
+
+   *  Frame (Section 6) and error (Section 7) definitions include
+      details of the frame and error types used in HTTP/2.
+
+   *  HTTP mappings (Section 8) and additional requirements (Section 9)
+      describe how HTTP semantics are expressed using frames and
+      streams.
+
+   While some of the frame- and stream-layer concepts are isolated from
+   HTTP, this specification does not define a completely generic frame
+   layer.  The frame and stream layers are tailored to the needs of
+   HTTP.
+
+[℗](#tgch2){id=pg2_2}
+
+//2.2.  Conventions and Terminology
+--------------------------------------------------------
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   All numeric values are in network byte order.  Values are unsigned
+   unless otherwise indicated.  Literal values are provided in decimal
+   or hexadecimal as appropriate.  Hexadecimal literals are prefixed
+   with "0x" to distinguish them from decimal literals.
+
+   This specification describes binary formats using the conventions
+   described in Section 1.3 of RFC 9000 [QUIC].  Note that this format
+   uses network byte order and that high-valued bits are listed before
+   low-valued bits.
+
+   The following terms are used:
+
+   client:  The endpoint that initiates an HTTP/2 connection.  Clients
+      send HTTP requests and receive HTTP responses.
+
+   connection:  A transport-layer connection between two endpoints.
+
+   connection error:  An error that affects the entire HTTP/2
+      connection.
+
+   endpoint:  Either the client or server of the connection.
+
+   frame:  The smallest unit of communication within an HTTP/2
+      connection, consisting of a header and a variable-length sequence
+      of octets structured according to the frame type.
+
+   peer:  An endpoint.  When discussing a particular endpoint, "peer"
+      refers to the endpoint that is remote to the primary subject of
+      discussion.
+
+   receiver:  An endpoint that is receiving frames.
+
+   sender:  An endpoint that is transmitting frames.
+
+   server:  The endpoint that accepts an HTTP/2 connection.  Servers
+      receive HTTP requests and send HTTP responses.
+
+   stream:  A bidirectional flow of frames within the HTTP/2 connection.
+
+   stream error:  An error on the individual HTTP/2 stream.
+
+   Finally, the terms "gateway", "intermediary", "proxy", and "tunnel"
+   are defined in Section 3.7 of [HTTP].  Intermediaries act as both
+   client and server at different times.
+
+   The term "content" as it applies to message bodies is defined in
+   Section 6.4 of [HTTP].
+
+[℗](#tgch3){id=pgch3}
+
+/3.  Starting HTTP/2
+========================================================
+
+   Implementations that generate HTTP requests need to discover whether
+   a server supports HTTP/2.
+
+   HTTP/2 uses the "http" and "https" URI schemes defined in Section 4.2
+   of [HTTP], with the same default port numbers as HTTP/1.1 [HTTP/1.1].
+   These URIs do not include any indication about what HTTP versions an
+   upstream server (the immediate peer to which the client wishes to
+   establish a connection) supports.
+
+   The means by which support for HTTP/2 is determined is different for
+   "http" and "https" URIs.  Discovery for "https" URIs is described in
+   Section 3.2.  HTTP/2 support for "http" URIs can only be discovered
+   by out-of-band means and requires prior knowledge of the support as
+   described in Section 3.3.
+
+[℗](#tgch3){id=pg3_1}
+
+//3.1.  HTTP/2 Version Identification
+--------------------------------------------------------
+
+   The protocol defined in this document has two identifiers.  Creating
+   a connection based on either implies the use of the transport,
+   framing, and message semantics described in this document.
+
+   *  The string "h2" identifies the protocol where HTTP/2 uses
+      Transport Layer Security (TLS); see Section 9.2.  This identifier
+      is used in the TLS Application-Layer Protocol Negotiation (ALPN)
+      extension [TLS-ALPN] field and in any place where HTTP/2 over TLS
+      is identified.
+
+      The "h2" string is serialized into an ALPN protocol identifier as
+      the two-octet sequence: 0x68, 0x32.
+
+   *  The "h2c" string was previously used as a token for use in the
+      HTTP Upgrade mechanism's Upgrade header field (Section 7.8 of
+      [HTTP]).  This usage was never widely deployed and is deprecated
+      by this document.  The same applies to the HTTP2-Settings header
+      field, which was used with the upgrade to "h2c".
+
+[℗](#tgch3){id=pg3_2}
+
+//3.2.  Starting HTTP/2 for "https" URIs
+--------------------------------------------------------
+
+   A client that makes a request to an "https" URI uses TLS [TLS13] with
+   the ALPN extension [TLS-ALPN].
+
+   HTTP/2 over TLS uses the "h2" protocol identifier.  The "h2c"
+   protocol identifier MUST NOT be sent by a client or selected by a
+   server; the "h2c" protocol identifier describes a protocol that does
+   not use TLS.
+
+   Once TLS negotiation is complete, both the client and the server MUST
+   send a connection preface (Section 3.4).
+
+[℗](#tgch3){id=pg3_3}
+
+//3.3.  Starting HTTP/2 with Prior Knowledge
+--------------------------------------------------------
+
+   A client can learn that a particular server supports HTTP/2 by other
+   means.  For example, a client could be configured with knowledge that
+   a server supports HTTP/2.
+
+   A client that knows that a server supports HTTP/2 can establish a TCP
+   connection and send the connection preface (Section 3.4) followed by
+   HTTP/2 frames.  Servers can identify these connections by the
+   presence of the connection preface.  This only affects the
+   establishment of HTTP/2 connections over cleartext TCP; HTTP/2
+   connections over TLS MUST use protocol negotiation in TLS [TLS-ALPN].
+
+   Likewise, the server MUST send a connection preface (Section 3.4).
+
+   Without additional information, prior support for HTTP/2 is not a
+   strong signal that a given server will support HTTP/2 for future
+   connections.  For example, it is possible for server configurations
+   to change, for configurations to differ between instances in
+   clustered servers, or for network conditions to change.
+
+[℗](#tgch3){id=pg3_4}
+
+//3.4.  HTTP/2 Connection Preface
+--------------------------------------------------------
+
+   In HTTP/2, each endpoint is required to send a connection preface as
+   a final confirmation of the protocol in use and to establish the
+   initial settings for the HTTP/2 connection.  The client and server
+   each send a different connection preface.
+
+   The client connection preface starts with a sequence of 24 octets,
+   which in hex notation is:
+
+     0x505249202a20485454502f322e300d0a0d0a534d0d0a0d0a
+
+   That is, the connection preface starts with the string "PRI *
+   HTTP/2.0\r\n\r\nSM\r\n\r\n".  This sequence MUST be followed by a
+   SETTINGS frame (Section 6.5), which MAY be empty.  The client sends
+   the client connection preface as the first application data octets of
+   a connection.
+
+      |  Note: The client connection preface is selected so that a large
+      |  proportion of HTTP/1.1 or HTTP/1.0 servers and intermediaries
+      |  do not attempt to process further frames.  Note that this does
+      |  not address the concerns raised in [TALKING].
+
+   The server connection preface consists of a potentially empty
+   SETTINGS frame (Section 6.5) that MUST be the first frame the server
+   sends in the HTTP/2 connection.
+
+   The SETTINGS frames received from a peer as part of the connection
+   preface MUST be acknowledged (see Section 6.5.3) after sending the
+   connection preface.
+
+   To avoid unnecessary latency, clients are permitted to send
+   additional frames to the server immediately after sending the client
+   connection preface, without waiting to receive the server connection
+   preface.  It is important to note, however, that the server
+   connection preface SETTINGS frame might include settings that
+   necessarily alter how a client is expected to communicate with the
+   server.  Upon receiving the SETTINGS frame, the client is expected to
+   honor any settings established.  In some configurations, it is
+   possible for the server to transmit SETTINGS before the client sends
+   additional frames, providing an opportunity to avoid this issue.
+
+   Clients and servers MUST treat an invalid connection preface as a
+   connection error (Section 5.4.1) of type PROTOCOL_ERROR.  A GOAWAY
+   frame (Section 6.8) MAY be omitted in this case, since an invalid
+   preface indicates that the peer is not using HTTP/2.
+
+[℗](#tgch4){id=pgch4}
+
+/4.  HTTP Frames
+========================================================
+
+   Once the HTTP/2 connection is established, endpoints can begin
+   exchanging frames.
+
+[℗](#tgch4){id=pg4_1}
+
+//4.1.  Frame Format
+--------------------------------------------------------
+
+   All frames begin with a fixed 9-octet header followed by a variable-
+   length frame payload.
+
+   HTTP Frame {
+     Length (24),
+     Type (8),
+
+     Flags (8),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     Frame Payload (..),
+   }
+
+                           Figure 1: Frame Layout
+
+   The fields of the frame header are defined as:
+
+   Length:  The length of the frame payload expressed as an unsigned
+      24-bit integer in units of octets.  Values greater than 2^14
+      (16,384) MUST NOT be sent unless the receiver has set a larger
+      value for SETTINGS_MAX_FRAME_SIZE.
+
+      The 9 octets of the frame header are not included in this value.
+
+   Type:  The 8-bit type of the frame.  The frame type determines the
+      format and semantics of the frame.  Frames defined in this
+      document are listed in Section 6.  Implementations MUST ignore and
+      discard frames of unknown types.
+
+   Flags:  An 8-bit field reserved for boolean flags specific to the
+      frame type.
+
+      Flags are assigned semantics specific to the indicated frame type.
+      Unused flags are those that have no defined semantics for a
+      particular frame type.  Unused flags MUST be ignored on receipt
+      and MUST be left unset (0x00) when sending.
+
+   Reserved:  A reserved 1-bit field.  The semantics of this bit are
+      undefined, and the bit MUST remain unset (0x00) when sending and
+      MUST be ignored when receiving.
+
+   Stream Identifier:  A stream identifier (see Section 5.1.1) expressed
+      as an unsigned 31-bit integer.  The value 0x00 is reserved for
+      frames that are associated with the connection as a whole as
+      opposed to an individual stream.
+
+   The structure and content of the frame payload are dependent entirely
+   on the frame type.
+
+[℗](#tgch4){id=pg4_2}
+
+//4.2.  Frame Size
+--------------------------------------------------------
+
+   The size of a frame payload is limited by the maximum size that a
+   receiver advertises in the SETTINGS_MAX_FRAME_SIZE setting.  This
+   setting can have any value between 2^14 (16,384) and 2^24-1
+   (16,777,215) octets, inclusive.
+
+   All implementations MUST be capable of receiving and minimally
+   processing frames up to 2^14 octets in length, plus the 9-octet frame
+   header (Section 4.1).  The size of the frame header is not included
+   when describing frame sizes.
+
+      |  Note: Certain frame types, such as PING (Section 6.7), impose
+      |  additional limits on the amount of frame payload data allowed.
+
+   An endpoint MUST send an error code of FRAME_SIZE_ERROR if a frame
+   exceeds the size defined in SETTINGS_MAX_FRAME_SIZE, exceeds any
+   limit defined for the frame type, or is too small to contain
+   mandatory frame data.  A frame size error in a frame that could alter
+   the state of the entire connection MUST be treated as a connection
+   error (Section 5.4.1); this includes any frame carrying a field block
+   (Section 4.3) (that is, HEADERS, PUSH_PROMISE, and CONTINUATION), a
+   SETTINGS frame, and any frame with a stream identifier of 0.
+
+   Endpoints are not obligated to use all available space in a frame.
+   Responsiveness can be improved by using frames that are smaller than
+   the permitted maximum size.  Sending large frames can result in
+   delays in sending time-sensitive frames (such as RST_STREAM,
+   WINDOW_UPDATE, or PRIORITY), which, if blocked by the transmission of
+   a large frame, could affect performance.
+
+[℗](#tgch4){id=pg4_3}
+
+//4.3.  Field Section Compression and Decompression
+--------------------------------------------------------
+
+   Field section compression is the process of compressing a set of
+   field lines (Section 5.2 of [HTTP]) to form a field block.  Field
+   section decompression is the process of decoding a field block into a
+   set of field lines.  Details of HTTP/2 field section compression and
+   decompression are defined in [COMPRESSION], which, for historical
+   reasons, refers to these processes as header compression and
+   decompression.
+
+   Each field block carries all of the compressed field lines of a
+   single field section.  Header sections also include control data
+   associated with the message in the form of pseudo-header fields
+   (Section 8.3) that use the same format as a field line.
+
+      |  Note: RFC 7540 [RFC7540] used the term "header block" in place
+      |  of the more generic "field block".
+
+   Field blocks carry control data and header sections for requests,
+   responses, promised requests, and pushed responses (see Section 8.4).
+   All these messages, except for interim responses and requests
+   contained in PUSH_PROMISE (Section 6.6) frames, can optionally
+   include a field block that carries a trailer section.
+
+   A field section is a collection of field lines.  Each of the field
+   lines in a field block carries a single value.  The serialized field
+   block is then divided into one or more octet sequences, called field
+   block fragments.  The first field block fragment is transmitted
+   within the frame payload of HEADERS (Section 6.2) or PUSH_PROMISE
+   (Section 6.6), each of which could be followed by CONTINUATION
+   (Section 6.10) frames to carry subsequent field block fragments.
+
+   The Cookie header field [COOKIE] is treated specially by the HTTP
+   mapping (see Section 8.2.3).
+
+   A receiving endpoint reassembles the field block by concatenating its
+   fragments and then decompresses the block to reconstruct the field
+   section.
+
+   A complete field section consists of either:
+
+   *  a single HEADERS or PUSH_PROMISE frame, with the END_HEADERS flag
+      set, or
+
+   *  a HEADERS or PUSH_PROMISE frame with the END_HEADERS flag unset
+      and one or more CONTINUATION frames, where the last CONTINUATION
+      frame has the END_HEADERS flag set.
+
+   Each field block is processed as a discrete unit.  Field blocks MUST
+   be transmitted as a contiguous sequence of frames, with no
+   interleaved frames of any other type or from any other stream.  The
+   last frame in a sequence of HEADERS or CONTINUATION frames has the
+   END_HEADERS flag set.  The last frame in a sequence of PUSH_PROMISE
+   or CONTINUATION frames has the END_HEADERS flag set.  This allows a
+   field block to be logically equivalent to a single frame.
+
+   Field block fragments can only be sent as the frame payload of
+   HEADERS, PUSH_PROMISE, or CONTINUATION frames because these frames
+   carry data that can modify the compression context maintained by a
+   receiver.  An endpoint receiving HEADERS, PUSH_PROMISE, or
+   CONTINUATION frames needs to reassemble field blocks and perform
+   decompression even if the frames are to be discarded.  A receiver
+   MUST terminate the connection with a connection error (Section 5.4.1)
+   of type COMPRESSION_ERROR if it does not decompress a field block.
+
+   A decoding error in a field block MUST be treated as a connection
+   error (Section 5.4.1) of type COMPRESSION_ERROR.
+
+[℗](#tgch4){id=pg4_3_1}
+
+4.3.1.  Compression State
+--------------------------------------------------------
+
+   Field compression is stateful.  Each endpoint has an HPACK encoder
+   context and an HPACK decoder context that are used for encoding and
+   decoding all field blocks on a connection.  Section 4 of
+   [COMPRESSION] defines the dynamic table, which is the primary state
+   for each context.
+
+   The dynamic table has a maximum size that is set by an HPACK decoder.
+   An endpoint communicates the size chosen by its HPACK decoder context
+   using the SETTINGS_HEADER_TABLE_SIZE setting; see Section 6.5.2.
+   When a connection is established, the dynamic table size for the
+   HPACK decoder and encoder at both endpoints starts at 4,096 bytes,
+   the initial value of the SETTINGS_HEADER_TABLE_SIZE setting.
+
+   Any change to the maximum value set using SETTINGS_HEADER_TABLE_SIZE
+   takes effect when the endpoint acknowledges settings (Section 6.5.3).
+   The HPACK encoder at that endpoint can set the dynamic table to any
+   size up to the maximum value set by the decoder.  An HPACK encoder
+   declares the size of the dynamic table with a Dynamic Table Size
+   Update instruction (Section 6.3 of [COMPRESSION]).
+
+   Once an endpoint acknowledges a change to SETTINGS_HEADER_TABLE_SIZE
+   that reduces the maximum below the current size of the dynamic table,
+   its HPACK encoder MUST start the next field block with a Dynamic
+   Table Size Update instruction that sets the dynamic table to a size
+   that is less than or equal to the reduced maximum; see Section 4.2 of
+   [COMPRESSION].  An endpoint MUST treat a field block that follows an
+   acknowledgment of the reduction to the maximum dynamic table size as
+   a connection error (Section 5.4.1) of type COMPRESSION_ERROR if it
+   does not start with a conformant Dynamic Table Size Update
+   instruction.
+
+      |  Implementers are advised that reducing the value of
+      |  SETTINGS_HEADER_TABLE_SIZE is not widely interoperable.  Use of
+      |  the connection preface to reduce the value below the initial
+      |  value of 4,096 is somewhat better supported, but this might
+      |  fail with some implementations.
+
+[℗](#tgch5){id=pgch5}
+
+/5.  Streams and Multiplexing
+========================================================
+
+   A "stream" is an independent, bidirectional sequence of frames
+   exchanged between the client and server within an HTTP/2 connection.
+   Streams have several important characteristics:
+
+   *  A single HTTP/2 connection can contain multiple concurrently open
+      streams, with either endpoint interleaving frames from multiple
+      streams.
+
+   *  Streams can be established and used unilaterally or shared by
+      either endpoint.
+
+   *  Streams can be closed by either endpoint.
+
+   *  The order in which frames are sent is significant.  Recipients
+      process frames in the order they are received.  In particular, the
+      order of HEADERS and DATA frames is semantically significant.
+
+   *  Streams are identified by an integer.  Stream identifiers are
+      assigned to streams by the endpoint initiating the stream.
+
+[℗](#tgch5){id=pg5_1}
+
+//5.1.  Stream States
+--------------------------------------------------------
+
+   The lifecycle of a stream is shown in Figure 2.
+
+                                +--------+
+                        send PP |        | recv PP
+                       ,--------+  idle  +--------.
+                      /         |        |         \
+                     v          +--------+          v
+              +----------+          |           +----------+
+              |          |          | send H /  |          |
+       ,------+ reserved |          | recv H    | reserved +------.
+       |      | (local)  |          |           | (remote) |      |
+       |      +---+------+          v           +------+---+      |
+       |          |             +--------+             |          |
+       |          |     recv ES |        | send ES     |          |
+       |   send H |     ,-------+  open  +-------.     | recv H   |
+       |          |    /        |        |        \    |          |
+       |          v   v         +---+----+         v   v          |
+       |      +----------+          |           +----------+      |
+       |      |   half-  |          |           |   half-  |      |
+       |      |  closed  |          | send R /  |  closed  |      |
+       |      | (remote) |          | recv R    | (local)  |      |
+       |      +----+-----+          |           +-----+----+      |
+       |           |                |                 |           |
+       |           | send ES /      |       recv ES / |           |
+       |           |  send R /      v        send R / |           |
+       |           |  recv R    +--------+   recv R   |           |
+       | send R /  `----------->|        |<-----------'  send R / |
+       | recv R                 | closed |               recv R   |
+       `----------------------->|        |<-----------------------'
+                                +--------+
+
+                          Figure 2: Stream States
+
+   send:  endpoint sends this frame
+   recv:  endpoint receives this frame
+   H:  HEADERS frame (with implied CONTINUATION frames)
+   ES:  END_STREAM flag
+   R:  RST_STREAM frame
+   PP:  PUSH_PROMISE frame (with implied CONTINUATION frames); state
+      transitions are for the promised stream
+
+   Note that this diagram shows stream state transitions and the frames
+   and flags that affect those transitions only.  In this regard,
+   CONTINUATION frames do not result in state transitions; they are
+   effectively part of the HEADERS or PUSH_PROMISE that they follow.
+   For the purpose of state transitions, the END_STREAM flag is
+   processed as a separate event to the frame that bears it; a HEADERS
+   frame with the END_STREAM flag set can cause two state transitions.
+
+   Both endpoints have a subjective view of the state of a stream that
+   could be different when frames are in transit.  Endpoints do not
+   coordinate the creation of streams; they are created unilaterally by
+   either endpoint.  The negative consequences of a mismatch in states
+   are limited to the "closed" state after sending RST_STREAM, where
+   frames might be received for some time after closing.
+
+   Streams have the following states:
+
+   idle:  All streams start in the "idle" state.
+
+      The following transitions are valid from this state:
+
+      *  Sending a HEADERS frame as a client, or receiving a HEADERS
+         frame as a server, causes the stream to become "open".  The
+         stream identifier is selected as described in Section 5.1.1.
+         The same HEADERS frame can also cause a stream to immediately
+         become "half-closed".
+
+      *  Sending a PUSH_PROMISE frame on another stream reserves the
+         idle stream that is identified for later use.  The stream state
+         for the reserved stream transitions to "reserved (local)".
+         Only a server may send PUSH_PROMISE frames.
+
+      *  Receiving a PUSH_PROMISE frame on another stream reserves an
+         idle stream that is identified for later use.  The stream state
+         for the reserved stream transitions to "reserved (remote)".
+         Only a client may receive PUSH_PROMISE frames.
+
+      *  Note that the PUSH_PROMISE frame is not sent on the idle stream
+         but references the newly reserved stream in the Promised Stream
+         ID field.
+
+      *  Opening a stream with a higher-valued stream identifier causes
+         the stream to transition immediately to a "closed" state; note
+         that this transition is not shown in the diagram.
+
+      Receiving any frame other than HEADERS or PRIORITY on a stream in
+      this state MUST be treated as a connection error (Section 5.4.1)
+      of type PROTOCOL_ERROR.  If this stream is initiated by the
+      server, as described in Section 5.1.1, then receiving a HEADERS
+      frame MUST also be treated as a connection error (Section 5.4.1)
+      of type PROTOCOL_ERROR.
+
+   reserved (local):  A stream in the "reserved (local)" state is one
+      that has been promised by sending a PUSH_PROMISE frame.  A
+      PUSH_PROMISE frame reserves an idle stream by associating the
+      stream with an open stream that was initiated by the remote peer
+      (see Section 8.4).
+
+      In this state, only the following transitions are possible:
+
+      *  The endpoint can send a HEADERS frame.  This causes the stream
+         to open in a "half-closed (remote)" state.
+
+      *  Either endpoint can send a RST_STREAM frame to cause the stream
+         to become "closed".  This releases the stream reservation.
+
+      An endpoint MUST NOT send any type of frame other than HEADERS,
+      RST_STREAM, or PRIORITY in this state.
+
+      A PRIORITY or WINDOW_UPDATE frame MAY be received in this state.
+      Receiving any type of frame other than RST_STREAM, PRIORITY, or
+      WINDOW_UPDATE on a stream in this state MUST be treated as a
+      connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   reserved (remote):  A stream in the "reserved (remote)" state has
+      been reserved by a remote peer.
+
+      In this state, only the following transitions are possible:
+
+      *  Receiving a HEADERS frame causes the stream to transition to
+         "half-closed (local)".
+
+      *  Either endpoint can send a RST_STREAM frame to cause the stream
+         to become "closed".  This releases the stream reservation.
+
+      An endpoint MUST NOT send any type of frame other than RST_STREAM,
+      WINDOW_UPDATE, or PRIORITY in this state.
+
+      Receiving any type of frame other than HEADERS, RST_STREAM, or
+      PRIORITY on a stream in this state MUST be treated as a connection
+      error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   open:  A stream in the "open" state may be used by both peers to send
+      frames of any type.  In this state, sending peers observe
+      advertised stream-level flow-control limits (Section 5.2).
+
+      From this state, either endpoint can send a frame with an
+      END_STREAM flag set, which causes the stream to transition into
+      one of the "half-closed" states.  An endpoint sending an
+      END_STREAM flag causes the stream state to become "half-closed
+      (local)"; an endpoint receiving an END_STREAM flag causes the
+      stream state to become "half-closed (remote)".
+
+      Either endpoint can send a RST_STREAM frame from this state,
+      causing it to transition immediately to "closed".
+
+   half-closed (local):  A stream that is in the "half-closed (local)"
+      state cannot be used for sending frames other than WINDOW_UPDATE,
+      PRIORITY, and RST_STREAM.
+
+      A stream transitions from this state to "closed" when a frame is
+      received with the END_STREAM flag set or when either peer sends a
+      RST_STREAM frame.
+
+      An endpoint can receive any type of frame in this state.
+      Providing flow-control credit using WINDOW_UPDATE frames is
+      necessary to continue receiving flow-controlled frames.  In this
+      state, a receiver can ignore WINDOW_UPDATE frames, which might
+      arrive for a short period after a frame with the END_STREAM flag
+      set is sent.
+
+      PRIORITY frames can be received in this state.
+
+   half-closed (remote):  A stream that is "half-closed (remote)" is no
+      longer being used by the peer to send frames.  In this state, an
+      endpoint is no longer obligated to maintain a receiver flow-
+      control window.
+
+      If an endpoint receives additional frames, other than
+      WINDOW_UPDATE, PRIORITY, or RST_STREAM, for a stream that is in
+      this state, it MUST respond with a stream error (Section 5.4.2) of
+      type STREAM_CLOSED.
+
+      A stream that is "half-closed (remote)" can be used by the
+      endpoint to send frames of any type.  In this state, the endpoint
+      continues to observe advertised stream-level flow-control limits
+      (Section 5.2).
+
+      A stream can transition from this state to "closed" by sending a
+      frame with the END_STREAM flag set or when either peer sends a
+      RST_STREAM frame.
+
+   closed:  The "closed" state is the terminal state.
+
+      A stream enters the "closed" state after an endpoint both sends
+      and receives a frame with an END_STREAM flag set.  A stream also
+      enters the "closed" state after an endpoint either sends or
+      receives a RST_STREAM frame.
+
+      An endpoint MUST NOT send frames other than PRIORITY on a closed
+      stream.  An endpoint MAY treat receipt of any other type of frame
+      on a closed stream as a connection error (Section 5.4.1) of type
+      STREAM_CLOSED, except as noted below.
+
+      An endpoint that sends a frame with the END_STREAM flag set or a
+      RST_STREAM frame might receive a WINDOW_UPDATE or RST_STREAM frame
+      from its peer in the time before the peer receives and processes
+      the frame that closes the stream.
+
+      An endpoint that sends a RST_STREAM frame on a stream that is in
+      the "open" or "half-closed (local)" state could receive any type
+      of frame.  The peer might have sent or enqueued for sending these
+      frames before processing the RST_STREAM frame.  An endpoint MUST
+      minimally process and then discard any frames it receives in this
+      state.  This means updating header compression state for HEADERS
+      and PUSH_PROMISE frames.  Receiving a PUSH_PROMISE frame also
+      causes the promised stream to become "reserved (remote)", even
+      when the PUSH_PROMISE frame is received on a closed stream.
+      Additionally, the content of DATA frames counts toward the
+      connection flow-control window.
+
+      An endpoint can perform this minimal processing for all streams
+      that are in the "closed" state.  Endpoints MAY use other signals
+      to detect that a peer has received the frames that caused the
+      stream to enter the "closed" state and treat receipt of any frame
+      other than PRIORITY as a connection error (Section 5.4.1) of type
+      PROTOCOL_ERROR.  Endpoints can use frames that indicate that the
+      peer has received the closing signal to drive this.  Endpoints
+      SHOULD NOT use timers for this purpose.  For example, an endpoint
+      that sends a SETTINGS frame after closing a stream can safely
+      treat receipt of a DATA frame on that stream as an error after
+      receiving an acknowledgment of the settings.  Other things that
+      might be used are PING frames, receiving data on streams that were
+      created after closing the stream, or responses to requests created
+      after closing the stream.
+
+   In the absence of more specific rules, implementations SHOULD treat
+   the receipt of a frame that is not expressly permitted in the
+   description of a state as a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.  Note that PRIORITY can be sent and received in any
+   stream state.
+
+   The rules in this section only apply to frames defined in this
+   document.  Receipt of frames for which the semantics are unknown
+   cannot be treated as an error, as the conditions for sending and
+   receiving those frames are also unknown; see Section 5.5.
+
+   An example of the state transitions for an HTTP request/response
+   exchange can be found in Section 8.8.  An example of the state
+   transitions for server push can be found in Sections 8.4.1 and 8.4.2.
+
+[℗](#tgch5){id=pg5_1_1}
+
+5.1.1.  Stream Identifiers
+--------------------------------------------------------
+
+   Streams are identified by an unsigned 31-bit integer.  Streams
+   initiated by a client MUST use odd-numbered stream identifiers; those
+   initiated by the server MUST use even-numbered stream identifiers.  A
+   stream identifier of zero (0x00) is used for connection control
+   messages; the stream identifier of zero cannot be used to establish a
+   new stream.
+
+   The identifier of a newly established stream MUST be numerically
+   greater than all streams that the initiating endpoint has opened or
+   reserved.  This governs streams that are opened using a HEADERS frame
+   and streams that are reserved using PUSH_PROMISE.  An endpoint that
+   receives an unexpected stream identifier MUST respond with a
+   connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   A HEADERS frame will transition the client-initiated stream
+   identified by the stream identifier in the frame header from "idle"
+   to "open".  A PUSH_PROMISE frame will transition the server-initiated
+   stream identified by the Promised Stream ID field in the frame
+   payload from "idle" to "reserved (local)" or "reserved (remote)".
+   When a stream transitions out of the "idle" state, all streams in the
+   "idle" state that might have been opened by the peer with a lower-
+   valued stream identifier immediately transition to "closed".  That
+   is, an endpoint may skip a stream identifier, with the effect being
+   that the skipped stream is immediately closed.
+
+   Stream identifiers cannot be reused.  Long-lived connections can
+   result in an endpoint exhausting the available range of stream
+   identifiers.  A client that is unable to establish a new stream
+   identifier can establish a new connection for new streams.  A server
+   that is unable to establish a new stream identifier can send a GOAWAY
+   frame so that the client is forced to open a new connection for new
+   streams.
+
+[℗](#tgch5){id=pg5_1_2}
+
+5.1.2.  Stream Concurrency
+--------------------------------------------------------
+
+   A peer can limit the number of concurrently active streams using the
+   SETTINGS_MAX_CONCURRENT_STREAMS parameter (see Section 6.5.2) within
+   a SETTINGS frame.  The maximum concurrent streams setting is specific
+   to each endpoint and applies only to the peer that receives the
+   setting.  That is, clients specify the maximum number of concurrent
+   streams the server can initiate, and servers specify the maximum
+   number of concurrent streams the client can initiate.
+
+   Streams that are in the "open" state or in either of the "half-
+   closed" states count toward the maximum number of streams that an
+   endpoint is permitted to open.  Streams in any of these three states
+   count toward the limit advertised in the
+   SETTINGS_MAX_CONCURRENT_STREAMS setting.  Streams in either of the
+   "reserved" states do not count toward the stream limit.
+
+   Endpoints MUST NOT exceed the limit set by their peer.  An endpoint
+   that receives a HEADERS frame that causes its advertised concurrent
+   stream limit to be exceeded MUST treat this as a stream error
+   (Section 5.4.2) of type PROTOCOL_ERROR or REFUSED_STREAM.  The choice
+   of error code determines whether the endpoint wishes to enable
+   automatic retry (see Section 8.7 for details).
+
+   An endpoint that wishes to reduce the value of
+   SETTINGS_MAX_CONCURRENT_STREAMS to a value that is below the current
+   number of open streams can either close streams that exceed the new
+   value or allow streams to complete.
+
+[℗](#tgch5){id=pg5_2}
+
+//5.2.  Flow Control
+--------------------------------------------------------
+
+   Using streams for multiplexing introduces contention over use of the
+   TCP connection, resulting in blocked streams.  A flow-control scheme
+   ensures that streams on the same connection do not destructively
+   interfere with each other.  Flow control is used for both individual
+   streams and the connection as a whole.
+
+   HTTP/2 provides for flow control through use of the WINDOW_UPDATE
+   frame (Section 6.9).
+
+[℗](#tgch5){id=pg5_2_1}
+
+5.2.1.  Flow-Control Principles
+--------------------------------------------------------
+
+   HTTP/2 stream flow control aims to allow a variety of flow-control
+   algorithms to be used without requiring protocol changes.  Flow
+   control in HTTP/2 has the following characteristics:
+
+   1.  Flow control is specific to a connection.  HTTP/2 flow control
+       operates between the endpoints of a single hop and not over the
+       entire end-to-end path.
+
+   2.  Flow control is based on WINDOW_UPDATE frames.  Receivers
+       advertise how many octets they are prepared to receive on a
+       stream and for the entire connection.  This is a credit-based
+       scheme.
+
+   3.  Flow control is directional with overall control provided by the
+       receiver.  A receiver MAY choose to set any window size that it
+       desires for each stream and for the entire connection.  A sender
+       MUST respect flow-control limits imposed by a receiver.  Clients,
+       servers, and intermediaries all independently advertise their
+       flow-control window as a receiver and abide by the flow-control
+       limits set by their peer when sending.
+
+   4.  The initial value for the flow-control window is 65,535 octets
+       for both new streams and the overall connection.
+
+   5.  The frame type determines whether flow control applies to a
+       frame.  Of the frames specified in this document, only DATA
+       frames are subject to flow control; all other frame types do not
+       consume space in the advertised flow-control window.  This
+       ensures that important control frames are not blocked by flow
+       control.
+
+   6.  An endpoint can choose to disable its own flow control, but an
+       endpoint cannot ignore flow-control signals from its peer.
+
+   7.  HTTP/2 defines only the format and semantics of the WINDOW_UPDATE
+       frame (Section 6.9).  This document does not stipulate how a
+       receiver decides when to send this frame or the value that it
+       sends, nor does it specify how a sender chooses to send packets.
+       Implementations are able to select any algorithm that suits their
+       needs.
+
+   Implementations are also responsible for prioritizing the sending of
+   requests and responses, choosing how to avoid head-of-line blocking
+   for requests, and managing the creation of new streams.  Algorithm
+   choices for these could interact with any flow-control algorithm.
+
+[℗](#tgch5){id=pg5_2_2}
+
+5.2.2.  Appropriate Use of Flow Control
+--------------------------------------------------------
+
+   Flow control is defined to protect endpoints that are operating under
+   resource constraints.  For example, a proxy needs to share memory
+   between many connections and also might have a slow upstream
+   connection and a fast downstream one.  Flow control addresses cases
+   where the receiver is unable to process data on one stream yet wants
+   to continue to process other streams in the same connection.
+
+   Deployments that do not require this capability can advertise a flow-
+   control window of the maximum size (2^31-1) and can maintain this
+   window by sending a WINDOW_UPDATE frame when any data is received.
+   This effectively disables flow control for that receiver.
+   Conversely, a sender is always subject to the flow-control window
+   advertised by the receiver.
+
+   Deployments with constrained resources (for example, memory) can
+   employ flow control to limit the amount of memory a peer can consume.
+   Note, however, that this can lead to suboptimal use of available
+   network resources if flow control is enabled without knowledge of the
+   bandwidth * delay product (see [RFC7323]).
+
+   Even with full awareness of the current bandwidth * delay product,
+   implementation of flow control can be difficult.  Endpoints MUST read
+   and process HTTP/2 frames from the TCP receive buffer as soon as data
+   is available.  Failure to read promptly could lead to a deadlock when
+   critical frames, such as WINDOW_UPDATE, are not read and acted upon.
+   Reading frames promptly does not expose endpoints to resource
+   exhaustion attacks, as HTTP/2 flow control limits resource
+   commitments.
+
+[℗](#tgch5){id=pg5_2_3}
+
+5.2.3.  Flow-Control Performance
+--------------------------------------------------------
+
+   If an endpoint cannot ensure that its peer always has available flow-
+   control window space that is greater than the peer's bandwidth *
+   delay product on this connection, its receive throughput will be
+   limited by HTTP/2 flow control.  This will result in degraded
+   performance.
+
+   Sending timely WINDOW_UPDATE frames can improve performance.
+   Endpoints will want to balance the need to improve receive throughput
+   with the need to manage resource exhaustion risks and should take
+   careful note of Section 10.5 in defining their strategy to manage
+   window sizes.
+
+[℗](#tgch5){id=pg5_3}
+
+//5.3.  Prioritization
+--------------------------------------------------------
+
+   In a multiplexed protocol like HTTP/2, prioritizing allocation of
+   bandwidth and computation resources to streams can be critical to
+   attaining good performance.  A poor prioritization scheme can result
+   in HTTP/2 providing poor performance.  With no parallelism at the TCP
+   layer, performance could be significantly worse than HTTP/1.1.
+
+   A good prioritization scheme benefits from the application of
+   contextual knowledge such as the content of resources, how resources
+   are interrelated, and how those resources will be used by a peer.  In
+   particular, clients can possess knowledge about the priority of
+   requests that is relevant to server prioritization.  In those cases,
+   having clients provide priority information can improve performance.
+
+[℗](#tgch5){id=pg5_3_1}
+
+5.3.1.  Background on Priority in RFC 7540
+--------------------------------------------------------
+
+   RFC 7540 defined a rich system for signaling priority of requests.
+   However, this system proved to be complex, and it was not uniformly
+   implemented.
+
+   The flexible scheme meant that it was possible for clients to express
+   priorities in very different ways, with little consistency in the
+   approaches that were adopted.  For servers, implementing generic
+   support for the scheme was complex.  Implementation of priorities was
+   uneven in both clients and servers.  Many server deployments ignored
+   client signals when prioritizing their handling of requests.
+
+   In short, the prioritization signaling in RFC 7540 [RFC7540] was not
+   successful.
+
+[℗](#tgch5){id=pg5_3_2}
+
+5.3.2.  Priority Signaling in This Document
+--------------------------------------------------------
+
+   This update to HTTP/2 deprecates the priority signaling defined in
+   RFC 7540 [RFC7540].  The bulk of the text related to priority signals
+   is not included in this document.  The description of frame fields
+   and some of the mandatory handling is retained to ensure that
+   implementations of this document remain interoperable with
+   implementations that use the priority signaling described in RFC
+   7540.
+
+   A thorough description of the RFC 7540 priority scheme remains in
+   Section 5.3 of [RFC7540].
+
+   Signaling priority information is necessary to attain good
+   performance in many cases.  Where signaling priority information is
+   important, endpoints are encouraged to use an alternative scheme,
+   such as the scheme described in [HTTP-PRIORITY].
+
+   Though the priority signaling from RFC 7540 was not widely adopted,
+   the information it provides can still be useful in the absence of
+   better information.  Endpoints that receive priority signals in
+   HEADERS or PRIORITY frames can benefit from applying that
+   information.  In particular, implementations that consume these
+   signals would not benefit from discarding these priority signals in
+   the absence of alternatives.
+
+   Servers SHOULD use other contextual information in determining
+   priority of requests in the absence of any priority signals.  Servers
+   MAY interpret the complete absence of signals as an indication that
+   the client has not implemented the feature.  The defaults described
+   in Section 5.3.5 of [RFC7540] are known to have poor performance
+   under most conditions, and their use is unlikely to be deliberate.
+
+[℗](#tgch5){id=pg5_4}
+
+//5.4.  Error Handling
+--------------------------------------------------------
+
+   HTTP/2 framing permits two classes of errors:
+
+   *  An error condition that renders the entire connection unusable is
+      a connection error.
+
+   *  An error in an individual stream is a stream error.
+
+   A list of error codes is included in Section 7.
+
+   It is possible that an endpoint will encounter frames that would
+   cause multiple errors.  Implementations MAY discover multiple errors
+   during processing, but they SHOULD report at most one stream and one
+   connection error as a result.
+
+   The first stream error reported for a given stream prevents any other
+   errors on that stream from being reported.  In comparison, the
+   protocol permits multiple GOAWAY frames, though an endpoint SHOULD
+   report just one type of connection error unless an error is
+   encountered during graceful shutdown.  If this occurs, an endpoint
+   MAY send an additional GOAWAY frame with the new error code, in
+   addition to any prior GOAWAY that contained NO_ERROR.
+
+   If an endpoint detects multiple different errors, it MAY choose to
+   report any one of those errors.  If a frame causes a connection
+   error, that error MUST be reported.  Additionally, an endpoint MAY
+   use any applicable error code when it detects an error condition; a
+   generic error code (such as PROTOCOL_ERROR or INTERNAL_ERROR) can
+   always be used in place of more specific error codes.
+
+[℗](#tgch5){id=pg5_4_1}
+
+5.4.1.  Connection Error Handling
+--------------------------------------------------------
+
+   A connection error is any error that prevents further processing of
+   the frame layer or corrupts any connection state.
+
+   An endpoint that encounters a connection error SHOULD first send a
+   GOAWAY frame (Section 6.8) with the stream identifier of the last
+   stream that it successfully received from its peer.  The GOAWAY frame
+   includes an error code (Section 7) that indicates why the connection
+   is terminating.  After sending the GOAWAY frame for an error
+   condition, the endpoint MUST close the TCP connection.
+
+   It is possible that the GOAWAY will not be reliably received by the
+   receiving endpoint.  In the event of a connection error, GOAWAY only
+   provides a best-effort attempt to communicate with the peer about why
+   the connection is being terminated.
+
+   An endpoint can end a connection at any time.  In particular, an
+   endpoint MAY choose to treat a stream error as a connection error.
+   Endpoints SHOULD send a GOAWAY frame when ending a connection,
+   providing that circumstances permit it.
+
+[℗](#tgch5){id=pg5_4_2}
+
+5.4.2.  Stream Error Handling
+--------------------------------------------------------
+
+   A stream error is an error related to a specific stream that does not
+   affect processing of other streams.
+
+   An endpoint that detects a stream error sends a RST_STREAM frame
+   (Section 6.4) that contains the stream identifier of the stream where
+   the error occurred.  The RST_STREAM frame includes an error code that
+   indicates the type of error.
+
+   A RST_STREAM is the last frame that an endpoint can send on a stream.
+   The peer that sends the RST_STREAM frame MUST be prepared to receive
+   any frames that were sent or enqueued for sending by the remote peer.
+   These frames can be ignored, except where they modify connection
+   state (such as the state maintained for field section compression
+   (Section 4.3) or flow control).
+
+   Normally, an endpoint SHOULD NOT send more than one RST_STREAM frame
+   for any stream.  However, an endpoint MAY send additional RST_STREAM
+   frames if it receives frames on a closed stream after more than a
+   round-trip time.  This behavior is permitted to deal with misbehaving
+   implementations.
+
+   To avoid looping, an endpoint MUST NOT send a RST_STREAM in response
+   to a RST_STREAM frame.
+
+[℗](#tgch5){id=pg5_4_3}
+
+5.4.3.  Connection Termination
+--------------------------------------------------------
+
+   If the TCP connection is closed or reset while streams remain in the
+   "open" or "half-closed" states, then the affected streams cannot be
+   automatically retried (see Section 8.7 for details).
+
+[℗](#tgch5){id=pg5_5}
+
+//5.5.  Extending HTTP/2
+--------------------------------------------------------
+
+   HTTP/2 permits extension of the protocol.  Within the limitations
+   described in this section, protocol extensions can be used to provide
+   additional services or alter any aspect of the protocol.  Extensions
+   are effective only within the scope of a single HTTP/2 connection.
+
+   This applies to the protocol elements defined in this document.  This
+   does not affect the existing options for extending HTTP, such as
+   defining new methods, status codes, or fields (see Section 16 of
+   [HTTP]).
+
+   Extensions are permitted to use new frame types (Section 4.1), new
+   settings (Section 6.5), or new error codes (Section 7).  Registries
+   for managing these extension points are defined in Section 11 of
+   [RFC7540].
+
+   Implementations MUST ignore unknown or unsupported values in all
+   extensible protocol elements.  Implementations MUST discard frames
+   that have unknown or unsupported types.  This means that any of these
+   extension points can be safely used by extensions without prior
+   arrangement or negotiation.  However, extension frames that appear in
+   the middle of a field block (Section 4.3) are not permitted; these
+   MUST be treated as a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   Extensions SHOULD avoid changing protocol elements defined in this
+   document or elements for which no extension mechanism is defined.
+   This includes changes to the layout of frames, additions or changes
+   to the way that frames are composed into HTTP messages (Section 8.1),
+   the definition of pseudo-header fields, or changes to any protocol
+   element that a compliant endpoint might treat as a connection error
+   (Section 5.4.1).
+
+   An extension that changes existing protocol elements or state MUST be
+   negotiated before being used.  For example, an extension that changes
+   the layout of the HEADERS frame cannot be used until the peer has
+   given a positive signal that this is acceptable.  In this case, it
+   could also be necessary to coordinate when the revised layout comes
+   into effect.  For example, treating frames other than DATA frames as
+   flow controlled requires a change in semantics that both endpoints
+   need to understand, so this can only be done through negotiation.
+
+   This document doesn't mandate a specific method for negotiating the
+   use of an extension but notes that a setting (Section 6.5.2) could be
+   used for that purpose.  If both peers set a value that indicates
+   willingness to use the extension, then the extension can be used.  If
+   a setting is used for extension negotiation, the initial value MUST
+   be defined in such a fashion that the extension is initially
+   disabled.
+
+[℗](#tgch6){id=pgch6}
+
+/6.  Frame Definitions
+========================================================
+
+   This specification defines a number of frame types, each identified
+   by a unique 8-bit type code.  Each frame type serves a distinct
+   purpose in the establishment and management of either the connection
+   as a whole or individual streams.
+
+   The transmission of specific frame types can alter the state of a
+   connection.  If endpoints fail to maintain a synchronized view of the
+   connection state, successful communication within the connection will
+   no longer be possible.  Therefore, it is important that endpoints
+   have a shared comprehension of how the state is affected by the use
+   of any given frame.
+
+[℗](#tgch6){id=pg6_1}
+
+//6.1.  DATA
+--------------------------------------------------------
+
+   DATA frames (type=0x00) convey arbitrary, variable-length sequences
+   of octets associated with a stream.  One or more DATA frames are
+   used, for instance, to carry HTTP request or response message
+   contents.
+
+   DATA frames MAY also contain padding.  Padding can be added to DATA
+   frames to obscure the size of messages.  Padding is a security
+   feature; see Section 10.7.
+
+   DATA Frame {
+     Length (24),
+     Type (8) = 0x00,
+
+     Unused Flags (4),
+     PADDED Flag (1),
+     Unused Flags (2),
+     END_STREAM Flag (1),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     [Pad Length (8)],
+     Data (..),
+     Padding (..2040),
+   }
+
+                        Figure 3: DATA Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The DATA frame contains the
+   following additional fields:
+
+   Pad Length:  An 8-bit field containing the length of the frame
+      padding in units of octets.  This field is conditional and is only
+      present if the PADDED flag is set.
+
+   Data:  Application data.  The amount of data is the remainder of the
+      frame payload after subtracting the length of the other fields
+      that are present.
+
+   Padding:  Padding octets that contain no application semantic value.
+      Padding octets MUST be set to zero when sending.  A receiver is
+      not obligated to verify padding but MAY treat non-zero padding as
+      a connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   The DATA frame defines the following flags:
+
+   PADDED (0x08):  When set, the PADDED flag indicates that the Pad
+      Length field and any padding that it describes are present.
+
+   END_STREAM (0x01):  When set, the END_STREAM flag indicates that this
+      frame is the last that the endpoint will send for the identified
+      stream.  Setting this flag causes the stream to enter one of the
+      "half-closed" states or the "closed" state (Section 5.1).
+
+      |  Note: An endpoint that learns of stream closure after sending
+      |  all data can close a stream by sending a STREAM frame with a
+      |  zero-length Data field and the END_STREAM flag set.  This is
+      |  only possible if the endpoint does not send trailers, as the
+      |  END_STREAM flag appears on a HEADERS frame in that case; see
+      |  Section 8.1.
+
+   DATA frames MUST be associated with a stream.  If a DATA frame is
+   received whose Stream Identifier field is 0x00, the recipient MUST
+   respond with a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   DATA frames are subject to flow control and can only be sent when a
+   stream is in the "open" or "half-closed (remote)" state.  The entire
+   DATA frame payload is included in flow control, including the Pad
+   Length and Padding fields if present.  If a DATA frame is received
+   whose stream is not in the "open" or "half-closed (local)" state, the
+   recipient MUST respond with a stream error (Section 5.4.2) of type
+   STREAM_CLOSED.
+
+   The total number of padding octets is determined by the value of the
+   Pad Length field.  If the length of the padding is the length of the
+   frame payload or greater, the recipient MUST treat this as a
+   connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+      |  Note: A frame can be increased in size by one octet by
+      |  including a Pad Length field with a value of zero.
+
+[℗](#tgch6){id=pg6_2}
+
+//6.2.  HEADERS
+--------------------------------------------------------
+
+   The HEADERS frame (type=0x01) is used to open a stream (Section 5.1),
+   and additionally carries a field block fragment.  Despite the name, a
+   HEADERS frame can carry a header section or a trailer section.
+   HEADERS frames can be sent on a stream in the "idle", "reserved
+   (local)", "open", or "half-closed (remote)" state.
+
+   HEADERS Frame {
+     Length (24),
+     Type (8) = 0x01,
+
+     Unused Flags (2),
+     PRIORITY Flag (1),
+     Unused Flag (1),
+     PADDED Flag (1),
+     END_HEADERS Flag (1),
+     Unused Flag (1),
+     END_STREAM Flag (1),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     [Pad Length (8)],
+     [Exclusive (1)],
+     [Stream Dependency (31)],
+     [Weight (8)],
+     Field Block Fragment (..),
+     Padding (..2040),
+   }
+
+                       Figure 4: HEADERS Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The HEADERS frame payload has the
+   following additional fields:
+
+   Pad Length:  An 8-bit field containing the length of the frame
+      padding in units of octets.  This field is only present if the
+      PADDED flag is set.
+
+   Exclusive:  A single-bit flag.  This field is only present if the
+      PRIORITY flag is set.  Priority signals in HEADERS frames are
+      deprecated; see Section 5.3.2.
+
+   Stream Dependency:  A 31-bit stream identifier.  This field is only
+      present if the PRIORITY flag is set.
+
+   Weight:  An unsigned 8-bit integer.  This field is only present if
+      the PRIORITY flag is set.
+
+   Field Block Fragment:  A field block fragment (Section 4.3).
+
+   Padding:  Padding octets that contain no application semantic value.
+      Padding octets MUST be set to zero when sending.  A receiver is
+      not obligated to verify padding but MAY treat non-zero padding as
+      a connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   The HEADERS frame defines the following flags:
+
+   PRIORITY (0x20):  When set, the PRIORITY flag indicates that the
+      Exclusive, Stream Dependency, and Weight fields are present.
+
+   PADDED (0x08):  When set, the PADDED flag indicates that the Pad
+      Length field and any padding that it describes are present.
+
+   END_HEADERS (0x04):  When set, the END_HEADERS flag indicates that
+      this frame contains an entire field block (Section 4.3) and is not
+      followed by any CONTINUATION frames.
+
+      A HEADERS frame without the END_HEADERS flag set MUST be followed
+      by a CONTINUATION frame for the same stream.  A receiver MUST
+      treat the receipt of any other type of frame or a frame on a
+      different stream as a connection error (Section 5.4.1) of type
+      PROTOCOL_ERROR.
+
+   END_STREAM (0x01):  When set, the END_STREAM flag indicates that the
+      field block (Section 4.3) is the last that the endpoint will send
+      for the identified stream.
+
+      A HEADERS frame with the END_STREAM flag set signals the end of a
+      stream.  However, a HEADERS frame with the END_STREAM flag set can
+      be followed by CONTINUATION frames on the same stream.  Logically,
+      the CONTINUATION frames are part of the HEADERS frame.
+
+   The frame payload of a HEADERS frame contains a field block fragment
+   (Section 4.3).  A field block that does not fit within a HEADERS
+   frame is continued in a CONTINUATION frame (Section 6.10).
+
+   HEADERS frames MUST be associated with a stream.  If a HEADERS frame
+   is received whose Stream Identifier field is 0x00, the recipient MUST
+   respond with a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   The HEADERS frame changes the connection state as described in
+   Section 4.3.
+
+   The total number of padding octets is determined by the value of the
+   Pad Length field.  If the length of the padding is the length of the
+   frame payload or greater, the recipient MUST treat this as a
+   connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+      |  Note: A frame can be increased in size by one octet by
+      |  including a Pad Length field with a value of zero.
+
+[℗](#tgch6){id=pg6_3}
+
+//6.3.  PRIORITY
+--------------------------------------------------------
+
+   The PRIORITY frame (type=0x02) is deprecated; see Section 5.3.2.  A
+   PRIORITY frame can be sent in any stream state, including idle or
+   closed streams.
+
+   PRIORITY Frame {
+     Length (24) = 0x05,
+     Type (8) = 0x02,
+
+     Unused Flags (8),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     Exclusive (1),
+     Stream Dependency (31),
+     Weight (8),
+   }
+
+                      Figure 5: PRIORITY Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The frame payload of a PRIORITY
+   frame contains the following additional fields:
+
+   Exclusive:  A single-bit flag.
+
+   Stream Dependency:  A 31-bit stream identifier.
+
+   Weight:  An unsigned 8-bit integer.
+
+   The PRIORITY frame does not define any flags.
+
+   The PRIORITY frame always identifies a stream.  If a PRIORITY frame
+   is received with a stream identifier of 0x00, the recipient MUST
+   respond with a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   Sending or receiving a PRIORITY frame does not affect the state of
+   any stream (Section 5.1).  The PRIORITY frame can be sent on a stream
+   in any state, including "idle" or "closed".  A PRIORITY frame cannot
+   be sent between consecutive frames that comprise a single field block
+   (Section 4.3).
+
+   A PRIORITY frame with a length other than 5 octets MUST be treated as
+   a stream error (Section 5.4.2) of type FRAME_SIZE_ERROR.
+
+[℗](#tgch6){id=pg6_4}
+
+//6.4.  RST_STREAM
+--------------------------------------------------------
+
+   The RST_STREAM frame (type=0x03) allows for immediate termination of
+   a stream.  RST_STREAM is sent to request cancellation of a stream or
+   to indicate that an error condition has occurred.
+
+   RST_STREAM Frame {
+     Length (24) = 0x04,
+     Type (8) = 0x03,
+
+     Unused Flags (8),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     Error Code (32),
+   }
+
+                     Figure 6: RST_STREAM Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  Additionally, the RST_STREAM
+   frame contains a single unsigned, 32-bit integer identifying the
+   error code (Section 7).  The error code indicates why the stream is
+   being terminated.
+
+   The RST_STREAM frame does not define any flags.
+
+   The RST_STREAM frame fully terminates the referenced stream and
+   causes it to enter the "closed" state.  After receiving a RST_STREAM
+   on a stream, the receiver MUST NOT send additional frames for that
+   stream, except for PRIORITY.  However, after sending the RST_STREAM,
+   the sending endpoint MUST be prepared to receive and process
+   additional frames sent on the stream that might have been sent by the
+   peer prior to the arrival of the RST_STREAM.
+
+   RST_STREAM frames MUST be associated with a stream.  If a RST_STREAM
+   frame is received with a stream identifier of 0x00, the recipient
+   MUST treat this as a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   RST_STREAM frames MUST NOT be sent for a stream in the "idle" state.
+   If a RST_STREAM frame identifying an idle stream is received, the
+   recipient MUST treat this as a connection error (Section 5.4.1) of
+   type PROTOCOL_ERROR.
+
+   A RST_STREAM frame with a length other than 4 octets MUST be treated
+   as a connection error (Section 5.4.1) of type FRAME_SIZE_ERROR.
+
+[℗](#tgch6){id=pg6_5}
+
+//6.5.  SETTINGS
+--------------------------------------------------------
+
+   The SETTINGS frame (type=0x04) conveys configuration parameters that
+   affect how endpoints communicate, such as preferences and constraints
+   on peer behavior.  The SETTINGS frame is also used to acknowledge the
+   receipt of those settings.  Individually, a configuration parameter
+   from a SETTINGS frame is referred to as a "setting".
+
+   Settings are not negotiated; they describe characteristics of the
+   sending peer, which are used by the receiving peer.  Different values
+   for the same setting can be advertised by each peer.  For example, a
+   client might set a high initial flow-control window, whereas a server
+   might set a lower value to conserve resources.
+
+   A SETTINGS frame MUST be sent by both endpoints at the start of a
+   connection and MAY be sent at any other time by either endpoint over
+   the lifetime of the connection.  Implementations MUST support all of
+   the settings defined by this specification.
+
+   Each parameter in a SETTINGS frame replaces any existing value for
+   that parameter.  Settings are processed in the order in which they
+   appear, and a receiver of a SETTINGS frame does not need to maintain
+   any state other than the current value of each setting.  Therefore,
+   the value of a SETTINGS parameter is the last value that is seen by a
+   receiver.
+
+   SETTINGS frames are acknowledged by the receiving peer.  To enable
+   this, the SETTINGS frame defines the ACK flag:
+
+   ACK (0x01):  When set, the ACK flag indicates that this frame
+      acknowledges receipt and application of the peer's SETTINGS frame.
+      When this bit is set, the frame payload of the SETTINGS frame MUST
+      be empty.  Receipt of a SETTINGS frame with the ACK flag set and a
+      length field value other than 0 MUST be treated as a connection
+      error (Section 5.4.1) of type FRAME_SIZE_ERROR.  For more
+      information, see Section 6.5.3 ("Settings Synchronization").
+
+   SETTINGS frames always apply to a connection, never a single stream.
+   The stream identifier for a SETTINGS frame MUST be zero (0x00).  If
+   an endpoint receives a SETTINGS frame whose Stream Identifier field
+   is anything other than 0x00, the endpoint MUST respond with a
+   connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   The SETTINGS frame affects connection state.  A badly formed or
+   incomplete SETTINGS frame MUST be treated as a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   A SETTINGS frame with a length other than a multiple of 6 octets MUST
+   be treated as a connection error (Section 5.4.1) of type
+   FRAME_SIZE_ERROR.
+
+[℗](#tgch6){id=pg6_5_1}
+
+6.5.1.  SETTINGS Format
+--------------------------------------------------------
+
+   The frame payload of a SETTINGS frame consists of zero or more
+   settings, each consisting of an unsigned 16-bit setting identifier
+   and an unsigned 32-bit value.
+
+   SETTINGS Frame {
+     Length (24),
+     Type (8) = 0x04,
+
+     Unused Flags (7),
+     ACK Flag (1),
+
+     Reserved (1),
+     Stream Identifier (31) = 0,
+
+     Setting (48) ...,
+   }
+
+   Setting {
+     Identifier (16),
+     Value (32),
+   }
+
+                      Figure 7: SETTINGS Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The frame payload of a SETTINGS
+   frame contains any number of Setting fields, each of which consists
+   of:
+
+   Identifier:  A 16-bit setting identifier; see Section 6.5.2.
+
+   Value:  A 32-bit value for the setting.
+
+[℗](#tgch6){id=pg6_5_2}
+
+6.5.2.  Defined Settings
+--------------------------------------------------------
+
+   The following settings are defined:
+
+   SETTINGS_HEADER_TABLE_SIZE (0x01):  This setting allows the sender to
+      inform the remote endpoint of the maximum size of the compression
+      table used to decode field blocks, in units of octets.  The
+      encoder can select any size equal to or less than this value by
+      using signaling specific to the compression format inside a field
+      block (see [COMPRESSION]).  The initial value is 4,096 octets.
+
+   SETTINGS_ENABLE_PUSH (0x02):  This setting can be used to enable or
+      disable server push.  A server MUST NOT send a PUSH_PROMISE frame
+      if it receives this parameter set to a value of 0; see
+      Section 8.4.  A client that has both set this parameter to 0 and
+      had it acknowledged MUST treat the receipt of a PUSH_PROMISE frame
+      as a connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+      The initial value of SETTINGS_ENABLE_PUSH is 1.  For a client,
+      this value indicates that it is willing to receive PUSH_PROMISE
+      frames.  For a server, this initial value has no effect, and is
+      equivalent to the value 0.  Any value other than 0 or 1 MUST be
+      treated as a connection error (Section 5.4.1) of type
+      PROTOCOL_ERROR.
+
+      A server MUST NOT explicitly set this value to 1.  A server MAY
+      choose to omit this setting when it sends a SETTINGS frame, but if
+      a server does include a value, it MUST be 0.  A client MUST treat
+      receipt of a SETTINGS frame with SETTINGS_ENABLE_PUSH set to 1 as
+      a connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   SETTINGS_MAX_CONCURRENT_STREAMS (0x03):  This setting indicates the
+      maximum number of concurrent streams that the sender will allow.
+      This limit is directional: it applies to the number of streams
+      that the sender permits the receiver to create.  Initially, there
+      is no limit to this value.  It is recommended that this value be
+      no smaller than 100, so as to not unnecessarily limit parallelism.
+
+      A value of 0 for SETTINGS_MAX_CONCURRENT_STREAMS SHOULD NOT be
+      treated as special by endpoints.  A zero value does prevent the
+      creation of new streams; however, this can also happen for any
+      limit that is exhausted with active streams.  Servers SHOULD only
+      set a zero value for short durations; if a server does not wish to
+      accept requests, closing the connection is more appropriate.
+
+   SETTINGS_INITIAL_WINDOW_SIZE (0x04):  This setting indicates the
+      sender's initial window size (in units of octets) for stream-level
+      flow control.  The initial value is 2^16-1 (65,535) octets.
+
+      This setting affects the window size of all streams (see
+      Section 6.9.2).
+
+      Values above the maximum flow-control window size of 2^31-1 MUST
+      be treated as a connection error (Section 5.4.1) of type
+      FLOW_CONTROL_ERROR.
+
+   SETTINGS_MAX_FRAME_SIZE (0x05):  This setting indicates the size of
+      the largest frame payload that the sender is willing to receive,
+      in units of octets.
+
+      The initial value is 2^14 (16,384) octets.  The value advertised
+      by an endpoint MUST be between this initial value and the maximum
+      allowed frame size (2^24-1 or 16,777,215 octets), inclusive.
+      Values outside this range MUST be treated as a connection error
+      (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   SETTINGS_MAX_HEADER_LIST_SIZE (0x06):  This advisory setting informs
+      a peer of the maximum field section size that the sender is
+      prepared to accept, in units of octets.  The value is based on the
+      uncompressed size of field lines, including the length of the name
+      and value in units of octets plus an overhead of 32 octets for
+      each field line.
+
+      For any given request, a lower limit than what is advertised MAY
+      be enforced.  The initial value of this setting is unlimited.
+
+   An endpoint that receives a SETTINGS frame with any unknown or
+   unsupported identifier MUST ignore that setting.
+
+[℗](#tgch6){id=pg6_5_3}
+
+6.5.3.  Settings Synchronization
+--------------------------------------------------------
+
+   Most values in SETTINGS benefit from or require an understanding of
+   when the peer has received and applied the changed parameter values.
+   In order to provide such synchronization timepoints, the recipient of
+   a SETTINGS frame in which the ACK flag is not set MUST apply the
+   updated settings as soon as possible upon receipt.  SETTINGS frames
+   are acknowledged in the order in which they are received.
+
+   The values in the SETTINGS frame MUST be processed in the order they
+   appear, with no other frame processing between values.  Unsupported
+   settings MUST be ignored.  Once all values have been processed, the
+   recipient MUST immediately emit a SETTINGS frame with the ACK flag
+   set.  Upon receiving a SETTINGS frame with the ACK flag set, the
+   sender of the altered settings can rely on the values from the oldest
+   unacknowledged SETTINGS frame having been applied.
+
+   If the sender of a SETTINGS frame does not receive an acknowledgment
+   within a reasonable amount of time, it MAY issue a connection error
+   (Section 5.4.1) of type SETTINGS_TIMEOUT.  In setting a timeout, some
+   allowance needs to be made for processing delays at the peer; a
+   timeout that is solely based on the round-trip time between endpoints
+   might result in spurious errors.
+
+[℗](#tgch6){id=pg6_6}
+
+//6.6.  PUSH_PROMISE
+--------------------------------------------------------
+
+   The PUSH_PROMISE frame (type=0x05) is used to notify the peer
+   endpoint in advance of streams the sender intends to initiate.  The
+   PUSH_PROMISE frame includes the unsigned 31-bit identifier of the
+   stream the endpoint plans to create along with a field section that
+   provides additional context for the stream.  Section 8.4 contains a
+   thorough description of the use of PUSH_PROMISE frames.
+
+   PUSH_PROMISE Frame {
+     Length (24),
+     Type (8) = 0x05,
+
+     Unused Flags (4),
+     PADDED Flag (1),
+     END_HEADERS Flag (1),
+     Unused Flags (2),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     [Pad Length (8)],
+     Reserved (1),
+     Promised Stream ID (31),
+     Field Block Fragment (..),
+     Padding (..2040),
+   }
+
+                    Figure 8: PUSH_PROMISE Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The PUSH_PROMISE frame payload
+   has the following additional fields:
+
+   Pad Length:  An 8-bit field containing the length of the frame
+      padding in units of octets.  This field is only present if the
+      PADDED flag is set.
+
+   Promised Stream ID:  An unsigned 31-bit integer that identifies the
+      stream that is reserved by the PUSH_PROMISE.  The promised stream
+      identifier MUST be a valid choice for the next stream sent by the
+      sender (see "new stream identifier" in Section 5.1.1).
+
+   Field Block Fragment:  A field block fragment (Section 4.3)
+      containing the request control data and a header section.
+
+   Padding:  Padding octets that contain no application semantic value.
+      Padding octets MUST be set to zero when sending.  A receiver is
+      not obligated to verify padding but MAY treat non-zero padding as
+      a connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   The PUSH_PROMISE frame defines the following flags:
+
+   PADDED (0x08):  When set, the PADDED flag indicates that the Pad
+      Length field and any padding that it describes are present.
+
+   END_HEADERS (0x04):  When set, the END_HEADERS flag indicates that
+      this frame contains an entire field block (Section 4.3) and is not
+      followed by any CONTINUATION frames.
+
+      A PUSH_PROMISE frame without the END_HEADERS flag set MUST be
+      followed by a CONTINUATION frame for the same stream.  A receiver
+      MUST treat the receipt of any other type of frame or a frame on a
+      different stream as a connection error (Section 5.4.1) of type
+      PROTOCOL_ERROR.
+
+   PUSH_PROMISE frames MUST only be sent on a peer-initiated stream that
+   is in either the "open" or "half-closed (remote)" state.  The stream
+   identifier of a PUSH_PROMISE frame indicates the stream it is
+   associated with.  If the Stream Identifier field specifies the value
+   0x00, a recipient MUST respond with a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   Promised streams are not required to be used in the order they are
+   promised.  The PUSH_PROMISE only reserves stream identifiers for
+   later use.
+
+   PUSH_PROMISE MUST NOT be sent if the SETTINGS_ENABLE_PUSH setting of
+   the peer endpoint is set to 0.  An endpoint that has set this setting
+   and has received acknowledgment MUST treat the receipt of a
+   PUSH_PROMISE frame as a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   Recipients of PUSH_PROMISE frames can choose to reject promised
+   streams by returning a RST_STREAM referencing the promised stream
+   identifier back to the sender of the PUSH_PROMISE.
+
+   A PUSH_PROMISE frame modifies the connection state in two ways.
+   First, the inclusion of a field block (Section 4.3) potentially
+   modifies the state maintained for field section compression.  Second,
+   PUSH_PROMISE also reserves a stream for later use, causing the
+   promised stream to enter the "reserved (local)" or "reserved
+   (remote)" state.  A sender MUST NOT send a PUSH_PROMISE on a stream
+   unless that stream is either "open" or "half-closed (remote)"; the
+   sender MUST ensure that the promised stream is a valid choice for a
+   new stream identifier (Section 5.1.1) (that is, the promised stream
+   MUST be in the "idle" state).
+
+   Since PUSH_PROMISE reserves a stream, ignoring a PUSH_PROMISE frame
+   causes the stream state to become indeterminate.  A receiver MUST
+   treat the receipt of a PUSH_PROMISE on a stream that is neither
+   "open" nor "half-closed (local)" as a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.  However, an endpoint that
+   has sent RST_STREAM on the associated stream MUST handle PUSH_PROMISE
+   frames that might have been created before the RST_STREAM frame is
+   received and processed.
+
+   A receiver MUST treat the receipt of a PUSH_PROMISE that promises an
+   illegal stream identifier (Section 5.1.1) as a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.  Note that an illegal stream
+   identifier is an identifier for a stream that is not currently in the
+   "idle" state.
+
+   The total number of padding octets is determined by the value of the
+   Pad Length field.  If the length of the padding is the length of the
+   frame payload or greater, the recipient MUST treat this as a
+   connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+      |  Note: A frame can be increased in size by one octet by
+      |  including a Pad Length field with a value of zero.
+
+[℗](#tgch6){id=pg6_7}
+
+//6.7.  PING
+--------------------------------------------------------
+
+   The PING frame (type=0x06) is a mechanism for measuring a minimal
+   round-trip time from the sender, as well as determining whether an
+   idle connection is still functional.  PING frames can be sent from
+   any endpoint.
+
+   PING Frame {
+     Length (24) = 0x08,
+     Type (8) = 0x06,
+
+     Unused Flags (7),
+     ACK Flag (1),
+
+     Reserved (1),
+     Stream Identifier (31) = 0,
+
+     Opaque Data (64),
+   }
+
+                        Figure 9: PING Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.
+
+   In addition to the frame header, PING frames MUST contain 8 octets of
+   opaque data in the frame payload.  A sender can include any value it
+   chooses and use those octets in any fashion.
+
+   Receivers of a PING frame that does not include an ACK flag MUST send
+   a PING frame with the ACK flag set in response, with an identical
+   frame payload.  PING responses SHOULD be given higher priority than
+   any other frame.
+
+   The PING frame defines the following flags:
+
+   ACK (0x01):  When set, the ACK flag indicates that this PING frame is
+      a PING response.  An endpoint MUST set this flag in PING
+      responses.  An endpoint MUST NOT respond to PING frames containing
+      this flag.
+
+   PING frames are not associated with any individual stream.  If a PING
+   frame is received with a Stream Identifier field value other than
+   0x00, the recipient MUST respond with a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   Receipt of a PING frame with a length field value other than 8 MUST
+   be treated as a connection error (Section 5.4.1) of type
+   FRAME_SIZE_ERROR.
+
+[℗](#tgch6){id=pg6_8}
+
+//6.8.  GOAWAY
+--------------------------------------------------------
+
+   The GOAWAY frame (type=0x07) is used to initiate shutdown of a
+   connection or to signal serious error conditions.  GOAWAY allows an
+   endpoint to gracefully stop accepting new streams while still
+   finishing processing of previously established streams.  This enables
+   administrative actions, like server maintenance.
+
+   There is an inherent race condition between an endpoint starting new
+   streams and the remote peer sending a GOAWAY frame.  To deal with
+   this case, the GOAWAY contains the stream identifier of the last
+   peer-initiated stream that was or might be processed on the sending
+   endpoint in this connection.  For instance, if the server sends a
+   GOAWAY frame, the identified stream is the highest-numbered stream
+   initiated by the client.
+
+   Once the GOAWAY is sent, the sender will ignore frames sent on
+   streams initiated by the receiver if the stream has an identifier
+   higher than the included last stream identifier.  Receivers of a
+   GOAWAY frame MUST NOT open additional streams on the connection,
+   although a new connection can be established for new streams.
+
+   If the receiver of the GOAWAY has sent data on streams with a higher
+   stream identifier than what is indicated in the GOAWAY frame, those
+   streams are not or will not be processed.  The receiver of the GOAWAY
+   frame can treat the streams as though they had never been created at
+   all, thereby allowing those streams to be retried later on a new
+   connection.
+
+   Endpoints SHOULD always send a GOAWAY frame before closing a
+   connection so that the remote peer can know whether a stream has been
+   partially processed or not.  For example, if an HTTP client sends a
+   POST at the same time that a server closes a connection, the client
+   cannot know if the server started to process that POST request if the
+   server does not send a GOAWAY frame to indicate what streams it might
+   have acted on.
+
+   An endpoint might choose to close a connection without sending a
+   GOAWAY for misbehaving peers.
+
+   A GOAWAY frame might not immediately precede closing of the
+   connection; a receiver of a GOAWAY that has no more use for the
+   connection SHOULD still send a GOAWAY frame before terminating the
+   connection.
+
+   GOAWAY Frame {
+     Length (24),
+     Type (8) = 0x07,
+
+     Unused Flags (8),
+
+     Reserved (1),
+     Stream Identifier (31) = 0,
+
+     Reserved (1),
+     Last-Stream-ID (31),
+     Error Code (32),
+     Additional Debug Data (..),
+   }
+
+                       Figure 10: GOAWAY Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.
+
+   The GOAWAY frame does not define any flags.
+
+   The GOAWAY frame applies to the connection, not a specific stream.
+   An endpoint MUST treat a GOAWAY frame with a stream identifier other
+   than 0x00 as a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.
+
+   The last stream identifier in the GOAWAY frame contains the highest-
+   numbered stream identifier for which the sender of the GOAWAY frame
+   might have taken some action on or might yet take action on.  All
+   streams up to and including the identified stream might have been
+   processed in some way.  The last stream identifier can be set to 0 if
+   no streams were processed.
+
+      |  Note: In this context, "processed" means that some data from
+      |  the stream was passed to some higher layer of software that
+      |  might have taken some action as a result.
+
+   If a connection terminates without a GOAWAY frame, the last stream
+   identifier is effectively the highest possible stream identifier.
+
+   On streams with lower- or equal-numbered identifiers that were not
+   closed completely prior to the connection being closed, reattempting
+   requests, transactions, or any protocol activity is not possible,
+   except for idempotent actions like HTTP GET, PUT, or DELETE.  Any
+   protocol activity that uses higher-numbered streams can be safely
+   retried using a new connection.
+
+   Activity on streams numbered lower than or equal to the last stream
+   identifier might still complete successfully.  The sender of a GOAWAY
+   frame might gracefully shut down a connection by sending a GOAWAY
+   frame, maintaining the connection in an "open" state until all in-
+   progress streams complete.
+
+   An endpoint MAY send multiple GOAWAY frames if circumstances change.
+   For instance, an endpoint that sends GOAWAY with NO_ERROR during
+   graceful shutdown could subsequently encounter a condition that
+   requires immediate termination of the connection.  The last stream
+   identifier from the last GOAWAY frame received indicates which
+   streams could have been acted upon.  Endpoints MUST NOT increase the
+   value they send in the last stream identifier, since the peers might
+   already have retried unprocessed requests on another connection.
+
+   A client that is unable to retry requests loses all requests that are
+   in flight when the server closes the connection.  This is especially
+   true for intermediaries that might not be serving clients using
+   HTTP/2.  A server that is attempting to gracefully shut down a
+   connection SHOULD send an initial GOAWAY frame with the last stream
+   identifier set to 2^31-1 and a NO_ERROR code.  This signals to the
+   client that a shutdown is imminent and that initiating further
+   requests is prohibited.  After allowing time for any in-flight stream
+   creation (at least one round-trip time), the server MAY send another
+   GOAWAY frame with an updated last stream identifier.  This ensures
+   that a connection can be cleanly shut down without losing requests.
+
+   After sending a GOAWAY frame, the sender can discard frames for
+   streams initiated by the receiver with identifiers higher than the
+   identified last stream.  However, any frames that alter connection
+   state cannot be completely ignored.  For instance, HEADERS,
+   PUSH_PROMISE, and CONTINUATION frames MUST be minimally processed to
+   ensure that the state maintained for field section compression is
+   consistent (see Section 4.3); similarly, DATA frames MUST be counted
+   toward the connection flow-control window.  Failure to process these
+   frames can cause flow control or field section compression state to
+   become unsynchronized.
+
+   The GOAWAY frame also contains a 32-bit error code (Section 7) that
+   contains the reason for closing the connection.
+
+   Endpoints MAY append opaque data to the frame payload of any GOAWAY
+   frame.  Additional debug data is intended for diagnostic purposes
+   only and carries no semantic value.  Debug information could contain
+   security- or privacy-sensitive data.  Logged or otherwise
+   persistently stored debug data MUST have adequate safeguards to
+   prevent unauthorized access.
+
+[℗](#tgch6){id=pg6_9}
+
+//6.9.  WINDOW_UPDATE
+--------------------------------------------------------
+
+   The WINDOW_UPDATE frame (type=0x08) is used to implement flow
+   control; see Section 5.2 for an overview.
+
+   Flow control operates at two levels: on each individual stream and on
+   the entire connection.
+
+   Both types of flow control are hop by hop, that is, only between the
+   two endpoints.  Intermediaries do not forward WINDOW_UPDATE frames
+   between dependent connections.  However, throttling of data transfer
+   by any receiver can indirectly cause the propagation of flow-control
+   information toward the original sender.
+
+   Flow control only applies to frames that are identified as being
+   subject to flow control.  Of the frame types defined in this
+   document, this includes only DATA frames.  Frames that are exempt
+   from flow control MUST be accepted and processed, unless the receiver
+   is unable to assign resources to handling the frame.  A receiver MAY
+   respond with a stream error (Section 5.4.2) or connection error
+   (Section 5.4.1) of type FLOW_CONTROL_ERROR if it is unable to accept
+   a frame.
+
+   WINDOW_UPDATE Frame {
+     Length (24) = 0x04,
+     Type (8) = 0x08,
+
+     Unused Flags (8),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     Reserved (1),
+     Window Size Increment (31),
+   }
+
+                   Figure 11: WINDOW_UPDATE Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The frame payload of a
+   WINDOW_UPDATE frame is one reserved bit plus an unsigned 31-bit
+   integer indicating the number of octets that the sender can transmit
+   in addition to the existing flow-control window.  The legal range for
+   the increment to the flow-control window is 1 to 2^31-1
+   (2,147,483,647) octets.
+
+   The WINDOW_UPDATE frame does not define any flags.
+
+   The WINDOW_UPDATE frame can be specific to a stream or to the entire
+   connection.  In the former case, the frame's stream identifier
+   indicates the affected stream; in the latter, the value "0" indicates
+   that the entire connection is the subject of the frame.
+
+   A receiver MUST treat the receipt of a WINDOW_UPDATE frame with a
+   flow-control window increment of 0 as a stream error (Section 5.4.2)
+   of type PROTOCOL_ERROR; errors on the connection flow-control window
+   MUST be treated as a connection error (Section 5.4.1).
+
+   WINDOW_UPDATE can be sent by a peer that has sent a frame with the
+   END_STREAM flag set.  This means that a receiver could receive a
+   WINDOW_UPDATE frame on a stream in a "half-closed (remote)" or
+   "closed" state.  A receiver MUST NOT treat this as an error (see
+   Section 5.1).
+
+   A receiver that receives a flow-controlled frame MUST always account
+   for its contribution against the connection flow-control window,
+   unless the receiver treats this as a connection error
+   (Section 5.4.1).  This is necessary even if the frame is in error.
+   The sender counts the frame toward the flow-control window, but if
+   the receiver does not, the flow-control window at the sender and
+   receiver can become different.
+
+   A WINDOW_UPDATE frame with a length other than 4 octets MUST be
+   treated as a connection error (Section 5.4.1) of type
+   FRAME_SIZE_ERROR.
+
+[℗](#tgch6){id=pg6_9_1}
+
+6.9.1.  The Flow-Control Window
+--------------------------------------------------------
+
+   Flow control in HTTP/2 is implemented using a window kept by each
+   sender on every stream.  The flow-control window is a simple integer
+   value that indicates how many octets of data the sender is permitted
+   to transmit; as such, its size is a measure of the buffering capacity
+   of the receiver.
+
+   Two flow-control windows are applicable: the stream flow-control
+   window and the connection flow-control window.  The sender MUST NOT
+   send a flow-controlled frame with a length that exceeds the space
+   available in either of the flow-control windows advertised by the
+   receiver.  Frames with zero length with the END_STREAM flag set (that
+   is, an empty DATA frame) MAY be sent if there is no available space
+   in either flow-control window.
+
+   For flow-control calculations, the 9-octet frame header is not
+   counted.
+
+   After sending a flow-controlled frame, the sender reduces the space
+   available in both windows by the length of the transmitted frame.
+
+   The receiver of a frame sends a WINDOW_UPDATE frame as it consumes
+   data and frees up space in flow-control windows.  Separate
+   WINDOW_UPDATE frames are sent for the stream- and connection-level
+   flow-control windows.  Receivers are advised to have mechanisms in
+   place to avoid sending WINDOW_UPDATE frames with very small
+   increments; see Section 4.2.3.3 of [RFC1122].
+
+   A sender that receives a WINDOW_UPDATE frame updates the
+   corresponding window by the amount specified in the frame.
+
+   A sender MUST NOT allow a flow-control window to exceed 2^31-1
+   octets.  If a sender receives a WINDOW_UPDATE that causes a flow-
+   control window to exceed this maximum, it MUST terminate either the
+   stream or the connection, as appropriate.  For streams, the sender
+   sends a RST_STREAM with an error code of FLOW_CONTROL_ERROR; for the
+   connection, a GOAWAY frame with an error code of FLOW_CONTROL_ERROR
+   is sent.
+
+   Flow-controlled frames from the sender and WINDOW_UPDATE frames from
+   the receiver are completely asynchronous with respect to each other.
+   This property allows a receiver to aggressively update the window
+   size kept by the sender to prevent streams from stalling.
+
+[℗](#tgch6){id=pg6_9_2}
+
+6.9.2.  Initial Flow-Control Window Size
+--------------------------------------------------------
+
+   When an HTTP/2 connection is first established, new streams are
+   created with an initial flow-control window size of 65,535 octets.
+   The connection flow-control window is also 65,535 octets.  Both
+   endpoints can adjust the initial window size for new streams by
+   including a value for SETTINGS_INITIAL_WINDOW_SIZE in the SETTINGS
+   frame.  The connection flow-control window can only be changed using
+   WINDOW_UPDATE frames.
+
+   Prior to receiving a SETTINGS frame that sets a value for
+   SETTINGS_INITIAL_WINDOW_SIZE, an endpoint can only use the default
+   initial window size when sending flow-controlled frames.  Similarly,
+   the connection flow-control window is set based on the default
+   initial window size until a WINDOW_UPDATE frame is received.
+
+   In addition to changing the flow-control window for streams that are
+   not yet active, a SETTINGS frame can alter the initial flow-control
+   window size for streams with active flow-control windows (that is,
+   streams in the "open" or "half-closed (remote)" state).  When the
+   value of SETTINGS_INITIAL_WINDOW_SIZE changes, a receiver MUST adjust
+   the size of all stream flow-control windows that it maintains by the
+   difference between the new value and the old value.
+
+   A change to SETTINGS_INITIAL_WINDOW_SIZE can cause the available
+   space in a flow-control window to become negative.  A sender MUST
+   track the negative flow-control window and MUST NOT send new flow-
+   controlled frames until it receives WINDOW_UPDATE frames that cause
+   the flow-control window to become positive.
+
+   For example, if the client sends 60 KB immediately on connection
+   establishment and the server sets the initial window size to be 16
+   KB, the client will recalculate the available flow-control window to
+   be -44 KB on receipt of the SETTINGS frame.  The client retains a
+   negative flow-control window until WINDOW_UPDATE frames restore the
+   window to being positive, after which the client can resume sending.
+
+   A SETTINGS frame cannot alter the connection flow-control window.
+
+   An endpoint MUST treat a change to SETTINGS_INITIAL_WINDOW_SIZE that
+   causes any flow-control window to exceed the maximum size as a
+   connection error (Section 5.4.1) of type FLOW_CONTROL_ERROR.
+
+[℗](#tgch6){id=pg6_9_3}
+
+6.9.3.  Reducing the Stream Window Size
+--------------------------------------------------------
+
+   A receiver that wishes to use a smaller flow-control window than the
+   current size can send a new SETTINGS frame.  However, the receiver
+   MUST be prepared to receive data that exceeds this window size, since
+   the sender might send data that exceeds the lower limit prior to
+   processing the SETTINGS frame.
+
+   After sending a SETTINGS frame that reduces the initial flow-control
+   window size, a receiver MAY continue to process streams that exceed
+   flow-control limits.  Allowing streams to continue does not allow the
+   receiver to immediately reduce the space it reserves for flow-control
+   windows.  Progress on these streams can also stall, since
+   WINDOW_UPDATE frames are needed to allow the sender to resume
+   sending.  The receiver MAY instead send a RST_STREAM with an error
+   code of FLOW_CONTROL_ERROR for the affected streams.
+
+[℗](#tgch6){id=pg6_10}
+
+//6.10.  CONTINUATION
+--------------------------------------------------------
+
+   The CONTINUATION frame (type=0x09) is used to continue a sequence of
+   field block fragments (Section 4.3).  Any number of CONTINUATION
+   frames can be sent, as long as the preceding frame is on the same
+   stream and is a HEADERS, PUSH_PROMISE, or CONTINUATION frame without
+   the END_HEADERS flag set.
+
+   CONTINUATION Frame {
+     Length (24),
+     Type (8) = 0x09,
+
+     Unused Flags (5),
+     END_HEADERS Flag (1),
+     Unused Flags (2),
+
+     Reserved (1),
+     Stream Identifier (31),
+
+     Field Block Fragment (..),
+   }
+
+                    Figure 12: CONTINUATION Frame Format
+
+   The Length, Type, Unused Flag(s), Reserved, and Stream Identifier
+   fields are described in Section 4.  The CONTINUATION frame payload
+   contains a field block fragment (Section 4.3).
+
+   The CONTINUATION frame defines the following flag:
+
+   END_HEADERS (0x04):  When set, the END_HEADERS flag indicates that
+      this frame ends a field block (Section 4.3).
+
+      If the END_HEADERS flag is not set, this frame MUST be followed by
+      another CONTINUATION frame.  A receiver MUST treat the receipt of
+      any other type of frame or a frame on a different stream as a
+      connection error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   The CONTINUATION frame changes the connection state as defined in
+   Section 4.3.
+
+   CONTINUATION frames MUST be associated with a stream.  If a
+   CONTINUATION frame is received with a Stream Identifier field of
+   0x00, the recipient MUST respond with a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   A CONTINUATION frame MUST be preceded by a HEADERS, PUSH_PROMISE or
+   CONTINUATION frame without the END_HEADERS flag set.  A recipient
+   that observes violation of this rule MUST respond with a connection
+   error (Section 5.4.1) of type PROTOCOL_ERROR.
+
+[℗](#tgch7){id=pgch7}
+
+/7.  Error Codes
+========================================================
+
+   Error codes are 32-bit fields that are used in RST_STREAM and GOAWAY
+   frames to convey the reasons for the stream or connection error.
+
+   Error codes share a common code space.  Some error codes apply only
+   to either streams or the entire connection and have no defined
+   semantics in the other context.
+
+   The following error codes are defined:
+
+   NO_ERROR (0x00):  The associated condition is not a result of an
+      error.  For example, a GOAWAY might include this code to indicate
+      graceful shutdown of a connection.
+
+   PROTOCOL_ERROR (0x01):  The endpoint detected an unspecific protocol
+      error.  This error is for use when a more specific error code is
+      not available.
+
+   INTERNAL_ERROR (0x02):  The endpoint encountered an unexpected
+      internal error.
+
+   FLOW_CONTROL_ERROR (0x03):  The endpoint detected that its peer
+      violated the flow-control protocol.
+
+   SETTINGS_TIMEOUT (0x04):  The endpoint sent a SETTINGS frame but did
+      not receive a response in a timely manner.  See Section 6.5.3
+      ("Settings Synchronization").
+
+   STREAM_CLOSED (0x05):  The endpoint received a frame after a stream
+      was half-closed.
+
+   FRAME_SIZE_ERROR (0x06):  The endpoint received a frame with an
+      invalid size.
+
+   REFUSED_STREAM (0x07):  The endpoint refused the stream prior to
+      performing any application processing (see Section 8.7 for
+      details).
+
+   CANCEL (0x08):  The endpoint uses this error code to indicate that
+      the stream is no longer needed.
+
+   COMPRESSION_ERROR (0x09):  The endpoint is unable to maintain the
+      field section compression context for the connection.
+
+   CONNECT_ERROR (0x0a):  The connection established in response to a
+      CONNECT request (Section 8.5) was reset or abnormally closed.
+
+   ENHANCE_YOUR_CALM (0x0b):  The endpoint detected that its peer is
+      exhibiting a behavior that might be generating excessive load.
+
+   INADEQUATE_SECURITY (0x0c):  The underlying transport has properties
+      that do not meet minimum security requirements (see Section 9.2).
+
+   HTTP_1_1_REQUIRED (0x0d):  The endpoint requires that HTTP/1.1 be
+      used instead of HTTP/2.
+
+   Unknown or unsupported error codes MUST NOT trigger any special
+   behavior.  These MAY be treated by an implementation as being
+   equivalent to INTERNAL_ERROR.
+
+[℗](#tgch8){id=pgch8}
+
+/8.  Expressing HTTP Semantics in HTTP/2
+========================================================
+
+   HTTP/2 is an instantiation of the HTTP message abstraction (Section 6
+   of [HTTP]).
+
+[℗](#tgch8){id=pg8_1}
+
+//8.1.  HTTP Message Framing
+--------------------------------------------------------
+
+   A client sends an HTTP request on a new stream, using a previously
+   unused stream identifier (Section 5.1.1).  A server sends an HTTP
+   response on the same stream as the request.
+
+   An HTTP message (request or response) consists of:
+
+   1.  one HEADERS frame (followed by zero or more CONTINUATION frames)
+       containing the header section (see Section 6.3 of [HTTP]),
+
+   2.  zero or more DATA frames containing the message content (see
+       Section 6.4 of [HTTP]), and
+
+   3.  optionally, one HEADERS frame (followed by zero or more
+       CONTINUATION frames) containing the trailer section, if present
+       (see Section 6.5 of [HTTP]).
+
+   For a response only, a server MAY send any number of interim
+   responses before the HEADERS frame containing a final response.  An
+   interim response consists of a HEADERS frame (which might be followed
+   by zero or more CONTINUATION frames) containing the control data and
+   header section of an interim (1xx) HTTP response (see Section 15 of
+   [HTTP]).  A HEADERS frame with the END_STREAM flag set that carries
+   an informational status code is malformed (Section 8.1.1).
+
+   The last frame in the sequence bears an END_STREAM flag, noting that
+   a HEADERS frame with the END_STREAM flag set can be followed by
+   CONTINUATION frames that carry any remaining fragments of the field
+   block.
+
+   Other frames (from any stream) MUST NOT occur between the HEADERS
+   frame and any CONTINUATION frames that might follow.
+
+   HTTP/2 uses DATA frames to carry message content.  The chunked
+   transfer encoding defined in Section 7.1 of [HTTP/1.1] cannot be used
+   in HTTP/2; see Section 8.2.2.
+
+   Trailer fields are carried in a field block that also terminates the
+   stream.  That is, trailer fields comprise a sequence starting with a
+   HEADERS frame, followed by zero or more CONTINUATION frames, where
+   the HEADERS frame bears an END_STREAM flag.  Trailers MUST NOT
+   include pseudo-header fields (Section 8.3).  An endpoint that
+   receives pseudo-header fields in trailers MUST treat the request or
+   response as malformed (Section 8.1.1).
+
+   An endpoint that receives a HEADERS frame without the END_STREAM flag
+   set after receiving the HEADERS frame that opens a request or after
+   receiving a final (non-informational) status code MUST treat the
+   corresponding request or response as malformed (Section 8.1.1).
+
+   An HTTP request/response exchange fully consumes a single stream.  A
+   request starts with the HEADERS frame that puts the stream into the
+   "open" state.  The request ends with a frame with the END_STREAM flag
+   set, which causes the stream to become "half-closed (local)" for the
+   client and "half-closed (remote)" for the server.  A response stream
+   starts with zero or more interim responses in HEADERS frames,
+   followed by a HEADERS frame containing a final status code.
+
+   An HTTP response is complete after the server sends -- or the client
+   receives -- a frame with the END_STREAM flag set (including any
+   CONTINUATION frames needed to complete a field block).  A server can
+   send a complete response prior to the client sending an entire
+   request if the response does not depend on any portion of the request
+   that has not been sent and received.  When this is true, a server MAY
+   request that the client abort transmission of a request without error
+   by sending a RST_STREAM with an error code of NO_ERROR after sending
+   a complete response (i.e., a frame with the END_STREAM flag set).
+   Clients MUST NOT discard responses as a result of receiving such a
+   RST_STREAM, though clients can always discard responses at their
+   discretion for other reasons.
+
+[℗](#tgch8){id=pg8_1_1}
+
+8.1.1.  Malformed Messages
+--------------------------------------------------------
+
+   A malformed request or response is one that is an otherwise valid
+   sequence of HTTP/2 frames but is invalid due to the presence of
+   extraneous frames, prohibited fields or pseudo-header fields, the
+   absence of mandatory pseudo-header fields, the inclusion of uppercase
+   field names, or invalid field names and/or values (in certain
+   circumstances; see Section 8.2).
+
+   A request or response that includes message content can include a
+   content-length header field.  A request or response is also malformed
+   if the value of a content-length header field does not equal the sum
+   of the DATA frame payload lengths that form the content, unless the
+   message is defined as having no content.  For example, 204 or 304
+   responses contain no content, as does the response to a HEAD request.
+   A response that is defined to have no content, as described in
+   Section 6.4.1 of [HTTP], MAY have a non-zero content-length header
+   field, even though no content is included in DATA frames.
+
+   Intermediaries that process HTTP requests or responses (i.e., any
+   intermediary not acting as a tunnel) MUST NOT forward a malformed
+   request or response.  Malformed requests or responses that are
+   detected MUST be treated as a stream error (Section 5.4.2) of type
+   PROTOCOL_ERROR.
+
+   For malformed requests, a server MAY send an HTTP response prior to
+   closing or resetting the stream.  Clients MUST NOT accept a malformed
+   response.
+
+   Endpoints that progressively process messages might have performed
+   some processing before identifying a request or response as
+   malformed.  For instance, it might be possible to generate an
+   informational or 404 status code without having received a complete
+   request.  Similarly, intermediaries might forward incomplete messages
+   before detecting errors.  A server MAY generate a final response
+   before receiving an entire request when the response does not depend
+   on the remainder of the request being correct.
+
+   These requirements are intended to protect against several types of
+   common attacks against HTTP; they are deliberately strict because
+   being permissive can expose implementations to these vulnerabilities.
+
+[℗](#tgch8){id=pg8_2}
+
+//8.2.  HTTP Fields
+--------------------------------------------------------
+
+   HTTP fields (Section 5 of [HTTP]) are conveyed by HTTP/2 in the
+   HEADERS, CONTINUATION, and PUSH_PROMISE frames, compressed with HPACK
+   [COMPRESSION].
+
+   Field names MUST be converted to lowercase when constructing an
+   HTTP/2 message.
+
+[℗](#tgch8){id=pg8_2_1}
+
+8.2.1.  Field Validity
+--------------------------------------------------------
+
+   The definitions of field names and values in HTTP prohibit some
+   characters that HPACK might be able to convey.  HTTP/2
+   implementations SHOULD validate field names and values according to
+   their definitions in Sections 5.1 and 5.5 of [HTTP], respectively,
+   and treat messages that contain prohibited characters as malformed
+   (Section 8.1.1).
+
+   Failure to validate fields can be exploited for request smuggling
+   attacks.  In particular, unvalidated fields might enable attacks when
+   messages are forwarded using HTTP/1.1 [HTTP/1.1], where characters
+   such as carriage return (CR), line feed (LF), and COLON are used as
+   delimiters.  Implementations MUST perform the following minimal
+   validation of field names and values:
+
+   *  A field name MUST NOT contain characters in the ranges 0x00-0x20,
+      0x41-0x5a, or 0x7f-0xff (all ranges inclusive).  This specifically
+      excludes all non-visible ASCII characters, ASCII SP (0x20), and
+      uppercase characters ('A' to 'Z', ASCII 0x41 to 0x5a).
+
+   *  With the exception of pseudo-header fields (Section 8.3), which
+      have a name that starts with a single colon, field names MUST NOT
+      include a colon (ASCII COLON, 0x3a).
+
+   *  A field value MUST NOT contain the zero value (ASCII NUL, 0x00),
+      line feed (ASCII LF, 0x0a), or carriage return (ASCII CR, 0x0d) at
+      any position.
+
+   *  A field value MUST NOT start or end with an ASCII whitespace
+      character (ASCII SP or HTAB, 0x20 or 0x09).
+
+      |  Note: An implementation that validates fields according to the
+      |  definitions in Sections 5.1 and 5.5 of [HTTP] only needs an
+      |  additional check that field names do not include uppercase
+      |  characters.
+
+   A request or response that contains a field that violates any of
+   these conditions MUST be treated as malformed (Section 8.1.1).  In
+   particular, an intermediary that does not process fields when
+   forwarding messages MUST NOT forward fields that contain any of the
+   values that are listed as prohibited above.
+
+   When a request message violates one of these requirements, an
+   implementation SHOULD generate a 400 (Bad Request) status code (see
+   Section 15.5.1 of [HTTP]), unless a more suitable status code is
+   defined or the status code cannot be sent (e.g., because the error
+   occurs in a trailer field).
+
+      |  Note: Field values that are not valid according to the
+      |  definition of the corresponding field do not cause a request to
+      |  be malformed; the requirements above only apply to the generic
+      |  syntax for fields as defined in Section 5 of [HTTP].
+
+[℗](#tgch8){id=pg8_2_2}
+
+8.2.2.  Connection-Specific Header Fields
+--------------------------------------------------------
+
+   HTTP/2 does not use the Connection header field (Section 7.6.1 of
+   [HTTP]) to indicate connection-specific header fields; in this
+   protocol, connection-specific metadata is conveyed by other means.
+   An endpoint MUST NOT generate an HTTP/2 message containing
+   connection-specific header fields.  This includes the Connection
+   header field and those listed as having connection-specific semantics
+   in Section 7.6.1 of [HTTP] (that is, Proxy-Connection, Keep-Alive,
+   Transfer-Encoding, and Upgrade).  Any message containing connection-
+   specific header fields MUST be treated as malformed (Section 8.1.1).
+
+   The only exception to this is the TE header field, which MAY be
+   present in an HTTP/2 request; when it is, it MUST NOT contain any
+   value other than "trailers".
+
+   An intermediary transforming an HTTP/1.x message to HTTP/2 MUST
+   remove connection-specific header fields as discussed in
+   Section 7.6.1 of [HTTP], or their messages will be treated by other
+   HTTP/2 endpoints as malformed (Section 8.1.1).
+
+      |  Note: HTTP/2 purposefully does not support upgrade to another
+      |  protocol.  The handshake methods described in Section 3 are
+      |  believed sufficient to negotiate the use of alternative
+      |  protocols.
+
+[℗](#tgch8){id=pg8_2_3}
+
+8.2.3.  Compressing the Cookie Header Field
+--------------------------------------------------------
+
+   The Cookie header field [COOKIE] uses a semicolon (";") to delimit
+   cookie-pairs (or "crumbs").  This header field contains multiple
+   values, but does not use a COMMA (",") as a separator, thereby
+   preventing cookie-pairs from being sent on multiple field lines (see
+   Section 5.2 of [HTTP]).  This can significantly reduce compression
+   efficiency, as updates to individual cookie-pairs would invalidate
+   any field lines that are stored in the HPACK table.
+
+   To allow for better compression efficiency, the Cookie header field
+   MAY be split into separate header fields, each with one or more
+   cookie-pairs.  If there are multiple Cookie header fields after
+   decompression, these MUST be concatenated into a single octet string
+   using the two-octet delimiter of 0x3b, 0x20 (the ASCII string "; ")
+   before being passed into a non-HTTP/2 context, such as an HTTP/1.1
+   connection, or a generic HTTP server application.
+
+   Therefore, the following two lists of Cookie header fields are
+   semantically equivalent.
+
+   cookie: a=b; c=d; e=f
+
+   cookie: a=b
+   cookie: c=d
+   cookie: e=f
+
+[℗](#tgch8){id=pg8_3}
+
+//8.3.  HTTP Control Data
+--------------------------------------------------------
+
+   HTTP/2 uses special pseudo-header fields beginning with a ':'
+   character (ASCII 0x3a) to convey message control data (see
+   Section 6.2 of [HTTP]).
+
+   Pseudo-header fields are not HTTP header fields.  Endpoints MUST NOT
+   generate pseudo-header fields other than those defined in this
+   document.  Note that an extension could negotiate the use of
+   additional pseudo-header fields; see Section 5.5.
+
+   Pseudo-header fields are only valid in the context in which they are
+   defined.  Pseudo-header fields defined for requests MUST NOT appear
+   in responses; pseudo-header fields defined for responses MUST NOT
+   appear in requests.  Pseudo-header fields MUST NOT appear in a
+   trailer section.  Endpoints MUST treat a request or response that
+   contains undefined or invalid pseudo-header fields as malformed
+   (Section 8.1.1).
+
+   All pseudo-header fields MUST appear in a field block before all
+   regular field lines.  Any request or response that contains a pseudo-
+   header field that appears in a field block after a regular field line
+   MUST be treated as malformed (Section 8.1.1).
+
+   The same pseudo-header field name MUST NOT appear more than once in a
+   field block.  A field block for an HTTP request or response that
+   contains a repeated pseudo-header field name MUST be treated as
+   malformed (Section 8.1.1).
+
+[℗](#tgch8){id=pg8_3_1}
+
+8.3.1.  Request Pseudo-Header Fields
+--------------------------------------------------------
+
+   The following pseudo-header fields are defined for HTTP/2 requests:
+
+   *  The ":method" pseudo-header field includes the HTTP method
+      (Section 9 of [HTTP]).
+
+   *  The ":scheme" pseudo-header field includes the scheme portion of
+      the request target.  The scheme is taken from the target URI
+      (Section 3.1 of [RFC3986]) when generating a request directly, or
+      from the scheme of a translated request (for example, see
+      Section 3.3 of [HTTP/1.1]).  Scheme is omitted for CONNECT
+      requests (Section 8.5).
+
+      ":scheme" is not restricted to "http" and "https" schemed URIs.  A
+      proxy or gateway can translate requests for non-HTTP schemes,
+      enabling the use of HTTP to interact with non-HTTP services.
+
+   *  The ":authority" pseudo-header field conveys the authority portion
+      (Section 3.2 of [RFC3986]) of the target URI (Section 7.1 of
+      [HTTP]).  The recipient of an HTTP/2 request MUST NOT use the Host
+      header field to determine the target URI if ":authority" is
+      present.
+
+      Clients that generate HTTP/2 requests directly MUST use the
+      ":authority" pseudo-header field to convey authority information,
+      unless there is no authority information to convey (in which case
+      it MUST NOT generate ":authority").
+
+      Clients MUST NOT generate a request with a Host header field that
+      differs from the ":authority" pseudo-header field.  A server
+      SHOULD treat a request as malformed if it contains a Host header
+      field that identifies an entity that differs from the entity in
+      the ":authority" pseudo-header field.  The values of fields need
+      to be normalized to compare them (see Section 6.2 of [RFC3986]).
+      An origin server can apply any normalization method, whereas other
+      servers MUST perform scheme-based normalization (see Section 6.2.3
+      of [RFC3986]) of the two fields.
+
+      An intermediary that forwards a request over HTTP/2 MUST construct
+      an ":authority" pseudo-header field using the authority
+      information from the control data of the original request, unless
+      the original request's target URI does not contain authority
+      information (in which case it MUST NOT generate ":authority").
+      Note that the Host header field is not the sole source of this
+      information; see Section 7.2 of [HTTP].
+
+      An intermediary that needs to generate a Host header field (which
+      might be necessary to construct an HTTP/1.1 request) MUST use the
+      value from the ":authority" pseudo-header field as the value of
+      the Host field, unless the intermediary also changes the request
+      target.  This replaces any existing Host field to avoid potential
+      vulnerabilities in HTTP routing.
+
+      An intermediary that forwards a request over HTTP/2 MAY retain any
+      Host header field.
+
+      Note that request targets for CONNECT or asterisk-form OPTIONS
+      requests never include authority information; see Sections 7.1 and
+      7.2 of [HTTP].
+
+      ":authority" MUST NOT include the deprecated userinfo subcomponent
+      for "http" or "https" schemed URIs.
+
+   *  The ":path" pseudo-header field includes the path and query parts
+      of the target URI (the absolute-path production and, optionally, a
+      '?' character followed by the query production; see Section 4.1 of
+      [HTTP]).  A request in asterisk form (for OPTIONS) includes the
+      value '*' for the ":path" pseudo-header field.
+
+      This pseudo-header field MUST NOT be empty for "http" or "https"
+      URIs; "http" or "https" URIs that do not contain a path component
+      MUST include a value of '/'.  The exceptions to this rule are:
+
+      -  an OPTIONS request for an "http" or "https" URI that does not
+         include a path component; these MUST include a ":path" pseudo-
+         header field with a value of '*' (see Section 7.1 of [HTTP]).
+
+      -  CONNECT requests (Section 8.5), where the ":path" pseudo-header
+         field is omitted.
+
+   All HTTP/2 requests MUST include exactly one valid value for the
+   ":method", ":scheme", and ":path" pseudo-header fields, unless they
+   are CONNECT requests (Section 8.5).  An HTTP request that omits
+   mandatory pseudo-header fields is malformed (Section 8.1.1).
+
+   Individual HTTP/2 requests do not carry an explicit indicator of
+   protocol version.  All HTTP/2 requests implicitly have a protocol
+   version of "2.0" (see Section 6.2 of [HTTP]).
+
+[℗](#tgch8){id=pg8_3_2}
+
+8.3.2.  Response Pseudo-Header Fields
+--------------------------------------------------------
+
+   For HTTP/2 responses, a single ":status" pseudo-header field is
+   defined that carries the HTTP status code field (see Section 15 of
+   [HTTP]).  This pseudo-header field MUST be included in all responses,
+   including interim responses; otherwise, the response is malformed
+   (Section 8.1.1).
+
+   HTTP/2 responses implicitly have a protocol version of "2.0".
+
+[℗](#tgch8){id=pg8_4}
+
+//8.4.  Server Push
+--------------------------------------------------------
+
+   HTTP/2 allows a server to preemptively send (or "push") responses
+   (along with corresponding "promised" requests) to a client in
+   association with a previous client-initiated request.
+
+   Server push was designed to allow a server to improve client-
+   perceived performance by predicting what requests will follow those
+   that it receives, thereby removing a round trip for them.  For
+   example, a request for HTML is often followed by requests for
+   stylesheets and scripts referenced by that page.  When these requests
+   are pushed, the client does not need to wait to receive the
+   references to them in the HTML and issue separate requests.
+
+   In practice, server push is difficult to use effectively, because it
+   requires the server to correctly anticipate the additional requests
+   the client will make, taking into account factors such as caching,
+   content negotiation, and user behavior.  Errors in prediction can
+   lead to performance degradation, due to the opportunity cost that the
+   additional data on the wire represents.  In particular, pushing any
+   significant amount of data can cause contention issues with responses
+   that are more important.
+
+   A client can request that server push be disabled, though this is
+   negotiated for each hop independently.  The SETTINGS_ENABLE_PUSH
+   setting can be set to 0 to indicate that server push is disabled.
+
+   Promised requests MUST be safe (see Section 9.2.1 of [HTTP]) and
+   cacheable (see Section 9.2.3 of [HTTP]).  Promised requests cannot
+   include any content or a trailer section.  Clients that receive a
+   promised request that is not cacheable, that is not known to be safe,
+   or that indicates the presence of request content MUST reset the
+   promised stream with a stream error (Section 5.4.2) of type
+   PROTOCOL_ERROR.  Note that this could result in the promised stream
+   being reset if the client does not recognize a newly defined method
+   as being safe.
+
+   Pushed responses that are cacheable (see Section 3 of [CACHING]) can
+   be stored by the client, if it implements an HTTP cache.  Pushed
+   responses are considered successfully validated on the origin server
+   (e.g., if the "no-cache" cache response directive is present; see
+   Section 5.2.2.4 of [CACHING]) while the stream identified by the
+   promised stream identifier is still open.
+
+   Pushed responses that are not cacheable MUST NOT be stored by any
+   HTTP cache.  They MAY be made available to the application
+   separately.
+
+   The server MUST include a value in the ":authority" pseudo-header
+   field for which the server is authoritative (see Section 10.1).  A
+   client MUST treat a PUSH_PROMISE for which the server is not
+   authoritative as a stream error (Section 5.4.2) of type
+   PROTOCOL_ERROR.
+
+   An intermediary can receive pushes from the server and choose not to
+   forward them on to the client.  In other words, how to make use of
+   the pushed information is up to that intermediary.  Equally, the
+   intermediary might choose to make additional pushes to the client,
+   without any action taken by the server.
+
+   A client cannot push.  Thus, servers MUST treat the receipt of a
+   PUSH_PROMISE frame as a connection error (Section 5.4.1) of type
+   PROTOCOL_ERROR.  A server cannot set the SETTINGS_ENABLE_PUSH setting
+   to a value other than 0 (see Section 6.5.2).
+
+[℗](#tgch8){id=pg8_4_1}
+
+8.4.1.  Push Requests
+--------------------------------------------------------
+
+   Server push is semantically equivalent to a server responding to a
+   request; however, in this case, that request is also sent by the
+   server, as a PUSH_PROMISE frame.
+
+   The PUSH_PROMISE frame includes a field block that contains control
+   data and a complete set of request header fields that the server
+   attributes to the request.  It is not possible to push a response to
+   a request that includes message content.
+
+   Promised requests are always associated with an explicit request from
+   the client.  The PUSH_PROMISE frames sent by the server are sent on
+   that explicit request's stream.  The PUSH_PROMISE frame also includes
+   a promised stream identifier, chosen from the stream identifiers
+   available to the server (see Section 5.1.1).
+
+   The header fields in PUSH_PROMISE and any subsequent CONTINUATION
+   frames MUST be a valid and complete set of request header fields
+   (Section 8.3.1).  The server MUST include a method in the ":method"
+   pseudo-header field that is safe and cacheable.  If a client receives
+   a PUSH_PROMISE that does not include a complete and valid set of
+   header fields or the ":method" pseudo-header field identifies a
+   method that is not safe, it MUST respond on the promised stream with
+   a stream error (Section 5.4.2) of type PROTOCOL_ERROR.
+
+   The server SHOULD send PUSH_PROMISE (Section 6.6) frames prior to
+   sending any frames that reference the promised responses.  This
+   avoids a race where clients issue requests prior to receiving any
+   PUSH_PROMISE frames.
+
+   For example, if the server receives a request for a document
+   containing embedded links to multiple image files and the server
+   chooses to push those additional images to the client, sending
+   PUSH_PROMISE frames before the DATA frames that contain the image
+   links ensures that the client is able to see that a resource will be
+   pushed before discovering embedded links.  Similarly, if the server
+   pushes resources referenced by the field block (for instance, in Link
+   header fields), sending a PUSH_PROMISE before sending the header
+   ensures that clients do not request those resources.
+
+   PUSH_PROMISE frames MUST NOT be sent by the client.
+
+   PUSH_PROMISE frames can be sent by the server on any client-initiated
+   stream, but the stream MUST be in either the "open" or "half-closed
+   (remote)" state with respect to the server.  PUSH_PROMISE frames are
+   interspersed with the frames that comprise a response, though they
+   cannot be interspersed with HEADERS and CONTINUATION frames that
+   comprise a single field block.
+
+   Sending a PUSH_PROMISE frame creates a new stream and puts the stream
+   into the "reserved (local)" state for the server and the "reserved
+   (remote)" state for the client.
+
+[℗](#tgch8){id=pg8_4_2}
+
+8.4.2.  Push Responses
+--------------------------------------------------------
+
+   After sending the PUSH_PROMISE frame, the server can begin delivering
+   the pushed response as a response (Section 8.3.2) on a server-
+   initiated stream that uses the promised stream identifier.  The
+   server uses this stream to transmit an HTTP response, using the same
+   sequence of frames as that defined in Section 8.1.  This stream
+   becomes "half-closed" to the client (Section 5.1) after the initial
+   HEADERS frame is sent.
+
+   Once a client receives a PUSH_PROMISE frame and chooses to accept the
+   pushed response, the client SHOULD NOT issue any requests for the
+   promised response until after the promised stream has closed.
+
+   If the client determines, for any reason, that it does not wish to
+   receive the pushed response from the server or if the server takes
+   too long to begin sending the promised response, the client can send
+   a RST_STREAM frame, using either the CANCEL or REFUSED_STREAM code
+   and referencing the pushed stream's identifier.
+
+   A client can use the SETTINGS_MAX_CONCURRENT_STREAMS setting to limit
+   the number of responses that can be concurrently pushed by a server.
+   Advertising a SETTINGS_MAX_CONCURRENT_STREAMS value of zero prevents
+   the server from opening the streams necessary to push responses.
+   However, this does not prevent the server from reserving streams
+   using PUSH_PROMISE frames, because reserved streams do not count
+   toward the concurrent stream limit.  Clients that do not wish to
+   receive pushed resources need to reset any unwanted reserved streams
+   or set SETTINGS_ENABLE_PUSH to 0.
+
+   Clients receiving a pushed response MUST validate that either the
+   server is authoritative (see Section 10.1) or the proxy that provided
+   the pushed response is configured for the corresponding request.  For
+   example, a server that offers a certificate for only the example.com
+   DNS-ID (see [RFC6125]) is not permitted to push a response for
+   <https://www.example.org/doc>.
+
+   The response for a PUSH_PROMISE stream begins with a HEADERS frame,
+   which immediately puts the stream into the "half-closed (remote)"
+   state for the server and "half-closed (local)" state for the client,
+   and ends with a frame with the END_STREAM flag set, which places the
+   stream in the "closed" state.
+
+      |  Note: The client never sends a frame with the END_STREAM flag
+      |  set for a server push.
+
+[℗](#tgch8){id=pg8_5}
+
+//8.5.  The CONNECT Method
+--------------------------------------------------------
+
+   The CONNECT method (Section 9.3.6 of [HTTP]) is used to convert an
+   HTTP connection into a tunnel to a remote host.  CONNECT is primarily
+   used with HTTP proxies to establish a TLS session with an origin
+   server for the purposes of interacting with "https" resources.
+
+   In HTTP/2, the CONNECT method establishes a tunnel over a single
+   HTTP/2 stream to a remote host, rather than converting the entire
+   connection to a tunnel.  A CONNECT header section is constructed as
+   defined in Section 8.3.1 ("Request Pseudo-Header Fields"), with a few
+   differences.  Specifically:
+
+   *  The ":method" pseudo-header field is set to CONNECT.
+
+   *  The ":scheme" and ":path" pseudo-header fields MUST be omitted.
+
+   *  The ":authority" pseudo-header field contains the host and port to
+      connect to (equivalent to the authority-form of the request-target
+      of CONNECT requests; see Section 3.2.3 of [HTTP/1.1]).
+
+   A CONNECT request that does not conform to these restrictions is
+   malformed (Section 8.1.1).
+
+   A proxy that supports CONNECT establishes a TCP connection [TCP] to
+   the host and port identified in the ":authority" pseudo-header field.
+   Once this connection is successfully established, the proxy sends a
+   HEADERS frame containing a 2xx-series status code to the client, as
+   defined in Section 9.3.6 of [HTTP].
+
+   After the initial HEADERS frame sent by each peer, all subsequent
+   DATA frames correspond to data sent on the TCP connection.  The frame
+   payload of any DATA frames sent by the client is transmitted by the
+   proxy to the TCP server; data received from the TCP server is
+   assembled into DATA frames by the proxy.  Frame types other than DATA
+   or stream management frames (RST_STREAM, WINDOW_UPDATE, and PRIORITY)
+   MUST NOT be sent on a connected stream and MUST be treated as a
+   stream error (Section 5.4.2) if received.
+
+   The TCP connection can be closed by either peer.  The END_STREAM flag
+   on a DATA frame is treated as being equivalent to the TCP FIN bit.  A
+   client is expected to send a DATA frame with the END_STREAM flag set
+   after receiving a frame with the END_STREAM flag set.  A proxy that
+   receives a DATA frame with the END_STREAM flag set sends the attached
+   data with the FIN bit set on the last TCP segment.  A proxy that
+   receives a TCP segment with the FIN bit set sends a DATA frame with
+   the END_STREAM flag set.  Note that the final TCP segment or DATA
+   frame could be empty.
+
+   A TCP connection error is signaled with RST_STREAM.  A proxy treats
+   any error in the TCP connection, which includes receiving a TCP
+   segment with the RST bit set, as a stream error (Section 5.4.2) of
+   type CONNECT_ERROR.  Correspondingly, a proxy MUST send a TCP segment
+   with the RST bit set if it detects an error with the stream or the
+   HTTP/2 connection.
+
+[℗](#tgch8){id=pg8_6}
+
+//8.6.  The Upgrade Header Field
+--------------------------------------------------------
+
+   HTTP/2 does not support the 101 (Switching Protocols) informational
+   status code (Section 15.2.2 of [HTTP]).
+
+   The semantics of 101 (Switching Protocols) aren't applicable to a
+   multiplexed protocol.  Similar functionality might be enabled through
+   the use of extended CONNECT [RFC8441], and other protocols are able
+   to use the same mechanisms that HTTP/2 uses to negotiate their use
+   (see Section 3).
+
+[℗](#tgch8){id=pg8_7}
+
+//8.7.  Request Reliability
+--------------------------------------------------------
+
+   In general, an HTTP client is unable to retry a non-idempotent
+   request when an error occurs because there is no means to determine
+   the nature of the error (see Section 9.2.2 of [HTTP]).  It is
+   possible that some server processing occurred prior to the error,
+   which could result in undesirable effects if the request were
+   reattempted.
+
+   HTTP/2 provides two mechanisms for providing a guarantee to a client
+   that a request has not been processed:
+
+   *  The GOAWAY frame indicates the highest stream number that might
+      have been processed.  Requests on streams with higher numbers are
+      therefore guaranteed to be safe to retry.
+
+   *  The REFUSED_STREAM error code can be included in a RST_STREAM
+      frame to indicate that the stream is being closed prior to any
+      processing having occurred.  Any request that was sent on the
+      reset stream can be safely retried.
+
+   Requests that have not been processed have not failed; clients MAY
+   automatically retry them, even those with non-idempotent methods.
+
+   A server MUST NOT indicate that a stream has not been processed
+   unless it can guarantee that fact.  If frames that are on a stream
+   are passed to the application layer for any stream, then
+   REFUSED_STREAM MUST NOT be used for that stream, and a GOAWAY frame
+   MUST include a stream identifier that is greater than or equal to the
+   given stream identifier.
+
+   In addition to these mechanisms, the PING frame provides a way for a
+   client to easily test a connection.  Connections that remain idle can
+   become broken, because some middleboxes (for instance, network
+   address translators or load balancers) silently discard connection
+   bindings.  The PING frame allows a client to safely test whether a
+   connection is still active without sending a request.
+
+[℗](#tgch8){id=pg8_8}
+
+//8.8.  Examples
+--------------------------------------------------------
+
+   This section shows HTTP/1.1 requests and responses, with
+   illustrations of equivalent HTTP/2 requests and responses.
+
+[℗](#tgch8){id=pg8_8_1}
+
+8.8.1.  Simple Request
+--------------------------------------------------------
+
+   An HTTP GET request includes control data and a request header with
+   no message content and is therefore transmitted as a single HEADERS
+   frame, followed by zero or more CONTINUATION frames containing the
+   serialized block of request header fields.  The HEADERS frame in the
+   following has both the END_HEADERS and END_STREAM flags set; no
+   CONTINUATION frames are sent.
+
+     GET /resource HTTP/1.1           HEADERS
+     Host: example.org          ==>     + END_STREAM
+     Accept: image/jpeg                 + END_HEADERS
+                                          :method = GET
+                                          :scheme = https
+                                          :authority = example.org
+                                          :path = /resource
+                                          host = example.org
+                                          accept = image/jpeg
+
+[℗](#tgch8){id=pg8_8_2}
+
+8.8.2.  Simple Response
+--------------------------------------------------------
+
+   Similarly, a response that includes only control data and a response
+   header is transmitted as a HEADERS frame (again, followed by zero or
+   more CONTINUATION frames) containing the serialized block of response
+   header fields.
+
+     HTTP/1.1 304 Not Modified        HEADERS
+     ETag: "xyzzy"              ==>     + END_STREAM
+     Expires: Thu, 23 Jan ...           + END_HEADERS
+                                          :status = 304
+                                          etag = "xyzzy"
+                                          expires = Thu, 23 Jan ...
+
+[℗](#tgch8){id=pg8_8_3}
+
+8.8.3.  Complex Request
+--------------------------------------------------------
+
+   An HTTP POST request that includes control data and a request header
+   with message content is transmitted as one HEADERS frame, followed by
+   zero or more CONTINUATION frames containing the request header,
+   followed by one or more DATA frames, with the last CONTINUATION (or
+   HEADERS) frame having the END_HEADERS flag set and the final DATA
+   frame having the END_STREAM flag set:
+
+     POST /resource HTTP/1.1          HEADERS
+     Host: example.org          ==>     - END_STREAM
+     Content-Type: image/jpeg           - END_HEADERS
+     Content-Length: 123                  :method = POST
+                                          :authority = example.org
+                                          :path = /resource
+     {binary data}                        :scheme = https
+
+                                      CONTINUATION
+                                        + END_HEADERS
+                                          content-type = image/jpeg
+                                          host = example.org
+                                          content-length = 123
+
+                                      DATA
+                                        + END_STREAM
+                                      {binary data}
+
+   Note that data contributing to any given field line could be spread
+   between field block fragments.  The allocation of field lines to
+   frames in this example is illustrative only.
+
+[℗](#tgch8){id=pg8_8_4}
+
+8.8.4.  Response with Body
+--------------------------------------------------------
+
+   A response that includes control data and a response header with
+   message content is transmitted as a HEADERS frame, followed by zero
+   or more CONTINUATION frames, followed by one or more DATA frames,
+   with the last DATA frame in the sequence having the END_STREAM flag
+   set:
+
+     HTTP/1.1 200 OK                  HEADERS
+     Content-Type: image/jpeg   ==>     - END_STREAM
+     Content-Length: 123                + END_HEADERS
+                                          :status = 200
+     {binary data}                        content-type = image/jpeg
+                                          content-length = 123
+
+                                      DATA
+                                        + END_STREAM
+                                      {binary data}
+
+[℗](#tgch8){id=pg8_8_5}
+
+8.8.5.  Informational Responses
+--------------------------------------------------------
+
+   An informational response using a 1xx status code other than 101 is
+   transmitted as a HEADERS frame, followed by zero or more CONTINUATION
+   frames.
+
+   A trailer section is sent as a field block after both the request or
+   response field block and all the DATA frames have been sent.  The
+   HEADERS frame starting the field block that comprises the trailer
+   section has the END_STREAM flag set.
+
+   The following example includes both a 100 (Continue) status code,
+   which is sent in response to a request containing a "100-continue"
+   token in the Expect header field, and a trailer section:
+
+     HTTP/1.1 100 Continue            HEADERS
+     Extension-Field: bar       ==>     - END_STREAM
+                                        + END_HEADERS
+                                          :status = 100
+                                          extension-field = bar
+
+     HTTP/1.1 200 OK                  HEADERS
+     Content-Type: image/jpeg   ==>     - END_STREAM
+     Transfer-Encoding: chunked         + END_HEADERS
+     Trailer: Foo                         :status = 200
+                                          content-type = image/jpeg
+     123                                  trailer = Foo
+     {binary data}
+     0                                DATA
+     Foo: bar                           - END_STREAM
+                                      {binary data}
+
+                                      HEADERS
+                                        + END_STREAM
+                                        + END_HEADERS
+                                          foo = bar
+
+[℗](#tgch9){id=pgch9}
+
+/9.  HTTP/2 Connections
+========================================================
+
+   This section outlines attributes of HTTP that improve
+   interoperability, reduce exposure to known security vulnerabilities,
+   or reduce the potential for implementation variation.
+
+[℗](#tgch9){id=pg9_1}
+
+//9.1.  Connection Management
+--------------------------------------------------------
+
+   HTTP/2 connections are persistent.  For best performance, it is
+   expected that clients will not close connections until it is
+   determined that no further communication with a server is necessary
+   (for example, when a user navigates away from a particular web page)
+   or until the server closes the connection.
+
+   Clients SHOULD NOT open more than one HTTP/2 connection to a given
+   host and port pair, where the host is derived from a URI, a selected
+   alternative service [ALT-SVC], or a configured proxy.
+
+   A client can create additional connections as replacements, either to
+   replace connections that are near to exhausting the available stream
+   identifier space (Section 5.1.1), to refresh the keying material for
+   a TLS connection, or to replace connections that have encountered
+   errors (Section 5.4.1).
+
+   A client MAY open multiple connections to the same IP address and TCP
+   port using different Server Name Indication [TLS-EXT] values or to
+   provide different TLS client certificates but SHOULD avoid creating
+   multiple connections with the same configuration.
+
+   Servers are encouraged to maintain open connections for as long as
+   possible but are permitted to terminate idle connections if
+   necessary.  When either endpoint chooses to close the transport-layer
+   TCP connection, the terminating endpoint SHOULD first send a GOAWAY
+   (Section 6.8) frame so that both endpoints can reliably determine
+   whether previously sent frames have been processed and gracefully
+   complete or terminate any necessary remaining tasks.
+
+[℗](#tgch9){id=pg9_1_1}
+
+9.1.1.  Connection Reuse
+--------------------------------------------------------
+
+   Connections that are made to an origin server, either directly or
+   through a tunnel created using the CONNECT method (Section 8.5), MAY
+   be reused for requests with multiple different URI authority
+   components.  A connection can be reused as long as the origin server
+   is authoritative (Section 10.1).  For TCP connections without TLS,
+   this depends on the host having resolved to the same IP address.
+
+   For "https" resources, connection reuse additionally depends on
+   having a certificate that is valid for the host in the URI.  The
+   certificate presented by the server MUST satisfy any checks that the
+   client would perform when forming a new TLS connection for the host
+   in the URI.  A single certificate can be used to establish authority
+   for multiple origins.  Section 4.3 of [HTTP] describes how a client
+   determines whether a server is authoritative for a URI.
+
+   In some deployments, reusing a connection for multiple origins can
+   result in requests being directed to the wrong origin server.  For
+   example, TLS termination might be performed by a middlebox that uses
+   the TLS Server Name Indication [TLS-EXT] extension to select an
+   origin server.  This means that it is possible for clients to send
+   requests to servers that might not be the intended target for the
+   request, even though the server is otherwise authoritative.
+
+   A server that does not wish clients to reuse connections can indicate
+   that it is not authoritative for a request by sending a 421
+   (Misdirected Request) status code in response to the request (see
+   Section 15.5.20 of [HTTP]).
+
+   A client that is configured to use a proxy over HTTP/2 directs
+   requests to that proxy through a single connection.  That is, all
+   requests sent via a proxy reuse the connection to the proxy.
+
+[℗](#tgch9){id=pg9_2}
+
+//9.2.  Use of TLS Features
+--------------------------------------------------------
+
+   Implementations of HTTP/2 MUST use TLS version 1.2 [TLS12] or higher
+   for HTTP/2 over TLS.  The general TLS usage guidance in [TLSBCP]
+   SHOULD be followed, with some additional restrictions that are
+   specific to HTTP/2.
+
+   The TLS implementation MUST support the Server Name Indication (SNI)
+   [TLS-EXT] extension to TLS.  If the server is identified by a domain
+   name [DNS-TERMS], clients MUST send the server_name TLS extension
+   unless an alternative mechanism to indicate the target host is used.
+
+   Requirements for deployments of HTTP/2 that negotiate TLS 1.3 [TLS13]
+   are included in Section 9.2.3.  Deployments of TLS 1.2 are subject to
+   the requirements in Sections 9.2.1 and 9.2.2.  Implementations are
+   encouraged to provide defaults that comply, but it is recognized that
+   deployments are ultimately responsible for compliance.
+
+[℗](#tgch9){id=pg9_2_1}
+
+9.2.1.  TLS 1.2 Features
+--------------------------------------------------------
+
+   This section describes restrictions on the TLS 1.2 feature set that
+   can be used with HTTP/2.  Due to deployment limitations, it might not
+   be possible to fail TLS negotiation when these restrictions are not
+   met.  An endpoint MAY immediately terminate an HTTP/2 connection that
+   does not meet these TLS requirements with a connection error
+   (Section 5.4.1) of type INADEQUATE_SECURITY.
+
+   A deployment of HTTP/2 over TLS 1.2 MUST disable compression.  TLS
+   compression can lead to the exposure of information that would not
+   otherwise be revealed [RFC3749].  Generic compression is unnecessary,
+   since HTTP/2 provides compression features that are more aware of
+   context and therefore likely to be more appropriate for use for
+   performance, security, or other reasons.
+
+   A deployment of HTTP/2 over TLS 1.2 MUST disable renegotiation.  An
+   endpoint MUST treat a TLS renegotiation as a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.  Note that disabling
+   renegotiation can result in long-lived connections becoming unusable
+   due to limits on the number of messages the underlying cipher suite
+   can encipher.
+
+   An endpoint MAY use renegotiation to provide confidentiality
+   protection for client credentials offered in the handshake, but any
+   renegotiation MUST occur prior to sending the connection preface.  A
+   server SHOULD request a client certificate if it sees a renegotiation
+   request immediately after establishing a connection.
+
+   This effectively prevents the use of renegotiation in response to a
+   request for a specific protected resource.  A future specification
+   might provide a way to support this use case.  Alternatively, a
+   server might use an error (Section 5.4) of type HTTP_1_1_REQUIRED to
+   request that the client use a protocol that supports renegotiation.
+
+   Implementations MUST support ephemeral key exchange sizes of at least
+   2048 bits for cipher suites that use ephemeral finite field Diffie-
+   Hellman (DHE) (Section 8.1.2 of [TLS12]) and 224 bits for cipher
+   suites that use ephemeral elliptic curve Diffie-Hellman (ECDHE)
+   [RFC8422].  Clients MUST accept DHE sizes of up to 4096 bits.
+   Endpoints MAY treat negotiation of key sizes smaller than the lower
+   limits as a connection error (Section 5.4.1) of type
+   INADEQUATE_SECURITY.
+
+[℗](#tgch9){id=pg9_2_2}
+
+9.2.2.  TLS 1.2 Cipher Suites
+--------------------------------------------------------
+
+   A deployment of HTTP/2 over TLS 1.2 SHOULD NOT use any of the
+   prohibited cipher suites listed in Appendix A.
+
+   Endpoints MAY choose to generate a connection error (Section 5.4.1)
+   of type INADEQUATE_SECURITY if one of the prohibited cipher suites is
+   negotiated.  A deployment that chooses to use a prohibited cipher
+   suite risks triggering a connection error unless the set of potential
+   peers is known to accept that cipher suite.
+
+   Implementations MUST NOT generate this error in reaction to the
+   negotiation of a cipher suite that is not prohibited.  Consequently,
+   when clients offer a cipher suite that is not prohibited, they have
+   to be prepared to use that cipher suite with HTTP/2.
+
+   The list of prohibited cipher suites includes the cipher suite that
+   TLS 1.2 makes mandatory, which means that TLS 1.2 deployments could
+   have non-intersecting sets of permitted cipher suites.  To avoid this
+   problem, which causes TLS handshake failures, deployments of HTTP/2
+   that use TLS 1.2 MUST support TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+   [TLS-ECDHE] with the P-256 elliptic curve [RFC8422].
+
+   Note that clients might advertise support of cipher suites that are
+   prohibited in order to allow for connection to servers that do not
+   support HTTP/2.  This allows servers to select HTTP/1.1 with a cipher
+   suite that is prohibited in HTTP/2.  However, this can result in
+   HTTP/2 being negotiated with a prohibited cipher suite if the
+   application protocol and cipher suite are independently selected.
+
+[℗](#tgch9){id=pg9_2_3}
+
+9.2.3.  TLS 1.3 Features
+--------------------------------------------------------
+
+   TLS 1.3 includes a number of features not available in earlier
+   versions.  This section discusses the use of these features.
+
+   HTTP/2 servers MUST NOT send post-handshake TLS 1.3
+   CertificateRequest messages.  HTTP/2 clients MUST treat a TLS post-
+   handshake CertificateRequest message as a connection error
+   (Section 5.4.1) of type PROTOCOL_ERROR.
+
+   The prohibition on post-handshake authentication applies even if the
+   client offered the "post_handshake_auth" TLS extension.  Post-
+   handshake authentication support might be advertised independently of
+   ALPN [TLS-ALPN].  Clients might offer the capability for use in other
+   protocols, but inclusion of the extension cannot imply support within
+   HTTP/2.
+
+   [TLS13] defines other post-handshake messages, NewSessionTicket and
+   KeyUpdate, which can be used as they have no direct interaction with
+   HTTP/2.  Unless the use of a new type of TLS message depends on an
+   interaction with the application-layer protocol, that TLS message can
+   be sent after the handshake completes.
+
+   TLS early data MAY be used to send requests, provided that the
+   guidance in [RFC8470] is observed.  Clients send requests in early
+   data assuming initial values for all server settings.
+
+[℗](#tgch10){id=pgch10}
+
+/10.  Security Considerations
+========================================================
+
+   The use of TLS is necessary to provide many of the security
+   properties of this protocol.  Many of the claims in this section do
+   not hold unless TLS is used as described in Section 9.2.
+
+[℗](#tgch10){id=pg10_1}
+
+//10.1.  Server Authority
+--------------------------------------------------------
+
+   HTTP/2 relies on the HTTP definition of authority for determining
+   whether a server is authoritative in providing a given response (see
+   Section 4.3 of [HTTP]).  This relies on local name resolution for the
+   "http" URI scheme and the authenticated server identity for the
+   "https" scheme.
+
+[℗](#tgch10){id=pg10_2}
+
+//10.2.  Cross-Protocol Attacks
+--------------------------------------------------------
+
+   In a cross-protocol attack, an attacker causes a client to initiate a
+   transaction in one protocol toward a server that understands a
+   different protocol.  An attacker might be able to cause the
+   transaction to appear as a valid transaction in the second protocol.
+   In combination with the capabilities of the web context, this can be
+   used to interact with poorly protected servers in private networks.
+
+   Completing a TLS handshake with an ALPN identifier for HTTP/2 can be
+   considered sufficient protection against cross-protocol attacks.
+   ALPN provides a positive indication that a server is willing to
+   proceed with HTTP/2, which prevents attacks on other TLS-based
+   protocols.
+
+   The encryption in TLS makes it difficult for attackers to control the
+   data that could be used in a cross-protocol attack on a cleartext
+   protocol.
+
+   The cleartext version of HTTP/2 has minimal protection against cross-
+   protocol attacks.  The connection preface (Section 3.4) contains a
+   string that is designed to confuse HTTP/1.1 servers, but no special
+   protection is offered for other protocols.
+
+[℗](#tgch10){id=pg10_3}
+
+//10.3.  Intermediary Encapsulation Attacks
+--------------------------------------------------------
+
+   HPACK permits encoding of field names and values that might be
+   treated as delimiters in other HTTP versions.  An intermediary that
+   translates an HTTP/2 request or response MUST validate fields
+   according to the rules in Section 8.2 before translating a message to
+   another HTTP version.  Translating a field that includes invalid
+   delimiters could be used to cause recipients to incorrectly interpret
+   a message, which could be exploited by an attacker.
+
+   Section 8.2 does not include specific rules for validation of pseudo-
+   header fields.  If the values of these fields are used, additional
+   validation is necessary.  This is particularly important where
+   ":scheme", ":authority", and ":path" are combined to form a single
+   URI string [RFC3986].  Similar problems might occur when that URI or
+   just ":path" is combined with ":method" to construct a request line
+   (as in Section 3 of [HTTP/1.1]).  Simple concatenation is not secure
+   unless the input values are fully validated.
+
+   An intermediary can reject fields that contain invalid field names or
+   values for other reasons -- in particular, those fields that do not
+   conform to the HTTP ABNF grammar from Section 5 of [HTTP].
+   Intermediaries that do not perform any validation of fields other
+   than the minimum required by Section 8.2 could forward messages that
+   contain invalid field names or values.
+
+   An intermediary that receives any fields that require removal before
+   forwarding (see Section 7.6.1 of [HTTP]) MUST remove or replace those
+   header fields when forwarding messages.  Additionally, intermediaries
+   should take care when forwarding messages containing Content-Length
+   fields to ensure that the message is well-formed (Section 8.1.1).
+   This ensures that if the message is translated into HTTP/1.1 at any
+   point, the framing will be correct.
+
+[℗](#tgch10){id=pg10_4}
+
+//10.4.  Cacheability of Pushed Responses
+--------------------------------------------------------
+
+   Pushed responses do not have an explicit request from the client; the
+   request is provided by the server in the PUSH_PROMISE frame.
+
+   Caching responses that are pushed is possible based on the guidance
+   provided by the origin server in the Cache-Control header field.
+   However, this can cause issues if a single server hosts more than one
+   tenant.  For example, a server might offer multiple users each a
+   small portion of its URI space.
+
+   Where multiple tenants share space on the same server, that server
+   MUST ensure that tenants are not able to push representations of
+   resources that they do not have authority over.  Failure to enforce
+   this would allow a tenant to provide a representation that would be
+   served out of cache, overriding the actual representation that the
+   authoritative tenant provides.
+
+   Pushed responses for which an origin server is not authoritative (see
+   Section 10.1) MUST NOT be used or cached.
+
+[℗](#tgch10){id=pg10_5}
+
+//10.5.  Denial-of-Service Considerations
+--------------------------------------------------------
+
+   An HTTP/2 connection can demand a greater commitment of resources to
+   operate than an HTTP/1.1 connection.  Both field section compression
+   and flow control depend on a commitment of a greater amount of state.
+   Settings for these features ensure that memory commitments for these
+   features are strictly bounded.
+
+   The number of PUSH_PROMISE frames is not constrained in the same
+   fashion.  A client that accepts server push SHOULD limit the number
+   of streams it allows to be in the "reserved (remote)" state.  An
+   excessive number of server push streams can be treated as a stream
+   error (Section 5.4.2) of type ENHANCE_YOUR_CALM.
+
+   A number of HTTP/2 implementations were found to be vulnerable to
+   denial of service [NFLX-2019-002].  Below is a list of known ways
+   that implementations might be subject to denial-of-service attacks:
+
+   *  Inefficient tracking of outstanding outbound frames can lead to
+      overload if an adversary can cause large numbers of frames to be
+      enqueued for sending.  A peer could use one of several techniques
+      to cause large numbers of frames to be generated:
+
+      -  Providing tiny increments to flow control in WINDOW_UPDATE
+         frames can cause a sender to generate a large number of DATA
+         frames.
+
+      -  An endpoint is required to respond to a PING frame.
+
+      -  Each SETTINGS frame requires acknowledgment.
+
+      -  An invalid request (or server push) can cause a peer to send
+         RST_STREAM frames in response.
+
+   *  An attacker can provide large amounts of flow-control credit at
+      the HTTP/2 layer but withhold credit at the TCP layer, preventing
+      frames from being sent.  An endpoint that constructs and remembers
+      frames for sending without considering TCP limits might be subject
+      to resource exhaustion.
+
+   *  Large numbers of small or empty frames can be abused to cause a
+      peer to expend time processing frame headers.  Caution is required
+      here as some uses of small frames are entirely legitimate, such as
+      the sending of an empty DATA or CONTINUATION frame at the end of a
+      stream.
+
+   *  The SETTINGS frame might also be abused to cause a peer to expend
+      additional processing time.  This might be done by pointlessly
+      changing settings, sending multiple undefined settings, or
+      changing the same setting multiple times in the same frame.
+
+   *  Handling reprioritization with PRIORITY frames can require
+      significant processing time and can lead to overload if many
+      PRIORITY frames are sent.
+
+   *  Field section compression also provides opportunities for an
+      attacker to waste processing resources; see Section 7 of
+      [COMPRESSION] for more details on potential abuses.
+
+   *  Limits in SETTINGS cannot be reduced instantaneously, which leaves
+      an endpoint exposed to behavior from a peer that could exceed the
+      new limits.  In particular, immediately after establishing a
+      connection, limits set by a server are not known to clients and
+      could be exceeded without being an obvious protocol violation.
+
+   Most of the features that might be exploited for denial of service --
+   such as SETTINGS changes, small frames, field section compression --
+   have legitimate uses.  These features become a burden only when they
+   are used unnecessarily or to excess.
+
+   An endpoint that doesn't monitor use of these features exposes itself
+   to a risk of denial of service.  Implementations SHOULD track the use
+   of these features and set limits on their use.  An endpoint MAY treat
+   activity that is suspicious as a connection error (Section 5.4.1) of
+   type ENHANCE_YOUR_CALM.
+
+[℗](#tgch10){id=pg10_5_1}
+
+10.5.1.  Limits on Field Block Size
+--------------------------------------------------------
+
+   A large field block (Section 4.3) can cause an implementation to
+   commit a large amount of state.  Field lines that are critical for
+   routing can appear toward the end of a field block, which prevents
+   streaming of fields to their ultimate destination.  This ordering and
+   other reasons, such as ensuring cache correctness, mean that an
+   endpoint might need to buffer the entire field block.  Since there is
+   no hard limit to the size of a field block, some endpoints could be
+   forced to commit a large amount of available memory for field blocks.
+
+   An endpoint can use the SETTINGS_MAX_HEADER_LIST_SIZE to advise peers
+   of limits that might apply on the size of uncompressed field blocks.
+   This setting is only advisory, so endpoints MAY choose to send field
+   blocks that exceed this limit and risk the request or response being
+   treated as malformed.  This setting is specific to a connection, so
+   any request or response could encounter a hop with a lower, unknown
+   limit.  An intermediary can attempt to avoid this problem by passing
+   on values presented by different peers, but they are not obliged to
+   do so.
+
+   A server that receives a larger field block than it is willing to
+   handle can send an HTTP 431 (Request Header Fields Too Large) status
+   code [RFC6585].  A client can discard responses that it cannot
+   process.  The field block MUST be processed to ensure a consistent
+   connection state, unless the connection is closed.
+
+[℗](#tgch10){id=pg10_5_2}
+
+10.5.2.  CONNECT Issues
+--------------------------------------------------------
+
+   The CONNECT method can be used to create disproportionate load on a
+   proxy, since stream creation is relatively inexpensive when compared
+   to the creation and maintenance of a TCP connection.  A proxy might
+   also maintain some resources for a TCP connection beyond the closing
+   of the stream that carries the CONNECT request, since the outgoing
+   TCP connection remains in the TIME_WAIT state.  Therefore, a proxy
+   cannot rely on SETTINGS_MAX_CONCURRENT_STREAMS alone to limit the
+   resources consumed by CONNECT requests.
+
+[℗](#tgch10){id=pg10_6}
+
+//10.6.  Use of Compression
+--------------------------------------------------------
+
+   Compression can allow an attacker to recover secret data when it is
+   compressed in the same context as data under attacker control.
+   HTTP/2 enables compression of field lines (Section 4.3); the
+   following concerns also apply to the use of HTTP compressed content-
+   codings (Section 8.4.1 of [HTTP]).
+
+   There are demonstrable attacks on compression that exploit the
+   characteristics of the Web (e.g., [BREACH]).  The attacker induces
+   multiple requests containing varying plaintext, observing the length
+   of the resulting ciphertext in each, which reveals a shorter length
+   when a guess about the secret is correct.
+
+   Implementations communicating on a secure channel MUST NOT compress
+   content that includes both confidential and attacker-controlled data
+   unless separate compression dictionaries are used for each source of
+   data.  Compression MUST NOT be used if the source of data cannot be
+   reliably determined.  Generic stream compression, such as that
+   provided by TLS, MUST NOT be used with HTTP/2 (see Section 9.2).
+
+   Further considerations regarding the compression of header fields are
+   described in [COMPRESSION].
+
+[℗](#tgch10){id=pg10_7}
+
+//10.7.  Use of Padding
+--------------------------------------------------------
+
+   Padding within HTTP/2 is not intended as a replacement for general
+   purpose padding, such as that provided by TLS [TLS13].  Redundant
+   padding could even be counterproductive.  Correct application can
+   depend on having specific knowledge of the data that is being padded.
+
+   To mitigate attacks that rely on compression, disabling or limiting
+   compression might be preferable to padding as a countermeasure.
+
+   Padding can be used to obscure the exact size of frame content and is
+   provided to mitigate specific attacks within HTTP -- for example,
+   attacks where compressed content includes both attacker-controlled
+   plaintext and secret data (e.g., [BREACH]).
+
+   Use of padding can result in less protection than might seem
+   immediately obvious.  At best, padding only makes it more difficult
+   for an attacker to infer length information by increasing the number
+   of frames an attacker has to observe.  Incorrectly implemented
+   padding schemes can be easily defeated.  In particular, randomized
+   padding with a predictable distribution provides very little
+   protection; similarly, padding frame payloads to a fixed size exposes
+   information as frame payload sizes cross the fixed-sized boundary,
+   which could be possible if an attacker can control plaintext.
+
+   Intermediaries SHOULD retain padding for DATA frames but MAY drop
+   padding for HEADERS and PUSH_PROMISE frames.  A valid reason for an
+   intermediary to change the amount of padding of frames is to improve
+   the protections that padding provides.
+
+[℗](#tgch10){id=pg10_8}
+
+//10.8.  Privacy Considerations
+--------------------------------------------------------
+
+   Several characteristics of HTTP/2 provide an observer an opportunity
+   to correlate actions of a single client or server over time.  These
+   include the values of settings, the manner in which flow-control
+   windows are managed, the way priorities are allocated to streams, the
+   timing of reactions to stimulus, and the handling of any features
+   that are controlled by settings.
+
+   As far as these create observable differences in behavior, they could
+   be used as a basis for fingerprinting a specific client, as defined
+   in Section 3.2 of [PRIVACY].
+
+   HTTP/2's preference for using a single TCP connection allows
+   correlation of a user's activity on a site.  Reusing connections for
+   different origins allows tracking across those origins.
+
+   Because the PING and SETTINGS frames solicit immediate responses,
+   they can be used by an endpoint to measure latency to their peer.
+   This might have privacy implications in certain scenarios.
+
+[℗](#tgch10){id=pg10_9}
+
+//10.9.  Remote Timing Attacks
+--------------------------------------------------------
+
+   Remote timing attacks extract secrets from servers by observing
+   variations in the time that servers take when processing requests
+   that use secrets.  HTTP/2 enables concurrent request creation and
+   processing, which can give attackers better control over when request
+   processing commences.  Multiple HTTP/2 requests can be included in
+   the same IP packet or TLS record.  HTTP/2 can therefore make remote
+   timing attacks more efficient by eliminating variability in request
+   delivery, leaving only request order and the delivery of responses as
+   sources of timing variability.
+
+   Ensuring that processing time is not dependent on the value of a
+   secret is the best defense against any form of timing attack.
+
+[℗](#tgch11){id=pgch11}
+
+/11.  IANA Considerations
+========================================================
+
+   This revision of HTTP/2 marks the HTTP2-Settings header field and the
+   h2c upgrade token, both defined in [RFC7540], as obsolete.
+
+   Section 11 of [RFC7540] registered the h2 and h2c ALPN identifiers
+   along with the PRI HTTP method.  RFC 7540 also established a registry
+   for frame types, settings, and error codes.  These registrations and
+   registries apply to HTTP/2, but are not redefined in this document.
+
+   IANA has updated references to RFC 7540 in the following registries
+   to refer to this document: "TLS Application-Layer Protocol
+   Negotiation (ALPN) Protocol IDs", "HTTP/2 Frame Type", "HTTP/2
+   Settings", "HTTP/2 Error Code", and "HTTP Method Registry".  The
+   registration of the PRI method has been updated to refer to
+   Section 3.4; all other section numbers have not changed.
+
+   IANA has changed the policy on those portions of the "HTTP/2 Frame
+   Type" and "HTTP/2 Settings" registries that were reserved for
+   Experimental Use in RFC 7540.  These portions of the registries shall
+   operate on the same policy as the remainder of each registry.
+
+[℗](#tgch11){id=pg11_1}
+
+//11.1.  HTTP2-Settings Header Field Registration
+--------------------------------------------------------
+
+   This section marks the HTTP2-Settings header field registered by
+   Section 11.5 of [RFC7540] in the "Hypertext Transfer Protocol (HTTP)
+   Field Name Registry" as obsolete.  This capability has been removed:
+   see Section 3.1.  The registration is updated to include the details
+   as required by Section 18.4 of [HTTP]:
+
+   Field Name:  HTTP2-Settings
+
+   Status:  obsoleted
+
+   Reference:  Section 3.2.1 of [RFC7540]
+
+   Comments:  Obsolete; see Section 11.1 of this document.
+
+[℗](#tgch11){id=pg11_2}
+
+//11.2.  The h2c Upgrade Token
+--------------------------------------------------------
+
+   This section records the h2c upgrade token registered by Section 11.8
+   of [RFC7540] in the "Hypertext Transfer Protocol (HTTP) Upgrade Token
+   Registry" as obsolete.  This capability has been removed: see
+   Section 3.1.  The registration is updated as follows:
+
+   Value:  h2c
+
+   Description:  (OBSOLETE) Hypertext Transfer Protocol version 2
+      (HTTP/2)
+
+   Expected Version Tokens:  None
+
+   Reference:  Section 3.1 of this document
+
+[℗](#tgch12){id=pgch12}
+
+/12.  References
+========================================================
+
+[℗](#tgch12){id=pg12_1}
+
+//12.1.  Normative References
+--------------------------------------------------------
+
+   [CACHING]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP Caching", STD 98, RFC 9111,
+              DOI 10.17487/RFC9111, June 2022,
+              <https://www.rfc-editor.org/info/rfc9111>.
+
+   [COMPRESSION]
+              Peon, R. and H. Ruellan, "HPACK: Header Compression for
+              HTTP/2", RFC 7541, DOI 10.17487/RFC7541, May 2015,
+              <https://www.rfc-editor.org/info/rfc7541>.
+
+   [COOKIE]   Barth, A., "HTTP State Management Mechanism", RFC 6265,
+              DOI 10.17487/RFC6265, April 2011,
+              <https://www.rfc-editor.org/info/rfc6265>.
+
+   [HTTP]     Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP Semantics", STD 97, RFC 9110,
+              DOI 10.17487/RFC9110, June 2022,
+              <https://www.rfc-editor.org/info/rfc9110>.
+
+   [QUIC]     Iyengar, J., Ed. and M. Thomson, Ed., "QUIC: A UDP-Based
+              Multiplexed and Secure Transport", RFC 9000,
+              DOI 10.17487/RFC9000, May 2021,
+              <https://www.rfc-editor.org/info/rfc9000>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI): Generic Syntax", STD 66,
+              RFC 3986, DOI 10.17487/RFC3986, January 2005,
+              <https://www.rfc-editor.org/info/rfc3986>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8422]  Nir, Y., Josefsson, S., and M. Pegourie-Gonnard, "Elliptic
+              Curve Cryptography (ECC) Cipher Suites for Transport Layer
+              Security (TLS) Versions 1.2 and Earlier", RFC 8422,
+              DOI 10.17487/RFC8422, August 2018,
+              <https://www.rfc-editor.org/info/rfc8422>.
+
+   [RFC8470]  Thomson, M., Nottingham, M., and W. Tarreau, "Using Early
+              Data in HTTP", RFC 8470, DOI 10.17487/RFC8470, September
+              2018, <https://www.rfc-editor.org/info/rfc8470>.
+
+   [TCP]      Postel, J., "Transmission Control Protocol", STD 7,
+              RFC 793, DOI 10.17487/RFC0793, September 1981,
+              <https://www.rfc-editor.org/info/rfc793>.
+
+   [TLS-ALPN] Friedl, S., Popov, A., Langley, A., and E. Stephan,
+              "Transport Layer Security (TLS) Application-Layer Protocol
+              Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
+              July 2014, <https://www.rfc-editor.org/info/rfc7301>.
+
+   [TLS-ECDHE]
+              Rescorla, E., "TLS Elliptic Curve Cipher Suites with SHA-
+              256/384 and AES Galois Counter Mode (GCM)", RFC 5289,
+              DOI 10.17487/RFC5289, August 2008,
+              <https://www.rfc-editor.org/info/rfc5289>.
+
+   [TLS-EXT]  Eastlake 3rd, D., "Transport Layer Security (TLS)
+              Extensions: Extension Definitions", RFC 6066,
+              DOI 10.17487/RFC6066, January 2011,
+              <https://www.rfc-editor.org/info/rfc6066>.
+
+   [TLS12]    Dierks, T. and E. Rescorla, "The Transport Layer Security
+              (TLS) Protocol Version 1.2", RFC 5246,
+              DOI 10.17487/RFC5246, August 2008,
+              <https://www.rfc-editor.org/info/rfc5246>.
+
+   [TLS13]    Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://www.rfc-editor.org/info/rfc8446>.
+
+   [TLSBCP]   Sheffer, Y., Holz, R., and P. Saint-Andre,
+              "Recommendations for Secure Use of Transport Layer
+              Security (TLS) and Datagram Transport Layer Security
+              (DTLS)", BCP 195, RFC 7525, DOI 10.17487/RFC7525, May
+              2015, <https://www.rfc-editor.org/info/rfc7525>.
+
+[℗](#tgch12){id=pg12_2}
+
+//12.2.  Informative References
+--------------------------------------------------------
+
+   [ALT-SVC]  Nottingham, M., McManus, P., and J. Reschke, "HTTP
+              Alternative Services", RFC 7838, DOI 10.17487/RFC7838,
+              April 2016, <https://www.rfc-editor.org/info/rfc7838>.
+
+   [BREACH]   Gluck, Y., Harris, N., and A. Prado, "BREACH: Reviving the
+              CRIME Attack", 12 July 2013,
+              <https://breachattack.com/resources/
+              BREACH%20-%20SSL,%20gone%20in%2030%20seconds.pdf>.
+
+   [DNS-TERMS]
+              Hoffman, P., Sullivan, A., and K. Fujiwara, "DNS
+              Terminology", BCP 219, RFC 8499, DOI 10.17487/RFC8499,
+              January 2019, <https://www.rfc-editor.org/info/rfc8499>.
+
+   [HTTP-PRIORITY]
+              Oku, K. and L. Pardue, "Extensible Prioritization Scheme
+              for HTTP", RFC 9218, DOI 10.17487/RFC9218, June 2022,
+              <https://www.rfc-editor.org/info/rfc9218>.
+
+   [HTTP/1.1] Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "HTTP/1.1", STD 99, RFC 9112, DOI 10.17487/RFC9112,
+              June 2022, <https://www.rfc-editor.org/info/rfc9112>.
+
+   [NFLX-2019-002]
+              Netflix, "HTTP/2 Denial of Service Advisory", 13 August
+              2019, <https://github.com/Netflix/security-
+              bulletins/blob/master/advisories/third-party/2019-002.md>.
+
+   [PRIVACY]  Cooper, A., Tschofenig, H., Aboba, B., Peterson, J.,
+              Morris, J., Hansen, M., and R. Smith, "Privacy
+              Considerations for Internet Protocols", RFC 6973,
+              DOI 10.17487/RFC6973, July 2013,
+              <https://www.rfc-editor.org/info/rfc6973>.
+
+   [RFC1122]  Braden, R., Ed., "Requirements for Internet Hosts -
+              Communication Layers", STD 3, RFC 1122,
+              DOI 10.17487/RFC1122, October 1989,
+              <https://www.rfc-editor.org/info/rfc1122>.
+
+   [RFC3749]  Hollenbeck, S., "Transport Layer Security Protocol
+              Compression Methods", RFC 3749, DOI 10.17487/RFC3749, May
+              2004, <https://www.rfc-editor.org/info/rfc3749>.
+
+   [RFC6125]  Saint-Andre, P. and J. Hodges, "Representation and
+              Verification of Domain-Based Application Service Identity
+              within Internet Public Key Infrastructure Using X.509
+              (PKIX) Certificates in the Context of Transport Layer
+              Security (TLS)", RFC 6125, DOI 10.17487/RFC6125, March
+              2011, <https://www.rfc-editor.org/info/rfc6125>.
+
+   [RFC6585]  Nottingham, M. and R. Fielding, "Additional HTTP Status
+              Codes", RFC 6585, DOI 10.17487/RFC6585, April 2012,
+              <https://www.rfc-editor.org/info/rfc6585>.
+
+   [RFC7323]  Borman, D., Braden, B., Jacobson, V., and R.
+              Scheffenegger, Ed., "TCP Extensions for High Performance",
+              RFC 7323, DOI 10.17487/RFC7323, September 2014,
+              <https://www.rfc-editor.org/info/rfc7323>.
+
+   [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
+              Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
+              DOI 10.17487/RFC7540, May 2015,
+              <https://www.rfc-editor.org/info/rfc7540>.
+
+   [RFC8441]  McManus, P., "Bootstrapping WebSockets with HTTP/2",
+              RFC 8441, DOI 10.17487/RFC8441, September 2018,
+              <https://www.rfc-editor.org/info/rfc8441>.
+
+   [RFC8740]  Benjamin, D., "Using TLS 1.3 with HTTP/2", RFC 8740,
+              DOI 10.17487/RFC8740, February 2020,
+              <https://www.rfc-editor.org/info/rfc8740>.
+
+   [TALKING]  Huang, L., Chen, E., Barth, A., Rescorla, E., and C.
+              Jackson, "Talking to Yourself for Fun and Profit", 2011,
+              <https://www.adambarth.com/papers/2011/huang-chen-barth-
+              rescorla-jackson.pdf>.
+
+[℗](#tgAppA){id=pgAppA}
+
+/Appendix A.  Prohibited TLS 1.2 Cipher Suites
+========================================================
+
+   An HTTP/2 implementation MAY treat the negotiation of any of the
+   following cipher suites with TLS 1.2 as a connection error
+   (Section 5.4.1) of type INADEQUATE_SECURITY:
+
+   *  TLS_NULL_WITH_NULL_NULL
+   *  TLS_RSA_WITH_NULL_MD5
+   *  TLS_RSA_WITH_NULL_SHA
+   *  TLS_RSA_EXPORT_WITH_RC4_40_MD5
+   *  TLS_RSA_WITH_RC4_128_MD5
+   *  TLS_RSA_WITH_RC4_128_SHA
+   *  TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+   *  TLS_RSA_WITH_IDEA_CBC_SHA
+   *  TLS_RSA_EXPORT_WITH_DES40_CBC_SHA
+   *  TLS_RSA_WITH_DES_CBC_SHA
+   *  TLS_RSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_DH_DSS_EXPORT_WITH_DES40_CBC_SHA
+   *  TLS_DH_DSS_WITH_DES_CBC_SHA
+   *  TLS_DH_DSS_WITH_3DES_EDE_CBC_SHA
+   *  TLS_DH_RSA_EXPORT_WITH_DES40_CBC_SHA
+   *  TLS_DH_RSA_WITH_DES_CBC_SHA
+   *  TLS_DH_RSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_DHE_DSS_EXPORT_WITH_DES40_CBC_SHA
+   *  TLS_DHE_DSS_WITH_DES_CBC_SHA
+   *  TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+   *  TLS_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA
+   *  TLS_DHE_RSA_WITH_DES_CBC_SHA
+   *  TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_DH_anon_EXPORT_WITH_RC4_40_MD5
+   *  TLS_DH_anon_WITH_RC4_128_MD5
+   *  TLS_DH_anon_EXPORT_WITH_DES40_CBC_SHA
+   *  TLS_DH_anon_WITH_DES_CBC_SHA
+   *  TLS_DH_anon_WITH_3DES_EDE_CBC_SHA
+   *  TLS_KRB5_WITH_DES_CBC_SHA
+   *  TLS_KRB5_WITH_3DES_EDE_CBC_SHA
+   *  TLS_KRB5_WITH_RC4_128_SHA
+   *  TLS_KRB5_WITH_IDEA_CBC_SHA
+   *  TLS_KRB5_WITH_DES_CBC_MD5
+   *  TLS_KRB5_WITH_3DES_EDE_CBC_MD5
+   *  TLS_KRB5_WITH_RC4_128_MD5
+   *  TLS_KRB5_WITH_IDEA_CBC_MD5
+   *  TLS_KRB5_EXPORT_WITH_DES_CBC_40_SHA
+   *  TLS_KRB5_EXPORT_WITH_RC2_CBC_40_SHA
+   *  TLS_KRB5_EXPORT_WITH_RC4_40_SHA
+   *  TLS_KRB5_EXPORT_WITH_DES_CBC_40_MD5
+   *  TLS_KRB5_EXPORT_WITH_RC2_CBC_40_MD5
+   *  TLS_KRB5_EXPORT_WITH_RC4_40_MD5
+   *  TLS_PSK_WITH_NULL_SHA
+   *  TLS_DHE_PSK_WITH_NULL_SHA
+   *  TLS_RSA_PSK_WITH_NULL_SHA
+   *  TLS_RSA_WITH_AES_128_CBC_SHA
+   *  TLS_DH_DSS_WITH_AES_128_CBC_SHA
+   *  TLS_DH_RSA_WITH_AES_128_CBC_SHA
+   *  TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+   *  TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+   *  TLS_DH_anon_WITH_AES_128_CBC_SHA
+   *  TLS_RSA_WITH_AES_256_CBC_SHA
+   *  TLS_DH_DSS_WITH_AES_256_CBC_SHA
+   *  TLS_DH_RSA_WITH_AES_256_CBC_SHA
+   *  TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+   *  TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+   *  TLS_DH_anon_WITH_AES_256_CBC_SHA
+   *  TLS_RSA_WITH_NULL_SHA256
+   *  TLS_RSA_WITH_AES_128_CBC_SHA256
+   *  TLS_RSA_WITH_AES_256_CBC_SHA256
+   *  TLS_DH_DSS_WITH_AES_128_CBC_SHA256
+   *  TLS_DH_RSA_WITH_AES_128_CBC_SHA256
+   *  TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+   *  TLS_RSA_WITH_CAMELLIA_128_CBC_SHA
+   *  TLS_DH_DSS_WITH_CAMELLIA_128_CBC_SHA
+   *  TLS_DH_RSA_WITH_CAMELLIA_128_CBC_SHA
+   *  TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA
+   *  TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA
+   *  TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA
+   *  TLS_DHE_RSA_WITH_AES_128_CBC_SHA256
+   *  TLS_DH_DSS_WITH_AES_256_CBC_SHA256
+   *  TLS_DH_RSA_WITH_AES_256_CBC_SHA256
+   *  TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+   *  TLS_DHE_RSA_WITH_AES_256_CBC_SHA256
+   *  TLS_DH_anon_WITH_AES_128_CBC_SHA256
+   *  TLS_DH_anon_WITH_AES_256_CBC_SHA256
+   *  TLS_RSA_WITH_CAMELLIA_256_CBC_SHA
+   *  TLS_DH_DSS_WITH_CAMELLIA_256_CBC_SHA
+   *  TLS_DH_RSA_WITH_CAMELLIA_256_CBC_SHA
+   *  TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA
+   *  TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA
+   *  TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA
+   *  TLS_PSK_WITH_RC4_128_SHA
+   *  TLS_PSK_WITH_3DES_EDE_CBC_SHA
+   *  TLS_PSK_WITH_AES_128_CBC_SHA
+   *  TLS_PSK_WITH_AES_256_CBC_SHA
+   *  TLS_DHE_PSK_WITH_RC4_128_SHA
+   *  TLS_DHE_PSK_WITH_3DES_EDE_CBC_SHA
+   *  TLS_DHE_PSK_WITH_AES_128_CBC_SHA
+   *  TLS_DHE_PSK_WITH_AES_256_CBC_SHA
+   *  TLS_RSA_PSK_WITH_RC4_128_SHA
+   *  TLS_RSA_PSK_WITH_3DES_EDE_CBC_SHA
+   *  TLS_RSA_PSK_WITH_AES_128_CBC_SHA
+   *  TLS_RSA_PSK_WITH_AES_256_CBC_SHA
+   *  TLS_RSA_WITH_SEED_CBC_SHA
+   *  TLS_DH_DSS_WITH_SEED_CBC_SHA
+   *  TLS_DH_RSA_WITH_SEED_CBC_SHA
+   *  TLS_DHE_DSS_WITH_SEED_CBC_SHA
+   *  TLS_DHE_RSA_WITH_SEED_CBC_SHA
+   *  TLS_DH_anon_WITH_SEED_CBC_SHA
+   *  TLS_RSA_WITH_AES_128_GCM_SHA256
+   *  TLS_RSA_WITH_AES_256_GCM_SHA384
+   *  TLS_DH_RSA_WITH_AES_128_GCM_SHA256
+   *  TLS_DH_RSA_WITH_AES_256_GCM_SHA384
+   *  TLS_DH_DSS_WITH_AES_128_GCM_SHA256
+   *  TLS_DH_DSS_WITH_AES_256_GCM_SHA384
+   *  TLS_DH_anon_WITH_AES_128_GCM_SHA256
+   *  TLS_DH_anon_WITH_AES_256_GCM_SHA384
+   *  TLS_PSK_WITH_AES_128_GCM_SHA256
+   *  TLS_PSK_WITH_AES_256_GCM_SHA384
+   *  TLS_RSA_PSK_WITH_AES_128_GCM_SHA256
+   *  TLS_RSA_PSK_WITH_AES_256_GCM_SHA384
+   *  TLS_PSK_WITH_AES_128_CBC_SHA256
+   *  TLS_PSK_WITH_AES_256_CBC_SHA384
+   *  TLS_PSK_WITH_NULL_SHA256
+   *  TLS_PSK_WITH_NULL_SHA384
+   *  TLS_DHE_PSK_WITH_AES_128_CBC_SHA256
+   *  TLS_DHE_PSK_WITH_AES_256_CBC_SHA384
+   *  TLS_DHE_PSK_WITH_NULL_SHA256
+   *  TLS_DHE_PSK_WITH_NULL_SHA384
+   *  TLS_RSA_PSK_WITH_AES_128_CBC_SHA256
+   *  TLS_RSA_PSK_WITH_AES_256_CBC_SHA384
+   *  TLS_RSA_PSK_WITH_NULL_SHA256
+   *  TLS_RSA_PSK_WITH_NULL_SHA384
+   *  TLS_RSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_DH_DSS_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_DH_RSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_DHE_DSS_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_DHE_RSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_DH_anon_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_RSA_WITH_CAMELLIA_256_CBC_SHA256
+   *  TLS_DH_DSS_WITH_CAMELLIA_256_CBC_SHA256
+   *  TLS_DH_RSA_WITH_CAMELLIA_256_CBC_SHA256
+   *  TLS_DHE_DSS_WITH_CAMELLIA_256_CBC_SHA256
+   *  TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA256
+   *  TLS_DH_anon_WITH_CAMELLIA_256_CBC_SHA256
+   *  TLS_EMPTY_RENEGOTIATION_INFO_SCSV
+   *  TLS_ECDH_ECDSA_WITH_NULL_SHA
+   *  TLS_ECDH_ECDSA_WITH_RC4_128_SHA
+   *  TLS_ECDH_ECDSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA
+   *  TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+   *  TLS_ECDHE_ECDSA_WITH_NULL_SHA
+   *  TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
+   *  TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+   *  TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+   *  TLS_ECDH_RSA_WITH_NULL_SHA
+   *  TLS_ECDH_RSA_WITH_RC4_128_SHA
+   *  TLS_ECDH_RSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_ECDH_RSA_WITH_AES_128_CBC_SHA
+   *  TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+   *  TLS_ECDHE_RSA_WITH_NULL_SHA
+   *  TLS_ECDHE_RSA_WITH_RC4_128_SHA
+   *  TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+   *  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+   *  TLS_ECDH_anon_WITH_NULL_SHA
+   *  TLS_ECDH_anon_WITH_RC4_128_SHA
+   *  TLS_ECDH_anon_WITH_3DES_EDE_CBC_SHA
+   *  TLS_ECDH_anon_WITH_AES_128_CBC_SHA
+   *  TLS_ECDH_anon_WITH_AES_256_CBC_SHA
+   *  TLS_SRP_SHA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_SRP_SHA_RSA_WITH_3DES_EDE_CBC_SHA
+   *  TLS_SRP_SHA_DSS_WITH_3DES_EDE_CBC_SHA
+   *  TLS_SRP_SHA_WITH_AES_128_CBC_SHA
+   *  TLS_SRP_SHA_RSA_WITH_AES_128_CBC_SHA
+   *  TLS_SRP_SHA_DSS_WITH_AES_128_CBC_SHA
+   *  TLS_SRP_SHA_WITH_AES_256_CBC_SHA
+   *  TLS_SRP_SHA_RSA_WITH_AES_256_CBC_SHA
+   *  TLS_SRP_SHA_DSS_WITH_AES_256_CBC_SHA
+   *  TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+   *  TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+   *  TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256
+   *  TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+   *  TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+   *  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+   *  TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256
+   *  TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+   *  TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256
+   *  TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+   *  TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256
+   *  TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+   *  TLS_ECDHE_PSK_WITH_RC4_128_SHA
+   *  TLS_ECDHE_PSK_WITH_3DES_EDE_CBC_SHA
+   *  TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA
+   *  TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA
+   *  TLS_ECDHE_PSK_WITH_AES_128_CBC_SHA256
+   *  TLS_ECDHE_PSK_WITH_AES_256_CBC_SHA384
+   *  TLS_ECDHE_PSK_WITH_NULL_SHA
+   *  TLS_ECDHE_PSK_WITH_NULL_SHA256
+   *  TLS_ECDHE_PSK_WITH_NULL_SHA384
+   *  TLS_RSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_RSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_DH_DSS_WITH_ARIA_128_CBC_SHA256
+   *  TLS_DH_DSS_WITH_ARIA_256_CBC_SHA384
+   *  TLS_DH_RSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_DH_RSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_DHE_DSS_WITH_ARIA_128_CBC_SHA256
+   *  TLS_DHE_DSS_WITH_ARIA_256_CBC_SHA384
+   *  TLS_DHE_RSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_DHE_RSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_DH_anon_WITH_ARIA_128_CBC_SHA256
+   *  TLS_DH_anon_WITH_ARIA_256_CBC_SHA384
+   *  TLS_ECDHE_ECDSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_ECDHE_ECDSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_ECDH_ECDSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_ECDH_ECDSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_ECDHE_RSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_ECDHE_RSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_ECDH_RSA_WITH_ARIA_128_CBC_SHA256
+   *  TLS_ECDH_RSA_WITH_ARIA_256_CBC_SHA384
+   *  TLS_RSA_WITH_ARIA_128_GCM_SHA256
+   *  TLS_RSA_WITH_ARIA_256_GCM_SHA384
+   *  TLS_DH_RSA_WITH_ARIA_128_GCM_SHA256
+   *  TLS_DH_RSA_WITH_ARIA_256_GCM_SHA384
+   *  TLS_DH_DSS_WITH_ARIA_128_GCM_SHA256
+   *  TLS_DH_DSS_WITH_ARIA_256_GCM_SHA384
+   *  TLS_DH_anon_WITH_ARIA_128_GCM_SHA256
+   *  TLS_DH_anon_WITH_ARIA_256_GCM_SHA384
+   *  TLS_ECDH_ECDSA_WITH_ARIA_128_GCM_SHA256
+   *  TLS_ECDH_ECDSA_WITH_ARIA_256_GCM_SHA384
+   *  TLS_ECDH_RSA_WITH_ARIA_128_GCM_SHA256
+   *  TLS_ECDH_RSA_WITH_ARIA_256_GCM_SHA384
+   *  TLS_PSK_WITH_ARIA_128_CBC_SHA256
+   *  TLS_PSK_WITH_ARIA_256_CBC_SHA384
+   *  TLS_DHE_PSK_WITH_ARIA_128_CBC_SHA256
+   *  TLS_DHE_PSK_WITH_ARIA_256_CBC_SHA384
+   *  TLS_RSA_PSK_WITH_ARIA_128_CBC_SHA256
+   *  TLS_RSA_PSK_WITH_ARIA_256_CBC_SHA384
+   *  TLS_PSK_WITH_ARIA_128_GCM_SHA256
+   *  TLS_PSK_WITH_ARIA_256_GCM_SHA384
+   *  TLS_RSA_PSK_WITH_ARIA_128_GCM_SHA256
+   *  TLS_RSA_PSK_WITH_ARIA_256_GCM_SHA384
+   *  TLS_ECDHE_PSK_WITH_ARIA_128_CBC_SHA256
+   *  TLS_ECDHE_PSK_WITH_ARIA_256_CBC_SHA384
+   *  TLS_ECDHE_ECDSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_ECDHE_ECDSA_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_ECDH_ECDSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_ECDH_ECDSA_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_ECDHE_RSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_ECDHE_RSA_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_ECDH_RSA_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_ECDH_RSA_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_RSA_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_RSA_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_DH_RSA_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_DH_RSA_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_DH_DSS_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_DH_DSS_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_DH_anon_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_DH_anon_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_ECDH_ECDSA_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_ECDH_ECDSA_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_ECDH_RSA_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_ECDH_RSA_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_PSK_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_PSK_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_RSA_PSK_WITH_CAMELLIA_128_GCM_SHA256
+   *  TLS_RSA_PSK_WITH_CAMELLIA_256_GCM_SHA384
+   *  TLS_PSK_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_PSK_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_DHE_PSK_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_DHE_PSK_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_RSA_PSK_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_RSA_PSK_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_ECDHE_PSK_WITH_CAMELLIA_128_CBC_SHA256
+   *  TLS_ECDHE_PSK_WITH_CAMELLIA_256_CBC_SHA384
+   *  TLS_RSA_WITH_AES_128_CCM
+   *  TLS_RSA_WITH_AES_256_CCM
+   *  TLS_RSA_WITH_AES_128_CCM_8
+   *  TLS_RSA_WITH_AES_256_CCM_8
+   *  TLS_PSK_WITH_AES_128_CCM
+   *  TLS_PSK_WITH_AES_256_CCM
+   *  TLS_PSK_WITH_AES_128_CCM_8
+   *  TLS_PSK_WITH_AES_256_CCM_8
+
+      |  Note: This list was assembled from the set of registered TLS
+      |  cipher suites when [RFC7540] was developed.  This list includes
+      |  those cipher suites that do not offer an ephemeral key exchange
+      |  and those that are based on the TLS null, stream, or block
+      |  cipher type (as defined in Section 6.2.3 of [TLS12]).
+      |  Additional cipher suites with these properties could be
+      |  defined; these would not be explicitly prohibited.
+
+   For more details, see Section 9.2.2.
+
+[℗](#tgAppB){id=pgAppB}
+
+/Appendix B.  Changes from RFC 7540
+========================================================
+
+   This revision includes the following substantive changes:
+
+   *  Use of TLS 1.3 was defined based on [RFC8740], which this document
+      obsoletes.
+
+   *  The priority scheme defined in RFC 7540 is deprecated.
+      Definitions for the format of the PRIORITY frame and the priority
+      fields in the HEADERS frame have been retained, plus the rules
+      governing when PRIORITY frames can be sent and received, but the
+      semantics of these fields are only described in RFC 7540.  The
+      priority signaling scheme from RFC 7540 was not successful.  Using
+      the simpler signaling in [HTTP-PRIORITY] is recommended.
+
+   *  The HTTP/1.1 Upgrade mechanism is deprecated and no longer
+      specified in this document.  It was never widely deployed, with
+      plaintext HTTP/2 users choosing to use the prior-knowledge
+      implementation instead.
+
+   *  Validation for field names and values has been narrowed.  The
+      validation that is mandatory for intermediaries is precisely
+      defined, and error reporting for requests has been amended to
+      encourage sending 400-series status codes.
+
+   *  The ranges of codepoints for settings and frame types that were
+      reserved for Experimental Use are now available for general use.
+
+   *  Connection-specific header fields -- which are prohibited -- are
+      more precisely and comprehensively identified.
+
+   *  Host and ":authority" are no longer permitted to disagree.
+
+   *  Rules for sending Dynamic Table Size Update instructions after
+      changes in settings have been clarified in Section 4.3.1.
+
+   Editorial changes are also included.  In particular, changes to
+   terminology and document structure are in response to updates to core
+   HTTP semantics [HTTP].  Those documents now include some concepts
+   that were first defined in RFC 7540, such as the 421 status code or
+   connection coalescing.
+
+Acknowledgments
+
+   Credit for non-trivial input to this document is owed to a large
+   number of people who have contributed to the HTTP Working Group over
+   the years.  [RFC7540] contains a more extensive list of people that
+   deserve acknowledgment for their contributions.
+
+Contributors
+
+   Mike Belshe and Roberto Peon authored the text that this document is
+   based on.
+
+Authors' Addresses
+
+   Martin Thomson (editor)
+   Mozilla
+   Australia
+   Email: mt@lowentropy.net
+
+
+   Cory Benfield (editor)
+   Apple Inc.
+   Email: cbenfield@apple.com

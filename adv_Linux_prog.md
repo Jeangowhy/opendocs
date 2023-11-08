@@ -3,11 +3,11 @@ Advanced Linux Programming
 ========================================================
 
 
-[℗ i](#ptoc_i){id=p_0000i}
+[℗ i](#ptoc){id=p0000i}
 -----------------
 
 
-[℗ ii](#ptoc_ii){id=p_000ii}
+[℗ ii](#ptoc){id=p000ii}
 -----------------
 
 
@@ -19,7 +19,7 @@ Mark Mitchell, Jeffrey Oldham,
 and Alex Samuel
 www.newriders.com
 
-[℗ iii](#ptoc_iii){id=p_00iii}
+[℗ iii](#ptoc){id=p00iii}
 -----------------
 
 Publisher
@@ -112,293 +112,293 @@ book or from the use of the discs or programs that may
 accompany it.
 
 
-[℗ iv](#ptoc_iv){id=p_000iv}
+[℗ iv](#ptoc){id=p000iv}
 -----------------
 
 
-[℗ v](#ptoc_v){id=p_0000v}
+[℗ v](#ptoc){id=p0000v}
 -----------------
 
-
-Table of Contents
-========================================================
 
 Contents At a Glance
 --------------------------------------------------------
 - I Advanced UNIX Programming with Linux
-- 1 Getting Started ............................................... [℗](#p_003)
-- 2 Writing Good GNU/Linux Software ............................... [℗](#p_017)
-- 3 Processes ..................................................... [℗](#p_045)
-- 4 Threads ....................................................... [℗](#p_061)
-- 5 Interprocess Communication .................................... [℗](#p_095)
+- 1 Getting Started ......................................... [℗](#p003)
+- 2 Writing Good GNU/Linux Software ......................... [℗](#p017)
+- 3 Processes ............................................... [℗](#p045)
+- 4 Threads ................................................. [℗](#p061)
+- 5 Interprocess Communication .............................. [℗](#p095)
 - II Mastering Linux
-- 6 Devices ....................................................... [℗](#p_129)
-- 7 The /proc File System ......................................... [℗](#p_147)
-- 8 Linux System Calls ............................................ [℗](#p_167)
-- 9 Inline Assembly Code .......................................... [℗](#p_189)
-- 10 Security ..................................................... [℗](#p_197)
-- 11 A Sample GNU/Linux Application ............................... [℗](#p_219)
+- 6 Devices ................................................. [℗](#p129)
+- 7 The /proc File System ................................... [℗](#p147)
+- 8 Linux System Calls ...................................... [℗](#p167)
+- 9 Inline Assembly Code .................................... [℗](#p189)
+- 10 Security ............................................... [℗](#p197)
+- 11 A Sample GNU/Linux Application ......................... [℗](#p219)
 - III Appendixes
-- A Other Development Tools ....................................... [℗](#p_259)
-- B Low-Level I/O ................................................. [℗](#p_281)
-- C Table of Signals .............................................. [℗](#p_301)
-- D Online Resources .............................................. [℗](#p_303)
-- E Open Publication License Version 1.0 .......................... [℗](#p_305)
-- F GNU General Public License .................................... [℗](#p_309)
+- A Other Development Tools ................................. [℗](#p259)
+- B Low-Level I/O ........................................... [℗](#p281)
+- C Table of Signals ........................................ [℗](#p301)
+- D Online Resources ........................................ [℗](#p303)
+- E Open Publication License Version 1.0 .................... [℗](#p305)
+- F GNU General Public License .............................. [℗](#p309)
 
-- I Advanced UNIX Programming with Linux .......................... [℗](#p_1){id=ptoc_001}
-- 1 Getting Started ............................................... [℗](#p_3){id=ptoc_003}
-- 1.1 Editing with Emacs .......................................... [℗](#p_4){id=ptoc_004}
-- 1.2 Compiling with GCC .......................................... [℗](#p_6){id=ptoc_006}
-- 1.3 Automating the Process with GNU Make ........................ [℗](#p_9){id=ptoc_009}
-- 1.4 Debugging with GNU Debugger (GDB) ........................... [℗](#p_11){id=ptoc_011}
-- 1.5 Finding More Information .................................... [℗](#p_13){id=ptoc_013}
-- 2 Writing Good GNU/Linux Software ............................... [℗](#p_17){id=ptoc_017}
-- 2.1 Interaction With the Execution Environment .................. [℗](#p_17){id=ptoc_017}
-- 2.2 Coding Defensively .......................................... [℗](#p_30){id=ptoc_030}
-- 2.3 Writing and Using Libraries ................................. [℗](#p_36){id=ptoc_036}
-- 3 Processes ..................................................... [℗](#p_45){id=ptoc_045}
-- 3.1 Looking at Processes ........................................ [℗](#p_45){id=ptoc_045}
-- 3.2 Creating Processes .......................................... [℗](#p_48){id=ptoc_048}
-- 3.3 Signals ..................................................... [℗](#p_52){id=ptoc_052}
-- 3.4 Process Termination ......................................... [℗](#p_55){id=ptoc_055}
-- 4 Threads ....................................................... [℗](#p_61){id=ptoc_061}
-- 4.1 Thread Creation ............................................. [℗](#p_62){id=ptoc_062}
-- 4.2 Thread Cancellation ......................................... [℗](#p_69){id=ptoc_069}
-- 4.3 Thread-Specific Data ........................................ [℗](#p_72){id=ptoc_072}
-- 4.4 Synchronization and Critical Sections ....................... [℗](#p_77){id=ptoc_077}
-- 4.5 GNU/Linux Thread Implementation ............................. [℗](#p_92){id=ptoc_092}
-- 4.6 Processes Vs.Threads ........................................ [℗](#p_94){id=ptoc_094}
+[Table of Contents](){id=ptoc}
+========================================================
 
-[℗ vi](#ptoc_vi){id=p_000vi}
+- I Advanced UNIX Programming with Linux .................... [℗](#p001){id=t001}
+- 1 Getting Started ......................................... [℗](#p003){id=t003}
+- 1.1 Editing with Emacs .................................... [℗](#p004){id=t004}
+- 1.2 Compiling with GCC .................................... [℗](#p006){id=t006}
+- 1.3 Automating the Process with GNU Make .................. [℗](#p009){id=t009}
+- 1.4 Debugging with GNU Debugger (GDB) ..................... [℗](#p011){id=t011}
+- 1.5 Finding More Information .............................. [℗](#p013){id=t013}
+- 2 Writing Good GNU/Linux Software ......................... [℗](#p017){id=t017}
+- 2.1 Interaction With the Execution Environment ............ [℗](#p017){id=t017}
+- 2.2 Coding Defensively .................................... [℗](#p030){id=t030}
+- 2.3 Writing and Using Libraries ........................... [℗](#p036){id=t036}
+- 3 Processes ............................................... [℗](#p045){id=t045}
+- 3.1 Looking at Processes .................................. [℗](#p045){id=t045}
+- 3.2 Creating Processes .................................... [℗](#p048){id=t048}
+- 3.3 Signals ............................................... [℗](#p052){id=t052}
+- 3.4 Process Termination ................................... [℗](#p055){id=t055}
+- 4 Threads ................................................. [℗](#p061){id=t061}
+- 4.1 Thread Creation ....................................... [℗](#p062){id=t062}
+- 4.2 Thread Cancellation ................................... [℗](#p069){id=t069}
+- 4.3 Thread-Specific Data .................................. [℗](#p072){id=t072}
+- 4.4 Synchronization and Critical Sections ................. [℗](#p077){id=t077}
+- 4.5 GNU/Linux Thread Implementation ....................... [℗](#p092){id=t092}
+- 4.6 Processes Vs.Threads .................................. [℗](#p094){id=t094}
+
+[℗ vi](#ptoc){id=p000vi}
 -----------------
 
-- 5 Interprocess Communication .................................... [℗](#p_95){id=ptoc_095}
-- 5.1 Shared Memory ............................................... [℗](#p_96){id=ptoc_096}
-- 5.2 Processes Semaphores ........................................ [℗](#p_101){id=ptoc_101}
-- 5.3 Mapped Memory ............................................... [℗](#p_105){id=ptoc_105}
-- 5.4 Pipes ....................................................... [℗](#p_110){id=ptoc_110}
-- 5.5 Sockets ..................................................... [℗](#p_116){id=ptoc_116}
-- II Mastering Linux .............................................. [℗](#p_127){id=ptoc_127}
-- 6 Devices ....................................................... [℗](#p_129){id=ptoc_129}
-- 6.1 Device Types ................................................ [℗](#p_130){id=ptoc_130}
-- 6.2 Device Numbers .............................................. [℗](#p_130){id=ptoc_130}
-- 6.3 Device Entries .............................................. [℗](#p_131){id=ptoc_131}
-- 6.4 Hardware Devices ............................................ [℗](#p_133){id=ptoc_133}
-- 6.5 Special Devices ............................................. [℗](#p_136){id=ptoc_136}
-- 6.6 PTYs ........................................................ [℗](#p_142){id=ptoc_142}
-- 6.7 ioctl ....................................................... [℗](#p_144){id=ptoc_144}
-- 7 The /proc File System ......................................... [℗](#p_147){id=ptoc_147}
-- 7.1 Extracting Information from /proc ........................... [℗](#p_148){id=ptoc_148}
-- 7.2 Process Entries ............................................. [℗](#p_150){id=ptoc_150}
-- 7.3 Hardware Information ........................................ [℗](#p_158){id=ptoc_158}
-- 7.4 Kernel Information .......................................... [℗](#p_160){id=ptoc_160}
-- 7.5 Drives, Mounts, and File Systems ............................ [℗](#p_161){id=ptoc_161}
-- 7.6 System Statistics ........................................... [℗](#p_165){id=ptoc_165}
-- 8 Linux System Calls ............................................ [℗](#p_167){id=ptoc_167}
-- 8.1 Using strace ................................................ [℗](#p_168){id=ptoc_168}
-- 8.2 access:Testing File Permissions ............................. [℗](#p_169){id=ptoc_169}
-- 8.3 fcntl: Locks and Other File Operations ...................... [℗](#p_171){id=ptoc_171}
-- 8.4 fsync and fdatasync: Flushing Disk Buffers .................. [℗](#p_173){id=ptoc_173}
-- 8.5 getrlimit and setrlimit: Resource Limits .................... [℗](#p_174){id=ptoc_174}
-- 8.6 getrusage: Process Statistics ............................... [℗](#p_175){id=ptoc_175}
-- 8.7 gettimeofday:Wall-Clock Time ................................ [℗](#p_176){id=ptoc_176}
+- 5 Interprocess Communication .............................. [℗](#p095){id=t095}
+- 5.1 Shared Memory ......................................... [℗](#p096){id=t096}
+- 5.2 Processes Semaphores .................................. [℗](#p101){id=t101}
+- 5.3 Mapped Memory ......................................... [℗](#p105){id=t105}
+- 5.4 Pipes ................................................. [℗](#p110){id=t110}
+- 5.5 Sockets ............................................... [℗](#p116){id=t116}
+- II Mastering Linux ........................................ [℗](#p127){id=t127}
+- 6 Devices ................................................. [℗](#p129){id=t129}
+- 6.1 Device Types .......................................... [℗](#p130){id=t130}
+- 6.2 Device Numbers ........................................ [℗](#p130){id=t130}
+- 6.3 Device Entries ........................................ [℗](#p131){id=t131}
+- 6.4 Hardware Devices ...................................... [℗](#p133){id=t133}
+- 6.5 Special Devices ....................................... [℗](#p136){id=t136}
+- 6.6 PTYs .................................................. [℗](#p142){id=t142}
+- 6.7 ioctl ................................................. [℗](#p144){id=t144}
+- 7 The /proc File System ................................... [℗](#p147){id=t147}
+- 7.1 Extracting Information from /proc ..................... [℗](#p148){id=t148}
+- 7.2 Process Entries ....................................... [℗](#p150){id=t150}
+- 7.3 Hardware Information .................................. [℗](#p158){id=t158}
+- 7.4 Kernel Information .................................... [℗](#p160){id=t160}
+- 7.5 Drives, Mounts, and File Systems ...................... [℗](#p161){id=t161}
+- 7.6 System Statistics ..................................... [℗](#p165){id=t165}
+- 8 Linux System Calls ...................................... [℗](#p167){id=t167}
+- 8.1 Using strace .......................................... [℗](#p168){id=t168}
+- 8.2 access:Testing File Permissions ....................... [℗](#p169){id=t169}
+- 8.3 fcntl: Locks and Other File Operations ................ [℗](#p171){id=t171}
+- 8.4 fsync and fdatasync: Flushing Disk Buffers ............ [℗](#p173){id=t173}
+- 8.5 getrlimit and setrlimit: Resource Limits .............. [℗](#p174){id=t174}
+- 8.6 getrusage: Process Statistics ......................... [℗](#p175){id=t175}
+- 8.7 gettimeofday:Wall-Clock Time .......................... [℗](#p176){id=t176}
 
-[℗ vii](#ptoc_vii){id=p_00vii}
+[℗ vii](#ptoc){id=p00vii}
 -----------------
 
-- 8.8 The mlock Family: Locking Physical Memory ................... [℗](#p_177){id=ptoc_177}
-- 8.9 mprotect: Setting Memory Permissions ........................ [℗](#p_179){id=ptoc_179}
-- 8.10 nanosleep: High-Precision Sleeping ......................... [℗](#p_181){id=ptoc_181}
-- 8.11 readlink: Reading Symbolic Links ........................... [℗](#p_182){id=ptoc_182}
-- 8.12 sendfile: Fast Data Transfers .............................. [℗](#p_183){id=ptoc_183}
-- 8.13 setitimer: Setting Interval Timers ......................... [℗](#p_185){id=ptoc_185}
-- 8.14 sysinfo: Obtaining System Statistics ....................... [℗](#p_186){id=ptoc_186}
-- 8.15 uname ...................................................... [℗](#p_187){id=ptoc_187}
-- 9 Inline Assembly Code .......................................... [℗](#p_189){id=ptoc_189}
-- 9.1 When to Use Assembly Code ................................... [℗](#p_190){id=ptoc_190}
-- 9.2 Simple Inline Assembly ...................................... [℗](#p_191){id=ptoc_191}
-- 9.3 Extended Assembly Syntax .................................... [℗](#p_192){id=ptoc_192}
-- 9.4 Example ..................................................... [℗](#p_194){id=ptoc_194}
-- 9.5 Optimization Issues ......................................... [℗](#p_196){id=ptoc_196}
-- 9.6 Maintenance and Portability Issues .......................... [℗](#p_196){id=ptoc_196}
-- 10 Security ..................................................... [℗](#p_197){id=ptoc_197}
-- 10.1 Users and Groups ........................................... [℗](#p_198){id=ptoc_198}
-- 10.2 Process User IDs and Process Group IDs ..................... [℗](#p_199){id=ptoc_199}
-- 10.3 File System Permissions .................................... [℗](#p_200){id=ptoc_200}
-- 10.4 Real and Effective IDs ..................................... [℗](#p_205){id=ptoc_205}
-- 10.5 Authenticating Users ....................................... [℗](#p_208){id=ptoc_208}
-- 10.6 More Security Holes ........................................ [℗](#p_211){id=ptoc_211}
-- 11 A Sample GNU/Linux Application ............................... [℗](#p_219){id=ptoc_219}
-- 11.1 Overview ................................................... [℗](#p_219){id=ptoc_219}
-- 11.2 Implementation ............................................. [℗](#p_221){id=ptoc_221}
-- 11.3 Modules .................................................... [℗](#p_239){id=ptoc_239}
-- 11.4 Using the Server ........................................... [℗](#p_252){id=ptoc_252}
-- 11.5 Finishing Up ............................................... [℗](#p_255){id=ptoc_255}
+- 8.8 The mlock Family: Locking Physical Memory ............. [℗](#p177){id=t177}
+- 8.9 mprotect: Setting Memory Permissions .................. [℗](#p179){id=t179}
+- 8.10 nanosleep: High-Precision Sleeping ................... [℗](#p181){id=t181}
+- 8.11 readlink: Reading Symbolic Links ..................... [℗](#p182){id=t182}
+- 8.12 sendfile: Fast Data Transfers ........................ [℗](#p183){id=t183}
+- 8.13 setitimer: Setting Interval Timers ................... [℗](#p185){id=t185}
+- 8.14 sysinfo: Obtaining System Statistics ................. [℗](#p186){id=t186}
+- 8.15 uname ................................................ [℗](#p187){id=t187}
+- 9 Inline Assembly Code .................................... [℗](#p189){id=t189}
+- 9.1 When to Use Assembly Code ............................. [℗](#p190){id=t190}
+- 9.2 Simple Inline Assembly ................................ [℗](#p191){id=t191}
+- 9.3 Extended Assembly Syntax .............................. [℗](#p192){id=t192}
+- 9.4 Example ............................................... [℗](#p194){id=t194}
+- 9.5 Optimization Issues ................................... [℗](#p196){id=t196}
+- 9.6 Maintenance and Portability Issues .................... [℗](#p196){id=t196}
+- 10 Security ............................................... [℗](#p197){id=t197}
+- 10.1 Users and Groups ..................................... [℗](#p198){id=t198}
+- 10.2 Process User IDs and Process Group IDs ............... [℗](#p199){id=t199}
+- 10.3 File System Permissions .............................. [℗](#p200){id=t200}
+- 10.4 Real and Effective IDs ............................... [℗](#p205){id=t205}
+- 10.5 Authenticating Users ................................. [℗](#p208){id=t208}
+- 10.6 More Security Holes .................................. [℗](#p211){id=t211}
+- 11 A Sample GNU/Linux Application ......................... [℗](#p219){id=t219}
+- 11.1 Overview ............................................. [℗](#p219){id=t219}
+- 11.2 Implementation ....................................... [℗](#p221){id=t221}
+- 11.3 Modules .............................................. [℗](#p239){id=t239}
+- 11.4 Using the Server ..................................... [℗](#p252){id=t252}
+- 11.5 Finishing Up ......................................... [℗](#p255){id=t255}
 
-[℗ ix](#ptoc_viii){id=p_0viii}
+[℗ ix](#ptoc){id=p0viii}
 -----------------
 
-- III Appendixes .................................................. [℗](#p_257){id=ptoc_257}
-- A Other Development Tools ....................................... [℗](#p_259){id=ptoc_259}
-- A.1 Static Program Analysis ..................................... [℗](#p_259){id=ptoc_259}
-- A.2 Finding Dynamic Memory Errors ............................... [℗](#p_261){id=ptoc_261}
-- A.3 Profiling ................................................... [℗](#p_269){id=ptoc_269}
-- B Low-Level I/O ................................................. [℗](#p_281){id=ptoc_281}
-- B.1 Reading and Writing Data .................................... [℗](#p_282){id=ptoc_282}
-- B.2 stat ........................................................ [℗](#p_291){id=ptoc_291}
-- B.3 Vector Reads and Writes ..................................... [℗](#p_293){id=ptoc_293}
-- B.4 Relation to Standard C Library I/O Functions ................ [℗](#p_295){id=ptoc_295}
-- B.5 Other File Operations ....................................... [℗](#p_296){id=ptoc_296}
-- B.6 Reading Directory Contents .................................. [℗](#p_296){id=ptoc_296}
-- C Table of Signals .............................................. [℗](#p_301){id=ptoc_301}
-- D Online Resources .............................................. [℗](#p_303){id=ptoc_303}
-- D.1 General Information ......................................... [℗](#p_303){id=ptoc_303}
-- D.2 Information About GNU/Linux Software ........................ [℗](#p_304){id=ptoc_304}
-- D.3 Other Sites ................................................. [℗](#p_304){id=ptoc_304}
-- E Open Publication License Version 1.0 .......................... [℗](#p_305){id=ptoc_305}
-- I.Requirement on Both Unmodified and Modified Versions .......... [℗](#p_305){id=ptoc_305}
-- II. Copyright ................................................... [℗](#p_306){id=ptoc_306}
-- III. Scope of License ........................................... [℗](#p_306){id=ptoc_306}
-- IV. Requirements on Modified Works .............................. [℗](#p_306){id=ptoc_306}
-- V. Good-Practice Recommendations ................................ [℗](#p_306){id=ptoc_306}
-- VI. License Options ............................................. [℗](#p_307){id=ptoc_307}
-- Open Publication Policy Appendix ................................ [℗](#p_307){id=ptoc_307}
+- III Appendixes ............................................ [℗](#p257){id=t257}
+- A Other Development Tools ................................. [℗](#p259){id=t259}
+- A.1 Static Program Analysis ............................... [℗](#p259){id=t259}
+- A.2 Finding Dynamic Memory Errors ......................... [℗](#p261){id=t261}
+- A.3 Profiling ............................................. [℗](#p269){id=t269}
+- B Low-Level I/O ........................................... [℗](#p281){id=t281}
+- B.1 Reading and Writing Data .............................. [℗](#p282){id=t282}
+- B.2 stat .................................................. [℗](#p291){id=t291}
+- B.3 Vector Reads and Writes ............................... [℗](#p293){id=t293}
+- B.4 Relation to Standard C Library I/O Functions .......... [℗](#p295){id=t295}
+- B.5 Other File Operations ................................. [℗](#p296){id=t296}
+- B.6 Reading Directory Contents ............................ [℗](#p296){id=t296}
+- C Table of Signals ........................................ [℗](#p301){id=t301}
+- D Online Resources ........................................ [℗](#p303){id=t303}
+- D.1 General Information ................................... [℗](#p303){id=t303}
+- D.2 Information About GNU/Linux Software .................. [℗](#p304){id=t304}
+- D.3 Other Sites ........................................... [℗](#p304){id=t304}
+- E Open Publication License Version 1.0 .................... [℗](#p305){id=t305}
+- I.Requirement on Both Unmodified and Modified Versions .... [℗](#p305){id=t305}
+- II. Copyright ............................................. [℗](#p306){id=t306}
+- III. Scope of License ..................................... [℗](#p306){id=t306}
+- IV. Requirements on Modified Works ........................ [℗](#p306){id=t306}
+- V. Good-Practice Recommendations .......................... [℗](#p306){id=t306}
+- VI. License Options ....................................... [℗](#p307){id=t307}
+- Open Publication Policy Appendix .......................... [℗](#p307){id=t307}
 
-[℗ ix](#ptoc_ix){id=p_000ix}
+[℗ ix](#ptoc){id=p000ix}
 -----------------
 
-- F GNU General Public License .................................... [℗](#p_309){id=ptoc_309}
-- Preamble ........................................................ [℗](#p_309){id=ptoc_309}
-- Terms and Conditions for Copying, Distribution and Modification . [℗](#p_310){id=ptoc_310}
-- End of Terms and Conditions ..................................... [℗](#p_315){id=ptoc_315}
-- How to Apply These Terms to Your New Programs ................... [℗](#p_315){id=ptoc_315}
-- Index ........................................................... [℗](#p_317){id=ptoc_317}
+- F GNU General Public License .............................. [℗](#p309){id=t309}
+- Preamble .................................................. [℗](#p309){id=t309}
+- Terms and Conditions for Copying, Distribution and Modification . [℗](#p310){id=ptoc_310}
+- End of Terms and Conditions ............................... [℗](#p315){id=t315}
+- How to Apply These Terms to Your New Programs ............. [℗](#p315){id=t315}
+- Index ..................................................... [℗](#p317){id=t317}
 
-[℗ x](#ptoc_x){id=p_0000x}
+[℗ x](#ptoc){id=p0000x}
 -----------------
 
 
-[℗ xi](#ptoc_xi){id=p_000xi}
+[℗ xi](#ptoc){id=p000xi}
 -----------------
 
 Table of Program Listings
 --------------------------------------------------------
 
-- 1.1 main.c (C source file), ......................................... [℗](#p_6){id=ptoc_006}
-- 1.2 reciprocal.cpp (C++ source file), ............................... [℗](#p_6){id=ptoc_006}
-- 1.3 reciprocal.hpp (header file), ................................... [℗](#p_7){id=ptoc_007}
-- 2.1 arglist.c (argc and argv parameters), ........................... [℗](#p_18){id=ptoc_018}
-- 2.2 getopt_long.c (getopt_long function), ........................... [℗](#p_21){id=ptoc_021}
-- 2.3 print_env.c (printing execution environment), ................... [℗](#p_26){id=ptoc_026}
-- 2.4 client.c (network client program), .............................. [℗](#p_26){id=ptoc_026}
-- 2.5 temp_file.c (mkstemp function), ................................. [℗](#p_28){id=ptoc_028}
-- 2.6 readfile.c (resource allocation during error checking), ......... [℗](#p_35){id=ptoc_035}
-- 2.7 test.c (library contents), ...................................... [℗](#p_37){id=ptoc_037}
-- 2.8 app.c (program with library functions), ......................... [℗](#p_37){id=ptoc_037}
-- 2.9 tifftest.c (libtiff library), ................................... [℗](#p_40){id=ptoc_040}
-- 3.1 print-pid.c (printing process IDs), ............................. [℗](#p_46){id=ptoc_046}
-- 3.2 system.c (system function), ..................................... [℗](#p_48){id=ptoc_048}
-- 3.3 fork.c (fork function), ......................................... [℗](#p_49){id=ptoc_049}
-- 3.4 fork-exec.c (fork and exec functions), .......................... [℗](#p_51){id=ptoc_051}
-- 3.5 sigusr1.c (signal handlers), .................................... [℗](#p_54){id=ptoc_054}
-- 3.6 zombie.c (zombie processes), .................................... [℗](#p_58){id=ptoc_058}
-- 3.7 sigchld.c (cleaning up child processes), ........................ [℗](#p_60){id=ptoc_060}
-- 4.1 thread-create.c (creating threads), ............................. [℗](#p_63){id=ptoc_063}
-- 4.2 thread-create2 (creating two threads), .......................... [℗](#p_64){id=ptoc_064}
-- 4.3 thread-create2.c (revised main function), ....................... [℗](#p_65){id=ptoc_065}
-- 4.4 primes.c (prime number computation in a thread), ................ [℗](#p_67){id=ptoc_067}
-- 4.5 detached.c (creating detached threads), ......................... [℗](#p_69){id=ptoc_069}
-- 4.6 critical-section.c (critical sections), ......................... [℗](#p_71){id=ptoc_071}
-- 4.7 tsd.c (thread-specific data), ................................... [℗](#p_73){id=ptoc_073}
-- 4.8 cleanup.c (cleanup handlers), ................................... [℗](#p_75){id=ptoc_075}
-- 4.9 cxx-exit.cpp (C++ thread cleanup), .............................. [℗](#p_76){id=ptoc_076}
-- 4.10 job-queue1.c (thread race conditions), ......................... [℗](#p_78){id=ptoc_078}
-- 4.11 job-queue2.c (mutexes), ........................................ [℗](#p_80){id=ptoc_080}
-- 4.12 job-queue3.c (semaphores), ..................................... [℗](#p_84){id=ptoc_084}
-- 4.13 spin-condvar.c (condition variables), .......................... [℗](#p_87){id=ptoc_087}
+- 1.1 main.c (C source file), ................................... [℗](#p006){id=t006}
+- 1.2 reciprocal.cpp (C++ source file), ......................... [℗](#p006){id=t006}
+- 1.3 reciprocal.hpp (header file), ............................. [℗](#p007){id=t007}
+- 2.1 arglist.c (argc and argv parameters), ..................... [℗](#p018){id=t018}
+- 2.2 getopt_long.c (getopt_long function), ..................... [℗](#p021){id=t021}
+- 2.3 print_env.c (printing execution environment), ............. [℗](#p026){id=t026}
+- 2.4 client.c (network client program), ........................ [℗](#p026){id=t026}
+- 2.5 temp_file.c (mkstemp function), ........................... [℗](#p028){id=t028}
+- 2.6 readfile.c (resource allocation during error checking), ... [℗](#p035){id=t035}
+- 2.7 test.c (library contents), ................................ [℗](#p037){id=t037}
+- 2.8 app.c (program with library functions), ................... [℗](#p037){id=t037}
+- 2.9 tifftest.c (libtiff library), ............................. [℗](#p040){id=t040}
+- 3.1 print-pid.c (printing process IDs), ....................... [℗](#p046){id=t046}
+- 3.2 system.c (system function), ............................... [℗](#p048){id=t048}
+- 3.3 fork.c (fork function), ................................... [℗](#p049){id=t049}
+- 3.4 fork-exec.c (fork and exec functions), .................... [℗](#p051){id=t051}
+- 3.5 sigusr1.c (signal handlers), .............................. [℗](#p054){id=t054}
+- 3.6 zombie.c (zombie processes), .............................. [℗](#p058){id=t058}
+- 3.7 sigchld.c (cleaning up child processes), .................. [℗](#p060){id=t060}
+- 4.1 thread-create.c (creating threads), ....................... [℗](#p063){id=t063}
+- 4.2 thread-create2 (creating two threads), .................... [℗](#p064){id=t064}
+- 4.3 thread-create2.c (revised main function), ................. [℗](#p065){id=t065}
+- 4.4 primes.c (prime number computation in a thread), .......... [℗](#p067){id=t067}
+- 4.5 detached.c (creating detached threads), ................... [℗](#p069){id=t069}
+- 4.6 critical-section.c (critical sections), ................... [℗](#p071){id=t071}
+- 4.7 tsd.c (thread-specific data), ............................. [℗](#p073){id=t073}
+- 4.8 cleanup.c (cleanup handlers), ............................. [℗](#p075){id=t075}
+- 4.9 cxx-exit.cpp (C++ thread cleanup), ........................ [℗](#p076){id=t076}
+- 4.10 job-queue1.c (thread race conditions), ................... [℗](#p078){id=t078}
+- 4.11 job-queue2.c (mutexes), .................................. [℗](#p080){id=t080}
+- 4.12 job-queue3.c (semaphores), ............................... [℗](#p084){id=t084}
+- 4.13 spin-condvar.c (condition variables), .................... [℗](#p087){id=t087}
 
-[℗ xii](#ptoc_xii){id=p_00xii}
+[℗ xii](#ptoc){id=p00xii}
 -----------------
 
-- 4.14 condvar.c (condition variables), ............................... [℗](#p_90){id=ptoc_090}
-- 4.15 thread-pid (printing thread process IDs), ...................... [℗](#p_92){id=ptoc_092}
-- 5.1 shm.c (shared memory), .......................................... [℗](#p_99){id=ptoc_099}
-- 5.2 sem_all_deall.c (semaphore allocation and deallocation), ........ [℗](#p_102){id=ptoc_102}
-- 5.3 sem_init.c (semaphore initialization), .......................... [℗](#p_102){id=ptoc_102}
-- 5.4 sem_pv.c (semaphore wait and post operations), .................. [℗](#p_104){id=ptoc_104}
-- 5.5 mmap-write.c (mapped memory), ................................... [℗](#p_106){id=ptoc_106}
-- 5.6 mmap-read.c (mapped memory), .................................... [℗](#p_107){id=ptoc_107}
-- 5.7 pipe.c (parent-child process communication), .................... [℗](#p_111){id=ptoc_111}
-- 5.8 dup2.c (output redirection), .................................... [℗](#p_113){id=ptoc_113}
-- 5.9 popen.c (popen command), ........................................ [℗](#p_114){id=ptoc_114}
-- 5.10 socket-server.c (local sockets), ............................... [℗](#p_120){id=ptoc_120}
-- 5.11 socket-client.c (local sockets), ............................... [℗](#p_121){id=ptoc_121}
-- 5.12 socket-inet.c (Internet-domain sockets), ....................... [℗](#p_124){id=ptoc_124}
-- 6.1 random_number.c (random number generation), ..................... [℗](#p_138){id=ptoc_138}
-- 6.2 cdrom-eject.c (ioctl example), .................................. [℗](#p_144){id=ptoc_144}
-- 7.1 clock-speed.c (cpu clock speed from /proc/cpuinfo), ............. [℗](#p_149){id=ptoc_149}
-- 7.2 get-pid.c (process ID from /proc/self), ......................... [℗](#p_151){id=ptoc_151}
-- 7.3 print-arg-list.c (printing process argument lists), ............. [℗](#p_153){id=ptoc_153}
-- 7.4 print-environment.c (process environment), ...................... [℗](#p_154){id=ptoc_154}
-- 7.5 get-exe-path.c (program executable path), ....................... [℗](#p_155){id=ptoc_155}
-- 7.6 open-and-spin.c (opening files), ................................ [℗](#p_157){id=ptoc_157}
-- 7.7 print-uptime.c (system uptime and idle time), ................... [℗](#p_165){id=ptoc_165}
-- 8.1 check-access.c (file access permissions), ....................... [℗](#p_170){id=ptoc_170}
-- 8.2 lock-file.c (write locks), ...................................... [℗](#p_171){id=ptoc_171}
-- 8.3 write_journal_entry.c (data buffer flushing), ................... [℗](#p_173){id=ptoc_173}
-- 8.4 limit-cpu.c (resource limits), .................................. [℗](#p_175){id=ptoc_175}
-- 8.5 print-cpu-times.c (process statistics), ......................... [℗](#p_176){id=ptoc_176}
+- 4.14 condvar.c (condition variables), ......................... [℗](#p090){id=t090}
+- 4.15 thread-pid (printing thread process IDs), ................ [℗](#p092){id=t092}
+- 5.1 shm.c (shared memory), .................................... [℗](#p099){id=t099}
+- 5.2 sem_all_deall.c (semaphore allocation and deallocation), .. [℗](#p102){id=t102}
+- 5.3 sem_init.c (semaphore initialization), .................... [℗](#p102){id=t102}
+- 5.4 sem_pv.c (semaphore wait and post operations), ............ [℗](#p104){id=t104}
+- 5.5 mmap-write.c (mapped memory), ............................. [℗](#p106){id=t106}
+- 5.6 mmap-read.c (mapped memory), .............................. [℗](#p107){id=t107}
+- 5.7 pipe.c (parent-child process communication), .............. [℗](#p111){id=t111}
+- 5.8 dup2.c (output redirection), .............................. [℗](#p113){id=t113}
+- 5.9 popen.c (popen command), .................................. [℗](#p114){id=t114}
+- 5.10 socket-server.c (local sockets), ......................... [℗](#p120){id=t120}
+- 5.11 socket-client.c (local sockets), ......................... [℗](#p121){id=t121}
+- 5.12 socket-inet.c (Internet-domain sockets), ................. [℗](#p124){id=t124}
+- 6.1 random_number.c (random number generation), ............... [℗](#p138){id=t138}
+- 6.2 cdrom-eject.c (ioctl example), ............................ [℗](#p144){id=t144}
+- 7.1 clock-speed.c (cpu clock speed from /proc/cpuinfo), ....... [℗](#p149){id=t149}
+- 7.2 get-pid.c (process ID from /proc/self), ................... [℗](#p151){id=t151}
+- 7.3 print-arg-list.c (printing process argument lists), ....... [℗](#p153){id=t153}
+- 7.4 print-environment.c (process environment), ................ [℗](#p154){id=t154}
+- 7.5 get-exe-path.c (program executable path), ................. [℗](#p155){id=t155}
+- 7.6 open-and-spin.c (opening files), .......................... [℗](#p157){id=t157}
+- 7.7 print-uptime.c (system uptime and idle time), ............. [℗](#p165){id=t165}
+- 8.1 check-access.c (file access permissions), ................. [℗](#p170){id=t170}
+- 8.2 lock-file.c (write locks), ................................ [℗](#p171){id=t171}
+- 8.3 write_journal_entry.c (data buffer flushing), ............. [℗](#p173){id=t173}
+- 8.4 limit-cpu.c (resource limits), ............................ [℗](#p175){id=t175}
+- 8.5 print-cpu-times.c (process statistics), ................... [℗](#p176){id=t176}
 
-[℗ xiv](#ptoc_xii){id=p_00xii}
+[℗ xiv](#ptoc){id=p00xii}
 -----------------
 
-- 8.6 print-time.c (date/time printing), .............................. [℗](#p_177){id=ptoc_177}
-- 8.7 mprotect.c (memory access), ..................................... [℗](#p_180){id=ptoc_180}
-- 8.8 better_sleep.c (high-precision sleep), .......................... [℗](#p_182){id=ptoc_182}
-- 8.9 print-symlink.c (symbolic links), ............................... [℗](#p_183){id=ptoc_183}
-- 8.10 copy.c (sendfile system call), ................................. [℗](#p_184){id=ptoc_184}
-- 8.11 itemer.c (interal timers), ..................................... [℗](#p_185){id=ptoc_185}
-- 8.12 sysinfo.c (system statistics), ................................. [℗](#p_187){id=ptoc_187}
-- 8.13 print-uname (version number and hardware information), ......... [℗](#p_188){id=ptoc_188}
-- 9.1 bit-pos-loop.c (bit position with loop), ........................ [℗](#p_194){id=ptoc_194}
-- 9.2 bit-pos-asm.c (bit position with bsrl), ......................... [℗](#p_195){id=ptoc_195}
-- 10.1 simpleid.c (printing user and group IDs), ...................... [℗](#p_200){id=ptoc_200}
-- 10.2 stat-perm.c (viewing file permissions with stat system call), .. [℗](#p_202){id=ptoc_202}
-- 10.3 setuid-test.c (setuid programs), ............................... [℗](#p_207){id=ptoc_207}
-- 10.4 pam.c (PAM example), ........................................... [℗](#p_209){id=ptoc_209}
-- 10.5 temp-file.c (temporary file creation), ......................... [℗](#p_214){id=ptoc_214}
-- 10.6 grep-dictionary.c (word search), ............................... [℗](#p_216){id=ptoc_216}
-- 11.1 server.h (function and variable declarations), ................. [℗](#p_222){id=ptoc_222}
-- 11.2 common.c (utility functions), .................................. [℗](#p_223){id=ptoc_223}
-- 11.3 module.c (loading server modules), ............................. [℗](#p_226){id=ptoc_226}
-- 11.4 server.c (server implementation), .............................. [℗](#p_228){id=ptoc_228}
-- 11.5 main.c (main server program), .................................. [℗](#p_235){id=ptoc_235}
-- 11.6 time.c (show wall-clock time), ................................. [℗](#p_239){id=ptoc_239}
-- 11.7 issue.c (GNU/Linux distribution information), .................. [℗](#p_240){id=ptoc_240}
-- 11.8 diskfree.c (free disk space information), ...................... [℗](#p_242){id=ptoc_242}
-- 11.9 processes.c (summarizing running processes), ................... [℗](#p_244){id=ptoc_244}
-- 11.10 Makefile (Makefile for sample application program), ........... [℗](#p_252){id=ptoc_252}
+- 8.6 print-time.c (date/time printing), ........................ [℗](#p177){id=t177}
+- 8.7 mprotect.c (memory access), ............................... [℗](#p180){id=t180}
+- 8.8 better_sleep.c (high-precision sleep), .................... [℗](#p182){id=t182}
+- 8.9 print-symlink.c (symbolic links), ......................... [℗](#p183){id=t183}
+- 8.10 copy.c (sendfile system call), ........................... [℗](#p184){id=t184}
+- 8.11 itemer.c (interal timers), ............................... [℗](#p185){id=t185}
+- 8.12 sysinfo.c (system statistics), ........................... [℗](#p187){id=t187}
+- 8.13 print-uname (version number and hardware information), ... [℗](#p188){id=t188}
+- 9.1 bit-pos-loop.c (bit position with loop), .................. [℗](#p194){id=t194}
+- 9.2 bit-pos-asm.c (bit position with bsrl), ................... [℗](#p195){id=t195}
+- 10.1 simpleid.c (printing user and group IDs), ................ [℗](#p200){id=t200}
+- 10.2 stat-perm.c (viewing file permissions with stat system call), .. [℗](#p202){id=ptoc_202}
+- 10.3 setuid-test.c (setuid programs), ......................... [℗](#p207){id=t207}
+- 10.4 pam.c (PAM example), ..................................... [℗](#p209){id=t209}
+- 10.5 temp-file.c (temporary file creation), ................... [℗](#p214){id=t214}
+- 10.6 grep-dictionary.c (word search), ......................... [℗](#p216){id=t216}
+- 11.1 server.h (function and variable declarations), ........... [℗](#p222){id=t222}
+- 11.2 common.c (utility functions), ............................ [℗](#p223){id=t223}
+- 11.3 module.c (loading server modules), ....................... [℗](#p226){id=t226}
+- 11.4 server.c (server implementation), ........................ [℗](#p228){id=t228}
+- 11.5 main.c (main server program), ............................ [℗](#p235){id=t235}
+- 11.6 time.c (show wall-clock time), ........................... [℗](#p239){id=t239}
+- 11.7 issue.c (GNU/Linux distribution information), ............ [℗](#p240){id=t240}
+- 11.8 diskfree.c (free disk space information), ................ [℗](#p242){id=t242}
+- 11.9 processes.c (summarizing running processes), ............. [℗](#p244){id=t244}
+- 11.10 Makefile (Makefile for sample application program), ..... [℗](#p252){id=t252}
 
-[℗ xiv](#ptoc_xiv){id=p_00xiv}
+[℗ xiv](#ptoc){id=p00xiv}
 -----------------
 
-- A.1 hello.c (Hello World), .......................................... [℗](#p_260){id=ptoc_260}
-- A.2 malloc-use.c (dynamic memory allocation), ....................... [℗](#p_267){id=ptoc_267}
-- A.3 calculator.c (main calculator program), ......................... [℗](#p_274){id=ptoc_274}
-- A.4 number.c (unary number implementation), ......................... [℗](#p_276){id=ptoc_276}
-- A.5 stack.c (unary number stack), ................................... [℗](#p_279){id=ptoc_279}
-- A.6 definitions.h (header file for calculator program), ............. [℗](#p_280){id=ptoc_280}
-- B.1 create-file.c (create a new file), .............................. [℗](#p_284){id=ptoc_284}
-- B.2 timestamp.c (append a timestamp), ............................... [℗](#p_285){id=ptoc_285}
-- B.3 write-all.c (write all buffered data), .......................... [℗](#p_286){id=ptoc_286}
-- B.4 hexdump.c (print a hexadecimal file dump), ...................... [℗](#p_287){id=ptoc_287}
-- B.5 lseek-huge.c (creating large files), ............................ [℗](#p_289){id=ptoc_289}
-- B.6 read-file.c (reading files into buffers), ....................... [℗](#p_292){id=ptoc_292}
-- B.7 write-args.c (writev function), ................................. [℗](#p_294){id=ptoc_294}
-- B.8 listdir.c (printing directory listings), ........................ [℗](#p_297){id=ptoc_297}
+- A.1 hello.c (Hello World), .................................... [℗](#p260){id=t260}
+- A.2 malloc-use.c (dynamic memory allocation), ................. [℗](#p267){id=t267}
+- A.3 calculator.c (main calculator program), ................... [℗](#p274){id=t274}
+- A.4 number.c (unary number implementation), ................... [℗](#p276){id=t276}
+- A.5 stack.c (unary number stack), ............................. [℗](#p279){id=t279}
+- A.6 definitions.h (header file for calculator program), ....... [℗](#p280){id=t280}
+- B.1 create-file.c (create a new file), ........................ [℗](#p284){id=t284}
+- B.2 timestamp.c (append a timestamp), ......................... [℗](#p285){id=t285}
+- B.3 write-all.c (write all buffered data), .................... [℗](#p286){id=t286}
+- B.4 hexdump.c (print a hexadecimal file dump), ................ [℗](#p287){id=t287}
+- B.5 lseek-huge.c (creating large files), ...................... [℗](#p289){id=t289}
+- B.6 read-file.c (reading files into buffers), ................. [℗](#p292){id=t292}
+- B.7 write-args.c (writev function), ........................... [℗](#p294){id=t294}
+- B.8 listdir.c (printing directory listings), .................. [℗](#p297){id=t297}
 
-[℗ xv](#ptoc_xv){id=p_000xv}
+[℗ xv](#ptoc){id=p000xv}
 -----------------
 
 About the Authors
@@ -432,7 +432,7 @@ standards-conforming development tool set; and to provide general
 consulting and engineering services. CodeSourcery’s Web site is
 http://www.codesourcery.com .
 
-[℗ xvi](#ptoc_xvi){id=p_00xvi}
+[℗ xvi](#ptoc){id=p00xvi}
 -----------------
 
 About the Technical Reviewers
@@ -463,7 +463,7 @@ responsibility is MySQL on MS Windows and developing a new MySQL GUI
 client using Trolltech’s Qt GUI application toolkit on both Windows and
 platforms that run X-11.
 
-[℗ xviii](#ptoc_viii){id=p_00iii}
+[℗ xviii](#ptoc){id=p00iii}
 -----------------
 
 Acknowledgments
@@ -490,7 +490,7 @@ ing a book; Laura Loveall, also of New Riders, for not letting us fall too far b
 our deadlines; and Stephanie Wall, also of New Riders, for encouraging us to write
 this book in the first place!
 
-[℗ xix](#ptoc_ix){id=p_0000x}
+[℗ xix](#ptoc){id=p0000x}
 -----------------
 
 Tell Us What You Think
@@ -520,7 +520,7 @@ New Riders Publishing
 201 West 103 rd Street
 Indianapolis, IN 46290 USA
 
-[℗ xix](#ptoc_xix){id=p_00xix}
+[℗ xix](#ptoc){id=p00xix}
 -----------------
 
 
@@ -572,7 +572,7 @@ basic functions of an operating system: It controls and interfaces with the comp
 hardware, handles allocation of memory and other resources, allows multiple programs
 to run at the same time, manages the file system, and so on.
 
-[℗ xx](#ptoc_xx){id=p_000xx}
+[℗ xx](#ptoc){id=p000xx}
 -----------------
 
 The kernel by itself doesn’t provide features that are useful to users. It can’t even
@@ -621,7 +621,7 @@ designing them to interact better with the rest of the GNU/Linux system.
 
 ➊. GNU is a recursive acronym: It stands for "GNU’s Not UNIX."
 
-[℗ xxi](#ptoc_xxi){id=p_00xxi}
+[℗ xxi](#ptoc){id=p00xxi}
 -----------------
 
 n You might be a developer experienced with another UNIX-like system who’s
@@ -664,7 +664,7 @@ we use both sets of I/O functions throughout this book. If you’re not familiar
 the low-level I/O functions, jump to the end of the book and read Appendix B,
 "Low-Level I/O," before you start Chapter 2,"Writing Good GNU/Linux Software."
 
-[℗ xxii](#ptoc_xxii){id=p_0xxii}
+[℗ xxii](#ptoc){id=p0xxii}
 -----------------
 
 This book does not provide a general introduction to GNU/Linux systems.
@@ -711,10 +711,10 @@ C compiler.The information and programs in this book should generally be applica
 to other versions and distributions of GNU/Linux as well, including 2.4 releases of
 the Linux kernel and 2.2 releases of the GNU C library.
 
-[℗ xxiii](#ptoc_xxiii){id=p_xxiii}
+[℗ xxiii](#ptoc){id=pxxiii}
 -----------------
 
-[℗ xxiv](#ptoc_xxiv){id=p_0xxiv}
+[℗ xxiv](#ptoc){id=p0xxiv}
 -----------------
 
 I Advanced UNIX Programming with Linux
@@ -726,11 +726,11 @@ I Advanced UNIX Programming with Linux
 4. Threads
 5. Interprocess Communication
 
-[℗ 1](#ptoc_1){id=p_001}
+[℗ 1](#t001){id=p001}
 -----------------
 
 
-[℗ 2](#ptoc_2){id=p_002}
+[℗ 2](#t001){id=p002}
 -----------------
 
 Chapter 1 Getting Started
@@ -753,7 +753,7 @@ copying files. Because many Linux programmers got started programming in the
 Windows environment, we’ll occasionally point out similarities and contrasts between
 Windows and Linux.
 
-[℗ 3](#ptoc_3){id=p_003}
+[℗ 3](#t003){id=p003}
 -----------------
 
 
@@ -804,7 +804,7 @@ lots of tips on how to use Emacs effectively.
 ➊. If you’re not running in an X Window system, you’ll have to press F10 to access the
 menus.
 
-[℗ 4](#ptoc_4){id=p_004}
+[℗ 4](#t004){id=p004}
 -----------------
 
 
@@ -862,7 +862,7 @@ Emacs is actually written in LISP.You can add functionality to Emacs by writing 
 LISP code.
 
 
-[℗ 5](#ptoc_5){id=p_005}
+[℗ 5](#t004){id=p005}
 -----------------
 
 
@@ -907,7 +907,7 @@ Listing 1.1 (main.c) C source file—main.c
 other hand, usually have no extension. So, the Windows equivalent of this program would
 probably be called reciprocal.exe ; the Linux version is just plain reciprocal .
 
-[℗ 6](#ptoc_6){id=p_006}
+[℗ 6](#t006){id=p006}
 -----------------
 
 There’s also one header file called reciprocal.hpp (see Listing 1.3).
@@ -956,7 +956,7 @@ reciprocal.hpp :
 
     % g++ -c -I ../include reciprocal.cpp
 
-[℗ 7](#ptoc_7){id=p_007}
+[℗ 7](#t006){id=p007}
 -----------------
 
 Sometimes you’ll want to define macros on the command line. For example, in
@@ -1014,7 +1014,7 @@ As you can see, g++ has automatically linked in the standard C runtime library c
 taining the implementation of printf . If you had needed to link in another library
 (such as a graphical user interface toolkit), you would have specified the library with
 
-[℗ 8](#ptoc_8){id=p_008}
+[℗ 8](#t006){id=p008}
 -----------------
 
 the -l option. In Linux, library names almost always start with lib . For example,
@@ -1069,7 +1069,7 @@ In addition to the obvious targets, there should always be a clean target.This t
 removes all the generated object files and programs so that you can start fresh.The rule
 for this target uses the rm command to remove the files.
 
-[℗ 9](#ptoc_9){id=p_009}
+[℗ 9](#t009){id=p009}
 -----------------
 
 You can convey all that information to make by putting the information in a file
@@ -1129,7 +1129,7 @@ enabled, you would do this:
     g++ -O2 -c reciprocal.cpp
     g++ -O2 -o reciprocal main.o reciprocal.o
 
-[℗ 10](#ptoc_10){id=p_010}
+[℗ 10](#t009){id=p010}
 -----------------
 
 Note that the -O2 flag was inserted in place of $(CFLAGS) in the rules.
@@ -1184,7 +1184,7 @@ You can start up gdb by typing:
 
 ➎. …unless your programs always work the first time.
 
-[℗ 11](#ptoc_11){id=p_011}
+[℗ 11](#t011){id=p011}
 -----------------
 
 The first step is to run your program inside the debugger. Just enter the command run
@@ -1236,7 +1236,7 @@ You can set a breakpoint by using the break command:
     (gdb) break main
     Breakpoint 1 at 0x804862e: file main.c, line 8.
 
-[℗ 12](#ptoc_12){id=p_012}
+[℗ 12](#t011){id=p012}
 -----------------
 
 This command sets a breakpoint on the first line of main . 6 Now try rerunning the
@@ -1286,7 +1286,7 @@ advanced Linux programming.
 6. Some people have commented that saying break main is a little bit funny because
 usually you want to do this only when main is already broken.
 
-[℗ 13](#ptoc_13){id=p_013}
+[℗ 13](#t013){id=p013}
 -----------------
 
 
@@ -1345,7 +1345,7 @@ Among the most useful Info documents are these:
 4. emacs —The Emacs text editor
 5. info —The Info system itself
 
-[℗ 14](#ptoc_14){id=p_014}
+[℗ 14](#t013){id=p014}
 -----------------
 Almost all the standard Linux programming tools (including ld , the linker; as , the
 assembler; and gprof , the profiler) come with useful Info pages.You can jump directly
@@ -1391,11 +1391,11 @@ tem devices work, you can always learn straight from the source code. Most of th
 system functions described in this book are implemented in the GNU C library;
 check your distribution’s documentation for the location of the C library source code.
 
-[℗ 15](#ptoc_15){id=p_015}
+[℗ 15](#t013){id=p015}
 -----------------
 
 
-[℗ 16](#ptoc_16){id=p_016}
+[℗ 16](#t013){id=p016}
 -----------------
 
 Chapter 2 Writing Good GNU/Linux Software
@@ -1421,7 +1421,7 @@ provide console input and output.These features are provided by the C and C++
 languages, and they interact with the GNU/Linux system in certain ways. GNU/
 Linux provides other ways for interacting with the operating environment, too.
 
-[℗ 17](#ptoc_17){id=p_017}
+[℗ 17](#t017){id=p017}
 -----------------
 
 2.1.1 The Argument List
@@ -1480,7 +1480,7 @@ Listing 2.1 (arglist.c) Using argc and argv
         return 0;
     }
 
-[℗ 18](#ptoc_18){id=p_018}
+[℗ 18](#t017){id=p018}
 -----------------
 
 
@@ -1525,7 +1525,7 @@ prompt on most GNU/Linux systems:
 
     % info "(standards)User Interfaces"
 
-[℗ 19](#ptoc_19){id=p_019}
+[℗ 19](#t017){id=p019}
 -----------------
 
 
@@ -1592,7 +1592,7 @@ describing the long options.
 5.  After getopt_long has finished parsing all the options, the global variable optind
     contains the index (into argv ) of the first nonoption argument.
 
-[℗ 20](#ptoc_20){id=p_020}
+[℗ 20](#t017){id=p020}
 -----------------
 
 
@@ -1630,7 +1630,7 @@ Listing 2.2 (getopt_long.c) Using getopt_long
     { "output", 1, NULL, "o" },
     { "verbose", 0, NULL, "v" },
 
-[℗ 21](#ptoc_21){id=p_021}
+[℗ 21](#t017){id=p021}
 -----------------
 
     { NULL, 0, NULL, 0 } /* Required at end of array. */
@@ -1677,7 +1677,7 @@ Listing 2.2 (getopt_long.c) Using getopt_long
     specified. */
     Listing 2.2 Continued
 
-[℗ 22](#ptoc_22){id=p_022}
+[℗ 22](#t017){id=p022}
 -----------------
 
     if (verbose) {
@@ -1729,7 +1729,7 @@ The 2>&1 syntax indicates that file descriptor 2 ( stderr ) should be merged int
 file descriptor 1 ( stdout ). Note that 2>&1 must follow a file redirection (the first exam-
 ple) but must precede a pipe redirection (the second example).
 
-[℗ 23](#ptoc_23){id=p_023}
+[℗ 23](#t017){id=p023}
 -----------------
 
 Note that stdout is buffered. Data written to stdout is not sent to the console
@@ -1786,7 +1786,7 @@ boot dev home lost+found mnt opt root tmp var
 token flushes a stream in addition to printing a newline character; if you don’t want to flush the
 stream (for performance reasons, for example), use a newline constant, " \n " , instead.
 
-[℗ 24](#ptoc_24){id=p_024}
+[℗ 24](#t017){id=p024}
 -----------------
 
 A C or C++ program specifies its exit code by returning that value from the main
@@ -1840,7 +1840,7 @@ instance:
 
         % export EDITOR=emacs
 
-[℗ 25](#ptoc_25){id=p_025}
+[℗ 25](#t017){id=p025}
 -----------------
 
 In a program, you access an environment variable with the getenv function in
@@ -1883,7 +1883,7 @@ is not something that users will change very often.You can use a special environ
 variable—say SERVER_NAME —to specify the server name;if that variable doesn’t exist,a
 default value is used.Part of your program might look as shown in Listing 2.4.
 
-[℗ 26](#ptoc_26){id=p_026}
+[℗ 26](#t017){id=p026}
 -----------------
 
 Listing 2.4 (client.c) Part of a Network Client Program
@@ -1938,7 +1938,7 @@ you plan to hand the temporary file to another program, and whether you want to 
 UNIX I/O ( open , write , and so on) or the C library’s stream I/O functions ( fopen ,
 fprintf , and so on).
 
-[℗ 27](#ptoc_27){id=p_027}
+[℗ 27](#t017){id=p027}
 -----------------
 
 Using mkstemp
@@ -2019,7 +2019,7 @@ Listing 2.5 (temp_file.c) Using mkstemp
     }
 ```
 
-[℗ 28](#ptoc_28){id=p_028}
+[℗ 28](#t017){id=p028}
 -----------------
 
 Using tmpfile
@@ -2034,7 +2034,7 @@ GNU/Linux provides several other functions for generating temporary files and te
 porary filenames,including mktemp , tmpnam ,and tempnam .Don’t use these functions,
 though,because they suffer from the reliability and security problems already mentioned.
 
-[℗ 29](#ptoc_29){id=p_029}
+[℗ 29](#t017){id=p029}
 -----------------
 
 
@@ -2090,7 +2090,7 @@ Because it is possible to preprocess assert macros away, be careful that any exp
 sion you use with assert has no side effects. Specifically, you shouldn’t call functions
 inside assert expressions, assign variables, or use modifying operators such as ++ .
 
-[℗ 30](#ptoc_30){id=p_030}
+[℗ 30](#t030){id=p030}
 -----------------
 
 Suppose, for example, that you call a function, do_something , repeatedly in a loop.
@@ -2142,7 +2142,7 @@ parameter’s value.
 
 Don’t hold back; use assert liberally throughout your programs.
 
-[℗ 31](#ptoc_31){id=p_031}
+[℗ 31](#t030){id=p031}
 -----------------
 
 
@@ -2195,7 +2195,7 @@ In a well-written program that makes extensive use of system calls, it is often 
 that more code is devoted to detecting and handling errors and other exceptional cir-
 cumstances than to the main work of the program.
 
-[℗ 32](#ptoc_32){id=p_032}
+[℗ 32](#t030){id=p032}
 -----------------
 
 
@@ -2248,7 +2248,7 @@ include logic that handles all possible failure modes in some way or another.
 ➋. Actually, for reasons of thread safety, errno is implemented as a macro, but it is used like a
 global variable.
 
-[℗ 33](#ptoc_33){id=p_033}
+[℗ 33](#t030){id=p033}
 -----------------
 
 One possible error code that you should be on the watch for, especially with I/O
@@ -2301,7 +2301,7 @@ core file wouldn’t be very useful.
     };
     }
 
-[℗ 34](#ptoc_34){id=p_034}
+[℗ 34](#t030){id=p034}
 -----------------
 
 You could simply have used this code,which behaves the same way if the call succeeds:
@@ -2362,7 +2362,7 @@ Listing 2.6 (readfile.c) Freeing Resources During Abnormal Conditions
     #include <sys/types.h>
     #include <unistd.h>
 
-[℗ 35](#ptoc_35){id=p_035}
+[℗ 35](#t030){id=p035}
 -----------------
 
     char* read_from_file (const char* filename, size_t length)
@@ -2414,7 +2414,7 @@ dynamically. If you choose to link statically, your programs will be bigger and 
 upgrade, but probably easier to deploy. If you link dynamically, your programs will be
 Listing 2.6 Continued
 
-[℗ 36](#ptoc_36){id=p_036}
+[℗ 36](#t036){id=p036}
 -----------------
 
 smaller, easier to upgrade, but harder to deploy.This section explains how to link both
@@ -2467,7 +2467,7 @@ Listing 2.8 (app.c) A Program That Uses Library Functions
 ➌.You can use other flags to remove a file from an archive or to perform other operations on
 the archive.These operations are rarely used but are documented on the ar man page.
 
-[℗ 37](#ptoc_37){id=p_037}
+[℗ 37](#t036){id=p037}
 -----------------
 
 Now suppose that test.o is combined with some other object files to produce the
@@ -2523,7 +2523,7 @@ addresses in different programs, so the code in the shared object must not depen
 position) at which it is loaded. This consideration has no impact on you, as the programmer, except that
 you must remember to use the -fPIC flag when compiling code that will be used in a shared library.
 
-[℗ 38](#ptoc_38){id=p_038}
+[℗ 38](#t036){id=p038}
 -----------------
 
 Then you combine the object files into a shared library, like this:
@@ -2575,7 +2575,7 @@ program. Suppose that you use this:
 Then, when app is run, the system will search /usr/local/lib for any required shared
 libraries.
 
-[℗ 39](#ptoc_39){id=p_039}
+[℗ 39](#t036){id=p039}
 -----------------
 
 Another solution to this problem is to set the LD_LIBRARY_PATH environment
@@ -2630,7 +2630,7 @@ Listing 2.9 (tifftest.c) Using libtiff
 ➍.You might see a reference to LD_RUN_PATH in some online documentation. Don’t believe
 what you read; this variable does not actually do anything under GNU/Linux.
 
-[℗ 40](#ptoc_40){id=p_040}
+[℗ 40](#t036){id=p040}
 -----------------
 
 Save this source file as tifftest.c .To compile this program and link with libtiff ,
@@ -2685,7 +2685,7 @@ link successfully.
 Now that you know all about static archives and shared libraries, you’re probably
 wondering which to use.There are a few major considerations to keep in mind.
 
-[℗ 41](#ptoc_41){id=p_041}
+[℗ 41](#t036){id=p041}
 -----------------
 
 One major advantage of a shared library is that it saves space on the system where
@@ -2737,7 +2737,7 @@ This functionality is available under Linux by using the dlopen function.You cou
 open a shared library named libtest.so by calling dlopen like this:
 dlopen ("libtest.so", RTLD_LAZY)
 
-[℗ 42](#ptoc_42){id=p_042}
+[℗ 42](#t036){id=p042}
 -----------------
 
 (The second parameter is a flag that indicates how to bind symbols in the shared
@@ -2781,11 +2781,11 @@ change the function’s name from foo to a different, funny-looking name that en
 extra information about the function.A C compiler will not mangle names; it will use
 whichever name you give to your function or variable.
 
-[℗ 43](#ptoc_43){id=p_043}
+[℗ 43](#t036){id=p043}
 -----------------
 
 
-[℗ 44](#ptoc_44){id=p_044}
+[℗ 44](#t036){id=p044}
 -----------------
 
 Chapter 3 Processes
@@ -2814,7 +2814,7 @@ Even as you sit down at your computer, there are processes running. Every execut
 program uses one or more processes. Let’s start by taking a look at the processes
 already on your computer.
 
-[℗ 45](#ptoc_45){id=p_045}
+[℗ 45](#t045){id=p045}
 -----------------
 
 
@@ -2869,7 +2869,7 @@ window in which ps is invoked. For example:
     21693 pts/8 00:00:00 bash
     21694 pts/8 00:00:00 ps
 
-[℗ 46](#ptoc_46){id=p_046}
+[℗ 46](#t045){id=p046}
 -----------------
 
 This invocation of ps shows two processes.The first, bash , is the shell running on this
@@ -2926,7 +2926,7 @@ handles or masks the SIGTERM signal. Signals are described in Section 3.3,"Signa
 1.You can also use the kill command to send other signals to a process.This is described in
 Section 3.4,"Process Termination."
 
-[℗ 47](#ptoc_47){id=p_047}
+[℗ 47](#t045){id=p047}
 -----------------
 
 
@@ -2982,7 +2982,7 @@ of that program. Linux doesn’t contain a single function that does all this in
 
 Instead, Linux provides one function, fork , that makes a child process that is an exact
 
-[℗ 48](#ptoc_48){id=p_048}
+[℗ 48](#t048){id=p048}
 -----------------
 
 copy of its parent process. Linux provides another set of functions, the exec family, that
@@ -3032,7 +3032,7 @@ Listing 3.3 (fork.c) Using fork to Duplicate a Program’s Process
         return 0;
     }
 
-[℗ 49](#ptoc_49){id=p_049}
+[℗ 49](#t048){id=p049}
 -----------------
 
 Using the exec Family
@@ -3085,7 +3085,7 @@ using the ls command. Unlike the previous example, though, it invokes the ls com
 mand directly, passing it the command-line arguments -l and / rather than invoking it
 through a shell.
 
-[℗ 50](#ptoc_50){id=p_050}
+[℗ 50](#t048){id=p050}
 -----------------
 
 Listing 3.4 (fork-exec.c) Using fork and exec Together
@@ -3132,7 +3132,7 @@ Listing 3.4 (fork-exec.c) Using fork and exec Together
         return 0;
     }
 
-[℗ 51](#ptoc_51){id=p_051}
+[℗ 51](#t048){id=p051}
 -----------------
 
 
@@ -3193,7 +3193,7 @@ your programs; instead, use `<signal.h>` .)
 ➋. A method for serializing the two processes is presented in Section 3.4.1,"Waiting for
 Process Termination."
 
-[℗ 52](#ptoc_52){id=p_052}
+[℗ 52](#t052){id=p052}
 -----------------
 
 When a process receives a signal, it may do one of several things, depending on the
@@ -3252,7 +3252,7 @@ you should be very careful about what your program does in a signal handler.
 ignore the request by masking or ignoring the signal.The SIGKILL signal always kills the process
 immediately because the process may not mask or ignore SIGKILL .
 
-[℗ 53](#ptoc_53){id=p_053}
+[℗ 53](#t052){id=p053}
 -----------------
 
 Even assigning a value to a global variable can be dangerous because the assignment
@@ -3293,7 +3293,7 @@ Listing 3.5 (sigusr1.c) Using a Signal Handler
         return 0;
     }
 
-[℗ 54](#ptoc_54){id=p_054}
+[℗ 54](#t052){id=p054}
 -----------------
 
 
@@ -3340,7 +3340,7 @@ assume this behavior. For instance, shells assume this convention when you conne
 multiple programs with the && (logical and) and || (logical or) operators.Therefore,
 you should explicitly return zero from your main function, unless an error occurs.
 
-[℗ 55](#ptoc_55){id=p_055}
+[℗ 55](#t055){id=p055}
 -----------------
 
 With most shells, it’s possible to obtain the exit code of the most recently executed
@@ -3394,7 +3394,7 @@ of its child processes exits (or an error occurs).It returns a status code via a
 pointer argument,from which you can extract information about how the child process
 exited.For instance,the WEXITSTATUS macro extracts the child process’s exit code.
 
-[℗ 56](#ptoc_56){id=p_056}
+[℗ 56](#t055){id=p056}
 -----------------
 
 You can use the WIFEXITED macro to determine from a child process’s exit status
@@ -3446,7 +3446,7 @@ Does it simply vanish? No, because then information about its termination—such
 whether it exited normally and, if so, what its exit status is—would be lost. Instead,
 when a child process terminates, is becomes a zombie process.
 
-[℗ 57](#ptoc_57){id=p_057}
+[℗ 57](#t055){id=p057}
 -----------------
 
 A zombie process is a process that has terminated but has not been cleaned up yet. It
@@ -3492,7 +3492,7 @@ another window:
 
     % ps -e -o pid,ppid,stat,cmd
 
-[℗ 58](#ptoc_58){id=p_058}
+[℗ 58](#t055){id=p058}
 -----------------
 
 This lists the process ID, parent process ID, process status, and process command
@@ -3544,7 +3544,7 @@ information is needed, because once the process is cleaned up using wait , that 
 mation is no longer available. Listing 3.7 is what it looks like for a program to use a
 SIGCHLD handler to clean up its child processes.
 
-[℗ 59](#ptoc_59){id=p_059}
+[℗ 59](#t055){id=p059}
 -----------------
 
 Listing 3.7 (sigchld.c) Cleaning Up Children by Handling SIGCHLD
@@ -3578,7 +3578,7 @@ Note how the signal handler stores the child process’s exit status in a global
 from which the main program can access it. Because the variable is assigned in a signal
 handler, its type is sig_atomic_t .
 
-[℗ 60](#ptoc_60){id=p_060}
+[℗ 60](#t055){id=p060}
 -----------------
 
 Chapter 4 Threads
@@ -3605,7 +3605,7 @@ space, file descriptors, and other system resources as the original. If one thre
 the value of a variable, for instance, the other thread subsequently will see the modi-
 fied value. Similarly, if one thread closes a file descriptor, other threads may not read
 
-[℗ 61](#ptoc_61){id=p_061}
+[℗ 61](#t061){id=p061}
 -----------------
 
 from or write to that file descriptor. Because a process and all its threads can be exe-
@@ -3656,7 +3656,7 @@ the thread function. Linux schedules both threads asynchronously, and your progr
 must not rely on the relative order in which instructions are executed in the two
 threads.
 
-[℗ 62](#ptoc_62){id=p_062}
+[℗ 62](#t062){id=p062}
 -----------------
 
 The program in Listing 4.1 creates a thread that prints x’s continuously to standard
@@ -3701,7 +3701,7 @@ exit explicitly by calling pthread_exit .This function may be called from within
 thread function or from some other function called directly or indirectly by the thread
 function.The argument to pthread_exit is the thread’s return value.
 
-[℗ 63](#ptoc_63){id=p_063}
+[℗ 63](#t062){id=p063}
 -----------------
 
 
@@ -3751,7 +3751,7 @@ Listing 4.2 (thread-create2) Create Two Threads
     {
     pthread_t thread1_id;
 
-[℗ 64](#ptoc_64){id=p_064}
+[℗ 64](#t062){id=p064}
 -----------------
 
     pthread_t thread2_id;
@@ -3804,7 +3804,7 @@ Listing 4.3 Revised Main Function for thread-create2.c
     struct char_print_parms thread1_args;
     struct char_print_parms thread2_args;
 
-[℗ 65](#ptoc_65){id=p_065}
+[℗ 65](#t062){id=p065}
 -----------------
 
     /* Create a new thread to print 30,000 x’s. */
@@ -3848,7 +3848,7 @@ algorithims if you need to compute many prime numbers in your programs.
 ➊. Note that this is not portable, and it’s up to you to make sure that your value can be cast
 safely to void* and back without losing bits.
 
-[℗ 66](#ptoc_66){id=p_066}
+[℗ 66](#t062){id=p066}
 -----------------
 
 Listing 4.3 Continued
@@ -3896,7 +3896,7 @@ Listing 4.3 Continued
     return 0;
     }
 
-[℗ 67](#ptoc_67){id=p_067}
+[℗ 67](#t062){id=p067}
 -----------------
 
 
@@ -3954,7 +3954,7 @@ detached thread, in contrast, is cleaned up automatically when it terminates. Be
 detached thread is immediately cleaned up, another thread may not synchronize on its
 completion by using pthread_join or obtain its return value.
 
-[℗ 68](#ptoc_68){id=p_068}
+[℗ 68](#t062){id=p068}
 -----------------
 
 To set the detach state in a thread attribute object,use pthread_attr_setdetachstate .
@@ -4004,7 +4004,7 @@ thread to free up its resources, unless the thread is detached (see Section 4.1.
 Attributes").The return value of a canceled thread is the special value given by
 PTHREAD_CANCELED .
 
-[℗ 69](#ptoc_69){id=p_069}
+[℗ 69](#t069){id=p069}
 -----------------
 
 Often a thread may be in some code that must be executed in an all-or-nothing
@@ -4057,7 +4057,7 @@ Certain other functions are implicitly cancellation points as well.These are lis
 the pthread_cancel man page. Note that other functions may use these functions
 internally and thus will indirectly be cancellation points.
 
-[℗ 70](#ptoc_70){id=p_070}
+[℗ 70](#t069){id=p070}
 -----------------
 
 
@@ -4108,7 +4108,7 @@ Listing 4.6 (critical-section.c) Protect a Bank Transaction with a Critical Sect
     if (account_balances[from_acct] < dollars)
     return 1;
 
-[℗ 71](#ptoc_71){id=p_071}
+[℗ 71](#t069){id=p071}
 -----------------
 
     /* Begin critical section. */
@@ -4163,7 +4163,7 @@ setting and retrieving values from the thread-specific data area.
 Listing 4.6 Continued
 
 
-[℗ 72](#ptoc_72){id=p_072}
+[℗ 72](#t072){id=p072}
 -----------------
 
 You may create as many thread-specific data items as you want, each of type void* .
@@ -4215,7 +4215,7 @@ Listing 4.7 (tsd.c) Per-Thread Log Files Implemented with Thread-Specific Data
     /* Close the log file pointer THREAD_LOG. */
     void close_thread_log (void* thread_log)
 
-[℗ 73](#ptoc_73){id=p_073}
+[℗ 73](#t072){id=p073}
 -----------------
 
     {
@@ -4258,7 +4258,7 @@ for that key.Whenever a thread exits, GNU/Linux calls that function, passing the
 thread-specific value for the thread log key.This function takes care of closing the
 log file.
 
-[℗ 74](#ptoc_74){id=p_074}
+[℗ 74](#t072){id=p074}
 -----------------
 
 
@@ -4313,7 +4313,7 @@ Cleanup Handler
     {
     /* Allocate a temporary buffer. */
 
-[℗ 75](#ptoc_75){id=p_075}
+[℗ 75](#t072){id=p075}
 -----------------
 
     void* temp_buffer = allocate_buffer (1024);
@@ -4357,7 +4357,7 @@ exception percolates up.
 
 Listing 4.9 (cxx-exit.cpp) Implementing Safe Thread Exit with C++ Exceptions
 
-[℗ 76](#ptoc_76){id=p_076}
+[℗ 76](#t072){id=p076}
 -----------------
 
 #include <pthread.h>
@@ -4416,7 +4416,7 @@ duce the behavior that caused the problem.You might run the program once and hav
 everything work fine; the next time you run it, it might crash.There’s no way to make
 the system schedule the threads exactly the same way it did before.
 
-[℗ 77](#ptoc_77){id=p_077}
+[℗ 77](#t077){id=p077}
 -----------------
 
 The ultimate cause of most bugs involving threads is that the threads are accessing
@@ -4469,7 +4469,7 @@ Listing 4.10 (job-queue1.c) Thread Function to Process Jobs from the Queue
     return NULL;
     }
 
-[℗ 78](#ptoc_78){id=p_078}
+[℗ 78](#t077){id=p078}
 -----------------
 
 Now suppose that two threads happen to finish a job at about the same time, but only
@@ -4523,7 +4523,7 @@ To create a mutex, create a variable of type pthread_mutex_t and pass a pointer 
 it to pthread_mutex_init .The second argument to pthread_mutex_init is a pointer
 to a mutex attribute object, which specifies attributes of the mutex.As with
 
-[℗ 79](#ptoc_79){id=p_079}
+[℗ 79](#t077){id=p079}
 -----------------
 
 pthread_create , if the attribute pointer is null, default attributes are assumed.The
@@ -4574,7 +4574,7 @@ Listing 4.11 (job-queue2.c) Job Queue Thread Function, Protected by a Mutex
     /* A mutex protecting job_queue. */
     pthread_mutex_t job_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 
-[℗ 80](#ptoc_80){id=p_080}
+[℗ 80](#t077){id=p080}
 -----------------
 
     /* Process queued jobs until the queue is empty. */
@@ -4622,7 +4622,7 @@ Use of the mutex to lock job_queue is not automatic; it’s up to you to add cod
 lock the mutex before accessing that variable and then to unlock it afterward. For
 example, a function to add a job to the job queue might look like this:
 
-[℗ 81](#ptoc_81){id=p_081}
+[℗ 81](#t077){id=p081}
 -----------------
 
     void enqueue_job (struct job* new_job)
@@ -4677,7 +4677,7 @@ This code sequence illustrates creation of an error-checking mutex, for instance
     pthread_mutex_init (&mutex, &attr);
     pthread_mutexattr_destroy (&attr);
 
-[℗ 82](#ptoc_82){id=p_082}
+[℗ 82](#t077){id=p082}
 -----------------
 
 As suggested by the "np" suffix, the recursive and error-checking mutex kinds are spe-
@@ -4731,7 +4731,7 @@ supports two basic operations:
     semaphore, one of those threads is unblocked and its wait operation completes
     (which brings the semaphore’s value back to zero).
 
-[℗ 83](#ptoc_83){id=p_083}
+[℗ 83](#t077){id=p083}
 -----------------
 
 Note that GNU/Linux provides two slightly different semaphore implementations.
@@ -4768,7 +4768,7 @@ The function enqueue_job adds a new job to the queue.
 ➋.A nonzero value would indicate a semaphore that can be shared across processes, which is
 not supported by GNU/Linux for this type of semaphore.
 
-[℗ 84](#ptoc_84){id=p_084}
+[℗ 84](#t077){id=p084}
 -----------------
 
 Listing 4.12 (job-queue3.c) Job Queue Controlled by a Semaphore
@@ -4828,7 +4828,7 @@ Listing 4.12 (job-queue3.c) Job Queue Controlled by a Semaphore
     {
     struct job* new_job;
 
-[℗ 85](#ptoc_85){id=p_085}
+[℗ 85](#t077){id=p085}
 -----------------
 
     /* Allocate a new job object. */
@@ -4877,7 +4877,7 @@ flag is accessed by multiple threads, it is protected by a mutex.This implementa
 may be correct, but it is not efficient.The thread function will spend lots of CPU
 Listing 4.12 Continued
 
-[℗ 86](#ptoc_86){id=p_086}
+[℗ 86](#t077){id=p086}
 -----------------
 
 whenever the flag is not set, checking and rechecking the flag, each time locking and
@@ -4920,7 +4920,7 @@ Listing 4.13 (spin-condvar.c) A Simple Condition Variable Implementation
     pthread_mutex_unlock (&thread_flag_mutex);
     }
 
-[℗ 87](#ptoc_87){id=p_087}
+[℗ 87](#t077){id=p087}
 -----------------
 
 A condition variable enables you to implement a condition under which a thread exe-
@@ -4972,7 +4972,7 @@ another thread intervening.This eliminates the possibility that another thread m
 change the flag value and signal the condition variable in between thread_function ’s
 test of the flag value and wait on the condition variable.
 
-[℗ 88](#ptoc_88){id=p_088}
+[℗ 88](#t077){id=p088}
 -----------------
 
 A condition variable is represented by an instance of pthread_cond_t . Remember
@@ -5021,7 +5021,7 @@ pthread_cond_wait before blocking and is automatically reacquired afterward.Also
 note that set_thread_flag locks the mutex before setting the value of thread_flag
 and signaling the mutex.
 
-[℗ 89](#ptoc_89){id=p_089}
+[℗ 89](#t077){id=p089}
 -----------------
 
 Listing 4.14 (condvar.c) Control a Thread Using a Condition Variable
@@ -5075,7 +5075,7 @@ Listing 4.14 (condvar.c) Control a Thread Using a Condition Variable
     pthread_mutex_unlock (&thread_flag_mutex);
     }
 
-[℗ 90](#ptoc_90){id=p_090}
+[℗ 90](#t077){id=p090}
 -----------------
 
 The condition protected by a condition variable can be arbitrarily complex. However,
@@ -5117,7 +5117,7 @@ on files or devices.The problem occurs when multiple threads try to lock the sam
 of resources in different orders.The solution is to make sure that all threads that lock
 more than one resource lock them in the same order.
 
-[℗ 91](#ptoc_91){id=p_091}
+[℗ 91](#t077){id=p091}
 -----------------
 
 
@@ -5176,7 +5176,7 @@ CPU doing nothing. Here’s what the output might look like:
     % kill 14608
     [1]+ Terminated ./thread-pid
 
-[℗ 92](#ptoc_92){id=p_092}
+[℗ 92](#t092){id=p092}
 -----------------
 
 Job Control Notification in the Shell
@@ -5228,7 +5228,7 @@ rate processes, they share their virtual memory space and other resources.A chil
 process created with fork , however, gets copies of these items. How is the former type
 of process created?
 
-[℗ 93](#ptoc_93){id=p_093}
+[℗ 93](#t092){id=p093}
 -----------------
 
 The Linux clone system call is a generalized form of fork and pthread_create that
@@ -5274,7 +5274,7 @@ ously.) Sharing data among processes requires the use of IPC mechanisms, as
 described in Chapter 5.This can be more cumbersome but makes multiple
 processes less likely to suffer from concurrency bugs.
 
-[℗ 94](#ptoc_94){id=p_094}
+[℗ 94](#t094){id=p094}
 -----------------
 
 Chapter 5 Interprocess Communication
@@ -5301,7 +5301,7 @@ data.This transfer of data usually uses sockets in a telephone-like connection. 
 another example, you may want to print the filenames in a directory using a command
 such as ls | lpr .The shell creates an ls process and a separate lpr process,connecting
 
-[℗ 95](#ptoc_95){id=p_095}
+[℗ 95](#t095){id=p095}
 -----------------
 
 the two with a pipe, represented by the " | " symbol.A pipe permits one-way commu-
@@ -5354,7 +5354,7 @@ processes share the same piece of memory.Access to this shared memory is as fast
 accessing a process’s nonshared memory, and it does not require a system call or entry
 to the kernel. It also avoids copying data unnecessarily.
 
-[℗ 96](#ptoc_96){id=p_096}
+[℗ 96](#t096){id=p096}
 -----------------
 
 Because the kernel does not synchronize accesses to shared memory, you must pro-
@@ -5409,7 +5409,7 @@ value. Unfortunately, other processes may have also chosen the same fixed key, w
 could lead to conflict. Using the special constant IPC_PRIVATE as the key value guaran-
 tees that a brand new memory segment is created.
 
-[℗ 97](#ptoc_97){id=p_097}
+[℗ 97](#t096){id=p097}
 -----------------
 
 Its second parameter specifies the number of bytes in the segment. Because seg-
@@ -5463,7 +5463,7 @@ must page-align the second argument to shmat yourself.
 1.These permission bits are the same as those used for files.They are described in Section
 10.3,"File System Permissions."
 
-[℗ 98](#ptoc_98){id=p_098}
+[℗ 98](#t096){id=p098}
 -----------------
 
 If the call succeeds, it returns the address of the attached shared segment. Children cre-
@@ -5519,7 +5519,7 @@ Listing 5.1 (shm.c) Exercise Shared Memory
     segment_id = shmget (IPC_PRIVATE, shared_segment_size,
     IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR);
 
-[℗ 99](#ptoc_99){id=p_099}
+[℗ 99](#t096){id=p099}
 -----------------
 
     /* Attach the shared memory segment. */
@@ -5561,7 +5561,7 @@ ipcrm command to remove it.
 % ipcrm shm 1627649
 Listing 5.1 Continued
 
-[℗ 100](#ptoc_100){id=p_100}
+[℗ 100](#t096){id=p100}
 -----------------
 
 
@@ -5616,7 +5616,7 @@ set causes Linux to deallocate immediately.
 Listing 5.2 presents functions to allocate and deallocate a binary semaphore.
 
 
-[℗ 101](#ptoc_101){id=p_101}
+[℗ 101](#t101){id=p101}
 -----------------
 
 Listing 5.2 (sem_all_deall.c) Allocating and Deallocating a Binary Semaphore
@@ -5656,7 +5656,7 @@ phore in the set.
 
 Listing 5.3 presents a function that initializes a binary semaphore.
 
-[℗ 102](#ptoc_102){id=p_102}
+[℗ 102](#t101){id=p102}
 -----------------
 
 Listing 5.3 (sem_init.c) Initializing a Binary Semaphore
@@ -5712,7 +5712,7 @@ blocking; if the operation would have blocked, the call to semop fails instead.
 If you specify SEM_UNDO , Linux automatically undoes the operation on the
 semaphore when the process exits.
 
-[℗ 103](#ptoc_103){id=p_103}
+[℗ 103](#t101){id=p103}
 -----------------
 
 Listing 5.4 illustrates wait and post operations for a binary semaphore.
@@ -5757,7 +5757,7 @@ nates, either voluntarily or involuntarily, the semaphore’s values are automat
 adjusted to "undo" the process’s effects on the semaphore. For example, if a process
 that has decremented a semaphore is killed, the semaphore’s value is incremented.
 
-[℗ 104](#ptoc_104){id=p_104}
+[℗ 104](#t101){id=p104}
 -----------------
 
 
@@ -5819,7 +5819,7 @@ attached file, but to a private copy of the file. No other process sees these wr
 
 This mode may not be used with MAP_SHARED .
 
-[℗ 105](#ptoc_105){id=p_105}
+[℗ 105](#t105){id=p105}
 -----------------
 
 * MAP_SHARED —Writes are immediately reflected in the underlying file rather than
@@ -5879,7 +5879,7 @@ Listing 5.5 (mmap-write.c) Write a Random Number to a Memory-Mapped File
     return 0;
     }
 
-[℗ 106](#ptoc_106){id=p_106}
+[℗ 106](#t105){id=p106}
 -----------------
 The mmap-write program opens the file, creating it if it did not previously exist.The
 third argument to open specifies that the file is opened for reading and writing.
@@ -5913,7 +5913,7 @@ Listing 5.6 (mmap-read.c) Read an Integer from a Memory-Mapped File, and Double 
     MAP_SHARED, fd, 0);
     close (fd);
 
-[℗ 107](#ptoc_107){id=p_107}
+[℗ 107](#t105){id=p107}
 -----------------
 
     /* Read the integer, print it out, and double it. */
@@ -5971,7 +5971,7 @@ MS_SYNC and MS_ASYNC may not both be used.
 Listing 5.6 Continued
 
 
-[℗ 108](#ptoc_108){id=p_108}
+[℗ 108](#t105){id=p108}
 -----------------
 
 * MS_INVALIDATE —All other file mappings are invalidated so that they can see the
@@ -6022,7 +6022,7 @@ as if it were an infinitely long file filled with 0 bytes.A program that needs a
 memory may be used for any purpose. Custom memory allocators often map
 /dev/zero to obtain chunks of preinitialized memory.
 
-[℗ 109](#ptoc_109){id=p_109}
+[℗ 109](#t105){id=p109}
 -----------------
 
 
@@ -6079,7 +6079,7 @@ The sample program converts these file descriptors into FILE* streams using fdop
 Because we use streams rather than file descriptors, we can use the higher-level
 standard C library I/O functions such as printf and fgets .
 
-[℗ 110](#ptoc_110){id=p_110}
+[℗ 110](#t110){id=p110}
 -----------------
 
 Listing 5.7 (pipe.c) Using a Pipe to Communicate with a Child Process
@@ -6146,7 +6146,7 @@ Listing 5.7 (pipe.c) Using a Pipe to Communicate with a Child Process
     return 0;
     }
 
-[℗ 111](#ptoc_111){id=p_111}
+[℗ 111](#t110){id=p111}
 -----------------
 At the beginning of main , fds is declared to be an integer array with size 2.The pipe
 call creates a pipe and places the read and write file descriptors in that array.The pro-
@@ -6180,7 +6180,7 @@ from fd are not reread from standard input.
 Listing 5.7 Continued
 
 
-[℗ 112](#ptoc_112){id=p_112}
+[℗ 112](#t110){id=p112}
 -----------------
 
 The program in Listing 5.8 uses dup2 to send the output from a pipe to the sort
@@ -6236,7 +6236,7 @@ Listing 5.8 (dup2.c) Redirect Output from a Pipe with dup2
 2. sort reads lines of text from standard input, sorts them into alphabetical order, and prints
 them to standard output.
 
-[℗ 113](#ptoc_113){id=p_113}
+[℗ 113](#t110){id=p113}
 -----------------
 
 
@@ -6286,7 +6286,7 @@ A first-in, first-out (FIFO) file is a pipe that has a name in the filesystem.An
 can open or close the FIFO; the processes on either end of the pipe need not be
 related to each other. FIFOs are also called named pipes.
 
-[℗ 114](#ptoc_114){id=p_114}
+[℗ 114](#t110){id=p114}
 -----------------
 
 You can make a FIFO using the mkfifo command. Specify the path to the FIFO
@@ -6329,7 +6329,7 @@ FILE* fifo = fopen (fifo_path, "r");
 fscanf (fifo, "%s", buffer);
 fclose (fifo);
 
-[℗ 115](#ptoc_115){id=p_115}
+[℗ 115](#t110){id=p115}
 -----------------
 
 A FIFO can have multiple readers or multiple writers. Bytes from each writer are
@@ -6378,7 +6378,7 @@ only client connections.
 4. Usually, you’d use telnet to connect a Telnet server for remote logins. But you can also use
 telnet to connect to a server of a different kind and then type comments directly at it.
 
-[℗ 116](#ptoc_116){id=p_116}
+[℗ 116](#t116){id=p116}
 -----------------
 
 
@@ -6436,7 +6436,7 @@ listen —Configures a socket to accept conditions
 accept —Accepts a connection and creates a new socket for the connection
 Sockets are represented by file descriptors.
 
-[℗ 117](#ptoc_117){id=p_117}
+[℗ 117](#t116){id=p117}
 -----------------
 
 Creating and Destroying Sockets
@@ -6483,7 +6483,7 @@ read and written directly via the server socket; instead, each time a program ac
 new connection, Linux creates a separate socket to use in transferring data over that
 connection. In this section, we introduce bind , listen , and accept .
 
-[℗ 118](#ptoc_118){id=p_118}
+[℗ 118](#t116){id=p118}
 -----------------
 
 An address must be bound to the server’s socket using bind if a client is to find it.
@@ -6536,7 +6536,7 @@ notice the initial s :
 srwxrwx--x 1 user group 0 Nov 13 19:18 /tmp/socket
 Call unlink to remove a local socket when you’re done with it.
 
-[℗ 119](#ptoc_119){id=p_119}
+[℗ 119](#t116){id=p119}
 -----------------
 
 
@@ -6586,7 +6586,7 @@ Listing 5.10 (socket-server.c) Local Namespace Socket Server
     {
     const char* const socket_name = argv[1];
 
-[℗ 120](#ptoc_120){id=p_120}
+[℗ 120](#t116){id=p120}
 -----------------
 
     int socket_fd;
@@ -6632,7 +6632,7 @@ Listing 5.11 (socket-client.c) Local Namespace Socket Client
     #include <sys/un.h>
     #include <unistd.h>
 
-[℗ 121](#ptoc_121){id=p_121}
+[℗ 121](#t116){id=p121}
 -----------------
 
     /* Write TEXT to the socket given by file descriptor SOCKET_FD. */
@@ -6678,7 +6678,7 @@ messages to send to the client:
 % ./socket-client /tmp/socket "This is a test."
 Listing 5.11 Continued
 
-[℗ 122](#ptoc_122){id=p_122}
+[℗ 122](#t116){id=p122}
 -----------------
 
 The server program receives and prints these messages.To close the server, send the
@@ -6728,7 +6728,7 @@ Listing 5.12 illustrates the use of Internet-domain sockets.The program obtains 
 
 home page from the Web server whose hostname is specified on the command line.
 
-[℗ 123](#ptoc_123){id=p_123}
+[℗ 123](#t116){id=p123}
 -----------------
 
 Listing 5.12 (socket-inet.c) Read from a WWW Server
@@ -6779,7 +6779,7 @@ Listing 5.12 (socket-inet.c) Read from a WWW Server
     /* Web servers use port 80. */
     name.sin_port = htons (80);
 
-[℗ 124](#ptoc_124){id=p_124}
+[℗ 124](#t116){id=p124}
 -----------------
 
     /* Connect to the Web server */
@@ -6830,7 +6830,7 @@ tion creates two file descriptors for two connected sockets on the same computer
 
 These file descriptors permit two-way communication between related processes.
 
-[℗ 125](#ptoc_125){id=p_125}
+[℗ 125](#t116){id=p125}
 -----------------
 
 Its first three parameters are the same as those of the socket call:They specify the
@@ -6838,7 +6838,7 @@ domain, connection style, and protocol.The last parameter is a two-integer array
 which is filled with the file descriptions of the two sockets, similar to pipe .When you
 call socketpair , you must specify PF_LOCAL as the domain.
 
-[℗ 126](#ptoc_126){id=p_126}
+[℗ 126](#t116){id=p126}
 -----------------
 
 II Mastering Linux
@@ -6850,11 +6850,11 @@ II Mastering Linux
 10. Security
 11. A Sample GNU/Linux Application
 
-[℗ 127](#ptoc_127){id=p_127}
+[℗ 127](#t127){id=p127}
 -----------------
 
 
-[℗ 128](#ptoc_128){id=p_128}
+[℗ 128](#t127){id=p128}
 -----------------
 
 Chapter 6 Devices
@@ -6880,7 +6880,7 @@ kernel rather than with device drivers.These aren’t linked to hardware devices
 they provide various kinds of specialized behavior that can be of use to application and
 system programs.
 
-[℗ 129](#ptoc_129){id=p_129}
+[℗ 129](#t129){id=p129}
 -----------------
 
 Exercise Caution When Accessing Devices!
@@ -6931,7 +6931,7 @@ number.The major device number specifies which driver the device corresponds to.
 The correspondence from major device numbers to drivers is fixed and part of the
 Linux kernel sources. Note that the same major device number may correspond to
 
-[℗ 130](#ptoc_130){id=p_130}
+[℗ 130](#t130){id=p130}
 -----------------
 
 two different drivers, one a character device and one a block device. Minor device
@@ -6980,7 +6980,7 @@ major device no. 6 and minor device no. 0.These numbers correspond to the first 
 allel port on the Linux system.
 % mknod ./lp0 c 6 0
 
-[℗ 131](#ptoc_131){id=p_131}
+[℗ 131](#t131){id=p131}
 -----------------
 
 Remember that only superuser processes can create block and character devices, so
@@ -7031,7 +7031,7 @@ tors and developers working with specialized hardware devices will need to creat
 device entries. Most GNU/Linux distributions include facilities to help system
 administrators create standard device entries with the correct names.
 
-[℗ 132](#ptoc_132){id=p_132}
+[℗ 132](#t131){id=p132}
 -----------------
 
 
@@ -7081,7 +7081,7 @@ each line, and may require a form feed character,ASCII code 12, at the end of ea
 
 continues
 
-[℗ 133](#ptoc_133){id=p_133}
+[℗ 133](#t133){id=p133}
 -----------------
 
 Primary IDE controller, secondary device /dev/hdb 3 64
@@ -7121,7 +7121,7 @@ similar devices; these are older interfaces to serial ports such as /dev/ttyS0 .
 Table 6.1 Continued
 Device Name Major Minor
 
-[℗ 134](#ptoc_134){id=p_134}
+[℗ 134](#t133){id=p134}
 -----------------
 
 Occasionally, you’ll want to write data directly to character devices—for example:
@@ -7174,7 +7174,7 @@ cooperate better with other programs that use the computer’s sound card.
 3. On most GNU/Linux systems, you can switch to the first virtual terminal by pressing
 Ctrl+Alt+F1. Use Ctrl+Alt+F2 for the second virtual terminal, and so on.
 
-[℗ 135](#ptoc_135){id=p_135}
+[℗ 135](#t133){id=p135}
 -----------------
 
 
@@ -7229,7 +7229,7 @@ more information, and see the sidebar "Obtaining Page-Aligned Memory" in Section
 8.9," mprotect : Setting Memory Permissions," in Chapter 8,"Linux System Calls," for
 an example.
 
-[℗ 136](#ptoc_136){id=p_136}
+[℗ 136](#t136){id=p136}
 -----------------
 
 
@@ -7284,7 +7284,7 @@ do pretty much the same thing, because hexdump terminates when it runs out of da
 waits for more data to become available.The -t x1 option tells od to print file contents in
 hexadecimal.
 
-[℗ 137](#ptoc_137){id=p_137}
+[℗ 137](#t136){id=p137}
 -----------------
 
 % od -t x1 /dev/random
@@ -7331,7 +7331,7 @@ Listing 6.1 (random_number.c) Function to Generate a Random Number Using /dev/ra
     this function is called. */
     static int dev_random_fd = -1;
 
-[℗ 138](#ptoc_138){id=p_138}
+[℗ 138](#t136){id=p138}
 -----------------
 
     char* next_random_byte;
@@ -7382,7 +7382,7 @@ tem as you would mount the file system on an ordinary disk or partition. Such a 
 system, which resides in its entirety within an ordinary disk file, is called a virtual file
 system.
 
-[℗ 139](#ptoc_139){id=p_139}
+[℗ 139](#t136){id=p139}
 -----------------
 
 To construct a virtual file system and mount it with a loopback device, follow
@@ -7420,7 +7420,7 @@ system. Leave this option out if you’re curious about it.
 Now disk-image contains a brand-new file system, as if it were a freshly
 initialized 10MB disk drive.
 
-[℗ 140](#ptoc_140){id=p_140}
+[℗ 140](#t136){id=p140}
 -----------------
 
 3. Mount the file system using a loopback device.To do this, use the mount
@@ -7452,7 +7452,7 @@ Note that lost+found is a directory that was automatically added by mke2fs . 5
 5. If the file system is ever damaged, and some data is recovered but not associated with a
 file, it is placed in lost+found .
 
-[℗ 141](#ptoc_141){id=p_141}
+[℗ 141](#t136){id=p141}
 -----------------
 
 When you’re done, unmount the virtual file system.
@@ -7498,7 +7498,7 @@ file system, which isn’t associated with any hardware device, is a "magic" fil
 that is created by the Linux kernel. It’s similar to the /proc file system; see Chapter 7
 for more information about how this works.
 
-[℗ 142](#ptoc_142){id=p_142}
+[℗ 142](#t142){id=p142}
 -----------------
 
 Like the /dev directory, /dev/pts contains entries corresponding to devices. But
@@ -7547,7 +7547,7 @@ another window:
 The output appears in the new terminal window. If you close the new terminal win-
 dow, the entry 7 in /dev/pts disappears.
 
-[℗ 143](#ptoc_143){id=p_143}
+[℗ 143](#t142){id=p143}
 -----------------
 
 If you invoke ps to determine the TTY from a text-mode virtual terminal (press
@@ -7593,7 +7593,7 @@ Listing 6.2 (cdrom-eject.c) Eject a CD-ROM
     return 0;
     }
 
-[℗ 144](#ptoc_144){id=p_144}
+[℗ 144](#t144){id=p144}
 -----------------
 
 Listing 6.2 presents a short program that ejects the disk in a CD-ROM drive (if the
@@ -7608,11 +7608,11 @@ device on the secondary IDE controller, the corresponding device is /dev/hdc .To
 the disk from the drive, invoke this line:
 % ./cdrom-eject /dev/hdc
 
-[℗ 145](#ptoc_145){id=p_145}
+[℗ 145](#t144){id=p145}
 -----------------
 
 
-[℗ 146](#ptoc_146){id=p_146}
+[℗ 146](#t144){id=p146}
 -----------------
 
 Chapter 7 The /proc File System
@@ -7642,7 +7642,7 @@ Note that the file size is zero; because the file’s contents are generated by 
 the concept of file size is not applicable.Also, if you try this command yourself, you’ll
 notice that the modification time on the file is the current time.
 
-[℗ 147](#ptoc_147){id=p_147}
+[℗ 147](#t147){id=p147}
 -----------------
 
 What’s in this file? The contents of /proc/version consist of a string describing the
@@ -7701,7 +7701,7 @@ flags : fpu vme de pse tsc msr pae mce cx8 apic sep
 mtrr pge mca cmov pat pse36 mmx fxsr
 bogomips : 399.77
 
-[℗ 148](#ptoc_148){id=p_148}
+[℗ 148](#t148){id=p148}
 -----------------
 
 We’ll describe the interpretation of some of these fields in Section 7.3.1,"CPU
@@ -7748,7 +7748,7 @@ Listing 7.1 (clock-speed.c) Extract CPU Clock Speed from /proc/cpuinfo
     return 0;
     }
 
-[℗ 149](#ptoc_149){id=p_149}
+[℗ 149](#t148){id=p149}
 -----------------
 
 Be aware, however, that the names, semantics, and output formats of entries in the
@@ -7798,7 +7798,7 @@ are not.
 in Section 1 for information about the command (invoke man 1 chroot ), or the chroot man
 page in Section 2 (invoke man 2 chroot ) for information about the call.
 
-[℗ 150](#ptoc_150){id=p_150}
+[℗ 150](#t150){id=p150}
 -----------------
 
 * stat contains lots of status and statistical information about the process.These
@@ -7851,7 +7851,7 @@ Listing 7.2 (get-pid.c) Obtain the Process ID from /proc/self
     /* Read the target of the symbolic link. */
     readlink ("/proc/self", target, sizeof (target));
 
-[℗ 151](#ptoc_151){id=p_151}
+[℗ 151](#t150){id=p151}
 -----------------
 
     /* The target is a directory named for the process ID. */
@@ -7899,7 +7899,7 @@ cmdline from read , which returns the number of bytes that were read.
 Listing 7.2 Continued
 
 
-[℗ 152](#ptoc_152){id=p_152}
+[℗ 152](#t150){id=p152}
 -----------------
 
 Listing 7.3 (print-arg-list.c) Print the Argument List of a Running Process
@@ -7946,7 +7946,7 @@ Listing 7.3 (print-arg-list.c) Print the Argument List of a Running Process
     return 0;
     }
 
-[℗ 153](#ptoc_153){id=p_153}
+[℗ 153](#t150){id=p153}
 -----------------
 
 For example, suppose that process 372 is the system logger daemon, syslogd .
@@ -7998,7 +7998,7 @@ Listing 7.4 (print-environment.c) Display the Environment of a Process
     /* read does not NUL-terminate the buffer, so do it here. */
     environment[length] = "\0";
 
-[℗ 154](#ptoc_154){id=p_154}
+[℗ 154](#t150){id=p154}
 -----------------
 
     /* Loop over variables. Variables are separated by NULs. */
@@ -8046,7 +8046,7 @@ Listing 7.5 (get-exe-path.c) Get the Path of the Currently Running Program Execu
     The path is placed into BUFFER, which is of length LEN. Returns
     the number of characters in the path, or -1 on error. */
 
-[℗ 155](#ptoc_155){id=p_155}
+[℗ 155](#t150){id=p155}
 -----------------
 
     size_t get_executable_path (char* buffer, size_t len)
@@ -8093,7 +8093,7 @@ PID TTY TIME CMD
 2455 pts/4 00:00:00 ps
 Listing 7.5 Continued
 
-[℗ 156](#ptoc_156){id=p_156}
+[℗ 156](#t150){id=p156}
 -----------------
 
 In this case, the shell ( bash ) is running in process 1261. Now open a second window,
@@ -8141,7 +8141,7 @@ In another window, take a look at the fd subdirectory corresponding to this proc
 total 0
 lrwx------ 1 samuel samuel 64 Jan 30 01:30 0 -> /dev/pts/2
 
-[℗ 157](#ptoc_157){id=p_157}
+[℗ 157](#t150){id=p157}
 -----------------
 
 lrwx------ 1 samuel samuel 64 Jan 30 01:30 1 -> /dev/pts/2
@@ -8190,7 +8190,7 @@ about the system hardware.Although these are typically of interest to system con
 rators and administrators, the information may occasionally be of use to application
 programmers as well.We’ll present some of the more useful entries here.
 
-[℗ 158](#ptoc_158){id=p_158}
+[℗ 158](#t158){id=p158}
 -----------------
 
 
@@ -8250,7 +8250,7 @@ use these and other special assembly instructions in GNU/Linux programs.
 4. Note that under DOS and Windows, serial ports are numbered from 1, so COM1 corresponds
 to serial port number 0 under Linux.
 
-[℗ 159](#ptoc_159){id=p_159}
+[℗ 159](#t158){id=p159}
 -----------------
 
 For example, this line from /proc/tty/driver/serial might describe serial port 1
@@ -8302,7 +8302,7 @@ The /proc/sys/kernel/hostname and /proc/sys/kernel/domainname entries contain
 the computer’s hostname and domain name, respectively.This information is the same
 as that returned by the uname system call, described in Section 8.15.
 
-[℗ 160](#ptoc_160){id=p_160}
+[℗ 160](#t160){id=p160}
 -----------------
 
 
@@ -8361,7 +8361,7 @@ file system types that either are statically linked into the kernel or are curre
 Other file system types may be available on the system as modules but might not be
 loaded yet.
 
-[℗ 161](#ptoc_161){id=p_161}
+[℗ 161](#t161){id=p161}
 -----------------
 
 
@@ -8408,7 +8408,7 @@ TOSHIBA CD-ROM XM-6702B
 5. If properly configured, the Linux kernel can support additional IDE controllers.These are
 numbered sequentially from ide2 .
 
-[℗ 162](#ptoc_162){id=p_162}
+[℗ 162](#t161){id=p162}
 -----------------
 
 If SCSI devices are present in the system, /proc/scsi/scsi contains a summary of
@@ -8460,7 +8460,7 @@ n The second element is the mount point, the place in the root file system at wh
 the file system contents appear. For the root file system itself, the mount point is
 listed as / . For swap drives, the mount point is listed as swap .
 
-[℗ 163](#ptoc_163){id=p_163}
+[℗ 163](#t161){id=p163}
 -----------------
 
 n The third element is the file system type. Currently, most GNU/Linux systems
@@ -8510,7 +8510,7 @@ In another window, look at the contents of /proc/locks .
 dfea7d40 00000000 00000000
 6.The /etc/fstab file lists the static mount configuration of the GNU/Linux system.
 
-[℗ 164](#ptoc_164){id=p_164}
+[℗ 164](#t161){id=p164}
 -----------------
 
 There may be other lines of output, too, corresponding to locks held by other pro-
@@ -8560,7 +8560,7 @@ Listing 7.7 (print-uptime.c) Print the System Uptime and Idle Time
     void print_time (char* label, long time)
     {
 
-[℗ 165](#ptoc_165){id=p_165}
+[℗ 165](#t165){id=p165}
 -----------------
 
     /* Conversion constants. */
@@ -8590,7 +8590,7 @@ Obtaining System Statistics") also can obtain the system’s uptime.The uptime
 command also displays the load averages found in /proc/loadavg .
 Listing 7.7 Continued
 
-[℗ 166](#ptoc_166){id=p_166}
+[℗ 166](#t165){id=p166}
 -----------------
 
 Chapter 8 Linux System Calls
@@ -8619,7 +8619,7 @@ C library provided with GNU/Linux systems) wraps Linux system calls with
 functions so that you can call them easily. Low-level I/O functions such as open
 and read are examples of system calls on Linux.
 
-[℗ 167](#ptoc_167){id=p_167}
+[℗ 167](#t167){id=p167}
 -----------------
 
 The set of Linux system calls forms the most basic interface between programs
@@ -8672,7 +8672,7 @@ standard output.
 
 2. In Linux, the exec family of functions is implemented via the execve system call.
 
-[℗ 168](#ptoc_168){id=p_168}
+[℗ 168](#t168){id=p168}
 -----------------
 
 The first argument is the name of the program to run; the second is its argument list,
@@ -8726,7 +8726,7 @@ If the second argument is F_OK , access simply checks for the file’s existence
 exists,the return value is 0;if not,the return value is –1 and errno is set to ENOENT .Note
 that errno may instead be set to EACCES if a directory in the file path is inaccessible.
 
-[℗ 169](#ptoc_169){id=p_169}
+[℗ 169](#t169){id=p169}
 -----------------
 
 The program shown in Listing 8.1 uses access to check for a file’s existence and to
@@ -8776,7 +8776,7 @@ Listing 8.1 (check-access.c) Check File Access Permissions
     /mnt/cdrom/README is readable
     /mnt/cdrom/README is not writable (read-only filesystem)
 
-[℗ 170](#ptoc_170){id=p_170}
+[℗ 170](#t169){id=p170}
 -----------------
 
 
@@ -8830,7 +8830,7 @@ Listing 8.2 (lock-file.c) Create a Write Lock with fcntl
     /* Place a write lock on the file. */
     fcntl (fd, F_SETLKW, &lock);
 
-[℗ 171](#ptoc_171){id=p_171}
+[℗ 171](#t171){id=p171}
 -----------------
 
     printf ("locked; hit Enter to unlock... “);
@@ -8881,7 +8881,7 @@ Windows’ shares and network drives.
 Listing 8.2 Continued
 
 
-[℗ 172](#ptoc_172){id=p_172}
+[℗ 172](#t171){id=p172}
 -----------------
 
 
@@ -8936,7 +8936,7 @@ tees that the file’s modification time will be updated, fdatasync does not; it
 only that the file’s data will be written.This means that in principal, fdatasync can
 execute faster than fsync because it needs to force only one disk write instead of two.
 
-[℗ 173](#ptoc_173){id=p_173}
+[℗ 173](#t173){id=p173}
 -----------------
 
 However, in current versions of Linux, these two system calls actually do the same
@@ -8991,7 +8991,7 @@ kills the process soon afterward, when it exceeds 1 second of CPU time.
 
 4. See the man page for your shell for more information about ulimit .
 
-[℗ 174](#ptoc_174){id=p_174}
+[℗ 174](#t174){id=p174}
 -----------------
 
 Listing 8.4 (limit-cpu.c) CPU Time Limit Demonstration
@@ -9040,7 +9040,7 @@ data at one time over the course of its execution.
 The getrusage man page lists all the available fields. See Section 8.7," gettimeofday :
 Wall-Clock Time," for information about struct timeval .
 
-[℗ 175](#ptoc_175){id=p_175}
+[℗ 175](#t175){id=p175}
 -----------------
 
 The function in Listing 8.5 prints out the current process’s user and system time.
@@ -9093,7 +9093,7 @@ manner similar to printf , as a string with embedded codes indicating which time
 fields to include. For example, this format string
 "%Y-%m-%d %H:%M:%S"
 
-[℗ 176](#ptoc_176){id=p_176}
+[℗ 176](#t176){id=p176}
 -----------------
 
 specifies the date and time in this form:
@@ -9141,7 +9141,7 @@ The mlock family of system calls allows a program to lock some or all of its add
 space into physical memory.This prevents Linux from paging this memory to swap
 space, even if the program hasn’t accessed it for a while.
 
-[℗ 177](#ptoc_177){id=p_177}
+[℗ 177](#t177){id=p177}
 -----------------
 
 A time-critical program might lock physical memory because the time delay of
@@ -9192,7 +9192,7 @@ memory locked with mlock and mlockall .
 5. Copy-on-write means that Linux makes a private copy of a page of memory for a process
 only when that process writes a value somewhere into it.
 
-[℗ 178](#ptoc_178){id=p_178}
+[℗ 178](#t177){id=p178}
 -----------------
 
 A convenient way to monitor the memory usage of your program is to use the top
@@ -9242,7 +9242,7 @@ close (fd);
 Later, your program could make the memory read-only by calling mprotect :
 mprotect (memory, page_size, PROT_READ);
 
-[℗ 179](#ptoc_179){id=p_179}
+[℗ 179](#t179){id=p179}
 -----------------
 
 An advanced technique to monitor memory access is to protect the region of memory
@@ -9288,7 +9288,7 @@ Listing 8.7 (mprotect.c) Detect Memory Access Using mprotect
     /* Write to the allocated memory region. */
     memory[0] = 1;
 
-[℗ 180](#ptoc_180){id=p_180}
+[℗ 180](#t179){id=p180}
 -----------------
 
     /* All done; unmap the memory. */
@@ -9337,7 +9337,7 @@ The function in Listing 8.8 provides an alternate implementation of sleep . Unli
 the ordinary system call, this function takes a floating-point value for the number of
 seconds to sleep and restarts the sleep operation if it’s interrupted by a signal.
 
-[℗ 181](#ptoc_181){id=p_181}
+[℗ 181](#t181){id=p181}
 -----------------
 
 Listing 8.8 (better_sleep.c) High-Precision Sleep Function
@@ -9384,7 +9384,7 @@ sets errno to EINVAL and returns –1.
 The small program in Listing 8.9 prints the target of the symbolic link specified on
 its command line.
 
-[℗ 182](#ptoc_182){id=p_182}
+[℗ 182](#t182){id=p182}
 -----------------
 
 Listing 8.9 (print-symlink.c) Print the Target of a Symbolic Link
@@ -9435,7 +9435,7 @@ to the other descriptor, and repeats until all the data has been copied.This is 
 in both time and space because it requires additional memory for the buffer and per-
 forms an extra copy of the data into that buffer.
 
-[℗ 183](#ptoc_183){id=p_183}
+[℗ 183](#t183){id=p183}
 -----------------
 
 Using sendfile , the intermediate buffer can be eliminated. Call sendfile , passing
@@ -9484,7 +9484,7 @@ good example is in a Web server or other network daemon, that serves the content
 a file over the network to a client program.Typically, a request is received from a
 socket connected to the client computer.The server program opens a local disk file to
 
-[℗ 184](#ptoc_184){id=p_184}
+[℗ 184](#t183){id=p184}
 -----------------
 
 retrieve the data to serve and writes the file’s contents to the network socket. Using
@@ -9539,7 +9539,7 @@ Listing 8.11 (itemer.c) Timer Example
     #include <string.h>
     #include <sys/time.h>
 
-[℗ 185](#ptoc_185){id=p_185}
+[℗ 185](#t185){id=p185}
 -----------------
 
     void timer_handler (int signum)
@@ -9585,7 +9585,7 @@ The program in Listing 8.12 prints some statistics about the current system.
 Listing 8.11 Continued
 
 
-[℗ 186](#ptoc_186){id=p_186}
+[℗ 186](#t186){id=p186}
 -----------------
 
 Listing 8.12 (sysinfo.c) Print System Statistics
@@ -9637,7 +9637,7 @@ Each of these fields is a character string.
 The small program in Listing 8.13 prints the Linux release and version number and
 the hardware information.
 
-[℗ 187](#ptoc_187){id=p_187}
+[℗ 187](#t187){id=p187}
 -----------------
 
 Listing 8.13 (print-uname) Print Linux Version Number and Hardware Information
@@ -9653,7 +9653,7 @@ u.version, u.machine);
 return 0;
 }
 
-[℗ 188](#ptoc_188){id=p_188}
+[℗ 188](#t187){id=p188}
 -----------------
 
 Chapter 9 nline Assembly Code
@@ -9679,7 +9679,7 @@ answer = sin (angle);
 library, but if you specify the -O1 or higher optimization flag, GCC is smart enough to replace
 the function call with a single fsin assembly instruction.
 
-[℗ 189](#ptoc_189){id=p_189}
+[℗ 189](#t189){id=p189}
 -----------------
 
 Observe that unlike ordinary assembly code instructions, asm statements permit you to
@@ -9726,7 +9726,7 @@ one of these in Section 9.4,"Example."
 2.Algorithmic or data structure changes may be more effective in reducing a program’s
 running time than using assembly instructions.
 
-[℗ 190](#ptoc_190){id=p_190}
+[℗ 190](#t190){id=p190}
 -----------------
 
 
@@ -9780,7 +9780,7 @@ copied into bar by the final two instructions. It chooses appropriate registers,
 reusing the same registers, and copies operands to and from the proper locations
 automatically.
 
-[℗ 191](#ptoc_191){id=p_191}
+[℗ 191](#t191){id=p191}
 -----------------
 
 
@@ -9830,7 +9830,7 @@ architecture. 3 Table 9.1 summarizes these.
 
 3. You’ll need to have some familiarity with GCC’s internals to make sense of this file.
 
-[℗ 192](#ptoc_192){id=p_192}
+[℗ 192](#t192){id=p192}
 -----------------
 
 Table 9.1 Register Letters for the Intel x86 Architecture
@@ -9877,7 +9877,7 @@ two values will be placed in the same register.
 This input section can be omitted if there are no input operands and the subse-
 quent clobber section is empty.
 
-[℗ 193](#ptoc_193){id=p_193}
+[℗ 193](#t192){id=p193}
 -----------------
 
 
@@ -9930,7 +9930,7 @@ Listing 9.1 (bit-pos-loop.c) Find Bit Position Using a Loop
     long max = atoi (argv[1]);
     long number;
 
-[℗ 194](#ptoc_194){id=p_194}
+[℗ 194](#t194){id=p194}
 -----------------
 
     long i;
@@ -9973,7 +9973,7 @@ Listing 9.1 (bit-pos-loop.c) Find Bit Position Using a Loop
     a large value as the command-line argument, to make sure that each version takes at
     least a few seconds to run.
 
-[℗ 195](#ptoc_195){id=p_195}
+[℗ 195](#t194){id=p195}
 -----------------
 
 % time ./bit-pos-loop 250000000
@@ -10014,7 +10014,7 @@ For example, most asm statements in the Linux source code are grouped into
 /usr/src/linux/include/asm and /usr/src/linux/include/asm-i386 header files, and
 /usr/src/linux/arch/i386/ and /usr/src/linux/drivers/ source files.
 
-[℗ 196](#ptoc_196){id=p_196}
+[℗ 196](#t196){id=p196}
 -----------------
 
 Chapter 10 Security
@@ -10039,7 +10039,7 @@ to view everyone else’s payroll information.You might want managers to be able
 view the salaries of employees in their departments, but you wouldn’t want them to
 view the salaries of employees in other departments.
 
-[℗ 197](#ptoc_197){id=p_197}
+[℗ 197](#t197){id=p197}
 -----------------
 
 To enforce these kinds of controls, you have to be very careful. It’s amazingly easy
@@ -10094,7 +10094,7 @@ in parentheses.The command shows that user ID 501 is actually in two groups: gro
 group 501 appears twice: once in the gid field and once in the groups field.We’ll
 explain this later.
 
-[℗ 198](#ptoc_198){id=p_198}
+[℗ 198](#t198){id=p198}
 -----------------
 
 
@@ -10151,7 +10151,7 @@ handles for user and group identity.
 system. In contrast, an earlier operating system that had multiple special users was called
 MULTICS. GNU/Linux, of course, is mostly compatible with UNIX.
 
-[℗ 199](#ptoc_199){id=p_199}
+[℗ 199](#t199){id=p199}
 -----------------
 
 To get the user ID and group ID for the current process,you can use the geteuid
@@ -10195,7 +10195,7 @@ permission, you cannot run the program.
 2.Actually, there are some rare exceptions, involving sticky bits, discussed later in Section
 10.3.2,"Sticky Bits."
 
-[℗ 200](#ptoc_200){id=p_200}
+[℗ 200](#t200){id=p200}
 -----------------
 
 Linux enables you to designate which of these three actions—reading, writing, and
@@ -10239,7 +10239,7 @@ echo fails; and we can’t run the file, which is why ./hello fails.
 3.You’ll sometimes see the permission bits for a file referred to as the file’s mode.The name
 of the chmod command is short for "change mode."
 
-[℗ 201](#ptoc_201){id=p_201}
+[℗ 201](#t200){id=p201}
 -----------------
 
 Things are better if we are accessing the file as mitchell , who is a member of the
@@ -10290,7 +10290,7 @@ int main (int argc, char* argv[])
 const char* const filename = argv[1];
 struct stat buf;
 
-[℗ 202](#ptoc_202){id=p_202}
+[℗ 202](#t200){id=p202}
 -----------------
 
 /* Get file information. */
@@ -10339,7 +10339,7 @@ that apply to this user. 4
 cessible. For instance, if a process may not access the directory /tmp/private/ , it may not read
 /tmp/private/data , even if the permissions on the latter are set to allow the access.
 
-[℗ 203](#ptoc_203){id=p_203}
+[℗ 203](#t200){id=p203}
 -----------------
 
 There is one important exception: Processes running as root (those with user ID 0)
@@ -10391,7 +10391,7 @@ command by invoking the following:
 gram to be retained in main memory even when it was done executing.The pages allocated to
 the program were "stuck" in memory.
 
-[℗ 204](#ptoc_204){id=p_204}
+[℗ 204](#t200){id=p204}
 -----------------
 
 To set the sticky bit programmatically, call chmod with the S_ISVTX mode flag. For
@@ -10443,7 +10443,7 @@ doing so and will return appropriate indications of error.After all the operatio
 on behalf of mitchell are complete, the process can restore its original effective user
 ID to root .
 
-[℗ 205](#ptoc_205){id=p_205}
+[℗ 205](#t205){id=p205}
 -----------------
 
 Programs that authenticate users when they log in take advantage of the capability
@@ -10491,7 +10491,7 @@ another process temporarily and then return to being root .You also know how to
 make a root process drop all its special privileges by setting both its real user ID and
 its effective user ID.
 
-[℗ 206](#ptoc_206){id=p_206}
+[℗ 206](#t205){id=p206}
 -----------------
 
 Here’s a puzzle: Can you, running as a non- root user, ever become root ? That
@@ -10540,7 +10540,7 @@ uid=501 euid=0
 ID is the same as that of the group owner of the file. Most setuid programs are also setgid
 programs.
 
-[℗ 207](#ptoc_207){id=p_207}
+[℗ 207](#t205){id=p207}
 -----------------
 
 Note that the effective user ID is set to 0 when the program is run.
@@ -10593,7 +10593,7 @@ more often than any other password. (Make of that what you will.) So, if you eve
 access on a machine and the sysadmin isn’t around, a little divine inspiration might be just what
 you need.
 
-[℗ 208](#ptoc_208){id=p_208}
+[℗ 208](#t208){id=p208}
 -----------------
 
 For example, many organizations now require the use of special "one-time" pass-
@@ -10643,7 +10643,7 @@ Listing 10.4 (pam.c) PAM Example
     a helper library called libpam_misc :
     % gcc -o pam pam.c -lpam -lpam_misc
 
-[℗ 209](#ptoc_209){id=p_209}
+[℗ 209](#t208){id=p209}
 -----------------
 
 This program starts off by building up a PAM conversation object.This object is used
@@ -10694,7 +10694,7 @@ rectly indicate failure:
 Password: badguess
 Authentication failed!
 
-[℗ 210](#ptoc_210){id=p_210}
+[℗ 210](#t208){id=p210}
 -----------------
 
 The basics covered here are enough for most simple programs. Full documentation
@@ -10750,7 +10750,7 @@ the daemon over the network.A program that does not engage in network communi-
 cations is much safer because only users who are already able to log in to the com-
 puter running the program are able to attack it.
 
-[℗ 211](#ptoc_211){id=p_211}
+[℗ 211](#t211){id=p211}
 -----------------
 
 The buggy versions of finger , talk , and sendmail all shared a common flaw. Each
@@ -10799,7 +10799,7 @@ simple primitives for reading input. In C++, for example, you can simply use thi
 string username;
 getline (cin, username);
 
-[℗ 212](#ptoc_212){id=p_212}
+[℗ 212](#t211){id=p212}
 -----------------
 
 The username string will automatically be deallocated as well; you don’t have to
@@ -10857,7 +10857,7 @@ easier to write code that avoids buffer overruns and other similar problems in C
 
 9. Obviously, if you’re also a system administrator, you shouldn’t mount /tmp over NFS.
 
-[℗ 213](#ptoc_213){id=p_213}
+[℗ 213](#t211){id=p213}
 -----------------
 
 One approach that works is to call lstat on the newly created file (lstat is discussed in
@@ -10908,7 +10908,7 @@ Listing 10.5 (temp-file.c) Create a Temporary File
     not threadsafe.) */
     if (random_fd == -1) {
 
-[℗ 214](#ptoc_214){id=p_214}
+[℗ 214](#t211){id=p214}
 -----------------
 
     /* Open /dev/random. Note that we’re assuming that /dev/random
@@ -10957,7 +10957,7 @@ sure that the file is not a symbolic link. If you’re thinking carefully, you�
 there seems to be a race condition at this point. In particular, an attacker could remove
 the file and replace it with a symbolic link between the time we call open and the
 
-[℗ 215](#ptoc_215){id=p_215}
+[℗ 215](#t211){id=p215}
 -----------------
 
 time we call lstat .That won’t harm us directly because we already have an open file
@@ -11010,7 +11010,7 @@ Listing 10.6 (grep-dictionary.c) Search for a Word in the Dictionary
     10. If you don’t know about grep , you should look at the manual pages. It’s an incredibly
     useful program.
 
-[℗ 216](#ptoc_216){id=p_216}
+[℗ 216](#t211){id=p216}
 -----------------
 
     /* Build up the string "grep -x WORD /usr/dict/words". Allocate the
@@ -11053,7 +11053,7 @@ that the shell treats specially (such as the semicolon in the previous command) 
 treated specially when they appear in the argument list to an exec call. Of course, you
 give up the convenience of system and popen .
 
-[℗ 217](#ptoc_217){id=p_217}
+[℗ 217](#t211){id=p217}
 -----------------
 
 The other alternative is to validate the string to make sure that it is benign. In the
@@ -11064,7 +11064,7 @@ implement the check by looking for dangerous and unexpected characters; it’s a
 safer to explicitly check for the characters that you know are safe rather than try to
 anticipate all the characters that might cause trouble.
 
-[℗ 218](#ptoc_218){id=p_218}
+[℗ 218](#t211){id=p218}
 -----------------
 
 Chapter 11 A Sample GNU/Linux Application
@@ -11094,7 +11094,7 @@ n The program does not serve static HTML pages. Instead, the pages are generated
 on the fly by modules, each of which provides a page summarizing one aspect of
 the system’s state.
 
-[℗ 219](#ptoc_219){id=p_219}
+[℗ 219](#t219){id=p219}
 -----------------
 
 n Modules are not linked statically into the server executable. Instead, they are
@@ -11148,7 +11148,7 @@ by W. Richard Stevens (Prentice Hall, 1997), for more information.
 1.The most popular open source Web server for GNU/Linux is the Apache server, available
 from http://www.apache.org .
 
-[℗ 220](#ptoc_220){id=p_220}
+[℗ 220](#t219){id=p220}
 -----------------
 
 n We make no attempt to regulate the resources (number of processes, memory
@@ -11198,7 +11198,7 @@ a single header file, server.h (see Listing 11.1), which is included by the othe
 Functions that are intended for use within a single compilation unit only are declared
 static and are not declared in server.h .
 
-[℗ 221](#ptoc_221){id=p_221}
+[℗ 221](#t221){id=p221}
 -----------------
 
 Listing 11.1 (server.h) Function and Variable Declarations
@@ -11240,7 +11240,7 @@ Listing 11.1 (server.h) Function and Variable Declarations
     void (* generate_function) (int);
     };
 
-[℗ 222](#ptoc_222){id=p_222}
+[℗ 222](#t221){id=p222}
 -----------------
 
     /* The directory from which modules are loaded. */
@@ -11282,7 +11282,7 @@ Listing 11.2 (common.c) General Utility Functions
     return ptr;
     }
 
-[℗ 223](#ptoc_223){id=p_223}
+[℗ 223](#t221){id=p223}
 -----------------
 
     void* xrealloc (void* ptr, size_t size)
@@ -11330,7 +11330,7 @@ Listing 11.2 (common.c) General Utility Functions
     else
     Listing 11.2 Continued
 
-[℗ 224](#ptoc_224){id=p_224}
+[℗ 224](#t221){id=p224}
 -----------------
 
     /* NUL-terminate the target. */
@@ -11381,7 +11381,7 @@ its argument list (see Section 2.1.1,"The Argument List," in Chapter 2).When
 the program is invoked from the shell, this is the path and name of the program
 as the user entered it.
 
-[℗ 225](#ptoc_225){id=p_225}
+[℗ 225](#t221){id=p225}
 -----------------
 
 n The variable verbose is nonzero if the program is running in verbose mode. In
@@ -11426,7 +11426,7 @@ Listing 11.3 (module.c) Server Module Loading and Unloading
     /* Make sure the symbol was found. */
     if (module_generate == NULL) {
 
-[℗ 226](#ptoc_226){id=p_226}
+[℗ 226](#t221){id=p226}
 -----------------
 
     /* The symbol is missing. While this is a shared library, it
@@ -11473,7 +11473,7 @@ deallocates the struct server_module object.
 module.c also defines a global variable module_dir .This is the path of the directory in
 which module_open attempts to find shared libraries corresponding to server modules.
 
-[℗ 227](#ptoc_227){id=p_227}
+[℗ 227](#t221){id=p227}
 -----------------
 
 
@@ -11523,7 +11523,7 @@ Listing 11.4 (server.c) Server Implementation
     " <body>\n"
     " <h1>Not Found</h1>\n"
 
-[℗ 228](#ptoc_228){id=p_228}
+[℗ 228](#t221){id=p228}
 -----------------
 
     " <p>The requested URL %s was not found on this server.</p>\n"
@@ -11570,7 +11570,7 @@ Listing 11.4 (server.c) Server Implementation
     module with the indicated name. Either way, return the HTTP
     response 404, Not Found. */
 
-[℗ 229](#ptoc_229){id=p_229}
+[℗ 229](#t221){id=p229}
 -----------------
 
     char response[1024];
@@ -11619,7 +11619,7 @@ Listing 11.4 (server.c) Server Implementation
     while (strstr (buffer, "\r\n\r\n") == NULL)
     Listing 11.4 Continued
 
-[℗ 230](#ptoc_230){id=p_230}
+[℗ 230](#t221){id=p230}
 -----------------
 
     bytes_read = read (connection_fd, buffer, sizeof (buffer));
@@ -11669,7 +11669,7 @@ Listing 11.4 (server.c) Server Implementation
     sigchld_action.sa_handler = &clean_up_child_process;
     sigaction (SIGCHLD, &sigchld_action, NULL);
 
-[℗ 231](#ptoc_231){id=p_231}
+[℗ 231](#t221){id=p231}
 -----------------
 
     /* Create a TCP socket. */
@@ -11719,7 +11719,7 @@ Listing 11.4 (server.c) Server Implementation
     if (errno == EINTR)
     Listing 11.4 Continued
 
-[℗ 232](#ptoc_232){id=p_232}
+[℗ 232](#t221){id=p232}
 -----------------
 
     /* The call was interrupted by a signal. Try again. */
@@ -11771,7 +11771,7 @@ Listing 11.4 (server.c) Server Implementation
     }
     }
 
-[℗ 233](#ptoc_233){id=p_233}
+[℗ 233](#t221){id=p233}
 -----------------
 
 These are the functions in server.c :
@@ -11819,7 +11819,7 @@ HTTP result code 404 and the message not_found_response_template .
 2.Your computer might be configured to include such interfaces as eth0 , an Ethernet card;
 lo , the local (loopback) network; or ppp0 , a dial-up network connection.
 
-[℗ 234](#ptoc_234){id=p_234}
+[℗ 234](#t221){id=p234}
 -----------------
 
 If the client sends a page request that corresponds to a server module,
@@ -11866,7 +11866,7 @@ Listing 11.5 (main.c) Main Server Program and Command-Line Parsing
     " -a, --address ADDR Bind to local address (by default, bind\n"
     " to all local addresses).\n"
 
-[℗ 235](#ptoc_235){id=p_235}
+[℗ 235](#t221){id=p235}
 -----------------
 
     " -h, --help Print this information.\n"
@@ -11912,7 +11912,7 @@ Listing 11.5 (main.c) Main Server Program and Command-Line Parsing
     if (local_host_name == NULL || local_host_name->h_length == 0)
     Listing 11.5 Continued
 
-[℗ 236](#ptoc_236){id=p_236}
+[℗ 236](#t221){id=p236}
 -----------------
 
     /* Could not resolve the name. */
@@ -11962,7 +11962,7 @@ Listing 11.5 (main.c) Main Server Program and Command-Line Parsing
     verbose = 1;
     break;
 
-[℗ 237](#ptoc_237){id=p_237}
+[℗ 237](#t221){id=p237}
 -----------------
 
     case "?":
@@ -12012,7 +12012,7 @@ specifying the --verbose ( -v ) option.
 Listing 11.5 Continued
 
 
-[℗ 238](#ptoc_238){id=p_238}
+[℗ 238](#t221){id=p238}
 -----------------
 
 n If the user specifies the --help ( -h ) option or specifies invalid options, main
@@ -12063,7 +12063,7 @@ Listing 11.6 (time.c) Server Module to Show Wall-Clock Time
     gettimeofday (&tv, NULL);
     ptm = localtime (&tv.tv_sec);
 
-[℗ 239](#ptoc_239){id=p_239}
+[℗ 239](#t239){id=p239}
 -----------------
 
     /* Format the date and time, down to a single second. */
@@ -12113,7 +12113,7 @@ Information
     " <body>\n"
     Listing 11.6 Continued
 
-[℗ 240](#ptoc_240){id=p_240}
+[℗ 240](#t239){id=p240}
 -----------------
 
     " <pre>\n";
@@ -12159,7 +12159,7 @@ Information
     Write an error message. */
     write (fd, error_message, strlen (error_message));
 
-[℗ 241](#ptoc_241){id=p_241}
+[℗ 241](#t239){id=p241}
 -----------------
 
     /* End the page. */
@@ -12205,7 +12205,7 @@ Space
     " <pre>\n";
     Listing 11.7 Continued
 
-    [Page 242](){id=p_242}
+    [Page 242](){id=p242}
     -------------
 
     /* HTML source for the end of the page we generate. */
@@ -12251,7 +12251,7 @@ Space
     write (fd, page_end, strlen (page_end));
     }
 
-[℗ 243](#ptoc_243){id=p_243}
+[℗ 243](#t239){id=p243}
 -----------------
 
 While issue.so sends the contents of a file using sendfile , this module must invoke a
@@ -12301,7 +12301,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     /* Set *UID and *GID to the owning user ID and group ID, respectively,
     of process PID. Return 0 on success, nonzero on failure. */
 
-[℗ 244](#ptoc_244){id=p_244}
+[℗ 244](#t239){id=p244}
 -----------------
 
     static int get_uid_gid (pid_t pid, uid_t* uid, gid_t* gid)
@@ -12344,7 +12344,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     return xstrdup (entry->gr_name);
     }
 
-[℗ 245](#ptoc_245){id=p_245}
+[℗ 245](#t239){id=p245}
 -----------------
 
     /* Return the name of the program running in process PID, or NULL on
@@ -12396,7 +12396,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     }
     Listing 11.9 Continued
 
-[℗ 246](#ptoc_246){id=p_246}
+[℗ 246](#t239){id=p246}
 -----------------
 
     /* Return the resident set size (RSS), in kilobytes, of process PID.
@@ -12448,7 +12448,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     int rss;
     char* program_name;
 
-[℗ 247](#ptoc_247){id=p_247}
+[℗ 247](#t239){id=p247}
 -----------------
 
     size_t result_length;
@@ -12498,7 +12498,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     " <th>Group</th>\n"
     Listing 11.9 Continued
 
-[℗ 248](#ptoc_248){id=p_248}
+[℗ 248](#t239){id=p248}
 -----------------
 
     " <th>RSS&nbsp;(KB)</th>\n"
@@ -12544,7 +12544,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     /* We’ve hit the end of the listing. */
     break;
 
-[℗ 249](#ptoc_249){id=p_249}
+[℗ 249](#t239){id=p249}
 -----------------
 
     /* If this entry is not composed purely of digits, it’s not a
@@ -12589,7 +12589,7 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     }
     Listing 11.9 Continued
 
-[℗ 250](#ptoc_250){id=p_250}
+[℗ 250](#t239){id=p250}
 -----------------
 
 Gathering process data and formatting it as an HTML table is broken down into
@@ -12639,7 +12639,7 @@ each string to the client socket file descriptor with a separate call to write ,
 would generate unnecessary network traffic because each string may be sent in a
 separate network packet.
 
-[℗ 251](#ptoc_251){id=p_251}
+[℗ 251](#t239){id=p251}
 -----------------
 
 To optimize packing of data into packets, we use a single call to writev instead
@@ -12693,7 +12693,7 @@ Listing 11.10 (Makefile) GNU Make Configuration File for Server Example
     .PHONY: all clean
     4. GNU Make comes installed on GNU/Linux systems.
 
-[℗ 252](#ptoc_252){id=p_252}
+[℗ 252](#t252){id=p252}
 -----------------
 
     # Default target: build everything.
@@ -12737,7 +12737,7 @@ linker, which creates an executable file that also exports its external symbols 
 library.This allows modules, which are dynamically loaded as shared libraries, to refer-
 ence functions from common.c that are linked statically into the server executable.
 
-[℗ 253](#ptoc_253){id=p_253}
+[℗ 253](#t252){id=p253}
 -----------------
 
 
@@ -12791,7 +12791,7 @@ at this port number. Request a page whose name matches one of the modules. For
 instance, to invoke the diskfree.so module, use this URL:
 http://localhost:4000/diskfree
 
-[℗ 254](#ptoc_254){id=p_254}
+[℗ 254](#t252){id=p254}
 -----------------
 
 Instead of 4000 , enter the port number you specified (or the port number that Linux
@@ -12842,7 +12842,7 @@ To learn about how GNU/Linux locates man pages, consult the man page for the man
 command itself by invoking this:
 % man man
 
-[℗ 255](#ptoc_255){id=p_255}
+[℗ 255](#t255){id=p255}
 -----------------
 
 You might also want to write info pages, using the GNU Info system, for the server
@@ -12856,7 +12856,7 @@ formats as well.
 
 Happy GNU/Linux programming!
 
-[℗ 256](#ptoc_256){id=p_256}
+[℗ 256](#t255){id=p256}
 -----------------
 
 III Appendixes
@@ -12869,11 +12869,11 @@ D Online Resources
 E Open Publication License Version 1.0
 F GNU General Public License
 
-[℗ 257](#ptoc_257){id=p_257}
+[℗ 257](#t257){id=p257}
 -----------------
 
 
-[℗ 258](#ptoc_258){id=p_258}
+[℗ 258](#t257){id=p258}
 -----------------
 
 Appendix A Other Development Tools
@@ -12895,7 +12895,7 @@ eliminating such constructions, you’ll reduce the risk of program bugs, and yo
 it easier to compile your programs on different GNU/Linux variants and even on
 other operating systems.
 
-[℗ 259](#ptoc_259){id=p_259}
+[℗ 259](#t259){id=p259}
 -----------------
 
 Using various command options, you can cause GCC to issue warnings about
@@ -12937,7 +12937,7 @@ ciencies. In the next section, we present four tools to find mistakes in using d
 cally allocated memory. In the subsequent section, we show how to analyze the
 program’s execution time using the gprof profiler.
 
-[℗ 260](#ptoc_260){id=p_260}
+[℗ 260](#t259){id=p260}
 -----------------
 
 A.2 Finding Dynamic Memory Errors
@@ -12984,7 +12984,7 @@ ferent inputs to ensure that every possible path through the program occurs.Also
 may use only one tool at a time, so you’ll have to repeat testing with several tools to
 get the best error checking.
 
-[℗ 261](#ptoc_261){id=p_261}
+[℗ 261](#t261){id=p261}
 -----------------
 
 Table A.1 Capabilities of Dynamic Memory-Checking Tools (X Indicates
@@ -13026,7 +13026,7 @@ enter w i p .
 n When finished, enter q .
 We’ll present the program’s code later, in Section A.2.7, and illustrate how to use it.
 
-[℗ 262](#ptoc_262){id=p_262}
+[℗ 262](#t261){id=p262}
 -----------------
 
 A.2.2 malloc Checking
@@ -13077,7 +13077,7 @@ deallocations:
 3. Run the program.All memory allocations and deallocations are stored in the
 logging file.
 
-[℗ 263](#ptoc_263){id=p_263}
+[℗ 263](#t261){id=p263}
 -----------------
 
 4. Using the mtrace command, analyze the memory allocations and deallocations
@@ -13130,7 +13130,7 @@ gram to allocate but not deallocate memory produces the following report:
     Please enter a command: a 0 12
     Please enter a command: q
 
-[℗ 264](#ptoc_264){id=p_264}
+[℗ 264](#t261){id=p264}
 -----------------
 
     .---------------.
@@ -13183,7 +13183,7 @@ line where a write or a read outside an allocation occurs.This is the only tool 
 discovers illegal reads. It is included in most GNU/Linux distributions, but the source
 code can be found at http://www.perens.com/FreeSoftware/ .
 
-[℗ 265](#ptoc_265){id=p_265}
+[℗ 265](#t261){id=p265}
 -----------------
 
 As with ccmalloc , your program’s object files must be linked with Electric Fence’s
@@ -13233,7 +13233,7 @@ deallocations is the most common dynamic memory error, use mtrace during initial
 development.The program is available on all GNU/Linux systems and has been well
 tested.After ensuring that the number of allocations and deallocations match, use
 
-[℗ 266](#ptoc_266){id=p_266}
+[℗ 266](#t261){id=p266}
 -----------------
 
 Electric Fence to find illegal memory accesses.This will eliminate almost all memory
@@ -13279,7 +13279,7 @@ Listing A.2 (malloc-use.c) Dynamic Memory Allocation Checking Example
     /* Deallocate memory. */
     void deallocate (char** array)
 
-[℗ 267](#ptoc_267){id=p_267}
+[℗ 267](#t261){id=p267}
 -----------------
 
     {
@@ -13326,7 +13326,7 @@ Listing A.2 (malloc-use.c) Dynamic Memory Allocation Checking Example
     && array_index < array_size)
     Listing A.2 Continued
 
-[℗ 268](#ptoc_268){id=p_268}
+[℗ 268](#t261){id=p268}
 -----------------
 
     allocate (&(array[array_index]), size_or_position);
@@ -13377,7 +13377,7 @@ tion time.This can help you determine which parts of the program to optimize or
 rewrite to execute more quickly. It can also help you find errors. For example, you
 may find that a particular function is called many more times than you expect.
 
-[℗ 269](#ptoc_269){id=p_269}
+[℗ 269](#t269){id=p269}
 -----------------
 
 In this section, we describe how to use gprof . Rewriting code to run more quickly
@@ -13430,7 +13430,7 @@ Please enter a postfix expression:
 So, for example, to multiply 6 and 8, you would use 6 8 ×.To multiply 6 and 8 and then add 5
 to the result, you would use 6 8 × 5 +.
 
-[℗ 270](#ptoc_270){id=p_270}
+[℗ 270](#t269){id=p270}
 -----------------
 
 The calculator, defined in calculator.c , reads each expression, storing intermediate
@@ -13480,7 +13480,7 @@ Computing the function decrement_number and all the functions it calls required
 individual execution required 0.0 seconds—namely, a time too small to measure.The
 add function was invoked 1,787 times, presumably to compute the product. Each call
 
-[℗ 271](#ptoc_271){id=p_271}
+[℗ 271](#t269){id=p271}
 -----------------
 
 required 0.92 seconds.The copy_number function was invoked only 1,788 times, while
@@ -13534,7 +13534,7 @@ dren. If the function call graph is a tree, this number is easy to compute, but 
 sively defined functions must be treated specially. For example, the even function calls
 odd , which calls even . Each largest such call cycle is given its own number and is dis-
 
-[℗ 272](#ptoc_272){id=p_272}
+[℗ 272](#t269){id=p272}
 -----------------
 
 played individually in the call graph data. Consider this profiling data from determin-
@@ -13587,7 +13587,7 @@ infrequently called functions may be inaccurate.To avoid these inaccuracies, run
 executable for longer periods of time, or sum together profile data from several execu-
 tions. Read about the -s option to sum profiling data in gprof ’s info pages.
 
-[℗ 273](#ptoc_273){id=p_273}
+[℗ 273](#t269){id=p273}
 -----------------
 
 A.3.5 Source Code for the Calculator Program
@@ -13636,7 +13636,7 @@ Listing A.3 (calculator.c) Main Calculator Program
     if (empty_stack (*stack))
     return 0;
 
-[℗ 274](#ptoc_274){id=p_274}
+[℗ 274](#t269){id=p274}
 -----------------
 
     operand = pop_stack (stack);
@@ -13685,7 +13685,7 @@ Listing A.3 (calculator.c) Main Calculator Program
     return 0;
     }
 
-[℗ 275](#ptoc_275){id=p_275}
+[℗ 275](#t269){id=p275}
 -----------------
 
 The functions in Listing A.4 implement unary numbers using empty linked lists.
@@ -13729,7 +13729,7 @@ Listing A.4 (number.c) Unary Number Implementation
     while (!zerop (n))
     n = decrement_number (n);
 
-[℗ 276](#ptoc_276){id=p_276}
+[℗ 276](#t269){id=p276}
 -----------------
 
     }
@@ -13776,7 +13776,7 @@ Listing A.4 (number.c) Unary Number Implementation
     number answer2 = add (answer, n2);
     destroy_number (answer);
 
-[℗ 277](#ptoc_277){id=p_277}
+[℗ 277](#t269){id=p277}
 -----------------
 
     answer = answer2;
@@ -13823,7 +13823,7 @@ Listing A.4 (number.c) Unary Number Implementation
     }
     Listing A.4 Continued
 
-[℗ 278](#ptoc_278){id=p_278}
+[℗ 278](#t269){id=p278}
 -----------------
 
 The functions in Listing A.5 implement a stack of unary numbers using a linked list.
@@ -13867,7 +13867,7 @@ Listing A.5 (stack.c) Unary Number Stack
     }
     /* Remove all the stack’s elements. */
 
-[℗ 279](#ptoc_279){id=p_279}
+[℗ 279](#t269){id=p279}
 -----------------
 
     void clear_stack (Stack* stack)
@@ -13916,7 +13916,7 @@ Listing A.5 (stack.c) Unary Number Stack
     #endif /* DEFINITIONS_H */
     Listing A.5 Continued
 
-[℗ 280](#ptoc_280){id=p_280}
+[℗ 280](#t269){id=p280}
 -----------------
 
 Appendix B Low-Level I/O
@@ -13943,7 +13943,7 @@ library is also available in the C++ language.
 2. See Chapter 8,"Linux System Calls," for an explanation of the difference between a system
 call and an ordinary function call.
 
-[℗ 281](#ptoc_281){id=p_281}
+[℗ 281](#t281){id=p281}
 -----------------
 
 Throughout this book, we assume that you’re familiar with the calls described in this
@@ -13993,7 +13993,7 @@ may be opened in all three modes. For instance, the permissions on a file might 
 a particular process from opening it for reading or for writing; a file on a read-only
 device such as a CD-ROM drive may not be opened for writing.
 
-[℗ 282](#ptoc_282){id=p_282}
+[℗ 282](#t282){id=p282}
 -----------------
 
 You can specify additional options by using the bitwise or of this value with one or
@@ -14038,7 +14038,7 @@ in a program, or invoking this command
 specifies that write permissions for group members and read, write, and execute permissions for others
 will always be masked out of a new file’s permissions.
 
-[℗ 283](#ptoc_283){id=p_283}
+[℗ 283](#t282){id=p283}
 -----------------
 
 Listing B.1 (create-file.c) Create a New File
@@ -14091,7 +14091,7 @@ when you’re done with them.A typical limit is 1,024 file descriptors per proce
 can adjust this limit with the setrlimit system call; see Section 8.5," getrlimit and
 setrlimit : Resource Limits," for more information.
 
-[℗ 284](#ptoc_284){id=p_284}
+[℗ 284](#t282){id=p284}
 -----------------
 
 B.1.3 Writing Data
@@ -14140,7 +14140,7 @@ Listing B.2 (timestamp.c) Append a Timestamp to a File
     return 0;
     }
 
-[℗ 285](#ptoc_285){id=p_285}
+[℗ 285](#t282){id=p285}
 -----------------
 
 Here’s how the timestamp program works:
@@ -14187,7 +14187,7 @@ Listing B.3 (write-all.c) Write All of a Buffer of Data
     return count;
     }
 
-[℗ 286](#ptoc_286){id=p_286}
+[℗ 286](#t282){id=p286}
 -----------------
 
 B.1.4 Reading Data
@@ -14240,7 +14240,7 @@ Listing B.4 (hexdump.c) Print a Hexadecimal Dump of a File
     size_t offset = 0;
     size_t bytes_read;
 
-[℗ 287](#ptoc_287){id=p_287}
+[℗ 287](#t282){id=p287}
 -----------------
 
     int i;
@@ -14289,7 +14289,7 @@ and reread it without reopening it.
 
 Listing B.4 Continued
 
-[℗ 288](#ptoc_288){id=p_288}
+[℗ 288](#t282){id=p288}
 -----------------
 
 The lseek call enables you to reposition a file descriptor in a file. Pass it the file
@@ -14342,7 +14342,7 @@ const int megabyte = 1024 * 1024;
 char* filename = argv[1];
 continues
 
-[℗ 289](#ptoc_289){id=p_289}
+[℗ 289](#t282){id=p289}
 -----------------
 
 size_t length = (size_t) atoi (argv[2]) * megabyte;
@@ -14390,7 +14390,7 @@ the full amount of disk space.
 Linux does not permit you to rewind before the start of a file with lseek .
 Listing B.5 Continued
 
-[℗ 290](#ptoc_290){id=p_290}
+[℗ 290](#t282){id=p290}
 -----------------
 
 B.2 stat
@@ -14437,7 +14437,7 @@ device number is shifted left 8 bits; the minor device number occupies the least
 icant 8 bits.The st_ino field contains the inode number of this file.This locates the file
 in the file system.
 
-[℗ 291](#ptoc_291){id=p_291}
+[℗ 291](#t291){id=p291}
 -----------------
 
 If you call stat on a symbolic link, stat follows the link and you can obtain the
@@ -14486,7 +14486,7 @@ Listing B.6 (read-file.c) Read a File into a Buffer
     return NULL;
     }
 
-[℗ 292](#ptoc_292){id=p_292}
+[℗ 292](#t291){id=p292}
 -----------------
 
     /* Allocate a buffer large enough to hold the file’s contents. */
@@ -14535,7 +14535,7 @@ arguments it is writing—for each argument it writes the text of the argument i
 well as a new line character. Because we don’t know the number of arguments in
 advance, the array is allocated using malloc .
 
-[℗ 293](#ptoc_293){id=p_293}
+[℗ 293](#t293){id=p293}
 -----------------
 
 Listing B.7 (write-args.c) Write the Argument List to a File with writev
@@ -14584,7 +14584,7 @@ Listing B.7 (write-args.c) Write the Argument List to a File with writev
     fd = open (filename, O_WRONLY | O_CREAT);
     writev (fd, vec, 2 * argc);
 
-[℗ 294](#ptoc_294){id=p_294}
+[℗ 294](#t293){id=p294}
 -----------------
 
 close (fd);
@@ -14628,7 +14628,7 @@ To go the other way, from a file descriptor to a stream, use the fdopen function
 constructs a FILE* stream pointer corresponding to a file descriptor.The fdopen func-
 tion takes a file descriptor argument and a string argument specifying the mode in
 
-[℗ 295](#ptoc_295){id=p_295}
+[℗ 295](#t295){id=p295}
 -----------------
 
 which to create the stream.The syntax of the mode argument is the same as that of
@@ -14680,7 +14680,7 @@ GNU/Linux provides functions for reading the contents of directories.Although th
 aren’t directly related to the low-level I/O functions described in this appendix, we
 present them here anyway because they’re often useful in application programs.
 
-[℗ 296](#ptoc_296){id=p_296}
+[℗ 296](#t296){id=p296}
 -----------------
 
 To read the contents of a directory, follow these steps:
@@ -14732,7 +14732,7 @@ Listing B.8 (listdir.c) Print a Directory Listing
     else if (S_ISBLK (st.st_mode))
     return "block device";
 
-[℗ 297](#ptoc_297){id=p_297}
+[℗ 297](#t296){id=p297}
 -----------------
 
     else if (S_ISFIFO (st.st_mode))
@@ -14784,7 +14784,7 @@ Listing B.8 (listdir.c) Print a Directory Listing
     }
     Listing B.8 Continued
 
-[℗ 298](#ptoc_298){id=p_298}
+[℗ 298](#t296){id=p298}
 -----------------
 
     /* All done. */
@@ -14820,11 +14820,11 @@ tory ( . ) and the parent directory ( .. ) to be included.
 
 The first character of each line in the output of ls indicates the type of the entry.
 
-[℗ 299](#ptoc_299){id=p_299}
+[℗ 299](#t296){id=p299}
 -----------------
 
 
-[℗ 300](#ptoc_300){id=p_300}
+[℗ 300](#t296){id=p300}
 -----------------
 
 Appendix C Table of Signals
@@ -14843,7 +14843,7 @@ invoking the following:
 
     % man 7 signal
 
-[℗ 301](#ptoc_301){id=p_301}
+[℗ 301](#t301){id=p301}
 -----------------
 
 Table C.1 Linux Signals
@@ -14899,7 +14899,7 @@ Table C.1 Linux Signals
 15. `SIGVTALRM` The setitimer schedules the delivery of this signal at a future
     time. See Section 8.13," setitimer : Setting Interval Timers."
 
-[℗ 302](#ptoc_302){id=p_302}
+[℗ 302](#t301){id=p302}
 -----------------
 
 Appendix D Online Resources
@@ -14921,7 +14921,7 @@ n http://www.linuxdoc.org is the home of the Linux Documentation Project.
 This site is a repository for a wealth of documentation, FAQ lists, HOWTOs,
 and other documentation about GNU/Linux systems and software.
 
-[℗ 303](#ptoc_303){id=p_303}
+[℗ 303](#t303){id=p303}
 -----------------
 
 D.2 Information About GNU/Linux Software
@@ -14972,7 +14972,7 @@ m http://www.linuxsecurity.com contains information, techniques, and links to
 software related to GNU/Linux security.The site is of interest to users, system
 administrators, and developers.
 
-[℗ 304](#ptoc_304){id=p_304}
+[℗ 304](#t304){id=p304}
 -----------------
 
 Appendix E Open Publication License Version 1.0
@@ -15000,7 +15000,7 @@ outer surfaces of the book. On all outer surfaces of the book, the original publ
 name shall be as large as the title of the work and cited as possessive with respect to
 the title.
 
-[℗ 305](#ptoc_305){id=p_305}
+[℗ 305](#t305){id=p305}
 -----------------
 
 II. Copyright
@@ -15049,7 +15049,7 @@ days before your manuscript or media freeze, to give the authors time to provide
 updated documents.This notification should describe modifications, if any, made
 to the document.
 
-[℗ 306](#ptoc_306){id=p_306}
+[℗ 306](#t306){id=p306}
 -----------------
 
 2. All substantive modifications (including deletions) be either clearly marked up in
@@ -15095,7 +15095,7 @@ Wiley, or the Open Publication Authors’ List at opal@opencontent.org , via ema
 To subscribe to the Open Publication Authors’ List, send email to
 opal-request@opencontent.org with the word "subscribe" in the body.
 
-[℗ 307](#ptoc_307){id=p_307}
+[℗ 307](#t307){id=p307}
 -----------------
 
 To post to the Open Publication Authors’List,send email to opal@opencontent.org ,
@@ -15104,7 +15104,7 @@ or simply reply to a previous post.
 To unsubscribe from the Open Publication Authors’ List, send email to
 opal-request@opencontent.org with the word "unsubscribe" in the body.
 
-[℗ 308](#ptoc_308){id=p_308}
+[℗ 308](#t307){id=p308}
 -----------------
 
 GNU General Public License 1
@@ -15133,7 +15133,7 @@ use pieces of it in new free programs; and that you know you can do these things
 
 1.This license can also be found online at http://www.gnu.org/copyleft/gpl.html .
 
-[℗ 309](#ptoc_309){id=p_309}
+[℗ 309](#t309){id=p309}
 -----------------
 
 To protect your rights,we need to make restrictions that forbid anyone to deny you
@@ -15183,7 +15183,7 @@ you receive it, in any medium, provided that you conspicuously and appropri-
 ately publish on each copy an appropriate copyright notice and disclaimer of
 warranty; keep intact all the notices that refer to this License and to the absence
 
-[℗ 310](#ptoc_310){id=p_310}
+[℗ 310](#t310){id=p310}
 -----------------
 
 of any warranty; and give any other recipients of the Program a copy of this
@@ -15231,7 +15231,7 @@ the Program (or with a work based on the Program) on a volume of a storage
 or distribution medium does not bring the other work under the scope of this
 License.
 
-[℗ 311](#ptoc_311){id=p_311}
+[℗ 311](#t310){id=p311}
 -----------------
 
 3. You may copy and distribute the Program (or a work based on it, under Section
@@ -15281,7 +15281,7 @@ any work based on the Program), you indicate your acceptance of this License
 to do so, and all its terms and conditions for copying, distributing or modifying
 the Program or works based on it.
 
-[℗ 312](#ptoc_312){id=p_312}
+[℗ 312](#t310){id=p312}
 -----------------
 
 6. Each time you redistribute the Program (or any work based on the Program),
@@ -15331,7 +15331,7 @@ General Public License from time to time. Such new versions will be similar in
 spirit to the present version, but may differ in detail to address new problems or
 concerns.
 
-[℗ 313](#ptoc_313){id=p_313}
+[℗ 313](#t310){id=p313}
 -----------------
 
 Each version is given a distinguishing version number. If the Program specifies a
@@ -15377,7 +15377,7 @@ FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
 PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS
 BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-[℗ 314](#ptoc_314){id=p_314}
+[℗ 314](#t310){id=p314}
 -----------------
 
 End of Terms and Conditions
@@ -15431,7 +15431,7 @@ Yoyodyne, Inc., hereby disclaims all copyright interest in the program
 signature of Ty Coon, 1 April 1989
 Ty Coon, President of Vice
 
-[℗ 315](#ptoc_315){id=p_315}
+[℗ 315](#t315){id=p315}
 -----------------
 
 This General Public License does not permit incorporating your program into propri-
@@ -15447,7 +15447,7 @@ Copyright notice above.
 Free Software Foundation, Inc., 59 Temple Place–Suite 330, Boston, MA 02111, USA
 Updated: 31 Jul 2000 jonas
 
-[℗ 316](#ptoc_316){id=p_316}
+[℗ 316](#t315){id=p316}
 -----------------
 
 Index
@@ -15512,7 +15512,7 @@ version number of kernel, 148, 160
 /tmp directory, race conditions (security hole), 213-216
 | (pipe symbol), 110
 
-[℗ 317](#ptoc_317){id=p_317}
+[℗ 317](#t317){id=p317}
 -----------------
 input operands, 193
 output operands, 192-193
@@ -15593,7 +15593,7 @@ syntax, 191-192
 assembler instructions, 192
 clobbered registers, 194
 
-[℗ 318](#ptoc_318){id=p_318}
+[℗ 318](#t317){id=p318}
 -----------------
 break command, GDB, 12
 buffer overruns (security hole), 211-213
@@ -15664,7 +15664,7 @@ system calls ar, 37
 cp, device entries, 131
 dd (block copying), 140
 
-[℗ 319](#ptoc_319){id=p_319}
+[℗ 319](#t317){id=p319}
 -----------------
 export, 25
 free, 161
@@ -15741,7 +15741,7 @@ dd command (block copying), 140
 deadlocks (threads), 82-83
 on multiple threads, 91
 
-[℗ 320](#ptoc_320){id=p_320}
+[℗ 320](#t317){id=p320}
 -----------------
 
 deallocation semaphores (processes), 101
@@ -15818,7 +15818,7 @@ dlopen function, 42-43
 dlsym function, 43
 DNS (Domain Name Service), 123
 
-[℗ 321](#ptoc_321){id=p_321}
+[℗ 321](#t317){id=p321}
 -----------------
 documentation, 13
 header files, 15
@@ -15897,7 +15897,7 @@ execute permissions, warning about, 204
 executing programs with the shell, security holes, 216-218
 execve system call, 168
 
-[℗ 322](#ptoc_322){id=p_322}
+[℗ 322](#t317){id=p322}
 -----------------
 
 exit codes, 24-25
@@ -15974,7 +15974,7 @@ bind, 119
 blocking functions, defined, 34
 char_print, 64
 
-[℗ 323](#ptoc_323){id=p_323}
+[℗ 323](#t317){id=p323}
 -----------------
 
 cleanup handlers, 75-76
@@ -16075,7 +16075,7 @@ tmpfile, 29
 unsetenv, 26
 wait, terminating processes, 56-57
 
-[℗ 324](#ptoc_324){id=p_324}
+[℗ 324](#t317){id=p324}
 -----------------
 
 
@@ -16153,7 +16153,7 @@ conversion, 123
 htons function, 123
 HTTP (Hypertext Transport Protocol), 125, 221
 
-[℗ 325](#ptoc_325){id=p_325}
+[℗ 325](#t317){id=p325}
 -----------------
 
 
@@ -16233,7 +16233,7 @@ Index J-K
 job control notification, in shell, 93
 job-queue1.c (thread race conditions), listing 4.10, 78
 
-[℗ 326](#ptoc_326){id=p_326}
+[℗ 326](#t317){id=p326}
 -----------------
 
 job-queue2.c (mutexes), listing 4.11, 80-81
@@ -16307,7 +16307,7 @@ itemer.c (interal timers), 185-186
 job-queue1.c (thread race conditions), 78
 job-queue2.c (mutexes), 80-81
 
-[℗ 327](#ptoc_327){id=p_327}
+[℗ 327](#t317){id=p327}
 -----------------
 job-queue3.c (semaphores), 84-86
 limit-cpu.c (resource limits), 175
@@ -16377,7 +16377,7 @@ write-args.c (writev function), 294-295
 write_journal_entry.c (data buffer flushing), 173
 zombie.c (zombie processes), 58
 
-[℗ 328](#ptoc_328){id=p_328}
+[℗ 328](#t317){id=p328}
 -----------------
 
 loading server modules (sample application program), 226-227
@@ -16449,7 +16449,7 @@ private mappings, 109
 shared file access, 108-109
 maps process entry, 150
 
-[℗ 329](#ptoc_329){id=p_329}
+[℗ 329](#t317){id=p329}
 -----------------
 
 memory dynamic allocation, 261-262
@@ -16527,7 +16527,7 @@ Index N
 
 named pipes. See FIFOs nanosleep system call, 181-182
 
-[℗ 330](#ptoc_330){id=p_330}
+[℗ 330](#t317){id=p330}
 -----------------
 NDEBUG macro, 8, 30
 network byte order (sockets), 123
@@ -16603,7 +16603,7 @@ perror function, 33
 physical memory, locking, 177-179
 PIC (position-independent code), 38
 
-[℗ 331](#ptoc_331){id=p_331}
+[℗ 331](#t317){id=p331}
 -----------------
 pid (process ID), 46
 pipe system call, 110
@@ -16673,7 +16673,7 @@ scheduling, 52
 signals, 52-54
 statistics, 158
 
-[℗ 332](#ptoc_332){id=p_332}
+[℗ 332](#t317){id=p332}
 -----------------
 terminating, 47, 55-56
 cleaning up child processes, 59-60
@@ -16751,7 +16751,7 @@ pthread_setspecific function, 73
 pthread_testcancel function, 70
 PTYs (pseudo-terminals), 142-144
 
-[℗ 333](#ptoc_333){id=p_333}
+[℗ 333](#t317){id=p333}
 -----------------
 
 
@@ -16832,7 +16832,7 @@ sticky bits, 204-205
 file permissions, 200-204
 warning about execute permissions, 204
 
-[℗ 334](#ptoc_334){id=p_334}
+[℗ 334](#t317){id=p334}
 -----------------
 GID (group ID), 198
 holes in, 211
@@ -16909,7 +16909,7 @@ job control notification, 93
 shm.c (shared memory), listing 5.1, 99-100
 shmat function, 98-99
 
-[℗ 335](#ptoc_335){id=p_335}
+[℗ 335](#t317){id=p335}
 -----------------
 shmctl function, 99
 shmdt function, 99
@@ -16988,7 +16988,7 @@ sscanf command, 149
 stack.c (unary number stack), listing A.5, 279-280
 standard libraries, linking to, 40
 
-[℗ 336](#ptoc_336){id=p_336}
+[℗ 336](#t317){id=p336}
 -----------------
 standard port numbers, 125
 stat process entry, 151
@@ -17075,7 +17075,7 @@ open, 282-284
 pipe, 110
 read, 287-288
 
-[℗ 337](#ptoc_337){id=p_337}
+[℗ 337](#t317){id=p337}
 -----------------
 readdir, 297
 readlink, 182-183
@@ -17151,7 +17151,7 @@ creating, 62-63
 debugging, 77-78
 defined, 61
 
-[℗ 338](#ptoc_338){id=p_338}
+[℗ 338](#t317){id=p338}
 -----------------
 detach state, defined, 68
 detached threads creating, 69
@@ -17232,7 +17232,7 @@ errno, 33
 thread-specific data, 72-74
 vector reads, low-level I/O functions, 295
 
-[℗ 339](#ptoc_339){id=p_339}
+[℗ 339](#t317){id=p339}
 -----------------
 
 vector writes, low-level I/O functions, 293-295
@@ -17262,7 +17262,7 @@ man pages, 255
 zombie processes, 57-59
 zombie.c (zombie processes), listing 3.6, 58
 
-[℗ 340](#ptoc_340){id=p_340}
+[℗ 340](#t317){id=p340}
 -----------------
 
 V O I C E S T H A T M A T T E R
@@ -17310,7 +17310,7 @@ FAX: (317) 581-4663
 W W W . N E W R I D E R S . C O M
 W W W . N E W R I D E R S . C O M
 
-[℗ 341](#ptoc_341){id=p_341}
+[℗ 341](#t317){id=p341}
 -----------------
 
 ISBN 073570970X
@@ -17389,7 +17389,7 @@ able in PHP.
 
 T O P S E L L I N G B O O K S F R O M N E W R I D E R S
 
-[℗ 342](#ptoc_342){id=p_342}
+[℗ 342](#t317){id=p342}
 -----------------
 
 New Riders has partnered with
@@ -17438,7 +17438,7 @@ you find in New Riders
 books, extending your
 knowledge
 
-[℗ 343](#ptoc_343){id=p_343}
+[℗ 343](#t317){id=p343}
 -----------------
 
 Colophon
@@ -17454,6 +17454,6 @@ printed on 50# Husky Offset Smooth paper at R.R. Donnelley & Sons in Crawfordsvi
 Prepress consisted of PostScript computer-to-plate technology (filmless process).The cover was
 printed at Moore Langen Printing in Terre Haute, Indiana, on Carolina, coated on one side.
 
-[℗ 344](#ptoc_344){id=p_344}
+[℗ 344](#t317){id=p344}
 -----------------
 

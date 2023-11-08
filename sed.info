@@ -485,7 +485,7 @@ Line 1
 
 1. sed 读取首行数据到 *pattern space*；
 2. 将当前行从 *pattern space* 转存到 *hold space*，暂时保存起来；
-3. sed 读取第后续的一行数据；
+3. sed 读取后续的一行数据；
 4. 现在将 *hold space* 暂存的数据恢复到 *pattern space*，并且紧跟新数据后面；
 5. 然后再将目前已经处理好的数据转存到 *hold space*；
 6. 重复执行 3 ~ 5 步，直到所有输入数据处理完毕，逆序处理就完成了；
@@ -634,9 +634,14 @@ Apple
 ```
 
 `gawk` 提供了扩展机制，可以使用 C/C++ 编写动态链接库扩展功能，其本身也自带了
-一系列扩展，其中一个就是 `readfile`，用于读取磁盘中的数据文件。扩展开发参考
-官方文档 17.4 API Description，`gawkapi.h`。第三方扩展项目 `gawkextlib` 提供多种数据
-文档处理，包括 JSON 等格式，https://sourceforge.net/projects/gawkextlib/
+一系列扩展，其中一个就是 `readfile`，用于读取磁盘中的数据文件。另外，`gawk` 和
+`sed` 一样支持直接编辑文件（in-place），这个功能也是通过扩展模块的形式提供的，
+使用 `@namespace "inplace"` 加载此功能。使用控制台 stdout 文件重定向就可以写文件。
+
+扩展开发参考官方文档 17.4 API Description，`gawkapi.h`。
+
+第三方扩展项目 `gawkextlib` 提供多种数据文档处理，包括 JSON 等格式。
+https://sourceforge.net/projects/gawkextlib/
 
 使用 `readfile` 扩展读取的文件将作为一个数据结构处理。注意 `print` 表达式不是函数，
 它们不一样，调用函数需要使用圆括号。
@@ -717,15 +722,27 @@ seq 3 | awk -F" " '
 # 3 -> 
 ```
 
-要使用 `gawk` 替换 `sed` 来完成任务，基本上只需要掌握两个函数即可：
+要使用 `gawk` 替换 `sed` 来完成任务，基本上只需要掌握两个函数即可，`sub` 和 `match`
+两个函数除了指定正则，默认输入的字符串是 `$0` 变量的值，即当前处理的数据结构，
+也可以指定其它值。字符串替换函数有三个版本：
+
+1. `sub` 基本的正则匹配、替换函数，使用 `&` 引用整个匹配串；
+2. `gsub` Global Substitution 版本，对输入字符串中多个匹配进行处理；
+3. `gensub` General 版本正则匹配、替换函数，可以使用 `\N` (N=[1,9]) 引用匹配串。
+    HOW 参数可以指定 `g` or `G` 开头的字符串，表示启用 "global" 选项，
+    或者一个数值表示要执行替换匹配分组序号。
+
+注意：`gensub` 通用替换函数直接返回替换后的字符串。另外，要考虑脚本的字符转义，
+脚本中编写 "\\1" 才表示引用第一个正则分组匹配到的内容。`&` 转义表达是 `\\&`。
 
 ```sh
 # sub(REGEXP, REPLACEMENT` [`, TARGET`]`)
+# gsub(REGEXP, REPLACEMENT` [`, TARGET`]`)
+# gensub(REGEXP, REPLACEMENT, HOW` [`, TARGET`]`) #
+# match(STRING, REGEXP` [`, ARRAY`]`)
 
       str = "water, water, everywhere"
       sub(/at/, "ith", str)
-
-# match(STRING, REGEXP` [`, ARRAY`]`)
 
       {
           if ($1 == "FIND")
@@ -738,6 +755,58 @@ seq 3 | awk -F" " '
       }
 ```
 
+使用以下实例演示这些函数的使用，[Advanced Linux Programming] 电子书的目录数据处理，
+为了给 Markdown 添加链接，文档中有一个 TOC 总目录，每一页也都有页码引用标签。
+它们的连接结构如下：
+
+[Advanced Linux Programming]: https://github.com/Jeangowhy/opendocs/blob/main/adv_Linux_prog.md
+
+1. TOC 总目录条目链接格式 `[℗](#p315){id=t315}`，其中 id 属性表示标签本身地址；
+2. 页码链接标签链接格式 `[℗](#t315){id=p315}`，其中 id 属性指示了页码地址；
+
+点击页码标签跳转到 TOC 相应的位置，点击目标条目就跳转到相应的页码地址。但是，
+总目录条目不可能对应每一个页码，需要将各个页面标签中的跳转地址映射到 TOC 条目。
+现有数据如下，单个数值的行对应 TOC 目录存在的地址：
+
+```sh
+315
+315
+315 [℗ 315](#t315){id=p_315}
+316 [℗ 316](#t316){id=p_316}
+317
+317 [℗ 317](#t317){id=p_317}
+318 [℗ 318](#t318){id=p_318}
+319 [℗ 319](#t319){id=p_319}
+320 [℗ 320](#t320){id=p_320}
+321 [℗ 321](#t321){id=p_321}
+```
+
+处理逻辑是：读取数据，判断是否是一个 TOC 标签地址，如果是就暂存到 `toc` 变量中。
+如果读取到的是页码标签，寻么就用当前的 `toc` 地址替换它的链接地址，awk 脚本如下：
+
+```sh
+/.*/ {
+    if ($0 ~ /^[[:digit:]]+$/) {
+        toc = $0
+    } else {
+        $0 = gensub(/(\<t)([[:digit:]]+)/, "\\1" toc, "g")
+        # sub(/(#[^[:digit:]]+)[[:digit:]]+/, "#t" toc)
+        print $0
+    }
+}
+```
+
+经过处理后的数据如下：
+
+```sh
+315 [℗ 315](#t315){id=p_315}
+316 [℗ 316](#t315){id=p_316}
+317 [℗ 317](#t317){id=p_317}
+318 [℗ 318](#t317){id=p_318}
+319 [℗ 319](#t317){id=p_319}
+320 [℗ 320](#t317){id=p_320}
+321 [℗ 321](#t317){id=p_321}
+```
 
 AWK 脚本程序的一般形式如下，它使用正则模式 PATTERN 匹配的规则来管理
 一组动作（Actions），也就是 AWK 脚本编程，脚本使用花括号包括。正则模式
@@ -901,6 +970,16 @@ AWK 正则规则符号参考如下，匹配测试表达式语法是 `EXP ~ /REGE
 | \` | Matches the empty string at the beginning of a buffer (string)  |
 | \' | Matches the empty string at the end of a buffer (string) |
 
+AWK 使用 `\<` 和 `\>` 两个运算符类似后向、前向零宽度匹配，只用于单词边界，
+并且不是零宽模式。
+
+JavaScript ES6 支持零宽模式，前行断言 lookahead 和后行断言 lookbehind，有 4 种形式：
+
+    (?=pattern)  零宽正面、前行断言 zero-width positive lookahead assertion
+    (?!pattern)  零宽负面、前行断言 zero-width negative lookahead assertion
+    (?<=pattern) 零宽正面、后行断言 zero-width positive lookbehind assertion
+    (?<!pattern) 零宽负面、后行断言 zero-width negative lookbehind assertion
+
 AWK 内置变量
 
 | Buit-in Vars | Description |
@@ -915,7 +994,7 @@ AWK 内置变量
 | ERRNO       | 最后一个系统错误的描述。
 | FIELDWIDTHS | 字段宽度列表（用空格键分隔）。
 | FILENAME    | 当前输入文件的名。
-| IGNORECASE  | 如果为真，则进行忽略大小写的匹配。
+| IGNORECASE  | 如果为真，正则表达式匹配时忽略大小写。
 | NR          | Record number 表示记录序号，默认对应于当前转入数据的行号。
 | FNR         | The current record number in the current file. 同 `NR` ，但相对于当前文件。
 | FS          | Field separator 字段分隔符（默认是任何空格）。
@@ -984,6 +1063,9 @@ AWK 数值运算、赋值运算符号缩写形式
 Table 6.2: Arithmetic assignment operators
 
 
+GNU sed - GNU Sed: a stream editor
+======================================================
+
 *********
 
 This is sed.info, produced by makeinfo version 6.5 from sed.texi.
@@ -1004,11 +1086,82 @@ START-INFO-DIR-ENTRY
 
 END-INFO-DIR-ENTRY
 
+- GNU 'sed'
+- 1 Introduction
+- 2 Running sed
+-   2.1 Overview
+-   2.2 Command-Line Options
+-   2.3 Exit status
+- 3 'sed' scripts
+-   3.1 'sed' script overview
+-   3.2 'sed' commands summary
+-   3.3 The 's' Command
+-   3.4 Often-Used Commands
+-   3.5 Less Frequently-Used Commands
+-   3.6 Commands for 'sed' gurus
+-   3.7 Commands Specific to GNU 'sed'
+-   3.8 Multiple commands syntax
+-     3.8.1 Commands Requiring a newline
+- 4 Addresses: selecting lines
+-   4.1 Addresses overview
+-   4.2 Selecting lines by numbers
+-   4.3 selecting lines by text matching
+-   4.4 Range Addresses
+- 5 Regular Expressions: selecting text
+-   5.1 Overview of regular expression in 'sed'
+-   5.2 Basic (BRE) and extended (ERE) regular expression
+-   5.3 Overview of basic regular expression syntax
+-   5.4 Overview of extended regular expression syntax
+-   5.5 Character Classes and Bracket Expressions
+-   5.6 regular expression extensions
+-   5.7 Back-references and Subexpressions
+-   5.8 Escape Sequences - specifying special characters
+-     5.8.1 Escaping Precedence
+-   5.9 Multibyte characters and Locale Considerations
+-     5.9.1 Invalid multibyte characters
+-     5.9.2 Upper/Lower case conversion
+-     5.9.3 Multibyte regexp character classes
+- 6 Advanced 'sed': cycles and buffers
+-   6.1 How 'sed' Works
+-   6.2 Hold and Pattern Buffers
+-   6.3 Multiline techniques - using D,G,H,N,P to process multiple lines
+-   6.4 Branching and Flow Control
+-     6.4.1 Branching and Cycles
+-     6.4.2 Branching example: joining lines
+- 7 Some Sample Scripts
+-   7.1 Joining lines
+-   7.2 Centering Lines
+-   7.3 Increment a Number
+-   7.4 Rename Files to Lower Case
+-   7.5 Print 'bash' Environment
+-   7.6 Reverse Characters of Lines
+-   7.7 Text search across multiple lines
+-   7.8 Line length adjustment
+-   7.9 Reverse Lines of Files
+-   7.10 Numbering Lines
+-   7.11 Numbering Non-blank Lines
+-   7.12 Counting Characters
+-   7.13 Counting Words
+-   7.14 Counting Lines
+-   7.15 Printing the First Lines
+-   7.16 Printing the Last Lines
+-   7.17 Make Duplicate Lines Unique
+-   7.18 Print Duplicated Lines of Input
+-   7.19 Remove All Duplicated Lines
+-   7.20 Squeezing Blank Lines
+- 8 GNU 'sed''s Limitations and Non-limitations
+- 9 Other Resources for Learning About 'sed'
+- 10 Reporting Bugs
+- Appendix A GNU Free Documentation License
+- Concept Index
+- Command and Option Index
+
+
 
 File: sed.info,  Node: Top,  Next: Introduction,  Up: (dir)
 
-GNU 'sed'
-*********
+# / GNU 'sed'
+**************
 
 This file documents version 4.8 of GNU 'sed', a stream editor.
 
@@ -1041,8 +1194,8 @@ This file documents version 4.8 of GNU 'sed', a stream editor.
 
 File: sed.info,  Node: Introduction,  Next: Invoking sed,  Prev: Top,  Up: Top
 
-1 Introduction
-**************
+# /1 Introduction
+*****************
 
 'sed' is a stream editor.  A stream editor is used to perform basic text
 transformations on an input stream (a file or input from a pipeline).
@@ -1055,8 +1208,8 @@ of editors.
 
 File: sed.info,  Node: Invoking sed,  Next: sed scripts,  Prev: Introduction,  Up: Top
 
-2 Running sed
-*************
+# /2 Running sed
+****************
 
 This chapter covers how to run 'sed'.  Details of 'sed' scripts and
 individual 'sed' commands are discussed in the next chapter.
@@ -1357,8 +1510,8 @@ with a custom exit code value (this is a GNU 'sed' extension):
 
 File: sed.info,  Node: sed scripts,  Next: sed addresses,  Prev: Invoking sed,  Up: Top
 
-3 'sed' scripts
-***************
+# /3 'sed' scripts
+******************
 
 * Menu:
 
@@ -2417,8 +2570,8 @@ newline:
 
 File: sed.info,  Node: sed addresses,  Next: sed regular expressions,  Prev: sed scripts,  Up: Top
 
-4 Addresses: selecting lines
-****************************
+# /4 Addresses: selecting lines
+*******************************
 
 * Menu:
 
@@ -2699,8 +2852,8 @@ GNU extensions:
 
 File: sed.info,  Node: sed regular expressions,  Next: advanced sed,  Prev: sed addresses,  Up: Top
 
-5 Regular Expressions: selecting text
-*************************************
+# /5 Regular Expressions: selecting text
+****************************************
 
 * Menu:
 
@@ -3546,8 +3699,8 @@ GNU/Linux systems using glibc.
 
 File: sed.info,  Node: advanced sed,  Next: Examples,  Prev: sed regular expressions,  Up: Top
 
-6 Advanced 'sed': cycles and buffers
-************************************
+# /6 Advanced 'sed': cycles and buffers
+***************************************
 
 * Menu:
 
@@ -3915,8 +4068,8 @@ more about 'N', 'P' and 'D' commands *note* Multiline techniques::).
 
 File: sed.info,  Node: Examples,  Next: Limitations,  Prev: advanced sed,  Up: Top
 
-7 Some Sample Scripts
-*********************
+# /7 Some Sample Scripts
+************************
 
 Here are some 'sed' scripts to guide you in the art of mastering 'sed'.
 
@@ -4980,8 +5133,8 @@ line.
 
 File: sed.info,  Node: Limitations,  Next: Other Resources,  Prev: Examples,  Up: Top
 
-8 GNU 'sed''s Limitations and Non-limitations
-*********************************************
+# /8 GNU 'sed''s Limitations and Non-limitations
+************************************************
 
 For those who want to write portable 'sed' scripts, be aware that some
 implementations have been known to limit line lengths (for the pattern
@@ -4998,8 +5151,8 @@ size of the buffer that can be processed by certain patterns.
 
 File: sed.info,  Node: Other Resources,  Next: Reporting Bugs,  Prev: Limitations,  Up: Top
 
-9 Other Resources for Learning About 'sed'
-******************************************
+# /9 Other Resources for Learning About 'sed'
+*********************************************
 
 For up to date information about GNU 'sed' please visit
 <https://www.gnu.org/software/sed/>.
@@ -5025,8 +5178,8 @@ developers.
 
 File: sed.info,  Node: Reporting Bugs,  Next: GNU Free Documentation License,  Prev: Other Resources,  Up: Top
 
-10 Reporting Bugs
-*****************
+# /10 Reporting Bugs
+********************
 
 Email bug reports to <bug-sed@gnu.org>.  Also, please include the output
 of 'sed --version' in the body of your report if at all possible.
@@ -5185,8 +5338,8 @@ Regex syntax clashes (problems with backslashes)
 
 File: sed.info,  Node: GNU Free Documentation License,  Next: Concept Index,  Prev: Reporting Bugs,  Up: Top
 
-Appendix A GNU Free Documentation License
-*****************************************
+# /Appendix A GNU Free Documentation License
+********************************************
 
                      Version 1.3, 3 November 2008
 
@@ -5667,8 +5820,8 @@ their use in free software.
 
 File: sed.info,  Node: Concept Index,  Next: Command and Option Index,  Prev: GNU Free Documentation License,  Up: Top
 
-Concept Index
-*************
+# /Concept Index
+****************
 
 This is a general index of all issues discussed in this manual, with the
 exception of the 'sed' commands and command-line options.
@@ -6052,8 +6205,8 @@ exception of the 'sed' commands and command-line options.
 
 File: sed.info,  Node: Command and Option Index,  Prev: Concept Index,  Up: Top
 
-Command and Option Index
-************************
+# /Command and Option Index
+***************************
 
 This is an alphabetical list of all 'sed' commands and command-line
 options.
