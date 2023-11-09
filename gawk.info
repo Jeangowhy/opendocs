@@ -59,6 +59,511 @@ in (a) below.  A copy of the license is included in the section entitled
   a. The FSF's Back-Cover Text is: "You have the freedom to copy and
      modify this GNU manual."
 
+Table of Contents
+====================
+
+- General Introduction
+- Foreword to the Third Edition
+- Foreword to the Fourth Edition
+- Preface
+- 1 Getting Started with ‘awk’
+- 2 Running ‘awk’ and ‘gawk’
+- 3 Regular Expressions
+- 4 Reading Input Files
+- 5 Printing Output
+- 6 Expressions
+- 7 Patterns, Actions, and Variables
+- 8 Arrays in ‘awk’
+- 9 Functions
+- 10 A Library of ‘awk’ Functions
+- 11 Practical ‘awk’ Programs
+- 12 Advanced Features of ‘gawk’
+- 13 Internationalization with ‘gawk’
+- 14 Debugging ‘awk’ Programs
+- 15 Namespaces in ‘gawk’
+- 16 Arithmetic and Arbitrary-Precision Arithmetic with ‘gawk’
+- 17 Writing Extensions for ‘gawk’
+- Appendix A The Evolution of the ‘awk’ Language
+- Appendix B Installing ‘gawk’
+- Appendix C Implementation Notes
+- Appendix D Basic Programming Concepts
+- Glossary
+- GNU General Public License
+- GNU Free Documentation License
+- Index
+
+
+- General Introduction
+- Foreword to the Third Edition
+- Foreword to the Fourth Edition
+- Preface
+-   History of ‘awk’ and ‘gawk’
+-   A Rose by Any Other Name
+-   Using This Book
+-   Typographical Conventions
+-     Dark Corners
+-   The GNU Project and This Book
+-   How to Contribute
+-   Acknowledgments
+- 1 Getting Started with ‘awk’
+-   1.1 How to Run ‘awk’ Programs
+-     1.1.1 One-Shot Throwaway ‘awk’ Programs
+-     1.1.2 Running ‘awk’ Without Input Files
+-     1.1.3 Running Long Programs
+-     1.1.4 Executable ‘awk’ Programs
+-     1.1.5 Comments in ‘awk’ Programs
+-     1.1.6 Shell Quoting Issues
+-       1.1.6.1 Quoting in MS-Windows Batch Files
+-   1.2 Data files for the Examples
+-   1.3 Some Simple Examples
+-   1.4 An Example with Two Rules
+-   1.5 A More Complex Example
+-   1.6 ‘awk’ Statements Versus Lines
+-   1.7 Other Features of ‘awk’
+-   1.8 When to Use ‘awk’
+-   1.9 Summary
+- 2 Running ‘awk’ and ‘gawk’
+-   2.1 Invoking ‘awk’
+-   2.2 Command-Line Options
+-   2.3 Other Command-Line Arguments
+-   2.4 Naming Standard Input
+-   2.5 The Environment Variables ‘gawk’ Uses
+-     2.5.1 The ‘AWKPATH’ Environment Variable
+-     2.5.2 The ‘AWKLIBPATH’ Environment Variable
+-     2.5.3 Other Environment Variables
+-   2.6 ‘gawk’'s Exit Status
+-   2.7 Including Other Files into Your Program
+-   2.8 Loading Dynamic Extensions into Your Program
+-   2.9 Obsolete Options and/or Features
+-   2.10 Undocumented Options and Features
+-   2.11 Summary
+- 3 Regular Expressions
+-   3.1 How to Use Regular Expressions
+-   3.2 Escape Sequences
+-   3.3 Regular Expression Operators
+-     3.3.1 Regexp Operators in ‘awk’
+-     3.3.2 Some Notes On Interval Expressions
+-   3.4 Using Bracket Expressions
+-   3.5 How Much Text Matches?
+-   3.6 Using Dynamic Regexps
+-   3.7 ‘gawk’-Specific Regexp Operators
+-   3.8 Case Sensitivity in Matching
+-   3.9 Summary
+- 4 Reading Input Files
+-   4.1 How Input Is Split into Records
+-     4.1.1 Record Splitting with Standard ‘awk’
+-     4.1.2 Record Splitting with ‘gawk’
+-   4.2 Examining Fields
+-   4.3 Nonconstant Field Numbers
+-   4.4 Changing the Contents of a Field
+-   4.5 Specifying How Fields Are Separated
+-     4.5.1 Whitespace Normally Separates Fields
+-     4.5.2 Using Regular Expressions to Separate Fields
+-     4.5.3 Making Each Character a Separate Field
+-     4.5.4 Working With Comma Separated Value Files
+-     4.5.5 Setting ‘FS’ from the Command Line
+-     4.5.6 Making the Full Line Be a Single Field
+-     4.5.7 Field-Splitting Summary
+-   4.6 Reading Fixed-Width Data
+-     4.6.1 Processing Fixed-Width Data
+-     4.6.2 Skipping Intervening Fields
+-     4.6.3 Capturing Optional Trailing Data
+-     4.6.4 Field Values With Fixed-Width Data
+-   4.7 Defining Fields by Content
+-     4.7.1 More on CSV Files
+-     4.7.2 ‘FS’ Versus ‘FPAT’: A Subtle Difference
+-   4.8 Checking How ‘gawk’ Is Splitting Records
+-   4.9 Multiple-Line Records
+-   4.10 Explicit Input with ‘getline’
+-     4.10.1 Using ‘getline’ with No Arguments
+-     4.10.2 Using ‘getline’ into a Variable
+-     4.10.3 Using ‘getline’ from a File
+-     4.10.4 Using ‘getline’ into a Variable from a File
+-     4.10.5 Using ‘getline’ from a Pipe
+-     4.10.6 Using ‘getline’ into a Variable from a Pipe
+-     4.10.7 Using ‘getline’ from a Coprocess
+-     4.10.8 Using ‘getline’ into a Variable from a Coprocess
+-     4.10.9 Points to Remember About ‘getline’
+-     4.10.10 Summary of ‘getline’ Variants
+-   4.11 Reading Input with a Timeout
+-   4.12 Retrying Reads After Certain Input Errors
+-   4.13 Directories on the Command Line
+-   4.14 Summary
+-   4.15 Exercises
+- 5 Printing Output
+-   5.1 The ‘print’ Statement
+-   5.2 ‘print’ Statement Examples
+-   5.3 Output Separators
+-   5.4 Controlling Numeric Output with ‘print’
+-   5.5 Using ‘printf’ Statements for Fancier Printing
+-     5.5.1 Introduction to the ‘printf’ Statement
+-     5.5.2 Format-Control Letters
+-     5.5.3 Modifiers for ‘printf’ Formats
+-     5.5.4 Examples Using ‘printf’
+-   5.6 Redirecting Output of ‘print’ and ‘printf’
+-   5.7 Special Files for Standard Preopened Data Streams
+-   5.8 Special File names in ‘gawk’
+-     5.8.1 Accessing Other Open Files with ‘gawk’
+-     5.8.2 Special Files for Network Communications
+-     5.8.3 Special File name Caveats
+-   5.9 Closing Input and Output Redirections
+-     5.9.1 Using ‘close()’'s Return Value
+-   5.10 Speeding Up Pipe Output
+-   5.11 Enabling Nonfatal Output
+-   5.12 Summary
+-   5.13 Exercises
+- 6 Expressions
+-   6.1 Constants, Variables, and Conversions
+-     6.1.1 Constant Expressions
+-       6.1.1.1 Numeric and String Constants
+-       6.1.1.2 Octal and Hexadecimal Numbers
+-       6.1.1.3 Regular Expression Constants
+-     6.1.2 Using Regular Expression Constants
+-       6.1.2.1 Standard Regular Expression Constants
+-       6.1.2.2 Strongly Typed Regexp Constants
+-     6.1.3 Variables
+-       6.1.3.1 Using Variables in a Program
+-       6.1.3.2 Assigning Variables on the Command Line
+-     6.1.4 Conversion of Strings and Numbers
+-       6.1.4.1 How ‘awk’ Converts Between Strings and Numbers
+-       6.1.4.2 Locales Can Influence Conversion
+-   6.2 Operators: Doing Something with Values
+-     6.2.1 Arithmetic Operators
+-     6.2.2 String Concatenation
+-     6.2.3 Assignment Expressions
+-     6.2.4 Increment and Decrement Operators
+-   6.3 Truth Values and Conditions
+-     6.3.1 True and False in ‘awk’
+-     6.3.2 Variable Typing and Comparison Expressions
+-       6.3.2.1 String Type versus Numeric Type
+-       6.3.2.2 Comparison Operators
+-       6.3.2.3 String Comparison Based on Locale Collating Order
+-     6.3.3 Boolean Expressions
+-     6.3.4 Conditional Expressions
+-   6.4 Function Calls
+-   6.5 Operator Precedence (How Operators Nest)
+-   6.6 Where You Are Makes a Difference
+-   6.7 Summary
+- 7 Patterns, Actions, and Variables
+-   7.1 Pattern Elements
+-     7.1.1 Regular Expressions as Patterns
+-     7.1.2 Expressions as Patterns
+-     7.1.3 Specifying Record Ranges with Patterns
+-     7.1.4 The ‘BEGIN’ and ‘END’ Special Patterns
+-       7.1.4.1 Startup and Cleanup Actions
+-       7.1.4.2 Input/Output from ‘BEGIN’ and ‘END’ Rules
+-     7.1.5 The ‘BEGINFILE’ and ‘ENDFILE’ Special Patterns
+-     7.1.6 The Empty Pattern
+-   7.2 Using Shell Variables in Programs
+-   7.3 Actions
+-   7.4 Control Statements in Actions
+-     7.4.1 The ‘if’-‘else’ Statement
+-     7.4.2 The ‘while’ Statement
+-     7.4.3 The ‘do’-‘while’ Statement
+-     7.4.4 The ‘for’ Statement
+-     7.4.5 The ‘switch’ Statement
+-     7.4.6 The ‘break’ Statement
+-     7.4.7 The ‘continue’ Statement
+-     7.4.8 The ‘next’ Statement
+-     7.4.9 The ‘nextfile’ Statement
+-     7.4.10 The ‘exit’ Statement
+-   7.5 Predefined Variables
+-     7.5.1 Built-in Variables That Control ‘awk’
+-     7.5.2 Built-in Variables That Convey Information
+-     7.5.3 Using ‘ARGC’ and ‘ARGV’
+-   7.6 Summary
+- 8 Arrays in ‘awk’
+-   8.1 The Basics of Arrays
+-     8.1.1 Introduction to Arrays
+-     8.1.2 Referring to an Array Element
+-     8.1.3 Assigning Array Elements
+-     8.1.4 Basic Array Example
+-     8.1.5 Scanning All Elements of an Array
+-     8.1.6 Using Predefined Array Scanning Orders with ‘gawk’
+-   8.2 Using Numbers to Subscript Arrays
+-   8.3 Using Uninitialized Variables as Subscripts
+-   8.4 The ‘delete’ Statement
+-   8.5 Multidimensional Arrays
+-     8.5.1 Scanning Multidimensional Arrays
+-   8.6 Arrays of Arrays
+-   8.7 Summary
+- 9 Functions
+-   9.1 Built-in Functions
+-     9.1.1 Calling Built-in Functions
+-     9.1.2 Generating Boolean Values
+-     9.1.3 Numeric Functions
+-     9.1.4 String-Manipulation Functions
+-       9.1.4.1 More about ‘\’ and ‘&’ with ‘sub()’, ‘gsub()’, and ‘gensub()’
+-     9.1.5 Input/Output Functions
+-     9.1.6 Time Functions
+-     9.1.7 Bit-Manipulation Functions
+-     9.1.8 Getting Type Information
+-     9.1.9 String-Translation Functions
+-   9.2 User-Defined Functions
+-     9.2.1 Function Definition Syntax
+-     9.2.2 Function Definition Examples
+-     9.2.3 Calling User-Defined Functions
+-       9.2.3.1 Writing a Function Call
+-       9.2.3.2 Controlling Variable Scope
+-       9.2.3.3 Passing Function Arguments by Value Or by Reference
+-       9.2.3.4 Other Points About Calling Functions
+-     9.2.4 The ‘return’ Statement
+-     9.2.5 Functions and Their Effects on Variable Typing
+-   9.3 Indirect Function Calls
+-   9.4 Summary
+- 10 A Library of ‘awk’ Functions
+-   10.1 Naming Library Function Global Variables
+-   10.2 General Programming
+-     10.2.1 Converting Strings to Numbers
+-     10.2.2 Assertions
+-     10.2.3 Rounding Numbers
+-     10.2.4 The Cliff Random Number Generator
+-     10.2.5 Translating Between Characters and Numbers
+-     10.2.6 Merging an Array into a String
+-     10.2.7 Managing the Time of Day
+-     10.2.8 Reading a Whole File at Once
+-     10.2.9 Quoting Strings to Pass to the Shell
+-     10.2.10 Checking Whether A Value Is Numeric
+-     10.2.11 Producing CSV Data
+-   10.3 Data file Management
+-     10.3.1 Noting Data file Boundaries
+-     10.3.2 Rereading the Current File
+-     10.3.3 Checking for Readable Data files
+-     10.3.4 Checking for Zero-Length Files
+-     10.3.5 Treating Assignments as File names
+-   10.4 Processing Command-Line Options
+-   10.5 Reading the User Database
+-   10.6 Reading the Group Database
+-   10.7 Traversing Arrays of Arrays
+-   10.8 Summary
+-   10.9 Exercises
+- 11 Practical ‘awk’ Programs
+-   11.1 Running the Example Programs
+-   11.2 Reinventing Wheels for Fun and Profit
+-     11.2.1 Cutting Out Fields and Columns
+-     11.2.2 Searching for Regular Expressions in Files
+-     11.2.3 Printing Out User Information
+-     11.2.4 Splitting a Large File into Pieces
+-     11.2.5 Duplicating Output into Multiple Files
+-     11.2.6 Printing Nonduplicated Lines of Text
+-     11.2.7 Counting Things
+-       11.2.7.1 Modern Character Sets
+-       11.2.7.2 A Brief Introduction To Extensions
+-       11.2.7.3 Code for ‘wc.awk’
+-   11.3 A Grab Bag of ‘awk’ Programs
+-     11.3.1 Finding Duplicated Words in a Document
+-     11.3.2 An Alarm Clock Program
+-     11.3.3 Transliterating Characters
+-     11.3.4 Printing Mailing Labels
+-     11.3.5 Generating Word-Usage Counts
+-     11.3.6 Removing Duplicates from Unsorted Text
+-     11.3.7 Extracting Programs from Texinfo Source Files
+-     11.3.8 A Simple Stream Editor
+-     11.3.9 An Easy Way to Use Library Functions
+-     11.3.10 Finding Anagrams from a Dictionary
+-     11.3.11 And Now for Something Completely Different
+-   11.4 Summary
+-   11.5 Exercises
+- 12 Advanced Features of ‘gawk’
+-   12.1 Allowing Nondecimal Input Data
+-   12.2 Boolean Typed Values
+-   12.3 Controlling Array Traversal and Array Sorting
+-     12.3.1 Controlling Array Traversal
+-     12.3.2 Sorting Array Values and Indices with ‘gawk’
+-   12.4 Two-Way Communications with Another Process
+-   12.5 Using ‘gawk’ for Network Programming
+-   12.6 Profiling Your ‘awk’ Programs
+-   12.7 Preserving Data Between Runs
+-   12.8 Builtin Features versus Extensions
+-   12.9 Summary
+- 13 Internationalization with ‘gawk’
+-   13.1 Internationalization and Localization
+-   13.2 GNU ‘gettext’
+-   13.3 Internationalizing ‘awk’ Programs
+-   13.4 Translating ‘awk’ Programs
+-     13.4.1 Extracting Marked Strings
+-     13.4.2 Rearranging ‘printf’ Arguments
+-     13.4.3 ‘awk’ Portability Issues
+-   13.5 A Simple Internationalization Example
+-   13.6 ‘gawk’ Can Speak Your Language
+-   13.7 Summary
+- 14 Debugging ‘awk’ Programs
+-   14.1 Introduction to the ‘gawk’ Debugger
+-     14.1.1 Debugging in General
+-     14.1.2 Debugging Concepts
+-     14.1.3 ‘awk’ Debugging
+-   14.2 Sample ‘gawk’ Debugging Session
+-     14.2.1 How to Start the Debugger
+-     14.2.2 Finding the Bug
+-   14.3 Main Debugger Commands
+-     14.3.1 Control of Breakpoints
+-     14.3.2 Control of Execution
+-     14.3.3 Viewing and Changing Data
+-     14.3.4 Working with the Stack
+-     14.3.5 Obtaining Information About the Program and the Debugger State
+-     14.3.6 Miscellaneous Commands
+-   14.4 Readline Support
+-   14.5 Limitations
+-   14.6 Summary
+- 15 Namespaces in ‘gawk’
+-   15.1 Standard ‘awk’'s Single Namespace
+-   15.2 Qualified Names
+-   15.3 The Default Namespace
+-   15.4 Changing The Namespace
+-   15.5 Namespace and Component Naming Rules
+-   15.6 Internal Name Management
+-   15.7 Namespace Example
+-   15.8 Namespaces and Other ‘gawk’ Features
+-   15.9 Summary
+- 16 Arithmetic and Arbitrary-Precision Arithmetic with ‘gawk’
+-   16.1 A General Description of Computer Arithmetic
+-   16.2 Other Stuff to Know
+-   16.3 Arbitrary-Precision Arithmetic Features in ‘gawk’
+-     16.3.1 Arbitrary Precision Arithmetic is On Parole!
+-     16.3.2 Arbitrary Precision Introduction
+-   16.4 Floating-Point Arithmetic: Caveat Emptor!
+-     16.4.1 Floating-Point Arithmetic Is Not Exact
+-       16.4.1.1 Many Numbers Cannot Be Represented Exactly
+-       16.4.1.2 Be Careful Comparing Values
+-       16.4.1.3 Errors Accumulate
+-       16.4.1.4 Floating Point Values They Didn't Talk About In School
+-     16.4.2 Getting the Accuracy You Need
+-     16.4.3 Try a Few Extra Bits of Precision and Rounding
+-     16.4.4 Setting the Precision
+-     16.4.5 Setting the Rounding Mode
+-   16.5 Arbitrary-Precision Integer Arithmetic with ‘gawk’
+-   16.6 How To Check If MPFR Is Available
+-   16.7 Standards Versus Existing Practice
+-   16.8 Summary
+- 17 Writing Extensions for ‘gawk’
+-   17.1 Introduction
+-   17.2 Extension Licensing
+-   17.3 How It Works at a High Level
+-   17.4 API Description
+-     17.4.1 Introduction
+-     17.4.2 General-Purpose Data Types
+-     17.4.3 Memory Allocation Functions and Convenience Macros
+-     17.4.4 Constructor Functions
+-     17.4.5 Managing MPFR and GMP Values
+-     17.4.6 Registration Functions
+-       17.4.6.1 Registering An Extension Function
+-       17.4.6.2 Registering An Exit Callback Function
+-       17.4.6.3 Registering An Extension Version String
+-       17.4.6.4 Customized Input Parsers
+-       17.4.6.5 Customized Output Wrappers
+-       17.4.6.6 Customized Two-way Processors
+-     17.4.7 Printing Messages
+-     17.4.8 Updating ‘ERRNO’
+-     17.4.9 Requesting Values
+-     17.4.10 Accessing and Updating Parameters
+-     17.4.11 Symbol Table Access
+-       17.4.11.1 Variable Access and Update by Name
+-       17.4.11.2 Variable Access and Update by Cookie
+-       17.4.11.3 Creating and Using Cached Values
+-     17.4.12 Array Manipulation
+-       17.4.12.1 Array Data Types
+-       17.4.12.2 Array Functions
+-       17.4.12.3 Working With All The Elements of an Array
+-       17.4.12.4 How To Create and Populate Arrays
+-     17.4.13 Accessing and Manipulating Redirections
+-     17.4.14 API Variables
+-       17.4.14.1 API Version Constants and Variables
+-       17.4.14.2 GMP and MPFR Version Information
+-       17.4.14.3 Informational Variables
+-     17.4.15 Boilerplate Code
+-     17.4.16 Changes From Version 1 of the API
+-   17.5 How ‘gawk’ Finds Extensions
+-   17.6 Example: Some File Functions
+-     17.6.1 Using ‘chdir()’ and ‘stat()’
+-     17.6.2 C Code for ‘chdir()’ and ‘stat()’
+-     17.6.3 Integrating the Extensions
+-   17.7 The Sample Extensions in the ‘gawk’ Distribution
+-     17.7.1 File-Related Functions
+-     17.7.2 Interface to ‘fnmatch()’
+-     17.7.3 Interface to ‘fork()’, ‘wait()’, and ‘waitpid()’
+-     17.7.4 Enabling In-Place File Editing
+-     17.7.5 Character and Numeric values: ‘ord()’ and ‘chr()’
+-     17.7.6 Reading Directories
+-     17.7.7 Reversing Output
+-     17.7.8 Two-Way I/O Example
+-     17.7.9 Dumping and Restoring an Array
+-     17.7.10 Reading an Entire File
+-     17.7.11 Extension Time Functions
+-     17.7.12 API Tests
+-   17.8 The ‘gawkextlib’ Project
+-   17.9 Summary
+-   17.10 Exercises
+- Appendix A The Evolution of the ‘awk’ Language
+-   A.1 Major Changes Between V7 and SVR3.1
+-   A.2 Changes Between SVR3.1 and SVR4
+-   A.3 Changes Between SVR4 and POSIX ‘awk’
+-   A.4 Extensions in Brian Kernighan's ‘awk’
+-   A.5 Extensions in ‘gawk’ Not in POSIX ‘awk’
+-   A.6 History of ‘gawk’ Features
+-   A.7 Common Extensions Summary
+-   A.8 Regexp Ranges and Locales: A Long Sad Story
+-   A.9 Major Contributors to ‘gawk’
+-   A.10 Summary
+- Appendix B Installing ‘gawk’
+-   B.1 The ‘gawk’ Distribution
+-     B.1.1 Getting the ‘gawk’ Distribution
+-     B.1.2 Extracting the Distribution
+-     B.1.3 Contents of the ‘gawk’ Distribution
+-   B.2 Compiling and Installing ‘gawk’ on Unix-Like Systems
+-     B.2.1 Compiling ‘gawk’ for Unix-Like Systems
+-       B.2.1.1 Building With MPFR
+-     B.2.2 Shell Startup Files
+-     B.2.3 Additional Configuration Options
+-     B.2.4 The Configuration Process
+-     B.2.5 Compiling from Git
+-     B.2.6 Building the Documentation
+-   B.3 Installation on Other Operating Systems
+-     B.3.1 Installation on MS-Windows
+-       B.3.1.1 Installing a Prepared Distribution for MS-Windows Systems
+-       B.3.1.2 Compiling ‘gawk’ for PC Operating Systems
+-       B.3.1.3 Using ‘gawk’ on PC Operating Systems
+-       B.3.1.4 Using ‘gawk’ In The Cygwin Environment
+-       B.3.1.5 Using ‘gawk’ In The MSYS Environment
+-     B.3.2 Compiling and Installing ‘gawk’ on OpenVMS
+-       B.3.2.1 Compiling ‘gawk’ on OpenVMS
+-       B.3.2.2 Compiling ‘gawk’ Dynamic Extensions on OpenVMS
+-       B.3.2.3 Installing ‘gawk’ on OpenVMS
+-       B.3.2.4 Running ‘gawk’ on OpenVMS
+-       B.3.2.5 The OpenVMS GNV Project
+-   B.4 Reporting Problems and Bugs
+-     B.4.1 Defining What Is and What Is Not A Bug
+-     B.4.2 Submitting Bug Reports
+-     B.4.3 Please Don't Post Bug Reports to USENET
+-     B.4.4 What To Do If You Think There Is A Performance Issue
+-     B.4.5 Where To Send Non-bug Questions
+-     B.4.6 Reporting Problems with Non-Unix Ports
+-   B.5 Other Freely Available ‘awk’ Implementations
+-   B.6 Summary
+- Appendix C Implementation Notes
+-   C.1 Downward Compatibility and Debugging
+-   C.2 Making Additions to ‘gawk’
+-     C.2.1 Accessing The ‘gawk’ Git Repository
+-     C.2.2 Adding New Features
+-     C.2.3 Porting ‘gawk’ to a New Operating System
+-     C.2.4 Why Generated Files Are Kept In Git
+-   C.3 Probable Future Extensions
+-   C.4 Some Limitations of the Implementation
+-   C.5 Extension API Design
+-     C.5.1 Problems With The Old Mechanism
+-     C.5.2 Goals For A New Mechanism
+-     C.5.3 Other Design Decisions
+-     C.5.4 Room For Future Growth
+-   C.6 Summary
+- Appendix D Basic Programming Concepts
+-   D.1 What a Program Does
+-   D.2 Data Values in a Computer
+- Glossary
+- GNU General Public License
+- GNU Free Documentation License
+-   ADDENDUM: How to use this License for your documents
+- Index
+
+
 * Menu:
 
 * Foreword3::                      Some nice words about this

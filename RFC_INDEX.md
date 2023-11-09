@@ -1,15 +1,44 @@
 RFC INDEX
 ========================================================
 
-https://www.rfc-editor.org/rfc-index.txt
+1. https://www.rfc-editor.org/rfc-index.txt
+2. https://www.rfc-editor.org/rfc/rfc2026.txt
+3. https://www.rfc-editor.org/rfc/rfc6410.txt
 
 Request for Comments (RFC) 是一种正式文档，其包含与上下文相关的设计和架构思想，
 以促进团队协作和决策。 几乎所有数字原生和快速扩张的组织都使用 RFCs 来记录
 围绕设计、架构、技术和团队协作方式的决策。 成熟的组织已经在自治团队中，特别
 是在跨团队相关的决策中使用 RFCs 来推动更好的沟通和协作。
 
-#RFCs 是一种用于收集上下文、设计和架构思想，并与团队协作，最终达成决策以及
+RFCs 是一种用于收集上下文、设计和架构思想，并与团队协作，最终达成决策以及
 上下文和结果的技术。
+
+RFCs Category 一共有以下几种：
+
+- Standards Track: 标准跟踪
+- Best Current Practice: 最佳实践类
+- Non-Standards Track: 非标准跟踪
+- Informational: 信息类
+- Experimental: 实验性
+- Historic: 过期的
+
+一份 RFC 规范说明 (Specification) 想要提升达到正式标准的程度，需要经历几个阶段。
+不同的阶段对标准的要求逐步提升，每达到一个阶段，说明这个标准或规范已经更加
+“成熟”，因此，IETF 使用不同的“成熟度等级 (Maturity Levels)”来评估，而这一整个
+过程就叫做标准跟踪 (Standards Track)。
+
+因此，“Standards Track” 又有几个阶段，平时浏览标准时要关注标准的成熟度。按照
+标准 RFC 2026 第 4 章的描述，一共有 3 个成熟度等级：
+
+- Proposed Standard
+- Draft Standard
+- Standard 
+
+新标准 (RFC 6410) 将原来的三层精简为两层：
+
+- Proposed Standard :: 与 RFC 2026 的要求一致，没有引入新要求。
+- Internet Standard :: 合并了原来的 *Draft Standard* 和 *Standard* 。
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
