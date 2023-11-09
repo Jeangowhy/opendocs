@@ -11,6 +11,7 @@
 *sublime-workspace
 
 /*.html
+/#*
 .bin
 .build
 .mscbackup

@@ -1,3 +1,327 @@
+# /Texinfo 
+****************
+
+1. https://www.gnu.org/software/emacs/download.html
+2. https://ftp.gnu.org/gnu/emacs/windows/emacs-29/
+3. https://www.gnu.org/software/emacs/tour/index.html
+4. https://www.gnu.org/software/emacs/documentation.html
+
+Texinfo 是 GNU 项目的官方文档格式，可与 GNU Emacs 良好地集成，提供比 man 帮助文档
+更易于访问、跳转更方便的文档解决方案。Windows 平台下可以使用 msys2 安装 Emacs：
+
+```sh
+pacman -S mingw-w64-x86_64-emacs
+
+/mingw64/bin/runemacs
+mingw64.exe && runemacs
+msys2_shell.cmd -mingw64 -c runemacs
+
+find c:/msys64/mingw64/bin | grep emacs
+c:/msys64/mingw64/bin/emacs-29.1.exe
+c:/msys64/mingw64/bin/emacs.exe 
+c:/msys64/mingw64/bin/emacsclient.exe
+c:/msys64/mingw64/bin/emacsclientw.exe
+c:/msys64/mingw64/bin/runemacs.exe
+```
+
+Msys2 启动 mingw64.exe 子系统环境时可能会由于设置错误，导致无法加载入口 shell 程序，
+提示找不到类似 /usr/include/cmd.exe 这样的 shell 程序。可以直接通过 Msys2 提供的虚拟
+文件系统目录访问 `/mingw64/bin/runemacs`。如果提示出现的路径不固定，是相对路径，
+那么就需要修改系统环境变量 `SHELL`，设置一个 shell 程序的绝对路径。
+
+也可以将安装目录下的 bash 程序链接到这个目录，使用以下 Powershell 命令创建链接文件：
+
+```sh
+$target="c:/msys64/usr/bin/bash.exe";
+$path="c:/msys64/usr/include/cmd.exe";
+new-item -type SymbolicLink -target "$target"  -Path "$path"
+```
+
+Emacs 文档存放在两个位置，主要是基本操作教程（多语言翻译）、Emacs 用户手册
+和 Elisp 语言手册。另外，还有 Emacs 附带的各种工具文档：
+
+1. /msys64/mingw64/share/info/elisp.info
+1. /msys64/mingw64/share/info/emacs.info
+2. /mingw64/share/emacs/29.1/etc/tutorials/TUTORIAL
+
+Emacs 本身是 Lisp 语言的一种实现，也使用 Elisp 编写扩展。例如，Windows 平台下，
+主界面上的滚动条太丑了（占空间、无效 UI 元素），可以修改初始化配置脚本文件：
+
+    (set-scroll-bar-mode nil)
+
+Options ⇒ Show/Hide ⇒ Scroll Bar 设置滚动条状态。或者使用菜单设置：
+Options ⇒ Customize Emacs ⇒ Specific Option... 然后在 UI 界面中选择属性配置。
+
+Emacs 快捷命令特别多，Control 或者 Meta 键加其他按键组合的方式不够用。因此，
+Emacs 使用的是扩展命令的形式: X (eXtend) command，按 `TAB` 键补全扩展命令名称。
+
+1. C-x 字符扩展，按 C-x 之后，按字符按键执行相应命令；
+2. M-x 指定命令扩展，按 M-x 之后，输入命令名称；
+
+如果不能确定如何操作 Emacs，使用 `C-h f` 搜索关功能键字，或者使用菜单：
+Help ⇒ Describe ⇒ Describe Function ... 比如，相要知道保存文件如何操作，只需要
+搜索 save，尝试 TAB 补全，就可以找到 `save-buffer` 扩展命令的操作是 `C-x C-s`。
+文件缓冲区列表 `list-buffers` 扩展命令的操作是 `C-x C-b`，用于快速切换文件。
+
+Emacs 使用一个单独的字母表达功能键，见下表。
+
+| Emacs Keys | 缩写 |    PC 键盘     |
+|------------|------|----------------|
+| Control    | C    | Ctrl / Control |
+| Meta       | M    | Alt / Option   |
+| Shift      | S    | Shift / Shift  |
+| Super      | s    | Win / Command  |
+| Hyper      | H    | 无             |
+
+命令使用示范：
+
+1. `M-x doctor` 执行 Help ⇒ Emacs Physiotherapist，这其实是自带游戏中的一个。
+2. Emacs 分屏操作：
+    1. `C-x 3` 左右分割
+    2. `C-x 2` 上下分割
+    3. `C-x 1` 将当前窗口变为最大
+    4. `C-x 0` 关闭当前窗口
+3. `C-g` 打断、取消一个命令的执行。
+4. `C-x Left/Right` 切换前后缓冲区。
+5. `C-x k` kill-buffer 扩展命令，删除缓冲区，相当关闭文件。
+6. `C-x d` 打开目录，显示文件列表。
+7. `C-x C-f` 搜索文件，相当 find 命令，指定目录则显示列表供用户选择、筛选。
+8. `M-&` Shell 对话，默认执行 `cmd.exe`，可配置 Shell File Name 为 bash。
+
+命令可能由多个阶段完成执行，期间使用 `C-g` 可以取消当执行中的一个命令，
+包括取消执行到卡顿状态的命令。
+
+所有打开的文件对应一个 buffer，关闭文件相当于删除当前文件的缓冲区。
+
+Emacs 工程管理功能支持，参考手册 29.2 Working with Projects。
+工程文件、符号跳转插件： https://github.com/bbatsov/projectile
+
+EDE (Emacs Development Environment) 是用于简化工程管理的全局工具包，支持 Emacs 项目
+构建、调试功能，基于 Make 实现 Emaca IDE (Integrated Development Environment) 开发环境。
+
+EDE 本身作为 global minor mode 方式实现，使用 `M-x global-ede-mode` 启用它，或者
+通过工具菜单激活它：Tools ⇒ Project Support (EDE)，也可以修改初始化 lisp 脚本：
+
+     (global-ede-mode t)
+
+Emacs 启动时会按以下顺序寻找配置脚本文件，参考手册 50.4.4 How Emacs Finds Your Init File
+
+    ~/.emacs
+    ~/.emacs.el
+    ~/.emacs.d/init.el
+    ~/.config/emacs/init.el
+
+Windows 平台使用 Msys2 环境时，HOME 目录可能指两个不同的位置，一是 Windows 本身
+的用户主目录，另一个是 Msys2 虚拟文件系统中的用户主目录，它在其安装目录下，
+也使用同样的用户名称：
+
+```sh
+# cmd
+>dir %HOME%
+ C:\Users\OCEAN 的目录
+
+# bash
+$ echo ~/
+/home/OCEAN/
+```
+
+Emacs 运行时加载的初始化脚本通过 Options ⇒ Save Options 操作，在底部的提示信息确认。
+
+创建项目，设置类型时可以选择 Automake 或者 Make，前者工具齐全但臃肿，后者小巧。
+设置工程名称后就会在项目目录下生成 Project.ede 脚本（Elisp）：
+
+```sh
+$ cat Project.ede 
+;; Object HelloC
+;; EDE Project Files are auto generated: Do Not Edit
+(ede-proj-project "HelloC"
+  :file "Project.ede"
+  :name "HelloC"
+  :targets nil
+  :configurations '("debug" "release")
+  :object-name "HelloC"
+  :makefile-type Makefile
+  :configuration-variables '("debug" (("DEBUG" . "1"))))
+```
+
+使用 EDE Development ⇒ Project Options ⇒ Add Target ... 添加 Make 编译目标，目标
+类型有多种，使用 TAB 实例查看列表，构建程序就设置为 `program` 类型。Emacs 会
+提示要包含当前项目中现有的哪些代码文件。创建构建目标后，项目配置文件更新：
+
+```sh
+  :targets
+  (list
+    (ede-proj-target-makefile-program "hello"
+      :object-name "hello"
+      :name "hello"
+      :path ""
+      :source '("main.c")
+      :configuration-variables '("debug" ("CFLAGS" . "-g") ("LDFLAGS" . "-g"))))
+```
+
+使用 EDE Development ⇒ Build Project 菜单完成项目的构建，包括打包项目源文件。
+如果此菜单显示灰色不可用状态，可以考虑重新加载项目。构建过程中会自动生成
+Makefile 脚本，然后就可以使用 Tools ⇒ Project ⇒ Compile ... 命令 `C-x p c` 执行
+编译，它会调用 make 去执行构建过程。
+
+切换项目 Tools ⇒ Project ⇒ Switch Project `C-x p p` 会提供选择当前记录在档的项目，
+使用 TAB 补全选择，或者输入 `...` 回车后加载项目目录。
+
+Emacs 其中一个微不足道的功能是浏览 info 文件。`info` 命令只是一个独立阅读器。
+
+Texinfo 基于单一源文件来生产多种格式的输出，包括在线和印刷格式：HTML, PDF, DVI, 
+Info, DocBook, LaTeX, EPUB 3。因此，如果用户采用 Texinfo 只需编写一个文件即可，
+无需为在线信息编写不同的文件，也不需要为印刷手册编写另一个文件。
+
+Texinfo 的纯文本格式使用 .info 扩展名，通过 makeinfo 生成。原始脚本文件是 
+.texi 格式，尽管它也文本文件。事实上，info 格式还包含少许非可视的控制字符，
+不算是严格的 Plain text。
+
+可以使用 Sublime Text + reStructureedText 或者 Markdown 插件来查看 Texinfo 文档。
+虽然，Info 工具已经提供比 man 文档更易用的交互操作，但是比起 Sublime Text 的
+符号跳转功能还是差一点。因为 Info 操作上还是繁琐，需要来回跳转。Sublime Text
+则通过索引数据库，或者文档的目录数据很好解决了此问题，主要归功于它引入的
+语法声明机制，对不同类型的文档、代码定义了相应的语法文档，同时解决了文档
+高亮显示、关键字搜索，还用索引数据收集等工作，并为智能提示打下了基础。
+
+Windows WSL 环境中可以安装 texinfo 软件包，它包含了各个转译命令，可以使用
+wsl 命令来调用 Linux 子系统的命令，例如以下命令，将包含 Texinfo 字符串通过
+管道流送给 texi2any 转换格式，默认输出 stdin.info 文件。管道操符作需要转义，
+否则会作为宿主机上的管道操作：
+
+```sh
+# sudo apt install texinfo
+# Host interoperate with WSL
+$ wsl -- whoami
+$ wsl whoami
+jeango
+$ whoami
+OCEAN
+$ wsl -- printf '@node Top \n@node Node007\n' \| texi2any
+```
+
+文档通常安装于 /usr/share/info 目录，此目录下有一个自动生成的 `dir` 文件，它就是
+Info 的主页信息文件，也是 Texinfo 格式。其它安装好的文档使用 .info.gz 压缩包格式，
+目的是为了节省磁盘空间。可以使用 gzip 工具解压阅读，因为压缩包通常只有一个 Info 
+文件，可以直接将内容输出到控制台 stdout。文档通常分成个包，使用数字后缀命名，
+例如 m4 宏编程工具有三个 info 文档包，其中无数字后缀的这个包含 Tag Table，记录
+文档节点（章节）对应文档的字节偏移位置。文件名后缀数字最大的这个通常包含 
+Index 数据，其它的是主文档：
+
+```sh
+$ find /usr/share/info/m4* | sed -n 'p'
+/usr/share/info/m4.info-1.gz
+/usr/share/info/m4.info-2.gz
+/usr/share/info/m4.info.gz
+
+$ ls -lth /usr/share/info/m4*
+-rw-r--r-- 1 OCEAN None  88K Dec 29  2021 /usr/share/info/m4.info-1.gz
+-rw-r--r-- 1 OCEAN None  13K Dec 29  2021 /usr/share/info/m4.info-2.gz
+-rw-r--r-- 1 OCEAN None 1.7K Dec 29  2021 /usr/share/info/m4.info.gz
+
+$ gzip -d -c `find /usr/share/info/m4*`
+$ gzip -d -c `find /usr/share/info/m4* | sed -n '3p'`
+```
+
+Linxu 系统中可以直接使用 info 命令来查看 Texinfo 文档。执行此命令将列出当前系统
+已经安装的 Texinfo 文档的清单。命令首先进入 Info main menu (aka directory node)，
+它的 TUI (Text User Interface) 操作非常像 VIM 编辑器，使用按键执行相应的命令：
+
+    'q' quits;
+    'H' lists all Info commands;
+    'h' starts the Info tutorial;
+    'mTexinfo RET' visits the Texinfo manual, etc.
+
+主菜单提示了几个常用的命令，如按下 `q` 按键即退出 info 界面，`h` 开始阅读
+教程，`H` 列表 info 可用的命令，回车键使用 `RET` 表示，输入 `m` 激活 Info 菜单，
+然后输入 `Texinfo` 并回车就可以打开 Texinfo 手册，其它主题文档也同样操作。
+
+Menu 列表下使用 * 号标明帮助主题文档，并且已经分类，使用 `Tab` 进行跳转。
+使用 [/]、[s] 或者 [S] 打开正则表达式搜索，输入 @Node 节点名称，* 号到 : 之间的
+字符串，然后按回车跳转。输入不完整也没有关系，Info 会匹配到相应的位置。
+还可以使用 `{` 和 `}` 继续搜索。使用 `i` 在 Index 数据库搜索相关内容，使用
+`,` 循环搜索类似的索引内容。
+
+Info 的正则搜索功能仅限于当前主题页面，这使得它无法像 Sublime Text 那样便利。
+另一方面，info 提供了索引搜索，这在一定程度上提升了使便利性。但是还不及
+基于全文索引、目录数据的模糊搜索方便，特别是在记不清具体关系字的情况。
+
+举例来说，查询 bash 手册时，想知道比较运算符的信息，如果搜索 `compare` 这个
+词就可能找不到相关信息，尽管它已经很接近文档中使用的 `comparision` 关键字。
+如果使用模糊搜索，则完全可以检索到，这种信息检索能力更符合大脑的工作方式。
+Sublime Text 中还有一个 Incremental Find 功能，它有点类似模糊搜索，只是根据用户
+输入的信息动态地跟踪到当前搜索到的内容所在，这已经比传统搜索功能好用的多。
+
+当然，拿一个小工具和专业软件来比较本身就是不公平的，它们的不在同一水平，
+如果要比较，也应该是：Emacs、VIM、Sublime Text、TextMate、VS Code 之间的比较。
+这些软件中，除了 TextMate 没接触过外（它的后辈是 Sublime Text），GNU Emacs
+是我最近研究 Texinfo 文档格式时才开始学习的一个编辑软件，也是继学习 `sed`
+和 `gawk` 编辑工具之后才开始使用的编辑器。说它是编辑器似乎有点不恰当，
+很多用户称之 Emacs 操作系统，因为它确实强大，超过编辑器本身的内涵，既可以
+编辑文件，又可以处理目录，浏览 Web 页面，总之它不是一个简单的 IDE。
+
+Emacs 28.1 has a wide variety of new features, including:
+
+1. Native compilation of Lisp files
+2. Text shaping with HarfBuzz and drawing with Cairo
+3. Support for loading Secure Computing filters
+4. Much improved display of Emoji and Emoji sequences
+5. New system for documenting groups of functions
+6. A minor mode for context menus
+7. Mode-specific commands
+8. Emacs shows matching parentheses by default
+9. Many improvements and extensions to project.el
+
+Texinfo 是一个超文本系统，考虑到 TUI 的显示机制，一个屏幕可能无法显示完整
+的主题页面内容。所以 info 界面中的翻页有两种形式，一是当前主题内容的滚动，
+另一种是主题之间的跳转。官方文档称为 Node，其层次结构如下图表所示：
+
+      3.7 Node and Menu Illustration
+
+                              Top
+                               |
+             -------------------------------------
+            |                  |                  |
+         Chapter 1          Chapter 2          Chapter 3
+            |                  |                  |
+         --------           --------           --------
+        |        |         |        |         |        |
+     Section  Section   Section  Section   Section  Section
+       1.1      1.2       2.1      2.2       3.1      3.2
+
+使用 [Space] 空格键和 [Backspace] 在当前主题上页面上下滚动，[Del] 也可以往回滚动。
+翻到底部自动跳转到下一页内容。
+
+TUI 界面顶行内容显示 `Next`、`Prev`、`Up`，对应下一页、上一页，和上层信息。
+使用按键 [n] 翻到下一页，[p] 返回上一页，[u] 返回上一层。C-h 获得帮助。
+使用 `[` 和 `]` 在文档节点间跳转。
+
+要在主题之间频繁跳转，可以记住如下命令键：
+
+ *  `q`：退出 info 界面。
+ *  `h`：调出 info 教程。
+ *  `d`：回到 info 的初始界面，directory node。
+ *  `m`：指定菜单名，选择另外一个节点。
+ *  `u`：转到上一级主题。
+ *  `n`：跳转到该节点的下一个节点。
+ *  `p`：跳转到该节点的上一个节点。
+ *  `f`：跟进交叉引用的主题，Cross-reference 跳转。
+ *  `l`：进入该窗口中的最后一个节点。
+ *  `TAB`：跳转到该窗口的下一个超文本链接。
+ *  `RET`：进入光标处的超文本链接。
+
+交叉引用是指当前主题中引用了其它页面的中概念、信息，支持交叉引用是现代电子
+文档信息检索（Information Retrieval）的一项基本能力。Texinfo 支持多种交叉引用的
+定义形式，例如锚点 `@anchor`，浮动标签 `@float`，或者 `@xref` 与 `@cite` 等。
+即使是传统纸质印刷品，交叉引用也可以给出引用的页面信息，供阅读者参考。
+
+转译生成 info 文档后，交叉引用显示为类似 `*Note Node Name::` 这样的字符串。
+
+总之：GNU Emacs 和 Texinfo 作为开源技术，真真的好用💖。同类的开源文档文档
+还有 reStructuredText，LaTeX 都是杰出的开源文档技术，永远值得依赖，是建设自有
+数字图书馆的最佳选择。开源才直接获取一手信息，拒绝做二手信息消费者！
+
+
 This is texinfo.info, produced by makeinfo version 7.1 from
 texinfo.texi.
 
@@ -953,7 +1277,7 @@ File: texinfo.info,  Node: Reporting Bugs,  Next: Output Formats,  Up: Overview
 *   11.10 Inserting Unicode: ‘@U’
 * 12 Forcing and Preventing Breaks
 *   12.1 Break Commands
-*   12.2 ‘@*’ and ‘@/’: Generate and Allow Line Breaks
+*   12.2 `@*` and `@/`: Generate and Allow Line Breaks
 *   12.3 ‘@-’ and ‘@hyphenation’: Hyphenation in Printed Output
 *   12.4 ‘@allowcodebreaks’: Control Line Breaks in ‘@code’
 *   12.5 ‘@w’{TEXT}: Prevent Line Breaks
@@ -4085,7 +4409,7 @@ For example,
 
 produces
 
-     *Note* Tropical Storms::.
+     *Note Tropical Storms::.
 
 in Info and
 
@@ -4161,7 +4485,7 @@ mark the empty second argument.)
 
 produces
 
-     *Note* Thunder and Lightning: Electrical Effects, for details.
+     *Note Thunder and Lightning: Electrical Effects, for details.
 
 in Info and
 
@@ -4214,7 +4538,7 @@ For example,
 
 produces this output in Info:
 
-     *Note* Lightning: (weather)Electrical Effects.
+     *Note Lightning: (weather)Electrical Effects.
 
 As you can see, the name of the manual is enclosed in parentheses and
 precedes the name of the node.  In HTML, the manual name and the node
@@ -4240,7 +4564,7 @@ formats.  For example,
 
 produces
 
-     *Note* Thunder and Lightning: (weather)Electrical Effects.
+     *Note Thunder and Lightning: (weather)Electrical Effects.
 
 in Info and
 
@@ -4258,7 +4582,7 @@ the node name is used in both instances.  For example,
 
 produces
 
-     *Note* (weather)Electrical Effects::.
+     *Note (weather)Electrical Effects::.
 
 in Info and
 
@@ -4307,7 +4631,7 @@ includes ‘Top’ if it was given.)  For example,
 
 produces
 
-     *Note* (make)Top::.
+     *Note (make)Top::.
 
 and
 
@@ -4325,7 +4649,7 @@ cross-reference to ‘The GNU Make Manual’, you would write:
 
 which produces
 
-     *Note* Overview: (make)Top.
+     *Note Overview: (make)Top.
 
 in Info and
 
