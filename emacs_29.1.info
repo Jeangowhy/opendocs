@@ -19548,8 +19548,8 @@ commands for operating on tags.
    HTML consists of two modes—one, a basic mode called ‘html-mode’ is a
 slightly customized variant of SGML mode.  The other, which is used by
 default for HTML files, is called ‘mhtml-mode’, and attempts to properly
-handle Javascript enclosed in a ‘<script>’ element and CSS embedded in a
-‘<style>’ element.
+handle Javascript enclosed in a ‘\<script>’ element and CSS embedded in a
+‘\<style>’ element.
 
 ‘C-c C-n’
      Interactively specify a special character and insert the SGML
