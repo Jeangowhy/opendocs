@@ -143,11 +143,11 @@ Source: [secsh working group](https://datatracker.ietf.org/wg/secsh/)
 
 10.  [curve25519-sha256@libssh.org](https://git.libssh.org/projects/libssh.git/tree/doc/curve25519-sha256@libssh.org.txt)
 
-    `curve25519-sha256@libssh.org` key exchange method. This is identical to `curve25519-sha256` as later published in [RFC8731](https://tools.ietf.org/html/rfc8731).
+   `curve25519-sha256@libssh.org` key exchange method. This is identical to `curve25519-sha256` as later published in [RFC8731](https://tools.ietf.org/html/rfc8731).
 
 11.  [draft-kampanakis-curdle-pq-ssh-00](https://tools.ietf.org/html/draft-kampanakis-curdle-pq-ssh-00)  [8.0] - [8.5]
 
-    Post-quantum public key algorithms (`sntrup4591761x25519-sha512@tinyssh.org`)
+   Post-quantum public key algorithms (`sntrup4591761x25519-sha512@tinyssh.org`)
 
 ### Other specifications
 
