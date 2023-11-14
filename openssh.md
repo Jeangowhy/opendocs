@@ -3131,7 +3131,7 @@ Ylonen & Lonvick            Standards Track                     [Page 1](#t4252)
 RFC 4252              SSH Authentication Protocol           January 2006
 
 
-[Table of Contents](){id=t4252}
+/. [Table of Contents](){id=t4252}
 ========================================================
 
 - 1. Introduction .................................................... [2](#p4252_02)
@@ -4111,7 +4111,7 @@ Ylonen &  Lonvick           Standards Track                     [Page 1](#t4253)
 RFC 4253              SSH Transport Layer Protocol          January 2006
 
 
-[Table of Contents](){id=t4253}
+/. [Table of Contents](){id=t4253}
 ========================================================
 
 - 1. Introduction .................................................... [3](#p4253_03)
