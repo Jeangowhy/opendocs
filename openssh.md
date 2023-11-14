@@ -64,7 +64,7 @@ Source: [secsh working group](https://datatracker.ietf.org/wg/secsh/)
 | [RFC4256](https://tools.ietf.org/html/rfc4256) [(e)](https://www.rfc-editor.org/errata_search.php?rfc=4256 "errata") | | Generic Message Exchange Authentication (aka `keyboard-interactive`)
 | [RFC4335](https://tools.ietf.org/html/rfc4335) [(e)](https://www.rfc-editor.org/errata_search.php?rfc=4335 "errata") | | SSH Session Channel Break Extension
 | [RFC4344](https://tools.ietf.org/html/rfc4344) | | SSH Transport Layer Encryption Modes (`aes128-ctr`, ``` aes192-ctr``, `aes256-ctr`)`` ```
-| [RFC4345](https://tools.ietf.org/html/rfc4345) [(e)](https://www.rfc-editor.org/errata_search.php?rfc=4345 "errata") | | [4.1] - | [7.6] | Improved Arcfour Modes for the SSH Transport Layer Protocol
+| [RFC4345](https://tools.ietf.org/html/rfc4345) [(e)](https://www.rfc-editor.org/errata_search.php?rfc=4345 "errata") | [4.1] - [7.6] | Improved Arcfour Modes for the SSH Transport Layer Protocol
 | [RFC4419](https://tools.ietf.org/html/rfc4419) [(e)](https://www.rfc-editor.org/errata_search.php?rfc=4419 "errata") | | Diffie-Hellman Group Exchange
 | [RFC4462](https://tools.ietf.org/html/rfc4462) [(e)](https://www.rfc-editor.org/errata_search.php?rfc=4462 "errata") | | GSS-API Authentication and Key Exchange (only authentication implemented)
 | [RFC4716](https://tools.ietf.org/html/rfc4716) | | SSH Public Key File Format (import and export via [ssh-keygen](https://man.openbsd.org/ssh-keygen.1) only).
@@ -83,7 +83,7 @@ Source: [secsh working group](https://datatracker.ietf.org/wg/secsh/)
 
 | Specification | Versions | Description |
 |---------------|----------|-------------|
-| [draft-ietf-secsh-filexfer-02](https://tools.ietf.org/html/draft-ietf-secsh-filexfer-02) | SSH File Transfer Protocol version 3
+| [draft-ietf-secsh-filexfer-02](https://tools.ietf.org/html/draft-ietf-secsh-filexfer-02) | | SSH File Transfer Protocol version 3
 | [draft-ietf-secsh-filexfer-extensions-00](https://tools.ietf.org/html/draft-ietf-secsh-filexfer-extensions-00) | [9.0] - | SFTP extension [`copy-data`](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-extensions-00#section-7)
 | [draft-ietf-secsh-filexfer-extensions-00](https://tools.ietf.org/html/draft-ietf-secsh-filexfer-extensions-00) | [9.1] - | SFTP extension [`home-directory`](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-extensions-00#section-5)
 | [draft-ietf-curdle-ssh-kex-sha2-03](https://tools.ietf.org/html/draft-ietf-curdle-ssh-kex-sha2-03) | [7.3] - | Key Exchange (KEX) Method Updates and Recommendations
