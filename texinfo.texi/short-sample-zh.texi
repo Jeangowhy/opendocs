@@ -1,0 +1,65 @@
+\input texinfo-zh
+
+@documentencoding UTF-8
+@documentlanguage zh
+
+@settitle texinfo中文样例文件
+
+@afivepaper
+@firstparagraphindent insert
+
+@copying
+版权所有 @copyright{} 2022 Free Software Foundation, Inc.
+@end copying
+
+@titlepage
+@title texinfo中文样例文件
+@author texinfo
+@page
+@insertcopying
+@end titlepage
+
+@contents
+
+@node 诗歌
+@chapter 诗歌
+
+@enumerate
+@item 《诗经》
+@item 《古诗十九首》
+@end enumerate
+
+@node 关雎
+@section 关雎
+
+关关雎鸠，在河之洲。
+
+窈窕淑女，君子好逑。
+
+@node 涉江采芙蓉
+@section 涉江采芙蓉
+
+涉江采芙蓉，兰泽多芳草。
+
+采之欲遗谁，所思在远道。
+
+还顾望旧乡，长路漫浩浩。
+
+同心而离居，忧伤以终老。
+
+@node 散文
+@chapter 散文
+
+这首诗（@xref{涉江采芙蓉}）的意旨只是游子思家。诗中引用《楚辞》的地方很多，
+成辞也有，意境也有，但全诗并非思君之作。《十九首》是仿乐府的，乐府里没有思
+君的话，汉魏六朝的诗里也没有，本诗似乎不会是例外。“涉江”是《楚辞》的篇名，
+屈原所作的《九章》之一。本诗是借用这个成辞，一面也多少暗示着诗中主人的流离
+转徙，《涉江》篇所叙的正是屈原流离转徙的情形。采芳草送人，本是古代的风俗。
+《诗经·郑风·溱洧》篇道：“溱与洧，方涣涣兮，士与女，方秉蕳兮。”《毛传》：
+“蕳，兰也。”《诗》又道：“且往观乎，洧之外，洵訏且乐。维士与女，伊其相谑，
+赠之以勺药。”郑玄《笺》说士与女分别时，“送女以勺药，结恩情也。”《毛传》说
+勺药也是香草。《楚辞》也道：“采芳洲兮杜若，将以遗之下女”，“搴汀州兮杜若，
+将以遗之远者”；“被石兰兮带杜衡，折芳馨兮遗所思”；“折疏麻兮瑶华，将以遗兮离
+居”。可见采芳相赠，是结恩情的意思，男女都可，远近也都可。
+
+@bye

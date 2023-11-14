@@ -1,0 +1,159 @@
+@subsection pod2texi
+@anchor{pod2texi}
+
+@subsubheading pod2texi NAME
+@anchor{pod2texi NAME}
+
+pod2texi - convert Pod to Texinfo
+
+@subsubheading pod2texi SYNOPSIS
+@anchor{pod2texi SYNOPSIS}
+
+@verbatim
+  pod2texi [OPTION]... POD...
+@end verbatim
+
+@subsubheading pod2texi DESCRIPTION
+@anchor{pod2texi DESCRIPTION}
+
+Translate Pod file(s) to Texinfo.  There are two basic modes of
+operation.  First, by default, each Pod is translated to a standalone
+Texinfo manual.
+
+Second, if @code{--base-level} is set higher than 0, each Pod is translated
+to a file suitable for @code{@@include}, and one more file with a main menu
+and all the @code{@@include} is generated.
+
+@subsubheading pod2texi OPTIONS
+@anchor{pod2texi OPTIONS}
+
+@table @asis
+@item @strong{@asis{}-@asis{}-@asis{}appendix-sections}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}appendix-sections}}
+
+Use appendix sectioning commands (@code{@@appendix}, ...) instead of the
+default numbered sectioning Texinfo @@-commands (@code{@@chapter},
+@code{@@section}, ...).
+
+@item @strong{@asis{}-@asis{}-@asis{}base-level}=@emph{NUM|NAME}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}base-level}=@emph{NUM|NAME}}
+
+Sets the level of the @code{head1} commands.  It may be an integer or a
+Texinfo sectioning command (without the @code{@@}): 1 corresponds to the
+@code{@@chapter}/@code{@@unnumbered} level, 2 to the @code{@@section} level, and so on.
+The default is 0, meaning that @code{head1} commands are still output as
+chapters, but the output is arranged as a standalone manual.
+
+If the level is not 0, the Pod file is rendered as a fragment of a
+Texinfo manual suitable for @code{@@include}.  In this case, each Pod file
+has an additional sectioning command covering the entire file, one level
+above the @code{--base-level} value.  Therefore, to make each Pod file a
+chapter in a large manual, you should use @code{section} as the base level.
+
+For an example of making Texinfo out of the Perl documentation itself,
+see @code{contrib/perldoc-all} in the Texinfo source distribution.
+
+@item @strong{@asis{}-@asis{}-@asis{}debug}=@emph{NUM}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}debug}=@emph{NUM}}
+
+Set debugging level to @emph{NUM}.
+
+@item @strong{@asis{}-@asis{}-@asis{}headings-as-sections}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}headings-as-sections}}
+
+Use headings commands (@code{@@heading}, ...) instead of the
+default numbered sectioning Texinfo @@-commands (@code{@@chapter},
+@code{@@section}, ...). The sectioning command covering the entire
+file output for each Pod file if @strong{@asis{}-@asis{}-@asis{}base-level} is not 0 is a
+numbered command.
+
+@item @strong{@asis{}-@asis{}-@asis{}help}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}help}}
+
+Display help and exit.
+
+@item @strong{@asis{}-@asis{}-@asis{}menus}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}menus}}
+
+Output node menus. If there is a main manual, its Top node menu
+is always output, since a master menu is generated. Other nodes
+menus are not output in the default case.
+
+@item @strong{@asis{}-@asis{}-@asis{}output}=@emph{NAME}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}output}=@emph{NAME}}
+
+Name for the first manual, or the main manual if there is a main manual.
+Default is to write to standard output.
+
+@item @strong{@asis{}-@asis{}-@asis{}no-section-nodes}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}no-section-nodes}}
+
+Use anchors for sections instead of nodes.
+
+@item @strong{@asis{}-@asis{}-@asis{}no-fill-section-gaps}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}no-fill-section-gaps}}
+
+Do not fill sectioning gaps with empty @code{@@unnumbered} files.
+Ordinarily, it's good to keep the sectioning hierarchy intact.
+
+@item @strong{@asis{}-@asis{}-@asis{}preamble}=@emph{STR}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}preamble}=@emph{STR}}
+
+Insert @emph{STR} as top boilerplate before menu and includes.  If @emph{STR} is
+set to @code{-}, read the top boilerplate from the standard input.  The default top
+boilerplate is a minimal beginning for a Texinfo document.
+
+@item @strong{@asis{}-@asis{}-@asis{}setfilename}=@emph{STR}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}setfilename}=@emph{STR}}
+
+Use @emph{STR} in top boilerplate before menu and includes for @code{@@setfilename}.
+No @code{@@setfilename} is output in the default case.
+
+@item @strong{@asis{}-@asis{}-@asis{}subdir}=@emph{NAME}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}subdir}=@emph{NAME}}
+
+If there is a main manual with include files (each corresponding to
+an input Pod file), then those include files are put in directory @emph{NAME}.
+
+@item @strong{@asis{}-@asis{}-@asis{}unnumbered-sections}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}unnumbered-sections}}
+
+Use unnumbered sectioning commands (@code{@@unnumbered}, ...) instead of the
+default numbered sectioning Texinfo @@-commands (@code{@@chapter},
+@code{@@section}, ...).
+
+@item @strong{@asis{}-@asis{}-@asis{}top}=@emph{TOP}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}top}=@emph{TOP}}
+
+Name of the @code{@@top} element for the main manual.  May contain Texinfo code.
+
+@item @strong{@asis{}-@asis{}-@asis{}version}
+@anchor{pod2texi @strong{@asis{}-@asis{}-@asis{}version}}
+
+Display version information and exit.
+
+@end table
+
+@subsubheading pod2texi SEE ALSO
+@anchor{pod2texi SEE ALSO}
+
+@ref{,,, Pod-Simple-Texinfo}.  @ref{,,, perlpod}.  The Texinfo manual.
+Texinfo home page: @url{http://www.gnu.org/software/texinfo/}
+
+@subsubheading pod2texi COPYRIGHT AND LICENSE
+@anchor{pod2texi COPYRIGHT AND LICENSE}
+
+Copyright 2012-2023 Free Software Foundation, Inc.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License,
+or (at your option) any later version.
+
+There is NO WARRANTY, to the extent permitted by law.
+
+@subsubheading pod2texi AUTHOR
+@anchor{pod2texi AUTHOR}
+
+Patrice Dumas <bug-texinfo@@gnu.org>.
+

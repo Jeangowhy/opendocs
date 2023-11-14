@@ -1,0 +1,6 @@
+@node Index
+@appendix Index
+
+@printindex cp
+
+@bye

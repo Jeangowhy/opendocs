@@ -201,13 +201,13 @@ Users may switch input focus between selected tabs by using one of the following
     
     _Windows/Linux:_ **Ctrl**_+_**J**, **Ctrl**_+_**Pageup**
     
-    _Mac:_ **Cmd**_+_**J**, **Cmd**_+_**Shift**_+_**\[**
+    _Mac:_ **Cmd**_+_**J**, **Cmd**_+_**Shift**_+_**[**
     
 *   Focus tab to the right
     
     _Windows/Linux:_ **Ctrl**_+_**J**, **Ctrl**_+_**Pagedown**
     
-    _Mac:_ **Cmd**_+_**J**, **Cmd**_+_**Shift**_+_**\]**
+    _Mac:_ **Cmd**_+_**J**, **Cmd**_+_**Shift**_+_**]**
     
 
 ### Removing from the Selection[🔗](){id=doc_removing_from_the_selection}
@@ -475,7 +475,7 @@ _______________________________________________________________________________
 Diff Markers   [🔗](){id=doc_diff_markers}
 ---------------------------------------------------
 
-Sublime Text’s [incremental\_diff](incremental_diff.html) functionality ties in with the Git integration. By default, the incremental diff functionality tracks changes to the file since it was last saved, but it is also possible to diff against HEAD.
+Sublime Text’s [incremental_diff](incremental_diff.html) functionality ties in with the Git integration. By default, the incremental diff functionality tracks changes to the file since it was last saved, but it is also possible to diff against HEAD.
 
 Here is an example of what the diff markers look like in action, using the Mariana color scheme:
 
@@ -490,7 +490,7 @@ Here is an example of what the diff markers look like in action, using the Maria
 
 Changing the setting `git_diff_target` to `"head"` will modify the diff markers to display a diff versus the version of the file at the Git repository HEAD, as opposed to the version of the file in the working directory.
 
-See the [incremental\_diff](incremental_diff.html) documentation for more information and examples, including instructions for viewing inline diffs, navigating between hunks and reverting changes.
+See the [incremental_diff](incremental_diff.html) documentation for more information and examples, including instructions for viewing inline diffs, navigating between hunks and reverting changes.
 
 
 _______________________________________________________________________________
@@ -536,13 +536,13 @@ _______________________________________________________________________________
 Settings   [🔗](){id=doc_settings}
 ---------------------------------------------------
 
-"show\_git\_status" boolean[🔗](){id=doc_show_git_status}
+"show_git_status" boolean[🔗](){id=doc_show_git_status}
 
 Enables Git integration.
 
 Default: `true`
 
-"git\_diff\_target" string[🔗](){id=doc_git_diff_target}
+"git_diff_target" string[🔗](){id=doc_git_diff_target}
 
 Controls the behavior of incremental diff for files in a Git repository. Valid values include:
 
@@ -580,7 +580,7 @@ Diff Markers   [🔗](){id=doc_diff_markers}
 
 The following is an example of diff markers displayed when using the Mariana color scheme:
 
-.incremental\_diff { background-color: hsl(210, 15%, 24%); color: hsl(219, 28%, 88%); padding: 5px; font-family: "Roboto Mono", monospace; line-height: 1.3; border-radius: 2px; } .incremental\_diff .line\_number { width: 40px; text-align: right; padding-right: 15px; opacity: 0.5; } .incremental\_diff .diff\_marker { width: 4px; } .incremental\_diff .deleted-before, .incremental\_diff .deleted-after, .incremental\_diff .added, .incremental\_diff .modified { position: relative; } .incremental\_diff .added:after { content: ' '; display: block; width: 3px; height: 100%; background-color: hsl(114, 31%, 68%); position: absolute; top: 0; left: 0; } .incremental\_diff .modified:after { content: ' '; display: block; width: 3px; height: 100%; background-color: hsl(32, 93%, 66%); position: absolute; top: 0; left: 0; } .incremental\_diff .deleted-before:after { content: ' '; display: inline-block; width: 0; height: 0; border: 2px solid transparent; border-left-color: hsl(357, 79%, 65%); border-bottom-color: hsl(357, 79%, 65%); position: absolute; bottom: 0; left: 0; } .incremental\_diff .deleted-after:after { content: ' '; display: inline-block; width: 0; height: 0; border: 2px solid transparent; border-left-color: hsl(357, 79%, 65%); border-top-color: hsl(357, 79%, 65%); position: absolute; top: 0; left: 0; }
+.incremental_diff { background-color: hsl(210, 15%, 24%); color: hsl(219, 28%, 88%); padding: 5px; font-family: "Roboto Mono", monospace; line-height: 1.3; border-radius: 2px; } .incremental_diff .line_number { width: 40px; text-align: right; padding-right: 15px; opacity: 0.5; } .incremental_diff .diff_marker { width: 4px; } .incremental_diff .deleted-before, .incremental_diff .deleted-after, .incremental_diff .added, .incremental_diff .modified { position: relative; } .incremental_diff .added:after { content: ' '; display: block; width: 3px; height: 100%; background-color: hsl(114, 31%, 68%); position: absolute; top: 0; left: 0; } .incremental_diff .modified:after { content: ' '; display: block; width: 3px; height: 100%; background-color: hsl(32, 93%, 66%); position: absolute; top: 0; left: 0; } .incremental_diff .deleted-before:after { content: ' '; display: inline-block; width: 0; height: 0; border: 2px solid transparent; border-left-color: hsl(357, 79%, 65%); border-bottom-color: hsl(357, 79%, 65%); position: absolute; bottom: 0; left: 0; } .incremental_diff .deleted-after:after { content: ' '; display: inline-block; width: 0; height: 0; border: 2px solid transparent; border-left-color: hsl(357, 79%, 65%); border-top-color: hsl(357, 79%, 65%); position: absolute; top: 0; left: 0; }
 
   
 
@@ -680,7 +680,7 @@ _______________________________________________________________________________
 Settings   [🔗](){id=doc_settings}
 ---------------------------------------------------
 
-"mini\_diff" boolean, string[🔗](){id=doc_mini_diff}
+"mini_diff" boolean, string[🔗](){id=doc_mini_diff}
 
 If the incremental diff functionality should be enabled. Valid values include:
 
@@ -691,7 +691,7 @@ If the incremental diff functionality should be enabled. Valid values include:
 
 _Default:_ `true`
 
-"git\_diff\_target" string[🔗](){id=doc_git_diff_target}
+"git_diff_target" string[🔗](){id=doc_git_diff_target}
 
 Controls the behavior of incremental diff for files in a Git repository. Valid values include:
 
@@ -771,19 +771,19 @@ Settings   [🔗](){id=doc_settings}
 
 The indexing engine uses low-priority background processes to load and analyze the files in the project. Depending on the machine and available resources, it may be desirable to modify the configuration to ensure the processes don’t interfere with other usage of the machine.
 
-"index\_files" boolean[🔗](){id=doc_index_files}
+"index_files" boolean[🔗](){id=doc_index_files}
 
 If the indexing engine is enabled
 
 _Default:_ `true`
 
-"index\_workers" integer[🔗](){id=doc_index_workers}
+"index_workers" integer[🔗](){id=doc_index_workers}
 
 The number of background processes to use. A value of `0` causes Sublime Text to automatically pick the number of processes based on the number of CPU cores.
 
 _Default:_ `0`
 
-"index\_exclude\_gitignore" boolean[🔗](){id=doc_index_exclude_gitignore}
+"index_exclude_gitignore" boolean[🔗](){id=doc_index_exclude_gitignore}
 
 4050
 
@@ -791,7 +791,7 @@ If files ignored via .gitignore are excluded from indexing.
 
 _Default:_ `true`
 
-"index\_skip\_unknown\_extensions" boolean[🔗](){id=doc_index_skip_unknown_extensions}
+"index_skip_unknown_extensions" boolean[🔗](){id=doc_index_skip_unknown_extensions}
 
 4050
 
@@ -799,19 +799,19 @@ If files with unknown extensions are excluded from indexing
 
 _Default:_ `true`
 
-"index\_exclude\_patterns" array of strings[🔗](){id=doc_index_exclude_patterns}
+"index_exclude_patterns" array of strings[🔗](){id=doc_index_exclude_patterns}
 
 [File Patterns](file_patterns.html) used to exclude files from indexing.
 
 _Default:_ `["*.log"]`
 
-"show\_definitions" boolean[🔗](){id=doc_show_definitions}
+"show_definitions" boolean[🔗](){id=doc_show_definitions}
 
 If the _Goto Definition_ popup will appear when hovering the mouse over a word that has been indexed
 
 _Default:_ `true`
 
-"auto\_complete\_use\_index"[🔗](){id=doc_auto_complete_use_index}
+"auto_complete_use_index"[🔗](){id=doc_auto_complete_use_index}
 
 4050
 
@@ -931,7 +931,7 @@ To use subl, the Sublime Text bin folder needs to be added to the path. For a ty
 
 If using Bash, the default before macOS 10.15, the following command will add the bin folder to the `PATH` environment variable:
 
-echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' \>> ~/.bash\_profile
+echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' \>> ~/.bash_profile
 
 ### Zsh[🔗](){id=doc_zsh}
 
@@ -943,9 +943,9 @@ echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PA
 
 If Sublime Text is installed via one of the [Linux Package Manager Repositories](linux_repositories.html) or a package, a subl symlink will automatically be installed into the /usr/bin/ directory.
 
-If installing from a tarball, the sublime\_text executable should be symlinked to subl, with a command such as:
+If installing from a tarball, the sublime_text executable should be symlinked to subl, with a command such as:
 
-sudo ln \-s /opt/sublime\_text/sublime\_text /usr/local/bin/subl
+sudo ln \-s /opt/sublime_text/sublime_text /usr/local/bin/subl
 
 The exact details of the symlink command will depend on the installation location. Most default `PATH` environment variable values should contain /usr/local/bin, so no further commands should be necessary.
 
@@ -958,11 +958,11 @@ To see the available flags, run `subl --help`. _The available flags will vary pe
 
 Sublime Text build 4131
 
-Usage: subl \[arguments\] \[files\]         Edit the given files
-   or: subl \[arguments\] \[directories\]   Open the given directories
-   or: subl \[arguments\] -- \[files\]      Edit files that may start with '-'
-   or: subl \[arguments\] -               Edit stdin
-   or: subl \[arguments\] - >out          Edit stdin and write the edit to stdout
+Usage: subl [arguments] [files]         Edit the given files
+   or: subl [arguments] [directories]   Open the given directories
+   or: subl [arguments] -- [files]      Edit files that may start with '-'
+   or: subl [arguments] -               Edit stdin
+   or: subl [arguments] - >out          Edit stdin and write the edit to stdout
 
 Arguments:
   --project <project>:    Load the given project
@@ -983,7 +983,7 @@ location.
 
 To use Sublime Text as the editor for many commands that prompt for input, set your `EDITOR` environment variable:
 
-export EDITOR\='subl -w'
+export EDITOR='subl -w'
 
 Specifying `-w` will cause the `subl` command to not exit until the file is closed.
 
@@ -1329,13 +1329,13 @@ _A basic .sublime-completions file:_
 
 {
     "scope": "source.python",
-    "completions": \[
+    "completions": [
         "def",
         "class",
         "None",
         "True",
         "False"
-    \]
+    ]
 }
 
 #### Rich Format[🔗](){id=doc_rich_format}
@@ -1412,7 +1412,7 @@ _A .sublime-completions file with examples of each field:_
 
 {
     "scope": "source.python",
-    "completions": \[
+    "completions": [
         {
             "trigger": "def",
             "contents": "def",
@@ -1425,7 +1425,7 @@ _A .sublime-completions file with examples of each field:_
             "kind": "snippet",
             "details": "A simple, non-<code>async</code> function definition"
         }
-    \]
+    ]
 }
 
 ### Snippets[🔗](){id=doc_snippets}
@@ -1457,8 +1457,8 @@ _An example .sublime-snippet file:_
 <snippet>
     <scope>source.python</scope>
     <tabTrigger>fun</tabTrigger>
-    <content><!\[CDATA\[def ${1:name}($2):
-    ${0:pass}\]\]></content>
+    <content><![CDATA[def ${1:name}($2):
+    ${0:pass}]]></content>
     <description>function, non-async</description>
 </snippet>
 
@@ -1571,25 +1571,25 @@ The most powerful tool for adding completions are Python plugins.
 Writing a plugin to provide completions involves implementing [`EventListener.on_query_completions()`](#sublime_plugin_EventListener_on_query_completions_) or [`ViewEventListener.on_query_completions()`](#sublime_plugin_ViewEventListener_on_query_completions_).
 
 import sublime
-import sublime\_plugin
+import sublime_plugin
 
-class MyCompletions(sublime\_plugin.EventListener):
-    def on\_query\_completions(self, view, prefix, locations):
-        if not view.match\_selector(locations\[0\], "source.python"):
-            return \[\]
+class MyCompletions(sublime_plugin.EventListener):
+    def on_query_completions(self, view, prefix, locations):
+        if not view.match_selector(locations[0], "source.python"):
+            return []
 
-        available\_completions \= \[
+        available_completions = [
             "def",
             "class",
             "None",
             "True",
             "False"
-        \]
+        ]
 
-        prefix \= prefix.lower()
+        prefix = prefix.lower()
 
-        out \= \[\]
-        for comp in available\_completions:
+        out = []
+        for comp in available_completions:
             if comp.lower().startswith(prefix):
                 out.append(comp)
 
@@ -1606,27 +1606,27 @@ _______________________________________________________________________________
 Settings   [🔗](){id=doc_settings}
 ---------------------------------------------------
 
-"tab\_completion" boolean[🔗](){id=doc_tab_completion}
+"tab_completion" boolean[🔗](){id=doc_tab_completion}
 
 When enabled, pressing **Tab** will insert the best matching completion. When disabled, **Tab** will only trigger snippets or insert a tab character. **Shift**_+_**Tab** can be used to insert an explicit tab when `tab_completion` is enabled.
 
 _Disabling this setting will not implicitly disable `auto_complete`._
 
-"auto\_complete" boolean[🔗](){id=doc_auto_complete}
+"auto_complete" boolean[🔗](){id=doc_auto_complete}
 
 Automatically show the completions popup when typing.
 
 _This behavior is not influenced by the setting `tab_completion`._
 
-"auto\_complete\_size\_limit" integer[🔗](){id=doc_auto_complete_size_limit}
+"auto_complete_size_limit" integer[🔗](){id=doc_auto_complete_size_limit}
 
 If the file size in bytes of the current file is larger than this, the completions popup will not be automatically shown.
 
-"auto\_complete\_delay" integer[🔗](){id=doc_auto_complete_delay}
+"auto_complete_delay" integer[🔗](){id=doc_auto_complete_delay}
 
 The number of milliseconds to wait before showing the completions popup automatically.
 
-"auto\_complete\_selector" string[🔗](){id=doc_auto_complete_selector}
+"auto_complete_selector" string[🔗](){id=doc_auto_complete_selector}
 
 A [selector](selectors.html) to limit when the completions popup will be automatically shown.
 
@@ -1634,7 +1634,7 @@ _Example:_ `"meta.tag, source - comment - string.quoted.double.block - string.qu
 
 _The `"auto_complete_triggers"` setting may be used to re-enable the automatic completions popup in specific situations._
 
-"auto\_complete\_triggers" array of objects[🔗](){id=doc_auto_complete_triggers}
+"auto_complete_triggers" array of objects[🔗](){id=doc_auto_complete_triggers}
 
 Provides explicit triggers for when to automatically show the completions popup.
 
@@ -1642,42 +1642,42 @@ Each object must contain the keys `"selector"` with a string value containing a 
 
 _Example:_
 
-\[
+[
     {
         "selector": "text.html",
         "characters": "<"
     }
-\]
+]
 
 _Triggers will override the setting `auto_complete_selector`._
 
-"auto\_complete\_commit\_on\_tab" boolean[🔗](){id=doc_auto_complete_commit_on_tab}
+"auto_complete_commit_on_tab" boolean[🔗](){id=doc_auto_complete_commit_on_tab}
 
 By default, auto complete will commit the current completion on **Enter**. This setting can be used to make it complete on **Tab** instead.
 
 Completing on **Tab** is generally a superior option, as it removes ambiguity between committing the completion and inserting a newline.
 
-"auto\_complete\_with\_fields" boolean[🔗](){id=doc_auto_complete_with_fields}
+"auto_complete_with_fields" boolean[🔗](){id=doc_auto_complete_with_fields}
 
 Controls if the completions popup is automatically shown when snippet fields are active. Only relevant if `auto_complete_commit_on_tab` is enabled.
 
-"auto\_complete\_cycle" boolean[🔗](){id=doc_auto_complete_cycle}
+"auto_complete_cycle" boolean[🔗](){id=doc_auto_complete_cycle}
 
 Controls what happens when pressing **⬆** while the first item in the completions popup is selected: if `false`, the popup is hidden, otherwise the last completion in the popup is selected.
 
 Also causes the first completion to be selected when **⬇** is pressed on the last completion.
 
-"auto\_complete\_use\_history" boolean[🔗](){id=doc_auto_complete_use_history}
+"auto_complete_use_history" boolean[🔗](){id=doc_auto_complete_use_history}
 
 If previously-selected completions should be automatically selected.
 
-"auto\_complete\_use\_index" boolean[🔗](){id=doc_auto_complete_use_index}
+"auto_complete_use_index" boolean[🔗](){id=doc_auto_complete_use_index}
 
 4052
 
 When enabled, the completions popup will show context-aware suggestions based on other files in the project.
 
-"auto\_complete\_preserve\_order" string[🔗](){id=doc_auto_complete_preserve_order}
+"auto_complete_preserve_order" string[🔗](){id=doc_auto_complete_preserve_order}
 
 4052
 
@@ -1694,19 +1694,19 @@ Controls how the auto complete results are reordered when typing:
 *   `"strict"` – never reorder the results
     
 
-"auto\_complete\_trailing\_symbols" boolean[🔗](){id=doc_auto_complete_trailing_symbols}
+"auto_complete_trailing_symbols" boolean[🔗](){id=doc_auto_complete_trailing_symbols}
 
 4050
 
 Add trailing symbols (e.g., `.`, `()`) if the completion engine thinks they‘re likely enough.
 
-"auto\_complete\_trailing\_spaces" boolean[🔗](){id=doc_auto_complete_trailing_spaces}
+"auto_complete_trailing_spaces" boolean[🔗](){id=doc_auto_complete_trailing_spaces}
 
 4050
 
 Add a space after completions if the completion engine thinks they‘re likely enough.
 
-"auto\_complete\_include\_snippets" boolean[🔗](){id=doc_auto_complete_include_snippets}
+"auto_complete_include_snippets" boolean[🔗](){id=doc_auto_complete_include_snippets}
 
 4050
 
@@ -1714,13 +1714,13 @@ Controls if snippets will not be included in the completions popup.
 
 _When disabled, snippets can still be triggered by typing their tab trigger in, and pressing **Tab** when the completion popup is not showing._
 
-"auto\_complete\_include\_snippets\_when\_typing" boolean[🔗](){id=doc_auto_complete_include_snippets_when_typing}
+"auto_complete_include_snippets_when_typing" boolean[🔗](){id=doc_auto_complete_include_snippets_when_typing}
 
 .. since:: 4052
 
 When this is set to `false`, snippets won‘t be present in the completions popup when it is automatically triggered. They will be shown if it is manually triggered.
 
-"ignored\_snippets" array of strings[🔗](){id=doc_ignored_snippets}
+"ignored_snippets" array of strings[🔗](){id=doc_ignored_snippets}
 
 4050
 
@@ -1728,9 +1728,9 @@ When this is set to `false`, snippets won‘t be present in the completions popu
 
 _For example, to ignore all the default C++ snippets:_
 
-\[
+[
     "C++/\*"
-\]
+]
 
 
 
@@ -1750,12 +1750,12 @@ Customization   [🔗](){id=doc_customization}
 Certain settings will be applied when in _Distraction Free Mode_. The default settings (located in Packages/Default/Distraction Free.sublime-settings) are:
 
 {
-    "line\_numbers": false,
+    "line_numbers": false,
     "gutter": false,
-    "draw\_centered": true,
-    "wrap\_width": 80,
-    "word\_wrap": true,
-    "scroll\_past\_end": true
+    "draw_centered": true,
+    "wrap_width": 80,
+    "word_wrap": true,
+    "scroll_past_end": true
 }
 
 You can customize these via editing Packages/User/Distraction Free.sublime-settings, which is accessible via the Preferences ![▶](/images/right.svg) Settings – Distraction Free menu item.
@@ -1797,7 +1797,7 @@ Vintage is disabled by default, via the `ignored_packages` setting. If you remov
 
 Vintage starts in insert mode by default. This can be changed by adding the following setting to your user settings:
 
-"vintage\_start\_in\_command\_mode": true
+"vintage_start_in_command_mode": true
 
 
 _______________________________________________________________________________
@@ -1829,13 +1829,13 @@ Under the Hood   [🔗](){id=doc_under_the_hood}
 Vintage mode is implemented entirely via key bindings and the plugin API – feel free to browse through the Vintage package and see how it’s put together. As an example, if you’d like to bind jj to exit insert mode, you can add this key binding:
 
 {
-    "keys": \["j", "j"\],
-    "command": "exit\_insert\_mode",
+    "keys": ["j", "j"],
+    "command": "exit_insert_mode",
     "context":
-    \[
-        { "key": "setting.command\_mode", "operand": false },
-        { "key": "setting.is\_widget", "operand": false }
-    \]
+    [
+        { "key": "setting.command_mode", "operand": false },
+        { "key": "setting.is_widget", "operand": false }
+    ]
 }
 
 
@@ -1854,7 +1854,7 @@ Ctrl Keys   [🔗](){id=doc_ctrl_keys}
 
 Vintage supports these **Ctrl** key bindings:
 
-*   **Ctrl**_+_**\[**: Escape
+*   **Ctrl**_+_**[**: Escape
 *   **Ctrl**_+_**R**: Redo
 *   **Ctrl**_+_**Y**: Scroll down one line
 *   **Ctrl**_+_**E**: Scroll up one line
@@ -1864,7 +1864,7 @@ Vintage supports these **Ctrl** key bindings:
 
 However, because they conflict with other Sublime Text key bindings, these are disabled by default on Windows and Linux. They can be enabled with the `vintage_ctrl_keys` setting:
 
-"vintage\_ctrl\_keys": true
+"vintage_ctrl_keys": true
 
 
 _______________________________________________________________________________
@@ -1886,7 +1886,7 @@ As a general rule, the .sublime-project file would be checked into version contr
 *   [Project Format](#project-format)
 *   [“folders” Key](#folders-key)
 *   [“settings” Key](#settings-key)
-*   [“build\_systems” Key](#build-systems-key)
+*   [“build_systems” Key](#build-systems-key)
     
 
 
@@ -1898,29 +1898,29 @@ Project Format   [🔗](){id=doc_project_format}
 
 {
     "folders":
-    \[
+    [
         {
             "path": "src",
-            "folder\_exclude\_patterns": \["backup"\],
-            "follow\_symlinks": true
+            "folder_exclude_patterns": ["backup"],
+            "follow_symlinks": true
         },
         {
             "path": "docs",
             "name": "Documentation",
-            "file\_exclude\_patterns": \["\*.css"\]
+            "file_exclude_patterns": ["\*.css"]
         }
-    \],
+    ],
     "settings":
     {
-        "tab\_size": 8
+        "tab_size": 8
     },
-    "build\_systems":
-    \[
+    "build_systems":
+    [
         {
             "name": "List",
-            "shell\_cmd": "ls -l"
+            "shell_cmd": "ls -l"
         }
-    \]
+    ]
 }
 
 
@@ -1936,41 +1936,41 @@ Additional optional keys include:
 
 A name used in place of the folder name in the side bar
 
-"file\_include\_patterns" array of strings[🔗](){id=doc_file_include_patterns}
+"file_include_patterns" array of strings[🔗](){id=doc_file_include_patterns}
 
 [Patterns of files](file_patterns.html) to include from the folder. Anything not matching these patterns will be excluded. This is checked before `"file_exclude_patterns"`.
 
-"file\_exclude\_patterns" array of strings[🔗](){id=doc_file_exclude_patterns}
+"file_exclude_patterns" array of strings[🔗](){id=doc_file_exclude_patterns}
 
 [Patterns of files](file_patterns.html) to exclude from the folder. This is added to the global setting of the same name. This is checked after `"file_include_patterns"`.
 
-"folder\_include\_patterns" array of strings[🔗](){id=doc_folder_include_patterns}
+"folder_include_patterns" array of strings[🔗](){id=doc_folder_include_patterns}
 
 [Patterns of folders](file_patterns.html) to include from the folder. Anything not matching these patterns will be excluded. This is checked before `"folder_exclude_patterns"`.
 
-"folder\_exclude\_patterns" array of strings[🔗](){id=doc_folder_exclude_patterns}
+"folder_exclude_patterns" array of strings[🔗](){id=doc_folder_exclude_patterns}
 
 [Patterns of folders](file_patterns.html) to exclude from the folder. This is added to the global setting of the same name. This is checked after `"folder_include_patterns"`.
 
-"binary\_file\_patterns" array of strings[🔗](){id=doc_binary_file_patterns}
+"binary_file_patterns" array of strings[🔗](){id=doc_binary_file_patterns}
 
 3158
 
 [Patterns of files](file_patterns.html) to treat as binary files, and thus ignored in _Goto Anything_ and _Find in Files_.
 
-"index\_include\_patterns" array of strings[🔗](){id=doc_index_include_patterns}
+"index_include_patterns" array of strings[🔗](){id=doc_index_include_patterns}
 
 3158
 
 [Patterns of files](file_patterns.html) to index in the folder. This is added to the global setting of the same name. Anything not matching these patterns will be excluded from the index. This is checked before `"index_exclude_patterns"`.
 
-"index\_exclude\_patterns" array of strings[🔗](){id=doc_index_exclude_patterns}
+"index_exclude_patterns" array of strings[🔗](){id=doc_index_exclude_patterns}
 
 3158
 
 [Patterns of files](file_patterns.html) to excluding from indexing in the folder. This is added to the global setting of the same name. This is checked after `"index_include_patterns"`.
 
-"follow\_symlinks" boolean[🔗](){id=doc_follow_symlinks}
+"follow_symlinks" boolean[🔗](){id=doc_follow_symlinks}
 
 If symlinks should be followed when building the folder tree.
 
@@ -2086,22 +2086,22 @@ Changing Settings with a Key Binding   [🔗](){id=doc_changing_settings_with_a_
 The `toggle_setting` command can be used to toggle a setting. For example, to make a key binding that toggles the `word_wrap` setting on the current file, you can use (in Preferences ![▶](/images/right.svg) Key Bindings):
 
 {
-    "keys": \["alt+w"\],
-    "command": "toggle\_setting",
+    "keys": ["alt+w"],
+    "command": "toggle_setting",
     "args":
     {
-        "setting": "word\_wrap"
+        "setting": "word_wrap"
     }
 }
 
 The `set_setting` command can be used to set a setting to a specific value. For example, this key binding makes the current file use the Cobalt color scheme:
 
 {
-    "keys": \["ctrl+k", "ctrl+c"\],
-    "command": "set\_setting",
+    "keys": ["ctrl+k", "ctrl+c"],
+    "command": "set_setting",
     "args":
     {
-        "setting": "color\_scheme",
+        "setting": "color_scheme",
         "value": "Packages/Color Scheme - Default/Cobalt.tmTheme"
     }
 }
@@ -2115,7 +2115,7 @@ Troubleshooting   [🔗](){id=doc_troubleshooting}
 
 As settings can be specified in several different places, sometimes in can be helpful to view the applied setting that’s actually being used by the current file. You can do this by using the console:
 
-view.settings().get('font\_face')
+view.settings().get('font_face')
 
 
 
@@ -2147,36 +2147,36 @@ Example   [🔗](){id=doc_example}
 
 _The following is an example of the format of a .sublime-keymap file._
 
-\[
+[
     {
-        "keys": \["super+ctrl+m"\],
-        "command": "convert\_syntax"
+        "keys": ["super+ctrl+m"],
+        "command": "convert_syntax"
     },
     {
-        "keys": \["super+shift+9"\],
-        "command": "set\_layout",
+        "keys": ["super+shift+9"],
+        "command": "set_layout",
         "args":
         {
-            "cols": \[0.0, 0.33, 0.66, 1.0\],
-            "rows": \[0.0, 0.33, 0.66, 1.0\],
+            "cols": [0.0, 0.33, 0.66, 1.0],
+            "rows": [0.0, 0.33, 0.66, 1.0],
             "cells":
-            \[
-                \[0, 0, 1, 1\], \[1, 0, 2, 1\], \[2, 0, 3, 1\],
-                \[0, 1, 1, 2\], \[1, 1, 2, 2\], \[2, 1, 3, 2\],
-                \[0, 2, 1, 3\], \[1, 2, 2, 3\], \[2, 2, 3, 3\]
-            \]
+            [
+                [0, 0, 1, 1], [1, 0, 2, 1], [2, 0, 3, 1],
+                [0, 1, 1, 2], [1, 1, 2, 2], [2, 1, 3, 2],
+                [0, 2, 1, 3], [1, 2, 2, 3], [2, 2, 3, 3]
+            ]
         }
     },
     {
-        "keys": \["super+alt+up"\],
+        "keys": ["super+alt+up"],
         "command": "noop",
         "context":
-        \[
+        [
             {"key": "panel", "operand": "find"},
-            {"key": "panel\_has\_focus"},
-        \]
+            {"key": "panel_has_focus"},
+        ]
     }
-\]
+]
 
 
 _______________________________________________________________________________
@@ -2192,14 +2192,14 @@ The `"keys"` value must be an array of strings, where each string contains a _ke
 _A key binding for the **Escape** key_
 
 {
-    "keys": \["escape"\],
+    "keys": ["escape"],
     "command": "noop"
 }
 
 _A key binding for the key **A** with the modifier **Ctrl**_
 
 {
-    "keys": \["ctrl+a"\],
+    "keys": ["ctrl+a"],
     "command": "noop"
 }
 
@@ -2222,7 +2222,7 @@ Key names are specified either by the (non-shifted) character
 
 printed on the key, or a key name:
 
-div.col { float: left; padding-right: 40px; } div#key\_names-columns:after { content: ""; display: table; clear: both; }
+div.col { float: left; padding-right: 40px; } div#key_names-columns:after { content: ""; display: table; clear: both; }
 
 `a`  
 `b`  
@@ -2339,18 +2339,18 @@ The `"command"` key specifies the name of the command to
 execute when the key press(es) are detected. The command may be a built-in command, or a command implemented by a plugin.
 
 {
-    "keys": \["ctrl+a"\],
-    "command": "select\_all"
+    "keys": ["ctrl+a"],
+    "command": "select_all"
 }
 
-_Currently there is no compiled list of all built-in commands. The names of many commands can be found by looking at the Default ({PLATFORM\_NAME}).sublime-keymap files in the Default/ package._
+_Currently there is no compiled list of all built-in commands. The names of many commands can be found by looking at the Default ({PLATFORM_NAME}).sublime-keymap files in the Default/ package._
 
 ### `"args"` Key[🔗](){id=doc_args_key}
 
 The arguments to send to the `"command"` key may be specified by a JSON object under the `"args"` key.
 
 {
-    "keys": \["primary+shift+b"\],
+    "keys": ["primary+shift+b"],
     "command": "build",
     "args": {"select": true}
 }
@@ -2576,12 +2576,12 @@ Users can customize their key bindings by creating a file named Default.sublime-
 
 For example, the following will create a key binding to show unsaved changes, if any exist, via **Ctrl**_+_**Shift**_+_**\`**.
 
-\[
+[
     {
-        "keys": \["ctrl+shift+\`"\],
-        "command": "diff\_changes"
+        "keys": ["ctrl+shift+\`"],
+        "command": "diff_changes"
     }
-\]
+]
 
 
 
@@ -2591,8 +2591,8 @@ Font Settings  [🔗](){id=doc_font}
 
 Changing the font can be done via adding these lines to the right-hand pane of Preferences ![▶](/images/right.svg) Settings:
 
-"font\_face": "Courier New",
-"font\_size": 10
+"font_face": "Courier New",
+"font_size": 10
 
 and then change as desired. The font will change when you save.
 
@@ -2617,19 +2617,19 @@ _______________________________________________________________________________
 Basic Settings   [🔗](){id=doc_basic_settings}
 ---------------------------------------------------
 
-"tab\_size" integer[🔗](){id=doc_tab_size}
+"tab_size" integer[🔗](){id=doc_tab_size}
 
 The number of spaces a tab is considered equal to.
 
-"translate\_tabs\_to\_spaces" boolean[🔗](){id=doc_translate_tabs_to_spaces}
+"translate_tabs_to_spaces" boolean[🔗](){id=doc_translate_tabs_to_spaces}
 
 If `true`, spaces will be inserted up to the next tab stop when **Tab** is pressed, rather than inserting a tab character.
 
-"detect\_indentation" boolean[🔗](){id=doc_detect_indentation}
+"detect_indentation" boolean[🔗](){id=doc_detect_indentation}
 
 If `true`, the default, `tab_size` and `translate_tabs_to_spaces` will be calculated automatically when loading a file.
 
-"use\_tab\_stops" boolean[🔗](){id=doc_use_tab_stops}
+"use_tab_stops" boolean[🔗](){id=doc_use_tab_stops}
 
 If `translate_tabs_to_spaces` is `true`, `use_tab_stops` will make **Tab** insert, and **Backspace** delete, up to the next tab stop.
 
@@ -2658,30 +2658,30 @@ Automatic Indentation Settings   [🔗](){id=doc_automatic_indentation_settings}
 
 Automatic indentation guesses the amount of leading white space to insert on each line when you press enter. It’s controlled with these settings:
 
-"auto\_indent" boolean[🔗](){id=doc_auto_indent}
+"auto_indent" boolean[🔗](){id=doc_auto_indent}
 
 Enables auto indent.
 
 Default: `true`
 
-"smart\_indent" boolean[🔗](){id=doc_smart_indent}
+"smart_indent" boolean[🔗](){id=doc_smart_indent}
 
 Makes auto indent a little smarter, e.g., by indenting the next line after an if statement in C.
 
 Default: `true`
 
-"trim\_automatic\_white\_space" boolean[🔗](){id=doc_trim_automatic_white_space}
+"trim_automatic_white_space" boolean[🔗](){id=doc_trim_automatic_white_space}
 
 Trims white space added by `auto_indent` when moving the caret off the line.
 
 Default: `true`
 
-"indent\_to\_bracket" boolean[🔗](){id=doc_indent_to_bracket}
+"indent_to_bracket" boolean[🔗](){id=doc_indent_to_bracket}
 
 Adds white space up to the first open bracket when indenting. Use when indenting like this:
 
-use\_indent\_to\_bracket(to\_indent,
-                      like\_this);
+use_indent_to_bracket(to_indent,
+                      like_this);
 
 Default: `false`
 
@@ -2716,7 +2716,7 @@ Settings   [🔗](){id=doc_settings}
 
 There are two [Settings](settings.html) that effect the spell checking: `spell_check`, which controls if spell checking is enabled, and `dictionary`, which gives the path to the dictionary file to use. For example:
 
-"spell\_check" boolean[🔗](){id=doc_spell_check}
+"spell_check" boolean[🔗](){id=doc_spell_check}
 
 If spell checking is enabled.
 
@@ -2728,13 +2728,13 @@ The package-relative path to the dictionary file.
 
 Default: `"Packages/Language - English/en_US.dic"`
 
-"added\_words" array of strings[🔗](){id=doc_added_words}
+"added_words" array of strings[🔗](){id=doc_added_words}
 
 An array of properly spelled words to augment the dictionary with.
 
 Example: `["unobscurable"]`
 
-"ignored\_words" array of strings[🔗](){id=doc_ignored_words}
+"ignored_words" array of strings[🔗](){id=doc_ignored_words}
 
 An array of words to ignore when checking spelling.
 
@@ -2780,9 +2780,9 @@ Basic Example   [🔗](){id=doc_basic_example}
 The following is a basic example of a build system. This build system will execute the currently-open Python file.
 
 {
-    "cmd": \["python", "$file"\],
+    "cmd": ["python", "$file"],
     "selector": "source.python",
-    "file\_regex": "^\\\\s\*File \\"(...\*?)\\", line (\[0-9\]\*)"
+    "file_regex": "^\\\\s\*File \\"(...\*?)\\", line ([0-9]\*)"
 }
 
 The [Usage](#usage) and [Options](#options) sections will discuss how to use and customize a build system.
@@ -2909,7 +2909,7 @@ A [selector](selectors.html) to match the syntax that this build system should b
 
 Example: `"source.python"`
 
-"file\_patterns" array of strings[🔗](){id=doc_file_patterns}
+"file_patterns" array of strings[🔗](){id=doc_file_patterns}
 
 [Patterns](file_patterns.html) of file names the build system should be enabled for.
 
@@ -2927,12 +2927,12 @@ Subsidiary build systems that will inherit the options from the top-level build 
 
 Example:
 
-\[
+[
     {
         "name": "Debug Symbols",
-        "cmd": \["my\_command", "-D", "$file"\]
+        "cmd": ["my_command", "-D", "$file"]
     }
-\]
+]
 
 "cancel" string, array of strings[🔗](){id=doc_cancel}
 
@@ -2961,7 +2961,7 @@ Options to use when the build system is being executed on a Windows machine.
 Example:
 
 {
-    "cmd": \["my\_command.exe", "/D", "$file"\]
+    "cmd": ["my_command.exe", "/D", "$file"]
 }
 
 "osx" object[🔗](){id=doc_osx}
@@ -2971,7 +2971,7 @@ Options to use when the build system is being executed on a Mac machine.
 Example:
 
 {
-    "cmd": \["/Applications/MyProgram.app/Contents/MacOS/my\_command", "-d", "$file"\]
+    "cmd": ["/Applications/MyProgram.app/Contents/MacOS/my_command", "-d", "$file"]
 }
 
 "linux" object[🔗](){id=doc_linux}
@@ -2981,7 +2981,7 @@ Options to use when the build system is being executed on a Linux machine.
 Example:
 
 {
-    "cmd": \["/usr/local/bin/my\_command", "-d", "$file"\]
+    "cmd": ["/usr/local/bin/my_command", "-d", "$file"]
 }
 
 
@@ -2999,7 +2999,7 @@ May use [variables](#variables).
 
 Example: `["my_command", "-d", "$file"]`
 
-"shell\_cmd" string[🔗](){id=doc_shell_cmd}
+"shell_cmd" string[🔗](){id=doc_shell_cmd}
 
 A shell command to execute. Unlike the [`"cmd"`](#cmd ""cmd"") option, this does allow piping and redirection. Will use `bash` on Mac and Linux machine, and `cmd.exe` on Windows.
 
@@ -3009,7 +3009,7 @@ May use [variables](#variables).
 
 Example: `"my_command \"$file\" | other_command"`
 
-"working\_dir" string[🔗](){id=doc_working_dir}
+"working_dir" string[🔗](){id=doc_working_dir}
 
 The directory to execute the [`"cmd"`](#cmd ""cmd"") or [`"shell_cmd"`](#shell_cmd ""shell_cmd"") within.
 
@@ -3017,7 +3017,7 @@ May use [variables](#variables).
 
 Example: `"$file_path"`
 
-"file\_regex" string[🔗](){id=doc_file_regex}
+"file_regex" string[🔗](){id=doc_file_regex}
 
 A regular expression to run on the build output to match file information. The matched file information is used to enable result navigation. The regex should capture 2, 3 or 4 groups.
 
@@ -3034,7 +3034,7 @@ The capture groups should be:
 
 Example: `"^\s*(\\S[^:]*)\\((\\d+):(\\d+)\\): ([^\\n]+)"`
 
-"line\_regex" string[🔗](){id=doc_line_regex}
+"line_regex" string[🔗](){id=doc_line_regex}
 
 A regular expression to run on the build output to match line information. The matched file information is used to enable result navigation. The regex should capture 1, 2 or 3 groups.
 
@@ -3073,7 +3073,7 @@ Reduces the amount of output about the build system invocation.
 
 Example: `true`
 
-"word\_wrap" boolean[🔗](){id=doc_word_wrap}
+"word_wrap" boolean[🔗](){id=doc_word_wrap}
 
 Turns on word wrapping in the build system output panel.
 
@@ -3185,135 +3185,135 @@ A `target` for a build system should be a [`sublime_plugin.WindowCommand`](#subl
 
 _Please note that the following example is somewhat simplistic in its implementation, and it won’t handle many common edge cases._
 
-The following Python can be saved to a file named Package/User/my\_example\_build.py:
+The following Python can be saved to a file named Package/User/my_example_build.py:
 
 import sublime
-import sublime\_plugin
+import sublime_plugin
 
 import subprocess
 import threading
 import os
 
-class MyExampleBuildCommand(sublime\_plugin.WindowCommand):
+class MyExampleBuildCommand(sublime_plugin.WindowCommand):
 
-    encoding \= 'utf-8'
-    killed \= False
-    proc \= None
-    panel \= None
-    panel\_lock \= threading.Lock()
+    encoding = 'utf-8'
+    killed = False
+    proc = None
+    panel = None
+    panel_lock = threading.Lock()
 
-    def is\_enabled(self, lint\=False, integration\=False, kill\=False):
-        \# The Cancel build option should only be available
-        \# when the process is still running
+    def is_enabled(self, lint=False, integration=False, kill=False):
+        # The Cancel build option should only be available
+        # when the process is still running
         if kill:
             return self.proc is not None and self.proc.poll() is None
         return True
 
-    def run(self, lint\=False, integration\=False, kill\=False):
+    def run(self, lint=False, integration=False, kill=False):
         if kill:
             if self.proc:
-                self.killed \= True
+                self.killed = True
                 self.proc.terminate()
             return
 
-        vars \= self.window.extract\_variables()
-        working\_dir \= vars\['file\_path'\]
+        vars = self.window.extract_variables()
+        working_dir = vars['file_path']
 
-        \# A lock is used to ensure only one thread is
-        \# touching the output panel at a time
-        with self.panel\_lock:
-            \# Creating the panel implicitly clears any previous contents
-            self.panel \= self.window.create\_output\_panel('exec')
+        # A lock is used to ensure only one thread is
+        # touching the output panel at a time
+        with self.panel_lock:
+            # Creating the panel implicitly clears any previous contents
+            self.panel = self.window.create_output_panel('exec')
 
-            \# Enable result navigation. The result\_file\_regex does
-            \# the primary matching, but result\_line\_regex is used
-            \# when build output includes some entries that only
-            \# contain line/column info beneath a previous line
-            \# listing the file info. The result\_base\_dir sets the
-            \# path to resolve relative file names against.
-            settings \= self.panel.settings()
+            # Enable result navigation. The result_file_regex does
+            # the primary matching, but result_line_regex is used
+            # when build output includes some entries that only
+            # contain line/column info beneath a previous line
+            # listing the file info. The result_base_dir sets the
+            # path to resolve relative file names against.
+            settings = self.panel.settings()
             settings.set(
-                'result\_file\_regex',
-                r'^File "(\[^"\]+)" line (\\d+) col (\\d+)'
+                'result_file_regex',
+                r'^File "([^"]+)" line (\\d+) col (\\d+)'
             )
             settings.set(
-                'result\_line\_regex',
+                'result_line_regex',
                 r'^\\s+line (\\d+) col (\\d+)'
             )
-            settings.set('result\_base\_dir', working\_dir)
+            settings.set('result_base_dir', working_dir)
 
-            self.window.run\_command('show\_panel', {'panel': 'output.exec'})
+            self.window.run_command('show_panel', {'panel': 'output.exec'})
 
         if self.proc is not None:
             self.proc.terminate()
-            self.proc \= None
+            self.proc = None
 
-        args \= \['my\_cli'\]
+        args = ['my_cli']
         if lint:
             args.append('-l')
         elif integration:
             args.append('-i')
-        args.append(vars\['file\_name'\])
-        self.proc \= subprocess.Popen(
+        args.append(vars['file_name'])
+        self.proc = subprocess.Popen(
             args,
-            stdout\=subprocess.PIPE,
-            stderr\=subprocess.STDOUT,
-            cwd\=working\_dir
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            cwd=working_dir
         )
-        self.killed \= False
+        self.killed = False
 
         threading.Thread(
-            target\=self.read\_handle,
-            args\=(self.proc.stdout,)
+            target=self.read_handle,
+            args=(self.proc.stdout,)
         ).start()
 
-    def read\_handle(self, handle):
-        chunk\_size \= 2 \*\* 13
-        out \= b''
+    def read_handle(self, handle):
+        chunk_size = 2 \*\* 13
+        out = b''
         while True:
             try:
-                data \= os.read(handle.fileno(), chunk\_size)
-                \# If exactly the requested number of bytes was
-                \# read, there may be more data, and the current
-                \# data may contain part of a multibyte char
+                data = os.read(handle.fileno(), chunk_size)
+                # If exactly the requested number of bytes was
+                # read, there may be more data, and the current
+                # data may contain part of a multibyte char
                 out += data
-                if len(data) \== chunk\_size:
+                if len(data) == chunk_size:
                     continue
-                if data \== b'' and out \== b'':
+                if data == b'' and out == b'':
                     raise IOError('EOF')
-                \# We pass out to a function to ensure the
-                \# timeout gets the value of out right now,
-                \# rather than a future (mutated) version
-                self.queue\_write(out.decode(self.encoding))
-                if data \== b'':
+                # We pass out to a function to ensure the
+                # timeout gets the value of out right now,
+                # rather than a future (mutated) version
+                self.queue_write(out.decode(self.encoding))
+                if data == b'':
                     raise IOError('EOF')
-                out \= b''
+                out = b''
             except (UnicodeDecodeError) as e:
-                msg \= 'Error decoding output using %s - %s'
-                self.queue\_write(msg  % (self.encoding, str(e)))
+                msg = 'Error decoding output using %s - %s'
+                self.queue_write(msg  % (self.encoding, str(e)))
                 break
             except (IOError):
                 if self.killed:
-                    msg \= 'Cancelled'
+                    msg = 'Cancelled'
                 else:
-                    msg \= 'Finished'
-                self.queue\_write('\\n\[%s\]' % msg)
+                    msg = 'Finished'
+                self.queue_write('\\n[%s]' % msg)
                 break
 
-    def queue\_write(self, text):
-        sublime.set\_timeout(lambda: self.do\_write(text), 1)
+    def queue_write(self, text):
+        sublime.set_timeout(lambda: self.do_write(text), 1)
 
-    def do\_write(self, text):
-        with self.panel\_lock:
-            self.panel.run\_command('append', {'characters': text})
+    def do_write(self, text):
+        with self.panel_lock:
+            self.panel.run_command('append', {'characters': text})
 
 The custom `MyExampleBuildCommand` can be configured as a build system using the following JSON saved to a file named Packages/User/My Example Build.sublime-build:
 
 {
-    "target": "my\_example\_build",
+    "target": "my_example_build",
     "selector": "source.mylang",
     "cancel": {"kill": true},
-    "variants": \[
+    "variants": [
         {
             "name": "Lint",
             "lint": true
@@ -3322,7 +3322,7 @@ The custom `MyExampleBuildCommand` can be configured as a build system using the
             "name": "Integration Tests",
             "integration": true
         }
-    \]
+    ]
 }
 
 
@@ -3348,18 +3348,18 @@ Locations   [🔗](){id=doc_locations}
 
 Zipped packages may be stored in:
 
-*   _<executable\_path>_/Packages/
-*   _<data\_path>_/Installed Packages/
+*   _<executable_path>_/Packages/
+*   _<data_path>_/Installed Packages/
     
 
 Loose packages may be stored in:
 
-*   _<data\_path>_/Packages/
+*   _<data_path>_/Packages/
     
 
-For example, the package Python is stored in _<executable\_path>_/Packages/Python.sublime-package, and any files in the _<data\_path>_/Packages/Python/ directory will override those stored in the .sublime-package file.
+For example, the package Python is stored in _<executable_path>_/Packages/Python.sublime-package, and any files in the _<data_path>_/Packages/Python/ directory will override those stored in the .sublime-package file.
 
-In general, _<executable\_path>_/Packages/ is for packages that ship with Sublime Text, and _<data\_path>_/Installed Packages/ is for packages installed by the user.
+In general, _<executable_path>_/Packages/ is for packages that ship with Sublime Text, and _<data_path>_/Installed Packages/ is for packages installed by the user.
 
 
 _______________________________________________________________________________
@@ -3375,7 +3375,7 @@ _______________________________________________________________________________
 Creating a New Package   [🔗](){id=doc_creating_a_new_package}
 ---------------------------------------------------
 
-To create a new package, simply create a new directory under _<data\_path>_/Installed Packages/. You can access this directory from the Preferences ![▶](/images/right.svg) Browse Packages menu.
+To create a new package, simply create a new directory under _<data_path>_/Installed Packages/. You can access this directory from the Preferences ![▶](/images/right.svg) Browse Packages menu.
 
 
 _______________________________________________________________________________
@@ -3384,7 +3384,7 @@ Overriding Files From a Zipped Package   [🔗](){id=doc_overriding_files_from_a
 
 To override a file in an existing package, just create a file with the same name under the Packages/_<Package Name>_/ directory.
 
-For example to override the file function.sublime-snippet in the Python.sublime-package package that ships with Sublime Text, create a directory called Python under the _<data\_path>_/Packages/ directory, and place your function.sublime-snippet file there.
+For example to override the file function.sublime-snippet in the Python.sublime-package package that ships with Sublime Text, create a directory called Python under the _<data_path>_/Packages/ directory, and place your function.sublime-snippet file there.
 
 
 
@@ -3725,7 +3725,7 @@ _______________________________________________________________________________
 Operating System Compatibility  [🔗](){id=doc_os_compatibility}
 ===================================================
 
-Sublime Text runs on the Windows, Mac and Linux operating systems. 32bit (x86), 64bit (x86\_64) and ARM (arm64) and 64bit (x86\_64) processors are supported.
+Sublime Text runs on the Windows, Mac and Linux operating systems. 32bit (x86), 64bit (x86_64) and ARM (arm64) and 64bit (x86_64) processors are supported.
 
 _32bit builds of Sublime Text do not include [Git Integration](git_integration.html)_.
 
@@ -3752,9 +3752,9 @@ _______________________________________________________________________________
 Mac   [🔗](){id=doc_mac}
 ---------------------------------------------------
 
-_Sublime Text 4 is a Universal 2 binary that supports both Intel(x86\_64) and Apple Silicon (arm64) processors._
+_Sublime Text 4 is a Universal 2 binary that supports both Intel(x86_64) and Apple Silicon (arm64) processors._
 
-_Only 64bit (x86\_64) builds are available on Mac._
+_Only 64bit (x86_64) builds are available on Mac._
 
 *   macOS 10.12+
     
@@ -3770,7 +3770,7 @@ _______________________________________________________________________________
 Linux   [🔗](){id=doc_linux}
 ---------------------------------------------------
 
-_Both 64bit (x86\_64) and ARM (arm64) builds are now offered on Linux. 32bit builds have been discontinued._
+_Both 64bit (x86_64) and ARM (arm64) builds are now offered on Linux. 32bit builds have been discontinued._
 
 Linux installs require the following libraries:
 
@@ -3853,21 +3853,21 @@ curl \-O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key \
 
 Select the channel to use:
 
-*   **Stable x86\_64**
+*   **Stable x86_64**
     
-    echo \-e "\\n\[sublime-text\]\\nServer = https://download.sublimetext.com/arch/stable/x86\_64" | sudo tee \-a /etc/pacman.conf
+    echo \-e "\\n[sublime-text]\\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee \-a /etc/pacman.conf
     
-*   **Dev x86\_64**
+*   **Dev x86_64**
     
-    echo \-e "\\n\[sublime-text\]\\nServer = https://download.sublimetext.com/arch/dev/x86\_64" | sudo tee \-a /etc/pacman.conf
+    echo \-e "\\n[sublime-text]\\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee \-a /etc/pacman.conf
     
 *   **Stable aarch64**
     
-    echo \-e "\\n\[sublime-text\]\\nServer = https://download.sublimetext.com/arch/stable/aarch64" | sudo tee \-a /etc/pacman.conf
+    echo \-e "\\n[sublime-text]\\nServer = https://download.sublimetext.com/arch/stable/aarch64" | sudo tee \-a /etc/pacman.conf
     
 *   **Dev aarch64**
     
-    echo \-e "\\n\[sublime-text\]\\nServer = https://download.sublimetext.com/arch/dev/aarch64" | sudo tee \-a /etc/pacman.conf
+    echo \-e "\\n[sublime-text]\\nServer = https://download.sublimetext.com/arch/dev/aarch64" | sudo tee \-a /etc/pacman.conf
     
 
 Update pacman and install Sublime Text:
@@ -3887,11 +3887,11 @@ Select the channel to use:
 
 *   **Stable**
     
-    sudo yum-config-manager \--add-repo https://download.sublimetext.com/rpm/stable/x86\_64/sublime-text.repo
+    sudo yum-config-manager \--add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
     
 *   **Dev**
     
-    sudo yum-config-manager \--add-repo https://download.sublimetext.com/rpm/dev/x86\_64/sublime-text.repo
+    sudo yum-config-manager \--add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
     
 
 Update yum and install Sublime Text:
@@ -3913,11 +3913,11 @@ Select the channel to use:
 
 *   **Stable**
     
-    sudo dnf config-manager \--add-repo https://download.sublimetext.com/rpm/stable/x86\_64/sublime-text.repo
+    sudo dnf config-manager \--add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
     
 *   **Dev**
     
-    sudo dnf config-manager \--add-repo https://download.sublimetext.com/rpm/dev/x86\_64/sublime-text.repo
+    sudo dnf config-manager \--add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
     
 
 Update dnf and install Sublime Text:
@@ -3939,11 +3939,11 @@ Select the channel to use:
 
 *   **Stable**
     
-    sudo zypper addrepo \-g \-f https://download.sublimetext.com/rpm/stable/x86\_64/sublime-text.repo
+    sudo zypper addrepo \-g \-f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
     
 *   **Dev**
     
-    sudo zypper addrepo \-g \-f https://download.sublimetext.com/rpm/dev/x86\_64/sublime-text.repo
+    sudo zypper addrepo \-g \-f https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
     
 
 Update zypper and install Sublime Text:
@@ -4116,7 +4116,7 @@ If you need to download a specific build of Sublime Text you can try looking up 
 
  Generate
 
-var BASE\_URL = 'https://download.sublimetext.com' var LINK\_LIST\_ELEMENT = document.getElementById("link-list"); var VERSION\_INPUT\_ELEMENT = document.getElementById("version-input"); var LINK\_TEMPLATES = \[ \['macOS', \[ \[3000, '/Sublime Text Build VERSION.dmg'\], \[4000, '/sublime\_text\_build\_VERSION\_mac.zip'\], \]\], \['Windows 32bit installer', \[ \[3000, '/Sublime Text Build VERSION Setup.exe'\], \[4000, '/sublime\_text\_build\_VERSION\_x32\_setup.exe'\] \]\], \['Windows 32bit portable zip', \[ \[3000, '/Sublime Text Build VERSION.zip'\], \[4000, '/sublime\_text\_build\_VERSION\_x32.zip'\], \]\], \['Windows 64bit installer', \[ \[3000, '/Sublime Text Build VERSION x64 Setup.exe'\], \[4000, '/sublime\_text\_build\_VERSION\_x64\_setup.exe'\], \]\], \['Windows 64bit portable zip', \[ \[3000, '/Sublime Text Build VERSION x64.zip'\], \[4000, '/sublime\_text\_build\_VERSION\_x64.zip'\], \]\], \['Linux 64bit deb package', \[ \[3000, '/sublime-text\_build-VERSION\_amd64.deb'\], \[4000, '/sublime-text\_build-VERSION\_amd64.deb'\], \]\], \['Linux 64bit rpm package', \[ \[3000, '/sublime-text-VERSION-1.x86\_64.rpm'\], \[4000, '/sublime-text-VERSION-1.x86\_64.rpm'\], \]\], \['Linux 64bit pkg package', \[ \[3000, '/sublime-text-VERSION-1-x86\_64.pkg.tar.xz'\], \[4000, '/sublime-text-VERSION-1-x86\_64.pkg.tar.xz'\], \]\], \['Linux 32bit tar archive', \[ \[3000, '/sublime\_text\_3\_build\_VERSION\_x32.tar.bz2'\], \[4000, null\], \]\], \['Linux 64bit tar archive', \[ \[3000, '/sublime\_text\_3\_build\_VERSION\_x64.tar.bz2'\], \[4000, '/sublime\_text\_build\_VERSION\_x64.tar.xz'\], \]\], \['Linux arm64 deb package', \[ \[4000, '/sublime-text\_build-VERSION\_arm64.deb'\], \]\], \['Linux arm64 pkg package', \[ \[4000, '/sublime-text-VERSION-1-aarch64.pkg.tar.xz'\], \]\], \['Linux arm64 tar archive', \[ \[4000, '/sublime\_text\_build\_VERSION\_arm64.tar.xz'\], \]\], \]; function generate\_links() { var version = VERSION\_INPUT\_ELEMENT.valueAsNumber; var urls = \[\]; for (var i = 0; i < LINK\_TEMPLATES.length; i++) { var url = null; for (var j = 0; j < LINK\_TEMPLATES\[i\]\[1\].length; ++j) { if (LINK\_TEMPLATES\[i\]\[1\]\[j\]\[0\] > version) break; url = LINK\_TEMPLATES\[i\]\[1\]\[j\]\[1\]; } if (url !== null) { urls.push(\[LINK\_TEMPLATES\[i\]\[0\], BASE\_URL + url.replace('VERSION', version)\]); } } if (urls.length > 0) { LINK\_LIST\_ELEMENT.textContent = ''; for (var i = 0; i < urls.length; ++i) { var li = document.createElement('li'); var link = document.createElement('a'); link.href = urls\[i\]\[1\]; link.textContent = urls\[i\]\[0\]; li.appendChild(link); LINK\_LIST\_ELEMENT.appendChild(li); } } else { LINK\_LIST\_ELEMENT.textContent = 'Invalid build number'; } } (function() { var build = VERSION\_INPUT\_ELEMENT.value; var params = new URLSearchParams(window.location.search); var param\_build = params.get('build'); if (param\_build) build = param\_build; if (build) { VERSION\_INPUT\_ELEMENT.value = build; generate\_links(); } })();
+var BASE_URL = 'https://download.sublimetext.com' var LINK_LIST_ELEMENT = document.getElementById("link-list"); var VERSION_INPUT_ELEMENT = document.getElementById("version-input"); var LINK_TEMPLATES = [ ['macOS', [ [3000, '/Sublime Text Build VERSION.dmg'], [4000, '/sublime_text_build_VERSION_mac.zip'], ]], ['Windows 32bit installer', [ [3000, '/Sublime Text Build VERSION Setup.exe'], [4000, '/sublime_text_build_VERSION_x32_setup.exe'] ]], ['Windows 32bit portable zip', [ [3000, '/Sublime Text Build VERSION.zip'], [4000, '/sublime_text_build_VERSION_x32.zip'], ]], ['Windows 64bit installer', [ [3000, '/Sublime Text Build VERSION x64 Setup.exe'], [4000, '/sublime_text_build_VERSION_x64_setup.exe'], ]], ['Windows 64bit portable zip', [ [3000, '/Sublime Text Build VERSION x64.zip'], [4000, '/sublime_text_build_VERSION_x64.zip'], ]], ['Linux 64bit deb package', [ [3000, '/sublime-text_build-VERSION_amd64.deb'], [4000, '/sublime-text_build-VERSION_amd64.deb'], ]], ['Linux 64bit rpm package', [ [3000, '/sublime-text-VERSION-1.x86_64.rpm'], [4000, '/sublime-text-VERSION-1.x86_64.rpm'], ]], ['Linux 64bit pkg package', [ [3000, '/sublime-text-VERSION-1-x86_64.pkg.tar.xz'], [4000, '/sublime-text-VERSION-1-x86_64.pkg.tar.xz'], ]], ['Linux 32bit tar archive', [ [3000, '/sublime_text_3_build_VERSION_x32.tar.bz2'], [4000, null], ]], ['Linux 64bit tar archive', [ [3000, '/sublime_text_3_build_VERSION_x64.tar.bz2'], [4000, '/sublime_text_build_VERSION_x64.tar.xz'], ]], ['Linux arm64 deb package', [ [4000, '/sublime-text_build-VERSION_arm64.deb'], ]], ['Linux arm64 pkg package', [ [4000, '/sublime-text-VERSION-1-aarch64.pkg.tar.xz'], ]], ['Linux arm64 tar archive', [ [4000, '/sublime_text_build_VERSION_arm64.tar.xz'], ]], ]; function generate_links() { var version = VERSION_INPUT_ELEMENT.valueAsNumber; var urls = []; for (var i = 0; i < LINK_TEMPLATES.length; i++) { var url = null; for (var j = 0; j < LINK_TEMPLATES[i][1].length; ++j) { if (LINK_TEMPLATES[i][1][j][0] > version) break; url = LINK_TEMPLATES[i][1][j][1]; } if (url !== null) { urls.push([LINK_TEMPLATES[i][0], BASE_URL + url.replace('VERSION', version)]); } } if (urls.length > 0) { LINK_LIST_ELEMENT.textContent = ''; for (var i = 0; i < urls.length; ++i) { var li = document.createElement('li'); var link = document.createElement('a'); link.href = urls[i][1]; link.textContent = urls[i][0]; li.appendChild(link); LINK_LIST_ELEMENT.appendChild(li); } } else { LINK_LIST_ELEMENT.textContent = 'Invalid build number'; } } (function() { var build = VERSION_INPUT_ELEMENT.value; var params = new URLSearchParams(window.location.search); var param_build = params.get('build'); if (param_build) build = param_build; if (build) { VERSION_INPUT_ELEMENT.value = build; generate_links(); } })();
 
 
 _______________________________________________________________________________
@@ -4229,7 +4229,7 @@ _The following is an example of the format of a .sublime-color-scheme file. A co
         "caret": "white"
     },
     "rules":
-    \[
+    [
         {
             "name": "Comment",
             "scope": "comment",
@@ -4244,9 +4244,9 @@ _The following is an example of the format of a .sublime-color-scheme file. A co
             "name": "Number",
             "scope": "constant.numeric",
             "foreground": "#7F00FF",
-            "font\_style": "italic",
+            "font_style": "italic",
         }
-    \]
+    ]
 }
 
 
@@ -4320,7 +4320,7 @@ Variables may be referenced in the global settings and rules, via the syntax `va
         "caret": "color(var(white) alpha(0.8))"
     },
     "rules":
-    \[
+    [
         {
             "name": "Comment",
             "scope": "comment",
@@ -4335,9 +4335,9 @@ Variables may be referenced in the global settings and rules, via the syntax `va
             "name": "Number",
             "scope": "constant.numeric",
             "foreground": "#7F00FF",
-            "font\_style": "italic",
+            "font_style": "italic",
         }
-    \]
+    ]
 }
 
 
@@ -4363,37 +4363,37 @@ The color for whitespace, when rendered. _When not specified, defaults to `foreg
 
 The color of the caret
 
-"block\_caret"[🔗](){id=doc_block_caret}
+"block_caret"[🔗](){id=doc_block_caret}
 
 3190
 
 The color of the caret when using a block caret
 
-"block\_caret\_border"[🔗](){id=doc_block_caret_border}
+"block_caret_border"[🔗](){id=doc_block_caret_border}
 
 4086
 
 The color of the border for a block caret
 
-"block\_caret\_underline"[🔗](){id=doc_block_caret_underline}
+"block_caret_underline"[🔗](){id=doc_block_caret_underline}
 
 4086
 
 The color of the underline the block caret is drawn as when overlapping with a selection
 
-"block\_caret\_corner\_style"[🔗](){id=doc_block_caret_corner_style}
+"block_caret_corner_style"[🔗](){id=doc_block_caret_corner_style}
 
 4086
 
 The style of corners to use for block carets. Options include: `round` (the default), `cut` or `square`.
 
-"block\_caret\_corner\_radius"[🔗](){id=doc_block_caret_corner_radius}
+"block_caret_corner_radius"[🔗](){id=doc_block_caret_corner_radius}
 
 4086
 
 The radius to use when the `block_caret_corner_style` is `round` or `cut`.
 
-"line\_highlight"[🔗](){id=doc_line_highlight}
+"line_highlight"[🔗](){id=doc_line_highlight}
 
 The background color of the line containing the caret. _Only used when the `highlight_line` setting is enabled._
 
@@ -4403,11 +4403,11 @@ The background color of the line containing the caret. _Only used when the `high
 
 The color to use for the squiggly underline drawn under misspelled words.
 
-"fold\_marker"[🔗](){id=doc_fold_marker}
+"fold_marker"[🔗](){id=doc_fold_marker}
 
 The color to use for the marker that indicates content has been folded.
 
-"minimap\_border"[🔗](){id=doc_minimap_border}
+"minimap_border"[🔗](){id=doc_minimap_border}
 
 The color of the border drawn around the viewport area of the minimap when the setting `draw_minimap_border` is enabled. _Note that the viewport is normally only visible on hover, unless the `always_show_minimap_viewport` setting is enabled._
 
@@ -4421,15 +4421,15 @@ CSS is applied to [minihtml Reference](minihtml.html) content created via the po
 
 Plugins that use minihtml are encouraged to set a unique `id` attribute on the `<body>` tag of generated HTML to allow color schemes to override default plugin styles.
 
-"popup\_css"[🔗](){id=doc_popup_css}
+"popup_css"[🔗](){id=doc_popup_css}
 
 CSS passed to popups.
 
-"phantom\_css"[🔗](){id=doc_phantom_css}
+"phantom_css"[🔗](){id=doc_phantom_css}
 
 CSS passed to phantoms. _If not specified, uses `popup_css`._
 
-"sheet\_css"[🔗](){id=doc_sheet_css}
+"sheet_css"[🔗](){id=doc_sheet_css}
 
 4065
 
@@ -4441,11 +4441,11 @@ CSS passed to HTML sheets.
 
 The background color of the gutter.
 
-"gutter\_foreground"[🔗](){id=doc_gutter_foreground}
+"gutter_foreground"[🔗](){id=doc_gutter_foreground}
 
 The color of line numbers in the gutter.
 
-"gutter\_foreground\_highlight"[🔗](){id=doc_gutter_foreground_highlight}
+"gutter_foreground_highlight"[🔗](){id=doc_gutter_foreground_highlight}
 
 4050
 
@@ -4455,25 +4455,25 @@ The color of line numbers in the gutter when a line is highlighted.
 
 The diff functionality is displayed in the gutter as colored lines for added and modified lines, and a triangle where lines were deleted.
 
-"line\_diff\_width"[🔗](){id=doc_line_diff_width}
+"line_diff_width"[🔗](){id=doc_line_diff_width}
 
 3186
 
 The width of the diff lines, between `1` and `8`.
 
-"line\_diff\_added"[🔗](){id=doc_line_diff_added}
+"line_diff_added"[🔗](){id=doc_line_diff_added}
 
 3189
 
 The color of diff markers for added lines.
 
-"line\_diff\_modified"[🔗](){id=doc_line_diff_modified}
+"line_diff_modified"[🔗](){id=doc_line_diff_modified}
 
 3186
 
 The color of diff markers for modified lines.
 
-"line\_diff\_deleted"[🔗](){id=doc_line_diff_deleted}
+"line_diff_deleted"[🔗](){id=doc_line_diff_deleted}
 
 3189
 
@@ -4485,37 +4485,37 @@ The color of diff markers for deleted lines.
 
 The background color of selected text
 
-"selection\_foreground"[🔗](){id=doc_selection_foreground}
+"selection_foreground"[🔗](){id=doc_selection_foreground}
 
 A color that will override the scope-based text color of the selection.
 
-"selection\_border"[🔗](){id=doc_selection_border}
+"selection_border"[🔗](){id=doc_selection_border}
 
 The color for the border of the selection.
 
-"selection\_border\_width"[🔗](){id=doc_selection_border_width}
+"selection_border_width"[🔗](){id=doc_selection_border_width}
 
 The width of the selection border, from `0` to `4`.
 
-"inactive\_selection"[🔗](){id=doc_inactive_selection}
+"inactive_selection"[🔗](){id=doc_inactive_selection}
 
 The background color of a selection in a view that.
 
-"inactive\_selection\_border"[🔗](){id=doc_inactive_selection_border}
+"inactive_selection_border"[🔗](){id=doc_inactive_selection_border}
 
 4074
 
 The color for the border of the selection in a view that is not currently focused.
 
-"inactive\_selection\_foreground"[🔗](){id=doc_inactive_selection_foreground}
+"inactive_selection_foreground"[🔗](){id=doc_inactive_selection_foreground}
 
 A color that will override the scope-based text color of the selection in a view that is not currently focused.
 
-"selection\_corner\_style"[🔗](){id=doc_selection_corner_style}
+"selection_corner_style"[🔗](){id=doc_selection_corner_style}
 
 The style of corners to use on selections. Options include: `round` (the default), `cut` or `square`.
 
-"selection\_corner\_radius"[🔗](){id=doc_selection_corner_radius}
+"selection_corner_radius"[🔗](){id=doc_selection_corner_radius}
 
 The radius to use when the `selection_corner_style` is `round` or `cut`.
 
@@ -4525,21 +4525,21 @@ The radius to use when the `selection_corner_style` is `round` or `cut`.
 
 The border color for “other” matches when the _Highlight matches_ option is selected in the Find panel. Also used to highlight matches in Find in Files results.
 
-"find\_highlight"[🔗](){id=doc_find_highlight}
+"find_highlight"[🔗](){id=doc_find_highlight}
 
 The background color of text matched by the Find panel.
 
-"find\_highlight\_foreground"[🔗](){id=doc_find_highlight_foreground}
+"find_highlight_foreground"[🔗](){id=doc_find_highlight_foreground}
 
 A color that will override the scope-based text color.
 
-"scroll\_highlight"[🔗](){id=doc_scroll_highlight}
+"scroll_highlight"[🔗](){id=doc_scroll_highlight}
 
 4050
 
 The color search result positions drawn on top of the scroll bar.\*
 
-"scroll\_selected\_highlight"[🔗](){id=doc_scroll_selected_highlight}
+"scroll_selected_highlight"[🔗](){id=doc_scroll_selected_highlight}
 
 4050
 
@@ -4561,11 +4561,11 @@ Guides are controlled globally by the `draw_indent_guides` setting.
 
 The color used to draw indent guides. _Only used if the option `"draw_normal"` is present in the setting `indent_guide_options`._
 
-"active\_guide"[🔗](){id=doc_active_guide}
+"active_guide"[🔗](){id=doc_active_guide}
 
 The color used to draw the indent guides for the indentation levels containing the caret. _Only used if the option `"draw_active"` is present in the setting `indent_guide_options`._
 
-"stack\_guide"[🔗](){id=doc_stack_guide}
+"stack_guide"[🔗](){id=doc_stack_guide}
 
 The color used to draw the indent guides for the parent indentation levels of the indentation level containing the caret. _Only used if the option `"draw_active"` is present in the setting `indent_guide_options`._
 
@@ -4573,7 +4573,7 @@ The color used to draw the indent guides for the parent indentation levels of th
 
 Bracket matching is controlled globally by the `match_brackets` setting.
 
-"brackets\_options"[🔗](){id=doc_brackets_options}
+"brackets_options"[🔗](){id=doc_brackets_options}
 
 How brackets are highlighted when the caret is next to one. Accepts a space-separated list from the following:
 
@@ -4585,11 +4585,11 @@ How brackets are highlighted when the caret is next to one. Accepts a space-sepa
 *   `italic`
     
 
-"brackets\_foreground"[🔗](){id=doc_brackets_foreground}
+"brackets_foreground"[🔗](){id=doc_brackets_foreground}
 
 The color to use when drawing the style specified by `brackets_options`.
 
-"bracket\_contents\_options"[🔗](){id=doc_bracket_contents_options}
+"bracket_contents_options"[🔗](){id=doc_bracket_contents_options}
 
 How brackets are highlighted when the caret is positioned in between a pair of brackets. Accepts a space-separated list from the following:
 
@@ -4599,7 +4599,7 @@ How brackets are highlighted when the caret is positioned in between a pair of b
 *   `foreground`
     
 
-"bracket\_contents\_foreground"[🔗](){id=doc_bracket_contents_foreground}
+"bracket_contents_foreground"[🔗](){id=doc_bracket_contents_foreground}
 
 The color to use when drawing the style specified by `brackets_contents_options`.
 
@@ -4607,7 +4607,7 @@ The color to use when drawing the style specified by `brackets_contents_options`
 
 Tag matching is controlled globally by the `match_tags` setting.
 
-"tags\_options"[🔗](){id=doc_tags_options}
+"tags_options"[🔗](){id=doc_tags_options}
 
 How tags are highlighted when the caret is inside of one. Accepts a space-separated list from the following:
 
@@ -4617,7 +4617,7 @@ How tags are highlighted when the caret is inside of one. Accepts a space-separa
 *   `foreground`
     
 
-"tags\_foreground"[🔗](){id=doc_tags_foreground}
+"tags_foreground"[🔗](){id=doc_tags_foreground}
 
 The color to use when drawing the style specified by `tags_options`.
 
@@ -4627,7 +4627,7 @@ The color to use when drawing the style specified by `tags_options`.
 
 The color of the shadow used to show when a text area can be horizontally scrolled.
 
-"shadow\_width"[🔗](){id=doc_shadow_width}
+"shadow_width"[🔗](){id=doc_shadow_width}
 
 The width of the shadow in device-independent pixels.
 
@@ -4662,17 +4662,17 @@ The text color.
 
 The background color.
 
-"foreground\_adjust"[🔗](){id=doc_foreground_adjust}
+"foreground_adjust"[🔗](){id=doc_foreground_adjust}
 
 3179
 
 An adjustment to the `"foreground"` color, only valid with `"background"`.
 
-"selection\_foreground"[🔗](){id=doc_selection_foreground}
+"selection_foreground"[🔗](){id=doc_selection_foreground}
 
 The text color when selected.
 
-"font\_style"[🔗](){id=doc_font_style}
+"font_style"[🔗](){id=doc_font_style}
 
 Zero or more of the following, separated by spaces:
 
@@ -4709,7 +4709,7 @@ For hashed syntax highlighting to be most obvious, the hue difference between th
 
 {
     "scope": "source - punctuation - keyword",
-    "foreground": \["hsl(200, 60%, 70%)", "hsl(330, 60%, 70%)"\]
+    "foreground": ["hsl(200, 60%, 70%)", "hsl(330, 60%, 70%)"]
 }
 
 ### Examples[🔗](){id=doc_examples}
@@ -4728,7 +4728,7 @@ To style all numbers as bold, italic red, use:
     "name": "Numbers",
     "scope": "constant.numeric",
     "foreground": "#FF0000",
-    "font\_style": "bold italic"
+    "font_style": "bold italic"
 }
 
 
@@ -4752,13 +4752,13 @@ For example, to customize the default Monokai color scheme, create a file named 
         "background": "hsl(70, 0%, 15%)",
     },
     "rules":
-    \[
+    [
         {
             "name": "Python docstrings",
             "scope": "comment.block.documentation.python",
             "foreground": "var(yellow)"
         },
-    \]
+    ]
 }
 
 The contents of the `"variables"` and `"globals"` keys are merged, with the user’s copy overwriting keys with the same name. For the `"rules"` array, the user’s rules are appended.
@@ -4768,7 +4768,7 @@ _______________________________________________________________________________
 Appendix: CSS Colors   [🔗](){id=doc_appendix_css_colors}
 ---------------------------------------------------
 
-section#css\_colors-section:after { content: ""; display: table; clear: both; } span.color-block { width: 50px; height: 20px; display: inline-block; position: relative;top: 5px; } div.col { float: left; width: 33%; }
+section#css_colors-section:after { content: ""; display: table; clear: both; } span.color-block { width: 50px; height: 20px; display: inline-block; position: relative;top: 5px; } div.col { float: left; width: 33%; }
 
   aliceblue  
   antiquewhite  
@@ -4958,39 +4958,39 @@ A .sublime-theme file contains a single JSON document. The document should be an
 
 _The following is an example of a .sublime-theme file, showing the format. A complete theme will have many more rules to cover all elements used in the UI._
 
-\[
+[
     // Set up the textures for a button
     {
-        "class": "button\_control",
+        "class": "button_control",
         "layer0.tint": "#000",
         "layer0.opacity": 1.0,
-        "layer1.texture": "Theme \- Example/textures/button\_background.png",
-        "layer1.inner\_margin": 4,
+        "layer1.texture": "Theme \- Example/textures/button_background.png",
+        "layer1.inner_margin": 4,
         "layer1.opacity": 1.0,
-        "layer2.texture": "Theme \- Example/textures/button\_highlight.png",
-        "layer2.inner\_margin": 4,
+        "layer2.texture": "Theme \- Example/textures/button_highlight.png",
+        "layer2.inner_margin": 4,
         "layer2.opacity": 0.0,
-        "content\_margin": \[4, 8, 4, 8\]
+        "content_margin": [4, 8, 4, 8]
     },
     // Show the highlight texture when the button is hovered
     {
-        "class": "button\_control",
-        "attributes": \["hover"\],
+        "class": "button_control",
+        "attributes": ["hover"],
         "layer2.opacity": 1.0
     },
     // Basic text label style
     {
-        "class": "label\_control",
-        "fg": \[240, 240, 240\],
+        "class": "label_control",
+        "fg": [240, 240, 240],
         "font.bold": true
     },
     // Brighten labels contained in a button on hover
     {
-        "class": "label\_control",
-        "parents": \[{"class": "button\_control", "attributes": \["hover"\]}\],
-        "fg": \[255, 255, 255\]
+        "class": "label_control",
+        "parents": [{"class": "button_control", "attributes": ["hover"]}],
+        "fg": [255, 255, 255]
     }
-\]
+]
 
 
 _______________________________________________________________________________
@@ -5076,13 +5076,13 @@ A theme may extend another theme, appending rules and overriding variables. To e
 {
     "extends": "Default.sublime-theme",
     "rules":
-    \[
+    [
         {
-            "class": "label\_control",
-            "parents": \[{"class": "button\_control", "attributes": \["hover"\]}\],
+            "class": "label_control",
+            "parents": [{"class": "button_control", "attributes": ["hover"]}],
             "fg": "red"
         }
-    \]
+    ]
 }
 
 The resulting list of rules will start with the base theme rules followed by the extending theme rules. Any variables from the extending theme will override variables with the same name in the base theme. Variable overrides will affect rules both in the base theme and the extending theme.
@@ -5099,15 +5099,15 @@ Reusable variables may be defined by a JSON object under the top-level key `"var
 {
     "variables":
     {
-        "light\_gray": "rgb(240, 240, 240)"
+        "light_gray": "rgb(240, 240, 240)"
     },
     "rules":
-    \[
+    [
         {
-            "class": "label\_control",
-            "fg": "var(light\_gray)"
+            "class": "label_control",
+            "fg": "var(light_gray)"
         }
-    \]
+    ]
 }
 
 Variables may be used as the value for any [properties](#properties), but the variable must be the entire value, it may not be embedded within another variable. The only exception to this rule is that variables may be used as the base color for the CSS `color()` mod function.
@@ -5157,11 +5157,11 @@ Colors in the RGB color space are specified via an array of 3 or 4 numbers, with
 
 _The color white, with full opacity_
 
-\[255, 255, 255\]
+[255, 255, 255]
 
 _The color blue, with 50% opacity_
 
-\[0, 0, 255, 0.5\]
+[0, 0, 255, 0.5]
 
 #### HSL[🔗](){id=doc_hsl}
 
@@ -5169,13 +5169,13 @@ Colors may also be specified using the HSL color space by creating an array of 4
 
 _A dark magenta, with full opacity_
 
-\["hsl", 325, 100, 30\]
+["hsl", 325, 100, 30]
 
 A float from `0.0` to `1.0` may be added as a fifth element to control the opacity.
 
 _A bright teal, with 50% opacity_
 
-\["hsl", 180, 100, 75, 0.5\]
+["hsl", 180, 100, 75, 0.5]
 
 #### Derived Colors[🔗](){id=doc_derived_colors}
 
@@ -5187,7 +5187,7 @@ To change the opacity of a base color, specify an array of 2 elements, the first
 
 _The color scheme foreground, at 90% opacity_
 
-\["foreground", 0.9\]
+["foreground", 0.9]
 
 ##### De-saturate Base Color[🔗](){id=doc_de_saturate_base_color}
 
@@ -5195,7 +5195,7 @@ To de-saturate a base color, specify an array with 3 elements. The first is the 
 
 _The color scheme foreground, with the saturation adjusted to 1/4 of the original value._
 
-\["foreground", "grayscale", 25\]
+["foreground", "grayscale", 25]
 
 ##### Tint Base Color[🔗](){id=doc_tint_base_color}
 
@@ -5203,11 +5203,11 @@ _The color scheme foreground, with the saturation adjusted to 1/4 of the origina
 
 _The color scheme background, lightened with white_
 
-\["background", 255, 255, 255, 0.1\]
+["background", 255, 255, 255, 0.1]
 
 _The color scheme accent, tinted with dark red_
 
-\["accent", "hsl", 0, 100, 30, 0.2\]
+["accent", "hsl", 0, 100, 30, 0.2]
 
 Colors derived from the color scheme will always be based on the global color scheme, and will not reflect view-specific color schemes. Certain view-specific controls in the UI have tinting properties that allow using the view-specific color scheme colors.
 
@@ -5276,31 +5276,31 @@ Settings   [🔗](){id=doc_settings}
 
 Certain Sublime Text settings are design to influence the UI. Themes should respect these settings and change elements based on them.
 
-"overlay\_scroll\_bars"[🔗](){id=doc_overlay_scroll_bars}
+"overlay_scroll_bars"[🔗](){id=doc_overlay_scroll_bars}
 
 This should affect the style of the scroll bars – generally they should be semi-transparent and the `overlay` property of the `scroll_area_control` should be set to `true`.
 
-"always\_show\_minimap\_viewport"[🔗](){id=doc_always_show_minimap_viewport}
+"always_show_minimap_viewport"[🔗](){id=doc_always_show_minimap_viewport}
 
 If the current viewport area should be highlighted on the minimap even when the user is not hovering over the minimap.
 
-"bold\_folder\_labels"[🔗](){id=doc_bold_folder_labels}
+"bold_folder_labels"[🔗](){id=doc_bold_folder_labels}
 
 If folder names in the side bar should have the `font.bold` property set to `true`.
 
-"mouse\_wheel\_switches\_tabs"[🔗](){id=doc_mouse_wheel_switches_tabs}
+"mouse_wheel_switches_tabs"[🔗](){id=doc_mouse_wheel_switches_tabs}
 
 This is used to control mouse wheel behavior of tabs on Linux. It should be combined with checking for `!enable_tab_scrolling` to change the `mouse_wheel_switch` property of the `tabset_control` to `false`.
 
-"highlight\_modified\_tabs"[🔗](){id=doc_highlight_modified_tabs}
+"highlight_modified_tabs"[🔗](){id=doc_highlight_modified_tabs}
 
 If the tabs of modified files should be highlighted. This setting should be checked in addition to the `dirty` attribute.
 
-"show\_tab\_close\_buttons"[🔗](){id=doc_show_tab_close_buttons}
+"show_tab_close_buttons"[🔗](){id=doc_show_tab_close_buttons}
 
 If tabs should have close buttons.
 
-"inactive\_sheet\_dimming"[🔗](){id=doc_inactive_sheet_dimming}
+"inactive_sheet_dimming"[🔗](){id=doc_inactive_sheet_dimming}
 
 4095
 
@@ -7293,16 +7293,16 @@ To create a user-specific customization of a theme, create a new file with the s
 
 For example, to customize the Default theme, create a file named Packages/User/Default.sublime-theme. Adding the following rules to that file will increase the size of the text in the sidebar.
 
-\[
+[
     {
-        "class": "sidebar\_heading",
+        "class": "sidebar_heading",
         "font.size": 15,
     },
     {
-        "class": "sidebar\_label",
+        "class": "sidebar_label",
         "font.size": 14
     }
-\]
+]
 
 
 
@@ -7326,21 +7326,21 @@ Example   [🔗](){id=doc_example}
 
 _The following is an example of the format of a .sublime-menu file._
 
-\[
+[
     {
         "caption": "File",
         "mnemonic": "F",
         "id": "file",
         "children":
-        \[
-            { "command": "new\_file", "caption": "New File", "mnemonic": "N" },
+        [
+            { "command": "new_file", "caption": "New File", "mnemonic": "N" },
 
-            { "command": "prompt\_open\_file", "caption": "Open File…", "mnemonic": "O", "platform": "!OSX" },
-            { "command": "prompt\_open\_folder", "caption": "Open Folder…", "platform": "!OSX" },
-            { "command": "prompt\_open", "caption": "Open…", "platform": "OSX" }
-        \]
+            { "command": "prompt_open_file", "caption": "Open File…", "mnemonic": "O", "platform": "!OSX" },
+            { "command": "prompt_open_folder", "caption": "Open Folder…", "platform": "!OSX" },
+            { "command": "prompt_open", "caption": "Open…", "platform": "OSX" }
+        ]
     }
-\]
+]
 
 
 _______________________________________________________________________________
@@ -7425,29 +7425,29 @@ Using the `"id"` key of an entry, it is possible to add entries to submenus. Whe
 
 For example, to add a new layout to the View ![▶](/images/right.svg) Layout menu, create an entry such as:
 
-\[
+[
     {
         "id": "layout",
         "children":
-        \[
+        [
             {
                 "caption": "Grid: 9",
-                "command": "set\_layout",
+                "command": "set_layout",
                 "args":
                 {
-                    "cols": \[0.0, 0.33, 0.66, 1.0\],
-                    "rows": \[0.0, 0.33, 0.66, 1.0\],
+                    "cols": [0.0, 0.33, 0.66, 1.0],
+                    "rows": [0.0, 0.33, 0.66, 1.0],
                     "cells":
-                    \[
-                        \[0, 0, 1, 1\], \[1, 0, 2, 1\], \[2, 0, 3, 1\],
-                        \[0, 1, 1, 2\], \[1, 1, 2, 2\], \[2, 1, 3, 2\],
-                        \[0, 2, 1, 3\], \[1, 2, 2, 3\], \[2, 2, 3, 3\]
-                    \]
+                    [
+                        [0, 0, 1, 1], [1, 0, 2, 1], [2, 0, 3, 1],
+                        [0, 1, 1, 2], [1, 1, 2, 2], [2, 1, 3, 2],
+                        [0, 2, 1, 3], [1, 2, 2, 3], [2, 2, 3, 3]
+                    ]
                 }
             },
-        \]
+        ]
     }
-\]
+]
 
 To find the `"id"` of entries in the Main.sublime-menu, use the `View Package File` command from the command palette and select `Default/Main.sublime-menu`.
 
@@ -7460,14 +7460,14 @@ Users can customize the available menus by creating an appropriately-named file 
 
 For example, to customize the context menu for files and folders in the side bar, create a file named Packages/User/Side Bar.sublime-menu. Adding the following would create an entry that would execute a (hypothetical) command that would copy the path to the clipboard.
 
-\[
+[
     {
         "caption": "Copy Full Path",
         "mnemonic": "y",
-        "command": "copy\_path",
-        "args": {"paths": \[\]}
+        "command": "copy_path",
+        "args": {"paths": []}
     }
-\]
+]
 
 
 
@@ -7496,13 +7496,13 @@ _______________________________________________________________________________
 Overview   [🔗](){id=doc_overview}
 ---------------------------------------------------
 
-Sublime Text runs plugins in a separate process from the main editor UI. This process runs an executable named plugin\_host.
+Sublime Text runs plugins in a separate process from the main editor UI. This process runs an executable named plugin_host.
 
-Running plugins in a separate process ensures the entire editor will not crash due to a poorly written plugin. If a plugin does cause the plugin\_host to crash, a user may still save their work before re-starting Sublime Text.
+Running plugins in a separate process ensures the entire editor will not crash due to a poorly written plugin. If a plugin does cause the plugin_host to crash, a user may still save their work before re-starting Sublime Text.
 
-All plugins are run in a single plugin\_host process, and share a single Python environment. Each plugin is loaded as a sub-module of a module named after the package. For example, a plugin in the file MyPackage/my\_plugin.py will be loaded as the Python module `MyPackage.my_plugin`.
+All plugins are run in a single plugin_host process, and share a single Python environment. Each plugin is loaded as a sub-module of a module named after the package. For example, a plugin in the file MyPackage/my_plugin.py will be loaded as the Python module `MyPackage.my_plugin`.
 
-The plugin\_host process contains an embedded version of the Python programming language, and exposes an [API](api_reference.html) to plugins. The plugin\_host executable always uses its own embedded version of Python, even if the end-user has Python installed on their machine.
+The plugin_host process contains an embedded version of the Python programming language, and exposes an [API](api_reference.html) to plugins. The plugin_host executable always uses its own embedded version of Python, even if the end-user has Python installed on their machine.
 
 
 _______________________________________________________________________________
@@ -7530,7 +7530,7 @@ _______________________________________________________________________________
 Modules   [🔗](){id=doc_modules}
 ---------------------------------------------------
 
-The Python environment within plugin\_host contains all of the modules in [The Python Standard Library](https://docs.python.org/3.3/library/), except for:
+The Python environment within plugin_host contains all of the modules in [The Python Standard Library](https://docs.python.org/3.3/library/), except for:
 
 *   audioop
 *   crypt (Not on Linux)
@@ -7675,7 +7675,7 @@ _______________________________________________________________________________
     Represents a device-independent pixel position.
 
 
-2.  sublime.Vector _= [tuple][py3_tuple]\[[DIP][DIP], [DIP][DIP]\]_ 
+2.  sublime.Vector _= [tuple][py3_tuple][[DIP][DIP], [DIP][DIP]]_ 
     [🔗](){id=sublime_Vector_}
 
     Represents a X and Y coordinate.
@@ -7687,19 +7687,19 @@ _______________________________________________________________________________
     Represents the offset from the beginning of the editor buffer.
 
 
-4.  sublime.Value _= [bool][py3_bool] | [str][py3_str] | [int][py3_int] | [float][py3_float] | [list][py3_list]\[[Value][Value]\] | [dict][py3_dict]\[[str][py3_str], [Value][Value]\] | [None][py3_None]_ 
+4.  sublime.Value _= [bool][py3_bool] | [str][py3_str] | [int][py3_int] | [float][py3_float] | [list][py3_list][[Value][Value]] | [dict][py3_dict][[str][py3_str], [Value][Value]] | [None][py3_None]_ 
     [🔗](){id=sublime_Value_}
 
     A JSON-equivalent value.
 
 
-5.  sublime.CommandArgs _= [dict][py3_dict]\[[str][py3_str], [Value][Value]\] | [None][py3_None]_ 
+5.  sublime.CommandArgs _= [dict][py3_dict][[str][py3_str], [Value][Value]] | [None][py3_None]_ 
     [🔗](){id=sublime_CommandArgs_}
 
     The arguments to a command may be `None` or a `dict` of `str` keys.
 
 
-6.  sublime.Kind _= [tuple][py3_tuple]\[[KindId][KindId], [str][py3_str], [str][py3_str]\]_ 
+6.  sublime.Kind _= [tuple][py3_tuple][[KindId][KindId], [str][py3_str], [str][py3_str]]_ 
     [🔗](){id=sublime_Kind_}
 
     Metadata about the kind of a symbol, [`CompletionItem`][CompletionItem], [`QuickPanelItem`][QuickPanelItem] or [`ListInputItem`][ListInputItem]. Controls the color and letter shown in the “icon” presented to the left of the item.
@@ -7740,7 +7740,7 @@ _______________________________________________________________________________
     Present when the user selects an item from a quick panel, selects an item from a [`ListInputHandler`][ListInputHandler], or clicks a link in a [minihtml][minihtml] document.
 
 
-8.  sublime.CompletionValue _= [str][py3_str] | [tuple][py3_tuple]\[[str][py3_str], [str][py3_str]\] | [CompletionItem][CompletionItem]_ 
+8.  sublime.CompletionValue _= [str][py3_str] | [tuple][py3_tuple][[str][py3_str], [str][py3_str]] | [CompletionItem][CompletionItem]_ 
     [🔗](){id=sublime_CompletionValue_}
 
     Represents an available auto-completion item. completion values may be of several formats. The term _trigger_ refers to the text matched against the user input, _replacement_ is what is inserted into the view if the item is selected. An _annotation_ is a unicode string hint displayed to the right-hand side of the trigger.
@@ -8485,7 +8485,7 @@ _______________________________________________________________________________
 
     The version number.
 
-06. sublime.platform() → [Literal][py3_typing_Literal]\['osx', 'linux', 'windows'\] 
+06. sublime.platform() → [Literal][py3_typing_Literal]['osx', 'linux', 'windows'] 
     [🔗](){id=sublime_platform_}
 
 
@@ -8493,7 +8493,7 @@ _______________________________________________________________________________
 
     The platform which the plugin is being run on.
 
-07. sublime.arch() → [Literal][py3_typing_Literal]\['x32', 'x64', 'arm64'\] 
+07. sublime.arch() → [Literal][py3_typing_Literal]['x32', 'x64', 'arm64'] 
     [🔗](){id=sublime_arch_}
 
 
@@ -8501,7 +8501,7 @@ _______________________________________________________________________________
 
     The CPU architecture.
 
-08. sublime.channel() → [Literal][py3_typing_Literal]\['dev', 'stable'\] 
+08. sublime.channel() → [Literal][py3_typing_Literal]['dev', 'stable'] 
     [🔗](){id=sublime_channel_}
 
 
@@ -8518,7 +8518,7 @@ _______________________________________________________________________________
 
     The path to the main Sublime Text executable.
 
-10. sublime.executable_hash() → [tuple][py3_tuple]\[[str][py3_str], [str][py3_str], [str][py3_str]\] 
+10. sublime.executable_hash() → [tuple][py3_tuple][[str][py3_str], [str][py3_str], [str][py3_str]] 
     [🔗](){id=sublime_executable_hash_}
 
     This may be called at import time. 4081
@@ -8620,7 +8620,7 @@ _______________________________________________________________________________
     `title` 4099
     Title for the dialog. Windows only.
 
-19. sublime.open_dialog(_callback: [Callable][py3_typing_Callable]\[\[[str][py3_str] | [list][py3_list]\[[str][py3_str]\] | [None][py3_None]\], [None][py3_None]\]_, _file_types: [list][py3_list]\[[tuple][py3_tuple]\[[str][py3_str], [list][py3_list]\[[str][py3_str]\]\]\] = \[\]_, _directory: [str][py3_str] | [None][py3_None] = None_, _multi_select=False_, _allow_folders=False_)  4075
+19. sublime.open_dialog(_callback: [Callable][py3_typing_Callable][[[str][py3_str] | [list][py3_list][[str][py3_str]] | [None][py3_None]], [None][py3_None]]_, _file_types: [list][py3_list][[tuple][py3_tuple][[str][py3_str], [list][py3_list][[str][py3_str]]]] = []_, _directory: [str][py3_str] | [None][py3_None] = None_, _multi_select=False_, _allow_folders=False_)  4075
     [🔗](){id=sublime_open_dialog_}
 
     Show the open file dialog.
@@ -8647,7 +8647,7 @@ _______________________________________________________________________________
 
     Whether to also allow selecting folders. Only works on macOS. If you only want to select folders use [`select_folder_dialog`][select_folder_dialog].
 
-20. sublime.save_dialog(_callback: [Callable][py3_typing_Callable]\[\[[str][py3_str] | [None][py3_None]\], [None][py3_None]\]_, _file_types: [list][py3_list]\[[tuple][py3_tuple]\[[str][py3_str], [list][py3_list]\[[str][py3_str]\]\]\] = \[\]_, _directory: [str][py3_str] | [None][py3_None] = None_, _name: [str][py3_str] | [None][py3_None] = None_, _extension: [str][py3_str] | [None][py3_None] = None_)  4075
+20. sublime.save_dialog(_callback: [Callable][py3_typing_Callable][[[str][py3_str] | [None][py3_None]], [None][py3_None]]_, _file_types: [list][py3_list][[tuple][py3_tuple][[str][py3_str], [list][py3_list][[str][py3_str]]]] = []_, _directory: [str][py3_str] | [None][py3_None] = None_, _name: [str][py3_str] | [None][py3_None] = None_, _extension: [str][py3_str] | [None][py3_None] = None_)  4075
     [🔗](){id=sublime_save_dialog_}
 
     Show the save file dialog
@@ -8674,7 +8674,7 @@ _______________________________________________________________________________
 
     The default extension used in the save dialog.
 
-21. sublime.select_folder_dialog(_callback: [Callable][py3_typing_Callable]\[\[[str][py3_str] | [list][py3_list]\[[str][py3_str]\] | [None][py3_None]\], [None][py3_None]\]_, _directory: [str][py3_str] | [None][py3_None] = None_, _multi_select=False_)  4075
+21. sublime.select_folder_dialog(_callback: [Callable][py3_typing_Callable][[[str][py3_str] | [list][py3_list][[str][py3_str]] | [None][py3_None]], [None][py3_None]]_, _directory: [str][py3_str] | [None][py3_None] = None_, _multi_select=False_)  4075
     [🔗](){id=sublime_select_folder_dialog_}
 
     Show the select folder dialog.
@@ -8693,7 +8693,7 @@ _______________________________________________________________________________
 
     Whether to allow selecting multiple files. When `True` the callback will be called with a list.
 
-22. sublime.choose_font_dialog(_callback: Callable\[\[[Value][Value]\], [None][py3_None]\]_, _default: [Value][Value] = None_)  4157
+22. sublime.choose_font_dialog(_callback: Callable[[[Value][Value]], [None][py3_None]]_, _default: [Value][Value] = None_)  4157
     [🔗](){id=sublime_choose_font_dialog_}
 
     Show a dialog for selecting a font.
@@ -8733,7 +8733,7 @@ _______________________________________________________________________________
 
     A HTML embeddable URL for a command.
 
-27. sublime.get_clipboard_async(_callback: [Callable][py3_typing_Callable]\[\[[str][py3_str]\], [None][py3_None]\]_, _size_limit: [int][py3_int] = 16777216_)  4075
+27. sublime.get_clipboard_async(_callback: [Callable][py3_typing_Callable][[[str][py3_str]], [None][py3_None]]_, _size_limit: [int][py3_int] = 16777216_)  4075
     [🔗](){id=sublime_get_clipboard_async_}
 
     Get the contents of the clipboard in a callback.
@@ -8910,7 +8910,7 @@ _______________________________________________________________________________
 
     if resource is not found"py function">
 
-48. sublime.find_resources(_pattern: [str][py3_str]_) → [list][py3_list]\[[str][py3_str]\] 
+48. sublime.find_resources(_pattern: [str][py3_str]_) → [list][py3_list][[str][py3_str]] 
     [🔗](){id=sublime_find_resources_}
 
 
@@ -8944,7 +8944,7 @@ _______________________________________________________________________________
 
     If the string is not valid JSON.
 
-51. sublime.expand_variables(_value: [Value][Value]_, _variables: [dict][py3_dict]\[[str][py3_str], [str][py3_str]\]_) → [Value][Value] 
+51. sublime.expand_variables(_value: [Value][Value]_, _variables: [dict][py3_dict][[str][py3_str], [str][py3_str]]_) → [Value][Value] 
     [🔗](){id=sublime_expand_variables_}
 
 
@@ -8984,7 +8984,7 @@ _______________________________________________________________________________
 
     The most recently used [`Window`][Window].
 
-57. sublime.windows() → [list][py3_list]\[[sublime.Window][Window]\] 
+57. sublime.windows() → [list][py3_list][[sublime.Window][Window]] 
     [🔗](){id=sublime_windows_}
 
 
@@ -8992,7 +8992,7 @@ _______________________________________________________________________________
 
     A list of all the open windows.
 
-58. sublime.get_macro() → [list][py3_list]\[[dict][py3_dict]\] 
+58. sublime.get_macro() → [list][py3_list][[dict][py3_dict]] 
     [🔗](){id=sublime_get_macro_}
 
 
@@ -9000,14 +9000,14 @@ _______________________________________________________________________________
 
     A list of the commands and args that compromise the currently recorded macro. Each `dict` will contain the keys `"command"` and `"args"`.
 
-59. sublime.project_history() → [list][py3_list]\[[str][py3_str]\]  4144
+59. sublime.project_history() → [list][py3_list][[str][py3_str]]  4144
     [🔗](){id=sublime_project_history_}
 
     Returns:
 
     A list of most recently opened workspaces. Sublime-project files with the same name are listed in place of sublime-workspace files.
 
-60. sublime.folder_history() → [list][py3_list]\[[str][py3_str]\]  4144
+60. sublime.folder_history() → [list][py3_list][[str][py3_str]]  4144
     [🔗](){id=sublime_folder_history_}
 
     Returns:
@@ -9139,7 +9139,7 @@ _______________________________________________________________________________
 
     The [`View`][View] to the file or `None` if the file isn’t open.
 
-12. file_history() → [list][py3_list]\[[str][py3_str]\] 
+12. file_history() → [list][py3_list][[str][py3_str]] 
     [🔗](){id=sublime_Window_file_history_}
 
     Get the list of previously opened files. This is the same list as _File > Open Recent_.
@@ -9173,7 +9173,7 @@ _______________________________________________________________________________
 
     Switches to the given [`View`][View].
 
-18. select_sheets(_sheets: [list][py3_list]\[[sublime.Sheet][Sheet]\]_)  4083
+18. select_sheets(_sheets: [list][py3_list][[sublime.Sheet][Sheet]]_)  4083
     [🔗](){id=sublime_Window_select_sheets_}
 
     Change the selected sheets for the entire window.
@@ -9183,14 +9183,14 @@ _______________________________________________________________________________
 
     Bring the window in front of any other windows.
 
-20. get_sheet_index(_sheet: [Sheet][Sheet]_) → [tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\] 
+20. get_sheet_index(_sheet: [Sheet][Sheet]_) → [tuple][py3_tuple][[int][py3_int], [int][py3_int]] 
     [🔗](){id=sublime_Window_get_sheet_index_}
 
     Returns:
 
     The a tuple of the group and index within the group of the given [`Sheet`][Sheet].
 
-21. get_view_index(_view: [View][View]_) → [tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\] 
+21. get_view_index(_view: [View][View]_) → [tuple][py3_tuple][[int][py3_int], [int][py3_int]] 
     [🔗](){id=sublime_Window_get_view_index_}
 
     Returns:
@@ -9207,7 +9207,7 @@ _______________________________________________________________________________
 
     Move the given [`View`][View] to the given `group` at the given `index`.
 
-24. move_sheets_to_group(_sheets: [list][py3_list]\[[sublime.Sheet][Sheet]\]_, _group: [int][py3_int]_, _insertion_idx=\-1_, _select=True_)  4123
+24. move_sheets_to_group(_sheets: [list][py3_list][[sublime.Sheet][Sheet]]_, _group: [int][py3_int]_, _insertion_idx=\-1_, _select=True_)  4123
     [🔗](){id=sublime_Window_move_sheets_to_group_}
 
     Moves all provided sheets to specified group at insertion index provided. If an index is not provided defaults to last index of the destination group.
@@ -9230,14 +9230,14 @@ _______________________________________________________________________________
 
     Whether the sheets should be selected after moving them.
 
-25. sheets() → [list][py3_list]\[[sublime.Sheet][Sheet]\] 
+25. sheets() → [list][py3_list][[sublime.Sheet][Sheet]] 
     [🔗](){id=sublime_Window_sheets_}
 
     Returns:
 
     All open sheets in the window.
 
-26. views(_\*_, _include_transient=False_) → [list][py3_list]\[[sublime.View][View]\] 
+26. views(_\*_, _include_transient=False_) → [list][py3_list][[sublime.View][View]] 
     [🔗](){id=sublime_Window_views_}
 
     Parameters:
@@ -9250,14 +9250,14 @@ _______________________________________________________________________________
 
     All open sheets in the window.
 
-27. selected_sheets() → [list][py3_list]\[[sublime.Sheet][Sheet]\]  4083
+27. selected_sheets() → [list][py3_list][[sublime.Sheet][Sheet]]  4083
     [🔗](){id=sublime_Window_selected_sheets_}
 
     Returns:
 
     All selected sheets in the window’s currently selected group.
 
-28. selected_sheets_in_group(_group: [int][py3_int]_) → [list][py3_list]\[[sublime.Sheet][Sheet]\]  4083
+28. selected_sheets_in_group(_group: [int][py3_int]_) → [list][py3_list][[sublime.Sheet][Sheet]]  4083
     [🔗](){id=sublime_Window_selected_sheets_in_group_}
 
     Returns:
@@ -9278,14 +9278,14 @@ _______________________________________________________________________________
 
     The currently focused [`View`][View] in the given group.
 
-31. sheets_in_group(_group: [int][py3_int]_) → [list][py3_list]\[[sublime.Sheet][Sheet]\] 
+31. sheets_in_group(_group: [int][py3_int]_) → [list][py3_list][[sublime.Sheet][Sheet]] 
     [🔗](){id=sublime_Window_sheets_in_group_}
 
     Returns:
 
     A list of all sheets in the specified group.
 
-32. views_in_group(_group: [int][py3_int]_) → [list][py3_list]\[[sublime.View][View]\] 
+32. views_in_group(_group: [int][py3_int]_) → [list][py3_list][[sublime.View][View]] 
     [🔗](){id=sublime_Window_views_in_group_}
 
     Returns:
@@ -9325,7 +9325,7 @@ _______________________________________________________________________________
 
     Since: 4135
 
-38. layout() → [dict][py3_dict]\[[str][py3_str], [Value][Value]\] 
+38. layout() → [dict][py3_dict][[str][py3_str], [Value][Value]] 
     [🔗](){id=sublime_Window_layout_}
 
     Get the group layout of the window.
@@ -9337,7 +9337,7 @@ _______________________________________________________________________________
 
     Use [`layout()`][layout] instead
 
-40. set_layout(_layout: [dict][py3_dict]\[[str][py3_str], [Value][Value]\]_) 
+40. set_layout(_layout: [dict][py3_dict][[str][py3_str], [Value][Value]]_) 
     [🔗](){id=sublime_Window_set_layout_}
 
     Set the group layout of the window.
@@ -9366,7 +9366,7 @@ _______________________________________________________________________________
 
     Returns the name of the currently open panel, or None if no panel is open. Will return built-in panel names (e.g. `"console"`, `"find"`, etc) in addition to output panels.
 
-45. panels() → [list][py3_list]\[[str][py3_str]\] 
+45. panels() → [list][py3_list][[str][py3_str]] 
     [🔗](){id=sublime_Window_panels_}
 
     Returns a list of the names of all panels that have not been marked as unlisted. Includes certain built-in panels in addition to output panels.
@@ -9378,7 +9378,7 @@ _______________________________________________________________________________
 
     Use [`create_output_panel`][create_output_panel] instead.
 
-47. show_input_panel(_caption: [str][py3_str]_, _initial_text: [str][py3_str]_, _on_done: [Callable][py3_typing_Callable]\[\[[str][py3_str]\], [None][py3_None]\] | [None][py3_None]_, _on_change: [Callable][py3_typing_Callable]\[\[[str][py3_str]\], [None][py3_None]\] | [None][py3_None]_, _on_cancel: [Callable][py3_typing_Callable]\[\[\], [None][py3_None]\] | [None][py3_None]_) 
+47. show_input_panel(_caption: [str][py3_str]_, _initial_text: [str][py3_str]_, _on_done: [Callable][py3_typing_Callable][[[str][py3_str]], [None][py3_None]] | [None][py3_None]_, _on_change: [Callable][py3_typing_Callable][[[str][py3_str]], [None][py3_None]] | [None][py3_None]_, _on_cancel: [Callable][py3_typing_Callable][[], [None][py3_None]] | [None][py3_None]_) 
     [🔗](){id=sublime_Window_show_input_panel_}
 
     Shows the input panel, to collect a line of input from the user.
@@ -9409,7 +9409,7 @@ _______________________________________________________________________________
 
     The [`View`][View] used for the input widget.
 
-48. show_quick_panel(_items: [list][py3_list]\[[str][py3_str]\] | [list][py3_list]\[[list][py3_list]\[[str][py3_str]\]\] | [list][py3_list]\[[sublime.QuickPanelItem][QuickPanelItem]\]_, _on_select: [Callable][py3_typing_Callable]\[\[[int][py3_int]\], [None][py3_None]\]_, _flags=QuickPanelFlags.NONE_, _selected_index=\-1_, _on_highlight: [Callable][py3_typing_Callable]\[\[[int][py3_int]\], [None][py3_None]\] | [None][py3_None] = None_, _placeholder: [str][py3_str] | [None][py3_None] = None_) 
+48. show_quick_panel(_items: [list][py3_list][[str][py3_str]] | [list][py3_list][[list][py3_list][[str][py3_str]]] | [list][py3_list][[sublime.QuickPanelItem][QuickPanelItem]]_, _on_select: [Callable][py3_typing_Callable][[[int][py3_int]], [None][py3_None]]_, _flags=QuickPanelFlags.NONE_, _selected_index=\-1_, _on_highlight: [Callable][py3_typing_Callable][[[int][py3_int]], [None][py3_None]] | [None][py3_None] = None_, _placeholder: [str][py3_str] | [None][py3_None] = None_) 
     [🔗](){id=sublime_Window_show_quick_panel_}
 
     Show a quick panel to select an item in a list. on_select will be called once, with the index of the selected item. If the quick panel was cancelled, on_select will be called with an argument of -1.
@@ -9504,7 +9504,7 @@ _______________________________________________________________________________
 
     Hides or shows the menu.
 
-59. folders() → [list][py3_list]\[[str][py3_str]\] 
+59. folders() → [list][py3_list][[str][py3_str]] 
     [🔗](){id=sublime_Window_folders_}
 
     Returns:
@@ -9551,7 +9551,7 @@ _______________________________________________________________________________
 
     Per-window settings that are persisted in the session, and duplicated into new windows.
 
-66. symbol_locations(_sym: [str][py3_str]_, _source=SymbolSource.ANY_, _type=SymbolType.ANY_, _kind_id=KindId.AMBIGUOUS_, _kind_letter=''_) → [list][py3_list]\[[sublime.SymbolLocation][SymbolLocation]\]  4085
+66. symbol_locations(_sym: [str][py3_str]_, _source=SymbolSource.ANY_, _type=SymbolType.ANY_, _kind_id=KindId.AMBIGUOUS_, _kind_letter=''_) → [list][py3_list][[sublime.SymbolLocation][SymbolLocation]]  4085
     [🔗](){id=sublime_Window_symbol_locations_}
 
     Find all locations where the symbol `sym` is located.
@@ -9582,7 +9582,7 @@ _______________________________________________________________________________
 
     the found symbol locations.
 
-67. lookup_symbol_in_index(_symbol: [str][py3_str]_) → [list][py3_list]\[[sublime.SymbolLocation][SymbolLocation]\] 
+67. lookup_symbol_in_index(_symbol: [str][py3_str]_) → [list][py3_list][[sublime.SymbolLocation][SymbolLocation]] 
     [🔗](){id=sublime_Window_lookup_symbol_in_index_}
 
     Returns:
@@ -9593,7 +9593,7 @@ _______________________________________________________________________________
 
     Use [`symbol_locations()`][symbol_locations] instead.
 
-68. lookup_symbol_in_open_files(_symbol: [str][py3_str]_) → [list][py3_list]\[[sublime.SymbolLocation][SymbolLocation]\] 
+68. lookup_symbol_in_open_files(_symbol: [str][py3_str]_) → [list][py3_list][[sublime.SymbolLocation][SymbolLocation]] 
     [🔗](){id=sublime_Window_lookup_symbol_in_open_files_}
 
     Returns:
@@ -9604,7 +9604,7 @@ _______________________________________________________________________________
 
     Use [`symbol_locations()`][symbol_locations] instead.
 
-69. lookup_references_in_index(_symbol: [str][py3_str]_) → [list][py3_list]\[[sublime.SymbolLocation][SymbolLocation]\] 
+69. lookup_references_in_index(_symbol: [str][py3_str]_) → [list][py3_list][[sublime.SymbolLocation][SymbolLocation]] 
     [🔗](){id=sublime_Window_lookup_references_in_index_}
 
     Returns:
@@ -9615,7 +9615,7 @@ _______________________________________________________________________________
 
     Use [`symbol_locations()`][symbol_locations] instead.
 
-70. lookup_references_in_open_files(_symbol: [str][py3_str]_) → [list][py3_list]\[[sublime.SymbolLocation][SymbolLocation]\] 
+70. lookup_references_in_open_files(_symbol: [str][py3_str]_) → [list][py3_list][[sublime.SymbolLocation][SymbolLocation]] 
     [🔗](){id=sublime_Window_lookup_references_in_open_files_}
 
     Returns:
@@ -9626,7 +9626,7 @@ _______________________________________________________________________________
 
     Use [`symbol_locations()`][symbol_locations] instead.
 
-71. extract_variables() → [dict][py3_dict]\[[str][py3_str], [str][py3_str]\] 
+71. extract_variables() → [dict][py3_dict][[str][py3_str], [str][py3_str]] 
     [🔗](){id=sublime_Window_extract_variables_}
 
     Get the `dict` of contextual keys of the window.
@@ -9696,7 +9696,7 @@ _______________________________________________________________________________
 
     Whether the provided [`Region`][Region] or [`Point`][Point] is entirely contained within this region.
 
-7.  to_tuple() → [tuple][py3_tuple]\[[Point][Point], [Point][Point]\]  4075
+7.  to_tuple() → [tuple][py3_tuple][[Point][Point], [Point][Point]]  4075
     [🔗](){id=sublime_Region_to_tuple_}
 
     Returns:
@@ -9871,7 +9871,7 @@ _______________________________________________________________________________
 
     Add a [`Region`][Region] or [`Point`][Point] to the selection. It will be merged with the existing regions if intersecting.
 
-7.  add_all(_regions: Iterable\[[Region][Region] | [Point][Point]\]_) 
+7.  add_all(_regions: Iterable[[Region][Region] | [Point][Point]]_) 
     [🔗](){id=sublime_Selection_add_all_}
 
     Add all the regions from the given iterable.
@@ -10025,7 +10025,7 @@ _______________________________________________________________________________
 
     The name of the file the context is defined in.
 
-4.  source_location _: [tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\]_ 
+4.  source_location _: [tuple][py3_tuple][[int][py3_int], [int][py3_int]]_ 
     [🔗](){id=sublime_ContextStackFrame_source_location_}
 
     The location of the context inside the source file as a pair of row and column. Maybe be `(-1, -1)` if the location is unclear, like in `tmLanguage` based syntaxes.
@@ -10120,7 +10120,7 @@ _______________________________________________________________________________
 
     A reference to the window containing the view, if any.
 
-11. clones() → [list][py3_list]\[[sublime.View][View]\] 
+11. clones() → [list][py3_list][[sublime.View][View]] 
     [🔗](){id=sublime_View_clones_}
 
     Returns:
@@ -10281,12 +10281,12 @@ _______________________________________________________________________________
 
     The current change count.
 
-34. change_id() → [tuple][py3_tuple]\[[int][py3_int], [int][py3_int], [int][py3_int]\] 
+34. change_id() → [tuple][py3_tuple][[int][py3_int], [int][py3_int], [int][py3_int]] 
     [🔗](){id=sublime_View_change_id_}
 
     Get a 3-element tuple that can be passed to [`transform_region_from()`][transform_region_from] to obtain a region equivalent to a region of the view in the past. This is primarily useful for plugins providing text modification that must operate in an asynchronous fashion and must be able to handle the view contents changing between the request and response.
 
-35. transform_region_from(_region: [Region][Region]_, _change_id: [tuple][py3_tuple]\[[int][py3_int], [int][py3_int], [int][py3_int]\]_) → [Region][Region] 
+35. transform_region_from(_region: [Region][Region]_, _change_id: [tuple][py3_tuple][[int][py3_int], [int][py3_int], [int][py3_int]]_) → [Region][Region] 
     [🔗](){id=sublime_View_transform_region_from_}
 
     Transforms a region from a previous point in time to an equivalent region in the current state of the View. The `change_id` must have been obtained from [`change_id()`][change_id] at the point in time the region is from.
@@ -10331,7 +10331,7 @@ _______________________________________________________________________________
 
     The first [`Region`][Region] matching the provided pattern.
 
-40. find_all(_pattern: [str][py3_str]_, _flags=FindFlags.NONE_, _fmt: [str][py3_str] | [None][py3_None] = None_, _extractions: [list][py3_list]\[[str][py3_str]\] | [None][py3_None] = None_) → [list][py3_list]\[[sublime.Region][Region]\] 
+40. find_all(_pattern: [str][py3_str]_, _flags=FindFlags.NONE_, _fmt: [str][py3_str] | [None][py3_None] = None_, _extractions: [list][py3_list][[str][py3_str]] | [None][py3_None] = None_) → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_find_all_}
 
     Parameters:
@@ -10371,7 +10371,7 @@ _______________________________________________________________________________
 
     Examples of keys are `TM_COMMENT_START` and `showInSymbolList`.
 
-43. extract_tokens_with_scopes(_region: [Region][Region]_) → [list][py3_list]\[[tuple][py3_tuple]\[[sublime.Region][Region], [str][py3_str]\]\] 
+43. extract_tokens_with_scopes(_region: [Region][Region]_) → [list][py3_list][[tuple][py3_tuple][[sublime.Region][Region], [str][py3_str]]] 
     [🔗](){id=sublime_View_extract_tokens_with_scopes_}
 
     Parameters:
@@ -10417,7 +10417,7 @@ _______________________________________________________________________________
 
     The syntax scope name assigned to the character at the given point.
 
-47. context_backtrace(_pt: [Point][Point]_) → [list][py3_list]\[[ContextStackFrame][ContextStackFrame]\]  4127
+47. context_backtrace(_pt: [Point][Point]_) → [list][py3_list][[ContextStackFrame][ContextStackFrame]]  4127
     [🔗](){id=sublime_View_context_backtrace_}
 
     Get a backtrace of [`ContextStackFrame`][ContextStackFrame]s at the provided [`Point`][Point].
@@ -10440,7 +10440,7 @@ _______________________________________________________________________________
 
     See [`sublime.score_selector`][score_selector].
 
-50. find_by_selector(_selector: [str][py3_str]_) → [list][py3_list]\[[sublime.Region][Region]\] 
+50. find_by_selector(_selector: [str][py3_str]_) → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_find_by_selector_}
 
     Find all regions in the file matching the given selector.
@@ -10449,7 +10449,7 @@ _______________________________________________________________________________
 
     The list of matched regions.
 
-51. style() → [dict][py3_dict]\[[str][py3_str], [str][py3_str]\]  3150
+51. style() → [dict][py3_dict][[str][py3_str], [str][py3_str]]  3150
     [🔗](){id=sublime_View_style_}
 
     See [`style_for_scope`][style_for_scope].
@@ -10458,7 +10458,7 @@ _______________________________________________________________________________
 
     The global style settings for the view. All colors are normalized to the six character hex form with a leading hash, e.g. `#ff0000`.
 
-52. style_for_scope(_scope: [str][py3_str]_) → [dict][py3_dict]\[[str][py3_str], [str][py3_str]\] 
+52. style_for_scope(_scope: [str][py3_str]_) → [dict][py3_dict][[str][py3_str], [str][py3_str]] 
     [🔗](){id=sublime_View_style_for_scope_}
 
     Accepts a string scope name and returns a `dict` of style information including the keys:
@@ -10477,14 +10477,14 @@ _______________________________________________________________________________
 
     The foreground and background colors are normalized to the six character hex form with a leading hash, e.g. `#ff0000`.
 
-53. lines(_region: [Region][Region]_) → [list][py3_list]\[[sublime.Region][Region]\] 
+53. lines(_region: [Region][Region]_) → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_lines_}
 
     Returns:
 
     A list of lines (in sorted order) intersecting the provided [`Region`][Region].
 
-54. split_by_newlines(_region: [Region][Region]_) → [list][py3_list]\[[sublime.Region][Region]\] 
+54. split_by_newlines(_region: [Region][Region]_) → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_split_by_newlines_}
 
     Splits the region up such that each [`Region`][Region] returned exists on exactly one line.
@@ -10564,17 +10564,17 @@ _______________________________________________________________________________
 
     The sub-word separators to use when classifying.
 
-61. rowcol(_tp: [Point][Point]_) → [tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\] 
+61. rowcol(_tp: [Point][Point]_) → [tuple][py3_tuple][[int][py3_int], [int][py3_int]] 
     [🔗](){id=sublime_View_rowcol_}
 
     Calculates the 0-based line and column numbers of the point. Column numbers are returned as number of Unicode characters.
 
-62. rowcol_utf8(_tp: [Point][Point]_) → [tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\]  4069
+62. rowcol_utf8(_tp: [Point][Point]_) → [tuple][py3_tuple][[int][py3_int], [int][py3_int]]  4069
     [🔗](){id=sublime_View_rowcol_utf8_}
 
     Calculates the 0-based line and column numbers of the point. Column numbers are returned as UTF-8 code units.
 
-63. rowcol_utf16(_tp: [Point][Point]_) → [tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\]  4069
+63. rowcol_utf16(_tp: [Point][Point]_) → [tuple][py3_tuple][[int][py3_int], [int][py3_int]]  4069
     [🔗](){id=sublime_View_rowcol_utf16_}
 
     Calculates the 0-based line and column numbers of the point. Column numbers are returned as UTF-16 code units.
@@ -10734,14 +10734,14 @@ _______________________________________________________________________________
 
     Whether the provided [`Region`][Region] is folded.
 
-83. folded_regions() → [list][py3_list]\[[sublime.Region][Region]\] 
+83. folded_regions() → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_folded_regions_}
 
     Returns:
 
     The list of folded regions.
 
-84. fold(_x: [Region][Region] | [list][py3_list]\[[sublime.Region][Region]\]_) → [bool][py3_bool] 
+84. fold(_x: [Region][Region] | [list][py3_list][[sublime.Region][Region]]_) → [bool][py3_bool] 
     [🔗](){id=sublime_View_fold_}
 
     Fold the provided [`Region`][Region] (s).
@@ -10750,7 +10750,7 @@ _______________________________________________________________________________
 
     `False` if the regions were already folded.
 
-85. unfold(_x: [Region][Region] | [list][py3_list]\[[sublime.Region][Region]\]_) → [list][py3_list]\[[sublime.Region][Region]\] 
+85. unfold(_x: [Region][Region] | [list][py3_list][[sublime.Region][Region]]_) → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_unfold_}
 
     Unfold all text in the provided [`Region`][Region] (s).
@@ -10759,7 +10759,7 @@ _______________________________________________________________________________
 
     The unfolded regions.
 
-86. add_regions(_key: [str][py3_str]_, _regions: [list][py3_list]\[[sublime.Region][Region]\]_, _scope=''_, _icon=''_, _flags=RegionFlags.NONE_, _annotations: [list][py3_list]\[[str][py3_str]\] = \[\]_, _annotation_color=''_, _on_navigate: [Callable][py3_typing_Callable]\[\[[str][py3_str]\], [None][py3_None]\] | [None][py3_None] = None_, _on_close: [Callable][py3_typing_Callable]\[\[\], [None][py3_None]\] | [None][py3_None] = None_) 
+86. add_regions(_key: [str][py3_str]_, _regions: [list][py3_list][[sublime.Region][Region]]_, _scope=''_, _icon=''_, _flags=RegionFlags.NONE_, _annotations: [list][py3_list][[str][py3_str]] = []_, _annotation_color=''_, _on_navigate: [Callable][py3_typing_Callable][[[str][py3_str]], [None][py3_None]] | [None][py3_None] = None_, _on_close: [Callable][py3_typing_Callable][[], [None][py3_None]] | [None][py3_None] = None_) 
     [🔗](){id=sublime_View_add_regions_}
 
     Adds visual indicators to regions of text in the view. Indicators include icons in the gutter, underlines under the text, borders around the text and annotations. Annotations are drawn aligned to the right-hand edge of the view and may contain HTML markup.
@@ -10813,7 +10813,7 @@ _______________________________________________________________________________
 
     Called when the annotations are closed.
 
-87. get_regions(_key: [str][py3_str]_) → [list][py3_list]\[[sublime.Region][Region]\] 
+87. get_regions(_key: [str][py3_str]_) → [list][py3_list][[sublime.Region][Region]] 
     [🔗](){id=sublime_View_get_regions_}
 
     Returns:
@@ -10845,7 +10845,7 @@ _______________________________________________________________________________
 
     The syntax assigned to the buffer.
 
-92. symbols() → [list][py3_list]\[[tuple][py3_tuple]\[[sublime.Region][Region], [str][py3_str]\]\] 
+92. symbols() → [list][py3_list][[tuple][py3_tuple][[sublime.Region][Region], [str][py3_str]]] 
     [🔗](){id=sublime_View_symbols_}
 
     Extract all the symbols defined in the buffer.
@@ -10854,14 +10854,14 @@ _______________________________________________________________________________
 
     Use [`symbol_regions()`][symbol_regions] instead.
 
-93. get_symbols() → [list][py3_list]\[[tuple][py3_tuple]\[[sublime.Region][Region], [str][py3_str]\]\] 
+93. get_symbols() → [list][py3_list][[tuple][py3_tuple][[sublime.Region][Region], [str][py3_str]]] 
     [🔗](){id=sublime_View_get_symbols_}
 
     Deprecated:
 
     Use [`symbol_regions()`][symbol_regions] instead.
 
-94. indexed_symbols() → [list][py3_list]\[[tuple][py3_tuple]\[[sublime.Region][Region], [str][py3_str]\]\]  3148
+94. indexed_symbols() → [list][py3_list][[tuple][py3_tuple][[sublime.Region][Region], [str][py3_str]]]  3148
     [🔗](){id=sublime_View_indexed_symbols_}
 
     Returns:
@@ -10872,7 +10872,7 @@ _______________________________________________________________________________
 
     Use [`indexed_symbol_regions()`][indexed_symbol_regions] instead.ild-filter build-3148 sig sig-object docutils container" id="sublime.View.indexed_references">
 
-95. indexed_references() → [list][py3_list]\[[tuple][py3_tuple]\[[sublime.Region][Region], [str][py3_str]\]\]  3148
+95. indexed_references() → [list][py3_list][[tuple][py3_tuple][[sublime.Region][Region], [str][py3_str]]]  3148
     [🔗](){id=sublime_View_indexed_references_}
 
     Returns:
@@ -10883,14 +10883,14 @@ _______________________________________________________________________________
 
     Use [`indexed_symbol_regions()`][indexed_symbol_regions] instead.
 
-96. symbol_regions() → [list][py3_list]\[[sublime.SymbolRegion][SymbolRegion]\]  4085
+96. symbol_regions() → [list][py3_list][[sublime.SymbolRegion][SymbolRegion]]  4085
     [🔗](){id=sublime_View_symbol_regions_}
 
     Returns:
 
     Info about symbols that are part of the view’s symbol list.
 
-97. indexed_symbol_regions(_type=SymbolType.ANY_) → [list][py3_list]\[[sublime.SymbolRegion][SymbolRegion]\]  4085
+97. indexed_symbol_regions(_type=SymbolType.ANY_) → [list][py3_list][[sublime.SymbolRegion][SymbolRegion]]  4085
     [🔗](){id=sublime_View_indexed_symbol_regions_}
 
     Parameters:
@@ -10922,7 +10922,7 @@ _______________________________________________________________________________
 
     Clear the status associated with the provided `key`.
 
-101. extract_completions(_prefix: [str][py3_str]_, _tp: [Point][Point] = \-1_) → [list][py3_list]\[[str][py3_str]\] 
+101. extract_completions(_prefix: [str][py3_str]_, _tp: [Point][Point] = \-1_) → [list][py3_list][[str][py3_str]] 
     [🔗](){id=sublime_View_extract_completions_}
 
     Get a list of word-completions based on the contents of the view.
@@ -10937,7 +10937,7 @@ _______________________________________________________________________________
 
     The [`Point`][Point] by which to weigh words. Closer words are preferred.
 
-102. command_history(_index: [int][py3_int]_, _modifying_only=False_) → [tuple][py3_tuple]\[[str][py3_str], [CommandArgs][CommandArgs], [int][py3_int]\] 
+102. command_history(_index: [int][py3_int]_, _modifying_only=False_) → [tuple][py3_tuple][[str][py3_str], [CommandArgs][CommandArgs], [int][py3_int]] 
     [🔗](){id=sublime_View_command_history_}
 
     Get info on previous run commands stored in the undo/redo stack.
@@ -10968,7 +10968,7 @@ _______________________________________________________________________________
 
     Set the overwrite status. See [`overwrite_status()`][overwrite_status].
 
-105. show_popup_menu(_items: [list][py3_list]\[[str][py3_str]\]_, _on_done: [Callable][py3_typing_Callable]\[\[[int][py3_int]\], [None][py3_None]\]_, _flags=0_) 
+105. show_popup_menu(_items: [list][py3_list][[str][py3_str]]_, _on_done: [Callable][py3_typing_Callable][[[int][py3_int]], [None][py3_None]]_, _flags=0_) 
     [🔗](){id=sublime_View_show_popup_menu_}
 
     Show a popup menu at the caret, for selecting an item in a list.
@@ -10987,7 +10987,7 @@ _______________________________________________________________________________
 
     must be `0`, currently unused.
 
-106. show_popup(_content: [str][py3_str]_, _flags=PopupFlags.NONE_, _location: [Point][Point] = \-1_, _max_width: [DIP][DIP] = 320_, _max_height: [DIP][DIP] = 240_, _on_navigate: Callable\[\[[str][py3_str]\], [None][py3_None]\] | [None][py3_None] = None_, _on_hide: Callable\[\[\], [None][py3_None]\] | [None][py3_None] = None_) 
+106. show_popup(_content: [str][py3_str]_, _flags=PopupFlags.NONE_, _location: [Point][Point] = \-1_, _max_width: [DIP][DIP] = 320_, _max_height: [DIP][DIP] = 240_, _on_navigate: Callable[[[str][py3_str]], [None][py3_None]] | [None][py3_None] = None_, _on_hide: Callable[[], [None][py3_None]] | [None][py3_None] = None_) 
     [🔗](){id=sublime_View_show_popup_}
 
     Show a popup displaying HTML content.
@@ -11051,7 +11051,7 @@ _______________________________________________________________________________
 
     Sets the auto complete popup state to be preserved the next time the [`View`][View] loses focus. When the [`View`][View] regains focus, the auto complete window will be re-shown, with the previously selected entry pre-selected.
 
-112. export_to_html(_regions: [Region][Region] | [list][py3_list]\[[sublime.Region][Region]\] | [None][py3_None] = None_, _minihtml=False_, _enclosing_tags=False_, _font_size=True_, _font_family=True_)  4092
+112. export_to_html(_regions: [Region][Region] | [list][py3_list][[sublime.Region][Region]] | [None][py3_None] = None_, _minihtml=False_, _enclosing_tags=False_, _font_size=True_, _font_family=True_)  4092
     [🔗](){id=sublime_View_export_to_html_}
 
     Generates an HTML string of the current view contents, including styling for syntax highlighting.
@@ -11102,7 +11102,7 @@ _______________________________________________________________________________
 
     The full name file the file associated with the buffer, or `None` if it doesn’t exist on disk.
 
-4.  views() → [list][py3_list]\[[sublime.View][View]\] 
+4.  views() → [list][py3_list][[sublime.View][View]] 
     [🔗](){id=sublime_Buffer_views_}
 
     Returns a list of all views that are associated with this buffer.
@@ -11174,7 +11174,7 @@ _______________________________________________________________________________
 
     Same as [`__delitem__`][__delitem__].
 
-11. add_on_change(_tag: [str][py3_str]_, _callback: [Callable][py3_typing_Callable]\[\[\], [None][py3_None]\]_) 
+11. add_on_change(_tag: [str][py3_str]_, _callback: [Callable][py3_typing_Callable][[], [None][py3_None]]_) 
     [🔗](){id=sublime_Settings_add_on_change_}
 
     Register a callback to be run whenever a setting is changed.
@@ -11218,12 +11218,12 @@ _______________________________________________________________________________
 
     How the phantom should be placed relative to the `region`.
 
-5.  on_navigate _: [Callable][py3_typing_Callable]\[\[[str][py3_str]\], [None][py3_None]\] | [None][py3_None]_ 
+5.  on_navigate _: [Callable][py3_typing_Callable][[[str][py3_str]], [None][py3_None]] | [None][py3_None]_ 
     [🔗](){id=sublime_Phantom_on_navigate_}
 
     Called when a link in the HTML is clicked. The value of the `href` attribute is passed.
 
-6.  to_tuple() → [tuple][py3_tuple]\[[tuple][py3_tuple]\[[Point][Point], [Point][Point]\], [str][py3_str], [PhantomLayout][PhantomLayout], Callable\[\[[str][py3_str]\], [None][py3_None]\] | [None][py3_None]\] 
+6.  to_tuple() → [tuple][py3_tuple][[tuple][py3_tuple][[Point][Point], [Point][Point]], [str][py3_str], [PhantomLayout][PhantomLayout], Callable[[[str][py3_str]], [None][py3_None]] | [None][py3_None]] 
     [🔗](){id=sublime_Phantom_to_tuple_}
 
     Returns a tuple of this phantom containing the region, content, layout and callback.
@@ -11252,7 +11252,7 @@ _______________________________________________________________________________
 
     A string used to group the phantoms together.
 
-5.  update(_phantoms: [Iterable][py3_typing_Iterable]\[[Phantom][Phantom]\]_) 
+5.  update(_phantoms: [Iterable][py3_typing_Iterable][[Phantom][Phantom]]_) 
     [🔗](){id=sublime_PhantomSet_update_}
 
     Update the set of phantoms. If the [`Phantom.region`][region] of existing phantoms have changed they will be moved; new phantoms are added and ones not present are removed.
@@ -11275,7 +11275,7 @@ _______________________________________________________________________________
 
     Represents a list of completions, some of which may be in the process of being asynchronously fetched.
 
-2.  `__init__`(_completions: [list][py3_list]\[[CompletionValue][CompletionValue]\] | [None][py3_None] = None_, _flags=AutoCompleteFlags.NONE_) 
+2.  `__init__`(_completions: [list][py3_list][[CompletionValue][CompletionValue]] | [None][py3_None] = None_, _flags=AutoCompleteFlags.NONE_) 
     [🔗](){id=sublime_CompletionList___init___}
 
     Parameters:
@@ -11288,7 +11288,7 @@ _______________________________________________________________________________
 
     Flags controlling auto-complete behavior. See [`AutoCompleteFlags`][AutoCompleteFlags].
 
-3.  set_completions(_completions: [list][py3_list]\[[CompletionValue][CompletionValue]\]_, _flags=AutoCompleteFlags.NONE_) 
+3.  set_completions(_completions: [list][py3_list][[CompletionValue][CompletionValue]]_, _flags=AutoCompleteFlags.NONE_) 
     [🔗](){id=sublime_CompletionList_set_completions_}
 
     Sets the list of completions, allowing the list to be displayed to the user.
@@ -11342,7 +11342,7 @@ _______________________________________________________________________________
 
     Specialized constructor for command completions. The [`completion_format`][completion_format] is always [`CompletionFormat.COMMAND`][COMMAND].
 
-10. sublime.list_syntaxes() → [list][py3_list]\[[sublime.Syntax][Syntax]\] 
+10. sublime.list_syntaxes() → [list][py3_list][[sublime.Syntax][Syntax]] 
     [🔗](){id=sublime_list_syntaxes_}
 
     list all known syntaxes.
@@ -11356,14 +11356,14 @@ _______________________________________________________________________________
 
     Returns a Syntax or None.
 
-12. sublime.find_syntax_by_name(_name: [str][py3_str]_) → [list][py3_list]\[[sublime.Syntax][Syntax]\] 
+12. sublime.find_syntax_by_name(_name: [str][py3_str]_) → [list][py3_list][[sublime.Syntax][Syntax]] 
     [🔗](){id=sublime_find_syntax_by_name_}
 
     Find syntaxes with the specified name.
 
     Name must match exactly. Return a list of Syntax.
 
-13. sublime.find_syntax_by_scope(_scope: [str][py3_str]_) → [list][py3_list]\[[sublime.Syntax][Syntax]\] 
+13. sublime.find_syntax_by_scope(_scope: [str][py3_str]_) → [list][py3_list][[sublime.Syntax][Syntax]] 
     [🔗](){id=sublime_find_syntax_by_scope_}
 
     Find syntaxes with the specified scope.
@@ -11422,7 +11422,7 @@ _______________________________________________________________________________
 
     Text to match against user’s input.
 
-3.  details _: [str][py3_str] | [list][py3_list]\[[str][py3_str]\] | [tuple][py3_tuple]\[[str][py3_str]\]_ 
+3.  details _: [str][py3_str] | [list][py3_list][[str][py3_str]] | [tuple][py3_tuple][[str][py3_str]]_ 
     [🔗](){id=sublime_QuickPanelItem_details_}
 
     A [minihtml Reference][minihtml] string or list of strings displayed below the trigger.
@@ -11456,7 +11456,7 @@ _______________________________________________________________________________
 
     A [`Value`][Value] passed to the command if the row is selected.
 
-4.  details _: [str][py3_str] | [list][py3_list]\[[str][py3_str]\] | [tuple][py3_tuple]\[[str][py3_str]\]_ 
+4.  details _: [str][py3_str] | [list][py3_list][[str][py3_str]] | [tuple][py3_tuple][[str][py3_str]]_ 
     [🔗](){id=sublime_ListInputItem_details_}
 
     A [minihtml Reference][minihtml] string or list of strings displayed below the trigger.
@@ -11576,7 +11576,7 @@ _______________________________________________________________________________
 
     Initial text shown in the text entry box. Empty by default.
 
-5.  initial_selection() → [list][py3_list]\[[tuple][py3_tuple]\[[int][py3_int], [int][py3_int]\]\]  4081
+5.  initial_selection() → [list][py3_list][[tuple][py3_tuple][[int][py3_int], [int][py3_int]]]  4081
     [🔗](){id=sublime_plugin_CommandInputHandler_initial_selection_}
 
     A list of 2-element tuples, defining the initially selected parts of the initial text.
@@ -11645,7 +11645,7 @@ _______________________________________________________________________________
 
     _For an input handler to be shown to the user, the command returning the input handler MUST be made available in the Command Palette by adding the command to a Default.sublime-commands file._
 
-2.  list_items() → [list][py3_list]\[[str][py3_str]\] | [tuple][py3_tuple]\[[list][py3_list]\[[str][py3_str]\], [int][py3_int]\] | [list][py3_list]\[[tuple][py3_tuple]\[[str][py3_str], [Value][Value]\]\] | [tuple][py3_tuple]\[[list][py3_list]\[[tuple][py3_tuple]\[[str][py3_str], [Value][Value]\]\], [int][py3_int]\] | [list][py3_list]\[[sublime.ListInputItem][ListInputItem]\] | [tuple][py3_tuple]\[[list][py3_list]\[[sublime.ListInputItem][ListInputItem]\], [int][py3_int]\] 
+2.  list_items() → [list][py3_list][[str][py3_str]] | [tuple][py3_tuple][[list][py3_list][[str][py3_str]], [int][py3_int]] | [list][py3_list][[tuple][py3_tuple][[str][py3_str], [Value][Value]]] | [tuple][py3_tuple][[list][py3_list][[tuple][py3_tuple][[str][py3_str], [Value][Value]]], [int][py3_int]] | [list][py3_list][[sublime.ListInputItem][ListInputItem]] | [tuple][py3_tuple][[list][py3_list][[sublime.ListInputItem][ListInputItem]], [int][py3_int]] 
     [🔗](){id=sublime_plugin_ListInputHandler_list_items_}
 
     This method should return the items to show in the list.
@@ -11764,7 +11764,7 @@ _______________________________________________________________________________
 
 1.  Bases: [`object`][py3_object]
 
-2.  on_init(_views: List\[[View][View]\]_)  4050
+2.  on_init(_views: List[[View][View]]_)  4050
     [🔗](){id=sublime_plugin_EventListener_on_init_}
 
     Called once with a list of views that were loaded before the EventListener was instantiated
@@ -11965,7 +11965,7 @@ _______________________________________________________________________________
 
     `True` or `False` if the plugin handles this context key and it either does or doesn’t match. If the context is unknown return `None`.
 
-35.  on_query_completions(_view: [View][View]_, _prefix: [str][py3_str]_, _locations: List\[[Point][Point]\]_) → [None][py3_None] | List\[[CompletionValue][CompletionValue]\] | Tuple\[List\[[CompletionValue][CompletionValue]\], [AutoCompleteFlags][AutoCompleteFlags]\] | [CompletionList][CompletionList] 
+35.  on_query_completions(_view: [View][View]_, _prefix: [str][py3_str]_, _locations: List[[Point][Point]]_) → [None][py3_None] | List[[CompletionValue][CompletionValue]] | Tuple[List[[CompletionValue][CompletionValue]], [AutoCompleteFlags][AutoCompleteFlags]] | [CompletionList][CompletionList] 
     [🔗](){id=sublime_plugin_EventListener_on_query_completions_}
 
     Called whenever completions are to be presented to the user.
@@ -12225,7 +12225,7 @@ _______________________________________________________________________________
 
     `True` or `False` if the plugin handles this context key and it either does or doesn’t match. If the context is unknown return `None`.
 
-27.  on_query_completions(_prefix: [str][py3_str]_, _locations: List\[[Point][Point]\]_) → [None][py3_None] | List\[[CompletionValue][CompletionValue]\] | Tuple\[List\[[CompletionValue][CompletionValue]\], [AutoCompleteFlags][AutoCompleteFlags]\] | [CompletionList][CompletionList] 
+27.  on_query_completions(_prefix: [str][py3_str]_, _locations: List[[Point][Point]]_) → [None][py3_None] | List[[CompletionValue][CompletionValue]] | Tuple[List[[CompletionValue][CompletionValue]], [AutoCompleteFlags][AutoCompleteFlags]] | [CompletionList][CompletionList] 
     [🔗](){id=sublime_plugin_ViewEventListener_on_query_completions_}
 
     Called whenever completions are to be presented to the user.
@@ -12244,7 +12244,7 @@ _______________________________________________________________________________
 
     A list of completions in one of the valid formats or `None` if no completions are provided.
 
-28.  on_text_command(_command_name: [str][py3_str]_, _args: [CommandArgs][CommandArgs]_) → Tuple\[[str][py3_str], [CommandArgs][CommandArgs]\]  3155
+28.  on_text_command(_command_name: [str][py3_str]_, _args: [CommandArgs][CommandArgs]_) → Tuple[[str][py3_str], [CommandArgs][CommandArgs]]  3155
     [🔗](){id=sublime_plugin_ViewEventListener_on_text_command_}
 
     Called when a text command is issued. The listener may return a \`\` (command, arguments)\`\` tuple to rewrite the command, or `None` to run the command unmodified.
@@ -12277,12 +12277,12 @@ _______________________________________________________________________________
 
     A class that provides event handling about text changes made to a specific Buffer. Is separate from [`ViewEventListener`][ViewEventListener] since multiple views can share a single buffer.
 
-2.  on_text_changed(_changes: List\[[TextChange][TextChange]\]_) 
+2.  on_text_changed(_changes: List[[TextChange][TextChange]]_) 
     [🔗](){id=sublime_plugin_TextChangeListener_on_text_changed_}
 
     Called once after changes has been made to a buffer, with detailed information about what has changed.
 
-    on_text_changed_async(changes: List\[TextChange\]):
+    on_text_changed_async(changes: List[TextChange]):
 
     Same as [`on_text_changed`][on_text_changed] but runs in a separate thread, not blocking the application.
 
@@ -12564,7 +12564,7 @@ Here’s a small example of a syntax file designed to highlight C.
 %YAML 1.2
 \---
 name: C
-file\_extensions: \[c, h\]
+file_extensions: [c, h]
 scope: source.c
 
 contexts:
@@ -12591,19 +12591,19 @@ name
 
 This defines the name shown for the syntax in the menu. It’s optional, and will be derived from the file name if not used.
 
-file\_extensions
+file_extensions
 
 A list of strings, defining file extensions this syntax should be used for. _Extensions listed here will be shown in file dialog dropdowns on some operating systems._
 
 If a file does not have a basename, e.g. .gitignore, the entirety of the filename including the leading `.` should be specified.
 
-hidden\_file\_extensions
+hidden_file_extensions
 
 4075
 
 A list of strings, also defining file extensions this syntax should be used for. These extensions are not listed in file dialogs.
 
-first\_line\_match
+first_line_match
 
 When a file is opened without a recognized extension, the first line of the file contents will be tested against this regex, to see if the syntax should be applied.
 
@@ -12637,7 +12637,7 @@ For most languages, you’ll need more than one context. For example, in C, we d
 %YAML 1.2
 \---
 name: C
-file\_extensions: \[c, h\]
+file_extensions: [c, h]
 scope: source.c
 
 contexts:
@@ -12648,7 +12648,7 @@ contexts:
       push: string
 
   string:
-    \- meta\_scope: string.quoted.double.c
+    \- meta_scope: string.quoted.double.c
     \- match: \\\\.
       scope: constant.character.escape.c
     \- match: '"'
@@ -12666,29 +12666,29 @@ When a context has multiple patterns, the leftmost one will be found. When multi
 
 ### Meta Patterns[🔗](){id=doc_meta_patterns}
 
-meta\_scope
+meta_scope
 
 This assigns the given scope to all text within this context, including the patterns that push the context onto the stack and pop it off.
 
-meta\_content\_scope
+meta_content_scope
 
 As above, but does not apply to the text that triggers the context (e.g., in the above string example, the content scope would not get applied to the quote characters).
 
-meta\_include\_prototype
+meta_include_prototype
 
 Used to stop the current context from automatically including the `prototype` context.
 
-clear\_scopes
+clear_scopes
 
 This setting allows removing scope names from the current stack. It can be an integer, or the value `true` to remove all scope names. It is applied before `meta_scope` and `meta_content_scope`. This is typically only used when one syntax is embedding another.
 
-meta\_prepend
+meta_prepend
 
 4075
 
 A boolean, controlling context name conflict resolution during [inheritance](#inheritance). If this is specified, the rules in this context will be inserted before any existing rules from a context with the same name in an ancestor syntax definition.
 
-meta\_append
+meta_append
 
 4075
 
@@ -12744,11 +12744,11 @@ escape
 
 This key is required if `embed` is used, and is a regex used to exit from the embedded context. Any backreferences in this pattern will refer to capture groups in the `match` regex.
 
-embed\_scope
+embed_scope
 
 A scope assigned to all text matched after the `match` and before the `escape`. Similar in concept to `meta_content_scope`.
 
-escape\_captures
+escape_captures
 
 A mapping of capture groups to scope names, for the `escape` pattern. Use capture group `0` to apply a scope to the entire escape match.
 
@@ -12758,7 +12758,7 @@ branch
 
 Accepts the names of two or more contexts, which are attempted in order. If a `fail` action is encountered, the highlighting of the file will be restarted at the character where the `branch` occurred, and the next context will be attempted.
 
-branch\_point
+branch_point
 
 This is the unique identifier for the `branch` and is specified when a match uses the `fail` action.
 
@@ -12832,9 +12832,9 @@ Embedding another syntax
     1: punctuation.section.code.begin.markdown
     2: constant.other.markdown
   embed: scope:source.js
-  embed\_scope: meta.embedded.js.markdown
+  embed_scope: meta.embedded.js.markdown
   escape: ^\`\`\`
-  escape\_captures:
+  escape_captures:
     0: punctuation.section.code.end.markdown
 
 3153
@@ -12843,12 +12843,12 @@ Using `branch` to attempt one highlighting, with the ability to fallback to anot
 
 expression:
   \- match: (?=\\()
-    branch\_point: open\_parens
+    branch_point: open_parens
     branch:
-      \- paren\_group
-      \- arrow\_function
+      \- paren_group
+      \- arrow_function
 
-paren\_group:
+paren_group:
   \- match: \\(
     scope: punctuation.section.parens.begin.js
     push:
@@ -12856,12 +12856,12 @@ paren\_group:
       \- match: \\)
         scope: punctuation.section.parens.begin.js
         set:
-          \- match: \=>
-            fail: open\_parens
+          \- match: =>
+            fail: open_parens
           \- match: (?=\\S)
             pop: 2
 
-arrow\_function:
+arrow_function:
   \- match: \\(
     scope: punctuation.section.parens.begin.js
     push:
@@ -12872,9 +12872,9 @@ arrow\_function:
       \- match: \\)
         scope: punctuation.section.parens.begin.js
         set:
-          \- match: \=>
+          \- match: =>
             scope: storage.type.function.arrow.js
-            push: arrow\_function\_body
+            push: arrow_function_body
 
 4050
 
@@ -12887,9 +12887,9 @@ paragraph:
       2: constant.other.language-name.md
     pop: 1
     embed: scope:source.python
-    embed\_scope: source.python.embedded
+    embed_scope: source.python.embedded
     escape: ^\`\`\`
-    escape\_captures:
+    escape_captures:
       0: punctuation.definition.code.end.md
 
 4075
@@ -12900,7 +12900,7 @@ Frequently it’s convenient to include the contents of one context within anoth
 
 expr:
   \- include: comments
-  \- match: \\b\[0-9\]+\\b
+  \- match: \\b[0-9]+\\b
     scope: constant.numeric.c
   ...
 
@@ -12912,7 +12912,7 @@ When including a context from another syntax, it may be desirable to also includ
 
 tags:
   \- include: scope:source.html.basic
-    apply\_prototype: true
+    apply_prototype: true
 
 ### Prototype Context[🔗](){id=doc_prototype_context}
 
@@ -12922,7 +12922,7 @@ prototype:
   \- include: comments
 
 string:
-  \- meta\_include\_prototype: false
+  \- meta_include_prototype: false
   ...
 
 In C, a `/*` inside a string does not start a comment, so the string context indicates that the prototype should not be included.
@@ -12940,7 +12940,7 @@ contexts:
   main:
     \- match: <script>
       push: Packages/JavaScript/JavaScript.sublime-syntax
-      with\_prototype:
+      with_prototype:
         \- match: (?=</script>)
           pop: true
     \- match: '<'
@@ -12961,7 +12961,7 @@ contexts:
   main:
     \- match: ''
       push: Packages/HTML/HTML.sublime-syntax
-      with\_prototype:
+      with_prototype:
         \- match: '{{'
           push: expr
 
@@ -12985,7 +12985,7 @@ Variables   [🔗](){id=doc_variables}
 It’s not uncommon for several regexes to have parts in common. To avoid repetitious typing, you can use variables:
 
 variables:
-  ident: '\[A-Za-z\_\]\[A-Za-z\_0-9\]\*'
+  ident: '[A-Za-z_][A-Za-z_0-9]\*'
 contexts:
   main:
     \- match: '\\b{{ident}}\\b'
@@ -13005,7 +13005,7 @@ When inheriting a syntax, the key `extends` is used with a value containing the 
 %YAML 1.2
 \---
 name: C++
-file\_extensions: \[cc, cpp\]
+file_extensions: [cc, cpp]
 scope: source.c++
 extends: Packages/C++/C.sublime-syntax
 
@@ -13074,14 +13074,14 @@ contexts:
 
 This example will highlight a C style for statement containing too many semicolons:
 
-for\_stmt:
+for_stmt:
   \- match: \\(
-    set: for\_stmt\_expr1
-for\_stmt\_expr1:
+    set: for_stmt_expr1
+for_stmt_expr1:
   \- match: ';'
-    set: for\_stmt\_expr2
+    set: for_stmt_expr2
   \- match: \\)
-    pop: truep-Indicator">- include: expr for\_stmt\_expr2: \- match: ';' set: for\_stmt\_expr3 \- match: \\) pop: true \- include: expr for\_stmt\_expr3: \- match: \\) pop: true \- match: ';' scope: invalid.illegal.stray-semi-colon \- include: expr
+    pop: truep-Indicator">- include: expr for_stmt_expr2: \- match: ';' set: for_stmt_expr3 \- match: \\) pop: true \- include: expr for_stmt_expr3: \- match: \\) pop: true \- match: ';' scope: invalid.illegal.stray-semi-colon \- include: expr
 
 ### Advanced Stack Usage[🔗](){id=doc_advanced_stack_usage}
 
@@ -13089,20 +13089,20 @@ In C, symbols are often defined with the `typedef` keyword. So that _Goto Defini
 
 Doing this can be a little tricky, as while typedefs are sometimes simple, they can get quite complex:
 
-typedef int coordinate\_t;
+typedef int coordinate_t;
 
 typedef struct
 {
     int x;
     int y;
-} point\_t;
+} point_t;
 
 To recognize these, after matching the typedef keyword, two contexts will be pushed onto the stack: the first will recognize a typename, and then pop off, while the second will recognize the introduced name for the type:
 
 main:
   \- match: \\btypedef\\b
     scope: keyword.control.c
-    set: \[typedef\_after\_typename, typename\]
+    set: [typedef_after_typename, typename]
 
 typename:
   \- match: \\bstruct\\b
@@ -13111,11 +13111,11 @@ typename:
         set:
           \- match: '}'
             pop: true
-  \- match: \\b\[A-Za-z\_\]\[A-Za-z\_0-9\]\*\\b
+  \- match: \\b[A-Za-z_][A-Za-z_0-9]\*\\b
     pop: true
 
-typedef\_after\_typename:
-  \- match: \\b\[A-Za-z\_\]\[A-Za-z\_0-9\]\*\\b
+typedef_after_typename:
+  \- match: \\b[A-Za-z_][A-Za-z_0-9]\*\\b
     scope: entity.name.type
     pop: true
 
@@ -13134,11 +13134,11 @@ scope: source.php
 
 contexts:
   main:
-    \- match: <<<(\[A-Za-z\]\[A-Za-z0-9\_\]\*)
+    \- match: <<<([A-Za-z][A-Za-z0-9_]\*)
       push: heredoc
 
   heredoc:
-    \- meta\_scope: string.unquoted.heredoc
+    \- meta_scope: string.unquoted.heredoc
     \- match: ^\\1;
         pop: true
 
@@ -13186,7 +13186,7 @@ int square(int x)
 
 To make one, follow these rules
 
-*   Ensure the file name starts with syntax\_test\_.
+*   Ensure the file name starts with syntax_test_.
 *   Ensure the file is saved somewhere within the Packages directory: next to the corresponding .sublime-syntax file is a good choice.
     
 *   Ensure the first line of the file starts with: `<comment_token> SYNTAX TEST "<syntax_file>"`. Note that the syntax file can either be a .sublime-syntax or .tmLanguage file.
@@ -13263,9 +13263,9 @@ The following is a list of bugs and behavior preserved in version 1 that have be
         \- match: \\(
           scope: punctuation.section.group.begin
           embed: scope:source.other
-          embed\_scope: source.other.embedded
+          embed_scope: source.other.embedded
           escape: \\)
-          escape\_captures:
+          escape_captures:
             0: punctuation.section.group.end
     
     _Syntax 2_:
@@ -13273,7 +13273,7 @@ The following is a list of bugs and behavior preserved in version 1 that have be
     scope: source.other
     contexts:
       main:
-        \- match: '\[a-zA-Z0-9\_\]+'
+        \- match: '[a-zA-Z0-9_]+'
           scope: identifier
     
     _Text_:
@@ -13295,15 +13295,15 @@ The following is a list of bugs and behavior preserved in version 1 that have be
     scope: source.lang
     contexts:
       function:
-        \- meta\_content\_scope: meta.function
-        \- match: '\[a-zA-Z0-9\_\]+'
+        \- meta_content_scope: meta.function
+        \- match: '[a-zA-Z0-9_]+'
           scope: variable.function
         \- match: \\(
           scope: punctuation.section.group.begin
           set: function-params
     
       function-params:
-        \- meta\_scope: meta.function.params
+        \- meta_scope: meta.function.params
         \- match: \\)
           scope: punctuation.section.group.end
           pop: true
@@ -13334,18 +13334,18 @@ The following is a list of bugs and behavior preserved in version 1 that have be
             \- function-name
     
       function:
-        \- meta\_scope: meta.function
+        \- meta_scope: meta.function
     
       function-name:
-        \- match: '\[a-zA-Z0-9\_\]+'
+        \- match: '[a-zA-Z0-9_]+'
           scope: variable.function
         \- match: \\(
           scope: punctuation.section.group.begin
           set: function-params
     
       function-params:
-        \- meta\_scope: meta.function.params
-        \- clear\_scopes: 1
+        \- meta_scope: meta.function.params
+        \- clear_scopes: 1
         \- match: \\)
           scope: punctuation.section.group.end
           pop: 2
@@ -13369,17 +13369,17 @@ The following is a list of bugs and behavior preserved in version 1 that have be
     scope: source.lang
     contexts:
       context1:
-        \- meta\_scope: meta.group
-        \- meta\_content\_scope: meta.content
+        \- meta_scope: meta.group
+        \- meta_content_scope: meta.content
         \- match: \\'
           scope: punctuation.begin
           embed: embed
           escape: \\'
-          escape\_captures:
+          escape_captures:
             0: punctuation.end
     
       embed:
-        \- match: '\[a-z\]+'
+        \- match: '[a-z]+'
           scope: word
     
     _Text_:
@@ -13401,20 +13401,20 @@ The following is a list of bugs and behavior preserved in version 1 that have be
     scope: source.lang
     contexts:
       main:
-        \- meta\_content\_scope: meta.main
-        \- match: '\[a-zA-Z0-9\]+\\b'
+        \- meta_content_scope: meta.main
+        \- match: '[a-zA-Z0-9]+\\b'
           scope: identifier
           push:
             \- context2
             \- context3
     
       context2:
-        \- meta\_scope: meta.ctx2
-        \- clear\_scopes: 1
+        \- meta_scope: meta.ctx2
+        \- clear_scopes: 1
     
       context3:
-        \- meta\_scope: meta.ctx3
-        \- clear\_scopes: 1
+        \- meta_scope: meta.ctx3
+        \- clear_scopes: 1
         \- match: \\n
           pop: true
     
@@ -14236,14 +14236,14 @@ To allow color scheme authors to tweak the look of popups and phantoms, it is be
 
 Within the `<body>` tag, add a `<style>` tag containing selectors that do not use the id. Leave that for selectors in color schemes to be able to override the plugin.
 
-<body id\="my-plugin-feature"\>
+<body id="my-plugin-feature"\>
     <style\>
         div.error {
             background-color: red;
             padding: 5px;
         }
     </style\>
-    <div class\="error"\></div\>
+    <div class="error"\></div\>
 </body\>
 
 ### Predefined Classes[🔗](){id=doc_predefined_classes}
@@ -14441,7 +14441,7 @@ Sublime Text 3 contains some important differences from Sublime Text 2 when it c
 *   [Python 3.3](#python-3-3)
 *   [Out of Process Plugins](#out-of-process-plugins)
 *   [Asynchronous Events](#asynchronous-events)
-*   [Restricted begin\_edit() and end\_edit()](#restricted-begin-edit-and-end-edit)
+*   [Restricted begin_edit() and end_edit()](#restricted-begin-edit-and-end-edit)
 *   [Zipped Packages](#zipped-packages)
 *   [Importing Modules](#importing-modules)
 *   [Restricted API Usage at Startup](#restricted-api-usage-at-startup)

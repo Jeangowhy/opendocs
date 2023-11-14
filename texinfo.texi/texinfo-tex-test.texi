@@ -1,0 +1,2554 @@
+% texinfo-tex-test.texi -- test file for texinfo.tex
+%
+% Copyright 2015-2023 Free Software Foundation, Inc.
+%
+% This file is free software: you can redistribute it and/or
+% modify it under the terms of the GNU General Public License as
+% published by the Free Software Foundation, either version 3 of the
+% License, or (at your option) any later version.
+%
+% This file is distributed in the hope that it will be
+% useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+% of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+% General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+\input texinfo
+@settitle Test Document for @file{texinfo.tex}
+
+@everyheading @thischapter @| @| @thissection{} p@thispage
+@paragraphindent 0
+
+@showboxdepth=1000
+@showboxbreadth=1000
+
+@documentencoding UTF-8
+
+@contents
+
+@part Part One@*Sample part page@sup{superscript}
+
+@chapter Fonts
+
+@macro headerline
+@r{roman} @i{italic} @b{bold} @t{typewriter} @slanted{slant} @*
+@sansserif{`sans serif'} @sc{`small caps'} {@ensuremath@clubsuit}
+@hrule
+@end macro
+
+A test of the fonts used in @file{texinfo.tex}.
+
+{@titlefonts @headerline}
+
+{@textfonts @headerline}
+
+{@reducedfonts @headerline}
+
+{@chapfonts @headerline}
+
+{@secfonts @headerline}
+
+{@subsecfonts @headerline}
+
+{@smallfonts @headerline}
+
+{@smallerfonts @headerline}
+
+@majorheading Test of @LaTeX{} logo
+
+{@rm @LaTeX{}}
+
+{@it @LaTeX{}}
+
+{@sl @LaTeX{}}
+
+{@bf @LaTeX{}}
+
+{@tt @LaTeX{}}
+
+@majorheading roman @b{bold}@sup{superscript} @LaTeX{}
+
+@majorheading roman@sup{sup} @b{now bold@sup{sup}@r{now roman@sup{superscript}}}
+
+
+@heading roman @b{bold} @LaTeX{}
+
+@subheading roman @b{bold} @LaTeX{}
+
+roman@sub{sub} @b{bold@sub{sub}}
+
+@section Acronyms
+
+Test of @acronym{ACRONYM}s.  {ACRONYM}s.
+
+@majorheading Test of @acronym{ACRONYM}s.  ACRONYMs
+
+
+@chapter Glyph commands
+
+@ordf{} @ordm{}
+
+@paragraphindent 3
+@chapter Paragraph formatting
+@section Images
+
+
+@image{image}
+
+first first first first first first first first first first first first
+first first first first first first first first first first first first
+first first first first first first first first first first first first
+first first first first first first first first first first first first
+first first first first first first first first first first first first
+
+second second second second second second second second 
+second second second second second second second second 
+second second second second second second second second 
+second second second second second second second second 
+
+@image{image}
+
+third third third third third third third third third third
+third third third third third third third third third third
+third third third third third third third third third third
+third third third third third third third third third third
+third third third third third third third third third third
+
+(check no paragraph indent on first paragraph above, after image)
+
+@page
+
+Check page break occurs between example and image
+
+@example
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+@end example
+
+
+@image{image}
+
+@paragraphindent 0
+
+@chapter Macros
+
+Each line should occur twice throughout, first line uses macro, second
+line should be the output.
+
+@section Backslashes in macro arguments
+
+@macro Mac{x}
+(\x\)
+@end macro
+
+@Mac{}
+
+()
+
+@Mac{a}
+
+(a)
+
+@Mac{a}X
+
+(a)X
+
+@Mac{a\\}
+
+(a\)
+
+@Mac{a\}X
+
+(a\)X
+
+@Mac{b\\}X
+
+(b\)X
+
+@Mac{c\\\}X
+
+(c\\)X
+
+@Mac{\}X
+
+(\)X
+
+@Mac{\a}X
+
+(\a)X
+
+@Mac{\\b}X
+
+(\b)X
+
+@Mac{\\}X
+
+(\)X
+
+@Mac{\\\}X
+
+(\\)X
+
+@Mac{\\\aaa\}X
+
+(\\aaa\)X
+
+@Mac{\a\\b}X
+
+(\a\b)X
+
+@subsection Line arguments
+
+
+@Mac a
+
+(a)
+
+@Mac a\
+
+(a\)
+
+@Mac a\\
+
+(a\\)
+
+@Mac a\\\
+
+(a\\\)
+
+@Mac \a\\b
+
+(\a\\b)
+
+@subsection In @t{@@code}
+
+@code{@Mac{a\}}
+
+@code{(a\)}
+
+@code{@Mac{b\\}}
+
+@code{(b\)}
+
+@code{@Mac{c\\\}}
+
+@code{(c\\)}
+
+@code{@Mac{\\\\d}}
+
+@code{(\\d)}
+
+
+
+@subsection Macros with two arguments
+
+@macro Mactwo{x, y}
+<\x\>.<\y\>
+@end macro
+
+@rmacro RMac{x}
+Z\x\Z
+@end rmacro
+
+
+
+@Mactwo{A,B}
+
+<A>.<B>
+
+@Mactwo{A, C}
+
+<A>.<C>
+
+@Mactwo{\A, B}
+
+<\A>.<B>
+
+@Mactwo{A, \\B}
+
+<A>.<\B>
+
+@Mactwo{\\\A, \\B}
+
+<\\A>.<\B>
+
+@Mactwo{\\\A, \\\\B}
+
+<\\A>.<\\B>
+
+@subsubsection Space between macro name and opening brace
+
+@Mactwo {A,B}
+
+<A>.<B>
+
+@Mactwo {A, C}
+
+<A>.<C>
+
+@Mactwo {\A, B}
+
+<\A>.<B>
+
+@Mactwo {A, \\B}
+
+<A>.<\B>
+
+@Mactwo {\\\A, \\B}
+
+<\\A>.<\B>
+
+@Mactwo {\\\A, \\\\B}
+
+<\\A>.<\\B>
+
+
+@subsection Spaces and backslashes
+
+@Mac{\ \}
+
+(\ \)
+
+@Mac \ \x
+
+(\ \x)
+
+@Mactwo{\ \\, \ \\}
+
+<\ \>.<\ \>
+
+x@Mactwo{\\ \\, \\ \\}
+
+x<\ \>.<\ \>
+
+@Mactwo{\\ a, \\ b}
+
+<\ a>.<\ b>
+
+y@Mactwo{\ a, \ b}
+
+y<\ a>.<\ b>
+
+@Mactwo{h \\, i \\}
+
+<h \>.<i \>
+
+@Mactwo{h a, i b}
+
+<h a>.<i b>
+
+
+@section Braceless single line macro invocation with special characters
+
+@Mac "+<>^+|~@@@{@}
+
+("+<>^+|~@@@{@})
+
+
+@section Spaces in macro bodies
+
+@macro Mac
+@example
+x  x
+@end example
+@end macro
+
+@Mac
+
+@example
+x  x
+@end example
+
+@section Macro use inside macro argument
+
+@macro Innermac{arg}
+xx \arg\ xx
+@end macro
+
+@macro Outermac{arg}
+\arg\
+@c
+@end macro
+
+@Outermac{@Innermac{e}}
+
+xx e xx
+
+@section Closing brace following empty macro argument
+
+@macro Mac{x}
+(@acronym{\x\})
+@end macro
+
+@Mac{}
+
+()
+
+@page
+@section Trailing newlines in macro bodies
+
+@macro nbsp
+y
+              
+z
+x
+@end macro
+
+1@nbsp{}2
+
+1y
+
+z
+x2
+
+@example
+1@nbsp{}2
+@end example
+
+@example
+1y
+
+z
+x2
+@end example
+
+
+@section Open or close a group in a macro
+
+Output should be doubled
+
+@macro Example
+@example
+@group
+@end macro
+
+@macro endExample
+@end group
+@end example
+@end macro
+
+x
+@Example
+groff [ -abceghijklpstvzCEGNRSUVXZ ]
+@endExample
+x
+
+x
+@example
+@group@comment
+groff [ -abceghijklpstvzCEGNRSUVXZ ]
+@end group
+@end example
+x
+
+x
+@example
+@group
+groff [ -abceghijklpstvzCEGNRSUVXZ ]
+@end group
+@end example
+x
+
+x
+@example
+@group@c
+groff [ -abceghijklpstvzCEGNRSUVXZ ]
+@end group
+@end example
+x
+
+xxxxxxxxxxxxxxxxxxxxxx
+
+@example
+@group@c
+groff [ -abceghijklpstvzCEGNRSUVXZ ]
+@end group
+@end example
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+xxxxxxxxxxxxxxxxxxxxxx
+
+@Example
+groff [ -abceghijklpstvzCEGNRSUVXZ ]
+@endExample
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+@section Braceless at end of line
+
+@macro Mac
+value
+@end macro
+
+A @Mac
+BB.
+
+A valueBB.
+
+C @Mac       
+DD.
+
+C valueDD.
+
+E@Mac{}
+F
+
+Evalue F
+
+E @Mac {}
+F
+
+E value F
+
+EE @Mac  {}
+FF
+
+EE value FF
+
+GG @Mac{}
+
+HHH
+
+GG value
+
+HHH
+
+II JJ @Mac
+
+KLM
+
+II JJ valueKLM
+
+KK LL @Mac
+
+
+MMM
+
+KK LL valueMMM
+
+@section @,c in macro argument
+
+@macro mactwo{argfirst, argsecond}
+\argfirst\+\argsecond\.
+@end macro
+
+@set fc Fran@,cois
+@mactwo{@value{fc},}@*
+@c doesn't work: @mactwo{Fran@,cois,}@*
+Fran@,cois+.
+
+@section Macro in argument to @@math
+
+@macro frak {a,b}
+\a\ @over \b\
+@end macro
+
+exceeds @math{@frak{1,16}} pt
+
+exceeds @math{1 @over 16} pt
+
+
+@section Trim whitespace from macro arguments
+
+@macro Mac{a}
+<X\a\X>
+@end macro
+
+@macro Mactwo{a,b}
+<X\a\X\b\X>
+@end macro
+
+No trimming for single-arg macros.  Trimming from front of argument only
+for other macros.
+
+@noindent @Mac{b} @Mac{ b} @Mac{b  } @Mac{ b }
+
+@noindent @Mactwo{b,c} @Mactwo{ b, c} @Mactwo{b  ,c  } @Mactwo{ b , c }
+
+
+@section Newline at start of argument
+
+@c Figure with caption
+@macro figure{caption,file,width}
+@float Figure,\file\
+@center image
+@caption{\caption\}
+@end float
+@end macro
+
+@figure{The File List tool@comma{} to install a change set and
+more,ch10-FileListChangeSet,11}
+
+@figure{The File List tool@comma{} to install a change set and more,
+ch10-FileListChangeSetA,11}
+
+
+
+
+@section Multi-line macro argument
+
+@macro Mac{text}
+@cartouche
+<@b{FIXME}>
+@example
+\text\
+@end example
+\text\
+@noindent </>
+@end cartouche
+@end macro
+
+@Mac{
+Here's an extended
+macro argument, with
+newlines.
+
+And multiple paragraphs.
+Like an argument to @b{@@footnote}.
+}
+
+@section Substitution into @t{@@example}
+
+@macro Twoarg {arg,argtwo}
+@example
+@result{}\arg\@result{}
+@end example
+@end macro
+
+@Twoarg{bbbbb, 22222222222}
+
+@example
+@result{}bbbbb@result{}
+@end example
+
+
+
+
+@chapter Line macros
+
+@linemacro noarg
+@example
+@expansion{} this is the expansion
+@end example
+@end linemacro
+
+@noarg
+
+@example
+@expansion{} this is the expansion
+@end example
+
+@linemacro bs
+A\\B
+@end linemacro
+
+@bs
+
+A\B
+
+@linemacro noargii {}
+@example
+@expansion{}another test
+@end example
+@end linemacro
+
+@noargii
+
+@example
+@expansion{}another test
+@end example
+
+@linemacro onearg {arg}
+@result{}\arg\@result{}
+@end linemacro
+ 
+@onearg aaaaa
+
+@result{}aaaaa@result{}
+
+@linemacro twoargs {one, two}
+foo @samp{\one\} `\two\' bar
+@end linemacro
+
+@twoargs AA BB
+
+foo @samp{AA} `BB' bar
+
+@twoargs AA {}
+
+foo @samp{AA} `' bar
+
+@linemacro two {arg, argii}
+@example
+@expansion{}\arg\@expansion{}\argii\@pounds{}
+@end example
+@end linemacro
+
+@two AA {}
+
+@example
+@expansion{}AA@expansion{}@pounds{}
+@end example
+
+@two BB CC
+
+@example
+@expansion{}BB@expansion{}CC@pounds{}
+@end example
+
+@linemacro nospace{one, two, three}
+\three\@bullet{}\two\@minus{}\one\
+@end linemacro
+
+@nospace X Y Z
+
+Z@bullet{}Y@minus{}X
+
+@linemacro test {first, rest}
+@deffn Function \first\ \rest\
+something
+@end deffn
+@end linemacro
+
+@test foo (bar, baz)@
+continuation line
+
+@deffn Function foo (bar, baz)continuation line
+something
+@end deffn
+
+@test foo (bar, baz) @
+continuation line
+
+@deffn Function foo (bar, baz) continuation line
+something
+@end deffn
+
+
+
+@heading With @code{@@defblock}
+
+@defcodeindex BI
+@linemacro defbuiltin {symbol, rest}
+@BIindex \symbol\
+@defline Builtin \symbol\ \rest\
+@end linemacro
+
+@defblock
+@defbuiltin One (more)
+one
+@defbuiltin Nothing {}
+two
+@end defblock
+
+
+
+@defblock
+@defline Builtin One (more)
+one
+@defline Builtin Nothing
+two
+@end defblock
+
+@printindex BI
+
+
+@linemacro defmacro {name, params}
+@defline Makro \name\ \params\
+@end linemacro
+
+@defblock
+@defmacro mac1 (arg1, arg2,@
+line continuation
+description
+@end defblock
+
+@defblock
+@defline Makro mac1 (arg1, arg2,@
+line continuation
+description
+@end defblock
+
+@linemacro param {param, type}
+@defline Parameter @var{\param\} @code{ : \type\}
+@end linemacro
+@linemacro returns {param, type}
+@defline {Return Value} @var{\param\} @code{ : \type\}
+@end linemacro
+@linemacro raises {exception}
+@defline {Raises} \exception\
+@end linemacro
+
+@set txidefnamenospace
+@clear txicodevaristt
+
+@defblock
+@defline Function fft.fft (a, n=@code{None}, axis=@code{-1}, norm=@code{None})
+Compute the one-dimensional discrete Fourier Transform.
+
+@defblock
+@param a array_like
+Input array, can be complex.
+
+@param n int, optional
+Length of the transformed axis of the output.
+If @var{n} is smaller than the length of the input, the input is cropped.
+
+@param axis int, optional
+Axis over which to compute the FFT.
+
+@returns out complex ndarray
+The truncated or zero-padded input.
+
+@raises IndexError
+If @var{axis} is not a valid axis of @var{a}.
+
+@end defblock
+
+@end defblock
+
+@c from https://numpy.org/doc/1.24/reference/generated/numpy.fft.fft.html#numpy.fft.fft
+
+
+
+
+@part Another part@*Note no headline on this page
+
+@chapter First chapter after a part page
+
+Have a look at the headline.
+
+
+@chapter Test of non-alphanumeric characters
+
+Not in code: @{@}@@#\
+
+In code @t{@{@}@@#\}
+
+
+@chapter Test of auxiliary files
+
+
+@section Values
+
+Need to test with @command{texi2dvi}.
+
+Undefined value in anchor: @anchor{@value{ho} ho}
+
+Xref to said anchor: @xref{@value{ho} ho}.
+
+@set auxvalue this is the value
+Defined value in anchor: @anchor{@value{auxvalue} ho}
+
+Xref to said anchor: @xref{@value{auxvalue} ho}.  (Should definitely 
+work.)
+
+@defindex ax
+
+value in index entry
+@axindex @value{ho} in index entry
+
+defined value in index entry (this should definitely work)
+@axindex @value{auxvalue} in index entry
+
+value in index entry, but only defined afterwards
+@axindex @value{definedafter} index entry
+
+@axindex @b{another}
+
+@set complex @code{foo@b{b@'ar}}
+test of texinfo commands in value in index entry
+@axindex @value{complex} index entry
+
+test of value change after index command
+@set changed original
+@axindex `@value{changed}' should be `original'
+@set changed new
+
+test of underscore in value
+@set underscore _
+@axindex `@value{underscore}' should be `_'
+
+some more text.
+
+test of macro in index entry:
+@macro MyMac {arg}
+ffff\arg\ggggg
+@end macro
+
+@axindex @MyMac{bah}
+
+@page
+
+@set definedafter Defining this now
+@set definedafter Defining this again
+
+@printindex ax
+
+
+@ignore
+@c This section doesn't work while we use \ as the escape character
+@c in the index files.
+
+@section Test of macros with @samp{@@} in index
+
+@defindex BB
+
+@macro Mac {arg}
+\arg\@}
+@end macro
+
+@macro MacTwo {arg}
+@{@}
+@end macro
+
+@BBindex @Mac{CCCC @@}
+
+@BBindex @MacTwo{DDDD @@}
+@printindex BB
+@end ignore
+
+
+@section Test of certain characters in index
+
+@defindex CC
+@CCindex \, backslash
+@CCindex @{, open brace
+@CCindex @}, close brace
+@CCindex @@, at sign
+@CCindex @backslashchar{}, backslash 2
+@CCindex @lbracechar{}, open brace 2
+@CCindex @rbracechar{}, close brace 2
+@CCindex @atchar{}, at sign 2
+
+@printindex CC
+
+
+@section Test of @code{@@synindex}
+
+@defindex foo
+@defindex bar
+
+@synindex foo bar
+
+@fooindex One
+@barindex Two
+
+Should be two entries, not one below.
+
+@printindex bar
+
+
+@section Test of index sort keys
+
+@defindex SK
+
+@SKindex @sortas{A} bbbbbbb (first)
+@SKindex @sortas{B} aaaaaaa (second)
+
+@printindex SK
+
+
+@page
+@section Test of characters in node names for PDF
+
+@ifx@pdfescapestring@thisisundefined
+
+This test requires newer @command{pdfetex}.
+
+@else
+
+@anchor{anchor}.
+
+@anchor{backslash \}.
+
+@anchor{closing bracket )}.
+
+@anchor{opening bracket (}.
+
+@xref{anchor}.
+
+@xref{backslash \}.
+
+@xref{closing bracket )}.
+
+@xref{opening bracket (}.
+
+@fi
+
+
+@chapter @code{@@set} and @code{@@value}
+
+@section Another test of @t{@@value}
+
+Underscores and hyphens in value
+
+@set foo-bar_ neenaw
+
+The value is @value{foo-bar_}.
+
+
+@chapter Cross-references
+
+@section Comma insertion
+
+Check commas surrounding page number:
+
+@noindent
+@xref{Target}, for more information (@code{@@xref})@*
+@xref{Target} for more information@*
+@xref{Target}	for more information@*
+@xref{Target}
+for more information@*
+@xref{Target}.@*
+@xref{Target}@ for more info.@*
+@xref{Target}@
+for more info.@*
+@xref{Target}@*
+for more info.@*
+@xref{Target}@	for more info.@*
+@xref{Target} --- for more info. (comma)@*
+@xref{Target}@: --- for more info. (no comma)@*
+See @ref{Target}, for more information (@code{@@ref})@*
+See @ref{Target} for more information@*
+See @ref{Target}.@*
+(@pxref{Target}) (@code{@@pxref})@*
+(@pxref{Target,, Hurricanes})
+
+
+@node Target
+@section Target
+
+@section Non-existent target
+
+@xref{blllllllrrrrrrghhh}.
+
+@chapter Copying and captions
+
+@section Copying
+
+@documentencoding UTF-8
+
+@copying
+This manual is for blah-de-blah.@*
+Backslash \@*
+Brace commands @{ @{ @}
+
+Copyrite @copyright{} 201X@*
+þ þ þ þ þ þ þ þ
+@end copying
+
+Now for the @@insertcopying:
+
+@insertcopying
+
+
+@section Captions
+
+
+There's a float in this section.
+
+@float Figure,fig:ex1
+This is a float.
+
+@caption{This is a caption.
+Multiple paragraphs are allowed here.  Here are some ``special'' 
+characters: \ à.
+
+Paragraph breaks allowed.
+}
+
+@shortcaption{short caption text.}
+
+This float should have a caption somewhere.
+@end float
+
+List of floats now:
+
+@listoffloats Figure
+
+
+@chapter Environments
+
+@section @code{@@verbatim}
+
+@verbatim
+                   ‘MENU’
+                   ------
+
+chicken		pizza	beefburger	hotdog
+£0.44		$2.50	€1.50		42¢
+
+“Please come again”
+@end verbatim
+
+@section @code{@@multitable}
+
+Nested in @@quotation:
+
+before before before before before before before before
+before before before before before before before before
+before before before before before before before before
+before before before before before before before before
+
+@quotation
+@multitable @columnfractions 0.5 0.5
+@item
+left left left left left left left left
+left left left left left left left left
+left left left left left left left left
+left left left left left left left left
+@tab
+right right right right right right right right
+right right right right right right right right
+right right right right right right right right
+right right right right right right right right
+@end multitable
+@end quotation
+
+@noindent With more columns:
+
+@quotation
+@multitable {@w{@code{português} or}} {@code{do} @code{re}/@code{re} @code{mi} @code{fa} @code{sol} @code{la} @code{sib} @code{si}}
+@item @code{català} or@*@ @code{catalan}
+  @tab @code{do} @code{re} @code{mi} @code{fa} @code{sol} @code{la} @code{sib} @code{si}
+@end multitable
+@end quotation
+
+after after after after after after after after
+after after after after after after after after
+after after after after after after after after
+after after after after after after after after
+
+in @t{@@raggedright} (check warnings re @samp{Underful \hbox} etc.):
+
+@raggedright
+@multitable @columnfractions 0.2 0.2 0.2
+@item foofoo foofoo foofoo foofoo
+  @tab barbar barbar barbar barbar
+  @tab bazbaz bazbaz bazbaz bazbaz
+@end multitable
+@end raggedright
+
+
+@section @code{@@cartouche}
+
+check right margin lines up
+
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+
+@cartouche
+@math{@var{foo}\over@var{bar}} finds the quotient of @var{foo} by
+@var{bar}.  @math{\sqrt{@var{radicand}}} finds the square root of
+@var{radicand}.
+@end cartouche
+
+@noindent
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+
+@quotation
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+
+@cartouche
+@math{@var{foo}\over@var{bar}} finds the quotient of @var{foo} by
+@var{bar}.  @math{\sqrt{@var{radicand}}} finds the square root of
+@var{radicand}.
+@end cartouche
+
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss ss
+@end quotation
+
+
+
+
+@section Definitions
+
+Check that spacing does not vary after the `?'@: punctuation on the
+definition line, but spacing does vary inside the definition body and
+afterwards.
+
+@clear txidefnamenospace
+
+@defun foo bar? bar bar
+@defunx foo bar?@: bar bar
+a. b@*
+a.@: b
+@end defun
+
+@noindent
+a. b@*
+a.@: b
+
+@defun foo bar?@: bar bar
+a. b@*
+a.@: b
+@end defun
+
+Check explicit bold with @code{@@r@{@@b@{...} on def line
+
+@defun foo @r{@b{&rest}} (b(sdf)az)
+hello 
+@end defun
+
+Check typewriter [ and ] on def line with @code{@@t}:
+
+@defun foo @t{\f[}font@t{]}
+Do something depending on @var{font}.
+@end defun
+
+With @code{@@deftypefnnewline}
+
+@deftypefnnewline on
+
+@deftypefn {Functionoid} {long int} foo (int @var{bar})
+@dots{} do something with @var{bar}
+@end deftypefn
+
+With @code{@@set txidefnamenospace}
+
+@deftypefnnewline off
+@set txidefnamenospace
+
+@deftypefn {Functionoid} {long int} foo2 (int @var{bar})
+@dots{} do something with @var{bar}
+@end deftypefn
+
+
+
+@chapter Test of @code{@@displaymath}
+
+Alignment in @@displaymath:
+
+@displaymath
+\leqalignno{
+   \int v(t)\, dt &= u(t) + C&[3.1]\cr
+   \int v(t)\, dt &= u(t) + H&[3.2]\cr
+}
+@end displaymath
+
+test of \eqno
+@displaymath
+   v(t) = {d \over dt} u(t)\eqno{[3.1]}
+@end displaymath
+
+
+
+
+@chapter Style commands
+
+@code{@@var} should reset space factor, while
+@code{@@dfn} doesn't, so second line should have slightly larger space.
+
+@var{Stop.} Following text.
+
+@dfn{Stop.} Following text.
+
+@section Code quote
+
+@code{`foo'}
+
+@codequoteundirected on
+@codequotebacktick on
+
+@code{`foo'}
+
+@codequoteundirected off
+@codequotebacktick off
+
+@code{`foo'}
+
+
+
+
+
+@chapter Document encoding
+
+
+@documentencoding UTF-8
+
+
+Test of a few UTF-8 sequences.
+
+∃x∈X, x < ∞, s.t. x ∧ y
+
+A∩B=C
+
+(spacing here doesn't matter because we're not in math mode)
+
+Greek text:
+
+Η Πρώτη σύνοδος της Κωνσταντινούπολης, γνωστή ως Β΄ οικουμενική, ήταν η 
+εκκλησιαστική σύνοδος που διενεργήθηκε το 381 μ.Χ. και συγκλήθηκε από 
+τον αυτοκράτορα Θεοδόσιο, μετά από προτροπή του Μελετίου Αντιοχείας.  
+Στόχος της ήταν η εκκλησιαστική ειρήνευση, αλλά και η «επίλυση των 
+αναφυέντων εν τη εκκλησία κρίσιμων θεολογικών και διοικητικών 
+προβλημάτων».
+
+(random text copied from Wikipedia)
+
+double accent --- ταΐζω
+
+
+@section Test of characters in section title
+
+Check table of contents.
+
+For PDF output, check the bookmarks pane in the reader.
+(Currently plain ASCII approximations are used for the UTF-8 encoding.)
+
+@section --- übersicht
+
+@section --- @"Ubersicht
+
+@section @{ @} @@ @{@ @} @arrow{} @atchar{} @lbracechar{}
+
+This section should be called ``@{ @} @@ @{ @} @arrow{} @@ @{''.
+
+
+@node Special characters
+@section ~[]"_|<>$#&%+\
+
+This section should be called @code{~[]"_|<>$#&%+\} (in Roman type).
+
+@xrefautomaticsectiontitle on
+@xref{Special characters} is a cross-reference using
+@code{@@xrefautomaticsectiontitle on}.
+@xrefautomaticsectiontitle off
+
+
+
+@chapter PDF link colours
+
+For PDF only.
+
+
+Check that
+colour change continues on next page
+for @acronym{URL} split across pages,
+and doesn't change the colour of the heading line.
+
+Push down to end of page
+
+par
+
+@tex
+\global\def\urlcolor{0.32 0.39 0.50}%
+@end tex
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+par
+
+@uref{aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/
+aaaaa/bbbbb/aaaaa/bbbbb/}
+
+par
+
+@chapter URL line breaking
+
+Some use of @code{@@url}.  Ragged-right output should only be used where
+necessary.
+
+In a different way, the full range of colors defined for
+@uref{https://en.wikipedia.org/wiki/X11_color_names, defined for X11}
+can be accessed by using the Scheme function @code{x11-color}.
+That function takes one argument.
+
+see the 
+@url{https://www.gnu.org/software/libc/manual/html_node/Message-catalogs-with-gettext.html} 
+
+foo foo foo foo foo foo foof see the @url{https://www.gnu.org/software/libc/manual/html_node/}
+
+In case of problem, please read the @file{INSTALL} file carefully
+before reporting a bug, in particular section ``In case of problem''.
+Some problems are due to bad configuration on the user side (not
+specific to MPFR)@. Problems are also mentioned in the FAQ
+@url{https://www.mpfr.org/faq.html}.
+
+Initial text to test the justification of the line containing the
+first part of the URL: blah blah blah blah blah blah blah blah.
+@url{https://www.1234567890123456789012345678901234567890123.invalid}.
+Text to test the justification of the line containing the last part
+of the URL: blah blah blah blah blah blah blah blah.
+
+Initial text to test the justification of the line containing the
+first part of the URL: blah blah blah blah blah blah blah blah.
+@url{https://www.1234567890123456789012345678901234567890.invalid}.
+Text to test the justification of the line containing the last part
+of the URL: blah blah blah blah blah blah blah blah.
+
+Initial text to test the justification of the line containing the
+first part of the URL: blah blah blah blah blah blah blah blah.
+@url{https://www.1234567890123456789012345678901234567.invalid}.
+Text to test the justification of the line containing the last part
+of the URL: blah blah blah blah blah blah blah blah.
+
+Initial text to test the justification of the line containing the
+first part of the URL: blah blah blah blah blah blah blah blah.
+@url{https://www.1234567890123456789012345678901234.invalid}.
+Text to test the justification of the line containing the last part
+of the URL: blah blah blah blah blah blah blah blah.
+
+@chapter Nested URL
+
+In @command{@@lisp}
+
+@lisp
+one
+@url{www.gnu.org}
+three
+four
+
+six
+
+
+nine @url{http://example.com/} nine
+@end lisp
+
+in footnote@footnote{see @url{http://example.com/}.}. after footnote
+
+next para.
+
+next para.
+
+
+
+
+@setchapternewpage off
+@everyheadingmarks top
+@everyheading @thissection
+@chapter Headings and footings
+
+test of @samp{@@everyheadingmarks top}
+@c due to the way that @chapter outputs a pair of marks, possibly one on 
+@c the page before, following @page directly by @chapter can cause the 
+@c wrong chapter in the heading line, because then both marks are output 
+@c on the new page.
+
+@section One
+
+one
+
+@page
+
+two
+
+@section Two
+
+@section Three
+
+@page
+
+ffffff
+
+@section Four
+
+@page
+
+test of @samp{@@everyheadingmarks bottom}
+
+@everyheading @thissection
+@everyheadingmarks bottom
+
+@page
+
+@section One
+
+@section Two
+
+@section Three
+
+@page
+
+ffffff
+
+@section Four
+
+@page
+
+@setchapternewpage odd
+@chapter Test of @code{@@*heading}
+
+@headings off
+@oddheading @today{} @| @thispage @| @thischapter{}
+@evenheading @thischapter @| @thispage @| @today{}
+chapter text (date at left)
+
+@page
+next page
+(date at right)
+
+@page
+
+@oddfooting @thistitle @| @thispage @| @thissection
+@evenfooting @thissection @| @thispage @| @thistitle
+@everyfootingmarks top
+
+@chapter Test of @code{@@*footing}
+
+aaa
+
+@section AA
+
+bbb
+
+@page
+
+ccc
+
+@section DD
+
+ee
+
+@page
+
+
+
+@tex
+\gdef \commenceindexnopage{%
+\begingroup
+\smallfonts \rm
+\begindoublecolumns
+\tolerance = 9500
+\plainfrenchspacing
+\everypar = {}%
+}
+
+\gdef \commenceindex{%
+\page
+\commenceindexnopage
+}
+
+\gdef \finishindex{%
+\enddoublecolumns
+\endgroup
+\hrule
+}
+@end tex
+
+@headingsoff
+@everyheading @thischapter @| @| @thissection{} p@thispage
+
+@chapter TOC display
+
+Check in contents at start.  Manual break with @t{@@/} in section name.
+
+
+@section Sec
+@subsection foofoo@code{\DeclareRobustCommand@{@var{cmd}@}[@var{num}][@var{default}]@/@{@var{definition}@} }
+
+
+@chapter Index display
+
+In these examples, a horizontal rule is at the end of each run of double 
+column material in order to show if any material extends below the
+box containing it.
+
+@section No page number in index
+
+No leaders unless there is also a page number
+
+@commenceindex
+@entry {whatever}{}
+@entry {more}{}
+@entry {whatever}{123}
+@entry {again}{}
+@finishindex
+
+
+@section Long index entries
+
+@commenceindex
+@entry {@code {-c}}{18, 20, 22, 27, 28, 38, 43, 51, 54, 65, 83, 91, 105, 
+124, 125, 127, 129, 135, 139, 143, 145, 148, 187}
+@entry {@code {-c}}{18, 20, 22, 27, 28, 38, 43, 51, 54, 65, 83, 91, 105, 
+124, 125, 127, 129, 135, 139, 143, 145, 148}
+@entry{Testing for Texinfo Commands: @code {@@ifcommanddefined}, @code 
+{@@ifcommandnotdefined}}{148}
+@entry {@code {--dereference-command-line-symlink-to-dir}}{78}
+@entry {built-in shell commands, conflicts with}{119, 139, 144, 145, 
+148, 163, 191, 196, 197}
+@finishindex
+
+@section End-column glue
+
+See next page.  A little bit of space should appear at the bottom of the 
+second column, instead of flush bottoms and a conspicuous increase in 
+inter-baseline spacing.  This test only works if the `R' initial is at
+the start of a page.
+
+@commenceindex
+@initial {P}
+@entry {@code {PACKAGE}}{196}
+@entry {@code {PACKAGE_AND_VERSION}}{196}
+@entry {@code {PACKAGE_NAME}}{196}
+@entry {@code {PACKAGE_URL}}{196}
+@entry {@code {PACKAGE_VERSION}}{196}
+@entry {Page breaks, awkward}{124}
+@entry {Page breaks, forcing}{126}
+@entry {Page delimiter in Texinfo mode}{261}
+@entry {Page headings}{270}
+@entry {Page numbering}{270}
+@entry {Page sizes for books}{175}
+@entry {Page sizes, customized}{175}
+@entry {@code {page-delimiter}}{261}
+@entry {Pages, starting odd}{29}
+@entry {Paper size, A4}{175}
+@entry {Paragraph indentation control}{31}
+@entry {Paragraph, marking text within}{66}
+@entry {@code {paragraphindent}}{187}
+@entry {Parameters to macros}{154}
+@entry {Parentheses in node name}{37}
+@entry {Parsing errors}{202}
+@entry {Part of file formatting and printing}{266}
+@entry {Part pages}{50}
+@entry {Partial documents, formatting}{168}
+@entry {Parts of a cross reference}{54}
+@entry {Parts of a master menu}{28}
+@entry {Parts of a menu}{43}
+@entry {Patches, contributing}{4}
+@entry {PCL file, for printing}{170}
+@entry {@code {pdf image inclusions}}{97}
+@entry {PDF output}{176}
+@entry {PDF output of urls}{64}
+@entry {PDF output, overview}{5}
+@entry {@code {pdfetex}}{167}
+@entry {@code {pdftex}}{176}
+@entry {@code {pdftex@r {, and images}}}{97}
+@entry {@code {pdftxei2dvi}}{166}
+@entry {Period in node name}{37}
+@entry {Periods, inserting}{111}
+@entry {Perl format strings for translation}{199}
+@entry {Perl POD, converting to Texinfo}{200}
+@entry {Permissions text, including}{22}
+@entry {Permissions, printed}{25}
+@entry {@code {pg} (program) index}{102}
+@entry {Picas}{98}
+@entry {Pictures, inserting}{97}
+@entry {Pinard, Fran@,{c}ois}{7}
+@entry {Plain @TeX {}}{146}
+@entry {Plain text output with @option {--plaintext}}{183}
+@entry {Plain text output, overview}{4}
+@entry {@code {png image format}}{97}
+@entry {POD, converting to Texinfo}{200}
+@entry {@code {pod2texi}}{200}
+@entry {Point, indicating in a buffer}{121}
+@entry {Pointer creation with @code {makeinfo}}{40}
+@entry {Pointer validation with @code {makeinfo}}{185}
+@entry {Pointer validation, suppressing}{168}
+@entry {Pointer validation, suppressing from command line}{182}
+@entry {Points (dimension)}{98}
+@entry {PostScript output, overview}{4}
+@entry {Pounds symbol}{118}
+@entry {@code {PRE_ABOUT}}{192}
+@entry {@code {PRE_BODY_CLOSE}}{192}
+@entry {Preamble, in Info format}{283}
+@entry {Predefined names for indices}{105}
+@entry {Preface, etc., and Docbook}{48}
+@entry {@code {PREFIX}}{196}
+@entry {Preparing for @TeX {}}{173}
+@entry {Preserving HTML links to old nodes}{221}
+@entry {Prev node of Top node}{38}
+@entry {Preventing first paragraph indentation}{32}
+@entry {Preventing line and page breaks}{124}
+@entry {Print and format in Texinfo mode}{170}
+@entry {Print, format from Emacs shell}{170}
+@entry {Printed book and manual characteristics}{6}
+@entry {Printed output, indicating}{120}
+@entry {Printed output, through @command {texi2any}}{185}
+@entry {Printed permissions}{25}
+@entry {Printing a region or buffer}{266}
+@entry {Printing an index}{104}
+@entry {Printing cost, reducing}{75}
+@entry {Printing cropmarks}{176}
+@entry {Printing DVI files, on MS-DOS/MS-Windows}{170}
+@entry {Printing hardcopy}{166}
+@entry {Problems, catching}{275}
+@entry {@code {PROGRAM}}{196}
+@entry {Program names, indicating}{72}
+@entry {@code {PROGRAM_NAME_IN_FOOTER}}{192}
+@entry {Programming, glyhs for}{119}
+@entry {Pronunciation of Texinfo}{3}
+@entry {Prototype row, column widths defined by}{93}
+@entry {Ragged left, without filling}{83}
+@entry {Ragged right, with filling}{84}
+@entry {Ragged right, without filling}{83}
+@entry {Raising and lowering sections}{51}
+@entry {Raw formatter commands}{146}
+@entry {Raw HTML}{213}
+@entry {raw text output}{188}
+@initial {Q}
+@entry {Quotation characters (`'), in source}{114}
+@entry {Quotation marks, French}{115}
+@entry {Quotation marks, German}{115}
+@entry {Quotation marks, inserting}{114}
+@entry {Quotations}{78}
+@entry {Quotations in smaller fonts}{82}
+@entry {Quote characters, inserting}{110}
+@entry {Quoting, automatic for some macros}{156}
+@initial {R}
+@entry {RCS $Id}{253}
+@entry {Recommended names for keys}{69}
+@entry {Rectangle, black in hardcopy}{174}
+@entry {Recursive macro invocations}{155}
+@entry {Reducing font size}{75}
+@entry {Reference implementation}{178}
+@entry {Reference to @@-commands}{223}
+@entry {References}{53}
+@entry {References using @code {@@inforef}}{62}
+@finishindex
+
+@section Index page break not before initial
+
+The next index is to show the bottoms of columns when the next page 
+doesn't start with an initial.
+
+@commenceindex
+@initial {P}
+@entry {@code {PACKAGE}}{196}
+@entry {@code {PACKAGE_AND_VERSION}}{196}
+@entry {@code {PACKAGE_NAME}}{196}
+@entry {@code {PACKAGE_URL}}{196}
+@entry {@code {PACKAGE_VERSION}}{196}
+@entry {Page breaks, awkward}{124}
+@entry {Page breaks, forcing}{126}
+@entry {Page delimiter in Texinfo mode}{261}
+@entry {Page headings}{270}
+@entry {Page numbering}{270}
+@entry {Page sizes for books}{175}
+@entry {Page sizes, customized}{175}
+@entry {@code {page-delimiter}}{261}
+@entry {Pages, starting odd}{29}
+@entry {Paper size, A4}{175}
+@entry {Paragraph indentation control}{31}
+@entry {Paragraph, marking text within}{66}
+@entry {@code {paragraphindent}}{187}
+@entry {Parameters to macros}{154}
+@entry {Parentheses in node name}{37}
+@entry {Parsing errors}{202}
+@entry {Part of file formatting and printing}{266}
+@entry {Part pages}{50}
+@entry {Partial documents, formatting}{168}
+@entry {Parts of a cross reference}{54}
+@entry {Parts of a master menu}{28}
+@entry {Parts of a menu}{43}
+@entry {Patches, contributing}{4}
+@entry {PCL file, for printing}{170}
+@entry {@code {pdf image inclusions}}{97}
+@entry {PDF output}{176}
+@entry {PDF output of urls}{64}
+@entry {PDF output, overview}{5}
+@entry {@code {pdfetex}}{167}
+@entry {@code {pdftex}}{176}
+@entry {@code {pdftex@r {, and images}}}{97}
+@entry {@code {pdftxei2dvi}}{166}
+@entry {Period in node name}{37}
+@entry {Periods, inserting}{111}
+@entry {Perl format strings for translation}{199}
+@entry {Perl POD, converting to Texinfo}{200}
+@entry {Permissions text, including}{22}
+@entry {Permissions, printed}{25}
+@entry {@code {pg} (program) index}{102}
+@entry {Picas}{98}
+@entry {Pictures, inserting}{97}
+@entry {Pinard, Fran@,{c}ois}{7}
+@entry {Plain @TeX {}}{146}
+@entry {Plain text output with @option {--plaintext}}{183}
+@entry {Plain text output, overview}{4}
+@entry {@code {png image format}}{97}
+@entry {POD, converting to Texinfo}{200}
+@entry {@code {pod2texi}}{200}
+@entry {Point, indicating in a buffer}{121}
+@entry {Pointer creation with @code {makeinfo}}{40}
+@entry {Pointer validation with @code {makeinfo}}{185}
+@entry {Pointer validation, suppressing}{168}
+@entry {Pointer validation, suppressing from command line}{182}
+@entry {Points (dimension)}{98}
+@entry {PostScript output, overview}{4}
+@entry {Pounds symbol}{118}
+@entry {@code {PRE_ABOUT}}{192}
+@entry {@code {PRE_BODY_CLOSE}}{192}
+@entry {Preamble, in Info format}{283}
+@entry {Predefined names for indices}{105}
+@entry {Preface, etc., and Docbook}{48}
+@entry {@code {PREFIX}}{196}
+@entry {Preparing for @TeX {}}{173}
+@entry {Preserving HTML links to old nodes}{221}
+@entry {Prev node of Top node}{38}
+@entry {Preventing first paragraph indentation}{32}
+@entry {Preventing line and page breaks}{124}
+@entry {Print and format in Texinfo mode}{170}
+@entry {Print, format from Emacs shell}{170}
+@entry {Printed book and manual characteristics}{6}
+@entry {Printed output, indicating}{120}
+@entry {Printed output, through @command {texi2any}}{185}
+@entry {Printed permissions}{25}
+@entry {Printing a region or buffer}{266}
+@entry {Printing an index}{104}
+@entry {Printing cost, reducing}{75}
+@entry {Printing cropmarks}{176}
+@entry {Printing DVI files, on MS-DOS/MS-Windows}{170}
+@entry {Printing hardcopy}{166}
+@entry {Problems, catching}{275}
+@entry {@code {PROGRAM}}{196}
+@entry {Program names, indicating}{72}
+@entry {@code {PROGRAM_NAME_IN_FOOTER}}{192}
+@entry {Programming, glyhs for}{119}
+@entry {Pronunciation of Texinfo}{3}
+@entry {Prototype row, column widths defined by}{93}
+@initial {Q}
+@entry {Quotation characters (`'), in source}{114}
+@entry {Quotation marks, French}{115}
+@entry {Quotation marks, German}{115}
+@entry {Quotation marks, inserting}{114}
+@entry {Quotations}{78}
+@entry {Quotations in smaller fonts}{82}
+@entry {Quote characters, inserting}{110}
+@entry {Quoting, automatic for some macros}{156}
+@entry {Ragged left, without filling}{83}
+@entry {Ragged right, with filling}{84}
+@entry {Ragged right, without filling}{83}
+@entry {Raising and lowering sections}{51}
+@entry {Raw formatter commands}{146}
+@entry {Raw HTML}{213}
+@entry {raw text output}{188}
+@entry {RCS $Id}{253}
+@entry {Recommended names for keys}{69}
+@entry {Rectangle, black in hardcopy}{174}
+@entry {Recursive macro invocations}{155}
+@entry {Reducing font size}{75}
+@entry {Reference implementation}{178}
+@entry {Reference to @@-commands}{223}
+@entry {References}{53}
+@entry {References using @code {@@inforef}}{62}
+@entry {Raw formatter commands}{146}
+@entry {Raw HTML}{213}
+@entry {raw text output}{188}
+@entry {RCS $Id}{253}
+@entry {Recommended names for keys}{69}
+@entry {Rectangle, black in hardcopy}{174}
+@entry {Recursive macro invocations}{155}
+@entry {Reducing font size}{75}
+@entry {Reference implementation}{178}
+@entry {Reference to @@-commands}{223}
+@entry {References}{53}
+@entry {References using @code {@@inforef}}{62}
+@finishindex
+
+@section Short indices
+
+See following pages
+
+@commenceindex
+@initial{A}
+@entry{aaaa}{1}
+@initial{B}
+@entry{bbbb}{2}
+@finishindex
+
+If the above is in two columns, check that the space below the initials
+`A' and `B' is even.
+
+@commenceindex
+@initial{A}
+@entry{aaaa}{1}
+@initial{B}
+@entry{bbbb}{2}
+@initial{C}
+@entry{cccc}{2}
+@finishindex
+
+@commenceindex
+@initial{A}
+@entry{aaaa}{1}
+@initial{B}
+@entry{bbbb}{2}
+@initial{C}
+@entry{cccc}{2}
+@entry{cccc}{2}
+@finishindex
+
+@commenceindex
+@initial{A}
+@entry{aaaa}{1}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@finishindex
+
+@commenceindex
+@initial{A}
+@entry{aaaa}{1}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{bbbb}{2}
+@entry{cccc}{17}
+@finishindex
+
+@section Final page of index hard to balance
+
+No empty page should appear in the middle of the index.  All index 
+material should fit on the page within the margins.
+
+@commenceindex
+@entry {outline, importing into}{39}
+@entry {outline, inserting into}{39}
+@entry {outline, label separator}{35}
+@entry {outline, label type}{35}
+@entry {outline, mailing}{37}
+@entry {outline, motion}{38}
+@entry {outline, overview}{40}
+@entry {outline, show levels}{40}
+@entry {outline, showing}{40}
+@entry {outline, top-level}{40}
+@entry {outline, view specs}{41}
+@entry {outline, viewing}{40}
+@entry {outliner}{32}
+@entry {outliner commands}{33}
+@entry {outliner keys}{90}
+@entry {overview}{40}
+@initial {P}
+@entry {paragraph, filling}{38}
+@entry {Paste Key}{8}
+@entry {paste region}{11}
+@entry {pasting a region}{70, 71, 76}
+@entry {patch output}{15}
+@entry {pathname}{15}
+@entry {permanent identifier}{32, 36}
+@entry {pipe character}{41}
+@entry {posting buttons}{23}
+@entry {posting news}{24}
+@entry {programming interface}{57}
+@entry {promotion}{36}
+@entry {proportional scrolling}{62, 74}
+@initial {R}
+@entry {rdb-mode}{77}
+@entry {README file}{65}
+@entry {reference}{16}
+@entry {refilling}{38}
+@entry {region selection}{11}
+@entry {region, active}{72}
+@entry {relative autonumber}{32}
+@entry {relative identifier}{35}
+@entry {remote file}{15}
+@entry {remote path}{15}
+@entry {remote pathnames}{68}
+@entry {remove lines}{27}
+@entry {removing Hyperbole menu}{25}
+@entry {Request For Comment}{15, 16}
+@entry {restoring windows}{50}
+@entry {RFC}{15, 16}
+@entry {Rmail}{23}
+@entry {rolo}{44}
+@entry {rolo address}{14}
+@entry {rolo commands}{45}
+@entry {rolo entry}{44}
+@entry {rolo file}{44}
+@entry {rolo keys}{47}
+@entry {rolo menu}{45}
+@entry {rolo searching}{46}
+@entry {rolo, buttons in}{44}
+@entry {rolo, datestamps}{48}
+@entry {rolo, editing}{48}
+@entry {rolo, extending a match}{47}
+@entry {rolo, finding matches}{47}
+@entry {rolo, highlighting matches}{47, 49}
+@entry {rolo, interactive searching}{47}
+@entry {rolo, locating a name}{47}
+@entry {rolo, moving through matches}{47}
+@entry {rolo, moving to entries}{48}
+@entry {rolo, outlining}{47}
+@entry {rolo, personal}{48}
+@entry {rolo, quitting}{48}
+@entry {root cell}{34, 36}
+@initial {S}
+@entry {save lines}{27}
+@entry {saving window configurations}{50}
+@entry {screen}{29}
+@entry {Screen}{62}
+@entry {scrolling}{62, 74}
+@entry {search}{26, 69}
+@entry {searching, rolo}{46}
+@entry {selection}{11}
+@entry {set}{70, 76}
+@entry {setting the view spec}{41}
+@entry {sexp selection}{11}
+@entry {SGML tag pair}{11}
+@entry {show subtree}{40}
+@entry {show tree}{40}
+@entry {showing}{40}
+@entry {side drag}{71}
+@entry {signatures, hiding}{14}
+@entry {site initialization}{66}
+@entry {Smart Key}{8, 62, 99}
+@entry {smart key assignments}{8}
+@entry {smart key commands}{8}
+@entry {Smart Key help}{11}
+@entry {Smart Key operation}{9}
+@entry {Smart Key, default context}{11, 89}
+@entry {Smart Keyboard Keys}{73}
+@entry {smart marking}{11}
+@entry {Smart Menu}{74}
+@entry {Smart Mouse Key}{70, 76}
+@entry {Smart Mouse Key drag}{22}
+@entry {Smart Mouse Key toggle}{8}
+@entry {Smart Mouse Keys}{70}
+@entry {smart selection}{11}
+@entry {source line}{15}
+@entry {splitting a cell}{39}
+@entry {stack frame}{15}
+@entry {star outline}{39}
+@entry {starting Hyperbole}{65}
+@entry {storage manager}{56}
+@entry {string}{70, 76}
+@entry {submenus}{27}
+@entry {submodes}{29}
+@entry {subtree, hide}{40}
+@entry {subtree, show}{40}
+@entry {swapping}{31}
+@entry {system encapsulation}{57}
+@initial {T}
+@entry {table of contents}{16, 19}
+@entry {tabs, inserting}{37}
+@entry {tag}{16}
+@entry {tags file}{16}
+@entry {TAGS file}{16}
+@entry {tar archive}{66}
+@entry {tar archive browsing}{87}
+@entry {terminal use}{4}
+@entry {Texinfo cross-reference}{14}
+@entry {Texinfo manual}{65}
+@entry {text file}{39}
+@entry {thing}{70, 76}
+@entry {things}{11}
+@entry {toc action type}{19}
+@entry {toc implicit button type}{16}
+@entry {toggling blank lines}{41}
+@entry {top-level cell}{34, 36}
+@entry {top-level view}{40}
+@entry {Tramp}{15, 68}
+@entry {transposing cells}{38}
+@entry {tree, copying}{37}
+@entry {tree, demoting}{36}
+@entry {tree, exporting}{37}
+@entry {tree, filling}{38}
+@entry {tree, hide subtree}{40}
+@entry {tree, killing}{36}
+@entry {tree, mailing}{37}
+@entry {tree, moving}{37}
+@entry {tree, promoting}{36}
+@entry {tree, show}{40}
+@entry {tree, show subtree}{40}
+@entry {type definition}{53}
+@entry {type redefinition}{19, 53}
+@initial {U}
+@entry {unburying}{30}
+@entry {uncompressing archives}{66}
+@entry {UNIX manual}{15}
+@entry {unpacking archives}{66}
+@entry {URL}{14, 19, 87}
+@entry {URLs, abbreviated}{68}
+@entry {URLs, using with find-file}{68}
+@entry {USENET}{23, 24}
+@initial {V}
+@entry {variables}{52}
+@entry {vector}{70, 76}
+@entry {version description}{98}
+@entry {vertical drag}{72}
+@entry {view}{40}
+@entry {view mode}{75}
+@entry {view spec}{41}
+@entry {view spec klink}{42}
+@entry {view spec, all lines and levels}{41}
+@entry {view spec, blank lines}{41}
+@entry {view spec, changing}{41}
+@entry {view spec, characters}{41}
+@entry {view spec, ellipses}{41}
+@entry {view spec, example}{41}
+@entry {view spec, label type}{41}
+@entry {view spec, lines per cell}{41}
+@entry {view spec, setting}{41}
+@entry {view spec, show levels}{41}
+@entry {VM}{23}
+@initial {W}
+@entry {W3}{87}
+@entry {wconfig commands}{50}
+@entry {web pages, displaying}{68}
+@entry {window configuration commands}{50}
+@entry {window configuration ring}{50}
+@entry {window configurations}{50}
+@entry {window control}{29}
+@entry {window system}{68}
+@entry {windows}{58}
+@entry {word wrap}{38}
+@entry {world-wide web}{87}
+@entry {World-wide Web}{14, 19}
+@entry {wrolo}{44}
+@entry {wrolo commands}{45}
+@entry {wrolo matches}{88}
+@entry {wrolo menu}{47}
+@entry {WWW}{14, 19}
+@initial {X}
+@entry {xdb}{15}
+@entry {XEmacs}{2, 25}
+@entry {XEmacs support}{69}
+@initial {Y}
+@entry {yank region}{11}
+@entry {yank, reformatting}{53}
+@entry {yanking}{70, 71, 76}
+@initial {Z}
+@entry {zcat}{66}
+@entry {zip file}{66}
+@entry {zooming}{31}
+@finishindex
+
+@section Final page initial at top of both columns
+
+@commenceindex
+@initial {P}
+@entry {@code {phi}}{397}
+@entry {@code {pi}}{397}
+@entry {@code {pi-over-180}}{397}
+@entry {@code {pi-over-2}}{397}
+@entry {@code {pi-over-4}}{397}
+@entry {@code {polar-complexp}}{392}
+@entry {@code {poly-mix}}{408}
+@entry {@code {poly-mul}}{408}
+@entry {@code {poly-simplify}}{408}
+@entry {@code {polynomial-base}}{408}
+@entry {@code {polynomial-p}}{408}
+@entry {@code {posp}}{391}
+@entry {@code {pow}}{397}
+@entry {@code {pow-mod}}{398}
+@entry {@code {power-of-2}}{398}
+@entry {@code {prime-test}}{399}
+@entry {@code {primp}}{393}
+@initial {Q}
+@entry {@code {quarter-circle}}{397}
+@entry {@code {quarter-integer}}{399}
+@entry {@code {quotient}}{397}
+@initial {R}
+@entry {@code {random-digit}}{398}
+@entry {@code {random-digits}}{399}
+@entry {@code {random-float}}{399}
+@entry {@code {ratp}}{392}
+@entry {@code {read-expr}}{409}
+@entry {@code {read-exprs}}{410}
+@entry {@code {read-number}}{409}
+@entry {@code {realp}}{392}
+@entry {@code {rect-complexp}}{392}
+@entry {@code {reduce-cols}}{400}
+@entry {@code {reduce-vec}}{400}
+@entry {@code {reject-arg}}{394}
+@entry {@code {remove-units}}{409}
+@entry {@code {rewrite}}{405}
+@entry {@code {rewrite-heads}}{405}
+@entry {@code {row-matrix}}{400}
+@initial {S}
+@entry {@code {scalarp}}{392}
+@entry {@code {scale-int}}{396}
+@entry {@code {scale-rounding}}{396}
+@entry {@code {simplify}}{403}
+@entry {@code {simplify-extended}}{403}
+@entry {@code {simplify-units}}{403}
+@entry {@code {single-units-in-expr-p}}{409}
+@entry {@code {solve-eqn}}{407}
+@entry {@code {solve-for}}{406}
+@entry {@code {solve-system}}{407}
+@entry {@code {sort-intv}}{396}
+@entry {@code {sqr}}{397}
+@entry {@code {sqrt-e}}{397}
+@entry {@code {sqrt-two-pi}}{397}
+@entry {@code {square-matrixp}}{393}
+@entry {@code {swap-rows}}{401}
+@initial {T}
+@entry {@code {tderiv}}{406}
+@entry {@code {to-fraction}}{399}
+@entry {@code {to-hms}}{398}
+@entry {@code {to-radians}}{398}
+@entry {@code {to-radians-2}}{398}
+@entry {@code {to-simple-fraction}}{399}
+@entry {@code {to-standard-units}}{409}
+@entry {@code {transpose}}{401}
+@entry {@code {two-pi}}{397}
+@initial {U}
+@entry {@code {underflow}}{394}
+@entry {@code {units-in-expr-p}}{409}
+@initial {V}
+@entry {@code {vec-length}}{399}
+@entry {@code {vectorp}}{393}
+@initial {W}
+@entry {@code {with-extra-prec}}{395}
+@initial {Z}
+@entry {@code {zerop}}{391}
+@finishindex
+
+@section Medium length index
+
+Check that no blank pages appear and that index text fits within page 
+margins.  The text of the index is not short enough to fit on the page
+after the text before the index.
+
+@page
+
+
+Text before index.
+
+More text before index.
+
+More text before index.
+
+More text before index.
+
+More text before index.
+
+More text before index.
+
+More text before index.
+
+More text before index.
+
+More text before index.
+
+
+@commenceindexnopage
+@entry {@code {ac_cv_alignof_@var {type-or-expr}}}{152}
+@entry {@code {ac_cv_c_const}}{157}
+@entry {@code {ac_cv_c_int16_t}}{178}
+@entry {@code {ac_cv_c_int32_t}}{179}
+@entry {@code {ac_cv_c_int64_t}}{179}
+@entry {@code {ac_cv_c_int8_t}}{178}
+@entry {@code {ac_cv_c_restrict}}{157}
+@entry {@code {ac_cv_c_uint16_t}}{180}
+@entry {@code {ac_cv_c_uint32_t}}{180}
+@entry {@code {ac_cv_c_uint64_t}}{180}
+@entry {@code {ac_cv_c_uint8_t}}{180}
+@entry {@code {ac_cv_f77_compiler_gnu}}{191}
+@entry {@code {ac_cv_f77_dummy_main}}{193}
+@entry {@code {ac_cv_f77_implicit_none}}{198}
+@entry {@code {ac_cv_f77_libs}}{193}
+@entry {@code {ac_cv_f77_main}}{194}
+@entry {@code {ac_cv_f77_mangling}}{194}
+@entry {@code {ac_cv_fc_check_bounds}}{198}
+@entry {@code {ac_cv_fc_compiler_gnu}}{192}
+@entry {@code {ac_cv_fc_dummy_main}}{193}
+@entry {@code {ac_cv_fc_fixedform}}{197}
+@entry {@code {ac_cv_fc_freeform}}{197}
+@entry {@code {ac_cv_fc_implicit_none}}{198}
+@entry {@code {ac_cv_fc_libs}}{193}
+@entry {@code {ac_cv_fc_line_length}}{197}
+@entry {@code {ac_cv_fc_main}}{194}
+@entry {@code {ac_cv_fc_mangling}}{194}
+@entry {@code {ac_cv_fc_module_ext}}{198}
+@entry {@code {ac_cv_fc_module_flag}}{198}
+@entry {@code {ac_cv_fc_module_output_flag}}{199}
+@entry {@code {ac_cv_fc_pp_define}}{196}
+@entry {@code {ac_cv_fc_pp_srcext_@var {ext}}}{196}
+@entry {@code {ac_cv_fc_srcext_@var {ext}}}{196}
+@entry {@code {ac_cv_file_@var {file}}}{91}
+@entry {@code {ac_cv_func_chown_works}}{160}
+@entry {@code {ac_cv_func_closedir_void}}{160}
+@entry {@code {ac_cv_func_fnmatch_gnu}}{161}
+@entry {@code {ac_cv_func_fnmatch_works}}{161, 166}
+@entry {@code {ac_cv_func_@var {function}}}{166}
+@entry {@code {ac_cv_func_getgroups_works}}{161}
+@entry {@code {ac_cv_func_getpgrp_void}}{162}
+@entry {@code {ac_cv_func_lstat_dereferences_slashed_symlink}}{163}
+@entry {@code {ac_cv_func_lstat_empty_string_bug}}{165}
+@entry {@code {ac_cv_func_malloc_0_nonnull}}{163}
+@entry {@code {ac_cv_func_mbrtowc}}{163}
+@entry {@code {ac_cv_func_memcmp_working}}{163}
+@entry {@code {ac_cv_func_mmap_fixed_mapped}}{164}
+@entry {@code {ac_cv_func_obstack}}{164}
+@entry {@code {ac_cv_func_pow}}{165}
+@entry {@code {ac_cv_func_realloc_0_nonnull}}{164}
+@entry {@code {ac_cv_func_setpgrp_void}}{164}
+@entry {@code {ac_cv_func_stat_empty_string_bug}}{165}
+@entry {@code {ac_cv_func_strcoll_works}}{165}
+@entry {@code {ac_cv_func_strerror_r_char_p}}{165}
+@entry {@code {ac_cv_func_strnlen_working}}{166}
+@entry {@code {ac_cv_func_strtod}}{165}
+@entry {@code {ac_cv_func_strtold}}{165}
+@entry {@code {ac_cv_func_utime_null}}{166}
+@entry {@code {ac_cv_func_working_mktime}}{164}
+@entry {@code {ac_cv_have_decl_@var {symbol}}}{175}
+@entry {@code {ac_cv_header_@var {header-file}}}{174}
+@entry {@code {ac_cv_header_stdbool_h}}{170, 172}
+@entry {@code {ac_cv_header_stdc}}{172}
+@entry {@code {ac_cv_header_sys_wait_h}}{172}
+@entry {@code {ac_cv_header_time}}{424}
+@entry {@code {ac_cv_lib_error_at_line}}{160}
+@entry {@code {ac_cv_lib_@var {library}_@var {function}}}{91}
+@entry {@code {ac_cv_member_@var {aggregate}_@var {member}}}{177}
+@entry {@code {ac_cv_member_struct_stat_st_blocks}}{177}
+@entry {@code {ac_cv_path_install}}{85}
+@entry {@code {ac_cv_path_mkdir}}{86}
+@entry {@code {ac_cv_path_SED}}{88}
+@entry {@code {ac_cv_path_@var {variable}}}{90}
+@entry {@code {ac_cv_prog_AWK}}{85}
+@entry {@code {ac_cv_prog_c_openmp}}{153}
+@entry {@code {ac_cv_prog_cc_@var {compiler}_c_o}}{156}
+@entry {@code {ac_cv_prog_cc_stdc}}{155}
+@entry {@code {ac_cv_prog_cxx_openmp}}{153}
+@entry {@code {ac_cv_prog_EGREP}}{85}
+@entry {@code {ac_cv_prog_f77_c_o}}{192}
+@entry {@code {ac_cv_prog_f77_g}}{191}
+@entry {@code {ac_cv_prog_f77_openmp}}{153}
+@entry {@code {ac_cv_prog_f77_v}}{193}
+@entry {@code {ac_cv_prog_fc_c_o}}{192}
+@entry {@code {ac_cv_prog_fc_g}}{192}
+@entry {@code {ac_cv_prog_fc_openmp}}{153}
+@entry {@code {ac_cv_prog_fc_v}}{193}
+@entry {@code {ac_cv_prog_FGREP}}{85}
+@entry {@code {ac_cv_prog_GREP}}{85}
+@entry {@code {ac_cv_prog_LEX}}{87}
+@entry {@code {ac_cv_prog_@var {variable}}}{88, 89}
+@entry {@code {ac_cv_prog_YACC}}{88}
+@entry {@code {ac_cv_search_@var {function}}}{92}
+@entry {@code {ac_cv_search_getmntent}}{162}
+@entry {@code {ac_cv_sizeof_@var {type-or-expr}}}{152}
+@entry {@code {ac_cv_sys_posix_termios}}{96}
+@entry {@code {ac_cv_type_getgroups}}{178}
+@entry {@code {ac_cv_type_long_double}}{179}
+@entry {@code {ac_cv_type_long_double_wider}}{179}
+@entry {@code {ac_cv_type_long_long_int}}{179}
+@entry {@code {ac_cv_type_mbstate_t}}{179}
+@entry {@code {ac_cv_type_mode_t}}{179}
+@entry {@code {ac_cv_type_off_t}}{179}
+@entry {@code {ac_cv_type_pid_t}}{179}
+@entry {@code {ac_cv_type_size_t}}{180}
+@entry {@code {ac_cv_type_ssize_t}}{180}
+@entry {@code {ac_cv_type_@var {type}}}{180}
+@entry {@code {ac_cv_type_uid_t}}{180}
+@entry {@code {ac_cv_type_unsigned_long_long_int}}{180}
+@finishindex
+
+
+
+
+
+@ignore
+@c this is not currently implemented, as it added a lot of complexity
+@c for not much benefit.
+
+@section Test of index widow elimination
+
+First time shows without widow elimination.  Second time shows it with
+(uses @file{texinfo-tex-test.WIDOWs} file).  For test to work properly,
+@code{ordm} should be a widow in the first case, and not in the second 
+case.
+
+@commenceindex
+@input texinfo-tex-test.WIDOWs
+@finishindex
+
+
+@page
+
+@printindex WIDOW
+@end ignore
+
+@section Index subentries
+
+Check that entries are indented properly.
+
+Possible issues with subentries being separated from superentries by a 
+page or column break.  (There may not be much that can be done in some 
+cases.)
+
+@commenceindex
+@entry{tea makers}{19}
+@entry{coffee makers}{}
+@secondary{gerbil-driven long line line line line line line line line 
+line line line line line line}{9, 42}
+@secondary{gerbil-driven}{9, 42}
+@secondary{electric}{}
+@tertiary{orange}{5, 62}
+@tertiary{green}{727}
+@tertiary{pink}{5, 62, 45, 81, 45, 81, 123, 2314, 123, 2314, 123, 2314, 
+123, 2314, 123, 2314}
+@entry{tea makers}{19}
+@entry{coffee makers}{}
+@secondary{gerbil-driven long line line line line line line line line 
+line line line line line line}{9, 42}
+@secondary{gerbil-driven}{9, 42}
+@secondary{electric}{}
+@tertiary{orange}{5, 62}
+@tertiary{green}{727}
+@tertiary{pink}{5, 62, 45, 81, 45, 81, 123, 2314, 123, 2314, 123, 2314, 
+123, 2314, 123, 2314}
+@finishindex
+
+
+@section Non-alphanumeric Index Initials
+
+/ and \ should be mirror images.
+
+@commenceindex
+@initial{\}
+@initial{/}
+@initial{|}
+@initial{@{}
+@initial{@}}
+@initial{F}
+@finishindex
+
+
+
+@bye

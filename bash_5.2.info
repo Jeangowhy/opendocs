@@ -368,7 +368,7 @@ quotes, and double quotes.
 
 File: bash.info,  Node: Escape Character,  Next: Single Quotes,  Up: Quoting
 
-3.1.2.1 Escape Character
+### 3.1.2.1 Escape Character
 ........................
 
 A non-quoted backslash ‘\’ is the Bash escape character.  It preserves
@@ -380,7 +380,7 @@ it is removed from the input stream and effectively ignored).
 
 File: bash.info,  Node: Single Quotes,  Next: Double Quotes,  Prev: Escape Character,  Up: Quoting
 
-3.1.2.2 Single Quotes
+### 3.1.2.2 Single Quotes
 .....................
 
 Enclosing characters in single quotes (‘'’) preserves the literal value
@@ -390,7 +390,7 @@ between single quotes, even when preceded by a backslash.
 
 File: bash.info,  Node: Double Quotes,  Next: ANSI-C Quoting,  Prev: Single Quotes,  Up: Quoting
 
-3.1.2.3 Double Quotes
+### 3.1.2.3 Double Quotes
 .....................
 
 Enclosing characters in double quotes (‘"’) preserves the literal value
@@ -415,7 +415,7 @@ double quotes (*note* Shell Parameter Expansion::).
 
 File: bash.info,  Node: ANSI-C Quoting,  Next: Locale Translation,  Prev: Double Quotes,  Up: Quoting
 
-3.1.2.4 ANSI-C Quoting
+### 3.1.2.4 ANSI-C Quoting
 ......................
 
 Character sequences of the form $’STRING’ are treated as a special kind
@@ -470,7 +470,7 @@ present.
 
 File: bash.info,  Node: Locale Translation,  Prev: ANSI-C Quoting,  Up: Quoting
 
-3.1.2.5 Locale-Specific Translation
+### 3.1.2.5 Locale-Specific Translation
 ...................................
 
 * Menu:
@@ -797,7 +797,7 @@ mechanisms to group commands and execute them as a unit.
 
 File: bash.info,  Node: Looping Constructs,  Next: Conditional Constructs,  Up: Compound Commands
 
-3.2.5.1 Looping Constructs
+### 3.2.5.1 Looping Constructs
 ..........................
 
 Bash supports the following looping constructs.
@@ -861,7 +861,7 @@ may be used to control loop execution.
 
 File: bash.info,  Node: Conditional Constructs,  Next: Command Grouping,  Prev: Looping Constructs,  Up: Compound Commands
 
-3.2.5.2 Conditional Constructs
+### 3.2.5.2 Conditional Constructs
 ..............................
 
 ‘if’
@@ -1169,7 +1169,7 @@ File: bash.info,  Node: Conditional Constructs,  Next: Command Grouping,  Prev: 
 
 File: bash.info,  Node: Command Grouping,  Prev: Conditional Constructs,  Up: Compound Commands
 
-3.2.5.3 Grouping Commands
+### 3.2.5.3 Grouping Commands
 .........................
 
 Bash provides two ways to group a list of commands to be executed as a
@@ -2410,7 +2410,7 @@ the patterns in `GLOBIGNORE`.  The `dotglob` option is disabled when
 
 File: bash.info,  Node: Pattern Matching,  Up: Filename Expansion
 
-3.5.8.1 Pattern Matching
+### 3.5.8.1 Pattern Matching
 ........................
 
 Any character that appears in a pattern, other than the special pattern
@@ -6085,7 +6085,7 @@ Tilde Expansion::).
 
    Interactive shells are described in *note* Interactive Shells::.
 
-Invoked as an interactive login shell, or with ‘--login’
+### Invoked as an interactive login shell, or with ‘--login’
 ........................................................
 
 When Bash is invoked as an interactive login shell, or as a
@@ -6101,7 +6101,7 @@ this behavior.
 shell executes the ‘exit’ builtin command, Bash reads and executes
 commands from the file ‘~/.bash_logout’, if it exists.
 
-Invoked as an interactive non-login shell
+### Invoked as an interactive non-login shell
 .........................................
 
 When an interactive shell that is not a login shell is started, Bash
@@ -6114,7 +6114,7 @@ option will force Bash to read and execute commands from FILE instead of
      if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 after (or before) any login-specific initializations.
 
-Invoked non-interactively
+### Invoked non-interactively
 .........................
 
 When Bash is started non-interactively, to run a shell script, for
@@ -6130,7 +6130,7 @@ filename.
 ‘--login’ option, Bash attempts to read and execute commands from the
 login shell startup files.
 
-Invoked with name ‘sh’
+### Invoked with name ‘sh’
 ......................
 
 If Bash is invoked with the name ‘sh’, it tries to mimic the startup
@@ -6152,7 +6152,7 @@ startup files.
    When invoked as ‘sh’, Bash enters POSIX mode after the startup files
 are read.
 
-Invoked in POSIX mode
+### Invoked in POSIX mode
 .....................
 
 When Bash is started in POSIX mode, as with the ‘--posix’ command line
@@ -6161,7 +6161,7 @@ interactive shells expand the ‘ENV’ variable and commands are read and
 executed from the file whose name is the expanded value.  No other
 startup files are read.
 
-Invoked by remote shell daemon
+### Invoked by remote shell daemon
 ..............................
 
 Bash attempts to determine when it is being run with its standard input
@@ -6175,7 +6175,7 @@ used to force another file to be read, but neither ‘rshd’ nor ‘sshd’
 generally invoke the shell with those options or allow them to be
 specified.
 
-Invoked with unequal effective and real UID/GIDs
+### Invoked with unequal effective and real UID/GIDs
 ................................................
 
 If Bash is started with the effective user (group) id not equal to the
@@ -10128,8 +10128,8 @@ called the “event”, and the portions of that line that are acted upon
 are called “words”.  Various “modifiers” are available to manipulate the
 selected words.  The line is broken into words in the same fashion that
 Bash does, so that several words surrounded by quotes are considered one
-word.  History expansions are introduced by the appearance of the
-history expansion character, which is ‘!’ by default.
+word.  `History expansions` are introduced by the appearance of the
+history expansion character, which is `!` by default.
 
    History expansion implements shell-like quoting conventions: a
 backslash can be used to remove the special handling for the next

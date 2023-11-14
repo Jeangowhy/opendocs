@@ -2238,32 +2238,38 @@ When the shell encounters $(( expression )), it evaluates expression and places 
 command line; expression is an arithmetic expression. Besides the four basic arithmetic operations of
 addition, subtraction, multiplication, and division, its most used operator is % (modulo, the remainder
 after division).
-$ sa "$(( 1 + 12 ))" "$(( 12 * 13 ))" "$(( 16 / 4 ))" "$(( 6 - 9 ))"
-:13:
-:156:
-:4:
-:-3:
-The arithmetic operators (see Tables 4-1 and 4-2) take the same precedence that you learned in school
-(basically, that multiplication and division are performed before addition and subtraction), and they can be
-grouped with parentheses to change the order of evaluation:
-$ sa "$(( 3 + 4 * 5 ))" "$(( (3 + 4) * 5 ))"
-:23:
-:35:
+
+    $ sa "$(( 1 + 12 ))" "$(( 12 * 13 ))" "$(( 16 / 4 ))" "$(( 6 - 9 ))"
+    :13:
+    :156:
+    :4:
+    :-3:
+
+The arithmetic operators (see Tables 4-1 and 4-2) take the same precedence that you 
+learned in school (basically, that multiplication and division are performed before addition and 
+subtraction), and they can be grouped with parentheses to change the order of evaluation:
+
+    $ sa "$(( 3 + 4 * 5 ))" "$(( (3 + 4) * 5 ))"
+    :23:
+    :35:
+
 Table 4-1. Arithmetic Operators
-Operator Description
-- + Unary minus and plus
-! ~ Logical and bitwise negation
-* / % Multiplication, division, remainder
-+ - Addition, subtraction
-<< >> Left and right bitwise shifts
-<= >= < > Comparison
-== != Equality and inequality
-& Bitwise AND
-^ Bitwise exclusive OR
-| Bitwise OR
-&& Logical AND
-|| Logical OR
-= *= /= %= += -= <<= >>= &= ^= |= Assignment
+
+|  Operator |             Description             |
+|-----------|-------------------------------------|
+| - +       | Unary minus and plus                |
+| ! ~       | Logical and bitwise negation        |
+| * / %     | Multiplication, division, remainder |
+| + -       | Addition, subtraction               |
+| << >>     | Left and right bitwise shifts       |
+| <= >= < > | Comparison                          |
+| == !=     | Equality and inequality             |
+| &         | Bitwise AND                         |
+| ^         | Bitwise exclusive OR                |
+| |         | Bitwise OR                          |
+| &&        | Logical AND                         |
+| \|\|         | Logical OR                          |
+| = *= /= %= += -= <<= >>= &= ^= |=    | Assignment
 
 [Page 35](){id=p35}
 -----------
@@ -2273,119 +2279,148 @@ $ sa "$(( 13 % 5 ))"
 :3:
 Converting seconds (which is how Unix systems store times) to days, hours, minutes, and seconds
 involves division and the modulo operator, as shown in Listing 4-2.
-Listing 4-2. secs2dhms, Convert Seconds (in Argument $1) to Days, Hours, Minutes, and Seconds
-secs_in_day=86400
-secs_in_hour=3600
-mins_in_hour=60
-secs_in_min=60
 
-days=$(( $1 / $secs_in_day ))
-secs=$(( $1 % $secs_in_day ))
-printf "%d:%02d:%02d:%02d\n" "$days" "$(($secs / $secs_in_hour))" \
-"$((($secs / $mins_in_hour) %$mins_in_hour))" "$(($secs % $secs_in_min))"
+Listing 4-2. secs2dhms, Convert Seconds (in Argument $1) to Days, Hours, Minutes, and Seconds
+
+    secs_in_day=86400
+    secs_in_hour=3600
+    mins_in_hour=60
+    secs_in_min=60
+
+    days=$(( $1 / $secs_in_day ))
+    secs=$(( $1 % $secs_in_day ))
+    printf "%d:%02d:%02d:%02d\n" "$days" "$(($secs / $secs_in_hour))" \
+    "$((($secs / $mins_in_hour) %$mins_in_hour))" "$(($secs % $secs_in_min))"
+
 If not enclosed in double quotes, the results of arithmetic expansion are subject to word splitting.
+
 Command Substitution
 Command substitution replaces a command with its output. The command must be placed either between
 backticks (` command `) or between parentheses preceded by a dollar sign ($( command ) ). For example, to
 count the lines in a file whose name includes today’s date, this command uses the output of the date command:
-$ wc -l $( date +%Y-%m-%d ).log
-61 2009-03-31.log
+
+    $ wc -l $( date +%Y-%m-%d ).log
+    61 2009-03-31.log
+
 The old format for command substitution uses backticks. This command is the same as the previous one:
-$ wc -l `date +%Y-%m-%d`.log
-2 2009-04-01.log
+
+    $ wc -l `date +%Y-%m-%d`.log
+    2 2009-04-01.log
+
 Well, it’s not exactly the same, because I ran the first command shortly before midnight and the second
 shortly after. As a result, wc processed two different files.
+
 If the command substitution is not quoted, word splitting and pathname expansion are performed on
 the results.
+
 Table 4-2. bash Extensions
-Operator Description
-** Exponentiation
-id++ id-- Variable post-increment and post-decrement
-++id –-id Variable pre-increment and pre-decrement
-expr ? expr1 : expr2 Conditional operator
-expr1 , expr2 Comma
+
+|       Operator       |                Description                 |
+|----------------------|--------------------------------------------|
+| **                   | Exponentiation                             |
+| id++ id--            | Variable post-increment and post-decrement |
+| ++id –-id            | Variable pre-increment and pre-decrement   |
+| expr ? expr1 : expr2 | Conditional operator                       |
+| expr1 , expr2        | Comma                                      |
 
 [Page 36](){id=p36}
 -----------
 
 Word Splitting
-The results of parameter and arithmetic expansions, as well as command substitution, are subjected to word
-splitting if they were not quoted:
-$ var="this is a multi-word value"
-$ sa $var "$var"
-:this:
-:is:
-:a:
-:multi-word:
-:value:
-:this is a multi-word value:
-Word splitting is based on the value of the internal field separator variable, IFS. The default value of
-IFS contains the whitespace characters of space, tab, and newline (IFS=$' \t\n'). When IFS has its default
-value or is unset, any sequence of default IFS characters is read as a single delimiter.
-$ var=' spaced
-out '
-$ sa $var
-:spaced:
-:out:
+The results of parameter and arithmetic expansions, as well as command substitution, are 
+subjected to word splitting if they were not quoted:
+
+    $ var="this is a multi-word value"
+    $ sa $var "$var"
+    :this:
+    :is:
+    :a:
+    :multi-word:
+    :value:
+    :this is a multi-word value:
+
+Word splitting is based on the value of the internal field separator variable, IFS. The default 
+value of IFS contains the whitespace characters of space, tab, and newline (IFS=$' \t\n'). 
+When IFS has its default value or is unset, any sequence of default IFS characters is read as 
+a single delimiter.
+
+    $ var=' spaced
+    out '
+    $ sa $var
+    :spaced:
+    :out:
+
 If IFS contains another character (or characters) as well as whitespace, then any sequence of
-whitespace characters plus that character will delimit a field, but every instance of a non whitespace
-character delimits a field:
-S IFS=' :'
-$ var="qwerty : uiop : :: er " ## : :: delimits 2 empty fields
-$ sa $var
-:qwerty:
-:uiop:
-::
-::
-:er:
-If IFS contains only non whitespace characters, then every occurrence of every character in IFS delimits
-a field, and whitespace is preserved:
-$ IFS=:
-$ var="qwerty : uiop : :: er "
-$ sa $var
-:qwerty :
-: uiop :
-: :
-::
-: er :
+whitespace characters plus that character will delimit a field, but every instance of a non 
+whitespace character delimits a field:
+
+    S IFS=' :'
+    $ var="qwerty : uiop : :: er " ## : :: delimits 2 empty fields
+    $ sa $var
+    :qwerty:
+    :uiop:
+    ::
+    ::
+    :er:
+
+If IFS contains only non whitespace characters, then every occurrence of every character in IFS 
+delimits a field, and whitespace is preserved:
+
+    $ IFS=:
+    $ var="qwerty : uiop : :: er "
+    $ sa $var
+    :qwerty :
+    : uiop :
+    : :
+    ::
+    : er :
 
 [Page 37](){id=p37}
 -----------
 
 Pathname Expansion
-Unquoted words on the command line containing the characters *, ?, and [ are treated as file globbing
-patterns and are replaced by an alphabetical list of files that match the pattern. If no files match the pattern,
-the word is left unchanged.
-The asterisk matches any string. h* matches all files in the current directory that begin with h, and *k
-matches all files that end with k. The shell replaces the wildcard pattern with the list of matching files in
-alphabetical order. If there are no matching files, the wildcard pattern is left unchanged.
-$ cd "$HOME/bin"
-$ sa h*
-:hello:
-:hw:
-$ sa *k
-:incheck:
-:numcheck:
-:rangecheck:
+Unquoted words on the command line containing the characters * , ?, and [ are treated as 
+file globbing patterns and are replaced by an alphabetical list of files that match the pattern. 
+If no files match the pattern, the word is left unchanged.
+
+The asterisk matches any string. h* matches all files in the current directory that begin with h, 
+and `*k` matches all files that end with k. The shell replaces the wildcard pattern with the 
+list of matching files in alphabetical order. If there are no matching files, the wildcard pattern 
+is left unchanged.
+
+    $ cd "$HOME/bin"
+    $ sa h*
+    :hello:
+    :hw:
+    $ sa *k
+    :incheck:
+    :numcheck:
+    :rangecheck:
+
 A question mark matches any single character; the following pattern matches all files whose second
 letter is a:
-$ sa ?a*
-:rangecheck:
-:ba:
-:valint:
-:valnum:
-Square brackets match any one of the enclosed characters, which may be a list, a range, or a class of
-characters: [aceg] matches any one of a, c, e, or g; [h-o] matches any character from h to o inclusive; and
-[[:lower:]] matches all lowercase letters.
+
+    $ sa ?a*
+    :rangecheck:
+    :ba:
+    :valint:
+    :valnum:
+
+Square brackets match any one of the enclosed characters, which may be a list, a range, or a 
+class of characters: [aceg] matches any one of a, c, e, or g; [h-o] matches any character from 
+h to o inclusive; and [[:lower:]] matches all lowercase letters.
+
 You can disable filename expansion with the set -f command. bash has a number of options that
 affect filename expansion. I’ll cover them in detail in Chapter 8.
+
 Process Substitution
 Process substitution creates a temporary filename for a command or list of commands. You can use it
 anywhere a file name is expected. The form <(command) makes the output of command available as a file
 name; >(command) is a file name that can be written to.
-$ sa <(ls -l) >(pr -Tn)
-:/dev/fd/63:
-:/dev/fd/62:
+
+    $ sa <(ls -l) >(pr -Tn)
+    :/dev/fd/63:
+    :/dev/fd/62:
 
 
 --------------------------------------------------------

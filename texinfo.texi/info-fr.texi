@@ -1,0 +1,1476 @@
+\input texinfo    @c -*-texinfo-*-
+@comment %**start of header
+@setfilename info-fr.info
+@settitle Info
+@syncodeindex fn cp
+@syncodeindex vr cp
+@syncodeindex ky cp
+@comment %**end of header
+@comment Traduction modifiée le 17/02/2002 Adrien Rebollo
+
+@documentlanguage fr
+@documentencoding UTF-8
+
+@dircategory Système de documentation Texinfo
+@direntry
+* Info: (info).                 Navigateur de documentation.
+@end direntry
+
+@ifinfo
+Ce fichier est le manuel d'utilisation de Info, le système GNU de
+documentation en ligne, commandé par menus.
+
+Copyright (C) 1989, 1992, 1996, 1997, 1998, 1999, 2000, 2001
+Free Software Foundation, Inc.
+
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being ``A GNU
+Manual'', and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License'' in the Emacs manual.
+
+(a) The FSF's Back-Cover Text is: ``You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.''
+
+This document is part of a collection distributed under the GNU Free
+Documentation License.  If you want to distribute this document
+separately from the collection, you can do so by adding a copy of the
+license to the document, as described in section 6 of the license.
+
+
+Il est permis de copier, distribuer et/ou modifier ce document selon
+les termes de la GNU Free Documentation License, Version 1.2 ou toute
+version ultérieure publiée par la Free Software @w{Foundation ;} sans
+Sections Invariantes, avec la Couverture indiquant @w{« Un} Manuel @w{GNU »},
+et avec le Dos de la Couverture comme dans (a) ci-dessous.  Une copie de
+la licence est comprise dans la section intitulée @w{« GNU} Free
+Documentation @w{License »} dans le manuel d'Emacs.
+
+(a) Le Dos de Couverture de la FSF @w{est :} @w{« Vous} avez la permission de
+copier et modifier ce manuel GNU, comme les logiciels GNU@.  Les copies
+éditées par la Free Software Foundation permettent de recueillir des
+fonds pour le développement de @w{GNU@. »}
+
+Ce document fait partie d'un ensemble distribué sous la GNU Free
+Documentation License.  Si vous voulez distribuer ce document séparément
+de l'ensemble, vous le pouvez à condition d'ajouter une copie de la
+licence à ce document, comme indiqué à la section 6 de la licence.
+@end ifinfo
+
+@titlepage
+@title Info
+@subtitle Le système GNU de documentation hyper-texte en ligne
+@author Brian Fox
+@author et la communauté GNU Texinfo
+@author Traduit en français par Adrien Rebollo
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 1989, 1992, 1993, 1996, 1997, 1998, 1999, 2000, 2001
+Free Software Foundation, Inc.
+@sp 2
+Édité par la Free Software Foundation @*
+51 Franklin Street, Fifth Floor @*
+Boston, MA 02110-1301, USA.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover texts being ``A GNU
+Manual'', and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License'' in the Emacs manual.
+
+(a) The FSF's Back-Cover Text is: ``You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.''
+
+This document is part of a collection distributed under the GNU Free
+Documentation License.  If you want to distribute this document
+separately from the collection, you can do so by adding a copy of the
+license to the document, as described in section 6 of the license.
+
+
+Il est permis de copier, distribuer et/ou modifier ce document selon
+les termes de la GNU Free Documentation License, Version 1.2 ou toute
+version ultérieure publiée par la Free Software @w{Foundation ;} sans
+Sections Invariantes, avec la Couverture indiquant @w{« Un} Manuel @w{GNU »},
+et avec le Dos de la Couverture comme dans (a) ci-dessous.  Une copie de
+la licence est comprise dans la section intitulée @w{« GNU} Free
+Documentation @w{License »} dans le manuel d'Emacs.
+
+(a) Le Dos de Couverture de la FSF @w{est :} @w{« Vous} avez la permission de
+copier et modifier ce manuel GNU, comme les logiciels GNU@.  Les copies
+éditées par la Free Software Foundation permettent de recueillir des
+fonds pour le développement de @w{GNU@. »}
+
+Ce document fait partie d'un ensemble distribué sous la GNU Free
+Documentation License.  Si vous voulez distribuer ce document séparément
+de l'ensemble, vous le pouvez à condition d'ajouter une copie de la
+licence à ce document, comme indiqué à la section 6 de la licence.
+@end titlepage
+
+@node Top, , Pour Démarrer,
+@top Info: Une Introduction
+
+Info est un programme pour la lecture de documentation, que vous
+utilisez en ce moment-même.  Le Projet GNU distribue la plupart de ses
+manuels en ligne au format Info, et vous avez donc besoin d'un
+programme appelé @dfn{navigateur Info} pour lire les manuels.  Vous
+êtes en train d'utiliser un tel programme.
+
+@ifinfo
+Si vous ne connaissez pas Info et voulez apprendre à vous en servir,
+tapez tout de suite la commande @kbd{h}.  Elle vous conduit à une
+séquence explicative préprogrammée.
+
+Pour apprendre des commandes avancées d'Info, tapez deux fois @kbd{n}.
+Vous serez conduit à @cite{Info pour les Experts}, en sautant le
+chapitre @w{« Pour} @w{Démarrer ».}
+@end ifinfo
+
+@menu
+* Pour Démarrer::               Commencer à utiliser un navigateur Info.
+* Info Avancé::                 Commandes avancées d'Info.
+* Créer un Fichier Info::       Comment faire votre propre fichier Info.
+* Index::                       Un index des sujets, commandes, et variables.
+@end menu
+
+@node Pour Démarrer, Info Avancé, Top, Top
+@comment  node-name,  next,  previous,  up
+@chapter Pour Démarrer
+
+Cette première partie du manuel d'Info décrit comment naviguer dans
+Info.  La deuxième partie du manuel décrit différentes commandes
+avancées d'Info, et montre comment écrire un fichier Info, à distinguer
+d'un fichier Texinfo.  La troisième partie explique brièvement comment
+générer des fichiers Info à partir de fichiers Texinfo.
+
+@ifnotinfo
+Ce manuel est principalement destiné à être consulté à partir d'un
+ordinateur avec le programme de navigation Info, pour que vous puissiez
+essayer les commandes d'Info au fur et à mesure que vous les apprenez.
+Il est moins efficace de le lire en version imprimée ou avec un
+navigateur HTML, car vous devez alors croire sur parole que les
+commandes décrites se comportent vraiment comme le dit le manuel.  Dans
+tous les cas parcourez donc ce manuel maintenant que vous l'avez sous
+les @w{yeux ;} mais essayez aussi de le consulter dans la version en ligne.
+
+@cindex navigateur Info, comment l'invoquer
+@cindex entrer dans Info
+Il y a deux façons de consulter la version en ligne de ce @w{manuel :}
+
+@enumerate
+@item
+Tapez @code{info} sur votre ligne de commande shell.  Cette méthode
+utilise un programme autonome destiné uniquement à lire les
+fichiers Info.
+
+@item
+Tapez @code{emacs} à la ligne de @w{commande ;} puis tapez @kbd{C-h i}
+(@kbd{Control-h}, suivi de @kbd{i}).  Cette méthode utilise le mode Info
+du programme Emacs, un éditeur doté de bien d'autres possibilités.
+@end enumerate
+
+Dans tous les cas, tapez ensuite @kbd{mInfo} (les lettres seulement),
+suivi de @key{ENTRÉE} --- la touche @w{« Return »} ou @w{« Entrée »}.  À ce
+moment-là, vous devriez pouvoir suivre les instructions de ce manuel
+tout en les lisant à l'écran.
+@c FIXME! (pesch@cygnus.com, 14 dec 1992)
+@c Is it worth worrying about what-if the beginner goes to somebody
+@c else's Emacs session, which already has an Info running in the middle
+@c of something---in which case these simple instructions won't work?
+@end ifnotinfo
+
+@menu
+* Aide-Petit-Écran::    Démarrer Info sur un Petit Écran
+* Aide::                Comment se servir d'Info
+* Aide-P::              Retourner au noeud Précédent
+* Aide-^L::             Les commandes Espace, DEL, B et ^L.
+* Aide-M::              Menus
+* Aide-RefC::           Suivre des références croisées
+* Aide-Int::            Quelques commandes Info de niveau intermédiaire
+* Aide-Q::              Quitter Info
+@end menu
+
+@node Aide-Petit-Écran
+@section Démarrer Info sur un Petit Écran
+
+@ifnotinfo
+(Avec Info, vous ne voyez cette section que si votre terminal a un
+petit nombre de @w{lignes ;} la plupart des lecteurs la sautent sans la
+voir.)
+@end ifnotinfo
+
+@cindex petit écran, se déplacer
+Comme l'écran de votre terminal a un assez petit nombre de lignes, il
+faut dès le départ vous donner des conseils particuliers.
+
+Si vous voyez le texte @samp{--All----} près du coin inférieur droit de
+l'écran, ça signifie que la totalité du texte que vous regardez tient
+sur l'écran.  Si vous voyez @samp{--Top----} à la place, ça signifie
+qu'il y a encore du texte, plus bas, qui ne tient pas.  Pour avancer
+dans le texte et lire l'écran suivant, tapez @key{ESPACE}, la barre
+Espace.  Pour remonter, tapez la touche marquée @samp{BackSpace} ou
+@samp{DEL} (sur certains claviers, cette touche peut être marquée
+@samp{Delete} ou porter une flèche vers la gauche).
+
+@ifinfo
+Voilà 40 lignes inutiles, pour que vous puissiez essayer @key{ESPACE} et
+@key{DEL} et voir ce qui se passe.  À la fin il y a des instructions
+pour la suite.
+
+@format
+C'est la ligne 21
+C'est la ligne 22
+C'est la ligne 23
+C'est la ligne 24
+C'est la ligne 25
+C'est la ligne 26
+C'est la ligne 27
+C'est la ligne 28
+C'est la ligne 29
+C'est la ligne 30
+C'est la ligne 31
+C'est la ligne 32
+C'est la ligne 33
+C'est la ligne 34
+C'est la ligne 35
+C'est la ligne 36
+C'est la ligne 37
+C'est la ligne 38
+C'est la ligne 39
+C'est la ligne 40
+C'est la ligne 41
+C'est la ligne 42
+C'est la ligne 43
+C'est la ligne 44
+C'est la ligne 45
+C'est la ligne 46
+C'est la ligne 47
+C'est la ligne 48
+C'est la ligne 49
+C'est la ligne 50
+C'est la ligne 52
+C'est la ligne 53
+C'est la ligne 54
+C'est la ligne 55
+C'est la ligne 56
+C'est la ligne 57
+C'est la ligne 58
+C'est la ligne 59
+C'est la ligne 60
+@end format
+
+Si vous avez réussi à arriver jusqu'ici, revenez au début avec
+@kbd{DEL} (ou @key{BACKSPACE}), et revenez ici à nouveau, pour bien
+maîtriser les touches @samp{Espace} et @samp{BackSpace}.  Tapez
+désormais un @kbd{n} --- un seul @w{caractère ;} ne tapez pas les guillemets
+ni la touche Entrée ensuite --- pour accéder au début normal du cours.
+@end ifinfo
+
+@node Aide, Aide-P, Aide-Petit-Écran, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Comment se servir d'Info
+
+Vous êtes en train d'interagir avec le programme Info, destiné à la
+lecture de documentation.
+
+@cindex noeud, dans les documents Info 
+  Vous êtes actuellement en train de consulter un @dfn{Noeud}
+d'Information.  Un noeud contient du texte décrivant un sujet donné à un
+niveau de détail donné.  Le sujet de ce noeud est @w{« Comment} se servir
+@w{d'Info »}.  La ligne de mode indique qu'il s'agit du noeud @samp{Aide}
+dans le fichier @file{info-fr}.
+
+@cindex en-tête du noeud d'Info
+La première ligne d'un noeud est son @dfn{en-tête}.  L'en-tête de ce
+noeud (jetez-y un oeil) indique que le noeud @samp{Suivant} celui-ci
+est le noeud appelé @samp{Aide-P}.  Une commande avancé d'Info vous
+permet d'aller à n'importe quel noeud dont vous connaissez le nom.  Dans
+le navigateur Info autonome, la ligne d'en-tête affiche aussi les noms
+de ce noeud et du fichier info.  Dans Emacs, le ligne d'en-tête est
+affichée dans une police spéciale, et elle reste à l'écran quand vous
+faites défiler l'affichage.  Les noms de ce noeud et du fichier Info
+sont omis de la ligne d'en-tête par Emacs.
+
+  En plus d'un @samp{Suivant}, un noeud peut avoir un lien
+@samp{Précédent} ou @samp{Parent}, ou les deux.  Comme vous pouvez le
+voir, ce noeud n'a aucun de ces deux liens.
+
+@kindex n @r{(mode Info)}
+  Il est temps de passer au noeud @samp{Suivant}, appelé @samp{Aide-P}.
+
+@format
+>> Tapez @kbd{n} pour vous y rendre.  Ne tapez qu'un seul @w{caractère ;} ne
+   tapez pas les guillemets ni la touche @key{ENTRÉE}.
+@end format
+
+@noindent
+@samp{>>} dans la marge signifie qu'il est vraiment temps d'essayer une
+commande.
+
+@format
+>> Si vous avez une souris, et si vous avez déjà essayé de taper
+   @kbd{n} pour passer au noeud suivant, cliquez maintenant avec le
+   bouton droit sur le lien @samp{Suivant} pour faire la même chose @w{« à}
+   la @w{souris »}.
+@end format
+
+@node Aide-P, Aide-^L, Aide, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Retourner au noeud Précédent
+
+@kindex p @r{(mode Info)}
+Ce noeud est appelé @samp{Aide-P}.  Le noeud @samp{Précédent}, comme vous
+pouvez le voir, est @samp{Aide}, c'est celui dont vous venez en ayant
+utilisé la commande @kbd{n}.  Une autre commande @samp{n} vous amènerait
+maintenant au noeud suivant, @samp{Aide-^L}.  Dans Emacs, @kbd{n} lance
+la commande Emacs @code{Info-next}, et @kbd{p} lance @code{Info-prev}.
+
+@format
+>> Mais ne tapez pas encore @kbd{n}.  Essayez d'abord la commande
+   @kbd{p}, ou cliquez avec la souris sur le lien @samp{Précédent}, qui
+   vous amène au noeud @samp{Précédent}.  Une fois que vous y êtes, vous
+   pouvez faire @kbd{n} à nouveau pour revenir ici.
+@end format
+
+  Si vous lisez ceci dans Emacs, vous verrez un élément @samp{Info} dans
+la barre de menu, près du bord droit.  Un clic de souris sur l'élément
+@samp{Info} ouvre un menu de commandes qui comprennent @samp{Suivant} et
+@samp{Précédent} (ainsi que d'autres commandes que vous ne connaissez
+pas encore).
+
+  Tout ça vous a sans doute semblé outrageusement simple, mais ne soyez
+@emph{pas} tenté de sauter.  Les choses vont bientôt devenir plus
+compliquées.  N'essayez pas non plus une nouvelle commande avant qu'on
+vous le dise.  Autrement, vous pourriez sauter par inadvertance des
+passages importants.
+
+@format
+>> Faites maintenant @kbd{n}, ou cliquez avec la souris sur le lien
+   @samp{Suivant}, pour aller au noeud @samp{Aide-^L} et continuer le
+   manuel.
+@end format
+
+@node Aide-^L, Aide-M, Aide-P, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Les commandes Espace, DEL, B et ^L.
+
+  La ligne de mode de ce noeud vous indique que vous êtes maintenant
+au noeud @samp{Aide-^L}, et la ligne d'en-tête vous dit que @kbd{p} vous
+ramènerait à @samp{Aide-P}.  Le titre du noeud est @w{souligné ;} il donne le
+sujet du noeud (la plupart des noeuds ont des titres).
+
+  C'est un gros noeud qui ne tient pas en entier sur votre écran.  Près
+du coin inférieur droit de votre écran, vous lisez @samp{--Top----} au
+lieu de @samp{--All----}, ça vous indique qu'il y a encore du texte,
+non visible pour l'instant.
+pouvez déterminer qu'il reste des choses non visibles 
+
+@kindex ESPACE @r{(mode Info)}
+@kindex DEL @r{(mode Info)}
+@kindex BACKSPACE @r{(mode Info)}
+@findex Info-scroll-up
+@findex Info-scroll-down
+  Les touches @key{ESPACE}, @key{BACKSPACE} (ou @key{DEL})@footnote{La
+touche que nous appelons @w{« BackSpace »} ou @w{« DEL »} dans ce manuel est
+marquée différemment selon les claviers.  C'est une touche qui est un peu
+au dessus de la touche @key{ENTRÉE} ou @key{RETURN} et que vous utilisez
+normalement (ailleurs que dans Emacs) pour effacer le caractère
+précédant le curseur, c'est-à-dire le caractère que vous avez tapé en
+dernier.  Elle peut être marquée @samp{BackSpace} ou @samp{<-} ou
+@samp{DEL}, ou parfois @samp{Delete}.} et @kbd{b} vous permettent de
+vous déplacer dans un noeud qui ne tient pas tout entier à l'écran.
+@key{ESPACE} fait avancer le texte, pour afficher ce qui était en
+dessous du bas de l'écran.  @key{DEL} ou @key{BACKSPACE} le fait reculer,
+pour afficher ce qui était au dessus du haut de l'écran (il n'y a rien au
+dessus avant que vous n'ayez tapé quelques espaces).  Dans Emacs,
+@key{ESPACE} lance la commande @code{Info-scroll-up}, et @key{BACKSPACE}
+lance @code{Info-scroll-down}.
+
+@format
+>> Essayez maintenant de taper @key{ESPACE} (tapez ensuite
+   @key{BACKSPACE} pour revenir ici).
+@end format
+
+  Quand vous tapez @key{ESPACE}, les deux lignes qui étaient en bas de
+l'écran apparaissent en haut, suivies par d'autres.  @key{DEL} ou
+@key{BACKSPACE} prend les deux lignes d'en haut et les place en bas,
+@emph{en général}, mais si au dessus il n'y a pas assez de lignes pour
+remplir un écran elles n'iront peut-être pas jusqu'en bas.
+
+  Si vous lisez ceci dans Emacs, notez que la ligne d'en-tête est
+toujours visible, et ne défile pas avec le reste.  De cette façon, vous
+pouvez toujours voir les liens @samp{Suivant}, @samp{Précédent} et
+@samp{Parent}, et vous pouvez aisément suivre l'un de ces liens depuis
+n'importe où dans le noeud en cliquant dessus avec la souris.
+
+@cindex lire les documents Info du début à la fin
+@cindex documents Info comme tutoriels
+  @key{ESPACE} et @key{DEL} ne se contentent pas de vous déplacer
+d'avant en arrière dans le noeud en cours.  Quand ces commandes
+rencontrent le début ou la fin du noeud en cours, elles vous conduisent
+au noeud situé avant ou après.  Précisément, elles font défiler tous les
+noeuds d'un fichier Info à la suite.  Dans cette suite, les sous-noeuds
+d'un noeud suivent leur parent.  Si un noeud a un menu, @key{ESPACE} vous
+amène dans les sous-noeuds énumérés dans le menu, un par un.  Une fois
+que vous avez atteint la fin d'un noeud, et avez vu tous ses
+sous-noeuds, @key{ESPACE} vous amène au noeud suivant ou au noeud
+suivant du parent.  C'est fait de telle sorte que vous puissiez lire le
+manuel tout entier du début à la fin en tapant juste @key{ESPACE}.
+
+@kindex PAGEUP @r{(mode Info)}
+@kindex PAGEDOWN @r{(mode Info)}
+  La plupart des claviers d'aujourd'hui ont deux touches de défilement
+marquées @samp{PageUp} et @samp{PageDown} (ou parfois @samp{Prior} et
+@samp{Next}, ou encore des flèches vers le haut et le bas barrées de
+plusieurs traits).  Si votre clavier possède de telles touches, vous
+pouvez vous en servir pour vous déplacer d'avant en arrière dans le
+texte, comme avec @key{ESPACE} et @key{BACKSPACE}.  Cependant,
+contrairement à @key{ESPACE} et @key{BACKSPACE}, @key{PAGEUP} et
+@key{PAGEDOWN} ne feront jamais défiler le texte au-delà du début ou de
+la fin du noeud en cours.
+
+@kindex C-l @r{(mode Info)}
+  Si votre écran est pollué, vous pouvez demander à Info de l'afficher
+à nouveau en tapant @kbd{C-l} (@kbd{Control-L}, c'est-à-dire tenir la
+touche @key{CTRL} enfoncée et taper @kbd{L} ou @kbd{l}).
+
+@format
+>> Tapez @kbd{C-l} maintenant.
+@end format
+
+@kindex b @r{(mode Info)}
+  Pour revenir au début du noeud en cours, vous pouvez taper un tas de
+touches @key{BACKSPACE}.  Vous pouvez aussi taper simplement @kbd{b}
+(@kbd{b} pour @w{« beginning » :} début).
+
+@format
+>> Essayez tout de suite.  (Nous en avons écrit assez pour que ces
+   lignes se situent après le premier écran, mais les écrans
+   deviennent si grands que ce n'est peut-être pas assez.  Vous aurez
+   peut-être à rapetisser votre fenêtre Emacs ou Info.)  Revenez
+   ensuite, avec des @key{ESPACE}s.
+@end format
+
+  Si votre écran est très grand, ce noeud y tient peut-être tout
+entier.  Dans ce cas, @kbd{b} ne fera rien.  @w{Désolé ;} nous n'y pouvons
+rien.
+
+@kindex ? @r{(mode Info)}
+@findex Info-summary
+  Vous venez d'apprendre un grand nombre de commandes.  Si vous voulez
+en utiliser une mais avez du mal à vous rappeler laquelle, vous devez
+taper @kbd{?} (dans Emacs ça lance la commande @code{Info-summary}) qui
+affiche une brève liste de commandes.  Quand vous aurez fini de
+consulter la liste, faites-la disparaître en tapant @key{ESPACE} de
+façon répétée.
+
+@format
+>> Tapez @key{?} maintenant.  Tapez @key{ESPACE} pour voir la liste se
+   dérouler jusqu'à la fin.  Puis tapez @key{ESPACE} plusieurs fois,
+   jusqu'à ce qu'elle s'en aille.
+@end format
+
+  (Si vous utilisez le navigateur Info autonome, tapez @kbd{C-x 0} pour
+revenir ici, c'est-à-dire maintenez la touche @key{CTRL} appuyée, tapez
+un @kbd{x}, puis relâchez @key{CTRL} et @kbd{x}, et tapez @kbd{0} -- un
+zéro, pas la lettre @w{« o »}.)
+
+  Désormais, vous allez rencontrer de grands noeuds sans qu'on vous
+prévienne, et l'on attend de vous que vous puissiez utiliser les
+touches @key{ESPACE} et @key{BACKSPACE} pour vous déplacer dedans sans
+qu'on vous le dise.  Comme tous les terminaux n'ont pas la même taille
+d'écran, ce serait de toutes façons impossible de vous prévenir.
+
+@format
+>> Tapez maintenant @kbd{n}, ou cliquez avec la souris sur le lien
+   @samp{Suivant}, pour voir la description de la commande @kbd{m}.
+@end format
+
+@node Aide-M, Aide-RefC, Aide-^L, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Les menus et la commande @kbd{m}
+
+@cindex menus dans un document Info
+@cindex menus d'Info
+  Avec les seules commandes @kbd{n} (suivant) et @kbd{p} (précédent)
+pour se déplacer entre les noeuds, ceux-ci seraient contraints de se suivre
+linéairement.  Les menus permettent d'avoir une structure de branchement.
+Un menu est une liste de noeuds auxquels vous pouvez vous rendre.  C'est
+en fait juste un morceau de texte formaté spécialement pour qu'Info
+puisse l'interpréter.  Un menu débute toujours par une ligne commençant
+par @samp{* Menu:}.  Un noeud contient un menu si et seulement s'il
+contient une ligne qui commence ainsi.  À chaque instant le seul menu
+auquel vous avez accès est celui du noeud dans lequel vous vous trouvez.
+Pour accéder à un menu situé dans un autre noeud, vous devez d'abord
+aller dans celui-ci.
+
+  Après le début du menu, chaque ligne commençant par une @samp{*}
+désigne un élément.  La ligne contient habituellement un nom succinct
+pour l'élément (suivi par un @samp{:}), le nom du noeud traitant ce
+sujet, et éventuellement une description plus précise du sujet.  Les
+lignes du menu qui ne commencent pas par une @samp{*} n'ont pas de sens
+particulier --- elles sont seulement destinées au lecteur et ne
+définissent pas d'autre élément.  Voici un @w{exemple :}
+
+@example
+* Machin:  Noeud au sujet de MACHIN        Ça parle de MACHIN
+@end example
+
+Le nom de l'élément est Machin, et le noeud en question est @samp{Noeud
+au sujet de MACHIN}.  Le reste de la ligne n'est destinée qu'au lecteur.
+[[ Mais cette ligne n'est pas un véritable élément de menu, car il n'y a
+pas au dessus de ligne commençant par @samp{* Menu:}.]]
+
+  Quand vous utilisez un menu pour vous rendre dans un autre noeud
+(nous allons décrire bientôt comment faire), vous spécifiez le nom de
+l'élément, la première partie de la ligne du menu.  Info s'en sert pour
+trouver la ligne dans le menu, en déduire le nom du noeud, et aller à ce
+noeud.  Il y a à la fois un nom d'élément et un nom de noeud parce que
+le nom de noeud doit être signifiant pour l'ordinateur et qu'il peut
+donc être assez moche.  Le nom d'élément peut être choisi simplement
+pour l'utilisateur.  Souvent le nom de noeud convient aussi à
+l'utilisateur et le nom de noeud et le nom d'élément sont les mêmes.
+Dans ce cas-là on emploie cette @w{abréviation :}
+
+
+@example
+* Machin::   Ça parle de MACHIN
+@end example
+
+@noindent
+Ça signifie que le nom d'élément et le nom de noeud sont les @w{mêmes ;} ils
+sont tous deux @samp{Machin}.
+
+@format
+>> Trouvez maintenant le menu dans ce noeud avec @key{ESPACE}, puis
+   revenez ici avec @kbd{b} et quelques @key{ESPACE}s.  Comme vous le
+   voyez, il y a bien un menu visible dans ce noeud.  Si vous ne trouvez
+   pas de menu en parcourant un noeud, c'est qu'il n'y en a pas et la
+   commande @kbd{m} n'est alors pas disponible.
+@end format
+
+@kindex m @r{(mode Info)}
+  La commande pour se rendre dans un des sous-noeuds est @kbd{m} ---
+mais @emph{n'essayez pas @w{encore !}}  Avant d'utiliser @kbd{m}, vous devez
+savoir que certaines commandes attendent des informations
+supplémentaires.  Jusqu'à maintenant, vous avez appris plusieurs
+commandes qui ne réclamaient pas d'information @w{supplémentaire ;} quand
+vous en tapiez une, Info la traitait instantanément et était ensuite
+prêt à en recevoir d'autres.  La commande @kbd{m} se comporte
+@w{différemment :} elle est incomplète sans le @dfn{nom de l'élément}.  Une
+fois que vous avez tapé @kbd{m}, Info essaye de lire le nom de
+l'élément.
+
+  Cherchez maintenant une ligne proche du bas de l'écran et contenant de
+nombreux tirets.  Il y a une autre ligne en dessous, qui est
+habituellement vide.  Si elle est vide, Info est prêt à recevoir une
+commande, comme @kbd{n} ou @kbd{b} ou @key{ESPACE} ou @kbd{m}.  Si cette
+ligne contient du texte se terminant par deux points @samp{:}, ça signifie
+qu'Info essaye de lire plus d'informations pour la dernière commande.  À
+ces moments-là, les commandes ne fonctionnent pas, parce qu'Info tente
+de s'en servir pour constituer cette information supplémentaire.  Vous
+devez soit taper votre réponse et terminer la commande que vous avez
+commencée, soit taper @kbd{Control-g} pour annuler la commande.  Une
+fois que c'est fait, la ligne redevient vide.
+
+@findex Info-menu
+  La commande pour aller à un sous-noeud par un menu est @kbd{m}.  Après
+que vous avez tapé @kbd{m}, la ligne en bas de l'écran vous dit
+@samp{Élément de menu: }.  Vous devez alors taper le nom de l'élément
+que vous voulez, et terminer avec @key{ENTRÉE}.  Dans Emacs, @kbd{m}
+lance la commande @code{Info-menu}.
+
+@cindex abrévier des sous-noeuds d'Info
+  Vous pouvez abrévier le nom de l'élément.  Si l'abréviation n'est pas
+unique, Info choisit le premier élément qui convient.  Certains menus
+mettent en majuscules la façon la plus courte possible d'abrévier chaque
+nom d'élément, pour que vous puissiez voir ce qu'il vous faut taper.
+Peu importe si vous tapez le nom d'élément en majuscules ou en
+minuscules.  Vous ne devez pas ajouter d'espace à la fin, ou dans le nom
+d'élément, sauf quand il y a déjà une espace dans l'élément du menu.
+
+@cindex complétion des noms de noeuds d'Info
+  Vous pouvez aussi utiliser la @dfn{complétion} pour vous aider à
+entrer le nom d'élément.  Si vous tapez la touche @key{TAB} après avoir
+entré une partie du nom, elle trouvera toute seule le reste --- autant
+qu'il lui est possible de manière unique à partir de ce que vous avez
+déjà entré.
+
+  Si vous déplacez le curseur dans l'une des lignes du menu, vous n'avez
+alors pas besoin de @w{paramètre :} vous tapez juste @key{ENTRÉE}, et
+l'élément correspondant à la ligne où vous vous situez est sélectionné.
+
+Voici un menu pour vous donner l'occasion de vous exercer.  Ce menu vous
+donne trois façons d'aller à un même endroit, @w{Aide-MACHIN :}
+
+@menu
+* Machin:  Aide-MACHIN.    À visiter pous vous amuser.
+* Truc:    Aide-MACHIN.    @w{Étrange !} 2 façons d'aller au même endroit.
+* Aide-MACHIN::            Et une façon de @w{plus !}
+@end menu
+
+@format
+>>  Maintenant tapez @kbd{m} et voyez ce qui se @w{passe :}
+@end format
+
+  Vous êtes maintenant @w{« dans »} une commande @kbd{m}.  Ici, les commandes
+ne fonctionnent @w{pas ;} la prochaine chose à tapez doit être le nom d'un
+élément.
+
+  Vous pouvez revenir sur votre décision en tapant @kbd{Control-g}, qui
+annule la commande @kbd{m}.
+
+@format
+>> Essayez @w{maintenant ;} notez la ligne inférieure vide.
+@end format
+
+@format
+>> Puis retapez @kbd{m}.
+@end format
+
+@format
+>> Tapez maintenant @kbd{TRUC}, le nom de l'élément.  Ne tapez pas encore
+   @key{ENTRÉE}.
+@end format
+
+  Pendant que vous tapez le nom de l'élément, vous pouvez utiliser la
+touche @key{DEL} (ou @key{BACKSPACE}) pour effacer un caractère à la
+fois si vous avez fait une erreur.
+
+@format
+>> Tapez @key{DEL} pour effacer le @samp{C}.  Vous pouvez taper un autre
+   @kbd{C} pour le remplacer.  Mais vous n'en avez pas besoin, car
+   @samp{TRU} est une abréviation valide.
+@end format
+
+@format
+>> Vous êtes maintenant prêt à y aller.  Tapez @key{ENTRÉE}.
+@end format
+
+  Après avoir visité @samp{Aide-MACHIN}, vous devez revenir ici.
+
+  Une autre façon d'aller dans les lignes du menu et de vous déplacer
+parmi elles est de taper @key{TAB}.  À chaque fois que vous tapez un
+@key{TAB}, vous vous rendez dans la ligne de l'élément suivant.  Pour
+aller dans une ligne d'élement précédente, tapez @kbd{M-@key{TAB}} ---
+c'est-à-dire, maintenez la touche @key{META} enfoncée et tapez alors
+@key{TAB}.  (Sur certains claviers, la touche @key{META} peut s'appeler
+@samp{Alt}.)
+
+  Une fois que vous avez déplacé le curseur dans une ligne d'élément,
+tapez @key{ENTRÉE} pour aller au noeud correspondant.
+
+@cindex souris en mode Info
+@kindex Souris-2 @r{(mode Info)}
+  Si votre terminal gère la souris, vous avez encore une autre
+façon d'aller à un élément.  Déplacez votre pointeur de souris sur la
+ligne de l'élément, quelque part entre le @samp{*} initial et les deux
+points @samp{:} après le nom de l'élément.  Vous verrez que le nom de
+l'élément change d'apparence (en général, sa couleur de fond change),
+ainsi que le pointeur de la souris, si votre plate-forme le permet.  Au
+bout d'un moment, si vous laissez la souris à cet endroit, une
+indication apparaît vous disant @w{« Souris-2 :} aller à ce @w{noeud »}.  (Si
+ces indications sont désactivées ou indisponibles, ce message apparaît
+dans la @dfn{zone de dialogue}, la ligne en bas de l'écran où vous tapez
+le nom des éléments de menu quand c'est nécessaire.)  @kbd{Souris-2} est
+le deuxième bouton à partir de la gauche sur votre souris --- celui de
+droite pour les souris à deux boutons, celui du milieu pour celles à 3
+boutons.  Donc quand vous pressez @kbd{Souris-2} quand le pointeur de la
+souris est sur un élément de menu, vous allez dans cet élément.
+
+@findex Info-mouse-follow-nearest-node
+  D'une manière générale, @kbd{Souris-2} dans un tampon Info lance la
+commande Emacs @code{Info-mouse-follow-nearest-node}, qui trouve le plus
+proche lien vers un autre noeud et s'y rend.  Par exemple, près d'une
+référence croisée il se comporte comme @kbd{f}, dans un menu comme
+@kbd{m}, sur la ligne d'en-tête du noeud comme @kbd{n}, @kbd{p} ou
+@kbd{u}, etc.  À la fin du texte du noeud @kbd{Souris-2} va dans le noeud
+suivant, ou parent s'il n'y a pas de noeud suivant.
+
+  Voici donc un autre moyen de vous rendre dans Aide-MACHIN, un menu.
+Vous pouvez l'ignorer si vous voulez, ou bien l'essayer en tapant
+@key{TAB} puis @key{ENTRÉE}, ou en cliquant @kbd{Souris-2} dessus (mais
+revenez ensuite ici s'il vous plaît).
+
+@menu
+* Aide-MACHIN::
+@end menu
+
+@format
+>> Tapez @kbd{n} pour voir d'autres commandes.
+@end format
+
+@node Aide-MACHIN,  ,  , Aide-M
+@subsection La commande @kbd{u}
+
+  @w{Félicitations !} Vous êtes dans le noeud @samp{Aide-MACHIN}.  Il a un
+pointeur @samp{Parent} @samp{Aide-M}, le noeud dont vous provenez par la
+commande @kbd{m}.  C'est la convention habituelle --- les noeuds que vous
+atteignez par un menu ont des liens @samp{Parent} ramenant au menu.  Les
+menus font descendre dans l'arborescence, et @samp{Parent} fait remonter.
+@samp{Précédent}, de son côté, sert habituellement à @w{« rester} au même
+niveau tout en revenant en @w{arrière »}.
+
+@kindex u @r{(mode Info)}
+@findex Info-up
+  Vous pouvez retourner au noeud @samp{Aide-M} en tapant la commande
+@kbd{u} pour @w{« Parent »} (@w{« Up »} en anglais) (la commande Emacs lancée par
+@kbd{u} est @code{Info-up}).  Ça vous amène au @emph{début} du
+noeud --- pour revenir là où vous étiez vous devez taper quelques
+@key{ESPACE}s.  (Quelques navigateurs Info, comme celui inclus dans
+Emacs, vous ramènent à l'endroit où vous étiez dans @samp{Aide-M}.)
+
+  Une autre façon de remonter est de cliquer sur le lien @samp{Parent}
+affiché dans la ligne d'en-tête (pourvu que vous ayez une souris).
+
+@format
+>> Tapez maintenant @kbd{u} pour revenir à @samp{Aide-M}.
+@end format
+
+@node Aide-RefC, Aide-Int, Aide-M, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Suivre des Références Croisées
+
+@cindex références croisées dans les documents Info
+  Dans la documentation Info, vous verrez beaucoup de
+@dfn{références croisées}.  Les références croisées ressemblent à
+@w{ça :} @xref{Aide-Croisée, Croisée}.  C'est une vraie référence
+croisée, en chair et en os, appelée @samp{Croisée} et qui pointe
+sur le noeud appelé @samp{Aide-Croisée}.
+
+@kindex f @r{(mode Info)}
+@findex Info-follow-reference
+  Il y a deux façons de suivre une référence croisée.  Vous pouvez y
+amener le curseur et presser @key{Entrée}, comme pour un menu.
+@key{Entrée} suit la référence croisée sur laquelle se trouve le
+curseur.  Vous pouvez aussi taper @kbd{f} et ensuite indiquer le nom
+de la référence croisée (ici, @samp{Croisée}) comme paramètre.  Dans
+Emacs Indo, @kbd{f} lance @code{Info-follow-reference}.
+
+  Avec la commande @kbd{f}, vous désignez la référence croisée par son
+nom, de sorte que la position de curseur n'importe pas.  Si le curseur
+est sur ou près d'une référence croisée, @kbd{f} vous suggère le nom de
+cette référence entre parenthèses comme valeur par @w{défaut ;} en
+tapant @key{Entrée} vous suivrez cette référence.  Cependant, si vous
+tapez un autre nom de référence croisée, @kbd{f} suivra cette dernière.
+
+@format
+>> Tapez @kbd{f}, suivi de @kbd{Croisée}, puis @key{ENTRÉE}.
+@end format
+
+  Quand vous tapez le nom de la référence, vous
+pouvez utiliser la touche @key{DEL} (ou @key{BACKSPACE}) pour éditer ce
+que vous entrez.  Si vous changez d'avis et ne voulez plus suivre de
+référence, vous pouvez faire @kbd{Control-g} pour annuler la commande.
+La complétion est disponible dans la commande @w{@kbd{f} ;} vous obtenez
+la complétion parmi tous les noms de référence croisée du noeud en cours
+en tapant la touche @key{TAB}.
+
+  Pour obtenir une liste de toutes les références croisées du noeud en
+cours, vous pouvez taper @kbd{?} après @kbd{f}.  Le @kbd{f} continue à
+attendre le nom d'une référence croisée même après avoir affiché la
+liste, donc si vous ne voulez pas suivre une référence, vous devez taper
+@kbd{Control-g} pour annuler le @kbd{f}.
+
+@format
+>> Tapez @kbd{f?} pour obtenir la liste des références croisées de ce
+   noeud.  Puis tapez @kbd{Control-g} et voyez comment le @samp{f} est
+   annulé.
+@end format
+
+  Les touches @key{TAB} et @kbd{M-@key{TAB}}, qui permettent de se
+déplacer parmi les éléments d'un menu, permettent également de se
+déplacer parmi des références croisées à l'extérieur des menus.
+
+@node Aide-Int, Aide-Q, Aide-RefC, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Quelques commandes Info de niveau intermédiaire
+
+  Le cours d'introduction est presque @w{terminé ;} restez donc un peu
+avec nous pour apprendre quelques commandes de niveau intermédiaire.
+
+  La plupart des fichiers Info possèdent un index, qui est en fait un
+grand noeud qui ne contient rien d'autre qu'un menu.  Ce menu a un
+élément pour chaque sujet répertorié dans l'index.  Vous pouvez accéder
+au noeud index à partir du noeud principal du fichier, avec la commande
+@w{@kbd{m} ;} puis vous pouvez à nouveau utiliser le commande @kbd{m}
+dans le noeud d'index pour vous rendre dans le noeud qui décrit le sujet
+que vous cherchez.
+
+  Il y a aussi un raccourci dans Info, la commande @kbd{i}, qui fait
+tout cela pour vous.  Il recherche dans l'index un sujet donné (une
+chaîne de caractères) et va dans le noeud qui est indiqué dans l'index
+pour ce sujet.  @xref{Recherche Info}, pour une explication détaillée.
+
+@kindex l @r{(mode Info)}
+@findex Info-last
+@cindex retourner en arrière en mode Info
+  Si vous vous êtes déplacés dans différents noeuds et voulez revenir
+sur vos pas, vous pouvez utiliser la commande @kbd{l} (@kbd{l} pour
+@dfn{dernier}, last en anglais), qui revient en arrière un noeud à la
+fois.  Au fur et à mesure que vous vous déplacez dans les noeuds, Info
+mémorise les noeuds où vous vous êtes rendus dans un historique spécial.
+La commande @kbd{l} revisite les noeuds dans l'ordre de @w{l'historique ;}
+chaque commande @kbd{l} successive remonte d'un cran dans cet
+historique.
+
+  Si vous avez suivi les instructions, une commande @kbd{l} devrait vous
+ramener à @samp{Aide-M}.  Une autre commande @kbd{l} devrait annuler le
+@kbd{u} et vous ramener à @samp{Aide-MACHIN}.  Encore un autre @kbd{l}
+devrait annuler le @kbd{m} et vous ramener à @samp{Aide-M}.
+
+  Dans Emacs, @kbd{l} lance la commande @code{Info-last}.
+
+@format
+>> Essayez de taper trois fois @kbd{l}, en vous arrêtant à chaque fois
+   pour voir ce que fait chacun d'entre eux.  Puis suivez les
+   instructions à nouveau et vous aboutirez ici.
+@end format
+
+  Notez la différence entre @kbd{l} et @w{@kbd{p} :} @kbd{l} vous amène là
+où @emph{vous} étiez en dernier, tandis que @kbd{p} vous déplace
+toujours dans le noeud déclaré dans l'en-tête comme @samp{Précédent} (à
+partir de ce noeud-ci, le lien @samp{Précédent} mène à @samp{Aide-M}).
+
+@kindex d @r{(mode Info)}
+@findex Info-directory
+@cindex aller au noeud Répertoire
+  La commande @kbd{d} (@code{Info-directory} dans Emacs) vous conduit
+instantanément au noeud Répertoire.  Ce noeud, qui est le premier que
+vous voyez en entrant dans Info, a un menu qui mène (directement ou
+indirectement, à travers d'autres menus), à tous les noeuds existants.
+Le noeud Répertoire donne la liste de tous les manuels et autres
+documents Info qui sont, ou pourraient être installés sur votre système.
+
+@format
+>> Essayez de faire @kbd{d}, puis @kbd{l} pour revenir ici
+   (@emph{revenez} s'il vous plaît).
+@end format
+
+@kindex t @r{(mode Info)}
+@findex Info-top-node
+@cindex aller au noeud Top
+  La commande @kbd{t} vous conduit au noeud @samp{Top} du manuel.  C'est
+utile si vous voulez naviguer dans le menu principal, ou sélectionner un
+élément donné de ce menu.  La commande Emacs lancée par @kbd{t} est
+@code{Info-top-node}.
+
+  Cliquer @kbd{Souris-2} sur ou près d'une référence croisée permet
+également de suivre la référence.  Vous pouvez voir que la référence
+croisée est sensible à la souris en déplaçant le pointeur de souris sur
+la référence et en observant comment se modifient le texte désigné ainsi
+que le pointeur de souris.
+
+@format
+>> Tapez maintenant @kbd{n} pour voir le dernier noeud du cours.
+@end format
+
+  @xref{Info Avancé}, pour des fonctions plus avancées d'Info.
+
+@c If a menu appears at the end of this node, remove it.
+@c It is an accident of the menu updating command.
+
+@node Info Avancé
+@chapter Info pour les Experts
+
+  Ce chapitre décrit diverses commandes avancées d'Info.  (Si vous
+utilisez un navigateur Info autonome, il y a des commandes
+supplémentaires qui lui sont spécifiques, et qui sont documentées dans
+différents chapitres de @ref{Top,, GNU Info, info-stnd, GNU Info}.)
+
+  Ce chapitre explique aussi comment écrire une fichier Info, à
+distinguer d'un fichier Texinfo.  (Cependant, dans la plupart des cas,
+écrire un fichier Texinfo est une meilleure solution, puisque vous
+pouvez l'utiliser @emph{à la fois} pour générer un fichier Info et pour
+réaliser un manuel imprimé.  @xref{Top,, Overview of Texinfo, texinfo,
+Texinfo: The GNU Documentation Format}.)
+
+@menu
+* Expert::                  Commandes avancées @w{d'Info :} g, s, e et 1-5.
+* Recherche Info::          Comment rechercher des sujets
+                               dans des documents Info.
+* Ajouter::                 Comment ajouter de nouveaux noeuds
+                               dans la hiérarchie.
+                               Décrit aussi à quoi ressemblent les noeuds.
+* Menus::                   Comment ajouter ou créer des menus dans les noeuds.
+* Références Croisées::     Comment ajouter des références croisées
+                               dans les noeuds.
+* Balises::                 Comment faire des tableaux de balises pour
+                               les fichiers Info.
+* Vérification::            Vérifier un Fichier Info.
+* Variables Info Emacs::    Variables modifiant le comportement d'Emacs Info.
+@end menu
+
+@node Expert, Recherche Info,  , Info Avancé
+@comment  node-name,  next,  previous,  up
+@section Commandes Avancées d'Info
+
+Voici quelques commandes Info supplémentaires qui vous permettent de
+naviguer plus facilement.
+
+@unnumberedsubsec @kbd{g} va dans un noeud désigné par son nom
+
+@kindex g @r{(mode Info)}
+@findex Info-goto-node
+@cindex aller à un noeud avec son nom
+  Si vous connaissez le nom d'un noeud, vous pouvez vous y rendre en
+tapant @kbd{g}, le nom, et @key{ENTRÉE}.  Ainsi, @kbd{gTop@key{ENTRÉE}}
+vous amène au noeud appelé @samp{Top} dans ce fichier.  (C'est équivalent
+à @kbd{t}, voir @ref{Aide-Int}.)  @kbd{gExpert@key{ENTRÉE}} vous
+ramènerait ici.  @kbd{g} dans Emacs lance la commande
+@code{Info-goto-node}.
+
+  Contrairement à @kbd{m}, @kbd{g} ne permet pas d'utiliser des
+abréviations.  Mais il autorise la complétion, et vous pouvez donc taper
+@key{TAB} pour compléter un nom de noeud partiel.
+
+@cindex aller dans un autre fichier Info
+  Pour aller dans un noeud d'un autre fichier, vous pouvez inclure le
+nom du fichier dans le nom du noeud en le mettant devant, entre
+parenthèses.  Ainsi, @kbd{g(dir)Top@key{ENTRÉE}} vous enverrait dans le
+noeud Répertoire Info, qui est le noeud @samp{Top} dans le fichier Info
+@file{dir}.  De la même manière, @kbd{g(emacs)Top@key{ENTRÉE}} vous amène
+au noeud sommet du manuel d'Emacs.
+
+  Le nom de noeud @samp{*} désigne le fichier tout entier.  Vous pouvez
+donc regarder tout le fichier en cours en tapant @kbd{g*@key{ENTRÉE}} ou
+l'intégralité d'un autre fichier avec
+@kbd{g(@var{nom_fichier})@key{ENTRÉE}}.
+
+@unnumberedsubsec @kbd{1}--@kbd{9} sélectionne un élément de menu par son numéro
+
+@kindex 1 @r{à} 9 @r{(mode Info)}
+@findex Info-nth-menu-item
+@cindex sélectionner le @var{n}ième élément de menu
+  Si vous aimez économiser le moindre caractère frappé, vous allez aimer
+les commandes @kbd{1}, @kbd{2}, @kbd{3}, @kbd{4}, @dots{}, @kbd{9}.  Ce
+sont des raccourcis pour la commande @kbd{m} avec le nom d'un élément de
+menu.  @kbd{1} va au premier élément de menu du noeud en @w{cours ;} @kbd{2}
+va au deuxième, etc.  Dans le navigateur autonome, @kbd{0} va
+au dernier élément de @w{menu ;} c'est pour que vous n'ayez pas à compter
+combien d'entrées il y a.  Dans Emacs, les touches numériques lancent la
+commande @code{Info-nth-menu-item}.
+
+  Si votre affichage supporte des polices différentes, et que vous
+utilisez le mode Info d'Emacs pour lire des fichiers Info, l'étoile
+@samp{*} du cinquième élément de menu ressort, soit en couleur soit par
+une autre caractéristique, et de même pour l'étoile @samp{*} du neuvième
+@w{élément ;} il est ainsi plus facile de voir d'un coup d'oeil le numéro à
+utiliser pour un élément.
+
+  Certains terminaux ne supportent pas les couleurs ou le soulignement.
+Si vous avez besoin de compter les éléments, il est préférable
+d'utiliser la commande @kbd{m} à la place, et d'indiquer le nom, ou
+d'utiliser @key{TAB} pour vous déplacer rapidement parmi les éléments
+de menu.
+
+@unnumberedsubsec @kbd{e} rend le document Info éditable
+
+@kindex e @r{(mode Info)}
+@findex Info-edit
+@cindex éditer un document Info
+  La commande Info @kbd{e} fait passer du mode Info à un mode ordinaire
+d'édition Emacs, afin que vous puissiez éditer le texte du noeud en
+cours.  Tapez @kbd{C-c C-c} pour revenir au mode Info.  La commande
+@kbd{e} n'est autorisée que si la variable @code{Info-enable-edit} n'est
+pas @code{nil}.
+
+  La commande @kbd{e} ne marche que dans Emacs, où elle lance la
+commande @code{Info-edit}.  Le navigateur Info autonome ne vous permet
+pas d'éditer le fichier Info, et taper @kbd{e} vous conduit alors à la
+fin du noeud en cours.
+
+@node Recherche Info, Ajouter, Expert, Info Avancé
+@comment  node-name,  next,  previous,  up
+@section Comment rechercher un sujet donné dans des documents Info
+
+@cindex rechercher dans des documents Info
+@cindex document Info comme manuel de référence
+  Les commandes de déplacement entre et dans des noeuds vous permettent
+de lire le manuel tout entier ou de larges portions.  Mais que faire si
+vous devez trouver le plus vite possible une information donnée dans le
+manuel, et que vous ne savez pas ou ne vous rappelez plus dans quel
+noeud la @w{chercher ?}  Ce besoin se fait sentir quand vous utilisez le
+manuel comme une @dfn{référence}, ou quand il n'est pas possible de
+lire le manuel tout entier avant de commencer à utiliser les programmes
+qu'il décrit.
+
+  Info a de puissantes capacités de recherche qui vous permettent de
+trouver les choses rapidement.  Vous pouvez chercher soit dans les index
+du manuel soit dans le texte.
+
+@kindex i @r{(mode Info)}
+@findex Info-index
+  Comme la plupart des sujets liés à ce que le manuel décrit doivent
+figurer dans les index, il vaut mieux d'abord essayer la recherche par
+index.  La commande @kbd{i} vous demande de fournir un sujet et
+recherche ensuite ce sujet dans les index.  Si elle trouve une entrée
+d'index avec le sujet que vous avez demandé, elle va dans le noeud sur
+lequel pointe l'entrée d'index.  Vous devez parcourir ce noeud pour voir
+si le problème que vous vouliez y est décrit.  S'il n'y est pas, tapez
+@kbd{,} une ou plusieurs fois pour vous rendre dans d'autres entrées
+d'index qui correspondent à votre sujet.
+
+  La commande @kbd{i} trouve toutes les entrées d'index qui comprennent
+la chaîne que vous avez tapée, en tant que @emph{sous-chaîne}.  Pour
+chaque résultat, Info affiche dans la zone de dialogue l'entrée d'index
+complète qu'il a trouvée.  Souvent, le texte complet de l'entrée d'index
+vous donne suffisamment d'information pour décider si elle correspond à
+ce que vous cherchiez, et nous vous recommandons donc de lire ce
+qu'Emacs affiche dans la zone de dialogue avant de regarder le noeud en
+question.
+
+  Comme @kbd{i} cherche une sous-chaîne, vous pouvez rechercher des
+sujets même si vous n'êtes pas sûr de la façon dont ils sont
+répertoriés dans l'index.  Par exemple, supposons que vous voulez
+trouver quelque chose qui a à voir avec les commandes qui complètent des
+entrées partielles (par ex., quand vous tapez @key{TAB}).  Si vous
+voulez obtenir les entrées d'index se référant à @w{« compléter »},
+@w{« complétion »}, et @w{« complète »}, vous pouvez taper
+@kbd{icompl@key{ENTRÉE}}.
+
+  Les documents Info qui décrivent des programmes doivent indexer les
+commandes, options, et séquences de touches fournies par le programme.
+Si vous cherchez la description d'une commande, d'une option, ou d'une
+touche, vous n'avez qu'à taper leur nom quand @kbd{i} vous demande un
+sujet.  Par exemple, si vous voulez lire la description de ce que fait
+la touche @kbd{C-f}, tapez @kbd{iC-f@key{ENTRÉE}}.  Ici @kbd{C-f} sont 3
+caractères distincts @samp{C}, @samp{-}, et @samp{f}, et non la commande
+@w{« Control-f »} que vous tapez dans Emacs pour lancer la commande liée à
+@kbd{C-f}.
+
+  Dans Emacs, @kbd{i} lance la commande @code{Info-index}.
+
+@kindex s @r{(mode Info)}
+@findex Info-search
+  La commande @kbd{s} vous permet de rechercher une chaîne dans tout un
+fichier.  Il passe au noeud suivant si nécessaire.  Vous tapez @kbd{s}
+suivi de la chaîne que vous recherchez, et vous la terminez par
+@key{ENTRÉE}.  Pour rechercher de nouveau la même chaîne, faites juste
+@kbd{s} suivi de @key{ENTRÉE}.  Les noeuds du fichier sont balayés dans
+l'ordre dans lequel ils sont dans le fichier, qui n'est pas
+nécessairement lié à l'ordre dans lequel ils peuvent être dans la
+structure arborescente des menus et des pointeurs @samp{suivant}.  Mais
+normalement les deux ordres ne sont pas très différents.  Dans tous les
+cas, vous pouvez toujours faire @kbd{b} pour savoir dans quel noeud vous
+êtes arrivé, si l'en-tête n'est pas visible (ce qui peut arriver, parce
+que @kbd{s} place votre curseur sur l'occurrence de la chaîne, et non au
+début du noeud).
+
+@kindex M-s @r{(mode Info)}
+  Dans Emacs, @kbd{Meta-s} est équivalent à @kbd{s}.  C'est pour la
+compatibilité avec d'autres paquetages GNU qui utilisent @kbd{M-s} pour
+effectuer une recherche similaire.  @kbd{s} et @kbd{M-s} lancent tous
+deux dans Emacs la commande @code{Info-search}.
+
+
+@node Ajouter, Menus, Recherche Info, Info Avancé
+@comment  node-name,  next,  previous,  up
+@section Ajouter un nouveau noeud à Info
+
+Pour ajouter un nouveau sujet à la liste du répertoire Info, vous
+@w{devez :}
+
+@enumerate
+@item
+Créer des noeuds, dans un fichier, pour documenter ce sujet.
+@item
+Mettre ce sujet dans le menu du répertoire.  @xref{Menus, Menu}.
+@end enumerate
+
+  D'habitude, on crée des noeuds avec Texinfo (@pxref{Top,, Overview of
+Texinfo, texinfo, Texinfo: The GNU Documentation Format}@w{) ;} l'avantage
+est que vous pouvez aussi en obtenir un manuel imprimé.  Cependant, si
+vous voulez éditer un fichier Info, voici comment.
+
+@cindex délimiteurs de noeud
+  Le nouveau code peut résider dans un fichier de documentation déjà
+existant, ou dans un nouveau.  Il doit commencer par un caractère
+@samp{^_} (invisible à @w{l'utilisateur ;} ce noeud en a un mais vous ne
+pouvez pas le voir), et il se termine avec un @samp{^_}, un @samp{^L}
+(@w{« formfeed »}), ou la fin du fichier.@footnote{Si vous mettez un
+@samp{^L} pour terminer un nouveau noeud, assurez-vous qu'il y a un
+@samp{^_} après pour commencer le suivant, car @samp{^L} ne peut pas
+@emph{commencer} un noeud.  D'autre part, une façon plus belle de faire
+d'une limite de noeud une limite de page est de mettre un @samp{^L}
+@emph{juste après} le @samp{^_}.}
+
+  Le @samp{^_} démarrant un noeud doit être suivi par un passage à la
+ligne ou un passage à la ligne de type @samp{^L}, après lequel vient la
+ligne d'en-tête du noeud.  La ligne d'en-tête doit donner le nom du
+noeud (grâce auquel Info le retrouve), et déclarer les noms des noeuds
+@samp{Suivant}, @samp{Précédent} et @samp{Parent} (s'il y en a).  Comme
+vous pouvez le voir, le noeud @samp{Parent} de ce noeud-ci est le noeud
+@samp{Top}, qui pointe sur toute la documentation d'Info.  Le noeud
+@samp{Suivant} est @samp{Menus}.
+
+@cindex ligne d'en-tête de noeud, format
+@cindex format des en-têtes de noeud
+  Les mots-clés @dfn{Noeud}, @dfn{Suivant}, @dfn{Précédent} et
+@dfn{Parent} peuvent apparaître dans n'importe quel ordre, n'importe où
+dans le ligne d'en-tête, mais l'ordre recommandé est celui donné dans
+cette phrase.  Chaque mot-clé doit être suivi d'un deux-points,
+d'espaces et de tabulations, puis du nom approprié.  Le nom peut être
+terminé avec une tabulation, une virgule ou un passage à la ligne.  Une
+espace ne le termine @w{pas ;} les noms de noeud peuvent contenir des
+espaces.  La casse des lettres dans les noms ne compte pas.
+
+@cindex format du nom de noeud
+@cindex noeud Répertoire
+  Le nom d'un noeud a deux formes.  Un noeud dans le fichier en cours
+est désigné par ce qui suit @samp{Noeud: } dans la première ligne de
+ce noeud.  Par exemple, le nom de ce noeud est @samp{Ajouter}.  Un
+noeud dans un autre fichier est désigné par
+@samp{(@var{nom_fichier})@var{noeud_dans_fichier}}, comme dans
+@samp{(info)Ajouter} pour ce noeud.  Si le nom de fichier commence par
+@w{« ./ » ;} alors il est relatif au répertoire @w{actuel ;} sinon, il est
+relatif au répertoire standard des fichiers Info sur votre système.
+Le nom @samp{(@var{nom_fichier})Top} peut être raccourci en
+@samp{(@var{nom_fichier})}.  Par convention, le nom @samp{Top} sert
+pour le noeud le plus @w{« élevé »} de tout le fichier --- le noeud dont
+@samp{Parent} pointe en dehors du fichier.  Le noeud @samp{Répertoire}
+est @file{(dir)}, il pointe vers un fichier @file{dir} qui contient
+un grand menu donnant la liste de tous les documents Info installés
+sur votre système.  Le noeud @samp{Top} d'un fichier de document
+mentionné dans le @samp{Répertoire} devrait comporter un
+@samp{Parent: (dir)}.
+
+@cindex documents non structurés
+  Le nom de noeud @kbd{*} est @w{spécial :} il se réfère au fichier tout
+entier.  Ainsi, @kbd{g*} vous montre tout le fichier en cours.  Le
+noeud @kbd{*} permet d'intégrer des fichiers non structurés dans les
+noeuds de l'arbre.
+
+  Le nom de @samp{Noeud:}, dans lequel un noeud indique son propre nom,
+ne doit pas contenir de nom de fichier, puisque quand Info recherche un
+noeud, il ne s'attend pas à ce qu'il y ait là un nom de fichier.  Les
+noms @samp{Suivant}, @samp{Précédent} et @samp{Parent} peuvent en
+contenir un.  Dans ce noeud-ci, comme le noeud @samp{Parent} est dans le
+même fichier, il n'était pas nécessaire d'en mettre un.
+
+  Notez que les noeuds de ce fichier ont un nom de fichier dans la
+ligne d'en-tête.  Les noms de fichier sont ignorés par Info, mais
+ils servent de commentaires pour aider l'utilisateur à identifier le
+noeud.
+
+@node Menus, Références Croisées, Ajouter, Info Avancé
+@comment  node-name,  next,  previous,  up
+@section Comment Créer des Menus
+
+  Tous les noeuds de la hiérarchie d'Info peuvent avoir un @dfn{menu} --- une
+liste de sous-noeuds.  La commande @kbd{m} recherche dans le menu du noeud
+en cours le sujet que vous lui donnez dans le terminal.
+
+@cindex menu et d'entrée de menu, format
+  Un menu débute avec une ligne commençant par @samp{* Menu:}.  Le
+reste de la ligne est un commentaire.  Après la ligne initiale, chaque
+ligne commençant par @samp{* } correspond à un unique sujet.  Le nom
+du sujet --- ce que l'utilisateur doit donner comme paramètre à la
+commande @kbd{m} pour sélectionner ce sujet --- vient juste après
+l'étoile et l'espace, et est suivi par un deux-points, des espaces et
+des tabulations, et le nom du noeud qui traite de ce sujet.  Le nom du
+noeud, comme les noms de noeuds après @samp{Suivant}, @samp{Précédent}
+et @samp{Parent}, peut être terminé par une tabulation, une virgule ou
+un passage à la @w{ligne ;} il peut aussi être terminé par un point.
+
+  Si le nom de noeud et le nom de sujet sont les mêmes, alors plutôt
+que de répéter deux fois le nom, on peut utiliser l'abréviation
+@samp{* @var{nom}::} (et on doit l'utiliser à chaque fois que c'est
+possible, pour rendre le menu moins encombré).
+
+  Il est de bon ton de choisir les noms de sujets de telle sorte qu'ils
+soient différenciés très près du début du mot --- ça permet à
+l'utilisateur de taper des abréviations courtes.  Dans un long menu,
+c'est une bonne idée de mettre en majuscules le préfixe minimal de
+chaque sujet qui puisse faire office d'abréviation (par long menu
+nous entendons plus de 5 entrées).
+
+  Les noeuds figurant dans le menu d'un noeud sont appelés ses
+@w{« sous-noeuds »}, et il est leur @w{« supérieur »}.  Ils doivent chacun
+avoir un @samp{Parent:} pointant vers leur supérieur.  Il est souvent
+utile de ranger la plupart des sous-noeuds dans une séquence de
+pointeurs @samp{Suivant} et @samp{Précédent}, pour que quelqu'un qui
+voudrait tous les voir n'ait pas besoin de repasser par le Menu.
+
+  Le Répertoire d'Info est simplement le menu du noeud
+@samp{(dir)Top} --- c'est-à-dire le noeud @samp{Top} du fichier
+@file{.../info/dir}.  Vous pouvez mettre de nouvelles entrées dans ce
+menu comme dans n'importe quel autre menu.  Le Répertoire Info
+@emph{n'est pas} la même chose que le répertoire du système de fichiers
+appelé @file{info}.  Il arrive que beaucoup des fichiers Info résident
+dans ce répertoire, mais ce n'est pas une @w{obligation ;} et les fichiers
+de ce répertoire ne figurent pas automatiquement dans le noeud
+Répertoire d'Info.
+
+  Également, bien que le graphe des noeuds Info prétende être une
+@w{« hiérarchie »}, en fait ce peut être @emph{n'importe quel} graphe
+orienté.  Les structures partagées et les pointeurs cycliques sont
+parfaitement possibles, et peuvent être utilisés s'ils sont opportuns
+pour exprimer le sens voulu.  Il n'y a pas besoin que tous les noeuds
+d'un fichier soient en relation.  En fait, ce fichier a deux
+composantes connexes.  Vous êtes dans l'une d'entre elles, qui est sous
+le noeud @w{@samp{Top} ;} l'autre contient le noeud @samp{Aide} auquel on
+accède par la commande @kbd{h}.  En fait, comme il n'y a pas de
+collecteur de détritus, il n'arrive rien de terrible si rien ne pointe
+sur une sous-structure, mais une telle sous-structure ne sert pas à
+grand chose puisque personne ne peut jamais y accéder.
+
+@node Références Croisées, Balises, Menus, Info Avancé
+@comment  node-name,  next,  previous,  up
+@section Créer des Références Croisées
+
+@cindex référence croisée, format
+  Une référence croisée peut être placée n'importe où dans le texte,
+contrairement à un élément de menu qui doit être au début d'une ligne.
+Une référence croisée ressemble à un élément de menu à part qu'elle a un
+@samp{*note} à la place de @samp{*}.  Elle ne peut @emph{pas} se
+terminer par une @samp{)}, parce que les @samp{)} font souvent partie des
+noms de noeuds.  Si vous voulez mettre une référence croisée entre
+parenthèses, terminez-la d'abord avec un point.  Voici deux exemples de
+pointeurs de référence @w{croisée :}
+
+@example
+*Note détails: commandes.  (Voir *note 3: Preuve Complète.)
+@end example
+
+@noindent
+@emph{Ce ne sont que des exemples.}  Les endroits où ils @w{« mènent »}
+n'existent pas @w{vraiment !}
+
+@menu
+* Aide-Croisée::                   Cible d'une référence croisée.
+@end menu
+
+
+@node Aide-Croisée,  ,  , Références Croisées
+@subsection Le noeud atteint par la référence croisée dans Info
+
+  C'est le noeud atteint par la référence croisée appelée
+@samp{Croisée}.
+
+  Alors que ce noeud est spécialement destiné à être atteint par une
+référence croisée, la plupart des références croisées conduisent à des
+noeuds qui @w{« appartiennent »} à la structure du document Info et qui sont
+situés loin ailleurs.  Vous ne pouvez donc pas compter sur un lien
+@samp{Suivant}, @samp{Précédent} ou @samp{Parent} ramenant là d'où vous
+venez.  En général, la commande @kbd{l} (el) est le seul moyen d'y
+retourner.
+
+@format
+>> Tapez @kbd{l} pour revenir au noeud où était située la référence
+   croisée.
+@end format
+
+@node Aide-Q,  , Aide-Int, Pour Démarrer
+@comment  node-name,  next,  previous,  up
+@section Quitter Info
+
+@kindex q @r{(mode Info)}
+@findex Info-exit
+@cindex quitter le mode Info
+  Pour sortir d'Info, et retourner à ce que vous faisiez avant, tapez
+@kbd{q} pour @dfn{Quitter}.  Ça lance la commande @code{Info-exit} dans
+Emacs.
+
+  C'est la fin du cours de base sur l'utilisation d'Info.  Vous avez
+appris comment vous déplacer dans un document Info, et comment naviguer
+dans les menus et les références croisées.  Vous êtes désormais prêt à
+lire les manuels du début à la fin, comme tous les utilisateurs
+d'un nouveau paquetage devraient faire.
+
+  Un autre ensemble de commandes Info sert à trouver quelque chose
+rapidement dans un manuel --- quand vous avez besoin du manuel comme
+une référence plus que comme un tutoriel.  Nous vous recommandons
+d'apprendre aussi ces commandes.  Si vous voulez le faire tout de
+suite, suivez cette référence croisée vers @ref{Recherche Info}.
+
+Il y a encore un autre jeu de commandes, destinées aux utilisateurs
+@w{expérimentés ;} vous pouvez les trouver en cherchant dans le noeud
+Répertoire la documentation sur Info.  Les trouver sera un bon exercice
+pour l'utilisation de base d'Info.
+
+@format
+>> Tapez @kbd{d} pour aller dans le noeud répertoire @w{d'Info ;} puis tapez
+   @kbd{mInfo} et Entrée, pour aller dans le noeud concernant Info et
+   voir le reste de l'aide disponible.
+@end format
+
+
+@node Balises, Vérification, Références Croisées, Info Avancé
+@comment  node-name,  next,  previous,  up
+@section Tableaux de Balises pour les Fichiers Info
+
+@cindex tableaux de balises dans les fichiers info
+  Vous pouvez accélérer l'accès aux noeuds dans un long fichier Info en
+lui donnant un tableau de balises.  Contrairement aux tableaux de
+balises pour un programme, le tableau de balises d'un fichier Info
+réside dans le fichier lui-même et est utilisé automatiquement à chaque
+fois qu'Info lit le fichier.
+
+@findex Info-tagify
+  Pour fabriquer un tableau de balises, allez dans un noeud du fichier
+avec le mode Info d'Emacs et tapez @kbd{M-x Info-tagify}.  Vous devez
+alors faire @kbd{C-x C-s} pour enregistrer le fichier.  Les fichiers
+Info produites par la commande @code{makeinfo} qui fait partie du
+paquetage Texinfo sont toujours pourvus de tableaux de balises.
+
+@cindex tableaux de balises périmés
+@cindex mettre à jour le tableau de balises d'Info
+  Une fois que le fichier Info a un tableau de balises, vous devez vous
+assurer que celui-ci est à jour.  Si vous éditez un fichier Info
+directement (et non sa source Texinfo), et qu'un noeud, à la suite de
+l'effacement d'une partie du texte, recule de plus de mille caractères
+dans le fichier par rapport à sa position enregistrée dans le tableau
+de balises, Info ne pourra plus retrouver le noeud.  Pour mettre à
+jour le tableau de balises, utilisez de nouveau la commande
+@code{Info-tagify}.
+
+  Le tableau de balises d'un fichier Info apparaît à la fin du fichier
+et ressemble à @w{ceci :}
+
+@example
+^_^L
+Tag Table:
+File: info, Node: Références Croisées^?21419
+File: info,  Node: Balises^?22145
+^_
+End Tag Table
+@end example
+
+@noindent
+Notez qu'il contient une ligne par noeud, et que cette ligne contient le
+début de l'en-tête du noeud (jusqu'à la fin du nom de noeud), un
+caractère @samp{DEL}, et la position du début du noeud dans le fichier,
+en nombre de caractères.
+
+
+@node Vérification, Variables Info Emacs, Balises, Info Avancé
+@section Vérifier un Fichier Info
+
+Quand vous créez un fichier Info, il est facile d'oublier le nom d'un
+noeud quand vous faites un pointeur dessus à partir d'un autre noeud.
+Si vous vous trompez dans le nom du noeud, ce n'est pas détecté avant
+que quelqu'un n'essaye de suivre le pointeur avec Info.  La vérification
+du fichier Info est un processus automatique qui vérifie tous les
+pointeurs vers des noeuds et signale tous ceux qui sont invalides.
+Tous les @samp{Suivant}, @samp{Précédent}, et @samp{Parent} sont
+vérifiés, ainsi que tous les éléments de menu et toutes les références
+croisées.  En plus, tous les @samp{Suivant} qui n'ont pas de
+@samp{Précédent} qui leur corresponde sont signalés.  Seuls les
+pointeurs à l'intérieur du fichier sont vérifiés, car contrôler les
+pointeurs vers d'autres fichiers serait horriblement lent.  Mais
+ceux-ci sont en général peu nombreux.
+
+@findex Info-validate
+Pour vérifier un fichier Info, faites @kbd{M-x Info-validate} depuis
+n'importe quel noeud du fichier dans le mode Info d'Emacs.
+
+@node Variables Info Emacs, , Vérification, Info Avancé
+@section Variables du mode Info d'Emacs
+
+Les variables suivantes peuvent modifier le comportement du mode Info
+dans @w{Emacs ;} vous pouvez vouloir fixer l'une ou plusieurs de ces
+variables interactivement, ou dans votre fichier @file{~/.emacs}.
+@xref{Examining, Examining and Setting Variables, Examining and Setting
+Variables, emacs, The GNU Emacs Manual}.  Le navigateur Info autonome a
+son propre ensemble de variables, décrit dans @ref{Variables,,
+Manipulating Variables, info-stnd, GNU Info}.
+
+@vtable @code
+@item Info-directory-list
+La liste des répertoires à consulter pour chercher des fichiers Info.  
+Chaque élément est une chaîne (nom de répertoire) ou @code{nil} (essayer
+le répertoire par défaut).  Si elle n'est pas initialisée Info utilise
+la variable d'environnement @env{INFOPATH} pour l'initialiser, ou
+@code{Info-default-directory-list} s'il n'y a pas de variable
+@env{INFOPATH} dans l'environnement.
+
+Si vous voulez personnaliser la liste des répertoires Info à la fois
+pour Emacs info et pour la visionneuse Info autonome, il est préférable
+de définir la variable d'environnement @env{INFOPATH}, car elle
+s'applique aux deux programmes.
+
+@item Info-additional-directory-list
+La liste des répertoires supplémentaires à consulter pour chercher des
+fichiers de documentation Info.  Ces répertoires ne sont pas consultés
+pour forger le fichier @file{dir}.
+
+@item Info-fontify
+Quand elle est fixée à une valeur non @code{nil}, active la surbrillance
+des fichiers Info.  La valeur par défaut est @code{t}.  Vous pouvez
+changer l'apparence de la surbrillance en personnalisant les polices
+@code{info-node}, @code{info-menu-5}, @code{info-xref},
+@code{info-header-xref}, @code{info-header-node},
+@code{info-title-@var{n}-face} (où @var{n} est le niveau de la section,
+un numéro entre 1 et 4), et @code{info-menu-header}.  Pour personnaliser
+une police, tapez @kbd{M-x customize-face @key{ENTRÉE} @var{police}
+@key{ENTRÉE}}), où @var{police} est l'un des noms de police cités ici.
+
+@item Info-use-header-line
+Si pas @code{nil}, Emacs place dans le tampon Info une ligne d'en-tête
+avec les liens @samp{Suivant}, @samp{Précédent}, et @samp{Parent}.  Une
+ligne d'en-tête ne défile pas avec le reste du tampon, rendant ces
+lignes toujours visibles.
+
+@item Info-scroll-prefer-subnodes
+Si elle est fixée à une valeur non @code{nil}, les touches
+@key{ESPACE} et @key{BACKSPACE} (ou @key{DEL}) dans un menu visitent les
+sous-noeuds du noeud en cours avant de vous amener respectivement au
+début et à la fin.  Par exemple, si le menu du noeud apparaît à l'écran,
+l'@key{ESPACE} suivant vous amène au sous-noeud indiqué par l'élément de
+menu suivant.  Mettre cette option à @code{nil} donne un comportement
+similaire à celui du navigateur Info autonome, qui ne visite le
+premier sous-noeud du menu que lorsque vous avez atteint la fin du noeud
+en cours.  La valeur par défaut est @code{t}.
+
+@item Info-enable-active-nodes
+Quand elle est fixée à une valeur non @code{nil}, elle permet à Info
+d'exécuter du code Lisp associé aux noeuds.  Le code Lisp est exécuté
+quand le noeud est sélectionné.  Le code Lisp à exécuter doit suivre le
+délimiteur de noeud (le caractère @samp{DEL}) et une balise
+@samp{execute: }, comme @w{ceci :}
+
+@example
+^_execute: (message "C'est un noeud actif !")
+@end example
+
+@item Info-enable-edit
+Fixée à @code{nil}, désactive la commande @samp{e} (@code{Info-edit}).  Une
+valeur autre que @code{nil} l'active.  @xref{Ajouter, Éditer}.
+@end vtable
+
+
+@node Créer un Fichier Info
+@chapter Créer un Fichier Info à partir d'un Fichier Texinfo
+
+@code{makeinfo} est un utilitaire pour convertir un fichier Texinfo en
+fichier @w{Info ;} @code{texinfo-format-region} et
+@code{texinfo-format-buffer} sont des fonctions de GNU Emacs qui font la
+même chose.
+
+@xref{Top,, Overview of Texinfo, texinfo, Texinfo: The GNU Documentation
+Format}, pour apprendre comment écrire un fichier Texinfo.
+
+@xref{Creating an Info File,,, texinfo, Texinfo: The GNU Documentation
+Format}, pour apprendre comment créer un fichier Info à partir d'un
+fichier Texinfo.
+
+@xref{Installing an Info File,,, texinfo, Texinfo: The GNU
+Documentation Format}, pour apprendre comment installer un fichier Info
+après en avoir créé un.
+
+@node Index
+@unnumbered Index
+
+C'est la liste alphabétique de toutes les commandes, variables, et
+sujets discutés dans ce document.
+
+@printindex cp
+
+@bye

@@ -1,0 +1,64 @@
+\input texinfo-ja
+
+@documentencoding UTF-8
+@documentlanguage ja
+
+@include version.texi
+
+@settitle サンプル マニュアル 1.0 日本語版
+
+@copying
+これは完全な Texinfo ファイルの短い例です。
+
+Copyright @copyright{} 2016 Free Software Foundation, Inc.
+@end copying
+
+@titlepage
+@title サンプル タイトル
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@c 最初に目次を出力します。
+@contents
+
+@node Top
+@top GNU サンプル
+
+このマニュアルは GNU サンプル
+(version @value{VERSION}, @value{UPDATED})
+用です。
+
+@menu
+* 第一章::           第一章は
+                      このサンプルの唯一の章です
+* 索引::             完全な索引
+@end menu
+
+
+@node 第一章
+@chapter 第一章
+
+@cindex 章, 第一
+
+これは第一章です。
+@cindex 索引項目, 他
+
+ここは番号付き一覧です。
+
+@enumerate
+@item
+これは最初の項目です。
+
+@item
+これは二番目の項目です。
+@end enumerate
+
+
+@node 索引
+@unnumbered 索引
+
+@printindex cp
+
+@bye

@@ -147,7 +147,57 @@ GNU sed 使用的正则表达式分两个部分，命令行中使用 `-E` 或者
 BRE vs. ERE 两者体现在 GNU sed 中的差别在于特殊字符的使用，BRE 需要在
 特殊符号中添加反斜杆，否则特殊符号将当作普通字符处理，这些符号包括：
 '?', '+' 圆括号、花括号 '{}' 和分组选择符号 '|'。这些符号转义是出于兼容 
-bash 环境考虑设置的，而 . * 这样的符号可以直接在 bash 环境中使用。
+bash 环境考虑设置的，而 . * 这样的功能符号可以直接在 bash 环境中使用。
+注意，方括号表示字符范围（Range）的表达式不需要转义，参考手册:
+
+5.3 Overview of basic regular expression syntax
+5.5 Character Classes and Bracket Expressions
+
+例如，过滤 info 文档的一级标题、修改标题内容。一个符合 Texinfo 规范的 info 文档，
+它的一级标题后面使用整行连续的 * 符号：
+
+```sh
+# * WoMan: (woman).               Browse UN*X Manual Pages "W.O. (without) Man".
+$ sed -n '/^[[:digit:]]\+ /,/^\*\+$/{p}' woman.info
+$ sed -n '/^[[:digit:]]\+ /,/^\*\+$/{ s/^[[:digit:]]/\/.\0/; p}' woman.info                                                
+/.1 Introduction
+**************
+/.2 Background
+************
+/.3 Finding and Formatting Man Pages
+**********************************
+```
+
+但是，如果想要修改文档的内容，而不是过滤其中的一些内容，就需要启用 `sed` 的
+分支跳转 (branching) 功能，配合 `x` 命令进行缓冲区内容互换，使用输入数据被延后
+一行输出，利用这一行的内容，就可以根据其内容结构来修改前一的内容。如果需要
+处理大量的 info 文档，使用 `for` 循环。程序具体逻辑后续和缓冲区一起解析：
+
+```sh
+for it in `ls *.info | grep -v '[_]'`; 
+do sed -i -n '
+    s/^\([\*=]\)\1\+$/\0/;
+    t B;
+    x ; 1!p ;
+    b ;
+:B  s/^\(.\)/\1\1\1\1\0/; x ; s/^.*$/# \/. \0/p ;
+' $it; 
+done
+
+# for it in `ls *.info | grep -v "_"`;  
+# do 
+#     echo $it; 
+#     cp "/mingw64/share/info/$it" ./
+# done
+# cat "/mingw64/share/info/gnutls.info-*" >> gnutls.info
+```
+
+以上脚本修改后的内容输出参考，并且使用 `\1` 引用延长标题后一行的符号串：
+
+    # /. WoMan: Browse Unix Manual Pages “W.O. (without) Man”
+    # /. 1 Introduction
+    # /. 2 Background
+    # /. 3 Finding and Formatting Man Pages
 
 _______________________________________________________________________
 | Desired pattern | Basic (BRE) Syntax | Extended (ERE) Syntax |
@@ -304,7 +354,7 @@ $ sed -n '/\.\. toctree\:\:/,/^\w/s/^ \+\w\+/\0/p'`  $rst
    upgrading
 ```
 
-尽管，可以有多个文件，但是每个文件共用的是同一套处理逻辑。
+可以给 `sed` 输入多个文件，并且每个文件共用的是同一套处理逻辑。
 
 ```sh
 printf "Line %s\n" {1..5} | sed -n -e '1,2p' -e '$p'

@@ -1,0 +1,17 @@
+\input texinfo
+@settitle Texinfo modules documentation
+
+@dircategory Texinfo documentation system
+@direntry
+* texi2any modules: (texi2any_internals).
+                                Texinfo Perl modules used in texi2any
+@end direntry
+
+@shorttitlepage Texinfo modules documentation
+@headings on
+
+@contents
+
+@node Top
+@top Texinfo modules documentation
+

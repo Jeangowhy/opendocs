@@ -1,22 +1,52 @@
-# /Texinfo 
-****************
+# / Emacs with Texinfo 
+***********************
 
 1. https://www.gnu.org/software/emacs/download.html
 2. https://ftp.gnu.org/gnu/emacs/windows/emacs-29/
 3. https://www.gnu.org/software/emacs/tour/index.html
 4. https://www.gnu.org/software/emacs/documentation.html
 
+Emacs 作者 Robert J. Chassell 于 2017 年离世。参考 Goodbye to Bob Chassell 
+https://www.fsf.org/blogs/community/goodbye-to-bob-chassell
+
 Texinfo 是 GNU 项目的官方文档格式，可与 GNU Emacs 良好地集成，提供比 man 帮助文档
 更易于访问、跳转更方便的文档解决方案。Windows 平台下可以使用 msys2 安装 Emacs：
 
 ```sh
-pacman -S mingw-w64-x86_64-emacs
+# https://packages.msys2.org/groups/editors
+$ pacman -S info texinfo texinfo-tex
+$ pacman -S nano vim emacs         # Msys2 Subsystems
+$ pacman -S mingw-w64-x86_64-emacs # MinGW64 Subsystems
 
-/mingw64/bin/runemacs
-mingw64.exe && runemacs
-msys2_shell.cmd -mingw64 -c runemacs
+$ mingw64.exe && runemacs
+$ msys2_shell.cmd -mingw64 -c runemacs
+$ echo '#! /usr/bin/env bash
+/mingw64/bin/runemacs "$@"' > /usr/bin/emacs
+# Open Emacs Manual and goto C.3 Command Argument Example
+$ emacs +42836 -- /mingw64/share/info/emacs.info
 
-find c:/msys64/mingw64/bin | grep emacs
+$ echo '#! /usr/bin/env bash
+/mingw64/bin/emacs "$@"' > /usr/bin/el
+$ cat > test.el << EOF
+#!/usr/bin/emacs --script
+(print 3.1415926535897932)
+(message (string-join (list "H" "I" "!") "\n"))
+(progn (setq foo 3) (message "Square of %d is %d" foo (* foo foo)))
+EOF
+
+$ el --script test.el
+$ el --eval '(message (format "1+2 equals %d" (+ 1 2)))'
+$ el -batch --eval '(print 3.1415926535897932)'
+
+cat > el.bat << EOF
+c:/msys64/mingw64/bin/emacs %*
+EOF
+cat > emacs.bat << EOF
+c:/msys64/mingw64/bin/runemacs %*
+EOF
+
+
+$ find c:/msys64/mingw64/bin | grep emacs
 c:/msys64/mingw64/bin/emacs-29.1.exe
 c:/msys64/mingw64/bin/emacs.exe 
 c:/msys64/mingw64/bin/emacsclient.exe
@@ -29,7 +59,7 @@ Msys2 启动 mingw64.exe 子系统环境时可能会由于设置错误，导致�
 文件系统目录访问 `/mingw64/bin/runemacs`。如果提示出现的路径不固定，是相对路径，
 那么就需要修改系统环境变量 `SHELL`，设置一个 shell 程序的绝对路径。
 
-也可以将安装目录下的 bash 程序链接到这个目录，使用以下 Powershell 命令创建链接文件：
+可以将安装目录下的 bash 程序链接到这个目录，使用以下 Powershell 命令创建链接文件：
 
 ```sh
 $target="c:/msys64/usr/bin/bash.exe";
@@ -37,12 +67,153 @@ $path="c:/msys64/usr/include/cmd.exe";
 new-item -type SymbolicLink -target "$target"  -Path "$path"
 ```
 
-Emacs 文档存放在两个位置，主要是基本操作教程（多语言翻译）、Emacs 用户手册
-和 Elisp 语言手册。另外，还有 Emacs 附带的各种工具文档：
+注意：runemacs 是图形版本入口程序，emacs 是控制台版本程序，如果想要执行脚本并且
+输入控制台信息，就不能使用前者。Emacs 作为服务器启动，为任意 emacsclient 提供服务。
+另外，emacs 还可以使用 `-nw` (--no-window-system) 进入 TUI 字符界面而不是 GUI。
+TUI 界面下，如果运行环境不支持鼠标，比如当前的 Sublime Text + Terminus 环境，
+那么就需要使用键盘 `F10` 来触发菜单，不巧，Terminus 依然不支持功能键。最后，
+只能使用 Emacs 提供的扩展命令补救：
 
-1. /msys64/mingw64/share/info/elisp.info
-1. /msys64/mingw64/share/info/emacs.info
-2. /mingw64/share/emacs/29.1/etc/tutorials/TUTORIAL
+1. `menu-bar-mode` 切换菜单条模式，隐藏菜单条后可以使用扩展命令打开。
+2. `menu-bar-open` <f10> 打开菜单；
+3. `minor-mode-menu-from-indicator` 打开 Minor Mode Menu 功能菜单；
+4. `buffer-menu-open` (`C-<f10>`) 打开缓冲区菜单；
+5. `context-menu-open` (`S-<f10>`) 打开上下文菜单，间接访问 major mode menu；
+
+批处理模式 `-batch`（batch mode）用于命令行中运行脚本、makefiles 等等，结合以下
+参数使用：
+
+1.  `-l` (--load=FILE)
+2.  `-f` (--funcall=FUNCTION)
+3.  `--eval` (--execute=EXPRESSION)
+
+批处理模式隐含了 `-q` (--no-init-file) 选项，不会加载初始化文件，但是会加载
+site-start.el，执行完程序后就会退出，所以不会有 GUI 窗口。所有打印内容输出到
+标准文件，`prin1`, `princ` 和 `print` 函数打印到 `stdout`，而 `message` 和 `error` 
+函数打印到 `stderr`。
+
+![Emacs 启动流程图](https://pic1.zhimg.com/v2-541f88ad7e680f4f71fdbed05311713c.jpg)
+https://zhuanlan.zhihu.com/p/608657330
+
+另外，使用 bash 脚本包装方式执行 `emacs --eval "(print 3.14)"`，可能导致以下错误，
+注意输入的 lisp 表达式处理成了以空格分隔的参数，这种处理似乎和 bash 脚本中的
+参数引用 `$@` `$*` 等等有关：
+
+```sh
+Error: end-of-file nil
+  mapbacktrace(#f(compiled-function (evald func args flags) #<bytecode -0x5b0f49f239119ab>))
+  debug-early-backtrace()
+  debug-early(error (end-of-file))
+  command-line-1(("--eval" "(print" "3.1415926535897932)"))
+  command-line()
+  normal-top-level()
+End of file during parsing
+```
+
+如果 bash 脚本中按如下方式调用 emacs，脚本命名为 el，执行 `el --eval "(print 3.14)"`
+则完全没有问题：
+
+```sh
+#! /usr/bin/env bash
+/mingw64/bin/emacs --batch "$1" "$2"
+```
+
+翻看 bash 手册 3.4.2 Special Parameters，要实现以上参数传递，就需要正确使用 `"$@"`
+自动变量，注意必须使用双引号包括，这样才会进行 word splitting，将传入的各个参数
+使用双引号处理。
+
+Emacs Docs & Key Maps
+========================================================
+
+Emacs 文档存放在两个位置，主要是 Emacs 用户手册和基本操作教程（多语言翻译），
+还有 Elisp 语言手册、入门教程。另外，还有 Emacs 附带的各种工具文档：
+
+    /msys64/mingw64/share/info
+    /msys64/mingw64/share/emacs/29.1/etc/tutorials
+    /mingw64/share/emacs/29.1/etc/refcards
+
+    〓 0 Emacs Lisp Intro: (eintr).    A simple introduction to Emacs Lisp programming.
+    〓 0 Elisp: (elisp).               The Emacs Lisp Reference Manual.
+    〓 0 Emacs: (emacs).               The extensible self-documenting text editor.
+
+```sh
+$ echo '
+for it in *.info; do 
+    echo -n "$it 〓 "; 
+    sed -n '/INFO-DIR-ENTRY/,/INFO-DIR-ENTRY/{s/\*/\0/p}' $it;
+done;
+' > infotitles
+$ ./infotitles > /c/dl/out.md
+$ cat /c/dl/out.md
+auth.info         〓 0 Auth-source: (auth).          The Emacs auth-source library.
+autotype.info     〓 0 Autotype: (autotype).         Convenient features for text that you enter
+bovine.info       〓 0 Bovine: (bovine).             Semantic bovine parser development.
+calc.info         〓 0 Calc: (calc).                 Advanced desk calculator and mathematical tool.
+ccmode.info       〓 0 CC Mode: (ccmode).            Emacs mode for editing C, C++, Objective-C,
+cl.info           〓 0 CL-Lib: (cl).                 Partial Common Lisp support for Emacs Lisp.
+dbus.info         〓 0 D-Bus: (dbus).                Using D-Bus in Emacs.
+dired-x.info      〓 0 Dired-X: (dired-x).           Dired Extra Features.
+ebrowse.info      〓 0 Ebrowse: (ebrowse).           A C++ class browser for Emacs.
+ede.info          〓 0 EDE: (ede).                   The Emacs Development Environment.
+ediff.info        〓 0 Ediff: (ediff).               A visual interface for comparing and
+edt.info          〓 0 EDT: (edt).                   An Emacs emulation of the EDT editor.
+efaq-w32.info     〓 0 Emacs W32 FAQ: (efaq-w32).   FAQs about Emacs on MS Windows.
+efaq.info         〓 0 Emacs FAQ: (efaq).            Frequently Asked Questions about Emacs.
+eglot.info        〓 0 Eglot: (eglot).             Language Server Protocol client for Emacs.
+eieio.info        〓 0 EIEIO: (eieio).               An objects system for Emacs Lisp.
+eintr.info        〓 0 Emacs Lisp Intro: (eintr).    A simple introduction to Emacs Lisp programming.
+elisp.info        〓 0 Elisp: (elisp).               The Emacs Lisp Reference Manual.
+emacs-gnutls.info 〓 0 Emacs GnuTLS: (emacs-gnutls). The Emacs GnuTLS integration.
+emacs-mime.info   〓 0 Emacs MIME: (emacs-mime).     Emacs MIME de/composition library.
+emacs.info        〓 0 Emacs: (emacs).               The extensible self-documenting text editor.
+epa.info          〓 0 EasyPG Assistant: (epa).      An Emacs user interface to GNU Privacy Guard.
+erc.info          〓 0 ERC: (erc).                   Powerful and extensible IRC client for Emacs.
+ert.info          〓 0 ERT: (ert).                   Emacs Lisp regression testing tool.
+eshell.info       〓 0 Eshell: (eshell).             A command shell implemented in Emacs Lisp.
+eudc.info         〓 0 EUDC: (eudc).                 Emacs client for directory servers (LDAP, BBDB).
+eww.info          〓 0 EWW: (eww).      Emacs Web Wowser
+flymake.info      〓 0 Flymake: (flymake).           A universal on-the-fly syntax checker.
+forms.info        〓 0 Forms: (forms).               Emacs package for editing data bases
+gnus.info         〓 0 Gnus: (gnus).                 The newsreader Gnus.
+gnutls.info       〓 0 GnuTLS: (gnutls).      GNU Transport Layer Security Library.
+htmlfontify.info  〓 0 Htmlfontify: (htmlfontify).   Convert source code to html.
+idlwave.info      〓 0 IDLWAVE: (idlwave).           Major mode and shell for IDL files.
+ido.info          〓 0 Ido: (ido).                   Interactively do things with buffers and files.
+info.info         〓 0 Info: (info).                 How to use the documentation browsing system.
+mairix-el.info    〓 0 Mairix: (mairix-el).          Emacs interface to the Mairix mail indexer.
+message.info      〓 0 Message: (message).           Mail and news composition mode that
+mh-e.info         〓 0 MH-E: (mh-e).                 Emacs interface to the MH mail system.
+modus-themes.info 〓 0 Modus Themes: (modus-themes). Elegant, highly legible and customizable themes.
+newsticker.info   〓 0 Newsticker: (newsticker).     A feed reader for Emacs.
+nxml-mode.info    〓 0 nXML Mode: (nxml-mode).       XML editing mode with RELAX NG support.
+octave-mode.info  〓 0 Octave mode: (octave-mode).   Emacs mode for editing GNU Octave files.
+org.info          〓 0 Org Mode: (org).      Outline-based notes management and organizer.
+pcl-cvs.info      〓 0 PCL-CVS: (pcl-cvs).           Emacs front-end to CVS.
+pgg.info          〓 0 PGG: (pgg).                   An obsolete Emacs interface to various
+rcirc.info        〓 0 Rcirc: (rcirc).               Internet Relay Chat (IRC) client.
+reftex.info       〓 0 RefTeX: (reftex).             Emacs support for LaTeX cross-references
+remember.info     〓 0 Remember: (remember).         Simple information manager for Emacs.
+sasl.info         〓 0 SASL: (sasl).                 The Emacs SASL library.
+sc.info           〓 0 SC: (sc).                     Supercite lets you cite parts of messages
+semantic.info     〓 0 Semantic: (semantic).         Source code parser library and utilities.
+ses.info          〓 0 SES: (ses).                   Simple Emacs Spreadsheet.
+sieve.info        〓 0 Sieve: (sieve).               Managing Sieve scripts in Emacs.
+smtpmail.info     〓 0 SMTP: (smtpmail).             Emacs library for sending mail via SMTP.
+speedbar.info     〓 0 Speedbar: (speedbar).         File/Tag summarizing utility.
+srecode.info      〓 0 SRecode: (srecode).           Semantic template code generator.
+todo-mode.info    〓 0 Todo Mode: (todo-mode).       Make and maintain todo lists.
+tramp.info        〓 0 Tramp: (tramp).               Transparent Remote Access, Multiple Protocol
+transient.info    〓 0 Transient: (transient).       Transient Commands.
+url.info          〓 0 URL: (url).                   URL loading package.
+use-package.info  〓 0 use-package: (use-package). Declarative package configuration for Emacs.
+vhdl-mode.info    〓 0 VHDL Mode: (vhdl-mode).       Emacs mode for editing VHDL code.
+vip.info          〓 0 VIP: (vip).                   An obsolete VI-emulation for Emacs.
+viper.info        〓 0 VIPER: (viper).               A VI-emulation mode for Emacs.
+vtable.info       〓 0 vtable: (vtable).     Variable Pitch Tables.
+widget.info       〓 0 Widget: (widget).             The "widget" package used by the Emacs
+wisent.info       〓 0 Wisent: (wisent).             Semantic Wisent parser development.
+woman.info        〓 0 WoMan: (woman).               Browse UN*X Manual Pages "W.O. (without) Man".
+```
 
 Emacs 本身是 Lisp 语言的一种实现，也使用 Elisp 编写扩展。例如，Windows 平台下，
 主界面上的滚动条太丑了（占空间、无效 UI 元素），可以修改初始化配置脚本文件：
@@ -51,58 +222,6 @@ Emacs 本身是 Lisp 语言的一种实现，也使用 Elisp 编写扩展。例�
 
 Options ⇒ Show/Hide ⇒ Scroll Bar 设置滚动条状态。或者使用菜单设置：
 Options ⇒ Customize Emacs ⇒ Specific Option... 然后在 UI 界面中选择属性配置。
-
-Emacs 快捷命令特别多，Control 或者 Meta 键加其他按键组合的方式不够用。因此，
-Emacs 使用的是扩展命令的形式: X (eXtend) command，按 `TAB` 键补全扩展命令名称。
-
-1. C-x 字符扩展，按 C-x 之后，按字符按键执行相应命令；
-2. M-x 指定命令扩展，按 M-x 之后，输入命令名称；
-
-如果不能确定如何操作 Emacs，使用 `C-h f` 搜索关功能键字，或者使用菜单：
-Help ⇒ Describe ⇒ Describe Function ... 比如，相要知道保存文件如何操作，只需要
-搜索 save，尝试 TAB 补全，就可以找到 `save-buffer` 扩展命令的操作是 `C-x C-s`。
-文件缓冲区列表 `list-buffers` 扩展命令的操作是 `C-x C-b`，用于快速切换文件。
-
-Emacs 使用一个单独的字母表达功能键，见下表。
-
-| Emacs Keys | 缩写 |    PC 键盘     |
-|------------|------|----------------|
-| Control    | C    | Ctrl / Control |
-| Meta       | M    | Alt / Option   |
-| Shift      | S    | Shift / Shift  |
-| Super      | s    | Win / Command  |
-| Hyper      | H    | 无             |
-
-命令使用示范：
-
-1. `M-x doctor` 执行 Help ⇒ Emacs Physiotherapist，这其实是自带游戏中的一个。
-2. Emacs 分屏操作：
-    1. `C-x 3` 左右分割
-    2. `C-x 2` 上下分割
-    3. `C-x 1` 将当前窗口变为最大
-    4. `C-x 0` 关闭当前窗口
-3. `C-g` 打断、取消一个命令的执行。
-4. `C-x Left/Right` 切换前后缓冲区。
-5. `C-x k` kill-buffer 扩展命令，删除缓冲区，相当关闭文件。
-6. `C-x d` 打开目录，显示文件列表。
-7. `C-x C-f` 搜索文件，相当 find 命令，指定目录则显示列表供用户选择、筛选。
-8. `M-&` Shell 对话，默认执行 `cmd.exe`，可配置 Shell File Name 为 bash。
-
-命令可能由多个阶段完成执行，期间使用 `C-g` 可以取消当执行中的一个命令，
-包括取消执行到卡顿状态的命令。
-
-所有打开的文件对应一个 buffer，关闭文件相当于删除当前文件的缓冲区。
-
-Emacs 工程管理功能支持，参考手册 29.2 Working with Projects。
-工程文件、符号跳转插件： https://github.com/bbatsov/projectile
-
-EDE (Emacs Development Environment) 是用于简化工程管理的全局工具包，支持 Emacs 项目
-构建、调试功能，基于 Make 实现 Emaca IDE (Integrated Development Environment) 开发环境。
-
-EDE 本身作为 global minor mode 方式实现，使用 `M-x global-ede-mode` 启用它，或者
-通过工具菜单激活它：Tools ⇒ Project Support (EDE)，也可以修改初始化 lisp 脚本：
-
-     (global-ede-mode t)
 
 Emacs 启动时会按以下顺序寻找配置脚本文件，参考手册 50.4.4 How Emacs Finds Your Init File
 
@@ -113,7 +232,9 @@ Emacs 启动时会按以下顺序寻找配置脚本文件，参考手册 50.4.4 
 
 Windows 平台使用 Msys2 环境时，HOME 目录可能指两个不同的位置，一是 Windows 本身
 的用户主目录，另一个是 Msys2 虚拟文件系统中的用户主目录，它在其安装目录下，
-也使用同样的用户名称：
+也使用同样的用户名称。另外还可能使用 Roaming 目录，这取决于你运行 Emacs 的环境。
+Emacs 中使用 shell 命令 `echo $HOME` 打印出来的路径并不准确，这根据指定 shell 程序
+设置的环境输出，并不代表 Emacs 所运行的环境：
 
 ```sh
 # cmd
@@ -126,6 +247,839 @@ $ echo ~/
 ```
 
 Emacs 运行时加载的初始化脚本通过 Options ⇒ Save Options 操作，在底部的提示信息确认。
+以下是位于用户 Roaming 目录下的初始化配置脚本参考 (/AppData/Roaming/.emacs)：
+
+```lisp
+    (put 'upcase-region 'disabled nil)
+    (global-ede-mode t)
+    (custom-set-variables
+     ;; custom-set-variables was added by Custom.
+     ;; If you edit it by hand, you could mess it up, so be careful.
+     ;; Your init file should contain only one such instance.
+     ;; If there is more than one, they won't work right.
+     '(ede-project-directories '("c:/dl/em" "c:/dl/pl/emacs"))
+     '(scroll-bar-mode nil)
+     '(shell-file-name "bash"))
+     '(shell)
+    (custom-set-faces
+     ;; custom-set-faces was added by Custom.
+     ;; If you edit it by hand, you could mess it up, so be careful.
+     ;; Your init file should contain only one such instance.
+     ;; If there is more than one, they won't work right.
+     '(default ((t (:family "FiraCode Nerd Font Mono" :foundry "outline" :slant normal :weight regular :height 102 :width normal)))))
+```
+
+Emacs 扩展命令特别多，Control 或者 Meta 键加其他按键组合的方式不够用。因此，
+Emacs 使用的是映射扩展命令的形式: key sequence ⇨ X (eXtend) command。
+任何时候需要后选项输入，都可以按 `TAB` 键补全扩展命令名称，或者使用通配符 * 
+来获取额外提示。
+
+比如，`M-x *emacs TAB` 获取和 emacs 相关扩展命令列表。
+
+1. C-x 字符扩展，按 C-x 之后，按字符按键执行相应命令；
+2. M-x 指定命令扩展，按 M-x 之后，输入命令名称；
+
+50.3.2 Prefix Keymaps 参考，可以执行 `describe-keymap` 查询完整列表：
+
+   • `ctl-x-map` is the variable name for the map used for characters that follow `C-x`.
+   • `help-map` is for characters that follow `C-h`.
+   • `esc-map` is for characters that follow `ESC`.  Thus, all Meta characters are actually defined by this map.
+   • `ctl-x-4-map` is for characters that follow `C-x 4`.
+   • `mode-specific-map` is for characters that follow `C-c`.
+   • `project-prefix-map` is for characters that follow `C-x p`, used for project-related commands.
+
+其中 `ctl-x-4-map` 这类功能映射与其它窗格（相对当前窗格）操作相关，
+参考手册 21.4 Displaying in Another Window
+
+Emacs 根据快捷键映射的作用范围分成几类：
+
+* Keymaps::          全局通用，global keymap；
+* Prefix Keymaps::   前缀快捷键，prefix keys，例如 `C-x` 就是前缀 x 的一系列快捷键；
+* Local Keymaps::    Major and minor modes 有各自的局部快捷键映射；
+* Minibuffer Maps::  微缓冲有专用的局部快捷键映射；
+
+全局映射包含了常用字符按键，例如，`g` 按键，它和其它常用键一样绑定了 `self-insert-command`
+这个扩展命令，所以会将相应的字符插入当前编辑的文件。控制台程序接收到的功能键
+实际上是一系列字符，并且使用 `<ESC> [` 开头，Emacs 按键序列可以和功能键混合使用。
+比如，`C-x <Home>`, 当你输入 `C-x` 组合键后，Emacs 会根据映射获释这个动作触发的
+是一个字符前缀映射快捷键，继续输入 `<Home>` 功能键时，它们被组合成按键序列，
+并根据最终的映射关系调用扩展命令。
+
+可以随时执行以下扩展命令绑定、解绑按键映射，查询现有的全局绑定使用 `keymap-global-lookup`：
+
+1. `M-x keymap-global-set <RET> KEY CMD <RET>`
+    Define KEY globally to run CMD.
+2. `M-x keymap-local-set <RET> KEY CMD <RET>`
+    Define KEY locally (in the major mode now in effect) to run CMD.
+3. `M-x keymap-global-unset <RET> KEY`
+    Make KEY undefined in the global map.
+4. `M-x keymap-local-unset <RET> KEY`
+    Make KEY undefined locally (in the major mode now in effect).
+
+参考文档官方：50.3 Customizing Key Bindings
+
+
+Emacs Major & Minior Mode
+========================================================
+
+所有文件的编辑模式，editing mode 分成主、次两类：Major and Minor Modes。主模式
+就是根据文件类型确定的模式，如果某文件类型没有特别功能，就使用 (fundamental)
+模式，这是最基本的主模式。次模式则可选项，参考手册 24 Major and Minor Modes。
+
+因为 Emacs 处理各种文件会动态切换 major mode，所以局部映射也动态调整，根据不同的
+文件类型提供不同的功能映射。
+
+鼠标中键点击界面底部状态条 (mode line) 中的模式指示器获取当前文件的主模式信息，
+以下是常见主模式名称与对应的 Lisp 定义文件：
+
+     Fundamental mode : /mingw64/share/emacs/29.1/lisp/simple.el
+       Messages mode : /mingw64/share/emacs/29.1/lisp/simple.el:
+           Info mode : /mingw64/share/emacs/29.1/lisp/info.el
+    Buffer Menu mode : /mingw64/share/emacs/29.1/lisp/buff-menu.el
+          Text mode : /mingw64/share/emacs/29.1/lisp/text-mode.el
+          ELisp/l mode : /mingw64/share/emacs/29.1/lisp/elisp-mode.e
+    Lisp Interaction mode : /mingw64/share/emacs/29.1/lisp/elisp-mode.el
+
+    eldoc-mode is an interactive native-compiled Lisp function in eldoc.el
+
+每个主模式都对应一个环境配置函数，例如 Fundamental mode：
+
+```lisp
+    (defun fundamental-mode ()
+      "Major mode not specialized for anything in particular.
+    Other major modes are defined by comparison with this one."
+      (interactive)
+      (kill-all-local-variables)
+      (run-mode-hooks))
+
+    (define-derived-mode clean-mode fundamental-mode "Clean"
+      "A mode that removes all overlays and text properties."
+      (kill-all-local-variables t)
+      (let ((inhibit-read-only t))
+        (dolist (overlay (overlays-in (point-min) (point-max)))
+          (delete-overlay overlay))
+        (set-text-properties (point-min) (point-max) nil)
+        (setq-local yank-excluded-properties t)))
+```
+
+Emacs 使用 hooks 机制让插件参与事件回调处理，实现 Emacs 自定义，每个主模式都至少
+有一个 Mode hook，设置回调函数（挂钩），Emacs 在适当、特定事件触发的时候执行。
+Mode hook 的作用就是在 Emacs 启动一个主模式时，自动执行已经和某主模式“挂钩”的
+函数或次模式。这样就可以自由地向一个主模式上挂上各种功能，随主模式一起启动。
+
+钩子回调分为两种命名形式，使用 `-hook` 后缀名，没有参数，Emacs 按其注册顺序
+轮流执行。另一种是异常钩子，使用 `-functions` 后缀名，旧版本使用 `-hooks`，
+它们可以有参数。
+
+主模式 Mode hooks 可以派生自其它基础的模式，比如 HTML mode 派生自 Text mode，
+`text-mode-hook` 会在 `html-mode-hook` 之前运行，参考手册 24.2.2 Derived Modes。
+具体文件类型与 major mode 关系可以执行 `C-h v auto-mode-alist` 命令查询，这是
+一个记录模式映射列表的变量，association list。
+
+Mode hook 的名字形式通常就是“Name-mode-hook”。例如，在文本文件 text-mode 
+中启动次一个“检查拼写”flyspell-mode 功能，可以这样写配置：
+
+```lisp
+    (add-hook 'text-mode-hook 'flyspell-mode)
+```
+
+Emacs 读取文件时，会自动根据文件扩展名确定主模式。但是也提供了文件级别的配置，
+可以在文件第一行设置类似以下格式的内容告诉 Emacs 使用什么模式：
+
+    -*- mode: MODENAME; VAR: VALUE; ... -*-
+
+    ; -*- mode: Lisp; eval: (auto-fill-mode 1); -*-
+
+还可以执行 `M-x add-file-local-variable-prop-line` 命令来设置，而不是手动设置。
+参考文档 50.2.2 Hooks and 50.2.4 Local Variables in Files
+
+
+每个 Major Mode 有一个 KEYMAP 名字，绑定按键时需要指定相关的 major mode。以下使用
+Elisp 脚本修改全局全局按键映射，展示：M-j 绑定 find-file，以及 php-mode 模式绑定。
+Emacs 会根据约定解释 C M S 这些关键字符，以添加相应的 Modifier keys 处理逻辑：
+
+```lisp
+    ; (global-set-key KEY COMMAND)
+    (global-set-key (kbd "M-j") 'find-file)
+    (global-unset-key (kbd "M-j"))
+
+    ; Major Mode
+    ; (global-set-key KEYMAP KEY COMMAND)
+    (require 'php-mode)
+    (define-key php-mode-map (kbd "M-j") 'find-file)
+```
+
+注意: 这得先配制 php-mode，php-mode.el 文件中可以找到相应的 KEYMAP 名字。
+
+
+    问题1 怎样获得 Major Mode 名字？使用下面的函数：
+
+        (defun get-buffer-mode-name (buffer-or-string)
+          "Get the buffer major mode name."
+          (interactive "bBuffer Name:")
+          (message (with-current-buffer buffer-or-string
+                       major-mode)))
+
+    问题２ 发现以下错误消息，假定设置 matlab-shell-mode-map 的时候出现：
+
+        wrong type argument keymapp nil
+
+    应该先判断是否为空，如下设置
+
+        (if matlab-shell-mode-map
+            ()    ; Do not change the keymap if it is already set up.
+          (setq matlab-shell-mode-map (make-sparse-keymap))
+          (define-key matlab-shell-mode-map (kbd "C-c SPC")  'ace-jump-mode)
+          (define-key matlab-shell-mode-map (kbd "C-x SPC")  'ace-jump-mode)
+          (define-key matlab-shell-mode-map (kbd "RET") 'comint-send-input)
+          (define-key matlab-shell-mode-map (kbd "C-c C-c")'comint-interrupt-subjob)
+          )
+
+
+Emacs Basic Operations
+========================================================
+
+任何时都可以使用 Help ⇒ Describe 获取详细的帮助信息：
+
+1. `C-h f` 搜索关功能键字，扩展命令：`describe-function` 
+2. `C-h v` 搜索 ELisp 变量信息，扩展命令：`describe-variable`
+3. `C-h x` 查询当前所有可用的扩展命令，扩展命令：`describe-command`
+4. `C-h b` 查询已经绑定的所有快捷键映射，扩展命令：`describe-bindings`
+5. `C-h k` 查询按键在当前窗格中的功能，扩展命令：`describe-key`
+6. `C-h P` 获取 ELisp 程序包信息，扩展命令：`describe-package`
+7. `C-h r I` 直接通过 Emacs 手册中的索引查询帮助信息，可提供模糊的关键词。
+
+比如，相要知道保存文件如何操作，执行 `C-h f` 搜索 save，尝试 TAB 补全，
+就可以找到 `save-buffer` 扩展命令的操作是 `C-x C-s`。
+
+也可以查询按键绑定的功能，输入 `C-h c` 之后再输入一个组合键，Emacs 会给出
+这个命令的简要说明。例如，`C-h c C-p` 或者 `C-h c C-x 5 2` 显示以下消息：
+
+        C-p runs the command previous-line
+        C-x 5-2 runs the command make-frame-command
+
+Emacs 是一个 Lisp 语言实现，本身就是一个 Lisp 脚本解析器，它的初始化脚本、配置
+脚本、程序包中定义了有大量的变量符号，使用 `C-h v` 可以查询，比如，shell 命令
+所使用的入口程序：`C-h v shell-file-name`。
+
+另外，`M-x apropos` 查询与关键字相关命令、选项、变量等信息（11.4 Apropos）。
+
+
+命令可能由多个阶段完成执行，期间使用 `C-g` 可以取消当执行中的一个命令，
+包括取消执行到卡顿状态的命令。
+
+Emacs“递归编辑”是命令执行过程中又进入另一个命令的状态，递归编辑状态由
+状态栏的方括号所指示，其中包含了用方括号来指明的模式名称。比如，可能看到
+[(Fundamental)]，而不是 (Fundamental)。离开递归编辑可以用 `ESC ESC ESC`，这是通用的
+“离开”命令，你甚至可以使用它来关掉多余的窗格，或者离开小缓冲。
+
+`C-g` 只能是取消“本层递归编辑之内”的命令，参考手册 51 Quitting and Aborting。
+
+尝试输入 `M-x` 进入小缓冲，Emacs 标题栏会显示 *Minibuf*，再输入 ESC ESC ESC 离开。
+
+又比如，`M-%` 进行交互式替换，此时又用了 `C-s` 进行搜索。替换模式并没有结束，
+又进入了搜索模式，这就是所谓的递归编辑。
+
+Emacs 使用一个单独的字母表达功能键，见下表。
+
+| Emacs Keys | 缩写 |    PC 键盘     |
+|------------|------|----------------|
+| Control    | C    | Ctrl / Control |
+| Meta       | M    | Alt / Option   |
+| Shift      | S    | Shift / Shift  |
+| Super      | s    | Win / Command  |
+| Hyper      | H    | 无             |
+| mouse-1    | 无   | 鼠标左键       |
+| mouse-2    | 无   | 鼠标中键       |
+| mouse-3    | 无   | 鼠标右键       |
+
+命令使用示范：
+
+0. `M-x doctor` 执行 Help ⇒ Emacs Physiotherapist，这其实是自带游戏中的一个。
+0. `M-x mpuz` 执行 Tools ⇒ Games ⇒ Multiplication Puzzle，算术解密游戏，按字母填数字。
+0. `M-x hanoi` 执行 Tools ⇒ Games ⇒ Tower of Hanoi，河内塔游戏演示。
+0. `M-x zone` 文字动画演示。
+0. `M-x animate-birthday-present` 文字动画演示。
+1. 光标基本操作：
+    01. `C-v`   向前移动一屏，保留两行内容以关联上下文。
+    02. `M-v`  向后移动一屏，保留两行内容以关联上下文。
+    03. `C-l`   重绘屏幕，并将屏幕聚集到当前光标所在行，`recenter-top-bottom`。
+    04. `C-p`   移动光标到上一行，`previous-line`。
+    05. `C-n`   移动光标到下一行，`next-line`。
+    06. `C-b`   向左侧字符移动光标，`backward-char`。
+    07. `C-f`   向右侧字符移动光标，`forward-char`。
+    08. `C-a`   移动光标到行首，`move-beginning-of-line`。
+    09. `C-e`   移动光标到行尾，`move-end-of-line`。
+    10. `M-a`   移动光标到句首，`backward-sentence`。
+    11. `M-e`   移动光标到句尾，`forward-sentence`。
+2. 基本编辑操作：
+    01. `M-l`   转换为小写，并移动到下一个词，`downcase-word`。
+    02. `M-u`   转换为大写，并移动到下一个词，`upcase-word`。
+    03. `C-d`   转换为大写，并移动到下一个词，`upcase-word`。
+    04. `M-d`   转换为大写，并移动到下一个词，`upcase-word`。
+    05. `C-x C-u`  选区内容转换为大写，`upcase-region`。
+    06. `C-<Del>` 或者 `M-d` 删除（剪切）光标后的词，`kill-word`。
+    07. `M-<Del>` 删除（剪切）光标前的词，`backward-kill-word`。
+    08. `C-k`  删除内容直到行尾，`kill-sentence`。
+    09. `C-x <Back>` 删除内容直到行首，`backwrad-kill-sentence`。
+    10. `C-w`  Cut (`kill-region`)，将内容放入 kill ring。
+    11. `M-w`  Copy (`kill-ring-save`) 将内容放入 kill ring。
+    12. `C-y` 粘贴（`yank`）插入最后放入 kill ring 缓存的内容。
+    13. `M-y` 粘贴（`yank-pop`）循环指定的 kill ring 内容。
+    14. `C-M-w` Appending Kills，`append-next-kill`，此功能用于合并剪切内容。
+2. Emacs 分屏、空口 (Frame)、窗格 (Window) 操作：
+    0. `q` 退出当前窗格，回到上一个缓冲区，`quit-window`，可编辑文件则执行 ` self-insert-command`。
+    1. `C-x 0` 关闭当前窗格，`delete-window`。
+    2. `C-x 1` 最大化当前窗格，`delete-other-window`。
+    3. `C-x 2` 上下分割窗格，`split-window-below`。
+    4. `C-x 3` 左右分割窗格，`split-window-right`，或者在状态条点中键 `C-mouse-2`。
+    1. `C-x o`  跳转到其它窗格，`other-window`。
+    2. `C-M-v` 或者 `ESC C-v` 向下滚动其它的窗格，`scroll-other-window`。
+    3. `C-M-S-v` 向上滚动其它窗格内容，`scroll-other-window-down`。
+    1. `C-x 4 f` Visit a file, in another window ( `find-file-other-window`).
+    1. `C-x 5 0` 关闭当前窗口，`delete-frame`。
+    2. `C-x 5 1` 关闭其它窗口，`delete-other-frame`。
+    3. `C-x 5 2` 为当前 buffer 新建一个窗口，`make-frame-command`。
+    4. `C-x 5 f` Visit a file, in a new frame ( `find-file-other-frame`).
+    5. `C-x 5 o`  Select another frame, and raise it.
+    6. `M-<F10>`  Toggle the maximization state of the current frame.
+    7. `<F11>`    Toggle full-screen mode for the current frame.
+3. 文件与缓冲区操作：
+    1. `C-x d`   打开目录，显示文件列表。
+    2. `C-x C-f` 搜索、打开文件，`ffap` 命令，指定目录则显示列表供用户选择、筛选。
+    3. `C-x b`   Switch buffer，注意，切换缓冲区时，名称中的 * 符号也要输入。
+    4. `C-x C-b` List buffers，光标可能没有聚集到缓冲区列表，使用 `C-x o` 跳转；
+    5. `C-x Left/Right` 切换前后缓冲区。
+    6. `C-x k`   删除缓冲区，相当关闭文件，`kill-buffer`。
+    7. `C-x C-s` Save buffer to file
+    8. `C-x s`   Save some buffers to their files
+    9. `C-x u`   Undo，`undo`，也可以使用 `C/`。
+    9. `C-M _`  Redo，`undo-redo`，PC 键盘上需要 Shift 一起按。
+4. `C-g` 打断、取消一个命令的执行，`Esc Esc Esc` 更通用。
+5. `C-x C-c` Quit Emacs，`save-buffers-kill-terminal`，使用 `kill-emacs` 不提示保存。
+6. `M-&` Shell 对话，默认执行 `cmd.exe`，可配置 Shell File Name 为 bash。
+
+可以将 v 看作是箭头方向，`C-v` 就向下移动屏幕，使用 Alt 就变换成 `M-v` 反方向。
+移动光标同时按下 Shift 就可以选择文字内容，称为 Shift Selection。类似 Vim 编辑器，
+Emacs 中的命令也可以接收参数，比如先按住 `M` 再数字键输入数值，然后再按下其它
+组合键，b 或 v 等等，就可以实现指定数量的字符、行操作。
+
+设置命令参数更通用的方式是执行 `universal-argument`，`C-u`，例如，`C-u 8 C-f`
+会向前移动 8 个字符。
+
+Emacs 中的每一个缓冲区都记录各自的光标位置信息，这个坐标信息称为 Point。
+在执行复制、剪切（kill）、粘贴（Yanking）命令时，除了对当前选中的内容操作，
+在未选中内容时，还可以对光标当前位置、到已经标记的位置操作，Mark 与 Region。
+参考 12 The Mark and the Region。
+
+0. exchange-point-and-mark (`C-x C-x`)
+1. set-mark-command (`C-SPC`)
+2. mark-whole-buffer (`C-x h`)
+3. mark-defun (`C-M-h`)
+4. mark-end-of-buffer
+5. mark-end-of-sentence
+6. mark-page (`C-x C-p`)
+7. mark-paragraph (`M-h`)
+8. mark-sexp (`C-M-@`)
+9. mark-whole-buffer (`C-x h`)
+
+Appending Kills 算是一个高级剪贴功能，有了它就可以将分散的内容统一粘贴。
+由于 `append-next-kill` 需要和其它剪切命令紧密合作，所以只能在需要合并内容
+的剪切命令执行之前使用 `C-M-w`，否则内容不会被附加到 kill ring 缓冲区最后
+一条数据之后，而是产生新的记录。
+
+Emacs 内置了一个称为 Kill Ring 的列表，保存复制、剪切过的数据，最大数量默认
+设置为 120 条，使用 `C-h v kill-ring` 可以查看数据。粘贴这个动作称为 Yanking
+“拽回”。
+
+类似的还有 Mark Ring，这些都属性堆栈数据结构，Mark Ring 存放的是 Mark 坐标，
+`C-<SPC> C-<SPC>` 往里面添加坐标，`C-u C-<SPC>` 则取出坐标并设置光标，
+`set-mark-command-repeat-pop`。
+
+
+河内之塔 (Towers of Hanoi) 据说创世纪时 Benares 有一座波罗教塔，是由三支钻石所撑，
+开始时神在第一根棒上放置 64 个由上至下依次由小至大排列的金盘，并命令僧侣将
+所有的金盘从第一根石棒移至第三根石棒，并且遵守大盘子在小盘子之下的原则，
+若每日仅搬一个盘子，则当盘子全数搬运完毕之时，此塔将毁损、世界末日来临之时。
+https://www.masteringemacs.org/article/fun-games-in-emacs
+
+河内塔是一个经典的算法题目，使用分治法可解，分治的是精义在于“分工”，分而
+汉之。就像工厂流水线一样，上下游的工人不需要知道最终产品是什么，只需要知道
+当下的任务（工序）是做什么。理解这里涉及的任务“边界”很重要，以最简单的
+三个盘情况为例，假设 A B C 石柱，其中 B 柱堆放了三个盘。顶层任务（工厂订单）
+是将所有盘搬运到 C 柱，隐含意思是将最大的盘搬运到 C 柱。然后，进行第一次任务
+分解（拆分成流水线工作），也就是下线任务需要将上一层的盘搬运到 A 柱，这样
+才能上大盘搬运到 C 柱上。这一个过程是递归进行的，非常适合计算机处理。对于
+人类，不合适深度的递归，需要在实操上寻找逻辑：要搬运一个盘到目标柱子上，
+就需要判断其上层盘子的数量，如果是偶数就将最顶层的盘也搬到目标柱子上；如果
+是奇数，那么就将顶层盘子搬运到另一个柱子上。
+
+
+Emacs 程序运行时，图形界面显示出来的窗口（frame）可以分割成多个窗格（Window）。 
+每个窗格或者多个窗格可以对应同一个 buffer。所有打开的文件对应一个 buffer，但是
+buffer 可以是内存块，不一定和磁盘文件有关。关闭文件相当于删除当前文件的缓冲区。
+
+窗格底部的状态栏，Mode Line，包含了当前 buffer 对象的信息，以及一个上下文菜单。
+另外，Buffer name 属性也是一个交互 UI，使用不同的鼠标键点击就可以上下切换文件。
+
+
+缓冲区列表，`C-x C-b`，`list-buffers`，包含了一些信息，除了 buffer 名称，
+容量大小，和相应的文件名，有些是专用内存没有磁盘文件关联。
+
+列表第一列 CRM 代表 Current Readonly Modifed 三列信息，句点代表当前处于活动状态，
+右侧 * 表示这个缓冲区内存已经有改动未保存。中间 % 符号代表是一个只读的缓冲区，
+使用 `%` 或者 `C-x C-q` 切换读写状态。缓冲区窗格 Buffer Menu 可以修改这些状态。
+缓冲区列表不是实时更新的，可以使用 `g` 来刷新，使用 `T` 切换只显示磁盘文件。
+
+    20.2 Listing Existing Buffers
+    =============================
+
+     CRM Buffer                Size  Mode              File
+     . * .emacs                3294  Emacs-Lisp        ~/.emacs
+      %  *Help*                 101  Help
+         search.c             86055  C                 ~/cvs/emacs/src/search.c
+      %  src                  20959  Dired by name     ~/cvs/emacs/src/
+       * *mail*                  42  Mail
+      %  HELLO                 1607  Fundamental       ~/cvs/emacs/etc/HELLO
+      %  NEWS                481184  Outline           ~/cvs/emacs/etc/NEWS
+         *scratch*              191  Lisp Interaction
+       * *Messages*            1554  Messages
+
+还有 Mode 指示了 Emacs 处理这种文件的工作模式，每一种模式都代表了 Emacs 提供
+不同的功能，状态条 (Mode line) 右侧提供了相应的菜单。
+
+例如 Emacs-Lisp 表示这是一个 Lisp 代码文件。Lisp Interaction 指示这是一个交互式
+Lisp 代码，例如输入以下代码，然后执行 `C-M x` 就可以执行 Lisp 代码，或者
+使用 `C-j` 将求值结果插入当前文件：
+
+    (print (+ 123 456))
+
+
+类似的概念是 `minibuffer`，所谓小缓冲是指专用于命令参数的小块内存，它也可以编辑，
+只不过编辑的是命令的参数而不是文件数据，所以它只需要很小的内存。
+
+
+通过“minibuffer”，Emacs 命令可以读取复杂的参数，每次执行命令前用户输入的参数
+，比如文件路径、文件名、命令名，甚至是 Lisp 表达式都可以作为命令的参数，都可以
+进行编辑，按 RET 确认后即表示完成小缓冲的编辑，提交给命令。由于 `RET`、`TAB`
+或者 `SPC`、`?` 等等按键已经绑定功能，它们通常用于自动完成。所以，为了在编辑
+命令参数时输入这些字符，可以使用 `C-q C-j` 这样的形式输入一个换行符号，`C-q`
+执行 `quoted-insert`，`C-j` 代表一个 control character，等价换行符号。
+
+也可以使用 `C-o`（`open-line`）。制表符号和 ? 号直接直接在 `C-q` 后面输入。
+
+小缓冲经常使用备选列表，可以使用以下操作（9 The Minibuffer 9.4.2 Completion Commands）
+
+1. `M-p` (`previous-history-element`) 移动到上一条 minibuffer 历史记录；
+2. `M-n` (`next-history-element`) 移动到下一条 minibuffer 历史记录；
+3. `<UP>` 与 `<DOWN>` 类似以上两条，但优先使用备选项目。(`previous-line-or-history-element` and `next-line-or-history-element`) ；
+4. `M-r REGEXP <RET>` 使用正则筛选历史早期条目 (`previous-matching-history-element`)。
+5. `M-s REGEXP <RET>` 使用正则筛选历史后期条目 (`next-matching-history-element`)。
+6. `<TAB>` (`minibuffer-complete`) 自动完成，尽量匹配用户输入的内容；
+7. `<SPC>` (`minibuffer-complete-word`) 自动完成一个词，不支持有空格的参数，如文件名；
+8. `<RET>` (`minibuffer-complete-and-exit`) 自动完成，将第一个备选参数提供给命令；
+9. `?` (`minibuffer-completion-help`) 显示后有备选项。
+
+Emacs 有一个 picture mode 方便编辑 ASCII 图形，使用 `M-x edit-picture` 激活。
+编辑完成后使用 `C-c C-c` 退回原来的 major mode。Picture mode 状态下大部分
+按键都重新绑定，普通的字母输入使用覆盖方式，退格命令也并不是删除，而是
+使用空格替换掉原来的字符。可以设置光标在输入字符后的运动方向，而不是默认
+向右移动。参考文档 43 Editing Pictures。
+
+
+Emacs Project & Packages
+========================================================
+
+Emacs 集成了 GDB 调试器，这是一个复杂的工具，应该随手准备 GDB 手册。好在 Texinfo
+文档随工具一起安装，只需要使用 info 命令打开文档，并且可直接定位到指定的 @Node，
+例如，查询 starti 指令的使用，就可以直接通过 Texiinfo 文档的索引数据定位到章节：
+
+```sh
+$ info gdb -n "Starting"
+$ info gdb -n "starti"
+
+4.2 Starting your Program
+
+'starti'
+     The 'starti' command does the equivalent of setting a temporary
+     breakpoint at the first instruction of a program's execution and
+     then invoking the 'run' command.  For programs containing an
+     elaboration phase, the 'starti' command will stop execution at the
+     start of the elaboration phase.
+```
+
+info 阅读器与 Emacs 文档使用同样的 Texinfo 文档格式，它们的操作也基本一致。
+为了快速定位信息，应该熟练使用以下 info 常用快捷键：
+
+01.  `g` 跳转到到指定 Texinfo Node，配合 Tab 可以显示文档现有的 @Node 名称列表；
+02.  `/` 或者 `?` 执行正则搜索，`{` 和 `}` 继续进行前、后搜索；
+03.  `i` ('index-search') 搜索 Texinfo 索引数据，使用 `<Tab>` 获取备选列表；
+04.  `I` ('virtual-index') 虚拟索引，查找出匹配的索引条件组合列表出来。
+05.  `,` ('next-index-match')  跳转到下一个匹配的索引条目，配合 `i` 命令使用；
+06.  `l` 历史回退，`r` 历史前进，`L` 历史记录列表；
+07.  `t` 打开 Texinfo 文档的顶级节点，@Node top；
+08.  `T` 打开 Texinfo 目录页面，Table of Contents；
+09.  `C-g` ('echo-area-abort') 撤消、退出当前操作；
+10.  `M-x <TAG>` 打开可执行的扩展命令列表；
+11.  `M-x index-apropos` 翻查所有 Texinfo 文档，收集相关的索引数据；
+12.  `C-x C-b` ('list-visited-nodes') 弹窗显示历史浏览记录，`q` 或者 `C-g` 取消；
+
+
+GDB 启动调试程序前，应该使用带有调试符号表信息的程序文件，也就是使用 `gcc -g` 
+编译得到的二进制可执行程序，如果使用了 `-O` 或者 `-s` 优化选项，调试符号会被
+清除，GDB 加载程序时
+
+
+```sh
+# Command line
+$ gdb -i=mi -q
+$ gdb --args ./exe argument1 argument2
+
+# GDB prompt
+$ gdb
+(gdb) file exe
+(gdb) run argument1 argument2
+(gdb) starti argument1 argument2
+(gdb) set args argument1 argument2
+(gdb) run 
+```
+
+Emacs 集成了 Gnus，这是一个可以用于收发电子邮件、新闻组 (Usenet) 的程序包。
+由于 Emacs 运行于单线程，恰巧 Gnus 会在网络 I/O 上花费大量的时间，这可能
+导致运行 Gnus 的时候使 Emacs 卡顿以致无法动弹、假死掉。最好重开一个 Emacs 
+（专用进程）用来处理类似的事情。参考手册 35 Email and Usenet News with Gnus。
+
+
+Emacs 集成了 Eshell，使用 ELisp 编写的命令行交互程序，REPL (Read-Eval-Print Loop)，
+它不直接调用系统内核功能，只是基于 ELisp 标准库提供服务，因此你可以在 EShell 
+中调用 Lisp 函数或者使用变量，EShell 定义了一系列内置命令，包含 bash 常用功能。
+Eshell 按以下顺序定位命令，参考 eshell.info 手册：
+
+  1. As a command alias (*note Aliases::)
+  2. As a built-in command (*note Built-ins::)
+  3. As an external program
+  4. As an ordinary Lisp function
+
+```lisp
+    ~ $ echo $user-login-name
+    OCEAN
+    ~ $ (format "hello, %s" user-login-name)
+    hello, OCEA
+
+     ~ $ echo (list 1 2 3)
+     (1 2 3)
+
+     ~ $ printnl (list 1 2) 3
+     1
+     2
+     3
+```
+
+Eshell 定义了以下 Virtual Targets (映射设备名到函数)：
+
+1. `/dev/null` Does nothing with the output passed to it.
+2. `/dev/eshell` Writes the text passed to it to the display.
+3. `/dev/kill` Adds the text passed to it to the kill ring.
+4. `/dev/clip` Adds the text passed to it to the clipboard.
+
+
+Emacs 集成了 TRAMP （Transparent Remote (file) Access, Multiple Protocol），透明远程编辑。
+基于 FTP/SCP/SSH 安全连接，使用 TRAMP 打开文件时，`C-x C-f`，指定远程路径，
+使用 `/ssh:user@address:/path-to-file` 这样的路径，Emacs 根据服务地址和用户账户
+访问远程服务器的相应文件或目录。服务器名称可以配置在 `~/.ssh/config` 文件中，
+文件路径时就可以指定主机名称，`/ssh:hostname:`。
+
+```sh
+    19.15 Remote Files
+    ==================
+     /METHOD:HOST:FILENAME
+     /METHOD:USER@HOST:FILENAME
+     /METHOD:USER@HOST#PORT:FILENAME
+```
+
+Emacs 会按以下逻辑顺序确定远程编辑使用的协议：
+
+  1. If the host name starts with ‘ftp.’ (with dot), Emacs uses *FTP*.
+  2. If the user name is ‘ftp’ or ‘anonymous’, Emacs uses *FTP*.
+  3. If the variable ‘tramp-default-method’ is set to ‘ftp’, Emacs uses *FTP*.
+  4. If ‘ssh-agent’ is running, Emacs uses *scp*.
+  5. Otherwise, Emacs uses *ssh*.
+
+在系统中正常工作的 SSH 服务，Emacs Tramp 访问时依然可能产生以下问题：
+
+    ➊ Host key verification failed
+    ➋ ssh_askpass: posix_spawn: No such file or directory
+
+触发➊这种错误原因有二：没有合适的公钥登录，没有配置好密码登录。
+
+触发➋这种错误原因有二：没有合适的公钥登录，没有配置好密码登录。
+
+为了查看连接过程细节，使用 `ssh -v user@ip` 命令，-v 参数表示打印细节信息。
+OpenSSH 登录流程参考官方文档：RFC 4252 SSH Authentication Protocol，涉及三种验证形式：
+
+7. Public Key Authentication Method: "publickey"
+8. Password Authentication Method: "password"
+9. Host-Based Authentication: "hostbased"
+
+以下是一个使用 publickey + password 双重登录机制的成功连接的过程细节说明：
+
+https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/
+
+Key types 定义在 enum sshkey_types：
+KEY_RSA, // id_rsa has type 0
+KEY_DSA, // id_dsa has type 1, but as you have no id_dsa key file, -1 is used
+KEY_ECDSA, // id_ecdsa has type 2
+```sh
+$  ssh -v jeango@localhost
+OpenSSH_for_Windows_7.7p1, LibreSSL 2.6.5
+debug1: Reading configuration data __PROGRAMDATA__\\ssh/ssh_config
+debug1: Connecting to localhost [::1] port 22.
+debug1: Connection established.
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_rsa type 0
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_rsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_dsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_dsa-cert type -1
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_ecdsa type 2
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_ecdsa-cert type -1
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_ed25519 type 3
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_ed25519-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_xmss type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:\\Users\\OCEAN/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_for_Windows_7.7
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
+debug1: match: OpenSSH_8.2p1 Ubuntu-4ubuntu0.5 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to localhost:22 as 'jeango'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: rsa-sha2-512
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ssh-rsa SHA256:Kzw79sZsSxXCvx1UeGQEXhObYUApk3VdtV65phuWNgo
+debug1: Host 'localhost' is known and matches the RSA host key.
+debug1: Found key in C:\\Users\\OCEAN/.ssh/known_hosts:14
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,password
+debug1: Next authentication method: publickey
+debug1: Offering public key: RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ C:\\Users\\OCEAN/.ssh/id_rsa
+debug1: Server accepts key: pkalg rsa-sha2-512 blen 407
+warning: agent returned different signature type ssh-rsa (expected rsa-sha2-512)
+debug1: Authentications that can continue: publickey,password
+debug1: Offering public key: RSA SHA256:YM8iJvccRJ2Z9u6q0+hIU5lYNJUhl9peqMYw6YMh22k id_rsa
+debug1: Authentications that can continue: publickey,password
+debug1: Trying private key: C:\\Users\\OCEAN/.ssh/id_dsa
+debug1: Offering public key: ECDSA SHA256:iyWSeGrUJSfeISO4EvuhU/+gNTlzWm5m5kKmMsoMpDg C:\\Users\\OCEAN/.ssh/id_ecdsa
+debug1: Authentications that can continue: publickey,password
+debug1: Offering public key: ED25519 SHA256:IN5O4aMLHewRjrYZfawK86soOuuevosxMG5RGXAKYkk C:\\Users\\OCEAN/.ssh/id_ed25519
+debug1: Authentications that can continue: publickey,password
+debug1: Trying private key: C:\\Users\\OCEAN/.ssh/id_xmss
+debug1: Next authentication method: password
+debug1: read_passphrase: can't open /dev/tty: No such file or directory
+jeango@localhost's password:
+debug1: Authentication succeeded (password).
+Authenticated to localhost ([::1]:22).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+GetConsoleMode on hOutputConsole failed with 6
+
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+exit
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+Connection to localhost closed.
+Transferred: sent 3908, received 5036 bytes, in 2.9 seconds
+Bytes per second: sent 1333.3, received 1718.2
+debug1: Exit status 0
+```
+
+Emacs 集成了插件安装、管理工具，提供了一系列前缀为 package 的命令，例如 
+`list-packages` 或者 `package-install`。插件安装包托管服务器是 
+[MELPA (Milkypostman’s Emacs Lisp Package Archive)](https://melpa.org/)
+
+程序包默认安装于 `~/.emacs.d/elpa/`，可以修改 `package-user-dir` 变量来改变默认路径。
+目录命名使用 NAME-VERSION 这样的规则。
+
+To use the MELPA repository, you'll need an Emacs with package.el and TLS support, ie. Emacs 24.1 or greater. To test TLS support you can visit a HTTPS URL, for example with M-x eww RET https://wikipedia.org RET.
+
+ 
+``
+
+```sh
+    Failed to verify signature archive-contents.sig:
+    No public key for 645357D2883A0966 created at 2023-11-10T06:05:08+0800 using EDDSA
+    No public key for 066DAFCB81E42C40 created at 2023-11-10T06:05:08+0800 using RSA
+    Command output:
+    gpg: keyblock resource '/mingw64/bin/c:/Users/OCEAN/AppData/Roaming/.emacs.d/elpa/gnupg/pubring.kbx': No such file or directory
+    gpg: Signature made Fri Nov 10 06:05:08 2023    
+    gpg:                using RSA key C433554766D3DDC64221BFAA066DAFCB81E42C40
+    gpg: Can't check signature: No public key
+    gpg: Signature made Fri Nov 10 06:05:08 2023    
+    gpg:                using EDDSA key 0327BE68D64D9A1A66859F15645357D2883A0966
+    gpg: Can't check signature: No public key
+```
+
+一些编程扩展包参考：
+
+1. 工程文件、符号跳转插件： https://github.com/bbatsov/projectile
+2. Emacs LSP Mode 智能提示：https://emacs-lsp.github.io/lsp-mode/
+3. Doom Emacs (集成 LSP 的配置)：https://github.com/doomemacs/doomemacs
+4. Cargo mode for Emacs（Rust 语言插件）：https://github.com/kwrooijen/cargo.el
+
+    M-x package-install RET cargo RET
+
+5. company-mode 自动完成：http://company-mode.github.io
+
+    M-x package-install RET company RET
+
+6. company-box (A company front-end with icons) https://github.com/sebastiencs/company-box
+
+    ```lisp
+    ;; With use-package:
+    (use-package company-box
+      :hook (company-mode . company-box-mode))
+
+    ;; Or:
+    (require 'company-box)
+    (add-hook 'company-mode-hook 'company-box-mode)
+    To customize:
+    M-x customize-group [RET] company-box [RET]
+    ```
+
+7. GDScript mode for Emacs https://github.com/godotengine/emacs-gdscript-mode
+
+    ```lisp
+    ; ## install via MELPA
+    ; The package is available in the [MELPA](https://melpa.org/#/) package archive. 
+    ; Once you [set up MELPA](https://melpa.org/#/getting-started) you can install the package from Emacs:
+    ; M-x package-install gdscript-mode
+    ; Then, in your init.el file, you can require the package:
+    (require 'gdscript-mode)
+
+    ; ## Installing manually
+    (add-to-list 'load-path "/path/to/gdscript-mode")
+    (require 'gdscript-mode)
+
+    ; To find all GDScript-mode settings, press `M-x customize` and search for "gdscript".
+    ; To find extends use the `M-x gdscript-godot-*` commands.
+    ```
+
+为了让 Emacs 工作区处于最后退出时的布局状态，如果打开的文件、窗格公位置等，可以
+使用 Emacs Sessions，会话就是保存用户工作区状态数据的一种机制。可以直接在初始化脚本
+中设置如下选项，也可以勾选 Options ⇒  Save State between Sessions（保存会话状态），或者
+Save Place in File between Sessions（）。
+
+```sh
+ '(desktop-save-mode t)
+ '(save-place-mode t)
+```
+
+退出 Emacs 时就会将会话数据写入 .desktop 文件，路径由 `desktop-path` 变量指定，默认
+值等于 `user-emacs-directory`，也就是 "~/.emacs.d/"。Emacs 会按 `desktop-auto-save-timeout`
+指定的时间间隔自动保存会话变更的状态。利用自动保存功能，还可以恢复文件数据，
+自动保存文件命名为 `#name#`，执行 `recover-session` 命令进行恢复。
+
+参考手册 45 Saving Emacs Sessions
+
+
+最新版 Emacs 29 集成了 LSP (Language Server Protocl) 智能提示服务：Eglot (lsp client)，详情
+信息参考 eglot.info 手册。Eglog 取名自 Emacs polyGLOT，即多语言功能支持。如果当前系统
+安装了 [LLVM clangd](https://clangd.llvm.org/)，那么打开 C/C++ 源代码文件时，激活 Eglot
+功能，它就会自动检测到 clangd，并且提供智能代码提示服务。将光标移动到代码中的函数、
+变量等符号上面，Emacs 编辑器就会将当前编辑文件的信息，包括光标位置，告诉 clangd
+服务程序，它会对文件进行语法解析，并返回相关符号的上下文信息。Emacs 接收到这些
+信息后，就会在提示区（界面最底部）显示出来。
+
+如果使用旧版 Emacs，可能还在使用 lsp-mode 或者 company-mode。其中，lsp-mode 配置复杂，
+有些功能累赘，如果不手动关掉，会造成性能上的问题。可以自行配置最新的 Eglot，
+参考以下 Clangd 文档给出的脚本设置 `eglot-server-programs`，提示 Eglot 找到服务程序：
+
+```sh
+    # https://github.com/joaotavora/eglot
+    # https://github.com/llvm/clangd-www
+    # Install eglot with M-x package-install RET eglot RET.
+    # Add the following to ~/.emacs to enable clangd:
+    (require 'eglot)
+    (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+    (add-hook 'c-mode-hook 'eglot-ensure)
+    (add-hook 'c++-mode-hook 'eglot-ensure)
+```
+
+现代语言基本上都会提供 LSP 客户端实现，例如 Rust analyzer、Java jdtls、Kotlin kotlinls、
+Godot GDScript 等等，TypeScript 自然是不在话下，它似乎是 LSP 同一个团队的产品。
+
+Eglot 代码补全、错误提示、代码跳转功能都基于 Emacs 原生功能实现，不像 lsp-mode 
+引入一大堆依赖，而且代码清晰可读性强。Eglot 运行明显比 lsp-mode 流畅，缺点是只支持
+标准 LSP 协议，对于各个语言服务的扩展协议，需要自行解决。
+
+使用 `C-M-i` 执行 complete-symbol 命令，获取自动完成提示信息。
+
+
+Emacs 工程管理功能支持，参考手册 29.2 Working with Projects。
+
+EDE (Emacs Development Environment) 是用于简化工程管理的全局工具包，支持 Emacs 项目
+构建、调试功能，基于 Make 实现 Emaca IDE (Integrated Development Environment) 开发环境。
+
+EDE 本身作为 global minor mode 方式实现，使用 `M-x global-ede-mode` 启用它，或者
+通过工具菜单激活它：Tools ⇒ Project Support (EDE)，也可以修改初始化 lisp 脚本：
+
+     (global-ede-mode t)
+
+注意：Tools ⇒ Project 菜单是要配合 EDE 功能使用的，EDE 加载工程后，会根据工程
+目录路径来识别文件的归属。可以加载多个工程目录，每个文件都对应了它自己的 
+current direcctory，这个路径会用于检查其所属的工程。使用 project-dired (`C-x p D`) 
+打开工程目录后，才会加载 Dired (Directory Editor) 模式提供的 Project 菜单。
+
+使用 Tools 的菜单切换工程，`C-x p p`，使用 `<TAB>` 显示的备选列表数据来自临时
+缓冲文件 ~/.emacs.d/projects，对应变量 `project-list-file`。如果当前切换的路径没有
+使用 EDE Load Project 功能加载，那么项目路径就会从临时文件中移除。这个临时列表
+中没有包含的工程路径，在切换项目时就需要手动指定，然后就会记录到临时文件中。
+EDE 加载的工程则会记录在初始化脚本中的 `ede-project-directories`，数据是分散的。
+这些操作暴露了 Emacs 功能设计上的缺陷，会引入迷惑性操作。
+
+     '(ede-project-directories '("c:/dl/pl/emacs" more... ))
+
+通常 Emacs 会自动管理项目登记列表，可以手动修改 `project-list-file` 列表，此变量所在
+脚本文件可以通过 `M-h v project-list-file` 查询，可以使用 `M-x project-forget-project`
+手动清除记录。参考文档 29.2.4 Managing the Project List File
+
+打开过的项目可能会被记录在 ~/.emacs.d/ede-projects.el 缓存列表中，切换
+项目时 `C-x p p` 提供相应的项目备选列表。
+
+工程相关扩展命令，find 直接查找文件名，regexp 根据文件内容查询文件：
+
+01. project-compile (`C-x p c`)
+02. project-switch-project (`C-x p p`)
+03. project-vc-dir (`C-x p v`)
+04. project-find-dir (`C-x p d`)
+05. project-find-file (`C-x p f`)
+06. project-find-regexp (`C-x p g`)
+07. project-dired (`C-x p D`)
+08. project-or-external-find-regexp (`C-x p G`)
+09. project-query-replace-regexp (`C-x p r`)
+10. project-async-shell-command (`C-x p &`)
+11. project-eshell (`C-x p e`)
+12. project-shell (`C-x p s`)
+13. project-shell-command (`C-x p !`)
 
 创建项目，设置类型时可以选择 Automake 或者 Make，前者工具齐全但臃肿，后者小巧。
 设置工程名称后就会在项目目录下生成 Project.ede 脚本（Elisp）：
@@ -160,12 +1114,69 @@ $ cat Project.ede
 ```
 
 使用 EDE Development ⇒ Build Project 菜单完成项目的构建，包括打包项目源文件。
-如果此菜单显示灰色不可用状态，可以考虑重新加载项目。构建过程中会自动生成
-Makefile 脚本，然后就可以使用 Tools ⇒ Project ⇒ Compile ... 命令 `C-x p c` 执行
-编译，它会调用 make 去执行构建过程。
+如果当前活动的文件不属于工程，此菜单显示灰色不可用状态。Emacs 每个窗格都与
+当前文件所在目录作为工作目录，使用 shell `pwd` 命令就可以显示其目录路径。
 
-切换项目 Tools ⇒ Project ⇒ Switch Project `C-x p p` 会提供选择当前记录在档的项目，
-使用 TAB 补全选择，或者输入 `...` 回车后加载项目目录。
+使用 EDE Development 菜单构建工程过程中会自动生成 Makefile 脚本，然后就可以使用 
+Tools ⇒ Project ⇒ Compile ... 命令 `C-x p c` 执行编译，它会调用 make 去执行
+构建过程。
+
+切换项目：Tools ⇒ Project ⇒ Switch Project `C-x p p`，使用 `<Tab>` 获取备选项目路径，
+如果当前已有记录在档的项目，或者输入 `...` 回车后加载项目目录。如果选择或指定的
+目录没有包含支持的项目文件，比如 .ede 文件，那么就会再次提示用户指定一个路径。
+
+使用 git 进行项目代码的版本管理也很方便，执行 `project-vc-dir` 就可以打开处于
+版本管理状态下的目录，并且 VC dir mode 提供了 VC-Dir 菜单进行版本管理的操作。
+比如，在某个文件上按 `G` 就可以将文件登记到 .gitingore 清单文件中，Git 就不会
+对这些标记过的文件进行管理。执行 `g` 刷新文件列表，文件状态也相应更新为
+`ignored` 状态：
+
+```sh
+VC backend : Git
+Working dir: c:/dl/em/
+Branch     : master
+Stash      : Nothing stashed
+
+                         ./
+     ignored             #main.c#
+     ignored             .deps/
+     unregistered        .gitignore
+     ignored             .gitignore~
+     ignored             HelloC-1.0.tar.gz
+  *  added               Makefile
+  *  added               Project.ede
+     ignored             hello.exe
+     unregistered        main.c
+     ignored             main.c~
+     ignored             main.o
+                         .deps/
+```
+
+Git 忽视清单文件 .gitignore 中的记录参考：
+
+```sh
+/#*#
+*.tar.gz
+*.exe
+*~
+*.o
+.deps/
+```
+
+所有 `unregistered` 状态的文件还未与 Git 数据库产生关系，只有先注册它们后续才可以
+添加到 Git 数据库中管理。基本操作：`m` Mark ⇒ `i` Register，或者执行 `v` Check In。
+点击这些文件的状态条，前面会出现 * 符号，表示处于标记状态 (Marked)，然后对这些
+标记过的文件进行操作。
+
+注意，vc-dir-git-mode 可能没有提供完整的 Git 工作命令，比如 commit，就需要配合命令
+行来操作 Git 的版本更新提交等操作。
+
+版本管理内容参考手册 29.1 Version Control，或者 Git 命令文档。
+
+
+
+Standalone info reader
+========================================================
 
 Emacs 其中一个微不足道的功能是浏览 info 文件。`info` 命令只是一个独立阅读器。
 
@@ -260,6 +1271,12 @@ Sublime Text 中还有一个 Incremental Find 功能，它有点类似模糊搜�
 很多用户称之 Emacs 操作系统，因为它确实强大，超过编辑器本身的内涵，既可以
 编辑文件，又可以处理目录，浏览 Web 页面，总之它不是一个简单的 IDE。
 
+就目前来看，得益于后发优势，Sublime Text 在构架设计上赢得一些优势，使得它
+的插件机制机制非常容易对软件主体进行功能扩展。其中，multiple cursor 多选区
+功能是这些软件中实现最好的，并且通过编写插件 [RegexpSelection](sublime.md#__RegexpSelection) 
+实现了正则表达式选区功能，这极大地方便了文档、代码的编辑！
+Emacs 的多选实现插件（存在插件兼容问题）：https://github.com/magnars/multiple-cursors.el
+
 Emacs 28.1 has a wide variety of new features, including:
 
 1. Native compilation of Lisp files
@@ -296,19 +1313,141 @@ TUI 界面顶行内容显示 `Next`、`Prev`、`Up`，对应下一页、上一�
 使用按键 [n] 翻到下一页，[p] 返回上一页，[u] 返回上一层。C-h 获得帮助。
 使用 `[` 和 `]` 在文档节点间跳转。
 
-要在主题之间频繁跳转，可以记住如下命令键：
+info 阅读器与 Emacs 文档使用同样的 Texinfo 文档格式，它们的操作也基本一致。
+Emacs 查看帮助文档时，状态栏中显示 `(info)`，点击它可以弹出快捷键菜单。
 
- *  `q`：退出 info 界面。
- *  `h`：调出 info 教程。
- *  `d`：回到 info 的初始界面，directory node。
- *  `m`：指定菜单名，选择另外一个节点。
- *  `u`：转到上一级主题。
- *  `n`：跳转到该节点的下一个节点。
- *  `p`：跳转到该节点的上一个节点。
- *  `f`：跟进交叉引用的主题，Cross-reference 跳转。
- *  `l`：进入该窗口中的最后一个节点。
- *  `TAB`：跳转到该窗口的下一个超文本链接。
- *  `RET`：进入光标处的超文本链接。
+以下是 info 常用的快捷键：
+
+10. `h` 打开 info 阅读器的帮助文档；
+11. `H` 打开 info 阅读器的主页面；
+12. `m` 文档菜单条目跳转；
+01. `<SPC>` and `<DEL>` (or `<Space>` and `<Backspace>`)  进行翻页；
+02. `n` ('next-node') 跳转到下一个节点，节点内容如标题 'Next' 指示；
+03. `p` ('prev-node') 跳转到上一个节点，节点内容如标题 'Prev' 指示；
+04. `u` ('up-node') 跳转到上一级节点，节点内容如标题 'Up' 指示；
+05. `g` 跳转到到指定 Texinfo Node，配合 Tab 可以显示文档现有的 @Node 名称列表；
+06. `/` 或者 `?` 执行正则搜索，`{` 和 `}` 继续进行前、后搜索；
+07. `i` ('index-search') 搜索 Texinfo 索引数据，使用 `<Tab>` 获取备选列表；
+08. `I` ('virtual-index') 虚拟索引，查找出匹配的索引条件组合列表出来。
+09. `,` ('next-index-match')  跳转到下一个匹配的索引条目，配合 `i` 命令使用；
+13. `l` 历史回退，`r` 历史前进，`L` 历史记录列表；
+14. `t` 打开 Texinfo 文档的顶级节点，@Node top；
+15. `T` 打开 Texinfo 目录页面，Table of Contents；
+16. `C-g` ('echo-area-abort') 撤消、退出当前操作；
+17. `M-x <TAG>` 打开可执行的扩展命令列表；
+18. `M-x index-apropos` 翻查所有 Texinfo 文档，收集相关的索引数据；
+19. `C-x C-b` ('list-visited-nodes') 弹窗显示历史浏览记录，`q` 或者 `C-g` 取消；
+
+甚至可以直接在命令运行是指定要打开的文档、以及 Node：
+
+```sh
+Examples:
+  info                              show top-level dir menu
+  info info-stnd                    show the manual for this Info program
+  info emacs                        start at emacs node from top-level dir
+  info emacs buffers                select buffers menu entry in emacs manual
+  info emacs -n Files               start at Files node within emacs manual
+  info '(emacs)Files'               alternative way to start at Files node
+  info --subnodes -o out.txt emacs   dump entire emacs manual to out.txt
+  info -f ./foo.info                show file ./foo.info, not searching dir
+
+$ info find -n Actions
+```
+
+Sublime Text 社区目前还没有为 Texinfo 格式提供支持。
+
+专业的文档格式转换工具，[Pandoc](https://pandoc.org/) 可以支持多种格式的互转换：
+
+    (← = conversion from; → = conversion to; ↔︎ = conversion from and to)
+
+    Lightweight markup formats
+    ↔︎ Markdown (including CommonMark and GitHub-flavored Markdown)
+    ↔︎ reStructuredText
+    → AsciiDoc
+    ↔︎ Emacs Org-Mode
+    ↔︎ Emacs Muse
+    ↔︎ Textile
+    → Markua
+    ← txt2tags
+
+    Ebooks
+    ↔︎ EPUB version 2 or 3
+    ↔︎ FictionBook2
+
+    Documentation formats
+    → GNU TexInfo
+    ↔︎ Haddock markup
+
+    TeX formats
+    ↔︎ LaTeX
+    → ConTeXt
+
+    XML formats
+    ↔︎ DocBook version 4 or 5
+    ↔︎ JATS
+    ← BITS
+    → TEI Simple
+    → OpenDocument XML
+
+
+Texinfo 文档规范中使用 `@Node` 来定义文件节点，顶层节点为 `@Node top`，节点概念
+概念可以理解为书籍中的一个章节，甚至一个小节也可以定义为 @Node。这些节点组成
+目录树，并且在 @Menu 块中逻列，菜单条目格式为 `* Node Name::`，行首使用 * 开头。
+节点名称可以带空格，使用双冒号结束，后面跟节点介绍、描述信息。以下 Texinfo 内容
+截取自文档 2.4 Short Sample，仅供参考。
+
+     @node Top
+     @top GNU Sample
+
+     This manual is for GNU Sample
+     (version @value{VERSION}, @value{UPDATED}).
+
+     @menu
+     * First Chapter::    The first chapter is the
+                           only chapter in this sample.
+     * Index::            Complete index.
+     @end menu
+
+
+     @node First Chapter
+     @chapter First Chapter
+
+     @cindex chapter, first
+     This is the first chapter.
+
+Texinfo 使用索引来快速定位 @Node 所在的位置，索引目标位置主要有两种形式：文档行号
+和字节偏移。当执行 texi2any 或者 makeinfo 命令转译文档为 info 格式输出，产生索引数据，
+形式参考如下，其中 Tab Table 是一种记录索引的形式，它在索引条目（Node）后使用一个
+控制字符 0x7f 分隔符，后续是目标所在的字节数偏移：
+
+    Key (Character) Index
+    * global mark ring:                      Global Mark Ring.   (line    6)
+
+    Variable Index
+    * mark ring:                             Mark Ring.          (line    6)
+
+    Concept Index
+    Tag Table:
+    Node: Mark Ring<0x7f>219617
+
+在文档内容中，使用 `*note Node Name::` 这样的格式进行交叉引用，其中 *note* 这个是
+提示词，可以省略，或者选择其它词。
+
+    The Mark and the Region
+
+    * Setting Mark::        Commands to set the mark.
+    * Marking Objects::     Commands to put region around textual units.
+    * Using Region::        Summary of ways to operate on contents of the region.
+    * Mark Ring::           Previous mark positions saved so you can go back there.
+    * Global Mark Ring::    Previous mark positions in various buffers.
+    * Shift Selection::     Using shifted cursor motion keys.
+    * Disabled Transient Mark:: Leaving regions unhighlighted by default.
+
+    Many commands that insert text, such as ‘C-y’ (‘yank’), set the mark
+    at the other end of the inserted text, without activating it.  This lets
+    you easily return to that position (*note Mark Ring::).  You can tell
+    that a command does this when it shows ‘Mark set’ in the echo area.
+
 
 交叉引用是指当前主题中引用了其它页面的中概念、信息，支持交叉引用是现代电子
 文档信息检索（Information Retrieval）的一项基本能力。Texinfo 支持多种交叉引用的
@@ -320,6 +1459,169 @@ TUI 界面顶行内容显示 `Next`、`Prev`、`Up`，对应下一页、上一�
 总之：GNU Emacs 和 Texinfo 作为开源技术，真真的好用💖。同类的开源文档文档
 还有 reStructuredText，LaTeX 都是杰出的开源文档技术，永远值得依赖，是建设自有
 数字图书馆的最佳选择。开源才直接获取一手信息，拒绝做二手信息消费者！
+
+
+Man Page
+========================================================
+
+Emacs 集成了 WoMan 工具包，用于替换 man 工具浏览早期的 Linux 内置文档。
+执行 `M-x woman-mini-help` 获取基本命令的使用帮助，或者执行 `woman-find-file` 
+命令打开指定的 man 手册文件。WoMan 完全支持 man 格式，并且不会使用连字符
+作为换行标记，因此也会产生单词切割的现象。缺点是需要指定文件的全路径。
+
+WoMan 提供了三种用户接口来查找、格式化 man 文档：
+
+1. • a topic interface similar to that provided by the standard Emacs ‘man’ command;
+2. • a family of filename interfaces analogous to the standard Emacs ‘view-file’ command;
+3. • an automatic interface that detects the file type from its contents.  (under test)
+
+使用中发现，Emacs 提供的 `man` 命令并不能找到文档，有可能是 Msys2 平台兼容问题。
+参考 woman.info 手册 5.1 Interface Options，可以配置以下参数，告诉 WoMan 如何查找文档，
+并且执行 `C-u M-x woman` 重建文档缓存：
+
+*  *woman-manpath* a list of directories that contain _directories of_ man files
+*  *woman-path* a list of directories that contain man files _directly_.
+*  *woman-cache-level* A positive integer representing the level of topic caching.
+*  *woman-cache-filename* Either a string representing the full pathname of the WoMan 
+    directory and topic cache file, or ‘nil’.
+
+另外，根据 Emacs EShell 的程序逻辑，Shell 环境提供的外部命令可以作为一个备用，
+因此，Msys2 环境中安装 man 命令，这样总可以保证可以查询 man page。
+
+
+根据 GNU Coding Standards 所述，Man Page 是 GNU 项目的备选文档，不是必要的。
+作为旧的文档系统，Man 手册结构比起 Texinfo 差了不止一个层次，没有索引，
+也基本上没有目录。
+
+`man` 命令本身是一个简单的排版工具，它将 man.N 文档格式化排版后，N 是一组数字，
+用于划分文档的归类，基本的划分标准如下：
+
+1.  Executable programs or shell commands
+2.  System calls (functions provided by the kernel)
+3.  Library calls (functions within program libraries)
+4.  Special files (usually found in /dev)
+5.  File formats and conventions eg /etc/passwd
+6.  Games
+7.  Miscellaneous  (including  macro  packages  and  conventions), e.g. man(7), groff(7)
+8.  System administration commands (usually only for root)
+9.  Kernel routines [Non standard]
+
+手册中的 SEE ALSO 环境会按 section 编号给出参考文档，例如：
+
+    apropos(1), groff(1), less(1), manpath(1),  nroff(1),  troff(1),  whatis(1),  zsoelim(1),
+    manpath(5), man(7), catman(8), mandb(8)
+
+man 手册系统涉及以下配置和手册存储默认路径：
+
+1. `/etc/manpath.config` man-db configuration file.
+2. `/usr/share/man` A global manual page hierarchy.
+
+执行 man 命令获取指定命令的参考手册，一般不需要指定 section 编号，它按默认顺序
+从头到尾检查现有的文档。可以手动修改 `/etc/manpath.config` 配置文件，指定
+`$MANSECT` 中的搜索优先级排序：
+
+```sh
+    # The order of sections to search 
+
+       1 n l 8 3 2 3posix 3pm 3perl 3am 5 4 9 6 7
+
+    # SYNOPSIS
+    man [man options] [[section] page ...] ...
+    man -k [apropos options] regexp ...
+    man -K [man options] [section] term ...
+    man -f [whatis options] page ...
+    man -l [man options] file ...
+    man -w|-W [man options] page ...
+```
+
+再通过 `less` 命令打印出来，供用户查阅、浏览，所以使用 man 格式的手册文档，还
+必需掌握 less 命令的常用的操作。掌握其中的正则搜索功能有利于快速定位关键信息，
+例如，`^[A-Z]+$` 这个正则可以匹配 man 文档的标题，标题内容约定全使用大写字母：
+
+
+      e  ^E  j  ^N  CR  *  Forward  one line   (or N lines).
+      y  ^Y  k  ^K  ^P  *  Backward one line   (or N lines).
+      f  ^F  ^V  SPACE  *  Forward  one window (or N lines).
+      b  ^B  ESC-v      *  Backward one window (or N lines).
+      z                 *  Forward  one window (and set window to N).
+      w                 *  Backward one window (and set window to N).
+      /pattern          *  Search forward for (N-th) matching line.
+      ?pattern          *  Search backward for (N-th) matching line.
+      n                 *  Repeat previous search (for N-th occurrence).
+      N                 *  Repeat previous search in reverse direction.
+
+man 文档结构遵循一套写作模板约定：
+
+NAME, SYNOPSIS, CONFIGURATION, DESCRIPTION, OPTIONS,
+EXIT STATUS, RETURN VALUE, ERRORS, ENVIRONMENT, FILES,  VERSIONS,  CONFORMING TO,  
+NOTES, BUGS, EXAMPLE, AUTHORS, and SEE ALSO.
+
+重要的章节有：
+
+1. *NAME*：命令名字和简单描述。
+2. *SYNOPSIS*：语法格式，比如 shell 命令会罗列所有的 option 和 argument 用法。
+3. *DESCRIPTION*：详细用法解释。
+4. *EXAMPLES*：用法举例，有时直接翻到最后看例子，会更容易理解。
+
+SYNOPSIS 介绍语法，也就是命令语言规则，应该从语言学的角度去理解。
+
+    bold text          粗体，应该原样输入；
+    italic text        斜体，应该按实际使用场景替换成合适的参数；
+    [-abc]             方括号，表示可选参数；
+    -a|-b              竖线，表示参数相互冲突，不可以同时使用；
+    argument ...       省略号，表示参数可以多次重复使用；
+    [expression] ...   方括号加省略号，表示参数任意重复使用或省略；
+    <abc>              尖括号，表示必选；
+
+由于 man 命令在命令行打印文档，不能正常显示斜体，所以会使用下划线、彩色文字替代。
+
+以下是 man 命令文档 EXAMPLES 环节中给出的示例参考，其本身归类 7：
+
+```sh
+man ls        # Display the manual page for the item (program) ls.
+
+man 'man(7)'
+man 7 man
+man man.7     # Display the manual page for macro package man from section 7.
+
+man -a intro  # Display, in succession, all of the available intro manual pages contained within the manual.
+man -k printf # Search the short descriptions and manual page names for the keyword printf.
+man -f smail  # Lookup the manual pages referenced by smail. Equivalent to `whatis smail`.
+
+$ man -f man
+man (7)              - macros to format man pages
+man (1)              - an interface to the system reference manuals
+```
+
+常用 man 参数说明：
+
+使用 -a, --all 连续打印所有查找到的匹配的文档，浏览完一个接着提示下一个：
+
+    --Man-- next: man(7) [ view (return) | skip (Ctrl-D) | quit (Ctrl-C) ] 
+
+Intro pages 是针对 man 文档的介绍性内容，不同的 man 文档分区都有相应的 intro 文档：
+intro(1),  intro(2),  intro(3),  intro(4),  intro(5),  intro(6),  intro(7),  intro(8)
+
+使用 -k, --apropos 查询相关信息，这可能会包含大量 Linux Programmer's Manual 或者
+Library Functions Manual 等内容。
+
+使用 -f, --whatis 查询“这是什么”信息，例如 printf 可以是命令行工具，也可以是
+C/C++ 语言中的格式化输出函数，可以查询到它们有不同的归类：
+
+```sh
+$ man -f printf
+printf (1)           - format and print data
+printf (3)           - formatted output conversion
+```
+
+man 文档格式的源文档使用一系列宏符号定义，groff an.tmac macro package，通常称之
+man macro package。源文档结构稍显混乱，基本上不适合直接阅读。
+具体参考 man(7) - macros to format man pages
+
+man 文档组织是碎片化的，粒度小到以 C 函数为单位，只适合用于查阅。
+可以参考按工程分类的文档目录：https://www.man7.org/linux/man-pages/dir_by_project.html
+
+
 
 
 This is texinfo.info, produced by makeinfo version 7.1 from
