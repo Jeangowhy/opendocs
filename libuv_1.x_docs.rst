@@ -6,8 +6,8 @@
 
 文档合并脚本中使用了 sed 流式文档处理工具，使用教程参考： 
 
-1. [Sed in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
-2. [AWK in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
+1. [Sed in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
+2. [AWK in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
 
 .. code-block:: bash
 
@@ -25,8 +25,8 @@
     cat << EOF
     文档合并脚本中使用了 sed 流式文档处理工具，使用教程参考： 
     
-    1. [Sed in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
-    2. [AWK in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
+    1. [Sed in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
+    2. [AWK in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
     
     EOF
     echo '.. code-block:: bash'

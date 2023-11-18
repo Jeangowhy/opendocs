@@ -1,6 +1,6 @@
 
 _______________________________________________________________________
-Sed in 5 Miniutes
+Sed in 5 Minutes
 ---------------------------------------------------
 1. https://www.gnu.org/software/sed/manual/
 2. https://www.gnu.org/software/gawk/manual/
@@ -101,7 +101,7 @@ generator 3 | sed -n {p}
 
      [addr]X[options]
 
-1. `X` 是一个 sed 命令，使用单个字母表示，如前面的 p 表示打印命令；
+1. `X` 是一个 sed 命令，使用单个字母表示，如前面用过的 p 表示打印命令；
 2. `[addr]` 即行定位 line address，用于限制命令将要处理的内容所在行；
 3. `[options]` 是附加选项，用于配置 sed 命令的行为；
 
@@ -146,7 +146,7 @@ GNU sed 使用的正则表达式分两个部分，命令行中使用 `-E` 或者
 
 BRE vs. ERE 两者体现在 GNU sed 中的差别在于特殊字符的使用，BRE 需要在
 特殊符号中添加反斜杆，否则特殊符号将当作普通字符处理，这些符号包括：
-'?', '+' 圆括号、花括号 '{}' 和分组选择符号 '|'。这些符号转义是出于兼容 
+'?'，'+'，圆括号、花括号 '{}' 和分组选择符号 '|'。这些符号转义是出于兼容 
 bash 环境考虑设置的，而 . * 这样的功能符号可以直接在 bash 环境中使用。
 注意，方括号表示字符范围（Range）的表达式不需要转义，参考手册:
 
@@ -372,8 +372,8 @@ $ sed -n '/\.\. toctree\:\:/,/^\w/s/^ \+\w\+/\0/p'`  $rst
     cat << EOF
     文档合并脚本中使用了 sed 流式文档处理工具，使用教程参考： 
     
-    1. [Sed in 5 Miniutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
-    2. [AWK in 5 Miniutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
+    1. [Sed in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
+    2. [AWK in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
     3. [libuv 1.x docs](https://github.com/Jeangowhy/opendocs/blob/main/libuv_1.x_docs.rst)"
     
     EOF
@@ -567,7 +567,7 @@ Line 4
 
 这两个缓冲区属性 FIFO (Fist-in Fist-out) 数据结构，前面先存入的数据先输出（被获取）。
 
-使用文档处理的实例来演示 `sed` 脚本跳转与暂存缓冲区的应用。这就选择 GNU m4 
+使用文档处理的实例来演示 `sed` 脚本跳转与暂存缓冲区的应用。这里选择 GNU m4 
 宏编程工具的文档，TextInfo 是 GNU 官方文档格式，原始文档是 .texi，默认发布格式
 是 .info，它们都是文本文件，使用 `info` 命令就可以看看当前系统软件安装好的文档。
 
@@ -634,11 +634,10 @@ $ gzip -d -c `find /usr/share/info/m4* | sed -n '1p'` | sed -n '
 标题内容，可以替换掉第二行内容后直接使用 `p` 命令输出。如果不是，也不要紧，
 数据将交给 ➎ 处理。
 
-➎ 到这一步就需要将
-当前内容中的第二行数据保存到暂存缓冲区，因为它可能就是标题内容，这需要在下
-一轮数据处理中得到确切答案。因此，使用 `s` 命令替换掉第一行的数据再送暂存区。
-这里有一个逻辑上的不完善，但它可以完成任务，就是 ➍ 可能
-已经找到标题了，那么第二行就不会是标题了，也就不需要再暂存了。
+➎ 到这一步就需要将当前内容中的第二行数据保存到暂存缓冲区，因为它可能就是
+标题内容，这需要在下一轮数据处理中得到确切答案。因此，使用 `s` 命令替换掉
+第一行的数据再送暂存区。这里有一个逻辑上的不完善，但它可以完成任务，
+就是 ➍ 可能已经找到标题了，那么第二行就不会是标题了，也就不需要再暂存了。
 
 ➏ 使用 `h` 命令将工作区数据暂存起来。
 
@@ -647,7 +646,7 @@ $ gzip -d -c `find /usr/share/info/m4* | sed -n '1p'` | sed -n '
 ➑ 使用 `G` 获取暂存区数据并打印出来。暂存区内容来自 ➏ 行的 `h` 命令。
 
 
-还可以配合 'a TEXT' 'c TEXT' 'i TEXT' 等命令对缓冲区数据进行操作。这几何命令
+还可以配合 'a TEXT' 'c TEXT' 'i TEXT' 等命令对缓冲区数据进行操作。这几个命令
 有些个性，所有跟在后的内容都将作为字符串处理，包括引号。所以不要在这些命令中
 使用引号来包括字符串，除非引号本身作为字符使用。解决方法是用换行来分隔命令、
 或者使用 `-e` 参数拼接其它命令。
@@ -707,7 +706,7 @@ Line 1
 
 
 _______________________________________________________________________
-AWK in 5 Miniutes
+AWK in 5 Minutes
 ---------------------------------------------------
 1. https://www.gnu.org/software/sed/manual/
 2. https://www.gnu.org/software/gawk/manual/
@@ -1011,7 +1010,6 @@ AWK 脚本程序的一般形式如下，它使用正则模式 PATTERN 匹配的�
 可以省略（Empty Pattern），相当于使用 `.*`，每个输入数据（行）都适用。
 
 ```sh
-
      [PATTERN]  `{ ACTION }`
       PATTERN  [`{ ACTION }`]
      ...
