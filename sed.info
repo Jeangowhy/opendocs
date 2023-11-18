@@ -1,6 +1,6 @@
 
 _______________________________________________________________________
-Sed in 5 Minius
+Sed in 5 Miniutes
 ---------------------------------------------------
 1. https://www.gnu.org/software/sed/manual/
 2. https://www.gnu.org/software/gawk/manual/
@@ -372,8 +372,8 @@ $ sed -n '/\.\. toctree\:\:/,/^\w/s/^ \+\w\+/\0/p'`  $rst
     cat << EOF
     文档合并脚本中使用了 sed 流式文档处理工具，使用教程参考： 
     
-    1. [Sed in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
-    2. [AWK in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
+    1. [Sed in 5 Miniutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
+    2. [AWK in 5 Miniutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
     3. [libuv 1.x docs](https://github.com/Jeangowhy/opendocs/blob/main/libuv_1.x_docs.rst)"
     
     EOF
@@ -707,7 +707,7 @@ Line 1
 
 
 _______________________________________________________________________
-AWK in 5 Minius
+AWK in 5 Miniutes
 ---------------------------------------------------
 1. https://www.gnu.org/software/sed/manual/
 2. https://www.gnu.org/software/gawk/manual/
