@@ -296,8 +296,9 @@ GNU sed 手册中多处出现 `e` 命令，文档中会以 'e'、'e COMMAND' 或
 2. 命令行参数：`-e SCRIPT` 用于添加多条 sed 命令表达式以处理输入数据；
 3. Executes 命令，执行 shell 命令，并将命令输出内容打印到 stdout，有两种形式：
     1. 将输入数据作为 shell 命令，例如 `echo "ls ." | sed -n -e 'e' -e 'p'`
-    2. 直接编写要捃的 shell 命令，例如 `echo -e '1\n2\n3' | sed -n '1,2e echo Hello'`
-    3. 用在替换命令后面，'s///e'，将替换后的内容作为 shell 命令执行。
+    2. 直接执行 shell 命令，例如 `echo -e '1\n2\n3' | sed -n '1,2e echo Hello'`
+    3. 用在替换命令后面，'s///e'，将替换后的内容作为 shell 命令执行，
+        应该使用换行符号，避免命令包含无效字符，参考 3.8.1 Commands Requiring a newline。
 
 在同一个 sed 进程中，通过 `-e SCRIPT` 添加的多个命令组合处理的数据始终是同一份。
 例如，无法在同一个 sed 进程中对数据进行逐层的过滤 (Addresses)，假设第一层过滤偶数行，
@@ -353,6 +354,68 @@ $ sed -n '/\.\. toctree\:\:/,/^\w/s/^ \+\w\+/\0/p'`  $rst
    guide
    upgrading
 ```
+
+以下演示读取 rst 文件中的目录数据，用于合并 libuv 1.x 异步事件驱动构架的文档：
+
+```sh
+    #! /usr/bin/env bash
+    
+    print_title () {
+        printf '\n%.0s' {1..2};
+        printf '=%.0s' {1..51};
+        printf "\n/. $1\n"
+        printf '=%.0s' {1..51};
+        printf '\n%.0s' {1..2};
+    }
+    
+    print_title "/RST docs combine script"
+    cat << EOF
+    文档合并脚本中使用了 sed 流式文档处理工具，使用教程参考： 
+    
+    1. [Sed in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info) "
+    2. [AWK in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)"
+    3. [libuv 1.x docs](https://github.com/Jeangowhy/opendocs/blob/main/libuv_1.x_docs.rst)"
+    
+    EOF
+    echo '.. code-block:: bash'
+    echo ''
+    cat $0 | sed -n 's/^/    /p'
+    
+    function filter {
+        local parent=`echo $1 | sed -n 's/[^/\]\+$//p'`
+        for it in `sed -n "/^.. toctree/,/^\w/{ s/^ \+\w/\0/p }" $1`
+        do
+            rst="$parent$it.rst"
+            echo $rst
+            filter $rst
+        done
+    }
+    
+    while read -r line
+    do 
+        print_title "$line"
+        cat $line
+    done << EOF
+    `
+    echo ../README.md
+    filter ../docs/src/index.rst
+    `
+    EOF
+    
+    while read -r line
+    do 
+        print_title "$line"
+        echo '.. code-block:: cpp'
+        echo ''
+        cat $line | sed 's/.*/    \0/p'
+    done << EOF
+    `
+    echo ../docs/code/CMakeLists.txt
+    find ../docs/code/ | grep -E "\.(h|c)$"
+    `
+    EOF
+```
+
 
 可以给 `sed` 输入多个文件，并且每个文件共用的是同一套处理逻辑。
 

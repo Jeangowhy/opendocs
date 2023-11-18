@@ -1174,7 +1174,7 @@ options and operands.
 initialization and initialization files, and the order that the files
 are searched for.
 
-2.1.4.1 Home directory early initialization files
+### 2.1.4.1 Home directory early initialization files
 .................................................
 
 GDB initially looks for an early initialization file in the users home
@@ -1202,7 +1202,7 @@ checked.
 file from being loaded using the '-nx' or '-nh' command line options,
 *note* Choosing Modes: Mode Options.
 
-2.1.4.2 System wide initialization files
+### 2.1.4.2 System wide initialization files
 ........................................
 
 There are two locations that are searched for system wide initialization
@@ -1229,7 +1229,7 @@ files.  Both of these locations are always checked:
 being loaded using the '-nx' command line option, *note* Choosing Modes:
 Mode Options.
 
-2.1.4.3 Home directory initialization file
+### 2.1.4.3 Home directory initialization file
 ..........................................
 
 After loading the system wide initialization files GDB will look for an
@@ -1257,7 +1257,7 @@ filesystems.  The Windows port of GDB uses the standard name, but if it
 finds a 'gdb.ini' file in your home directory, it warns you about that
 and suggests to rename the file to the standard name.
 
-2.1.4.4 Local directory initialization file
+### 2.1.4.4 Local directory initialization file
 ...........................................
 
 GDB will check the current directory for a file called '.gdbinit'.  It
@@ -11423,7 +11423,7 @@ to enable, disable, or remove a memory region, you specify that number.
 10.18.1 Attributes
 ------------------
 
-10.18.1.1 Memory Access Mode
+### 10.18.1.1 Memory Access Mode
 ............................
 
 The access mode attributes set whether GDB may make read or write
@@ -11440,7 +11440,8 @@ from accessing memory.
 'rw'
      Memory is read/write.  This is the default.
 
-10.18.1.2 Memory Access Size
+
+### 10.18.1.2 Memory Access Size
 ............................
 
 The access size attribute tells GDB to use specific sized accesses in
@@ -11457,7 +11458,8 @@ may use accesses of any size.
 '64'
      Use 64 bit memory accesses.
 
-10.18.1.3 Data Cache
+
+### 10.18.1.3 Data Cache
 ....................
 
 The data cache attributes set whether GDB will cache target memory.
@@ -14349,7 +14351,7 @@ GNU 'g++', or the HP ANSI C++ compiler ('aCC').
 
 File: gdb.info,  Node: C Operators,  Next: C Constants,  Up: C
 
-15.4.1.1 C and C++ Operators
+### 15.4.1.1 C and C++ Operators
 ............................
 
 Operators must be defined on values of specific types.  For instance,
@@ -14491,7 +14493,7 @@ meaning.
 
 File: gdb.info,  Node: C Constants,  Next: C Plus Plus Expressions,  Prev: C Operators,  Up: C
 
-15.4.1.2 C and C++ Constants
+### 15.4.1.2 C and C++ Constants
 ............................
 
 GDB allows you to express the constants of C and C++ in the following
@@ -14550,7 +14552,7 @@ ways:
 
 File: gdb.info,  Node: C Plus Plus Expressions,  Next: C Defaults,  Prev: C Constants,  Up: C
 
-15.4.1.3 C++ Expressions
+### 15.4.1.3 C++ Expressions
 ........................
 
 GDB expression handling can interpret most C++ expressions.
@@ -14621,7 +14623,7 @@ GDB expression handling can interpret most C++ expressions.
 
 File: gdb.info,  Node: C Defaults,  Next: C Checks,  Prev: C Plus Plus Expressions,  Up: C
 
-15.4.1.4 C and C++ Defaults
+### 15.4.1.4 C and C++ Defaults
 ...........................
 
 If you allow GDB to set range checking automatically, it defaults to
@@ -14637,7 +14639,7 @@ Automatically, for further details.
 
 File: gdb.info,  Node: C Checks,  Next: Debugging C,  Prev: C Defaults,  Up: C
 
-15.4.1.5 C and C++ Type and Range Checks
+### 15.4.1.5 C and C++ Type and Range Checks
 ........................................
 
 By default, when GDB parses C or C++ expressions, strict type checking
@@ -14652,7 +14654,7 @@ pointer that is not itself an array.
 
 File: gdb.info,  Node: Debugging C,  Next: Debugging C Plus Plus,  Prev: C Checks,  Up: C
 
-15.4.1.6 GDB and C
+### 15.4.1.6 GDB and C
 ..................
 
 The 'set print union' and 'show print union' commands apply to the
@@ -14666,7 +14668,7 @@ Expressions.
 
 File: gdb.info,  Node: Debugging C Plus Plus,  Next: Decimal Floating Point,  Prev: Debugging C,  Up: C
 
-15.4.1.7 GDB Features for C++
+### 15.4.1.7 GDB Features for C++
 .............................
 
 Some GDB commands are particularly useful with C++, and some are
@@ -14803,7 +14805,7 @@ designed specifically for use with C++.  Here is a summary:
 
 File: gdb.info,  Node: Decimal Floating Point,  Prev: Debugging C Plus Plus,  Up: C
 
-15.4.1.8 Decimal Floating Point format
+### 15.4.1.8 Decimal Floating Point format
 ......................................
 
 GDB can examine, set and perform computations with numbers in decimal
@@ -14897,7 +14899,7 @@ commands specific to Objective-C support.
 
 File: gdb.info,  Node: Method Names in Commands,  Next: The Print Command with Objective-C,  Up: Objective-C
 
-15.4.4.1 Method Names in Commands
+### 15.4.4.1 Method Names in Commands
 .................................
 
 The following commands have been extended to accept Objective-C method
@@ -14948,7 +14950,7 @@ apply.
 
 File: gdb.info,  Node: The Print Command with Objective-C,  Prev: Method Names in Commands,  Up: Objective-C
 
-15.4.4.2 The Print Command With Objective-C
+### 15.4.4.2 The Print Command With Objective-C
 ...........................................
 
 The print command has also been extended to accept methods.  For
@@ -14979,7 +14981,7 @@ This section provides information about GDBs OpenCL C support.
 
 File: gdb.info,  Node: OpenCL C Datatypes,  Next: OpenCL C Expressions,  Up: OpenCL C
 
-15.4.5.1 OpenCL C Datatypes
+### 15.4.5.1 OpenCL C Datatypes
 ...........................
 
 GDB supports the builtin scalar and vector datatypes specified by OpenCL
@@ -14990,7 +14992,7 @@ known to GDB.
 
 File: gdb.info,  Node: OpenCL C Expressions,  Next: OpenCL C Operators,  Prev: OpenCL C Datatypes,  Up: OpenCL C
 
-15.4.5.2 OpenCL C Expressions
+### 15.4.5.2 OpenCL C Expressions
 .............................
 
 GDB supports accesses to vector components including the access as
@@ -15000,7 +15002,7 @@ expressions supported by GDB can be used as well.
 
 File: gdb.info,  Node: OpenCL C Operators,  Prev: OpenCL C Expressions,  Up: OpenCL C
 
-15.4.5.3 OpenCL C Operators
+### 15.4.5.3 OpenCL C Operators
 ...........................
 
 GDB supports the operators specified by OpenCL 1.1 for scalar and vector
@@ -15035,7 +15037,7 @@ details.
 
 File: gdb.info,  Node: Fortran Types,  Next: Fortran Operators,  Up: Fortran
 
-15.4.6.1 Fortran Types
+### 15.4.6.1 Fortran Types
 ......................
 
 In Fortran the primitive data-types have an associated 'KIND' type
@@ -15082,7 +15084,7 @@ following type kinds are available.
 
 File: gdb.info,  Node: Fortran Operators,  Next: Fortran Intrinsics,  Prev: Fortran Types,  Up: Fortran
 
-15.4.6.2 Fortran Operators and Expressions
+### 15.4.6.2 Fortran Operators and Expressions
 ..........................................
 
 Operators must be defined on values of specific types.  For instance,
@@ -15110,7 +15112,7 @@ arithmetic types.  Operators are often defined on groups of types.
 
 File: gdb.info,  Node: Fortran Intrinsics,  Next: Special Fortran Commands,  Prev: Fortran Operators,  Up: Fortran
 
-15.4.6.3 Fortran Intrinsics
+### 15.4.6.3 Fortran Intrinsics
 ...........................
 
 Fortran provides a large set of intrinsic procedures.  GDB implements an
@@ -15185,7 +15187,7 @@ Types::.
 
 File: gdb.info,  Node: Special Fortran Commands,  Prev: Fortran Intrinsics,  Up: Fortran
 
-15.4.6.4 Special Fortran Commands
+### 15.4.6.4 Special Fortran Commands
 .................................
 
 GDB has some commands to support Fortran-specific features, such as
@@ -15331,7 +15333,7 @@ reads in the executable's symbol table.
 
 File: gdb.info,  Node: M2 Operators,  Next: Built-In Func/Proc,  Up: Modula-2
 
-15.4.9.1 Operators
+### 15.4.9.1 Operators
 ..................
 
 Operators must be defined on values of specific types.  For instance,
@@ -15440,7 +15442,7 @@ precedence:
 
 File: gdb.info,  Node: Built-In Func/Proc,  Next: M2 Constants,  Prev: M2 Operators,  Up: Modula-2
 
-15.4.9.2 Built-in Functions and Procedures
+### 15.4.9.2 Built-in Functions and Procedures
 ..........................................
 
 Modula-2 also makes available several built-in procedures and functions.
@@ -15555,7 +15557,7 @@ below.
 
 File: gdb.info,  Node: M2 Constants,  Next: M2 Types,  Prev: Built-In Func/Proc,  Up: Modula-2
 
-15.4.9.3 Constants
+### 15.4.9.3 Constants
 ..................
 
 GDB allows you to express the constants of Modula-2 in the following
@@ -15594,7 +15596,7 @@ ways:
 
 File: gdb.info,  Node: M2 Types,  Next: M2 Defaults,  Prev: M2 Constants,  Up: Modula-2
 
-15.4.9.4 Modula-2 Types
+### 15.4.9.4 Modula-2 Types
 .......................
 
 Currently GDB can print the following data types in Modula-2 syntax:
@@ -15721,7 +15723,7 @@ and you can ask GDB to describe the type of 's' as shown below.
 
 File: gdb.info,  Node: M2 Defaults,  Next: Deviations,  Prev: M2 Types,  Up: Modula-2
 
-15.4.9.5 Modula-2 Defaults
+### 15.4.9.5 Modula-2 Defaults
 ..........................
 
 If type and range checking are set automatically by GDB, they both
@@ -15736,7 +15738,7 @@ Automatically, for further details.
 
 File: gdb.info,  Node: Deviations,  Next: M2 Checks,  Prev: M2 Defaults,  Up: Modula-2
 
-15.4.9.6 Deviations from Standard Modula-2
+### 15.4.9.6 Deviations from Standard Modula-2
 ..........................................
 
 A few changes have been made to make Modula-2 programs easier to debug.
@@ -15762,7 +15764,7 @@ This is done primarily via loosening its type strictness:
 
 File: gdb.info,  Node: M2 Checks,  Next: M2 Scope,  Prev: Deviations,  Up: Modula-2
 
-15.4.9.7 Modula-2 Type and Range Checks
+### 15.4.9.7 Modula-2 Type and Range Checks
 .......................................
 
      _Warning:_ in this release, GDB does not yet perform type or range
@@ -15786,7 +15788,7 @@ array index bounds, and all built-in functions and procedures.
 
 File: gdb.info,  Node: M2 Scope,  Next: GDB/M2,  Prev: M2 Checks,  Up: Modula-2
 
-15.4.9.8 The Scope Operators '::' and '.'
+### 15.4.9.8 The Scope Operators '::' and '.'
 .........................................
 
 There are a few subtle differences between the Modula-2 scope operator
@@ -15813,7 +15815,7 @@ is not an identifier in MODULE.
 
 File: gdb.info,  Node: GDB/M2,  Prev: M2 Scope,  Up: Modula-2
 
-15.4.9.9 GDB and Modula-2
+### 15.4.9.9 GDB and Modula-2
 .........................
 
 Some GDB commands have little use when debugging Modula-2 programs.
@@ -15863,7 +15865,7 @@ difficult.
 
 File: gdb.info,  Node: Ada Mode Intro,  Next: Omissions from Ada,  Up: Ada
 
-15.4.10.1 Introduction
+### 15.4.10.1 Introduction
 ......................
 
 The Ada mode of GDB supports a fairly large subset of Ada expression
@@ -15899,7 +15901,7 @@ middle (to allow based literals).
 
 File: gdb.info,  Node: Omissions from Ada,  Next: Additions to Ada,  Prev: Ada Mode Intro,  Up: Ada
 
-15.4.10.2 Omissions from Ada
+### 15.4.10.2 Omissions from Ada
 ............................
 
 Here are the notable omissions from the subset:
@@ -16005,7 +16007,7 @@ Here are the notable omissions from the subset:
 
 File: gdb.info,  Node: Additions to Ada,  Next: Overloading support for Ada,  Prev: Omissions from Ada,  Up: Ada
 
-15.4.10.3 Additions to Ada
+### 15.4.10.3 Additions to Ada
 ..........................
 
 As it does for other languages, GDB makes certain generic extensions to
@@ -16105,7 +16107,7 @@ additions specific to Ada:
 
 File: gdb.info,  Node: Overloading support for Ada,  Next: Stopping Before Main Program,  Prev: Additions to Ada,  Up: Ada
 
-15.4.10.4 Overloading support for Ada
+### 15.4.10.4 Overloading support for Ada
 .....................................
 
 The debugger supports limited overloading.  Given a subprogram call in
@@ -16146,7 +16148,7 @@ case:
 
 File: gdb.info,  Node: Stopping Before Main Program,  Next: Ada Exceptions,  Prev: Overloading support for Ada,  Up: Ada
 
-15.4.10.5 Stopping at the Very Beginning
+### 15.4.10.5 Stopping at the Very Beginning
 ........................................
 
 It is sometimes necessary to debug the program during elaboration, and
@@ -16158,7 +16160,7 @@ simply use the following two commands: 'tbreak adainit' and 'run'.
 
 File: gdb.info,  Node: Ada Exceptions,  Next: Ada Tasks,  Prev: Stopping Before Main Program,  Up: Ada
 
-15.4.10.6 Ada Exceptions
+### 15.4.10.6 Ada Exceptions
 ........................
 
 A command is provided to list all Ada exceptions:
@@ -16192,7 +16194,7 @@ an exception is raised.  For more details, see *note* Set Catchpoints::.
 
 File: gdb.info,  Node: Ada Tasks,  Next: Ada Tasks and Core Files,  Prev: Ada Exceptions,  Up: Ada
 
-15.4.10.7 Extensions for Ada Tasks
+### 15.4.10.7 Extensions for Ada Tasks
 ..................................
 
 Support for Ada tasks is analogous to that for threads (*note*
@@ -16414,7 +16416,7 @@ Threads::).  GDB provides the following task-related commands:
 
 File: gdb.info,  Node: Ada Tasks and Core Files,  Next: Ravenscar Profile,  Prev: Ada Tasks,  Up: Ada
 
-15.4.10.8 Tasking Support when Debugging Core Files
+### 15.4.10.8 Tasking Support when Debugging Core Files
 ...................................................
 
 When inspecting a core file, as opposed to debugging a live program,
@@ -16432,7 +16434,7 @@ file before inspecting it with GDB.
 
 File: gdb.info,  Node: Ravenscar Profile,  Next: Ada Source Character Set,  Prev: Ada Tasks and Core Files,  Up: Ada
 
-15.4.10.9 Tasking Support when using the Ravenscar Profile
+### 15.4.10.9 Tasking Support when using the Ravenscar Profile
 ..........................................................
 
 The "Ravenscar Profile" is a subset of the Ada tasking features,
@@ -16481,7 +16483,7 @@ task-switching off'.
 
 File: gdb.info,  Node: Ada Source Character Set,  Next: Ada Glitches,  Prev: Ravenscar Profile,  Up: Ada
 
-15.4.10.10 Ada Source Character Set
+### 15.4.10.10 Ada Source Character Set
 ...................................
 
 The GNAT compiler supports a number of character sets for source files.
@@ -16501,7 +16503,7 @@ includes support for this as well.
 
 File: gdb.info,  Node: Ada Glitches,  Prev: Ada Source Character Set,  Up: Ada
 
-15.4.10.11 Known Peculiarities of Ada Mode
+### 15.4.10.11 Known Peculiarities of Ada Mode
 ..........................................
 
 Besides the omissions listed previously (*note* Omissions from Ada::), we
@@ -18909,7 +18911,7 @@ in the case of the Remote Serial Protocol, the CRC is computed _most_
 significant bit first, and the result is not inverted, so trailing zeros
 have no effect on the CRC value.
 
-   To complete the description, we show below the code of the function
+To complete the description, we show below the code of the function
 which produces the CRC used in '.gnu_debuglink'.  Inverting the
 initially supplied 'crc' argument means that an initial call to this
 function passing in zero will start computing the CRC using
@@ -19925,7 +19927,7 @@ explicit.  You could elide it if you want to.
 a pipe connected to gdbserver.  Both 'stdout' and 'stderr' use the same
 pipe.
 
-20.3.1.1 Attaching to a Running Program
+### 20.3.1.1 Attaching to a Running Program
 .......................................
 
 On some targets, 'gdbserver' can also attach to running programs.  This
@@ -19948,7 +19950,7 @@ has the 'pidof' utility:
 multiple threads, most versions of 'pidof' support the '-s' option to
 only return the first process ID.
 
-20.3.1.2 TCP port allocation lifecycle of 'gdbserver'
+### 20.3.1.2 TCP port allocation lifecycle of 'gdbserver'
 .....................................................
 
 This section applies only when 'gdbserver' is run to listen on a TCP
@@ -19980,7 +19982,7 @@ option allows reusing the same port number for connecting to multiple
 instances of 'gdbserver' running on the same host, since each instance
 closes its port after the first connection.
 
-20.3.1.3 Other Command-Line Arguments for 'gdbserver'
+### 20.3.1.3 Other Command-Line Arguments for 'gdbserver'
 .....................................................
 
 You can use the '--multi' option to start 'gdbserver' without specifying
@@ -21254,7 +21256,7 @@ described in *note* Non-debug DLL Symbols::.
 
 File: gdb.info,  Node: Non-debug DLL Symbols,  Up: Cygwin Native
 
-21.1.4.1 Support for DLLs without Debugging Symbols
+### 21.1.4.1 Support for DLLs without Debugging Symbols
 ...................................................
 
 Very often on windows, some of the DLLs that your program relies on do
@@ -21269,7 +21271,7 @@ will have been loaded.  The easiest way around this problem is simply to
 start the program -- either by setting a breakpoint or letting the
 program run once to completion.
 
-21.1.4.2 DLL Name Prefixes
+### 21.1.4.2 DLL Name Prefixes
 ..........................
 
 In keeping with the naming conventions used by the Microsoft debugging
@@ -21304,7 +21306,8 @@ even 'maint print msymbols' (*note* Symbols::).  Here's an example:
      0x61004240  cygwin1!dll_crt0(per_process *)
      [etc...]
 
-21.1.4.3 Working with Minimal Symbols
+
+### 21.1.4.3 Working with Minimal Symbols
 .....................................
 
 Symbols extracted from a DLL's export table do not contain very much
@@ -22046,7 +22049,8 @@ following special commands:
 'show debug aarch64'
      Show whether AArch64 debugging messages are displayed.
 
-21.4.1.1 AArch64 SVE.
+
+### 21.4.1.1 AArch64 SVE.
 .....................
 
 When GDB is debugging the AArch64 architecture, if the Scalable Vector
@@ -22061,7 +22065,7 @@ updated, but the lengths of the 'z' and 'p' registers will not change.
 This is a known limitation of GDB and does not affect the execution of
 the target process.
 
-21.4.1.2 AArch64 Pointer Authentication.
+### 21.4.1.2 AArch64 Pointer Authentication.
 ........................................
 
 When GDB is debugging the AArch64 architecture, and the program is using
@@ -22071,7 +22075,7 @@ When GDB prints a backtrace, any addresses that required unmasking will
 be postfixed with the marker [PAC]. When using the MI, this is printed
 as part of the 'addr_flags' field.
 
-21.4.1.3 AArch64 Memory Tagging Extension.
+### 21.4.1.3 AArch64 Memory Tagging Extension.
 ..........................................
 
 When GDB is debugging the AArch64 architecture, the program is using the
@@ -22140,7 +22144,8 @@ File: gdb.info,  Node: i386,  Next: Alpha,  Prev: AArch64,  Up: Architectures
      Show the current setting of the convention to return 'struct's from
      functions.
 
-21.4.2.1 Intel "Memory Protection Extensions" (MPX).
+
+### 21.4.2.1 Intel "Memory Protection Extensions" (MPX).
 ....................................................
 
 Memory Protection Extension (MPX) adds the bound registers 'BND0' (1)
@@ -22395,7 +22400,7 @@ File: gdb.info,  Node: Sparc64,  Next: S12Z,  Prev: Nios II,  Up: Architectures
 21.4.8 Sparc64
 --------------
 
-21.4.8.1 ADI Support
+### 21.4.8.1 ADI Support
 ....................
 
 The M7 processor supports an Application Data Integrity (ADI) feature
@@ -24776,7 +24781,7 @@ optional arguments while skipping others.  Example:
 
 File: gdb.info,  Node: Basic Python,  Next: Exception Handling,  Up: Python API
 
-23.3.2.1 Basic Python
+### 23.3.2.1 Basic Python
 .....................
 
 At startup, GDB overrides Python's 'sys.stdout' and 'sys.stderr' to
@@ -25134,7 +25139,7 @@ for debugging purposes only, expect them to change over time.
 
 File: gdb.info,  Node: Exception Handling,  Next: Values From Inferior,  Prev: Basic Python,  Up: Python API
 
-23.3.2.2 Exception Handling
+### 23.3.2.2 Exception Handling
 ...........................
 
 When executing the 'python' command, Python exceptions uncaught within
@@ -25203,7 +25208,7 @@ special exception class that can be used for this purpose.
 
 File: gdb.info,  Node: Values From Inferior,  Next: Types In Python,  Prev: Exception Handling,  Up: Python API
 
-23.3.2.3 Values From Inferior
+### 23.3.2.3 Values From Inferior
 .............................
 
 GDB provides values it obtains from the inferior program in an object of
@@ -25631,7 +25636,7 @@ function, call it like so:
 
 File: gdb.info,  Node: Types In Python,  Next: Pretty Printing API,  Prev: Values From Inferior,  Up: Python API
 
-23.3.2.4 Types In Python
+### 23.3.2.4 Types In Python
 ........................
 
 GDB represents types from the inferior using the class 'gdb.Type'.
@@ -25979,7 +25984,7 @@ module (*note* gdb.types::).
 
 File: gdb.info,  Node: Pretty Printing API,  Next: Selecting Pretty-Printers,  Prev: Types In Python,  Up: Python API
 
-23.3.2.5 Pretty Printing API
+### 23.3.2.5 Pretty Printing API
 ............................
 
 A pretty-printer is just an object that holds a value and implements a
@@ -26094,7 +26099,7 @@ settings can also be queried directly:
 
 File: gdb.info,  Node: Selecting Pretty-Printers,  Next: Writing a Pretty-Printer,  Prev: Pretty Printing API,  Up: Python API
 
-23.3.2.6 Selecting Pretty-Printers
+### 23.3.2.6 Selecting Pretty-Printers
 ..................................
 
 GDB provides several ways to register a pretty-printer: globally, per
@@ -26149,7 +26154,7 @@ otherwise the printer is enabled.
 
 File: gdb.info,  Node: Writing a Pretty-Printer,  Next: Type Printing API,  Prev: Selecting Pretty-Printers,  Up: Python API
 
-23.3.2.7 Writing a Pretty-Printer
+### 23.3.2.7 Writing a Pretty-Printer
 .................................
 
 A pretty-printer consists of two parts: a lookup function to detect if
@@ -26299,7 +26304,7 @@ corresponding output of 'info pretty-printer':
 
 File: gdb.info,  Node: Type Printing API,  Next: Frame Filter API,  Prev: Writing a Pretty-Printer,  Up: Python API
 
-23.3.2.8 Type Printing API
+### 23.3.2.8 Type Printing API
 ..........................
 
 GDB provides a way for Python code to customize type display.  This is
@@ -26354,7 +26359,7 @@ holding information that could become stale as the inferior changed.
 
 File: gdb.info,  Node: Frame Filter API,  Next: Frame Decorator API,  Prev: Type Printing API,  Up: Python API
 
-23.3.2.9 Filtering Frames
+### 23.3.2.9 Filtering Frames
 .........................
 
 Frame filters are Python objects that manipulate the visibility of a
@@ -26497,7 +26502,7 @@ implement, defined here:
 
 File: gdb.info,  Node: Frame Decorator API,  Next: Writing a Frame Filter,  Prev: Frame Filter API,  Up: Python API
 
-23.3.2.10 Decorating Frames
+### 23.3.2.10 Decorating Frames
 ...........................
 
 Frame decorators are sister objects to frame filters (*note* Frame Filter
@@ -26680,7 +26685,7 @@ and extend this object, and only to override the methods needed.
 
 File: gdb.info,  Node: Writing a Frame Filter,  Next: Unwinding Frames in Python,  Prev: Frame Decorator API,  Up: Python API
 
-23.3.2.11 Writing a Frame Filter
+### 23.3.2.11 Writing a Frame Filter
 ................................
 
 There are three basic elements that a frame filter must implement: it
@@ -26941,7 +26946,7 @@ frame, and also show the hierarchical relationship.
 
 File: gdb.info,  Node: Unwinding Frames in Python,  Next: Xmethods In Python,  Prev: Writing a Frame Filter,  Up: Python API
 
-23.3.2.12 Unwinding Frames in Python
+### 23.3.2.12 Unwinding Frames in Python
 ....................................
 
 In GDB terminology "unwinding" is the process of finding the previous
@@ -27124,7 +27129,7 @@ the unwinders from GDB.
 
 File: gdb.info,  Node: Xmethods In Python,  Next: Xmethod API,  Prev: Unwinding Frames in Python,  Up: Python API
 
-23.3.2.13 Xmethods In Python
+### 23.3.2.13 Xmethods In Python
 ............................
 
 "Xmethods" are additional methods or replacements for existing methods
@@ -27175,7 +27180,7 @@ Writing an Xmethod::, for implementing xmethods in Python.
 
 File: gdb.info,  Node: Xmethod API,  Next: Writing an Xmethod,  Prev: Xmethods In Python,  Up: Python API
 
-23.3.2.14 Xmethod API
+### 23.3.2.14 Xmethod API
 .....................
 
 The GDB Python API provides classes, interfaces and functions to
@@ -27264,7 +27269,7 @@ using the following function defined in the module 'gdb.xmethod':
 
 File: gdb.info,  Node: Writing an Xmethod,  Next: Inferiors In Python,  Prev: Xmethod API,  Up: Python API
 
-23.3.2.15 Writing an Xmethod
+### 23.3.2.15 Writing an Xmethod
 ............................
 
 Implementing xmethods in Python will require implementing xmethod
@@ -27445,7 +27450,7 @@ itself.
 
 File: gdb.info,  Node: Inferiors In Python,  Next: Events In Python,  Prev: Writing an Xmethod,  Up: Python API
 
-23.3.2.16 Inferiors In Python
+### 23.3.2.16 Inferiors In Python
 .............................
 
 Programs which are being run under GDB are called inferiors (*note*
@@ -27545,7 +27550,7 @@ module:
 
 File: gdb.info,  Node: Events In Python,  Next: Threads In Python,  Prev: Inferiors In Python,  Up: Python API
 
-23.3.2.17 Events In Python
+### 23.3.2.17 Events In Python
 ..........................
 
 GDB provides a general event facility so that Python code can be
@@ -27801,7 +27806,7 @@ and details of the events they emit:
 
 File: gdb.info,  Node: Threads In Python,  Next: Recordings In Python,  Prev: Events In Python,  Up: Python API
 
-23.3.2.18 Threads In Python
+### 23.3.2.18 Threads In Python
 ...........................
 
 Python scripts can access information about, and manipulate inferior
@@ -27898,7 +27903,7 @@ module:
 
 File: gdb.info,  Node: Recordings In Python,  Next: CLI Commands In Python,  Prev: Threads In Python,  Up: Python API
 
-23.3.2.19 Recordings In Python
+### 23.3.2.19 Recordings In Python
 ..............................
 
 The following recordings-related functions (*note* Process Record and
@@ -28105,7 +28110,7 @@ limited to be contiguous.
 
 File: gdb.info,  Node: CLI Commands In Python,  Next: GDB/MI Commands In Python,  Prev: Recordings In Python,  Up: Python API
 
-23.3.2.20 CLI Commands In Python
+### 23.3.2.20 CLI Commands In Python
 ................................
 
 You can implement new GDB CLI commands in Python.  A CLI command is
@@ -28330,7 +28335,7 @@ is read into GDB, you may need to import the 'gdb' module explicitly.
 
 File: gdb.info,  Node: GDB/MI Commands In Python,  Next: Parameters In Python,  Prev: CLI Commands In Python,  Up: Python API
 
-23.3.2.21 GDB/MI Commands In Python
+### 23.3.2.21 GDB/MI Commands In Python
 ...................................
 
 It is possible to add GDB/MI (*note* GDB/MI::) commands implemented in
@@ -28462,7 +28467,7 @@ have been added:
 
 File: gdb.info,  Node: Parameters In Python,  Next: Functions In Python,  Prev: GDB/MI Commands In Python,  Up: Python API
 
-23.3.2.22 Parameters In Python
+### 23.3.2.22 Parameters In Python
 ..............................
 
 You can implement new GDB parameters using Python.  A new parameter is
@@ -28650,7 +28655,7 @@ module:
 
 File: gdb.info,  Node: Functions In Python,  Next: Progspaces In Python,  Prev: Parameters In Python,  Up: Python API
 
-23.3.2.23 Writing new convenience functions
+### 23.3.2.23 Writing new convenience functions
 ...........................................
 
 You can implement new convenience functions (*note* Convenience Vars::)
@@ -28744,7 +28749,7 @@ developing GNU and promoting software freedom."
 
 File: gdb.info,  Node: Progspaces In Python,  Next: Objfiles In Python,  Prev: Functions In Python,  Up: Python API
 
-23.3.2.24 Program Spaces In Python
+### 23.3.2.24 Program Spaces In Python
 ..................................
 
 A program space, or "progspace", represents a symbolic view of an
@@ -28859,7 +28864,7 @@ will be loaded.
 
 File: gdb.info,  Node: Objfiles In Python,  Next: Frames In Python,  Prev: Progspaces In Python,  Up: Python API
 
-23.3.2.25 Objfiles In Python
+### 23.3.2.25 Objfiles In Python
 ............................
 
 GDB loads symbols for an inferior from various symbol-containing files
@@ -29015,7 +29020,7 @@ objfile.
 
 File: gdb.info,  Node: Frames In Python,  Next: Blocks In Python,  Prev: Objfiles In Python,  Up: Python API
 
-23.3.2.26 Accessing inferior stack frames from Python
+### 23.3.2.26 Accessing inferior stack frames from Python
 .....................................................
 
 When the debugged program stops, GDB is able to analyze its call stack
@@ -29213,7 +29218,7 @@ module:
 
 File: gdb.info,  Node: Blocks In Python,  Next: Symbols In Python,  Prev: Frames In Python,  Up: Python API
 
-23.3.2.27 Accessing blocks from Python
+### 23.3.2.27 Accessing blocks from Python
 ......................................
 
 In GDB, symbols are stored in blocks.  A block corresponds roughly to a
@@ -29334,7 +29339,7 @@ module:
 
 File: gdb.info,  Node: Symbols In Python,  Next: Symbol Tables In Python,  Prev: Blocks In Python,  Up: Python API
 
-23.3.2.28 Python representation of Symbols
+### 23.3.2.28 Python representation of Symbols
 ..........................................
 
 GDB represents every variable, function and type as an entry in a symbol
@@ -29576,7 +29581,7 @@ represented as constants in the 'gdb' module:
 
 File: gdb.info,  Node: Symbol Tables In Python,  Next: Line Tables In Python,  Prev: Symbols In Python,  Up: Python API
 
-23.3.2.29 Symbol table representation in Python
+### 23.3.2.29 Symbol table representation in Python
 ...............................................
 
 Access to symbol table data maintained by GDB on the inferior is exposed
@@ -29657,7 +29662,7 @@ Examining the Symbol Table: Symbols, for more information.
 
 File: gdb.info,  Node: Line Tables In Python,  Next: Breakpoints In Python,  Prev: Symbol Tables In Python,  Up: Python API
 
-23.3.2.30 Manipulating line tables using Python
+### 23.3.2.30 Manipulating line tables using Python
 ...............................................
 
 Python code can request and inspect line table information from a symbol
@@ -29725,7 +29730,7 @@ the following direct access methods:
 
 File: gdb.info,  Node: Breakpoints In Python,  Next: Finish Breakpoints in Python,  Prev: Line Tables In Python,  Up: Python API
 
-23.3.2.31 Manipulating breakpoints using Python
+### 23.3.2.31 Manipulating breakpoints using Python
 ...............................................
 
 Python code can manipulate breakpoints via the 'gdb.Breakpoint' class.
@@ -30017,7 +30022,7 @@ breakpoints location list.
 
 File: gdb.info,  Node: Finish Breakpoints in Python,  Next: Lazy Strings In Python,  Prev: Breakpoints In Python,  Up: Python API
 
-23.3.2.32 Finish Breakpoints
+### 23.3.2.32 Finish Breakpoints
 ............................
 
 A finish breakpoint is a temporary breakpoint set at the return address
@@ -30063,7 +30068,7 @@ thread selected.
 
 File: gdb.info,  Node: Lazy Strings In Python,  Next: Architectures In Python,  Prev: Finish Breakpoints in Python,  Up: Python API
 
-23.3.2.33 Python representation of lazy strings
+### 23.3.2.33 Python representation of lazy strings
 ...............................................
 
 A "lazy string" is a string whose contents is not retrieved or encoded
@@ -30113,7 +30118,7 @@ string is immediately retrieved and encoded on creation.
 
 File: gdb.info,  Node: Architectures In Python,  Next: Registers In Python,  Prev: Lazy Strings In Python,  Up: Python API
 
-23.3.2.34 Python representation of architectures
+### 23.3.2.34 Python representation of architectures
 ................................................
 
 GDB uses architecture specific parameters and artifacts in a number of
@@ -30185,7 +30190,7 @@ of the 'gdb.Architecture' class.
 
 File: gdb.info,  Node: Registers In Python,  Next: Connections In Python,  Prev: Architectures In Python,  Up: Python API
 
-23.3.2.35 Registers In Python
+### 23.3.2.35 Registers In Python
 .............................
 
 Python code can request from a 'gdb.Architecture' information about the
@@ -30236,7 +30241,7 @@ info_registers_reggroup.).
 
 File: gdb.info,  Node: Connections In Python,  Next: TUI Windows In Python,  Prev: Registers In Python,  Up: Python API
 
-23.3.2.36 Connections In Python
+### 23.3.2.36 Connections In Python
 ...............................
 
 GDB lets you run and debug multiple programs in a single session.  Each
@@ -30353,7 +30358,7 @@ methods available from the 'gdb.TargetConnection' base class, a
 
 File: gdb.info,  Node: TUI Windows In Python,  Next: Disassembly In Python,  Prev: Connections In Python,  Up: Python API
 
-23.3.2.37 Implementing new TUI windows
+### 23.3.2.37 Implementing new TUI windows
 ......................................
 
 New TUI (*note* TUI::) windows can be implemented in Python.
@@ -30465,7 +30470,7 @@ underscore to avoid any future conflicts.
 
 File: gdb.info,  Node: Disassembly In Python,  Prev: TUI Windows In Python,  Up: Python API
 
-23.3.2.38 Instruction Disassembly In Python
+### 23.3.2.38 Instruction Disassembly In Python
 ...........................................
 
 GDB's builtin disassembler can be extended, or even replaced, using the
@@ -30830,7 +30835,7 @@ GDB comes with several modules to assist writing Python code.
 
 File: gdb.info,  Node: gdb.printing,  Next: gdb.types,  Up: Python modules
 
-23.3.4.1 gdb.printing
+### 23.3.4.1 gdb.printing
 .....................
 
 This module provides a collection of utilities for working with
@@ -30866,7 +30871,7 @@ pretty-printers.
 
 File: gdb.info,  Node: gdb.types,  Next: gdb.prompt,  Prev: gdb.printing,  Up: Python modules
 
-23.3.4.2 gdb.types
+### 23.3.4.2 gdb.types
 ..................
 
 This module provides a collection of utilities for working with
@@ -30952,7 +30957,7 @@ This module provides a collection of utilities for working with
 
 File: gdb.info,  Node: gdb.prompt,  Prev: gdb.types,  Up: Python modules
 
-23.3.4.3 gdb.prompt
+### 23.3.4.3 gdb.prompt
 ...................
 
 This module provides a method for prompt value-substitution.
@@ -31142,7 +31147,7 @@ PROCEDURE-NAME' from the Guile interactive prompt.
 
 File: gdb.info,  Node: Basic Guile,  Next: Guile Configuration,  Up: Guile API
 
-23.4.3.1 Basic Guile
+### 23.4.3.1 Basic Guile
 ....................
 
 At startup, GDB overrides Guile's 'current-output-port' and
@@ -31266,7 +31271,7 @@ more information (*note* (guile)Using Guile Modules::).
 
 File: gdb.info,  Node: Guile Configuration,  Next: GDB Scheme Data Types,  Prev: Basic Guile,  Up: Guile API
 
-23.4.3.2 Guile Configuration
+### 23.4.3.2 Guile Configuration
 ............................
 
 GDB provides these Scheme functions to access various configuration
@@ -31294,7 +31299,7 @@ parameters.
 
 File: gdb.info,  Node: GDB Scheme Data Types,  Next: Guile Exception Handling,  Prev: Guile Configuration,  Up: Guile API
 
-23.4.3.3 GDB Scheme Data Types
+### 23.4.3.3 GDB Scheme Data Types
 ..............................
 
 The values exposed by GDB to Guile are known as "GDB objects".  There
@@ -31383,7 +31388,7 @@ function 'eq?' may be applied to them.
 
 File: gdb.info,  Node: Guile Exception Handling,  Next: Values From Inferior In Guile,  Prev: GDB Scheme Data Types,  Up: Guile API
 
-23.4.3.4 Guile Exception Handling
+### 23.4.3.4 Guile Exception Handling
 .................................
 
 When executing the 'guile' command, Guile exceptions uncaught within the
@@ -31489,7 +31494,7 @@ translated to a Guile 'signal' exception with value 'SIGINT'.
 
 File: gdb.info,  Node: Values From Inferior In Guile,  Next: Arithmetic In Guile,  Prev: Guile Exception Handling,  Up: Guile API
 
-23.4.3.5 Values From Inferior In Guile
+### 23.4.3.5 Values From Inferior In Guile
 ......................................
 
 GDB provides values it obtains from the inferior program in an object of
@@ -31847,7 +31852,7 @@ module.
 
 File: gdb.info,  Node: Arithmetic In Guile,  Next: Types In Guile,  Prev: Values From Inferior In Guile,  Up: Guile API
 
-23.4.3.6 Arithmetic In Guile
+### 23.4.3.6 Arithmetic In Guile
 ............................
 
 The '(gdb)' module provides several functions for performing arithmetic
@@ -31913,7 +31918,7 @@ support in GDB does not either.
 
 File: gdb.info,  Node: Types In Guile,  Next: Guile Pretty Printing API,  Prev: Arithmetic In Guile,  Up: Guile API
 
-23.4.3.7 Types In Guile
+### 23.4.3.7 Types In Guile
 .......................
 
 GDB represents types from the inferior in objects of type '<gdb:type>'.
@@ -32196,7 +32201,7 @@ module:
 
 File: gdb.info,  Node: Guile Pretty Printing API,  Next: Selecting Guile Pretty-Printers,  Prev: Types In Guile,  Up: Guile API
 
-23.4.3.8 Guile Pretty Printing API
+### 23.4.3.8 Guile Pretty Printing API
 ..................................
 
 An example output is provided (*note* Pretty Printing::).
@@ -32330,7 +32335,7 @@ pretty-printer for a '<gdb:value>':
 
 File: gdb.info,  Node: Selecting Guile Pretty-Printers,  Next: Writing a Guile Pretty-Printer,  Prev: Guile Pretty Printing API,  Up: Guile API
 
-23.4.3.9 Selecting Guile Pretty-Printers
+### 23.4.3.9 Selecting Guile Pretty-Printers
 ........................................
 
 There are three sets of pretty-printers that GDB searches:
@@ -32378,7 +32383,7 @@ highly illegible if any argument is printed with a broken printer.
 
 File: gdb.info,  Node: Writing a Guile Pretty-Printer,  Next: Commands In Guile,  Prev: Selecting Guile Pretty-Printers,  Up: Guile API
 
-23.4.3.10 Writing a Guile Pretty-Printer
+### 23.4.3.10 Writing a Guile Pretty-Printer
 ........................................
 
 A pretty-printer consists of two basic parts: a lookup function to
@@ -32516,7 +32521,7 @@ corresponding output of 'info pretty-printer':
 
 File: gdb.info,  Node: Commands In Guile,  Next: Parameters In Guile,  Prev: Writing a Guile Pretty-Printer,  Up: Guile API
 
-23.4.3.11 Commands In Guile
+### 23.4.3.11 Commands In Guile
 ...........................
 
 You can implement new GDB CLI commands in Guile.  A CLI command object
@@ -32763,7 +32768,7 @@ implemented in Guile:
 
 File: gdb.info,  Node: Parameters In Guile,  Next: Progspaces In Guile,  Prev: Commands In Guile,  Up: Guile API
 
-23.4.3.12 Parameters In Guile
+### 23.4.3.12 Parameters In Guile
 .............................
 
 You can implement new GDB "parameters" using Guile (1).
@@ -32931,7 +32936,7 @@ parameter objects (*note* (guile)Parameters::).
 
 File: gdb.info,  Node: Progspaces In Guile,  Next: Objfiles In Guile,  Prev: Parameters In Guile,  Up: Guile API
 
-23.4.3.13 Program Spaces In Guile
+### 23.4.3.13 Program Spaces In Guile
 .................................
 
 A program space, or "progspace", represents a symbolic view of an
@@ -32994,7 +32999,7 @@ smob.  *Note* GDB Scheme Data Types::.
 
 File: gdb.info,  Node: Objfiles In Guile,  Next: Frames In Guile,  Prev: Progspaces In Guile,  Up: Guile API
 
-23.4.3.14 Objfiles In Guile
+### 23.4.3.14 Objfiles In Guile
 ...........................
 
 GDB loads symbols for an inferior from various symbol-containing files
@@ -33049,7 +33054,7 @@ module:
 
 File: gdb.info,  Node: Frames In Guile,  Next: Blocks In Guile,  Prev: Objfiles In Guile,  Up: Guile API
 
-23.4.3.15 Accessing inferior stack frames from Guile.
+### 23.4.3.15 Accessing inferior stack frames from Guile.
 .....................................................
 
 When the debugged program stops, GDB is able to analyze its call stack
@@ -33217,7 +33222,7 @@ module:
 
 File: gdb.info,  Node: Blocks In Guile,  Next: Symbols In Guile,  Prev: Frames In Guile,  Up: Guile API
 
-23.4.3.16 Accessing blocks from Guile.
+### 23.4.3.16 Accessing blocks from Guile.
 ......................................
 
 In GDB, symbols are stored in blocks.  A block corresponds roughly to a
@@ -33339,7 +33344,7 @@ module:
 
 File: gdb.info,  Node: Symbols In Guile,  Next: Symbol Tables In Guile,  Prev: Blocks In Guile,  Up: Guile API
 
-23.4.3.17 Guile representation of Symbols.
+### 23.4.3.17 Guile representation of Symbols.
 ..........................................
 
 GDB represents every variable, function and type as an entry in a symbol
@@ -33532,7 +33537,7 @@ represented as constants in the 'gdb' module:
 
 File: gdb.info,  Node: Symbol Tables In Guile,  Next: Breakpoints In Guile,  Prev: Symbols In Guile,  Up: Guile API
 
-23.4.3.18 Symbol table representation in Guile.
+### 23.4.3.18 Symbol table representation in Guile.
 ...............................................
 
 Access to symbol table data maintained by GDB on the inferior is exposed
@@ -33609,7 +33614,7 @@ module:
 
 File: gdb.info,  Node: Breakpoints In Guile,  Next: Lazy Strings In Guile,  Prev: Symbol Tables In Guile,  Up: Guile API
 
-23.4.3.19 Manipulating breakpoints using Guile
+### 23.4.3.19 Manipulating breakpoints using Guile
 ..............................................
 
 Breakpoints in Guile are represented by objects of type
@@ -33867,7 +33872,7 @@ outside of Guile.
 
 File: gdb.info,  Node: Lazy Strings In Guile,  Next: Architectures In Guile,  Prev: Breakpoints In Guile,  Up: Guile API
 
-23.4.3.20 Guile representation of lazy strings.
+### 23.4.3.20 Guile representation of lazy strings.
 ...............................................
 
 A "lazy string" is a string whose contents is not retrieved or encoded
@@ -33919,7 +33924,7 @@ creation.
 
 File: gdb.info,  Node: Architectures In Guile,  Next: Disassembly In Guile,  Prev: Lazy Strings In Guile,  Up: Guile API
 
-23.4.3.21 Guile representation of architectures
+### 23.4.3.21 Guile representation of architectures
 ...............................................
 
 GDB uses architecture specific parameters and artifacts in a number of
@@ -34052,7 +34057,7 @@ following functions.
 
 File: gdb.info,  Node: Disassembly In Guile,  Next: I/O Ports in Guile,  Prev: Architectures In Guile,  Up: Guile API
 
-23.4.3.22 Disassembly In Guile
+### 23.4.3.22 Disassembly In Guile
 ..............................
 
 The disassembler can be invoked from Scheme code.  Furthermore, the
@@ -34119,7 +34124,7 @@ from any source, and not just target memory.
 
 File: gdb.info,  Node: I/O Ports in Guile,  Next: Memory Ports in Guile,  Prev: Disassembly In Guile,  Up: Guile API
 
-23.4.3.23 I/O Ports in Guile
+### 23.4.3.23 I/O Ports in Guile
 ............................
 
  -- Scheme Procedure: input-port
@@ -34137,7 +34142,7 @@ File: gdb.info,  Node: I/O Ports in Guile,  Next: Memory Ports in Guile,  Prev: 
 
 File: gdb.info,  Node: Memory Ports in Guile,  Next: Iterators In Guile,  Prev: I/O Ports in Guile,  Up: Guile API
 
-23.4.3.24 Memory Ports in Guile
+### 23.4.3.24 Memory Ports in Guile
 ...............................
 
 GDB provides a 'port' interface to target memory.  This allows Guile
@@ -34226,7 +34231,7 @@ can do something like the following.
 
 File: gdb.info,  Node: Iterators In Guile,  Prev: Memory Ports in Guile,  Up: Guile API
 
-23.4.3.25 Iterators In Guile
+### 23.4.3.25 Iterators In Guile
 ............................
 
 A simple iterator facility is provided to allow, for example, iterating
@@ -34389,7 +34394,7 @@ GDB comes with several modules to assist writing Guile code.
 
 File: gdb.info,  Node: Guile Printing Module,  Next: Guile Types Module,  Up: Guile Modules
 
-23.4.5.1 Guile Printing Module
+### 23.4.5.1 Guile Printing Module
 ..............................
 
 This module provides a collection of utilities for working with
@@ -34412,7 +34417,7 @@ pretty-printers.
 
 File: gdb.info,  Node: Guile Types Module,  Prev: Guile Printing Module,  Up: Guile Modules
 
-23.4.5.2 Guile Types Module
+### 23.4.5.2 Guile Types Module
 ...........................
 
 This module provides a collection of utilities for working with
@@ -34582,7 +34587,7 @@ the extension language and whether the script is in a file or inlined in
 'SECTION_SCRIPT_ID_PYTHON_TEXT = 4'
 'SECTION_SCRIPT_ID_SCHEME_TEXT = 6'
 
-23.5.2.1 Script File Entries
+### 23.5.2.1 Script File Entries
 ............................
 
 If the entry specifies a file, GDB will look for the file first in the
@@ -34617,7 +34622,7 @@ library using this header will get a reference to the specified script,
 and with the use of '"MS"' attributes on the section, the linker will
 remove duplicates.
 
-23.5.2.2 Script Text Entries
+### 23.5.2.2 Script Text Entries
 ............................
 
 Script text entries allow to put the executable script in the entry
@@ -35637,7 +35642,7 @@ File: gdb.info,  Node: Context management,  Next: Asynchronous and non-stop mode
 27.1.1 Context management
 -------------------------
 
-27.1.1.1 Threads and Frames
+### 27.1.1.1 Threads and Frames
 ...........................
 
 In most cases when GDB accesses the target, this access is done in
@@ -35688,7 +35693,7 @@ add '-thread-select' for all subsequent commands.  No frontend is known
 to do this exactly right, so it is suggested to just always pass the
 '--thread' and '--frame' options.
 
-27.1.1.2 Language
+### 27.1.1.2 Language
 .................
 
 The execution of several commands depends on which language is selected.
@@ -36819,7 +36824,7 @@ Commands
 
 For each command in the block, the following is described:
 
-Synopsis
+### Synopsis
 ........
 
       -command ARGS...
@@ -36827,7 +36832,7 @@ Synopsis
 Result
 ......
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB CLI command(s), if any.
@@ -36850,7 +36855,7 @@ This section documents GDB/MI commands for manipulating breakpoints.
 The '-break-after' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-after NUMBER COUNT
@@ -36860,7 +36865,7 @@ COUNT times.  To see how this is reflected in the output of the
 '-break-list' command, see the description of the '-break-list' command
 below.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'ignore'.
@@ -36895,7 +36900,7 @@ Example
 The '-break-commands' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-commands NUMBER [ COMMAND1 ... COMMANDN ]
@@ -36907,7 +36912,7 @@ If no command is specified, any previously-set commands are cleared.
 program, that is, printing of values of some variables whenever
 breakpoint is hit and then continuing.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'commands'.
@@ -36929,7 +36934,7 @@ Example
 The '-break-condition' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-condition [ --force ] NUMBER [ EXPR ]
@@ -36941,7 +36946,7 @@ flag is passed, the condition is forcibly defined even when it is
 invalid for all locations of breakpoint NUMBER.  If the EXPR argument is
 omitted, breakpoint NUMBER becomes unconditional.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'condition'.
@@ -36969,7 +36974,7 @@ Example
 The '-break-delete' Command
 ---------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-delete ( BREAKPOINT )+
@@ -36977,7 +36982,7 @@ Synopsis
    Delete the breakpoint(s) whose number(s) are specified in the
 argument list.  This is obviously reflected in the breakpoint list.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'delete'.
@@ -37003,7 +37008,7 @@ Example
 The '-break-disable' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-disable ( BREAKPOINT )+
@@ -37011,7 +37016,7 @@ Synopsis
    Disable the named BREAKPOINT(s).  The field 'enabled' in the break
 list is now set to 'n' for the named BREAKPOINT(s).
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'disable'.
@@ -37039,14 +37044,14 @@ Example
 The '-break-enable' Command
 ---------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-enable ( BREAKPOINT )+
 
    Enable (previously disabled) BREAKPOINT(s).
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'enable'.
@@ -37074,7 +37079,7 @@ Example
 The '-break-info' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-info BREAKPOINT
@@ -37085,7 +37090,7 @@ Synopsis
 Information::, for details on the format of each breakpoint in the
 table.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info break BREAKPOINT'.
@@ -37098,7 +37103,7 @@ N.A.
 The '-break-insert' Command
 ---------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-insert [ -t ] [ -h ] [ -f ] [ -d ] [ -a ] [ --qualified ]
@@ -37170,7 +37175,7 @@ resulting breakpoint.
 
    Note: this format is open to change.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'break', 'tbreak', 'hbreak', and
@@ -37211,7 +37216,7 @@ Example
 The '-dprintf-insert' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -dprintf-insert [ -t ] [ -f ] [ -d ] [ --qualified ]
@@ -37251,7 +37256,7 @@ Result
 *Note* GDB/MI Breakpoint Information::, for details on the format of the
 resulting breakpoint.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'dprintf'.
@@ -37278,7 +37283,7 @@ Example
 The '-break-list' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-list
@@ -37308,7 +37313,7 @@ fields:
    If there are no breakpoints or watchpoints, the 'BreakpointTable'
 'body' field is an empty list.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info break'.
@@ -37350,7 +37355,7 @@ Example
 The '-break-passcount' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-passcount TRACEPOINT-NUMBER PASSCOUNT
@@ -37362,7 +37367,7 @@ error is emitted.  This corresponds to CLI command 'passcount'.
 The '-break-watch' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -break-watch [ -a | -r ]
@@ -37379,7 +37384,7 @@ Watchpoints: Set Watchpoints.
    Note that '-break-list' will report a single list of watchpoints and
 breakpoints inserted.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'watch', 'awatch', and 'rwatch'.
@@ -37528,7 +37533,7 @@ File: gdb.info,  Node: Shared Library GDB/MI Catchpoint Commands,  Next: Ada Exc
 The '-catch-load' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-load [ -t ] [ -d ] REGEXP
@@ -37539,7 +37544,7 @@ Breaks.).  If the '-d' option is used, the catchpoint is created in a
 disabled state.  The 'regexp' argument is a regular expression used to
 match the name of the loaded library.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'catch load'.
@@ -37555,7 +37560,7 @@ Example
 The '-catch-unload' Command
 ---------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-unload [ -t ] [ -d ] REGEXP
@@ -37566,7 +37571,7 @@ Breaks.).  If the '-d' option is used, the catchpoint is created in a
 disabled state.  The 'regexp' argument is a regular expression used to
 match the name of the unloaded library.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'catch unload'.
@@ -37591,7 +37596,7 @@ stop the execution when Ada exceptions are being raised.
 The '-catch-assert' Command
 ---------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-assert [ -c CONDITION] [ -d ] [ -t ]
@@ -37607,7 +37612,7 @@ Synopsis
 '-t'
      Create a temporary catchpoint.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'catch assert'.
@@ -37625,7 +37630,7 @@ Example
 The '-catch-exception' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-exception [ -c CONDITION] [ -d ] [ -e EXCEPTION-NAME ]
@@ -37651,7 +37656,7 @@ parameters described below, to create more selective catchpoints.
      Stop only when an unhandled exception gets raised.  This option
      cannot be used combined with '-e'.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'catch exception' and 'catch
@@ -37670,7 +37675,7 @@ Example
 The '-catch-handlers' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-handlers [ -c CONDITION] [ -d ] [ -e EXCEPTION-NAME ]
@@ -37692,7 +37697,7 @@ parameters described below, to create more selective catchpoints.
 '-t'
      Create a temporary catchpoint.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'catch handlers'.
@@ -37720,7 +37725,7 @@ caught.
 The '-catch-throw' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-throw [ -t ] [ -r REGEXP]
@@ -37733,7 +37738,7 @@ caught.
 the catchpoint is automatically deleted after stopping once for the
 event.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'catch throw' and 'tcatch throw'
@@ -37763,7 +37768,7 @@ Example
 The '-catch-rethrow' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-rethrow [ -t ] [ -r REGEXP]
@@ -37775,7 +37780,7 @@ caught.
    If '-t' is given, then the catchpoint is enabled only for one stop,
 the catchpoint is automatically deleted after the first event is caught.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'catch rethrow' and 'tcatch rethrow'
@@ -37805,7 +37810,7 @@ Example
 The '-catch-catch' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -catch-catch [ -t ] [ -r REGEXP]
@@ -37817,7 +37822,7 @@ caught.
    If '-t' is given, then the catchpoint is enabled only for one stop,
 the catchpoint is automatically deleted after the first event is caught.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'catch catch' and 'tcatch catch'
@@ -37853,7 +37858,7 @@ File: gdb.info,  Node: GDB/MI Program Context,  Next: GDB/MI Thread Commands,  P
 The '-exec-arguments' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-arguments ARGS
@@ -37861,7 +37866,7 @@ Synopsis
    Set the inferior program arguments, to be used in the next
 '-exec-run'.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'set args'.
@@ -37877,14 +37882,14 @@ Example
 The '-environment-cd' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -environment-cd PATHDIR
 
    Set GDB's working directory.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'cd'.
@@ -37900,7 +37905,7 @@ Example
 The '-environment-directory' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -environment-directory [ -r ] [ PATHDIR ]+
@@ -37919,7 +37924,7 @@ directory-separator character.  The directory-separator character must
 not be used in any directory name.  If no directories are specified, the
 current search path is displayed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'dir'.
@@ -37944,7 +37949,7 @@ Example
 The '-environment-path' Command
 -------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -environment-path [ -r ] [ PATHDIR ]+
@@ -37963,7 +37968,7 @@ separated by the system directory-separator character.  The
 directory-separator character must not be used in any directory name.
 If no directories are specified, the current path is displayed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'path'.
@@ -37985,14 +37990,14 @@ Example
 The '-environment-pwd' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -environment-pwd
 
    Show the current working directory.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'pwd'.
@@ -38014,7 +38019,7 @@ File: gdb.info,  Node: GDB/MI Thread Commands,  Next: GDB/MI Ada Tasking Command
 The '-thread-info' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -thread-info [ THREAD-ID ]
@@ -38024,7 +38029,7 @@ parameter is present, or about all threads.  THREAD-ID is the thread's
 global thread ID. When printing information about all threads, also
 reports the global ID of the current thread.
 
-GDB Command
+### GDB Command
 ...........
 
 The 'info thread' command prints the same information about all threads.
@@ -38063,7 +38068,7 @@ Example
 The '-thread-list-ids' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -thread-list-ids
@@ -38074,7 +38079,7 @@ end of the list it also prints the total number of such threads.
    This command is retained for historical reasons, the '-thread-info'
 command should be used instead.
 
-GDB Command
+### GDB Command
 ...........
 
 Part of 'info threads' supplies the same information.
@@ -38091,7 +38096,7 @@ Example
 The '-thread-select' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -thread-select THREAD-ID
@@ -38103,7 +38108,7 @@ for that thread.
    This command is deprecated in favor of explicitly using the
 '--thread' option to each command.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'thread'.
@@ -38139,7 +38144,7 @@ File: gdb.info,  Node: GDB/MI Ada Tasking Commands,  Next: GDB/MI Program Execut
 The '-ada-task-info' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -ada-task-info [ TASK-ID ]
@@ -38147,7 +38152,7 @@ Synopsis
    Reports information about either a specific Ada task, if the TASK-ID
 parameter is present, or about all Ada tasks.
 
-GDB Command
+### GDB Command
 ...........
 
 The 'info tasks' command prints the same information about all Ada tasks
@@ -38218,10 +38223,11 @@ These are the asynchronous commands which generate the out-of-band
 record '*stopped'.  Currently GDB only really executes asynchronously
 with remote targets and this interaction is mimicked in other cases.
 
+
 The '-exec-continue' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-continue [--reverse] [--all|--thread-group N]
@@ -38241,7 +38247,7 @@ be resumed.  The '--all' option is ignored in all-stop mode.  If the
 '--thread-group' options is specified, then all threads in that thread
 group are resumed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB corresponding is 'continue'.
@@ -38274,7 +38280,7 @@ the field 'locno'.
 The '-exec-finish' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-finish [--reverse]
@@ -38284,7 +38290,7 @@ function is exited.  Displays the results returned by the function.  If
 the '--reverse' option is specified, resumes the reverse execution of
 the inferior program until the point where current function was called.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'finish'.
@@ -38318,7 +38324,7 @@ variable storing the result is printed, together with the value itself.
 The '-exec-interrupt' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-interrupt [--all|--thread-group N]
@@ -38339,7 +38345,7 @@ All threads (in all inferiors) will be interrupted if the '--all' option
 is specified.  If the '--thread-group' option is specified, all threads
 in that group will be interrupted.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'interrupt'.
@@ -38368,7 +38374,7 @@ Example
 The '-exec-jump' Command
 ------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-jump LOCSPEC
@@ -38377,7 +38383,7 @@ Synopsis
 LOCSPEC resolves.  *Note* Location Specifications::, for a description of
 the different forms of LOCSPEC.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'jump'.
@@ -38392,7 +38398,7 @@ Example
 The '-exec-next' Command
 ------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-next [--reverse]
@@ -38406,7 +38412,7 @@ line.  If you issue this command on the first line of a function, it
 will take you back to the caller of that function, to the source line
 where the function was called.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'next'.
@@ -38423,7 +38429,7 @@ Example
 The '-exec-next-instruction' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-next-instruction [--reverse]
@@ -38439,7 +38445,7 @@ previously executed instruction was a return from another function, it
 will continue to execute in reverse until the call to that function
 (from the current stack frame) is reached.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'nexti'.
@@ -38459,7 +38465,7 @@ Example
 The '-exec-return' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-return
@@ -38467,7 +38473,7 @@ Synopsis
    Makes current function return immediately.  Doesn't execute the
 inferior.  Displays the new current frame.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'return'.
@@ -38504,7 +38510,7 @@ Example
 The '-exec-run' Command
 -----------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-run [ --all | --thread-group N ] [ --start ]
@@ -38524,12 +38530,12 @@ is specified, then all inferiors will be started.
 execution at the start of the inferior's main subprogram, following the
 same behavior as the 'start' command (*note* Starting::).
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'run'.
 
-Examples
+### Examples
 ........
 
      (gdb)
@@ -38574,7 +38580,7 @@ as 'SIGINT'.  In this case, GDB/MI displays this:
 The '-exec-step' Command
 ------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-step [--reverse]
@@ -38586,7 +38592,7 @@ called function.  If the '--reverse' option is specified, resumes
 reverse execution of the inferior program, stopping at the beginning of
 the previously executed source line.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'step'.
@@ -38616,7 +38622,7 @@ Stepping into a function:
 The '-exec-step-instruction' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-step-instruction [--reverse]
@@ -38628,7 +38634,7 @@ output, once GDB has stopped, will vary depending on whether we have
 stopped in the middle of a source line or not.  In the former case, the
 address at which the program stopped will be printed as well.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'stepi'.
@@ -38657,7 +38663,7 @@ Example
 The '-exec-until' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -exec-until [ LOCSPEC ]
@@ -38667,7 +38673,7 @@ resolves.  If there is no argument, the inferior executes until it
 reaches a source line greater than the current one.  The reason for
 stopping in this case will be 'location-reached'.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'until'.
@@ -38709,14 +38715,14 @@ command will still succeed (and do nothing).
 The '-stack-info-frame' Command
 -------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-info-frame
 
    Get info on the selected frame.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info frame' or 'frame' (without
@@ -38736,7 +38742,7 @@ Example
 The '-stack-info-depth' Command
 -------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-info-depth [ MAX-DEPTH ]
@@ -38744,7 +38750,7 @@ Synopsis
    Return the depth of the stack.  If the integer argument MAX-DEPTH is
 specified, do not count beyond MAX-DEPTH frames.
 
-GDB Command
+### GDB Command
 ...........
 
 There's no equivalent GDB command.
@@ -38774,7 +38780,7 @@ For a stack with frame levels 0 through 11:
 The '-stack-list-arguments' Command
 -----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-list-arguments [ --no-frame-filters ] [ --skip-unavailable ] PRINT-VALUES
@@ -38802,7 +38808,7 @@ displayed, however.
    Use of this command to obtain arguments in a single frame is
 deprecated in favor of the '-stack-list-variables' command.
 
-GDB Command
+### GDB Command
 ...........
 
 GDB does not have an equivalent command.  'gdbtk' has a 'gdb_get_args'
@@ -38873,7 +38879,7 @@ Example
 The '-stack-list-frames' Command
 --------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-list-frames [ --no-frame-filters LOW-FRAME HIGH-FRAME ]
@@ -38910,7 +38916,7 @@ frames, in which case only existing frames will be returned.  If the
 option '--no-frame-filters' is supplied, then Python frame filters will
 not be executed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'backtrace' and 'where'.
@@ -38990,7 +38996,7 @@ Full stack backtrace:
 The '-stack-list-locals' Command
 --------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-list-locals [ --no-frame-filters ] [ --skip-unavailable ] PRINT-VALUES
@@ -39013,7 +39019,7 @@ are still displayed, however.
    This command is deprecated in favor of the '-stack-list-variables'
 command.
 
-GDB Command
+### GDB Command
 ...........
 
 'info locals' in GDB, 'gdb_get_locals' in 'gdbtk'.
@@ -39036,7 +39042,7 @@ Example
 The '-stack-list-variables' Command
 -----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-list-variables [ --no-frame-filters ] [ --skip-unavailable ] PRINT-VALUES
@@ -39064,7 +39070,7 @@ Example
 The '-stack-select-frame' Command
 ---------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -stack-select-frame FRAMENUM
@@ -39075,7 +39081,7 @@ stack.
    This command in deprecated in favor of passing the '--frame' option
 to every command.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'frame', 'up', 'down',
@@ -39222,7 +39228,7 @@ command will still succeed (and do nothing).
 The '-var-create' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-create {NAME | "-"}
@@ -39310,7 +39316,7 @@ are:
 The '-var-delete' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-delete [ -c ] NAME
@@ -39323,7 +39329,7 @@ With the '-c' option, just deletes the children.
 The '-var-set-format' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-set-format NAME FORMAT-SPEC
@@ -39351,7 +39357,7 @@ itself, and the children are not affected.
 The '-var-show-format' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-show-format NAME
@@ -39364,7 +39370,7 @@ Synopsis
 The '-var-info-num-children' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-info-num-children NAME
@@ -39380,7 +39386,7 @@ children may be available.
 The '-var-list-children' Command
 --------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-list-children [PRINT-VALUES] NAME [FROM TO]
@@ -39486,7 +39492,7 @@ Example
 The '-var-info-type' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-info-type NAME
@@ -39499,7 +39505,7 @@ returned as a string in the same format as it is output by the GDB CLI:
 The '-var-info-expression' Command
 ----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-info-expression NAME
@@ -39524,7 +39530,7 @@ limited use.
 The '-var-info-path-expression' Command
 ---------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-info-path-expression NAME
@@ -39548,7 +39554,7 @@ created for variable 'c'.  Then, we'll get this output:
 The '-var-show-attributes' Command
 ----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-show-attributes NAME
@@ -39562,7 +39568,7 @@ where ATTR is '{ { editable | noneditable } | TBD }'.
 The '-var-evaluate-expression' Command
 --------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-evaluate-expression [-f FORMAT-SPEC] NAME
@@ -39583,7 +39589,7 @@ the value of a child variable can be evaluated.
 The '-var-assign' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-assign NAME EXPRESSION
@@ -39607,7 +39613,7 @@ Example
 The '-var-update' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-update [PRINT-VALUES] {NAME | "*"}
@@ -39727,7 +39733,7 @@ Example
 The '-var-set-frozen' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-set-frozen NAME FLAG
@@ -39753,7 +39759,7 @@ Example
 The '-var-set-update-range' command
 -----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-set-update-range NAME FROM TO
@@ -39776,7 +39782,7 @@ Example
 The '-var-set-visualizer' command
 ---------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -var-set-visualizer NAME VISUALIZER
@@ -39840,7 +39846,7 @@ addressable memory unit::.
 The '-data-disassemble' Command
 -------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-disassemble
@@ -39996,7 +40002,7 @@ has the following fields:
    Note that whatever included in the 'inst' field, is not manipulated
 directly by GDB/MI, i.e., it is not possible to adjust its format.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'disassemble'.
@@ -40072,7 +40078,7 @@ Disassemble from the current value of '$pc' to '$pc + 20':
 The '-data-evaluate-expression' Command
 ---------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-evaluate-expression EXPR
@@ -40081,7 +40087,7 @@ Synopsis
 inferior function call.  The function call will execute synchronously.
 If the expression contains spaces, it must be enclosed in double quotes.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'print', 'output', and 'call'.  In
@@ -40110,14 +40116,14 @@ Syntax.  Notice how GDB/MI returns the same tokens in its output.
 The '-data-list-changed-registers' Command
 ------------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-list-changed-registers
 
    Display a list of the registers that have changed.
 
-GDB Command
+### GDB Command
 ...........
 
 GDB doesn't have a direct analog for this command; 'gdbtk' has the
@@ -40146,7 +40152,7 @@ On a PPC MBX board:
 The '-data-list-register-names' Command
 ---------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-list-register-names [ ( REGNO )+ ]
@@ -40158,7 +40164,7 @@ names of the registers corresponding to the arguments.  To ensure
 consistency between a register name and its number, the output list may
 include empty register names.
 
-GDB Command
+### GDB Command
 ...........
 
 GDB does not have a command which corresponds to
@@ -40186,7 +40192,7 @@ For the PPC MBX board:
 The '-data-list-register-values' Command
 ----------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-list-register-values
@@ -40214,7 +40220,7 @@ available registers are to be returned.
 'N'
      Natural
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB commands are 'info reg', 'info all-reg', and (in
@@ -40275,7 +40281,7 @@ The '-data-read-memory' Command
 
 This command is deprecated, use '-data-read-memory-bytes' instead.
 
-Synopsis
+### Synopsis
 ........
 
       -data-read-memory [ -o BYTE-OFFSET ]
@@ -40324,7 +40330,7 @@ read memory in 'addr'.
    The address of the next/previous row or page is available in
 'next-row' and 'prev-row', 'next-page' and 'prev-page'.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'x'.  'gdbtk' has 'gdb_get_mem' memory
@@ -40380,7 +40386,7 @@ the non-printable character.
 The '-data-read-memory-bytes' Command
 -------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-read-memory-bytes [ -o OFFSET ]
@@ -40437,7 +40443,7 @@ the following fields:
 'contents'
      The contents of the memory block, in hex.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'x'.
@@ -40455,7 +40461,7 @@ Example
 The '-data-write-memory-bytes' Command
 --------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -data-write-memory-bytes ADDRESS CONTENTS
@@ -40477,7 +40483,7 @@ where:
      to be written.  If COUNT is greater than CONTENTS' length, GDB will
      repeatedly write CONTENTS until it fills COUNT memory units.
 
-GDB Command
+### GDB Command
 ...........
 
 There's no corresponding GDB command.
@@ -40507,7 +40513,7 @@ tracepoints.  For detailed introduction, see *note* Tracepoints::.
 The '-trace-find' Command
 -------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-find MODE [PARAMETERS...]
@@ -40567,7 +40573,7 @@ Otherwise, the response may have the following fields:
      frame.  This field is present only if a trace frame was found.
      *Note* GDB/MI Frame Information::, for description of this field.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tfind'.
@@ -40575,7 +40581,7 @@ The corresponding GDB command is 'tfind'.
 -trace-define-variable
 ----------------------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-define-variable NAME [ VALUE ]
@@ -40584,7 +40590,7 @@ Synopsis
 specified, sets the initial value of the specified trace variable to
 that value.  Note that the NAME should start with the '$' character.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tvariable'.
@@ -40592,7 +40598,7 @@ The corresponding GDB command is 'tvariable'.
 The '-trace-frame-collected' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-frame-collected
@@ -40688,7 +40694,7 @@ computed expressions.
           The contents of the memory block, in hex.  This field is only
           present if the '--memory-contents' option is specified.
 
-GDB Command
+### GDB Command
 ...........
 
 There is no corresponding GDB command.
@@ -40699,7 +40705,7 @@ Example
 -trace-list-variables
 ---------------------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-list-variables
@@ -40720,7 +40726,7 @@ table has the following fields:
      defined, for example if the trace was never run, or is presently
      running.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tvariables'.
@@ -40741,7 +40747,7 @@ Example
 -trace-save
 -----------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-save [ -r ] [ -ctf ] FILENAME
@@ -40754,7 +40760,7 @@ the '-r' option the target is asked to perform the save.
 You can supply the optional '-ctf' argument to save it the CTF format.
 See *note* Trace Files:: for more information about CTF.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tsave'.
@@ -40762,7 +40768,7 @@ The corresponding GDB command is 'tsave'.
 -trace-start
 ------------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-start
@@ -40770,7 +40776,7 @@ Synopsis
    Starts a tracing experiment.  The result of this command does not
 have any fields.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tstart'.
@@ -40778,7 +40784,7 @@ The corresponding GDB command is 'tstart'.
 -trace-status
 -------------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-status
@@ -40841,7 +40847,7 @@ the following fields:
      The filename of the trace file being examined.  This field is
      optional, and only present when examining a trace file.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tstatus'.
@@ -40849,7 +40855,7 @@ The corresponding GDB command is 'tstatus'.
 -trace-stop
 -----------
 
-Synopsis
+### Synopsis
 ........
 
       -trace-stop
@@ -40858,7 +40864,7 @@ Synopsis
 fields as '-trace-status', except that the 'supported' and 'running'
 fields are not output.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'tstop'.
@@ -40872,7 +40878,7 @@ File: gdb.info,  Node: GDB/MI Symbol Query,  Next: GDB/MI File Commands,  Prev: 
 The '-symbol-info-functions' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-info-functions [--include-nondebug]
@@ -40895,7 +40901,7 @@ of the function.
 than LIMIT results.  If exactly LIMIT results are returned then there
 might be additional results available if a higher limit is used.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info functions'.
@@ -40972,7 +40978,7 @@ Example
 The '-symbol-info-module-functions' Command
 -------------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-info-module-functions [--module MODULE_REGEXP]
@@ -40989,7 +40995,7 @@ MODULE_REGEXP.  The option '--name' only returns functions whose name
 matches NAME_REGEXP, and '--type' only returns functions whose type
 matches TYPE_REGEXP.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info module functions'.
@@ -41033,7 +41039,7 @@ Example
 The '-symbol-info-module-variables' Command
 -------------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-info-module-variables [--module MODULE_REGEXP]
@@ -41050,7 +41056,7 @@ MODULE_REGEXP.  The option '--name' only returns variables whose name
 matches NAME_REGEXP, and '--type' only returns variables whose type
 matches TYPE_REGEXP.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info module variables'.
@@ -41104,7 +41110,7 @@ Example
 The '-symbol-info-modules' Command
 ----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-info-modules [--name NAME_REGEXP]
@@ -41122,7 +41128,7 @@ the name of the module.
 than LIMIT results.  If exactly LIMIT results are returned then there
 might be additional results available if a higher limit is used.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info modules'.
@@ -41158,7 +41164,7 @@ Example
 The '-symbol-info-types' Command
 --------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-info-types [--name NAME_REGEXP]
@@ -41178,7 +41184,7 @@ by name.
 than LIMIT results.  If exactly LIMIT results are returned then there
 might be additional results available if a higher limit is used.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info types'.
@@ -41215,7 +41221,7 @@ Example
 The '-symbol-info-variables' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-info-variables [--include-nondebug]
@@ -41239,7 +41245,7 @@ variable.
 than LIMIT results.  If exactly LIMIT results are returned then there
 might be additional results available if a higher limit is used.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info variables'.
@@ -41320,7 +41326,7 @@ Example
 The '-symbol-list-lines' Command
 --------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -symbol-list-lines FILENAME
@@ -41329,7 +41335,7 @@ Synopsis
 program addresses for the given source filename.  The entries are sorted
 in ascending PC order.
 
-GDB Command
+### GDB Command
 ...........
 
 There is no corresponding GDB command.
@@ -41354,7 +41360,7 @@ names and to read in and obtain symbol table information.
 The '-file-exec-and-symbols' Command
 ------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -file-exec-and-symbols FILE
@@ -41366,7 +41372,7 @@ are set when using this command with no arguments, GDB will produce
 error messages.  Otherwise, no output is produced, except a completion
 notification.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'file'.
@@ -41382,7 +41388,7 @@ Example
 The '-file-exec-file' Command
 -----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -file-exec-file FILE
@@ -41393,7 +41399,7 @@ If used without argument, GDB clears the information about the
 executable file.  No output is produced, except a completion
 notification.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'exec-file'.
@@ -41409,7 +41415,7 @@ Example
 The '-file-list-exec-source-file' Command
 -----------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -file-list-exec-source-file
@@ -41419,7 +41425,7 @@ to the current source file for the current executable.  The macro
 information field has a value of '1' or '0' depending on whether or not
 the file includes preprocessor macro information.
 
-GDB Command
+### GDB Command
 ...........
 
 The GDB equivalent is 'info source'
@@ -41435,7 +41441,7 @@ Example
 The '-file-list-exec-source-files' Command
 ------------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -file-list-exec-source-files [ --GROUP-BY-OBJFILE ]
@@ -41494,7 +41500,7 @@ string with one of the following values:
 source file with the same fields as described previously.  The SOURCES
 list can be empty for object files that have no debug information.
 
-GDB Command
+### GDB Command
 ...........
 
 The GDB equivalent is 'info sources'.  'gdbtk' has an analogous command
@@ -41567,7 +41573,7 @@ Example
 The '-file-list-shared-libraries' Command
 -----------------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -file-list-shared-libraries [ REGEXP ]
@@ -41575,7 +41581,7 @@ Synopsis
    List the shared libraries in the program.  With a regular expression
 REGEXP, only those libraries whose names match REGEXP are listed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info shared'.  The fields have a
@@ -41601,7 +41607,7 @@ Example
 The '-file-symbol-file' Command
 -------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -file-symbol-file FILE
@@ -41610,7 +41616,7 @@ Synopsis
 without arguments, clears GDB's symbol table info.  No output is
 produced, except for a completion notification.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'symbol-file'.
@@ -41632,7 +41638,7 @@ File: gdb.info,  Node: GDB/MI Target Manipulation,  Next: GDB/MI File Transfer C
 The '-target-attach' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-attach PID | GID | FILE
@@ -41641,7 +41647,7 @@ Synopsis
 group GID.  If attaching to a thread group, the id previously returned
 by '-list-thread-groups --available' must be used.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'attach'.
@@ -41659,7 +41665,7 @@ Example
 The '-target-detach' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-detach [ PID | GID ]
@@ -41668,7 +41674,7 @@ Synopsis
 If either PID or GID is specified, detaches from either the specified
 process, or specified thread group.  There's no output.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'detach'.
@@ -41684,7 +41690,7 @@ Example
 The '-target-disconnect' Command
 --------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-disconnect
@@ -41692,7 +41698,7 @@ Synopsis
    Disconnect from the remote target.  There's no output and the target
 is generally not resumed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'disconnect'.
@@ -41708,7 +41714,7 @@ Example
 The '-target-download' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-download
@@ -41743,7 +41749,7 @@ downloaded.  These messages include the following fields:
 
 At the end, a summary is printed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'load'.
@@ -41802,7 +41808,7 @@ have been broken down so that they can fit onto a page.
      write-rate="429"
      (gdb)
 
-GDB Command
+### GDB Command
 ...........
 
 No equivalent.
@@ -41815,7 +41821,7 @@ N.A.
 The '-target-flash-erase' Command
 ---------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-flash-erase
@@ -41835,7 +41841,7 @@ starting addresses and memory region sizes.
 The '-target-select' Command
 ----------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-select TYPE PARAMETERS ...
@@ -41854,7 +41860,7 @@ which the target program is, in the following form:
      ^connected,addr="ADDRESS",func="FUNCTION NAME",
        args=[ARG LIST]
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'target'.
@@ -41876,7 +41882,7 @@ File: gdb.info,  Node: GDB/MI File Transfer Commands,  Next: GDB/MI Ada Exceptio
 The '-target-file-put' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-file-put HOSTFILE TARGETFILE
@@ -41884,7 +41890,7 @@ Synopsis
    Copy file HOSTFILE from the host system (the machine running GDB) to
 TARGETFILE on the target system.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'remote put'.
@@ -41900,7 +41906,7 @@ Example
 The '-target-file-get' Command
 ------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-file-get TARGETFILE HOSTFILE
@@ -41908,7 +41914,7 @@ Synopsis
    Copy file TARGETFILE from the target system to HOSTFILE on the host
 system.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'remote get'.
@@ -41924,14 +41930,14 @@ Example
 The '-target-file-delete' Command
 ---------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -target-file-delete TARGETFILE
 
    Delete TARGETFILE from the target system.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'remote delete'.
@@ -41953,7 +41959,7 @@ File: gdb.info,  Node: GDB/MI Ada Exceptions Commands,  Next: GDB/MI Support Com
 The '-info-ada-exceptions' Command
 ----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -info-ada-exceptions [ REGEXP]
@@ -41962,7 +41968,7 @@ Synopsis
 With a regular expression REGEXP, only those exceptions whose names
 match REGEXP are listed.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info exceptions'.
@@ -42010,7 +42016,7 @@ GDB about target support of certain features.
 The '-info-gdb-mi-command' Command
 ----------------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -info-gdb-mi-command CMD_NAME
@@ -42022,7 +42028,7 @@ not part of the command name (*note* GDB/MI Input Syntax::), and thus
 should be omitted in CMD_NAME.  However, for ease of use, this command
 also accepts the form with the leading dash.
 
-GDB Command
+### GDB Command
 ...........
 
 There is no corresponding GDB command.
@@ -42142,14 +42148,14 @@ File: gdb.info,  Node: GDB/MI Miscellaneous Commands,  Prev: GDB/MI Support Comm
 The '-gdb-exit' Command
 -----------------------
 
-Synopsis
+### Synopsis
 ........
 
       -gdb-exit
 
    Exit GDB immediately.
 
-GDB Command
+### GDB Command
 ...........
 
 Approximately corresponds to 'quit'.
@@ -42164,14 +42170,14 @@ Example
 The '-gdb-set' Command
 ----------------------
 
-Synopsis
+### Synopsis
 ........
 
       -gdb-set
 
    Set an internal GDB variable.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'set'.
@@ -42187,14 +42193,14 @@ Example
 The '-gdb-show' Command
 -----------------------
 
-Synopsis
+### Synopsis
 ........
 
       -gdb-show
 
    Show the current value of a GDB variable.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'show'.
@@ -42210,14 +42216,14 @@ Example
 The '-gdb-version' Command
 --------------------------
 
-Synopsis
+### Synopsis
 ........
 
       -gdb-version
 
    Show version information for GDB.  Used mostly in testing.
 
-GDB Command
+### GDB Command
 ...........
 
 The GDB equivalent is 'show version'.  GDB by default shows this
@@ -42354,7 +42360,7 @@ Example
 The '-info-os' Command
 ----------------------
 
-Synopsis
+### Synopsis
 ........
 
      -info-os [ TYPE ]
@@ -42367,7 +42373,7 @@ of that type.
    The types of information available depend on the target operating
 system.
 
-GDB Command
+### GDB Command
 ...........
 
 The corresponding GDB command is 'info os'.
@@ -49431,7 +49437,7 @@ E.5.1 ARM-specific Protocol Details
 
 File: gdb.info,  Node: ARM Breakpoint Kinds,  Next: ARM Memory Tag Types,  Up: ARM-Specific Protocol Details
 
-E.5.1.1 ARM Breakpoint Kinds
+### E.5.1.1 ARM Breakpoint Kinds
 ............................
 
 These breakpoint kinds are defined for the 'Z0' and 'Z1' packets.
@@ -49448,7 +49454,7 @@ These breakpoint kinds are defined for the 'Z0' and 'Z1' packets.
 
 File: gdb.info,  Node: ARM Memory Tag Types,  Prev: ARM Breakpoint Kinds,  Up: ARM-Specific Protocol Details
 
-E.5.1.2 ARM Memory Tag Types
+### E.5.1.2 ARM Memory Tag Types
 ............................
 
 These memory tag types are defined for the 'qMemTag' and 'QMemTag'
@@ -49474,7 +49480,7 @@ E.5.2 MIPS-specific Protocol Details
 
 File: gdb.info,  Node: MIPS Register packet Format,  Next: MIPS Breakpoint Kinds,  Up: MIPS-Specific Protocol Details
 
-E.5.2.1 MIPS Register Packet Format
+### E.5.2.1 MIPS Register Packet Format
 ...................................
 
 The following 'g'/'G' packets have previously been defined.  In the
@@ -49497,7 +49503,7 @@ MIPS64
 
 File: gdb.info,  Node: MIPS Breakpoint Kinds,  Prev: MIPS Register packet Format,  Up: MIPS-Specific Protocol Details
 
-E.5.2.2 MIPS Breakpoint Kinds
+### E.5.2.2 MIPS Breakpoint Kinds
 .............................
 
 These breakpoint kinds are defined for the 'Z0' and 'Z1' packets.
@@ -50961,7 +50967,7 @@ Errors:
 
 File: gdb.info,  Node: stat/fstat,  Next: gettimeofday,  Prev: unlink,  Up: List of Supported Calls
 
-stat/fstat
+### stat/fstat
 ..........
 
 Synopsis:
@@ -51002,7 +51008,7 @@ Errors:
 
 File: gdb.info,  Node: gettimeofday,  Next: isatty,  Prev: stat/fstat,  Up: List of Supported Calls
 
-gettimeofday
+### gettimeofday
 ............
 
 Synopsis:
@@ -51108,7 +51114,7 @@ E.13.8 Protocol-specific Representation of Datatypes
 
 File: gdb.info,  Node: Integral Datatypes,  Next: Pointer Values,  Up: Protocol-specific Representation of Datatypes
 
-Integral Datatypes
+### Integral Datatypes
 ..................
 
 The integral datatypes used in the system calls are 'int', 'unsigned
@@ -51131,7 +51137,7 @@ endian byte order.
 
 File: gdb.info,  Node: Pointer Values,  Next: Memory Transfer,  Prev: Integral Datatypes,  Up: Protocol-specific Representation of Datatypes
 
-Pointer Values
+### Pointer Values
 ..............
 
 Pointers to target data are transmitted as they are.  An exception is
@@ -51151,7 +51157,7 @@ trailing null byte.  For example, the string '"hello world"' at address
 
 File: gdb.info,  Node: Memory Transfer,  Next: struct stat,  Prev: Pointer Values,  Up: Protocol-specific Representation of Datatypes
 
-Memory Transfer
+### Memory Transfer
 ...............
 
 Structured data which is transferred using a memory read or write (for
@@ -51165,7 +51171,7 @@ already-coerced data at any time.
 
 File: gdb.info,  Node: struct stat,  Next: struct timeval,  Prev: Memory Transfer,  Up: Protocol-specific Representation of Datatypes
 
-struct stat
+### struct stat
 ...........
 
 The buffer of type 'struct stat' used by the target and GDB is defined
@@ -51227,7 +51233,7 @@ eventually get truncated on the target.
 
 File: gdb.info,  Node: struct timeval,  Prev: struct stat,  Up: Protocol-specific Representation of Datatypes
 
-struct timeval
+### struct timeval
 ..............
 
 The buffer of type 'struct timeval' used by the File-I/O protocol is
@@ -51263,7 +51269,7 @@ after the call as needed.
 
 File: gdb.info,  Node: Open Flags,  Next: mode_t Values,  Up: Constants
 
-Open Flags
+### Open Flags
 ..........
 
 All values are given in hexadecimal representation.
@@ -51279,7 +51285,7 @@ All values are given in hexadecimal representation.
 
 File: gdb.info,  Node: mode_t Values,  Next: Errno Values,  Prev: Open Flags,  Up: Constants
 
-mode_t Values
+### mode_t Values
 .............
 
 All values are given in octal representation.
@@ -51299,7 +51305,7 @@ All values are given in octal representation.
 
 File: gdb.info,  Node: Errno Values,  Next: Lseek Flags,  Prev: mode_t Values,  Up: Constants
 
-Errno Values
+### Errno Values
 ............
 
 All values are given in decimal representation.
@@ -51331,7 +51337,7 @@ any error value not in the list of supported error numbers.
 
 File: gdb.info,  Node: Lseek Flags,  Next: Limits,  Prev: Errno Values,  Up: Constants
 
-Lseek Flags
+### Lseek Flags
 ...........
 
        SEEK_SET      0

@@ -308,6 +308,7 @@ if (process.argv.length > 2 && fs.existsSync(file)) {
     #! /usr/bin/env python
 
     import os
+    import io
     import sys
     import subprocess
     from subprocess import PIPE
@@ -315,22 +316,30 @@ if (process.argv.length > 2 && fs.existsSync(file)) {
     from xml.etree import ElementTree as ET
     from xml.etree.ElementTree import Element
 
-    def printHHC(parent: Element, pno="", sub=0, throttle=-1):
+    encoding = "utf-8"
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding=encoding)
+
+    def printHHC(parent: Element, pno=[0], sub=0, throttle=-1):
         if parent.tag != "UL":
             raise Exception("Parent Element is not a UL.")
         for it in parent:
             if it.tag == "UL":
-                throttle = printHHC(it, str(sub+1)+".", 0, throttle)
+                npno = list(pno)
+                npno.append(0)
+                throttle = printHHC(it, npno, sub+1, throttle)
             else:
                 if (throttle == 0 ):
                     break
                 throttle -= 1 if throttle > 0 else 0 
-                sub += 1
+                pno[sub] += 1
                 title = it[0].attrib['value']
-                html = it[1].attrib['value']
+                html = it[1].attrib['value'] if len(it)>1 else ""
                 print(''.ljust(72,'_'))
-                print(f"{pno}{sub} - [{title}]({html})")
-                print(''.ljust(52,'-' if pno != "" else '='))
+                ids = ".".join([str(it) for it in pno])
+                print(f"{ids}. - [{title}]({html})")
+                print(''.ljust(52,'-' if len(pno)>1 else '='))
+                if html == "":
+                    continue
 
                 trans="c:/kotlin/html2md/index.js"
                 node = 'c:/nvm/v18.2.0/node.exe'
@@ -343,18 +352,17 @@ if (process.argv.length > 2 && fs.existsSync(file)) {
                 #     print("Raised exception witth exit code:", ex, node)
                 #     # raise ex
                 args = [node, "--version"]
-                args = [node, trans, html, "latin1"]
+                args = [node, trans, html, encoding]
                 envs = dict( PATH = ";".join(sys.path) )
                 # envs = { "PATH" : ";".join(sys.path) }
-                cp = subprocess.run(args, stdin=sys.stdin, stderr=sys.stderr)
-                # cp = subprocess.run(args, capture_output=True, env=envs)
-                # print(cp.returncode, cp.stdout.decode('UTF-8').strip())
-                # if cp.returncode != 0:
-                #     print(cp.stderr.decode('UTF-8'), file=sys.stderr)
+                # cp = subprocess.run(args, stdin=sys.stdin, stderr=sys.stderr)
+                cp = subprocess.run(args, capture_output=True, env=envs)
+                print(cp.stdout.decode(encoding))
+                if cp.returncode != 0:
+                    print(cp.returncode, cp.stderr.decode('utf-8'), file=sys.stderr)
         return throttle
 
-    chm = "../Virtual Machine Design and Implementation CC++ by Bill Blunden (z-lib.org).chm"
-    hhc = "4106.hhc" # HTML Help Contents File
+    hhc = "318570.hhc" # HTML Help Contents File
     # dom = MiniDom.parse(hhc)
     dom = ET.parse(hhc)
     # print(dir(dom))

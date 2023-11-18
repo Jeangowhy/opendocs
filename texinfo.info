@@ -21,12 +21,12 @@ $ pacman -S mingw-w64-x86_64-emacs # MinGW64 Subsystems
 $ mingw64.exe && runemacs
 $ msys2_shell.cmd -mingw64 -c runemacs
 $ echo '#! /usr/bin/env bash
-/mingw64/bin/runemacs "$@"' > /usr/bin/emacs
+PATH=/mingw64/bin runemacs "$@"' > /usr/bin/emacs
 # Open Emacs Manual and goto C.3 Command Argument Example
 $ emacs +42836 -- /mingw64/share/info/emacs.info
 
 $ echo '#! /usr/bin/env bash
-/mingw64/bin/emacs "$@"' > /usr/bin/el
+PATH=/mingw64/bin emacs "$@"' > /usr/bin/el
 $ cat > test.el << EOF
 #!/usr/bin/emacs --script
 (print 3.1415926535897932)
@@ -39,12 +39,17 @@ $ el --eval '(message (format "1+2 equals %d" (+ 1 2)))'
 $ el -batch --eval '(print 3.1415926535897932)'
 
 cat > el.bat << EOF
-c:/msys64/mingw64/bin/emacs %*
+@set PBAK=%PATH%
+@PATH=c:/msys64/mingw64/bin/
+"%PATH%emacs.exe" %*
+@set PATH=%PBAK%
 EOF
 cat > emacs.bat << EOF
-c:/msys64/mingw64/bin/runemacs %*
+@set PBAK=%PATH%
+@PATH=c:/msys64/mingw64/bin/
+"%PATH%runemacs.exe" %*
+@set PATH=%PBAK%
 EOF
-
 
 $ find c:/msys64/mingw64/bin | grep emacs
 c:/msys64/mingw64/bin/emacs-29.1.exe
@@ -687,6 +692,1240 @@ Emacs 有一个 picture mode 方便编辑 ASCII 图形，使用 `M-x edit-pictur
 向右移动。参考文档 43 Editing Pictures。
 
 
+Remote Editing via OpenSSH
+========================================================
+
+Emacs 集成了 TRAMP （Transparent Remote (file) Access, Multiple Protocol），透明远程编辑。
+基于 FTP/SCP/SSH 安全连接，使用 TRAMP 打开文件时，`C-x C-f`，指定远程路径，
+使用 `/ssh:user@address:/path-to-file` 这样的路径，Emacs 根据服务地址和用户账户
+访问远程服务器的相应文件或目录。服务器名称可以配置在 `~/.ssh/config` 文件中，
+文件路径时就可以指定主机名称，`/ssh:hostname:`。
+
+```sh
+    19.15 Remote Files
+    ==================
+     /METHOD:HOST:FILENAME
+     /METHOD:USER@HOST:FILENAME
+     /METHOD:USER@HOST#PORT:FILENAME
+```
+
+Emacs 会按以下逻辑顺序确定远程编辑使用的协议：
+
+  1. If the host name starts with ‘ftp.’ (with dot), Emacs uses *FTP*.
+  2. If the user name is ‘ftp’ or ‘anonymous’, Emacs uses *FTP*.
+  3. If the variable ‘tramp-default-method’ is set to ‘ftp’, Emacs uses *FTP*.
+  4. If ‘ssh-agent’ is running, Emacs uses *scp*.
+  5. Otherwise, Emacs uses *ssh*.
+
+正常工作的 OpenSSH for Windows 7.7，Emacs Tramp 访问时依然可能产生以下问题：
+
+    ➊ Host key verification failed
+    ➋ ssh_askpass: posix_spawn: No such file or directory
+    ➌ Connection reset by ip port 22
+
+触发➊错误原因有二：没有合适的公钥登录，没有配置好密码登录。
+
+触发➋错误原因：没有配置好自动公钥登录机制，然后使用备选的密码登录时，Emacs 
+不能打开 /dev/tty 设备文件向用户请求输入密码，可能与 Msys2 环境问题有问题。
+
+触发➌错误原因：登录的用户未授权，通常包含 unable to resolve user 调试信息。
+
+相对地，Vim 在这远程编辑方面的功能使用就非常流畅，基于 Nread 和 Nwrite：
+
+```sh
+vim scp://user@ip:port/path/to/file
+```
+
+为了观察 Tramp 连接过程的细节，可以设置 `tramp-verbose` 变量为更高的等级，
+输出更多的细节信息，scratch 文件中编写以下 lisp，然后按 `C-M-x` 执行它。
+然后，再使用 `C-x C-f` 打开远程文件时就会在 *debug tramp* 文件展示细节：
+
+```lisp
+(setq tramp-verbose 10)
+(print tramp-verbose)
+```
+
+除了 SSH，Tramp 还支持其它协议进行远程编辑，并且 SSH 也有多种连接途径。
+安装 PuTTY 还可以使用 `plink -ssh` 进行远程连接：
+
+    pacman -S mingw-w64-x86_64-putty
+
+只是，以上尝试都卡死在 tramp-maybe-open-connection 方法中，远程连接不到。
+即使关闭 Windows 防火墙也不行。
+
+[SSH (Secure Shell)](https://www.ssh.com/academy/ssh) 作为最常用的一种安全连接协议，
+目前已经存在多种实现，开放源代码方案 OpenSSH 是通用性较好的一个。
+
+1. Tectia SSH client & server for Windows, Unix, Linux - with 24x7 support
+2. Tectia SSH for IBM z/OS client & server for IBM z/OS mainframes - with 24x7 support
+3. PuTTY client for Windows and Linux
+4. WinSCP client for Windows
+5. CyberDuck client for Mac
+6. OpenSSH server for Unix, Linux
+
+SSH 工作原理可以由以下图表展示：
+
+    ╔═══════════════════════════════════════════════════════════╗
+    ║ 1. Client initiates the connection by contacting server ⇨ ║
+    ╚═══════════════════════════════════════════════════════════╝
+    ╔═══════════════════════════════════════════════════════════╗
+    ║ ⇦             2. Sends server public key                  ║
+    ╚═══════════════════════════════════════════════════════════╝
+    ╔═══════════════════════════════════════════════════════════╗
+    ║ ⇦     3. Negotiate parameters and open secure channel  ⇨  ║
+    ╚═══════════════════════════════════════════════════════════╝
+    ╔═══════════════════════════════════════════════════════════╗
+    ║        4. User login to server host operating system   ⇨  ║
+    ╚═══════════════════════════════════════════════════════════╝
+
+    SSH Client Side                                   SSH Server Side 
+
+SSH 授权程序包含以下步骤：
+
+1. Negotiating the version of the protocol to use
+2. Negotiating cryptographic algorithms and other options to use
+3. Negotiating a one-time session key for encrypting the rest of the session
+4. Authenticating the server host using its host key
+5. Authenticating the user using a password, public key authentication, or other means.
+
+SSH 系统建立于 [PKI (Public Key Infrastructure)](https://www.ssh.com/academy/pki) 体系，
+使用非对称加密技术建立安全连接，然后通过密钥交换算法交换共享密钥加密要传递的数据。
+PKI 系统的中心是 Certificate Authority (CA)，它们负责对各种文档进行签名，颁发证书。
+
+整个 SSH 安全系统中，涉及多种密钥概念和文件，它们有各自的用途，简要说明如下：
+
+1. Host Keys 服务器端自身的私钥；
+2. Authorized keys 已经授权的客户端公钥列表文件，只有授权的客户才允许登录；
+3. Known host keys 客户端已经接受的服务器公钥列表文件，只连接被认可的服务器；
+4. Identity key 身份证密钥，属于私钥，用于确认用户身份和授权访问；
+5. Session keys 建立连接过程的会话中用以加密数据的共享密钥，属于对称加密；
+
+Authorized keys 和 identity keys 组合称为用户密钥，即用户密钥对，用于验证身份。
+
+[Basic overview of SSH Keys](https://www.ssh.com/academy/ssh-keys)
+
+
+为了查看连接过程细节，使用 `ssh -v user@ip` 命令，-v 参数表示打印细节信息。
+[OpenSSH](https://www.openssh.com/specs.html) 登录流程参考官方文档。SSH 登录过程
+涉及四种授权验证机制：
+
+7. Public Key Authentication Method: "publickey"
+8. Password Authentication Method: "password"
+9. Host-Based Authentication: "hostbased"
+0. Certificate based user authentication
+
+另外，还有一种特殊的“无需登录”，The "none" Authentication，这种方式毫无安全性。
+
+密码登录需要用户登录时输入密码，这个输入过程存在泄密的可能性。而公钥登录只
+需要服务器保存用户的公钥，同时客户端也要保存服务器公钥的指纹。这对于多用户、
+多服务器的大型机构很不方便，如果有员工离职，需要将他的公钥从每台服务器删除。
+
+OpenSSH 提供了一个私钥管理工具，ssh-agent 服务程序用于保持用于公钥授权的私钥。
+在使用 ssh 登录到其他机器时，通过 `SSH_AUTH_SOCK` 或 `SSH_AGENT_PID` 环境变量
+可以找到代理，然后自动进行身份验证。因此，ssh-agent 就是一个 identity keys 管家，
+可以用于实现单点登录 single sign-on (SSO)。
+
+密钥代理工具和 ssh-add 配合使用，使用 `ssh-add -l` 打印当前保管中的密钥列表。
+ssh-agent 默认也使用用户主目录下 `.ssh` 子目录中的密钥文件，执行 ssh-add 命令
+而不指定参数时，会添加以下默认密钥文件，或者直接指定密钥文件：
+
+    ~/.ssh/id_rsa
+    ~/.ssh/id_dsa
+    ~/.ssh/id_ecdsa
+    ~/.ssh/id_ed25519
+    ~/.ssh/identity
+
+加载私钥之后，ssh-add 会尝试加载相应的证书信息，默认读取和私钥文件同名，但后缀
+`-cert.pub` 的证书，可以指定。
+
+
+证书登录很好地解决以上问题，通过引入证书颁发机构 CA（Certificate1 authority），
+对信任的服务器颁发服务器证书，对信任的用户颁发用户证书。登录时只需要双方
+展示证书，不需要知道彼此的公钥，即可以验证是否可信。
+
+证书登录的主要优点有两个：
+
+1. 用户和服务器不用交换公钥，这更容易管理，也具有更好的可扩展性。
+2. 证书有到期时间，而公钥没有。设置有效期很短的证书，进一步提高安全性。
+
+X.509 证书规范是公钥基础设施（PKI）的标准格式，证书文件格式有多种，参考如下：
+
+1. .der .cer，文件是二进制格式，只保存证书，不保存私钥。
+2. .pem，一般是文本格式，可保存证书，可保存私钥。
+3. .crt，可以是二进制格式，可以是文本格式，与 .der 格式相同，不保存私钥。
+4. .pfx .p12，二进制格式，同时包含证书和私钥，一般有密码保护。
+5. .jks，二进制格式，同时包含证书和私钥，一般有密码保护。
+
+X.509 certificate 一般结构使用 ASN.1 抽象语法标记表示，Abstract Syntax Notation One。
+X.509 数字证书包含以下基本内容，此外还可以附加额外扩展数据：
+
+*   **Version:** 
+    The iteration of the X.509 certificate being issued to a user.
+*   **Serial Number:** 
+    A unique number assigned to each X.509 certificate by the CA.
+*   **Signature Algorithm ID:** 
+    The specific mathematical algorithm used to create and encrypt the CA's private key.
+*   **Issuer:** 
+    The name of the CA who issued the X.509 certificate.
+*   **Validity Period:** 
+    The timeframe in which the X.509 certificate can be used before it expires and becomes obsolete. 
+    It includes the start and end dates that the certificate is viable.
+*   **Subject:** 
+    The user's name or the type of device that receives the X.509 certificate from the CA.
+*   **Subject Public Key Information:** 
+    This includes the algorithm used to generate the public key attached to the X.509 certificate, 
+    the public key itself, and additional data such as the key's size and unique function.
+*   **Certificate Signature Algorithm:** 
+    The type of algorithm involved in signing and encrypting the X.509 certificate.
+*   **Certificate Signature:** 
+    A long, alphanumerical string unique to the identity of the CA issuing the X.509 certificate.
+
+-   https://www.ssh.com/academy/pki/x.509-certificate
+-   https://cvsweb.openbsd.org/src/usr.bin/ssh/PROTOCOL.certkeys
+-   https://www.ietf.org/rfc/rfc5280.txt
+    Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile
+
+使用 OpenSSL 工具可以在各种格式之间转换。但是 OpenSSL 生成的证书较特殊：
+
+    Certified keys are represented using new key types:
+
+         ssh-rsa-cert-v01@openssh.com
+         ssh-dss-cert-v01@openssh.com
+         ecdsa-sha2-nistp256-cert-v01@openssh.com
+         ecdsa-sha2-nistp384-cert-v01@openssh.com
+         ecdsa-sha2-nistp521-cert-v01@openssh.com
+         ssh-ed25519-cert-v01@openssh.com
+
+    Two additional types exist for RSA certificates to force use of
+     SHA-2 signatures (SHA-256 and SHA-512 respectively):
+
+         rsa-sha2-256-cert-v01@openssh.com
+         rsa-sha2-512-cert-v01@openssh.com
+
+SSH 服务器使用专用的公钥列表文件记录认可用户身份，`~/.ssh/authorized_keys` 文件。
+需要使用公钥登录的用户，其公钥就需要附加到这个文件后面。服务器端可以使用 
+`sshd -d` 启动命令，用于查看调试信息，或者使用 `sshd -T` 检查配置文件是否有问题。
+
+1. https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/
+2. https://codeload.github.com/PowerShell/openssh-portable/zip/refs/tags/v9.4.0.0
+2. https://github.com/PowerShell/openssh-portable/archive/refs/tags/v9.4.0.0.zip
+3. https://github.com/powershell/win32-openssh/wiki
+
+根据 OpenSSH for Windows v7.7.0.0 Wiki 文档，还有大量 OpenSSH 配置项未能支持。
+主要支持了用户组、Windows 域用户，工作组用户、用户组和互联网账户严格解析为
+其本地帐户名（没有域部分，类似于标准 Unix 名称）。域用户和组严格解析为
+NameSamCompatible 格式，`Domain_short_name\user_name`。所有基于用户/用户组的配置
+规则都需要遵守此格式。
+
+- Ex. for domain users and groups
+  - `DenyUsers contoso\admin@192.168.2.23` : blocks contoso\admin from 192.168.2.23
+  - `DenyUsers contoso\*`  : blocks all users from contoso domain
+  - `AllowGroups contoso\sshusers` : only allow users from contoso\sshusers group
+  - `AllowGroups "contoso\ssh users"` : only allow users from "contoso\ssh users" group
+- Ex. for local users and groups
+  - `AllowUsers localuser@192.168.2.23`
+  - `AllowGroups sshusers`
+
+OpenSSH 移植到 Windows 的版本暗病多了，感谢 MS 团队，他们不仅创造问题，
+还好心搞了 win32-openssh wiki 页面帮解决难题，真的要哭死给他们看。
+参考 Fix SSH file permissions。
+
+主要是资源文件权限处理问题，如果配置文件、密钥文件权限配置不正确，将不能
+正常运行 sshd 服务。问题基于 Windows 与 Unix 系统文件权限检查的两点差异：
+
+- SuperUser on Unix maps to either [System (SY)][SY] or AdministratorsGroup (AG) on Windows. 
+- Permission controlling in Windows is more granular than in Unix. 
+
+Windows `LocalSystem` 账户是服务控制管理器使用的预定义本地帐户，怪物账户，没有
+一般账户的管理流程。安全子系统无法识别此帐户，因此不能在对 LookupAccountName 
+函数的调用中指定其名称。它在本地计算机上具有广泛的权限，并充当网络的计算机。
+其令牌包括 `NT AUTHORITY\SYSTEM` 和 `BUILTIN\Administrators SID`。这些帐户可以访问
+大多数系统对象。所有区域设置中的帐户名称均为 `.\LocalSystem`。名称也可以使用
+LocalSystem 或 ComputerName\LocalSystem。此帐户没有密码。如果在对 CreateService 或 
+ChangeServiceConfig 函数的调用中指定 LocalSystem 帐户，则会忽略所提供的任何密码。
+
+Host Keys 文件只能由System (SY) 和 AdministratorsGroup (AG) 账户持有。
+
+用户密钥文件，不能由多个用户持有，任何其它用户访问权限都会导致密钥失效。
+运行 ssh 时会警告：
+
+    WARNING: UNPROTECTED PRIVATE KEY FILE!
+
+`authorized_keys` 是用户关联的 authorized public keys 列表文件，用于 key-based 
+的自动用户授权登录流程。未经授权的访问会损害用户账户，它不应该也不
+能被其它用户访问。
+
+默认的管理组公钥认证列表文件也只能由 SYSTEM 和 Administrators group 账户访问：
+`%programdata%\ssh\administrators_authorized_keys`
+
+[SY]: https://msdn.microsoft.com/en-us/library/windows/desktop/ms684190(v=vs.85).aspx
+
+公钥授权登录的工作流程，包括密钥对生成、使用公钥，公钥签名（生成证书）：
+
+```sh
+### Usage from client-side (`ssh`)
+# 1. Generate a key pair on the client (preferably with a passphrase):
+ssh-keygen -t rsa -f id_rsa
+# 2. Register private key with ssh-agent (optional, for single sign-on experience)
+net start ssh-agent
+ssh-add id_rsa
+# 3. Login using private key
+ssh -i ./id_rsa user@host             # (workgroup user)
+ssh -i ./id_rsa -l user@domain host   # (domain user)
+
+### Setup SSHD server for certificate based user authentication
+# 1. Generate CA keys (just like any other keys)
+ssh-keygen -t rsa -f ca_userkeys
+# 2. Register above key as trusted CA for sshd. Add following entry in sshd_config
+# - Path is relative to sshd binaries directory. Absolute path is recommended to avoid confusion
+TrustedUserCAKeys ca_userkeys.pub
+# 3. sign user keys using ssh-keygen
+# - `username` should match the user to be authenticated
+ssh-keygen -s ca_userkeys -I cert_identity -V -1w:+54w5d -n username id_rsa.pub
+```
+
+证书授权登录机制中，服务器和客户端都需要持有自己的证书。这里使用自签名证书，
+具体操作流程是：
+
+1. 使用 ssh-keygen 建用于自签名用的 CA 密钥对，对应以上 ca_userkeys；
+2. 使用 ssh-keygen 和 CA 密钥对用户和服务器的公钥进行签名，生成各自的证书；
+
+配置好证书文件，用户登录服务器时，双方自动向对方展示证书，服务器利用可信 CA 验证。
+
+使用 ssh-keygen 提供的证书签发功能时，使用 -h 参数表示签发的是服务器证书，
+而不是客户证书。生成的证书文件会在公钥文件名的基础上，添加 `-cert` 后缀，
+例如，`id_rsa-cert.pub`。公钥文件默认扩展名为 .pub，私钥没有扩展名。创建密钥时，
+ssh-keygen 会询问输入 passphrase，它相当于一个保护密钥的密码，可以不设置，设置后
+还可以使用 `-p` 修改。并且注意，对于 Host Keys 一定不能设置。可以使用任何字符，
+通常 10-30 个为好。单纯英文字母并不好，单个字母的信息熵（entropy）只有 1-2 bits。
+
+签发客户证书时，只需要指定 CA 密钥和 "key identifier"，对应命令中的 -s 和 -l 参数。
+`-I certificate_identity` 指定的是一个标识符（字符串），它作为 Key ID 写入证书文件中。
+这个 ID 不同于用户身份密钥（Identity Key），但也会用于登录时对用户进行认证。
+证书有效期使用 `-V` 参数指定，负号表示当下之前的时间。
+密钥身份会在服务器端验证证书有效性时使用。
+
+一张证书（Certificates）除了包含 public key，一些身份信息（identity information），还
+可选地包含委托人信息（principal），例如 user 或 host。根据使用场合而定，对于远程登录，
+那就要包含用户名称，如果要限制登录主机，也可以添加这部分信息，使用逗号分隔。
+
+用户名或主机名信息通过 `-n` 参数指定，这部分信息会写入证书的 Principals 字段中。
+
+```sh
+# signs user public key and review certificate information
+ssh-keygen -s ca_userkeys -I cert_identity -V -1w:+54w5d -n Jeango id_rsa.pub
+ssh-keygen -L -f id_rsa-cert.pub
+
+id_rsa-cert.pub:
+        Type: ssh-rsa-cert-v01@openssh.com user certificate
+        Public key: RSA-CERT SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ
+        Signing CA: RSA SHA256:OW4EEfy7xKsL6udqZMH3CzpObdamK6rPNVNhyP/ED2c
+        Key ID: "cert_identity"
+        Serial: 0
+        Valid: from 2023-11-08T21:50:28 to 2024-12-02T21:50:28
+        Principals: 
+                Jeango
+        Critical Options: (none)
+        Extensions: 
+                permit-X11-forwarding
+                permit-agent-forwarding
+                permit-port-forwarding
+                permit-pty
+                permit-user-rc
+```
+
+客户、服务器证书对应在配置文件使用 `CertificateFile` 和 `HostCertificate` 指定证书路径。
+
+为了让服务能够验证客户证书，就需要将所有可信任 CA 机构的公钥文件添加到 
+TrustedUserCAKeys 列表文件中。某些证书不再使用时，就可以吊销，将对应的公钥保存到
+Key Revocation Lists 文件中：
+
+    TrustedUserCAKeys /etc/ssh/ca_userkeys.pub
+    RevokedKeys       /etc/ssh/revoked_keys
+
+    HostCertificate /etc/ssh/ssh_host_rsa_key-cert.pub
+
+HostKey 默认按以下顺序查找，或者命令行参数 `-h host_key_file` 指定服务器端密钥文件：
+
+    /etc/ssh/ssh_host_ecdsa_key, 
+    /etc/ssh/ssh_host_ed25519_key
+    /etc/ssh/ssh_host_rsa_key
+
+如果服务器有密钥有对有相应的证书文件，使用 `-c host_certificate_file` 指定。
+证书用于密钥交换过程中证明服务器身份，必需和密钥文件对应。
+
+Windows 操作系统下，OpenSSH 对应以下位置找配置文件：
+
+1. sshd 服务端默认配置文件：`%programdata%\ssh\sshd_config`
+2. ssh 客户端配置文件按以下顺序搜索：
+    1. 使用 ssh.exe -F 参数指定；
+    2. 使用用户目录中的配置文件：`%userprofile%\.ssh\config`
+    3. 使用系统级配置文件：`%programdata%\ssh\ssh_config`
+
+涉及公钥、密码登录方式最基本的配置如下
+
+```sh
+    # To disable tunneled clear text passwords, change to no here!
+    PasswordAuthentication yes
+    PermitEmptyPasswords yes
+
+    #HostKey __PROGRAMDATA__/ssh/ssh_host_rsa_key
+    #HostKey __PROGRAMDATA__/ssh/ssh_host_dsa_key
+    #HostKey __PROGRAMDATA__/ssh/ssh_host_ecdsa_key
+    #HostKey __PROGRAMDATA__/ssh/ssh_host_ed25519_key
+
+    PubkeyAuthentication yes
+
+    # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
+    # but this is overridden so installations will only check .ssh/authorized_keys
+    AuthorizedKeysFile  .ssh/authorized_keys
+
+    # Example of overriding settings on a per-user basis
+    Match Group administrators
+          AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
+```
+
+Windows 系统上有一个奇怪现象，使用不存在的账户登录时，会在公钥验证失败后进入密码
+登录，并提示用户输入密码。但是使用系统存在的账户登录时，则会直接 Connection reset。
+
+当然，账户不存在输入密码也是不可能登录成功，服务端 Failed password for invalid user，
+客户端则接收到 Disconnected。但是会经过多轮公钥检测，所有公钥都不适用再尝试密码：
+
+    debug1: attempt 5 failures 4 [preauth]
+    debug1: keyboard-interactive devs  [preauth]
+    debug1: auth2_challenge: user=NOBODY devs= [preauth]
+    debug1: kbdint_alloc: devices '' [preauth]
+    debug1: userauth-request for user NOBODY service ssh-connection method password [preauth]
+    debug1: attempt 6 failures 5 [preauth]
+    debug1: Windows authentication failed for user: NOUSER domain: . error: 1326
+    Failed password for invalid user NOBODY from localhost port 18327 ssh2
+    maximum authentication attempts exceeded for invalid user NOBODY from localhost port 18327 ssh2 [preauth]
+    Disconnecting invalid user NOBODY localhost port 18327: Too many authentication failures [preauth]
+
+使用账户登录，服务器端 get_user_token 失败，还没到公钥检测步骤，[preauth] 阶段止步：
+
+    debug1: Local version string SSH-2.0-OpenSSH_for_Windows_7.7
+    debug1: sshd version OpenSSH_for_Windows_7.7, LibreSSL 2.6.5
+    debug1: list_hostkey_types: ssh-rsa,rsa-sha2-512,rsa-sha2-256 [preauth]
+    debug1: SSH2_MSG_KEXINIT sent [preauth]
+    debug1: SSH2_MSG_KEXINIT received [preauth]
+    debug1: kex: algorithm: curve25519-sha256 [preauth]
+    debug1: kex: host key algorithm: rsa-sha2-512 [preauth]
+    debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none [preauth]
+    debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none [preauth]
+    debug1: expecting SSH2_MSG_KEX_ECDH_INIT [preauth]
+    debug1: rekey after 134217728 blocks [preauth]
+    debug1: SSH2_MSG_NEWKEYS sent [preauth]
+    debug1: expecting SSH2_MSG_NEWKEYS [preauth]
+    debug1: SSH2_MSG_NEWKEYS received [preauth]
+    debug1: rekey after 134217728 blocks [preauth]
+    debug1: KEX done [preauth]
+    debug1: userauth-request for user administrator service ssh-connection method none [preauth]
+    debug1: attempt 0 failures 0 [preauth]
+    debug1: get_user_token - unable to generate user token for administrator as i am not running as system
+    ga_init, unable to resolve user administrator
+
+错误发生在 Initialize group access list，ga_init 方法中。SSH_MSG_KEXINIT 这些是密钥协商
+过程中产生的消息，SSH2 前缀表示属于 SSH protocol version 2 Core RFCs 规范引入的消息。
+INIT 后缀表示初始化密钥交换，NEWKEYS 当然表示新的密钥正在协商中。
+参考 RFC8308  Extension Negotiation in the Secure Shell (SSH) Protocol
+
+使用当前运行 sshd 服务和客户端的系统账户成功进行公钥登录，get_user_token 函数
+没有问题，以下调试信息显示 Match Group 发生作用，但是没有相关的域服务器认证，
+继续使用公钥登录流，由客户端推送相应的公钥文件：
+
+    debug1: userauth-request for user ocean service ssh-connection method none [preauth]
+    debug1: attempt 0 failures 0 [preauth]
+    debug1: user ocean matched group list administrators at line 90
+    debug1: Windows authentication failed for user: ocean domain: . error: 1327
+    Failed none for ocean from localhost port 15062 ssh2
+    debug1: userauth-request for user ocean service ssh-connection method publickey [preauth]
+    debug1: attempt 1 failures 0 [preauth]
+
+
+Secure Shell (SSH) 安全连接配置中，服务器中应该有多个 Host Keys，对应不同的加密算法。
+具体使用什么算法取决于和客户建立连接时协商结果。
+
+SSH 核心技术规范文档有 5 份，扩展部分的文档有 18 份：
+
+1. RFC4250 - SSH Protocol Assigned Numbers IANA 机构分配码
+2. RFC4251 - SSH Protocol Architecture     协议构架
+3. RFC4252 - SSH Authentication Protocol   认证协议
+4. RFC4253 - SSH Transport Layer Protocol  传输层协议
+5. RFC4254 - SSH Connection Protocol       连接协议
+
+IANA (Internet Assigned Numbers Authority) 互联网数字分配机构是互联网正常运作的协调机构。
+Internet 作为一个全球范围的不受集权控制的全球网络，为了使网络在全球范围内协调，
+存在对互联网一些关键的部分达成技术共识的需要，而这就是 IANA 的任务。更准确地说，
+IANA 分配和维护在互联网技术标准（或者称为协议）中的唯一编码和数值系统。
+
+SSH 协议而言，IANA 分配码就包含 Message Numbers 中用于各种消息类型的信息号码。
+SSH Protocol packets 消息类型编码使用 1 ~ 255 之间的值，值越小，消息类型越低层。
+比如，1 号消息就是 SSH_MSG_DISCONNECT，属于传输层，用于表达一个连接的断开。
+这个消息包含一个 reason code，供客户端调试使用，用于确实问题所在。
+
+     Symbolic Name                                  reason code
+     -------------                                  -----------
+     SSH_DISCONNECT_HOST_NOT_ALLOWED_TO_CONNECT          1
+     SSH_DISCONNECT_PROTOCOL_ERROR                       2
+     SSH_DISCONNECT_KEY_EXCHANGE_FAILED                  3
+     SSH_DISCONNECT_RESERVED                             4
+     SSH_DISCONNECT_MAC_ERROR                            5
+     SSH_DISCONNECT_COMPRESSION_ERROR                    6
+     SSH_DISCONNECT_SERVICE_NOT_AVAILABLE                7
+     SSH_DISCONNECT_PROTOCOL_VERSION_NOT_SUPPORTED       8
+     SSH_DISCONNECT_HOST_KEY_NOT_VERIFIABLE              9
+     SSH_DISCONNECT_CONNECTION_LOST                     10
+     SSH_DISCONNECT_BY_APPLICATION                      11
+     SSH_DISCONNECT_TOO_MANY_CONNECTIONS                12
+     SSH_DISCONNECT_AUTH_CANCELLED_BY_USER              13
+     SSH_DISCONNECT_NO_MORE_AUTH_METHODS_AVAILABLE      14
+     SSH_DISCONNECT_ILLEGAL_USER_NAME                   15
+
+RSA 非对称保密系统中，使用公钥/私钥对来进行加密解密，任意一个 key 加密的数据，
+只有另一个 key 可以解密。之所以分公钥、私钥，是因为必需保证其中一个处理安全保密
+状态。如果两个 key 都被公开，那么保密系统就失去意义了。所以算法设计上，会生成
+较长的 key 作为私钥，而公钥通常只有几十字节。
+
+由于 RSA 加密解密系算法是幂指数运算，非常耗费 CPU，通常只用在交换对称密钥、
+数字签名的场合。而实际数据的加密解密还是使用传统的对称加密算法，例如使用
+AES (Advanced Encryption Standard) 算法加密。
+
+对称保密系统中使用同一个密钥进行加密、解密，由通信的双方共同持有。这就需要使用
+RSA 算法实现在公开网络上交换这个真正用于加密数据的密钥。对称加密算法设计之初
+是为用户数据服务的，所以处理能力更快，领先非对称加密算法好几个数量级。
+
+SSH 安全连接的工作过程：通常客户端第一次连接 SSH 服务器的时候，服务器会明文推送
+一个 RSA 公钥。服务器向客户端推送自己的公钥，就是向客户端展示自己的身份证明。
+客户端接收到服务器公钥时，有三种选择：
+
+1.  接受并保存下来。即信任服务器 RSA 公钥，记录到 known_hosts 留着永久使用。
+2.  接受一次。只用于一次通信，不保存服务器 RSA 公钥。
+3.  拒绝。显然，客户端没有服务器的公钥，也无法连接 SSH 服务器。
+
+接下来，如果配置了公钥登录，客户端就需要向服务器展示自己的公钥以证明身份。
+
+RSA 系统还需要考虑中间人攻击 MITM (Man in the middle attacks)。中间人也就是在服务器
+与客户端中间的设备，当客户端向服务器发起连接请求，被网络中间环节捕获，并使用
+假冒消息回复客户端，另一方面又向服务器发出假冒客户端的消息，在真正的通信双方
+之间担任一个“代理人”的角色。
+
+在接受 RSA 公钥之前，客户端并没有服务器 RSA 公钥，问题就是客户端如何知道接收
+到的 RSA 公钥真的是服务器的呢？答案：不知道！也许是伪造的，也许真的是服务器。
+这个问题直接催生了 CA 证书颁发机构，通过公众认可、可信任的机构授权，使用服务
+获得一个公共认证的身份。
+
+数字证书就是 CA (Certificate Authority) 机构认证过的公钥，数字证书和公钥一样是公开。
+证书生产过程简要过程：数字证书申请人首先提交包含能证明自己身份信息认证签名
+请求文件 CSR (Certificate Signing Request)，然后使用 HASH 算法摘要这个 CSR 文件，
+CA 授权中心使用自己的私钥加密这些摘要信息，即得到一个数字签名 (digital signature)，
+这些信息组合在一些就生成了一张证书。用户验证证书真伪时，同样先获取 CSR 文件的
+摘要信息，再通过证书颁发机构的公钥解密证书包含的数字签名，两部分信息进行比对，
+如果一致，即证明身份是 CA 授权的身份，不可能伪造。
+
+因为 CA 机构具有公信力，所以 CA 信任的机制同样也具体这种信任关系，从而形成
+一条信任关系链。CA 机构附加在证书文件上的数字签名（公钥数字签名）就相当于
+身份证号码。数字签名只有被签名（加密）信息的发送者才能产生，他人无法伪造,
+因为伪造无法使用公钥解密。数字签名是对信息的发送者发送信息真实性的有效证明。
+
+
+RSA 私钥如果那一天泄露/破解了呢？意味着历史上用户加密数据传输都可以解密，
+这是无法容忍的。所以引入了 PFS (Perfect Forward Secrecy) 机制，保证破解通信过程中
+任何一个密钥，只能解密特定一段数据，却不能解密整个通信过程的数据。
+
+PFS 安全机制通常使用 DH (Diffie-Hellman) 算法在客户端、服务器之间动态交换密钥。
+这是最早的密钥交换算法之一，DH 算法每隔一段时间进行 re-key，即重新协商双方
+的共享密钥，通信双方的共享密钥周期性变更以实现 PFS 安全性。即使破解了其中
+一个密钥，依然不能获取到完整的数据，除非破解所有密钥。
+
+密钥配送问题通常有三种解决方式：线下约定共享密钥、通过公钥密码体系配送共享密钥、
+使用密钥交换协议，Diffie-Hellman Key Exchange，简称 DHKE。
+
+DH 密钥协商算法不会在网络上明文传递密钥，双方通过算法协商出一个共同的密钥，
+但是 DH 算法并未解决中间人攻击。
+
+
+以下是一个使用 publickey + password 双重登录机制的成功连接的过程细节说明：
+
+Key types 定义在 enum sshkey_types，常用的几种值如下：
+
+1. KEY_RSA,   // id_rsa has type 0
+2. KEY_DSA,   // id_dsa has type 1, but as you have no id_dsa key file, -1 is used
+3. KEY_ECDSA, // id_ecdsa has type 2
+
+建立连接时，客户端尝试从默认的密钥文件目录下查找公钥文件（identity file），注意，
+证书文件也包含公钥。进一步产生密钥加载状态信息（key_load_public）。如果找到可用的
+公钥文件，则推送 给服务器。以下 ➊ 调试信息显示，经过多次尝试后没有找到有效的
+公钥文件，然后启用后备的密码登录验证机制。注意 ➋ ➌ ➍，这时是客户端向服务器
+推送了公钥文件，但是与服务器要求的算法不一致被拒：ssh-rsa (expected rsa-sha2-512)。
+
+```sh
+$  ssh -v jeango@localhost
+OpenSSH_for_Windows_7.7p1, LibreSSL 2.6.5
+debug1: Reading configuration data __PROGRAMDATA__/ssh/ssh_config
+debug1: Connecting to localhost [::1] port 22.
+debug1: Connection established.
+debug1: identity file C:/Users/OCEAN/.ssh/id_rsa type 0 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_rsa-cert type -1 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_dsa type -1 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_dsa-cert type -1 ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_ecdsa type 2 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_ecdsa-cert type -1 ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_ed25519 type 3 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_ed25519-cert type -1 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_xmss type -1 ➊
+debug1: key_load_public: No such file or directory ➊
+debug1: identity file C:/Users/OCEAN/.ssh/id_xmss-cert type -1 ➊
+debug1: Local version string SSH-2.0-OpenSSH_for_Windows_7.7
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
+debug1: match: OpenSSH_8.2p1 Ubuntu-4ubuntu0.5 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to localhost:22 as 'jeango'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: rsa-sha2-512
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ssh-rsa SHA256:Kzw79sZsSxXCvx1UeGQEXhObYUApk3VdtV65phuWNgo
+debug1: Host 'localhost' is known and matches the RSA host key.
+debug1: Found key in C:/Users/OCEAN/.ssh/known_hosts:14
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,password
+debug1: Next authentication method: publickey
+debug1: Offering public key: RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ C:/Users/OCEAN/.ssh/id_rsa ➋
+debug1: Server accepts key: pkalg rsa-sha2-512 blen 407 ➌
+warning: agent returned different signature type ssh-rsa (expected rsa-sha2-512) ➍
+debug1: Authentications that can continue: publickey,password
+debug1: Offering public key: RSA SHA256:YM8iJvccRJ2Z9u6q0+hIU5lYNJUhl9peqMYw6YMh22k id_rsa
+debug1: Authentications that can continue: publickey,password
+debug1: Trying private key: C:/Users/OCEAN/.ssh/id_dsa
+debug1: Offering public key: ECDSA SHA256:iyWSeGrUJSfeISO4EvuhU/+gNTlzWm5m5kKmMsoMpDg C:/Users/OCEAN/.ssh/id_ecdsa
+debug1: Authentications that can continue: publickey,password
+debug1: Offering public key: ED25519 SHA256:IN5O4aMLHewRjrYZfawK86soOuuevosxMG5RGXAKYkk C:/Users/OCEAN/.ssh/id_ed25519
+debug1: Authentications that can continue: publickey,password
+debug1: Trying private key: C:/Users/OCEAN/.ssh/id_xmss
+debug1: Next authentication method: password
+debug1: read_passphrase: can't open /dev/tty: No such file or directory
+jeango@localhost's password:
+debug1: Authentication succeeded (password).
+Authenticated to localhost ([::1]:22).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+GetConsoleMode on hOutputConsole failed with 6
+
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+exit
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+Connection to localhost closed.
+Transferred: sent 3908, received 5036 bytes, in 2.9 seconds
+Bytes per second: sent 1333.3, received 1718.2
+debug1: Exit status 0
+```
+
+以下是使用公钥证书完成自动登录的会话过程，主要是 ➊ ➋ ➌ ➍，从检出公钥文件，
+推送给服务器，等待服务器接受客户端公钥并通过验证，然后就可以开始安全连接：
+
+```sh
+$ ssh -v jeango@localhost
+OpenSSH_8.2p1 Ubuntu-4ubuntu0.5, OpenSSL 1.1.1f  31 Mar 2020
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to localhost [127.0.0.1] port 22.
+debug1: Connection established.
+debug1: identity file /home/jeango/.ssh/id_rsa type 0
+debug1: identity file /home/jeango/.ssh/id_rsa-cert type -1
+debug1: identity file /home/jeango/.ssh/id_dsa type -1
+debug1: identity file /home/jeango/.ssh/id_dsa-cert type -1
+debug1: identity file /home/jeango/.ssh/id_ecdsa type -1
+debug1: identity file /home/jeango/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/jeango/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/jeango/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/jeango/.ssh/id_ed25519 type -1
+debug1: identity file /home/jeango/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/jeango/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/jeango/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/jeango/.ssh/id_xmss type -1
+debug1: identity file /home/jeango/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
+debug1: match: OpenSSH_8.2p1 Ubuntu-4ubuntu0.5 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to localhost:22 as 'jeango'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:Cb1TaBugGJtDvGIIm6MtbvKdCo188ch50PgTcMplsz4
+debug1: Host 'localhost' is known and matches the ECDSA host key.
+debug1: Found key in /home/jeango/.ssh/known_hosts:1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/jeango/.ssh/id_rsa RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ➊
+debug1: Will attempt key: /home/jeango/.ssh/id_dsa
+debug1: Will attempt key: /home/jeango/.ssh/id_ecdsa
+debug1: Will attempt key: /home/jeango/.ssh/id_ecdsa_sk
+debug1: Will attempt key: /home/jeango/.ssh/id_ed25519
+debug1: Will attempt key: /home/jeango/.ssh/id_ed25519_sk
+debug1: Will attempt key: /home/jeango/.ssh/id_xmss
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,password
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/jeango/.ssh/id_rsa RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ➋
+debug1: Server accepts key: /home/jeango/.ssh/id_rsa RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ➌
+debug1: Authentication succeeded (publickey).➍
+Authenticated to localhost ([127.0.0.1]:22).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug1: Sending environment.
+debug1: Sending env LANG = C.UTF-8
+Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.10.102.1-microsoft-standard-WSL2 x86_64)
+jeango@DESKTOP-CBSK60R:~$ exit
+logout
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+Connection to localhost closed.
+Transferred: sent 3680, received 4364 bytes, in 8.0 seconds
+Bytes per second: sent 458.9, received 544.1
+debug1: Exit status 0
+```
+
+以下是 Emacs 环境中执行 Shell command: `ssh -v jeango@localhost` 连接失败
+时的调试信息：
+
+```sh
+OpenSSH_for_Windows_7.7p1, LibreSSL 2.6.5
+debug1: Reading configuration data __PROGRAMDATA__/ssh/ssh_config
+debug1: Connecting to localhost [localhost] port 22.
+debug1: Connection established.
+debug1: identity file C:/Users/OCEAN/.ssh/id_rsa type 0
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_rsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_dsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_dsa-cert type -1
+debug1: identity file C:/Users/OCEAN/.ssh/id_ecdsa type 2
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_ecdsa-cert type -1
+debug1: identity file C:/Users/OCEAN/.ssh/id_ed25519 type 3
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_ed25519-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_xmss type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file C:/Users/OCEAN/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_for_Windows_7.7
+debug1: Remote protocol version 2.0, remote software version OpenSSH_for_Windows_7.7
+debug1: match: OpenSSH_for_Windows_7.7 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to localhost:22 as 'jeango'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:eLf04Yz/GVfQGQbp/lrr5eKWZ23anTidDf4Tp8GJskI
+debug1: Host 'localhost' is known and matches the ECDSA host key.
+debug1: Found key in C:/Users/OCEAN/.ssh/known_hosts:27
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Next authentication method: publickey
+debug1: Offering public key: RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ C:/Users/OCEAN/.ssh/id_rsa
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Offering public key: RSA SHA256:YM8iJvccRJ2Z9u6q0+hIU5lYNJUhl9peqMYw6YMh22k id_rsa
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Trying private key: C:/Users/OCEAN/.ssh/id_dsa
+debug1: Offering public key: ECDSA SHA256:iyWSeGrUJSfeISO4EvuhU/+gNTlzWm5m5kKmMsoMpDg C:/Users/OCEAN/.ssh/id_ecdsa
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Offering public key: ED25519 SHA256:IN5O4aMLHewRjrYZfawK86soOuuevosxMG5RGXAKYkk C:/Users/OCEAN/.ssh/id_ed25519
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Trying private key: C:/Users/OCEAN/.ssh/id_xmss
+debug1: Next authentication method: keyboard-interactive
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Next authentication method: password
+debug1: read_passphrase: can't open /dev/tty: No such file or directory
+CreateProcessW failed error:2
+ssh_askpass: posix_spawn: No such file or directory
+Received disconnect from localhost port 22:2: Too many authentication failures
+Disconnected from localhost port 22
+```
+
+Emacs Packages with GPG
+========================================================
+
+Emacs 集成了插件安装、管理工具，提供了一系列前缀为 package 的命令，例如 
+`list-packages` 或者 `package-install`。
+
+程序包管理功能需要 `package.el` 和 TLS 安全传输层协议支持，Emacs 24.1 版本以上支持。
+程序包默认安装于 `~/.emacs.d/elpa/`，可以修改 `package-user-dir` 变量来改变默认路径。
+目录命名使用 NAME-VERSION 这样的规则。
+
+Emacs 24 版本开始集成 ELPA 扩展包管理工具，旧版本需要手动在初始化脚本中安装：
+
+```lisp
+; Enable installation of packages from MELPA by adding an entry to package-archives 
+; after (require 'package) and before the call to package-initialize in your init.el or .emacs file:
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  
+;; See `package-archive-priorities` and `package-pinned-packages`. 
+;; Most users will not need or want to do this.
+; (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+```
+
+默认的 ELPA 扩展包服务器是 https://elpa.gnu.org/packages
+可选的还有 [MELPA (Milkypostman’s Emacs Lisp Package Archive)](https://melpa.org/)
+另外，还可以使用稳定版本的软件包，[Stable MELPA](https://stable.melpa.org/)
+
+执行命令 `C-h v package-archives RET` 查看当前配置：
+
+```lisp
+(defcustom package-archives `(
+    ("gnu" . ,(format "http%s://elpa.gnu.org/packages/" (if (gnutls-available-p) "s" "")))
+    ("nongnu" . ,(format "http%s://elpa.nongnu.org/nongnu/" (if (gnutls-available-p) "s" ""))))
+```
+
+Msys2 平台下的 GPG 工具可能导致运行出错：
+
+```sh
+    Failed to verify signature archive-contents.sig:
+    No public key for 645357D2883A0966 created at 2023-11-10T06:05:08+0800 using EDDSA
+    No public key for 066DAFCB81E42C40 created at 2023-11-10T06:05:08+0800 using RSA
+    Command output:
+    gpg: keyblock resource 'pubring.kbx': No such file or directory
+    gpg: Signature made Fri Nov 10 06:05:08 2023    
+    gpg:                using RSA key C433554766D3DDC64221BFAA066DAFCB81E42C40
+    gpg: Can't check signature: No public key
+    gpg: Signature made Fri Nov 10 06:05:08 2023    
+    gpg:                using EDDSA key 0327BE68D64D9A1A66859F15645357D2883A0966
+    gpg: Can't check signature: No public key
+```
+
+以上信息显示无法使用 fingerpoint 找到相应的公钥，RSA key 和 EDDSA key 两个。
+GPG 找不到相应的公钥，就无法对程序包中提供的 .sig 签名文件进行验证。
+
+但是，至少可以关掉签名验证：`M-x customize-variable RET package-check-signature RET`
+
+Msys2 平台下，GPG 程序会在错误的路径中查找 pubring.kbx 密钥环文件：
+
+    /mingw64/bin/c:/Users/OCEAN/AppData/Roaming/.emacs.d/elpa/gnupg/pubring.kbx
+    /c/opendocs/c:/Users/OCEAN/.emacs.d/elpa/gnupg/pubring.kbx
+
+从路径信息可以看到，$HOME 路径前缀了错误的目录，可能是当前目录，也可能是
+PGP 命令程序所在目录。这是因为 Msys2 中存在多个平台 (subsystems)，其中三个
+最基本的子系统是 `msys2`, `mingw32`, `mingw64`。而目前 Emacs 29.1 只提供
+`mingw64` 平台的版本 https://packages.msys2.org/search?q=emacs
+
+| Base Package | Version | Subsystems |
+|--------------|---------|------------|
+| emacs           | 27.2-2 | msys2     |
+| mingw-w64-emacs | 29.1-3 | mingw-w64 |
+
+如果像以下环境变量设置 PATH 包含 msys2 子系统的路径，Emacs 就会有以上问题，
+程序包没能正确处理 Msys2 子系统的虚拟文件系统：
+
+    PATH=/mingw64/bin:/usr/bin emacs
+
+HOME 系统环境变量，指向一个任意文件夹，Emacs 会把这个文件夹当成 home。
+但是一般情况下，mingw32 和 mingw64 等子系统编译原生的程序不需要这个目录，
+应该就是 msys2 和 mingw 版本混用导致的问题。
+
+Cygwin 会自动将 Windows 格式的 HOME 路径会转换为 Unix 风格。Emacs 再将 HOME
+路径传递给 gpg 命令，然后错误地使用它自己认定的 HOME 路径前缀。可以尝试
+使用 GnuGP for Windows 版本，并且将它置于 PATH 的前头：
+
+```sh
+    $ pacman -S gnupg
+    $ pacman -Qo /usr/bin/gpg.exe
+    /usr/bin/gpg.exe is owned by gnupg 2.2.41-1
+
+    $ gpg --version | grep Home
+    Home: /c/Users/OCEAN/.gnupg
+
+    HOME=c:/Users/OCEAN emacs # HOME=/c/Users/OCEAN
+```
+
+参考 [GNU bug report logs - #42984  27.1](https://debbugs.gnu.org/cgi/bugreport.cgi?bug=42984)
+Emacs 中相关的路径记录在 `package-gnupghome-dir` 和 `package-user-dir` 变量：
+
+    (expand-file-name "gnupg" package-user-dir)
+
+它们的路径形式是 Windows 风格的，也就是上面使用的 `c:/Users` 这样的字符串，
+并不是 gnupg 各种期待的 Posix-like 风格，从而进行了错误的路径拼接。实事上，
+Msys2 安装的 Emacs 只依赖 Gnu TLS 库，不需要使用 GnuPG。当然，如果可以找到
+gpg 程序，则优先使用它。为了解决这个问题，可以重命名 gpg 应用程序，例如
+gpgv2。注意，gpg2 这个名字是 Linux 系统下的默认名称，也会被定位到。改名的
+一个好处是让 Language Server Support (Eglot) 可以正常找到环境变量中可以搜索到的
+LSP 服务程序。
+
+
+如果在 emacs 的启动文件中 add-list 到 exec-path 的话，要把 mingw64 放在后面添加，
+因为这个列表的添加方法是压栈式添加，最后入栈的路径在前头。
+
+手动运行 GPG，可以指定 HOME 目录，从服务器获取公钥重构本地密钥环：
+
+    gpg --homedir ~/.emacs.d/elpa/gnupg --receive-keys key-ids
+
+ELPA 公钥可能过期，这会导致 Emacs 无法验证服务器的签名，需要手动下载、
+安装最新的 keyring 更新程序包，Update Emacs's GPG keyring for GNU ELPA。
+可以使用 Emacs 打开程序压缩包、或者直接拖放到 Emacs 界面，然后执行 
+`M-x package-install-from-buffer` 安装 GNU elpa 公钥：
+http://elpa.gnu.org/packages/gnu-elpa-keyring-update.html
+
+```sh
+    Parsing tar file...done
+    Extracting...done
+      INFO     Scraping files for loaddefs...done
+      GEN      gnu-elpa-keyring-update-autoloads.el
+    Checking c:/msys64/home/OCEAN/.emacs.d/elpa/gnu-elpa-keyring-update-2022.12... [3 times]
+    Compiling c:/msys64/home/OCEAN/.emacs.d/elpa/gnu-elpa-keyring-update-2022.12/gnu-elpa-keyring-update.el... (gnu-elpa-keyring-update)
+    Importing gnu-elpa.gpg-keyring...done
+    Compiling c:/msys64/home/OCEAN/.emacs.d/elpa/gnu-elpa-keyring-update-2022.12/gnu-elpa-keyring-update.el...done
+    Wrote c:/msys64/home/OCEAN/.emacs.d/elpa/gnu-elpa-keyring-update-2022.12/gnu-elpa-keyring-update.elc
+    Checking c:/msys64/home/OCEAN/.emacs.d/elpa/gnu-elpa-keyring-update-2022.12...
+    Checking c:/msys64/home/OCEAN/.emacs.d/elpa/gnu-elpa-keyring-update-2022.12/etc...
+    Done (Total of 1 file compiled, 2 skipped)
+    Saving file c:/msys64/home/OCEAN/.emacs.el...
+    Wrote c:/msys64/home/OCEAN/.emacs.el
+    You can run the command ‘package-install-from-buffer’ with M-x p-i-b
+    Wrote c:/msys64/home/OCEAN/.emacs.el
+```
+
+
+GPG 基于 PKI 公钥基础结构，可以分成两部分：
+
+1. GPG 是一个加密、解密、签名、验证工具。
+2. GPG 是一个密钥管理工具，并且提供一套公钥信任体系。
+
+GNU 于 1999 年发布开源版本的 GNU Privacy Guard (GPG)，对标 PGP 商业软件，
+PGP (Pretty Good Privacy) 则是更早发布的商业软件，于 1991 年发布。
+OpenPGP 是于 1997 年制定的一套标准，GPG、PGP 等工具都实现了这套标准。
+参考 RFC 4880 [OpenPGP Message Format](https://www.ietf.org/rfc/rfc4880.txt)
+
+GPG 与 SSL 证书系统最大差别在于：GPG 基于信任网络（Web of Trust），SSL 基于
+权威的第三方来为每一个证书提供背书。因此，GPG 系统中每个用户自行选择
+信任哪些证书。
+
+第一个 KeyServer 诞生在上世纪 90 年代，叫做 HKP（HTTP Keyserver Protocol），
+Marc Horowitz 在麻省理工学习时为了他的论文而搭建。在此之前，大部分人依靠
+电子邮件来交换公钥，虽然不是那么安全。 
+
+GPG 设计出交叉签署机制，当我签署了某个人的公钥，并且上传签名到公钥服务器，
+或者发送回给本人的时候，我就为这个人的真实性做出了背书。一般来说，为他人的
+公钥签名后，需要发还给他，或者发到公钥服务器，这一步骤最好经过本人同意。
+为已经导入的他人公钥签名，意味着你将为他的身份真实性背书，请谨慎！
+
+    gpg --sign-key {keyid/uid}
+
+PGP 系统设计存在问题：https://ulyc.github.io/2022/09/05/tr-pgp-problem-1/
+比如缺失 PFS (Perfect Forward Secrecy) 机制，这意味着一旦你上传到服务的密钥泄密，
+过往所有加密将失效。
+
+为了防止被篡改，keyserver 设计为只增不删的形式。即密钥一旦上传到服务器，
+永远不能删除，除非吊销它，比如密钥丢失或者泄露时。“永远不能删除”
+设计为 SKS 带来了许多问题，2019 年 GPG SKS 同步网络被签名投毒是其中之一。
+还有人设计出基于 keyserver 的数据库，蓄意在“永不删除”服务中存入违法信息，
+比如说儿童色情，将使所有节点的运营者面临刑事起诉。
+
+虽然，PGP 的目标在于构建一个身份加密系统，但是可能存在元数据泄漏问题。
+许多新手按照教程提示的在创建 PGP 密钥的时候填上了自己的真实姓名，并按
+将公钥上传到 KeyServer。但是事实是，网络匿名环境中充满了不那么友好，
+甚至是恶意的用户。以现代眼光看来 ，KeyServer 这个系统并不健壮，问题重重，
+许多问题已经发现十多年，仍未得到解决。因为密码工程师不会设计一个像
+PGP 一样的系统，也不会容忍它设计中的大部分缺陷。
+
+严肃的密码学家们在很大程度上已经放弃了 PGP，并不再花时间为它发表论文。
+一个例外：[Efail: Breaking S/MIME and OpenPGP Email Encryption using Exfiltration Channels]
+(https://www.usenix.org/conference/usenixsecurity18/presentation/poddebniak)
+
+KeyServer 可以通过 Email/Key ID/Fingerpoint 搜过 PGP Key，可能包含敏感信息元数据，
+不乏有些比较注重自身隐私的用户，部分会将自己真实的名字（汉字或拼音）和邮箱
+一起发到了服务器上。要知道那里的数据是公开且永远不能删除的，意识到问题之后
+再进行 revoke 也不是很好的解决方法，仍然可查，并且 revoked 状态会变红更显眼。
+
+SKS Keyserver Pool 是当今世界最大的 HKP Pool，世界各地符合此标准的公钥服务器
+会定期相互通信、同步、比较目录，数据完全开放下载。KeyServer 虽然一直是 PGP 
+重要基础设置，但其实 SKS Keyserver Pool 目前只有不到 20 台服务器，GnuPG 默认
+使用的是其中的 HKPS pool，只有四台服务器。
+
+使用以下命令与 keyserver 交互，注意 --send-keys 时一定不要将整个密钥环
+（所有密钥）上传到密钥服务器，应该指定新创建的，或者更新过的：
+
+    --send-keys keyIDs
+           Similar to --export but sends the keys to a keyserver.  Fingerprints may be used instead
+           of key IDs.  Don't send your complete keyring to a keyserver --- select only those  keys
+           which are new or changed by you.  If no keyIDs are given, gpg does nothing.
+
+    --receive-keys keyIDs
+    --recv-keys keyIDs
+           Import the keys with the given keyIDs from a keyserver.
+
+    --search-keys names
+           Search the keyserver for the given names. Multiple names given here will be  joined  to‐
+           gether  to  create the search string for the keyserver.  Note that keyservers search for
+           names in a different and simpler way than gpg does.  The best choice is to  use  a  mail
+           address.   Due  to  data privacy reasons keyservers may even not even allow searching by
+           user id or mail address and thus may only  return  results  when  being  used  with  the
+           --recv-key command to search by key fingerprint or keyid.
+
+       Use name as your keyserver. This is the server  that  
+       --receive-keys,  
+       --send-keys,  and
+       --search-keys  will  communicate with to receive keys from, send keys to, and search for
+       keys on. The format of the name is a URI: `scheme:[//]keyservername[:port]'  The  scheme
+       is  the type of keyserver: "hkp" for the HTTP (or compatible) keyservers, "ldap" for the
+       LDAP keyservers, or "mailto" for the Graff email keyserver. Note  that  your  particular
+       installation  of  GnuPG  may  have  other  keyserver  types available as well. Keyserver
+       schemes are case-insensitive. After the keyserver name, optional keyserver configuration
+       options  may  be provided. These are the same as the global --keyserver-options from be‐
+       low, but apply only to this particular keyserver.
+
+有一些 KeyServer 没有用 SKS 的软件，运行的是更下现代和稳定的软件，例如 
+基于 Hockeypuck 的  Ubuntu keyserver, 这些服务器仍然会和 SKS pool 保持同步。
+
+另外，还有独立 KeyServer，这些服务器不与 SKS pool 同步数据，中心化运营管理，
+会对公钥上传者做一定的认证，并且支持删除自己的公钥。比较有代表性的有，
+keys.openpgp.org 和 KeyBase。
+
+GPG 公钥服务器参考：
+
+    hkps://subkeys.pgp.net
+    hkps://keys.gnupg.net
+    hkps://hkps.pool.sks-keyservers.net
+
+GnuPG 2.1 更改了密钥服务器的设置方式，`~/.gnupg/gpg.conf` 配置文件中指定，比如：
+
+    keyserver hkps://keys.gnupg.net
+
+上传密钥前一定要慎重，上传后的密钥没有任何方式能删除，只能修改信息或者吊销，
+使用以下命令上传公钥到 keyserver：
+
+    gpg --send-keys key-IDs
+
+使用 `--gen-key` 生成密钥对，并且将文件存放在 `~/.gnupg` 目录，另外还会生成
+吊销证书，这是一个 .rev 文件，通过它只可以将关联的证书吊销。打算撤销时，
+使用 `--import` 导入撤销证书 GPG 库中，即撤销本地公钥。吊销证书文件生成时
+使用了一个 : 号在证书标记头，避免误操作吊销了公钥。
+
+私钥丢失的情况可以吊销它，如果缺失私钥和吊销证书，就无法更新密钥的状态。
+编辑证书时，使用 revkey 命令吊销公钥，再执行 --send-keys 上传密钥服务器，
+密钥服务器上的密钥就会被撤销。其他人从密钥服务器更新之后，就知道密钥
+已经被撤销，以后就不会再使用此密钥进行加密，也将不会信任此密钥的签名。
+
+```sh
+$ gpg --gen-key
+gpg: /home/OCEAN/.gnupg/trustdb.gpg: trustdb created
+gpg: directory '/home/OCEAN/.gnupg/openpgp-revocs.d' created
+gpg: revocation certificate stored as '/home/OCEAN/.gnupg/openpgp-revocs.d/60256A099DCBDC83FDA19DD10457E2CD0FD74D8A.rev'
+public and secret key created and signed.
+
+pub   rsa3072 2023-11-16 [SC] [expires: 2025-11-15]
+      60256A099DCBDC83FDA19DD10457E2CD0FD74D8A
+uid                      Jeango <jeango@v.com>
+sub   rsa3072 2023-11-16 [E] [expires: 2025-11-15]
+
+$ tree /home/OCEAN/.gnupg/
+C:/msys64/home/OCEAN/.gnupg/
+|-- S.gpg-agent
+|-- S.gpg-agent.browser
+|-- S.gpg-agent.extra
+|-- S.gpg-agent.ssh
+|-- openpgp-revocs.d
+|   `-- 60256A099DCBDC83FDA19DD10457E2CD0FD74D8A.rev
+|-- private-keys-v1.d
+|   |-- 7E3553D38B6B3FEDB9C55F23FD2CDA0366815F44.key
+|   `-- E1AF8CEF5F4CB32E7F239B67FDF8CD301F39A818.key
+|-- pubring.kbx
+|-- pubring.kbx~
+`-- trustdb.gpg
+```
+
+GPG 手册中有关于各个文件的说明：
+
+1. `~/.gnupg/pubring.gpg` 公钥环（keyrings）文件，该备份这个文件。
+2. `~/.gnupg/pubring.kbx` 使用不同格式的公钥环文件，与 gpgsm 共享，该备份这个文件。
+3. `~/.gnupg/secring.gpg` 密钥环（keyrings）文件，GnuPG 2.1 之前版本使用。
+4. `~/.gnupg/trustdb.gpg` 信任数据库，不必备份，最好使用 `--export-ownertrust` 备份 ownertrust。
+5. `~/.gnupg/openpgp-revocs.d/` 存放预先生成的 revocation certificates，文件名是密钥指纹。
+
+GPG 中有子密钥的概念，主密钥对（Primary keypair）、子秘钥对（Subordinate keypair）：
+
+1.  pub -- Primary Public key
+2.  sec -- Primary Secret key
+3.  sub -- Public Sub-key
+4.  ssb -- Secret Sub-key
+
+在非对称加密算法中，密钥都成对出现，理论上只需一对主密钥，就满足加密和签名。
+GPG 为主密钥引入若干对子密钥，一是出于主密钥本身的安全考虑，其次方便不同的
+应用场景，子密钥（Subkeys）可以设置使用不同的加密算法。
+
+
+例如，需要在多台设备上进行签名和加密操作，如果在每个机器上都使用主密钥，
+一旦丢失，则所有设备上的信息都将可以被解密。而且只能吊销主密钥，没有其他
+办法来止损。有了子密钥，就相当于有了代理人，主密钥只需要安全保存，日常任务
+使用子密钥完成，仅在必要的时候使用主密钥。那么即使其中一个子密钥出现问题，
+只有这台机器上的信息可能被泄露。只需要使用主密钥吊销这个子密钥即可。
+
+使用 `-k` 或者 `-K` 查询密钥，`--list-keys` 或者 `--list-secret-keys`，密钥
+信息包含方括号包围字母，这些字母代表了密钥的用途，每个值的含义如下：
+
+*  E - Encryption：加密用途。
+*  S - Signing：签名用途。
+*  C - Certification：认证其他子密钥或 UID。
+*  A - Authentication：身份认证，例如用于 SSH 登录。
+
+前三个较为常用，使用 `--gen-key` 生成的密钥就可以有这些用途，默认生成一对
+主密钥 [SC] 和一对子密钥 [E]。这样将会使用主密钥进行签名，使用子密钥进行解密。
+
+密钥信息中还包含一个 40 字符的指纹，fingerprints，由 10 组 4 个字符组成的信息。
+这是使用 SHA-1 算法对整个密钥计算出来的摘要（HASH），共 20 字节 160 bits。
+一般表示为 40 个十六进制数，这个指纹可以作为一对密钥的唯一标识。可以使用
+`--fingerprint` 查询密钥的指纹数据。
+
+
+信任网络 (Web of Trust) 是间接验证密钥的有效性的一种方式，也就是信任链。
+比如说，A 相信 B，B 相信 C，那么 A 也应该相信 C。 
+
+GPG 信任分为几个不同的等级：
+
+* [ultimate]：终极信任。一般只应该对自己的密钥进行终极信任，相当信任链的根节点。
+* [full]：完全信任。认可此密钥签名的其他密钥。
+* [marginal]：临界可信，可信度待提高，如果有三个这样的密钥签名的其他密钥也就可信了。
+* [never]：永不信任。此类密钥对其他密钥的签名，一律不信任。
+
+需要注意信任和有效性不一定有关系，比如，信任的机构签名的证书是可信的，但是
+过期了，那么就是无效的。有了信任网络，一个密钥有效的条件就变成：被一个 [full] 
+签名或三个 [marginal] 签名，同时这个签名传递的路径距离 [ultimate] 的长度不超过 5。
+
+这些参数值可以修改，GPG 提供了一个交互式证书编辑器，使用 `--edit-key` 进入，
+参考： [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual.html)
+
+使用 `--edit-key` 执行 trust 交互命令时能看到两个属性，信任 (trust) 和有效性
+ (validity)。信任度是一种主观选择，命令提供五个信任级别供选择：
+
+    1 = I don't know or won't say （我不知道或不作答）
+    2 = I do NOT trust（我不相信）
+    3 = I trust marginally（我勉强相信）
+    4 = I trust fully（我完全相信）
+    5 = I trust ultimately（我绝对相信）
+
+确认彼此的公钥确实是未经篡改的、真实有效的，就成了一个难题。公钥服务器的出现，
+很好地解决了通信双方都需要安全便捷地交换公钥的问题。公钥服务器 KeyServer，
+通过交换通信双方的 key IDs 或者 User ID 就可以方便地从公钥服务器下载公钥。
+
+
+主密钥至少有一个用于标识用户身份的 User ID (UID)，格式为 Real Name (Comment) <Email>。
+每个 UID 旁边的方括号内，标识了这个 uid 的有效性。新导入公钥默认为 [unknown]。
+这是因为任何人都可以声称自己是任何人，所以需要验证新导入的公钥。
+
+第一种验证方式是直接交换公钥，绝对安全。但很多时候这不可能。
+
+另一种方式是验证指纹，通过可靠的方式确认指纹是否正确。因为指纹是通过安全
+散列算法对整个密钥信息计算的摘要，很难构造出两个摘要相同的密钥（碰撞），
+所以一旦确认指纹没错，就可以认为密钥有效。
+
+然后使用自己的密钥对公钥进行签名，将密钥标识为有效的状态，让 GPG 认可新密钥。
+
+注意：签名和有效性都是针对 UID。例如，一个人声称了两个身份，但是只验证了
+其中一个，那就可以仅对这个 UID 签名。
+
+如果是想认识更多的人，并让自己的公钥被更多的人认证， 
+可以参加「公钥签名派对（Key signing party）」，参与派对的人相互交换公钥指纹，
+公钥一般是存在服务器或是一个别人可以下载到的地方，这里只交换指纹。
+甚至需要相互出示身份证、护照、驾照、出身证明，以验明正身。
+
+
+官方手册 HOW TO SPECIFY A USER ID 指明了多种选择指定密钥的方式：
+
+*  指纹：使用 40 个十六进制数表示的指纹来选择密钥是 GPG 推荐的方式。
+*  Key ID：指纹低 64 bits 即右侧 8 位字符，OpenPGP 协议内部使用 16 位字符。
+*  精确匹配的邮箱：<jeano@xstudio.com>，使用完整的邮箱地址。
+*  部分匹配的邮箱：@jeano，使用 @ 符号前缀。
+*  精确匹配 OpenPGP UID：=jeano <jeano@xstudio.com> ，对 X.509 证书无效。
+*  精确匹配 subject's DN：比如 /CN=Jeano,O=XStudio,L=GD,C=CN。
+*  精确匹配 issuer's DN：比如 #/CN=Root Cert,O=Poets,L=Paris,C=FR。
+*  精确匹配串号和 issuer's DN：比如 #4F03/CN=Root Cert,O=Poets,L=Paris,C=FR。
+
+请注意，不能使用 gpgsm -list-keys 打印 subject's DN 字符串，为了更可读性，
+该字符串已被重新排序和修改。可以使用 --with-colons 打印原始的（但标准转义）
+RFC-2253 字符串。
+
+使用 issuer's DN 应该返回颁发者的 Root ceert，即证书颁发机构的根证书。
+
+[RFC 2253 LADPv3 Distinguished Names](https://www.rfc-editor.org/rfc/rfc2253) 规范参考：
+
+    
+    RFC 2253               LADPv3 Distinguished Names          December 1997
+
+                    String  X.500 AttributeType
+                    ------------------------------
+                    CN      commonName
+                    L       localityName
+                    ST      stateOrProvinceName
+                    O       organizationName
+                    OU      organizationalUnitName
+                    C       countryName
+                    STREET  streetAddress
+                    DC      domainComponent
+                    UID     userid
+
+在需要 key IDs 指定密钥的地方，都可以使用上面这些形式。注意，指纹和 Key ID 
+之外其他都可能匹配到多个，最终将选择第一个使用。
+
+除了这些基本的匹配外，Key ID 和指纹，还可以配合 ! 感叹号使用。
+
+比如，主密钥支持 [SC]，某个子密钥也支持 [S]。那么签名时将会使用哪个呢？
+答案是使用子密钥。在选择密钥时，GPG 会自动选择一个支持对应能力的子密钥，
+如果存在多个，则选择较新的一个。要使用指定主密钥或子密钥就在 key ID 或
+指纹后面加上 ! 强制使用这个密钥，而不要自动推算。
+
+这种用法还可以用在导出密钥时，仅导出某个子密钥或主密钥。
+
+
 Emacs Project & Packages
 ========================================================
 
@@ -744,6 +1983,23 @@ $ gdb
 (gdb) run 
 ```
 
+如果没有调试符号，那么就必需进行汇编级别的逆向工程，使用 `disassemble` 指令，
+例如，`disas $pc` 反汇编程序计数寄存器所指定的内存区。
+参考 9.6 Source and Machine Code。
+
+
+Emacs 集成了输入法：`set-input-method` (C-x RET C-\) 或 `toggle-input-method` (C-\)
+切换输入法，chinese 为中文输入，py 后缀表示拼音，qj 表示全角，tonepy 表示音调拼音。
+
+
+Emacs 集成了 eww 浏览器，比如打开维基百科：`M-x eww RET https://wikipedia.org RET`。
+打开页面后就可以使用 eww 模式菜单提供的快捷键进行操作。也可以执行 eww 前缀的
+各种命令，包括 `eww` (G)，打开新 URL 页面，此命令还可以用来搜索关键字，Emacs
+默认使用 DuckDuckGo 搜索引擎。修改 `eww-search-prefix` 变量可以更改搜索引擎，
+例如，https://cn.bing.com/search?q= 注意这个前缀会直接和关键字拼接成 URL。
+执行 `C-x customize-option RET eww-search-prefix RET` 进入配置页面。
+
+
 Emacs 集成了 Gnus，这是一个可以用于收发电子邮件、新闻组 (Usenet) 的程序包。
 由于 Emacs 运行于单线程，恰巧 Gnus 会在网络 I/O 上花费大量的时间，这可能
 导致运行 Gnus 的时候使 Emacs 卡顿以致无法动弹、假死掉。最好重开一个 Emacs 
@@ -783,173 +2039,20 @@ Eshell 定义了以下 Virtual Targets (映射设备名到函数)：
 4. `/dev/clip` Adds the text passed to it to the clipboard.
 
 
-Emacs 集成了 TRAMP （Transparent Remote (file) Access, Multiple Protocol），透明远程编辑。
-基于 FTP/SCP/SSH 安全连接，使用 TRAMP 打开文件时，`C-x C-f`，指定远程路径，
-使用 `/ssh:user@address:/path-to-file` 这样的路径，Emacs 根据服务地址和用户账户
-访问远程服务器的相应文件或目录。服务器名称可以配置在 `~/.ssh/config` 文件中，
-文件路径时就可以指定主机名称，`/ssh:hostname:`。
-
-```sh
-    19.15 Remote Files
-    ==================
-     /METHOD:HOST:FILENAME
-     /METHOD:USER@HOST:FILENAME
-     /METHOD:USER@HOST#PORT:FILENAME
-```
-
-Emacs 会按以下逻辑顺序确定远程编辑使用的协议：
-
-  1. If the host name starts with ‘ftp.’ (with dot), Emacs uses *FTP*.
-  2. If the user name is ‘ftp’ or ‘anonymous’, Emacs uses *FTP*.
-  3. If the variable ‘tramp-default-method’ is set to ‘ftp’, Emacs uses *FTP*.
-  4. If ‘ssh-agent’ is running, Emacs uses *scp*.
-  5. Otherwise, Emacs uses *ssh*.
-
-在系统中正常工作的 SSH 服务，Emacs Tramp 访问时依然可能产生以下问题：
-
-    ➊ Host key verification failed
-    ➋ ssh_askpass: posix_spawn: No such file or directory
-
-触发➊这种错误原因有二：没有合适的公钥登录，没有配置好密码登录。
-
-触发➋这种错误原因有二：没有合适的公钥登录，没有配置好密码登录。
-
-为了查看连接过程细节，使用 `ssh -v user@ip` 命令，-v 参数表示打印细节信息。
-OpenSSH 登录流程参考官方文档：RFC 4252 SSH Authentication Protocol，涉及三种验证形式：
-
-7. Public Key Authentication Method: "publickey"
-8. Password Authentication Method: "password"
-9. Host-Based Authentication: "hostbased"
-
-以下是一个使用 publickey + password 双重登录机制的成功连接的过程细节说明：
-
-https://mirrors.aliyun.com/pub/OpenBSD/OpenSSH/portable/
-
-Key types 定义在 enum sshkey_types：
-KEY_RSA, // id_rsa has type 0
-KEY_DSA, // id_dsa has type 1, but as you have no id_dsa key file, -1 is used
-KEY_ECDSA, // id_ecdsa has type 2
-```sh
-$  ssh -v jeango@localhost
-OpenSSH_for_Windows_7.7p1, LibreSSL 2.6.5
-debug1: Reading configuration data __PROGRAMDATA__\\ssh/ssh_config
-debug1: Connecting to localhost [::1] port 22.
-debug1: Connection established.
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_rsa type 0
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_rsa-cert type -1
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_dsa type -1
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_dsa-cert type -1
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_ecdsa type 2
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_ecdsa-cert type -1
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_ed25519 type 3
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_ed25519-cert type -1
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_xmss type -1
-debug1: key_load_public: No such file or directory
-debug1: identity file C:\\Users\\OCEAN/.ssh/id_xmss-cert type -1
-debug1: Local version string SSH-2.0-OpenSSH_for_Windows_7.7
-debug1: Remote protocol version 2.0, remote software version OpenSSH_8.2p1 Ubuntu-4ubuntu0.5
-debug1: match: OpenSSH_8.2p1 Ubuntu-4ubuntu0.5 pat OpenSSH* compat 0x04000000
-debug1: Authenticating to localhost:22 as 'jeango'
-debug1: SSH2_MSG_KEXINIT sent
-debug1: SSH2_MSG_KEXINIT received
-debug1: kex: algorithm: curve25519-sha256
-debug1: kex: host key algorithm: rsa-sha2-512
-debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
-debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
-debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
-debug1: Server host key: ssh-rsa SHA256:Kzw79sZsSxXCvx1UeGQEXhObYUApk3VdtV65phuWNgo
-debug1: Host 'localhost' is known and matches the RSA host key.
-debug1: Found key in C:\\Users\\OCEAN/.ssh/known_hosts:14
-debug1: rekey after 134217728 blocks
-debug1: SSH2_MSG_NEWKEYS sent
-debug1: expecting SSH2_MSG_NEWKEYS
-debug1: SSH2_MSG_NEWKEYS received
-debug1: rekey after 134217728 blocks
-debug1: SSH2_MSG_EXT_INFO received
-debug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com>
-debug1: SSH2_MSG_SERVICE_ACCEPT received
-debug1: Authentications that can continue: publickey,password
-debug1: Next authentication method: publickey
-debug1: Offering public key: RSA SHA256:SGofxZ6qk6LAoYy0wXTTomCr37ZYfJwgxyeIq3+ufGQ C:\\Users\\OCEAN/.ssh/id_rsa
-debug1: Server accepts key: pkalg rsa-sha2-512 blen 407
-warning: agent returned different signature type ssh-rsa (expected rsa-sha2-512)
-debug1: Authentications that can continue: publickey,password
-debug1: Offering public key: RSA SHA256:YM8iJvccRJ2Z9u6q0+hIU5lYNJUhl9peqMYw6YMh22k id_rsa
-debug1: Authentications that can continue: publickey,password
-debug1: Trying private key: C:\\Users\\OCEAN/.ssh/id_dsa
-debug1: Offering public key: ECDSA SHA256:iyWSeGrUJSfeISO4EvuhU/+gNTlzWm5m5kKmMsoMpDg C:\\Users\\OCEAN/.ssh/id_ecdsa
-debug1: Authentications that can continue: publickey,password
-debug1: Offering public key: ED25519 SHA256:IN5O4aMLHewRjrYZfawK86soOuuevosxMG5RGXAKYkk C:\\Users\\OCEAN/.ssh/id_ed25519
-debug1: Authentications that can continue: publickey,password
-debug1: Trying private key: C:\\Users\\OCEAN/.ssh/id_xmss
-debug1: Next authentication method: password
-debug1: read_passphrase: can't open /dev/tty: No such file or directory
-jeango@localhost's password:
-debug1: Authentication succeeded (password).
-Authenticated to localhost ([::1]:22).
-debug1: channel 0: new [client-session]
-debug1: Requesting no-more-sessions@openssh.com
-debug1: Entering interactive session.
-debug1: pledge: network
-GetConsoleMode on hOutputConsole failed with 6
-
-debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
-debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
-debug1: Remote: /home/jeango/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
-exit
-debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
-debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
-debug1: channel 0: free: client-session, nchannels 1
-Connection to localhost closed.
-Transferred: sent 3908, received 5036 bytes, in 2.9 seconds
-Bytes per second: sent 1333.3, received 1718.2
-debug1: Exit status 0
-```
-
-Emacs 集成了插件安装、管理工具，提供了一系列前缀为 package 的命令，例如 
-`list-packages` 或者 `package-install`。插件安装包托管服务器是 
-[MELPA (Milkypostman’s Emacs Lisp Package Archive)](https://melpa.org/)
-
-程序包默认安装于 `~/.emacs.d/elpa/`，可以修改 `package-user-dir` 变量来改变默认路径。
-目录命名使用 NAME-VERSION 这样的规则。
-
-To use the MELPA repository, you'll need an Emacs with package.el and TLS support, ie. Emacs 24.1 or greater. To test TLS support you can visit a HTTPS URL, for example with M-x eww RET https://wikipedia.org RET.
-
- 
-``
-
-```sh
-    Failed to verify signature archive-contents.sig:
-    No public key for 645357D2883A0966 created at 2023-11-10T06:05:08+0800 using EDDSA
-    No public key for 066DAFCB81E42C40 created at 2023-11-10T06:05:08+0800 using RSA
-    Command output:
-    gpg: keyblock resource '/mingw64/bin/c:/Users/OCEAN/AppData/Roaming/.emacs.d/elpa/gnupg/pubring.kbx': No such file or directory
-    gpg: Signature made Fri Nov 10 06:05:08 2023    
-    gpg:                using RSA key C433554766D3DDC64221BFAA066DAFCB81E42C40
-    gpg: Can't check signature: No public key
-    gpg: Signature made Fri Nov 10 06:05:08 2023    
-    gpg:                using EDDSA key 0327BE68D64D9A1A66859F15645357D2883A0966
-    gpg: Can't check signature: No public key
-```
-
-一些编程扩展包参考：
+Emacs 一些编程扩展包参考：
 
 1. 工程文件、符号跳转插件： https://github.com/bbatsov/projectile
 2. Emacs LSP Mode 智能提示：https://emacs-lsp.github.io/lsp-mode/
 3. Doom Emacs (集成 LSP 的配置)：https://github.com/doomemacs/doomemacs
 4. Cargo mode for Emacs（Rust 语言插件）：https://github.com/kwrooijen/cargo.el
 
-    M-x package-install RET cargo RET
+    `M-x package-install RET cargo RET`
 
 5. company-mode 自动完成：http://company-mode.github.io
 
-    M-x package-install RET company RET
+    `M-x package-install RET company RET`
+
+    Once installed, enable company-mode with `M-x company-mode`.
 
 6. company-box (A company front-end with icons) https://github.com/sebastiencs/company-box
 
@@ -1024,8 +2127,47 @@ Save Place in File between Sessions（）。
     (add-hook 'c++-mode-hook 'eglot-ensure)
 ```
 
+例如，添加 Python (Pyright) 和 TypeScript LSP 等语言支持，可以和 Sublime Text 共用
+同一个 LSP 客户端程序，只需要在 PATH 可以找到 LSP 客户程序文件，或者直接将
+路径写入 Emacs 初始化脚本中。JavaScript/TypeScript 可以使用官方的 LSP 客户程序，
+也可以使用 `deno lsp`：
+
+```sh
+    (require 'eglot)
+    (add-to-list 'eglot-server-programs
+             '(python-mode . ("pyright-langserver" "--stdio")))
+
+    (require 'eglot)
+    (add-to-list 'eglot-server-programs
+             '(gdscript-mode . ("C:/dl/games/Godot_v4.1.2-stable_win64.exe" "--headless")))
+
+    (require 'eglot)
+    (add-to-list 'eglot-server-programs
+             '(typescript-mode . ("deno" "lsp")))
+```
+
+注意，安装各种语言的模式扩展，例如 `M-x package-install`
+
 现代语言基本上都会提供 LSP 客户端实现，例如 Rust analyzer、Java jdtls、Kotlin kotlinls、
 Godot GDScript 等等，TypeScript 自然是不在话下，它似乎是 LSP 同一个团队的产品。
+
+目前只在 MELPA 上提供 gdscript-mode 安装包，默认配置的 ELPA 服务器上没有，
+需要在初始化脚本中添加 MELPA 服务器，或者下载程序包手动安装。
+
+LSP 协议使用 JSON-RPC 作为进程间通信技术，这与 LSP 客户端是否通过 TCP/IP
+网络连接与否无关，这只是一种基于 JSON 数据结构的通信手段。例如，Clangd LSP
+就选择基于 stdin/stdout 通过 XPC Service 这种整合了 GCD 与 launchd 的轻量级进程间
+通信技术来实现 LSP 服务。Godot 则会使用 TCP/IP，默认使用端口 Godot 4.x 6005，
+Godot 3.x 6008，配置它就需要给 Eglog 设置相应的端口。
+
+Godot 启动并进入项目器后，默认就会启用 LSP Client，偏好设置中可以修改默认配置。
+所以只需要提供一个 `--headless` 参数隐藏 GUI 界面，以及一个 gd 脚本让它运行：
+
+```sh
+/c/dl/games/Godot_v4.1.2-stable_win64.exe --headless --script "/C/dl/games/tutor4/mainloop/scenetree.gd"
+```
+
+
 
 Eglot 代码补全、错误提示、代码跳转功能都基于 Emacs 原生功能实现，不像 lsp-mode 
 引入一大堆依赖，而且代码清晰可读性强。Eglot 运行明显比 lsp-mode 流畅，缺点是只支持

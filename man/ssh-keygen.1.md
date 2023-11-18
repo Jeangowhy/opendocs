@@ -1,9 +1,12 @@
 SSH-KEYGEN(1)                      BSD General Commands Manual                     SSH-KEYGEN(1)
+========================================================
 
 NAME
+========================================================
      ssh-keygen — OpenSSH authentication key utility
 
 SYNOPSIS
+========================================================
      ssh-keygen [-q] [-b bits] [-C comment] [-f output_keyfile] [-m format]
                 [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa] [-N new_passphrase]
                 [-O option] [-w provider]
@@ -35,6 +38,7 @@ SYNOPSIS
                 signature_file [-r revocation_file]
 
 DESCRIPTION
+========================================================
      ssh-keygen generates, manages and converts authentication keys for ssh(1).  ssh-keygen can
      create keys for use by SSH protocol version 2.
 
@@ -376,6 +380,7 @@ DESCRIPTION
              When generating a KRL, the -z flag is used to specify a KRL version number.
 
 MODULI GENERATION
+========================================================
      ssh-keygen may be used to generate groups for the Diffie-Hellman Group Exchange (DH-GEX)
      protocol.  Generating these groups is a two-step process: first, candidate primes are gen‐
      erated using a fast, but memory intensive process.  These candidate primes are then tested
@@ -431,6 +436,7 @@ MODULI GENERATION
              Specify desired generator (in decimal) when testing candidate moduli for DH-GEX.
 
 CERTIFICATES
+========================================================
      ssh-keygen supports signing of keys to produce certificates that may be used for user or
      host authentication.  Certificates consist of a public key, some identity information, zero
      or more principal (user or host) names and a set of options that are signed by a Certifica‐
@@ -546,6 +552,7 @@ CERTIFICATES
      trusted by sshd(8) or ssh(1).  Please refer to those manual pages for details.
 
 KEY REVOCATION LISTS
+========================================================
      ssh-keygen is able to manage OpenSSH format Key Revocation Lists (KRLs).  These binary
      files specify keys or certificates to be revoked using a compact format, taking as little
      as one bit per certificate if they are being revoked by serial number.
@@ -599,6 +606,7 @@ KEY REVOCATION LISTS
      if no key was revoked.
 
 ALLOWED SIGNERS
+========================================================
      When verifying signatures, ssh-keygen uses a simple list of identities and keys to deter‐
      mine whether a signature comes from an authorized source.  This "allowed signers" file uses
      a format patterned after the AUTHORIZED_KEYS FILE FORMAT described in sshd(8).  Each line
@@ -638,11 +646,13 @@ ALLOWED SIGNERS
         user2@example.com namespaces="file" ssh-ed25519 AAA41...
 
 ENVIRONMENT
+========================================================
      SSH_SK_PROVIDER
              Specifies a path to a library that will be used when loading any FIDO authentica‐
              tor-hosted keys, overriding the default of using the built-in USB HID support.
 
 FILES
+========================================================
      ~/.ssh/id_dsa
      ~/.ssh/id_ecdsa
      ~/.ssh/id_ecdsa_sk
@@ -674,11 +684,13 @@ FILES
              moduli(5).
 
 SEE ALSO
+========================================================
      ssh(1), ssh-add(1), ssh-agent(1), moduli(5), sshd(8)
 
      The Secure Shell (SSH) Public Key File Format, RFC 4716, 2006.
 
 AUTHORS
+========================================================
      OpenSSH is a derivative of the original and free ssh 1.2.12 release by Tatu Ylonen.  Aaron
      Campbell, Bob Beck, Markus Friedl, Niels Provos, Theo de Raadt and Dug Song removed many
      bugs, re-added newer features and created OpenSSH.  Markus Friedl contributed the support

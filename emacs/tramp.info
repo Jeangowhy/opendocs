@@ -1097,7 +1097,7 @@ pseudo method ‘-’, *note File name syntax::.
           (add-to-list 'tramp-default-method-alist '("" "john" "ssh"))
           (add-to-list 'tramp-default-method-alist '("lily" "" "rsync"))
           (add-to-list 'tramp-default-method-alist
-                       '("\\`localhost\\'" "\\`root\\'" "su"))
+                       '("\`localhost\'" "\`root\'" "su"))
 
 External methods performance faster for large files.  *note Inline
 methods::.  *note External methods::.
@@ -1170,7 +1170,7 @@ File: tramp.info,  Node: Default User,  Next: Default Host,  Prev: Default Metho
      only:
 
           (add-to-list 'tramp-default-user-alist
-                       '("ssh" ".*\\.somewhere\\.else\\'" "john"))
+                       '("ssh" ".*\.somewhere\.else\'" "john"))
 
      A Caution: TRAMP will override any default user specified in the
      configuration files outside Emacs, such as ‘~/.ssh/config’.  To
@@ -1178,7 +1178,7 @@ File: tramp.info,  Node: Default User,  Next: Default Host,  Prev: Default Metho
      alist entry to ‘nil’:
 
           (add-to-list 'tramp-default-user-alist
-                       '("ssh" "\\`here\\.somewhere\\.else\\'" nil))
+                       '("ssh" "\`here\.somewhere\.else\'" nil))
 
      The last entry in ‘tramp-default-user-alist’ should be reserved for
      catch-all or most often used login.
@@ -1246,9 +1246,9 @@ check points.
      ‘bird’ to reach remote hosts outside the local domain:
 
           (add-to-list 'tramp-default-proxies-alist
-                       '("\\." nil "/ssh:bird@bastion.your.domain:"))
+                       '("\." nil "/ssh:bird@bastion.your.domain:"))
           (add-to-list 'tramp-default-proxies-alist
-                       '("\\.your\\.domain\\'" nil nil))
+                       '("\.your\.domain\'" nil nil))
 
      *Note*: ‘add-to-list’ adds elements at the beginning of a list.
      Therefore, most relevant rules must come last in the list.
@@ -1258,8 +1258,8 @@ check points.
      connect to ‘bastion.your.domain’, then:
 
           (add-to-list 'tramp-default-proxies-alist
-                       '("\\`bastion\\.your\\.domain\\'"
-                         "\\`bird\\'"
+                       '("\`bastion\.your\.domain\'"
+                         "\`bird\'"
                          "/ssh:jump.your.domain:"))
 
      PROXY can take patterns ‘%h’ or ‘%u’ for HOST or USER respectively.
@@ -1271,7 +1271,7 @@ check points.
      alist entry:
 
           (add-to-list 'tramp-default-proxies-alist
-                       '("\\.your\\.domain\\'" "\\`root\\'" "/ssh:%h:"))
+                       '("\.your\.domain\'" "\`root\'" "/ssh:%h:"))
 
      Opening ‘/sudo:randomhost.your.domain:’ first connects to
      ‘randomhost.your.domain’ via ‘ssh’ under your account name, and
@@ -1289,7 +1289,7 @@ check points.
      local one, first connect via ‘ssh’, and then apply ‘sudo -u root’:
 
           (add-to-list 'tramp-default-proxies-alist
-                       '(nil "\\`root\\'" "/ssh:%h:"))
+                       '(nil "\`root\'" "/ssh:%h:"))
           (add-to-list 'tramp-default-proxies-alist
                        `(,(regexp-quote (system-name)) nil nil))
 
@@ -1305,7 +1305,7 @@ only.
      restricted shell:
 
           (add-to-list 'tramp-restricted-shell-hosts-alist
-                       "\\`bastion\\.your\\.domain\\'")
+                       "\`bastion\.your\.domain\'")
 
 
 File: tramp.info,  Node: Firewalls,  Next: Customizing Methods,  Prev: Multi-hops,  Up: Configuration
@@ -1943,7 +1943,7 @@ Determining a TRAMP session
      Example:
 
           (defconst my-tramp-prompt-regexp
-            "Enter the birth date of your mother:\\s-*"
+            "Enter the birth date of your mother:\s-*"
             "Regular expression matching my login prompt question.")
 
           (defun my-tramp-action (proc vec)
@@ -3358,7 +3358,7 @@ anymore.
      would trigger renaming of buffer file names on ‘badhost’ to
      ‘goodhost’, including changing the directory name.
 
-          ("/ssh:.+\\.company\\.org:" . "/ssh:multi.hop|ssh:%h:")
+          ("/ssh:.+\.company\.org:" . "/ssh:multi.hop|ssh:%h:")
 
      routes all connections to a host in ‘company.org’ via
      ‘/ssh:multi.hop:’, which might be useful when using Emacs outside
@@ -3632,7 +3632,7 @@ File: tramp.info,  Node: Frequently Asked Questions,  Next: Files directories an
         − Disable version control to avoid delays:
 
                (setq vc-ignore-dir-regexp
-                     (format "\\(%s\\)\\|\\(%s\\)"
+                     (format "\(%s\)\|\(%s\)"
                              vc-ignore-dir-regexp
                              tramp-file-name-regexp))
 
@@ -4255,7 +4255,7 @@ File: tramp.info,  Node: Frequently Asked Questions,  Next: Files directories an
           ‘.emacs’.  *Note*, that we don’t use ‘customize-set-variable’,
           in order to avoid loading TRAMP.
 
-               (setq tramp-ignored-file-name-regexp "\\`/ssh:example\\.com:")
+               (setq tramp-ignored-file-name-regexp "\`/ssh:example\.com:")
 
           This is needed, if you mount for example a virtual file system
           on your local host’s root directory as ‘/ssh:example.com:’.

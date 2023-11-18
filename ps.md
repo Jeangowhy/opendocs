@@ -1,3 +1,10 @@
+Command Line Interpreters: POSIX Shell, Cmd.exe, PowerShell
+https://hyperpolyglot.org/shell
+
+Hyperpolyglot Unix Shells: Bash, Fish, Ksh, Tcsh, Zsh
+https://hyperpolyglot.org/unix-shells
+
+
 # TS m3u8 视频流切片文件下载
 
 deno run --unstable -A C:\coding\md-code\deno\demos\src\douyin\douyin.ts m3u8 index.m3u8
