@@ -796,6 +796,8 @@ IdentityFile ~/.ssh/id_rsa
 port 22
 ```
 
+OpenSSH 客户端默认配置文件是 ~/.ssh/config
+
 通过以上配置，就可以在代码项目中使用指定的账户来操作 push 这样命令：
 
 ```sh
