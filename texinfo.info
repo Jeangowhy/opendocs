@@ -763,6 +763,50 @@ vim scp://user@ip:port/path/to/file
 5. CyberDuck client for Mac
 6. OpenSSH server for Unix, Linux
 
+OpenSSH 还在 Github 代码托管服务中使用，不仅可以使用 HTTPS 地址克隆项目，
+还可以使用 SSH 地址克隆项目，并且更安全。项目配置文件 .git/config 参考：
+
+```sh
+[remote "https"]
+    url = https://github.com/Jeangowhy/opendocs.git
+    fetch = +refs/heads/*:refs/remotes/https/*
+
+[remote "ssh"]
+    url = git@github_jeango:Jeangowhy/opendocs.git
+    fetch = +refs/heads/*:refs/remotes/ssh/*
+```
+
+Github 网站上可以为用户配置一个公钥登录、授权服务，登录地址固定为 git@github.com。
+使用 git config 命令配置的用户账户只能影响 commit 这类的命令，但是 push 命令使用
+的账户记录在 Windows 系统上，通过控制面板中的凭据管理器集中处理。如果要实现
+在单台计算机上使用不同的公钥登录不同的 Github 账户，那么就需要修改 OpenSSH 
+客户端配置文件，通过 `HOST` 配置告诉 ssh 程序使用不同的账户信息登录不同的主机。
+配置参考如下，这就是为何上面 .git/comfig 配置文件中出现 github_jeango 这个主机
+映射地址，它的目的是告诉 ssh 程序在连接服务器时使用 `IdentityFile` 指定的公钥：
+
+```sh
+Host github_jeango
+Hostname ssh.github.com
+IdentityFile ~/.ssh/id_ecdsa
+port 22
+
+Host github_jimbo
+Hostname ssh.github.com
+IdentityFile ~/.ssh/id_rsa
+port 22
+```
+
+通过以上配置，就可以在代码项目中使用指定的账户来操作 push 这样命令：
+
+```sh
+$ git push ssh main
+The authenticity of host 'ssh.github.com (20.205.243.160)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ssh.github.com,20.205.243.160' (ECDSA) to the list of known hosts.
+Everything up-to-date
+```
+
 SSH 工作原理可以由以下图表展示：
 
     ╔═══════════════════════════════════════════════════════════╗
