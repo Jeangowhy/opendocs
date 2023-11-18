@@ -105,7 +105,7 @@ generator 3 | sed -n {p}
 2. `[addr]` 即行定位 line address，用于限制命令将要处理的内容所在行；
 3. `[options]` 是附加选项，用于配置 sed 命令的行为；
 
-先来说内容寻址，Address，它决定了输入数据中，那么行是需要处理的，有以下形式：
+先来说内容寻址，Address，它决定了输入数据中，哪些行是需要处理的，有以下形式：
 
 1. **Numeric Addresses**
     1. 'NUMBER' 例如 `1p` 表示只打印第一行；
