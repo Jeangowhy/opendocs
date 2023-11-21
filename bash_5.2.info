@@ -2480,17 +2480,35 @@ the following sub-patterns:
 ‘?(PATTERN-LIST)’
      Matches zero or one occurrence of the given patterns.
 
-‘*(PATTERN-LIST)’
+     a=WebAssembly; echo "${a//[?s]emb/=}"
+     WebAs=ly
+
+‘* (PATTERN-LIST)’
      Matches zero or more occurrences of the given patterns.
+
+     a=WebAssembly; echo "${a//[*s]emb/=}"
+     WebAs=ly
 
 ‘+(PATTERN-LIST)’
      Matches one or more occurrences of the given patterns.
 
+     a=WebAssembly; echo "${a//[+sb]/=}"
+     We=A==em=ly
+
 ‘@(PATTERN-LIST)’
      Matches one of the given patterns.
 
+     a=WebAssembly; echo "${a//[@se]/=}"
+     W=bA===mbly
+
 ‘!(PATTERN-LIST)’
      Matches anything except one of the given patterns.
+
+     a=WebAssembly; echo "${a//[!se]/=}"
+     =e==sse====
+
+     a=WebAssembly; echo "${a//[^se]/=}"
+     =e==sse====
 
    The ‘extglob’ option changes the behavior of the parser, since the
 parentheses are normally treated as operators with syntactic meaning.

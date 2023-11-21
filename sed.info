@@ -135,6 +135,7 @@ GNU sed 提供了一个 `!` 功能符号用于反转内容寻址，invert select
 另外，sed 可以选择正则表达式的分隔符，只需要选择好的分隔符紧跟在 `s` 命令后。
 例如，使用 `!` 作为正则表达式的分隔符号，`'1,2s!line!LINE!gp'`，将首两行的 line 大写。
 这种用法方便在正则表达式中使用 Linux 的文件路径。
+参考 Regex syntax clashes (problems with backslashes)
 
 通常不不需要自定义的正则分隔符，但是对于处理大量文件路径的数据中，自定义更方便。
 

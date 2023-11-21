@@ -5897,6 +5897,7 @@ ________________________________________________________________________
 
 – WILL or WON’T <option>
 – DO or DON’T <option>
+
 • Negotiates options such that symmetry can be set up between two stations.
 
 • Options include:
@@ -5904,22 +5905,16 @@ ________________________________________________________________________
 – Ability to echo
 – Terminal type
 – Setting line mode so that groups of characters can be sent
+
 The TELNET program is extensible through the use of options. Each side of the connection requests or tells the remote end of the connection which of these options it can support and which one the remote end should support. This provides for symmetry.  The TELNET protocol was written so that it would work on a variety of operating systems. Therefore, before a connection is made to the remote device, the TELNET protocol has some work to do in order to synchronize the connection with the remote device. For example, the DOS operating system for personal computers requires that a CR-LF (carriage return-line feed) be used to terminate a line of text. Other systems such as Unix require a line of text to be terminated with an LF. Another example is the echoing of characters. Upon connection attempt, the TELNET protocol will negotiate with the remote device as to who will do the echoing of typed characters to the initiator of a connection. During the connection attempt between a source and destination station, the two stations will communicate options. These options indicate how each end of the connections will respond on the TELNET connection. These options include:
 
 1. The ability to change from 7-bit text to 8-bit binary
-
 2. Allowing one side or the other to echo characters
-
 3. Specifying a terminal type
-
 4. Requesting the status of a TELNET option from the remote connection
-
 5. Setting a timing mark to synchronize two ends of a connection
-
 6. The ability to terminate a record with an EOR code
-
 7. Setting line mode so that strings of characters may be sent instead of a character-at-a-time transmit
-
 8. Stopping the go-ahead signal after data
 
 The options are negotiated between the two network stations in the following manner:

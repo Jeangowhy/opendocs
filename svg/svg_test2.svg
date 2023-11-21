@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   id="svg1322"
+   sodipodi:version="0.32"
+   inkscape:version="0.46+devel r21792 custom"
+   version="1.0"
+   sodipodi:docname="svg_test.svg"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   <defs>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4125">
+      <path
+         sodipodi:type="arc"
+         transform="matrix(2,0,0,2,-120,-40)"
+         style="opacity:1;color:black;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:black;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
+         id="path3183"
+         sodipodi:cx="128"
+         sodipodi:cy="128"
+         sodipodi:rx="95"
+         sodipodi:ry="95"
+         d="M 100 475 A 25 25 0 1 1  50,475 A 25 25 0 1 1  100 475 z" 
+         />
+    </clipPath>
+    </defs>
+  <g
+     inkscape:label="Layer 1"
+     id="layer1"
+     inkscape:groupmode="layer">
+    <image
+       x="10"
+       y="10"
+       xlink:href="svg_test.png"
+       id="image3175"
+       width="256"
+       height="256"
+       clip-path="url(#clipPath4125)"
+       transform="translate(-10,-10)" />
+    <rect
+       height="10"
+       width="256"
+       id="rect2834"
+       style="opacity:0.9;color:black;fill:blue;fill-opacity:0.2;fill-rule:nonzero;stroke:none;stroke-width:100;stroke-linecap:round;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
+       y="20"
+       x="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text1330"
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       y="24"
+       x="90"> SVG Tests </text>
+   </g>
+</svg>

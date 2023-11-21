@@ -2002,10 +2002,10 @@ on GitHub.
 | Godot 1.0   | December 2014        | |eol| No longer supported.                                               |
 +-------------+----------------------+--------------------------------------------------------------------------+
 
-.. |supported| image:: img/supported.png
-.. |partial| image:: img/partial.png
-.. |eol| image:: img/eol.png
-.. |unstable| image:: img/unstable.png
+.. |supported| image:: https://docs.godotengine.org/en/3.6/_images/supported.png
+.. |partial| image:: https://docs.godotengine.org/en/3.6/_images/partial.png
+.. |eol| image:: https://docs.godotengine.org/en/3.6/_images/eol.png
+.. |unstable| image:: https://docs.godotengine.org/en/3.6/_images/unstable.png
 
 **Legend:**
 |supported| Full support –
@@ -2275,14 +2275,14 @@ tremendously since its open-source release in 2014.
 
 Some examples of games created with Godot include Ex-Zodiac and Helms of Fury.
 
-.. image:: img/introduction_ex_zodiac.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/introduction_ex_zodiac.png
 
-.. image:: img/introduction_helms_of_fury.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/introduction_helms_of_fury.jpg
 
 As for applications, the open-source pixel art drawing program Pixelorama is
 powered by Godot, and so is the voxel RPG creator RPG in a box.
 
-.. image:: img/introduction_rpg_in_a_box.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/introduction_rpg_in_a_box.png
 
 You can find many more examples in the `official showcase videos`_.
 
@@ -2293,7 +2293,7 @@ Godot comes with a fully-fledged game editor with integrated tools to answer the
 most common needs. It includes a code editor, an animation editor, a tilemap
 editor, a shader editor, a debugger, a profiler, and more.
 
-.. image:: img/introduction_editor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/introduction_editor.png
 
 The team strives to offer a feature-rich game editor with a consistent user
 experience. While there is always room for improvement, the user interface keeps
@@ -2304,7 +2304,7 @@ support importing 3D scenes designed in Blender_ and maintain plugins to code in
 VSCode_ and Emacs_ for GDScript and C#. We also support Visual Studio for C# on
 Windows.
 
-.. image:: img/introduction_vscode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/introduction_vscode.png
 
 Programming languages
 ---------------------
@@ -2378,7 +2378,7 @@ To learn GDScript, you can use the app Learn GDScript From Zero. It is a
 complete beginner course with interactive practices you can do right in your
 browser.
 
-.. image:: img/learn_gdscript_app.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/learn_gdscript_app.png
 
 Click here to access the app: `Learn GDScript From Zero app`_
 
@@ -2421,12 +2421,12 @@ a weapon, a menu in the user interface, a single house, an entire level, or
 anything you can think of. Godot's scenes are flexible; they fill the role of
 both prefabs and scenes in some other game engines.
 
-.. image:: img/key_concepts_main_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_main_menu.png
 
 You can also nest scenes. For example, you can put your character in a level,
 and drag and drop a scene as a child of it.
 
-.. image:: img/key_concepts_scene_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_scene_example.png
 
 Nodes
 -----
@@ -2435,7 +2435,7 @@ A scene is composed of one or more **nodes**. Nodes are your game's smallest
 building blocks that you arrange into trees. Here's an example of a character's
 nodes.
 
-.. image:: img/key_concepts_character_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_character_nodes.png
 
 It is made of a ``KinematicBody2D`` node named "Character", a ``Sprite``, a
 ``Camera2D``, and a ``CollisionShape2D``.
@@ -2451,7 +2451,7 @@ Godot provides an extensive library of base node types you can combine and
 extend to build more powerful ones. 2D, 3D, or user interface, you will do most
 things with these nodes.
 
-.. image:: img/key_concepts_node_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_node_menu.png
 
 The scene tree
 --------------
@@ -2461,7 +2461,7 @@ scenes. And as scenes are trees of nodes, the scene tree also is a tree of
 nodes. But it's easier to think of your game in terms of scenes as they can
 represent characters, weapons, doors, or your user interface.
 
-.. image:: img/key_concepts_scene_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_scene_tree.png
 
 Signals
 -------
@@ -2470,7 +2470,7 @@ Nodes emit signals when some event occurs. This feature allows you to make
 nodes communicate without hard-wiring them in code. It gives you a lot of
 flexibility in how you structure your scenes.
 
-.. image:: img/key_concepts_signals.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_signals.png
 
 .. note:: Signals are Godot's version of the *observer* pattern. You can read
           more about it here:
@@ -2525,19 +2525,19 @@ When you launch Godot, the first window you see is the Project Manager. In the
 default tab, "Projects," you can manage existing projects, import or create new
 ones, and more.
 
-.. image:: img/editor_intro_project_manager.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_project_manager.png
 
 At the top of the window, there is another tab named "Asset Library Projects".
 In the open-source asset library you can search for demo projects, templates,
 and completed projects, including many that are developed by the community.
 
-.. image:: img/editor_intro_project_templates.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_project_templates.png
 
 You can also change the editor's language using the drop-down menu to the right
 of the engine's version in the window's top-right corner. By default, it is in
 English (EN).
 
-.. image:: img/editor_intro_language.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_language.png
 
 First look at Godot's editor
 ----------------------------
@@ -2545,51 +2545,51 @@ First look at Godot's editor
 When you open a new or an existing project, the editor's interface appears.
 Let's look at its main areas.
 
-.. image:: img/editor_intro_editor_empty.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_editor_empty.png
 
 By default, it features **menus**, **main screens**, and playtest buttons along
 the window's top edge.
 
-.. image:: img/editor_intro_top_menus.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_top_menus.png
 
 In the center is the **viewport** with its **toolbar** at the top, where you'll
 find tools to move, scale, or lock the scene's nodes.
 
-.. image:: img/editor_intro_3d_viewport.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_3d_viewport.png
 
 On either side of the viewport sit the **docks**. And at the bottom of the
 window lies the **bottom panel**.
 
 The toolbar changes based on the context and selected node. Here is the 2D toolbar.
 
-.. image:: img/editor_intro_toolbar_2d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_toolbar_2d.png
 
 Below is the 3D one.
 
-.. image:: img/editor_intro_toolbar_3d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_toolbar_3d.png
 
 Let's look at the docks. The **FileSystem** dock lists your project files, be it
 scripts, images, audio samples, and more.
 
-.. image:: img/editor_intro_filesystem_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_filesystem_dock.png
 
 The **Scene** dock lists the active scene's nodes.
 
-.. image:: img/editor_intro_scene_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_scene_dock.png
 
 The **Inspector** allows you to edit the properties of a selected node.
 
-.. image:: img/editor_intro_inspector_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_inspector_dock.png
 
 The **bottom panel**, situated below the viewport, is the host for the debug
 console, the animation editor, the audio mixer, and more. They can take precious
 space, that's why they're folded by default.
 
-.. image:: img/editor_intro_bottom_panels.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_bottom_panels.png
 
 When you click on one, it expands vertically. Below, you can see the animation editor opened.
 
-.. image:: img/editor_intro_bottom_panel_animation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_bottom_panel_animation.png
 
 The four main screens
 ---------------------
@@ -2600,17 +2600,17 @@ There are four main screen buttons centered at the top of the editor:
 You'll use the **2D screen** for all types of games. In addition to 2D games,
 the 2D screen is where you'll build your interfaces.
 
-.. image:: img/editor_intro_workspace_2d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_workspace_2d.png
 
 In the **3D screen**, you can work with meshes, lights, and design levels for
 3D games.
 
-.. image:: img/editor_intro_workspace_3d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_workspace_3d.png
 
 Notice the perspective button under the toolbar. Clicking on it opens a list of
 options related to the 3D view.
 
-.. image:: img/editor_intro_3d_viewport_perspective.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_3d_viewport_perspective.png
 
 .. note:: Read :ref:`doc_introduction_to_3d` for more detail about the **3D
           main screen**.
@@ -2618,12 +2618,12 @@ options related to the 3D view.
 The **Script screen** is a complete code editor with a debugger, rich
 auto-completion, and built-in code reference.
 
-.. image:: img/editor_intro_workspace_script.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_workspace_script.png
 
 Finally, the **AssetLib** is a library of free and open-source add-ons, scripts,
 and assets to use in your projects.
 
-.. image:: img/editor_intro_workspace_assetlib.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_workspace_assetlib.png
 
 .. seealso:: You can learn more about the asset library in
              :ref:`doc_what_is_assetlib`.
@@ -2643,16 +2643,16 @@ signal by any one of the following methods:
   or built-in variable in the script editor.
 
 
-.. image:: img/editor_intro_search_help_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_search_help_button.png
 
 When you do any of these, a window pops up. Type to search for any item. You can
 also use it to browse available objects and methods.
 
-.. image:: img/editor_intro_search_help.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_search_help.png
 
 Double-click on an item to open the corresponding page in the script main screen.
 
-.. image:: img/editor_intro_help_class_animated_sprite.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_intro_help_class_animated_sprite.png
 
 
 ===================================================
@@ -2682,7 +2682,7 @@ explore broad topics while the search bar will help you find more specific
 pages. If a page exists for a given theme, it will often link to more related
 content.
 
-.. image:: img/manual_search.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/manual_search.png
 
 The manual has a companion class reference that explains each Godot class's
 available functions and properties when programming. While the manual covers
@@ -2692,7 +2692,7 @@ access it both online and offline. We recommend browsing the reference offline,
 from within the Godot editor. To do so, go to Help -> Search or press
 :kbd:`F1`.
 
-.. image:: img/manual_class_reference_search.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/manual_class_reference_search.png
 
 To browse it online, head to the manual's :ref:`Class Reference <doc_class_reference>`
 section.
@@ -2703,7 +2703,7 @@ A class reference's page tells you:
    links to jump to parent classes and see the properties and methods a type
    inherits.
 
-   .. image:: img/manual_class_reference_inheritance.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/manual_class_reference_inheritance.png
 
 2. A summary of the class's role and use cases.
 
@@ -2760,7 +2760,7 @@ information:
    the code you write affects nodes in your scenes. As a result, you should
    think of those scenes as part of your source code.
 
-   .. image:: img/key_concepts_scene_tree.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/key_concepts_scene_tree.png
 
    Also, please don't take a picture with your phone, the low quality and screen
    reflections can make it hard to understand the image. Your operating system
@@ -2992,12 +2992,12 @@ base unit for 2D scenes is pixels.** Even though the engines are
 separate, you can render 2D in 3D, 3D in 2D, and overlay 2D sprites and
 interfaces over your 3D world.
 
-.. |image0| image:: img/engine_design_01.png
-.. |image1| image:: img/engine_design_02.png
-.. |image2| image:: img/engine_design_03.png
-.. |image3| image:: img/engine_design_visual_script.png
-.. |image4| image:: img/engine_design_fsm_plugin.png
-.. |image5| image:: img/engine_design_rpg_in_a_box.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/engine_design_01.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/engine_design_02.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/engine_design_03.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/engine_design_visual_script.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/engine_design_fsm_plugin.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/engine_design_rpg_in_a_box.png
 
 
 ===================================================
@@ -3052,7 +3052,7 @@ Nodes
 ingredients in a recipe. There are dozens of kinds that can display an image,
 play a sound, represent a camera, and much more.
 
-.. image:: img/nodes_and_scenes_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_nodes.png
 
 All nodes have the following attributes:
 
@@ -3068,7 +3068,7 @@ combining them produces more complex behavior. As we saw before, you can build a
 playable character the camera follows using a kinematic body node named
 "Character", a sprite node, a camera node, and a collision shape node.
 
-.. image:: img/nodes_and_scenes_character_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_character_nodes.png
 
 Scenes
 ------
@@ -3082,7 +3082,7 @@ Scenes allow you to structure your game's code however you want. You can
 **compose nodes** to create custom and complex node types, like a game character
 that runs and jumps, a life bar, a chest with which you can interact, and more.
 
-.. image:: img/nodes_and_scenes_3d_scene_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_3d_scene_example.png
 
 The Godot editor essentially is a **scene editor**. It has plenty of tools for
 editing 2D and 3D scenes, as well as user interfaces. A Godot project can
@@ -3104,7 +3104,7 @@ Let's create our first scene with a single node. To do so, you will need to
 create a new project first. After opening the project, you should see an empty
 editor.
 
-.. image:: img/nodes_and_scenes_01_empty_editor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_01_empty_editor.png
 
 In an empty scene, the Scene dock on the left shows several options to add a
 root node quickly. "2D Scene" adds a Node2D node, "3D Scene" adds a Spatial
@@ -3119,20 +3119,20 @@ text on the screen.
 
 Press the "Add Child Node" button or "Other Node" to create a root node.
 
-.. image:: img/nodes_and_scenes_02_scene_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_02_scene_dock.png
 
 The Create Node dialog opens, showing the long list of available nodes.
 
-.. image:: img/nodes_and_scenes_03_create_node_window.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_03_create_node_window.png
 
 Select the Label node. You can type its name to filter down the list.
 
-.. image:: img/nodes_and_scenes_04_create_label_window.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_04_create_label_window.png
 
 Click on the Label node to select it and click the Create button at the bottom
 of the window.
 
-.. image:: img/nodes_and_scenes_05_editor_with_label.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_05_editor_with_label.png
 
 A lot happens when you add a scene's first node. The scene changes to the 2D
 workspace because Label is a 2D node type. The Label appears, selected, in the
@@ -3148,19 +3148,19 @@ The next step is to change the Label's "Text" property. Let's change it to
 Head to the Inspector dock on the right of the viewport. Click inside the field
 below the Text property and type "Hello World".
 
-.. image:: img/nodes_and_scenes_06_label_text.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_06_label_text.png
 
 You will see the text draw in the viewport as you type.
 
 You can move your Label node in the viewport by selecting the move tool in the
 toolbar.
 
-.. image:: img/nodes_and_scenes_07_move_tool.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_07_move_tool.png
 
 With the Label selected, click and drag anywhere in the viewport to
 move it to the center of the view delimited by the rectangle.
 
-.. image:: img/nodes_and_scenes_08_hello_world_text.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_08_hello_world_text.png
 
 Running the scene
 -----------------
@@ -3168,16 +3168,16 @@ Running the scene
 Everything's ready to run the scene! Press the Play Scene button in the
 top-right of the screen or press :kbd:`F6` (:kbd:`Cmd + R` on macOS).
 
-.. image:: img/nodes_and_scenes_09_play_scene_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_09_play_scene_button.png
 
 A popup invites you to save the scene, which is required to run it.
 
-.. image:: img/nodes_and_scenes_10_save_scene_popup.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_10_save_scene_popup.png
 
 Click the Yes button, and in the file browser that appears, press the Save
 button to save it as "Label.tscn".
 
-.. image:: img/nodes_and_scenes_11_save_scene_as.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_11_save_scene_as.png
 
 .. note:: The Save Scene As dialog, like other file dialogs in the editor, only
           allows you to save files inside the project. The ``res://`` path at
@@ -3187,7 +3187,7 @@ button to save it as "Label.tscn".
 
 The application should open in a new window and display the text "Hello World".
 
-.. image:: img/nodes_and_scenes_12_final_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_12_final_result.png
 
 Close the window or press :kbd:`F8` to quit the running scene.
 
@@ -3204,16 +3204,16 @@ To run our test scene, we used the Play Scene button. Another button next to it
 allows you to set and run the project's main scene. You can press :kbd:`F5`
 (:kbd:`Cmd + B` on macOS) to do so.
 
-.. image:: img/nodes_and_scenes_13_play_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_13_play_button.png
 
 A popup window appears and invites you to select the main scene.
 
-.. image:: img/nodes_and_scenes_14_main_scene_popup.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_14_main_scene_popup.png
 
 Click the Select button, and in the file dialog that appears, double click on
 Label.tscn.
 
-.. image:: img/nodes_and_scenes_15_select_main_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scenes_15_select_main_scene.png
 
 The demo should run again. Moving forward, every time you run the project, Godot
 will use this scene as a starting point.
@@ -3251,13 +3251,13 @@ Here's an example of a ball. It's composed of a :ref:`RigidBody2D
 and bounce on walls, a :ref:`Sprite <class_Sprite>` node, and a
 :ref:`CollisionShape2D <class_CollisionShape2D>`.
 
-.. image:: img/instancing_ball_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_ball_scene.png
 
 Once you saved a scene, it works as a blueprint: you can reproduce it in other
 scenes as many times as you'd like. Replicating an object from a template like
 this is called **instancing**.
 
-.. image:: img/instancing_ball_instances_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_ball_instances_example.png
 
 As we mentioned in the previous part, instanced scenes behave like a node: the
 editor hides their content by default. When you instance the Ball, you only see
@@ -3278,44 +3278,44 @@ you to download the ball's sample project we prepared for you:
 Extract the archive on your computer. Then, open Godot, and in the project
 manager, click the Import button to import the project.
 
-.. image:: img/instancing_import_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_import_button.png
 
 In the pop-up that appears, click the browse button and navigate to the folder
 you extracted.
 
-.. image:: img/instancing_import_browse.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_import_browse.png
 
 Double-click the ``project.godot`` file to open it.
 
-.. image:: img/instancing_import_project_file.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_import_project_file.png
 
 Finally, click the Import & Edit button.
 
-.. image:: img/instancing_import_and_edit_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_import_and_edit_button.png
 
 The project contains two packed scenes: ``Main.tscn``, containing walls against
 which the ball collides, and ``Ball.tscn``. The Main scene should open
 automatically.
 
-.. image:: img/instancing_main_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_main_scene.png
 
 Let's add a ball as a child of the Main node. In the Scene dock, select the Main
 node. Then, click the link icon at the top of the scene dock. This button allows
 you to add an instance of a scene as a child of the currently selected node.
 
-.. image:: img/instancing_scene_link_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_scene_link_button.png
 
 Double-click the ball scene to instance it.
 
-.. image:: img/instancing_instance_child_window.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_instance_child_window.png
 
 The ball appears in the top-left corner of the viewport.
 
-.. image:: img/instancing_ball_instanced.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_ball_instanced.png
 
 Click on it and drag it towards the center of the view.
 
-.. image:: img/instancing_ball_moved.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_ball_moved.png
 
 Play the game by pressing F5. You should see it fall.
 
@@ -3323,11 +3323,11 @@ Now, we want to create more instances of the Ball node. With the ball still
 selected, press :kbd:`Ctrl-D` (:kbd:`Cmd-D` on macOS) to call the duplicate
 command. Click and drag to move the new ball to a different location.
 
-.. image:: img/instancing_ball_duplicated.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_ball_duplicated.png
 
 You can repeat this process until you have several in the scene.
 
-.. image:: img/instancing_main_scene_with_balls.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_main_scene_with_balls.png
 
 Play the game again. You should now see every ball fall independently from one
 another. This is what instances do. Each is an independent reproduction of a
@@ -3350,12 +3350,12 @@ There is more to instances. With this feature, you can:
 Let's try this. Open ``Ball.tscn`` and select the Ball node. In the Inspector on
 the right, click on the PhysicsMaterial property to expand it.
 
-.. image:: img/instancing_physics_material_expand.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_physics_material_expand.png
 
 Set its Bounce property to ``2`` by clicking on the number field, typing ``2``,
 and pressing :kbd:`Enter`.
 
-.. image:: img/instancing_property_bounce_updated.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_property_bounce_updated.png
 
 Play the game by pressing :kbd:`F5` and notice how all balls now bounce a lot
 more. As the Ball scene is a template for all instances, modifying it and saving
@@ -3364,16 +3364,16 @@ causes all instances to update accordingly.
 Let's now adjust an individual instance. Head back to the Main scene by clicking
 on the corresponding tab above the viewport.
 
-.. image:: img/instancing_scene_tabs.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_scene_tabs.png
 
 Select one of the instanced Ball nodes and, in the Inspector, set its Gravity
 Scale value to ``10``.
 
-.. image:: img/instancing_property_gravity_scale.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_property_gravity_scale.png
 
 A grey "revert" button appears next to the adjusted property.
 
-.. image:: img/instancing_property_revert_icon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_property_revert_icon.png
 
 This icon indicates you are overriding a value from the source packed scene.
 Even if you modify the property in the original scene, the value override will
@@ -3405,7 +3405,7 @@ and structure your code around them.
 
 For example, you could break down a shooter game like so:
 
-.. image:: img/instancing_diagram_shooter.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_diagram_shooter.png
 
 You can come up with a diagram like this for almost any type of game. Each
 rectangle represents an entity that's visible in the game from the player's
@@ -3424,7 +3424,7 @@ scene instantiation means you need little other architectural code.
 Here's the example of a scene diagram for an open-world game with tons of assets
 and nested elements:
 
-.. image:: img/instancing_diagram_open_world.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instancing_diagram_open_world.png
 
 Imagine we started by creating the room. We could make a couple of different
 room scenes, with unique arrangements of furniture in them. Later, we could make
@@ -3476,7 +3476,7 @@ follows its parent by default. Imagine you want the camera to shake when the pla
 takes damage. As this feature is not built into Godot, you would attach a script
 to the Camera2D node and code the shake.
 
-.. image:: img/scripting_camera_shake.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_camera_shake.gif
 
 Available scripting languages
 -----------------------------
@@ -3513,7 +3513,7 @@ language specifically for Godot and the needs of game developers. It has a
 lightweight and straightforward syntax and provides the tightest integration
 with Godot.
 
-.. image:: img/scripting_gdscript.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_gdscript.png
 
 For C#, you will need an external code editor like
 `VSCode <https://code.visualstudio.com/>`_ or Visual Studio. While C# support is
@@ -3574,7 +3574,7 @@ amongst game developers, we officially support it. C# is a mature and flexible
 language with tons of libraries written for it. We could add support for it
 thanks to a generous donation from Microsoft.
 
-.. image:: img/scripting_csharp.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_csharp.png
 
 C# offers a good tradeoff between performance and ease of use, although you
 should be aware of its garbage collector.
@@ -3611,7 +3611,7 @@ VisualScript
 programming language where you connect blocks. It can be a great tool for
 non-programmers like game designers and artists.
 
-.. image:: img/scripting_visualscript.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_visualscript.png
 
 You can use other languages to create custom blocks that are specific to your
 game, for example, to script AIs, quests, or dialogues. That's where the
@@ -3632,7 +3632,7 @@ C and C++ via GDNative
 GDNative allows you to write game code in C or C++ without needing to recompile
 or even restart Godot.
 
-.. image:: img/scripting_cpp.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_cpp.png
 
 You can use any version of the language or mix compiler brands and versions for
 the generated shared libraries, thanks to our use of an internal C API Bridge.
@@ -3686,7 +3686,7 @@ circles using GDScript. As we mentioned :ref:`in the introduction
 <toc-learn-introduction>`, we assume you have programming foundations.
 The equivalent C# code has been included in another tab for convenience.
 
-.. image:: img/scripting_first_script_rotating_godot.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_rotating_godot.gif
 
 .. seealso:: To learn more about GDScript, its keywords, and its syntax, head to
              the :ref:`GDScript reference<doc_gdscript>`.
@@ -3705,33 +3705,33 @@ community.
 We need to create a Sprite node to display it in the game. In the Scene dock,
 click the Other Node button.
 
-.. image:: img/scripting_first_script_click_other_node.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_click_other_node.png
 
 Type "Sprite" in the search bar to filter nodes and double-click on Sprite to
 create the node.
 
-.. image:: img/scripting_first_script_add_sprite_node.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_add_sprite_node.png
 
 Your Scene tab should now only have a Sprite node.
 
-.. image:: img/scripting_first_script_scene_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_scene_tree.png
 
 A Sprite node needs a texture to display. In the Inspector on the right, you can
 see that the Texture property says "[empty]". To display the Godot icon, click
 and drag the file ``icon.png`` from the FileSystem dock onto the Texture slot.
 
-.. image:: img/scripting_first_script_setting_texture.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_setting_texture.png
 
 .. note::
 
     You can create Sprite nodes automatically by dragging and dropping images on
     the viewport.
 
-    .. image:: img/scripting_first_script_dragging_sprite.png
+    .. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_dragging_sprite.png
 
 Then, click and drag the icon in the viewport to center it in the game view.
 
-.. image:: img/scripting_first_script_centering_sprite.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_centering_sprite.png
 
 Creating a new script
 ---------------------
@@ -3739,7 +3739,7 @@ Creating a new script
 To create and attach a new script to our node, right-click on Sprite in the
 scene dock and select "Attach Script".
 
-.. image:: img/scripting_first_script_attach_script.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_attach_script.png
 
 The Attach Node Script window appears. It allows you to select the script's
 language and file path, among other options.
@@ -3747,7 +3747,7 @@ language and file path, among other options.
 Change the Template from Default to Empty to start with a clean file. Leave the
 other options by default and click the Create button to create the script.
 
-.. image:: img/scripting_first_script_attach_node_script.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_attach_node_script.png
 
 The Script workspace should appear with your new ``Sprite.gd`` file open and the
 following line of code:
@@ -3834,7 +3834,7 @@ Save the scene if you haven't already, then press :kbd:`F6` (:kbd:`Cmd + R` on m
 to run it. Look at the **Output** bottom panel that expands.
 It should display "Hello, world!".
 
-.. image:: img/scripting_first_script_print_hello_world.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_print_hello_world.png
 
 Delete the ``_init()`` function, so you're only left with the line ``extends
 Sprite``.
@@ -3921,7 +3921,7 @@ our node and works with radians.
 
 Run the scene to see the Godot icon turn in-place.
 
-.. image:: img/scripting_first_script_godot_turning_in_place.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_godot_turning_in_place.gif
 
 Moving forward
 ~~~~~~~~~~~~~~
@@ -3960,7 +3960,7 @@ representing a 2D vector.
 
 Run the scene to see the Godot head run in circles.
 
-.. image:: img/scripting_first_script_rotating_godot.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_rotating_godot.gif
 
 .. note:: Moving a node like that does not take into account colliding with
           walls or the floor. In :ref:`doc_your_first_2d_game`, you will learn
@@ -4027,7 +4027,7 @@ Building upon the previous lesson :ref:`doc_scripting_first_script`, let's look
 at another important feature of any game: giving control to the player.
 To add this, we need to modify our ``Sprite.gd`` code.
 
-.. image:: img/scripting_first_script_moving_with_input.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_moving_with_input.gif
 
 You have two main tools to process the player's input in Godot:
 
@@ -4190,7 +4190,7 @@ Here is the complete ``Sprite.gd`` file for reference.
 If you run the scene, you should now be able to rotate with the left and right
 arrow keys and move forward by pressing :kbd:`Up`.
 
-.. image:: img/scripting_first_script_moving_with_input.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scripting_first_script_moving_with_input.gif
 
 Summary
 -------
@@ -4265,46 +4265,46 @@ lessons.
 
 Create a new scene by going to the menu Scene -> New Scene.
 
-.. image:: img/signals_01_new_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_01_new_scene.png
 
 In the Scene dock, click the 2D Scene button. This will add a Node2D as our
 root.
 
-.. image:: img/signals_02_2d_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_02_2d_scene.png
 
 In the FileSystem dock, click and drag the ``Sprite.tscn`` file you saved
 previously onto the Node2D to instantiate it.
 
-.. image:: img/signals_03_dragging_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_03_dragging_scene.png
 
 We want to add another node as a sibling of the Sprite. To do so, right-click on
 Node2D and select Add Child Node.
 
-.. image:: img/signals_04_add_child_node.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_04_add_child_node.png
 
 Search for the Button node type and add it.
 
-.. image:: img/signals_05_add_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_05_add_button.png
 
 The node is small by default. Click and drag on the bottom-right handle of the
 Button in the viewport to resize it.
 
-.. image:: img/signals_06_drag_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_06_drag_button.png
 
 If you don't see the handles, ensure the select tool is active in the toolbar.
 
-.. image:: img/signals_07_select_tool.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_07_select_tool.png
 
 Click and drag on the button itself to move it closer to the sprite.
 
 You can also write a label on the Button by editing its Text property in the
 Inspector. Enter "Toggle motion".
 
-.. image:: img/signals_08_toggle_motion_text.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_08_toggle_motion_text.png
 
 Your scene tree and viewport should look like this.
 
-.. image:: img/signals_09_scene_setup.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_09_scene_setup.png
 
 Save your newly created scene. You can then run it with :kbd:`F6`.
 At the moment, the button will be visible, but nothing will happen if you
@@ -4320,15 +4320,15 @@ have a script attached to the Sprite node, which we do from the previous lesson.
 You can connect signals in the Node dock. Select the Button node and, on the
 right side of the editor, click on the tab named "Node" next to the Inspector.
 
-.. image:: img/signals_10_node_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_10_node_dock.png
 
 The dock displays a list of signals available on the selected node.
 
-.. image:: img/signals_11_pressed_signals.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_11_pressed_signals.png
 
 Double-click the "pressed" signal to open the node connection window.
 
-.. image:: img/signals_12_node_connection.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_12_node_connection.png
 
 There, you can connect the signal to the Sprite node. The node needs a receiver
 method, a function that Godot will call when the Button emits the signal. The
@@ -4341,7 +4341,7 @@ editor generates one for you. By convention, we name these callback methods
    modes. The simple one only allows you to connect to nodes that have a
    script attached to them and creates a new callback function on them.
 
-   .. image:: img/signals_advanced_connection_window.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/signals_advanced_connection_window.png
 
    The advanced view lets you connect to any node and any built-in
    function, add arguments to the callback, and set options. You can
@@ -4352,12 +4352,12 @@ Click the Connect button to complete the signal connection and jump to the
 Script workspace. You should see the new method with a connection icon in the
 left margin.
 
-.. image:: img/signals_13_signals_connection_icon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_13_signals_connection_icon.png
 
 If you click the icon, a window pops up and displays information about the
 connection. This feature is only available when connecting nodes in the editor.
 
-.. image:: img/signals_14_signals_connection_info.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_14_signals_connection_info.png
 
 Let's replace the line with the ``pass`` keyword with code that'll toggle the
 node's motion.
@@ -4427,16 +4427,16 @@ In the Scene dock, right-click on the Sprite node and add a new child node.
 Search for Timer and add the corresponding node. Your scene should now look like
 this.
 
-.. image:: img/signals_15_scene_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_15_scene_tree.png
 
 With the Timer node selected, go to the Inspector and check the **Autostart**
 property.
 
-.. image:: img/signals_18_timer_autostart.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_18_timer_autostart.png
 
 Click the script icon next to Sprite to jump back to the scripting workspace.
 
-.. image:: img/signals_16_click_script.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_16_click_script.png
 
 We need to do two operations to connect the nodes via code:
 
@@ -4553,7 +4553,7 @@ reaches 0.
 Your signals work the same way as built-in ones: they appear in the Node tab and
 you can connect to them like any other.
 
-.. image:: img/signals_17_custom_signal.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_17_custom_signal.png
 
 To emit a signal in your scripts, call ``emit_signal()``.
 
@@ -4691,7 +4691,7 @@ Contents
    06.heads_up_display
    07.finishing-up
 
-.. |image0| image:: img/dodge_preview.gif
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/dodge_preview.gif
 
 
 ===================================================
@@ -4707,7 +4707,7 @@ In this short first part, we'll set up and organize the project.
 
 Launch Godot and create a new project.
 
-.. image:: img/new-project-button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/new-project-button.png
 
 .. tabs::
  .. tab:: GDScript
@@ -4746,20 +4746,20 @@ Launch Godot and create a new project.
 
 Your project folder should look like this.
 
-.. image:: img/folder-content.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/folder-content.png
 
 This game is designed for portrait mode, so we need to adjust the size of the
 game window. Click on *Project -> Project Settings* to open the project settings
 window and in the left column, open the *Display -> Window* tab. There, set
 "Width" to ``480`` and "Height" to ``720``.
 
-.. image:: img/setting-project-width-and-height.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/setting-project-width-and-height.png
 
 Also, scroll down to the bottom of the section and, under the "Stretch" options,
 set ``Mode`` to "2d" and ``Aspect`` to "keep". This ensures that the game scales
 consistently on different sized screens.
 
-.. image:: img/setting-stretch-mode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/setting-stretch-mode.png
 
 Organizing the project
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -4772,7 +4772,7 @@ scenes and their scripts, but for this relatively small game, you can save your
 scenes and scripts in the project's root folder, identified by ``res://``. You
 can see your project folders in the FileSystem dock in the lower left corner:
 
-.. image:: img/filesystem_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/filesystem_dock.png
 
 With the project in place, we're ready to design the player scene in the next lesson.
 
@@ -4801,7 +4801,7 @@ rule, a scene's root node should reflect the object's desired functionality -
 what the object *is*. Click the "Other Node" button and add an :ref:`Area2D
 <class_Area2D>` node to the scene.
 
-.. image:: img/add_node.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/add_node.png
 
 Godot will display a warning icon next to the node in the scene tree. You can
 ignore it for now. We will address it later.
@@ -4816,7 +4816,7 @@ accidentally move or resize them by clicking on them. Select the node and click
 the icon to the right of the lock; its tooltip says "Makes sure the object's
 children are not selectable."
 
-.. image:: img/lock_children.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/lock_children.png
 
 Save the scene. Click Scene -> Save, or press :kbd:`Ctrl + S` on Windows/Linux
 or :kbd:`Cmd + S` on macOS.
@@ -4844,7 +4844,7 @@ next to the node. An ``AnimatedSprite`` requires a :ref:`SpriteFrames
 display. To create one, find the ``Frames`` property in the Inspector and click
 "[empty]" -> "New SpriteFrames". Click again to open the "SpriteFrames" panel:
 
-.. image:: img/spriteframes_panel.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spriteframes_panel.png
 
 
 On the left is a list of animations. Click the "default" one and rename it to
@@ -4854,14 +4854,14 @@ folder you unzipped earlier. Drag the two images for each animation, named
 ``playerGrey_up[1/2]`` and ``playerGrey_walk[1/2]``, into the "Animation Frames"
 side of the panel for the corresponding animation:
 
-.. image:: img/spriteframes_panel2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spriteframes_panel2.png
 
 The player images are a bit too large for the game window, so we need to scale
 them down. Click on the ``AnimatedSprite`` node and set the ``Scale`` property
 to ``(0.5, 0.5)``. You can find it in the Inspector under the ``Node2D``
 heading.
 
-.. image:: img/player_scale.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_scale.png
 
 Finally, add a :ref:`CollisionShape2D <class_CollisionShape2D>` as a child of
 ``Player``. This will determine the player's "hitbox", or the bounds of its
@@ -4870,11 +4870,11 @@ fit, so next to "Shape" in the Inspector, click "[empty]"" -> "New
 CapsuleShape2D". Using the two size handles, resize the shape to cover the
 sprite:
 
-.. image:: img/player_coll_shape.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_coll_shape.png
 
 When you're finished, your ``Player`` scene should look like this:
 
-.. image:: img/player_scene_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_scene_nodes.png
 
 Make sure to save the scene again after these changes.
 
@@ -4899,7 +4899,7 @@ To do so, we need to add some functionality that we can't get from a built-in
 node, so we'll add a script. Click the ``Player`` node and click the "Attach
 Script" button:
 
-.. image:: img/add_script_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/add_script_button.png
 
 In the script settings window, you can leave the default settings alone. Just
 click "Create":
@@ -4907,7 +4907,7 @@ click "Create":
 .. note:: If you're creating a C# script or other languages, select the language
           from the `language` drop down menu before hitting create.
 
-.. image:: img/attach_node_window.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/attach_node_window.png
 
 .. note:: If this is your first time encountering GDScript, please read
           :ref:`doc_scripting` before continuing.
@@ -4985,7 +4985,7 @@ value written in the script.
              bottom of the editor window to reveal the Mono Panel, then clicking
              the "Build Project" button.
 
-.. image:: img/export_variable.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_variable.png
 
 The ``_ready()`` function is called when a node enters the scene tree, which is
 a good time to find the size of the game window:
@@ -5034,13 +5034,13 @@ Click on *Project -> Project Settings* to open the project settings window and
 click on the *Input Map* tab at the top. Type "move_right" in the top bar and
 click the "Add" button to add the ``move_right`` action.
 
-.. image:: img/input-mapping-add-action.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/input-mapping-add-action.png
 
 We need to assign a key to this action. Click the "+" icon on the right, then
 click the "Key" option in the drop-down menu. A dialog asks you to type in the
 desired key. Press the right arrow on your keyboard and click "Ok".
 
-.. image:: img/input-mapping-add-key.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/input-mapping-add-key.png
 
 Repeat these steps to add three more mappings:
 
@@ -5050,7 +5050,7 @@ Repeat these steps to add three more mappings:
 
 Your input map tab should look like this:
 
-.. image:: img/input-mapping-completed.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/input-mapping-completed.png
 
 Click the "Close" button to close the project settings.
 
@@ -5348,7 +5348,7 @@ This defines a custom signal called "hit" that we will have our player emit
 collision. Select the ``Player`` node and click the "Node" tab next to the
 Inspector tab to see the list of signals the player can emit:
 
-.. image:: img/player_signals.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_signals.png
 
 Notice our custom "hit" signal is there as well! Since our enemies are going to
 be ``RigidBody2D`` nodes, we want the ``body_entered(body: Node)`` signal. This
@@ -5357,7 +5357,7 @@ the "Connect a Signal" window appears. We don't need to change any of these
 settings so click "Connect" again. Godot will automatically create a function in
 your player's script.
 
-.. image:: img/player_signal_connection.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_signal_connection.png
 
 Note the green icon indicating that a signal is connected to this function. Add
 this code to the function:
@@ -5467,7 +5467,7 @@ to ``0``, so the mob will not fall downward. In addition, under the
 :ref:`CollisionObject2D <class_CollisionObject2D>` section, click the ``Mask`` property and uncheck the first
 box. This will ensure the mobs do not collide with each other.
 
-.. image:: img/set_collision_mask.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/set_collision_mask.png
 
 Set up the :ref:`AnimatedSprite <class_AnimatedSprite>` like you did for the
 player. This time, we have 3 animations: ``fly``, ``swim``, and ``walk``. There
@@ -5475,7 +5475,7 @@ are two images for each animation in the art folder.
 
 Adjust the "Speed (FPS)" to ``3`` for all animations.
 
-.. image:: img/mob_animations.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/mob_animations.gif
 
 Set the ``Playing`` property in the Inspector to "On".
 
@@ -5636,7 +5636,7 @@ be a container for handling game logic. It does not require 2D functionality its
 Click the **Instance** button (represented by a chain link icon) and select your saved
 ``Player.tscn``.
 
-.. image:: img/instance_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/instance_scene.png
 
 Now, add the following nodes as children of ``Main``, and name them as shown
 (values are in seconds):
@@ -5667,7 +5667,7 @@ location on the edge of the screen. Add a :ref:`Path2D <class_Path2D>` node
 named ``MobPath`` as a child of ``Main``. When you select ``Path2D``, you will
 see some new buttons at the top of the editor:
 
-.. image:: img/path2d_buttons.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/path2d_buttons.png
 
 Select the middle one ("Add Point") and draw the path by clicking to add the
 points at the corners shown. To have the points snap to the grid, make sure "Use
@@ -5675,12 +5675,12 @@ Grid Snap" and "Use Snap" are both selected. These options can be found to the
 left of the "Lock" button, appearing as a magnet next to some dots and
 intersecting lines, respectively.
 
-.. image:: img/grid_snap_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/grid_snap_button.png
 
 .. important:: Draw the path in *clockwise* order, or your mobs will spawn
                pointing *outwards* instead of *inwards*!
 
-.. image:: img/draw_path2d.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/draw_path2d.gif
 
 After placing point ``4`` in the image, click the "Close Curve" button and your
 curve will be complete.
@@ -5692,7 +5692,7 @@ a random position and direction along the path.
 
 Your scene should look like this:
 
-.. image:: img/main_scene_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/main_scene_nodes.png
 
 Main script
 ~~~~~~~~~~~
@@ -6126,16 +6126,16 @@ well. There is a font file included in the game assets called
 
 1. Under **Theme overrides > Fonts** click on the empty box and select "New DynamicFont"
 
-.. image:: img/custom_font1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/custom_font1.png
 
 2. Click on the "DynamicFont" you added, and under **Font > FontData**,
    choose "Load" and select the "Xolonium-Regular.ttf" file.
 
-.. image:: img/custom_font2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/custom_font2.png
 
 Set the "Size" property under ``Settings``, ``64`` works well.
 
-.. image:: img/custom_font3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/custom_font3.png
 
 Once you've done this on the ``ScoreLabel``, you can click the down arrow next
 to the Font property and choose "Copy", then "Paste" it in the same place
@@ -6150,7 +6150,7 @@ on the other two Control nodes.
 Arrange the nodes as shown below. Click the "Layout" button to set a Control
 node's layout:
 
-.. image:: img/ui_anchor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ui_anchor.png
 
 You can drag the nodes to place them manually, or for more precise placement,
 use the following settings:
@@ -6424,7 +6424,7 @@ Now that we're done creating the ``HUD`` scene, go back to ``Main``. Instance
 the ``HUD`` scene in ``Main`` like you did the ``Player`` scene. The scene tree
 should look like this, so make sure you didn't miss anything:
 
-.. image:: img/completed_main_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/completed_main_scene.png
 
 Now we need to connect the ``HUD`` functionality to our ``Main`` script. This
 requires a few additions to the ``Main`` scene:
@@ -6499,7 +6499,7 @@ In the ``Mob`` scene, select the root node and click the "Node" tab next to the
 Inspector (the same place where you find the node's signals). Next to "Signals",
 click "Groups" and you can type a new group name and click "Add".
 
-.. image:: img/group_tab.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/group_tab.png
 
 Now all mobs will be in the "mobs" group. We can then add the following line to
 the ``new_game()`` function in ``Main``:
@@ -6591,14 +6591,14 @@ item. A second *Shortcut* property will appear. Select "New InputEventAction"
 and click the new "InputEventAction". Finally, in the *Action* property, type
 the name ``start_game``.
 
-.. image:: img/start_button_shortcut.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/start_button_shortcut.png
 
 Now when the start button appears, you can either click it or press :kbd:`Enter`
 to start the game.
 
 And with that, you completed your first 2D game in Godot.
 
-.. image:: img/dodge_preview.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/dodge_preview.gif
 
 You got to make a player-controlled character, enemies that spawn randomly
 around the game board, count the score, implement a game over and replay, user
@@ -6684,7 +6684,7 @@ Contents
    09.adding_animations
    going_further
 
-.. |image0| image:: img/squash-the-creeps-final.gif
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/squash-the-creeps-final.gif
 
 
 ===================================================
@@ -6838,23 +6838,23 @@ At this point, your project should look like this.
 That's our starting point. In the next part, we will work on the player scene
 and base movement.
 
-.. |image1| image:: img/01.game_setup/01.import_button.png
-.. |image2| image:: img/01.game_setup/02.browse_to_project_folder.png
-.. |image3| image:: img/01.game_setup/03.import_and_edit.png
-.. |image4| image:: img/01.game_setup/04.start_assets.png
-.. |image5| image:: img/01.game_setup/05.main_node.png
-.. |image6| image:: img/01.game_setup/06.staticbody_node.png
-.. |image7| image:: img/01.game_setup/07.collision_shape_warning.png
-.. |image8| image:: img/01.game_setup/08.create_box_shape.png
-.. |image9| image:: img/01.game_setup/09.box_extents.png
-.. |image10| image:: img/01.game_setup/10.mesh_instance.png
-.. |image11| image:: img/01.game_setup/11.cube_mesh.png
-.. |image12| image:: img/01.game_setup/12.cube_resized.png
-.. |image13| image:: img/01.game_setup/13.move_gizmo_y_axis.png
-.. |image14| image:: img/01.game_setup/14.select_mode_icon.png
-.. |image15| image:: img/01.game_setup/15.translation_amount.png
-.. |image16| image:: img/01.game_setup/16.turn_on_shadows.png
-.. |image17| image:: img/01.game_setup/17.project_with_light.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/01.import_button.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/02.browse_to_project_folder.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/03.import_and_edit.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/04.start_assets.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/05.main_node.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/06.staticbody_node.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/07.collision_shape_warning.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/08.create_box_shape.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/09.box_extents.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/10.mesh_instance.png
+.. |image11| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/11.cube_mesh.png
+.. |image12| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/12.cube_resized.png
+.. |image13| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/13.move_gizmo_y_axis.png
+.. |image14| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/14.select_mode_icon.png
+.. |image15| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/15.translation_amount.png
+.. |image16| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/16.turn_on_shadows.png
+.. |image17| image:: https://docs.godotengine.org/en/3.6/_images/01.game_setup/17.project_with_light.png
 
 
 ===================================================
@@ -7019,25 +7019,25 @@ groups of keys and buttons in your projects.
 
 In the next part, we'll code and test the player's movement.
 
-.. |image0| image:: img/02.player_input/01.new_scene.png
-.. |image1| image:: img/02.player_input/02.instantiating_the_model.png
-.. |image2| image:: img/02.player_input/03.scene_structure.png
-.. |image3| image:: img/02.player_input/04.sphere_shape.png
-.. |image4| image:: img/02.player_input/05.moving_the_sphere_up.png
-.. |image5| image:: img/02.player_input/06.toggling_visibility.png
-.. |image6| image:: img/02.player_input/07.project_settings.png
-.. |image7| image:: img/02.player_input/07.input_map_tab.png
-.. |image8| image:: img/02.player_input/07.adding_action.png
-.. |image9| image:: img/02.player_input/08.actions_list_empty.png
-.. |image10| image:: img/02.player_input/08.create_key_action.png
-.. |image11| image:: img/02.player_input/09.keyboard_key_popup.png
-.. |image12| image:: img/02.player_input/09.keyboard_keys.png
-.. |image13| image:: img/02.player_input/10.joy_axis_option.png
-.. |image14| image:: img/02.player_input/11.joy_axis_popup.png
-.. |image15| image:: img/02.player_input/12.move_inputs_mapped.png
-.. |image16| image:: img/02.player_input/13.joy_button_option.png
-.. |image17| image:: img/02.player_input/14.add_jump_button.png
-.. |image18| image:: img/02.player_input/14.jump_input_action.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/01.new_scene.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/02.instantiating_the_model.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/03.scene_structure.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/04.sphere_shape.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/05.moving_the_sphere_up.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/06.toggling_visibility.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/07.project_settings.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/07.input_map_tab.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/07.adding_action.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/08.actions_list_empty.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/08.create_key_action.png
+.. |image11| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/09.keyboard_key_popup.png
+.. |image12| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/09.keyboard_keys.png
+.. |image13| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/10.joy_axis_option.png
+.. |image14| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/11.joy_axis_popup.png
+.. |image15| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/12.move_inputs_mapped.png
+.. |image16| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/13.joy_button_option.png
+.. |image17| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/14.add_jump_button.png
+.. |image18| image:: https://docs.godotengine.org/en/3.6/_images/02.player_input/14.jump_input_action.png
 
 
 ===================================================
@@ -7446,17 +7446,17 @@ the ground should fill the background.
 With that, we have both player movement and the view in place. Next, we will
 work on the monsters.
 
-.. |image0| image:: img/03.player_movement_code/01.attach_script_to_player.png
-.. |image1| image:: img/03.player_movement_code/02.clicking_main_tab.png
-.. |image2| image:: img/03.player_movement_code/03.instance_child_scene.png
-.. |image3| image:: img/03.player_movement_code/04.scene_tree_with_camera.png
-.. |image4| image:: img/03.player_movement_code/05.camera_preview_checkbox.png
-.. |image5| image:: img/03.player_movement_code/06.two_viewports.png
-.. |image6| image:: img/03.player_movement_code/07.camera_preview_checkbox.png
-.. |image7| image:: img/03.player_movement_code/08.camera_moved.png
-.. |image8| image:: img/03.player_movement_code/09.camera_rotated.png
-.. |image9| image:: img/03.player_movement_code/10.camera_perspective.png
-.. |image10| image:: img/03.player_movement_code/11.camera_orthographic.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/01.attach_script_to_player.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/02.clicking_main_tab.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/03.instance_child_scene.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/04.scene_tree_with_camera.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/05.camera_preview_checkbox.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/06.two_viewports.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/07.camera_preview_checkbox.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/08.camera_moved.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/09.camera_rotated.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/10.camera_perspective.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/03.player_movement_code/11.camera_orthographic.png
 
 
 ===================================================
@@ -7787,17 +7787,17 @@ Here is the complete ``Mob.gd`` script for reference.
         }
     }
 
-.. |image0| image:: img/04.mob_scene/01.initial_three_nodes.png
-.. |image1| image:: img/04.mob_scene/02.add_child_node.png
-.. |image2| image:: img/04.mob_scene/03.scene_with_collision_shape.png
-.. |image3| image:: img/04.mob_scene/04.create_box_shape.png
-.. |image4| image:: img/04.mob_scene/05.box_final_size.png
-.. |image5| image:: img/04.mob_scene/06.visibility_notifier.png
-.. |image6| image:: img/04.mob_scene/07.visibility_notifier_bbox_resized.png
-.. |image7| image:: img/04.mob_scene/08.mob_attach_script.png
-.. |image8| image:: img/04.mob_scene/09.switch_to_3d_workspace.png
-.. |image9| image:: img/04.mob_scene/10.node_dock.png
-.. |image10| image:: img/04.mob_scene/11.connect_signal.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/01.initial_three_nodes.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/02.add_child_node.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/03.scene_with_collision_shape.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/04.create_box_shape.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/05.box_final_size.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/06.visibility_notifier.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/07.visibility_notifier_bbox_resized.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/08.mob_attach_script.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/09.switch_to_3d_workspace.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/10.node_dock.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/04.mob_scene/11.connect_signal.png
 
 
 ===================================================
@@ -8139,32 +8139,32 @@ move in a straight line.
 For now, they bump and slide against one another when their paths cross. We'll
 address this in the next part.
 
-.. |image0| image:: img/05.spawning_mobs/01.monsters_path_preview.png
-.. |image1| image:: img/05.spawning_mobs/02.project_settings.png
-.. |image2| image:: img/05.spawning_mobs/03.window_settings.png
-.. |image3| image:: img/05.spawning_mobs/04.camera_preview.png
-.. |image4| image:: img/05.spawning_mobs/05.cylinders_node.png
-.. |image5| image:: img/05.spawning_mobs/06.cylinder_mesh.png
-.. |image6| image:: img/05.spawning_mobs/07.top_view.png
-.. |image7| image:: img/05.spawning_mobs/08.toggle_view_grid.png
-.. |image8| image:: img/05.spawning_mobs/09.toggle_grid_snap.png
-.. |image9| image:: img/05.spawning_mobs/10.place_first_cylinder.png
-.. |image10| image:: img/05.spawning_mobs/11.both_cylinders_selected.png
-.. |image11| image:: img/05.spawning_mobs/12.four_cylinders.png
-.. |image12| image:: img/05.spawning_mobs/13.selecting_all_cylinders.png
-.. |image13| image:: img/05.spawning_mobs/14.spatial_material.png
-.. |image14| image:: img/05.spawning_mobs/15.bright-cylinders.png
-.. |image15| image:: img/05.spawning_mobs/16.cylinders_fold.png
-.. |image16| image:: img/05.spawning_mobs/17.points_options.png
-.. |image17| image:: img/05.spawning_mobs/18.close_path.png
-.. |image18| image:: img/05.spawning_mobs/19.path_result.png
-.. |image19| image:: img/05.spawning_mobs/20.spawn_nodes.png
-.. |image20| image:: img/05.spawning_mobs/20.mob_scene_property.png
-.. |image21| image:: img/05.spawning_mobs/21.mob_timer.png
-.. |image22| image:: img/05.spawning_mobs/22.mob_timer_properties.png
-.. |image23| image:: img/05.spawning_mobs/23.timeout_signal.png
-.. |image24| image:: img/05.spawning_mobs/24.connect_timer_to_main.png
-.. |image25| image:: img/05.spawning_mobs/25.spawn_result.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/01.monsters_path_preview.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/02.project_settings.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/03.window_settings.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/04.camera_preview.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/05.cylinders_node.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/06.cylinder_mesh.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/07.top_view.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/08.toggle_view_grid.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/09.toggle_grid_snap.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/10.place_first_cylinder.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/11.both_cylinders_selected.png
+.. |image11| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/12.four_cylinders.png
+.. |image12| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/13.selecting_all_cylinders.png
+.. |image13| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/14.spatial_material.png
+.. |image14| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/15.bright-cylinders.png
+.. |image15| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/16.cylinders_fold.png
+.. |image16| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/17.points_options.png
+.. |image17| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/18.close_path.png
+.. |image18| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/19.path_result.png
+.. |image19| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/20.spawn_nodes.png
+.. |image20| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/20.mob_scene_property.png
+.. |image21| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/21.mob_timer.png
+.. |image22| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/22.mob_timer_properties.png
+.. |image23| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/23.timeout_signal.png
+.. |image24| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/24.connect_timer_to_main.png
+.. |image25| image:: https://docs.godotengine.org/en/3.6/_images/05.spawning_mobs/25.spawn_result.png
 
 
 ===================================================
@@ -8515,15 +8515,15 @@ With that, you should be able to kill monsters by jumping on them. You can press
 
 However, the player won't die yet. We'll work on that in the next part.
 
-.. |image0| image:: img/06.jump_and_squash/02.project_settings.png
-.. |image1| image:: img/06.jump_and_squash/03.physics_layers.png
-.. |image2| image:: img/06.jump_and_squash/04.default_physics_properties.png
-.. |image3| image:: img/06.jump_and_squash/05.toggle_layer_and_mask.png
-.. |image4| image:: img/06.jump_and_squash/06.named_checkboxes.png
-.. |image5| image:: img/06.jump_and_squash/07.player_physics_mask.png
-.. |image6| image:: img/06.jump_and_squash/08.mob_physics_mask.png
-.. |image7| image:: img/06.jump_and_squash/09.groups_tab.png
-.. |image8| image:: img/06.jump_and_squash/10.group_scene_icon.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/02.project_settings.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/03.physics_layers.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/04.default_physics_properties.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/05.toggle_layer_and_mask.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/06.named_checkboxes.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/07.player_physics_mask.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/08.mob_physics_mask.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/09.groups_tab.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/06.jump_and_squash/10.group_scene_icon.png
 
 
 ===================================================
@@ -8993,12 +8993,12 @@ Finally, the longest script, ``Player.gd``.
 
 See you in the next lesson to add the score and the retry option.
 
-.. |image0| image:: img/07.killing_player/01.adding_area_node.png
-.. |image1| image:: img/07.killing_player/02.cylinder_shape.png
-.. |image2| image:: img/07.killing_player/03.cylinder_in_editor.png
-.. |image3| image:: img/07.killing_player/04.mob_detector_properties.png
-.. |image4| image:: img/07.killing_player/05.body_entered_signal.png
-.. |image5| image:: img/07.killing_player/06.player_hit_signal.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/07.killing_player/01.adding_area_node.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/07.killing_player/02.cylinder_shape.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/07.killing_player/03.cylinder_in_editor.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/07.killing_player/04.mob_detector_properties.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/07.killing_player/05.body_entered_signal.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/07.killing_player/06.player_hit_signal.png
 
 
 ===================================================
@@ -9461,30 +9461,30 @@ Here is the complete ``Main.gd`` script for reference.
     }
 
 
-.. |image0| image:: img/08.score_and_replay/01.label_node.png
-.. |image1| image:: img/08.score_and_replay/02.score_placeholder.png
-.. |image2| image:: img/08.score_and_replay/02.score_custom_color.png
-.. |image3| image:: img/08.score_and_replay/02.score_color_picker.png
-.. |image4| image:: img/08.score_and_replay/02.score_label_moved.png
-.. |image5| image:: img/08.score_and_replay/03.creating_theme.png
-.. |image6| image:: img/08.score_and_replay/04.theme_preview.png
-.. |image7| image:: img/08.score_and_replay/05.dynamic_font.png
-.. |image8| image:: img/08.score_and_replay/06.font_data.png
-.. |image9| image:: img/08.score_and_replay/07.font_size.png
-.. |image10| image:: img/08.score_and_replay/08.open_main_script.png
-.. |image11| image:: img/08.score_and_replay/09.score_in_game.png
-.. |image12| image:: img/08.score_and_replay/10.layout_icon.png
-.. |image13| image:: img/08.score_and_replay/11.full_rect_option.png
-.. |image14| image:: img/08.score_and_replay/12.anchors_updated.png
-.. |image15| image:: img/08.score_and_replay/13.retry_color_picker.png
-.. |image16| image:: img/08.score_and_replay/14.retry_node.png
-.. |image17| image:: img/08.score_and_replay/15.layout_center.png
-.. |image18| image:: img/08.score_and_replay/16.new_scene.png
-.. |image19| image:: img/08.score_and_replay/17.music_player_node.png
-.. |image20| image:: img/08.score_and_replay/18.music_node_properties.png
-.. |image21| image:: img/08.score_and_replay/19.register_autoload.png
-.. |image22| image:: img/08.score_and_replay/20.scene_dock_tabs.png
-.. |image23| image:: img/08.score_and_replay/21.remote_scene_tree.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/01.label_node.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/02.score_placeholder.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/02.score_custom_color.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/02.score_color_picker.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/02.score_label_moved.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/03.creating_theme.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/04.theme_preview.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/05.dynamic_font.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/06.font_data.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/07.font_size.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/08.open_main_script.png
+.. |image11| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/09.score_in_game.png
+.. |image12| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/10.layout_icon.png
+.. |image13| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/11.full_rect_option.png
+.. |image14| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/12.anchors_updated.png
+.. |image15| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/13.retry_color_picker.png
+.. |image16| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/14.retry_node.png
+.. |image17| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/15.layout_center.png
+.. |image18| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/16.new_scene.png
+.. |image19| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/17.music_player_node.png
+.. |image20| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/18.music_node_properties.png
+.. |image21| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/19.register_autoload.png
+.. |image22| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/20.scene_dock_tabs.png
+.. |image23| image:: https://docs.godotengine.org/en/3.6/_images/08.score_and_replay/21.remote_scene_tree.png
 
 
 ===================================================
@@ -10024,29 +10024,29 @@ And the *Mob*'s script.
         }
     }
 
-.. |image0| image:: img/squash-the-creeps-final.gif
-.. |image1| image:: img/09.adding_animations/01.animation_player_dock.png
-.. |image2| image:: img/09.adding_animations/02.new_animation.png
-.. |image3| image:: img/09.adding_animations/03.float_name.png
-.. |image4| image:: img/09.adding_animations/03.timeline.png
-.. |image5| image:: img/09.adding_animations/04.autoplay_and_loop.png
-.. |image6| image:: img/09.adding_animations/05.pin_icon.png
-.. |image7| image:: img/09.adding_animations/06.animation_duration.png
-.. |image8| image:: img/09.adding_animations/07.editable_timeline.png
-.. |image9| image:: img/09.adding_animations/08.zoom_slider.png
-.. |image10| image:: img/09.adding_animations/09.creating_first_keyframe.png
-.. |image11| image:: img/09.adding_animations/10.initial_keys.png
-.. |image12| image:: img/09.adding_animations/11.moving_keys.png
-.. |image13| image:: img/09.adding_animations/12.second_keys_values.png
-.. |image14| image:: img/09.adding_animations/13.second_keys.png
-.. |image15| image:: img/09.adding_animations/14.play_button.png
-.. |image16| image:: img/09.adding_animations/15.box_select.png
-.. |image17| image:: img/09.adding_animations/16.easing_property.png
-.. |image18| image:: img/09.adding_animations/17.ease_out.png
-.. |image19| image:: img/09.adding_animations/18.ease_out_second_rotation_key.png
-.. |image20| image:: img/09.adding_animations/19.ease_in_second_translation_key.png
-.. |image21| image:: img/09.adding_animations/20.float_animation.gif
-.. |image22| image:: img/09.adding_animations/21.script_icon.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/squash-the-creeps-final.gif
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/01.animation_player_dock.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/02.new_animation.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/03.float_name.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/03.timeline.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/04.autoplay_and_loop.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/05.pin_icon.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/06.animation_duration.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/07.editable_timeline.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/08.zoom_slider.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/09.creating_first_keyframe.png
+.. |image11| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/10.initial_keys.png
+.. |image12| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/11.moving_keys.png
+.. |image13| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/12.second_keys_values.png
+.. |image14| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/13.second_keys.png
+.. |image15| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/14.play_button.png
+.. |image16| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/15.box_select.png
+.. |image17| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/16.easing_property.png
+.. |image18| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/17.ease_out.png
+.. |image19| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/18.ease_out_second_rotation_key.png
+.. |image20| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/19.ease_in_second_translation_key.png
+.. |image21| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/20.float_animation.gif
+.. |image22| image:: https://docs.godotengine.org/en/3.6/_images/09.adding_animations/21.script_icon.png
 
 
 ===================================================
@@ -12567,7 +12567,7 @@ Godot also supports the use of version control systems in the editor itself.
 However, VCS in the editor requires a plugin for the specific VCS you are using.
 VCS can be setup or shut down in the editor under **Project > Version Control**.
 
-.. image:: img/version_control_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/version_control_menu.png
 
 Official Git plugin
 -------------------
@@ -12993,7 +12993,7 @@ Godot can be used with an external text editor, such as Sublime Text or Visual
 Studio Code. Browse to the relevant editor settings: ``Editor -> Editor Settings
 -> Text Editor -> External``
 
-.. image:: img/editor_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor_settings.png
 
 There are two fields: the executable path and command-line flags. The flags
 allow you to integrate the editor with Godot, passing it the file path to open
@@ -13747,7 +13747,7 @@ will open the **Manage Editor Feature Profiles** window. By default there
 will be no profile. Click on **Create Profile** and give it a name. You will
 then see a list of all the features in the Godot editor.
 
-..img:: img/configure_profile.png
+..img:: https://docs.godotengine.org/en/3.6/_images/configure_profile.png
 
 The first section allows major editor features to be removed, such as the 3D
 editor or scripting editor. Below the main features is every class and node in
@@ -13755,7 +13755,7 @@ Godot, which can be disabled as well. Click on a node and all of its properties
 and options will be listed in the **Extra Items** box, these can all be
 individually disabled.
 
-..img:: img/node_features.png
+..img:: https://docs.godotengine.org/en/3.6/_images/node_features.png
 
 Sharing a profile
 -----------------
@@ -13851,7 +13851,7 @@ counter and pause button can also be created at layer "1".
 
 Here's a diagram of how it looks:
 
-.. image:: img/canvaslayers.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/canvaslayers.png
 
 CanvasLayers are independent of tree order, and they only depend on
 their layer number, so they can be instantiated when needed.
@@ -13921,7 +13921,7 @@ Transform order
 For a coordinate in CanvasItem local properties to become an actual
 screen coordinate, the following chain of transforms must be applied:
 
-.. image:: img/viewport_transforms2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/viewport_transforms2.png
 
 Transform functions
 -------------------
@@ -14001,7 +14001,7 @@ optimized for drawing large numbers of tiles. Finally, you can add collision,
 occlusion, and navigation shapes to tiles, adding additional functionality to
 the TileMap.
 
-.. image:: img/tileset_draw_atlas.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tileset_draw_atlas.png
 
 Project setup
 -------------
@@ -14010,7 +14010,7 @@ This demo will use the following tiles taken from Kenney's "Abstract Platformer"
 art pack. You can find the complete set `here <https://kenney.nl/assets/abstract-platformer>`_
 but for this demo we'll stick to this small set.
 
-.. image:: img/tilesheet.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilesheet.png
 
 Create a new project and place the above image in the project folder.
 
@@ -14026,12 +14026,12 @@ Add a new :ref:`TileMap <class_TileMap>` node to the scene. By default, a TileMa
 uses a square grid of tiles. You can also use a perspective-based "Isometric" mode
 or define your own custom tile shape.
 
-.. image:: img/tilemap_mode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_mode.png
 
 Under the "Cell" section in the Inspector are many properties you can adjust to
 customize your tilemap's behavior:
 
-.. image:: img/tilemap_size.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_size.png
 
 - ``Cell Size``
     This defines the size of the grid. This should match the pixel size
@@ -14065,12 +14065,12 @@ runs, the TileMap combines the individual tiles into a single object.
 To add a new TileSet, click on the "Tile Set" property and select "New
 TileSet".
 
-.. image:: img/tilemap_add_tileset.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_add_tileset.png
 
 Click on the TileSet property, and the "TileSet" panel will open at the bottom
 of the editor window:
 
-.. image:: img/tilemap_tool.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_tool.png
 
 First, you need to add the texture(s) that you'll use for the tiles. Click the
 "Add Texture(s) to TileSet" button and select the ``tilesheet.png`` image.
@@ -14079,18 +14079,18 @@ Next, click "New Single Tile" and drag in the image to select the tile you want.
 Click the "Enable Snap" button to make it easier to select the entire tile. A
 yellow rectangle appears around the selected tile.
 
-.. image:: img/tilemap_add_tile.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_add_tile.png
 
 Click on the TileMap in the scene tree, and you'll see that the newly created
 tile now appears on the right side. Click in the viewport and you can place
 tiles. Right-click to remove them.
 
-.. image:: img/tilemap_draw.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_draw.png
 
 It's easy to accidentally select and move the tilemap node. To avoid this, use
 the node's lock button:
 
-.. image:: img/tile_lock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tile_lock.png
 
 Collision shapes
 ----------------
@@ -14105,7 +14105,7 @@ tool. Click the tile you previously defined (outlined in yellow). Select the
 still have grid snap enabled, then click and drag in the tile. A square
 collision shape appears in light blue:
 
-.. image:: img/tileset_add_collision.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tileset_add_collision.png
 
 You can add occlusion and navigation shapes to the tile in the same way.
 
@@ -14118,13 +14118,13 @@ tiles from the group.
 
 Click "New Atlas" and drag to select the entire tile sheet.
 
-.. image:: img/tileset_atlas.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tileset_atlas.png
 
 If you haven't already, make sure to change the "Step" in the snap settings to
 `(64, 64)`, or your tiles may be chopped into smaller pieces. You can find
 this in the Inspector:
 
-.. image:: img/tileset_snap.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tileset_snap.png
 
 Once you've defined the atlas you can add collision shapes to the individual
 tiles as before. You can also click "Icon" to select one of the tiles to represent
@@ -14133,7 +14133,7 @@ the atlas.
 Back in the TileMap, you can select the atlas tile and you'll see all of the
 tiles it contains:
 
-.. image:: img/tileset_draw_atlas.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tileset_draw_atlas.png
 
 In addition to saving time when defining the tiles, this can help by grouping
 similar tiles together when you're working with a large number of tiles.
@@ -14207,7 +14207,7 @@ Key:
 - Red: "on"
 - White: "off"
 
-.. image:: img/autotile_template_2x2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_2x2.png
 
 3x3 (minimal)
 ~~~~~~~~~~~~~
@@ -14240,7 +14240,7 @@ Key:
 - Red: "on"
 - White: "off"
 
-.. image:: img/autotile_template_3x3_minimal.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_3x3_minimal.png
 
 
 **Template - Generic 16 tiles:**
@@ -14254,7 +14254,7 @@ Key:
 - White: "off"
 - Blue-checkered: "ignore"
 
-.. image:: img/autotile_template_3x3_minimal_16.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_3x3_minimal_16.png
 
 
 **Template - Top-down floor in 3/4 perspective:**
@@ -14267,17 +14267,17 @@ Key (applies to the four templates below):
 - Grey: hidden due to overlap
 - Transparent: air
 
-.. image:: img/autotile_template_3x3_minimal_topdown_floor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_3x3_minimal_topdown_floor.png
 
 **Template - Top-down wall in 3/4 perspective:**
 
-.. image:: img/autotile_template_3x3_minimal_topdown_walls.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_3x3_minimal_topdown_walls.png
 
 **Template - Top-down wall in 3/4 perspective (thick walls):**
 
 When using this template, set the TileSet subtile size to ``Vector2(64, 88)``.
 
-.. image:: img/autotile_template_3x3_minimal_topdown_walls_thick.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_3x3_minimal_topdown_walls_thick.png
 
 **Template - Top-down wall in 3/4 perspective (tall walls):**
 
@@ -14285,7 +14285,7 @@ When using this template, set the "Snap Options" Step to ``Vector2(64, 184)``
 and the "Selected Tile" Texture offset to height minus the cell size.
 This means the texture offset should be ``Vector2(0, -120)``:
 
-.. image:: img/autotile_template_3x3_minimal_topdown_walls_tall.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autotile_template_3x3_minimal_topdown_walls_tall.png
 
 3x3
 ~~~
@@ -14337,7 +14337,7 @@ Tips and tricks
 - Tools such as copy, paste, and bucket fill, can be found in the "TileMap"
   menu in the upper-right.
 
-.. image:: img/tilemap_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tilemap_menu.png
 
 
 ===================================================
@@ -14377,7 +14377,7 @@ are provided via node properties in CPUParticles2D (with the exception of the tr
 You can convert a Particles2D node into a CPUParticles2D node by clicking on the node in the
 inspector, and selecting "Convert to CPUParticles2D" in the "Particles" menu of the toolbar.
 
-.. image:: img/particles_convert.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/particles_convert.png
 
 The rest of this tutorial is going to use the Particles2D node. First, add a Particles2D
 node to your scene. After creating that node you will notice that only a white dot was created,
@@ -14391,12 +14391,12 @@ To add a process material to your particles node, go to ``Process Material`` in
 your inspector panel. Click on the box next to ``Material``, and from the dropdown
 menu select ``New ParticlesMaterial``.
 
-.. image:: img/particles_material.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/particles_material.png
 
 Your Particles2D node should now be emitting
 white points downward.
 
-.. image:: img/particles1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/particles1.png
 
 Texture
 ~~~~~~~
@@ -14405,7 +14405,7 @@ A particle system uses a single texture (in the future this might be
 extended to animated textures via spritesheet). The texture is set via
 the relevant texture property:
 
-.. image:: img/particles2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/particles2.png
 
 Time parameters
 ---------------
@@ -14418,11 +14418,11 @@ ends, a new particle is created to replace it.
 
 Lifetime: 0.5
 
-.. image:: img/paranim14.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim14.gif
 
 Lifetime: 4.0
 
-.. image:: img/paranim15.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim15.gif
 
 One Shot
 ~~~~~~~~
@@ -14459,7 +14459,7 @@ this, and forces particles to be emitted all together. Ranges are:
 Values in the middle are also allowed. This feature is useful for
 creating explosions or sudden bursts of particles:
 
-.. image:: img/paranim18.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim18.gif
 
 Randomness
 ~~~~~~~~~~
@@ -14507,12 +14507,12 @@ By default this option is on, and it means that the space that particles
 are emitted to is relative to the node. If the node is moved, all
 particles are moved with it:
 
-.. image:: img/paranim20.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim20.gif
 
 If disabled, particles will emit to global space, meaning that if the
 node is moved, already emitted particles are not affected:
 
-.. image:: img/paranim21.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim21.gif
 
 Draw Order
 ~~~~~~~~~~
@@ -14531,13 +14531,13 @@ This is the base direction at which particles emit. The default is
 ``Vector3(1, 0, 0)`` which makes particles emit to the right. However,
 with the default gravity settings, particles will go straight down.
 
-.. image:: img/direction1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/direction1.png
 
 For this property to be noticeable, you need an *initial velocity* greater
 than 0. Here, we set the initial velocity to 40. You'll notice that
 particles emit toward the right, then go down because of gravity.
 
-.. image:: img/direction2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/direction2.png
 
 Spread
 ~~~~~~
@@ -14547,7 +14547,7 @@ either direction to the base ``Direction``. A spread of ``180`` will emit
 in all directions (+/- 180). For spread to do anything the "Initial Velocity"
 parameter must be greater than 0.
 
-.. image:: img/paranim3.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim3.gif
 
 Flatness
 ~~~~~~~~
@@ -14559,7 +14559,7 @@ Gravity
 
 The gravity applied to every particle.
 
-.. image:: img/paranim7.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim7.gif
 
 Initial Velocity
 ~~~~~~~~~~~~~~~~
@@ -14568,7 +14568,7 @@ Initial velocity is the speed at which particles will be emitted (in
 pixels/sec). Speed might later be modified by gravity or other
 accelerations (as described further below).
 
-.. image:: img/paranim4.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim4.gif
 
 Angular Velocity
 ~~~~~~~~~~~~~~~~
@@ -14581,14 +14581,14 @@ Spin Velocity
 Spin velocity is the speed at which particles turn around their center
 (in degrees/sec).
 
-.. image:: img/paranim5.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim5.gif
 
 Orbit Velocity
 ~~~~~~~~~~~~~~
 
 Orbit velocity is used to make particles turn around their center.
 
-.. image:: img/paranim6.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim6.gif
 
 Linear Acceleration
 ~~~~~~~~~~~~~~~~~~~
@@ -14601,7 +14601,7 @@ Radial Acceleration
 If this acceleration is positive, particles are accelerated away from
 the center. If negative, they are absorbed towards it.
 
-.. image:: img/paranim8.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim8.gif
 
 Tangential Acceleration
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -14609,7 +14609,7 @@ Tangential Acceleration
 This acceleration will use the tangent vector to the center. Combining
 with radial acceleration can do nice effects.
 
-.. image:: img/paranim9.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim9.gif
 
 Damping
 ~~~~~~~
@@ -14618,7 +14618,7 @@ Damping applies friction to the particles, forcing them to stop. It is
 especially useful for sparks or explosions, which usually begin with a
 high linear velocity and then stop as they fade.
 
-.. image:: img/paranim10.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim10.gif
 
 Angle
 ~~~~~
@@ -14626,14 +14626,14 @@ Angle
 Determines the initial angle of the particle (in degrees). This parameter
 is mostly useful randomized.
 
-.. image:: img/paranim11.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim11.gif
 
 Scale
 ~~~~~
 
 Determines the initial scale of the particles.
 
-.. image:: img/paranim12.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/paranim12.gif
 
 Color
 ~~~~~
@@ -14657,15 +14657,15 @@ These can be generated from textures in your project.
 Ensure that a ParticlesMaterial is set, and the Particles2D node is selected.
 A "Particles" menu should appear in the Toolbar:
 
-.. image:: img/emission_shapes1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_shapes1.png
 
 Open it and select "Load Emission Mask":
 
-.. image:: img/emission_shapes2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_shapes2.png
 
 Then select which texture you want to use as your mask:
 
-.. image:: img/emission_shapes3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_shapes3.png
 
 A dialog box with several settings will appear.
 
@@ -14677,18 +14677,18 @@ Three types of emission masks can be generated from a texture:
 -  Solid Pixels: Particles will spawn from any area of the texture,
    excluding transparent areas.
 
-.. image:: img/emission_mask_solid.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_mask_solid.gif
 
 -  Border Pixels: Particles will spawn from the outer edges of the texture.
 
-.. image:: img/emission_mask_border.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_mask_border.gif
 
 -  Directed Border Pixels: Similar to Border Pixels, but adds extra
    information to the mask to give particles the ability to emit away
    from the borders. Note that an ``Initial Velocity`` will need to
    be set in order to utilize this.
 
-.. image:: img/emission_mask_directed_border.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_mask_directed_border.gif
 
 Emission Colors
 ~~~~~~~~~~~~~~~
@@ -14697,7 +14697,7 @@ Emission Colors
 
 Once you click "OK", the mask will be generated and set to the ParticlesMaterial, under the ``Emission Shape`` section:
 
-.. image:: img/emission_shapes4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/emission_shapes4.png
 
 All of the values within this section have been automatically generated by the
 "Load Emission Mask" menu, so they should generally be left alone.
@@ -14737,7 +14737,7 @@ for the Sprite's texture or use any other 2D image you have.
 Open ``Project -> Project Settings`` and select the "Input Map" tab. Add the following
 input actions (see :ref:`InputEvent <doc_inputevent>` for details):
 
-.. image:: img/movement_inputs.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/movement_inputs.png
 
 8-way movement
 --------------
@@ -14746,7 +14746,7 @@ In this scenario, you want the user to press the four directional keys (up/left/
 or W/A/S/D) and move in the selected direction. The name "8-way movement" comes from the
 fact that the player can move diagonally by pressing two keys at the same time.
 
-.. image:: img/movement_8way.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/movement_8way.gif
 
 Add a script to the kinematic body and add the following code:
 
@@ -14836,7 +14836,7 @@ This type of movement is sometimes called "Asteroids-style" because it resembles
 how that classic arcade game worked. Pressing left/right rotates the character,
 while up/down moves it forward or backward in whatever direction it's facing.
 
-.. image:: img/movement_rotate1.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/movement_rotate1.gif
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -14923,7 +14923,7 @@ This style of movement is a variation of the previous one. This time, the direct
 is set by the mouse position instead of the keyboard. The character will always
 "look at" the mouse pointer. The forward/back inputs remain the same, however.
 
-.. image:: img/movement_rotate2.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/movement_rotate2.gif
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -14998,7 +14998,7 @@ Click-and-move
 This last example uses only the mouse to control the character. Clicking
 on the screen will cause the player to move to the target location.
 
-.. image:: img/movement_click.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/movement_click.gif
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -15095,7 +15095,7 @@ This tutorial explains how the 2D lighting works in the
 It begins with a brief description of the resources used in the final demo and then describes how
 to make a scene like the demo step by step.
 
-.. image:: img/light_shadow_main.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_main.png
 
 All the resources for this tutorial can be found in the `official demo repository <https://github.com/godotengine/godot-demo-projects>`_
 on GitHub. I suggest you download it before starting. Alternatively,
@@ -15154,7 +15154,7 @@ Lights
 :ref:`Lights <class_Light2D>` cover the entire extent of their respective Texture. They use additive
 blending to add the color of their texture to the scene.
 
-.. image:: img/light_shadow_light.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_light.png
 
 :ref:`Lights <class_Light2D>` have four ``Modes``: ``Add``, ``Sub``, ``Mix``, and ``Mask``.
 
@@ -15173,7 +15173,7 @@ is the effect of the light), and a :ref:`Sprite <class_Sprite>` blob which is an
 location of the light source. A child :ref:`Sprite <class_Sprite>` is not necessary to make a
 :ref:`Light <class_Light2D>` work.
 
-.. image:: img/light_shadow_light_blob.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_light_blob.png
 
 Shadows
 -------
@@ -15197,13 +15197,13 @@ the process of making a scene like the one found in the demo.
 First add a :ref:`Sprite <class_Sprite>` and set its texture to the `background image <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/background.png>`_. For your game this can be any
 background you choose. For this style of shadow it is most likely to be a floor texture.
 
-.. image:: img/light_shadow_background.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_background.png
 
 Next create three :ref:`Light2D's <class_Light2D>` and set their textures to the `light image <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/light.png>`_. You can alter their
 color in the top section. By default shadows are turned off and the ``mode`` is set to ``add``. This
 means that each light adds its own color to whatever is underneath.
 
-.. image:: img/light_shadow_all_lights_no_blob.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_all_lights_no_blob.png
 
 Next add a child :ref:`Sprite <class_Sprite>` to each of the :ref:`Light <class_Light2D>` nodes, and set
 the :ref:`Sprite's <class_Sprite>` texture to the `blob image <https://raw.githubusercontent.com/godotengine/godot-demo-projects/master/2d/lights_and_shadows/spot.png>`_. Each of these
@@ -15212,7 +15212,7 @@ itself while the :ref:`Light <class_Light2D>` shows the effect that the light ha
 :ref:`LightOccluder2D's <class_LightOccluder2D>` will treat the position of the light as the center of the :ref:`Light <class_Light2D>`
 node, which is why we want the blob to be centered on its parent :ref:`Light <class_Light2D>`.
 
-.. image:: img/light_shadow_all_lights.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_all_lights.png
 
 .. note:: The animations in the demo will not be covered here. See :ref:`doc_introduction_animation`
           for information on creating animations.
@@ -15224,7 +15224,7 @@ This is why the demo uses a :ref:`CanvasModulate <class_CanvasModulate>` in the 
 Add a :ref:`CanvasModulate <class_CanvasModulate>` to the scene and set its color to ``rgb(70, 70, 70)``.
 This will make the scene sufficiently dark to see the effects of the lights distinctly.
 
-.. image:: img/light_shadow_ambient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_ambient.png
 
 Now we add the shadow casters.
 
@@ -15238,7 +15238,7 @@ set to the `caster image <https://raw.githubusercontent.com/godotengine/godot-de
 game the :ref:`Sprite <class_Sprite>` could be more than a black box; it could be an image of whatever object is casting
 the shadow: a wall, a magical chest, or anything else.
 
-.. image:: img/light_shadow_sprites.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_sprites.png
 
 :ref:`LightOccluder2Ds <class_LightOccluder2D>` tell the game what shape the occluder has. They hold
 an :ref:`OccluderPolygon2D <class_OccluderPolygon2D>`, which is a container
@@ -15257,15 +15257,15 @@ To illustrate the difference, here is an image of a :ref:`LightOccluder2D <class
 set to ``off`` in the corresponding :ref:`OccluderPolygon2D <class_OccluderPolygon2D>`, so that the
 lines of the polygon can be seen:
 
-.. image:: img/light_shadow_cull_disabled.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_cull_disabled.png
 
 .. note:: ``Cull Mode`` is set to ``Disabled``. All three lines cast shadows.
 
-.. image:: img/light_shadow_cull_clockwise.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_cull_clockwise.png
 
 .. note:: ``Cull Mode`` is set to ``Clockwise``. Only the top and right lines cast shadows.
 
-.. image:: img/light_shadow_cull_counter_clockwise.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_cull_counter_clockwise.png
 
 .. note:: ``Cull Mode`` is set to ``Counter-Clockwise``. Only the bottom line casts a shadow.
           If ``Closed`` was set to ``on`` there would be an additional vertical line on the
@@ -15275,7 +15275,7 @@ When you have added the :ref:`LightOccluder2Ds <class_LightOccluder2D>` the shad
 appear. You need to go back into the :ref:`Light2Ds <class_Light2D>` and under the Shadow
 section set ``Enable`` to ``on``. This turns on shadows with hard edges like in the image below.
 
-.. image:: img/light_shadow_filter0_pcf0.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_filter0_pcf0.png
 
 To give the shadows that nice, soft edge look we set the variables ``filter``, ``filter smooth``, and
 ``gradient length``. Godot supports `Percentage Closer Filtering <https://developer.nvidia.com/gpugems/GPUGems/gpugems_ch11.html>`_
@@ -15284,12 +15284,12 @@ a smooth shadow effect. The higher the number of samples the smoother the shadow
 look, but the slower it will run. That is why Godot provides 3-13 samples by default and allows you to choose.
 The demo uses PCF7.
 
-.. image:: img/light_shadow_normal.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_normal.png
 
 .. note:: This is a shadow rendered with the demo's settings. ``gradient length`` is set
           to ``1.3``, ``filter smooth`` is set to ``11.1``, and ``filter`` is set to ``PCF7``.
 
-.. image:: img/light_shadow_pcf13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_pcf13.png
 
 .. note:: ``filter`` is set to ``PCF13``. Notice how the shadow becomes wider, this is because the
           distance between samples is based on the variable ``filter smooth``.
@@ -15299,14 +15299,14 @@ This dictates how far apart the samples are. If you want the soft area to extend
 the size of ``filter smooth``. However, with few samples and a large filter smooth, you can see lines
 forming between the samples.
 
-.. image:: img/light_shadow_filter30.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_filter30.png
 
 .. note:: ``filter smooth`` is set to ``30``.
 
 The different :ref:`Light <class_Light2D>` nodes in the demo use different values for filter smooth.
 Play around with it and see what you like.
 
-.. image:: img/light_shadow_filter0.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_filter0.png
 
 .. note:: ``filter smooth`` is set to ``0``.
 
@@ -15314,11 +15314,11 @@ Lastly, there is the variable ``gradient length``. For some smooth shadows it is
 shadow start immediately on the object, as this produces a hard edge. The gradient length variable creates
 a smooth gradient to begin the shadow to reduce the effect of the hard edge.
 
-.. image:: img/light_shadow_grad0.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_grad0.png
 
 .. note:: ``gradient length`` is set to ``0``.
 
-.. image:: img/light_shadow_grad10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_shadow_grad10.png
 
 .. note:: ``gradient length`` is set to ``10``.
 
@@ -15366,23 +15366,23 @@ Converting Sprites to 2D meshes
 You can take advantage of this optimization by converting a ``Sprite`` to a ``MeshInstance2D``.
 Start with an image that contains large amounts of transparency on the edges, like this tree:
 
-.. image:: img/mesh2d1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/mesh2d1.png
 
 Put it in a ``Sprite`` and select "Convert to 2D Mesh" from the menu:
 
-.. image:: img/mesh2d2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/mesh2d2.png
 
 A dialog will appear, showing a preview of how the 2D mesh will be created:
 
-.. image:: img/mesh2d3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/mesh2d3.png
 
 The default values are good enough for many cases, but you can change growth and simplification according to your needs:
 
-.. image:: img/mesh2d4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/mesh2d4.png
 
 Finally, push the ``Convert 2D Mesh`` button and your Sprite will be replaced:
 
-.. image:: img/mesh2d5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/mesh2d5.png
 
 
 ===================================================
@@ -15649,7 +15649,7 @@ it is time to call it inside the ``_draw()`` function:
 
 Result:
 
-.. image:: img/result_drawarc.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/result_drawarc.png
 
 Arc polygon function
 ^^^^^^^^^^^^^^^^^^^^
@@ -15691,7 +15691,7 @@ the same as before, except that we draw a polygon instead of lines:
     }
 
 
-.. image:: img/result_drawarc_poly.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/result_drawarc_poly.png
 
 Dynamic custom drawing
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -15891,7 +15891,7 @@ In this scenario, you have a collection of images, each containing one of your
 character's animation frames. For this example, we'll use the following
 animation:
 
-.. image:: img/2d_animation_run_preview.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_run_preview.gif
 
 You can download the images here:
 :download:`run_animation.zip <files/run_animation.zip>`
@@ -15899,7 +15899,7 @@ You can download the images here:
 Unzip the images and place them in your project folder. Set up your scene tree
 with the following nodes:
 
-.. image:: img/2d_animation_tree1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_tree1.png
 
 .. note:: The root node could also be :ref:`Area2D <class_Area2D>` or
           :ref:`RigidBody2D <class_RigidBody2D>`. The animation will still be
@@ -15911,18 +15911,18 @@ with the following nodes:
 Now select the ``AnimatedSprite`` and in its *SpriteFrames* property, select
 "New SpriteFrames".
 
-.. image:: img/2d_animation_new_spriteframes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_new_spriteframes.png
 
 Click on the new SpriteFrames resource and you'll see a new panel appear at the
 bottom of the editor window:
 
-.. image:: img/2d_animation_spriteframes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_spriteframes.png
 
 From the FileSystem dock on the left side, drag the 8 individual images into
 the center part of the SpriteFrames panel. On the left side, change the name
 of the animation from "default" to "run".
 
-.. image:: img/2d_animation_spriteframes_done.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_spriteframes_done.png
 
 Back in the Inspector, check the box for the *Playing* property. You should
 now see the animation playing in the viewport. However, it is a bit slow. To
@@ -15982,7 +15982,7 @@ Sprite sheet with AnimatedSprite
 
 You can also easily animate from a sprite sheet with the class ``AnimatedSprite``. We will use this public domain sprite sheet:
 
-.. image:: img/2d_animation_frog_spritesheet.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_frog_spritesheet.png
 
 Right-click the image and choose "Save Image As" to download it, and then copy the image into your project folder.
 
@@ -15991,25 +15991,25 @@ Set up your scene tree the same way you did previously when using individual ima
 
 Click on the new SpriteFrames resource. This time, when the bottom panel appears, select "Add frames from a Sprite Sheet".
 
-.. image:: img/2d_animation_add_from_spritesheet.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_add_from_spritesheet.png
 
 You will be prompted to open a file. Select your sprite sheet.
 
 A new window will open, showing your sprite sheet. The first thing you will need to do is to change the number of vertical and horizontal images in your sprite sheet. In this sprite sheet, we have four images horizontally and two images vertically.
 
-.. image:: img/2d_animation_spritesheet_select_rows.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_spritesheet_select_rows.png
 
 Next, select the frames from the sprite sheet that you want to include in your animation. We will select the top four, then click "Add 4 frames" to create the animation.
 
-.. image:: img/2d_animation_spritesheet_selectframes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_spritesheet_selectframes.png
 
 You will now see your animation under the list of animations in the bottom panel. Double click on default to change the name of the animation to jump.
 
-.. image:: img/2d_animation_spritesheet_animation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_spritesheet_animation.png
 
 Finally, check Playing on the AnimatedSprite in the inspector to see your frog jump!
 
-.. image:: img/2d_animation_play_spritesheet_animation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_play_spritesheet_animation.png
 
 
 Sprite sheet with AnimationPlayer
@@ -16021,7 +16021,7 @@ change from texture to texture with :ref:`AnimationPlayer <class_AnimationPlayer
 
 Consider this sprite sheet, which contains 6 frames of animation:
 
-.. image:: img/2d_animation_player-run.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_player-run.png
 
 Right-click the image and choose "Save Image As" to download, then copy the
 image into your project folder.
@@ -16029,7 +16029,7 @@ image into your project folder.
 Our goal is to display these images one after another in a loop. Start by
 setting up your scene tree:
 
-.. image:: img/2d_animation_tree2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_tree2.png
 
 .. note:: The root node could also be :ref:`Area2D <class_Area2D>` or
           :ref:`RigidBody2D <class_RigidBody2D>`. The animation will still be
@@ -16044,7 +16044,7 @@ expand the *Animation* section in the Inspector and set the *Hframes* to ``6``.
 *Hframes* and *Vframes* are the number of horizontal and vertical frames in
 your sprite sheet.
 
-.. image:: img/2d_animation_setframes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_setframes.png
 
 Now try changing the value of the *Frame* property. You'll see that it ranges
 from ``0`` to ``5`` and the image displayed by the Sprite changes accordingly.
@@ -16054,21 +16054,21 @@ Select the ``AnimationPlayer`` and click the "Animation" button followed by
 "New". Name the new animation "walk". Set the animation length to ``0.6`` and
 click the "Loop" button so that our animation will repeat.
 
-.. image:: img/2d_animation_new_animation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_new_animation.png
 
 Now select the ``Sprite`` node and click the key icon to add a new track.
 
-.. image:: img/2d_animation_new_track.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_new_track.png
 
 Continue adding frames at each point in the timeline (``0.1`` seconds by
 default), until you have all the frames from 0 to 5. You'll see the frames
 actually appearing in the animation track:
 
-.. image:: img/2d_animation_full_animation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_full_animation.png
 
 Press "Play" on the animation to see how it looks.
 
-.. image:: img/2d_animation_running.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/2d_animation_running.gif
 
 Controlling an AnimationPlayer animation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16194,7 +16194,7 @@ Spatial node
 Following this reasoning, the 3D engine uses the :ref:`Spatial <class_Spatial>`
 node for everything 3D.
 
-.. image:: img/tuto_3d1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d1.png
 
 Spatial nodes have a local transform, which is relative to the parent
 node (as long as the parent node is also of **or inherits from** the type
@@ -16203,7 +16203,7 @@ Spatial). This transform can be accessed as a 4×3
 members representing location, Euler rotation (X, Y and Z angles) and
 scale.
 
-.. image:: img/tuto_3d2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d2.png
 
 3D content
 ~~~~~~~~~~
@@ -16283,14 +16283,14 @@ Editing 3D scenes is done in the 3D tab. This tab can be selected
 manually, but it will be automatically enabled when a Spatial node is
 selected.
 
-.. image:: img/tuto_3d3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d3.png
 
 Default 3D scene navigation controls are similar to Blender (aiming to
 have some sort of consistency in the free software pipeline..), but
 options are included to customize mouse buttons and behavior to be
 similar to other tools in the Editor Settings:
 
-.. image:: img/tuto_3d4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d4.png
 
 Coordinate system
 -----------------
@@ -16325,7 +16325,7 @@ respectively. This convention applies to the grid and other gizmos too
 (and also to the shader language, ordering of components for
 Vector3, Color, etc.).
 
-.. image:: img/tuto_3d5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d5.png
 
 Some useful keybindings:
 
@@ -16338,22 +16338,22 @@ View menu
 
 The view options are controlled by the "View" menu in the viewport's toolbar.
 
-.. image:: img/tuto_3d6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d6.png
 
 You can hide the gizmos in the 3D view of the editor through this menu:
 
-.. image:: img/tuto_3d6_1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d6_1.png
 
 To hide a specific type of gizmos, you can toggle them off in the "View" menu.
 
-.. image:: img/tuto_3d6_2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d6_2.png
 
 Default environment
 -------------------
 
 When created from the Project Manager, the 3D environment has a default sky.
 
-.. image:: img/tuto_3d8.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d8.png
 
 Given how physically based rendering works, it is advised to always try to
 work with a default environment in order to provide indirect and reflected
@@ -16367,7 +16367,7 @@ displayed unless a :ref:`Camera <class_Camera>` is
 also added to the scene. Cameras can work in either orthogonal or
 perspective projections:
 
-.. image:: img/tuto_3d10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d10.png
 
 Cameras are associated with (and only display to) a parent or grandparent
 viewport. Since the root of the scene tree is a viewport, cameras will
@@ -16375,7 +16375,7 @@ display on it by default, but if sub-viewports (either as render target
 or picture-in-picture) are desired, they need their own children cameras
 to display.
 
-.. image:: img/tuto_3d11.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_3d11.png
 
 When dealing with multiple cameras, the following rules are enforced for
 each viewport:
@@ -16417,11 +16417,11 @@ At first, this seems easy. For simple games, this way of thinking may even be en
 
 Angles in three dimensions are most commonly referred to as "Euler Angles".
 
-.. image:: img/transforms_euler.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_euler.png
 
 Euler angles were introduced by mathematician Leonhard Euler in the early 1700s.
 
-.. image:: img/transforms_euler_himself.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_euler_himself.png
 
 This way of representing 3D rotations was groundbreaking at the time, but it has several shortcomings when used in game development (which is to be expected from a guy with a funny
 hat).
@@ -16446,7 +16446,7 @@ from 3 different angles, depending on *the order of the rotations*.
 
 Following is a visualization of rotation axes (in X, Y, Z order) in a gimbal (from Wikipedia). As you can see, the orientation of each axis depends on the rotation of the previous one:
 
-.. image:: img/transforms_gimbal.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_gimbal.gif
 
 You may be wondering how this affects you. Let's look at a practical example:
 
@@ -16454,11 +16454,11 @@ Imagine you are working on a first-person controller (e.g. an FPS game). Moving 
 
 In this case to achieve the desired effect, rotation must be applied first in the *Y* axis ("up" in this case, since Godot uses a "Y-Up" orientation), followed by rotation in the *X* axis.
 
-.. image:: img/transforms_rotate1.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_rotate1.gif
 
 If we were to apply rotation in the *X* axis first, and then in *Y*, the effect would be undesired:
 
-.. image:: img/transforms_rotate2.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_rotate2.gif
 
 Depending on the type of game or effect desired, the order in which you want axis rotations to be applied may differ. Therefore, applying rotations in X, Y, and Z is not enough: you also need a *rotation order*.
 
@@ -16467,11 +16467,11 @@ Interpolation
 
 Another problem with using Euler angles is interpolation. Imagine you want to transition between two different camera or enemy positions (including rotations). One logical way to approach this is to interpolate the angles from one position to the next. One would expect it to look like this:
 
-.. image:: img/transforms_interpolate1.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_interpolate1.gif
 
 But this does not always have the expected effect when using angles:
 
-.. image:: img/transforms_interpolate2.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_interpolate2.gif
 
 The camera actually rotated the opposite direction!
 
@@ -16530,16 +16530,16 @@ Following the OpenGL convention, ``X`` is the *Right* axis, ``Y`` is the *Up* ax
 
 Together with the *basis*, a transform also has an *origin*. This is a *Vector3* specifying how far away from the actual origin ``(0, 0, 0)`` this transform is. Combining the *basis* with the *origin*, a *transform* efficiently represents a unique translation, rotation, and scale in space.
 
-.. image:: img/transforms_camera.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_camera.png
 
 
 One way to visualize a transform is to look at an object's 3D gizmo while in "local space" mode.
 
-.. image:: img/transforms_local_space.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_local_space.png
 
 The gizmo's arrows show the ``X``, ``Y``, and ``Z`` axes (in red, green, and blue respectively) of the basis, while the gizmo's center is at the object's origin.
 
-.. image:: img/transforms_gizmo.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/transforms_gizmo.png
 
 For more information on the mathematics of vectors and transforms, please read the :ref:`doc_vector_math` tutorials.
 
@@ -16982,7 +16982,7 @@ the *Material* property of the mesh. It can be added in the *Material* property 
 the node using the mesh (such as a MeshInstance node), the *Material Override* property
 of the node using the mesh, and the *Material Overlay*.
 
-.. image:: img/add_material.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/add_material.png
 
 If you add a material to the mesh itself, every time that mesh is used it will have that
 material. If you add a material to the node using the mesh, the material will only be used
@@ -16999,7 +16999,7 @@ Flags
 
 Spatial materials have many flags determining the general usage of a material.
 
-.. image:: img/spatial_material1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material1.png
 
 Transparent
 ~~~~~~~~~~~
@@ -17034,7 +17034,7 @@ However, in some cases you might want to show just the albedo (color) and
 ignore the rest. Toggling this flag on will remove all shading and display
 pure, unlit color.
 
-.. image:: img/spatial_material26.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material26.png
 
 Vertex Lighting
 ~~~~~~~~~~~~~~~
@@ -17050,7 +17050,7 @@ cases.
 Additionally, on low-end or mobile devices, switching to vertex lighting
 can considerably increase rendering performance.
 
-.. image:: img/spatial_material2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material2.png
 
 Keep in mind that when vertex lighting is enabled, only directional lighting
 can produce shadows (for performance reasons).
@@ -17066,7 +17066,7 @@ Disabling this makes the most sense for drawing indicators in world space,
 and works very well with the *Render Priority* property of Material
 (see the bottom of this page).
 
-.. image:: img/spatial_material3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material3.png
 
 Use Point Size
 ~~~~~~~~~~~~~~~
@@ -17112,7 +17112,7 @@ Vertex Color
 This setting allows choosing what is done by default to vertex colors that come
 from your 3D modelling application. By default, they are ignored.
 
-.. image:: img/spatial_material4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material4.png
 
 Use as Albedo
 ~~~~~~~~~~~~~
@@ -17131,7 +17131,7 @@ Parameters
 ``SpatialMaterial`` also has several configurable parameters to tweak
 many aspects of the rendering:
 
-.. image:: img/spatial_material5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material5.png
 
 Diffuse Mode
 ~~~~~~~~~~~~
@@ -17151,7 +17151,7 @@ the object. The default is *Burley*. Other modes are also available:
   ambient light settings or disable ambient light in the spatial material
   to achieve a better effect.
 
-.. image:: img/spatial_material6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material6.png
 
 Specular Mode
 ~~~~~~~~~~~~~
@@ -17166,7 +17166,7 @@ represents the shape of a light source reflected in the object.
 * **Toon:** Creates a toon blob, which changes size depending on roughness.
 * **Disabled:** Sometimes the blob gets in the way. Begone!
 
-.. image:: img/spatial_material7.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material7.png
 
 Blend Mode
 ~~~~~~~~~~
@@ -17180,7 +17180,7 @@ other than *Mix* forces the object to go through the transparent pipeline.
 * **Sub:** Object is subtracted.
 * **Mul:** Object is multiplied.
 
-.. image:: img/spatial_material8.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material8.png
 
 Cull Mode
 ~~~~~~~~~
@@ -17213,7 +17213,7 @@ Specifies when depth rendering must take place.
   with the opaque parts, then transparency is drawn above.
   Use this option with transparent grass or tree foliage.
 
-.. image:: img/material_depth_draw.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/material_depth_draw.png
 
 Line Width
 ~~~~~~~~~~
@@ -17239,7 +17239,7 @@ faces the camera:
 * **Particles:** Most suited for particle systems, because it allows
   specifying animation options.
 
-.. image:: img/spatial_material9.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material9.png
 
 The above options are only enabled for Particle Billboard.
 
@@ -17253,12 +17253,12 @@ Grow
 
 Grows the object vertices in the direction pointed by their normals:
 
-.. image:: img/spatial_material10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material10.png
 
 This is commonly used to create cheap outlines. Add a second material pass,
 make it black and unshaded, reverse culling (Cull Front), and add some grow:
 
-.. image:: img/spatial_material11.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material11.png
 
 
 Use Alpha Scissor
@@ -17267,7 +17267,7 @@ Use Alpha Scissor
 When transparency other than ``0`` or ``1`` is not needed, it's possible to
 set a threshold to prevent the object from rendering semi-transparent pixels.
 
-.. image:: img/spatial_material12.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material12.png
 
 This renders the object via the opaque pipeline, which is faster and allows it
 to use mid- and post-process effects such as SSAO, SSR, etc.
@@ -17309,7 +17309,7 @@ it unless you need to).
 The minimum internal reflectivity is ``0.04``, so it's impossible to make a
 material completely unreflective, just like in real life.
 
-.. image:: img/spatial_material13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material13.png
 
 Roughness
 ~~~~~~~~~
@@ -17319,7 +17319,7 @@ perfect mirror while a value of ``1`` completely blurs the reflection (simulatin
 natural microsurfacing). Most common types of materials can be achieved with
 the right combination of *Metallic* and *Roughness*.
 
-.. image:: img/spatial_material14.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material14.png
 
 Emission
 ~~~~~~~~
@@ -17329,7 +17329,7 @@ does not include light surrounding geometry unless :ref:`doc_gi_probes` are used
 This value is added to the resulting final image and is not affected by other
 lighting in the scene.
 
-.. image:: img/spatial_material15.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material15.png
 
 Normal map
 ~~~~~~~~~~
@@ -17339,7 +17339,7 @@ This does not modify geometry, only the incident angle for light. In Godot,
 only the red and green channels of normal maps are used for better compression
 and wider compatibility.
 
-.. image:: img/spatial_material16.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material16.png
 
 .. note::
 
@@ -17360,7 +17360,7 @@ emulates this with the *Rim* parameter. Unlike other rim lighting implementation
 which just use the emission channel, this one actually takes light into account
 (no light means no rim). This makes the effect considerably more believable.
 
-.. image:: img/spatial_material17.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material17.png
 
 Rim size depends on roughness, and there is a special parameter to specify how
 it must be colored. If *Tint* is ``0``, the color of the light is used for the
@@ -17381,7 +17381,7 @@ lighting or looking at a material a specific way to notice a difference.
 This can be seen in the image below where clearcoat is turned on in the
 right.
 
-.. image:: img/clearcoat_comparison.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/clearcoat_comparison.png
 
 .. note:: The effect will be more noticeable in Godot 4.
 
@@ -17394,7 +17394,7 @@ This changes the shape of the specular blob and aligns it to tangent space.
 Anisotropy is commonly used with hair, or to make materials such as brushed
 aluminum more realistic. It works especially well when combined with flowmaps.
 
-.. image:: img/spatial_material18.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material18.png
 
 Ambient Occlusion
 ~~~~~~~~~~~~~~~~~~
@@ -17405,7 +17405,7 @@ light by default). While it is possible to use Screen-Space Ambient Occlusion
 (SSAO) to generate ambient occlusion, nothing beats the quality of a well-baked
 AO map. It is recommended to bake ambient occlusion whenever possible.
 
-.. image:: img/spatial_material19.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material19.png
 
 Depth
 ~~~~~
@@ -17418,7 +17418,7 @@ added geometry, but an illusion of depth. It may not work for complex objects,
 but it produces a realistic depth effect for textures. For best results,
 *Depth* should be used together with normal mapping.
 
-.. image:: img/spatial_material20.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material20.png
 
 Subsurface Scattering
 ~~~~~~~~~~~~~~~~~~~~~
@@ -17429,7 +17429,7 @@ This effect emulates light that penetrates an object's surface, is scattered,
 and then comes out. It is useful to create realistic skin, marble, colored
 liquids, etc.
 
-.. image:: img/spatial_material21.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material21.png
 
 Transmission
 ~~~~~~~~~~~~
@@ -17438,7 +17438,7 @@ This controls how much light from the lit side (visible to light) is transferred
 to the dark side (opposite from the light). This works well for thin objects
 such as plant leaves, grass, human ears, etc.
 
-.. image:: img/spatial_material22.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material22.png
 
 Refraction
 ~~~~~~~~~~~
@@ -17456,7 +17456,7 @@ have a visible effect.
 A normal map can optionally be specified in the **Refraction Texture** property
 to allow distorting the refraction's direction on a per-pixel basis.
 
-.. image:: img/spatial_material23.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material23.png
 
 .. note::
 
@@ -17481,7 +17481,7 @@ Godot allows using secondary albedo and normal maps to generate a detail
 texture, which can be blended in many ways. By combining this with secondary
 UV or triplanar modes, many interesting textures can be achieved.
 
-.. image:: img/spatial_material24.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material24.png
 
 There are several settings that control how detail is used.
 
@@ -17533,7 +17533,7 @@ performed in either world space or object space.
 In the image below, you can see how all primitives share the same material with
 world triplanar, so the brick texture continues smoothly between them.
 
-.. image:: img/spatial_material25.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material25.png
 
 Proximity and distance fade
 ----------------------------
@@ -17547,7 +17547,7 @@ given distance.
 Keep in mind enabling these enables alpha blending, so abusing them for an
 entire scene is usually not a good idea.
 
-.. image:: img/spatial_material_proxfade.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/spatial_material_proxfade.gif
 
 Render priority
 ---------------
@@ -17589,7 +17589,7 @@ There are three types of light nodes: `Directional light`_,
 `Omni light`_ and `Spot light`_. Let's take a look at the common
 parameters for lights:
 
-.. image:: img/light_params.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_params.png
 
 Each one has a specific function:
 
@@ -17620,11 +17620,11 @@ There is a list of generic shadow parameters, each also has a specific function:
 Below is an image of what tweaking bias looks like. Default values work for most
 cases, but in general it depends on the size and complexity of geometry.
 
-.. image:: img/shadow_bias.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_bias.png
 
 Finally, if gaps can't be solved, the **Contact** option can help (at a performance cost):
 
-.. image:: img/shadow_contact.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_contact.png
 
 Any sort of bias issues can always be fixed by increasing the shadow map resolution,
 although that may lead to decreased performance.
@@ -17662,7 +17662,7 @@ covering the whole scene. The directional light node is represented by a big arr
 indicates the direction of the light rays. However, the position of the node
 does not affect the lighting at all and can be anywhere.
 
-.. image:: img/light_directional.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_directional.png
 
 Every face whose front-side is hit by the light rays is lit, while the others stay dark. Most light types
 have specific parameters, but directional lights are pretty simple in nature, so they don't.
@@ -17674,20 +17674,20 @@ To compute shadow maps, the scene is rendered (only depth) from an orthogonal po
 the whole scene (or up to the max distance). There is, however, a problem with this approach because objects
 closer to the camera receive blocky shadows.
 
-.. image:: img/shadow_blocky.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_blocky.png
 
 To fix this, a technique named "Parallel Split Shadow Maps" (or PSSM) is used. This splits the view frustum in 2 or 4 areas. Each
 area gets its own shadow map. This allows small areas close to the viewer to have the same shadow resolution as a huge, far-away area.
 
-.. image:: img/pssm_explained.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/pssm_explained.png
 
 With this, shadows become more detailed:
 
-.. image:: img/shadow_pssm.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_pssm.png
 
 To control PSSM, a number of parameters are exposed:
 
-.. image:: img/directional_shadow_params.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/directional_shadow_params.png
 
 Each split distance is controlled relative to the camera far (or shadow
 **Max Distance** if greater than zero), so *0.0* is the eye position and *1.0*
@@ -17702,13 +17702,13 @@ Sometimes, the transition between a split and the next can look bad. To fix this
 the **"Blend Splits"** option can be turned on, which sacrifices detail in exchange
 for smoother transitions:
 
-.. image:: img/blend_splits.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/blend_splits.png
 
 The **"Normal Bias"** parameter can be used to fix special cases of self shadowing
 when objects are perpendicular to the light. The only downside is that it makes
 the shadow a bit thinner.
 
-.. image:: img/normal_bias.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/normal_bias.png
 
 The **"Bias Split Scale"** parameter can control extra bias for the splits that
 are far away. If self shadowing occurs only on the splits far away, this value can fix them.
@@ -17722,7 +17722,7 @@ Just experiment which setting works better for your scene.
 
 Shadowmap size for directional lights can be changed in Project Settings -> Rendering -> Quality:
 
-.. image:: img/project_setting_shadow.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/project_setting_shadow.png
 
 Increasing it can solve bias problems, but decrease performance. Shadow mapping is an art of tweaking.
 
@@ -17732,18 +17732,18 @@ Omni light
 Omni light is a point source that emits light spherically in all directions up to a given
 radius.
 
-.. image:: img/light_omni.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_omni.png
 
 In real life, light attenuation is an inverse function, which means omni lights don't have a radius.
 This is a problem because it means computing several omni lights would become demanding.
 
 To solve this, a *Range* is introduced together with an attenuation function.
 
-.. image:: img/light_omni_params.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_omni_params.png
 
 These two parameters allow tweaking how this works visually in order to find aesthetically pleasing results.
 
-.. image:: img/light_attenuation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_attenuation.png
 
 
 Omni shadow mapping
@@ -17756,7 +17756,7 @@ Omni Shadows can be rendered as either **"Dual Paraboloid" or "Cube Mapped"**.
 The former renders quickly, but can cause deformations,
 while the later is more correct, but costlier.
 
-.. image:: img/shadow_omni_dp_cm.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_omni_dp_cm.png
 
 If the objects being rendered are mostly irregular, Dual Paraboloid is usually
 enough. In any case, as these shadows are cached in a shadow atlas (more on that at the end), it
@@ -17770,7 +17770,7 @@ Spot lights are similar to omni lights, except they emit light only into a cone
 car lights, reflectors, spots, etc. This type of light is also attenuated towards the
 opposite direction it points to.
 
-.. image:: img/light_spot.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_spot.png
 
 Spot lights share the same **Range** and **Attenuation** as **OmniLight**, and add two extra parameters:
 
@@ -17789,15 +17789,15 @@ Shadow atlas
 Unlike Directional lights, which have their own shadow texture, Omni and Spot lights are assigned to slots of a shadow atlas.
 This atlas can be configured in Project Settings -> Rendering -> Quality -> Shadow Atlas.
 
-.. image:: img/shadow_atlas.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_atlas.png
 
 The resolution applies to the whole Shadow Atlas. This atlas is divided into four quadrants:
 
-.. image:: img/shadow_quadrants.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_quadrants.png
 
 Each quadrant can be subdivided to allocate any number of shadow maps; the following is the default subdivision:
 
-.. image:: img/shadow_quadrants2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_quadrants2.png
 
 The allocation logic is simple. The biggest shadow map size (when no subdivision is used)
 represents a light the size of the screen (or bigger).
@@ -17822,11 +17822,11 @@ The filter quality of shadows can be tweaked. This can be found in
 Project Settings -> Rendering -> Quality -> Shadows.
 Godot supports no filter, PCF5 and PCF13.
 
-.. image:: img/shadow_pcf1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_pcf1.png
 
 It affects the blockyness of the shadow outline:
 
-.. image:: img/shadow_pcf2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shadow_pcf2.png
 
 
 ===================================================
@@ -17857,7 +17857,7 @@ Setting up
 
 Create a ReflectionProbe node and wrap it around the area where you want to have reflections:
 
-.. image:: img/refprobe_setup.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_setup.png
 
 This should result in immediate local reflections. If you are using a Sky texture,
 reflections are by default blended with it.
@@ -17865,13 +17865,13 @@ reflections are by default blended with it.
 By default, on interiors, reflections may appear not to have much consistence.
 In this scenario, make sure to tick the *"Box Correct"* property.
 
-.. image:: img/refprobe_box_property.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_box_property.png
 
 
 This setting changes the reflection from an infinite skybox to reflecting
 a box the size of the probe:
 
-.. image:: img/refprobe_boxcorrect.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_boxcorrect.png
 
 Adjusting the box walls may help improve the reflection a bit, but it will
 always look best in box shaped rooms.
@@ -17880,21 +17880,21 @@ The probe captures the surrounding from the center of the gizmo. If, for some
 reason, the room shape or contents occlude the center, it
 can be displaced to an empty place by moving the handles in the center:
 
-.. image:: img/refprobe_center_gizmo.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_center_gizmo.png
 
 By default, shadow mapping is disabled when rendering probes (only in the
 rendered image inside the probe, not the actual scene). This is
 a simple way to save on performance and memory. If you want shadows in the probe,
 they can be toggled on/off with the *Enable Shadow* setting:
 
-.. image:: img/refprobe_shadows.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_shadows.png
 
 Finally, keep in mind that you may not want the Reflection Probe to render some
 objects. A typical scenario is an enemy inside the room which will
 move around. To keep objects from being rendered in the reflections,
 use the *Cull Mask* setting:
 
-.. image:: img/refprobe_cullmask.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_cullmask.png
 
 Interior vs exterior
 --------------------
@@ -17903,7 +17903,7 @@ If you are using reflection probes in an interior setting, it is recommended
 that the **Interior** property be enabled. This stops
 the probe from rendering the sky and also allows custom ambient lighting settings.
 
-.. image:: img/refprobe_ambient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_ambient.png
 
 When probes are set to **Interior**, custom constant ambient lighting can be
 specified per probe. Just choose a color and an energy.
@@ -17917,7 +17917,7 @@ Blending
 
 Multiple reflection probes can be used, and Godot will blend them where they overlap using a smart algorithm:
 
-.. image:: img/refprobe_blending.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_blending.png
 
 As you can see, this blending is never perfect (after all, these are
 box reflections, not real reflections), but these artifacts
@@ -17929,7 +17929,7 @@ Alternatively, Reflection Probes work well blended together with Screen Space
 Reflections to solve these problems. Combining them makes local reflections appear
 more faithful, while probes are only used as a fallback when no screen-space information is found:
 
-.. image:: img/refprobe_ssr.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_ssr.png
 
 Finally, blending interior and exterior probes is the recommended approach when making
 levels that combine both interiors and exteriors. Near the door, a probe can
@@ -17944,7 +17944,7 @@ customized in Project Settings -> Quality -> Reflections
 
 The default setting of Atlas Subdiv: 8 will allow up to 16 reflection probes in a scene. This value needs to be increased if you need more reflection probes.
 
-.. image:: img/refprobe_atlas.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/refprobe_atlas.png
 
 
 ===================================================
@@ -17991,18 +17991,18 @@ Setting up
 Just like a ``ReflectionProbe``, simply set up the ``GIProbe`` by wrapping it around
 the geometry that will be affected.
 
-.. image:: img/giprobe_wrap.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_wrap.png
 
 Afterwards, make sure to enable the **Use In Baked Light** property on the geometry instances
 in the inspector. This is required for ``GIProbe`` to recognize objects,
 otherwise they will be ignored:
 
-.. image:: img/giprobe_bake_property.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_bake_property.png
 
 Once the geometry is set up, push the Bake button that appears on the 3D editor
 toolbar to begin the pre-baking process:
 
-.. image:: img/giprobe_bake.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_bake.png
 
 .. warning::
 
@@ -18019,16 +18019,16 @@ Lights need to be added to the scene to have an effect.
 The effect of indirect light can be viewed quickly (it is recommended you turn
 off all ambient/sky lighting to tweak this, though, as shown below):
 
-.. image:: img/giprobe_indirect.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_indirect.png
 
 In some situations, though, indirect light may be too weak. Lights have an
 indirect multiplier to tweak this:
 
-.. image:: img/giprobe_light_indirect.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_light_indirect.png
 
 And, as ``GIProbe`` lighting updates in real-time, this effect is immediate:
 
-.. image:: img/giprobe_indirect_energy_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_indirect_energy_result.png
 
 Reflections
 -----------
@@ -18037,12 +18037,12 @@ For very metallic materials with low roughness, it's possible to appreciate
 voxel reflections. Keep in mind that these have far less detail than Reflection
 Probes or Screen Space Reflections, but fully reflect volumetrically.
 
-.. image:: img/giprobe_voxel_reflections.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_voxel_reflections.png
 
 ``GIProbe``\ s can be easily mixed with Reflection Probes and Screen Space Reflections,
 as a full 3-stage fallback-chain. This allows to have precise reflections where needed:
 
-.. image:: img/giprobe_ref_blending.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_ref_blending.png
 
 Interior vs exterior
 --------------------
@@ -18050,12 +18050,12 @@ Interior vs exterior
 GI Probes normally allow mixing with lighting from the sky. This can be disabled
 when turning on the *Interior* setting.
 
-.. image:: img/giprobe_interior_setting.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_interior_setting.png
 
 The difference becomes clear in the image below, where light from the sky goes
 from spreading inside to being ignored.
 
-.. image:: img/giprobe_interior.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_interior.png
 
 As complex buildings may mix interiors with exteriors, combining GIProbes
 for both parts works well.
@@ -18065,7 +18065,7 @@ Tweaking
 
 GI Probes support a few parameters for tweaking:
 
-.. image:: img/giprobe_tweaking.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_tweaking.png
 
 - **Subdiv** Subdivision used for the probe. The default (128) is generally good for small- to medium-sized areas. Bigger subdivisions use more memory.
 - **Extents** Size of the probe. Can be tweaked from the gizmo.
@@ -18084,7 +18084,7 @@ Quality
 ``GIProbe``\ s are quite demanding. It is possible to use lower quality voxel cone
 tracing in exchange for more performance.
 
-.. image:: img/giprobe_quality.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/giprobe_quality.png
 
 
 ===================================================
@@ -18135,7 +18135,7 @@ that lighting is on an unwrapped texture, so transitions and resolution may not
 be that good. GIProbe looks less accurate (as it's an approximation), but
 smoother overall.
 
-.. image:: img/baked_light_comparison.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_comparison.png
 
 Setting up
 ----------
@@ -18157,7 +18157,7 @@ across reimports, so it will only be regenerated when needed.
 Select the imported scene in the filesystem dock, then go to the **Import** dock.
 There, the following option can be modified:
 
-.. image:: img/baked_light_import.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_import.png
 
 The **Light Baking** mode needs to be set to **Gen Lightmaps**. A texel size
 in world units must also be provided, as this will determine the
@@ -18184,7 +18184,7 @@ Unwrap from within Godot
 Godot has an option to unwrap meshes and visualize the UV channels.
 It can be found in the Mesh menu:
 
-.. image:: img/baked_light_mesh_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_mesh_menu.png
 
 This will generate a second set of UV2 coordinates which can be used for baking,
 and it will also set the texture size automatically.
@@ -18200,12 +18200,12 @@ so having it unwrapped before import can be faster.
 
 Simply do an unwrap on the second UV2 layer.
 
-.. image:: img/baked_light_blender.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_blender.png
 
 Then import the 3D scene normally. Remember you will need to set the texture
 size on the mesh after import.
 
-.. image:: img/baked_light_lmsize.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_lmsize.png
 
 If you use external meshes on import, the size will be kept.
 Be wary that most unwrappers in 3D DCCs are not quality oriented, as they are
@@ -18218,7 +18218,7 @@ Checking UV2
 In the mesh menu mentioned before, the UV2 texture coordinates can be visualized.
 Make sure, if something is failing, to check that the meshes have these UV2 coordinates:
 
-.. image:: img/baked_light_uvchannel.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_uvchannel.png
 
 Setting up the scene
 --------------------
@@ -18227,7 +18227,7 @@ Before anything is done, a **BakedLightmap** node needs to be added to a scene.
 This will enable light baking on all nodes (and sub-nodes) in that scene, even
 on instanced scenes.
 
-.. image:: img/baked_light_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_scene.png
 
 A sub-scene can be instanced several times, as this is supported by the baker, and
 each will be assigned a lightmap of its own (just make sure to respect the rule
@@ -18240,7 +18240,7 @@ Lightmap needs an approximate volume of the area affected because it uses it to
 transfer light to dynamic objects inside it (more on that later). Just
 cover the scene with the volume as you do with ``GIProbe``:
 
-.. image:: img/baked_light_bounds.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_bounds.png
 
 Setting up meshes
 ~~~~~~~~~~~~~~~~~
@@ -18248,7 +18248,7 @@ Setting up meshes
 For a **MeshInstance** node to take part in the baking process, it needs to have
 the **Use in Baked Light** property enabled.
 
-.. image:: img/baked_light_use.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_use.png
 
 When auto-generating lightmaps on scene import, this is enabled automatically.
 
@@ -18262,7 +18262,7 @@ that light will be baked.
 Lights can be disabled (no bake) or be fully baked (direct and indirect). This
 can be controlled from the **Bake Mode** menu in lights:
 
-.. image:: img/baked_light_bake_mode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_bake_mode.png
 
 The modes are:
 
@@ -18313,7 +18313,7 @@ This size is used to provide softer shadows depending on the distance between
 the shadow caster and the object receiving the shadow. This mimics real life
 shadow appearance:
 
-.. image:: img/baked_light_omnilight_size.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_omnilight_size.png
 
 The light's **Size** property is ignored for real-time shadows; it will only affect baked
 shadows. When the **Size** property is changed, lightmaps must be baked again to
@@ -18325,7 +18325,7 @@ Baking
 To begin the bake process, just push the **Bake Lightmaps** button on top
 when selecting the BakedLightmap node:
 
-.. image:: img/baked_light_bake.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_bake.png
 
 This can take from seconds to minutes (or hours) depending on scene size, bake
 method and quality selected.
@@ -18468,7 +18468,7 @@ automatic, so you don't have to do anything. Just move your objects around, and
 they will be lit accordingly. Of course, you have to make sure you set up your
 scene bounds accordingly or it won't work.
 
-.. image:: img/baked_light_indirect.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_light_indirect.gif
 
 
 ===================================================
@@ -18496,7 +18496,7 @@ Camera node
 
 An Environment can be set to a camera. It will have priority over any other setting.
 
-.. image:: img/environment_camera.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_camera.png
 
 This is mostly useful when wanting to override an existing environment,
 but in general it's a better idea to use the option below.
@@ -18507,7 +18507,7 @@ WorldEnvironment node
 The WorldEnvironment node can be added to any scene, but only one can exist per
 active scene tree. Adding more than one will result in a warning.
 
-.. image:: img/environment_world.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_world.png
 
 Any Environment added has higher priority than the default Environment
 (explained below). This means it can be overridden on a per-scene basis,
@@ -18520,7 +18520,7 @@ A default environment can be set, which acts as a fallback when no Environment
 was set to a Camera or WorldEnvironment.
 Just head to Project Settings -> Rendering -> Environment:
 
-.. image:: img/environment_default.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_default.png
 
 New projects created from the Project Manager come with a default environment
 (``default_env.tres``). If one needs to be created, save it to disk before
@@ -18540,7 +18540,7 @@ the screen where objects were not drawn). In Godot 3.0, the background not only
 serves the purpose of displaying an image or color, it can also change how objects
 are affected by ambient and reflected light.
 
-.. image:: img/environment_background1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_background1.png
 
 There are many ways to set the background:
 
@@ -18561,7 +18561,7 @@ color multiplied by the material albedo) and then one obtained from the *Sky*
 (as described before, but a sky needs to be set as background for this to be
 enabled).
 
-.. image:: img/environment_ambient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ambient.png
 
 When a *Sky* is set as background, it's possible to blend between ambient color
 and sky using the **Sky Contribution** setting (this value is 1.0 by default for
@@ -18569,7 +18569,7 @@ convenience, so only the sky affects objects).
 
 Here is a comparison of how different ambient light affects a scene:
 
-.. image:: img/environment_ambient2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ambient2.png
 
 Finally, there is an **Energy** setting, which is a multiplier. It's useful when
 working with HDR.
@@ -18581,7 +18581,7 @@ ambient light from ReflectionProbe or GIProbe, which will more faithfully simula
 how indirect light propagates. Below is a comparison, in terms of quality, between using a
 flat ambient color and a GIProbe:
 
-.. image:: img/environment_ambient_comparison.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ambient_comparison.png
 
 Using one of the methods described above, objects get constant ambient lighting
 replaced by ambient light from the probes.
@@ -18596,7 +18596,7 @@ There are two kinds of fog in Godot:
 - **Depth Fog:** This one is applied based on the distance from the camera.
 - **Height Fog:** This one is applied to any objects below (or above) a certain height, regardless of the distance from the camera.
 
-.. image:: img/environment_fog_depth_height.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_fog_depth_height.png
 
 Both of these fog types can have their curve tweaked, making their transition more or less sharp.
 
@@ -18609,7 +18609,7 @@ will be changed, simulating the sunlight passing through the fog.
 The second is **Transmit Enabled** which simulates more realistic light transmittance.
 In practice, it makes light stand out more across the fog.
 
-.. image:: img/environment_fog_transmission.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_fog_transmission.png
 
 Tonemap
 ^^^^^^^
@@ -18664,7 +18664,7 @@ interior areas with low light and outdoors. Auto exposure simulates the camera
 (or eye) in an effort to adapt between light and dark locations and their
 different amounts of light.
 
-.. image:: img/environment_hdr_autoexp.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_hdr_autoexp.gif
 
 The simplest way to use auto exposure is to make sure outdoor lights (or other
 strong lights) have energy beyond 1.0. This is done by tweaking their **Energy**
@@ -18676,12 +18676,12 @@ By combining Auto Exposure with *Glow* post processing (more on that below),
 pixels that go over the tonemap **White** will bleed to the glow buffer,
 creating the typical bloom effect in photography.
 
-.. image:: img/environment_hdr_bloom.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_hdr_bloom.png
 
 The user-controllable values in the Auto Exposure section come with sensible
 defaults, but you can still tweak them:
 
-.. image:: img/environment_hdr.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_hdr.png
 
 - **Scale:** Value to scale the lighting. Brighter values produce brighter images, smaller ones produce darker ones.
 - **Min Luma:** Minimum luminance that auto exposure will aim to adjust for. Luminance is the average of the light in all the pixels of the screen.
@@ -18704,7 +18704,7 @@ GIProbe), they may not provide enough detail for all situations. Scenarios
 where Screen Space Reflections make the most sense are when objects are in
 contact with each other (object over floor, over a table, floating on water, etc).
 
-.. image:: img/environment_ssr.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ssr.png
 
 The other advantage (even if only enabled to a minimum), is that it works in real-time
 (while the other types of reflections are pre-computed). This can be used to
@@ -18742,7 +18742,7 @@ This can be simulated with Screen Space Ambient Occlusion. As you can see in the
 image below, its purpose is to make sure concave areas are darker, simulating
 a narrower path for the light to enter:
 
-.. image:: img/environment_ssao.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ssao.png
 
 It is a common mistake to enable this effect, turn on a light, and not be able to
 appreciate it. This is because SSAO only acts on *ambient* light, not direct light.
@@ -18753,11 +18753,11 @@ the **Light Affect** parameter (even though this is not correct, some artists li
 
 SSAO looks best when combined with a real source of indirect light, like GIProbe:
 
-.. image:: img/environment_ssao2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ssao2.png
 
 Tweaking SSAO is possible with several parameters:
 
-.. image:: img/environment_ssao_parameters.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_ssao_parameters.png
 
 - **Radius/Intensity:** To control the radius or intensity of the occlusion, these two parameters are available. Radius is in world (Metric) units.
 - **Radius2/Intensity2:** A Secondary radius/intensity can be used. Combining a large and a small radius AO generally works well.
@@ -18775,7 +18775,7 @@ This effect simulates focal distance on high end cameras. It blurs objects behin
 a given range. It has an initial **Distance** with a **Transition** region
 (in world units):
 
-.. image:: img/environment_dof_far.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_dof_far.png
 
 The **Amount** parameter controls the amount of blur. For larger blurs, tweaking
 the **Quality** may be needed in order to avoid artifacts.
@@ -18787,7 +18787,7 @@ This effect simulates focal distance on high end cameras. It blurs objects close
 to the camera (acts in the opposite direction as far blur).
 It has an initial **Distance** with a **Transition** region (in world units):
 
-.. image:: img/environment_dof_near.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_dof_near.png
 
 The **Amount** parameter controls the amount of blur. For larger blurs, tweaking
 the **Quality** may be needed in order to avoid artifacts.
@@ -18795,7 +18795,7 @@ the **Quality** may be needed in order to avoid artifacts.
 It is common to use both blurs together to focus the viewer's attention on a
 given object:
 
-.. image:: img/environment_mixed_blur.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_mixed_blur.png
 
 Glow
 ^^^^
@@ -18804,18 +18804,18 @@ In photography and film, when light amount exceeds the maximum supported by the
 media (be it analog or digital), it generally bleeds outwards to darker regions
 of the image. This is simulated in Godot with the **Glow** effect.
 
-.. image:: img/environment_glow1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_glow1.png
 
 By default, even if the effect is enabled, it will be weak or invisible. One of
 two conditions need to happen for it to actually show:
 
 - 1) The light in a pixel surpasses the **HDR Threshold** (where 0 is all light surpasses it, and 1.0 is light over the tonemapper **White** value). Normally, this value is expected to be at 1.0, but it can be lowered to allow more light to bleed. There is also an extra parameter, **HDR Scale**, that allows scaling (making brighter or darker) the light surpassing the threshold.
 
-.. image:: img/environment_glow_threshold.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_glow_threshold.png
 
 - 2) The Bloom effect has a value set greater than 0. As it increases, it sends the whole screen to the glow processor at higher amounts.
 
-.. image:: img/environment_glow_bloom.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_glow_bloom.png
 
 Both will cause the light to start bleeding out of the brighter areas.
 
@@ -18835,19 +18835,19 @@ To change the glow effect size and shape, Godot provides **Levels**. Smaller
 levels are strong glows that appear around objects, while large levels are hazy
 glows covering the whole screen:
 
-.. image:: img/environment_glow_layers.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_glow_layers.png
 
 The real strength of this system, though, is to combine levels to create more
 interesting glow patterns:
 
-.. image:: img/environment_glow_layers2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_glow_layers2.png
 
 Finally, as the highest layers are created by stretching small blurred images,
 it is possible that some blockiness may be visible. Enabling **Bicubic Upscaling**
 gets rids of it, at a minimal performance cost.
 *Note that this is effective only when using the GLES3 backend.*
 
-.. image:: img/environment_glow_bicubic.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_glow_bicubic.png
 
 Adjustments
 ^^^^^^^^^^^
@@ -18855,21 +18855,21 @@ Adjustments
 At the end of processing, Godot offers the possibility to do some standard
 image adjustments.
 
-.. image:: img/environment_adjustments.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_adjustments.png
 
 The first one is being able to change the typical Brightness, Contrast,
 and Saturation:
 
-.. image:: img/environment_adjustments_bcs.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_adjustments_bcs.png
 
 The second is by supplying a color correction gradient. A regular black to
 white gradient like the following one will produce no effect:
 
-.. image:: img/environment_adjusments_default_gradient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_adjusments_default_gradient.png
 
 But creating custom ones will allow to map each channel to a different color:
 
-.. image:: img/environment_adjusments_custom_gradient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/environment_adjusments_custom_gradient.png
 
 
 ===================================================
@@ -18940,7 +18940,7 @@ However, Godot currently only supports sRGB displays.
 The sRGB standard is based around the nonlinear relationship between the current
 to light output of common desktop computing CRT displays.
 
-.. image:: img/hdr_gamma.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/hdr_gamma.png
 
 The mathematics of a scene-referred model require that we multiply the scene by
 different values to adjust the intensities and exposure to different
@@ -19033,7 +19033,7 @@ To begin, you need a :ref:`class_MeshLibrary`, which is a collection
 of individual meshes that can be used in the gridmap. Open the "MeshLibrary_Source.tscn"
 scene to see an example of how to set up the mesh library.
 
-.. image:: img/gridmap_meshlibrary1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_meshlibrary1.png
 
 As you can see, this scene has a :ref:`class_Spatial` node as its root, and
 a number of :ref:`class_MeshInstance` node children.
@@ -19048,14 +19048,14 @@ You can manually assign a :ref:`class_StaticBody` and
 :ref:`class_CollisionShape` to each mesh. Alternatively, you can use the "Mesh" menu
 to automatically create the collision body based on the mesh data.
 
-.. image:: img/gridmap_create_body.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_create_body.png
 
 Note that a "Convex" collision body will work better for simple meshes. For more
 complex shapes, select "Create Trimesh Static Body". Once each mesh has
 a physics body and collision shape assigned, your mesh library is ready to
 be used.
 
-.. image:: img/gridmap_mesh_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_mesh_scene.png
 
 
 Materials
@@ -19080,7 +19080,7 @@ geometry nodes below and bake the NavigationMesh.
     With small grid cells it is often necessary to reduce the NavigationMesh properties
     for agent radius and region minimum size.
 
-.. image:: img/meshlibrary_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/meshlibrary_scene.png
 
 Nodes below the NavigationMeshInstance are ignored for the MeshLibrary scene export, so
 additional nodes can be added as source geometry just for baking the navmesh.
@@ -19096,7 +19096,7 @@ Exporting the MeshLibrary
 To export the library, click on Scene -> Convert To.. -> MeshLibrary.., and save it
 as a resource.
 
-.. image:: img/gridmap_export.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_export.png
 
 You can find an already exported MeshLibrary in the project named "MeshLibrary.tres".
 
@@ -19107,7 +19107,7 @@ Create a new scene and add a GridMap node. Add the mesh library by dragging
 the resource file from the FileSystem dock and dropping it in the "Theme" property
 in the Inspector.
 
-.. image:: img/gridmap_main.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_main.png
 
 The "Cell/Size" property should be set to the size of your meshes. You can leave
 it at the default value for the demo. Set the "Center Y" property to "Off".
@@ -19119,18 +19119,18 @@ and use Right-click.
 Click on the "GridMap" menu to see options and shortcuts. For example, pressing
 :kbd:`S` rotates a tile around the y-axis.
 
-.. image:: img/gridmap_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_menu.png
 
 Holding :kbd:`Shift` and dragging with the left mouse button will draw a selection
 box. You can duplicate or clear the selected area using the respective menu
 options.
 
-.. image:: img/gridmap_select.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_select.png
 
 In the menu, you can also change the axis you're drawing on, as well as shift
 the drawing plane higher or lower on its axis.
 
-.. image:: img/gridmap_shift_axis.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gridmap_shift_axis.png
 
 Using GridMap in code
 ---------------------
@@ -19178,7 +19178,7 @@ In the tree case, this would be the tree itself.
 In our example, we would use a :ref:`Spatial <class_Spatial>` node as the root node of
 the scene. Your scene tree would look like this:
 
-.. image:: img/multimesh_scene_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/multimesh_scene_tree.png
 
 .. note:: For simplicity's sake, this tutorial uses built-in primitives.
 
@@ -19187,9 +19187,9 @@ toolbar, you should see an extra button called ``MultiMesh`` next to ``View``.
 Click it and select *Populate surface* in the dropdown menu. A new window titled
 *Populate MultiMesh* will pop up.
 
-.. image:: img/multimesh_toolbar.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/multimesh_toolbar.png
 
-.. image:: img/multimesh_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/multimesh_settings.png
 
 MultiMesh settings
 ~~~~~~~~~~~~~~~~~~
@@ -19245,7 +19245,7 @@ result, you can delete the mesh instance used as the source mesh.
 
 The end result should look like this:
 
-.. image:: img/multimesh_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/multimesh_result.png
 
 To change the result, repeat the previous steps with different parameters.
 
@@ -19277,7 +19277,7 @@ Interior environments can be created by using inverted primitives.
           `TrenchBroom <https://kristianduske.com/trenchbroom/>`__ and import
           them in Godot.
 
-.. image:: img/csg.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg.gif
 
 Introduction to CSG nodes
 -------------------------
@@ -19293,9 +19293,9 @@ the CSG nodes:
 - :ref:`CSGMesh <class_CSGMesh>`
 - :ref:`CSGCombiner <class_CSGcombiner>`
 
-.. image:: img/csg_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_nodes.png
 
-.. image:: img/csg_mesh.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_mesh.png
 
 CSG tools features
 ~~~~~~~~~~~~~~~~~~
@@ -19308,9 +19308,9 @@ Every CSG node supports 3 kinds of boolean operations:
 - **Subtraction:** The second shape is subtracted from the first, leaving a dent
   with its shape.
 
-.. image:: img/csg_operation_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_operation_menu.png
 
-.. image:: img/csg_operation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_operation.png
 
 CSGPolygon
 ~~~~~~~~~~
@@ -19323,9 +19323,9 @@ The :ref:`CSGPolygon <class_CSGPolygon>` node extrude along a Polygon drawn in
 - **Path:** Extruded along a Path node. This operation is commonly called
   lofting.
 
-.. image:: img/csg_poly_mode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_poly_mode.png
 
-.. image:: img/csg_poly.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_poly.png
 
 .. note:: The **Path** mode must be provided with a :ref:`Path <class_Path>`
           node to work. In the Path node, draw the path and the polygon in
@@ -19344,7 +19344,7 @@ supported. There are some restrictions for geometry:
 - it must not contain internal faces,
 - every edge must connect to only two other faces.
 
-.. image:: img/csg_custom_mesh.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_custom_mesh.png
 
 CSGCombiner
 ~~~~~~~~~~~
@@ -19389,14 +19389,14 @@ Create a scene with a Spatial node as root node.
          the 3D viewport menu, or add a DirectionalLight node to help you see
          clearly.
 
-.. image:: img/csg_overdraw.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_overdraw.png
 
 Create a CSGBox and name it ``room``, enable **Invert Faces** and change the
 dimensions of your room.
 
-.. image:: img/csg_room.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_room.png
 
-.. image:: img/csg_room_invert.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_room_invert.png
 
 Next, create a CSGCombiner and name it ``desk``.
 
@@ -19409,7 +19409,7 @@ A desk has one surface and 4 legs:
 
 Adjust their placement to resemble a desk.
 
-.. image:: img/csg_desk.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_desk.png
 
 .. note:: CSG nodes inside a CSGCombiner will only process their operation
           within the combiner. Therefore, CSGCombiners are used to organize
@@ -19421,22 +19421,22 @@ Our bed consists of 3 parts: the bed, the mattress and a pillow. Create a CSGBox
 and adjust its dimension for the bed. Create another CSGBox and adjust its
 dimension for the mattress.
 
-.. image:: img/csg_bed_mat.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_bed_mat.png
 
 We will create another CSGCombiner named ``pillow`` as the child of  ``bed``.
 The scene tree should look like this:
 
-.. image:: img/csg_bed_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_bed_tree.png
 
 We will combine 3 CSGSphere nodes in **Union** mode to form a pillow. Scale the
 Y axis of the spheres and enable **Smooth Faces**.
 
-.. image:: img/csg_pillow_smooth.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_pillow_smooth.png
 
 Select the ``pillow`` node and switch the mode to **Subtraction**; the combined
 spheres will cut a hole into the mattress.
 
-.. image:: img/csg_pillow_hole.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_pillow_hole.png
 
 Try to re-parent the ``pillow`` node to the root ``Spatial`` node; the hole will
 disappear.
@@ -19449,7 +19449,7 @@ disappear.
 Undo the re-parent after observing the effect. The bed you've built should look
 like this:
 
-.. image:: img/csg_bed.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_bed.png
 
 Create a CSGCombiner and name it ``lamp``.
 
@@ -19457,46 +19457,46 @@ A lamp consists of 3 parts: the stand, the pole and the lampshade.
 Create a CSGCylinder, enable the **Cone** option and make it the stand. Create
 another CSGCylinder and adjust the dimensions to use it as a pole.
 
-.. image:: img/csg_lamp_pole_stand.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_lamp_pole_stand.png
 
 We will use a CSGPolygon for the lampshade. Use the **Spin** mode for the
 CSGPolygon and draw a `trapezoid <https://en.wikipedia.org/wiki/Trapezoid>`_
 while in **Front View** (numeric keypad 1); this shape will extrude around the
 origin and form the lampshade.
 
-.. image:: img/csg_lamp_spin.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_lamp_spin.png
 
-.. image:: img/csg_lamp_polygon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_lamp_polygon.png
 
-.. image:: img/csg_lamp_extrude.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_lamp_extrude.png
 
 Adjust the placement of the 3 parts to make it look like a lamp.
 
-.. image:: img/csg_lamp.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_lamp.png
 
 Create a CSGCombiner and name it ``bookshelf``.
 
 We will use 3 CSGBox nodes for the bookshelf. Create a CSGBox and adjust its
 dimensions; this will be the size of the bookshelf.
 
-.. image:: img/csg_shelf_big.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_shelf_big.png
 
 Duplicate the CSGBox and shorten the dimensions of each axis and change the mode
 to **Subtraction**.
 
-.. image:: img/csg_shelf_subtract.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_shelf_subtract.png
 
-.. image:: img/csg_shelf_subtract_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_shelf_subtract_menu.png
 
 You've almost built a shelf. Create one more CSGBox for dividing the shelf into
 two levels.
 
-.. image:: img/csg_shelf.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_shelf.png
 
 Position your furniture in your room as you like and your scene should look
 this:
 
-.. image:: img/csg_room_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/csg_room_result.png
 
 You've successfully prototyped a room level with the CSG tools in Godot.
 CSG tools can be used for designing all kinds of levels, such as a maze
@@ -20275,13 +20275,13 @@ The sphere is one of the simplest and fastest occluders, and is easy to setup an
 
 Once you have added an OccluderNode and chosen to add a new ``OccluderShapeSphere`` in the inspector, click the OccluderShapeSphere in the inspector to bring up the parameters.
 
-.. image:: img/occluder_shape_sphere_inspector.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/occluder_shape_sphere_inspector.png
 
 Unlike many Nodes, the ``OccluderShapeSphere`` can store multiple spheres in the same object. This is more efficient in the engine, and keeps your SceneTree clearer. You don't have to store all your spheres in one Occluder as it could become tricky to manage, but it is perfectly reasonable to add 10 or so spheres or more. They are very cheap, and often the more you place, the better the match you will get to your geometry.
 
 In order to store multiple spheres, they are stored as an Array. If you click on the Array in the inspector, you can increase the size of the Array to add one.
 
-.. image:: img/occluder_shape_sphere_terrain.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/occluder_shape_sphere_terrain.png
 
 The sphere will appear as a small pink spherical object in the editor window. There are two handles on each sphere. The larger middle handle enables you to move the sphere around in the local space of the Occluder, and the small handle enables you to adjust the radius.
 
@@ -20307,18 +20307,18 @@ Editing and details
 
 Occluder polygons are edited as a list of points which define a *convex* polygon, on a single plane. In order to confine the polygon to a single plane, the points are defined in 2D space rather than 3D. The orientation, position and scale of the polygon is taken instead from the transform of the ``Occluder`` Node.
 
-.. image:: img/occluder_shape_polygon_inspector.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/occluder_shape_polygon_inspector.png
 
 If you create an Occluder and add to it a ``OccluderShapePolygon`` resource, by default it will create 4 starting points forming a rectangle. If you move the position and rotation of the Occluder Node you will see how the rectangle follows the node. When the Occluder is selected in the editor, handles will appear for each of the points. You can actually click and drag these handles, to match your polygon to the environment of your scene.
 
-.. image:: img/occluder_shape_polygon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/occluder_shape_polygon.png
 
 You are not restricted to 4 points, you can add and remove points in the Inspector, but note that:
 
 -  The editor will automatically sanitize your points to form a convex polygon. If you drag a point into a position that would form a concave polygon, it will be ignored.
 -  In general, the less edges (and thus points), the faster the polygon will work at runtime. A polygon with 6 edges will have to make twice the calculations of a polygon with 3 edges. In most cases 4 is a good number.
 
-.. image:: img/occluder_shape_polygon2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/occluder_shape_polygon2.png
 
 Holes
 ~~~~~
@@ -20327,7 +20327,7 @@ Real world game levels don't always have large continuous areas that should be o
 
 In the inspector you will notice that as well as a set of points for the polygon, the polygon has a set of points for a single "hole". If you add 3 or 4 to your polygon, you will see they appear in the editor as smaller handles. You can drag these around just like the polygon handles, to form a convex hole.
 
-.. image:: img/occluder_shape_polygon_hole.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/occluder_shape_polygon_hole.png
 
 The hole can be totally within the polygon (such as a window), abutting the edge (like a door) or crossing the edge of the polygon completely, to make the occluder concave. The way the hole works is that the culling follows a simple rule:
 
@@ -20455,20 +20455,20 @@ Room Conversion
 
 This conversion must take place every time you want to activate the system. It does not store the *room graph* in your project (for flexibility and to save memory). You can either trigger it by pressing the **Convert Rooms** button in the editor toolbar (which also has a keyboard shortcut) or by calling the ``rooms_convert()`` method in the RoomManager. The latter method will be what you use in-game. Note that for safety, best practice is to call ``rooms_clear()`` before unloading or changing levels.
 
-.. image:: img/convert_rooms_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/convert_rooms_button.png
 
 If you convert the level while the editor is running, the portal culling system will take over from the normal Godot frustum culling, potentially interfering with editor features. To get around this, you can turn portal culling on and off using either the **View Portal Culling** toggle in the **View** menu on the editor toolbar (which also has a keyboard shortcut) or the **Active** setting in the RoomManager node.
 
 .. note:: To use the RoomManager, you have to tell it where the rooms are in your scene tree, or, more specifically, where the RoomList node is. This RoomList is the parent of your rooms - see below. If the RoomList is not set, conversion will fail, and you will see a warning dialog box.
 
-.. image:: img/room_manager.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/room_manager.png
 
 The RoomList
 ^^^^^^^^^^^^
 
 Before we create any rooms, we must first create a node to be the parent of all the static objects, rooms, roomgroups, and so on in our level. This node is referred to as the the ``RoomList``.
 
-.. image:: img/roomlist_node.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/roomlist_node.png
 
 .. note:: The roomlist is **not** a special node type – it can just be a regular Spatial.
 
@@ -20495,7 +20495,7 @@ Rooms are defined as convex volumes (or *convex hulls*) because it's trivial to 
 
 *A convex hull. The hull is defined as a series of planes facing outward. If a point is behind all the planes, it is within the hull.*
 
-.. image:: img/convex_hull.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/convex_hull.png
 
 Why non-overlapping?
 ^^^^^^^^^^^^^^^^^^^^
@@ -20504,7 +20504,7 @@ If two rooms overlap, and a camera or player is in this overlapping zone, then t
 
 If you accidentally create overlapping rooms, the editor will warn you when you convert the rooms, indicating any overlapping zones in red.
 
-.. image:: img/room_overlap.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/room_overlap.png
 
 The system does attempt to cope with overlapping rooms as best as possible by making the current room *"sticky"*. Each object remembers which room it was in during the previous frame and stays within it as long as it does not move outside the convex hull room bound. This can result in some hysteresis in these overlapping zones.
 
@@ -20530,7 +20530,7 @@ The automatic method is used whenever a manual bound is not supplied.
 
 *A simple pair of rooms. The portal margin is shown with translucent red, and the room hulls are shown with green wireframe.*
 
-.. image:: img/simple_room.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/simple_room.png
 
 Portals
 ~~~~~~~
@@ -20543,7 +20543,7 @@ To save editing effort, **only one Portal is required between each pair of Rooms
 
 You should therefore place a portal in only one of each pair of neighbouring rooms - this is the portal's *"source room"*. Generally it doesn't matter which you choose as the source room. The portal normal (the arrow in the gizmo) should face *outward* from the source room.
 
-.. image:: img/portal_inspector.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/portal_inspector.png
 
 Do not be confused by the arrow. Although the arrow shows which direction the portal faces, most portals will be *two-way*, and can be seen through from both directions. The arrow is more important for ensuring that the portal links to the correct neighbouring room.
 
@@ -20562,7 +20562,7 @@ Trying it out
 
 By now you should be able to create a couple of rooms, add some nodes such as MeshInstances within the rooms, and add a portal between the rooms. Try converting the rooms in the editor and see if you can now view the objects in neighbouring rooms through the portal.
 
-.. image:: img/simple_scenetree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/simple_scenetree.png
 
 You have now mastered the basic principles of the system.
 
@@ -20583,7 +20583,7 @@ Portal mode
 
 If you look in the inspector, every VisualInstance in Godot is derived from a :ref:`CullInstance<class_CullInstance>`, where you can set a ``PortalMode``. This determines how objects will behave in the portal system.
 
-.. image:: img/cull_instance.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cull_instance.png
 
 STATIC
 ^^^^^^
@@ -20620,7 +20620,7 @@ Autoplace
 
 However, for ease of use, it is also possible to place ``STATIC`` and ``DYNAMIC`` objects *outside* the rooms in the scene tree, but within the RoomList branch. The system will attempt to **autoplace** the objects into the appropriate room. This works in most cases but if in doubt, use the explicit approach. The explicit approach is especially needed when dealing with internal rooms, which have some restrictions for sprawling objects.
 
-.. image:: img/freeform.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/freeform.png
 
 Note that if you place ``STATIC`` and ``DYNAMIC`` objects outside of rooms, they will not contribute to the room bound. If you are using the room geometry to derive the bound, tables and chairs can be placed outside the room. However, walls and floors should be explicitly within the Room's branch of the scene tree to ensure the bound is correct.
 
@@ -20719,7 +20719,7 @@ Gameplay callbacks have one more useful function. By default in Godot, animation
 
 The engine's solution to this problem is the :ref:`VisibilityNotifier<class_VisibilityNotifier>` node, and its slightly easier to use variation, the :ref:`VisibilityEnabler<class_VisibilityEnabler>` node. VisibilityEnabler can be used to switch off animation and sleep physics when an object is outside the view frustum. You do this by simply placing a VisibilityEnabler node in your subscene (for e.g. a monster). It will do the rest. Consult the :ref:`VisibilityEnabler<class_VisibilityEnabler>` documentation for full details.
 
-.. image:: img/visibility_enabler.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visibility_enabler.png
 
 What if the VisibilityEnabler could turn off objects when they were occlusion culled? Well it turns out VisibilityEnabler can. All you have to do is enable the **Gameplay Monitor** in the RoomManager and the rest happens automatically.
 
@@ -20730,13 +20730,13 @@ RoomGroups
 
 A :ref:`RoomGroup<class_RoomGroup>` is a special node which allows you to deal with a group of rooms at once, instead of having write code for them individually. This is especially useful in conjunction with gameplay callbacks. The most important use for RoomGroups is to delineate between "inside" and "outside" areas.
 
-.. image:: img/roomgroups.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/roomgroups.png
 
 For instance, when outside you may wish to use a :ref:`DirectionalLight<class_DirectionalLight>` to represent the sun. When the outside RoomGroup receives an ``enter gameplay`` callback, you can turn the light on, and you can turn it off when the RoomGroup exits gameplay. With the light off, performance will increase as there is no need to render it indoors.
 
 This is an example of a simple RoomGroup script to turn on and off a DirectionalLight. Note that you can also use signals for callbacks (the choice is up to you):
 
-.. image:: img/roomgroup_notification.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/roomgroup_notification.png
 
 .. tip:: You can apply the same technique for switching on and off weather effects, skyboxes and much more.
 
@@ -20771,11 +20771,11 @@ Internal room example
 
 The tent is a simple room inside a terrain room (which contains the ground, the trees etc).
 
-.. image:: img/tent.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tent.png
 
 .. note:: To use internal rooms for buildings, it is usually a good idea to split the *interior* mesh of the building from the *exterior*. The exterior can be placed in the outer room (so it can be seen from outside, but not from the inside), and the interior should be placed in the interior room (so it only visible inside, or through the portal).
 
-.. image:: img/tent_terrain.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tent_terrain.png
 
 This is perfect for improving performance in open world games. Often your buildings can be scenes (including the rooms and portals) that can be reused. When viewed from the outside, interiors will mostly be culled, and when viewing from the inside other buildings and most of the outside will be culled. The same goes for other players and objects that are inside and outside the buildings.
 
@@ -20786,7 +20786,7 @@ Internal room scenes
 
 Let us look in detail at another practical example for an open world. We want to place houses (as internal rooms) on an island, but have each house as a self-contained scene containing both the interior *and* the external mesh of the house.
 
-.. image:: img/house_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/house_scene.png
 
 We have created a Room node (which will become the internal room) into which we have placed the interior meshes. We have also created a Portal with no links (so autolinking will be used). The exterior mesh is *not* within the room. It will be autoplaced, and we are intending for it to be placed within the outer room.
 
@@ -20796,7 +20796,7 @@ To get around this problem, there is a special setting to enable you to express 
 
 However, if we set this autoplace priority to ``-1`` for example, the autoplace will always choose a ``-1`` priority room (if one is present at that location). So if we set the outer room priority to ``-1``, it will always place our exterior into our "outside" room.
 
-.. image:: img/autoplace_priority.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autoplace_priority.png
 
 This gives us a helpful extra bit of control for these kinds of situations, and makes the entire system much more flexible.
 
@@ -20804,7 +20804,7 @@ This gives us a helpful extra bit of control for these kinds of situations, and 
 
 The final scene looks something like this, with houses instanced wherever you want them on a giant outer room.
 
-.. image:: img/island.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/island.png
 
 The house exteriors will be placed in the outer room, and therefore can always be seen when looking from the outside. The interiors will only be rendered when a view into the entry portals is visible.
 
@@ -20821,7 +20821,7 @@ Example SceneTree
 
 Putting all the ideas together, here is an example scene tree:
 
-.. image:: img/example_scenetree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/example_scenetree.png
 
 - We have used a :ref:`RoomGroup<class_RoomGroup>` to denote an outside area.
 - The :ref:`MeshInstance<class_MeshInstance>`\ s inside the :ref:`Room<class_Room>`\ s are either ``STATIC`` or ``DYNAMIC``.
@@ -20892,7 +20892,7 @@ Portals are defined by a combination of the transform of the portal node, and by
 
 The default portal has 4 corners as shown in the inspector:
 
-.. image:: img/portal_point_editing.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/portal_point_editing.png
 
 You can edit these points in the gizmo or inspector to make a better match to the opening in your game level. It's generally better to keep the number of points as low as possible for the efficiency of the system. For example, it's better to risk rendering a little too much than to spend the time culling objects at 20 different edges.
 
@@ -20903,7 +20903,7 @@ Room point editing
 
 You also have the option to manually edit the points used to define the convex hull of a room. These points are not present by default. You would typically create them by pressing the **Generate Points** button in the editor toolbar when a room is selected. This will transfer the auto bound from the geometry (or manual ``-bound`` mesh) into the inspector. Once there are points in the inspector, they will be used and override any other method. So if you wish to revert your manual editing, delete all the room's points.
 
-.. image:: img/room_point_editing.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/room_point_editing.png
 
 Manually editing points can be useful in some situations, especially where the auto-bound doesn't *quite* get the right result you want. It is usually a good idea to use a lot of **Simplification** in the inspector for the Room before generating the points. Be aware though that by default, the **Simplification** value will be inherited from the RoomManager.
 
@@ -21078,7 +21078,7 @@ demo project.
 Label3D
 -------
 
-.. image:: img/label_3d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/label_3d.png
 
 Label3D behaves like a label node but in a 3D space. Unlike label
 node this can not inherit properties of a GUI theme. However its
@@ -21096,7 +21096,7 @@ for more information.
 Text mesh
 ---------
 
-.. image:: img/text_mesh.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/text_mesh.png
 
 Text meshes have similarities to Label3D. They display text in a 3D
 scene, and will use the same DynamicFont subresource. However text is 3D and
@@ -21104,9 +21104,9 @@ has the properties of a mesh. A text mesh cast shadows onto the environment
 and can have a material applied to it. Here is an example of a texture and
 how it's applied to the mesh.
 
-.. image:: img/text_mesh_texture.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/text_mesh_texture.png
 
-.. image:: img/text_mesh_textured.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/text_mesh_textured.png
 
 There are two limitations to text mesh. It can't use bitmap fonts, or fonts
 with self intersection.
@@ -21164,7 +21164,7 @@ The AnimationPlayer node type is the data container for your animations.
 One AnimationPlayer node can hold multiple animations, that can
 automatically transition to one another.
 
-.. figure:: img/animation_create_animationplayer.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_create_animationplayer.png
    :alt: The AnimationPlayer node
 
    The AnimationPlayer node
@@ -21172,14 +21172,14 @@ automatically transition to one another.
 After creating one click on the AnimationPlayer node in the Node tab to
 open the Animation Panel at the bottom of the viewport.
 
-.. figure:: img/animation_animation_panel.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_animation_panel.png
    :alt: The animation panel position
 
    The animation panel position
 
 It consists of four parts:
 
-.. figure:: img/animation_animation_panel_overview.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_animation_panel_overview.png
    :alt: The animation panel
 
    The animation panel
@@ -21198,7 +21198,7 @@ A keyframe defines the value of a property at a certain point in time.
 Diamond shapes represent keyframes in the timeline. A line between two
 keyframes indicates that the value hasn't changed.
 
-.. figure:: img/animation_keyframes.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_keyframes.png
    :alt: Keyframes in Godot
 
    Keyframes in Godot
@@ -21206,7 +21206,7 @@ keyframes indicates that the value hasn't changed.
 The engine interpolates values between keyframes, resulting in a gradual
 change in values over time.
 
-.. figure:: img/animation_illustration.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_illustration.png
    :alt: Two keyframes are all it takes to obtain a smooth motion
 
    Two keyframes are all it takes to obtain a smooth motion
@@ -21214,7 +21214,7 @@ change in values over time.
 The timeline lets you insert keyframes and change their timing. It also
 defines how long the animation is.
 
-.. figure:: img/animation_timeline.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_timeline.png
    :alt: The timeline in the animation panel
 
    The timeline in the animation panel
@@ -21223,7 +21223,7 @@ Each line of the Animation Panel is an animation track. Normal and
 Transform tracks reference node properties. Their name or id is a path
 to the node and the affected property.
 
-.. figure:: img/animation_normal_track.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_normal_track.png
    :alt: Example of Normal animation tracks
 
    Example of Normal animation tracks
@@ -21244,7 +21244,7 @@ Scene setup
 For this tutorial, we'll create a Sprite node with an AnimationPlayer as
 its child. We will animate the sprite to move between two points on the screen.
 
-.. figure:: img/animation_animation_player_tree.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_animation_player_tree.png
    :alt: Our scene setup
 
    Our scene setup
@@ -21268,7 +21268,7 @@ animation editor. From the list select "New" (|Add
 Animation|) to add a new animation. And Enter a name for the animation in the
 dialog box.
 
-.. figure:: img/animation_create_new_animation.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_create_new_animation.png
    :alt: Add a new animation
 
    Add a new animation
@@ -21279,7 +21279,7 @@ Adding a track
 To add a new track for our sprite, select it and take a look in the
 toolbar:
 
-.. figure:: img/animation_convenience_buttons.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_convenience_buttons.png
    :alt: Convenience buttons
 
    Convenience buttons
@@ -21296,7 +21296,7 @@ property, Godot asks whether it should set it up for us. Click **Create**.
 This creates a new track and our first keyframe at the beginning of
 the timeline:
 
-.. figure:: img/animation_track.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_track.png
    :alt: The sprite track
 
    The sprite track
@@ -21311,7 +21311,7 @@ Let's say, we want it to take 2 seconds to go to the other point. By
 default the animation is set to last only 1 second, so change this in
 the timeline controls in animation panel's lower panel to 2.
 
-.. figure:: img/animation_set_length.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_set_length.png
    :alt: Animation length
 
    Animation length
@@ -21329,7 +21329,7 @@ Click on the "Play from beginning" (|Play from beginning|) button.
 
 Yay! Our animation runs:
 
-.. figure:: img/animation_simple.gif
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_simple.gif
    :alt: The animation
 
    The animation
@@ -21342,7 +21342,7 @@ Godot always calculates the frames between two keyframes. In a loop, the
 first keyframe is also the last keyframe, if no keyframe is specified at
 the end.
 
-.. figure:: img/animation_loop.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_loop.png
    :alt: Animation loop
 
    Animation loop
@@ -21357,7 +21357,7 @@ Track settings
 Each track has a settings panel at the end, where you can set the update
 mode, the track interpolation, and the loop mode.
 
-.. figure:: img/animation_track_settings.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_track_settings.png
    :alt: Track settings
 
    Track settings
@@ -21377,7 +21377,7 @@ values. This can be:
    could use the Capture mode to move a node that's located anywhere
    to a specific location.
 
-.. figure:: img/animation_track_rate.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_track_rate.png
    :alt: Track mode
 
    Track mode
@@ -21394,7 +21394,7 @@ the keyframes. These interpolation modes are supported:
 -  Cubic: Set the value based on a cubic function calculation between
    the two keyframes
 
-.. figure:: img/animation_track_interpolation.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_track_interpolation.png
    :alt: Track interpolation
 
    Track interpolation
@@ -21407,7 +21407,7 @@ of a robotic movement.
 Godot supports two loop modes, which affect the animation if it's set to
 loop:
 
-.. figure:: img/animation_track_loop_modes.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_track_loop_modes.png
    :alt: Loop modes
 
    Loop modes
@@ -21430,7 +21430,7 @@ a small keyframe button for all the sprite's properties. Click on
 this button and Godot automatically adds a track and keyframe to the
 current animation.
 
-.. figure:: img/animation_properties_keyframe.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_properties_keyframe.png
    :alt: Keyframes for other properties
 
    Keyframes for other properties
@@ -21442,7 +21442,7 @@ For advanced use and to edit keyframes in detail, You can click on them
 to bring up the keyframe editor in the inspector. You can use this to
 directly edit its values.
 
-.. figure:: img/animation_keyframe_editor_key.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_keyframe_editor_key.png
    :alt: Keyframe editor editing a key
 
    Keyframe editor editing a key
@@ -21484,7 +21484,7 @@ controls.
 
 Select "Add Call Method Track" from the list of possible track types.
 
-.. figure:: img/animation_add_call_method_track.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_add_call_method_track.png
    :alt: Add Call Method Track
 
    Add Call Method Track
@@ -21492,7 +21492,7 @@ Select "Add Call Method Track" from the list of possible track types.
 Select the :ref:`class_AudioStreamPlayer` node in the selection
 window. Godot adds the track with the reference to the node.
 
-.. figure:: img/animation_select_audiostreamplayer.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/animation_select_audiostreamplayer.png
    :alt: Select AudioStreamPlayer
 
    Select AudioStreamPlayer
@@ -21502,7 +21502,7 @@ click the "Insert Key" option. This will bring up a list of methods
 that can be called for the AudioStreamPlayer node. Select the first
 one.
 
-.. image:: img/animation_method_options.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animation_method_options.png
 
 When Godot reaches the keyframe, Godot calls the
 :ref:`class_AudioStreamPlayer` node's "play" function and the stream
@@ -21511,11 +21511,11 @@ plays.
 You can change its position by dragging it on the timeline, you can also
 click on the keyframe and use the keyframe settings in the inspector.
 
-.. image:: img/animation_call_method_keyframe.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animation_call_method_keyframe.png
 
-.. |Play from beginning| image:: img/animation_play_from_beginning.png
-.. |Add Animation| image:: img/animation_add.png
-.. |Add track| image:: img/animation_add_track.png
+.. |Play from beginning| image:: https://docs.godotengine.org/en/3.6/_images/animation_play_from_beginning.png
+.. |Add Animation| image:: https://docs.godotengine.org/en/3.6/_images/animation_add.png
+.. |Add track| image:: https://docs.godotengine.org/en/3.6/_images/animation_add_track.png
 
 Using RESET tracks
 ------------------
@@ -21608,7 +21608,7 @@ For this tutorial, we will use as demo content the pieces of the
 `GBot <https://www.youtube.com/watch?v=S13FrWuBMx4&list=UUckpus81gNin1aV8WSffRKw>`__
 character, created by Andreas Esau.
 
-.. image:: img/tuto_cutout_walk.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout_walk.gif
 
 Get your assets: :download:`gbot_resources.zip <files/gbot_resources.zip>`.
 
@@ -21617,31 +21617,31 @@ Setting up the rig
 
 Create an empty Node2D as root of the scene, we will work under it:
 
-.. image:: img/tuto_cutout1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout1.png
 
 The first node of the model is the hip.
 Generally, both in 2D and 3D, the hip is the root of the skeleton. This
 makes it easier to animate:
 
-.. image:: img/tuto_cutout2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout2.png
 
 Next will be the torso. The torso needs to be a child of the hip, so
 create a child sprite and load the torso texture, later accommodate it properly:
 
-.. image:: img/tuto_cutout3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout3.png
 
 This looks good. Let's see if our hierarchy works as a skeleton by
 rotating the torso. We can do this be pressing :kbd:`E` to enter rotate mode,
 and dragging with the left mouse button. To exit rotate mode hit :kbd:`ESC`.
 
-.. image:: img/tutovec_torso1.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec_torso1.gif
 
 The rotation pivot is wrong and needs to be adjusted.
 
 This small cross in the middle of the :ref:`Sprite <class_Sprite>` is
 the rotation pivot:
 
-.. image:: img/tuto_cutout4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout4.png
 
 Adjusting the pivot
 ~~~~~~~~~~~~~~~~~~~
@@ -21649,25 +21649,25 @@ Adjusting the pivot
 The pivot can be adjusted by changing the *offset* property in the
 Sprite:
 
-.. image:: img/tuto_cutout5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout5.png
 
 The pivot can also be adjusted *visually*. While hovering over the
 desired pivot point,  press :kbd:`V` to move the pivot there for the
 selected Sprite. There is also a tool in the tool bar that has a
 similar function.
 
-.. image:: img/tutovec_torso2.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec_torso2.gif
 
 Continue adding body pieces, starting with the
 right arm. Make sure to put each sprite in its correct place in the hierarchy,
 so its rotations and translations are relative to its parent:
 
-.. image:: img/tuto_cutout6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout6.png
 
 With the left arm there's a problem. In 2D, child nodes appear in front of
 their parents:
 
-.. image:: img/tuto_cutout7.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout7.png
 
 We want the left arm to appear *behind*
 the hip and the torso. We could move the left arm nodes behind the hip (above
@@ -21693,12 +21693,12 @@ Create another RemoteTransform2D node inside the first and call it ``remote_hand
 Use the ``Remote Path`` property of the two new nodes to target the ``arm_l`` and
 ``hand_l`` sprites respectively:
 
-.. image:: img/tuto_cutout9.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout9.png
 
 Moving the ``RemoteTransform2D`` nodes now moves the sprites. So we can create
 animations by adjusting the ``RemoteTransform2D`` transforms:
 
-.. image:: img/tutovec_torso4.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec_torso4.gif
 
 Completing the skeleton
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -21706,7 +21706,7 @@ Completing the skeleton
 Complete the skeleton by following the same steps for the rest of the
 parts. The resulting scene should look similar to this:
 
-.. image:: img/tuto_cutout10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout10.png
 
 The resulting rig will be easy to animate. By selecting the nodes and
 rotating them you can animate forward kinematics (FK) efficiently.
@@ -21729,15 +21729,15 @@ nodes are called skeletons.
 As an example, let's turn the right arm into a skeleton. To create
 a skeleton, a chain of nodes must be selected from top to bottom:
 
-.. image:: img/tuto_cutout11.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout11.png
 
 Then, click on the Skeleton menu and select ``Make Bones``.
 
-.. image:: img/tuto_cutout12.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout12.png
 
 This will add bones covering the arm, but the result may be surprising.
 
-.. image:: img/tuto_cutout13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout13.png
 
 Why does the hand lack a bone? In Godot, a bone connects a
 node with its parent. And there's currently no child of the hand node.
@@ -21748,12 +21748,12 @@ but :ref:`Position2D <class_Position2D>` is preferred because it's
 visible in the editor. The endpoint node will ensure that the last bone
 has orientation.
 
-.. image:: img/tuto_cutout14.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout14.png
 
 Now select the whole chain, from the endpoint to the arm and create
 bones:
 
-.. image:: img/tuto_cutout15.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout15.png
 
 The result resembles a skeleton a lot more, and now the arm and forearm
 can be selected and animated.
@@ -21767,11 +21767,11 @@ Godot has connected the hip node to the scene root with a bone, and we don't
 want that. To fix this, select the root and hip node, open the Skeleton menu,
 click ``clear bones``.
 
-.. image:: img/tuto_cutout15_2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout15_2.png
 
 Your final skeleton should look something like this:
 
-.. image:: img/tuto_cutout16.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout16.png
 
 You might have noticed a second set of endpoints in the hands. This will make
 sense soon.
@@ -21795,21 +21795,21 @@ To create an IK chain, select a chain of bones from endpoint to
 the base for the chain. For example, to create an IK chain for the right
 leg, select the following:
 
-.. image:: img/tuto_cutout17.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout17.png
 
 Then enable this chain for IK. Go to Edit > Make IK Chain.
 
-.. image:: img/tuto_cutout18.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout18.png
 
 As a result, the base of the chain will turn *Yellow*.
 
-.. image:: img/tuto_cutout19.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout19.png
 
 Once the IK chain is set-up grab any child or grand-child of the base of the
 chain (e.g. a foot) and move it. You'll see the rest of the chain adjust as you
 adjust its position.
 
-.. image:: img/tutovec_torso5.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec_torso5.gif
 
 Animation tips
 ~~~~~~~~~~~~~~
@@ -21824,7 +21824,7 @@ Setting keyframes and excluding properties
 Special contextual elements appear in the top toolbar when the animation editor
 window is open:
 
-.. image:: img/tuto_cutout20.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout20.png
 
 The key button inserts location, rotation, and scale keyframes for the
 selected objects or bones at the current playhead position.
@@ -21861,7 +21861,7 @@ toolbar.
 their current arrangement. This pose can now be recalled when necessary in
 your game by playing the "rest" animation you've created.
 
-.. image:: img/tuto_cutout21.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout21.png
 
 Modifying rotation only
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -21873,7 +21873,7 @@ Location and scale are rarely used.
 So when inserting keys, you might find it convenient to have only the "rot"
 toggle active most of the time:
 
-.. image:: img/tuto_cutout22.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout22.png
 
 This will avoid the creation of unwanted animation tracks for position
 and scale.
@@ -21899,7 +21899,7 @@ Node2D-inheriting nodes. When planning your rig, think about the movements it
 will need to perform and give some thought to how you'll use "Behind Parent"
 and/or RemoteTransform2D nodes. They provide overlapping functionality.
 
-.. image:: img/tuto_cutout23.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout23.png
 
 Setting easing curves for multiple keys
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21911,7 +21911,7 @@ To apply the same easing curve to multiple keyframes at once:
    will open the transition editor.
 3. In the transition editor, click on the desired curve to apply it.
 
-.. image:: img/tuto_cutout24.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tuto_cutout24.png
 
 2D Skeletal deform
 ~~~~~~~~~~~~~~~~~~
@@ -21967,13 +21967,13 @@ For this tutorial, we will be using a single image to construct our character.
 Download it from :download:`gBot_pieces.png <img/gBot_pieces.png>` or save the
 image below.
 
-.. image:: img/gBot_pieces.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gBot_pieces.png
 
 It is also advised to download the final character image
 :download:`gBot_complete.png <img/gBot_complete.png>` to have a good reference
 for putting the different pieces together.
 
-.. image:: img/gBot_complete.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gBot_complete.png
 
 Creating the polygons
 ---------------------
@@ -21985,22 +21985,22 @@ created as a root for the polygons.
 Begin with a ``Polygon2D`` node. There is no need to place it anywhere in the
 scene for now, so simply create it like this:
 
-.. image:: img/skel2d1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d1.png
 
 Select it and assign the texture with the character pieces you have downloaded
 before:
 
-.. image:: img/skel2d2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d2.png
 
 Drawing a polygon directly is not advised. Instead, open the "UV" dialog for the
 polygon:
 
-.. image:: img/skel2d3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d3.png
 
 Head over to the *Points* mode, select the pencil and draw a polygon around the
 desired piece:
 
-.. image:: img/skel2d4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d4.png
 
 Duplicate the polygon node and give it a proper name. Then, enter the "UV"
 dialog again and replace the old polygon with another one in the new desired
@@ -22012,11 +22012,11 @@ the previous polygon instead of drawing a new one.
 After moving the polygon, remember to update the UV by selecting Edit -> "Polygon
 -> UV" in the Polygon 2D UV Editor.
 
-.. image:: img/skel2d5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d5.png
 
 Keep doing this until you mapped all pieces.
 
-.. image:: img/skel2d6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d6.png
 
 You will notice that pieces for nodes appear in the same layout as they do in
 the original texture. This is because by default, when you draw a polygon, the
@@ -22026,12 +22026,12 @@ Rearrange the pieces and build the character. This should be pretty quick. There
 is no need to change pivots, so don't bother making sure rotation pivots for
 each piece are right; you can leave them be for now.
 
-.. image:: img/skel2d7.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d7.png
 
 Ah, the visual order of the pieces is not correct yet, as some are covering
 wrong pieces. Rearrange the order of the nodes to fix this:
 
-.. image:: img/skel2d8.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d8.png
 
 And there you go! It was definitely much easier than in the cutout tutorial.
 
@@ -22041,23 +22041,23 @@ Creating the skeleton
 Create a ``Skeleton2D`` node as a child of the root node. This will be the base
 of our skeleton:
 
-.. image:: img/skel2d9.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d9.png
 
 Create a ``Bone2D`` node as a child of the skeleton. Put it on the hip (usually
 skeletons start here). The bone will be pointing to the right, but you can
 ignore this for now.
 
-.. image:: img/skel2d10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d10.png
 
 Keep creating bones in hierarchy and naming them accordingly.
 
-.. image:: img/skel2d11.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d11.png
 
 At the end of this chain, there will be a *jaw* node. It is, again, very short
 and pointing to the right. This is normal for bones without children. The length
 of *tip* bones can be changed with a property in the inspector:
 
-.. image:: img/skel2d12.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d12.png
 
 In this case, we don't need to rotate the bone (coincidentally the jaw points
 right in the sprite), but in case you need to, feel free to do it. Again, this
@@ -22066,14 +22066,14 @@ length or a specific rotation.
 
 Keep going and build the whole skeleton:
 
-.. image:: img/skel2d13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d13.png
 
 You will notice that all bones raise an annoying warning about a missing rest
 pose. This means that it's time to set one. Go to the *skeleton* node and create
 a rest pose. This pose is the default one, you can come back to it anytime you
 want (which is very handy for animating):
 
-.. image:: img/skel2d14.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d14.png
 
 The warnings will go away. If you modify the skeleton (add/remove bones) you
 will need to set the rest pose again.
@@ -22085,15 +22085,15 @@ Select the previously created polygons and assign the skeleton node to their
 ``Skeleton`` property. This will ensure that they can eventually be deformed by
 it.
 
-.. image:: img/skel2d15.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d15.png
 
 Click the property highlighted above and select the skeleton node:
 
-.. image:: img/skel2d16.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d16.png
 
 Again, open the UV editor for the polygon and go to the *Bones* section.
 
-.. image:: img/skel2d17.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d17.png
 
 You will not be able to paint weights yet. For this you need to synchronize the
 list of bones from the skeleton with the polygon. This step is done only once
@@ -22102,13 +22102,13 @@ It ensures that your rigging information is kept in the polygon, even if a
 skeleton node is accidentally lost or the skeleton modified. Push the "Sync
 Bones to Polygon" button to sync the list.
 
-.. image:: img/skel2d18.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d18.png
 
 The list of bones will automatically appear. By default, your polygon has no
 weight assigned to any of them. Select the bones you want to assign weight to
 and paint them:
 
-.. image:: img/skel2d19.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d19.png
 
 Points in white have a full weight assigned, while points in black are not
 influenced by the bone. If the same point is painted white for multiple bones,
@@ -22116,7 +22116,7 @@ the influence will be distributed amongst them (so usually there is not that
 much need to use shades in-between unless you want to polish the bending
 effect).
 
-.. image:: img/skel2d20.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d20.gif
 
 After painting the weights, animating the bones (NOT the polygons!) will have
 the desired effect of modifying and bending the polygons accordingly. As you
@@ -22125,7 +22125,7 @@ only need to animate bones in this approach, work becomes much easier!
 But it's not all roses. Trying to animate bones that bend the polygon will often
 yield unexpected results:
 
-.. image:: img/skel2d21.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d21.gif
 
 This happens because Godot generates internal triangles that connect the points
 when drawing the polygon. They don't always bend the way you would expect. To
@@ -22138,18 +22138,18 @@ Internal vertices
 Open the UV menu for each bone again and go to the *Points* section. Add some
 internal vertices in the regions where you expect the geometry to bend:
 
-.. image:: img/skel2d22.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d22.png
 
 Now, go to the *Polygon* section and redraw your own polygons with more detail.
 Imagine that, as your polygons bend, you need to make sure they deform the least
 possible, so experiment a bit to find the right setup.
 
-.. image:: img/skel2d23.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d23.png
 
 Once you start drawing, the original polygon will disappear and you will be free
 to create your own:
 
-.. image:: img/skel2d24.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d24.png
 
 This amount of detail is usually fine, though you may want to have more
 fine-grained control over where triangles go. Experiment by yourself until you
@@ -22160,7 +22160,7 @@ painting! Go to the *Bones* section again to assign them to the right bones.
 
 Once you are all set, you will get much better results:
 
-.. image:: img/skel2d25.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/skel2d25.gif
 
 
 ===================================================
@@ -22200,7 +22200,7 @@ new scene which contains the imported one. Afterwards, point the ``AnimationTree
 
 This is how it's done in the `Third Person Shooter demo <https://github.com/godotengine/tps-demo>`_, for reference:
 
-.. image:: img/animtree1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree1.png
 
 A new scene was created for the player with a ``KinematicBody`` as root. Inside this scene, the original ``.dae`` (Collada) file was instantiated
 and an ``AnimationTree`` node was created.
@@ -22216,7 +22216,7 @@ There are three main types of nodes that can be used in ``AnimationTree``:
 
 To set a root node in ``AnimationTree``, a few types are available:
 
-.. image:: img/animtree2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree2.png
 
 * ``AnimationNodeAnimation``: Selects an animation from the list and plays it. This is the simplest root node, and generally not used directly as root.
 * ``AnimationNodeBlendTree``: Contains many *blend* type nodes, such as mix, blend2, blend3, one shot, etc. This is one of the most commonly used roots.
@@ -22229,13 +22229,13 @@ Blend tree
 
 An ``AnimationNodeBlendTree`` can contain both root and regular nodes used for blending. Nodes are added to the graph from a menu:
 
-.. image:: img/animtree3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree3.png
 
 All blend trees contain an ``Output`` node by default, and something has to be connected to it in order for animations to play.
 
 The easiest way to test this functionality is to connect an ``Animation`` node to it directly:
 
-.. image:: img/animtree4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree4.png
 
 This will simply play back the animation. Make sure that the ``AnimationTree`` is active for something to actually happen.
 
@@ -22246,21 +22246,21 @@ Blend2 / Blend3
 
 These nodes will blend between two or three inputs by a user-specified blend value:
 
-.. image:: img/animtree5.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree5.gif
 
 For more complex blending, it is advised to use blend spaces instead.
 
 Blending can also use filters, i.e. you can control individually which tracks go through the blend function.
 This is very useful for layering animations on top of each other.
 
-.. image:: img/animtree6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree6.png
 
 OneShot
 ^^^^^^^
 
 This node will execute a sub-animation and return once it finishes. Blend times for fading in and out can be customized, as well as filters.
 
-.. image:: img/animtree6b.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree6b.gif
 
 Seek
 ^^^^
@@ -22306,23 +22306,23 @@ BlendSpace2D
 ``BlendSpace2D`` is a node to do advanced blending in two dimensions. Points are added to a two-dimensional space and then a position
 can be controlled to determine blending:
 
-.. image:: img/animtree7.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree7.gif
 
 The ranges in X and Y can be controlled (and labeled for convenience). By default, points can be placed anywhere (just right-click on
 the coordinate system or use the *add point* button) and triangles will be generated automatically using Delaunay.
 
-.. image:: img/animtree8.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree8.gif
 
 It is also possible to draw the triangles manually by disabling the *auto triangle* option, though this is rarely necessary:
 
-.. image:: img/animtree9.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree9.png
 
 Finally, it is possible to change the blend mode. By default, blending happens by interpolating points inside the closest triangle.
 When dealing with 2D animations (frame by frame), you may want to switch to *Discrete* mode.
 Alternatively, if you want to keep the current play position when switching between discrete animations, there is a *Carry* mode.
 This mode can be changed in the *Blend* menu:
 
-.. image:: img/animtree10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree10.png
 
 BlendSpace1D
 ^^^^^^^^^^^^
@@ -22335,11 +22335,11 @@ StateMachine
 This node acts as a state machine with root nodes as states. Root nodes can be created and connected via lines. States are connected via *Transitions*,
 which are connections with special properties. Transitions are uni-directional, but two can be used to connect in both directions.
 
-.. image:: img/animtree11.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree11.gif
 
 There are many types of transition:
 
-.. image:: img/animtree12.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree12.png
 
 * *Immediate*: Will switch to the next state immediately. The current state will end and blend into the beginning of the new one.
 * *Sync*: Will switch to the next state immediately, but will seek the new state to the playback position of the old state.
@@ -22347,7 +22347,7 @@ There are many types of transition:
 
 Transitions also have a few properties. Click any transition and it will be displayed in the inspector dock:
 
-.. image:: img/animtree13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree13.png
 
 * *Switch Mode* is the transition type (see above), it can be modified after creation here.
 * *Auto Advance* will turn on the transition automatically when this state is reached. This works best with the *At End* switch mode.
@@ -22367,7 +22367,7 @@ This allows animating characters in a way where steps actually match the floor b
 When playing back the animation in Godot, it is possible to select this bone as the *root motion track*. Doing so will cancel the bone
 transformation visually (the animation will stay in place).
 
-.. image:: img/animtree14.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree14.png
 
 Afterwards, the actual motion can be retrieved via the :ref:`AnimationTree <class_AnimationTree>` API as a transform:
 
@@ -22385,7 +22385,7 @@ This can be fed to functions such as :ref:`KinematicBody.move_and_slide <class_K
 There is also a tool node, ``RootMotionView``, that can be placed in a scene and will act as a custom floor for your
 character and animations (this node is disabled by default during the game).
 
-.. image:: img/animtree15.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree15.gif
 
 
 Controlling from code
@@ -22401,14 +22401,14 @@ or reuse nodes with a complex layout (such as a state machine or blend space) in
 The actual animation data is contained in the ``AnimationTree`` node and is accessed via properties.
 Check the "Parameters" section of the ``AnimationTree`` node to see all the parameters that can be modified in real-time:
 
-.. image:: img/animtree16.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree16.png
 
 This is handy because it makes it possible to animate them from an ``AnimationPlayer``, or even the ``AnimationTree`` itself,
 allowing the realization of very complex animation logic.
 
 To modify these values from code, the property path must be obtained. This is done easily by hovering the mouse over any of the parameters:
 
-.. image:: img/animtree17.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree17.png
 
 Which allows setting them or reading them:
 
@@ -22458,7 +22458,7 @@ Once retrieved, it can be used by calling one of the many functions it offers:
 
 The state machine must be running before you can travel. Make sure to either call ``start()`` or choose a node to **Autoplay on Load**.
 
-.. image:: img/animtree18.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/animtree18.png
 
 
 ===================================================
@@ -22534,7 +22534,7 @@ AspectRatioContainer node to match your video's aspect ratio. You can use math
 formulas in the inspector to help yourself. Remember to make one of the operands
 a float. Otherwise, the division's result will always be an integer.
 
-.. figure:: img/playing_videos_aspect_ratio_container.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/playing_videos_aspect_ratio_container.png
    :figclass: figure-w480
    :align: center
    :alt: AspectRatioContainer's Ratio property being modified in the editor inspector
@@ -22760,7 +22760,7 @@ To change the import parameters of an asset in Godot (again, keep in mind
 import parameters are only present in non-native Godot resource types)
 select the relevant resource in the filesystem dock:
 
-.. image:: img/asset_workflow1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/asset_workflow1.png
 
 Then, after adjusting the parameters, press "Reimport". These parameters
 will only be used for this asset and on future reimports.
@@ -22778,7 +22778,7 @@ those specific parameters changed. To do this, select every asset you want
 to reimport in the file system. In the import tab there will now be a
 checkbox to the left of every import parameter.
 
-.. image:: img/reimport_multiple.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/reimport_multiple.png
 
 Select the checkbox of the parameters you want to change on your imported
 assets, then change the parameters normally. Finally, click the reimport
@@ -22798,11 +22798,11 @@ Files generated
 Importing will add an extra ``<asset>.import`` file, containing the import
 configuration. Make sure to commit these to your version control system!
 
-.. image:: img/asset_workflow4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/asset_workflow4.png
 
 Additionally, extra assets will be preset in the hidden ``res://.import`` folder:
 
-.. image:: img/asset_workflow5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/asset_workflow5.png
 
 If any of the files present in this folder is erased (or the whole folder), the
 asset or assets will be reimported automatically. As such, committing this folder
@@ -22817,7 +22817,7 @@ Some source assets can be imported as different types of resources.
 For this, select the relevant type of resource desired and
 press "Reimport":
 
-.. image:: img/asset_workflow2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/asset_workflow2.png
 
 
 Changing default import parameters
@@ -22828,7 +22828,7 @@ Changing the defaults per project can be achieved by using the
 "Preset.." Menu. Besides some resource types offering presets,
 the default setting can be saved and cleared too:
 
-.. image:: img/asset_workflow3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/asset_workflow3.png
 
 Simplicity is key!
 ------------------
@@ -22891,7 +22891,7 @@ efficient.
 
 Import options are vast:
 
-.. image:: img/image_import1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/image_import1.png
 
 Detect 3D
 ~~~~~~~~~
@@ -22942,11 +22942,11 @@ advantages and disadvantages (|good| = best, |bad| = worst):
 | Load Time      | |regular| Normal       | |bad| Slow                    | |bad| Slow              | |good| Fast                                          |
 +----------------+------------------------+-------------------------------+-------------------------+------------------------------------------------------+
 
-.. |bad| image:: img/bad.png
+.. |bad| image:: https://docs.godotengine.org/en/3.6/_images/bad.png
 
-.. |good| image:: img/good.png
+.. |good| image:: https://docs.godotengine.org/en/3.6/_images/good.png
 
-.. |regular| image:: img/regular.png
+.. |regular| image:: https://docs.godotengine.org/en/3.6/_images/regular.png
 
 HDR Mode
 ~~~~~~~~
@@ -23039,7 +23039,7 @@ Fix Alpha Border
 This puts pixels of the same surrounding color in transition from transparency to non transparency. It helps mitigate the outline effect when exporting images
 from Photoshop and the like.
 
-.. image:: img/fixedborder.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fixedborder.png
 
 It's a good idea to leave it on by default, unless specific values are needed.
 
@@ -23128,7 +23128,7 @@ This saves SFX artists the need to add reverb to the sound effects,
 reducing their size greatly and ensuring correct trimming. Say no to SFX
 with baked reverb!
 
-.. image:: img/reverb.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/reverb.png
 
 As you can see above, sound effects become huge with reverb added.
 
@@ -23278,7 +23278,7 @@ Select the ``.csv`` file and access the **Import** dock to define import
 options. You can toggle the compression of the imported translations, and
 select the delimiter to use when parsing the CSV file.
 
-.. image:: img/import_csv.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/import_csv.png
 
 Be sure to click **Reimport** after any change to these options.
 
@@ -23422,7 +23422,7 @@ import a scene with:
 * External scenes: Save each of the root nodes of the imported scenes as a separate scene.
 * Single scene: A single scene file with everything built in.
 
-.. image:: img/scene_import1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scene_import1.png
 
 As different developers have different needs, this import process is highly customizable.
 
@@ -23431,7 +23431,7 @@ Import options
 
 The importer has several options, which will be discussed below:
 
-.. image:: img/scene_import2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scene_import2.png
 
 Nodes
 ~~~~~
@@ -23592,7 +23592,7 @@ Godot provides many options regarding how animation data is dealt with. Some exp
 3DS Max or Maya, need many animations put into the same timeline or, at worst, put
 each animation in a separate file.
 
-.. image:: img/scene_import3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scene_import3.png
 
 Import of animations is enabled by default.
 
@@ -23688,7 +23688,7 @@ if the source asset changes (source ``.dae``, ``.gltf``, ``.obj`` file re-export
 It is possible, however, to make local modifications by using *Scene Inheritance*. Try to open the imported scene and the
 following dialog will appear:
 
-.. image:: img/scene_import4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/scene_import4.png
 
 In inherited scenes, the only limitations for modifications are:
 
@@ -23755,7 +23755,7 @@ On import, it will create a :ref:`class_staticbody` with
 a collision node as a child. The collision node will have one of a number of predefined shapes,
 depending on Blender's empty draw type:
 
-.. image:: img/3dimp_BlenderEmptyDrawTypes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/3dimp_BlenderEmptyDrawTypes.png
 
 -  Single arrow will create a :ref:`class_rayshape`.
 -  Cube will create a :ref:`class_boxshape`.
@@ -23835,7 +23835,7 @@ program such as Blender, and then bring it back into Godot.
 
 To export a scene in the editor go to **Project > Tools > Export GLTF...**
 
-.. image:: img/gltf_godot_export.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gltf_godot_export.png
 
 Limitations
 -----------
@@ -23884,7 +23884,7 @@ Sometimes you don't want some objects exported (e.g. high-res models used for
 baking). An object will not be exported if it is not rendered in the scene.
 This can be set in the outliner:
 
-.. image:: img/hide.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/hide.jpg
 
 Objects hidden in the viewport will be exported, but will be hidden in the
 Godot scene.
@@ -23927,7 +23927,7 @@ exporter will fall back to exporting the material from Blender.
 Where the exporter searches for the ``.tres`` file is determined by the "Material
 Search Paths" option:
 
-.. image:: img/material_search.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/material_search.jpg
 
 This can take the value of:
  - Project Directory - Attempts to find the ``project.Godot`` and recursively
@@ -23969,11 +23969,11 @@ The default configuration of material exporting would keep all the materials int
 the ``escn`` file. There is an option which could enable generating external ``.material``
 file when the ``escn`` file opens in Godot.
 
-.. image:: img/external_mat_option.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/external_mat_option.jpg
 
 ``.material`` file can be assigned to any material slot to be a external resource.
 
-.. image:: img/gd_dot_material.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/gd_dot_material.jpg
 
 
 ===================================================
@@ -23986,7 +23986,7 @@ Physics properties
 Exporting physics properties is done by enabling "Rigid Body" in Blender's
 physics tab:
 
-.. image:: img/enable_physics.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/enable_physics.png
 
 .. important::
     By default, a single Blender object with rigid body enabled will export as
@@ -23999,7 +23999,7 @@ Blender only has the concept of "Active" and "Passive" rigid bodies. These
 turn into Static and RigidBody nodes. To create a kinematic body, enable the
 "animated" checkbox on an "Active" body:
 
-.. image:: img/body_type.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/body_type.jpg
 
 Collision shapes
 ----------------
@@ -24009,7 +24009,7 @@ of the collision shapes are also not present. However, almost all of the
 options in Blender's rigid body collision and rigid body dynamics interfaces
 are supported:
 
-.. image:: img/collision_shapes.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/collision_shapes.jpg
 
 There are the following caveats:
  - Not all of the collision shapes are supported. Only ``Mesh``, ``Convex
@@ -24033,7 +24033,7 @@ graphical meshes, but by default, the exporter will export a mesh along with the
 collision shape. To only export the collision shape, set the object's maximum
 draw type to Wire:
 
-.. image:: img/col_only.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/col_only.png
 
 This will also influence how the object is shown in Blender's viewport.
 Most of the time, you want your collision geometry to be shown see-through when
@@ -24057,7 +24057,7 @@ Lights
 Sun, point and spot lamps are all exported from Blender along with many of their
 properties:
 
-.. image:: img/light_properties.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/light_properties.jpg
 
 There are some things to note:
 
@@ -24108,7 +24108,7 @@ it takes a relatively long time.
 Skeleton
 ========
 
-.. image:: img/armature.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/armature.jpg
 
 Rest Bone
 ---------
@@ -24175,13 +24175,13 @@ New created action is always an active action bound to object. There are
 several ways to place an active action into NLA track,
 one is of course doing it in ``NLA Editor``
 
-.. image:: img/nla_editor.jpg
-.. image:: img/nla_pushdown.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/nla_editor.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/nla_pushdown.jpg
 
 Or it can be done stashing the action in ``Dope Sheet``
 
-.. image:: img/dope_sheet.jpg
-.. image:: img/stash_action.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/dope_sheet.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/stash_action.jpg
 
 **2. Check mute status of NLA tracks**
 
@@ -24189,18 +24189,18 @@ An NLA track can be ``mute`` or ``unmute``, the exporter will export all
 the ``mute`` NLA track as a separate action, while blends all the ``unmute``
 NLA tracks into every action (including the action action) being exported.
 
-.. image:: img/nla_strip.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/nla_strip.jpg
 
 **3. Export the scene**
 
 Make sure the ``Export Stashed Actions`` option has been turned on.
 
-.. image:: img/stash_action_option.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/stash_action_option.jpg
 
 Then all the stashed actions, as well as the active action, are exported
 to an AnimationPlayer.
 
-.. image:: img/in_godot.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/in_godot.jpg
 
 
 Constraints
@@ -24312,7 +24312,7 @@ Audio buses
 
 Audio buses can be found in the bottom panel of the Godot editor:
 
-.. image:: img/audio_buses1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_buses1.png
 
 An *audio bus* (also called an *audio channel*) can be considered a place that
 audio is channeled through on the way to playback through a device's speakers.
@@ -24328,7 +24328,7 @@ the left. The destination bus can be specified for each of the non-master audio
 buses. Routing always passes audio from buses on the right to buses further
 to the left. This avoids infinite routing loops.
 
-.. image:: img/audio_buses2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_buses2.png
 
 In the above image, the output of *Bus 2* has been routed to the *Master* bus.
 
@@ -24338,7 +24338,7 @@ Playback of audio through a bus
 To test passing audio to a bus, create an AudioStreamPlayer node, load an
 AudioStream and select a target bus for playback:
 
-.. image:: img/audio_buses3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_buses3.png
 
 Finally, toggle the **Playing** property to **On** and sound will flow.
 
@@ -24352,7 +24352,7 @@ Adding effects
 Audio buses can contain all sorts of effects. These effects modify the sound in
 one way or another and are applied in order.
 
-.. image:: img/audio_buses4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_buses4.png
 
 Try them all out to get a sense of how they alter sound. Here follows a short
 description of the available effects:
@@ -24544,7 +24544,7 @@ There is no need to disable buses manually when not in use. Godot detects
 that the bus has been silent for a few seconds and disables it (including
 all effects).
 
-.. figure:: img/audio_buses5.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/audio_buses5.png
 
    Disabled buses have a blue VU meter instead of a red-green one.
 
@@ -24597,7 +24597,7 @@ played back often.
 AudioStreamPlayer
 -----------------
 
-.. image:: img/audio_stream_player.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_player.png
 
 This is the standard, non-positional stream player. It can play to any bus.
 In 5.1 sound setups, it can send audio to stereo mix or front speakers.
@@ -24605,7 +24605,7 @@ In 5.1 sound setups, it can send audio to stereo mix or front speakers.
 AudioStreamPlayer2D
 -------------------
 
-.. image:: img/audio_stream_2d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_2d.png
 
 This is a variant of AudioStreamPlayer, but emits sound in a 2D positional
 environment. When close to the left of the screen, the panning will go left.
@@ -24618,12 +24618,12 @@ When close to the right side, it will go right.
     different reverb or sound qualities to handle action happening in a
     particular parts of your game world.
 
-.. image:: img/audio_stream_2d_area.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_2d_area.png
 
 AudioStreamPlayer3D
 -------------------
 
-.. image:: img/audio_stream_3d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_3d.png
 
 This is a variant of AudioStreamPlayer, but emits sound in a 3D positional
 environment. Depending on the location of the player relative to the screen,
@@ -24631,7 +24631,7 @@ it can position sound in stereo, 5.1 or 7.1 depending on the chosen audio setup.
 
 Similar to AudioStreamPlayer2D, an Area can divert the sound to an audio bus.
 
-.. image:: img/audio_stream_3d_area.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_3d_area.png
 
 Unlike for 2D, the 3D version of AudioStreamPlayer has a few more advanced options:
 
@@ -24645,13 +24645,13 @@ and wet audio to separate buses. This is useful when you have several reverb
 configurations for different types of rooms. This is done by enabling this type
 of reverb in the **Reverb Bus** section of the Area's properties:
 
-.. image:: img/audio_stream_reverb_bus.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_reverb_bus.png
 
 At the same time, a special bus layout is created where each area receives the
 reverb info from each area. A Reverb effect needs to be created and configured
 in each reverb bus to complete the setup for the desired effect:
 
-.. image:: img/audio_stream_reverb_bus2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_reverb_bus2.png
 
 The Area's **Reverb Bus** section also has a parameter named **Uniformity**.
 Some types of rooms bounce sounds more than others (like a warehouse), so
@@ -24667,7 +24667,7 @@ perceived as an increase or decrease in the pitch of the emitted sound.
 Godot can track velocity changes in the AudioStreamPlayer3D and Camera nodes.
 Both nodes have this property, which must be enabled manually:
 
-.. image:: img/audio_stream_doppler.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/audio_stream_doppler.png
 
 Enable it by setting it depending on how objects will be moved:
 use **Idle** for objects moved using ``_process``, or **Physics**
@@ -24854,9 +24854,9 @@ We will focus on the audio part. In this demo, a bus named ``Record`` with the
 effect ``Record`` is created to handle the audio recording.
 An ``AudioStreamPlayer`` named ``AudioStreamRecord`` is used for recording.
 
-.. image:: img/record_bus.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/record_bus.png
 
-.. image:: img/record_stream_player.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/record_stream_player.png
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -25064,7 +25064,7 @@ able to keep playing our game on our computer after we switch to touch input.
 In **Project > Project Settings**, under **Input Devices > Pointing**, enable
 **Emulate Touch From Mouse**.
 
-.. image:: img/export_touchsettings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_touchsettings.png
 
 We also want to ensure that the game scales consistently on different-sized screens,
 so in the project settings go to **Display**, then click on **Window**. In the **Stretch**
@@ -25073,7 +25073,7 @@ options, set **Mode** to ``2d`` and **Aspect** to ``keep``.
 Since we are already in the **Window** settings, we should also set under **Handheld**
 the **Orientation** to ``portrait``.
 
-.. image:: img/export_handheld_stretchsettings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_handheld_stretchsettings.png
 
 Next, we need to modify the ``Player.gd`` script to change the input method.
 We'll remove the key inputs and make the player move towards a "target" that's
@@ -25282,7 +25282,7 @@ http://godotengine.org/download. These templates are optimized versions of the e
 without the editor pre-compiled for each platform. You can also
 download them in Godot by clicking on **Editor -> Manage Export Templates**:
 
-.. image:: img/export_template_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_template_menu.png
 
 .. note::
 
@@ -25294,7 +25294,7 @@ download them in Godot by clicking on **Editor -> Manage Export Templates**:
 In the window that appears, you can click **Download** to get the template
 version that matches your version of Godot.
 
-.. image:: img/export_template_manager.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_template_manager.png
 
 .. note::
 
@@ -25309,7 +25309,7 @@ Next, you can configure the export settings by clicking on **Project -> Export**
 Create a new export preset by clicking **Add...** and selecting a platform. You
 can make as many presets as you like with different settings.
 
-.. image:: img/export_presets_window.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_presets_window.png
 
 At the bottom of the window are two buttons. **Export PCK/ZIP** only creates
 a packed version of your project's data. This doesn't include an executable
@@ -25381,7 +25381,7 @@ Click on *Editor -> Editor Settings* in Godot and select the *Export/Android*
 section. Here, you need to set the paths to the Android SDK applications on
 your system and the location of the keystore you just created.
 
-.. image:: img/export_editor_android_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_editor_android_settings.png
 
 Now you're ready to export. Click on **Project -> Export** and add a preset
 for Android (see above). Select the newly added Android preset. Under **Options**,
@@ -25402,7 +25402,7 @@ on your device. To do this on the command line, use the following:
 If your system supports it, connecting a compatible Android device will cause
 a **One-click Deploy** button to appear in Godot's playtest button area:
 
-.. image:: img/export_android_oneclick.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_android_oneclick.png
 
 Clicking this button builds the APK and copies it onto your device in one step.
 
@@ -25420,14 +25420,14 @@ logging in to your Apple developer account and looking in the **Membership** sec
 
 You must also provide icons and splash screen images as shown below:
 
-.. image:: img/export_ios_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_ios_settings.png
 
 Click **Export Project** and select a destination folder.
 
 Once you have successfully exported the project, you'll find the following
 folders and files have been created in your selected location:
 
-.. image:: img/export_xcode_project_folders.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_xcode_project_folders.png
 
 You can now open the project in Xcode and build the project for iOS.
 The Xcode build procedure is beyond the scope of this tutorial.
@@ -25443,7 +25443,7 @@ of the default settings.
 When the export is complete, you'll have a folder containing the following
 files:
 
-.. image:: img/export_web_files.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_web_files.png
 
 Viewing the ``.html`` file in your browser lets you play the game. However, you
 can't open the file directly. Instead, it needs to be served by a web server. If
@@ -25453,13 +25453,13 @@ suggestions for your specific OS.
 Point your browser at the URL where you've placed the HTML file. You may have
 to wait a few moments while the game loads before you see the start screen.
 
-.. image:: img/export_web_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_web_example.png
 
 The console window beneath the game tells you if anything goes wrong. You can
 disable it by disabling **Export With Debug** in the final file dialog that appears
 when you export the project.
 
-.. image:: img/export_web_export_with_debug_disabled.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_web_export_with_debug_disabled.png
 
 .. note::
 
@@ -25539,18 +25539,18 @@ supported yet, but the supported platforms continue to grow.
 
 To open the export menu, click the **Export** button:
 
-.. image:: img/export.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export.png
 
 The export menu will open. However, it will be completely empty.
 This is because we need to add an export preset.
 
-.. image:: img/export_dialog.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_dialog.png
 
 To create an export preset, click the **Add…** button at the top
 of the export menu. This will open a drop-down list of platforms
 to choose from for an export preset.
 
-.. image:: img/export_preset.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_preset.png
 
 The default options are often enough to export, so tweaking them is
 usually not necessary. However, many platforms require additional
@@ -25559,7 +25559,7 @@ needs export templates installed to create packages. The export menu
 will complain when something is missing and will not allow the user to
 export for that platform until they resolve it:
 
-.. image:: img/export_error.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_error.png
 
 At that time, the user is expected to come back to the documentation and follow
 instructions on how to properly set up that platform.
@@ -25575,7 +25575,7 @@ TPZ file (which is a renamed ZIP archive) from the
 Once downloaded, they can be installed using the **Install Export Templates**
 option in the editor:
 
-.. image:: img/exptemp.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/exptemp.png
 
 .. _doc_exporting_projects_export_mode:
 
@@ -25589,14 +25589,14 @@ creates the package. There are 3 different modes for exporting:
 -  Export selected scenes (and dependencies)
 -  Export selected resources (and dependencies)
 
-.. image:: img/expres.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/expres.png
 
 **Export all resources in the project** will export every resource in the
 project. **Export selected scenes** and **Export selected resources** gives
 you a list of the scenes or resources in the project, and you have to
 select every scene or resource you want to export.
 
-.. image:: img/expselected.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/expselected.png
 
 .. note::
 
@@ -25762,7 +25762,7 @@ In order to pack all resources of a project into a PCK file open the project
 and go to Project/Export and click on “Export PCK/Zip”. Also make sure to have
 an export template selected while doing so.
 
-.. image:: img/export_pck.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export_pck.png
 
 Another method would be to :ref:`export from the command line <doc_command_line_tutorial_exporting>`.
 If the output file ends with a PCK or ZIP file extension, then the export
@@ -25957,7 +25957,7 @@ Custom features
 It is possible to add custom features to a build; use the relevant
 field in the *export preset* used to generate it:
 
-.. image:: img/feature_tags1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/feature_tags1.png
 
 .. note::
 
@@ -25975,11 +25975,11 @@ This allows you to better customize any configuration when doing a build.
 In the following example, a different icon is added for the demo build of the game (which was
 customized in a special export preset, which, in turn, includes only demo levels).
 
-.. image:: img/feature_tags2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/feature_tags2.png
 
 After overriding, a new field is added for this specific configuration:
 
-.. image:: img/feature_tags3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/feature_tags3.png
 
 .. note::
 
@@ -25996,7 +25996,7 @@ Default overrides
 There are already a lot of settings that come with overrides by default; they can be found
 in many sections of the project settings.
 
-.. image:: img/feature_tags4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/feature_tags4.png
 
 Customizing the build
 ---------------------
@@ -26254,17 +26254,17 @@ App is signed, notarized and distributed outside App Store
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/signed_and_notarized_0.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signed_and_notarized_0.png
 
 Click ``Open`` to start the app.
 
 If you see the following warning dialog, your Mac is set up to allow apps only from the App Store.
 
-.. image:: img/signed_and_notarized_1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signed_and_notarized_1.png
 
 To allow third-party apps, open ``System Preferences``, click ``Security & Privacy``, then click ``General``, unlock settings, and select ``App Store and identified developers``.
 
-.. image:: img/sys_pref_0.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/sys_pref_0.png
 
 App is signed (including ad-hoc signatures) but not notarized
 -------------------------------------------------------------
@@ -26275,21 +26275,21 @@ App is signed (including ad-hoc signatures) but not notarized
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/signed_0.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/signed_0.png
 
 To run this app, you can temporarily override Gatekeeper:
 
 * Either open ``System Preferences``, click ``Security & Privacy``, then click ``General``, and click ``Open Anyway``.
 
-  .. image:: img/sys_pref_1.png
+  .. image:: https://docs.godotengine.org/en/3.6/_images/sys_pref_1.png
 
 * Or, right-click (Control-click) on the app icon in the Finder window and select ``Open`` from the menu.
 
-  .. image:: img/signed_1.png
+  .. image:: https://docs.godotengine.org/en/3.6/_images/signed_1.png
 
 * Then click ``Open`` in the confirmation dialog.
 
-  .. image:: img/signed_2.png
+  .. image:: https://docs.godotengine.org/en/3.6/_images/signed_2.png
 
 * Enter your password if you're prompted.
 
@@ -26302,7 +26302,7 @@ App is not-signed, executable is linker-signed
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/linker_signed_1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/linker_signed_1.png
 
 To run this app, you should remove the quarantine extended file attribute manually:
 
@@ -26323,7 +26323,7 @@ Neither app nor executable is signed (relevant for Apple Silicon macs only)
 
 When you run the app for the first time, the following dialog is displayed:
 
-.. image:: img/unsigned_1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/unsigned_1.png
 
 To run this app, you can ad-hoc sign it yourself:
 
@@ -26435,13 +26435,13 @@ Changing the taskbar icon
 The taskbar icon is the icon that shows up on the taskbar when your project
 is running.
 
-.. image:: img/icon_taskbar_icon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/icon_taskbar_icon.png
 
 To change the taskbar icon, go to
 **Project → Project Settings → Application → Config → Windows Native Icon**.
 Click on the folder icon and select your ICO file.
 
-.. image:: img/icon_project_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/icon_project_settings.png
 
 This setting only changes the icon for your exported game on Windows.
 To set the icon for macOS, use ``Macos Native Icon``. And for any other platform,
@@ -26465,7 +26465,7 @@ an embedded PCK.
 The file icon is the icon of the executable that you click on to start
 the project.
 
-.. image:: img/icon_file_icon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/icon_file_icon.png
 
 Before selecting it in the export options, you will need to install
 an extra tool called **rcedit**.
@@ -26482,7 +26482,7 @@ Navigate to and select the rcedit executable.
     Linux and macOS users will also need to install
     `WINE <https://www.winehq.org/>`_ to use rcedit.
 
-.. image:: img/icon_rcedit.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/icon_rcedit.png
 
 You should now have everything in place to change the file icon.
 To do that, you will need to specify the icon when exporting.
@@ -26490,7 +26490,7 @@ Go to **Project → Export**. Assuming you have already created
 a Windows Desktop preset, select your icon in ICO format in
 the **Application → Icon** field.
 
-.. image:: img/icon_export_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/icon_export_settings.png
 
 .. note::
 
@@ -26508,7 +26508,7 @@ Testing the result
 
 You can now export the project. If it worked correctly, you should see this:
 
-.. image:: img/icon_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/icon_result.png
 
 .. note::
 
@@ -26596,14 +26596,14 @@ To setup automatic signing on export you need to go to Editor Settings > Export 
 From there you need to click on the folder for ``Signtool``, and navigate to
 the ``SignTool.exe`` file on your computer.
 
-.. image:: img/UWP_sign_tool.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/UWP_sign_tool.png
 
 After setting that up close the editor settings, go to Project > Export,
 and select the UWP preset. Under the ``Signing`` options click on the folder
 next to ``Certificate`` and go to the certificate file. Then enter the
 pfxPassword in the password field.
 
-.. image:: img/UWP_export_signing.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/UWP_export_signing.png
 
 Your project will now be automatically signed on export.
 
@@ -26664,7 +26664,7 @@ After you click **Export Project**, there are still two important options left:
   * **Path** is an empty folder that will contain the exported Xcode project files.
   * **File** will be the name of the Xcode project and several project specific files and directories.
 
-.. image:: img/ios_export_file.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_file.png
 
 .. note:: This tutorial uses **exported_xcode_project_name**, but you will use your
           project's name. When you see **exported_xcode_project_name**
@@ -26675,7 +26675,7 @@ After you click **Export Project**, there are still two important options left:
 
 When the export completes, the output folder should look like this:
 
-.. image:: img/ios_export_output.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_output.png
 
 Opening **exported_xcode_project_name.xcodeproj** lets you build and deploy
 like any other iOS app.
@@ -26703,23 +26703,23 @@ Steps to link a Godot project folder to Xcode
 1. Start from an exported iOS project (follow the steps above).
 2. In Finder, drag the Godot project folder into the Xcode file browser.
 
-.. image:: img/ios_export_add_dir.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_add_dir.png
 
 3. In the dialog, make sure **Create folder references** is selected. This means
 you will be able to continue to edit your Godot project in its current location.
 
-.. image:: img/ios_export_file_ref.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_file_ref.png
 
 4. See the **godot_project_to_export** folder in the Xcode file browser.
 5. Delete **exported_xcode_project_name.pck** from the Xcode project.
 
-.. image:: img/ios_export_delete_pck.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_delete_pck.png
 
 6. Open **exported_xcode_project_name-Info.plist** and add a string property named
 **godot_path** (this is the real key name) with a value **godot_project_to_export**
 (this is the name of your project)
 
-.. image:: img/ios_export_set_path.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_set_path.png
 
 That's it! You can now edit your project in the Godot editor and build it
 in Xcode when you want to run it on a device.
@@ -26817,11 +26817,11 @@ Enter the Editor Settings screen. This screen contains the editor
 settings for the user account in the computer (it's independent of the
 project).
 
-.. image:: img/editorsettings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editorsettings.png
 
 Scroll down to the section where the Android settings are located:
 
-.. image:: img/androidsdk.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/androidsdk.png
 
 In that screen, 2 paths need to be set:
 
@@ -26882,7 +26882,7 @@ Use Google's Android Developer guides to learn more about `APK signing <https://
 
 Now fill in the following forms in your Android Export Presets:
 
-.. image:: img/editor-export-presets-android.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editor-export-presets-android.png
 
 - **Release:** Enter the path to the keystore file you just generated.
 - **Release User:** Replace with the key alias.
@@ -26894,7 +26894,7 @@ it to your ``.gitignore`` file or equivalent.
 
 Don't forget to uncheck the **Export With Debug** checkbox while exporting.
 
-.. image:: img/export-with-debug-button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/export-with-debug-button.png
 
 Optimizing the APK size
 -----------------------
@@ -26955,7 +26955,7 @@ Set up the custom build environment
 
 Go to the Project menu, and install the *Custom Build* template:
 
-.. image:: img/custom_build_install_template.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/custom_build_install_template.png
 
 Make sure export templates are downloaded. If not, this menu will help you
 download them.
@@ -26971,13 +26971,13 @@ Enabling the custom build and exporting
 When setting up the Android project in the **Project > Export** dialog,
 **Custom Build** needs to be enabled:
 
-.. image:: img/custom_build_enable.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/custom_build_enable.png
 
 From now on, attempting to export the project or one-click deploy will call the
 `Gradle <https://gradle.org/>`__ build system to generate fresh templates (this
 window will appear every time):
 
-.. image:: img/custom_build_gradle.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/custom_build_gradle.png
 
 The templates built will be used automatically afterwards, so no further
 configuration is needed.
@@ -27512,7 +27512,7 @@ Using one-click deploy
   icons will appear in the top-right corner of the editor.
 - Click the button to export to the desired platform in one click.
 
-.. image:: img/oneclick.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/oneclick.png
 
 Troubleshooting
 ---------------
@@ -27591,7 +27591,7 @@ Translations can get updated and re-imported when they change, but
 they still have to be added to the project. This is done in
 **Project → Project Settings → Localization**:
 
-.. image:: img/localization_dialog.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/localization_dialog.png
 
 The above dialog is used to add or remove translations project-wide.
 
@@ -27602,7 +27602,7 @@ It is also possible to instruct Godot to use alternate versions of
 assets (resources) depending on the current language. The **Remaps** tab
 can be used for this:
 
-.. image:: img/localization_remaps.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/localization_remaps.png
 
 Select the resource to be remapped, then add some alternatives for each
 locale.
@@ -27676,7 +27676,7 @@ property. Set this property to the locale code of the language you want to test.
 run the project with that locale when the project is run (either from the editor or when
 exported).
 
-.. image:: img/locale_test.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/locale_test.png
 
 Keep in mind that since this is a project setting, it will show up in version control when
 it is set to a non-empty value. Therefore, it should be set back to an empty value before
@@ -27699,7 +27699,7 @@ than one language, create a new setting ``application/name`` in the **Project
 Settings** and append the locale identifier to it.
 For instance, for Spanish, this would be ``application/name_es``:
 
-.. image:: img/localized_name.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/localized_name.png
 
 If you are unsure about the language code to use, refer to the
 :ref:`list of locale codes <doc_locales>`.
@@ -28771,7 +28771,7 @@ it to the viewports, starting by the "root" :ref:`Viewport <class_Viewport>` (th
 node of the scene tree). Viewport does quite a lot of stuff with the
 received input, in order:
 
-.. image:: img/input_event_flow.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/input_event_flow.png
 
 1. First of all, the standard :ref:`Node._input() <class_Node_method__input>` function
    will be called in any node that overrides it (and hasn't disabled input processing with :ref:`Node.set_process_input() <class_Node_method_set_process_input>`).
@@ -28806,7 +28806,7 @@ When sending events to all listening nodes within a scene, the viewport
 will do so in a reverse depth-first order: Starting with the node at
 the bottom of the scene tree, and ending at the root node:
 
-.. image:: img/input_event_scene_flow.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/input_event_scene_flow.png
 
 GUI events also travel up the scene tree but, since these events target
 specific Controls, only direct ancestors of the targeted Control node receive the event.
@@ -29070,7 +29070,7 @@ A new Godot project includes a number of default actions already defined. To
 see them, and to add your own, open Project -> Project Settings and select
 the InputMap tab:
 
-.. image:: img/inputs_inputmap.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/inputs_inputmap.png
 
 Capturing actions
 ~~~~~~~~~~~~~~~~~
@@ -29421,7 +29421,7 @@ Using project settings
 
 Open project settings, go to Display>Mouse Cursor. You will see Custom Image and Custom Image Hotspot.
 
-.. image:: img/cursor_project_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cursor_project_settings.png
 
 Custom Image is the desired image that you would like to set as the mouse cursor.
 Custom Hotspot is the point in the image that you would like to use as the cursor's detection point.
@@ -30443,7 +30443,7 @@ We will start by adding objects we wish to save to the "Persist" group. We can
 do this through either the GUI or script. Let's add the relevant nodes using the
 GUI:
 
-.. image:: img/groups.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/groups.png
 
 Once this is done, when we need to save the game, we can get all objects
 to save them and then tell them all to save with this script:
@@ -31291,7 +31291,7 @@ In 2D space, coordinates are defined using a horizontal axis (``x``) and
 a vertical axis (``y``). A particular position in 2D space is written
 as a pair of values such as ``(4, 3)``.
 
-.. image:: img/vector_axis1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_axis1.png
 
 .. note:: If you're new to computer graphics, it might seem odd that the
           positive ``y`` axis points **downwards** instead of upwards,
@@ -31303,7 +31303,7 @@ way. However, we can also think of the position ``(4, 3)`` as an **offset**
 from the ``(0, 0)`` point, or **origin**. Draw an arrow pointing from
 the origin to the point:
 
-.. image:: img/vector_xy1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_xy1.png
 
 This is a **vector**. A vector represents a lot of useful information. As
 well as telling us that the point is at ``(4, 3)``, we can also think of
@@ -31315,7 +31315,7 @@ A very important point to consider about vectors is that they only
 represent **relative** direction and magnitude. There is no concept of
 a vector's position. The following two vectors are identical:
 
-.. image:: img/vector_xy2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_xy2.png
 
 Both vectors represent a point 4 units to the right and 3 units below some
 starting point. It does not matter where on the plane you draw the vector,
@@ -31385,7 +31385,7 @@ When adding or subtracting two vectors, the corresponding components are added:
 We can also see this visually by adding the second vector at the end of
 the first:
 
-.. image:: img/vector_add1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_add1.png
 
 Note that adding ``a + b`` gives the same result as ``b + a``.
 
@@ -31408,7 +31408,7 @@ A vector can be multiplied by a **scalar**:
     var c = a * 2;  // (2, 5) * 2 = (4, 10)
     var d = b / 3;  // (3, 6) / 3 = (1, 2)
 
-.. image:: img/vector_mult1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_mult1.png
 
 .. note:: Multiplying a vector by a scalar does not change its direction,
           only its magnitude. This is how you **scale** a vector.
@@ -31427,7 +31427,7 @@ a velocity vector of ``(2,1)``. The velocity vector represents how far the
 ship moves each step. We can find the position for step 2 by adding
 the velocity to the current position.
 
-.. image:: img/vector_movement1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_movement1.png
 
 .. tip:: Velocity measures the **change** in position per unit of time. The
          new position is found by adding velocity to the previous position.
@@ -31439,7 +31439,7 @@ In this scenario, you have a tank that wishes to point its turret at a
 robot. Subtracting the tank's position from the robot's position gives the
 vector pointing from the tank to the robot.
 
-.. image:: img/vector_subtract2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_subtract2.png
 
 .. tip:: To find a vector pointing from ``A`` to ``B`` use ``B - A``.
 
@@ -31483,7 +31483,7 @@ operations involving surfaces.
 For example, imagine we have a moving ball that we want to bounce off a
 wall or other object:
 
-.. image:: img/vector_reflect1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_reflect1.png
 
 The surface normal has a value of ``(0, -1)`` because this is a horizontal
 surface. When the ball collides, we take its remaining motion (the amount
@@ -31524,11 +31524,11 @@ direction, a scalar value has only magnitude.
 
 The formula for dot product takes two common forms:
 
-.. image:: img/vector_dot1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_dot1.png
 
 and
 
-.. image:: img/vector_dot2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_dot2.png
 
 However, in most cases it is easiest to use the built-in method. Note that
 the order of the two vectors does not matter:
@@ -31548,7 +31548,7 @@ The dot product is most useful when used with unit vectors, making the
 first formula reduce to just ``cosθ``. This means we can use the dot
 product to tell us something about the angle between two vectors:
 
-.. image:: img/vector_dot3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_dot3.png
 
 When using unit vectors, the result will always be between ``-1`` (180°)
 and ``1`` (0°).
@@ -31560,7 +31560,7 @@ We can use this fact to detect whether an object is facing toward another
 object. In the diagram below, the player ``P`` is trying to avoid the
 zombies ``A`` and ``B``. Assuming a zombie's field of view is **180°**, can they see the player?
 
-.. image:: img/vector_facing2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_facing2.png
 
 The green arrows ``fA`` and ``fB`` are **unit vectors** representing the
 zombies' facing directions and the blue semicircle represents its field of
@@ -31595,9 +31595,9 @@ However, the result of the cross product is a vector with a direction
 that is perpendicular to both. Its magnitude depends on their relative angle.
 If two vectors are parallel, the result of their cross product will be a null vector.
 
-.. image:: img/vector_cross1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_cross1.png
 
-.. image:: img/vector_cross2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vector_cross2.png
 
 The cross product is calculated like this:
 
@@ -31701,7 +31701,7 @@ passes a plane. Planes divide the entire space into positive
 (over the plane) and negative (under the plane), and (contrary to
 popular belief) you can also use their math in 2D:
 
-.. image:: img/tutovec10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec10.png
 
 Unit vectors that are perpendicular to a surface (so, they describe the
 orientation of the surface) are called **unit normal vectors**. Though,
@@ -31738,7 +31738,7 @@ the **distance from the point to the plane**:
 But not just the absolute distance, if the point is in the negative half
 space the distance will be negative, too:
 
-.. image:: img/tutovec11.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec11.png
 
 This allows us to tell which side of the plane a point is.
 
@@ -31757,7 +31757,7 @@ With this in mind, let's describe a full plane as a **normal** *N* and a
 **distance from the origin** scalar *D*. Thus, our plane is represented
 by N and D. For example:
 
-.. image:: img/tutovec12.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec12.png
 
 For 3D math, Godot provides a :ref:`Plane <class_Plane>`
 built-in type that handles this.
@@ -31922,7 +31922,7 @@ We go through all planes, if we can find a plane where the distance to
 the point is positive, then the point is outside the polygon. If we
 can't, then the point is inside.
 
-.. image:: img/tutovec13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec13.png
 
 Code should be something like this:
 
@@ -31961,7 +31961,7 @@ With another polygon, we must find a plane where *all* *the* *other*
 performed with the planes of A against the points of B, and then with
 the planes of B against the points of A:
 
-.. image:: img/tutovec14.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec14.png
 
 Code should be something like this:
 
@@ -32086,13 +32086,13 @@ In 3D though, there is a problem to this approach, because it is
 possible that, in some cases a separating plane can't be found. This is
 an example of such situation:
 
-.. image:: img/tutovec22.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec22.png
 
 To avoid it, some extra planes need to be tested as separators, these
 planes are the cross product between the edges of polygon A and the
 edges of polygon B
 
-.. image:: img/tutovec23.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tutovec23.png
 
 So the final algorithm is something like:
 
@@ -32327,7 +32327,7 @@ The identity matrix represents a transform with no translation,
 no rotation, and no scale. Let's start by looking at the identity
 matrix and how its components relate to how it visually appears.
 
-.. image:: img/matrices_and_transforms/identity.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/identity.png
 
 Matrices have rows and columns, and a transformation matrix has
 specific conventions on what each does.
@@ -32354,13 +32354,13 @@ Applying a scale is one of the easiest operations to understand.
 Let's start by placing the Godot logo underneath our vectors
 so that we can visually see the effects on an object:
 
-.. image:: img/matrices_and_transforms/identity-godot.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/identity-godot.png
 
 Now, to scale the matrix, all we need to do is multiply each
 component by the scale we want. Let's scale it up by 2. 1 times 2
 becomes 2, and 0 times 2 becomes 0, so we end up with this:
 
-.. image:: img/matrices_and_transforms/scale.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/scale.png
 
 To do this in code, we can simply multiply each of the vectors:
 
@@ -32397,7 +32397,7 @@ Rotating the transformation matrix
 We'll start the same way as earlier, with the Godot logo underneath
 the identity matrix:
 
-.. image:: img/matrices_and_transforms/identity-godot.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/identity-godot.png
 
 As an example, let's say we want to rotate our Godot logo clockwise
 by 90 degrees. Right now the X axis points right and the Y axis
@@ -32414,7 +32414,7 @@ so means we'll set X to (0, 1) and Y to (-1, 0). These are
 also the values of `Vector2.DOWN` and `Vector2.LEFT`.
 When we do this, we get the desired result of rotating the object:
 
-.. image:: img/matrices_and_transforms/rotate1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/rotate1.png
 
 If you have trouble understanding the above, try this exercise:
 Cut a square of paper, draw X and Y vectors on top of it, place
@@ -32426,7 +32426,7 @@ to calculate the transformation matrix from a rotation angle.
 Don't worry if this part seems complicated, I promise it's the
 hardest thing you need to know.
 
-.. image:: img/matrices_and_transforms/rotate2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/rotate2.png
 
 .. note:: Godot represents all rotations with radians, not degrees.
           A full turn is `TAU` or `PI*2` radians, and a quarter
@@ -32443,7 +32443,7 @@ In order to perform a rotation of 0.5 radians (about 28.65 degrees),
 we simply plug in a value of 0.5 to the formula above and evaluate
 to find what the actual values should be:
 
-.. image:: img/matrices_and_transforms/rotate3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/rotate3.png
 
 Here's how that would be done in code (place the script on a Node2D):
 
@@ -32507,12 +32507,12 @@ Let's work through an example to help understand this. We will start
 with the identity transform like last time, except we will keep track
 of the origin vector this time.
 
-.. image:: img/matrices_and_transforms/identity-origin.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/identity-origin.png
 
 If we want the object to move to a position of (1, 2), we simply need
 to set its `origin` vector to (1, 2):
 
-.. image:: img/matrices_and_transforms/translate.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/translate.png
 
 There is also a `translated()` method, which performs a different
 operation to adding or changing `origin` directly. The `translated()`
@@ -32534,7 +32534,7 @@ Let's set the translation to (350, 150), rotate by -0.5 rad, and scale by 3.
 I've posted a screenshot, and the code to reproduce it, but I encourage
 you to try and reproduce the screenshot without looking at the code!
 
-.. image:: img/matrices_and_transforms/putting-all-together.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/putting-all-together.png
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -32589,7 +32589,7 @@ understanding shearing helps you understand how transforms work.
 To show you visually how it will look, let's overlay a grid onto the Godot
 logo:
 
-.. image:: img/matrices_and_transforms/identity-grid.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/identity-grid.png
 
 Each point on this grid is obtained by adding the basis vectors together.
 The bottom-right corner is X + Y, while the top-right corner is X - Y.
@@ -32600,7 +32600,7 @@ the basis vectors.
 
 As an example, let's set Y to (1, 1):
 
-.. image:: img/matrices_and_transforms/shear.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/shear.png
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -32746,7 +32746,7 @@ overwhelming with so many numbers, but remember that each number
 is displayed twice (next to the arrows and also in the matrices),
 and that almost half of the numbers are zero.
 
-.. image:: img/matrices_and_transforms/apply.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/apply.png
 
 The only transformations going on here are that the parent node has
 been given a scale of (2, 1), the child has been given a scale of
@@ -32887,7 +32887,7 @@ component and multiply it; to rotate, we change where each basis vector
 is pointing; to translate, we manipulate the origin; and to shear, we
 change the basis vectors to be non-perpendicular.
 
-.. image:: img/matrices_and_transforms/3d-identity.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/matrices_and_transforms/3d-identity.png
 
 If you would like, it's a good idea to play around with transforms
 to get an understanding of how they work. Godot allows you to edit
@@ -33004,7 +33004,7 @@ Here is simple pseudo-code for going from point A to B using interpolation:
 
 It will produce the following motion:
 
-.. image:: img/interpolation_vector.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/interpolation_vector.gif
 
 Transform interpolation
 -----------------------
@@ -33014,7 +33014,7 @@ For this, the function :ref:`Transform.interpolate_with() <class_Transform_metho
 
 Here is an example of transforming a monkey from Position1 to Position2:
 
-.. image:: img/interpolation_positions.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/interpolation_positions.png
 
 Using the following pseudocode:
 
@@ -33045,7 +33045,7 @@ Using the following pseudocode:
 
 And again, it will produce the following motion:
 
-.. image:: img/interpolation_monkey.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/interpolation_monkey.gif
 
 
 Smoothing motion
@@ -33078,7 +33078,7 @@ Interpolation can be used to smooth movement, rotation, etc. Here is an example 
 
 Here is how it looks:
 
-.. image:: img/interpolation_follow.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/interpolation_follow.gif
 
 This useful for smoothing camera movement, allies following you (ensuring they stay within a certain range), and many other common game patterns.
 
@@ -33109,7 +33109,7 @@ Quadratic Bezier
 
 Take three points, the minimum required for Quadratic Bezier to work:
 
-.. image:: img/bezier_quadratic_points.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_quadratic_points.png
 
 To draw a curve between them, we first interpolate gradually over the two
 vertices of each of the two segments formed by the three points, using values
@@ -33147,7 +33147,7 @@ along a curve.
 
 This type of curve is called a *Quadratic Bezier* curve.
 
-.. image:: img/bezier_quadratic_points2.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_quadratic_points2.gif
 
 *(Image credit: Wikipedia)*
 
@@ -33157,7 +33157,7 @@ Cubic Bezier
 Building upon the previous example, we can get more control by interpolating
 between four points.
 
-.. image:: img/bezier_cubic_points.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_cubic_points.png
 
 We first use a function with four parameters to take four points as an input,
 ``p0``, ``p1``, ``p2`` and ``p3``:
@@ -33249,7 +33249,7 @@ Here is the full function:
 
 The result will be a smooth curve interpolating between all four points:
 
-.. image:: img/bezier_cubic_points.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_cubic_points.gif
 
 *(Image credit: Wikipedia)*
 
@@ -33272,7 +33272,7 @@ This way, we have two points and two control points which are relative vectors
 to the respective points. If you've used graphics or animation software before,
 this might look familiar:
 
-.. image:: img/bezier_cubic_handles.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_cubic_handles.png
 
 This is how graphics software presents Bezier curves to the users, and how they
 work and look in Godot.
@@ -33284,7 +33284,7 @@ There are two objects that contain curves: :ref:`Curve3D <class_Curve3D>` and :r
 
 They can contain several points, allowing for longer paths. It is also possible to set them to nodes: :ref:`Path <class_Path>` and :ref:`Path2D <class_Path2D>` (also for 3D and 2D respectively):
 
-.. image:: img/bezier_path_2d.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_path_2d.png
 
 Using them, however, may not be completely obvious, so following is a description of the most common use cases for Bezier curves.
 
@@ -33314,7 +33314,7 @@ Let's do a simple example with the following pseudocode:
         Position = CubicBezier(p0, p1, p2, p3, _t);
     }
 
-.. image:: img/bezier_interpolation_speed.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_interpolation_speed.gif
 
 As you can see, the speed (in pixels per second) of the circle varies, even though ``t`` is increased at constant speed. This makes beziers difficult to use for anything practical out of the box.
 
@@ -33325,7 +33325,7 @@ Drawing beziers (or objects based on the curve) is a very common use case, but i
 
 The reason is that some sections of a curve (specifically, corners) may require considerable amounts of points, while other sections may not:
 
-.. image:: img/bezier_point_amount.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_point_amount.png
 
 Additionally, if both control points were ``0, 0`` (remember they are relative vectors), the Bezier curve would just be a straight line (so drawing a high amount of points would be wasteful).
 
@@ -33365,7 +33365,7 @@ Traversal at constant speed, then, can be done with the following pseudo-code:
 
 And the output will, then, move at constant speed:
 
-.. image:: img/bezier_interpolation_baked.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/bezier_interpolation_baked.gif
 
 
 ===================================================
@@ -33910,7 +33910,7 @@ description of each setting and how it works can be found in the :ref:`Navigatio
 Once the settings have been properly configured press the "Bake NavMesh"
 button at the top of the inspector to generate it.
 
-.. image:: img/bake_navmesh.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bake_navmesh.png
 
 .. note::
 
@@ -33920,7 +33920,7 @@ button at the top of the inspector to generate it.
 Once the mesh has finished generating you should see the transparent
 navigation mesh above the areas in the scene that can be navigated to.
 
-.. image:: img/baked_navmesh.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/baked_navmesh.png
 
 Keep in mind that the navmesh shows where the center of an entity can
 go. For example, if you set the agent radius to 0.5 then the
@@ -34409,7 +34409,7 @@ Each time this piece of code is executed on each peer, the peer makes itself mas
 To clarify, here is an example of how this looks in the
 `bomber demo <https://github.com/godotengine/godot-demo-projects/tree/master/networking/multiplayer_bomber>`_:
 
-.. image:: img/nmms.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nmms.png
 
 
 Master and puppet keywords
@@ -34535,7 +34535,7 @@ Create a new empty scene, add a CanvasLayer as the root node and add a script to
 - Button.pressed: When the button is pressed, we will start the request.
 - HTTPRequest.request_completed: When the request is completed, we will get the requested data as an argument.
 
-.. image:: img/rest_api_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/rest_api_scene.png
 
 Scripting
 ---------
@@ -34890,7 +34890,7 @@ class also supports HTTPS by using this same wrapper.
 Godot includes SSL certificates from Mozilla, but you can provide your own
 with a .crt file in the project settings:
 
-.. image:: img/ssl_certs.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ssl_certs.png
 
 This file should contain any number of public certificates in
 `PEM format <https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail>`__.
@@ -34898,7 +34898,7 @@ This file should contain any number of public certificates in
 Of course, remember to add .crt as filter so the exporter recognizes
 this when exporting your project.
 
-.. image:: img/add_crt.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/add_crt.png
 
 There are two ways to obtain certificates:
 
@@ -35146,7 +35146,7 @@ The idea is to find the fastest route between the two peers and establish whenev
 
 However, this comes at a price, which is that some media information must be exchanged between the two peers before the communication can start (in the form of Session Description Protocol - SDP strings). This usually takes the form of a so-called WebRTC Signaling Server.
 
-.. image:: img/webrtc_signaling.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/webrtc_signaling.png
 
 Peers connect to a signaling server (for example a WebSocket server) and send their media information. The server then relays this information to other peers, allowing them to establish the desired direct communication. Once this step is done, peers can disconnect from the signaling server and keep the direct Peer-to-Peer (P2P) connection open.
 
@@ -35990,8 +35990,8 @@ slow down your project significantly.
 
 After profiling, you can look back at the results for a frame.
 
-.. figure:: img/godot_profiler.png
-.. figure:: img/godot_profiler.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/godot_profiler.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/godot_profiler.png
    :alt: Screenshot of the Godot profiler
 
    Results of a profile of one of the demo projects.
@@ -36030,7 +36030,7 @@ You can use a number of third party profilers to do this including
           optimized. Bottlenecks are often in a different place in debug builds,
           so you should profile release builds whenever possible.
 
-.. figure:: img/valgrind.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/valgrind.png
    :alt: Screenshot of Callgrind
 
    Example results from Callgrind, which is part of Valgrind.
@@ -36751,7 +36751,7 @@ And now, a sleight of hand. Even though the idea of painter's order is that
 objects are rendered from back to front, consider 3 objects ``A``, ``B`` and
 ``C``, that contain 2 different textures: grass and wood.
 
-.. image:: img/overlap1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overlap1.png
 
 In painter's order they are ordered::
 
@@ -36770,7 +36770,7 @@ rendered result will be the same. What if we could take advantage of this?
 Item reordering
 ^^^^^^^^^^^^^^^
 
-.. image:: img/overlap2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overlap2.png
 
 It turns out that we can reorder items. However, we can only do this if the
 items satisfy the conditions of an overlap test, to ensure that the end result
@@ -36799,7 +36799,7 @@ Consider 2 sprites ``A`` and ``B``, with identical texture and material. Without
 lights, they would be batched together and drawn in one draw call. But with 3
 lights, they would be drawn as follows, each line being a draw call:
 
-.. image:: img/lights_overlap.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/lights_overlap.png
 
 ::
 
@@ -36823,7 +36823,7 @@ we can use the same trick to get around painter's order for lights!
 If ``A`` and ``B`` are not overlapping, we can render them together in a batch,
 so the drawing process is as follows:
 
-.. image:: img/lights_separate.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/lights_separate.png
 
 ::
 
@@ -36892,7 +36892,7 @@ The exact relationship is probably not necessary for users to worry about, but
 is included in the appendix out of interest:
 :ref:`doc_batching_light_scissoring_threshold_calculation`
 
-.. figure:: img/scissoring.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/scissoring.png
    :alt: Light scissoring example diagram
 
    Bottom right is a light, the red area is the pixels saved by the scissoring
@@ -37414,7 +37414,7 @@ and add a new :ref:`ShaderMaterial <class_ShaderMaterial>`.
 
 Here is the fish we will be using for the example images, you can use any fish model you like.
 
-.. image:: img/fish.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fish.png
 
 .. note:: The fish model in this tutorial is made by `QuaterniusDev <http://quaternius.com>`_ and is
           shared with a creative commons license. CC0 1.0 Universal (CC0 1.0) Public Domain
@@ -37460,7 +37460,7 @@ of ``cos(time)``.
 
 The resulting animation should look something like this:
 
-.. image:: img/sidetoside.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/sidetoside.gif
 
 Next, we add the pivot. Because the fish is centered at (0, 0), all we have to do is multiply ``VERTEX`` by a
 rotation matrix for it to rotate around the center of the fish.
@@ -37482,7 +37482,7 @@ And then we apply it in the ``x`` and ``z`` axes by multiplying it by ``VERTEX.x
 
 With only the pivot applied you should see something like this:
 
-.. image:: img/pivot.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/pivot.gif
 
 The next two motions need to pan down the spine of the fish. For that, we need a new variable, ``body``.
 ``body`` is a float that is ``0`` at the tail of the fish and ``1`` at its head.
@@ -37504,7 +37504,7 @@ This looks very similar to the side to side motion we defined above, but in this
 using ``body`` to offset ``cos`` each vertex along the spine has a different position in
 the wave making it look like a wave is moving along the fish.
 
-.. image:: img/wave.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/wave.gif
 
 The last motion is the twist, which is a panning roll along the spine. Similarly to the pivot,
 we first construct a rotation matrix.
@@ -37524,11 +37524,11 @@ this to work, the fish's spine needs to be centered on the ``z`` axis.
 
 Here is the fish with twist applied:
 
-.. image:: img/twist.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/twist.gif
 
 If we apply all these motions one after another, we get a fluid jelly-like motion.
 
-.. image:: img/all_motions.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/all_motions.gif
 
 Normal fish swim mostly with the back half of their body. Accordingly, we need to limit the
 panning motions to the back half of the fish. To do this, we create a new variable, ``mask``.
@@ -37543,7 +37543,7 @@ panning motions to the back half of the fish. To do this, we create a new variab
 
 Below is an image of the fish with ``mask`` used as ``COLOR``:
 
-.. image:: img/mask.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/mask.png
 
 For the wave, we multiply the motion by ``mask`` which will limit it to the back half.
 
@@ -37565,7 +37565,7 @@ version. If we multiplied that by ``mask``, we would shrink the fish.
 
 Putting the four motions together gives us the final animation.
 
-.. image:: img/all_motions_mask.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/all_motions_mask.gif
 
 Go ahead and play with the uniforms in order to alter the swim cycle of the fish. You will
 find that you can create a wide variety of swim styles using these four motions.
@@ -37809,7 +37809,7 @@ on the ``VELOCITY``. Just use ``CUSTOM.y``.
 
 This code gives you the following behavior:
 
-.. image:: img/scene.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/scene.gif
 
 Using a ParticlesMaterial you can make the fish behavior as simple or complex as you like. In this
 tutorial we only set Velocity, but in your own Shaders you can also set ``COLOR``, rotation, scale
@@ -38190,7 +38190,7 @@ These nodes allow you to draw the shape directly in the editor workspace.
                 the ``Node2D`` scale handles. Scaling a shape can result in unexpected
                 collision behavior.
 
-.. image:: img/player_coll_shape.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_coll_shape.png
 
 Physics process callback
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38242,7 +38242,7 @@ Keeping track of what you're using each layer for can be difficult, so you
 may find it useful to assign names to the layers you're using. Names can
 be assigned in Project Settings -> Layer Names.
 
-.. image:: img/physics_layer_names.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/physics_layer_names.png
 
 GUI example
 ^^^^^^^^^^^
@@ -38257,8 +38257,8 @@ place each node type in its respective layer using the "Layer" property.
 Then set each node's "Mask" property by selecting the layers it should
 interact with. For example, the Player's settings would look like this:
 
-.. image:: img/player_collision_layers.png
-.. image:: img/player_collision_mask.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_collision_layers.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/player_collision_mask.png
 
 .. _doc_physics_introduction_collision_layer_code_example:
 
@@ -38729,7 +38729,7 @@ Area properties
 
 Areas have many properties you can use to customize their behavior.
 
-.. image:: img/area2d_properties.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/area2d_properties.png
 
 The first eight properties are used to configure the area's physics override
 behavior. We'll look at how to use those in the section below.
@@ -38758,7 +38758,7 @@ to disappear when the player touches it.
 
 Here's the node setup for the coin:
 
-.. image:: img/area2d_coin_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/area2d_coin_nodes.png
 
 To detect the overlap, we'll connect the appropriate signal on the Area2d. Which
 signal to use depends on the player's node type. If the player is another area,
@@ -38835,7 +38835,7 @@ Examples
 The example project attached below has three areas demonstrating physics
 override.
 
-.. image:: img/area2d_override.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/area2d_override.gif
 
 You can download this project here:
 :download:`using_area_2d.zip <files/using_area_2d.zip>`
@@ -39009,7 +39009,7 @@ is that ``move_and_slide()`` is a special case, and ``move_and_collide()``
 is more general. For example, the following two code snippets result in
 the same collision response:
 
-.. image:: img/k2d_compare.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/k2d_compare.gif
 
 .. tabs::
  .. code-tab:: gdscript GDScript
@@ -39326,7 +39326,7 @@ If the colliding object (``collider``) has a ``hit`` method,
 we also call it. In the example project, we've added a flashing color effect to
 the Wall to demonstrate this.
 
-.. image:: img/k2d_bullet_bounce.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/k2d_bullet_bounce.gif
 
 Platformer movement
 ~~~~~~~~~~~~~~~~~~~
@@ -39418,7 +39418,7 @@ Here's the code for the player body:
         }
     }
 
-.. image:: img/k2d_platform.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/k2d_platform.gif
 
 When using ``move_and_slide()``, the function returns a vector representing the
 movement that remained after the slide collision occurred. Setting that value back
@@ -39603,7 +39603,7 @@ about the world around it. One problem with this is that the same character
 has a collider, so the ray will only detect its parent's collider,
 as shown in the following image:
 
-.. image:: img/raycast_falsepositive.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/raycast_falsepositive.png
 
 To avoid self-intersection, the ``intersect_ray()`` function can take an
 optional third parameter which is an array of exceptions. This is an
@@ -39682,7 +39682,7 @@ orthogonal. Because of this, both the ray origin and direction must be
 obtained. This is because ``origin`` changes in orthogonal mode, while
 ``normal`` changes in perspective mode:
 
-.. image:: img/raycast_projection.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/raycast_projection.png
 
 To obtain it using a camera, the following code can be used:
 
@@ -39744,11 +39744,11 @@ Like many other features in the engine, there is a node to set up a ragdoll: the
 
 Open the platformer demo in Godot, and then the Robi scene. Select the ``Skeleton`` node. A skeleton button appears on the top bar menu:
 
-.. image:: img/ragdoll_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_menu.png
 
 Click it and select the ``Create physical skeleton`` option. Godot will generate ``PhysicalBone`` nodes and collision shapes for each bone in the skeleton and pin joints to connect them together:
 
-.. image:: img/ragdoll_bones.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_bones.png
 
 Some of the generated bones aren't necessary: the ``MASTER`` bone for example. So we're going to clean up the skeleton by removing them.
 
@@ -39766,18 +39766,18 @@ Collision shape adjustment
 
 The next task is adjusting the collision shape and the size of physical bones to match the part of the body that each bone should simulate.
 
-.. image:: img/ragdoll_shape_adjust.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_shape_adjust.gif
 
 Joints adjustment
 ~~~~~~~~~~~~~~~~~
 
 Once you adjusted the collision shapes, your ragdoll is almost ready. You just want to adjust the pin joints to get a better simulation. ``PhysicalBone`` nodes have an unconstrained pin joint assigned to them by default. To change the pin joint, select the ``PhysicalBone`` and change the constraint type in the ``Joint`` section. There, you can change the constraint's orientation and its limits.
 
-.. image:: img/ragdoll_joint_adjust.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_joint_adjust.gif
 
 This is the final result:
 
-.. image:: img/ragdoll_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_result.png
 
 Simulating the ragdoll
 ----------------------
@@ -39792,18 +39792,18 @@ The ragdoll is now ready to use. To start the simulation and play the ragdoll an
 
 To stop the simulation, call the ``physical_bones_stop_simulation()`` method.
 
-.. image:: img/ragdoll_sim_stop.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_sim_stop.gif
 
 You can also limit the simulation to only a few bones. To do so, pass the bone names as a parameter. Here's an example of partial ragdoll simulation:
 
-.. image:: img/ ragdoll_sim_part.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/ ragdoll_sim_part.gif
 
 Collision layer and mask
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Make sure to set up your collision layers and masks properly so the ``KinematicBody``'s capsule doesn't get in the way of the physics simulation:
 
-.. image:: img/ragdoll_layer.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ragdoll_layer.png
 
 For more information, read :ref:`doc_physics_introduction_collision_layers_and_masks`.
 
@@ -39896,14 +39896,14 @@ To have something to test, here's the scene (from the tilemap tutorial):
 :download:`kbscene.zip <files/kbscene.zip>`. We'll be creating a new scene
 for the character. Use the robot sprite and create a scene like this:
 
-.. image:: img/kbscene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/kbscene.png
 
 You'll notice that there's a warning icon next to our CollisionShape2D node;
 that's because we haven't defined a shape for it. Create a new CircleShape2D
 in the shape property of CollisionShape2D. Click on <CircleShape2D> to go to the
 options for it, and set the radius to 30:
 
-.. image:: img/kbradius.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/kbradius.png
 
 **Note: As mentioned before in the physics tutorial, the physics engine
 can't handle scale on most types of shapes (only collision polygons,
@@ -39918,7 +39918,7 @@ above should work as a base.
 Finally, instance that character scene in the tilemap, and make the
 map scene the main one, so it runs when pressing play.
 
-.. image:: img/kbinstance.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/kbinstance.png
 
 Moving the kinematic character
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40091,11 +40091,11 @@ We will create a bouncy cube to demonstrate the setup of a soft body.
 
 Create a new scene with a ``Spatial`` node as root. Then, create a ``Softbody`` node. Add a ``CubeMesh`` in the ``mesh`` property of the node in the inspector and increase the subdivision of the mesh for simulation.
 
-.. image:: img/softbody_cube.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cube.png
 
 Set the parameters to obtain the type of soft body you aim for. Try to keep the ``Simulation Precision`` above 5, otherwise, the soft body may collapse.
 
-.. image:: img/softbody_cube_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cube_menu.png
 
 .. note:: Handle some parameters with care, as some value can lead to strange results. For example, if the shape is not completely closed and you set pressure to more than 0, the softbody will fly around like a plastic bag under strong wind.
 
@@ -40114,7 +40114,7 @@ Open the ``Player`` scene, add a ``SoftBody`` node and assign a ``PlaneMesh`` to
 
 Open the ``PlaneMesh`` properties and set the size(x: 0.5 y: 1) then set ``Subdivide Width`` and ``Subdivide Depth`` to 5. Adjust the ``SoftBody``'s position. You should end up with something like this:
 
-.. image:: img/softbody_cloak_subdivide.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cloak_subdivide.png
 
 .. tip:: Subdivision generates a more tessellated mesh for better simulations.
 
@@ -40122,23 +40122,23 @@ Add a :ref:`BoneAttachment <class_BoneAttachment>` node under the skeleton node 
 
 .. note:: ``BoneAttachment`` node is to attach objects to a bone of a armature. The attached object will follow the bone's movement, weapon of a character can be attached this way.
 
-.. image:: img/softbody_cloak_bone_attach.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cloak_bone_attach.png
 
 To create pinned joints, select the upper vertices in the ``SoftBody`` node:
 
-.. image:: img/softbody_cloak_pinned.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cloak_pinned.png
 
 The pinned joints can be found in ``SoftBody``'s ``Attachments`` property, choose the ``BoneAttachment`` as the ``SpatialAttachment`` for each pinned joints, the pinned joints are now attached to the neck.
 
-.. image:: img/softbody_cloak_pinned_attach.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cloak_pinned_attach.png
 
 Last step is to avoid clipping by adding the Kinematic Body `Player` to ``Parent Collision Ignore`` of the ``SoftBody``.
 
-.. image:: img/softbody_cloak_ignore.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cloak_ignore.png
 
 Play the scene and the cloak should simulate correctly.
 
-.. image:: img/softbody_cloak_finish.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/softbody_cloak_finish.png
 
 This covers the basic settings of softbody, experiment with the parameters to achieve the effect you are aiming for when making your game.
 
@@ -40348,7 +40348,7 @@ But there is a problem here. What happens if the physics ticks do not coincide w
 
 This problem is easier to understand if we consider an extreme scenario. If you set the physics tick rate to 10 ticks per second, in a simple game with a rendered frame rate of 60 FPS. If we plot a graph of the positions of an object against the rendered frames, you can see that the positions will appear to "jump" every 1/10th of a second, rather than giving a smooth motion. When the physics calculates a new position for a new object, it is not rendered in this position for just one frame, but for 6 frames.
 
-.. image:: img/fti_graph_fixed_ticks.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fti_graph_fixed_ticks.png
 
 This jump can be seen in other combinations of tick / frame rate as glitches, or jitter, caused by this staircasing effect due to the discrepancy between physics tick time and rendered frame time.
 
@@ -40384,7 +40384,7 @@ Instead of keeping track of just the current position of a physics object in the
 
 Why do we need the previous position *(in fact the entire transform, including rotation and scaling)*? By using a little math magic, we can use **interpolation** to calculate what the transform of the object would be between those two points, in our ideal world of smooth continuous movement.
 
-.. image:: img/fti_graph_interpolated.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fti_graph_interpolated.png
 
 Linear interpolation
 ^^^^^^^^^^^^^^^^^^^^
@@ -40584,7 +40584,7 @@ There are two ways of doing this:
 
 1) Move the Camera so it is independent on its own branch, rather than being a child of a moving object.
 
-.. image:: img/fti_camera_worldspace.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fti_camera_worldspace.png
 
 2) Call :ref:`Spatial.set_as_toplevel<class_Spatial_method_set_as_toplevel>` and set this to ``true``, which will make the Camera ignore the transform of its parent.
 
@@ -40835,7 +40835,7 @@ Move the plugin configuration file (e.g.: ``MyPlugin.gdap``) and, if any, its lo
 
 The Godot editor will automatically parse all ``.gdap`` files in the ``res://android/plugins`` directory and show a list of detected and toggleable plugins in the Android export presets window under the **Plugins** section.
 
-.. image:: img/android_export_preset_plugins_section.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/android_export_preset_plugins_section.png
 
 From your script:
 
@@ -41091,7 +41091,7 @@ An iOS plugin requires a ``.gdip`` configuration file, a binary file which can b
 
 3. You can find and activate detected plugins by going to Project -> Export... -> iOS and in the Options tab, scrolling to the Plugins section.
 
-.. image:: img/ios_export_preset_plugins_section.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/ios_export_preset_plugins_section.png
 
 When a plugin is active, you can access it in your using ``Engine.get_singleton()``::
 
@@ -42231,7 +42231,7 @@ The following optional placeholders will enable some extra features in your cust
 When the custom page is ready, it can be selected in the export options under the *Html / Custom Html Shell*
 section.
 
-.. image:: img/html5_export_options.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/html5_export_options.png
 
 Starting the project
 --------------------
@@ -42588,7 +42588,7 @@ The preferred way to find Godot plugins is to use the
 browsed online, it's more convenient to use it directly from the editor.
 To do so, click the **AssetLib** tab at the top of the editor:
 
-.. image:: img/installing_plugins_assetlib_tab.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/installing_plugins_assetlib_tab.png
 
 You can also find assets on code hosting websites such as GitHub.
 
@@ -42618,7 +42618,7 @@ declared to be stable by its author.
 On GitHub, if the plugin doesn't have any *tags* declared, use the **Download ZIP**
 button to download a ZIP of the latest revision:
 
-.. image:: img/installing_plugins_github_download_zip.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/installing_plugins_github_download_zip.png
 
 Extract the ZIP archive and move the ``addons/`` folder it contains into your
 project folder. If your project already contains an ``addons/`` folder, move the
@@ -42635,7 +42635,7 @@ correctly, you should see it in the list of plugins. Click on the gray
 **Inactive** text and choose **Active** to enable the plugin. The word
 **Active** will display in green to confirm the plugin was enabled.
 
-.. image:: img/installing_plugins_project_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/installing_plugins_project_settings.png
 
 
 You can use the plugin immediately after enabling it; there's no need to restart
@@ -42685,7 +42685,7 @@ on the ``Create`` button in the top-right.
 
 You will see the dialog appear, like so:
 
-.. image:: img/making_plugins-create_plugin_dialog.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-create_plugin_dialog.png
 
 The placeholder text in each field describes how it affects the plugin's
 creation of the files and the config file's values.
@@ -42724,7 +42724,7 @@ To continue with the example, use the following values:
 
 You should end up with a directory structure like this:
 
-.. image:: img/making_plugins-my_custom_mode_folder.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-my_custom_mode_folder.png
 
 ``plugin.cfg`` is a simple INI file with metadata about your plugin.
 The name and description help people understand what it does.
@@ -42862,7 +42862,7 @@ don't have one, you can grab the default one from the engine and save it in your
 `addons/my_custom_node` folder as `icon.png`, or use the default Godot logo
 (`preload("res://icon.png")`). You can also use SVG icons if desired.
 
-.. image:: img/making_plugins-custom_node_icon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-custom_node_icon.png
 
 Now, we need to add it as a custom type so it shows on the **Create New Node**
 dialog. For that, change the ``custom_node.gd`` script to the following:
@@ -42917,13 +42917,13 @@ With that done, the plugin should already be available in the plugin list in the
 
 Then try it out by adding your new node:
 
-.. image:: img/making_plugins-custom_node_create.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-custom_node_create.png
 
 When you add the node, you can see that it already has the script you created
 attached to it. Set a text to the button, save and run the scene. When you
 click the button, you can see some text in the console:
 
-.. image:: img/making_plugins-custom_node_console.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-custom_node_console.png
 
 A custom dock
 ^^^^^^^^^^^^^
@@ -42971,7 +42971,7 @@ The name of the root node will also be the name that appears on the dock tab,
 so be sure to give it a short and descriptive name.
 Also, don't forget to add some text to your button.
 
-.. image:: img/making_plugins-my_custom_dock_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-my_custom_dock_scene.png
 
 Save this scene as ``my_dock.tscn``. Now, we need to grab the scene we created
 then add it as a dock in the editor. For this, you can rely on the function
@@ -43050,13 +43050,13 @@ Settings** and click on the **Plugins** tab. Your plugin should be the only one
 on the list. If it is not showing, click on the **Update** button in the
 top-right corner.
 
-.. image:: img/making_plugins-project_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-project_settings.png
 
 You can see the plugin is inactive on the **Status** column; click on the status
 to select **Active**. The dock should become visible before you even close
 the settings window. You should now have a custom dock:
 
-.. image:: img/making_plugins-custom_dock.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/making_plugins-custom_dock.png
 
 Going beyond
 ~~~~~~~~~~~~
@@ -43466,7 +43466,7 @@ resource will be imported. If a set of selected options is common, you can also
 create different presets to make it easier for the user. The following image
 shows how the options will appear in the editor:
 
-.. image:: img/import_plugin_options.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/import_plugin_options.png
 
 Since there might be many presets and they are identified with a number, it's a
 good practice to use an enum so you can refer to them using names.
@@ -43709,7 +43709,7 @@ SphereMesh. Unfold the Material section in the Inspector and then drag the file
 from the FileSystem dock to the material property. The object will update in the
 viewport with the blue color of the imported material.
 
-.. image:: img/import_plugin_trying.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/import_plugin_trying.png
 
 Go to Import dock, enable the "Use Red Anyway" option, and click on "Reimport".
 This will update the imported material and should automatically update the view
@@ -43984,7 +43984,7 @@ This guide explains how to use the :ref:`class_EditorInspectorPlugin` and
 replacing the default behavior with a button that generates random values
 between 0 and 99.
 
-.. figure:: img/inspector_plugin_example.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/inspector_plugin_example.png
    :align: center
 
    The default behavior on the left and the end result on the right.
@@ -44302,15 +44302,15 @@ code from this `GPU noise shaders plugin
 
 Create a Sprite and assign a :ref:`class_ShaderMaterial` to its material slot:
 
-.. image:: img/visual_shader_plugins_start.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_plugins_start.png
 
 Assign :ref:`class_VisualShader` to the shader slot of the material:
 
-.. image:: img/visual_shader_plugins_start2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_plugins_start2.png
 
 Don't forget to change its mode to "CanvasItem" (if you are using a Sprite):
 
-.. image:: img/visual_shader_plugins_start3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_plugins_start3.png
 
 Create a script which derives from :ref:`class_VisualShaderNodeCustom`. This is
 all you need to initialize your plugin.
@@ -44477,11 +44477,11 @@ all you need to initialize your plugin.
 
 Save it and open the Visual Shader. You should see your new node type within the member's dialog (if you can't see your new node, try restarting the editor):
 
-.. image:: img/visual_shader_plugins_result1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_plugins_result1.png
 
 Place it on a graph and connect the required ports:
 
-.. image:: img/visual_shader_plugins_result2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_plugins_result2.png
 
 That is everything you need to do, as you can see it is easy to create your own custom VisualShader nodes!
 
@@ -44618,7 +44618,7 @@ Add a ``Sprite`` node to your scene and set the texture to Godot icon. Attach an
 
 Save the script and return to the editor. You should now see your object rotate. If you run the game, it will also rotate.
 
-.. image:: img/rotating_in_editor.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/rotating_in_editor.gif
 
 .. note:: If you don't see the changes, reload the scene (close it and open it again).
 
@@ -44803,7 +44803,7 @@ Think of a :ref:`Viewport <class_Viewport>` as a screen onto which the game is p
 to see the game, we need to have a surface on which to draw it; that surface is
 the Root :ref:`Viewport <class_Viewport>`.
 
-.. image:: img/viewportnode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/viewportnode.png
 
 
 :ref:`Viewports <class_Viewport>` can also be added to the scene so that there
@@ -44836,7 +44836,7 @@ nearest :ref:`Viewport <class_Viewport>` in the tree, but you can set :ref:`View
 'Disable Input' to 'on'; this will allow the next nearest :ref:`Viewport <class_Viewport>` in the tree to capture
 the input.
 
-.. image:: img/input.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/input.png
 
 For more information on how Godot handles input, please read the :ref:`Input Event Tutorial<doc_inputevent>`.
 
@@ -44857,7 +44857,7 @@ When using a :ref:`Camera <class_Camera>` /
 closest parent :ref:`Viewport <class_Viewport>` (going towards the root). For example, in the
 following hierarchy:
 
-.. image:: img/cameras.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cameras.png
 
 CameraA will display on the Root :ref:`Viewport <class_Viewport>` and it will draw MeshA. CameraB
 will be captured by the :ref:`Viewport <class_Viewport>` Node along with MeshB. Even though MeshB is in the scene
@@ -44957,7 +44957,7 @@ Viewport Container
 
 If the :ref:`Viewport <class_Viewport>` is a child of a :ref:`ViewportContainer <class_viewportcontainer>`, it will become active and display anything it has inside. The layout looks like this:
 
-.. image:: img/container.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/container.png
 
 The :ref:`Viewport <class_Viewport>` will cover the area of its parent :ref:`ViewportContainer <class_viewportcontainer>` completely
 if :ref:`Stretch<class_viewportcontainer_property_stretch>` is set to ``true`` in :ref:`ViewportContainer <class_viewportcontainer>`.
@@ -44984,7 +44984,7 @@ Godot also provides a way of customizing how everything is drawn inside :ref:`Vi
 Debug Draw allows you to specify one of four options for how the :ref:`Viewport <class_Viewport>` will display things drawn
 inside it. Debug Draw is disabled by default.
 
-.. image:: img/default_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/default_scene.png
 
 *A scene drawn with Debug Draw disabled*
 
@@ -44992,13 +44992,13 @@ The other three options are Unshaded, Overdraw, and Wireframe. Unshaded draws th
 without using lighting information so all the objects appear flatly colored the color of
 their albedo.
 
-.. image:: img/unshaded.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/unshaded.png
 
 *The same scene with Debug Draw set to Unshaded*
 
 Overdraw draws the meshes semi-transparent with an additive blend so you can see how the meshes overlap.
 
-.. image:: img/overdraw.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overdraw.png
 
 *The same scene with Debug Draw set to Overdraw*
 
@@ -45023,11 +45023,11 @@ This can be requested via code using (for example):
 
 Or it can be assigned in the editor by selecting "New ViewportTexture"
 
-.. image:: img/texturemenu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/texturemenu.png
 
 and then selecting the :ref:`Viewport <class_Viewport>` you want to use.
 
-.. image:: img/texturepath.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/texturepath.png
 
 Every frame, the :ref:`Viewport <class_Viewport>`'s texture is cleared away with the default clear color (or a transparent
 color if :ref:`Transparent Bg<class_Viewport_property_transparent_bg>` is set to ``true``). This can be changed by setting :ref:`Clear Mode<class_Viewport_property_render_target_clear_mode>` to Never or Next Frame.
@@ -45112,7 +45112,7 @@ Base size
 A base size for the window can be specified in the Project Settings under
 **Display → Window**.
 
-.. image:: img/screenres.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/screenres.png
 
 However, what it does is not completely obvious; the engine will *not*
 attempt to switch the monitor to this resolution. Rather, think of this
@@ -45164,7 +45164,7 @@ Stretch settings
 
 Stretch settings are located in the project settings and provide several options:
 
-.. image:: img/stretchsettings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/stretchsettings.png
 
 Stretch Mode
 ^^^^^^^^^^^^
@@ -45172,14 +45172,14 @@ Stretch Mode
 The **Stretch Mode** setting defines how the base size is stretched to fit
 the resolution of the window or screen.
 
-.. image:: img/stretch.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/stretch.png
 
 The animations below use a "base size" of just 16×9 pixels to
 demonstrate the effect of different stretch modes. A single sprite, also
 16×9 pixels in size, covers the entire viewport, and a diagonal
 :ref:`Line2D <class_Line2D>` is added on top of it:
 
-.. image:: img/stretch_demo_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/stretch_demo_scene.png
 
 .. Animated GIFs are generated from:
 .. https://github.com/ttencate/godot_scaling_mode
@@ -45188,7 +45188,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    unit in the scene corresponds to one pixel on the screen. In this
    mode, the **Stretch Aspect** setting has no effect.
 
-   .. image:: img/stretch_disabled_expand.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_disabled_expand.gif
 
 -  **Stretch Mode = 2D**: In this mode, the base size specified in
    width and height in the project settings is
@@ -45198,7 +45198,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    while in 2D, there is no longer a 1:1 correspondence between sprite
    pixels and screen pixels, which may result in scaling artifacts.
 
-   .. image:: img/stretch_2d_expand.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_2d_expand.gif
 
 -  **Stretch Mode = Viewport**: Viewport scaling means that the size of
    the root :ref:`Viewport <class_Viewport>` is set precisely to the
@@ -45207,7 +45207,7 @@ demonstrate the effect of different stretch modes. A single sprite, also
    is scaled to fit the screen (taking the **Stretch Aspect** setting into
    account).
 
-   .. image:: img/stretch_viewport_expand.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_viewport_expand.gif
 
 Stretch Aspect
 ^^^^^^^^^^^^^^
@@ -45226,7 +45226,7 @@ to the region outside the blue frame you see in the 2D editor.
    result in nonuniform stretching: things looking wider or taller than
    designed.
 
-   .. image:: img/stretch_viewport_ignore.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_viewport_ignore.gif
 
 -  **Stretch Aspect = Keep**: Keep aspect ratio when stretching the
    screen. This means that the viewport retains its original size
@@ -45238,7 +45238,7 @@ to the region outside the blue frame you see in the 2D editor.
    devices in advance, or if you don't want to handle different aspect
    ratios.
 
-   .. image:: img/stretch_viewport_keep.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_viewport_keep.gif
 
 -  **Stretch Aspect = Keep Width**: Keep aspect ratio when stretching the
    screen. If the screen is wider than the base size, black bars are
@@ -45251,7 +45251,7 @@ to the region outside the blue frame you see in the 2D editor.
    so some controls can be anchored to the bottom
    (:ref:`doc_size_and_anchors`).
 
-   .. image:: img/stretch_viewport_keep_width.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_viewport_keep_width.gif
 
 -  **Stretch Aspect = Keep Height**: Keep aspect ratio when stretching
    the screen. If the screen is taller than the base size, black
@@ -45263,7 +45263,7 @@ to the region outside the blue frame you see in the 2D editor.
    This is usually the best option for 2D games that scroll horizontally
    (like runners or platformers).
 
-   .. image:: img/stretch_viewport_keep_height.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_viewport_keep_height.gif
 
 -  **Stretch Aspect = Expand**: Keep aspect ratio when stretching the
    screen, but keep neither the base width nor height. Depending on the
@@ -45272,7 +45272,7 @@ to the region outside the blue frame you see in the 2D editor.
    in the vertical direction (if the screen is taller than the original
    size).
 
-   .. image:: img/stretch_viewport_expand.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/stretch_viewport_expand.gif
 
 .. tip::
 
@@ -45530,16 +45530,16 @@ Distinguishing between jitter and stutter
 
 A game running at a normal framerate without exhibiting any effect will appear smooth:
 
-.. image:: img/motion_normal.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/motion_normal.gif
 
 A game exhibiting *jitter* will shake constantly in a very subtle way:
 
-.. image:: img/motion_jitter.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/motion_jitter.gif
 
 Finally, a game exhibiting *stutter* will appear smooth, but appear to *stop* or
 *roll back a frame* every few seconds:
 
-.. image:: img/motion_stutter.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/motion_stutter.gif
 
 
 Jitter
@@ -47144,7 +47144,7 @@ class will then appear with its new icon in the editor::
    extends Node
    class_name Item, "res://interface/icons/item.png"
 
-.. image:: img/class_name_editor_register_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/class_name_editor_register_example.png
 
 .. warning::
 
@@ -47573,7 +47573,7 @@ These arguments show up in the editor's node dock, and Godot can use them to
 generate callback functions for you. However, you can still emit any number of
 arguments when you emit signals; it's up to you to emit the correct values.
 
-.. image:: img/gdscript_basics_signals_node_tab_1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdscript_basics_signals_node_tab_1.png
 
 GDScript can bind an array of values to connections between a signal
 and a method. When the signal is emitted, the callback method receives
@@ -49692,14 +49692,14 @@ options for a class called ``PlayerController``.
 You've probably stored a node in a variable before, and typed a dot to
 be left with no autocomplete suggestions:
 
-.. figure:: img/typed_gdscript_code_completion_dynamic.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_code_completion_dynamic.png
    :alt: code completion options for dynamic
 
 This is due to dynamic code. Godot cannot know what node or value type
 you're passing to the function. If you write the type explicitly
 however, you will get all public methods and variables from the node:
 
-.. figure:: img/typed_gdscript_code_completion_typed.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_code_completion_typed.png
    :alt: code completion options for typed
 
 In the future, typed GDScript will also increase code performance:
@@ -49835,7 +49835,7 @@ node: ``($Timer as Timer)``, ``($Player as KinematicBody2D)``, etc.
 Godot will ensure the type works and if so, the line number will turn
 green at the left of the script editor.
 
-.. figure:: img/typed_gdscript_safe_unsafe_line.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_safe_unsafe_line.png
    :alt: Unsafe vs Safe Line
 
    Unsafe line (line 7) vs Safe Lines (line 6 and 8)
@@ -50036,7 +50036,7 @@ to runtime errors.
 You can configure warnings in the Project Settings under the section
 called **Gdscript**:
 
-.. figure:: img/typed_gdscript_warning_system_settings.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_warning_system_settings.png
    :alt: Warning system project settings
 
    Warning system project settings
@@ -50044,7 +50044,7 @@ called **Gdscript**:
 You can find a list of warnings for the active GDScript file in the
 script editor's status bar. The example below has 3 warnings:
 
-.. figure:: img/typed_gdscript_warning_example.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_warning_example.png
    :alt: Warning system example
 
    Warning system example
@@ -50055,7 +50055,7 @@ right of the warning's description. Godot will add a comment above the
 corresponding line and the code won't trigger the corresponding warning
 anymore:
 
-.. figure:: img/typed_gdscript_warning_system_ignore.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_warning_system_ignore.png
    :alt: Warning system ignore example
 
    Warning system ignore example
@@ -50070,7 +50070,7 @@ all warnings. Head to the ``GDScript`` section of the Project Settings to
 turn on this option. Here's the same file as the previous example with
 warnings as errors turned on:
 
-.. figure:: img/typed_gdscript_warning_system_errors.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/typed_gdscript_warning_system_errors.png
    :alt: Warnings as errors
 
    Warnings as errors
@@ -50435,14 +50435,14 @@ this feature would work best with the engine.
 
 In Godot, a Visual Script fits smoothly together with regular scripts in the Editor tab
 
-.. image:: img/visual_script1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script1.png
 
 
 In fact, Visual Scripting integrates so well to Godot that it's hard to believe it was added only
 in version 3.0. This is because, when editing, the rest of Godot panels and docks act like a
 palette from where you can drag and drop all sorts of information to the script canvas:
 
-.. image:: img/visual_script2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script2.png
 
 
 Creating a script
@@ -50451,18 +50451,18 @@ Creating a script
 Creating scripts works the same as with other scripting languages: Select any node in the scene
 and push the "New Script" button at the top right corner of the Scene Tree dock:
 
-.. image:: img/visual_script3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script3.png
 
 
 Once it opens, the script type "Visual Script" must be selected from the drop down list. The script extension
 must be ".vs" (for Visual Script!).
 
-.. image:: img/visual_script4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script4.png
 
 
 Finally, the Script Editor will open, allowing you to start editing the visual script:
 
-.. image:: img/visual_script5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script5.png
 
 
 Adding a function
@@ -50485,24 +50485,24 @@ Most types of nodes and other types of objects in Godot contain virtual function
 will be called (run your code) when something happens and can be looked up in the reference. Virtual functions
 are listed when pressing the "Override" icon in the member panel:
 
-.. image:: img/visual_script6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script6.png
 
 
 In the following example, a function will be executed when the node is loaded and added to the running scene.
 For this, the _ready() virtual method will be overridden:
 
-.. image:: img/visual_script7.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script7.png
 
 
 Finally, a canvas appears for this function, showing the override:
 
-.. image:: img/visual_script8.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script8.png
 
 
 As some functions expect you to return a value, they will also add a return node where such value is supposed to be
 provided:
 
-.. image:: img/visual_script9.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script9.png
 
 
 Connecting a signal to a function
@@ -50514,19 +50514,19 @@ A typical example would be a button that emits a "pressed" signal when actually 
 For this, a node must be selected and the Node tab opened. This will allow inspecting the signals.
 Once they are displayed, connect the "pressed" signal:
 
-.. image:: img/visual_script10.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script10.png
 
 
 This will open the connection dialog. In this dialog, you must select the node where the signal will be
 connected to, and the function that will receive the signal:
 
-.. image:: img/visual_script11.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script11.png
 
 
 If this is done right, a new function will be created in our script and a signal will automatically be
 connected to it:
 
-.. image:: img/visual_script12.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script12.png
 
 
 Creating a function manually
@@ -50539,19 +50539,19 @@ The main use cases for this are breaking a larger function up into several manag
 To create a function manually, push the big "Plus" button, and a new function will be added
 with a default name:
 
-.. image:: img/visual_script13.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script13.png
 
 
 This will add a new function, which can be renamed by simply double clicking its name:
 
 
-.. image:: img/visual_script14.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script14.png
 
 
 To edit the "arguments" this function can get (the values you pass to it when you call this function),
 simply click the Function node and check the inspector:
 
-.. image:: img/visual_script15.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script15.png
 
 
 More on that will be explained later in this document.
@@ -50571,7 +50571,7 @@ When referring to *Visual Script Nodes* (or generally *Nodes*) this text will re
 When referring to *Scene Nodes*, it is implied that the elements that make up a Scene are being referred, which are part of a tree. Their naming is similar but their function is different.
 When referring to *Node* here, it will be implied that a *Visual Script Node* is referred to unless indicated otherwise.
 
-.. image:: img/visual_script16.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script16.png
 
 
 Node properties
@@ -50597,7 +50597,7 @@ Nodes in Godot Visual Scripting have *Ports*. These are endpoints that appear to
 left and right of nodes and which can be used to make *Connections*:
 There are two types of *Ports*: *Sequence* and *Data*.
 
-.. image:: img/visual_script17.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script17.png
 
 
 *Sequence Ports* indicate the order in which operations are executed.
@@ -50614,7 +50614,7 @@ a port on the left side is an input. Connecting them allows information to flow 
 Not all *Data Port* types are compatible and will allow connections, though.
 Pay special attention to colors and icons, as each type has a different representation:
 
-.. image:: img/visual_script18.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script18.png
 
 
 Connections
@@ -50622,13 +50622,13 @@ Connections
 
 Connecting is a relatively simple process. Drag an *Output Port* towards an *Input Port*.
 
-.. image:: img/visual_script_connect.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script_connect.gif
 
 
 Disconnecting takes a bit more practice. Disconnecting in *Data Ports* happens by
 dragging the *Input* away, while for *Sequence Ports*, this happens by dragging the *Output* away.
 
-.. image:: img/visual_script_disconnect.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script_disconnect.gif
 
 
 This may seem strange at first, but it happens because *Data Ports* are 1:N
@@ -50638,12 +50638,12 @@ This may seem strange at first, but it happens because *Data Ports* are 1:N
 Connecting to empty space (drag to connect but unpress over empty space) is also context sensitive, it will supply
 a list of most common operations. For sequences, it will be conditional nodes:
 
-.. image:: img/visual_script52.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script52.png
 
 
 While, for data, a contextual set/get/call menu will open:
 
-.. image:: img/visual_script53.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script53.png
 
 
 Adding nodes
@@ -50659,14 +50659,14 @@ Accessing scene nodes
 One of the most common tasks is accessing Scene Tree Nodes (again, not to mistake with *Visual Script Nodes*).
 Dragging from the Scene Tree and dropping into the canvas will ask you to *call a method* (sometimes referred to as *member function*) on this node.
 
-.. image:: img/visual_script19.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script19.png
 
 
 While accessing properties is desired in most cases (more on that below), sometimes *calling methods* can be useful too.
 Methods execute specific actions on objects. In the above case, the mouse pointer can be warped to a position in local
 coordinates to the control. Another common use case is queueing a node for deletion, which is done with the *queue_free* method.
 
-.. image:: img/visual_script20.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script20.png
 
 
 Care must be taken that this only works if the scene being edited contains your *Visual Script* in one of the nodes! Otherwise, a warning will be shown.
@@ -50677,14 +50677,14 @@ Accessing scene node properties
 
 This is the most common way to edit *Scene Nodes* in Visual Scripting. Select a *Scene Node* from the *Scene Tree*, go to the Inspector, find *the Name* of the property you want to edit (hint, *not* the value!) and drag it to the canvas:
 
-.. image:: img/visual_script21.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script21.png
 
 
 The result is that this value can be changed from your script by writing to a *Data Port*.
 
 If instead reading this value is desired, drag the node again but hold :kbd:`Ctrl` (or :kbd:`Cmd` on macOS). This will create a getter:
 
-.. image:: img/visual_script22.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script22.png
 
 
 In this case, the value can be read from a *Data Port*.
@@ -50697,30 +50697,30 @@ Variables are memory containers local to the script which can hold a value. This
 
 To add a Variable, push the "+" button on the *Variables* section of the Members panel. Double-click the new variable to rename it:
 
-.. image:: img/visual_script23.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script23.png
 
 
 Right-clicking the variable allows you to configure its properties:
 
-.. image:: img/visual_script24.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script24.png
 
-.. image:: img/visual_script25.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script25.png
 
 
 As it can be seen above, the type and initial value of the variable can be changed, as well as some property hints.
 Ticking the "Export" option makes the variable visible in the Inspector when selecting the node. This also makes it available to other scripts via the method described in the previous step.
 
-.. image:: img/visual_script28.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script28.png
 
 
 To use the variable in the script, simply drag it to the canvas to create a getter:
 
-.. image:: img/visual_script26.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script26.png
 
 
 Likewise, hold :kbd:`Ctrl` (or :kbd:`Cmd` on macOS) to drop a setter:
 
-.. image:: img/visual_script27.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script27.png
 
 
 Signals
@@ -50728,22 +50728,22 @@ Signals
 
 It is also possible to create your own signals in a script and use them. For this, do the same steps you did for variables in the previous step, except for *Signals*:
 
-.. image:: img/visual_script29.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script29.png
 
 
 A signal can also be edited via the right-click menu to customize its arguments:
 
-.. image:: img/visual_script30.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script30.png
 
 
 The signal you have created will appear in the Inspector, along with the built-in node signals. This allows you to connect it from another script from another *Scene Node*:
 
-.. image:: img/visual_script31.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script31.png
 
 
 Finally, to emit the signal, simply drag it to the canvas:
 
-.. image:: img/visual_script32.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script32.png
 
 
 Remember that emitting a signal is a sequenced operation, so it must come from a Sequence port.
@@ -50755,7 +50755,7 @@ Adding more nodes
 Now that the basics are covered, let's discuss the large amount of utility nodes available for your canvas!
 Below the member panel, exists the list of all available node types:
 
-.. image:: img/visual_script33.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script33.png
 
 
 Pressing :kbd:`Ctrl + F` (or :kbd:`Cmd + F` on macOS) allows you to search the list.
@@ -50763,7 +50763,7 @@ Pressing :kbd:`Ctrl + F` (or :kbd:`Cmd + F` on macOS) allows you to search the l
 Any of them can be dragged to the scene. Unlike nodes (e.g. dragging a property
 from the Inspector sets the context to the node being edited automatically), these are added without any "contextual" information, so this has to be done manually.
 
-.. image:: img/visual_script34.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script34.png
 
 
 Remember that you can check the class reference for what each node does, as they are documented there. That mentioned,
@@ -50776,7 +50776,7 @@ Constants
 Constant nodes are nodes that provide values that, while not changing over time, can be useful as reference values.
 Most of the time they are integer or float.
 
-.. image:: img/visual_script36.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script36.png
 
 
 The first one is "Constant", which allows you to select any value of any type as constant, from an integer (42) to a String ("Hello!"). In general, this node is not used that often because of default input values in *Data Ports*, but it's good to know it exists.
@@ -50793,7 +50793,7 @@ Data
 Data nodes deal with all sorts of access to information. Any information in Godot is accessed via these nodes, so
 they are some of the most important ones to use and pretty diverse.
 
-.. image:: img/visual_script37.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script37.png
 
 
 There are many types of nodes of interest here, so a short attempt to describe them will follow:
@@ -50805,7 +50805,7 @@ Action
 Action nodes are vital when dealing with input from a device. You can read more about actions in the (@TODO ACTION TUTE LINK).
 In the following example below, the control is moved to the right when the "move_right" action is pressed.
 
-.. image:: img/visual_script38.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script38.png
 
 
 Engine Singleton
@@ -50814,12 +50814,12 @@ Engine Singleton
 Engine singletons are global interfaces (meaning they can be accessed without a reference; unlike Scene Nodes, they are always available).
 They have several purposes, but in general, they are useful for low-level access or OS-related access.
 
-.. image:: img/visual_script39.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script39.png
 
 
 Remember that dragging a connection to empty space will help you call functions or set/get properties on these:
 
-.. image:: img/visual_script40.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script40.png
 
 
 Local Variables
@@ -50827,7 +50827,7 @@ Local Variables
 
 These are nodes you can use as temporary storage for your graphs. Make sure they all have the same name and type when using them and they will reference the same piece of memory.
 
-.. image:: img/visual_script41.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script41.png
 
 
 As it can be seen above, there are two nodes available: A simple getter, and a sequenced setter (setting requires a sequence port).
@@ -50878,7 +50878,7 @@ Comment
 A Comment node works as a node you can resize to put around other nodes. It will not try to get focus or be brought
 to top when selecting it. It can also be used to write text on it.
 
-.. image:: img/visual_script42.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script42.png
 
 
 Flow Control
@@ -50887,7 +50887,7 @@ Flow Control
 Flow control nodes allow the execution to take different branches, usually depending on a
 given condition.
 
-.. image:: img/visual_script43.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script43.png
 
 
 Condition
@@ -50929,12 +50929,12 @@ TypeCast
 This is a useful and commonly used node. You can use it to cast arguments or other objects
 to the type you desire. Afterwards, you can even drag the object output to get full completion.
 
-.. image:: img/visual_script55.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script55.png
 
 
 It is also possible to cast to a script, which will allow complete script properties and functions:
 
-.. image:: img/visual_script54.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script54.png
 
 
 Switch
@@ -50981,7 +50981,7 @@ Constructors
 
 These are all the functions needed to create Godot basic datatypes. For example, If you need to create a Vector3 out of 3 floats, a constructor must be used.
 
-.. image:: img/visual_script44.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script44.png
 
 
 Destructor
@@ -50989,7 +50989,7 @@ Destructor
 
 This is the opposite to Constructor, it allows to separate any basic type (ie, Vector3) into its sub-elements.
 
-.. image:: img/visual_script45.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script45.png
 
 
 Emit Signal
@@ -51037,7 +51037,7 @@ By default, these mostly accept any datatype (and will throw an error at run-tim
 fed do not match those expected by the operator). It is always recommended to set the right
 type for operators to catch errors faster and make the graph easier to read.
 
-.. image:: img/visual_script46.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script46.png
 
 
 Expression Node
@@ -51050,27 +51050,27 @@ Expression nodes can:
 
 - Perform math and logic expressions based on custom inputs (eg: "a*5+b", where a and b are custom inputs):
 
-.. image:: img/visual_script47.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script47.png
 
 
 - Access local variables or properties:
 
-.. image:: img/visual_script48.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script48.png
 
 
 - Use most of the existing built-in functions that are available to GDScript, such as ``sin()``, ``cos()``, ``print()``, as well as constructors, such as ``Vector3(x, y, z)``, ``Rect2(...)``, etc.:
 
-.. image:: img/visual_script49.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script49.png
 
 
 - Call API functions:
 
-.. image:: img/visual_script50.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script50.png
 
 
 - Use sequenced mode, which makes more sense in case of respecting the processing order:
 
-.. image:: img/visual_script51.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script51.png
 
 
 ===================================================
@@ -51184,11 +51184,11 @@ Using a custom node
 
 To use the script, add a ``CustomNode``, select it and drag your custom node script into the ``script`` property shown in the inspector.
 
-.. image:: img/visual_script_custom_node_set_script.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script_custom_node_set_script.png
 
 Result:
 
-.. image:: img/visual_script_custom_node_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_script_custom_node_result.png
 
 
 ===================================================
@@ -51390,7 +51390,7 @@ Creating a C# script
 After you successfully set up C# for Godot, you should see the following option
 when selecting **Attach Script** in the context menu of a node in your scene:
 
-.. image:: img/attachcsharpscript.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/attachcsharpscript.png
 
 Note that while some specifics change, most concepts work the same
 when using C# for scripting. If you're new to Godot, you may want to follow
@@ -53011,16 +53011,16 @@ editor.
 
 Start by clicking the create resource button in the Inspector:
 
-.. image:: img/new_resource.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/new_resource.gif
 
 And select ``GDNativeLibrary``:
 
-.. image:: img/gdnativelibrary_resource.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnativelibrary_resource.png
 
 You should see a contextual editor appear in the bottom panel. Use the "Expand
 Bottom Panel" button in the bottom right to expand it to full height:
 
-.. image:: img/gdnativelibrary_editor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnativelibrary_editor.png
 
 General properties
 ~~~~~~~~~~~~~~~~~~
@@ -53068,7 +53068,7 @@ For our example, we only built libraries for Linux, macOS and/or Windows, so you
 can link them in the relevant fields by clicking the folder button. If you built
 all three libraries, you should have something like this:
 
-.. image:: img/gdnativelibrary_editor_complete.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnativelibrary_editor_complete.png
 
 Saving the resource
 ~~~~~~~~~~~~~~~~~~~
@@ -53076,7 +53076,7 @@ Saving the resource
 We can then save our GDNativeLibrary resource as ``bin/libsimple.gdnlib`` with
 the Save button in the Inspector:
 
-.. image:: img/gdnativelibrary_save.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnativelibrary_save.png
 
 The file is saved in a text-based format and should have contents similar to
 this:
@@ -53114,14 +53114,14 @@ to tell it about our "SIMPLE" object class. We do this by creating a
 Like done for the GDNativeLibrary resource, click the button to create a new
 resource in the Inspector and select ``NativeScript``:
 
-.. image:: img/nativescript_resource.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nativescript_resource.png
 
 The inspector will show a few properties that we need to fill. As *Class Name*
 we enter "SIMPLE" which is the object class name that we declared in our C
 source when calling ``godot_nativescript_register_class``. We also need to
 select our ``.gdnlib`` file by clicking on *Library* and selecting *Load*:
 
-.. image:: img/nativescript_library.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nativescript_library.png
 
 .. note::
 
@@ -53131,21 +53131,21 @@ select our ``.gdnlib`` file by clicking on *Library* and selecting *Load*:
 
 Finally, click on the save icon and save this as ``bin/simple.gdns``:
 
-.. image:: img/save_gdns.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/save_gdns.gif
 
 Now it's time to build our scene. Add a Control node to your scene as your root
 and call it ``main``. Then add a Button and a Label as child nodes. Place them
 somewhere nice on screen and give your button a name.
 
-.. image:: img/c_main_scene_layout.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/c_main_scene_layout.png
 
 Select the control node and attach a script to it:
 
-.. image:: img/add_main_script.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/add_main_script.gif
 
 Next link up the ``pressed`` signal on the button to your script:
 
-.. image:: img/connect_button_signal.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/connect_button_signal.gif
 
 Don't forget to save your scene, call it ``main.tscn``.
 
@@ -53165,7 +53165,7 @@ After all that, our project should work. The first time you run it Godot will
 ask you what your main scene is and you select your ``main.tscn`` file and
 presto:
 
-.. image:: img/c_sample_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/c_sample_result.png
 
 
 ===================================================
@@ -53548,7 +53548,7 @@ third-party dynamic library with your project.
 If you double click on the ``gdexample.gdnlib`` file within Godot, you'll see
 there are far more options to set:
 
-.. image:: img/gdnative_library.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnative_library.png
 
 The second file we need to create is a file used by each NativeScript we've
 added to our plugin. We'll name it ``gdexample.gdns`` for our gdexample
@@ -53575,17 +53575,17 @@ identifies the NativeScript in our plugin we want to use.
 Time to jump back into Godot. We load up the main scene we created way back in
 the beginning and now add a Sprite to our scene:
 
-.. image:: img/gdnative_cpp_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnative_cpp_nodes.png
 
 We're going to assign the Godot logo to this sprite as our texture, disable the
 ``centered`` property and drag our ``gdexample.gdns`` file onto the ``script``
 property of the sprite:
 
-.. image:: img/gdnative_cpp_sprite.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnative_cpp_sprite.png
 
 We're finally ready to run the project:
 
-.. image:: img/gdnative_cpp_animated.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/gdnative_cpp_animated.gif
 
 Adding properties
 -----------------
@@ -53880,7 +53880,7 @@ your game in the editor, which can help you in debugging your game.
 
 You can find these options in the **Debug** editor menu.
 
-.. image:: img/overview_debug.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overview_debug.png
 
 Here are the descriptions of the options:
 
@@ -53931,7 +53931,7 @@ The script editor has its own set of debug tools for use with breakpoints and
 two options. The breakpoint tools can also be found in the **Debugger** tab
 of the debugger.
 
-.. image:: img/overview_script_editor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overview_script_editor.png
 
 The **Break** button causes a break in the script like a breakpoint would.
 **Continue** makes the game continue after pausing at a breakpoint.
@@ -53980,7 +53980,7 @@ When running a game in the editor two options appear at the top of the **Scene**
 dock, **Remote** and **Local**. While using **Remote** you can inspect or change
 the nodes' parameters in the running project.
 
-.. image:: img/overview_remote.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overview_remote.png
 
 .. note:: Some editor settings related to debugging can be found inside
           the **Editor Settings**, under the **Network > Debug** and **Debugger** sections.
@@ -53998,7 +53998,7 @@ Debugger panel
 Many of Godot's debugging tools, including the debugger, can be found in the
 debugger panel at the bottom of the screen. Click on **Debugger** to open it.
 
-.. image:: img/overview_debugger.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/overview_debugger.png
 
 The debugger panel is split into several tabs, each focusing on a specific task.
 
@@ -54091,7 +54091,7 @@ It provides a list of every resource using video RAM by resource path, the type
 of resource it is, what format it is in, and how much Video RAM that resource is
 using. There is also a total video RAM usage number at the top right of the panel.
 
-.. image:: img/video_ram.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/video_ram.png
 
 Misc
 ++++
@@ -54251,27 +54251,27 @@ Using the Node dock
 You can add nodes in the current scene to groups using the Groups tab in the
 Node dock.
 
-.. image:: img/groups_node_tab.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/groups_node_tab.png
 
 Select one or more nodes in the Scene dock and write the group name in the
 field, then click Add.
 
-.. image:: img/groups_add_node_to_group.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/groups_add_node_to_group.png
 
 You should now see the group appear.
 
-.. image:: img/groups_node_after_adding.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/groups_node_after_adding.png
 
 In a complex project, you may end up with many groups or large scenes with many
 nodes. You can add or remove any node to groups using the Group Editor window.
 To access it, click the Manage Groups button.
 
-.. image:: img/groups_manage_groups_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/groups_manage_groups_button.png
 
 The Group Editor window appears. Here's a screenshot from a complex project to
 illustrate the tool's purpose.
 
-.. image:: img/groups_group_editor_window.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/groups_group_editor_window.png
 
 It has three columns:
 
@@ -54372,7 +54372,7 @@ guarantees that.
 If, for example,  you have a scene tree like this, and you want to get a reference to the
 Sprite and Camera2D nodes to access them in your script.
 
-.. image:: img/nodes_and_scene_instances_player_scene_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scene_instances_player_scene_example.png
 
 To do so, you can use the following code.
 
@@ -54402,12 +54402,12 @@ To do so, you can use the following code.
 Note that you get nodes using their name, not their type. Above, "Sprite" and
 "Camera2D" are the nodes' names in the scene.
 
-.. image:: img/nodes_and_scene_instances_sprite_node.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scene_instances_sprite_node.png
 
 If you rename the Sprite node as Skin in the Scene dock, you have to change the
 line that gets the node to ``get_node("Skin")`` in the script.
 
-.. image:: img/nodes_and_scene_instances_sprite_node_renamed.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scene_instances_sprite_node_renamed.png
 
 Node paths
 ----------
@@ -54419,7 +54419,7 @@ separate nodes.
 Take the following example scene, with the script attached to the UserInterface
 node.
 
-.. image:: img/nodes_and_scene_instances_ui_scene_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scene_instances_ui_scene_example.png
 
 To get the Tween node, you would use the following code.
 
@@ -54514,12 +54514,12 @@ the scene and frees the object in memory.
 
 Before calling ``sprite.queue_free()``, the remote scene tree looks like this.
 
-.. image:: img/nodes_and_scene_instances_remote_tree_with_sprite.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scene_instances_remote_tree_with_sprite.png
 
 After the engine freed the node, the remote scene tree doesn't display the
 sprite anymore.
 
-.. image:: img/nodes_and_scene_instances_remote_tree_no_sprite.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_and_scene_instances_remote_tree_no_sprite.png
 
 You can alternatively call ``free()`` to immediately destroy the node. You
 should do this with care as any reference to it will instantly become ``null``.
@@ -54957,7 +54957,7 @@ Creating script templates
 Godot provides a way to use script templates as seen in the
 ``Script Create Dialog`` while creating a new script:
 
-.. image:: img/script_create_dialog_templates.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/script_create_dialog_templates.png
 
 A set of default script templates is provided by default, but it's also possible
 to modify existing and create new ones, both per project and the editor.
@@ -55523,7 +55523,7 @@ given velocity:
 However, if the bullets are added as children of the player, then they will
 remain "attached" to the player as it rotates:
 
-.. image:: img/signals_shoot1.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_shoot1.gif
 
 Instead, we need the bullets to be independent of the player's movement - once
 fired, they should continue traveling in a straight line and the player can no
@@ -55628,7 +55628,7 @@ In the main scene, we then connect the player's signal (it will appear in the
 Now the bullets will maintain their own movement independent of the player's
 rotation:
 
-.. image:: img/signals_shoot2.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/signals_shoot2.gif
 
 
 ===================================================
@@ -55677,7 +55677,7 @@ Process Modes
 Each node in Godot has a "Pause Mode" that defines when it processes. It can
 be found and changed under a node's :ref:`Node <class_Node>` properties in the inspector.
 
-.. image:: img/pausemode.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/pausemode.png
 
 You can also alter the property with code:
 
@@ -55926,7 +55926,7 @@ types of Properties, like String, integer, Vector2, etc., and any of these types
 can become a resource. This means that both nodes and resources can contain
 resources as properties:
 
-.. image:: img/nodes_resources.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/nodes_resources.png
 
 External vs built-in
 --------------------
@@ -55939,11 +55939,11 @@ There are two ways to save resources. They can be:
 To be more specific, here's a :ref:`Texture <class_Texture>`
 in a :ref:`Sprite <class_Sprite>` node:
 
-.. image:: img/spriteprop.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/spriteprop.png
 
 Clicking the resource preview allows us to view and edit the resource's properties.
 
-.. image:: img/resourcerobi.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/resourcerobi.png
 
 The path property tells us where the resource comes from. In this case, it comes
 from a PNG image called ``robi.png``. When the resource comes from a file like
@@ -56332,12 +56332,12 @@ You can create an AutoLoad to load a scene or a script that inherits from
     attached to it. This node will be added to the root viewport before any
     other scenes are loaded.
 
-.. image:: img/singleton.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/singleton.png
 
 To autoload a scene or script, select **Project > Project Settings** from the
 menu and switch to the **AutoLoad** tab.
 
-.. image:: img/autoload_tab.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autoload_tab.png
 
 Here you can add any number of scenes or scripts. Each entry in the list
 requires a name, which is assigned as the node's ``name`` property. The order of
@@ -56345,7 +56345,7 @@ the entries as they are added to the global scene tree can be manipulated using
 the up/down arrow keys. Like regular scenes, the engine will read these nodes
 in top-to-bottom order.
 
-.. image:: img/autoload_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autoload_example.png
 
 This means that any node can access a singleton named "PlayerVariables" with:
 
@@ -56377,7 +56377,7 @@ Note that autoload objects (scripts and/or scenes) are accessed just like any
 other node in the scene tree. In fact, if you look at the running scene tree,
 you'll see the autoloaded nodes appear:
 
-.. image:: img/autoload_runtime.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autoload_runtime.png
 
 .. warning::
 
@@ -56407,14 +56407,14 @@ Global.gd
 Switch to the **Script** tab and create a new script called ``Global.gd``.
 Make sure it inherits from ``Node``:
 
-.. image:: img/autoload_script.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autoload_script.png
 
 The next step is to add this script to the autoLoad list. Open
 **Project > Project Settings** from the menu, switch to the **AutoLoad** tab and
 select the script by clicking the browse button or typing its path:
 ``res://Global.gd``. Press **Add** to add it to the autoload list:
 
-.. image:: img/autoload_tutorial1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/autoload_tutorial1.png
 
 Now whenever we run any scene in the project, this script will always be loaded.
 
@@ -56680,7 +56680,7 @@ viewport, it becomes part of the *scene tree*.
 This means that as explained in previous tutorials, it will get the
 ``_enter_tree()`` and ``_ready()`` callbacks (as well as ``_exit_tree()``).
 
-.. image:: img/activescene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/activescene.png
 
 When nodes enter the *Scene Tree*, they become active. They get access
 to everything they need to process, get input, display 2D and 3D visuals,
@@ -56695,7 +56695,7 @@ notifications are done in tree order. This means that parents and
 siblings with a lower rank in the tree order will get notified before
 the current node.
 
-.. image:: img/toptobottom.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/toptobottom.png
 
 "Becoming active" by entering the *Scene Tree*
 ----------------------------------------------
@@ -56791,12 +56791,12 @@ Creating and using them
 In the Scene tree dock, right-click on a node and select
 **Access as Scene Unique Name** in the context menu.
 
-.. image:: img/unique_name.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/unique_name.png
 
 After checking this, the node will now have a percent symbol (**%**) next
 to its name in the scene tree:
 
-.. image:: img/percent.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/percent.png
 
 To use a unique node in a script, use the ``%`` symbol and the node's
 name in the path for ``get_node()``. For example:
@@ -58784,7 +58784,7 @@ an input variable to the fragment function and the final output from it.
     COLOR = vec4(0.4, 0.6, 0.9, 1.0);
   }
 
-.. image:: img/blue-box.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/blue-box.png
 
 Congratulations! You're done. You have successfully written your first shader in
 Godot.
@@ -58801,7 +58801,7 @@ other functions or to assign values to ``COLOR`` directly.
 
 ``UV`` varies between 0-1 from left-right and from top-bottom.
 
-.. image:: img/iconuv.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/iconuv.png
 
 .. code-block:: glsl
 
@@ -58809,7 +58809,7 @@ other functions or to assign values to ``COLOR`` directly.
     COLOR = vec4(UV, 0.5, 1.0);
   }
 
-.. image:: img/UV.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/UV.png
 
 Using ``TEXTURE`` built-in
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58838,7 +58838,7 @@ can be accessed in the shader using ``TEXTURE``. Use it together with ``UV`` and
     COLOR.b = 1.0; //set blue channel to 1.0
   }
 
-.. image:: img/blue-tex.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/blue-tex.png
 
 Uniform input
 ^^^^^^^^^^^^^
@@ -59012,17 +59012,17 @@ to display the scene. Select 'Display Wireframe'.
 
 This will allow you to see the triangles making up the plane.
 
-.. image:: img/plane.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/plane.png
 
 Now set ``Subdivide Width`` and ``Subdivide Depth`` to ``32``.
 
-.. image:: img/plane-sub-set.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/plane-sub-set.png
 
 You can see that there are now many more triangles in the
 :ref:`Mesh<class_MeshInstance>`. This will give us more vertices to work with
 and thus allow us to add more detail.
 
-.. image:: img/plane-sub.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/plane-sub.png
 
 :ref:`PrimitiveMeshes <class_primitivemesh>`, like PlaneMesh, only have one
      surface, so instead of an array of materials there is only one. Click
@@ -59037,7 +59037,7 @@ first Spatial shader!
 Shader magic
 ------------
 
-.. image:: img/shader-error.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shader-error.png
 
 Notice how there is already error? This is because the shader editor reloads
 shaders on the fly. The first thing Godot shaders need is a declaration of what
@@ -59072,7 +59072,7 @@ shader. We can easily start to make changes by adding a single line:
 
 Adding this line, you should get an image like the one below.
 
-.. image:: img/cos.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cos.png
 
 Okay, let's unpack this. The ``y`` value of the ``VERTEX`` is being increased.
 And we are passing the ``x`` and ``z`` components of the ``VERTEX`` as arguments
@@ -59089,7 +59089,7 @@ What we want to achieve is the look of little hills; after all. ``cos`` and
     VERTEX.y += cos(VERTEX.x * 4.0) * sin(VERTEX.z * 4.0);
   }
 
-.. image:: img/cos4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cos4.png
 
 This looks better, but it is still too spiky and repetitive, let's make it a
 little more interesting.
@@ -59124,7 +59124,7 @@ OpenSimplexNoise".
 
 Once you set it up and should look like this.
 
-.. image:: img/noise-set.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/noise-set.png
 
 Now, access the noise texture using the ``texture()`` function. ``texture()``
 takes a texture as the first argument and a ``vec2`` for the position on the
@@ -59149,7 +59149,7 @@ details.
 
 Using this code you can see the texture creates random looking hills.
 
-.. image:: img/noise.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/noise.png
 
 Right now it is too spiky, we want to soften the hills a bit. To do that, we
 will use a uniform. You already used a uniform above to pass in the noise
@@ -59199,7 +59199,7 @@ use it to set the height value instead of arbitrarily multiplying by ``0.5``.
 
 Now it looks  much better.
 
-.. image:: img/noise-low.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/noise-low.png
 
 Using uniforms, we can even change the value every frame to animate the height
 of the terrain. Combined with :ref:`Tweens <class_Tween>`, this can be
@@ -59211,14 +59211,14 @@ Interacting with light
 First, turn wireframe off. To do so, click in the upper-left of the Viewport
 again, where it says "Perspective", and select "Display Normal".
 
-.. image:: img/normal.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/normal.png
 
 Note how the mesh color goes flat. This is because the lighting on it is flat.
 Let's add a light!
 
 First, we will add an :ref:`OmniLight<class_OmniLight>` to the scene.
 
-.. image:: img/light.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/light.png
 
 You can see the light affecting the terrain, but it looks odd. The problem is
 the light is affecting the terrain as if it were a flat plane. This is because
@@ -59245,7 +59245,7 @@ do that by passing in a second noise texture.
 Set this second uniform texture to another NoiseTexture with another
 OpenSimplexNoise. But this time, check off "As Normalmap".
 
-.. image:: img/normal-set.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/normal-set.png
 
 Now, because this is a normalmap and not a per-vertex normal, we are going to
 assign it in the ``fragment()`` function. The ``fragment()`` function will be
@@ -59291,11 +59291,11 @@ And now we can access ``tex_position`` from the ``fragment()`` function.
 With the normals in place the light now reacts to the height of the mesh
 dynamically.
 
-.. image:: img/normalmap.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/normalmap.png
 
 We can even drag the light around and the lighting will update automatically.
 
-.. image:: img/normalmap2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/normalmap2.png
 
 Here is the full code for this tutorial. You can see it is not very long as
 Godot handles most of the difficult stuff for you.
@@ -59398,7 +59398,7 @@ Let's set it to a nice shade of blue.
     ALBEDO = vec3(0.1, 0.3, 0.5);
   }
 
-.. image:: img/albedo.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/albedo.png
 
 We set it to a very dark shade of blue because most of the blueness of the water
 will come from reflections from the sky.
@@ -59419,7 +59419,7 @@ the reflection and the ``ALBEDO`` color. A high ``METALLIC`` almost ignores
 ``ROUGHNESS`` increases from ``0`` to ``1`` from left to right while
 ``METALLIC`` increase from ``0`` to ``1`` from top to bottom.
 
-.. image:: img/PBR.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/PBR.png
 
 .. note:: ``METALLIC`` should be close to ``0`` or ``1`` for proper PBR shading.
           Only set it between them for blending between materials.
@@ -59436,7 +59436,7 @@ low as well.
     ALBEDO = vec3(0.1, 0.3, 0.5);
   }
 
-.. image:: img/plastic.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/plastic.png
 
 Now we have a smooth plastic looking surface. It is time to think about some
 particular properties of water that we want to emulate. There are two main ones
@@ -59455,7 +59455,7 @@ has larger specular highlights.
 
   render_mode specular_toon;
 
-.. image:: img/specular-toon.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/specular-toon.png
 
 Second we will add rim lighting. Rim lighting increases the effect of light at
 glancing angles. Usually it is used to emulate the way light passes through
@@ -59471,7 +59471,7 @@ watery effect.
     ALBEDO = vec3(0.1, 0.3, 0.5);
   }
 
-.. image:: img/rim.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/rim.png
 
 In order to add fresnal reflectance, we will compute a fresnel term in our
 fragment shader. Here, we aren't going to use a real fresnel term for
@@ -59501,14 +59501,14 @@ set them based on any mathematical function that we can dream up.
     ALBEDO = vec3(0.1, 0.3, 0.5) + (0.1 * fresnel);
   }
 
-.. image:: img/fresnel.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fresnel.png
 
 And now, with only 5 lines of code, you can have complex looking water. Now that
 we have lighting, this water is looking too bright. Let's darken it. This is
 done easily by decreasing the values of the ``vec3`` we pass into ``ALBEDO``.
 Let's set them to ``vec3(0.01, 0.03, 0.05)``.
 
-.. image:: img/dark-water.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/dark-water.png
 
 Animating with ``TIME``
 -----------------------
@@ -59630,7 +59630,7 @@ We can now replace the contents of our ``height()`` function with ``wave()``.
 
 Using this, you get:
 
-.. image:: img/wave1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/wave1.png
 
 The shape of the sin wave is too obvious. So let's spread the waves out a bit.
 We do this by scaling ``position``.
@@ -59644,7 +59644,7 @@ We do this by scaling ``position``.
 
 Now it looks much better.
 
-.. image:: img/wave2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/wave2.png
 
 We can do even better if we layer multiple waves on top of each other at varying
 frequencies and amplitudes. What this means is that we are going to scale
@@ -59673,7 +59673,7 @@ keeps the wave in the 0-1 range.
 With this code you should end up with more complex looking waves and all you had
 to do was add a bit of math!
 
-.. image:: img/wave3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/wave3.png
 
 For more information about Spatial shaders read the :ref:`Shading Language
 <doc_shading_language>` doc and the :ref:`Spatial Shaders <doc_spatial_shader>`
@@ -59722,7 +59722,7 @@ Creating a ShaderMaterial
 Create a new ShaderMaterial in some object of your choice. Go to the
 "Material" property and create a ShaderMaterial.
 
-.. image:: img/shader_material_create.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shader_material_create.png
 
 Next, click on the shader material to see its properties. From here you
 can create a shader or visual shader. Regular shaders use code to set
@@ -59733,22 +59733,22 @@ However you can't convert a text shader to a visual shader.
 
 Choose one of them and you can start editing your shader.
 
-.. image:: img/shader_create.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shader_create.png
 
 If you create a regular shader click on it and the shader editor will open.
 
-.. image:: img/shader_material_editor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shader_material_editor.png
 
 If you create a visual shader the visual shader editor will open automatically.
 
-.. image:: img/visual_shader_editor.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_editor.png
 
 In the visual shader editor you can click a button and see what your visual
 shader looks like as shader code. This can be useful if you're trying to
 replicate a text shader as nodes, or it can be used as a preview for converting
 your visual shader to a text shader.
 
-.. image:: img/visual_shader_code.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_code.png
 
 .. note::
 
@@ -59761,7 +59761,7 @@ It is possible to convert from SpatialMaterial, CanvasItemMaterial and
 ParticlesMaterial to ShaderMaterial. To do so, go to the material properties
 and select the convert option.
 
-.. image:: img/shader_material_convert.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shader_material_convert.png
 
 .. note::
 
@@ -59799,17 +59799,17 @@ Creating a VisualShader
 VisualShaders can be created in any :ref:`class_ShaderMaterial`. To begin using
 VisualShaders, create a new ``ShaderMaterial`` in an object of your choice.
 
-.. image:: img/shader_material_create_mesh.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shader_material_create_mesh.png
 
 Then assign a :ref:`class_VisualShader` resource to the ``Shader`` property.
 
-.. image:: img/visual_shader_create.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_create.png
 
 Click on the new ``VisualShader`` resource and the Visual Shader Editor will
 open automatically. The layout of the Visual Shader Editor comprises two parts:
 the upper toolbar and the graph itself.
 
-.. image:: img/visual_shader_editor2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/visual_shader_editor2.png
 
 From left to right in the toolbar:
 
@@ -59841,7 +59841,7 @@ create your shader. To add a new node, click on the ``Add Node`` button on the
 upper left corner or right click on any empty location in the graph, and a menu
 will pop up.
 
-.. image:: img/vs_popup.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_popup.png
 
 This popup has the following properties:
 
@@ -59883,13 +59883,13 @@ parsing or compilation errors will be printed to the Output tab. The outputs are
 initialized to their zero value by default. The node is located under the
 Special tab and can be used in all shader modes.
 
-.. image:: img/vs_expression.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_expression.gif
 
 The possibilities of this node are almost limitless – you can write complex
 procedures, and use all the power of text-based shaders, such as loops, the
 ``discard`` keyword, extended types, etc. For example:
 
-.. image:: img/vs_expression2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_expression2.png
 
 Fresnel node
 ++++++++++++
@@ -59899,7 +59899,7 @@ a scalar which is the saturated dot product between them. Additionally, you can
 setup the inversion and the power of equation. The ``Fresnel`` node is great for
 adding a rim-like lighting effect to objects.
 
-.. image:: img/vs_fresnel.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_fresnel.png
 
 Boolean node
 ++++++++++++
@@ -59908,7 +59908,7 @@ The ``Boolean`` node can be converted to ``Scalar`` or ``Vector`` to represent
 ``0`` or ``1`` and ``(0, 0, 0)`` or ``(1, 1, 1)`` respectively. This property
 can be used to enable or disable some effect parts with one click.
 
-.. image:: img/vs_boolean.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_boolean.gif
 
 If node
 +++++++
@@ -59919,7 +59919,7 @@ returned: ``a == b`` (in that case the tolerance parameter is provided as a
 comparison threshold – by default it is equal to the minimal value, i.e.
 ``0.00001``), ``a > b`` and ``a < b``.
 
-.. image:: img/vs_if.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_if.png
 
 Switch node
 +++++++++++
@@ -59928,7 +59928,7 @@ The ``Switch`` node returns a vector if the boolean condition is ``true`` or
 ``false``. ``Boolean`` was introduced above. If you convert a vector to a true
 boolean, all components of the vector should be above zero.
 
-.. image:: img/vs_switch.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/vs_switch.png
 
 .. note::
 
@@ -60027,7 +60027,7 @@ As a result, in 2D, if shaders that use ``SCREEN_TEXTURE`` overlap, the second o
 will not use the result of the first one, resulting in unexpected
 visuals:
 
-.. image:: img/texscreen_demo1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/texscreen_demo1.png
 
 In the above image, the second sphere (top right) is using the same
 source for ``SCREEN_TEXTURE`` as the first one below, so the first one
@@ -60037,11 +60037,11 @@ In 2D, this can be corrected via the :ref:`BackBufferCopy <class_BackBufferCopy>
 node, which can be instantiated between both spheres. BackBufferCopy can work by
 either specifying a screen region or the whole screen:
 
-.. image:: img/texscreen_bbc.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/texscreen_bbc.png
 
 With correct back-buffer copying, the two spheres blend correctly:
 
-.. image:: img/texscreen_demo2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/texscreen_demo2.png
 
 .. warning:
 
@@ -60932,7 +60932,7 @@ This tutorial will introduce you to using the :ref:`Viewport <class_Viewport>` a
 texture that can be applied to 3D objects. In order to do so, it will walk you through the process
 of making a procedural planet like the one below:
 
-.. image:: img/planet_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_example.png
 
 .. note:: This tutorial does not cover how to code a dynamic atmosphere like the one this planet has.
 
@@ -60959,7 +60959,7 @@ Next, set the size of the :ref:`Viewport <class_Viewport>` to ``(1024, 512)``. T
 The width needs to be double the height so that the image will accurately map onto the
 sphere, as we will be using equirectangular projection, but more on that later.
 
-.. image:: img/planet_new_viewport.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_new_viewport.png
 
 Next, disable HDR and disable 3D. We don't need HDR because our planet's surface will not be especially
 bright, so values between ``0`` and ``1`` will be fine. And we will be using a :ref:`ColorRect <class_ColorRect>`
@@ -60970,7 +60970,7 @@ Select the Viewport and add a :ref:`ColorRect <class_ColorRect>` as a child.
 Set the anchors "Right" and "Bottom" to ``1``, then make sure all the margins are set to ``0``. This
 will ensure that the :ref:`ColorRect <class_ColorRect>` takes up the entire :ref:`Viewport <class_Viewport>`.
 
-.. image:: img/planet_new_colorrect.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_new_colorrect.png
 
 Next, we add a :ref:`Shader Material <class_ShaderMaterial>` to the :ref:`ColorRect <class_ColorRect>` (ColorRect > CanvasItem > Material > Material > ``New ShaderMaterial``).
 
@@ -60989,7 +60989,7 @@ ColorRect > CanvasItem > Material > Material > click / Edit > ShaderMaterial > S
 
 The above code renders a gradient like the one below.
 
-.. image:: img/planet_gradient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_gradient.png
 
 Now we have the basics of a :ref:`Viewport <class_Viewport>` that we render to and we have a unique image that we can
 apply to the sphere.
@@ -61009,15 +61009,15 @@ Open the newly created :ref:`SpatialMaterial <class_SpatialMaterial>` and scroll
 and click beside the "Texture" property to add an Albedo Texture. Here we will apply the texture we made.
 Choose "New ViewportTexture"
 
-.. image:: img/planet_new_viewport_texture.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_new_viewport_texture.png
 
 Then, from the menu that pops up, select the Viewport that we rendered to earlier.
 
-.. image:: img/planet_pick_viewport_texture.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_pick_viewport_texture.png
 
 Your sphere should now be colored in with the colors we rendered to the Viewport.
 
-.. image:: img/planet_seam.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_seam.png
 
 Notice the ugly seam that forms where the texture wraps around? This is because we are picking
 a color based on UV coordinates and UV coordinates do not wrap around the texture. This is a classic
@@ -61037,7 +61037,7 @@ the sphere in a nice way? One solution is to use a function that repeats on the 
 
     COLOR.xyz = vec3(sin(UV.x * 3.14159 * 4.0) * cos(UV.y * 3.14159 * 4.0) * 0.5 + 0.5);
 
-.. image:: img/planet_sincos.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_sincos.png
 
 Not too bad. If you look around, you can see that the seam has now disappeared, but in its place, we
 have pinching at the poles. This pinching is due to the way Godot maps textures to spheres in its
@@ -61070,7 +61070,7 @@ coordinates.
 
 And if we use ``unit`` as an output ``COLOR`` value, we get:
 
-.. image:: img/planet_normals.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_normals.png
 
 Now that we can calculate the 3D position of the surface of the sphere, we can use 3D noise
 to make the planet. We will be using this noise function directly from a `Shadertoy <https://www.shadertoy.com/view/Xsl3Dl>`_:
@@ -61109,7 +61109,7 @@ Now to use ``noise``, add the following to the    ``fragment`` function:
     float n = noise(unit * 5.0);
     COLOR.xyz = vec3(n * 0.5 + 0.5);
 
-.. image:: img/planet_noise.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_noise.png
 
 .. note:: In order to highlight the texture, we set the material to unshaded.
 
@@ -61137,7 +61137,7 @@ all alien planets need red terrain). And finally, they are mixed together by ``n
 ``n`` smoothly varies between ``-1`` and ``1``. So we map it into the ``0-1`` range that ``mix`` expects.
 Now you can see that the colors change between blue and red.
 
-.. image:: img/planet_noise_color.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_noise_color.png
 
 That is a little more blurry than we want. Planets typically have a relatively clear separation between
 land and sea. In order to do that, we will change the last term to ``smoothstep(-0.1, 0.0, n)``.
@@ -61152,7 +61152,7 @@ third argument is larger than the second and smoothly blends between ``0`` and `
 is between the first and the second. So in this line, ``smoothstep`` returns ``0`` whenever ``n`` is less than ``-0.1``
 and it returns ``1`` whenever ``n`` is above ``0``.
 
-.. image:: img/planet_noise_smooth.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_noise_smooth.png
 
 One more thing to make this a little more planet-y. The land shouldn't be so blobby; let's make the edges
 a little rougher. A trick that is often used in shaders to make rough looking terrain with noise is
@@ -61170,11 +61170,11 @@ instead of just one. ``n`` becomes:
 
 And now the planet looks like:
 
-.. image:: img/planet_noise_fbm.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_noise_fbm.png
 
 And with shading turned back on, it looks like:
 
-.. image:: img/planet_noise_fbm_shaded.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_noise_fbm_shaded.png
 
 Making an ocean
 ---------------
@@ -61199,7 +61199,7 @@ Next, under the "Roughness" section, set ``Roughness`` to ``1`` and set the roug
 Finally, set the ``Texture Channel`` to ``Alpha``. This instructs the renderer to use the ``alpha``
 channel of our output ``COLOR`` as the ``Roughness`` value.
 
-.. image:: img/planet_ocean.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_ocean.png
 
 You'll notice that very little changes except that the planet is no longer reflecting the sky.
 This is happening because, by default, when something is rendered with an
@@ -61222,7 +61222,7 @@ Now the planet should look like it is reflecting light on the ocean but not the 
 so already, add an :ref:`OmniLight <class_OmniLight>` to the scene so you can move it around and see the
 effect of the reflections on the ocean.
 
-.. image:: img/planet_ocean_reflect.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/planet_ocean_reflect.png
 
 And there you have it. A procedural planet generated using a :ref:`Viewport <class_Viewport>`.
 
@@ -61273,12 +61273,12 @@ another :ref:`Control <class_Control>` node.
 For this demo, we will use a :ref:`Node2D <class_Node2D>` with a ``ViewportContainer`` and finally a
 ``Viewport``. Your **Scene** tab should look like this:
 
-.. image:: img/post_hierarchy1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/post_hierarchy1.png
 
 Inside the ``Viewport``, you can have whatever you want. This will contain
 your main scene. For this tutorial, we will use a field of random boxes:
 
-.. image:: img/post_boxes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/post_boxes.png
 
 Add a new :ref:`ShaderMaterial <class_ShaderMaterial>` to the ``ViewportContainer``, and assign a new
 shader resource to it. You can access your rendered ``Viewport`` with the built-in ``TEXTURE`` uniform.
@@ -61329,7 +61329,7 @@ Copy the following code to your shader. The above code is a single pass edge det
     center and -8 for the center pixel. The choice of weights is called a "kernel". You can use different
     kernels to create edge detection filters, outlines, and all sorts of effects.
 
-    .. image:: img/post_outline.png
+    .. image:: https://docs.godotengine.org/en/3.6/_images/post_outline.png
 
 Multi-pass post-processing
 --------------------------
@@ -61345,7 +61345,7 @@ another and then rendering the last ``Viewport`` into the root ``Viewport``.
 
 Your scene hierarchy will look something like this:
 
-.. image:: img/post_hierarchy2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/post_hierarchy2.png
 
 Godot will render the bottom ``Viewport`` node first. So if the order of the passes matters for your
 shaders, make sure that you assign the shader you want to apply first to the lowest ``ViewportContainer`` in
@@ -61400,7 +61400,7 @@ does not matter:
 
 Using the above code, you should end up with a full screen blur effect like below.
 
-.. image:: img/post_blur.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/post_blur.png
 
 For more information on how ``Viewport`` nodes work, see the :ref:`Viewports Tutorial <doc_viewports>`.
 
@@ -61418,14 +61418,14 @@ This is a short tutorial on how to make trees and other types of vegetation from
 
 The aim is to not focus on the modelling techniques (there are plenty of tutorials about that), but how to make them look good in Godot.
 
-.. image:: img/tree_sway.gif
+.. image:: https://docs.godotengine.org/en/3.6/_images/tree_sway.gif
 
 Start with a tree
 -----------------
 
 I took this tree from SketchFab:
 
-.. image:: img/tree_base.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tree_base.png
 
 https://sketchfab.com/models/ea5e6ed7f9d6445ba69589d503e8cebf
 
@@ -61436,11 +61436,11 @@ Paint with vertex colors
 
 The first thing you may want to do is to use the vertex colors to paint how much the tree will sway when there is wind. Just use the vertex color painting tool of your favorite 3D modelling program and paint something like this:
 
-.. image:: img/tree_vertex_paint.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tree_vertex_paint.png
 
 This is a bit exaggerated, but the idea is that color indicates how much sway affects every part of the tree. This scale here represents it better:
 
-.. image:: img/tree_gradient.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tree_gradient.png
 
 Write a custom shader for the leaves
 ------------------------------------
@@ -61570,26 +61570,26 @@ that the screen resolution has changed and the controls need to be
 re-positioned. Some will need to follow the bottom of the screen, others
 the top of the screen, or maybe the right or left margins.
 
-.. image:: img/anchors.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/anchors.png
 
 This is done by editing the *margin* properties of controls. Each
 control has four margins: left, right, bottom and top. By default, all of
 them represent a distance in pixels relative to the top-left corner of
 the parent control or (in case there is no parent control) the viewport.
 
-.. image:: img/margin.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/margin.png
 
 When horizontal (left, right) and/or vertical (top, bottom) anchors are
 changed to 1, the margin values become relative to the bottom-right
 corner of the parent control or viewport.
 
-.. image:: img/marginend.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/marginend.png
 
 Here, the control is set to expand its bottom-right corner with that of
 the parent, so when re-sizing the parent, the control will always cover
 it, leaving a 20 pixel margin:
 
-.. image:: img/marginaround.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/marginaround.png
 
 Centering a control
 -------------------
@@ -61624,7 +61624,7 @@ Instead of manually adjusting the margin and anchor values, you can use the
 toolbar's Layout menu, above the viewport. Besides centering, it gives you many
 options to align and resize control nodes.
 
-.. image:: img/layout_dropdown_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/layout_dropdown_menu.png
 
 
 ===================================================
@@ -61652,7 +61652,7 @@ Container layout
 
 Containers provide a huge amount of layout power (as an example, the Godot editor user interface is entirely done using them):
 
-   .. image:: img/godot_containers.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/godot_containers.png
 
 When a :ref:`Container <class_Container>`-derived node is used, all children :ref:`Control <class_Control>` nodes give up their
 own positioning ability. This means the *Container* will control their positioning and any attempt to manually alter these
@@ -61661,7 +61661,7 @@ nodes will be either ignored or invalidated the next time their parent is resize
 Likewise, when a *Container* derived node is resized, all its children will be re-positioned according to it,
 with a behavior based on the type of container used:
 
-   .. image:: img/container_example.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/container_example.gif
 
 Example of *HBoxContainer* resizing children buttons.
 
@@ -61673,7 +61673,7 @@ Size flags
 When adding a node to a container, the way the container treats each child depends mainly on their *size flags*. These flags
 can be found by inspecting any control that is a child of a *Container*.
 
-   .. image:: img/container_size_flags.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/container_size_flags.png
 
 Size flags are independent for vertical and horizontal sizing and not all containers make use of them (but most do):
 
@@ -61701,7 +61701,7 @@ Arranges child controls vertically or horizontally (via :ref:`HBoxContainer <cla
 :ref:`VBoxContainer <class_VBoxContainer>`). In the opposite of the designated direction
 (as in, vertical for an horizontal container), it just expands the children.
 
-   .. image:: img/containers_box.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_box.png
 
 These containers make use of the *Ratio* property for children with the *Expand* flag set.
 
@@ -61711,7 +61711,7 @@ Grid Container
 Arranges child controls in a grid layout (via :ref:`GridContainer <class_GridContainer>`, amount
 of columns must be specified). Uses both the vertical and horizontal expand flags.
 
-   .. image:: img/containers_grid.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_grid.png
 
 Margin Container
 ^^^^^^^^^^^^^^^^
@@ -61720,12 +61720,12 @@ Child controls are expanded towards the bounds of this control (via
 :ref:`MarginContainer <class_MarginContainer>`). Padding will be added on the margins
 depending on the theme configuration.
 
-   .. image:: img/containers_margin.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_margin.png
 
 Again, keep in mind that the margins are a *Theme* value, so they need to be edited from the
 constants overrides section of each control:
 
-   .. image:: img/containers_margin_constants.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_margin_constants.png
 
 Tab Container
 ^^^^^^^^^^^^^
@@ -61733,11 +61733,11 @@ Tab Container
 Allows you to place several child controls stacked on top of each other (via
 :ref:`TabContainer <class_TabContainer>`), with only the *current* one visible.
 
-   .. image:: img/containers_tab.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_tab.png
 
 Changing the *current* one is done via tabs located at the top of the container, via clicking:
 
-   .. image:: img/containers_tab_click.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_tab_click.gif
 
 The titles are generated from the node names by default (although they can be overridden via *TabContainer* API).
 
@@ -61750,11 +61750,11 @@ Accepts only one or two children controls, then places them side to side with a 
 (via :ref:`HSplitContainer <class_HSplitContainer>` and :ref:`VSplitContainer <class_VSplitContainer>`).
 Respects both horizontal and vertical flags, as well as *Ratio*.
 
-   .. image:: img/containers_split.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_split.png
 
 The divisor can be dragged around to change the size relation between both children:
 
-   .. image:: img/containers_split_drag.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_split_drag.gif
 
 
 PanelContainer
@@ -61764,7 +61764,7 @@ Simple container that draws a *StyleBox*, then expands children to cover its who
 (via :ref:`PanelContainer <class_PanelContainer>`, respecting the *StyleBox* margins).
 It respects both the horizontal and vertical size flags.
 
-   .. image:: img/containers_panel.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_panel.png
 
 This container is useful as top-level, or just to add custom backgrounds to sections of a layout.
 
@@ -61776,11 +61776,11 @@ to allow panning the node around (via :ref:`ScrollContainer <class_ScrollContain
 vertical and horizontal size flags are respected, and the behavior can be turned on or off
 per axis in the properties.
 
-   .. image:: img/containers_scroll.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_scroll.png
 
 Mouse wheel and touch drag (when touch is available) are also valid ways to pan the child control around.
 
-   .. image:: img/containers_center_pan.gif
+   .. image:: https://docs.godotengine.org/en/3.6/_images/containers_center_pan.gif
 
 As in the example above, one of the most common ways to use this container is together with a *VBoxContainer* as child.
 
@@ -62085,7 +62085,7 @@ takes across the user interface of your project. The settings for individual
 nodes can be found in the Inspector dock, under the "Focus" category of the
 "Control" section.
 
-.. image:: img/focus_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/focus_settings.png
 
 Neighbor options are used to define nodes for 4-directional navigation, such
 as using arrow keys or a D-pad on a controller. For example, the bottom neighbor
@@ -62167,7 +62167,7 @@ the look of every control in your user interface, including your custom controls
 Here is an example of this system in action — a game with the GUI that is
 radically different from the default UI theme of the engine:
 
-.. figure:: img/tank-kings-by-winterpixel-games.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/tank-kings-by-winterpixel-games.png
    :align: center
 
    A "Gear Up!" screen in Tank Kings, courtesy of Winterpixel Games
@@ -62309,7 +62309,7 @@ the Inspector dock, or scripts. This allows to make granular changes to a
 particular part of the UI, while not affecting anything else in the project,
 including this control's children.
 
-.. figure:: img/themecheck.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/themecheck.png
    :align: center
 
 Local overrides are less useful for the visual flair of your user interface,
@@ -62424,7 +62424,7 @@ Themes also can be created from any control node. Select a control node in the s
 hierarchy, then in the inspector go to the ``theme`` property. From there you can
 select **New Theme**.
 
-.. figure:: img/new_theme.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/new_theme.png
    :align: center
 
 This will create an empty theme and open up the theme editor. Keep in mind that
@@ -62436,13 +62436,13 @@ include the default, fallback font that you can edit only using the Inspector do
 Same applies to the contents of complex resource types, such as :ref:`StyleBoxes <class_StyleBox>`
 and icons — they open for editing in the Inspector.
 
-.. figure:: img/default_font.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/default_font.png
    :align: center
 
 Theme editor overview
 ---------------------
 
-.. figure:: img/theme_editor.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/theme_editor.png
    :align: center
 
 The theme editor has two main parts. The main theme editor, located at the bottom of
@@ -62459,14 +62459,14 @@ The left-hand side of the main editor has a set of preview tabs. The **Default P
 tab is visible out of the box and contains most of the frequently used controls in various
 states. Previews are interactive, so intermediate states (e.g. hover) can be previewed as well.
 
-.. figure:: img/default_preview.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/default_preview.png
    :align: center
 
 Additional tabs can be created from arbitrary scenes in your project. The scene
 must have a control node as its root to function as a preview. To add a new tab
 click the **Add Preview** button and select the saved scene from your file system.
 
-.. figure:: img/scene_preview.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/scene_preview.png
    :align: center
 
 If you make changes to the scene, they will not be reflected in the preview
@@ -62477,7 +62477,7 @@ picker tool from the toolbar and hover over the preview area to highlight contro
 nodes. Highlighted control nodes display their class name. Clicking on the highlighted
 control opens it for editing on the right-hand side.
 
-.. figure:: img/theme_preview_picker.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/theme_preview_picker.png
    :align: center
 
 Theme types and items
@@ -62491,7 +62491,7 @@ enabled, then for each built-in type its default theme values are displayed, gre
 out. If the option is disabled, only the items available in the edited theme itself
 are displayed.
 
-.. figure:: img/theme_type_editor.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/theme_type_editor.png
    :align: center
 
 Individual items from the default theme can be added to the current theme by
@@ -62505,7 +62505,7 @@ Overridden theme items can be edited directly in the right-hand panel, unless th
 are resources. Resources have rudimentary controls available for them, but must be
 edited in the Inspector dock instead.
 
-.. figure:: img/theme_item_inspector.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/theme_item_inspector.png
    :align: center
 
 Styleboxes have an unique feature available, where you can pin an individual
@@ -62514,7 +62514,7 @@ all styleboxes of the same type are updated alongside it when you change its
 properties. This allows you to edit properties of several styleboxes at the
 same time.
 
-.. figure:: img/theme_pin_the_stylebox.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/theme_pin_the_stylebox.png
    :align: center
 
 While theme types can be picked from a preview, they can also be added manually.
@@ -62523,7 +62523,7 @@ In that menu you can either select a type from the list, or you can enter an
 arbitrary name to create a custom type. Text field also filters the list of control
 nodes.
 
-.. figure:: img/add_item_type.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/add_item_type.png
    :align: center
 
 Manage and import items
@@ -62533,7 +62533,7 @@ Clicking the **Manage Items** button brings up the **Manage Theme Items** dialog
 the **Edit Items** tab you can view and add theme types, as well as view and edit
 the theme items of the selected type.
 
-.. figure:: img/manage_items.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/manage_items.png
    :align: center
 
 You can create, rename and remove individual theme items here by clicking the
@@ -62553,7 +62553,7 @@ include the data will copy all theme items as they are to your theme. Omitting t
 will create the items of the corresponding data type and name, but will leave them empty,
 creating a template of a theme in a way.
 
-.. figure:: img/import_items.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/import_items.png
    :align: center
 
 
@@ -62571,7 +62571,7 @@ needs to have a different look than what is normally defined by a :ref:`Theme <c
 Every control node has theme property overrides, which allow you to redefine the styling for
 each individual UI element.
 
-.. figure:: img/themecheck.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/themecheck.png
    :align: center
 
 This approach quickly becomes hard to manage, if you need to share the same custom look
@@ -62609,7 +62609,7 @@ you want to name your theme type variation in the text box, then click **Add Typ
 Below the **Type** dropdown are the property tabs. Switch to the tab with a wrench
 and screwdriver icon.
 
-.. figure:: img/base_type.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/base_type.png
    :align: center
 
 Click on the plus icon next to the **Base Type** field. You can select the base type
@@ -62671,12 +62671,12 @@ instead (``bbcode_text``). Writing to this property will trigger the parsing of 
 markup to format the text as requested. Before this happens, you need to toggle the
 "Enabled" checkbox in the "Bb Code" section (``bbcode_enabled``).
 
-.. image:: img/bbcodeText.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bbcodeText.png
 
 For example, ``BBCode [color=blue]blue[/color]`` would render the word "blue" with
 a blue color.
 
-.. image:: img/bbcodeDemo.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/bbcodeDemo.png
 
 You'll notice that after writing in the BBCode "Text" property the regular "Text"
 property now has the text without the BBCode. While the text property will be updated
@@ -62811,7 +62811,7 @@ effects are provided out of the box, and you can easily create your own.
 Wave
 ~~~~
 
-.. image:: img/wave.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/wave.png
 
 Wave makes the text go up and down. Its tag format is ``[wave amp=50 freq=2][/wave]``.
 ``amp`` controls how high and low the effect goes, and ``freq`` controls how fast the
@@ -62820,7 +62820,7 @@ text goes up and down.
 Tornado
 ~~~~~~~
 
-.. image:: img/tornado.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/tornado.png
 
 Tornao makes the text move around in a circle. Its tag format is
 ``[tornado radius=5 freq=2][/tornado]``.
@@ -62830,7 +62830,7 @@ fast the text moves in a circle.
 Shake
 ~~~~~
 
-.. image:: img/shake.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/shake.png
 
 Shake makes the text shake. Its tag format is ``[shake rate=5 level=10][/shake]``.
 ``rate`` controls how fast the text shakes, ``level`` controls how far the text is
@@ -62839,7 +62839,7 @@ offset from the origin.
 Fade
 ~~~~
 
-.. image:: img/fade.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/fade.png
 
 Fade creates a fade effect over the text that is not animated. Its tag format is
 ``[fade start=4 length=14][/fade]``.
@@ -62850,7 +62850,7 @@ out take place.
 Rainbow
 ~~~~~~~
 
-.. image:: img/rainbow.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/rainbow.png
 
 Rainbow gives the text a rainbow color that changes over time. Its tag format is
 ``[rainbow freq=0.2 sat=10 val=20][/rainbow]``.
@@ -63132,7 +63132,7 @@ artificially places the camera at a height (Y) of 1.85.
 
 Conclusion: your minimum setup in your scene to make AR or VR work should look like this:
 
-.. image:: img/minimum_setup.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/minimum_setup.png
 
 And that's all you need to get started with the native mobile interface. Obviously, you need
 to add something more into your scene, so there is something to see, but after that, you can
@@ -63251,7 +63251,7 @@ and add it to your scene.
 Right-click the added node and select **Editable Children** to gain access
 to some of the nodes in this subscene:
 
-.. image:: img/editable_children.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/editable_children.png
 
 This is the bare minimum you need. However, for good measure, we suggest adding
 a DirectionalLight node and a few MeshInstance nodes so you have something to see.
@@ -63260,7 +63260,7 @@ are tracking.
 
 Your scene should now look something like this:
 
-.. image:: img/default_scene.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/default_scene.png
 
 Now you can press the **Run** button in the top-right corner of the editor
 to start your project and you should be able to look around.
@@ -63310,7 +63310,7 @@ However, additional editor features will not be available unless the OpenXR plug
 
 For this, go to **Project > Project Settings** and select the **Plugins** tab:
 
-.. image:: img/enable_plugin.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/enable_plugin.png
 
 Make sure the **Enable** checkbox is checked.
 
@@ -63335,7 +63335,7 @@ test multiple runtimes to see if their game behaves.
 To make this easy, Godot provides a dropdown in the top-right corner which can
 switch the runtime Godot will use when testing:
 
-.. image:: img/switch_runtime.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/switch_runtime.png
 
 The OpenXR plugin will **not** work with the Microsoft MR runtime.
 That runtime only supports OpenXR applications that use DirectX,
@@ -63384,7 +63384,7 @@ If you are using the ``first person controller`` scene, you can simply
 enable passthrough by checking the **Start Passthrough** option
 on the controller node:
 
-.. image:: img/start_passthrough.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/start_passthrough.png
 
 If you rather do this through code, you will first need to create an instance
 of the ``OpenXRConfig`` object. 
@@ -63467,7 +63467,7 @@ If you haven't created it yet, do so now by pressing **Add...** and selecting **
 Scroll down to the **Xr Features** section. Here, the important setting is the **Xr Mode** which should be set to **OpenXR**.
 Note that the other options shown here should be set according to your project's needs.
 
-.. image:: img/android_xr_features.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/android_xr_features.png
 
 
 ===================================================
@@ -63496,7 +63496,7 @@ Meta added support for this API to their mobile OpenXR runtime tied into their e
 
 The hand tracking API defines the bone structure that all XR runtimes must abide to however it doesn't dictate the orientation of the bones in rest or any size requirements.
 
-.. image:: img/hand_tracking_bones.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/hand_tracking_bones.png
 
 Image courtesy of Khronos OpenXR specification.
 
@@ -63509,11 +63509,11 @@ Node based hand tracking
 
 This implementation is the most versatile as it doesn't require any knowledge of the hand model in rest pose. Note that the plugin comes with two example scenes called `left_hand_nodes.tscn` and `right_hand_nodes.tscn` that you can instance as child nodes of the `ARVROrigin` node. These scenes contain logic to automatically resize the used meshes to fit the size of the provided bone data.
 
-.. image:: img/arvr_nodes_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/arvr_nodes_example.png
 
 At the root of this scene is a :ref:`Spatial <class_Spatial>` node that has `config/OpenXRHand.gdns` assigned as its script. This class from the plugin will position the spatial node at the base of the hand (see Palm in our image up above) and will update the position and orientation of its children. 
 
-.. image:: img/arvr_openxr_hand.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/arvr_openxr_hand.png
 
 There are two properties here:
 
@@ -63522,7 +63522,7 @@ There are two properties here:
 
 Our spatial node needs a number of child nodes with hardcoded names that will be updated by our hand tracking system. The type of nodes is not important, our example script uses :ref:`MeshInstance <class_MeshInstance>` nodes to also visualise the bones. 
 
-.. image:: img/hand_tracking_nodes.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/hand_tracking_nodes.png
 
 First we find the child node `Wrist`, underneath here there are nodes for each finger. Each node starts with the name of the finger followed by the name of the bone. The finger names are `Thumb`, `Index`, `Middle`, `Ring` and `Little`. The bone names are `Metacarpal`, `Proximal`, `Intermediate`, `Distal` and `Tip`. Ergo IndexDistal is the distal bone of the index finger.
 
@@ -63544,7 +63544,7 @@ This approach allows deforming a mesh which is a visually more pleasing solution
 At this point in time the plugin only exposes the data as it is provided by the OpenXR runtime. The plugin has an example implementation based on meshes that Valve has made publicly available however these work most reliable when used in conjunction with SteamVR.
 These scenes are `scenes/left_hand_mesh.tscn` and `scenes/right_hand_mesh.tscn` and can be childed to the :ref:`ARVROrigin <class_ARVROrigin>` node.
 
-.. image:: img/arvr_mesh_example.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/arvr_mesh_example.png
 
 Below is an overview of the steps needed to implement your own version.
 
@@ -63555,7 +63555,7 @@ To place the hand mesh in space a node needs to be added as a child to the :ref:
 
 The `OpenXRPose` script isn't just used by the hand logic but also exposes other pose locations configured in the action map.
 
-.. image:: img/arvr_openxr_pose.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/arvr_openxr_pose.png
 
 The following properties can be set on this node:
 
@@ -63640,7 +63640,7 @@ Setting Up Godot
 
 To get started open Godot and create a new project.
 
-.. image:: img/quest_new_project.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/quest_new_project.png
 
 Make sure to choose the ``GLES2`` renderer. Due to the
 Quest's GPU this backend is far better suited for the Quest.
@@ -63648,7 +63648,7 @@ Quest's GPU this backend is far better suited for the Quest.
 Copy the addons folder from the Oculus Mobile asset into your Godot
 project. Your project tree should look similar to this:
 
-.. image:: img/quest_project_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/quest_project_tree.png
 
 Now you can start building the main scene:
 
@@ -63658,7 +63658,7 @@ Now you can start building the main scene:
 - Assign controller ID 2 to the second :ref:`ARVRController <class_ARVRController>` and rename that to ``RightHand``.
 - Finally add a :ref:`MeshInstance <class_MeshInstance>` as a child node to our first :ref:`ARVRController <class_ARVRController>` and create a box shape, resize the box so each side is set to 0.1. Now duplicate the :ref:`MeshInstance <class_MeshInstance>` and move it to the second :ref:`ARVRController <class_ARVRController>` node. These will stand in for our controllers.
 
-.. image:: img/quest_scene_tree.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/quest_scene_tree.png
 
 Now add a script to the main node and add the following code:
 
@@ -63696,7 +63696,7 @@ more things.
 First go into the project settings and make sure that the main scene
 is the scene we run. Godot does not ask you to set this on export.
 
-.. image:: img/quest_project_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/quest_project_settings.png
 
 Then go into the export menu and configure a new Android export. If
 you still haven't gone through the :ref:`doc_exporting_for_android`
@@ -63707,7 +63707,7 @@ If you did you can forge ahead and make a few small changes to the
 export settings. First change the XR Mode to ``Oculus Mobile VR``.
 Then change the Degrees of Freedom mode to ``6DOF``.
 
-.. image:: img/quest_export_settings.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/quest_export_settings.png
 
 Now save and close the export window.
 
@@ -63773,7 +63773,7 @@ VR starter tutorial part 1
 Introduction
 ------------
 
-.. image:: img/starter_vr_tutorial_sword.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_sword.png
 
 This tutorial will show you how to make a beginner VR game project in Godot.
 
@@ -63952,7 +63952,7 @@ the world. If you have a VR headset with room tracking, then you will be able to
 Creating the controllers
 ------------------------
 
-.. image:: img/starter_vr_tutorial_hands.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_hands.png
 
 Right now all that the VR user can do is stand around, which isn't really what we are going for unless we are working on a VR film. Lets write the code for the
 VR controllers. We are going to write all the code for the VR controllers in one go, so the code is rather long. That said, once we are finished you will be
@@ -64905,7 +64905,7 @@ then before!
 Final notes
 -----------
 
-.. image:: img/starter_vr_tutorial_hands.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_hands.png
 
 Now you have fully working VR controllers that can move around the environment and interact with :ref:`RigidBody <class_RigidBody>`-based objects.
 In the next part of this tutorial series, we will be creating some special :ref:`RigidBody <class_RigidBody>`-based objects for the player to use!
@@ -64925,7 +64925,7 @@ VR starter tutorial part 2
 Introduction
 ------------
 
-.. image:: img/starter_vr_tutorial_sword.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_sword.png
 
 In this part of the VR starter tutorial series, we will be adding a number of special :ref:`RigidBody <class_RigidBody>`-based nodes that can be used in VR.
 
@@ -65272,7 +65272,7 @@ This function simply makes the ``laser_sight_mesh`` :ref:`MeshInstance <class_Me
 Pistol finished
 ^^^^^^^^^^^^^^^
 
-.. image:: img/starter_vr_tutorial_pistol.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_pistol.png
 
 
 That is all we need to do to have working pistols in the project! Go ahead and run the project. If you climb up the stairs and grab the pistols, you can fire them at the sphere
@@ -65818,7 +65818,7 @@ something by calling ``play`` on ``sword_noise``.
 Sword finished
 ^^^^^^^^^^^^^^
 
-.. image:: img/starter_vr_tutorial_sword.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_sword.png
 
 With that done, you can now slice through the targets! You can find the sword in the corner in between the shotgun and the pistol.
 
@@ -65943,7 +65943,7 @@ With that done, when you grab and interact with the reset box, the entire scene 
 Final notes
 -----------
 
-.. image:: img/starter_vr_tutorial_pistol.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/starter_vr_tutorial_pistol.png
 
 Whew! That was a lot of work.
 
@@ -66694,7 +66694,7 @@ However, if you are using custom modules or custom engine code, you
 may instead want to configure your binaries as custom export templates
 here:
 
-.. image:: img/wintemplates.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/wintemplates.png
 
 You don't need to copy them in this case, just reference the resulting
 files in the ``bin\`` directory of your Godot source folder, so the next
@@ -66913,7 +66913,7 @@ However, if you are writing your custom modules or custom C++ code, you
 might instead want to configure your binaries as custom export templates
 here:
 
-.. image:: img/lintemplates.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/lintemplates.png
 
 You don't even need to copy them, you can just reference the resulting
 files in the ``bin/`` directory of your Godot source folder, so the next
@@ -67344,7 +67344,7 @@ However, if you are writing your custom modules or custom C++ code, you
 might instead want to configure your APKs as custom export templates
 here:
 
-.. image:: img/andtemplates.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/andtemplates.png
 
 You don't even need to copy them, you can just reference the resulting
 file in the ``bin\`` directory of your Godot source folder, so that the
@@ -68621,7 +68621,7 @@ Step by step
 
 4. Set the encryption key in the **Script** tab of the export preset:
 
-   .. image:: img/script_encryption_key.png
+   .. image:: https://docs.godotengine.org/en/3.6/_images/script_encryption_key.png
 
 5. Export the project. The game should run with encrypted scripts now.
 
@@ -68768,7 +68768,7 @@ Importing the project
 - From the Android Studio's welcome window select **Open an existing 
   Android Studio project**.
 
-.. figure:: img/android_studio_setup_project_1.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/android_studio_setup_project_1.png
    :figclass: figure-w480
    :align: center
    
@@ -68809,20 +68809,20 @@ which can also be used by CLion.
   ``CMakeLists.txt`` file is located there) and select it (but *not* the
   ``CMakeLists.txt`` file itself), then click **OK**.
 
-.. figure:: img/clion_1_open.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/clion_1_open.png
    :align: center
 
    The folder containing the ``CMakeLists.txt`` file.
 
 - If this popup window appears, select **This Window** to open the project:
 
-.. figure:: img/clion_2_this_window.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/clion_2_this_window.png
    :align: center
 
 - Choose **Tools > CMake > Change Project Root** from the top menu and select 
   the Godot root folder.
 
-.. figure:: img/clion_3_change_project_root.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/clion_3_change_project_root.png
    :align: center
 
 - You should be now be able to see all the project files. Autocomplete should
@@ -68843,12 +68843,12 @@ You will first need to `compile godot yourself <https://docs.godotengine.org/en/
 
 - In CLion, go to **Run > Attach to Process...**
 
-.. figure:: img/clion_4_select_attach_to_process.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/clion_4_select_attach_to_process.png
    :align: center
 
 - Find and Select godot in the list (or type the binary name/Process ID)
 
-.. figure:: img/clion_5_select_godot_process.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/clion_5_select_godot_process.png
    :align: center
 
 You can now use the debugging tools from CLion.
@@ -68875,19 +68875,19 @@ Creating a new project
 
 From Code::Blocks' main screen, click **Create a new project** or select **File > New > Project...**.
 
-.. figure:: img/code_blocks_file_new_project.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_file_new_project.png
    :figclass: figure-w480
    :align: center
 
 In the **New from template** window, from **Projects**, select **Empty project**, and click **Go**.
 
-.. figure:: img/code_blocks_new_empty_project.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_new_empty_project.png
    :figclass: figure-w480
    :align: center
 
 Click Next, to pass the welcome to the new empty project wizard.
 
-.. figure:: img/code_blocks_wizard_welcome.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_wizard_welcome.png
    :figclass: figure-w480
    :align: center
 
@@ -68895,13 +68895,13 @@ The project file should be created in the root of the cloned project folder. To 
 
 Second, ensure that the **Folder to create project in** is the folder you ran the Git clone command from, not the ``godot`` project folder. Confirm that the **Resulting filename** field will create the project file in the root of the cloned project folder.
 
-.. figure:: img/code_blocks_project_title_and_location.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_project_title_and_location.png
    :figclass: figure-w480
    :align: center
 
 The compiler and configuration settings are managed through **SCons** and will be configured later. However, it's worth deselecting the **Create "Release" configuration** option; so only a single build target is created before clicking **Finish**.
 
-.. figure:: img/code_blocks_compiler_and_configuration.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_compiler_and_configuration.png
    :figclass: figure-w480
    :align: center
 
@@ -68910,19 +68910,19 @@ Configuring the build
 
 The first step is to change the project properties. Right-click on the new project and select **Properties...**.
 
-.. figure:: img/code_blocks_open_properties.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_open_properties.png
    :figclass: figure-w480
    :align: center
 
 Check the **This is a custom Makefile** property. Click OK to save the changes.
 
-.. figure:: img/code_blocks_project_properties.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_project_properties.png
    :figclass: figure-w480
    :align: center
 
 The next step is to change the build options. Right-click on the new project and select **Build Options...**.
 
-.. figure:: img/code_blocks_open_build_options.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_open_build_options.png
    :figclass: figure-w480
    :align: center
 
@@ -68930,17 +68930,17 @@ Select the **"Make" commands** tab and remove all the existing commands for all 
 
 If you're using Windows, all the commands need to be preceded with ``cmd /c`` to iniitalize the command interpreter.
 
-.. figure:: img/code_blocks_scons_minimum.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_scons_minimum.png
    :figclass: figure-w480
    :align: center
 
-.. figure:: img/code_blocks_scons_clean.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_scons_clean.png
    :figclass: figure-w480
    :align: center
 
 Windows example:
 
-.. figure:: img/code_blocks_scons_windows.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_scons_windows.png
    :figclass: figure-w480
    :align: center
 
@@ -68953,7 +68953,7 @@ Once **SCons** has successfully built the desired target, reopen the project **P
 
 Deselect the **Auto-generate filename prefix** and **Auto-generate filename extension** options.
 
-.. figure:: img/code_blocks_build_targets.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_build_targets.png
    :figclass: figure-w480
    :align: center
 
@@ -68966,13 +68966,13 @@ Adding files to the project
 
 To add all the Godot code files to the project, right-click on the new project and select **Add files recursively...**.
 
-.. figure:: img/code_blocks_add_files_recursively.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_add_files_recursively.png
    :figclass: figure-w480
    :align: center
 
 It should automatically select the project folder; so simply click **Open**. By default, all code files are included, so simply click **OK**.
 
-.. figure:: img/code_blocks_select_files.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_select_files.png
    :figclass: figure-w480
    :align: center
 
@@ -68981,13 +68981,13 @@ Code style configuration
 
 Before editing any files, remember that all code needs to comply with the :ref:`doc_code_style_guidelines`. One important difference with Godot is the use of tabs for indents. Therefore, the key default editor setting that needs to be changed in Code::Blocks is to enable tabs for indents. This setting can be found by selecting **Settings > Editor**.
 
-.. figure:: img/code_blocks_update_editor_settings.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_blocks_update_editor_settings.png
    :figclass: figure-w480
    :align: center
 
 Under **General Settings**, on the **Editor Settings** tab, under **Tab Options** check **Use TAB character**.
 
-.. figure:: img/code_block_use_tab_character.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/code_block_use_tab_character.png
    :figclass: figure-w480
    :align: center
 
@@ -69010,7 +69010,7 @@ Importing the project
 
 - From the KDevelop's main screen select **Open Project**.
 
-.. figure:: img/kdevelop_newproject.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_newproject.png
    :figclass: figure-w480
    :align: center
 
@@ -69019,14 +69019,14 @@ Importing the project
 - Navigate to the Godot root folder and select it.
 - On the next screen, choose **Custom Build System** for the **Project Manager**.
 
-.. figure:: img/kdevelop_custombuild.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_custombuild.png
    :figclass: figure-w480
    :align: center
 
 - After the project has been imported, open the project configuration by right-clicking 
   on it in the **Projects** panel and selecting **Open Configuration..** option.
 
-.. figure:: img/kdevelop_openconfig.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_openconfig.png
    :figclass: figure-w480
    :align: center
 
@@ -69042,7 +69042,7 @@ Importing the project
      platform/<your_platform>/  // Replace <your_platform> with a folder 
                                    corresponding to your current platform
 
-.. figure:: img/kdevelop_addincludes.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_addincludes.png
    :figclass: figure-w480
    :align: center
 
@@ -69059,7 +69059,7 @@ Importing the project
   | Arguments       | See :ref:`doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +-----------------+------------------------------------------------------------------------------+
 
-.. figure:: img/kdevelop_buildconfig.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_buildconfig.png
    :figclass: figure-w480
    :align: center
 
@@ -69070,7 +69070,7 @@ Debugging the project
 
 - Select **Run > Configure Launches...** from the top menu.
 
-.. figure:: img/kdevelop_configlaunches.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_configlaunches.png
    :figclass: figure-w480
    :align: center
 
@@ -69079,7 +69079,7 @@ Debugging the project
   the ``<Godot root directory>/bin`` folder. The name depends on your build configuration,
   e.g. ``godot.x11.tools.64`` for 64-bit X11 platform with ``tools`` enabled.
 
-.. figure:: img/kdevelop_configlaunches2.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/kdevelop_configlaunches2.png
    :figclass: figure-w480
    :align: center
 
@@ -69103,13 +69103,13 @@ Importing the project
 
 - From the Qt Creator's main screen select **New Project > Import Project > Import Existing Project**.
 
-.. figure:: img/qtcreator-new-project.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-new-project.png
    :figclass: figure-w480
    :align: center
 
 - Under **Location** select the Godot root folder.
 
-.. figure:: img/qtcreator-set-project-path.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-set-project-path.png
    :figclass: figure-w480
    :align: center
 
@@ -69118,14 +69118,14 @@ Importing the project
   ``*.glsl`` for shader files, ``*.py`` for buildsystem files,
   ``*.java`` for Android platform development, ``*.mm`` for macOS platform development.
 
-.. figure:: img/qtcreator-apply-import-filter.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-apply-import-filter.png
    :figclass: figure-w480
    :align: center
 
 .. note:: You can change this configuration later by right-clicking on your project
           and selecting the **Edit Files...** option.
 
-          .. figure:: img/qtcreator-edit-files-menu.png
+          .. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-edit-files-menu.png
             :figclass: figure-w480
             :align: center
 
@@ -69134,14 +69134,14 @@ Importing the project
 - Open the ``project_name.includes`` file and add a line containing ``.`` to it
   to correctly enable the code completion.
 
-.. figure:: img/qtcreator-project-name-includes.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-project-name-includes.png
    :figclass: figure-w480
    :align: center
 
 - From the left-side menu select **Projects** and open the **Build** tab.
 - Delete the predefined ``make`` build step.
 
-.. figure:: img/qtcreator-projects-build.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-projects-build.png
    :figclass: figure-w480
    :align: center
 
@@ -69154,7 +69154,7 @@ Importing the project
   | Arguments | See :ref:`doc_introduction_to_the_buildsystem` for a full list of arguments. |
   +-----------+------------------------------------------------------------------------------+
 
-.. figure:: img/qtcreator-set-scons-command.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-set-scons-command.png
    :figclass: figure-w480
    :align: center
 
@@ -69173,7 +69173,7 @@ Debugging the project
 - If you want to run a specific project, specify its root folder under **Working directory**.
 - If you want to run the editor, add ``-e`` to the **Command line arguments** field.
 
-.. figure:: img/qtcreator-run-command.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-run-command.png
    :figclass: figure-w480
    :align: center
 
@@ -69188,7 +69188,7 @@ and the IDE should help them follow it. By default, Qt Creator uses spaces
 for indentation which doesn't match the Godot code style guidelines. You can
 change this behavior by changing the **Code Style** in **Tools > Options > C++**.
 
-.. figure:: img/qtcreator-options-cpp.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-options-cpp.png
    :figclass: figure-w480
    :align: center
 
@@ -69196,7 +69196,7 @@ Click on **Edit** to change the current settings, then click on
 **Copy Built-in Code Style** button to set a new code style. Set a name for it
 (e.g. Godot) and change the Tab policy to be **Tabs Only**.
 
-.. figure:: img/qtcreator-edit-codestyle.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/qtcreator-edit-codestyle.png
    :figclass: figure-w480
    :align: center
 
@@ -69233,7 +69233,7 @@ with the solution file, it can be generated using SCons.
 .. warning:: Visual Studio must be configured with the C++ package. It can be selected
              in the intaller:
 
-             .. figure:: img/vs_1_install_cpp_package.png
+             .. figure:: https://docs.godotengine.org/en/3.6/_images/vs_1_install_cpp_package.png
                 :align: center
 
 Debugging the project
@@ -69251,7 +69251,7 @@ project manager opens a project, the initial process is terminated and the debug
 - To configure the launch options to use with the debugger use **Project > Properties**
   from the top menu:
 
-.. figure:: img/vs_2_project_properties.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vs_2_project_properties.png
    :align: center
 
 - Open the **Debugging** section and under **Command Arguments** add two new arguments:
@@ -69259,7 +69259,7 @@ project manager opens a project, the initial process is terminated and the debug
   tells the executable to open the specified project (must be provided as an *absolute* path
   to the project root, not the ``project.godot`` file).
 
-.. figure:: img/vs_3_debug_command_line.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vs_3_debug_command_line.png
    :align: center
 
 To learn more about command line arguments, refer to the
@@ -69271,7 +69271,7 @@ process using **Debug > Attach to Process...** menu.
 To check that everything is working, put a breakpoint in ``main.cpp`` and press :kbd:`F5` to
 start debugging.
 
-.. figure:: img/vs_4_debugging_main.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vs_4_debugging_main.png
    :align: center
 
 If you run into any issues, ask for help in one of
@@ -69302,17 +69302,17 @@ Importing the project
   **File > Open Folder...**.
 - Press :kbd:`Ctrl + Shift + P` to open the command prompt window and enter *Configure Task*.
 
-.. figure:: img/vscode_configure_task.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vscode_configure_task.png
    :align: center
 
 - Select the **Create tasks.json file from template** option.
 
-.. figure:: img/vscode_create_tasksjson.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vscode_create_tasksjson.png
    :align: center
 
 - Then select **Others**.
 
-.. figure:: img/vscode_create_tasksjson_others.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vscode_create_tasksjson_others.png
    :align: center
 
 - Within the ``tasks.json`` file find the ``"tasks"`` array and add a new section to it:
@@ -69327,7 +69327,7 @@ Importing the project
       "problemMatcher": "$msCompile"
     }
 
-.. figure:: img/vscode_3_tasks.json.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vscode_3_tasks.json.png
    :figclass: figure-w480
    :align: center
 
@@ -69344,7 +69344,7 @@ To run and debug the project you need to create a new configuration in the ``lau
 - Press :kbd:`Ctrl + Shift + D` to open the Run panel.
 - If ``launch.json`` file is missing you will be prompted to create a new one.
 
-.. figure:: img/vscode_1_create_launch.json.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vscode_1_create_launch.json.png
    :align: center
 
 - Select **C++ (GDB/LLDB)**. There may be another platform specific option here. If selected,
@@ -69413,7 +69413,7 @@ To run and debug the project you need to create a new configuration in the ``lau
       "preLaunchTask": "build"
     }
 
-.. figure:: img/vscode_2_launch.json.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/vscode_2_launch.json.png
    :figclass: figure-w480
    :align: center
 
@@ -69454,7 +69454,7 @@ Importing the project
 
 - From Xcode's main screen create a new project using the **Other > External Build System** template.
 
-.. figure:: img/xcode_1_create_external_build_project.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_1_create_external_build_project.png
    :figclass: figure-w480
    :align: center
 
@@ -69469,20 +69469,20 @@ Importing the project
   | Directory  | A full path to the Godot root folder                                         |
   +------------+------------------------------------------------------------------------------+
 
-.. figure:: img/xcode_2_configure_scons.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_2_configure_scons.png
    :figclass: figure-w480
    :align: center
 
 - Add a Command Line Tool target which will be used for indexing the project by
   choosing **File > New > Target...**.
 
-.. figure:: img/xcode_3_add_new_target.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_3_add_new_target.png
    :figclass: figure-w480
    :align: center
 
 - Select **OS X > Application > Command Line Tool**.
 
-.. figure:: img/xcode_4_select_command_line_target.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_4_select_command_line_target.png
    :figclass: figure-w480
    :align: center
 
@@ -69496,14 +69496,14 @@ Importing the project
 - Add the Godot source to the project by dragging and dropping it into the project file browser.
 - Uncheck **Create external build system project**.
 
-.. figure:: img/xcode_5_after_add_godot_source_to_project.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_5_after_add_godot_source_to_project.png
    :figclass: figure-w480
    :align: center
 
 - Next select **Create groups** for the **Added folders** option and check *only* 
   your command line indexing target in the **Add to targets** section.
 
-.. figure:: img/xcode_6_after_add_godot_source_to_project_2.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_6_after_add_godot_source_to_project_2.png
    :figclass: figure-w480
    :align: center
 
@@ -69527,7 +69527,7 @@ To enable debugging support you need to edit the external build target's build a
 
   ln -f ${PROJECT_DIR}/godot/bin/godot.osx.tools.64 ${PROJECT_DIR}/godot/bin/godot
 
-.. figure:: img/xcode_7_setup_build_post_action.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_7_setup_build_post_action.png
    :figclass: figure-w480
    :align: center
 
@@ -69535,7 +69535,7 @@ To enable debugging support you need to edit the external build target's build a
 
 - Open the scheme editor again and select **Run**.
 
-.. figure:: img/xcode_8_setup_run_scheme.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/xcode_8_setup_run_scheme.png
    :figclass: figure-w480
    :align: center
 
@@ -69573,7 +69573,7 @@ The following diagram describes the architecture used by Godot, from the
 core components down to the abstracted drivers, via the scene
 structure and the servers.
 
-.. image:: img/architecture_diagram.jpg
+.. image:: https://docs.godotengine.org/en/3.6/_images/architecture_diagram.jpg
 
 Debugging the editor with gdb
 -----------------------------
@@ -70498,27 +70498,27 @@ Inheritance class tree
 Object
 ------
 
-.. image:: img/Object.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/Object.png
 
 Reference
 ---------
 
-.. image:: img/Reference.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/Reference.png
 
 Control
 -------
 
-.. image:: img/Control.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/Control.png
 
 Node2D
 ------
 
-.. image:: img/Node2D.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/Node2D.png
 
 Spatial
 -------
 
-.. image:: img/Spatial.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/Spatial.png
 
 Source files: :download:`class_tree.zip <files/class_tree.zip>`.
 
@@ -72716,7 +72716,7 @@ VerySleepy
   will spawn a child process for every project edited or run.
 - Open VerySleepy and select the Godot executable in the list of processes on the left:
 
-.. image:: img/cpp_profiler_verysleepy_select_process.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_verysleepy_select_process.png
 
 - Click the **Profile All** button on the right to start profiling.
 - Perform the actions you wish to profile in the editor or project. When you're done, click **Stop** (*not* Abort).
@@ -72727,14 +72727,14 @@ VerySleepy
   **Filter Module to <Godot executable name>** in the dropdown that appears.
 - Your results window should now look something like this:
 
-.. image:: img/cpp_profiler_verysleepy_results_filtered.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_verysleepy_results_filtered.png
 
 HotSpot
 ^^^^^^^
 
 - Open HotSpot. Click **Record Data**:
 
-.. image:: img/cpp_profiler_hotspot_welcome.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_hotspot_welcome.png
 
 - In the next window, specify the path to the Godot binary that includes debug symbols.
 - Specify command line arguments to run a specific project, with or without the editor.
@@ -72746,7 +72746,7 @@ HotSpot
   Otherwise, some events may be missing in the capture.
   Your settings should now look something like this:
 
-.. image:: img/cpp_profiler_hotspot_record.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_hotspot_record.png
 
 - Click **Start Recording** and perform the actions you wish to profile in the editor/project.
 - Quit the editor/project normally or use the **Stop Profiling** button in HotSpot
@@ -72754,7 +72754,7 @@ HotSpot
   if you're not interested in the engine's quit procedure.
 - Click **View Results** and wait for the profiling visualization to be generated:
 
-.. image:: img/cpp_profiler_hotspot_view_results.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_hotspot_view_results.png
 
 - Use the tabs at the top to navigate between the different views. These views
   show the same data, but in different ways. The **Flame Graph** tab is a good
@@ -72765,7 +72765,7 @@ HotSpot
   started by the engine among with the CPU utilization for each thread.
   This lets you see threads that can be a bottleneck at a given point in time.
 
-.. image:: img/cpp_profiler_hotspot_flame_graph.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_hotspot_flame_graph.png
 
 .. note::
 
@@ -72782,20 +72782,20 @@ Xcode Instruments
 - Open Xcode. Select **Open Developer Tool** - **Instruments** from the **Xcode** app menu:
 - Double-click on **Time Profiler** in the **Instruments** window:
 
-.. image:: img/cpp_profiler_xcode_menu.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_xcode_menu.png
 
 - In the Time Profiler window, click on the **Target** menu, select **Choose target...**
   and specify the path to the Godot binary, command line arguments and environment variables
   in the next window.
 
-.. image:: img/cpp_profiler_time_profiler.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_time_profiler.png
 
 - You can also attach the Time Profiler to a running process by selecting it from the **Target**
   menu.
 
 - Click the **Start an immediate mode recording** button to start profiling.
 
-.. image:: img/cpp_profiler_time_profiler_record.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_time_profiler_record.png
 
 - Perform the actions you wish to profile in the editor or project. When you're done,
   click the **Stop** button.
@@ -72807,7 +72807,7 @@ Xcode Instruments
   remove external modules.
 - You can use the timeline at the top of the window to display details for the specific time period.
 
-.. image:: img/cpp_profiler_time_profiler_result.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/cpp_profiler_time_profiler_result.png
 
 
 ===================================================
@@ -74144,7 +74144,7 @@ abstract data structures, creating nice user interfaces, or simply love
 programming. Whatever the case may be, they come up with cool ideas, which may
 or may not be solving any real problems.
 
-.. image:: img/best_practices1.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices1.png
 
 These are usually called *Solutions in search of a problem*. In an ideal world,
 they would not be harmful but, in reality, code takes time to write, takes space
@@ -74158,7 +74158,7 @@ software development.
 This is a variation of the previous practice. Adding anything unnecessary is not
 a good idea, but what constitutes what is necessary and what isn't?
 
-.. image:: img/best_practices2.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices2.png
 
 The answer to this question is that the problem needs to *exist* before it can
 be actually solved. It must not be speculation or a belief. The user must be
@@ -74186,7 +74186,7 @@ problem that exists under the sun*. As a game engine, Godot will solve problems
 for you, so it helps you to make games better and faster, but it won't make the
 *entire game* for you. A line must be drawn somewhere.
 
-.. image:: img/best_practices3.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices3.png
 
 Whether a problem is worth solving is determined by the difficulty the user has
 to work around it. This difficulty can be expressed as:
@@ -74218,7 +74218,7 @@ Because of this, user proposed solutions don't always contemplate other use
 cases that developers are often aware of, so they are often biased towards their
 own requirements.
 
-.. image:: img/best_practices4.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices4.png
 
 For developers, the perspective is different. They may find the user's problem
 too unique to justify a solution (instead of a user workaround), or maybe they
@@ -74251,7 +74251,7 @@ The situation will often take a turn for the worse when, in order to make this
 solution appear even more fantastic and flexible, the pure speculation-based
 problems (as described in #2) also make their appearance on stage.
 
-.. image:: img/best_practices5.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices5.png
 
 The main problem is that, in reality, it rarely works this way. Most of the
 time, writing an individual solution to each problem results in code that
@@ -74286,7 +74286,7 @@ The question is then, how to design software that gives users what *we know they
 need*, but that is flexible enough to allow them to do *what we don't know they
 might need* in the future?
 
-.. image:: img/best_practices6.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices6.png
 
 The answer to this question is that, to ensure users still can do what they want
 to do, we need to give them access to a *low level API* that they can use to
@@ -74314,7 +74314,7 @@ importance given how much code relies on it, and because it's key for new
 contributors as a starting point to learning the codebase.
 
 
-.. image:: img/best_practices7.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices7.png
 
 
 The common reasoning for wanting to do this is that it's usually less code to
@@ -74334,7 +74334,7 @@ use a third party library to solve the problem.
 As Godot requires to be shipped in a large amount of platforms, we can't
 link libraries dynamically. Instead, we bundle them in our source tree.
 
-.. image:: img/best_practices8.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/best_practices8.png
 
 As a result, we are very picky with what goes in, and we tend to prefer smaller
 libraries (in fact, single header ones are our favorite). Only in cases where
@@ -74432,12 +74432,12 @@ repository on GitHub. To do so, you will need to have a GitHub account and to
 be logged in. In the top right corner of the repository's GitHub page, you
 should see the "Fork" button as shown below:
 
-.. image:: img/github_fork_button.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/github_fork_button.png
 
 Click it, and after a while you should be redirected to your own fork of the
 Godot repo, with your GitHub username as namespace:
 
-.. image:: img/github_fork_url.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/github_fork_url.png
 
 You can then *clone* your fork, i.e. create a local copy of the online
 repository (in Git speak, the *origin remote*). If you haven't already,
@@ -74715,7 +74715,7 @@ When you load your fork's branch on GitHub, you should see a line saying
 commits behind, if your ``master`` branch was out of sync with the upstream
 ``master`` branch).
 
-.. image:: img/github_fork_make_pr.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/github_fork_make_pr.png
 
 On that line, there is a "Pull request" link. Clicking it will open a form
 that will let you issue a pull request on the ``godotengine/godot`` upstream
@@ -74943,18 +74943,18 @@ If you have a GitHub account
 
 - Open the pull request page. Click the **Checks** tab near the top of the page:
 
-.. image:: img/testing_pull_requests_access_checks.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_access_checks.png
 
 - In the list of platforms that appears on the left, select your platform by clicking
   it then choose the type of build you need (editor or export template).
   If in doubt, select an editor build:
 
-.. image:: img/testing_pull_requests_checks_platforms.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_checks_platforms.png
 
 - Click the **Artifacts** dropdown on the right of the page then click the artifact's
   name to download it:
 
-.. image:: img/testing_pull_requests_checks_artifacts.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_checks_artifacts.png
 
 - Extract the ZIP archive then run the executable.
   Note that Windows and macOS binaries are not code signed.
@@ -74971,7 +74971,7 @@ to generate a universal download link.
 
 - Open the pull request page. Click the *fork*'s branch name near the top of the page:
 
-.. image:: img/testing_pull_requests_access_fork.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_access_fork.png
 
 - Now that you are on the fork's branch page, click the ``.github`` folder at the top of the file list.
   Then, click on the ``workflows`` folder (whicb is inside the ``.github`` folder).
@@ -74984,7 +74984,7 @@ to generate a universal download link.
   If the the format of the URL you pasted is correct, you should be presented
   with a page like this:
 
-.. image:: img/testing_pull_requests_nightly_link.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_nightly_link.png
 
 - Click the URL of the artifact you wish to download.
 
@@ -75005,12 +75005,12 @@ by Godot's GitHub Actions setup.
 
 - Open the pull request page. Click the *fork*'s branch name near the top of the page:
 
-.. image:: img/testing_pull_requests_access_fork.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_access_fork.png
 
 - Now that you are on the fork's branch page, click the green **Code** button on the right of the page
   then choose **Download ZIP** in the dropdown:
 
-.. image:: img/testing_pull_requests_fork_zip.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/testing_pull_requests_fork_zip.png
 
 - Extract the ZIP archive and follow the :ref:`compiling <toc-devel-compiling>` instructions
   for your operating system.
@@ -76424,7 +76424,7 @@ interface. They're used in the sources, in the documentation, and you
 should always use them instead of synonyms, so the users know what
 you're talking about.
 
-.. figure:: img/editor-vocabulary-overview.png
+.. figure:: https://docs.godotengine.org/en/3.6/_images/editor-vocabulary-overview.png
    :alt: Overview of the interface and common vocabulary
 
    Overview of the interface and common vocabulary
@@ -77354,7 +77354,7 @@ Once signed in, browse to the Godot resource which you want to contribute to (in
 this page we will use the `editor translation <https://hosted.weblate.org/projects/godot-engine/godot/>`__
 as an example) to find the list of all languages:
 
-.. image:: img/l10n_01_language_list.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_01_language_list.png
 
 .. seealso::
 
@@ -77372,7 +77372,7 @@ If your language is not listed, scroll to the bottom of the list of languages
 and click the "Start new translation" button, and select the language you want
 to translate to:
 
-.. image:: img/l10n_02_new_translation.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_02_new_translation.png
 
 .. important::
 
@@ -77404,12 +77404,12 @@ can be clicked and used to browse through the corresponding list. You can also
 click the "Translate" button to get started on the list of strings needing
 action.
 
-.. image:: img/l10n_03_translation_overview.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_03_translation_overview.png
 
 After selecting a list of clicking "Translate", you will see the main
 translation interface where all the work happens:
 
-.. image:: img/l10n_04_translation_interface.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_04_translation_interface.png
 
 On that page, you have:
 
@@ -77488,9 +77488,9 @@ A handy tool to locate specific pages/classes is to use Weblate's advanced
 search feature, and especially the "Location strings" query (which can also be
 used with the ``location:`` token, e.g. ``location:nodes_and_scenes.rst``):
 
-.. image:: img/l10n_05_search_location.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_05_search_location.png
 
-.. image:: img/l10n_06_browse_by_location.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_06_browse_by_location.png
 
 .. note::
 
@@ -77644,7 +77644,7 @@ preferred PO editing application, such as `Poedit <https://poedit.net/>`__ or
 To download the PO file locally, browse to the translation overview for your
 language, and select the first item in the "Files" menu:
 
-.. image:: img/l10n_07_download_po_file.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_07_download_po_file.png
 
 Once you are done with a series of edits, use the "Upload translation" item in
 that same menu and select your file. Choose "Add as translation" for the file
@@ -77691,14 +77691,14 @@ documentation. To do so, browse the relevant page in the docs, e.g.
 :ref:`doc_intro_to_the_editor_interface`. Click the "Edit on GitHub" link in the
 top right corner:
 
-.. image:: img/l10n_08_edit_on_github.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_08_edit_on_github.png
 
 On GitHub, click on the image you want to translate. If relevant, click on
 "Download" to download it locally and edit it with an image edition tool.
 Note the full path to the image as it will be needed further down (here
 ``getting_started/step_by_step/img/project_manager_first_open.png``).
 
-.. image:: img/l10n_09_path_to_image.png
+.. image:: https://docs.godotengine.org/en/3.6/_images/l10n_09_path_to_image.png
 
 Create your localized version of the image, either by editing the English one,
 or by taking a screenshot of the editor with your language, if it's an editor
@@ -77980,21 +77980,21 @@ elsewhere (such as downloading them directly from the AssetLib web frontend),
 which will take you through the same package installation procedure as with the
 assets downloaded directly via Godot that we just covered.
 
-.. |image0| image:: img/assetlib_website.png
-.. |image1| image:: img/assetlib_search.png
-.. |image2| image:: img/assetlib_asset.png
-.. |image3| image:: img/assetlib_register-login.png
-.. |image4| image:: img/assetlib_register.png
-.. |image5| image:: img/assetlib_login.png
-.. |image6| image:: img/assetlib_login_header.png
-.. |image7| image:: img/assetlib_editor_workspace.png
-.. |image8| image:: img/assetlib_editor.png
-.. |image9| image:: img/assetlib_editor_asset.png
-.. |image10| image:: img/assetlib_editor_download.png
-.. |image11| image:: img/assetlib_editor_installer.png
-.. |image12| image:: img/assetlib_editor_installer_error.png
-.. |image13| image:: img/assetlib_editor_installer_success.png
-.. |image14| image:: img/assetlib_editor_projects.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_website.png
+.. |image1| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_search.png
+.. |image2| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_asset.png
+.. |image3| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_register-login.png
+.. |image4| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_register.png
+.. |image5| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_login.png
+.. |image6| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_login_header.png
+.. |image7| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_workspace.png
+.. |image8| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor.png
+.. |image9| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_asset.png
+.. |image10| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_download.png
+.. |image11| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_installer.png
+.. |image12| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_installer_error.png
+.. |image13| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_installer_success.png
+.. |image14| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_editor_projects.png
 
 
 ===================================================
@@ -78214,7 +78214,7 @@ You will be informed when your asset is reviewed. If it was rejected,
 you will be told why that may have been, and you will be able to submit it again
 with the appropriate changes.
 
-.. |image0| image:: img/assetlib_submit.png
+.. |image0| image:: https://docs.godotengine.org/en/3.6/_images/assetlib_submit.png
 
 
 ===================================================

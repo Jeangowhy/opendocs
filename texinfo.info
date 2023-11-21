@@ -64,11 +64,17 @@ Msys2 启动 mingw64.exe 子系统环境时可能会由于设置错误，导致�
 文件系统目录访问 `/mingw64/bin/runemacs`。如果提示出现的路径不固定，是相对路径，
 那么就需要修改系统环境变量 `SHELL`，设置一个 shell 程序的绝对路径。
 
-可以将安装目录下的 bash 程序链接到这个目录，使用以下 Powershell 命令创建链接文件：
+直接在 Windows 或者 Msys2 环境下运行 Emacs，会因为不同的环境变量设置，导致
+Emacs 使用不同路径下的初始化脚本和默认缓冲目录。
+
+可以为配置文件创建链接，使用它们共用同一份配置，以下 Powershell 命令仅供参考：
 
 ```sh
-$target="c:/msys64/usr/bin/bash.exe";
-$path="c:/msys64/usr/include/cmd.exe";
+$target="C:\Users\OCEAN\.emacs";
+$path="C:\Users\OCEAN\AppData\Roaming\.emacs";
+new-item -type SymbolicLink -target "$target"  -Path "$path"
+$target="C:\Users\OCEAN\.emacs.d";
+$path="C:\Users\OCEAN\AppData\Roaming\.emacs.d";
 new-item -type SymbolicLink -target "$target"  -Path "$path"
 ```
 
@@ -1975,6 +1981,12 @@ RFC-2253 字符串。
 Emacs Project & Packages
 ========================================================
 
+使用 `M-x customize-themes` 命令配置主题，推荐一个 Sublim Text 共享主题：
+
+timu-spacegrey -- Custom theme inspired by the spacegray theme in Sublime Text.
+https://github.com/emacsmirror/timu-spacegrey-theme
+
+
 Emacs 集成了 GDB 调试器，这是一个复杂的工具，应该随手准备 GDB 手册。好在 Texinfo
 文档随工具一起安装，只需要使用 info 命令打开文档，并且可直接定位到指定的 @Node，
 例如，查询 starti 指令的使用，就可以直接通过 Texiinfo 文档的索引数据定位到章节：
@@ -2158,6 +2170,28 @@ Save Place in File between Sessions（）。
 服务程序，它会对文件进行语法解析，并返回相关符号的上下文信息。Emacs 接收到这些
 信息后，就会在提示区（界面最底部）显示出来。
 
+一个完整的 LSP 系统至少包含以下元素：
+
+1. Language Server Protocol：包含 JSON-RPC 数据结构和各种消息数据对象类型定义；
+3. Language Server Server：向客户端提供语言服务，不同编程语言有各自的语言服务器实现；
+2. Language Server Client：客户端遵循 LSP 协议在编辑器与 LSP 服务器之间传递消息；
+
+编辑器就是 LSP 的用户，通常以插件形式实现 LSP Client（Eglog），并且遵循 LSP 规则
+向语言服务器请求语言服务，向服务程序发送关于编辑器当前的状态数据，例如，打开
+什么文件、当前光标所在行列。目前 LSP 规范最新版本是 3.18.x，官方提供的实现是
+[VS Code 集成的 Node.js 语言服务器](https://github.com/Microsoft/vscode-languageserver-node) 。
+
+下图展示了 VS Code 具与 LSP 服务器在例程编辑会话期间的通信流程：
+
+![LSP Arch](https://learn.microsoft.com/zh-cn/visualstudio/extensibility/media/lsp-flow-diagram.png)
+
+LSP 协议文档中使用了不同的箭头表示服务器生命周期事件的数据流：
+
+1. 🡢 表示数据、消息流向：client 🡢 server (只通知，无回复)
+2. ⮌ 表示数据、消息流向：client 🡢 server 🡢 client (有回复)
+3. 🡠 表示数据、消息流向：client 🡠 server (只通知，无回复)
+4. ⮎ 表示数据、消息流向：server 🡠 client 🡠 server (有回复)
+
 如果使用旧版 Emacs，可能还在使用 lsp-mode 或者 company-mode。其中，lsp-mode 配置复杂，
 有些功能累赘，如果不手动关掉，会造成性能上的问题。可以自行配置最新的 Eglot，
 参考以下 Clangd 文档给出的脚本设置 `eglot-server-programs`，提示 Eglot 找到服务程序：
@@ -2173,46 +2207,200 @@ Save Place in File between Sessions（）。
     (add-hook 'c++-mode-hook 'eglot-ensure)
 ```
 
+Eglot 提供多种配置方式与 LSP 服务程序建立联接，`eglot-server-programs` 变量包含
+一个列表，基本设置形式为 `(MAJOR-MODE . SERVER)`，其中 Server 部分可以是以下
+任何一种配置：
+
+```lisp
+    (PROGRAM ARGS...)
+    (PROGRAM ARGS... :initializationOptions OPTIONS...)
+    (HOST PORT ARGS...)
+    (PROGRAM ARGS... :autoport MOREARGS...)
+    FUNCTION
+```
+
+可以使用 `eglot-alternatives` 为同一种语言配置多个服务程序，激活时会提示选择。
+
 例如，添加 Python (Pyright) 和 TypeScript LSP 等语言支持，可以和 Sublime Text 共用
 同一个 LSP 客户端程序，只需要在 PATH 可以找到 LSP 客户程序文件，或者直接将
 路径写入 Emacs 初始化脚本中。JavaScript/TypeScript 可以使用官方的 LSP 客户程序，
 也可以使用 `deno lsp`：
 
-```sh
+```lisp
     (require 'eglot)
     (add-to-list 'eglot-server-programs
              '(python-mode . ("pyright-langserver" "--stdio")))
 
     (require 'eglot)
     (add-to-list 'eglot-server-programs
-             '(gdscript-mode . ("C:/dl/games/Godot_v4.1.2-stable_win64.exe" "--headless")))
+             '(typescript-mode . ("typescript-language-server" "--stdio")))
 
     (require 'eglot)
     (add-to-list 'eglot-server-programs
-             '(typescript-mode . ("deno" "lsp")))
+         '(deno-ts-mode . ("deno" "lsp" "--unstable")))
+
+    (with-eval-after-load 'eglot
+        (add-to-list 'eglot-server-programs
+            '(gdscript-mode . ,(eglot-alternatives
+                '(("C:/dl/games/Godot_v4.1.2-stable_win64.exe" "--headless")
+                '("127.0.0.1" 6005)) ))))
 ```
 
 注意，安装各种语言的模式扩展，例如 `M-x package-install`
 
-现代语言基本上都会提供 LSP 客户端实现，例如 Rust analyzer、Java jdtls、Kotlin kotlinls、
+现代语言基本上都会提供 LSP 服务实现，例如 Rust analyzer、Java jdtls、Kotlin kotlinls、
 Godot GDScript 等等，TypeScript 自然是不在话下，它似乎是 LSP 同一个团队的产品。
+Deno 也使用 TypeScript，但可以安装专用的 `deno-ts-mode` 扩展，这个模式扩展自
+`typescript-ts-mode`。
 
 目前只在 MELPA 上提供 gdscript-mode 安装包，默认配置的 ELPA 服务器上没有，
 需要在初始化脚本中添加 MELPA 服务器，或者下载程序包手动安装。
 
-LSP 协议使用 JSON-RPC 作为进程间通信技术，这与 LSP 客户端是否通过 TCP/IP
-网络连接与否无关，这只是一种基于 JSON 数据结构的通信手段。例如，Clangd LSP
+LSP 协议使用 JSON-RPC 作为进程间数据交换格式，这与 LSP 协议、服务器或客户端
+是否通过 TCP/IP 网络连接与否无关，进程间通信技术取决于具体实现。例如，Clangd
 就选择基于 stdin/stdout 通过 XPC Service 这种整合了 GCD 与 launchd 的轻量级进程间
 通信技术来实现 LSP 服务。Godot 则会使用 TCP/IP，默认使用端口 Godot 4.x 6005，
 Godot 3.x 6008，配置它就需要给 Eglog 设置相应的端口。
 
+例如，可以将以下 JSONRPC 数据包发送给 clangd 服务：
+
+```sh
+Content-Length: 77
+
+{"jsonrpc": "2.0", "id": 1, "method": "textDocument/didOpen", "params": { } }
+```
+
+如果，LSP 服务还没有进行初始化，那么 clangd 就会返回一个错误报告：
+
+```json
+{"error":{"code":-32002,"message":"server not initialized"},"id":1,"jsonrpc":"2.0"}
+```
+
+还可以使用 telnet 工具来测试 LSP 服务，以下演示测试 Godot LSP 服务程序，可以
+看到发送一个 didOpen 消息后，收到两条回复消息，后一条回复没有数据：
+
+```sh
+> telnet localhost 6005
+Trying ::1...
+Connection failed: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Content-Length: 77
+
+{"jsonrpc": "2.0", "id": 1, "method": "textDocument/didOpen", "params": { } }
+Content-Length: 265
+
+{"jsonrpc":"2.0","method":"textDocument/publishDiagnostics","params":{"diagnostics":[{"code":-1,"message":"Unexpected \"<\" in class body.","range":{"end":{"character":6,"line":0},"start":{"character":0,"line":0}},"severity":1,"source":"gdscript"}],"uri":"<null>"}}Content-Length: 38
+
+{"id":1,"jsonrpc":"2.0","result":null}
+telnet> ?
+Commands may be abbreviated.  Commands are:
+
+close           close current connection
+logout          forcibly logout remote user and close the connection
+display         display operating parameters
+mode            try to enter line or character mode ('mode ?' for more)
+open            connect to a site
+quit            exit telnet
+send            transmit special characters ('send ?' for more)
+set             set operating parameters ('set ?' for more)
+unset           unset operating parameters ('unset ?' for more)
+status          print status information
+toggle          toggle operating parameters ('toggle ?' for more)
+slc             change state of special characters ('slc ?' for more)
+z               suspend telnet
+!               invoke a subshell
+environ         change environment variables ('environ ?' for more)
+?               print help information
+telnet> q
+Connection closed.
+```
+
+Telent 是最早期的远程登录协议，由于使用明文，安全性较差。但是 telnet 这个工具
+可以用于测试 FTP/HTTP 这类字符串格式的协议。执行 telnet 命令，直接进入与服务器
+的数据传输过程，键盘敲什么字符，服务器就会收到什么字符。命令提示信息中包含
+Escape character is '^]' 这样的内容，意思是按下 Ctrl+] 相当输入一个 ESC (0x1d)，
+并暂时停止数据收发，返回 Telnet 命令提示符 `Telnet>`。提示符状态下，也只在提示符
+状态下可以输入各种 telnet 命令，例如 ? 用来查询可用的命令，q 退出 telnet 程序。
+其它状态输入的数据在按下回车键后都会发送给服务器。
+
+TELNET (Remote Terminal Emulation) 协议规范文档参考：
+[RFC 318 - Telnet Protocol](https://www.rfc-editor.org/rfc/rfc318.html)
+
+
 Godot 启动并进入项目器后，默认就会启用 LSP Client，偏好设置中可以修改默认配置。
-所以只需要提供一个 `--headless` 参数隐藏 GUI 界面，以及一个 gd 脚本让它运行：
+Godot 启动时先进入项目列表界面，这是一个独立的进程，打开工程使用不同的进程。
+注意，Godot 监听的是 127.0.0.1 这个本地圆环地址，使用 localhost 可能联接失败。
+根据不同的网线配置，localhost 可能被解释成不同的地址表达形式。
+
+Godot 等到项目加载后再打开 LSP 服务，一个原因是 `GDScriptLanguageServer` 类型
+需要读取项目配置，network/language_server，并根据用户设置的主机、端口进行监听。
+
+但是 Emacs 29.1 Eglot 连接 Godot v4.1.2 时并不成功，超时连接不上。为了观察
+Eglot 建立连接过程，尝试使用以下 Python 脚本编写的一个 echoserver 来查看数据，
+同时只处理一个连接，这个脚本充当 LSP 服务的角色：
+
+```py
+from socket import socket, create_server, AF_INET
+
+
+testdata = b"""
+Content-Length: 63
+
+{"jsonrpc": "2.0", "id": 1, "result": { "capabilities": { } } }
+"""
+
+
+def handle_client(client:socket):
+
+    while client != None:
+        data = client.recv(8192)
+        if data == b'bye\r\n':
+            return client.close()
+        
+        print('Data:', data)
+        client.sendall(testdata)
+
+
+def start_server():
+
+    server: socket = create_server( ('127.0.0.1', 6005), family=AF_INET)
+    print('Server listening on 127.0.0.1:6005')
+
+    while socket != None:
+         client, addr = server.accept( )
+         print('Client comming from:', addr)
+         handle_client(client)
+         print('Client handled:', addr)
+
+
+if __name__ == "__main__":
+    start_server()
+```
+
+从数据上看，Eglot 正确发送了 RPC 初始化方法 `initialize`。根据 LSP 规范文档，
+Server lifetime 指出，Initialize Request ⮌ 初始化方法只能调用一次，由客户端向服务调用。
+服务器收到后，应该回复一个 `InitializeResult`，包含 capabilities 功能支持列表。
+客户端接收到初始化回复之前，不应该再向服务器发送消息。客户端接收到回复后，
+执行初始工作，完成后向服务器发送一个 Initialized Notification 🡢 通知性消息。
+
+```sh
+> python c:/dl/em/echor.py
+Server listening on 127.0.0.1:6005
+Client comming from: ('127.0.0.1', 3990)
+Data: b'Content-Length: 2257\r\n\r\n{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"processId":null,"rootPath":"c:/dl/em/","rootUri":"file:///c%3A/dl/em","initializationOptions":{},"capabilities":{"workspace":{"applyEdit":true,"executeCommand":{"dynamicRegistration":false},"workspaceEdit":{"documentChanges":true},"didChangeWatchedFiles":{"dynamicRegistration":true},"symbol":{"dynamicRegistration":false},"configuration":true,"workspaceFolders":true},"textDocument":{"synchronization":{"dynamicRegistration":false,"willSave":true,"willSaveWaitUntil":true,"didSave":true},"completion":{"dynamicRegistration":false,"completionItem":{"snippetSupport":false,"deprecatedSupport":true,"resolveSupport":{"properties":["documentation","details","additionalTextEdits"]},"tagSupport":{"valueSet":[1]}},"contextSupport":true},"hover":{"dynamicRegistration":false,"contentFormat":["plaintext"]},"signatureHelp":{"dynamicRegistration":false,"signatureInformation":{"parameterInformation":{"labelOffsetSupport":true},"activeParameterSupport":true}},"references":{"dynamicRegistration":false},"definition":{"dynamicRegistration":false,"linkSupport":true},"declaration":{"dynamicRegistration":false,"linkSupport":true},"implementation":{"dynamicRegistration":false,"linkSupport":true},"typeDefinition":{"dynamicRegistration":false,"linkSupport":true},"documentSymbol":{"dynamicRegistration":false,"hierarchicalDocumentSymbolSupport":true,"symbolKind":{"valueSet":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]}},"documentHighlight":{"dynamicRegistration":false},"codeAction":{"dynamicRegistration":false,"codeActionLiteralSupport":{"codeActionKind":{"valueSet":["quickfix","refactor","refactor.extract","refactor.inline","refactor.rewrite","source","source.organizeImports"]}},"isPreferredSupport":true},"formatting":{"dynamicRegistration":false},"rangeFormatting":{"dynamicRegistration":false},"rename":{"dynamicRegistration":false},"inlayHint":{"dynamicRegistration":false},"publishDiagnostics":{"relatedInformation":false,"codeDescriptionSupport":false,"tagSupport":{"valueSet":[1,2]}}},"window":{"workDoneProgress":true},"general":{"positionEncodings":["utf-32","utf-8","utf-16"]},"experimental":{}},"workspaceFolders":[{"uri":"file:///c%3A/dl/em","name":"c:/dl/em/"}]}}'
+```
+
+<!-- 
+提供一个 `--headless` 参数隐藏 GUI 界面，以及一个 gd 脚本让它运行：
 
 ```sh
 /c/dl/games/Godot_v4.1.2-stable_win64.exe --headless --script "/C/dl/games/tutor4/mainloop/scenetree.gd"
+C:/dl/games/Godot_v4.1.2-stable_win64.exe --script "C:/dl/games/tutor4/mainloop/scenetree.gd"
+C:/dl/games/Godot_v4.1.2-stable_win64.exe --script "C:/dl/em/test.gd"
 ```
-
+ -->
 
 
 Eglot 代码补全、错误提示、代码跳转功能都基于 Emacs 原生功能实现，不像 lsp-mode 
