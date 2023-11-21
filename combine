@@ -1,0 +1,59 @@
+#! /usr/bin/env bash
+
+print_title () {
+    printf '\n%.0s' {1..2};
+    printf '=%.0s' {1..51};
+    printf "\n/. 🚀 $1\n"
+    printf '=%.0s' {1..51};
+    printf '\n%.0s' {1..2};
+}
+
+function filter {
+    local parent=`echo $1 | sed -n 's/[^/\]\+$//p'`
+    for it in `sed -n "/^.. toctree/,/^\w/{ s/^ \+\w/\0/p }" $1`
+    do
+        rst="$parent$it.rst"
+        echo $rst
+        filter $rst
+    done
+}
+
+function toc() {
+    echo ./README.rst
+    echo ./index.rst
+    filter ./index.rst
+}
+
+function doc(){
+    cat << EOF
+文档合并脚本中使用了 sed 流式文档处理工具，使用教程参考 OpenDocs： 
+
+1. [Sed in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)
+2. [AWK in 5 Minius](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)
+
+EOF
+}
+
+function combine() {
+    print_title "Docs combine script"
+    doc
+    echo '.. code-block:: bash'
+
+    echo ''
+    cat $0 | sed -n 's/^/    /p'
+
+    echo ''
+    echo "Docs Count: `find ./ -name "*.rst" | wc -l` ::"
+    echo ''
+    find ./ -name "*.rst" | sed -n 's/.*/    \0/p'
+
+    while read -r it
+    do 
+        print_title "$it"
+        cat $it
+    done << EOF
+`toc`
+EOF
+}
+
+combine > /c/opendocs/py_devguide.rst
