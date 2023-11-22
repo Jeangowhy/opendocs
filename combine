@@ -10,18 +10,18 @@ print_title () {
 
 function filter {
     local parent=`echo $1 | sed -n 's/[^/\]\+$//p'`
-    for it in `sed -n "/^.. toctree/,/^\w/{ s/^ \+\w/\0/p }" $1`
+    echo $1
+    for it in `sed -n "/^.. toctree::/,/^\S/{ s/^ \+\w/\0/p }" $1`
     do
-        rst="$parent$it.rst"
-        echo $rst
-        filter $rst
+        doc="$parent$it"
+        filter $doc
     done
 }
 
 function toc() {
     echo ./README.rst
-    echo ./index.rst
-    filter ./index.rst
+    echo ./Doc/README.rst
+    filter ./Doc/contents.rst
 }
 
 function doc(){
@@ -43,12 +43,13 @@ function combine() {
     cat $0 | sed -n 's/^/    /p'
 
     echo ''
-    echo "Docs Count: `find ./ -name "*.rst" | wc -l` ::"
+    echo "Docs Count [library included]: `find ./ -name "*.rst" | wc -l` ::"
     echo ''
-    find ./ -name "*.rst" | sed -n 's/.*/    \0/p'
+    find ./ -name "*.rst" | sed -n 's/.*/    \0/p' | grep -v library
 
     while read -r it
     do 
+        # echo $it
         print_title "$it"
         cat $it
     done << EOF
@@ -56,4 +57,29 @@ function combine() {
 EOF
 }
 
-combine > /c/opendocs/py_devguide.rst
+
+function include(){
+    while read -r it
+    do 
+        # echo $it
+        print_title "$it"
+        printf ".. code-block:: \n\n"
+        cat $it | sed -n 's/.*/    \0/p'
+    done << EOF
+./Grammar/python.gram
+Doc/includes/newtypes/custom.c
+Doc/includes/newtypes/pyproject.toml
+Doc/includes/newtypes/custom2.c
+Doc/includes/newtypes/custom3.c
+Doc/includes/newtypes/custom4.c
+Doc/includes/newtypes/sublist.c
+Doc/includes/typestruct.h
+Doc/includes/run-func.c
+Doc/includes/typestruct.h
+EOF
+}
+
+out=/c/opendocs/pydocs312.rst
+combine > $out
+include >> $out
+subl $out
