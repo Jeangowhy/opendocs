@@ -2580,10 +2580,14 @@ expands to more than one word, Bash reports an error.
 
    Note that the order of redirections is significant.  For example, the
 command
+
      ls > DIRLIST 2>&1
+
 directs both standard output (file descriptor 1) and standard error
 (file descriptor 2) to the file DIRLIST, while the command
+
      ls 2>&1 > DIRLIST
+
 directs only the standard output to file DIRLIST, because the standard
 error was made a copy of the standard output before the standard output
 was redirected to DIRLIST.
@@ -2630,6 +2634,7 @@ expansion of WORD to be opened for reading on file descriptor ‘n’, or
 the standard input (file descriptor 0) if ‘n’ is not specified.
 
    The general format for redirecting input is:
+
      [N]<WORD
 
 3.6.2 Redirecting Output
@@ -2642,6 +2647,7 @@ does not exist it is created; if it does exist it is truncated to zero
 size.
 
    The general format for redirecting output is:
+
      [N]>[|]WORD
 
    If the redirection operator is ‘>’, and the ‘noclobber’ option to the
@@ -2660,6 +2666,7 @@ N, or the standard output (file descriptor 1) if N is not specified.  If
 the file does not exist it is created.
 
    The general format for appending output is:
+
      [N]>>WORD
 
 3.6.4 Redirecting Standard Output and Standard Error
@@ -2671,12 +2678,17 @@ file whose name is the expansion of WORD.
 
    There are two formats for redirecting standard output and standard
 error:
+
      &>WORD
 and
+
      >&WORD
+
 Of the two forms, the first is preferred.  This is semantically
 equivalent to
+
      >WORD 2>&1
+
    When using the second form, WORD may not expand to a number or ‘-’.
 If it does, other redirection operators apply (see Duplicating File
 Descriptors below) for compatibility reasons.
@@ -2689,9 +2701,13 @@ the standard error output (file descriptor 2) to be appended to the file
 whose name is the expansion of WORD.
 
    The format for appending standard output and standard error is:
+
      &>>WORD
+
 This is semantically equivalent to
+
      >>WORD 2>&1
+
    (see Duplicating File Descriptors below).
 
 3.6.6 Here Documents
@@ -2704,6 +2720,7 @@ as the standard input (or file descriptor N if N is specified) for a
 command.
 
    The format of here-documents is:
+
      [N]<<[−]WORD
              HERE-DOCUMENT
      DELIMITER
@@ -2726,6 +2743,7 @@ fashion.
 ------------------
 
 A variant of here documents, the format is:
+
      [N]<<< WORD
 
    The WORD undergoes tilde expansion, parameter and variable expansion,
@@ -2738,7 +2756,9 @@ standard input (or file descriptor N if N is specified).
 ----------------------------------
 
 The redirection operator
+
      [N]<&WORD
+
 is used to duplicate input file descriptors.  If WORD expands to one or
 more digits, the file descriptor denoted by N is made to be a copy of
 that file descriptor.  If the digits in WORD do not specify a file
@@ -2747,7 +2767,9 @@ evaluates to ‘-’, file descriptor N is closed.  If N is not specified,
 the standard input (file descriptor 0) is used.
 
    The operator
+
      [N]>&WORD
+
 is used similarly to duplicate output file descriptors.  If N is not
 specified, the standard output (file descriptor 1) is used.  If the
 digits in WORD do not specify a file descriptor open for output, a
@@ -2760,13 +2782,17 @@ redirected as described previously.
 -----------------------------
 
 The redirection operator
+
      [N]<&DIGIT-
+
 moves the file descriptor DIGIT to file descriptor N, or the standard
 input (file descriptor 0) if N is not specified.  DIGIT is closed after
 being duplicated to N.
 
    Similarly, the redirection operator
+
      [N]>&DIGIT-
+
 moves the file descriptor DIGIT to file descriptor N, or the standard
 output (file descriptor 1) if N is not specified.
 
@@ -6661,16 +6687,22 @@ indexed array indices must be non-negative integers.
 
    An indexed array is created automatically if any variable is assigned
 to using the syntax
+
      NAME[SUBSCRIPT]=VALUE
 
 The SUBSCRIPT is treated as an arithmetic expression that must evaluate
 to a number.  To explicitly declare an array, use
+
      declare -a NAME
+
 The syntax
+
      declare -a NAME[SUBSCRIPT]
+
 is also accepted; the SUBSCRIPT is ignored.
 
 Associative arrays are created using
+
      declare -A NAME
 
    Attributes may be specified for an array variable using the ‘declare’
@@ -6678,7 +6710,9 @@ and ‘readonly’ builtins.  Each attribute applies to all members of an
 array.
 
    Arrays are assigned to using compound assignments of the form
+
      NAME=(VALUE1 VALUE2 ... )
+
 where each VALUE may be of the form ‘[SUBSCRIPT]=’STRING.  Indexed array
 assignments do not require anything but STRING.  When assigning to
 indexed arrays, if the optional subscript is supplied, that index is

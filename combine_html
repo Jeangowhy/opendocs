@@ -1,0 +1,58 @@
+#! /usr/bin/env bash
+
+print_title () {
+    printf '\n%.0s' {1..2};
+    printf "\n/. 🚀 $1\n"
+    printf '=%.0s' {1..51};
+    printf '\n%.0s' {1..2};
+}
+
+function filter {
+    for it in `sed -n "{ s|.*(\(https://git-scm.com/book/en/v2/.*\))|\1|p }" $1`
+    do
+        echo $it | sed -n 's/%3A/:/g; p'
+    done
+}
+
+function toc() {
+    filter /c/opendocs/git_book.md
+}
+
+function doc(){
+    cat << EOF
+文档合并脚本中使用了 sed 流式编辑器、awk 结构化数据编辑器，使用教程参考 OpenDocs： 
+
+1. [Sed in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)
+2. [AWK in 5 Minutes](https://github.com/Jeangowhy/opendocs/blob/main/sed.info)
+
+EOF
+}
+
+function combine() {
+    print_title "Docs combine script"
+    doc
+    echo '.. code-block:: bash'
+
+    echo ''
+    cat $0 | sed -n 's/^/    /p'
+
+    while read -r it
+    do 
+        print_title "$it"
+        curl -s "$it" | $html2md | sed -n '/2nd Edition/,/\[prev\]/{ p }' | sed -n '1d; $!p;'>> $out
+    done << EOF
+`toc`
+EOF
+}
+
+# Set TOC output file
+out=/c/opendocs/git_book.md
+
+html2md='/c/opendocs/html2md'
+if ! [ -a $out ]
+then 
+    echo "TOC File Not Found: $out"
+    curl -s https://git-scm.com/book/en/v2 | $html2md > $out
+fi
+
+combine >> $out

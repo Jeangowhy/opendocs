@@ -1,0 +1,21 @@
+#! /usr/bin/env node
+/// <reference types="node" />
+const fs = require("node:fs")
+/// const TurndownService = require('turndown')
+const TurndownService = require('C:/kotlin/html2md/node_modules/turndown/lib/turndown.cjs')
+
+var turndownService = new TurndownService()
+
+const file = process.argv[2]
+if (process.argv.length > 2 && fs.existsSync(file)) {
+  // var markdown = turndownService.turndown('<h1>Hello world!</h1>')
+  var enc = process.argv[3] || "utf-8"
+  const contents = fs.readFileSync(file).toString( enc )
+  var markdown = turndownService.turndown(contents)
+  process.stdout.write(markdown)
+} else {
+  process.stdin.on("data", (it) => {
+    // console.log('HTML data:' + it.length + it.toString());
+    process.stdout.write(turndownService.turndown(it.toString()));
+  })
+}
