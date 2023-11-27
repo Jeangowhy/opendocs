@@ -11,7 +11,7 @@ print_title () {
 function filter {
     local parent=`echo $1 | sed -n 's/[^/\]\+$//p'`
     echo $1
-    for it in `sed -n "/^.. toctree::/,/^\S/{ s/^ \+\w/\0/p }" $1`
+    for it in `sed -n "/^.. toctree::/,/^\S/{ s/^ \+[^:]\+$/\0/p }" $1 | sed -n 's|.*<\(.*\)>|\1|;p'`
     do
         doc="$parent$it"
         filter $doc

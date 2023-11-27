@@ -686,14 +686,30 @@ Windows 仅支持 spawn， Unix 支持 fork、spawn、forkserver（部分系统�
     print(output, errors)
 ```
 
+使用 Popen 可以将多个命令连接成一个管线，就像命令行工具中使用管道命令将输入输出串联在一起。
+只需要将一个 Popen 实例的 stdout 属性连接到下一个 Popen 实例的 stdin 参数即可。
+
+os 模块提供了一系列 exec 方法，它们会创建新进程，并且，会替换掉当前的进程，因此不会返回：
+
+    ----------------------------------------------------
+    .. function:: execl(path, arg0, arg1, ...)
+    ----------------------------------------------------
+              execle(path, arg0, arg1, ..., env)
+              execlp(file, arg0, arg1, ...)
+              execlpe(file, arg0, arg1, ..., env)
+              execv(path, args)
+              execve(path, args, env)
+              execvp(file, args)
+              execvpe(file, args, env)
+
 另外，os 模块提供了一系列 spawn 方法，不同变体在处理外部定位、参数传递上有差异：
 
 |          Spawn Variants         |    Arguments     |  Use PATH?   |   Use Env?  |
 |---------------------------------|------------------|--------------|-------------|
-| spawnl(mode, path, ...)         | l - by varags    |              |             |
-| spawnle(mode, path, ..., env)   | l - by varags    |              | e - Use Env |
-| spawnlp(mode, file, ...)        | l - by varags    | p - uss PATH |             |
-| spawnlpe(mode, file, ..., env)  | l - by varags    | p - uss PATH | e - Use Env |
+| spawnl(mode, path, ...)         | l - by args list |              |             |
+| spawnle(mode, path, ..., env)   | l - by args list |              | e - Use Env |
+| spawnlp(mode, file, ...)        | l - by args list | p - uss PATH |             |
+| spawnlpe(mode, file, ..., env)  | l - by args list | p - uss PATH | e - Use Env |
 | spawnv(mode, path, args)        | v - by an Aarray |              |             |
 | spawnve(mode, path, args, env)  | v - by an Aarray |              | e - Use Env |
 | spawnvp(mode, file, args)       | v - by an Aarray | p - uss PATH |             |
@@ -718,6 +734,15 @@ Windows 仅支持 spawn， Unix 支持 fork、spawn、forkserver（部分系统�
     # (pid, ecode_shift8) = os.waitpid(pid, 0)
     # print("exit code: ", shell, arg, pid, ecode_shift8>>8)
 ```
+
+函数名称没有后缀 p 表示需要在 path 参数指定命令的完整路径，它不会根据 PATH 环境变量去搜索。
+另外，在省略号 ... 表示的参数中，还需要将命令作为第一省略参数传入。
+
+这些方法直接在新进程中将命令运行结果输出到 stdout，命令输出内容不能被当前进程捕捉。如果需要
+处理命令输出，应该使用 `subprocess` 模块，当然可以使用命令行管道操作将命令输出写入文件再
+处理。对于当前进程，可以自行设置 sys.stdout 来捕捉当前进程的标准输出。参考 Logging Cookbook，
+或者使用 `sys.stdout = io.StringIO()` 转接，`TextIOWrapper`，`TextIOBase` 等等，
+也可以将其包装成 StdoutCatcher 写入字符串对象。
 
 还有一个差异就在于线程的阻塞状态，os.P_WAIT 或者 os.waitpid() 等待线程进入阻塞状态。
 

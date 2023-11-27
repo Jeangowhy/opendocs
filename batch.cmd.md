@@ -4924,6 +4924,11 @@ Sounds and Audio
 
     mmsys.cpl
 
+    Windows 系统上使用 24-bit 48Khz 采样可能导致 ASIO4ALL 驱动问题，
+    一个现象是：关闭 ASIO4ALL 或者同时开启多个媒体播放程序时冲突，导致右声道
+    全是噪声，可以通过修改声音播放设备恢复正常。操作步骤：运行 mmsys.cpl 打开
+    声音设备管理器，打开扬声器属性，进入高级选项卡，修改默认格式为 24-bit 44Khz。
+
 Sound Recorder
 
     soundrecorder
@@ -35920,59 +35925,59 @@ Run Command
 
 Accessibility Options
 
-utilman  
-or  
-control access.cpl
+    utilman  
+    or  
+    control access.cpl
 
 Add Hardware Wizard
 
-hdwwiz
+    hdwwiz
 
 Programs and Features  
 (Add New Programs)  
 (Add Remove Windows Components)  
 (Set Program Access & Defaults )
 
-appwiz.cpl  
-control appwiz.cpl,,1  
-control appwiz.cpl,,2  
-control appwiz.cpl,,3
+    appwiz.cpl  
+    control appwiz.cpl,,1  
+    control appwiz.cpl,,2  
+    control appwiz.cpl,,3
 
 Administrative Tools
 
-control admintools
+    control admintools
 
 Advanced User Accounts Control Panel
 
-netplwiz
+    netplwiz
 
 Authorization Manager
 
-azman.msc
+    azman.msc
 
 Automatic Update
 
-control wuaucpl.cpl
+    control wuaucpl.cpl
 
 Backup and Restore Utility
 
-sdclt
+    sdclt
 
 Bluetooth Transfer Wizard
 
-fsquirt
+    fsquirt
 
 Calculator
 
-calc
+    calc
 
 Certificate Manager
 
-certmgr.msc
+    certmgr.msc
 
 Character Map
 
-charmap
+    charmap
 
 Check Disk Utility
 
@@ -35980,11 +35985,11 @@ Check Disk Utility
 
 Clear Type (tune or turn off)
 
-cttune
+    cttune
 
 Color Management
 
-colorcpl.exe
+    colorcpl.exe
 
 Command Prompt
 
@@ -35992,290 +35997,289 @@ Command Prompt
 
 Component Services
 
-dcomcnfg  
-or  
-comexp.msc
+    dcomcnfg  
+    or  
+    comexp.msc
 
 Computer Management
 
-CompMgmtLauncher.exe  
-or  
-compmgmt.msc  
+    CompMgmtLauncher.exe  
+    or  
+    compmgmt.msc  
 
 Control Panel
 
-control
+    control
 
 Credential (passwords) Backup and Restore Wizard
 
-credwiz
+    credwiz
 
 Data Execution Prevention
 
-SystemPropertiesDataExecutionPrevention
+    SystemPropertiesDataExecutionPrevention
 
 Date and Time Properties
 
-timedate.cpl
+    timedate.cpl
 
 Device Manager
 
-hdwwiz  
-or  
-devmgmt.msc  
+    hdwwiz  
+    or  
+    devmgmt.msc  
 
 Device Pairing Wizard
 
-DevicePairingWizard
+    DevicePairingWizard
 
 Digitizer Calibration Tool (Tablets/Touch screens)
 
-tabcal
+    tabcal
 
 Direct X Control Panel (if installed)
 
-directx.cpl
+    directx.cpl
 
 Direct X Troubleshooter
 
-dxdiag
+    dxdiag
 
 Disk Cleanup Utility
 
-[cleanmgr](cleanmgr.html)
+    cleanmgr
 
 Disk Defragmenter
 
-dfrgui  
-[defrag](defrag.html)  
+    dfrgui  
+    defrag
 
 Disk Management
 
-diskmgmt.msc
+    diskmgmt.msc
 
 Disk Partition Manager
 
-diskpart
+    diskpart
 
 Display Color Calibration
 
-dccw
+    dccw
 
 Display DPI / Text size
 
-dpiscaling
+    dpiscaling
 
 Display Properties (Themes, Desktop, Screensaver)
 
-control desktop
+    control desktop
 
 Display Properties (Resolution, Orientation)
 
-desk.cpl
+    desk.cpl
 
 Display Properties (Color & Appearance)
 
-control color
+    control color
 
 Documents (open 'My Documents' folder)
 
-documents
+    documents
 
 Downloads (open 'Downloads' folder)
 
-downloads
+    downloads
 
 Driver Verifier Utility
 
-verifier
+    verifier
 
 DVD Player
 
-dvdplay
+    dvdplay
 
 Edit Environment Variables
 
-rundll32.exe sysdm.cpl,EditEnvironmentVariables
+    rundll32.exe sysdm.cpl,EditEnvironmentVariables
 
 Encrypting File System Wizard (EFS)
 
-rekeywiz
+    rekeywiz
 
 Event Viewer
 
-eventvwr.msc
+    eventvwr.msc
 
 File Signature Verification Tool (Device drivers)
 
-sigverif
+    sigverif
 
 Files and Settings Transfer Tool
 
-%systemroot%\system32\migwiz\migwiz.exe
+    %systemroot%\system32\migwiz\migwiz.exe
 
 Firewall Control Panel
 
-firewall.cpl
+    firewall.cpl
 
 Folders Properties
 
-control folders
+    control folders
 
 Fonts list  
 
-control fonts  
+    control fonts  
 
 Font preview
 
-fontview arial.ttf
+    fontview arial.ttf
 
 Game Controllers
 
-joy.cpl
+    joy.cpl
 
 Local Group Policy Editor
 
-gpedit.msc
+    gpedit.msc
 
 Internet Properties
 
-inetcpl.cpl
+    inetcpl.cpl
 
 IP Configuration
 
-[ipconfig](ipconfig.html)
+    ipconfig
 
 iSCSI Initiator configuration
 
-iscsicpl
+    iscsicpl
 
 Keyboard Properties
 
-control keyboard
+    control keyboard
 
 Language Pack Installer
 
-lpksetup
+    lpksetup
 
 Local Security Policy
 
-secpol.msc
+    secpol.msc
 
 Local Users and Groups
 
-lusrmgr.msc
+    lusrmgr.msc
 
 Log out
 
-[logoff](logoff.html)
+    logoff
 
 Microsoft Malicious Software Removal Tool
 
-mrt
+    mrt
 
 Microsoft Management Console
 
-mmc
+    mmc
 
 Access (Microsoft Office)
 
-msaccess
+    msaccess
 
 Excel (Microsoft Office)
 
-Excel
+    Excel
 
 Powerpoint (Microsoft Office)
 
-powerpnt
+    powerpnt
 
 Word (Microsoft Office)
 
-winword
+    winword
 
 Microsoft Paint
 
-mspaint
+    mspaint
 
 Microsoft Support Diagnostic Tool
 
-msdt
+    msdt
 
 Mouse Properties
 
-control mouse  
-or  
-main.cpl
+    control mouse  
+    or  
+    main.cpl
 
 Network Connections
 
-control netconnections  
-or  
-ncpa.cpl
+    control netconnections  
+    or  
+    ncpa.cpl
 
 Projector:  
 Connect to Network Projector  
 Switch projector display
 
-netproj  
+    netproj  
   
-displayswitch
+    displayswitch
 
 Notepad
 
-notepad
+    notepad
 
 ODBC Data Source Admin  
 Default ODBC driver:  
 32-bit ODBC driver under 64-bit platform:  
 
-  
-C:\windows\system32\odbcad32.exe  
-C:\windows\sysWOW64\odbcad32.exe  
+    C:\windows\system32\odbcad32.exe  
+    C:\windows\sysWOW64\odbcad32.exe  
 
 ODBC configuration - Install/configure MDAC drivers
 
-odbcconf
+    odbcconf
 
 On Screen Keyboard
 
-osk
+    osk
 
 OOB Getting Started
 
-gettingstarted
+    gettingstarted
 
 Password - Create a Windows Password Reset Disk (USB)
 
-"C:\Windows\system32\rundll32.exe" keymgr.dll,PRShowSaveWizardExW
+    "C:\Windows\system32\rundll32.exe" keymgr.dll,PRShowSaveWizardExW
 
 Password - Change Password
 
-C:\Windows\explorer.exe shell:::{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0}
+    C:\Windows\explorer.exe shell:::{2559a1f2-21d7-11d4-bdaf-00c04f60b9f0}
 
 Pen and Touch (Tablet/Pen input configuration)
 
-tabletpc.cpl
+    tabletpc.cpl
 
 Performance Monitor
 
-perfmon.msc ('perfmon [/rel](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/perfmon)' for the Reliability Monitor)
+    perfmon.msc ('perfmon [/rel](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/perfmon)' for the Reliability Monitor)
 
 Phone and Modem Options
 
-telephon.cpl
+    telephon.cpl
 
 Phone Dialer
 
-dialer
+    dialer
 
 Power Configuration
 
-powercfg.cpl and [powercfg.exe](powercfg.html)
+    powercfg.cpl and [powercfg.exe](powercfg.html)
 
 Presentation Settings
 
-PresentationSettings
+    PresentationSettings
 
 **Problem Steps Recorder**
 
@@ -36283,246 +36287,246 @@ PresentationSettings
 
 Program Access and Computer Defaults - browser / email / media
 
-computerdefaults
+    computerdefaults
 
 Printers and Faxes
 
-control printers
+    control printers
 
 Print Management (.msc)
 
-PrintManagement
+    PrintManagement
 
 Printer Migration (backup/restore)
 
-printbrmui and [printbrm.exe](printbrm.html)
+    printbrmui and [printbrm.exe](printbrm.html)
 
 Printer user interface (List all printui.dll options)
 
-printui
+    printui
 
 Private Character Editor
 
-eudcedit
+    eudcedit
 
 Regional Settings - Language, Date/Time format, keyboard locale.
 
-intl.cpl
+    intl.cpl
 
 Registry Editor
 
-[regedit](regedit.html)
+    regedit
 
 Remote Assistance
 
-msra
+    msra
 
 **Remote Desktop**
 
-[mstsc](mstsc.html)
+    mstsc
 
 Resource Monitor
 
-resmon
+    resmon
 
 Resultant Set of Policy
 
-rsop.msc
+    rsop.msc
 
 Settings (Windows 10)
 
-[ms-settings:](syntax-settings.html)
+    ms-settings:
 
 Scheduled Tasks
 
-control schedtasks
+    control schedtasks
 
 Screenshot Snipping Tool
 
-snippingtool
+    snippingtool
 
 Security Center
 
-wscui.cpl
+    wscui.cpl
 
 Services
 
-[services.msc](syntax-services.html)
+    services.msc
 
 Shared Folder Wizard
 
-shrpubw
+    shrpubw
 
 Shared Folders
 
-fsmgmt.msc
+    fsmgmt.msc
 
 Shut Down Windows
 
-[shutdown](shutdown.html)
+    shutdown
 
 Software Licensing/Activation
 
-slui
+    slui
 
 Sounds and Audio
 
-mmsys.cpl
+    mmsys.cpl
 
 Sound Recorder
 
-soundrecorder
+    soundrecorder
 
 Sound Volume
 
-sndvol
+    sndvol
 
 Syncronization Tool (Offline files)
 
-mobsync
+    mobsync
 
 System Configuration Utility
 
-msconfig
+    msconfig
 
 System File Checker Utility (Scan/Purge)
 
-[sfc](sfc.html)
+    sfc
 
 System Information
 
-[msinfo32](msinfo32.html)
+    msinfo32
 
 System Properties  
 
-sysdm.cpl SystemProperties  
-or  
-sysdm.cpl DisplaySYSDMCPL  
+    sysdm.cpl SystemProperties  
+    or  
+    sysdm.cpl DisplaySYSDMCPL  
 
 System Properties - Performance
 
-SystemPropertiesPerformance
+    SystemPropertiesPerformance
 
 System Properties - Hardware
 
-SystemPropertiesHardware
+    SystemPropertiesHardware
 
 System Properties - Advanced
 
-SystemPropertiesAdvanced
+    SystemPropertiesAdvanced
 
 System Repair - Create a System Repair Disc
 
-recdisc
+    recdisc
 
 System Restore
 
-rstrui.exe
+    rstrui.exe
 
 Task Manager
 
-taskmgr
+    taskmgr
 
 Task Scheduler
 
-taskschd.msc
+    taskschd.msc
 
 Telnet Client
 
-telnet
+    telnet
 
 Trusted Platform Module Initialization Wizard
 
-tpmInit
+    tpmInit
 
   
 User Accounts (Autologon)
 
-control userpasswords2
+    control userpasswords2
 
 User Account Control (UAC) Settings
 
-UserAccountControlSettings
+    UserAccountControlSettings
 
 User Profiles - Edit/Change type
 
-C:\Windows\System32\rundll32.exe sysdm.cpl,EditUserProfiles
+    C:\Windows\System32\rundll32.exe sysdm.cpl,EditUserProfiles
 
 Windows Disc Image Burning Tool
 
-isoburn C:\movies\madmax.iso
+    isoburn C:\movies\madmax.iso
 
-[Windows Explorer](explorer.html)
+Windows Explorer
 
-explorer.exe  
-explorer.exe .  Will open at the current directory
+    explorer.exe  
+    explorer.exe .  Will open at the current directory
 
 Windows Features
 
-optionalfeatures
+    optionalfeatures
 
 Windows Firewall  
 Windows Firewall with Advanced Security
 
-firewall.cpl  
-wf.msc
+    firewall.cpl  
+    wf.msc
 
 Windows Image Acquisition (scanner)
 
-wiaacmgr
+    wiaacmgr
 
 Windows Magnifier
 
-magnify
+    magnify
 
 Windows Management Infrastructure
 
-wmimgmt.msc
+    wmimgmt.msc
 
 Windows Memory Diagnostic Scheduler
 
-mdsched
+    mdsched
 
 Windows Mobility Center (Mobile PCs only)
 
-mblctr
+    mblctr
 
 Windows [PowerShell](../ps/)
 
-powershell
+    powershell
 
 Windows PowerShell ISE
 
-powershell_ise
+    powershell_ise
 
 Windows Security Action Center
 
-wscui.cpl
+    wscui.cpl
 
 Windows Script Host([VBScript](../vb/))
 
-wscript _NAME_OF_SCRIPT_.VBS
+    wscript _NAME_OF_SCRIPT_.VBS
 
 Windows System Security Tool. Encrypt the SAM database.  
 (boot password.)
 
-syskey
+    syskey
 
 Windows Update
 
-wuapp
+    wuapp
 
 Windows Update Standalone Installer
 
-wusa
+    wusa
 
 Windows Version ([About Windows](syntax-settings.html))
 
-winver
+    winver
 
 WordPad
 
-write
+    write
 
 Unless indicated otherwise, all the commands above work in all versions of Windows from Vista upwards.  
 Most of these utilities can be found in %systemroot%\System32\

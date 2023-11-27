@@ -305,19 +305,19 @@ https://www.typescriptlang.org/assets/typescript-cheat-sheets.zip
 
 1. TypeScript Control Flow Analysis
 
-https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png
+![](https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png)
 
 2. TypeScript Interfaces
 
-https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png
+![](https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png)
 
 3. TypeScript Types
 
-https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png
+![](https://www.typescriptlang.org/static/TypeScript%20Types-ae199d69aeecf7d4a2704a528d0fd3f9.png)
 
 4. TypeScript Classes
 
-https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png
+![](https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png)
 
 
 ## 🍀🐣 TypeScript 模块化与类型声明文件
@@ -3944,7 +3944,7 @@ console.log({
 });
 ```
 
-TypeScript 定义了一个关键字 is 来判断对象是否实现了接口，但是它不能直接做判断，而是用于 Type Guards，间接实现接口的判断，并且 is 关键字只能作为 type predicates 形式使用。如下，代码中明确的表示参数是一个接口类型，同时又声明函数的返回值是 boolean 值，这种形式称为类型谓词。实质上做判断的还是函数体中的语句，使用的是 duck typing 策略，即听起来像鸭子，走起步子又像鸭子，就认为是鸭子：
+TypeScript 定义了一个关键字 `is` 来判断对象是否实现了接口，但是它不能直接做判断，而是用于 Type Guards，间接实现接口的判断，并且 `is` 关键字只能作为 type predicates 形式使用。如下，代码中明确的表示参数是一个接口类型，同时又声明函数的返回值是 boolean 值，这种形式称为类型谓词。实质上做判断的还是函数体中的语句，使用的是 duck typing 策略，即听起来像鸭子，走起步子又像鸭子，就认为是鸭子：
 
 ```ts
 interface ICC {
@@ -6130,6 +6130,52 @@ instanceof 的右侧要求是一个构造函数，TypeScript 将细化为：
 - 此构造函数的 prototype属性的类型，如果它的类型不为 any的话
 - 构造签名所返回的类型的联合
 - 以此顺序。
+
+### ☛ instanceof vs. is
+
+TypeScript 虽然引入了 `is` 关键字，但是它和  `instanceof` 一样不能用来判断类型
+是否实现接口，只是 `is` 可以作为类型守护功能，间接地判断某类型是不否实现接口。注意，`isA`
+函数的实现使用了 `is` 作为类型守卫，并且函数体才是判断某对象 obj 是否实现接口的关键.
+也就是说，将 `obj is A` 修改为 `obj is Ac` 也不影响将 Bc 判断为一个 Ac：
+
+```ts
+interface A { kind: "AC" | "BC" }
+interface B extends A { kind: "BC" }
+interface C extends A { kind: "AC" }
+
+class Ac implements C { kind: "AC" = "AC" }
+class Bc implements B { kind: "BC" = "BC" }
+
+function isA(obj: A): obj is A {
+    return "kind" in obj
+}
+
+function test(obj: Ac): Ac {
+    console.log("Ac", obj)
+    return obj
+}
+// Identifier 'test' has already been declared
+// Functions can't be overload by interface
+// function test(obj: Bc): Bc { ... }
+
+const ac = new Ac()
+const bc = new Bc()
+
+test(ac)
+test(bc)
+
+console.log(typeof ac)        // "object"
+console.log(bc instanceof Ac) // false
+console.log(isA(ac))          // true
+console.log(isA(bc))          // true
+
+// A is not defined. A is an interface not a class.
+// console.log(bc instanceof A)  
+```
+
+注意，接口定义了字面量类型，那么实现接口时，同样要显式声明字面量类型，并且需要初始化。
+
+参考文档 Type Guards 类型守卫。
 
 
 ## 🍀Nullable types 可以为 null 的类型
