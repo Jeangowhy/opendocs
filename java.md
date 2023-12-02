@@ -1580,77 +1580,18 @@ class MyTest
 2. https://github.com/JetBrains/kotlin/releases/tag/v1.9.10
 3. https://github.com/JetBrains/kotlin-web-site/
 
-为 Sublime Text 安装 LSP 插件支持，支持语言包括 Java、Groovy、Kotlin：
+Kotlin 是 JetBrains 开发的基于 JVM 或跨平台、基于 Sclar 语言、开源、静态类型编程语言，官方文档使用 Markdown 开源格式。
 
-1. https://lsp.sublimetext.io/language_servers/#kotlin
-2. https://packagecontrol.io/packages/Kotlin
-3. https://github.com/fwcd/KotlinLanguageServer
-4. https://github.com/GroovyLanguageServer/groovy-language-server
-5. https://github.com/sublimelsp/LSP-jdtls
-5. http://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.29.0-202309291511.tar.gz
+Kotlin 可以将代码编译为 JVM 字节码、JavaScript 脚本，或者原生平台（使用 LLVM 编译器后端）。Kotlin 与 Java 可以很好的混编，在互引用的情况下，Kotlin 先预编译 kt 代码文件，此时不会去引用 Java 代码中的符号避免了编译问题，然后再交给 Java 编译器完成后续编译。相比 Groovy 编译，如果与 Java 混合编程，则会因为互引用而导致编译失败或不能流畅地完成整个编译过程。
 
-Java LSP 支持使用移植到 Sublime Text 环境的 [Eclipse JDT language server](https://projects.eclipse.org/projects/eclipse.jdt.ls)。
+Compose Multiplatform 1.5.0 现已正式推出。 它采用适用于 Kotlin 的 Jetpack Compose 声明式 UI 框架，并将其从 Android 扩展到桌面端、iOS 和 Web。 桌面版本已经稳定，iOS 处于 Alpha 阶段，Web 支持仍为实验性。 
 
-```json
-"clients":
-{
-    "kotlinls": {
-        "enabled": true,
-        "command": ["c:/kotlin/server/bin/kotlin-language-server.bat"], // Update the PATH
-        "selector": "source.Kotlin",
-        "settings": {
-            "kotlin": {
-                // put your server settings here
-            }
-        }
-    },
-    "groovy": {
-        "enabled": true,
-        "command": ["java", "-jar", "c:/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"], // Update the PATH
-        "selector": "source.groovy",
-    },
-    "Java(jdtls)": {
-        "command": ["java", 
-            "-jar", "C:/kotlin/jdtls/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar", 
-            "-configuration", "C:/kotlin/jdtls/config_win",
-            "-data", "C:/kotlin/jdtls/data"
-        ],
-        "selector": "source.java",
-        "syntaxes": ["Packages/Java/Java.sublime-syntax"],
-        "languageId": "java"
-    },
-}
-```
+Compose Multiplatform 基于 Jetpack Compose 构建，这是现代 Android 开发的推荐 UI 框架，100% Kotlin。开发 Compose Multiplatform 的 JetBrains 团队与 Google 合作，定期将更改上传到 Jetpack Compose 仓库。
 
-```sh
-jars=;
-for jar in c:/kotlin/server/lib/*.jar; 
-do jars+="$jar;"; 
-done; 
-java -cp $jars org.javacs.kt.MainKt
-```
-
-使用 Sublime Text 命令面板中的 Troubleshoot Server 或者 Toggle Log Panel 提供的信息进行调试，如果不能正常提供智能提示，就根据面板输出的信息调整设置。比如根据 Java 类型加载失败等异常信息，添加相应的依赖 JAR 文件路径到 CLASSPATH 环境变量中。
-
-Kotlink LSP 启动脚本中已经设置好 CLASSPATH，还需要添加指定版本的 lib/`kotlin-stdlib.jar`。另外 Kotlin LSP 插件也会读取用户主目录下 .config 子目录的 classpath ( classpath.bar on Windows ) 脚本获取 CLASSPATH 列表：
-
-* Example of the `~/.config/kotlin-language-server/classpath` on Linux:
-```sh
-#!/bin/bash
-# echo /my/path/kotlin-compiler-1.4.10/lib/kotlin-stdlib.jar:/my/path/my-lib.jar
-for jar in /c/kotlin/server/lib/*.jar; do jars+="$jar;"; done; echo $jars
-```
-
-* Example of the `%HOMEPATH%\.config\kotlin-language-server\classpath.bat` on Windows:
-
-```sh
-@ehoc off
-echo C:/kotlin/server/lib/kotlin-stdlib-1.9.10.jar;C:/kotlin/server/lib/kotlin-script-runtime-1.9.10.jar;
-```
-
-Sublime Text 插件系统基于 Python 脚本，它包含 GIL 全局锁，这可以保证线程之安全，但缺点是不能并行执行插件代码。所以在插件安装过程需要下载大文件，或者插件执行分析大量文件的任务时，就会导致 LSP 智能提示服务暂未处于不可用状态。
-
-Kotlin 是 JetBrains 开发的基于 JVM、基于 Sclar 语言、跨平台、开源、静态类型编程语言，官方文档使用 Markdown 开源格式。
+1. https://blog.jetbrains.com/zh-hans/kotlin/2023/05/compose-multiplatform-for-ios-alpha/
+2. https://blog.jetbrains.com/zh-hans/kotlin/2023/09/compose-multiplatform-1-5-0-release/
+3. https://developer.android.google.cn/jetpack/compose
+4. https://developer.android.google.cn/jetpack/compose/documentation
 
 Kotlin 主要应用领域：
 
@@ -1845,12 +1786,151 @@ What's new in Kotlin 1.7.0 - Changes in compile tasks 文档提到 Kotlin 编译
 3. https://docs.gradle.org/current/userguide/kotlin_dsl.html
 4. https://kotlinlang.org/docs/gradle-compiler-options.html
 
+### ☘ Kotlin with SublimeText
+
+为 Sublime Text 安装 LSP 插件支持，支持语言包括 Java、Groovy、Kotlin：
+
+1. https://lsp.sublimetext.io/language_servers/#kotlin
+2. https://packagecontrol.io/packages/Kotlin
+3. https://github.com/fwcd/KotlinLanguageServer
+4. https://github.com/GroovyLanguageServer/groovy-language-server
+5. https://github.com/sublimelsp/LSP-jdtls
+5. http://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.29.0-202309291511.tar.gz
+
+Java LSP 支持使用移植到 Sublime Text 环境的 [Eclipse JDT language server](https://projects.eclipse.org/projects/eclipse.jdt.ls)。
+
+```json
+"clients":
+{
+    "kotlinls": {
+        "enabled": true,
+        "command": ["c:/kotlin/server/bin/kotlin-language-server.bat"], // Update the PATH
+        "selector": "source.Kotlin",
+        "settings": {
+            "kotlin": {
+                // put your server settings here
+            }
+        }
+    },
+    "groovy": {
+        "enabled": true,
+        "command": ["java", "-jar", "c:/groovy/groovy-language-server/build/libs/groovy-language-server-all.jar"], // Update the PATH
+        "selector": "source.groovy",
+    },
+    "Java(jdtls)": {
+        "command": ["java", 
+            "-jar", "C:/kotlin/jdtls/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar", 
+            "-configuration", "C:/kotlin/jdtls/config_win",
+            "-data", "C:/kotlin/jdtls/data"
+        ],
+        "selector": "source.java",
+        "syntaxes": ["Packages/Java/Java.sublime-syntax"],
+        "languageId": "java"
+    },
+}
+```
+
+```sh
+jars=;
+for jar in c:/kotlin/server/lib/*.jar; 
+do jars+="$jar;"; 
+done; 
+java -cp $jars org.javacs.kt.MainKt
+```
+
+使用 Sublime Text 命令面板中的 Troubleshoot Server 或者 Toggle Log Panel 提供的信息进行调试，如果不能正常提供智能提示，就根据面板输出的信息调整设置。比如根据 Java 类型加载失败等异常信息，添加相应的依赖 JAR 文件路径到 CLASSPATH 环境变量中。
+
+Kotlink LSP 启动脚本中已经设置好 CLASSPATH，还需要添加指定版本的 lib/`kotlin-stdlib.jar`。另外 Kotlin LSP 插件也会读取用户主目录下 .config 子目录的 classpath ( classpath.bar on Windows ) 脚本获取 CLASSPATH 列表：
+
+* Example of the `~/.config/kotlin-language-server/classpath` on Linux:
+```sh
+#!/bin/bash
+# echo /my/path/kotlin-compiler-1.4.10/lib/kotlin-stdlib.jar:/my/path/my-lib.jar
+for jar in /c/kotlin/server/lib/*.jar; do jars+="$jar;"; done; echo $jars
+```
+
+* Example of the `%HOMEPATH%\.config\kotlin-language-server\classpath.bat` on Windows:
+
+```sh
+@ehoc off
+echo C:/kotlin/server/lib/kotlin-stdlib-1.9.10.jar;C:/kotlin/server/lib/kotlin-script-runtime-1.9.10.jar;
+```
+
+Sublime Text 插件系统基于 Python 脚本，它包含 GIL 全局锁，这可以保证线程之安全，但缺点是不能并行执行插件代码。所以在插件安装过程需要下载大文件，或者插件执行分析大量文件的任务时，就会导致 LSP 智能提示服务暂未处于不可用状态。
+
+可以使用 shell 脚本简易地管理 Kotlin 编译过程，以下 `ktc` 脚本可以检测当前目录下 Kotlin 代码文件的更新状态，与 timestamp 文件更新时间进行比较，然后调用 kotlinc 命令编译所有过期的代码文件。还可以运行指定入口类如 `./ktc MainKt`：
+
+```sh
+#! /usr/bin/env bash
+kts=`find *.kt`
+for it in $kts;
+    do if [ $it -nt timestamp ];
+        then outdate="$outdate $it"; echo "$it is outdate.";
+    fi; 
+done;
+if [ -n "$outdate" ]; then 
+    echo ------- Kotlin Compiler -------
+    echo kotlinc $outdate; 
+    kotlinc $outdate;
+fi;
+if [ $? = 0 ] && [ -n $1 ]; then 
+    echo -------   Run: $1   -------
+    java -Djava.library.path=. $1 $*; 
+else
+    echo Compiler return error [$?]
+fi;
+touch timestamp;
+```
+
+参考 Bash 脚本编程 String comparisons 和 Compound Testing。
+
+
 ### ☘ from Java to Kotlin
 https://github.com/amitshekhariitbhu/from-java-to-kotlin
 
 Kotlin 可以看作是经过简洁语法处理后的 Java 语言，得益于 JVM，Kotlin 可以很方便地将源代码转译为 Java 代码，所以具有良好的兼容性。如果已经掌握 Java 的语法，那么就可以通过了解各种简化特性的对比来快速掌握 Kotlin 语言。
 
 从语法结构上看，Kotlin 使用和 TypeScript 相似的变量声明语法，在冒号后声明类型。还有 Any 类型和 Nullable 类型信息机制，几乎一致。语句结束的分号也是可选项，只要前后是语句，就可以省略分号。
+
+Kotlin 一切方法/函数都是表达式，表达式是总是有值的，所以每一个方法都必有一个返回值。Kotlin 定义了 `Unit` 类型作为没有显式返回值的函数返回类型。这个类型和 TypeScript 类型 `Void` 是对位关系。
+
+Kotlin 和 TypeScript 都有一个 `Any` 类型，它是所有类型的顶层类型。相当于 Java `Object` 类型，Kotlin 使用 Any 作为所有类的父类，并且 Kotlin 还包含 `Any?` 类型（Nullable）。
+
+另外，Kotlin 定义了一个类构造器为私有化的 `Nothing` 类型，即无法实例化，和 TypeScript 中的 `Never` 是对位关系，表示不可能发生的程序运行状态。例如一个包含死循环的函数，其返回类型就是 `Nothing`，因为它不能返回。
+
+Nothing 是所有类的子类，“继承”和“子类化”是两个概念，这与 Kotlin 单继承不冲突。继承关系强调“子类”实现父类功能。而子类化强调的是“子类型”，是类型关系，不是实现逻辑。也就是类型关系推导，Refinement Types = Types + Logical Predicates，由类型和谓词逻辑组合而成，其中谓词逻辑可以对类型的值域进行约束。可以在原有类型的基础上给它加个值的限定，并且可以在编译时检测是否符合谓词逻辑限定。
+
+1. kotlin-1.9.10\core\builtins\src\kotlin\Unit.kt
+2. kotlin-1.9.10\core\builtins\native\kotlin\Any.kt
+3. kotlin-1.9.10\core\builtins\native\kotlin\Nothing.kt
+
+注意，`Unit` 是单例，使用 `object` Hard keyword 表示类型定义与实例化同时执行。另外的 `Any` 和 `Nothing` 是类定义，前者使用了 `open` 修饰符（Modifier keyword）表示允许子类使用 `override` 修饰符覆盖其成员，相对的修饰符还有 `final` 和 `sealed`。
+
+```ts ,kotlin
+package kotlin
+
+/**
+ * The type with only one value: the `Unit` object. This type corresponds to the `void` type in Java.
+ */
+public object Unit {
+    override fun toString() = "kotlin.Unit"
+}
+
+/**
+ * The root of the Kotlin class hierarchy. Every Kotlin class has [Any] as a superclass.
+ */
+public open class Any {
+    public open operator fun equals(other: Any?): Boolean
+    public open fun hashCode(): Int
+    public open fun toString(): String
+}
+
+/**
+ * Nothing has no instances. You can use Nothing to represent "a value that never exists": for example,
+ * if a function has the return type of Nothing, it means that it never returns (always throws an exception).
+ */
+public class Nothing private constructor()
+```
 
 这些现代编程语言特性如此相似，一个重要的原因是 LLVM、ANTLR 等等编译器构架或工具的成熟，C# 语言也是使用 ANTLR 工具实现语法解析器。ANTLR 4 是一个非常强大的语法解析器生成工具，可以替换 Lex/Yacc 或者 Flex/Bison 等语法、词法解析器相关的生成工具。
 
@@ -1905,20 +1985,13 @@ public final class MainKt {
 
 Kotlin 代码文件可以直接编写语句，它们是 Top-level 环境下运行，Kotlin 脚本也一样。如果，没有 Top-level 代码语句，只有类型定义，则不会以生成入口类。而是按照类型定义，生成相应的类文件。而 Java 则强制要求文件名与公开类名称要一致。
 
-由于 Kotlin 没有 `static` 关键字，所以不能在类定义中声明静态入口方法。但可以通过以下方式声明具有静态特征的对象：
-
-1. `companion object` - 伴随对象，声明单例的方式；
-2. @JvmField @JvmStatic - 使用注解标签声明静态的对象；
-3. object 静态单例，和 `companion object` 类似；
-4. const 常量，脱离类的束缚，会生成一个 kotlin.kt 专用文件；
-
 Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或属性会触发以下错误：
 
 	error: expecting a top level declaration
 
 通常情况下，这个错误会在以下情况下发生：
 
-1. 试图在一个函数内定义函数、属性。
+1. 试图在一个函数内定义属性（包含 Getters/setters 的变量）。
 2. 试图在一个代码块中定义函数、属性。
 3. 在 Top-level 直接编写语句，而不是定义类型、函数或者属性。
 
@@ -1936,6 +2009,8 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	println("Kotlin")
 ```
 
+简化后，直接使用 println 等等 Top-level 函数，相当于调用 `kotlin.io.println(kotlin.String)` 等函数。
+
 #### 💦 常量、变量声明语法形式差异
 
 ```java
@@ -1946,6 +2021,118 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	var var1 = "Variable"
 	val CONST = "Constant"
 ```
+
+作为最新的编程语言，Kotlin 和 TypeScript 都“不约而同”地使用了类型后置的语法，这也是支持类型推断功能的编程语言的基本特征。
+
+Kotlin `val` 关键字对标 Java `final`，但是可以通过定义 getters/setters 间接实现属性值的读写。
+
+Kotlin `final` 修改符语义同对于于 Java 功能上有收缩，用于修饰不可以被子类覆盖的成员。
+
+Kotlin `const` 修饰符定义编译期常量，这些 Top-level 常量会以内联形式嵌入，对标 Java `static final`，但使用上有稍有语法差异。
+
+Kotlin 还引入了多种内联修饰符：
+
+1. `inline` : 内联标记的函数会将函数转换为语句执行，节省函数调用开销；
+2. `noinline`：修饰函数参数，取消传入函数的 `inline` 标记作用，使其不进行内联编译；
+3. `crossinline`：修饰函数参数，使传入的 lambda 可以被间接调用，代价是不能使用 `return`;
+
+引入 `crossinline` 相当于一个语法补丁，因为函数参数（lambda）被间接调用时，`return` 语句的作用域有歧义，是内联时的外部函数呢？还是间接调用所在的函数？所以 Kotlin 解决方法是解决提出问题的人，直接禁止 lambda parameter 间接调用。使用 `crossline` 补丁突破这个限制，但是函数体不可以再使用 `return`。
+
+Kotlin 约定，只有 inline lambda 才可以使用 `return` 语句用于返回外层函数。
+
+参考文档 07.05.3. [Inline functions](inline-functions.md)
+
+13.1.1. Hard keywords
+
+ * `val` declares a read-only [property](properties.md) or [local variable](basic-syntax.md#variables).
+ * `var` declares a mutable [property](properties.md) or [local variable](basic-syntax.md#variables).
+
+13.1.3. Modifier keywords
+
+ * `const` marks a property as a [compile-time constant](properties.md#compile-time-constants).
+ * `final` forbids [overriding a member](inheritance.md#overriding-methods).
+ * `crossinline` forbids [non-local returns in a lambda passed to an inline function](inline-functions.md#non-local-returns).
+ * `inline` tells the compiler to [inline a function and the lambdas passed to it at the call site](inline-functions.md).
+ * `noinline` turns off [inlining of a lambda passed to an inline function](inline-functions.md#noinline).
+
+#### 💦 static vs @JvmField and @JvmStatic
+
+```java
+// Java
+interface Foo {
+    public static final int answer = 42;
+    public static final void sayHello() {
+        // ...
+    }
+}
+
+public class Bar {
+	public static final String PROP = "some value";
+}
+
+// Kotlin
+interface Foo {
+    companion object {
+        @JvmField
+        val answer: Int = 42
+
+        @JvmStatic
+        fun sayHello() {
+            println("Hello, world!")
+        }
+    }
+}
+
+const val PROP: String = "some value"
+```
+
+由于 Kotlin 没有 `static` 关键字，所以不能在类定义中声明静态入口方法。但可以通过以下方式声明具有静态特征的对象：
+
+1. `companion object` 声明伴星对象，在类定义内部声明 Signgleton 的方式；
+2. @JvmField @JvmStatic 注解伴星对象成员，将其转换为静态成员；
+3. `object` 关键字定义静态单例，和 `companion object` 类似；
+4. `const` 修饰符声明编译期常量，使用 Top-level declarations 声明符号；
+
+Kotlin 伴星对象对应的是 Companion 成员，以及 Java 类定义中的 `static {}` 静态初始块。
+
+```sh
+$ rm *.class; kotlinc main.kt; javap Main; javap Main\$Companion
+Compiled from "main.kt"
+public final class Main {
+  public static final Main$Companion Companion;
+  public Main();
+  public static final int access$getAnswer$cp();
+  static {};
+}
+Compiled from "main.kt"
+public final class Main$Companion {
+  public final int getAnswer();
+  public final void sayHello();
+  public Main$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+```
+
+Kotlin 1.3 开始可以使用 `@JvmStatic` 和 `@JvmField` 标注，将数据对象修饰为 `companion object` 成员转换为 `static` 成员。可以通过成员签名信息观察到使用标注与不使用的差异：
+
+```sh
+$ rm *.class; kotlinc main.kt; javap Main; javap Main\$Companion
+Compiled from "main.kt"
+public final class Main {
+  public static final Main$Companion Companion;
+  public static final int answer;
+  public Main();
+  public static final void sayHello();
+  static {};
+}
+Compiled from "main.kt"
+public final class Main$Companion {
+  public final void sayHello();
+  public Main$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}
+```
+
+Kotlin 提供更方便的方式是使用 Top-level declarations，就像入口函数一样定义这些全局符号。
+
 
 #### 💦 Null 和 Nullable 类型
 
@@ -1964,7 +2151,16 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	val length = text?.length
 ```
 
-	Kotlin 和 TypeScript 一样使用 Nullable 类型，除非显式定义，否则不能将 `null` 赋值给变量。通过引入 ? 运算符号，可以很方便地定义、访问 Nullable 类型。
+Kotlin 和 TypeScript 一样使用 Nullable 类型，除非显式定义，否则不能将 `null` 赋值给变量。通过引入 ? 运算符号，可以很方便地定义、访问 Nullable 类型。
+
+Kotlin 中 `?` 运算符不仅用于声明 Nullable 类型，还用来做非空检测，并且 `?.` (Elvis operator）是线程安全的。相比之下，Java 这种靠 if 语句进行的非空判断并非线程安全。
+
+13.1.5. Operators and special symbols
+
+ * `!!` [asserts that an expression is non-nullable](null-safety.md#the-operator).
+ * `?.` performs a [safe call](null-safety.md#safe-calls) (calls a method or accesses a property if the receiver is non-nullable).
+ * `?:` takes the right-hand value if the left-hand value is null (the [elvis operator](null-safety.md#
+ * `?` marks a type as [nullable](null-safety.md#nullable-types-and-non-nullable-types).
 
 
 #### 💦 三元运算符与 if-else when 表达式
@@ -1988,14 +2184,14 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	}
 ```
 
-	Kotlin 没有三元运算符 Ternary Operator ( condition ? true_stat : false_stat)。
+Kotlin 没有三元运算符 Ternary Operator ( condition ? true_stat : false_stat)。
 
-	Kotlin 编写的语句，更普遍地，可以将它们看作是表达式，可以将 if-else 或者 if-else-if 阶梯结构当作一个值看待，因此和 Python 一样使用 ternary expression。
+Kotlin 编写的语句，更普遍地，可以将它们看作是表达式，可以将 if-else 或者 if-else-if 阶梯结构当作一个值看待，因此和 Python 一样使用 ternary expression。
 
-	参考文档 07.02. Control flow - If expression
+参考文档 07.02. Control flow - If expression
 
-	在 Kotlin 中检查变量是否为 null 使用 Elvis 运算符 (?:) 更简洁，而不是使用 if-else。
-	我们可以使用 Elvis Operator 编写简洁紧凑的代码，而不是编写 if-else。
+在 Kotlin 中检查变量是否为 null 使用 Elvis 运算符 (?:) 更简洁，而不是使用 if-else。
+我们可以使用 Elvis Operator 编写简洁紧凑的代码，而不是编写 if-else。
 
 #### 💦 字符串拼接与模板插值
 
@@ -2010,7 +2206,7 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
     val message = "There ${if (count>1) "are" else "is"} $count $goods"
 ```
 
-	参考文档 06. Basics -  String templates
+参考文档 06. Basics -  String templates
 
 #### 💦 更方便的 Range 区间数值
 
@@ -2018,7 +2214,7 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	// Java
 	import java.util.stream.*;
 
-	public class JMain {
+	public class Main {
 		public static void main (String[] args) {
 			int x = 10;
 			IntStream range = IntStream.range(1, 10);
@@ -2034,11 +2230,11 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	}
 ```
 
-	注意，`IntStream.range()` 方法返回的是半开闭区间，不包含第二个参数指定的终止值。
+注意，`IntStream.range()` 方法返回的是半开闭区间，不包含第二个参数指定的终止值。
 
-	Kotlin Range 使用的是全闭区间，生成的数值序列包含起始值、终止值。
+Kotlin Range 使用的是全闭区间，生成的数值序列包含起始值、终止值。
 
-#### 💦 多行字符串内容使用 HereDoc 
+#### 💦 多行字符串字面量 HereDoc 
 
 ```java
 	// Java
@@ -2054,7 +2250,9 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
         """.trimMargin()
 ```
 
-#### 💦 更方便的集体操作
+Java 13 才引入 HereDoc 概念。
+
+#### 💦 更方便的集合操作
 
 ```java
 	// Java
@@ -2070,13 +2268,21 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	                 3 to "Mindorks")
 ```
 
-#### 💦 Lambda 无处不在
+创建空间集合：
+
+```java
+fun emptyMutableList(): Any = mutableListOf<Any?>()
+fun emptyMutableSet(): Any = mutableSetOf<Any?>()
+fun emptyMutableMap(): Any = mutableMapOf<Any?, Any?>()
+```
+
+#### 💦 Lambda expressions 无处不在
 
 ```java
 	// Java 8 Lambda
 	import java.util.stream.*;
 
-	public class JMain {
+	public class Main {
 		public static void main (String[] args) {
 			// String[] list = new String[]{"1", "2", "3"};
 			Stream<String> ss = "123".chars().mapToObj( it -> "No."+String.valueOf((char)it));
@@ -2098,7 +2304,86 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	}
 ```
 
-	Kotlin 创建数组时需要指定一个初始化 lambda 方法。
+Kotlin 创建数组时需要指定一个初始化 lambda 方法。
+
+参考文档 Higher-order functions and lambdas：
+
+	A higher-order function is a function that takes functions as parameters, or returns a function.
+	Lambdas are code blocks enclosed in curly braces.
+	Lambda expressions and anonymous functions are *function literals*.
+
+Kotlin Lambda 是函数类型对象（Function types），语法上是花括号包括的代码块。Java 8 Lambda 形式上相似，但是它本质上是匿名函数。Kitlin 函数类型接口提供 `invoke(...)` 这是一个使用 `operator` 关键字定义的运算符实现函数，实现这个方法的函数类型可以使用两种调用形式：
+`f.invoke(x)` 或者 `f(x)`，两种调用等价，语法参考：`public operator fun invoke(T): R { ... }`。
+
+1. *kotlin.Function*  core/builtins/src/kotlin/Function.kt
+2. *org.jetbrains.kotlin.name.KFunctionN*  core/compiler.common/src/org/jetbrains/kotlin/name/StandardClassIds.kt
+
+函数字面量形式 `{ parameters -> body }`，其中 `->` 是 Function types 标志性符号。
+
+因为 lambda 使用频率太高，经常和高阶函数一起使用，所以语法上提供精简表达：
+1. 使用花括号表示一个 lambda。
+2. 在只有一个参数时，默认使用 `it` 作为参数名。
+3. 作为唯一参数传递时，lambda parameter 直接使用花括号替换圆括号。
+4. 作为最后一个参数传递时，就可以函数调用的圆括号后面跟着 lambda expression。
+
+匿名函数 Anonymous functions 即没有名字的函数，lambda 表达式与之相比就差 `return` 语句。
+
+```java
+	// lambda expression
+	list.filter { it > 10 } ➊➋➌
+	run { println("lambda expression") } ➊➌
+    val product = (1..3).fold(1) { acc, e -> acc * e } ➍
+
+	// Anonymous functions
+	fun(x: Int, y: Int): Int = x + y
+	ints.filter(fun(item) = item > 0)
+```
+
+不同作用域函数（Scope functions）执行 lambda，使其具有不同的上下文，参考文档 10.3.1. Function selection
+
+| Function |Object reference|Return value|Is extension function|
+|---|---|---|---|
+| [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html) |`it`|Lambda result|Yes|
+| [`run`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html) |`this`|Lambda result|Yes|
+| [`run`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html) |-|Lambda result|No: called without the context object|
+| [`with`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/with.html) |`this`|Lambda result|No: takes the context object as an argument.|
+| [`apply`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/apply.html) |`this`|Context object|Yes|
+| [`also`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/also.html) |`it`|Context object|Yes|
+
+示范 `let` 和 `run` 的使用：
+
+```java
+fun main() {
+    val str = "Hello"
+    str.let {
+        println("The string's length is ${it.length}")
+    }
+    str.run {
+        println("The string's length: $length")
+        println("The string's length: ${this.length}") // does the same
+    }
+}
+```
+
+Lambda 和匿名函数作为局部函数，同时也时对象表达式，与之密切相关的概念还有闭包，即引用了自由变量的函数。闭包是词法闭包的简称（Lexical Closure），自由变量 (Free Variables)，简单来说就是不属于全局作用域，又不是函数参数或局部变量的变量，简直就是“已婚人士的小金库”。闭包捕捉变量，使其成为自由变量，供 lambda 或匿名函数访问。
+
+```java
+var sum = 0
+(1..3).filter { it > 0 }.forEach {
+    sum += it
+}
+print(sum) // 6
+```
+
+Kotlin 每一个有 Receiver 的函数，都有两种引用形式，Receiver 显式或者隐式，并且可以互换：
+
+```ts
+val d: String.(Int) -> Unit = String::double
+val t: (String, Int) -> Unit = String::triple
+```
+
+Kotlin 1.2 引入了 `::` 运算符用于获取成员引用、类型引用，还支持 `::foo` 简写形式替换 `this::foo`。
+
 
 #### 💦 更方便的遍历迭代
 
@@ -2118,7 +2403,625 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	"123".toCharArray().filter { it > '1' }.forEach { println(it) }
 ```
 
-#### 💦 Data class 简化 getter/setter 属性接口
+#### 💦 智能类型转换
+
+```java
+// Java
+record Point(int x, int y) { }
+Point p = new Point(3,4);
+System.out.println( p.x() );
+
+if (obj instanceof String s) {
+    System.out.println( s.length() );
+}
+
+// Kotlin
+if (o is String) {
+    // now `o` is smart casted to String 
+    println(o.length())
+}
+```
+
+Kotlin 的智能类型转换，相同的功能在 TypeScript 称为类型收窄 Type Narrowing。
+
+Java 16 加入了类型判断的模式匹配（Java 14 开始预览）。
+1. https://www.typescriptlang.org/docs/handbook/2/narrowing.html
+2. https://www.bennyhuo.com/book/Java17-Updates
+
+还有 Kotlin when 表达式，Java 14 才有对应的 switch 表达式（12 开始预览）。
+
+
+#### 💦 Java Generic Types 泛型编程
+https://docs.oracle.com/javase/tutorial/java/generics/index.html
+
+一般函数、类成员参数类型是指定的，primitives 或者 class types，也就是固定类型信息。泛型作为一种代码复用编程工具（一定程度上简化了代码结构），其类型动态随参数而变化，因此泛型也称为*参数化类型*（Parameterized Types）。泛型同时也是多态（polymorphism）的一种实现方式。
+
+```java
+class Instrucment { 
+	final String note = "MIDDLE_C";
+	String get() { return note; }
+	void play(String note, String note2) {
+		System.out.format("Instrucment.play (%s, %s)\n", note, note2); 
+	}
+}
+
+class Wind extends Instrucment { 
+	final String note = "A";
+	String get() { return note; }
+	void play(String note, String note2) {
+		System.out.format("Wind.play (%s, %s)\n", note, note2); 
+	}
+}
+
+public class JMain {
+	public static void poly(Instrucment it) {
+		it.play(it.note, it.get());
+	}
+	public static void main(String[] args) {
+		Instrucment i1 = new Wind();
+		Wind i2 = new Wind();
+		i1.play(i1.note, i1.get());
+		i2.play(i2.note, i2.get());
+		poly(i1);
+		poly(i2);
+	}
+}
+/*Output:
+Wind.play (MIDDLE_C, A)
+Wind.play (A, A)
+Wind.play (MIDDLE_C, A)
+Wind.play (MIDDLE_C, A)
+*/
+```
+
+C++ templates 模板技术也属于泛型编程的一种形式，Java 泛型是类似的技术，毕竟参考了实现。Kotlin 泛型编程和 Java 泛型有很大联系，毕竟要兼容 JVM 平台，还要兼容跨平台。
+
+Java 泛型涉及几个关键的机制：
+
+0. Non-Reifiable Types 不可再生类型；
+1. Typ Erasure 类型擦除机制；
+2. Bounded type parameters 泛型类型参数边界机制，和 Wildcards 紧密联系；
+3. Bridge methods 桥接方法合成机制；
+
+泛型类、泛型函数具体使用的类型信息可以在编译期分析得出。泛型参数 (type parameters) 通常使用字母表示，就是一个类型代号，因为它代表的具体类型可变，所以也叫做类型变量 (type variable)。泛型参数使用尖括号包括（`<T>`，Diamond），写在接口、类名后面，写在成员名、函数名前面，多个泛型参数使用逗号分隔 (`<T,K>`)，然后在类体、函数体内需要使用类型定义变量的位置使用泛型参数，将类型变量符号写在参数名、变量名前面。泛型类、泛型接口统称为泛型类型（generic types）。
+
+Reify 指具体化、具象化，reifiable types 是指那些可具象化的类型，它们的类型信息不会被擦除，
+所以是指在运行时依然保持类型信息的那些类型。例如，所有原始值类型、非泛型、raw types，
+以及无边界的协变类型（invocations of unbound wildcards）。
+
+Kotlin 额外为 inline 函数引入了 `reified` 修饰关键字来显式声明可具象化类型，让类型信息只在内联函数体内保持可用。
+
+泛型参数名称的符号选择按照官方文档约定，Type Parameter Naming Conventions：
+
+1. `E` - Element (used extensively by the Java Collections Framework)
+2. `K` - Key
+3. `N` - Number
+4. `T` - Type
+5. `V` - Value
+6. `S`, `U`, `V` etc. - 2nd, 3rd, 4th types
+
+假设这样的一个场景：在游戏中的角色可以获取任意的道具，不同道具使用不同类型表示。可以使用类继承机制来解决这个问题，Java 中最直接的方式就是使用 `Object` 这个顶级父类，或者像以下代码一样使用自定义基类 `Prop`。而使用泛型编程，则可以不依赖类型继承机制实现多态。代码中的 `Actor<Prop>` 类型（Parameterized Types）就是将 `Prop` 类型作为泛型参数传递给 `Actor<T>` 泛型类。在类体内部再通过 `T` 传递到成员定义语句。编译器一套处理流程下来，泛型类型就实例化出一个实例，即 `Actor<Prop>` 类型，此时的类型信息已经固定。泛型参数可以嵌套，比如 `Actor<SomeGeneric<More>>`，假设定义了 `SomeGeneric<More>` 泛型类。
+
+```java
+class Prop { }
+class Sword extends Prop { }
+class Hoe extends Prop { }
+
+class Actor<T> {
+	private T prop;
+	public T get() { return prop; }
+	public void set(T value) { prop = value; }
+}
+class Enemy<T> extends Actor<T> { }
+
+public class Main {
+	public static void main (String[] args) {
+		Actor<Prop> actor = new Actor<Prop>();
+		actor.set(new Hoe());
+		System.out.format("Actor has %s\n", actor.get());
+	}
+}
+```
+
+Java 泛型实现方式是擦拭法（Type Erasure），即泛型相关的实现工作都发生在编译阶段。泛型类型信息在虚拟机运行程序之前被擦除。因此，Java 泛型机制的一个基本目标是在编译期确保存类型安全。
+
+编译后的泛型类型信息擦除行为，即从函数体内擦除 `<T>` 泛型参数，这就形成了一个边界。这个边界很重要，是对象进入和离开方法的点，是编译器在编译时执行类型检查并插入转换代码的点。类型信息擦除导致编译器把 `<T>` 视为 `Object`，并且根据 `<T>` 实现安全的强制转型。
+
+在类型擦除过程中，如果类型参数是有界的，Java 编译器将擦除所有类型参数，并将每个类型参数替换为其第一个边界；如果类型参数为无界的，则替换为 `Object`。Type erasure 处理过程如下：
+
+1. Replace all type parameters in generic types with their bounds or Object if the type parameters are unbounded.
+2. Insert type casts if necessary to preserve type safety.
+3. Generate bridge methods to preserve polymorphism in extended generic types.
+
+```java
+// Erasure of Generic Types and Generic Methods
+public class Node<T> {
+
+    private T data;
+    private Node<T> next;
+
+    public Node(T data, Node<T> next) { /*...*/ }
+    public T getData() { return data; }
+    
+}
+// Because the type parameter T is unbounded, the Java compiler replaces it with Object:
+public class Node {
+
+    private Object data;
+    private Node next;
+
+    public Node(Object data, Node next) { /*...*/ }
+    public Object getData() { return data; }
+    
+}
+
+// In the following example, the generic Node class uses a bounded type parameter:
+public class Node<T extends Comparable<T>> {
+
+    private T data;
+    private Node<T> next;
+
+    public Node(T data, Node<T> next) { /*...*/ }
+    public T getData() { return data; }
+
+}
+// The Java compiler replaces the bounded type parameter T with the first bound class, Comparable:
+public class Node {
+
+    private Comparable data;
+    private Node next;
+
+    public Node(Comparable data, Node next) { /*...*/ }
+    public Comparable getData() { return data; }
+
+}
+```
+
+为了深入 Java 泛型机制，必需结合编译器进行 type erasure 处理后的生成代码来理解。生成代码中还涉及一种称为 Bridge Methods 的合成代码。桥接方法目的是触发泛型中的多态问题（polymorphism），当一个类或接口扩展了类型参数中类型或者实现了类型参数中的接口的，这种情形下编译器就会自动生成桥接方法。
+
+用以下代码演示，：
+
+```java
+public class Node<T> {
+
+    public T data;
+
+    public Node(T data) { this.data = data; }
+
+    public void setData(T data) {
+        System.out.println("Node.setData");
+        this.data = data;
+    }
+}
+
+public class MyNode extends Node<Integer> {
+    public MyNode(Integer data) { super(data); }
+
+    public void setData(Integer data) {
+        System.out.println("MyNode.setData");
+        super.setData(data);
+    }
+}
+```
+
+以上代码经过编译器 type erasure 处理后，生成以下代码。因为 `extends` 或者 `implements` 指定了泛型类型变量边界的缘故，子类型生成的代码会使用父类或者父接口替换掉默认的 `Object`。
+
+1. `Node.setData(T)` 擦除类型后变成 `Node.setData(Object)`；
+2. `MyNode.setData(Integer)` 经过桥接合成了 `setData(Object)` 和 `setData(Integer)` 两个方法；
+
+如果没有桥接机制，擦除类型生成的方法 `MyNode.setData(Integer)` 就与父类产生签名冲突。所以，Java 选择加入桥接合成方法，而不是使用不同签名的方法去覆盖父亲的方法。
+
+To solve this problem and preserve the polymorphism of generic types after type erasure, the Java compiler generates a bridge method to ensure that subtyping works as expected.
+
+桥接方法 `MyNode.setData(object)` 保持与父类型一致，使用 `Object` 作为泛型类型变量的替代值，并且委托给原始方法 `MyNode.setData(Integer)`，编译负责插入安全的类型转换代码。
+
+```java
+public class Node {
+
+    public Object data;
+
+    public Node(Object data) { this.data = data; }
+
+    public void setData(Object data) {
+        System.out.println("Node.setData");
+        this.data = data;
+    }
+}
+
+class MyNode extends Node {
+
+    // Bridge method generated by the compiler
+    public void setData(Object data) {
+        setData((Integer) data);
+    }
+
+    public void setData(Integer data) {
+        System.out.println("MyNode.setData");
+        super.setData(data);
+    }
+
+}
+```
+
+如果 Java 编译器没有合成桥接方法会出现什么与多态相关的问题呢？这种情况下生成的 `MyNode` 就会如下所示，注意 `MyNode.setData(Integer data)` 这个方法的签名，因为 `extends` 指定类型边界的缘故，参数类型替换为继承的类型 `Integer`，而不是父类中通常使用的 `Object`。这就意味着，子类用了不同签名的方法覆盖掉父类方法。
+
+```java
+public class MyNode extends Node {
+
+    public MyNode(Integer data) { super(data); }
+
+    public void setData(Integer data) {
+        System.out.println("MyNode.setData");
+        super.setData(data);
+    }
+}
+```
+
+使用桥接机制后，子类型与父类型保持了一致性，解决了多态不一致问题。这种情形下，执行以下代码，`n.setData("Hello");` 调用桥接方法 `MyNode.setData(Object)`，就会通过编译器插入的安全类型转换代码抛出一个 `ClassCastException` 类类转换异常：
+
+```java
+MyNode mn = new MyNode(5);
+Node n = mn;            // A raw type - compiler throws an unchecked warning
+n.setData("Hello");     // Causes a ClassCastException to be thrown.
+Integer x = mn.data;
+
+// After type erasure, this code becomes:
+MyNode mn = new MyNode(5);
+Node n = mn;            // A raw type - compiler throws an unchecked warning
+                        // Note: This statement could instead be the following:
+                        //     Node n = (Node)mn;
+                        // However, the compiler doesn't generate a cast because
+                        // it isn't required.
+n.setData("Hello");     // Causes a ClassCastException to be thrown.
+Integer x = (Integer)mn.data; 
+```
+
+使用 `Class.getMethod()` 获取一个方法的反射对象，然后用 `Method.isBridge()` 方法判断一个方法是不是桥接方法。
+
+Typ Erasure 机制带来一些限制，主要是 Restrictions on Generics Parameterized Types：
+https://docs.oracle.com/javase/tutorial/java/generics/restrictions.html
+
+1. Cannot Instantiate Generic Types with `Primitive Types`
+2. Cannot Create Instances of Type Parameters
+3. Cannot Declare Static Fields Whose Types are Type Parameters
+4. Cannot Use Casts or instanceof With Parameterized Types
+5. Cannot Create Arrays of Parameterized Types
+6. Cannot Create, Catch, or Throw Objects of Parameterized Types
+7. Cannot Overload a Method Where the Formal Parameter Types of Each Overload Erase to the Same Raw Type
+
+不能是基本类型 `Primitive Types`，例如 char byte int doube 等，因为 `Object` 无法持有基本类型。
+
+不能对 Type Parameters 进行实例化，是因为类型擦除后，无法取得 `SomeClass<T>.class`，因为编译器生成的代码是 `SomeClass.class`，所以 `getClass()` 也是返回相同类型。
+
+无法判断泛型类型 (`a instanceof SomeClass<T>`)，原因同上，`SomeClass<T>.class` 失效。
+
+使用 `Class.getTypeParameters( )` 可以获取泛型类型的泛型参数列表。
+
+以下代码演示了 Type Erasure，摘自 Thinking in Java 17.7. The mystery of erasure：
+
+```java
+//: generics/ErasedTypeEquivalence.java
+import java.util.*;
+
+public class ErasedTypeEquivalence {
+    public static void main(String[] args) {
+        Class c1 = new ArrayList<String>().getClass();
+        Class c2 = new ArrayList<Integer>().getClass();
+        System.out.println(c1 == c2);
+    }
+} /* Output:
+true
+*///:~
+```
+
+同样因为 Type Erasure，很多基本代码无法在泛型中使用，需要间接地使用 `Class.isInstance(arg)` 或者 `newInstance()` 实例化泛型参数指定的类型，额外工作是先保存 Some.class 引用。需要注意，Integer 这些基础类型的装箱类型没有默认构造函数，不能对它们使用 `newInstance()`：
+
+```java
+//: generics/Erased.java
+// {CompileTimeError} (Won't compile)
+
+public class Erased < T > {
+    private final int SIZE = 100;
+    public static void f(Object arg) {
+        if (arg instanceof T) {} // Error
+        T   var = new T(); // Error
+        T[] array = new T[SIZE]; // Error
+        T[] array = (T) new Object[SIZE]; // Unchecked warning
+    }
+} ///:~
+```
+
+为了兼容传统的没有泛型的代码，每个泛型定义了一个原始类型（JLS 4.8. Raw Types)，Raw type 擦除了参数化类型 (Parameterized Types)、或者擦除以 parameterized type 为元素的数组类型。
+
+更精确地讲，raw type 是以下定义形式之一：
+
+1. The reference type that is formed by taking the name of a generic type declaration without an accompanying type argument list.
+2. An array type whose element type is a raw type.
+3. A non-static member type of a raw type R that is not inherited from a superclass or superinterface of R.
+
+用代码来演示说明 raw type 概念：
+
+```java
+public class Box<T> { ➊
+    public void set(T t) { /* ... */ }
+    // ...
+}
+
+Box<Integer> intBox = new Box<>(); ➋
+
+Box rawBox = new Box(); ➌
+```
+
+1. 对于一个泛型类型 `Box<T>`，其中 `<T>` 是类型参数 (type arguments)。
+2. 创建泛型类型实例（parameterized type）就需要向类型参数提供具体类型信息，如 `Box<Integer>`；
+3. 移除 `Box<T>` 的真实类型参数（type arguments），得到的是就是 raw type。
+
+类型信息擦除还会影响泛型的协变与逆变，泛型编程中借用了三个数学术语：
+
+- 不变性 invariance 是指函数输入施加的某种操作不会影响到输出。
+- 协变性 covariance 是指函数返回类型改变成其派生类型。
+- 逆变性 contravariance 是指函数返回类型改变成其父类型。
+
+Box<Integer> is not a subtype of Box<Number> even though Integer is a subtype of Number.
+![](https://docs.oracle.com/javase/tutorial/figures/java/generics-subtypeRelationship.gif)
+![](https://docs.oracle.com/javase/tutorial/figures/java/generics-payloadListHierarchy.gif)
+![](https://docs.oracle.com/javase/tutorial/figures/java/generics-listParent.gif)
+
+泛型虽然也有继承关系，但是泛型继承不同于类型继承关系，不是父类与子类型的关系，不能进行协变。Java 泛型默认为不变性（invariance）。这意味着 Box<Integer> 并不是 Box<Number> 的子类，但它们都是 `Object` 的子类，因为这些泛型类型是无边界的 `<T>`。也可以使用 Wildcards，如 `Box<?>` 或者 `Box<? extends Object>`、`Box<? extends Integer & Number>`。
+
+在泛型参数一致的情况下，继承关系才是父类与子类的关系。例如 Collections 集合构架中的泛型类型继承关系：
+
+ArrayList<E> implements List<E>
+List<E> extends Collection<E>
+
+这种情况下，ArrayList<String> 就是 List<String> 的子类，然后它是 Collection<String> 子类。
+
+
+所以默认情形下无法进行以下赋值操作：
+
+```java
+// error: incompatible types: Actor<Sword> cannot be converted to Actor<Prop>
+Actor<Prop> fall = new Actor<Sword>();
+// error: incompatible types: Actor<Prop> cannot be converted to Actor<Sword>
+Actor<Sword> fall = new Actor<Prop>();
+```
+
+在定义泛型变量时，如果构建器中省略泛型信息，则会提示不完全操作：
+
+```java
+// Note: Main.java uses unchecked or unsafe operations.
+// Note: Recompile with -Xlint:unchecked for details.
+@SuppressWarnings("unchecked")
+Actor<Prop> note = new Enemy();
+
+Actor<Prop> enemy = new Enemy<Prop>();
+enemy.set(new Sword());
+enemy.set(new Hoe());
+```
+
+Type Parameters 的边界概念是 Java 泛型机制实现的关键，因此 Java 通配符类型是类型系统中最棘手的问题之一，参考：
+1. http://www.angelikalanger.com/GenericsFAQ/JavaGenericsFAQ.html#Wildcards
+2. https://docs.oracle.com/javase/tutorial/java/generics/wildcards.html
+
+Java 有 4 种泛型通配类型定义边界，可处理协变性，使用通配符表示一族类型：
+
+1. `<?>` unbounded wildcard，表示所有类型；
+2. `<? extends Type>` upper bound wildcard，指定某类型上边界，即 Type 及其所有子类型；
+3. `<T extends A & B & C>` Multiple Bounds，指定一系列的类型作为边界；
+4. `<? super Type>` lower bound wildcard，指定某类型下边界，即 Type 及其所有父类型；
+
+多边界表达形式中，类型变量，这里指专 T，它表示所列类型的子类型，如果其中包含一个类型，那么必须出现在首位。最多只有一个类型，其它为接口，因为 Java 使用单继承。因此也只有首个类型变量会被用于经过 type erasure 处理后的生成代码中，如下代码以所示：
+
+```java
+Class A { /* ... */ }
+interface B { /* ... */ }
+interface C { /* ... */ }
+
+class D <T extends B & A & C> { /* ... */ } // compile-time error
+
+class D <T extends A & B & C> { 
+	T property;
+}
+// after type erasure (compiler generated code):
+class D {
+	A property
+}
+```
+
+所谓边界 (Bound)，是对泛型的类型参数的类型约束，在进行类型转换时的一种度量。如果将泛型看成是度量一个容器中元素的尺子，那么往这个容器里存放元素，只允许存储比尺子小的元素；从容器取出的元素的时候，必须用比尺子大的引用来接收。
+
+1. `<T>` 就是无界类型参数 (可以是任何类型)，这里 T 就是一把尺子；
+2. `<T extends A & B & C>` 这里 T 对应三把尺子，它们都是接口，其中只有 A 可以是一个类型；
+3. 通配符号 ? 代表了多把尺子：
+3.1. `<? extends T>` 最大尺子为 T，最小尺子可以无限，所以不能存入，可以读取 T 引用；
+3.2. `<? super T>` 最小尺子为 T，最大尺子是 `Object`，可以存放 T 或其子类型，读取 `Object` 引用。
+
+Collections 框架作者 Joshua Bloch 称那些只能从中读取的对象为生产者，那些只能写入的对象为消费者。为了灵活性最大化，建议在它们的输入参数使用通配符类型，并使用助记符表示：PECS (producer-extends, consumer-super)。
+
+也就是上界 `<? extends T>` 只能往外取（生产者）。下界 `<? super Type>` 只能往里存（消费者）。
+
+以上基本上是 Java 泛型通配编程模式的基本准则，产生这种规则的根源还是 type erasure。
+
+在定义泛型类型时，泛型参数 `T` 定义的成员类型会在编译期通过传入参数化类型（parameterized type）确定下来，但是这部分信息不会保留到成员方法内部使用，因为擦除掉了。这就导致隐含的类型转换。
+
+配合以下代码说明这个过程，`producer = new Enemy<Prop>` 创建泛型类型实例时，由于 type erasure，原本代码定义的 `T prop` 成员类型就会变成 `Object prop`。`set(T value)` 方法接收到的就变成了 `set(Object value)`。所以，从泛型类型读取数据、或者传入数据到泛型类型内部时，编译器就生成相应的安全的强制转型代码。
+
+对于没有使用通配符的泛型类型，就不存在这样的问题。
+
+使用 `javap -c Enemy` 命令可以检查生成的字节码。虽然编译后移除了泛型参数信息，但是声明泛型类型时，声明侧的泛型信息会以 Signature 的形式保留在 .class 文件的 Constant pool，可以使用 `javap -v Enemy` 查看记录在泛型类型的常量池信息列表。
+
+```java
+class Enemy<T> extends Actor<T> {
+	public Enemy (T inst) { 
+		prop = inst;
+		System.out.format("Enemy(): %s\n", this.prop); 
+	}
+}
+Actor<Prop> enemy = new Enemy<Prop>(new Prop());
+enemy.set(new Sword());
+enemy.set(new Hoe());
+System.out.format("Enemy has %s\n", enemy.get());
+
+Actor<? super Prop> consumer = new Enemy<Prop>(new Prop());
+consumer.set(new Hoe());
+System.out.format("Enemy[consumer] has %s\n", consumer.get());
+
+Actor<? extends Prop> producer = new Enemy<Prop>(new Prop());
+System.out.format("Enemy[producer] has %s\n", producer.get());
+// error: incompatible types: Hoe cannot be converted to CAP#1
+// producer.set(new Hoe());
+//              ^
+//   where CAP#1 is a fresh type-variable:
+//     CAP#1 extends Prop from capture of ? extends Prop
+// Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+producer.set(new Hoe());
+```
+
+Java 所有表达式只产生两个结果：要么是没有东西 (`void`)，要么就是（值和变量）编译器可以推断的类型。大多数上下方中，一个表达式的类型必须与之兼容，这个类型称为 `target type`。简单起见，有两兼容策略：
+
+1. 某些表达式（多项表达式 poly expressions），其推断类型受 `target type` 影响，同一个表达在不同的上下文中有不同类型。
+2. 推断出表达式类型后，进行隐式转换到 `target type`，以执行某些操作。
+
+如果以上两种兼容策略失效，不能获取到合适的类型，那么就会触发一个 compile-time error。
+
+其中 Capture Conversion 和泛型密切相关。在某些情况下，编译器会推断通配符的类型，例如，定义 `List＜?＞`，但是在计算表达式时，编译器会从代码中推断出特定的类型。这种情况称为通配符捕获。Capture Conversion 类型转换失败时，就会报错，错误信息包含 *capture of* 或者 *CAP#1* 字样。`CAP#1` 对应了一个 Capture 类型，其中 CAP 是 capture 缩写，数字表示泛型参数对应其在参数列表中的位置，1 表示第一个。使用 `-Xdiags:verbose` 编译器参数可以查看更详细的信息。
+
+```sh
+$ javac -Xdiags:verbose Main.java
+Main.java:48: error: method set in class Actor<T> cannot be applied to given types;
+producer.set(new Prop());
+        ^
+  required: CAP#1
+  found:    Prop
+  reason: argument mismatch; Prop cannot be converted to CAP#1
+  where T is a type-variable:
+    T extends Object declared in class Actor
+  where CAP#1 is a fresh type-variable:
+    CAP#1 extends Prop from capture of ? extends Prop
+1 error
+```
+
+可以看到，调用 `producer.set()` 时，因为 type erasure 导致 `set(T value)` 方法中的泛型参数 T 变成了 `Object`
+
+
+显式指定泛型参数 (Explicit type specification)，语法参考：`Class.<T>method()`。
+
+变量参数泛型 (Varargs and generic methods) 语法参考：`method(T...args)`。
+
+参考 Java 语言规范手册 https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html
+
+4.5. Parameterized Types
+4.6. Type Erasure
+4.7. Reifiable Types
+4.8. Raw Types
+5.1. Kinds of Conversion
+5.1.10. Capture Conversion
+8.1.2. Generic Classes and Type Parameters
+8.4.4. Generic Methods
+9.1.2. Generic Interfaces and Type Parameters
+
+Java 8 提供了 13 种类型转换分类：
+
+5.1.1. Identity Conversion
+5.1.2. Widening Primitive Conversion
+5.1.3. Narrowing Primitive Conversion
+5.1.4. Widening and Narrowing Primitive Conversion
+5.1.5. Widening Reference Conversion
+5.1.6. Narrowing Reference Conversion
+5.1.7. Boxing Conversion
+5.1.8. Unboxing Conversion
+5.1.9. Unchecked Conversion
+5.1.10. Capture Conversion
+5.1.11. String Conversion
+5.1.12. Forbidden Conversions
+5.1.13. Value Set Conversion
+
+Java 8 提供了 5 种上下文：
+
+5.2. Assignment Contexts
+5.3. Invocation Contexts
+5.4. String Contexts
+5.5. Casting Contexts
+5.5.1. Reference Type Casting
+5.5.2. Checked Casts and Unchecked Casts
+5.5.3. Checked Casts at Run Time
+5.6. Numeric Contexts
+5.6.1. Unary Numeric Promotion
+5.6.2. Binary Numeric Promotion
+
+
+#### 💦 Kotlin Generic Types 泛型编程
+1. 【码上开学】Kotlin 的泛型 https://www.bilibili.com/video/BV1T441117u8
+2. 【码上开学】Kotlin 的泛型 https://juejin.cn/post/6844903929734496263
+
+Kotlin 泛型与 Java 泛型同源，基于类型擦拭法（Type Erasure），泛型的实现工作都发生在编译阶段，
+泛型类型信息在虚拟机运行程序之前被擦除。
+
+Java 有 3 种泛型通配类型处理协变性，使用通配符，可推断表示一族类型：
+
+1. `<?>` unbounded wildcard，表示所有类型；
+2. `<? extends Type>` upper bound wildcard，指定某类型上边界，即 Type 及其所有子类型；
+3. `<? super Type>` lower bound wildcard，指定某类型下边界，即 Type 及其所有父类型；
+
+Kotlin 则引入了 `in` 和 `out` 关键字替换 extends 和 super 两种通配形式，表达更加清晰。
+按照 Collections 框架作者 PECS (producer-extends, consumer-super) 标注，
+out 修饰符称为协变注解，用于生产者；in 修饰符称为逆变注解，用于消费者；
+
+参考官方文档，Platforms - Calling Java from Kotlin - Java generics in Kotlin，
+Concepts - Generics: in, out, where，以下是文档中罗列的两者之间的差异：
+
+* Java's wildcards are converted into type projections:
+  * `Foo<? extends Bar>` becomes `Foo<out Bar!>!`
+  * `Foo<? super Bar>` becomes `Foo<in Bar!>!`
+
+* Java's raw types are converted into star projections:
+  * `List` becomes `List<*>!` that is `List<out Any?>!`
+
+Kotlin 泛型没有 Java 那样难搞的通配符号表达，但涉及以下两个基本概念：
+
+1. 声明处型变（declaration-site variance），泛型参数使用在入参和返回值中；
+2. 类型投影（type projections），协变、逆变中涉及的类型映射；
+
+对于多个边界的表达，使用 `where` 从句表达，和 SQL 或者 Rust 的语法结构相似。
+
+Java 使用单个 ? 号作为 ? extends Object 泛型通配符的简写表达形式。 
+Kotlin 等效的符号是 * 号，star projections，通配类型相当于 Any。
+
+举例来说，假设定义有 `interface Function<in T, out U>`，那么有以下星型投影使用含义：
+
+*  `Function<*, String>` ==> `Function<in Nothing, String>`
+*  `Function<Int, *>` ==> `Function<Int, out Any?>`
+*  `Function<*, *>` ==> `Function<in Nothing, out Any?>`
+
+Star projections 也是唯一支持使用 `is` 关键字判断类型的表达方式:
+
+```kotlin
+if (a is List<Int>) // Error: cannot check if it is really a List of Ints
+// but
+if (a is List<*>) // OK: no guarantees about the contents of the list
+```
+
+13.1.1. Hard keywords
+
+ * `in`
+     - specifies the object being iterated in a [for loop](control-flow.md#for-loops).
+     - is used as an infix operator to check that a value belongs to [a range](ranges.md),
+       a collection, or another entity that [defines a 'contains' method](operator-overloading.md#in-operator).
+     - is used in [when expressions](control-flow.md#when-expression) for the same purpose.
+     - marks a type parameter as [contravariant](generics.md#declaration-site-variance).
+
+13.1.2. Soft keywords
+
+ * `where` specifies the [constraints for a generic type parameter](generics.md#upper-bounds).
+
+13.1.3. Modifier keywords
+
+ * `out` marks a type parameter as [covariant](generics.md#declaration-site-variance).
+ * `reified` marks a type parameter of an inline function as [accessible at runtime](inline-functions.md#reified-type-parameters).
+
+
+
+#### 💦 Data classs 简化 getters/setters 属性接口
 
 ```java
 	// Java
@@ -2177,7 +3080,247 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	data class Developer(val name: String, val age: Int)
 ```
 
-#### 💦 Initialization block
+此功能对应 Java 数据类（Java 14 开始预览）。
+
+```java
+// Java
+record Point(int x, int y) { }
+Point p = new Point(3,4);
+System.out.println( p.x() );
+```
+
+Kotlin 提供了多个修饰符实现 Object declarations：
+
+1. `object` 关键字实现 Singleton 编程模式，定义一个类型同时进行实例化，即类型和实例同名。 
+2. `data object` 关键字组合定义了 Singleton 同时，提供基本的 `toString()` 和 `equals()`、`hashCode()` 方法实现。
+3. `companion object` 关键字组合定义伴星对象，即类型内部定义的数据对象。
+
+Kotlin 1.3 开始可以使用 `@JvmStatic` 和 `@JvmField` 标注，将数据对象修饰为 `companion object` 成员转换为 `static` 成员。
+
+在比较 `data objects` 只能使用严格比较运算符 `==`，禁止使用引用比较运算符 `===`。
+
+类似的还有 `data classe`，它为类开提供默认的方法实现：
+
+```kotlin
+data class User(val name: String, val age: Int)
+```
+
+编译器会为 User 这个数据类的主构造函数中声明的所有属性实现以下成员：
+
+* `.equals()`/`.hashCode()` 方法对；
+* `.toString()` 返回内容 `"User(name=John, age=42)"`
+* [`.componentN()`](destructuring-declarations.md) 解构赋值接口函数；
+* `.copy()` 拷贝函数用于复制实例，并根据传入参数修改某些成员的值。
+
+为了确保代码一致性，数据类必须满足以下要求：
+
+* The primary constructor needs to have at least one parameter.
+* All primary constructor parameters need to be marked as `val` or `var`.
+* Data classes cannot be abstract, open, sealed, or inner.
+* Providing explicit implementations for the `.componentN()` and `.copy()` functions is not allowed.
+
+
+13.1.1. Hard keywords
+
+ * `class` declares a [class](classes.md).
+ * `object` declares [a class and its instance at the same time](object-declarations.md).
+
+13.1.3. Modifier keywords
+
+ * `data` instructs the compiler to [generate canonical members for a class](data-classes.md).
+ * `companion` declares a [companion object](object-declarations.md#companion-objects).
+
+
+#### 💦 Class Constructors
+
+```java
+	// Java
+	public class Person {
+	    public Person() { /*...*/ }
+	}
+
+	// Kotlin
+	class Empty
+	class DontCreateMe private constructor() { /*...*/ }
+	class Customer public @Inject constructor(name: String) { /*...*/ }
+
+	class Person { /*...*/ }
+	class Person(firstName: String) { /*...*/ }
+	class Person constructor(firstName: String) { /*...*/ }
+
+	class Person(val name: String) { ➊
+	    val children: MutableList<Person> = mutableListOf()
+	    constructor(name: String, parent: Person) : this(name) { ➋
+	        parent.children.add(this)
+	    }
+	}
+```
+
+Kotlin 的类定义语法与 Java 有很大的不同，除了使用 `object` 或才 `data object` 关键字定义的 Singleton 类型，还可以使用 `data class` 定义数据类型。类型的构造器的语法差别很大，Java 类型构造函数和类型名称相同。Kotlin 类型构造函数则始终使用 `constructor` 关键字定义，没有函数名，因为它本身不是一个函数，而是类型实例化过程的代码块。
+
+Kotlin 类型构造器分主、次两个级别：
+
+1. ➊ A class in Kotlin has a _primary constructor_ and 
+2. ➋ possibly one or more _secondary constructors_. The primary constructor
+
+主构造器就是紧跟类名称后，或者成员列表后的 `constructor`，次要构造函数则定义在类体内。在不需要对构建器使用标注或 visibility modifiers，这种情况下可以省略 `constructor` 关键字，此时主构造器只剩下类型参数列表。
+
+	class header = type parameters + primary constructor + class body
+
+构造器用于初始化 class header 声明的类成员，class header 不能包含任何可运行代码，要在实例化过程运行的代码可以编写到 _initializer blocks_ 初始化代码块中，语法形式：`init {}`。可以多次使用，并且按初始化块出现的顺序执行
+
+如果类定义显式声明主构造函数，则每个次要构造器都需要委托给主构造函数，或者
+直接或间接通过其它次要构造器实现。次要构造器必须通过 `this` 关键字委托主构造器，如示范代码 ➋ `this(name)`。
+
+所有初始化代码块（initializer blocks）最终会成为主构造器的一部分，并且会在次构造器代码执行之前。即使没有显式声明主构造器，这个过程也会隐式进行。
+
+获取成员引用、类型引用可以使用 `::` 运算符，它可以用来引用构造器引用，参考以下接口：
+
+1. *kotlin.reflect.KFunction*  libraries/stdlib/src/kotlin/reflect/KFunction.kt
+
+默认声明的类型对应 Java 中定义的 final class，除非使用 `open` 关键字让其可以派生子类。构造器则为 `public` 可见性修饰。
+
+使用 `sealed` 关键字声明密封类也是抽象类，_Sealed_ classes 或者 interfaces 表示类型层次约束，提供更多的继承控制。Sealed classes 包含抽象类和枚举的优势：抽象类表示的灵活性和枚举常量的受限性。
+
+Kotlin 没有 `new` 关键字，类型实例化使用类名称加圆括号表示调用构建器。如果内部定义了 `companion` 对象，则可以使用类名来获取 Component 对象的引用。
+
+类数据成员可以使用 `val` 或者 `var` 关键字进行定义，区别是前者只能实现 getter 访问器。
+
+```java
+class Cc(name:String)
+class Cval(val name: String)
+class Cvar(var name: String)
+class Cmix(var name:String)
+{
+    var Message: String = name
+        get() = field
+}
+```
+
+注意，只允许主构造器中使用 `val` 或者 `var` 关键字来定义类成员。
+
+如果省略 `val` 或者 `var` 关键字，则构造器参数列表中所有参数仅仅作为 class body 代码块的参数使用。类型成员也可以在 class body 中定义，可以和参数列表定义成员混用，如 `Cmix` 类型就包含 name 和 Message 两个属性，其中 `field` 关键字提供 Backing fields 支持，由编译器生成一个隐式字段保存数据避免属性的递归调用问题。也可以手动使用 Map 容器保存数据，实现 Backing properties。Kotlin 这种“复用”形式的语法很常见，type parameters 既作为参数列表，又作为主构造器，并且还作为类成员列表使用，这也就是为何 Kotklin 代码相当简洁的原因。
+
+```sh
+$ kotlinc main.kt some.kt
+main.kt:57:10: warning: parameter 'name' is never used
+class Cc(name:String)
+         ^
+$ javap Cc Cvar Cval
+Compiled from "main.kt"
+public final class Cc {
+  public Cc(java.lang.String);
+}
+Compiled from "main.kt"
+public final class Cval {
+  public Cval(java.lang.String);
+  public final java.lang.String getName();
+}
+Compiled from "main.kt"
+public final class Cvar {
+  public Cvar(java.lang.String);
+  public final java.lang.String getName();
+  public final void setName(java.lang.String);
+}
+```
+
+使用 `::` 运算符获取 Constructor references。
+
+引用运算符属性 Reflection 功能，根据引用目标的不同，此运算符返回的引用类型包括：
+
+[`KClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)
+[`KFunction<out R>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-function/) 
+[`KProperty`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html)
+[`KMutableProperty<V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html)
+
+Function references 类型属于 `KFunction<out R>` 子类，根据参数列表和返回值差异化表达，例如 `KFunction3<T1, T2, T3, R>`。使用 `val` 和 `var` 定义的属性对应引用类型为 `KProperty` 和 `KMutableProperty<V>`。
+
+Kotlin `::` 运算符还可以通过类型实例获取引用，属于绑定的引用，绑定到了实例对象上：
+
+0. Bound class references (`obj::class`)
+1. Bound function and property references (`obj::PropertyName` or `this::PropertyName`)
+2. Bound constructor references (`obj::InnerClassName`)
+
+
+Kotlin 1.4 完善了 callable references，功能提升内容包含：
+
+* References to functions with default argument values
+* Function references in `Unit`-returning functions 
+* References that adapt based on the number of arguments in a function
+* Suspend conversion on callable references 
+
+```java
+fun foo(x: Int, vararg y: String) {}
+
+fun use0(f: (Int) -> Unit) { println(f) }
+fun use1(f: (Int, String) -> Unit) { println(f) }
+fun use2(f: (Int, String, String) -> Unit) { println(f) }
+
+fun test() {
+    use0(::foo) 
+    use1(::foo) 
+    use2(::foo) 
+}
+/*Output:
+Function1<java.lang.Integer, kotlin.Unit>
+Function2<java.lang.Integer, java.lang.String, kotlin.Unit>
+Function3<java.lang.Integer, java.lang.String, java.lang.String, kotlin.Unit>
+ */
+```
+
+当上下文提供的类型信息缺失，编译器就可能识别不了函数重载形式，这就需要添加额外的类型信息来解决 Overload resolution ambiguity 问题：
+
+```sh
+error: callable reference resolution ambiguity:
+public constructor Delegate() defined in Delegate
+public constructor Delegate(map: MutableMap<String, Any?>) defined in Delegate
+```
+
+根据 Kotlin 文档说明的代码规范约定，Class layout 应该按以下顺序组织：
+
+1. Property declarations and initializer blocks
+2. Secondary constructors
+3. Method declarations
+4. Companion object
+
+并且，类成员应该以功能编排，而不是按名称的字典顺序编排。
+
+Kotlin 程序寻找符号的一般流程：Locals → Extension receiver → Class → Package → Imports。
+
+ 13.1.1. Hard keywords
+
+ * `class` declares a [class](classes.md).
+ * `object` declares [a class and its instance at the same time](object-declarations.md).
+ * `interface` declares an [interface](interfaces.md).
+ * `super`
+     - [refers to the superclass implementation of a method or property](inheritance.md#calling-the-superclass-implementation).
+     - [calls the superclass constructor from a secondary constructor](classes.md#inheritance).
+ * `this`
+     - refers to [the current receiver](this-expressions.md).
+     - [calls another constructor of the same class from a secondary constructor](classes.md#constructors).
+ 
+13.1.2. Soft keywords
+
+ * `constructor` declares a [primary or secondary constructor](classes.md#constructors).
+ * `init` begins an [initializer block](classes.md#constructors).
+
+13.1.3. Modifier keywords
+
+ * `abstract` marks a class or member as [abstract](classes.md#abstract-classes).
+ * `data` instructs the compiler to [generate canonical members for a class](data-classes.md).
+ * `open` allows [subclassing a class or overriding a member](classes.md#inheritance).
+ * `sealed` declares a [sealed class](sealed-classes.md) (a class with restricted subclassing).
+ * `internal` marks a declaration as [visible in the current module](visibility-modifiers.md).
+ * `private` marks a declaration as [visible in the current class or file](visibility-modifiers.md).
+ * `protected` marks a declaration as [visible in the current class and its subclasses](visibility-modifiers.md).
+ * `public` marks a declaration as [visible anywhere](visibility-modifiers.md).
+
+13.1.5. Operators and special symbols
+
+ * `::` creates a [member reference](reflection.md#function-references) or a [class reference](reflection.md#class-references).
+
+
+#### 💦 initializer blocks in class
 
 ```java
 	// Java
@@ -2185,6 +3328,8 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	    {  //Initialization block
 	        System.out.println("Init block");
 	    }
+
+		static { /*...*/ }
 	}
 	// Kotlin
 	class User {
@@ -2194,24 +3339,482 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 	}
 ```
 
-#### 💦 Initialization block
+13.1.2. Soft keywords
 
-```java
-	// Java
-	public class User {
-	    {  //Initialization block
-	        System.out.println("Init block");
-	    }
-	}
-	// Kotlin
-	class User {
-	    init { // Initialization block
-	        println("Init block")
-	    }
-	}
+ * `constructor` declares a [primary or secondary constructor](classes.md#constructors).
+ * `init` begins an [initializer block](classes.md#constructors).
+
+13.1.3. Modifier keywords
+
+ * `lateinit` allows initializing a [non-nullable property outside of a constructor](properties.md#late-initialized-properties-and-variables).
+
+
+#### 💦 委托编程模式 Delegation Pattern
+[Delegation pattern](https://en.wikipedia.org/wiki/Delegation_pattern) 
+
+已经证明 Delegation 编程模式是一种实现继承机制的良方，组合优于继承 (Favor composition over inheritance)。
+
+Kotlin 原生支持 Delegation pattern，只需使用 `by` 关键字，无需要任何样板代码，zero boilerplate code，由编译器自动生成。委托有两种基本形式：Interfaces Delegation 和 Properties Delegation。
+
+Kotlin 官方文档提供了以下内容：
+
+	📜 07.04.16. [Delegated properties](delegated-properties.md)
+	1. Standard delegates
+	1.1. Lazy properties
+	1.2. Observable properties
+	2. Delegating to another property
+	3. Storing properties in a map
+	4. Local delegated properties
+	5. Property delegate requirements
+	6. Translation rules for delegated properties
+	6.1. Optimized cases for delegated properties
+	6.2. Translation rules when delegating to another property
+	7. Providing a delegate
+
+以下代码演示 `Derived` 类型通过委托所有公共成员到指定对象来实现 `Base` 接口。派生类中使用 `override` 关键字声明用于覆盖父类的成员，成员定义使用了 Single-expression functions 语法：
+
+```kotlin
+interface Base {
+    val msg: String
+    fun sayHello()
+}
+
+class BaseImpl : Base {
+    override val msg = "BaseImpl"
+    override fun sayHello() = println("Hello $msg!")
+}
+
+class Derived (b: Base) : Base by b {
+    // This property is not accessed from b's implementation of `sayHello`
+    override val msg = "Derived"
+    override fun sayHello() = println("HELLO $msg!")
+}
+
+fun main() {
+    val b = BaseImpl()
+    Derived(b).sayHello()
+}
 ```
 
-#### 💦 Extension methods of Class
+需要注意的是：`Derived` 中覆盖的 msg 属性并不能被 `BaseImpl` 的成员访问到。
+
+派生类的 supertype list 中的 `by` 关键字引导的从句表示 `b` 变量会存储到 `Derived` 类型的对象内部，编译器将生成 `Base` 的所有需要转发到 `b` 的方法。也就是通过委托，使得 `Derived` 类型拥有了 `BaseImpl` 实现的方法。其实就是委托调用了 `b` 实现的方法。
+
+Delegated properties，同样需要使用 `by` 关键字，只是用在 `val
+` 或 `var` 关键字声明的属性类型中，差别在于前者定义只读属性、变量。语法如下：
+
+val/var <property name>: <Type> by <expression>
+
+紧跟 `by` 之后的表达式是一个委托对象，属性访问器 `get()` 还有 `set()` 会委托给对应的 `getValue()` 和 `setValue()` 方法。属性委托不需要实现接口，只要是使用 `operator` 关键字定义了这两个方法（运算符实现方法）的类型都是合法的委托对象。通过属性委托，可以将常用的属性统一管理，只实现一次然后重复利用：
+
+* _Lazy_ properties: the value is computed only on first access.
+* _Observable_ properties: listeners are notified about changes to this property.
+* Storing properties in a _map_ instead of a separate field for each property.
+
+以下代码演示了属性委托机制，读写已委托对象的属性时就会执行委托对象提供的方法：
+
+```java
+import kotlin.reflect.KProperty
+
+class Example {
+    var p: String by Delegate()
+}
+
+class Delegate {
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
+        return "$thisRef, thank you for delegating '${property.name}' to me!"
+    }
+ 
+    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+        println("$value has been assigned to '${property.name}' in $thisRef.")
+    }
+}
+```
+
+委托对象中的方法定义要求：
+
+* `thisRef` must be the same type as, or a supertype of, the *property owner* (for extension properties, it should be the type being extended).
+* `property`  must be of type `KProperty<*>` or its supertype.
+* `value` must be of the same type as the property (or its supertype).
+
+需要注意，不能在 `getValue()` 或者 `setValue()` 方法中分别对受委托的属性进行读取或者写入操作，因为这会导致循环调用。
+
+13.1.1. Hard keywords
+
+ * `class` declares a [class](classes.md).
+ * `interface` declares an [interface](interfaces.md).
+ * `object` declares [a class and its instance at the same time](object-declarations.md).
+ * `val` declares a read-only [property](properties.md) or [local variable](basic-syntax.md#variables).
+ * `var` declares a mutable [property](properties.md) or [local variable](basic-syntax.md#variables).
+
+13.1.2. Soft keywords
+
+ * `by`
+     - [delegates the implementation of an interface to another object](delegation.md).
+     - [delegates the implementation of the accessors for a property to another object](delegated-properties.md).
+ * `delegate` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
+ * `field` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
+
+13.1.3. Modifier keywords
+
+ * `abstract` marks a class or member as [abstract](classes.md#abstract-classes).
+ * `override` marks a member as an [override of a superclass member](inheritance.md#overriding-methods).
+ * `operator` marks a function as [overloading an operator or implementing a convention](operator-overloading.md).
+
+
+##### 1. Standard delegates
+------------
+
+Kotlin 标准库提供了一系列 Standard delegates 用来委托局部变量，继承自 kotlin.util.Lazy 或者 kotlin.properties.ReadWriteProperty<Any?, T>，ReadOnlyProperty<Any?, T>：
+
+1.  [`lazy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/lazy.html) 
+	libraries/stdlib/src/kotlin/util/Lazy.kt
+	libraries/stdlib/common/src/kotlin/KotlinH.kt
+	延时初始化委托用来实现 lazy property，`lazy()` 函数的 initializer 参数接收一个 lambda （作为委托对象的 `getValue()` 方法使用）并返回 `Lazy<T>` 实例，只在首次访问受委托的*只读属性*时执行。因为 lazy 是函数，所以有两种使用形式：`by laze(...)` `= lazy(...)`。
+
+	```java
+	/**
+	 * Creates a new instance of the [Lazy] that uses the specified initialization function [initializer].
+	 *
+	 * The [mode] parameter is ignored. */
+	public expect fun <T> lazy(mode: LazyThreadSafetyMode, initializer: () -> T): Lazy<T>
+
+	public enum class LazyThreadSafetyMode { SYNCHRONIZED, PUBLICATION, NONE, }
+
+	/**
+	 * Represents a value with lazy initialization.
+	 *
+	 * To create an instance of [Lazy] use the [lazy] function.
+	 */
+	public interface Lazy<out T> {
+	    /**
+	     * Gets the lazily initialized value of the current Lazy instance.
+	     * Once the value was initialized it must not change during the rest of lifetime of this Lazy instance.
+	     */
+	    public val value: T
+
+	    /**
+	     * Returns `true` if a value for this Lazy instance has been already initialized, and `false` otherwise.
+	     * Once this function has returned `true` it stays `true` for the rest of lifetime of this Lazy instance.
+	     */
+	    public fun isInitialized(): Boolean
+	}
+	```
+
+	Lazy<T> 泛型的定义接口内容包括：
+
+	1.  Read-only Property `value`
+		Gets the lazily initialized value of the current Lazy instance. Once the value was initialized it must not change during the rest of lifetime of this Lazy instance.
+
+	2.  Function `isInitialized()`
+		Returns true if a value for this Lazy instance has been already initialized, and false otherwise. Once this function has returned true it stays true for the rest of lifetime of this Lazy instance.
+
+	3.  Extension Function `getValue`
+		An extension to delegate a read-only property of type T to an instance of Lazy.
+
+	Lazy properties 默认以 *synchronized* 方式单一线程中求值，确保线程安全。如果不需要同步方式初始化委托对象，可以向 `lazy()` 函数传入 `LazyThreadSafetyMode.PUBLICATION` 枚举值参数。如果确定单线程访问，可以传入 `LazyThreadSafetyMode.NONE` 枚举值参数禁用同步。
+
+	以下代码演示委托只读的局部变量 `memorizedFoo` 实现 lazy property，假定 Foo 类型存在并且包含 `isValid()` 成员方法。注意逻辑运算符 `&&`，当一条件求值为 false 即返回，绝不会执行后续的条件求值过程：
+
+	```java
+	fun example(computeFoo: () -> Foo) {
+	    val memorizedFoo by lazy(computeFoo)
+
+	    if (someCondition && memorizedFoo.isValid()) {
+	        memorizedFoo.doSomething()
+	    }
+	}
+
+	// Top-level lazy property
+	val lazyValue: String by lazy {
+	    println("computed!")
+	    "Hello"
+	}
+
+	fun main() {
+	    println(lazyValue)
+	    println(lazyValue)
+    	example(::Foo)
+	}
+	```
+
+	1. The `memorizedFoo` variable will be computed on first access only.
+	2. If `someCondition` fails, the variable won't be computed at all.
+
+2.  [`Delegates.observable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/observable.html)
+	libraries/stdlib/src/kotlin/properties/Interfaces.kt
+	libraries/stdlib/src/kotlin/properties/Delegates.kt
+	可观察委托，当受委托属性值变量时触发 afterChange 并调用参数传入的 lambda parameter。
+
+	```java
+	var observed = false
+	var max: Int by Delegates.observable(0) { property, oldValue, newValue ->
+	    observed = true
+	}
+
+	println(max) // 0
+	println("observed is ${observed}") // false
+
+	max = 10
+	println(max) // 10
+	println("observed is ${observed}") // true
+	```
+
+3.  [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html)
+	libraries/stdlib/src/kotlin/properties/Delegates.kt
+	可否决委托，根据 lambda parameter 返回的布尔值来决定是否要更新受委托的属性值。 
+
+	```java
+	var max: Int by Delegates.vetoable(0) { property, oldValue, newValue ->
+	    if (newValue > oldValue) true else throw IllegalArgumentException("New value must be larger than old value.")
+	}
+
+	println(max) // 0
+
+	max = 10
+	println(max) // 10
+
+	// max = 5 // will fail with IllegalArgumentException
+	```
+
+##### 2. Delegating to another property
+------------
+
+Kotlin 还可以将属性委托给其它属性，这种委托形式不需要自行定义委托对象，而是使用引用运算符 `::` 来限定作为委托对象的属性名称，以获取其类型引用或者成员引用，编译器会自动为委托属性生成相应的 getters/setters 访问器。例如 `this::delegate` 或者 `MyClass::delegate`。
+
+可以受托的属性包括以下形式：
+
+* A top-level property
+* A member or an extension property of the same class
+* A member or an extension property of another class
+
+```java
+var topLevelInt: Int = 0
+class ClassWithDelegate(val anotherClassInt: Int)
+
+class MyClass(var memberInt: Int, val anotherClassInstance: ClassWithDelegate) {
+    var delegatedToMember: Int by this::memberInt
+    var delegatedToTopLevel: Int by ::topLevelInt
+    
+    val delegatedToAnotherClass: Int by anotherClassInstance::anotherClassInt
+}
+var MyClass.extDelegated: Int by ::topLevelInt
+```
+
+这种委托形式可以用于解决 backward-compatible 兼容问题，`@Deprecated` 注解就是用于声明过时接口的一种委托。
+
+```java
+class MyClass {
+   var newName: Int = 0
+   @Deprecated("Use 'newName' instead", ReplaceWith("newName"))
+   var oldName: Int by this::newName
+}
+fun main() {
+   val myClass = MyClass()
+   // Notification: 'oldName: Int' is deprecated.
+   // Use 'newName' instead
+   myClass.oldName = 42
+   println(myClass.newName) // 42
+}
+```
+
+##### 3. Storing properties in a map
+------------
+
+由于不能在 `getValue()` 或者 `setValue()` 方法中分别对受委托的属性进行读取或者写入操作，因为这会导致循环调用。这就需要将委托属性的数据保存在其它变量中，使用 Map 容器保存数据，实现 Backing properties，这是一种通用方案。可以对 `field` 关键字赋值，进行间接处理避免递归调用问题，编译器会自动提供后备字段 (Backing fields)。
+
+使用 map 实现 Backing properties 经常用于解释 JSON 或者其它动态数据处理任务中。
+
+```java
+class User(val map: Map<String, Any?>) {
+    val name: String by map
+    val age: Int     by map
+}
+```
+
+示范代码中的 `User` 类型接收一个 map 对象实现 read-only 属性的委托：
+
+```java
+val user = User(mapOf(
+    "name" to "John Doe",
+    "age"  to 25
+))
+```
+
+使用 `var` 关键字，并且配合 `MutableMap`，`Map` 子类实现 read-write 属性的委托：
+
+```java
+class MutableUser(val map: MutableMap<String, Any?>) {
+    var name: String by map
+    var age: Int     by map
+}
+```
+
+Delegated properties 通过字符串 keys 读写 MutableMap 中的数据，并且与同名的属性关联：
+
+```java
+class User(val map: MutableMap<String, Any?>) {
+    val name: String by map
+    val age: Int     by map
+}
+
+fun main() {
+    val user = User(mutableMapOf(
+        "name" to "John Doe",
+        "age"  to 25,
+    ))
+    user.age ++
+    println(user.age)  // Prints 26
+}
+```
+
+
+##### 4. Translation rules for delegated properties
+------------
+
+按官方文档 Translation rules for delegated properties 所述，Kotlin 编译器会为一些委托属性生成辅助属性。所谓转换规则 Translation rules 即编译器为实现委托机制而生成的代码中包含的逻辑规则。
+
+比如，委托 `prop` 属性会生成隐式的 `prop$delegate` 辅助属性，属性访问器只是简单委托给这个额外的属性。假设定义了 `MyDelegate` 委托，那么编译器生成的代码演示如下：
+
+```java
+class C {
+    var prop: Type by MyDelegate()
+}
+
+// For the code above, the compiler generates the following code:
+class C {
+    private val prop$delegate = MyDelegate()
+    var prop: Type
+        get() = prop$delegate.getValue(this, this::prop)
+        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
+}
+```
+
+Kotlin 编译器会提供所需的与 `prop` 相关的信息给委托对象中定义的方法：
+
+1. the first argument `this` refers to an instance of the outer class `C`, 
+2. and `this::prop` is a reflection object of the `KProperty` type describing `prop` itself.
+
+属性委托可以优化，委托属于以下情形之一可以省略 `$delegate` 字段节省内存：
+
+* A referenced property（委托给使用 `::` 运算符获取的引用对象）
+* A named object（委托给命名的 `object` 类型）
+* A final `val` property with a backing field and a default getter in the same module
+* A constant expression, enum entry, `this`, `null`.
+
+将属性委托给其它属性就属于其中的一种情形，Translation rules 对应的生成代码中就不含 `$delegate` 字段，编译器生成访问器代码会直接读写受托属性。编译器生成代码演示如下：
+
+```java
+class C<Type> {
+    private var impl: Type = ...
+    var prop: Type by ::impl
+}
+
+// For the code above, the compiler generates the following code:
+class C<Type> {
+    private var impl: Type = ...
+
+    var prop: Type
+        get() = impl
+        set(value) {
+            impl = value
+        }
+    
+    fun getProp$delegate(): Type = impl // This method is needed only for reflection
+}
+```
+
+##### 5. Providing a delegate
+------------
+
+最后，可以在委托对象中定义一个 `provideDelegate` 运算符方法实现，用于定制委托对象实例化过程，只要 `by` 关键字右侧的委托对象实现了这样的成员方法、或扩展方法都可以。
+
+运算符 `provideDelegate` 方法的参数和 `getValue` 方法一致：
+
+* `thisRef` must be the same type as, or a supertype of, the _property owner_ (for extension properties, it should be the type being extended);
+* `property` must be of type `KProperty<*>` or its supertype.
+
+这个功能的一个应用场景是在属性初始化时检查属性的一致性。
+
+比如，以下定义 `ResourceLoader` 委托对象用于在绑定属性之前检测属性名是否合乎规范，假定存在 `ResourceID` 类型且包含相应的枚举值属性：
+
+```java
+class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
+    override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
+}
+    
+class ResourceLoader<T>(id: ResourceID<T>) {
+    operator fun provideDelegate(
+            thisRef: MyUI,
+            prop: KProperty<*>
+    ): ReadOnlyProperty<MyUI, T> {
+        checkProperty(thisRef, prop.name)
+        // create delegate
+        return ResourceDelegate()
+    }
+
+    private fun checkProperty(thisRef: MyUI, name: String) { ... }
+}
+
+class MyUI {
+    fun <T> bindResource(id: ResourceID<T>): ResourceLoader<T> { ... }
+
+    val image by bindResource(ResourceID.image_id)
+    val text by bindResource(ResourceID.text_id)
+}
+```
+
+`MyUI` 实例化时，已经委托的 image 或者 text 属性初始化都会相应触发 `provideDelegate` 方法，并调用 `checkProperty()` 方法进行检查，可以在这个方法中编写验证代码。
+
+如果没有这种机制，实现同样的检查功能就必需显式传递要绑定的属性名称，不太方便：
+
+```java
+// Checking the property name without "provideDelegate" functionality
+class MyUI {
+    val image by bindResource(ResourceID.image_id, "image")
+    val text by bindResource(ResourceID.text_id, "text")
+}
+
+fun <T> MyUI.bindResource(
+        id: ResourceID<T>,
+        propertyName: String
+): ReadOnlyProperty<MyUI, T> {
+    checkProperty(this, propertyName)
+    // create delegate
+}
+```
+
+Kotlin 编译器生成的代码演示如下，对比属性委托，差别在于辅助属性初始化使用了 `provideDelegate` 方法：
+
+```java
+class C {
+    var prop: Type by MyDelegate()
+}
+
+// this code is generated by the compiler 
+// when the 'provideDelegate' function is available:
+class C {
+    // calling "provideDelegate" to create the additional "delegate" property
+    private val prop$delegate = MyDelegate().provideDelegate(this, this::prop)
+    var prop: Type
+        get() = prop$delegate.getValue(this, this::prop)
+        set(value: Type) = prop$delegate.setValue(this, this::prop, value)
+}
+```
+
+注意：`provideDelegate` 方法只影响辅助属性对象的创建，并不影响生成的 getter 或 setter 代码。
+
+使用标准库接口 `PropertyDelegateProvider` 可以用 lambda 表达式替代委托对象类型定义：
+
+```java
+val provider = PropertyDelegateProvider { thisRef: Any?, property ->
+    ReadOnlyProperty<Any?, Int> {_, property -> 42 }
+}
+val delegate: Int by provider
+```
+
+
+#### 💦 Extension Functions (Class methods)
 
 ```java
 	// Java
@@ -2238,6 +3841,23 @@ Kotlin 代码文件中，在不符合语法规范位置定义类型、函数或�
 ```
 
 Kotlin 这种扩展能力可以很方便地扩展 Nullable receiver，默认定义了 `Any?.toString()` 方法，所以对 null 对象调用 toString() 并不会触发异常，这个扩展方法会返回 "null" 字符串。
+
+扩展方法本质上类似 Mixins 编程模式，语法上看起来好像是给指定类型增加了一个成员函数。但其实不是，扩展方法属于其定义时所在的作用域。就以上代码来说，`triple()` 方法属于 Kotlin 编译器自动生成的 Top-level 入口类型，而不是属于 `Int` 类型。但是使用扩展方法时，它又表现得像是 `Int` 类型的成员函数，这是因为 Kotlin 通过编译器将 `3.triple()` 这种调用转换为 `TopLevelKt.triple(3)`，这里假定代码文件是 TopLevel.kt。
+
+Kotlin 还支持 extension properties，给指定类扩展带有 getters/setters 访问器的属性：
+
+```ts
+val <T> List<T>.lastIndex: Int
+    get() = size - 1
+```
+
+同样，扩展发展并不是真正修改类型源代码添加新的属性，所以没有相应的 [backing field](properties.md#backing-fields)，不能使用初始化：
+
+```ts
+val House.number = 1 // error: initializers are not allowed for extension properties
+```
+
+在面向对象编程中，直接读写数据的类数据成员称为字段 Fields，经过访问器方法控制数据读写的称为属性 Properties，它们背后隐含了存储数据的字段，Kotlin 自动提供。
 
 
 ### ☘ Kotlin JUnit Testing
@@ -2641,13 +4261,6 @@ kotlinc some.kts
 java Some
 ```
 
-Kotlin 没有 Java 那样的静态类型声明，但可以通过以下方式声明静态对象：
-
-1. `companion object` - 伴随对象，声明单例的方式；
-2. @JvmField @JvmStatic - 使用注解标签声明静态的对象；
-3. object 静态单例，和 `companion object` 类似；
-4. const 常量，脱离类的束缚，会生成一个 kotlin.kt 专用文件；
-
 Kotlin CLI scripting 脚本编程目前还是实验性功能，参考文档 
 09.2.3. Get started with Kotlin/Native using the command-line compiler
 09.5.1. Get started with Kotlin custom scripting – tutorial
@@ -2696,20 +4309,55 @@ Kotlin 现在是 Android 官方推荐语言，Gradle 构建脚本、实现语言
 3. https://github.com/Kotlin/kotlinx.coroutines
 4. https://github.com/Kotlin/coroutines-examples
 5. https://github.com/JetBrains/kotlinconf-app
+6. Kotlin 协程实战进阶 https://juejin.cn/post/6987724340775108622
+6. 破解 Kotlin 协程 https://www.bennyhuo.com/book/kotlin-coroutines
+6. 深入理解 Kotlin 协程 https://www.bilibili.com/video/BV1be4y1X7cg
+6. 【码上开学】Kotlin 协程的挂起 https://www.bilibili.com/video/BV1KJ41137E9
 
-所谓协程 Coroutines 即协作线程，Cooperation + Routines，相对于操作系统的线程（基本的操作系统任务调度单元），协程是线程之内实现的轻量级“线程”。协程的任务切换不需要进行操作系统层面的线程切换，大大提高了单线程的并发效率。
+所谓协程 Coroutines 即协作线程，Cooperation + Routines，相对于操作系统的线程（基本的操作系统任务调度单元），协程是线程之内实现的轻量级“线程”，所以它不是操作系统层面的线程。协程的任务切换不需要进行操作系统层面的线程切换，大大提高了单线程的并发效率。
 
 在云原生时代背景下，编程语言之间百花斗艳着实热闹，GO 语言的成功，让我们重新审视并真正见识到了协程的威力。
+
+协程作为一个编程工具，它的目的是实现并发处理 (Concurrency)。而并发处理则是通用程序解决大量任务的一个普遍的需求，一般将问题分为 `I/O-Bound` 和 `CPU-Bound` 两类，I/O 密集形 vs. CPU 计算密集形，这两类问题根源是时间与空间。
+
+计算机体系结构设计上，I/O 操作比 CPU 计算速度要慢上几个数量级。这也就是说 CPU 进行 I/O 操作时需要大量的等待，如果线程使用同步方式处理 I/O，那么这些等等待时间将真实地体现在线程的阻塞状态。而异步方式则可以避免这些等待时间。
+
+异步 I/O 本质就是堆叠等待时间实现更高效的处理能力，就如你自己做早餐，又要煎蛋又要煮咖啡，那么按异步操作就是：先开火烧水，再开火煎蛋，水开了再冲咖啡，然后蛋也熟了。如果按同步、阻塞的方式，先要煎蛋，等它熟了再烧水冲咖啡，这个过程将所有等待时间串连了起来，相当低效率。
+
+CPU-Bound 问题处理瓶颈在于 CPU 运行速度，在现代硅基 CPU 技术发展上，受限于硅晶基原子结构，单核心工艺已经到达频率瓶颈，硬件厂商需要靠开发多核心 CPU 来弥补。如果在同一个 CPU 下处理某问题需要 X 时间，要加速处理这个问题，可以采取的方法有多种。比如将问题分解成更容易更处理的小问题，并安排到不同的 CPU 核心线程上去处理。或者使用分布式网络，将问题分发给多台机器上处理。
+
+理想条件下，单核心的运行频率当然是越高越好，处理速度就越快。在单核心运行频率受限的前提下，多核心架构则是一种不得已的选择。尽管多核心 CPU 可以在每个核心上并行地运行线程，但是在算力同等的条件下，单核心 CPU 结构也以同样的速度处理问题，并且结构上更简洁。多核心方案不仅是提高了 CPU 结构的复杂度，同时也给软件工业带来挑战。首当其冲的就是各种语言的编译器实现，它们需要面对的一个难题就是：如果提高多核心硬件资源的利用效率。
 
 Erlang Processes 就是基于 Actor Model 模型实现的轻量级进程，注意它不是操作系统层面上的进程。Actor Model 模型中的任务就是一个Actor，任务之间通过消息传递的方式来进行交互，而不采用共享的方式。Actor 可以看做是轻量级进程或线程，通常在一般的 PC 主机上就可以创建几十万个 Actor。
 
 协程概念早在 1963 年正式提出，它的诞生甚至早于 1967 年出现的线程概念。Unix 系统早期并没有“线程”概念，上世纪 80 年代才引入线程，借助进程机制实现线程。进程是操作系统分配资源的最小单元，线程是任务调度的最小单元。
 
-协程作为一种并发机制的一种形式，不是并行运行，因为通常它们是运行于单一线程之中。因此协程之间的数据共享是安全的，不存在多线程竞争的问题，不需要使用同步锁。
+协程作为一种并发机制的一种实现形式，不是并行运行，因为通常它们是运行于单一线程之中。因此协程之间的数据共享是安全的，不存在多线程竞争的问题，不需要使用同步锁。
 
 和线程的抢占式调度不同，协程的调度方式如其名，是基于协作的调度方式，协程执行的任务代码中需要加入特定代码来主动让出 CPU 时间，通常使用回调函数或者 yield 等关键字，让协程任务调度程序执行其它协程。协程任务调度就是切换当前线程要执行函数，主要工作是保存、恢复函数调用堆栈信息，以及根据访问标识控制协程的执行流程。
 
 回调或通知机制是处理各种长时间任务的传统方法，但是在语法上，会使用代码显得不那么简洁。在一些复杂的场景下，还可能形成深层的回调嵌套，称之为 "callback hell"。而协程、响应式、异步编程等 non-blocking 编程工具的出现，使得实现同样的功能代码更简洁。
+
+回到协程的核心，那么就是协程的调度机制：协作式任务调度器。为了让运行中的函数（协程）可以被临时
+暂停（挂起，Suspend），通常异步框架会设计可挂起函数，或者生成器（Generator）接口，
+提供 yield 供当前协程调用以主动释放所持有的 CPU 资源，让调度程序安排、运行其它协程任务。
+协程框架中引入 `Continuation` 类型来表示一个挂起点之后的延续操作。
+
+协程作为异步编程技术的一种，其本身就没有很严格的定义，Erlang 称之为轻量级进程、
+Rust 称之为绿色线程，Green Threas，Windows 系统上实现有纤程（Fiber）。
+
+另一种分类思想是根据协程实现是否拥有各自的 Stack 内存来分类：
+
+1. 有栈协程 Stackful Coroutine：协程各自有调用栈，与线程调用栈类似。
+2. 无栈协程 Stackless Coroutine：协程自有属性数据保存在 heap 内存区。
+
+无栈协程当前更流行，因为它不需要为每个协和分配这部分内存，也不需要额外的栈内存处理工作。
+有栈协程虽然增加了这部分内存的处理工作，同时也增加了内存消耗，但是它可以为每一个协程保存调用栈，
+暂停协程就跟线程一样，只不过挂起和恢复执行的权限在程序当前线程，而不是操作系统。
+
+Python 就使用无栈协程，它无法在任意函数层级中使用 yield 语句并且使用所有函数变成协程函数。
+
+Kotlin 协程也是一种无栈协程实现，它的本质就是一段代码 + Continuation 实例。
 
 Asynchronous programming techniques
 
@@ -2780,7 +4428,9 @@ JVM TI 是开发和监控工具使用的编程接口，它提供了一种方法�
 
 JVM TI 是一个双向接口，JVM TI 的客户端即是 Agent，通过 JVM 事件通知处理感兴趣的事件。JVM TI 接口用 C/C++ 语言暴露 Native API，以动态或者静态链接库的形式加载到 JVM 并运行。也可以使用 Java 语言编写工具包，Java Agent 使用 jar 包的形式加载。
 
-Kotlin Coroutines 是异步编程框架，引入了 suspend 挂起函数的概念，使得异步代码更加直观和容易理解。Kotlin Coroutines 关键优点：
+Kotlin Coroutines 是异步编程框架，Kotlin 1.4 引入 `suspend` 关键字用于定义可挂起函数，使得异步代码更加直观和容易理解。这个关键字的作用相当于 JavaScript 脚本中的 `async` 和 `await` 两个关键字，Kotlin 使用同一个关键字。
+
+Kotlin Coroutines 关键优点：
 
 1. 简洁可读：使用 suspend 关键字定义异步函数，代码的可读性更高。
 2. 内置取消和超时处理，方便中止异步任务的执行。
@@ -2789,26 +4439,73 @@ Kotlin Coroutines 是异步编程框架，引入了 suspend 挂起函数的概�
 
 ![](https://kotlinlang.org/docs/images/suspension-process.gif)
 
-向 Grandle 工程配置脚本添加 kotlinx-coroutines 依赖以启用协程：
+Kotlinx.Coroutines 按模块化组织，不同功能通过不同模块提供：
 
-```sh
-dependencies {
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
-}
+1.   *kotlinx-coroutines-core* 核心模块提供异步编程能力：
+1.1. Coroutine builder functions
+1.2. Synchronization primitives for coroutines
+1.3. Top-level suspending functions
+2.   *kotlinx-coroutines-debug* 提供基于 JVM 的调试工具；
+3.   *kotlinx-coroutines-test* 提供多平台支持的测试工具；
+4.   Coroutines for reactive streams 响应流式编程模块
+4.1. *kotlinx-coroutines-reactive* [Reactive Streams](https://www.reactive-streams.org/)
+4.2. *kotlinx-coroutines-reactor* [Reactor](https://projectreactor.io)
+4.3. *kotlinx-coroutines-rx2* [RxJava 2.x](https://github.com/ReactiveX/RxJava)
+4.4. *kotlinx-coroutines-rx3*  [RxJava 3.x](https://github.com/ReactiveX/RxJava)
+5.   集成模块
+5.1. *kotlinx-coroutines-guava* 集成 Google Guava 框架的 [ListenableFuture](https://github.com/google/guava/wiki/ListenableFutureExplained)；
+5.2. *kotlinx-coroutines-slf4j* 集成 SLF4J [MDC](https://logback.qos.ch/manual/mdc.html) 上下文；
+5.3. *kotlinx-coroutines-play-services* 集成 Google Play Services [Tasks API](https://developers.google.com/android/guides/tasks)；
+6.   UI 模块：
+6.1. *kotlinx-coroutines-android* 为 Android 应用提供 `Dispatchers.Main` 上下文；
+6.2. *kotlinx-coroutines-javafx* 为 JavaFX UI 应用提供 `Dispatchers.JavaFx` 上下方和 `Dispatchers.Main` 实现。
+6.3. *kotlinx-coroutines-swing* 为 Swing UI 应用提供 `Dispatchers.Swing` 上下方和 `Dispatchers.Main` 实现。
 
+
+Grandle 工程配置脚本添加 kotlinx-coroutines 依赖以启用协程，根据工程类型选择所使用的 kotlinx-coroutines 模块。Native 平台还需要根据当前支持的平台设置，Kotlin/Native target 按支持完善程度分成 3 个级别，Tire 1 最佳支持，经过常规 CI 编译运行。比如 androidnativex86 就是属于 Tire 3 支持级别的原生平台目标：
+
+1. https://kotlinlang.org/docs/native-target-support.html
+2. https://kotlinlang.org/api/kotlinx.coroutines/index.html
+3. https://central.sonatype.com/search?q=kotlinx-coroutines-core
+
+```ts
 plugins {
     // For build.gradle.kts (Kotlin DSL)
-    kotlin("jvm") version "1.8.20"
-    
+    kotlin("jvm") version "1.9.10"
+    kotlin("multiplatform") version "1.9.10"
+    id("com.android.application")
+    kotlin("android") version "1.9.10"
+
     // For build.gradle (Groovy DSL)
-    id "org.jetbrains.kotlin.jvm" version "1.8.20"
+    id "org.jetbrains.kotlin.jvm" version "1.9.10"
+    id 'org.jetbrains.kotlin.multiplatform' version '1.9.10'
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android' version '1.9.10'
 }
 
 repositories {
     mavenCentral()
 }
+
+dependencies {
+  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.7.3'
+  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3'
+  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-androidnativex86:1.7.3'
+  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+}
 ```
+
+注意：Kotlin Target 配置和依赖模块需要相匹配，例如 js 模块需要和 multiplatform 配合使用，因为 JavaScirpt 构建目标属性多平台而不是 JVM 平台。如果平台不兼容，就会导致相应的依赖模块加载出错。另外，一个 Gradle 项目配置多个平台插件，例如同时 jvm 和 multiplatform 平台插件，就会触发错误，前一个作为 `kotlin` 扩展，而后一个不能正常加载。
+
+```sh
+An exception occurred applying plugin request [id: 'org.jetbrains.kotlin.jvm', version: '1.9.10']
+> Failed to apply plugin 'org.jetbrains.kotlin.jvm'.
+   > Cannot add extension with name 'kotlin', as there is an extension already registered with that name.
+> Could not resolve all files for configuration ':compileClasspath'.
+   > Could not resolve org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.7.3.
+```
+
 
 ```ts ,kotlin
 import kotlinx.coroutines.*
@@ -2837,7 +4534,201 @@ suspend fun loadData(): Int {
     println("loaded!")
     return 42
 }
+/* Output:
+waiting...
+loading...
+loaded!
+42
+Loading 1
+Loading 2
+Loading 3
+6
+*/
 ```
+
+	error: unresolved reference: kotlinx
+
+运行协程程序时，需要 kotlinx.coroutines.BuildersKt 这些基础类型以构建异步任务，需要将 kotlinx-coroutines-core-jvm-1.5.0.jar 这样的依赖包添加到 CLASSPATH 环境变量中。
+
+
+### ☘ Kotlinx.Coroutine Core
+https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/
+
+Coroutine builder functions:
+
+|      Name     |     Result     |     Scope      |
+|---------------|----------------|----------------|
+| `launch`      | Job            | CoroutineScope |
+| `async`       | Deferred       | CoroutineScope |
+| `produce`     | ReceiveChannel | ProducerScope  |
+| `runBlocking` | `T`            | CoroutineScope |
+
+四个协程构建函数返回结果类型和作用域类型如上表，功能说明如下：
+
+1. `launch` 启动协同程序，返回 `Job`，不关心返回值；
+2. `async` 返回带有 future result 的单个值；
+3. `produce` 生成元素流对象，返回消息接收信道，配合 `send` 和 `receive` 方法使用；
+4. `runBlocking` 在协同程序运行时阻塞线程；Blocks the thread while the coroutine runs
+
+协程构建函数需要三个参数：
+
+1. *context* 协程上下文对象，就是协程相关数据对象的管家；
+2. *start* 协程启动方式，四种方式对应不同的协程启动策略:
+	* [DEFAULT] 默认立即运行协程，使用策略：[startCoroutineCancellable]
+	* [ATOMIC] 原子式启动，立即执行协程体并且不可取消，使用策略：[startCoroutine]
+	* [UNDISPATCHED] 立即在当前线程执行协程体直到 suspend，使用策略：[startCoroutineUndispatched]
+    * [LAZY] 懒惰式启动，只在需要的情况下运行。
+3. *block* 协程代码块，一般以 lambda 形式传递给协程构建函数；
+
+协程调度器 `CoroutineDispatcher` 实现了拦截器接口方法 interceptContinuation，
+它会调用 dispatch，进而实现协程的调度。
+
+协程调度器决定了协程在哪个线程或哪些线程上执行，Kotlin 支持多平台，
+协程运行于什么线程取决于平台类型，以下是默认调度器与对应平台的关系：
+
+|            |     JVM     |     JS    |   Native  |
+|------------|-------------|-----------|-----------|
+| Default    | Thread Pool | Main Loop | Main Loop |
+| Main       | UI Thread   | Main Loop | Main Loop |
+| Unconfined | Main Loop   | Main Loop | Main Loop |
+| IO         | Thread Pool | _         | _         |
+
+JavaScript 本身是单线程的事件循环，相当于 JVM 上的 UI 线程。其中 `Unconfined` 实现
+未指定运行线程，般在主线程上执行协程，参考官方文档 Dispatchers and threads。
+
+
+实现代码参考 kotlinx-coroutines-core\common\src\Builders.common.kt
+
+```java ,kotlin
+public fun CoroutineScope.launch(
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> Unit
+): Job {
+    val newContext = newCoroutineContext(context)
+    val coroutine = if (start.isLazy)
+        LazyStandaloneCoroutine(newContext, block) else
+        StandaloneCoroutine(newContext, active = true)
+    coroutine.start(start, coroutine, block)
+    return coroutine
+}
+
+public fun <T> CoroutineScope.async(
+    context: CoroutineContext = EmptyCoroutineContext,
+    start: CoroutineStart = CoroutineStart.DEFAULT,
+    block: suspend CoroutineScope.() -> T
+): Deferred<T> {
+    val newContext = newCoroutineContext(context)
+    val coroutine = if (start.isLazy)
+        LazyDeferredCoroutine(newContext, block) else
+        DeferredCoroutine<T>(newContext, active = true)
+    coroutine.start(start, coroutine, block)
+    return coroutine
+}
+```
+
+协程作用域 (Coroutine Scope) 是协程运行的作用范围定义。launch、async 等等协程构建函数
+都是 `CoroutineScope` 的扩展，同时会继承了协程作用域的协程止下文 coroutineContext，
+自动传播其所有的 elements 的取消操作。换句话说，销毁一个协程作用域，那么里面的协程也随之失效。
+
+```java ,kotlin
+interface CoroutineScope
+
+@DelicateCoroutinesApi
+object GlobalScope : CoroutineScope
+
+@ObsoleteCoroutinesApi
+interface ActorScope<E> : CoroutineScope, ReceiveChannel<E> 
+
+interface ProducerScope<in E> : CoroutineScope, SendChannel<E> 
+```
+
+协程止下文 (Coroutine Context) 接口代表协程持久上下文，它是一组索引的 `Element` 实例。
+索引集合由 set 和 map 之间混合，集合中的每个元素都有一个唯一的 `Key`。
+
+上下文可以有很多作用，包括携带参数，拦截协程执行等等，最重要的作用是线程切换。
+官方实现的 `Dispatchers.Main` 上下文，它可以确保 launch 启动的协程体运行在 UI 线程当中。
+除非你自己在 launch 的协程体内部切换线程，或者启动运行在其他有线程切换能力的上下文的协程。
+
+
+四种协程构建函数返回结果说明：
+
+1. `Job` 接口代表协程作业，封装了要执行的异步代码块，并使用状态指示执行状态；
+2. `Deferred` 接口继承于 Job 接口，提供 await() 扩展方法用于等待、获取异步操作返回值；
+3. `ReceiveChannel` 消息接收信道，对应 `SendChannel` 消息发送信道；
+4. 返回泛型 `T` 具体类型取决于协程函数体返回的类型；
+
+Kotlin 协程框架中的 `Job` 概念上对应 Java 并发编程中的 `Thread`，注意这是为了方便理解的对位关系说明，并不是说它们是等价物。Thread 背后是操作系统线程，线程的挂起即操作系统层面上暂停了线程的执行。而协程作业的挂起，对应的是线程中当前执行的异步函数的切换，线程本身没有挂起。
+
+从内存管理、组织角度来看，Thread 运行于操作系统分配的堆栈内存区，`Stack Memory` 和 `Heap Memory`，还包括大量的 CPU 状态数据，程序运行中的每一个函数调用都产生一个 `Stack Frame`。栈区、栈帧都是一个抽象概念，本质上 Stack 就是一段有限的连续内存，CPU 提供了 pop、push 指令来实现栈数据存取。而栈帧则是 Stack 上细分的一小段区域，它包含的是函数相关的上下文数据，包含传递给函数的参数列表。
+
+线程在切换时涉及操作系统层面上的任务调度，CPU 会加载新线程所分配的资源，包括 Stack 内存区。而协程的切换并不涉及这些操作系统层面的任务调度，不需要进行用户态、内核态的切换，而是通过管理栈帧信息实现异步函数的切换。这也就是为何协程方式实现的并发处理比线程方式高效，线程是重量级资源分配，内存占用也多，协程复用线程资源实现异步任务并发处理，非常轻量级。
+
+在不同作业操作下，Job 状态转换可以由以下流程图表示，从创建、启动、激活、计算，出错或主动取消，最后到结束：
+
+```sh
+                                      wait children
++-----+ start  +--------+ complete   +-------------+  finish  +-----------+
+| New | -----> | Active | ---------> | Completing  | -------> | Completed |
++-----+        +--------+            +-------------+          +-----------+
+                 |  cancel / fail       |
+                 |     +----------------+
+                 |     |
+                 V     V
+             +------------+                           finish  +-----------+
+             | Cancelling | --------------------------------> | Cancelled |
+             +------------+                                   +-----------+
+```
+
+
+
+Coroutine dispatchers implementing CoroutineDispatcher:
+
+|          Name          |                             Description                             |
+|------------------------|---------------------------------------------------------------------|
+| Dispatchers.Default    | Confines coroutine execution to a shared pool of background threads |
+| Dispatchers.Unconfined | Does not confine coroutine execution in any way                     |
+
+More context elements:
+
+|            Name           |                Description                 |
+|---------------------------|--------------------------------------------|
+| NonCancellable            | A non-cancelable job that is always active |
+| CoroutineExceptionHandler | Handler for uncaught exception             |
+
+Synchronization primitives for coroutines:
+
+|   Name  |  Suspendable  |                  Description                   |
+|---------|---------------|------------------------------------------------|
+| Mutex   | lock          | Mutual exclusion                               |
+| Channel | send, receive | Communication channel (aka queue or exchanger) |
+
+Top-level suspending functions:
+
+|        Name       |                         Description                         |
+|-------------------|-------------------------------------------------------------|
+| delay             | Non-blocking sleep                                          |
+| yield             | Yields thread in single-threaded dispatchers                |
+| withContext       | Switches to a different context                             |
+| withTimeout       | Set execution time-limit with exception on timeout          |
+| withTimeoutOrNull | Set execution time-limit will null result on timeout        |
+| awaitAll          | Awaits for all successful completed jobs or any exceptional |
+| joinAll           | Joins on all given jobs                                     |
+
+Select expression waits for the result of multiple suspending functions simultaneously:
+
+|    Receiver    |   Suspendable   |   Select clause   | Non-Suspendable |
+|----------------|-----------------|-------------------|-----------------|
+| Job            | join            | onJoin            | isCompleted     |
+| Deferred       | await           | onAwait           | isCompleted     |
+| SendChannel    | send            | onSend            | trySend         |
+| ReceiveChannel | receive         | onReceive         | tryReceive      |
+| ReceiveChannel | receiveCatching | onReceiveCatching | tryReceive      |
+| none           | delay           | onTimeout         | none            |
+
+使用 `suspendCancellableCoroutine` 助手函数支持用户定义的 suspending 函数取消任务执行，使用 `NonCancellable` 上下文则可以禁止取消功能，使用
+`withContext(NonCancellable) {...}` 代码块。
+
 
 
 ### ☘ Kotlin/JS React Web 开发
@@ -3429,6 +5320,12 @@ Groovy:       2.5.12
 Ant:          Apache Ant(TM) version 1.10.8 compiled on May 10 2020
 JVM:          17.0.8 (Oracle Corporation 17.0.8+9-LTS-211)
 
+# Command help
+$ gradle --help
+$ gradle help --task run
+$ gradle tasks
+$ gradle tasks --group="build setup"
+
 $ gradle help
 Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reused, use --status for details
 # To run a build, run gradle <task> ...
@@ -3436,8 +5333,7 @@ Starting a Gradle Daemon, 1 incompatible and 1 stopped Daemons could not be reus
 # To see more detail about a task, run gradle help --task <task>
 # To see a list of command-line options, run gradle --help
 
-# Common tasks
-$ gradle tasks
+# Common Project Tasks
 $ gradle init
 $ gradle test --tests package.AppTest
 $ gradle clean test --tests My*Test
@@ -3452,7 +5348,31 @@ $ ./gradlew compileTestJava
 $ ./gradlew publish
 $ ./gradlew jar
 $ ./gradlew run
+$ ./gradlew run -t --args "passed to the main class"
 $ ./gradlew clean
+```
+
+Grandle 提供 -t (continuous) 可以充当 watch 工具使用，它会监视代码文件的改动，并自动重复运行。
+
+配置使用 application 插件，定义应用程序入口类，然后就可以通过 `gradle run` 命令执行指定的应用程序。此外，也可以直接定义用户 Task，使用 Exec 或者 JavaExec 任务执行指定命令行程序、Java 程序，使用 `gradle :runApp1` 这样的命令执行相应 Task，命令中的冒号表示要项目。一般将任务定义放置在 dependencies 配置后面，否则可能出错。可以使用 `--args` 命令行选项或者 `args` 任务属性给程序传递参数。
+1. https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+2. https://docs.gradle.org/current/dsl/org.gradle.api.tasks.JavaExec.html
+3. https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html
+
+```sh
+task runApp1(type: Exec) {
+    dependsOn build
+    group ="Execution"
+    description ="Run the main class with ExecTask"
+    commandLine "java","-classpath", sourceSets.main.runtimeClasspath.getAsPath(), "your.AppClass"
+}
+
+task runApp2(type: JavaExec) {
+    group ="Execution"
+    description ="Run the main class with JavaExecTask"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "your.AppClass"
+}
 ```
 
 Gradle 多项目工程配置可以使用 --include-build 命令行参数，或者 `includeBuild` 以及 `include` 指令包含子项目，可以在 settings.gradle 设置。子项目使用冒号前缀，冒号表示根项目。使用 `gradle -q projects` 命令可以查询项目关系。也可以对指定子项目执行命令，例如 `gradle :app:build`。
@@ -3469,7 +5389,7 @@ includeBuild 'my-utils'
 
 首次启动 Gradle 会先常驻一个 Daemon 服务程序以加速后续的命令执行。
 
-Gradle JVM 插件参考如下，其中 application 插件定义应用程序，gradle run 命令用于执行这些定义好的应用程序：
+Gradle JVM 插件参考如下：
 
 1. Java Library Plugin  https://docs.gradle.org/current/userguide/java_library_plugin.html
 2. Java Application Plugin  https://docs.gradle.org/current/userguide/application_plugin.html
@@ -3664,6 +5584,14 @@ $ echo "# title" | npx marked
 代码中使用 turndown 工具将 HTML 转换为 Markdwon 文本，首先需要使用 NPM 安装此模块。至于 @types/node 是辅助性模块，它为 TypeScript 解析器提供类型声明信息，可以为 TypeScript LSP 智能提示提供参照信息。
 
 使用 curl 命 HTML 页面，再通过 | 管道操作符号将数据流导向 Node 程序，即通过 process.stdin.on 注册的 `data` 事件输入的数据。Node 可以通过 console 对象向用户控制台输出信息，也可以直接使用 process.stdout 标准文件输出。
+
+将命令保存到 html2md 脚本文件方便重复使用，调用时只需要给脚本传递 URL 参数：
+
+```sh
+#! /usr/bin/env bash
+curl -L $1 | node c:/kotlin/html2md/index.js
+# ./html2md https://developer.android.google.cn/jetpack/compose/setup
+```
 
 Python 脚本中的 I/O 处理也类似，注意：html2markdown 并不是专业工具，仅作演示之用。：
 

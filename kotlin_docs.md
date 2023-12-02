@@ -916,13 +916,13 @@ Ready to go?
 
 Here is a simple program that prints "Hello, world!":
 
-```java,kotlin
+```kotlin
 fun main() {
     println("Hello, world!")
     // Hello, world!
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="hello-world-kotlin"}
+
 
 In Kotlin:
 * `fun` is used to declare a function
@@ -944,7 +944,7 @@ To assign a value, use the assignment operator `=`.
 
 For example:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val popcorn = 5    // There are 5 boxes of popcorn
@@ -958,7 +958,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-variables"}
+
 
 > Variables can be declared outside the `main()` function at the beginning of your program. Variables declared in this way
 > are said to be declared at **top level**.
@@ -982,7 +982,7 @@ To evaluate a piece of code in a template expression, place the code within curl
 
 For example:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val customers = 10
@@ -994,7 +994,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-string-templates"}
+
 
 For more information, see [String templates](strings.md).
 
@@ -1008,24 +1008,22 @@ explains the different Kotlin basic types and how to declare them in the [next c
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val name = "Mary"
     val age = 20
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-hello-world-exercise"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val name = "Mary"
     val age = 20
     println("$name is $age years old")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
 
 ## Next step
 
@@ -1053,7 +1051,7 @@ Kotlin's ability to **infer** the data type is called **type inference**. `custo
 value. From this, Kotlin infers that `customers` has numerical data type: `Int`. As a result, the compiler knows that you
 can perform arithmetic operations with `customers`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var customers = 10
@@ -1071,7 +1069,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-arithmetic"}
+
 
 > `+=`, `-=`, `*=`, `/=`, and `%=` are augmented assignment operators. For more information, see [Augmented assignments](operator-overloading.md#augmented-assignments).
 > 
@@ -1097,7 +1095,7 @@ To declare a variable without initializing it, specify its type with `:`.
 
 For example:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Variable declared without initialization
@@ -1114,7 +1112,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-initialization"}
+
 
 Now that you know how to declare basic types, it's time to learn about [collections](kotlin-tour-collections.md).
 
@@ -1125,7 +1123,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 Explicitly declare the correct type for each variable:
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val a = 1000
     val b = "log message"
@@ -1135,10 +1133,9 @@ fun main() {
     val f = '\n'
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-basic-types-exercise"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val a: Int = 1000
     val b: String = "log message"
@@ -1148,7 +1145,6 @@ fun main() {
     val f: Char = '\n'
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
 
 ## Next step
 
@@ -1194,7 +1190,7 @@ use the [`mutableListOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 When creating lists, Kotlin can infer the type of items stored. To declare the type explicitly, add the type
 within angled brackets `<>` after the list declaration:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     // Read only list
@@ -1209,7 +1205,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lists-declaration"}
+
 
 > To prevent unwanted modifications, you can obtain read-only views of mutable lists by assigning them to a `List`:
 > ```kotlin
@@ -1222,7 +1218,7 @@ fun main() {
 
 Lists are ordered so to access an item in a list, use the [indexed access operator](operator-overloading.md#indexed-access-operator) `[]`:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val readOnlyShapes = listOf("triangle", "square", "circle")
@@ -1231,12 +1227,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-access"}
+
 
 To get the first or last item in a list, use [`.first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html)
 and [`.last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html) functions respectively:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val readOnlyShapes = listOf("triangle", "square", "circle")
@@ -1245,7 +1241,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-first"}
+
 
 > [`.first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html) and [`.last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html)
 > functions are examples of **extension** functions. To call an extension function on an object, write the function name 
@@ -1259,7 +1255,7 @@ fun main() {
 To get the number of items in a list, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val readOnlyShapes = listOf("triangle", "square", "circle")
@@ -1268,11 +1264,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-count"}
+
 
 To check that an item is in a list, use the [`in` operator](operator-overloading.md#in-operator):
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val readOnlyShapes = listOf("triangle", "square", "circle")
@@ -1281,12 +1277,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-in"}
+
 
 To add or remove items from a mutable list, use [`.add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html)
 and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
@@ -1302,7 +1298,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-list-add-remove"}
+
 
 ## 02.3.2. Set
 
@@ -1317,7 +1313,7 @@ use the [`mutableSetOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.c
 When creating sets, Kotlin can infer the type of items stored. To declare the type explicitly, add the type
 within angled brackets `<>` after the set declaration:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Read-only set
@@ -1330,7 +1326,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-sets-declaration"}
+
 
 You can see in the previous example that because sets only contain unique elements, the duplicate `"cherry"` item is dropped.
 
@@ -1349,7 +1345,7 @@ You can see in the previous example that because sets only contain unique elemen
 To get the number of items in a set, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
@@ -1358,11 +1354,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-set-count"}
+
 
 To check that an item is in a set, use the [`in` operator](operator-overloading.md#in-operator):
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val readOnlyFruit = setOf("apple", "banana", "cherry", "cherry")
@@ -1371,12 +1367,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-set-in"}
+
 
 To add or remove items from a mutable set, use [`.add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html)
 and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
@@ -1388,7 +1384,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-set-add-remove"}
+
 
 ## 02.3.3. Map
 
@@ -1414,7 +1410,7 @@ The keys have type `String` and the values have type `Int`.
 The easiest way to create maps is to use [`to`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html) between each 
 key and its related value:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Read-only map
@@ -1429,7 +1425,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-maps-declaration"}
+
 
 > To prevent unwanted modifications, obtain read-only views of mutable maps by casting them to `Map`:
 > ```kotlin
@@ -1442,7 +1438,7 @@ fun main() {
 To access a value in a map, use the [indexed access operator](operator-overloading.md#indexed-access-operator) `[]` with
 its key:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Read-only map
@@ -1452,12 +1448,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-access"}
+
 
 To get the number of items in a map, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Read-only map
@@ -1467,12 +1463,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-count"}
+
 
 To add or remove items from a mutable map, use [`.put()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/put.html)
 and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
@@ -1486,12 +1482,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-put-remove"}
+
 
 To check if a specific key is already included in a map, use the [`.containsKey()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/contains-key.html)
 function:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
@@ -1500,12 +1496,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-contains-keys"}
+
 
 To obtain a collection of the keys or values of a map, use the [`keys`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html)
 and [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html) properties respectively:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
@@ -1516,7 +1512,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-keys-values"}
+
 
 > [`keys`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/keys.html) and [`values`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/values.html)
 > are examples of **properties** of an object. To access the property of an object, write the property name
@@ -1529,7 +1525,7 @@ fun main() {
 
 To check that a key or value is in a map, use the [`in` operator](operator-overloading.md#in-operator):
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
@@ -1540,7 +1536,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-in"}
+
 
 For more information on what you can do with collections, see [Collections](collections-overview.md).
 
@@ -1555,17 +1551,16 @@ You have a list of “green” numbers and a list of “red” numbers. Complete
 are in total.
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
     val redNumbers = listOf(17, 2)
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-1"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val greenNumbers = listOf(1, 4, 23)
     val redNumbers = listOf(17, 2)
@@ -1573,7 +1568,6 @@ fun main() {
     println(totalCount)
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-collections-solution-1"}
 
 ### Exercise 2
 
@@ -1581,7 +1575,7 @@ You have a set of protocols supported by your server. A user requests to use a p
 to check whether the requested protocol is supported or not (`isSupported` must be a Boolean value).
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
     val requested = "smtp"
@@ -1589,7 +1583,6 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-2"}
 
 <deflist collapsible="true" id="kotlin-tour-collections-exercise-2-hint">
     <def title="Hint">
@@ -1599,7 +1592,7 @@ function to help you with this.
 </deflist>
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val SUPPORTED = setOf("HTTP", "HTTPS", "FTP")
     val requested = "smtp"
@@ -1607,7 +1600,6 @@ fun main() {
     println("Support for $requested: $isSupported")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-collections-solution-2"}
 
 ### Exercise 3
 
@@ -1615,24 +1607,22 @@ Define a map that relates integer numbers from 1 to 3 to their corresponding spe
 number.
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val number2word = // Write your code here
     val n = 2
     println("$n is spelt as '${<Write your code here >}'")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-3"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val number2word = mapOf(1 to "one", 2 to "two", 3 to "three")
     val n = 2
     println("$n is spelt as '${number2word[n]}'")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
 
 ## Next step
 
@@ -1669,7 +1659,7 @@ Kotlin provides `if` and `when` for checking conditional expressions.
 To use `if`, add the conditional expression within parentheses `()` and the action to take if the result is true within 
 curly braces `{}`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val d: Int
@@ -1686,12 +1676,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if"}
+
 
 There is no ternary operator `condition ? then : else` in Kotlin. Instead, `if` can be used as an expression. When using
 `if` as an expression, there are no curly braces `{}`:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val a = 1
@@ -1701,7 +1691,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if-expression"}
+
 
 ### 02.4.1.2. When
 
@@ -1713,7 +1703,7 @@ Here is an example of using `when` as a statement:
 within curly braces `{}`. 
 * Use `->` in each branch to separate each condition from each action.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val obj = "Hello"
@@ -1730,7 +1720,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-statement"}
+
 
 > Note that all branch conditions are checked sequentially until one of them is satisfied. So only the first suitable 
 > branch is executed.
@@ -1739,7 +1729,7 @@ fun main() {
 
 Here is an example of using `when` as an expression. The `when` syntax is assigned immediately to a variable:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart    
     val obj = "Hello"    
@@ -1757,7 +1747,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression"}
+
 
 If `when` is used as an expression, the else branch is mandatory, unless the compiler can detect that all possible cases 
 are covered by the branch conditions.
@@ -1765,7 +1755,7 @@ are covered by the branch conditions.
 The previous example showed that `when` is useful for matching a variable. `when` is also useful when you need to check
 a chain of Boolean expressions:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val temp = 18
@@ -1785,7 +1775,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-when-expression-boolean"}
+
 
 ## 02.4.2. Ranges
 
@@ -1817,7 +1807,7 @@ each time.
 Place the iterator and range within parentheses `()` with keyword `in`. Add the action you want to complete within curly
 braces `{}`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (number in 1..5) { 
@@ -1828,11 +1818,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-for-loop"}
+
 
 Collections can also be iterated over by loops:
 
-```java,kotlin
+```kotlin
 fun main() { 
 //sampleStart
     val cakes = listOf("carrot", "cheese", "chocolate")
@@ -1846,7 +1836,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-for-collection-loop"}
+
 
 ### 02.4.3.2. While
 
@@ -1863,7 +1853,7 @@ In the first use case (`while`):
 >
 {type="note"}
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var cakesEaten = 0
@@ -1877,13 +1867,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-while-loop"}
+
 
 In the second use case (`do-while`):
 * Declare the conditional expression for your while loop to continue within parentheses `()`.
 * Define the action you want to complete within curly braces `{}` with the keyword `do`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var cakesEaten = 0
@@ -1905,7 +1895,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-while-do-loop"}
+
 
 For more information and examples of conditional expressions and loops, see [Conditions and loops](control-flow.md).
 
@@ -1927,7 +1917,7 @@ are printed to output.
 | Other      | There is no such button |
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val button = "A"
 
@@ -1936,10 +1926,9 @@ fun main() {
     )
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-exercise-1"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val button = "A"
     
@@ -1954,7 +1943,6 @@ fun main() {
     )
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-solution-1"}
 
 ### Exercise 2
 
@@ -1963,7 +1951,7 @@ You have a program that counts pizza slices until there’s a whole pizza with 8
 * Use a `do-while` loop.
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     var pizzaSlices = 0
     // Start refactoring here
@@ -1986,10 +1974,9 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-exercise-2"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     var pizzaSlices = 0
     while ( pizzaSlices < 7 ) {
@@ -2000,10 +1987,9 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-exercise-2-solution-1"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     var pizzaSlices = 0
     pizzaSlices++
@@ -2015,7 +2001,6 @@ fun main() {
 }
 
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-exercise-2-solution-2"}
 
 ### Exercise 3
 
@@ -2031,15 +2016,14 @@ divisible by five with the word "buzz". Any number divisible by both 3 and 5 mus
 </deflist>
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-exercise-3"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     for (number in 1..100) {
         println(
@@ -2053,7 +2037,6 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-solution-3"}
 
 ### Exercise 4
 
@@ -2067,16 +2050,15 @@ You have a list of words. Use `for` and `if` to print only the words that start 
 </deflist>
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val words = listOf("dinosaur", "limousine", "magazine", "language")
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-control-flow-exercise-4"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val words = listOf("dinosaur", "limousine", "magazine", "language")
     for (w in words) {
@@ -2085,7 +2067,6 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-solution-4"}
 
 ## Next step
 
@@ -2107,7 +2088,7 @@ fun main() {
 
 You can declare your own functions in Kotlin using the `fun` keyword.
 
-```java,kotlin
+```kotlin
 fun hello() {
     return println("Hello, world!")
 }
@@ -2117,7 +2098,7 @@ fun main() {
     // Hello, world!
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-function-demo"}
+
 
 In Kotlin:
 * function parameters are written within parentheses `()`.
@@ -2137,7 +2118,7 @@ In the following example:
 * the function's return type is `Int`.
 * the function returns a sum of `x` and `y` when called.
 
-```java,kotlin
+```kotlin
 fun sum(x: Int, y: Int): Int {
     return x + y
 }
@@ -2147,7 +2128,7 @@ fun main() {
     // 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-simple-function"}
+
 
 > We recommend in our [coding conventions](coding-conventions.md#function-names) that you name functions starting with 
 > a lowercase letter and use camel case with no underscores.
@@ -2165,7 +2146,7 @@ you can write the parameters in any order.
 > 
 {type="tip"}
 
-```java,kotlin
+```kotlin
 fun printMessageWithPrefix(message: String, prefix: String = "Info") {
     println("[$prefix] $message")
 }
@@ -2176,14 +2157,14 @@ fun main() {
     // [Log] Hello
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-named-arguments-function"}
+
 
 ## 02.5.2. Default parameter values
 
 You can define default values for your function parameters. Any parameter with a default value can be omitted when
 calling your function. To declare a default value, use the assignment operator `=` after the type:
 
-```java,kotlin
+```kotlin
 fun printMessageWithPrefix(message: String, prefix: String = "Info") {
     println("[$prefix] $message")
 }
@@ -2201,7 +2182,7 @@ fun main() {
     // [Log] Hello
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-default-param-function"}
+
 
 > You can skip specific parameters with default values, rather than omitting them all. However, after the 
 > first skipped parameter, you must name all subsequent parameters.
@@ -2214,7 +2195,7 @@ If your function doesn't return a useful value then its return type is `Unit`. `
 `Unit`. You don't have to declare that `Unit` is returned explicitly in your function body. This means that you don't 
 have to use the `return` keyword or declare a return type:
 
-```java,kotlin
+```kotlin
 fun printMessage(message: String) {
     println(message)
     // `return Unit` or `return` is optional
@@ -2225,7 +2206,7 @@ fun main() {
     // Hello
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-unit-function"}
+
 
 ## 02.5.4. Single-expression functions
 
@@ -2236,7 +2217,7 @@ Simiiar concepts:
 
 To make your code more concise, you can use single-expression functions. For example, the `sum()` function can be shortened:
 
-```java,kotlin
+```kotlin
 fun sum(x: Int, y: Int): Int {
     return x + y
 }
@@ -2246,12 +2227,12 @@ fun main() {
     // 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-simple-function-before"}
+
 
 You can remove the curly braces `{}` and declare the function body using the assignment operator `=`. And due to Kotlin's
 type inference, you can also omit the return type. The `sum()` function then becomes one line:
 
-```java,kotlin
+```kotlin
 fun sum(x: Int, y: Int) = x + y
 
 fun main() {
@@ -2259,7 +2240,7 @@ fun main() {
     // 3
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-simple-function-after"}
+
 
 > Omitting the return type is only possible when your function has no body (`{}`). Unless your function's return type
 > is `Unit`.
@@ -2279,7 +2260,7 @@ area of that circle.
 {type = "note"}
 
 |---|---|
-```java,kotlin
+```kotlin
 import kotlin.math.PI
 
 fun circleArea() {
@@ -2289,10 +2270,9 @@ fun main() {
     println(circleArea(2))
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-1"}
 
 |---|---|
-```java,kotlin
+```kotlin
 import kotlin.math.PI
 
 fun circleArea(radius: Int): Double {
@@ -2303,14 +2283,13 @@ fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
 ### Exercise 2
 
 Rewrite the `circleArea` function from the previous exercise as a single-expression function.
 
 |---|---|
-```java,kotlin
+```kotlin
 import kotlin.math.PI
 
 // Write your code here
@@ -2319,10 +2298,9 @@ fun main() {
     println(circleArea(2))
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-2"}
 
 |---|---|
-```java,kotlin
+```kotlin
 import kotlin.math.PI
 
 fun circleArea(radius: Int): Double = PI * radius * radius
@@ -2331,7 +2309,6 @@ fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
 ### Exercise 3
 
@@ -2340,7 +2317,7 @@ you need to pass only one or two function parameters while the rest are equal to
 calls it by using default parameter values and named arguments so that the code is easier to read.
 
 |---|---|
-```java,kotlin
+```kotlin
 fun intervalInSeconds(hours: Int, minutes: Int, seconds: Int) =
     ((hours * 60) + minutes) * 60 + seconds
 
@@ -2352,10 +2329,9 @@ fun main() {
     println(intervalInSeconds(1, 0, 1))
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-functions-exercise-3"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun intervalInSeconds(hours: Int = 0, minutes: Int = 0, seconds: Int = 0) =
     ((hours * 60) + minutes) * 60 + seconds
 
@@ -2367,7 +2343,6 @@ fun main() {
     println(intervalInSeconds(hours = 1, seconds = 1))
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
 
 ## 02.5.6. Lambda expressions
 
@@ -2375,7 +2350,7 @@ Kotlin allows you to write even more concise code for functions by using lambda 
 
 For example, the following `uppercaseString()` function:
 
-```java,kotlin
+```kotlin
 fun uppercaseString(string: String): String {
     return string.uppercase()
 }
@@ -2384,17 +2359,17 @@ fun main() {
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-before"}
+
 
 Can also be written as a lambda expression:
 
-```java,kotlin
+```kotlin
 fun main() {
     println({ string: String -> string.uppercase() }("hello"))
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-after"}
+
 
 Lambda expressions can be hard to understand at first glance so let's break it down. Lambda expressions are written 
 within curly braces `{}`.
@@ -2426,21 +2401,21 @@ Lambda expressions can be used in a number of ways. You can:
 
 To assign a lambda expression to a variable, use the assignment operator `=`:
 
-```java,kotlin
+```kotlin
 fun main() {
     val upperCaseString = { string: String -> string.uppercase() }
     println(upperCaseString("hello"))
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-variable"}
+
 
 ### 02.5.6.2. Pass to another function
 
 A great example of when it is useful to pass a lambda expression to a function, is using the [`.filter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter.html)
 function on collections:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     val numbers = listOf(1, -2, 3, -4, 5, -6)
@@ -2453,7 +2428,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-filter"}
+
 
 The `.filter()` function accepts a lambda expression as a predicate:
 * `{ x -> x > 0 }` takes each element of the list and returns only those that are positive.
@@ -2468,7 +2443,7 @@ The `.filter()` function accepts a lambda expression as a predicate:
 Another good example, is using the [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) 
 function to transform items in a collection:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     val numbers = listOf(1, -2, 3, -4, 5, -6)
@@ -2481,7 +2456,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-map"}
+
 
 The `.map()` function accepts a lambda expression as a transform function:
 * `{ x -> x * 2 }` takes each element of the list and returns that element multiplied by 2.
@@ -2505,7 +2480,7 @@ For example: `(String) -> String` or `(Int, Int) -> Int`.
 
 This is what a lambda expression looks like if a function type for `upperCaseString()` is defined:
 
-```java,kotlin
+```kotlin
 val upperCaseString: (String) -> String = { string -> string.uppercase() }
 
 fun main() {
@@ -2513,7 +2488,7 @@ fun main() {
     // HELLO
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-function-type"}
+
 
 If your lambda expression has no parameters then the parentheses `()` are left empty. For example: `() -> Unit`
 
@@ -2536,7 +2511,7 @@ expression that takes a parameter of type `Int` and returns an `Int` value.
 
 This example uses a `when` expression to determine which lambda expression is returned when `toSeconds()` is called:
 
-```java,kotlin
+```kotlin
 fun toSeconds(time: String): (Int) -> Int = when (time) {
     "hour" -> { value -> value * 60 * 60 }
     "minute" -> { value -> value * 60 }
@@ -2552,14 +2527,14 @@ fun main() {
     // Total time is 1680 secs
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-return-from-function"}
+
 
 ### 02.5.6.5. Invoke separately
 
 Lambda expressions can be invoked on their own by adding parentheses `()` after the curly braces `{}` and including
 any parameters within the parentheses:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     println({ string: String -> string.uppercase() }("hello"))
@@ -2567,7 +2542,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-standalone"}
+
 
 ### 02.5.6.6. Trailing lambdas
 
@@ -2578,7 +2553,7 @@ function parentheses `()`. In both cases, this syntax is called a **trailing lam
 For example, the [`.fold()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/fold.html) function accepts an 
 initial value and an operation:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     // The initial value is zero. 
@@ -2590,7 +2565,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-trailing-lambda"}
+
 
 For more information on lambda expressions, see [Lambda expressions and anonymous functions](lambdas.md#lambda-expressions-and-anonymous-functions).
 
@@ -2605,7 +2580,7 @@ To request an action `title` over the resource with ID: 5, you need to create th
 Use a lambda expression to create a list of URLs from the list of actions.
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val actions = listOf("title", "year", "author")
     val prefix = "https://example.com/book-info"
@@ -2614,10 +2589,9 @@ fun main() {
         println(urls)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-1"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun main() {
     val actions = listOf("title", "year", "author")
     val prefix = "https://example.com/book-info"
@@ -2626,7 +2600,6 @@ fun main() {
     println(urls)
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
 ### Exercise 2
 
@@ -2634,7 +2607,7 @@ Write a function that takes an `Int` value and an action (a function with type `
 action the given number of times. Then use this function to print “Hello” 5 times.
 
 |---|---|
-```java,kotlin
+```kotlin
 fun repeatN(n: Int, action: () -> Unit) {
     // Write your code here
 }
@@ -2643,10 +2616,9 @@ fun main() {
     // Write your code here
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambdas-exercise-2"}
 
 |---|---|
-```java,kotlin
+```kotlin
 fun repeatN(n: Int, action: () -> Unit) {
     for (i in 1..n) {
         action()
@@ -2659,7 +2631,6 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
 ## Next step
 
@@ -2686,7 +2657,7 @@ time and effort because you don't have to declare these characteristics every ti
 
 To declare a class, use the `class` keyword: 
 
-```java,kotlin
+```kotlin
 class Customer
 ```
 
@@ -2694,11 +2665,11 @@ class Customer
 
 Characteristics of a class's object can be declared in properties. You can declare properties for a class:
 * Within parentheses `()` after the class name.
-```java,kotlin
+```kotlin
 class Contact(val id: Int, var email: String)
 ```
 * Within the class body defined by curly braces `{}`.
-```java,kotlin
+```kotlin
 class Contact(val id: Int, var email: String) {
     val category: String = ""
 }
@@ -2716,7 +2687,7 @@ instance has been created.
 {type="note"}
 
 Just like with function parameters, class properties can have default values:
-```java,kotlin
+```kotlin
 class Contact(val id: Int, var email: String = "example@gmail.com") {
     val category: String = "work"
 }
@@ -2729,14 +2700,14 @@ To create an object from a class, you declare a class **instance** using a **con
 By default, Kotlin automatically creates a constructor with the parameters declared in the class header.
 
 For example:
-```java,kotlin
+```kotlin
 class Contact(val id: Int, var email: String)
 
 fun main() {
     val contact = Contact(1, "mary@gmail.com")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-class-create-instance"}
+
 
 In the example:
 * `Contact` is a class.
@@ -2751,7 +2722,7 @@ multiple constructors, see [Constructors](classes.md#constructors).
 
 To access a property of an instance, write the name of the property after the instance name appended with a period `.`:
 
-```java,kotlin
+```kotlin
 class Contact(val id: Int, var email: String)
 
 fun main() {
@@ -2769,7 +2740,7 @@ fun main() {
     // jane@gmail.com
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-access-property"}
+
 
 > To concatenate the value of a property as part of a string, you can use string templates (`$`).
 > For example:
@@ -2787,7 +2758,7 @@ with member functions.
 In Kotlin, member functions must be declared within the class body. To call a member function on an instance, write the 
 function name after the instance name appended with a period `.`. For example:
 
-```java,kotlin
+```kotlin
 class Contact(val id: Int, var email: String) {
     fun printId() {
         println(id)
@@ -2801,7 +2772,7 @@ fun main() {
     // 1
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-member-function"}
+
 
 ## 02.6.5. Data classes
 
@@ -2811,7 +2782,7 @@ the instance to readable output, compare instances of a class, copy instances, a
 automatically available, you don't have to spend time writing the same boilerplate code for each of your classes.
 
 To declare a data class, use the keyword `data`:
-```java,kotlin
+```kotlin
 data class User(val name: String, val id: Int)
 ```
 
@@ -2833,7 +2804,7 @@ See the following sections for examples of how to use each function:
 To print a readable string of a class instance, you can explicitly call the `.toString()` function, or use print functions 
 (`println()` and `print()`) which automatically call `.toString()` for you:
 
-```java,kotlin
+```kotlin
 data class User(val name: String, val id: Int)
 
 fun main() {
@@ -2846,7 +2817,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-print-string"}
+
 
 This is particularly useful when debugging or creating logs.
 
@@ -2854,7 +2825,7 @@ This is particularly useful when debugging or creating logs.
 
 To compare data class instances, use the equality operator `==`:
 
-```java,kotlin
+```kotlin
 data class User(val name: String, val id: Int)
 
 fun main() {
@@ -2873,7 +2844,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-compare-instances"}
+
 
 ### 02.6.5.3. Copy instance
 
@@ -2884,7 +2855,7 @@ To create a copy of a data class instance **and** change some properties, call t
 
 For example:
 
-```java,kotlin
+```kotlin
 data class User(val name: String, val id: Int)
 
 fun main() {
@@ -2907,7 +2878,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-data-classes-copy-instance"}
+
 
 Creating a copy of an instance is safer than modifying the original instance because any code that relies on the
 original instance isn't affected by the copy and what you do with it.
@@ -2925,7 +2896,7 @@ for salary is mutable, otherwise you won’t get a salary boost at the end of th
 you can use this data class.
 
 |---|---|
-```java,kotlin
+```kotlin
 // Write your code here
 
 fun main() {
@@ -2935,10 +2906,9 @@ fun main() {
     println(emp)
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-1"}
 
 |---|---|
-```java,kotlin
+```kotlin
 data class Employee(val name: String, var salary: Int)
 
 fun main() {
@@ -2948,7 +2918,6 @@ fun main() {
     println(emp)
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-classes-solution-1"}
 
 ### Exercise 2
 
@@ -2970,7 +2939,7 @@ again, the main function demonstrates how you can use this class.
 </deflist>
 
 |---|---|
-```java,kotlin
+```kotlin
 import kotlin.random.Random
 
 data class Employee(val name: String, var salary: Int)
@@ -2987,10 +2956,9 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
 
 |---|---|
-```java,kotlin
+```kotlin
 import kotlin.random.Random
 
 data class Employee(val name: String, var salary: Int)
@@ -3012,7 +2980,6 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
 
 ## Next step
 
@@ -3077,7 +3044,7 @@ fun main() {
     println(strLength(nullable))  // Throws a compiler error
 }
 ```
-{kotlin-runnable="true" validate="false" kotlin-min-compiler-version="1.3" id="kotlin-tour-nullable-type"}
+
 
 > `length` is a property of the [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) class that 
 > contains the number of characters within a string.
@@ -3104,7 +3071,7 @@ fun main() {
     // Empty or null string
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-check-nulls"}
+
 
 ## 02.7.3. Use safe calls
 
@@ -3123,7 +3090,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-safe-call-property"}
+
 
 > Safe calls can be chained so that if any property of an object contains a `null` value, then `null` is returned without 
 > an error being thrown. For example:
@@ -3146,7 +3113,7 @@ fun main() {
     // null
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-safe-call-function"}
+
 
 ## 02.7.4. Use Elvis operator
 
@@ -3165,7 +3132,7 @@ fun main() {
     // 0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-elvis-operator"}
+
 
 For more information about null safety in Kotlin, see [Null safety](null-safety.md).
 
@@ -3195,7 +3162,6 @@ fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-null-safety-exercise"}
 
 |---|---|
 ```java ,kotlin
@@ -3215,7 +3181,6 @@ fun main() {
  println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
 
 ## What's next?
 
@@ -3831,7 +3796,7 @@ Kotlin is a pragmatic and unopinionated language, supporting both imperative and
 pushing the developer towards either one. You can implement the function `f` in functional style, using such Kotlin 
 features as [tail recursion](functions.md#tail-recursive-functions):
 
-```java,kotlin
+```kotlin
 tailrec fun removeZeroes(x: Int): Int =
     if (x % 10 == 0) removeZeroes(x / 10) else x
 
@@ -3842,7 +3807,7 @@ Alternatively, you can write an imperative implementation of the function `f` us
 [while loop](control-flow.md) and mutable variables that are denoted in Kotlin with 
 [var](basic-syntax.md#variables):
 
-```java,kotlin
+```kotlin
 fun f(x: Int): Int {
     var cur = x + 1
     while (cur % 10 == 0) cur /= 10
@@ -3866,7 +3831,7 @@ the straightforward imperative version of a solution to the problem can be writt
 <tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
-```java,kotlin
+```kotlin
 fun main() {
     var n = readln().toInt() // read integer from the input
     val reached = HashSet<Int>() // a mutable hash set 
@@ -3884,7 +3849,7 @@ function throws an exception if the input string is not an integer.
 </tab>
 <tab title="Earlier versions" group-key="kotlin-1-5">
 
-```java,kotlin
+```kotlin
 fun main() {
     var n = readLine()!!.toInt() // read integer from the input
     val reached = HashSet<Int>() // a mutable hash set 
@@ -3918,7 +3883,7 @@ the following helper functions for reading inputs in competitive programming:
 <tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
-```java,kotlin
+```kotlin
 private fun readStr() = readln() // string line
 private fun readInt() = readStr().toInt() // single int
 // similar for other types you'd use in your solutions
@@ -3927,7 +3892,7 @@ private fun readInt() = readStr().toInt() // single int
 </tab>
 <tab title="Earlier versions" group-key="kotlin-1-5">
 
-```java,kotlin
+```kotlin
 private fun readStr() = readLine()!! // string line
 private fun readInt() = readStr().toInt() // single int
 // similar for other types you'd use in your solutions
@@ -3952,7 +3917,7 @@ takes a simple greedy algorithm to implement and it can be written using this st
 <tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
-```java,kotlin
+```kotlin
 fun main() {
     // read input
     val n = readln().toInt()
@@ -3977,7 +3942,7 @@ fun main() {
 </tab>
 <tab title="Earlier versions" group-key="kotlin-1-5">
 
-```java,kotlin
+```kotlin
 fun main() {
     // read input
     val n = readLine()!!.toInt()
@@ -4015,7 +3980,7 @@ you can have the following list of helper input-reading functions:
 <tabs group="kotlin-versions">
 <tab title="Kotlin 1.6.0 and later" group-key="kotlin-1-6">
 
-```java,kotlin
+```kotlin
 private fun readStr() = readln() // string line
 private fun readInt() = readStr().toInt() // single int
 private fun readStrings() = readStr().split(" ") // list of strings
@@ -4025,7 +3990,7 @@ private fun readInts() = readStrings().map { it.toInt() } // list of ints
 </tab>
 <tab title="Earlier versions" group-key="kotlin-1-5">
 
-```java,kotlin
+```kotlin
 private fun readStr() = readLine()!! // string line
 private fun readInt() = readStr().toInt() // single int
 private fun readStrings() = readStr().split(" ") // list of strings
@@ -4038,7 +4003,7 @@ private fun readInts() = readStrings().map { it.toInt() } // list of ints
 With these helpers, the part of code for reading input becomes simpler, closely following the input 
 specification in the problem statement line by line:
 
-```java,kotlin
+```kotlin
 // read input
 val n = readInt()
 val s = readStr()
@@ -4063,7 +4028,7 @@ In Kotlin this line can be concisely parsed with the following statement using
 [destructuring declaration](destructuring-declarations.md) 
 from a list of integers:
 
-```java,kotlin
+```kotlin
 val (n, k) = readInts()
 ```
 
@@ -4083,7 +4048,7 @@ A faster way to write many lines from an array or a list is using
 [joinToString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function
 with `"\n"` as the separator, like this:
 
-```java,kotlin
+```kotlin
 println(a.joinToString("\n")) // each element of array/list of a separate line
 ```
 
@@ -4218,7 +4183,7 @@ If you encounter any of the problems mentioned above, you can take the following
 
 * Set the language version for `buildSrc`, any Gradle plugins, and their dependencies:
 
-```java,kotlin
+```kotlin
 kotlin {
     compilerOptions {
         languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_1_9)
@@ -4256,7 +4221,7 @@ a modern and performant replacement for the synthetic `values()` function. In 1.
 >
 {type="tip"}
 
-```java,kotlin
+```kotlin
 enum class Color(val colorName: String, val rgb: String) {
     RED("Red", "#FF0000"),
     ORANGE("Orange", "#FF7F00"),
@@ -4279,7 +4244,7 @@ because `data object` declarations can be used conveniently alongside `data clas
 `EndOfFile` as a `data object` instead of a plain `object` means that it automatically has a `toString()` function without 
 the need to override it manually. This maintains symmetry with the accompanying data class definitions.
 
-```java,kotlin
+```kotlin
 sealed interface ReadResult
 data class Number(val number: Int) : ReadResult
 data class Text(val text: String) : ReadResult
@@ -4299,7 +4264,7 @@ For more information, see [What's new in Kotlin 1.8.20](whatsnew1820.md#preview-
 Starting with Kotlin 1.9.0, the use of secondary constructors with bodies in [inline value classes](inline-classes.md) is
 available by default:
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class Person(private val fullName: String) {
     // Allowed since Kotlin 1.4.30:
@@ -4384,7 +4349,7 @@ For more information on the design of the new allocator, see this [README](https
 
 Add the `-Xallocator=custom` compiler option:
 
-```java,kotlin
+```kotlin
 kotlin {
     macosX64("native") {
         binaries.executable()
@@ -4440,7 +4405,7 @@ Don't hesitate to report such cases to [our issue tracker](https://kotl.in/issue
 
 Starting with Kotlin 1.9.0, the Kotlin/Native backend doesn't initialize objects when accessing `const val` fields:
 
-```java,kotlin
+```kotlin
 object MyObject {
     init {
         println("side effect!")
@@ -4469,7 +4434,7 @@ property. By default, the `--standalone` flag is used so standalone mode is enab
 
 Here is an example of how to disable standalone mode in your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest>().configureEach {
     standalone.set(false)
 }
@@ -4513,7 +4478,7 @@ You can further configure or even disable this behavior in your projects:
   `-Xpartial-linkage=disable` compiler option. Don't hesitate to report such cases to [our issue
   tracker](https://kotl.in/issue).
 
-```java,kotlin
+```kotlin
 // An example of passing compiler options via Gradle build file.
 kotlin {
     macosX64("native") {
@@ -4546,7 +4511,7 @@ improvement and our aim is to have an API of the highest quality.
 In this code sample an implicit integer conversion allows `options = 0` even though [`options`](https://developer.apple.com/documentation/foundation/nscalendar/options)
 has unsigned type `UInt` and `0` is signed.
 
-```java,kotlin
+```kotlin
 val today = NSDate()
 val tomorrow = NSCalendar.currentCalendar.dateByAddingUnit(
     unit = NSCalendarUnitDay,
@@ -4561,7 +4526,7 @@ To use implicit conversions with native interop libraries, use the `-XXLanguage:
 compiler option.
 
 You can configure this in your Gradle `build.gradle.kts` file:
-```java,kotlin
+```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile>().configureEach {
     compilerOptions.freeCompilerArgs.addAll(
         "-XXLanguage:+ImplicitSignedToUnsignedIntegerConversion"
@@ -4675,7 +4640,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 >
 {type="note"}
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 import kotlin.time.measureTime
 
@@ -4700,7 +4665,7 @@ fun computeAck(m: Int, n: Int) {
     println("duration: ${t.inWholeNanoseconds / 1e6} ms")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-1-9-0-kotlin-wasm-playground"}
+
 
 ## 04.1.8. Kotlin/JS
 
@@ -4742,7 +4707,7 @@ for migration instructions. If you find any issues that aren't covered in the gu
 In Kotlin 1.9.0, the use of external enums will be deprecated due to issues with static enum members like `entries`, that
 can't exist outside Kotlin. We recommend using an external sealed class with object subclasses instead:
 
-```java,kotlin
+```kotlin
 // Before
 external enum class ExternalEnum { A, B }
 
@@ -4768,7 +4733,7 @@ This release introduces [Experimental](components-stability.md#stability-levels-
 
 To enable these features, update your `build.gradle.kts` file accordingly:
 
-```java,kotlin
+```kotlin
 // build.gradle.kts
 kotlin { 
     js(IR) { 
@@ -4838,7 +4803,7 @@ The Kotlin Gradle plugin now provides new properties for opt-ins and the compile
 
 Starting with Kotlin 1.9.0, a new `compilerOptions` block is available inside the `kotlin` configuration block:
 
-```java,kotlin
+```kotlin
 kotlin {
     compilerOptions {
         jvmTarget.set(JVM.Target_11)
@@ -4852,7 +4817,7 @@ It makes configuring compiler options much easier. However, it is important to n
 * This configuration only works on the project level.
 * For the Android plugin, this block configures the same object as:
 
-```java,kotlin
+```kotlin
 android {
     kotlinOptions {}
 }
@@ -4876,7 +4841,7 @@ You can now set the module name directly in the `compilerOptions` block of your 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile>("compileKotlinLinuxX64") {
     compilerOptions {
         moduleName.set("my-module-name")
@@ -4962,7 +4927,7 @@ You had to set `kotlin.jvm.target.validation.mode=ERROR` in your `gradle.propert
 
 You can now also configure it on the task level in your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 tasks.named<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>("compileKotlin") {
     jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
 }
@@ -4989,7 +4954,7 @@ the mistake of assuming that the upper bound is included.
 
 Here is an example using the `until` function:
 
-```java,kotlin
+```kotlin
 fun main() {
     for (number in 2 until 10) {
         if (number % 2 == 0) {
@@ -5003,7 +4968,7 @@ fun main() {
 
 And here is an example using the new `..<` operator:
 
-```java,kotlin
+```kotlin
 fun main() {
     for (number in 2..<10) {
         if (number % 2 == 0) {
@@ -5053,7 +5018,7 @@ only counts time while the device is active. It loses track of time when the dev
 time while the device is in deep sleep, you can create a time source that uses [`SystemClock.elapsedRealtimeNanos()`](https://developer.android.com/reference/android/os/SystemClock#elapsedRealtimeNanos())
 instead:
 
-```java,kotlin
+```kotlin
 object RealtimeMonotonicTimeSource : AbstractLongTimeSource(DurationUnit.NANOSECONDS) {
     override fun read(): Long = SystemClock.elapsedRealtimeNanos()
 }
@@ -5067,7 +5032,7 @@ interface and the [`markNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kot
 to create a [`TimeMark`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/). To measure differences between
 `TimeMarks` from the same time source, use the subtraction operator (`-`):
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 
 fun main() {
@@ -5087,13 +5052,13 @@ fun main() {
     println(mark2 > mark1) // This is true, as mark2 was captured later than mark1.
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-time-elapsed"}
+
 
 To check if a deadline has passed or a timeout has been reached, use the [`hasPassedNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/has-passed-now.html)
 and [`hasNotPassedNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/has-not-passed-now.html) 
 extension functions:
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -5113,7 +5078,7 @@ fun main() {
     // true
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-whats-new-time-passednow"}
+
 
 ### 04.1.10.3. The Kotlin/Native standard library's journey towards stabilization
 
@@ -5199,7 +5164,7 @@ of regular expression matches belonging to a particular capture group.
 Here is an example with a regular expression containing three capture groups: `city`, `state`, and `areaCode`. You
 can use these group names to access the matched values:
 
-```java,kotlin
+```kotlin
 fun main() {
     val regex = """\b(?<city>[A-Za-z\s]+),\s(?<state>[A-Z]{2}):\s(?<areaCode>[0-9]{3})\b""".toRegex()
     val input = "Coordinates: Austin, TX: 123"
@@ -5247,7 +5212,7 @@ hexadecimal strings. Specifically, you can use the extension functions to conver
 
 For example:
 
-```java,kotlin
+```kotlin
 println(93.toHexString()) // "0000005d"
 ```
 {validate="false"}
@@ -5267,7 +5232,7 @@ If you are working with `ByteArrays` you have the following options, which are c
 
 For example:
 
-```java,kotlin
+```kotlin
 val macAddress = "001b638445e6".hexToByteArray()
 
 // Use HexFormat{} builder to separate the hexadecimal string by colons
@@ -5295,7 +5260,7 @@ If you are working with numeric types, you have the following options, which are
 
 For example:
 
-```java,kotlin
+```kotlin
 // Use HexFormat{} builder to parse a hexadecimal that has prefix: "0x".
 println("0x3a".hexToInt(HexFormat { number.prefix = "0x" })) // "58"
 ```
@@ -5325,7 +5290,7 @@ The new command-line compiler is available for download on the [GitHub release p
 
 To download Kotlin artifacts and dependencies, update your `settings.gradle(.kts)` file to use the Maven Central repository:
 
-```java,kotlin
+```kotlin
 pluginManagement {
     repositories {
         mavenCentral()
@@ -5401,7 +5366,7 @@ Compare how this project is set up between different versions of Kotlin:
    <tr>
 <td>
 
-```java,kotlin
+```kotlin
 kotlin {
     androidTarget()
     iosArm64()
@@ -5428,7 +5393,7 @@ kotlin {
 </td>
 <td>
 
-```java,kotlin
+```kotlin
 kotlin {
     androidTarget()
     iosArm64()
@@ -5462,7 +5427,7 @@ The IDE also warns you if you attempt to access a source set that doesn't exist 
 In the example below, there is no JVM target (only `androidTarget`, which is not the same). But let's try to use the `jvmMain` source set
 and see what happens:
 
-```java,kotlin
+```kotlin
 kotlin {
     androidTarget()
     iosArm64()
@@ -5504,7 +5469,7 @@ calls and source sets created with `by creating` constructions.
 adjust the hierarchy by reapplying the template explicitly with `applyDefaultHierarchyTemplate()` and configuring additional
 source sets manually as usual with `dependsOn()`:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm()
     js { browser() }
@@ -5682,7 +5647,7 @@ In the Gradle DSL, these targets are available as `wasmWasi` and `wasmJs`, respe
 
 To use these targets in your project, update the `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 kotlin {
    wasmWasi {
       // ...
@@ -5711,7 +5676,7 @@ Wasmtime, WasmEdge, and others are still working towards full Wasm GC support.
 
 To import a WASI function, use the `@WasmImport` annotation:
 
-```java,kotlin
+```kotlin
 import kotlin.wasm.WasmImport
 
 @WasmImport("wasi_snapshot_preview1", "clock_time_get")
@@ -5801,7 +5766,7 @@ To enable and test the Kotlin K2 compiler, use the new language version with the
 
 You can specify it in your `build.gradle(.kts)` file:
 
-```java,kotlin
+```kotlin
 kotlin {
    sourceSets.all {
        languageSettings {
@@ -5857,7 +5822,7 @@ function. When called, the `entries` property returns a pre-allocated immutable 
 >
 {type="tip"}
 
-```java,kotlin
+```kotlin
 enum class Color(val colorName: String, val rgb: String) {
    RED("Red", "#FF0000"),
    ORANGE("Orange", "#FF7F00"),
@@ -5878,7 +5843,7 @@ option. In a Gradle project, you can do so by adding the following to your build
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
     .configureEach {
@@ -5918,7 +5883,7 @@ Data objects allow you to declare objects with singleton semantics and a clean `
 snippet, you can see how adding the `data` keyword to an object declaration improves the readability of its `toString()`
 output:
 
-```java,kotlin
+```kotlin
 package org.example
 object MyObject
 data object MyDataObject
@@ -5934,7 +5899,7 @@ excellent fit because they can be used conveniently alongside `data class` decla
 declaring `EndOfFile` as a `data object` instead of a plain `object` means that it will get a pretty `toString` without
 the need to override it manually. This maintains symmetry with the accompanying data class definitions.
 
-```java,kotlin
+```kotlin
 sealed interface ReadResult
 data class Number(val number: Int) : ReadResult
 data class Text(val text: String) : ReadResult
@@ -5956,7 +5921,7 @@ functions for them:
 
 The `toString()` function of a data object returns the simple name of the object:
 
-```java,kotlin
+```kotlin
 data object MyDataObject {
     val x: Int = 3
 }
@@ -5978,7 +5943,7 @@ Make sure to only compare `data objects` structurally (using the `==` operator) 
 operator). This helps avoid pitfalls when more than one instance of a data object exists at runtime. The following
 snippet illustrates this specific edge case:
 
-```java,kotlin
+```kotlin
 import java.lang.reflect.Constructor
 
 data object MySingleton
@@ -6029,7 +5994,7 @@ adding the following to your build.gradle(.kts):
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
     .configureEach {
@@ -6073,7 +6038,7 @@ class that would represent some constrained values.
 These issues were fixed when Kotlin 1.4.30 lifted restrictions on `init` blocks. Now we're taking it a step further and
 allowing secondary constructors with bodies in preview mode:
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class Person(private val fullName: String) {
 // Allowed since Kotlin 1.4.30:
@@ -6099,7 +6064,7 @@ adding the following to your `build.gradle(.kts)`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
     .configureEach {
@@ -6161,7 +6126,7 @@ IDE support will be added in future releases.
 
 To enable and test Kotlin/Wasm, update your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.8.20-RC2"
 }
@@ -6269,7 +6234,7 @@ public class Person {
 Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property.
 Now, you can also create references to `Person::age` and `person::age`. All the same works for `name`, as well.
 
-```java,kotlin
+```kotlin
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
     Persons
         // Call a reference to Java synthetic property:
@@ -6288,7 +6253,7 @@ In a Gradle project, you can do so by adding the following to your `build.gradle
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
     .configureEach {
@@ -6390,7 +6355,7 @@ Starting with Kotlin 1.8.20, you can use Objective-C headers with `@import`. To 
 the compiler in the definition file as `compilerOpts`. If you use [CocoaPods integration](native-cocoapods.md), specify
 the cinterop option in the configuration block of the `pod()` function like this:
 
-```java,kotlin
+```kotlin
 kotlin {
     ios()
 
@@ -6421,7 +6386,7 @@ but you don't need cinterop bindings because they are already generated for the 
 
 To enable the feature, use the `linkOnly` option or a builder property when adding a dependency on a Pod:
 
-```java,kotlin
+```kotlin
 cocoapods {
     summary = "CocoaPods test library"
     homepage = "https://github.com/JetBrains/kotlin"
@@ -6502,7 +6467,7 @@ compiles, and the Kotlin Gradle plugin automatically creates shared source sets 
 
 Consider this example of a simple multiplatform mobile app:
 
-```java,kotlin
+```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     // Enable the default target hierarchy:
@@ -6665,7 +6630,7 @@ the `-source-map-names-policy` compiler option. The table below lists the possib
 
 See below for an example configuration in a `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile>().configureEach {
     compilercompileOptions.sourceMapNamesPolicy.set(org.jetbrains.kotlin.gradle.dsl.JsSourceMapNamesPolicy.SOURCE_MAP_NAMES_POLICY_FQ_NAMES) // or SOURCE_MAP_NAMES_POLICY_NO, or SOURCE_MAP_NAMES_POLICY_SIMPLE_NAMES
 }
@@ -6690,7 +6655,7 @@ As this isn't useful for every project, we've changed the behavior in Kotlin 1.8
 definitions, you have to explicitly configure this in your Gradle build file. Add `generateTypeScriptDefinitions()` to
 your `build.gradle.kts.file` in the [`js` section](js-project-setup.md#execution-environments). For example:
 
-```java,kotlin
+```kotlin
 kotlin {
    js {
        binaries.executable()
@@ -6883,7 +6848,7 @@ There is no public class in the common standard library that implements the `Aut
 below, we define the `XMLWriter` interface and assume that there is a resource that implements it. For example, this
 resource could be a class that opens a file, writes XML content, and then closes it.
 
-```java,kotlin
+```kotlin
 interface XMLWriter : AutoCloseable {
     fun document(encoding: String, version: String, content: XMLWriter.() -> Unit)
     fun element(name: String, content: XMLWriter.() -> Unit)
@@ -6940,7 +6905,7 @@ decoding, any illegal characters are skipped and don't throw an exception.
 >
 {type="tip"}
 
-```java,kotlin
+```kotlin
 val foBytes = "fo".map { it.code.toByte() }.toByteArray()
 Base64.Default.encode(foBytes) // "Zm8="
 // Alternatively:
@@ -6989,7 +6954,7 @@ option. In a Gradle project, you can do so by adding the following to your build
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
     .configureEach {
@@ -7045,7 +7010,7 @@ declare a custom serializer with the `@Serializer` annotation on its companion o
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.*
 
 
@@ -7066,7 +7031,7 @@ detected. The warning includes a possible migration path to resolve this issue.
 
 If you use such constructs in your code, we recommend updating them to the below:
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.*
 
 
@@ -7114,7 +7079,7 @@ the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.8.
 To download Kotlin artifacts and dependencies properly, update your `settings.gradle(.kts)` file
 to use the Maven Central repository:
 
-```java,kotlin
+```kotlin
 pluginManagement {
     repositories {
         mavenCentral()
@@ -7273,7 +7238,7 @@ The Kotlin team is very grateful to [Rick Clephas](https://github.com/rickclepha
 Starting with Kotlin 1.8.0, Kotlin frameworks registered by the CocoaPods Gradle plugin are linked dynamically by default.
 The previous static implementation was inconsistent with the behavior of the Kotlin Gradle plugin.
 
-```java,kotlin
+```kotlin
 kotlin {
     cocoapods {
         framework {
@@ -7364,7 +7329,7 @@ Previously, there was a default `dependsOn` relation between `androidAndroidTest
 In the new Android source set layout, the `dependsOn` relation is not added by default. If you prefer the previous behavior,
 manually declare this relation in your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 kotlin {
 // ...
     sourceSets {
@@ -7387,7 +7352,7 @@ leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourc
 
 To work around that, use the new `invokeWhenCreated()` API in your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 kotlin {
 // ...
     sourceSets.invokeWhenCreated("androidFreeDebug") {
@@ -7454,7 +7419,7 @@ These three new Gradle properties are:
 
 To use these options, update your build script file `build.gradle.kts` as follows:
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 
@@ -7491,7 +7456,7 @@ so don't forget to update your Gradle build script files as described below.
 
 Before Kotlin 1.8.0, the `cssSupport.enabled` property was used to add CSS support:
 
-```java,kotlin
+```kotlin
 browser {
     commonWebpackConfig {
         cssSupport.enabled = true
@@ -7501,7 +7466,7 @@ browser {
 
 Now you should use the `enabled.set()` method in the `cssSupport {}` block:
 
-```java,kotlin
+```kotlin
 browser {
     commonWebpackConfig {
         cssSupport {
@@ -7641,7 +7606,7 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 If you run into issues with version alignment, align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import)
 by declaring a platform dependency on `kotlin-bom` in your build script:
 
-```java,kotlin
+```kotlin
 implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 ```
 
@@ -7679,7 +7644,7 @@ values. As a workaround, add this [constraint](https://docs.gradle.org/current/u
 to align the versions. This workaround may be needed until we implement the [Kotlin Gradle Plugin libraries alignment platform](https://youtrack.jetbrains.com/issue/KT-54691/Kotlin-Gradle-Plugin-libraries-alignment-platform),
 which is in the plans:
 
-```java,kotlin
+```kotlin
 dependencies {
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-sam-with-receiver:1.8.0")
@@ -7735,7 +7700,7 @@ To avoid that, the Kotlin Gradle plugin can help you [align stdlib versions](#us
 
 The `cbrt()` function, which allows you to compute the real cube root of a `double` or `float`, is now Stable.
 
-```java,kotlin
+```kotlin
 import kotlin.math.*
 
 fun main() {
@@ -7748,7 +7713,7 @@ fun main() {
             cbrt(negNum.toDouble()))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.8"}
+
 
 ### TimeUnit conversion between Java and Kotlin
 
@@ -7756,7 +7721,7 @@ The `toTimeUnit()` and `toDurationUnit()` functions in `kotlin.time` are now Sta
 1.6.0, these functions improve interoperability between Kotlin and Java. You can now easily convert between Java
 `java.util.concurrent.TimeUnit` and Kotlin `kotlin.time.DurationUnit`. These functions are supported on the JVM only.
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 
 // For use from Java
@@ -7781,7 +7746,7 @@ To solve this, in Kotlin 1.8.0 you can subtract and compare `TimeMarks` from the
 a new `TimeMark` instance to represent **now** and subtract other `TimeMarks` from it. This way, the results that
 you collect from these calculations are guaranteed to be relative to each other.
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 fun main() {
 //sampleStart
@@ -7820,7 +7785,7 @@ fun main() {
 }
 
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.8"}
+
 
 This new functionality is particularly useful in animation calculations where you want to calculate the difference between,
 or compare, multiple `TimeMarks` representing different frames.
@@ -7846,7 +7811,7 @@ These functions can be very useful as part of a backup process.
 Using `copyToRecursively()`, you can define what should happen if an exception occurs while copying, by overloading
 the `onError` lambda function:
 
-```java,kotlin
+```kotlin
 sourceRoot.copyToRecursively(destinationRoot, followLinks = false,
     onError = { source, target, exception ->
         logger.logError(exception, "Failed to copy $source to $target")
@@ -7864,7 +7829,7 @@ that occurred as suppressed exceptions.
 If `copyToRecursively()` finds that a file already exists in the destination directory, then an exception occurs.
 If you want to overwrite the file instead, use the overload that has `overwrite` as an argument and set it to `true`:
 
-```java,kotlin
+```kotlin
 fun setUpEnvironment(projectDirectory: Path, fixtureName: String) {
     fixturesRoot.resolve(COMMON_FIXTURE_NAME)
         .copyToRecursively(projectDirectory, followLinks = false)
@@ -7880,7 +7845,7 @@ fun setUpEnvironment(projectDirectory: Path, fixtureName: String) {
 To define your own custom logic for copying, use the overload that has `copyAction` as an additional argument.
 By using `copyAction` you can provide a lambda function, for example, with your preferred actions:
 
-```java,kotlin
+```kotlin
 sourceRoot.copyToRecursively(destinationRoot, followLinks = false) { source, target ->
     if (source.name.startsWith(".")) {
         CopyActionResult.SKIP_SUBTREE
@@ -8006,7 +7971,7 @@ You can specify it in your `build.gradle(.kts)` file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.withType<KotlinCompile> {
     kotlinOptions.useK2 = true
 }
@@ -8056,7 +8021,7 @@ upper bound is not included.
 
 Here is an example of using the `..<` operator in a `when` expression:
 
-```java,kotlin
+```kotlin
 when (value) {
     in 0.0..<0.25 -> // First quarter
     in 0.25..<0.5 -> // Second quarter
@@ -8075,7 +8040,7 @@ library:
 
 The new interface to represent open-ended ranges is very similar to the existing `ClosedRange<T>` interface:
 
-```java,kotlin
+```kotlin
 interface OpenEndRange<T : Comparable<T>> {
     // Lower bound
     val start: T
@@ -8094,7 +8059,7 @@ produce a closed iterable range with the same values. To make these ranges accep
 we want to implement that interface in the existing iterable ranges: `IntRange`, `LongRange`, `CharRange`, `UIntRange`,
 and `ULongRange`. So they will simultaneously implement both the `ClosedRange<T>` and `OpenEndRange<T>` interfaces.
 
-```java,kotlin
+```kotlin
 class IntRange : IntProgression(...), ClosedRange<Int>, OpenEndRange<Int> {
     override val start: Int
     override val endInclusive: Int
@@ -8131,7 +8096,7 @@ behaves conceptually identical to a regular `object` declaration but comes with 
 
 <video href="ovAqcwFhEGc" title="Data objects in Kotlin 1.7.20"/>
 
-```java,kotlin
+```kotlin
 package org.example
 object MyObject
 data object MyDataObject
@@ -8147,7 +8112,7 @@ declarations. In this snippet, declaring `EndOfFile` as a `data object` instead 
 get a pretty `toString` without the need to override it manually, maintaining symmetry with the accompanying `data class`
 definitions:
 
-```java,kotlin
+```kotlin
 sealed class ReadResult {
     data class Number(val value: Int) : ReadResult()
     data class Text(val value: String) : ReadResult()
@@ -8169,7 +8134,7 @@ you can do so by adding the following to your `build.gradle(.kts)`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     // ...
     kotlinOptions.languageVersion = "1.9"
@@ -8312,7 +8277,7 @@ generally, to the upper bound of the type parameter.
 
 Consider the following example:
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class UserId<T>(val value: T)
 
@@ -8515,7 +8480,7 @@ The Kotlin Gradle plugin now adds Kotlin `SourceDirectorySet` as a `kotlin` exte
 This makes it possible to configure source directories in the `build.gradle.kts` file similarly to how they are configured
 in [Java, Groovy, and Scala](https://docs.gradle.org/7.1/release-notes.html#easier-source-set-configuration-in-kotlin-dsl):
 
-```java,kotlin
+```kotlin
 sourceSets {
     main {
         kotlin {
@@ -8530,7 +8495,7 @@ You no longer need to use a deprecated Gradle convention and specify the source 
 
 Remember that you can also use the `kotlin` extension to access `KotlinSourceSet`:
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         main {
@@ -8546,7 +8511,7 @@ This release provides a new `jvmToolchain()` method for enabling the [JVM toolch
 If you don't need any additional [configuration fields](https://docs.gradle.org/current/javadoc/org/gradle/jvm/toolchain/JavaToolchainSpec.html),
 such as `implementation` or `vendor`, you can use this method from the Kotlin extension:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvmToolchain(17)
 }
@@ -8555,7 +8520,7 @@ kotlin {
 This simplifies the Kotlin project setup process without any additional configuration.
 Before this release, you could specify the JDK version only in the following way:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
@@ -8815,7 +8780,7 @@ If you want to create a lightweight wrapper for a value or class instance, it's 
 methods by hand. Implementation by delegation solves this issue, but it did not work with inline classes before 1.7.0.
 This restriction has been removed, so you can now create lightweight wrappers that do not allocate memory in most cases.
 
-```java,kotlin
+```kotlin
 interface Bar {
     fun foo() = "foo"
 }
@@ -8834,7 +8799,7 @@ fun main() {
 Kotlin 1.7.0 introduces an underscore operator, `_`, for type arguments. You can use it to automatically infer a type
 argument when other types are specified:
 
-```java,kotlin
+```kotlin
 abstract class SomeClass<T> {
     abstract fun execute(): T
 }
@@ -8898,7 +8863,7 @@ syntactic form comes from the notation for [intersection types](https://en.wikip
 now limited to a type parameter with nullable upper bounds on the left side of `&` and a non-nullable `Any` on the right
 side:
 
-```java,kotlin
+```kotlin
 fun <T> elvisLike(x: T, y: T & Any): T & Any = x ?: y
 
 fun main() {
@@ -9030,7 +8995,7 @@ by default.
 If you want to roll back to the previous behavior when Kotlin/Native generated shared libraries, use the following
 setting:
 
-```java,kotlin
+```kotlin
 binaryOptions["androidProgramType"] = "nativeActivity"
 ```
 
@@ -9123,7 +9088,7 @@ resulting bundled applications.
 This type of minification is automatically applied when you build your Kotlin/JS application in production mode and is
 enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler flag:
 
-```java,kotlin
+```kotlin
 kotlin {
     js(IR) {
         compilations.all {
@@ -9151,7 +9116,7 @@ modules dynamically at runtime in your applications.
 Starting with Kotlin 1.7.0, the `import` statement from JavaScript is supported in `js` blocks, allowing you to
 dynamically bring packages into your application at runtime:
 
-```java,kotlin
+```kotlin
 val myPackage = js("import('my-package')")
 ```
 
@@ -9161,7 +9126,7 @@ To tune Node.js package resolution or pass external information to Node.js tests
 variables used by the JavaScript test runners. To define an environment variable, use the `environment()` function with
 a key-value pair inside the `testTask` block in your build script:
 
-```java,kotlin
+```kotlin
 kotlin {
     js {
         nodejs {
@@ -9200,7 +9165,7 @@ Kotlin 1.7.0 reintroduces the original function names, but with a non-nullable r
 , `minBy()`, `maxBy()`, `minWith()`, and `maxWith()` functions now strictly return the collection element or throw an
 exception.
 
-```java,kotlin
+```kotlin
 fun main() {
     val numbers = listOf<Int>()
     println(numbers.maxOrNull()) // "null"
@@ -9217,7 +9182,7 @@ or `CharSequence`.
 
 `matchesAt()` checks for a match and returns a boolean result:
 
-```java,kotlin
+```kotlin
 fun main() {
     val releaseText = "Kotlin 1.7.0 is on its way!"
     // regular expression: one digit, dot, one digit, dot, one or more digits
@@ -9230,7 +9195,7 @@ fun main() {
 
 `matchAt()` returns the match if it's found, or `null` if it isn't:
 
-```java,kotlin
+```kotlin
 fun main() {
     val releaseText = "Kotlin 1.7.0 is on its way!"
     val versionRegex = "\\d[.]\\d[.]\\d+".toRegex()
@@ -9259,7 +9224,7 @@ extension function, which was first [introduced in 1.6.0](whatsnew16.md#repeatab
 is now [Stable](components-stability.md). This [reflection](reflection.md)
 function returns all annotations of a given type on an element, including individually applied and repeated annotations.
 
-```java,kotlin
+```kotlin
 @Repeatable
 annotation class Tag(val name: String)
 
@@ -9287,7 +9252,7 @@ recursive computations. To call a deep recursive function, `invoke` it.
 In this example, a deep recursive function is used to calculate the depth of a binary tree recursively. Even though this
 sample function calls itself recursively 100,000 times, no `StackOverflowError` is thrown:
 
-```java,kotlin
+```kotlin
 class Tree(val left: Tree?, val right: Tree?)
 
 val calculateDepth = DeepRecursiveFunction<Tree?, Int> { t ->
@@ -9317,7 +9282,7 @@ by `TimeSource.Monotonic` into inline value classes. This means that calling fun
 when measuring a piece of code that is part of a hot path, this can help minimize the performance impact of the
 measurement:
 
-```java,kotlin
+```kotlin
 @OptIn(ExperimentalTime::class)
 fun main() {
     val mark = TimeSource.Monotonic.markNow() // Returned `TimeMark` is inline class
@@ -9339,7 +9304,7 @@ concise.
 The `getOrNull()`, `getOrDefault()`, and `getOrElse()` extension functions allow you to get the value of an `Optional`
 if it's present. Otherwise, you get `null`, a default value, or a value returned by a function, respectively:
 
-```java,kotlin
+```kotlin
 val presentOptional = Optional.of("I'm here!")
 
 println(presentOptional.getOrNull())
@@ -9363,7 +9328,7 @@ The `toList()`, `toSet()`, and `asSequence()` extension functions convert the va
 set, or sequence, or return an empty collection otherwise. The `toCollection()` extension function appends
 the `Optional` value to an already existing destination collection:
 
-```java,kotlin
+```kotlin
 val presentOptional = Optional.of("I'm here!")
 val absentOptional = Optional.empty<String>()
 println(presentOptional.toList() + "," + absentOptional.toList())
@@ -9401,7 +9366,7 @@ Consider this example for matching city coordinates. To get a collection of grou
 use [`groups`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-match-result/groups.html). Compare retrieving a
 group's contents by its number (index) and by its name using `value`:
 
-```java,kotlin
+```kotlin
 fun main() {
     val regex = "\\b(?<city>[A-Za-z\\s]+),\\s(?<state>[A-Z]{2}):\\s(?<areaCode>[0-9]{3})\\b".toRegex()
     val input = "Coordinates: Austin, TX: 123"
@@ -9416,7 +9381,7 @@ fun main() {
 You can now also use group names when backreferencing groups. Backreferences match the same text that was previously
 matched by a capturing group. For this, use the `\k<name>` syntax in your regular expression:
 
-```java,kotlin
+```kotlin
 fun backRef() {
     val regex = "(?<title>\\w+), yes \\k<title>".toRegex()
     val match = regex.find("Do you copy? Sir, yes Sir!")!!
@@ -9436,7 +9401,7 @@ swaps the first match only.
 Occurrences of `${name}` in the replacement string are substituted with the subsequences corresponding to the captured
 groups with the specified name. You can compare replacements in group references by name and index:
 
-```java,kotlin
+```kotlin
 fun dateReplace() {
     val dateRegex = Regex("(?<dd>\\d{2})-(?<mm>\\d{2})-(?<yyyy>\\d{4})")
     val input = "Date of birth: 27-04-2022"
@@ -9614,7 +9579,7 @@ The Kotlin Gradle plugin API artifact has received several improvements:
 The [sam-with-receiver compiler plugin](sam-with-receiver-plugin.md) is now available via
 the [Gradle plugins DSL](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block):
 
-```java,kotlin
+```kotlin
 plugins {
     id("org.jetbrains.kotlin.plugin.sam.with.receiver") version "$kotlin_version"
 }
@@ -9711,7 +9676,7 @@ instead to opt in to using an API in a module.
 
 For example, if your Gradle module is multiplatform:
 
-```java,kotlin
+```kotlin
 sourceSets {
     all {
         languageSettings.optIn("org.mylibrary.OptInAnnotation")
@@ -9764,7 +9729,7 @@ Learn more about coroutines in the [Coroutines guide](coroutines-guide.md).
 Before Kotlin 1.7.0, you had to do the type cast into the `JavaToolchainSpec` class when configuring the Gradle
 toolchain with Kotlin DSL:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvmToolchain {
         (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
@@ -9774,7 +9739,7 @@ kotlin {
 
 Now, you can omit the `(this as JavaToolchainSpec)` part:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
@@ -9838,7 +9803,7 @@ With Kotlin 1.6.20, you are no longer limited to having one receiver. If you nee
 * It requires all declared context receivers to be present in a caller's scope as implicit receivers.
 * It brings declared context receivers into its body scope as implicit receivers.
 
-```java,kotlin
+```kotlin
 interface LoggingContext {
     val log: Logger // This context provides a reference to a logger 
 }
@@ -9880,7 +9845,7 @@ If you run into any problems, please [file a new issue](https://kotl.in/issue).
 To provide better interoperability when extending generic Java classes and interfaces, Kotlin 1.6.20 allows you to mark a generic type parameter as definitely non-nullable on the use site with the new syntax `T & Any`.
 The syntactic form comes from a notation of [intersection types](https://en.wikipedia.org/wiki/Intersection_type) and is now limited to a type parameter with nullable upper bounds on the left side of `&` and non-nullable `Any` on the right side:
 
-```java,kotlin
+```kotlin
 fun <T> elvisLike(x: T, y: T & Any): T & Any = x ?: y
 
 fun main() {
@@ -9902,7 +9867,7 @@ Set the language version to `1.7` to enable the feature:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets.all {
         languageSettings.apply {
@@ -10009,7 +9974,7 @@ Support for [callable references](reflection.md#callable-references) to function
 
 Consider the following code:
 
-```java,kotlin
+```kotlin
 interface Printer {
     fun print()
 }
@@ -10019,7 +9984,7 @@ fun Printer(block: () -> Unit): Printer = object : Printer { override fun print(
 
 With callable references to functional interface constructors enabled, this code can be replaced with just a functional interface declaration:
 
-```java,kotlin
+```kotlin
 fun interface Printer {
     fun print()
 }
@@ -10027,14 +9992,14 @@ fun interface Printer {
 
 Its constructor will be created implicitly, and any code using the `::Printer` function reference will compile. For example:
 
-```java,kotlin
+```kotlin
 documentsStorage.addPrinter(::Printer)
 ```
 {validate="false"}
 
 Preserve the binary compatibility by marking the legacy function `Printer` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/) annotation with `DeprecationLevel.HIDDEN`:
 
-```java,kotlin
+```kotlin
 @Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
 fun Printer(...) {...}
 ```
@@ -10131,7 +10096,7 @@ for better debugging of `linux*` (except `linuxMips32` and `linuxMipsel32`) and 
 This feature uses the [libbacktrace](https://github.com/ianlancetaylor/libbacktrace) library under the hood.
 Take a look at the following code to see an example of the difference:
 
-```java,kotlin
+```kotlin
 fun main() = bar()
 fun bar() = baz()
 inline fun baz() {
@@ -10216,7 +10181,7 @@ Previously, Android Native executables in Kotlin/Native were not actually execut
 For that, in the `build.gradle(.kts)` part of your project, configure the executable block of your `androidNative` target.
 Add the following binary option:
 
-```java,kotlin
+```kotlin
 kotlin {
     androidNativeX64("android") {
         binaries {
@@ -10231,7 +10196,7 @@ kotlin {
 Note that this feature will become the default in Kotlin 1.7.0.
 If you want to preserve the current behavior, use the following setting:
 
-```java,kotlin
+```kotlin
 binaryOptions["androidProgramType"] = "nativeActivity"
 ```
 
@@ -10356,7 +10321,7 @@ To simplify CocoaPods integration, Kotlin 1.6.20 delivers the following features
 
 * The CocoaPods plugin introduces a new `extraSpecAttributes` property, which you can use to configure properties in a Podspec file that were previously hard-coded, like `libraries` or `vendored_frameworks`.
 
-```java,kotlin
+```kotlin
 kotlin {
     cocoapods {
         version = "1.0"
@@ -10408,7 +10373,7 @@ Our measurements showed about a 10% speed-up on a real-life Kotlin/JS applicatio
 
 Now, having polished and properly tested this mechanism, we're making lazy initialization the default for top-level properties in the IR compiler.
 
-```java,kotlin
+```kotlin
 // lazy initialization
 val a = run {
     val result = // intensive computations
@@ -10475,7 +10440,7 @@ If you are publishing a `klib` and want to use only relative paths of source fil
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.withType(org.jetbrains.kotlin.gradle.dsl.KotlinCompile::class).configureEach {
     // $base is a base path of source files
     kotlinOptions.freeCompilerArgs += "-Xklib-relative-path-base=$base"
@@ -10518,7 +10483,7 @@ If needed, you can change both directory and lockfile names in the build script:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
         project.rootDir.resolve("my-kotlin-js-store")
@@ -10558,7 +10523,7 @@ To roll back to the old configuration, you can explicitly enable lifecycle scrip
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
 }
@@ -10628,7 +10593,7 @@ The available values for the `compilerExecutionStrategy` task property are:
 
 Use the task property `compilerExecutionStrategy` in the `build.gradle.kts` build script:
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
@@ -10695,7 +10660,7 @@ We will soon prohibit non-exhaustive `when` statements to make the behavior cons
 To ensure smooth migration, Kotlin 1.6.0 reports warnings about non-exhaustive `when` statements with an enum, sealed, or Boolean subject. 
 These warnings will become errors in future releases.
 
-```java,kotlin
+```kotlin
 sealed class Contact {
     data class PhoneCall(val number: String) : Contact()
     data class TextMessage(val number: String) : Contact()
@@ -10732,7 +10697,7 @@ A preview was available [in 1.5.30](whatsnew1530.md#suspending-functions-as-supe
 The feature can be useful when designing APIs that use Kotlin coroutines and accept suspending functional types. 
 You can now streamline your code by enclosing the desired behavior in a separate class that implements a suspending functional type.
 
-```java,kotlin
+```kotlin
 class MyClickAction : suspend () -> Unit {
     override suspend fun invoke() { TODO() }
 }
@@ -10753,7 +10718,7 @@ Starting from 1.4.0, the feature supported functional literals and callable refe
 With 1.6.0, it works with any form of expression. As a call argument, you can now pass any expression of a suitable regular functional type where suspending is expected. 
 The compiler will perform an implicit conversion automatically.
 
-```java,kotlin
+```kotlin
 fun getSuspending(suspending: suspend () -> Unit) {}
 
 fun suspending() {}
@@ -10777,7 +10742,7 @@ Learn more about instantiation of annotation classes in [this KEEP](https://gith
 Kotlin 1.5.30 introduced an improvement to type inference for recursive generic types, which allowed their type arguments to be inferred based only on the upper bounds of the corresponding type parameters.
 The improvement was available with the compiler option. In version 1.6.0 and later, it is enabled by default.
 
-```java,kotlin
+```kotlin
 // Before 1.5.30
 val containerA = PostgreSQLContainer<Nothing>(DockerImageName.parse("postgres:13-alpine")).apply {
   withDatabaseName("db")
@@ -10814,7 +10779,7 @@ We're making multiple changes that are bringing us closer to fully stable builde
 
 Support for annotations on class type parameters looks like this:
 
-```java,kotlin
+```kotlin
 @Target(AnnotationTarget.TYPE_PARAMETER)
 annotation class BoxContent
 
@@ -10876,7 +10841,7 @@ We optimized the generated JVM bytecode by omitting the `$delegate` field and ge
 
 For example, in the following code
 
-```java,kotlin
+```kotlin
 class Box<T> {
     private var impl: T = ...
 
@@ -11113,13 +11078,13 @@ Kotlin 1.6.0 offers new functions for handling standard input: [`readln()`](http
 We believe that eliminating the need to use `!!` when reading a line will improve the experience for newcomers and simplify teaching Kotlin.
 To make the read-line operation name consistent with its `println()` counterpart, we've decided to shorten the names of new functions to 'ln'.
 
-```java,kotlin
+```kotlin
 println("What is your nickname?")
 val nickname = readln()
 println("Hello, $nickname!")
 ```
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var sum = 0
@@ -11133,7 +11098,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
+
 
 The existing `readLine()` function will get a lower priority than `readln()` and `readlnOrNull()` in your IDE code completion.
 IDE inspections will also recommend using new functions instead of the legacy `readLine()`.
@@ -11147,7 +11112,7 @@ Version 1.6.0 brings a [Stable](components-stability.md) [`typeOf()`](https://ko
 [Since 1.3.40](https://blog.jetbrains.com/kotlin/2019/06/kotlin-1-3-40-released/), `typeOf()` was available on the JVM platform as an experimental API.
 Now you can use it in any Kotlin platform and get [`KType`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/#kotlin.reflect.KType) representation of any Kotlin type that the compiler can infer:
 
-```java,kotlin
+```kotlin
 inline fun <reified T> renderType(): String {
     val type = typeOf<T>()
     return type.toString()
@@ -11167,7 +11132,7 @@ You can now use [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotl
 [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html), and [`buildSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-set.html)
 without the opt-in annotation:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val x = listOf('b', 'c')
@@ -11180,7 +11145,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 ### Stable Duration API
 
@@ -11207,7 +11172,7 @@ duration amounts in different time units has been promoted to [Stable](component
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+  
   
   We suggest replacing previously introduced companion functions, such as `Duration.seconds(Int)`, and deprecated top-level extensions
   like `Int.seconds` with new extensions in `Duration.Companion`.
@@ -11223,7 +11188,7 @@ duration amounts in different time units has been promoted to [Stable](component
 The `Regex.splitToSequence(CharSequence)` and `CharSequence.splitToSequence(Regex)` functions are promoted to [Stable](components-stability.md).
 They split the string around matches of the given regex, but return the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val colorsText = "green, red, brown&blue, orange, pink&green"
@@ -11237,14 +11202,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 ### Bit rotation operations on integers
 
 In Kotlin 1.6.0, the `rotateLeft()` and `rotateRight()` functions for bit manipulations became [Stable](components-stability.md).
 The functions rotate the binary representation of the number left or right by a specified number of bits:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val number: Short = 0b10001
@@ -11257,7 +11222,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
+
 
 ### Changes for replace() and replaceFirst() in JS
 
@@ -11284,7 +11249,7 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
+    
 
     You can use [`Regex.escapeReplacement()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/escape-replacement.html) if the replacement string has to be treated as a literal string.
 
@@ -11406,7 +11371,7 @@ We're planning to prohibit non-exhaustive `when` statements soon to make the beh
 >
 {type="note"}
 
-```java,kotlin
+```kotlin
 sealed class Mode {
     object ON : Mode()
     object OFF : Mode()
@@ -11434,7 +11399,7 @@ To enable this feature in Kotlin 1.5.30, use language version `1.6`. You can als
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets.all {
         languageSettings.apply {
@@ -11471,7 +11436,7 @@ kotlin {
 
 Kotlin 1.5.30 provides a preview of the ability to use a `suspend` functional type as a supertype with some limitations.
 
-```java,kotlin
+```kotlin
 class MyClass: suspend () -> Unit {
     override suspend fun invoke() { TODO() }
 }
@@ -11482,7 +11447,7 @@ Use the `-language-version 1.6` compiler option to enable the feature:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets.all {
         languageSettings.apply {
@@ -11524,7 +11489,7 @@ The author of a library can mark an experimental API as [requiring opt-in](opt-i
 
 In Kotlin 1.5.30, the compiler treats any declaration that has an experimental type in the signature as experimental. Namely, it requires opt-in even for implicit usages of an experimental API. For example, if the function's return type is marked as an experimental API element, a usage of the function requires you to opt-in even if the declaration is not marked as requiring an opt-in explicitly.
 
-```java,kotlin
+```kotlin
 // Library code
 
 @RequiresOptIn(message = "This API is experimental.")
@@ -11568,7 +11533,7 @@ Learn more about [opt-in requirements](opt-in-requirements.md).
 
 In Kotlin and Java, you can define a recursive generic type, which references itself in its type parameters. In Kotlin 1.5.30, the Kotlin compiler can infer a type argument based only on upper bounds of the corresponding type parameter if it is a recursive generic. This makes it possible to create various patterns with recursive generic types that are often used in Java to make builder APIs.
 
-```java,kotlin
+```kotlin
 // Kotlin 1.5.20
 val containerA = PostgreSQLContainer<Nothing>(DockerImageName.parse("postgres:13-alpine")).apply {
     withDatabaseName("db")
@@ -11595,7 +11560,7 @@ Inside such a lambda argument, there was previously a limitation on using the ty
 
 Kotlin 1.5.30 removes these limitations with the `-Xunrestricted-builder-inference` compiler option. Add this option to enable previously prohibited calls inside a lambda argument of generic builder functions:
 
-```java,kotlin
+```kotlin
 @kotlin.ExperimentalStdlibApi
 val list = buildList {
     add("a")
@@ -11634,7 +11599,7 @@ See the [Gradle](#gradle) section for Kotlin Gradle plugin updates on the JVM pl
 
 With Kotlin 1.5.30 you can now call constructors of [annotation classes](annotations.md) in arbitrary code to obtain a resulting instance. This feature covers the same use cases as the Java convention that allows the implementation of an annotation interface.
 
-```java,kotlin
+```kotlin
 annotation class InfoMarker(val info: String)
 
 fun processInfo(marker: InfoMarker) = ...
@@ -11701,7 +11666,7 @@ Kotlin 1.5.30 introduces the improved CocoaPods Gradle plugin DSL for Kotlin/Nat
 
 To use the new DSL, update your project to Kotlin 1.5.30, and specify the parameters in the `cocoapods` section of your `build.gradle(.kts)` file:
 
-```java,kotlin
+```kotlin
 cocoapods {
     frameworkName = "MyFramework" // This property is deprecated 
     // and will be removed in future versions
@@ -11728,7 +11693,7 @@ The Kotlin CocoaPods Gradle plugin supports custom names in the Xcode build conf
 
 To specify a custom name, use the `xcodeConfigurationToNativeBuildType` parameter in the `cocoapods` section of your `build.gradle(.kts)` file:
 
-```java,kotlin
+```kotlin
 cocoapods {
     // Maps custom Xcode configuration to NativeBuildType
     xcodeConfigurationToNativeBuildType["CUSTOM_DEBUG"] = NativeBuildType.DEBUG
@@ -11759,7 +11724,7 @@ Note that this feature is experimental and can be affected in the future by chan
 
 Getting objects and companion objects can now be done in a way that is more intuitive for native iOS developers. For example, if you have the following objects in Kotlin:
 
-```java,kotlin
+```kotlin
 object MyObject {
     val x = "Some value"
 }
@@ -11820,7 +11785,7 @@ To use XCFrameworks, update your `build.gradle(.kts)` script:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
@@ -11955,7 +11920,7 @@ Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_V
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvmToolchain {
         (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
@@ -11981,7 +11946,7 @@ Note that setting a toolchain via the `kotlin` extension will update the toolcha
 
 You can set a toolchain via the `java` extension, and Kotlin compilation tasks will use it:
 
-```java,kotlin
+```kotlin
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) // "8"
@@ -12000,7 +11965,7 @@ All Kotlin tasks that support setting the JDK via [`kotlinOptions`](gradle-compi
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 project.tasks
     .withType<UsesKotlinJavaToolchain>()
     .configureEach {
@@ -12169,7 +12134,7 @@ In Kotlin 1.5.30, there are new functions in the Duration API:
 
 Here are some examples of `parse()` and `parseOrNull()` usages:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
@@ -12188,11 +12153,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 And here are some examples of `parseIsoString()` and `parseIsoStringOrNull()` usages:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
@@ -12207,7 +12172,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 ### Matching with Regex at a particular position
 
@@ -12220,7 +12185,7 @@ The new `Regex.matchAt()` and `Regex.matchesAt()` functions provide a way to che
 
 `matchesAt()` returns a boolean result:
 
-```java,kotlin
+```kotlin
 fun main(){
 //sampleStart
     val releaseText = "Kotlin 1.5.30 is released!"
@@ -12231,11 +12196,11 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 `matchAt()` returns the match if one is found or `null` if one isn't:
 
-```java,kotlin
+```kotlin
 fun main(){
 //sampleStart
     val releaseText = "Kotlin 1.5.30 is released!"
@@ -12245,7 +12210,7 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 ### Splitting Regex to a sequence
 
@@ -12256,7 +12221,7 @@ fun main(){
 
 The new `Regex.splitToSequence()` function is a lazy counterpart of [`split()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/split.html). It splits the string around matches of the given regex, but it returns the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily.
 
-```java,kotlin
+```kotlin
 fun main(){
 //sampleStart
     val colorsText = "green, red , brown&blue, orange, pink&green"
@@ -12268,14 +12233,14 @@ fun main(){
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5" validate="false"}
+
 
 A similar function was also added to `CharSequence`:
 
-```java,kotlin
+```kotlin
     val mixedColor = colorsText.splitToSequence(regex)
 ```
-{kotlin-runnable="false"}
+
 
 ## 04.3.7.8. Serialization 1.3.0-RC
 
@@ -12341,7 +12306,7 @@ public class JavaClass {
 }
 ```
 
-```java,kotlin
+```kotlin
 // Test.kt
 fun kotlinFun() = with(JavaClass()) {
   notNullableString().length // OK
@@ -12404,7 +12369,7 @@ to the Objective-C frameworks generated from it, making them visible to the fram
 
 For example, the following Kotlin code with KDoc:
 
-```java,kotlin
+```kotlin
 /**
  * Prints the sum of the arguments.
  * Properly handles the case when the sum doesn't fit in 32-bit integer.
@@ -12430,7 +12395,7 @@ following lines to `build.gradle(.kts)` of the Gradle projects you want to expor
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         compilations.get("main").kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
@@ -12536,7 +12501,7 @@ only for Kotlin/JVM: implementations on the Native and JS platforms supported on
 From now, both with Kotlin/Native and Kotlin/JS, you can call `Char.digitToInt()` on any Unicode digit character and get
 its numeric representation.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val ten = '\u0661'.digitToInt() + '\u0039'.digitToInt() // ARABIC-INDIC DIGIT ONE + DIGIT NINE
@@ -12544,7 +12509,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 
 ### Unification of Char.isLowerCase()/isUpperCase() implementations across platforms
@@ -12557,7 +12522,7 @@ depending on the case of the character. For Kotlin/JVM, the implementation check
 Prior to 1.5.20, implementations for other platforms worked differently and considered only the general category.
 In 1.5.20, implementations are unified across platforms and use both properties to determine the character case:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val latinCapitalA = 'A' // has "Lu" general category
@@ -12566,7 +12531,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 # 📜 [What's new in Kotlin 1.5.20](whatsnew1520.md)
 
@@ -12824,7 +12789,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 
 ### Unification of Char.isLowerCase()/isUpperCase() implementations across platforms
@@ -12846,7 +12811,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 
 # 📜 04.3.09. [What's new in Kotlin 1.5.0](whatsnew15.md)
@@ -12877,7 +12842,7 @@ Kotlin's support for JVM records includes bidirectional interoperability:
 * In Kotlin code, you can use Java record classes like you would use typical classes with properties.
 * To use a Kotlin class as a record in Java code, make it a `data` class and mark it with the `@JvmRecord` annotation.
 
-```java,kotlin
+```kotlin
 @JvmRecord
 data class User(val name: String, val age: Int)
 ```
@@ -12891,13 +12856,13 @@ data class User(val name: String, val age: Int)
 Kotlin interfaces can now have the `sealed` modifier, which works on interfaces in the same way it works on classes: all
 implementations of a sealed interface are known at compile time.
 
-```java,kotlin
+```kotlin
 sealed interface Polygon
 ```
 
 You can rely on that fact, for example, to write exhaustive `when` expressions.
 
-```java,kotlin
+```kotlin
 fun draw(polygon: Polygon) = when (polygon) {
    is Rectangle -> // ...
    is Triangle -> // ...
@@ -12909,7 +12874,7 @@ fun draw(polygon: Polygon) = when (polygon) {
 Additionally, sealed interfaces enable more flexible restricted class hierarchies because a class can directly inherit
 more than one sealed interface.
 
-```java,kotlin
+```kotlin
 class FilledRectangle: Polygon, Fillable
 ```
 
@@ -12936,13 +12901,13 @@ comes from using memory allocations.
 
 Inline classes can be declared with the `value` modifier before the name of the class:
 
-```java,kotlin
+```kotlin
 value class Password(val s: String)
 ```
 
 The JVM backend also requires a special `@JvmInline` annotation:
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class Password(val s: String)
 ```
@@ -13122,7 +13087,7 @@ Moreover, it later turned out to have issues that can cause application crashes.
 The memory leak checker can still be useful for certain cases, for example, unit testing. For these cases, you can enable
 it by adding the following line of code:
 
-```java,kotlin
+```kotlin
 Platform.isMemoryLeakCheckerActive = true
 ```
 
@@ -13268,7 +13233,7 @@ numeric type, like `Char.toInt()`, are now deprecated.
 The [experimental Path API](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io.path/java.nio.file.-path/) with extensions
 for `java.nio.file.Path` is now [Stable](components-stability.md).
 
-```java,kotlin
+```kotlin
 // construct path with the div (/) operator
 val baseDir = Path("/base")
 val subDir = baseDir / "subdirectory"
@@ -13292,7 +13257,7 @@ function (or the `%`operator), but they work differently on negative numbers:
 * `a.mod(b)` is the difference between `a` and `a.floorDiv(b) * b`. It's either zero or has the same sign as `b`,
   while `a % b` can have a different one.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     println("Floored division -5/3: ${(-5).floorDiv(3)}")
@@ -13303,7 +13268,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 ### Duration API changes
 
@@ -13322,7 +13287,7 @@ duration amounts in different time units. In 1.5.0, the Duration API has receive
 * There are new companion functions for constructing a `Duration` from a number. For example, [`Duration.seconds(Int)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/seconds.html)
   creates a `Duration` object representing an integer number of seconds. Old extension properties like `Int.seconds` are now deprecated.
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
 
@@ -13346,7 +13311,7 @@ Functions for checking whether a char is a letter or a digit:
 * [`Char.isLetter()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-letter.html)
 * [`Char.isLetterOrDigit()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-letter-or-digit.html)
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val chars = listOf('a', '1', '+')
@@ -13356,14 +13321,14 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 Functions for checking the case of a char:
 * [`Char.isLowerCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-lower-case.html)
 * [`Char.isUpperCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-upper-case.html)
 * [`Char.isTitleCase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-title-case.html)
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val chars = listOf('ǅ', 'ǈ', 'ǋ', 'ǲ', '1', 'A', 'a', '+')
@@ -13373,7 +13338,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 Some other functions:
 * [`Char.isDefined()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/is-defined.html)
@@ -13393,7 +13358,7 @@ with [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections
 They map the original collection with the custom selector function and return the first non-null value. If there is no such value,
 `firstNotNullOf()` throws an exception, and `firstNotNullOfOrNull()` returns null.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val data = listOf("Kotlin", "1.5")
@@ -13402,7 +13367,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 ### Strict version of String?.toBoolean()
 
@@ -13410,7 +13375,7 @@ Two new functions introduce case-sensitive strict versions of the existing [Stri
 * [`String.toBooleanStrict()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-boolean-strict.html) throws an exception for all inputs except the literals `true` and `false`.
 * [`String.toBooleanStrictOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-boolean-strict-or-null.html) returns null for all inputs except the literals `true` and `false`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     println("true".toBooleanStrict())
@@ -13419,7 +13384,7 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 ## 04.3.9.7. kotlin-test library
 The [kotlin-test](https://kotlinlang.org/api/latest/kotlin.test/) library introduces some new features:
@@ -13453,7 +13418,7 @@ namely `kotlin-test-junit`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonTest by getting {
@@ -13685,7 +13650,7 @@ required.
 
 Starting with 1.4.30, you can declare the record class in Kotlin using the `@JvmRecord` annotation for a [data class](data-classes.md):
 
-```java,kotlin
+```kotlin
 @JvmRecord
 data class User(val name: String, val age: Int)
 ```
@@ -13710,7 +13675,7 @@ to build more flexible restricted class hierarchies.
 They can serve as "internal" interfaces that cannot be implemented outside the same module. You can rely on that fact,
 for example, to write exhaustive `when` expressions.
 
-```java,kotlin
+```kotlin
 sealed interface Polygon
 
 class Rectangle(): Polygon
@@ -13727,7 +13692,7 @@ fun draw(polygon: Polygon) = when (polygon) {
 
 Another use-case: with sealed interfaces, you can inherit a class from two or more sealed superclasses.
 
-```java,kotlin
+```kotlin
 sealed interface Fillable {
    fun fill()
 }
@@ -13942,7 +13907,7 @@ The current `toLowerCase()`, `toUpperCase()`, `capitalize()`, `decapitalize()` A
 This means that different platform locale settings can affect code behavior. For example, in the Turkish locale, when
 the string "kotlin" is converted using `toUpperCase`, the result is "KOTLİN", not "KOTLIN".
 
-```java,kotlin
+```kotlin
 // current API
 println("Needs to be capitalized".toUpperCase()) // NEEDS TO BE CAPITALIZED
 
@@ -13987,7 +13952,7 @@ See the full list of changes to the text processing functions in [KEEP](https://
 The current `Char` to numbers conversion functions, which return UTF-16 codes expressed in different numeric types, are
 often confused with the similar String-to-Int conversion, which returns the numeric value of a string:
 
-```java,kotlin
+```kotlin
 "4".toInt() // returns 4
 '4'.toInt() // returns 52
 // and there was no common function that would return the numeric value 4 for Char '4'
@@ -14029,7 +13994,7 @@ Along with Kotlin 1.4.30, we are releasing `kotlinx.serialization` [1.1.0-RC](ht
 
 Starting with Kotlin 1.4.30, you can make inline classes [serializable](serialization.md):
 
-```java,kotlin
+```kotlin
 @Serializable
 inline class Color(val rgb: Int)
 ```
@@ -14047,7 +14012,7 @@ Learn more in the `kotlinx.serialization` [docs](https://github.com/Kotlin/kotli
 Starting from 1.4.30, you can use standard JSON serializers of [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)
 for unsigned primitive types: `UInt`, `ULong`, `UByte`, and `UShort`:
 
-```java,kotlin
+```kotlin
 @Serializable
 class Counter(val counted: UByte, val description: String)
 fun main() {
@@ -14137,7 +14102,7 @@ For more control over your Kotlin/JS package management and distribution, you ca
 
 To add custom fields to your `package.json`, use the `customField` function in the compilation's `packageJson` block:
 
-```java,kotlin
+```kotlin
 kotlin {
     js(BOTH) {
         compilations["main"].packageJson {
@@ -14163,7 +14128,7 @@ You can use it through the `YarnRootExtension` inside the `YarnPlugin` in Gradle
 version of a package for your project, use the `resolution` function passing in the package name selector (as specified by Yarn)
 and the version to which it should resolve.
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<YarnPlugin> {
     rootProject.the<YarnRootExtension>().apply {
         resolution("react", "16.0.0")
@@ -14191,7 +14156,7 @@ To resolve this issue, Kotlin 1.4.20 includes an option to disable these so-call
 This feature is currently available through the `YarnRootExtension` inside the `YarnPlugin` in Gradle.
 To use it, add the following snippet to your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<YarnPlugin> {
     rootProject.the<YarnRootExtension>().disableGranularWorkspaces()
 }
@@ -14275,7 +14240,7 @@ To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-m
 call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](native-cocoapods.md),
 specify the option in the `pod {}` build script block of a dependency like this:
 
-```java,kotlin
+```kotlin
 pod("foo") {
     extraOpts = listOf("-Xforeign-exception-mode", "objc-wrap")
 }
@@ -14363,7 +14328,7 @@ Now the standard library provides experimental extensions for `java.nio.file.Pat
 Working with the modern JVM file API in an idiomatic Kotlin way is now similar to working with `java.io.File` extensions
 from the `kotlin.io` package.
 
-```java,kotlin
+```kotlin
 // construct path with the div (/) operator
 val baseDir = Path("/base")
 val subDir = baseDir / "subdirectory" 
@@ -14441,7 +14406,7 @@ To do so, mark a Kotlin interface explicitly as functional with the `fun` modifi
 SAM conversion applies if you pass a lambda as an argument when an interface with only one single abstract method is expected
 as a parameter. In this case, the compiler automatically converts the lambda to an instance of the class that implements the abstract member function.
 
-```java,kotlin
+```kotlin
 fun interface IntPredicate {
     fun accept(i: Int): Boolean
 }
@@ -14452,7 +14417,7 @@ fun main() {
     println("Is 7 even? - ${isEven.accept(7)}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 [Learn more about Kotlin functional interfaces and SAM conversions](fun-interfaces.md).
 
@@ -14482,7 +14447,7 @@ To compile your module in the explicit API mode, add the following lines to your
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {    
     // for strict mode
     explicitApi() 
@@ -14537,7 +14502,7 @@ It was especially helpful for making absolutely clear which attribute a boolean 
 In Kotlin 1.4, there is no such limitation – you can now specify a name for an argument in the middle of a set of positional 
 arguments. Moreover, you can mix positional and named arguments any way you like, as long as they remain in the correct order.
 
-```java,kotlin
+```kotlin
 fun reformat(
     str: String,
     uppercaseFirstLetter: Boolean = true,
@@ -14559,7 +14524,7 @@ With a trailing comma, you can add new items and change their order without addi
 This is especially helpful if you use multi-line syntax for parameters or values. After adding a trailing comma, you can 
 then easily swap lines with parameters or values.
 
-```java,kotlin
+```kotlin
 fun reformat(
     str: String,
     uppercaseFirstLetter: Boolean = true,
@@ -14569,7 +14534,7 @@ fun reformat(
 }
 ```
 
-```java,kotlin
+```kotlin
 val colors = listOf(
     "red",
     "green",
@@ -14591,7 +14556,7 @@ Kotlin 1.4 supports more cases for using callable references:
 Now you can use callable references to functions with default argument values. If the callable reference 
 to the function `foo` takes no arguments, the default value `0` is used.
 
-```java,kotlin
+```kotlin
 fun foo(i: Int = 0): String = "$i!"
 
 fun apply(func: () -> String): String = func()
@@ -14600,11 +14565,11 @@ fun main() {
     println(apply(::foo))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 Previously, you had to write additional overloads for the function `apply` to use the default argument values.
 
-```java,kotlin
+```kotlin
 // some new overload
 fun applyInt(func: (Int) -> String): String = func(0) 
 ```
@@ -14614,7 +14579,7 @@ fun applyInt(func: (Int) -> String): String = func(0)
 In Kotlin 1.4, you can use callable references to functions returning any type in `Unit`-returning functions. 
 Before Kotlin 1.4, you could only use lambda arguments in this case. Now you can use both lambda arguments and callable references.
 
-```java,kotlin
+```kotlin
 fun foo(f: () -> Unit) { }
 fun returnsInt(): Int = 42
 
@@ -14629,7 +14594,7 @@ fun main() {
 Now you can adapt callable references to functions when passing a variable number of arguments (`vararg`) . 
 You can pass any number of parameters of the same type at the end of the list of passed arguments.
 
-```java,kotlin
+```kotlin
 fun foo(x: Int, vararg y: String) {}
 
 fun use0(f: (Int) -> Unit) {}
@@ -14647,7 +14612,7 @@ fun test() {
 
 In addition to suspend conversion on lambdas, Kotlin now supports suspend conversion on callable references starting from version 1.4.0.
 
-```java,kotlin
+```kotlin
 fun call() {}
 fun takeSuspend(f: suspend () -> Unit) {}
 
@@ -14663,7 +14628,7 @@ In Kotlin 1.3, you could not use unqualified `break` and `continue` inside `when
 
 That's why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.md#break-and-continue-labels) them, which became rather cumbersome.
 
-```java,kotlin
+```kotlin
 fun test(xs: List<Int>) {
     LOOP@for (x in xs) {
         when (x) {
@@ -14677,7 +14642,7 @@ fun test(xs: List<Int>) {
 
 In Kotlin 1.4, you can use `break` and `continue` without labels inside `when` expressions included in loops. They behave as expected by terminating the nearest enclosing loop or proceeding to its next step.
 
-```java,kotlin
+```kotlin
 fun test(xs: List<Int>) {
     for (x in xs) {
         when (x) {
@@ -14787,7 +14752,7 @@ you can find some of the most noticeable improvements:
 The new inference algorithm infers types for many cases where the old algorithm required you to specify them explicitly. 
 For instance, in the following example the type of the lambda parameter `it` is correctly inferred to `String?`:
 
-```java,kotlin
+```kotlin
 //sampleStart
 val rulesMap: Map<String, (String?) -> Boolean> = mapOf(
     "weak" to { it != null },
@@ -14802,7 +14767,7 @@ fun main() {
     println(rulesMap.getValue("strong")("abc!"))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 In Kotlin 1.3, you needed to introduce an explicit lambda parameter or replace `to` with a `Pair` constructor with 
 explicit generic arguments to make it work.
@@ -14812,7 +14777,7 @@ explicit generic arguments to make it work.
 In Kotlin 1.3, the last expression inside a lambda wasn't  smart cast unless you specified the expected type. Thus, in the 
 following example, Kotlin 1.3 infers `String?` as the type of the `result` variable:
 
-```java,kotlin
+```kotlin
 val result = run {
     var str = currentValue()
     if (str == null) {
@@ -14833,7 +14798,7 @@ and now these casts have become unnecessary.
 
 In Kotlin 1.3, you couldn't access a member reference of a smart cast type. Now in Kotlin 1.4 you can:
 
-```java,kotlin
+```kotlin
 import kotlin.reflect.KFunction
 
 sealed class Animal
@@ -14863,7 +14828,7 @@ fun main() {
     perform(Cat())
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 You can use different member references `animal::meow` and `animal::woof` after the animal variable has been smart cast 
 to specific types `Cat` and `Dog`. After type checks, you can access member references corresponding to subtypes.
@@ -14874,7 +14839,7 @@ The type of a delegated property wasn't taken into account while analyzing the d
 keyword. For instance, the following code didn't compile before, but now the compiler correctly infers the types of the 
 `old` and `new` parameters as `String?`:
 
-```java,kotlin
+```kotlin
 import kotlin.properties.Delegates
 
 fun main() {
@@ -14885,7 +14850,7 @@ fun main() {
     prop = "xyz"
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 #### SAM conversion for Java interfaces with different arguments
 
@@ -14904,7 +14869,7 @@ public class A {
 }
 ```
 
-```java,kotlin
+```kotlin
 // FILE: test.kt
 fun test(r1: Runnable) {
     A.foo(r1) {}  // Works in Kotlin 1.4
@@ -14915,7 +14880,7 @@ fun test(r1: Runnable) {
 
 In Kotlin 1.4, you can use Java SAM interfaces in Kotlin and apply SAM conversions to them. 
 
-```java,kotlin
+```kotlin
 import java.lang.Runnable
 
 fun foo(r: Runnable) {}
@@ -14967,7 +14932,7 @@ This will help us to unify the compiler pipelines and bring compiler extensions 
 
 To enable the new JVM IR backend, specify an additional compiler option in your Gradle build script:
 
-```java,kotlin
+```kotlin
 kotlinOptions.useIR = true
 ```
 
@@ -15032,7 +14997,7 @@ So far, only the basic cases are supported:
 In the following example, the `@Foo` annotation on the `String` type can be emitted to the bytecode and then used by the
 library code:
 
-```java,kotlin
+```kotlin
 @Target(AnnotationTarget.TYPE)
 annotation class Foo
 
@@ -15100,7 +15065,7 @@ from your Swift or Objective-C code and even override them.
 
 For example, if you write this Kotlin function:
 
-```java,kotlin
+```kotlin
 suspend fun queryData(id: Int): String = ...
 ```
 
@@ -15124,7 +15089,7 @@ Previous versions of Kotlin provided experimental support for generics in Object
 generates Apple frameworks with generics from Kotlin code by default. In some cases, this may break existing Objective-C
 or Swift code calling Kotlin frameworks. To have the framework header written without generics, add the `-Xno-objc-generics` compiler option.
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.all {
@@ -15156,7 +15121,7 @@ Starting with 1.4.0, the Kotlin/Native compiler produces [debug symbol files](ht
 (`.dSYM`s) for release binaries on Darwin platforms by default. This can be disabled with the `-Xadd-light-debug=disable`
 compiler option. On other platforms, this option is disabled by default. To toggle this option in Gradle, use:
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.all {
@@ -15262,7 +15227,7 @@ For common combinations of targets, you can create a hierarchical structure with
 
 For example, create two iOS targets and the shared source set shown above with the `ios()` shortcut:
 
-```java,kotlin
+```kotlin
 kotlin {
     ios() // iOS device and simulator targets; iosMain and iosTest source sets
 }
@@ -15276,7 +15241,7 @@ by connecting the source sets with the `dependsOn` relation.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin{
     sourceSets {
         val desktopMain by creating {
@@ -15342,7 +15307,7 @@ source sets where it is used, you should specify a dependency only once in the s
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -15494,7 +15459,7 @@ In 1.4.0, the standard library includes a number of useful functions for working
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * `shuffled()` for sequences.
 
@@ -15507,7 +15472,7 @@ In 1.4.0, the standard library includes a number of useful functions for working
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * `*Indexed()` counterparts for `onEach()` and `flatMap()`.
 The operation that they apply to the collection elements has the element index as a parameter.
@@ -15527,7 +15492,7 @@ The operation that they apply to the collection elements has the element index a
               println(kotlin)
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * `*OrNull()` counterparts `randomOrNull()`, `reduceOrNull()`, and `reduceIndexedOrNull()`. 
 They return `null` on empty collections.
@@ -15541,7 +15506,7 @@ They return `null` on empty collections.
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * `runningFold()`, its synonym `scan()`, and `runningReduce()` apply the given operation to the collection elements sequentially,
  similarly to`fold()` and `reduce()`; the difference is that these new functions return the whole sequence of intermediate results.
@@ -15557,7 +15522,7 @@ They return `null` on empty collections.
         println(runningFoldSum.toString())
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * `sumOf()` takes a selector function and returns a sum of its values for all elements of a collection.
 `sumOf()` can produce sums of the types `Int`, `Long`, `Double`, `UInt`, and `ULong`. On the JVM, `BigInteger` and `BigDecimal` are also available.
@@ -15578,7 +15543,7 @@ They return `null` on empty collections.
         println("You've ordered $count items that cost $total in total")
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * The `min()` and `max()` functions have been renamed to `minOrNull()` and `maxOrNull()` to comply with the naming
   convention used across the Kotlin collections API. An `*OrNull` suffix in the function name means that it returns `null`
@@ -15601,7 +15566,7 @@ They return `null` on empty collections.
         println("The most expensive item in the order costs $highestPrice")
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
     There are also `minOfWith()` and `maxOfWith()`, which take a `Comparator` as an argument, and `*OrNull()` versions
 of all four functions that return `null` on empty collections.
@@ -15621,7 +15586,7 @@ of all four functions that return `null` on empty collections.
         println(lettersSeq.toList())
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * `removeFirst()` and `removeLast()` shortcuts for removing elements from mutable lists, and `*orNull()` counterparts
 of these functions.
@@ -15637,7 +15602,7 @@ To provide a consistent experience when working with different container types, 
 * `sortDescending()` for array subranges sorts the elements in the subrange in descending order.
 * `sort()` and `sortWith()` for array subranges are now available in the common library.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var language = ""
@@ -15655,13 +15620,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 Additionally, there are new functions for conversions between `CharArray`/`ByteArray` and `String`:
 * `ByteArray.decodeToString()` and `String.encodeToByteArray()`
 * `CharArray.concatToString()` and `String.toCharArray()`
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val str = "kotlin"
@@ -15670,7 +15635,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 #### ArrayDeque
 
@@ -15678,7 +15643,7 @@ We've also added the `ArrayDeque` class – an implementation of a double-ended 
 A double-ended queue lets you add or remove elements both at the beginning or end of the queue in an amortized
 constant time. You can use a double-ended queue by default when you need a queue or a stack in your code.
 
-```java,kotlin
+```kotlin
 fun main() {
     val deque = ArrayDeque(listOf(1, 2, 3))
 
@@ -15694,7 +15659,7 @@ fun main() {
     println(deque) // [1, 2, 3]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 The `ArrayDeque` implementation uses a resizable array underneath: it stores the contents in a circular buffer, an `Array`,
 and resizes this `Array` only when it becomes full.
@@ -15718,7 +15683,7 @@ and others.
         //sampleEnd
         }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 * Some existing functions of `StringBuilder` are available in the common library. Among them are `append()`, `insert()`,
 `substring()`, `setLength()`, and more. 
@@ -15735,7 +15700,7 @@ replace the JVM-only `appendln()` functions of these classes.
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+    
 
 ### Bit operations
 
@@ -15747,7 +15712,7 @@ New functions for bit manipulations:
 * `takeLowestOneBit()` 
 * `rotateLeft()` and `rotateRight()` (experimental)
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val number = "1010000".toInt(radix = 2)
@@ -15757,7 +15722,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 ### Delegated properties improvements
 
@@ -15776,7 +15741,7 @@ described in [this blog post](https://blog.jetbrains.com/kotlin/2019/12/what-to-
 A new extension property `KType.javaType` (currently experimental) in the stdlib helps you obtain a `java.lang.reflect.Type`
 from a Kotlin type without using the whole `kotlin-reflect` dependency.
 
-```java,kotlin
+```kotlin
 import kotlin.reflect.javaType
 import kotlin.reflect.typeOf
 
@@ -15798,7 +15763,7 @@ fun main() {
    // Java type: java.util.List<java.lang.String>
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 ### Proguard configurations for Kotlin reflection
 
@@ -15980,7 +15945,7 @@ For more information, please refer to the [multiplatform programming documentati
 The Kotlin compiler does extensive static analysis to provide warnings and reduce boilerplate. One of the most notable
 features is smartcasts — with the ability to perform a cast automatically based on the performed type checks:
 
-```java,kotlin
+```kotlin
 fun foo(s: String?) {
     if (s != null) s.length // Compiler automatically casts 's' to 'String'
 }
@@ -15988,7 +15953,7 @@ fun foo(s: String?) {
 
 However, as soon as these checks are extracted in a separate function, all the smartcasts immediately disappear:
 
-```java,kotlin
+```kotlin
 fun String?.isNotNull(): Boolean = this != null
 
 fun foo(s: String?) {
@@ -16003,7 +15968,7 @@ Currently, two wide classes of cases are supported:
 
 * Improving smartcasts analysis by declaring the relation between a function's call outcome and the passed arguments values:
 
-```java,kotlin
+```kotlin
 fun require(condition: Boolean) {
     // This is a syntax form which tells the compiler:
     // "if this function returns successfully, then the passed 'condition' is true"
@@ -16020,7 +15985,7 @@ fun foo(s: String?) {
 
 * Improving the variable initialization analysis in the presence of higher-order functions:
 
-```java,kotlin
+```kotlin
 fun synchronize(lock: Any?, block: () -> Unit) {
     // It tells the compiler:
     // "This function will invoke 'block' here and now, and exactly one time"
@@ -16043,7 +16008,7 @@ fun foo() {
 `stdlib` already makes use of contracts, which leads to improvements in the analyses described above.
 This part of contracts is **stable**, meaning that you can benefit from the improved analysis right now without any additional opt-ins:
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun bar(x: String?) {
     if (!x.isNullOrEmpty()) {
@@ -16056,7 +16021,7 @@ fun main() {
     bar("42")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Custom contracts
 
@@ -16066,7 +16031,7 @@ does not verify contracts, so it's the responsibility of the programmer to write
 
 Custom contracts are introduced by a call to `contract` stdlib function, which provides DSL scope:
 
-```java,kotlin
+```kotlin
 fun String?.isNullOrEmpty(): Boolean {
     contract {
         returns(false) implies (this@isNullOrEmpty != null)
@@ -16081,7 +16046,7 @@ See the details on the syntax as well as the compatibility notice in the [KEEP](
 
 In Kotlin 1.3, it is now possible to capture the `when` subject into a variable:
 
-```java,kotlin
+```kotlin
 fun Request.getBody() =
         when (val response = executeRequest()) {
             is Success -> response.body
@@ -16099,7 +16064,7 @@ In the classfile, such members will be lifted to the corresponding interface and
 
 For example, the following Kotlin code:
 
-```java,kotlin
+```kotlin
 interface Foo {
     companion object {
         @JvmField
@@ -16128,7 +16093,7 @@ interface Foo {
 
 In Kotlin 1.3, it is possible for annotations to have nested classes, interfaces, objects, and companions:
 
-```java,kotlin
+```kotlin
 annotation class Foo {
     enum class Direction { UP, DOWN, LEFT, RIGHT }
     
@@ -16149,12 +16114,12 @@ so this parameter often ends up not being used.
 
 Kotlin 1.3 introduced a simpler form of `main` which takes no parameters. Now "Hello, World" in Kotlin is 19 characters shorter!
 
-```java,kotlin
+```kotlin
 fun main() {
     println("Hello, world!")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 04.3.13.9. Functions with big arity
 
@@ -16163,7 +16128,7 @@ In Kotlin, functional types are represented as generic classes taking a differen
 
 Kotlin 1.3 relaxes this limitation and adds support for functions with bigger arity:
 
-```java,kotlin
+```kotlin
 fun trueEnterpriseComesToKotlin(block: (Any, Any, ... /* 42 more */, Any) -> Any) {
     block(Any(), Any(), ..., Any())
 }
@@ -16201,7 +16166,7 @@ latest language versions quickly.
 Kotlin 1.3 introduces a new kind of declaration — `inline class`. Inline classes can be viewed as a restricted version
 of the usual classes, in particular, inline classes must have exactly one property:
 
-```java,kotlin
+```kotlin
 inline class Name(val s: String)
 ```
 
@@ -16209,7 +16174,7 @@ The Kotlin compiler will use this restriction to aggressively optimize runtime r
 substitute their instances with the value of the underlying property where possible removing constructor calls, GC pressure,
 and enabling other optimizations:
 
-```java,kotlin
+```kotlin
 inline class Name(val s: String)
 //sampleStart
 fun main() {
@@ -16220,7 +16185,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 See [reference](inline-classes.md) for inline classes for details.
 
@@ -16241,7 +16206,7 @@ Kotlin 1.3 introduces unsigned integer types:
 
 Most of the functionality of signed types are supported for unsigned counterparts too:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
 // You can define unsigned types using literal suffixes
@@ -16264,7 +16229,7 @@ println("ubyte: $ubyte, byte: $byte, ulong2: $ulong2")
 println("x: $x, y: $y, z: $z, range: $range")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 See [reference](unsigned-integer-types.md) for details.
 
@@ -16281,7 +16246,7 @@ For your convenience, the Kotlin compiler works around that limitation, but this
 This could be an issue for Java-interoperability, so Kotlin 1.3 introduces the `@JvmDefault` annotation.
 Methods annotated with this annotation will be generated as `default` methods for JVM:
 
-```java,kotlin
+```kotlin
 interface Foo {
     // Will be generated as 'default' method
     @JvmDefault
@@ -16301,7 +16266,7 @@ Make sure to carefully read the [reference page](https://kotlinlang.org/api/late
 Prior to Kotlin 1.3, there was no uniform way to generate random numbers on all platforms — we had to resort to platform-specific solutions
 like `java.util.Random` on JVM. This release fixes this issue by introducing the class `kotlin.random.Random`, which is available on all platforms:
 
-```java,kotlin
+```kotlin
 import kotlin.random.Random
 
 fun main() {
@@ -16311,7 +16276,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### isNullOrEmpty and orEmpty extensions
 
@@ -16324,7 +16289,7 @@ Kotlin 1.3 provides similar extensions on collections, maps, and arrays of objec
 The `array.copyInto(targetArray, targetOffset, startIndex, endIndex)` functions for the existing array types,
 including the unsigned arrays, make it easier to implement array-based containers in pure Kotlin.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val sourceArr = arrayOf("k", "o", "t", "l", "i", "n")
@@ -16336,7 +16301,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### associateWith
 
@@ -16344,7 +16309,7 @@ It is quite a common situation to have a list of keys and want to build a map by
 It was possible to do it before with the `associate { it to getValue(it) }` function, but now we're introducing a more
 efficient and easy to explore alternative: `keys.associateWith { getValue(it) }`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val keys = 'a'..'f'
@@ -16359,7 +16324,7 @@ fun main() {
 Collections, maps, object arrays, char sequences, and sequences now have an `ifEmpty` function, which allows specifying
 a fallback value that will be used instead of the receiver if it is empty:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     fun printAllUppercase(data: List<String>) {
@@ -16374,12 +16339,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Char sequences and strings in addition have an `ifBlank` extension that does the same thing as `ifEmpty` but checks for
 a string being all whitespace instead of empty.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val s = "    \n"
@@ -16388,7 +16353,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Sealed classes in reflection
 
@@ -16471,7 +16436,7 @@ implementation of the API in an external library. Here's an example:
 
 In the common code:
 
-```java,kotlin
+```kotlin
 // expected platform-specific API:
 expect fun hello(world: String): String
 
@@ -16489,7 +16454,7 @@ expect class URL(spec: String) {
 
 In the JVM platform code:
 
-```java,kotlin
+```kotlin
 actual fun hello(world: String): String =
     "Hello, $world, on the JVM platform!"
 
@@ -16506,7 +16471,7 @@ See the [multiplatform programming documentation](multiplatform.md) for details 
 Starting with Kotlin 1.2, array arguments for annotations can be passed with the new array literal syntax instead 
 of the `arrayOf` function:
 
-```java,kotlin
+```kotlin
 @CacheConfig(cacheNames = ["books", "default"])
 public class BookRepositoryImpl {
     // ...
@@ -16521,7 +16486,7 @@ The `lateinit` modifier can now be used on top-level properties and local variab
 for example, when a lambda passed as a constructor argument to one object refers to another object 
 which has to be defined later:
 
-```java,kotlin
+```kotlin
 class Node<T>(val value: T, val next: () -> Node<T>)
 
 fun main(args: Array<String>) {
@@ -16537,13 +16502,13 @@ fun main(args: Array<String>) {
     println("Values in the cycle: ${nodes.take(7).joinToString { it.value.toString() }}, ...")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Check whether a lateinit var is initialized
 
 You can now check whether a lateinit var has been initialized using `isInitialized` on the property reference:
 
-```java,kotlin
+```kotlin
 class Foo {
     lateinit var lateinitVar: String
 
@@ -16560,13 +16525,13 @@ fun main(args: Array<String>) {
     Foo().initializationLogic()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Inline functions with default functional parameters
 
 Inline functions are now allowed to have default values for their inlined functional parameters:
 
-```java,kotlin
+```kotlin
 //sampleStart
 inline fun <E> Iterable<E>.strings(transform: (E) -> String = { it.toString() }) =
     map { transform(it) }
@@ -16580,7 +16545,7 @@ fun main(args: Array<String>) {
     println("customStrings = $customStrings")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Information from explicit casts is used for type inference
 
@@ -16591,7 +16556,7 @@ that `T` for this call needs to be bound to the type `Foo`.
 This is particularly important for Android developers, since the compiler can now correctly analyze generic
 `findViewById` calls in Android API level 26:
 
-```java,kotlin
+```kotlin
 val button = findViewById(R.id.button) as Button
 ```
 
@@ -16600,7 +16565,7 @@ val button = findViewById(R.id.button) as Button
 When a variable is assigned from a safe call expression and checked for null, the smart cast is now applied to
 the safe call receiver as well:
 
-```java,kotlin
+```kotlin
 fun countFirst(s: Any): Int {
 //sampleStart
     val firstChar = (s as? CharSequence)?.firstOrNull()
@@ -16624,11 +16589,11 @@ fun main(args: Array<String>) {
   println("called on $list: $countInList")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Also, smart casts in a lambda are now allowed for local variables that are only modified before the lambda:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val flag = args.size == 0
@@ -16643,7 +16608,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Support for  ::foo as a shorthand for this::foo
 
@@ -16680,7 +16645,7 @@ For consistency with array literals in annotations, passing a single item for a 
 form (`foo(items = i)`) has been deprecated. Please use the spread operator with the corresponding
 array factory functions:
 
-```java,kotlin
+```kotlin
 foo(items = *arrayOf(1))
 ```
 
@@ -16719,7 +16684,7 @@ New extensions for `Iterable<T>`, `Sequence<T>`, and `CharSequence` cover such u
 batch processing (`chunked`), sliding window and computing sliding average (`windowed`) , and processing pairs
 of subsequent items (`zipWithNext`):
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val items = (1..9).map { it * it }
@@ -16740,14 +16705,14 @@ fun main(args: Array<String>) {
     println("pairwise differences: $pairwiseDifferences")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### fill, replaceAll, shuffle/shuffled
 
 A set of extension functions was added for manipulating lists: `fill`, `replaceAll` and `shuffle` for `MutableList`,
 and `shuffled` for read-only `List`:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val items = (1..5).toMutableList()
@@ -16763,7 +16728,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Math operations in kotlin-stdlib
 
@@ -16916,7 +16881,7 @@ a call to such a function can potentially suspend a coroutine, and to start a ne
 
 Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
 
-```java,kotlin
+```kotlin
 // runs the code in the background thread pool
 fun asyncOverlay() = async(CommonPool) {
     // start two async operations
@@ -16941,7 +16906,7 @@ The standard library uses coroutines to support *lazily generated sequences* wit
 In such a sequence, the block of code that returns sequence elements is suspended after each element has been retrieved,
 and resumed when the next element is requested. Here's an example:
 
-```java,kotlin
+```kotlin
 import kotlin.coroutines.experimental.*
 
 fun main(args: Array<String>) {
@@ -16974,7 +16939,7 @@ A type alias allows you to define an alternative name for an existing type.
 This is most useful for generic types such as collections, as well as for function types.
 Here is an example:
 
-```java,kotlin
+```kotlin
 //sampleStart
 typealias OscarWinners = Map<String, String>
 
@@ -17003,7 +16968,7 @@ fun main(args: Array<String>) {
     println("LaLaLandIsTheBestMovie = $laLaLandIsTheBestMovie")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 See the [type aliases documentation](type-aliases.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/type-aliases.md) for more details.
 
@@ -17013,7 +16978,7 @@ You can now use the `::` operator to get a [member reference](reflection.md#func
 property of a specific object instance. Previously this could only be expressed with a lambda.
 Here's an example:
 
-```java,kotlin
+```kotlin
 //sampleStart
 val numberRegex = "\\d+".toRegex()
 val numbers = listOf("abc", "123", "456").filter(numberRegex::matches)
@@ -17023,7 +16988,7 @@ fun main(args: Array<String>) {
     println("Result is $numbers")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Read the [documentation](reflection.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/bound-callable-references.md) for more details.
 
@@ -17034,7 +16999,7 @@ Now you can define subclasses of a top-level sealed class on the top level in th
 Data classes can now extend other classes.
 This can be used to define a hierarchy of expression classes nicely and cleanly:
 
-```java,kotlin
+```kotlin
 //sampleStart
 sealed class Expr
 
@@ -17054,7 +17019,7 @@ fun main(args: Array<String>) {
     println("e is $e") // 3.0
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Read the [sealed classes documentation](sealed-classes.md) or KEEPs for
 [sealed class](https://github.com/Kotlin/KEEP/blob/master/proposals/sealed-class-inheritance.md) and
@@ -17065,7 +17030,7 @@ Read the [sealed classes documentation](sealed-classes.md) or KEEPs for
 You can now use the [destructuring declaration](destructuring-declarations.md) syntax to unpack the arguments passed to a lambda.
 Here's an example:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val map = mapOf(1 to "one", 2 to "two")
@@ -17079,7 +17044,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Read the [destructuring declarations documentation](destructuring-declarations.md) and [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/destructuring-in-parameters.md) for more details.
 
@@ -17087,7 +17052,7 @@ Read the [destructuring declarations documentation](destructuring-declarations.m
 
 For a lambda with multiple parameters, you can use the `_` character to replace the names of the parameters you don't use:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
     val map = mapOf(1 to "one", 2 to "two")
 
@@ -17096,11 +17061,11 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 This also works in [destructuring declarations](destructuring-declarations.md):
 
-```java,kotlin
+```kotlin
 data class Result(val value: Any, val status: String)
 
 fun getResult() = Result(42, "ok").also { println("getResult() returns $it") }
@@ -17112,7 +17077,7 @@ fun main(args: Array<String>) {
     println("status is '$status'")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-for-unused-parameters.md) for more details.
 
@@ -17120,7 +17085,7 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscore-
 
 Just as in Java 8, Kotlin now allows to use underscores in numeric literals to separate groups of digits:
 
-```java,kotlin
+```kotlin
 //sampleStart
 val oneMillion = 1_000_000
 val hexBytes = 0xFF_EC_DE_5E
@@ -17133,7 +17098,7 @@ fun main(args: Array<String>) {
     println(bytes.toString(2))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores-in-numeric-literals.md) for more details.
 
@@ -17141,7 +17106,7 @@ Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/underscores
 
 For properties with the getter defined as an expression body, the property type can now be omitted:
 
-```java,kotlin
+```kotlin
 //sampleStart
     data class Person(val name: String, val age: Int) {
     val isAdult get() = age >= 20 // Property type inferred to be 'Boolean'
@@ -17152,14 +17117,14 @@ fun main(args: Array<String>) {
     println("$akari.isAdult = ${akari.isAdult}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Inline property accessors
 
 You can now mark property accessors with the `inline` modifier if the properties don't have a backing field.
 Such accessors are compiled in the same way as [inline functions](inline-functions.md).
 
-```java,kotlin
+```kotlin
 //sampleStart
 public val <T> List<T>.lastIndex: Int
     inline get() = this.size - 1
@@ -17171,7 +17136,7 @@ fun main(args: Array<String>) {
     println("Last index of $list is ${list.lastIndex}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also mark the entire property as `inline` - then the modifier is applied to both accessors.
 
@@ -17182,7 +17147,7 @@ Read the [inline functions documentation](inline-functions.md#inline-properties)
 You can now use the [delegated property](delegated-properties.md) syntax with local variables.
 One possible use is defining a lazily evaluated local variable:
 
-```java,kotlin
+```kotlin
 import java.util.Random
 
 fun needAnswer() = Random().nextBoolean()
@@ -17202,7 +17167,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Read the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/local-delegated-properties.md) for more details.
 
@@ -17212,7 +17177,7 @@ For [delegated properties](delegated-properties.md), it is now possible to inter
 `provideDelegate` operator.
 For example, if we want to check the property name before binding, we can write something like this:
 
-```java,kotlin
+```kotlin
 class ResourceLoader<T>(id: ResourceID<T>) {
     operator fun provideDelegate(thisRef: MyUI, prop: KProperty<*>): ReadOnlyProperty<MyUI, T> {
         checkProperty(thisRef, prop.name)
@@ -17239,7 +17204,7 @@ Read the [delegated properties documentation](delegated-properties.md) for more 
 
 It is now possible to enumerate the values of an enum class in a generic way.
 
-```java,kotlin
+```kotlin
 //sampleStart
 enum class RGB { RED, GREEN, BLUE }
 
@@ -17252,7 +17217,7 @@ fun main(args: Array<String>) {
     printAllValues<RGB>() // prints RED, GREEN, BLUE
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Scope control for implicit receivers in DSLs
 
@@ -17260,7 +17225,7 @@ The [`@DslMarker`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-dsl-mark
 the use of receivers from outer scopes in a DSL context.
 Consider the canonical [HTML builder example](type-safe-builders.md):
 
-```java,kotlin
+```kotlin
 table {
     tr {
         td { + "Text" }
@@ -17289,7 +17254,7 @@ The `mod` operator is now deprecated, and `rem` is used instead. See [this issue
 There is a bunch of new extensions on the String class to convert it to a number without throwing an exception on invalid number:
 `String.toIntOrNull(): Int?`, `String.toDoubleOrNull(): Double?` etc.
 
-```java,kotlin
+```kotlin
 val port = System.getenv("PORT")?.toIntOrNull() ?: 80
 ```
 
@@ -17303,7 +17268,7 @@ possibly with side-effects, on each element of the collection/sequence in a chai
 On iterables it behaves like `forEach` but also returns the iterable instance further. And on sequences it returns a
 wrapping sequence, which applies the given action lazily as the elements are being iterated.
 
-```java,kotlin
+```kotlin
 inputDir.walk()
         .filter { it.isFile && it.name.endsWith(".txt") }
         .onEach { println("Moving $it to $outputDir") }
@@ -17319,7 +17284,7 @@ The difference is that in the block inside `apply` the receiver is available as 
 while in the block inside `also` it's available as `it` (and you can give it another name if you want).
 This comes handy when you do not want to shadow `this` from the outer scope:
 
-```java,kotlin
+```kotlin
 class Block {
     lateinit var content: String
 }
@@ -17342,18 +17307,18 @@ fun main(args: Array<String>) {
     println(block.content == copy.content)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `takeIf` is like `filter` for a single value. It checks whether the receiver meets the predicate, and
 returns the receiver, if it does or `null` if it doesn't. 
 Combined with an elvis operator (?:) and early returns it allows writing constructs like:
 
-```java,kotlin
+```kotlin
 val outDirFile = File(outputDir.path).takeIf { it.exists() } ?: return false
 // do something with existing outDirFile
 ```
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
     val input = "Kotlin"
     val keyword = "in"
@@ -17368,18 +17333,18 @@ fun main(args: Array<String>) {
     println(" ".repeat(index) + "^")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `takeUnless` is the same as `takeIf`, but it takes the inverted predicate. It returns the receiver when it _doesn't_ meet
 the predicate and `null` otherwise. So one of the examples above could be rewritten with `takeUnless` as following:
 
-```java,kotlin
+```kotlin
 val index = input.indexOf(keyword).takeUnless { it < 0 } ?: error("keyword not found")
 ```
 
 It is also convenient to use when you have a callable reference instead of the lambda:
 
-```java,kotlin
+```kotlin
 private fun testTakeUnless(string: String) {
 //sampleStart
     val result = string.takeUnless(String::isEmpty)
@@ -17393,14 +17358,14 @@ fun main(args: Array<String>) {
     testTakeUnless("abc")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### groupingBy()
 
 This API can be used to group a collection by key and fold each group simultaneously. For example, it can be used
 to count the number of words starting with each letter:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
     val words = "one two three four five six seven eight nine ten".split(' ')
 //sampleStart
@@ -17414,13 +17379,13 @@ fun main(args: Array<String>) {
     println("Comparing the result with using 'groupBy': ${groupBy == frequencies}.")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Map.toMap() and Map.toMutableMap()
 
 These functions can be used for easy copying of maps:
 
-```java,kotlin
+```kotlin
 class ImmutablePropertyBag(map: Map<String, Any>) {
     private val mapCopy = map.toMap()
 }
@@ -17434,7 +17399,7 @@ a simple way to do the opposite: to remove a key from the map you have to resort
 Now the operator `minus` fills this gap. There are 4 overloads available: for removing a single key, a collection of keys,
 a sequence of keys and an array of keys.
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val map = mapOf("key" to 42)
@@ -17445,7 +17410,7 @@ fun main(args: Array<String>) {
     println("emptyMap: $emptyMap")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### minOf() and maxOf()
 
@@ -17453,7 +17418,7 @@ These functions can be used to find the lowest and greatest of two or three give
 or `Comparable` objects. There is also an overload of each function that take an additional `Comparator` instance
 if you want to compare objects that are not comparable themselves.
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val list1 = listOf("a", "b")
@@ -17466,14 +17431,14 @@ fun main(args: Array<String>) {
     println("longestList = $longestList")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Array-like List instantiation functions
 
 Similar to the `Array` constructor, there are now functions that create `List` and `MutableList` instances and initialize
 each element by calling a lambda:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val squares = List(10) { index -> index * index }
@@ -17484,14 +17449,14 @@ fun main(args: Array<String>) {
     println("mutable: $mutable")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Map.getValue()
 
 This extension on `Map` returns an existing value corresponding to the given key or throws an exception, mentioning which key was not found.
 If the map was produced with `withDefault`, this function will return the default value instead of throwing an exception.
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart    
     val map = mapOf("key" to 42)
@@ -17509,7 +17474,7 @@ fun main(args: Array<String>) {
     println("value2 is $value2")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Abstract collections
 
@@ -17526,7 +17491,7 @@ and conversion to a string (`contentToString` and `contentDeepToString`). They'r
 (where they act as aliases for the corresponding functions in `java.util.Arrays`) and for JS (where the implementation
 is provided in the Kotlin standard library).
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
 //sampleStart
     val array = arrayOf("a", "b", "c")
@@ -17535,7 +17500,7 @@ fun main(args: Array<String>) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 04.3.14.13. JVM Backend
 
@@ -17570,7 +17535,7 @@ your own synchronization for accessing the variables.
 Kotlin now integrates with the [javax.script API](https://docs.oracle.com/javase/8/docs/api/javax/script/package-summary.html) (JSR-223).
 The API allows to evaluate snippets of code at runtime:
 
-```java,kotlin
+```kotlin
 val engine = ScriptEngineManager().getEngineByExtension("kts")!!
 engine.eval("val x = 3")
 println(engine.eval("x + 2"))  // Prints out 5
@@ -17607,7 +17572,7 @@ declaration using the `external` modifier. (In Kotlin 1.0, the `@native` annotat
 Unlike the JVM target, the JS one permits to use external modifier with classes and properties.
 For example, here's how you can declare the DOM `Node` class:
 
-```java,kotlin
+```kotlin
 external class Node {
     val firstChild: Node
 
@@ -17630,7 +17595,7 @@ you can use the `@JsNonModule` annotation.
 
 For example, here's how you can import JQuery into a Kotlin module:
 
-```java,kotlin
+```kotlin
 external interface JQuery {
     fun toggle(duration: Int = definedExternally): JQuery
     fun click(handler: (Event) -> Unit): JQuery
@@ -17647,7 +17612,7 @@ depending on what module system Kotlin compiler is configured to use.
 
 You can use these declarations in your application like this:
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
     jquery(".toggle-button").click {
         jquery(".toggle-panel").toggle(300)
@@ -18140,7 +18105,7 @@ by JetBrains Academy.
 
 Package specification should be at the top of the source file.
 
-```java,kotlin
+```kotlin
 package my.demo
 
 import kotlin.text.*
@@ -18156,27 +18121,27 @@ See [Packages](packages.md).
 
 An entry point of a Kotlin application is the `main` function.
 
-```java,kotlin
+```kotlin
 fun main() {
     println("Hello world!")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-hello-world"}
+
 
 Another form of `main` accepts a variable number of `String` arguments. 
 
-```java,kotlin
+```kotlin
 fun main(args: Array<String>) {
     println(args.contentToString())
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 06.1.03. Print to the standard output
 
 `print` prints its argument to the standard output.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     print("Hello ")
@@ -18184,11 +18149,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-print"}
+
 
 `println` prints its arguments and adds a line break, so that the next thing you print appears on the next line.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     println("Hello world!")
@@ -18196,13 +18161,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-println"}
+
 
 ## 06.1.04. Functions
 
 A function with two `Int` parameters and `Int` return type.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun sum(a: Int, b: Int): Int {
     return a + b
@@ -18214,11 +18179,11 @@ fun main() {
     println(sum(3, 5))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-return-int"}
+
 
 A function body can be an expression. Its return type is inferred.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun sum(a: Int, b: Int) = a + b
 //sampleEnd
@@ -18227,11 +18192,11 @@ fun main() {
     println("sum of 19 and 23 is ${sum(19, 23)}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-expression"}
+
 
 A function that returns no meaningful value.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun printSum(a: Int, b: Int): Unit {
     println("sum of $a and $b is ${a + b}")
@@ -18242,11 +18207,11 @@ fun main() {
     printSum(-1, 8)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-return-unit"}
+
 
 `Unit` return type can be omitted.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun printSum(a: Int, b: Int) {
     println("sum of $a and $b is ${a + b}")
@@ -18257,7 +18222,7 @@ fun main() {
     printSum(-1, 8)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-omit-unit"}
+
 
 See [Functions](functions.md).
 
@@ -18265,7 +18230,7 @@ See [Functions](functions.md).
 
 Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val a: Int = 1  // immediate assignment
@@ -18276,11 +18241,11 @@ fun main() {
     println("a = $a, b = $b, c = $c")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-val"}
+
 
 Variables that can be reassigned use the `var` keyword.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var x = 5 // `Int` type is inferred
@@ -18289,11 +18254,11 @@ fun main() {
     println("x = $x")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-var"}
+
 
 You can declare variables at the top level.
 
-```java,kotlin
+```kotlin
 //sampleStart
 val PI = 3.14
 var x = 0
@@ -18310,20 +18275,20 @@ fun main() {
     println("x = $x; PI = $PI")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-variable-top-level"}
+
 
 See also [Properties](properties.md).
 
 ## 06.1.06. Creating classes and instances
 
 To define a class, use the `class` keyword.
-```java,kotlin
+```kotlin
 class Shape
 ```
 
 Properties of a class can be listed in its declaration or body. 
 
-```java,kotlin
+```kotlin
 class Rectangle(var height: Double, var length: Double) {
     var perimeter = (height + length) * 2 
 }
@@ -18331,7 +18296,7 @@ class Rectangle(var height: Double, var length: Double) {
 
 The default constructor with parameters listed in the class declaration is available automatically. 
 
-```java,kotlin
+```kotlin
 class Rectangle(var height: Double, var length: Double) {
     var perimeter = (height + length) * 2 
 }
@@ -18342,12 +18307,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-class-constructor"}
+
 
 Inheritance between classes is declared by a colon (`:`). Classes are final by default; to make a class inheritable, 
 mark it as `open`.
 
-```java,kotlin
+```kotlin
 open class Shape
 
 class Rectangle(var height: Double, var length: Double): Shape() {
@@ -18361,7 +18326,7 @@ See [classes](classes.md) and [objects and instances](object-declarations.md).
 
 Just like most modern languages, Kotlin supports single-line (or _end-of-line_) and multi-line (_block_) comments.
 
-```java,kotlin
+```kotlin
 // This is an end-of-line comment
 
 /* This is a block comment
@@ -18370,7 +18335,7 @@ Just like most modern languages, Kotlin supports single-line (or _end-of-line_) 
 
 Block comments in Kotlin can be nested.
 
-```java,kotlin
+```kotlin
 /* The comment starts here
 /* contains a nested comment *&#8288;/     
 and ends here. */
@@ -18380,7 +18345,7 @@ See [Documenting Kotlin Code](kotlin-doc.md) for information on the documentatio
 
 ## 06.1.08. String templates
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var a = 1
@@ -18394,13 +18359,13 @@ fun main() {
     println(s2)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-string-templates"}
+
 
 See [String templates](strings.md#string-templates) for details.
 
 ## 06.1.09. Conditional expressions
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun maxOf(a: Int, b: Int): Int {
     if (a > b) {
@@ -18415,11 +18380,11 @@ fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-conditional-expressions"}
+
 
 In Kotlin, `if` can also be used as an expression.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun maxOf(a: Int, b: Int) = if (a > b) a else b
 //sampleEnd
@@ -18428,13 +18393,13 @@ fun main() {
     println("max of 0 and 42 is ${maxOf(0, 42)}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-if-expression"}
+
 
 See [`if`-expressions](control-flow.md#if-expression).
 
 ## 06.1.10. for loop
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val items = listOf("apple", "banana", "kiwifruit")
@@ -18444,11 +18409,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-for-loop"}
+
 
 or
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val items = listOf("apple", "banana", "kiwifruit")
@@ -18458,13 +18423,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-for-loop-indices"}
+
 
 See [for loop](control-flow.md#for-loops).
 
 ## 06.1.11. while loop
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val items = listOf("apple", "banana", "kiwifruit")
@@ -18476,13 +18441,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-while-loop"}
+
 
 See [while loop](control-flow.md#while-loops).
 
 ## 06.1.12. when expression
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun describe(obj: Any): String =
     when (obj) {
@@ -18502,7 +18467,7 @@ fun main() {
     println(describe("other"))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-when-expression"}
+
 
 See [when expression](control-flow.md#when-expression).
 
@@ -18510,7 +18475,7 @@ See [when expression](control-flow.md#when-expression).
 
 Check if a number is within a range using `in` operator.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val x = 10
@@ -18521,11 +18486,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-range-in"}
+
 
 Check if a number is out of range.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val list = listOf("a", "b", "c")
@@ -18539,11 +18504,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-out-of-range"}
+
 
 Iterate over a range.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (x in 1..5) {
@@ -18552,11 +18517,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-range"}
+
 
 Or over a progression.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (x in 1..10 step 2) {
@@ -18569,7 +18534,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-progression"}
+
 
 See [Ranges and progressions](ranges.md).
 
@@ -18577,7 +18542,7 @@ See [Ranges and progressions](ranges.md).
 
 Iterate over a collection.
 
-```java,kotlin
+```kotlin
 fun main() {
     val items = listOf("apple", "banana", "kiwifruit")
 //sampleStart
@@ -18587,11 +18552,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-collection"}
+
 
 Check if a collection contains an object using `in` operator.
 
-```java,kotlin
+```kotlin
 fun main() {
     val items = setOf("apple", "banana", "kiwifruit")
 //sampleStart
@@ -18602,11 +18567,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-collection-in"}
+
 
 Using lambda expressions to filter and map collections:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
@@ -18618,7 +18583,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-collection-filter-map"}
+
 
 See [Collections overview](collections-overview.md).
 
@@ -18628,7 +18593,7 @@ A reference must be explicitly marked as nullable when `null` value is possible.
 
 Return `null` if `str` does not hold an integer:
 
-```java,kotlin
+```kotlin
 fun parseInt(str: String): Int? {
     // ...
 }
@@ -18636,7 +18601,7 @@ fun parseInt(str: String): Int? {
 
 Use a function returning nullable value:
 
-```java,kotlin
+```kotlin
 fun parseInt(str: String): Int? {
     return str.toIntOrNull()
 }
@@ -18663,11 +18628,11 @@ fun main() {
     printProduct("a", "b")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-nullable-value"}
+
 
 or
 
-```java,kotlin
+```kotlin
 fun parseInt(str: String): Int? {
     return str.toIntOrNull()
 }
@@ -18698,7 +18663,7 @@ fun main() {
     printProduct("99", "b")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-null-check"}
+
 
 See [Null-safety](null-safety.md).
 
@@ -18707,7 +18672,7 @@ See [Null-safety](null-safety.md).
 The `is` operator checks if an expression is an instance of a type.
 If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun getStringLength(obj: Any): Int? {
     if (obj is String) {
@@ -18729,11 +18694,11 @@ fun main() {
     printLength(listOf(Any()))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator"}
+
 
 or
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun getStringLength(obj: Any): Int? {
     if (obj !is String) return null
@@ -18752,11 +18717,11 @@ fun main() {
     printLength(listOf(Any()))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator-expression"}
+
 
 or even
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun getStringLength(obj: Any): Int? {
     // `obj` is automatically cast to `String` on the right-hand side of `&&`
@@ -18777,7 +18742,7 @@ fun main() {
     printLength(1000)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator-logic"}
+
 
 See [Classes](classes.md) and [Type casts](typecasts.md).
 
@@ -18788,7 +18753,7 @@ A collection of random and frequently used idioms in Kotlin. If you have a favor
 
 ## 06.2.01. Create DTOs (POJOs/POCOs)
 
-```java,kotlin
+```kotlin
 data class Customer(val name: String, val email: String)
 ```
 
@@ -18803,19 +18768,19 @@ provides a `Customer` class with the following functionality:
 
 ## 06.2.02. Default values for function parameters
 
-```java,kotlin
+```kotlin
 fun foo(a: Int = 0, b: String = "") { ... }
 ```
 
 ## 06.2.03. Filter a list
 
-```java,kotlin
+```kotlin
 val positives = list.filter { x -> x > 0 }
 ```
 
 Or alternatively, even shorter:
 
-```java,kotlin
+```kotlin
 val positives = list.filter { it > 0 }
 ```
 
@@ -18823,7 +18788,7 @@ Learn the difference between [Java and Kotlin filtering](java-to-kotlin-collecti
 
 ## 06.2.04. Check the presence of an element in a collection
 
-```java,kotlin
+```kotlin
 if ("john@example.com" in emailsList) { ... }
 
 if ("jane@example.com" !in emailsList) { ... }
@@ -18831,7 +18796,7 @@ if ("jane@example.com" !in emailsList) { ... }
 
 ## 06.2.05. String interpolation
 
-```java,kotlin
+```kotlin
 println("Name $name")
 ```
 
@@ -18839,7 +18804,7 @@ Learn the difference between [Java and Kotlin string concatenation](java-to-kotl
 
 ## 06.2.06. Instance checks
 
-```java,kotlin
+```kotlin
 when (x) {
     is Foo -> ...
     is Bar -> ...
@@ -18849,25 +18814,25 @@ when (x) {
 
 ## 06.2.07. Read-only list
 
-```java,kotlin
+```kotlin
 val list = listOf("a", "b", "c")
 ```
 ## 06.2.08. Read-only map
 
-```java,kotlin
+```kotlin
 val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 ```
 
 ## 06.2.09. Access a map entry
 
-```java,kotlin
+```kotlin
 println(map["key"])
 map["key"] = value
 ```
 
 ## 06.2.10. Traverse a map or a list of pairs
 
-```java,kotlin
+```kotlin
 for ((k, v) in map) {
     println("$k -> $v")
 }
@@ -18877,7 +18842,7 @@ for ((k, v) in map) {
 
 ## 06.2.11. Iterate over a range
 
-```java,kotlin
+```kotlin
 for (i in 1..100) { ... }  // closed-ended range: includes 100
 for (i in 1..<100) { ... } // open-ended range: does not include 100
 for (x in 2..10 step 2) { ... }
@@ -18887,7 +18852,7 @@ for (x in 10 downTo 1) { ... }
 
 ## 06.2.12. Lazy property
 
-```java,kotlin
+```kotlin
 val p: String by lazy { // the value is computed only on first access
     // compute the string
 }
@@ -18895,7 +18860,7 @@ val p: String by lazy { // the value is computed only on first access
 
 ## 06.2.13. Extension functions
 
-```java,kotlin
+```kotlin
 fun String.spaceToCamelCase() { ... }
 
 "Convert this to camelcase".spaceToCamelCase()
@@ -18903,7 +18868,7 @@ fun String.spaceToCamelCase() { ... }
 
 ## 06.2.14. Create a singleton
 
-```java,kotlin
+```kotlin
 object Resource {
     val name = "Name"
 }
@@ -18911,7 +18876,7 @@ object Resource {
 
 ## 06.2.15. Instantiate an abstract class
 
-```java,kotlin
+```kotlin
 abstract class MyAbstractClass {
     abstract fun doSomething()
     abstract fun sleep()
@@ -18932,7 +18897,7 @@ fun main() {
 
 ## 06.2.16. If-not-null shorthand
 
-```java,kotlin
+```kotlin
 val files = File("Test").listFiles()
 
 println(files?.size) // size is printed if files is not null
@@ -18940,7 +18905,7 @@ println(files?.size) // size is printed if files is not null
 
 ## 06.2.17. If-not-null-else shorthand
 
-```java,kotlin
+```kotlin
 val files = File("Test").listFiles()
 
 // For simple fallback values:
@@ -18956,14 +18921,14 @@ println(filesSize)
 
 ## 06.2.18. Execute a statement if null
 
-```java,kotlin
+```kotlin
 val values = ...
 val email = values["email"] ?: throw IllegalStateException("Email is missing!")
 ```
 
 ## 06.2.19. Get first item of a possibly empty collection
 
-```java,kotlin
+```kotlin
 val emails = ... // might be empty
 val mainEmail = emails.firstOrNull() ?: ""
 ```
@@ -18972,7 +18937,7 @@ Learn the difference between [Java and Kotlin first item getting](java-to-kotlin
 
 ## 06.2.20. Execute if not null
 
-```java,kotlin
+```kotlin
 val value = ...
 
 value?.let {
@@ -18982,7 +18947,7 @@ value?.let {
 
 ## 06.2.21. Map nullable value if not null
 
-```java,kotlin
+```kotlin
 val value = ...
 
 val mapped = value?.let { transformValue(it) } ?: defaultValue 
@@ -18991,7 +18956,7 @@ val mapped = value?.let { transformValue(it) } ?: defaultValue
 
 ## 06.2.22. Return on when statement
 
-```java,kotlin
+```kotlin
 fun transform(color: String): Int {
     return when (color) {
         "Red" -> 0
@@ -19004,7 +18969,7 @@ fun transform(color: String): Int {
 
 ## 06.2.23. try-catch expression
 
-```java,kotlin
+```kotlin
 fun test() {
     val result = try {
         count()
@@ -19018,7 +18983,7 @@ fun test() {
 
 ## 06.2.24. if expression
 
-```java,kotlin
+```kotlin
 val y = if (x == 1) {
     "one"
 } else if (x == 2) {
@@ -19030,7 +18995,7 @@ val y = if (x == 1) {
 
 ## 06.2.25. Builder-style usage of methods that return Unit
 
-```java,kotlin
+```kotlin
 fun arrayOfMinusOnes(size: Int): IntArray {
     return IntArray(size).apply { fill(-1) }
 }
@@ -19038,13 +19003,13 @@ fun arrayOfMinusOnes(size: Int): IntArray {
 
 ## 06.2.26. Single-expression functions
 
-```java,kotlin
+```kotlin
 fun theAnswer() = 42
 ```
 
 This is equivalent to
 
-```java,kotlin
+```kotlin
 fun theAnswer(): Int {
     return 42
 }
@@ -19052,7 +19017,7 @@ fun theAnswer(): Int {
 
 This can be effectively combined with other idioms, leading to shorter code. For example, with the `when` expression:
 
-```java,kotlin
+```kotlin
 fun transform(color: String): Int = when (color) {
     "Red" -> 0
     "Green" -> 1
@@ -19063,7 +19028,7 @@ fun transform(color: String): Int = when (color) {
 
 ## 06.2.27. Call multiple methods on an object instance (with)
 
-```java,kotlin
+```kotlin
 class Turtle {
     fun penDown()
     fun penUp()
@@ -19084,7 +19049,7 @@ with(myTurtle) { //draw a 100 pix square
 
 ## 06.2.28. Configure properties of an object (apply)
 
-```java,kotlin
+```kotlin
 val myRectangle = Rectangle().apply {
     length = 4
     breadth = 5
@@ -19096,7 +19061,7 @@ This is useful for configuring properties that aren't present in the object cons
 
 ## 06.2.29. Java 7's try-with-resources
 
-```java,kotlin
+```kotlin
 val stream = Files.newInputStream(Paths.get("/some/file.txt"))
 stream.buffered().reader().use { reader ->
     println(reader.readText())
@@ -19105,7 +19070,7 @@ stream.buffered().reader().use { reader ->
 
 ## 06.2.30. Generic function that requires the generic type information
 
-```java,kotlin
+```kotlin
 //  public final class Gson {
 //     ...
 //     public <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
@@ -19116,7 +19081,7 @@ inline fun <reified T: Any> Gson.fromJson(json: JsonElement): T = this.fromJson(
 
 ## 06.2.31. Nullable Boolean
 
-```java,kotlin
+```kotlin
 val b: Boolean? = ...
 if (b == true) {
     ...
@@ -19127,7 +19092,7 @@ if (b == true) {
 
 ## 06.2.32. Swap two variables
 
-```java,kotlin
+```kotlin
 var a = 1
 var b = 2
 a = b.also { b = a }
@@ -19139,7 +19104,7 @@ Kotlin's standard library has a `TODO()` function that will always throw a `NotI
 Its return type is `Nothing` so it can be used regardless of expected type.
 There's also an overload that accepts a reason parameter:
 
-```java,kotlin
+```kotlin
 fun calcTaxes(): BigDecimal = TODO("Waiting for feedback from accounting")
 ```
 
@@ -19294,7 +19259,7 @@ or use the camel case (`org.example.myProject`).
 
 * Names of classes and objects start with an uppercase letter and use the camel case:
 
-```java,kotlin
+```kotlin
 open class DeclarationProcessor { /*...*/ }
 
 object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
@@ -19304,14 +19269,14 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
  
 Names of functions, properties and local variables start with a lowercase letter and use the camel case and no underscores:
 
-```java,kotlin
+```kotlin
 fun processDeclarations() { /*...*/ }
 var declarationCount = 1
 ```
 
 Exception: factory functions used to create instances of classes can have the same name as the abstract return type:
 
-```java,kotlin
+```kotlin
 interface Foo { /*...*/ }
 
 class FooImpl : Foo { /*...*/ }
@@ -19325,7 +19290,7 @@ In tests (and **only** in tests), you can use method names with spaces enclosed 
 Note that such method names are currently not supported by the Android runtime. Underscores in method names are
 also allowed in test code.
 
-```java,kotlin
+```kotlin
 class MyTestCase {
      @Test fun `ensure everything works`() { /*...*/ }
      
@@ -19339,20 +19304,20 @@ Names of constants (properties marked with `const`, or top-level or object `val`
 that hold deeply immutable data) should use uppercase underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
 names:
 
-```java,kotlin
+```kotlin
 const val MAX_COUNT = 8
 val USER_NAME_FIELD = "UserName"
 ```
 
 Names of top-level or object properties which hold objects with behavior or mutable data should use camel case names:
 
-```java,kotlin
+```kotlin
 val mutableCollection: MutableSet<String> = HashSet()
 ```
 
 Names of properties holding references to singleton objects can use the same naming style as `object` declarations:
 
-```java,kotlin
+```kotlin
 val PersonComparator: Comparator<Person> = /*...*/
 ```
 
@@ -19364,7 +19329,7 @@ For enum constants, it's OK to use either uppercase underscore-separated names (
 If a class has two properties which are conceptually the same but one is part of a public API and another is an implementation
 detail, use an underscore as the prefix for the name of the private property:
 
-```java,kotlin
+```kotlin
 class C {
     private val _elementList = mutableListOf<Element>()
 
@@ -19396,7 +19361,7 @@ Use four spaces for indentation. Do not use tabs.
 For curly braces, put the opening brace at the end of the line where the construct begins, and the closing brace
 on a separate line aligned horizontally with the opening construct.
 
-```java,kotlin
+```kotlin
 if (elements != null) {
     for (element in elements) {
         // ...
@@ -19419,7 +19384,7 @@ if (elements != null) {
 
 * Do not put a space before an opening parenthesis in a primary constructor declaration, method declaration or method call.
 
-```java,kotlin
+```kotlin
 class A(val x: Int)
 
 fun foo(x: Int) { ... }
@@ -19456,7 +19421,7 @@ Don't put a space before `:` when it separates a declaration and its type.
  
 Always put a space after `:`.
 
-```java,kotlin
+```kotlin
 abstract class Foo<out T : Any> : IFoo {
     abstract fun foo(a: Int): T
 }
@@ -19472,7 +19437,7 @@ class FooImpl : Foo() {
 
 Classes with a few primary constructor parameters can be written in a single line:
 
-```java,kotlin
+```kotlin
 class Person(id: Int, name: String)
 ```
 
@@ -19480,7 +19445,7 @@ Classes with longer headers should be formatted so that each primary constructor
 Also, the closing parenthesis should be on a new line. If you use inheritance, the superclass constructor call, or 
 the list of implemented interfaces should be located on the same line as the parenthesis:
 
-```java,kotlin
+```kotlin
 class Person(
     id: Int,
     name: String,
@@ -19491,7 +19456,7 @@ class Person(
 For multiple interfaces, the superclass constructor call should be located first and then each interface should
 be located in a different line:
 
-```java,kotlin
+```kotlin
 class Person(
     id: Int,
     name: String,
@@ -19502,7 +19467,7 @@ class Person(
 
 For classes with a long supertype list, put a line break after the colon and align all supertype names horizontally:
 
-```java,kotlin
+```kotlin
 class MyFavouriteVeryLongClassHolder :
     MyLongHolder<MyFavouriteVeryLongClass>(),
     SomeOtherInterface,
@@ -19515,7 +19480,7 @@ class MyFavouriteVeryLongClassHolder :
 To clearly separate the class header and body when the class header is long, either put a blank line
 following the class header (as in the example above), or put the opening curly brace on a separate line:
 
-```java,kotlin
+```kotlin
 class MyFavouriteVeryLongClassHolder :
     MyLongHolder<MyFavouriteVeryLongClass>(),
     SomeOtherInterface,
@@ -19532,7 +19497,7 @@ declared in the body of a class.
 
 If a declaration has multiple modifiers, always put them in the following order:
 
-```java,kotlin
+```kotlin
 public / protected / private / internal
 expect / actual
 final / open / abstract / sealed / const
@@ -19553,7 +19518,7 @@ data
 
 Place all annotations before modifiers:
 
-```java,kotlin
+```kotlin
 @Named("Foo")
 private val foo: Foo
 ```
@@ -19564,21 +19529,21 @@ Unless you're working on a library, omit redundant modifiers (for example, `publ
 
 Place annotations on separate lines before the declaration to which they are attached, and with the same indentation:
 
-```java,kotlin
+```kotlin
 @Target(AnnotationTarget.PROPERTY)
 annotation class JsonExclude
 ```
 
 Annotations without arguments may be placed on the same line:
 
-```java,kotlin
+```kotlin
 @JsonExclude @JvmField
 var x: String
 ```
 
 A single annotation without arguments may be placed on the same line as the corresponding declaration:
 
-```java,kotlin
+```kotlin
 @Test fun foo() { /*...*/ }
 ```
 
@@ -19587,7 +19552,7 @@ A single annotation without arguments may be placed on the same line as the corr
 File annotations are placed after the file comment (if any), before the `package` statement, 
 and are separated from `package` with a blank line (to emphasize the fact that they target the file and not the package).
 
-```java,kotlin
+```kotlin
 /** License, copyright and whatever */
 @file:JvmName("FooBar")
 
@@ -19598,7 +19563,7 @@ package foo.bar
 
 If the function signature doesn't fit on a single line, use the following syntax:
 
-```java,kotlin
+```kotlin
 fun longMethodName(
     argument: ArgumentType = defaultValue,
     argument2: AnotherArgumentType,
@@ -19611,7 +19576,7 @@ Use regular indent (four spaces) for function parameters. It helps ensure consis
 
 Prefer using an expression body for functions with the body consisting of a single expression.
 
-```java,kotlin
+```kotlin
 fun foo(): Int {     // bad
     return 1 
 }
@@ -19624,7 +19589,7 @@ fun foo() = 1        // good
 If the function has an expression body whose first line doesn't fit on the same line as the declaration, put the `=` sign on the first line
 and indent the expression body by four spaces.
 
-```java,kotlin
+```kotlin
 fun f(x: String, y: String, z: String) =
     veryLongFunctionCallWithManyWords(andLongParametersToo(), x, y, z)
 ```
@@ -19633,13 +19598,13 @@ fun f(x: String, y: String, z: String) =
 
 For very simple read-only properties, consider one-line formatting:
 
-```java,kotlin
+```kotlin
 val isEmpty: Boolean get() = size == 0
 ```
 
 For more complex properties, always put `get` and `set` keywords on separate lines:
 
-```java,kotlin
+```kotlin
 val foo: String
     get() { /*...*/ }
 ```
@@ -19647,7 +19612,7 @@ val foo: String
 For properties with an initializer, if the initializer is long, add a line break after the `=` sign
 and indent the initializer by four spaces:
 
-```java,kotlin
+```kotlin
 private val defaultCharset: Charset? =
     EncodingRegistry.getInstance().getDefaultCharsetForPropertiesFiles(file)
 ```
@@ -19658,7 +19623,7 @@ If the condition of an `if` or `when` statement is multiline, always use curly b
 Indent each subsequent line of the condition by four spaces relative to the statement start. 
 Put the closing parentheses of the condition together with the opening curly brace on a separate line:
 
-```java,kotlin
+```kotlin
 if (!component.isSyncing &&
     !hasAnyKotlinRuntimeInScope(module)
 ) {
@@ -19671,7 +19636,7 @@ This helps align the condition and statement bodies.
 Put the `else`, `catch`, `finally` keywords, as well as the `while` keyword of a `do-while` loop, on the same line as the 
 preceding curly brace:
 
-```java,kotlin
+```kotlin
 if (condition) {
     // body
 } else {
@@ -19687,7 +19652,7 @@ try {
 
 In a `when` statement, if a branch is more than a single line, consider separating it from adjacent case blocks with a blank line:
 
-```java,kotlin
+```kotlin
 private fun parsePropertyValue(propName: String, token: Token) {
     when (token) {
         is Token.ValueToken ->
@@ -19701,7 +19666,7 @@ private fun parsePropertyValue(propName: String, token: Token) {
 
 Put short branches on the same line as the condition, without braces.
 
-```java,kotlin
+```kotlin
 when (foo) {
     true -> bar() // good
     false -> { baz() } // bad
@@ -19713,7 +19678,7 @@ when (foo) {
 In long argument lists, put a line break after the opening parenthesis. Indent arguments by four spaces. 
 Group multiple closely related arguments on the same line.
 
-```java,kotlin
+```kotlin
 drawSquare(
     x = 10, y = 10,
     width = 100, height = 100,
@@ -19727,7 +19692,7 @@ Put spaces around the `=` sign separating the argument name and value.
 
 When wrapping chained calls, put the `.` character or the `?.` operator on the next line, with a single indent:
 
-```java,kotlin
+```kotlin
 val anchor = owner
     ?.firstChild!!
     .siblings(forward = true)
@@ -19741,13 +19706,13 @@ The first call in the chain should usually have a line break before it, but it's
 In lambda expressions, spaces should be used around the curly braces, as well as around the arrow which separates the parameters
 from the body. If a call takes a single lambda, pass it outside parentheses whenever possible.
 
-```java,kotlin
+```kotlin
 list.filter { it > 10 }
 ```
 
 If assigning a label for a lambda, do not put a space between the label and the opening curly brace:
 
-```java,kotlin
+```kotlin
 fun foo() {
     ints.forEach lit@{
         // ...
@@ -19757,7 +19722,7 @@ fun foo() {
 
 When declaring parameter names in a multiline lambda, put the names on the first line, followed by the arrow and the newline:
 
-```java,kotlin
+```kotlin
 appendCommaSeparated(properties) { prop ->
     val propertyValue = prop.get(obj)  // ...
 }
@@ -19765,7 +19730,7 @@ appendCommaSeparated(properties) { prop ->
 
 If the parameter list is too long to fit on a line, put the arrow on a separate line:
 
-```java,kotlin
+```kotlin
 foo {
    context: Context,
    environment: Env
@@ -19778,7 +19743,7 @@ foo {
 
 A trailing comma is a comma symbol after the last item in a series of elements:
 
-```java,kotlin
+```kotlin
 class Person(
     val firstName: String,
     val lastName: String,
@@ -19799,7 +19764,7 @@ open the **Other** tab and select the **Use trailing comma** option.
 
 #### Enumerations
 
-```java,kotlin
+```kotlin
 enum class Direction {
     NORTH,
     SOUTH,
@@ -19810,7 +19775,7 @@ enum class Direction {
 
 #### Value arguments
 
-```java,kotlin
+```kotlin
 fun shift(x: Int, y: Int) { /*...*/ }
 shift(
     25,
@@ -19825,7 +19790,7 @@ val colors = listOf(
 
 #### Class properties and parameters
 
-```java,kotlin
+```kotlin
 class Customer(
     val name: String,
     val lastName: String, // trailing comma
@@ -19838,7 +19803,7 @@ class Customer(
 
 #### Function value parameters
 
-```java,kotlin
+```kotlin
 fun powerOf(
     number: Int, 
     exponent: Int, // trailing comma
@@ -19855,7 +19820,7 @@ fun print(
 
 #### Parameters with optional type (including setters)
 
-```java,kotlin
+```kotlin
 val sum: (Int, Int, Int) -> Int = fun(
     x,
     y,
@@ -19868,7 +19833,7 @@ println(sum(8, 8, 8))
 
 #### Indexing suffix
 
-```java,kotlin
+```kotlin
 class Surface {
     operator fun get(x: Int, y: Int) = 2 * x + 4 * y - 10
 }
@@ -19881,7 +19846,7 @@ fun getZValue(mySurface: Surface, xValue: Int, yValue: Int) =
 
 #### Parameters in lambdas
 
-```java,kotlin
+```kotlin
 fun main() {
     val x = {
             x: Comparable<Number>,
@@ -19895,7 +19860,7 @@ fun main() {
 
 #### `when` entry
 
-```java,kotlin
+```kotlin
 fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
     Comparable::class,
     Iterable::class,
@@ -19907,7 +19872,7 @@ fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
 
 #### Collection literals (in annotations)
 
-```java,kotlin
+```kotlin
 annotation class ApplicableFor(val services: Array<String>)
 @ApplicableFor([
     "serializer",
@@ -19920,7 +19885,7 @@ fun run() {}
 
 #### Type arguments
 
-```java,kotlin
+```kotlin
 fun <T1, T2> foo() {}
 fun main() {
     foo<
@@ -19932,7 +19897,7 @@ fun main() {
 
 #### Type parameters
 
-```java,kotlin
+```kotlin
 class MyMap<
         MyKey,
         MyValue, // trailing comma
@@ -19941,7 +19906,7 @@ class MyMap<
 
 #### Destructuring declarations
 
-```java,kotlin
+```kotlin
 data class Car(val manufacturer: String, val model: String, val year: Int)
 val myCar = Car("Tesla", "Y", 2019)
 val (
@@ -19969,7 +19934,7 @@ printMeanValue()
 For longer documentation comments, place the opening `/**` on a separate line and begin each subsequent line
 with an asterisk:
 
-```java,kotlin
+```kotlin
 /**
  * This is a documentation comment
  * on multiple lines.
@@ -19978,7 +19943,7 @@ with an asterisk:
 
 Short comments can be placed on a single line:
 
-```java,kotlin
+```kotlin
 /** This is a short documentation comment. */
 ```
 
@@ -19986,7 +19951,7 @@ Generally, avoid using `@param` and `@return` tags. Instead, incorporate the des
 directly into the documentation comment, and add links to parameters wherever they are mentioned. Use `@param` and
 `@return` only when a lengthy description is required which doesn't fit into the flow of the main text.
 
-```java,kotlin
+```kotlin
 // Avoid doing this:
 
 /**
@@ -20014,7 +19979,7 @@ just "for clarity".
 
 If a function returns Unit, the return type should be omitted:
 
-```java,kotlin
+```kotlin
 fun foo() { // ": Unit" is omitted here
 
 }
@@ -20028,7 +19993,7 @@ Omit semicolons whenever possible.
 
 Don't use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions.
 
-```java,kotlin
+```kotlin
 println("$name has ${children.size} children")
 ```
 
@@ -20043,7 +20008,7 @@ Always use immutable collection interfaces (`Collection`, `List`, `Set`, `Map`) 
 mutated. When using factory functions to create collection instances, always use functions that return immutable
 collection types when possible:
 
-```java,kotlin
+```kotlin
 // Bad: use of a mutable collection type for value which will not be mutated
 fun validateValue(actualValue: String, allowedValues: HashSet<String>) { ... }
 
@@ -20061,7 +20026,7 @@ val allowedValues = listOf("a", "b", "c")
 
 Prefer declaring functions with default parameter values to declaring overloaded functions.
 
-```java,kotlin
+```kotlin
 // Bad
 fun foo() = foo("a")
 fun foo(a: String) { /*...*/ }
@@ -20075,7 +20040,7 @@ fun foo(a: String = "a") { /*...*/ }
 If you have a functional type or a type with type parameters which is used multiple times in a codebase, prefer defining
 a type alias for it:
 
-```java,kotlin
+```kotlin
 typealias MouseClickHandler = (Any, MouseEvent) -> Unit
 typealias PersonIndex = Map<String, Person>
 ```
@@ -20099,7 +20064,7 @@ Do not use a labeled return for the last statement in a lambda.
 Use the named argument syntax when a method takes multiple parameters of the same primitive type, or for parameters of `Boolean` type,
 unless the meaning of all parameters is absolutely clear from context.
 
-```java,kotlin
+```kotlin
 drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
 ```
 
@@ -20107,11 +20072,11 @@ drawSquare(x = 10, y = 10, width = 100, height = 100, fill = true)
 
 Prefer using the expression form of `try`, `if`, and `when`.
 
-```java,kotlin
+```kotlin
 return if (x) foo() else bar()
 ```
 
-```java,kotlin
+```kotlin
 return when(x) {
     0 -> "zero"
     else -> "nonzero"
@@ -20120,14 +20085,14 @@ return when(x) {
 
 The above is preferable to:
 
-```java,kotlin
+```kotlin
 if (x)
     return foo()
 else
     return bar()
 ```
 
-```java,kotlin
+```kotlin
 when(x) {
     0 -> return "zero"
     else -> return "nonzero"
@@ -20139,13 +20104,13 @@ when(x) {
 Prefer using `if` for binary conditions instead of `when`. 
 For example, use this syntax with `if`:
 
-```java,kotlin
+```kotlin
 if (x == null) ... else ...
 ```
 
 instead of this one with `when`:
 
-```java,kotlin
+```kotlin
 when (x) {
     null -> // ...
     else -> // ...
@@ -20170,7 +20135,7 @@ of the operations being performed in each case and keep performance consideratio
 
 Use the `..<` operator to loop over an open-ended range:
 
-```java,kotlin
+```kotlin
 for (i in 0..n - 1) { /*...*/ }  // bad
 for (i in 0..<n) { /*...*/ }  // good
 ```
@@ -20184,7 +20149,7 @@ Prefer multiline strings to embedding `\n` escape sequences into regular string 
 To maintain indentation in multiline strings, use `trimIndent` when the resulting string does not require any internal
 indentation, or `trimMargin` when internal indentation is required:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
    println("""
@@ -20211,7 +20176,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 Learn the difference between [Java and Kotlin multiline strings](java-to-kotlin-idioms-strings.md#use-multiline-strings).
 
@@ -20246,7 +20211,7 @@ If you declare a factory function for a class, avoid giving it the same name as 
 making it clear why the behavior of the factory function is special. Only if there is really no special semantics,
 you can use the same name as the class.
 
-```java,kotlin
+```kotlin
 class Point(val x: Double, val y: Double) {
     companion object {
         fun fromPolar(angle: Double, radius: Double) = Point(...)
@@ -20262,13 +20227,13 @@ factory functions.
 
 A public function/method returning an expression of a platform type must declare its Kotlin type explicitly:
 
-```java,kotlin
+```kotlin
 fun apiCall(): String = MyJavaApi.getProperty("name")
 ```
 
 Any property (package-level or class-level) initialized with an expression of a platform type must declare its Kotlin type explicitly:
 
-```java,kotlin
+```kotlin
 class Person {
     val name: String = MyJavaApi.getProperty("name")
 }
@@ -20276,7 +20241,7 @@ class Person {
 
 A local value initialized with an expression of a platform type may or may not have a type declaration:
 
-```java,kotlin
+```kotlin
 fun main() {
     val name = MyJavaApi.getProperty("name")
     println(name)
@@ -20338,7 +20303,7 @@ smallest range enough to represent the value starting from `Int`. If it is not e
 If it exceeds, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
 Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
 
-```java,kotlin
+```kotlin
 val one = 1 // Int
 val threeBillion = 3000000000 // Long
 val oneLong = 1L // Long
@@ -20365,7 +20330,7 @@ You can initialize `Double` and `Float` variables  with numbers having a fractio
 It's separated from the integer part by a period (`.`)
 For variables initialized with fractional numbers, the compiler infers the `Double` type:
 
-```java,kotlin
+```kotlin
 val pi = 3.14 // Double
 // val one: Double = 1 // Error: type mismatch
 val oneDouble = 1.0 // Double
@@ -20374,7 +20339,7 @@ val oneDouble = 1.0 // Double
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
 If such a value contains more than 6-7 decimal digits, it will be rounded:
 
-```java,kotlin
+```kotlin
 val e = 2.7182818284 // Double
 val eFloat = 2.7182818284f // Float, actual value is 2.7182817
 ```
@@ -20383,7 +20348,7 @@ Unlike some other languages, there are no implicit widening conversions for numb
 For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`,
 `Int`, or other numeric values:
 
-```java,kotlin
+```kotlin
 fun main() {
     fun printDouble(d: Double) { print(d) }
 
@@ -20419,7 +20384,7 @@ Kotlin also supports a conventional notation for floating-point numbers:
 
 You can use underscores to make number constants more readable:
 
-```java,kotlin
+```kotlin
 val oneMillion = 1_000_000
 val creditCardNumber = 1234_5678_9012_3456L
 val socialSecurityNumber = 999_99_9999L
@@ -20440,7 +20405,7 @@ In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
 
 Nullable references to the same number can refer to different objects:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val a: Int = 100
@@ -20456,14 +20421,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 All nullable references to `a` are actually the same object because of the memory optimization that JVM applies to `Integer`s
 between `-128` and `127`. It doesn't apply to the `b` references, so they are different objects.
 
 On the other hand, they are still equal:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val b: Int = 10000
@@ -20474,14 +20439,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 07.1.1.2.5. Explicit number conversions
 
 Due to different representations, smaller types _are not subtypes_ of bigger ones.
 If they were, we would have troubles of the following sort:
 
-```java,kotlin
+```kotlin
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
 val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
@@ -20493,7 +20458,7 @@ So equality would have been lost silently, not to mention identity.
 As a consequence, smaller types _are NOT implicitly converted_ to bigger types.
 This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val b: Byte = 1 // OK, literals are checked statically
@@ -20502,7 +20467,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 All number types support conversions to other types:
 
@@ -20516,7 +20481,7 @@ All number types support conversions to other types:
 In many cases, there is no need for explicit conversions because the type is inferred from the context,
 and arithmetical operations are overloaded for appropriate conversions, for example:
 
-```java,kotlin
+```kotlin
 val l = 1L + 3 // Long + Int => Long
 ```
 
@@ -20525,7 +20490,7 @@ val l = 1L + 3 // Long + Int => Long
 Kotlin supports the standard set of arithmetical operations over numbers: `+`, `-`, `*`, `/`, `%`. They are declared
 as members of appropriate classes:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     println(1 + 2)
@@ -20535,7 +20500,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also override these operators for custom classes. See [Operator overloading](operator-overloading.md) for details.
 
@@ -20543,7 +20508,7 @@ You can also override these operators for custom classes. See [Operator overload
 
 Division between integers numbers always returns an integer number. Any fractional part is discarded.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val x = 5 / 2
@@ -20552,11 +20517,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 This is true for a division between any two integer types:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val x = 5L / 2
@@ -20564,11 +20529,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To return a floating-point type, explicitly convert one of the arguments to a floating-point type:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val x = 5 / 2.toDouble()
@@ -20576,7 +20541,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Bitwise operations
 
@@ -20584,7 +20549,7 @@ Kotlin provides a set of _bitwise operations_ on integer numbers. They operate o
 bits of the numbers' representation.
 Bitwise operations are represented by functions that can be called in infix form. They can be applied only to `Int` and `Long`:
 
-```java,kotlin
+```kotlin
 val x = (1 shl 2) and 0x000FF000
 ```
 
@@ -20621,7 +20586,7 @@ operations use the `equals` and `compareTo` implementations for `Float` and `Dou
 Here is an example that shows the difference in behavior between operands statically typed as floating-point numbers 
 (`Double.NaN`) and operands **not** statically typed as floating-point numbers (`listOf(T)`).
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     // Operand statically typed as floating-point number
@@ -20641,7 +20606,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-numbers-floating-comp"}
+
 
 # 📜 07.01.1.3. Unsigned integer types
 
@@ -20713,7 +20678,7 @@ indicating a specific unsigned type (similarly to `Float` or `Long`):
 The main use case of unsigned numbers is utilizing the full bit range of an integer to represent positive values.  
 For example, to represent hexadecimal constants that do not fit in signed types such as color in 32-bit `AARRGGBB` format:
 
-```java,kotlin
+```kotlin
 data class Color(val representation: UInt)
 
 val yellow = Color(0xFFCC00CCu)
@@ -20721,7 +20686,7 @@ val yellow = Color(0xFFCC00CCu)
 
 You can use unsigned numbers to initialize byte arrays without explicit `toByte()` literal casts:
 
-```java,kotlin
+```kotlin
 val byteOrderMarkUtf8 = ubyteArrayOf(0xEFu, 0xBBu, 0xBFu)
 ```
 
@@ -20754,7 +20719,7 @@ Built-in operations on booleans include:
 
 `||` and `&&` work lazily.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val myTrue: Boolean = true
@@ -20767,7 +20732,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 > **On JVM**: nullable references to boolean objects are boxed similarly to [numbers](numbers.md#numbers-representation-on-the-jvm).
 >
@@ -20791,7 +20756,7 @@ The following escape sequences are supported:
 
 To encode any other character, use the Unicode escape sequence syntax: `'\uFF00'`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val aChar: Char = 'a'
@@ -20802,7 +20767,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If a value of character variable is a digit, you can explicitly convert it to an `Int` number using the [`digitToInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/digit-to-int.html) function.
 
@@ -20816,14 +20781,14 @@ If a value of character variable is a digit, you can explicitly convert it to an
 Strings in Kotlin are represented by the type [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/).
 Generally, a string value is a sequence of characters in double quotes (`"`):
 
-```java,kotlin
+```kotlin
 val str = "abcd 123"
 ```
 
 Elements of a string are characters that you can access via the indexing operation: `s[i]`.
 You can iterate over these characters with a `for` loop:
 
-```java,kotlin
+```kotlin
 fun main() {
 val str = "abcd"
 //sampleStart
@@ -20833,12 +20798,12 @@ for (c in str) {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Strings are immutable. Once you initialize a string, you can't change its value or assign a new value to it.
 All operations that transform strings return their results in a new `String` object, leaving the original string unchanged:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val str = "abcd"
@@ -20847,12 +20812,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To concatenate strings, use the `+` operator. This also works for concatenating strings with values of other types, as long
 as the first element in the expression is a string:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
 val s = "abc" + 1
@@ -20860,7 +20825,7 @@ println(s + "def")
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 > In most cases using [string templates](#string-templates) or [multiline strings](#multiline-strings) is preferable to string concatenation.
 > 
@@ -20878,7 +20843,7 @@ Kotlin has two types of string literals:
 _Escaped strings_ can contain escaped characters.  
 Here's an example of an escaped string:
 
-```java,kotlin
+```kotlin
 val s = "Hello, world!\n"
 ```
 
@@ -20889,7 +20854,7 @@ See [Characters](characters.md) page for the list of supported escape sequences.
 
 _Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
 
-```java,kotlin
+```kotlin
 val text = """
     for (c in "foo")
         print(c)
@@ -20898,7 +20863,7 @@ val text = """
 
 To remove leading whitespace from multiline strings, use the [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
 
-```java,kotlin
+```kotlin
 val text = """
     |Tell me and I forget.
     |Teach me and I remember.
@@ -20914,7 +20879,7 @@ By default, a pipe symbol `|` is used as margin prefix, but you can choose anoth
 String literals may contain _template expressions_ – pieces of code that are evaluated and whose results are concatenated into the string.
 A template expression starts with a dollar sign (`$`) and consists of either a name:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val i = 10
@@ -20922,11 +20887,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 or an expression in curly braces:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val s = "abc"
@@ -20934,14 +20899,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can use templates both in multiline and escaped strings.
 To insert the dollar sign `$`  in a multiline string (which doesn't support backslash escaping) before any symbol,
 which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
 use the following syntax:
 
-```java,kotlin
+```kotlin
 val price = """
 ${'$'}_9.99
 """
@@ -20981,7 +20946,7 @@ add or remove elements from an array is to create a new array each time, which i
   //sampleEnd
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-rivers-array-kotlin"}
+  
 
 * You can use the equality operator (`==`) to check if collections are structurally equal. You can't use this operator
 for arrays. Instead, you have to use a special function, which you can read more about in [Compare arrays](#compare-arrays).
@@ -20998,7 +20963,7 @@ or [`emptyArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/empty-ar
 This example uses the [`arrayOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/array-of.html) function 
 and passes item values to it:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Creates an array with values [1, 2, 3]
@@ -21008,12 +20973,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-simple-array-kotlin"}
+
 
 This example uses the [`arrayOfNulls()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/array-of-nulls.html#kotlin$arrayOfNulls(kotlin.Int))
 function to create an array of a given size filled with `null` elements:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Creates an array with values [null, null, null]
@@ -21023,12 +20988,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-null-array-kotlin"}
+
 
 This example uses the [`emptyArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/empty-array.html) function to 
 create an empty array :
 
-```java,kotlin
+```kotlin
     var exampleArray = emptyArray<String>()
 ```
 
@@ -21046,7 +21011,7 @@ create an empty array :
 
 The `Array` constructor takes the array size and a function that returns values for array elements given its index:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Creates an Array<Int> that initializes with zeros [0, 0, 0]
@@ -21061,7 +21026,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-array-constructor-kotlin"}
+
 
 > Like in most programming languages, indices start from 0 in Kotlin.
 >
@@ -21071,7 +21036,7 @@ fun main() {
 
 Arrays can be nested within each other to create multidimensional arrays:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Creates a two-dimensional array
@@ -21086,7 +21051,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-multidimensional-array-kotlin"}
+
 
 > Nested arrays don't have to be the same type or the same size.
 >
@@ -21096,7 +21061,7 @@ fun main() {
 
 Arrays are always mutable. To access and modify elements in an array, use the [indexed access operator](operator-overloading.md#indexed-access-operator)`[]`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val simpleArray = arrayOf(1, 2, 3)
@@ -21112,7 +21077,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-access-array-kotlin"}
+
 
 Arrays in Kotlin are _invariant_. This means that Kotlin doesn't allow you to assign an `Array<String>`
 to an `Array<Any>` to prevent a possible runtime failure. Instead, you can use `Array<out Any>`. For more information,
@@ -21132,7 +21097,7 @@ creating an SQL query.
 To pass an array containing a variable number of arguments to a function, use the _spread_ operator
 (`*`). The spread operator passes each element of the array as individual arguments to your chosen function:
 
-```java,kotlin
+```kotlin
 fun main() {
     val lettersArray = arrayOf("c", "d")
     printAllStrings("a", "b", *lettersArray)
@@ -21145,7 +21110,7 @@ fun printAllStrings(vararg strings: String) {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-vararg-array-kotlin"}
+
 
 For more information, see [Variable number of arguments (varargs)](functions.md#variable-number-of-arguments-varargs).
 
@@ -21155,7 +21120,7 @@ To compare whether two arrays have the same elements in the same order, use the 
 and [`.contentDeepEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-deep-equals.html) 
 functions:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val simpleArray = arrayOf(1, 2, 3)
@@ -21173,7 +21138,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-compare-array-kotlin"}
+
 
 > Don't use equality (`==`) and inequality (`!=`) [operators](equality.md#structural-equality) to compare the contents 
 > of arrays. These operators check whether the assigned variables point to the same object.
@@ -21203,7 +21168,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-sum-array-kotlin"}
+
 
 > The `.sum()` function can only be used with arrays of [numeric data types](numbers.md), such as `Int`.
 >
@@ -21229,7 +21194,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-shuffle-array-kotlin"}
+
 
 ### Convert arrays to collections
 
@@ -21241,7 +21206,7 @@ and vice versa.
 To convert an array to a `List` or `Set`, use the [`.toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-list.html)
 and [`.toSet()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-set.html) functions.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val simpleArray = arrayOf("a", "b", "c", "c")
@@ -21256,7 +21221,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-convert-list-set-kotlin"}
+
 
 #### Convert to Map
 
@@ -21267,7 +21232,7 @@ Only an array of [`Pair<K,V>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotl
 The first value of a `Pair` instance becomes a key, and the second becomes a value. This example uses the [infix notation](functions.md#infix-notation)
 to call the [`to`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html) function to create tuples of `Pair`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val pairArray = arrayOf("apple" to 120, "banana" to 150, "cherry" to 90, "apple" to 140)
@@ -21282,7 +21247,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-convert-map-kotlin"}
+
 
 ## 07.1.1.7.5. Primitive-type arrays
 
@@ -21305,7 +21270,7 @@ These classes have no inheritance relation to the `Array` class, but they have t
 
 This example creates an instance of  the `IntArray` class:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Creates an array of Int of size 5 with values
@@ -21315,7 +21280,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="arrays-primitive-type-array-kotlin"}
+
 
 > To convert primitive-type arrays to object-type arrays, use the [`.toTypedArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-typed-array.html)
 > function.
@@ -21346,7 +21311,7 @@ different type.
 
 Use the `is` operator or its negated form `!is` to perform a runtime check that identifies whether an object conforms to a given type:
 
-```java,kotlin
+```kotlin
 if (obj is String) {
     print(obj.length)
 }
@@ -21363,7 +21328,7 @@ if (obj !is String) { // Same as !(obj is String)
 In most cases, you don't need to use explicit cast operators in Kotlin because the compiler tracks the
 `is`-checks and [explicit casts](#unsafe-cast-operator) for immutable values and inserts (safe) casts automatically when necessary:
 
-```java,kotlin
+```kotlin
 fun demo(x: Any) {
     if (x is String) {
         print(x.length) // x is automatically cast to String
@@ -21373,7 +21338,7 @@ fun demo(x: Any) {
 
 The compiler is smart enough to know that a cast is safe if a negative check leads to a return:
 
-```java,kotlin
+```kotlin
 if (x !is String) return
 
 print(x.length) // x is automatically cast to String
@@ -21381,7 +21346,7 @@ print(x.length) // x is automatically cast to String
 
 Or if it is on the right-hand side of `&&` or `||` and the proper check (regular or negative) is on the left-hand side:
 
-```java,kotlin
+```kotlin
 // x is automatically cast to String on the right-hand side of `||`
 if (x !is String || x.length == 0) return
 
@@ -21394,7 +21359,7 @@ if (x is String && x.length > 0) {
 Smart casts work for [`when` expressions](control-flow.md#when-expression)
 and [`while` loops](control-flow.md#while-loops) as well:
 
-```java,kotlin
+```kotlin
 when (x) {
     is Int -> print(x + 1)
     is String -> print(x.length + 1)
@@ -21448,7 +21413,7 @@ Smart casts can be used in the following conditions:
 Usually, the cast operator throws an exception if the cast isn't possible. Thus, it's called _unsafe_.
 The unsafe cast in Kotlin is done by the infix operator `as`.
 
-```java,kotlin
+```kotlin
 val x: String = y as String
 ```
 
@@ -21456,7 +21421,7 @@ Note that `null` cannot be cast to `String`, as this type is not [nullable](null
 If `y` is null, the code above throws an exception.
 To make code like this correct for null values, use the nullable type on the right-hand side of the cast:
 
-```java,kotlin
+```kotlin
 val x: String? = y as String?
 ```
 
@@ -21464,7 +21429,7 @@ val x: String? = y as String?
 
 To avoid exceptions, use the *safe* cast operator `as?`, which returns `null` on failure.
 
-```java,kotlin
+```kotlin
 val x: String? = y as? String
 ```
 
@@ -21483,7 +21448,7 @@ Note that despite the fact that the right-hand side of `as?` is a non-nullable t
 In Kotlin, `if` is an expression: it returns a value.
 Therefore, there is no ternary operator (`condition ? then : else`) because ordinary `if` works fine in this role.
 
-```java,kotlin
+```kotlin
 fun main() {
     val a = 2
     val b = 3
@@ -21511,11 +21476,11 @@ fun main() {
     println("maxOrLimit is $maxOrLimit")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-if-kotlin"}
+
 
 Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
 
-```java,kotlin
+```kotlin
 val max = if (a > b) {
     print("Choose a")
     a
@@ -21533,7 +21498,7 @@ assigning it to a variable, the `else` branch is mandatory.
 `when` defines a conditional expression with multiple branches. It is similar to the `switch` statement in C-like languages.
 Its simple form looks like this.
 
-```java,kotlin
+```kotlin
 when (x) {
     1 -> print("x == 1")
     2 -> print("x == 2")
@@ -21556,7 +21521,7 @@ If `when` is used as an _expression_, the `else` branch is mandatory,
 unless the compiler can prove that all possible cases are covered with branch conditions,
 for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
 
-```java,kotlin
+```kotlin
 enum class Bit {
     ZERO, ONE
 }
@@ -21573,7 +21538,7 @@ In `when` _statements_, the `else` branch is mandatory in the following conditio
 or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
 * branches of `when` don't cover all possible cases for this subject.
 
-```java,kotlin
+```kotlin
 enum class Color {
     RED, GREEN, BLUE
 }
@@ -21594,7 +21559,7 @@ when (getColor()) {
 
 To define a common behavior for multiple cases, combine their conditions in a single line with a comma: 
 
-```java,kotlin
+```kotlin
 when (x) {
     0, 1 -> print("x == 0 or x == 1")
     else -> print("otherwise")
@@ -21603,7 +21568,7 @@ when (x) {
 
 You can use arbitrary expressions (not only constants) as branch conditions
 
-```java,kotlin
+```kotlin
 when (x) {
     s.toInt() -> print("s encodes x")
     else -> print("s does not encode x")
@@ -21612,7 +21577,7 @@ when (x) {
 
 You can also check a value for being `in` or `!in` a [range](ranges.md) or a collection:
 
-```java,kotlin
+```kotlin
 when (x) {
     in 1..10 -> print("x is in the range")
     in validNumbers -> print("x is valid")
@@ -21625,7 +21590,7 @@ Another option is checking that a value `is` or `!is` of a particular type. Note
 due to [smart casts](typecasts.md#smart-casts), you can access the methods and properties of the type without
 any extra checks.
 
-```java,kotlin
+```kotlin
 fun hasPrefix(x: Any) = when(x) {
     is String -> x.startsWith("prefix")
     else -> false
@@ -21635,7 +21600,7 @@ fun hasPrefix(x: Any) = when(x) {
 `when` can also be used as a replacement for an `if`-`else` `if` chain.
 If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
 
-```java,kotlin
+```kotlin
 when {
     x.isOdd() -> print("x is odd")
     y.isEven() -> print("y is even")
@@ -21645,7 +21610,7 @@ when {
 
 You can capture *when* subject in a variable using following syntax:
 
-```java,kotlin
+```kotlin
 fun Request.getBody() =
     when (val response = executeRequest()) {
         is Success -> response.body
@@ -21660,13 +21625,13 @@ The scope of variable introduced in *when* subject is restricted to the body of 
 The `for` loop iterates through anything that provides an iterator. This is equivalent to the `foreach` loop in languages like C#.
 The syntax of `for` is the following:
 
-```java,kotlin
+```kotlin
 for (item in collection) print(item)
 ```
 
 The body of `for` can be a block.
 
-```java,kotlin
+```kotlin
 for (item: Int in ints) {
     // ...
 }
@@ -21682,7 +21647,7 @@ All of these three functions need to be marked as `operator`.
 
 To iterate over a range of numbers, use a [range expression](ranges.md):
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (i in 1..3) {
@@ -21694,13 +21659,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 A `for` loop over a range or an array is compiled to an index-based loop that does not create an iterator object.
 
 If you want to iterate through an array or a list with an index, you can do it this way:
 
-```java,kotlin
+```kotlin
 fun main() {
 val array = arrayOf("a", "b", "c")
 //sampleStart
@@ -21710,11 +21675,11 @@ val array = arrayOf("a", "b", "c")
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Alternatively, you can use the `withIndex` library function:
 
-```java,kotlin
+```kotlin
 fun main() {
     val array = arrayOf("a", "b", "c")
 //sampleStart
@@ -21724,7 +21689,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 07.2.1.4. While loops
 
@@ -21734,7 +21699,7 @@ The difference between them is the condition checking time:
 * `do-while` executes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
 executes at least once regardless of the condition. 
 
-```java,kotlin
+```kotlin
 while (x > 0) {
     x--
 }
@@ -21761,7 +21726,7 @@ Kotlin has three structural jump expressions:
 
 All of these expressions can be used as part of larger expressions:
 
-```java,kotlin
+```kotlin
 val s = person.name ?: return
 ```
 
@@ -21773,7 +21738,7 @@ Any expression in Kotlin may be marked with a _label_.
 Labels have the form of an identifier followed by the `@` sign, such as `abc@` or `fooBar@`.
 To label an expression, just add a label in front of it.
 
-```java,kotlin
+```kotlin
 loop@ for (i in 1..100) {
     // ...
 }
@@ -21781,7 +21746,7 @@ loop@ for (i in 1..100) {
 
 Now, we can qualify a `break` or a `continue` with a label:
 
-```java,kotlin
+```kotlin
 loop@ for (i in 1..100) {
     for (j in 1..100) {
         if (...) break@loop
@@ -21799,7 +21764,7 @@ Qualified `return`s allow us to return from an outer function.
 The most important use case is returning from a lambda expression. Recall that when we write the following,
 the `return`-expression returns from the nearest enclosing function - `foo`:
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach {
@@ -21814,12 +21779,12 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Note that such non-local returns are supported only for lambda expressions passed to [inline functions](inline-functions.md).
 To return from a lambda expression, label it and qualify the `return`:
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach lit@{
@@ -21834,12 +21799,12 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Now, it returns only from the lambda expression. Often it is more convenient to use _implicit labels_, because such a label
 has the same name as the function to which the lambda is passed.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach {
@@ -21854,12 +21819,12 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Alternatively, you can replace the lambda expression with an [anonymous function](lambdas.md#anonymous-functions).
 A `return` statement in an anonymous function will return from the anonymous function itself.
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun foo() {
     listOf(1, 2, 3, 4, 5).forEach(fun(value: Int) {
@@ -21874,13 +21839,13 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Note that the use of local returns in the previous three examples is similar to the use of `continue` in regular loops.
 
 There is no direct equivalent for `break`, but it can be simulated by adding another nesting lambda and non-locally returning from it:
 
-```java,kotlin
+```kotlin
 //sampleStart
 fun foo() {
     run loop@{
@@ -21897,11 +21862,11 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 When returning a value, the parser gives preference to the qualified return:
 
-```java,kotlin
+```kotlin
 return@a 1
 ```
 
@@ -21919,18 +21884,18 @@ Every exception has a message, a stack trace, and an optional cause.
 
 To throw an exception object, use the `throw` expression:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     throw Exception("Hi There!")
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To catch an exception, use the `try`...`catch` expression:
 
-```java,kotlin
+```kotlin
 try {
     // some code
 } catch (e: SomeException) {
@@ -21947,7 +21912,7 @@ However, at least one `catch` or `finally` block is required.
 
 `try` is an expression, which means it can have a return value:
 
-```java,kotlin
+```kotlin
 val a: Int? = try { input.toInt() } catch (e: NumberFormatException) { null }
 ```
 
@@ -21969,7 +21934,7 @@ This signature says that every time I append a string to something (a `StringBui
 I have to catch the `IOExceptions`. Why? Because the implementation might be performing IO operations (`Writer` also implements `Appendable`).
 The result is code like this all over the place:
 
-```java,kotlin
+```kotlin
 try {
     log.append(message)
 } catch (IOException e) {
@@ -21998,7 +21963,7 @@ and [for Swift and Objective-C](native-objc-interop.md#errors-and-exceptions).
 
 `throw` is an expression in Kotlin, so you can use it, for example, as part of an Elvis expression:
 
-```java,kotlin
+```kotlin
 val s = person.name ?: throw IllegalArgumentException("Name required")
 ```
 
@@ -22006,7 +21971,7 @@ The `throw` expression has the type `Nothing`.
 This type has no values and is used to mark code locations that can never be reached.
 In your own code, you can use `Nothing` to mark a function that never returns:
 
-```java,kotlin
+```kotlin
 fun fail(message: String): Nothing {
     throw IllegalArgumentException(message)
 }
@@ -22014,7 +21979,7 @@ fun fail(message: String): Nothing {
 
 When you call this function, the compiler will know that the execution doesn't continue beyond the call:
 
-```java,kotlin
+```kotlin
 val s = person.name ?: fail("Name required")
 println(s)     // 's' is known to be initialized at this point
 ```
@@ -22024,7 +21989,7 @@ You may also encounter this type when dealing with type inference. The nullable 
 a value of an inferred type and there's no other information that can be used to determine a more
 specific type, the compiler will infer the `Nothing?` type:
 
-```java,kotlin
+```kotlin
 val x = null           // 'x' has type `Nothing?`
 val l = listOf(null)   // 'l' has type `List<Nothing?>
 ```
@@ -22040,7 +22005,7 @@ Please see the section on exceptions in the [Java interoperability page](java-in
 
 A source file may start with a package declaration:
 
-```java,kotlin
+```kotlin
 package org.example
 
 fun printMessage() { /*...*/ }
@@ -22083,19 +22048,19 @@ Apart from the default imports, each file may contain its own `import` directive
 
 You can import either a single name:
 
-```java,kotlin
+```kotlin
 import org.example.Message // Message is now accessible without qualification
 ```
 
 or all the accessible contents of a scope: package, class, object, and so on:
 
-```java,kotlin
+```kotlin
 import org.example.* // everything in 'org.example' becomes accessible
 ```
 
 If there is a name clash, you can disambiguate by using `as` keyword to locally rename the clashing entity:
 
-```java,kotlin
+```kotlin
 import org.example.Message // Message is accessible
 import org.test.Message as TestMessage // TestMessage stands for 'org.test.Message'
 ```
@@ -22120,7 +22085,7 @@ If a top-level declaration is marked `private`, it is private to the file it's d
 
 Classes in Kotlin are declared using the keyword `class`:
 
-```java,kotlin
+```kotlin
 class Person { /*...*/ }
 ```
 
@@ -22128,7 +22093,7 @@ The class declaration consists of the class name, the class header (specifying i
 and some other things), and the class body surrounded by curly braces. Both the header and the body are optional; if the
 class has no body, the curly braces can be omitted.
 
-```java,kotlin
+```kotlin
 class Empty
 ```
 
@@ -22137,13 +22102,13 @@ class Empty
 A class in Kotlin has a _primary constructor_ and possibly one or more _secondary constructors_. The primary constructor
 is declared in the class header, and it goes after the class name and optional type parameters.
 
-```java,kotlin
+```kotlin
 class Person constructor(firstName: String) { /*...*/ }
 ```
 
 If the primary constructor does not have any annotations or visibility modifiers, the `constructor` keyword can be omitted:
 
-```java,kotlin
+```kotlin
 class Person(firstName: String) { /*...*/ }
 ```
 
@@ -22155,7 +22120,7 @@ within the curly braces.
 During the initialization of an instance, the initializer blocks are executed in the same order as they appear in the
 class body, interleaved with the property initializers:
 
-```java,kotlin
+```kotlin
 //sampleStart
 class InitOrderDemo(name: String) {
     val firstProperty = "First property: $name".also(::println)
@@ -22176,12 +22141,12 @@ fun main() {
     InitOrderDemo("hello")
 }
 ```
-{kotlin-runnable="true"}
+
 
 Primary constructor parameters can be used in the initializer blocks. They can also be used in property initializers
 declared in the class body:
 
-```java,kotlin
+```kotlin
 class Customer(name: String) {
     val customerKey = name.uppercase()
 }
@@ -22189,19 +22154,19 @@ class Customer(name: String) {
 
 Kotlin has a concise syntax for declaring properties and initializing them from the primary constructor:
 
-```java,kotlin
+```kotlin
 class Person(val firstName: String, val lastName: String, var age: Int)
 ```
 
 Such declarations can also include default values of the class properties:
 
-```java,kotlin
+```kotlin
 class Person(val firstName: String, val lastName: String, var isEmployed: Boolean = true)
 ```
 
 You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare class properties:
 
-```java,kotlin
+```kotlin
 class Person(
     val firstName: String,
     val lastName: String,
@@ -22213,7 +22178,7 @@ Much like regular properties, properties declared in the primary constructor can
 
 If the constructor has annotations or visibility modifiers, the `constructor` keyword is required and the modifiers go before it:
 
-```java,kotlin
+```kotlin
 class Customer public @Inject constructor(name: String) { /*...*/ }
 ```
 
@@ -22223,7 +22188,7 @@ Learn more about [visibility modifiers](visibility-modifiers.md#constructors).
 
 A class can also declare _secondary constructors_, which are prefixed with `constructor`:
 
-```java,kotlin
+```kotlin
 class Person(val pets: MutableList<Pet> = mutableListOf())
 
 class Pet {
@@ -22237,7 +22202,7 @@ If the class has a primary constructor, each secondary constructor needs to dele
 directly or indirectly through another secondary constructor(s). Delegation to another constructor of the same class is
 done using the `this` keyword:
 
-```java,kotlin
+```kotlin
 class Person(val name: String) {
     val children: MutableList<Person> = mutableListOf()
     constructor(name: String, parent: Person) : this(name) {
@@ -22253,7 +22218,7 @@ and property initializers is executed before the body of the secondary construct
 Even if the class has no primary constructor, the delegation still happens implicitly, and the initializer blocks are
 still executed:
 
-```java,kotlin
+```kotlin
 //sampleStart
 class Constructors {
     init {
@@ -22270,14 +22235,14 @@ fun main() {
     Constructors(1)
 }
 ```
-{kotlin-runnable="true"}
+
 
 If a non-abstract class does not declare any constructors (primary or secondary), it will have a generated primary constructor
 with no arguments. The visibility of the constructor will be public.
 
 If you don't want your class to have a public constructor, declare an empty primary constructor with non-default visibility:
 
-```java,kotlin
+```kotlin
 class DontCreateMe private constructor() { /*...*/ }
 ```
 
@@ -22293,7 +22258,7 @@ class DontCreateMe private constructor() { /*...*/ }
 
 To create an instance of a class, call the constructor as if it were a regular function:
 
-```java,kotlin
+```kotlin
 val invoice = Invoice()
 
 val customer = Customer("Joe Smith")
@@ -22326,7 +22291,7 @@ A class may be declared `abstract`, along with some or all of its members.
 An abstract member does not have an implementation in its class.
 You don't need to annotate abstract classes or functions with `open`.
 
-```java,kotlin
+```kotlin
 abstract class Polygon {
     abstract fun draw()
 }
@@ -22340,7 +22305,7 @@ class Rectangle : Polygon() {
 
 You can override a non-abstract `open` member with an abstract one.
 
-```java,kotlin
+```kotlin
 open class Polygon {
     open fun draw() {
         // some default polygon drawing method
@@ -22369,7 +22334,7 @@ you can access its members using only the class name as a qualifier.
 
 All classes in Kotlin have a common superclass, `Any`, which is the default superclass for a class with no supertypes declared:
 
-```java,kotlin
+```kotlin
 class Example // Implicitly inherits from Any
 ```
 
@@ -22377,14 +22342,14 @@ class Example // Implicitly inherits from Any
 
 By default, Kotlin classes are final – they can't be inherited. To make a class inheritable, mark it with the `open` keyword:
 
-```java,kotlin
+```kotlin
 open class Base // Class is open for inheritance
 
 ```
 
 To declare an explicit supertype, place the type after a colon in the class header:
 
-```java,kotlin
+```kotlin
 open class Base(p: Int)
 
 class Derived(p: Int) : Base(p)
@@ -22397,7 +22362,7 @@ If the derived class has no primary constructor, then each secondary constructor
 the `super` keyword or it has to delegate to another constructor which does. Note that in this case different secondary
 constructors can call different constructors of the base type:
 
-```java,kotlin
+```kotlin
 class MyView : View {
     constructor(ctx: Context) : super(ctx)
 
@@ -22409,7 +22374,7 @@ class MyView : View {
 
 Kotlin requires explicit modifiers for overridable members and overrides:
 
-```java,kotlin
+```kotlin
 open class Shape {
     open fun draw() { /*...*/ }
     fun fill() { /*...*/ }
@@ -22428,7 +22393,7 @@ without an `open` modifier.
 A member marked `override` is itself open, so it may be overridden in subclasses. If you want to prohibit re-overriding,
 use `final`:
 
-```java,kotlin
+```kotlin
 open class Rectangle() : Shape() {
     final override fun draw() { /*...*/ }
 }
@@ -22440,7 +22405,7 @@ The overriding mechanism works on properties in the same way that it does on met
 that are then redeclared on a derived class must be prefaced with `override`, and they must have a compatible type.
 Each declared property can be overridden by a property with an initializer or by a property with a `get` method:
 
-```java,kotlin
+```kotlin
 open class Shape {
     open val vertexCount: Int = 0
 }
@@ -22455,7 +22420,7 @@ essentially declares a `get` method, and overriding it as a `var` additionally d
 
 Note that you can use the `override` keyword as part of the property declaration in a primary constructor:
 
-```java,kotlin
+```kotlin
 interface Shape {
     val vertexCount: Int
 }
@@ -22473,7 +22438,7 @@ During the construction of a new instance of a derived class, the base class ini
 (preceded only by evaluation of the arguments for the base class constructor), which means that it happens before the
 initialization logic of the derived class is run.
 
-```java,kotlin
+```kotlin
 //sampleStart
 open class Base(val name: String) {
 
@@ -22500,7 +22465,7 @@ fun main() {
     Derived("hello", "world")
 }
 ```
-{kotlin-runnable="true"}
+
 
 This means that when the base class constructor is executed, the properties declared or overridden in the derived class
 have not yet been initialized. Using any of those properties in the base class initialization logic (either directly or
@@ -22512,7 +22477,7 @@ or `init` blocks.
 
 Code in a derived class can call its superclass functions and property accessor implementations using the `super` keyword:
 
-```java,kotlin
+```kotlin
 open class Rectangle {
     open fun draw() { println("Drawing a rectangle") }
     val borderColor: String get() = "black"
@@ -22531,7 +22496,7 @@ class FilledRectangle : Rectangle() {
 Inside an inner class, accessing the superclass of the outer class is done using the `super` keyword qualified with the
 outer class name: `super@Outer`:
 
-```java,kotlin
+```kotlin
 open class Rectangle {
     open fun draw() { println("Drawing a rectangle") }
     val borderColor: String get() = "black"
@@ -22560,7 +22525,7 @@ fun main() {
         fr.draw()
 }
 ```
-{kotlin-runnable="true"}
+
 
 ## 07.4.2.5. Overriding rules
 
@@ -22571,7 +22536,7 @@ using one of the inherited ones).
 To denote the supertype from which the inherited implementation is taken, use `super` qualified by the supertype name in
 angle brackets, such as `super<Base>`:
 
-```java,kotlin
+```kotlin
 open class Rectangle {
     open fun draw() { /* ... */ }
 }
@@ -22602,7 +22567,7 @@ implementation for it to eliminate the ambiguity.
 
 Properties in Kotlin classes can be declared either as mutable, using the `var` keyword, or as read-only, using the `val` keyword.
 
-```java,kotlin
+```kotlin
 class Address {
     var name: String = "Holmes, Sherlock"
     var street: String = "Baker"
@@ -22614,7 +22579,7 @@ class Address {
 
 To use a property, simply refer to it by its name:
 
-```java,kotlin
+```kotlin
 fun copyAddress(address: Address): Address {
     val result = Address() // there's no 'new' keyword in Kotlin
     result.name = address.name // accessors are called
@@ -22628,7 +22593,7 @@ fun copyAddress(address: Address): Address {
 
 The full syntax for declaring a property is as follows:
 
-```java,kotlin
+```kotlin
 var <propertyName>[: <PropertyType>] [= <property_initializer>]
     [<getter>]
     [<setter>]
@@ -22637,7 +22602,7 @@ var <propertyName>[: <PropertyType>] [= <property_initializer>]
 The initializer, getter, and setter are optional. The property type is optional if it can be inferred from the initializer
 or the getter's return type, as shown below:
 
-```java,kotlin
+```kotlin
 var initialized = 1 // has type Int, default getter and setter
 // var allByDefault // ERROR: explicit initializer required, default getter and setter implied
 ```
@@ -22645,7 +22610,7 @@ var initialized = 1 // has type Int, default getter and setter
 The full syntax of a read-only property declaration differs from a mutable one in two ways: it starts with `val` instead
 of `var` and does not allow a setter:
 
-```java,kotlin
+```kotlin
 val simple: Int? // has type Int, default getter, must be initialized in constructor
 val inferredType = 1 // has type Int and a default getter
 ```
@@ -22653,7 +22618,7 @@ val inferredType = 1 // has type Int and a default getter
 You can define custom accessors for a property. If you define a custom getter, it will be called every time you access
 the property (this way you can implement a computed property). Here's an example of a custom getter:
 
-```java,kotlin
+```kotlin
 //sampleStart
 class Rectangle(val width: Int, val height: Int) {
     val area: Int // property type is optional since it can be inferred from the getter's return type
@@ -22665,18 +22630,18 @@ fun main() {
     println("Width=${rectangle.width}, height=${rectangle.height}, area=${rectangle.area}")
 }
 ```
-{kotlin-runnable="true"}
+
 
 You can omit the property type if it can be inferred from the getter:
 
-```java,kotlin
+```kotlin
 val area get() = this.width * this.height
 ```
 
 If you define a custom setter, it will be called every time you assign a value to the property, except its initialization.
 A custom setter looks like this:
 
-```java,kotlin
+```kotlin
 var stringRepresentation: String
     get() = this.toString()
     set(value) {
@@ -22689,7 +22654,7 @@ By convention, the name of the setter parameter is `value`, but you can choose a
 If you need to annotate an accessor or change its visibility, but you don't want to change the default implementation,
 you can define the accessor without defining its body:
 
-```java,kotlin
+```kotlin
 var setterVisibility: String = "abc"
     private set // the setter is private and has the default implementation
 
@@ -22703,7 +22668,7 @@ In Kotlin, a field is only used as a part of a property to hold its value in mem
 However, when a property needs a backing field, Kotlin provides it automatically. This backing field can be referenced in
 the accessors using the `field` identifier:
 
-```java,kotlin
+```kotlin
 var counter = 0 // the initializer assigns the backing field directly
     set(value) {
         if (value >= 0)
@@ -22719,7 +22684,7 @@ or if a custom accessor references it through the `field` identifier.
 
 For example, there would be no backing field in the following case:
 
-```java,kotlin
+```kotlin
 val isEmpty: Boolean
     get() = this.size == 0
 ```
@@ -22729,7 +22694,7 @@ val isEmpty: Boolean
 If you want to do something that does not fit into this _implicit backing field_ scheme, you can always fall back to having
 a _backing property_:
 
-```java,kotlin
+```kotlin
 private var _table: Map<String, Int>? = null
 public val table: Map<String, Int>
     get() {
@@ -22757,7 +22722,7 @@ The compiler will inline usages of the constant, replacing the reference to the 
 
 Such properties can also be used in annotations:
 
-```java,kotlin
+```kotlin
 const val SUBSYSTEM_DEPRECATED: String = "This subsystem is deprecated"
 
 @Deprecated(SUBSYSTEM_DEPRECATED) fun foo() { ... }
@@ -22772,7 +22737,7 @@ but you still want to avoid null checks when referencing the property inside the
 
 To handle such cases, you can mark the property with the `lateinit` modifier:
 
-```java,kotlin
+```kotlin
 public class MyTest {
     lateinit var subject: TestSubject
 
@@ -22797,7 +22762,7 @@ being accessed and the fact that it hasn't been initialized.
 
 To check whether a `lateinit var` has already been initialized, use `.isInitialized` on the [reference to that property](reflection.md#property-references):
 
-```java,kotlin
+```kotlin
 if (foo::bar.isInitialized) {
     println(foo.bar)
 }
@@ -22830,7 +22795,7 @@ properties, but these need to be abstract or provide accessor implementations.
 
 An interface is defined using the keyword `interface`:
 
-```java,kotlin
+```kotlin
 interface MyInterface {
     fun bar()
     fun foo() {
@@ -22843,7 +22808,7 @@ interface MyInterface {
 
 A class or object can implement one or more interfaces:
 
-```java,kotlin
+```kotlin
 class Child : MyInterface {
     override fun bar() {
         // body
@@ -22857,7 +22822,7 @@ You can declare properties in interfaces. A property declared in an interface ca
 implementations for accessors. Properties declared in interfaces can't have backing fields, and therefore accessors
 declared in interfaces can't reference them:
 
-```java,kotlin
+```kotlin
 interface MyInterface {
     val prop: Int // abstract
 
@@ -22880,7 +22845,7 @@ An interface can derive from other interfaces, meaning it can both provide imple
 functions and properties. Quite naturally, classes implementing such an interface are only required to define
 the missing implementations:
 
-```java,kotlin
+```kotlin
 interface Named {
     val name: String
 }
@@ -22904,7 +22869,7 @@ data class Employee(
 
 When you declare many types in your supertype list, you may inherit more than one implementation of the same method:
 
-```java,kotlin
+```kotlin
 interface A {
     fun foo() { print("A") }
     fun bar()
@@ -22949,7 +22914,7 @@ Method (SAM) interface_. The functional interface can have several non-abstract 
 
 To declare a functional interface in Kotlin, use the `fun` modifier.
 
-```java,kotlin
+```kotlin
 fun interface KRunnable {
    fun invoke()
 }
@@ -22966,7 +22931,7 @@ the signature of the interface's single method into the code, which dynamically 
 
 For example, consider the following Kotlin functional interface:
 
-```java,kotlin
+```kotlin
 fun interface IntPredicate {
    fun accept(i: Int): Boolean
 }
@@ -22974,7 +22939,7 @@ fun interface IntPredicate {
 
 If you don't use a SAM conversion, you will need to write code like this:
 
-```java,kotlin
+```kotlin
 // Creating an instance of a class
 val isEven = object : IntPredicate {
    override fun accept(i: Int): Boolean {
@@ -22985,14 +22950,14 @@ val isEven = object : IntPredicate {
 
 By leveraging Kotlin's SAM conversion, you can write the following equivalent code instead:
 
-```java,kotlin
+```kotlin
 // Creating an instance using lambda
 val isEven = IntPredicate { it % 2 == 0 }
 ```
 
 A short lambda expression replaces all the unnecessary code.
 
-```java,kotlin
+```kotlin
 fun interface IntPredicate {
    fun accept(i: Int): Boolean
 }
@@ -23003,7 +22968,7 @@ fun main() {
    println("Is 7 even? - ${isEven.accept(7)}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 You can also use [SAM conversions for Java interfaces](java-interop.md#sam-conversions).
 
@@ -23013,7 +22978,7 @@ Starting from 1.6.20, Kotlin supports [callable references](reflection.md#callab
 adds a source-compatible way to migrate from an interface with a constructor function to a functional interface.
 Consider the following code:
 
-```java,kotlin
+```kotlin
 interface Printer { 
     fun print() 
 }
@@ -23023,7 +22988,7 @@ fun Printer(block: () -> Unit): Printer = object : Printer { override fun print(
 
 With callable references to functional interface constructors enabled, this code can be replaced with just a functional interface declaration:
 
-```java,kotlin
+```kotlin
 fun interface Printer { 
     fun print()
 }
@@ -23031,14 +22996,14 @@ fun interface Printer {
 
 Its constructor will be created implicitly, and any code using the `::Printer` function reference will compile. For example:
 
-```java,kotlin
+```kotlin
 documentsStorage.addPrinter(::Printer)
 ```
 
 Preserve the binary compatibility by marking the legacy function `Printer` with the [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
 annotation with `DeprecationLevel.HIDDEN`:
 
-```java,kotlin
+```kotlin
 @Deprecated(message = "Your message about the deprecation", level = DeprecationLevel.HIDDEN)
 fun Printer(...) {...}
 ```
@@ -23047,7 +23012,7 @@ fun Printer(...) {...}
 
 You can also simply rewrite the above using a [type alias](type-aliases.md) for a functional type:
 
-```java,kotlin
+```kotlin
 typealias IntPredicate = (i: Int) -> Boolean
 
 val isEven: IntPredicate = { it % 2 == 0 }
@@ -23086,7 +23051,7 @@ On this page, you'll learn how the modifiers apply to different types of declari
 
 Functions, properties, classes, objects, and interfaces can be declared at the "top-level" directly inside a package:
 
-```java,kotlin
+```kotlin
 // file name: example.kt
 package foo
 
@@ -23106,7 +23071,7 @@ class Bar { ... }
 
 Examples:
 
-```java,kotlin
+```kotlin
 // file name: example.kt
 package foo
 
@@ -23136,7 +23101,7 @@ will also have the same visibility as the original.
 
 Examples:
 
-```java,kotlin
+```kotlin
 open class Outer {
     private val a = 1
     protected open val b = 2
@@ -23172,7 +23137,7 @@ Use the following syntax to specify the visibility of the primary constructor of
 >
 {type="note"}
 
-```java,kotlin
+```kotlin
 class C private constructor(a: Int) { ... }
 ```
 
@@ -23214,7 +23179,7 @@ new properties for existing classes.
 To declare an extension function, prefix its name with a _receiver type_, which refers to the type being extended.
 The following adds a `swap` function to `MutableList<Int>`:
 
-```java,kotlin
+```kotlin
 fun MutableList<Int>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
@@ -23225,14 +23190,14 @@ fun MutableList<Int>.swap(index1: Int, index2: Int) {
 The `this` keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot).
 Now, you can call such a function on any `MutableList<Int>`:
 
-```java,kotlin
+```kotlin
 val list = mutableListOf(1, 2, 3)
 list.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'list'
 ```
 
 This function makes sense for any `MutableList<T>`, and you can make it generic:
 
-```java,kotlin
+```kotlin
 fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
     val tmp = this[index1] // 'this' corresponds to the list
     this[index1] = this[index2]
@@ -23251,7 +23216,7 @@ a class, only making new functions callable with the dot-notation on variables o
 Extension functions are dispatched _statically_. So which extension function is called is already known at compile time
 based on the receiver type. For example:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     open class Shape
@@ -23268,7 +23233,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 This example prints _Shape_, because the extension function called depends only on the declared type of the
 parameter `s`, which is the `Shape` class.
@@ -23276,7 +23241,7 @@ parameter `s`, which is the `Shape` class.
 If a class has a member function, and an extension function is defined which has the same receiver type,
 the same name, and is applicable to given arguments, the _member always wins_. For example:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     class Example {
@@ -23289,13 +23254,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 This code prints _Class method_.
 
 However, it's perfectly OK for extension functions to overload member functions that have the same name but a different signature:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     class Example {
@@ -23308,7 +23273,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 07.4.7.3. Nullable receiver
 
@@ -23318,7 +23283,7 @@ nullable receiver type, we recommend performing a `this == null` check inside th
 
 You can call `toString()` in Kotlin without checking for `null`, as the check already happens inside the extension function:
 
-```java,kotlin
+```kotlin
 fun Any?.toString(): String {
     if (this == null) return "null"
     // After the null check, 'this' is autocast to a non-nullable type, so the toString() below
@@ -23331,7 +23296,7 @@ fun Any?.toString(): String {
 
 Kotlin supports extension properties much like it supports functions:
 
-```java,kotlin
+```kotlin
 val <T> List<T>.lastIndex: Int
     get() = size - 1
 ```
@@ -23344,7 +23309,7 @@ val <T> List<T>.lastIndex: Int
 
 Example:
 
-```java,kotlin
+```kotlin
 val House.number = 1 // error: initializers are not allowed for extension properties
 ```
 
@@ -23354,7 +23319,7 @@ If a class has a [companion object](object-declarations.md#companion-objects) de
 functions and properties for the companion object. Just like regular members of the companion object,
 they can be called using only the class name as the qualifier:
 
-```java,kotlin
+```kotlin
 class MyClass {
     companion object { }  // will be called "Companion"
 }
@@ -23365,13 +23330,13 @@ fun main() {
     MyClass.printCompanion()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 07.4.7.6. Scope of extensions
 
 In most cases, you define extensions on the top level, directly under packages:
 
-```java,kotlin
+```kotlin
 package org.example.declarations
 
 fun List<String>.getLongestString() { /*...*/}
@@ -23379,7 +23344,7 @@ fun List<String>.getLongestString() { /*...*/}
 
 To use an extension outside its declaring package, import it at the call site:
 
-```java,kotlin
+```kotlin
 package org.example.usage
 
 import org.example.declarations.getLongestString
@@ -23398,7 +23363,7 @@ You can declare extensions for one class inside another class. Inside such an ex
 objects whose members can be accessed without a qualifier. An instance of a class in which the extension is declared is called a
 _dispatch receiver_, and an instance of the receiver type of the extension method is called an _extension receiver_.
 
-```java,kotlin
+```kotlin
 class Host(val hostname: String) {
     fun printHostname() { print(hostname) }
 }
@@ -23423,12 +23388,12 @@ fun main() {
     //Host("kotl.in").printConnectionString()  // error, the extension function is unavailable outside Connection
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 In the event of a name conflict between the members of a dispatch receiver and an extension receiver, the extension receiver takes
 precedence. To refer to the member of the dispatch receiver, you can use the [qualified `this` syntax](this-expressions.md#qualified-this).
 
-```java,kotlin
+```kotlin
 class Connection {
     fun Host.getConnectionString() {
         toString()         // calls Host.toString()
@@ -23440,7 +23405,7 @@ class Connection {
 Extensions declared as members can be declared as `open` and overridden in subclasses. This means that the dispatch of such
 functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
 
-```java,kotlin
+```kotlin
 open class Base { }
 
 class Derived : Base() { }
@@ -23475,7 +23440,7 @@ fun main() {
     DerivedCaller().call(Derived())  // "Base extension function in DerivedCaller" - extension receiver is resolved statically
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 07.4.7.8. Note on visibility
 
@@ -23494,7 +23459,7 @@ Data classes in Kotlin are classes whose main purpose is to hold data. Data clas
 member functions that allow you to print an instance to readable output, compare instances, copy instances, and more.
 Data classes are marked with `data`:
 
-```java,kotlin
+```kotlin
 data class User(val name: String, val age: Int)
 ```
 
@@ -23528,7 +23493,7 @@ Data classes may extend other classes (see [Sealed classes](sealed-classes.md) f
 >
 {type="note"}
 
-```java,kotlin
+```kotlin
 data class User(val name: String = "", val age: Int = 0)
 ```
 
@@ -23537,7 +23502,7 @@ data class User(val name: String = "", val age: Int = 0)
 The compiler only uses the properties defined inside the primary constructor for the automatically generated
 functions. To exclude a property from the generated implementations, declare it inside the class body:
 
-```java,kotlin
+```kotlin
 data class Person(val name: String) {
     var age: Int = 0
 }
@@ -23549,7 +23514,7 @@ and there is only one component function `.component1()`. The `age` property can
 objects have different ages but the same `name`, then they are treated as equal. This is because the `.equals()` function
 can only check for equality of the `name` property. For example:
 
-```java,kotlin
+```kotlin
 data class Person(val name: String) {
     var age: Int = 0
 }
@@ -23571,19 +23536,19 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 07.4.8.2. Copying
 
 Use the `.copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged. The implementation of this function for the `User` class above would be as follows:
 
-```java,kotlin
+```kotlin
 fun copy(name: String = this.name, age: Int = this.age) = User(name, age)
 ```
 
 You can then write the following:
 
-```java,kotlin
+```kotlin
 val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
@@ -23592,7 +23557,7 @@ val olderJack = jack.copy(age = 2)
 
 _Component functions_ generated for data classes make it possible to use them in [destructuring declarations](destructuring-declarations.md):
 
-```java,kotlin
+```kotlin
 val jane = User("Jane", 35)
 val (name, age) = jane
 println("$name, $age years of age") 
@@ -23630,7 +23595,7 @@ library authors can be sure that they know all possible error types and no other
 
 To declare a sealed class or interface, put the `sealed` modifier before its name:
 
-```java,kotlin
+```kotlin
 sealed interface Error
 
 sealed class IOError(): Error
@@ -23646,7 +23611,7 @@ A sealed class is [abstract](classes.md#abstract-classes) by itself, it cannot b
 Constructors of sealed classes can have one of two [visibilities](visibility-modifiers.md): `protected` (by default) or
 `private`:
 
-```java,kotlin
+```kotlin
 sealed class IOError {
     constructor() { /*...*/ } // protected by default
     private constructor(description: String): this() { /*...*/ } // private is OK
@@ -23669,7 +23634,7 @@ Subclasses of sealed classes must have a proper qualified name. They can't be lo
 These restrictions don't apply to indirect subclasses. If a direct subclass of a sealed class is not marked as sealed,
 it can be extended in any way that its modifiers allow:
 
-```java,kotlin
+```kotlin
 sealed interface Error // has implementations only in same package and module
 
 sealed class IOError(): Error // extended only in same package and module
@@ -23693,7 +23658,7 @@ The key benefit of using sealed classes comes into play when you use them in a [
 expression. 
 If it's possible to verify that the statement covers all cases, you don't need to add an `else` clause to the statement:
 
-```java,kotlin
+```kotlin
 fun log(e: Error) = when(e) {
     is FileReadError -> { println("Error while reading file ${e.file}") }
     is DatabaseError -> { println("Error while reading from database ${e.source}") }
@@ -23715,7 +23680,7 @@ fun log(e: Error) = when(e) {
 
 Classes in Kotlin can have type parameters, just like in Java:
 
-```java,kotlin
+```kotlin
 class Box<T>(t: T) {
     var value = t
 }
@@ -23723,14 +23688,14 @@ class Box<T>(t: T) {
 
 To create an instance of such a class, simply provide the type arguments:
 
-```java,kotlin
+```kotlin
 val box: Box<Int> = Box<Int>(1)
 ```
 
 But if the parameters can be inferred, for example, from the constructor arguments,
 you can omit the type arguments:
 
-```java,kotlin
+```kotlin
 val box = Box(1) // 1 has type Int, so the compiler figures out that it is Box<Int>
 ```
 
@@ -23852,7 +23817,7 @@ you can annotate the _type parameter_ `T` of `Source` to make sure that it is on
 of `Source<T>`, and never consumed.
 To do this, use the `out` modifier:
 
-```java,kotlin
+```kotlin
 interface Source<out T> {
     fun nextT(): T
 }
@@ -23876,7 +23841,7 @@ This is in contrast with Java's _use-site variance_ where wildcards in the type 
 In addition to `out`, Kotlin provides a complementary variance annotation: `in`. It makes a type parameter _contravariant_, meaning
 it can only be consumed and never produced. A good example of a contravariant type is `Comparable`:
 
-```java,kotlin
+```kotlin
 interface Comparable<in T> {
     operator fun compareTo(other: T): Int
 }
@@ -23901,7 +23866,7 @@ It is very easy to declare a type parameter `T` as `out` and avoid trouble with 
 but some classes _can't_ actually be restricted to only return `T`'s!
 A good example of this is `Array`:
 
-```java,kotlin
+```kotlin
 class Array<T>(val size: Int) {
     operator fun get(index: Int): T { ... }
     operator fun set(index: Int, value: T) { ... }
@@ -23910,7 +23875,7 @@ class Array<T>(val size: Int) {
 
 This class can be neither co- nor contravariant in `T`. And this imposes certain inflexibilities. Consider the following function:
 
-```java,kotlin
+```kotlin
 fun copy(from: Array<Any>, to: Array<Any>) {
     assert(from.size == to.size)
     for (i in from.indices)
@@ -23920,7 +23885,7 @@ fun copy(from: Array<Any>, to: Array<Any>) {
 
 This function is supposed to copy items from one array to another. Let's try to apply it in practice:
 
-```java,kotlin
+```kotlin
 val ints: Array<Int> = arrayOf(1, 2, 3)
 val any = Array<Any>(3) { "" } 
 copy(ints, any)
@@ -23933,7 +23898,7 @@ write a `String` to `from`, and if you actually pass an array of `Int` there, a 
 
 To prohibit the `copy` function from _writing_ to `from`, you can do the following:
 
-```java,kotlin
+```kotlin
 fun copy(from: Array<out Any>, to: Array<Any>) { ... }
 ```
 
@@ -23943,7 +23908,7 @@ This is our approach to _use-site variance_, and it corresponds to Java's `Array
 
 You can project a type with `in` as well:
 
-```java,kotlin
+```kotlin
 fun fill(dest: Array<in String>, value: String) { ... }
 ```
 
@@ -23980,7 +23945,7 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 
 Classes aren't the only declarations that can have type parameters. Functions can, too. Type parameters are placed _before_ the name of the function:
 
-```java,kotlin
+```kotlin
 fun <T> singletonList(item: T): List<T> {
     // ...
 }
@@ -23992,13 +23957,13 @@ fun <T> T.basicToString(): String { // extension function
 
 To call a generic function, specify the type arguments at the call site _after_ the name of the function:
 
-```java,kotlin
+```kotlin
 val l = singletonList<Int>(1)
 ```
 
 Type arguments can be omitted if they can be inferred from the context, so the following example works as well:
 
-```java,kotlin
+```kotlin
 val l = singletonList(1)
 ```
 
@@ -24010,13 +23975,13 @@ The set of all possible types that can be substituted for a given type parameter
 
 The most common type of constraint is an _upper bound_, which corresponds to Java's `extends` keyword:
 
-```java,kotlin
+```kotlin
 fun <T : Comparable<T>> sort(list: List<T>) {  ... }
 ```
 
 The type specified after a colon is the _upper bound_, indicating that only a subtype of `Comparable<T>` can be substituted for `T`. For example:
 
-```java,kotlin
+```kotlin
 sort(listOf(1, 2, 3)) // OK. Int is a subtype of Comparable<Int>
 sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a subtype of Comparable<HashMap<Int, String>>
 ```
@@ -24024,7 +23989,7 @@ sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a sub
 The default upper bound (if there was none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
 If the same type parameter needs more than one upper bound, you need a separate _where_\-clause:
 
-```java,kotlin
+```kotlin
 fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
     where T : CharSequence,
           T : Comparable<T> {
@@ -24059,7 +24024,7 @@ public interface Game<T> {
 
 To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely non-nullable:
 
-```java,kotlin
+```kotlin
 interface ArcadeGame<T1> : Game<T1> {
     override fun save(x: T1): T1
     // T1 is definitely non-nullable
@@ -24083,7 +24048,7 @@ Due to the type erasure, there is no general way to check whether an instance of
 arguments at runtime, and the compiler prohibits such `is`-checks such as
 `ints is List<Int>` or `list is T` (type parameter). However, you can check an instance against a star-projected type:
 
-```java,kotlin
+```kotlin
 if (something is List<*>) {
     something.forEach { println(it) } // The items are typed as `Any?`
 }
@@ -24093,7 +24058,7 @@ Similarly, when you already have the type arguments of an instance checked stati
 you can make an `is`-check or a cast that involves the non-generic part of the type. Note that
 angle brackets are omitted in this case:
 
-```java,kotlin
+```kotlin
 fun handleStrings(list: MutableList<String>) {
     if (list is ArrayList) {
         // `list` is smart-cast to `ArrayList<String>`
@@ -24110,7 +24075,7 @@ which have their actual type arguments inlined at each call site. This enables t
 However, the restrictions described above still apply for instances of generic types used inside checks or casts.
 For example, in the type check `arg is T`, if `arg` is an instance of a generic type itself, its type arguments are still erased.
 
-```java,kotlin
+```kotlin
 //sampleStart
 inline fun <reified A, reified B> Pair<*, *>.asPairOf(): Pair<A, B>? {
     if (first !is A || second !is B) return null
@@ -24136,7 +24101,7 @@ fun main() {
     //println(stringToStringList?.second?.forEach() {it.length}) // This will throw ClassCastException as list items are not String
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Unchecked casts
 
@@ -24144,7 +24109,7 @@ Type casts to generic types with concrete type arguments such as `foo as List<St
 These unchecked casts can be used when type safety is implied by the high-level program logic but cannot be inferred 
 directly by the compiler. See the example below.
 
-```java,kotlin
+```kotlin
 fun readDictionary(file: File): Map<String, *> = file.inputStream().use { 
     TODO("Read a mapping of strings to arbitrary elements.")
 }
@@ -24169,7 +24134,7 @@ like `arg as T` checked, unless `arg`'s type has *its own* type arguments that a
 An unchecked cast warning can be suppressed by [annotating](annotations.md) the statement or the
 declaration where it occurs with `@Suppress("UNCHECKED_CAST")`:
 
-```java,kotlin
+```kotlin
 inline fun <reified T> List<*>.asListOfType(): List<T>? =
     if (all { it is T })
         @Suppress("UNCHECKED_CAST")
@@ -24188,7 +24153,7 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
 
 The underscore operator `_` can be used for type arguments. Use it to automatically infer a type of the argument when other types are explicitly specified:
 
-```java,kotlin
+```kotlin
 abstract class SomeClass<T> {
     abstract fun execute() : T
 }
@@ -24225,7 +24190,7 @@ fun main() {
 
 Classes can be nested in other classes:
 
-```java,kotlin
+```kotlin
 class Outer {
     private val bar: Int = 1
     class Nested {
@@ -24239,7 +24204,7 @@ val demo = Outer.Nested().foo() // == 2
 You can also use interfaces with nesting. All combinations of classes and interfaces are possible: You can nest interfaces
 in classes, classes in interfaces, and interfaces in interfaces.
 
-```java,kotlin
+```kotlin
 interface OuterInterface {
     class InnerClass
     interface InnerInterface
@@ -24255,7 +24220,7 @@ class OuterClass {
 
 A nested class marked as `inner` can access the members of its outer class. Inner classes carry a reference to an object of an outer class:
 
-```java,kotlin
+```kotlin
 class Outer {
     private val bar: Int = 1
     inner class Inner {
@@ -24272,7 +24237,7 @@ See [Qualified `this` expressions](this-expressions.md) to learn about disambigu
 
 Anonymous inner class instances are created using an [object expression](object-declarations.md#object-expressions):
 
-```java,kotlin
+```kotlin
 window.addMouseListener(object : MouseAdapter() {
 
     override fun mouseClicked(e: MouseEvent) { ... }
@@ -24298,7 +24263,7 @@ window.addMouseListener(object : MouseAdapter() {
 
 The most basic use case for enum classes is the implementation of type-safe enums:
 
-```java,kotlin
+```kotlin
 enum class Direction {
     NORTH, SOUTH, WEST, EAST
 }
@@ -24307,7 +24272,7 @@ Each enum constant is an object. Enum constants are separated by commas.
 
 Since each enum is an instance of the enum class, it can be initialized as:
 
-```java,kotlin
+```kotlin
 enum class Color(val rgb: Int) {
     RED(0xFF0000),
     GREEN(0x00FF00),
@@ -24320,7 +24285,7 @@ enum class Color(val rgb: Int) {
 Enum constants can declare their own anonymous classes with their corresponding methods, as well as with overriding base
 methods.
 
-```java,kotlin
+```kotlin
 enum class ProtocolState {
     WAITING {
         override fun signal() = TALKING
@@ -24342,7 +24307,7 @@ An enum class can implement an interface (but it cannot derive from a class), pr
 interface members for all the entries, or separate implementations for each entry within its anonymous class.
 This is done by adding the interfaces you want to implement to the enum class declaration as follows:
 
-```java,kotlin
+```kotlin
 import java.util.function.BinaryOperator
 import java.util.function.IntBinaryOperator
 
@@ -24367,7 +24332,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true"}
+
 
 All enum classes implement the [Comparable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparable/index.html)
 interface by default. Constants in the enum class are defined in the natural order. For more information, see [Ordering](collection-ordering.md).
@@ -24378,14 +24343,14 @@ Enum classes in Kotlin have synthetic methods for listing
 the defined enum constants and getting an enum constant by its name. The signatures
 of these methods are as follows (assuming the name of the enum class is `EnumClass`):
 
-```java,kotlin
+```kotlin
 EnumClass.valueOf(value: String): EnumClass
 EnumClass.values(): Array<EnumClass>
 ```
 
 Below is an example of these methods in action:
 
-```java,kotlin
+```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
@@ -24393,7 +24358,7 @@ fun main() {
     println("The first color is: ${RGB.valueOf("RED")}") // prints "The first color is: RED"
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-kotlin"}
+
 
 The `valueOf()` method throws an `IllegalArgumentException` if the specified name does
 not match any of the enum constants defined in the class.
@@ -24401,7 +24366,7 @@ not match any of the enum constants defined in the class.
 You can access the constants in an enum class in a generic way using
 the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions:
 
-```java,kotlin
+```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 inline fun <reified T : Enum<T>> printAllValues() {
@@ -24420,7 +24385,7 @@ In Kotlin 1.9.0, the `entries` property is introduced as a replacement for the `
 are working with [collections](collections-overview.md) and can help you avoid [performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues).
 
 For example:
-```java,kotlin
+```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
@@ -24433,7 +24398,7 @@ Every enum constant also has properties: [`name`](https://kotlinlang.org/api/lat
 and [`ordinal`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/ordinal.html), for obtaining its name and 
 position (starting from 0) in the enum class declaration:
 
-```java,kotlin
+```kotlin
 enum class RGB { RED, GREEN, BLUE }
 
 fun main() {
@@ -24443,7 +24408,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
+
 
 
 # 📜 07.04.13. [Inline value classes](inline-classes.md)
@@ -24459,13 +24424,13 @@ Inline classes are a subset of [value-based classes](https://github.com/Kotlin/K
 
 To declare an inline class, use the `value` modifier before the name of the class:
 
-```java,kotlin
+```kotlin
 value class Password(private val s: String)
 ```
 
 To declare an inline class for the JVM backend, use the `value` modifier along with the `@JvmInline` annotation before the class declaration: 
 
-```java,kotlin
+```kotlin
 // For JVM backends
 @JvmInline
 value class Password(private val s: String)
@@ -24474,7 +24439,7 @@ value class Password(private val s: String)
 An inline class must have a single property initialized in the primary constructor. At runtime, instances of the inline 
 class will be represented using this single property (see details about runtime representation [below](#representation)):
 
-```java,kotlin
+```kotlin
 // No actual instantiation of class 'Password' happens
 // At runtime 'securePassword' contains just 'String'
 val securePassword = Password("Don't try this in production") 
@@ -24488,7 +24453,7 @@ usages (similar to how content of [inline functions](inline-functions.md) is inl
 Inline classes support some functionality of regular classes. In particular, they are allowed to declare properties and 
 functions, have an `init` block and [secondary constructors](classes.md#secondary-constructors):
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class Person(private val fullName: String) {
     init {
@@ -24518,7 +24483,7 @@ fun main() {
     println(name2.length) // property getter is called as a static method
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.9"}
+
 
 Inline class properties cannot have [backing fields](properties.md#backing-fields). They can only have simple computable 
 properties (no `lateinit`/delegated properties).
@@ -24527,7 +24492,7 @@ properties (no `lateinit`/delegated properties).
 
 Inline classes are allowed to inherit from interfaces:
 
-```java,kotlin
+```kotlin
 interface Printable {
     fun prettyPrint(): String
 }
@@ -24556,7 +24521,7 @@ The Kotlin compiler will prefer using underlying types instead of wrappers to pr
 However, sometimes it is necessary to keep wrappers around. As a rule of thumb, inline classes are boxed whenever they 
 are used as another type.
 
-```java,kotlin
+```kotlin
 interface I
 
 @JvmInline
@@ -24589,7 +24554,7 @@ is pointless for them and is therefore prohibited.
 Inline classes can also have a generic type parameter as the underlying type. In this case, the compiler maps it to `Any?`
 or, generally, to the upper bound of the type parameter.
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class UserId<T>(val value: T)
 
@@ -24600,7 +24565,7 @@ fun compute(s: UserId<String>) {} // compiler generates fun compute-<hashcode>(s
 
 Since inline classes are compiled to their underlying type, it may lead to various obscure errors, for example unexpected platform signature clashes:
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class UInt(val x: Int)
 
@@ -24619,7 +24584,7 @@ Therefore, `fun compute(x: UInt)` will be represented as `public final void comp
 You can call functions that accept inline classes from Java code. To do so, you should manually disable mangling:
 add the `@JvmName` annotation before the function declaration:
 
-```java,kotlin
+```kotlin
 @JvmInline
 value class UInt(val x: Int)
 
@@ -24640,7 +24605,7 @@ other type aliases with the same underlying type), while inline classes are not.
 In other words, inline classes introduce a truly _new_ type, contrary to type aliases which only introduce an alternative name 
 (alias) for an existing type:
 
-```java,kotlin
+```kotlin
 typealias NameTypeAlias = String
 
 @JvmInline
@@ -24668,7 +24633,7 @@ fun main() {
 
 Implementation by delegation to inlined value of inlined class is allowed with interfaces:
 
-```java,kotlin
+```kotlin
 interface MyInterface {
     fun bar()
     fun foo() = "foo"
@@ -24708,7 +24673,7 @@ Object expressions start with the `object` keyword.
 
 If you just need an object that doesn't have any nontrivial supertypes, write its members in curly braces after `object`:
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -24722,14 +24687,14 @@ fun main() {
     print(helloWorld)
 }
 ```
-{kotlin-runnable="true"}
+
 
 ### Inheriting anonymous objects from supertypes
 
 To create an object of an anonymous class that inherits from some type (or types), specify this type after `object` and a
 colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it:
 
-```java,kotlin
+```kotlin
 window.addMouseListener(object : MouseAdapter() {
     override fun mouseClicked(e: MouseEvent) { /*...*/ }
 
@@ -24740,7 +24705,7 @@ window.addMouseListener(object : MouseAdapter() {
 If a supertype has a constructor, pass appropriate constructor parameters to it.
 Multiple supertypes can be specified as a comma-delimited list after the colon:
 
-```java,kotlin
+```kotlin
 open class A(x: Int) {
     public open val y: Int = x
 }
@@ -24757,7 +24722,7 @@ val ab: A = object : A(1), B {
 When an anonymous object is used as a type of a local or [private](visibility-modifiers.md#packages) but not [inline](inline-functions.md)
 declaration (function or property), all its members are accessible via this function or property:
 
-```java,kotlin
+```kotlin
 class C {
     private fun getObject() = object {
         val x: String = "x"
@@ -24777,7 +24742,7 @@ If this function or property is public or private inline, its actual type is:
 In all these cases, members added in the anonymous object are not accessible. Overridden members are accessible if they
 are declared in the actual type of the function or property:
 
-```java,kotlin
+```kotlin
 interface A {
     fun funFromA() {}
 }
@@ -24807,7 +24772,7 @@ class C {
 
 The code in object expressions can access variables from the enclosing scope:
 
-```java,kotlin
+```kotlin
 fun countClicks(window: JComponent) {
     var clickCount = 0
     var enterCount = 0
@@ -24826,12 +24791,11 @@ fun countClicks(window: JComponent) {
 ```
 
 ## 07.4.14.2. Object declarations
-{id="object-declarations-overview"}
 
 The [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern can be useful in several cases,
 and Kotlin makes it easy to declare singletons:
 
-```java,kotlin
+```kotlin
 object DataProviderManager {
     fun registerDataProvider(provider: DataProvider) {
         // ...
@@ -24850,13 +24814,13 @@ The initialization of an object declaration is thread-safe and done on first acc
 
 To refer to the object, use its name directly:
 
-```java,kotlin
+```kotlin
 DataProviderManager.registerDataProvider(...)
 ```
 
 Such objects can have supertypes:
 
-```java,kotlin
+```kotlin
 object DefaultListener : MouseAdapter() {
     override fun mouseClicked(e: MouseEvent) { ... }
 
@@ -24873,7 +24837,7 @@ object DefaultListener : MouseAdapter() {
 
 When printing a plain `object` declaration in Kotlin, the string representation contains both its name and the hash of the object:
 
-```java,kotlin
+```kotlin
 object MyObject
 
 fun main() {
@@ -24891,7 +24855,7 @@ Just like [data classes](data-classes.md), you can mark an `object` declaration 
   {type="note"}
 
 The `toString()` function of a data object returns the name of the object:
-```java,kotlin
+```kotlin
 data object MyDataObject {
     val x: Int = 3
 }
@@ -24908,7 +24872,7 @@ However, in the edge case where another object of the same type is generated at 
 > Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator). This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
 {type="warning"}
 
-```java,kotlin
+```kotlin
 import java.lang.reflect.Constructor
 
 data object MySingleton
@@ -24947,7 +24911,7 @@ While `data object` and `data class` declarations are often used together and ha
 
 `data object` declarations are a particularly useful for sealed hierarchies, like [sealed classes or sealed interfaces](sealed-classes.md), since they allow you to maintain symmetry with any data classes you may have defined alongside the object:
 
-```java,kotlin
+```kotlin
 sealed interface ReadResult
 data class Number(val number: Int) : ReadResult
 data class Text(val text: String) : ReadResult
@@ -24970,7 +24934,7 @@ fun main() {
 
 An object declaration inside a class can be marked with the `companion` keyword:
 
-```java,kotlin
+```kotlin
 class MyClass {
     companion object Factory {
         fun create(): MyClass = MyClass()
@@ -24980,13 +24944,13 @@ class MyClass {
 
 Members of the companion object can be called simply by using the class name as the qualifier:
 
-```java,kotlin
+```kotlin
 val instance = MyClass.create()
 ```
 
 The name of the companion object can be omitted, in which case the name `Companion` will be used:
 
-```java,kotlin
+```kotlin
 class MyClass {
     companion object { }
 }
@@ -24999,7 +24963,7 @@ Class members can access the private members of the corresponding companion obje
 The name of a class used by itself (not as a qualifier to another name) acts as a reference to the companion
 object of the class (whether named or not):
 
-```java,kotlin
+```kotlin
 class MyClass1 {
     companion object Named { }
 }
@@ -25016,7 +24980,7 @@ val y = MyClass2
 Note that even though the members of companion objects look like static members in other languages, at runtime those
 are still instance members of real objects, and can, for example, implement interfaces:
 
-```java,kotlin
+```kotlin
 interface Factory<T> {
     fun create(): T
 }
@@ -25053,7 +25017,7 @@ implementation inheritance, and Kotlin supports it natively requiring zero boile
 
 A class `Derived` can implement an interface `Base` by delegating all of its public members to a specified object:
 
-```java,kotlin
+```kotlin
 interface Base {
     fun print()
 }
@@ -25069,7 +25033,7 @@ fun main() {
     Derived(b).print()
 }
 ```
-{kotlin-runnable="true"}
+
 
 The `by`-clause in the supertype list for `Derived` indicates that `b` will be stored internally in objects 
 of `Derived` and the compiler will generate all the methods of `Base` that forward to `b`.
@@ -25080,7 +25044,7 @@ of `Derived` and the compiler will generate all the methods of `Base` that forwa
 implementations instead of those in the delegate object. If you want to add `override fun printMessage() { print("abc") }` to 
 `Derived`, the program would print *abc* instead of *10* when `printMessage` is called:
 
-```java,kotlin
+```kotlin
 interface Base {
     fun printMessage()
     fun printMessageLine()
@@ -25101,12 +25065,12 @@ fun main() {
     Derived(b).printMessageLine()
 }
 ```
-{kotlin-runnable="true"}
+
 
 Note, however, that members overridden in this way do not get called from the members of the 
 delegate object, which can only access its own implementations of the interface members:
 
-```java,kotlin
+```kotlin
 interface Base {
     val message: String
     fun print()
@@ -25129,7 +25093,7 @@ fun main() {
     println(derived.message)
 }
 ```
-{kotlin-runnable="true"}
+
 
 Learn more about [delegated properties](delegated-properties.md).
 
@@ -25147,7 +25111,7 @@ it is more helpful to implement them once, add them to a library, and reuse them
 
 To cover these (and other) cases, Kotlin supports _delegated properties_:
 
-```java,kotlin
+```kotlin
 class Example {
     var p: String by Delegate()
 }
@@ -25159,7 +25123,7 @@ Property delegates don't have to implement an interface, but they have to provid
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.reflect.KProperty
 
 class Delegate {
@@ -25177,7 +25141,7 @@ When you read from `p`, which delegates to an instance of `Delegate`, the `getVa
 Its first parameter is the object you read `p` from, and the second parameter holds a description of `p` itself
 (for example, you can take its name). 
 
-```java,kotlin
+```kotlin
 val e = Example()
 println(e.p)
 ```
@@ -25191,7 +25155,7 @@ Example@33a17727, thank you for delegating 'p' to me!
 Similarly, when you assign to `p`, the `setValue()` function is called. The first two parameters are the same, and
 the third holds the value being assigned:
 
-```java,kotlin
+```kotlin
 e.p = "NEW"
 ```
 
@@ -25216,7 +25180,7 @@ The Kotlin standard library provides factory methods for several useful kinds of
 The first call to `get()` executes the lambda passed to `lazy()` and remembers the result.
 Subsequent calls to `get()` simply return the remembered result. 
 
-```java,kotlin
+```kotlin
 val lazyValue: String by lazy {
     println("computed!")
     "Hello"
@@ -25227,7 +25191,7 @@ fun main() {
     println(lazyValue)
 }
 ```
-{kotlin-runnable="true"}
+
 
 By default, the evaluation of lazy properties is *synchronized*: the value is computed only in one thread, but all threads
 will see the same value. If the synchronization of the initialization delegate is not required to allow multiple threads
@@ -25244,7 +25208,7 @@ takes two arguments: the initial value and a handler for modifications.
 The handler is called every time you assign to the property (*after* the assignment has been performed). It has three
 parameters: the property being assigned to, the old value, and the new value:
 
-```java,kotlin
+```kotlin
 import kotlin.properties.Delegates
 
 class User {
@@ -25260,7 +25224,7 @@ fun main() {
     user.name = "second"
 }
 ```
-{kotlin-runnable="true"}
+
 
 If you want to intercept assignments and *veto* them, use [`vetoable()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.properties/-delegates/vetoable.html) instead of `observable()`.
 The handler passed to `vetoable` will be called *before* the assignment of a new property value.
@@ -25276,7 +25240,7 @@ both top-level and class properties (member and extension). The delegate propert
 To delegate a property to another property, use the `::` qualifier in the delegate name, for example, `this::delegate` or
 `MyClass::delegate`.
 
-```java,kotlin
+```kotlin
 var topLevelInt: Int = 0
 class ClassWithDelegate(val anotherClassInt: Int)
 
@@ -25292,7 +25256,7 @@ var MyClass.extDelegated: Int by ::topLevelInt
 This may be useful, for example, when you want to rename a property in a backward-compatible way: introduce a new property,
 annotate the old one with the `@Deprecated` annotation, and delegate its implementation.
 
-```java,kotlin
+```kotlin
 class MyClass {
    var newName: Int = 0
    @Deprecated("Use 'newName' instead", ReplaceWith("newName"))
@@ -25306,7 +25270,7 @@ fun main() {
    println(myClass.newName) // 42
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 ## 07.4.16.3. Storing properties in a map
 
@@ -25314,7 +25278,7 @@ One common use case is storing the values of properties in a map.
 This comes up often in applications for things like parsing JSON or performing other dynamic tasks.
 In this case, you can use the map instance itself as the delegate for a delegated property.
 
-```java,kotlin
+```kotlin
 class User(val map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
@@ -25323,7 +25287,7 @@ class User(val map: Map<String, Any?>) {
 
 In this example, the constructor takes a map:
 
-```java,kotlin
+```kotlin
 val user = User(mapOf(
     "name" to "John Doe",
     "age"  to 25
@@ -25332,7 +25296,7 @@ val user = User(mapOf(
 
 Delegated properties take values from this map through string keys, which are associated with the names of properties:
 
-```java,kotlin
+```kotlin
 class User(val map: Map<String, Any?>) {
     val name: String by map
     val age: Int     by map
@@ -25349,11 +25313,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 This also works for `var`'s properties if you use a `MutableMap` instead of a read-only `Map`:
 
-```java,kotlin
+```kotlin
 class MutableUser(val map: MutableMap<String, Any?>) {
     var name: String by map
     var age: Int     by map
@@ -25365,7 +25329,7 @@ class MutableUser(val map: MutableMap<String, Any?>) {
 You can declare local variables as delegated properties.
 For example, you can make a local variable lazy:
 
-```java,kotlin
+```kotlin
 fun example(computeFoo: () -> Foo) {
     val memoizedFoo by lazy(computeFoo)
 
@@ -25387,7 +25351,7 @@ For a *read-only* property (`val`), a delegate should provide an operator functi
 
 `getValue()` must return the same type as the property (or its subtype).
 
-```java,kotlin
+```kotlin
 class Resource
 
 class Owner {
@@ -25408,7 +25372,7 @@ with the following parameters:
 * `property` must be of type `KProperty<*>` or its supertype.
 * `value` must be of the same type as the property (or its supertype).
  
-```java,kotlin
+```kotlin
 class Resource
 
 class Owner {
@@ -25435,7 +25399,7 @@ You can create delegates as anonymous objects without creating new classes, by u
 They provide the required methods: `getValue()` is declared in `ReadOnlyProperty`; `ReadWriteProperty`
 extends it and adds `setValue()`. This means you can pass a `ReadWriteProperty` whenever a `ReadOnlyProperty` is expected.
 
-```java,kotlin
+```kotlin
 fun resourceDelegate(resource: Resource = Resource()): ReadWriteProperty<Any?, Resource> =
     object : ReadWriteProperty<Any?, Resource> {
         var curValue = resource 
@@ -25461,7 +25425,7 @@ Under the hood, the Kotlin compiler generates auxiliary properties for some kind
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
 simply delegates to this additional property:
 
-```java,kotlin
+```kotlin
 class C {
     var prop: Type by MyDelegate()
 }
@@ -25527,7 +25491,7 @@ This means that the compiler doesn't generate the field `prop$delegate`. This op
 
 Take the following code, for example:
 
-```java,kotlin
+```kotlin
 class C<Type> {
     private var impl: Type = ...
     var prop: Type by ::impl
@@ -25539,7 +25503,7 @@ and thus the `KProperty` reference object is not needed.
 
 For the code above, the compiler generates the following code:
 
-```java,kotlin
+```kotlin
 class C<Type> {
     private var impl: Type = ...
 
@@ -25563,7 +25527,7 @@ One of the possible use cases of `provideDelegate` is to check the consistency o
 
 For example, to check the property name before binding, you can write something like this:
 
-```java,kotlin
+```kotlin
 class ResourceDelegate<T> : ReadOnlyProperty<MyUI, T> {
     override fun getValue(thisRef: MyUI, property: KProperty<*>): T { ... }
 }
@@ -25600,7 +25564,7 @@ the necessary validation right away.
 Without this ability to intercept the binding between the property and its delegate, to achieve the same functionality
 you'd have to pass the property name explicitly, which isn't very convenient:
 
-```java,kotlin
+```kotlin
 // Checking the property name without "provideDelegate" functionality
 class MyUI {
     val image by bindResource(ResourceID.image_id, "image")
@@ -25620,7 +25584,7 @@ In the generated code, the `provideDelegate` method is called to initialize the 
 Compare the generated code for the property declaration `val prop: Type by MyDelegate()` with the generated code
 [above](#translation-rules-for-delegated-properties) (when the `provideDelegate` method is not present):
 
-```java,kotlin
+```kotlin
 class C {
     var prop: Type by MyDelegate()
 }
@@ -25641,7 +25605,7 @@ generated for the getter or the setter.
 
 With the `PropertyDelegateProvider` interface from the standard library, you can create delegate providers without creating new classes.
 
-```java,kotlin
+```kotlin
 val provider = PropertyDelegateProvider { thisRef: Any?, property ->
     ReadOnlyProperty<Any?, Int> {_, property -> 42 }
 }
@@ -25660,7 +25624,7 @@ If the type name is too long you can introduce a different shorter name and use 
 It's useful to shorten long generic types.
 For instance, it's often tempting to shrink collection types:
 
-```java,kotlin
+```kotlin
 typealias NodeSet = Set<Network.Node>
 
 typealias FileTable<K> = MutableMap<K, MutableList<File>>
@@ -25668,7 +25632,7 @@ typealias FileTable<K> = MutableMap<K, MutableList<File>>
 
 You can provide different aliases for function types:
 
-```java,kotlin
+```kotlin
 typealias MyHandler = (Int, String, Any) -> Unit
 
 typealias Predicate<T> = (T) -> Boolean
@@ -25676,7 +25640,7 @@ typealias Predicate<T> = (T) -> Boolean
 
 You can have new names for inner and nested classes:
 
-```java,kotlin
+```kotlin
 class A {
     inner class Inner
 }
@@ -25693,7 +25657,7 @@ They are equivalent to the corresponding underlying types.
 When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expands it to `(Int) -> Boolean`. 
 Thus you can pass a variable of your type whenever a general function type is required and vice versa:
 
-```java,kotlin
+```kotlin
 typealias Predicate<T> = (T) -> Boolean
 
 fun foo(p: Predicate<Int>) = p(42)
@@ -25706,7 +25670,7 @@ fun main() {
     println(listOf(1, -2).filter(p)) // prints "[1]"
 }
 ```
-{kotlin-runnable="true"}
+
 
 
 
@@ -25719,7 +25683,7 @@ fun main() {
 
 Kotlin functions are declared using the `fun` keyword:
 
-```java,kotlin
+```kotlin
 fun double(x: Int): Int {
     return 2 * x
 }
@@ -25729,13 +25693,13 @@ fun double(x: Int): Int {
 
 Functions are called using the standard approach:
 
-```java,kotlin
+```kotlin
 val result = double(2)
 ```
 
 Calling member functions uses dot notation:
 
-```java,kotlin
+```kotlin
 Stream().read() // create instance of class Stream and call read()
 ```
 
@@ -25744,13 +25708,13 @@ Stream().read() // create instance of class Stream and call read()
 Function parameters are defined using Pascal notation - *name*: *type*. Parameters are separated using commas, and each
 parameter must be explicitly typed:
 
-```java,kotlin
+```kotlin
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
 You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare function parameters:
 
-```java,kotlin
+```kotlin
 fun powerOf(
     number: Int,
     exponent: Int, // trailing comma
@@ -25762,7 +25726,7 @@ fun powerOf(
 Function parameters can have default values, which are used when you skip the corresponding argument. This reduces the number
 of overloads:
 
-```java,kotlin
+```kotlin
 fun read(
     b: ByteArray,
     off: Int = 0,
@@ -25775,7 +25739,7 @@ A default value is set by appending `=` to the type.
 Overriding methods always use the base method's default parameter values.
 When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
 
-```java,kotlin
+```kotlin
 open class A {
     open fun foo(i: Int = 10) { /*...*/ }
 }
@@ -25788,7 +25752,7 @@ class B : A() {
 If a default parameter precedes a parameter with no default value, the default value can only be used by calling
 the function with [named arguments](#named-arguments):
 
-```java,kotlin
+```kotlin
 fun foo(
     bar: Int = 0,
     baz: Int,
@@ -25800,7 +25764,7 @@ foo(baz = 1) // The default value bar = 0 is used
 If the last argument after default parameters is a [lambda](lambdas.md#lambda-expression-syntax),
 you can pass it either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
-```java,kotlin
+```kotlin
 fun foo(
     bar: Int = 0,
     baz: Int = 1,
@@ -25822,7 +25786,7 @@ use their default values, you can just leave these arguments out altogether.
 
 Consider the `reformat()` function, which has 4 arguments with default values.
 
-```java,kotlin
+```kotlin
 fun reformat(
     str: String,
     normalizeCase: Boolean = true,
@@ -25834,7 +25798,7 @@ fun reformat(
 
 When calling this function, you don't have to name all its arguments:
 
-```java,kotlin
+```kotlin
 reformat(
     "String!",
     false,
@@ -25846,21 +25810,21 @@ reformat(
 
 You can skip all the ones with default values:
 
-```java,kotlin
+```kotlin
 reformat("This is a long String!")
 ```
 
 You are also able to skip specific arguments with default values, rather than omitting them all. However, after the first
 skipped argument, you must name all subsequent arguments:
 
-```java,kotlin
+```kotlin
 reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
 ```
 
 You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the
 `spread` operator:
 
-```java,kotlin
+```kotlin
 fun foo(vararg strings: String) { /*...*/ }
 
 foo(strings = *arrayOf("a", "b", "c"))
@@ -25876,7 +25840,7 @@ foo(strings = *arrayOf("a", "b", "c"))
 If a function does not return a useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`.
 This value does not have to be returned explicitly:
 
-```java,kotlin
+```kotlin
 fun printHello(name: String?): Unit {
     if (name != null)
         println("Hello $name")
@@ -25888,7 +25852,7 @@ fun printHello(name: String?): Unit {
 
 The `Unit` return type declaration is also optional. The above code is equivalent to:
 
-```java,kotlin
+```kotlin
 fun printHello(name: String?) { ... }
 ```
 
@@ -25896,13 +25860,13 @@ fun printHello(name: String?) { ... }
 
 When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
 
-```java,kotlin
+```kotlin
 fun double(x: Int): Int = x * 2
 ```
 
 Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
 
-```java,kotlin
+```kotlin
 fun double(x: Int) = x * 2
 ```
 
@@ -25918,7 +25882,7 @@ in the body, and the return type will be non-obvious to the reader (and sometime
 
 You can mark a parameter of a function (usually the last one) with the `vararg` modifier:
 
-```java,kotlin
+```kotlin
 fun <T> asList(vararg ts: T): List<T> {
     val result = ArrayList<T>()
     for (t in ts) // ts is an Array
@@ -25929,7 +25893,7 @@ fun <T> asList(vararg ts: T): List<T> {
 
 In this case, you can pass a variable number of arguments to the function:
 
-```java,kotlin
+```kotlin
 val list = asList(1, 2, 3)
 ```
 
@@ -25943,7 +25907,7 @@ a lambda outside the parentheses.
 When you call a `vararg`-function, you can pass arguments individually, for example `asList(1, 2, 3)`. If you already have
 an array and want to pass its contents to the function, use the *spread* operator (prefix the array with `*`):
 
-```java,kotlin
+```kotlin
 val a = arrayOf(1, 2, 3)
 val list = asList(-1, 0, *a, 4)
 ```
@@ -25951,7 +25915,7 @@ val list = asList(-1, 0, *a, 4)
 If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
 into `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
 
-```java,kotlin
+```kotlin
 val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
 val list = asList(-1, 0, *a.toTypedArray(), 4)
 ```
@@ -25966,7 +25930,7 @@ for the call). Infix functions must meet the following requirements:
 * The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
 no [default value](#default-arguments).
 
-```java,kotlin
+```kotlin
 infix fun Int.shl(x: Int): Int { ... }
 
 // calling the function using the infix notation
@@ -25993,7 +25957,7 @@ Note that infix functions always require both the receiver and the parameter to 
 calling a method on the current receiver using the infix notation, use `this` explicitly. This is required to ensure
 unambiguous parsing.
 
-```java,kotlin
+```kotlin
 class MyStringCollection {
     infix fun add(s: String) { /*...*/ }
     
@@ -26015,7 +25979,7 @@ to top level functions, Kotlin functions can also be declared locally as member 
 
 Kotlin supports local functions, which are functions inside other functions:
 
-```java,kotlin
+```kotlin
 fun dfs(graph: Graph) {
     fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
         if (!visited.add(current)) return
@@ -26029,7 +25993,7 @@ fun dfs(graph: Graph) {
 
 A local function can access local variables of outer functions (the closure). In the case above, `visited` can be a local variable:
 
-```java,kotlin
+```kotlin
 fun dfs(graph: Graph) {
     val visited = HashSet<Vertex>()
     fun dfs(current: Vertex) {
@@ -26046,7 +26010,7 @@ fun dfs(graph: Graph) {
 
 A member function is a function that is defined inside a class or object:
 
-```java,kotlin
+```kotlin
 class Sample {
     fun foo() { print("Foo") }
 }
@@ -26054,7 +26018,7 @@ class Sample {
 
 Member functions are called with dot notation:
 
-```java,kotlin
+```kotlin
 Sample().foo() // creates instance of class Sample and calls foo
 ```
 
@@ -26064,7 +26028,7 @@ For more information on classes and overriding members see [Classes](classes.md)
 
 Functions can have generic parameters, which are specified using angle brackets before the function name:
 
-```java,kotlin
+```kotlin
 fun <T> singletonList(item: T): List<T> { /*...*/ }
 ```
 
@@ -26077,7 +26041,7 @@ For some algorithms that would normally use loops, you can use a recursive funct
 When a function is marked with the `tailrec` modifier and meets the required formal conditions, the compiler optimizes out
 the recursion, leaving behind a fast and efficient loop based version instead:
 
-```java,kotlin
+```kotlin
 val eps = 1E-10 // "good enough", could be 10^-15
 
 tailrec fun findFixPoint(x: Double = 1.0): Double =
@@ -26088,7 +26052,7 @@ This code calculates the `fixpoint` of cosine, which is a mathematical constant.
 starting at `1.0` until the result no longer changes, yielding a result of `0.7390851332151611` for the specified
 `eps` precision. The resulting code is equivalent to this more traditional style:
 
-```java,kotlin
+```kotlin
 val eps = 1E-10 // "good enough", could be 10^-15
 
 private fun findFixPoint(): Double {
@@ -26133,7 +26097,7 @@ A good example of a higher-order function is the [functional programming idiom `
 for collections. It takes an initial accumulator value and a combining function and builds its return value by consecutively
 combining the current accumulator value with each collection element, replacing the accumulator value each time:
 
-```java,kotlin
+```kotlin
 fun <T, R> Collection<T>.fold(
     initial: R, 
     combine: (acc: R, nextElement: T) -> R
@@ -26154,7 +26118,7 @@ To call `fold`, you need to pass an [instance of the function type](#instantiati
 and lambda expressions ([described in more detail below](#lambda-expressions-and-anonymous-functions)) are widely used for
 this purpose at higher-order function call sites:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     val items = listOf(1, 2, 3, 4, 5)
@@ -26180,7 +26144,7 @@ fun main() {
     println("product = $product")
 }
 ```
-{kotlin-runnable="true"}
+
 
 ## 07.5.2.2. Function types
 
@@ -26215,7 +26179,7 @@ Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit)
 
 You can also give a function type an alternative name by using [a type alias](type-aliases.md):
 
-```java,kotlin
+```kotlin
 typealias ClickHandler = (Button, ClickEvent) -> Unit
 ```
 
@@ -26238,7 +26202,7 @@ There are several ways to obtain an instance of a function type:
 
 * Use instances of a custom class that implements a function type as an interface:
 
-```java,kotlin
+```kotlin
 class IntTransformer: (Int) -> Int {
     override operator fun invoke(x: Int): Int = TODO()
 }
@@ -26248,7 +26212,7 @@ val intFunction: (Int) -> Int = IntTransformer()
 
 The compiler can infer the function types for variables if there is enough information:
 
-```java,kotlin
+```kotlin
 val a = { i: Int -> i + 1 } // The inferred type is (Int) -> Int
 ```
 
@@ -26256,7 +26220,7 @@ val a = { i: Int -> i + 1 } // The inferred type is (Int) -> Int
 the first parameter, and vice versa. For instance, a value of type `(A, B) -> C` can be passed or assigned where a value
 of type `A.(B) -> C` is expected, and the other way around:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     val repeatFun: String.(Int) -> String = { times -> this.repeat(times) }
@@ -26270,7 +26234,7 @@ fun main() {
     println("result = $result")
 }
 ```
-{kotlin-runnable="true"}
+
 
 > A function type with no receiver is inferred by default, even if a variable is initialized with a reference
 > to an extension function.
@@ -26289,7 +26253,7 @@ as if the value were an [extension function](extensions.md): `1.foo(2)`.
 
 Example:
 
-```java,kotlin
+```kotlin
 fun main() {
     //sampleStart
     val stringPlus: (String, String) -> String = String::plus
@@ -26304,7 +26268,7 @@ fun main() {
     //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 ### Inline functions
 
@@ -26315,14 +26279,14 @@ Sometimes it is beneficial to use [inline functions](inline-functions.md), which
 Lambda expressions and anonymous functions are *function literals*. Function literals are functions that are not declared
 but are passed immediately as an expression. Consider the following example:
 
-```java,kotlin
+```kotlin
 max(strings, { a, b -> a.length < b.length })
 ```
 
 The function `max` is a higher-order function, as it takes a function value as its second argument. This second argument
 is an expression that is itself a function, called a function literal, which is equivalent to the following named function:
 
-```java,kotlin
+```kotlin
 fun compare(a: String, b: String): Boolean = a.length < b.length
 ```
 
@@ -26330,7 +26294,7 @@ fun compare(a: String, b: String): Boolean = a.length < b.length
 
 The full syntactic form of lambda expressions is as follows:
 
-```java,kotlin
+```kotlin
 val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
 ```
 
@@ -26341,7 +26305,7 @@ val sum: (Int, Int) -> Int = { x: Int, y: Int -> x + y }
 
 If you leave all the optional annotations out, what's left looks like this:
 
-```java,kotlin
+```kotlin
 val sum = { x: Int, y: Int -> x + y }
 ```
 
@@ -26350,7 +26314,7 @@ val sum = { x: Int, y: Int -> x + y }
 According to Kotlin convention, if the last parameter of a function is a function, then a lambda expression passed as the
 corresponding argument can be placed outside the parentheses:
 
-```java,kotlin
+```kotlin
 val product = items.fold(1) { acc, e -> acc * e }
 ```
 
@@ -26358,7 +26322,7 @@ Such syntax is also known as *trailing lambda*.
 
 If the lambda is the only argument in that call, the parentheses can be omitted entirely:
 
-```java,kotlin
+```kotlin
 run { println("...") }
 ```
 
@@ -26369,7 +26333,7 @@ It's very common for a lambda expression to have only one parameter.
 If the compiler can parse the signature without any parameters, the parameter does not need to be declared and `->` can
 be omitted. The parameter will be implicitly declared under the name `it`:
 
-```java,kotlin
+```kotlin
 ints.filter { it > 0 } // this literal is of type '(it: Int) -> Boolean'
 ```
 
@@ -26380,7 +26344,7 @@ Otherwise, the value of the last expression is implicitly returned.
 
 Therefore, the two following snippets are equivalent:
 
-```java,kotlin
+```kotlin
 ints.filter {
     val shouldFilter = it > 0
     shouldFilter
@@ -26395,7 +26359,7 @@ ints.filter {
 This convention, along with [passing a lambda expression outside of parentheses](#passing-trailing-lambdas), allows for
 [LINQ-style](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) code:
 
-```java,kotlin
+```kotlin
 strings.filter { it.length == 5 }.sortedBy { it }.map { it.uppercase() }
 ```
 
@@ -26403,7 +26367,7 @@ strings.filter { it.length == 5 }.sortedBy { it }.map { it.uppercase() }
 
 If the lambda parameter is unused, you can place an underscore instead of its name:
 
-```java,kotlin
+```kotlin
 map.forEach { (_, value) -> println("$value!") }
 ```
 
@@ -26417,14 +26381,14 @@ The lambda expression syntax above is missing one thing – the ability to speci
 this is unnecessary because the return type can be inferred automatically. However, if you do need to specify it explicitly,
 you can use an alternative syntax: an *anonymous function*.
 
-```java,kotlin
+```kotlin
 fun(x: Int, y: Int): Int = x + y
 ```
 
 An anonymous function looks very much like a regular function declaration, except its name is omitted. Its body can be
 either an expression (as shown above) or a block:
 
-```java,kotlin
+```kotlin
 fun(x: Int, y: Int): Int {
     return x + y
 }
@@ -26433,7 +26397,7 @@ fun(x: Int, y: Int): Int {
 The parameters and the return type are specified in the same way as for regular functions, except the parameter types can
 be omitted if they can be inferred from the context:
 
-```java,kotlin
+```kotlin
 ints.filter(fun(item) = item > 0)
 ```
 
@@ -26457,7 +26421,7 @@ A lambda expression or anonymous function (as well as a [local function](functio
 can access its *closure*, which includes the variables declared in the outer scope. The variables captured in the closure
 can be modified in the lambda:
 
-```java,kotlin
+```kotlin
 var sum = 0
 ints.filter { it > 0 }.forEach {
     sum += it
@@ -26482,21 +26446,21 @@ the receiver object inside the function body.
 
 Here is an example of a function literal with receiver along with its type, where `plus` is called on the receiver object:
 
-```java,kotlin
+```kotlin
 val sum: Int.(Int) -> Int = { other -> plus(other) }
 ```
 
 The anonymous function syntax allows you to specify the receiver type of a function literal directly.
 This can be useful if you need to declare a variable of a function type with receiver, and then to use it later.
 
-```java,kotlin
+```kotlin
 val sum = fun Int.(other: Int): Int = this + other
 ```
 
 Lambda expressions can be used as function literals with receiver when the receiver type can be inferred from the context.
 One of the most important examples of their usage is [type-safe builders](type-safe-builders.md):
 
-```java,kotlin
+```kotlin
 class HTML {
     fun body() { ... }
 }
@@ -26527,13 +26491,13 @@ But it appears that in many cases this kind of overhead can be eliminated by inl
 The functions shown below are good examples of this situation. The `lock()` function could be easily inlined at call-sites.
 Consider the following case:
 
-```java,kotlin
+```kotlin
 lock(l) { foo() }
 ```
 
 Instead of creating a function object for the parameter and generating a call, the compiler could emit the following code:
 
-```java,kotlin
+```kotlin
 l.lock()
 try {
     foo()
@@ -26544,7 +26508,7 @@ try {
 
 To make the compiler do this, mark the `lock()` function with the `inline` modifier:
 
-```java,kotlin
+```kotlin
 inline fun <T> lock(lock: Lock, body: () -> T): T { ... }
 ```
 
@@ -26559,7 +26523,7 @@ functions), it will pay off in performance, especially at "megamorphic" call-sit
 If you don't want all of the lambdas passed to an inline function to be inlined, mark some of your function
 parameters with the `noinline` modifier:
 
-```java,kotlin
+```kotlin
 inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) { ... }
 ```
 
@@ -26579,7 +26543,7 @@ In Kotlin, you can only use a normal, unqualified `return` to exit a named funct
 To exit a lambda, use a [label](returns.md#return-to-labels). A bare `return` is forbidden
 inside a lambda because a lambda cannot make the enclosing function `return`:
 
-```java,kotlin
+```kotlin
 fun ordinaryFunction(block: () -> Unit) {
     println("hi!")
 }
@@ -26594,11 +26558,11 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true" validate="false"}
+
 
 But if the function the lambda is passed to is inlined, the return can be inlined, as well. So it is allowed:
 
-```java,kotlin
+```kotlin
 inline fun inlined(block: () -> Unit) {
     println("hi!")
 }
@@ -26613,12 +26577,12 @@ fun main() {
     foo()
 }
 ```
-{kotlin-runnable="true"}
+
 
 Such returns (located in a lambda, but exiting the enclosing function) are called *non-local* returns. This sort of
 construct usually occurs in loops, which inline functions often enclose:
 
-```java,kotlin
+```kotlin
 fun hasZeros(ints: List<Int>): Boolean {
     ints.forEach {
         if (it == 0) return true // returns from hasZeros
@@ -26632,7 +26596,7 @@ but from another execution context, such as a local object or a nested function.
 is also not allowed in the lambdas. To indicate that the lambda parameter of the inline function cannot use non-local
 returns, mark the lambda parameter with the `crossinline` modifier:
 
-```java,kotlin
+```kotlin
 inline fun f(crossinline body: () -> Unit) {
     val f = object: Runnable {
         override fun run() = body()
@@ -26649,7 +26613,7 @@ inline fun f(crossinline body: () -> Unit) {
 
 Sometimes you need to access a type passed as a parameter:
 
-```java,kotlin
+```kotlin
 fun <T> TreeNode.findParentOfType(clazz: Class<T>): T? {
     var p = parent
     while (p != null && !clazz.isInstance(p)) {
@@ -26663,19 +26627,19 @@ fun <T> TreeNode.findParentOfType(clazz: Class<T>): T? {
 Here, you walk up a tree and use reflection to check whether a node has a certain type.
 It's all fine, but the call site is not very pretty:
 
-```java,kotlin
+```kotlin
 treeNode.findParentOfType(MyTreeNode::class.java)
 ```
 
 A better solution would be to simply pass a type to this function. You can call it as follows:
 
-```java,kotlin
+```kotlin
 treeNode.findParentOfType<MyTreeNode>()
 ```
 
 To enable this, inline functions support *reified type parameters*, so you can write something like this:
 
-```java,kotlin
+```kotlin
 inline fun <reified T> TreeNode.findParentOfType(): T? {
     var p = parent
     while (p != null && p !is T) {
@@ -26691,7 +26655,7 @@ and `as` are now available for you to use. Also, you can call the function as sh
 
 Though reflection may not be needed in many cases, you can still use it with a reified type parameter:
 
-```java,kotlin
+```kotlin
 inline fun <reified T> membersOf() = T::class.members
 
 fun main(s: Array<String>) {
@@ -26708,7 +26672,7 @@ A type that does not have a run-time representation (for example, a non-reified 
 The `inline` modifier can be used on accessors of properties that don't have [backing fields](properties.md#backing-fields).
 You can annotate individual property accessors:
 
-```java,kotlin
+```kotlin
 val foo: Foo
     inline get() = Foo()
 
@@ -26719,7 +26683,7 @@ var bar: Bar
 
 You can also annotate an entire property, which marks both of its accessors as `inline`:
 
-```java,kotlin
+```kotlin
 inline var bar: Bar
     get() = ...
     set(v) { ... }
@@ -26755,14 +26719,14 @@ for binary operations and the argument type for the unary ones.
 
 To overload an operator, mark the corresponding function with the `operator` modifier:
 
-```java,kotlin
+```kotlin
 interface IndexedContainer {
     operator fun get(index: Int)
 }
 ```
 When [overriding](inheritance.md#overriding-methods) your operator overloads, you can omit `operator`:
 
-```java,kotlin
+```kotlin
 class OrdersList: IndexedContainer {
     override fun get(index: Int) { /*...*/ }   
 }
@@ -26793,7 +26757,7 @@ function or an extension function.
 
 As an example, here's how you can overload the unary minus operator:
 
-```java,kotlin
+```kotlin
 data class Point(val x: Int, val y: Int)
 
 operator fun Point.unaryMinus() = Point(-x, -y)
@@ -26804,7 +26768,7 @@ fun main() {
    println(-point)  // prints "Point(x=-10, y=-20)"
 }
 ```
-{kotlin-runnable="true"}
+
 
 ### Increments and decrements
 
@@ -26853,7 +26817,7 @@ For the operations in this table, the compiler just resolves the expression in t
 
 Below is an example `Counter` class that starts at a given value and can be incremented using the overloaded `+` operator:
 
-```java,kotlin
+```kotlin
 data class Counter(val dayIndex: Int) {
     operator fun plus(increment: Int): Counter {
         return Counter(dayIndex + increment)
@@ -26972,7 +26936,7 @@ data structures in a semi-declarative way. Sample use cases for the builders are
 
 Consider the following code:
 
-```java,kotlin
+```kotlin
 import com.example.html.* // see declarations below
 
 fun result() =
@@ -27019,7 +26983,7 @@ For example, `HTML` is a class that describes the `<html>` tag defining children
 
 Now, let's recall why you can say something like this in the code:
 
-```java,kotlin
+```kotlin
 html {
  // ...
 }
@@ -27028,7 +26992,7 @@ html {
 `html` is actually a function call that takes a [lambda expression](lambdas.md) as an argument.
 This function is defined as follows:
 
-```java,kotlin
+```kotlin
 fun html(init: HTML.() -> Unit): HTML {
     val html = HTML()
     html.init()
@@ -27043,7 +27007,7 @@ and you can call members of that instance inside the function.
 
 The receiver can be accessed through the `this` keyword:
 
-```java,kotlin
+```kotlin
 html {
     this.head { ... }
     this.body { ... }
@@ -27054,7 +27018,7 @@ html {
 
 Now, `this` can be omitted, as usual, and you get something that looks very much like a builder already:
 
-```java,kotlin
+```kotlin
 html {
     head { ... }
     body { ... }
@@ -27069,7 +27033,7 @@ This is exactly what a builder should do.
 The `head` and `body` functions in the `HTML` class are defined similarly to `html`. 
 The only difference is that they add the built instances to the `children` collection of the enclosing `HTML` instance:
 
-```java,kotlin
+```kotlin
 fun head(init: Head.() -> Unit): Head {
     val head = Head()
     head.init()
@@ -27087,7 +27051,7 @@ fun body(init: Body.() -> Unit): Body {
 
 Actually these two functions do just the same thing, so you can have a generic version, `initTag`:
 
-```java,kotlin
+```kotlin
 protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
     tag.init()
     children.add(tag)
@@ -27097,7 +27061,7 @@ protected fun <T : Element> initTag(tag: T, init: T.() -> Unit): T {
 
 So, now your functions are very simple:
 
-```java,kotlin
+```kotlin
 fun head(init: Head.() -> Unit) = initTag(Head(), init)
 
 fun body(init: Body.() -> Unit) = initTag(Body(), init)
@@ -27107,7 +27071,7 @@ And you can use them to build `<head>` and `<body>` tags.
 
 One other thing to be discussed here is how you add text to tag bodies. In the example above you say something like:
 
-```java,kotlin
+```kotlin
 html {
     head {
         title {+"XML encoding with Kotlin"}
@@ -27121,7 +27085,7 @@ so it is a function call that invokes a prefix `unaryPlus()` operation.
 That operation is actually defined by an extension function `unaryPlus()` that is a member of the `TagWithText` abstract 
 class (a parent of `Title`):
 
-```java,kotlin
+```kotlin
 operator fun String.unaryPlus() {
     children.add(TextElement(this))
 }
@@ -27139,7 +27103,7 @@ When using DSLs, one might have come across the problem that too many functions 
 You can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, 
 like the tag `head` inside another `head`: 
 
-```java,kotlin
+```kotlin
 html {
     head {
         head {} // should be forbidden
@@ -27157,7 +27121,7 @@ To make the compiler start controlling scopes you only have to annotate the type
 the same marker annotation.
 For instance, for HTML Builders you declare an annotation `@HTMLTagMarker`:
 
-```java,kotlin
+```kotlin
 @DslMarker
 annotation class HtmlTagMarker
 ```
@@ -27168,7 +27132,7 @@ In our DSL all the tag classes extend the same superclass `Tag`.
 It's enough to annotate only the superclass with `@HtmlTagMarker` and after that the Kotlin compiler will treat all the 
 inherited classes as annotated:
 
-```java,kotlin
+```kotlin
 @HtmlTagMarker
 abstract class Tag(val name: String) { ... }
 ```
@@ -27182,7 +27146,7 @@ class Head() : Tag("head") { ... }
 
 After you've added this annotation, the Kotlin compiler knows which implicit receivers are part of the same DSL and allows to call members of the nearest receivers only: 
 
-```java,kotlin
+```kotlin
 html {
     head {
         head { } // error: a member of outer receiver
@@ -27193,7 +27157,7 @@ html {
 
 Note that it's still possible to call the members of the outer receiver, but to do that you have to specify this receiver explicitly:
 
-```java,kotlin
+```kotlin
 html {
     head {
         this@html.head { } // possible
@@ -27208,7 +27172,7 @@ This is how the package `com.example.html` is defined (only the elements used in
 It builds an HTML tree. It makes heavy use of [extension functions](extensions.md) and
 [lambdas with receiver](lambdas.md#function-literals-with-receiver).
 
-```java,kotlin
+```kotlin
 package com.example.html
 
 interface Element {
@@ -27319,7 +27283,7 @@ about other calls inside its lambda argument.
 Consider this example of [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-map.html)
 usage:
 
-```java,kotlin
+```kotlin
 fun addEntryToMap(baseMap: Map<String, Number>, additionalEntry: Pair<String, Int>?) {
    val myMap = buildMap {
        putAll(baseMap)
@@ -27448,7 +27412,7 @@ The compiler uses it to collect type information about the type argument.
 
 Consider the example with [`buildList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/build-list.html):
 
-```java,kotlin
+```kotlin
 val result = buildList {
     val x = get(0)
 }
@@ -27460,7 +27424,7 @@ fixed. At this moment, a concrete type for `E` is unknown.
 When a value of a postponed type variable gets associated with a concrete type, builder inference collects this information
 to infer the resulting type of the corresponding type argument at the end of the builder inference analysis. For example:
 
-```java,kotlin
+```kotlin
 val result = buildList {
     val x = get(0)
     val y: String = x
@@ -27552,7 +27516,7 @@ It considers:
 At the end of the analysis, builder inference considers all collected type information and tries to merge it into 
 the resulting type. See the example.
 
-```java,kotlin
+```kotlin
 val result = buildList { // Inferring postponed type variable E
     // Considering E is Number or a subtype of Number
     val n: Number? = getOrNull(0)
@@ -27569,7 +27533,7 @@ Note that the Kotlin compiler uses builder inference only if regular type infere
 This means you can contribute type information outside a builder lambda, and then builder inference analysis is not
 required. Consider the example:
 
-```java,kotlin
+```kotlin
 fun someMap() = mutableMapOf<CharSequence, String>()
 
 fun <E> MutableMap<E, String>.f(x: MutableMap<E, String>) { ... }
@@ -27615,7 +27579,7 @@ In Kotlin, the type system distinguishes between references that can hold `null`
 cannot (non-nullable references).
 For example, a regular variable of type `String` cannot hold `null`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var a: String = "abc" // Regular initialization means non-nullable by default
@@ -27623,11 +27587,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" validate="false"}
+
 
 To allow nulls, you can declare a variable as a nullable string by writing `String?`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     var b: String? = "abc" // can be set to null
@@ -27636,17 +27600,17 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say:
 
-```java,kotlin
+```kotlin
 val l = a.length
 ```
 
 But if you want to access the same property on `b`, that would not be safe, and the compiler reports an error:
 
-```java,kotlin
+```kotlin
 val l = b.length // error: variable 'b' can be null
 ```
 
@@ -27656,14 +27620,14 @@ But you still need to access that property, right? There are a few ways to do so
 
 First, you can explicitly check whether `b` is `null`, and handle the two options separately:
 
-```java,kotlin
+```kotlin
 val l = if (b != null) b.length else -1
 ```
 
 The compiler tracks the information about the check you performed, and allows the call to `length` inside the `if`.
 More complex conditions are supported as well:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val b: String? = "Kotlin"
@@ -27675,7 +27639,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 Note that this only works where `b` is immutable (meaning it is a local variable that is not modified between the check and its
 usage or it is a member `val` that has a backing field and is not overridable), because otherwise it could be the case
@@ -27685,7 +27649,7 @@ that `b` changes to `null` after the check.
 
 Your second option for accessing a property on a nullable variable is using the safe call operator `?.`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val a = "Kotlin"
@@ -27695,7 +27659,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 This returns `b.length` if `b` is not null, and `null` otherwise. The type of this expression is `Int?`.
 
@@ -27703,7 +27667,7 @@ Safe calls are useful in chains. For example, Bob is an employee who may be assi
 may in turn have another employee as a department head. To obtain the name of Bob's department head (if there is one),
 you write the following:
 
-```java,kotlin
+```kotlin
 bob?.department?.head?.name
 ```
 
@@ -27712,7 +27676,7 @@ Such a chain returns `null` if any of the properties in it is `null`.
 To perform a certain operation only for non-null values, you can use the safe call operator together with
 [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html):
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val listWithNulls: List<String?> = listOf("Kotlin", null)
@@ -27722,12 +27686,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+
 
 A safe call can also be placed on the left side of an assignment. Then, if one of the receivers in the safe calls chain
 is `null`, the assignment is skipped and the expression on the right is not evaluated at all:
 
-```java,kotlin
+```kotlin
 // If either `person` or `person.department` is null, the function is not called:
 person?.department?.head = managersPool.getManager()
 ```
@@ -27739,14 +27703,14 @@ This way you can specify behaviour for null values without the need to use null-
 
 For example, the [`toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) function is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example, logging:
 
-```java,kotlin
+```kotlin
 val person: Person? = null
 logger.debug(person.toString()) // Logs "null", does not throw an exception
 ```
 
 If you want your `toString()` invocation to return a nullable string, use the [safe-call operator `?.`](#safe-calls):
 
-```java,kotlin
+```kotlin
 var timestamp: Instant? = null
 val isoTimestamp = timestamp?.toString() // Returns a String? object which is `null`
 if (isoTimestamp == null) {
@@ -27758,13 +27722,13 @@ if (isoTimestamp == null) {
 
 When you have a nullable reference, `b`, you can say "if `b` is not `null`, use it, otherwise use some non-null value":
 
-```java,kotlin
+```kotlin
 val l: Int = if (b != null) b.length else -1
 ```
 
 Instead of writing the complete `if` expression, you can also express this with the Elvis operator `?:`:
 
-```java,kotlin
+```kotlin
 val l = b?.length ?: -1
 ```
 
@@ -27775,7 +27739,7 @@ Note that the expression on the right-hand side is evaluated only if the left-ha
 Since `throw` and `return` are expressions in Kotlin, they can also be used on
 the right-hand side of the Elvis operator. This can be handy, for example, when checking function arguments:
 
-```java,kotlin
+```kotlin
 fun foo(node: Node): String? {
     val parent = node.getParent() ?: return null
     val name = node.getName() ?: throw IllegalArgumentException("name expected")
@@ -27789,7 +27753,7 @@ The third option is for NPE-lovers: the not-null assertion operator (`!!`) conve
 type and throws an exception if the value is `null`. You can write `b!!`, and this will return a non-null value of `b`
 (for example, a `String` in our example) or throw an NPE if `b` is `null`:
 
-```java,kotlin
+```kotlin
 val l = b!!.length
 ```
 
@@ -27800,7 +27764,7 @@ Thus, if you want an NPE, you can have it, but you have to ask for it explicitly
 Regular casts may result in a `ClassCastException` if the object is not of the target type.
 Another option is to use safe casts that return `null` if the attempt was not successful:
 
-```java,kotlin
+```kotlin
 val aInt: Int? = a as? Int
 ```
 
@@ -27809,7 +27773,7 @@ val aInt: Int? = a as? Int
 If you have a collection of elements of a nullable type and want to filter non-nullable elements, you can do so by using
 `filterNotNull`:
 
-```java,kotlin
+```kotlin
 val nullableList: List<Int?> = listOf(1, 2, null, 4)
 val intList: List<Int> = nullableList.filterNotNull()
 ```
@@ -27834,7 +27798,7 @@ In Kotlin there are two types of equality:
 Structural equality is checked by the `==` operation and its negated counterpart `!=`.
 By convention, an expression like `a == b` is translated to:
 
-```java,kotlin
+```kotlin
 a?.equals(b) ?: (b === null)
 ```
 
@@ -27891,7 +27855,7 @@ To access `this` from an outer scope (a [class](classes.md), [extension function
 or labeled [function literal with receiver](lambdas.md#function-literals-with-receiver)) you write `this@label`,
  where `@label` is a [label](returns.md) on the scope `this` is meant to be from:
 
-```java,kotlin
+```kotlin
 class A { // implicit label @A
     inner class B { // implicit label @B
         fun Int.foo() { // implicit label @foo
@@ -27920,7 +27884,7 @@ class A { // implicit label @A
 When you call a member function on `this`, you can skip the `this.` part.
 If you have a non-member function with the same name, use this with caution because in some cases it can be called instead:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     fun printLine() { println("Top-level function") }
@@ -27939,7 +27903,7 @@ fun main() {
 //sampleEnd()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 
@@ -27965,7 +27929,7 @@ Before explaining what coroutines are, let's briefly review some of the other so
 
 Threads are by far probably the most well-known approach to avoid applications from blocking.
 
-```java,kotlin
+```kotlin
 fun postItem(item: Item) {
     val token = preparePost()
     val post = submitPost(token, item)
@@ -27990,7 +27954,7 @@ allow us to avoid the UI from blocking. This is a very common technique, but has
 
 With callbacks, the idea is to pass one function as a parameter to another function, and have this one invoked once the process has completed.
 
-```java,kotlin
+```kotlin
 fun postItem(item: Item) {
     preparePostAsync { token -> 
         submitPostAsync(token, item) { post -> 
@@ -28018,7 +27982,7 @@ Callbacks are quite common in event-loop architectures such as JavaScript, but e
 The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make a call, we're promised 
 that at some point it will return with an object called a Promise, which can then be operated on.
 
-```java,kotlin
+```kotlin
 fun postItem(item: Item) {
     preparePostAsync() 
         .thenCompose { token -> 
@@ -28071,7 +28035,7 @@ in itself doesn't really change.
 
 Take for instance the following code:
 
-```java,kotlin
+```kotlin
 fun postItem(item: Item) {
     launch {
         val token = preparePost()
@@ -28151,7 +28115,7 @@ New to Kotlin? Take a look at the [Getting started](getting-started.md) page.
 
 Annotations are means of attaching metadata to code. To declare an annotation, put the `annotation` modifier in front of a class:
 
-```java,kotlin
+```kotlin
 annotation class Fancy
 ```
 
@@ -28168,7 +28132,7 @@ Additional attributes of the annotation can be specified by annotating the annot
     annotation is part of the public API and should be included in the class or method signature shown in the
     generated API documentation.
 
-```java,kotlin
+```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
         AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER, 
         AnnotationTarget.EXPRESSION)
@@ -28179,7 +28143,7 @@ annotation class Fancy
 
 ## 07.11.1. Usage
 
-```java,kotlin
+```kotlin
 @Fancy class Foo {
     @Fancy fun baz(@Fancy foo: Int): Int {
         return (@Fancy 1)
@@ -28190,13 +28154,13 @@ annotation class Fancy
 If you need to annotate the primary constructor of a class, you need to add the `constructor` keyword
 to the constructor declaration, and add the annotations before it:
 
-```java,kotlin
+```kotlin
 class Foo @Inject constructor(dependency: MyDependency) { ... }
 ```
 
 You can also annotate property accessors:
 
-```java,kotlin
+```kotlin
 class Foo {
     var x: MyDependency? = null
         @Inject set
@@ -28207,7 +28171,7 @@ class Foo {
 
 Annotations can have constructors that take parameters.
 
-```java,kotlin
+```kotlin
 annotation class Special(val why: String)
 
 @Special("example") class Foo {}
@@ -28227,7 +28191,7 @@ of an annotation attribute.
 
 If an annotation is used as a parameter of another annotation, its name is not prefixed with the `@` character:
 
-```java,kotlin
+```kotlin
 annotation class ReplaceWith(val expression: String)
 
 annotation class Deprecated(
@@ -28242,7 +28206,7 @@ If you need to specify a class as an argument of an annotation, use a Kotlin cla
 automatically convert it to a Java class, so that the Java code can access the annotations and arguments
 normally.
 
-```java,kotlin
+```kotlin
 
 import kotlin.reflect.KClass
 
@@ -28257,7 +28221,7 @@ In Java, an annotation type is a form of an interface, so you can implement it a
 As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
 and similarly use the resulting instance.
 
-```java,kotlin
+```kotlin
 annotation class InfoMarker(val info: String)
 
 fun processInfo(marker: InfoMarker): Unit = TODO()
@@ -28278,7 +28242,7 @@ Annotations can also be used on lambdas. They will be applied to the `invoke()` 
 of the lambda is generated. This is useful for frameworks like [Quasar](https://docs.paralleluniverse.co/quasar/),
 which uses annotations for concurrency control.
 
-```java,kotlin
+```kotlin
 annotation class Suspendable
 
 val f = @Suspendable { Fiber.sleep(10) }
@@ -28290,7 +28254,7 @@ When you're annotating a property or a primary constructor parameter, there are 
 generated from the corresponding Kotlin element, and therefore multiple possible locations for the annotation in
 the generated Java bytecode. To specify how exactly the annotation should be generated, use the following syntax:
 
-```java,kotlin
+```kotlin
 class Example(@field:Ann val foo,    // annotate Java field
               @get:Ann val bar,      // annotate Java getter
               @param:Ann val quux)   // annotate Java constructor parameter
@@ -28299,7 +28263,7 @@ class Example(@field:Ann val foo,    // annotate Java field
 The same syntax can be used to annotate the entire file. To do this, put an annotation with the target `file` at
 the top level of a file, before the package directive or before all imports if the file is in the default package:
 
-```java,kotlin
+```kotlin
 @file:JvmName("Foo")
 
 package org.jetbrains.demo
@@ -28308,7 +28272,7 @@ package org.jetbrains.demo
 If you have multiple annotations with the same target, you can avoid repeating the target by adding brackets after the
 target and putting all the annotations inside the brackets:
 
-```java,kotlin
+```kotlin
 class Example {
      @set:[Inject VisibleForTesting]
      var collaborator: Collaborator
@@ -28329,7 +28293,7 @@ The full list of supported use-site targets is:
 
 To annotate the receiver parameter of an extension function, use the following syntax:
 
-```java,kotlin
+```kotlin
 fun @receiver:Fancy String.myExtension() { ... }
 ```
 
@@ -28344,7 +28308,7 @@ being used. If there are multiple applicable targets, the first applicable targe
 
 Java annotations are 100% compatible with Kotlin:
 
-```java,kotlin
+```kotlin
 import org.junit.Test
 import org.junit.Assert.*
 import org.junit.Rule
@@ -28372,7 +28336,7 @@ public @interface Ann {
 }
 ```
 
-```java,kotlin
+```kotlin
 // Kotlin
 @Ann(intValue = 1, stringValue = "abc") class C
 ```
@@ -28386,7 +28350,7 @@ public @interface AnnWithValue {
 }
 ```
 
-```java,kotlin
+```kotlin
 // Kotlin
 @AnnWithValue("abc") class C
 ```
@@ -28402,7 +28366,7 @@ public @interface AnnWithArrayValue {
 }
 ```
 
-```java,kotlin
+```kotlin
 // Kotlin
 @AnnWithArrayValue("abc", "foo", "bar") class C
 ```
@@ -28417,7 +28381,7 @@ public @interface AnnWithArrayMethod {
 }
 ```
 
-```java,kotlin
+```kotlin
 @AnnWithArrayMethod(names = ["abc", "foo", "bar"]) 
 class C
 ```
@@ -28433,7 +28397,7 @@ public @interface Ann {
 }
 ```
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun foo(ann: Ann) {
     val i = ann.value
@@ -28461,7 +28425,7 @@ The main difference with the scheme used in Java is the absence of a _containing
 generates automatically with a predefined name. For an annotation in the example below, it will generate the containing
 annotation `@Tag.Container`:
 
-```java,kotlin
+```kotlin
 @Repeatable
 annotation class Tag(val name: String)
 
@@ -28472,7 +28436,7 @@ You can set a custom name for a containing annotation by applying the
 [`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvmrepeatable/) meta-annotation
 and passing an explicitly declared containing annotation class as an argument:
 
-```java,kotlin
+```kotlin
 @JvmRepeatable(Tags::class)
 annotation class Tag(val name: String)
 
@@ -28490,7 +28454,7 @@ Learn more about Kotlin repeatable annotations in [this KEEP](https://github.com
 
 Sometimes it is convenient to *destructure* an object into a number of variables, for example:
 
-```java,kotlin
+```kotlin
 val (name, age) = person 
 ```
 
@@ -28504,7 +28468,7 @@ println(age)
 
 A destructuring declaration is compiled down to the following code:
 
-```java,kotlin
+```kotlin
 val name = person.component1()
 val age = person.component2()
 ```
@@ -28521,7 +28485,7 @@ functions can be called on it. And, of course, there can be `component3()` and `
 
 Destructuring declarations also work in `for`-loops:
 
-```java,kotlin
+```kotlin
 for ((a, b) in collection) { ... }
 ```
 
@@ -28532,7 +28496,7 @@ Variables `a` and `b` get the values returned by `component1()` and `component2(
 Assume that you need to return two things from a function - for example, a result object and a status of some sort.
 A compact way of doing this in Kotlin is to declare a [data class](data-classes.md) and return its instance:
 
-```java,kotlin
+```kotlin
 data class Result(val result: Int, val status: Status)
 fun function(...): Result {
     // computations
@@ -28555,7 +28519,7 @@ Since data classes automatically declare `componentN()` functions, destructuring
 
 Probably the nicest way to traverse a map is this:
 
-```java,kotlin
+```kotlin
 for ((key, value) in map) {
    // do something with the key and the value
 }
@@ -28568,7 +28532,7 @@ To make this work, you should
   
 And indeed, the standard library provides such extensions:
 
-```java,kotlin
+```kotlin
 operator fun <K, V> Map<K, V>.iterator(): Iterator<Map.Entry<K, V>> = entrySet().iterator()
 operator fun <K, V> Map.Entry<K, V>.component1() = getKey()
 operator fun <K, V> Map.Entry<K, V>.component2() = getValue()
@@ -28580,7 +28544,7 @@ So you can freely use destructuring declarations in `for`-loops with maps (as we
 
 If you don't need a variable in the destructuring declaration, you can place an underscore instead of its name:
 
-```java,kotlin
+```kotlin
 val (_, status) = getResult()
 ```
 
@@ -28592,14 +28556,14 @@ You can use the destructuring declarations syntax for lambda parameters.
 If a lambda has a parameter of the `Pair` type (or `Map.Entry`, or any other type that has the appropriate `componentN` 
 functions), you can introduce several new parameters instead of one by putting them in parentheses:   
 
-```java,kotlin
+```kotlin
 map.mapValues { entry -> "${entry.value}!" }
 map.mapValues { (key, value) -> "$value!" }
 ```
 
 Note the difference between declaring two parameters and declaring a destructuring pair instead of a parameter:  
 
-```java,kotlin
+```kotlin
 { a -> ... } // one parameter
 { a, b -> ... } // two parameters
 { (a, b) -> ... } // a destructured pair
@@ -28608,13 +28572,13 @@ Note the difference between declaring two parameters and declaring a destructuri
 
 If a component of the destructured parameter is unused, you can replace it with the underscore to avoid inventing its name:
 
-```java,kotlin
+```kotlin
 map.mapValues { (_, value) -> "$value!" }
 ```
 
 You can specify the type for the whole destructured parameter or for a specific component separately:
 
-```java,kotlin
+```kotlin
 map.mapValues { (_, value): Map.Entry<Int, String> -> "$value!" }
 
 map.mapValues { (_, value: String) -> "$value!" }
@@ -28686,7 +28650,7 @@ it is added by default. In the command-line compiler and Ant, you can use the `-
 The most basic reflection feature is getting the runtime reference to a Kotlin class. To obtain the reference to a
 statically known Kotlin class, you can use the _class literal_ syntax:
 
-```java,kotlin
+```kotlin
 val c = MyClass::class
 ```
 
@@ -28701,7 +28665,7 @@ The reference is a [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 
 You can get the reference to the class of a specific object with the same `::class` syntax by using the object as a receiver:
 
-```java,kotlin
+```kotlin
 val widget: Widget = ...
 assert(widget is GoodWidget) { "Bad widget: ${widget::class.qualifiedName}" }
 ```
@@ -28721,14 +28685,14 @@ where `R` is the return value type. It is the property type for properties, and 
 
 When you have a named function declared as below, you can call it directly (`isOdd(5)`):
 
-```java,kotlin
+```kotlin
 fun isOdd(x: Int) = x % 2 != 0
 ```
 
 Alternatively, you can use the function as a function type value, that is, pass it
 to another function. To do so, use the `::` operator:
 
-```java,kotlin
+```kotlin
 fun isOdd(x: Int) = x % 2 != 0
 
 fun main() {
@@ -28738,7 +28702,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Here `::isOdd` is a value of function type `(Int) -> Boolean`.
 
@@ -28748,7 +28712,7 @@ subtypes, depending on the parameter count. For instance, `KFunction3<T1, T2, T3
 `::` can be used with overloaded functions when the expected type is known from the context.
 For example:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     fun isOdd(x: Int) = x % 2 != 0
@@ -28759,11 +28723,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Alternatively, you can provide the necessary context by storing the method reference in a variable with an explicitly specified type:
 
-```java,kotlin
+```kotlin
 val predicate: (String) -> Boolean = ::isOdd   // refers to isOdd(x: String)
 ```
 
@@ -28773,7 +28737,7 @@ Even if you initialize a variable with a reference to an extension function, the
 have no receiver, but it will have an additional parameter accepting a receiver object. To have a function type
 with a receiver instead, specify the type explicitly:
 
-```java,kotlin
+```kotlin
 val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty
 ```
 
@@ -28781,7 +28745,7 @@ val isEmptyStringList: List<String>.() -> Boolean = List<String>::isEmpty
 
 Consider the following function:
 
-```java,kotlin
+```kotlin
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
     return { x -> f(g(x)) }
 }
@@ -28790,7 +28754,7 @@ fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
 It returns a composition of two functions passed to it: `compose(f, g) = f(g(*))`.
 You can apply this function to callable references:
 
-```java,kotlin
+```kotlin
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
     return { x -> f(g(x)) }
 }
@@ -28808,13 +28772,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Property references
 
 To access properties as first-class objects in Kotlin, use the `::` operator:
 
-```java,kotlin
+```kotlin
 val x = 1
 
 fun main() {
@@ -28830,7 +28794,7 @@ the [docs on the `KProperty` class](https://kotlinlang.org/api/latest/jvm/stdlib
 For a mutable property such as `var y = 1`, `::y` returns a value with the [`KMutableProperty0<Int>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-mutable-property/index.html) type
 which has a `set()` method:
 
-```java,kotlin
+```kotlin
 var y = 1
 
 fun main() {
@@ -28838,11 +28802,11 @@ fun main() {
     println(y)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 A property reference can be used where a function with a single generic parameter is expected:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val strs = listOf("a", "bc", "def")
@@ -28850,11 +28814,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To access a property that is a member of a class, qualify it as follows:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     class A(val p: Int)
@@ -28863,11 +28827,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For an extension property:
 
-```java,kotlin
+```kotlin
 val String.lastChar: Char
     get() = this[length - 1]
 
@@ -28875,7 +28839,7 @@ fun main() {
     println(String::lastChar.get("abc"))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Interoperability with Java reflection
 
@@ -28883,7 +28847,7 @@ On the JVM platform, the standard library contains extensions for reflection cla
 reflection objects (see package `kotlin.reflect.jvm`).
 For example, to find a backing field or a Java method that serves as a getter for a Kotlin property, you can write something like this:
 
-```java,kotlin
+```kotlin
 import kotlin.reflect.jvm.*
  
 class A(val p: Int)
@@ -28896,7 +28860,7 @@ fun main() {
 
 To get the Kotlin class that corresponds to a Java class, use the `.kotlin` extension property:
 
-```java,kotlin
+```kotlin
 fun getKClass(o: Any): KClass<Any> = o.javaClass.kotlin
 ```
 
@@ -28907,7 +28871,7 @@ that takes the same parameters as the constructor and returns an object of the a
 Constructors are referenced by using the `::` operator and adding the class name. Consider the following function
 that expects a function parameter with no parameters and return type `Foo`:
 
-```java,kotlin
+```kotlin
 class Foo
 
 fun function(factory: () -> Foo) {
@@ -28917,7 +28881,7 @@ fun function(factory: () -> Foo) {
 
 Using `::Foo`, the zero-argument constructor of the class `Foo`, you can call it like this:
 
-```java,kotlin
+```kotlin
 function(::Foo)
 ```
 
@@ -28929,7 +28893,7 @@ depending on the parameter count.
 
 You can refer to an instance method of a particular object:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numberRegex = "\\d+".toRegex()
@@ -28940,13 +28904,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Instead of calling the method `matches` directly, the example uses a reference to it.
 Such a reference is bound to its receiver.
 It can be called directly (like in the example above) or used whenever a function type expression is expected:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numberRegex = "\\d+".toRegex()
@@ -28955,12 +28919,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Compare the types of the bound and the unbound references.
 The bound callable reference has its receiver "attached" to it, so the type of the receiver is no longer a parameter:
 
-```java,kotlin
+```kotlin
 val isNumber: (CharSequence) -> Boolean = numberRegex::matches
 
 val matches: (Regex, CharSequence) -> Boolean = Regex::matches
@@ -28968,7 +28932,7 @@ val matches: (Regex, CharSequence) -> Boolean = Regex::matches
 
 A property reference can be bound as well:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val prop = "abc"::length
@@ -28976,7 +28940,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You don't need to specify `this` as the receiver: `this::foo` and `::foo` are equivalent.
 
@@ -28985,7 +28949,7 @@ You don't need to specify `this` as the receiver: `this::foo` and `::foo` are eq
 A bound callable reference to a constructor of an [inner class](nested-classes.md#inner-classes) can
 be obtained by providing an instance of the outer class:
 
-```java,kotlin
+```kotlin
 class Outer {
     inner class Inner
 }
@@ -29838,7 +29802,7 @@ You'll need the following multiplatform libraries in your project:
 To add `kotlinx.coroutines` to your project, specify a dependency in the common source set. To do so, add the following
 line to the `build.gradle.kts` file of the shared module:
 
-```java,kotlin
+```kotlin
 sourceSets {
     val commonMain by getting {
         dependencies {
@@ -29857,7 +29821,7 @@ of `kotlinx.coroutines`.
 If you use Kotlin 1.7.20 and later, you already have the new Kotlin/Native memory manager enabled by default.
 If it's not the case, add the following to the end of the `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 kotlin.targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget::class.java) {
     binaries.all {
         binaryOptions["memoryModel"] = "experimental"
@@ -29873,7 +29837,7 @@ with the Kotlin compiler distribution, and the IntelliJ IDEA plugin is bundled i
 You can set up the serialization plugin with the Kotlin plugin using the Gradle plugins DSL by adding this line to
 the existing `plugins` block at the very beginning of the `build.gradle.kts` file in the shared module:
 
-```java,kotlin
+```kotlin
 plugins {
     // ...
     kotlin("plugin.serialization") version "1.9.10"
@@ -29892,7 +29856,7 @@ dependency (`ktor-client-core`) in the common source set, you also need to:
 * Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets
   (`ktor-client-android`, `ktor-client-darwin`).
 
-```java,kotlin
+```kotlin
 val ktorVersion = "%ktorVersion%"
 
 sourceSets {
@@ -29930,7 +29894,7 @@ get the list of all launches from the **v4/launches** endpoint.
 In `shared/src/commonMain/kotlin`, create a new `RocketLaunch.kt` file in the project folder
 and add a data class which stores data from the SpaceX API:
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -30035,7 +29999,7 @@ straightforward:
 
 In `androidApp/src/main/java`, locate the `MainActivity.kt` file and update the following class replacing previous implementation:
 
-```java,kotlin
+```kotlin
 import androidx.compose.runtime.*
 
 class MainActivity : ComponentActivity() {
@@ -30294,7 +30258,7 @@ They are linked together via the [Gradle multi-project mechanism](https://docs.g
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 // settings.gradle.kts
 include(":shared")
 include(":androidApp")
@@ -30337,7 +30301,7 @@ has targets for Android and iOS.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
     // ..
@@ -30383,7 +30347,7 @@ Each source set has its own dependencies. Kotlin standard library is added autom
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting
@@ -30438,7 +30402,7 @@ annotations, assertion functions and other. You can add dependencies on other te
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         // ...
@@ -30495,7 +30459,7 @@ To produce the Android library, a separate Gradle plugin is used in addition to 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     // ...
     id("com.android.library")
@@ -30520,7 +30484,7 @@ The configuration of Android library is stored in the `android {}` top-level blo
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 android {
     // A typical Android configuration, see https://developer.android.com/build for details.
     //  For example:
@@ -30569,7 +30533,7 @@ For details, see [Multiplatform documentation](multiplatform-build-native-binari
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     // ...
     ios {
@@ -30623,7 +30587,7 @@ In a basic cross-platform mobile project, it uses two Gradle plugins:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -30648,7 +30612,7 @@ To access the shared module code, the Android application uses it as a project d
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     implementation(project(":shared"))
     //..
@@ -30673,7 +30637,7 @@ Besides this dependency, the Android application uses the Kotlin standard librar
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     //..
     implementation("androidx.core:core-ktx:1.2.0")
@@ -30703,7 +30667,7 @@ The build configuration of the Android application is located in the `android {}
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 android {
     compileSdk = 29
     defaultConfig {
@@ -30986,7 +30950,7 @@ moved `data` directory wherever possible.
 In the `LoginDataSource` class, a universally unique identifier (UUID) for `fakeUser` is generated using
 the `java.util.UUID` class, which is not available for iOS.
 
-```java,kotlin
+```kotlin
 val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), "Jane Doe")
 ```
 
@@ -31481,7 +31445,7 @@ generator validates the SQL queries and turns them into Kotlin code that can be 
 The library is already in the project. To configure it, go to the `shared` directory and add the `sqldelight` block to
 the end of the `build.gradle.kts` file. The block will contain a list of databases and their parameters:
 
-```java,kotlin
+```kotlin
 sqldelight {
     database("AppDatabase") {
         packageName = "com.jetbrains.handson.kmm.shared.cache"
@@ -31856,7 +31820,7 @@ Multiplatform shared module is already connected to your Android application.
 Before implementing the UI and the presentation logic, add all the required dependencies to
 the `androidApp/build.gradle.kts`:
 
-```java,kotlin
+```kotlin
 // ...
 dependencies {
     implementation(project(":shared"))
@@ -32396,7 +32360,7 @@ You can also apply it manually.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -32428,7 +32392,7 @@ iOS, or Android. See the list of [supported platforms](multiplatform-dsl-referen
 
 When you create a multiplatform project, targets are added to the `kotlin` block in the file `build.gradle(.kts`).
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm()
     js(IR) {
@@ -32460,7 +32424,7 @@ structure you get when creating a multiplatform library with the IntelliJ IDEA p
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting
@@ -32552,7 +32516,7 @@ later, you can do this manually using target presets for [supported platforms](m
 
 Learn more about [additional settings for targets](multiplatform-dsl-reference.md#common-target-configuration).
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm() // Create a JVM target with the default name 'jvm'
         
@@ -32580,7 +32544,7 @@ to add an attribute to both targets as follows:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 val testFrameworkAttribute = Attribute.of("com.example.testFramework", String::class.java)
 
 kotlin {
@@ -32675,7 +32639,7 @@ Additionally, you'll need two more plugins:
 * The [`serialization`](https://github.com/Kotlin/kotlinx.serialization#gradle) plugin provides multiplatform
   conversions between Kotlin objects and their JSON text representation.
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
     application // to run the JVM part
@@ -32689,7 +32653,7 @@ The target configuration inside the `kotlin` block is responsible for setting up
 your project. Configure two targets: `jvm` (server) and `js` (client). Here you'll make further adjustments to target
 configurations.
 
-```java,kotlin
+```kotlin
 jvm {
     withJava()
 }
@@ -32707,7 +32671,7 @@ For more detailed information on targets, see [Understand Multiplatform project 
 Kotlin source sets are a collection of Kotlin sources and their resources, dependencies, and language settings that
 belong to one or more targets. You use them to set up platform-specific and common dependency blocks.
 
-```java,kotlin
+```kotlin
 sourceSets {
     val commonMain by getting {
         dependencies {
@@ -32804,7 +32768,7 @@ logging, and authentication.
 
 Add the following lines to the top of the `embeddedServer` block in `src/jvmMain/kotlin/Server.kt`:
 
-```java,kotlin
+```kotlin
 install(ContentNegotiation) {
     json()
 }
@@ -32839,7 +32803,7 @@ The artifacts required to use Ktor are a part of the `jvmMain` `dependencies` bl
 includes the server, logging, and supporting libraries for providing type-safe serialization support
 through `kotlinx.serialization`.
 
-```java,kotlin
+```kotlin
 val jvmMain by getting {
     dependencies {
         implementation("io.ktor:ktor-serialization:$ktorVersion")
@@ -32858,7 +32822,7 @@ val jvmMain by getting {
 `kotlinx.serialization` and its integration with Ktor also requires a few common artifacts to be present, which you can
 find in the `commonMain` source set:
 
-```java,kotlin
+```kotlin
 val commonMain by getting {
     dependencies {
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
@@ -32880,7 +32844,7 @@ The data model for `ShoppingListItem` should have:
 
 In `src/commonMain/`, create a `kotlin/ShoppingListItem.kt` file with the following content:
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -32916,7 +32880,7 @@ deletions made through the API.
 Because there's currently no database, create a `MutableList` to temporarily store the `ShoppingListItem`s. For that,
 add the following file-level declaration to `src/jvmMain/kotlin/Server.kt`:
 
-```java,kotlin
+```kotlin
 val shoppingList = mutableListOf(
     ShoppingListItem("Cucumbers 🥒", 1),
     ShoppingListItem("Tomatoes 🍅", 2),
@@ -33055,7 +33019,7 @@ server-side JVM application dependent on the build of your frontend application 
 regarding `development` and `production` from the environment variable. It makes sure that whenever a `jar` file is
 built from the application, it includes the Kotlin/JS code:
 
-```java,kotlin
+```kotlin
 // include JS artifacts in any generated JAR
 tasks.getByName<Jar>("jvmJar") {
     val taskName = if (project.hasProperty("isProduction")
@@ -33079,7 +33043,7 @@ system or cloud platform.
 
 To ensure that the `run` task properly recognizes the JS artifacts, the classpath is adjusted as follows:
 
-```java,kotlin
+```kotlin
 tasks.getByName<JavaExec>("run") {
     classpath(tasks.getByName<Jar>("jvmJar")) // so that the JS artifacts generated by `jvmJar` can be found and served
 }
@@ -33155,7 +33119,7 @@ It takes care of automatically converting between Kotlin objects and their JSON 
 By leveraging these properties, you can create an API wrapper as a set of suspending functions that either accept or
 return `ShoppingItems`. Create a file called `Api.kt` and implement them in `src/jsMain/kotlin`:
 
-```java,kotlin
+```kotlin
 import io.ktor.http.*
 import io.ktor.client.*
 import io.ktor.client.call.*
@@ -33195,7 +33159,7 @@ work on displaying the shopping list on the screen in a React application.
 Instead of rendering a simple "Hello, Kotlin/JS" string, make the application render a functional `App` component. For
 that, replace the content inside `src/jsMain/kotlin/Main.kt` with the following:
 
-```java,kotlin
+```kotlin
 import web.dom.document
 import react.create
 import react.dom.client.createRoot
@@ -33455,7 +33419,7 @@ Alternatively, you can use the [`mongosh`](https://www.mongodb.com/docs/mongodb-
 Kmongo is added with a single dependency to the project, a specific version that includes coroutine and serialization
 support out of the box:
 
-```java,kotlin
+```kotlin
 val jvmMain by getting {
     dependencies {
         // ...
@@ -33483,7 +33447,7 @@ On managed platforms, the port on which the application should run is often dete
 the `PORT` environment variable. If present, you can respect this setting by configuring `embeddedServer`
 in `src/jvmMain/kotlin/Server.kt`:
 
-```java,kotlin
+```kotlin
 fun main() {
     val port = System.getenv("PORT")?.toInt() ?: 9090
     embeddedServer(Netty, port) {
@@ -33505,7 +33469,7 @@ string.
 To properly satisfy these requirements, instantiate the `client` and `database` variables
 in `src/jvmMain/kotlin/Server.kt`:
 
-```java,kotlin
+```kotlin
 val connectionString: ConnectionString? = System.getenv("MONGODB_URI")?.let {
     ConnectionString("$it?retryWrites=false")
 }
@@ -33543,7 +33507,7 @@ You can set this environment variable when you deploy the application to the tar
 
 The `stage` task is an alias for `installDist`:
 
-```java,kotlin
+```kotlin
 // Alias "installDist" as "stage" (for cloud providers)
 tasks.create("stage") {
     dependsOn(tasks.getByName("installDist"))
@@ -33817,7 +33781,7 @@ To save time on testing, you can write common tests that will be executed on all
 Before writing tests, add the `encodeToString` method with the default implementation to the `Base64Encoder` interface, which is defined in `commonMain/kotlin/org/jetbrains/base64/Base64.kt`.
 This implementation converts byte arrays to strings, which are much easier to test.
 
-```java,kotlin
+```kotlin
 interface Base64Encoder {
     fun encode(src: ByteArray): ByteArray
 
@@ -33832,7 +33796,7 @@ interface Base64Encoder {
 
 You can also provide a more efficient implementation of this method for a specific platform, for example, for JVM in `jvmMain/kotlin/org/jetbrains/base64/Base64.kt`:
 
-```java,kotlin
+```kotlin
 object JvmBase64Encoder : Base64Encoder {
     override fun encode(src: ByteArray): ByteArray = Base64.getEncoder().encode(src)
     override fun encodeToString(src: ByteArray): String = Base64.getEncoder().encodeToString(src)
@@ -34180,7 +34144,7 @@ You can add your library to other multiplatform projects as a dependency.
 In the `build.gradle.kts` file, add `mavenLocal()` or `MavenCentral()` (if the library was published
 to the external repository) and add a dependency on your library:
 
-```java,kotlin
+```kotlin
 repositories {
     mavenCentral()
     mavenLocal()
@@ -34219,7 +34183,7 @@ You can publish a multiplatform library to a local Maven repository with the [`m
 Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) 
 where the library should be published. The plugin creates publications automatically.
 
-```java,kotlin
+```kotlin
 plugins {
     //...
     id("maven-publish")
@@ -34279,7 +34243,7 @@ a publication that can be published from multiple platforms will be published on
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm()
     js()
@@ -34335,7 +34299,7 @@ To publish an Android library, you need to provide additional configuration.
 By default, no artifacts of an Android library are published. To publish artifacts produced by a set of [Android variants](https://developer.android.com/studio/build/build-variants), 
 specify the variant names in the Android target block:
 
-```java,kotlin
+```kotlin
 kotlin {
     android {
         publishLibraryVariants("release", "debug")
@@ -34362,7 +34326,7 @@ You can also publish variants grouped by the product flavor, so that the outputs
 in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
 with no classifier). This mode is disabled by default and can be enabled as follows:
 
-```java,kotlin
+```kotlin
 kotlin {
     android {
         publishLibraryVariantsGroupedByFlavor = true
@@ -34551,7 +34515,7 @@ generate a universally unique identifier (UUID):
 For this purpose, declare the expected function `randomUUID()` with the `expect` keyword in the common module.
 Don't include any implementation code.
 
-```java,kotlin
+```kotlin
 // Common
 expect fun randomUUID(): String
 ```
@@ -34562,14 +34526,14 @@ expected in the common module. Use the `actual` keyword to mark the actual imple
 The following examples show the implementation of this for Android and iOS.
 Platform-specific code uses the `actual` keyword and the expected name for the function.
 
-```java,kotlin
+```kotlin
 // Android
 import java.util.*
 
 actual fun randomUUID() = UUID.randomUUID().toString()
 ```
 
-```java,kotlin
+```kotlin
 // iOS
 import platform.Foundation.NSUUID
 
@@ -34581,7 +34545,7 @@ actual fun randomUUID(): String = NSUUID().UUIDString()
 Another example of code sharing and interaction between the common and platform logic, JS and JVM in this case, in a minimalistic
 logging framework:
 
-```java,kotlin
+```kotlin
 // Common
 enum class LogLevel {
     DEBUG, WARN, ERROR
@@ -34594,7 +34558,7 @@ fun logWarn(message: String) = writeLogMessage(message, LogLevel.WARN)
 fun logError(message: String) = writeLogMessage(message, LogLevel.ERROR)
 ```
 
-```java,kotlin
+```kotlin
 // JVM
 internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
     println("[$logLevel]: $message")
@@ -34603,7 +34567,7 @@ internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
 
 For JavaScript, a completely different set of APIs is available, and the `actual` declaration will look like this.
 
-```java,kotlin
+```kotlin
 // JS
 internal actual fun writeLogMessage(message: String, logLevel: LogLevel) {
     when (logLevel) {
@@ -34625,7 +34589,7 @@ from platform to platform. That's why you should use `expect`/`actual` declarati
 
 In the common module, declare the expected class `PlatformSocket()` with the `expect` keyword. Don't include any implementation code.
 
-```java,kotlin
+```kotlin
 //Common
 internal expect class PlatformSocket(
     url: String
@@ -34648,7 +34612,7 @@ expected in the common module. Use the `actual` keyword to mark the actual imple
 
 The following examples show the implementation of this for Android and iOS.
 
-```java,kotlin
+```kotlin
 //Android
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -34687,7 +34651,7 @@ Android implementation uses the third-party library [OkHttp](https://square.gith
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 sourceSets {
     val androidMain by getting {
         dependencies {
@@ -34713,7 +34677,7 @@ commonMain {
 
 iOS implementation uses `NSURLSession` from the standard Apple SDK and doesn't require additional dependencies.
 
-```java,kotlin
+```kotlin
 //iOS
 import platform.Foundation.*
 import platform.darwin.NSObject
@@ -34775,7 +34739,7 @@ internal actual class PlatformSocket actual constructor(url: String) {
 
 And here is the common logic in the common module that uses the platform-specific class `PlatformSocket()`.
 
-```java,kotlin
+```kotlin
 //Common
 class AppSocket(url: String) {
     private val ws = PlatformSocket(url)
@@ -34874,7 +34838,7 @@ The IDE provides tools that help you create the missing actual declarations.
 If you have a platform-specific library that you want to use in shared code while providing your own implementation for
 another platform, you can provide a `typealias` to an existing class as the actual declaration:
 
-```java,kotlin
+```kotlin
 expect class AtomicRef<V>(value: V) {
     fun get(): V
     fun set(value: V)
@@ -34883,7 +34847,7 @@ expect class AtomicRef<V>(value: V) {
 }
 ```
 
-```java,kotlin
+```kotlin
 actual typealias AtomicRef<V> = java.util.concurrent.atomic.AtomicReference<V>
 ```
 
@@ -34933,7 +34897,7 @@ all of the targets you need. For example:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     // Enable the default target hierarchy:
@@ -34993,7 +34957,7 @@ Consider this example of a project with a source set shared between the `jvm` an
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     // Enable the default target hierarchy:
@@ -35099,7 +35063,7 @@ a multiplatform project with 2 iOS-related targets, `iosArm64` and `iosX64`, and
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     ios() // iOS device and the iosX64 simulator target; iosMain and iosTest source sets
 }
@@ -35127,7 +35091,7 @@ The resulting hierarchical structure will be equivalent to the code below:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     iosX64()
     iosArm64()
@@ -35178,7 +35142,7 @@ and want to build the project for an Apple Silicon simulator, make the following
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     ios()
     // Add the ARM64 simulator target
@@ -35238,7 +35202,7 @@ The resulting hierarchical structure will look like this:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     linuxX64()
     mingwX64()
@@ -35385,7 +35349,7 @@ Previously, the `dependsOn` relationship between `androidAndroidTest` and `commo
 In the new Android source set layout, the `dependsOn` relationship is not added by default. If you prefer the previous behavior,
 manually declare the following relationship in your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 kotlin {
 // ...
     sourceSets {
@@ -35409,7 +35373,7 @@ leading to errors like `org.gradle.api.UnknownDomainObjectException: KotlinSourc
 
 To work around that, use the new `invokeWhenCreated()` API in your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 kotlin {
 // ...
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
@@ -35436,7 +35400,7 @@ block:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -35498,7 +35462,7 @@ dependency only once in the shared source set. Use the library base artifact nam
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -35535,7 +35499,7 @@ example, `kotlinx-coroutines-core-jvm`.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val jvmMain by getting {
@@ -35586,7 +35550,7 @@ Multiplatform Mobile plugin will automatically add the corresponding parts to an
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -35638,7 +35602,7 @@ specified library declarations will then be available only in those source sets.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -35697,7 +35661,7 @@ other source sets will get their versions automatically.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -35758,7 +35722,7 @@ set. For that, update your `build.gradle(.kts)` file in the `shared` directory o
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 sourceSets["androidMain"].dependencies {
     implementation("com.example.android:app-magic:12.3")
 }
@@ -35789,7 +35753,7 @@ problems like this, you can add a `dependencies` block inside the `android` bloc
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 android {
     //...
     dependencies {
@@ -35895,7 +35859,7 @@ have some other strong reason to do so.
 
 To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:
 
-```java,kotlin
+```kotlin
 import cocoapods.Alamofire.*
 ```
 
@@ -35999,7 +35963,7 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
 Now you can use this dependency in your Kotlin code. To do that, import the package you've set up in the `package`
 property in the `.def` file. For the example above, this will be:
 
-```java,kotlin
+```kotlin
 import DateTools.*
 ```
 
@@ -36089,7 +36053,7 @@ import DateTools.*
 Now you can use this dependency in your Kotlin code. To do this, import the package you've set up in the package
 property in the `.def` file. For the example above, this will be:
 
-```java,kotlin
+```kotlin
 import MyFramework.*
 ```
 
@@ -36344,7 +36308,7 @@ Now you have experience writing tests for common code. Let's explore writing pla
 
 To create an instance of `CurrentRuntime`, declare a function in the common `CurrentRuntime.kt` file as follows:
 
-```java,kotlin
+```kotlin
 expect fun determineCurrentRuntime(): CurrentRuntime
 ```
 
@@ -36513,7 +36477,7 @@ available for all or specific targets.
 
 ## 08.7.1.1. Configure all compilations
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.all {
         compilations.all {
@@ -36530,7 +36494,7 @@ kotlin {
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm().compilations.all {
         compilerOptions.configure {
@@ -36561,7 +36525,7 @@ kotlin {
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm {
         val main by compilations.getting {
@@ -36607,7 +36571,7 @@ collection.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm() {
         compilations {
@@ -36682,7 +36646,7 @@ the JVM target.
 
 In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm {
         withJava()
@@ -36721,7 +36685,7 @@ compilation with [available parameters](multiplatform-dsl-reference.md#cinterops
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     linuxX64 { // Replace with a target you need.
         compilations.getByName("main") {
@@ -36812,7 +36776,7 @@ Annotation processing with [`kapt`](kapt.md) is also supported, but due to curre
 is created before the `kapt` dependencies are configured, which needs to be done in a top-level `dependencies` block rather 
 than within Kotlin source set dependencies.
 
-```java,kotlin
+```kotlin
 kotlin {
     android { /* ... */ }
 }
@@ -36905,7 +36869,7 @@ and `RELEASE` executable binaries:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinArtifacts {
     Native.Library {
         target = iosX64 // Define your target instead
@@ -36936,7 +36900,7 @@ You can also declare binaries with custom names:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinArtifacts {
     Native.Library("mylib") {
         // Binary configuration
@@ -36990,7 +36954,7 @@ For the library configuration, the additional `target` parameter is available:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinArtifacts {
     Native.Library("myslib") {
         target = linuxX64
@@ -37040,7 +37004,7 @@ For the framework configuration, the following additional parameters are availab
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinArtifacts {
     Native.Framework("myframe") {
         modes(DEBUG, RELEASE)
@@ -37097,7 +37061,7 @@ For the fat framework configuration, the following additional parameters are ava
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinArtifacts {
     Native.FatFramework("myfatframe") {
         targets(iosX32, iosX64)
@@ -37150,7 +37114,7 @@ For the XCFrameworks configuration, the following additional parameters are avai
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinArtifacts {
     Native.XCFramework("sdk") {
         targets(iosX64, iosArm64, iosSimulatorArm64)
@@ -37227,7 +37191,7 @@ two build types are available:
 
 The following snippet creates two executable binaries, debug and release:
 
-```java,kotlin
+```kotlin
 kotlin {
     linuxX64 { // Define your target instead.
         binaries {
@@ -37241,7 +37205,7 @@ kotlin {
 
 You can drop the lambda if there is no need for [additional configuration](multiplatform-dsl-reference.md#native-targets):
 
-```java,kotlin
+```kotlin
 binaries {
     executable()
 }
@@ -37252,7 +37216,7 @@ You can specify for which build types to create binaries. In the following examp
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 binaries {
     executable(listOf(DEBUG)) {
         // Binary configuration.
@@ -37279,7 +37243,7 @@ You can also declare binaries with custom names:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 binaries {
     executable("foo", listOf(DEBUG)) {
         // Binary configuration.
@@ -37331,7 +37295,7 @@ binary kind following the pattern: `<optional-name-prefix><build-type><binary-ki
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 // Fails if there is no such binary.
 binaries["fooDebugExecutable"]
 binaries.getByName("fooDebugExecutable")
@@ -37361,7 +37325,7 @@ Alternatively, you can access a binary by its name prefix and build type using t
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 // Fails if there is no such binary.
 binaries.getExecutable("foo", DEBUG)
 binaries.getExecutable(DEBUG)          // Skip the first argument if the name prefix isn't set.
@@ -37408,7 +37372,7 @@ the `export` method.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         macosMain.dependencies {
@@ -37491,7 +37455,7 @@ are exported as well.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 binaries {
     framework {
         export(project(":dependency"))
@@ -37531,7 +37495,7 @@ framework on both 32-bit and 64-bit devices.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
 
 kotlin {
@@ -37601,7 +37565,7 @@ Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
@@ -37681,7 +37645,7 @@ You can customize its properties with the corresponding binary option:
 To enable the feature, pass the `-Xbinary=$option=$value` compiler flag or set the `binaryOption("option", "value")`
 Gradle DSL for the specific framework:
 
-```java,kotlin
+```kotlin
 binaries {
     framework {
         binaryOption("bundleId", "com.example.app")
@@ -37711,7 +37675,7 @@ The plugin versions match the Kotlin release versions. The most recent version i
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -37837,7 +37801,7 @@ don't follow the Java plugin's defaults. Instead, they are derived from the Kotl
 has the default name `jvm`, the paths are `src/jvmMain/java` (for production Java sources) and `src/jvmTest/java` for test Java sources.
 Learn more about [Java sources in JVM compilations](multiplatform-configure-compilations.md#use-java-sources-in-jvm-compilations).
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm {
         withJava()
@@ -37868,7 +37832,7 @@ Learn more about [configuring Kotlin/JS projects](js-project-setup.md).
 | `dceTask`      | Configuration of [Dead Code Elimination](javascript-dce.md).               |
 | `distribution` | Path to output files.                                                      |
 
-```java,kotlin
+```kotlin
 kotlin {
     js().browser {
         webpackTask { /* ... */ }
@@ -37892,7 +37856,7 @@ kotlin {
 | `testRuns` | Configuration of test execution.  |
 | `runTask`  | Configuration of project running. |
 
-```java,kotlin
+```kotlin
 kotlin {
     js().nodejs {
         runTask { /* ... */ }
@@ -37922,7 +37886,7 @@ There are the following kinds of binaries:
 | `staticLib`  | Static library.        |
 | `framework`  | Objective-C framework. |
 
-```java,kotlin
+```kotlin
 kotlin {
     linuxX64 { // Use your target instead.
         binaries {
@@ -37950,7 +37914,7 @@ For binary configuration, the following parameters are available:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 binaries {
     executable("my_executable", listOf(RELEASE)) {
         // Build a binary on the basis of the test compilation.
@@ -38041,7 +38005,7 @@ Learn more how to [configure interop with native languages](multiplatform-config
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     linuxX64 { // Replace with a target you need.
         compilations.getByName("main") {
@@ -38115,7 +38079,7 @@ Two functions help you configure [build variants](https://developer.android.com/
 | `publishLibraryVariants()`    | Specifies build variants to publish. Learn more about [publishing Android libraries](multiplatform-publish-lib.md#publish-an-android-library). |
 | `publishAllLibraryVariants()` | Publishes all build variants.                                                                                                                  |
 
-```java,kotlin
+```kotlin
 kotlin {
     android {
         publishLibraryVariants("release", "debug")
@@ -38154,7 +38118,7 @@ With Kotlin Gradle DSL, the sections of predefined source sets should be marked 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting { /* ... */ }
@@ -38187,7 +38151,7 @@ If using Kotlin Gradle DSL, mark custom source sets `by creating`.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin { 
     sourceSets { 
         val myMain by creating { /* ... */ } // create a new source set by the name 'MyMain'
@@ -38227,7 +38191,7 @@ Configurations of source sets are stored inside the corresponding blocks of `sou
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin { 
     sourceSets { 
         val commonMain by getting {
@@ -38286,7 +38250,7 @@ Available predefined compilations are the following:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm {
         val main by compilations.getting {
@@ -38324,7 +38288,7 @@ Learn more about creating a [custom compilation](multiplatform-configure-compila
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm() {
         compilations {
@@ -38390,7 +38354,7 @@ A compilation has the following parameters:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm {
         val main by compilations.getting {
@@ -38465,7 +38429,7 @@ There are four types of dependencies:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -38514,7 +38478,7 @@ In this case, their declarations follow the pattern `<sourceSetName><DependencyK
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     "commonMainApi"("com.example:foo-common:1.0")
     "jvm6MainApi"("com.example:foo-jvm6:1.0")
@@ -38549,7 +38513,7 @@ The `languageSettings` block of a source set defines certain aspects of project 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets.all {
         languageSettings.apply {
@@ -39032,7 +38996,7 @@ Note that such accessors are still available in the `kotlin.targets` case, for e
     <tr>
 <td>
 
-```java,kotlin
+```kotlin
 kotlin {
     targets {
         configure(['windows',
@@ -39045,7 +39009,7 @@ kotlin {
 </td>
 <td>
 
-```java,kotlin
+```kotlin
 kotlin {
     targets {
         configure([findByName('windows'),
@@ -39117,14 +39081,14 @@ Configuration names for dependencies on the corresponding source set stay the sa
         <td rowspan="2">Dependencies of the <code>jvmMain</code> compilation</td>
 <td>
 
-```java,kotlin
+```kotlin
 jvm<Scope>
 ```
 
 </td>
 <td>
 
-```java,kotlin
+```kotlin
 jvmCompilation<Scope>
 ```
 
@@ -39133,7 +39097,7 @@ jvmCompilation<Scope>
     <tr>
 <td>
 
-```java,kotlin
+```kotlin
 dependencies {
     add("jvmImplementation",
         "foo.bar.baz:1.2.3")
@@ -39143,7 +39107,7 @@ dependencies {
 </td>
 <td>
 
-```java,kotlin
+```kotlin
 dependencies {
     add("jvmCompilationImplementation",
         "foo.bar.baz:1.2.3")
@@ -39156,7 +39120,7 @@ dependencies {
         <td>Dependencies of the <code>jvmMain</code> source set</td>
 <td colspan="2">
 
-```java,kotlin
+```kotlin
 jvmMain<Scope>
 ```
 
@@ -39166,14 +39130,14 @@ jvmMain<Scope>
         <td>Dependencies of the <code>jvmTest</code> compilation</td>
 <td>
 
-```java,kotlin
+```kotlin
 jvmTest<Scope>
 ```
 
 </td>
 <td>
 
-```java,kotlin
+```kotlin
 jvmTestCompilation<Scope>
 ```
 
@@ -39183,7 +39147,7 @@ jvmTestCompilation<Scope>
         <td>Dependencies of the <code>jvmTest</code> source set</td>
 <td colspan="2">
 
-```java,kotlin
+```kotlin
 jvmTest<Scope>
 ```
 
@@ -39284,7 +39248,7 @@ The Kotlin team is eager to help the ecosystem migrate, so if you face any issue
 
 The access to `KotlinCompilation.source` has been deprecated. A code like this produces a deprecation warning:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm()
     js()
@@ -39310,7 +39274,7 @@ which is applicable in all cases.
 
 You can change the code above in one of the following ways:
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm()
     js()
@@ -40218,7 +40182,7 @@ In this section, we describe some details about calling Java code from Kotlin.
 
 Pretty much all Java code can be used without any issues:
 
-```java,kotlin
+```kotlin
 import java.util.*
 
 fun demo(source: List<Int>) {
@@ -40242,7 +40206,7 @@ also called _synthetic properties_.
 `Boolean` accessor methods (where the name of the getter starts with `is` and the name of the setter starts with `set`)
 are represented as properties which have the same name as the getter method.
 
-```java,kotlin
+```kotlin
 import java.util.Calendar
 
 fun calendarDemo() {
@@ -40293,7 +40257,7 @@ public class Person {
 Kotlin has always allowed you to write `person.age`, where `age` is a synthetic property. Now, you can also 
 create references to `Person::age` and `person::age`. The same applies for `name`, as well.
 
-```java,kotlin
+```kotlin
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
     Persons
          // Call a reference to Java synthetic property:
@@ -40311,7 +40275,7 @@ by adding the following to your `build.gradle(.kts)`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>()
     .configureEach {
@@ -40354,7 +40318,7 @@ Some of the Kotlin keywords are valid identifiers in Java: `in`, `object`, `is`,
 If a Java library uses a Kotlin keyword for a method, you can still call the method
 escaping it with the backtick (`) character:
 
-```java,kotlin
+```kotlin
 foo.`is`(bar)
 ```
 
@@ -40366,7 +40330,7 @@ for such types, so that safety guarantees for them are the same as in Java (see 
 
 Consider the following examples:
 
-```java,kotlin
+```kotlin
 val list = ArrayList<String>() // non-null (constructor result)
 list.add("Item")
 val size = list.size // non-null (primitive int)
@@ -40377,7 +40341,7 @@ When you call methods on variables of platform types, Kotlin does not issue null
 but the call may fail at runtime, because of a null-pointer exception or an assertion that Kotlin generates to
 prevent nulls from propagating:
 
-```java,kotlin
+```kotlin
 item.substring(1) // allowed, throws an exception if item == null
 ```
 
@@ -40385,7 +40349,7 @@ Platform types are *non-denotable*, meaning that you can't write them down expli
 When a platform value is assigned to a Kotlin variable, you can rely on the type inference (the variable will have an inferred
 platform type then, as `item` has in the example above), or you can choose the type you expect (both nullable and non-nullable types are allowed):
 
-```java,kotlin
+```kotlin
 val nullable: String? = item // allowed, always works
 val notNull: String = item // allowed, may fail at runtime
 ```
@@ -40449,13 +40413,13 @@ Set<@NotNull String> toSet(@NotNull Collection<@NotNull String> elements) { ... 
 
 They result in the following signature in Kotlin:
 
-```java,kotlin
+```kotlin
 fun toSet(elements: (Mutable)Collection<String>) : (Mutable)Set<String> { ... }
 ```
 
 When the `@NotNull` annotation is missing from a type argument, you get a platform type instead:
 
-```java,kotlin
+```kotlin
 fun toSet(elements: (Mutable)Collection<String!>) : (Mutable)Set<String!> { ... }
 ```
 
@@ -40472,7 +40436,7 @@ public class Derived extends Base<@Nullable String> {}
 
 In the Kotlin code, passing the instance of `Derived` where the `Base<String>` is assumed produces the warning.
 
-```java,kotlin
+```kotlin
 fun takeBaseOfNotNullStrings(x: Base<String>) {}
 
 fun main() {
@@ -40496,7 +40460,7 @@ public class Base<@NotNull T> {}
 When inheriting from `Base`, Kotlin expects a non-nullable type argument or type parameter. 
 Thus, the following Kotlin code produces a warning:
 
-```java,kotlin
+```kotlin
 class Derived<K> : Base<K> {} // warning: K has undefined nullability
 ```
 
@@ -40510,7 +40474,7 @@ public class BaseWithBound<T extends @NotNull Number> {}
 
 Kotlin translates this just as follows:
 
-```java,kotlin
+```kotlin
 class BaseWithBound<T : Number> {}
 ```
 
@@ -40792,7 +40756,7 @@ passed to their constructors. For example, `ArrayList<Integer>()` is indistingui
 This makes it impossible to perform `is`-checks that take generics into account.
 Kotlin only allows `is`-checks for star-projected generic types:
 
-```java,kotlin
+```kotlin
 if (a is List<Int>) // Error: cannot check if it is really a List of Ints
 // but
 if (a is List<*>) // OK: no guarantees about the contents of the list
@@ -40821,7 +40785,7 @@ public class JavaArrayExample {
 
 To pass an array of primitive values, you can do the following in Kotlin:
 
-```java,kotlin
+```kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndices(array)  // passes int[] to method
@@ -40829,7 +40793,7 @@ javaObj.removeIndices(array)  // passes int[] to method
 
 When compiling to the JVM bytecode, the compiler optimizes access to arrays so that there's no overhead introduced:
 
-```java,kotlin
+```kotlin
 val array = arrayOf(1, 2, 3, 4)
 array[1] = array[1] * 2 // no actual calls to get() and set() generated
 for (x in array) { // no iterator created
@@ -40839,7 +40803,7 @@ for (x in array) { // no iterator created
 
 Even when you navigate with an index, it does not introduce any overhead:
 
-```java,kotlin
+```kotlin
 for (i in array.indices) { // no iterator created
     array[i] += 2
 }
@@ -40847,7 +40811,7 @@ for (i in array.indices) { // no iterator created
 
 Finally, `in`-checks have no overhead either:
 
-```java,kotlin
+```kotlin
 if (i in array.indices) { // same as (i >= 0 && i < array.size)
     print(array[i])
 }
@@ -40868,7 +40832,7 @@ public class JavaArrayExample {
 
 In that case you need to use the spread operator `*` to pass the `IntArray`:
 
-```java,kotlin
+```kotlin
 val javaObj = JavaArrayExample()
 val array = intArrayOf(0, 1, 2, 3)
 javaObj.removeIndicesVarArg(*array)
@@ -40885,7 +40849,7 @@ Calling Java methods using the infix call syntax is not allowed.
 In Kotlin, all [exceptions are unchecked](exceptions.md), meaning that the compiler does not force you to catch any of them.
 So, when you call a Java method that declares a checked exception, Kotlin does not force you to do anything:
 
-```java,kotlin
+```kotlin
 fun render(list: List<*>, to: Appendable) {
     for (item in list) {
         to.append(item.toString()) // Java would require us to catch IOException here
@@ -40904,7 +40868,7 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 Methods `wait()` and `notify()` are not available on references of type `Any`. Their usage is generally discouraged in
 favor of `java.util.concurrent`. If you really need to call these methods, you can cast to `java.lang.Object`:
 
-```java,kotlin
+```kotlin
 (foo as java.lang.Object).wait()
 ```
 
@@ -40912,13 +40876,13 @@ favor of `java.util.concurrent`. If you really need to call these methods, you c
 
 To retrieve the Java class of an object, use the `java` extension property on a [class reference](reflection.md#class-references):
 
-```java,kotlin
+```kotlin
 val fooClass = foo::class.java
 ```
 
 The code above uses a [bound class reference](reflection.md#bound-class-references). You can also use the `javaClass` extension property:
 
-```java,kotlin
+```kotlin
 val fooClass = foo.javaClass
 ```
 
@@ -40926,7 +40890,7 @@ val fooClass = foo.javaClass
 
 To override `clone()`, your class needs to extend `kotlin.Cloneable`:
 
-```java,kotlin
+```kotlin
 class Example : Cloneable {
     override fun clone(): Any { ... }
 }
@@ -40939,7 +40903,7 @@ Item 13: *Override clone judiciously*.
 
 To override `finalize()`, all you need to do is simply declare it, without using the `override` keyword:
 
-```java,kotlin
+```kotlin
 class C {
     protected fun finalize() {
         // finalization logic
@@ -40958,7 +40922,7 @@ At most one Java class (and as many Java interfaces as you like) can be a supert
 Static members of Java classes form "companion objects" for these classes. You can't pass such a "companion object"
 around as a value but can access the members explicitly, for example:
 
-```java,kotlin
+```kotlin
 if (Character.isLetter(a)) { ... }
 ```
 
@@ -40989,13 +40953,13 @@ method match the parameter types of the Kotlin function.
 
 You can use this for creating instances of SAM interfaces:
 
-```java,kotlin
+```kotlin
 val runnable = Runnable { println("This runs in a runnable") }
 ```
 
 ...and in method calls:
 
-```java,kotlin
+```kotlin
 val executor = ThreadPoolExecutor()
 // Java signature: void execute(Runnable command)
 executor.execute { println("This runs in a thread pool") }
@@ -41005,7 +40969,7 @@ If the Java class has multiple methods taking functional interfaces, you can cho
 using an adapter function that converts a lambda to a specific SAM type. Those adapter functions are also generated
 by the compiler when needed:
 
-```java,kotlin
+```kotlin
 executor.execute(Runnable { println("This runs in a thread pool") })
 ```
 
@@ -41018,7 +40982,7 @@ abstract method.
 
 To declare a function that is implemented in native (C or C++) code, you need to mark it with the `external` modifier:
 
-```java,kotlin
+```kotlin
 external fun foo(x: Int): Double
 ```
 
@@ -41026,7 +40990,7 @@ The rest of the procedure works in exactly the same way as in Java.
 
 You can also mark property getters and setters as `external`:
 
-```java,kotlin
+```kotlin
 var myProperty: String
     external get
     external set
@@ -41082,7 +41046,7 @@ This rule applies for properties of any type, not just `Boolean`.
 All the functions and properties declared in a file `app.kt` inside a package `org.example`, including extension functions,
 are compiled into static methods of a Java class named `org.example.AppKt`.
 
-```java,kotlin
+```kotlin
 // app.kt
 package org.example
 
@@ -41100,7 +41064,7 @@ org.example.AppKt.getTime();
 
 To set a custom name to the generated Java class, use the `@JvmName` annotation:
 
-```java,kotlin
+```kotlin
 @file:JvmName("DemoUtils")
 
 package org.example
@@ -41124,7 +41088,7 @@ all the declarations from all the files which have that name.
 To enable the generation of such a facade, use the [`@JvmMultifileClass`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-multifile-class/index.html)
 annotation in all such files.
 
-```java,kotlin
+```kotlin
 // oldutils.kt
 @file:JvmName("Utils")
 @file:JvmMultifileClass
@@ -41134,7 +41098,7 @@ package org.example
 fun getTime() { /*...*/ }
 ```
 
-```java,kotlin
+```kotlin
 // newutils.kt
 @file:JvmName("Utils")
 @file:JvmMultifileClass
@@ -41159,7 +41123,7 @@ The field will have the same visibility as the underlying property. You can anno
 * does not have `open`, `override` or `const` modifiers
 * is not a delegated property
 
-```java,kotlin
+```kotlin
 class User(id: String) {
     @JvmField val ID = id
 }
@@ -41191,7 +41155,7 @@ Usually these fields are private but they can be exposed in one of the following
  
 Annotating such a property with `@JvmField` makes it a static field with the same visibility as the property itself.
 
-```java,kotlin
+```kotlin
 class Key(val value: Int) {
     companion object {
         @JvmField
@@ -41209,7 +41173,7 @@ Key.COMPARATOR.compare(key1, key2);
 A [late-initialized](properties.md#late-initialized-properties-and-variables) property in an object or a companion object
 has a static backing field with the same visibility as the property setter.
 
-```java,kotlin
+```kotlin
 object Singleton {
     lateinit var provider: Provider
 }
@@ -41224,7 +41188,7 @@ Singleton.provider = new Provider();
 
 Properties declared as `const` (in classes as well as at the top level) are turned into static fields in Java:
 
-```java,kotlin
+```kotlin
 // file example.kt
 
 object Obj {
@@ -41257,7 +41221,7 @@ functions as [`@JvmStatic`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 If you use this annotation, the compiler will generate both a static method in the enclosing class of the object and
 an instance method in the object itself. For example:
 
-```java,kotlin
+```kotlin
 class C {
     companion object {
         @JvmStatic fun callStatic() {}
@@ -41278,7 +41242,7 @@ C.Companion.callNonStatic(); // the only way it works
 
 Same for named objects:
 
-```java,kotlin
+```kotlin
 object Obj {
     @JvmStatic fun callStatic() {}
     fun callNonStatic() {}
@@ -41299,7 +41263,7 @@ Starting from Kotlin 1.3, `@JvmStatic` applies to functions defined in companion
 Such functions compile to static methods in interfaces. Note that static method in interfaces were introduced in Java 1.8,
 so be sure to use the corresponding targets.  
 
-```java,kotlin
+```kotlin
 interface ChatBot {
     companion object {
         @JvmStatic fun greet(username: String) {
@@ -41324,7 +41288,7 @@ code with the `-Xjvm-default=all` compiler option.
 
 Here is an example of a Kotlin interface with a default method:
 
-```java,kotlin
+```kotlin
 // compile with -Xjvm-default=all
 
 interface Robot {
@@ -41449,7 +41413,7 @@ Sometimes you need to call a Kotlin method with a parameter of type `KClass`.
 There is no automatic conversion from `Class` to `KClass`, so you have to do it manually by invoking the equivalent of
 the `Class<T>.kotlin` extension property:
 
-```java,kotlin
+```kotlin
 kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
 ```
 
@@ -41458,7 +41422,7 @@ kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
 Sometimes we have a named function in Kotlin, for which we need a different JVM name in the bytecode.
 The most prominent example happens due to *type erasure*:
 
-```java,kotlin
+```kotlin
 fun List<String>.filterValid(): List<String>
 fun List<Int>.filterValid(): List<Int>
 ```
@@ -41468,7 +41432,7 @@ If we really want them to have the same name in Kotlin, we can annotate one (or 
 [`@JvmName`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-name/index.html) and specify a different name
 as an argument:
 
-```java,kotlin
+```kotlin
 fun List<String>.filterValid(): List<String>
 
 @JvmName("filterValidInt")
@@ -41479,7 +41443,7 @@ From Kotlin they will be accessible by the same name `filterValid`, but from Jav
 
 The same trick applies when we need to have a property `x` alongside with a function `getX()`:
 
-```java,kotlin
+```kotlin
 val x: Int
     @JvmName("getX_prop")
     get() = 15
@@ -41490,7 +41454,7 @@ fun getX() = 10
 To change the names of generated accessor methods for properties without explicitly implemented getters and setters,
 you can use `@get:JvmName` and `@set:JvmName`:
 
-```java,kotlin
+```kotlin
 @get:JvmName("x")
 @set:JvmName("changeX")
 var x: Int = 23
@@ -41505,7 +41469,7 @@ signature, with all parameters present. If you wish to expose multiple overloads
 The annotation also works for constructors, static methods, and so on. It can't be used on abstract methods, including
 methods defined in interfaces.
 
-```java,kotlin
+```kotlin
 class Circle @JvmOverloads constructor(centerX: Int, centerY: Int, radius: Double = 1.0) {
     @JvmOverloads fun draw(label: String, lineWidth: Int = 1, color: String = "red") { /*...*/ }
 }
@@ -41536,7 +41500,7 @@ Kotlin does not have checked exceptions.
 So, normally the Java signatures of Kotlin functions do not declare exceptions thrown.
 Thus, if you have a function in Kotlin like this:
 
-```java,kotlin
+```kotlin
 // example.kt
 package demo
 
@@ -41563,7 +41527,7 @@ You get an error message from the Java compiler, because `writeToFile()` does no
 To work around this problem, use the [`@Throws`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throws/index.html)
 annotation in Kotlin:
 
-```java,kotlin
+```kotlin
 @Throws(IOException::class)
 fun writeToFile() {
     /*...*/
@@ -41582,7 +41546,7 @@ This way we get a `NullPointerException` in the Java code immediately.
 When Kotlin classes make use of [declaration-site variance](generics.md#declaration-site-variance), there are two 
 options of how their usages are seen from the Java code. For example, imagine you have the following class and two functions that use it:
 
-```java,kotlin
+```kotlin
 class Box<out T>(val value: T)
 
 interface Base
@@ -41631,7 +41595,7 @@ Base unboxBase(Box<? extends Base> box) { ... }
 
 If you need wildcards where they are not generated by default, use the `@JvmWildcard` annotation:
 
-```java,kotlin
+```kotlin
 fun boxDerived(value: Derived): Box<@JvmWildcard Derived> = Box(value)
 // is translated to 
 // Box<? extends Derived> boxDerived(Derived value) { ... }
@@ -41639,7 +41603,7 @@ fun boxDerived(value: Derived): Box<@JvmWildcard Derived> = Box(value)
 
 In the opposite case, if you don't need wildcards where they are generated, use `@JvmSuppressWildcards`:
 
-```java,kotlin
+```kotlin
 fun unboxBase(box: Box<@JvmSuppressWildcards Base>): Base = box.value
 // is translated to 
 // Base unboxBase(Box<Base> box) { ... }
@@ -41656,7 +41620,7 @@ The type [`Nothing`](exceptions.md#the-nothing-type) is special, because it has 
 `java.lang.Void`, accepts `null` as a value, and `Nothing` doesn't accept even that. So, this type cannot be accurately
 represented in the Java world. This is why Kotlin generates a raw type where an argument of type `Nothing` is used:
 
-```java,kotlin
+```kotlin
 fun emptyList(): List<Nothing> = listOf()
 // is translated to
 // List emptyList() { ... }
@@ -41778,7 +41742,7 @@ The Gradle file is standard for Spring Boot, but it also contains necessary Kotl
 
 Here is the full script with the explanation of all parts and dependencies:
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
 
 plugins { 
@@ -41839,7 +41803,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 
 Open the `DemoApplication.kt` file:
 
-```java,kotlin
+```kotlin
 package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -41886,7 +41850,7 @@ The application is ready to run, but let's update its logic first.
 
 In the Spring application, a controller is used to handle the web requests. In the `DemoApplication.kt` file, create the `MessageController` class as follows:
 
-```java,kotlin
+```kotlin
 @RestController
 class MessageController {
     @GetMapping("/")
@@ -41937,7 +41901,7 @@ class MessageController {
 
 Here is a complete code of the `DemoApplication.kt`:
 
-```java,kotlin
+```kotlin
 package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -42105,7 +42069,7 @@ The response from `MessageController` will now be a JSON document containing a c
 
 Here is a complete code of the `DemoApplication.kt`:
 
-```java,kotlin
+```kotlin
 package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -42190,7 +42154,7 @@ In this application, you will create the `MessageService` class for this purpose
 
 In the `DemoApplication.kt` file, create the `MessageService` class as follows:
 
-```java,kotlin
+```kotlin
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
 
@@ -42246,7 +42210,7 @@ class MessageService(val db: JdbcTemplate) {
 
 Update `MessageController` to use the new `MessageService` class:
 
-```java,kotlin
+```kotlin
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.PostMapping
 
@@ -42273,7 +42237,7 @@ class MessageController(val service: MessageService) {
 
 The `id` for `Message` class was declared as a nullable String:
 
-```java,kotlin
+```kotlin
 data class Message(val id: String?, val text: String)
 ```
 
@@ -42281,7 +42245,7 @@ It would not be correct to store the `null` as an `id` value in the database tho
 
 Update your code to generate a new value when the `id` is `null` while storing the messages in the database:
 
-```java,kotlin
+```kotlin
 import java.util.UUID
 
 @Service
@@ -42471,7 +42435,7 @@ Extend the functionality of the application to retrieve the individual messages 
 
 Here is a complete code of the `DemoApplication.kt`:
 
-```java,kotlin
+```kotlin
 package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -42673,7 +42637,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
 Here is the complete code for `DemoApplication.kt`:
 
-```java,kotlin
+```kotlin
 package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -42960,7 +42924,7 @@ public class Customer {
 
 lets you call it from Kotlin like any other type in Kotlin.
 
-```java,kotlin
+```kotlin
 val customer = Customer("Phase")
 println(customer.name)
 println(customer.placeOrder())
@@ -43013,7 +42977,7 @@ Records are very similar to Kotlin [data classes](data-classes.md).
 You can use record classes with components that are declared in Java the same way you would use classes with properties in Kotlin.
 To access the record component, just use its name like you do for [Kotlin properties](properties.md):
 
-```java,kotlin
+```kotlin
 val newPerson = Person("Kotlin", 10)
 val firstName = newPerson.name
 ```
@@ -43028,7 +42992,7 @@ To declare a record class in Kotlin, use the `@JvmRecord` annotation:
 >
 {type="note"}
 
-```java,kotlin
+```kotlin
 @JvmRecord
 data class Person(val name: String, val age: Int)
 ```
@@ -43085,7 +43049,7 @@ System.out.println("Your name is " + name.length() + " characters long");
 
 In Kotlin, use the dollar sign (`$`) before the variable name to interpolate the value of this variable into your string:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43095,7 +43059,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="concatenate-strings-kotlin"}
+
 
 You can interpolate the value of a complicated expression by surrounding it with curly braces, like in `${name.length}`.
 See [string templates](strings.md#string-templates) for more information.
@@ -43118,7 +43082,7 @@ System.out.println(countDown);
 In Kotlin, use [buildString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/build-string.html) –
 an [inline function](inline-functions.md) that takes logic to construct a string as a lambda argument:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
        // Kotlin
@@ -43132,7 +43096,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="build-string-kotlin"}
+
 
 Under the hood, the `buildString` uses the same `StringBuilder` class as in Java, and you access it via an implicit `this`
 inside the [lambda](lambdas.md#function-literals-with-receiver).
@@ -43160,7 +43124,7 @@ System.out.println(invertedOddNumbers);
 In Kotlin, use the [joinToString()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/join-to-string.html) function,
 which Kotlin defines for every List:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43172,7 +43136,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"  id="create-string-from-collection-kotlin"}
+
 
 > In Java, if you want spaces between your delimiters and following items, you need to add a space to the delimiter explicitly.
 >
@@ -43202,7 +43166,7 @@ public String getName() {
 Kotlin provides the inline function [ifBlank()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/if-blank.html)
 that accepts the default value as an argument:
 
-```java,kotlin
+```kotlin
 // Kotlin
 import kotlin.random.Random
 
@@ -43216,7 +43180,7 @@ fun getName(): String =
     if (Random.nextBoolean()) "" else "David"
 //sampleEnd
 ```
-{kotlin-runnable="true" id="set-default-value-if-blank-kotlin"}
+
 
 ## 09.1.9.1.5. Replace characters at the beginning and end of a string
 
@@ -43235,7 +43199,7 @@ System.out.println(result);
 In Kotlin, use the [removeSurrounding()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/remove-surrounding.html) 
 function with the string delimiter `##`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43245,7 +43209,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="replace-characters-kotlin"}
+
 
 ## 09.1.9.1.6. Replace occurrences
 
@@ -43269,7 +43233,7 @@ that simplifies working with regular expressions.
 Additionally, use [multiline strings](strings.md#multiline-strings) to simplify a regex pattern
 by reducing the count of backslashes:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43281,7 +43245,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="replace-occurrences-kotlin"}
+
 
 ## 09.1.9.1.7. Split a string
 
@@ -43298,7 +43262,7 @@ System.out.println(Arrays.toString("Sometimes.text.should.be.split".split("\\.")
 In Kotlin, use the Kotlin function [split()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/split.html),
 which accepts varargs of delimiters as input parameters:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43306,7 +43270,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="split-string-kotlin"}
+
 
 If you need to split with a regular expression, use the overloaded `split()` version that accepts the `Regex` as a parameter.
 
@@ -43327,7 +43291,7 @@ System.out.println(answer);
 In Kotlin, you use the [substringAfter()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/substring-after.html) function 
 and don't need to calculate the index of the character you want to take a substring after:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43337,11 +43301,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="take-substring-kotlin"}
+
 
 Additionally, you can take a substring after the last occurrence of a character:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43351,7 +43315,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="take-substring-after-last-kotlin"}
+
 
 ## 09.1.9.1.9. Use multiline strings
 
@@ -43392,7 +43356,7 @@ In Kotlin, you can format your line with the quotes on the new line, and there w
 The left-most character of any line identifies the beginning of the line. The difference with Java is that Java automatically 
 trims indents, and in Kotlin you should do it explicitly:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin   
@@ -43404,7 +43368,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="join-strings-kotlin"}
+
 
 The output:
 ![Kotlin multiline output](kotlin-multiline-output.png){width=700}
@@ -43413,7 +43377,7 @@ To have  an extra empty line, you should add this empty line to your multiline s
 
 In Kotlin, you can also use the [trimMargin()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function to customize the indents:
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun main() {
     val result = """
@@ -43423,7 +43387,7 @@ fun main() {
     println(result)
 }
 ```
-{kotlin-runnable="true" id="join-strings-trim-margin-kotlin"}
+
 
 Learn more about [multiline strings](coding-conventions.md#strings).
 
@@ -43579,7 +43543,7 @@ looking at its type.
 Unlike in Java, in Kotlin you explicitly declare mutable or read-only collections depending on your needs. 
 If you try to modify a read-only collection, the code won't compile:
 
-```java,kotlin
+```kotlin
 // Kotlin
 val numbers = mutableListOf("one", "two", "three", "four")
 numbers.add("five")            // This is OK
@@ -43619,7 +43583,7 @@ you can use the type `List<Rectangle>` anywhere the `List<Shape>` type is requir
 In other words, the collection types have the same subtyping relationship as the element types. Maps are covariant on the value type, but not on the key type.
 Mutable collections aren't covariant – this would lead to runtime failures.
 
-```java,kotlin
+```kotlin
 // Kotlin
 open class Shape(val name: String)
 
@@ -43634,7 +43598,7 @@ fun main() {
     doSthWithShapes(rectangles)
 }
 ```
-{kotlin-runnable="true" id="covariance-kotlin"}
+
 
 Read more about [collection types](collections-overview.md#collection-types) here.
 
@@ -43686,7 +43650,7 @@ public Boolean versionIsInRange(Version versionToCheck, Version minVersion,
 
 In Kotlin, you operate with a range as a whole object. You don't need to create two variables and compare a `Version` with them:
 
-```java,kotlin
+```kotlin
 // Kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int {
@@ -43704,7 +43668,7 @@ fun main() {
     println(Version(1, 20) in versionRange)
 }
 ```
-{kotlin-runnable="true" id="ranges-kotlin"}
+
 
 As soon as you need to exclude one of the bounds, like to check whether a version is greater than or equal to (`>=`) the minimum version 
 and less than (`<`) the maximum version, these inclusive ranges won't help.
@@ -43752,7 +43716,7 @@ public void comparePersons() {
 
 In Kotlin, you just enumerate which fields you want to compare:
 
-```java,kotlin
+```kotlin
 data class Person(
     val name: String,
     val age: Int
@@ -43764,7 +43728,7 @@ fun main() {
     println(persons.sortedWith(compareBy(Person::name, Person::age)))
 }
 ```
-{kotlin-runnable="true" id="comparison-kotlin"}
+
 
 ## 09.1.9.2.8. Sequences
 
@@ -43782,7 +43746,7 @@ In Kotlin, use _[sequences](sequences.md)_. Multi-step processing of
 sequences is executed lazily when possible –
 actual computing happens only when the result of the whole processing chain is requested.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43793,7 +43757,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="sequences-kotlin"}
+
 
 Sequences may reduce the number of steps that are needed to perform some filtering operations. 
 See the [sequence processing example](sequences.md#sequence-processing-example), which shows the difference between `Iterable` and `Sequence`.
@@ -43825,7 +43789,7 @@ In Kotlin, there are two types of element removal:
 by index with [`removeAt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove-at.html) 
 and by value with [`remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/remove.html).
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43837,7 +43801,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="remove-elements-kotlin"}
+
 
 ## 09.1.9.2.10. Traverse a map
 
@@ -43851,7 +43815,7 @@ numbers.forEach((k,v) -> System.out.println("Key = " + k + ", Value = " + v));
 
 In Kotlin, use a `for` loop or a `forEach`, similar to Java's `forEach`, to traverse a map:
 
-```java,kotlin
+```kotlin
 // Kotlin
 for ((k, v) in numbers) {
     println("Key = $k, Value = $v")
@@ -43898,7 +43862,7 @@ and [`lastOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collect
 Using the [`Elvis operator`](null-safety.md#elvis-operator), you can perform further actions right away depending on the
 result of a function. For example, `firstOrNull()`:
 
-```java,kotlin
+```kotlin
 // Kotlin
 val emails = listOf<String>() // Might be empty
 val theOldestEmail = emails.firstOrNull() ?: ""
@@ -43924,7 +43888,7 @@ public void listToSet() {
 
 In Kotlin, use the function `toSet()`:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -43934,7 +43898,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="list-to-set-kotlin"}
+
 
 ## 09.1.9.2.13. Group elements
 
@@ -43958,7 +43922,7 @@ public void analyzeLogs() {
 
 In Kotlin, use the function [`groupBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html):
 
-```java,kotlin
+```kotlin
 class Request(
     val url: String,
     val responseCode: Int
@@ -43976,7 +43940,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="group-elements-kotlin"}
+
 
 ## 09.1.9.2.14. Filter elements
 
@@ -44000,7 +43964,7 @@ public void filterEndsWith() {
 In Kotlin, filtering is built into collections, and `filter()` returns the same collection type that was filtered. 
 So, all you need to write is the `filter()` and its predicate:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -44010,7 +43974,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="filter-elements-kotlin"}
+
 
 Learn more about [filtering maps](map-operations.md#filter) here.
 
@@ -44038,7 +44002,7 @@ public void objectIsInstance() {
 In Kotlin, you just call [`filterIsInstance<NEEDED_TYPE>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-is-instance.html) on your collection, 
 and the type cast is done by [Smart casts](typecasts.md#smart-casts):
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun main() {
 //sampleStart
@@ -44051,7 +44015,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="filter-by-type-kotlin"}
+
 
 ### Test predicates
 
@@ -44075,7 +44039,7 @@ public void testPredicates() {
 In Kotlin, the [extension functions](extensions.md) `none()`, `any()`, and `all()` 
 are available for every [Iterable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-iterable/#kotlin.collections.Iterable) object:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
 // Kotlin
@@ -44086,7 +44050,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="test-predicates-kotlin"}
+
 
 Learn more about [test predicates](collection-filtering.md#test-predicates).
 
@@ -44117,7 +44081,7 @@ In the example above, the record would be `record AnimalDescription(String anima
 
 In Kotlin, use the [`zip()`](collection-transformations.md#zip) function to do the same thing:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -44129,7 +44093,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="zip-elements-kotlin"}
+
 
 `zip()` returns the List of [Pair](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/) objects.
 
@@ -44156,7 +44120,7 @@ public void associate() {
 
 In Kotlin, use the [`associate()`](collection-transformations.md#associate) function:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -44165,7 +44129,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="associate-elements-kotlin"}
+
 
 ## What's next?
 
@@ -44236,7 +44200,7 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "a" is n
 In Kotlin, all regular types are non-nullable by default unless you explicitly mark them as nullable.
 If you don't expect `a` to be `null`, declare the `stringLength()` function as follows:
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun stringLength(a: String) = a.length
 ```
@@ -44255,7 +44219,7 @@ An attempt to pass a `null` value to the `stringLength(a: String)` function will
 If you want to use this function with any arguments, including `null`, use a question mark after the argument type `String?`
 and check inside the function body to ensure that the value of the argument is not `null`:
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun stringLength(a: String?): Int = if (a != null) a.length else 0
 ```
@@ -44271,7 +44235,7 @@ on a [nullable receiver](extensions.md#nullable-receiver) of type String?".
 You can write the same shorter – use the [safe-call operator ?. (If-not-null shorthand)](idioms.md#if-not-null-shorthand), 
 which allows you to combine a null check and a method call into a single operation:
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun stringLength(a: String?): Int = a?.length ?: 0
 ```
@@ -44316,7 +44280,7 @@ public interface Game<T> {
 To override the `load()` method in Kotlin successfully, you need `T1` to be declared as definitely
 non-nullable (`T1 & Any`):
 
-```java,kotlin
+```kotlin
 interface ArcadeGame<T1> : Game<T1> {
   override fun save(x: T1): T1
   // T1 is definitely non-nullable
@@ -44357,7 +44321,7 @@ if (order != null) {
 
 Converting the Java code above to Kotlin code directly results in the following:
 
-```java,kotlin
+```kotlin
 // Kotlin
 data class Order(val customer: Customer)
 
@@ -44376,7 +44340,7 @@ Use the [safe-call operator `?.` (If-not-null shorthand)](idioms.md#if-not-null-
 in combination with any of the [scope functions](scope-functions.md) from the standard library.
 The `let` function is usually used for this:
 
-```java,kotlin
+```kotlin
 // Kotlin
 val order = findOrder()
 
@@ -44388,7 +44352,7 @@ order?.let {
 
 Here is a shorter version of the same:
 
-```java,kotlin
+```kotlin
 // Kotlin
 findOrder()?.customer?.let(::processCustomer)
 ```
@@ -44412,7 +44376,7 @@ if (order == null) {
 
 To express the same in Kotlin, use the [Elvis operator (If-not-null-else shorthand)](null-safety.md#elvis-operator):
 
-```java,kotlin
+```kotlin
 // Kotlin
 val order = findOrder() ?: Order(Customer("Antonio"))
 ```
@@ -44437,7 +44401,7 @@ System.out.println(numbers.get(0));
 The Kotlin standard library often provides functions whose names indicate whether they can possibly return a `null` value.
 This is especially common in the collections API:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Kotlin
@@ -44453,7 +44417,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" id="functions-returning-null-kotlin"}
+
 
 ## 09.1.9.3.7. Aggregate operations
 
@@ -44470,7 +44434,7 @@ System.out.println("Max: " + max);
 
 In Kotlin, use [aggregate operations](collection-aggregate.md):
 
-```java,kotlin
+```kotlin
 // Kotlin
 val numbers = listOf<Int>()
 println("Max: ${numbers.maxOrNull()}")
@@ -44497,7 +44461,7 @@ void main() {
 
 To avoid exceptions in Kotlin, use the [safe cast operator](typecasts.md#safe-nullable-cast-operator) `as?`, which returns `null` on failure:
 
-```java,kotlin
+```kotlin
 // Kotlin
 fun main() {
     println(getStringLength(1)) // Prints `-1`
@@ -44508,7 +44472,7 @@ fun getStringLength(y: Any): Int {
     return x?.length ?: -1 // Returns -1 because `x` is null
 }
 ```
-{kotlin-runnable="true" id="casting-types-kotlin"}
+
 
 > In the Java example above, the function `getStringLength()` returns a result of the primitive type `int`.
 To make it return `null`, you can use the [_boxed_ type](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html) `Integer`.
@@ -44866,7 +44830,7 @@ to the `PATH` environment variable.
 The application will print "Hello Kotlin/Native" on the standard output. In a working directory of choice, create a file named
 `hello.kt` and enter the following contents:
 
-```java,kotlin
+```kotlin
 fun main() {
   println("Hello Kotlin/Native!")
 }
@@ -45144,14 +45108,14 @@ C null pointer is represented as Kotlin's `null`, and the pointer type
 type support all the Kotlin operations related to handling `null`, e.g. `?:`, `?.`,
 `!!` etc.:
 
-```java,kotlin
+```kotlin
 val path = getenv("PATH")?.toKString() ?: ""
 ```
 
 Since the arrays are also mapped to `CPointer<T>`, it supports the `[]` operator
 for accessing values by index:
 
-```java,kotlin
+```kotlin
 fun shift(ptr: CPointer<BytePtr>, length: Int) {
     for (index in 0 .. length - 2) {
         ptr[index] = ptr[index + 1]
@@ -45170,13 +45134,13 @@ the Kotlin binding accepts any `CPointer`.
 Casting a pointer (including `COpaquePointer`) can be done with
 `.reinterpret<T>`, e.g.:
 
-```java,kotlin
+```kotlin
 val intPtr = bytePtr.reinterpret<IntVar>()
 ```
 
 or
 
-```java,kotlin
+```kotlin
 val intPtr: CPointer<IntVar> = bytePtr.reinterpret()
 ```
 
@@ -45186,7 +45150,7 @@ subtle memory problems in the application.
 Also, there are unsafe casts between `CPointer<T>?` and `Long` available,
 provided by the `.toLong()` and `.toCPointer<T>()` extension methods:
 
-```java,kotlin
+```kotlin
 val longValue = ptr.toLong()
 val originalPtr = longValue.toCPointer<T>()
 ```
@@ -45198,13 +45162,13 @@ can be omitted as usual due to the type inference.
 
 The native memory can be allocated using the `NativePlacement` interface, e.g.
 
-```java,kotlin
+```kotlin
 val byteVar = placement.alloc<ByteVar>()
 ```
 
 or
 
-```java,kotlin
+```kotlin
 val bytePtr = placement.allocArray<ByteVar>(5)
 ```
 
@@ -45212,7 +45176,7 @@ The most "natural" placement is in the object `nativeHeap`.
 It corresponds to allocating native memory with `malloc` and provides an additional
 `.free()` operation to free allocated memory:
 
-```java,kotlin
+```kotlin
 val buffer = nativeHeap.allocArray<ByteVar>(size)
 <use buffer>
 nativeHeap.free(buffer)
@@ -45227,7 +45191,7 @@ and the allocated memory will be automatically freed after leaving the scope.
 For example, the C function returning values through pointer parameters can be
 used like
 
-```java,kotlin
+```kotlin
 val fileSize = memScoped {
     val statBuf = alloc<stat>()
     val error = stat("/", statBuf.ptr)
@@ -45266,7 +45230,7 @@ foo(elements, 3);
 
 Kotlin:
 
-```java,kotlin
+```kotlin
 foo(cValuesOf(1, 2, 3), 3)
 ```
 
@@ -45300,7 +45264,7 @@ noStringConversion = LoadCursorA LoadCursorW
 This way any value of type `CPointer<ByteVar>` can be passed as an argument of `const char*` type.
 If a Kotlin string should be passed, code like this could be used:
 
-```java,kotlin
+```kotlin
 memScoped {
     LoadCursorA(null, "cursor.bmp".cstr.ptr)   // for ASCII version
     LoadCursorW(null, "cursor.bmp".wcstr.ptr)  // for Unicode version
@@ -45313,7 +45277,7 @@ It is possible to create a scope-stable pointer of C representation of `CValues<
 instance using the `CValues<T>.ptr` extension property, available under `memScoped { ... }`.
 It allows using the APIs which require C pointers with a lifetime bound to a certain `MemScope`. For example:
 
-```java,kotlin
+```kotlin
 memScoped {
     items = arrayOfNulls<CPointer<ITEM>?>(6)
     arrayOf("one", "two").forEachIndexed { index, value -> items[index] = value.cstr.ptr }
@@ -45367,7 +45331,7 @@ Such wrapping is possible with `StableRef` class.
 
 To wrap the reference:
 
-```java,kotlin
+```kotlin
 val stableRef = StableRef.create(kotlinReference)
 val voidPtr = stableRef.asCPointer()
 ```
@@ -45376,7 +45340,7 @@ where the `voidPtr` is a `COpaquePointer` and can be passed to the C function.
 
 To unwrap the reference:
 
-```java,kotlin
+```kotlin
 val stableRef = voidPtr.asStableRef<KotlinClass>()
 val kotlinReference = stableRef.get()
 ```
@@ -45386,7 +45350,7 @@ where `kotlinReference` is the original wrapped reference.
 The created `StableRef` should eventually be manually disposed using
 the `.dispose()` method to prevent memory leaks:
 
-```java,kotlin
+```kotlin
 stableRef.dispose()
 ```
 
@@ -45438,7 +45402,7 @@ neither implicit integer casts nor C-style integer casts (e.g.
 `(size_t) intValue`), so to make writing portable code in such cases easier,
 the `convert` method is provided:
 
-```java,kotlin
+```kotlin
 fun ${type1}.convert<${type2}>(): ${type2}
 ```
 
@@ -45451,7 +45415,7 @@ methods, depending on `type`.
 
 The example of using `convert`:
 
-```java,kotlin
+```kotlin
 fun zeroMemory(buffer: COpaquePointer, size: Int) {
     memset(buffer, 0, size.convert<size_t>())
 }
@@ -45465,7 +45429,7 @@ in some cases.
 Kotlin objects could be pinned, i.e. their position in memory is guaranteed to be stable
 until unpinned, and pointers to such objects inner data could be passed to the C functions. For example
 
-```java,kotlin
+```kotlin
 fun readData(fd: Int): String {
     val buffer = ByteArray(1024)
     buffer.usePinned { pinned ->
@@ -45590,7 +45554,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -45667,7 +45631,7 @@ plugin documentation to learn about all the different ways you could configure i
 Create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
 to see how C primitive type declarations are visible from Kotlin:
 
-```java,kotlin
+```kotlin
 import interop.*
 
 fun main() {
@@ -45689,7 +45653,7 @@ see how C primitive types are mapped into Kotlin/Native.
 With the help of IntelliJ IDEA's __Go to | Declaration__ or
 compiler errors, you see the following generated API for the C functions:
 
-```java,kotlin
+```kotlin
 fun ints(c: Byte, d: Short, e: Int, f: Long)
 fun uints(c: UByte, d: UShort, e: UInt, f: ULong)
 fun doubles(a: Float, b: Double)
@@ -45723,7 +45687,7 @@ or use the following command to run the code:
 
 The final code in the `hello.kt` file may look like that:
  
-```java,kotlin
+```kotlin
 import interop.*
 
 fun main() {
@@ -45821,7 +45785,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -45898,7 +45862,7 @@ plugin documentation to learn about all the different ways you could configure i
 Create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
 to see how C struct and union declarations are visible from Kotlin:
 
-```java,kotlin
+```kotlin
 import interop.*
 
 fun main() {
@@ -45921,7 +45885,7 @@ see how C struct and union types are mapped into Kotlin/Native.
 With the help of IntelliJ IDEA's __Go to | Declaration__ or
 compiler errors, you see the following generated API for the C functions, `struct`, and `union`:
 
-```java,kotlin
+```kotlin
 fun struct_by_value(s: CValue<MyStruct>)
 fun struct_by_pointer(s: CValuesRef<MyStruct>?)
 
@@ -45976,13 +45940,13 @@ Use `cValue` function to create `CValue<T>` object instance. The function requir
 [lambda function with a receiver](lambdas.md#function-literals-with-receiver) 
 to initialize the underlying C type in-place. The function is declared as follows:
 
-```java,kotlin
+```kotlin
 fun <reified T : CStructVar> cValue(initialize: T.() -> Unit): CValue<T>
 ```
 
 Now it is time to see how to use `cValue` and pass by-value parameters:
 
-```java,kotlin
+```kotlin
 fun callValue() {
 
   val cStruct = cValue<MyStruct> {
@@ -46007,7 +45971,7 @@ function. First, you need an instance of
 `MyStruct` and `MyUnion` classes. Create them directly in the native memory. 
 Use the    
 
-```java,kotlin
+```kotlin
 fun <reified T : kotlinx.cinterop.CVariable> alloc(): T   
 ```
 
@@ -46020,7 +45984,7 @@ and don't forget to call the `nativeHeap.free(..)` function to free the memory a
  
 Another option is to use the
 
-```java,kotlin
+```kotlin
 fun <R> memScoped(block: kotlinx.cinterop.MemScope.() -> R): R    
 ```
 
@@ -46029,7 +45993,7 @@ and all allocations will be cleaned up automatically at the end of the `block`.
 
 Your code to call functions with pointers will look like this:
 
-```java,kotlin
+```kotlin
 fun callRef() {
   memScoped {
     val cStruct = alloc<MyStruct>()
@@ -46064,7 +46028,7 @@ pass the same struct as a reference to another call. This is possible in Kotlin/
 
 Let's see now `CValue<T>` is turned to a pointer first:
 
-```java,kotlin
+```kotlin
 fun callMix_ref() {
   val cStruct = cValue<MyStruct> {
     a = 42
@@ -46084,7 +46048,7 @@ inside the `memScoped` block.
 For the opposite conversion, to turn a pointer into a by-value variable, 
 we call the `readValue()` extension function:
 
-```java,kotlin
+```kotlin
 fun callMix_value() {
   memScoped {
     val cStruct = alloc<MyStruct>()
@@ -46109,7 +46073,7 @@ or by using the following console command:
 
 The final code in the `hello.kt` file may look like this:
  
-```java,kotlin
+```kotlin
 import interop.*
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.cValue
@@ -46227,7 +46191,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -46304,7 +46268,7 @@ plugin documentation to learn about all the different ways you could configure i
 Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
 to see how C function pointer declarations are visible from Kotlin:
 
-```java,kotlin
+```kotlin
 import interop.*
 
 fun main() {
@@ -46325,7 +46289,7 @@ see how C functions are mapped into Kotlin/Native declarations.
 With the help of IntelliJ IDEA's **Go To** | **Declaration or Usages** or
 compiler errors, see the following declarations for the C functions:
 
-```java,kotlin
+```kotlin
 fun accept_fun(f: MyFun? /* = CPointer<CFunction<(Int) -> Int>>? */)
 fun supply_fun(): MyFun? /* = CPointer<CFunction<(Int) -> Int>>? */
 
@@ -46346,7 +46310,7 @@ it is possible to call it as you would call any other function in Kotlin.
 It is the time to try using C functions from the Kotlin program. Call the `accept_fun`
 function and pass the C function pointer to a Kotlin lambda:
 
-```java,kotlin
+```kotlin
 fun myFun() {
   accept_fun(staticCFunction<Int, Int> { it + 1 })
 }
@@ -46363,7 +46327,7 @@ throwing any sudden exceptions from it.
 
 The next step is to call a C function pointer from a C pointer that you have from the `supply_fun()` call:
 
-```java,kotlin
+```kotlin
 fun myFun2() {
   val functionFromC = supply_fun() ?: error("No function is returned")
   
@@ -46389,7 +46353,7 @@ or use the following command to run the code:
 
 The code in the `hello.kt` file may look like this:
 
-```java,kotlin
+```kotlin
 import interop.*
 import kotlinx.cinterop.*
 
@@ -46517,7 +46481,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -46594,7 +46558,7 @@ plugin documentation to learn about all the different ways you could configure i
 Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
 to see how C string declarations are visible from Kotlin:
 
-```java,kotlin
+```kotlin
 import interop.*
 
 fun main() {
@@ -46616,7 +46580,7 @@ see how C strings are mapped into Kotlin/Native.
 With the help of IntelliJ IDEA's __Go to | Declaration__ or
 compiler errors, you see the following generated API for the C functions:
 
-```java,kotlin
+```kotlin
 fun pass_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?)
 fun return_string(): CPointer<ByteVar /* = ByteVarOf<Byte> */>?
 fun copy_string(str: CValuesRef<ByteVar /* = ByteVarOf<Byte> */>?, size: Int): Int
@@ -46633,7 +46597,7 @@ is nullable, and you can simply pass Kotlin `null` as the parameter value.
 
 Let's try to use the API from Kotlin. Call `pass_string` first:
 
-```java,kotlin
+```kotlin
 fun passStringToC() {
   val str = "this is a Kotlin String"
   pass_string(str.cstr)
@@ -46650,7 +46614,7 @@ need UTF-16 wide characters.
 This time you'll take a returned `char *` from the `return_string` function and turn it into
 a Kotlin string. For that, do the following in Kotlin:
 
-```java,kotlin
+```kotlin
 fun passStringToC() {
   val stringFromC = return_string()?.toKString()
   
@@ -46661,7 +46625,7 @@ fun passStringToC() {
 This code uses the `toKString()` extension function above. Please do not miss out the
 `toString()` function. The `toKString()` has two overloaded extension functions in Kotlin:
 
-```java,kotlin
+```kotlin
 fun CPointer<ByteVar>.toKString(): String
 fun CPointer<ShortVar>.toKString(): String
 ```
@@ -46676,7 +46640,7 @@ is called `copy_string`. It takes a pointer to the location writing characters a
 the allowed buffer size. The function returns something to indicate if it has succeeded or failed.
 Let's assume `0` means it succeeded, and the supplied buffer was big enough:
 
-```java,kotlin
+```kotlin
 fun sendString() {
   val buf = ByteArray(255)
   buf.usePinned { pinned ->
@@ -46711,7 +46675,7 @@ or use the following command to run the code:
 
 The code in the final `hello.kt` file may look like this:
  
-```java,kotlin
+```kotlin
 import interop.*
 import kotlinx.cinterop.*
 
@@ -46788,7 +46752,7 @@ in the build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     val hostOs = System.getProperty("os.name")
     val isMingwX64 = hostOs.startsWith("Windows")
@@ -46909,7 +46873,7 @@ entry to the `build.gradle(.kts)` file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 nativeTarget.apply {
     compilations.getByName("main") {    // NL
         cinterops {                     // NL
@@ -46951,7 +46915,7 @@ the name of the file is used. You can override this with additional parameters:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 val libcurl by creating {
     defFile(project.file("src/nativeInterop/cinterop/libcurl.def"))
     packageName("com.jetbrains.handson.http")
@@ -46984,7 +46948,7 @@ convert the [simple.c](https://curl.haxx.se/libcurl/c/simple.html) example to Ko
 
 In the `src/nativeMain/kotlin/` folder, update your `Main.kt` file with the following code:
 
-```java,kotlin
+```kotlin
 import kotlinx.cinterop.*
 import libcurl.*
 
@@ -47122,7 +47086,7 @@ Kotlin releases. To work around this, you can rename the conflicting Kotlin clas
 To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
 a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
 
-```java,kotlin
+```kotlin
 @ObjCName(swiftName = "MySwiftArray")
 class MyKotlinArray {
     @ObjCName("index")
@@ -47155,7 +47119,7 @@ Writeable Objective-C properties overriding read-only properties of the supercla
 Top-level Kotlin functions and properties are accessible as members of special classes.
 Each Kotlin file is translated into such a class. E.g.
 
-```java,kotlin
+```kotlin
 // MyLibraryUtils.kt
 package my.library
 
@@ -47182,7 +47146,7 @@ the clashing methods can be called from Kotlin using named arguments, e.g.:
 
 In Kotlin, it would be:
 
-```java,kotlin
+```kotlin
 player.moveTo(LEFT, byMeters = 17)
 player.moveTo(UP, byInches = 42)
 ```
@@ -47233,7 +47197,7 @@ exception-throwing.
 Kotlin enums are imported into Objective-C as `@interface` and into Swift as `class`.
 These data structures have properties corresponding to each enum value. Consider this Kotlin code:
 
-```java,kotlin
+```kotlin
 // Kotlin
 enum class Colors {
     RED, GREEN, BLUE
@@ -47315,7 +47279,7 @@ The instance is available through the `shared` and `companion` properties.
 
 For the following Kotlin code:
 
-```java,kotlin
+```kotlin
 object MyObject {
     val x = "Some value"
 }
@@ -47383,7 +47347,7 @@ can be retrieved in the same way as it is for any other Kotlin `object`
 (see singletons in the table above).
 To sum the things up:
 
-```java,kotlin
+```kotlin
 fun foo(block: (Int) -> Unit) { ... }
 ```
 
@@ -47395,7 +47359,7 @@ func foo(block: (KotlinInt) -> KotlinUnit)
 
 and can be called like
 
-```java,kotlin
+```kotlin
 foo {
     bar($0 as! Int32)
     return KotlinUnit()
@@ -47422,7 +47386,7 @@ Generics can only be defined on classes, not on interfaces (protocols in Objecti
 Kotlin and Swift both define nullability as part of the type specification, while Objective-C defines nullability on methods
 and properties of a type. As such, the following:
 
-```java,kotlin
+```kotlin
 class Sample<T>() {
     fun myVal(): T
 }
@@ -47441,7 +47405,7 @@ In order to support a potentially nullable type, the Objective-C header needs to
 To mitigate this, when defining your generic classes, if the generic type should _never_ be null, provide a non-nullable 
 type constraint:
 
-```java,kotlin
+```kotlin
 class Sample<T : Any>() {
     fun myVal(): T
 }
@@ -47454,7 +47418,7 @@ That will force the Objective-C header to mark `myVal` as non-nullable.
 Objective-C allows generics to be declared covariant or contravariant. Swift has no support for variance. Generic classes coming
 from Objective-C can be force-cast as needed.
 
-```java,kotlin
+```kotlin
 data class SomeData(val num: Int = 42) : BaseData()
 class GenVarOut<out T : Any>(val arg: T)
 ```
@@ -47474,7 +47438,7 @@ upper bound will make Objective-C methods/properties non-nullable.
 
 To have the framework header written without generics, add the flag to the compiler config:
 
-```java,kotlin
+```kotlin
 binaries.framework {
     freeCompilerArgs += "-Xno-objc-generics"
 }
@@ -47486,7 +47450,7 @@ When writing Kotlin code, an object may need to be converted from a Kotlin type
 to the equivalent Swift/Objective-C type (or vice versa). In this case, a plain old
 Kotlin cast can be used, e.g.
 
-```java,kotlin
+```kotlin
 val nsArray = listOf(1, 2, 3) as NSArray
 val string = nsString as String
 val nsNumber = 42 as NSNumber
@@ -47548,7 +47512,7 @@ such as unsafe pointers, structs, and so on.
 By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating an Objective-C header.  
 For example, the following Kotlin code with KDoc: 
 
-```java,kotlin
+```kotlin
 /**
  * Prints the sum of the arguments.
  * Properly handles the case when the sum doesn't fit in 32-bit integer.
@@ -47567,7 +47531,7 @@ To enable export of KDoc comments, add the following compiler option to your `bu
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
@@ -47642,7 +47606,7 @@ Let's create a tiny Kotlin library first and use it from an Objective-C program.
 
 Create the `hello.kt` file with the library contents:
 
-```java,kotlin
+```kotlin
 package example
 
 object Object {
@@ -47690,7 +47654,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -47752,7 +47716,7 @@ the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugi
 plugin is used. Use the following block to configure the project
 to generate a dynamic or shared library: 
 
-```java,kotlin
+```kotlin
 binaries {
   framework {
     baseName = "Demo"
@@ -48367,7 +48331,7 @@ name, specify it explicitly:
 If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, in the generated `.def` file, replace
 modules with headers with the pointing main header:
 
-```java,kotlin
+```kotlin
 tasks.named<org.jetbrains.kotlin.gradle.tasks.DefFileTask>("generateDefNearbyMessages").configure {
     doLast {
         outputFile.writeText("""
@@ -48437,7 +48401,7 @@ version of the library, you can just omit this parameter altogether.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
-```java,kotlin
+```kotlin
 import cocoapods.Alamofire.*
 ```
 
@@ -48489,7 +48453,7 @@ import cocoapods.Alamofire.*
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
-```java,kotlin
+```kotlin
 import cocoapods.pod_dependency.*
 import cocoapods.subspec_dependency.*
 import cocoapods.Alamofire.*
@@ -48550,7 +48514,7 @@ import cocoapods.Alamofire.*
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
-```java,kotlin
+```kotlin
 import cocoapods.Alamofire.*
 import cocoapods.JSONModel.*
 import cocoapods.CocoaLumberjack.*
@@ -48594,7 +48558,7 @@ import cocoapods.CocoaLumberjack.*
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
-```java,kotlin
+```kotlin
 import cocoapods.example.*
 ```
 
@@ -48630,13 +48594,13 @@ import cocoapods.example.*
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
    
-```java,kotlin
+```kotlin
 import cocoapods.YandexMapKit.*
 ```
    
 If you use the `packageName` parameter, you can import the library using the package name `import <packageName>`:
    
-```java,kotlin
+```kotlin
 import YandexMK.YMKPoint
 import YandexMK.YMKDistance
 ```
@@ -48654,7 +48618,7 @@ have `@import` directives in their headers. By default, cinterop doesn't provide
 
 To enable support for `@import` directives, specify the `-fmodules` option in the configuration block of the `pod()` function:
 
-```java,kotlin
+```kotlin
 kotlin {
     ios()
 
@@ -48681,7 +48645,7 @@ It utilizes the cinterop binding generated for another Pod while building a bind
 
 You should declare the dependent Pod before setting up the dependency:
 
-```java,kotlin
+```kotlin
 // The cinterop of pod("WebImage"):
 fun loadImage(): WebImage
 
@@ -48822,7 +48786,7 @@ as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode
 
 To apply the CocoaPods plugin, add the following lines to the `build.gradle(.kts)` file:
 
-```java,kotlin
+```kotlin
 plugins {
    kotlin("multiplatform") version "1.9.10"
    kotlin("native.cocoapods") version "1.9.10"
@@ -48868,7 +48832,7 @@ For each target, use the `deploymentTarget` property to specify the minimum targ
 
 When applied, CocoaPods adds both `debug` and `release` frameworks as output binaries for all of the targets.
 
-```java,kotlin
+```kotlin
 kotlin {
     ios()
    
@@ -48907,7 +48871,7 @@ The `framework` block is nested inside `cocoapods` and configures the framework 
 | `isStatic`         | Defines the framework linking type. It's dynamic by default.                            |
 | `transitiveExport` | Enables dependency export.                                                              |                                                      
 
-```java,kotlin
+```kotlin
 kotlin {
     cocoapods {
         framework {
@@ -48938,7 +48902,7 @@ and `source` of the library, in its configuration block:
 | `interopBindingDependencies` | Contains a list of dependencies to other Pods. This list is used when building a Kotlin binding for the new Pod.                                                                                                                                                                                                                                                |
 | `useInteropBindingFrom()`    | Specifies the name of the existing Pod that is used as dependency. This Pod should be declared before the function execution. The function instructs the CocoaPods plugin to use a Kotlin binding of the existing Pod when building a binding for the new one.                                                                                                  |
 
-```java,kotlin
+```kotlin
 kotlin {
     ios()
    
@@ -49031,7 +48995,7 @@ $ klib <command> <name> -repository <directory>
 First let's create a library.
 Place the tiny library source code into `kotlinizer.kt`:
 
-```java,kotlin
+```kotlin
 package kotlinizer
 val String.kotlinized
     get() = "Kotlin $this"
@@ -49068,7 +49032,7 @@ $ rm kotlinizer.klib
 
 Create a very short program and place it into a `use.kt` :
 
-```java,kotlin
+```kotlin
 import kotlinizer.*
 
 fun main(args: Array<String>) {
@@ -49145,7 +49109,7 @@ artifact. To make it work, pass one or multiple base paths of source files as an
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
@@ -49187,7 +49151,7 @@ to platform's implementation of the [POSIX standard](https://en.wikipedia.org/wi
 
 To use the library, just import it: 
 
-```java,kotlin
+```kotlin
 import platform.posix.*
 ```
 
@@ -49249,7 +49213,7 @@ First, create a first tiny Kotlin library and use it from a C program.
 
 Start by creating a library file in Kotlin and save it as `hello.kt`:
 
-```java,kotlin
+```kotlin
 package example
 
 object Object {
@@ -49293,7 +49257,7 @@ Use the following `build.gradle(.kts)` Gradle build file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -49363,7 +49327,7 @@ the [kotlin-multiplatform](multiplatform-discover-project.md#multiplatform-plugi
 plugin is used. Use the following block to instruct and configure the project
 to generate a dynamic or shared library: 
 
-```java,kotlin
+```kotlin
 binaries {
   sharedLib {
     baseName = "native" // on Linux and macOS
@@ -49763,7 +49727,7 @@ Once a worker is started with the `Worker.start` function call, it can be addres
 worker id. Other workers, or non-worker concurrency primitives, such as OS threads, can send a message
 to the worker with the `execute` call.
 
-```java,kotlin
+```kotlin
 val future = execute(TransferMode.SAFE, { SomeDataForWorker() }) {
    // data returned by the second function argument comes to the
    // worker routine as 'input' parameter.
@@ -49824,7 +49788,7 @@ concurrent threads if the worker mechanisms are insufficient for a particular ta
 may require an explicit leaving function holding object references and then performing cyclic garbage collection.
 For example, code like:
 
-```java,kotlin
+```kotlin
 val graph = DetachedObjectGraph {
     val map = mutableMapOf<String, String>()
     for (entry in map.entries) {
@@ -49836,7 +49800,7 @@ val graph = DetachedObjectGraph {
 
 will not work as expected and will throw runtime exception, as there are uncollected cycles in the detached graph, while:
 
-```java,kotlin
+```kotlin
 val graph = DetachedObjectGraph {
     {
      val map = mutableMapOf<String, String>()
@@ -49875,7 +49839,7 @@ SharedData sharedData;
 After running the cinterop tool, it can share Kotlin data in a versionized global structure,
 and interact with it from Kotlin transparently via autogenerated Kotlin like this:
 
-```java,kotlin
+```kotlin
 class SharedData(rawPtr: NativePtr) : CStructVar(rawPtr) {
     var version: Int
     var kotlinObject: COpaquePointer?
@@ -49971,7 +49935,7 @@ If your state is mutable, only one thread can _see_ it at a time. Any regular cl
 you would normally use in Kotlin is considered by the Kotlin/Native runtime as _mutable_. If you aren't using concurrency, 
 Kotlin/Native behaves the same as any other Kotlin code, with the exception of [global state](#global-state).
 
-```java,kotlin
+```kotlin
 data class SomeData(var count:Int)
 
 fun simpleState(){
@@ -49994,14 +49958,14 @@ In Kotlin/Native, _immutable_ doesn't mean everything is a `val`. It means _froz
 
 The example below is immutable by definition – it has 2 `val` elements, and both are of final immutable types.
 
-```java,kotlin
+```kotlin
 data class SomeData(val s:String, val i:Int)
 ```
 
 This next example may be immutable or mutable. It is not clear what `SomeInterface` will do internally at compile time. 
 In Kotlin, it is not possible to determine deep immutability statically at compile time.
 
-```java,kotlin
+```kotlin
 data class SomeData(val s:String, val i:SomeInterface)
 ```
 
@@ -50020,7 +49984,7 @@ is frozen. If it is, the whole graph is also frozen and is safe to be shared.
 The Native runtime adds an extension function `freeze()` to all classes. Calling `freeze()` will freeze an object, and everything 
 referenced by the object, recursively.
 
-```java,kotlin
+```kotlin
 data class MoreData(val strData: String, var width: Float)
 data class SomeData(val moreData: MoreData, var count: Int)
 //...
@@ -50047,7 +50011,7 @@ These conditions freeze the state or make it visible only to a single thread.
 
 Global `object` instances are frozen by default. This means that all threads can access them, but they are immutable. The following won't work.
 
-```java,kotlin
+```kotlin
 object SomeState{
     var count = 0
     fun add(){
@@ -50061,7 +50025,7 @@ Trying to change `count` will throw an exception because `SomeState` is frozen (
 You can make a global object thread _local_, which will allow it to be mutable and give each thread a copy of its state. 
 Annotate it with `@ThreadLocal`.
 
-```java,kotlin
+```kotlin
 @ThreadLocal
 object SomeState{
     var count = 0
@@ -50075,7 +50039,7 @@ If different threads read `count`, they'll get different values, because each th
 
 These global object rules also apply to companion objects.
 
-```java,kotlin
+```kotlin
 class SomeState{
     companion object{
         var count = 0
@@ -50091,7 +50055,7 @@ class SomeState{
 Global properties are a special case. *They are only available to the main thread*, but they are mutable. Accessing them from 
 other threads will throw an exception.
 
-```java,kotlin
+```kotlin
 val hello = "Hello" //Only main thread can see this
 ```
 
@@ -50175,7 +50139,7 @@ a utility library for multiplatform compatibility with Kotlin/Native-specific co
 The first two are simple numerics: `AtomicInt` and `AtomicLong`. They allow you to have a shared `Int` or `Long` that can be 
 read and changed from multiple threads.
 
-```java,kotlin
+```kotlin
 object AtomicDataCounter {
     val count = AtomicInt(3)
   
@@ -50193,7 +50157,7 @@ It's important to note that you can change the value of `count` _from any thread
 `AtomicReference` holds an object instance, and you can change that object instance. The object you put in `AtomicReference` 
 must be frozen, but you can change the value that `AtomicReference` holds. For example, the following won't work in Kotlin/Native:
 
-```java,kotlin
+```kotlin
 data class SomeData(val i: Int)
 
 object GlobalData {
@@ -50208,7 +50172,7 @@ object GlobalData {
 According to the [rules of global state](multiplatform-mobile-concurrency-overview.md#global-state), global `object` values are 
 frozen in Kotlin/Native, so trying to modify `sd` will fail. You could implement it instead with `AtomicReference`:
 
-```java,kotlin
+```kotlin
 data class SomeData(val i: Int)
 
 object GlobalData {
@@ -50238,7 +50202,7 @@ kept in the `AtomicReference` has cyclical references, it may leak memory if you
 * If you're keeping `AtomicReference` in a global object that never leaves scope, this won't matter (because the memory 
 never needs to be reclaimed during the life of the process).
 
-```java,kotlin
+```kotlin
 class Container(a:A) {
     val atom = AtomicReference<A?>(a.freeze())
 
@@ -50258,7 +50222,7 @@ form of concurrency management that `AtomicReference` alone does not provide.
 
 The following won't protect against duplicate values in the list if called from multiple threads:
 
-```java,kotlin
+```kotlin
 object MyListCache {
     val atomicList = AtomicReference(listOf<String>().freeze())
     fun addEntry(s:String){
@@ -50394,7 +50358,7 @@ The following code makes a network call using [Ktor](https://ktor.io/). In the m
 and suspended, while another underlying process performs the actual networking. When completed, the code resumes 
 in the main thread.
 
-```java,kotlin
+```kotlin
 val client = HttpClient()
 //Running in the main thread, start a `get` call
 client.get<String>("https://example.com/some/rest/call")
@@ -50409,7 +50373,7 @@ and the libraries you use, you may never need to use multiple threads.
 Coroutines are executed by a dispatcher that defines which thread the coroutine will be executed on. 
 There are a number of ways in which you can specify the dispatcher, or change the one for the coroutine. For example: 
 
-```java,kotlin
+```kotlin
 suspend fun differentThread() = withContext(Dispatchers.Default){
     println("Different thread")
 }
@@ -50426,13 +50390,13 @@ captured and returned data.
 
 To run code on a different thread, you pass a `functionBlock`, which gets frozen and then runs in another thread. 
 
-```java,kotlin
+```kotlin
 fun <R> runOnDifferentThread(functionBlock: () -> R)
 ```
 
 You will call that function as follows:
 
-```java,kotlin
+```kotlin
 runOnDifferentThread {
     //Code run in another thread
 }
@@ -50447,7 +50411,7 @@ they are frozen.
 In the following example, the data class instance `dc` will be captured by the function block and will be frozen when crossing 
 threads. The `println` statement will print `true`.
 
-```java,kotlin
+```kotlin
 val dc = DataClass("Hello")
 withContext(Dispatchers.Default) {
     println("${dc.isFrozen}")
@@ -50457,7 +50421,7 @@ withContext(Dispatchers.Default) {
 When running parallel code, be careful with the captured state. 
 Sometimes it's obvious when the state will be captured, but not always. For example:
 
-```java,kotlin
+```kotlin
 class SomeModel(val id:IdRec){
     suspend fun saveData() = withContext(Dispatchers.Default){
         saveToDb(id)
@@ -50473,7 +50437,7 @@ it will also freeze the parent class.
 Data returned from a different thread is also frozen. Even though it's recommended that you return immutable data, you can 
 return a mutable state in a way that doesn't allow a returned value to be changed.
 
-```java,kotlin
+```kotlin
 val dc = withContext(Dispatchers.Default) {
     DataClass("Hello Again")
 }
@@ -50501,7 +50465,7 @@ To use the multithreaded version, add a dependency for the `commonMain` source s
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 val commonMain by getting {
     dependencies {
         implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt")
@@ -50529,7 +50493,7 @@ of `kotlinx-coroutines`. You can do this with `strictly`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%-native-mt") {
     version {
         strictly("%coroutinesVersion%-native-mt")
@@ -50603,7 +50567,7 @@ To use `stately-common`, add a dependency for the `commonMain` source set in `bu
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 val commonMain by getting {
     dependencies {
         implementation ("co.touchlab:stately-common:1.0.x")
@@ -50873,7 +50837,7 @@ compiler option.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.all {
@@ -50915,7 +50879,7 @@ In this case, it may be required to make the framework static.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
         binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
@@ -51231,7 +51195,7 @@ Kotlin/Native uses an automated memory management scheme that is similar to what
 
 Use the `-produce dynamic` compiler switch, or `binaries.sharedLib()` in Gradle.
 
-```java,kotlin
+```kotlin
 kotlin {
     iosArm64("mylib") {
         binaries.sharedLib()
@@ -51246,7 +51210,7 @@ C language header, allowing the use of all public APIs available in your Kotlin/
 
 Use the `-produce static` compiler switch, or `binaries.staticLib()` in Gradle.
 
-```java,kotlin
+```kotlin
 kotlin {
     iosArm64("mylib") {
         binaries.staticLib()
@@ -51270,7 +51234,7 @@ Use the `-module-name` compiler option or matching Gradle DSL statement.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     iosArm64("myapp") {
         binaries.framework {
@@ -51301,7 +51265,7 @@ kotlin {
 The default name is for an iOS framework  is `<project name>.framework`.
 To set a custom name, use the `baseName` option. This will also set the module name.
 
-```java,kotlin
+```kotlin
 kotlin {
     iosArm64("myapp") {
        binaries {
@@ -51323,7 +51287,7 @@ Or commandline arguments: `-Xembed-bitcode` (for release) and `-Xembed-bitcode-m
 
 Setting this in a Gradle DSL: 
 
-```java,kotlin
+```kotlin
 kotlin {
     iosArm64("myapp") {
         binaries {
@@ -51571,7 +51535,7 @@ You can use one of the following repositories to add Kotlin libraries to your pr
 To set a dependency on a library, such as [`kotlinx.serilization`](serialization.md) and [`kotlinx.coroutines`](coroutines-guide.md),
 update your `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 // `build.gradle.kts`
 
 repositories {
@@ -51649,7 +51613,7 @@ class Rectangle {
 
 Here's how you can use this JavaScript code in Kotlin:
 
-```java,kotlin
+```kotlin
 // Kotlin/Wasm
 
 // Use external functions to call JS functions defined in global scope
@@ -51688,14 +51652,14 @@ project [Kotlin/Wasm browser](https://github.com/Kotlin/kotlin-wasm-examples/tre
 To include a small piece of JS code in your Kotlin/Wasm module, use the `@JsFun` annotation with external top-level
 functions. The annotation argument should be a string with JS code that evaluates a function with a matching signature:
 
-```java,kotlin
+```kotlin
 @JsFun("function count(x) { return x + 10; }")
 external fun count(x: Int): Int
 ```
 
 To make it shorter, use arrow syntax:
 
-```java,kotlin
+```kotlin
 @JsFun("x => x + 10")
 external fun count(x: Int): Int
 ```
@@ -51732,7 +51696,7 @@ export {maxUsers, getActiveUsers, User};
 
 Here's how you can use this JavaScript code in Kotlin:
 
-```java,kotlin
+```kotlin
 // kotlin
 @file:JsModule("./jsModule.mjs")
 
@@ -51757,7 +51721,7 @@ external class User {
 To make the Kotlin/Wasm declaration available from JavaScript, use the `@JsExport` annotation with external top-level
 functions:
 
-```java,kotlin
+```kotlin
 // Kotlin/Wasm
 
 @JsExport
@@ -51786,7 +51750,7 @@ can adapt these values so that they can be useful in JavaScript by either copyin
 this is done statically. It's important that these special concrete types are present in function signatures. For
 example:
 
-```java,kotlin
+```kotlin
 external fun convertIntAndString(num: Int, text: String)
 external fun convertAnyAndChars(num: Any, text: CharSequence)
 
@@ -51833,7 +51797,7 @@ generic `WebAssembly.Exception` without directly accessible messages and data.
 Kotlin/JS [dynamic type](dynamic-type.md) used for interoperability with untyped or loosely typed objects is not
 supported yet. In many cases, you can use external interfaces and the [`@JsFun`](#jsfun-annotation) annotation instead:
 
-```java,kotlin
+```kotlin
 // Kotlin/JS
 
 val user: dynamic
@@ -51857,7 +51821,7 @@ updateUserAge(user, age);
 The [`js()` function](js-interop.md#inline-javascript) used to inline JavaScript code to Kotlin code is not supported
 yet. Use the [`@JsFun`](#jsfun-annotation) annotation instead:
 
-```java,kotlin
+```kotlin
 // Kotlin/JS
 
 fun jsTypeOf(obj: Any): String {
@@ -51875,7 +51839,7 @@ external fun jsTypeOf(obj: SomeExternalInterfaceType): String
 and [using external interfaces](js-interop.md#external-interfaces) is not supported yet. Use
 the [`@JsFun`](#jsfun-annotation) annotation instead:
 
-```java,kotlin
+```kotlin
 external interface DataProcessor {
     fun processData(input: String): String
     fun processResult(input: String): String
@@ -51915,7 +51879,7 @@ You can apply the `org.jetbrains.kotlin.multiplatform` plugin to a Gradle projec
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -51995,7 +51959,7 @@ in the `dependencies {}` block of the build script:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     implementation("org.example.myproject", "1.1.0")
 }
@@ -52019,7 +51983,7 @@ of the build script:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
       val jsMain by getting {
@@ -52070,7 +52034,7 @@ If you don't use the Project Wizard to create your project, you can add the depe
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonTest by getting {
@@ -52114,7 +52078,7 @@ You can also specify one or multiple version ranges based on [npm's semver synta
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     implementation(npm("react", "> 14.0.0 <=16.9.0"))
 }
@@ -52370,7 +52334,7 @@ block. This configuration is also enabled by default when creating a new project
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 browser {
     commonWebpackConfig {
         cssSupport {
@@ -52401,7 +52365,7 @@ Alternatively, you can add CSS support independently for `webpackTask {}`, `runT
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 browser {
     webpackTask {
         cssSupport {
@@ -52482,7 +52446,7 @@ To use the pre-installed Node.js instance, add the following lines to `build.gra
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin> {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().download = false
     // "true" for default behavior
@@ -52533,7 +52497,7 @@ To use the pre-installed Yarn instance, add the following lines to `build.gradle
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().download = false
     // "true" for default behavior
@@ -52572,7 +52536,7 @@ If needed, you can change both directory and lockfile names in `build.gradle(.kt
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().lockFileDirectory =
         project.rootDir.resolve("my-kotlin-js-store")
@@ -52621,7 +52585,7 @@ To use these options, update `build.gradle(.kts)` as follows:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnLockMismatchReport
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 
@@ -52666,7 +52630,7 @@ You can explicitly enable lifecycle scripts execution by adding the following li
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin> { 
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension>().ignoreScripts = false
 }
@@ -52699,7 +52663,7 @@ Once you run a project build task, Gradle will save the output bundle in this lo
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     js {
         browser {
@@ -52760,7 +52724,7 @@ identifying scripts that are available to run.
 You can add custom entries to the project's `package.json` via the Gradle DSL. To add custom fields to your `package.json`,
 use the `customField()` function in the compilations `packageJson` block:
 
-```java,kotlin
+```kotlin
 kotlin {
     js {
         compilations["main"].packageJson {
@@ -52795,7 +52759,7 @@ Since Kotlin/JS projects are managed with the Kotlin Multiplatform Gradle plugin
 appropriate tasks. If you're starting with a blank project, ensure that you have some sample code to execute.
 Create the file `src/jsMain/kotlin/App.kt` and fill it with a small "Hello, World"-type code snippet:
 
-```java,kotlin
+```kotlin
 fun main() {
     console.log("Hello, Kotlin/JS!")
 }
@@ -53005,7 +52969,7 @@ and functionality available for the JavaScript target:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 // build.gradle.kts
 
 kotlin {
@@ -53043,7 +53007,7 @@ You can tune how tests are executed in Kotlin/JS by adjusting the settings avail
 build script. For example, using the Karma test runner together with a headless instance of Chrome and an instance of
 Firefox looks like this:
 
-```java,kotlin
+```kotlin
 kotlin {
     js {
         browser {
@@ -53065,7 +53029,7 @@ available on the target system.
 
 To check that tests are executed properly, add a file `src/jsTest/kotlin/AppTest.kt` and fill it with this content:
 
-```java,kotlin
+```kotlin
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -53220,7 +53184,7 @@ For better application startup performance, the Kotlin/JS IR compiler initialize
 the application loads without initializing all the top-level properties used in its code. It initializes
 only the ones needed at startup; other properties receive their values later when the code that uses them actually runs.
 
-```java,kotlin
+```kotlin
 val a = run { 
     val result = // intensive computations
     println(result)
@@ -53283,7 +53247,7 @@ Choose between two tolerance policies for ignoring compilation errors in your co
 As an experimental feature, ignoring compilation errors requires an opt-in.
 To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
 
-```java,kotlin
+```kotlin
 kotlin {
     js(IR) {
         compilations.all {
@@ -53301,7 +53265,7 @@ The Kotlin/JS IR compiler uses its internal information about the relationships 
 
 This type of minification is automatically applied when you build your Kotlin/JS application in [production](js-project-setup.md#building-executables) mode, and enabled by default. To disable member name minification, use the `-Xir-minimized-member-names` compiler option:
 
-```java,kotlin
+```kotlin
 kotlin {
     js(IR) {
         compilations.all {
@@ -53332,7 +53296,7 @@ If you want to generate TypeScript definitions, you have to explicitly configure
 Add `generateTypeScriptDefinitions()` to your `build.gradle.kts` file in the [`js` section](js-project-setup.md#execution-environments). 
 For example:
 
-```java,kotlin
+```kotlin
 kotlin {
    js {
        binaries.executable()
@@ -53424,14 +53388,14 @@ these classes as if they were Kotlin objects, when they actually come from JS.
 
 **Solution**: convert all classes and interfaces that derive from pure JS classes to [external interfaces](js-interop.md#external-interfaces):
 
-```java,kotlin
+```kotlin
 // Replace this
 interface AppState : State { }
 interface AppProps : Props { }
 data class CustomComponentState(var name: String) : State
 ```
 
-```java,kotlin
+```kotlin
 // With this
 external interface AppState : State { }
 external interface AppProps : Props { }
@@ -53450,7 +53414,7 @@ templates to automatically mark interfaces as `external`:
 **Issue**: properties of external interfaces in Kotlin/JS code can't be read-only (`val`) properties because their values can be
 assigned only after the object is created with `js()` or `jso()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
 
-```java,kotlin
+```kotlin
 import kotlinx.js.jso
 
 val myState = jso<CustomComponentState>()
@@ -53459,14 +53423,14 @@ myState.name = "name"
 
 **Solution**: convert all properties of external interfaces to `var`:
 
-```java,kotlin
+```kotlin
 // Replace this
 external interface CustomComponentState : State {
    val name: String
 }
 ```
 
-```java,kotlin
+```kotlin
 // With this
 external interface CustomComponentState : State {
    var name: String
@@ -53480,14 +53444,14 @@ functional types.
 
 **Solution**: convert such functions and properties to regular functions by adding the receiver object as an argument:
 
-```java,kotlin
+```kotlin
 // Replace this
 external interface ButtonProps : Props {
    var inside: StyledDOMBuilder<BUTTON>.() -> Unit
 }
 ```
 
-```java,kotlin
+```kotlin
 external interface ButtonProps : Props {
    var inside: (StyledDOMBuilder<BUTTON>) -> Unit
 }
@@ -53503,7 +53467,7 @@ visible for operations that iterate over the object's properties, for example:
 
 Although they are still accessible by the name: `obj.myProperty`
 
-```java,kotlin
+```kotlin
 external interface AppProps { var name: String }
 data class AppPropsImpl(override var name: String) : AppProps
 fun main() {
@@ -53520,24 +53484,24 @@ fun main() {
 
 **Solution 1**: create plain JavaScript objects with `js()` or `jso()` (a helper function from [`kotlin-wrappers`](https://github.com/JetBrains/kotlin-wrappers)):
 
-```java,kotlin
+```kotlin
 external interface AppProps { var name: String }
 data class AppPropsImpl(override var name: String) : AppProps
 ```
 
-```java,kotlin
+```kotlin
 // Replace this
 val ktApp = AppPropsImpl("App1") // Kotlin object
 ```
 
-```java,kotlin
+```kotlin
 // With this
 val jsApp = js("{name: 'App1'}") as AppProps // or jso {}
 ```
 
 **Solution 2**: create objects with `kotlin.js.json()`:
 
-```java,kotlin
+```kotlin
 // or with this
 val jsonApp = kotlin.js.json(Pair("name", "App1")) as AppProps
 ```
@@ -53557,7 +53521,7 @@ explicit instruction to do this. Learn more in the [Kotlin/JS project setup inst
 
 **Solution**: add the line `binaries.executable()` to the project's `build.gradle(.kts)`.
 
-```java,kotlin
+```kotlin
 kotlin {
     js(IR) {
         browser {
@@ -53575,7 +53539,7 @@ These hints may help you when troubleshooting problems in your projects using th
 
 **Issue**: when you call `toString` on a `Boolean` from an external interface, you're getting an error like `Uncaught TypeError: Cannot read properties of undefined (reading 'toString')`. JavaScript treats the `null` or `undefined` values of a boolean variable as `false`. If you rely on calling `toString` on a `Boolean` that may be `null` or `undefined` (for example when your code is called from JavaScript code you have no control over), be aware of this:
 
-```java,kotlin
+```kotlin
 external interface SomeExternal {
     var visible: Boolean
 }
@@ -53588,14 +53552,14 @@ fun main() {
 
 **Solution**: you can make your `Boolean` properties of external interfaces nullable (`Boolean?`):
 
-```java,kotlin
+```kotlin
 // Replace this
 external interface SomeExternal {
     var visible: Boolean
 }
 ```
 
-```java,kotlin
+```kotlin
 // With this
 external interface SomeExternal {
     var visible: Boolean?
@@ -53617,7 +53581,7 @@ interaction with functions that do not map well into the Kotlin type system.
 For interaction with the Document Object Model (DOM), you can use the variable `document`. For example, you can set the
 background color of our website through this object:
 
-```java,kotlin
+```kotlin
 document.bgColor = "FFAA12" 
 ```
 
@@ -53639,7 +53603,7 @@ the script is loaded.
 With this setup, you can access elements of the DOM. To access the properties of the `input` field, invoke `getElementById`
 and cast it to `HTMLInputElement`. You can then safely access its properties, such as `value`:
 
-```java,kotlin
+```kotlin
 val email = document.getElementById("email") as HTMLInputElement
 email.value = "hadi@jetbrains.com"
 ```
@@ -53664,7 +53628,7 @@ the surrounding tooling.
 You can inline some JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
 For example:
 
-```java,kotlin
+```kotlin
 fun jsTypeOf(o: Any): String {
     return js("typeof o")
 }
@@ -53673,7 +53637,7 @@ fun jsTypeOf(o: Any): String {
 Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it is required to be
 a string constant. So, the following code is incorrect:
 
-```java,kotlin
+```kotlin
 fun jsTypeOf(o: Any): String {
     return js(getTypeof() + " o") // error reported here
 }
@@ -53691,7 +53655,7 @@ property is provided externally (by the developer or via an [npm dependency](js-
 therefore does not try to generate any JavaScript code from the declaration. This is also why `external` declarations
 can't have a body. For example:
 
-```java,kotlin
+```kotlin
 external fun alert(message: Any?): Unit
 
 external class Node {
@@ -53728,7 +53692,7 @@ objects. Kotlin treats companion objects of `external` classes in a special way:
 assumes members of companion objects to be members of the class itself. `MyClass` from the example above can be described
 as follows:
 
-```java,kotlin
+```kotlin
 external class MyClass {
     companion object {
         fun sharedMember()
@@ -53743,7 +53707,7 @@ external class MyClass {
 If you are writing an external declaration for a JavaScript function which has an optional parameter, use `definedExternally`.
 This delegates the generation of the default values to the JavaScript function itself:
 
-```java,kotlin
+```kotlin
 external fun myFunWithOptionalArgs(
     x: Int,
     y: String = definedExternally,
@@ -53759,7 +53723,7 @@ where the default values are calculated by the JavaScript implementation of `myF
 You can easily extend JavaScript classes as if they were Kotlin classes. Just define an `external open` class and
 extend it by a non-`external` class. For example:
 
-```java,kotlin
+```kotlin
 open external class Foo {
     open fun run()
     fun stop()
@@ -53789,7 +53753,7 @@ and `bar`, you would just pass in an object that actually has these methods.
 
 You can use interfaces to express this concept in statically typed Kotlin:
 
-```java,kotlin
+```kotlin
 external interface HasFooAndBar {
     fun foo()
 
@@ -53801,7 +53765,7 @@ external fun myFunction(p: HasFooAndBar)
 
 A typical use case for external interfaces is to describe settings objects. For example:
 
-```java,kotlin
+```kotlin
 external interface JQueryAjaxSettings {
     var async: Boolean
 
@@ -53845,7 +53809,7 @@ In addition to the ["unsafe" cast operator](typecasts.md#unsafe-cast-operator) `
 in case a cast is not possible, Kotlin/JS also provides [`unsafeCast<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/unsafe-cast.html). When using `unsafeCast`,
 _no type checking is done at all_ during runtime. For example, consider the following two methods:
 
-```java,kotlin
+```kotlin
 fun usingUnsafeCast(s: Any) = s.unsafeCast<String>()
 fun usingAsOperator(s: Any) = s as String
 ```
@@ -53872,7 +53836,7 @@ function usingAsOperator(s) {
 Being a statically typed language, Kotlin still has to interoperate with untyped or loosely typed environments,
 such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:
 
-```java,kotlin
+```kotlin
 val dyn: dynamic = ...
 ```
 
@@ -53885,7 +53849,7 @@ The `dynamic` type basically turns off Kotlin's type checker:
 The most peculiar feature of `dynamic` is that we are allowed to call **any** property or function with any parameters
 on a `dynamic` variable:
 
-```java,kotlin
+```kotlin
 dyn.whatever(1, "foo", dyn) // 'whatever' is not defined anywhere
 dyn.whatever(*arrayOf(1, 2, 3))
 ```
@@ -53899,13 +53863,13 @@ to assign well-defined names to the functions that you need to call.
 
 A dynamic call always returns `dynamic` as a result, so you can chain such calls freely:
 
-```java,kotlin
+```kotlin
 dyn.foo().bar.baz()
 ```
 
 When you pass a lambda to a dynamic call, all of its parameters by default have the type `dynamic`:
 
-```java,kotlin
+```kotlin
 dyn.foo {
     x -> x.bar() // x is dynamic
 }
@@ -53938,7 +53902,7 @@ lets you specify packages you want to import from npm. Let's consider the import
 
 The corresponding part in the Gradle build file looks as follows:
 
-```java,kotlin
+```kotlin
 dependencies {
     // ...
     implementation(npm("is-sorted", "1.0.5"))
@@ -53950,7 +53914,7 @@ a kind of adapter. In Kotlin, such adapters are called _external declarations_. 
 only one function, this declaration is small to write. Inside the source folder, create a new file called `is-sorted.kt`,
 and fill it with these contents:
 
-```java,kotlin
+```kotlin
 @JsModule("is-sorted")
 @JsNonModule
 external fun <T> sorted(a: Array<T>): Boolean
@@ -53963,7 +53927,7 @@ This JavaScript function can now be used just like a regular Kotlin function. Be
 header file (as opposed to simply defining parameter and return type to be `dynamic`), proper compiler support and
 type-checking is also available.
 
-```java,kotlin
+```kotlin
 console.log("Hello, Kotlin/JS!")
 console.log(sorted(arrayOf(1,2,3)))
 console.log(sorted(arrayOf(3,1,2)))
@@ -53972,7 +53936,7 @@ console.log(sorted(arrayOf(3,1,2)))
 Running these three lines either in the browser or Node.js, the output shows that the call to `sorted` was properly mapped
 to the function exported by the `is-sorted` package:
 
-```java,kotlin
+```kotlin
 Hello, Kotlin/JS!
 true
 false
@@ -53995,7 +53959,7 @@ If you have explicitly set your module kind to be `plain`, Kotlin creates an obj
 from the current module. This is done to prevent spoiling the global object. This means that for a module `myModule`,
 all declarations are available to JavaScript via the `myModule` object. For example:
 
-```java,kotlin
+```kotlin
 fun foo() = "Hello"
 ```
 
@@ -54021,7 +53985,7 @@ Check the article on [JavaScript Modules](js-modules.md) for more information on
 Kotlin exposes its package structure to JavaScript, so unless you define your declarations in the root package,
 you have to use fully qualified names in JavaScript. For example:
 
-```java,kotlin
+```kotlin
 package my.qualified.packagename
 
 fun foo() = "Hello"
@@ -54044,7 +54008,7 @@ alert(myModule.my.qualified.packagename.foo());
 In some cases (for example, to support overloads), the Kotlin compiler mangles the names of generated functions and attributes
 in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
 
-```java,kotlin
+```kotlin
 // Module 'kjs'
 class Person(val name: String) {
     fun hello() {
@@ -54078,7 +54042,7 @@ The parameter of `@JsName` is required to be a constant string literal which is 
 The compiler will report an error on any attempt to pass non-identifier string to `@JsName`.
 The following example produces a compile-time error:
 
-```java,kotlin
+```kotlin
 @JsName("new C()")   // error here
 external fun newC()
 ```
@@ -54186,7 +54150,7 @@ To select module kind, set the `moduleKind` compiler option in the Gradle build 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.named<KotlinJsCompile>("compileKotlinJs").configure {
     compilerOptions.moduleKind.set(org.jetbrains.kotlin.gradle.dsl.JsModuleKind.MODULE_COMMONJS)
 }
@@ -54212,7 +54176,7 @@ Available values are: `umd` (default), `commonjs`, `amd`, `plain`.
 
 In the Kotlin Gradle DSL, there is also a shortcut for setting the CommonJS module kind:
 
-```java,kotlin
+```kotlin
 kotlin {
     js {
          useCommonJs()
@@ -54232,7 +54196,7 @@ module.exports.sayHello = function(name) { alert("Hello, " + name); }
 
 You should declare it like this in Kotlin:
 
-```java,kotlin
+```kotlin
 @JsModule("hello")
 external fun sayHello(name: String)
 ```
@@ -54244,7 +54208,7 @@ In terms of JavaScript, it's an *object* that has *members* that are classes, fu
 Importing these packages as Kotlin objects often looks unnatural.
 The compiler can map imported JavaScript packages to Kotlin packages, using the following notation:
 
-```java,kotlin
+```kotlin
 @file:JsModule("extModule")
 package ext.jspackage.name
 
@@ -54265,7 +54229,7 @@ module.exports = {
 Files marked with `@file:JsModule` annotation can't declare non-external members.
 The example below produces a compile-time error:
 
-```java,kotlin
+```kotlin
 @file:JsModule("extModule")
 package ext.jspackage.name
 
@@ -54298,7 +54262,7 @@ module.exports = {
 
 To import this module in Kotlin, you have to write two Kotlin source files:
 
-```java,kotlin
+```kotlin
 @file:JsModule("extModule")
 @file:JsQualifier("mylib.pkg1")
 package extlib.pkg1
@@ -54310,7 +54274,7 @@ external fun bar()
 
 and
 
-```java,kotlin
+```kotlin
 @file:JsModule("extModule")
 @file:JsQualifier("mylib.pkg2")
 package extlib.pkg2
@@ -54335,7 +54299,7 @@ if (module && module.exports) {
 
 You could describe it from Kotlin as follows:
 
-```java,kotlin
+```kotlin
 @JsModule("hello")
 @JsNonModule
 @JsName("topLevelSayHello")
@@ -54382,7 +54346,7 @@ The `KType` API is fully supported in Kotlin/JS except for Java-specific parts.
 
 Here is an example of the reflection usage in Kotlin/JS.
 
-```java,kotlin
+```kotlin
 open class Shape
 class Rectangle : Shape()
 
@@ -54411,7 +54375,7 @@ The [kotlinx.html library](https://www.github.com/kotlin/kotlinx.html) provides 
 statically typed HTML builders (and besides JavaScript, it is even available on the JVM target!) To use the library,
 include the corresponding repository and dependency to our `build.gradle.kts` file:
 
-```java,kotlin
+```kotlin
 repositories {
     // ...
     mavenCentral()
@@ -54427,7 +54391,7 @@ dependencies {
 Once the dependency is included, you can access the different interfaces provided to generate the DOM.
 To render a headline, some text, and a link, the following snippet would be sufficient, for example:
 
-```java,kotlin
+```kotlin
 import kotlinx.browser.*
 import kotlinx.html.*
 import kotlinx.html.dom.*
@@ -54598,7 +54562,7 @@ rebuild and reload the page when you make changes.
 
 To make your app display a simple message, replace the code in the `Main.kt` file with the following:
 
-```java,kotlin
+```kotlin
 import kotlinx.browser.document
 import react.*
 import emotion.react.css
@@ -54667,7 +54631,7 @@ Compare the classic HTML code for your future web app and its typesafe variant i
 </tab>
 <tab title="Kotlin">
 
-```java,kotlin
+```kotlin
 h1 {
     +"KotlinConf Explorer"
 }
@@ -54776,7 +54740,7 @@ The benefit of using a DSL is that you can use Kotlin code constructs to express
 
 The template project for this tutorial already includes the dependency needed to use `kotlin-emotion`:
 
-```java,kotlin
+```kotlin
 dependencies {
     // ...
     // Kotlin React Emotion (CSS) (chapter 3)
@@ -54790,7 +54754,7 @@ With `kotlin-emotion`, you can specify a `css` block inside HTML elements `div` 
 To move the video player to the top right-hand corner of the page, use CSS and adjust the code for the video player
 (the last `div` in the snippet):
 
-```java,kotlin
+```kotlin
 div {
     css {
         position = Position.absolute
@@ -54984,7 +54948,7 @@ After a reload, the browser will show that the lists now render correctly.
 First, add an alert message that pops up when users click on a list entry. In `VideoList.kt`, add an
 `onClick` handler function that triggers an alert with the current video:
 
-```java,kotlin
+```kotlin
 // . . .
 
 p {
@@ -55510,7 +55474,7 @@ of data returned from the external API. To solve this, you can use the `kotlinx.
 
 Check the `build.gradle.kts` file. The relevant snippet should already exist:
 
-```java,kotlin
+```kotlin
 dependencies {
     // . . .
 
@@ -55560,7 +55524,7 @@ these types of conversions from JSON strings to Kotlin objects.
 
 To fetch a video from the API, add the following function in `App.kt` (or a new file):
 
-```java,kotlin
+```kotlin
 suspend fun fetchVideo(id: Int): Video {
     val response = window
         .fetch("https://my-json-server.typicode.com/kotlin-hands-on/kotlinconf-json/videos/$id")
@@ -55775,7 +55739,7 @@ In this tutorial, you'll create a Kotlin scripting project that executes arbitra
 You'll be able to execute scripts like this:
 
 
-```java,kotlin
+```kotlin
 @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
 @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
 
@@ -56174,7 +56138,7 @@ a mutable collection are still possible even if it is assigned to a `val`. The b
 more complex, it becomes even more important to prevent unintentional modification to references. Use `val` as much as possible
 for safer and more robust code. If you try to reassign a `val` collection, you get a compilation error:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
@@ -56185,7 +56149,7 @@ fun main() {
 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The read-only collection types are [covariant](generics.md#variance).
 This means that, if a `Rectangle` class inherits from `Shape`, you can use a `List<Rectangle>` anywhere the `List<Shape>` 
@@ -56217,7 +56181,7 @@ checking item membership, and so on.
 the `Collection`'s inheritors: [`List`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)
  and [`Set`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html).
 
-```java,kotlin
+```kotlin
 fun printAll(strings: Collection<String>) {
     for(s in strings) print("$s ")
     println()
@@ -56231,12 +56195,12 @@ fun main() {
     printAll(stringSet)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [`MutableCollection<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html) is 
 a `Collection` with write operations, such as `add` and `remove`.
 
-```java,kotlin
+```kotlin
 fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int) {
     this.filterTo(shortWords) { it.length <= maxLength }
     // throwing away the articles
@@ -56251,7 +56215,7 @@ fun main() {
     println(shortWords)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### 10.1.1.3. List
 
@@ -56259,7 +56223,7 @@ fun main() {
 specified order and provides indexed access to them. Indices start from zero – the index of the first element – and go
 to `lastIndex` which is the `(list.size - 1)`. 
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -56270,14 +56234,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 List elements (including nulls) can duplicate: a list can contain any number of equal objects or occurrences of a 
 single object.
 Two lists are considered equal if they have the same sizes and [structurally equal](equality.md#structural-equality) 
 elements at the same positions. 
 
-```java,kotlin
+```kotlin
 data class Person(var name: String, var age: Int)
 
 fun main() {
@@ -56291,12 +56255,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [`MutableList<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html) is a `List` 
 with list-specific write operations, for example, to add or remove an element at a specific position.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf(1, 2, 3, 4)
@@ -56308,7 +56272,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 As you see, in some aspects lists are very similar to arrays.
 However, there is one important difference:  an array's size is defined upon initialization and is never changed; 
@@ -56324,7 +56288,7 @@ which you can think of as a resizable array.
 their order is generally undefined. `null` elements are unique as well: a `Set` can contain only one `null`. 
 Two sets are equal if they have the same size, and for each element of a set there is an equal element in the other set. 
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = setOf(1, 2, 3, 4)
@@ -56336,7 +56300,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [`MutableSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html) is a `Set` with 
 write operations from `MutableCollection`.
@@ -56345,7 +56309,7 @@ The default implementation of `MutableSet` – [`LinkedHashSet`](https://kotlinl
 preserves the order of elements insertion.
 Hence, the functions that rely on the order, such as `first()` or `last()`, return predictable results on such sets.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = setOf(1, 2, 3, 4)  // LinkedHashSet is the default implementation
@@ -56356,7 +56320,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 An alternative implementation – [`HashSet`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-hash-set/index.html) – 
 says nothing about the elements order, so calling such functions on it returns unpredictable results. However, `HashSet` 
@@ -56369,7 +56333,7 @@ the `Collection` interface; however, it's a Kotlin collection type as well.
 A `Map` stores _key-value_ pairs (or _entries_); keys are unique, but different keys can be paired with equal values. 
 The `Map` interface provides specific functions, such as access to value by key, searching keys and values, and so on.  
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
@@ -56382,11 +56346,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Two maps containing the equal pairs are equal regardless of the pair order.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)    
@@ -56396,12 +56360,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [`MutableMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html) is a `Map` with 
 map write operations, for example, you can add a new key-value pair or update the value associated with the given key.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbersMap = mutableMapOf("one" to 1, "two" to 2)
@@ -56412,7 +56376,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The default implementation of `MutableMap` – [`LinkedHashMap`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-linked-hash-map/index.html) – 
 preserves the order of elements insertion when iterating the map.
@@ -56424,7 +56388,7 @@ says nothing about the elements order.
 [`ArrayDeque<T>`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-deque/) is an implementation of a double-ended queue, which allows you to add or remove elements both at the beginning or end of the queue.
 As such, `ArrayDeque` also fills the role of both a Stack and Queue data structure in Kotlin. Behind the scenes, `ArrayDeque` is realized using a resizable array that automatically adjusts in size when required:
 
-```java,kotlin
+```kotlin
 fun main() {
     val deque = ArrayDeque(listOf(1, 2, 3))
 
@@ -56440,7 +56404,7 @@ fun main() {
     println(deque) // [1, 2, 3]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 # 📜 10.1.02. Constructing collections
 
@@ -56453,7 +56417,7 @@ The most common way to create a collection is with the standard library function
 If you provide a comma-separated list of collection elements as arguments, the compiler detects the element type
 automatically. When creating empty collections, specify the type explicitly.
 
-```java,kotlin
+```kotlin
 val numbersSet = setOf("one", "two", "three", "four")
 val emptySet = mutableSetOf<String>()
 ```
@@ -56462,7 +56426,7 @@ The same is available for maps with the functions [`mapOf()`](https://kotlinlang
 and [`mutableMapOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-map-of.html). The map's
 keys and values are passed as `Pair` objects (usually created with `to` infix function).
 
-```java,kotlin
+```kotlin
 val numbersMap = mapOf("key1" to 1, "key2" to 2, "key3" to 3, "key4" to 1)
 ```
 
@@ -56471,7 +56435,7 @@ isn't critical. To avoid excessive memory usage, use alternative ways. For examp
 populate it using the write operations. The [`apply()`](scope-functions.md#apply) function can help to keep the
 initialization fluent here.
 
-```java,kotlin
+```kotlin
 val numbersMap = mutableMapOf<String, String>().apply { this["one"] = "1"; this["two"] = "2" }
 ```
 
@@ -56483,7 +56447,7 @@ or [`buildMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collection
 mutable collection of the corresponding type, populate it using [write operations](collection-write.md),
 and return a read-only collection with the same elements:
 
-```java,kotlin
+```kotlin
 val map = buildMap { // this is MutableMap<String, Int>, types of key and value are inferred from the `put()` calls below
     put("a", 1)
     put("b", 0)
@@ -56500,7 +56464,7 @@ There are also functions for creating collections without any elements: [`emptyL
 [`emptyMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/empty-map.html).
 When creating empty collections, you should specify the type of elements that the collection will hold.
 
-```java,kotlin
+```kotlin
 val empty = emptyList<String>()
 ```
 
@@ -56509,7 +56473,7 @@ val empty = emptyList<String>()
 For lists, there is a constructor-like function that takes the list size and the initializer function that defines the element value
 based on its index.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val doubled = List(3, { it * 2 })  // or MutableList if you want to change its content later
@@ -56517,14 +56481,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.2.5. Concrete type constructors
 
 To create a concrete type collection, such as an `ArrayList` or `LinkedList`, you can use the available constructors for
 these types. Similar constructors are available for implementations of `Set` and `Map`.
 
-```java,kotlin
+```kotlin
 val linkedList = LinkedList<String>(listOf("one", "two", "three"))
 val presizedSet = HashSet<Int>(32)
 ```
@@ -56542,7 +56506,7 @@ of a collection at a specific moment. Their result is a new collection of the sa
 If you add or remove elements from the original collection, this won't affect the copies. Copies may be changed
 independently of the source as well.
 
-```java,kotlin
+```kotlin
 class Person(var name: String)
 fun main() {
 //sampleStart
@@ -56556,11 +56520,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 These functions can also be used for converting collections to other types, for example, build a set from a list or vice versa.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val sourceList = mutableListOf(1, 2, 3)    
@@ -56571,12 +56535,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Alternatively, you can create new references to the same collection instance. New references are created when you initialize a collection variable with an existing collection.
 So, when the collection instance is altered through a reference, the changes are reflected in all its references.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val sourceList = mutableListOf(1, 2, 3)
@@ -56586,11 +56550,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Collection initialization can be used for restricting mutability. For example, if you create a `List` reference to a `MutableList`, the compiler will produce errors if you try to modify the collection through this reference.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart 
     val sourceList = mutableListOf(1, 2, 3)
@@ -56601,14 +56565,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.2.7. Invoke functions on other collections
 
 Collections can be created as a result of various operations on other collections. For example, [filtering](collection-filtering.md)
 a list creates a new list of elements that match the filter:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart 
     val numbers = listOf("one", "two", "three", "four")  
@@ -56617,11 +56581,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [Mapping](collection-transformations.md#map) produces a list from a transformation's results:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart 
     val numbers = setOf(1, 2, 3)
@@ -56630,11 +56594,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [Association](collection-transformations.md#associate) produces maps:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -56642,7 +56606,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For more information about operations on collections in Kotlin, see [Collection operations overview](collection-operations.md).
 
@@ -56664,7 +56628,7 @@ function returns this element and moves the iterator position to the following e
 Once the iterator passes through the last element, it can no longer be used for retrieving elements; neither can it be
 reset to any previous position. To iterate through the collection again, create a new iterator.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56676,12 +56640,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Another way to go through an `Iterable` collection is the well-known `for` loop. When using `for` on a collection, you
 obtain the iterator implicitly. So, the following code is equivalent to the example above:
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56692,12 +56656,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Finally, there is a useful `forEach()` function that lets you automatically iterate a collection and execute the given
 code for each element. So, the same example would look like this:
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56708,7 +56672,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.3.1. List iterators
 
@@ -56720,7 +56684,7 @@ and [`previous()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collectio
 Additionally, the `ListIterator` provides information about the element indices with the functions [`nextIndex()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/next-index.html)
 and [`previousIndex()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list-iterator/previous-index.html).
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56735,7 +56699,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Having the ability to iterate in both directions, means the `ListIterator` can still be used after it reaches the last element.
 
@@ -56745,7 +56709,7 @@ For iterating mutable collections, there is [`MutableIterator`](https://kotlinla
 that extends `Iterator` with the element removal function [`remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-iterator/remove.html).
 So, you can remove elements from a collection while iterating it. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56758,12 +56722,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 In addition to removing elements, the [`MutableListIterator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list-iterator/index.html)
 can also insert and replace elements while iterating the list.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56778,7 +56742,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 # 📜 10.1.04. Ranges and progressions
 
@@ -56792,7 +56756,7 @@ To create:
 
 For example:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     // Closed-ended range
@@ -56805,11 +56769,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-rangeto-rangeuntil"}
+
 
 Ranges are particularly useful for iterating over `for` loops:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (i in 1..4) print(i)
@@ -56817,12 +56781,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-for-loop"}
+
 
 To iterate numbers in reverse order, use the [`downTo`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/down-to.html)
 function instead of `..`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (i in 4 downTo 1) print(i)
@@ -56830,12 +56794,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-downto"}
+
 
 It is also possible to iterate over numbers with an arbitrary step (not necessarily 1). This is done via the
 [`step`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/step.html) function.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56850,7 +56814,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-step"}
+
 
 ## Progression
 
@@ -56873,7 +56837,7 @@ for (int i = first; i <= last; i += step) {
 When you create a progression implicitly by iterating a range, this progression's `first` and `last` elements are the
 range's endpoints, and the `step` is 1.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     for (i in 1..10) print(i)
@@ -56881,11 +56845,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions"}
+
 
 To define a custom progression step, use the `step` function on a range.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56894,7 +56858,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions-step"}
+
 
 The `last` element of the progression is calculated this way:
 * For a positive step: the maximum value not greater than the end value such that `(last - first) % step == 0`.
@@ -56902,7 +56866,7 @@ The `last` element of the progression is calculated this way:
 
 Thus, the `last` element is not always the same as the specified end value.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56911,12 +56875,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions-last"}
+
 
 Progressions implement `Iterable<N>`, where `N` is `Int`, `Long`, or `Char` respectively, so you can use them in various
 [collection functions](collection-operations.md) like `map`, `filter`, and other.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56925,7 +56889,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-progressions-filter"}
+
 
 # 📜 10.1.05. Sequences
 
@@ -56954,7 +56918,7 @@ and decide which one is better for your case.
 To create a sequence, call the [`sequenceOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/sequence-of.html)
 function listing the elements as its arguments.
 
-```java,kotlin
+```kotlin
 val numbersSequence = sequenceOf("four", "three", "two", "one")
 ```
 
@@ -56963,7 +56927,7 @@ val numbersSequence = sequenceOf("four", "three", "two", "one")
 If you already have an `Iterable` object (such as a `List` or a `Set`), you can create a sequence from it by calling
 [`asSequence()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/as-sequence.html).
 
-```java,kotlin
+```kotlin
 val numbers = listOf("one", "two", "three", "four")
 val numbersSequence = numbers.asSequence()
 
@@ -56976,7 +56940,7 @@ To build a sequence based on a function, call [`generateSequence()`](https://kot
 with this function as an argument. Optionally, you can specify the first element as an explicit value or a result of a function call.
 The sequence generation stops when the provided function returns `null`. So, the sequence in the example below is infinite.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56986,11 +56950,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To create a finite sequence with `generateSequence()`, provide a function that returns `null` after the last element you need.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -56999,7 +56963,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### From chunks
 
@@ -57012,7 +56976,7 @@ requested by the consumer. `yield()` takes a single element as an argument; `yie
 an `Iterator`, or another `Sequence`. A `Sequence` argument of `yieldAll()` can be infinite. However, such a call must be
 the last: all subsequent calls will never be executed.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57025,7 +56989,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.5.2. Sequence operations
 
@@ -57051,7 +57015,7 @@ Let's take a look at the difference between `Iterable` and `Sequence` with an ex
 Assume that you have a list of words. The code below filters the words longer than three characters and prints the lengths
 of first four such words.
 
-```java,kotlin
+```kotlin
 
 fun main() {    
 //sampleStart
@@ -57065,7 +57029,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 When you run this code, you'll see that the `filter()` and `map()` functions are executed in the same order as they appear
 in the code. First, you see `filter:` for all elements, then `length:` for the elements left after filtering, and then
@@ -57079,7 +57043,7 @@ This is how the list processing goes:
 
 Now let's write the same with sequences:
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57097,7 +57061,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The output of this code shows that the `filter()` and `map()` functions are called only when building the result list.
 So, you first see the line of text `"Lengths of.."` and then the sequence processing starts.
@@ -57158,7 +57122,7 @@ operation produces a _new collection_ that contains all the elements matching th
 Results of such operations should be either stored in variables, or used in some other way, for example, passed in other
 functions.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57170,7 +57134,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For certain collection operations, there is an option to specify the _destination_ object.
 Destination is a mutable collection to which the function appends its resulting items instead of returning them in a new object.
@@ -57179,7 +57143,7 @@ For performing operations with destinations, there are separate functions with t
 or [`associateTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-to.html) instead of [`associate()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate.html).
 These functions take the destination collection as an additional parameter.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57192,12 +57156,12 @@ fun main() {
 }
 
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For convenience, these functions return the destination collection back, so you can create it right in the corresponding
 argument of the function call:
 
-```java,kotlin
+```kotlin
 
 fun main() {
     val numbers = listOf("one", "two", "three", "four")
@@ -57209,7 +57173,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Functions with destination are available for filtering, association, grouping, flattening, and other operations. For the
 complete list of destination operations see the [Kotlin collections reference](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index.html).
@@ -57225,7 +57189,7 @@ and the other returns the result as a separate collection. For example, [`sort()
 sorts a mutable collection in-place, so its state changes; [`sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted.html)
 creates a new collection that contains the same elements in the sorted order.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57237,7 +57201,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 # 📜 10.1.07. Collection transformation operations
@@ -57254,7 +57218,7 @@ It applies the given lambda function to each subsequent element and returns the 
 The order of results is the same as the original order of elements. 
 To apply a transformation that additionally uses the element index as an argument, use [`mapIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-indexed.html).  
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57264,14 +57228,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If the transformation produces `null` on certain elements, you can filter out the `null`s from the result collection by
 calling the [`mapNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-not-null.html) function
 instead of `map()`, or [`mapIndexedNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-indexed-not-null.html)
 instead of `mapIndexed()`.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57281,14 +57245,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 When transforming maps, you have two options: transform keys leaving values unchanged and vice versa.
 To apply a given transformation to keys, use [`mapKeys()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-keys.html);
 in turn, [`mapValues()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map-values.html) transforms values.
 Both functions use the transformations that take a map entry as an argument, so you can operate both its key and value.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57298,7 +57262,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.7.2. Zip
 
@@ -57314,7 +57278,7 @@ collection are not included in the result.
 
 `zip()` can also be called in the infix form `a zip b`.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57327,13 +57291,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also call `zip()` with a transformation function that takes two parameters: the receiver element and the argument
 element. In this case, the result `List` contains the return values of the transformation function called on pairs of the
 receiver and the argument elements with the same positions.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57344,7 +57308,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 When you have a `List` of `Pair`s, you can do the reverse transformation – _unzipping_ – that builds two lists from these
 pairs:
@@ -57354,7 +57318,7 @@ pairs:
 
 To unzip a list of pairs, call [`unzip()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/unzip.html).
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57363,7 +57327,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.7.3. Associate
 
@@ -57374,7 +57338,7 @@ The basic association function [`associateWith()`](https://kotlinlang.org/api/la
 creates a `Map` in which the elements of the original collection are keys, and values are produced from them by the given
 transformation function. If two elements are equal, only the last one remains in the map.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57383,7 +57347,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For building maps with collection elements as values, there is the function [`associateBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate-by.html).
 It takes a function that returns a key based on an element's value. If two elements' keys are equal, only the last one remains
@@ -57391,7 +57355,7 @@ in the map.
 
 `associateBy()` can also be called with a value transformation function.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57402,7 +57366,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Another way to build maps in which both keys and values are somehow produced from collection elements is the function [`associate()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/associate.html). 
 It takes a lambda function that returns a `Pair`: the key and the value of the corresponding map entry.
@@ -57412,7 +57376,7 @@ Thus, `associate()` should be used when the performance isn't critical or it's m
 
 An example of the latter is when a key and the corresponding value are produced from an element together. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 data class FullName (val firstName: String, val lastName: String)
@@ -57430,7 +57394,7 @@ fun parseFullName(fullName: String): FullName {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Here we call a transform function on an element first, and then build a pair from the properties of that function's result.
 
@@ -57443,7 +57407,7 @@ The first function is [`flatten()`](https://kotlinlang.org/api/latest/jvm/stdlib
 You can call it on a collection of collections, for example, a `List` of `Set`s.
 The function returns a single `List` of all the elements of the nested collections.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57452,14 +57416,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Another function – [`flatMap()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/flat-map.html) provides
 a flexible way to process nested collections. It takes a function that maps a collection element to another collection.
 As a result, `flatMap()` returns a single list of its return values on all the elements.
 So, `flatMap()` behaves as a subsequent call of `map()` (with a collection as a mapping result) and `flatten()`.
 
-```java,kotlin
+```kotlin
 
 data class StringContainer(val values: List<String>)
 
@@ -57475,7 +57439,7 @@ fun main() {
 }
 
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.7.5. String representation
 
@@ -57489,7 +57453,7 @@ strings: [`joinToString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 When called with the default arguments, the functions return the result similar to calling `toString()` on the collection:
 a `String` of elements' string representations separated by commas with spaces. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57504,13 +57468,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To build a custom string representation, you can specify its parameters in function arguments `separator`, `prefix`, and
 `postfix`. The resulting string will start with the `prefix` and end with the `postfix`. The `separator` will come after
 each element except the last.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57519,13 +57483,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For bigger collections, you may want to specify the `limit` – a number of elements that will be included into result.
 If the collection size exceeds the `limit`, all the other elements will be replaced with a single value of the `truncated`
 argument.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57534,11 +57498,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Finally, to customize the representation of elements themselves, provide the `transform` function. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57547,7 +57511,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 # 📜 10.1.08. Filtering collections
@@ -57566,7 +57530,7 @@ The basic filtering function is [`filter()`](https://kotlinlang.org/api/latest/j
 When called with a predicate, `filter()` returns the collection elements that match it.
 For both `List` and `Set`, the resulting collection is a `List`, for `Map` it's a `Map` as well.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")  
@@ -57579,7 +57543,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The predicates in `filter()` can only check the values of the elements.
 If you want to use element positions in the filter, use [`filterIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-indexed.html).
@@ -57588,7 +57552,7 @@ It takes a predicate with two arguments: the index and the value of an element.
 To filter collections by negative conditions, use [`filterNot()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-not.html).
 It returns a list of elements for which the predicate yields `false`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -57601,7 +57565,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 There are also functions that narrow the element type by filtering elements of a given type:
 
@@ -57620,7 +57584,7 @@ There are also functions that narrow the element type by filtering elements of a
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    
 
 * [`filterNotNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-not-null.html) returns all
     non-nullable elements. Being called on a `List<T?>`, `filterNotNull()` returns a `List<T: Any>`, thus allowing you to treat
@@ -57636,7 +57600,7 @@ There are also functions that narrow the element type by filtering elements of a
     //sampleEnd
     }
     ```
-    {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+    
 
 ## 10.1.8.2. Partition
 
@@ -57645,7 +57609,7 @@ Another filtering function – [`partition()`](https://kotlinlang.org/api/latest
 So, you have a `Pair` of `List`s as a return value: the first list containing elements that match the predicate and the
 second one containing everything else from the original collection.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -57656,7 +57620,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.8.3. Test predicates
 
@@ -57667,7 +57631,7 @@ Finally, there are functions that simply test a predicate against collection ele
 * [`all()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/all.html) returns `true` if all elements match the given predicate.
     Note that `all()` returns `true` when called with any valid predicate on an empty collection. Such behavior is known in logic as _[vacuous truth](https://en.wikipedia.org/wiki/Vacuous_truth)_.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -57680,12 +57644,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `any()` and `none()` can also be used without a predicate: in this case they just check the collection emptiness.
 `any()` returns `true` if there are elements and `false` if there aren't; `none()` does the opposite.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -57699,7 +57663,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 # 📜 10.1.09. Plus and minus operators
@@ -57713,7 +57677,7 @@ The return value is a new read-only collection:
 * The result of `minus` contains the elements of the original collection _except_ the elements from the second operand.
    If it's an element, `minus` removes its _first_ occurrence; if it's a collection, _all_ occurrences of its elements are removed.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57726,7 +57690,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For the details on `plus` and `minus` operators for maps, see [Map specific operations](map-operations.md).
 The [augmented assignment operators](operator-overloading.md#augmented-assignments) [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html)
@@ -57748,7 +57712,7 @@ You can also call `groupBy()` with a second lambda argument – a value transfor
 In the result map of `groupBy()` with two lambdas, the keys produced by `keySelector` function are mapped to the results
 of the value transformation function instead of the original elements.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57759,7 +57723,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If you want to group elements and then apply an operation to all groups at one time, use the function [`groupingBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/grouping-by.html).
 It returns an instance of the [`Grouping`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-grouping/index.html)
@@ -57776,7 +57740,7 @@ Namely, `Grouping` supports the following operations:
    subsequently to all the elements in each group and returns the result.
    This is the generic way to perform any operations on a `Grouping`. Use it to implement custom operations when fold or reduce are not enough.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57785,7 +57749,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 # 📜 10.1.11. Retrieve collection parts
 
@@ -57798,7 +57762,7 @@ specifying the result size, and others.
 [`slice()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/slice.html) returns a list of the collection
 elements with given indices. The indices may be passed either as a [range](ranges.md) or as a collection of integer values. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart    
@@ -57809,7 +57773,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.11.2. Take and drop
 
@@ -57820,7 +57784,7 @@ When called with a number larger than the collection size, both functions return
 To take all the elements except a given number of first or last elements, call the [`drop()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop.html)
 and [`dropLast()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop-last.html) functions respectively. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57832,7 +57796,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also use predicates to define the number of elements for taking or dropping.
 There are four functions similar to the ones described above:
@@ -57842,7 +57806,7 @@ There are four functions similar to the ones described above:
 * [`dropWhile()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop-while.html) is the opposite to `takeWhile()` with the same predicate: it returns the elements from the first one not matching the predicate to the end.
 * [`dropLastWhile()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/drop-last-while.html) is the opposite to `takeLastWhile()` with the same predicate: it returns the elements from the beginning to the last one not matching the predicate.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57854,7 +57818,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.11.3. Chunked
 
@@ -57863,7 +57827,7 @@ To break a collection into parts of a given size, use the [`chunked()`](https://
 The first chunk starts from the first element and contains the `size` elements, the second chunk holds the next `size` elements,
 and so on. The last chunk may have a smaller size. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57872,14 +57836,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also apply a transformation for the returned chunks right away.
 To do this, provide the transformation as a lambda function when calling `chunked()`.
 The lambda argument is a chunk of the collection. When `chunked()` is called with a transformation,
 the chunks are short-living `List`s that should be consumed right in that lambda.  
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57888,7 +57852,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.11.4. Windowed
 
@@ -57898,7 +57862,7 @@ it returns a list of element ranges that you would see if you were looking at th
 Unlike `chunked()`,  `windowed()` returns element ranges (_windows_) starting from *each* collection element.
 All the windows are returned as elements of a single `List`.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57907,7 +57871,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `windowed()` provides more flexibility with optional parameters:
 
@@ -57917,7 +57881,7 @@ fun main() {
 Finally, you can apply a transformation to the returned ranges right away.
 To do this, provide the transformation as a lambda function when calling `windowed()`.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57927,7 +57891,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To build two-element windows, there is a separate function - [`zipWithNext()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/zip-with-next.html).
 It creates pairs of adjacent elements of the receiver collection.
@@ -57936,7 +57900,7 @@ one, so its result on `[1, 2, 3, 4]` is `[[1, 2], [2, 3], [3, 4]]`, not `[[1, 2`
 `zipWithNext()` can be called with a transformation function as well; it should take two elements of the receiver collection
 as arguments.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57946,7 +57910,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 # 📜 10.1.12. Retrieve single elements
@@ -57975,7 +57939,7 @@ The first element has the position `0`, and the last one is `(size - 1)`.
 `elementAt()` is useful for collections that do not provide indexed access, or are not statically known to provide one.
 In case of `List`, it's more idiomatic to use [indexed access operator](list-operations.md#retrieve-elements-by-index) (`get()` or `[]`).
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -57987,12 +57951,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 There are also useful aliases for retrieving the first and the last element of the collection: [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html)
 and [`last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html).
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58002,7 +57966,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To avoid exceptions when retrieving element with non-existing positions, use safe variations of `elementAt()`:
 
@@ -58010,7 +57974,7 @@ To avoid exceptions when retrieving element with non-existing positions, use saf
 * [`elementAtOrElse()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/element-at-or-else.html) additionally takes a lambda function that maps an `Int` argument to an instance of the collection element type.
    When called with an out-of-bounds position, the `elementAtOrElse()` returns the result of the lambda on the given value.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58020,7 +57984,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.12.2. Retrieve by condition
 
@@ -58029,7 +57993,7 @@ also let you search a collection for elements matching a given predicate. When y
 tests a collection element, you'll receive the first element on which the predicate yields `true`.
 In turn, `last()` with a predicate returns the last element matching it. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58039,14 +58003,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If no elements match the predicate, both functions throw exceptions.
 To avoid them, use [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html)
 and [`lastOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last-or-null.html) instead:
 they return `null` if no matching elements are found.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58055,14 +58019,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Use the aliases if their names suit your situation better:
 
 * [`find()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find.html) instead of `firstOrNull()`
 * [`findLast()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/find-last.html) instead of `lastOrNull()`
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58072,7 +58036,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.12.3. Retrieve with selector
 
@@ -58085,7 +58049,7 @@ It combines 2 actions:
 Use the counterpart [`firstNotNullOfOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-not-null-of-or-null.html) 
 to return null in this case.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val list = listOf<Any>(0, "true", false)
@@ -58095,7 +58059,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
 
 ## 10.1.12.4. Random element
 
@@ -58103,7 +58067,7 @@ If you need to retrieve an arbitrary element of a collection, call the [`random(
 You can call it without arguments or with a [`Random`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.random/-random/index.html)
 object as a source of the randomness.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58112,7 +58076,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 On empty collections, `random()` throws an exception. To receive `null` instead, use [`randomOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/random-or-null.html)
 
@@ -58125,7 +58089,7 @@ You can call `contains()` in the operator form with the `in` keyword.
 To check the presence of multiple instances together at once, call [`containsAll()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/contains-all.html)
 with a collection of these instances as an argument.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58138,12 +58102,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Additionally, you can check if the collection contains any elements by calling [`isEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-empty.html)
 or [`isNotEmpty()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/is-not-empty.html). 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58157,7 +58121,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 
@@ -58187,7 +58151,7 @@ and return an integer value showing which object is greater:
 
 Below is a class for ordering versions that consist of the major and the minor part.
 
-```java,kotlin
+```kotlin
 class Version(val major: Int, val minor: Int): Comparable<Version> {
     override fun compareTo(other: Version): Int = when {
         this.major != other.major -> this.major compareTo other.major // compareTo() in the infix form 
@@ -58201,7 +58165,7 @@ fun main() {
     println(Version(2, 0) > Version(1, 5))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.6"}
+
 
 _Custom_ orders let you sort instances of any type in a way you like.
 Particularly, you can define an order for non-comparable objects or define an order other than natural for a comparable type.
@@ -58209,7 +58173,7 @@ To define a custom order for a type, create a [`Comparator`](https://kotlinlang.
 `Comparator` contains the `compare()` function: it takes two instances of a class and returns the integer result of the comparison between them.
 The result is interpreted in the same way as the result of a `compareTo()` as is described above. 
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val lengthComparator = Comparator { str1: String, str2: String -> str1.length - str2.length }
@@ -58217,7 +58181,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Having the `lengthComparator`, you are able to arrange strings by their length instead of the default lexicographical order.
 
@@ -58227,14 +58191,14 @@ and defines the custom order as the natural order of the produced values.
 
 With `compareBy()`, the length comparator from the example above looks like this:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart    
     println(listOf("aaa", "bb", "c").sortedWith(compareBy { it.length }))
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
 On this page, we'll describe sorting functions that apply to [read-only](collections-overview.md#collection-types) collections.
@@ -58247,7 +58211,7 @@ The basic functions [`sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/ko
 return elements of a collection sorted into ascending and descending sequence according to their natural order.
 These functions apply to collections of `Comparable` elements.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -58257,14 +58221,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.13.2. Custom orders
  
 For sorting in custom orders or sorting non-comparable objects, there are the functions [`sortedBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by.html) and [`sortedByDescending()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by-descending.html).
 They take a selector function that maps collection elements to `Comparable` values and sort the collection in natural order of that values.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -58276,13 +58240,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To define a custom order for the collection sorting, you can provide your own `Comparator`.
 To do this, call the [`sortedWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-with.html) function passing in your `Comparator`.
 With this function, sorting strings by their length looks like this:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -58290,13 +58254,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.13.3. Reverse order
 
 You can retrieve the collection in the reversed order using the [`reversed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html) function. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58305,7 +58269,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `reversed()` returns a new collection with the copies of the elements.
 So, if you change the original collection later, this won't affect the previously obtained results of `reversed()`.
@@ -58314,7 +58278,7 @@ Another reversing function - [`asReversed()`](https://kotlinlang.org/api/latest/
 - returns a reversed view of the same collection instance, so it may be more lightweight and preferable than `reversed()`
 if the original list is not going to change. 
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -58323,11 +58287,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If the original list is mutable, all its changes reflect in its reversed views and vice versa.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four")
@@ -58338,7 +58302,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 However, if the mutability of the list is unknown or the source is not a list at all, `reversed()` is more preferable
 since its result is a copy that won't change in the future.
@@ -58348,7 +58312,7 @@ since its result is a copy that won't change in the future.
 Finally, there is a function that returns a new `List` containing the collection elements in a random order - [`shuffled()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html).
 You can call it without arguments or with a [`Random`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.random/-random/index.html) object.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
      val numbers = listOf("one", "two", "three", "four")
@@ -58356,7 +58320,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 
@@ -58370,7 +58334,7 @@ on the collection content. Most of them are well known and work the same way as 
 * [`sum()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum.html) returns the sum of elements in the collection of numbers.
 * [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) returns the number of elements in a collection.
 
-```java,kotlin
+```kotlin
 
 fun main() {
     val numbers = listOf(6, 42, 10, 4)
@@ -58382,7 +58346,7 @@ fun main() {
     println("Sum: ${numbers.sum()}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 There are also functions for retrieving the smallest and the largest elements by certain selector function or custom [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/index.html):
 
@@ -58393,7 +58357,7 @@ There are also functions for retrieving the smallest and the largest elements by
 
 These functions return `null` on empty collections. There are also alternatives – [`maxOf`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of.html), [`minOf`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of.html), [`maxOfWith`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/max-of-with.html), and [`minOfWith`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/min-of-with.html) – which do the same as their counterparts but throw a `NoSuchElementException` on empty collections.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58407,13 +58371,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Besides regular `sum()`, there is an advanced summation function [`sumOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sum-of.html)
 that takes a selector function and returns the sum of its application to all collection elements. Selector can return 
 different numeric types: `Int`, `Long`, `Double`, `UInt`, and `ULong` (also `BigInteger` and `BigDecimal` on the JVM).
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58423,7 +58387,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 ## Fold and reduce
 
@@ -58433,7 +58397,7 @@ The operation takes two arguments: the previously accumulated value and the coll
 The difference between the two functions is that `fold()` takes an initial value and uses it as the accumulated value on
 the first step, whereas the first step of `reduce()` uses the first and the second elements as operation arguments on the first step.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf(5, 2, 10, 4)
@@ -58449,7 +58413,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The example above shows the difference: `fold()` is used for calculating the sum of doubled elements.
 If you pass the same function to `reduce()`, it will return another result because it uses the list's first and second
@@ -58460,7 +58424,7 @@ and [`foldRight()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collecti
 They work in a way similar to `fold()` and `reduce()` but start from the last element and then continue to previous.
 Note that when folding or reducing right, the operation arguments change their order: first goes the element, and then the accumulated value.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58470,7 +58434,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also apply operations that take element indices as parameters.
 For this purpose, use functions [`reduceIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce-indexed.html)
@@ -58480,7 +58444,7 @@ index as the first argument of the operation.
 Finally, there are functions that apply such operations to collection elements from right to left - [`reduceRightIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce-right-indexed.html)
 and [`foldRightIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fold-right-indexed.html). 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58493,7 +58457,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 All reduce operations throw an exception on empty collections. To receive `null` instead, use their `*OrNull()` counterparts:
 * [`reduceOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reduce-or-null.html)
@@ -58505,7 +58469,7 @@ For cases where you want to save intermediate accumulator values, there are func
 [`runningFold()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/running-fold.html) (or its synonym [`scan()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/scan.html)) 
 and [`runningReduce()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/running-reduce.html).
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58518,7 +58482,7 @@ fun main() {
     println(runningFoldSum.mapIndexed(transform).joinToString("\n", "Sum of first N elements with runningFold:\n"))
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
+
 
 If you need an index in the operation parameter, use [`runningFoldIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/running-fold-indexed.html)
 or [`runningReduceIndexed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/running-reduce-indexed.html).
@@ -58534,7 +58498,7 @@ For more specific operations available for `List` and `Map`, see [List-specific 
 
 To add a single element to a list or a set, use the [`add()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html) function. The specified object is appended to the end of the collection.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58544,7 +58508,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [`addAll()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/add-all.html) adds every element of the argument object to a list or a set. The argument can be an `Iterable`, a `Sequence`, or an `Array`.
 The types of the receiver and the argument may be different, for example, you can add all items from a `Set` to a `List`.
@@ -58554,7 +58518,7 @@ You can also call `addAll()` specifying an element position as the first argumen
 The first element of the argument collection will be inserted at this position.
 Other elements of the argument collection will follow it, shifting the receiver elements to the end. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58566,12 +58530,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also add elements using the in-place version of the [`plus` operator](collection-plus-minus.md) - [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`)
  When applied to a mutable collection, `+=` appends the second operand (an element or another collection) to the end of the collection.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58583,14 +58547,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.15.2. Removing elements
 
 To remove an element from a mutable collection, use the [`remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) function.
 `remove()` accepts the element value and removes one occurrence of this value. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58602,7 +58566,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For removing multiple elements at once, there are the following functions :
 
@@ -58612,7 +58576,7 @@ For removing multiple elements at once, there are the following functions :
    When used with a predicate, it leaves only elements that match it.
 * [`clear()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/clear.html) removes all elements from a list and leaves it empty.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58629,7 +58593,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Another way to remove elements from a collection is with the [`minusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`-=`) operator – the in-place version of [`minus`](collection-plus-minus.md). 
 The second argument can be a single instance of the element type or another collection.
@@ -58638,7 +58602,7 @@ In turn, if it's a collection, _all_ occurrences of its elements are removed.
 For example, if a list contains duplicate elements, they are removed at once.
 The second operand can contain elements that are not present in the collection. Such elements don't affect the operation execution.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58651,7 +58615,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.15.3. Updating elements
 
@@ -58679,7 +58643,7 @@ There are two other functions that help you avoid such exceptions:
 * [`getOrElse()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-else.html) lets you provide the function for calculating the default value to return if the index isn't present in the collection.
 * [`getOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html) returns `null` as the default value. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58692,7 +58656,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.16.2. Retrieve list parts
 
@@ -58700,7 +58664,7 @@ In addition to common operations for [Retrieving Collection Parts](collection-pa
 function that returns a view of the specified elements range as a list.
 Thus, if an element of the original collection changes, it also changes in the previously created sublists and vice versa.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58709,7 +58673,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.16.3. Find element positions
 
@@ -58719,7 +58683,7 @@ In any lists, you can find the position of an element using the functions [`inde
 They return the first and the last position of an element equal to the given argument in the list.
 If there are no such elements, both functions return `-1`.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58729,14 +58693,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 There is also a pair of functions that take a predicate and search for elements matching it:
 
 * [`indexOfFirst()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index-of-first.html) returns the *index of the first* element matching the predicate or `-1` if there are no such elements.
 * [`indexOfLast()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/index-of-last.html) returns the *index of the last* element matching the predicate or `-1` if there are no such elements.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58746,7 +58710,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Binary search in sorted lists
 
@@ -58763,7 +58727,7 @@ If there is more than one element with the given value, the search can return an
 
 You can also specify an index range to search in: in this case, the function searches only between two provided indices.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58776,14 +58740,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 #### Comparator binary search
 
 When list elements aren't `Comparable`, you should provide a [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator.html) to use in the binary search.
 The list must be sorted in ascending order according to this `Comparator`. Let's have a look at an example:
 
-```java,kotlin
+```kotlin
 
 data class Product(val name: String, val price: Double)
 
@@ -58799,7 +58763,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Here's a list of `Product` instances that aren't `Comparable` and a `Comparator` that defines the order: product `p1`
 precedes product `p2` if `p1`'s  price is less than `p2`'s price.
@@ -58807,7 +58771,7 @@ So, having a list sorted ascending according to this order, we use `binarySearch
 
 Custom comparators are also handy when a list uses an order different from natural one, for example, a case-insensitive order for `String` elements. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58816,7 +58780,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 #### Comparison binary search
 
@@ -58825,7 +58789,7 @@ Instead, it takes a comparison function mapping elements to `Int` values and sea
 The list must be sorted in the ascending order according to the provided function; in other words, the return values of
 comparison must grow from one list element to the next one.
 
-```java,kotlin
+```kotlin
 
 import kotlin.math.sign
 //sampleStart
@@ -58844,7 +58808,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Both comparator and comparison binary search can be performed for list ranges as well.
 
@@ -58861,7 +58825,7 @@ and [`addAll()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections
 element insertion as an additional argument.
 All elements that come after the position shift to the right.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58872,14 +58836,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Update
 
 Lists also offer a function to replace an element at a given position - [`set()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/set.html)
 and its operator form `[]`. `set()` doesn't change the indexes of other elements.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58889,12 +58853,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 [`fill()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/fill.html) simply replaces all the collection
 elements with the specified value.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58904,7 +58868,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Remove
 
@@ -58912,7 +58876,7 @@ To remove an element at a specific position from a list, use the [`removeAt()`](
 function providing the position as an argument.
 All indices of elements that come after the element being removed will decrease by one.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58922,7 +58886,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Sort
 
@@ -58940,7 +58904,7 @@ The in-place sorting functions have similar names to the functions that apply to
 returns another mutable list which is a reversed view of the original list. Changes in that view are reflected in the original list.
 The following example shows sorting functions for mutable lists:
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -58967,7 +58931,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 
@@ -58985,7 +58949,7 @@ To find an intersection between two collections (elements present in both of the
 To find collection elements not present in another collection, use [`subtract()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/subtract.html). 
 Both these functions can be called in the infix form as well, for example, `a intersect b`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = setOf("one", "two", "three")
@@ -58999,13 +58963,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also apply `union`, `intersect`, and `subtract` to `List`.
 However, their result is _always_ a `Set`, even on lists. In this result, all the duplicate elements are merged into one 
 and the index access is not available.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val list1 = listOf(1, 1, 2 ,3, 5, 8, -1)
@@ -59015,7 +58979,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 # 📜 10.1.18. Map-specific operations
@@ -59036,7 +59000,7 @@ Additionally, you have two more options to handle the key absence:
 * [`getOrElse()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-else.html) works the same way as for lists: the values for non-existent keys are returned from the given lambda function.
 * [`getOrDefault()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-default.html) returns the specified default value if the key is not found.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59049,12 +59013,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To perform operations on all keys or all values of a map, you can retrieve them from the properties `keys` and `values` accordingly.
 `keys` is a set of all map keys and `values` is a collection of all map values.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59064,7 +59028,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.18.2. Filter
 
@@ -59072,7 +59036,7 @@ You can [filter](collection-filtering.md) maps with the [`filter()`](https://kot
 When calling `filter()` on a map, pass to it a predicate with a `Pair` as an argument.
 This enables you to use both the key and the value in the filtering predicate.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59082,14 +59046,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 There are also two specific ways for filtering maps: by keys and by values.
 For each way, there is a function: [`filterKeys()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-keys.html) and [`filterValues()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/filter-values.html).
 Both return a new map of entries which match the given predicate.
 The predicate for `filterKeys()` checks only the element keys, the one for `filterValues()` checks only values.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59102,7 +59066,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.1.18.3. Plus and minus operators
 
@@ -59112,7 +59076,7 @@ Due to the key access to elements, [`plus`](https://kotlinlang.org/api/latest/jv
 When the right-hand side operand contains entries with keys present in the left-hand side `Map`, the result map contains
 the entries from the right side.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59123,12 +59087,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `minus` creates a `Map` from entries of a `Map` on the left except those with keys from the right-hand side operand.
 So, the right-hand side operand can be either a single key or a collection of keys: list, set, and so on.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59138,7 +59102,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For details on using [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`) and [`minusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html)
 (`-=`) operators on mutable maps, see [Map write operations](#map-write-operations) below.
@@ -59161,7 +59125,7 @@ To  add a new key-value pair to a mutable map, use [`put()`](https://kotlinlang.
 When a new entry is put into a `LinkedHashMap` (the default map implementation), it is added so that it comes last when
 iterating the map. In sorted maps, the positions of new elements are defined by the order of their keys. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59171,12 +59135,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 To add multiple entries at a time, use [`putAll()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/put-all.html).
 Its argument can be a `Map` or a group of `Pair`s: `Iterable`, `Sequence`, or `Array`.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59186,12 +59150,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Both `put()` and `putAll()` overwrite the values if the given keys already exist in the map. Thus, you can use them to update
 values of map entries.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59202,14 +59166,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also add new entries to maps using the shorthand operator form. There are two ways:
 
 * [`plusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/plus-assign.html) (`+=`) operator.
 * the `[]` operator alias for `set()`.  
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59220,7 +59184,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 When called with the key present in the map, operators overwrite the values of the corresponding entries. 
 
@@ -59230,7 +59194,7 @@ To remove an entry from a mutable map, use the [`remove()`](https://kotlinlang.o
 When calling `remove()`, you can pass either a key or a whole key-value-pair.
 If you specify both the key and value, the element with this key will be removed only if its value matches the second argument. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59242,13 +59206,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also remove entries from a mutable map by their keys or values.
 To do this, call `remove()` on the map's keys or values providing the key or the value of an entry.
 When called on values, `remove()` removes only the first entry with the given value.
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59260,12 +59224,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The [`minusAssign`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/minus-assign.html) (`-=`) operator
 is also available for mutable maps. 
 
-```java,kotlin
+```kotlin
 
 fun main() {
 //sampleStart
@@ -59277,7 +59241,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 # 📜 10.2. Opt-in requirements
 
@@ -59301,7 +59265,7 @@ When you use an API in the code intended for third-party use (a library), you ca
 To do this, annotate your declaration with the _[opt-in requirement annotation](#create-opt-in-requirement-annotations)_ of the API used in its body.
 This enables you to use API elements that require opt-in.
 
-```java,kotlin
+```kotlin
 // Library code
 @RequiresOptIn(message = "This API is experimental. It may be changed in the future without notice.")
 @Retention(AnnotationRetention.BINARY)
@@ -59312,7 +59276,7 @@ annotation class MyDateTime // Opt-in requirement annotation
 class DateProvider // A class requiring opt-in
 ```
 
-```java,kotlin
+```kotlin
 // Client code
 fun getYear(): Int {  
     val dateProvider: DateProvider // Error: DateProvider requires opt-in
@@ -59338,7 +59302,7 @@ Implicit usages of APIs that require opt-in also require opt-in. If an API eleme
 annotation but its signature includes a type declared as requiring opt-in, its usage will still raise a warning. 
 See the example below.
 
-```java,kotlin
+```kotlin
 // Client code
 fun getDate(dateProvider: DateProvider): Date { // Error: DateProvider requires opt-in
     // ...
@@ -59357,7 +59321,7 @@ In modules that don't expose their own API, such as applications, you can opt in
 the opt-in requirement to your code. In this case, mark your declaration with [`@OptIn`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-opt-in/)
  passing the opt-in requirement annotation as its argument:
 
-```java,kotlin
+```kotlin
 // Library code
 @RequiresOptIn(message = "This API is experimental. It may be changed in the future without notice.")
 @Retention(AnnotationRetention.BINARY)
@@ -59368,7 +59332,7 @@ annotation class MyDateTime // Opt-in requirement annotation
 class DateProvider // A class requiring opt-in
 ```
 
-```java,kotlin
+```kotlin
 // Client code
 @OptIn(MyDateTime::class)
 fun getDate(): Date { // Uses DateProvider; doesn't propagate the opt-in requirement
@@ -59386,7 +59350,7 @@ When somebody calls the function `getDate()`, they won't be informed about the o
 Note that if `@OptIn` applies to the declaration whose signature contains a type declared as requiring opt-in, 
 the opt-in will still propagate:
 
-```java,kotlin
+```kotlin
 // Client code
 @OptIn(MyDateTime::class)
 fun getDate(dateProvider: DateProvider): Date { // Has DateProvider as a part of a signature; propagates the opt-in requirement
@@ -59422,7 +59386,7 @@ If you build your module with Gradle, you can add arguments like this:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
@@ -59454,7 +59418,7 @@ If your Gradle module is a multiplatform module, use the `optIn` method:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 sourceSets {
     all {
         languageSettings.optIn("org.mylibrary.OptInAnnotation")
@@ -59507,7 +59471,7 @@ To opt in to multiple APIs on the module level, add one of the described argumen
 If you want to require explicit consent to using your module's API, create an annotation class to use as an _opt-in requirement annotation_.
 This class must be annotated with [@RequiresOptIn](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/):
 
-```java,kotlin
+```kotlin
 @RequiresOptIn
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
@@ -59528,7 +59492,7 @@ To set the desired level, specify the `level` parameter of the `@RequiresOptIn` 
 Additionally, you can provide a `message` to inform API users about special condition of using the API. 
 The compiler will show it to users that use the API without opt-in.
 
-```java,kotlin
+```kotlin
 @RequiresOptIn(level = RequiresOptIn.Level.WARNING, message = "This API is experimental. It can be incompatibly changed in the future.")
 @Retention(AnnotationRetention.BINARY)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)
@@ -59543,7 +59507,7 @@ This also lets you remove the opt-in requirements from the features independentl
 
 To require an opt-in to using an API element, annotate its declaration with an opt-in requirement annotation:
 
-```java,kotlin
+```kotlin
 @MyDateTime
 class DateProvider
 
@@ -59568,7 +59532,7 @@ To let the API users update their modules accordingly (remove the annotations
 from their code and recompile), mark the annotations as [`@Deprecated`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-deprecated/)
 and provide the explanation in the deprecation message.
 
-```java,kotlin
+```kotlin
 @Deprecated("This opt-in requirement is not used anymore. Remove its usages from your code.")
 @RequiresOptIn
 annotation class ExperimentalDateTime
@@ -59588,7 +59552,7 @@ this object becomes available inside the block and what the result of the whole 
 
 Here's a typical example of how to use a scope function:
 
-```java,kotlin
+```kotlin
 data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
@@ -59605,11 +59569,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If you write the same without `let`, you'll have to introduce a new variable and repeat its name whenever you use it. 
 
-```java,kotlin
+```kotlin
 data class Person(var name: String, var age: Int, var city: String) {
     fun moveTo(newCity: String) { city = newCity }
     fun incrementAge() { age++ }
@@ -59625,7 +59589,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Scope functions don't introduce any new technical capabilities, but they can make your code more concise and readable.
 
@@ -59680,7 +59644,7 @@ actual name. Each scope function uses one of two ways to reference the context o
 (`this`) or as a lambda argument (`it`). Both provide the same capabilities, so we describe the pros and cons of each
 for different use cases and provide recommendations for their use.
 
-```java,kotlin
+```kotlin
 fun main() {
     val str = "Hello"
     // this
@@ -59695,7 +59659,7 @@ fun main() {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 #### this
 
@@ -59707,7 +59671,7 @@ In most cases, you can omit `this` when accessing the members of the receiver ob
 functions. So having the context object as a receiver (`this`) is recommended for lambdas that mainly operate on the 
 object's members by calling its functions or assigning values to properties.
 
-```java,kotlin
+```kotlin
 data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
@@ -59720,7 +59684,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 #### it
 
@@ -59732,7 +59696,7 @@ However, when calling the object's functions or properties, you don't have the o
 Hence, accessing the context object via `it` is better when the object is mostly used as an argument in function calls. 
 `it` is also better if you use multiple variables in the code block.
 
-```java,kotlin
+```kotlin
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -59752,11 +59716,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 The example below demonstrates referencing the context object as a lambda argument with argument name: `value`.
 
-```java,kotlin
+```kotlin
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -59776,7 +59740,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### Return value
 
@@ -59792,7 +59756,7 @@ to choose the best scope function to use.
 The return value of `apply` and `also` is the context object itself. Hence, they can be included into call chains as
 _side steps_: you can continue chaining function calls on the same object, one after another.  
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numberList = mutableListOf<Double>()
@@ -59808,11 +59772,11 @@ fun main() {
     println(numberList)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 They also can be used in return statements of functions returning the context object.
 
-```java,kotlin
+```kotlin
 import kotlin.random.Random
 
 fun writeToLog(message: String) {
@@ -59831,14 +59795,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 #### Lambda result
 
 `let`, `run`, and `with` return the lambda result. So you can use them when assigning the result to a variable, chaining
 operations on the result, and so on.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -59851,11 +59815,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Additionally, you can ignore the return value and use a scope function to create a temporary scope for local variables. 
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -59867,7 +59831,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.3.3. Functions
 
@@ -59883,7 +59847,7 @@ conventions for using them.
 [`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html) can be used to invoke one or more functions on 
 results of call chains. For example, the following code prints the results of two operations on a collection:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -59892,12 +59856,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 With `let`, you can rewrite the above example so that you're not assigning the result of the list
 operations to a variable:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -59908,12 +59872,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 If the code block passed to `let` contains a single function with `it` as an argument, you can use the method reference 
 (`::`) instead of the lambda argument:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three", "four", "five")
@@ -59921,12 +59885,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `let` is often used to execute a code block containing non-null values. To perform actions on a non-null object, use
 the [safe call operator `?.`](null-safety.md#safe-calls) on it and call `let` with the actions in its lambda.
 
-```java,kotlin
+```kotlin
 fun processNonNullString(str: String) {}
 
 fun main() {
@@ -59941,13 +59905,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also use `let` to introduce local variables with a limited scope to make your code easier to read.
 To define a new variable for the context object, provide its name as the lambda argument so that it can be used instead of
 the default `it`.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -59959,7 +59923,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### with
 
@@ -59972,7 +59936,7 @@ object is passed as an argument, but inside the lambda, it's available as a rece
 We recommend using `with` for calling functions on the context object when you don't need to use the returned result.
 In code, `with` can be read as "_with this object, do the following._"
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -59983,11 +59947,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also use `with` to introduce a helper object whose properties or functions are used for calculating a value.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -59999,7 +59963,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### run
 
@@ -60011,7 +59975,7 @@ an extension function. So like `let`, you can call it on the context object usin
 
 `run` is useful when your lambda both initializes objects and computes the return value.
 
-```java,kotlin
+```kotlin
 class MultiportService(var url: String, var port: Int) {
     fun prepareRequest(): String = "Default request"
     fun query(request: String): String = "Result for query '$request'"
@@ -60036,13 +60000,13 @@ fun main() {
     println(letResult)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 You can also invoke `run` as a non-extension function. The non-extension variant of `run` has no context object, but it
 still returns the lambda result. Non-extension `run` lets you execute a block of several statements where an expression 
 is required.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val hexNumberRegex = run {
@@ -60059,7 +60023,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ### apply
 
@@ -60071,7 +60035,7 @@ recommend that you use it for code blocks that don't return a value and that mai
 receiver object. The most common use case for `apply` is for object configuration. Such calls can be read as "_apply 
 the following assignments to the object._"
 
-```java,kotlin
+```kotlin
 data class Person(var name: String, var age: Int = 0, var city: String = "")
 
 fun main() {
@@ -60084,7 +60048,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 Another use case for `apply` is to include `apply` in multiple call chains for more complex processing.
 
@@ -60099,7 +60063,7 @@ and functions, or when you don't want to shadow the `this` reference from an out
 
 When you see `also` in code, you can read it as "_and also do the following with the object._"
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val numbers = mutableListOf("one", "two", "three")
@@ -60109,7 +60073,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 ## 10.3.4. takeIf and takeUnless
 
@@ -60125,7 +60089,7 @@ Otherwise, it returns `null`. So, `takeIf` is a filtering function for a single 
 
 When using `takeIf` or `takeUnless`, the object is available as a lambda argument (`it`).
 
-```java,kotlin
+```kotlin
 import kotlin.random.*
 
 fun main() {
@@ -60138,14 +60102,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 > When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform a null check or use a safe call
 > (`?.`) because their return value is nullable.
 >
 {type="tip"}
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     val str = "Hello"
@@ -60155,14 +60119,14 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 `takeIf` and `takeUnless` are especially useful in combination with scope functions. For example, you can chain 
 `takeIf` and `takeUnless` with `let` to run a code block on objects that match the given predicate. To do this, 
 call `takeIf` on the object and then call `let` with a safe call (`?`). For objects that don't match the predicate, 
 `takeIf` returns `null` and `let` isn't invoked.
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     fun displaySubstringPosition(input: String, sub: String) {
@@ -60177,11 +60141,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 For comparison, below is an example of how the same function can be written without using `takeIf` or scope functions:
 
-```java,kotlin
+```kotlin
 fun main() {
 //sampleStart
     fun displaySubstringPosition(input: String, sub: String) {
@@ -60197,7 +60161,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 
 
 
@@ -60240,7 +60204,7 @@ available for `Int`, `Long`, and `Double` types: `nanoseconds`, `microseconds`, 
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.Duration.Companion.milliseconds
@@ -60266,11 +60230,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-create-duration"}
+
 
 You can also perform basic arithmetic with `Duration` objects:
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -60296,7 +60260,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-create-duration-arithmetic"}
+
 
 ### Get string representation
 
@@ -60308,7 +60272,7 @@ present. For example: `1h 0m 45.677s` or `-(6d 5h 5m 28.284s)`
 To configure the output, use the `.toString()` function with your desired `DurationUnit` and number of decimal places
 as function parameters:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.DurationUnit
@@ -60321,12 +60285,12 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-string-representation"}
+
 
 To get an [ISO-8601-compatible](https://en.wikipedia.org/wiki/ISO_8601) string, use the [`toIsoString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/to-iso-string.html)
 function:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration.Companion.seconds
 
 fun main() {
@@ -60335,7 +60299,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-iso-string-representation"}
+
 
 ### Convert duration
 
@@ -60349,7 +60313,7 @@ To convert your `Duration` into a different `DurationUnit`, use the following pr
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
 
@@ -60361,7 +60325,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-convert-duration"}
+
 
 Alternatively, you can use your desired `DurationUnit` as a function parameter in the following extension functions:
 * `.toInt()`
@@ -60370,7 +60334,7 @@ Alternatively, you can use your desired `DurationUnit` as a function parameter i
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration.Companion.seconds
 import kotlin.time.DurationUnit
 
@@ -60381,13 +60345,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-convert-duration-extension"}
+
 
 ### Compare duration
 
 To check if `Duration` objects are equal, use the equality operator (`==`):
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
@@ -60401,11 +60365,11 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-equality-duration"}
+
 
 To compare `Duration` objects, use the comparison operators (`<`, `>`):
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration.Companion.microseconds
 import kotlin.time.Duration.Companion.nanoseconds
 
@@ -60416,7 +60380,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-compare-duration"}
+
 
 ### Break duration into components
 
@@ -60426,7 +60390,7 @@ Add your desired action as a function or lambda expression as a function paramet
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.minutes
 
@@ -60438,7 +60402,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-duration-components"}
+
 
 In this example, the lambda expression has `hours` and `minutes` as function parameters with underscores (`_`) for the 
 unused `seconds` and `nanoseconds` parameters. The expression returns a concatenated string using [string templates](strings.md#string-templates) 
@@ -60458,7 +60422,7 @@ To track the passage of time, the standard library provides tools so that you ca
 To measure the time taken to execute a block of code, use the [`measureTime`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/measure-time.html)
 inline function:
 
-```java,kotlin
+```kotlin
 import kotlin.time.measureTime
 
 fun main() {
@@ -60470,13 +60434,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-measure-time"}
+
 
 To measure the time taken to execute a block of code **and** return the value of the block of code, use inline function [`measureTimedValue`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/measure-time.html).
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.time.measureTimedValue
 
 fun main() {
@@ -60490,7 +60454,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-measure-timed-value"}
+
 
 By default, both functions use a monotonic time source.
 
@@ -60500,7 +60464,7 @@ To mark a specific moment in time, use the [`TimeSource`](https://kotlinlang.org
 interface and the [`markNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-source/mark-now.html) function
 to create a [`TimeMark`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/):
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 
 fun main() {
@@ -60517,7 +60481,7 @@ To compare `TimeMark` objects from the same time source, use the comparison oper
 
 For example:
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 
 fun main() {
@@ -60540,13 +60504,13 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-measure-difference"}
+
 
 To check if a deadline has passed or a timeout has been reached, use the [`hasPassedNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/has-passed-now.html)
 and [`hasNotPassedNow()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-time-mark/has-not-passed-now.html) 
 extension functions:
 
-```java,kotlin
+```kotlin
 import kotlin.time.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -60569,7 +60533,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-time-deadline=passed"}
+
 
 ## 10.4.3. Time sources
 
@@ -60594,7 +60558,7 @@ There are some cases where you might want to use a different time source. For ex
 only counts time while the device is active. It loses track of time when the device enters deep sleep. To keep track of
 time while the device is in deep sleep, you can create a time source that uses [`SystemClock.elapsedRealtimeNanos()`](https://developer.android.com/reference/android/os/SystemClock#elapsedRealtimeNanos()):
 
-```java,kotlin
+```kotlin
 object RealtimeMonotonicTimeSource : AbstractLongTimeSource(DurationUnit.NANOSECONDS) {
     override fun read(): Long = SystemClock.elapsedRealtimeNanos()
 }
@@ -60602,7 +60566,7 @@ object RealtimeMonotonicTimeSource : AbstractLongTimeSource(DurationUnit.NANOSEC
 
 Then you can use your time source to make time measurements:
 
-```java,kotlin
+```kotlin
 fun main() {
     val elapsed: Duration = RealtimeMonotonicTimeSource.measureTime {
         Thread.sleep(100)
@@ -60734,7 +60698,7 @@ and its format-specific subpackages such as `kotlinx.serialization.json`.
 
 First, make a class serializable by annotating it with `@Serializable`.
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -60743,7 +60707,7 @@ data class Data(val a: Int, val b: String)
 
 You can now serialize an instance of this class by calling `Json.encodeToString()`.
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.encodeToString
@@ -60760,14 +60724,14 @@ As a result, you get a string containing the state of this object in the JSON fo
 
 You can also serialize object collections, such as lists, in a single call.
 
-```java,kotlin
+```kotlin
 val dataList = listOf(Data(42, "str"), Data(12, "test"))
 val jsonList = Json.encodeToString(dataList)
 ```
 
 To deserialize an object from JSON, use the `decodeFromString()` function:
 
-```java,kotlin
+```kotlin
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.decodeFromString
@@ -62208,7 +62172,7 @@ You have successfully created a project with Gradle.
 
 Open the `build.gradle.kts` file. This is the Gradle Kotlin build script, which contains Kotlin-related artifacts and other parts required for the application:
 
-```java,kotlin
+```kotlin
  // For `KotlinCompile` task below
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -62306,7 +62270,7 @@ from the Gradle plugins DSL:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 // replace `<...>` with the plugin name 
 plugins {
     kotlin("<...>") version "1.9.10"
@@ -62360,7 +62324,7 @@ To target the JVM, apply the Kotlin JVM plugin.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("jvm") version "1.9.10"
 }
@@ -62405,7 +62369,7 @@ The corresponding `sourceSets` property should be updated if you are not using t
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 sourceSets.main {
     java.srcDirs("src/main/myJava", "src/main/myKotlin")
 }
@@ -62455,7 +62419,7 @@ You can also configure it at task level in your `build.gradle(.kts)` file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>().configureEach {
     jvmTargetValidationMode.set(org.jetbrains.kotlin.gradle.dsl.jvm.JvmTargetValidationMode.WARNING)
 }
@@ -62492,7 +62456,7 @@ no additional settings for JVM targets:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("jvm") version "1.9.10"
 }
@@ -62566,7 +62530,7 @@ Use the following code to set a toolchain. Replace the placeholder `<MAJOR_JDK_V
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvmToolchain {
         languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
@@ -62603,7 +62567,7 @@ You can set a toolchain via the `java` extension, and Kotlin compilation tasks w
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) 
@@ -62631,7 +62595,7 @@ This type of plugin manages which repositories to download a toolchain from. As 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
   id("org.gradle.toolchains.foojay-resolver-convention") version("0.5.0")
 }
@@ -62670,7 +62634,7 @@ If you want Gradle to search for the major JDK version, replace the `<MAJOR_JDK_
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 val service = project.extensions.getByType<JavaToolchainService>()
 val customLauncher = service.launcherFor {
     languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
@@ -62698,7 +62662,7 @@ tasks.withType(UsesKotlinJavaToolchain::class).configureEach { task ->
 
 Or you can specify the path to your local JDK and replace the placeholder `<LOCAL_JDK_VERSION>` with this JDK version:
 
-```java,kotlin
+```kotlin
 tasks.withType<UsesKotlinJavaToolchain>().configureEach {
     kotlinJavaToolchain.jdk.use(
         "/path/to/local/jdk", // Put a path to your JDK
@@ -62722,7 +62686,7 @@ your `build.gradle(.kts)`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 val integrationTestCompilation = kotlin.target.compilations.create("integrationTest") {
     associateWith(kotlin.target.compilations.getByName("main"))
 }
@@ -62754,7 +62718,7 @@ add the following lines to your build script and replace `YOUR_MODULE_NAME` with
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
         
-```java,kotlin
+```kotlin
 // Add the following three lines if you use a Gradle version less than 7.0
 java {
     modularity.inferModulePath.set(true)
@@ -62817,7 +62781,7 @@ If you override the Kotlin/JVM `KotlinJvmCompile`/`KotlinCompile` task's `destin
 update your build script. You need to explicitly add `sourceSets.main.kotlin.classesDirectories` to `sourceSets.main.outputs` 
 in your JAR file:
 
-```java,kotlin
+```kotlin
 tasks.jar(type: Jar) {
      from sourceSets.main.outputs
      from sourceSets.main.kotlin.classesDirectories
@@ -62836,7 +62800,7 @@ require the `kotlin-multiplatform` plugin. [Learn more about the plugin](multipl
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -62868,7 +62832,7 @@ When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform") version "1.9.10"
 }
@@ -62894,7 +62858,7 @@ project contains Java files). If you don't store them separately, specify the so
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets["main"].apply {    
         kotlin.srcDir("src/main/myKotlin") 
@@ -62924,7 +62888,7 @@ use the `KotlinBasePlugin` interface that all Kotlin plugins inherit from:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.plugin.KotlinBasePlugin
 
 // ...
@@ -62958,7 +62922,7 @@ To add a dependency on a library, set the dependency of the required [type](#dep
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -63201,7 +63165,7 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonTest by getting {
@@ -63249,7 +63213,7 @@ The following example is for a Kotlin Multiplatform project:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     jvm {
         testRuns["test"].executionTask.configure {
@@ -63294,7 +63258,7 @@ The following example is for a JVM project:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     testImplementation(kotlin("test"))
 }
@@ -63341,7 +63305,7 @@ you can use platform-specific variants of libraries with suffixes such as `-jvm`
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val jvmMain by getting {
@@ -63377,7 +63341,7 @@ source set. Use the library's base artifact name, such as `kotlinx-coroutines-co
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets {
         val commonMain by getting {
@@ -63416,7 +63380,7 @@ or `gradleTestKit()`, which are not available in the source sets' dependency DSL
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     "commonMainImplementation"("com.example:my-library:1.0")
 }
@@ -63466,7 +63430,7 @@ For example:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
     compilerOptions {
         freeCompilerArgs.add("-Xexport-kdoc")
@@ -63501,7 +63465,7 @@ For both the JVM and Android projects, it's possible to define options using the
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     compilerOptions {
         apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleApiVersion%)
@@ -63539,7 +63503,7 @@ To configure a single task, use its name:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
@@ -63576,7 +63540,7 @@ It is also possible to configure all of the Kotlin compilation tasks in the proj
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
@@ -63642,7 +63606,7 @@ argument to this attribute or a list of arguments:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
@@ -63692,7 +63656,7 @@ To set a language version, use the following syntax:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks
     .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
     .configureEach {
@@ -63983,7 +63947,7 @@ You can specify arguments in the `kotlin` extension:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     kotlinDaemonJvmArgs = listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC")
 }
@@ -64008,7 +63972,7 @@ You can specify arguments for a specific task:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.withType<CompileUsingKotlinDaemon>().configureEach {
     kotlinDaemonJvmArguments.set(listOf("-Xmx486m", "-Xms256m", "-XX:+UseParallelGC"))
 }
@@ -64108,7 +64072,7 @@ Use the task property `compilerExecutionStrategy` in your build scripts:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 import org.jetbrains.kotlin.gradle.tasks.CompileUsingKotlinDaemon
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
@@ -64167,7 +64131,7 @@ There is also a `useDaemonFallbackStrategy` property in Kotlin compile tasks, wh
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks {
     compileKotlin {
         useDaemonFallbackStrategy.set(false)
@@ -64349,7 +64313,7 @@ If you use a custom Gradle configuration:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 configurations.register("customConfiguration") {
     // ...
 }
@@ -64372,7 +64336,7 @@ And want to add a dependency on the Kotlin Gradle plugin, for example:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     customConfiguration("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10")
 }
@@ -64395,7 +64359,7 @@ You need to add the following attributes to your `customConfiguration`:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 configurations {
     customConfiguration {
         attributes {
@@ -65415,7 +65379,7 @@ Every block tag begins on a new line and starts with the `@` character.
 
 Here's an example of a class documented using KDoc:
 
-```java,kotlin
+```kotlin
 /**
  * A group of *members*.
  *
@@ -65592,7 +65556,7 @@ To include `kotlin-osgi-bundle` to a Gradle project:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     implementation(kotlin("osgi-bundle"))
 }
@@ -65615,7 +65579,7 @@ To exclude default Kotlin libraries that comes as transitive dependencies you ca
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     implementation("some.group.id:some.library:someversion") {
         exclude(group = "org.jetbrains.kotlin")
@@ -65762,7 +65726,7 @@ and see the results.
 
 Kotlin can also be used as a scripting language. A script is a Kotlin source file (`.kts`) with top-level executable code.
 
-```java,kotlin
+```kotlin
 import java.io.File
 
 // Get the passed in path, i.e. "-d some/path" or use the current path.
@@ -66223,7 +66187,7 @@ will become open.
 
 It also works with meta-annotations:
 
-```java,kotlin
+```kotlin
 @com.my.Annotation
 annotation class MyFrameworkAnnotation
 
@@ -66352,7 +66316,7 @@ from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [b
 
 Add new annotations to mark the code that needs a zero-argument constructor:
 
-```java,kotlin
+```kotlin
 package com.my
 
 annotation class Annotation
@@ -66365,7 +66329,7 @@ Add the plugin using Gradle's plugins DSL:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("plugin.noarg") version "1.9.10"
 }
@@ -66443,7 +66407,7 @@ Add the plugin using the Gradle plugins DSL:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("plugin.jpa") version "1.9.10"
 }
@@ -66497,7 +66461,7 @@ public interface TaskRunner {
 }
 ```
 
-```java,kotlin
+```kotlin
 fun test(context: TaskContext) {
     val runner = TaskRunner {
         // Here 'this' is an instance of 'Task'
@@ -66682,7 +66646,7 @@ If you want to provide additional JVM arguments for a kapt worker process, use t
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 tasks.withType<org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask>()
     .configureEach {
         kaptProcessJvmArgs.add("-Xmx512m")
@@ -66957,7 +66921,7 @@ Note that kapt does not support multiple rounds for the generated Kotlin files.
 `apoptions` and `javacArguments` CLI options accept an encoded map of options.  
 Here is how you can encode options by yourself:
 
-```java,kotlin
+```kotlin
 fun encodeList(options: Map<String, String>): String {
     val os = ByteArrayOutputStream()
     val oos = ObjectOutputStream(os)
@@ -67034,7 +66998,7 @@ Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle(.kts)` file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("plugin.lombok") version "1.9.10"
     id("io.freefair.lombok") version "8.1.0"
@@ -67065,7 +67029,7 @@ For example, add the following code to your `build.gradle(.kts)` file:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlinLombok {
     lombokConfigurationFile(file("lombok.config"))
 }
@@ -67277,7 +67241,7 @@ This view lists common things that are declared in the file: classes, functions,
 
 KSP expects an implementation of the `SymbolProcessorProvider` interface to instantiate `SymbolProcessor`:
 
-```java,kotlin
+```kotlin
 interface SymbolProcessorProvider {
     fun create(environment: SymbolProcessorEnvironment): SymbolProcessor
 }
@@ -67285,7 +67249,7 @@ interface SymbolProcessorProvider {
 
 While `SymbolProcessor` is defined as:
 
-```java,kotlin
+```kotlin
 interface SymbolProcessor {
     fun process(resolver: Resolver): List<KSAnnotated> // Let's focus on this
     fun finish() {}
@@ -67297,7 +67261,7 @@ A `Resolver` provides `SymbolProcessor` with access to compiler details such as 
 A processor that finds all top-level functions and non-local functions in top-level classes might look something like
 the following:
 
-```java,kotlin
+```kotlin
 class HelloFunctionFinderProcessor : SymbolProcessor() {
     // ...
     val functions = mutableListOf<KSClassDeclaration>()
@@ -67379,7 +67343,7 @@ For a quick start, you can create your own processor or get a [sample one](https
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("jvm") version "%kspSupportedKotlinVersion%" apply false
 }
@@ -67416,7 +67380,7 @@ buildscript {
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("jvm")
 }
@@ -67476,7 +67440,7 @@ dependencies {
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 pluginManagement { 
     repositories { 
         gradlePluginPortal()
@@ -67504,7 +67468,7 @@ pluginManagement {
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
 }
@@ -67542,7 +67506,7 @@ Here's a sample build script to apply the KSP plugin to a workload:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
     kotlin("jvm") 
@@ -67622,7 +67586,7 @@ It may also be necessary to configure these directories in your KSP consumer mod
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 kotlin {
     sourceSets.main {
         kotlin.srcDir("build/generated/ksp/main/kotlin")
@@ -67660,7 +67624,7 @@ In this case, use the following script instead:
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     // ...
     idea
@@ -67784,21 +67748,21 @@ We are also exploring several additional features. These features are currently 
 
 ## 15.3.4.1. Get all member functions
 
-```java,kotlin
+```kotlin
 fun KSClassDeclaration.getDeclaredFunctions(): Sequence<KSFunctionDeclaration> =
     declarations.filterIsInstance<KSFunctionDeclaration>()
 ```
 
 ## 15.3.4.2. Check whether a class or function is local
 
-```java,kotlin
+```kotlin
 fun KSDeclaration.isLocal(): Boolean =
     parentDeclaration != null && parentDeclaration !is KSClassDeclaration
 ```
 
 ## 15.3.4.3. Find the actual class or interface declaration that the type alias points to
 
-```java,kotlin
+```kotlin
 fun KSTypeAlias.findActualType(): KSClassDeclaration {
     val resolvedType = this.type.resolve().declaration
     return if (resolvedType is KSTypeAlias) {
@@ -67811,7 +67775,7 @@ fun KSTypeAlias.findActualType(): KSClassDeclaration {
 
 ## 15.3.4.4. Collect suppressed names in a file annotation
 
-```java,kotlin
+```kotlin
 // @file:kotlin.Suppress("Example1", "Example2")
 fun KSFile.suppressedNames(): Sequence<String> = annotations
     .filter {
@@ -67843,7 +67807,7 @@ resolved by processors explicitly (with a few exceptions). When a _type_ (such a
 or `KSAnnotation.annotationType`) is referenced, it is always a `KSTypeReference`, which is a `KSReferenceElement` with
 annotations and modifiers.
 
-```java,kotlin
+```kotlin
 interface KSFunctionDeclaration : ... {
   val returnType: KSTypeReference?
   // ...
@@ -67867,7 +67831,7 @@ If the original declaration referenced by a `KSTypeReference` is needed, it can 
 `KSType` and accessing through `KSType.declaration`. Moving from where a type is mentioned to where its class is defined
 looks like this:
 
-```java,kotlin
+```kotlin
 val ksType: KSType = ksTypeReference.resolve()
 val ksDeclaration: KSDeclaration = ksType.declaration
 ```
@@ -68018,7 +67982,7 @@ See how functionalities of Java annotation processing API can be carried out by 
         <td><code>getInterfaces</code></td>
 <td>
 
-```java,kotlin
+```kotlin
 // Should be able to do without resolution
 ksClassDeclaration.superTypes
     .map { it.resolve() }
@@ -68043,7 +68007,7 @@ ksClassDeclaration.superTypes
         <td><code>getSuperclass</code></td>
 <td>
 
-```java,kotlin
+```kotlin
 // Should be able to do without resolution
 ksClassDeclaration.superTypes
     .map { it.resolve() }
@@ -68133,7 +68097,7 @@ ksClassDeclaration.superTypes
         <td><code>getExtendsBound</code></td>
 <td>
 
-```java,kotlin
+```kotlin
 if (ksTypeArgument.variance == Variance.COVARIANT) ksTypeArgument.type else null
 ```
 
@@ -68143,7 +68107,7 @@ if (ksTypeArgument.variance == Variance.COVARIANT) ksTypeArgument.type else null
         <td><code>getSuperBound</code></td>
 <td>
 
-```java,kotlin
+```kotlin
 if (ksTypeArgument.variance == Variance.CONTRAVARIANT) ksTypeArgument.type else null
 ```
 
@@ -68206,7 +68170,7 @@ if (ksTypeArgument.variance == Variance.CONTRAVARIANT) ksTypeArgument.type else 
         <td><code>isDeprecated</code></td>
 <td>
 
-```java,kotlin
+```kotlin
 KsDeclaration.annotations.any { 
     it.annotationType.resolve()!!.declaration.qualifiedName!!.asString() == Deprecated::class.qualifiedName
 }
@@ -68324,7 +68288,7 @@ The processor got `A` by `Resolver.getSymbolsWithAnnotation` and then got `B` by
 Because the inclusion of `B` is due to `A`, `B.kt` doesn't need to be specified in `dependencies` for `outputForA`.
 You can still specify `B.kt` in this case, but it is unnecessary.
 
-```java,kotlin
+```kotlin
 // A.kt
 @Interesting
 class A : B()
@@ -68408,7 +68372,7 @@ to the next round.
 
 The following sample code shows how to defer invalid symbols by using a validation check:
 
-```java,kotlin
+```kotlin
 override fun process(resolver: Resolver): List<KSAnnotated> {
     val symbols = resolver.getSymbolsWithAnnotation("com.example.annotation.Builder")
     val result = symbols.filter { !it.validate() }
@@ -68515,7 +68479,7 @@ Starting from KSP 1.0.1, applying KSP on a multiplatform project is similar to t
 The main difference is that, instead of writing the `ksp(...)` configuration in dependencies, `add(ksp<Target>)` or `add(ksp<SourceSet>)`
 is used to specify which compilation targets need symbol processing, before compilation.
 
-```java,kotlin
+```kotlin
 plugins {
     kotlin("multiplatform")
     id("com.google.devtools.ksp")
@@ -69424,7 +69388,7 @@ Here is an example for the Multiplatform project.
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 plugins {
     java
     kotlin("multiplatform") version "KOTLIN-EAP-VERSION"
@@ -69472,7 +69436,7 @@ For the **kotlinx.coroutines** library, add the version number – `%coroutinesE
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
-```java,kotlin
+```kotlin
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesEapVersion%")
 }

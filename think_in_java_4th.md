@@ -26672,8 +26672,7 @@ public class Erased < T > {
     private final int SIZE = 100;
     public static void f(Object arg) {
         if (arg instanceof T) {} // Error
-        T
-        var = new T(); // Error
+        T   var = new T(); // Error
         T[] array = new T[SIZE]; // Error
         T[] array = (T) new Object[SIZE]; // Unchecked warning
     }
@@ -26775,7 +26774,7 @@ public class InstantiateGenericType {
     public static void main(String[] args) {
         ClassAsFactory < Employee > fe =
             new ClassAsFactory < Employee > (Employee.class);
-        print("ClassAsFactory<Employee> succeeded");
+            print("ClassAsFactory<Employee> succeeded");
         try {
             ClassAsFactory < Integer > fi =
                 new ClassAsFactory < Integer > (Integer.class);
