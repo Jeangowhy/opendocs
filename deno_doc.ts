@@ -73,7 +73,7 @@ function parse_DocNodeInterface(mod:string, node:DocNodeInterface) {
         exts.push (parse_TsTypeDef(it))
     const ext = exts.length? " extends " + exts.join(",") : ""
     let rst = `
-${doc_title(`/. 🚀 :interface: ${node.name}`)}
+${doc_title(`/. 🚀 :interface: ${node.name} 🟠`)}
 
     interface ${node.name}${ext}
 
