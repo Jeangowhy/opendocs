@@ -363,7 +363,7 @@ Iterate over all entries of the tar archive.
 
 
 ______
-/. 🚀 :interface: TarInfo
+/. 🚀 :interface: TarInfo 🟠
 -------------------------
 
 
@@ -387,7 +387,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TarMeta
+/. 🚀 :interface: TarMeta 🟠
 -------------------------
 
 
@@ -406,7 +406,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TarOptions
+/. 🚀 :interface: TarOptions 🟠
 ----------------------------
 
 
@@ -436,7 +436,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TarData
+/. 🚀 :interface: TarData 🟠
 -------------------------
 
 
@@ -465,7 +465,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TarDataWithSource
+/. 🚀 :interface: TarDataWithSource 🟠
 -----------------------------------
 
 
@@ -490,7 +490,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TarMetaWithLinkName
+/. 🚀 :interface: TarMetaWithLinkName 🟠
 -------------------------------------
 
 
@@ -510,7 +510,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TarHeader
+/. 🚀 :interface: TarHeader 🟠
 ---------------------------
 
 
@@ -529,7 +529,7 @@ Index Signatures
 
 
 ______
-/. 🚀 :interface: TarEntry
+/. 🚀 :interface: TarEntry 🟠
 --------------------------
 
 
@@ -809,7 +809,7 @@ new JsonStringifyStream(object:StringifyStreamOptions)
 
 
 ______
-/. 🚀 :interface: ParseStreamOptions
+/. 🚀 :interface: ParseStreamOptions 🟠
 ------------------------------------
 
 
@@ -835,7 +835,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: StringifyStreamOptions
+/. 🚀 :interface: StringifyStreamOptions 🟠
 ----------------------------------------
 
 
@@ -1587,7 +1587,7 @@ console.log(JSONC.parse('{"foo": "bar" } // comment', {
 
 
 ______
-/. 🚀 :interface: ParseOptions
+/. 🚀 :interface: ParseOptions 🟠
 ------------------------------
 
 
@@ -2227,7 +2227,7 @@ const retryPromise = await retry(req, {
 
 
 ______
-/. 🚀 :interface: DeadlineOptions
+/. 🚀 :interface: DeadlineOptions 🟠
 ---------------------------------
 
 
@@ -2248,7 +2248,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: DebouncedFunction
+/. 🚀 :interface: DebouncedFunction 🟠
 -----------------------------------
 
 
@@ -2292,7 +2292,7 @@ Methods
 
 
 ______
-/. 🚀 :interface: Deferred
+/. 🚀 :interface: Deferred 🟠
 --------------------------
 
 
@@ -2330,7 +2330,7 @@ Methods
 
 
 ______
-/. 🚀 :interface: DelayOptions
+/. 🚀 :interface: DelayOptions 🟠
 ------------------------------
 
 
@@ -2357,7 +2357,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: RetryOptions
+/. 🚀 :interface: RetryOptions 🟠
 ------------------------------
 
 
@@ -3577,7 +3577,7 @@ Setup logger config.
 
 
 ______
-/. 🚀 :interface: HandlerOptions
+/. 🚀 :interface: HandlerOptions 🟠
 --------------------------------
 
 
@@ -3595,7 +3595,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: LogConfig
+/. 🚀 :interface: LogConfig 🟠
 ---------------------------
 
 
@@ -7509,7 +7509,7 @@ Like normalize(), but doesn't collapse "**\/.." when `globstar` is true.
 
 
 ______
-/. 🚀 :interface: ParsedPath
+/. 🚀 :interface: ParsedPath 🟠
 ----------------------------
 
 
@@ -8025,7 +8025,7 @@ function parse<T extends ParseOptions>( input:string, opt:T ): ParseResult<Parse
 
 
 ______
-/. 🚀 :interface: ReadOptions
+/. 🚀 :interface: ReadOptions 🟠
 -----------------------------
 
 
@@ -8085,7 +8085,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ParseOptions
+/. 🚀 :interface: ParseOptions 🟠
 ------------------------------
 
 
@@ -8113,7 +8113,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: CsvParseStreamOptions
+/. 🚀 :interface: CsvParseStreamOptions 🟠
 ---------------------------------------
 
 
@@ -8141,7 +8141,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: CsvStringifyStreamOptions
+/. 🚀 :interface: CsvStringifyStreamOptions 🟠
 -------------------------------------------
 
 
@@ -9253,7 +9253,7 @@ const string = stringify(object); // GREETING='hello world'
 
 
 ______
-/. 🚀 :interface: LoadOptions
+/. 🚀 :interface: LoadOptions 🟠
 -----------------------------
 
 
@@ -10468,7 +10468,7 @@ Sorts a list of semantic versions in ascending order.
 
 
 ______
-/. 🚀 :interface: SemVerComparator
+/. 🚀 :interface: SemVerComparator 🟠
 ----------------------------------
 
 
@@ -10496,7 +10496,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: SemVer
+/. 🚀 :interface: SemVer 🟠
 ------------------------
 
 
@@ -10519,7 +10519,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: SemVerRange
+/. 🚀 :interface: SemVerRange 🟠
 -----------------------------
 
 
@@ -10816,7 +10816,7 @@ const parsedArgs = parseArgs(["--foo", "--bar=baz", "./quux.txt"]);
 
 
 ______
-/. 🚀 :interface: ParseOptions
+/. 🚀 :interface: ParseOptions 🟠
 ------------------------------
 
 
@@ -11991,7 +11991,7 @@ and the finished one will not add any more data.
 
 
 ______
-/. 🚀 :interface: DelimiterStreamOptions
+/. 🚀 :interface: DelimiterStreamOptions 🟠
 ----------------------------------------
 
 
@@ -12012,7 +12012,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ReadableStreamFromReaderOptions
+/. 🚀 :interface: ReadableStreamFromReaderOptions 🟠
 -------------------------------------------------
 
 
@@ -12051,7 +12051,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: TextLineStreamOptions
+/. 🚀 :interface: TextLineStreamOptions 🟠
 ---------------------------------------
 
 
@@ -12074,7 +12074,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: WritableStreamFromWriterOptions
+/. 🚀 :interface: WritableStreamFromWriterOptions 🟠
 -------------------------------------------------
 
 
@@ -12575,7 +12575,7 @@ Stringify dumps source object into TOML string and returns it.
 
 
 ______
-/. 🚀 :interface: FormatOptions
+/. 🚀 :interface: FormatOptions 🟠
 -------------------------------
 
 
@@ -13350,7 +13350,7 @@ format(CRLFinput, EOL.LF); // output "deno\nis not\nnode"
 
 
 ______
-/. 🚀 :interface: ExistsOptions
+/. 🚀 :interface: ExistsOptions 🟠
 -------------------------------
 
 
@@ -13384,7 +13384,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ExpandGlobOptions
+/. 🚀 :interface: ExpandGlobOptions 🟠
 -----------------------------------
 
 
@@ -13411,7 +13411,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: CopyOptions
+/. 🚀 :interface: CopyOptions 🟠
 -----------------------------
 
 
@@ -13441,7 +13441,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: WalkOptions
+/. 🚀 :interface: WalkOptions 🟠
 -----------------------------
 
 
@@ -13508,7 +13508,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: WalkEntry
+/. 🚀 :interface: WalkEntry 🟠
 ---------------------------
 
 
@@ -15236,7 +15236,7 @@ onListen: undefined,
 
 
 ______
-/. 🚀 :interface: Cookie
+/. 🚀 :interface: Cookie 🟠
 ------------------------
 
 
@@ -15327,7 +15327,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: FileInfo
+/. 🚀 :interface: FileInfo 🟠
 --------------------------
 
 
@@ -15348,7 +15348,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ETagOptions
+/. 🚀 :interface: ETagOptions 🟠
 -----------------------------
 
 
@@ -15375,7 +15375,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ConnInfo
+/. 🚀 :interface: ConnInfo 🟠
 --------------------------
 
 
@@ -15408,7 +15408,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ServerInit
+/. 🚀 :interface: ServerInit 🟠
 ----------------------------
 
 
@@ -15443,7 +15443,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ServeInit
+/. 🚀 :interface: ServeInit 🟠
 ---------------------------
 
 
@@ -15480,7 +15480,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ServeListenerOptions
+/. 🚀 :interface: ServeListenerOptions 🟠
 --------------------------------------
 
 
@@ -15517,7 +15517,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ServeTlsInit
+/. 🚀 :interface: ServeTlsInit 🟠
 ------------------------------
 
 
@@ -15556,7 +15556,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ServerSentEventMessage
+/. 🚀 :interface: ServerSentEventMessage 🟠
 ----------------------------------------
 
 
@@ -15593,7 +15593,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: Browser
+/. 🚀 :interface: Browser 🟠
 -------------------------
 
 
@@ -15622,7 +15622,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: Device
+/. 🚀 :interface: Device 🟠
 ------------------------
 
 
@@ -15651,7 +15651,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: Engine
+/. 🚀 :interface: Engine 🟠
 ------------------------
 
 
@@ -15670,7 +15670,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: Os
+/. 🚀 :interface: Os 🟠
 --------------------
 
 
@@ -15689,7 +15689,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: Cpu
+/. 🚀 :interface: Cpu 🟠
 ---------------------
 
 
@@ -16443,7 +16443,7 @@ Validates the UUID v1.
 
 
 ______
-/. 🚀 :interface: V1Options
+/. 🚀 :interface: V1Options 🟠
 ---------------------------
 
 
@@ -18168,7 +18168,7 @@ deprecated
 
 
 ______
-/. 🚀 :interface: ReadLineResult
+/. 🚀 :interface: ReadLineResult 🟠
 --------------------------------
 
 
@@ -18195,7 +18195,7 @@ Properties
 
 
 ______
-/. 🚀 :interface: ByteRange
+/. 🚀 :interface: ByteRange 🟠
 ---------------------------
 
 
