@@ -14,7 +14,12 @@ function filter {
     for it in `sed -n "/^.. toctree::/,/^\S/{ s/^ \+[^:]\+$/\0/p }" $1 | sed -n 's|.*<\(.*\)>|\1|;p'`
     do
         doc="$parent$it"
-        filter $doc
+        if [ -a $doc ] && [ -z ${doc/*index.rst/} ]
+        then
+            filter $doc
+        else
+            echo $doc
+        fi
     done
 }
 
