@@ -4943,6 +4943,29 @@ Blender 右键选择模式可以提高绘画模式的工作效率，设置用户
 
 纹理绘制是一种很好模型纹理贴图的创建方法，这种方法的使用让平面绘画很好地应用到了 3D 场景中。
 
+进入纹理绘制模式，点击视图中间 Texture Slots 切换纹理绘制模式：
+
+1. Material 材质模式，从材质配置中获取 Image Texture 指定的图像进行绘制；
+2. Single Image 单图模式，直接从 UV 贴图列表中选择图像进行绘制；
+
+为了观察纹理绘制效果，一般还是需要先设置好 UV 映射、材质贴图，要为模型材质关联纹理贴图后，
+再进行纹理绘制操作，绘画结果保存在 UV texture 并应用于模型。
+
+纹理绘制模式下的笔刷 Texture 配置与蜡笔笔刷配置有点差别，因为功能上进行了扩展，
+需要先创建 Texture 对象，再通过 Texutre 属性面板关联图像文件，或者程序化纹理。
+
+功能上，Texture Paint 中的笔刷纹理有多种映射方式：View Plane 方式就像一般的笔刷贴图，
+画在哪里，贴图就贴在哪里。Stencil 镂空模式比较特别，此模式下贴图会浮动显示，通过鼠标操作，
+对贴图进行旋转、缩放、移动，然后贴图与模型重合区域就可以绘制得到最终纹理图。颜色混合上也使用
+通过的二值混合算法，默认使用 Mix，这种方式会按比例计算源像素、目标像素的色彩。但是，如果其中
+一方的色值为 0 即黑色，那么运算结果就为黑色。因此，选择纹理时，考虑使用非纯黑的图像。
+
+另外，UV Editor 缩放和 3D View 缩放对笔刷有不同的影响。前者使用像素单位，无论如何缩放，
+笔刷总是按指定像素大小绘制到贴图上。后者则会按视图平面来确定绘制区，根据模型视图的缩放比例，
+绘制区也相应地覆盖到不同的区域。
+
+因为 UV textures 可以设置图层，所以可以有多个 UV 贴图，但每个只能对应一个图片文件。
+
 UV 纹理是一张用于模型表面着色的图像(图片、图像序列或者影片)，它将一张或者多张纹理贴图，通过
 UV 坐标映射到模型上的。有三种方法来建立 UV 贴图：
 
@@ -4973,20 +4996,75 @@ Blender 纹理绘制模式本身就和这些图像处理工具类似，只是笔
 另外，笔刷可以设置两个不同功能的纹理贴图：
 
 01. Texture 笔刷纹理，绘画到图像上的纹理。
-02. Texture Mask 遮罩纹理，
+02. Texture Mask 遮罩纹理，控制笔刷的强度。
 
-Blender 的纹理绘图中的笔刷纹理的默认映射方式就像复写纸，Stencil 方式需要在纹理所在位置上绘画。
-需要不断调整纹理位置、缩放、旋转等，好处是纹理可以放置在任意位置上。可以使用 View Plane 这种更
-贴合自然绘画的映射方式，根据视角与绘画平面的角度差，纹理绘画出来可能会变形，视角垂直绘画平面时
-就不会导致纹理变形。
+Texture Mask 有一个额外的设置：Pressure Masking，即根据压感来钳制纹理遮罩：
 
-配合 Stroke Method 可以实现多种纹理绘画体验，一个复杂的笔触是曲线笔触，设置笔触为 Curve 方式 就要创建或关联一条曲线。按下 Ctrl-LMB 可以在绘图区设置曲线控制点，
-定义好曲线后再绘画，笔迹就会按曲线运动。
+1. :Off: Disabled.
+2. :Ramp: Fades out the mask effect on higher pressure.
+3. :Cutoff: Expands the used values from the image based on stylus pressure.
+
+Tiled 映射方式配合 Cutoff 压感方式时，遮罩纹理使用蓝色分量或透明像素控制纹理的不可绘制区域。
+
+
+绘画工具中还有一个 Mask 遮罩，模形被遮罩的区域（Mask Value = 1.0）不会受到笔刷的影响。
+绘制遮罩之前，首先需要在 3D View -> Masking 下拉列表中创建一个遮罩贴图。Blender 4.0
+更新了界面，将遮罩与 Texture Slots 一并放置在视图的最顶部。
+遮罩功能只在 3D View 视图中起作用，直接在图像编辑器中绘制纹理，遮罩层不起作用。
+
+刚创建的遮罩图像不包含任何像素值，准确地说是 Alpha 和颜色分量都为 0 值。绘制遮罩区就是
+将白色像素值绘制到遮罩图片上，按住 Ctrl 可以清理遮罩区，即使用黑色填充遮罩图片的相应区域。
+遮罩区默认在 3D View 中显示为黑色（其像素颜色为白色），使用 Solid 视图渲染模式下显示。
+显示颜色可以随时在 Masking 面板中修改。Mask Mapping 面板中设置遮罩方式：
+
+01. Stencil Mask 镂空方式，使用 Mask 工具定义镂空的表面，以避免受到绘画工具作用。
+02. Cavity Mask 洞孔遮罩方式，是可选项，算法基于顶点实现，网格表面的洞孔就是遮罩区。
+
+注意，遮罩贴图和其它贴图一样，可以在 Image Editor 中绘制，此时它就是一般图像。
+
+Blender 本身提供的图像编辑能力有限，可以配置外部的图像编辑器，例如开源的 Krita：
+Preference -> File Path -> Applications -> Image Editor
+
+外部程序编辑图像后，再回到 Blender，使用 Image 菜单重新加载贴图文件，快捷键 Alt+R。
+
+
+Texture, Vertex, Weight 三种绘制模式都提供了另一个遮罩工具，是基于网格面片的 Paint Mask，
+此遮罩工具激活时，工具栏会出现 Select Box，用来选择哪些面片或者顶点可以绘画，不能绘画的面片
+会以模糊状态显示。Vertex, Face Selection Masking 是更简单直接的遮罩方式，
+直接选择要保护的面片。
+
+遮罩还常用于雕刻模式，使用雕刻工具栏中的 Mask 工具用于标记那些需要保护起来的顶点、网格再进行造型。，
+
+
+笔刷纹理和遮罩纹理，Texture & Texture Mask，都是用于绘制到模型表面上的纹理，
+根据不同 Mask Mapping 映射方式有不同绘画效果，默认为平铺方式：
+
+1. :View Plane: 纹理按当前视图平面投映到模型表面；
+2. :Area Plane: 纹理按区域曲面法向量投影，从而防止纹理在陡峭的角度上拉伸；
+3. :Tiled: 平铺方式，纹理会在屏幕空间中重复地绘制，模型保持同样的屏幕位置就绘制同样的重复纹理；
+4. :3D: 使用顶点三维空间坐标而不是笔刷位置来确定绘画平面，不适用于 Texture Mask；
+5. :Random: 纹理将以随机纹理坐标方式绘制到模型表面；
+6. :Stencil: 镂空方式，冲压纹理，工作原理是将纹理从摄影机空间投影到网格或画布上。
+
+Blender 的纹理绘图中的笔刷纹理的冲压方式（Stencil），在绘制时需要先调整纹理所在位置再绘画。
+使用组合键调整纹理位置、缩放、旋转等，冲压方式非常灵活，纹理可以放置在任意位置上。
+
+      - Move :kbd:`RMB`
+      - Scale :kbd:`Shift-RMB`
+      - Rotate :kbd:`Ctrl-RMB`
+      - Hold :kbd:`Alt` for the Texture Mask
+
+可以使用 View Plane 这种更贴合自然绘画的映射方式，根据视角与绘画平面的角度差，
+纹理绘画出来可能会变形，视角垂直绘画平面时就不会导致纹理变形。
+
+配合 Stroke Method 可以实现多种纹理绘画体验，一个复杂的笔触是曲线笔触，Curve 方式需要创建
+或关联一条曲线。按下 Ctrl-LMB 在绘图区设置曲线控制点，G 命令移动控制点，定义好曲线后再绘画，
+笔迹就会按曲线位置绘画纹理图。
 
 笔触曲线编辑状态中，可以使用快捷键操作，尽管没有相应的菜单：
 
 - A 全选控制点，或取消选择；
-- S 绽放曲线；
+- S 缩放曲线；
 - G 移动曲线；
 - X 删除选中控制点；
 - Shift-RMB 扩展选择控制点；
@@ -5037,18 +5115,6 @@ Blender 的纹理绘图中的笔刷纹理的默认映射方式就像复写纸，
 
 - Missing Textures, detected! 纹理贴图没有设置。
 - Missing Stencil, detected! 遮罩纹理图像设有设置。
-
-遮罩工具需要在 mask texture 上绘制出权重灰度图，通过侧栏 Masking 面板中设置：
-
-01. Stencil Mask 镂空方式，使用 Mask 工具定义镂空的表面，以避免受到绘画工具作用。
-02. Cavity Mask 洞孔遮罩方式，是可选项，算法基于顶点实现，网格表面的洞孔就是遮罩区。
-
-Stencil Mask 定义的遮罩区默认显示为黑色，即不能绘画的区域。使用 Mask 工具可以绘制遮罩区，
-按住 Ctrl 绘制则清除遮罩区。3D 视图中显示为黑色，在其纹理图像中是白色，即数值 1 代表的遮罩区域。
-可以随时在 Masking 面板中反转遮罩区，或者改变遮罩显示的颜色。
-
-另一个遮罩工具是基于网格面片的 Paint Mask，此遮罩工具激活时，工具栏会出现 Select Box，用来
-选择哪些面片是可以绘画的，不能绘画的面片就会以模糊状态显示。
 
 
 纹理绘制的一个方便的功能是，可以将 Texture 图案绘制到模型上。在纹理绘制工作空间，为 Texture 属性
@@ -5116,8 +5182,48 @@ Texture Paint 结合 Displace Modifier，可以实现绘画即雕刻的功能，
 
 # 🚩 Motion Tracking 摄像机跟踪
 VFX Basics Camera Tracking and Matchmoving in Blender https://cloud.blender.org/p/track-match-2/5604153b044a2a00cd8ed380
+- Motion Tracking https://www.bilibili.com/video/BV12U4y1p7Sx/
 
 运动跟踪用于跟踪对象和/或照相机的运动，并通过约束将此跟踪数据应用于在 Blender 中创建或导入应用程序的三维对象(或一维对象，Blender 可以只跟踪一个点进行特效制作)。Blender 的运动跟踪器有两个非常强大的功能：二维跟踪和三维运动重建工具，可以进行包括相机跟踪和对象跟踪，以及一些特殊功能，如用于合成的平面跟踪反求。
+
+
+约束是通过使用数值限制来控制物体属性的方法，例如限制对象的位置、旋转、缩放等。
+主要用途在动画项目中，当然，在静态项目中也有用。Blender 提供四类约束器：
+
+1. Motion Tracking 镜头跟踪相关，与实景融合时使用；
+2. Transform 几何变换相关；
+3. Tracking 轨道运动相关；
+4. Relationship 关联关系间的约束；
+
+使用 Movie Clip Editor 进行镜头跟踪，使用左侧栏 Solve 面板 Solve Camera Motion 解算
+得到实境镜头的运动轨迹。面板中勾选 Triped 表示实境镜头使用了三角架，勾选 KeyFrame 表示由
+Blender 自动选择关键帧，可以手动指定进行解算的关键帧范围。解算完成后，视图顶部显示解算误差值，
+例如 Solve error 0.15 px，误差以像素为单位。
+
+左侧栏 Track 面板中提供了跟踪点设置，添加 8 个以上跟踪点，将其方框包裹住一块高对比的静物，
+然后，选中其中某些跟踪点，或者使用 A 全选，再使用 Track 面板中的逐步跟踪按钮尝试跟踪。
+某些跟踪点轨迹不正确，可以在指定关键帧位置，使用 Clear Track Path 清除掉前或后的轨迹数据。
+
+设置跟踪点时，可以先设置色彩管理，让视频剪辑对比度更高一点：Render => Color Managerment。
+
+在解算面板中，提供了 Orientation 和 Scene Setup 面板快速设置场景及物体。
+Set as Background 会自动设置场景中摄像机属性，Background Image 属性指向解算的视频剪辑。
+Setup Tracking Scene 会自动设置场景，场景属性 Active Clip 指向视频剪辑。还为场景中的
+相机添加 Camera Solver 约束器。场景更新两个视图层：Background 和 Foreground。
+并且添加 background 集合和一个参考平面，背景集合设置了 View Layer => Set Holdout，
+所有物体占据的屏幕空间都会穿透到背景。
+
+设置 Render => Film => Transparent 可以让整个场景使用透明背景。
+
+可以设置多一些跟踪点，解算后再利用 Clean Up 面板对误差较大的跟踪点进行清理，只保留精选的点。
+
+Blender 预置了 VFX => Motion Tracking 工作空间配置，可以直接使用，方便进行镜头跟踪。
+手动调出 Motion Clip Editor => Tracking => Dopesheet 等界面可能不会自动显示跟踪点。
+Viport Overlays 设置面板中勾选 Motion Tracking 和 Camera Path 可以显相机的运动轨迹。
+
+激活 Copy Attributes Menu 插件方便将模型与相机的朝向对齐，选择要对齐的模型，再选择相，
+按快捷键 Ctrl+C 选择 Rotation 就可以对齐到相机平面。
+
 
 剪辑视图是电影剪辑编辑器的主要部分。几乎所有的运动跟踪工具都集中在电影剪辑编辑器中。
 
@@ -5376,16 +5482,36 @@ Onion Skinning 洋葱皮显示当前帧之前和之后的关键帧鬼影，给�
 蜡笔对象中的矢量数据可以导出为 SVG 文件，但是由于渲染算法不同，显示效果会出现较大差异。
 Daniel Martinez Lara (Pepeland) 笔刷就是配合笔刷材质纹理实现炭笔、水彩等笔刷效果。
 
-画笔各种属性的关系：
+模型的 Textrue Paint 模式也可以使用笔刷，并且提供更丰富的功能，但与蜡笔笔刷独立配置。
+
+蜡笔绘画模式中，画笔各种属性的关系：
 
 1. Brushes：笔刷是一种渲染程序模型，决定笔触呈现出的外观，例如 Airbrush、Ink Pen、Pencil。
 2. Strokes：笔触是蜡笔对象基本的图形单元，笔触绘制后得到构成笔迹的一组数据。
 3. Material：笔刷材质，可以设置 Line Type、Stroke Style，填充色和 Base Color。
 
+笔刷材质设置纹理贴图操作步骤：打开蜡笔材质属性面板 ⇨ 点击 + 添加材质插槽 ⇨ 设置 Surface 
+Stoke Style = Texture，然后指定一个材质贴图。将色彩混合系数设置为 Blend = 1.0，
+这将完全使用 Base Color 或顶点色替代纹理图色彩。Line Type = Dots 通常用于模拟边界模糊
+的笔迹，如炭笔、水彩。在制作纹理贴图时，可以根据传统绘画中的笔触来制作相应的纹理。
+
+设置好纹理后，还需要设置笔刷属性，主要是 Radius 和 Strength 两个曲线，用于控制笔刷压感响应。
+以及 Stoke Randomize 面板中的各种随机性属性，主要是 Radius 的随机性，通过它产生不同大小
+的纹理贴图。绘画时，随机性属性数据会成为顶点属性数据，并控制顶点的渲染。其中 UV 坐标映射默认值 0，
+绘画时拖动笔刷会产生类似油画笔刷的痕迹，设置为 1.0 则可以完全纹理贴图比例缩放。
+
+
 笔画颜色有两种设置模式 Paint Mode：
 
-- Material 材质决定画笔颜色模式，只能通过材质指定颜色；
-- Vertex Color Attribute 顶点颜色模式，可以直接选择画笔颜色；
+- Material 材质决定画笔颜色模式，只使用材质指定的 Base Color 颜色；
+- Vertex Color Attribute 顶点颜色模式，为顶点指定颜色属性，直接作用于画笔渲染颜色；
+
+注意，不同的 Viewport Shading 渲染模式会影响当蜡笔对象在前视图显示的色彩：
+1. Wireframe 使用橙色渲染线框。
+2. Solid 渲染模式使用灰度色显示。
+3. Material Prevew 模式不考虑场景光源，使用一个默认的亮光着色蜡笔对象。
+4. Rendered 模式启用场景的光照进行渲染。
+
 
 笔刷材质 Line Type 可以设置为 Line、Dot、Square 等基础图形，样式可以设置 Texture 方式，
 笔触纹理图像与基础色进行混合，显示为 Line Type 指定的形状。
@@ -7530,10 +7656,15 @@ Blender 2.93 版本中正常操作生成绑定对象，3.0 版本中点击 Gener
 ## 👉 Constraint 约束
 - https://docs.blender.org/manual/en/2.93/animation/constraints/index.html
 
-约束是通过使用数值限制来控制物体属性的方法，例如限制对象的位置、旋转、缩放等。主要用途在动画项目中，当然，在静态项目中也有用。
+约束是通过使用数值限制来控制物体属性的方法，例如限制对象的位置、旋转、缩放等。
+主要用途在动画项目中，当然，在静态项目中也有用。Blender 提供四类约束器：
+
+1. Motion Tracking 镜头跟踪相关，与实景融合时使用；
+2. Transform 几何变换相关；
+3. Tracking 轨道运动相关；
+4. Relationship 关联关系间的约束；
 
 可以使用跟随路径约束 Follow Path Constraint 来让相机按曲线目标物体运动，使它沿着这个曲线 或路径移动。当跟随曲线 Follow Curve 选项启用，它也可以影响它的自身的旋转遵循曲线的弯曲。 可以用于复杂的相机漫游，火车在轨道上和大多数其他车辆也可以使用无形轨道，自行车链等。
-
 
 通过约束引用的目标，可以间接控制物体的动画，这是间接动画的一种形式。实际上，目标对象可以控制约束的物体属性，因此，目标对象将间接地带动物体的动作。
 
@@ -7837,6 +7968,8 @@ Note
 
 
 ### ⚡ Follow Track Constraint 跟踪轨迹
+
+注意 Follow Track 约束归属 Motion Tracking 分类，即用于镜头轨迹追踪的约束器。
 
 默认情况下，跟踪轨迹约束使对象在一个帧处具有与轨道相同的位置，并且此对象的运动发生在由摄像机定义的单个平面上以及对象的原始位置。
 
@@ -8412,13 +8545,28 @@ Principled BSDF 提供了完整的材料属性，每个属性在特定的材料�
 Tangent 切向控制各向异性图层的法线方向。
 
 在 Blender 中，凹凸贴图通过图片纹理 Image Texture 加载，再经过 Normal Map 得到法向输出，
-最后接入着色器。而置换贴图 Displacement Mapping 则直接通过图片纹理 Image Texture 加载接入
+最后接入着色器输出节点。而置换贴图 Displacement Mapping 则直接通过图片纹理 Image Texture 加载接入
 Material Output 节点的 Displacement 端口。一般，模型表面的细微凹凸可以用 Bump Mapping 或
 Normal Mapping，如墙面，而高起伏的纹理，如地形则可以使用置换的方法处理，置换贴图或模型修改器。
 
-提示：材质在使用带 Alpha 通道的贴图时，比如背景透明的叶子贴图，在侧栏设置中的混合模式 Blend Mode
-和阴影模式 Shadow Mode 中使用 Alpha Clip 来应用透明通道。可以使用 Import Image as Plane 
-来导入纹理贴图，它会自动设置材质连接贴图 Alpha 通道，并设置 Blend Mode。
+提示：材质在使用带 Alpha 通道的贴图时，比如背景透明的叶子贴图，Eevee 渲染器需要设置材质的混合模式，
+在侧栏设置中的混合模式 Blend Mode 和阴影模式 Shadow Mode 中使用 Alpha Clip 来应用透明通道。
+Eevee 渲染引擎下材质 Blend mode 有以下值：
+
+1. Opaque 默认的渲染方式，忽略透明通道，优点是渲染速度快；
+2. Alpha Clip，根据 *Clip Threshold* 值进行透明处理，高于此值的半透明区将当作不透明区处理；
+3. Alpha Hashed 使用一个随机 *Clip Threshold* 值进行透明处理，使用额外运算获得更好的效果；
+4. Alpha Blending 使用 Alpha 值混合两色值；
+
+Alpha 哈希方式这种统计方法是有噪声的，但能够在没有任何排序问题的情况下近似 Alpha Blending。
+增加渲染设置中的采样数将减少产生的噪波。
+
+如果要使透明贴图形成正确的阴影，就相应设置 Shadow Mode。
+
+设置为透明的物体不会进行正常的延迟渲染，而是在渲染完不透明物体之后渲染。
+多个不透明物体，默认先渲染距离摄影机远的，然后才是距离近的。
+
+Import Image as Plane 插件可以快速导入纹理贴图，它会自动设置材质连接贴图 Alpha 通道，并设置 Blend Mode。
 
 Blender 中可以利用  Texture Paint 模式对模型的 Bump 贴图进行绘制。
 
