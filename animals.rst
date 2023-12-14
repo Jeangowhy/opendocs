@@ -32,55 +32,57 @@ an encyclopedia of the natural history of Mexico and Central America by W. W. Fo
 Insecta. Rhynchota. Hemiptera-Homoptera. Volume II , Part 1 (1894-1909) by W. W. Fowler and T. D. A. Cockerell
 https://www.sil.si.edu/DigitalCollections/bca/navigation/bca_18_02_01/bca_18_02_01select.cfm
 
-+----------------------------+---------------+
-|     A to Z of insects      | 昆虫的 A 到 Z |
-+============================+===============+
-| Alderflies                 | 泥蛉          |
-| Ants                       | 蚂蚁          |
-| Antlions                   | 蚁狮          |
-| Archaeognatha              | 古牙形目      |
-| Barklice                   | 树皮虱        |
-| Bees                       | 蜜蜂          |
-| Beetles                    | 甲壳虫        |
-| Biting lice                | 啮毛虱        |
-| Booklice                   | 书虱          |
-| Butterflies                | 蝴蝶          |
-| Bugs                       | Bugs          |
-| Caddisflies                | 石蚕蛾        |
-| Cockroaches                | 蟑螂          |
-| Crickets                   | 蟋蟀          |
-| Damselflies                | 豆娘          |
-| Dobsonflies                | 鱼蛉          |
-| Dragonflies                | 蜻蜓          |
-| Earwigs                    | 假发          |
-| Fleas                      | 跳蚤          |
-| Flies                      | 苍蝇          |
-| Grasshoppers               | 蝗虫          |
-| Lacewings                  | 草蛉          |
-| Leaf insects               | 叶䗛 [xiū]    |
-| Lice                       | 羽虱          |
-| Mantids                    | 地幔          |
-| Mayflies                   | 蜉蝣          |
-| Moths                      | 蛾类          |
-| Praying Mantids            | 螳螂          |
-| Scorpionflies              | 蝎蛉          |
-| Snakeflies                 | 蛇蝇          |
-| Stick insects              | 粘虫          |
-| Stoneflies                 | 石蝇          |
-| Strepsipterans             | 捻翅虫        |
-| Sucking lice               | 吸虱子        |
-| Termites                   | 白蚁          |
-| Three-pronged bristletails | 衣鱼          |
-| Thrips                     | 蓟马          |
-| True Bugs                  | 椿象          |
-| Wasps                      | 胡蜂          |
-| Web-spinners               | 足丝蚁        |
-| Zorapterans                | 缺翅虫        |
-| Non-insect hexapods        | 非昆虫六足类  |
-| - Proturans                | 原尾虫        |
-| - Springtails              | 跳虫          |
-| - Two-pronged bristletails | 双尾虫        |
-+----------------------------+---------------+
+Biologia Centrali-Americana https://artvee.com/books/biologia-centrali-americana/
+
+============================= ================
+      A to Z of insects        昆虫的 A 到 Z
+============================= ================
+  Alderflies                   泥蛉
+  Ants                         蚂蚁
+  Antlions                     蚁狮
+  Archaeognatha                古牙形目
+  Barklice                     树皮虱
+  Bees                         蜜蜂
+  Beetles                      甲壳虫
+  Biting lice                  啮毛虱
+  Booklice                     书虱
+  Butterflies                  蝴蝶
+  Bugs                         Bugs
+  Caddisflies                  石蚕蛾
+  Cockroaches                  蟑螂
+  Crickets                     蟋蟀
+  Damselflies                  豆娘
+  Dobsonflies                  鱼蛉
+  Dragonflies                  蜻蜓
+  Earwigs                      假发
+  Fleas                        跳蚤
+  Flies                        苍蝇
+  Grasshoppers                 蝗虫
+  Lacewings                    草蛉
+  Leaf insects                 叶䗛 [xiū]
+  Lice                         羽虱
+  Mantids                      地幔
+  Mayflies                     蜉蝣
+  Moths                        蛾类
+  Praying Mantids              螳螂
+  Scorpionflies                蝎蛉
+  Snakeflies                   蛇蝇
+  Stick insects                粘虫
+  Stoneflies                   石蝇
+  Strepsipterans               捻翅虫
+  Sucking lice                 吸虱子
+  Termites                     白蚁
+  Three-pronged bristletails   衣鱼
+  Thrips                       蓟马
+  True Bugs                    椿象
+  Wasps                        胡蜂
+  Web-spinners                 足丝蚁
+  Zorapterans                  缺翅虫
+  Non-insect hexapods          非昆虫六足类
+  · Proturans                  原尾虫
+  · Springtails                跳虫
+  · Two-pronged bristletails   双尾虫
+============================= ================
 
 Oligotoma saundersii (平凡等尾足絲蟻)是纺足目、等尾丝蚁科的一个物种。 等尾丝蚁科的大部分种类主要在树皮上筑丝道，取食枯树皮。
 https://eol.org/zh-CN/pages/402218
