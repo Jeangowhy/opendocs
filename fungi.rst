@@ -54,8 +54,44 @@
 微生物（Microorganism）是一类肉眼难以观察到的生物统称，包括细菌、病毒、真菌、支原体、衣原体、 
 立克次体、螺旋体、放线菌等。
 
-.. image:: https://cdn.britannica.com/09/108909-050-681E996E/tree-life-three-domain-system.jpg
+.. figure:: https://cdn.britannica.com/09/108909-050-681E996E/tree-life-three-domain-system.jpg
     :width: 100%
+
+    Life Tree of 3 Domains System
+    https://www.britannica.com/topic/tree-of-life-religion
+
+* iTOL: Interactive Tree Of Life https://itol.embl.de/itol.cgi
+
+黏菌是一群类似霉菌的生物，类真菌原生生物 (Fungus-like Protists)，它既像真菌又不完全一样， 
+国际上没有一个被普遍公认的对原生生物的分类体系，这是一个临时性归类。
+
+黏菌会形成具有细胞壁的孢子，但是生活史中没有菌丝的出现，并且生活史中有一段黏黏的时期， 
+因而得名(slime molds)。这段黏黏的时期是黏菌的营养生长期，原质团如变形虫一样，可任意改变体形，
+故又称为“变形体”，归入单鞭毛生物-变形虫门 (Hawksworth et al., 1995)。
+原生质体黏菌的特色是没有单一细胞，而形成一整团的原生质。其生活史可分为二倍体时期与单倍体时期。
+如果将原质团看作一个细胞，那么这就是地球上最大的细胞。
+
+广义的又称裸菌，是营养生长阶段的结构为无细胞壁、裸露的原质团或假原质团、繁殖阶段产生孢子的 
+真核生物的统称，包括狭义黏菌、网柄菌、集胞菌、根肿菌、原柄菌、鹅绒菌以及网黏菌等异型异源类群，
+与真菌界的全体成员和菌藻界的部分成员统称为菌物。
+
+* 万圣节的礼物：生与死 https://www.bilibili.com/list/32078085
+
+计算机领域有人根据黏菌行为特性设计了黏菌算法（Slime Mould Algorithm，SMA）， 
+Li S, Chen H, Wang M, et al. Slime mould algorithm: A newmethod for stochastic optimization[J]. Future Generation Computer Systems. 2020, 111(1): 300-323.
+
+黏菌在有丝分裂后形成的变形体成熟之后，进入营养生长时期，会形成网状型态，且依照食物、水与氧气等 
+所需养分改变其表面积。在黏菌算法中，黏菌会根据当前位置的客观条件（适应度函数优劣），决定个体
+所在位置的权重，然后个体会根据权重决定新的位置在哪。
+
+当黏菌接近食物源时，生物振荡器会通过静脉产生传播波，来增加细胞质流量。食物浓度越高，生物振荡器 
+产生的传播波越强，细胞质流动越快。黏菌算法就是通过模拟黏菌这种捕食行为来实现智能寻优功能的。
+借鉴黏菌的生物行为，可以抽象出三个规则：
+
+* 接近食物： 黏菌通过空气中的气味接近食物，黏菌接近食物时呈圆形与扇形结构运动。
+* 包围食物： 黏菌静脉接触的食物浓度越高，生物振荡器产生的传播波越强，细胞质流动越快。
+* 抓取食物： 黏菌在食物浓度低时更慢地接近食物，找到优质食物时更快地接近食物。
+
 
 ======  ============  ================  ================
  -       人             白菜               猕猴
@@ -112,21 +148,47 @@
 .. image:: https://cdn.britannica.com/95/171295-050-9276BCB0/Panther-cap-mushrooms-death-mushroom-panther.jpg
     :width: 100%
 
-:如梦如幻的蘑菇 by 冷知识bot:
+.. figure:: https://image.slideserve.com/1429463/basidiomycete-life-cycle-n.jpg
+    :width: 50%
+
+    Life cycle of fungi
+
+*   Why Mushrooms Rule the Fungi Kingdom https://www.nationalgeographic.com/culture/article/why-mushrooms-rule-the-fungi-kingdom
+
+*   如梦如幻的蘑菇 by 冷知识bot
     https://im.cas.cn/kxcb/kysj/202106/t20210616_6108699.html
     https://im.cas.cn/kxcb/kysj/202106/W020210616539458658605.avi
 
-:真菌如何改变我的世界观 by Stephen Axford 澳大利亚蘑菇摄影师: 
+*   曳尾菌讲座 微观菌物 https://www.bilibili.com/video/BV1Sw411v7UL/
+*   彩虹色的孢子雾 https://www.bilibili.com/list/32078085
+*   蘑菇的魔力 The magic of mushrooms https://www.bilibili.com/bangumi/play/ep118867
+*   生命循环：奇异的腐烂科学 https://www.bilibili.com/video/BV1fA411G7Jf/
+*   真菌如何改变我的世界观 by Stephen Axford 澳大利亚蘑菇摄影师
     https://www.bilibili.com/video/BV1DV41127yv
 
-:Planet Fungi safari in remote northeast India: 
+*   Planet Fungi safari in remote northeast India
     https://www.bilibili.com/video/BV1TG411c7Wm/
 
-:斯蒂芬·阿克斯福德（Stephen Axford）菌类的微距照片:
+*   斯蒂芬·阿克斯福德（Stephen Axford）菌类的微距照片
     https://www.sohu.com/a/494948768_121119252
 
-:蘑菇的一生 延时摄影下的菌物世界:
+*   弯孢红盘菌图册 Plectania campylospora - Ascomycetes (Cup Fungi) by Steve Axford
+    https://steveaxford.smugmug.com/Fungi/Cup-Fungi/Plectania/
+
+*   橘黄刺杯菌图册 Ascomycetes (Cup Fungi) Cookeina by Steve Axford
+    https://steveaxford.smugmug.com/Fungi/Cup-Fungi/Cookeina-1/
+
+*   蘑菇的一生 延时摄影下的菌物世界
     https://www.bilibili.com/video/BV1fo4y1U7FN/
+
+*   Carris, L. M., C. R. Little, and C. M. Stiles. 2012. Introduction to Fungi. 
+    The Plant Health Instructor. DOI:10.1094/PHI-I-2012-0426-01
+    https://www.apsnet.org/edcenter/disandpath/fungalasco/intro/Pages/IntroFungi.aspx
+
+*   Fascinated By Fungi Dr. Gordon A. Walker https://fascinatedbyfungi.com/pages/about
+*   Fungus Gallery http://www.stridvall.se/fungi/gallery/
+*   David Noble https://david-noble.net/
+
 
 真菌是一种具真核的、产孢的、无叶绿体的真核生物。包含霉菌、酵母、蕈菌以及其他人类所熟知的菌菇类。 
 已经发现了十二万多种真菌。真菌的细胞有含甲壳素，能通过无性繁殖和有性繁殖的方式产生孢子。
@@ -187,16 +249,111 @@
 :科学家发现一种新型发光真菌: https://www.cas.cn/syky/202009/t20200908_4758941.shtml
 
 
+Queensland Mycological Society
+=======================================================
+
+* [Queensland Mycological Society](https://qldfungi.org.au/resources-2/downloads)
+
+A Community Science and Education Network for the Identification and Research of Queensland Fungi 
+
+*   **A Beginner’s Guide to Collecting Lichens in Queensland**  
+    By Vanessa Ryan  
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/2023/08/Handout-1-Collecting-lichens-compressed-1.png
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/2023/08/Handout-1-Collecting-lichens-compressed.pdf
+
+
+*   **A Beginner’s Guide to Identifying Lichens in Queensland**  
+    By Vanessa Ryan  
+    
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/2023/08/Handout-2-Identifying-lichens-compressed-1.png
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/2023/08/Handout-2-Identifying-lichens-compressed.pdf
+
+
+*   **A little Field Guide to the West Brisbane Fungi**  
+    By Megan Prance and Sapphire McMullan-Fisher
+
+    This little field Guide has been produced as a result of a survey conducted in 2014 by the Wolston and Centenary Catchments Inc. The survey covered an area of approximately 100 square kilometres bounded by the Brisbane River, Oxley Creek and the Logan Motorway.
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/References/Downloads/A-little-Field-Guide-to-West-Brisbane-Fungi-Cover.jpg
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/References/Downloads/A-little-Field-Guide-to-West-Brisbane-Fungi.pdf
+
+
+*   **Basics of Microscopy**
+
+    The notes used for a mini-workshop held by Diana Leemon for the QMS.
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/References/Downloads/cover_thumb.jpg
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Basic_Microscopy.pdf
+
+
+*   **Climate Change and Brisbane Macrofungi**  
+    A Critique on how Climate Change may affect Macrofungal Biodiversity with Recommendations for their Conservation. A report for the Brisbane City Council.  
+    By Tony Young and Nigel Fechner
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Climate-Change-and-Brisbane-Macrofungi-Cover.jpg
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/2014/05/Young-Fechner-Climate-Change-and-Macrofungi.pdf
+
+*   **Fungi in Australia**  
+    This freely downloadable e-book (PDF format), which consists of 9 parts, is intended to serve as a resource to assist in the identification of some fungi that may be encountered in our native forests. It can be downloaded for free from the Field Naturalists Club of Victoria Website
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Fungi-in-Australia-Cover.jpg
+        :align: center
+        :width: 160px
+        :target: https://www.fncv.org.au/fungi-in-australia/
+
+
+*   **Queensland’s Stinkhorns Poster**  
+    A poster to help you identify Queensland’s 19 species of Stinkhorns.  
+    A3 size.
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Queensland-Stinkhorns-Poster-Thumbnail.jpg
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Queensland-Stinkhorns-Poster-2017-A3.pdf
+
+        Queensland’s Stinkhorns Poster 1.2MB .pdf
+
+*   **Queensland’s Stinkhorns Species Descriptions**  
+    All the Stinkhorn species mentioned in the above poster are described here in greater detail.
+
+    .. figure:: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Species-Descriptions-Thumbnail.jpg
+        :align: center
+        :width: 160px
+        :target: https://qldfungi.org.au/wp-content/uploads/References/Downloads/Stinkhorn-Species-Descriptions-2017.pdf
+
+        Queensland’s Stinkhorns Species Descriptions 1.1MB .pdf
+
+*   **The third ‘F’ — fungi in Australian biodiversity conservation: actions, issues and initiatives**  
+    Australia’s biota, including fungi, is highly diverse and highly endemic with many species also highly at risk of extinction.  
+    By Alison M. Pouliot and Tom W. May  
+    _Mycologia Balcanica 7: 41–48 (2010)_
+
+    [Download Now!](https://qldfungi.org.au/wp-content/uploads/2014/05/PouliotMB2010_Australian_Fungi_conservation_issues.pdf)
+
+
+
 草菇 volvariella volvacea 🟢
 =======================================================
 
 .. image:: https://im.cas.cn/kxcb/wswdjt/201010/W020101027518809933094.jpg
-    :width: 100%
-..
+    :width: 50%
+    :align: left
+.. 
 
-    草菇起源于我国广东韶关的南华寺中，300 年前已开始人工栽培，约在本世纪 30 年代由华侨传播世界各国。 
-    这是一种重要的热带亚热带菇类，是世界上第三大栽培食用菌，我国草菇产量居世界之首，主要分布于华南地区。 
-    草菇营养丰富，味道鲜美。每 100g 鲜菇营养成分：
+草菇起源于我国广东韶关的南华寺中，300 年前已开始人工栽培，约在本世纪 30 年代由华侨传播世界各国。 
+这是一种重要的热带亚热带菇类，是世界上第三大栽培食用菌，我国草菇产量居世界之首，主要分布于华南地区。 
+草菇营养丰富，味道鲜美。每 100g 鲜菇营养成分：
 
     207.7mg 维生素 C，
     2.6g 糖分，
@@ -204,47 +361,91 @@
     2.24g 脂肪，
     0.91g 灰分。
 
-    草菇蛋白质含18种氨基酸，其中必需氨基酸占 40.47-44.47%。此外，还含有磷、钾、钙等多种矿质元素。 
+草菇蛋白质含18种氨基酸，其中必需氨基酸占 40.47-44.47%。此外，还含有磷、钾、钙等多种矿质元素。 
 
 
-黄绿蜜环菌 🟢
+黄绿蜜环菌 Armillaria luteo-virens 🟢
 =======================================================
 
-.. image:: http://www.suoyanzi.com/wp-content/uploads/2021/01/1610065488228_3.jpeg
+===============   ===============
+ |Armillaria2|     |Armillaria3| 
+===============   ===============
+
+.. |Armillaria2| image:: https://p4.itc.cn/q_70/images03/20210720/53600a8e003848808ba88216e83bc9e2.jpeg
     :width: 100%
-..
 
-黄绿蜜环菌生长在高山草原，形成蘑菇圈子，味道鲜美、营养丰富，有抗癌功能，国内很多种植户都是产品出口。 
+.. |Armillaria3| image:: https://www.biodiversidadvirtual.org/hongos/data/media/3799/Armillaria-ostoyae-(Romagn.)-Herink-1973-45523.jpg
+    :width: 100%
+.. 
 
+:中文名: 黄绿蜜环菌
+:拉丁学名: Armillaria luteo-virens（Aalb.et Schw:Fr.）Sacc.
+:界: 植物界
+:门: 真菌门(Eumycota)
+:亚    门: 担子菌亚门(Basidiomycotina)
+:纲: 层菌纲(Hymenomycetes)
+:亚    纲: 同担子菌亚纲
+:目: 伞菌目(Agaricales)
+:科: 白蘑科Tricholomataceae
+:属: 蜜环菌属（Armillaria）
+:种: 黄绿蜜环菌
 :别名: 黄蘑菇、金蘑菇、草原口蘑、石渠白菌。
 
+黄绿蜜环菌[Armillaria luteo-virens（Aalb.et Schw:Fr.）Sacc.]，又名黄蘑菇，皇菇、黄环菌， 
+是一种名贵食用菌，也是一种重要的高原生物资源，主要分布于青海、西藏、四川、甘肃，其海拔分布范围约为
+3000-4300m，集中分布于海拔 3200~3800m 的草甸上，主产于海北(祁连、海晏、刚察)，黄南(泽库、河南)，
+海南(共和、贵德、兴海)，果洛(玛沁、甘德、久治)，玉树；其中以青海湖畔至祁连一带纯天然无污染地区的
+黄蘑菇最为质优。青海湖畔的夏季，每年当雨季过后，草原上就会冒出很肥美的野生黄蘑菇，这种蘑菇的表皮
+样子和鸡皮实在太像了，因为味道特别鲜美，或炒肉，或炖汤风味浓郁，因这种蘑菇的颜色多数是黄色的，
+所以本地叫黄蘑菇。
 
-羊肚菌 Morehella esculenta (L. ) Pers 🟢
+
+羊肚菌 Morehella esculenta 🟢
 =======================================================
 
-==============  ==============
- |Morehella1|    |Morehella2| 
-==============  ==============
+==============  ==============  ==============
+ |Morehella1|    |Morehella2|    |Morehella3| 
+==============  ==============  ==============
 
 .. |Morehella1| image:: https://im.cas.cn/kxcb/wswdjt/201010/W020101027518809938000.jpg
-    :width: 50%
+    :width: 100%
 
 .. |Morehella2| image:: http://www.suoyanzi.com/wp-content/uploads/2021/01/1610065488228_1.jpeg
-    :width: 50%
-..
+    :width: 100%
 
-    羊肚菌又称羊肚菜、美味羊肚菌、羊蘑。 
+.. |Morehella3| image:: http://www.suoyanzi.com/wp-content/uploads/2021/01/1610065488228_3.jpeg
+    :width: 100%
+.. 
 
-    *　  拉丁名：Morehella esculenta (L. ) Pers
-    *　  分类：真菌学分类属盘菌目，羊肚菌科，羊肚菌属。
-    *　  分布：我国河南，陕西、甘肃、青海、西藏、新疆、四川、山西、吉林、江苏、云南、河北、北京等地区。
+羊肚菌又称羊肚菜、美味羊肚菌、羊蘑。 
 
-    基本介绍：子实体较小或中等，6-14.5cm，菌盖不规则圆形，长圆形，长4-6cm，宽4-6cm。 
-    表面形成许多凹坑，似羊肚状，淡黄褐色，柄白色，长 5-7cm，宽粗 2-2.5cm，有浅纵沟，基部稍膨大，
-    生长于阔叶林地上及路旁，单生或群生。可食用，味道鲜美，是一种优良食用菌。可药用，益肠胃，化痰理气。
-    含有异亮氨酸、亮氨酸、赖氨酸、蛋氨酸、苯丙氨酸、苏氨酸和缬氨酸等 7 种人体必需氨基酸。
+* 拉丁名：Morehella esculenta (L. ) Pers
+* 分类：真菌学分类属盘菌目，羊肚菌科，羊肚菌属。
+* 分布：我国河南，陕西、甘肃、青海、西藏、新疆、四川、山西、吉林、江苏、云南、河北、北京等地区。
 
-    羊肚菌为真菌植物门真菌羊肚菌 Morchellaesculenta（13）Pers. 尖顶羊肚菌 M.conicaPers. 的子实体。羊肚茵每百克干品含蛋白质 24.5 克，脂肪 2.6 克，碳水化合物 39.7 克，还含有多种维生素和矿物质。
+基本介绍：子实体较小或中等，6-14.5cm，菌盖不规则圆形，长圆形，长4-6cm，宽4-6cm。 
+表面形成许多凹坑，似羊肚状，淡黄褐色，柄白色，长 5-7cm，宽粗 2-2.5cm，有浅纵沟，基部稍膨大，
+生长于阔叶林地上及路旁，单生或群生。可食用，味道鲜美，是一种优良食用菌。可药用，益肠胃，化痰理气。
+含有异亮氨酸、亮氨酸、赖氨酸、蛋氨酸、苯丙氨酸、苏氨酸和缬氨酸等 7 种人体必需氨基酸。
+
+羊肚菌为真菌植物门真菌羊肚菌 Morchellaesculenta（13）Pers. 尖顶羊肚菌 M.conicaPers. 的子实体。羊肚茵每百克干品含蛋白质 24.5 克，脂肪 2.6 克，碳水化合物 39.7 克，还含有多种维生素和矿物质。
+
+皱盖钟菌（VERPA BOHEMICA）又称为“皱纹顶针羊肚菌”，看起来很像羊肚菌，称为假羊肚菌，褶皱像大脑。 与羊肚菌有“凹陷”蜂窝状的菌盖不同，皱盖钟菌具有类似于大脑的褶皱，呈深棕色或棕褐色。
+虽然皱盖钟菌被普遍认为可食用，但也有一些过敏个体的中毒报告，所以一般不建议食用该菌。
+中毒症状包括肠胃不适和肌肉失去协调。
+
+类似的还有鹿花菌（GYROMITRA ESCULENTA），剧毒，颜色为红棕色或栗色。 菌盖永远不会深陷，这是快速将其识别为非羊肚菌的最佳方法。
+
+==============  ==============
+ |BOHEMICA1|    |ESCULENTA2| 
+==============  ==============
+
+.. |BOHEMICA1| image:: https://bkimg.cdn.bcebos.com/pic/8ad4b31c8701a18b7b2330469f2f07082938feeb
+    :width: 100%
+
+.. |ESCULENTA2| image:: https://bkimg.cdn.bcebos.com/pic/e61190ef76c6a7ef9eecb38df3faaf51f2de6656
+    :width: 100%
+.. 
 
 
 牛肝菌 Boletus 🟢
@@ -295,44 +496,76 @@
 且营养价值很高，有健康食品之称。有的蘑菇，如光帽黄伞、松口蘑等，有降压抗癌等药效，可供药用。
 
 
+马勃 Lasiosphaera seu Calvatia 🟢
+=======================================================
+
+.. image:: https://david-noble.net/bushwalking/BolaCkApr14/BC%207.jpg
+    :width: 50%
+    :align: left
+.. 
+
+:中文名: 马勃
+:别    名: 灰包、马粪包、马屁泡、马屁勃
+:拉丁学名: Lasiosphaera seu Calvatia
+:界: 真菌界
+:门: 担子菌门
+:亚    门: 担子菌亚门
+:目: 马勃目Lycoperdales
+:科: 马勃科、地星科
+:分布区域: 欧洲、亚洲、非洲、大洋洲及美洲
+
+马勃是一类担子菌门、马勃科的真菌通称，分布广泛，在中国各地几乎都有，夏秋季节下过雨之后， 
+多半生长在旷野草地或湿地腐木上。马勃多属马勃科 Lycoperdaceae，部分为地星科 Geastraceae。
+马勃担子果球形、梨形、陀螺形、扁圆形；外包被常有小疣或小刺等纹饰，成熟时脱落，纸质或膜质；
+顶端不规则开口或闭合；假根明显或无，成熟时固定于着生处或与地面脱离；孢体粉末状，成熟时孢子
+随风扩散至外界；孢丝无隔；孢子表面有不明显纹饰。
+
+马勃子实体个体较大，人们通称马粪包，Puffball，泡芙球。 
+马勃是森林组成的重要物种。它的多数种类是药用真菌，部分种类可以食用，有的种类是林木外生菌根菌。
+
+* PUFFBALLS – IDENTIFICATION, DISTRIBUTION, EDIBILITY https://gallowaywildfoods.com/giant-puffball-identification-distribution-edibility/
+
 白鳞马勃 Lycoperdon mammaeforme Pers 🟢
 =======================================================
 
 .. image:: https://im.cas.cn/kxcb/wswdjt/201010/W020101027524043459344.jpg
-    :width: 100%
-..
+    :width: 50%
+    :align: left
+.. 
 
-    白鳞马勃(Lycoperdon mammaeforme Pers .)子实体较小，陀螺状，直径 3-5cm，高 4-8cm， 
-    不育基部比较发达，初期纯白色，后期略带黄褐色。表面具有厚白块状或斑片状鳞片，后期鳞片脱落而光滑，
-    顶稍凸起且成熟时破裂一孔口。内部孢体纯白色，成熟后呈黄褐色至暗褐色。夏秋季在林中草地上单生或群生。
-    分布于我国西藏、青海、陕西秦岭地区。孢粉可作为止血药。
+白鳞马勃(Lycoperdon mammaeforme Pers .)子实体较小，陀螺状，直径 3-5cm，高 4-8cm， 
+不育基部比较发达，初期纯白色，后期略带黄褐色。表面具有厚白块状或斑片状鳞片，后期鳞片脱落而光滑，
+顶稍凸起且成熟时破裂一孔口。内部孢体纯白色，成熟后呈黄褐色至暗褐色。夏秋季在林中草地上单生或群生。
+分布于我国西藏、青海、陕西秦岭地区。孢粉可作为止血药。
 
 
 梨形马勃 Lycoperdon pyriforme Schaeff.:Pers 🟢
 =======================================================
 
 .. image:: https://im.cas.cn/kxcb/wswdjt/201010/W020101027524043450683.jpg
-    :width: 100%
-..
+    :width: 50%
+    :align: left
+.. 
 
-  梨形马勃（Lycoperdon pyriforme Schaeff.:Pers.）子实体小，高 2-35cm，梨形至近球形，
-  不孕基部发达，由白色菌丝束固定于基物上。初期包被色淡，后呈茶褐色至浅烟色，外包被形成微细颗粒状小疣，
-  内部橄榄色，后变为褐色。 　　
+梨形马勃（Lycoperdon pyriforme Schaeff.:Pers.）子实体小，高 2-35cm，梨形至近球形，
+不孕基部发达，由白色菌丝束固定于基物上。初期包被色淡，后呈茶褐色至浅烟色，外包被形成微细颗粒状小疣，
+内部橄榄色，后变为褐色。 　　
 
-  夏秋季生长在林中地上或枝物或腐熟木桩基部，丛生、散生或密集群生。
+夏秋季生长在林中地上或枝物或腐熟木桩基部，丛生、散生或密集群生。 
 
-  分布于我国河北、山西、内蒙古、黑龙江、吉林、安徽、香港、台湾、广西，陕西，甘肃、青海、新疆、四川、 
-  西藏、云南等地区。 　　
+分布于我国河北、山西、内蒙古、黑龙江、吉林、安徽、香港、台湾、广西，陕西，甘肃、青海、新疆、四川、 
+西藏、云南等地区。 　　
 
-  幼时可食，老后内部充满孢丝和孢粉，可药用，用于止血。
+幼时可食，老后内部充满孢丝和孢粉，可药用，用于止血。 
 
 
 葡紫红菇 Russula azurea Bres 🟢
 =======================================================
 
 .. image:: https://im.cas.cn/kxcb/wswdjt/201010/W020101027524043450696.jpg
-    :width: 100%
-..
+    :width: 50%
+    :align: left
+.. 
 
   :中文学名: 葡紫红菇
   :拉丁学名: Russula azurea Bres.
@@ -351,8 +584,9 @@
 =======================================================
 
 .. image:: https://im.cas.cn/kxcb/wswdjt/201010/W020101027524043444600.jpg
-    :width: 100%
-..
+    :width: 50%
+    :align: left
+.. 
 
   :中文学名: 阿魏侧耳
   :拉丁学名: Pleurotus ferulae Lanzi
@@ -379,7 +613,7 @@
     :width: 50%
 
     东方褐盖鹅膏 Amanita orientifulva 杨祝良摄
-..
+.. 
 
 上面这种漂亮的拟橙盖鹅膏，为什么名字前还要加个“拟”字呢？因为它长得像橙盖鹅膏，但不是橙盖鹅膏。 
 名字虽然有点绕，长相也记不住，但一定要记住提醒：蘑菇不要随便采，有心有毒要人命！特别是鹅膏菌家族，
@@ -395,35 +629,150 @@
 能使树木吸收水分养分和适应贫瘠土壤的能力大大增强，子实体则为森林底层的昆虫提供了美味佳肴，
 有些动物消化系统可以分解毒素，它们不会中毒，但是对于人类消化系统是强毒。
 
-
-
-:最美蘑菇橙盖鹅膏组: https://www.bilibili.com/video/BV1i8411f77o
-:鹅膏属鞘托鹅膏组生物或起源于非洲: http://m.kib.cas.cn/cmsm/202210/t20221025_6539078.html
+* 最美蘑菇橙盖鹅膏组 https://www.bilibili.com/video/BV1i8411f77o
+* 巨大的凸顶红黄鹅膏菌 https://www.bilibili.com/video/BV1wY4y17735?t=299.0
+* 凸顶红黄鹅膏，隐花青鹅膏的识别 https://www.bilibili.com/video/BV1T44y1i7Zt/
+* 山野藏珍馐：凸顶红黄鹅膏菌 https://www.163.com/dy/article/HJDUC2M90517CMKQ.html
+* 鹅膏属鞘托鹅膏组生物或起源于非洲: http://m.kib.cas.cn/cmsm/202210/t20221025_6539078.html
 
 
 毒蝇鹅膏菌 Amanita muscaria ⛔
 =======================================================
 
-.. image:: p
+============  ============  ============
+ |Amanita1|    |Amanita2|    |Amanita3| 
+============  ============  ============
+
+.. |Amanita1| image:: https://www.wallpaperup.com/uploads/wallpapers/2013/03/20/54300/bed14a967ca4ba795210147740ea358f-1400.jpg
     :width: 100%
-..
+.. |Amanita2| image:: https://pantorra.pt/wp-content/uploads/2015/05/amanita_muscaria_8.jpg
+    :width: 100%
+.. |Amanita3| image:: https://qldfungi.org.au/wp-content/uploads/2012/08/amanita_flavella_SMF_1024.jpg
+    :width: 100%
+.. 
 
-:毒蝇鹅膏菌延时摄影:
-    https://www.bilibili.com/video/BV1fo4y1U7FN?t=282.7
+:躺板板指数: ⭐⭐⭐⭐⭐
 
-  :躺板板指数: ⭐⭐⭐⭐⭐
+* 毒蝇鹅膏菌延时摄影 https://www.bilibili.com/video/BV1fo4y1U7FN?t=282.7
+* Garden Fungi – Amanita flavella https://qldfungi.org.au/fungi-id/garden-fungi/garden-fungi-what-is-that-fungus-in-my-garden/garden-fungi-amanita-flavella
+
+:中文学名: 毒蝇鹅膏菌
+:拉丁学名: Amanita muscaria (L.: Fr.) Pers. ex Hook.
+:别    名: 哈蟆菌、捕蝇菌、毒蝇菌、毒蝇伞（fly agaric）
+:门: 担子菌门
+:亚    门: 伞菌亚门
+:纲: 伞菌纲
+:亚    纲: 伞菌亚纲
+:目: 伞菌目
+:科: 鹅膏菌科
+:属: 鹅膏菌属
+:种: 毒蝇伞
+:分布区域: 分布于我国黑龙江、吉林、四川、西藏、云南等地。
+
+毒蝇鹅膏菌，又称哈蟆菌、捕蝇菌、毒蝇菌、毒蝇伞，子实体较大，菌盖宽 6-20cm。边缘有明显的短条棱， 
+表面鲜红色或桔红色，并有白色或稍带黄色的颗粒状鳞片。菌褶纯白色，密，离生，不等长。菌肉白色，
+靠近盖表皮处红色。菌柄较长，直立，纯白，长12-25cm，粗1-2.5cm，表面常有细小鳞。
+
+夏秋季在林中地上成群生长。生长环境遍及北半球温带和极地地区，并且也无意间拓展到南半球， 
+在松林里与松树等植物共生。为典型的毒菇，有一个大的白色菌褶、白色斑点，通常是深红色的菇类，
+是最广为认识的蕈类，并且在大众文化中广泛出现。
+
+此蘑菇因可以毒杀苍蝇而得名，其毒素有毒蝇碱、毒蝇母、基斯卡松以及豹斑毒伞素等。误食后约 6 小时 
+以内发病，产生剧烈恶心、呕吐、腹痛、腹泻及精神错乱，出汗、发冷、肌肉抽搐、脉搏减慢、呼吸困难或
+牙关紧闭，头晕眼花，神志不清等症状。使用阿托品疗效良好。此菌还产生甜菜碱，胆碱和腐胺等生物碱。
+
+该菌可药用，小剂量使用时有安眠作用。子实体的乙醇提物，对小白鼠肉瘤180有抑制作用。所含毒蝇碱等 
+毒素对苍蝇等昆虫杀力很强，可用于森林业生物防治。据记载，西伯利亚的通古斯人及雅库将人曾用作传统的
+节日食用菌。一般成人食一朵后便会产生如痴似醉的感觉，他们认为这是一种享受。印度用它作为魔术师的药剂。
+在一些国家民间被作为一种安眠药物。中国东北地区将此毒菌破碎后拌入饭中用来毒死苍蝇，甚至毒死老鼠
+及其他有害动物。
+
+毒蝇伞表面的鳞片脱落后，往往与可食用的橙盖伞相似，采食时需注意区别。在德国民间将此菌浸入酒中， 
+用以治风湿痛。该菌含丙酸，可用于制造丙酸盐用作防腐剂、香料脂、人造果子香等。此菌属外生菌根菌。
+与去杉、冷杉、落叶松、松、黄杉、桦、山毛榉、栎、杨等树木形成菌根。
+
+黄毒蝇鹅膏菌（学名：Amanita flavoconia）是伞菌目、鹅膏菌科、鹅膏菌属真菌生物。菌盖显橙黄色， 
+并带有黄橙色的疣点；菌环为黄橙色；有着从白至橙的菌茎。常见于北美东部，分布广泛；生长于阔叶林和
+混交林的地面上，常与毒参属植物形成菌根。有毒，对蝇类毒杀比较明显。
 
 
 
 大青褶伞 Chlorophyllum molybdites ⛔
 =======================================================
 
-.. image:: p
+
+===============  ===============
+ |molybdites1|    |molybdites2| 
+===============  ===============
+
+.. |molybdites1| image:: https://ultimate-mushroom.com/images/chlorophyllum-molybdites-5.jpg
     :width: 100%
-..
+
+.. |molybdites2| image:: https://ultimate-mushroom.com/images/chlorophyllum-molybdites-1.jpg
+    :width: 100%
+.. 
+
+:躺板板指数: ⭐⭐⭐⭐⭐
+
+:中文名: 大青褶伞
+:外文名: Green-gilled Parasol Mushroom
+:别    名: 绿褶菇、绿孢环柄菇、青褶环伞、摩根小伞、铅绿褶菇
+:拉丁学名: Chlorophyllum molybdites (G. Mey.) Massee 1898）
+:界: 真菌界
+:门: 担子菌门
+:纲: 担子菌纲
+:亚    纲: 同担子菌亚纲
+:目: 伞菌目
+:科: 蘑菇科
+:属: 青褶伞属
+:种: 大青褶伞
+:同义学名: Agaricus molybdites
+
+大青褶伞子实体大，白色。菌盖直径 5-25（30）厘米，半球形，扁半球形，后期近平展，中部稍凸起， 
+幼时表皮暗褐色或浅褐色，逐渐裂为鳞片，顶部鳞片大而厚，呈褐紫色，边缘渐少或脱落，菌盖部菌肉
+白色或带浅粉红色，松软。菌褶离生，宽，不等长，初期污白色，后期呈浅绿至青褐色，褶缘有粉粒。
+菌柄圆柱形，长 10-28cm，粗 1-2.5cm，纤维质，表面光滑，污白色至浅灰褐色，菌环以上光滑，
+环以下有白色纤毛，基部稍膨大，内部空心，菌柄菌肉伤处变褐色，干时有香气。菌环膜质，生柄之上部。
+
+大青褶伞是剧毒蘑菇，内含肝脏毒素、神经毒素、胃肠毒素和溶血四种毒素，食用后会造成多器官功能衰竭， 
+并且死亡率相当高。该菇所含有的毒素主要引起胃肠型症状，但也有些具有类似白毒伞的毒性，对肝等脏器
+和神经系统造成损害，进食量大时也会致命。这是引起毒蘑菇中毒事件最多的种类之一。
 
 
-  :躺板板指数: ⭐⭐⭐⭐⭐
+高大环柄菇 Macrolepiota procera 🟢
+=======================================================
+
+============  ============
+ |procera1|    |procera2| 
+============  ============
+
+.. |procera1| image:: https://p0.itc.cn/images01/20210221/1043ab00113641bb97e0159cf014dbfa.jpeg
+    :width: 100%
+
+.. |procera2| image:: https://bkimg.cdn.bcebos.com/pic/7dd98d1001e939015ef3424e78ec54e737d196c9
+    :width: 100%
+.. 
+
+:中文名: 高大环柄菇
+:拉丁学名: Macrolepiota procera (Scop.) Singer 1984
+:别    名: 高脚环柄菇、高环柄菇、高脚菇、雨伞菌、棉花菇等
+:界: 真菌界
+:门: 担子菌门
+:纲: 层菌纲
+:目: 伞菌目
+:科: 蘑菇科
+:属: 大环柄菇属
+:种: 高大环柄菇
+
+高大环柄菇（学名：Macrolepiota procera (Scop.) Singer ）是蘑菇科、大环柄菇属真菌。高大环柄菇子实体近白色，菌盖上覆有棕褐色鳞片，呈同心圆状排列，中央乳头状凸起，褐色。菌柄棕黄色，较细长，较韧，菌褶近白色，不等长，菌丝多分枝，具锁状联合。
+高大环柄菇广泛分布在温带地区，在中国分布于黑龙江、辽宁、吉林、河南、安徽、江苏、浙江、湖南、福建、广东、广西、海南、四川、贵州、云南等省区。生长在树林或其边缘，或牧场上。
+高大环柄菇质地脆嫩、味道鲜美、营养丰富，人体必需氨基酸含量高，是一种很有开发前景的野生食用菌。在欧洲高大环柄菇是一种很受欢迎的食用菌。
+高大环柄菇被列入《中国生物多样性红色名录—大型真菌卷》（Redlist of China’s Biodiversity - Macrofungi），保护级别为无危（LC）。 [5]
+
+
+高大环柄菇真的很高大，那么它到底有多高大呢？它的子实体可以达到 40cm，菌伞直径也可以长到 40cm！ 
+伞柄上也和大青褶伞一样有一个环，它们的菌伞表面都有深褐色鳞片附着。 但是最大的区别在菌柄，
+高大环柄菇菌柄上也有深褐色鳞片附着，并且伞盖上的鳞片排列也更规则，有明显的环形。
 
 
 青头菌 Russula virescens(Schaeff.) Fr 🟢
@@ -438,7 +787,7 @@
 
 .. |Russula2| image:: http://www.swsz88.com/uploads/allimg/180419/2-1P419131Q3346.jpg
     :width: 100%
-..
+.. 
 
 :中文名: 青头菌
 :别  名: 变绿红菇、青冈菌、绿豆菌
@@ -466,68 +815,537 @@
 菌内含有丰富的蛋白质和氨基酸、植物纤维等成份，入口很细嫩，香味很悠长，有浓郁大自然清香气息。 
 
 
-
-
-竹荪 🟢
+竹荪 Dictyophora Desv 🟢
 =======================================================
 
 .. image:: https://img.phb123.com/uploads/allimg/210910/798-210910112121-55.jpg
-    :width: 100%
-..
+    :width: 50%
+    :align: left
+.. 
 
-:竹荪延时摄影:
-    https://www.bilibili.com/video/BV1fo4y1U7FN?t=98.8
+:中文名: 竹荪
+:拉丁学名: Dictyophora Desv（Journ. Bot. 2: 88, 1809）
+:别    名: 长裙竹荪、竹参、面纱菌、网纱菌、竹姑娘、僧笠蕈、雪裙仙子、芭牡芙、迪帕萨
+:界: 真菌界
+:门: 真菌门
+:纲: 腹菌纲
+:目: 鬼笔目
+:科: 鬼笔科
+:亚    门: 担子菌亚门
 
-竹荪也被称为面纱菌，它们有着深绿色的菌盖，菌柄顶端还有一围向下铺开的洁白网状物，其香味浓郁， 
-营养价值极高，有着“菌中皇后”的美誉。
+* 竹荪延时摄影 https://www.bilibili.com/video/BV1fo4y1U7FN?t=98.8
+
+竹荪又名竹笙、竹参，常见并可供食用的有 4 种：长裙竹荪、短裙竹荪、棘托竹荪和红托竹荪， 
+是寄生在枯竹根部的一种隐花菌类，形状略似网状干白蛇皮，它有深绿色的菌帽，雪白色的圆柱状的菌柄，
+粉红色的蛋形菌托，在菌柄顶端有一围细致洁白的网状裙从菌盖向下铺开，被人们称为“雪裙仙子”、
+“山珍之花”、“真菌之花”、“菌中皇后”。 
+
+竹荪则多长在温湿环境。在适宜条件下，中午柄长到一定高度时即停止伸长，菌裙渐渐由盖内向下展开， 
+空气相对湿度为 95% 时，菌裙生长正常，温度偏低和湿度过小时不能正常展裙。下午 4-5 时菌盖上
+担孢子成熟并开始自溶，滴向地面，同时整个子实体萎缩倒下。竹荪在全世界均有分布。
+
+竹荪的子实体脆嫩爽口、香甜鲜美，别具风味，作为菜肴，冠于诸菌，堪称色、香、味三绝， 
+是宴席上著名的山珍；竹荪也有很高的药用价值，其子实体中含有多种酶和高分子多糖，
+其多糖为异多糖，可增强肌体对肿瘤细胞的抵抗力，具有良好的防癌、抗癌作用。
 
 
-蓝色精灵 cortinarius archeri 🟡
+紫色精灵 cortinarius archeri 🟡
 =======================================================
 
-============  ============
- |archeri1|    |archeri2| 
- |archeri3|    |archeri4| 
- |archeri5|    |archeri6| 
-============  ============
-
-.. |archeri1| image:: https://img.huxiucdn.com/article/content/202009/01/172742755743.jpg
-    :width: 100%
-.. |archeri2| image:: https://images.mushroomobserver.org/960/14638.jpg
-    :width: 100%
-.. |archeri3| image:: https://mushroomobserver.org/images/960/14640.jpg
-    :width: 100%
-.. |archeri4| image:: https://mushroomobserver.org/images/960/14639.jpg
-    :width: 100%
-.. |archeri5| image:: http://www.tasmania360.com/lib_images/Cortinarius-archeri_20140416.jpg
-    :width: 100%
-..
-
-http://www.tasmania360.com/image/Cortinarius-archeri/238
-
-:Observation 8042: Cortinarius archeri Berk.: 
-    https://mushroomobserver.org/observations/8042
-:拍摄真菌，改变了这位澳大利亚摄影师的世界: 
-    https://www.huxiu.com/article/379452.html
+=========== =========== ===========
+|archeri1|  |archeri2|  |archeri3| 
+|archeri4|  |archeri5|  |archeri6|
+=========== =========== ===========
 
   :观赏指数: ⭐⭐⭐⭐⭐
 
+.. |archeri1| image:: https://david-noble.net/bushwalking/FaulconbridgeGlenbrook/FG%207.jpg
+    :width: 100%
+.. |archeri2| image:: https://img.huxiucdn.com/article/content/202009/01/172742755743.jpg
+    :width: 100%
+.. |archeri3| image:: http://www.tasmania360.com/lib_images/Cortinarius-archeri_20140416.jpg
+    :width: 100%
+.. |archeri4| image:: https://mushroomobserver.org/images/960/14642.jpg
+    :width: 100%
+.. |archeri5| image:: https://mushroomobserver.org/images/960/14640.jpg
+    :width: 100%
+.. |archeri6| image:: https://mushroomobserver.org/images/960/14639.jpg
+    :width: 100%
+.. 
 
-⛔🟢🟡
+:中文名: 丝膜菌科
+:拉丁学名: Cortinariaceae
+:界: 真菌界
+:门: 担子菌门
+:纲: 担子菌纲
+:亚     纲: 伞菌亚纲
+:目: 伞菌目
+:科: 丝膜菌科
+:属: 丝膜菌属（Cortinarius）、环鳞伞属（Descolea）、盔孢伞属（Galerina）、
+    裸伞属（Gymnopilus）、滑锈伞属（Hebeloma）、丝盖伞属（Inocybe）、
+    白丝膜菌属（Leucocortinarius）、罗鳞伞属（Rozites）
+
+* Steve Axford Website: https://steveaxford.smugmug.com/
+* "Planet Fungi" Documentary: https://www.planetfungi.movie/
+* Steve Axford’s Kingdom of Fungi https://wonderground.press/people/steve-axford/
+* Fantastic Fungi: The Startling Visual Diversity of Mushrooms Photographed by Steve Axford
+    https://www.thisiscolossal.com/2014/05/fantastic-fungi-steve-axford/
+* https://fungimap.org.au/galleries/gallery-steve-axford/
+
+* Cortinarius archeri by Beth Heap
+    http://www.tasmania360.com/image/Cortinarius-archeri/238
+
+* Observation 8042: Cortinarius archeri Berk.
+    https://mushroomobserver.org/observations/8042
+
+* 拍摄真菌，改变了这位澳大利亚摄影师的世界
+    https://www.huxiu.com/article/379452.html
+
+* Faulconbridge to Glenbrook Walk - 15 - 16 May 2014 
+    https://david-noble.net/bushwalking/FaulconbridgeGlenbrook/FaulconbridgeToGlenbrook.html
+
+Stephen Axford 与 Catherine Marciniak 合作拍摄的纪录片 `Planet Fungi`_ 相关图像：
+
+.. _Planet Fungi: https://www.planetfungi.movie/
+
++-------------------+-----------------+-------------------+
+|                   |                 |                   |
++===================+=================+===================+
+| |PlanetFungi1|    | |PlanetFungi2|  | |PlanetFungi3|    |
+| Ramaria sp.       | Schizophyllum   | Mycena interrupta |
+| 珊瑚菌            | commune         | 炫蓝小菇          |
++-------------------+-----------------+-------------------+
+| |PlanetFungi4|    | |PlanetFungi5|  | |PlanetFungi6|    |
+| Mycena chlorophos | Coprinopsis     | Blue Leratiomyces |
+| 荧光小菇          | pulchricaerulia | 蓝帽勒氏菌        |
++-------------------+-----------------+-------------------+
+
+
+.. |PlanetFungi1| image:: https://images.squarespace-cdn.com/content/v1/64338f958d36da3aa5f0bfca/ffacde14-48b8-459c-bb06-e71d8492fd5a/DSC00173-helicon.jpg
+    :width: 240px
+
+.. |PlanetFungi2| image:: https://images.squarespace-cdn.com/content/v1/64338f958d36da3aa5f0bfca/dfb7841b-e6e9-4d1b-8023-9776fc346b8b/_C144070-Edit-helicon.jpg
+    :width: 240px
+
+.. |PlanetFungi3| image:: https://images.squarespace-cdn.com/content/v1/64338f958d36da3aa5f0bfca/c744c50c-7cfb-4c8a-b999-5894a5e57ba2/2022-05-22-DSC08843--Helicon.jpg
+    :width: 240px
+
+.. |PlanetFungi4| image:: https://images.squarespace-cdn.com/content/v1/64338f958d36da3aa5f0bfca/b5ab448e-14e6-4392-aee7-17e8c3eee567/DSC04056-helicon.jpg
+    :width: 240px
+
+.. |PlanetFungi5| image:: https://images.squarespace-cdn.com/content/v1/64338f958d36da3aa5f0bfca/f341ceb2-5123-46e8-bcdf-d4d772f22a3f/_9110597-helicon.jpg
+    :width: 240px
+    :alt: 美蓝拟鬼伞 Coprinopsis pulchricaerulea
+
+.. |PlanetFungi6| image:: https://149366664.v2.pressablecdn.com/wp-content/uploads/2016/04/Steve-Axford_Post32.jpg
+    :width: 240px
+    :alt: 蓝帽勒氏菌 Blue Leratiomyces
+
++-------------------+-----------------+------------------+
+|                   |                 |                  |
++===================+=================+==================+
+| |PlanetFungi7|    | |PlanetFungi8|  | |PlanetFungi9|   |
+| Amanita sp.       | Coprinus        | Leratiomyces sp. |
+| 鹅膏菌属          | disseminatus    |                  |
++-------------------+-----------------+------------------+
+| |PlanetFungi10|   | |PlanetFungi11| | |PlanetFungi12|  |
+| Austropaxillus    | Tremella        | Cordierites      |
+| infundibuliformis | fuciformis      | frondosa         |
++-------------------+-----------------+------------------+
+
+.. |PlanetFungi7| image:: https://fungimap.org.au/wp-content/uploads/2018/09/Amanita-sp._74Z1885.jpg
+    :width: 240px
+
+.. |PlanetFungi8| image:: https://david-noble.net/bushwalking/FaulconbridgeGlenbrook/FG%204.jpg
+    :width: 240px
+
+.. |PlanetFungi9| image:: https://fungimap.org.au/wp-content/uploads/2018/09/Leratiomyces-sp.-Steve-Axford-_2014965-helicon-2.jpg
+    :width: 240px
+
+.. |PlanetFungi10| image:: https://fungimap.org.au/wp-content/uploads/2018/09/Austropaxillus-infundibuliformis.-Steve-Axford-20060430_193515_R8_S4.jpg
+    :width: 240px
+
+.. |PlanetFungi11| image:: https://fungimap.org.au/wp-content/uploads/2018/09/Tremella-fimbriata-Steve-AxfordSB132197-helicon.jpg
+    :width: 240px
+
+.. |PlanetFungi12| image:: https://fungimap.org.au/wp-content/uploads/2018/09/Cordierites-frondosa-Mt-Macedon-Steve-Axfordl-b.jpg
+    :width: 240px
+
+
+鸡油菌 Cantharellus cibarius 🟢
 =======================================================
 
-.. image:: p
-    :width: 100%
-..
+.. image:: https://bkimg.cdn.bcebos.com/pic/96dda144ad345982b2b720d269a326adcbef76092e61
+    :width: 50%
+    :align: left
+.. 
 
-  :躺板板指数: ⭐⭐⭐⭐⭐
+:中文名: 鸡油菌
+:拉丁学名: Cantharellus cibarius Fr.
+:别    名: 黄菌、鸡蛋黄菌、杏菌、黄丝菌
+:界: 真菌界
+:门: 担子菌门
+:纲: 层菌纲
+:目: 非褶菌目
+:科: 鸡油菌科
+:属: 鸡油菌属
+:种: 鸡油菌
+
+鸡油菌为鸡油菌科鸡油菌属真菌，又名鸡蛋黄菌、黄菌、杏菌等。鸡油菌子实体肉质，喇叭形， 
+杏黄色至蛋黄色。菌盖宽 3~10cm，高 7~12cm，初扁平，后渐下凹，边缘伸展，波状或瓣状，内卷。
+菌肉稍厚，蛋黄色。菌褶棱状，窄，向下延生至柄部，分叉，或有横脉相连交织成网状，与菌盖同色或稍浅。
+菌柄长 2~8cm，粗 5~8mm，圆柱形，基部有时稍细或稍大，与菌盖同色或稍浅，光滑，内实。
+孢子椭圆形或卵圆形，无色；孢子印黄白色。
+
+鸡油菌在中国主要分布于东北、华北、华东、西南、华南等地。多在夏、秋季生长在林中地上。散生至群生。 
+可与云杉、铁杉、栎、栗、山毛榉、鹅耳枥等形成外生菌根。
+
+鸡油菌味鲜美，具特殊水果香味。有药用价值，能清目，益肠胃。可治因维生素 A 引起的皮肤粗糙或干燥， 
+角膜软化症，眼干燥病及夜盲症，还可治疗某些呼吸道及消化道感染引起的疾病。
 
 
-⛔🟢🟡
+鸡枞菌 Termitomyces albuminosus 🟢
 =======================================================
 
-.. image:: p
-    :width: 100%
-..
+.. image:: https://img.zhaosw.com/upload/images/202004/15/c6f577f6-ba28-4b99-bda1-191641bea03c_large.jpg
+    :width: 50%
+    :align: left
+.. 
 
-  :躺板板指数: ⭐⭐⭐⭐⭐
+:中文名: 鸡枞菌
+:拉丁学名: Termitomyces albuminosus (Berk) Heim
+:外文名: Collybia albuminosa
+:别    名: 伞把菇、鸡肉丝菇、鸡肉菌、鸡脚蘑菇、蚁棕、斗鸡公、三塔菌等
+:界: 真菌界
+:门: 担子菌门
+:亚    门: 伞菌亚门
+:纲: 伞菌纲
+:亚    纲: 伞菌亚纲
+:目: 伞菌目
+:科: 白蘑科
+:属: 白蚁菌属
+:分布区域: 我国西南、东南几省及台湾的一些地区
+
+鸡枞菌在自然界和白蚁共生，白蚁构筑蚁巢的同时培养了鸡㙡菌菌丝体，形成一个共同的生态系统， 
+这种菌本来是在我国云南贵州等南方省市的森林中才有。
+
+鸡枞菌肉厚肥硕，质细丝白，味道鲜甜香脆。含人体所必需的蛋白质、脂肪，还含有各种维生素和钙、磷、 
+核黄酸等物质。鸡枞滋味很鲜，为菌中之冠，可以单料为菜，还能与蔬菜、鱼肉及各种山珍海味搭配。
+吃法很多，可炒、炸、腌、煎、拌、烩、烤、焖，清蒸或做汤。
+
+下图是两种外观一致，毒性不同的物种，左为草鸡枞鹅膏（可食），右为灰花纹鹅膏（剧毒）： 
+
+.. image:: https://img2.voc.com.cn/remote/2021/08/25/604_ec8e81535ffd09c699c3a1e704e92e4356d42fb2.png
+    :width: 100%
+
+草鸡枞，又名长根奥德蘑、长根金钱菌、长根菇，可食用，且肉细嫩，软滑适口，味道鲜美，有些地方 
+称为“水鸡枞”“草鸡枞”“露水鸡枞”，可人工栽培。含有蛋白质、氨基酸、碳水化合物、维生素、微量元素
+等多种营养成分。发酵液及子实体中含有长根菇素(小奥德蘑酮 Ousenine)，有降血压作用。
+据记载同其他降压药配合，降压效果显著。另试验抗癌，对小白鼠肉癌180有抑制作用。
+
+:拉丁学名: （ Oudemansiella radiata (Relhan. : Fr.) Sing. Collybia radicata (Relhan. : Fr.)Quél.）
+
+
+鬼笔 Phallus rugulosus Fisch 🟡
+=======================================================
+
++-------------------+-----------------+-------------------+
+| |Phallus1|        | |Phallus2|      | |Phallus3|        |
+| |Phallus4|        | |Phallus5|      | |Phallus6|        |
++-------------------+-----------------+-------------------+
+
+.. |Phallus1| image:: https://waarnemingen.be/media/photo/31281372.jpg
+    :width: 100%
+
+.. |Phallus2| image:: https://waarnemingen.be/media/photo/21440146.jpg
+    :width: 100%
+
+.. |Phallus3| image:: https://www.mushroom-appreciation.com/wp-content/uploads/2023/01/30-stinkhorn.jpg
+    :width: 100%
+    :alt: 五棱散尾鬼笔 lantern stinkhorn, ribbed lizard claw, small lizard's claw
+
+.. |Phallus4| image:: http://www.tasmania360.com/lib_images/Aseroe-rubra-2_20140416.jpg
+    :width: 100%
+    :alt: 红星头鬼笔 Aseroe rubra by Beth Heap http://www.tasmania360.com/image/Aseroe-rubra-2/243
+
+.. |Phallus5| image:: https://qldfungi.org.au/wp-content/uploads/2013/03/aseroe_rubra_02_SN_1024.jpg
+    :width: 100%
+    :alt: 红星头鬼笔 Aseroe rubra
+
+.. |Phallus6| image:: https://qldfungi.org.au/wp-content/uploads/2012/08/aseroe_rubra_04_SMF_1024.jpg
+    :width: 100%
+    :alt: 红星头鬼笔 Aseroe rubra 
+
+.. 
+
+:中文学名: 鬼笔
+:拉丁学名: Phallus rugulosus Fisch
+:二名法: 鬼笔科
+:界: 真菌界
+:门: 担子菌门
+:纲: 担子菌纲
+:目: 鬼笔目
+:科: 鬼笔科
+
+* 解剖一颗蛋会发生什么？五棱散尾鬼笔 https://www.bilibili.com/list/32078085
+* Stinkhorn Fungi of North America; An Introduction https://www.mushroom-appreciation.com/stinkhorn-fungi.html
+
+[phallaceae] 生长在潮湿地方的一种真菌。该目有 6 科，其中有的可食如竹荪 、白鬼笔等。红鬼笔可药用。
+有的地方叫“狗尿苔”，幼嫩时的菌蕾即菌蛋，可以直接食用。成熟后菌盖表面产孢体呈粘液状具腥味， 
+大多数人认为有毒或怀疑有毒。可药用。
+
+明 李时珍《本草纲目·菜五·土菌》﹝附录﹞引 陈藏器曰：“鬼笔生粪秽处。头如笔，紫色。朝生暮死，名朝生暮落花。” 
+
+:中文名: 五棱散尾鬼笔
+:外文名: lantern stinkhorn, ribbed lizard claw, small lizard's claw
+:别    名: 五棱鬼笔、棱柱散尾菌
+:拉丁学名: Lysurus mokusin (L. : Pers.) Fr.
+:目: 鬼笔目（Phallales）
+:科: 鬼笔科(Phallaceae)
+:属: 散尾鬼笔属
+:分布区域: 河北、河南、江苏、四川、浙江、云南、福建、湖南、湖北、安徽等
+
+五棱散尾鬼笔 (Lysurus mokusin) 尾部会开叉，形成五个棱。此菌顶部孢体粘液腥臭，吸引苍蝇等昆虫。 
+
+:拉丁学名: Aseroë rubra
+:别    名: 红星头鬼笔
+:界: 真菌界
+:门: 担子菌门 Basidiomycota
+:亚    门: 伞菌亚门 Agaricomycotina
+:纲: 伞菌纲 Agaricomycetes
+:亚    纲: 鬼笔亚纲 Phallomycetidae
+:目: 鬼笔目 Phallales
+:科: 鬼笔科 Phallaceae
+:属: 星头鬼笔属Aseroë
+:种: 红星头菌 A. rubra
+:中文名: 红星头菌
+
+红星头菌（Aseroë rubra），又名红星头鬼笔，澳大利亚很普遍的担子菌门真菌，有腐肉臭味及海葵的外形。 
+
+*   蘑菇生长延时摄影剪辑 红星头鬼笔 https://www.bilibili.com/video/BV1hb411V7MU?t=45
+*   Aseroë rubra (Labill.) Starfish Fungus https://www.first-nature.com/fungi/aseroe-rubra.php
+*   POISONOUS MUSHROOMS Aseroe rubra https://ultimate-mushroom.com/poisonous/185-aseroe-rubra.html
+*   Garden Fungi – Aseroë rubra https://qldfungi.org.au/fungi-id/garden-fungi/garden-fungi-what-is-that-fungus-in-my-garden/garden-fungi-aseroe-rubra
+
+
+地星 Geastrum 🟡
+=======================================================
+
++-------------------+-----------------+
+| |Geastrum1|       |  |Geastrum2|    |
++-------------------+-----------------+
+
+.. |Geastrum1| image:: http://pic1.arkoo.com/678E41CA91A14264A992010A7FB97A95/picture/o_1gsrega0bg14s4b1boupmg1q101mb.jpg
+    :width: 100%
+
+.. |Geastrum2| image:: https://3-im.guokr.com/EElyRmP59hcJ6YEQXjBbnYC5sWJL4fMfgriF419BvFKwBAAAhAMAAEpQ.jpg?imageView2/1/w/555/h/416
+    :width: 100%
+.. 
+
+:别    名: 米屎菰、地蜘蛛、量湿地星、土星菌、大孤、山蟹、石蟹
+:界: 真菌界
+:门: 真菌门
+:纲: 腹菌纲
+:目: 马勃目
+:科: 地星科
+:属: 地星属
+:种: 硬皮地星 Geastrum hygrometricum Pers. 尖顶地星 Geastrum triplex(Jungh.)Fisch.
+:中文学名: 地星
+
+地星，中药名，采收时间夏、秋季，《西园菌谱》考证。 
+
+地星为地星科真菌的子实体。硬皮地星分布于东北、华北、西北、华东、中南、西南及西藏等地。 
+尖顶地星分布于东北、华北、西北、西南及西藏等地。具有清肺，利咽，解毒，消肿，止血之功效。 
+常用于咳嗽，咽喉肿痛，痈肿疮毒，冻疮流水，吐血，衄血，外伤出血。日本涉江长伯《西园菌谱》载：
+“状似马勃，大如弹丸及粉团，色似松露，嫩时食似松露；老则自剖为瓣花，内赤有指头大者，弹之出黄粉，
+若误入耳，则令人聋。”经《新华本草纲要》第 3 册考证，认为该记载即指本品，但是否致聋，尚待考。
+
+*   Geastrum pectinatum http://www.stridvall.se/fungi/gallery/album23
+*   地星喷薄而出的孢子雾 https://www.bilibili.com/list/32078085
+*   今天讲个会动的土包子 https://www.guokr.com/article/447432/
+*   山野藏珍馐——地星 http://ftourcn.isenlin.cn/sf_5DBB4453E6334C2782D3C77584EBEF1B_246_FBCA2EF6372.html
+
+
+灵芝 Ganoderma lucidum 🟢
+=======================================================
+
++-------------------+-----------------+
+| |Ganoderma1|      | |Ganoderma2|    |
++-------------------+-----------------+
+
+.. |Ganoderma1| image:: https://mykosan.com/wp-content/uploads/Ganoderma-lucidum-reishi-lingzhi-medicinal-mushroom-scaled.jpg
+    :width: 100%
+
+.. |Ganoderma2| image:: https://integrativelifestyle.org/wp-content/uploads/2020/05/Reishi-scaled.jpeg
+    :width: 100%
+.. 
+
+
+灵芝，中药名。为多孔菌科真菌赤芝 Ganoderma lucidum（Leyss. ex Fr.）Karst. 或紫芝
+Ganoderma sinense Zhao，Xu et Zhang 的干燥子实体。具有补气安神，止咳平喘的功效。
+主治心神不宁，失眠，惊悸，咳喘痰多，虚劳证等。
+
+
+白色念珠菌 Candida albicans 🟡
+=======================================================
+
++-------------------+-----------------+
+| |Candida1|        | |Candida2|      |
++-------------------+-----------------+
+
+.. |Candida1| image:: https://e0.ifengimg.com/01/2019/0412/D30A182F794BB1D5DC16135A0B6CC1E75C199321_size51_w600_h400.jpeg
+    :width: 100%
+
+.. |Candida2| image:: http://www.rensheng2.com/upload/2015/11/14/1c00a445-7b6c-4749-8b73-252738f8680f.jpg
+    :width: 100%
+.. 
+
+真菌感染（fungal infection）：对人类有致病性的真菌约有 300 多个种类。 
+除新型隐球菌和蕈外，医学上有意义的致病性真菌几乎都是霉菌。
+
+根据侵犯人体部位的不同，临床上将致病真菌分为： 
+
+* **浅部真菌** 主要为皮肤丝状菌（Dermatophytes），侵犯皮肤、毛发、指甲等角化组织引起癣症，又称癣菌(Ringworm)，分为三属，共37个种。
+
+**深部真菌** 深部真菌病(invasive fungal infection) 是指致病性真菌侵犯皮下组织、黏膜和内脏， 感染器官所引起的真菌感染性疾病。以白色念珠菌为主。
+
+深部真菌能侵犯人体皮肤、黏膜、深部组织和内脏，甚至引起全身播散性感染。 
+深部真菌感染肠道即表现为真菌性肠炎，可独立存在如婴儿念珠菌肠炎，
+或为全身性真菌感染的表现之一，如艾滋病并发播散性组织胞浆菌病。
+
+:中文名: 假丝酵母菌
+:别    名: 念珠菌
+:界: 真菌界
+:门: 子囊菌门
+:亚    门: 半知菌亚门
+:纲: 芽孢菌纲
+:目: 隐球酵母目
+:科: 隐球酵母科
+
+子囊菌门假丝酵母菌属（Candida）又称念珠菌，是一类深部感染真菌，可侵犯皮肤、粘膜和内脏， 
+表现为急性、亚急性或慢性炎症，大多为继发性感染。假丝酵母菌种类很多，但能对人致病的仅有几种，
+以白假丝酵母菌即白色念珠菌最常见，致病力也最强，其次为热带假丝酵母菌，其它还有克柔假丝酵母菌、
+近平滑假丝酵母菌和伪热带假丝酵母菌等。
+
+假丝酵母菌俗称念珠菌，有 81 个种，其中有 11 种对人有致病性：白假丝酵母菌、为最常见的致病菌。 
+此外，热带假丝酵母菌、克柔假丝酵母菌和光滑假丝酵母菌也较多引起疾病。
+
+假丝酵母菌属对人致病的有白假丝酵母菌（C. albicans）、热带假丝酵母菌（C. tropicalis）、 
+近平滑假丝酵母菌（C. parapsilosis）和都柏林假丝酵母菌（C. dubliniensis）等。
+其中以白假丝酵母菌感染最为多见，可占感染中的 75%。白假丝酵母菌又称白念球菌（candida albicans），
+是重要的条件致病菌，主要引起人体皮肤、黏膜及内脏的急性或慢性炎症，占深部真菌感染的首位。
+
+:别    名: 白色念珠菌
+:中文学名: 白假丝酵母菌
+:拉丁学名: Candida albicans
+:界: 真菌界
+:门: 真菌门
+:分布区域: 正常人口腔，上呼吸道，肠道及阴道
+:生存年代: 类似的菌类化石在世界各地的前寒武纪岩石中都有发现。 
+:生存环境: 念珠菌对热的抵抗力不强，加热至 60℃ 1小时后即可死亡。但对干燥、日光、紫外线及化学制剂等抵抗力较强。
+
+白假丝酵母菌为单细胞真菌，菌体呈圆形或卵圆形，直径3-6μm，革兰染色阳性，着色不均，以芽生方式繁殖。 
+在组织内易形成芽生孢子及假菌丝，芽生孢子多集中在假菌丝的连接部位，假菌丝中间或顶端常有较大、
+壁薄的圆形或梨形厚膜孢子，是本菌特征之一。
+
+假丝酵母菌的细胞呈球形、椭圆形、圆筒形、长条形，有时为不规则形；通过发芽而繁殖，可形成假菌丝， 
+少数形成厚膜孢子及真菌丝。假丝酵母菌为酵母型真菌，芽生酵母在特定条件下转为菌丝后则致病力增强。
+按细胞壁甘露糖蛋白的主要抗原成分不同可分为 A 和 B 两种血清型，据报道免疫功能正常人中 A 
+型比 B 型多 2 倍，免疫功能缺陷者的 A、B 两型相等。
+
+该菌以出芽繁殖为主，需氧，在普通琼脂、血琼脂及 SDA 琼脂培养基上均生长良好。37℃ 培养 2~3 天后， 
+出现乳白色、表面光滑的类酵母型菌落。培养稍久者菌落增大，颜色变深，质地变硬。在含 1% TWEEN-80 
+的玉米粉琼脂培养基上可形成丰富的假菌丝和厚膜孢子。假菌丝和厚膜孢子有助于本菌的鉴定。
+
+菌落呈奶油色或呈蜡状，柔软、光滑、湿润，有浓厚的酵母气味。培养稍久，有大量向下生长的营养假菌丝， 
+无向上生长的气中菌丝，呈类酵母型菌落。玉米粉培养基上可长出厚膜孢子。血琼脂培养基上菌落中等大小呈暗灰色。
+
+白假丝酵母菌正常情况下呈卵圆形，白假丝酵母菌与机体处于共生状态，不引起疾病。平衡状态破坏后， 
+白假丝酵母菌由酵母相转为菌丝相，在局部大量生长繁殖，引起皮肤、黏膜甚至全身性的假丝酵母菌病。
+当机体的正常防御功能受损导致内源性感染，如创伤、抗生素应用及细胞毒药物使用致菌群失调或
+黏膜屏障功能改变、皮质激素应用、营养失调、免疫功能缺陷等。假丝酵母菌为双相菌，正常情况下一般为
+酵母相，致病时转化为菌丝相。因此在细胞涂片或组织切片中发现假菌丝是假丝酵母菌感染的重要证据。
+
+白色念珠菌通常情况下存在正常人的口腔、上呼吸道以及阴(和谐)道等这些人体的重要部位， 
+而人体的免疫的系统完好，处在正常的状态下时，这些真菌并不影响人体健康。正常情况下，
+这种真菌既不会消失，也不会大量繁殖。临床统计，这种真菌只有在人体的免疫系统遭到了破坏时，
+或者自己的免疫细胞进行互相识别错误的时，就会出现白色念珠菌的极速增多，引发各种疾病。
+艾滋病是一种破坏人免疫系统的疾病，这会给人体口腔自带的白色念珠菌引发病变的机会，
+在人体中大肆侵略，造成身体损害。
+
+
+红角木霉 Trichoderma cornu-damae ⛔
+=======================================================
+
++-------------------+-----------------+
+| |Trichoderma1|    | |Trichoderma2|  |
++-------------------+-----------------+
+
+.. |Trichoderma1| image:: https://chawantake.sakura.ne.jp/image/Trichoderma_cornudamaeL.jpg
+    :width: 100%
+
+.. |Trichoderma2| image:: https://fundkorb.de/bilder/trichoderma_cornu-damae_01_wi.jpg
+    :width: 100%
+.. 
+
+:躺板板指数: ⭐⭐⭐⭐⭐
+
+菌落通常生长迅速，但是不同的种类生长速度不同。菌丝多数为基内生菌丝，有些菌株最终可以形成毡状、 
+柔毛状、羊绒状或者蛛网状的气生菌丝。菌落反面颜色从无色到浅黄色、黄色、琥珀色、浅红色或者黄绿色。
+
+:中文学名: 红角木霉，红角肉棒菌
+:拉丁学名: Trichoderma cornu-damae, Podostoloma cornu-damae
+:门: 真菌门
+:亚    门: 半知菌亚门
+:纲: 丝孢纲
+:目: 丛梗孢目
+:科: 肉座菌科
+:属: 木霉属 Trichoderma，肉棒菌属 Podostroma
+
+* 肉座菌科 Hypocreaceae https://eol.org/zh-TW/pages/5649
+* 红角木霉 Trichoderma cornu-damae https://www.bilibili.com/video/BV1ze411K7D9/
+* Trichoderma cornu-damae https://chawantake.sakura.ne.jp/data/Trichoderma_cornudamae.html
+* Trichoderma cornu-damae Feuerkoralle https://fundkorb.de/pilze/trichoderma-cornu-damae-feuerkoralle
+
+木霉属 Trichoderma 形状如红辣椒，肉棒菌属 Podostroma 形状如鹿角。 
+
+焰茸毒性极强。可能为已知毒性最强的蘑菇。其特征：子实体红色、内部白色，外型像是棒状、手指状、 
+火焰放射状，高一般为 3~15cm。在日本、中国、爪哇都有发现，在中美洲的哥斯达黎加也有发现亚种。
+梅雨季节开始到夏季秋季之间，在山毛榉林地内单生至群生。外表看起来像是辣椒，成熟时会散播黄褐色的孢子。
+由于一般人对其颜色与外型具有警戒，一般不会故意摘取食用；但有多起中毒案例是将其误认为可食用的
+红珊瑚菌 (Clavulinopsis miyabeana)、冬虫夏草而引起。红珊瑚菌为细棒状、肉质柔软无味；
+火焰茸则肉质坚硬、内部白色，味苦。在日本、中国、爪哇都有发现，在中美洲的哥斯达黎加也有发现亚种。
+近年在日本北陆地区、关西地区郊山大量出现；推测是因栎树长小蠹虫 (Platypus quercivorus) 
+繁殖数量大增使树木大量枯萎，因而产生适合火焰茸生长的环境。
+
+火焰茸是目前已知毒性最强的毒蕈，摸了就会导致皮肤溃烂，如果误食的话则可能导致严重腹泻， 
+甚至出现语言及运动障碍。1999年，日本新潟县还出现有人因误食而中毒死亡的案例，因此日本
+地方政府已呼吁居民提高注意。数年前，在日本岐阜市北部的森林公园曾发现火焰茸。据日本专家表示：
+火焰茸以前生长在深山中，但是近年来，在爱知县与三重县等地区住宅区的附近山里，发现了火焰茸。
+
+食用后约 10 分钟就会出现中毒反应：一开始是消化系统的腹痛、呕吐、腹泻等症状，然后是目眩、 
+手脚麻痹、呼吸困难、语言障碍、血细胞减少、造血功能障碍、全身皮肤溃烂、肝肾功能不全、
+呼吸衰竭等症状，死亡率高。幸存者亦会有小脑萎缩、脱毛、脱皮、语言障碍、运动障碍等后遗症。
+
+民间因为其毒性之强而产生恐惧，甚至有「摸了就会导致皮肤溃烂」的谣传，实际上并没有因触碰外皮 
+而导致伤害的报道；火焰茸的接触性危险在於其汁液对皮肤有刺激性、会导致皮肤溃烂、接触口腔会
+造成黏膜发炎，但只要不去触碰其汁液、严格禁止食用，就不会有问题。
+
+
+
+T⛔🟢🟡
+=======================================================
+
++-------------------+-----------------+
+| |T1|              | |T2|            |
++-------------------+-----------------+
+
+.. |T1| image:: p
+    :width: 100%
+
+.. |T2| image:: p
+    :width: 100%
+.. 
+
+:躺板板指数: ⭐⭐⭐⭐⭐
+
