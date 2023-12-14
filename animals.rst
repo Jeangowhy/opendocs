@@ -20,14 +20,84 @@ Plate from Biologia Centrali-Americanum (1879-1915)
     :target: https://askabiologist.asu.edu/sites/default/files/resources/articles/true_bugs/ew_cambridge_tab_11.jpg
 
 
+昆虫，简单说就是鞘翅目、鳞翅目、膜翅目、双翅目四大目，以及同翅目、半翅目、直翅目，四翅六足，均为昆虫纲目。 
+
+* 无翅亚 纲 Apterygota
+    * 石蛃目 Microcoryphia
+    * 衣鱼目 Thysanura
+* 有翅亚 纲 Pterygota
+    * 蜉蝣目 Ephemeroptera
+    * 蜻蜓目 Odonata
+    * 襀翅目 Plecoptera
+    * 蜚蠊目 Blattaria（合并 等翅目 Isoptera）
+    * 螳螂目 Mantodea
+    * 蛩蠊目 Grylloblattodea
+    * 螳䗛目  Mantophasmatodea
+    * 竹节虫目 Phasmatodea
+    * 纺足目 Embioptera
+    * 直翅目 Orthoptera
+    * 革翅目 Dermaptera
+    * 缺翅目 Order Zoraptera
+    * 虱目A noplura
+    * 啮虫目 Psocoptera
+    * 缨翅目 Thysanoptera
+    * 半翅目 Hemiptera （合并 同翅目 Homoptera）
+    * 脉翅目  Neuroptera
+    * 广翅目 Megaloptera
+    * 蛇蛉目 Raphidioptera
+    * 鞘翅目 Coleoptera
+    * 双翅目 Diptera
+    * 蚤目 Siphonaptera
+    * 捻翅目 Strepsiptera
+    * 长翅目 Mecoptera
+    * 毛翅目 Trichoptera
+    * 鳞翅目 Lepidoptera
+    * 膜翅目 Hymenoptera
+
+.. image:: https://pollychandlercoaching.com/wp-content/uploads/2018/04/Tree-of-life-e1523291517228-1.png
+    :width: 100%
+    :alt: INaturalist: Break Down Silos Tool
+    :target: https://www.inaturalist.org/observations
+
+
+昆虫种类繁多、形态各异，在科学分类上，昆虫被列入节肢动物门，六足亚门，它们具有节肢动物的共同特征。 
+昆虫纲不但是节肢动物门中最大的一纲，也是动物界中最大的一纲。昆虫不但种类多，而且同种的个体数量 
+也十分惊人。昆虫的分布面之广，没有其他纲的动物可以与之相比，几乎遍及整个地球。
+具备以下几个特征：
+
+（一）身体由若干环节组成，这些环节集合成头、胸、腹三个部分；
+（二）头部不分节，是感觉与取食的中心，具有口器和 1 对触角，通常还有复眼和单眼； 
+（三）胸部分为 3 节，可能某些种类其中某一节特别发达而其他两节退化得较小。胸部是运动的中心，具有 3 对足，一般成虫还有 2 对翅，也有一些种类完全退化；
+（四）腹部应该分为 11 节，但也常常演化为 8 节、7 节或 4 节。分节数目虽不相等，但都没有足或翅等；附属器官着生。腹部是生殖与营养代谢的中心，其中包含着生殖器官及大部分内脏；
+（五）昆虫在生长发育过程中，通常要经过一系列内部及外部形态上的变化，即变态过程。
+
+世界昆虫约有 100 万种，也有人估计为 200 万种，每年还约陆续发现 0.5～1 万新种。 
+中国约 12～15 万种。昆虫种类繁多（约占动物界种数的80%），习性歧异，分布范围很广。
+除海洋的水域之中以外，凡有植物生长的地域都有昆虫。
+
+昆虫具有强大的飞翔能力，其微小的身躯又易随气流传播，所以从赤道到两极都有它们的踪迹。 
+如北纬 80° 曾发现蝴蝶，北纬 70° 曾发现蚊虫；南极圈内也曾发现过昆虫。海拔 5029 米
+高山上曾发现半翅目昆虫，488 米高山上曾发现鳞翅目昆虫，若干无翅亚纲昆虫往往生活在海拔
+更高的地方。昆虫的分布上限为海拔 6800 米。温泉、山洞也有昆虫栖息。
+
+True Bugs (Heteroptera) https://www.si.edu/spotlight/buginfo/true-bugs
+
+The True Bugs are insects that have two pairs of wings, the front or outer 
+pair of each divided into a leathery basal part and a membranous apical part. 
+These wing covers are held over the back and often partly folded. 
+
+True bugs have hypodermic-needle-like mouthparts that allow them to 
+extract subsurface fluids from plants and animals. Bugs undergo incomplete 
+metamorphosis, with their young looking much like adults, but without wings.
+
 在中美洲发现的一些神奇的 True Bugs，由 Edwin Wilson Cambridge 绘制。这些插图是 
 《墨西哥和中美洲自然史百科全书》的一部分。
 
 an encyclopedia of the natural history of Mexico and Central America by W. W. Fowler and T. D. A. Cockerell
 
-在地球上数百万种昆虫中，约有 80000 种是 True Bugs，它们几乎可以生活在世界任何地方， 
+在地球上数百万种昆虫中，约有 80000 种是 True Bugs (Heteroptera)，它们几乎可以生活在世界任何地方， 
 也可以在陆地或水中找到。 它们的大小从 ~1mm （如臭虫）到 15cm/6英寸（如巨型水虫）不等。
-下次你看到一只虫子时，试着看看你是否能确定它是“真正的虫子”还是其它昆虫。
+下次你看到一只虫子时，试着看看你是否能确定它是“真虫”还是其它昆虫。
 
 Insecta. Rhynchota. Hemiptera-Homoptera. Volume II , Part 1 (1894-1909) by W. W. Fowler and T. D. A. Cockerell
 https://www.sil.si.edu/DigitalCollections/bca/navigation/bca_18_02_01/bca_18_02_01select.cfm
