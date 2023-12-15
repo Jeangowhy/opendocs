@@ -1,4 +1,13 @@
+======================
+TOC
+======================
 
+.. contents:: Table of Contents 
+   :depth: 3
+   :class: handout
+
+
+=======================================================
 A to Z of insects
 =======================================================
 * A to Z of inserts https://www.amentsoc.org/insects/fact-files/a-to-z-of-insects.html

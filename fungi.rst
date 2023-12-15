@@ -1,4 +1,13 @@
 ======================
+TOC
+======================
+
+.. contents:: Table of Contents 
+   :depth: 3
+   :class: handout
+
+
+======================
 系统分类学 Systematic
 ======================
 
@@ -60,7 +69,7 @@
     Life Tree of 3 Domains System
     https://www.britannica.com/topic/tree-of-life-religion
 
-* iTOL: Interactive Tree Of Life https://itol.embl.de/itol.cgi
+*   iTOL: Interactive Tree Of Life https://itol.embl.de/itol.cgi
 
 黏菌是一群类似霉菌的生物，类真菌原生生物 (Fungus-like Protists)，它既像真菌又不完全一样， 
 国际上没有一个被普遍公认的对原生生物的分类体系，这是一个临时性归类。
@@ -69,12 +78,23 @@
 因而得名(slime molds)。这段黏黏的时期是黏菌的营养生长期，原质团如变形虫一样，可任意改变体形，
 故又称为“变形体”，归入单鞭毛生物-变形虫门 (Hawksworth et al., 1995)。
 原生质体黏菌的特色是没有单一细胞，而形成一整团的原生质。其生活史可分为二倍体时期与单倍体时期。
-如果将原质团看作一个细胞，那么这就是地球上最大的细胞。
+
+* 腐殖质里的微生物 变形虫 https://www.bilibili.com/video/BV1kT4y137x5?t=198
 
 广义的又称裸菌，是营养生长阶段的结构为无细胞壁、裸露的原质团或假原质团、繁殖阶段产生孢子的 
 真核生物的统称，包括狭义黏菌、网柄菌、集胞菌、根肿菌、原柄菌、鹅绒菌以及网黏菌等异型异源类群，
 与真菌界的全体成员和菌藻界的部分成员统称为菌物。
 
+如果将黏菌原质团看作一个细胞，那么这就是地球上最大的细胞。并且只有同源的黏菌在接触时 
+都会溶合成一体（plasmodium），非同源黏菌会互相排斥，目前已经控制黏菌溶合的基因座有 16 个。
+基因选择性表达有显性、隐性两种，也就是说至少有 2^16 = 65536 种相斥黏菌（phenotypes）。
+
+基因座（locus，loci）又称座位，基因在染色体上所占的位置。分子水平上， 
+是有遗传效应的 DNA 序列。形象地说，一对染色体可想象为两条平行线，染色体上一个给定的位置，
+好比两平行线上相对应位置的一点或一段，叫做基因座。
+一个基因座可以是一个基因，一个基因的一部分，或具有某种调控作用的 DNA 序列。
+
+* 黏菌的小科普 https://www.bilibili.com/list/32078085
 * 万圣节的礼物：生与死 https://www.bilibili.com/list/32078085
 
 计算机领域有人根据黏菌行为特性设计了黏菌算法（Slime Mould Algorithm，SMA）， 
@@ -153,6 +173,166 @@ Li S, Chen H, Wang M, et al. Slime mould algorithm: A newmethod for stochastic o
 
     Life cycle of fungi
 
+真菌结构相关词汇： 
+
+====================  =======================
+Mushroom               蘑菇，真菌子实体 (fruiting body)，位于地面之上的生殖体
+Mycelium               菌丝体，位于地下的菌丝，是真菌的主体
+Stolon                 生殖根，匍匐茎
+Volva                  菌托，菌柄基部的菌幕残余
+Ring, skirt            菌环，菌柄上部的菌幕残余
+Stem                   菌柄，支持菌盖伸向更高处，以扩大孢子传播范围
+Cap                    菌盖，以菌褶方式包含担子和孢子
+Scales                 鳞片，覆盖在表面的菌幕残余
+Gile                   菌褶，以菌柄为中心轴，向四周辐射
+Basidium               担孢子，担子菌的有性孢子
+Sporangium             孢子囊，用于保护孢子
+Spores                 孢子，真菌的生殖细胞
+Meiosis                减数分裂，母细胞 DNA 复制一次（加倍）再连续经过两次分裂
+Monoploid              一倍体，体细胞含一个染色体组的个体
+Haploid                单倍体，细胞核中含有一个完整染色体组
+Diploid                双倍体，细胞核中含有两组完整染色体
+Zygote                 合子，受精卵
+Strain                 菌株，又称品系（— + 两种形态，代表雌雄两种）
+Hyphae                 菌丝（- + 菌株结合体），真菌的基本结构单位
+Septate hypha          有隔菌丝
+Coenocytic hypha       无隔菌丝
+                 
+====================  =======================
+
+典型的担子菌门真菌生活史包含以三个阶段，循环进行： 
+
+* Haploid (1n) 单倍体阶段，经过减数分裂后产生孢子，并在合适环境中萌芽(germinate)；
+* Dikaryotic stage (1n + 1n)，孢子萌芽得到的雌、雄株溶合后进入营养生殖，为下一轮繁殖作准备；
+* Diploid (2n) 双倍体阶段，为下一轮减数分裂作准备；
+
+参考 Kingdom Fungi - Figure 20.21. Life cycle of a mushroom fungus 
+https://labs.plb.ucdavis.edu/courses/bis/1c/text/Chapter20nf.pdf
+
+菌株（在非细胞型的病毒中则称毒株或株）是指从不同来源的标本中分离而得的菌种，它表示任何由一个 
+独立分离的单细胞（或单个病毒体）通过无性繁殖而成的纯遗传型群体及其一切后代。因此，一种微生物的
+每一不同来源的纯培养物或纯分离物均可称为某菌种的一个菌株。如培养伤寒杆菌时可从血液中、骨髓中、
+粪便中、胆汁中进行分离培养，而以胆汁中者最为良好，称为标准株。
+
+研究真菌的有性生殖时．发现真菌存在性分化现象。大多数真菌雌、雄同株，同一个菌体上可以分化 
+出雌、雄配子体。雌雄异株为少数，即一些菌株只产生雌配子体，而另一些菌株只产生雄配子体。
+然而并不是所有雌雄同株的真菌都可以单株进行有性生殖。雌、雄配子体可以交配完成有性生殖的称为
+性亲和（sexual compatible)，不能交配的称为性不亲和(sexual incompatible）。
+多数真菌为异宗配合 (heterothallism)．即单个菌株不能完成有性生殖，需要两个性亲和菌株共同
+生长在一起才能完成有性生殖。少数菌株个体可以独自完成有性生殖，称为同宗配合 (homothallism)。
+
+孢子生殖是很多孢子植物和真菌等利用孢子进行的生殖方式。孢子是许多真菌、植物、藻类和原生动物 
+产生的一种具有繁殖、休眠功能的生殖细胞。能直接发育成新个体，如分生孢子、孢囊孢子、游动孢子等。
+植物通过无性生殖产生的孢子叫“无性孢子”，通过有性生殖产生的孢子叫“有性孢子”，
+如接合孢子、卵孢子、子囊孢子、担孢子等。
+
+孢子萌发长出芽管，芽管不断地伸长、分枝成为菌丝，菌丝生长到一定时期，菌丝上分化出无性繁殖器官， 
+产生无性孢子。真菌进入寄主生长环境后期，环境条件不再适于真菌的生长时，真菌就形成有性生殖器官，
+产生有性孢子。
+
+配子是指生物进行有性生殖时由生殖系统所产生的成熟性细胞，简称生殖细胞。 
+配子分为雄配子（male gamete）和雌配子（female gamete）。动物和植物的雌配子通常称为
+卵细胞（ova, egg），雄配子称为精子（sperm）。精子相当小，但能够运动，呈蝌蚪状进入卵细胞，
+而卵细胞体积相当大，并且不可游动，如海胆的卵细胞体积是精细胞的 10,000 倍。
+尽管雌雄配子的体积不同，但它们为子代提供的核 DNA 是等量的，即各提供一套基因组。
+不过，由于卵细胞的体积大，子代细胞的细胞质结构和细胞质 DNA 基本都是由卵细胞提供的。
+
+营养生活进行到一定时期时，真菌就开始转入繁殖阶段，形成各种繁殖体，即子实体。 
+真菌的繁殖体包括无性繁殖形成的无性孢子和有性生殖产生的有性孢子。
+
+无性繁殖 (asexual reproduction) 是指营养体不经过核配和减数分裂产生后代个体的繁殖。它的 
+基本特征是营养繁殖通常直接由菌丝分化产生无性孢子。常见的无性孢子有三种类型：
+
+*  (1) 游动孢子 (zoospore)：于游动孢子囊 (zoosporangium) 内形成。
+    游动孢子囊由菌丝或孢囊梗顶端膨大而成。游动孢子无细胞壁，具1—2根鞭毛，释放后能在水中游动。
+
+*  (2) 孢囊孢子 (sporangiospore)：形成于孢子囊 (sporangium)内。
+    孢子囊由孢囊梗的顶端膨大而成。孢囊孢子有细胞壁，无鞭毛，释放后可随风飞散。
+
+*  (3) 分生孢子 (conidium) 于由菌丝分化而形成的分生泡子梗 (conidiophore) 上产生，
+    顶生、侧生或串生，形状、大小多种多样，单胞或多胞，无色或有色，成熟后从袍子梗上脱落。
+    有些真菌的分生抱子和分生孢子梗还着生在分生孢子果内。袍子果主要有两种类型，
+    即近球形的具孔口的分生抱子器 (pycnidium) 和杯状或盘状的分生孢子盘 (acervulus)。
+
+有性生殖 (sexual reproduction) 一般发生在真菌生长、发育到后期进行。 
+有性生殖是经过两个性细胞结合后，细胞核产生减数分裂产生袍子的繁殖方式。
+多数真菌由菌丝分化产生性器官即配子囊 (gametangium)，通过雌、雄配子囊结合
+形成有性泡子。其整个过程可分为质配、核配和减数分裂三个阶段。
+
+* 第一阶段是质配，即经过两个性细胞的融合，两者的细胞质和细胞核 (N) 合二为一，形成双核期 (N+N)。
+* 第二阶段是核配，就是在融合的细胞内两个单倍体的细胞核结合成一个双倍体的核 (2N)。
+* 第三阶段是减数分裂，双倍体细胞核经过两次连续的分裂，形成四个单倍体的核 (N)。
+
+经过有性生殖，真菌可产生四种类型的有性孢子。 
+
+*  (1) 卵孢子 (oospore)：卵菌的有性孢子。是由两个异型配子囊——雄器和藏卵器接触后，
+    雄器的细胞质和细胞核经授精管进入藏卵器，与卵球核配，最后受精的卵球发育成厚壁的、双倍体的卵孢子。
+
+*  (2) 接合孢子 (zygospore)：接合菌的有性孢子。由两个配子囊以配子囊结合的方式融合成 1 个细胞，
+    并在这个细胞中进行质配和核配后形成的厚壁孢子。
+
+*  (3) 子囊孢子 (ascospore)：子囊菌的有性孢子。通常是由两个异型配子囊——雄器和产囊体相结合，
+    经质配、核配和减数分裂而形成的单倍体孢子。子囊孢子着生在无色透明、棒状或卵圆形的囊状结构，
+    即子囊 (ascus)内。每个子囊中一般形成 8 个子囊孢子。子囊通常产生在具包被的子囊果内。
+    子囊果一般有四种类型：
+
+    * 球状而无孔口的闭囊壳 (cletothecium)，
+    * 瓶状或球状且有真正壳壁和固定孔口的子囊壳 (perithecium)，
+    * 由于座溶解而成的、无真正壳壁和固定孔口的子囊腔(locule)，
+    * 以及盘状或杯状的子囊盘(9pothecium)。
+
+*  (4) 担孢子 (basidiospore)：担子菌的有性孢子。通常是直接由 “+”、“-” 菌丝结合形成双核菌丝，
+    以后双核菌丝的顶端细胞膨大成棒状的担子 (basidium)。在担子内的双核经过核配和减数分裂，
+    最后在担子上产生4个外生的单倍体的担孢子。
+
+此外，有些低等真菌，如根肿菌和壶菌，产生的有性孢子是一种由游动配子结合成合子， 
+再由合子发育而成的厚壁的休眠抱子 (restingspore)。
+
+
+基因（Gene），又称遗传因子，是产生一条多肽链或功能 RNA 所需的全部核苷酸序列。 
+基因储存着生命的种族、血型、孕育、生长、凋亡等过程的全部信息。环境和遗传的互相依赖，
+演绎着生命的繁衍、细胞分裂和蛋白质合成等重要生理过程。生物体的生、长、衰、病、老、死等
+一切生命现象都与基因有关，是决定生命健康的内在因素。
+
+因此，基因具有双重属性：物质性（存在方式）和信息性（根本属性）。 
+
+生物细胞内含有的四种生物大分子：碳水化合物、脂类、蛋白质和核酸（如 DNA 和 RNA ）。 
+DNA（Deoxyribo Nucleic Acid）脱氧核糖核酸是生物遗传信息的载体，双螺旋分子结构。
+
+染色体（chromosome）是细胞在有丝分裂或减数分裂时 DNA 存在的特定形式。细胞核内，DNA 
+紧密卷绕在称为组蛋白的蛋白质周围并被包装成一个线状结构。构成染色体的 DNA 在细胞分裂过程
+中变得更紧密，因此染色体在显微镜下可见。其它形态下，不能通过显微镜观察到细胞核中的 DNA。
+每条染色体都有一个叫做着丝粒（点）的收缩点，它将染色体分成两个部分。着丝粒（点）在每条
+染色体上的位置为染色体提供了特有的形状，可用于帮助描述特定基因的位置。
+
+人类的基因被分到了 23 对同源染色体总共 46 条染色体（DNA）中储存。 
+其中 22 对为常染色体（autosome），另外一对为决定性别的染色体，男女不同，
+称为性染色体（sex chromosome），男性表示为 XY，女性表示为 XX。
+
+减数分裂（meiosis）是有性生殖生物在生殖细胞成熟过程中发生的特殊分裂方式。在这一过程中， 
+DNA 复制一次，细胞连续分裂两次，结果形成 4 个子细胞的染色体数目只有母细胞的一半。
+
+同源染色体（homologous chromosomes）是有丝分裂中期看到的长度和着丝点位置相同的两个染色体， 
+或减数分裂时看到的两两配对的染色体。同源染色体一个来自父体，一个来自母体；它们的形态、大小和结构
+一般相同。由于每种生物染色体的数目是一定的，所以它们的同源染色体的对数也一定。
+故名称中的“同源”并非指两条染色体来自同一名亲代。
+
+染色体组（genome）是指细胞中的一组完整非同源染色体，它们在形态和功能上各不相同，但又互相协助， 
+携带着一种生物生长、发育、遗传和变异的全部遗传信息，细胞中只含有这样的一组染色体即为一倍体。
+
+染色体倍性是指细胞内同源染色体组的数目，其中只有一组的称为“单套”或“单倍体”。需要注意的是， 
+单倍体与一倍体（体细胞含一个染色体组的个体）有区别，前者强调倍数，后者强度同源染色体的组数。
+有的单倍体生物的体细胞中不只含有一个染色体组。
+
+绝大多数生物为二倍体生物，包括人类，其单倍体的体细胞中含一个染色体组。 
+整个染色体组数目的减少可形成单倍体（haploid），单倍体个体在人类尚未见到（23 条染色体）。 
+整个染色体组数目的增加可形成多倍体（polyploid），包括三倍体、四倍体等，在流产胎儿中能见到。
+自然界中一倍体生物确实存在，雄蜂，雄蚁以及大多数的微生物都是单倍体生物。
+
+如果原物种本身为多倍体，那么它的单倍体的体细胞中含有的染色体组数一定多于一个。 
+如四倍体水稻的单倍体含两个染色体组，六倍体小麦的单倍体含三个染色体组，而不是三倍体。
+
+
 *   Why Mushrooms Rule the Fungi Kingdom https://www.nationalgeographic.com/culture/article/why-mushrooms-rule-the-fungi-kingdom
 
 *   如梦如幻的蘑菇 by 冷知识bot
@@ -226,6 +406,9 @@ Li S, Chen H, Wang M, et al. Slime mould algorithm: A newmethod for stochastic o
 
 地面上的伞状结构是真菌的子实体（fruiting body，sporocarp，fructification），是产生孢子的生殖体。
 子实体成熟后，其产生的孢子可随风或昆虫传播，部分真菌品种的子实体还会发光，引诱昆虫帮助传播。
+
+真菌子实体幼体是一个蛋状物，长大后蛋状物上部破裂，被菌盖撑起，在菌盖上形成鳞片， 
+而在菌柄基部的那一半蛋状物则残留在原位，称为“菌托”。菌环，是指残留于菌柄上部的内菌幕。
 
 地下还有白色丝状的菌丝体，蔓延区域非常广阔，这是担子菌的营养体部分，非繁殖器官。在一定温度与 
 湿度的环境下，菌丝体取得足够的养料就开始形成子实体。子实体初期象个鸡蛋露出地面，迅速发育成子实体，
@@ -341,6 +524,299 @@ A Community Science and Education Network for the Identification and Research of
 
     [Download Now!](https://qldfungi.org.au/wp-content/uploads/2014/05/PouliotMB2010_Australian_Fungi_conservation_issues.pdf)
 
+
+
+中国真菌志. 黏菌卷
+=======================================================
+
+*   中国真菌志. 黏菌卷. 一. 鹅绒菌目 刺轴菌目 无丝菌目 团毛菌目. 
+    Myxomycetes. Ⅰ. Ceratiomyxales echinosteliales liceales trichiales
+    https://book.sciencereading.cn/shop/book/Booksimple/show.do?id=BB001796C2B2A401CBC1D2D3B15FF1C3C000
+*   中国真菌志. 黏菌卷. 二. 绒泡菌目 发网菌目. 
+    Myxomycetes. Ⅱ. Physarales stemonitales
+    https://book.sciencereading.cn/shop/book/Booksimple/show.do?id=BC38DAA5F072F46A2AE5C2C869442723E000
+
+中国真菌志. 黏菌卷一书介绍了黏菌的经济意义、生态分布、生活史、形态结构及其分类。 
+对中国黏菌纲鹅绒菌目、刺轴菌目、无丝菌目及团毛菌目进行了科、属、种的系统学研究。
+描述了各种的形态结构，讨论了种间关系，记述了地理分布，提供了中国已知种的分科、
+分属及分种检索表。附扫描电镜照片。
+
+.. code-block::
+
+    黏菌纲
+    鹅绒菌亚纲
+    鹅绒菌目
+    鹅绒菌科
+        鹅绒菌属
+
+    腹黏菌亚纲
+    刺轴菌目
+    刺轴菌科
+        刺轴菌属
+    碎皮菌科
+        碎皮菌属
+
+    无丝菌目
+    无丝菌科
+        无丝菌属
+            纵裂无丝菌 裸露无丝菌 直立无丝菌 立状无丝菌 铜盖无丝菌 极小无丝菌 柄罐无丝菌 
+            粗柄无丝菌 点状无丝菌 小无丝菌 网孢无丝菌 杯状无丝菌 多变无丝菌
+    孔膜菌科
+        线筒菌属
+            线筒菌
+        孔膜菌属
+            线膜菌 孔膜菌
+        粉瘤菌属
+            粉瘤菌属 圆锥粉瘤菌 粉瘤菌 小粉瘤菌 大粉瘤菌
+        筒菌属
+            假轴筒菌 网被筒菌 筒菌 小孢筒菌
+    筛黏菌科 Cribrariaceae
+        筛菌属
+            赭褐筛菌 暗褐筛菌 黄褐筛菌 混淆筛菌 格孢筛菌 红筛菌 无节筛菌 锈红筛菌 
+            线形筛菌 密筛菌 不整筛菌 紫褐筛菌 大筛菌 大孢筛菌 宽肋筛菌 中间筛菌 
+            小筛菌 极小筛菌 山地筛菌 暗小筛菌 网格筛菌 皱杯筛菌 梨形筛菌 紫红筛菌 
+            橙红筛菌 美筛菌 细筛菌 紫筛菌 栗褐筛菌
+        灯笼菌属
+            灯笼菌 半网灯笼菌
+        珠膜菌属
+            珠膜菌
+
+    团毛菌目
+    散丝菌科
+        纹丝菌属
+        散丝菌属
+            小囊散丝菌
+    团毛菌科
+        团网菌属
+            橙黄团网菌 聚生团网菌 环丝团网菌 肉色团网菌 灰团网菌 暗红团网菌 弱小团网菌 
+            锈色团网菌 灰绿团网菌 球圆团网菌 小孢团网菌 粉红团网菌 鲜红团网菌 螺纹团网菌 
+            大垂网菌 大团网菌 蓝灰团网菌 黄垂网菌 异型团网菌 暗红垂网菌 果形团网菌 
+            朦纹团网菌 异色团网菌　 绿垂网菌
+        半网菌属
+            细柄半网菌 金孢半网菌 棒形半网菌 叉纹半网菌 异孢半网菌 蛇形半网菌
+        变毛菌属
+            紫褐变毛菌 暗红变毛菌
+        贫丝菌属
+            胀丝贫丝菌
+        盖碗菌属
+            金孢盖碗菌 盖碗菌 扁盖碗菌 片丝盖碗菌 灰盖碗菌 膜盖碗菌 小盖碗菌 
+            洞丝盖碗菌 四方盖碗菌 曲线盖碗菌
+        团毛菌属
+            栗褐团毛菌 朦纹团毛菌 长尖团毛菌 直立团毛菌 网孢团毛菌 异丝团毛菌 鲜黄团毛菌 
+            小孢团毛菌 多枝团毛菌 刺丝团毛菌 亚栗褐团毛菌 环壁团毛菌 疣壁团毛菌
+
+    腹黏菌亚纲  
+    绒泡菌目 Physarales
+    绒泡菌科 Physaraceae
+
+    钙丝菌属 Badhamia
+        黑柄钙丝菌 钙丝菌 灰堆钙丝菌 细钙丝菌 大囊钙丝菌 巨孢钙丝菌 黄钙丝菌 红褐钙丝菌 彩囊钙丝菌
+    钙柱菌属 Badhamiopsis
+        钙柱菌 钙核钙柱菌
+    高杯菌属 Craterium
+        黄高杯菌 暗高杯菌 白头高杯菌 小囊高杯菌 高杯菌 红结高杯菌
+    腊肠菌属 Erionema
+        腊肠菌
+    煤绒菌属 Fuligo
+        白煤绒菌 薄皮煤绒菌 棘孢煤绒菌 苔生煤绒菌 暗红煤绒菌 煤绒菌
+    光果菌属 Leocarpus
+        光果菌
+    针箍菌属 Physarella
+        针箍菌
+    绒泡菌属 Physarum
+        亮褐绒泡菌 黄白绒泡菌 高山绒泡菌 环柄绒泡菌 橙红绒泡菌 金色绒泡菌 橙绿绒泡菌 
+        膜壁绒泡菌 蓝虹绒泡菌 两瓣绒泡菌 星裂绒泡菌 黄褐绒泡菌 青灰绒泡菌 灰绒泡菌 
+        金黄绒泡菌 扁绒泡菌 密集绒泡菌 混乱绒泡菌 团聚绒泡菌 联合绒泡菌 高杯绒泡菌 
+        钙丝绒泡菌 畸形绒泡菌 双皮绒泡菌 卵圆绒泡菌 棘孢绒泡菌 黄头绒泡菌 铬黄绒泡菌 
+        皱皮绒泡菌 全白绒泡菌 圈绒泡菌 草生绒泡菌 盘状绒泡菌 砖红绒泡菌 白褐绒泡菌 
+        白柄绒泡菌 大轴绒泡菌 侧扁绒泡菌 鲜黄绒泡菌 大孢绒泡菌 淡黄绒泡菌 赭色绒泡菌 
+        易变绒泡菌 紫绒泡菌 多瓣绒泡菌 联生绒泡菌 钙核绒泡菌 垂头绒泡菌 玉米绒泡菌 
+        卵孢绒泡菌 穿轴绒泡菌 盘头菌 多头绒泡菌 青铜绒泡菌 长轴绒泡菌 小绒泡菌 刚丝绒泡菌 
+        玫瑰绒泡菌 蛇形绒泡菌 无柄绒泡菌 星状绒泡菌 禾草绒泡菌 硫黄绒泡菌 细弱绒泡菌 
+        网格绒泡菌 彩色绒泡菌 灰白绒泡菌 黄绿绒泡菌 绿绒泡菌 木生绒泡菌
+    钩丝菌属 Willkommlangea
+        钩丝菌
+    钙皮菌科 Didymiaceae
+    白柄菌属 Diachea
+        球囊白柄菌 白柄菌 美白柄菌 短白柄菌 团孢白柄菌
+    双皮菌属 Diderma
+        高山双皮菌 星状双皮菌 苔生双皮菌 灰色双皮菌 紫轴双皮菌 光壳双皮菌 扁垫双皮菌 
+        垫形双皮菌 花状双皮菌 球形双皮菌 半圆双皮菌 大刺孢双皮菌 雪白双皮菌 薄双皮菌 
+        辐射双皮菌 联壁双皮菌 粉红双皮菌 地星双皮菌
+    钙皮菌属 Didymium
+        白环钙皮菌 钉形钙皮菌 白壳钙皮菌 畸形钙皮菌 多变钙皮菌 小晶钙皮菌 弯曲钙皮菌 
+        网纹钙皮菌 黄柄钙皮菌 软骨钙皮菌 暗孢钙皮菌 小钙皮菌 黑柄钙皮菌 卵形钙皮菌 
+        穿孔钙皮菌 假轴钙皮菌 疣网钙皮菌 扁联钙皮菌 鳞钙皮菌 大轴钙皮菌 疣孢钙皮菌
+    鳞皮菌属 Lepidoderma
+        鳞皮菌
+    复囊钙皮菌属 Mucilago
+        复囊钙皮菌
+
+    发网菌亚纲
+    发网菌目 Stemonitales
+    发网菌科 Stemonitaceae
+
+    黑毛菌属 Amaurochaete
+    黑毛菌属 Amaurochaete
+        黑毛菌 筛管黑毛菌
+    颈环菌属 Collaria
+        圆头颈环菌　 紫褐颈环菌
+    发菌属 Comatricha
+        暗褐发菌 松发菌 黑发菌 美发菌
+    垂丝菌属 Enerthenema
+        团孢垂丝菌 垂丝菌
+    亮皮菌属 Lamproderma
+        青紫亮皮菌 亮皮菌 闪光亮皮菌
+    空柄菌属 Macbrideola
+        空柄菌
+    叉丝菌属 Paradiacheopsis
+        刺孢叉丝菌 流苏叉丝菌 单生叉丝菌
+    发丝菌属 Stemonaria
+        半网发丝菌 长发丝菌
+    发网菌属 Stemonitis
+        锈发网菌 刺发网菌 褐发网菌 草生发网菌 黑发网菌 灰褐发网菌 亚小发网菌 美发网菌 小发网菌
+    拟发网菌属 Stemonitopsis
+        网孢拟发网菌 半网拟发网菌 亚丛拟发网菌 香蒲拟发网菌
+    联囊菌属 Symphytocarpus
+        黑毛联囊菌 融生联囊菌 联囊菌 网孢联囊菌
+
+
+中国生物物种名录 第3卷 菌物 黏菌 卵菌
+=======================================================
+
+.. code-block::
+
+    中国生物物种名录 第3卷 菌物 黏菌 卵菌
+
+    作  者:李玉,刘朴,赵明君 著
+    定  价:98
+    出 版 社:科学出版社
+    出版日期:2018年10月01日
+    页  数:92
+    装  帧:平装
+    ISBN:9787030590343
+    目录
+
+    ●总序
+    菌物卷前言
+    前言
+    网柄菌纲 Dictyostelea anon 1
+    网柄菌目 Dictyostelida anon 1
+    无孢丝菌科 Acytosteliaceae Raper ex Raper &Quinlan 1
+    网柄菌科 Dictyosteliaceae Rostaf.ex Cooke 1
+    鱼孢霉纲 Ichthyosporea Caval.-Sm 3
+    外毛霉目 Eccrinida L Léger & Duboscq 3
+    变形毛菌科 Amoebidiidae J.L.Licht.3
+    黏菌纲 Myxogastrea L.S.Olive 4
+    刺轴菌目 Echinostelida anon.4
+    碎皮菌科 Clastodermataceae Alexop & T.E.Brooks 4
+    刺丝菌科 Echinosteliaceae Rostaf.ex Cooke 4
+    无丝菌目 Liceida anon.4
+    筛菌科 Cribrariaceae Corda 4
+    线筒菌科 Dictydiaethaliaceae Nann.-Bremek ex H.Neubert，Nowotny & K.Baumann 8
+    无丝菌科 Liceaceae Chevall.8
+    筒菌科 Tubiferaceae T.Macbr.10
+    绒泡菌目 Physarida anon.12
+    钙皮菌科 Didymiaceae Rostaf ex.Cooke 12
+    绒泡菌科 Physaraceae Chevall.17
+    发网菌目 Stemonitida anon.30
+    发网菌科 Stemonitidaceae Fr.30
+    团毛菌目 Trichiida T Macbr.39
+    团网菌科 Arcyriaceae Rostaf ex.Cooke 39
+    实线菌科 Dianemataceae T.Macbr.42
+    团毛菌科 Trichiaceae Chevall.42
+    霜霉纲 Peronosporea anon.48
+    白锈菌目 Albuginales F.A.Wolf & F.T.Wolf 48
+    白锈菌科 Albuginaceae J.Schrot.48
+    霜霉目 Peronosporales E.Fisch.49
+    拟串孢壶菌科[新拟] Myzocytiopsidaceae M.W.Dick 49
+    霜霉科 Peronosporaceae de Bary 49
+    腐霉科 Pythiaceae J.Schrot.60
+    亚腐霉科 Pythiogetonaceae M.W.Dick 65
+    水霉目 Saprolegniales E.Fisch.65
+    细囊霉科[新拟] Leptolegniaceae M.W.Dick 65
+    水霉科 Saprolegniaceae Kütz.ex Warm.66
+    植黏菌纲 Phytomyxea Engl.& Prantl 68
+    原质目 Plasmodiophorida F.Stevens 68
+    原质科 Plasmodiophoridae Zopf ex Berl.68
+    原柄菌纲 Protostelea L.S.Olive 68
+    原柄菌目 Protostelida L.S.Olive 68
+    鹅绒菌科 Ceratiomyxaceae J.Schrot.68
+    参考文献 70
+    中文名索引 79
+    学名索引 86
+
+
+    内容介绍
+
+    本书收集和汇总了 1974~2014 年国内外学者对我国黏菌和卵菌的记载，参考了大量著作和国内外
+    学术文献，系统地收集了中国黏菌和卵菌的物种名称。截至 2014 年，我国已报道的黏菌和卵菌有
+    793 种，隶属于 6 纲 12 目 26 科 86 属，并列出了它们的正确名称，提供了其基原异名及
+    主要同物异名，尤其是我国曾经报道或使用过的名称。学科在发展，真菌分类系统在不断更新，
+    分类观点也随之发生变化，书中试图采用当前最合理的物种名称。
+
+
+长尖团毛黏菌 trichia decipiens 🟡
+=======================================================
+
+===============   ===============
+ |trichia2|     |trichia3| 
+===============   ===============
+
+.. |trichia2| image:: https://img.fotocommunity.com/trichia-decipiensverbunden-fa43063d-2e01-4b79-96b3-d534193453a2.jpg?height=1080
+    :width: 100%
+    :target: https://www.fotocommunity.de/photo/trichia-decipiensverbunden-vor-dem-harz/38531850
+
+.. |trichia3| image:: https://img.fotocommunity.com/trichia-decipiens-0e35a820-67d6-451a-98a3-e43b6f08c6fb.jpg?height=1080
+    :width: 100%
+    :target: https://www.fotocommunity.de/photo/trichia-decipiens-vor-dem-harz/32331523
+.. 
+
+:界: 原生动物界 Protozoa
+:门: 黏菌门 Myxomycota
+:纲: 黏菌纲 Myxomycetes
+:纲: 腹黏菌亚纲 Myxogastromycetidae
+:目: 团毛菌目 Trichiales
+:科: 团毛菌科 Trichiaceae
+:属: 团毛菌属 Trichia
+:种: 长尖团毛菌 Trichia decipiens
+
+长尖团毛菌 (Trichiadecipiens) 属黏菌纲、腹黏菌亚纲、团毛菌目、团毛菌科，是黏菌中一个重要的类群。 
+
+
+筛网菌 Cribrariaceae 🟡
+=======================================================
+
+================  ================   ================
+|Cribrariaceae1|  |Cribrariaceae2|   |Cribrariaceae3| 
+================  ================   ================
+
+.. |Cribrariaceae1| image:: http://www.argazkik.com/Artxibo/MixoArtxibo/Argazkiak/Cribraria%20argillacea3.jpg
+    :width: 100%
+    :target: http://www.argazkik.com/Artxibo/MixoArtxibo/Argazkiak/Cribraria%20argillacea.htm
+    :alt: Cribraria argillacea (Pers.) Pers. 1794（赭褐筛菌）
+
+.. |Cribrariaceae2| image:: http://myxosdesvosges.org/images/original/img5eab2a7102704.jpg
+    :width: 100%
+    :target: https://myxosdesvosges.org/?fiche=165
+    :alt: Cribrariaceae Corda
+
+.. |Cribrariaceae3| image:: https://observation.org/photos/73669009.jpg
+    :width: 100%
+    :target: https://www.gbif.org/occurrence/4410083630
+    :alt: Cribraria aurantiaca(橘黃篩黏菌)
+.. 
+
+* AM讲座｜博物自然：微观菌物 https://www.thepaper.cn/newsDetail_forward_24496636
+* Cribrariaceae 分类 https://eol.org/zh-CN/pages/5749/names
+
+Cribrariaceae 筛网菌显微结构： 
+
+.. image:: http://www.argazkik.com/Artxibo/MixoArtxibo/Argazkiak/Cribraria%20argillacea6.jpg
+
+子实体为孢囊，一般有柄，有的无柄，有的无柄并联成假复囊体或复囊体。无孢丝。子实体的各部分， 
+包括孢子，都有暗色原质粒。囊被连片或为网状，网眼部留存或脱落，成熟时的囊被或为完全网体，
+或上部为网，下部为基托。孢子成堆时黄色、褐色、红色或紫色，光学显微镜下色浅或鲜明。
 
 
 草菇 volvariella volvacea 🟢
@@ -834,6 +1310,7 @@ A Community Science and Education Network for the Identification and Research of
 :亚    门: 担子菌亚门
 
 * 竹荪延时摄影 https://www.bilibili.com/video/BV1fo4y1U7FN?t=98.8
+* 鬼笔菌类图册 https://steveaxford.smugmug.com/Fungi/Basidiomycetes/Stinkhorns
 
 竹荪又名竹笙、竹参，常见并可供食用的有 4 种：长裙竹荪、短裙竹荪、棘托竹荪和红托竹荪， 
 是寄生在枯竹根部的一种隐花菌类，形状略似网状干白蛇皮，它有深绿色的菌帽，雪白色的圆柱状的菌柄，
@@ -857,8 +1334,6 @@ A Community Science and Education Network for the Identification and Research of
 |archeri4|  |archeri5|  |archeri6|
 =========== =========== ===========
 
-  :观赏指数: ⭐⭐⭐⭐⭐
-
 .. |archeri1| image:: https://david-noble.net/bushwalking/FaulconbridgeGlenbrook/FG%207.jpg
     :width: 100%
 .. |archeri2| image:: https://img.huxiucdn.com/article/content/202009/01/172742755743.jpg
@@ -873,6 +1348,7 @@ A Community Science and Education Network for the Identification and Research of
     :width: 100%
 .. 
 
+:观赏指数: ⭐⭐⭐⭐⭐
 :中文名: 丝膜菌科
 :拉丁学名: Cortinariaceae
 :界: 真菌界
@@ -971,6 +1447,40 @@ Stephen Axford 与 Catherine Marciniak 合作拍摄的纪录片 `Planet Fungi`_ 
 .. |PlanetFungi12| image:: https://fungimap.org.au/wp-content/uploads/2018/09/Cordierites-frondosa-Mt-Macedon-Steve-Axfordl-b.jpg
     :width: 240px
 
+Panus lecomtei 
+
+https://photos.smugmug.com/Fungi/Other-fungi-topics/Best-to-Jan-2020/Sth-America-NZ/i-5cHG5Vw/0/90420bcc/4K/H9A6258-helicon-4K.jpg
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-TtTHkWx/1/e00fe35b/X3/174Z7809-Edit-copy-X3.jpg
+
+Crinipellis sp.
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-MbpSrLN/1/69fe0f2f/X3/_C146141-Edit-HELICON-X3.jpg
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-MhxbMqb/0/2dd8fd58/1750x1152/_C146071-helicon-1750x1152.jpg
+
+https://photos.smugmug.com/Fungi/Locations/Nepal/Nepal-source/2019-06-25/i-5QmT8KV/1/c1d99e9c/X5/DSC00033-helicon-X5.jpg
+
+Cortinarius archeri, Wilson's Promontory, Victoria 
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-FRXwG4G/2/d60417cb/X3/205_0527-X3.jpg
+
+Leratiomyces sp.
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-qSJPjBN/2/57a84467/X2/_0014101-merge-X2.jpg
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-rSgFbhL/2/5b51d22f/X3/2010_0023412-helicon-X3.jpg
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-F92gP8f/0/21ff9d00/X4/_0013743-helicon-X4.jpg
+
+
+Leratia sp. Big Scrub Loop 
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-fVgtpd7/2/74795f9a/X2/_0012453-merge-X2.jpg
+
+
+Entoloma sp.
+
+https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-5gMjgVh/1/7a4f537d/X2/2010_0023546-helicon-X2.jpg
+
 
 鸡油菌 Cantharellus cibarius 🟢
 =======================================================
@@ -1046,6 +1556,61 @@ Stephen Axford 与 Catherine Marciniak 合作拍摄的纪录片 `Planet Fungi`_ 
 :拉丁学名: （ Oudemansiella radiata (Relhan. : Fr.) Sing. Collybia radicata (Relhan. : Fr.)Quél.）
 
 
+毛头鬼伞 Coprinus comatus 🟡
+=======================================================
+
++-------------------+-----------------+-------------------+
+| |Coprinus1|       | |Coprinus2|     | |Coprinus3|       |
++-------------------+-----------------+-------------------+
+
+.. |Coprinus1| image:: https://sbike.cn/l/jituigu/1.jpg
+    :width: 100%
+
+.. |Coprinus2| image:: http://pic1.arkoo.com/90C982C101D1462BBF7956CA356A1997/picture/o_1e27akn0e1bms1snf1jvb1q4q1n7va.jpg
+    :width: 100%
+
+.. |Coprinus3| image:: https://1-im.guokr.com/KN3QcRPiy5vLgB4TxAhSuHg4grByS3j3KguemXouSCaAAgAAVgMAAEpQ.jpg?imageView2/1/w/555/h/740
+    :width: 100%
+
+* 毛头鬼伞 延时摄影 https://www.bilibili.com/list/32078085
+
+:中文名: 毛头鬼伞
+:拉丁学名: Coprinus comatus (Muell.:Fr.) Gray 1821
+:别    名: 毛鬼伞、鸡腿蘑、刺蘑菇、牛粪菌、鬼伞菌、毛头鬼盖
+:界: 真菌界
+:门: 真菌门
+:亚    门: 担子菌亚门
+:纲: 层菌纲
+:目: 伞菌目
+:科: 鬼伞科
+:属: 鬼伞属
+:种: 毛头鬼伞
+
+鸡腿菇，学名是毛头鬼伞，因其形如鸡腿，肉质似鸡丝而得名，并无鸡肉味。 
+
+毛头鬼伞可食用，肉质细嫩、营养丰富。据测定，每 100 克鸡腿蘑干品中含蛋白质 25.4 克， 
+脂肪3.3克，总糖58.8克（其中无氮浸出物51.5克，内含丰富的鸡腿蘑多糖和低聚糖，食物纤维7.3克），
+灰分物质12.5克，热能值346千卡。其蛋白质中含有20种氨基酸，较其它菇类氨基酸含量高，味道鲜浓，
+其中人体必需的8种氨基酸全部具备，尤其是赖氨酸和亮氨酸含量十分丰富，对亚健康、体弱或病后康复
+人群十分有益。此外，还含有丰富的钾、钙、镁、磷等矿质元素和锌、铁、硒、锰等微量元素，并含有人体
+所需要的多种维生素，是一种典型的高蛋白、低脂肪、低热能的健康食品。
+
+毛头鬼伞已被定为符合联合国粮农组织（FAO）和世界卫生组织（WHO）要求具有集“天然、营养、保健” 
+三种功能为一体的 16 种珍稀食用菌之一。
+
+注：毛头鬼伞老熟时菌盖完全开伞，菌褶变黑，随后菌盖变软自溶液化，成为墨汁状液体，不能食用。 
+
+毛头鬼伞是人工开发的具有商业潜力的珍稀食用菌之一。根据中国产业信息网的报道，2014年， 
+中国毛头鬼伞年产量约42.5万吨，在食用菌的年产量中排名第十。
+
+毛头鬼伞有较高的药用保健价值。中医认为，其味甘性平，具有益脾胃、助消化、清心安神、宁智利肺、 
+降血糖血压和血脂、抗肿瘤等功效，常食可以增进食欲、化滞通便、治疗痔疮和增强机体免疫功能。
+毛头鬼伞菌丝体和子实体中含有抗癌活性物质和治疗糖尿病的有效成分，长期食用具有调节体内糖代谢、
+降低血糖浓度的作用，并能调节血脂，对糖尿病和高血脂有良好的辅助治疗作用，是糖尿病患者的理想食品。
+另据《中国药用真菌图鉴》记载，毛头鬼伞的热水提取物对小白鼠肉瘤 S-180 和艾氏癌抑制率分别为
+100% 和 90%，可以明显延长 S-180 腹水瘤小鼠的存活期。
+
+
 鬼笔 Phallus rugulosus Fisch 🟡
 =======================================================
 
@@ -1072,7 +1637,7 @@ Stephen Axford 与 Catherine Marciniak 合作拍摄的纪录片 `Planet Fungi`_ 
     :width: 100%
     :alt: 红星头鬼笔 Aseroe rubra
 
-.. |Phallus6| image:: https://qldfungi.org.au/wp-content/uploads/2012/08/aseroe_rubra_04_SMF_1024.jpg
+.. |Phallus6| image:: https://photos.smugmug.com/Best-photos/Best-Fungi-Photos/i-HTQQkbz/0/cf502fad/X3/174Z7865-Edit-helicon-X3.jpg
     :width: 100%
     :alt: 红星头鬼笔 Aseroe rubra 
 
@@ -1331,6 +1896,44 @@ Ganoderma sinense Zhao，Xu et Zhang 的干燥子实体。具有补气安神，�
 而导致伤害的报道；火焰茸的接触性危险在於其汁液对皮肤有刺激性、会导致皮肤溃烂、接触口腔会
 造成黏膜发炎，但只要不去触碰其汁液、严格禁止食用，就不会有问题。
 
+
+
+星状弹球菌 Sphaerobolus stellatus 🟡
+=======================================================
+
++-------------------+-----------------+
+| |stellatus1|      | |stellatus2|    |
++-------------------+-----------------+
+
+.. |stellatus1| image:: https://pic1.arkoo.com/57FA651F9D424241B0F367DD99818B5F/picture/o_1dkf6v1og5eoj6dc1g12u41iatk1.gif
+    :width: 100%
+    :target: http://www.isenlin.cn/sf_04F20F7E5E894AD28F800FB80B991BD7_209_1901142D998.html
+
+.. |stellatus2| image:: https://photos.smugmug.com/Fungi/Basidiomycetes/Geastrales/Sphaerobolus/i-CFTRBPN/0/1ba19c19/O/_C145841.jpg
+    :width: 100%
+    :target: https://steveaxford.smugmug.com/Fungi/Basidiomycetes/Geastrales/Sphaerobolus
+.. 
+
+:神奇指数: ⭐⭐⭐⭐⭐
+:中文学名: 星状弹球菌
+:拉丁学名: Sphaerobolus stellatus
+:界: 真菌界
+:门: 真菌门
+:纲: 担子菌纲
+:目: 鸟巢菌目
+:科: 弹球菌科
+:属: 弹球菌属
+:种: 星状弹球菌
+:分布区域: 青海，江苏，安徽，台湾，云南，吉林
+
+* 弹球菌到底有多漂亮？不美哭你算我输 https://www.bilibili.com/video/BV1sv411r7Ut/
+
+鸟巢菌目弹球菌科弹球菌属菌类，因其外包被裂开后如星状，内包被可将孢子弹出而得名。 
+
+担子果肉质，球形，直径约 1.5～2.0mm，新鲜时黄色，干燥时色淡或呈白色着生于菌丝上； 
+包被上部朝阳光方向呈星状开裂成六至八瓣，内包被吸水膨胀后将孢子弹出，外包被约厚 160μm，
+内包被厚约 80μm；小包球形，光滑，直径约 1mm；孢子黄色，光滑，椭圆形或不规则形，大小不一，
+7.0～13.0×5.0×8.5μm。初夏至夏季生于腐木或枯枝上。
 
 
 T⛔🟢🟡
