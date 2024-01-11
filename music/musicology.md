@@ -452,6 +452,7 @@ C 与 G 就是五度音，相似地，可以由 G 计算得到 D 音，只需要
 6. 实用流行歌曲和弦进行 https://www.bilibili.com/video/BV1ae4y1X7zD/
 6. 音乐到底从哪里来？【警长音乐课堂】 https://www.bilibili.com/video/BV1pC4y1a7e8/
 6. Jane Piper Clendinning, Elizabeth West Marvin - The Musician's Guide to Theory and Analysis (Third Edition)
+6. 中央音乐学院副院长周海宏教授 《聆听心声：音乐审美心理分析》 https://www.bilibili.com/video/BV1nN411R7g3
 
 教你用耳朵记七和弦 iyamusic https://www.bilibili.com/video/BV1oB4y1A7De/
 

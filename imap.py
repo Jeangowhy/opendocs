@@ -6,6 +6,7 @@ import email.parser
 import email.header
 import email.policy
 import base64
+import codecs
 
 AuthCode="xxx"
 User='jimbowhy@foxmail.com'
@@ -66,7 +67,8 @@ for uid, data in messages.items():
             payload = part
     payload = str(payload)[1:100]
     subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
-    print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {subject}')
+    contents = codecs.decode(subject) if type(subject) is bytes else subject
+    print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {contents}')
     # print(f'''\
     # uid: {uid}
     #     From: {email_msg.get("From")}

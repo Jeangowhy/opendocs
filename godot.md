@@ -71,6 +71,36 @@
     解谜元素中以创造独特的游戏体验。
     https://indienova.com/g/rewinder
 
+    烽火与炊烟 https://www.bilibili.com/video/BV1Tb4y1F7q6
+
+- 🌟《诡野西部》 Weird West
+    https://www.bilibili.com/read/cv15951866/
+    诡野西部（Weird West）》玩法演示 https://www.bilibili.com/video/BV1Zq4y1G7KK
+    【诡野西部】新手开局如何偷空武器店 https://www.bilibili.com/video/BV1tB4y1U7yb/
+
+    著名制作人 Raphaël Colantonio 开发。
+
+    游戏给人印象中的既视感，更像是一种游戏设计底层的理念带来的“共鸣”，例如游戏非常强调环境
+    互动元素的逻辑关系，在游戏刚开始就指引玩家学会如何用投掷油灯来点燃油桶并借此消灭敌人，
+    后续还会有在下雨天对湿身的敌人投掷电击手雷，和把毒瓦斯桶踢到篝火上引爆等进阶技巧。
+
+    游戏甚至在一些小细节上有着莫名的执着，例如一个空的木桶只要摆正了，而天上正在下雨，
+    那么木桶就一定会被重新装满水。也可以攻击 NPC 人物，他们都有朋友圈，也会与你结仇。
+
+    其理念仍然暗合了“沉浸模拟”类游戏的核心做法——在游戏机制和技术允许的前提下，尽量让玩家
+    能够把现实当中的事物互动逻辑套用到游戏当中。
+
+    这是一款继承了 Colantonio 所钟情的“沉浸模拟”设计理念，却又采用了古典的俯视角呈现的动作冒险游戏。
+
+- 🌟《柯尔特峡谷》 Colt Canyon 
+    https://www.bilibili.com/video/BV1L5411Y7nA/
+
+    柯尔特峡谷是一款像素风格俯视视角动作射击游戏，扮演一名牛仔在危机四伏的西部峡谷中冒险。
+    满是隐藏宝藏、武器、障碍以及各色杀戮成性的人渣，在如此危机四伏的峡谷中，杀出一条血路！
+    Colt  Canyon 是一款含有 roguelike 元素以及实时战斗机制的炫酷像素风射击游戏。
+    在游戏中，你需要从残虐无道的暴徒手中拯救被绑架的伴侣。
+
+
 - 🌟Else Heart.Break() by Erik Svedäng
     http://elseheartbreak.com/
     https://www.bilibili.com/video/BV1pw411F7VA/
