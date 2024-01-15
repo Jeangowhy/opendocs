@@ -2,6 +2,21 @@
 
 [TOC]
 
+游戏设计开发相关书籍：
+
+The Art of Game Design A Book of Lenses (Jesse Schell) 3rd
+
+Designing Games: A guide to engineering experiences
+https://vdoc.pub/documents/designing-games-a-guide-to-engineering-experiences-7kspial6g170
+
+How Games Move Us - Emotion by Design, Katherine Isbister
+https://vdoc.pub/documents/how-games-move-us-emotion-by-design-6cmokovujao0
+
+Game Design Workshop : A Playcentric Approach To Creating Innovative Games 4th [PDF]
+https://vdoc.pub/download/game-design-workshop-a-playcentric-approach-to-creating-innovative-games-32v1pb3t0aag
+
+
+
 ## 🟡 Wonderful Games 优秀游戏项目
 1. 底特律：化身为人 Detroit: Become Human https://www.bilibili.com/video/BV1Gp411R7kk
 2. B站 2021小宇宙新星计划 https://www.bilibili.com/blackboard/activity-S49Oq1tKaF.html
@@ -12776,7 +12791,8 @@ TileMap 节点的属性页面板中，弹开 Tile Set 面板，可以在 Terain 
 
 前两个资源类型用于包装动画图像资源，而 Animation 动画资源则作为动画轨道记录动画帧属性。
 
-SpriteFrames 包装动画帧图像资源，可以包含多个动画配置。
+SpriteFrames 包装动画帧图像资源，可以包含多个动画配置，可以像 Sprite 一样处理 SpriteSheet 图像。
+SpriteSheet 也就是一幅包含多帧动画画面的图像，通常在图像中使用整齐的矩形格子保存每一帧的画面。
 
 AnimatedTexture 是动态纹理资源，本身就具有动画播放能力。作为一个资源类型，类似使用图片纹理对象。
 但可以设置多个帧，而不是一张静态图片，然后可以提供给 AnimatedSprite、TileMap 等需要图像资源的
