@@ -7,6 +7,7 @@ import email.header
 import email.policy
 import base64
 import codecs
+import sys
 
 AuthCode="xxx"
 User='jimbowhy@foxmail.com'
@@ -41,14 +42,19 @@ server.login(User, AuthCode)
 # 富媒体格式的 maintype='multipart'，而纯文本 maintype='text'。HTML 页面也属于富媒体格式，
 # 邮件中的 WEB 页面需要按 HTTP 协议进行解析。请求文件夹中的所有消息，可能会遇到 imaplib 大小限制。
 # 另外，邮箱服务器也可能存在时间周期限制，QQ 邮箱限制最近一个月。
+# 
+# 此脚本可以配合 sed & awk 工具使用，直接使用命令行读取邮件：
+# last=$(/c/coding/imap.py  |& awk -F: '/:/ { print $1 }' | sed -n '$p')
+# /c/coding/imap.py $last
+# /c/coding/imap.py $last > email.html; start email.html
 
 select_info = server.select_folder('INBOX')
-print('%d messages in INBOX' % select_info[b'EXISTS'])
+print('%d messages in INBOX' % select_info[b'EXISTS'], file=sys.stderr)
 # ['add_flags', 'add_gmail_labels', 'append', 'capabilities', 'close_folder', 'copy', 'create_folder', 'delete_folder', 'delete_messages', 'enable', 'expunge', 'fetch', 'find_special_folder', 'folder_encode', 'folder_exists', 'folder_status', 'get_flags', 'get_gmail_labels', 'get_quota', 'get_quota_root', 'getacl', 'gmail_search', 'has_capability', 'host', 'id_', 'idle', 'idle_check', 'idle_done', 'list_folders', 'list_sub_folders', 'login', 'logout', 'move', 'multiappend', 'namespace', 'noop', 'normalise_times', 'oauth2_login', 'oauthbearer_login', 'plain_login', 'port', 'remove_flags', 'remove_gmail_labels', 'rename_folder', 'sasl_login', 'search', 'select_folder', 'set_flags', 'set_gmail_labels', 'set_quota', 'setacl', 'shutdown', 'socket', 'sort', 'ssl', 'ssl_context', 'starttls', 'stream', 'subscribe_folder', 'thread', 'uid_expunge', 'unselect_folder', 'unsubscribe_folder', 'use_uid', 'welcome', 'xlist_folders']
 
 # messages = server.search(['FROM', 'support.cn@icmarkets-cs.com'])
 messages = server.search(['SINCE', '16-Dec-2022'])
-print("%d messages." % len(messages))
+print("%d messages." % len(messages), file=sys.stderr)
 
 # bodies = server.fetch(messages, ['BODY[]'])
 # for uid, data in bodies.items():
@@ -68,7 +74,7 @@ for uid, data in messages.items():
     payload = str(payload)[1:100]
     subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
     contents = codecs.decode(subject) if type(subject) is bytes else subject
-    print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {contents}')
+    print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {contents}', file=sys.stderr)
     # print(f'''\
     # uid: {uid}
     #     From: {email_msg.get("From")}
@@ -77,6 +83,27 @@ for uid, data in messages.items():
     #     type: {email_msg.get_default_type()}
     #     payload: {payload}
     # ''')
+
+
+if len(sys.argv)==2 and str(sys.argv[1]).isnumeric():
+    id = int(sys.argv[1])
+    bodies = server.fetch([id], ['BODY[]'])
+    # bodies = server.fetch(messages, ['BODY[]'])
+    for uid, data in bodies.items():
+        email_msg = email.message_from_bytes(data[b"BODY[]"])
+        mimetype = email_msg.get_content_maintype()
+        payload = ""
+        if mimetype == 'text':
+            payload = email_msg.get_payload(decode=True)
+        elif mimetype == 'multipart':
+            for part in email_msg.get_payload():
+                # if part.get_content_type()=="text/plain":
+                payload = part.get_payload(decode=True)
+
+        subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
+        contents = codecs.decode(subject) if type(subject) is bytes else subject
+        print(contents, payload)
+
 
 server.logout()
 

@@ -1,0 +1,48 @@
+#! /usr/bin/env python
+import os
+import PyPDF3 as PDF
+from PyPDF3.pdf import DocumentInformation, PageObject
+from PyPDF3.xmp import XmpInformation
+
+
+ref = 'https://opensource.adobe.com/dc-acrobat-sdk-docs/pdflsdk/index.html'
+path = 'C:/dl/books/pdf/PDF32000_2008.pdf'  # PDF specification reference 1.7
+path = 'C:/dl/books/Python/Fluent Python, 2nd Edition by Luciano Ramalho (z-lib.org).pdf'
+path = 'C:/dl/books/pdf/pdfreference1.0.pdf'  # PDF specification reference 1.0
+file = open(path, "+rb")
+pdf = PDF.PdfFileReader(file)
+
+if pdf.isEncrypted:
+    raise Exception("Encrypted pdf: ", path)
+
+info = pdf.getDocumentInfo() or DocumentInformation()
+print(f"""
+------
+PDF Document Infomation
+========================================================
+        Title : {info.title}
+       Author : {info.author}
+      Subject : {info.subject}
+      Creator : {info.creator}
+     Producer : {info.producer}
+        Pages : {pdf.numPages}
+""")
+
+it:PageObject = pdf.getPage(1)
+fps = pdf.flattenedPages or list()
+
+for it in pdf.pages[1:2]:
+    print (it.extractText( ))
+    print (f"""
+------
+Page Infomation
+========================================================
+    {it}
+    Page Layout : {pdf.getPageLayout( )}
+    Page Mode : {pdf.getPageMode( )}
+    XMP Meta : {pdf.getXmpMetadata( )}
+    Objects : {pdf.resolvedObjects.keys()}
+    Leafies : {it.keys()}
+    Contents : {it.getContents( )}
+    """)
+    # 1009 0 R : {pdf.getObject( (0, 1009) )}
