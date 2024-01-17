@@ -8,6 +8,10 @@ import email.policy
 import base64
 import codecs
 import sys
+import io
+
+# To solve Windows ZH-CN: UnicodeEncodeError: 'gbk' codec can't encode character '\xe2'
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 
 AuthCode="xxx"
 User='jimbowhy@foxmail.com'
@@ -48,41 +52,50 @@ server.login(User, AuthCode)
 # /c/coding/imap.py $last
 # /c/coding/imap.py $last > email.html; start email.html
 
-select_info = server.select_folder('INBOX')
-print('%d messages in INBOX' % select_info[b'EXISTS'], file=sys.stderr)
+if len(sys.argv)==2 and sys.argv[1]=="ls":
+
+    for it in server.list_folders():
+        print(it)
+
+
+select_info = server.select_folder('INBOX') # INBOX 收件箱，Junk 垃圾邮件目录
+print('%d messages in mail box' % select_info[b'EXISTS'], file=sys.stderr)
 # ['add_flags', 'add_gmail_labels', 'append', 'capabilities', 'close_folder', 'copy', 'create_folder', 'delete_folder', 'delete_messages', 'enable', 'expunge', 'fetch', 'find_special_folder', 'folder_encode', 'folder_exists', 'folder_status', 'get_flags', 'get_gmail_labels', 'get_quota', 'get_quota_root', 'getacl', 'gmail_search', 'has_capability', 'host', 'id_', 'idle', 'idle_check', 'idle_done', 'list_folders', 'list_sub_folders', 'login', 'logout', 'move', 'multiappend', 'namespace', 'noop', 'normalise_times', 'oauth2_login', 'oauthbearer_login', 'plain_login', 'port', 'remove_flags', 'remove_gmail_labels', 'rename_folder', 'sasl_login', 'search', 'select_folder', 'set_flags', 'set_gmail_labels', 'set_quota', 'setacl', 'shutdown', 'socket', 'sort', 'ssl', 'ssl_context', 'starttls', 'stream', 'subscribe_folder', 'thread', 'uid_expunge', 'unselect_folder', 'unsubscribe_folder', 'use_uid', 'welcome', 'xlist_folders']
 
-# messages = server.search(['FROM', 'support.cn@icmarkets-cs.com'])
-messages = server.search(['SINCE', '16-Dec-2022'])
-print("%d messages." % len(messages), file=sys.stderr)
 
-# bodies = server.fetch(messages, ['BODY[]'])
-# for uid, data in bodies.items():
-#     email_msg = email.message_from_bytes(data[b"BODY[]"])
+if len(sys.argv)==1:
 
-envelopes = server.fetch(messages, ['ENVELOPE'])
-messages = server.fetch(messages, ['RFC822'])
+    # messages = server.search(['FROM', 'support.cn@icmarkets-cs.com'])
+    messages = server.search(['SINCE', '16-Dec-2022'])
+    print("%d messages." % len(messages), file=sys.stderr)
 
-for uid, data in messages.items():
-    email_msg = email.message_from_bytes(data[b"RFC822"])
-    payload = email_msg.get_payload()
-    if email_msg.get_content_maintype()=='multipart':
-        payload = ""
-        for part in email_msg.get_payload():
-            # if part.get_content_type()=="text/plain":
-            payload = part
-    payload = str(payload)[1:100]
-    subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
-    contents = codecs.decode(subject) if type(subject) is bytes else subject
-    print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {contents}', file=sys.stderr)
-    # print(f'''\
-    # uid: {uid}
-    #     From: {email_msg.get("From")}
-    #     Subject: {email_msg.get("Subject")}
-    #     maintype: {email_msg.get_content_maintype()}
-    #     type: {email_msg.get_default_type()}
-    #     payload: {payload}
-    # ''')
+    # bodies = server.fetch(messages, ['BODY[]'])
+    # for uid, data in bodies.items():
+    #     email_msg = email.message_from_bytes(data[b"BODY[]"])
+
+    envelopes = server.fetch(messages, ['ENVELOPE'])
+    messages = server.fetch(messages, ['RFC822'])
+
+    for uid, data in messages.items():
+        email_msg = email.message_from_bytes(data[b"RFC822"])
+        payload = email_msg.get_payload()
+        if email_msg.get_content_maintype()=='multipart':
+            payload = ""
+            for part in email_msg.get_payload():
+                # if part.get_content_type()=="text/plain":
+                payload = part
+        payload = str(payload)[1:100]
+        subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
+        contents = codecs.decode(subject) if type(subject) is bytes else subject
+        print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {contents}', file=sys.stderr)
+        # print(f'''\
+        # uid: {uid}
+        #     From: {email_msg.get("From")}
+        #     Subject: {email_msg.get("Subject")}
+        #     maintype: {email_msg.get_content_maintype()}
+        #     type: {email_msg.get_default_type()}
+        #     payload: {payload}
+        # ''')
 
 
 if len(sys.argv)==2 and str(sys.argv[1]).isnumeric():
@@ -101,8 +114,12 @@ if len(sys.argv)==2 and str(sys.argv[1]).isnumeric():
                 payload = part.get_payload(decode=True)
 
         subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
-        contents = codecs.decode(subject) if type(subject) is bytes else subject
-        print(contents, payload)
+        title = codecs.decode(subject) if type(subject) is bytes else subject
+
+        try:
+            print(uid, title, payload.decode())
+        except Exception as ex:
+            print(uid, title, ex, payload)
 
 
 server.logout()
