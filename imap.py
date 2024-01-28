@@ -1,5 +1,7 @@
-#! /usr/bin/env python
+#! /usr/bin/env -S python ./imap.py 1278
+#! python
 
+from typing import Any, Union
 from imapclient import IMAPClient
 import email
 import email.parser
@@ -10,10 +12,13 @@ import codecs
 import sys
 import io
 
+# print(sys.argv)
+# sys.stdout.flush()
+
 # To solve Windows ZH-CN: UnicodeEncodeError: 'gbk' codec can't encode character '\xe2'
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 
-AuthCode="xxx"
+AuthCode="..."
 User='jimbowhy@foxmail.com'
 
 server = IMAPClient('imap.qq.com', use_uid=True)
@@ -52,22 +57,37 @@ server.login(User, AuthCode)
 # /c/coding/imap.py $last
 # /c/coding/imap.py $last > email.html; start email.html
 
-if len(sys.argv)==2 and sys.argv[1]=="ls":
+if len(sys.argv) > 1 and sys.argv[1]=="ls":
 
     for it in server.list_folders():
         print(it)
 
 
 select_info = server.select_folder('INBOX') # INBOX 收件箱，Junk 垃圾邮件目录
-print('%d messages in mail box' % select_info[b'EXISTS'], file=sys.stderr)
+print('%d messages in mail box.' % select_info[b'EXISTS'], file=sys.stderr)
+# imapclient.imapclient.IMAPClient members
 # ['add_flags', 'add_gmail_labels', 'append', 'capabilities', 'close_folder', 'copy', 'create_folder', 'delete_folder', 'delete_messages', 'enable', 'expunge', 'fetch', 'find_special_folder', 'folder_encode', 'folder_exists', 'folder_status', 'get_flags', 'get_gmail_labels', 'get_quota', 'get_quota_root', 'getacl', 'gmail_search', 'has_capability', 'host', 'id_', 'idle', 'idle_check', 'idle_done', 'list_folders', 'list_sub_folders', 'login', 'logout', 'move', 'multiappend', 'namespace', 'noop', 'normalise_times', 'oauth2_login', 'oauthbearer_login', 'plain_login', 'port', 'remove_flags', 'remove_gmail_labels', 'rename_folder', 'sasl_login', 'search', 'select_folder', 'set_flags', 'set_gmail_labels', 'set_quota', 'setacl', 'shutdown', 'socket', 'sort', 'ssl', 'ssl_context', 'starttls', 'stream', 'subscribe_folder', 'thread', 'uid_expunge', 'unselect_folder', 'unsubscribe_folder', 'use_uid', 'welcome', 'xlist_folders']
 
+def byte_decode(by: Union[bytes, Any], cs = ["gbk", "utf8"]):
+    if type(by) is not bytes:
+        return by
 
-if len(sys.argv)==1:
+    for it in cs:
+        try:
+            return by.decode(encoding=it)
+            # return by.decode(encoding=it) if type(by) is bytes else by
+            # return codecs.decode(by, encoding=it) if type(by) is bytes else by
+        except UnicodeDecodeError as ex:
+            pass
+            # print(type(ex), ex, file=sys.stderr)
+
+
+# if sys.argv[0]==sys.argv[-1]:
+if len(sys.argv) == 1:
 
     # messages = server.search(['FROM', 'support.cn@icmarkets-cs.com'])
-    messages = server.search(['SINCE', '16-Dec-2022'])
-    print("%d messages." % len(messages), file=sys.stderr)
+    messages = server.search(['SINCE', '6-Dec-2023'])
+    # print("%d messages." % len(messages))
 
     # bodies = server.fetch(messages, ['BODY[]'])
     # for uid, data in bodies.items():
@@ -86,8 +106,11 @@ if len(sys.argv)==1:
                 payload = part
         payload = str(payload)[1:100]
         subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
-        contents = codecs.decode(subject) if type(subject) is bytes else subject
-        print(f'{uid}: {email_msg.get("Date")} {email_msg.get("From")} {contents}', file=sys.stderr)
+        contents = byte_decode(subject)
+        From = email.header.decode_header(email_msg.get("From"))
+        if type(From[0][0]) is bytes:
+            From = From[0][0].decode()
+        print(f'{uid}: {email_msg.get("Date")} {From} {contents}', file=sys.stderr)
         # print(f'''\
         # uid: {uid}
         #     From: {email_msg.get("From")}
@@ -98,7 +121,7 @@ if len(sys.argv)==1:
         # ''')
 
 
-if len(sys.argv)==2 and str(sys.argv[1]).isnumeric():
+if len(sys.argv) > 1 and str(sys.argv[1]).isnumeric():
     id = int(sys.argv[1])
     bodies = server.fetch([id], ['BODY[]'])
     # bodies = server.fetch(messages, ['BODY[]'])
@@ -109,21 +132,31 @@ if len(sys.argv)==2 and str(sys.argv[1]).isnumeric():
         if mimetype == 'text':
             payload = email_msg.get_payload(decode=True)
         elif mimetype == 'multipart':
+            # process each email.message.Message
             for part in email_msg.get_payload():
-                # if part.get_content_type()=="text/plain":
-                payload = part.get_payload(decode=True)
+                # "text/plain", "text/html", "multipart/alternative", "image/jpeg"...
+                content_type = part.get_content_type()
+                attachment_info = part.get('Content-Disposition')
+                print(type(part), type(payload), content_type, attachment_info)
+                if attachment_info != None:
+                    attachment = part.get_payload(decode=True)
+                    filename = part.get_filename()
+                    file = open(filename, "wb")
+                    file.write(attachment)
+                    file.close()
+                else:
+                    payload = part.get_payload(decode=True)
 
         subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
-        title = codecs.decode(subject) if type(subject) is bytes else subject
+        title = byte_decode(subject)
+        payload = byte_decode(payload)
+        print(uid, title, payload)
 
-        try:
-            print(uid, title, payload.decode())
-        except Exception as ex:
-            print(uid, title, ex, payload)
+# email.message.Message members
+# ['add_header', 'as_bytes', 'as_string', 'attach', 'defects', 'del_param', 'epilogue', 'get', 'get_all', 'get_boundary', 'get_charset', 'get_charsets', 'get_content_charset', 'get_content_disposition', 'get_content_maintype', 'get_content_subtype', 'get_content_type', 'get_default_type', 'get_filename', 'get_param', 'get_params', 'get_payload', 'get_unixfrom', 'is_multipart', 'items', 'keys', 'policy', 'preamble', 'raw_items', 'replace_header', 'set_boundary', 'set_charset', 'set_default_type', 'set_param', 'set_payload', 'set_raw', 'set_type', 'set_unixfrom', 'values', 'walk']
 
 
 server.logout()
-
 
 # for msgid, data in envelopes.items():
 #     envelope = data[b'ENVELOPE']

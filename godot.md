@@ -2221,6 +2221,8 @@ https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-postmessa
     python C:\HaxeToolkit\monitor_off.py
 
 ```py
+#! /usr/bin/env python
+
 from ctypes import *
 from ctypes.wintypes import *
  
