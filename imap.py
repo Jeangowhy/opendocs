@@ -1,3 +1,4 @@
+#! /usr/bin/env -S python ./imap.py 1275
 #! /usr/bin/env -S python ./imap.py 1278
 #! python
 
@@ -27,6 +28,7 @@ server.login(User, AuthCode)
 # https://imapclient.readthedocs.io/en/3.0.0/
 # https://datatracker.ietf.org/doc/html/rfc822.html
 # https://datatracker.ietf.org/doc/html/rfc2821.html
+# https://datatracker.ietf.org/doc/html/rfc2822.html
 # https://datatracker.ietf.org/doc/html/rfc3501.html
 # 
 # 电子邮件协议有两类，用于接收邮件的协议（IMAP 或者 POP），用于发送邮件的协议（SMTP）。
@@ -136,10 +138,11 @@ if len(sys.argv) > 1 and str(sys.argv[1]).isnumeric():
             # process each email.message.Message
             # for part in email_msg.get_payload():
             for part in email_msg.walk():
-                # "text/plain", "text/html", "multipart/alternative", "image/jpeg"...
+                # "text/plain", "text/html", "multipart/mixed",  "multipart/alternative", "image/jpeg"...
                 content_type = part.get_content_type()
                 attachment_info = part.get('Content-Disposition')
-                print(type(part), content_type, attachment_info)
+                extr = attachment_info or part.get_payload(decode=True)
+                print(type(part), content_type, extr, file=sys.stderr)
                 if attachment_info != None:
                     attachment = part.get_payload(decode=True)
                     filename = part.get_filename()
@@ -192,3 +195,55 @@ server.logout()
 
 # {b'SEQ': 3, b'ENVELOPE': Envelope(date=datetime.datetime(2023, 11, 29, 11, 56, 16), subject=b'=?utf-8?B?SUMgTWFya2V0cyBHbG9iYWzvvJrmjqjojZDlpb3lj4sg5bmz5YiGJDEwMOe+jumHke+8gQ==?=', from_=(Address(name=b'=?utf-8?B?SUMgTWFya2V0cyBHbG9iYWw=?=', route=None, mailbox=b'support.cn', host=b'icmarkets-cs.com'),), sender=(Address(name=b'=?utf-8?B?SUMgTWFya2V0cyBHbG9iYWw=?=', route=None, mailbox=b'support.cn', host=b'icmarkets-cs.com'),), reply_to=(Address(name=b'=?utf-8?B?SUMgTWFya2V0cyBHbG9iYWw=?=', route=None, mailbox=b'support.cn', host=b'icmarkets-cs.com'),), to=(Address(name=b'=?utf-8?B?MjU0MTQxMjAz?=', route=None, mailbox=b'254141203', host=b'qq.com'),), cc=None, bcc=None, in_reply_to=None, message_id=b'<1701226713166.8d97cf84-5074-4c7c-9961-28aca52968c7@bf02x.hubspotemail.net>')}
 
+
+# Email standards
+# ===============
+# https://www.fastmail.help/hc/en-us/articles/1500000278382-Email-standards
+
+# Email structure
+# ---------------
+
+# These RFCs define the way emails themselves are structured.
+
+# *   [RFC 5322](https://tools.ietf.org/html/rfc5322) — Internet Message Format (basic format of an email message), previously [RFC 822](https://tools.ietf.org/html/rfc822) and [RFC 2822](https://tools.ietf.org/html/rfc2822).
+# *   [RFC 2045](https://tools.ietf.org/html/rfc2045) — Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies. This is an extension to the email message format to support attachments and non-ASCII data in emails.
+# *   [RFC 2046](https://tools.ietf.org/html/rfc2046) — Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types.
+# *   [RFC 2047](https://tools.ietf.org/html/rfc2047) — MIME (Multipurpose Internet Mail Extensions) Part Three: Message Header Extensions for Non-ASCII Text.
+# *   [RFC 2231](https://tools.ietf.org/html/rfc2231) — MIME Parameter Value and Encoded Word Extensions: Character Sets, Languages, and Continuations.
+
+# Email protocols
+# ---------------
+
+# These RFCs define how emails are transported between computers, both for sending (SMTP) and receiving (IMAP/POP).
+
+# *   [RFC 5321](https://tools.ietf.org/html/rfc5321) — Simple Mail Transfer Protocol. This is a protocol used to send emails between computers. This was previously [RFC 821](https://tools.ietf.org/html/rfc821) and [RFC 2821](https://tools.ietf.org/html/rfc2821).
+# *   [RFC 3501](https://tools.ietf.org/html/rfc3501) — INTERNET MESSAGE ACCESS PROTOCOL — VERSION 4rev1. This is the IMAP protocol, used to read emails.
+# *   [RFC 4551](https://tools.ietf.org/html/rfc4551) — IMAP Extension for Conditional STORE Operation or Quick Flag Changes Resynchronization. This is an IMAP extension that adds MODSEQ as a way to quickly find changes to a mailbox.
+# *   [RFC 1939](https://tools.ietf.org/html/rfc1939) — Post Office Protocol, Version 3. This is the older POP protocol, used to read emails.
+# *   [RFC 8620](https://tools.ietf.org/html/rfc8620) — The JSON Meta Application Protocol (JMAP). This is a new protocol for fetching, organizing, and sending messages, to replace older IMAP and SMTP protocols.
+
+# Email security
+# --------------
+
+# These RFCs define some security standards for email protocols and formats.
+
+# *   [RFC 2595](https://tools.ietf.org/html/rfc2595) — Using TLS with IMAP, POP3 and ACAP. This is a protocol used to upgrade a plaintext IMAP/POP connection to an SSL/TLS encrypted one.
+# *   [RFC 3207](https://tools.ietf.org/html/rfc3207) — SMTP Service Extension for Secure SMTP over Transport Layer Security. This is a protocol used to upgrade a plaintext SMTP connection to an SSL/TLS encrypted one.
+# *   [RFC 5246](https://tools.ietf.org/html/rfc5246) — The Transport Layer Security (TLS) Protocol Version 1.2. This is a protocol used to encrypt a connection.
+# *   [RFC 6376](https://tools.ietf.org/html/rfc6376) — DomainKeys Identified Mail (DKIM) Signatures. This allows emails to be signed by a particular domain to ensure they haven't been tampered with, and to say that that domain claims responsibility for the message.
+# *   [RFC 8617](https://tools.ietf.org/html/rfc8617) — Authenticated Received Chain (ARC). This is a protocol to provide an authenticated chain of custody for messages that have passed through intermediate mail servers, such as through forwarding.
+
+# Service discovery
+# -----------------
+
+# Email software, including clients like Outlook and Mac Mail, need to know which mail server to contact in order to download the user's messages. This used to be manually configured by the user, but nowadays is often done by putting the user's email address through a service discovery process.
+
+# *   [Thunderbird/Autoconfiguration](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Autoconfiguration) — This is Mozilla's custom approach that Thunderbird uses to auto-discover servers.
+# *   [RFC 6186](https://tools.ietf.org/html/rfc6186) — Use of SRV Records for Locating Email Submission/Access Services.
+
+# Some software vendors maintain their own database of links between email domains and server name definitions to support automatic configuration in their email clients. These seem to be custom databases maintained by each software vendor separately.
+
+# Filtering
+# ---------
+
+# *   [RFC 5228](https://tools.ietf.org/html/rfc5228) — Sieve: An Email Filtering Language. Sieve is a language used to file, filter, and forward emails, and is what our [Rules](https://www.fastmail.help/hc/en-us/articles/1500000278122) system generates on the server. Our server doesn't support all the extensions for Sieve.
