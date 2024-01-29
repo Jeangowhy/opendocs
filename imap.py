@@ -128,16 +128,18 @@ if len(sys.argv) > 1 and str(sys.argv[1]).isnumeric():
     for uid, data in bodies.items():
         email_msg = email.message_from_bytes(data[b"BODY[]"])
         mimetype = email_msg.get_content_maintype()
+
         payload = ""
         if mimetype == 'text':
             payload = email_msg.get_payload(decode=True)
         elif mimetype == 'multipart':
             # process each email.message.Message
-            for part in email_msg.get_payload():
+            # for part in email_msg.get_payload():
+            for part in email_msg.walk():
                 # "text/plain", "text/html", "multipart/alternative", "image/jpeg"...
                 content_type = part.get_content_type()
                 attachment_info = part.get('Content-Disposition')
-                print(type(part), type(payload), content_type, attachment_info)
+                print(type(part), content_type, attachment_info)
                 if attachment_info != None:
                     attachment = part.get_payload(decode=True)
                     filename = part.get_filename()
