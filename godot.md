@@ -14918,6 +14918,10 @@ func _set_path_end_position(value):
 行为树 Behaviour Tree 如其名，是一个树状数据结构，是一种流行的 AI (Artificial Intelligence)
 编码组织方法，常用于游戏中的 NPC (Non Player Controlled) 角色执行不同的动作。
 
+示范：一个叫做 Cat 的生物，拥有若干状态值，他会根据自己的需求（饥饿、口渴等等）去寻找相应的资源。
+https://github.com/rayxuln/MyDogIsACat
+https://www.bilibili.com/list/15155009
+
 行为树是一种用来表示逻辑决策的方法，主要 Decision Making 方法有以下两种：
 
 - State Machine

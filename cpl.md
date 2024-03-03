@@ -2362,14 +2362,26 @@ C 语言是最成功的函数式编程语言，早期的编程语言多数面向
         declarations and statements
     }
 
-比如，在文本中搜索含有 ould 的行：
+函数声明还有一种过时的 K&R C 风格，它和 ANSI C 语法风格在函数声明及定义的差别在于
+函数参数列表后声明参数类型：
+
+    int main (argc, argv)
+    int argc;
+    char *argv[];
+    {
+        return(0);
+    }
+
+C function syntax, parameter types declared after parameter list
+
+例子，实现这个一个程序，在文本中搜索含有 ould 的行：
 
     Ah Love! could you and I with Fate conspire
     To grasp this sorry Scheme of Things entire,
     Would not we shatter it to bits -- and then
     Re-mould it nearer to the Heart's Desire!
 
-那么实现这个一个程序，可以将不同的功能分解为一个个函数，最后组合在一起实现需要的程序：
+那么，可以将不同的功能分解为一个个函数，最后组合在一起实现需要的程序：
 
 - 读取文本的函数 getline；
 - 字符串搜索函数 strindex;
