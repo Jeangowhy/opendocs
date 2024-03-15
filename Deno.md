@@ -6513,20 +6513,37 @@ Deno.test("fails", async function (): Promise<void> {
 ```
 
 
-# 🚩 Tools
+# 🚩 CLI Command Tools
 - https://deno.land/manual@v1.9.2/tools
+- https://docs.deno.com/runtime/manual/tools/
+- https://github.com/denoland/deno-docs/blob/main/runtime/manual/tools/index.md
 
 Deno 集成 JavaScript & TypeScript 的工具：
 
+- `deno init` 初始化项目，生成 deno.json、main.ts、main_test.ts；
 - `deno bundle` 打包输出到一个文件；
 - `deno compile` 编译可执行程序 compiling executables
 - `deno install` 安装程序到本地
 - `deno info` 依赖探测 dependency inspector，也可以用来查看本地缓存目录信息
 - `deno doc` 文档生成，支持 JSDOC，documentation generator 
-- `deno fmt a.ts formated.ts` 执行代码格式化 formatter 
+- `deno fmt` 执行代码格式化 formatter，比如 `deno fmt a.ts formated.ts` 
 - `deno repl` 交互式的编程环境 REPL - Read-eval-print-loop
+- `deno task` task runner
 - `deno test` 执行代码测试 test runner
 - `deno lint --unstable` 执行集成的 code linter
+- `deno bench` benchmarker 
+- `deno jupyter` Jupyter kernel 
+- `deno vendor` vendoring dependencies 
+
+Deno v1.40.5 引入了 denort 工具专用于 deno compile 工作，提升编译效率：
+
+[feat: denort binary for deno compile #22205](https://github.com/denoland/deno/pull/22205)
+
+This introduces the denort binary - a slim version of deno without tooling. 
+The binary is used as the default for deno compile.
+
+Improves deno compile final size by ~2.5x (141 MB -> 61 MB) on Linux x86_64.
+
 
 ## ⚡ Script installer
 

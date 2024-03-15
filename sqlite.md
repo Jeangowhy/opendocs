@@ -355,8 +355,1218 @@ SQLite 官网说明数据库的大小限制在 140TB，对于更大型的数据�
 
 
 
-# 🍀 Command Line Shell For SQLite
-                                                       *cli_html*
+# 🍀 /17. SQL Syntax  
+   https://www.sqlite.org/lang.html               *lang_html*
+
+
+SQL As Understood By SQLite
+
+SQLite understands most of the standard SQL language. But it does 
+[omit some features](https://www.sqlite.org/omitted.html) while at the same time adding 
+a few features of its own. This document attempts to describe precisely 
+what parts of the SQL language SQLite does and does not support. 
+A list of [SQL keywords](https://www.sqlite.org/lang_keywords.html) is also provided. 
+The SQL language syntax is described by [syntax diagrams](https://www.sqlite.org/syntaxdiagrams.html).
+
+The following syntax documentation topics are available:
+
+*   [keywords](https://www.sqlite.org/lang_keywords.html)
+*   [comment](https://www.sqlite.org/lang_comment.html)
+*   [expression](https://www.sqlite.org/lang_expr.html)
+*   [core functions](https://www.sqlite.org/lang_corefunc.html)
+*   [aggregate functions](https://www.sqlite.org/lang_aggfunc.html)
+*   [date and time functions](https://www.sqlite.org/lang_datefunc.html)
+
+*   [ALTER TABLE](https://www.sqlite.org/lang_altertable.html)
+*   [ANALYZE](https://www.sqlite.org/lang_analyze.html)
+*   [ATTACH DATABASE](https://www.sqlite.org/lang_attach.html)
+*   [BEGIN TRANSACTION](https://www.sqlite.org/lang_transaction.html)
+*   [COMMIT TRANSACTION](https://www.sqlite.org/lang_transaction.html)
+*   [CREATE INDEX](https://www.sqlite.org/lang_createindex.html)
+*   [CREATE TABLE](https://www.sqlite.org/lang_createtable.html)
+*   [CREATE TRIGGER](https://www.sqlite.org/lang_createtrigger.html)
+*   [CREATE VIEW](https://www.sqlite.org/lang_createview.html)
+*   [CREATE VIRTUAL TABLE](https://www.sqlite.org/lang_createvtab.html)
+*   [DELETE](https://www.sqlite.org/lang_delete.html)
+*   [DETACH DATABASE](https://www.sqlite.org/lang_detach.html)
+*   [DROP INDEX](https://www.sqlite.org/lang_dropindex.html)
+*   [DROP TABLE](https://www.sqlite.org/lang_droptable.html)
+*   [DROP TRIGGER](https://www.sqlite.org/lang_droptrigger.html)
+*   [DROP VIEW](https://www.sqlite.org/lang_dropview.html)
+*   [END TRANSACTION](https://www.sqlite.org/lang_transaction.html)
+*   [EXPLAIN](https://www.sqlite.org/lang_explain.html)
+*   [INDEXED BY](https://www.sqlite.org/lang_indexedby.html)
+*   [INSERT](https://www.sqlite.org/lang_insert.html)
+*   [ON CONFLICT clause](https://www.sqlite.org/lang_conflict.html)
+*   [PRAGMA](https://www.sqlite.org/pragma.html#syntax)
+*   [REINDEX](https://www.sqlite.org/lang_reindex.html)
+*   [RELEASE SAVEPOINT](https://www.sqlite.org/lang_savepoint.html)
+*   [REPLACE](https://www.sqlite.org/lang_replace.html)
+*   [RETURNING clause](https://www.sqlite.org/lang_returning.html)
+*   [ROLLBACK TRANSACTION](https://www.sqlite.org/lang_transaction.html)
+*   [SAVEPOINT](https://www.sqlite.org/lang_savepoint.html)
+*   [SELECT](https://www.sqlite.org/lang_select.html)
+*   [UPDATE](https://www.sqlite.org/lang_update.html)
+*   [UPSERT](https://www.sqlite.org/lang_upsert.html)
+*   [VACUUM](https://www.sqlite.org/lang_vacuum.html)
+*   [WITH clause](https://www.sqlite.org/lang_with.html)
+
+The routines 
+[sqlite3_prepare_v2()](https://www.sqlite.org/c3ref/prepare.html), 
+[sqlite3_prepare()](https://www.sqlite.org/c3ref/prepare.html), 
+[sqlite3_prepare16()](https://www.sqlite.org/c3ref/prepare.html), 
+[sqlite3_prepare16_v2()](https://www.sqlite.org/c3ref/prepare.html), 
+[sqlite3_exec()](https://www.sqlite.org/c3ref/exec.html), and 
+[sqlite3_get_table()](https://www.sqlite.org/c3ref/free_table.html) 
+accept an SQL statement list (sql-stmt-list) which is a semicolon-separated list of statements.
+
+**[sql-stmt-list:](https://www.sqlite.org/syntax/sql-stmt-list.html)**
+
+    sql-stmt ;
+
+Each SQL statement in the statement list is an instance of the following:
+
+**[sql-stmt:](https://www.sqlite.org/syntax/sql-stmt.html)**
+
+    [ EXPLAIN ] --> [ QUERY ] --> [ PLAN ] -->
+                                        ➊ alter-table-stmt
+                                        ➋ analyze-stmt
+                                        ➌ attach-stmt
+                                        ➍ begin-stmt
+                                        ➎ commit-stmt
+                                        ➏ create-index-stmt
+                                        ➐ create-table-stmt
+                                        ➑ create-trigger-stmt
+                                        ➒ create-view-stmt
+                                        ➓ create-virtual-table-stmt
+                                        ⓫ delete-stmt
+                                        ⓬ delete-stmt-limited
+                                        ⓭ detach-stmt
+                                        ⓮ drop-index-stmt
+                                        ⓯ drop-table-stmt
+                                        ⓰ drop-trigger-stmt
+                                        ⓱ drop-view-stmt
+                                        ⓲ insert-stmt
+                                        ⓳ pragma-stmt
+                                        ⓴ reindex-stmt
+                                        ➊ release-stmt
+                                        ➋ rollback-stmt
+                                        ➌ savepoint-stmt
+                                        ➍ select-stmt
+                                        ➎ update-stmt
+                                        ➏ update-stmt-limited
+                                        ➐ vacuum-stmt
+
+## 🐣 Keywords
+https://www.sqlite.org/lang_keywords.html        *keywords*
+
+SQLite Keywords
+
+The SQL standard specifies a large number of keywords which may not be used as 
+the names of tables, indices, columns, databases, user-defined functions, 
+collations, virtual table modules, or any other named object. 
+The list of keywords is so long that few people can remember them all. 
+For most SQL code, your safest bet is to never use any English language word 
+as the name of a user-defined object.
+
+If you want to use a keyword as a name, you need to quote it. 
+There are four ways of quoting keywords in SQLite:
+
+    'keyword'   A keyword in single quotes is a string literal.
+    
+    "keyword"   A keyword in double-quotes is an identifier.
+    
+    [keyword]   A keyword enclosed in square brackets is an identifier. 
+                This is not standard SQL. This quoting mechanism is used by 
+                MS Access and SQL Server and is included in SQLite for compatibility.
+    
+    `keyword`   A keyword enclosed in grave accents (ASCII code 96) is an identifier. 
+                This is not standard SQL. This quoting mechanism is used by 
+                MySQL and is included in SQLite for compatibility.
+
+For resilience when confronted with historical SQL statements, SQLite will 
+sometimes bend the quoting rules above:
+
+*   If a keyword in single quotes (ex: **'key'** or **'glob'**) is used in  a context
+    where an identifier is allowed but where a string literal is not allowed, 
+    then the token is understood to be an identifier instead of a string literal.
+    
+*   If a keyword in double quotes (ex: **"key"** or **"glob"**) is used in a context 
+    where it cannot be resolved to an identifier but where a string literal is allowed, 
+    then the token is understood to be a string literal instead of an identifier.
+    
+
+Programmers are cautioned not to use the two exceptions described in the 
+previous bullets. We emphasize that they exist only so that old and ill-formed 
+SQL statements will run correctly. Future versions of SQLite might raise errors 
+instead of accepting the malformed statements covered by the exceptions above.
+
+SQLite adds new keywords from time to time when it takes on new features. 
+So to prevent your code from being broken by future enhancements, you should normally 
+quote any identifier that is an English language word, even if you do not have to.
+
+The list below shows all possible keywords used by any build of SQLite regardless of 
+[compile-time options](compile.html). Most reasonable configurations use most 
+or all of these keywords, but some keywords may be omitted when SQL language 
+features are disabled. Applications can use the 
+[sqlite3_keyword_count()](c3ref/keyword_check.html), 
+[sqlite3_keyword_name()](c3ref/keyword_check.html), and 
+[sqlite3_keyword_check()](c3ref/keyword_check.html) interfaces 
+to determine the keywords recognized by SQLite at run-time. 
+Regardless of the compile-time configuration, any identifier that is not 
+on the following 147-element list is not a keyword to the SQL parser in SQLite:
+
+    *   ABORT                *   EXISTS           *   OTHERS
+    *   ACTION               *   EXPLAIN          *   OUTER
+    *   ADD                  *   FAIL             *   OVER
+    *   AFTER                *   FILTER           *   PARTITION
+    *   ALL                  *   FIRST            *   PLAN
+    *   ALTER                *   FOLLOWING        *   PRAGMA
+    *   ALWAYS               *   FOR              *   PRECEDING
+    *   ANALYZE              *   FOREIGN          *   PRIMARY
+    *   AND                  *   FROM             *   QUERY
+    *   AS                   *   FULL             *   RAISE
+    *   ASC                  *   GENERATED        *   RANGE
+    *   ATTACH               *   GLOB             *   RECURSIVE
+    *   AUTOINCREMENT        *   GROUP            *   REFERENCES
+    *   BEFORE               *   GROUPS           *   REGEXP
+    *   BEGIN                *   HAVING           *   REINDEX
+    *   BETWEEN              *   IF               *   RELEASE
+    *   BY                   *   IGNORE           *   RENAME
+    *   CASCADE              *   IMMEDIATE        *   REPLACE
+    *   CASE                 *   IN               *   RESTRICT
+    *   CAST                 *   INDEX            *   RETURNING
+    *   CHECK                *   INDEXED          *   RIGHT
+    *   COLLATE              *   INITIALLY        *   ROLLBACK
+    *   COLUMN               *   INNER            *   ROW
+    *   COMMIT               *   INSERT           *   ROWS
+    *   CONFLICT             *   INSTEAD          *   SAVEPOINT
+    *   CONSTRAINT           *   INTERSECT        *   SELECT
+    *   CREATE               *   INTO             *   SET
+    *   CROSS                *   IS               *   TABLE
+    *   CURRENT              *   ISNULL           *   TEMP
+    *   CURRENT_DATE         *   JOIN             *   TEMPORARY
+    *   CURRENT_TIME         *   KEY              *   THEN
+    *   CURRENT_TIMESTAMP    *   LAST             *   TIES
+    *   DATABASE             *   LEFT             *   TO
+    *   DEFAULT              *   LIKE             *   TRANSACTION
+    *   DEFERRABLE           *   LIMIT            *   TRIGGER
+    *   DEFERRED             *   MATCH            *   UNBOUNDED
+    *   DELETE               *   MATERIALIZED     *   UNION
+    *   DESC                 *   NATURAL          *   UNIQUE
+    *   DETACH               *   NO               *   UPDATE
+    *   DISTINCT             *   NOT              *   USING
+    *   DO                   *   NOTHING          *   VACUUM
+    *   DROP                 *   NOTNULL          *   VALUES
+    *   EACH                 *   NULL             *   VIEW
+    *   ELSE                 *   NULLS            *   VIRTUAL
+    *   END                  *   OF               *   WHEN
+    *   ESCAPE               *   OFFSET           *   WHERE
+    *   EXCEPT               *   ON               *   WINDOW
+    *   EXCLUDE              *   OR               *   WITH
+    *   EXCLUSIVE            *   ORDER            *   WITHOUT
+
+## 🐣 Comment
+https://www.sqlite.org/lang_comment.html        *comment*
+
+
+SQL Comment Syntax
+
+    comment-syntax: 
+
+    -- anything-except-newline newline end-of-input
+    /* anything-except-*/      */      end-of-input
+
+Comments are not SQL commands, but can occur within the text of SQL queries 
+passed to [sqlite3_prepare_v2()](c3ref/prepare.html and related interfaces. 
+Comments are treated as whitespace by the parser. Comments can begin anywhere 
+whitespace can be found, including inside expressions that span multiple lines.
+
+SQL comments begin with two consecutive "-" characters (ASCII 0x2d) and 
+extend up to and including the next newline character (ASCII 0x0a) 
+or until the end of input, whichever comes first.
+
+C-style comments begin with "/*" and extend up to and including the next "*/" 
+character pair or until the end of input, whichever comes first. 
+C-style comments can span multiple lines.
+
+Comments can appear anywhere whitespace can occur, including inside expressions 
+and in the middle of other SQL statements. Comments do not nest.
+
+
+## 🐣 Expression
+https://www.sqlite.org/lang_expr.html        *expression*
+
+
+
+# 🍀 /18. Pragma commands  
+   https://www.sqlite.org/pragma.html              *pragma_html*
+
+
+# 🍀 /19. Core SQL Functions  
+   https://www.sqlite.org/lang_corefunc.html        *lang_corefunc_html*
+
+
+# 🍀 /20. Aggregate SQL Functions  
+   https://www.sqlite.org/lang_aggfunc.html         *lang_aggfunc_html*
+
+
+# 🍀 /21. Date and Time SQL Functions  
+   https://www.sqlite.org/lang_datefunc.html        *lang_datefunc_html*
+
+
+# 🍀 /22. Window Functions  
+   https://www.sqlite.org/windowfunctions.html       *windowfunctions_html*
+
+# 🍀 /22. Math functions
+   https://www.sqlite.org/lang_mathfunc.html
+
+# 🍀 /22. JSON functions
+   https://www.sqlite.org/json1.html                 *jsonfunctions*
+
+Database script db_init.sql for Testing:
+
+```sql
+DROP TABLE IF EXISTS blob;
+CREATE TABLE blob(
+  rid INTEGER PRIMARY KEY,
+  rcvid INTEGER,
+  size INTEGER,
+  uuid TEXT UNIQUE NOT NULL,
+  content BLOB,
+  CHECK( length(uuid)>=40 AND rid>0 )
+);
+```
+
+```sh
+npm install -g uuid
+sqlite3 -init db_init.sql db.sqlite '.tables' '.exit'
+# count=$(sqlite3 db.sqlite 'select count(*) from blob;')
+# sqlite3 db.sqlite "INSERT INTO blob VALUES ($((count+1)),0,0,'UUID$(uuid)',null)"
+for id in {1..10}; do
+  sqlite3 db.sqlite "INSERT INTO blob VALUES ($id,0,0,'UUID$(uuid)',null)"
+done
+sqlite3 db.sqlite '.mode column' 'select rid,uuid from blob LIMIT 0,5;'  
+sqlite3 db.sqlite '.mode json' 'select rid,uuid from blob LIMIT 0,5;'
+sqlite3 db.sqlite "select json(' { \"this\" : [ \"is a test\" ] } ') AS Obj"
+sqlite3 db.sqlite "select json_group_array(json_object('id', rid, 'uuid', uuid)) from blob"
+```
+
+JSON Functions And Operators
+
+► Table Of Contents
+
+*  [1. Overview](#overview)
+*  [2. Compiling in JSON Support](#compiling_in_json_support)
+*  [3. Interface Overview](#interface_overview)
+*  [3.1. JSON arguments](#json_arguments)
+*  [3.2. JSONB](#jsonb)
+*  [3.2.1. The JSONB format](#the_jsonb_format)
+*  [3.2.2. Handling of malformed JSONB](#handling_of_malformed_jsonb)
+*  [3.3. PATH arguments](#path_arguments)
+*  [3.4. VALUE arguments](#value_arguments)
+*  [3.5. Compatibility](#compatibility)
+*  [3.6. JSON5 Extensions](#json5_extensions)
+*  [3.7. Performance Considerations](#performance_considerations)
+*  [3.8. The JSON BLOB Input Bug](#the_json_blob_input_bug)
+*  [4. Function Details](#function_details)
+*  [4.1. The json() function](#the_json_function)
+*  [4.2. The jsonb() function](#the_jsonb_function)
+*  [4.3. The json_array() function](#the_json_array_function)
+*  [4.4. The jsonb_array() function](#the_jsonb_array_function)
+*  [4.5. The json_array_length() function](#the_json_array_length_function)
+*  [4.6. The json_error_position() function](#the_json_error_position_function)
+*  [4.7. The json_extract() function](#the_json_extract_function)
+*  [4.8. The jsonb_extract() function](#the_jsonb_extract_function)
+*  [4.9. The -and ->operators](#the_and_operators)
+*  [4.10. The json_insert(), json_replace, and json_set() functions](#the_json_insert_json_replace_and_json_set_functions)
+*  [4.11. The jsonb_insert(), jsonb_replace, and jsonb_set() functions](#the_jsonb_insert_jsonb_replace_and_jsonb_set_functions)
+*  [4.12. The json_object() function](#the_json_object_function)
+*  [4.13. The jsonb_object() function](#the_jsonb_object_function)
+*  [4.14. The json_patch() function](#the_json_patch_function)
+*  [4.15. The jsonb_patch() function](#the_jsonb_patch_function)
+*  [4.16. The json_remove() function](#the_json_remove_function)
+*  [4.17. The jsonb_remove() function](#the_jsonb_remove_function)
+*  [4.18. The json_type() function](#the_json_type_function)
+*  [4.19. The json_valid() function](#the_json_valid_function)
+*  [4.20. The json_quote() function](#the_json_quote_function)
+*  [4.21. Array and object aggregate functions](#array_and_object_aggregate_functions)
+*  [4.22. The json_each() and json_tree() table-valued functions](#the_json_each_and_json_tree_table_valued_functions)
+*  [4.22.1. Examples using json_each() and json_tree()](#examples_using_json_each_and_json_tree_)
+
+
+## 1. Overview
+
+By default, SQLite supports twenty-nine functions and two operators for 
+dealing with JSON values. There are also two [table-valued functions](vtab.html#tabfunc2) 
+that can be used to decompose a JSON string.
+
+There are 25 scalar functions and operators:
+
+1.  [json](#jmini)(_json_)
+2.  [jsonb](#jminib)(_json_)
+3.  [json_array](#jarray)(_value1_,_value2_,...)
+4.  [jsonb_array](#jarrayb)(_value1_,_value2_,...)
+5.  [json_array_length](#jarraylen)(_json_)  
+    [json_array_length](#jarraylen)(_json_,_path_)
+6.  [json_error_position](#jerr)(_json_)
+7.  [json_extract](#jex)(_json_,_path_,...)
+8.  [jsonb_extract](#jexb)(_json_,_path_,...)
+9.  _json_ [->](#jptr) _path_
+10.  _json_ [->>](#jptr) _path_
+11.  [json_insert](#jins)(_json_,_path_,_value_,...)
+12.  [jsonb_insert](#jinsb)(_json_,_path_,_value_,...)
+13.  [json_object](#jobj)(_label1_,_value1_,...)
+14.  [jsonb_object](#jobjb)(_label1_,_value1_,...)
+15.  [json_patch](#jpatch)(_json_1,json2)
+16.  [jsonb_patch](#jpatchb)(_json_1,json2)
+17.  [json_remove](#jrm)(_json_,_path_,...)
+18.  [jsonb_remove](#jrmb)(_json_,_path_,...)
+19.  [json_replace](#jrepl)(_json_,_path_,_value_,...)
+20.  [jsonb_replace](#jreplb)(_json_,_path_,_value_,...)
+21.  [json_set](#jset)(_json_,_path_,_value_,...)
+22.  [jsonb_set](#jsetb)(_json_,_path_,_value_,...)
+23.  [json_type](#jtype)(_json_)  
+    [json_type](#jtype)(_json_,_path_)
+24.  [json_valid](#jvalid)(_json_)  
+    [json_valid](#jvalid)(_json_,flags)
+25.  [json_quote](#jquote)(_value_)
+
+There are four [aggregate SQL functions](lang_aggfunc.html):
+
+1.  [json_group_array](#jgrouparray)(_value_)
+2.  [jsonb_group_array](#jgrouparrayb)(_value_)
+3.  [json_group_object](#jgroupobject)(_label_,_value_)
+4.  [jsonb_group_object](#jgroupobjectb)(name,_value_)
+
+The two [table-valued functions](vtab.html#tabfunc2) are:
+
+1.  [json_each](#jeach)(_json_)  
+    [json_each](#jeach)(_json_,_path_)
+2.  [json_tree](#jtree)(_json_)  
+    [json_tree](#jtree)(_json_,_path_)
+
+
+## 2. Compiling in JSON Support
+
+The JSON functions and operators are built into SQLite by default, as of SQLite 
+version 3.38.0 (2022-02-22). They can be omitted by adding the -DSQLITE_OMIT_JSON 
+compile-time option. Prior to version 3.38.0, the JSON functions were an extension 
+that would only be included in builds if the -DSQLITE_ENABLE_JSON1 compile-time 
+option was included. In other words, the JSON functions went from being opt-in 
+with SQLite version 3.37.2 and earlier to opt-out with SQLite version 3.38.0 and later.
+
+## 3. Interface Overview
+
+SQLite stores JSON as ordinary text. Backwards compatibility constraints mean 
+that SQLite is only able to store values that are NULL, integers, floating-point 
+numbers, text, and BLOBs. It is not possible to add a new "JSON" type.
+
+### 3.1. JSON arguments
+
+For functions that accept JSON as their first argument, that argument can be 
+a JSON object, array, number, string, or null. SQLite numeric values and NULL 
+values are interpreted as JSON numbers and nulls, respectively. SQLite text 
+values can be understood as JSON objects, arrays, or strings. If an SQLite 
+text value that is not a well-formed JSON object, array, or string is passed 
+into JSON function, that function will usually throw an error. 
+(Exceptions to this rule are [json_valid()](json1.html#jvalid), 
+[json_quote()](json1.html#jquote), and [json_error_position()](json1.html#jerr).)
+
+These routines understand all [rfc-8259 JSON syntax](https://www.rfc-editor.org/rfc/rfc8259.txt) 
+and also [JSON5 extensions](https://spec.json5.org/). JSON text generated by 
+these routines always strictly conforms to the [canonical JSON definition](https://json.org) 
+and does not contain any JSON5 or other extensions. The ability to read and 
+understand JSON5 was added in version 3.42.0 (2023-05-16). Prior versions of 
+SQLite would only read canonical JSON.
+
+### 3.2. JSONB
+
+Beginning with version 3.45.0 (2024-01-15), SQLite allows its internal "parse tree" 
+representation of JSON to be stored on disk, as a BLOB, in a format that we 
+call "JSONB". By storing SQLite's internal binary representation of JSON 
+directly in the database, applications can bypass the overhead of parsing 
+and rendering JSON when reading and updating JSON values. 
+The internal JSONB format also uses slightly less disk space then text JSON.
+
+Any SQL function parameter that accepts text JSON as an input will also accept 
+a BLOB in the JSONB format. The function will operate the same in either case, 
+except that it will run faster when the input is JSONB, 
+since it does not need to run the JSON parser.
+
+Most SQL functions that return JSON text have a corresponding function that 
+returns the equivalent JSONB. The functions that return JSON in the 
+text format begin with "json_" and functions that return the binary 
+JSONB format begin with "jsonb_".
+
+### 3.2.1. The JSONB format
+
+JSONB is a binary representation of JSON used by SQLite and is intended for 
+internal use by SQLite only. Applications should not use JSONB outside of 
+SQLite nor try to reverse-engineer the JSONB format.
+
+The "JSONB" name is inspired by [PostgreSQL](https://postgresql.org), 
+but the on-disk format for SQLite's JSONB is not the same as PostgreSQL's. 
+The two formats have the same name, but are not binary compatible. 
+
+The PostgreSQL JSONB format claims to offer O(1) lookup of elements in 
+objects and arrays. SQLite's JSONB format makes no such claim. 
+
+SQLite's JSONB has O(N) time complexity for most operations in SQLite, 
+just like text JSON. The advantage of JSONB in SQLite is that it is smaller 
+and faster than text JSON - potentially several times faster. 
+There is space in the on-disk JSONB format to add enhancements and 
+future versions of SQLite might include options to provide O(1) lookup of 
+elements in JSONB, but no such capability is currently available.
+
+### 3.2.2. Handling of malformed JSONB
+
+The JSONB that is generated by SQLite will always be well-formed. 
+If you follow recommended practice and treat JSONB as an opaque BLOB, 
+then you will not have any problems. But JSONB is just a BLOB, so a 
+mischievous programmer could devise BLOBs that are similar to JSONB 
+but that are technically malformed. When misformatted JSONB is feed into 
+JSON functions, any of the following might happen:
+
+*   The SQL statement might abort with a "malformed JSON" error.
+    
+*   The correct answer might be returned, if the malformed parts of 
+    the JSONB blob do not impact the answer.
+    
+*   A goofy or nonsensical answer might be returned.
+    
+
+The way in which SQLite handles invalid JSONB might change from one version 
+of SQLite to the next. The system follows the garbage-in/garbage-out rule: 
+If you feed the JSON functions invalid JSONB, you get back an invalid answer. 
+If you are in doubt about the validity of our JSONB, use the 
+[json_valid()](json1.html#jvalid) function to verify it.
+
+We do make this one promise: Malformed JSONB will never cause a memory error 
+or similar problem that might lead to a vulnerability. Invalid JSONB might lead 
+to crazy answers, or it might cause queries to abort, but it won't cause a crash.
+
+### 3.3. PATH arguments
+
+For functions that accept PATH arguments, that PATH must be well-formed or else 
+the function will throw an error. A well-formed PATH is a text value that 
+begins with exactly one '$' character followed by zero or more instances of 
+"._objectlabel_" or "[_arrayindex_]".
+
+The _arrayindex_ is usually a non-negative integer _N_. In that case, 
+the array element selected is the _N_-th element of the array, 
+starting with zero on the left. The _arrayindex_ can also be of 
+the form "**#-**_N_" in which case the element selected is the _N_-th 
+from the right. The last element of the array is "**#-1**". 
+Think of the "#" characters as the "number of elements in the array". 
+Then the expression "#-1" evaluates to the integer that corresponds to the last 
+entry in the array. It is sometimes useful for the array index to be just 
+the **#** character, for example when appending a value to an existing JSON array:
+
+    json_set('[0,1,2]','$[#]','new')        → '[0,1,2,"new"]'
+
+### 3.4. VALUE arguments
+
+For functions that accept "_value_" arguments (also shown as "_value1_" and "_value2_"), 
+those arguments are usually understood to be literal strings that are quoted 
+and become JSON string values in the result. Even if the input _value_ strings 
+look like well-formed JSON, they are still interpreted as literal strings in the result.
+
+However, if a _value_ argument comes directly from the result of another 
+JSON function or from [the -operator](json1.html#jptr) (but not [the ->operator](json1.html#jptr)), 
+then the argument is understood to be actual JSON and the complete JSON 
+is inserted rather than a quoted string.
+
+For example, in the following call to json_object(), the _value_ argument looks 
+like a well-formed JSON array. However, because it is just ordinary SQL text, 
+it is interpreted as a literal string and added to the result as a quoted string:
+
+    json_object('ex','[52,3.14159]')           → '{"ex":"[52,3.14159]"}'
+    json_object('ex',('[52,3.14159]'->>'$'))   → '{"ex":"[52,3.14159]"}'
+
+But if the _value_ argument in the outer json_object() call is the result of 
+another JSON function like [json()](json1.html#jmini) or [json_array()](json1.html#jarray), 
+then the value is understood to be actual JSON and is inserted as such:
+
+    json_object('ex',json('[52,3.14159]'))      → '{"ex":[52,3.14159]}'
+    json_object('ex',json_array(52,3.14159))    → '{"ex":[52,3.14159]}'
+    json_object('ex','[52,3.14159]'->'$')       → '{"ex":[52,3.14159]}'
+
+To be clear: "_json_" arguments are always interpreted as JSON regardless 
+of where the value for that argument comes from. But "_value_" arguments 
+are only interpreted as JSON if those arguments come directly from another 
+JSON function or [the -operator](json1.html#jptr).
+
+Within JSON value arguments interpreted as JSON strings, Unicode escape 
+sequences are not treated as equivalent to the characters or escaped control 
+characters represented by the expressed Unicode code point. 
+Such escape sequences are not translated or specially treated; 
+they are treated as plain text by SQLite's JSON functions.
+
+### 3.5. Compatibility
+
+The current implementation of this JSON library uses a recursive descent parser. 
+In order to avoid using excess stack space, any JSON input that has more 
+than 1000 levels of nesting is considered invalid. Limits on nesting depth are 
+allowed for compatible implementations of JSON by 
+[RFC-8259 section 9](https://tools.ietf.org/html/rfc8259#section-9).
+
+### 3.6. JSON5 Extensions
+
+Beginning in version 3.42.0 (2023-05-16), these routines will read and 
+interpret input JSON text that includes [JSON5](https://spec.json5.org/) 
+extensions. However, JSON text generated by these routines will always be 
+strictly conforming to the [canonical definition of JSON](https://json.org).
+
+Here is a synopsis of JSON5 extensions (adapted from the 
+[JSON5 specification](https://spec.json5.org/#introduction)):
+
+*   Object keys may be unquoted identifiers.
+*   Objects may have a single trailing comma.
+*   Arrays may have a single trailing comma.
+*   Strings may be single quoted.
+*   Strings may span multiple lines by escaping new line characters.
+*   Strings may include new character escapes.
+*   Numbers may be hexadecimal.
+*   Numbers may have a leading or trailing decimal point.
+*   Numbers may be "Infinity", "-Infinity", and "NaN".
+*   Numbers may begin with an explicit plus sign.
+*   Single (//...) and multi-line (/\*...\*/) comments are allowed.
+*   Additional white space characters are allowed.
+
+To convert string X from JSON5 into canonical JSON, invoke "[json(X)](json1.html#jmini)". 
+The output of the "[json()](json1.html#jmini)" function will be canonical JSON 
+regardless of any JSON5 extensions that are present in the input. 
+For backwards compatibility, the [json_valid(X)](json1.html#jvalid) function 
+without a "flags" argument continues to report false for inputs that are 
+not canonical JSON, even if the input is JSON5 that the function is able 
+to understand. To determine whether or not an input string is valid JSON5, 
+include the 0x02 bit in the "flags" argument to json_valid: "json_valid(X,2)".
+
+These routines understand all of JSON5, plus a little more. SQLite extends 
+the JSON5 syntax in these two ways:
+
+1.  Strict JSON5 requires that unquoted object keys must be ECMAScript 5.1 
+    IdentifierNames. But large unicode tables and lots of code is required 
+    in order to determine whether or not a key is an ECMAScript 5.1 IdentifierName. 
+    For this reason, SQLite allows object keys to include any unicode 
+    characters greater than U+007f that are not whitespace characters. 
+    This relaxed definition of "identifier" greatly simplifies the 
+    implementation and allows the JSON parser to be smaller and run faster.
+    
+2.  JSON5 allows floating-point infinities to be expressed as "Infinity", 
+    "-Infinity", or "+Infinity" in exactly that case - the initial "I" is 
+    capitalized and all other characters are lower case. SQLite also allows 
+    the abbreviation "Inf" to be used in place of "Infinity" and it allows 
+    both keywords to appear in any combination of upper and lower case letters. 
+    Similarly, JSON5 allows "NaN" for not-a-number. SQLite extends this to 
+    also allow "QNaN" and "SNaN" in any combination of upper and lower case 
+    letters. Note that SQLite interprets NaN, QNaN, and SNaN as just an 
+    alternative spellings for "null". This extension has been added because 
+    (we are told) there exists a lot of JSON in the wild that includes 
+    these non-standard representations for infinity and not-a-number.
+    
+
+### 3.7. Performance Considerations
+
+Most JSON functions do their internal processing using JSONB. So if the 
+input is text, they first must translate the input text into JSONB. 
+If the input is already in the JSONB format, no translation is needed, 
+that step can be skipped, and performance is faster.
+
+For that reason, when an argument to one JSON function is supplied by 
+another JSON function, it is usually more efficient to use the "jsonb_" 
+variant for the function used as the argument.
+
+    ... json_insert(A,'$.b',json(C)) ...   ← Less efficient.
+    ... json_insert(A,'$.b',jsonb(C)) ...   ← More efficient.
+
+The [aggregate JSON SQL functions](json1.html#jgroupobjectb) are an exception 
+to this rule. Those functions all do their processing using text instead of JSONB. 
+So for the aggregate JSON SQL functions, it is more efficient for the arguments 
+to be supplied using "json_" functions than "jsonb_" functions.
+
+    ... json_group_array(json(A))) ...   ← More efficient.
+    ... json_group_array(jsonb(A))) ...   ← Less efficient.
+
+### 3.8. The JSON BLOB Input Bug
+
+If a JSON input is a BLOB that is not JSONB and that looks like text JSON 
+when cast to text, then it is accepted as text JSON. This is actually a 
+long-standing bug in the original implementation that the SQLite developers 
+were unaware of. The documentation stated that a BLOB input to a JSON 
+function should raise an error. But in the actual implementation, 
+the input would be accepted as long as the BLOB content was a valid JSON 
+string in the text encoding of the database.
+
+This JSON BLOB input bug was accidentally fixed when the JSON routines 
+were reimplemented for the 3.45.0 release (2024-01-15). That caused 
+breakage in applications that had come to depend on the old behavior. 
+(In defense of those applications: they were often lured into using BLOBs 
+as JSON by the [readfile()](cli.html#fileio) SQL function available in the 
+[CLI](cli.html). Readfile() was used to read JSON from disk files, 
+but readfile() returns a BLOB. And that worked for them, so why not just do it?)
+
+For backwards compatibility, the (formerly incorrect) legacy behavior of 
+interpreting BLOBs as text JSON if no other interpretation works is hereby 
+documented and is be officially supported in version 3.45.1 (2024-01-30) 
+and all subsequent releases.
+
+## 4. Function Details
+
+The following sections provide additional detail on the operation of 
+the various JSON functions and operators:
+
+### 4.1. The json() function
+
+The json(X) function verifies that its argument X is a valid JSON string or 
+JSONB blob and returns a minified version of that JSON string with all 
+unnecessary whitespace removed. If X is not a well-formed JSON string or 
+JSONB blob, then this routine throws an error.
+
+If the input is JSON5 text, then it is converted into canonical RFC-8259 
+text prior to being returned.
+
+If the argument X to json(X) contains JSON objects with duplicate labels, 
+then it is undefined whether or not the duplicates are preserved. The current 
+implementation preserves duplicates. However, future enhancements to this 
+routine may choose to silently remove duplicates.
+
+Example:
+
+    json(' { "this" : "is", "a": [ "test" ] } ') → '{"this":"is","a":["test"]}'
+
+### 4.2. The jsonb() function
+
+The jsonb(X) function returns the binary JSONB representation of the JSON 
+provided as argument X. An error is raised if X is TEXT that does not have 
+valid JSON syntax.
+
+If X is a BLOB and appears to be JSONB, then this routine simply returns 
+a copy of X. Only the outer-most element of the JSONB input is examined, 
+however. The deep structure of the JSONB is not validated.
+
+### 4.3. The json_array() function
+
+The json_array() SQL function accepts zero or more arguments and returns 
+a well-formed JSON array that is composed from those arguments. If any 
+argument to json_array() is a BLOB then an error is thrown.
+
+An argument with SQL type TEXT is normally converted into a quoted JSON string. 
+However, if the argument is the output from another json1 function, then it 
+is stored as JSON. This allows calls to json_array() and 
+[json_object()](json1.html#jobj) to be nested. The [json()](json1.html#jmini) 
+function can also be used to force strings to be recognized as JSON.
+
+Examples:
+
+    json_array(1,2,'3',4)                           → '[1,2,"3",4]'
+    json_array('[1,2]')                             → '["[1,2]"]'
+    json_array(json_array(1,2))                     → '[[1,2]]'
+    json_array(1,null,'3','[4,5]','{"six":7.7}')    → '[1,null,"3","[4,5]","{\\"six\\":7.7}"]'
+    json_array(1,null,'3',json('[4,5]'),json('{"six":7.7}')) → '[1,null,"3",[4,5],{"six":7.7}]'
+
+### 4.4. The jsonb_array() function
+
+The jsonb_array() SQL function works just like the [json_array()](json1.html#jarray) 
+function except that it returns the constructed JSON array in the SQLite's 
+private JSONB format rather than in the standard RFC 8259 text format.
+
+### 4.5. The json_array_length() function
+
+The json_array_length(X) function returns the number of elements in the 
+JSON array X, or 0 if X is some kind of JSON value other than an array. 
+The json_array_length(X,P) locates the array at path P within X and 
+returns the length of that array, or 0 if path P locates an element in X 
+that is not a JSON array, and NULL if path P does not locate any element of X. 
+Errors are thrown if either X is not well-formed JSON or if P is not a well-formed path.
+
+Examples:
+
+    json_array_length('[1,2,3,4]')                   → 4
+    json_array_length('[1,2,3,4]', '$')              → 4
+    json_array_length('[1,2,3,4]', '$[2]')           → 0
+    json_array_length('{"one":[1,2,3]}')             → 0
+    json_array_length('{"one":[1,2,3]}', '$.one')    → 3
+    json_array_length('{"one":[1,2,3]}', '$.two')    → NULL
+
+### 4.6. The json_error_position() function
+
+The json_error_positionf(X) function returns 0 if the input X is a 
+well-formed JSON or JSON5 string. If the input X contains one or 
+more syntax errors, then this function returns the character position of 
+the first syntax error. The left-most character is position 1.
+
+If the input X is a BLOB, then this routine returns 0 if X is a well-formed 
+JSONB blob. If the return value is positive, then it represents the _approximate_ 
+1-based position in the BLOB of the first detected error.
+
+The json_error_position() function was added with SQLite version 3.42.0 (2023-05-16).
+
+### 4.7. The json_extract() function
+
+The json_extract(X,P1,P2,...) extracts and returns one or more values from the 
+well-formed JSON at X. If only a single path P1 is provided, then the SQL 
+datatype of the result is NULL for a JSON null, INTEGER or REAL for a JSON 
+numeric value, an INTEGER zero for a JSON false value, an INTEGER one for a 
+JSON true value, the dequoted text for a JSON string value, and a text 
+representation for JSON object and array values. If there are multiple path 
+arguments (P1, P2, and so forth) then this routine returns SQLite text which 
+is a well-formed JSON array holding the various values.
+
+Examples:
+
+    json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$')          → '{"a":2,"c":[4,5,{"f":7}]}'
+    json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.c')        → '[4,5,{"f":7}]'
+    json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.c[2]')     → '{"f":7}'
+    json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.c[2].f')   → 7
+    json_extract('{"a":2,"c":[4,5],"f":7}','$.c','$.a')     → '[[4,5],2]'
+    json_extract('{"a":2,"c":[4,5],"f":7}','$.c[#-1]')      → 5
+    json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.x')        → NULL
+    json_extract('{"a":2,"c":[4,5,{"f":7}]}', '$.x', '$.a') → '[null,2]'
+    json_extract('{"a":"xyz"}', '$.a')                      → 'xyz'
+    json_extract('{"a":null}', '$.a')                       → NULL
+
+There is a subtle incompatibility between the json_extract() function in 
+SQLite and the json_extract() function in MySQL. The MySQL version of 
+json_extract() always returns JSON. The SQLite version of json_extract() 
+only returns JSON if there are two or more PATH arguments (because the 
+result is then a JSON array) or if the single PATH argument references 
+an array or object. In SQLite, if json_extract() has only a single PATH 
+argument and that PATH references a JSON null or a string or a numeric value, 
+then json_extract() returns the corresponding SQL NULL, TEXT, INTEGER, or REAL value.
+
+The difference between MySQL json_extract() and SQLite json_extract() really 
+only stands out when accessing individual values within the JSON that are 
+strings or NULLs. The following table demonstrates the difference:
+
+    | Operation | SQLite Result | MySQL Result
+
+    json_extract('{"a":null,"b":"xyz"}','$.a')    NULL      'null'
+    json_extract('{"a":null,"b":"xyz"}','$.b')   'xyz'      '"xyz"'
+
+### 4.8. The jsonb_extract() function
+
+The jsonb_extract() function works the same as the [json_extract()](json1.html#jex) 
+function, except in cases where json_extract() would normally return a text 
+JSON array object, this routine returns the array or object in the JSONB format. 
+For the common case where a text, numeric, null, or boolean JSON element is 
+returned, this routine works exactly the same as json_extract().
+
+### 4.9. The -and ->operators
+
+Beginning with SQLite version 3.38.0 (2022-02-22), the -and ->operators are 
+available for extracting subcomponents of JSON. The SQLite implementation of 
+-and ->strives to be compatible with both MySQL and PostgreSQL. 
+The -and ->operators take a JSON string or JSONB blob as their left operand 
+and a PATH expression or object field label or array index as their right operand. 
+The -operator returns a text JSON representation of the selected subcomponent 
+or NULL if that subcomponent does not exist. The ->operator returns an SQL 
+TEXT, INTEGER, REAL, or NULL value that represents the selected subcomponent, 
+or NULL if the subcomponent does not exist.
+
+Both the -and ->operators select the same subcomponent of the JSON to their left. 
+The difference is that -always returns a JSON representation of that subcomponent 
+and the ->operator always returns an SQL representation of that subcomponent. 
+Thus, these operators are subtly different from a two-argument [json_extract()](json1.html#jex) 
+function call. A call to json_extract() with two arguments will return a 
+JSON representation of the subcomponent if and only if the subcomponent is a 
+JSON array or object, and will return an SQL representation of the subcomponent 
+if the subcomponent is a JSON null, string, or numeric value.
+
+When the -operator returns JSON, it always returns the RFC 8565 text 
+representation of that JSON, not JSONB. Use the [jsonb_extract()](json1.html#jexb) 
+function if you need a subcomponent in the JSONB format.
+
+The right-hand operand to the -and ->operators can be a well-formed JSON 
+path expression. This is the form used by MySQL. For compatibility with 
+PostgreSQL, the -and ->operators also accept a text object label or 
+integer array index as their right-hand operand. If the right operand 
+is a text label X, then it is interpreted as the JSON path '$.X'. If the 
+right operand is an integer value N, then it is interpreted as the JSON path '$[N]'.
+
+Examples:
+
+    '{"a":2,"c":[4,5,{"f":7}]}' -'$'           → '{"a":2,"c":[4,5,{"f":7}]}'
+    '{"a":2,"c":[4,5,{"f":7}]}' -'$.c'         → '[4,5,{"f":7}]'
+    '{"a":2,"c":[4,5,{"f":7}]}' -'c'           → '[4,5,{"f":7}]'
+    '{"a":2,"c":[4,5,{"f":7}]}' -'$.c[2]'      → '{"f":7}'
+    '{"a":2,"c":[4,5,{"f":7}]}' -'$.c[2].f'    → '7'
+    '{"a":2,"c":[4,5,{"f":7}]}' ->'$.c[2].f'   → 7
+    '{"a":2,"c":[4,5,{"f":7}]}' -'c' -2 ->'f'  → 7
+    '{"a":2,"c":[4,5],"f":7}' -'$.c[#-1]'      → '5'
+    '{"a":2,"c":[4,5,{"f":7}]}' -'$.x'         → NULL
+    '[11,22,33,44]' -3                         → '44'
+    '[11,22,33,44]' ->3                        → 44
+    '{"a":"xyz"}' -'$.a'                       → '"xyz"'
+    '{"a":"xyz"}' ->'$.a'                      → 'xyz'
+    '{"a":null}' -'$.a'                        → 'null'
+    '{"a":null}' ->'$.a'                       → NULL
+
+### 4.10. The json_insert(), json_replace, and json_set() functions
+
+The json_insert(), json_replace, and json_set() functions all take a 
+single JSON value as their first argument followed by zero or more pairs 
+of path and value arguments, and return a new JSON string formed by updating 
+the input JSON by the path/value pairs. The functions differ only in how 
+they deal with creating new values and overwriting preexisting values.
+
+    | Function | Overwrite if already exists? | Create if does not exist?
+
+    json_insert()       No          Yes
+    json_replace()      Yes         No
+    json_set()          Yes         Yes
+
+The json_insert(), json_replace(), and json_set() functions always take 
+an odd number of arguments. The first argument is always the original 
+JSON to be edited. Subsequent arguments occur in pairs with the first element 
+of each pair being a path and the second element being the value to insert 
+or replace or set on that path.
+
+Edits occur sequentially from left to right. Changes caused by prior edits 
+can affect the path search for subsequent edits.
+
+If the value of a path/value pair is an SQLite TEXT value, then it is normally 
+inserted as a quoted JSON string, even if the string looks like valid JSON. 
+However, if the value is the result of another json function 
+(such as [json()](json1.html#jmini) or [json_array()](json1.html#jarray) or 
+[json_object()](json1.html#jobj)) or if it is the result of [the -operator](json1.html#jptr), 
+then it is interpreted as JSON and is inserted as JSON retaining all of 
+its substructure. Values that are the result of [the ->operator](json1.html#jptr) 
+are always interpreted as TEXT and are inserted as a JSON string 
+even if they look like valid JSON.
+
+These routines throw an error if the first JSON argument is not well-formed 
+or if any PATH argument is not well-formed or if any argument is a BLOB.
+
+To append an element onto the end of an array, using json_insert() with 
+an array index of "#". Examples:
+
+    json_insert('[1,2,3,4]','$[#]',99)          → '[1,2,3,4,99]'
+    json_insert('[1,[2,3],4]','$[1][#]',99)     → '[1,[2,3,99],4]'
+
+Other examples:
+
+    json_insert('{"a":2,"c":4}', '$.a', 99)             → '{"a":2,"c":4}'
+    json_insert('{"a":2,"c":4}', '$.e', 99)             → '{"a":2,"c":4,"e":99}'
+    json_replace('{"a":2,"c":4}', '$.a', 99)            → '{"a":99,"c":4}'
+    json_replace('{"a":2,"c":4}', '$.e', 99)            → '{"a":2,"c":4}'
+    json_set('{"a":2,"c":4}', '$.a', 99)                → '{"a":99,"c":4}'
+    json_set('{"a":2,"c":4}', '$.e', 99)                → '{"a":2,"c":4,"e":99}'
+    json_set('{"a":2,"c":4}', '$.c', '[97,96]')         → '{"a":2,"c":"[97,96]"}'
+    json_set('{"a":2,"c":4}', '$.c', json('[97,96]'))   → '{"a":2,"c":[97,96]}'
+    json_set('{"a":2,"c":4}', '$.c', json_array(97,96)) → '{"a":2,"c":[97,96]}'
+
+### 4.11. The jsonb_insert(), jsonb_replace, and jsonb_set() functions
+
+The jsonb_insert(), jsonb_replace(), and jsonb_set() functions work 
+the same as [json_insert()](json1.html#jins), [json_replace()](json1.html#jrepl), 
+and [json_set()](json1.html#jset), respectively, except that "jsonb_" 
+versions return their result in the binary JSONB format.
+
+### 4.12. The json_object() function
+
+The json_object() SQL function accepts zero or more pairs of arguments and 
+returns a well-formed JSON object that is composed from those arguments. 
+The first argument of each pair is the label and the second argument of each 
+pair is the value. If any argument to json_object() is a BLOB then an error is thrown.
+
+The json_object() function currently allows duplicate labels without complaint, 
+though this might change in a future enhancement.
+
+An argument with SQL type TEXT it is normally converted into a quoted JSON 
+string even if the input text is well-formed JSON. However, if the argument 
+is the direct result from another JSON function or [the -operator](json1.html#jptr) 
+(but not [the ->operator](json1.html#jptr)), then it is treated as JSON and 
+all of its JSON type information and substructure is preserved. This allows 
+calls to json_object() and [json_array()](json1.html#jarray) to be nested. 
+The [json()](json1.html#jmini) function can also be used to force strings 
+to be recognized as JSON.
+
+Examples:
+
+    json_object('a',2,'c',4)                    → '{"a":2,"c":4}'
+    json_object('a',2,'c','{e:5}')              → '{"a":2,"c":"{e:5}"}'
+    json_object('a',2,'c',json_object('e',5))   → '{"a":2,"c":{"e":5}}'
+
+### 4.13. The jsonb_object() function
+
+The jsonb_object() function works just like the [json_object()](json1.html#jobj) 
+function except that the generated object is returned in the binary JSONB format.
+
+### 4.14. The json_patch() function
+
+The json_patch(T,P) SQL function runs the [RFC-7396](https://tools.ietf.org/html/rfc7396) 
+MergePatch algorithm to apply patch P against input T. The patched copy of T is returned.
+
+MergePatch can add, modify, or delete elements of a JSON Object, and so for 
+JSON Objects, the json_patch() routine is a generalized replacement for 
+[json_set()](json1.html#jset) and [json_remove()](json1.html#jrm). However, 
+MergePatch treats JSON Array objects as atomic. MergePatch cannot append to 
+an Array nor modify individual elements of an Array. It can only insert, replace, 
+or delete the whole Array as a single unit. Hence, json_patch() is not as useful 
+when dealing with JSON that includes Arrays, especially Arrays with lots of substructure.
+
+Examples:
+
+    json_patch('{"a":1,"b":2}','{"c":3,"d":4}')          → '{"a":1,"b":2,"c":3,"d":4}'
+    json_patch('{"a":[1,2],"b":2}','{"a":9}')            → '{"a":9,"b":2}'
+    json_patch('{"a":[1,2],"b":2}','{"a":null}')         → '{"b":2}'
+    json_patch('{"a":1,"b":2}','{"a":9,"b":null,"c":8}') → '{"a":9,"c":8}'
+    json_patch('{"a":{"x":1,"y":2},"b":3}','{"a":{"y":9},"c":8}') → '{"a":{"x":1,"y":9},"b":3,"c":8}'
+
+### 4.15. The jsonb_patch() function
+
+The jsonb_patch() function works just like the [json_patch()](json1.html#jpatch) 
+function except that the patched JSON is returned in the binary JSONB format.
+
+### 4.16. The json_remove() function
+
+The json_remove(X,P,...) function takes a single JSON value as its first 
+argument followed by zero or more path arguments. The json_remove(X,P,...) 
+function returns a copy of the X parameter with all the elements identified 
+by path arguments removed. Paths that select elements not found in X are silently ignored.
+
+Removals occurs sequentially from left to right. Changes caused by prior 
+removals can affect the path search for subsequent arguments.
+
+If the json_remove(X) function is called with no path arguments, then it 
+returns the input X reformatted, with excess whitespace removed.
+
+The json_remove() function throws an error if the first argument is not 
+well-formed JSON or if any later argument is not a well-formed path.
+
+Examples:
+
+    json_remove('[0,1,2,3,4]','$[2]')           → '[0,1,3,4]'
+    json_remove('[0,1,2,3,4]','$[2]','$[0]')    → '[1,3,4]'
+    json_remove('[0,1,2,3,4]','$[0]','$[2]')    → '[1,2,4]'
+    json_remove('[0,1,2,3,4]','$[#-1]','$[0]')  → '[1,2,3]'
+    json_remove('{"x":25,"y":42}')              → '{"x":25,"y":42}'
+    json_remove('{"x":25,"y":42}','$.z')        → '{"x":25,"y":42}'
+    json_remove('{"x":25,"y":42}','$.y')        → '{"x":25}'
+    json_remove('{"x":25,"y":42}','$')          → NULL
+
+### 4.17. The jsonb_remove() function
+
+The jsonb_remove() function works just like the [json_remove()](json1.html#jrm) 
+function except that the edited JSON result is returned in the binary JSONB format.
+
+### 4.18. The json_type() function
+
+The json_type(X) function returns the "type" of the outermost element of X. 
+The json_type(X,P) function returns the "type" of the element in X that 
+is selected by path P. The "type" returned by json_type() is one of the 
+following SQL text values: 'null', 'true', 'false', 'integer', 'real', 
+'text', 'array', or 'object'. If the path P in json_type(X,P) selects 
+an element that does not exist in X, then this function returns NULL.
+
+The json_type() function throws an error if its first argument is not 
+well-formed JSON or JSONB or if its second argument is not a well-formed JSON path.
+
+Examples:
+
+    json_type('{"a":[2,3.5,true,false,null,"x"]}')          → 'object'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$')      → 'object'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a')    → 'array'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[0]') → 'integer'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[1]') → 'real'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[2]') → 'true'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[3]') → 'false'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[4]') → 'null'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[5]') → 'text'
+    json_type('{"a":[2,3.5,true,false,null,"x"]}','$.a[6]') → NULL
+
+### 4.19. The json_valid() function
+
+The json_valid(X,Y) function return 1 if the argument X is well-formed JSON, 
+or returns 0 if X is not well-formed. The Y parameter is an integer bitmask that 
+defines what is meant by "well-formed". The following bits of Y are currently defined:
+
+*   **0x01** → The input is text that strictly complies with canonical 
+RFC-8259 JSON, without any extensions.
+*   **0x02** → The input is text that is JSON with [JSON5](json1.html#json5) extensions described above.
+*   **0x04** → The input is a BLOB that superficially appears to be [JSONB](json1.html#jsonbx).
+*   **0x08** → The input is a BLOB that strictly conforms to the internal [JSONB](json1.html#jsonbx) format.
+
+By combining bits, the following useful values of Y can be derived:
+
+*   **1** → X is RFC-8259 JSON text
+*   **2** → X is [JSON5](json1.html#json5) text
+*   **4** → X is probably [JSONB](json1.html#jsonbx)
+*   **5** → X is RFC-8259 JSON text or [JSONB](json1.html#jsonbx)
+*   **6** → X is [JSON5](json1.html#json5) text or [JSONB](json1.html#jsonbx) ← _This is probably the value you want_
+*   **8** → X is strictly conforming [JSONB](json1.html#jsonbx)
+*   **9** → X is RFC-8259 or strictly conforming [JSONB](json1.html#jsonbx)
+*   **10** → X is JSON5 or strictly conforming [JSONB](json1.html#jsonbx)
+
+The Y parameter is optional. If omitted, it defaults to 1, which means that 
+the default behavior is to return true only if the input X is strictly 
+conforming RFC-8259 JSON text without any extensions. This makes the 
+one-argument version of json_valid() compatible with older versions of SQLite, 
+prior to the addition of support for [JSON5](json1.html#json5) and [JSONB](json1.html#jsonbx).
+
+The difference between 0x04 and 0x08 bits in the Y parameter is that 0x04 
+only examines the outer wrapper of the BLOB to see if it superficially looks 
+like [JSONB](json1.html#jsonbx). This is sufficient for must purposes and 
+is very fast. The 0x08 bit does a thorough examination of all internal details 
+of the BLOB. The 0x08 bit takes time that is linear in the size of the X 
+input and is much slower. The 0x04 bit is recommended for most purposes.
+
+If you just want to know if a value is a plausible input to one of the other 
+JSON functions, a Y value of 6 is probably what you want to use.
+
+Any Y value less than 1 or greater than 15 raises an error, for the latest 
+version of json_valid(). However, future versions of json_valid() might be 
+enhanced to accept flag values outside of this range, having new meanings 
+that we have not yet thought of.
+
+If either X or Y inputs to json_valid() are NULL, then the function returns NULL.
+
+Examples:
+
+    json_valid('{"x":35}')          → 1
+    json_valid('{x:35}')            → 0
+    json_valid('{x:35}',6)          → 1
+    json_valid('{"x":35')           → 0
+    json_valid(NULL)                → NULL
+
+### 4.20. The json_quote() function
+
+The json_quote(X) function converts the SQL value X (a number or a string) 
+into its corresponding JSON representation. If X is a JSON value returned 
+by another JSON function, then this function is a no-op.
+
+Examples:
+
+    json_quote(3.14159)             → 3.14159
+    json_quote('verdant')           → '"verdant"'
+    json_quote('[1]')               → '"[1]"'
+    json_quote(json('[1]'))         → '[1]'
+    json_quote('[1,')               → '"[1,"'
+
+### 4.21. Array and object aggregate functions
+
+The json_group_array(X) function is an [aggregate SQL function](lang_aggfunc.html) 
+that returns a JSON array comprised of all X values in the aggregation. 
+Similarly, the json_group_object(NAME,VALUE) function returns a JSON object 
+comprised of all NAME/VALUE pairs in the aggregation. The "jsonb_" variants 
+are the same except that they return their result in the binary 
+[JSONB](json1.html#jsonbx) format.
+
+### 4.22. The json_each() and json_tree() table-valued functions
+
+The json_each(X) and json_tree(X) [table-valued functions](vtab.html#tabfunc2) 
+walk the JSON value provided as their first argument and return one row 
+for each element. The json_each(X) function only walks the immediate 
+children of the top-level array or object, or just the top-level element 
+itself if the top-level element is a primitive value. The json_tree(X) 
+function recursively walks through the JSON substructure starting with
+the top-level element.
+
+The json_each(X,P) and json_tree(X,P) functions work just like their 
+one-argument counterparts except that they treat the element identified 
+by path P as the top-level element.
+
+The schema for the table returned by json_each() and json_tree() is as follows:
+
+    CREATE TABLE json_tree(
+        key ANY,             -- key for current element relative to its parent
+        value ANY,           -- value for the current element
+        type TEXT,           -- 'object','array','string','integer', etc.
+        atom ANY,            -- value for primitive types, null for array & object
+        id INTEGER,          -- integer ID for this element
+        parent INTEGER,      -- integer ID for the parent of this element
+        fullkey TEXT,        -- full path describing the current element
+        path TEXT,           -- path to the container of the current row
+        json JSON HIDDEN,    -- 1st input parameter: the raw JSON
+        root TEXT HIDDEN     -- 2nd input parameter: the PATH at which to start
+    );
+
+The "key" column is the integer array index for elements of a JSON array and 
+the text label for elements of a JSON object. The key column is NULL in all other cases.
+
+The "atom" column is the SQL value corresponding to primitive elements - elements 
+other than JSON arrays and objects. The "atom" column is NULL for a JSON array 
+or object. The "value" column is the same as the "atom" column for primitive 
+JSON elements but takes on the text JSON value for arrays and objects.
+
+The "type" column is an SQL text value taken from ('null', 'true', 'false', 
+'integer', 'real', 'text', 'array', 'object') according to the type of 
+the current JSON element.
+
+The "id" column is an integer that identifies a specific JSON element within 
+the complete JSON string. The "id" integer is an internal housekeeping number, 
+the computation of which might change in future releases. The only guarantee 
+is that the "id" column will be different for every row.
+
+The "parent" column is always NULL for json_each(). For json_tree(), 
+the "parent" column is the "id" integer for the parent of the current element, 
+or NULL for the top-level JSON element or the element identified by
+the root path in the second argument.
+
+The "fullkey" column is a text path that uniquely identifies the current 
+row element within the original JSON string. The complete key to the true 
+top-level element is returned even if an alternative starting point is 
+provided by the "root" argument.
+
+The "path" column is the path to the array or object container that holds 
+the current row, or the path to the current row in the case where the iteration 
+starts on a primitive type and thus only provides a single row of output.
+
+### 4.22.1. Examples using json_each() and json_tree()
+
+Suppose the table "CREATE TABLE user(name,phone)" stores zero or more phone 
+numbers as a JSON array object in the user.phone field. To find all users
+who have any phone number with a 704 area code:
+
+    SELECT DISTINCT user.name
+      FROM user, json_each(user.phone)
+     WHERE json_each.value LIKE '704-%';
+
+Now suppose the user.phone field contains plain text if the user has only 
+a single phone number and a JSON array if the user has multiple phone numbers. 
+The same question is posed: "Which users have a phone number in the 704 area code?" 
+But now the json_each() function can only be called for those users that have 
+two or more phone numbers since json_each() requires well-formed JSON as its first argument:
+
+    SELECT name FROM user WHERE phone LIKE '704-%'
+    UNION
+    SELECT user.name
+      FROM user, json_each(user.phone)
+     WHERE json_valid(user.phone)
+       AND json_each.value LIKE '704-%';
+
+Consider a different database with "CREATE TABLE big(json JSON)". 
+To see a complete line-by-line decomposition of the data:
+
+    SELECT big.rowid, fullkey, value
+      FROM big, json_tree(big.json)
+     WHERE json_tree.type NOT IN ('object','array');
+
+In the previous, the "type NOT IN ('object','array')" term of the WHERE 
+clause suppresses containers and only lets through leaf elements. 
+The same effect could be achieved this way:
+
+    SELECT big.rowid, fullkey, atom
+      FROM big, json_tree(big.json)
+     WHERE atom IS NOT NULL;
+
+Suppose each entry in the BIG table is a JSON object with a '$.id' field 
+that is a unique identifier and a '$.partlist' field that can be a deeply 
+nested object. You want to find the id of every entry that contains one or 
+more references to uuid '6fa5181e-5721-11e5-a04e-57f3d7b32808' anywhere 
+in its '$.partlist'.
+
+    SELECT DISTINCT json_extract(big.json,'$.id')
+      FROM big, json_tree(big.json, '$.partlist')
+     WHERE json_tree.key='uuid'
+       AND json_tree.value='6fa5181e-5721-11e5-a04e-57f3d7b32808';
+
+
+
+# 🍀 /56. Command-Line Shell (sqlite3.exe) 
+                                   *cli_html*  *command-line shell*
 
 01. Getting Started
                                                   [getting_started]
@@ -2384,7 +3594,1393 @@ provide a full-featured command-line shell:
     https://www.sqlite.org/howtocompile.html#enable_fts5
 
 
-# 🍀 The Fossil Version Control System
+# 🍀 /57. SQLite Database Analyzer (sqlite3_analyzer.exe)
+                                                *sqlanalyze_html*
+https://www.sqlite.org/sqlanalyze.html
+
+
+The sqlite3_analyzer.exe binary is a command-line utility program that measures 
+and displays how much and how efficiently space is used by individual tables and 
+indexes with an SQLite database file. Example usage:
+
+    sqlite3_analyzer database.sqlite
+
+The output is a human-readable ASCII text report that provides information on 
+the space utilization of the database file. The report is intended to be 
+self-explanatory, though there is some [additional explanation](sqlanalyze.html#defs) 
+of the various parameters reported toward the end of the report.
+
+The output is also valid SQL. Most of the report text is contained within 
+a header comment, with various SQL statements that create and initialize 
+a database at the [end of the report](sqlanalyze.html#sqlx). 
+The constructed database contains the raw data from which the report was extracted. 
+Hence the original report can be read into an instance of the [command-line shell](cli.html) 
+and then the raw data can be queried to dig deeper into the space utilization 
+of a particular database file.
+
+1.1. Implementation
+-------------------
+
+The sqlite3_analyzer.exe program is a [TCL](http://www.tcl.tk/) program that 
+uses the [dbstat virtual table](dbstat.html) to gather information about the 
+database file and then format that information neatly.
+
+1.2. Example Output
+-------------------
+
+The following is sqlite3_analyzer output for an example places.sqlite database used by Firefox.
+
+    /** Disk-Space Utilization Report For ██████████████████/places.sqlite
+    
+    Page size in bytes................................ 32768     
+    Pages in the whole file (measured)................ 221       
+    Pages in the whole file (calculated).............. 221       
+    Pages that store data............................. 221        100.0% 
+    Pages on the freelist (per header)................ 0            0.0% 
+    Pages on the freelist (calculated)................ 0            0.0% 
+    Pages of auto-vacuum overhead..................... 0            0.0% 
+    Number of tables in the database.................. 14        
+    Number of indices................................. 23        
+    Number of defined indices......................... 17        
+    Number of implied indices......................... 6         
+    Size of the file in bytes......................... 7241728   
+    Bytes of user payload stored...................... 2503069     34.6% 
+    
+    *** Page counts for all tables with their indices *****************************
+    
+    MOZ_PLACES........................................ 142         64.3% 
+    MOZ_HISTORYVISITS................................. 41          18.6% 
+    MOZ_FAVICONS...................................... 15           6.8% 
+    MOZ_BOOKMARKS..................................... 5            2.3% 
+    MOZ_KEYWORDS...................................... 3            1.4% 
+    MOZ_ANNO_ATTRIBUTES............................... 2            0.90% 
+    MOZ_ANNOS......................................... 2            0.90% 
+    MOZ_BOOKMARKS_ROOTS............................... 2            0.90% 
+    MOZ_HOSTS......................................... 2            0.90% 
+    MOZ_INPUTHISTORY.................................. 2            0.90% 
+    MOZ_ITEMS_ANNOS................................... 2            0.90% 
+    SQLITE_SCHEMA..................................... 1            0.45% 
+    SQLITE_SEQUENCE................................... 1            0.45% 
+    SQLITE_STAT1...................................... 1            0.45% 
+    
+    *** Page counts for all tables and indices separately *************************
+    
+    MOZ_PLACES........................................ 63          28.5% 
+    MOZ_PLACES_URL_UNIQUEINDEX........................ 37          16.7% 
+    MOZ_HISTORYVISITS................................. 13           5.9% 
+    MOZ_FAVICONS...................................... 12           5.4% 
+    MOZ_HISTORYVISITS_PLACEDATEINDEX.................. 12           5.4% 
+    MOZ_PLACES_HOSTINDEX.............................. 11           5.0% 
+    MOZ_HISTORYVISITS_DATEINDEX....................... 10           4.5% 
+    MOZ_PLACES_GUID_UNIQUEINDEX....................... 9            4.1% 
+    MOZ_PLACES_LASTVISITDATEINDEX..................... 7            3.2% 
+    MOZ_HISTORYVISITS_FROMINDEX....................... 6            2.7% 
+    MOZ_PLACES_FAVICONINDEX........................... 5            2.3% 
+    MOZ_PLACES_FRECENCYINDEX.......................... 5            2.3% 
+    MOZ_PLACES_VISITCOUNT............................. 5            2.3% 
+    SQLITE_AUTOINDEX_MOZ_FAVICONS_1................... 3            1.4% 
+    MOZ_ANNO_ATTRIBUTES............................... 1            0.45% 
+    MOZ_ANNOS......................................... 1            0.45% 
+    MOZ_ANNOS_PLACEATTRIBUTEINDEX..................... 1            0.45% 
+    MOZ_BOOKMARKS..................................... 1            0.45% 
+    MOZ_BOOKMARKS_GUID_UNIQUEINDEX.................... 1            0.45% 
+    MOZ_BOOKMARKS_ITEMINDEX........................... 1            0.45% 
+    MOZ_BOOKMARKS_ITEMLASTMODIFIEDINDEX............... 1            0.45% 
+    MOZ_BOOKMARKS_PARENTINDEX......................... 1            0.45% 
+    MOZ_BOOKMARKS_ROOTS............................... 1            0.45% 
+    MOZ_HOSTS......................................... 1            0.45% 
+    MOZ_INPUTHISTORY.................................. 1            0.45% 
+    MOZ_ITEMS_ANNOS................................... 1            0.45% 
+    MOZ_ITEMS_ANNOS_ITEMATTRIBUTEINDEX................ 1            0.45% 
+    MOZ_KEYWORDS...................................... 1            0.45% 
+    MOZ_KEYWORDS_PLACEPOSTDATA_UNIQUEINDEX............ 1            0.45% 
+    SQLITE_AUTOINDEX_MOZ_ANNO_ATTRIBUTES_1............ 1            0.45% 
+    SQLITE_AUTOINDEX_MOZ_BOOKMARKS_ROOTS_1............ 1            0.45% 
+    SQLITE_AUTOINDEX_MOZ_HOSTS_1...................... 1            0.45% 
+    SQLITE_AUTOINDEX_MOZ_INPUTHISTORY_1............... 1            0.45% 
+    SQLITE_AUTOINDEX_MOZ_KEYWORDS_1................... 1            0.45% 
+    SQLITE_SCHEMA..................................... 1            0.45% 
+    SQLITE_SEQUENCE................................... 1            0.45% 
+    SQLITE_STAT1...................................... 1            0.45% 
+    
+    *** All tables and indices ****************************************************
+    
+    Percentage of total database...................... 100.0%    
+    Number of entries................................. 154969    
+    Bytes of storage consumed......................... 7241728   
+    Bytes of payload.................................. 4969404     68.6% 
+    Average payload per entry......................... 32.07     
+    Average unused bytes per entry.................... 11.15     
+    Average fanout.................................... 14.00     
+    Maximum payload per entry......................... 7640      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 14        
+    Primary pages used................................ 207       
+    Overflow pages used............................... 0         
+    Total pages used.................................. 221       
+    Unused bytes on index pages....................... 448010      97.7% 
+    Unused bytes on primary pages..................... 1280642     18.9% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 1728652     23.9% 
+    
+    *** All tables ****************************************************************
+    
+    Percentage of total database......................  44.8%    
+    Number of entries................................. 28530     
+    Bytes of storage consumed......................... 3244032   
+    Bytes of payload.................................. 2508257     77.3% 
+    Average payload per entry......................... 87.92     
+    Average unused bytes per entry.................... 20.13     
+    Average fanout.................................... 28.00     
+    Maximum payload per entry......................... 7640      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 3         
+    Primary pages used................................ 96        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 99        
+    Unused bytes on index pages....................... 97551       99.23% 
+    Unused bytes on primary pages..................... 476741      15.2% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 574292      17.7% 
+    
+    *** All indices ***************************************************************
+    
+    Percentage of total database......................  55.2%    
+    Number of entries................................. 126439    
+    Bytes of storage consumed......................... 3997696   
+    Bytes of payload.................................. 2461147     61.6% 
+    Average payload per entry......................... 19.47     
+    Average unused bytes per entry.................... 9.13      
+    Average fanout.................................... 11.00     
+    Maximum payload per entry......................... 7259      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 11        
+    Primary pages used................................ 111       
+    Overflow pages used............................... 0         
+    Total pages used.................................. 122       
+    Unused bytes on index pages....................... 350459      97.2% 
+    Unused bytes on primary pages..................... 803901      22.1% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 1154360     28.9% 
+    
+    *** Table MOZ_ANNO_ATTRIBUTES and all its indices *****************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 24        
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 721          1.1% 
+    Average payload per entry......................... 30.04     
+    Average unused bytes per entry.................... 2696.46   
+    Maximum payload per entry......................... 43        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 64715       98.7% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 64715       98.7% 
+    
+    *** Table MOZ_ANNO_ATTRIBUTES w/o any indices *********************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 12        
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 355          1.1% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 29.58     
+    Average unused bytes per entry.................... 2696.42   
+    Maximum payload per entry......................... 42        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32357       98.7% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32357       98.7% 
+    
+    *** Index SQLITE_AUTOINDEX_MOZ_ANNO_ATTRIBUTES_1 of table MOZ_ANNO_ATTRIBUTES *
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 12        
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 366          1.1% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 30.50     
+    Average unused bytes per entry.................... 2696.50   
+    Maximum payload per entry......................... 43        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32358       98.7% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32358       98.7% 
+    
+    *** Table MOZ_ANNOS and all its indices ***************************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 390       
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 13986       21.3% 
+    Average payload per entry......................... 35.86     
+    Average unused bytes per entry.................... 128.22    
+    Maximum payload per entry......................... 127       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 50006       76.3% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 50006       76.3% 
+    
+    *** Table MOZ_ANNOS w/o any indices *******************************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 195       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 12115       37.0% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 62.13     
+    Average unused bytes per entry.................... 101.04    
+    Maximum payload per entry......................... 127       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 19702       60.1% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 19702       60.1% 
+    
+    *** Index MOZ_ANNOS_PLACEATTRIBUTEINDEX of table MOZ_ANNOS ********************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 195       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 1871         5.7% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 9.59      
+    Average unused bytes per entry.................... 155.41    
+    Maximum payload per entry......................... 10        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 30304       92.5% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 30304       92.5% 
+    
+    *** Table MOZ_BOOKMARKS and all its indices ***********************************
+    
+    Percentage of total database......................   2.3%    
+    Number of entries................................. 1565      
+    Bytes of storage consumed......................... 163840    
+    Bytes of payload.................................. 37104       22.6% 
+    Average payload per entry......................... 23.71     
+    Average unused bytes per entry.................... 77.62     
+    Maximum payload per entry......................... 518       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 5         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 5         
+    Unused bytes on primary pages..................... 121475      74.1% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 121475      74.1% 
+    
+    *** Table MOZ_BOOKMARKS w/o any indices ***************************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 313       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 21937       66.9% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 70.09     
+    Average unused bytes per entry.................... 29.90     
+    Maximum payload per entry......................... 518       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 9358        28.6% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 9358        28.6% 
+    
+    *** Indices of table MOZ_BOOKMARKS ********************************************
+    
+    Percentage of total database......................   1.8%    
+    Number of entries................................. 1252      
+    Bytes of storage consumed......................... 131072    
+    Bytes of payload.................................. 15167       11.6% 
+    Average payload per entry......................... 12.11     
+    Average unused bytes per entry.................... 89.55     
+    Maximum payload per entry......................... 17        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 4         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 4         
+    Unused bytes on primary pages..................... 112117      85.5% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 112117      85.5% 
+    
+    *** Index MOZ_BOOKMARKS_GUID_UNIQUEINDEX of table MOZ_BOOKMARKS ***************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 313       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 5207        15.9% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 16.64     
+    Average unused bytes per entry.................... 85.03     
+    Maximum payload per entry......................... 17        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 26614       81.2% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 26614       81.2% 
+    
+    *** Index MOZ_BOOKMARKS_ITEMINDEX of table MOZ_BOOKMARKS **********************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 313       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 2547         7.8% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 8.14      
+    Average unused bytes per entry.................... 93.53     
+    Maximum payload per entry......................... 9         
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 29274       89.3% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 29274       89.3% 
+    
+    *** Index MOZ_BOOKMARKS_ITEMLASTMODIFIEDINDEX of table MOZ_BOOKMARKS **********
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 313       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 5020        15.3% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 16.04     
+    Average unused bytes per entry.................... 85.63     
+    Maximum payload per entry......................... 17        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 26801       81.8% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 26801       81.8% 
+    
+    *** Index MOZ_BOOKMARKS_PARENTINDEX of table MOZ_BOOKMARKS ********************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 313       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 2393         7.3% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 7.65      
+    Average unused bytes per entry.................... 94.02     
+    Maximum payload per entry......................... 9         
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 29428       89.8% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 29428       89.8% 
+    
+    *** Table MOZ_BOOKMARKS_ROOTS and all its indices *****************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 10        
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 94           0.14% 
+    Average payload per entry......................... 9.40      
+    Average unused bytes per entry.................... 6539.10   
+    Maximum payload per entry......................... 11        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 65391       99.78% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 65391       99.78% 
+    
+    *** Table MOZ_BOOKMARKS_ROOTS w/o any indices *********************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 5         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 47           0.14% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 9.40      
+    Average unused bytes per entry.................... 6538.60   
+    Maximum payload per entry......................... 11        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32693       99.77% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32693       99.77% 
+    
+    *** Index SQLITE_AUTOINDEX_MOZ_BOOKMARKS_ROOTS_1 of table MOZ_BOOKMARKS_ROOTS *
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 5         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 47           0.14% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 9.40      
+    Average unused bytes per entry.................... 6539.60   
+    Maximum payload per entry......................... 11        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32698       99.79% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32698       99.79% 
+    
+    *** Table MOZ_FAVICONS and all its indices ************************************
+    
+    Percentage of total database......................   6.8%    
+    Number of entries................................. 941       
+    Bytes of storage consumed......................... 491520    
+    Bytes of payload.................................. 332765      67.7% 
+    Average payload per entry......................... 353.63    
+    Average unused bytes per entry.................... 164.00    
+    Average fanout.................................... 7.00      
+    Maximum payload per entry......................... 7640      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 2         
+    Primary pages used................................ 13        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 15        
+    Unused bytes on index pages....................... 65340       99.70% 
+    Unused bytes on primary pages..................... 88980       20.9% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 154320      31.4% 
+    
+    *** Table MOZ_FAVICONS w/o any indices ****************************************
+    
+    Percentage of total database......................   5.4%    
+    Number of entries................................. 471       
+    Bytes of storage consumed......................... 393216    
+    Bytes of payload.................................. 297630      75.7% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 631.91    
+    Average unused bytes per entry.................... 196.60    
+    Average fanout.................................... 11.00     
+    Non-sequential pages.............................. 6           54.5% 
+    Maximum payload per entry......................... 7640      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 11        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 12        
+    Unused bytes on index pages....................... 32676       99.72% 
+    Unused bytes on primary pages..................... 59923       16.6% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 92599       23.5% 
+    
+    *** Index SQLITE_AUTOINDEX_MOZ_FAVICONS_1 of table MOZ_FAVICONS ***************
+    
+    Percentage of total database......................   1.4%    
+    Number of entries................................. 470       
+    Bytes of storage consumed......................... 98304     
+    Bytes of payload.................................. 35135       35.7% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 74.76     
+    Average unused bytes per entry.................... 131.32    
+    Average fanout.................................... 3.00      
+    Non-sequential pages.............................. 1           50.0% 
+    Maximum payload per entry......................... 7259      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 3         
+    Unused bytes on index pages....................... 32664       99.68% 
+    Unused bytes on primary pages..................... 29057       44.3% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 61721       62.8% 
+    
+    *** Table MOZ_HISTORYVISITS and all its indices *******************************
+    
+    Percentage of total database......................  18.6%    
+    Number of entries................................. 63470     
+    Bytes of storage consumed......................... 1343488   
+    Bytes of payload.................................. 882233      65.7% 
+    Average payload per entry......................... 13.90     
+    Average unused bytes per entry.................... 3.76      
+    Average fanout.................................... 10.00     
+    Maximum payload per entry......................... 21        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 4         
+    Primary pages used................................ 37        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 41        
+    Unused bytes on index pages....................... 130482      99.55% 
+    Unused bytes on primary pages..................... 108158       8.9% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 238640      17.8% 
+    
+    *** Table MOZ_HISTORYVISITS w/o any indices ***********************************
+    
+    Percentage of total database......................   5.9%    
+    Number of entries................................. 15873     
+    Bytes of storage consumed......................... 425984    
+    Bytes of payload.................................. 308447      72.4% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 19.43     
+    Average unused bytes per entry.................... 2.40      
+    Average fanout.................................... 12.00     
+    Non-sequential pages.............................. 8           66.7% 
+    Maximum payload per entry......................... 21        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 12        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 13        
+    Unused bytes on index pages....................... 32668       99.69% 
+    Unused bytes on primary pages..................... 5435         1.4% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 38103        8.9% 
+    
+    *** Indices of table MOZ_HISTORYVISITS ****************************************
+    
+    Percentage of total database......................  12.7%    
+    Number of entries................................. 47597     
+    Bytes of storage consumed......................... 917504    
+    Bytes of payload.................................. 573786      62.5% 
+    Average payload per entry......................... 12.06     
+    Average unused bytes per entry.................... 4.21      
+    Average fanout.................................... 9.00      
+    Maximum payload per entry......................... 17        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 3         
+    Primary pages used................................ 25        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 28        
+    Unused bytes on index pages....................... 97814       99.50% 
+    Unused bytes on primary pages..................... 102723      12.5% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 200537      21.9% 
+    
+    *** Index MOZ_HISTORYVISITS_DATEINDEX of table MOZ_HISTORYVISITS **************
+    
+    Percentage of total database......................   4.5%    
+    Number of entries................................. 15865     
+    Bytes of storage consumed......................... 327680    
+    Bytes of payload.................................. 206221      62.9% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 13.00     
+    Average unused bytes per entry.................... 4.65      
+    Average fanout.................................... 10.00     
+    Non-sequential pages.............................. 6           66.7% 
+    Maximum payload per entry......................... 13        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 9         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 10        
+    Unused bytes on index pages....................... 32596       99.48% 
+    Unused bytes on primary pages..................... 41128       13.9% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 73724       22.5% 
+    
+    *** Index MOZ_HISTORYVISITS_FROMINDEX of table MOZ_HISTORYVISITS **************
+    
+    Percentage of total database......................   2.7%    
+    Number of entries................................. 15869     
+    Bytes of storage consumed......................... 196608    
+    Bytes of payload.................................. 100292      51.0% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 6.32      
+    Average unused bytes per entry.................... 3.06      
+    Average fanout.................................... 6.00      
+    Non-sequential pages.............................. 4           80.0% 
+    Maximum payload per entry......................... 7         
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 5         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 6         
+    Unused bytes on index pages....................... 32702       99.80% 
+    Unused bytes on primary pages..................... 15927        9.7% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 48629       24.7% 
+    
+    *** Index MOZ_HISTORYVISITS_PLACEDATEINDEX of table MOZ_HISTORYVISITS *********
+    
+    Percentage of total database......................   5.4%    
+    Number of entries................................. 15863     
+    Bytes of storage consumed......................... 393216    
+    Bytes of payload.................................. 267273      68.0% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 16.85     
+    Average unused bytes per entry.................... 4.93      
+    Average fanout.................................... 12.00     
+    Non-sequential pages.............................. 8           72.7% 
+    Maximum payload per entry......................... 17        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 11        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 12        
+    Unused bytes on index pages....................... 32516       99.23% 
+    Unused bytes on primary pages..................... 45668       12.7% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 78184       19.9% 
+    
+    *** Table MOZ_HOSTS and all its indices ***************************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 1256      
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 27640       42.2% 
+    Average payload per entry......................... 22.01     
+    Average unused bytes per entry.................... 26.18     
+    Maximum payload per entry......................... 49        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 32888       50.2% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32888       50.2% 
+    
+    *** Table MOZ_HOSTS w/o any indices *******************************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 628       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 14640       44.7% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 23.31     
+    Average unused bytes per entry.................... 23.90     
+    Maximum payload per entry......................... 49        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 15012       45.8% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 15012       45.8% 
+    
+    *** Index SQLITE_AUTOINDEX_MOZ_HOSTS_1 of table MOZ_HOSTS *********************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 628       
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 13000       39.7% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 20.70     
+    Average unused bytes per entry.................... 28.46     
+    Maximum payload per entry......................... 47        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 17876       54.6% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 17876       54.6% 
+    
+    *** Table MOZ_INPUTHISTORY and all its indices ********************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 16        
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 642          0.98% 
+    Average payload per entry......................... 40.12     
+    Average unused bytes per entry.................... 4050.88   
+    Maximum payload per entry......................... 71        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 64814       98.9% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 64814       98.9% 
+    
+    *** Table MOZ_INPUTHISTORY w/o any indices ************************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 8         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 341          1.0% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 42.62     
+    Average unused bytes per entry.................... 4047.38   
+    Maximum payload per entry......................... 71        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32379       98.8% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32379       98.8% 
+    
+    *** Index SQLITE_AUTOINDEX_MOZ_INPUTHISTORY_1 of table MOZ_INPUTHISTORY *******
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 8         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 301          0.92% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 37.62     
+    Average unused bytes per entry.................... 4054.38   
+    Maximum payload per entry......................... 65        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32435       99.0% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32435       99.0% 
+    
+    *** Table MOZ_ITEMS_ANNOS and all its indices *********************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 158       
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 9211        14.1% 
+    Average payload per entry......................... 58.30     
+    Average unused bytes per entry.................... 352.56    
+    Maximum payload per entry......................... 384       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 55704       85.0% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 55704       85.0% 
+    
+    *** Table MOZ_ITEMS_ANNOS w/o any indices *************************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 79        
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 8649        26.4% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 109.48    
+    Average unused bytes per entry.................... 300.54    
+    Maximum payload per entry......................... 384       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 23743       72.5% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 23743       72.5% 
+    
+    *** Index MOZ_ITEMS_ANNOS_ITEMATTRIBUTEINDEX of table MOZ_ITEMS_ANNOS *********
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 79        
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 562          1.7% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 7.11      
+    Average unused bytes per entry.................... 404.57    
+    Maximum payload per entry......................... 9         
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 31961       97.5% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 31961       97.5% 
+    
+    *** Table MOZ_KEYWORDS and all its indices ************************************
+    
+    Percentage of total database......................   1.4%    
+    Number of entries................................. 0         
+    Bytes of storage consumed......................... 98304     
+    Bytes of payload.................................. 0            0.0% 
+    Average payload per entry......................... 0.0       
+    Average unused bytes per entry.................... 0.0       
+    Maximum payload per entry......................... 0         
+    Entries that use overflow......................... 0         
+    Primary pages used................................ 3         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 3         
+    Unused bytes on primary pages..................... 98280       99.976% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 98280       99.976% 
+    
+    *** Table MOZ_KEYWORDS w/o any indices ****************************************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 0         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 0            0.0% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 0.0       
+    Average unused bytes per entry.................... 0.0       
+    Maximum payload per entry......................... 0         
+    Entries that use overflow......................... 0         
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32760       99.976% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32760       99.976% 
+    
+    *** Indices of table MOZ_KEYWORDS *********************************************
+    
+    Percentage of total database......................   0.90%   
+    Number of entries................................. 0         
+    Bytes of storage consumed......................... 65536     
+    Bytes of payload.................................. 0            0.0% 
+    Average payload per entry......................... 0.0       
+    Average unused bytes per entry.................... 0.0       
+    Maximum payload per entry......................... 0         
+    Entries that use overflow......................... 0         
+    Primary pages used................................ 2         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 2         
+    Unused bytes on primary pages..................... 65520       99.976% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 65520       99.976% 
+    
+    *** Index MOZ_KEYWORDS_PLACEPOSTDATA_UNIQUEINDEX of table MOZ_KEYWORDS ********
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 0         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 0            0.0% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 0.0       
+    Average unused bytes per entry.................... 0.0       
+    Maximum payload per entry......................... 0         
+    Entries that use overflow......................... 0         
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32760       99.976% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32760       99.976% 
+    
+    *** Index SQLITE_AUTOINDEX_MOZ_KEYWORDS_1 of table MOZ_KEYWORDS ***************
+    
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 0         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 0            0.0% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 0.0       
+    Average unused bytes per entry.................... 0.0       
+    Maximum payload per entry......................... 0         
+    Entries that use overflow......................... 0         
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32760       99.976% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32760       99.976% 
+    
+    *** Table MOZ_PLACES and all its indices **************************************
+    
+    Percentage of total database......................  64.3%    
+    Number of entries................................. 87087     
+    Bytes of storage consumed......................... 4653056   
+    Bytes of payload.................................. 3659043     78.6% 
+    Average payload per entry......................... 42.02     
+    Average unused bytes per entry.................... 7.93      
+    Average fanout.................................... 17.00     
+    Maximum payload per entry......................... 1867      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 8         
+    Primary pages used................................ 134       
+    Overflow pages used............................... 0         
+    Total pages used.................................. 142       
+    Unused bytes on index pages....................... 252188      96.2% 
+    Unused bytes on primary pages..................... 438258      10.0% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 690446      14.8% 
+    
+    *** Table MOZ_PLACES w/o any indices ******************************************
+    
+    Percentage of total database......................  28.5%    
+    Number of entries................................. 10894     
+    Bytes of storage consumed......................... 2064384   
+    Bytes of payload.................................. 1838131     89.0% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 168.73    
+    Average unused bytes per entry.................... 14.10     
+    Average fanout.................................... 62.00     
+    Non-sequential pages.............................. 30          48.4% 
+    Maximum payload per entry......................... 1867      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 62        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 63        
+    Unused bytes on index pages....................... 32207       98.3% 
+    Unused bytes on primary pages..................... 121406       6.0% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 153613       7.4% 
+    
+    *** Indices of table MOZ_PLACES ***********************************************
+    
+    Percentage of total database......................  35.7%    
+    Number of entries................................. 76193     
+    Bytes of storage consumed......................... 2588672   
+    Bytes of payload.................................. 1820912     70.3% 
+    Average payload per entry......................... 23.90     
+    Average unused bytes per entry.................... 7.05      
+    Average fanout.................................... 11.00     
+    Maximum payload per entry......................... 1823      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 7         
+    Primary pages used................................ 72        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 79        
+    Unused bytes on index pages....................... 219981      95.9% 
+    Unused bytes on primary pages..................... 316852      13.4% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 536833      20.7% 
+    
+    *** Index MOZ_PLACES_FAVICONINDEX of table MOZ_PLACES *************************
+    
+    Percentage of total database......................   2.3%    
+    Number of entries................................. 10891     
+    Bytes of storage consumed......................... 163840    
+    Bytes of payload.................................. 83178       50.8% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 7.64      
+    Average unused bytes per entry.................... 4.40      
+    Average fanout.................................... 5.00      
+    Non-sequential pages.............................. 3           75.0% 
+    Maximum payload per entry......................... 8         
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 4         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 5         
+    Unused bytes on index pages....................... 32711       99.83% 
+    Unused bytes on primary pages..................... 15213       11.6% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 47924       29.3% 
+    
+    *** Index MOZ_PLACES_FRECENCYINDEX of table MOZ_PLACES ************************
+    
+    Percentage of total database......................   2.3%    
+    Number of entries................................. 10891     
+    Bytes of storage consumed......................... 163840    
+    Bytes of payload.................................. 76772       46.9% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 7.05      
+    Average unused bytes per entry.................... 4.99      
+    Average fanout.................................... 5.00      
+    Non-sequential pages.............................. 3           75.0% 
+    Maximum payload per entry......................... 9         
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 4         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 5         
+    Unused bytes on index pages....................... 32714       99.84% 
+    Unused bytes on primary pages..................... 21616       16.5% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 54330       33.2% 
+    
+    *** Index MOZ_PLACES_GUID_UNIQUEINDEX of table MOZ_PLACES *********************
+    
+    Percentage of total database......................   4.1%    
+    Number of entries................................. 10887     
+    Bytes of storage consumed......................... 294912    
+    Bytes of payload.................................. 196000      66.5% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 18.00     
+    Average unused bytes per entry.................... 6.07      
+    Average fanout.................................... 9.00      
+    Non-sequential pages.............................. 5           62.5% 
+    Maximum payload per entry......................... 18        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 8         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 9         
+    Unused bytes on index pages....................... 32581       99.43% 
+    Unused bytes on primary pages..................... 33545       12.8% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 66126       22.4% 
+    
+    *** Index MOZ_PLACES_HOSTINDEX of table MOZ_PLACES ****************************
+    
+    Percentage of total database......................   5.0%    
+    Number of entries................................. 10885     
+    Bytes of storage consumed......................... 360448    
+    Bytes of payload.................................. 237383      65.9% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 21.81     
+    Average unused bytes per entry.................... 8.29      
+    Average fanout.................................... 11.00     
+    Non-sequential pages.............................. 7           70.0% 
+    Maximum payload per entry......................... 49        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 10        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 11        
+    Unused bytes on index pages....................... 32473       99.10% 
+    Unused bytes on primary pages..................... 57782       17.6% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 90255       25.0% 
+    
+    *** Index MOZ_PLACES_LASTVISITDATEINDEX of table MOZ_PLACES *******************
+    
+    Percentage of total database......................   3.2%    
+    Number of entries................................. 10889     
+    Bytes of storage consumed......................... 229376    
+    Bytes of payload.................................. 150784      65.7% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 13.85     
+    Average unused bytes per entry.................... 4.21      
+    Average fanout.................................... 7.00      
+    Non-sequential pages.............................. 4           66.7% 
+    Maximum payload per entry......................... 14        
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 6         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 7         
+    Unused bytes on index pages....................... 32651       99.64% 
+    Unused bytes on primary pages..................... 13179        6.7% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 45830       20.0% 
+
+    *** Index MOZ_PLACES_URL_UNIQUEINDEX of table MOZ_PLACES **********************
+
+    Percentage of total database......................  16.7%    
+    Number of entries................................. 10859     
+    Bytes of storage consumed......................... 1212416   
+    Bytes of payload.................................. 1010666     83.4% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 93.07     
+    Average unused bytes per entry.................... 15.42     
+    Average fanout.................................... 37.00     
+    Non-sequential pages.............................. 16          44.4% 
+    Maximum payload per entry......................... 1823      
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 36        
+    Overflow pages used............................... 0         
+    Total pages used.................................. 37        
+    Unused bytes on index pages....................... 24134       73.7% 
+    Unused bytes on primary pages..................... 143261      12.1% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 167395      13.8% 
+
+    *** Index MOZ_PLACES_VISITCOUNT of table MOZ_PLACES ***************************
+
+    Percentage of total database......................   2.3%    
+    Number of entries................................. 10891     
+    Bytes of storage consumed......................... 163840    
+    Bytes of payload.................................. 66129       40.4% 
+    B-tree depth...................................... 2         
+    Average payload per entry......................... 6.07      
+    Average unused bytes per entry.................... 5.97      
+    Average fanout.................................... 5.00      
+    Non-sequential pages.............................. 3           75.0% 
+    Maximum payload per entry......................... 8         
+    Entries that use overflow......................... 0            0.0% 
+    Index pages used.................................. 1         
+    Primary pages used................................ 4         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 5         
+    Unused bytes on index pages....................... 32717       99.84% 
+    Unused bytes on primary pages..................... 32256       24.6% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 64973       39.7% 
+
+    *** Table SQLITE_SCHEMA *******************************************************
+
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 36        
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 5188        15.8% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 144.11    
+    Average unused bytes per entry.................... 758.58    
+    Maximum payload per entry......................... 379       
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 27309       83.3% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 27309       83.3% 
+
+    *** Table SQLITE_SEQUENCE *****************************************************
+
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 1         
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 15           0.046% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 15.00     
+    Average unused bytes per entry.................... 32741.00  
+    Maximum payload per entry......................... 15        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 32741       99.918% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 32741       99.918% 
+
+    *** Table SQLITE_STAT1 ********************************************************
+
+    Percentage of total database......................   0.45%   
+    Number of entries................................. 15        
+    Bytes of storage consumed......................... 32768     
+    Bytes of payload.................................. 762          2.3% 
+    B-tree depth...................................... 1         
+    Average payload per entry......................... 50.80     
+    Average unused bytes per entry.................... 2128.20   
+    Maximum payload per entry......................... 62        
+    Entries that use overflow......................... 0            0.0% 
+    Primary pages used................................ 1         
+    Overflow pages used............................... 0         
+    Total pages used.................................. 1         
+    Unused bytes on primary pages..................... 31923       97.4% 
+    Unused bytes on overflow pages.................... 0         
+    Unused bytes on all pages......................... 31923       97.4% 
+
+    *** Definitions ***************************************************************
+    See below ...
+
+    *******************************************************************************
+    The entire text of this report can be sourced into any SQL database
+    engine for further analysis.  All of the text above is an SQL comment.
+    The data used to generate this report follows:
+    */
+    BEGIN;
+    CREATE TABLE space_used(
+       name clob,        -- Name of a table or index in the database file
+       tblname clob,     -- Name of associated table
+       is_index boolean, -- TRUE if it is an index, false for a table
+       nentry int,       -- Number of entries in the BTree
+       leaf_entries int, -- Number of leaf entries
+       depth int,        -- Depth of the b-tree
+       payload int,      -- Total amount of data stored in this table or index
+       ovfl_payload int, -- Total amount of data stored on overflow pages
+       ovfl_cnt int,     -- Number of entries that use overflow
+       mx_payload int,   -- Maximum payload size
+       int_pages int,    -- Number of interior pages used
+       leaf_pages int,   -- Number of leaf pages used
+       ovfl_pages int,   -- Number of overflow pages used
+       int_unused int,   -- Number of unused bytes on interior pages
+       leaf_unused int,  -- Number of unused bytes on primary pages
+       ovfl_unused int,  -- Number of unused bytes on overflow pages
+       gap_cnt int,      -- Number of gaps in the page layout
+       compressed_size int  -- Total bytes stored on disk
+    );
+    INSERT INTO space_used VALUES('sqlite_schema','sqlite_schema',0,36,36,1,5188,0,0,379,0,1,0,0,27309,0,0,32768);
+    INSERT INTO space_used VALUES('moz_places','moz_places',0,10955,10894,2,1838131,0,0,1867,1,62,0,32207,121406,0,30,2064384);
+    INSERT INTO space_used VALUES('moz_historyvisits','moz_historyvisits',0,15884,15873,2,308447,0,0,21,1,12,0,32668,5435,0,8,425984);
+    INSERT INTO space_used VALUES('moz_inputhistory','moz_inputhistory',0,8,8,1,341,0,0,71,0,1,0,0,32379,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_autoindex_moz_inputhistory_1','moz_inputhistory',1,8,8,1,301,0,0,65,0,1,0,0,32435,0,0,32768);
+    INSERT INTO space_used VALUES('moz_hosts','moz_hosts',0,628,628,1,14640,0,0,49,0,1,0,0,15012,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_autoindex_moz_hosts_1','moz_hosts',1,628,628,1,13000,0,0,47,0,1,0,0,17876,0,0,32768);
+    INSERT INTO space_used VALUES('moz_bookmarks','moz_bookmarks',0,313,313,1,21937,0,0,518,0,1,0,0,9358,0,0,32768);
+    INSERT INTO space_used VALUES('moz_bookmarks_roots','moz_bookmarks_roots',0,5,5,1,47,0,0,11,0,1,0,0,32693,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_autoindex_moz_bookmarks_roots_1','moz_bookmarks_roots',1,5,5,1,47,0,0,11,0,1,0,0,32698,0,0,32768);
+    INSERT INTO space_used VALUES('moz_keywords','moz_keywords',0,0,0,1,0,0,0,0,0,1,0,0,32760,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_autoindex_moz_keywords_1','moz_keywords',1,0,0,1,0,0,0,0,0,1,0,0,32760,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_sequence','sqlite_sequence',0,1,1,1,15,0,0,15,0,1,0,0,32741,0,0,32768);
+    INSERT INTO space_used VALUES('moz_favicons','moz_favicons',0,481,471,2,297630,0,0,7640,1,11,0,32676,59923,0,6,393216);
+    INSERT INTO space_used VALUES('sqlite_autoindex_moz_favicons_1','moz_favicons',1,471,470,2,35135,0,0,7259,1,2,0,32664,29057,0,1,98304);
+    INSERT INTO space_used VALUES('moz_anno_attributes','moz_anno_attributes',0,12,12,1,355,0,0,42,0,1,0,0,32357,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_autoindex_moz_anno_attributes_1','moz_anno_attributes',1,12,12,1,366,0,0,43,0,1,0,0,32358,0,0,32768);
+    INSERT INTO space_used VALUES('moz_annos','moz_annos',0,195,195,1,12115,0,0,127,0,1,0,0,19702,0,0,32768);
+    INSERT INTO space_used VALUES('moz_items_annos','moz_items_annos',0,79,79,1,8649,0,0,384,0,1,0,0,23743,0,0,32768);
+    INSERT INTO space_used VALUES('sqlite_stat1','sqlite_stat1',0,15,15,1,762,0,0,62,0,1,0,0,31923,0,0,32768);
+    INSERT INTO space_used VALUES('moz_places_faviconindex','moz_places',1,10894,10891,2,83178,0,0,8,1,4,0,32711,15213,0,3,163840);
+    INSERT INTO space_used VALUES('moz_places_hostindex','moz_places',1,10894,10885,2,237383,0,0,49,1,10,0,32473,57782,0,7,360448);
+    INSERT INTO space_used VALUES('moz_places_visitcount','moz_places',1,10894,10891,2,66129,0,0,8,1,4,0,32717,32256,0,3,163840);
+    INSERT INTO space_used VALUES('moz_places_frecencyindex','moz_places',1,10894,10891,2,76772,0,0,9,1,4,0,32714,21616,0,3,163840);
+    INSERT INTO space_used VALUES('moz_places_lastvisitdateindex','moz_places',1,10894,10889,2,150784,0,0,14,1,6,0,32651,13179,0,4,229376);
+    INSERT INTO space_used VALUES('moz_historyvisits_placedateindex','moz_historyvisits',1,15873,15863,2,267273,0,0,17,1,11,0,32516,45668,0,8,393216);
+    INSERT INTO space_used VALUES('moz_historyvisits_fromindex','moz_historyvisits',1,15873,15869,2,100292,0,0,7,1,5,0,32702,15927,0,4,196608);
+    INSERT INTO space_used VALUES('moz_historyvisits_dateindex','moz_historyvisits',1,15873,15865,2,206221,0,0,13,1,9,0,32596,41128,0,6,327680);
+    INSERT INTO space_used VALUES('moz_bookmarks_itemindex','moz_bookmarks',1,313,313,1,2547,0,0,9,0,1,0,0,29274,0,0,32768);
+    INSERT INTO space_used VALUES('moz_bookmarks_parentindex','moz_bookmarks',1,313,313,1,2393,0,0,9,0,1,0,0,29428,0,0,32768);
+    INSERT INTO space_used VALUES('moz_bookmarks_itemlastmodifiedindex','moz_bookmarks',1,313,313,1,5020,0,0,17,0,1,0,0,26801,0,0,32768);
+    INSERT INTO space_used VALUES('moz_places_url_uniqueindex','moz_places',1,10894,10859,2,1010666,0,0,1823,1,36,0,24134,143261,0,16,1212416);
+    INSERT INTO space_used VALUES('moz_places_guid_uniqueindex','moz_places',1,10894,10887,2,196000,0,0,18,1,8,0,32581,33545,0,5,294912);
+    INSERT INTO space_used VALUES('moz_bookmarks_guid_uniqueindex','moz_bookmarks',1,313,313,1,5207,0,0,17,0,1,0,0,26614,0,0,32768);
+    INSERT INTO space_used VALUES('moz_annos_placeattributeindex','moz_annos',1,195,195,1,1871,0,0,10,0,1,0,0,30304,0,0,32768);
+    INSERT INTO space_used VALUES('moz_items_annos_itemattributeindex','moz_items_annos',1,79,79,1,562,0,0,9,0,1,0,0,31961,0,0,32768);
+    INSERT INTO space_used VALUES('moz_keywords_placepostdata_uniqueindex','moz_keywords',1,0,0,1,0,0,0,0,0,1,0,0,32760,0,0,32768);
+    COMMIT;
+
+1.3. Definitions
+-------------------
+
+    *** Definitions ***************************************************************
+
+    Page size in bytes
+
+        The number of bytes in a single page of the database file.  
+        Usually 1024.
+
+    Number of pages in the whole file
+
+        The number of 32768-byte pages that go into forming the complete
+        database
+
+    Pages that store data
+
+        The number of pages that store data, either as primary B*Tree pages or
+        as overflow pages.  The number at the right is the data pages divided by
+        the total number of pages in the file.
+
+    Pages on the freelist
+
+        The number of pages that are not currently in use but are reserved for
+        future use.  The percentage at the right is the number of freelist pages
+        divided by the total number of pages in the file.
+
+    Pages of auto-vacuum overhead
+
+        The number of pages that store data used by the database to facilitate
+        auto-vacuum. This is zero for databases that do not support auto-vacuum.
+
+    Number of tables in the database
+
+        The number of tables in the database, including the SQLITE_SCHEMA table
+        used to store schema information.
+
+    Number of indices
+
+        The total number of indices in the database.
+
+    Number of defined indices
+
+        The number of indices created using an explicit CREATE INDEX statement.
+
+    Number of implied indices
+
+        The number of indices used to implement PRIMARY KEY or UNIQUE constraints
+        on tables.
+
+    Size of the file in bytes
+
+        The total amount of disk space used by the entire database files.
+
+    Bytes of user payload stored
+
+        The total number of bytes of user payload stored in the database. The
+        schema information in the SQLITE_SCHEMA table is not counted when
+        computing this number.  The percentage at the right shows the payload
+        divided by the total file size.
+
+    Percentage of total database
+
+        The amount of the complete database file that is devoted to storing
+        information described by this category.
+
+    Number of entries
+
+        The total number of B-Tree key/value pairs stored under this category.
+
+    Bytes of storage consumed
+
+        The total amount of disk space required to store all B-Tree entries
+        under this category.  The is the total number of pages used times
+        the pages size.
+
+    Bytes of payload
+
+        The amount of payload stored under this category.  Payload is the data
+        part of table entries and the key part of index entries.  The percentage
+        at the right is the bytes of payload divided by the bytes of storage 
+        consumed.
+
+    Average payload per entry
+
+        The average amount of payload on each entry.  This is just the bytes of
+        payload divided by the number of entries.
+
+    Average unused bytes per entry
+
+        The average amount of free space remaining on all pages under this
+        category on a per-entry basis.  This is the number of unused bytes on
+        all pages divided by the number of entries.
+
+    Non-sequential pages
+
+        The number of pages in the table or index that are out of sequence.
+        Many filesystems are optimized for sequential file access so a small
+        number of non-sequential pages might result in faster queries,
+        especially for larger database files that do not fit in the disk cache.
+        Note that after running VACUUM, the root page of each table or index is
+        at the beginning of the database file and all other pages are in a
+        separate part of the database file, resulting in a single non-
+        sequential page.
+
+    Maximum payload per entry
+
+        The largest payload size of any entry.
+
+    Entries that use overflow
+
+        The number of entries that user one or more overflow pages.
+
+    Total pages used
+
+        This is the number of pages used to hold all information in the current
+        category.  This is the sum of index, primary, and overflow pages.
+
+    Index pages used
+
+        This is the number of pages in a table B-tree that hold only key (rowid)
+        information and no data.
+
+    Primary pages used
+
+        This is the number of B-tree pages that hold both key and data.
+
+    Overflow pages used
+
+        The total number of overflow pages used for this category.
+
+    Unused bytes on index pages
+
+        The total number of bytes of unused space on all index pages.  The
+        percentage at the right is the number of unused bytes divided by the
+        total number of bytes on index pages.
+
+    Unused bytes on primary pages
+
+        The total number of bytes of unused space on all primary pages.  The
+        percentage at the right is the number of unused bytes divided by the
+        total number of bytes on primary pages.
+
+    Unused bytes on overflow pages
+
+        The total number of bytes of unused space on all overflow pages.  The
+        percentage at the right is the number of unused bytes divided by the
+        total number of bytes on overflow pages.
+
+    Unused bytes on all pages
+
+        The total number of bytes of unused space on all primary and overflow 
+        pages.  The percentage at the right is the number of unused bytes 
+        divided by the total number of bytes.
+
+
+
+# 🍀 /61. The Fossil Version Control System
                                                          *fossil*
 7. https://www.fossil-scm.org/home/doc/trunk/www/quickstart.wiki
 
@@ -3002,7 +5598,8 @@ fossil sync http://192.168.1.36:8080/ --proxy off
     https://www.fossil-scm.org/home/doc/trunk/www/permutedindex.html
 
 
-# 📰 sqlite3 WebAssembly & JavaScript Documentation Index
+# 🍀 /Sqlite3 WebAssembly & JavaScript Documentation Index
+https://sqlite.org/wasm/doc/trunk/index.md
 
 This site is home to the documentation for the SQLite project's
 WebAssembly- and JavaScript-related APIs, which enable the use of

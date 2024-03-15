@@ -13685,7 +13685,7 @@ func _physics_process(delta):
 - godot\servers\rendering\renderer_rd\shaders\particles.glsl
 
 按坐标维度，Godot 粒子特效可以分为 2D 和 3D 两类。按运算方式不同分为 CPU 和 GPU 两类，后者能
-利用多流水线并行计算的 GPU 资源，创建项目时选择 GLES3 就可以使用更高级的 GUP API，Godot 提供
+利用多流水线并行计算的 GPU 资源，创建项目时选择 GLES3 就可以使用更高级的 GPU API，Godot 提供
 默认的粒子着色器为 particles.glsl，粒子节点的几乎所有属性都是按此着色程序来进行设置的。另外，
 使用 GLES2 后端的项目则会使用 CPU 粒子特效。
 
