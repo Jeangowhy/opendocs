@@ -8,6 +8,8 @@
 .DS_Store
 .gradle
 
+deno.lock
+
 *sublime-workspace
 
 /*.html

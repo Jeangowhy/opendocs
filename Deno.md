@@ -16,7 +16,7 @@
 - https://www.freecodecamp.org/news/the-deno-handbook/
 - The Deno Beginner’s Handbook by Flavio Copes (z-lib.org)
 - Deno - A Complete Guide to Programming With Deno by Jana Bergant (z-lib.org)
-
+- Node.js vs Bun vs Deno https://juejin.cn/post/7283087400888336436
 
 > 研究一个优秀的开发框架是学习一门计算机语言的最好方式！
 
@@ -307,11 +307,85 @@ Sublime 还有另外一个 LSP-typescript 插件，它一样可以支持 TypeScr
 
 然后打开 Sublime 项目，在界面左下角弹出出菜或者使用命令面板 LSP: Toggle Log Panel 打开调试日志面板，如果配置正确，切换到 JavaScript 或 TypeScript 脚本文件后，就会启动 Deno LSP 服务，消息打印如下：
 
-    :: [15:33:51.941] --> deno initialize (1): {'capabilities': ... }
+```sh
+    :: [23:29:16.426] --> deno initialize (1): {'rootUri': '/deno/demos', ... }
     deno: Starting Deno language server...
-    deno:   version: 1.36.1 (release, x86_64-pc-windows-msvc)
+    deno:   version: 1.41.3 (release, x86_64-pc-windows-msvc)
     deno:   executable: C:\ProgramData\chocolatey\bin\deno.exe
-    deno: Connected to "Sublime Text LSP" 1.25.0
+    deno: Connected to "Sublime Text LSP" 1.29.0
+    deno:   Auto-resolved configuration file: "/deno/demos/deno.json"
+    deno:   Resolved lock file: "/deno/demos/deno.lock"
+    deno:   Auto-resolved package.json: "/deno/demos/package.json"
+    :: [23:29:16.654]  -> deno initialized: {}
+```
+
+Deno 检测到 deno.json 配置文件，就会响应 LSP 服务，并根据编辑器的状态提供相应的智能提示。
+
+Deno 和 Node 完全使用不同的包管理逻辑，Node 有非常复杂的极度糟糕的 node_modules 目录层级，Deno 则完全丢弃这套嵌套目录管理，完全 URI 路径化，自动在程序运行时下载依赖，无需包管理工具。并且继承了 Node 以及 NPM 包，使用 import 关键字导入。Deno 和 Node 同样使用依赖模块版本锁定文件，deno.lock 和 package.lock，它们由解释器自动维护。
+
+为了解决大型项目中的模块导入繁复工作，Deno 标准做法是创建一个 deps.ts 文件用于统一管理依赖，名称并非限定。这个文件中引用了所有必需的远程依赖，以及必需的方法和类都被重新导出，并在代码中通过 import 此文件导入依赖，而不是远程依赖。但是，如果依赖有更新，那么也会增加 deps.ts 的管理工作。通过 deps.ts 集中依赖项通常会变得更容易，开发依赖项也可以在单独的 dev_deps.ts 文件中进行管理，允许 开发依赖和生产依赖之间进行清晰分离。
+
+1. ECMAScript Modules in Deno https://docs.deno.com/runtime/manual/basics/modules/
+2. Managing Dependencies https://docs.deno.com/runtime/tutorials/manage_dependencies
+
+以下是各种 import 方式参考代码，新版本使用 `with` 替代 `assert` 关键字：
+
+```js
+// ✔Use Node.js built-in modules
+// https://examples.deno.land/node
+import os from "node:os";
+console.log("Current architecture is:", os.arch());
+console.log("Home directory is:", os.homedir());
+
+// ✔Import modules from npm
+// https://examples.deno.land/npm
+import express from "npm:express@4.18.2";
+
+// ✔Importing JSON
+// https://examples.deno.land/importing-json
+import file from "deno.json" assert { type: "json" };
+
+const module = await import("deno.json", {
+  assert: { type: "json" },
+});
+console.log(file.tasks, module.default.tasks);
+```
+
+**deno.json** 内容格式参考：
+
+```json
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
+```
+
+**deno.lock** 内容格式参考：
+
+```json
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:turndown": "npm:turndown@7.1.3"
+    },
+    "npm": {
+      "domino@2.1.6": {
+        "integrity": "sha512-3VdM/SXBZX2omc9JF9nOPCtDaYQ67BGp5CoLpIQlO2KCAPETs8TcDHacF26jXadGbvUteZzRTeos2fhID5+ucQ==",
+        "dependencies": {}
+      },
+      "turndown@7.1.3": {
+        "integrity": "sha512-Z3/iJ6IWh8VBiACWQJaA5ulPQE5E1QwvBHj00uGzdQxdRnd8fh1DPqNOJqzQDu6DkOstORrtXzf/9adB+vMtEA==",
+        "dependencies": {
+          "domino": "domino@2.1.6"
+        }
+      }
+    }
+  },
+  "remote": {}
+}
+```
 
 可以遇到的问题：Deno LSP 可以响应 JavaScrit 脚本，但不响应 TypeScript。
 
@@ -4153,10 +4227,18 @@ Deno 完全摆脱 Node 的模块标准，使用兼容 ESM 的浏览器模块标�
 
 Deno 没有模块管理器的概念，也没有 package manager 工具，它是通过 URL 来管理依赖模块的。
 
-在大项目中依赖会变得 cumbersome 而消耗更多时间，因而，Deno 使用以下两个依赖管理文件：
+在大项目中依赖会变得 cumbersome 而消耗更多时间，因而，Deno 常用一个本地脚本统一管理依赖：
 
 - deps.ts 本地中心化依赖管理文件；
-- dev_deps.ts 开发依赖管理文件；
+- dev_deps.ts 开发环境中的依赖管理文件；
+
+Deno 需要使用模块文件的扩展名来识别模块类型，不像 Node 那样可以省略导入的模块扩展名。
+Deno 不能导入无扩展名的文件，不能使用 import assert/with type 语法，但可以用于
+导入 JSON，`with { type: "json" }`。
+
+- files ending `.cjs` use CommonJS
+- files ending `.mjs` use ES modules
+- files ending `.js` are CommonJS
 
 导入模块语法参考：
 
