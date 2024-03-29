@@ -1412,7 +1412,7 @@ In many register and memory layout descriptions, certain bits are marked as unde
 
 * * *
 
-### _Note_ 📜
+### Note
 
 _Depending upon the values of undefined register bits will make software dependent upon the unspecified manner in which the 80386 handles these bits. Depending upon undefined values risks making software incompatible with future processors that define usages for these bits. AVOID ANY SOFTWARE DEPENDENCE UPON THE STATE OF UNDEFINED 80386 REGISTER BITS._
 
@@ -4842,36 +4842,35 @@ For example, it is possible to define a large data segment which has some subuni
 
 Table 6-5. Combining Directory and Page Protection
 
-Page Directory Entry     Page Table Entry      Combined Protection
-U/S          R/W         U/S      R/W          U/S         R/W
-
-S-0          R-0         S-0      R-0           S           x
-S-0          R-0         S-0      W-1           S           x
-S-0          R-0         U-1      R-0           S           x
-S-0          R-0         U-1      W-1           S           x
-S-0          W-1         S-0      R-0           S           x
-S-0          W-1         S-0      W-1           S           x
-S-0          W-1         U-1      R-0           S           x
-S-0          W-1         U-1      W-1           S           x
-U-1          R-0         S-0      R-0           S           x
-U-1          R-0         S-0      W-1           S           x
-U-1          R-0         U-1      R-0           U           R
-U-1          R-0         U-1      W-1           U           R
-U-1          W-1         S-0      R-0           S           x
-U-1          W-1         S-0      W-1           S           x
-U-1          W-1         U-1      R-0           U           R
-U-1          W-1         U-1      W-1           U           W
+| Page Directory | Entry | Page Table | Entry | Combined | Protection |
+|      U/S       |  R/W  |    U/S     |  R/W  |   U/S    |    R/W     |
+|----------------|-------|------------|-------|----------|------------|
+| S-0            | R-0   | S-0        | R-0   | S        | x          |
+| S-0            | R-0   | S-0        | W-1   | S        | x          |
+| S-0            | R-0   | U-1        | R-0   | S        | x          |
+| S-0            | R-0   | U-1        | W-1   | S        | x          |
+| S-0            | W-1   | S-0        | R-0   | S        | x          |
+| S-0            | W-1   | S-0        | W-1   | S        | x          |
+| S-0            | W-1   | U-1        | R-0   | S        | x          |
+| S-0            | W-1   | U-1        | W-1   | S        | x          |
+| U-1            | R-0   | S-0        | R-0   | S        | x          |
+| U-1            | R-0   | S-0        | W-1   | S        | x          |
+| U-1            | R-0   | U-1        | R-0   | U        | R          |
+| U-1            | R-0   | U-1        | W-1   | U        | R          |
+| U-1            | W-1   | S-0        | R-0   | S        | x          |
+| U-1            | W-1   | S-0        | W-1   | S        | x          |
+| U-1            | W-1   | U-1        | R-0   | U        | R          |
+| U-1            | W-1   | U-1        | W-1   | U        | W          |
 
 * * *
 
-### _Note_ 📜
-
-_S -- Supervisor
-R -- Read only
-U -- User
-W -- Read and Write
-x indicates that when the combined U/S attribute is S, the R/W attribute
-is not checked._
+>  [!NOTE]
+>
+>  S -- Supervisor
+>  R -- Read only
+>  U -- User
+>  W -- Read and Write
+>  x indicates that when the combined U/S attribute is S, the R/W attribute is not checked.
 
 * * *
 
@@ -6510,7 +6509,7 @@ The 80386 provides a mechanism for testing the Translation Lookaside Buffer (TLB
 
 * * *
 
-### _Note_ 📜
+### Note
 
 _This TLB testing mechanism is unique to the 80386 and may not be continued in the same way in future processors. Sortware that uses this mechanism may be incompatible with future processors._
 
@@ -9495,12 +9494,11 @@ Opcode    Instruction          Clocks    Description
 
 0F  BC    BSF r16,r/m16        10+3n     Bit scan forward on r/m word
 0F  BC    BSF r32,r/m32        10+3n     Bit scan forward on r/m dword
+```
 
-Notes
------
+### Notes
 
 is the number of leading zero bits.
-```
 
 Operation
 ---------
@@ -9656,8 +9654,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9722,8 +9719,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9788,8 +9784,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 (or 15) are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9854,8 +9849,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -10163,8 +10157,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 Any far call from a 32-bit code segment to 16-bit code segments should be made from the first 64K bytes of the 32-bit code segment, since the operand-size attribute of the instruction is set to 16, thus allowing only a 16-bit return address offset to be saved.
 
@@ -11161,12 +11154,7 @@ result := multiplicand * multiplier;
 Description
 -----------
 
-IMUL performs signed multiplication. Some forms of the instruction use implicit register operands. The operand combinations for all forms of the instruction are shown in the "
-
-Description
------------
-
-" column above.
+IMUL performs signed multiplication. Some forms of the instruction use implicit register operands. The operand combinations for all forms of the instruction are shown in the "Description" column above.
 
 IMUL clears the overflow and carry flags under the following conditions:
 
@@ -11200,8 +11188,7 @@ Virtual 8086 Mode Exceptions
 
 Same exeptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 When using the accumulator forms (IMUL r/m8, IMUL r/m16, or IMUL r/m32), the result of the multiplication is available even if the overflow flag is set because the result is two times the size of the multiplicand and multiplier. This is large enough to handle any possible result.
 
@@ -11217,22 +11204,18 @@ IC: IN -- Input from Port
 ```sh
 Opcode    Instruction   Clocks            Description
 
-E4  ib    IN AL,imm8    12,pm=6*/26**     Input byte from immediate port
-                                          into AL
-E5  ib    IN AX,imm8    12,pm=6*/26**     Input word from immediate port
-                                          into AX
-E5  ib    IN EAX,imm8   12,pm=6*/26**     Input dword from immediate port
-                                          into EAX
+E4  ib    IN AL,imm8    12,pm=6*/26**     Input byte from immediate port into AL
+E5  ib    IN AX,imm8    12,pm=6*/26**     Input word from immediate port into AX
+E5  ib    IN EAX,imm8   12,pm=6*/26**     Input dword from immediate port into EAX
 EC        IN AL,DX      13,pm=7*/27**     Input byte from port DX into AL
 ED        IN AX,DX      13,pm=7*/27**     Input word from port DX into AX
-ED        IN EAX,DX     13,pm=7*/27**     Input dword from port DX into
-                                          EAX
-
-_### Notes
-
-   *If CPL <= IOPL
-  **If CPL > IOPL or if in virtual 8086 mode_
+ED        IN EAX,DX     13,pm=7*/27**     Input dword from port DX into EAX
 ```
+
+### Notes
+
+     *  If CPL <= IOPL
+    **  If CPL > IOPL or if in virtual 8086 mode
 
 Operation
 ---------
@@ -11341,12 +11324,12 @@ Opcode  Instruction    Clocks         Description
 6C      INSB           15,pm=9*/29**  Input byte from port DX into ES:(E)DI
 6D      INSW           15,pm=9*/29**  Input word from port DX into ES:(E)DI
 6D      INSD           15,pm=9*/29**  Input dword from port DX into ES:(E)DI
-
-_### Notes
-
-   *If CPL <= IOPL
-  **If CPL > IOPL or if in virtual 8086 mode_
 ```
+
+### Notes
+
+     *If CPL <= IOPL
+    **If CPL > IOPL or if in virtual 8086 mode
 
 Operation
 ---------
@@ -11427,31 +11410,21 @@ IC: INT/INTO -- Call to Interrupt Procedure
 Opcode    Instruction  Clocks          Description
 
 CC        INT 3        33              Interrupt 3--trap to debugger
-CC        INT 3        pm=59           Interrupt 3--Protected Mode, same
-                                       privilege
-CC        INT 3        pm=99           Interrupt 3--Protected Mode, more
-                                       privilege
+CC        INT 3        pm=59           Interrupt 3--Protected Mode, same privilege
+CC        INT 3        pm=99           Interrupt 3--Protected Mode, more privilege
 CC        INT 3        pm=119          Interrupt 3--from V86 mode to PL 0
-CC        INT 3        ts              Interrupt 3--Protected Mode, via
-                                       task gate
-CD ib     INT imm8     37              Interrupt numbered by immediate
-                                       byte
-CD ib     INT imm8     pm=59           Interrupt--Protected Mode, same
-                                       privilege
-CD ib     INT imm8     pm=99           Interrupt--Protected Mode, more
-                                       privilege
+CC        INT 3        ts              Interrupt 3--Protected Mode, via task gate
+CD ib     INT imm8     37              Interrupt numbered by immediate byte
+CD ib     INT imm8     pm=59           Interrupt--Protected Mode, same privilege
+CD ib     INT imm8     pm=99           Interrupt--Protected Mode, more privilege
 CD ib     INT imm8     pm=119          Interrupt--from V86 mode to PL 0
-CD ib     INT imm8     ts              Interrupt--Protected Mode, via task
-                                       gate
+CD ib     INT imm8     ts              Interrupt--Protected Mode, via task gate
 CE        INTO         Fail:3,pm=3;
                        Pass:35         Interrupt 4--if overflow flag is 1
-CE        INTO         pm=59           Interrupt 4--Protected Mode, same
-                                       privilege
-CE        INTO         pm=99           Interrupt 4--Protected Mode, more
-                                       privilege
+CE        INTO         pm=59           Interrupt 4--Protected Mode, same privilege
+CE        INTO         pm=99           Interrupt 4--Protected Mode, more privilege
 CE        INTO         pm=119          Interrupt 4--from V86 mode to PL 0
-CE        INTO         ts              Interrupt 4--Protected Mode, via
-                                       task gate
+CE        INTO         ts              Interrupt 4--Protected Mode, via task gate
 ```
 
 ### Note
@@ -11694,9 +11667,11 @@ CF      IRETD        22,pm=38     Interrupt return (far return and pop
 CF      IRETD        pm=82        Interrupt return to lesser privilege
 CF      IRETD        pm=60        Interrupt return to V86 mode
 CF      IRETD        ts           Interrupt return, different task (NT = 1)
+```
 
-_NoteValues of ts are given by the following table:
+NoteValues of ts are given by the following table:
 
+```sh
                             New Task
 
 Old Task       386 TSS       386 TSS       286 TSS
@@ -12891,8 +12866,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 The operand-size attribute has no effect on this instruction. This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) CR0, ... instead.
 
@@ -12918,11 +12892,13 @@ The LOCK prefix causes the LOCK# signal of the 80386 to be asserted during execu
 
 The LOCK prefix functions only with the following instructions:
 
-[BT](#IC_BT), [BTS](#IC_BTS), [BTR](#IC_BTR), [BTC](#IC_BTC)                   mem, reg/imm
-[XCHG](#IC_XCHG)                                reg, mem
-[XCHG](#IC_XCHG)                                mem, reg
-[ADD](#IC_ADD), [OR](#IC_OR), [ADC](#IC_ADC), [SBB](#IC_SBB), [AND](#IC_AND), [SUB](#IC_SUB), [XOR](#IC_XOR)    mem, reg/imm
-[NOT](#IC_NOT), [NEG](#IC_NEG), [INC](#IC_INC), [DEC](#IC_DEC)                  mem
+```sh
+BT, BTS, BTR, BTC                   mem, reg/imm
+XCHG                                reg, mem
+XCHG                                mem, reg
+ADD,[OR, ADC, SBB, AND, SUB, XOR    mem, reg/imm
+NOT, NEG, INC, DEC                  mem
+```
 
 An undefined opcode trap will be generated if a LOCK prefix is used with any instruction not listed above.
 
@@ -12934,7 +12910,8 @@ Locked access is not assured if another 80386 processor is executing an instruct
 
 *   Is not preceded by a LOCK prefix
 *   Is not one of the instructions in the preceding list
-*   Specifies a memory operand that does not exactly overlap the destination operand. Locking is not guaranteed for partial overlap, even if one memory operand is wholly contained within another.
+*   Specifies a memory operand 
+    that does not exactly overlap the destination operand. Locking is not guaranteed for partial overlap, even if one memory operand is wholly contained within another.
 
 Flags Affected
 --------------
@@ -13217,8 +13194,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode
 
-Notes
------
+### Notes
 
 The operand-size attribute has no effect on this instruction.
 
@@ -13339,7 +13315,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a name="IC_MOV"></a> <!--    *MOV* -->
+<a name="IC_MOV_SR"></a> <!--    *MOV* -->
 
 IC: MOV -- Move to/from Special Registers
 =========================================
@@ -13403,8 +13379,7 @@ Virtual 8086 Mode Exceptions
 
 `#GP(0)` if instruction execution is attempted
 
-Notes
------
+### Notes
 
 The instructions must be executed at privilege level 0 or in real-address mode; otherwise, a protection exception will be raised.
 
@@ -13602,23 +13577,22 @@ IC: MUL -- Unsigned Multiplication of AL or AX
 Opcode  Instruction     Clocks       Description
 
 F6  /4  MUL AL,r/m8     9-14/12-17   Unsigned multiply (AX := AL * r/m byte)
-F7  /4  MUL AX,r/m16    9-22/12-25   Unsigned multiply (DX:AX := AX * r/m
-                                     word)
-F7  /4  MUL EAX,r/m32   9-38/12-41   Unsigned multiply (EDX:EAX := EAX * r/m
-                                     dword)
+F7  /4  MUL AX,r/m16    9-22/12-25   Unsigned multiply (DX:AX := AX * r/m word)
+F7  /4  MUL EAX,r/m32   9-38/12-41   Unsigned multiply (EDX:EAX := EAX * r/m dword)
+```
 
-_
 
 ### Notes
 
 The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative multiplier values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
 
+```sh
     Actual clock = if  <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks;
 
     Actual clock = if  = 0 then 9 clocks
-
-where m is the multiplier._
 ```
+
+where m is the multiplier.
 
 Operation
 ---------
@@ -13895,12 +13869,12 @@ EF        OUT DX,AX       11,pm=5*/25**   Output word AL to port number in
 DX
 EF        OUT DX,EAX      11,pm=5*/25**   Output dword AL to port number
                                           in DX
-
-_### Notes
-
-   *If CPL <= IOPL
-  **If CPL > IOPL or if in virtual 8086 mode_
 ```
+
+### Notes
+
+     *If CPL <= IOPL
+    **If CPL > IOPL or if in virtual 8086 mode_
 
 Operation
 ---------
@@ -13955,18 +13929,15 @@ Opcode   Instruction     Clocks          Description
 6E       OUTS DX,r/m8    14,pm=8*/28**   Output byte [(E)SI] to port in DX
 6F       OUTS DX,r/m16   14,pm=8*/28**   Output word [(E)SI] to port in DX
 6F       OUTS DX,r/m32   14,pm=8*/28**   Output dword [(E)SI] to port in DX
-6E       OUTSB           14,pm=8*/28**   Output byte DS:[(E)SI] to port in
-                                         DX
-6F       OUTSW           14,pm=8*/28**   Output word DS:[(E)SI] to port in
-                                         DX
-6F       OUTSD           14,pm=8*/28**   Output dword DS:[(E)SI] to port in
-                                         DX
-
-_### Notes
-
-   *If CPL <= IOPL
-  **If CPL > IOPL or if in virtual 8086 mode_
+6E       OUTSB           14,pm=8*/28**   Output byte DS:[(E)SI] to port in DX
+6F       OUTSW           14,pm=8*/28**   Output word DS:[(E)SI] to port in DX
+6F       OUTSD           14,pm=8*/28**   Output dword DS:[(E)SI] to port in DX
 ```
+
+### Notes
+
+     *If CPL <= IOPL
+    **If CPL > IOPL or if in virtual 8086 mode_
 
 Operation
 ---------
@@ -14741,8 +14712,7 @@ Virtual 8086 Mode Exceptions
 
 `#UD` if a repeat prefix is used before an instruction that is not in the list above; further exceptions can be generated when the string operation is executed; refer to the descriptions of the string instructions themselves
 
-Notes
------
+### Notes
 
 Not all input/output ports can handle the rate at which the REP [INS](#IC_INS) and REP [OUTS](#IC_OUTS) instructions execute.
 
@@ -15640,8 +15610,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 The operand-size attribute has no effect on the operation of the instruction.
 
@@ -15693,8 +15662,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Notes
------
+### Notes
 
 This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) ..., CR0.
 
@@ -15977,8 +15945,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode
 
-Notes
------
+### Notes
 
 The operand-size attribute has no effect on this instruction.
 
