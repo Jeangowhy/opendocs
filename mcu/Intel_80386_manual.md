@@ -8971,7 +8971,7 @@ Virtual 8086 tasks provide the ability to simulate Virtual 8086 machines. Virtua
 The instruction set is detailed as follows:
 
 * * *
-<a *AAA*   name="IC_AAA"></a>
+<a name="IC_AAA"></a> <!--    *AAA* -->
 
 IC: AAA -- ASCII Adjust after Addition
 ======================================
@@ -9022,7 +9022,7 @@ None
 
 
 * * *
-<a *AAD*   name="IC_AAD"></a>
+<a name="IC_AAD"></a> <!--    *AAD* -->
 
 IC: AAD -- ASCII Adjust AX before Division
 ==========================================
@@ -9070,7 +9070,7 @@ None
 
 
 * * *
-<a *AAM*   name="IC_AAM"></a>
+<a name="IC_AAM"></a> <!--    *AAM* -->
 
 IC: AAM -- ASCII Adjust AX after Multiply
 =========================================
@@ -9118,7 +9118,7 @@ None
 
 
 * * *
-<a *AAS*   name="IC_AAS"></a>
+<a name="IC_AAS"></a> <!--    *AAS* -->
 
 IC: AAS -- ASCII Adjust AL after Subtraction
 ============================================
@@ -9175,7 +9175,7 @@ None
 
 
 * * *
-<a *ADC*   name="IC_ADC"></a>
+<a name="IC_ADC"></a> <!--    *ADC* -->
 
 IC: ADC -- Add with Carry
 =========================
@@ -9244,7 +9244,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *ADD*   name="IC_ADD"></a>
+<a name="IC_ADD"></a> <!--    *ADD* -->
 
 IC: ADD -- Add
 ==============
@@ -9308,7 +9308,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *AND*   name="IC_AND"></a>
+<a name="IC_AND"></a> <!--    *AND* -->
 
 IC: AND -- Logical AND
 ======================
@@ -9372,7 +9372,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *ARPL*  name="IC_ARPL"></a>
+<a name="IC_ARPL"></a> <!--   *ARPL* -->
 
 IC: ARPL -- Adjust RPL Field of Selector
 ========================================
@@ -9428,7 +9428,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *BOUND* name="IC_BOUND"></a>
+<a name="IC_BOUND"></a> <!--  *BOUND* -->
 
 IC: BOUND -- Check Array Index Against Bounds
 =============================================
@@ -9485,7 +9485,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *BSF*   name="IC_BSF"></a>
+<a name="IC_BSF"></a> <!--    *BSF* -->
 
 IC: BSF -- Bit Scan Forward
 ===========================
@@ -9550,7 +9550,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *BSR*   name="IC_BSR"></a>
+<a name="IC_BSR"></a> <!--    *BSR* -->
 
 IC: BSR -- Bit Scan Reverse
 ===========================
@@ -9610,7 +9610,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *BT*    name="IC_BT"></a>
+<a name="IC_BT"></a> <!--     *BT* -->
 
 IC: BT -- Bit Test
 ==================
@@ -9675,7 +9675,7 @@ for a 16-bit operand size. It may do so even when only a single byte needs to be
 
 
 * * *
-<a *BTC*   name="IC_BTC"></a>
+<a name="IC_BTC"></a> <!--    *BTC* -->
 
 IC: BTC -- Bit Test and Complement
 ==================================
@@ -9741,7 +9741,7 @@ for a 16-bit operand size. It may do so even when only a single byte needs to be
 
 
 * * *
-<a *BTR*   name="IC_BTR"></a>
+<a name="IC_BTR"></a> <!--    *BTR* -->
 
 IC: BTR -- Bit Test and Reset
 =============================
@@ -9807,7 +9807,7 @@ for a 16-bit operand size. It may do so even when only a single byte needs to be
 
 
 * * *
-<a *BTS*   name="IC_BTS"></a>
+<a name="IC_BTS"></a> <!--    *BTS* -->
 
 IC: BTS -- Bit Test and Set
 ===========================
@@ -9873,7 +9873,7 @@ for a 16-bit operand size. It may do this even when only a single byte needs to 
 
 
 * * *
-<a *CALL*  name="IC_CALL"></a>
+<a name="IC_CALL"></a> <!--   *CALL* -->
 
 IC: CALL -- Call Procedure
 ==========================
@@ -10199,7 +10199,7 @@ Any far call from a 32-bit code segment to 16-bit code segments should be made f
 
 
 * * *
-<a *CBW*   name="IC_CBW"></a>
+<a name="IC_CBW"></a> <!--    *CBW* -->
 
 IC: CBW/CWDE -- Convert Byte to Word/Convert Word to Doubleword
 ===============================================================
@@ -10251,7 +10251,7 @@ None
 
 
 * * *
-<a *CLC*   name="IC_CLC"></a>
+<a name="IC_CLC"></a> <!--    *CLC* -->
 
 IC: CLC -- Clear Carry Flag
 ===========================
@@ -10298,7 +10298,7 @@ None
 
 
 * * *
-<a *CLD*   name="IC_CLD"></a>
+<a name="IC_CLD"></a> <!--    *CLD* -->
 
 IC: CLD -- Clear Direction Flag
 ===============================
@@ -10347,7 +10347,7 @@ None
 
 
 * * *
-<a *CLI*   name="IC_CLI"></a>
+<a name="IC_CLI"></a> <!--    *CLI* -->
 
 IC: CLI -- Clear Interrupt Flag
 ===============================
@@ -10394,7 +10394,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *CLTS*  name="IC_CLTS"></a>
+<a name="IC_CLTS"></a> <!--   *CLTS* -->
 
 IC: CLTS -- Clear Task-Switched Flag in CR0
 ===========================================
@@ -10448,7 +10448,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a *CMC*   name="IC_CMC"></a>
+<a name="IC_CMC"></a> <!--    *CMC* -->
 
 IC: CMC -- Complement Carry Flag
 ================================
@@ -10495,7 +10495,7 @@ None
 
 
 * * *
-<a *CMP*   name="IC_CMP"></a>
+<a name="IC_CMP"></a> <!--    *CMP* -->
 
 IC: CMP -- Compare Two Operands
 ===============================
@@ -10567,7 +10567,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *CMPS*  name="IC_CMPS"></a>
+<a name="IC_CMPS"></a> <!--   *CMPS* -->
 
 IC: CMPS/CMPSB/CMPSW/CMPSD -- Compare String Operands
 =====================================================
@@ -10668,7 +10668,7 @@ Same exceptions as in Real Address Mode; #PF (fault-code) for a page fault
 
 
 * * *
-<a *CWD*   name="IC_CWD"></a>
+<a name="IC_CWD"></a> <!--    *CWD* -->
 
 IC: CWD/CDQ -- Convert Word to Doubleword/Convert Doubleword to Quadword
 ========================================================================
@@ -10721,7 +10721,7 @@ None
 
 
 * * *
-<a *DAA*   name="IC_DAA"></a>
+<a name="IC_DAA"></a> <!--    *DAA* -->
 
 IC: DAA -- Decimal Adjust AL after Addition
 ===========================================
@@ -10780,7 +10780,7 @@ None
 
 
 * * *
-<a *DAS*   name="IC_DAS"></a>
+<a name="IC_DAS"></a> <!--    *DAS* -->
 
 IC: DAS -- Decimal Adjust AL after Subtraction
 ==============================================
@@ -10839,7 +10839,7 @@ None
 
 
 * * *
-<a *DEC*   name="IC_DEC"></a>
+<a name="IC_DEC"></a> <!--    *DEC* -->
 
 IC: DEC -- Decrement by 1
 =========================
@@ -10890,7 +10890,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *DIV*   name="IC_DIV"></a>
+<a name="IC_DIV"></a> <!--    *DIV* -->
 
 IC: DIV -- Unsigned Divide
 ==========================
@@ -10959,7 +10959,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *ENTER* name="IC_ENTER"></a>
+<a name="IC_ENTER"></a> <!--  *ENTER* -->
 
 IC: ENTER -- Make Stack Frame for Procedure Parameters
 ======================================================
@@ -11039,7 +11039,7 @@ None
 
 
 * * *
-<a *HLT*   name="IC_HLT"></a>
+<a name="IC_HLT"></a> <!--    *HLT* -->
 
 IC: HLT -- Halt
 ===============
@@ -11086,7 +11086,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *IDIV*  name="IC_IDIV"></a>
+<a name="IC_IDIV"></a> <!--   *IDIV* -->
 
 IC: IDIV -- Signed Divide
 =========================
@@ -11157,7 +11157,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *IMUL*  name="IC_IMUL"></a>
+<a name="IC_IMUL"></a> <!--   *IMUL* -->
 
 IC: IMUL -- Signed Multiply
 ===========================
@@ -11262,7 +11262,7 @@ When using the accumulator forms (IMUL r/m8, IMUL r/m16, or IMUL r/m32), the res
 
 
 * * *
-<a *IN*    name="IC_IN"></a>
+<a name="IC_IN"></a> <!--     *IN* -->
 
 IC: IN -- Input from Port
 =========================
@@ -11329,7 +11329,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *INC*   name="IC_INC"></a>
+<a name="IC_INC"></a> <!--    *INC* -->
 
 IC: INC -- Increment by 1
 =========================
@@ -11380,7 +11380,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *INS*   name="IC_INS"></a>
+<a name="IC_INS"></a> <!--    *INS* -->
 
 IC: INS/INSB/INSW/INSD -- Input from Port to String
 ===================================================
@@ -11471,7 +11471,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *INT*   name="IC_INT"></a>
+<a name="IC_INT"></a> <!--    *INT* -->
 
 IC: INT/INTO -- Call to Interrupt Procedure
 ===========================================
@@ -11736,7 +11736,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *IRET*  name="IC_IRET"></a>
+<a name="IC_IRET"></a> <!--   *IRET* -->
 
 IC: IRET/IRETD -- Interrupt Return
 ==================================
@@ -12172,7 +12172,7 @@ None
 
 
 * * *
-<a *JMP*   name="IC_JMP"></a>
+<a name="IC_JMP"></a> <!--    *JMP* -->
 
 IC: JMP -- Jump
 ===============
@@ -12425,7 +12425,7 @@ Same exceptions as under Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *LAHF*  name="IC_LAHF"></a>
+<a name="IC_LAHF"></a> <!--   *LAHF* -->
 
 IC: LAHF -- Load Flags into AH Register
 =======================================
@@ -12472,7 +12472,7 @@ None
 
 
 * * *
-<a *LAR*   name="IC_LAR"></a>
+<a name="IC_LAR"></a> <!--    *LAR* -->
 
 IC: LAR -- Load Access Rights Byte
 ==================================
@@ -12538,7 +12538,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a *LEA*   name="IC_LEA"></a>
+<a name="IC_LEA"></a> <!--    *LEA* -->
 
 IC: LEA -- Load Effective Address
 =================================
@@ -12622,7 +12622,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a *LEAVE* name="IC_LEAVE"></a>
+<a name="IC_LEAVE"></a> <!--  *LEAVE* -->
 
 IC: LEAVE -- High Level Procedure Exit
 ======================================
@@ -12681,8 +12681,8 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a *LGDT*  name="IC_LGDT"></a>
-<a *LIDT*  name="IC_LIDT"></a>
+<a name="IC_LGDT"></a> <!--   *LGDT* -->
+<a name="IC_LIDT"></a> <!--   *LIDT* -->
 
 IC: LGDT/LIDT -- Load Global/Interrupt Descriptor Table Register
 ================================================================
@@ -12749,7 +12749,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *LGS*   name="IC_LGS"></a>
+<a name="IC_LGS"></a> <!--    *LGS* -->
 
 IC: LGS/LSS/LDS/LES/LFS -- Load Full Pointer
 ============================================
@@ -12852,7 +12852,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *LLDT*  name="IC_LLDT"></a>
+<a name="IC_LLDT"></a> <!--   *LLDT* -->
 
 IC: LLDT -- Load Local Descriptor Table Register
 ================================================
@@ -12907,7 +12907,7 @@ The operand-size attribute has no effect on this instruction._
 
 
 * * *
-<a *LMSW*  name="IC_LMSW"></a>
+<a name="IC_LMSW"></a> <!--   *LMSW* -->
 
 IC: LMSW -- Load Machine Status Word
 ====================================
@@ -12961,7 +12961,7 @@ The operand-size attribute has no effect on this instruction. This instruction i
 
 
 * * *
-<a *LOCK*  name="IC_LOCK"></a>
+<a name="IC_LOCK"></a> <!--   *LOCK* -->
 
 IC: LOCK -- Assert LOCK# Signal Prefix
 ======================================
@@ -13021,7 +13021,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *LODS*  name="IC_LODS"></a>
+<a name="IC_LODS"></a> <!--   *LODS* -->
 
 IC: LODS/LODSB/LODSW/LODSD -- Load String Operand
 =================================================
@@ -13167,7 +13167,7 @@ None
 
 
 * * *
-<a *LSL*   name="IC_LSL"></a>
+<a name="IC_LSL"></a> <!--    *LSL* -->
 
 IC: LSL -- Load Segment Limit
 =============================
@@ -13239,7 +13239,7 @@ Same exceptions as in Real Address Mode
 
 
 * * *
-<a *LTR*   name="IC_LTR"></a>
+<a name="IC_LTR"></a> <!--    *LTR* -->
 
 IC: LTR -- Load Task Register
 =============================
@@ -13286,7 +13286,7 @@ The operand-size attribute has no effect on this instruction.
 
 
 * * *
-<a *MOV*   name="IC_MOV"></a>
+<a name="IC_MOV"></a> <!--    *MOV* -->
 
 IC: MOV -- Move Data
 ====================
@@ -13398,7 +13398,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *MOV*   name="IC_MOV"></a>
+<a name="IC_MOV"></a> <!--    *MOV* -->
 
 IC: MOV -- Move to/from Special Registers
 =========================================
@@ -13473,7 +13473,7 @@ The reg field within the ModRM byte specifies which of the special registers in 
 
 
 * * *
-<a *MOVS*  name="IC_MOVS"></a>
+<a name="IC_MOVS"></a> <!--   *MOVS* -->
 
 IC: MOVS/MOVSB/MOVSW/MOVSD -- Move Data from String to String
 =============================================================
@@ -13554,7 +13554,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *MOVSX* name="IC_MOVSX"></a>
+<a name="IC_MOVSX"></a> <!--  *MOVSX* -->
 
 IC: MOVSX -- Move with Sign-Extend
 ==================================
@@ -13603,7 +13603,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *MOVZX* name="IC_MOVZX"></a>
+<a name="IC_MOVZX"></a> <!--  *MOVZX* -->
 
 IC: MOVZX -- Move with Zero-Extend
 ==================================
@@ -13652,7 +13652,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *MUL*   name="IC_MUL"></a>
+<a name="IC_MUL"></a> <!--    *MUL* -->
 
 IC: MUL -- Unsigned Multiplication of AL or AX
 ==============================================
@@ -13727,7 +13727,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *NEG*   name="IC_NEG"></a>
+<a name="IC_NEG"></a> <!--    *NEG* -->
 
 IC: NEG -- Two's Complement Negation
 ====================================
@@ -13779,7 +13779,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *NOP*   name="IC_NOP"></a>
+<a name="IC_NOP"></a> <!--    *NOP* -->
 
 IC: NOP -- No Operation
 =======================
@@ -13821,7 +13821,7 @@ None
 
 
 * * *
-<a *NOT*   name="IC_NOT"></a>
+<a name="IC_NOT"></a> <!--    *NOT* -->
 
 IC: NOT -- One's Complement Negation
 ====================================
@@ -13870,7 +13870,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *OR*    name="IC_OR"></a>
+<a name="IC_OR"></a> <!--     *OR* -->
 
 IC: OR -- Logical Inclusive OR
 ==============================
@@ -13934,7 +13934,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *OUT*   name="IC_OUT"></a>
+<a name="IC_OUT"></a> <!--    *OUT* -->
 
 IC: OUT -- Output to Port
 =========================
@@ -14003,7 +14003,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *OUTS*  name="IC_OUTS"></a>
+<a name="IC_OUTS"></a> <!--   *OUTS* -->
 
 IC: OUTS/OUTSB/OUTSW/OUTSD -- Output String to Port
 ===================================================
@@ -14099,7 +14099,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *POP*   name="IC_POP"></a>
+<a name="IC_POP"></a> <!--    *POP* -->
 
 IC: POP -- Pop a Word from the Stack
 ====================================
@@ -14210,7 +14210,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *POPA*  name="IC_POPA"></a>
+<a name="IC_POPA"></a> <!--   *POPA* -->
 
 IC: POPA/POPAD -- Pop all General Registers
 ===========================================
@@ -14279,7 +14279,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *POPF*  name="IC_POPF"></a>
+<a name="IC_POPF"></a> <!--   *POPF* -->
 
 IC: POPF/POPFD -- Pop Stack into FLAGS or EFLAGS Register
 =========================================================
@@ -14331,7 +14331,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *PUSH*  name="IC_PUSH"></a>
+<a name="IC_PUSH"></a> <!--   *PUSH* -->
 
 IC: PUSH -- Push Operand onto the Stack
 =======================================
@@ -14410,7 +14410,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *PUSHA* name="IC_PUSHA"></a>
+<a name="IC_PUSHA"></a> <!--  *PUSHA* -->
 
 IC: PUSHA/PUSHAD -- Push all General Registers
 ==============================================
@@ -14481,7 +14481,7 @@ Same exceptions as in real-address mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *PUSHF* name="IC_PUSHF"></a>
+<a name="IC_PUSHF"></a> <!--  *PUSHF* -->
 
 IC: PUSHF/PUSHFD -- Push Flags Register onto the Stack
 ======================================================
@@ -14532,7 +14532,7 @@ Virtual 8086 Mode Exceptions
 
 
 * * *
-<a *RCL*   name="IC_RCL"></a>
+<a name="IC_RCL"></a> <!--    *RCL* -->
 
 IC: RCL/RCR/ROL/ROR -- Rotate
 =============================
@@ -14681,7 +14681,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *REP*   name="IC_REP"></a>
+<a name="IC_REP"></a> <!--    *REP* -->
 
 IC: REP/REPE/REPZ/REPNE/REPNZ -- Repeat Following String Operation
 ==================================================================
@@ -14839,7 +14839,7 @@ Not all input/output ports can handle the rate at which the REP [INS](#IC_INS) a
 
 
 * * *
-<a *RET*   name="IC_RET"></a>
+<a name="IC_RET"></a> <!--    *RET* -->
 
 IC: RET -- Return from Procedure
 ================================
@@ -15039,7 +15039,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *SAHF*  name="IC_SAHF"></a>
+<a name="IC_SAHF"></a> <!--   *SAHF* -->
 
 IC: SAHF -- Store AH into Flags
 ===============================
@@ -15086,7 +15086,7 @@ None
 
 
 * * *
-<a *SAL*   name="IC_SAL"></a>
+<a name="IC_SAL"></a> <!--    *SAL* -->
 
 IC: SAL/SAR/SHL/SHR -- Shift Instructions
 =========================================
@@ -15236,7 +15236,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *SBB*   name="IC_SBB"></a>
+<a name="IC_SBB"></a> <!--    *SBB* -->
 
 IC: SBB -- Integer Subtraction with Borrow
 ==========================================
@@ -15314,7 +15314,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *SCAS*  name="IC_SCAS"></a>
+<a name="IC_SCAS"></a> <!--   *SCAS* -->
 
 IC: SCAS/SCASB/SCASW/SCASD -- Compare String Data
 =================================================
@@ -15471,7 +15471,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *SGDT*  name="IC_SGDT"></a>
+<a name="IC_SGDT"></a> <!--   *SGDT* -->
 
 IC: SGDT/SIDT -- Store Global/Interrupt Descriptor Table Register
 =================================================================
@@ -15526,7 +15526,7 @@ The 16-bit forms of the SGDT/SIDT instructions are compatible with the 80286, if
 
 
 * * *
-<a *SHLD*  name="IC_SHLD"></a>
+<a name="IC_SHLD"></a> <!--   *SHLD* -->
 
 IC: SHLD -- Double Precision Shift Left
 =======================================
@@ -15608,7 +15608,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *SHRD*  name="IC_SHRD"></a>
+<a name="IC_SHRD"></a> <!--   *SHRD* -->
 
 IC: SHRD -- Double Precision Shift Right
 ========================================
@@ -15690,7 +15690,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *SLDT*  name="IC_SLDT"></a>
+<a name="IC_SLDT"></a> <!--   *SLDT* -->
 
 IC: SLDT -- Store Local Descriptor Table Register
 =================================================
@@ -15744,7 +15744,7 @@ The operand-size attribute has no effect on the operation of the instruction.
 
 
 * * *
-<a *SMSW*  name="IC_SMSW"></a>
+<a name="IC_SMSW"></a> <!--   *SMSW* -->
 
 IC: SMSW -- Store Machine Status Word
 =====================================
@@ -15797,7 +15797,7 @@ This instruction is provided for compatibility with the 80286; 80386 programs sh
 
 
 * * *
-<a *STC*   name="IC_STC"></a>
+<a name="IC_STC"></a> <!--    *STC* -->
 
 IC: STC -- Set Carry Flag
 =========================
@@ -15844,7 +15844,7 @@ None
 
 
 * * *
-<a *STD*   name="IC_STD"></a>
+<a name="IC_STD"></a> <!--    *STD* -->
 
 IC: STD -- Set Direction Flag
 =============================
@@ -15892,7 +15892,7 @@ None
 
 
 * * *
-<a *STI*   name="IC_STI"></a>
+<a name="IC_STI"></a> <!--    *STI* -->
 
 IC: STI -- Set Interrupt Flag
 =============================
@@ -15940,7 +15940,7 @@ None
 
 
 * * *
-<a *STOS*  name="IC_STOS"></a>
+<a name="IC_STOS"></a> <!--   *STOS* -->
 
 IC: STOS/STOSB/STOSW/STOSD -- Store String Data
 ===============================================
@@ -16027,7 +16027,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *STR*   name="IC_STR"></a>
+<a name="IC_STR"></a> <!--    *STR* -->
 
 IC: STR -- Store Task Register
 ==============================
@@ -16081,7 +16081,7 @@ The operand-size attribute has no effect on this instruction.
 
 
 * * *
-<a *SUB*   name="IC_SUB"></a>
+<a name="IC_SUB"></a> <!--    *SUB* -->
 
 IC: SUB -- Integer Subtraction
 ==============================
@@ -16151,7 +16151,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *TEST*  name="IC_TEST"></a>
+<a name="IC_TEST"></a> <!--   *TEST* -->
 
 IC: TEST -- Logical Compare
 ===========================
@@ -16271,7 +16271,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *WAIT*  name="IC_WAIT"></a>
+<a name="IC_WAIT"></a> <!--   *WAIT* -->
 
 IC: WAIT -- Wait until BUSY# Pin is Inactive (HIGH)
 ===================================================
@@ -16311,7 +16311,7 @@ Same exceptions as in Protected Mode
 
 
 * * *
-<a *XCHG*  name="IC_XCHG"></a>
+<a name="IC_XCHG"></a> <!--   *XCHG* -->
 
 IC: XCHG -- Exchange Register/Memory with Register
 ==================================================
@@ -16369,7 +16369,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *XLAT*  name="IC_XLAT"></a>
+<a name="IC_XLAT"></a> <!--   *XLAT* -->
 
 IC: XLAT/XLATB -- Table Look-up Translation
 ===========================================
@@ -16424,7 +16424,7 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 
 * * *
-<a *XOR*   name="IC_XOR"></a>
+<a name="IC_XOR"></a> <!--    *XOR* -->
 
 IC: XOR -- Logical Exclusive OR
 ===============================
