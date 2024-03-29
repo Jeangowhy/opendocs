@@ -753,6 +753,8 @@ by the alert information in a standard blockquote. Five types of alerts are avai
     > [!CAUTION]
     > Advises about risks or negative outcomes of certain actions.
 
+Gihub 会将标签转换为 SVG 矢量图像显示。
+
 
 ## //Organizing information with tables
 

@@ -1412,9 +1412,9 @@ In many register and memory layout descriptions, certain bits are marked as unde
 
 * * *
 
-### Note
-
-_Depending upon the values of undefined register bits will make software dependent upon the unspecified manner in which the 80386 handles these bits. Depending upon undefined values risks making software incompatible with future processors that define usages for these bits. AVOID ANY SOFTWARE DEPENDENCE UPON THE STATE OF UNDEFINED 80386 REGISTER BITS._
+> [!NOTE]
+> 
+> _Depending upon the values of undefined register bits will make software dependent upon the unspecified manner in which the 80386 handles these bits. Depending upon undefined values risks making software incompatible with future processors that define usages for these bits. AVOID ANY SOFTWARE DEPENDENCE UPON THE STATE OF UNDEFINED 80386 REGISTER BITS._
 
 * * *
 
@@ -6516,9 +6516,9 @@ The 80386 provides a mechanism for testing the Translation Lookaside Buffer (TLB
 
 * * *
 
-### Note
-
-_This TLB testing mechanism is unique to the 80386 and may not be continued in the same way in future processors. Sortware that uses this mechanism may be incompatible with future processors._
+> [!NOTE]
+> 
+> _This TLB testing mechanism is unique to the 80386 and may not be continued in the same way in future processors. Sortware that uses this mechanism may be incompatible with future processors._
 
 * * *
 
@@ -8422,9 +8422,9 @@ EDI/DI/BH            111    C7    CF    D7    DF    E7    EF    F7    FF
 ```
 
 
-### Notes
-
-_disp8 denotes an 8-bit displacement following the ModR/M byte, to be sign-extended and added to the index. disp16 denotes a 16-bit displacement following the ModR/M byte, to be added to the index. Default segment register is SS for the effective addresses containing a BP index, DS for other effective addresses._
+> [!NOTE]
+> 
+> _disp8 denotes an 8-bit displacement following the ModR/M byte, to be sign-extended and added to the index. disp16 denotes a 16-bit displacement following the ModR/M byte, to be added to the index. Default segment register is SS for the effective addresses containing a BP index, DS for other effective addresses._
 
 <a name="tb17_3"></a> <!-- *tb17_3*  -->
 
@@ -8479,9 +8479,9 @@ EDI/DI/BH            111    C7    CF    D7    DF    E7    EF    F7    FF
 ```
 
 
-### Notes
-
-_[--] [--] means a SIB follows the ModR/M byte. disp8 denotes an 8-bit displacement following the SIB byte, to be sign-extended and added to the index. disp32 denotes a 32-bit displacement following the ModR/M byte, to be added to the index._
+> [!NOTE]
+> 
+> _[--] [--] means a SIB follows the ModR/M byte. disp8 denotes an 8-bit displacement following the SIB byte, to be sign-extended and added to the index. disp32 denotes a 32-bit displacement following the ModR/M byte, to be added to the index._
 
 <a name="tb17_4"></a> <!-- *tb17_4*  -->
 
@@ -8533,15 +8533,15 @@ none               11  100     E0    E1    E2    E3    E4    E5    E6    E7
 ────────────────────────────────────────────────────────────────────────────
 ```
 
-### Notes
-
-[ * ] _means a disp32 with no base if MOD is 00, [ESP] otherwise. This provides the following addressing modes:_
-
-```sh
-    disp32[index]        (MOD=00)
-    disp8[EBP][index]    (MOD=01)
-    disp32[EBP][index]   (MOD=10)
-```
+> [!NOTE]
+> 
+> [ * ] _means a disp32 with no base if MOD is 00, [ESP] otherwise. This provides the following addressing modes:_
+> 
+> ```sh
+>     disp32[index]        (MOD=00)
+>     disp8[EBP][index]    (MOD=01)
+>     disp32[EBP][index]   (MOD=10)
+> ```
 
 //17.2.2 How to Read the Instruction Set Pages
 ----------------------------------------------
@@ -9503,7 +9503,7 @@ Opcode    Instruction          Clocks    Description
 0F  BC    BSF r32,r/m32        10+3n     Bit scan forward on r/m dword
 ```
 
-### Notes
+> [!NOTE]
 
 is the number of leading zero bits.
 
@@ -9661,7 +9661,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9726,7 +9726,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9791,7 +9791,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 (or 15) are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9856,7 +9856,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
 
@@ -9910,7 +9910,7 @@ FF  /3    CALL m16:32      5 + ts         Call to task
 
 注：此表在 CHM 版本混排到了以上指令码表，PDF 版本并无此混排。
 
-### Note
+> [!NOTE]
 
 Values of ts are given by the following table:
 
@@ -10164,7 +10164,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 Any far call from a 32-bit code segment to 16-bit code segments should be made from the first 64K bytes of the 32-bit code segment, since the operand-size attribute of the instruction is set to 16, thus allowing only a 16-bit return address offset to be saved.
 
@@ -10874,9 +10874,8 @@ ELSE
    remainder := dividend MOD (r/m);
 FI;
 
-_
 
-### Note
+> [!NOTE]
 
 Divisions are unsigned. The divisor is given by the r/m operand. The dividend, quotient, and remainder use implicit registers. Refer to the table under "Description"_
 ```
@@ -11068,9 +11067,8 @@ ELSE
    remainder := dividend MOD (r/m);
 FI;
 
-_
 
-### Notes
+> [!NOTE]
 
 Divisions are signed. The divisor is given by the r/m operand. The dividend, quotient, and remainder use implicit registers. Refer to the table under "Description"_
 ```
@@ -11139,7 +11137,7 @@ F7  /5      IMUL r/m32             9-38/12-41  EDX:EAX        := EAX * r/m dword
 ```
 
 
-### Notes
+> [!NOTE]
 
 The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
 
@@ -11195,7 +11193,7 @@ Virtual 8086 Mode Exceptions
 
 Same exeptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 When using the accumulator forms (IMUL r/m8, IMUL r/m16, or IMUL r/m32), the result of the multiplication is available even if the overflow flag is set because the result is two times the size of the multiplicand and multiplier. This is large enough to handle any possible result.
 
@@ -11219,7 +11217,7 @@ ED        IN AX,DX      13,pm=7*/27**     Input word from port DX into AX
 ED        IN EAX,DX     13,pm=7*/27**     Input dword from port DX into EAX
 ```
 
-### Notes
+> [!NOTE]
 
      *  If CPL <= IOPL
     **  If CPL > IOPL or if in virtual 8086 mode
@@ -11333,7 +11331,7 @@ Opcode  Instruction    Clocks         Description
 6D      INSD           15,pm=9*/29**  Input dword from port DX into ES:(E)DI
 ```
 
-### Notes
+> [!NOTE]
 
      *If CPL <= IOPL
     **If CPL > IOPL or if in virtual 8086 mode
@@ -11434,7 +11432,7 @@ CE        INTO         pm=119          Interrupt 4--from V86 mode to PL 0
 CE        INTO         ts              Interrupt 4--Protected Mode, via task gate
 ```
 
-### Note
+> [!NOTE]
 
 Approximate values of ts are given by the following table:
 
@@ -11458,7 +11456,7 @@ Operation
 ---------
 
 
-### Note
+> [!NOTE]
 
 _The following operational description applies not only to the above instructions but also to external interrupts and exceptions._
 
@@ -12028,7 +12026,7 @@ E3  cb         JECXZ rel8        9+m,5    Jump short if ECX register is 0
 ```
 
 
-### Notes
+> [!NOTE]
 
 _The first clock count is for the true condition (branch taken); the second clock count is for the false condition (branch not taken). rel16/32 indicates that these instructions map to two; one with a 16-bit relative displacement, the other with a 32-bit relative displacement, depending on the operand-size attribute of the instruction._
 
@@ -12131,7 +12129,7 @@ FF  /5    JMP m16:32      5 + ts          Jump via task state segment
 FF  /5    JMP m16:32      5 + ts          Jump via task gate
 ```
 
-### Note
+> [!NOTE]
 
 Values of ts are given by the following table:
 
@@ -12653,9 +12651,8 @@ Protected Mode Exceptions
 Real Address Mode Exceptions
 ----------------------------
 
-Interrupt 13 if any part of the operand would lie outside of the effective address space from 0 to 0FFFFH; Interrupt 6 if the source operand is a register_
 
-### Note
+> [!NOTE]
 
 These instructions are valid in Real Address Mode to allow power-up initialization for Protected Mode_
 
@@ -12818,9 +12815,8 @@ Interrupt 6; LLDT is not recognized in Real Address Mode
 Virtual 8086 Mode Exceptions
 ----------------------------
 
-Same exceptions as in Real Address Mode (because the instruction is not recognized, it will not execute or perform a memory reference)_
 
-### Note
+> [!NOTE]
 
 The operand-size attribute has no effect on this instruction._
 
@@ -12873,7 +12869,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 The operand-size attribute has no effect on this instruction. This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) CR0, ... instead.
 
@@ -13201,7 +13197,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode
 
-### Notes
+> [!NOTE]
 
 The operand-size attribute has no effect on this instruction.
 
@@ -13240,7 +13236,7 @@ C7       MOV r/m32,imm32   2/2           Move immediate dword to r/m dword
 ```
 
 
-### Notes
+> [!NOTE]
 
 _moffs8, moffs16, and moffs32 all consist of a simple offset relative to the segment base. The 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits._
 
@@ -13386,7 +13382,7 @@ Virtual 8086 Mode Exceptions
 
 `#GP(0)` if instruction execution is attempted
 
-### Notes
+> [!NOTE]
 
 The instructions must be executed at privilege level 0 or in real-address mode; otherwise, a protection exception will be raised.
 
@@ -13589,7 +13585,7 @@ F7  /4  MUL EAX,r/m32   9-38/12-41   Unsigned multiply (EDX:EAX := EAX * r/m dwo
 ```
 
 
-### Notes
+> [!NOTE]
 
 The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative multiplier values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
 
@@ -13878,7 +13874,7 @@ EF        OUT DX,EAX      11,pm=5*/25**   Output dword AL to port number
                                           in DX
 ```
 
-### Notes
+> [!NOTE]
 
      *If CPL <= IOPL
     **If CPL > IOPL or if in virtual 8086 mode_
@@ -13941,7 +13937,7 @@ Opcode   Instruction     Clocks          Description
 6F       OUTSD           14,pm=8*/28**   Output dword DS:[(E)SI] to port in DX
 ```
 
-### Notes
+> [!NOTE]
 
      *If CPL <= IOPL
     **If CPL > IOPL or if in virtual 8086 mode_
@@ -14719,7 +14715,7 @@ Virtual 8086 Mode Exceptions
 
 `#UD` if a repeat prefix is used before an instruction that is not in the list above; further exceptions can be generated when the string operation is executed; refer to the descriptions of the string instructions themselves
 
-### Notes
+> [!NOTE]
 
 Not all input/output ports can handle the rate at which the REP [INS](#IC_INS) and REP [OUTS](#IC_OUTS) instructions execute.
 
@@ -15399,8 +15395,8 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-Compatability Note
-------------------
+<!-- Compatability Note -->
+> [!NOTE]
 
 The 16-bit forms of the SGDT/SIDT instructions are compatible with the 80286, if the value in the upper eight bits is not referenced. The 80286 stores 1's in these upper bits, whereas the 80386 stores 0's if the operand-size attribute is 16 bits. These bits were specified as undefined by the SGDT/SIDT instructions in the iAPX 286 Programmer's Reference Manual.
 
@@ -15617,7 +15613,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 The operand-size attribute has no effect on the operation of the instruction.
 
@@ -15669,7 +15665,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
-### Notes
+> [!NOTE]
 
 This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) ..., CR0.
 
@@ -15952,7 +15948,7 @@ Virtual 8086 Mode Exceptions
 
 Same exceptions as in Real Address Mode
 
-### Notes
+> [!NOTE]
 
 The operand-size attribute has no effect on this instruction.
 
@@ -16885,11 +16881,10 @@ XOR                    0    M    M    --   M    0
 /Appendix D -- Condition Codes
 ==============================
 
-_
 
-### Note
+> [!NOTE]
 
-The terms "above" and "below" refer to the relation between two unsigned values (neither SF nor OF is tested). The terms "greater" and "less" refer to the relation between two signed values (SF and OF are tested)._
+The terms "above" and "below" refer to the relation between two unsigned values (neither SF nor OF is tested). The terms "greater" and "less" refer to the relation between two signed values (SF and OF are tested).
 
 ### Definition of Conditions
 
