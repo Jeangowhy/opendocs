@@ -9663,11 +9663,11 @@ The index of the selected bit can be given by the immediate constant in the inst
 
 When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
 
-   Effective Address + (4 * (BitOffset DIV 32))
+    Effective Address + (4 * (BitOffset DIV 32))
 
 for a 32-bit operand size, or two bytes starting from the memory address given by:
 
-   Effective Address + (2 * (BitOffset DIV 16))
+    Effective Address + (2 * (BitOffset DIV 16))
 
 for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
@@ -9729,11 +9729,11 @@ The index of the selected bit can be given by the immediate constant in the inst
 
 When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
 
-   Effective Address + (4 * (BitOffset DIV 32))
+    Effective Address + (4 * (BitOffset DIV 32))
 
 for a 32-bit operand size, or two bytes starting from the memory address given by:
 
-   Effective Address + (2 * (BitOffset DIV 16))
+    Effective Address + (2 * (BitOffset DIV 16))
 
 for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
@@ -9795,11 +9795,11 @@ The index of the selected bit can be given by the immediate constant in the inst
 
 When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
 
-   Effective Address + 4 * (BitOffset DIV 32)
+    Effective Address + 4 * (BitOffset DIV 32)
 
 for a 32-bit operand size, or two bytes starting from the memory address given by:
 
-   Effective Address + 2 * (BitOffset DIV 16)
+    Effective Address + 2 * (BitOffset DIV 16)
 
 for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
@@ -9861,11 +9861,11 @@ The index of the selected bit can be given by the immediate constant in the inst
 
 When accessing a bit in memory, the processor may access four bytes starting from the memory address given by:
 
-   Effective Address + (4 * (BitOffset DIV 32))
+    Effective Address + (4 * (BitOffset DIV 32))
 
 for a 32-bit operand size, or two bytes starting from the memory address given by:
 
-   Effective Address + (2 * (BitOffset DIV 16))
+    Effective Address + (2 * (BitOffset DIV 16))
 
 for a 16-bit operand size. It may do this even when only a single byte needs to be accessed in order to get at the given bit. Thus the programmer must be careful to avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
@@ -9879,68 +9879,41 @@ IC: CALL -- Call Procedure
 ==========================
 
 ```sh
-Opcode    Instruction     Clocks
-  Values of ts are given by the following table:
+Opcode    Instruction     Clocks          Description
 
-                             New Task
-              386 TSS         386 TSS         286 TSS
-  Old         VM = 0          VM = 1
-  Task                     Via Task Gate?
-
-              N     Y         N     Y         N     Y
-
-386          300   309       217   226       273   282
-TSS VM=0
-
-286          298   307       217   226       273   282
-
-
-TSS       Description
-
-E8  cw    CALL rel16       7+m            Call near, displacement relative
-                                          to next instruction
-FF  /2    CALL r/m16       7+m/10+m       Call near, register
-                                          indirect/memory indirect
-9A  cd    CALL ptr16:16    17+m,pm=34+m   Call intersegment, to full
-                                          pointer given
+E8  cw    CALL rel16       7+m            Call near, displacement relative to next instruction
+FF  /2    CALL r/m16       7+m/10+m       Call near, register indirect/memory indirect
+9A  cd    CALL ptr16:16    17+m,pm=34+m   Call intersegment, to full pointer given
 9A  cd    CALL ptr16:16    pm=52+m        Call gate, same privilege
-9A  cd    CALL ptr16:16    pm=86+m        Call gate, more privilege, no
-                                          parameters
-9A  cd    CALL ptr16:16    pm=94+4x+m     Call gate, more privilege, x
-                                          parameters
+9A  cd    CALL ptr16:16    pm=86+m        Call gate, more privilege, no parameters
+9A  cd    CALL ptr16:16    pm=94+4x+m     Call gate, more privilege,  x parameters
 9A  cd    CALL ptr16:16    ts             Call to task
-FF  /3    CALL m16:16      22+m,pm=38+m   Call intersegment, address at
-                                          r/m dword
+FF  /3    CALL m16:16      22+m,pm=38+m   Call intersegment, address at r/m dword
 FF  /3    CALL m16:16      pm=56+m        Call gate, same privilege
-FF  /3    CALL m16:16      pm=90+m        Call gate, more privilege, no
-                                          parameters
-FF  /3    CALL m16:16      pm=98+4x+m     Call gate, more privilege, x
-                                          parameters
+FF  /3    CALL m16:16      pm=90+m        Call gate, more privilege, no parameters
+FF  /3    CALL m16:16      pm=98+4x+m     Call gate, more privilege,  x parameters
 FF  /3    CALL m16:16      5 + ts         Call to task
-E8  cd    CALL rel32       7+m            Call near, displacement relative
-                                          to next instruction
+E8  cd    CALL rel32       7+m            Call near, displacement relative to next instruction
 FF  /2    CALL r/m32       7+m/10+m       Call near, indirect
-9A  cp    CALL ptr16:32    17+m,pm=34+m   Call intersegment, to full
-                                          pointer given
+9A  cp    CALL ptr16:32    17+m,pm=34+m   Call intersegment, to full pointer given
 9A  cp    CALL ptr16:32    pm=52+m        Call gate, same privilege
-9A  cp    CALL ptr16:32    pm=86+m        Call gate, more privilege, no
-                                          parameters
-9A  cp    CALL ptr32:32    pm=94+4x+m     Call gate, more privilege, x
-                                          parameters
+9A  cp    CALL ptr16:32    pm=86+m        Call gate, more privilege, no parameters
+9A  cp    CALL ptr32:32    pm=94+4x+m     Call gate, more privilege,  x parameters
 9A  cp    CALL ptr16:32    ts             Call to task
-FF  /3    CALL m16:32      22+m,pm=38+m   Call intersegment, address at
-                                          r/m dword
+FF  /3    CALL m16:32      22+m,pm=38+m   Call intersegment, address at r/m dword
 FF  /3    CALL m16:32      pm=56+m        Call gate, same privilege
-FF  /3    CALL m16:32      pm=90+m        Call gate, more privilege, no
-                                          parameters
-FF  /3    CALL m16:32      pm=98+4x+m     Call gate, more privilege, x
-                                          parameters
+FF  /3    CALL m16:32      pm=90+m        Call gate, more privilege, no parameters
+FF  /3    CALL m16:32      pm=98+4x+m     Call gate, more privilege,  x parameters
 FF  /3    CALL m16:32      5 + ts         Call to task
+```
 
-_### Note
+注：此表在 CHM 版本混排到了以上指令码表，PDF 版本并无此混排。
+
+### Note
 
 Values of ts are given by the following table:
 
+```sh
                              New Task
               386 TSS         386 TSS         286 TSS
   Old         VM = 0          VM = 1
@@ -9952,7 +9925,7 @@ Values of ts are given by the following table:
 TSS VM=0
 
 286          298   307       217   226       273   282
-TSS_
+TSS
 ```
 
 Operation
@@ -10506,28 +10479,17 @@ Opcode          Instruction        Clocks   Description
 3C  ib          CMP AL,imm8        2        Compare immediate byte to AL
 3D  iw          CMP AX,imm16       2        Compare immediate word to AX
 3D  id          CMP EAX,imm32      2        Compare immediate dword to EAX
-80  /7 ib       CMP r/m8,imm8      2/5      Compare immediate byte to r/m
-                                            byte
-81  /7 iw       CMP r/m16,imm16    2/5      Compare immediate word to r/m
-                                            word
-81  /7 id       CMP r/m32,imm32    2/5      Compare immediate dword to r/m
-                                            dword
-83  /7 ib       CMP r/m16,imm8     2/5      Compare sign extended immediate
-                                            byte to r/m word
-83  /7 ib       CMP r/m32,imm8     2/5      Compare sign extended immediate
-                                            byte to r/m dword
-38  /r          CMP r/m8,r8        2/5      Compare byte register to r/m
-                                            byte
-39  /r          CMP r/m16,r16      2/5      Compare word register to r/m
-                                            word
-39  /r          CMP r/m32,r32      2/5      Compare dword register to r/m
-                                            dword
-3A  /r          CMP r8,r/m8        2/6      Compare r/m byte to byte
-                                            register
-3B  /r          CMP r16,r/m16      2/6      Compare r/m word to word
-                                            register
-3B  /r          CMP r32,r/m32      2/6      Compare r/m dword to dword
-                                            register
+80  /7 ib       CMP r/m8,imm8      2/5      Compare immediate byte to r/m byte
+81  /7 iw       CMP r/m16,imm16    2/5      Compare immediate word to r/m word
+81  /7 id       CMP r/m32,imm32    2/5      Compare immediate dword to r/m dword
+83  /7 ib       CMP r/m16,imm8     2/5      Compare sign extended immediate byte to r/m word
+83  /7 ib       CMP r/m32,imm8     2/5      Compare sign extended immediate byte to r/m dword
+38  /r          CMP r/m8,r8        2/5      Compare byte register to r/m byte
+39  /r          CMP r/m16,r16      2/5      Compare word register to r/m word
+39  /r          CMP r/m32,r32      2/5      Compare dword register to r/m dword
+3A  /r          CMP r8,r/m8        2/6      Compare r/m byte to byte register
+3B  /r          CMP r16,r/m16      2/6      Compare r/m word to word register
+3B  /r          CMP r32,r/m32      2/6      Compare r/m dword to dword register
 ```
 
 Operation
@@ -10575,21 +10537,15 @@ IC: CMPS/CMPSB/CMPSW/CMPSD -- Compare String Operands
 ```sh
 Opcode    Instruction        Clocks   Description
 
-A6        CMPS m8,m8         10       Compare bytes ES:[(E)DI] (second
-                                      operand) with   [(E)SI] (first 
-                                      operand)
-A7        CMPS m16,m16       10       Compare words ES:[(E)DI] (second
-                                      operand) with   [(E)SI] (first 
-                                      operand)
-A7        CMPS m32,m32       10       Compare dwords ES:[(E)DI]
-                                      (second operand) with [(E)SI] 
-                                      (first operand)
-A6        CMPSB              10       Compare bytes ES:[(E)DI] with
-                                      DS:[SI]
-A7        CMPSW              10       Compare words ES:[(E)DI] with
-                                      DS:[SI]
-A7        CMPSD              10       Compare dwords ES:[(E)DI] with
-                                      DS:[SI]
+A6        CMPS m8,m8         10       Compare bytes ES:[(E)DI] (second operand) 
+                                                with   [(E)SI] (first  operand)
+A7        CMPS m16,m16       10       Compare words ES:[(E)DI] (second operand) 
+                                                with   [(E)SI] (first  operand)
+A7        CMPS m32,m32       10       Compare dwords ES:[(E)DI] (second operand) 
+                                                with    [(E)SI]  (first operand)
+A6        CMPSB              10       Compare bytes ES:[(E)DI] with DS:[SI]
+A7        CMPSW              10       Compare words ES:[(E)DI] with DS:[SI]
+A7        CMPSD              10       Compare dwords ES:[(E)DI] with DS:[SI]
 ```
 
 Operation
@@ -10968,10 +10924,8 @@ IC: ENTER -- Make Stack Frame for Procedure Parameters
 Opcode      Instruction        Clocks     Description
 
 C8 iw 00    ENTER imm16,0      10         Make procedure stack frame
-C8 iw 01    ENTER imm16,1      12         Make stack frame for procedure
-                                          parameters
-C8 iw ib    ENTER imm16,imm8   15+4(n-1)  Make stack frame for
-                                          procedure parameters
+C8 iw 01    ENTER imm16,1      12         Make stack frame for procedure parameters
+C8 iw ib    ENTER imm16,imm8   15+4(n-1)  Make stack frame for procedure parameters
 ```
 
 Operation
@@ -11165,44 +11119,37 @@ IC: IMUL -- Signed Multiply
 ```sh
 Opcode      Instruction            Clocks      Description
 
-F6  /5      IMUL r/m8              9-14/12-17  AX= AL * r/m byte
-F7  /5      IMUL r/m16             9-22/12-25  DX:AX := AX * r/m word
-F7  /5      IMUL r/m32             9-38/12-41  EDX:EAX := EAX * r/m dword
-0F  AF /r   IMUL r16,r/m16         9-22/12-25  word register := word
-                                               register * r/m word
-0F  AF /r   IMUL r32,r/m32         9-38/12-41  dword register := dword
-                                               register * r/m dword
-6B  /r ib   IMUL r16,r/m16,imm8    9-14/12-17  word register := r/m16 *
-                                               sign-extended immediate byte
-6B  /r ib   IMUL r32,r/m32,imm8    9-14/12-17  dword register := r/m32 *
-                                               sign-extended immediate byte
-6B  /r ib   IMUL r16,imm8          9-14/12-17  word register := word
-                                               register * sign-extended
-                                               immediate byte
-6B  /r ib   IMUL r32,imm8          9-14/12-17  dword register := dword
-                                               register * sign-extended
-                                               immediate byte
-69  /r iw   IMUL r16,r/m16,imm16   9-22/12-25  word register := r/m16 *
-                                               immediate word
-69  /r id   IMUL r32,r/m32,imm32   9-38/12-41  dword register := r/m32 *
-                                               immediate dword
-69  /r iw   IMUL r16,imm16         9-22/12-25  word register := r/m16 *
-                                               immediate word
-69  /r id   IMUL r32,imm32         9-38/12-41  dword register := r/m32 *
-                                               immediate dword
+F6  /5      IMUL r/m8              9-14/12-17  AX             := AL * r/m byte
+F7  /5      IMUL r/m16             9-22/12-25  DX:AX          := AX * r/m word
+F7  /5      IMUL r/m32             9-38/12-41  EDX:EAX        := EAX * r/m dword
+0F  AF /r   IMUL r16,r/m16         9-22/12-25  word register  := word register * r/m word
+0F  AF /r   IMUL r32,r/m32         9-38/12-41  dword register := dword register * r/m dword
+6B  /r ib   IMUL r16,r/m16,imm8    9-14/12-17  word register  := r/m16 * 
+                                                   sign-extended immediate byte
+6B  /r ib   IMUL r32,r/m32,imm8    9-14/12-17  dword register := r/m32 * 
+                                                   sign-extended immediate byte
+6B  /r ib   IMUL r16,imm8          9-14/12-17  word register  := word register * 
+                                                   sign-extended immediate byte
+6B  /r ib   IMUL r32,imm8          9-14/12-17  dword register := dword register * 
+                                                   sign-extended immediate byte
+69  /r iw   IMUL r16,r/m16,imm16   9-22/12-25  word register  := r/m16 * immediate word
+69  /r id   IMUL r32,r/m32,imm32   9-38/12-41  dword register := r/m32 * immediate dword
+69  /r iw   IMUL r16,imm16         9-22/12-25  word register  := r/m16 * immediate word
+69  /r id   IMUL r32,imm32         9-38/12-41  dword register := r/m32 * immediate dword
+```
 
-_
 
 ### Notes
 
 The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
 
+```sh
   Actual clock = if m <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks  
   Actual clock = if m = 0 then 9 clocks   
   (where m is the multiplier)
+```
 
 Add three clocks if the multiplier is a memory operand._
-```
 
 Operation
 ---------
@@ -11215,7 +11162,6 @@ Description
 -----------
 
 IMUL performs signed multiplication. Some forms of the instruction use implicit register operands. The operand combinations for all forms of the instruction are shown in the "
-```
 
 Description
 -----------
@@ -11224,14 +11170,15 @@ Description
 
 IMUL clears the overflow and carry flags under the following conditions:
 
-   Instruction Form    Condition for Clearing CF and OF
-   r/m8                AL := sign-extend of AL to 16 bits
-   r/m16               AX := sign-extend of AX to 32 bits
-   r/m32               EDX:EAX := sign-extend of EAX to 32 bits
-   r16,r/m16           Result exactly fits within r16
-   r/32,r/m32          Result exactly fits within r32
-   r16,r/m16,imm16     Result exactly fits within r16
-   r32,r/m32,imm32     Result exactly fits within r32
+| Instruction Form | Condition for Clearing CF and OF         |
+| ---------------: | :--------------------------------------- |
+| r/m8             | AL := sign-extend of AL to 16 bits       |
+| r/m16            | AX := sign-extend of AX to 32 bits       |
+| r/m32            | EDX:EAX := sign-extend of EAX to 32 bits |
+| r16,r/m16        | Result exactly fits within r16           |
+| r/32,r/m32       | Result exactly fits within r32           |
+| r16,r/m16,imm16  | Result exactly fits within r16           |
+| r32,r/m32,imm32  | Result exactly fits within r32           |
 
 Flags Affected
 --------------
@@ -11505,36 +11452,37 @@ CE        INTO         pm=99           Interrupt 4--Protected Mode, more
 CE        INTO         pm=119          Interrupt 4--from V86 mode to PL 0
 CE        INTO         ts              Interrupt 4--Protected Mode, via
                                        task gate
+```
 
-_### Note
+### Note
 
 Approximate values of ts are given by the following table:
 
-                            New Task
-
-Old Task       386 TSS       386 TSS       286 TSS
-               VM = 0        VM = 1
-
-386
-TSS VM=0         309           226           282
-
-386
-TSS VM=1         314           231           287
-
-286
-TSS              307           224           280_
+```sh
+|             |                 New Task                 |
+|-------------|------------------------------------------|
+| Old Task    |   386 TSS   |    386 TSS    |   286 TSS  |
+|             |   VM = 0    |    VM = 1     |            |
+|-------------|------------------------------------------|
+| 386         |             |               |            |
+| TSS VM=0    |     309     |      226      |     282    |
+|-------------|------------------------------------------|
+| 386         |             |               |            |
+| TSS VM=1    |     314     |      231      |     287    |
+|-------------|------------------------------------------|
+| 286         |             |               |            |
+| TSS         |     307     |      224      |     280    |
 ```
 
 Operation
 ---------
 
-`sh``
-_
 
 ### Note
 
-The following operational description applies not only to the above instructions but also to external interrupts and exceptions._
+_The following operational description applies not only to the above instructions but also to external interrupts and exceptions._
 
+```cpp
 IF PE = 0
 THEN GOTO REAL-ADDRESS-MODE;
 ELSE GOTO PROTECTED-MODE;
@@ -11713,14 +11661,7 @@ None
 Protected Mode Exceptions
 -------------------------
 
-`#GP`, #NP, #SS, and #TS as indicated under "
-```
-
-Operation
----------
-
-```sh
-" above
+`#GP`, #NP, #SS, and #TS as indicated under "Operation" above
 
 Real Address Mode Exceptions
 ----------------------------
@@ -11990,14 +11931,7 @@ All; the flags register is popped from stack
 Protected Mode Exceptions
 -------------------------
 
-`#GP`, #NP, or #SS, as indicated under "
-```
-
-Operation
----------
-
-```sh
-" above
+`#GP`, #NP, or #SS, as indicated under "Operation" above
 
 Real Address Mode Exceptions
 ----------------------------
@@ -12014,9 +11948,10 @@ Virtual 8086 Mode Exceptions
 
 * * *
 
-Jcc -- Jump if Condition is Met
-===============================
+IC: Jcc -- Jump if Condition is Met
+===================================
 
+```sh
 Opcode         Instruction       Clocks   Description
 
 77  cb         JA rel8           7+m,3    Jump short if above (CF=0 and
@@ -12108,13 +12043,12 @@ E3  cb         JECXZ rel8        9+m,5    Jump short if ECX register is 0
 0F  8B cw/cd   JPO rel16/32      7+m,3    Jump near if parity odd (PF=0)
 0F  88 cw/cd   JS rel16/32       7+m,3    Jump near if sign (SF=1)
 0F  84 cw/cd   JZ rel16/32       7+m,3    Jump near if 0 (ZF=1)
+```
 
-_
 
 ### Notes
 
-The first clock count is for the true condition (branch taken); the second clock count is for the false condition (branch not taken). rel16/32 indicates that these instructions map to two; one with a 16-bit relative displacement, the other with a 32-bit relative displacement, depending on the operand-size attribute of the instruction._
-```
+_The first clock count is for the true condition (branch taken); the second clock count is for the false condition (branch not taken). rel16/32 indicates that these instructions map to two; one with a 16-bit relative displacement, the other with a 32-bit relative displacement, depending on the operand-size attribute of the instruction._
 
 Operation
 ---------
@@ -12136,6 +12070,7 @@ Conditional jumps (except JCXZ) test the flags which have been set by a previous
 
 If the given condition is true, a jump is made to the location provided as the operand. Instruction coding is most efficient when the target for the conditional jump is in the current code segment and within -128 to +127 bytes of the next instruction's first byte. The jump can also target -32768 thru +32767 (segment size attribute 16) or -2^(31) thru +2^(31) -1 (segment size attribute 32) relative to the next instruction's first byte. When the target for the conditional jump is in a different segment, use the opposite case of the jump instruction (i.e., JE and JNE), and then access the target with an unconditional far jump to the other segment. For example, you cannot code--
 
+```sh
 JZ FARLABEL;
 
 You must instead code--
@@ -12143,6 +12078,7 @@ You must instead code--
    JNZ BEYOND;
    JMP FARLABEL;
 BEYOND:
+```
 
 Because there can be several ways to interpret a particular state of the flags, ASM386 provides more than one mnemonic for most of the conditional jump opcodes. For example, if you compared two characters in AX and want to jump if they are equal, use JE; or, if you ANDed AX with a bit field mask and only want to jump if the result is 0, use JZ, a synonym for JE.
 
@@ -12213,7 +12149,7 @@ FF  /5    JMP m16:32      5 + ts          Jump via task state segment
 FF  /5    JMP m16:32      5 + ts          Jump via task gate
 ```
 
-_### Note
+### Note
 
 Values of ts are given by the following table:
 
@@ -12495,24 +12431,24 @@ All code and data segment descriptors are valid for LAR.
 
 The valid special segment and gate descriptor types for LAR are given in the following table:
 
-Type   Name                     Valid/Invalid
-
-  0    Invalid                  Invalid
-  1    Available 80286 TSS      Valid
-  2    LDT                      Valid
-  3    Busy 80286 TSS           Valid
-  4    80286 call gate          Valid
-  5    80286/80386 task gate    Valid
-  6    80286 trap gate          Valid
-  7    80286 interrupt gate     Valid
-  8    Invalid                  Invalid
-  9    Available 80386 TSS      Valid
-  A    Invalid                  Invalid
-  B    Busy 80386 TSS           Valid
-  C    80386 call gate          Valid
-  D    Invalid                  Invalid
-  E    80386 trap gate          Valid
-  F    80386 interrupt gate     Valid
+| Type |          Name         | Valid/Invalid |
+|------|-----------------------|---------------|
+| 0    | Invalid               | Invalid       |
+| 1    | Available 80286 TSS   | Valid         |
+| 2    | LDT                   | Valid         |
+| 3    | Busy 80286 TSS        | Valid         |
+| 4    | 80286 call gate       | Valid         |
+| 5    | 80286/80386 task gate | Valid         |
+| 6    | 80286 trap gate       | Valid         |
+| 7    | 80286 interrupt gate  | Valid         |
+| 8    | Invalid               | Invalid       |
+| 9    | Available 80386 TSS   | Valid         |
+| A    | Invalid               | Invalid       |
+| B    | Busy 80386 TSS        | Valid         |
+| C    | 80386 call gate       | Valid         |
+| D    | Invalid               | Invalid       |
+| E    | 80386 trap gate       | Valid         |
+| F    | 80386 interrupt gate  | Valid         |
 
 Flags Affected
 --------------
@@ -12580,23 +12516,24 @@ Description
 
 LEA calculates the effective address (offset part) and stores it in the specified register. The operand-size attribute of the instruction (represented by OperandSize in the algorithm under "Operation" above) is determined by the chosen register. The address-size attribute (represented by AddressSize) is determined by the USE attribute of the segment containing the second operand. The address-size and operand-size attributes affect the action performed by LEA, as follows:
 
-Operand Size  Address Size  Action Performed
-
-    16            16        16-bit effective address is calculated and
-                            stored in requested 16-bit register
-                            destination.
-
-    16            32        32-bit effective address is calculated. The
-                            lower 16 bits of the address are stored in
-                            the requested 16-bit register destination.
-
-    32            16        16-bit effective address is calculated. The
-                            16-bit address is zero-extended and stored
-                            in the requested 32-bit register destination.
-
-    32            32        32-bit effective address is calculated and
-                            stored in the requested 32-bit register
-                            destination.
+| Operand Size | Address Size |                Action Performed               |
+|--------------|--------------|-----------------------------------------------|
+|              |              |                                               |
+|           16 |           16 | 16-bit effective address is calculated and    |
+|              |              | stored in requested 16-bit register           |
+|              |              | destination.                                  |
+|              |              |                                               |
+|           16 |           32 | 32-bit effective address is calculated. The   |
+|              |              | lower 16 bits of the address are stored in    |
+|              |              | the requested 16-bit register destination.    |
+|              |              |                                               |
+|           32 |           16 | 16-bit effective address is calculated. The   |
+|              |              | 16-bit address is zero-extended and stored    |
+|              |              | in the requested 32-bit register destination. |
+|              |              |                                               |
+|           32 |           32 | 32-bit effective address is calculated and    |
+|              |              | stored in the requested 32-bit register       |
+|              |              | destination.                                  |
 
 Flags Affected
 --------------
@@ -12803,6 +12740,7 @@ A null selector (values 0000-0003) can be loaded into DS, ES, FS, or GS register
 
 The following is a listing of the Protected Mode checks and actions taken in the loading of a segment register:
 
+```sh
 IF SS is loaded:
    IF selector is null THEN #GP(0); FI;
    Selector index must be within its descriptor table limits ELSE
@@ -12827,6 +12765,7 @@ Load segment register with selector and RPL bits;
 Load segment register with descriptor;
 IF DS, ES, FS or GS is loaded with a null selector:
    Clear descriptor valid bit;
+```
 
 Flags Affected
 --------------
@@ -13097,9 +13036,10 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 * * *
 
-LOOP/LOOPcond -- Loop Control with CX Counter
-=============================================
+IC: LOOP/LOOPcond -- Loop Control with CX Counter
+=================================================
 
+```sh
 Opcode   Instruction  Clocks  Description
 
 E2  cb   LOOP rel8    11+m    DEC count; jump short if count <> 0
@@ -13196,24 +13136,24 @@ Code and data segment descriptors are valid for LSL.
 
 The valid special segment and gate descriptor types for LSL are given in the following table:
 
-Type   Name                      Valid/Invalid
-
-  0    Invalid                   Invalid
-  1    Available 80286 TSS       Valid
-  2    LDT                       Valid
-  3    Busy 80286 TSS            Valid
-  4    80286 call gate           Invalid
-  5    80286/80386 task gate     Invalid
-  6    80286 trap gate           Invalid
-  7    80286 interrupt gate      Invalid
-  8    Invalid                   Valid
-  9    Available 80386 TSS       Valid
-  A    Invalid                   Invalid
-  B    Busy 80386 TSS            Valid
-  C    80386 call gate           Invalid
-  D    Invalid                   Invalid
-  E    80386 trap gate           Invalid
-  F    80386 interrupt gate      Invalid
+| Type |          Name         | Valid/Invalid |
+|------|-----------------------|---------------|
+| 0    | Invalid               | Invalid       |
+| 1    | Available 80286 TSS   | Valid         |
+| 2    | LDT                   | Valid         |
+| 3    | Busy 80286 TSS        | Valid         |
+| 4    | 80286 call gate       | Invalid       |
+| 5    | 80286/80386 task gate | Invalid       |
+| 6    | 80286 trap gate       | Invalid       |
+| 7    | 80286 interrupt gate  | Invalid       |
+| 8    | Invalid               | Valid         |
+| 9    | Available 80386 TSS   | Valid         |
+| A    | Invalid               | Invalid       |
+| B    | Busy 80386 TSS        | Valid         |
+| C    | 80386 call gate       | Invalid       |
+| D    | Invalid               | Invalid       |
+| E    | 80386 trap gate       | Invalid       |
+| F    | 80386 interrupt gate  | Invalid       |
 
 Flags Affected
 --------------
@@ -13314,13 +13254,12 @@ B8 + rd  MOV reg32,imm32   2             Move immediate dword to register
 C6       MOV r/m8,imm8     2/2           Move immediate byte to r/m byte
 C7       MOV r/m16,imm16   2/2           Move immediate word to r/m word
 C7       MOV r/m32,imm32   2/2           Move immediate dword to r/m dword
+```
 
-_
 
 ### Notes
 
-moffs8, moffs16, and moffs32 all consist of a simple offset relative to the segment base. The 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits._
-```
+_moffs8, moffs16, and moffs32 all consist of a simple offset relative to the segment base. The 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits._
 
 Operation
 ---------
@@ -13340,6 +13279,7 @@ A MOV into SS inhibits all interrupts until after the execution of the next inst
 
 Loading a segment register under 80386 Protected Mode results in special checks and actions, as described in the following listing:
 
+```sh
 IF SS is loaded;
 THEN
    IF selector is null THEN #GP(0);
@@ -13373,6 +13313,7 @@ THEN
    Load segment register with selector;
    Clear descriptor valid bit;
 FI;
+```
 
 Flags Affected
 --------------
@@ -14540,72 +14481,42 @@ IC: RCL/RCR/ROL/ROR -- Rotate
 ```sh
 Opcode       Instruction       Clocks  Description
 
-D0  /2       RCL r/m8,1        9/10    Rotate 9 bits (CF,r/m byte) left
-                                       once
-D2  /2       RCL r/m8,CL       9/10    Rotate 9 bits (CF,r/m byte) left CL
-                                       times
-C0  /2 ib    RCL r/m8,imm8     9/10    Rotate 9 bits (CF,r/m byte) left
-                                       imm8 times
-D1  /2       RCL r/m16,1       9/10    Rotate 17 bits (CF,r/m word) left
-                                       once
-D3  /2       RCL r/m16,CL      9/10    Rotate 17 bits (CF,r/m word) left
-                                       CL times
-C1  /2 ib    RCL r/m16,imm8    9/10    Rotate 17 bits (CF,r/m word) left
-                                       imm8 times
-D1  /2       RCL r/m32,1       9/10    Rotate 33 bits (CF,r/m dword) left
-                                       once
-D3  /2       RCL r/m32,CL      9/10    Rotate 33 bits (CF,r/m dword) left
-                                       CL times
-C1  /2 ib    RCL r/m32,imm8    9/10    Rotate 33 bits (CF,r/m dword) left
-                                       imm8 times
-D0  /3       RCR r/m8,1        9/10    Rotate 9 bits (CF,r/m byte) right
-                                       once
-D2  /3       RCR r/m8,CL       9/10    Rotate 9 bits (CF,r/m byte) right
-                                       CL times
-C0  /3 ib    RCR r/m8,imm8     9/10    Rotate 9 bits (CF,r/m byte) right
-                                       imm8 times
-D1  /3       RCR r/m16,1       9/10    Rotate 17 bits (CF,r/m word) right
-                                       once
-D3  /3       RCR r/m16,CL      9/10    Rotate 17 bits (CF,r/m word) right
-                                       CL times
-C1  /3 ib    RCR r/m16,imm8    9/10    Rotate 17 bits (CF,r/m word) right
-                                       imm8 times
-D1  /3       RCR r/m32,1       9/10    Rotate 33 bits (CF,r/m dword) right
-                                       once
-D3  /3       RCR r/m32,CL      9/10    Rotate 33 bits (CF,r/m dword) right
-                                       CL times
-C1  /3 ib    RCR r/m32,imm8    9/10    Rotate 33 bits (CF,r/m dword) right
-                                       imm8 times
-D0  /0       ROL r/m8,1        3/7     Rotate 8 bits r/m byte left once
-D2  /0       ROL r/m8,CL       3/7     Rotate 8 bits r/m byte left CL
-                                       times
-C0  /0 ib    ROL r/m8,imm8     3/7     Rotate 8 bits r/m byte left imm8
-                                       times
-D1  /0       ROL r/m16,1       3/7     Rotate 16 bits r/m word left once
-D3  /0       ROL r/m16,CL      3/7     Rotate 16 bits r/m word left CL
-                                       times
-C1  /0 ib    ROL r/m16,imm8    3/7     Rotate 16 bits r/m word left imm8
-                                       times
-D1  /0       ROL r/m32,1       3/7     Rotate 32 bits r/m dword left once
-D3  /0       ROL r/m32,CL      3/7     Rotate 32 bits r/m dword left CL
-                                       times
-C1  /0 ib    ROL r/m32,imm8    3/7     Rotate 32 bits r/m dword left imm8
-                                       times
-D0  /1       ROR r/m8,1        3/7     Rotate 8 bits r/m byte right once
-D2  /1       ROR r/m8,CL       3/7     Rotate 8 bits r/m byte right CL
-                                       times
-C0  /1 ib    ROR r/m8,imm8     3/7     Rotate 8 bits r/m word right imm8
-                                       times
-D1  /1       ROR r/m16,1       3/7     Rotate 16 bits r/m word right once
-D3  /1       ROR r/m16,CL      3/7     Rotate 16 bits r/m word right CL
-                                       times
-C1  /1 ib    ROR r/m16,imm8    3/7     Rotate 16 bits r/m word right imm8
-                                       times
-D1  /1       ROR r/m32,1       3/7     Rotate 32 bits r/m dword right once
-D3  /1       ROR r/m32,CL      3/7     Rotate 32 bits r/m dword right CL
-                                       times
-C1  /1 ib    ROR r/m32,imm8    3/7     Rotate 32 bits r/m dword right imm8
-                                       times
+D0  /2       RCL r/m8,1        9/10    Rotate  9 bits (CF,r/m byte)  left once
+D2  /2       RCL r/m8,CL       9/10    Rotate  9 bits (CF,r/m byte)  left CL times
+C0  /2 ib    RCL r/m8,imm8     9/10    Rotate  9 bits (CF,r/m byte)  left imm8 times
+D1  /2       RCL r/m16,1       9/10    Rotate 17 bits (CF,r/m word)  left once
+D3  /2       RCL r/m16,CL      9/10    Rotate 17 bits (CF,r/m word)  left CL times
+C1  /2 ib    RCL r/m16,imm8    9/10    Rotate 17 bits (CF,r/m word)  left imm8 times
+D1  /2       RCL r/m32,1       9/10    Rotate 33 bits (CF,r/m dword) left once
+D3  /2       RCL r/m32,CL      9/10    Rotate 33 bits (CF,r/m dword) left CL times
+C1  /2 ib    RCL r/m32,imm8    9/10    Rotate 33 bits (CF,r/m dword) left imm8 times
+D0  /3       RCR r/m8,1        9/10    Rotate  9 bits (CF,r/m byte)  right once
+D2  /3       RCR r/m8,CL       9/10    Rotate  9 bits (CF,r/m byte)  right CL times
+C0  /3 ib    RCR r/m8,imm8     9/10    Rotate  9 bits (CF,r/m byte)  right imm8 times
+D1  /3       RCR r/m16,1       9/10    Rotate 17 bits (CF,r/m word)  right once
+D3  /3       RCR r/m16,CL      9/10    Rotate 17 bits (CF,r/m word)  right CL times
+C1  /3 ib    RCR r/m16,imm8    9/10    Rotate 17 bits (CF,r/m word)  right imm8 times
+D1  /3       RCR r/m32,1       9/10    Rotate 33 bits (CF,r/m dword) right once
+D3  /3       RCR r/m32,CL      9/10    Rotate 33 bits (CF,r/m dword) right CL times
+C1  /3 ib    RCR r/m32,imm8    9/10    Rotate 33 bits (CF,r/m dword) right imm8 times
+D0  /0       ROL r/m8,1        3/7     Rotate  8 bits r/m byte       left once
+D2  /0       ROL r/m8,CL       3/7     Rotate  8 bits r/m byte       left CL times
+C0  /0 ib    ROL r/m8,imm8     3/7     Rotate  8 bits r/m byte       left imm8 times
+D1  /0       ROL r/m16,1       3/7     Rotate 16 bits r/m word       left once
+D3  /0       ROL r/m16,CL      3/7     Rotate 16 bits r/m word       left CL times
+C1  /0 ib    ROL r/m16,imm8    3/7     Rotate 16 bits r/m word       left imm8 times
+D1  /0       ROL r/m32,1       3/7     Rotate 32 bits r/m dword      left once
+D3  /0       ROL r/m32,CL      3/7     Rotate 32 bits r/m dword      left CL times
+C1  /0 ib    ROL r/m32,imm8    3/7     Rotate 32 bits r/m dword      left imm8 times
+D0  /1       ROR r/m8,1        3/7     Rotate  8 bits r/m byte       right once
+D2  /1       ROR r/m8,CL       3/7     Rotate  8 bits r/m byte       right CL times
+C0  /1 ib    ROR r/m8,imm8     3/7     Rotate  8 bits r/m word       right imm8 times
+D1  /1       ROR r/m16,1       3/7     Rotate 16 bits r/m word       right once
+D3  /1       ROR r/m16,CL      3/7     Rotate 16 bits r/m word       right CL times
+C1  /1 ib    ROR r/m16,imm8    3/7     Rotate 16 bits r/m word       right imm8 times
+D1  /1       ROR r/m32,1       3/7     Rotate 32 bits r/m dword      right once
+D3  /1       ROR r/m32,CL      3/7     Rotate 32 bits r/m dword      right CL times
+C1  /1 ib    ROR r/m32,imm8    3/7     Rotate 32 bits r/m dword      right imm8 times
 ```
 
 Operation
@@ -15016,14 +14927,7 @@ None
 Protected Mode Exceptions
 -------------------------
 
-`#GP`, #NP, or #SS, as described under "
-```
-
-Operation
----------
-
-```sh
-" above; #PF(fault-code) for a page fault
+`#GP`, #NP, or #SS, as described under "Operation" above; #PF(fault-code) for a page fault
 
 Real Address Mode Exceptions
 ----------------------------
@@ -15395,9 +15299,10 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 * * *
 
-SETcc -- Byte Set on Condition
-==============================
+IC: SETcc -- Byte Set on Condition
+==================================
 
+```sh
 Opcode   Instruction  Clocks  Description
 
 0F  97   SETA r/m8    4/5     Set byte if above (CF=0 and ZF=0)
@@ -16209,9 +16114,10 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 * * *
 
-VERR, VERW -- Verify a Segment for Reading or Writing
+IC: VERR, VERW -- Verify a Segment for Reading or Writing
 =====================================================
 
+```sh
 Opcode       Instruction   Clocks      Description
 
 0F  00 /4    VERR r/m16    pm=10/11    Set ZF=1 if segment can be read,
