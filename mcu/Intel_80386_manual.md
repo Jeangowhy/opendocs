@@ -4842,6 +4842,8 @@ For example, it is possible to define a large data segment which has some subuni
 
 Table 6-5. Combining Directory and Page Protection
 
+```sh
+|----------------|-------|------------|-------|----------|------------|
 | Page Directory | Entry | Page Table | Entry | Combined | Protection |
 |      U/S       |  R/W  |    U/S     |  R/W  |   U/S    |    R/W     |
 |----------------|-------|------------|-------|----------|------------|
@@ -4861,15 +4863,20 @@ Table 6-5. Combining Directory and Page Protection
 | U-1            | W-1   | S-0        | W-1   | S        | x          |
 | U-1            | W-1   | U-1        | R-0   | U        | R          |
 | U-1            | W-1   | U-1        | W-1   | U        | W          |
+```
 
 * * *
 
 >  [!NOTE]
 >
 >  S -- Supervisor
+>
 >  R -- Read only
+>
 >  U -- User
+>
 >  W -- Read and Write
+>
 >  x indicates that when the combined U/S attribute is S, the R/W attribute is not checked.
 
 * * *
