@@ -1,14 +1,12 @@
 ﻿
-Advanced Linux Programming
-========================================================
+/1. Advanced Linux Programming
+==============================
 
 
 [℗ i](#ptoc){id=p0000i}
------------------
 
 
 [℗ ii](#ptoc){id=p000ii}
------------------
 
 
 Advanced Linux Programming
@@ -20,7 +18,6 @@ and Alex Samuel
 www.newriders.com
 
 [℗ iii](#ptoc){id=p00iii}
------------------
 
 Publisher
 David Dwyer
@@ -113,15 +110,13 @@ accompany it.
 
 
 [℗ iv](#ptoc){id=p000iv}
------------------
 
 
 [℗ v](#ptoc){id=p0000v}
------------------
 
 
-Contents At a Glance
---------------------------------------------------------
+//Contents At a Glance
+----------------------
 - I Advanced UNIX Programming with Linux
 - 1 Getting Started ......................................... [℗](#p003)
 - 2 Writing Good GNU/Linux Software ......................... [℗](#p017)
@@ -143,8 +138,8 @@ Contents At a Glance
 - E Open Publication License Version 1.0 .................... [℗](#p305)
 - F GNU General Public License .............................. [℗](#p309)
 
-[Table of Contents](){id=ptoc}
-========================================================
+/2. [Table of Contents](){id=ptoc}
+==================================
 
 - I Advanced UNIX Programming with Linux .................... [℗](#p001){id=t001}
 - 1 Getting Started ......................................... [℗](#p003){id=t003}
@@ -171,7 +166,6 @@ Contents At a Glance
 - 4.6 Processes Vs.Threads .................................. [℗](#p094){id=t094}
 
 [℗ vi](#ptoc){id=p000vi}
------------------
 
 - 5 Interprocess Communication .............................. [℗](#p095){id=t095}
 - 5.1 Shared Memory ......................................... [℗](#p096){id=t096}
@@ -205,7 +199,6 @@ Contents At a Glance
 - 8.7 gettimeofday:Wall-Clock Time .......................... [℗](#p176){id=t176}
 
 [℗ vii](#ptoc){id=p00vii}
------------------
 
 - 8.8 The mlock Family: Locking Physical Memory ............. [℗](#p177){id=t177}
 - 8.9 mprotect: Setting Memory Permissions .................. [℗](#p179){id=t179}
@@ -237,7 +230,6 @@ Contents At a Glance
 - 11.5 Finishing Up ......................................... [℗](#p255){id=t255}
 
 [℗ ix](#ptoc){id=p0viii}
------------------
 
 - III Appendixes ............................................ [℗](#p257){id=t257}
 - A Other Development Tools ................................. [℗](#p259){id=t259}
@@ -266,7 +258,6 @@ Contents At a Glance
 - Open Publication Policy Appendix .......................... [℗](#p307){id=t307}
 
 [℗ ix](#ptoc){id=p000ix}
------------------
 
 - F GNU General Public License .............................. [℗](#p309){id=t309}
 - Preamble .................................................. [℗](#p309){id=t309}
@@ -276,14 +267,12 @@ Contents At a Glance
 - Index ..................................................... [℗](#p317){id=t317}
 
 [℗ x](#ptoc){id=p0000x}
------------------
 
 
 [℗ xi](#ptoc){id=p000xi}
------------------
 
-Table of Program Listings
---------------------------------------------------------
+//Table of Program Listings
+---------------------------
 
 - 1.1 main.c (C source file), ................................... [℗](#p006){id=t006}
 - 1.2 reciprocal.cpp (C++ source file), ......................... [℗](#p006){id=t006}
@@ -319,7 +308,6 @@ Table of Program Listings
 - 4.13 spin-condvar.c (condition variables), .................... [℗](#p087){id=t087}
 
 [℗ xii](#ptoc){id=p00xii}
------------------
 
 - 4.14 condvar.c (condition variables), ......................... [℗](#p090){id=t090}
 - 4.15 thread-pid (printing thread process IDs), ................ [℗](#p092){id=t092}
@@ -351,7 +339,6 @@ Table of Program Listings
 - 8.5 print-cpu-times.c (process statistics), ................... [℗](#p176){id=t176}
 
 [℗ xiv](#ptoc){id=p00xii}
------------------
 
 - 8.6 print-time.c (date/time printing), ........................ [℗](#p177){id=t177}
 - 8.7 mprotect.c (memory access), ............................... [℗](#p180){id=t180}
@@ -381,7 +368,6 @@ Table of Program Listings
 - 11.10 Makefile (Makefile for sample application program), ..... [℗](#p252){id=t252}
 
 [℗ xiv](#ptoc){id=p00xiv}
------------------
 
 - A.1 hello.c (Hello World), .................................... [℗](#p260){id=t260}
 - A.2 malloc-use.c (dynamic memory allocation), ................. [℗](#p267){id=t267}
@@ -399,10 +385,9 @@ Table of Program Listings
 - B.8 listdir.c (printing directory listings), .................. [℗](#p297){id=t297}
 
 [℗ xv](#ptoc){id=p000xv}
------------------
 
-About the Authors
---------------------------------------------------------
+//About the Authors
+-------------------
 Mark Mitchell received a bachelor of arts degree in computer
 science from Harvard in 1994 and a master of science degree from
 Stanford in 1999. His research interests centered on computational
@@ -433,10 +418,9 @@ consulting and engineering services. CodeSourcery’s Web site is
 http://www.codesourcery.com .
 
 [℗ xvi](#ptoc){id=p00xvi}
------------------
 
-About the Technical Reviewers
---------------------------------------------------------
+//About the Technical Reviewers
+-------------------------------
 These reviewers contributed their considerable hands-on expertise to the entire devel-
 opment process for Advanced Linux Programming.As the book was being written, these
 dedicated professionals reviewed all the material for technical content, organization,
@@ -464,10 +448,9 @@ client using Trolltech’s Qt GUI application toolkit on both Windows and
 platforms that run X-11.
 
 [℗ xviii](#ptoc){id=p00iii}
------------------
 
-Acknowledgments
---------------------------------------------------------
+//Acknowledgments
+-----------------
 We greatly appreciate the pioneering work of Richard Stallman, without whom
 there would never have been the GNU Project, and of Linus Torvalds, without
 whom there would never have been the Linux kernel. Countless others have worked
@@ -491,10 +474,9 @@ our deadlines; and Stephanie Wall, also of New Riders, for encouraging us to wri
 this book in the first place!
 
 [℗ xix](#ptoc){id=p0000x}
------------------
 
-Tell Us What You Think
---------------------------------------------------------
+//Tell Us What You Think
+------------------------
 As the reader of this book, you are the most important critic and commentator.We
 value your opinion and want to know what we’re doing right, what we could do bet-
 ter, what areas you’d like to see us publish in, and any other words of wisdom you’re
@@ -521,11 +503,10 @@ New Riders Publishing
 Indianapolis, IN 46290 USA
 
 [℗ xix](#ptoc){id=p00xix}
------------------
 
 
-Introduction
---------------------------------------------------------
+//Introduction
+--------------
 GNU/Linux has taken the world of computers by storm.At one time, personal com-
 puter users were forced to choose among proprietary operating environments and
 applications. Users had no way of fixing or improving these programs, could not look
@@ -543,8 +524,8 @@ worldwide to contribute new components and improvements to GNU/Linux, to the
 point that modern GNU/Linux systems rival the features of any proprietary system,
 and distributions include thousands of programs and applications spanning many CD-
 
-ROMs or DVDs.
---------------------------------------------------------
+//ROMs or DVDs.
+---------------
 The success of GNU/Linux has also validated much of the UNIX philosophy.
 
 Many of the application programming interfaces (APIs) introduced in AT&T and BSD
@@ -560,8 +541,8 @@ tures such as interprocess communication, multithreading, and high-performance
 networking.And many problems can be solved simply by assembling existing com-
 mands and programs using simple scripts.
 
-GNU and Linux
---------------------------------------------------------
+//GNU and Linux
+---------------
 Where did the name GNU/Liux come from? You’ve certainly heard of Linux before,
 and you may have heard of the GNU Project.You may not have heard the name
 GNU/Linux, although you’re probably familiar with the system it refers to.
@@ -573,7 +554,6 @@ hardware, handles allocation of memory and other resources, allows multiple prog
 to run at the same time, manages the file system, and so on.
 
 [℗ xx](#ptoc){id=p000xx}
------------------
 
 The kernel by itself doesn’t provide features that are useful to users. It can’t even
 provide a simple prompt for users to enter basic commands. It provides no way for
@@ -594,8 +574,8 @@ system couldn’t work without GNU software, any more than it could operate with
 the kernel. For this reason, throughout this book we’ll refer to the complete system as
 GNU/Linux, except when we are specifically talking about the Linux kernel.
 
-The GNU General Public License
---------------------------------------------------------
+//The GNU General Public License
+--------------------------------
 The source code contained in this book is covered by the GNU General Public License
 (GPL), which is listed in Appendix F,"GNU General Public License."A great deal of
 free software, especially GNU/Linux software, is licensed under it. For instance, the
@@ -608,8 +588,8 @@ The GNU Project Web site includes an extensive discussion of the GPL
 find information about open source software licenses at http://www.opensource.org/
 licenses/index.html .
 
-Who Should Read This Book?
---------------------------------------------------------
+//Who Should Read This Book?
+----------------------------
 This book is intended for three types of readers:
 n You might be a developer already experienced with programming for the
 GNU/Linux system, and you want to learn about some of its advanced features
@@ -622,7 +602,6 @@ designing them to interact better with the rest of the GNU/Linux system.
 ➊. GNU is a recursive acronym: It stands for "GNU’s Not UNIX."
 
 [℗ xxi](#ptoc){id=p00xxi}
------------------
 
 n You might be a developer experienced with another UNIX-like system who’s
 interested in developing GNU/Linux software, too.You might already be famil-
@@ -665,7 +644,6 @@ the low-level I/O functions, jump to the end of the book and read Appendix B,
 "Low-Level I/O," before you start Chapter 2,"Writing Good GNU/Linux Software."
 
 [℗ xxii](#ptoc){id=p0xxii}
------------------
 
 This book does not provide a general introduction to GNU/Linux systems.
 
@@ -675,8 +653,8 @@ environments. If you’re new to GNU/Linux, start with one of the many excellent
 introductory books, such as Michael Tolber’s Inside Linux (New Riders Publishing,
 2001).
 
-Conventions
---------------------------------------------------------
+//Conventions
+-------------
 This book follows a few typographical conventions:
 
 1.  A new term is set in italics the first time it is introduced.
@@ -712,13 +690,11 @@ to other versions and distributions of GNU/Linux as well, including 2.4 releases
 the Linux kernel and 2.2 releases of the GNU C library.
 
 [℗ xxiii](#ptoc){id=pxxiii}
------------------
 
 [℗ xxiv](#ptoc){id=p0xxiv}
------------------
 
-I Advanced UNIX Programming with Linux
-========================================================
+/3. I Advanced UNIX Programming with Linux
+==========================================
 
 1. Getting Started
 2. Writing Good GNU/Linux Software
@@ -727,14 +703,12 @@ I Advanced UNIX Programming with Linux
 5. Interprocess Communication
 
 [℗ 1](#t001){id=p001}
------------------
 
 
 [℗ 2](#t001){id=p002}
------------------
 
-Chapter 1 Getting Started
-========================================================
+/4. Chapter 1 Getting Started
+=============================
 
 THIS CHAPTER SHOWS YOU HOW TO PERFORM THE BASIC steps required to create a
 C or C++ Linux program. In particular, this chapter shows you how to create and
@@ -754,18 +728,17 @@ Windows environment, we’ll occasionally point out similarities and contrasts b
 Windows and Linux.
 
 [℗ 3](#t003){id=p003}
------------------
 
 
-1.1 Editing with Emacs
---------------------------------------------------------
+//1.1 Editing with Emacs
+------------------------
 
 An editor is the program that you use to edit source code. Lots of different editors are
 available for Linux, but the most popular and full-featured editor is probably GNU
 Emacs.
 
-About Emacs
---------------------------------------------------------
+//About Emacs
+-------------
 Emacs is much more than an editor. It is an incredibly powerful program, so much so that at
 CodeSourcery, it is affectionately known as the One True Program, or just the OTP for short. You can read
 and send email from within Emacs, and you can customize and extend Emacs in ways far too numerous
@@ -780,8 +753,8 @@ reading one of the many Emacs books available. One excellent tutorial, Learning
 GNU Emacs, is written by Debra Cameron, Bill Rosenblatt, and Eric S. Raymond
 (O’Reilly, 1996).
 
-1.1.1 Opening a C or C++ Source File
---------------------------------------------------------
+//1.1.1 Opening a C or C++ Source File
+--------------------------------------
 
 You can start Emacs by typing emacs in your terminal window and pressing the
 Return key.When Emacs has been started, you can use the menus at the top to create
@@ -805,11 +778,10 @@ lots of tips on how to use Emacs effectively.
 menus.
 
 [℗ 4](#t004){id=p004}
------------------
 
 
-1.1.2 Automatic Formatting
---------------------------------------------------------
+//1.1.2 Automatic Formatting
+----------------------------
 
 If you’re accustomed to programming in an Integrated Development Environment (IDE),
 you’ll also be accustomed to having the editor help you format your code. Emacs can
@@ -841,8 +813,8 @@ to implement games ➋ , and to implement database front ends.
 ➋. Try running the command M-x dunnet if you want to play an old-fashioned text
 adventure game.
 
-1.1.3 Syntax Highlighting
---------------------------------------------------------
+//1.1.3 Syntax Highlighting
+---------------------------
 
 In addition to formatting your code, Emacs can make it easier to read C and C++
 code by coloring different syntax elements. For example, Emacs can turn keywords
@@ -863,11 +835,10 @@ LISP code.
 
 
 [℗ 5](#t004){id=p005}
------------------
 
 
-1.2 Compiling with GCC
---------------------------------------------------------
+//1.2 Compiling with GCC
+------------------------
 
 A compiler turns human-readable source code into machine-readable object code that
 can actually run.The compilers of choice on Linux systems are all part of the GNU
@@ -908,7 +879,6 @@ other hand, usually have no extension. So, the Windows equivalent of this progra
 probably be called reciprocal.exe ; the Linux version is just plain reciprocal .
 
 [℗ 6](#t006){id=p006}
------------------
 
 There’s also one header file called reciprocal.hpp (see Listing 1.3).
 Listing 1.3 (reciprocal.hpp) Header file—reciprocal.hpp
@@ -924,8 +894,8 @@ Listing 1.3 (reciprocal.hpp) Header file—reciprocal.hpp
 The first step is to turn the C and C++ source code into object code.
 
 
-1.2.1 Compiling a Single Source File
---------------------------------------------------------
+//1.2.1 Compiling a Single Source File
+--------------------------------------
 
 The name of the C compiler is gcc . To compile a C source file, you use the -c
 option. So, for example, entering this at the command prompt compiles the main.c
@@ -957,7 +927,6 @@ reciprocal.hpp :
     % g++ -c -I ../include reciprocal.cpp
 
 [℗ 7](#t006){id=p007}
------------------
 
 Sometimes you’ll want to define macros on the command line. For example, in
 production code, you don’t want the overhead of the assertion check present in
@@ -992,8 +961,8 @@ your command prompt:
 
     % info gcc
 
-1.2.2 Linking Object Files
---------------------------------------------------------
+//1.2.2 Linking Object Files
+----------------------------
 
 Now that you’ve compiled main.c and utilities.cpp , you’ll want to link them.You
 should always use g++ to link a program that contains C++ code, even if it also con-
@@ -1015,7 +984,6 @@ taining the implementation of printf . If you had needed to link in another libr
 (such as a graphical user interface toolkit), you would have specified the library with
 
 [℗ 8](#t006){id=p008}
------------------
 
 the -l option. In Linux, library names almost always start with lib . For example,
 the Pluggable Authentication Module (PAM) library is called libpam.a .To link in
@@ -1041,8 +1009,8 @@ find the test library in the current directory:
 
     % gcc -o app app.o -L. -ltest
 
-1.3 Automating the Process with GNU Make
---------------------------------------------------------
+//1.3 Automating the Process with GNU Make
+------------------------------------------
 
 If you’re accustomed to programming for the Windows operating system, you’re prob-
 ably accustomed to working with an Integrated Development Environment (IDE).You
@@ -1070,7 +1038,6 @@ removes all the generated object files and programs so that you can start fresh.
 for this target uses the rm command to remove the files.
 
 [℗ 9](#t009){id=p009}
------------------
 
 You can convey all that information to make by putting the information in a file
 named Makefile . Here’s what `Makefile` contains:
@@ -1130,7 +1097,6 @@ enabled, you would do this:
     g++ -O2 -o reciprocal main.o reciprocal.o
 
 [℗ 10](#t009){id=p010}
------------------
 
 Note that the -O2 flag was inserted in place of $(CFLAGS) in the rules.
 
@@ -1145,8 +1111,8 @@ matically compute dependencies.You can also find more information in GNU,
 Autoconf,Automake, and Libtool by Gary V.Vaughan, Ben Elliston,Tom Tromey, and
 Ian Lance Taylor (New Riders Publishing, 2000).
 
-1.4 Debugging with GNU Debugger (GDB)
---------------------------------------------------------
+//1.4 Debugging with GNU Debugger (GDB)
+---------------------------------------
 
 The debugger is the program that you use to figure out why your program isn’t behav-
 ing the way you think it should.You’ll be doing this a lot. ➎ The GNU Debugger
@@ -1154,8 +1120,8 @@ ing the way you think it should.You’ll be doing this a lot. ➎ The GNU Debugg
 through your code, set breakpoints, and examine the value of local variables.
 
 
-1.4.1 Compiling with Debugging Information
---------------------------------------------------------
+//1.4.1 Compiling with Debugging Information
+--------------------------------------------
 
 To use GDB, you’ll have to compile with debugging information enabled. Do this by
 adding the -g switch on the compilation command line. If you’re using a Makefile as
@@ -1173,8 +1139,8 @@ respond to which lines in which source files, how to print out local variables, 
 forth.
 
 
-1.4.2 Running GDB
---------------------------------------------------------
+//1.4.2 Running GDB
+-------------------
 
 You can start up gdb by typing:
 
@@ -1185,7 +1151,6 @@ You can start up gdb by typing:
 ➎. …unless your programs always work the first time.
 
 [℗ 11](#t011){id=p011}
------------------
 
 The first step is to run your program inside the debugger. Just enter the command run
 and any program arguments.Try running the program without any arguments, like
@@ -1237,7 +1202,6 @@ You can set a breakpoint by using the break command:
     Breakpoint 1 at 0x804862e: file main.c, line 8.
 
 [℗ 12](#t011){id=p012}
------------------
 
 This command sets a breakpoint on the first line of main . 6 Now try rerunning the
 program with an argument, like this:
@@ -1269,8 +1233,8 @@ appropriate source file. It’s easier to figure out what’s going on when you�
 the whole file rather than just one line of text.
 
 
-1.5 Finding More Information
---------------------------------------------------------
+//1.5 Finding More Information
+------------------------------
 
 Nearly every Linux distribution comes with a great deal of useful documentation.You
 could learn most of what we’ll talk about in this book by reading documentation in
@@ -1287,11 +1251,10 @@ advanced Linux programming.
 usually you want to do this only when main is already broken.
 
 [℗ 13](#t013){id=p013}
+
+
+//1.5.1 Man Pages
 -----------------
-
-
-1.5.1 Man Pages
---------------------------------------------------------
 
 Linux distributions include man pages for most standard commands, system calls, and
 standard library functions.The man pages are divided into numbered sections; for pro-
@@ -1327,8 +1290,8 @@ for a system call or library function describes parameters and return values, li
 codes and side effects, and specifies which include file to use if you call the function.
 
 
-1.5.2 Info
---------------------------------------------------------
+//1.5.2 Info
+------------
 
 The Info documentation system contains more detailed documentation for many core
 components of the GNU/Linux system, plus several other programs. Info pages are
@@ -1346,7 +1309,6 @@ Among the most useful Info documents are these:
 5. info —The Info system itself
 
 [℗ 14](#t013){id=p014}
------------------
 Almost all the standard Linux programming tools (including ld , the linker; as , the
 assembler; and gprof , the profiler) come with useful Info pages.You can jump directly
 to a particular Info document by specifying the page name on the command line:
@@ -1356,8 +1318,8 @@ to a particular Info document by specifying the page name on the command line:
 If you do most of your programming in Emacs, you can access the built-in Info
 browser by typing M-x info or C-h i .
 
-1.5.3 Header Files
---------------------------------------------------------
+//1.5.3 Header Files
+--------------------
 
 You can learn a lot about the system functions that are available and how to use
 them by looking at the system header files.These reside in /usr/include and
@@ -1374,8 +1336,8 @@ directly in your programs, though; always use the header files in /usr/include o
 mentioned in the man page for the function you’re using.
 
 
-1.5.4 Source Code
---------------------------------------------------------
+//1.5.4 Source Code
+-------------------
 
 This is Open Source, right? The final arbiter of how the system works is the system
 source code itself, and luckily for Linux programmers, that source code is freely avail-
@@ -1392,14 +1354,12 @@ system functions described in this book are implemented in the GNU C library;
 check your distribution’s documentation for the location of the C library source code.
 
 [℗ 15](#t013){id=p015}
------------------
 
 
 [℗ 16](#t013){id=p016}
------------------
 
-Chapter 2 Writing Good GNU/Linux Software
-========================================================
+/5. Chapter 2 Writing Good GNU/Linux Software
+=============================================
 
 THIS CHAPTER COVERS SOME BASIC TECHNIQUES THAT MOST GNU/Linux program-
 mers use. By following the guidelines presented, you’ll be able to write programs that
@@ -1407,8 +1367,8 @@ work well within the GNU/Linux environment and meet GNU/Linux users’ expec-
 tations of how programs should operate.
 
 
-2.1 Interaction With the Execution Environment
---------------------------------------------------------
+//2.1 Interaction With the Execution Environment
+------------------------------------------------
 
 When you first studied C or C++, you learned that the special main function is the
 primary entry point for a program.When the operating system executes your pro-
@@ -1422,10 +1382,9 @@ languages, and they interact with the GNU/Linux system in certain ways. GNU/
 Linux provides other ways for interacting with the operating environment, too.
 
 [℗ 17](#t017){id=p017}
------------------
 
-2.1.1 The Argument List
---------------------------------------------------------
+//2.1.1 The Argument List
+-------------------------
 
 You run a program from a shell prompt by typing the name of the program.
 
@@ -1481,11 +1440,10 @@ Listing 2.1 (arglist.c) Using argc and argv
     }
 
 [℗ 18](#t017){id=p018}
------------------
 
 
-2.1.2 GNU/Linux Command-Line Conventions
---------------------------------------------------------
+//2.1.2 GNU/Linux Command-Line Conventions
+------------------------------------------
 
 Almost all GNU/Linux programs obey some conventions about how command-line
 arguments are interpreted.The arguments that programs expect fall into two cate-
@@ -1526,11 +1484,10 @@ prompt on most GNU/Linux systems:
     % info "(standards)User Interfaces"
 
 [℗ 19](#t017){id=p019}
------------------
 
 
-2.1.3 Using getopt_long
---------------------------------------------------------
+//2.1.3 Using getopt_long
+-------------------------
 
 Parsing command-line options is a tedious chore. Luckily, the GNU C library provides
 a function that you can use in C and C++ programs to make this job somewhat easier
@@ -1593,7 +1550,6 @@ describing the long options.
     contains the index (into argv ) of the first nonoption argument.
 
 [℗ 20](#t017){id=p020}
------------------
 
 
 Listing 2.2 shows an example of how you might use getopt_long to process your arguments.
@@ -1631,7 +1587,6 @@ Listing 2.2 (getopt_long.c) Using getopt_long
     { "verbose", 0, NULL, "v" },
 
 [℗ 21](#t017){id=p021}
------------------
 
     { NULL, 0, NULL, 0 } /* Required at end of array. */
     };
@@ -1678,7 +1633,6 @@ Listing 2.2 (getopt_long.c) Using getopt_long
     Listing 2.2 Continued
 
 [℗ 22](#t017){id=p022}
------------------
 
     if (verbose) {
     int i;
@@ -1696,8 +1650,8 @@ accept. However, it’s a good idea to stay away from the more advanced features
 stick with the basic option structure described.
 
 
-2.1.4 Standard I/O
---------------------------------------------------------
+//2.1.4 Standard I/O
+--------------------
 
 The standard C library provides standard input and output streams ( stdin and stdout ,
 respectively).These are used by scanf , printf , and other library functions. In the
@@ -1730,7 +1684,6 @@ file descriptor 1 ( stdout ). Note that 2>&1 must follow a file redirection (the
 ple) but must precede a pipe redirection (the second example).
 
 [℗ 23](#t017){id=p023}
------------------
 
 Note that stdout is buffered. Data written to stdout is not sent to the console
 (or other device, if it’s redirected) until the buffer fills, the program exits normally, or
@@ -1755,8 +1708,8 @@ In this loop, however, the periods do appear once a second:
     sleep (1);
     }
 
-2.1.5 Program Exit Codes
---------------------------------------------------------
+//2.1.5 Program Exit Codes
+--------------------------
 
 When a program ends, it indicates its status with an exit code.The exit code is a
 small integer; by convention, an exit code of zero denotes successful execution,
@@ -1787,7 +1740,6 @@ token flushes a stream in addition to printing a newline character; if you don�
 stream (for performance reasons, for example), use a newline constant, " \n " , instead.
 
 [℗ 24](#t017){id=p024}
------------------
 
 A C or C++ program specifies its exit code by returning that value from the main
 function.There are other methods of providing exit codes, and special exit codes
@@ -1795,8 +1747,8 @@ are assigned to programs that terminate abnormally (by a signal).These are discu
 further in Chapter 3.
 
 
-2.1.6 The Environment
---------------------------------------------------------
+//2.1.6 The Environment
+-----------------------
 
 GNU/Linux provides each running program with an environment.The environment is
 a collection of variable/value pairs. Both environment variable names and their values
@@ -1841,7 +1793,6 @@ instance:
         % export EDITOR=emacs
 
 [℗ 25](#t017){id=p025}
------------------
 
 In a program, you access an environment variable with the getenv function in
 `<stdlib.h>` .That function takes a variable name and returns the corresponding value
@@ -1884,7 +1835,6 @@ variable—say SERVER_NAME —to specify the server name;if that variable doesn�
 default value is used.Part of your program might look as shown in Listing 2.4.
 
 [℗ 26](#t017){id=p026}
------------------
 
 Listing 2.4 (client.c) Part of a Network Client Program
 
@@ -1912,8 +1862,8 @@ SERVER_NAME variable, the default value for the server name is used:
     % client
     accessing server backup-server.elsewhere.net
 
-2.1.7 Using Temporary Files
---------------------------------------------------------
+//2.1.7 Using Temporary Files
+-----------------------------
 
 Sometimes a program needs to make a temporary file, to store large data for a while or
 to pass data to another program. On GNU/Linux systems, temporary files are stored
@@ -1939,10 +1889,9 @@ UNIX I/O ( open , write , and so on) or the C library’s stream I/O functions (
 fprintf , and so on).
 
 [℗ 27](#t017){id=p027}
------------------
 
-Using mkstemp
---------------------------------------------------------
+//Using mkstemp
+---------------
 The mkstemp function creates a unique temporary filename from a filename template,
 creates the file with permissions so that only the current user can access it, and opens
 the file for read/write.The filename template is a character string ending with
@@ -2020,10 +1969,9 @@ Listing 2.5 (temp_file.c) Using mkstemp
 ```
 
 [℗ 28](#t017){id=p028}
------------------
 
-Using tmpfile
---------------------------------------------------------
+//Using tmpfile
+---------------
 If you are using the C library I/O functions and don’t need to pass the temporary file
 to another program, you can use the tmpfile function.This creates and opens a tem-
 porary file, and returns a file pointer to it.The temporary file is already unlinked, as in
@@ -2035,11 +1983,10 @@ porary filenames,including mktemp , tmpnam ,and tempnam .Don’t use these funct
 though,because they suffer from the reliability and security problems already mentioned.
 
 [℗ 29](#t017){id=p029}
------------------
 
 
-2.2 Coding Defensively
---------------------------------------------------------
+//2.2 Coding Defensively
+------------------------
 
 Writing programs that run correctly under "normal" use is hard; writing programs that
 behave gracefully in failure situations is harder.This section demonstrates some coding
@@ -2053,8 +2000,8 @@ Application," comes back to demonstrating how to use these techniques to write
 robust programs.
 
 
-2.2.1 Using assert
---------------------------------------------------------
+//2.2.1 Using assert
+--------------------
 
 A good objective to keep in mind when coding application programs is that bugs or
 unexpected errors should cause the program to fail dramatically, as early as possible.
@@ -2091,7 +2038,6 @@ sion you use with assert has no side effects. Specifically, you shouldn’t call
 inside assert expressions, assign variables, or use modifying operators such as ++ .
 
 [℗ 30](#t030){id=p030}
------------------
 
 Suppose, for example, that you call a function, do_something , repeatedly in a loop.
 
@@ -2143,11 +2089,10 @@ parameter’s value.
 Don’t hold back; use assert liberally throughout your programs.
 
 [℗ 31](#t030){id=p031}
------------------
 
 
-2.2.2 System Call Failures
---------------------------------------------------------
+//2.2.2 System Call Failures
+----------------------------
 
 Most of us were originally taught how to write programs that execute to completion
 along a well-defined path.We divide the program into tasks and subtasks, and each
@@ -2196,11 +2141,10 @@ that more code is devoted to detecting and handling errors and other exceptional
 cumstances than to the main work of the program.
 
 [℗ 32](#t030){id=p032}
------------------
 
 
-2.2.3 Error Codes from System Calls
---------------------------------------------------------
+//2.2.3 Error Codes from System Calls
+-------------------------------------
 
 A majority of system calls return zero if the operation succeeds, or a nonzero value if
 the operation fails. (Many, though, have different return value conventions; for
@@ -2249,7 +2193,6 @@ include logic that handles all possible failure modes in some way or another.
 global variable.
 
 [℗ 33](#t030){id=p033}
------------------
 
 One possible error code that you should be on the watch for, especially with I/O
 functions, is EINTR . Some functions, such as read , select , and sleep , can take signifi-
@@ -2302,7 +2245,6 @@ core file wouldn’t be very useful.
     }
 
 [℗ 34](#t030){id=p034}
------------------
 
 You could simply have used this code,which behaves the same way if the call succeeds:
 
@@ -2316,8 +2258,8 @@ Whether you use the first form, the second form, or something in between
 depends on the error detection and recovery requirements for your program.
 
 
-2.2.4 Errors and Resource Allocation
---------------------------------------------------------
+//2.2.4 Errors and Resource Allocation
+--------------------------------------
 
 Often, when a system call fails, it’s appropriate to cancel the current operation but not
 to terminate the program because it may be possible to recover from the error. One
@@ -2363,7 +2305,6 @@ Listing 2.6 (readfile.c) Freeing Resources During Abnormal Conditions
     #include <unistd.h>
 
 [℗ 35](#t030){id=p035}
------------------
 
     char* read_from_file (const char* filename, size_t length)
     {
@@ -2400,8 +2341,8 @@ exit .You might need to manually free other shared resources, however, such as t
 rary files and shared memory, which can potentially outlive a program.
 
 
-2.3 Writing and Using Libraries
---------------------------------------------------------
+//2.3 Writing and Using Libraries
+---------------------------------
 
 Virtually all programs are linked against one or more libraries.Any program that uses a
 C function (such as printf or malloc ) will be linked against the C runtime library. If
@@ -2415,15 +2356,14 @@ upgrade, but probably easier to deploy. If you link dynamically, your programs w
 Listing 2.6 Continued
 
 [℗ 36](#t036){id=p036}
------------------
 
 smaller, easier to upgrade, but harder to deploy.This section explains how to link both
 statically and dynamically, examines the trade-offs in more detail, and gives some "rules
 of thumb" for deciding which kind of linking is better for you.
 
 
-2.3.1 Archives
---------------------------------------------------------
+//2.3.1 Archives
+----------------
 
 An archive (or static library) is simply a collection of object files stored as a single file.
 (An archive is roughly the equivalent of a Windows .LIB file.) When you provide an
@@ -2468,7 +2408,6 @@ Listing 2.8 (app.c) A Program That Uses Library Functions
 the archive.These operations are rarely used but are documented on the ar man page.
 
 [℗ 37](#t036){id=p037}
------------------
 
 Now suppose that test.o is combined with some other object files to produce the
 libtest.a archive.The following command line will not work:
@@ -2490,8 +2429,8 @@ The reason is that the reference to f in app.o causes the linker to include the 
 object file from the libtest.a archive.
 
 
-2.3.2 Shared Libraries
---------------------------------------------------------
+//2.3.2 Shared Libraries
+------------------------
 
 A shared library (also known as a shared object, or as a dynamically linked library) is
 similar to a archive in that it is a grouping of object files. However, there are many
@@ -2516,15 +2455,14 @@ library using the -fPIC option to the compiler, like this:
 The -fPIC option tells the compiler that you are going to be using test.o as part of a
 shared object.
 
-Position-Independent Code (PIC)
---------------------------------------------------------
+//Position-Independent Code (PIC)
+---------------------------------
 PIC stands for position-independent code. The functions in a shared library may be loaded at different
 addresses in different programs, so the code in the shared object must not depend on the address (or
 position) at which it is loaded. This consideration has no impact on you, as the programmer, except that
 you must remember to use the -fPIC flag when compiling code that will be used in a shared library.
 
 [℗ 38](#t036){id=p038}
------------------
 
 Then you combine the object files into a shared library, like this:
 
@@ -2558,8 +2496,8 @@ These libraries need to be available when the executable is run. Note that ldd w
 an additional library called ld-linux.so , which is a part of GNU/Linux’s dynamic
 linking mechanism.
 
-Using LD_LIBRARY_PATH
---------------------------------------------------------
+//Using LD_LIBRARY_PATH
+-----------------------
 When you link a program with a shared library, the linker does not put the full path
 to the shared library in the resulting executable. Instead, it places only the name of the
 shared library.When the program is actually run, the system searches for the shared
@@ -2576,7 +2514,6 @@ Then, when app is run, the system will search /usr/local/lib for any required sh
 libraries.
 
 [℗ 39](#t036){id=p039}
------------------
 
 Another solution to this problem is to set the LD_LIBRARY_PATH environment
 variable when running the program. Like the PATH environment variable,
@@ -2589,8 +2526,8 @@ note that if you have LD_LIBRARY_PATH , the linker will search the directories g
 there in addition to the directories given with the -L option when it is building an
 executable. ➍
 
-2.3.3 Standard Libraries
---------------------------------------------------------
+//2.3.3 Standard Libraries
+--------------------------
 
 Even if you didn’t specify any libraries when you linked your program, it almost cer-
 tainly uses a shared library.That’s because GCC automatically links in the standard C
@@ -2605,8 +2542,8 @@ If you write a C++ program and link it using the c++ or g++ commands, you’ll a
 get the standard C++ library, libstdc++ , automatically.
 
 
-2.3.4 Library Dependencies
---------------------------------------------------------
+//2.3.4 Library Dependencies
+----------------------------
 
 One library will often depend on another library. For example, many GNU/Linux
 systems include libtiff , a library that contains functions for reading and writing
@@ -2631,7 +2568,6 @@ Listing 2.9 (tifftest.c) Using libtiff
 what you read; this variable does not actually do anything under GNU/Linux.
 
 [℗ 40](#t036){id=p040}
------------------
 
 Save this source file as tifftest.c .To compile this program and link with libtiff ,
 specify -ltiff on your link line:
@@ -2679,14 +2615,13 @@ So, even if libfoo.a references symbols in libbar.a , and vice versa, the progra
 link successfully.
 
 
-2.3.5 Pros and Cons
---------------------------------------------------------
+//2.3.5 Pros and Cons
+---------------------
 
 Now that you know all about static archives and shared libraries, you’re probably
 wondering which to use.There are a few major considerations to keep in mind.
 
 [℗ 41](#t036){id=p041}
------------------
 
 One major advantage of a shared library is that it saves space on the system where
 the program is installed. If you are installing 10 programs, and they all make use of the
@@ -2723,8 +2658,8 @@ You’ll have to weigh these advantages and disadvantages for every program you
 distribute.
 
 
-2.3.6 Dynamic Loading and Unloading
---------------------------------------------------------
+//2.3.6 Dynamic Loading and Unloading
+-------------------------------------
 
 Sometimes you might want to load some code at run time without explicitly linking
 in that code. For example, consider an application that supports "plug-in" modules,
@@ -2738,7 +2673,6 @@ open a shared library named libtest.so by calling dlopen like this:
 dlopen ("libtest.so", RTLD_LAZY)
 
 [℗ 42](#t036){id=p042}
------------------
 
 (The second parameter is a flag that indicates how to bind symbols in the shared
 library.You can consult the online man pages for dlopen if you want more informa-
@@ -2782,14 +2716,12 @@ extra information about the function.A C compiler will not mangle names; it will
 whichever name you give to your function or variable.
 
 [℗ 43](#t036){id=p043}
------------------
 
 
 [℗ 44](#t036){id=p044}
------------------
 
-Chapter 3 Processes
-========================================================
+/6. Chapter 3 Processes
+=======================
 
 A RUNNING INSTANCE OF A PROGRAM IS CALLED A PROCESS . If you have two
 terminal windows showing on your screen, then you are probably running the
@@ -2807,19 +2739,18 @@ those on other UNIX systems. Most are declared in the header file <unistd.h> ; c
 the man page for each function to be sure.
 
 
-3.1 Looking at Processes
---------------------------------------------------------
+//3.1 Looking at Processes
+--------------------------
 
 Even as you sit down at your computer, there are processes running. Every executing
 program uses one or more processes. Let’s start by taking a look at the processes
 already on your computer.
 
 [℗ 45](#t045){id=p045}
------------------
 
 
-3.1.1 Process IDs
---------------------------------------------------------
+//3.1.1 Process IDs
+-------------------
 
 Each process in a Linux system is identified by its unique process ID, sometimes
 referred to as pid. Process IDs are 16-bit numbers that are assigned sequentially by
@@ -2853,8 +2784,8 @@ time from the same shell, the parent process ID (that is, the process ID of the 
 process) is the same.
 
 
-3.1.2 Viewing Active Processes
---------------------------------------------------------
+//3.1.2 Viewing Active Processes
+--------------------------------
 
 The ps command displays the processes that are running on your system.The
 GNU/Linux version of ps has lots of options because it tries to be compatible with
@@ -2870,7 +2801,6 @@ window in which ps is invoked. For example:
     21694 pts/8 00:00:00 ps
 
 [℗ 46](#t045){id=p046}
------------------
 
 This invocation of ps shows two processes.The first, bash , is the shell running on this
 terminal.The second is the running instance of the ps program itself.The first col-
@@ -2914,8 +2844,8 @@ the shell from which I invoked ps .The parent process ID of bash is in turn 2172
 process ID of the xterm program in which the shell is running.
 
 
-3.1.3 Killing a Process
---------------------------------------------------------
+//3.1.3 Killing a Process
+-------------------------
 
 You can kill a running process with the kill command. Simply specify on the com-
 mand line the process ID of the process to be killed.
@@ -2927,11 +2857,10 @@ handles or masks the SIGTERM signal. Signals are described in Section 3.3,"Signa
 Section 3.4,"Process Termination."
 
 [℗ 47](#t045){id=p047}
------------------
 
 
-3.2 Creating Processes
---------------------------------------------------------
+//3.2 Creating Processes
+------------------------
 
 Two common techniques are used for creating a new process.The first is relatively
 simple but should be used sparingly because it is inefficient and has considerably
@@ -2939,8 +2868,8 @@ security risks.The second technique is more complex but provides greater flexibi
 speed, and security.
 
 
-3.2.1 Using system
---------------------------------------------------------
+//3.2.1 Using system
+--------------------
 
 The system function in the standard C library provides an easy way to execute a
 command from within a program, much as if the command had been typed into a
@@ -2973,8 +2902,8 @@ GNU/Linux systems.Therefore, it’s preferable to use the fork and exec method f
 creating processes.
 
 
-3.2.2 Using fork and exec
---------------------------------------------------------
+//3.2.2 Using fork and exec
+---------------------------
 
 The DOS and Windows API contains the spawn family of functions.These functions
 take as an argument the name of a program to run and create a new process instance
@@ -2983,7 +2912,6 @@ of that program. Linux doesn’t contain a single function that does all this in
 Instead, Linux provides one function, fork , that makes a child process that is an exact
 
 [℗ 48](#t048){id=p048}
------------------
 
 copy of its parent process. Linux provides another set of functions, the exec family, that
 causes a particular process to cease being an instance of one program and to instead
@@ -2991,8 +2919,8 @@ become an instance of another program.To spawn a new process, you first use fork
 make a copy of the current process.Then you use exec to transform one of these
 processes into an instance of the program you want to spawn.
 
-Calling fork
---------------------------------------------------------
+//Calling fork
+--------------
 When a program calls fork , a duplicate process, called the child process, is created.The
 parent process continues executing the program from the point that fork was called.
 
@@ -3033,10 +2961,9 @@ Listing 3.3 (fork.c) Using fork to Duplicate a Program’s Process
     }
 
 [℗ 49](#t048){id=p049}
------------------
 
-Using the exec Family
---------------------------------------------------------
+//Using the exec Family
+-----------------------
 The exec functions replace the program running in a process with another program.
 
 When a program calls an exec function, that process immediately ceases executing that
@@ -3073,8 +3000,8 @@ first command-line argument, and so on.When you use an exec function in your pro
 grams, you, too, should pass the name of the function as the first element of the argu-
 ment list.
 
-Using fork and exec Together
---------------------------------------------------------
+//Using fork and exec Together
+------------------------------
 A common pattern to run a subprogram within a program is first to fork the process
 and then exec the subprogram.This allows the calling program to continue execution
 in the parent process while the calling program is replaced by the subprogram in the
@@ -3086,7 +3013,6 @@ mand directly, passing it the command-line arguments -l and / rather than invoki
 through a shell.
 
 [℗ 50](#t048){id=p050}
------------------
 
 Listing 3.4 (fork-exec.c) Using fork and exec Together
 
@@ -3133,11 +3059,10 @@ Listing 3.4 (fork-exec.c) Using fork and exec Together
     }
 
 [℗ 51](#t048){id=p051}
------------------
 
 
-3.2.3 Process Scheduling
---------------------------------------------------------
+//3.2.3 Process Scheduling
+--------------------------
 
 Linux schedules the parent and child processes independently; there’s no guarantee of
 which one will run first, or how long it will run before Linux interrupts it and lets the
@@ -3174,8 +3099,8 @@ This prevents ordinary users from grabbing execution priority away from others u
 the system.
 
 
-3.3 Signals
---------------------------------------------------------
+//3.3 Signals
+-------------
 
 Signals are mechanisms for communicating with and manipulating processes in Linux.
 
@@ -3194,7 +3119,6 @@ your programs; instead, use `<signal.h>` .)
 Process Termination."
 
 [℗ 52](#t052){id=p052}
------------------
 
 When a process receives a signal, it may do one of several things, depending on the
 signal’s disposition. For each signal, there is a default disposition, which determines what
@@ -3253,7 +3177,6 @@ ignore the request by masking or ignoring the signal.The SIGKILL signal always k
 immediately because the process may not mask or ignore SIGKILL .
 
 [℗ 53](#t052){id=p053}
------------------
 
 Even assigning a value to a global variable can be dangerous because the assignment
 may actually be carried out in two or more machine instructions, and a second signal
@@ -3294,11 +3217,10 @@ Listing 3.5 (sigusr1.c) Using a Signal Handler
     }
 
 [℗ 54](#t052){id=p054}
------------------
 
 
-3.4 Process Termination
---------------------------------------------------------
+//3.4 Process Termination
+-------------------------
 
 Normally, a process terminates in one of two ways. Either the executing program calls
 the exit function, or the program’s main function returns. Each process has an exit
@@ -3341,7 +3263,6 @@ multiple programs with the && (logical and) and || (logical or) operators.Theref
 you should explicitly return zero from your main function, unless an error occurs.
 
 [℗ 55](#t055){id=p055}
------------------
 
 With most shells, it’s possible to obtain the exit code of the most recently executed
 program using the special $? variable. Here’s an example in which the ls command is
@@ -3367,8 +3288,8 @@ a special meaning—when a process is terminated by a signal, its exit code is 1
 the signal number.
 
 
-3.4.1 Waiting for Process Termination
---------------------------------------------------------
+//3.4.1 Waiting for Process Termination
+---------------------------------------
 
 If you typed in and ran the fork and exec example in Listing 3.4, you may have
 noticed that the output from the ls program often appears after the "main program"
@@ -3386,8 +3307,8 @@ mation about the process that exited, and you can choose whether you care about
 which child process terminated.
 
 
-3.4.2 The wait System Calls
---------------------------------------------------------
+//3.4.2 The wait System Calls
+-----------------------------
 
 The simplest such function is called simply wait .It blocks the calling process until one
 of its child processes exits (or an error occurs).It returns a status code via an integer
@@ -3395,7 +3316,6 @@ pointer argument,from which you can extract information about how the child proc
 exited.For instance,the WEXITSTATUS macro extracts the child process’s exit code.
 
 [℗ 56](#t055){id=p056}
------------------
 
 You can use the WIFEXITED macro to determine from a child process’s exit status
 whether that process exited normally (via the exit function or returning from main )
@@ -3436,8 +3356,8 @@ tion returns CPU usage statistics about the exiting child process, and the wait4
 function allows you to specify additional options about which processes to wait for.
 
 
-3.4.3 Zombie Processes
---------------------------------------------------------
+//3.4.3 Zombie Processes
+------------------------
 
 If a child process terminates while its parent is calling a wait function, the child
 process vanishes and its termination status is passed to its parent via the wait call. But
@@ -3447,7 +3367,6 @@ whether it exited normally and, if so, what its exit status is—would be lost. 
 when a child process terminates, is becomes a zombie process.
 
 [℗ 57](#t055){id=p057}
------------------
 
 A zombie process is a process that has terminated but has not been cleaned up yet. It
 is the responsibility of the parent process to clean up its zombie children.The wait
@@ -3493,7 +3412,6 @@ another window:
     % ps -e -o pid,ppid,stat,cmd
 
 [℗ 58](#t055){id=p058}
------------------
 
 This lists the process ID, parent process ID, process status, and process command
 line. Observe that, in addition to the parent make-zombie process, there is another
@@ -3509,8 +3427,8 @@ always runs with process ID of 1 (it’s the first process started when Linux bo
 init process automatically cleans up any zombie child processes that it inherits.
 
 
-3.4.4 Cleaning Up Children Asynchronously
---------------------------------------------------------
+//3.4.4 Cleaning Up Children Asynchronously
+-------------------------------------------
 
 If you’re using a child process simply to exec another program, it’s fine to call wait
 immediately in the parent process, which will block until the child process completes.
@@ -3545,7 +3463,6 @@ mation is no longer available. Listing 3.7 is what it looks like for a program t
 SIGCHLD handler to clean up its child processes.
 
 [℗ 59](#t055){id=p059}
------------------
 
 Listing 3.7 (sigchld.c) Cleaning Up Children by Handling SIGCHLD
 
@@ -3579,10 +3496,9 @@ from which the main program can access it. Because the variable is assigned in a
 handler, its type is sig_atomic_t .
 
 [℗ 60](#t055){id=p060}
------------------
 
-Chapter 4 Threads
-========================================================
+/7. Chapter 4 Threads
+=====================
 
 THREADS, LIKE PROCESSES , ARE A MECHANISM TO ALLOW A PROGRAM to do more than
 one thing at a time.As with processes, threads appear to run concurrently; the Linux
@@ -3606,7 +3522,6 @@ the value of a variable, for instance, the other thread subsequently will see th
 fied value. Similarly, if one thread closes a file descriptor, other threads may not read
 
 [℗ 61](#t061){id=p061}
------------------
 
 from or write to that file descriptor. Because a process and all its threads can be exe-
 cuting only one program at a time, if any thread inside a process calls one of the exec
@@ -3620,8 +3535,8 @@ libpthread , so you should add -lpthread to the command line when you link your
 program.
 
 
-4.1 Thread Creation
---------------------------------------------------------
+//4.1 Thread Creation
+---------------------
 
 Each thread in a process is identified by a thread ID.When referring to thread IDs in
 C or C++ programs, use the type pthread_t .
@@ -3657,7 +3572,6 @@ must not rely on the relative order in which instructions are executed in the tw
 threads.
 
 [℗ 62](#t062){id=p062}
------------------
 
 The program in Listing 4.1 creates a thread that prints x’s continuously to standard
 error.After calling pthread_create , the main thread prints o’s continuously to standard
@@ -3702,11 +3616,10 @@ thread function or from some other function called directly or indirectly by the
 function.The argument to pthread_exit is the thread’s return value.
 
 [℗ 63](#t062){id=p063}
------------------
 
 
-4.1.1 Passing Data to Threads
---------------------------------------------------------
+//4.1.1 Passing Data to Threads
+-------------------------------
 
 The thread argument provides a convenient method of passing data to threads.
 
@@ -3752,7 +3665,6 @@ Listing 4.2 (thread-create2) Create Two Threads
     pthread_t thread1_id;
 
 [℗ 64](#t062){id=p064}
------------------
 
     pthread_t thread2_id;
     struct char_print_parms thread1_args;
@@ -3777,8 +3689,8 @@ Nothing! But if this happens, the memory containing the thread parameter structu
 will be deallocated while the other two threads are still accessing it.
 
 
-4.1.2 Joining Threads
---------------------------------------------------------
+//4.1.2 Joining Threads
+-----------------------
 
 One solution is to force main to wait until the other two threads are done.What we
 need is a function similar to wait that waits for a thread to finish instead of a process.
@@ -3805,7 +3717,6 @@ Listing 4.3 Revised Main Function for thread-create2.c
     struct char_print_parms thread2_args;
 
 [℗ 65](#t062){id=p065}
------------------
 
     /* Create a new thread to print 30,000 x’s. */
     thread1_args.character = ’x’;
@@ -3830,8 +3741,8 @@ scope, and for heap-allocated variables, which you deallocate by calling free (o
 delete in C++).
 
 
-4.1.3 Thread Return Values
---------------------------------------------------------
+//4.1.3 Thread Return Values
+----------------------------
 
 If the second argument you pass to pthread_join is non-null, the thread’s return value
 will be placed in the location pointed to by that argument.The thread return value,
@@ -3849,7 +3760,6 @@ algorithims if you need to compute many prime numbers in your programs.
 safely to void* and back without losing bits.
 
 [℗ 66](#t062){id=p066}
------------------
 
 Listing 4.3 Continued
 
@@ -3897,11 +3807,10 @@ Listing 4.3 Continued
     }
 
 [℗ 67](#t062){id=p067}
------------------
 
 
-4.1.4 More on Thread IDs
---------------------------------------------------------
+//4.1.4 More on Thread IDs
+--------------------------
 
 Occasionally, it is useful for a sequence of code to determine which thread is execut-
 ing it.The pthread_self function returns the thread ID of the thread in which it is
@@ -3916,8 +3825,8 @@ if (!pthread_equal (pthread_self (), other_thread))
 pthread_join (other_thread, NULL);
 
 
-4.1.5 Thread Attributes
---------------------------------------------------------
+//4.1.5 Thread Attributes
+-------------------------
 
 Thread attributes provide a mechanism for fine-tuning the behavior of individual
 threads. Recall that pthread_create accepts an argument that is a pointer to a thread
@@ -3955,7 +3864,6 @@ detached thread is immediately cleaned up, another thread may not synchronize on
 completion by using pthread_join or obtain its return value.
 
 [℗ 68](#t062){id=p068}
------------------
 
 To set the detach state in a thread attribute object,use pthread_attr_setdetachstate .
 The first argument is a pointer to the thread attribute object,and the second is the
@@ -3991,8 +3899,8 @@ thread.To do this, call pthread_detach . Once a thread is detached, it cannot be
 joinable again.
 
 
-4.2 Thread Cancellation
---------------------------------------------------------
+//4.2 Thread Cancellation
+-------------------------
 
 Under normal circumstances, a thread terminates when it exits normally, either by
 returning from its thread function or by calling pthread_exit . However, it is possible
@@ -4005,7 +3913,6 @@ Attributes").The return value of a canceled thread is the special value given by
 PTHREAD_CANCELED .
 
 [℗ 69](#t069){id=p069}
------------------
 
 Often a thread may be in some code that must be executed in an all-or-nothing
 fashion. For instance, the thread may allocate some resources, use them, and then deal-
@@ -4027,8 +3934,8 @@ A thread may be in one of three states with regard to thread cancellation.
     When initially created, a thread is synchronously cancelable.
 
 
-4.2.1 Synchronous and Asynchronous Threads
---------------------------------------------------------
+//4.2.1 Synchronous and Asynchronous Threads
+--------------------------------------------
 
 An asynchronously cancelable thread may be canceled at any point in its execution.A
 synchronously cancelable thread, in contrast, may be canceled only at particular places
@@ -4058,11 +3965,10 @@ the pthread_cancel man page. Note that other functions may use these functions
 internally and thus will indirectly be cancellation points.
 
 [℗ 70](#t069){id=p070}
------------------
 
 
-4.2.2 Uncancelable Critical Sections
---------------------------------------------------------
+//4.2.2 Uncancelable Critical Sections
+--------------------------------------
 
 A thread may disable cancellation of itself altogether with the
 pthread_setcancelstate function. Like pthread_setcanceltype , this affects the calling
@@ -4109,7 +4015,6 @@ Listing 4.6 (critical-section.c) Protect a Bank Transaction with a Critical Sect
     return 1;
 
 [℗ 71](#t069){id=p071}
------------------
 
     /* Begin critical section. */
     pthread_setcancelstate (PTHREAD_CANCEL_DISABLE, &old_cancel_state);
@@ -4127,8 +4032,8 @@ call the process_transaction function safely from within another critical sectio
 that case, your function will leave the cancel state the same way it found it.
 
 
-4.2.3 When to Use Thread Cancellation
---------------------------------------------------------
+//4.2.3 When to Use Thread Cancellation
+---------------------------------------
 
 In general, it’s a good idea not to use thread cancellation to end the execution of a
 thread, except in unusual circumstances. During normal operation, a better strategy is
@@ -4137,8 +4042,8 @@ its own in an orderly fashion.We’ll discuss techniques for communicating with 
 thread later in this chapter, and in Chapter 5,"Interprocess Communication."
 
 
-4.3 Thread-Specific Data
---------------------------------------------------------
+//4.3 Thread-Specific Data
+--------------------------
 
 Unlike processes, all threads in a single program share the same address space.This
 means that if one thread modifies a location in memory (for instance, a global vari-
@@ -4164,7 +4069,6 @@ Listing 4.6 Continued
 
 
 [℗ 72](#t072){id=p072}
------------------
 
 You may create as many thread-specific data items as you want, each of type void* .
 Each item is referenced by a key.To create a new key, and thus a new data item for
@@ -4216,7 +4120,6 @@ Listing 4.7 (tsd.c) Per-Thread Log Files Implemented with Thread-Specific Data
     void close_thread_log (void* thread_log)
 
 [℗ 73](#t072){id=p073}
------------------
 
     {
     fclose ((FILE*) thread_log);
@@ -4259,11 +4162,10 @@ thread-specific value for the thread log key.This function takes care of closing
 log file.
 
 [℗ 74](#t072){id=p074}
------------------
 
 
-4.3.1 Cleanup Handlers
---------------------------------------------------------
+//4.3.1 Cleanup Handlers
+------------------------
 
 The cleanup functions for thread-specific data keys can be very handy for ensuring
 that resources are not leaked when a thread exits or is canceled. Sometimes, though,
@@ -4314,7 +4216,6 @@ Cleanup Handler
     /* Allocate a temporary buffer. */
 
 [℗ 75](#t072){id=p075}
------------------
 
     void* temp_buffer = allocate_buffer (1024);
     /* Register a cleanup handler for this buffer, to deallocate it in
@@ -4334,8 +4235,8 @@ called explicitly. In this simple case, we could have used the standard library 
 free directly as our cleanup handler function instead of deallocate_buffer .
 
 
-4.3.2 Thread Cleanup in C++
---------------------------------------------------------
+//4.3.2 Thread Cleanup in C++
+-----------------------------
 
 C++ programmers are accustomed to getting cleanup "for free" by wrapping cleanup
 actions in object destructors.When the objects go out of scope, either because a block
@@ -4358,7 +4259,6 @@ exception percolates up.
 Listing 4.9 (cxx-exit.cpp) Implementing Safe Thread Exit with C++ Exceptions
 
 [℗ 76](#t072){id=p076}
------------------
 
 #include <pthread.h>
 
@@ -4401,8 +4301,8 @@ Listing 4.9 (cxx-exit.cpp) Implementing Safe Thread Exit with C++ Exceptions
     }
 
 
-4.4 Synchronization and Critical Sections
---------------------------------------------------------
+//4.4 Synchronization and Critical Sections
+-------------------------------------------
 
 Programming with threads is very tricky because most threaded programs are concur-
 rent programs. In particular, there’s no way to know when the system will schedule
@@ -4417,7 +4317,6 @@ everything work fine; the next time you run it, it might crash.There’s no way 
 the system schedule the threads exactly the same way it did before.
 
 [℗ 77](#t077){id=p077}
------------------
 
 The ultimate cause of most bugs involving threads is that the threads are accessing
 the same data.As mentioned previously, that’s one of the powerful aspects of threads,
@@ -4429,8 +4328,8 @@ called race conditions; the threads are racing one another to change the same da
 structure.
 
 
-4.4.1 Race Conditions
---------------------------------------------------------
+//4.4.1 Race Conditions
+-----------------------
 
 Suppose that your program has a series of queued jobs that are processed by several
 concurrent threads.The queue of jobs is represented by a linked list of struct job
@@ -4470,7 +4369,6 @@ Listing 4.10 (job-queue1.c) Thread Function to Process Jobs from the Queue
     }
 
 [℗ 78](#t077){id=p078}
------------------
 
 Now suppose that two threads happen to finish a job at about the same time, but only
 one job remains in the queue.The first thread checks whether job_queue is null; find-
@@ -4497,8 +4395,8 @@ while. In this particular example, you want to check job_queue ; if it’s not e
 remove the first job, all as a single atomic operation.
 
 
-4.4.2 Mutexes
---------------------------------------------------------
+//4.4.2 Mutexes
+---------------
 
 The solution to the job queue race condition problem is to let only one thread access
 the queue of jobs at a time. Once a thread starts looking at the queue, no other thread
@@ -4524,7 +4422,6 @@ it to pthread_mutex_init .The second argument to pthread_mutex_init is a pointer
 to a mutex attribute object, which specifies attributes of the mutex.As with
 
 [℗ 79](#t077){id=p079}
------------------
 
 pthread_create , if the attribute pointer is null, default attributes are assumed.The
 mutex variable should be initialized only once.This code fragment demonstrates the
@@ -4575,7 +4472,6 @@ Listing 4.11 (job-queue2.c) Job Queue Thread Function, Protected by a Mutex
     pthread_mutex_t job_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 [℗ 80](#t077){id=p080}
------------------
 
     /* Process queued jobs until the queue is empty. */
     void* thread_function (void* arg)
@@ -4623,7 +4519,6 @@ lock the mutex before accessing that variable and then to unlock it afterward. F
 example, a function to add a job to the job queue might look like this:
 
 [℗ 81](#t077){id=p081}
------------------
 
     void enqueue_job (struct job* new_job)
     {
@@ -4634,8 +4529,8 @@ example, a function to add a job to the job queue might look like this:
     pthread_mutex_unlock (&job_queue_mutex);
     }
 
-4.4.3 Mutex Deadlocks
---------------------------------------------------------
+//4.4.3 Mutex Deadlocks
+-----------------------
 
 Mutexes provide a mechanism for allowing one thread to block the execution of
 another.This opens up the possibility of a new class of bugs, called deadlocks.A dead-
@@ -4678,14 +4573,13 @@ This code sequence illustrates creation of an error-checking mutex, for instance
     pthread_mutexattr_destroy (&attr);
 
 [℗ 82](#t077){id=p082}
------------------
 
 As suggested by the "np" suffix, the recursive and error-checking mutex kinds are spe-
 cific to GNU/Linux and are not portable.Therefore, it is generally not advised to use
 them in programs. (Error-checking mutexes can be useful when debugging, though.)
 
-4.4.4 Nonblocking Mutex Tests
---------------------------------------------------------
+//4.4.4 Nonblocking Mutex Tests
+-------------------------------
 
 Occasionally, it is useful to test whether a mutex is locked without actually blocking
 on it. For instance, a thread may need to lock a mutex but may have other work to do
@@ -4701,8 +4595,8 @@ Instead, it will return immediately with the error code EBUSY .The mutex lock he
 the other thread is not affected.You may try again later to lock the mutex.
 
 
-4.4.5 Semaphores for Threads
---------------------------------------------------------
+//4.4.5 Semaphores for Threads
+------------------------------
 
 In the preceding example, in which several threads process jobs from a queue, the
 main thread function of the threads carries out the next job until no jobs are left and
@@ -4732,7 +4626,6 @@ supports two basic operations:
     (which brings the semaphore’s value back to zero).
 
 [℗ 83](#t077){id=p083}
------------------
 
 Note that GNU/Linux provides two slightly different semaphore implementations.
 
@@ -4769,7 +4662,6 @@ The function enqueue_job adds a new job to the queue.
 not supported by GNU/Linux for this type of semaphore.
 
 [℗ 84](#t077){id=p084}
------------------
 
 Listing 4.12 (job-queue3.c) Job Queue Controlled by a Semaphore
 
@@ -4829,7 +4721,6 @@ Listing 4.12 (job-queue3.c) Job Queue Controlled by a Semaphore
     struct job* new_job;
 
 [℗ 85](#t077){id=p085}
------------------
 
     /* Allocate a new job object. */
     new_job = (struct job*) malloc (sizeof (struct job));
@@ -4858,8 +4749,8 @@ queue, it posts to the semaphore, indicating that a new job is available. In the
 shown in Listing 4.12, the threads that process the jobs never exit; if no jobs are avail-
 able for a while, all the threads simply block in sem_wait .
 
-4.4.6 Condition Variables
---------------------------------------------------------
+//4.4.6 Condition Variables
+---------------------------
 
 We’ve shown how to use a mutex to protect a variable against simultaneous access by
 two threads and how to use semaphores to implement a shared counter.A condition
@@ -4878,7 +4769,6 @@ may be correct, but it is not efficient.The thread function will spend lots of C
 Listing 4.12 Continued
 
 [℗ 86](#t077){id=p086}
------------------
 
 whenever the flag is not set, checking and rechecking the flag, each time locking and
 unlocking the mutex.What you really want is a way to put the thread to sleep when
@@ -4921,7 +4811,6 @@ Listing 4.13 (spin-condvar.c) A Simple Condition Variable Implementation
     }
 
 [℗ 87](#t077){id=p087}
------------------
 
 A condition variable enables you to implement a condition under which a thread exe-
 cutes and, inversely, the condition under which the thread is blocked.As long as every
@@ -4973,7 +4862,6 @@ change the flag value and signal the condition variable in between thread_functi
 test of the flag value and wait on the condition variable.
 
 [℗ 88](#t077){id=p088}
------------------
 
 A condition variable is represented by an instance of pthread_cond_t . Remember
 that each condition variable should be accompanied by a mutex.These are the func-
@@ -5022,7 +4910,6 @@ note that set_thread_flag locks the mutex before setting the value of thread_fla
 and signaling the mutex.
 
 [℗ 89](#t077){id=p089}
------------------
 
 Listing 4.14 (condvar.c) Control a Thread Using a Condition Variable
 
@@ -5076,7 +4963,6 @@ Listing 4.14 (condvar.c) Control a Thread Using a Condition Variable
     }
 
 [℗ 90](#t077){id=p090}
------------------
 
 The condition protected by a condition variable can be arbitrarily complex. However,
 before performing any operation that may change the sense of the condition, a mutex
@@ -5092,8 +4978,8 @@ pthread_cond_broadcast , an arbitrary and unknown number of blocked threads
 may be awoken at the same time.
 
 
-4.4.7 Deadlocks with Two or More Threads
---------------------------------------------------------
+//4.4.7 Deadlocks with Two or More Threads
+------------------------------------------
 
 Deadlocks can occur when two (or more) threads are each blocked, waiting for a con-
 dition to occur that only the other one can cause. For instance, if thread A is blocked
@@ -5118,11 +5004,10 @@ of resources in different orders.The solution is to make sure that all threads t
 more than one resource lock them in the same order.
 
 [℗ 91](#t077){id=p091}
------------------
 
 
-4.5 GNU/Linux Thread Implementation
---------------------------------------------------------
+//4.5 GNU/Linux Thread Implementation
+-------------------------------------
 
 The implementation of POSIX threads on GNU/Linux differs from the thread imple-
 mentation on many other UNIX-like systems in an important way: on GNU/Linux,
@@ -5177,10 +5062,9 @@ CPU doing nothing. Here’s what the output might look like:
     [1]+ Terminated ./thread-pid
 
 [℗ 92](#t092){id=p092}
------------------
 
-Job Control Notification in the Shell
---------------------------------------------------------
+//Job Control Notification in the Shell
+---------------------------------------
 The lines starting with [1] are from the shell. When you run a program in the background, the shell
 assigns a job number to it—in this case, 1—and prints out the program’s pid. If a background job termi-
 nates, the shell reports that fact the next time you invoke a command.
@@ -5194,8 +5078,8 @@ is part of the internal implementation of GNU/Linux threads.The manager thread i
 created the first time a program calls pthread_create to create a new thread.
 
 
-4.5.1 Signal Handling
---------------------------------------------------------
+//4.5.1 Signal Handling
+-----------------------
 
 Suppose that a multithreaded program receives a signal. In which thread is the signal
 handler invoked? The behavior of the interaction between signals and threads varies
@@ -5220,8 +5104,8 @@ specifically to another thread. Use the pthread_kill function to do this. Its fi
 meter is a thread ID, and its second parameter is a signal number.
 
 
-4.5.2 The clone System Call
---------------------------------------------------------
+//4.5.2 The clone System Call
+-----------------------------
 
 Although GNU/Linux threads created in the same program are implemented as sepa-
 rate processes, they share their virtual memory space and other resources.A child
@@ -5229,7 +5113,6 @@ process created with fork , however, gets copies of these items. How is the form
 of process created?
 
 [℗ 93](#t092){id=p093}
------------------
 
 The Linux clone system call is a generalized form of fork and pthread_create that
 allows the caller to specify which resources are shared between the calling process and
@@ -5240,8 +5123,8 @@ satisfy the reader’s curiosity, that system call should not ordinarily be used
 Use fork to create new processes or pthread_create to create threads.
 
 
-4.6 Processes Vs.Threads
---------------------------------------------------------
+//4.6 Processes Vs.Threads
+--------------------------
 
 For some programs that benefit from concurrency, the decision whether to use
 processes or threads can be difficult. Here are some guidelines to help you decide
@@ -5275,10 +5158,9 @@ described in Chapter 5.This can be more cumbersome but makes multiple
 processes less likely to suffer from concurrency bugs.
 
 [℗ 94](#t094){id=p094}
------------------
 
-Chapter 5 Interprocess Communication
-========================================================
+/8. Chapter 5 Interprocess Communication
+========================================
 
 C HAPTER 3,"P ROCESSES ," DISCUSSED THE CREATION OF PROCESSES and showed
 how one process can obtain the exit status of a child process.That’s the simplest form
@@ -5302,7 +5184,6 @@ another example, you may want to print the filenames in a directory using a comm
 such as ls | lpr .The shell creates an ls process and a separate lpr process,connecting
 
 [℗ 95](#t095){id=p095}
------------------
 
 the two with a pipe, represented by the " | " symbol.A pipe permits one-way commu-
 nication between two related processes.The ls process writes data into the pipe, and
@@ -5336,8 +5217,8 @@ In this chapter, we omit discussion of IPC permitting communication only a limit
 number of times, such as communicating via a child’s exit value.
 
 
-5.1 Shared Memory
---------------------------------------------------------
+//5.1 Shared Memory
+-------------------
 
 One of the simplest interprocess communication methods is using shared memory.
 
@@ -5346,8 +5227,8 @@ called malloc and were returned pointers to the same actual memory.When one
 process changes the memory, all the other processes see the modification.
 
 
-5.1.1 Fast Local Communication
---------------------------------------------------------
+//5.1.1 Fast Local Communication
+--------------------------------
 
 Shared memory is the fastest form of interprocess communication because all
 processes share the same piece of memory.Access to this shared memory is as fast as
@@ -5355,7 +5236,6 @@ accessing a process’s nonshared memory, and it does not require a system call 
 to the kernel. It also avoids copying data unnecessarily.
 
 [℗ 96](#t096){id=p096}
------------------
 
 Because the kernel does not synchronize accesses to shared memory, you must pro-
 vide your own synchronization. For example, a process should not read from the
@@ -5367,8 +5247,8 @@ memory mechanism and to avoid cluttering the sample code with synchronization
 logic.
 
 
-5.1.2 The Memory Model
---------------------------------------------------------
+//5.1.2 The Memory Model
+------------------------
 
 To use a shared memory segment, one process must allocate the segment.Then each
 process desiring to access the segment must attach the segment.After finishing its use
@@ -5398,8 +5278,8 @@ size, which is the number of bytes in a page of memory. On Linux systems, the pa
 size is 4KB, but you should obtain this value by calling the getpagesize function.
 
 
-5.1.3 Allocation
---------------------------------------------------------
+//5.1.3 Allocation
+------------------
 
 A process allocates a shared memory segment using shmget ("SHared Memory
 GET"). Its first parameter is an integer key that specifies which segment to create.
@@ -5410,7 +5290,6 @@ could lead to conflict. Using the special constant IPC_PRIVATE as the key value 
 tees that a brand new memory segment is created.
 
 [℗ 97](#t096){id=p097}
------------------
 
 Its second parameter specifies the number of bytes in the segment. Because seg-
 ments are allocated using pages, the number of actually allocated bytes is rounded up
@@ -5446,8 +5325,8 @@ already exists, the access permissions are verified and a check is made to ensur
 the segment is not marked for destruction.
 
 
-5.1.4 Attachment and Detachment
---------------------------------------------------------
+//5.1.4 Attachment and Detachment
+---------------------------------
 
 To make the shared memory segment available, a process must use shmat ,"SHared
 Memory ATtach." Pass it the shared memory segment identifier SHMID returned by
@@ -5464,7 +5343,6 @@ must page-align the second argument to shmat yourself.
 10.3,"File System Permissions."
 
 [℗ 98](#t096){id=p098}
------------------
 
 If the call succeeds, it returns the address of the attached shared segment. Children cre-
 ated by calls to fork inherit attached shared segments; they can detach the shared
@@ -5476,8 +5354,8 @@ shmat . If the segment has been deallocated and this was the last process using 
 removed. Calls to exit and any of the exec family automatically detach segments.
 
 
-5.1.5 Controlling and Deallocating Shared Memory
---------------------------------------------------------
+//5.1.5 Controlling and Deallocating Shared Memory
+--------------------------------------------------
 
 The shmctl ("SHared Memory ConTroL") call returns information about a shared
 memory segment and can modify it.The first parameter is a shared memory segment
@@ -5498,8 +5376,8 @@ See the shmctl man page for a description of other operations you can perform on
 shared memory segments.
 
 
-5.1.6 An Example Program
---------------------------------------------------------
+//5.1.6 An Example Program
+--------------------------
 
 The program in Listing 5.1 illustrates the use of shared memory.
 
@@ -5520,7 +5398,6 @@ Listing 5.1 (shm.c) Exercise Shared Memory
     IPC_CREAT | IPC_EXCL | S_IRUSR | S_IWUSR);
 
 [℗ 99](#t096){id=p099}
------------------
 
     /* Attach the shared memory segment. */
     shared_memory = (char*) shmat (segment_id, 0, 0);
@@ -5545,8 +5422,8 @@ Listing 5.1 (shm.c) Exercise Shared Memory
     return 0;
     }
 
-5.1.7 Debugging
---------------------------------------------------------
+//5.1.7 Debugging
+-----------------
 
 The ipcs command provides information on interprocess communication facilities,
 including shared segments. Use the -m flag to obtain information about shared
@@ -5562,11 +5439,10 @@ ipcrm command to remove it.
 Listing 5.1 Continued
 
 [℗ 100](#t096){id=p100}
------------------
 
 
-5.1.8 Pros and Cons
---------------------------------------------------------
+//5.1.8 Pros and Cons
+---------------------
 
 Shared memory segments permit fast bidirectional communication among any number
 of processes. Each user can both read and write, but a program must establish and fol-
@@ -5577,8 +5453,8 @@ Also, for multiple processes to use a shared segment, they must make arrangement
 to use the same key.
 
 
-5.2 Processes Semaphores
---------------------------------------------------------
+//5.2 Processes Semaphores
+--------------------------
 
 As noted in the previous section, processes must coordinate access to shared memory.
 
@@ -5593,8 +5469,8 @@ Throughout this section, we present system calls for process semaphores, showing
 to implement single binary semaphores using them.
 
 
-5.2.1 Allocation and Deallocation
---------------------------------------------------------
+//5.2.1 Allocation and Deallocation
+-----------------------------------
 
 The calls semget and semctl allocate and deallocate semaphores, which is analogous to
 shmget and shmctl for shared memory. Invoke semget with a key specifying a sema-
@@ -5617,7 +5493,6 @@ Listing 5.2 presents functions to allocate and deallocate a binary semaphore.
 
 
 [℗ 101](#t101){id=p101}
------------------
 
 Listing 5.2 (sem_all_deall.c) Allocating and Deallocating a Binary Semaphore
 
@@ -5644,8 +5519,8 @@ Listing 5.2 (sem_all_deall.c) Allocating and Deallocating a Binary Semaphore
     return semctl (semid, 1, IPC_RMID, ignored_argument);
     }
 
-5.2.2 Initializing Semaphores
---------------------------------------------------------
+//5.2.2 Initializing Semaphores
+-------------------------------
 
 Allocating and initializing semaphores are two separate operations.To initialize a sema-
 phore, use semctl with zero as the second argument and SETALL as the third argument.
@@ -5657,7 +5532,6 @@ phore in the set.
 Listing 5.3 presents a function that initializes a binary semaphore.
 
 [℗ 102](#t101){id=p102}
------------------
 
 Listing 5.3 (sem_init.c) Initializing a Binary Semaphore
 
@@ -5683,8 +5557,8 @@ Listing 5.3 (sem_init.c) Initializing a Binary Semaphore
     return semctl (semid, 0, SETALL, argument);
     }
 
-5.2.3 Wait and Post Operations
---------------------------------------------------------
+//5.2.3 Wait and Post Operations
+--------------------------------
 
 Each semaphore has a non-negative value and supports wait and post operations.The
 semop system call implements both operations.Its first parameter specifies a semaphore
@@ -5713,7 +5587,6 @@ If you specify SEM_UNDO , Linux automatically undoes the operation on the
 semaphore when the process exits.
 
 [℗ 103](#t101){id=p103}
------------------
 
 Listing 5.4 illustrates wait and post operations for a binary semaphore.
 
@@ -5758,19 +5631,18 @@ adjusted to "undo" the process’s effects on the semaphore. For example, if a p
 that has decremented a semaphore is killed, the semaphore’s value is incremented.
 
 [℗ 104](#t101){id=p104}
------------------
 
 
-5.2.4 Debugging Semaphores
---------------------------------------------------------
+//5.2.4 Debugging Semaphores
+----------------------------
 
 Use the command ipcs -s to display information about existing semaphore sets. Use
 the ipcrm sem command to remove a semaphore set from the command line. For
 example, to remove the semaphore set with identifier 5790517, use this line:
 % ipcrm sem 5790517
 
-5.3 Mapped Memory
---------------------------------------------------------
+//5.3 Mapped Memory
+-------------------
 
 Mapped memory permits different processes to communicate via a shared file.
 
@@ -5795,8 +5667,8 @@ There are uses for memory-mapped files other than interprocess communication.
 
 Some of these are discussed in Section 5.3.5,"Other Uses for mmap ."
 
-5.3.1 Mapping an Ordinary File
---------------------------------------------------------
+//5.3.1 Mapping an Ordinary File
+--------------------------------
 
 To map an ordinary file to a process’s memory, use the mmap ("Memory MAPped,"
 pronounced "em-map") call.The first argument is the address at which you would like
@@ -5820,7 +5692,6 @@ attached file, but to a private copy of the file. No other process sees these wr
 This mode may not be used with MAP_SHARED .
 
 [℗ 105](#t105){id=p105}
------------------
 
 * MAP_SHARED —Writes are immediately reflected in the underlying file rather than
 buffering writes. Use this mode when using mapped memory for IPC.This
@@ -5832,8 +5703,8 @@ the start address and length of the mapped memory region. Linux automatically
 unmaps mapped regions when a process terminates.
 
 
-5.3.2 Example Programs
---------------------------------------------------------
+//5.3.2 Example Programs
+------------------------
 
 Let’s look at two programs to illustrate using memory-mapped regions to read and
 write to files.The first program, Listing 5.5, generates a random number and writes it
@@ -5880,7 +5751,6 @@ Listing 5.5 (mmap-write.c) Write a Random Number to a Memory-Mapped File
     }
 
 [℗ 106](#t105){id=p106}
------------------
 The mmap-write program opens the file, creating it if it did not previously exist.The
 third argument to open specifies that the file is opened for reading and writing.
 
@@ -5914,7 +5784,6 @@ Listing 5.6 (mmap-read.c) Read an Integer from a Memory-Mapped File, and Double 
     close (fd);
 
 [℗ 107](#t105){id=p107}
------------------
 
     /* Read the integer, print it out, and double it. */
     scanf (file_memory, "%d", &integer);
@@ -5948,8 +5817,8 @@ only—there’s no need for the contents of a memory-mapped file to be text.You
 store and retrieve arbitrary binary in a memory-mapped file.
 
 
-5.3.3 Shared Access to a File
---------------------------------------------------------
+//5.3.3 Shared Access to a File
+-------------------------------
 
 Different processes can communicate using memory-mapped regions associated with
 the same file. Specify the MAP_SHARED flag so that any writes to these regions are
@@ -5972,7 +5841,6 @@ Listing 5.6 Continued
 
 
 [℗ 108](#t105){id=p108}
------------------
 
 * MS_INVALIDATE —All other file mappings are invalidated so that they can see the
 updated values.
@@ -5988,8 +5856,8 @@ Alternatively, you can use fcntl to place a read or write lock on the file, as d
 in Section 8.3," fcntl : Locks and Other File Operations," in Chapter 8.
 
 
-5.3.4 Private Mappings
---------------------------------------------------------
+//5.3.4 Private Mappings
+------------------------
 
 Specifying MAP_PRIVATE to mmap creates a copy-on-write region.Any write to the
 region is reflected only in this process’s memory; other processes that map the same
@@ -5998,8 +5866,8 @@ the process writes to a private copy of this page.All subsequent reading and wri
 the process use this page.
 
 
-5.3.5 Other Uses for mmap
---------------------------------------------------------
+//5.3.5 Other Uses for mmap
+---------------------------
 
 The mmap call can be used for purposes other than interprocess communications. One
 common use is as a replacement for read and write . For example, rather than explic-
@@ -6023,11 +5891,10 @@ memory may be used for any purpose. Custom memory allocators often map
 /dev/zero to obtain chunks of preinitialized memory.
 
 [℗ 109](#t105){id=p109}
------------------
 
 
-5.4 Pipes
---------------------------------------------------------
+//5.4 Pipes
+-----------
 
 A pipe is a communication device that permits unidirectional communication. Data
 written to the "write end" of the pipe is read back from the "read end." Pipes are
@@ -6050,8 +5917,8 @@ available, it blocks until data becomes available.Thus, the pipe automatically s
 nizes the two processes.
 
 
-5.4.1 Creating Pipes
---------------------------------------------------------
+//5.4.1 Creating Pipes
+----------------------
 
 To create a pipe, invoke the pipe command. Supply an integer array of size 2.The call
 to pipe stores the reading file descriptor in array position 0 and the writing file
@@ -6064,7 +5931,7 @@ read_fd = pipe_fds[0];
 write_fd = pipe_fds[1];
 Data written to the file descriptor read_fd can be read back from write_fd .
 
-5.4.2 Communication Between Parent and Child Processes
+//5.4.2 Communication Between Parent and Child Processes
 --------------------------------------------------------
 
 A call to pipe creates file descriptors, which are valid only within that process and its
@@ -6080,7 +5947,6 @@ Because we use streams rather than file descriptors, we can use the higher-level
 standard C library I/O functions such as printf and fgets .
 
 [℗ 110](#t110){id=p110}
------------------
 
 Listing 5.7 (pipe.c) Using a Pipe to Communicate with a Child Process
 
@@ -6147,7 +6013,6 @@ Listing 5.7 (pipe.c) Using a Pipe to Communicate with a Child Process
     }
 
 [℗ 111](#t110){id=p111}
------------------
 At the beginning of main , fds is declared to be an integer array with size 2.The pipe
 call creates a pipe and places the read and write file descriptors in that array.The pro-
 gram then forks a child process.After closing the read end of the pipe, the parent
@@ -6162,8 +6027,8 @@ process and one for the less child process. Both of these processes inherit the 
 descriptors so they can communicate using a pipe.To have unrelated processes com-
 municate, use a FIFO instead, as discussed in Section 5.4.5,"FIFOs."
 
-5.4.3 Redirecting the Standard Input, Output, and Error
---------------------------------------------------------
+//5.4.3 Redirecting the Standard Input, Output, and Error
+---------------------------------------------------------
 
 Streams
 Frequently, you’ll want to create a child process and set up one end of a pipe as its
@@ -6181,7 +6046,6 @@ Listing 5.7 Continued
 
 
 [℗ 112](#t110){id=p112}
------------------
 
 The program in Listing 5.8 uses dup2 to send the output from a pipe to the sort
 command. 2 After creating a pipe, the program forks.The parent process prints some
@@ -6237,11 +6101,10 @@ Listing 5.8 (dup2.c) Redirect Output from a Pipe with dup2
 them to standard output.
 
 [℗ 113](#t110){id=p113}
------------------
 
 
-5.4.4 popen and pclose
---------------------------------------------------------
+//5.4.4 popen and pclose
+------------------------
 
 A common use of pipes is to send data to or receive data from a program being run in
 a subprocess.The popen and pclose functions ease this paradigm by eliminating the
@@ -6279,15 +6142,14 @@ Call pclose to close a stream returned by popen .After closing the specified str
 pclose waits for the child process to terminate.
 
 
-5.4.5 FIFOs
---------------------------------------------------------
+//5.4.5 FIFOs
+-------------
 
 A first-in, first-out (FIFO) file is a pipe that has a name in the filesystem.Any process
 can open or close the FIFO; the processes on either end of the pipe need not be
 related to each other. FIFOs are also called named pipes.
 
 [℗ 114](#t110){id=p114}
------------------
 
 You can make a FIFO using the mkfifo command. Specify the path to the FIFO
 on the command line. For example, create a FIFO in /tmp/fifo by invoking this:
@@ -6330,7 +6192,6 @@ fscanf (fifo, "%s", buffer);
 fclose (fifo);
 
 [℗ 115](#t110){id=p115}
------------------
 
 A FIFO can have multiple readers or multiple writers. Bytes from each writer are
 written atomically up to a maximum size of PIPE_BUF (4KB on Linux). Chunks from
@@ -6345,8 +6206,8 @@ Linux, sockets are used for this purpose.Also,Win32 allows multiple reader-write
 connections on a named pipe without interleaving data, and pipes can be used for
 two-way communication. 3
 
-5.5 Sockets
---------------------------------------------------------
+//5.5 Sockets
+-------------
 
 A socket is a bidirectional communication device that can be used to communicate with
 another process on the same machine or with a process running on other machines.
@@ -6379,11 +6240,10 @@ only client connections.
 telnet to connect to a server of a different kind and then type comments directly at it.
 
 [℗ 116](#t116){id=p116}
------------------
 
 
-5.5.1 Socket Concepts
---------------------------------------------------------
+//5.5.1 Socket Concepts
+-----------------------
 
 When you create a socket, you must specify three parameters: communication style,
 namespace, and protocol.
@@ -6423,8 +6283,8 @@ the UNIX local communication protocol. Not all combinations of styles, namespace
 and protocols are supported.
 
 
-5.5.2 System Calls
---------------------------------------------------------
+//5.5.2 System Calls
+--------------------
 
 Sockets are more flexible than previously discussed communication techniques.These
 are the system calls involving sockets:
@@ -6437,7 +6297,6 @@ accept —Accepts a connection and creates a new socket for the connection
 Sockets are represented by file descriptors.
 
 [℗ 117](#t116){id=p117}
------------------
 
 Creating and Destroying Sockets
 The socket and close functions create and destroy sockets, respectively.When you
@@ -6473,8 +6332,8 @@ tors, provides an alternative to write with a few additional choices; see the ma
 for information.
 
 
-5.5.3 Servers
---------------------------------------------------------
+//5.5.3 Servers
+---------------
 
 A server’s life cycle consists of the creation of a connection-style socket, binding an
 address to its socket, placing a call to listen that enables connections to the socket,
@@ -6484,7 +6343,6 @@ new connection, Linux creates a separate socket to use in transferring data over
 connection. In this section, we introduce bind , listen , and accept .
 
 [℗ 118](#t116){id=p118}
------------------
 
 An address must be bound to the server’s socket using bind if a client is to find it.
 
@@ -6511,8 +6369,8 @@ takes the same arguments as read , plus an additional FLAGS argument.A flag of
 MSG_PEEK causes data to be read but not removed from the input queue.
 
 
-5.5.4 Local Sockets
---------------------------------------------------------
+//5.5.4 Local Sockets
+---------------------
 
 Sockets connecting processes on the same computer can use the local namespace
 represented by the synonyms PF_LOCAL and PF_UNIX .These are called local sockets or
@@ -6537,11 +6395,10 @@ srwxrwx--x 1 user group 0 Nov 13 19:18 /tmp/socket
 Call unlink to remove a local socket when you’re done with it.
 
 [℗ 119](#t116){id=p119}
------------------
 
 
-5.5.5 An Example Using Local Namespace Sockets
---------------------------------------------------------
+//5.5.5 An Example Using Local Namespace Sockets
+------------------------------------------------
 
 We illustrate sockets with two programs.The server program, in Listing 5.10, creates a
 local namespace socket and listens for connections on it.When it receives a connec-
@@ -6587,7 +6444,6 @@ Listing 5.10 (socket-server.c) Local Namespace Socket Server
     const char* const socket_name = argv[1];
 
 [℗ 120](#t116){id=p120}
------------------
 
     int socket_fd;
     struct sockaddr_un name;
@@ -6633,7 +6489,6 @@ Listing 5.11 (socket-client.c) Local Namespace Socket Client
     #include <unistd.h>
 
 [℗ 121](#t116){id=p121}
------------------
 
     /* Write TEXT to the socket given by file descriptor SOCKET_FD. */
     void write_text (int socket_fd, const char* text)
@@ -6679,7 +6534,6 @@ messages to send to the client:
 Listing 5.11 Continued
 
 [℗ 122](#t116){id=p122}
------------------
 
 The server program receives and prints these messages.To close the server, send the
 message "quit" from a client:
@@ -6687,8 +6541,8 @@ message "quit" from a client:
 The server program terminates.
 
 
-5.5.6 Internet-Domain Sockets
---------------------------------------------------------
+//5.5.6 Internet-Domain Sockets
+-------------------------------
 
 UNIX-domain sockets can be used only for communication between two processes
 on the same computer. Internet-domain sockets, on the other hand, may be used to con-
@@ -6729,7 +6583,6 @@ Listing 5.12 illustrates the use of Internet-domain sockets.The program obtains 
 home page from the Web server whose hostname is specified on the command line.
 
 [℗ 123](#t116){id=p123}
------------------
 
 Listing 5.12 (socket-inet.c) Read from a WWW Server
 
@@ -6780,7 +6633,6 @@ Listing 5.12 (socket-inet.c) Read from a WWW Server
     name.sin_port = htons (80);
 
 [℗ 124](#t116){id=p124}
------------------
 
     /* Connect to the Web server */
     if (connect (socket_fd, &name, sizeof (struct sockaddr_in)) == -1) {
@@ -6799,8 +6651,8 @@ that host.Web servers speak the Hypertext Transport Protocol (HTTP), so the prog
 issues the HTTP GET command and the server responds by sending the text of the
 home page.
 
-Standard Port Numbers
---------------------------------------------------------
+//Standard Port Numbers
+-----------------------
 By convention, Web servers listen for connections on port 80. Most Internet network services are associ-
 ated with a standard port number. For example, secure Web servers that use SSL listen for connections
 on port 443, and mail servers (which speak SMTP) use port 25.
@@ -6820,8 +6672,8 @@ invoke this:
     <meta http-equiv=”Content-Type” content=”text/html; charset=iso-8859-1”>
     ...
 
-5.5.7 Socket Pairs
---------------------------------------------------------
+//5.5.7 Socket Pairs
+--------------------
 
 As we saw previously, the pipe function creates two file descriptors for the beginning
 and end of a pipe. Pipes are limited because the file descriptors must be used by
@@ -6831,7 +6683,6 @@ tion creates two file descriptors for two connected sockets on the same computer
 These file descriptors permit two-way communication between related processes.
 
 [℗ 125](#t116){id=p125}
------------------
 
 Its first three parameters are the same as those of the socket call:They specify the
 domain, connection style, and protocol.The last parameter is a two-integer array,
@@ -6839,10 +6690,9 @@ which is filled with the file descriptions of the two sockets, similar to pipe .
 call socketpair , you must specify PF_LOCAL as the domain.
 
 [℗ 126](#t116){id=p126}
------------------
 
-II Mastering Linux
-========================================================
+/9. II Mastering Linux
+======================
 6. Devices
 7. The /proc File System
 8. Linux System Calls
@@ -6851,14 +6701,12 @@ II Mastering Linux
 11. A Sample GNU/Linux Application
 
 [℗ 127](#t127){id=p127}
------------------
 
 
 [℗ 128](#t127){id=p128}
------------------
 
-Chapter 6 Devices
-========================================================
+/10. Chapter 6 Devices
+======================
 
 LINUX , LIKE MOST OPERATING SYSTEMS , INTERACTS WITH HARDWARE devices via
 modularized software components called device drivers.A device driver hides the pecu-
@@ -6881,7 +6729,6 @@ they provide various kinds of specialized behavior that can be of use to applica
 system programs.
 
 [℗ 129](#t129){id=p129}
------------------
 
 Exercise Caution When Accessing Devices!
 The techniques in this chapter provide direct access to device drivers running in the Linux kernel, and
@@ -6890,8 +6737,8 @@ use can cause impair or damage the GNU/Linux system.
 
 See especially the sidebar "Dangers of Block Devices."
 
-6.1 Device Types
---------------------------------------------------------
+//6.1 Device Types
+------------------
 
 Device files aren’t ordinary files—they do not represent regions of data on a disk-
 based file system. Instead, data read from or written to a device file is communicated
@@ -6922,8 +6769,8 @@ Applications sometimes make use of character devices, though.We’ll discuss sev
 of them in the following sections.
 
 
-6.2 Device Numbers
---------------------------------------------------------
+//6.2 Device Numbers
+--------------------
 
 Linux identifies devices using two numbers: the major device number and the minor device
 number.The major device number specifies which driver the device corresponds to.
@@ -6932,7 +6779,6 @@ The correspondence from major device numbers to drivers is fixed and part of the
 Linux kernel sources. Note that the same major device number may correspond to
 
 [℗ 130](#t130){id=p130}
------------------
 
 two different drivers, one a character device and one a block device. Minor device
 numbers distinguish individual devices or components controlled by a single driver.
@@ -6954,8 +6800,8 @@ major device numbers corresponding to active device drivers currently loaded int
 kernel. (See Chapter 7,"The /proc File System," for more information about /proc
 file system entries.)
 
-6.3 Device Entries
---------------------------------------------------------
+//6.3 Device Entries
+--------------------
 
 A device entry is in many ways the same as a regular file.You can move it using the mv
 command and delete it using the rm command. If you try to copy a device entry using
@@ -6981,7 +6827,6 @@ allel port on the Linux system.
 % mknod ./lp0 c 6 0
 
 [℗ 131](#t131){id=p131}
------------------
 
 Remember that only superuser processes can create block and character devices, so
 you must be logged in as root to invoke this command successfully.
@@ -7004,8 +6849,8 @@ To remove the entry, use rm .This doesn’t remove the device or device driver; 
 simply removes the device entry from the file system.
 % rm ./lp0
 
-6.3.1 The /dev Directory
---------------------------------------------------------
+//6.3.1 The /dev Directory
+--------------------------
 
 By convention, a GNU/Linux system includes a directory /dev containing the full
 complement of character and block device entries for devices that Linux knows about.
@@ -7032,11 +6877,10 @@ device entries. Most GNU/Linux distributions include facilities to help system
 administrators create standard device entries with the correct names.
 
 [℗ 132](#t131){id=p132}
------------------
 
 
-6.3.2 Accessing Devices by Opening Files
---------------------------------------------------------
+//6.3.2 Accessing Devices by Opening Files
+------------------------------------------
 
 How do you use these devices? In the case of character devices, it can be quite simple:
 Open the device as if it were a normal file, and read from or write to it.You can even
@@ -7060,8 +6904,8 @@ int fd = open ("/dev/lp0", O_WRONLY);
 write (fd, buffer, buffer_length);
 close (fd);
 
-6.4 Hardware Devices
---------------------------------------------------------
+//6.4 Hardware Devices
+----------------------
 
 Some common block devices are listed in Table 6.1. Device numbers for similar
 devices follow the obvious pattern (for instance, the second partition on the first SCSI
@@ -7082,7 +6926,6 @@ each line, and may require a form feed character,ASCII code 12, at the end of ea
 continues
 
 [℗ 133](#t133){id=p133}
------------------
 
 Primary IDE controller, secondary device /dev/hdb 3 64
 Primary IDE controller, secondary device, /dev/hdb1 3 65
@@ -7122,7 +6965,6 @@ Table 6.1 Continued
 Device Name Major Minor
 
 [℗ 134](#t133){id=p134}
------------------
 
 Occasionally, you’ll want to write data directly to character devices—for example:
 * A terminal program might access a modem directly through a serial port device.
@@ -7175,19 +7017,18 @@ cooperate better with other programs that use the computer’s sound card.
 Ctrl+Alt+F1. Use Ctrl+Alt+F2 for the second virtual terminal, and so on.
 
 [℗ 135](#t133){id=p135}
------------------
 
 
-6.5 Special Devices
---------------------------------------------------------
+//6.5 Special Devices
+---------------------
 
 Linux also provides several character devices that don’t correspond to hardware
 devices.These entries all use the major device no. 1, which is associated with the
 Linux kernel’s memory device instead of a device driver.
 
 
-6.5.1 /dev/null
---------------------------------------------------------
+//6.5.1 /dev/null
+-----------------
 
 The entry /dev/null , the null device, is very handy. It serves two purposes; you are
 probably familiar at least with the first one:
@@ -7205,8 +7046,8 @@ the file descriptor, read will read no bytes and will return 0. If you copy from
 % ls -l empty-file
 -rw-rw---- 1 samuel samuel 0 Mar 8 00:27 empty-file
 
-6.5.2 /dev/zero
---------------------------------------------------------
+//6.5.2 /dev/zero
+-----------------
 
 The device entry /dev/zero behaves as if it were an infinitely long file filled with 0
 bytes.As much data as you’d try to read from /dev/zero , Linux "generates" enough 0
@@ -7230,11 +7071,10 @@ more information, and see the sidebar "Obtaining Page-Aligned Memory" in Section
 an example.
 
 [℗ 136](#t136){id=p136}
+
+
+//6.5.3 /dev/full
 -----------------
-
-
-6.5.3 /dev/full
---------------------------------------------------------
 
 The entry /dev/full behaves as if it were a file on a file system that has no more
 room.A write to /dev/full fails and sets errno to ENOSPC , which ordinarily indicates
@@ -7247,8 +7087,8 @@ The /dev/full entry is primarily useful to test how your program behaves if it r
 out of disk space while writing to a file.
 
 
-6.5.4 Random Number Devices
---------------------------------------------------------
+//6.5.4 Random Number Devices
+-----------------------------
 
 The special devices /dev/random and /dev/urandom provide access to the Linux ker-
 nel’s built-in random number–generation facility.
@@ -7285,7 +7125,6 @@ waits for more data to become available.The -t x1 option tells od to print file 
 hexadecimal.
 
 [℗ 137](#t136){id=p137}
------------------
 
 % od -t x1 /dev/random
 0000000 2c 9c 7a db 2e 79 3d 65 36 c2 e3 1b 52 75 1e 1a
@@ -7332,7 +7171,6 @@ Listing 6.1 (random_number.c) Function to Generate a Random Number Using /dev/ra
     static int dev_random_fd = -1;
 
 [℗ 138](#t136){id=p138}
------------------
 
     char* next_random_byte;
     int bytes_to_read;
@@ -7361,8 +7199,8 @@ Listing 6.1 (random_number.c) Function to Generate a Random Number Using /dev/ra
     return min + (random_value % (max - min + 1));
     }
 
-6.5.5 Loopback Devices
---------------------------------------------------------
+//6.5.5 Loopback Devices
+------------------------
 
 A loopback device enables you to simulate a block device using an ordinary disk file.
 
@@ -7383,7 +7221,6 @@ system, which resides in its entirety within an ordinary disk file, is called a 
 system.
 
 [℗ 139](#t136){id=p139}
------------------
 
 To construct a virtual file system and mount it with a loopback device, follow
 these steps:
@@ -7421,7 +7258,6 @@ Now disk-image contains a brand-new file system, as if it were a freshly
 initialized 10MB disk drive.
 
 [℗ 140](#t136){id=p140}
------------------
 
 3. Mount the file system using a loopback device.To do this, use the mount
 command, specifying the disk image file as the mount device.Also specify
@@ -7453,7 +7289,6 @@ Note that lost+found is a directory that was automatically added by mke2fs . 5
 file, it is placed in lost+found .
 
 [℗ 141](#t136){id=p141}
------------------
 
 When you’re done, unmount the virtual file system.
 % cd /tmp
@@ -7486,8 +7321,8 @@ in the drive. For example, to mount it on /mnt/cdrom , use this line:
 Because the image is on a hard disk drive, it’ll perform much faster than the actual
 CD-ROM disk. Note that most CD-ROMs use the file system type iso9660 .
 
-6.6 PTYs
---------------------------------------------------------
+//6.6 PTYs
+----------
 
 If you run the mount command with no command-line arguments, which displays
 the file systems mounted on your system, you’ll notice a line that looks something
@@ -7499,7 +7334,6 @@ that is created by the Linux kernel. It’s similar to the /proc file system; se
 for more information about how this works.
 
 [℗ 142](#t142){id=p142}
------------------
 
 Like the /dev directory, /dev/pts contains entries corresponding to devices. But
 unlike /dev , which is an ordinary directory, /dev/pts is a special directory that is cre-
@@ -7518,8 +7352,8 @@ mand. Specify tty as one of the fields of a custom format with the -o option.To 
 play the process ID,TTY, and command line of each process sharing the same
 terminal, invoke ps -o pid,tty,cmd .
 
-6.6.1 A PTY Demonstration
---------------------------------------------------------
+//6.6.1 A PTY Demonstration
+---------------------------
 
 For example, you can determine the PTY associated with a given terminal window by
 invoking in the window this command:
@@ -7548,7 +7382,6 @@ The output appears in the new terminal window. If you close the new terminal win
 dow, the entry 7 in /dev/pts disappears.
 
 [℗ 143](#t142){id=p143}
------------------
 
 If you invoke ps to determine the TTY from a text-mode virtual terminal (press
 Ctrl+Alt+F1 to switch to the first virtual terminal, for instance), you’ll see that it’s
@@ -7558,8 +7391,8 @@ PID TT CMD
 29325 tty1 -bash
 29353 tty1 ps -o pid,tty,cmd
 
-6.7 ioctl
---------------------------------------------------------
+//6.7 ioctl
+-----------
 
 The ioctl system call is an all-purpose interface for controlling hardware devices.The
 first argument to ioctl is a file descriptor, which should be opened to the device that
@@ -7594,7 +7427,6 @@ Listing 6.2 (cdrom-eject.c) Eject a CD-ROM
     }
 
 [℗ 144](#t144){id=p144}
------------------
 
 Listing 6.2 presents a short program that ejects the disk in a CD-ROM drive (if the
 
@@ -7609,14 +7441,12 @@ the disk from the drive, invoke this line:
 % ./cdrom-eject /dev/hdc
 
 [℗ 145](#t144){id=p145}
------------------
 
 
 [℗ 146](#t144){id=p146}
------------------
 
-Chapter 7 The /proc File System
-========================================================
+/11. Chapter 7 The /proc File System
+====================================
 
 TRY INVOKING THE mount COMMAND WITHOUT ARGUMENTS —this displays the file
 systems currently mounted on your GNU/Linux computer.You’ll see one line that
@@ -7643,7 +7473,6 @@ the concept of file size is not applicable.Also, if you try this command yoursel
 notice that the modification time on the file is the current time.
 
 [℗ 147](#t147){id=p147}
------------------
 
 What’s in this file? The contents of /proc/version consist of a string describing the
 Linux kernel version number.It contains the version information that would be
@@ -7669,8 +7498,8 @@ them. Some of the features of /proc are handy for debugging, too.
 If you’re interested in exactly how /proc works, take a look at the source code in
 the Linux kernel sources, under /usr/src/linux/fs/proc/ .
 
-7.1 Extracting Information from /proc
---------------------------------------------------------
+//7.1 Extracting Information from /proc
+---------------------------------------
 
 Most of the entries in /proc provide information formatted to be readable by humans,
 but the formats are simple enough to be easily parsed. For example, /proc/cpuinfo
@@ -7702,7 +7531,6 @@ mtrr pge mca cmov pat pse36 mmx fxsr
 bogomips : 399.77
 
 [℗ 148](#t148){id=p148}
------------------
 
 We’ll describe the interpretation of some of these fields in Section 7.3.1,"CPU
 Information."
@@ -7749,7 +7577,6 @@ Listing 7.1 (clock-speed.c) Extract CPU Clock Speed from /proc/cpuinfo
     }
 
 [℗ 149](#t148){id=p149}
------------------
 
 Be aware, however, that the names, semantics, and output formats of entries in the
 /proc file system might change in new Linux kernel revisions. If you use them in a
@@ -7757,8 +7584,8 @@ program, you should make sure that the program’s behavior degrades gracefully 
 /proc entry is missing or is formatted unexpectedly.
 
 
-7.2 Process Entries
---------------------------------------------------------
+//7.2 Process Entries
+---------------------
 
 The /proc file system contains a directory entry for each process running on the
 GNU/Linux system.The name of each directory is the process ID of the correspond-
@@ -7799,7 +7626,6 @@ in Section 1 for information about the command (invoke man 1 chroot ), or the ch
 page in Section 2 (invoke man 2 chroot ) for information about the call.
 
 [℗ 150](#t150){id=p150}
------------------
 
 * stat contains lots of status and statistical information about the process.These
 are the same data as presented in the status entry, but in raw numerical format,
@@ -7821,8 +7647,8 @@ Note that for security reasons, the permissions of some entries are set so that 
 user who owns the process (or the superuser) can access them.
 
 
-7.2.1 /proc/self
---------------------------------------------------------
+//7.2.1 /proc/self
+------------------
 
 One additional entry in the /proc file system makes it easy for a program to use /proc
 to find information about its own process.The entry /proc/self is a symbolic link to
@@ -7852,7 +7678,6 @@ Listing 7.2 (get-pid.c) Obtain the Process ID from /proc/self
     readlink ("/proc/self", target, sizeof (target));
 
 [℗ 151](#t150){id=p151}
------------------
 
     /* The target is a directory named for the process ID. */
     sscanf (target, "%d", &pid);
@@ -7866,8 +7691,8 @@ Listing 7.2 (get-pid.c) Obtain the Process ID from /proc/self
     return 0;
     }
 
-7.2.2 Process Argument List
---------------------------------------------------------
+//7.2.2 Process Argument List
+-----------------------------
 
 The cmdline entry contains the process argument list (see Chapter 2,"Writing Good
 GNU/Linux Software,"Section 2.1.1,"The Argument List").The arguments are pre-
@@ -7900,7 +7725,6 @@ Listing 7.2 Continued
 
 
 [℗ 152](#t150){id=p152}
------------------
 
 Listing 7.3 (print-arg-list.c) Print the Argument List of a Running Process
 
@@ -7947,7 +7771,6 @@ Listing 7.3 (print-arg-list.c) Print the Argument List of a Running Process
     }
 
 [℗ 153](#t150){id=p153}
------------------
 
 For example, suppose that process 372 is the system logger daemon, syslogd .
 
@@ -7961,8 +7784,8 @@ For example, suppose that process 372 is the system logger daemon, syslogd .
 
 In this case, syslogd was invoked with the arguments -m 0 .
 
-7.2.3 Process Environment
---------------------------------------------------------
+//7.2.3 Process Environment
+---------------------------
 
 The environ entry contains a process’s environment (see Section 2.1.6,"The
 Environment").As with cmdline , the individual environment variables are separated by
@@ -7999,7 +7822,6 @@ Listing 7.4 (print-environment.c) Display the Environment of a Process
     environment[length] = "\0";
 
 [℗ 154](#t150){id=p154}
------------------
 
     /* Loop over variables. Variables are separated by NULs. */
     next_var = environment;
@@ -8020,8 +7842,8 @@ Listing 7.4 (print-environment.c) Display the Environment of a Process
     return 0;
     }
 
-7.2.4 Process Executable
---------------------------------------------------------
+//7.2.4 Process Executable
+--------------------------
 
 The exe entry points to the executable file being run in a process. In Section 2.1.1,
 we explained that typically the program executable name is passed as the first element
@@ -8047,7 +7869,6 @@ Listing 7.5 (get-exe-path.c) Get the Path of the Currently Running Program Execu
     the number of characters in the path, or -1 on error. */
 
 [℗ 155](#t150){id=p155}
------------------
 
     size_t get_executable_path (char* buffer, size_t len)
     {
@@ -8076,8 +7897,8 @@ Listing 7.5 (get-exe-path.c) Get the Path of the Currently Running Program Execu
     return 0;
     }
 
-7.2.5 Process File Descriptors
---------------------------------------------------------
+//7.2.5 Process File Descriptors
+--------------------------------
 
 The fd entry is a subdirectory that contains entries for the file descriptors opened by a
 process. Each entry is a symbolic link to the file or device opened on that file descrip-
@@ -8094,7 +7915,6 @@ PID TTY TIME CMD
 Listing 7.5 Continued
 
 [℗ 156](#t150){id=p156}
------------------
 
 In this case, the shell ( bash ) is running in process 1261. Now open a second window,
 and look at the contents of the fd subdirectory for that process.
@@ -8142,7 +7962,6 @@ total 0
 lrwx------ 1 samuel samuel 64 Jan 30 01:30 0 -> /dev/pts/2
 
 [℗ 157](#t150){id=p157}
------------------
 
 lrwx------ 1 samuel samuel 64 Jan 30 01:30 1 -> /dev/pts/2
 lrwx------ 1 samuel samuel 64 Jan 30 01:30 2 -> /dev/pts/2
@@ -8156,8 +7975,8 @@ to the file descriptor will state "socket" or "pipe" instead of pointing to an o
 file or device.
 
 
-7.2.6 Process Memory Statistics
---------------------------------------------------------
+//7.2.6 Process Memory Statistics
+---------------------------------
 
 The statm entry contains a list of seven numbers, separated by spaces. Each number is
 a count of the number of pages of memory used by the process in a particular cate-
@@ -8173,8 +7992,8 @@ on-write pages)
 * The number of dirty pages—that is, pages of memory that have been modified
 by the program
 
-7.2.7 Process Statistics
---------------------------------------------------------
+//7.2.7 Process Statistics
+--------------------------
 
 The status entry contains a variety of information about the process, formatted for
 comprehension by humans.Among this information is the process ID and parent
@@ -8182,8 +8001,8 @@ process ID, the real and effective user and group IDs, memory usage, and bit mas
 specifying which signals are caught, ignored, and blocked.
 
 
-7.3 Hardware Information
---------------------------------------------------------
+//7.3 Hardware Information
+--------------------------
 
 Several of the other entries in the /proc file system provide access to information
 about the system hardware.Although these are typically of interest to system configu-
@@ -8191,11 +8010,10 @@ rators and administrators, the information may occasionally be of use to applica
 programmers as well.We’ll present some of the more useful entries here.
 
 [℗ 158](#t158){id=p158}
------------------
 
 
-7.3.1 CPU Information
---------------------------------------------------------
+//7.3.1 CPU Information
+-----------------------
 
 As shown previously, /proc/cpuinfo contains information about the CPU or CPUs
 running the GNU/Linux system.The Processor field lists the processor number; this is
@@ -8215,16 +8033,16 @@ processor’s speed spinning in a tight loop and is therefore a rather poor indi
 overall processor speed.
 
 
-7.3.2 Device Information
---------------------------------------------------------
+//7.3.2 Device Information
+--------------------------
 
 The /proc/devices file lists major device numbers for character and block devices
 available to the system. See Chapter 6,"Devices," for information about types of
 devices and device numbers.
 
 
-7.3.3 PCI Bus Information
---------------------------------------------------------
+//7.3.3 PCI Bus Information
+---------------------------
 
 The /proc/pci file lists a summary of devices attached to the PCI bus or buses.These
 are actual PCI expansion cards and may also include devices built into the system’s
@@ -8233,8 +8051,8 @@ and vendor ID; a device name, if available; information about the features offer
 the device; and information about the PCI resources used by the device.
 
 
-7.3.4 Serial Port Information
---------------------------------------------------------
+//7.3.4 Serial Port Information
+-------------------------------
 
 The /proc/tty/driver/serial file lists configuration information and statistics about
 serial ports. Serial ports are numbered from 0. 4 Configuration information about serial
@@ -8251,7 +8069,6 @@ use these and other special assembly instructions in GNU/Linux programs.
 to serial port number 0 under Linux.
 
 [℗ 159](#t158){id=p159}
------------------
 
 For example, this line from /proc/tty/driver/serial might describe serial port 1
 (which would be COM2 under Windows):
@@ -8263,15 +8080,15 @@ transmit interrupts and 0 receive interrupts.
 See Section 6.4,"Hardware Devices," for information about serial devices.
 
 
-7.4 Kernel Information
---------------------------------------------------------
+//7.4 Kernel Information
+------------------------
 
 Many of the entries in /proc provide access to information about the running kernel’s
 configuration and state. Some of these entries are at the top level of /proc ; others are
 under /proc/sys/kernel .
 
-7.4.1 Version Information
---------------------------------------------------------
+//7.4.1 Version Information
+---------------------------
 
 The file /proc/version contains a long string describing the kernel’s release number
 and build version. It also includes information about how the kernel was built: the
@@ -8295,19 +8112,18 @@ Linux
 % cat /proc/sys/kernel/version
 #1 Tue Mar 7 21:07:39 EST 2000
 
-7.4.2 Hostname and Domain Name
---------------------------------------------------------
+//7.4.2 Hostname and Domain Name
+--------------------------------
 
 The /proc/sys/kernel/hostname and /proc/sys/kernel/domainname entries contain
 the computer’s hostname and domain name, respectively.This information is the same
 as that returned by the uname system call, described in Section 8.15.
 
 [℗ 160](#t160){id=p160}
------------------
 
 
-7.4.3 Memory Usage
---------------------------------------------------------
+//7.4.3 Memory Usage
+--------------------
 
 The /proc/meminfo entry contains information about the system’s memory usage.
 
@@ -8343,15 +8159,15 @@ This memory is used to cache accesses to mapped files.
 You can use the free command to display the same memory information.
 
 
-7.5 Drives, Mounts, and File Systems
---------------------------------------------------------
+//7.5 Drives, Mounts, and File Systems
+--------------------------------------
 
 The /proc file system also contains information about the disk drives present in the
 system and the file systems mounted from them.
 
 
-7.5.1 File Systems
---------------------------------------------------------
+//7.5.1 File Systems
+--------------------
 
 The /proc/filesystems entry displays the file system types known to the kernel. Note
 that this list isn’t very useful because it is not complete: File systems can be loaded and
@@ -8362,11 +8178,10 @@ Other file system types may be available on the system as modules but might not 
 loaded yet.
 
 [℗ 161](#t161){id=p161}
------------------
 
 
-7.5.2 Drives and Partitions
---------------------------------------------------------
+//7.5.2 Drives and Partitions
+-----------------------------
 
 The /proc file system includes information about devices connected to both IDE
 controllers and SCSI controllers (if the system includes them).
@@ -8409,7 +8224,6 @@ TOSHIBA CD-ROM XM-6702B
 numbered sequentially from ide2 .
 
 [℗ 162](#t161){id=p162}
------------------
 
 If SCSI devices are present in the system, /proc/scsi/scsi contains a summary of
 their identification values. For example, the contents might look like this:
@@ -8445,8 +8259,8 @@ Can read MCN: 1
 Reports media changed: 1
 Can play audio: 1
 
-7.5.3 Mounts
---------------------------------------------------------
+//7.5.3 Mounts
+--------------
 
 The /proc/mounts file provides a summary of mounted file systems. Each line corre-
 sponds to a single mount descriptor and lists the mounted device, the mount point, and
@@ -8461,7 +8275,6 @@ the file system contents appear. For the root file system itself, the mount poin
 listed as / . For swap drives, the mount point is listed as swap .
 
 [℗ 163](#t161){id=p163}
------------------
 
 n The third element is the file system type. Currently, most GNU/Linux systems
 use the ext2 file system for disk drives, but DOS or Windows drives may be
@@ -8480,8 +8293,8 @@ GNU/Linux includes functions to help you parse mount descriptors; see the man
 page for the getmntent function for information on using these.
 
 
-7.5.4 Locks
---------------------------------------------------------
+//7.5.4 Locks
+-------------
 
 Section 8.3," fcntl : Locks and Other File Operations," describes how to use the fcntl
 system call to manipulate read and write locks on files.The /proc/locks entry
@@ -8511,7 +8324,6 @@ dfea7d40 00000000 00000000
 6.The /etc/fstab file lists the static mount configuration of the GNU/Linux system.
 
 [℗ 164](#t161){id=p164}
------------------
 
 There may be other lines of output, too, corresponding to locks held by other pro-
 grams. In this case, 5467 is the process ID of the lock-file program. Use ps to figure
@@ -8533,8 +8345,8 @@ The file /tmp/test-file itself is at inode 181,288 on that device.
 See Section 6.2,"Device Numbers," for more information about device numbers.
 
 
-7.6 System Statistics
---------------------------------------------------------
+//7.6 System Statistics
+-----------------------
 
 Two entries in /proc contain useful system statistics.The /proc/loadavg file contains
 information about the system load.The first three numbers represent the number of
@@ -8561,7 +8373,6 @@ Listing 7.7 (print-uptime.c) Print the System Uptime and Idle Time
     {
 
 [℗ 165](#t165){id=p165}
------------------
 
     /* Conversion constants. */
     const long minute = 60;
@@ -8591,10 +8402,9 @@ command also displays the load averages found in /proc/loadavg .
 Listing 7.7 Continued
 
 [℗ 166](#t165){id=p166}
------------------
 
-Chapter 8 Linux System Calls
-========================================================
+/12. Chapter 8 Linux System Calls
+=================================
 
 SO FAR , WE’VE PRESENTED A VARIETY OF FUNCTIONS that your program can invoke
 to perform system-related functions, such as parsing command-line options, manipu-
@@ -8620,7 +8430,6 @@ functions so that you can call them easily. Low-level I/O functions such as open
 and read are examples of system calls on Linux.
 
 [℗ 167](#t167){id=p167}
------------------
 
 The set of Linux system calls forms the most basic interface between programs
 and the Linux kernel. Each call presents a basic operation or capability.
@@ -8643,8 +8452,8 @@ likely to be the most useful to application and system programmers.
 
 Most of these system calls are declared in <unistd.h> .
 
-8.1 Using strace
---------------------------------------------------------
+//8.1 Using strace
+------------------
 
 Before we start discussing system calls, it will be useful to present a command with
 which you can learn about and debug system calls.The strace command traces the
@@ -8673,7 +8482,6 @@ standard output.
 2. In Linux, the exec family of functions is implemented via the execve system call.
 
 [℗ 168](#t168){id=p168}
------------------
 
 The first argument is the name of the program to run; the second is its argument list,
 consisting of only a single element; and the third is its environment list, which strace
@@ -8708,8 +8516,8 @@ interest to application programmers. However, some understanding is useful for d
 ging tricky problems or understanding how other programs work.
 
 
-8.2 access:Testing File Permissions
---------------------------------------------------------
+//8.2 access:Testing File Permissions
+-------------------------------------
 
 The access system call determines whether the calling process has access permission
 to a file. It can check any combination of read, write, and execute permission, and it
@@ -8727,7 +8535,6 @@ exists,the return value is 0;if not,the return value is –1 and errno is set to
 that errno may instead be set to EACCES if a directory in the file path is inaccessible.
 
 [℗ 169](#t169){id=p169}
------------------
 
 The program shown in Listing 8.1 uses access to check for a file’s existence and to
 determine read and write permissions. Specify the name of the file to check on the
@@ -8777,11 +8584,10 @@ Listing 8.1 (check-access.c) Check File Access Permissions
     /mnt/cdrom/README is not writable (read-only filesystem)
 
 [℗ 170](#t169){id=p170}
------------------
 
 
-8.3 fcntl: Locks and Other File Operations
---------------------------------------------------------
+//8.3 fcntl: Locks and Other File Operations
+--------------------------------------------
 
 The fcntl system call is the access point for several advanced operations on file
 descriptors.The first argument to fcntl is an open file descriptor, and the second is a
@@ -8831,7 +8637,6 @@ Listing 8.2 (lock-file.c) Create a Write Lock with fcntl
     fcntl (fd, F_SETLKW, &lock);
 
 [℗ 171](#t171){id=p171}
------------------
 
     printf ("locked; hit Enter to unlock... “);
     /* Wait for the user to hit Enter. */
@@ -8882,11 +8687,10 @@ Listing 8.2 Continued
 
 
 [℗ 172](#t171){id=p172}
------------------
 
 
-8.4 fsync and fdatasync: Flushing Disk Buffers
---------------------------------------------------------
+//8.4 fsync and fdatasync: Flushing Disk Buffers
+------------------------------------------------
 
 On most operating systems, when you write to a file, the data is not immediately
 written to disk. Instead, the operating system caches the written data in a memory
@@ -8937,7 +8741,6 @@ only that the file’s data will be written.This means that in principal, fdatas
 execute faster than fsync because it needs to force only one disk write instead of two.
 
 [℗ 173](#t173){id=p173}
------------------
 
 However, in current versions of Linux, these two system calls actually do the same
 thing, both updating the file’s modification time.
@@ -8947,8 +8750,8 @@ open a file for synchronous I/O, which causes all writes to be committed to disk
 diately.To do this, specify the O_SYNC flag when opening the file with the open call.
 
 
-8.5 getrlimit and setrlimit: Resource Limits
---------------------------------------------------------
+//8.5 getrlimit and setrlimit: Resource Limits
+----------------------------------------------
 
 The getrlimit and setrlimit system calls allow a process to read and set limits on the
 system resources that it can consume.You may be familiar with the ulimit shell com-
@@ -8992,7 +8795,6 @@ kills the process soon afterward, when it exceeds 1 second of CPU time.
 4. See the man page for your shell for more information about ulimit .
 
 [℗ 174](#t174){id=p174}
------------------
 
 Listing 8.4 (limit-cpu.c) CPU Time Limit Demonstration
 
@@ -9016,8 +8818,8 @@ Listing 8.4 (limit-cpu.c) CPU Time Limit Demonstration
     % ./limit_cpu
     CPU time limit exceeded
 
-8.6 getrusage: Process Statistics
---------------------------------------------------------
+//8.6 getrusage: Process Statistics
+-----------------------------------
 
 The getrusage system call retrieves process statistics from the kernel. It can be used to
 obtain statistics either for the current process by passing RUSAGE_SELF as the first argu-
@@ -9041,7 +8843,6 @@ The getrusage man page lists all the available fields. See Section 8.7," gettime
 Wall-Clock Time," for information about struct timeval .
 
 [℗ 175](#t175){id=p175}
------------------
 
 The function in Listing 8.5 prints out the current process’s user and system time.
 
@@ -9060,8 +8861,8 @@ usage.ru_utime.tv_sec, usage.ru_utime.tv_usec,
 usage.ru_stime.tv_sec, usage.ru_stime.tv_usec);
 }
 
-8.7 gettimeofday:Wall-Clock Time
---------------------------------------------------------
+//8.7 gettimeofday:Wall-Clock Time
+----------------------------------
 
 The gettimeofday system call gets the system’s wall-clock time. It takes a pointer to a
 struct timeval variable.This structure represents a time, in seconds, split into two
@@ -9094,7 +8895,6 @@ fields to include. For example, this format string
 "%Y-%m-%d %H:%M:%S"
 
 [℗ 176](#t176){id=p176}
------------------
 
 specifies the date and time in this form:
 2001-01-14 13:09:42
@@ -9133,8 +8933,8 @@ Listing 8.6 (print-time.c) Print Date and Time
     printf ("%s.%03ld\n", time_string, milliseconds);
     }
 
-8.8 The mlock Family: Locking Physical
---------------------------------------------------------
+//8.8 The mlock Family: Locking Physical
+----------------------------------------
 
 Memory
 The mlock family of system calls allows a program to lock some or all of its address
@@ -9142,7 +8942,6 @@ space into physical memory.This prevents Linux from paging this memory to swap
 space, even if the program hasn’t accessed it for a while.
 
 [℗ 177](#t177){id=p177}
------------------
 
 A time-critical program might lock physical memory because the time delay of
 paging memory out and back may be too long or too unpredictable. High-security
@@ -9193,7 +8992,6 @@ memory locked with mlock and mlockall .
 only when that process writes a value somewhere into it.
 
 [℗ 178](#t177){id=p178}
------------------
 
 A convenient way to monitor the memory usage of your program is to use the top
 command. In the output from top , the SIZE column displays the virtual address space
@@ -9206,8 +9004,8 @@ Linux).
 Include <sys/mman.h> if you use any of the mlock system calls.
 
 
-8.9 mprotect: Setting Memory Permissions
---------------------------------------------------------
+//8.9 mprotect: Setting Memory Permissions
+------------------------------------------
 
 In Section 5.3,"Mapped Memory," we showed how to use the mmap system call to
 map a file into memory. Recall that the third argument to mmap is a bitwise or of
@@ -9243,7 +9041,6 @@ Later, your program could make the memory read-only by calling mprotect :
 mprotect (memory, page_size, PROT_READ);
 
 [℗ 179](#t179){id=p179}
------------------
 
 An advanced technique to monitor memory access is to protect the region of memory
 using mmap or mprotect and then handle the SIGSEGV signal that Linux sends to the
@@ -9289,7 +9086,6 @@ Listing 8.7 (mprotect.c) Detect Memory Access Using mprotect
     memory[0] = 1;
 
 [℗ 180](#t179){id=p180}
------------------
 
     /* All done; unmap the memory. */
     printf ("all done\n");
@@ -9312,8 +9108,8 @@ which allows the memory access to proceed.
 5. When the signal handler completes, control returns to main , where the program
 deallocates the memory using munmap .
 
-8.10 nanosleep: High-Precision Sleeping
---------------------------------------------------------
+//8.10 nanosleep: High-Precision Sleeping
+-----------------------------------------
 
 The nanosleep system call is a high-precision version of the standard UNIX sleep
 call. Instead of sleeping an integral number of seconds, nanosleep takes as its argument
@@ -9338,7 +9134,6 @@ the ordinary system call, this function takes a floating-point value for the num
 seconds to sleep and restarts the sleep operation if it’s interrupted by a signal.
 
 [℗ 181](#t181){id=p181}
------------------
 
 Listing 8.8 (better_sleep.c) High-Precision Sleep Function
 
@@ -9369,8 +9164,8 @@ Listing 8.8 (better_sleep.c) High-Precision Sleep Function
     return 0;
     }
 
-8.11 readlink: Reading Symbolic Links
---------------------------------------------------------
+//8.11 readlink: Reading Symbolic Links
+---------------------------------------
 
 The readlink system call retrieves the target of a symbolic link. It takes three argu-
 ments: the path to the symbolic link, a buffer to receive the target of the link, and the
@@ -9385,7 +9180,6 @@ The small program in Listing 8.9 prints the target of the symbolic link specifie
 its command line.
 
 [℗ 182](#t182){id=p182}
------------------
 
 Listing 8.9 (print-symlink.c) Print the Target of a Symbolic Link
 
@@ -9422,8 +9216,8 @@ Listing 8.9 (print-symlink.c) Print the Target of a Symbolic Link
     % ./print-symlink my_link
     /usr/bin/wc
 
-8.12 sendfile: Fast Data Transfers
---------------------------------------------------------
+//8.12 sendfile: Fast Data Transfers
+------------------------------------
 
 The sendfile system call provides an efficient mechanism for copying data from one
 file descriptor to another.The file descriptors may be open to disk files, sockets, or
@@ -9436,7 +9230,6 @@ in both time and space because it requires additional memory for the buffer and 
 forms an extra copy of the data into that buffer.
 
 [℗ 183](#t183){id=p183}
------------------
 
 Using sendfile , the intermediate buffer can be eliminated. Call sendfile , passing
 the file descriptor to write to; the descriptor to read from; a pointer to an offset vari-
@@ -9485,7 +9278,6 @@ a file over the network to a client program.Typically, a request is received fro
 socket connected to the client computer.The server program opens a local disk file to
 
 [℗ 184](#t183){id=p184}
------------------
 
 retrieve the data to serve and writes the file’s contents to the network socket. Using
 sendfile can speed up this operation considerably. Other steps need to be taken to
@@ -9493,8 +9285,8 @@ make the network transfer as efficient as possible, such as setting the socket p
 correctly. However, these are outside the scope of this book.
 
 
-8.13 setitimer: Setting Interval Timers
---------------------------------------------------------
+//8.13 setitimer: Setting Interval Timers
+-----------------------------------------
 
 The setitimer system call is a generalization of the alarm call.It schedules the delivery
 of a signal at some point in the future after a fixed amount of time has elapsed.
@@ -9540,7 +9332,6 @@ Listing 8.11 (itemer.c) Timer Example
     #include <sys/time.h>
 
 [℗ 185](#t185){id=p185}
------------------
 
     void timer_handler (int signum)
     {
@@ -9568,8 +9359,8 @@ Listing 8.11 (itemer.c) Timer Example
     while (1);
     }
 
-8.14 sysinfo: Obtaining System Statistics
---------------------------------------------------------
+//8.14 sysinfo: Obtaining System Statistics
+-------------------------------------------
 
 The sysinfo system call fills a structure with system statistics. Its only argument is a
 pointer to a struct sysinfo . Some of the more interesting fields of struct sysinfo
@@ -9586,7 +9377,6 @@ Listing 8.11 Continued
 
 
 [℗ 186](#t186){id=p186}
------------------
 
 Listing 8.12 (sysinfo.c) Print System Statistics
 
@@ -9614,8 +9404,8 @@ Listing 8.12 (sysinfo.c) Print System Statistics
     return 0;
     }
 
-8.15 uname
---------------------------------------------------------
+//8.15 uname
+------------
 
 The uname system call fills a structure with various system information, including the
 computer’s network name and domain name, and the operating system version it’s
@@ -9638,7 +9428,6 @@ The small program in Listing 8.13 prints the Linux release and version number an
 the hardware information.
 
 [℗ 187](#t187){id=p187}
------------------
 
 Listing 8.13 (print-uname) Print Linux Version Number and Hardware Information
 
@@ -9654,10 +9443,9 @@ return 0;
 }
 
 [℗ 188](#t187){id=p188}
------------------
 
-Chapter 9 nline Assembly Code
-========================================================
+/13. Chapter 9 nline Assembly Code
+==================================
 TODAY , FEW PROGRAMMERS USE ASSEMBLY LANGUAGE . Higher-level languages such
 as C and C++ run on nearly all architectures and yield higher productivity when
 writing and maintaining code. For occasions when programmers need to use assembly
@@ -9680,7 +9468,6 @@ library, but if you specify the -O1 or higher optimization flag, GCC is smart en
 the function call with a single fsin assembly instruction.
 
 [℗ 189](#t189){id=p189}
------------------
 
 Observe that unlike ordinary assembly code instructions, asm statements permit you to
 specify input and output operands using C syntax.
@@ -9689,8 +9476,8 @@ To read more about the x86 instruction set, which we will use in this
 chapter, see http://developer.intel.com/design/pentiumii/manuals/ and
 http://www.x86-64.org/documentation .
 
-9.1 When to Use Assembly Code
---------------------------------------------------------
+//9.1 When to Use Assembly Code
+-------------------------------
 
 Although asm statements can be abused, they allow your programs to access the
 computer hardware directly, and they can produce programs that execute quickly.
@@ -9727,11 +9514,10 @@ one of these in Section 9.4,"Example."
 running time than using assembly instructions.
 
 [℗ 190](#t190){id=p190}
------------------
 
 
-9.2 Simple Inline Assembly
---------------------------------------------------------
+//9.2 Simple Inline Assembly
+----------------------------
 
 Here we introduce the syntax of asm assembler instructions with an x86 example to
 shift a value 8 bits to the right:
@@ -9753,8 +9539,8 @@ The fourth section indicates that the instruction changes the value in the condi
 code cc register.
 
 
-9.2.1 Converting an asm to Assembly Instructions
---------------------------------------------------------
+//9.2.1 Converting an asm to Assembly Instructions
+--------------------------------------------------
 
 GCC’s treatment of asm statements is very simple. It produces assembly instructions to
 deal with the asm ’s operands, and it replaces the asm statement with the instruction
@@ -9781,11 +9567,10 @@ reusing the same registers, and copies operands to and from the proper locations
 automatically.
 
 [℗ 191](#t191){id=p191}
------------------
 
 
-9.3 Extended Assembly Syntax
---------------------------------------------------------
+//9.3 Extended Assembly Syntax
+------------------------------
 
 In the subsections that follow, we describe the syntax rules for asm statements.Their
 sections are separated by colons.
@@ -9798,8 +9583,8 @@ First, fucomip compares its two operands x and y , and stores values indicating 
 into the condition code register.Then seta converts these values into a 0 or 1 result.
 
 
-9.3.1 Assembler Instructions
---------------------------------------------------------
+//9.3.1 Assembler Instructions
+------------------------------
 
 The first section contains the assembler instructions, enclosed in quotation marks.The
 example asm contains two assembly instructions, fucomip and seta , separated by semi-
@@ -9814,8 +9599,8 @@ GCC will complain if you specify the -traditional option or the -ansi option
 when compiling a program containing asm statements.To avoid producing these
 errors, such as in header files, use the alternative keyword __asm__ .
 
-9.3.2 Outputs
---------------------------------------------------------
+//9.3.2 Outputs
+---------------
 
 The second section specifies the instructions’ output operands using C syntax. Each
 operand is specified by an operand constraint string followed by a C expression in
@@ -9831,7 +9616,6 @@ architecture. 3 Table 9.1 summarizes these.
 3. You’ll need to have some familiarity with GCC’s internals to make sense of this file.
 
 [℗ 192](#t192){id=p192}
------------------
 
 Table 9.1 Register Letters for the Intel x86 Architecture
 
@@ -9860,8 +9644,8 @@ input sections. If there are no output operands but there are input operands or
 clobbered registers, leave the output section empty or mark it with a comment like
 `/* no outputs */` .
 
-9.3.3 Inputs
---------------------------------------------------------
+//9.3.3 Inputs
+--------------
 
 The third section specifies the input operands for the assembler instructions.The con-
 straint string for an input operand should not have an equals sign, which indicates an
@@ -9878,11 +9662,10 @@ This input section can be omitted if there are no input operands and the subse-
 quent clobber section is empty.
 
 [℗ 193](#t192){id=p193}
------------------
 
 
-9.3.4 Clobbers
---------------------------------------------------------
+//9.3.4 Clobbers
+----------------
 
 If an instruction modifies the values of one or more registers as a side effect, specify
 the clobbered registers in the asm ’s fourth section. For example, the fucomip instruc-
@@ -9894,8 +9677,8 @@ information correctly, GCC may assume incorrectly that registers still contain v
 that have, in fact, been overwritten, which will affect your program’s correctness.
 
 
-9.4 Example
---------------------------------------------------------
+//9.4 Example
+-------------
 
 The x86 architecture includes instructions that determine the positions of the least
 significant set bit and the most significant set bit in a word.The processor can execute
@@ -9931,7 +9714,6 @@ Listing 9.1 (bit-pos-loop.c) Find Bit Position Using a Loop
     long number;
 
 [℗ 194](#t194){id=p194}
------------------
 
     long i;
     unsigned position;
@@ -9974,7 +9756,6 @@ Listing 9.1 (bit-pos-loop.c) Find Bit Position Using a Loop
     least a few seconds to run.
 
 [℗ 195](#t194){id=p195}
------------------
 
 % time ./bit-pos-loop 250000000
 19.51user 0.00system 0:20.40elapsed 95%CPU (0avgtext+0avgdata
@@ -9985,8 +9766,8 @@ Listing 9.1 (bit-pos-loop.c) Find Bit Position Using a Loop
 Notice that the version that uses inline assembly executes a great deal faster (your
 results for this example may vary).
 
-9.5 Optimization Issues
---------------------------------------------------------
+//9.5 Optimization Issues
+-------------------------
 
 GCC’s optimizer attempts to rearrange and rewrite programs’ code to minimize exe-
 cution time even in the presence of asm expressions. If the optimizer determines that
@@ -9999,8 +9780,8 @@ Using asm s can restrict the optimizer’s effectiveness because the compiler do
 know the asms’ semantics. GCC is forced to make conservative guesses that may pre-
 vent some optimizations. Caveat emptor!
 
-9.6 Maintenance and Portability Issues
---------------------------------------------------------
+//9.6 Maintenance and Portability Issues
+----------------------------------------
 
 If you decide to use nonportable, architecture-dependent asm statements, encapsulating
 these statements within macros or functions can aid in maintenance and porting.
@@ -10015,10 +9796,9 @@ For example, most asm statements in the Linux source code are grouped into
 /usr/src/linux/arch/i386/ and /usr/src/linux/drivers/ source files.
 
 [℗ 196](#t196){id=p196}
------------------
 
-Chapter 10 Security
-========================================================
+/14. Chapter 10 Security
+========================
 MUCH OF THE POWER OF A GNU/L INUX SYSTEM COMES FROM its support for
 multiple users and for networking. Many people can use the system at once, and they
 can connect to the system from remote locations. Unfortunately, with this power
@@ -10040,7 +9820,6 @@ view the salaries of employees in their departments, but you wouldn’t want the
 view the salaries of employees in other departments.
 
 [℗ 197](#t197){id=p197}
------------------
 
 To enforce these kinds of controls, you have to be very careful. It’s amazingly easy
 to make a mistake that allows users to do something you didn’t intend them to be able
@@ -10048,8 +9827,8 @@ to do.The best approach is to enlist the help of security experts. Still, every 
 developer ought to understand the basics.
 
 
-10.1 Users and Groups
---------------------------------------------------------
+//10.1 Users and Groups
+-----------------------
 
 Each Linux user is assigned a unique number, called a user ID, or UID. Of course,
 when you log in, you use a username rather than a user ID.The system converts your
@@ -10095,11 +9874,10 @@ group 501 appears twice: once in the gid field and once in the groups field.We�
 explain this later.
 
 [℗ 198](#t198){id=p198}
------------------
 
 
-10.1.1 The Superuser
---------------------------------------------------------
+//10.1.1 The Superuser
+----------------------
 
 One user account is very special. 1 This user has user ID 0 and usually has the user-
 name root . It is also sometimes referred to as the superuser account.The root user can
@@ -10113,8 +9891,8 @@ gram when it’s run by root ; it can do anything. Programs run by root must be 
 very carefully.
 
 
-10.2 Process User IDs and Process Group IDs
---------------------------------------------------------
+//10.2 Process User IDs and Process Group IDs
+---------------------------------------------
 
 Until now, we’ve talked about commands being executed by a particular user.That’s
 not quite accurate because the computer never really knows which user is using it. If
@@ -10152,7 +9930,6 @@ system. In contrast, an earlier operating system that had multiple special users
 MULTICS. GNU/Linux, of course, is mostly compatible with UNIX.
 
 [℗ 199](#t199){id=p199}
------------------
 
 To get the user ID and group ID for the current process,you can use the geteuid
 and getegid functions,declared in <unistd.h> .These functions don’t take any parame-
@@ -10174,8 +9951,8 @@ is as follows:
 % ./simpleid
 uid=501 gid=501
 
-10.3 File System Permissions
---------------------------------------------------------
+//10.3 File System Permissions
+------------------------------
 
 A good way to see users and groups in action is to look at file system permissions. By
 examining how the system associates permissions with each file and then seeing how
@@ -10196,7 +9973,6 @@ permission, you cannot run the program.
 10.3.2,"Sticky Bits."
 
 [℗ 200](#t200){id=p200}
------------------
 
 Linux enables you to designate which of these three actions—reading, writing, and
 executing—can be performed by the owning user, owning group, and everybody else.
@@ -10240,7 +10016,6 @@ echo fails; and we can’t run the file, which is why ./hello fails.
 of the chmod command is short for "change mode."
 
 [℗ 201](#t200){id=p201}
------------------
 
 Things are better if we are accessing the file as mitchell , who is a member of the
 csl group:
@@ -10291,7 +10066,6 @@ const char* const filename = argv[1];
 struct stat buf;
 
 [℗ 202](#t200){id=p202}
------------------
 
 /* Get file information. */
 stat (filename, &buf);
@@ -10340,14 +10114,13 @@ cessible. For instance, if a process may not access the directory /tmp/private/ 
 /tmp/private/data , even if the permissions on the latter are set to allow the access.
 
 [℗ 203](#t200){id=p203}
------------------
 
 There is one important exception: Processes running as root (those with user ID 0)
 are always allowed to access any file, regardless of the permissions associated with it.
 
 
-10.3.1 Security Hole: Programs Without Execute Permissions
---------------------------------------------------------
+//10.3.1 Security Hole: Programs Without Execute Permissions
+------------------------------------------------------------
 
 Here’s a first example of where security gets very tricky.You might think that if you
 disallow execution of a program, then nobody can run it.After all, that’s what it means
@@ -10358,8 +10131,8 @@ copying the programs, you have a security hole—a means by which users can perf
 some action that you didn’t intend.
 
 
-10.3.2 Sticky Bits
---------------------------------------------------------
+//10.3.2 Sticky Bits
+--------------------
 
 In addition to read, write, and execute permissions, there is a magic bit called the sticky
 bit. 5 This bit applies only to directories.
@@ -10392,15 +10165,14 @@ gram to be retained in main memory even when it was done executing.The pages all
 the program were "stuck" in memory.
 
 [℗ 204](#t200){id=p204}
------------------
 
 To set the sticky bit programmatically, call chmod with the S_ISVTX mode flag. For
 example, to set the sticky bit of the directory specified by dir_path to those of the
 /tmp and give full read, write, and execute permissions to all users, use this call:
 chmod (dir_path, S_IRWXU | S_IRWXG | S_IRWXO | S_ISVTX);
 
-10.4 Real and Effective IDs
---------------------------------------------------------
+//10.4 Real and Effective IDs
+-----------------------------
 
 Until now, we’ve talked about the user ID and group ID associated with a process as if
 there were only one such user ID and one such group ID. But, actually, it’s not quite
@@ -10444,7 +10216,6 @@ on behalf of mitchell are complete, the process can restore its original effecti
 ID to root .
 
 [℗ 205](#t205){id=p205}
------------------
 
 Programs that authenticate users when they log in take advantage of the capability
 to change user IDs as well.These login programs run as root .When the user enters a
@@ -10483,8 +10254,8 @@ do exactly the same thing:
 seteuid (id);
 setreuid (-1, id);
 
-10.4.1 Setuid Programs
---------------------------------------------------------
+//10.4.1 Setuid Programs
+------------------------
 
 Using the previous techniques, you know how to make a root process impersonate
 another process temporarily and then return to being root .You also know how to
@@ -10492,7 +10263,6 @@ make a root process drop all its special privileges by setting both its real use
 its effective user ID.
 
 [℗ 206](#t205){id=p206}
------------------
 
 Here’s a puzzle: Can you, running as a non- root user, ever become root ? That
 doesn’t seem possible, using the previous techniques, but here’s proof that it can be
@@ -10541,7 +10311,6 @@ ID is the same as that of the group owner of the file. Most setuid programs are 
 programs.
 
 [℗ 207](#t205){id=p207}
------------------
 
 Note that the effective user ID is set to 0 when the program is run.
 
@@ -10573,8 +10342,8 @@ run. Instead, it starts a new shell process with the new user ID.The original sh
 blocked until the new shell completes and su exits.
 
 
-10.5 Authenticating Users
---------------------------------------------------------
+//10.5 Authenticating Users
+---------------------------
 
 Often, if you have a setuid program, you don’t want to offer its services to everyone.
 
@@ -10594,7 +10363,6 @@ access on a machine and the sysadmin isn’t around, a little divine inspiration
 you need.
 
 [℗ 208](#t208){id=p208}
------------------
 
 For example, many organizations now require the use of special "one-time" pass-
 words that are generated by special electronic ID cards that users keep with them.The
@@ -10612,8 +10380,8 @@ applications that authenticate their users as the system administrator sees fit.
 
 It’s easiest to see how PAM works by looking at a simple PAM application. Listing
 
-10.4 illustrates the use of PAM.
---------------------------------------------------------
+//10.4 illustrates the use of PAM.
+----------------------------------
 
 
 Listing 10.4 (pam.c) PAM Example
@@ -10644,7 +10412,6 @@ Listing 10.4 (pam.c) PAM Example
     % gcc -o pam pam.c -lpam -lpam_misc
 
 [℗ 209](#t208){id=p209}
------------------
 
 This program starts off by building up a PAM conversation object.This object is used
 by the PAM library whenever it needs to prompt the user for information.The
@@ -10695,14 +10462,13 @@ Password: badguess
 Authentication failed!
 
 [℗ 210](#t208){id=p210}
------------------
 
 The basics covered here are enough for most simple programs. Full documentation
 about how PAM works is available in /usr/doc/pam on most GNU/Linux systems.
 
 
-10.6 More Security Holes
---------------------------------------------------------
+//10.6 More Security Holes
+--------------------------
 
 Although this chapter will point out a few common security holes, you should by no
 means rely on this book to cover all possible security holes.A great many have already
@@ -10711,8 +10477,8 @@ to write secure code, there is really no substitute for having a security expert
 your code.
 
 
-10.6.1 Buffer Overruns
---------------------------------------------------------
+//10.6.1 Buffer Overruns
+------------------------
 
 Almost every major Internet application daemon, including the sendmail daemon, the
 finger daemon, the talk daemon, and others, has at one point been compromised
@@ -10751,7 +10517,6 @@ cations is much safer because only users who are already able to log in to the c
 puter running the program are able to attack it.
 
 [℗ 211](#t211){id=p211}
------------------
 
 The buggy versions of finger , talk , and sendmail all shared a common flaw. Each
 used a fixed-length string buffer, which implied a constant upper limit on the size of
@@ -10800,7 +10565,6 @@ string username;
 getline (cin, username);
 
 [℗ 212](#t211){id=p212}
------------------
 
 The username string will automatically be deallocated as well; you don’t have to
 remember to free it. 8
@@ -10810,8 +10574,8 @@ on the stack or elsewhere, without verifying that you’re not going to write be
 region of memory.
 
 
-10.6.2 Race Conditions in /tmp
---------------------------------------------------------
+//10.6.2 Race Conditions in /tmp
+--------------------------------
 
 Another very common problem involves the creation of files with predictable names,
 typically in the /tmp directory. Suppose that your program prog , running as root ,
@@ -10858,7 +10622,6 @@ easier to write code that avoids buffer overruns and other similar problems in C
 9. Obviously, if you’re also a system administrator, you shouldn’t mount /tmp over NFS.
 
 [℗ 213](#t211){id=p213}
------------------
 
 One approach that works is to call lstat on the newly created file (lstat is discussed in
 Section B.2," stat ").The lstat function is like stat , except that if the file referred to
@@ -10909,7 +10672,6 @@ Listing 10.5 (temp-file.c) Create a Temporary File
     if (random_fd == -1) {
 
 [℗ 214](#t211){id=p214}
------------------
 
     /* Open /dev/random. Note that we’re assuming that /dev/random
     really is a source of random bits, not a file full of zeros
@@ -10958,7 +10720,6 @@ there seems to be a race condition at this point. In particular, an attacker cou
 the file and replace it with a symbolic link between the time we call open and the
 
 [℗ 215](#t211){id=p215}
------------------
 
 time we call lstat .That won’t harm us directly because we already have an open file
 descriptor to the newly created file, but it will cause us to indicate an error to our
@@ -10978,8 +10739,8 @@ issues, and you should definitely not rely on O_EXCL to work correctly if the di
 in use is not /tmp —nor you should rely on the sticky bit being set anywhere else.
 
 
-10.6.3 Using system or popen
---------------------------------------------------------
+//10.6.3 Using system or popen
+------------------------------
 
 The third common security hole that every programmer should bear in mind involves
 using the shell to execute other programs.As a toy example, let’s consider a dictionary
@@ -11011,7 +10772,6 @@ Listing 10.6 (grep-dictionary.c) Search for a Word in the Dictionary
     useful program.
 
 [℗ 216](#t211){id=p216}
------------------
 
     /* Build up the string "grep -x WORD /usr/dict/words". Allocate the
     string dynamically to avoid buffer overruns. */
@@ -11054,7 +10814,6 @@ treated specially when they appear in the argument list to an exec call. Of cour
 give up the convenience of system and popen .
 
 [℗ 217](#t211){id=p217}
------------------
 
 The other alternative is to validate the string to make sure that it is benign. In the
 dictionary server example, you would make sure that the word provided contains only
@@ -11065,10 +10824,9 @@ safer to explicitly check for the characters that you know are safe rather than 
 anticipate all the characters that might cause trouble.
 
 [℗ 218](#t211){id=p218}
------------------
 
-Chapter 11 A Sample GNU/Linux Application
-========================================================
+/15. Chapter 11 A Sample GNU/Linux Application
+==============================================
 
 THIS CHAPTER IS WHERE IT ALL COMES TOGETHER .W E ’ LL DESCRIBE and implement a
 complete GNU/Linux program that incorporates many of the techniques described in
@@ -11082,8 +10840,8 @@ in previous chapters. It can serve as a jumping-off point for your own GNU/Linux
 programs.
 
 
-11.1 Overview
---------------------------------------------------------
+//11.1 Overview
+---------------
 
 The example program is part of a system for monitoring a running GNU/Linux
 system. It includes these features:
@@ -11095,7 +10853,6 @@ on the fly by modules, each of which provides a page summarizing one aspect of
 the system’s state.
 
 [℗ 219](#t219){id=p219}
------------------
 
 n Modules are not linked statically into the server executable. Instead, they are
 loaded dynamically from shared libraries. Modules can be added, removed, or
@@ -11119,8 +10876,8 @@ command in a child process.The processes module demonstrates the use of the /pro
 file system and various system calls.
 
 
-11.1.1 Caveats
---------------------------------------------------------
+//11.1.1 Caveats
+----------------
 
 This program has many of the features you’d expect in an application program, such as
 command-line parsing and error checking.At the same time, we’ve made some simpli-
@@ -11149,7 +10906,6 @@ by W. Richard Stevens (Prentice Hall, 1997), for more information.
 from http://www.apache.org .
 
 [℗ 220](#t219){id=p220}
------------------
 
 n We make no attempt to regulate the resources (number of processes, memory
 use, and so on) consumed by the server or its modules. Many multiprocess Web
@@ -11184,8 +10940,8 @@ HTML source. The HTML source follows immediately after the header.
 See the HTTP specification at http://www.w3.org/Protocols/ for more information.
 
 
-11.2 Implementation
---------------------------------------------------------
+//11.2 Implementation
+---------------------
 
 All but the very smallest programs written in C require careful organization to pre-
 serve the modularity and maintainability of the source code.This program is divided
@@ -11199,7 +10955,6 @@ Functions that are intended for use within a single compilation unit only are de
 static and are not declared in server.h .
 
 [℗ 221](#t221){id=p221}
------------------
 
 Listing 11.1 (server.h) Function and Variable Declarations
 
@@ -11241,7 +10996,6 @@ Listing 11.1 (server.h) Function and Variable Declarations
     };
 
 [℗ 222](#t221){id=p222}
------------------
 
     /* The directory from which modules are loaded. */
     extern char* module_dir;
@@ -11256,8 +11010,8 @@ Listing 11.1 (server.h) Function and Variable Declarations
     extern void server_run (struct in_addr local_address, uint16_t port);
     #endif /* SERVER_H */
 
-11.2.1 Common Functions
---------------------------------------------------------
+//11.2.1 Common Functions
+-------------------------
 
 common.c (see Listing 11.2) contains functions of general utility that are used through-
 out the program.
@@ -11283,7 +11037,6 @@ Listing 11.2 (common.c) General Utility Functions
     }
 
 [℗ 223](#t221){id=p223}
------------------
 
     void* xrealloc (void* ptr, size_t size)
     {
@@ -11331,7 +11084,6 @@ Listing 11.2 (common.c) General Utility Functions
     Listing 11.2 Continued
 
 [℗ 224](#t221){id=p224}
------------------
 
     /* NUL-terminate the target. */
     link_target[rval] = "\0";
@@ -11382,13 +11134,12 @@ the program is invoked from the shell, this is the path and name of the program
 as the user entered it.
 
 [℗ 225](#t221){id=p225}
------------------
 
 n The variable verbose is nonzero if the program is running in verbose mode. In
 this case, various parts of the program print progress messages to stdout .
 
-11.2.2 Loading Server Modules
---------------------------------------------------------
+//11.2.2 Loading Server Modules
+-------------------------------
 
 module.c (see Listing 11.3) provides the implementation of dynamically loadable
 server modules.A loaded server module is represented by an instance of
@@ -11427,7 +11178,6 @@ Listing 11.3 (module.c) Server Module Loading and Unloading
     if (module_generate == NULL) {
 
 [℗ 226](#t221){id=p226}
------------------
 
     /* The symbol is missing. While this is a shared library, it
     probably isn’t a server module. Close up and indicate failure. */
@@ -11474,11 +11224,10 @@ module.c also defines a global variable module_dir .This is the path of the dire
 which module_open attempts to find shared libraries corresponding to server modules.
 
 [℗ 227](#t221){id=p227}
------------------
 
 
-11.2.3 The Server
---------------------------------------------------------
+//11.2.3 The Server
+-------------------
 
 server.c (see Listing 11.4) is the implementation of the minimal HTTP server.
 
@@ -11524,7 +11273,6 @@ Listing 11.4 (server.c) Server Implementation
     " <h1>Not Found</h1>\n"
 
 [℗ 228](#t221){id=p228}
------------------
 
     " <p>The requested URL %s was not found on this server.</p>\n"
     " </body>\n"
@@ -11571,7 +11319,6 @@ Listing 11.4 (server.c) Server Implementation
     response 404, Not Found. */
 
 [℗ 229](#t221){id=p229}
------------------
 
     char response[1024];
     /* Generate the response message. */
@@ -11620,7 +11367,6 @@ Listing 11.4 (server.c) Server Implementation
     Listing 11.4 Continued
 
 [℗ 230](#t221){id=p230}
------------------
 
     bytes_read = read (connection_fd, buffer, sizeof (buffer));
     /* Make sure the last read didn’t fail. If it did, there’s a
@@ -11670,7 +11416,6 @@ Listing 11.4 (server.c) Server Implementation
     sigaction (SIGCHLD, &sigchld_action, NULL);
 
 [℗ 231](#t221){id=p231}
------------------
 
     /* Create a TCP socket. */
     server_socket = socket (PF_INET, SOCK_STREAM, 0);
@@ -11720,7 +11465,6 @@ Listing 11.4 (server.c) Server Implementation
     Listing 11.4 Continued
 
 [℗ 232](#t221){id=p232}
------------------
 
     /* The call was interrupted by a signal. Try again. */
     continue;
@@ -11772,7 +11516,6 @@ Listing 11.4 (server.c) Server Implementation
     }
 
 [℗ 233](#t221){id=p233}
------------------
 
 These are the functions in server.c :
 n server_run is the main entry point for running the server.This function starts
@@ -11820,7 +11563,6 @@ HTTP result code 404 and the message not_found_response_template .
 lo , the local (loopback) network; or ppp0 , a dial-up network connection.
 
 [℗ 234](#t221){id=p234}
------------------
 
 If the client sends a page request that corresponds to a server module,
 handle_get sends a result code 200 header to the client, which indicates that the
@@ -11832,8 +11574,8 @@ n server_run installs clean_up_child_process as the signal handler for SIGCHLD .
 This function simply cleans up terminated child processes (see Section 3.4.4,
 "Cleaning Up Children Asynchronously," in Chapter 3).
 
-11.2.4 The Main Program
---------------------------------------------------------
+//11.2.4 The Main Program
+-------------------------
 
 main.c (see Listing 11.5) provides the main function for the server program. Its respon-
 sibility is to parse command-line options, detect and report command-line errors, and
@@ -11867,7 +11609,6 @@ Listing 11.5 (main.c) Main Server Program and Command-Line Parsing
     " to all local addresses).\n"
 
 [℗ 235](#t221){id=p235}
------------------
 
     " -h, --help Print this information.\n"
     " -m, --module-dir DIR Load modules from specified directory\n"
@@ -11913,7 +11654,6 @@ Listing 11.5 (main.c) Main Server Program and Command-Line Parsing
     Listing 11.5 Continued
 
 [℗ 236](#t221){id=p236}
------------------
 
     /* Could not resolve the name. */
     error (optarg, "invalid host name");
@@ -11963,7 +11703,6 @@ Listing 11.5 (main.c) Main Server Program and Command-Line Parsing
     break;
 
 [℗ 237](#t221){id=p237}
------------------
 
     case "?":
     /* User specified an unrecognized option. */
@@ -12013,22 +11752,21 @@ Listing 11.5 Continued
 
 
 [℗ 238](#t221){id=p238}
------------------
 
 n If the user specifies the --help ( -h ) option or specifies invalid options, main
 invokes print_usage , which prints a usage summary and exits.
 
 
-11.3 Modules
---------------------------------------------------------
+//11.3 Modules
+--------------
 
 We provide four modules to demonstrate the kind of functionality you could imple-
 ment using this server implementation. Implementing your own server module is as
 simple as defining a module_generate function to return the appropriate HTML text.
 
 
-11.3.1 Show Wall-Clock Time
---------------------------------------------------------
+//11.3.1 Show Wall-Clock Time
+-----------------------------
 
 The time.so module (see Listing 11.6) generates a simple page containing the server’s
 local wall-clock time.This module’s module_generate calls gettimeofday to obtain the
@@ -12064,7 +11802,6 @@ Listing 11.6 (time.c) Server Module to Show Wall-Clock Time
     ptm = localtime (&tv.tv_sec);
 
 [℗ 239](#t239){id=p239}
------------------
 
     /* Format the date and time, down to a single second. */
     strftime (time_string, sizeof (time_string), "%H:%M:%S", ptm);
@@ -12089,8 +11826,8 @@ the page header that instructs clients to reload the page every 5 seconds.This w
 client displays the current time.
 
 
-11.3.2 Show the GNU/Linux Distribution
---------------------------------------------------------
+//11.3.2 Show the GNU/Linux Distribution
+----------------------------------------
 
 The issue.so module (see Listing 11.7) displays information about the GNU/Linux
 distribution running on the server.This information is traditionally stored in the file
@@ -12114,7 +11851,6 @@ Information
     Listing 11.6 Continued
 
 [℗ 240](#t239){id=p240}
------------------
 
     " <pre>\n";
     /* HTML source for the end of the page we generate. */
@@ -12160,7 +11896,6 @@ Information
     write (fd, error_message, strlen (error_message));
 
 [℗ 241](#t239){id=p241}
------------------
 
     /* End the page. */
     write (fd, page_end, strlen (page_end));
@@ -12181,8 +11916,8 @@ serve static files, in the manner of a traditional Web server. Using sendfile pr
 extra degree of efficiency.
 
 
-11.3.3 Show Free Disk Space
---------------------------------------------------------
+//11.3.3 Show Free Disk Space
+-----------------------------
 
 The diskfree.so module (see Listing 11.8) generates a page displaying information
 about free disk space on the file systems mounted on the server computer.This gener-
@@ -12252,7 +11987,6 @@ Space
     }
 
 [℗ 243](#t239){id=p243}
------------------
 
 While issue.so sends the contents of a file using sendfile , this module must invoke a
 command and redirect its output to the client.To do this, the module follows these
@@ -12274,8 +12008,8 @@ You could easily adapt this module to invoke a different command and redirect it
 output to the client.
 
 
-11.3.4 Summarize Running Processes
---------------------------------------------------------
+//11.3.4 Summarize Running Processes
+------------------------------------
 
 The processes.so module (see Listing 11.9) is a more extensive server module imple-
 mentation. It generates a page containing a table that summarizes the processes cur-
@@ -12302,7 +12036,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     of process PID. Return 0 on success, nonzero on failure. */
 
 [℗ 244](#t239){id=p244}
------------------
 
     static int get_uid_gid (pid_t pid, uid_t* uid, gid_t* gid)
     {
@@ -12345,7 +12078,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     }
 
 [℗ 245](#t239){id=p245}
------------------
 
     /* Return the name of the program running in process PID, or NULL on
     error. The return value is a newly allocated buffer which the caller
@@ -12397,7 +12129,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     Listing 11.9 Continued
 
 [℗ 246](#t239){id=p246}
------------------
 
     /* Return the resident set size (RSS), in kilobytes, of process PID.
 
@@ -12449,7 +12180,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     char* program_name;
 
 [℗ 247](#t239){id=p247}
------------------
 
     size_t result_length;
     char* result;
@@ -12499,7 +12229,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     Listing 11.9 Continued
 
 [℗ 248](#t239){id=p248}
------------------
 
     " <th>RSS&nbsp;(KB)</th>\n"
     " </tr>\n"
@@ -12545,7 +12274,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     break;
 
 [℗ 249](#t239){id=p249}
------------------
 
     /* If this entry is not composed purely of digits, it’s not a
     process directory, so skip it. */
@@ -12590,7 +12318,6 @@ Listing 11.9 (processes.c) Server Module to Summarize Processes
     Listing 11.9 Continued
 
 [℗ 250](#t239){id=p250}
------------------
 
 Gathering process data and formatting it as an HTML table is broken down into
 several simpler operations:
@@ -12640,7 +12367,6 @@ would generate unnecessary network traffic because each string may be sent in a
 separate network packet.
 
 [℗ 251](#t239){id=p251}
------------------
 
 To optimize packing of data into packets, we use a single call to writev instead
 (see Section B.3,"Vector Reads and Writes," in Appendix B).To do this, we
@@ -12654,8 +12380,8 @@ must deallocate all of the dynamically allocated strings pointed to by vec , and
 then vec itself.
 
 
-11.4 Using the Server
---------------------------------------------------------
+//11.4 Using the Server
+-----------------------
 
 If we were planning to distribute this program in source form, maintain it on an
 ongoing basis, or port it to other platforms, we probably would want to package it
@@ -12664,8 +12390,8 @@ tem. Such tools are outside the scope of this book; for more information about t
 consult GNU Autoconf,Automake, and Libtool (by Vaughan, Elliston,Tromey, and Taylor,
 published by New Riders, 2000).
 
-11.4.1 The Makefile
---------------------------------------------------------
+//11.4.1 The Makefile
+---------------------
 
 Instead of using Autoconf or a similar tool, we provide a simple Makefile compatible
 with GNU Make 4 so that it’s easy to compile and link the server and its modules.The
@@ -12694,7 +12420,6 @@ Listing 11.10 (Makefile) GNU Make Configuration File for Server Example
     4. GNU Make comes installed on GNU/Linux systems.
 
 [℗ 252](#t252){id=p252}
------------------
 
     # Default target: build everything.
 
@@ -12738,11 +12463,10 @@ library.This allows modules, which are dynamically loaded as shared libraries, t
 ence functions from common.c that are linked statically into the server executable.
 
 [℗ 253](#t252){id=p253}
------------------
 
 
-11.4.2 Building the Server
---------------------------------------------------------
+//11.4.2 Building the Server
+----------------------------
 
 Building the program is easy. From the directory containing the sources, simply invoke
 make :
@@ -12767,8 +12491,8 @@ This builds the server program and the server module shared libraries.
     -rwxr-xr-x 1 samuel samuel 71758 Mar 11 01:15 server
     -rwxr-xr-x 1 samuel samuel 13980 Mar 11 01:15 time.so
 
-11.4.3 Running the Server
---------------------------------------------------------
+//11.4.3 Running the Server
+---------------------------
 
 To run the server, simply invoke the server executable.
 
@@ -12792,7 +12516,6 @@ instance, to invoke the diskfree.so module, use this URL:
 http://localhost:4000/diskfree
 
 [℗ 254](#t252){id=p254}
------------------
 
 Instead of 4000 , enter the port number you specified (or the port number that Linux
 chose for you). Press Ctrl+C to kill the server when you’re done.
@@ -12823,8 +12546,8 @@ to all local addresses).
 -v, --verbose Print verbose messages.
 
 
-11.5 Finishing Up
---------------------------------------------------------
+//11.5 Finishing Up
+-------------------
 
 If you were really planning on releasing this program for general use, you’d need to
 write documentation for it as well. Many people don’t realize that writing good docu-
@@ -12843,7 +12566,6 @@ command itself by invoking this:
 % man man
 
 [℗ 255](#t255){id=p255}
------------------
 
 You might also want to write info pages, using the GNU Info system, for the server
 and its modules. Naturally, documentation about the info system comes in info format;
@@ -12857,10 +12579,9 @@ formats as well.
 Happy GNU/Linux programming!
 
 [℗ 256](#t255){id=p256}
------------------
 
-III Appendixes
-========================================================
+/16. III Appendixes
+===================
 
 A Other Development Tools
 B Low-Level I/O
@@ -12870,14 +12591,12 @@ E Open Publication License Version 1.0
 F GNU General Public License
 
 [℗ 257](#t257){id=p257}
------------------
 
 
 [℗ 258](#t257){id=p258}
------------------
 
-Appendix A Other Development Tools
-========================================================
+/17. Appendix A Other Development Tools
+=======================================
 A DEVELOPING CORRECT , FAST C OR C++ GNU/L INUX PROGRAMS requires more
 than just understanding the GNU/Linux operating system and its system calls. In this
 appendix, we discuss development tools to find runtime errors such as illegal use of
@@ -12886,8 +12605,8 @@ most of the execution time.Analyzing a program’s source code can reveal some o
 information; by using these runtime tools and actually executing the program, you can
 find out much more.
 
-A.1 Static Program Analysis
---------------------------------------------------------
+//A.1 Static Program Analysis
+-----------------------------
 Some programming errors can be detected using static analysis tools that analyze the
 program’s source code. If you invoke GCC with -Wall and -pedantic , the compiler
 issues warnings about risky or possibly erroneous programming constructions. By
@@ -12896,7 +12615,6 @@ it easier to compile your programs on different GNU/Linux variants and even on
 other operating systems.
 
 [℗ 259](#t259){id=p259}
------------------
 
 Using various command options, you can cause GCC to issue warnings about
 many different types of questionable programming constructs.The -Wall option
@@ -12938,10 +12656,9 @@ cally allocated memory. In the subsequent section, we show how to analyze the
 program’s execution time using the gprof profiler.
 
 [℗ 260](#t259){id=p260}
------------------
 
-A.2 Finding Dynamic Memory Errors
---------------------------------------------------------
+//A.2 Finding Dynamic Memory Errors
+-----------------------------------
 When writing a program, you frequently can’t know how much memory the program
 will need when it runs. For example, a line read from a file at runtime might have any
 finite length. C and C++ programs use malloc , free , and their variants to dynamically
@@ -12985,7 +12702,6 @@ may use only one tool at a time, so you’ll have to repeat testing with several
 get the best error checking.
 
 [℗ 261](#t261){id=p261}
------------------
 
 Table A.1 Capabilities of Dynamic Memory-Checking Tools (X Indicates
 Detection, and O Indicates Detection for Some Cases)
@@ -13006,8 +12722,8 @@ Zero-size memory allocation X X
 In the sections that follow, we first describe how to use the more easily used malloc
 checking and mtrace , and then ccmalloc and Electric Fence.
 
-A.2.1 A Program to Test Memory Allocation and Deallocation
---------------------------------------------------------
+//A.2.1 A Program to Test Memory Allocation and Deallocation
+------------------------------------------------------------
 We’ll use the malloc-use program in Listing A.2 to illustrate memory allocation, deal-
 location, and use.To begin running it, specify the maximum number of allocated
 memory regions as its only command-line argument. For example, malloc-use 12
@@ -13027,10 +12743,9 @@ n When finished, enter q .
 We’ll present the program’s code later, in Section A.2.7, and illustrate how to use it.
 
 [℗ 262](#t261){id=p262}
------------------
 
-A.2.2 malloc Checking
---------------------------------------------------------
+//A.2.2 malloc Checking
+-----------------------
 The memory allocation functions provided by the GNU C library can detect writing
 before the beginning of an allocation and deallocating the same allocation twice.
 
@@ -13062,8 +12777,8 @@ program calls allocation routines, not when it accesses memory, so many illegal 
 and writes can occur before an error is detected. In the previous example, the illegal
 write was detected only when the allocated memory was deallocated.
 
-A.2.3 Finding Memory Leaks Using mtrace
---------------------------------------------------------
+//A.2.3 Finding Memory Leaks Using mtrace
+-----------------------------------------
 The mtrace tool helps diagnose the most common error when using dynamic
 memory: failure to match allocations and deallocations.There are four steps to using
 mtrace , which is available with the GNU C library:
@@ -13078,7 +12793,6 @@ deallocations:
 logging file.
 
 [℗ 263](#t261){id=p263}
------------------
 
 4. Using the mtrace command, analyze the memory allocations and deallocations
 to ensure that they match.
@@ -13100,8 +12814,8 @@ and deallocations in the file specified by the MALLOC_TRACE environment variable
 executable must terminate normally for the data to be written.The mtrace command
 analyzes this file and lists unmatched allocations and deallocations.
 
-A.2.4 Using ccmalloc
---------------------------------------------------------
+//A.2.4 Using ccmalloc
+----------------------
 The ccmalloc library diagnoses dynamic memory errors by replacing malloc and free
 with code tracing their use. If the program terminates gracefully, it produces a report
 of memory leaks and other errors.The ccmalloc library was written by Armin Bierce.
@@ -13131,7 +12845,6 @@ gram to allocate but not deallocate memory produces the following report:
     Please enter a command: q
 
 [℗ 264](#t261){id=p264}
------------------
 
     .---------------.
     | ccmalloc report |
@@ -13176,15 +12889,14 @@ To use ccmalloc to diagnose writes before the beginning or after the end of the
 allocated region, you"ll have to modify the .ccmalloc file in the current directory.This
 file is read when the program starts execution.
 
-A.2.5 Electric Fence
---------------------------------------------------------
+//A.2.5 Electric Fence
+----------------------
 Written by Bruce Perens, Electric Fence halts executing programs on the exact
 line where a write or a read outside an allocation occurs.This is the only tool that
 discovers illegal reads. It is included in most GNU/Linux distributions, but the source
 code can be found at http://www.perens.com/FreeSoftware/ .
 
 [℗ 265](#t261){id=p265}
------------------
 
 As with ccmalloc , your program’s object files must be linked with Electric Fence’s
 library by appending -lefence to the linking command, for instance:
@@ -13213,8 +12925,8 @@ you set EF_PROTECT_BELOW to 1, it places the allocation at the beginning of the 
 page instead. Because it allocates two memory pages per call to malloc , Electric Fence
 can use an enormous amount of memory. Use this library for debugging only.
 
-A.2.6 Choosing Among the Different Memory-Debugging Tools
---------------------------------------------------------
+//A.2.6 Choosing Among the Different Memory-Debugging Tools
+-----------------------------------------------------------
 We have discussed four separate, incompatible tools to diagnose erroneous use of
 dynamic memory. How does a GNU/Linux programmer ensure that dynamic mem-
 ory is correctly used? No tool guarantees diagnosing all errors, but using any of them
@@ -13234,15 +12946,14 @@ development.The program is available on all GNU/Linux systems and has been well
 tested.After ensuring that the number of allocations and deallocations match, use
 
 [℗ 266](#t261){id=p266}
------------------
 
 Electric Fence to find illegal memory accesses.This will eliminate almost all memory
 errors.When using Electric Fence, you will need to be careful to not perform too
 many allocations and deallocations because each allocation requires at least two pages
 of memory. Using these two tools will reveal most memory errors.
 
-A.2.7 Source Code for the Dynamic Memory Program
---------------------------------------------------------
+//A.2.7 Source Code for the Dynamic Memory Program
+--------------------------------------------------
 Listing A.2 shows the source code for a program illustrating dynamic memory alloca-
 tion, deallocation, and use. See Section A.2.1,"A Program to Test Memory Allocation
 and Deallocation," for a description of how to use it.
@@ -13280,7 +12991,6 @@ Listing A.2 (malloc-use.c) Dynamic Memory Allocation Checking Example
     void deallocate (char** array)
 
 [℗ 267](#t261){id=p267}
------------------
 
     {
     free ((void*) *array);
@@ -13327,7 +13037,6 @@ Listing A.2 (malloc-use.c) Dynamic Memory Allocation Checking Example
     Listing A.2 Continued
 
 [℗ 268](#t261){id=p268}
------------------
 
     allocate (&(array[array_index]), size_or_position);
     else
@@ -13368,8 +13077,8 @@ Listing A.2 (malloc-use.c) Dynamic Memory Allocation Checking Example
     return 1;
     }
 
-A.3 Profiling
---------------------------------------------------------
+//A.3 Profiling
+---------------
 Now that your program is (hopefully) correct, we turn to speeding its execution.
 
 Using the profiler gprof , you can determine which functions require the most execu-
@@ -13378,7 +13087,6 @@ rewrite to execute more quickly. It can also help you find errors. For example, 
 may find that a particular function is called many more times than you expect.
 
 [℗ 269](#t269){id=p269}
------------------
 
 In this section, we describe how to use gprof . Rewriting code to run more quickly
 requires creativity and careful choice of algorithms.
@@ -13393,8 +13101,8 @@ Obtaining profiling information requires three steps:
 Before we illustrate these steps, we introduce a large enough program to make
 profiling interesting.
 
-A.3.1 A Simple Calculator
---------------------------------------------------------
+//A.3.1 A Simple Calculator
+---------------------------
 To illustrate profiling, we’ll use a simple calculator program.To ensure that the calcula-
 tor takes a nontrivial amount of time, we’ll use unary numbers for calculations, some-
 thing we would definitely not want to do in a real-world program. Code for this
@@ -13431,14 +13139,13 @@ So, for example, to multiply 6 and 8, you would use 6 8 ×.To multiply 6 and 8 a
 to the result, you would use 6 8 × 5 +.
 
 [℗ 270](#t269){id=p270}
------------------
 
 The calculator, defined in calculator.c , reads each expression, storing intermediate
 values on a stack of unary numbers, defined in stack.c .The stack stores its unary
 numbers in a linked list.
 
-A.3.2 Collecting Profiling Information
---------------------------------------------------------
+//A.3.2 Collecting Profiling Information
+----------------------------------------
 
 The first step in profiling a program is to annotate its executable to collect profiling
 information.To do so, use the -pg compiler flag when both compiling the object files
@@ -13456,8 +13163,8 @@ cised.You must vary the program’s input or commands to exercise the code secti
 that you want to profile.The program must terminate normally for the profiling file to
 be written.
 
-A.3.3 Displaying Profiling Data
---------------------------------------------------------
+//A.3.3 Displaying Profiling Data
+---------------------------------
 
 Given the name of an executable, gprof analyzes the gmon.out file to display informa-
 tion about how much time each function required. For example, consider the "flat"
@@ -13481,7 +13188,6 @@ individual execution required 0.0 seconds—namely, a time too small to measure.
 add function was invoked 1,787 times, presumably to compute the product. Each call
 
 [℗ 271](#t269){id=p271}
------------------
 
 required 0.92 seconds.The copy_number function was invoked only 1,788 times, while
 it and the functions it calls required only 0.15% of the total execution time.
@@ -13535,7 +13241,6 @@ sively defined functions must be treated specially. For example, the even functi
 odd , which calls even . Each largest such call cycle is given its own number and is dis-
 
 [℗ 272](#t269){id=p272}
------------------
 
 played individually in the call graph data. Consider this profiling data from determin-
 ing whether 1787 × 13 × 3 is even:
@@ -13575,8 +13280,8 @@ numbers.
 The info pages also provide more information about the interpretation of the
 analyzed data.
 
-A.3.4 How gprof Collects Data
---------------------------------------------------------
+//A.3.4 How gprof Collects Data
+-------------------------------
 
 When a profiled executable runs, every time a function is called its count is also incre-
 mented.Also, gprof periodically interrupts the executable to determine the currently
@@ -13588,10 +13293,9 @@ executable for longer periods of time, or sum together profile data from several
 tions. Read about the -s option to sum profiling data in gprof ’s info pages.
 
 [℗ 273](#t269){id=p273}
------------------
 
-A.3.5 Source Code for the Calculator Program
---------------------------------------------------------
+//A.3.5 Source Code for the Calculator Program
+----------------------------------------------
 
 Listing A.3 presents a program that calculates the value of postfix expressions.
 
@@ -13637,7 +13341,6 @@ Listing A.3 (calculator.c) Main Calculator Program
     return 0;
 
 [℗ 274](#t269){id=p274}
------------------
 
     operand = pop_stack (stack);
     push_stack (stack, (*function) (operand));
@@ -13686,7 +13389,6 @@ Listing A.3 (calculator.c) Main Calculator Program
     }
 
 [℗ 275](#t269){id=p275}
------------------
 
 The functions in Listing A.4 implement unary numbers using empty linked lists.
 
@@ -13730,7 +13432,6 @@ Listing A.4 (number.c) Unary Number Implementation
     n = decrement_number (n);
 
 [℗ 276](#t269){id=p276}
------------------
 
     }
     /* Copy a number. This function is needed only because of memory
@@ -13777,7 +13478,6 @@ Listing A.4 (number.c) Unary Number Implementation
     destroy_number (answer);
 
 [℗ 277](#t269){id=p277}
------------------
 
     answer = answer2;
     multiplicand = multiplicand->one_less_;
@@ -13824,7 +13524,6 @@ Listing A.4 (number.c) Unary Number Implementation
     Listing A.4 Continued
 
 [℗ 278](#t269){id=p278}
------------------
 
 The functions in Listing A.5 implement a stack of unary numbers using a linked list.
 
@@ -13868,7 +13567,6 @@ Listing A.5 (stack.c) Unary Number Stack
     /* Remove all the stack’s elements. */
 
 [℗ 279](#t269){id=p279}
------------------
 
     void clear_stack (Stack* stack)
     {
@@ -13917,10 +13615,9 @@ Listing A.5 (stack.c) Unary Number Stack
     Listing A.5 Continued
 
 [℗ 280](#t269){id=p280}
------------------
 
-Appendix B Low-Level I/O
-========================================================
+/18. Appendix B Low-Level I/O
+=============================
 
 C PROGRAMMERS ON GNU/L INUX HAVE TWO SETS OF INPUT / OUTPUT functions at
 their disposal.The standard C library provides I/O functions: printf , fopen , and so
@@ -13944,7 +13641,6 @@ library is also available in the C++ language.
 call and an ordinary function call.
 
 [℗ 281](#t281){id=p281}
------------------
 
 Throughout this book, we assume that you’re familiar with the calls described in this
 appendix.You may already be familiar with them because they’re nearly the same as
@@ -13953,8 +13649,8 @@ platform as well). If you’re not familiar with them, however, read on; you’l
 rest of the book much easier to understand if you familiarize yourself with this
 material first.
 
-B.1 Reading and Writing Data
---------------------------------------------------------
+//B.1 Reading and Writing Data
+------------------------------
 
 The first I/O function you likely encountered when you first learned the C language
 was printf .This formats a text string and then prints it to standard output.The gener-
@@ -13976,8 +13672,8 @@ Section 5.4,"Pipes").
 Include the header files <fcntl.h> , <sys/types.h> , <sys/stat.h> , and <unistd.h>
 if you use any of the low-level I/O functions described here.
 
-B.1.1 Opening a File
---------------------------------------------------------
+//B.1.1 Opening a File
+----------------------
 
 To open a file and produce a file descriptor that can access that file, use the open call.
 
@@ -13994,7 +13690,6 @@ a particular process from opening it for reading or for writing; a file on a rea
 device such as a CD-ROM drive may not be opened for writing.
 
 [℗ 282](#t282){id=p282}
------------------
 
 You can specify additional options by using the bitwise or of this value with one or
 more flags.These are the most commonly used values:
@@ -14039,7 +13734,6 @@ specifies that write permissions for group members and read, write, and execute 
 will always be masked out of a new file’s permissions.
 
 [℗ 283](#t282){id=p283}
------------------
 
 Listing B.1 (create-file.c) Create a New File
 
@@ -14072,8 +13766,8 @@ Listing B.1 (create-file.c) Create a New File
 
 Note that the length of the new file is 0 because the program didn’t write any data to it.
 
-B.1.2 Closing File Descriptors
---------------------------------------------------------
+//B.1.2 Closing File Descriptors
+--------------------------------
 
 When you’re done with a file descriptor, close it with close . In some cases, such as the
 program in Listing B.1, it’s not necessary to call close explicitly because Linux closes
@@ -14092,10 +13786,9 @@ can adjust this limit with the setrlimit system call; see Section 8.5," getrlimi
 setrlimit : Resource Limits," for more information.
 
 [℗ 284](#t282){id=p284}
------------------
 
-B.1.3 Writing Data
---------------------------------------------------------
+//B.1.3 Writing Data
+--------------------
 
 Write data to a file descriptor using the write call. Provide the file descriptor, a
 pointer to a buffer of data, and the number of bytes to write.The file descriptor must
@@ -14141,7 +13834,6 @@ Listing B.2 (timestamp.c) Append a Timestamp to a File
     }
 
 [℗ 285](#t282){id=p285}
------------------
 
 Here’s how the timestamp program works:
 % ./timestamp tsfile
@@ -14188,10 +13880,9 @@ Listing B.3 (write-all.c) Write All of a Buffer of Data
     }
 
 [℗ 286](#t282){id=p286}
------------------
 
-B.1.4 Reading Data
---------------------------------------------------------
+//B.1.4 Reading Data
+--------------------
 
 The corresponding call for reading data is read . Like write , it takes a file descriptor, a
 pointer to a buffer, and a count.The count specifies how many bytes are read from the
@@ -14241,7 +13932,6 @@ Listing B.4 (hexdump.c) Print a Hexadecimal Dump of a File
     size_t bytes_read;
 
 [℗ 287](#t282){id=p287}
------------------
 
     int i;
     /* Open the file for reading. */
@@ -14277,8 +13967,8 @@ Listing B.4 (hexdump.c) Print a Hexadecimal Dump of a File
 Your output may be different, depending on the compiler you used to compile
 hexdump and the compilation flags you specified.
 
-B.1.5 Moving Around a File
---------------------------------------------------------
+//B.1.5 Moving Around a File
+----------------------------
 
 A file descriptor remembers its position in a file.As you read from or write to the file
 descriptor, its position advances corresponding to the number of bytes you read or
@@ -14290,7 +13980,6 @@ and reread it without reopening it.
 Listing B.4 Continued
 
 [℗ 288](#t282){id=p288}
------------------
 
 The lseek call enables you to reposition a file descriptor in a file. Pass it the file
 descriptor and two additional arguments specifying the new position.
@@ -14343,7 +14032,6 @@ char* filename = argv[1];
 continues
 
 [℗ 289](#t282){id=p289}
------------------
 
 size_t length = (size_t) atoi (argv[2]) * megabyte;
 /* Open a new file. */
@@ -14391,10 +14079,9 @@ Linux does not permit you to rewind before the start of a file with lseek .
 Listing B.5 Continued
 
 [℗ 290](#t282){id=p290}
------------------
 
-B.2 stat
---------------------------------------------------------
+//B.2 stat
+----------
 
 Using open and read , you can extract the contents of a file. But how about other
 information? For instance, invoking ls -l displays, for the files in the current direc-
@@ -14438,7 +14125,6 @@ icant 8 bits.The st_ino field contains the inode number of this file.This locate
 in the file system.
 
 [℗ 291](#t291){id=p291}
------------------
 
 If you call stat on a symbolic link, stat follows the link and you can obtain the
 information about the file that the link points to, not about the symbolic link itself.
@@ -14487,7 +14173,6 @@ Listing B.6 (read-file.c) Read a File into a Buffer
     }
 
 [℗ 292](#t291){id=p292}
------------------
 
     /* Allocate a buffer large enough to hold the file’s contents. */
     buffer = (char*) malloc (*length);
@@ -14498,8 +14183,8 @@ Listing B.6 (read-file.c) Read a File into a Buffer
     return buffer;
     }
 
-B.3 Vector Reads and Writes
---------------------------------------------------------
+//B.3 Vector Reads and Writes
+-----------------------------
 
 The write call takes as arguments a pointer to the start of a buffer of data and the
 length of that buffer. It writes a contiguous region of memory to the file descriptor.
@@ -14536,7 +14221,6 @@ well as a new line character. Because we don’t know the number of arguments in
 advance, the array is allocated using malloc .
 
 [℗ 293](#t293){id=p293}
------------------
 
 Listing B.7 (write-args.c) Write the Argument List to a File with writev
 
@@ -14585,7 +14269,6 @@ Listing B.7 (write-args.c) Write the Argument List to a File with writev
     writev (fd, vec, 2 * argc);
 
 [℗ 294](#t293){id=p294}
------------------
 
 close (fd);
 free (vec);
@@ -14602,8 +14285,8 @@ into multiple discontiguous regions of memory. Similar to writev , an array of
 struct iovec elements specifies the memory regions into which the data will
 be read from the file descriptor.
 
-B.4 Relation to Standard C Library I/O
---------------------------------------------------------
+//B.4 Relation to Standard C Library I/O
+----------------------------------------
 
 Functions
 We mentioned earlier that the standard C library I/O functions are implemented on
@@ -14629,7 +14312,6 @@ constructs a FILE* stream pointer corresponding to a file descriptor.The fdopen 
 tion takes a file descriptor argument and a string argument specifying the mode in
 
 [℗ 295](#t295){id=p295}
------------------
 
 which to create the stream.The syntax of the mode argument is the same as that of
 the second argument to fopen , and it must be compatible with the file descriptor. For
@@ -14638,8 +14320,8 @@ example, specify a mode of r for a read file descriptor or w for a write file de
 As with fileno , the stream and file descriptor refer to the same open file, so if you
 close one, you may not subsequently use the other.
 
-B.5 Other File Operations
---------------------------------------------------------
+//B.5 Other File Operations
+---------------------------
 
 A few other operations on files and directories come in handy:
 n getcwd obtains the current working directory. It takes two arguments, a char
@@ -14673,15 +14355,14 @@ path for the file. If the paths are in different directories, rename moves the f
 long as both are on the same file system.You can use rename to move directories
 or other file system objects as well.
 
-B.6 Reading Directory Contents
---------------------------------------------------------
+//B.6 Reading Directory Contents
+--------------------------------
 
 GNU/Linux provides functions for reading the contents of directories.Although these
 aren’t directly related to the low-level I/O functions described in this appendix, we
 present them here anyway because they’re often useful in application programs.
 
 [℗ 296](#t296){id=p296}
------------------
 
 To read the contents of a directory, follow these steps:
 1. Call opendir , passing the path of the directory that you want to examine.The
@@ -14733,7 +14414,6 @@ Listing B.8 (listdir.c) Print a Directory Listing
     return "block device";
 
 [℗ 297](#t296){id=p297}
------------------
 
     else if (S_ISFIFO (st.st_mode))
     return "fifo";
@@ -14785,7 +14465,6 @@ Listing B.8 (listdir.c) Print a Directory Listing
     Listing B.8 Continued
 
 [℗ 298](#t296){id=p298}
------------------
 
     /* All done. */
     closedir (dir);
@@ -14821,14 +14500,12 @@ tory ( . ) and the parent directory ( .. ) to be included.
 The first character of each line in the output of ls indicates the type of the entry.
 
 [℗ 299](#t296){id=p299}
------------------
 
 
 [℗ 300](#t296){id=p300}
------------------
 
-Appendix C Table of Signals
-========================================================
+/19. Appendix C Table of Signals
+================================
 
 TABLE C.1 LISTS SOME OF THE L INUX SIGNALS YOU ’ RE MOST LIKELY to encounter or
 use. Note that some signals have multiple interpretations, depending on where they
@@ -14844,7 +14521,6 @@ invoking the following:
     % man 7 signal
 
 [℗ 301](#t301){id=p301}
------------------
 
 Table C.1 Linux Signals
 
@@ -14900,16 +14576,15 @@ Table C.1 Linux Signals
     time. See Section 8.13," setitimer : Setting Interval Timers."
 
 [℗ 302](#t301){id=p302}
------------------
 
-Appendix D Online Resources
-========================================================
+/20. Appendix D Online Resources
+================================
 
 THIS APPENDIX LISTS SOME PLACES TO VISIT ON THE I NTERNET to learn more about
 programming for the GNU/Linux system.
 
-D.1 General Information
---------------------------------------------------------
+//D.1 General Information
+-------------------------
 
 n http://www.advancedlinuxprogramming.com is this book’s home on the
 Internet. Here, you can download the full text of this book and program source
@@ -14922,10 +14597,9 @@ This site is a repository for a wealth of documentation, FAQ lists, HOWTOs,
 and other documentation about GNU/Linux systems and software.
 
 [℗ 303](#t303){id=p303}
------------------
 
-D.2 Information About GNU/Linux Software
---------------------------------------------------------
+//D.2 Information About GNU/Linux Software
+------------------------------------------
 
 n http://www.gnu.org is the home of the GNU Project. From this site, you can
 download a staggering array of sophisticated free software applications.Among
@@ -14952,8 +14626,8 @@ popular GNU/Linux windowing environments, Gnome and KDE. If you plan
 to write an application with a graphical user interface, you should familiarize
 yourself with either or both.
 
-D.3 Other Sites
---------------------------------------------------------
+//D.3 Other Sites
+-----------------
 
 n http://developer.intel.com provides information about Intel processor archi-
 tectures, including the x86 (IA32) architecture. If you are developing for x86
@@ -14973,10 +14647,9 @@ software related to GNU/Linux security.The site is of interest to users, system
 administrators, and developers.
 
 [℗ 304](#t304){id=p304}
------------------
 
-Appendix E Open Publication License Version 1.0
-========================================================
+/21. Appendix E Open Publication License Version 1.0
+====================================================
 
 I. Requirements on Both Unmodified and Modified Versions
 
@@ -15001,7 +14674,6 @@ name shall be as large as the title of the work and cited as possessive with res
 the title.
 
 [℗ 305](#t305){id=p305}
------------------
 
 II. Copyright
 The copyright to each Open Publication is owned by its author(s) or designee.
@@ -15050,7 +14722,6 @@ updated documents.This notification should describe modifications, if any, made
 to the document.
 
 [℗ 306](#t306){id=p306}
------------------
 
 2. All substantive modifications (including deletions) be either clearly marked up in
 the document or else described in an attachment to the document.
@@ -15096,7 +14767,6 @@ To subscribe to the Open Publication Authors’ List, send email to
 opal-request@opencontent.org with the word "subscribe" in the body.
 
 [℗ 307](#t307){id=p307}
------------------
 
 To post to the Open Publication Authors’List,send email to opal@opencontent.org ,
 or simply reply to a previous post.
@@ -15105,7 +14775,6 @@ To unsubscribe from the Open Publication Authors’ List, send email to
 opal-request@opencontent.org with the word "unsubscribe" in the body.
 
 [℗ 308](#t307){id=p308}
------------------
 
 GNU General Public License 1
 F
@@ -15134,7 +14803,6 @@ use pieces of it in new free programs; and that you know you can do these things
 1.This license can also be found online at http://www.gnu.org/copyleft/gpl.html .
 
 [℗ 309](#t309){id=p309}
------------------
 
 To protect your rights,we need to make restrictions that forbid anyone to deny you
 these rights or to ask you to surrender the rights.These restrictions translate to certain
@@ -15184,7 +14852,6 @@ ately publish on each copy an appropriate copyright notice and disclaimer of
 warranty; keep intact all the notices that refer to this License and to the absence
 
 [℗ 310](#t310){id=p310}
------------------
 
 of any warranty; and give any other recipients of the Program a copy of this
 License along with the Program.
@@ -15232,7 +14899,6 @@ or distribution medium does not bring the other work under the scope of this
 License.
 
 [℗ 311](#t310){id=p311}
------------------
 
 3. You may copy and distribute the Program (or a work based on it, under Section
 2) in object code or executable form under the terms of Sections 1 and 2 above
@@ -15282,7 +14948,6 @@ to do so, and all its terms and conditions for copying, distributing or modifyin
 the Program or works based on it.
 
 [℗ 312](#t310){id=p312}
------------------
 
 6. Each time you redistribute the Program (or any work based on the Program),
 the recipient automatically receives a license from the original licensor to copy,
@@ -15332,7 +14997,6 @@ spirit to the present version, but may differ in detail to address new problems 
 concerns.
 
 [℗ 313](#t310){id=p313}
------------------
 
 Each version is given a distinguishing version number. If the Program specifies a
 version number of this License which applies to it and "any later version", you
@@ -15378,7 +15042,6 @@ PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS
 BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 [℗ 314](#t310){id=p314}
------------------
 
 End of Terms and Conditions
 How to Apply These Terms to Your New
@@ -15432,7 +15095,6 @@ signature of Ty Coon, 1 April 1989
 Ty Coon, President of Vice
 
 [℗ 315](#t315){id=p315}
------------------
 
 This General Public License does not permit incorporating your program into propri-
 etary programs. If your program is a subroutine library, you may consider it more use-
@@ -15448,13 +15110,12 @@ Free Software Foundation, Inc., 59 Temple Place–Suite 330, Boston, MA 02111, U
 Updated: 31 Jul 2000 jonas
 
 [℗ 316](#t315){id=p316}
------------------
 
-Index
-========================================================
+/22. Index
+==========
 
-Symbols
---------------------------------------------------------
+//Symbols
+---------
 \$(CFLAGS), make variable, 10
 /dev directory, 132
 /dev/full, 137
@@ -15513,7 +15174,6 @@ version number of kernel, 148, 160
 | (pipe symbol), 110
 
 [℗ 317](#t317){id=p317}
------------------
 input operands, 193
 output operands, 192-193
 versus C code, performance, 194-196
@@ -15539,8 +15199,8 @@ defined, 62
 audio, playing sound files, 135
 authentication, 208-211
 
-Index B
---------------------------------------------------------
+//Index B
+---------
 
 better_sleep.c (high-precision sleep), listing 8.8, 182
 binary semaphores. See semaphores
@@ -15554,8 +15214,8 @@ loopback devices, 139-142
 warning about, 130
 blocking functions, defined, 34
 
-Index A
---------------------------------------------------------
+//Index A
+---------
 
 abort function, terminating processes, 55
 accept function, 119
@@ -15594,7 +15254,6 @@ assembler instructions, 192
 clobbered registers, 194
 
 [℗ 318](#t317){id=p318}
------------------
 break command, GDB, 12
 buffer overruns (security hole), 211-213
 buffering output and error streams, 24
@@ -15602,8 +15261,8 @@ buffers. See disk buffers
 bugs, finding. See error checking
 building sample application programs, 254
 
-Index C
---------------------------------------------------------
+//Index C
+---------
 
 C code versus assembly code, performance, 194-196
 C library functions, relationship with low-level I/O functions, 295-296
@@ -15665,7 +15324,6 @@ cp, device entries, 131
 dd (block copying), 140
 
 [℗ 319](#t317){id=p319}
------------------
 export, 25
 free, 161
 hostname, 168
@@ -15729,8 +15387,8 @@ customized thread attributes, 68-69
 cwd process entry, 150
 cxx-exit.cpp (C++ thread cleanup), listing 4.9, 76-77
 
-Index D
---------------------------------------------------------
+//Index D
+---------
 
 daemons, buffer overruns (security hole), 211-213
 data structures, mapped memory, 109
@@ -15742,7 +15400,6 @@ deadlocks (threads), 82-83
 on multiple threads, 91
 
 [℗ 320](#t317){id=p320}
------------------
 
 deallocation semaphores (processes), 101
 shared memory, 99
@@ -15819,7 +15476,6 @@ dlsym function, 43
 DNS (Domain Name Service), 123
 
 [℗ 321](#t317){id=p321}
------------------
 documentation, 13
 header files, 15
 Info documentation system, 14-15
@@ -15844,8 +15500,8 @@ dynamic runtime loading, shared libraries, 42-43
 dynamically linked libraries. See shared
 libraries
 
-Index E
---------------------------------------------------------
+//Index E
+---------
 -e option (ps command), 47
 editors defined, 4
 Emacs, 4
@@ -15898,7 +15554,6 @@ executing programs with the shell, security holes, 216-218
 execve system call, 168
 
 [℗ 322](#t317){id=p322}
------------------
 
 exit codes, 24-25
 terminating processes, 55
@@ -15908,8 +15563,8 @@ cleanup handlers, 75-77
 export command, 25
 ext2 file system, gaps in large files, 290
 
-Index F
---------------------------------------------------------
+//Index F
+---------
 -f option (ps command), 47
 fast mutexes, locking, 82
 fcntl system call, 164, 171-172
@@ -15975,7 +15630,6 @@ blocking functions, defined, 34
 char_print, 64
 
 [℗ 323](#t317){id=p323}
------------------
 
 cleanup handlers, 75-76
 in C++, 76-77
@@ -16076,11 +15730,10 @@ unsetenv, 26
 wait, terminating processes, 56-57
 
 [℗ 324](#t317){id=p324}
------------------
 
 
-Index G
---------------------------------------------------------
+//Index G
+---------
 -g option (GCC compiler), 11
 g++ (C++ compiler), 7
 GCC (C compiler), 6-7
@@ -16136,8 +15789,8 @@ group ID (GID), 198
 groups process group IDs, 199-200
 UID (user ID) and GID (group ID), 198
 
-Index H
---------------------------------------------------------
+//Index H
+---------
 hard limit, defined, 174
 hardware devices block devices, list of, 133-134
 character devices accessing, 134-135
@@ -16154,11 +15807,10 @@ htons function, 123
 HTTP (Hypertext Transport Protocol), 125, 221
 
 [℗ 325](#t317){id=p325}
------------------
 
 
-Index I
---------------------------------------------------------
+//Index I
+---------
 -I option (GCC compiler), 7
 I/O (input/output) FIFO access, 115-116
 input/output and error streams, 23-24
@@ -16227,14 +15879,13 @@ issue.c (GNU/Linux distrubution information), listing 11.7, 240-242
 issue.so module (sample application program), 240-242
 itemer.c (interval timers), listing 8.11, 185-186
 
-Index J-K
---------------------------------------------------------
+//Index J-K
+-----------
 -j option (ps command), 47
 job control notification, in shell, 93
 job-queue1.c (thread race conditions), listing 4.10, 78
 
 [℗ 326](#t317){id=p326}
------------------
 
 job-queue2.c (mutexes), listing 4.11, 80-81
 job-queue3.c (semaphores), listing 4.12, 84-86
@@ -16245,8 +15896,8 @@ kernel, /proc file system. See
 kill system call, 47, 55
 killing processes, 47
 
-Index L
---------------------------------------------------------
+//Index L
+---------
 -L option (GCC compiler), 9
 -l option (ps command), 47
 LD_LIBRARY_PATH environment variable, 40
@@ -16308,7 +15959,6 @@ job-queue1.c (thread race conditions), 78
 job-queue2.c (mutexes), 80-81
 
 [℗ 327](#t317){id=p327}
------------------
 job-queue3.c (semaphores), 84-86
 limit-cpu.c (resource limits), 175
 listdir.c (printing directory listings), 297-299
@@ -16378,7 +16028,6 @@ write_journal_entry.c (data buffer flushing), 173
 zombie.c (zombie processes), 58
 
 [℗ 328](#t317){id=p328}
------------------
 
 loading server modules (sample application program), 226-227
 local sockets, 119
@@ -16417,8 +16066,8 @@ lseek-huge.c (creating large files), listing B.5, 289-290
 lstat system call, 292
 race conditions, 214
 
-Index M
---------------------------------------------------------
+//Index M
+---------
 
 macros assert (error checking), 30-31
 on GCC command line, 8
@@ -16450,7 +16099,6 @@ shared file access, 108-109
 maps process entry, 150
 
 [℗ 329](#t317){id=p329}
------------------
 
 memory dynamic allocation, 261-262
 ccmalloc, 264-265
@@ -16522,13 +16170,12 @@ deadlocks, 82-83
 nonblocking tests, 83
 mutual exclusion locks. See mutexes
 
-Index N
---------------------------------------------------------
+//Index N
+---------
 
 named pipes. See FIFOs nanosleep system call, 181-182
 
 [℗ 330](#t317){id=p330}
------------------
 NDEBUG macro, 8, 30
 network byte order (sockets), 123
 Network File System (NFS), 172
@@ -16543,8 +16190,8 @@ NUL versus NULL, 152
 null device, 136
 number.c (unary number implementation), listing A.4, 276-278
 
-Index O
---------------------------------------------------------
+//Index O
+---------
 
 -o option GCC compiler, 8
 ps command, 47
@@ -16569,8 +16216,8 @@ output from /proc file system,
 148-150. See also I/O (input/output) output operands, asm syntax, 192-193
 owners of files, 200
 
-Index P
---------------------------------------------------------
+//Index P
+---------
 packets, 117
 page-aligned memory, allocating, 179
 pages, copy-on-write, 178
@@ -16604,7 +16251,6 @@ physical memory, locking, 177-179
 PIC (position-independent code), 38
 
 [℗ 331](#t317){id=p331}
------------------
 pid (process ID), 46
 pipe system call, 110
 pipe symbol (|), 110
@@ -16674,7 +16320,6 @@ signals, 52-54
 statistics, 158
 
 [℗ 332](#t317){id=p332}
------------------
 terminating, 47, 55-56
 cleaning up child processes, 59-60
 wait functions, 56-57
@@ -16752,11 +16397,10 @@ pthread_testcancel function, 70
 PTYs (pseudo-terminals), 142-144
 
 [℗ 333](#t317){id=p333}
------------------
 
 
-Index Q-R
---------------------------------------------------------
+//Index Q-R
+-----------
 race conditions (security hole), 213-216
 race conditions (threads), 78-79
 avoiding with mutexes, 79-82
@@ -16806,8 +16450,8 @@ runtime checks, assert macro, 30-31
 runtime loading, shared libraries, 42-43
 runtime tools. See development tools
 
-Index S
---------------------------------------------------------
+//Index S
+---------
 sample application program, 219
 building, 254
 common functions, 223-224, 226
@@ -16833,7 +16477,6 @@ file permissions, 200-204
 warning about execute permissions, 204
 
 [℗ 334](#t317){id=p334}
------------------
 GID (group ID), 198
 holes in, 211
 buffer overruns, 211-213
@@ -16910,7 +16553,6 @@ shm.c (shared memory), listing 5.1, 99-100
 shmat function, 98-99
 
 [℗ 335](#t317){id=p335}
------------------
 shmctl function, 99
 shmdt function, 99
 shmget function, 97-98
@@ -16989,7 +16631,6 @@ stack.c (unary number stack), listing A.5, 279-280
 standard libraries, linking to, 40
 
 [℗ 336](#t317){id=p336}
------------------
 standard port numbers, 125
 stat process entry, 151
 stat system call, 291-293
@@ -17076,7 +16717,6 @@ pipe, 110
 read, 287-288
 
 [℗ 337](#t317){id=p337}
------------------
 readdir, 297
 readlink, 182-183
 readv, 295
@@ -17105,8 +16745,8 @@ System V semaphores. See semaphores
 (processes)
 system.c (system function), listing 3.2, 48
 
-Index T
---------------------------------------------------------
+//Index T
+---------
 targets (make), 9
 TCP (Transmission Control Protocol), 123
 technical support, 13
@@ -17152,7 +16792,6 @@ debugging, 77-78
 defined, 61
 
 [℗ 338](#t317){id=p338}
------------------
 detach state, defined, 68
 detached threads creating, 69
 defined, 68
@@ -17191,8 +16830,8 @@ troff, formatting man pages, 255
 troubleshooting. See error checking
 tsd.c (thread-specific data), listing 4.7, 73-74
 
-Index U
---------------------------------------------------------
+//Index U
+---------
 UID (user ID), 198
 ulimit system call, 174
 umasks, permission bits, 283
@@ -17217,8 +16856,8 @@ users process user IDs, 199-200
 root, 199
 UID (user ID) and GID (group ID), 198
 
-Index V
---------------------------------------------------------
+//Index V
+---------
 
 variables
 condition variables, synchronizing threads, 86-91
@@ -17233,7 +16872,6 @@ thread-specific data, 72-74
 vector reads, low-level I/O functions, 295
 
 [℗ 339](#t317){id=p339}
------------------
 
 vector writes, low-level I/O functions, 293-295
 version number of kernel, /proc/version, 148, 160
@@ -17241,8 +16879,8 @@ virtual file systems copying from devices, 142
 creating, 140-142
 defined, 139
 
-Index W-Z
---------------------------------------------------------
+//Index W-Z
+-----------
 
 wait functions, terminating processes, 56-57
 wait operation (semaphores), 83, 103-104
@@ -17263,7 +16901,6 @@ zombie processes, 57-59
 zombie.c (zombie processes), listing 3.6, 58
 
 [℗ 340](#t317){id=p340}
------------------
 
 V O I C E S T H A T M A T T E R
 H O W T O C O N T A C T U S
@@ -17311,7 +16948,6 @@ W W W . N E W R I D E R S . C O M
 W W W . N E W R I D E R S . C O M
 
 [℗ 341](#t317){id=p341}
------------------
 
 ISBN 073570970X
 500 pages
@@ -17390,7 +17026,6 @@ able in PHP.
 T O P S E L L I N G B O O K S F R O M N E W R I D E R S
 
 [℗ 342](#t317){id=p342}
------------------
 
 New Riders has partnered with
 InformIT.com to bring technical
@@ -17439,7 +17074,6 @@ books, extending your
 knowledge
 
 [℗ 343](#t317){id=p343}
------------------
 
 Colophon
 The ruins of the Stabian Baths in Pompeii, captured by photographer Mel Curtis, are featured on
@@ -17455,5 +17089,4 @@ Prepress consisted of PostScript computer-to-plate technology (filmless process)
 printed at Moore Langen Printing in Terre Haute, Indiana, on Carolina, coated on one side.
 
 [℗ 344](#t317){id=p344}
------------------
 

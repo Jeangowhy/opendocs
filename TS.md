@@ -7568,7 +7568,7 @@ TypeScript 提供了重载类型，只需给函数定义不同类型的列表：
 	console.log(a + b);
 	console.log(b + c);
 
-在 TS 规范中 Section 4.15.2 定义两元去处符 + 要求操作数匀为 Number 元类型，或者 enum 类型，或者至少有一个 Any 和 String：
+在 TS 规范中 Section 4.15.2 定义两元运算符 + 要求操作数匀为 `number` 元类型，或者 enum 类型，或者至少有一个 Any 和 String：
 
 	var n: Number = { 
 	    toFixed(x?: number) { return ''},
@@ -7579,6 +7579,7 @@ TypeScript 提供了重载类型，只需给函数定义不同类型的列表：
 	var r = n + 3;
 	console.log(r); // r is ?
 
+实践中，不能通过 `new Number` 创建 `number`，TS 文档提示过，大写字母开头的类型是对象类型（Object），不是元类型（primitive type）。
 
 # ⚑ Iterators and Generators 迭代器和生成器
 - https://www.tslang.cn/docs/handbook/iterators-and-generators.html

@@ -12,11 +12,15 @@ deno.lock
 
 *sublime-workspace
 
-/*.html
+node_modules
+
+/**/*.html
 /#*#
 .bin
 .build
 .mscbackup
+package.json
+package-lock.json
 info.exe.stackdump
 
 Adv_Prog_UNIX_Env_3rd.txt

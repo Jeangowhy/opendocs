@@ -1,6 +1,75 @@
 
 
 
+/. 🚀 TypeScript Docs Updates
+===================================================
+
+TypeScript 文档源文件：
+
+```sh
+# https://github.com/microsoft/TypeScript-Website/tree/v2/packages/documentation/copy/en
+git clone https://github.com/microsoft/TypeScript-Website
+# git clone --depth=1 git@github.com:microsoft/TypeScript-Website.git
+
+git blame --since=1.years -- README.md
+git log   --since=10.days.ago master
+git log   --since=3.weeks -- README.md
+git log   --since="2 weeks ago" -- README.md
+git log   --since=yesterday -- README.md
+git log   --since=1.years -- README.md
+git bundle create mybundle --since=10.days master
+git rev-list --author=you@example.com --since=1.year.ago --all
+```
+最新版本为 TypeScript 5.4，文档目前 2024-3-23 最新版本为 TypeScript 5.3。
+https://devblogs.microsoft.com/typescript/announcing-typescript-5-4/
+
+Here’s a quick list of what’s new in TypeScript 5.4!
+
+1. Preserved Narrowing in Closures Following Last Assignments
+2. The **NoInfer** Utility Type
+3. **Object.groupBy** and **Map.groupBy**
+4. Support for **require()** calls in **--moduleResolution** bundler and **--module** preserve
+5. Checked **Import Attributes** and Assertions
+6. Quick Fix for Adding Missing Parameters
+7. Auto-Import Support for Subpath Imports
+8. Upcoming 5.5 Deprecations
+9. Notable Behavioral Changes
+
+```sh
+#!/usr/bin/env bash
+
+# Extract updated TypeScript docs from git repository.
+# $1 - TSDcos commit hash ref
+# $2 - TSDcos commit data ref
+# $3 - TSDcos doc folder path
+function TSDocs_updated()
+{
+    git log --since="$2" --pretty='format:%C(auto)%h <- %p %as [%s] [%an %ae]' --name-status -- "$3"
+    while read -r it; do
+        array=($it)
+        echo ""
+        if [ ${array[0]} == "M" ]; then
+            # echo "Modified"
+            echo "/${it:2}"
+            echo "/${it:2}" | sed -n 's/./=/gp'
+            git diff $1 head "${it:2}"
+        elif [ ${array[0]} == "A" ]; then
+            # echo "New file added: $it"
+            echo "/${it:2}"
+            echo "/${it:2}" | sed -n 's/./=/gp'
+            cat "${it:2}"
+        fi
+    done <<EOF
+    $(
+    git log --since="$2" --name-status -- "$3" | grep '\.md$'
+    )
+EOF
+}
+
+TSDocs_updated d709d218 "2023-11-23" "./packages/documentation/copy/en"; exit
+./extract > out_detail.md; subl out_detail.md;
+```
+
 /. 🚀 Docs combine script
 ===================================================
 
@@ -604,7 +673,7 @@ If ‘default’ and ‘clean’ tasks don’t show up, refresh the explorer:
 
 Right click on the `wwwroot` folder (if you don't see the folder try building the project) and add a New Item named `index.html` inside. Use the following code for `index.html`
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -2331,7 +2400,7 @@ uses of mutable variables:
 ```ts twoslash
 // @errors: 2345
 declare function pad(s: string, n: number, direction: "left" | "right"): string;
-// ---cut---
+
 let s = "right";
 pad("hi", 10, s); // error: 'string' is not assignable to '"left" | "right"'
 ```
@@ -2348,7 +2417,7 @@ in turn prevents assignments to `s` of variables that are not of type
 
 ```ts twoslash
 declare function pad(s: string, n: number, direction: "left" | "right"): string;
-// ---cut---
+
 let s: "left" | "right" = "right";
 pad("hi", 10, s);
 ```
@@ -2481,7 +2550,7 @@ type Shape =
   | { kind: "circle"; radius: number }
   | { kind: "square"; x: number }
   | { kind: "triangle"; x: number; y: number };
-// ---cut---
+  
 function height(s: Shape) {
   if (s.kind === "circle") {
     return 2 * s.radius;
@@ -2715,7 +2784,7 @@ interface User {
   name: string;
   id: number;
 }
-// ---cut---
+
 const user: User = {
   name: "Hayes",
   id: 0,
@@ -2766,7 +2835,7 @@ interface User {
   name: string;
   id: number;
 }
-// ---cut---
+
 function deleteUser(user: User) {
   // ...
 }
@@ -2899,7 +2968,7 @@ interface Point {
 function logPoint(p: Point) {
   console.log(`${p.x}, ${p.y}`);
 }
-// ---cut---
+
 const point3 = { x: 12, y: 26, z: 89 };
 logPoint(point3); // logs "12, 26"
 
@@ -2922,7 +2991,7 @@ interface Point {
 function logPoint(p: Point) {
   console.log(`${p.x}, ${p.y}`);
 }
-// ---cut---
+
 class VirtualPoint {
   x: number;
   y: number;
@@ -3420,7 +3489,7 @@ This is equivalent to declaring `sentence` like so:
 ```ts twoslash
 let fullName: string = `Bob Bobbington`;
 let age: number = 37;
-// ---cut---
+
 let sentence: string =
   "Hello, my name is " +
   fullName +
@@ -4785,7 +4854,7 @@ interface Event {
   message: string;
 }
 declare const uiElement: UIElement;
-// ---cut---
+
 class Handler {
   info: string;
   onClickBad(this: Handler, e: Event) {
@@ -4811,7 +4880,7 @@ interface Event {
   message: string;
 }
 declare const uiElement: UIElement;
-// ---cut---
+
 class Handler {
   info: string;
   onClickGood(this: void, e: Event) {
@@ -4837,7 +4906,7 @@ interface Event {
   message: string;
 }
 declare const uiElement: UIElement;
-// ---cut---
+
 class Handler {
   info: string;
   onClickGood = (e: Event) => {
@@ -5007,7 +5076,7 @@ The first way is to pass all of the arguments, including the type argument, to t
 function identity<T>(arg: T): T {
   return arg;
 }
-// ---cut---
+
 let output = identity<string>("myString");
 //       ^?
 ```
@@ -5020,7 +5089,7 @@ The second way is also perhaps the most common. Here we use _type argument infer
 function identity<T>(arg: T): T {
   return arg;
 }
-// ---cut---
+
 let output = identity("myString");
 //       ^?
 ```
@@ -5183,7 +5252,7 @@ class GenericNumber<T> {
   zeroValue: T;
   add: (x: T, y: T) => T;
 }
-// ---cut---
+
 let stringNumeric = new GenericNumber<string>();
 stringNumeric.zeroValue = "";
 stringNumeric.add = function (x, y) {
@@ -5241,7 +5310,7 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
   console.log(arg.length);
   return arg;
 }
-// ---cut---
+
 loggingIdentity(3);
 ```
 
@@ -5256,7 +5325,7 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
   console.log(arg.length);
   return arg;
 }
-// ---cut---
+
 loggingIdentity({ length: 10, value: 3 });
 ```
 
@@ -5456,7 +5525,7 @@ interface Point {
   readonly x: number;
   readonly y: number;
 }
-// ---cut---
+
 let p1: Point = { x: 10, y: 20 };
 p1.x = 5; // error!
 ```
@@ -5535,7 +5604,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let mySquare = createSquare({ colour: "red", width: 100 });
 ```
 
@@ -5555,7 +5624,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
 ```
 
@@ -5588,7 +5657,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let squareOptions = { colour: "red", width: 100 };
 let mySquare = createSquare(squareOptions);
 ```
@@ -5609,7 +5678,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let squareOptions = { colour: "red" };
 let mySquare = createSquare(squareOptions);
 ```
@@ -5640,7 +5709,7 @@ Here, we show how you can create a variable of a function type and assign it a f
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
-// ---cut---
+
 let mySearch: SearchFunc;
 
 mySearch = function (source: string, subString: string): boolean {
@@ -5656,7 +5725,7 @@ We could have, for example, written the above example like this:
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
-// ---cut---
+
 let mySearch: SearchFunc;
 
 mySearch = function (src: string, sub: string): boolean {
@@ -5673,7 +5742,7 @@ Here, also, the return type of our function expression is implied by the values 
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
-// ---cut---
+
 let mySearch: SearchFunc;
 
 mySearch = function (src, sub) {
@@ -5689,7 +5758,7 @@ Had the function expression returned numbers or strings, the type checker would 
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
-// ---cut---
+
 let mySearch: SearchFunc;
 
 mySearch = function (src, sub) {
@@ -6143,7 +6212,7 @@ A common case for their use is for describing config values:
 ```ts twoslash
 /** Creates a map centered at loc/lat */
 declare function setupMap(config: MapConfig): void;
-// ---cut---
+
 interface MapConfig {
   lng: number;
   lat: number;
@@ -6223,7 +6292,7 @@ That means that we can call it with an argument that's neither a `number` nor a 
 
 ```ts twoslash
 declare function padLeft(value: string, padding: any): string;
-// ---cut---
+
 // passes at compile time, fails at runtime.
 let indentedString = padLeft("Hello world", true);
 ```
@@ -6408,7 +6477,7 @@ type NetworkSuccessState = {
     summary: string;
   };
 };
-// ---cut---
+
 type NetworkState =
   | NetworkLoadingState
   | NetworkFailedState
@@ -6454,7 +6523,7 @@ type NetworkSuccessState = {
     summary: string;
   };
 };
-// ---cut---
+
 type NetworkFromCachedState = {
   state: "from_cache";
   id: string;
@@ -6495,7 +6564,7 @@ type NetworkState =
   | NetworkSuccessState
   | NetworkFromCachedState;
 
-// ---cut---
+
 function logger(s: NetworkState): string {
   switch (s.state) {
     case "loading":
@@ -6526,7 +6595,7 @@ type NetworkState =
   | NetworkFailedState
   | NetworkSuccessState
   | NetworkFromCachedState;
-// ---cut---
+  
 function assertNever(x: never): never {
   throw new Error("Unexpected object: " + x);
 }
@@ -7104,7 +7173,7 @@ class Point {
   x = 0;
   y = 0;
 }
-// ---cut---
+
 const pt = new Point();
 pt.x = "0";
 ```
@@ -7487,7 +7556,7 @@ class Base {
 }
 class Derived extends Base {}
 const d = new Derived();
-// ---cut---
+
 // Alias the derived instance through a base class reference
 const b: Base = d;
 // No problem
@@ -7519,7 +7588,7 @@ declare class Base {
   greet(): void;
 }
 declare class Derived extends Base {}
-// ---cut---
+
 const b: Base = new Derived();
 // Crashes because "name" will be undefined
 b.greet();
@@ -7757,7 +7826,7 @@ console.log(b.x);
 class Base {
   private x = 0;
 }
-// ---cut---
+
 class Derived extends Base {
   showX() {
     // Can't access in subclasses
@@ -7958,7 +8027,7 @@ Static blocks allow you to write a sequence of statements with their own scope t
 
 ```ts twoslash
 declare function loadLastInstances(): any[]
-// ---cut---
+
 class Foo {
     static #count = 0;
 
@@ -8082,7 +8151,7 @@ These parameters are erased during compilation:
 
 ```ts twoslash
 type SomeType = any;
-// ---cut---
+
 // TypeScript input with 'this' parameter
 function fn(this: SomeType, x: number) {
   /* ... */
@@ -8150,7 +8219,7 @@ class Box {
     return this;
   }
 }
-// ---cut---
+
 class ClearableBox extends Box {
   clear() {
     this.contents = "";
@@ -8253,7 +8322,7 @@ class Box<T> {
   }
 }
 
-const box = new Box();
+const box = new Box<string>();
 box.value = "Gameboy";
 
 box.value;
@@ -8370,7 +8439,7 @@ abstract class Base {
   abstract getName(): string;
   printName() {}
 }
-// ---cut---
+
 class Derived extends Base {
   getName() {
     return "world";
@@ -8389,7 +8458,7 @@ abstract class Base {
   abstract getName(): string;
   printName() {}
 }
-// ---cut---
+
 class Derived extends Base {
   // forgot to do anything
 }
@@ -8412,7 +8481,7 @@ class Derived extends Base {
     return "";
   }
 }
-// ---cut---
+
 function greet(ctor: typeof Base) {
   const instance = new ctor();
   instance.printName();
@@ -8424,7 +8493,7 @@ After all, given the definition of `greet`, it's perfectly legal to write this c
 
 ```ts twoslash
 declare const greet: any, Base: any;
-// ---cut---
+
 // Bad!
 greet(Base);
 ```
@@ -8442,7 +8511,7 @@ class Derived extends Base {
     return "";
   }
 }
-// ---cut---
+
 function greet(ctor: new () => Base) {
   const instance = new ctor();
   instance.printName();
@@ -8627,7 +8696,7 @@ When a parameter has a type annotation, arguments to that function will be check
 ```ts twoslash
 // @errors: 2345
 declare function greet(name: string): void;
-// ---cut---
+
 // Would be a runtime error if executed!
 greet(42);
 ```
@@ -8873,7 +8942,7 @@ In other words, this code might _look_ illegal, but is OK according to TypeScrip
 ```ts twoslash
 declare function getInput(): string;
 declare function sanitize(str: string): string;
-// ---cut---
+
 type UserInputSanitizedString = string;
 
 function sanitizeInput(str: string): UserInputSanitizedString {
@@ -9028,7 +9097,7 @@ If this happens, you can use two assertions, first to `any` (or `unknown`, which
 ```ts twoslash
 declare const expr: any;
 type T = { a: 1; b: 2; c: 3 };
-// ---cut---
+
 const a = expr as any as T;
 ```
 
@@ -9111,7 +9180,7 @@ For example, if you wrote code like this:
 
 ```ts twoslash
 declare const someCondition: boolean;
-// ---cut---
+
 const obj = { counter: 0 };
 if (someCondition) {
   obj.counter = 1;
@@ -9321,7 +9390,7 @@ export default function helloWorld() {
   console.log("Hello, world!");
 }
 // @filename: index.ts
-// ---cut---
+
 import helloWorld from "./hello.js";
 helloWorld();
 ```
@@ -9355,7 +9424,7 @@ export function absolute(num: number) {
   return num;
 }
 // @filename: app.ts
-// ---cut---
+
 import { pi, phi, absolute } from "./maths.js";
 
 console.log(pi);
@@ -9371,7 +9440,7 @@ An import can be renamed using a format like `import {old as new}`:
 // @filename: maths.ts
 export var pi = 3.14;
 // @filename: app.ts
-// ---cut---
+
 import { pi as π } from "./maths.js";
 
 console.log(π);
@@ -9407,7 +9476,7 @@ export function absolute(num: number) {
   if (num < 0) return num * -1;
   return num;
 }
-// ---cut---
+
 // @filename: app.ts
 import * as math from "./maths.js";
 
@@ -9421,7 +9490,7 @@ You can import a file and _not_ include any variables into your current module v
 ```ts twoslash
 // @filename: maths.ts
 export var pi = 3.14;
-// ---cut---
+
 // @filename: app.ts
 import "./maths.js";
 
@@ -9479,7 +9548,7 @@ TypeScript 4.5 also allows for individual imports to be prefixed with `type` to 
 export type Cat = { breed: string; yearOfBirth: number };
 export type Dog = { breeds: string[]; yearOfBirth: number };
 export const createCatName = () => "fluffy";
-// ---cut---
+
 // @filename: app.ts
 import { createCatName, type Cat, type Dog } from "./animal.js";
 
@@ -9496,7 +9565,7 @@ TypeScript has ES Module syntax which _directly_ correlates to a CommonJS and AM
 ```ts twoslash
 /// <reference types="node" />
 // @module: commonjs
-// ---cut---
+
 import fs = require("fs");
 const code = fs.readFileSync("hello.ts", "utf8");
 ```
@@ -9513,7 +9582,7 @@ Identifiers are exported via setting the `exports` property on a global called `
 
 ```ts twoslash
 /// <reference types="node" />
-// ---cut---
+
 function absolute(num: number) {
   if (num < 0) return num * -1;
   return num;
@@ -9545,7 +9614,7 @@ module.exports = {
   absolute,
 };
 // @filename: index.ts
-// ---cut---
+
 const maths = require("./maths");
 maths.pi;
 //    ^?
@@ -9569,7 +9638,7 @@ module.exports = {
   absolute,
 };
 // @filename: index.ts
-// ---cut---
+
 const { squareTwo } = require("./maths");
 squareTwo;
 // ^?
@@ -9588,7 +9657,7 @@ The Node strategy replicates how Node.js works in CommonJS mode, with additional
 
 There are many TSConfig flags which influence the module strategy within TypeScript: [`moduleResolution`](https://www.typescriptlang.org/tsconfig#moduleResolution), [`baseUrl`](https://www.typescriptlang.org/tsconfig#baseUrl), [`paths`](https://www.typescriptlang.org/tsconfig#paths), [`rootDirs`](https://www.typescriptlang.org/tsconfig#rootDirs).
 
-For the full details on how these strategies work, you can consult the [Module Resolution](https://www.typescriptlang.org/docs/handbook/module-resolution.html).
+For the full details on how these strategies work, you can consult the [Module Resolution](/docs/handbook/modules/reference.html#the-moduleresolution-compiler-option) reference page.
 
 ## TypeScript's Module Output Options
 
@@ -9608,7 +9677,7 @@ For example, here is a TypeScript file using ES Modules syntax, showcasing a few
 // @filename: constants.ts
 export const valueOfPi = 3.142;
 // @filename: index.ts
-// ---cut---
+
 import { valueOfPi } from "./constants.js";
 
 export const twoPi = valueOfPi * 2;
@@ -9735,7 +9804,7 @@ You can write a _construct signature_ by adding the `new` keyword in front of a 
 
 ```ts twoslash
 type SomeObject = any;
-// ---cut---
+
 type SomeConstructor = {
   new (s: string): SomeObject;
 };
@@ -9782,7 +9851,7 @@ Now when we call it, a more specific type comes out:
 
 ```ts twoslash
 declare function firstElement<Type>(arr: Type[]): Type | undefined;
-// ---cut---
+
 // s is of type 'string'
 const s = firstElement(["a", "b", "c"]);
 // n is of type 'number'
@@ -9879,7 +9948,7 @@ declare function minimumLength<Type extends { length: number }>(
   obj: Type,
   minimum: number
 ): Type;
-// ---cut---
+
 // 'arr' gets value { length: 6 }
 const arr = minimumLength([1, 2, 3], 6);
 // and crashes here because arrays have
@@ -9903,7 +9972,7 @@ Normally it would be an error to call this function with mismatched arrays:
 ```ts twoslash
 // @errors: 2322
 declare function combine<Type>(arr1: Type[], arr2: Type[]): Type[];
-// ---cut---
+
 const arr = combine([1, 2, 3], ["hello"]);
 ```
 
@@ -9911,7 +9980,7 @@ If you intended to do this, however, you could manually specify `Type`:
 
 ```ts twoslash
 declare function combine<Type>(arr1: Type[], arr2: Type[]): Type[];
-// ---cut---
+
 const arr = combine<string | number>([1, 2, 3], ["hello"]);
 ```
 
@@ -10030,7 +10099,7 @@ Note that when a parameter is optional, callers can always pass `undefined`, as 
 
 ```ts twoslash
 declare function f(x?: number): void;
-// cut
+
 // All OK
 f();
 f(10);
@@ -10057,7 +10126,7 @@ declare function myForEach(
   arr: any[],
   callback: (arg: any, index?: number) => void
 ): void;
-// ---cut---
+
 myForEach([1, 2, 3], (a) => console.log(a));
 myForEach([1, 2, 3], (a, i) => console.log(a, i));
 ```
@@ -10084,7 +10153,7 @@ declare function myForEach(
   arr: any[],
   callback: (arg: any, index?: number) => void
 ): void;
-// ---cut---
+
 myForEach([1, 2, 3], (a, i) => {
   console.log(i.toFixed());
 });
@@ -10190,7 +10259,7 @@ However, we can't invoke it with a value that might be a string _or_ an array, b
 // @errors: 2769
 declare function len(s: string): number;
 declare function len(arr: any[]): number;
-// ---cut---
+
 len(""); // OK
 len([0]); // OK
 len(Math.random() > 0.5 ? "hello" : [0]);
@@ -10232,7 +10301,7 @@ interface User {
   admin: boolean;
 }
 declare const getDB: () => DB;
-// ---cut---
+
 interface DB {
   filterUsers(filter: (this: User) => boolean): User[];
 }
@@ -10252,7 +10321,7 @@ interface User {
   isAdmin: boolean;
 }
 declare const getDB: () => DB;
-// ---cut---
+
 interface DB {
   filterUsers(filter: (this: User) => boolean): User[];
 }
@@ -10316,7 +10385,7 @@ Conversely, you can describe a function that returns a value of unknown type:
 
 ```ts twoslash
 declare const someRandomString: string;
-// ---cut---
+
 function safeParse(s: string): unknown {
   return JSON.parse(s);
 }
@@ -10501,7 +10570,7 @@ const f2: voidFunc = () => true;
 const f3: voidFunc = function () {
   return true;
 };
-// ---cut---
+
 const v1 = f1();
 
 const v2 = f2();
@@ -10559,11 +10628,10 @@ function padLeft(padding: number | string, input: string): string {
 
 If `padding` is a `number`, it will treat that as the number of spaces we want to prepend to `input`.
 If `padding` is a `string`, it should just prepend `padding` to `input`.
-Let's try to implement the logic for when `padLeft` is passed a `number` for `padding`.
 
 ```ts twoslash
 // @errors: 2345
-function padLeft(padding: number | string, input: string) {
+function padLeft(padding: number | string, input: string): string {
   return " ".repeat(padding) + input;
 }
 ```
@@ -10573,7 +10641,7 @@ TypeScript is warning us that we're passing a value with type `number | string` 
 In other words, we haven't explicitly checked if `padding` is a `number` first, nor are we handling the case where it's a `string`, so let's do exactly that.
 
 ```ts twoslash
-function padLeft(padding: number | string, input: string) {
+function padLeft(padding: number | string, input: string): string {
   if (typeof padding === "number") {
     return " ".repeat(padding) + input;
   }
@@ -10594,7 +10662,7 @@ It looks at these special checks (called _type guards_) and assignments, and the
 In many editors we can observe these types as they change, and we'll even do so in our examples.
 
 ```ts twoslash
-function padLeft(padding: number | string, input: string) {
+function padLeft(padding: number | string, input: string): string {
   if (typeof padding === "number") {
     return " ".repeat(padding) + input;
     //                ^?
@@ -10967,7 +11035,7 @@ To define a user-defined type guard, we simply need to define a function whose r
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 declare function getSmallPet(): Fish | Bird;
-// ---cut---
+
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
 }
@@ -10985,7 +11053,7 @@ declare function getSmallPet(): Fish | Bird;
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
 }
-// ---cut---
+
 // Both calls to 'swim' and 'fly' are now okay.
 let pet = getSmallPet();
 
@@ -11008,7 +11076,7 @@ declare function getSmallPet(): Fish | Bird;
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
 }
-// ---cut---
+
 const zoo: (Fish | Bird)[] = [getSmallPet(), getSmallPet(), getSmallPet()];
 const underWater1: Fish[] = zoo.filter(isFish);
 // or, equivalently
@@ -11056,7 +11124,7 @@ interface Shape {
   sideLength?: number;
 }
 
-// ---cut---
+
 function handleShape(shape: Shape) {
   // oops!
   if (shape.kind === "rect") {
@@ -11076,7 +11144,7 @@ interface Shape {
   sideLength?: number;
 }
 
-// ---cut---
+
 function getArea(shape: Shape) {
   return Math.PI * shape.radius ** 2;
 }
@@ -11095,7 +11163,7 @@ interface Shape {
   sideLength?: number;
 }
 
-// ---cut---
+
 function getArea(shape: Shape) {
   if (shape.kind === "circle") {
     return Math.PI * shape.radius ** 2;
@@ -11114,7 +11182,7 @@ interface Shape {
   sideLength?: number;
 }
 
-// ---cut---
+
 function getArea(shape: Shape) {
   if (shape.kind === "circle") {
     return Math.PI * shape.radius! ** 2;
@@ -11163,7 +11231,7 @@ interface Square {
 
 type Shape = Circle | Square;
 
-// ---cut---
+
 function getArea(shape: Shape) {
   return Math.PI * shape.radius ** 2;
 }
@@ -11189,7 +11257,7 @@ interface Square {
 
 type Shape = Circle | Square;
 
-// ---cut---
+
 function getArea(shape: Shape) {
   if (shape.kind === "circle") {
     return Math.PI * shape.radius ** 2;
@@ -11221,7 +11289,7 @@ interface Square {
 
 type Shape = Circle | Square;
 
-// ---cut---
+
 function getArea(shape: Shape) {
   switch (shape.kind) {
     case "circle":
@@ -11266,7 +11334,7 @@ interface Square {
   kind: "square";
   sideLength: number;
 }
-// ---cut---
+
 type Shape = Circle | Square;
 
 function getArea(shape: Shape) {
@@ -11295,7 +11363,7 @@ interface Square {
   kind: "square";
   sideLength: number;
 }
-// ---cut---
+
 interface Triangle {
   kind: "triangle";
   sideLength: number;
@@ -11387,7 +11455,7 @@ In those cases, we can mark those properties as _optional_ by adding a question 
 interface Shape {}
 declare function getShape(): Shape;
 
-// ---cut---
+
 interface PaintOptions {
   shape: Shape;
   xPos?: number;
@@ -11423,7 +11491,7 @@ interface PaintOptions {
   yPos?: number;
 }
 
-// ---cut---
+
 function paintShape(opts: PaintOptions) {
   let xPos = opts.xPos;
   //              ^?
@@ -11446,7 +11514,7 @@ interface PaintOptions {
   yPos?: number;
 }
 
-// ---cut---
+
 function paintShape(opts: PaintOptions) {
   let xPos = opts.xPos === undefined ? 0 : opts.xPos;
   //  ^?
@@ -11468,7 +11536,7 @@ interface PaintOptions {
   yPos?: number;
 }
 
-// ---cut---
+
 function paintShape({ shape, xPos = 0, yPos = 0 }: PaintOptions) {
   console.log("x coordinate at", xPos);
   //                             ^?
@@ -11581,7 +11649,7 @@ In those cases you can use an index signature to describe the types of possible 
 
 ```ts twoslash
 declare function getStringArray(): StringArray;
-// ---cut---
+
 interface StringArray {
   [index: number]: string;
 }
@@ -11649,7 +11717,7 @@ Finally, you can make index signatures `readonly` in order to prevent assignment
 
 ```ts twoslash
 declare function getReadOnlyStringArray(): ReadonlyStringArray;
-// ---cut---
+
 // @errors: 2542
 interface ReadonlyStringArray {
   readonly [index: number]: string;
@@ -11705,7 +11773,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let mySquare = createSquare({ colour: "red", width: 100 });
 ```
 
@@ -11725,7 +11793,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let mySquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
 ```
 
@@ -11758,7 +11826,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let squareOptions = { colour: "red", width: 100 };
 let mySquare = createSquare(squareOptions);
 ```
@@ -11779,7 +11847,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
     area: config.width ? config.width * config.width : 20,
   };
 }
-// ---cut---
+
 let squareOptions = { colour: "red" };
 let mySquare = createSquare(squareOptions);
 ```
@@ -11889,7 +11957,7 @@ interface Colorful {
 interface Circle {
   radius: number;
 }
-// ---cut---
+
 function draw(circle: Colorful & Circle) {
   console.log(`Color was ${circle.color}`);
   console.log(`Radius was ${circle.radius}`);
@@ -11976,7 +12044,7 @@ interface StringBox {
 interface BooleanBox {
   contents: boolean;
 }
-// ---cut---
+
 function setContents(box: StringBox, newContents: string): void;
 function setContents(box: NumberBox, newContents: number): void;
 function setContents(box: BooleanBox, newContents: boolean): void;
@@ -12003,7 +12071,7 @@ Later on, when we refer to `Box`, we have to give a _type argument_ in place of 
 interface Box<Type> {
   contents: Type;
 }
-// ---cut---
+
 let box: Box<string>;
 ```
 
@@ -12050,7 +12118,7 @@ interface Box<Type> {
   contents: Type;
 }
 
-// ---cut---
+
 function setContents<Type>(box: Box<Type>, newContents: Type) {
   box.contents = newContents;
 }
@@ -12117,7 +12185,7 @@ interface Number {}
 interface String {}
 interface Boolean {}
 interface Symbol {}
-// ---cut---
+
 interface Array<Type> {
   /**
    * Gets or sets the length of the array.
@@ -12300,7 +12368,7 @@ A tuple with a rest element has no set "length" - it only has a set of well-know
 
 ```ts twoslash
 type StringNumberBooleans = [string, number, ...boolean[]];
-// ---cut---
+
 const a: StringNumberBooleans = ["hello", 1];
 const b: StringNumberBooleans = ["beautiful", 2, true];
 const c: StringNumberBooleans = ["world", 3, true, false, true, false, true];
@@ -12655,7 +12723,7 @@ interface IdLabel {
 interface NameLabel {
   name: string /* other fields */;
 }
-// ---cut---
+
 type NameOrId<T extends number | string> = T extends number
   ? IdLabel
   : NameLabel;
@@ -12673,7 +12741,7 @@ interface NameLabel {
 type NameOrId<T extends number | string> = T extends number
   ? IdLabel
   : NameLabel;
-// ---cut---
+  
 function createLabel<T extends number | string>(idOrName: T): NameOrId<T> {
   throw "unimplemented";
 }
@@ -12919,7 +12987,7 @@ The first way is to pass all of the arguments, including the type argument, to t
 function identity<Type>(arg: Type): Type {
   return arg;
 }
-// ---cut---
+
 let output = identity<string>("myString");
 //       ^?
 ```
@@ -12932,7 +13000,7 @@ The second way is also perhaps the most common. Here we use _type argument infer
 function identity<Type>(arg: Type): Type {
   return arg;
 }
-// ---cut---
+
 let output = identity("myString");
 //       ^?
 ```
@@ -13095,7 +13163,7 @@ class GenericNumber<NumType> {
   zeroValue: NumType;
   add: (x: NumType, y: NumType) => NumType;
 }
-// ---cut---
+
 let stringNumeric = new GenericNumber<string>();
 stringNumeric.zeroValue = "";
 stringNumeric.add = function (x, y) {
@@ -13153,7 +13221,7 @@ function loggingIdentity<Type extends Lengthwise>(arg: Type): Type {
   console.log(arg.length);
   return arg;
 }
-// ---cut---
+
 loggingIdentity(3);
 ```
 
@@ -13168,7 +13236,7 @@ function loggingIdentity<Type extends Lengthwise>(arg: Type): Type {
   console.log(arg.length);
   return arg;
 }
-// ---cut---
+
 loggingIdentity({ length: 10, value: 3 });
 ```
 
@@ -13246,7 +13314,7 @@ type Container<T, U> = {
   children: U;
 };
 
-// ---cut---
+
 declare function create(): Container<HTMLDivElement, HTMLDivElement[]>;
 declare function create<T extends HTMLElement>(element: T): Container<T, T[]>;
 declare function create<T extends HTMLElement, U extends HTMLElement>(
@@ -13263,7 +13331,7 @@ type Container<T, U> = {
   children: U;
 };
 
-// ---cut---
+
 declare function create<T extends HTMLElement = HTMLDivElement, U = T[]>(
   element?: T,
   children?: U
@@ -13310,7 +13378,7 @@ The indexing type is itself a type, so we can use unions, `keyof`, or other type
 
 ```ts twoslash
 type Person = { age: number; name: string; alive: boolean };
-// ---cut---
+
 type I1 = Person["age" | "name"];
 //   ^?
 
@@ -13327,7 +13395,7 @@ You'll even see an error if you try to index a property that doesn't exist:
 ```ts twoslash
 // @errors: 2339
 type Person = { age: number; name: string; alive: boolean };
-// ---cut---
+
 type I1 = Person["alve"];
 ```
 
@@ -13355,7 +13423,7 @@ You can only use types when indexing, meaning you can't use a `const` to make a 
 ```ts twoslash
 // @errors: 2538 2749
 type Person = { age: number; name: string; alive: boolean };
-// ---cut---
+
 const key = "age";
 type Age = Person[key];
 ```
@@ -13364,7 +13432,7 @@ However, you can use a type alias for a similar style of refactor:
 
 ```ts twoslash
 type Person = { age: number; name: string; alive: boolean };
-// ---cut---
+
 type key = "age";
 type Age = Person[key];
 ```
@@ -13426,7 +13494,7 @@ Mapped types build on the syntax for index signatures, which are used to declare
 
 ```ts twoslash
 type Horse = {};
-// ---cut---
+
 type OnlyBoolsAndHorses = {
   [key: string]: boolean | Horse;
 };
@@ -13451,7 +13519,7 @@ In this example, `OptionsFlags` will take all the properties from the type `Type
 type OptionsFlags<Type> = {
   [Property in keyof Type]: boolean;
 };
-// ---cut---
+
 type Features = {
   darkMode: () => void;
   newUserProfile: () => void;
@@ -13613,7 +13681,7 @@ For each interpolated position in the template literal, the unions are cross mul
 ```ts twoslash
 type EmailLocaleIDs = "welcome_email" | "email_heading";
 type FooterLocaleIDs = "footer_title" | "footer_sendoff";
-// ---cut---
+
 type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
 type Lang = "en" | "ja" | "pt";
 
@@ -13654,7 +13722,7 @@ The naive function signature of `on()` might thus be: `on(eventName: string, cal
 ```ts twoslash
 // @noErrors
 declare function makeWatchedObject(obj: any): any;
-// ---cut---
+
 const person = makeWatchedObject({
   firstName: "Saoirse",
   lastName: "Ronan",
@@ -13689,7 +13757,7 @@ type PropEventSource<Type> = {
 };
 
 declare function makeWatchedObject<T>(obj: T): T & PropEventSource<T>;
-// ---cut---
+
 const person = makeWatchedObject({
   firstName: "Saoirse",
   lastName: "Ronan",
@@ -13900,7 +13968,7 @@ This helps avoid the confusing trap of writing code you think is executing, but 
 // @errors: 1005
 declare const msgbox: (prompt: string) => boolean;
 // type msgbox = any;
-// ---cut---
+
 // Meant to use = ReturnType<typeof msgbox>
 let shouldContinue: typeof msgbox("Are you sure you want to continue?");
 ```
@@ -19719,7 +19787,7 @@ export type Pet = {
   name: string,
 };
 // @filename: main.js
-// ---cut---
+
 /**
  * @typedef {import("./types").Pet} Pet
  */
@@ -19746,7 +19814,7 @@ export const userAccount = {
   universe: "",
 };
 // @filename: main.js
-// ---cut---
+
 /**
  * @type {typeof import("./accounts").userAccount}
  */
@@ -20228,7 +20296,7 @@ Otherwise, `@example` will be parsed as a new tag.
 
 ```js twoslash
 class Foo {}
-// ---cut---
+
 var someObj = {
   /**
    * @param {string} param1 - JSDocs on property assignments work
@@ -20709,7 +20777,7 @@ As we mentioned, you can only access members that are guaranteed to be in all th
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 declare function getSmallPet(): Fish | Bird;
-// ---cut---
+
 let pet = getSmallPet();
 
 // You can use the 'in' operator to check
@@ -20728,7 +20796,7 @@ To get the same code working via property accessors, we'll need to use a type as
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 declare function getSmallPet(): Fish | Bird;
-// ---cut---
+
 let pet = getSmallPet();
 let fishPet = pet as Fish;
 let birdPet = pet as Bird;
@@ -20757,7 +20825,7 @@ To define a type guard, we simply need to define a function whose return type is
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 declare function getSmallPet(): Fish | Bird;
-// ---cut---
+
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
 }
@@ -20775,7 +20843,7 @@ declare function getSmallPet(): Fish | Bird;
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
 }
-// ---cut---
+
 // Both calls to 'swim' and 'fly' are now okay.
 let pet = getSmallPet();
 
@@ -20799,7 +20867,7 @@ declare function getSmallPet(): Fish | Bird;
 function isFish(pet: Fish | Bird): pet is Fish {
   return (pet as Fish).swim !== undefined;
 }
-// ---cut---
+
 const zoo: (Fish | Bird)[] = [getSmallPet(), getSmallPet(), getSmallPet()];
 const underWater1: Fish[] = zoo.filter(isFish);
 // or, equivalently
@@ -20816,7 +20884,7 @@ For a `n in x` expression, where `n` is a string literal or string literal type 
 ```ts twoslash
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
-// ---cut---
+
 function move(pet: Fish | Bird) {
   if ("swim" in pet) {
     return pet.swim();
@@ -21017,7 +21085,7 @@ The syntax is postfix `!`: `identifier!` removes `null` and `undefined` from the
 function getUser(id: string): UserAccount | undefined {
   return {} as any;
 }
-// ---cut---
+
 interface UserAccount {
   id: number;
   email?: string;
@@ -21070,7 +21138,7 @@ Together with [intersection](https://www.typescriptlang.org/docs/handbook/unions
 
 ```ts twoslash
 declare function getDriversLicenseQueue(): LinkedList<Person>;
-// ---cut---
+
 type LinkedList<Type> = Type & { next: LinkedList<Type> };
 
 interface Person {
@@ -21214,7 +21282,7 @@ class BasicCalculator {
   }
   // ... other operations go here ...
 }
-// ---cut---
+
 class ScientificCalculator extends BasicCalculator {
   public constructor(value = 0) {
     super(value);
@@ -21284,7 +21352,7 @@ interface Car {
   model: string;
   year: number;
 }
-// ---cut---
+
 let carProps: keyof Car;
 //         ^?
 ```
@@ -21330,7 +21398,7 @@ let taxi: Car = {
   model: "Camry",
   year: 2014,
 };
-// ---cut---
+
 let manufacturer: string = getProperty(taxi, "manufacturer");
 let year: number = getProperty(taxi, "year");
 
@@ -21413,7 +21481,7 @@ type Person = {
   name: string;
   age: number;
 };
-// ---cut---
+
 type PersonPartial = Partial<Person>;
 //   ^?
 type ReadonlyPerson = Readonly<Person>;
@@ -21469,7 +21537,7 @@ type Person = {
   name: string;
   age: number;
 };
-// ---cut---
+
 type NullablePerson = { [P in keyof Person]: Person[P] | null };
 //   ^?
 type PartialPerson = { [P in keyof Person]?: Person[P] };
@@ -21555,7 +21623,7 @@ function proxify<T>(o: T): Proxify<T> {
 
 let props = { rooms: 4 };
 let proxyProps = proxify(props);
-// ---cut---
+
 function unproxify<T>(t: Proxify<T>): T {
   let result = {} as T;
   for (const k in t) {
@@ -21666,7 +21734,7 @@ type TypeName<T> = T extends string
   : T extends Function
   ? "function"
   : "object";
-// ---cut---
+  
 type T5 = TypeName<string | (() => void)>;
 //   ^?
 type T6 = TypeName<string | string[] | undefined>;
@@ -22287,7 +22355,7 @@ Multiple decorators can be applied to a declaration, for example on a single lin
 // @noErrors
 function f() {}
 function g() {}
-// ---cut---
+
 @f @g x
 ```
 
@@ -22298,7 +22366,7 @@ On multiple lines:
 // @noErrors
 function f() {}
 function g() {}
-// ---cut---
+
 @f
 @g
 x
@@ -22376,7 +22444,7 @@ function sealed(constructor: Function) {
   Object.seal(constructor);
   Object.seal(constructor.prototype);
 }
-// ---cut---
+
 @sealed
 class BugReport {
   type = "report";
@@ -22459,7 +22527,7 @@ function enumerable(value: boolean) {
     descriptor.enumerable = value;
   };
 }
-// ---cut---
+
 class Greeter {
   greeting: string;
   constructor(message: string) {
@@ -22522,7 +22590,7 @@ function configurable(value: boolean) {
     descriptor.configurable = value;
   };
 }
-// ---cut---
+
 class Point {
   private _x: number;
   private _y: number;
@@ -22632,7 +22700,7 @@ The following is an example of a parameter decorator (`@required`) applied to pa
 // @experimentalDecorators
 function validate(target: any, propertyName: string, descriptor: TypedPropertyDescriptor<any>) {}
 function required(target: Object, propertyKey: string | symbol, parameterIndex: number) {}
-// ---cut---
+
 class BugReport {
   type = "report";
   title: string;
@@ -22889,7 +22957,7 @@ In other words, the following isn't allowed:
 ```ts twoslash
 // @errors: 1061
 const getSomeValue = () => 23;
-// ---cut---
+
 enum E {
   A = getSomeValue(),
   B,
@@ -23531,7 +23599,7 @@ declare module JSX {
     [s: string]: any;
   }
 }
-// ---cut---
+
 interface ClickableProps {
   children: JSX.Element[] | JSX.Element;
 }
@@ -23917,7 +23985,7 @@ function Scale<TBase extends Constructor>(Base: TBase) {
     }
   };
 }
-// ---cut---
+
 // Compose a new class from the Sprite class,
 // with the Mixin Scale applier:
 const EightBitSprite = Scale(Sprite);
@@ -23954,7 +24022,7 @@ class Sprite {
     this.name = name;
   }
 }
-// ---cut---
+
 type Positionable = GConstructor<{ setPos: (x: number, y: number) => void }>;
 type Spritable = GConstructor<Sprite>;
 type Loggable = GConstructor<{ print: () => void }>;
@@ -23976,7 +24044,7 @@ class Sprite {
 type Positionable = GConstructor<{ setPos: (x: number, y: number) => void }>;
 type Spritable = GConstructor<Sprite>;
 type Loggable = GConstructor<{ print: () => void }>;
-// ---cut---
+
 
 function Jumpable<TBase extends Positionable>(Base: TBase) {
   return class Jumpable extends Base {
@@ -25295,7 +25363,7 @@ class Elephant extends Animal {
 class Snake extends Animal {
   hasLegs: false;
 }
-// ---cut---
+
 let zoo = [new Rhino(), new Elephant(), new Snake()];
 //    ^?
 ```
@@ -25315,7 +25383,7 @@ class Elephant extends Animal {
 class Snake extends Animal {
   hasLegs: false;
 }
-// ---cut---
+
 let zoo: Animal[] = [new Rhino(), new Elephant(), new Snake()];
 //    ^?
 ```
@@ -25402,7 +25470,7 @@ class Elephant extends Animal {
 class Snake extends Animal {
   hasLegs: false;
 }
-// ---cut---
+
 function createZoo(): Animal[] {
   return [new Rhino(), new Elephant(), new Snake()];
 }
@@ -27040,11 +27108,11 @@ It’s worth taking a step back here and clarifying what the _goal_ is. As soon 
 
 By following the specification, it was easy enough for transpilers to find a set of transformations that made the semantics of their transpiled CommonJS outputs match the specified semantics of their ESM inputs (arrows represent imports):
 
-![A flowchart with two similar flows side-by-side. Left: ESM. Right: ESM transpiled to CJS. In the ESM flow: "Importing module" flows to "Imported module" through arrow labeled "specified behavior". In the ESM transpiled to CJS flow: "Importing module" flows to "Imported module" through arrow labeled "designed based on spec".](../diagrams/esm-cjs-interop.mmd-1.svg)
+![A flowchart with two similar flows side-by-side. Left: ESM. Right: ESM transpiled to CJS. In the ESM flow: "Importing module" flows to "Imported module" through arrow labeled "specified behavior". In the ESM transpiled to CJS flow: "Importing module" flows to "Imported module" through arrow labeled "designed based on spec".](../diagrams/esm-cjs-interop.md-1.svg)
 
 However, CommonJS modules (written as CommonJS, not as ESM transpiled to CommonJS) were already well-established in the Node.js ecosystem, so it was inevitable that modules written as ESM and transpiled to CJS would start “importing” modules written as CommonJS. The behavior for this interoperability, though, was not specified by ES2015, and didn’t yet exist in any real runtime.
 
-![A flowchart with three areas side-by-side. Left: ESM. Middle: True CJS. Right: ESM transpiled to CJS. Left: ESM "Importing module" flows to ESM "Imported module" through arrow labeled "specified behavior," and to True CJS "Imported module" through dotted arrow labeled "unspecified behavior." Right: ESM transpiled to CJS "Importing module" flows to ESM transpiled to CJS "Imported module" through arrow labeled "designed based on spec," and to True CJS "Imported module" through dotted arrow labeled "❓🤷‍♂️❓"](../diagrams/esm-cjs-interop.mmd-2.svg)
+![A flowchart with three areas side-by-side. Left: ESM. Middle: True CJS. Right: ESM transpiled to CJS. Left: ESM "Importing module" flows to ESM "Imported module" through arrow labeled "specified behavior," and to True CJS "Imported module" through dotted arrow labeled "unspecified behavior." Right: ESM transpiled to CJS "Importing module" flows to ESM transpiled to CJS "Imported module" through arrow labeled "designed based on spec," and to True CJS "Imported module" through dotted arrow labeled "❓🤷‍♂️❓"](../diagrams/esm-cjs-interop.md-2.svg)
 
 Even if transpiler authors did nothing, a behavior would emerge from the existing semantics between the `require` calls they emitted in transpiled code and the `exports` defined in existing CJS modules. And to allow users to transition seamlessly from transpiled ESM to true ESM once their runtime supported it, that behavior would have to match the one the runtime chose to implement.
 
@@ -38651,7 +38719,7 @@ function partialCall<T extends Arr, U extends Arr, R>(
 ) {
   return (...tailArgs: U) => f(...headArgs, ...tailArgs);
 }
-// ---cut---
+
 const foo = (x: string, y: number, z: boolean) => {};
 
 const f1 = partialCall(foo, 100);
@@ -38704,7 +38772,7 @@ function foo(arg0: string, arg1: number): void {
 function foo(arg0: string, arg1: number): void {
   // ...
 }
-// ---cut---
+
 foo("hello", 42);
 
 foo("hello", 42, true);
@@ -39357,7 +39425,7 @@ let person = makeWatchedObject({
   location: "Springfield",
 });
 
-// ---cut---
+
 // error!
 person.on("firstName", () => {});
 
@@ -39588,7 +39656,7 @@ interface Options {
   // Extra properties are caught by this index signature.
   [propName: string]: string | number;
 }
-// ---cut---
+
 function checkOptions(opts: Options) {
   opts.path; // string
   opts.permissions; // number
@@ -40103,7 +40171,7 @@ interface Options {
    */
   [x: string]: any;
 }
-// ---cut---
+
 function processOptions(opts: Options) {
   // ...
 
@@ -40161,7 +40229,7 @@ To make sure this restriction in `new`-ing up `abstract` classes is consistently
 abstract class Shape {
   abstract getArea(): number;
 }
-// ---cut---
+
 interface HasArea {
   getArea(): number;
 }
@@ -40199,7 +40267,7 @@ It also doesn't work well with built-in helper types like `InstanceType`.
 abstract class Shape {
   abstract getArea(): number;
 }
-// ---cut---
+
 type MyInstance = InstanceType<typeof Shape>;
 ```
 
@@ -40209,7 +40277,7 @@ That's why TypeScript 4.2 allows you to specify an `abstract` modifier on constr
 abstract class Shape {
   abstract getArea(): number;
 }
-// ---cut---
+
 interface HasArea {
     getArea(): number;
 }
@@ -40676,7 +40744,7 @@ class Thing {
     this.#size = num;
   }
 }
-// ---cut---
+
 let thing = new Thing();
 
 // Assigning other types to `thing.size` works!
@@ -41745,7 +41813,7 @@ This flag changes the default type of `catch` clause variables from `any` to `un
 ```ts twoslash
 // @errors: 2571 18046
 declare function executeSomeThirdPartyCode(): void;
-// ---cut---
+
 try {
   executeSomeThirdPartyCode();
 } catch (err) {
@@ -41776,7 +41844,7 @@ In cases where we don't want to deal with an `unknown` variable in a `catch` cla
 <!-- prettier-ignore -->
 ```ts twoslash
 declare function executeSomeThirdPartyCode(): void;
-// ---cut---
+
 try {
   executeSomeThirdPartyCode();
 } catch (err: any) {
@@ -41832,7 +41900,7 @@ interface Person {
   name: string;
   age?: number;
 }
-// ---cut---
+
 // With 'exactOptionalPropertyTypes' on:
 const p: Person = {
   name: "Daniel",
@@ -41852,7 +41920,7 @@ TypeScript 4.4 brings support for [`static` blocks in classes](https://github.co
 
 ```ts twoslash
 declare function someCondition(): boolean
-// ---cut---
+
 class Foo {
     static count = 0;
 
@@ -41870,7 +41938,7 @@ That means that we can write initialization code with all the capabilities of wr
 
 ```ts twoslash
 declare function loadLastInstances(): any[]
-// ---cut---
+
 class Foo {
     static #count = 0;
 
@@ -42139,7 +42207,7 @@ permalink: /docs/handbook/release-notes/typescript-4-5.html
 oneline: TypeScript 4.5 Release Notes
 ---
 
-### Supporting `lib` from `node_modules`
+## Supporting `lib` from `node_modules`
 
 To ensure that TypeScript and JavaScript support works well out of the box, TypeScript bundles a series of declaration files (`.d.ts` files).
 These declaration files represent the available APIs in the JavaScript language, and the standard browser DOM APIs.
@@ -42214,7 +42282,7 @@ Now `Promise.all` leverages the combination of certain features with `Awaited` t
 
 For more information, you [can read about this change on GitHub](https://github.com/microsoft/TypeScript/pull/45350).
 
-### Template String Types as Discriminants
+## Template String Types as Discriminants
 
 TypeScript 4.5 now can narrow values that have template string types, and also recognizes template string types as discriminants.
 
@@ -42241,7 +42309,7 @@ export function handler(r: Success | Error) {
 
 For more information, [see the change that enables this feature](https://github.com/microsoft/TypeScript/pull/46137).
 
-### `module es2022`
+## `module es2022`
 
 Thanks to [Kagami S. Rosylight](https://github.com/saschanaz), TypeScript now supports a new `module` setting: `es2022`.
 The main feature in [`module es2022`](https://www.typescriptlang.org/tsconfig#module) is top-level `await`, meaning you can use `await` outside of `async` functions.
@@ -42313,7 +42381,7 @@ type GetCharsHelper<S, Acc> =
 
 You can read up more on the implementation [here](https://github.com/microsoft/TypeScript/pull/45711).
 
-### Disabling Import Elision
+## Disabling Import Elision
 
 There are some cases where TypeScript can't detect that you're using an import.
 For example, take the following code:
@@ -42420,7 +42488,7 @@ export class Thing {
 
 For more information, see [the changes on GitHub](https://github.com/microsoft/TypeScript/pull/45998).
 
-### Private Field Presence Checks
+## Private Field Presence Checks
 
 TypeScript 4.5 supports an ECMAScript proposal for checking whether an object has a private field on it.
 You can now write a class with a `#private` field member and see whether another object has the same field by using the `in` operator.
@@ -42447,7 +42515,7 @@ As such, TypeScript is able to appropriately narrow the type of `other` on each 
 
 We'd like to extend a big thanks to our friends at Bloomberg [who contributed this pull request](https://github.com/microsoft/TypeScript/pull/44648): [Ashley Claymore](https://github.com/acutmore), [Titian Cernicova-Dragomir](https://github.com/dragomirtitian), [Kubilay Kahveci](https://github.com/mkubilayk), and [Rob Palmer](https://github.com/robpalme)!
 
-### Import Assertions
+## Import Assertions
 
 TypeScript 4.5 supports an ECMAScript proposal for _import assertions_.
 This is a syntax used by runtimes to make sure that an import has an expected format.
@@ -42478,7 +42546,7 @@ The expected type of that second argument is defined by a new type called `Impor
 
 We'd like to thank [Wenlu Wang](https://github.com/Kingwl/) for [implementing this feature](https://github.com/microsoft/TypeScript/pull/40698)!
 
-### Const Assertions and Default Type Arguments in JSDoc
+## Const Assertions and Default Type Arguments in JSDoc
 
 TypeScript 4.5 brings some extra expressivity to our JSDoc support.
 
@@ -42533,7 +42601,7 @@ can be rewritten as the following `@typedef` declaration in JavaScript:
  
 For more information, see [the pull request for const assertions](https://github.com/microsoft/TypeScript/pull/45464) along with [the changes for type argument defaults](https://github.com/microsoft/TypeScript/pull/45483).
 
-### Faster Load Time with `realPathSync.native`
+## Faster Load Time with `realPathSync.native`
 
 TypeScript now leverages a system-native implementation of the Node.js `realPathSync` function on all operating systems.
 
@@ -42542,7 +42610,7 @@ On certain codebases, this change sped up project loading by 5-13% (depending on
 
 For more information, see [the original change here](https://github.com/microsoft/TypeScript/pull/44966), along with [the 4.5-specific changes here](https://github.com/microsoft/TypeScript/pull/44966).
 
-### Snippet Completions for JSX Attributes
+## Snippet Completions for JSX Attributes
 
 TypeScript 4.5 brings _snippet completions_ for JSX attributes.
 When writing out an attribute in a JSX tag, TypeScript will already provide suggestions for those attributes;
@@ -42557,7 +42625,7 @@ TypeScript will typically use the type of an attribute to figure out what kind o
 Keep in mind, this feature will only work in newer versions of Visual Studio Code, so you might have to use an Insiders build to get this working.
 For more information, [read up on the original pull request](https://github.com/microsoft/TypeScript/pull/45903)
 
-### Better Editor Support for Unresolved Types
+## Better Editor Support for Unresolved Types
 
 In some cases, editors will leverage a lightweight "partial" semantic mode - either while the editor is waiting for the full project to load, or in contexts like [GitHub's web-based editor](https://docs.github.com/en/codespaces/developing-in-codespaces/web-based-editor).
 
@@ -42579,19 +42647,19 @@ Keep in mind, you'll always get an error in regular scenarios to tell you when a
 
 For more information, [see the implementation here](https://github.com/microsoft/TypeScript/pull/45976).
 
-### Breaking Changes
+## Breaking Changes
 
-#### `lib.d.ts` Changes
+### `lib.d.ts` Changes
 
 TypeScript 4.5 contains changes to its built-in declaration files which may affect your compilation;
 however, [these changes were fairly minimal](https://github.com/microsoft/TypeScript-DOM-lib-generator/issues/1143), and we expect most code will be unaffected.
 
-#### Inference Changes from `Awaited`
+### Inference Changes from `Awaited`
 
 Because `Awaited` is now used in `lib.d.ts` and as a result of `await`, you may see certain generic types change that might cause incompatibilities;
 however, given many intentional design decisions around `Awaited` to avoid breakage, we expect most code will be unaffected.
 
-#### Compiler Options Checking at the Root of `tsconfig.json`
+### Compiler Options Checking at the Root of `tsconfig.json`
 
 It's an easy mistake to accidentally forget about the `compilerOptions` section in a `tsconfig.json`.
 To help catch this mistake, in TypeScript 4.5, it is an error to add a top-level field which matches any of the available options in `compilerOptions` _without_ having also defined `compilerOptions` in that `tsconfig.json`.
@@ -47637,3 +47705,433 @@ Individual declarations in merged declaration 'replaceInFile' must be all export
 ```
 
 For more information, [see the change here](https://github.com/microsoft/TypeScript/pull/54659).
+
+
+/. 🚀 release-notes/TypeScript 5.3.md
+=====================================
+
+---
+title: TypeScript 5.3
+layout: docs
+permalink: /docs/handbook/release-notes/typescript-5-3.html
+oneline: TypeScript 5.3 Release Notes
+---
+
+## Import Attributes
+
+TypeScript 5.3 supports the latest updates to the [import attributes](https://github.com/tc39/proposal-import-attributes) proposal.
+
+One use-case of import attributes is to provide information about the expected format of a module to the runtime.
+
+```ts
+// We only want this to be interpreted as JSON,
+// not a runnable/malicious JavaScript file with a `.json` extension.
+import obj from "./something.json" with { type: "json" };
+```
+
+The contents of these attributes are not checked by TypeScript since they're host-specific, and are simply left alone so that browsers and runtimes can handle them (and possibly error).
+
+```ts
+// TypeScript is fine with this.
+// But your browser? Probably not.
+import * as foo from "./foo.js" with { type: "fluffy bunny" };
+```
+
+Dynamic `import()` calls can also use import attributes through a second argument.
+
+```ts
+const obj = await import("./something.json", {
+    with: { type: "json" }
+});
+```
+
+The expected type of that second argument is defined by a type called `ImportCallOptions`, which by default just expects a property called `with`.
+
+Note that import attributes are an evolution of an earlier proposal called ["import assertions", which were implemented in TypeScript 4.5](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5/#import-assertions).
+The most obvious difference is the use of the `with` keyword over the `assert` keyword.
+But the less-visible difference is that runtimes are now free to use attributes to guide the resolution and interpretation of import paths, whereas import assertions could only assert some characteristics after loading a module.
+
+Over time, TypeScript will be deprecating the old syntax for import assertions in favor of the proposed syntax for import attributes.
+Existing code using `assert` should migrate towards the `with` keyword.
+New code that needs an import attribute should use `with` exclusively.
+
+We'd like to thank [Oleksandr Tarasiuk](https://github.com/a-tarasyuk) for [implementing this proposal](https://github.com/microsoft/TypeScript/pull/54242)!
+And we'd also like to call out [Wenlu Wang](https://github.com/Kingwl) for their implementation of [import assertions](https://github.com/microsoft/TypeScript/pull/40698)!
+
+## Stable Support `resolution-mode` in Import Types
+
+In TypeScript 4.7, TypeScript added support for a `resolution-mode` attribute in `/// <reference types="..." />` to control whether a specifier should be resolved via `import` or `require` semantics.
+
+```ts
+/// <reference types="pkg" resolution-mode="require" />
+
+// or
+
+/// <reference types="pkg" resolution-mode="import" />
+```
+
+A corresponding field was added to import assertions on type-only imports as well;
+however, it was only supported in nightly versions of TypeScript.
+The rationale was that in spirit, import *assertions* were not intended to guide module resolution.
+So this feature was shipped experimentally in a nightly-only mode to get more feedback.
+
+But given that *[import attributes](#import-attributes)* can guide resolution, and that we've seen reasonable use-cases, TypeScript 5.3 now supports the `resolution-mode` attribute for `import type`.
+
+```ts
+// Resolve `pkg` as if we were importing with a `require()`
+import type { TypeFromRequire } from "pkg" with {
+    "resolution-mode": "require"
+};
+
+// Resolve `pkg` as if we were importing with an `import`
+import type { TypeFromImport } from "pkg" with {
+    "resolution-mode": "import"
+};
+
+export interface MergedType extends TypeFromRequire, TypeFromImport {}
+```
+
+These import attributes can also be used on `import()` types.
+
+```ts
+export type TypeFromRequire =
+    import("pkg", { with: { "resolution-mode": "require" } }).TypeFromRequire;
+
+export type TypeFromImport =
+    import("pkg", { with: { "resolution-mode": "import" } }).TypeFromImport;
+
+export interface MergedType extends TypeFromRequire, TypeFromImport {}
+```
+
+For more information, [check out the change here](https://github.com/microsoft/TypeScript/pull/55725)
+
+## `resolution-mode` Supported in All Module Modes
+
+Previously, using `resolution-mode` was only allowed under the `moduleResolution` options `node16` and `nodenext`.
+To make it easier to look up modules specifically for type purposes, `resolution-mode` now works appropriately in all other `moduleResolution` options like `bundler`, `node10`, and simply doesn't error under `classic`.
+
+For more information, [see the implementing pull request](https://github.com/microsoft/TypeScript/pull/55725).
+
+## `switch (true)` Narrowing
+
+TypeScript 5.3 now can perform narrowing based on conditions in each `case` clause within a `switch (true)`.
+
+```ts
+function f(x: unknown) {
+    switch (true) {
+        case typeof x === "string":
+            // 'x' is a 'string' here
+            console.log(x.toUpperCase());
+            // falls through...
+
+        case Array.isArray(x):
+            // 'x' is a 'string | any[]' here.
+            console.log(x.length);
+            // falls through...
+
+        default:
+          // 'x' is 'unknown' here.
+          // ...
+    }
+}
+```
+
+[This feature](https://github.com/microsoft/TypeScript/pull/55991) was spearheaded [initial work](https://github.com/microsoft/TypeScript/pull/53681) by [Mateusz Burzyński](https://github.com/Andarist)
+We'd like to extend a "thank you!" for this contribution.
+
+## Narrowing On Comparisons to Booleans
+
+Occasionally you may find yourself performing a direct comparison with `true` or `false` in a condition.
+Usually these are unnecessary comparisons, but you might prefer it as a point of style, or to avoid certain issues around JavaScript truthiness.
+Regardless, previously TypeScript just didn't recognize such forms when performing narrowing.
+
+TypeScript 5.3 now keeps up and understands these expressions when narrowing variables.
+
+```ts
+interface A {
+    a: string;
+}
+
+interface B {
+    b: string;
+}
+
+type MyType = A | B;
+
+function isA(x: MyType): x is A {
+    return "a" in x;
+}
+
+function someFn(x: MyType) {
+    if (isA(x) === true) {
+        console.log(x.a); // works!
+    }
+}
+```
+
+We'd like to thank [Mateusz Burzyński](https://github.com/Andarist) for [the pull request](https://github.com/microsoft/TypeScript/pull/53681) that implemented this.
+
+## `instanceof` Narrowing Through `Symbol.hasInstance`
+
+A slightly esoteric feature of JavaScript is that it is possible to override the behavior of the `instanceof` operator.
+To do so, the value on the right side of the `instanceof` operator needs to have a specific method named by `Symbol.hasInstance`.
+
+```js
+class Weirdo {
+    static [Symbol.hasInstance](testedValue) {
+        // wait, what?
+        return testedValue === undefined;
+    }
+}
+
+// false
+console.log(new Thing() instanceof Weirdo);
+
+// true
+console.log(undefined instanceof Weirdo);
+```
+
+To better model this behavior in `instanceof`, TypeScript now checks if such a `[Symbol.hasInstance]` method exists and is declared as a type predicate function.
+If it does, the tested value on the left side of the `instanceof` operator will be narrowed appropriately by that type predicate.
+
+```ts
+interface PointLike {
+    x: number;
+    y: number;
+}
+
+class Point implements PointLike {
+    x: number;
+    y: number;
+
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+
+    distanceFromOrigin() {
+        return Math.sqrt(this.x ** 2 + this.y ** 2);
+    }
+
+    static [Symbol.hasInstance](val: unknown): val is PointLike {
+        return !!val && typeof val === "object" &&
+            "x" in val && "y" in val &&
+            typeof val.x === "number" &&
+            typeof val.y === "number";
+    }
+}
+
+
+function f(value: unknown) {
+    if (value instanceof Point) {
+        // Can access both of these - correct!
+        value.x;
+        value.y;
+
+        // Can't access this - we have a 'PointLike',
+        // but we don't *actually* have a 'Point'.
+        value.distanceFromOrigin();
+    }
+}
+```
+
+As you can see in this example, `Point` defines its own `[Symbol.hasInstance]` method.
+It actually acts as a custom type guard over a separate type called `PointLike`.
+In the function `f`, we were able to narrow `value` down to a `PointLike` with `instanceof`, but *not* a `Point`.
+That means that we can access the properties `x` and `y`, but not the method `distanceFromOrigin`.
+
+For more information, you can [read up on this change here](https://github.com/microsoft/TypeScript/pull/55052).
+
+## Checks for `super` Property Accesses on Instance Fields
+
+In JavaScript, it's possible to access a declaration in a base class through the `super` keyword.
+
+```js
+class Base {
+    someMethod() {
+        console.log("Base method called!");
+    }
+}
+
+class Derived extends Base {
+    someMethod() {
+        console.log("Derived method called!");
+        super.someMethod();
+    }
+}
+
+new Derived().someMethod();
+// Prints:
+//   Derived method called!
+//   Base method called!
+```
+
+This is different from writing something like `this.someMethod()`, since that could invoke an overridden method.
+This is a subtle distinction, made more subtle by the fact that often the two can be interchangeable if a declaration is never overridden at all.
+
+```js
+class Base {
+    someMethod() {
+        console.log("someMethod called!");
+    }
+}
+
+class Derived extends Base {
+    someOtherMethod() {
+        // These act identically.
+        this.someMethod();
+        super.someMethod();
+    }
+}
+
+new Derived().someOtherMethod();
+// Prints:
+//   someMethod called!
+//   someMethod called!
+```
+
+The problem is using them interchangeably is that `super` only works on members declared on the prototype &mdash; *not* instance properties.
+That means that if you wrote `super.someMethod()`, but `someMethod` was defined as a field, you'd get a runtime error!
+
+```ts
+class Base {
+    someMethod = () => {
+        console.log("someMethod called!");
+    }
+}
+
+class Derived extends Base {
+    someOtherMethod() {
+        super.someMethod();
+    }
+}
+
+new Derived().someOtherMethod();
+// 💥
+// Doesn't work because 'super.someMethod' is 'undefined'.
+```
+
+TypeScript 5.3 now more-closely inspects `super` property accesses/method calls to see if they correspond to class fields.
+If they do, we'll now get a type-checking error.
+
+[This check](https://github.com/microsoft/TypeScript/pull/54056) was contributed thanks to [Jack Works](https://github.com/Jack-Works)!
+
+## Interactive Inlay Hints for Types
+
+TypeScript's inlay hints now support jumping to the definition of types!
+This makes it easier to casually navigate your code.
+
+![Ctrl-clicking an inlay hint to jump to the definition of a parameter type.](https://devblogs.microsoft.com/typescript/wp-content/uploads/sites/11/2023/10/clickable-inlay-hints-for-types-5-3-beta.gif)
+
+See more at [the implementation here](https://github.com/microsoft/TypeScript/pull/55141).
+
+## Settings to Prefer `type` Auto-Imports
+
+Previously when TypeScript generated auto-imports for something in a type position, it would add a `type` modifier based on your settings.
+For example, when getting an auto-import on `Person` in the following:
+
+```ts
+export let p: Person
+```
+
+TypeScript's editing experience would usually add an import for `Person` as:
+
+```ts
+import { Person } from "./types";
+
+export let p: Person
+```
+
+and under certain settings like `verbatimModuleSyntax`, it would add the `type` modifier:
+
+```ts
+import { type Person } from "./types";
+
+export let p: Person
+```
+
+However, maybe your codebase isn't able to use some of these options; or you just have a preference for explicit `type` imports when possible.
+
+[With a recent change](https://github.com/microsoft/TypeScript/pull/56090), TypeScript now enables this to be an editor-specific option.
+In Visual Studio Code, you can enable it in the UI under "TypeScript › Preferences: Prefer Type Only Auto Imports", or as the JSON configuration option `typescript.preferences.preferTypeOnlyAutoImports`
+
+<!--
+## Triggerable Refactor to Convert to Template String
+
+https://github.com/microsoft/TypeScript/pull/54647
+
+-->
+
+## Optimizations by Skipping JSDoc Parsing
+
+When running TypeScript via `tsc`, the compiler will now avoid parsing JSDoc.
+This drops parsing time on its own, but also reduces memory usage to store comments along with time spent in garbage collection.
+All-in-all, you should see slightly faster compiles and quicker feedback in `--watch` mode.
+
+[The specific changes can be viewed here](https://github.com/microsoft/TypeScript/pull/52921).
+
+Because not every tool using TypeScript will need to store JSDoc (e.g. typescript-eslint and Prettier), this parsing strategy has been surfaced as part of the API itself.
+This can enable these tools to gain the same memory and speed improvements we've brought to the TypeScript compiler.
+The new options for comment parsing strategy are described in `JSDocParsingMode`.
+More information is available [on this pull request](https://github.com/microsoft/TypeScript/pull/55739).
+
+## Optimizations by Comparing Non-Normalized Intersections
+
+In TypeScript, unions and intersections always follow a specific form, where intersections can't contain union types.
+That means that when we create an intersection over a union like `A & (B | C)`, that intersection will be normalized into `(A & B) | (A & C)`.
+Still, in some cases the type system will maintain the original form for display purposes.
+
+It turns out that the original form can be used for some clever fast-path comparisons between types.
+
+For example, let's say we have `SomeType & (Type1 | Type2 | ... | Type99999NINE)` and we want to see if that's assignable to `SomeType`.
+Recall that we don't really have an intersection as our source type &mdash; we have a union that looks like `(SomeType & Type1) | (SomeType & Type2) | ... |(SomeType & Type99999NINE)`.
+When checking if a union is assignable to some target type, we have to check if *every* member of the union is assignable to the target type, and that can be very slow.
+
+In TypeScript 5.3, we peek at the original intersection form that we were able to tuck away.
+When we compare the types, we do a quick check to see if the target exists in any constituent of the source intersection.
+
+For more information, [see this pull request](https://github.com/microsoft/TypeScript/pull/55851).
+
+## Consolidation Between `tsserverlibrary.js` and `typescript.js`
+
+TypeScript itself ships two library files: `tsserverlibrary.js` and `typescript.js`.
+There are certain APIs available only in `tsserverlibrary.js` (like the `ProjectService` API), which may be useful to some importers.
+Still, the two are distinct bundles with have a lot of overlap, duplicating code in the package.
+What's more, it can be challenging to consistently use one over the other due to auto-imports or muscle memory.
+Accidentally loading both modules is far too easy, and code may not work properly on a different instance of the API.
+Even if it does work, loading a second bundle increases resource usage.
+
+Given this, we've decided to consolidate the two.
+`typescript.js` now contains what `tsserverlibrary.js` used to contain, and `tsserverlibrary.js` now simply re-exports `typescript.js`.
+Comparing the before/after of this consolidation, we saw the following reduction in package size:
+
+|  | Before | After | Diff | Diff (percent) |
+| - | - | - | - | - |
+| Packed | 6.90 MiB | 5.48 MiB | -1.42 MiB | -20.61% |
+| Unpacked | 38.74 MiB | 30.41 MiB | -8.33 MiB | -21.50% |
+
+|  | Before | After | Diff | Diff (percent) |
+| - | - | - | - | - |
+| `lib/tsserverlibrary.d.ts` | 570.95 KiB | 865.00 B | -570.10 KiB | -99.85% |
+| `lib/tsserverlibrary.js` | 8.57 MiB | 1012.00 B | -8.57 MiB | -99.99% |
+| `lib/typescript.d.ts` | 396.27 KiB | 570.95 KiB | +174.68 KiB | +44.08% |
+| `lib/typescript.js` | 7.95 MiB | 8.57 MiB | +637.53 KiB | +7.84% |
+
+In other words, this is over a 20.5% reduction in package size.
+
+For more information, you can [see the work involved here](https://github.com/microsoft/TypeScript/pull/55273).
+
+## Breaking Changes and Correctness Improvements
+
+### `lib.d.ts` Changes
+
+Types generated for the DOM may have an impact on your codebase.
+For more information, [see the DOM updates for TypeScript 5.3](https://github.com/microsoft/TypeScript/pull/55798).
+
+### Checks for `super` Accesses on Instance Properties
+
+TypeScript 5.3 now detects when the declaration referenced by a `super.` property access is a class field and issues an error.
+This prevents errors that might occur at runtime.
+
+[See more on this change here](https://github.com/microsoft/TypeScript/pull/54056).
+

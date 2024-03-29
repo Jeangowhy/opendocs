@@ -61,7 +61,7 @@
      Standard for ARPA Internet Text Messages
 
 
-                             TABLE OF CONTENTS
+# /                            TABLE OF CONTENTS
 
 
      PREFACE ....................................................   ii
@@ -120,7 +120,7 @@
      Standard for ARPA Internet Text Messages
 
 
-                                  PREFACE
+# /                                 PREFACE
 
 
           By 1977, the Arpanet employed several informal standards for
@@ -178,9 +178,10 @@
      Standard for ARPA Internet Text Messages
 
 
- # 1.  INTRODUCTION
+#  / 1.  INTRODUCTION
 
- ## 1.1.  SCOPE
+// 1.1.  SCOPE
+--------------
 
           This standard specifies a syntax for text messages that  are
      sent  among  computer  users, within the framework of "electronic
@@ -236,7 +237,8 @@
      Standard for ARPA Internet Text Messages
 
 
- ## 1.2.  COMMUNICATION FRAMEWORK
+// 1.2.  COMMUNICATION FRAMEWORK
+--------------------------------
 
           Messages consist of lines of text.   No  special  provisions
      are  made for encoding drawings, facsimile, speech, or structured
@@ -294,13 +296,14 @@
      Standard for ARPA Internet Text Messages
 
 
- # 2.  NOTATIONAL CONVENTIONS
+#  / 2.  NOTATIONAL CONVENTIONS
 
           This specification uses an augmented Backus-Naur Form  (BNF)
      notation.  The differences from standard BNF involve naming rules
      and indicating repetition and "local" alternatives.
 
- ## 2.1.  RULE NAMING
+// 2.1.  RULE NAMING
+--------------------
 
           Angle brackets ("<", ">") are not  used,  in  general.   The
      name  of  a rule is simply the name itself, rather than "<name>".
@@ -310,18 +313,21 @@
      rule  definitions,  and  in  the rest of this  document, whenever
      their presence will facilitate discerning the use of rule names.
 
- ## 2.2.  RULE1 / RULE2:  ALTERNATIVES
+// 2.2.  RULE1 / RULE2:  ALTERNATIVES
+-------------------------------------
 
           Elements separated by slash ("/") are alternatives.   There-
      fore "foo / bar" will accept foo or bar.
 
- ## 2.3.  (RULE1 RULE2):  LOCAL ALTERNATIVES
+// 2.3.  (RULE1 RULE2):  LOCAL ALTERNATIVES
+-------------------------------------------
 
           Elements enclosed in parentheses are  treated  as  a  single
      element.   Thus,  "(elem  (foo  /  bar)  elem)"  allows the token
      sequences "elem foo elem" and "elem bar elem".
 
- ## 2.4.  *RULE:  REPETITION
+// 2.4.  *RULE:  REPETITION
+---------------------------
 
           The character "*" preceding an element indicates repetition.
      The full form is:
@@ -333,12 +339,14 @@
      number, including zero; "1*element" requires at  least  one;  and
      "1*2element" allows one or two.
 
- ## 2.5.  [RULE]:  OPTIONAL
+// 2.5.  [RULE]:  OPTIONAL
+--------------------------
 
           Square brackets enclose optional elements; "[foo  bar]"   is
      equivalent to "*1(foo bar)".
 
- ## 2.6.  NRULE:  SPECIFIC REPETITION
+// 2.6.  NRULE:  SPECIFIC REPETITION
+------------------------------------
 
           "<n>(element)" is equivalent to "<n>*<n>(element)"; that is,
      exactly  <n>  occurrences  of (element). Thus 2DIGIT is a 2-digit
@@ -352,7 +360,8 @@
      Standard for ARPA Internet Text Messages
 
 
- ## 2.7.  #RULE:  LISTS
+// 2.7.  #RULE:  LISTS
+----------------------
 
           A construct "#" is defined, similar to "*", as follows:
 
@@ -370,7 +379,8 @@
      number,  including  zero;  "1#element" requires at least one; and
      "1#2element" allows one or two.
 
- ## 2.8.  ; COMMENTS
+// 2.8.  ; COMMENTS
+-------------------
 
           A semi-colon, set off some distance to  the  right  of  rule
      text,  starts  a comment that continues to the end of line.  This
@@ -410,16 +420,18 @@
      Standard for ARPA Internet Text Messages
 
 
- # 3.  LEXICAL ANALYSIS OF MESSAGES
+#  / 3.  LEXICAL ANALYSIS OF MESSAGES
 
- ## 3.1.  GENERAL DESCRIPTION
+// 3.1.  GENERAL DESCRIPTION
+----------------------------
 
           A message consists of header fields and, optionally, a body.
      The  body  is simply a sequence of lines containing ASCII charac-
      ters.  It is separated from the headers by a null line  (i.e.,  a
      line with nothing preceding the CRLF).
 
- ## 3.1.1.  LONG HEADER FIELDS
+// 3.1.1.  LONG HEADER FIELDS
+-----------------------------
 
         Each header field can be viewed as a single, logical  line  of
         ASCII  characters,  comprising  a field-name and a field-body.
@@ -470,7 +482,8 @@
 
                between addresses, after the separating comma.
 
- ## 3.1.2.  STRUCTURE OF HEADER FIELDS
+// 3.1.2.  STRUCTURE OF HEADER FIELDS
+-------------------------------------
 
         Once a field has been unfolded, it may be viewed as being com-
         posed of a field-name followed by a colon (":"), followed by a
@@ -497,7 +510,8 @@
                field bodies each are scanned by their own, independent
                "lexical" analyzers.
 
- ## 3.1.3.  UNSTRUCTURED FIELD BODIES
+// 3.1.3.  UNSTRUCTURED FIELD BODIES
+------------------------------------
 
         For some fields, such as "Subject" and "Comments",  no  struc-
         turing  is assumed, and they are treated simply as <text>s, as
@@ -506,7 +520,8 @@
         therefore have the second and successive lines indented by  at
         least one LWSP-char.
 
- ## 3.1.4.  STRUCTURED FIELD BODIES
+// 3.1.4.  STRUCTURED FIELD BODIES
+----------------------------------
 
         To aid in the creation and reading of structured  fields,  the
         free  insertion   of linear-white-space (which permits folding
@@ -642,7 +657,8 @@
      Standard for ARPA Internet Text Messages
 
 
- ## 3.2.  HEADER FIELD DEFINITIONS
+// 3.2.  HEADER FIELD DEFINITIONS
+---------------------------------
 
           These rules show a field meta-syntax, without regard for the
      particular  type  or internal syntax.  Their purpose is to permit
@@ -700,7 +716,8 @@
      Standard for ARPA Internet Text Messages
 
 
- ## 3.3.  LEXICAL TOKENS
+// 3.3.  LEXICAL TOKENS
+-----------------------
 
           The following rules are used to define an underlying lexical
      analyzer,  which  feeds  tokens to higher level parsers.  See the
@@ -775,9 +792,11 @@
      word        =  atom / quoted-string
 
 
- ## 3.4.  CLARIFICATIONS
+// 3.4.  CLARIFICATIONS
+-----------------------
 
- ## 3.4.1.  QUOTING
+// 3.4.1.  QUOTING
+------------------
 
         Some characters are reserved for special interpretation,  such
         as  delimiting lexical tokens.  To permit use of these charac-
@@ -816,7 +835,8 @@
      Standard for ARPA Internet Text Messages
 
 
- ## 3.4.2.  WHITE SPACE
+// 3.4.2.  WHITE SPACE
+----------------------
 
         Note:  In structured field bodies, multiple linear space ASCII
                characters  (namely  HTABs  and  SPACEs) are treated as
@@ -842,7 +862,8 @@
         ance  of  text  at another network host; therefore, the use of
         tabs in message headers, though permitted, is discouraged.
 
- ## 3.4.3.  COMMENTS
+// 3.4.3.  COMMENTS
+-------------------
 
         A comment is a set of ASCII characters, which is  enclosed  in
         matching  parentheses  and which is not within a quoted-string
@@ -885,7 +906,8 @@
         backslash followed by a CR followed by a  LF)  still  must  be
         followed by at least one LWSP-char.
 
- ## 3.4.4.  DELIMITING AND QUOTING CHARACTERS
+// 3.4.4.  DELIMITING AND QUOTING CHARACTERS
+--------------------------------------------
 
         The quote character (backslash) and  characters  that  delimit
         syntactic  units  are not, generally, to be taken as data that
@@ -916,7 +938,8 @@
         not interpret data according to this specification (e.g., mail
         protocol servers).
 
- ## 3.4.5.  QUOTED-STRINGS
+// 3.4.5.  QUOTED-STRINGS
+-------------------------
 
         Where permitted (i.e., in words in structured fields)  quoted-
         strings  are  treated  as a single symbol.  That is, a quoted-
@@ -946,7 +969,8 @@
         string.  Stripping off the first following LWSP-char  is  also
         appropriate when parsing quoted CRLFs.
 
- ## 3.4.6.  BRACKETING CHARACTERS
+// 3.4.6.  BRACKETING CHARACTERS
+--------------------------------
 
         There is one type of bracket which must occur in matched pairs
         and may have pairs nested within each other:
@@ -971,7 +995,8 @@
                 name-domain  is  to  use  directly,  bypassing  normal
                 name-resolution mechanisms.
 
- ## 3.4.7.  CASE INDEPENDENCE
+// 3.4.7.  CASE INDEPENDENCE
+----------------------------
 
         Except as noted, alphabetic strings may be represented in  any
         combination of upper and lower case.  The only syntactic units
@@ -1013,7 +1038,8 @@
                interpreted, it must be  accepted  in  any  mixture  of
                case, including "POSTMASTER", and "postmaster".
 
- ## 3.4.8.  FOLDING LONG HEADER FIELDS
+// 3.4.8.  FOLDING LONG HEADER FIELDS
+-------------------------------------
 
         Each header field may be represented on exactly one line  con-
         sisting  of the name of the field and its body, and terminated
@@ -1030,7 +1056,8 @@
                provided  folding  can  interfere  with   the   display
                software.
 
- ## 3.4.9.  BACKSPACE CHARACTERS
+// 3.4.9.  BACKSPACE CHARACTERS
+-------------------------------
 
         ASCII BS characters (Backspace, decimal 8) may be included  in
         texts and quoted-strings to effect overstriking.  However, any
@@ -1048,7 +1075,8 @@
      Standard for ARPA Internet Text Messages
 
 
- ## 3.4.10.  NETWORK-SPECIFIC TRANSFORMATIONS
+// 3.4.10.  NETWORK-SPECIFIC TRANSFORMATIONS
+--------------------------------------------
 
         During transmission through heterogeneous networks, it may  be
         necessary  to  force data to conform to a network's local con-
@@ -1106,9 +1134,10 @@
      Standard for ARPA Internet Text Messages
 
 
- # 4.  MESSAGE SPECIFICATION
+#  / 4.  MESSAGE SPECIFICATION
 
- ## 4.1.  SYNTAX
+// 4.1.  SYNTAX
+---------------
 
      Note:  Due to an artifact of the notational conventions, the syn-
             tax  indicates that, when present, some fields, must be in
@@ -1235,7 +1264,8 @@
                     such fields must be unique and may be
                     pre-empted by published extensions>
 
- ## 4.2.  FORWARDING
+// 4.2.  FORWARDING
+-------------------
 
           Some systems permit mail recipients to  forward  a  message,
      retaining  the original headers, by adding some new fields.  This
@@ -1282,7 +1312,8 @@
 
      fields whose names do not contain this prefix.
 
- ## 4.3.  TRACE FIELDS
+// 4.3.  TRACE FIELDS
+---------------------
 
           Trace information is used to provide an audit trail of  mes-
      sage  handling.   In  addition,  it indicates a route back to the
@@ -1292,7 +1323,8 @@
      with  the  Network  Information  Center, SRI International, Menlo
      Park, California.
 
- ## 4.3.1.  RETURN-PATH
+// 4.3.1.  RETURN-PATH
+----------------------
 
         This field  is  added  by  the  final  transport  system  that
         delivers  the message to its recipient.  The field is intended
@@ -1308,7 +1340,8 @@
         optional,  every attempt should be made to provide that infor-
         mation in this field.
 
- ## 4.3.2.  RECEIVED
+// 4.3.2.  RECEIVED
+-------------------
 
         A copy of this field is added by each transport  service  that
         relays the message.  The information in the field can be quite
@@ -1344,13 +1377,15 @@
         distribution  list,  this  parameter may be used to record the
         original address that was used to specify the list.
 
- ## 4.4.  ORIGINATOR FIELDS
+// 4.4.  ORIGINATOR FIELDS
+--------------------------
 
           The standard allows only a subset of the combinations possi-
      ble  with the From, Sender, Reply-To, Resent-From, Resent-Sender,
      and Resent-Reply-To fields.  The limitation is intentional.
 
- ## 4.4.1.  FROM / RESENT-FROM
+// 4.4.1.  FROM / RESENT-FROM
+-----------------------------
 
         This field contains the identity of the person(s)  who  wished
         this  message to be sent.  The message-creation process should
@@ -1363,7 +1398,8 @@
         must be machine-usable (addr-specs) and may not contain  named
         lists (groups).
 
- ## 4.4.2.  SENDER / RESENT-SENDER
+// 4.4.2.  SENDER / RESENT-SENDER
+---------------------------------
 
         This field contains the authenticated identity  of  the  AGENT
         (person,  system  or  process)  that sends the message.  It is
@@ -1404,7 +1440,8 @@
         that program be referenced as part of the "Sender" field mail-
         box specification.
 
- ## 4.4.3.  REPLY-TO / RESENT-REPLY-TO
+// 4.4.3.  REPLY-TO / RESENT-REPLY-TO
+-------------------------------------
 
         This field provides a general  mechanism  for  indicating  any
         mailbox(es)  to which responses are to be sent.  Three typical
@@ -1427,7 +1464,8 @@
                sage.   The  "Reply-To"  field  is added by the message
                originator and is intended to direct replies.
 
- ## 4.4.4.  AUTOMATIC USE OF FROM / SENDER / REPLY-TO
+// 4.4.4.  AUTOMATIC USE OF FROM / SENDER / REPLY-TO
+----------------------------------------------------
 
         For systems which automatically  generate  address  lists  for
         replies to messages, the following recommendations are made:
@@ -1470,19 +1508,23 @@
 
         Examples are provided in Appendix A.
 
- ## 4.5.  RECEIVER FIELDS
+// 4.5.  RECEIVER FIELDS
+------------------------
 
- ## 4.5.1.  TO / RESENT-TO
+// 4.5.1.  TO / RESENT-TO
+-------------------------
 
         This field contains the identity of the primary recipients  of
         the message.
 
- ## 4.5.2.  CC / RESENT-CC
+// 4.5.2.  CC / RESENT-CC
+-------------------------
 
         This field contains the identity of  the  secondary  (informa-
         tional) recipients of the message.
 
- ## 4.5.3.  BCC / RESENT-BCC
+// 4.5.3.  BCC / RESENT-BCC
+---------------------------
 
         This field contains the identity of additional  recipients  of
         the  message.   The contents of this field are not included in
@@ -1492,9 +1534,11 @@
         also include it in the text sent to all those indicated in the
         "Bcc" list.
 
- ## 4.6.  REFERENCE FIELDS
+// 4.6.  REFERENCE FIELDS
+-------------------------
 
- ## 4.6.1.  MESSAGE-ID / RESENT-MESSAGE-ID
+// 4.6.1.  MESSAGE-ID / RESENT-MESSAGE-ID
+-----------------------------------------
 
              This field contains a unique identifier  (the  local-part
         address  unit)  which  refers to THIS version of THIS message.
@@ -1514,37 +1558,44 @@
 
         each receive new message identifiers.
 
- ## 4.6.2.  IN-REPLY-TO
+// 4.6.2.  IN-REPLY-TO
+----------------------
 
              The contents of this field identify  previous  correspon-
         dence  which this message answers.  Note that if message iden-
         tifiers are used in this  field,  they  must  use  the  msg-id
         specification format.
 
- ## 4.6.3.  REFERENCES
+// 4.6.3.  REFERENCES
+---------------------
 
              The contents of this field identify other  correspondence
         which  this message references.  Note that if message identif-
         iers are used, they must use the msg-id specification format.
 
- ## 4.6.4.  KEYWORDS
+// 4.6.4.  KEYWORDS
+-------------------
 
              This field contains keywords  or  phrases,  separated  by
         commas.
 
- ## 4.7.  OTHER FIELDS
+// 4.7.  OTHER FIELDS
+---------------------
 
- ## 4.7.1.  SUBJECT
+// 4.7.1.  SUBJECT
+------------------
 
              This is intended to provide a summary,  or  indicate  the
         nature, of the message.
 
- ## 4.7.2.  COMMENTS
+// 4.7.2.  COMMENTS
+-------------------
 
              Permits adding text comments  onto  the  message  without
         disturbing the contents of the message's body.
 
- ## 4.7.3.  ENCRYPTED
+// 4.7.3.  ENCRYPTED
+--------------------
 
              Sometimes,  data  encryption  is  used  to  increase  the
         privacy  of  message  contents.   If the body of a message has
@@ -1577,7 +1628,8 @@
         work  Information Center, SRI International, Menlo Park, Cali-
         fornia.
 
- ## 4.7.4.  EXTENSION-FIELD
+// 4.7.4.  EXTENSION-FIELD
+--------------------------
 
              A limited number of common fields have  been  defined  in
         this  document.   As  network mail requirements dictate, addi-
@@ -1589,7 +1641,8 @@
              Names of Extension-fields are registered with the Network
         Information Center, SRI International, Menlo Park, California.
 
- ## 4.7.5.  USER-DEFINED-FIELD
+// 4.7.5.  USER-DEFINED-FIELD
+-----------------------------
 
              Individual users of network mail are free to  define  and
         use  additional  header  fields.   Such fields must have names
@@ -1628,9 +1681,10 @@
      Standard for ARPA Internet Text Messages
 
 
- # 5.  DATE AND TIME SPECIFICATION
+#  / 5.  DATE AND TIME SPECIFICATION
 
- ## 5.1.  SYNTAX
+// 5.1.  SYNTAX
+---------------
 
      date-time   =  [ day "," ] date time        ; dd mm yy
                                                  ;  hh:mm:ss zzz
@@ -1662,7 +1716,8 @@
                  / ( ("+" / "-") 4DIGIT )        ; Local differential
                                                  ;  hours+min. (HHMM)
 
- ## 5.2.  SEMANTICS
+// 5.2.  SEMANTICS
+------------------
 
           If included, day-of-week must be the day implied by the date
      specification.
@@ -1686,9 +1741,10 @@
      Standard for ARPA Internet Text Messages
 
 
- # 6.  ADDRESS SPECIFICATION
+#  / 6.  ADDRESS SPECIFICATION
 
- ## 6.1.  SYNTAX
+// 6.1.  SYNTAX
+---------------
 
      address     =  mailbox                      ; one addressee
                  /  group                        ; named list
@@ -1713,7 +1769,8 @@
 
      domain-ref  =  atom                         ; symbolic reference
 
- ## 6.2.  SEMANTICS
+// 6.2.  SEMANTICS
+------------------
 
           A mailbox receives mail.  It is a  conceptual  entity  which
      does  not necessarily pertain to file storage.  For example, some
@@ -1728,7 +1785,8 @@
      string is uninterpreted, except by the final sub-domain; the rest
      of the mail service merely transmits it as a literal string.
 
- ## 6.2.1.  DOMAINS
+// 6.2.1.  DOMAINS
+------------------
 
         A name-domain is a set of registered (mail)  names.   A  name-
         domain  specification  resolves  to  a subordinate name-domain
@@ -1804,7 +1862,8 @@
 
         the user name, placing the message in the user's mailbox.
 
- ## 6.2.2.  ABBREVIATED DOMAIN SPECIFICATION
+// 6.2.2.  ABBREVIATED DOMAIN SPECIFICATION
+-------------------------------------------
 
         Since any number of  levels  is  possible  within  the  domain
         hierarchy,  specification  of  a  fully  qualified address can
@@ -1876,7 +1935,8 @@
                examples,   and   only  ONE  SPACE  between  contiguous
                <word>s.
 
- ## 6.2.3.  DOMAIN TERMS
+// 6.2.3.  DOMAIN TERMS
+-----------------------
 
         A domain-ref must be THE official name of a registry, network,
         or  host.   It  is  a  symbolic  reference, within a name sub-
@@ -1905,7 +1965,8 @@
         under  in  the  ARPA Internet, are registered with the Network
         Information Center, SRI International, Menlo Park, California.
 
- ## 6.2.4.  DOMAIN-DEPENDENT LOCAL STRING
+// 6.2.4.  DOMAIN-DEPENDENT LOCAL STRING
+----------------------------------------
 
         The local-part of an  addr-spec  in  a  mailbox  specification
         (i.e.,  the  host's  name for the mailbox) is understood to be
@@ -1942,7 +2003,8 @@
         of  the  mail  system,  within  the  Registry.Org  domain,  is
         "First.Last", again without quotation marks.
 
- ## 6.2.5.  BALANCING LOCAL-PART AND DOMAIN
+// 6.2.5.  BALANCING LOCAL-PART AND DOMAIN
+------------------------------------------
 
         In some cases, the boundary between local-part and domain  can
         be  flexible.  The local-part may be a simple string, which is
@@ -1986,7 +2048,8 @@
                tain only that portion of the  address  which  deviates
                from the form or intention of the domain field.
 
- ## 6.2.6.  MULTIPLE MAILBOXES
+// 6.2.6.  MULTIPLE MAILBOXES
+-----------------------------
 
         An individual may have several mailboxes and wish  to  receive
         mail  at  whatever  mailbox  is  convenient  for the sender to
@@ -2017,7 +2080,8 @@
         that the mailbox reference will be expanded to a list or  that
         there is a group with one member.
 
- ## 6.2.7.  EXPLICIT PATH SPECIFICATION
+// 6.2.7.  EXPLICIT PATH SPECIFICATION
+--------------------------------------
 
         At times, a  message  originator  may  wish  to  indicate  the
         transmission  path  that  a  message  should  follow.  This is
@@ -2042,7 +2106,8 @@
                of transmission route should be left to the mail  tran-
                sport service.
 
- ## 6.3.  RESERVED ADDRESS
+// 6.3.  RESERVED ADDRESS
+-------------------------
 
           It often is necessary to send mail to a site, without  know-
      ing  any  of its valid addresses.  For example, there may be mail
@@ -2092,7 +2157,7 @@
      Standard for ARPA Internet Text Messages
 
 
- # 7.  BIBLIOGRAPHY
+#  / 7.  BIBLIOGRAPHY
 
 
      ANSI.  "USA Standard Code  for  Information  Interchange,"  X3.4.
@@ -2211,13 +2276,16 @@
                                  APPENDIX
 
 
- # A.  EXAMPLES
+#  / A.  EXAMPLES
 
- ## A.1.  ADDRESSES
+// A.1.  ADDRESSES
+------------------
 
- ## A.1.1.  Alfred Neuman <Neuman@BBN-TENEXA>
+// A.1.1.  Alfred Neuman <Neuman@BBN-TENEXA>
+--------------------------------------------
 
- ## A.1.2.  Neuman@BBN-TENEXA
+// A.1.2.  Neuman@BBN-TENEXA
+----------------------------
 
              These two "Alfred Neuman" examples have identical  seman-
         tics, as far as the operation of the local host's mail sending
@@ -2234,14 +2302,16 @@
                the remainder of the hierarchy, starting with  the  top
                level.
 
- ## A.1.3.  "George, Ted" <Shared@Group.Arpanet>
+// A.1.3.  "George, Ted" <Shared@Group.Arpanet>
+-----------------------------------------------
 
              This form might be used to indicate that a single mailbox
         is  shared  by several users.  The quoted string is ignored by
         the originating host's mailer, because  "Shared@Group.Arpanet"
         completely specifies the destination mailbox.
 
- ## A.1.4.  Wilt . (the  Stilt) Chamberlain@NBA.US
+// A.1.4.  Wilt . (the  Stilt) Chamberlain@NBA.US
+-------------------------------------------------
 
              The "(the  Stilt)" is a comment, which is NOT included in
         the  destination  mailbox  address  handed  to the originating
@@ -2249,7 +2319,8 @@
         "Wilt.Chamberlain", with NO space between the first and second
         words.
 
- ## A.1.5.  Address Lists
+// A.1.5.  Address Lists
+------------------------
 
      Gourmets:  Pompous Person <WhoZiWhatZit@Cordon-Bleu>,
                 Childs@WGBH.Boston, Galloping Gourmet@
@@ -2269,9 +2340,11 @@
         This group list example points out the use of comments and the
         mixing of addresses and groups.
 
- ## A.2.  ORIGINATOR ITEMS
+// A.2.  ORIGINATOR ITEMS
+-------------------------
 
- ## A.2.1.  Author-sent
+// A.2.1.  Author-sent
+----------------------
 
              George Jones logs into his host  as  "Jones".   He  sends
         mail himself.
@@ -2282,7 +2355,8 @@
 
             From:  George Jones <Jones@Group.Org>
 
- ## A.2.2.  Secretary-sent
+// A.2.2.  Secretary-sent
+-------------------------
 
              George Jones logs in as Jones on his  host.   His  secre-
         tary,  who logs in as Secy sends mail for him.  Replies to the
@@ -2291,7 +2365,8 @@
             From:    George Jones <Jones@Group>
             Sender:  Secy@Other-Group
 
- ## A.2.3.  Secretary-sent, for user of shared directory
+// A.2.3.  Secretary-sent, for user of shared directory
+-------------------------------------------------------
 
              George Jones' secretary sends mail  for  George.  Replies
         should go to George.
@@ -2303,7 +2378,8 @@
         "<",  but  adding a space enhances readability (as is the case
         in other examples.
 
- ## A.2.4.  Committee activity, with one author
+// A.2.4.  Committee activity, with one author
+----------------------------------------------
 
              George is a member of a committee.  He wishes to have any
         replies to his message go to all committee members.
@@ -2329,7 +2405,8 @@
         SEDES the sending of a reply to the person named in the "From"
         field.
 
- ## A.2.5.  Secretary acting as full agent of author
+// A.2.5.  Secretary acting as full agent of author
+---------------------------------------------------
 
              George Jones asks his secretary  (Secy@Host)  to  send  a
         message for him in his capacity as Group.  He wants his secre-
@@ -2339,7 +2416,8 @@
             Sender:   Secy@Host
             Reply-To: Secy@Host
 
- ## A.2.6.  Agent for user without online mailbox
+// A.2.6.  Agent for user without online mailbox
+------------------------------------------------
 
              A friend  of  George's,  Sarah,  is  visiting.   George's
         secretary  sends  some  mail to a friend of Sarah in computer-
@@ -2350,7 +2428,8 @@
             Sender:   Secy-Name <Secy@Registry>
             Reply-To: Jones@Registry.
 
- ## A.2.7.  Agent for member of a committee
+// A.2.7.  Agent for member of a committee
+------------------------------------------
 
              George's secretary sends out a message which was authored
         jointly by all the members of a committee.  Note that the name
@@ -2382,9 +2461,11 @@
      Standard for ARPA Internet Text Messages
 
 
- ## A.3.  COMPLETE HEADERS
+// A.3.  COMPLETE HEADERS
+-------------------------
 
- ## A.3.1.  Minimum required
+// A.3.1.  Minimum required
+---------------------------
 
      Date:     26 Aug 76 1429 EDT        Date:     26 Aug 76 1429 EDT
      From:     Jones@Registry.Org   or   From:     Jones@Registry.Org
@@ -2393,7 +2474,8 @@
         Note that the "Bcc" field may be empty, while the  "To"  field
         is required to have at least one address.
 
- ## A.3.2.  Using some of the additional fields
+// A.3.2.  Using some of the additional fields
+----------------------------------------------
 
      Date:     26 Aug 76 1430 EDT
      From:     George Jones<Group@Host>
@@ -2402,7 +2484,8 @@
                Sam.Irving@Other-Host
      Message-ID:  <some.string@SHOST>
 
- ## A.3.3.  About as complex as you're going to get
+// A.3.3.  About as complex as you're going to get
+--------------------------------------------------
 
      Date     :  27 Aug 76 0932 PDT
      From     :  Ken Davis <KDavis@This-Host.This-net>
@@ -2440,7 +2523,7 @@
      Standard for ARPA Internet Text Messages
 
 
- # B.  SIMPLE FIELD PARSING
+#  / B.  SIMPLE FIELD PARSING
 
           Some mail-reading software systems may wish to perform  only
      minimal  processing,  ignoring  the internal syntax of structured
@@ -2459,7 +2542,8 @@
      part of this specification.  One small exception is that the con-
      tents of field-bodies consist only of text:
 
- ## B.1.  SYNTAX
+// B.1.  SYNTAX
+---------------
 
 
      message         =   *field *(CRLF *text)
@@ -2471,7 +2555,8 @@
      field-body      =   *text [CRLF LWSP-char field-body]
 
 
- ## B.2.  SEMANTICS
+// B.2.  SEMANTICS
+------------------
 
           Headers occur before the message body and are terminated  by
      a null line (i.e., two contiguous CRLFs).
@@ -2498,7 +2583,7 @@
      Standard for ARPA Internet Text Messages
 
 
- # C.  DIFFERENCES FROM RFC #733
+#  / C.  DIFFERENCES FROM RFC #733
 
           The following summarizes the differences between this  stan-
      dard  and the one specified in Arpanet Request for Comments #733,
@@ -2506,16 +2591,20 @@
      differences  are  listed  in the order of their occurrence in the
      current specification.
 
- ## C.1.  FIELD DEFINITIONS
+// C.1.  FIELD DEFINITIONS
+--------------------------
 
- ## C.1.1.  FIELD NAMES
+// C.1.1.  FIELD NAMES
+----------------------
 
         These now must be a sequence of  printable  characters.   They
         may not contain any LWSP-chars.
 
- ## C.2.  LEXICAL TOKENS
+// C.2.  LEXICAL TOKENS
+-----------------------
 
- ## C.2.1.  SPECIALS
+// C.2.1.  SPECIALS
+-------------------
 
         The characters period ("."), left-square  bracket  ("["),  and
         right-square  bracket ("]") have been added.  For presentation
@@ -2525,23 +2614,28 @@
         space  is  permitted  between them.  The presence of one LWSP-
         char between other tokens is still directed.
 
- ## C.2.2.  ATOM
+// C.2.2.  ATOM
+---------------
 
         Atoms may not contain SPACE.
 
- ## C.2.3.  SPECIAL TEXT
+// C.2.3.  SPECIAL TEXT
+-----------------------
 
         ctext and qtext have had backslash ("\") added to the list  of
         prohibited characters.
 
- ## C.2.4.  DOMAINS
+// C.2.4.  DOMAINS
+------------------
 
         The lexical tokens  <domain-literal>  and  <dtext>  have  been
         added.
 
- ## C.3.  MESSAGE SPECIFICATION
+// C.3.  MESSAGE SPECIFICATION
+------------------------------
 
- ## C.3.1.  TRACE
+// C.3.1.  TRACE
+----------------
 
         The "Return-path:" and "Received:" fields have been specified.
 
@@ -2556,51 +2650,61 @@
      Standard for ARPA Internet Text Messages
 
 
- ## C.3.2.  FROM
+// C.3.2.  FROM
+---------------
 
         The "From" field must contain machine-usable addresses  (addr-
         spec).   Multiple  addresses may be specified, but named-lists
         (groups) may not.
 
- ## C.3.3.  RESENT
+// C.3.3.  RESENT
+-----------------
 
         The meta-construct of prefacing field names  with  the  string
         "Resent-"  has been added, to indicate that a message has been
         forwarded by an intermediate recipient.
 
- ## C.3.4.  DESTINATION
+// C.3.4.  DESTINATION
+----------------------
 
         A message must contain at least one destination address field.
         "To" and "CC" are required to contain at least one address.
 
- ## C.3.5.  IN-REPLY-TO
+// C.3.5.  IN-REPLY-TO
+----------------------
 
         The field-body is no longer a comma-separated list, although a
         sequence is still permitted.
 
- ## C.3.6.  REFERENCE
+// C.3.6.  REFERENCE
+--------------------
 
         The field-body is no longer a comma-separated list, although a
         sequence is still permitted.
 
- ## C.3.7.  ENCRYPTED
+// C.3.7.  ENCRYPTED
+--------------------
 
         A field has been specified that permits  senders  to  indicate
         that the body of a message has been encrypted.
 
- ## C.3.8.  EXTENSION-FIELD
+// C.3.8.  EXTENSION-FIELD
+--------------------------
 
         Extension fields are prohibited from beginning with the  char-
         acters "X-".
 
- ## C.4.  DATE AND TIME SPECIFICATION
+// C.4.  DATE AND TIME SPECIFICATION
+------------------------------------
 
- ## C.4.1.  SIMPLIFICATION
+// C.4.1.  SIMPLIFICATION
+-------------------------
 
         Fewer optional forms are permitted  and  the  list  of  three-
         letter time zones has been shortened.
 
- ## C.5.  ADDRESS SPECIFICATION
+// C.5.  ADDRESS SPECIFICATION
+------------------------------
 
 
 
@@ -2614,25 +2718,29 @@
      Standard for ARPA Internet Text Messages
 
 
- ## C.5.1.  ADDRESS
+// C.5.1.  ADDRESS
+------------------
 
         The use of quoted-string, and the ":"-atom-":" construct, have
         been  removed.   An  address  now  is  either a single mailbox
         reference or is a named list of addresses.  The  latter  indi-
         cates a group distribution.
 
- ## C.5.2.  GROUPS
+// C.5.2.  GROUPS
+-----------------
 
         Group lists are now required to to have a name.   Group  lists
         may not be nested.
 
- ## C.5.3.  MAILBOX
+// C.5.3.  MAILBOX
+------------------
 
         A mailbox specification  may  indicate  a  person's  name,  as
         before.   Such  a  named  list  no longer may specify multiple
         mailboxes and may not be nested.
 
- ## C.5.4.  ROUTE ADDRESSING
+// C.5.4.  ROUTE ADDRESSING
+---------------------------
 
         Addresses now are taken to be absolute, global specifications,
         independent  of transmission paths.  The <route> construct has
@@ -2642,16 +2750,19 @@
         hierarchical addressing.  The current standard separates these
         specifications and only one at-sign is permitted.
 
- ## C.5.5.  AT-SIGN
+// C.5.5.  AT-SIGN
+------------------
 
         The string " at " no longer is used as an  address  delimiter.
         Only at-sign ("@") serves the function.
 
- ## C.5.6.  DOMAINS
+// C.5.6.  DOMAINS
+------------------
 
         Hierarchical, logical name-domains have been added.
 
- ## C.6.  RESERVED ADDRESS
+// C.6.  RESERVED ADDRESS
+-------------------------
 
      The local-part "Postmaster" has been reserved, so that users  can
      be guaranteed at least one valid address at a site.
@@ -2672,7 +2783,7 @@
      Standard for ARPA Internet Text Messages
 
 
- # D.  ALPHABETICAL LISTING OF SYNTAX RULES
+#  / D.  ALPHABETICAL LISTING OF SYNTAX RULES
 
      address     =  mailbox                      ; one addressee
                  /  group                        ; named list

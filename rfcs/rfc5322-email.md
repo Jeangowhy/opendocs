@@ -60,54 +60,54 @@ Resnick                     Standards Track                     [Page 1]
 RFC 5322                Internet Message Format             October 2008
 
 
-Table of Contents
+# /Table of Contents
 
-   1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  4
-     1.1.  Scope  . . . . . . . . . . . . . . . . . . . . . . . . . .  4
-     1.2.  Notational Conventions . . . . . . . . . . . . . . . . . .  5
-       1.2.1.  Requirements Notation  . . . . . . . . . . . . . . . .  5
-       1.2.2.  Syntactic Notation . . . . . . . . . . . . . . . . . .  5
-       1.2.3.  Structure of This Document . . . . . . . . . . . . . .  5
-   2.  Lexical Analysis of Messages . . . . . . . . . . . . . . . . .  6
-     2.1.  General Description  . . . . . . . . . . . . . . . . . . .  6
-       2.1.1.  Line Length Limits . . . . . . . . . . . . . . . . . .  7
-     2.2.  Header Fields  . . . . . . . . . . . . . . . . . . . . . .  8
-       2.2.1.  Unstructured Header Field Bodies . . . . . . . . . . .  8
-       2.2.2.  Structured Header Field Bodies . . . . . . . . . . . .  8
-       2.2.3.  Long Header Fields . . . . . . . . . . . . . . . . . .  8
-     2.3.  Body . . . . . . . . . . . . . . . . . . . . . . . . . . .  9
-   3.  Syntax . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
-     3.1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . 10
-     3.2.  Lexical Tokens . . . . . . . . . . . . . . . . . . . . . . 10
-       3.2.1.  Quoted characters  . . . . . . . . . . . . . . . . . . 10
-       3.2.2.  Folding White Space and Comments . . . . . . . . . . . 11
-       3.2.3.  Atom . . . . . . . . . . . . . . . . . . . . . . . . . 12
-       3.2.4.  Quoted Strings . . . . . . . . . . . . . . . . . . . . 13
-       3.2.5.  Miscellaneous Tokens . . . . . . . . . . . . . . . . . 14
-     3.3.  Date and Time Specification  . . . . . . . . . . . . . . . 14
-     3.4.  Address Specification  . . . . . . . . . . . . . . . . . . 16
-       3.4.1.  Addr-Spec Specification  . . . . . . . . . . . . . . . 17
-     3.5.  Overall Message Syntax . . . . . . . . . . . . . . . . . . 18
-     3.6.  Field Definitions  . . . . . . . . . . . . . . . . . . . . 19
-       3.6.1.  The Origination Date Field . . . . . . . . . . . . . . 22
-       3.6.2.  Originator Fields  . . . . . . . . . . . . . . . . . . 22
-       3.6.3.  Destination Address Fields . . . . . . . . . . . . . . 23
-       3.6.4.  Identification Fields  . . . . . . . . . . . . . . . . 25
-       3.6.5.  Informational Fields . . . . . . . . . . . . . . . . . 27
-       3.6.6.  Resent Fields  . . . . . . . . . . . . . . . . . . . . 28
-       3.6.7.  Trace Fields . . . . . . . . . . . . . . . . . . . . . 30
-       3.6.8.  Optional Fields  . . . . . . . . . . . . . . . . . . . 30
-   4.  Obsolete Syntax  . . . . . . . . . . . . . . . . . . . . . . . 31
-     4.1.  Miscellaneous Obsolete Tokens  . . . . . . . . . . . . . . 32
-     4.2.  Obsolete Folding White Space . . . . . . . . . . . . . . . 33
-     4.3.  Obsolete Date and Time . . . . . . . . . . . . . . . . . . 33
-     4.4.  Obsolete Addressing  . . . . . . . . . . . . . . . . . . . 35
-     4.5.  Obsolete Header Fields . . . . . . . . . . . . . . . . . . 35
-       4.5.1.  Obsolete Origination Date Field  . . . . . . . . . . . 36
-       4.5.2.  Obsolete Originator Fields . . . . . . . . . . . . . . 36
-       4.5.3.  Obsolete Destination Address Fields  . . . . . . . . . 37
-       4.5.4.  Obsolete Identification Fields . . . . . . . . . . . . 37
-       4.5.5.  Obsolete Informational Fields  . . . . . . . . . . . . 37
+    1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . . .  4
+      1.1.  Scope  . . . . . . . . . . . . . . . . . . . . . . . . . .  4
+      1.2.  Notational Conventions . . . . . . . . . . . . . . . . . .  5
+        1.2.1.  Requirements Notation  . . . . . . . . . . . . . . . .  5
+        1.2.2.  Syntactic Notation . . . . . . . . . . . . . . . . . .  5
+        1.2.3.  Structure of This Document . . . . . . . . . . . . . .  5
+    2.  Lexical Analysis of Messages . . . . . . . . . . . . . . . . .  6
+      2.1.  General Description  . . . . . . . . . . . . . . . . . . .  6
+        2.1.1.  Line Length Limits . . . . . . . . . . . . . . . . . .  7
+      2.2.  Header Fields  . . . . . . . . . . . . . . . . . . . . . .  8
+        2.2.1.  Unstructured Header Field Bodies . . . . . . . . . . .  8
+        2.2.2.  Structured Header Field Bodies . . . . . . . . . . . .  8
+        2.2.3.  Long Header Fields . . . . . . . . . . . . . . . . . .  8
+      2.3.  Body . . . . . . . . . . . . . . . . . . . . . . . . . . .  9
+    3.  Syntax . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+      3.1.  Introduction . . . . . . . . . . . . . . . . . . . . . . . 10
+      3.2.  Lexical Tokens . . . . . . . . . . . . . . . . . . . . . . 10
+        3.2.1.  Quoted characters  . . . . . . . . . . . . . . . . . . 10
+        3.2.2.  Folding White Space and Comments . . . . . . . . . . . 11
+        3.2.3.  Atom . . . . . . . . . . . . . . . . . . . . . . . . . 12
+        3.2.4.  Quoted Strings . . . . . . . . . . . . . . . . . . . . 13
+        3.2.5.  Miscellaneous Tokens . . . . . . . . . . . . . . . . . 14
+      3.3.  Date and Time Specification  . . . . . . . . . . . . . . . 14
+      3.4.  Address Specification  . . . . . . . . . . . . . . . . . . 16
+        3.4.1.  Addr-Spec Specification  . . . . . . . . . . . . . . . 17
+      3.5.  Overall Message Syntax . . . . . . . . . . . . . . . . . . 18
+      3.6.  Field Definitions  . . . . . . . . . . . . . . . . . . . . 19
+        3.6.1.  The Origination Date Field . . . . . . . . . . . . . . 22
+        3.6.2.  Originator Fields  . . . . . . . . . . . . . . . . . . 22
+        3.6.3.  Destination Address Fields . . . . . . . . . . . . . . 23
+        3.6.4.  Identification Fields  . . . . . . . . . . . . . . . . 25
+        3.6.5.  Informational Fields . . . . . . . . . . . . . . . . . 27
+        3.6.6.  Resent Fields  . . . . . . . . . . . . . . . . . . . . 28
+        3.6.7.  Trace Fields . . . . . . . . . . . . . . . . . . . . . 30
+        3.6.8.  Optional Fields  . . . . . . . . . . . . . . . . . . . 30
+    4.  Obsolete Syntax  . . . . . . . . . . . . . . . . . . . . . . . 31
+      4.1.  Miscellaneous Obsolete Tokens  . . . . . . . . . . . . . . 32
+      4.2.  Obsolete Folding White Space . . . . . . . . . . . . . . . 33
+      4.3.  Obsolete Date and Time . . . . . . . . . . . . . . . . . . 33
+      4.4.  Obsolete Addressing  . . . . . . . . . . . . . . . . . . . 35
+      4.5.  Obsolete Header Fields . . . . . . . . . . . . . . . . . . 35
+        4.5.1.  Obsolete Origination Date Field  . . . . . . . . . . . 36
+        4.5.2.  Obsolete Originator Fields . . . . . . . . . . . . . . 36
+        4.5.3.  Obsolete Destination Address Fields  . . . . . . . . . 37
+        4.5.4.  Obsolete Identification Fields . . . . . . . . . . . . 37
+        4.5.5.  Obsolete Informational Fields  . . . . . . . . . . . . 37
 
 
 
@@ -116,30 +116,30 @@ Resnick                     Standards Track                     [Page 2]
 RFC 5322                Internet Message Format             October 2008
 
 
-       4.5.6.  Obsolete Resent Fields . . . . . . . . . . . . . . . . 38
-       4.5.7.  Obsolete Trace Fields  . . . . . . . . . . . . . . . . 38
-       4.5.8.  Obsolete optional fields . . . . . . . . . . . . . . . 38
-   5.  Security Considerations  . . . . . . . . . . . . . . . . . . . 38
-   6.  IANA Considerations  . . . . . . . . . . . . . . . . . . . . . 39
-   Appendix A.     Example Messages . . . . . . . . . . . . . . . . . 43
-   Appendix A.1.   Addressing Examples  . . . . . . . . . . . . . . . 44
-   Appendix A.1.1. A Message from One Person to Another with
-                   Simple Addressing  . . . . . . . . . . . . . . . . 44
-   Appendix A.1.2. Different Types of Mailboxes . . . . . . . . . . . 45
-   Appendix A.1.3. Group Addresses  . . . . . . . . . . . . . . . . . 45
-   Appendix A.2.   Reply Messages . . . . . . . . . . . . . . . . . . 46
-   Appendix A.3.   Resent Messages  . . . . . . . . . . . . . . . . . 47
-   Appendix A.4.   Messages with Trace Fields . . . . . . . . . . . . 48
-   Appendix A.5.   White Space, Comments, and Other Oddities  . . . . 49
-   Appendix A.6.   Obsoleted Forms  . . . . . . . . . . . . . . . . . 50
-   Appendix A.6.1. Obsolete Addressing  . . . . . . . . . . . . . . . 50
-   Appendix A.6.2. Obsolete Dates . . . . . . . . . . . . . . . . . . 50
-   Appendix A.6.3. Obsolete White Space and Comments  . . . . . . . . 51
-   Appendix B.     Differences from Earlier Specifications  . . . . . 52
-   Appendix C.     Acknowledgements . . . . . . . . . . . . . . . . . 53
-   7.  References . . . . . . . . . . . . . . . . . . . . . . . . . . 55
-     7.1.  Normative References . . . . . . . . . . . . . . . . . . . 55
-     7.2.  Informative References . . . . . . . . . . . . . . . . . . 55
+        4.5.6.  Obsolete Resent Fields . . . . . . . . . . . . . . . . 38
+        4.5.7.  Obsolete Trace Fields  . . . . . . . . . . . . . . . . 38
+        4.5.8.  Obsolete optional fields . . . . . . . . . . . . . . . 38
+    5.  Security Considerations  . . . . . . . . . . . . . . . . . . . 38
+    6.  IANA Considerations  . . . . . . . . . . . . . . . . . . . . . 39
+    Appendix A.     Example Messages . . . . . . . . . . . . . . . . . 43
+    Appendix A.1.   Addressing Examples  . . . . . . . . . . . . . . . 44
+    Appendix A.1.1. A Message from One Person to Another with
+                    Simple Addressing  . . . . . . . . . . . . . . . . 44
+    Appendix A.1.2. Different Types of Mailboxes . . . . . . . . . . . 45
+    Appendix A.1.3. Group Addresses  . . . . . . . . . . . . . . . . . 45
+    Appendix A.2.   Reply Messages . . . . . . . . . . . . . . . . . . 46
+    Appendix A.3.   Resent Messages  . . . . . . . . . . . . . . . . . 47
+    Appendix A.4.   Messages with Trace Fields . . . . . . . . . . . . 48
+    Appendix A.5.   White Space, Comments, and Other Oddities  . . . . 49
+    Appendix A.6.   Obsoleted Forms  . . . . . . . . . . . . . . . . . 50
+    Appendix A.6.1. Obsolete Addressing  . . . . . . . . . . . . . . . 50
+    Appendix A.6.2. Obsolete Dates . . . . . . . . . . . . . . . . . . 50
+    Appendix A.6.3. Obsolete White Space and Comments  . . . . . . . . 51
+    Appendix B.     Differences from Earlier Specifications  . . . . . 52
+    Appendix C.     Acknowledgements . . . . . . . . . . . . . . . . . 53
+    7.  References . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+      7.1.  Normative References . . . . . . . . . . . . . . . . . . . 55
+      7.2.  Informative References . . . . . . . . . . . . . . . . . . 55
 
 
 
@@ -172,9 +172,9 @@ Resnick                     Standards Track                     [Page 3]
 RFC 5322                Internet Message Format             October 2008
 
 
-# 1.  Introduction
+# /1.  Introduction
 
-## 1.1.  Scope
+## //1.1.  Scope
 
    This document specifies the Internet Message Format (IMF), a syntax
    for text messages that are sent between computer users, within the
@@ -228,9 +228,9 @@ Resnick                     Standards Track                     [Page 4]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 1.2.  Notational Conventions
+## //1.2.  Notational Conventions
 
-## 1.2.1.  Requirements Notation
+## //1.2.1.  Requirements Notation
 
    This document occasionally uses terms that appear in capital letters.
    When the terms "MUST", "SHOULD", "RECOMMENDED", "MUST NOT", "SHOULD
@@ -238,7 +238,7 @@ RFC 5322                Internet Message Format             October 2008
    particular requirements of this specification.  A discussion of the
    meanings of these terms appears in [RFC2119].
 
-## 1.2.2.  Syntactic Notation
+## //1.2.2.  Syntactic Notation
 
    This specification uses the Augmented Backus-Naur Form (ABNF)
    [RFC5234] notation for the formal definitions of the syntax of
@@ -247,7 +247,7 @@ RFC 5322                Internet Message Format             October 2008
    a case-insensitive literal value enclosed in quotation marks (e.g.,
    "A" for either uppercase or lowercase A).
 
-## 1.2.3.  Structure of This Document
+## //1.2.3.  Structure of This Document
 
    This document is divided into several sections.
 
@@ -307,9 +307,9 @@ RFC 5322                Internet Message Format             October 2008
 
    Appendix C contains acknowledgements.
 
-# 2.  Lexical Analysis of Messages
+# /2.  Lexical Analysis of Messages
 
-## 2.1.  General Description
+## //2.1.  General Description
 
    At the most basic level, a message is a series of characters.  A
    message that is conformant with this specification is composed of
@@ -356,7 +356,7 @@ RFC 5322                Internet Message Format             October 2008
       individual field and "header section" to refer to the entire
       collection.
 
-## 2.1.1.  Line Length Limits
+## //2.1.1.  Line Length Limits
 
    There are two limits that this specification places on the number of
    characters in a line.  Each line of characters MUST be no more than
@@ -396,7 +396,7 @@ Resnick                     Standards Track                     [Page 7]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 2.2.  Header Fields
+## //2.2.  Header Fields
 
    Header fields are lines beginning with a field name, followed by a
    colon (":"), followed by a field body, and terminated by CRLF.  A
@@ -410,7 +410,7 @@ RFC 5322                Internet Message Format             October 2008
    2.2.3.  All field bodies MUST conform to the syntax described in
    sections 3 and 4 of this specification.
 
-## 2.2.1.  Unstructured Header Field Bodies
+## //2.2.1.  Unstructured Header Field Bodies
 
    Some field bodies in this specification are defined simply as
    "unstructured" (which is specified in section 3.2.5 as any printable
@@ -420,7 +420,7 @@ RFC 5322                Internet Message Format             October 2008
    single line of characters with no further processing (except for
    "folding" and "unfolding" as described in section 2.2.3).
 
-## 2.2.2.  Structured Header Field Bodies
+## //2.2.2.  Structured Header Field Bodies
 
    Some field bodies in this specification have a syntax that is more
    restrictive than the unstructured field bodies described above.
@@ -433,7 +433,7 @@ RFC 5322                Internet Message Format             October 2008
    and "unfolding" as described in section 2.2.3.  Semantic analysis of
    structured field bodies is given along with their syntax.
 
-## 2.2.3.  Long Header Fields
+## //2.2.3.  Long Header Fields
 
    Each header field is logically a single line of characters comprising
    the field name, the colon, and the field body.  For convenience
@@ -478,7 +478,7 @@ RFC 5322                Internet Message Format             October 2008
    evaluation.  An unfolded header field has no length restriction and
    therefore may be indeterminately long.
 
-## 2.3.  Body
+## //2.3.  Body
 
    The body of a message is simply lines of US-ASCII characters.  The
    only two limitations on the body are as follows:
@@ -508,9 +508,9 @@ Resnick                     Standards Track                     [Page 9]
 RFC 5322                Internet Message Format             October 2008
 
 
-# 3.  Syntax
+# /3.  Syntax
 
-## 3.1.  Introduction
+## //3.1.  Introduction
 
    The syntax as given in this section defines the legal syntax of
    Internet messages.  Messages that are conformant to this
@@ -535,7 +535,7 @@ RFC 5322                Internet Message Format             October 2008
    generation of messages, with "obs-" elements that are to be ignored,
    while section 4 adds grammar for the interpretation of messages.
 
-## 3.2.  Lexical Tokens
+## //3.2.  Lexical Tokens
 
    The following rules are used to define an underlying lexical
    analyzer, which feeds tokens to the higher-level parsers.  This
@@ -551,7 +551,7 @@ RFC 5322                Internet Message Format             October 2008
       in the higher-level tokens even though they may not explicitly
       appear in a particular definition.
 
-## 3.2.1.  Quoted characters
+## //3.2.1.  Quoted characters
 
    Some characters are reserved for special interpretation, such as
    delimiting lexical tokens.  To permit use of these characters as
@@ -576,7 +576,7 @@ RFC 5322                Internet Message Format             October 2008
       this specification where quoted-pair currently appears are
       ccontent, qcontent, and in obs-dtext in section 4.
 
-## 3.2.2.  Folding White Space and Comments
+## //3.2.2.  Folding White Space and Comments
 
    White space characters, including white space used in folding
    (described in section 2.2.3), may appear between many elements in
@@ -644,7 +644,7 @@ RFC 5322                Internet Message Format             October 2008
    structured header field are semantically interpreted as a single
    space character.
 
-## 3.2.3.  Atom
+## //3.2.3.  Atom
 
    Several productions in structured header field bodies are simply
    strings of certain basic characters.  Such productions are called
@@ -708,7 +708,7 @@ RFC 5322                Internet Message Format             October 2008
    of the atom; the atom is only the run of atext characters in an atom,
    or the atext and "." characters in a dot-atom.
 
-## 3.2.4.  Quoted Strings
+## //3.2.4.  Quoted Strings
 
    Strings of characters that include characters other than those
    allowed in atoms can be represented in a quoted string format, where
@@ -757,7 +757,7 @@ RFC 5322                Internet Message Format             October 2008
    semantically "invisible" and therefore not part of the quoted-string
    either.
 
-## 3.2.5.  Miscellaneous Tokens
+## //3.2.5.  Miscellaneous Tokens
 
    Three additional tokens are defined: word and phrase for combinations
    of atoms and/or quoted-strings, and unstructured for use in
@@ -770,7 +770,7 @@ RFC 5322                Internet Message Format             October 2008
 
     unstructured    =   (*([FWS] VCHAR) *WSP) / obs-unstruct
 
-## 3.3.  Date and Time Specification
+## //3.3.  Date and Time Specification
 
    Date and time values occur in several header fields.  This section
    specifies the syntax for a full date and time specification.  Though
@@ -856,7 +856,7 @@ RFC 5322                Internet Message Format             October 2008
    allowing for a leap second; see [RFC1305]), and the last two digits
    of the zone MUST be within the range 00 through 59.
 
-## 3.4.  Address Specification
+## //3.4.  Address Specification
 
    Addresses occur in several message header fields to indicate senders
    and recipients of messages.  An address may either be an individual
@@ -927,7 +927,7 @@ RFC 5322                Internet Message Format             October 2008
    was sent to one or more named sets of recipients, without actually
    providing the individual mailbox address for any of those recipients.
 
-## 3.4.1.  Addr-Spec Specification
+## //3.4.1.  Addr-Spec Specification
 
    An addr-spec is a specific Internet identifier that contains a
    locally interpreted string followed by the at-sign character ("@",
@@ -982,7 +982,7 @@ RFC 5322                Internet Message Format             October 2008
    it is simply interpreted on the particular host as a name of a
    particular mailbox.
 
-## 3.5.  Overall Message Syntax
+## //3.5.  Overall Message Syntax
 
    A message consists of header fields, optionally followed by a message
    body.  Lines in a message MUST be a maximum of 998 characters
@@ -1016,7 +1016,7 @@ RFC 5322                Internet Message Format             October 2008
    defined in section 3.6.  The body is simply a series of lines of text
    that are uninterpreted for the purposes of this specification.
 
-## 3.6.  Field Definitions
+## //3.6.  Field Definitions
 
    The header fields of a message are defined here.  All header fields
    have the same general syntactic structure: a field name, followed by
@@ -1180,7 +1180,7 @@ Resnick                     Standards Track                    [Page 21]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 3.6.1.  The Origination Date Field
+## //3.6.1.  The Origination Date Field
 
    The origination date field consists of the field name "Date" followed
    by a date-time specification.
@@ -1200,7 +1200,7 @@ RFC 5322                Internet Message Format             October 2008
    and time that the user queued the message, not the time when the user
    connected to the network to send the message.)
 
-## 3.6.2.  Originator Fields
+## //3.6.2.  Originator Fields
 
    The originator fields of a message consist of the from field, the
    sender field (when applicable), and optionally the reply-to field.
@@ -1260,7 +1260,7 @@ RFC 5322                Internet Message Format             October 2008
    3.6.3 for more information on forming the destination addresses for a
    reply.
 
-## 3.6.3.  Destination Address Fields
+## //3.6.3.  Destination Address Fields
 
    The destination fields of a message consist of three possible fields,
    each of the same form: the field name, which is either "To", "Cc", or
@@ -1348,7 +1348,7 @@ Resnick                     Standards Track                    [Page 24]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 3.6.4.  Identification Fields
+## //3.6.4.  Identification Fields
 
    Though listed as optional in the table in section 3.6, every message
    SHOULD have a "Message-ID:" field.  Furthermore, reply messages
@@ -1491,7 +1491,7 @@ RFC 5322                Internet Message Format             October 2008
    msg-id; the msg-id is what is contained between the two angle bracket
    characters.
 
-## 3.6.5.  Informational Fields
+## //3.6.5.  Informational Fields
 
    The informational fields are all optional.  The "Subject:" and
    "Comments:" fields are unstructured fields as defined in section
@@ -1527,7 +1527,7 @@ RFC 5322                Internet Message Format             October 2008
    separated list of important words and phrases that might be useful
    for the recipient.
 
-## 3.6.6.  Resent Fields
+## //3.6.6.  Resent Fields
 
    Resent fields SHOULD be added to any message that is reintroduced by
    a user into the transport system.  A separate set of resent fields
@@ -1631,7 +1631,7 @@ RFC 5322                Internet Message Format             October 2008
    The "Resent-Message-ID:" field provides a unique identifier for the
    resent message.
 
-## 3.6.7.  Trace Fields
+## //3.6.7.  Trace Fields
 
    The trace fields are a group of header fields consisting of an
    optional "Return-Path:" field, and one or more "Received:" fields.
@@ -1659,7 +1659,7 @@ RFC 5322                Internet Message Format             October 2008
    trace fields are strictly informational, and any formal
    interpretation of them is outside of the scope of this document.
 
-## 3.6.8.  Optional Fields
+## //3.6.8.  Optional Fields
 
    Fields may appear in messages that are otherwise unspecified in this
    document.  They MUST conform to the syntax of an optional-field.
@@ -1695,7 +1695,7 @@ RFC 5322                Internet Message Format             October 2008
    For the purposes of this specification, any optional field is
    uninterpreted.
 
-# 4.  Obsolete Syntax
+# /4.  Obsolete Syntax
 
    Earlier versions of this specification allowed for different (usually
    more liberal) syntax than is allowed in this version.  Also, there
@@ -1749,7 +1749,7 @@ RFC 5322                Internet Message Format             October 2008
    Other differences in syntax and semantics are noted in the following
    sections.
 
-## 4.1.  Miscellaneous Obsolete Tokens
+## //4.1.  Miscellaneous Obsolete Tokens
 
    These syntactic elements are used elsewhere in the obsolete syntax or
    in the main syntax.  Bare CR, bare LF, and NUL are added to obs-qp,
@@ -1806,7 +1806,7 @@ RFC 5322                Internet Message Format             October 2008
    used simply as US-ASCII control characters with their traditional
    ASCII meanings.
 
-## 4.2.  Obsolete Folding White Space
+## //4.2.  Obsolete Folding White Space
 
    In the obsolete syntax, any amount of folding white space MAY be
    inserted where the obs-FWS rule is allowed.  This creates the
@@ -1816,7 +1816,7 @@ RFC 5322                Internet Message Format             October 2008
 
     obs-FWS         =   1*WSP *(CRLF 1*WSP)
 
-## 4.3.  Obsolete Date and Time
+## //4.3.  Obsolete Date and Time
 
    The syntax for the obsolete date format allows a 2 digit year in the
    date field and allows for a list of alphabetic time zone specifiers
@@ -1908,7 +1908,7 @@ Resnick                     Standards Track                    [Page 34]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 4.4.  Obsolete Addressing
+## //4.4.  Obsolete Addressing
 
    There are four primary differences in addressing.  First, mailbox
    addresses were allowed to have a route portion before the addr-spec
@@ -1944,7 +1944,7 @@ RFC 5322                Internet Message Format             October 2008
 
    When interpreting addresses, the route portion SHOULD be ignored.
 
-## 4.5.  Obsolete Header Fields
+## //4.5.  Obsolete Header Fields
 
    Syntactically, the primary difference in the obsolete field syntax is
    that it allows multiple occurrences of any of the fields and they may
@@ -1997,11 +1997,11 @@ RFC 5322                Internet Message Format             October 2008
    other fields is identical to the interpretation of their non-obsolete
    counterparts in section 3.
 
-## 4.5.1.  Obsolete Origination Date Field
+## //4.5.1.  Obsolete Origination Date Field
 
     obs-orig-date   =   "Date" *WSP ":" date-time CRLF
 
-## 4.5.2.  Obsolete Originator Fields
+## //4.5.2.  Obsolete Originator Fields
 
     obs-from        =   "From" *WSP ":" mailbox-list CRLF
 
@@ -2020,7 +2020,7 @@ Resnick                     Standards Track                    [Page 36]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 4.5.3.  Obsolete Destination Address Fields
+## //4.5.3.  Obsolete Destination Address Fields
 
     obs-to          =   "To" *WSP ":" address-list CRLF
 
@@ -2034,7 +2034,7 @@ RFC 5322                Internet Message Format             October 2008
    occurrence of the field is combined with the address lists of the
    subsequent occurrences by adding a comma and concatenating.
 
-## 4.5.4.  Obsolete Identification Fields
+## //4.5.4.  Obsolete Identification Fields
 
    The obsolete "In-Reply-To:" and "References:" fields differ from the
    current syntax in that they allow phrase (words or quoted strings) to
@@ -2058,7 +2058,7 @@ RFC 5322                Internet Message Format             October 2008
    Semantically, none of the optional CFWS in the local-part and the
    domain is part of the obs-id-left and obs-id-right, respectively.
 
-## 4.5.5.  Obsolete Informational Fields
+## //4.5.5.  Obsolete Informational Fields
 
     obs-subject     =   "Subject" *WSP ":" unstructured CRLF
 
@@ -2076,7 +2076,7 @@ Resnick                     Standards Track                    [Page 37]
 RFC 5322                Internet Message Format             October 2008
 
 
-## 4.5.6.  Obsolete Resent Fields
+## //4.5.6.  Obsolete Resent Fields
 
    The obsolete syntax adds a "Resent-Reply-To:" field, which consists
    of the field name, the optional comments and folding white space, the
@@ -2102,7 +2102,7 @@ RFC 5322                Internet Message Format             October 2008
    As with other resent fields, the "Resent-Reply-To:" field is to be
    treated as trace information only.
 
-## 4.5.7.  Obsolete Trace Fields
+## //4.5.7.  Obsolete Trace Fields
 
    The obs-return and obs-received are again given here as template
    definitions, just as return and received are in section 3.  Their
@@ -2112,11 +2112,11 @@ RFC 5322                Internet Message Format             October 2008
 
     obs-received    =   "Received" *WSP ":" *received-token CRLF
 
-## 4.5.8.  Obsolete optional fields
+## //4.5.8.  Obsolete optional fields
 
     obs-optional    =   field-name *WSP ":" unstructured CRLF
 
-# 5.  Security Considerations
+# /5.  Security Considerations
 
    Care needs to be taken when displaying messages on a terminal or
    terminal emulator.  Powerful terminals may act on escape sequences
@@ -2168,7 +2168,7 @@ RFC 5322                Internet Message Format             October 2008
    section 3.6.3 so as not to accidentally reveal the blind recipient to
    other recipients.
 
-# 6.  IANA Considerations
+# /6.  IANA Considerations
 
    This document updates the registrations that appeared in [RFC4021]
    that referred to the definitions in [RFC2822].  IANA has updated the
@@ -2356,7 +2356,7 @@ Resnick                     Standards Track                    [Page 42]
 RFC 5322                Internet Message Format             October 2008
 
 
-# Appendix A.  Example Messages
+# /Appendix A.  Example Messages
 
    This section presents a selection of messages.  These are intended to
    assist in the implementation of this specification, but should not be
@@ -2412,44 +2412,43 @@ Resnick                     Standards Track                    [Page 43]
 RFC 5322                Internet Message Format             October 2008
 
 
-## Appendix A.1.  Addressing Examples
+## //Appendix A.1.  Addressing Examples
 
    The following are examples of messages that might be sent between two
    individuals.
 
-## Appendix A.1.1.  A Message from One Person to Another with Simple
-                 Addressing
+## //Appendix A.1.1.  A Message from One Person to Another with Simple Addressing
 
    This could be called a canonical message.  It has a single author,
    John Doe, a single recipient, Mary Smith, a subject, the date, a
    message identifier, and a textual message in the body.
 
-   ----
-   From: John Doe <jdoe@machine.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: Fri, 21 Nov 1997 09:55:06 -0600
-   Message-ID: <1234@local.machine.example>
+      ----
+      From: John Doe <jdoe@machine.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: Fri, 21 Nov 1997 09:55:06 -0600
+      Message-ID: <1234@local.machine.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
    If John's secretary Michael actually sent the message, even though
    John was the author and replies to this message should go back to
    him, the sender field would be used:
 
-   ----
-   From: John Doe <jdoe@machine.example>
-   Sender: Michael Jones <mjones@machine.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: Fri, 21 Nov 1997 09:55:06 -0600
-   Message-ID: <1234@local.machine.example>
+      ----
+      From: John Doe <jdoe@machine.example>
+      Sender: Michael Jones <mjones@machine.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: Fri, 21 Nov 1997 09:55:06 -0600
+      Message-ID: <1234@local.machine.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
 
 
@@ -2468,20 +2467,20 @@ Resnick                     Standards Track                    [Page 44]
 RFC 5322                Internet Message Format             October 2008
 
 
-## Appendix A.1.2.  Different Types of Mailboxes
+## //Appendix A.1.2.  Different Types of Mailboxes
 
    This message includes multiple addresses in the destination fields
    and also uses several different forms of addresses.
 
-   ----
-   From: "Joe Q. Public" <john.q.public@example.com>
-   To: Mary Smith <mary@x.test>, jdoe@example.org, Who? <one@y.test>
-   Cc: <boss@nil.test>, "Giant; \"Big\" Box" <sysservices@example.net>
-   Date: Tue, 1 Jul 2003 10:52:37 +0200
-   Message-ID: <5678.21-Nov-1997@example.com>
+      ----
+      From: "Joe Q. Public" <john.q.public@example.com>
+      To: Mary Smith <mary@x.test>, jdoe@example.org, Who? <one@y.test>
+      Cc: <boss@nil.test>, "Giant; \"Big\" Box" <sysservices@example.net>
+      Date: Tue, 1 Jul 2003 10:52:37 +0200
+      Message-ID: <5678.21-Nov-1997@example.com>
 
-   Hi everyone.
-   ----
+      Hi everyone.
+      ----
 
    Note that the display names for Joe Q. Public and Giant; "Big" Box
    needed to be enclosed in double-quotes because the former contains
@@ -2493,17 +2492,17 @@ RFC 5322                Internet Message Format             October 2008
    associated with them at all, and jdoe@example.org uses the simpler
    address form without the angle brackets.
 
-## Appendix A.1.3.  Group Addresses
+## //Appendix A.1.3.  Group Addresses
 
-   ----
-   From: Pete <pete@silly.example>
-   To: A Group:Ed Jones <c@a.test>,joe@where.test,John <jdoe@one.test>;
-   Cc: Undisclosed recipients:;
-   Date: Thu, 13 Feb 1969 23:32:54 -0330
-   Message-ID: <testabcd.1234@silly.example>
+      ----
+      From: Pete <pete@silly.example>
+      To: A Group:Ed Jones <c@a.test>,joe@where.test,John <jdoe@one.test>;
+      Cc: Undisclosed recipients:;
+      Date: Thu, 13 Feb 1969 23:32:54 -0330
+      Message-ID: <testabcd.1234@silly.example>
 
-   Testing.
-   ----
+      Testing.
+      ----
 
    In this message, the "To:" field has a single group recipient named
    "A Group", which contains 3 addresses, and a "Cc:" field with an
@@ -2524,7 +2523,7 @@ Resnick                     Standards Track                    [Page 45]
 RFC 5322                Internet Message Format             October 2008
 
 
-## Appendix A.2.  Reply Messages
+## //Appendix A.2.  Reply Messages
 
    The following is a series of three messages that make up a
    conversation thread between John and Mary.  John first sends a
@@ -2534,32 +2533,32 @@ RFC 5322                Internet Message Format             October 2008
    Note especially the "Message-ID:", "References:", and "In-Reply-To:"
    fields in each message.
 
-   ----
-   From: John Doe <jdoe@machine.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: Fri, 21 Nov 1997 09:55:06 -0600
-   Message-ID: <1234@local.machine.example>
+      ----
+      From: John Doe <jdoe@machine.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: Fri, 21 Nov 1997 09:55:06 -0600
+      Message-ID: <1234@local.machine.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
    When sending replies, the Subject field is often retained, though
    prepended with "Re: " as described in section 3.6.5.
 
-   ----
-   From: Mary Smith <mary@example.net>
-   To: John Doe <jdoe@machine.example>
-   Reply-To: "Mary Smith: Personal Account" <smith@home.example>
-   Subject: Re: Saying Hello
-   Date: Fri, 21 Nov 1997 10:01:10 -0600
-   Message-ID: <3456@example.net>
-   In-Reply-To: <1234@local.machine.example>
-   References: <1234@local.machine.example>
+      ----
+      From: Mary Smith <mary@example.net>
+      To: John Doe <jdoe@machine.example>
+      Reply-To: "Mary Smith: Personal Account" <smith@home.example>
+      Subject: Re: Saying Hello
+      Date: Fri, 21 Nov 1997 10:01:10 -0600
+      Message-ID: <3456@example.net>
+      In-Reply-To: <1234@local.machine.example>
+      References: <1234@local.machine.example>
 
-   This is a reply to your hello.
-   ----
+      This is a reply to your hello.
+      ----
 
    Note the "Reply-To:" field in the above message.  When John replies
    to Mary's message above, the reply should go to the address in the
@@ -2580,33 +2579,33 @@ Resnick                     Standards Track                    [Page 46]
 RFC 5322                Internet Message Format             October 2008
 
 
-   ----
-   To: "Mary Smith: Personal Account" <smith@home.example>
-   From: John Doe <jdoe@machine.example>
-   Subject: Re: Saying Hello
-   Date: Fri, 21 Nov 1997 11:00:00 -0600
-   Message-ID: <abcd.1234@local.machine.test>
-   In-Reply-To: <3456@example.net>
-   References: <1234@local.machine.example> <3456@example.net>
+      ----
+      To: "Mary Smith: Personal Account" <smith@home.example>
+      From: John Doe <jdoe@machine.example>
+      Subject: Re: Saying Hello
+      Date: Fri, 21 Nov 1997 11:00:00 -0600
+      Message-ID: <abcd.1234@local.machine.test>
+      In-Reply-To: <3456@example.net>
+      References: <1234@local.machine.example> <3456@example.net>
 
-   This is a reply to your reply.
-   ----
+      This is a reply to your reply.
+      ----
 
-## Appendix A.3.  Resent Messages
+## //Appendix A.3.  Resent Messages
 
    Start with the message that has been used as an example several
    times:
 
-   ----
-   From: John Doe <jdoe@machine.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: Fri, 21 Nov 1997 09:55:06 -0600
-   Message-ID: <1234@local.machine.example>
+      ----
+      From: John Doe <jdoe@machine.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: Fri, 21 Nov 1997 09:55:06 -0600
+      Message-ID: <1234@local.machine.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
    Say that Mary, upon receiving this message, wishes to send a copy of
    the message to Jane such that (a) the message would appear to have
@@ -2636,26 +2635,26 @@ Resnick                     Standards Track                    [Page 47]
 RFC 5322                Internet Message Format             October 2008
 
 
-   ----
-   Resent-From: Mary Smith <mary@example.net>
-   Resent-To: Jane Brown <j-brown@other.example>
-   Resent-Date: Mon, 24 Nov 1997 14:22:01 -0800
-   Resent-Message-ID: <78910@example.net>
-   From: John Doe <jdoe@machine.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: Fri, 21 Nov 1997 09:55:06 -0600
-   Message-ID: <1234@local.machine.example>
+      ----
+      Resent-From: Mary Smith <mary@example.net>
+      Resent-To: Jane Brown <j-brown@other.example>
+      Resent-Date: Mon, 24 Nov 1997 14:22:01 -0800
+      Resent-Message-ID: <78910@example.net>
+      From: John Doe <jdoe@machine.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: Fri, 21 Nov 1997 09:55:06 -0600
+      Message-ID: <1234@local.machine.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
    If Jane, in turn, wished to resend this message to another person,
    she would prepend her own set of resent header fields to the above
    and send that.  (Note that for brevity, trace fields are not shown.)
 
-## Appendix A.4.  Messages with Trace Fields
+## //Appendix A.4.  Messages with Trace Fields
 
    As messages are sent through the transport system as described in
    [RFC5321], trace fields are prepended to the message.  The following
@@ -2663,23 +2662,23 @@ RFC 5322                Internet Message Format             October 2008
    there is some folding white space in the first one since these lines
    can be long.
 
-   ----
-   Received: from x.y.test
-      by example.net
-      via TCP
-      with ESMTP
-      id ABC12345
-      for <mary@example.net>;  21 Nov 1997 10:05:43 -0600
-   Received: from node.example by x.y.test; 21 Nov 1997 10:01:22 -0600
-   From: John Doe <jdoe@node.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: Fri, 21 Nov 1997 09:55:06 -0600
-   Message-ID: <1234@local.node.example>
+      ----
+      Received: from x.y.test
+         by example.net
+         via TCP
+         with ESMTP
+         id ABC12345
+         for <mary@example.net>;  21 Nov 1997 10:05:43 -0600
+      Received: from node.example by x.y.test; 21 Nov 1997 10:01:22 -0600
+      From: John Doe <jdoe@node.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: Fri, 21 Nov 1997 09:55:06 -0600
+      Message-ID: <1234@local.node.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
 
 
@@ -2692,30 +2691,30 @@ Resnick                     Standards Track                    [Page 48]
 RFC 5322                Internet Message Format             October 2008
 
 
-## Appendix A.5.  White Space, Comments, and Other Oddities
+## //Appendix A.5.  White Space, Comments, and Other Oddities
 
    White space, including folding white space, and comments can be
    inserted between many of the tokens of fields.  Taking the example
    from A.1.3, white space and comments can be inserted into all of the
    fields.
 
-   ----
-   From: Pete(A nice \) chap) <pete(his account)@silly.test(his host)>
-   To:A Group(Some people)
-        :Chris Jones <c@(Chris's host.)public.example>,
-            joe@example.org,
-     John <jdoe@one.test> (my dear friend); (the end of the group)
-   Cc:(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;
-   Date: Thu,
-         13
-           Feb
-             1969
-         23:32
-                  -0330 (Newfoundland Time)
-   Message-ID:              <testabcd.1234@silly.test>
+      ----
+      From: Pete(A nice \) chap) <pete(his account)@silly.test(his host)>
+      To:A Group(Some people)
+           :Chris Jones <c@(Chris's host.)public.example>,
+               joe@example.org,
+        John <jdoe@one.test> (my dear friend); (the end of the group)
+      Cc:(Empty list)(start)Hidden recipients  :(nobody(that I know))  ;
+      Date: Thu,
+            13
+              Feb
+                1969
+            23:32
+                     -0330 (Newfoundland Time)
+      Message-ID:              <testabcd.1234@silly.test>
 
-   Testing.
-   ----
+      Testing.
+      ----
 
    The above example is aesthetically displeasing, but perfectly legal.
    Note particularly (1) the comments in the "From:" field (including
@@ -2748,45 +2747,45 @@ Resnick                     Standards Track                    [Page 49]
 RFC 5322                Internet Message Format             October 2008
 
 
-## Appendix A.6.  Obsoleted Forms
+## //Appendix A.6.  Obsoleted Forms
 
    The following are examples of obsolete (that is, the "MUST NOT
    generate") syntactic elements described in section 4 of this
    document.
 
-## Appendix A.6.1.  Obsolete Addressing
+## //Appendix A.6.1.  Obsolete Addressing
 
    Note in the example below the lack of quotes around Joe Q. Public,
    the route that appears in the address for Mary Smith, the two commas
    that appear in the "To:" field, and the spaces that appear around the
    "." in the jdoe address.
 
-   ----
-   From: Joe Q. Public <john.q.public@example.com>
-   To: Mary Smith <@node.test:mary@example.net>, , jdoe@test  . example
-   Date: Tue, 1 Jul 2003 10:52:37 +0200
-   Message-ID: <5678.21-Nov-1997@example.com>
+      ----
+      From: Joe Q. Public <john.q.public@example.com>
+      To: Mary Smith <@node.test:mary@example.net>, , jdoe@test  . example
+      Date: Tue, 1 Jul 2003 10:52:37 +0200
+      Message-ID: <5678.21-Nov-1997@example.com>
 
-   Hi everyone.
-   ----
+      Hi everyone.
+      ----
 
-## Appendix A.6.2.  Obsolete Dates
+## //Appendix A.6.2.  Obsolete Dates
 
    The following message uses an obsolete date format, including a non-
    numeric time zone and a two digit year.  Note that although the day-
    of-week is missing, that is not specific to the obsolete syntax; it
    is optional in the current syntax as well.
 
-   ----
-   From: John Doe <jdoe@machine.example>
-   To: Mary Smith <mary@example.net>
-   Subject: Saying Hello
-   Date: 21 Nov 97 09:55:06 GMT
-   Message-ID: <1234@local.machine.example>
+      ----
+      From: John Doe <jdoe@machine.example>
+      To: Mary Smith <mary@example.net>
+      Subject: Saying Hello
+      Date: 21 Nov 97 09:55:06 GMT
+      Message-ID: <1234@local.machine.example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
 
 
@@ -2804,24 +2803,24 @@ Resnick                     Standards Track                    [Page 50]
 RFC 5322                Internet Message Format             October 2008
 
 
-## Appendix A.6.3.  Obsolete White Space and Comments
+## //Appendix A.6.3.  Obsolete White Space and Comments
 
    White space and comments can appear between many more elements than
    in the current syntax.  Also, folding lines that are made up entirely
    of white space are legal.
 
-   ----
-   From  : John Doe <jdoe@machine(comment).  example>
-   To    : Mary Smith
-   __
-             <mary@example.net>
-   Subject     : Saying Hello
-   Date  : Fri, 21 Nov 1997 09(comment):   55  :  06 -0600
-   Message-ID  : <1234   @   local(blah)  .machine .example>
+      ----
+      From  : John Doe <jdoe@machine(comment).  example>
+      To    : Mary Smith
+      __
+                <mary@example.net>
+      Subject     : Saying Hello
+      Date  : Fri, 21 Nov 1997 09(comment):   55  :  06 -0600
+      Message-ID  : <1234   @   local(blah)  .machine .example>
 
-   This is a message just to say hello.
-   So, "Hello".
-   ----
+      This is a message just to say hello.
+      So, "Hello".
+      ----
 
    Note especially the second line of the "To:" field.  It starts with
    two space characters.  (Note that "__" represent blank spaces.)
@@ -2860,12 +2859,12 @@ Resnick                     Standards Track                    [Page 51]
 RFC 5322                Internet Message Format             October 2008
 
 
-# Appendix B.  Differences from Earlier Specifications
+# /Appendix B.  Differences from Earlier Specifications
 
    This appendix contains a list of changes that have been made in the
    Internet Message Format from earlier specifications, specifically
    [RFC0822], [RFC1123], and [RFC2822].  Items marked with an asterisk
-   (*) below are items which appear in section 4 of this document and
+   ( * ) below are items which appear in section 4 of this document and
    therefore can no longer be generated.
 
    The following are the changes made from [RFC0822] and [RFC1123] to
@@ -2949,7 +2948,7 @@ RFC 5322                Internet Message Format             October 2008
    19.  Fixed obs-bcc and obs-resent-bcc to allow empty lists.
    20.  Removed obs-path.
 
-# Appendix C.  Acknowledgements
+# /Appendix C.  Acknowledgements
 
    Many people contributed to this document.  They included folks who
    participated in the Detailed Revision and Update of Messaging
@@ -3028,9 +3027,9 @@ Resnick                     Standards Track                    [Page 54]
 RFC 5322                Internet Message Format             October 2008
 
 
-# 7.  References
+# /7.  References
 
-## 7.1.  Normative References
+## //7.1.  Normative References
 
    [ANSI.X3-4.1986]  American National Standards Institute, "Coded
                      Character Set - 7-bit American Standard Code for
@@ -3053,7 +3052,7 @@ RFC 5322                Internet Message Format             October 2008
                      Syntax Specifications: ABNF", STD 68, RFC 5234,
                      January 2008.
 
-## 7.2.  Informative References
+## //7.2.  Informative References
 
    [RFC0822]         Crocker, D., "Standard for the format of ARPA
                      Internet text messages", STD 11, RFC 822,

@@ -7,6 +7,21 @@ _______________________________________________________________________
 
 源文档是 HTML Help (CHM) 格式，这是一种使用了 zip 压缩的特格式，可以使用 7zip 打开并解压。其中目录文件为 .hhc 扩展名，索引目录文件为 .hhk 扩展名。这两个文件都是 HTML 格式，其中 `LI` 节点没有封闭，其它的 `param` 节点也是，这不符合 XML 文档规范，所以不能直接使用 Powershell XML 接口进行处理。需要先将 `LI` 标签删除，并且它们封闭 `param` 标签，目录数据属性都保存在 `OBJECT` 节点中。
 
+7zip 命令常用功能：添加压缩文件（u 或 a）、查看压缩文件（l）、解压文件（e 或者 x）。
+使用 -so 直接输出内容到控制台而非文件，使用 -spf 保持文件的路径。
+
+```sh
+pkg=/c/Users/OCEAN/AppData/Roaming/Sublime\ Text\ 3/Installed\ Packages/Zig\ Language.sublime-package
+
+# Update file
+# 7z u -spf "$pkg" 'Build Systems/'
+# List archived files
+# 7z l "$pkg"
+# Extract file to stdout or disk file
+# 7z e -so "$pkg" 'Build Systems/'
+7z e -spf -y "$pkg" 'Build Systems/' 'Zig.py'
+```
+
 Python `zipfile.lzma` 暂未找到正确的 CHM 解压方法：
 
 ```py

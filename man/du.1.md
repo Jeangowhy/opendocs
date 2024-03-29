@@ -1,13 +1,16 @@
 DU(1)                                                                      User Commands                                                                     DU(1)
 
 NAME
+
        du - estimate file space usage
 
 SYNOPSIS
+
        du [OPTION]... [FILE]...
        du [OPTION]... --files0-from=F
 
 DESCRIPTION
+
        Summarize disk usage of the set of FILEs, recursively for directories.
 
        Mandatory arguments to long options are mandatory for short options too.

@@ -40,6 +40,7 @@ Load settings from /Packages/Users/RunSnippet.sublime-settings
     }
 ```
 
+<!-- 对开放文档感兴趣，可以从索引文档开始 🤞 [OpenDocs Index](opendocs_index.md)   -->
 
 Sublime Text 开发环境插件推荐：
 

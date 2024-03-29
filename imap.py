@@ -1,9 +1,11 @@
-#! /usr/bin/env -S python ./imap.py 1275
-#! /usr/bin/env -S python ./imap.py 1278
 #! python
+#! /usr/bin/env -S python ./imap.py 1334
+#! /usr/bin/env -S python ./imap.py send
+#! /usr/bin/env -S python ./imap.py ls
 
 from typing import Any, Union
-from imapclient import IMAPClient
+from imapclient import IMAPClient #, imap4
+from imaplib import IMAP4
 import email
 import email.parser
 import email.header
@@ -13,23 +15,80 @@ import codecs
 import sys
 import io
 
-# print(sys.argv)
+AuthCode="..."
+User='jimbowhy@foxmail.com'
+# User='jimbowhy@www.localhost.com'
+Host='imap.qq.com'
+HostSmtp='smtp.qq.com'
+
+# sys.argv.extend(["send",User, User, "Test message from smtp"])
+print({"argv": sys.argv}, file=sys.stderr)
 # sys.stdout.flush()
 
 # To solve Windows ZH-CN: UnicodeEncodeError: 'gbk' codec can't encode character '\xe2'
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
+# sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 
-AuthCode="..."
-User='jimbowhy@foxmail.com'
+stderr = open("email.md", "a+", encoding="utf8")
+stdout = open("email.html", "w", encoding="utf8")
+sys.stdout = stdout
+sys.stderr = stderr
 
-server = IMAPClient('imap.qq.com', use_uid=True)
-server.login(User, AuthCode)
+
+import smtplib
+
+# smtplib发送邮件/imaplib接收邮件
+# https://www.cnblogs.com/testlearn/p/14548396.html
+
+def prompt(prompt):
+    print(prompt, file=sys.stderr)
+    return input(prompt).strip()
+
+if len(sys.argv) > 1 and sys.argv[1] == "send":
+    fromaddr = prompt("From: ") if len(sys.argv) < 5 else sys.argv[2]
+    toaddrs  = prompt("To: ").split() if len(sys.argv) < 5 else sys.argv[3].split()
+
+
+    # Add the From: and To: headers at the start!
+    msg = ("From: %s\r\nTo: %s\r\n\r\n"
+           % (fromaddr, ", ".join(toaddrs)))
+
+    if len(sys.argv) >= 5:
+        msg = msg + sys.argv[4]
+    else:
+        print("Enter message, end with ^D (Unix) or ^Z (Windows):")
+        while True:
+            try:
+                line = input()
+            except EOFError:
+                break
+            if not line:
+                break
+            msg = msg + line
+
+    print("Message length is", len(msg))
+
+    server = smtplib.SMTP(HostSmtp)
+    server.login(User, AuthCode)
+    server.set_debuglevel(1)
+    server.sendmail(fromaddr, toaddrs, msg)
+    server.quit()
+
+
+server = IMAPClient(Host, use_uid=True)
+# server = IMAPClient('www.localhost.com', use_uid=True)
+ok = server.login(User, AuthCode)
+
+# imap4 = IMAP4(Host)
+# ok, ls = imap4.login(User, AuthCode)
+print("IMAP4 login:", {"status":ok}, file=sys.stderr)
+# imap4.send()
 
 # https://imapclient.readthedocs.io/en/3.0.0/
 # https://datatracker.ietf.org/doc/html/rfc822.html
 # https://datatracker.ietf.org/doc/html/rfc2821.html
 # https://datatracker.ietf.org/doc/html/rfc2822.html
 # https://datatracker.ietf.org/doc/html/rfc3501.html
+# https://cloudzy.com/best-linux-mail-servers/
 # 
 # 电子邮件协议有两类，用于接收邮件的协议（IMAP 或者 POP），用于发送邮件的协议（SMTP）。
 # https://www.cnblogs.com/wangzheming35/p/14554194.html
@@ -107,7 +166,8 @@ if len(sys.argv) == 1:
                 # if part.get_content_type()=="text/plain":
                 payload = part
         payload = str(payload)[1:100]
-        subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
+        # print(email_msg.get("Subject"), file=sys.stderr)
+        subject, ret = email.header.decode_header(email_msg.get("Subject") or "")[0]
         contents = byte_decode(subject)
         From = email.header.decode_header(email_msg.get("From"))
         if type(From[0][0]) is bytes:
@@ -152,12 +212,13 @@ if len(sys.argv) > 1 and str(sys.argv[1]).isnumeric():
                 else:
                     payload = part.get_payload(decode=True)
 
-        subject, ret = email.header.decode_header(email_msg.get("Subject"))[0]
+        subject, ret = email.header.decode_header(email_msg.get("Subject") or "")[0]
         title = byte_decode(subject)
         payload = byte_decode(payload)
         print(uid, title, payload)
 
 # email.message.Message members
+# https://docs.python.org/3/library/email.html
 # ['add_header', 'as_bytes', 'as_string', 'attach', 'defects', 'del_param', 'epilogue', 'get', 'get_all', 'get_boundary', 'get_charset', 'get_charsets', 'get_content_charset', 'get_content_disposition', 'get_content_maintype', 'get_content_subtype', 'get_content_type', 'get_default_type', 'get_filename', 'get_param', 'get_params', 'get_payload', 'get_unixfrom', 'is_multipart', 'items', 'keys', 'policy', 'preamble', 'raw_items', 'replace_header', 'set_boundary', 'set_charset', 'set_default_type', 'set_param', 'set_payload', 'set_raw', 'set_type', 'set_unixfrom', 'values', 'walk']
 
 

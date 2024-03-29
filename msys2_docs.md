@@ -197,10 +197,10 @@ REF: Bash manual 3.5 Shell Expansions - 3.5.3 Shell Parameter Expansion
 /. index.md
 ========================================================
 
-<header>
-<h1>MSYS2</h1>
-<h2>Software Distribution and Building Platform for Windows</h2>
-</header>
+MSYS2
+
+Software Distribution and Building Platform for Windows
+
 
 # Getting Started
 
@@ -252,12 +252,12 @@ MSYS2 and what for.
 
 5. Now MSYS2 is ready for you and a terminal for the [UCRT64 environment](./docs/environments.md) will launch.
 
-    ![Empty MSYS2 terminal window](https://www.msys2.org/images/install-4-terminal.png#gh-light-mode-only)
-    ![Empty MSYS2 terminal window](https://www.msys2.org/images/install-4-terminal-dark.png#gh-dark-mode-only)
+    ![Empty MSYS2 terminal window](https://www.msys2.org/images/install-4-terminal.png)
+    ![Empty MSYS2 terminal window](https://www.msys2.org/images/install-4-terminal-dark.png)
 
 6. You will probably want to install some tools like the mingw-w64 GCC to start compiling projects. Run the following command:
 
-    ```console
+    ```sh
     $ pacman -S mingw-w64-ucrt-x86_64-gcc
     ```
 
@@ -300,11 +300,11 @@ MSYS2 and what for.
 
 Our main server is sponsored by [jsDelivr](https://www.jsdelivr.com)
 
-[![jsdelivr.com](https://www.msys2.org/sponsors/jsdelivr.svg#gh-light-mode-only){: width=250px}![jsdelivr.com](https://www.msys2.org/sponsors/jsdelivr-white.svg#gh-dark-mode-only){: width=250px}](https://www.jsdelivr.com)
+[![jsdelivr.com](https://www.msys2.org/sponsors/jsdelivr.svg){: width=250px}![jsdelivr.com](https://www.msys2.org/sponsors/jsdelivr-white.svg){: width=250px}](https://www.jsdelivr.com)
 
 [Microsoft Open Source Programs Office](https://opensource.microsoft.com/) sponsors us financially via their [FOSS Fund](https://github.com/microsoft/foss-fund#2022)
 
-[![opensource.microsoft.com](https://www.msys2.org/sponsors/microsoft.svg#gh-light-mode-only){: width=250px}![opensource.microsoft.com](https://www.msys2.org/sponsors/microsoft-white.svg#gh-dark-mode-only){: width=250px}](https://opensource.microsoft.com/)
+[![opensource.microsoft.com](https://www.msys2.org/sponsors/microsoft.svg){: width=250px}![opensource.microsoft.com](https://www.msys2.org/sponsors/microsoft-white.svg){: width=250px}](https://opensource.microsoft.com/)
 
 Various organizations provide us with mirrors all around the world, see [our mirror list](dev/mirrors.md) for details.
 
@@ -327,7 +327,7 @@ Various organizations provide us with mirrors all around the world, see [our mir
 
 You can donate to the project via [GitHub Sponsors](https://github.com/sponsors/msys2):
 
-[![](https://www.msys2.org/donate/github.png#gh-light-mode-only){: width=150px}![](https://www.msys2.org/donate/github-white.png#gh-dark-mode-only){: width=150px}](https://github.com/sponsors/msys2)
+[![](https://www.msys2.org/donate/github.png){: width=150px}![](https://www.msys2.org/donate/github-white.png){: width=150px}](https://github.com/sponsors/msys2)
 
 or via [Open Collective](https://opencollective.com/msys2):
 
@@ -1007,13 +1007,13 @@ tools.
 
 |                                                          | Name           | Prefix        | Toolchain | Architecture | C Library | C++ Library |
 |----------------------------------------------------------|----------------|---------------|-----------|--------------|-----------|-------------|
-| ![msys](msys.png){: style="max-width:25px" }             | **MSYS**       | `/usr`        | gcc       | x86_64       | cygwin    | libstdc++   |
-| ![ucrt64](ucrt64.png){: style="max-width:25px" }         | **UCRT64**     | `/ucrt64`     | gcc       | x86_64       | ucrt      | libstdc++   |
-| ![clang64](clang64.png){: style="max-width:25px" }       | **CLANG64**    | `/clang64`    | llvm      | x86_64       | ucrt      | libc++      |
-| ![clangarm64](clangarm64.png){: style="max-width:25px" } | **CLANGARM64** | `/clangarm64` | llvm      | aarch64      | ucrt      | libc++      |
-| ![clang32](clang32.png){: style="max-width:25px" }       | **CLANG32**    | `/clang32`    | llvm      | i686         | ucrt      | libc++      |
-| ![mingw64](mingw64.png){: style="max-width:25px" }       | **MINGW64**    | `/mingw64`    | gcc       | x86_64       | msvcrt    | libstdc++   |
-| ![mingw32](mingw32.png){: style="max-width:25px" }       | **MINGW32**    | `/mingw32`    | gcc       | i686         | msvcrt    | libstdc++   |
+| ![msys](https://www.msys2.org/docs/msys.png){: style="max-width:25px" }             | **MSYS**       | `/usr`        | gcc       | x86_64       | cygwin    | libstdc++   |
+| ![ucrt64](https://www.msys2.org/docs/ucrt64.png){: style="max-width:25px" }         | **UCRT64**     | `/ucrt64`     | gcc       | x86_64       | ucrt      | libstdc++   |
+| ![clang64](https://www.msys2.org/docs/clang64.png){: style="max-width:25px" }       | **CLANG64**    | `/clang64`    | llvm      | x86_64       | ucrt      | libc++      |
+| ![clangarm64](https://www.msys2.org/docs/clangarm64.png){: style="max-width:25px" } | **CLANGARM64** | `/clangarm64` | llvm      | aarch64      | ucrt      | libc++      |
+| ![clang32](https://www.msys2.org/docs/clang32.png){: style="max-width:25px" }       | **CLANG32**    | `/clang32`    | llvm      | i686         | ucrt      | libc++      |
+| ![mingw64](https://www.msys2.org/docs/mingw64.png){: style="max-width:25px" }       | **MINGW64**    | `/mingw64`    | gcc       | x86_64       | msvcrt    | libstdc++   |
+| ![mingw32](https://www.msys2.org/docs/mingw32.png){: style="max-width:25px" }       | **MINGW32**    | `/mingw32`    | gcc       | i686         | msvcrt    | libstdc++   |
 
 The active environment is selected via the `MSYSTEM` environment variable.
 Setting `MSYSTEM` to `UCRT64` and starting a login shell will put you in that

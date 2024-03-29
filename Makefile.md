@@ -9586,10 +9586,6 @@ MinGW 等编译器。
 编译器：
 
 ```sh
-# Environment Variables
-export CC=/usr/bin/clang++
-export CXX=/usr/bin/clang++
-
 # CMakeLists.txt 
 #set within user supplied toolchain file
 
@@ -9602,6 +9598,13 @@ set(CMAKE_C_COMPILER /full/path/to/gcc --arg1 --arg2)
 set(CMAKE_C_COMPILER cl.exe)
 set(CMAKE_CXX_COMPILER cl.exe)
 set(CMAKE_RC_COMPILER rc.exe)
+
+# use Clang
+SET(CMAKE_C_COMPILER "c:/llvm/bin/clang.exe" CACHE PATH "clang" FORCE)
+SET(CMAKE_CXX_COMPILER "c:/llvm/bin/clang++.exe" CACHE PATH "clang++" FORCE)
+
+cmake_minimum_required(VERSION 2.8)
+project( cppDemo )
 ```
 
 还可以使用 CLI 命令行中的 -D 选项定义符号，但是可能检测失败，例如：
@@ -9609,6 +9612,24 @@ https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_COMPILER.html
 
     cmake ... -DCMAKE_C_COMPILER='gcc;--arg1;--arg2'
     cmake -S. -Bbuild -DCMAKE_CXX_COMPILER=g++.exe -DCMAKE_C_COMPILER=gcc.exe
+
+
+总结起来，要显式指定编译器，应该按以下操作，并且尽量使用完整路径指定编译命令：
+
+1. 先指定 Generator 以确定可使用的编译类型，这一步非常重要；
+2. 使用 SET Cmake COMPILER 命令在项目定义前指定编译器；
+3. 通过导出环境变量 export CC 或者 export CXX 来指定编译器；
+4. 通过 cmake -DCMAKE_CXX_COMPILER="gcc" 指定编译器；
+5. 生成脚本前可以删除配置缓存文件 CMakeCache.txt；
+
+```sh
+# Environment Variables
+export CC=c:/llvm/bin/clang
+export CXX=c:/llvm/bin/clang++
+rm -r CMakeFiles
+rm CMakeCache.txt
+cmake -S. -G "Ninja" -DCMAKE_C_COMPILER='c:/llvm/bin/clang' -DCMAKE_CXX_COMPILER='c:/llvm/bin/clang++'
+```
 
 定义项目时，可以指定项目支持的语言，如 C、CXX、Fortran 等。默认情况下，如果没有提供语言选项，
 则启用 C 和 CXX。指定“无语言”，或使用“语言”关键字并列出任何语言，以跳过启用任何语言。

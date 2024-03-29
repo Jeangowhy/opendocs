@@ -24,7 +24,7 @@ END-INFO-DIR-ENTRY
 File: woman.info,  Node: Top,  Next: Introduction,  Up: (dir)
 
 # /. WoMan: Browse Unix Manual Pages “W.O. (without) Man”
-********************************************************
+***********************************************************
 
      As distributed with Emacs 29.1.
 
@@ -70,7 +70,7 @@ Copyright © 2001–2023 Free Software Foundation, Inc.
 File: woman.info,  Node: Introduction,  Next: Background,  Prev: Top,  Up: Top
 
 # /. 1 Introduction
-******************
+*********************
 
 WoMan was developed primarily on various versions of Microsoft Windows,
 but has also been tested on MS-DOS, and various versions of UNIX and
@@ -118,7 +118,7 @@ Guidance on reporting bugs is given below.  *Note Reporting Bugs: Bugs.
 File: woman.info,  Node: Background,  Next: Finding,  Prev: Introduction,  Up: Top
 
 # /. 2 Background
-****************
+*******************
 
 WoMan is a browser for traditional Unix-style manual page documentation.
 Each such document is conventionally referred to as a “manual page”, or
@@ -236,7 +236,7 @@ purposes.
 File: woman.info,  Node: Finding,  Next: Browsing,  Prev: Background,  Up: Top
 
 # /. 3 Finding and Formatting Man Pages
-**************************************
+*****************************************
 
 WoMan provides three user interfaces for finding and formatting man
 pages:
@@ -265,7 +265,7 @@ up to autoload).
 The automatic interface always requires special setup.
 
 # /. Case-Dependence of Filenames
-================================
+===================================
 
 By default, WoMan ignores case in file pathnames only when it seems
 appropriate.  Microsoft Windows users who want complete case
@@ -283,7 +283,7 @@ WoMan file paths.
 File: woman.info,  Node: Topic,  Next: Filename,  Up: Finding
 
 # /. 3.1 Topic Interface
-=======================
+==========================
 
 The topic interface is accessed principally via the command ‘woman’.
 The same command can be accessed via the menu item ‘Help->Manuals->Read
@@ -418,7 +418,7 @@ runs WoMan on the topic at point without seeking confirmation:
 File: woman.info,  Node: Filename,  Next: Automatic,  Prev: Topic,  Up: Finding
 
 # /. 3.2 Filename Interface
-==========================
+=============================
 
 The commands in this family are completely independent of the topic
 interface, caching mechanism, etc.
@@ -464,7 +464,7 @@ used internally by WoMan.
 File: woman.info,  Node: Automatic,  Prev: Filename,  Up: Finding
 
 # /. 3.3 Automatic Interface
-===========================
+==============================
 
 Emacs provides an interface to detect automatically the format of a file
 and decode it when it is visited.  It is used primarily by the
@@ -499,7 +499,7 @@ major mode selection.]
 File: woman.info,  Node: Browsing,  Next: Customization,  Prev: Finding,  Up: Top
 
 # /. 4 Browsing Man Pages
-************************
+***************************
 
 Once a man page has been found and formatted, WoMan provides a browsing
 interface that is essentially the same as that provided by the standard
@@ -529,7 +529,7 @@ lines squeezed to a single blank line.
 File: woman.info,  Node: Fonts,  Next: Navigation,  Up: Browsing
 
 # /. 4.1 Fonts and Faces
-=======================
+==========================
 
 Fonts used by ‘roff’ are handled by WoMan as faces, the details of which
 are customizable.  *Note Faces: Faces.  WoMan supports both the italic
@@ -544,7 +544,7 @@ sub-scripts, which are not displayed well by WoMan.
 File: woman.info,  Node: Navigation,  Next: References,  Prev: Fonts,  Up: Browsing
 
 # /. 4.2 Navigation
-==================
+=====================
 
 Man (and hence WoMan) mode can be thought of as a superset of view mode.
 The buffer cannot be edited, so keys that would normally self-insert are
@@ -577,7 +577,7 @@ the ‘man’ key bindings.
 File: woman.info,  Node: References,  Next: Changing,  Prev: Navigation,  Up: Browsing
 
 # /. 4.3 Following References
-============================
+===============================
 
 Man pages usually contain a “SEE ALSO” section containing references to
 other man pages.  If these man pages are installed then WoMan can easily
@@ -611,7 +611,7 @@ the word at point as default.
 File: woman.info,  Node: Changing,  Next: Convenience,  Prev: References,  Up: Browsing
 
 # /. 4.4 Changing the Current Man Page
-=====================================
+========================================
 
 The man page currently being browsed by WoMan can be changed in several
 ways.  The command ‘woman’ can be invoked to format another man page, or
@@ -663,7 +663,7 @@ share code).
 File: woman.info,  Node: Convenience,  Next: Imenu,  Prev: Changing,  Up: Browsing
 
 # /. 4.5 Convenience Key Bindings
-================================
+===================================
 
 ‘-’
      Begin a negative numeric argument for the next command
@@ -691,7 +691,7 @@ File: woman.info,  Node: Convenience,  Next: Imenu,  Prev: Changing,  Up: Browsi
 File: woman.info,  Node: Imenu,  Prev: Convenience,  Up: Browsing
 
 # /. 4.6 Imenu Support; Contents Menu
-====================================
+=======================================
 
 The WoMan menu provides an option to make a contents menu for the
 current man page (using ‘imenu’).  Alternatively, if you customize the
@@ -710,7 +710,7 @@ Emacs.
 File: woman.info,  Node: Customization,  Next: Log,  Prev: Browsing,  Up: Top
 
 # /. 5 Customization
-*******************
+**********************
 
 All WoMan user options are customizable, and it is recommended to change
 them only via the standard Emacs customization facilities.  WoMan
@@ -742,7 +742,7 @@ be possible via existing user options.
      ‘imenu’ support.  *Note Imenu Support; Contents Menu: Imenu.)
 
 # /. Customization Subgroups
-===========================
+==============================
 
 ‘WoMan Interface’
      These options control the process of locating the appropriate file
@@ -767,7 +767,7 @@ be possible via existing user options.
 File: woman.info,  Node: Interface Options,  Next: Formatting Options,  Up: Customization
 
 # /. 5.1 Interface Options
-=========================
+============================
 
 These options control the process of locating the appropriate file to
 browse, and the appearance of the browsing interface.
@@ -965,7 +965,7 @@ browse, and the appearance of the browsing interface.
 File: woman.info,  Node: Formatting Options,  Next: Faces,  Prev: Interface Options,  Up: Customization
 
 # /. 5.2 Formatting Options
-==========================
+=============================
 
 These options control the layout that WoMan uses to format the man page.
 
@@ -1007,7 +1007,7 @@ These options control the layout that WoMan uses to format the man page.
 File: woman.info,  Node: Faces,  Next: Special symbols,  Prev: Formatting Options,  Up: Customization
 
 # /. 5.3 Faces
-=============
+================
 
 These options control the display faces that WoMan uses to format the
 man page.
@@ -1042,7 +1042,7 @@ man page.
 File: woman.info,  Node: Special symbols,  Prev: Faces,  Up: Customization
 
 # /. 5.4 Special symbols
-=======================
+==========================
 
 This section currently applies _only_ to Microsoft Windows.
 
@@ -1074,7 +1074,7 @@ other platform.
 File: woman.info,  Node: Log,  Next: Technical,  Prev: Customization,  Up: Top
 
 # /. 6 The *WoMan-Log* Buffer
-****************************
+*******************************
 
 This is modeled on the Emacs byte-compiler.  It logs all files formatted
 by WoMan and the time taken.  If WoMan finds anything that it cannot
@@ -1097,10 +1097,10 @@ Interface Options: Interface Options.
 File: woman.info,  Node: Technical,  Next: Bugs,  Prev: Log,  Up: Top
 
 # /. 7 Technical Details
-***********************
+**************************
 
 # /. Horizontal and vertical spacing and resolution
-==================================================
+=====================================================
 
 WoMan currently assumes 10 characters per inch horizontally, hence a
 horizontal resolution of 24 basic units, and 5 lines per inch
@@ -1108,7 +1108,7 @@ vertically, hence a vertical resolution of 48 basic units.  (‘nroff’
 uses 240 per inch.)
 
 # /. Vertical spacing and blank lines
-====================================
+=======================================
 
 The number of consecutive blank lines in the formatted buffer should be
 either 0 or 1.  A blank line should leave a space like .sp 1.  Current
@@ -1119,7 +1119,7 @@ output.
 File: woman.info,  Node: Bugs,  Next: Acknowledgments,  Prev: Technical,  Up: Top
 
 # /. 8 Reporting Bugs
-********************
+***********************
 
 If WoMan fails completely, or formats a file incorrectly (i.e.,
 obviously wrongly or significantly differently from ‘man’) or
@@ -1139,7 +1139,7 @@ inelegantly, then please
 File: woman.info,  Node: Acknowledgments,  Next: GNU Free Documentation License,  Prev: Bugs,  Up: Top
 
 # /. 9 Acknowledgments
-*********************
+************************
 
 For Heather, Kathryn and Madelyn, the women in my life (although they
 will probably never use it)!
@@ -1161,7 +1161,7 @@ fragments, general interest, etc.:
 File: woman.info,  Node: GNU Free Documentation License,  Next: Command Index,  Prev: Acknowledgments,  Up: Top
 
 # /. Appendix A GNU Free Documentation License
-*********************************************
+************************************************
 
                      Version 1.3, 3 November 2008
 
@@ -1609,7 +1609,7 @@ File: woman.info,  Node: GNU Free Documentation License,  Next: Command Index,  
      2009, provided the MMC is eligible for relicensing.
 
 # /. ADDENDUM: How to use this License for your documents
-========================================================
+===========================================================
 
 To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and license
@@ -1643,7 +1643,7 @@ their use in free software.
 File: woman.info,  Node: Command Index,  Next: Variable Index,  Prev: GNU Free Documentation License,  Up: Top
 
 # /. Command Index
-*****************
+********************
 
  [index ]
 * Menu:
@@ -1678,7 +1678,7 @@ File: woman.info,  Node: Command Index,  Next: Variable Index,  Prev: GNU Free D
 File: woman.info,  Node: Variable Index,  Next: Keystroke Index,  Prev: Command Index,  Up: Top
 
 # /. Variable Index
-******************
+*********************
 
  [index ]
 * Menu:
@@ -1722,7 +1722,7 @@ File: woman.info,  Node: Variable Index,  Next: Keystroke Index,  Prev: Command 
 File: woman.info,  Node: Keystroke Index,  Next: Concept Index,  Prev: Variable Index,  Up: Top
 
 # /. Keystroke Index
-*******************
+**********************
 
  [index ]
 * Menu:
@@ -1755,7 +1755,7 @@ File: woman.info,  Node: Keystroke Index,  Next: Concept Index,  Prev: Variable 
 File: woman.info,  Node: Concept Index,  Prev: Keystroke Index,  Up: Top
 
 # /. Concept Index
-*****************
+********************
 
  [index ]
 * Menu:

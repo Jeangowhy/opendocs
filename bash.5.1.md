@@ -1,12 +1,12 @@
 
 
-# 🚩 Bash 5.1 Reference Manual
+# /🚩 Bash 5.1 Reference Manual
 
 
         ⬇ [Contents]
                                                               [Contents] [Index]
 
-## ==⚡  Table of Contents
+## //⚡  Table of Contents
                                                                      *Contents*
 
 Chapter 1 Introduction|
@@ -186,7 +186,475 @@ Appendix D [Indexes]
         ⬇ [Introduction] ⬅ [Top]
                                                               [Contents] [Index]
 
-# 🚩 Bash Features
+
+## //⚡ Exm: Unix shebang (bash script)
+1. https://handwiki.org/wiki/Shebang_(Unix)
+2. https://www.talisman.org/~erlkonig/documents/dennis-ritchie-and-hash-bang.shtml
+
+Windows 平台通过 Msys64 移植平台使用 Linux 工具，包括 bash 脚本编程。
+以下是 Sublime Text 构建系统备置参考（ShellScript.sublime-build），
+根据执行的命令来设置 encoding 编译，gbk 或者 utf8 是常用的两种：
+
+```sh
+{
+    "shell_cmd": "./$file_name",
+    "working_dir": "$file_path",
+    "encoding":"gbk",
+
+    "selector" : "source.shell, source.ts, source.js, source.python",
+    "word_wrap": false,
+
+    "windows": {
+        // Try to run via MSYS2 shell on Windows
+        "shell_cmd": "bash -c \"./$file_name\"",
+    },
+}
+```
+
+然后，就可以象在 Linxu 系统那样在 bash 脚本中使用 shebang 执行脚本：
+
+```sh
+#!/usr/bin/env python
+#! python
+#! powershell
+#!interpreter [optional-arg]
+
+import sys
+print("Hello Python!", sys.argv)
+```
+
+Shebang 是脚本首行的特殊注释形式 `#!`，它后面跟着一个命令，shebang 机制负责调用它，
+并且将脚本路径作为其参数传递给此命令。运行脚本时，shell 检测到 shebang 就会触发这个机制：
+
+```sh
+$ ./cli Yes!
+Hello Python! ['./cli', 'Yes!']
+```
+
+以上命令 `./cli Yes!` 等价于 `python ./cli Yes!`，这就是脚本的 shebang 机制。
+命令行中的前导的 . 符号等价 source 命令。也可以写成 `. cli` 或者 `. ./cli` 或者
+`source cli` 这些形式，注意，这种运行方式 $0 变量就不再指向脚本文件，而是 shell 程序。
+脚本最开始的两个符号 `#!` 本身是文件头的 magic number，用于识别文件类型的幻数。
+
+Powershell 并不能正常支持 shebang，但是可以在 bash 环境中使用 shebang 来调用它。
+因为 powershell 支持 # 符号作为注解，但是需要使用 ps1。
+
+```sh
+#! powershell
+
+$vsvars='C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools'
+$vsvar='C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat'
+$devdll='C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll'
+
+# echo "$env:COMSPEC"
+# &$env:COMSPEC -K "$vsvar"
+
+# pwsh -help > out.md; subl out.md
+# pwsh -Command 'echo Hello'; pwsh -Command {echo World!}
+$devshell='&{Import-Module """' + $devdll + '"""; Enter-VsDevShell d11e5b8c}'
+pwsh -noe -c $devshell # -c 'echo Hello!'
+
+# pwsh -noe -c '&{Import-Module """C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"""; Enter-VsDevShell d11e5b8c}'
+```
+
+当然可以在脚本中硬编码参数，但不能直接像以下这样编写 shebang 注释：
+
+```sh
+#! python cli abc
+import sys
+print("Hello Python!", sys.argv)
+```
+
+Shebang 会将指定命令之后的参数当作一个字符串 "cli abc"，再跟脚本路径 "./cli"，这会导致错误：
+
+```sh
+$ ./cli
+python.exe: can't open file '/dl/pl/cli abc': [Errno 2] No such file or directory
+```
+
+要给运行的脚本指定参数，可以使用 env -S 或者 xargs 工具：
+
+1. env -S 会将其命令行后面的参数按分隔符号切割后再传给 shebang 要运行的脚本；
+2. xargs 可以将 stdin 标准输入数据转换为参数去调用指定命令，例如：`echo 'Hi' | xargs echo`；
+
+```sh
+#!/usr/bin/env -S python cli abc
+import sys
+print("Hello Python!", sys.argv)
+```
+
+运行以上脚本，可以发现 -S 后面的参数分割成 "python" "cli" "abc" 三分：
+
+```sh
+$ ./cli
+Hello Python! ['cli', 'abc', './cli']
+```
+
+Shebang 是操作系统层的机制，Shebang 始终将要运行的脚本路径作为最后一个参数传递给指定命令。
+Windows 系统下，如果脚本类似以下这样需要通过 shebang 去执行指定的解释器，以下是使用 Deno
+执行 TypeScript 代码，并非是 bash 脚本代码，这样就会导致使用错误的解释器：
+
+```sh
+#!/usr/bin/env -S deno run -A
+
+import html2md from '/opendocs/html2md.ts'
+
+function sleepSync(timeout)
+{
+    const shared = new SharedArrayBuffer(512)
+    const int32 = new Int32Array(shared)
+    Atomics.wait(int32, 0, 0, timeout)
+}
+
+console.log('sleep 3.0 seconds.')
+
+sleepSync(3.0)
+```
+
+以上脚本参考 Deno 文档实现了一个阻塞定时 sleep 函数，用于替代 Deno.sleepSync 这个被移除的 API。
+https://deno.com/blog/v1.23#remove-unstable-denosleepsync-api
+
+为了在 Winodows 系统下使用 shebang 特性，可以向注册表添加文件夹上下文菜单，通过指定菜单
+执行的命令间接地利用 bash 启用 shebang 机制。另外，子目录右键菜单执行时，为了自动进入子目录，
+需要使用双层 bash 命令，并且在二层中使用 -i 交互模式调用 exec 命令去执行用户输入。
+如果只使用 -c 方式，执行指定命令后，bash 就会结束运行。
+
+```sh
+
+reg_bash_4_shebang()
+{
+    # reg -h > out.md; subl out.md
+    # reg add -h >> out.md; subl out.md
+    # ROOTKEY  [ HKLM | HKCU | HKCR | HKU | HKCC ]
+    # REG EXPORT 'HKCR\.sh' out.reg -reg:64 -y; subl out.reg
+
+    bsh='C:\\msys64\\usr\\bin\\bash.exe'
+    cmd="\"$bsh\" -c \"echo bash with shebang...; sleep 0.1; '%1'\""
+    cmdb="\"$bsh\" -c \"cd '%V'; bash -i <<< 'exec </dev/tty;'\""
+
+    # REG DELETE  'HKCR\*\shell\Open with bash'
+    # REG DELETE  'HKCR\Directory\shell\bash'
+    # REG DELETE  'HKCR\Directory\Background\shell\bash'
+
+    REG ADD     'HKCR\.sh' -f -ve -t REG_SZ -d ".sh_auto_file"
+    REG ADD     'HKCR\.sh_auto_file\shell\open\command' -f -ve -t REG_SZ -d "$cmd"
+    REG QUERY   'HKCR\.sh' -s
+    REG QUERY   'HKCR\.sh_auto_file' -s
+
+    # REG ADD     'HKCR\*\shell\Open with bash...' -f
+    REG ADD     'HKCR\*\shell\Open with bash...\command' -f -ve -t REG_SZ -d "$cmd"
+    REG ADD     'HKCR\*\shell\Open with bash...\command' -f -v "Icon" -t REG_SZ -d "$bsh"
+
+    # REG ADD     'HKCR\Directory\shell\bash' -f
+    REG ADD     'HKCR\Directory\shell\bash' -f -ve -t REG_SZ -d "⚡ Open with bash..."
+    REG ADD     'HKCR\Directory\shell\bash' -f -v "Icon" -t REG_SZ -d "$bsh"
+    REG ADD     'HKCR\Directory\shell\bash\command' -f -ve -t REG_SZ -d "$cmdb"
+
+    # REG ADD     'HKCR\Directory\Background\shell\bash' -f
+    REG ADD     'HKCR\Directory\Background\shell\bash' -f -ve -t REG_SZ -d "⚡ Open with bash..."
+    REG ADD     'HKCR\Directory\Background\shell\bash' -f -v "Icon" -t REG_SZ -d "$bsh"
+    REG ADD     'HKCR\Directory\Background\shell\bash\command' -f -ve -t REG_SZ -d "$bsh"
+
+    REG QUERY   'HKCR\*\shell\Open with bash...' -s
+    REG QUERY   'HKCR\Directory\shell\bash' -s
+    REG QUERY   'HKCR\Directory\Background\shell\bash' -s
+}
+```
+
+通过以上设备，可以从文件浏览器中执行脚本。也可以通过 cmd.exe 或者 pwsh.exe 解释器运行
+已经注册过的 .sh 脚本文件。注：cmd.exe 执行脚本时，不能使用前缀的 . 命令，只需要指定目录路径。
+
+
+![Dennis M. Ritchie (1941/9/9 - 2011/10/12)](https://pic1.zhimg.com/80/v2-8c9522dfdb51dd5854ab37b538b057e4_1440w.jpg)
+
+关于 shebang 机制的名称，Unix 与 C 语言创始人丹尼斯·里奇在其邮件列表的问答中提到，
+这个特性借鉴了伯克利 Unix UCB 会议上某人提到的一个灵感，里奇可能是首先实现它的人之一。
+至于它的名字：可能是类似于“hash-bang”的英国风描述性文字，对应 `#!` 这两个字符。
+
+    From: "Ritchie, Dennis M (Dennis)** CTR **" <dmr@research.bell-labs.com>
+    To: <erlĸonigⓐtαlismαn.org>
+
+    Date: Thu, 19 Nov 2009 18:37:37 -0600
+    Subject: RE: What do -you- call your #!<something> line?
+
+     I can't recall that we ever gave it a proper name.
+    It was pretty late that it went in--I think that I
+    got the idea from someone at one of the UCB conferences
+    on Berkeley Unix; I may have been one of the first to
+    actually install it, but it was an idea that I got
+    from elsewhere.
+
+    As for the name: probably something descriptive like
+    "hash-bang" though this has a specifically British flavor, but
+    in any event I don't recall particularly using a pet name
+    for the construction.
+
+       Regards,
+       Dennis
+
+
+
+## //⚡ Exm: An usleep on sleep
+
+```sh
+#!/usr/bin/bash
+
+usleep()
+{
+    dot=$(( ${#1} - 6 ))
+    sec="$(echo ${1:0:$dot}).$(echo ${1:$dot})"
+    [[ $dot -lt 1 ]] && sec=$((1000000 + $1)) && sec=".${sec:1:6}"
+    sleep $sec
+}
+usleep $1
+# usleep 1234
+# usleep 3191234
+```
+
+
+## //⚡ Exm: Bash script from here
+
+```sh
+#! /usr/bin/env bash
+
+function shell_expansion_brace()
+{
+    for it in {00..08..2}
+    do
+        echo $it '=>' $(($it+0))
+    done
+}
+# shell_expansion_brace; exit
+
+
+function shell_expansion_tilde()
+{
+    # | Tilded    | Note
+    # |-----------|------------------------------------------------------------------
+    # | ~         | The value of $HOME
+    # | ~/foo     | $HOME/foo
+    # | ~fred/foo | The subdirectory foo of the home directory of the user fred
+    # | ~+/foo    | $PWD/foo
+    # | ~-/foo    | ${OLDPWD-'~-'}/foo
+    # | ~N        | The string that would be displayed by ‘dirs +N’
+    # | ~+N       | The string that would be displayed by ‘dirs +N’
+    # | ~-N       | The string that would be displayed by ‘dirs -N’
+
+    ls ~OCEAN/.ssh
+    ls -l ~+/scl   # list file info which file under pwd.
+    ls -l "$(echo ~+/scl)" # ok, use Command Substitution
+    ls -l "~+/scl" # unvalid tilde expansion
+    pushd /c
+    echo ~1  # equal to dirs +1
+}
+# shell_expansion_tilde; exit
+
+
+function shell_expansion_string()
+{
+    # In each of the cases below, 
+    # word is subject to tilde expansion, parameter expansion, 
+    # command substitution, and arithmetic expansion.
+    #  ${var:-word}
+    #  ${var:=word}
+    #  ${var:?word}
+    #  ${var:+word}
+    var="hello world!"
+    echo ${var:6}
+    echo ${uar:-~} - $var $uar # echo uar or expansion if null, not assigned value
+    echo ${uar:=~} - $var $uar # echo uar or expansion if null, assigned value
+    echo ${uar:?~} - $var $uar # echo uar, write err to stderr if null
+    echo ${nar:+~} - $var $nar # echo expansion if not null, not assigned value
+}
+# shell_expansion_string; exit
+
+
+function shell_expansion_command_substitution()
+{
+    echo "Hello world!"
+    echo "$(echo "Hello world!")"
+    echo "`echo "Hello world!"`"
+}
+# shell_expansion_command_substitution; exit
+
+
+function shell_expansion_arithmetic()
+{
+    echo value = $(( 314159/100000 ))
+}
+# shell_expansion_arithmetic; exit
+
+
+function shell_expansion_word_splitting()
+{
+    echo "Delimiter is [$IFS], default is <space><tab><newline>"
+    echo "           Leading/tailed delimiter will be striped if text return from command."
+    echo $(echo "    Leading/tailed delimiter will be striped.          ")
+}
+# shell_expansion_word_splitting; exit
+
+
+function shell_expansion_filename()
+{
+    for it in *.pdf
+    do 
+        echo $(echo $it | sed -n 's/地球//; s/[[:digit:]]\+A/\0+/p')
+    done
+}
+# shell_expansion_filename; exit
+
+
+# Use read command to read file or data
+function read_test()
+{
+    read -r it <<EOF
+    a line➊
+    a line➋
+EOF
+    echo $it
+
+    while read -r it 
+    do echo $it
+    done <<EOF
+    a line ➊
+    a line ➋
+EOF
+}
+
+
+# Array test in bash shell
+function array_test()
+{
+    read -a it <<EOF
+    a line ➊
+    a line ➋
+EOF
+    echo "${it[@]} # individual elements"
+    echo "${it[*]} # single string"
+    echo "${it[2]} # SUBSCRIPT 2"
+
+    ARRAY=(VALUE1 VALUE2 ... )
+    a=VALUE1
+    b=VALUE2
+    c=...
+    ARRAY=($a $b $c)
+
+    ARRAY[$id]=NEWVALUE@$id
+
+    echo ${ARRAY[0]} # SUBSCRIPT
+    echo ${ARRAY[@]} # individual elements
+    echo ${ARRAY[*]} # single string
+
+    for it in ${ARRAY[@]}
+    do 
+        echo $it
+    done
+
+    id=0
+    while read -r it
+    do
+        ARRAY[$id]=$it
+        id=$((id + 1))
+    done << EOF
+    line a
+    line b
+    line c
+    ...
+EOF
+
+    echo ${ARRAY[*]}
+}
+
+# array_test; exit
+
+
+function scope_test()
+{
+    echo "In scope_test, var = $var"
+}
+
+function scope_global()
+{
+    echo "scope_global: $var"
+    declare -g var #='scope_global'
+    scope_test
+}
+
+function scope_local()
+{
+    echo "scope_local: $var"
+    local var='scope_local'
+    scope_test
+}
+
+function scope_default()
+{
+    echo "scope_default: $var"
+    var='scope_default'
+    scope_test
+}
+
+var=global
+scope_local; scope_default; scope_global; exit
+# scope_local: global
+# In scope_test, var = scope_local
+# scope_default: global
+# In scope_test, var = scope_default
+# scope_global: scope_default
+# In scope_test, var = scope_default
+```
+
+## //⚡ Exm: Sub-process (subshell)
+
+```sh
+subprocess()
+{
+    (
+    # ^^^ this is a sub process
+        echo -n $(tasklist | grep sh.exe | wc -l)
+                # ^^^ this is another sub process
+        echo -n " sub processes [PID $$] [SPID $BASHPID]
+        after --> "
+    ) # sub process exit
+    tasklist | grep sh.exe | wc -l
+    
+    $(echo echo feeding command to parent process) 
+    # use $ symbol to execute commands from sub process stdout
+}
+subprocess
+# ref 3.5.6 Process Substitution
+```
+
+## //⚡ Exm: hex dicimal binary covert
+
+1.    basenc - Encode/decode data and print to standard output
+1.    base32 - base32 encode/decode data and print to standard output
+1.    base64 - base64 encode/decode data and print to standard output
+2.    od     - dump files in octal and other formats
+3.    printf - format and print data
+4.    xxd    - make a hexdump or do the reverse.
+5.    bc     - An arbitrary precision calculator language
+
+
+```sh
+for it in {10..16}; do
+    printf $it | xxd -r -p | od -A n -t x1 -v # basenc --base16
+    # Hex      | to binary | covert back hex
+done
+printf "%x" 6666 # decimal to hex
+printf ABCDEF | xxd -r -p > out.hex # hex to binary
+cat out.hex | xxd
+
+bin_number="11110000" # 240
+hex_number=$(echo "obase=16;ibase=2;$bin_number" | bc)
+dec_number=$(echo "obase=10;ibase=2;$bin_number" | bc)
+echo "Binary Number: $bin_number"
+echo "Hex Number: $hex_number"
+echo "Decimal Number: $dec_number"
+```
+
+
+# /🚩 Bash Features
 
 This text is a brief description of the features that are present in the Bash shell (version 5.1, 21 December 2020). The Bash home page is http://www.gnu.org/software/bash/.
 
@@ -215,7 +683,7 @@ This manual is meant as a brief introduction to features found in Bash. The Bash
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 1 Introduction
+# /🚩 Chapter 1 Introduction
                                                                  *Introduction*
 
 • |What is Bash?|     A short description of Bash.
@@ -224,7 +692,7 @@ This manual is meant as a brief introduction to features found in Bash. The Bash
         ⬇ [What is a shell?] ⬅ [Introduction]
                                                               [Contents] [Index]
 
-## ⚡ 1.1 What is Bash?
+## //⚡ 1.1 What is Bash?
                                                                 *What is Bash?*
 
 Bash is the shell, or command language interpreter, for the GNU operating system. The name is an acronym for the ‘Bourne-Again SHell’, a pun on Stephen Bourne, the author of the direct ancestor of the current Unix shell sh, which appeared in the Seventh Edition Bell Labs Research version of Unix.
@@ -236,7 +704,7 @@ While the GNU operating system provides other shells, including a version of csh
         ⬆ [What is Bash?]  ⬅ [Introduction]   
                                                               [Contents] [Index]
 
-## ⚡ 1.2 What is a shell?
+## //⚡ 1.2 What is a shell?
                                                              *What is a shell?*
 
 At its base, a shell is simply a macro processor that executes commands. The term macro processor means functionality where text and symbols are expanded to create larger expressions.
@@ -257,7 +725,7 @@ Shells offer features geared specifically for interactive use rather than to aug
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 2 Definitions
+# /🚩 Chapter 2 Definitions
                                                                   *Definitions*
 
 These definitions are used throughout the remainder of this manual.
@@ -346,7 +814,7 @@ A sequence of characters treated as a unit by the shell. Words may not include u
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 3 Basic Shell Features
+# /🚩 Chapter 3 Basic Shell Features
                                                          *Basic Shell Features*
 
 Bash is an acronym for ‘Bourne-Again SHell’. The Bourne shell is the traditional Unix shell originally written by Stephen Bourne. All of the Bourne shell builtin commands are available in Bash, The rules for evaluation and quoting are taken from the POSIX specification for the ‘standard’ Unix shell.
@@ -366,7 +834,7 @@ This chapter briefly summarizes the shell’s ‘building blocks’: commands, c
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1 Shell Syntax
+## //⚡ 3.1 Shell Syntax
                                                                  *Shell Syntax*
 
 • Shell Operation       The basic operation of the shell.
@@ -383,7 +851,7 @@ The shell then parses these tokens into commands and other constructs, removes t
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.1 Shell Operation
+## //⚡ 3.1.1 Shell Operation
                                                               *Shell Operation*
 
 The following is a brief description of the shell’s operation when it reads and executes a command. Basically, the shell does the following:
@@ -400,7 +868,7 @@ Optionally waits for the command to complete and collects its exit status (see [
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.2 Quoting
+## //⚡ 3.1.2 Quoting
                                                                       *Quoting*
 
 • Escape Character      How to remove the special meaning from a single character.
@@ -418,7 +886,7 @@ There are three quoting mechanisms: the escape character, single quotes, and dou
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.2.1 Escape Character
+## //⚡ 3.1.2.1 Escape Character
                                                              *Escape Character*
 
 A non-quoted backslash ‘\’ is the Bash escape character. It preserves the literal value of the next character that follows, with the exception of newline. If a \newline pair appears, and the backslash itself is not quoted, the \newline is treated as a line continuation (that is, it is removed from the input stream and effectively ignored).
@@ -427,7 +895,7 @@ A non-quoted backslash ‘\’ is the Bash escape character. It preserves the li
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.2.2 Single Quotes
+## //⚡ 3.1.2.2 Single Quotes
                                                                 *Single Quotes*
 
 Enclosing characters in single quotes (‘'’) preserves the literal value of each character within the quotes. A single quote may not occur between single quotes, even when preceded by a backslash.
@@ -436,7 +904,7 @@ Enclosing characters in single quotes (‘'’) preserves the literal value of e
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.2.3 Double Quotes
+## //⚡ 3.1.2.3 Double Quotes
                                                                 *Double Quotes*
 
 Enclosing characters in double quotes (‘"’) preserves the literal value of all characters within the quotes, with the exception of 
@@ -459,7 +927,7 @@ The special parameters `‘*’` and ‘@’ have special meaning when in double
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.2.4 ANSI-C Quoting
+## //⚡ 3.1.2.4 ANSI-C Quoting
                                                                *ANSI-C Quoting*
 
 Words of the form $'string' are treated specially. The word expands to string, with backslash-escaped characters replaced as specified by the ANSI C standard. Backslash escape sequences, if present, are decoded as follows:
@@ -494,7 +962,7 @@ The expanded result is single-quoted, as if the dollar sign had not been present
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.2.5 Locale-Specific Translation
+## //⚡ 3.1.2.5 Locale-Specific Translation
                                                   *Locale-Specific Translation*
 
 A double-quoted string preceded by a dollar sign (‘$’) will cause the string to be translated according to the current locale. The gettext infrastructure performs the message catalog lookup and translation, using the LC_MESSAGES and TEXTDOMAIN shell variables, as explained below. See the gettext documentation for additional details. If the current locale is C or POSIX, or if there are no translations available, the dollar sign is ignored. If the string is translated and replaced, the replacement is double-quoted.
@@ -505,7 +973,7 @@ Some systems use the message catalog selected by the LC_MESSAGES shell variable.
                                                               [Contents] [Index]
 
 
-## ⚡ 3.1.3 Comments
+## //⚡ 3.1.3 Comments
                                                                      *Comments*
 
 In a non-interactive shell, or an interactive shell in which the interactive_comments option to the shopt builtin is enabled (see [the shopt builtin]), a word beginning with ‘#’ causes that word and all remaining characters on that line to be ignored. An interactive shell without the interactive_comments option enabled does not allow comments. The interactive_comments option is on by default in interactive shells. See Interactive Shells, for a description of what makes a shell interactive.
@@ -514,7 +982,7 @@ In a non-interactive shell, or an interactive shell in which the interactive_com
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2 Shell Commands
+## //⚡ 3.2 Shell Commands
                                                                *Shell Commands*
 
 A simple shell command such as echo a b c consists of the command itself followed by arguments, separated by spaces.
@@ -533,7 +1001,7 @@ More complex shell commands are composed of simple commands arranged together in
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.1 Reserved Words
+## //⚡ 3.2.1 Reserved Words
                                                                *Reserved Words*
 
 Reserved words are words that have special meaning to the shell. They are used to begin and end the shell’s compound commands.
@@ -551,7 +1019,7 @@ in is recognized as a reserved word if it is the third word of a case or select 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.2 Simple Commands
+## //⚡ 3.2.2 Simple Commands
                                                               *Simple Commands*
 
 A simple command is the kind of command encountered most often. It’s just a sequence of words separated by blanks, terminated by one of the shell’s control operators (see [definitions]). The first word generally specifies a command to be executed, with the rest of the words being that command’s arguments.
@@ -562,7 +1030,7 @@ The return status (see [exit status]) of a simple command is its exit status as 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.3 Pipelines
+## //⚡ 3.2.3 Pipelines
                                                              *Pipelines* *Pipe*
 
 A pipeline is a sequence of one or more commands separated by one of the control operators ‘|’ or ‘|&’.
@@ -589,7 +1057,7 @@ The exit status of a pipeline is the exit status of the last command in the pipe
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.4 Lists of Commands
+## //⚡ 3.2.4 Lists of Commands
                                                             *Lists of Commands*
 
 A list is a sequence of one or more pipelines separated by one of the operators ‘;’, ‘&’, ‘&&’, or ‘||’, and optionally terminated by one of ‘;’, ‘&’, or a newline.
@@ -622,7 +1090,7 @@ The return status of AND and OR lists is the exit status of the last command exe
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.5 Compound Commands
+## //⚡ 3.2.5 Compound Commands
                                                             *Compound Commands*
 
 • |Looping Constructs|        Shell commands for iterative action.
@@ -639,7 +1107,7 @@ Bash provides looping constructs, conditional commands, and mechanisms to group 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.5.1 Looping Constructs
+## //⚡ 3.2.5.1 Looping Constructs
                                                            *Looping Constructs*
 
 Bash supports the following looping constructs.
@@ -687,10 +1155,10 @@ The break and continue builtins (see [bourne shell builtins]) may be used to con
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.5.2 Conditional Constructs
+## //⚡ 3.2.5.2 Conditional Constructs
                                                        *Conditional Constructs*
 
-### ===🗝 if
+### //🗝 if
                                                          *test* *cmd_test* *if*
 
 The syntax of the if command is:
@@ -710,13 +1178,13 @@ The test-commands list is executed, and if its return status is zero, the conseq
 # True Group
 if [ 0 ]; then echo "# True" ; else echo "# False" ; fi
 if [ 1=2 ]; then echo "# True" ; else echo "# False" ; fi
-if [ '1' = '2' ]; then echo "# True" ; else echo "# False" ; fi
+if [ '1'='2' ]; then echo "# True" ; else echo "# False" ; fi
 if [ -d . ]; then echo Folder exist; else echo Folder not exist; fi
 
 # false Group
 if [ ]; then echo "# True" ; else echo "# False" ; fi
 if [ 1 = 2 ]; then echo "# True" ; else echo "# False" ; fi
-if [ '1'='2' ]; then echo "# True" ; else echo "# False" ; fi
+if [ '1' = '2' ]; then echo "# True" ; else echo "# False" ; fi
 
 # Syntax error group
 if [ '1' = '2' ]; then echo "# True" ; else echo "# False"  fi # SYNTAX ERROR
@@ -735,7 +1203,7 @@ if [ "0" = "$?" ]; then echo "Test Pass! $?"; else echo "Test failed: $?" ; fi
 See also 6.4 [Bash Conditional Expressions]  4.1 [Bourne Shell Builtins] [cmd_test]
 
 
-### ===🗝 case
+### //🗝 case
                                                                          *case*
 
 The syntax of the case command is:
@@ -767,7 +1235,7 @@ If the ‘;;’ operator is used, no subsequent matches are attempted after the 
 The return status is zero if no pattern is matched. Otherwise, the return status is the exit status of the command-list executed.
 
 
-### ===🗝 select
+### //🗝 select
                                                                        *select*
 
 The select construct allows the easy generation of menus. It has almost the same syntax as the for command:
@@ -859,7 +1327,7 @@ The && and || operators do not evaluate expression2 if the value of expression1 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.5.3 Grouping Commands
+## //⚡ 3.2.5.3 Grouping Commands
                                                             *Grouping Commands*
 
 Bash provides two ways to group a list of commands to be executed as a unit. When commands are grouped, redirections may be applied to the entire command list. For example, the output of all the commands in the list may be redirected to a single stream.
@@ -884,7 +1352,7 @@ The exit status of both of these constructs is the exit status of list.
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.6 Coprocesses
+## //⚡ 3.2.6 Coprocesses
                                                                   *Coprocesses*
 
 A coprocess is a shell command preceded by the coproc reserved word. A coprocess is executed asynchronously in a subshell, as if the command had been terminated with the ‘&’ control operator, with a two-way pipe established between the executing shell and the coprocess.
@@ -905,7 +1373,7 @@ Since the coprocess is created as an asynchronous command, the coproc command al
                                                               [Contents] [Index]
 
 
-## ⚡ 3.2.7 GNU Parallel
+## //⚡ 3.2.7 GNU Parallel
                                                                  *GNU Parallel*
 
 There are ways to run commands in parallel that are not built into Bash. GNU Parallel is a tool to do just that.
@@ -984,7 +1452,7 @@ will evaluate the commands using the shell (since no explicit command is supplie
                                                               [Contents] [Index]
 
 
-## ⚡ 3.3 Shell Functions
+## //⚡ 3.3 Shell Functions
                                                               *Shell Functions*
 
 Shell functions are a way to group commands for later execution using a single name for the group. They are executed just like a "regular" command. When the name of a shell function is used as a simple command name, the list of commands associated with that function name is executed. Shell functions are executed in the current shell context; no new process is created to interpret them.
@@ -1049,7 +1517,7 @@ Functions may be recursive. The FUNCNEST variable may be used to limit the depth
                                                               [Contents] [Index]
 
 
-## ⚡ 3.4 Shell Parameters
+## //⚡ 3.4 Shell Parameters
                                                              *Shell Parameters*
 
 • Positional Parameters     The shell’s command-line arguments.
@@ -1080,7 +1548,7 @@ If the control variable in a for loop has the nameref attribute, the list of wor
                                                               [Contents] [Index]
 
 
-## ⚡ 3.4.0 declare
+## //⚡ 3.4.0 declare
                                                                       *declare*
 
     $ declare --help
@@ -1121,7 +1589,7 @@ If the control variable in a for loop has the nameref attribute, the list of wor
     Returns success unless an invalid option is supplied or a variable
     assignment error occurs.
 
-## ⚡ 3.4.1 Positional Parameters
+## //⚡ 3.4.1 Positional Parameters
                                                         *Positional Parameters*
 
 A positional parameter is a parameter denoted by one or more digits, other than the single digit 0. Positional parameters are assigned from the shell’s arguments when it is invoked, and may be reassigned using the set builtin command. Positional parameter N may be referenced as `${N}`, or as `$N` when N consists of a single digit. Positional parameters may not be assigned to with assignment statements. The set and shift builtins are used to set and unset them (see [shell builtin commands]). The positional parameters are temporarily replaced when a shell function is executed (see [shell functions]).
@@ -1132,7 +1600,7 @@ When a positional parameter consisting of more than a single digit is expanded, 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.4.2 Special Parameters
+## //⚡ 3.4.2 Special Parameters
                                                            *Special Parameters*
 
 The shell treats several parameters specially. These parameters may only be referenced; assignment to them is not allowed.
@@ -1165,7 +1633,7 @@ $
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5 Shell Expansions
+## //⚡ 3.5 Shell Expansions
                                                              *Shell Expansions*
 
 Expansion is performed on the command line after it has been split into tokens. There are seven kinds of expansion performed:
@@ -1202,7 +1670,7 @@ After all expansions, quote removal (see [quote removal]) is performed.
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.1 Brace Expansion
+## //⚡ 3.5.1 Brace Expansion
                                                               *Brace Expansion*
 
 Brace expansion is a mechanism by which arbitrary strings may be generated. This mechanism is similar to filename expansion (see [filename expansion]), but the filenames generated need not exist. Patterns to be brace expanded take the form of an optional preamble, followed by either a series of comma-separated strings or a sequence expression between a pair of braces, followed by an optional postscript. The preamble is prefixed to each string contained within the braces, and the postscript is then appended to each resulting string, expanding left to right.
@@ -1232,7 +1700,7 @@ or
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.2 Tilde Expansion
+## //⚡ 3.5.2 Tilde Expansion
                                                               *Tilde Expansion*
 
 If a word begins with an unquoted tilde character (‘~’), all of the characters up to the first unquoted slash (or all characters, if there is no unquoted slash) are considered a tilde-prefix. If none of the characters in the tilde-prefix are quoted, the characters in the tilde-prefix following the tilde are treated as a possible login name. If this login name is the null string, the tilde is replaced with the value of the HOME shell variable. If HOME is unset, the home directory of the user executing the shell is substituted instead. Otherwise, the tilde-prefix is replaced with the home directory associated with the specified login name.
@@ -1264,7 +1732,7 @@ Bash also performs tilde expansion on words satisfying the conditions of variabl
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.3 Shell Parameter Expansion (String manipulate)
+## //⚡ 3.5.3 Shell Parameter Expansion (String manipulate)
                                                     *Shell Parameter Expansion*
 
 The ‘$’ character introduces parameter expansion, command substitution, or arithmetic expansion. The parameter name or symbol to be expanded may be enclosed in braces, which are optional but serve to protect the variable to be expanded from characters immediately following it which could be interpreted as part of the name.
@@ -1474,7 +1942,7 @@ The result of the expansion is subject to word splitting and filename expansion 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.4 Command Substitution
+## //⚡ 3.5.4 Command Substitution
                                                          *Command Substitution*
 
 Command substitution allows the output of a command to replace the command itself. Command substitution occurs when a command is enclosed as follows:
@@ -1501,7 +1969,7 @@ If the substitution appears within double quotes, word splitting and filename ex
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.5 Arithmetic Expansion
+## //⚡ 3.5.5 Arithmetic Expansion
                                                          *Arithmetic Expansion*
 
 Arithmetic expansion allows the evaluation of an arithmetic expression and the substitution of the result. The format for arithmetic expansion is:
@@ -1516,7 +1984,7 @@ The evaluation is performed according to the rules listed below (see [shell arit
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.6 Process Substitution
+## //⚡ 3.5.6 Process Substitution
                                                          *Process Substitution*
 
 Process substitution allows a process’s input or output to be referred to using a filename. It takes the form of
@@ -1535,7 +2003,7 @@ When available, process substitution is performed simultaneously with parameter 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.7 Word Splitting
+## //⚡ 3.5.7 Word Splitting
                                                                *Word Splitting*
 
 The shell scans the results of parameter expansion, command substitution, and arithmetic expansion that did not occur within double quotes for word splitting.
@@ -1550,7 +2018,7 @@ Note that if no expansion occurs, no splitting is performed.
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.8 Filename Expansion
+## //⚡ 3.5.8 Filename Expansion
                                                            *Filename Expansion*
 
 • Pattern Matching      How the shell matches patterns.
@@ -1568,7 +2036,7 @@ The GLOBIGNORE shell variable may be used to restrict the set of file names matc
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.8.1 Pattern Matching
+## //⚡ 3.5.8.1 Pattern Matching
                                                              *Pattern Matching*
 
 Any character that appears in a pattern, other than the special pattern characters described below, matches itself. The NUL character may not occur in a pattern. A backslash escapes the following character; the escaping backslash is discarded when matching. The special pattern characters must be quoted if they are to be matched literally.
@@ -1613,7 +2081,7 @@ Complicated extended pattern matching against long strings is slow, especially w
                                                               [Contents] [Index]
 
 
-## ⚡ 3.5.9 Quote Removal
+## //⚡ 3.5.9 Quote Removal
                                                                 *Quote Removal*
 
 After the preceding expansions, all unquoted occurrences of the characters ‘\’, ‘'’, and ‘"’ that did not result from one of the above expansions are removed.
@@ -1622,7 +2090,7 @@ After the preceding expansions, all unquoted occurrences of the characters ‘\�
                                                               [Contents] [Index]
 
 
-## ⚡ 3.6 Redirections
+## //⚡ 3.6 Redirections
                                                                  *Redirections*
 
 Before a command is executed, its input and output may be redirected using a special notation interpreted by the shell. Redirection allows commands’ file handles to be duplicated, opened, closed, made to refer to different files, and can change the files the command reads from and writes to. Redirection may also be used to modify file handles in the current shell execution environment. The following redirection operators may precede or appear anywhere within a simple command or may follow a command. Redirections are processed in the order they appear, from left to right.
@@ -1661,7 +2129,7 @@ A failure to open or create a file causes the redirection to fail.
 Redirections using file descriptors greater than 9 should be used with care, as they may conflict with file descriptors the shell uses internally.
 
 
-## ⚡ 3.6.1 Redirecting Input
+## //⚡ 3.6.1 Redirecting Input
                                                             *Redirecting Input*
 
 Redirection of input causes the file whose name results from the expansion of word to be opened for reading on file descriptor n, or the standard input (file descriptor 0) if n is not specified.
@@ -1670,7 +2138,7 @@ The general format for redirecting input is:
 
     [n]<word
 
-## ⚡ 3.6.2 Redirecting Output
+## //⚡ 3.6.2 Redirecting Output
                                                            *Redirecting Output*
 
 Redirection of output causes the file whose name results from the expansion of word to be opened for writing on file descriptor n, or the standard output (file descriptor 1) if n is not specified. If the file does not exist it is created; if it does exist it is truncated to zero size.
@@ -1682,7 +2150,7 @@ The general format for redirecting output is:
 If the redirection operator is ‘>’, and the noclobber option to the set builtin has been enabled, the redirection will fail if the file whose name results from the expansion of word exists and is a regular file. If the redirection operator is ‘>|’, or the redirection operator is ‘>’ and the noclobber option is not enabled, the redirection is attempted even if the file named by word exists.
 
 
-## ⚡ 3.6.3 Appending Redirected Output
+## //⚡ 3.6.3 Appending Redirected Output
                                                   *Appending Redirected Output*
 
 Redirection of output in this fashion causes the file whose name results from the expansion of word to be opened for appending on file descriptor n, or the standard output (file descriptor 1) if n is not specified. If the file does not exist it is created.
@@ -1691,7 +2159,7 @@ The general format for appending output is:
 
     [n]>>word
 
-## ⚡ 3.6.4 Redirecting Standard Output and Standard Error
+## //⚡ 3.6.4 Redirecting Standard Output and Standard Error
                                *Redirecting Standard Output and Standard Error*
 
 This construct allows both the standard output (file descriptor 1) and the standard error output (file descriptor 2) to be redirected to the file whose name is the expansion of word.
@@ -1711,7 +2179,7 @@ Of the two forms, the first is preferred. This is semantically equivalent to
 When using the second form, word may not expand to a number or ‘-’. If it does, other redirection operators apply (see [duplicating file descriptors below]) for compatibility reasons.
 
 
-## ⚡ 3.6.5 Appending Standard Output and Standard Error
+## //⚡ 3.6.5 Appending Standard Output and Standard Error
                                  *Appending Standard Output and Standard Error*
 
 This construct allows both the standard output (file descriptor 1) and the standard error output (file descriptor 2) to be appended to the file whose name is the expansion of word.
@@ -1727,7 +2195,7 @@ This is semantically equivalent to
 (see [duplicating file descriptors below]).
 
 
-## ⚡ 3.6.6 Here Documents
+## //⚡ 3.6.6 Here Documents
                                                                *Here Documents*
 
 This type of redirection instructs the shell to read input from the current source until a line containing only word (with no trailing blanks) is seen. All of the lines read up to that point are then used as the standard input (or file descriptor n if n is specified) for a command.
@@ -1745,7 +2213,7 @@ No parameter and variable expansion, command substitution, arithmetic expansion,
 If the redirection operator is ‘<<-’, then all leading tab characters are stripped from input lines and the line containing delimiter. This allows here-documents within shell scripts to be indented in a natural fashion.
 
 
-## ⚡ 3.6.7 Here Strings
+## //⚡ 3.6.7 Here Strings
                                                                  *Here Strings*
 
 A variant of here documents, the format is:
@@ -1755,7 +2223,7 @@ A variant of here documents, the format is:
 The word undergoes tilde expansion, parameter and variable expansion, command substitution, arithmetic expansion, and quote removal. Filename expansion and word splitting are not performed. The result is supplied as a single string, with a newline appended, to the command on its standard input (or file descriptor n if n is specified).
 
 
-## ⚡ 3.6.8 Duplicating File Descriptors
+## //⚡ 3.6.8 Duplicating File Descriptors
                                                  *Duplicating File Descriptors*
 
 The redirection operator
@@ -1771,7 +2239,7 @@ The operator
 is used similarly to duplicate output file descriptors. If n is not specified, the standard output (file descriptor 1) is used. If the digits in word do not specify a file descriptor open for output, a redirection error occurs. If word evaluates to ‘-’, file descriptor n is closed. As a special case, if n is omitted, and word does not expand to one or more digits or ‘-’, the standard output and standard error are redirected as described previously.
 
 
-## ⚡ 3.6.9 Moving File Descriptors
+## //⚡ 3.6.9 Moving File Descriptors
                                                       *Moving File Descriptors*
 
 The redirection operator
@@ -1787,7 +2255,7 @@ Similarly, the redirection operator
 moves the file descriptor digit to file descriptor n, or the standard output (file descriptor 1) if n is not specified.
 
 
-## ⚡ 3.6.10 Opening File Descriptors for Reading and Writing
+## //⚡ 3.6.10 Opening File Descriptors for Reading and Writing
                              *Opening File Descriptors for Reading and Writing*
 
 The redirection operator
@@ -1800,7 +2268,7 @@ causes the file whose name is the expansion of word to be opened for both readin
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7 Executing Commands
+## //⚡ 3.7 Executing Commands
                                                            *Executing Commands*
 
 • |Simple Command Expansion|      How Bash expands simple commands before executing them.
@@ -1814,7 +2282,7 @@ causes the file whose name is the expansion of word to be opened for both readin
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7.1 Simple Command Expansion
+## //⚡ 3.7.1 Simple Command Expansion
                                                      *Simple Command Expansion*
 
 When a simple command is executed, the shell performs the following expansions, assignments, and redirections, from left to right, in the following order.
@@ -1837,7 +2305,7 @@ If there is a command name left after expansion, execution proceeds as described
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7.2 Command Search and Execution
+## //⚡ 3.7.2 Command Search and Execution
                                                  *Command Search and Execution*
 
 After a command has been split into words, if it results in a simple command and an optional list of arguments, the following actions are taken.
@@ -1853,7 +2321,7 @@ After a command has been split into words, if it results in a simple command and
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7.3 Command Execution Environment
+## //⚡ 3.7.3 Command Execution Environment
                                                 *Command Execution Environment*
 
 The shell has an execution environment, which consists of the following:
@@ -1889,7 +2357,7 @@ If a command is followed by a ‘&’ and job control is not active, the default
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7.4 Environment
+## //⚡ 3.7.4 Environment
                                                                   *Environment*
 
 When a program is invoked it is given an array of strings called the environment. This is a list of name-value pairs, of the form name=value.
@@ -1906,7 +2374,7 @@ When Bash invokes an external command, the variable ‘$_’ is set to the full 
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7.5 Exit Status
+## //⚡ 3.7.5 Exit Status
                                                                   *Exit Status*
 
 The exit status of an executed command is the value returned by the waitpid system call or equivalent function. Exit statuses fall between 0 and 255, though, as explained below, the shell may use values above 125 specially. Exit statuses from shell builtins and compound commands are also limited to this range. Under certain circumstances, the shell will use special values to indicate specific failure modes.
@@ -1925,7 +2393,7 @@ All of the Bash builtins return an exit status of zero if they succeed and a non
                                                               [Contents] [Index]
 
 
-## ⚡ 3.7.6 Signals
+## //⚡ 3.7.6 Signals
                                                                       *Signals*
 
 When Bash is interactive, in the absence of any traps, it ignores *SIGTERM* (so that ‘kill 0’ does not kill an interactive shell), and *SIGINT* is caught and handled (so that the wait builtin is interruptible). When Bash receives a *SIGINT*, it breaks out of any executing loops. In all cases, Bash ignores *SIGQUIT*. If job control is in effect (see [job control]), Bash ignores *SIGTTIN*, *SIGTTOU*, and *SIGTSTP*.
@@ -1942,7 +2410,7 @@ If Bash is waiting for a command to complete and receives a signal for which a t
                                                               [Contents] [Index]
 
 
-## ⚡ 3.8 Shell Scripts
+## //⚡ 3.8 Shell Scripts
                                                                 *Shell Scripts*
 
 A shell script is a text file containing shell commands. When such a file is used as the first non-option argument when invoking Bash, and neither the -c nor -s option is supplied (see [invoking bash]), Bash reads and executes commands from the file, then exits. This mode of operation creates a non-interactive shell. The shell first searches for the file in the current directory, and looks in the directories in $PATH if not found there.
@@ -1969,7 +2437,7 @@ Bash scripts often begin with #! /bin/bash (assuming that Bash has been installe
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 4 Shell Builtin Commands
+# /🚩 Chapter 4 Shell Builtin Commands
                                                        *Shell Builtin Commands*
 
 • |Bourne Shell Builtins|     Builtin commands inherited from the Bourne Shell.
@@ -1991,7 +2459,7 @@ Unless otherwise noted, each builtin command documented as accepting options pre
                                                               [Contents] [Index]
 
 
-## ⚡ 4.1 Bourne Shell Builtins
+## //⚡ 4.1 Bourne Shell Builtins
                                                         *Bourne Shell Builtins*
 
 The following shell builtin commands are inherited from the Bourne Shell. These commands are implemented as specified by the POSIX standard.
@@ -2224,19 +2692,19 @@ Remove each variable or function name. If the -v option is given, each name refe
                                                               [Contents] [Index]
 
 
-## ⚡ 4.2 Bash Builtin Commands
+## //⚡ 4.2 Bash Builtin Commands
                                                         *Bash Builtin Commands*
 
 This section describes builtin commands which are unique to or have been extended in Bash. Some of these commands are specified in the POSIX standard.
 
-alias
+### built-in: alias
                                                                         *alias*
 
     alias [-p] [name[=value] …]
 
 Without arguments or with the -p option, alias prints the list of aliases on the standard output in a form that allows them to be reused as input. If arguments are supplied, an alias is defined for each name whose value is given. If no value is given, the name and value of the alias is printed. Aliases are described in Aliases.
 
-bind
+### built-in: bind
                                                                          *bind*
 
     bind [-m keymap] [-lpsvPSVX]
@@ -2286,14 +2754,14 @@ Use keymap as the keymap to be affected by the subsequent bindings. Acceptable k
 
 The return status is zero unless an invalid option is supplied or an error occurs.
 
-builtin
+### built-in: builtin
                                                                       *builtin*
 
     builtin [shell-builtin [args]]
 
 Run a shell builtin, passing it args, and return its exit status. This is useful when defining a shell function with the same name as a shell builtin, retaining the functionality of the builtin within the function. The return status is non-zero if shell-builtin is not a shell builtin command.
 
-caller
+### built-in: caller
                                                                        *caller*
 
     caller [expr]
@@ -2304,7 +2772,7 @@ Without expr, caller displays the line number and source filename of the current
 
 The return value is 0 unless the shell is not executing a subroutine call or expr does not correspond to a valid position in the call stack.
 
-command
+### built-in: command
                                                                       *command*
 
     command [-pVv] command [arguments …]
@@ -2313,7 +2781,7 @@ Runs command with arguments ignoring any shell function named command. Only shel
 
 If either the -V or -v option is supplied, a description of command is printed. The -v option causes a single word indicating the command or file name used to invoke command to be displayed; the -V option produces a more verbose description. In this case, the return status is zero if command is found, and non-zero if not.
 
-declare
+### built-in: declare
                                                                       *declare*
 
     declare [-aAfFgiIlnrtux] [-p] [name[=value] …]
@@ -2367,7 +2835,7 @@ When using -a or -A and the compound assignment syntax to create array variables
 
 The return status is zero unless an invalid option is encountered, an attempt is made to define a function using ‘-f foo=bar’, an attempt is made to assign a value to a readonly variable, an attempt is made to assign a value to an array variable without using the compound assignment syntax (see [Arrays]), one of the names is not a valid shell variable name, an attempt is made to turn off readonly status for a readonly variable, an attempt is made to turn off array status for an array variable, or an attempt is made to display a non-existent function with -f.
 
-echo
+### built-in: echo
                                                                          *echo*
 
     echo [-neE] [arg …]
@@ -2397,7 +2865,7 @@ echo interprets the following escape sequences:
 | \UHHHHHHHH| the Unicode (ISO/IEC 10646) character whose value is the hexadecimal 
 |           | value HHHHHHHH (one to eight hex digits)
 
-enable
+### built-in: enable
                                                                        *enable*
 
     enable [-a] [-dnps] [-f filename] [name …]
@@ -2412,7 +2880,7 @@ If there are no options, a list of the shell builtins is displayed. The -s optio
 
 The return status is zero unless a name is not a shell builtin or there is an error loading a new builtin from a shared object.
 
-help
+### built-in: help
                                                                          *help*
 
     help [-dms] [pattern]
@@ -2429,28 +2897,28 @@ Options, if supplied, have the following meanings:
 
 The return status is zero unless no command matches pattern.
 
-let
+### built-in: let
                                                                           *let*
 
     let expression [expression …]
 
 The let builtin allows arithmetic to be performed on shell variables. Each expression is evaluated according to the rules given below in Shell Arithmetic. If the last expression evaluates to 0, let returns 1; otherwise 0 is returned.
 
-local
+### built-in: local
                                                                         *local*
 
     local [option] name[=value] …
 
 For each argument, a local variable named name is created, and assigned value. The option can be any of the options accepted by declare. local can only be used within a function; it makes the variable name have a visible scope restricted to that function and its children. If name is ‘-’, the set of shell options is made local to the function in which local is invoked: shell options changed using the set builtin inside the function are restored to their original values when the function returns. The restore is effected as if a series of set commands were executed to restore the values that were in place before the function. The return status is zero unless local is used outside a function, an invalid name is supplied, or name is a readonly variable.
 
-logout
+### built-in: logout
                                                                        *logout*
 
     logout [n]
 
 Exit a login shell, returning a status of n to the shell’s parent.
 
-mapfile
+### built-in: mapfile
                                                                       *mapfile*
 
     mapfile [-d delim] [-n count] [-O origin] [-s count]
@@ -2477,7 +2945,7 @@ If not supplied with an explicit origin, mapfile will clear array before assigni
 
 mapfile returns successfully unless an invalid option or option argument is supplied, array is invalid or unassignable, or array is not an indexed array.
 
-printf
+### built-in: printf
                                                                        *printf*
 
     printf [-v var] format [arguments]
@@ -2501,11 +2969,11 @@ Arguments to non-string format specifiers are treated as C language constants, e
 
 The format is reused as necessary to consume all of the arguments. If the format requires more arguments than are supplied, the extra format specifications behave as if a zero value or null string, as appropriate, had been supplied. The return value is zero on success, non-zero on failure.
 
-read
+### built-in: read
                                                                          *read*
 
     read [-ers] [-a aname] [-d delim] [-i text] [-n nchars]
-        [-N nchars] [-p prompt] [-t timeout] [-u fd] [name …]
+         [-N nchars] [-p prompt] [-t timeout] [-u fd] [name …]
 
 One line is read from the standard input, or from the file descriptor fd supplied as an argument to the -u option, split into words as described above in Word Splitting, and the first word is assigned to the first name, the second word to the second name, and so on. If there are more words than names, the remaining words and their intervening delimiters are assigned to the last name. If there are fewer words read from the input stream than names, the remaining names are assigned empty values. The characters in the value of the IFS variable are used to split the line into words using the same rules the shell uses for expansion (described above in Word Splitting). The backslash character ‘\’ may be used to remove any special meaning for the next character read and for line continuation.
 
@@ -2546,7 +3014,7 @@ Options, if supplied, have the following meanings:
 
 If no names are supplied, the line read, without the ending delimiter but otherwise unmodified, is assigned to the variable REPLY. The exit status is zero, unless end-of-file is encountered, read times out (in which case the status is greater than 128), a variable assignment error (such as assigning to a readonly variable) occurs, or an invalid file descriptor is supplied as the argument to -u.
 
-readarray
+### built-in: readarray
                                                                     *readarray*
 
     readarray [-d delim] [-n count] [-O origin] [-s count]
@@ -2556,14 +3024,14 @@ Read lines from the standard input into the indexed array variable array, or fro
 
 A synonym for mapfile.
 
-source
+### built-in: source
                                                                        *source*
 
     source filename
 
 A synonym for . (see [bourne shell builtins]).
 
-type
+### built-in: type
                                                                          *type*
 
     type [-afptP] [name …]
@@ -2584,14 +3052,14 @@ If the -f option is used, type does not attempt to find shell functions, as with
 
 The return status is zero if all of the names are found, non-zero if any are not found.
 
-typeset
+### built-in: typeset
                                                                       *typeset*
 
     typeset [-afFgrxilnrtux] [-p] [name[=value] …]
 
 The typeset command is supplied for compatibility with the Korn shell. It is a synonym for the declare builtin command.
 
-ulimit
+### built-in: ulimit
                                                                        *ulimit*
 
     ulimit [-HS] -a
@@ -2630,7 +3098,7 @@ If limit is given, and the -a option is not used, limit is the new value of the 
 
 The return status is zero unless an invalid option or argument is supplied, or an error occurs while setting a new limit.
 
-unalias
+### built-in: unalias
                                                                       *unalias*
 
     unalias [-a] [name … ]
@@ -2641,7 +3109,7 @@ Remove each name from the list of aliases. If -a is supplied, all aliases are re
                                                               [Contents] [Index]
 
 
-## ⚡ 4.3 Modifying Shell Behavior
+## //⚡ 4.3 Modifying Shell Behavior
                                                      *Modifying Shell Behavior*
 
 • |The Set Builtin|       Change the values of shell attributes and positional parameters.
@@ -2651,7 +3119,7 @@ Remove each name from the list of aliases. If -a is supplied, all aliases are re
                                                               [Contents] [Index]
 
 
-## ⚡ 4.3.1 The Set Builtin
+## //⚡ 4.3.1 The Set Builtin
                                                               *The Set Builtin*
 
 This builtin is so complicated that it deserves its own section. set allows you to change the values of shell options and set the positional parameters, or to display the names and values of shell variables.
@@ -2799,7 +3267,7 @@ The return status is always zero unless an invalid option is supplied.
                                                               [Contents] [Index]
 
 
-## ⚡ 4.3.2 The Shopt Builtin
+## //⚡ 4.3.2 The Shopt Builtin
                                                             *The Shopt Builtin*
 
 This builtin allows you to change additional shell optional behavior.
@@ -2994,7 +3462,7 @@ xpg_echo
                                                               [Contents] [Index]
 
 
-## ⚡ 4.4 Special Builtins
+## //⚡ 4.4 Special Builtins
                                                              *Special Builtins*
 
 For historical reasons, the POSIX standard has classified several builtin commands as special. When Bash is executing in POSIX mode, the special builtins differ from other builtin commands in three respects:
@@ -3013,7 +3481,7 @@ shift trap unset
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 5 Shell Variables
+# /🚩 Chapter 5 Shell Variables
                                                               *Shell Variables*
 
 • Bourne Shell Variables        Variables which Bash uses in the same way as the Bourne Shell.
@@ -3024,132 +3492,142 @@ This chapter describes the shell variables that Bash uses. Bash automatically as
                                                               [Contents] [Index]
 
 
-## ⚡ 5.1 Bourne Shell Variables
+## //⚡ 5.1 Bourne Shell Variables
                                                        *Bourne Shell Variables*
 
 Bash uses certain shell variables in the same way as the Bourne shell. In some cases, Bash assigns a default value to the variable.
 
-CDPATH
-    A colon-separated list of directories used as a search path for the cd builtin command.
+### var: CDPATH
 
-HOME
-    The current user’s home directory; the default for the cd builtin command. The value of this 
-    variable is also used by tilde expansion (see [tilde expansion]).
+   A colon-separated list of directories used as a search path for the cd builtin command.
 
-IFS
-    A list of characters that separate fields; used when the shell splits words as part of expansion.
+### var: HOME
 
-MAIL
-    If this parameter is set to a filename or directory name and the MAILPATH variable is not set, 
-    Bash informs the user of the arrival of mail in the specified file or Maildir-format directory.
+   The current user’s home directory; the default for the cd builtin command. The value of this 
+   variable is also used by tilde expansion (see [tilde expansion]).
 
-MAILPATH
-    A colon-separated list of filenames which the shell periodically checks for new mail. Each list
-    entry can specify the message that is printed when new mail arrives in the mail file by separating
-    the filename from the message with a ‘?’. When used in the text of the message, $_ expands to the 
-    name of the current mail file.
+### var: IFS
 
-OPTARG
-    The value of the last option argument processed by the getopts builtin.
+   A list of characters that separate fields; used when the shell splits words as part of expansion.
 
-OPTIND
-    The index of the last option argument processed by the getopts builtin.
+### var: MAIL
 
-PATH
-    A colon-separated list of directories in which the shell looks for commands. A zero-length (null) 
-    directory name in the value of PATH indicates the current directory. A null directory name may 
-    appear as two adjacent colons, or as an initial or trailing colon.
+   If this parameter is set to a filename or directory name and the MAILPATH variable is not set, 
+   Bash informs the user of the arrival of mail in the specified file or Maildir-format directory.
 
-PS1
-    The primary prompt string. The default value is ‘\s-\v\$ ’. See Controlling the Prompt, for the complete list of escape sequences that are expanded before PS1 is displayed.
+### var: MAILPATH
 
-PS2
-    The secondary prompt string. The default value is ‘> ’. PS2 is expanded in the same way as PS1 before being displayed.
+   A colon-separated list of filenames which the shell periodically checks for new mail. Each list
+   entry can specify the message that is printed when new mail arrives in the mail file by separating
+   the filename from the message with a ‘?’. When used in the text of the message, $_ expands to the 
+   name of the current mail file.
+
+### var: OPTARG
+
+   The value of the last option argument processed by the getopts builtin.
+
+### var: OPTIND
+
+   The index of the last option argument processed by the getopts builtin.
+
+### var: PATH
+
+   A colon-separated list of directories in which the shell looks for commands. A zero-length (null) 
+   directory name in the value of PATH indicates the current directory. A null directory name may 
+   appear as two adjacent colons, or as an initial or trailing colon.
+
+### var: PS1
+
+   The primary prompt string. The default value is ‘\s-\v\$ ’. See Controlling the Prompt, for the complete list of escape sequences that are expanded before PS1 is displayed.
+
+### var: PS2
+
+   The secondary prompt string. The default value is ‘> ’. PS2 is expanded in the same way as PS1 before being displayed.
 
         ⬆ [Bourne Shell Variables]  ⬅ [Shell Variables]   
                                                               [Contents] [Index]
 
 
-## ⚡ 5.2 Bash Variables
+## //⚡ 5.2 Bash Variables
                                                                *Bash Variables*
 
 These variables are set or used by Bash, but other shells do not normally treat them specially.
 
 A few variables used by Bash are described in different chapters: variables for controlling the job control facilities (see [job control variables]).
 
-`_`
+### var: `_`
                                                                     *UNDERLINE*
 (`$_`, an underscore.) At shell startup, set to the pathname used to invoke the shell or shell script being executed as passed in the environment or argument list. Subsequently, expands to the last argument to the previous simple command executed in the foreground, after expansion. Also set to the full pathname used to invoke each command executed and placed in the environment exported to that command. When checking mail, this parameter holds the name of the mail file.
 
-`BASH`
+### var: `BASH`
                                                                          *BASH*
 The full pathname used to execute the current instance of Bash.
 
-`BASHOPTS`
+### var: `BASHOPTS`
                                                                      *BASHOPTS*
 A colon-separated list of enabled shell options. Each word in the list is a valid argument for the -s option to the shopt builtin command (see [the shopt builtin]). The options appearing in BASHOPTS are those reported as ‘on’ by ‘shopt’. If this variable is in the environment when Bash starts up, each shell option in the list will be enabled before reading any startup files. This variable is readonly.
 
-`BASHPID`
+### var: `BASHPID`
                                                                       *BASHPID*
 Expands to the process ID of the current Bash process. This differs from $$ under certain circumstances, such as subshells that do not require Bash to be re-initialized. Assignments to BASHPID have no effect. If BASHPID is unset, it loses its special properties, even if it is subsequently reset.
 
-`BASH_ALIASES`
+### var: `BASH_ALIASES`
                                                                  *BASH_ALIASES*
 An associative array variable whose members correspond to the internal list of aliases as maintained by the alias builtin. (see [bourne shell builtins]). Elements added to this array appear in the alias list; however, unsetting array elements currently does not cause aliases to be removed from the alias list. If BASH_ALIASES is unset, it loses its special properties, even if it is subsequently reset.
 
-`BASH_ARGC`
+### var: `BASH_ARGC`
                                                                     *BASH_ARGC*
 An array variable whose values are the number of parameters in each frame of the current bash execution call stack. The number of parameters to the current subroutine (shell function or script executed with . or source) is at the top of the stack. When a subroutine is executed, the number of parameters passed is pushed onto BASH_ARGC. The shell sets BASH_ARGC only when in extended debugging mode (see [the shopt builtin for a description of the extdebug option to the shopt builtin]). Setting extdebug after the shell has started to execute a script, or referencing this variable when extdebug is not set, may result in inconsistent values.
 
-`BASH_ARGV`
+### var: `BASH_ARGV`
                                                                     *BASH_ARGV*
 An array variable containing all of the parameters in the current bash execution call stack. The final parameter of the last subroutine call is at the top of the stack; the first parameter of the initial call is at the bottom. When a subroutine is executed, the parameters supplied are pushed onto BASH_ARGV. The shell sets BASH_ARGV only when in extended debugging mode (see [the shopt builtin for a description of the extdebug option to the shopt builtin]). Setting extdebug after the shell has started to execute a script, or referencing this variable when extdebug is not set, may result in inconsistent values.
 
-`BASH_ARGV0`
+### var: `BASH_ARGV0`
                                                                    *BASH_ARGV0*
 When referenced, this variable expands to the name of the shell or shell script (identical to $0; See Special Parameters, for the description of special parameter 0). Assignment to BASH_ARGV0 causes the value assigned to also be assigned to $0. If BASH_ARGV0 is unset, it loses its special properties, even if it is subsequently reset.
 
-`BASH_CMDS`
+### var: `BASH_CMDS`
                                                                     *BASH_CMDS*
 An associative array variable whose members correspond to the internal hash table of commands as maintained by the hash builtin (see [bourne shell builtins]). Elements added to this array appear in the hash table; however, unsetting array elements currently does not cause command names to be removed from the hash table. If BASH_CMDS is unset, it loses its special properties, even if it is subsequently reset.
 
-`BASH_COMMAND`
+### var: `BASH_COMMAND`
                                                                  *BASH_COMMAND*
 The command currently being executed or about to be executed, unless the shell is executing a command as the result of a trap, in which case it is the command executing at the time of the trap. If BASH_COMMAND is unset, it loses its special properties, even if it is subsequently reset.
 
-`BASH_COMPAT`
+### var: `BASH_COMPAT`
                                                                   *BASH_COMPAT*
 The value is used to set the shell’s compatibility level. See Shell Compatibility Mode, for a description of the various compatibility levels and their effects. The value may be a decimal number (e.g., 4.2) or an integer (e.g., 42) corresponding to the desired compatibility level. If BASH_COMPAT is unset or set to the empty string, the compatibility level is set to the default for the current version. If BASH_COMPAT is set to a value that is not one of the valid compatibility levels, the shell prints an error message and sets the compatibility level to the default for the current version. The valid values correspond to the compatibility levels described below (see [shell compatibility mode]). For example, 4.2 and 42 are valid values that correspond to the compat42 shopt option and set the compatibility level to 42. The current version is also a valid value.
 
-`BASH_ENV`
+### var: `BASH_ENV`
                                                                      *BASH_ENV*
 If this variable is set when Bash is invoked to execute a shell script, its value is expanded and used as the name of a startup file to read before executing the script. See Bash Startup Files.
 
-`BASH_EXECUTION_STRING`
+### var: `BASH_EXECUTION_STRING`
                                                         *BASH_EXECUTION_STRING*
 The command argument to the -c invocation option.
 
-`BASH_LINENO`
+### var: `BASH_LINENO`
                                                                   *BASH_LINENO*
 An array variable whose members are the line numbers in source files where each corresponding member of FUNCNAME was invoked. `${BASH_LINENO[$i]}` is the line number in the source file (`${BASH_SOURCE[$i+1]}`) where `${FUNCNAME[$i]}` was called (or `${BASH_LINENO[$i-1]}` if referenced within another shell function). Use LINENO to obtain the current line number.
 
-`BASH_LOADABLES_PATH`
+### var: `BASH_LOADABLES_PATH`
                                                           *BASH_LOADABLES_PATH*
 A colon-separated list of directories in which the shell looks for dynamically loadable builtins specified by the enable command.
 
-`BASH_REMATCH`
+### var: `BASH_REMATCH`
                                                                  *BASH_REMATCH*
 An array variable whose members are assigned by the `=~` binary operator to the [[ conditional command (see [conditional constructs]). The element with index 0 is the portion of the string matching the entire regular expression. The element with index n is the portion of the string matching the nth parenthesized subexpression.
 
-`BASH_SOURCE`
+### var: `BASH_SOURCE`
                                                                   *BASH_SOURCE*
 An array variable whose members are the source filenames where the corresponding shell function names in the FUNCNAME array variable are defined. The shell function ${FUNCNAME[$i]} is defined in the file ${BASH_SOURCE[$i]} and called from ${BASH_SOURCE[$i+1]}
 
-`BASH_SUBSHELL`
+### var: `BASH_SUBSHELL`
                                                                 *BASH_SUBSHELL*
 Incremented by one within each subshell or subshell environment when the shell begins executing in that environment. The initial value is 0. If BASH_SUBSHELL is unset, it loses its special properties, even if it is subsequently reset.
 
-`BASH_VERSINFO`
+### var: `BASH_VERSINFO`
                                                                 *BASH_VERSINFO*
 A readonly array variable (see [Arrays]) whose members hold version information for this instance of Bash. The values assigned to the array members are as follows:
 
@@ -3160,235 +3638,235 @@ A readonly array variable (see [Arrays]) whose members hold version information 
     | BASH_VERSINFO[4] | The release status (e.g., beta1).
     | BASH_VERSINFO[5] | The value of MACHTYPE.
 
-`BASH_VERSION`
+### var: `BASH_VERSION`
                                                                  *BASH_VERSION*
 The version number of the current instance of Bash.
 
-`BASH_XTRACEFD`
+### var: `BASH_XTRACEFD`
                                                                 *BASH_XTRACEFD*
 If set to an integer corresponding to a valid file descriptor, Bash will write the trace output generated when ‘set -x’ is enabled to that file descriptor. This allows tracing output to be separated from diagnostic and error messages. The file descriptor is closed when BASH_XTRACEFD is unset or assigned a new value. Unsetting BASH_XTRACEFD or assigning it the empty string causes the trace output to be sent to the standard error. Note that setting BASH_XTRACEFD to 2 (the standard error file descriptor) and then unsetting it will result in the standard error being closed.
 
-`CHILD_MAX`
+### var: `CHILD_MAX`
                                                                     *CHILD_MAX*
 Set the number of exited child status values for the shell to remember. Bash will not allow this value to be decreased below a POSIX-mandated minimum, and there is a maximum value (currently 8192) that this may not exceed. The minimum value is system-dependent.
 
-`COLUMNS`
+### var: `COLUMNS`
                                                                       *COLUMNS*
 Used by the select command to determine the terminal width when printing selection lists. Automatically set if the checkwinsize option is enabled (see [the shopt builtin]), or in an interactive shell upon receipt of a SIGWINCH.
 
-`COMP_CWORD`
+### var: `COMP_CWORD`
                                                                    *COMP_CWORD*
 An index into ${COMP_WORDS} of the word containing the current cursor position. This variable is available only in shell functions invoked by the programmable completion facilities (see [programmable completion]).
 
-`COMP_LINE`
+### var: `COMP_LINE`
                                                                     *COMP_LINE*
 The current command line. This variable is available only in shell functions and external commands invoked by the programmable completion facilities (see [programmable completion]).
 
-`COMP_POINT`
+### var: `COMP_POINT`
                                                                    *COMP_POINT*
 The index of the current cursor position relative to the beginning of the current command. If the current cursor position is at the end of the current command, the value of this variable is equal to ${#COMP_LINE}. This variable is available only in shell functions and external commands invoked by the programmable completion facilities (see [programmable completion]).
 
-`COMP_TYPE`
+### var: `COMP_TYPE`
                                                                     *COMP_TYPE*
 Set to an integer value corresponding to the type of completion attempted that caused a completion function to be called: TAB, for normal completion, ‘?’, for listing completions after successive tabs, ‘!’, for listing alternatives on partial word completion, ‘@’, to list completions if the word is not unmodified, or ‘%’, for menu completion. This variable is available only in shell functions and external commands invoked by the programmable completion facilities (see [programmable completion]).
 
-`COMP_KEY`
+### var: `COMP_KEY`
                                                                      *COMP_KEY*
 The key (or final key of a key sequence) used to invoke the current completion function.
 
-`COMP_WORDBREAKS`
+### var: `COMP_WORDBREAKS`
                                                               *COMP_WORDBREAKS*
 The set of characters that the Readline library treats as word separators when performing word completion. If COMP_WORDBREAKS is unset, it loses its special properties, even if it is subsequently reset.
 
-`COMP_WORDS`
+### var: `COMP_WORDS`
                                                                    *COMP_WORDS*
 An array variable consisting of the individual words in the current command line. The line is split into words as Readline would split it, using COMP_WORDBREAKS as described above. This variable is available only in shell functions invoked by the programmable completion facilities (see [programmable completion]).
 
-`COMPREPLY`
+### var: `COMPREPLY`
                                                                     *COMPREPLY*
 An array variable from which Bash reads the possible completions generated by a shell function invoked by the programmable completion facility (see [programmable completion]). Each array element contains one possible completion.
 
-`COPROC`
+### var: `COPROC`
                                                                        *COPROC*
 An array variable created to hold the file descriptors for output from and input to an unnamed coprocess (see [coprocesses]).
 
-`DIRSTACK`
+### var: `DIRSTACK`
                                                                      *DIRSTACK*
 An array variable containing the current contents of the directory stack. Directories appear in the stack in the order they are displayed by the dirs builtin. Assigning to members of this array variable may be used to modify directories already in the stack, but the pushd and popd builtins must be used to add and remove directories. Assignment to this variable will not change the current directory. If DIRSTACK is unset, it loses its special properties, even if it is subsequently reset.
 
-`EMACS`
+### var: `EMACS`
                                                                         *EMACS*
 If Bash finds this variable in the environment when the shell starts with value ‘t’, it assumes that the shell is running in an Emacs shell buffer and disables line editing.
 
-`ENV`
+### var: `ENV`
                                                                           *ENV*
 Expanded and executed similarlty to BASH_ENV (see [bash startup files]) when an interactive shell is invoked in POSIX Mode (see [bash POSIx mode]).
 
-`EPOCHREALTIME`
+### var: `EPOCHREALTIME`
                                                                 *EPOCHREALTIME*
 Each time this parameter is referenced, it expands to the number of seconds since the Unix Epoch as a floating point value with micro-second granularity (see [the documentation for the c library function time for the definition of epoch]). Assignments to EPOCHREALTIME are ignored. If EPOCHREALTIME is unset, it loses its special properties, even if it is subsequently reset.
 
-`EPOCHSECONDS`
+### var: `EPOCHSECONDS`
                                                                  *EPOCHSECONDS*
 Each time this parameter is referenced, it expands to the number of seconds since the Unix Epoch (see [the documentation for the c library function time for the definition of epoch]). Assignments to EPOCHSECONDS are ignored. If EPOCHSECONDS is unset, it loses its special properties, even if it is subsequently reset.
 
-`EUID`
+### var: `EUID`
                                                                          *EUID*
 The numeric effective user id of the current user. This variable is readonly.
 
-`EXECIGNORE`
+### var: `EXECIGNORE`
                                                                    *EXECIGNORE*
 A colon-separated list of shell patterns (see [pattern matching]) defining the list of filenames to be ignored by command search using PATH. Files whose full pathnames match one of these patterns are not considered executable files for the purposes of completion and command execution via PATH lookup. This does not affect the behavior of the [, test, and [[ commands. Full pathnames in the command hash table are not subject to EXECIGNORE. Use this variable to ignore shared library files that have the executable bit set, but are not executable files. The pattern matching honors the setting of the extglob shell option.
 
-`FCEDIT`
+### var: `FCEDIT`
                                                                        *FCEDIT*
 The editor used as a default by the -e option to the fc builtin command.
 
-`FIGNORE`
+### var: `FIGNORE`
                                                                       *FIGNORE*
 A colon-separated list of suffixes to ignore when performing filename completion. A filename whose suffix matches one of the entries in FIGNORE is excluded from the list of matched filenames. A sample value is `‘.o:~’`
 
-`FUNCNAME`
+### var: `FUNCNAME`
                                                                      *FUNCNAME*
 An array variable containing the names of all shell functions currently in the execution call stack. The element with index 0 is the name of any currently-executing shell function. The bottom-most element (the one with the highest index) is "main". This variable exists only when a shell function is executing. Assignments to FUNCNAME have no effect. If FUNCNAME is unset, it loses its special properties, even if it is subsequently reset.
 
 This variable can be used with BASH_LINENO and BASH_SOURCE. Each element of FUNCNAME has corresponding elements in BASH_LINENO and BASH_SOURCE to describe the call stack. For instance, ${FUNCNAME[$i]} was called from the file ${BASH_SOURCE[$i+1]} at line number ${BASH_LINENO[$i]}. The caller builtin displays the current call stack using this information.
 
-`FUNCNEST`
+### var: `FUNCNEST`
                                                                      *FUNCNEST*
 If set to a numeric value greater than 0, defines a maximum function nesting level. Function invocations that exceed this nesting level will cause the current command to abort.
 
-`GLOBIGNORE`
+### var: `GLOBIGNORE`
                                                                    *GLOBIGNORE*
 A colon-separated list of patterns defining the set of file names to be ignored by filename expansion. If a file name matched by a filename expansion pattern also matches one of the patterns in GLOBIGNORE, it is removed from the list of matches. The pattern matching honors the setting of the extglob shell option.
 
-`GROUPS`
+### var: `GROUPS`
                                                                        *GROUPS*
 An array variable containing the list of groups of which the current user is a member. Assignments to GROUPS have no effect. If GROUPS is unset, it loses its special properties, even if it is subsequently reset.
 
-`histchars`
+### var: `histchars`
                                                                     *histchars*
 Up to three characters which control history expansion, quick substitution, and tokenization (see [history interaction]). The first character is the history expansion character, that is, the character which signifies the start of a history expansion, normally ‘!’. The second character is the character which signifies ‘quick substitution’ when seen as the first character on a line, normally ‘^’. The optional third character is the character which indicates that the remainder of the line is a comment when found as the first character of a word, usually ‘#’. The history comment character causes history substitution to be skipped for the remaining words on the line. It does not necessarily cause the shell parser to treat the rest of the line as a comment.
 
-`HISTCMD`
+### var: `HISTCMD`
                                                                       *HISTCMD*
 The history number, or index in the history list, of the current command. Assignments to HISTCMD are ignored. If HISTCMD is unset, it loses its special properties, even if it is subsequently reset.
 
-`HISTCONTROL`
+### var: `HISTCONTROL`
                                                                   *HISTCONTROL*
 A colon-separated list of values controlling how commands are saved on the history list. If the list of values includes ‘ignorespace’, lines which begin with a space character are not saved in the history list. A value of ‘ignoredups’ causes lines which match the previous history entry to not be saved. A value of ‘ignoreboth’ is shorthand for ‘ignorespace’ and ‘ignoredups’. A value of ‘erasedups’ causes all previous lines matching the current line to be removed from the history list before that line is saved. Any value not in the above list is ignored. If HISTCONTROL is unset, or does not include a valid value, all lines read by the shell parser are saved on the history list, subject to the value of HISTIGNORE. The second and subsequent lines of a multi-line compound command are not tested, and are added to the history regardless of the value of HISTCONTROL.
 
-`HISTFILE`
+### var: `HISTFILE`
                                                                      *HISTFILE*
 The name of the file to which the command history is saved. The default value is `~/.bash_history`.
 
-`HISTFILESIZE`
+### var: `HISTFILESIZE`
                                                                  *HISTFILESIZE*
 The maximum number of lines contained in the history file. When this variable is assigned a value, the history file is truncated, if necessary, to contain no more than that number of lines by removing the oldest entries. The history file is also truncated to this size after writing it when a shell exits. If the value is 0, the history file is truncated to zero size. Non-numeric values and numeric values less than zero inhibit truncation. The shell sets the default value to the value of HISTSIZE after reading any startup files.
 
-`HISTIGNORE`
+### var: `HISTIGNORE`
                                                                    *HISTIGNORE*
 A colon-separated list of patterns used to decide which command lines should be saved on the history list. Each pattern is anchored at the beginning of the line and must match the complete line (no implicit `‘*’` is appended). Each pattern is tested against the line after the checks specified by HISTCONTROL are applied. In addition to the normal shell pattern matching characters, ‘&’ matches the previous history line. ‘&’ may be escaped using a backslash; the backslash is removed before attempting a match. The second and subsequent lines of a multi-line compound command are not tested, and are added to the history regardless of the value of HISTIGNORE. The pattern matching honors the setting of the extglob shell option.
 
 HISTIGNORE subsumes the function of HISTCONTROL. A pattern of ‘&’ is identical to ignoredups, and a pattern of `‘[ ]*’` is identical to ignorespace. Combining these two patterns, separating them with a colon, provides the functionality of ignoreboth.
 
-`HISTSIZE`
+### var: `HISTSIZE`
                                                                      *HISTSIZE*
 The maximum number of commands to remember on the history list. If the value is 0, commands are not saved in the history list. Numeric values less than zero result in every command being saved on the history list (there is no limit). The shell sets the default value to 500 after reading any startup files.
 
-`HISTTIMEFORMAT`
+### var: `HISTTIMEFORMAT`
                                                                *HISTTIMEFORMAT*
 If this variable is set and not null, its value is used as a format string for strftime to print the time stamp associated with each history entry displayed by the history builtin. If this variable is set, time stamps are written to the history file so they may be preserved across shell sessions. This uses the history comment character to distinguish timestamps from other history lines.
 
-`HOSTFILE`
+### var: `HOSTFILE`
                                                                      *HOSTFILE*
 Contains the name of a file in the same format as /etc/hosts that should be read when the shell needs to complete a hostname. The list of possible hostname completions may be changed while the shell is running; the next time hostname completion is attempted after the value is changed, Bash adds the contents of the new file to the existing list. If HOSTFILE is set, but has no value, or does not name a readable file, Bash attempts to read /etc/hosts to obtain the list of possible hostname completions. When HOSTFILE is unset, the hostname list is cleared.
 
-`HOSTNAME`
+### var: `HOSTNAME`
                                                                      *HOSTNAME*
 The name of the current host.
 
-`HOSTTYPE`
+### var: `HOSTTYPE`
                                                                      *HOSTTYPE*
 A string describing the machine Bash is running on.
 
-`IGNOREEOF`
+### var: `IGNOREEOF`
                                                                     *IGNOREEOF*
 Controls the action of the shell on receipt of an EOF character as the sole input. If set, the value denotes the number of consecutive EOF characters that can be read as the first character on an input line before the shell will exit. If the variable exists but does not have a numeric value, or has no value, then the default is 10. If the variable does not exist, then EOF signifies the end of input to the shell. This is only in effect for interactive shells.
 
-`INPUTRC`
+### var: `INPUTRC`
                                                                       *INPUTRC*
 The name of the Readline initialization file, overriding the default of `~/.inputrc`.
 
-`INSIDE_EMACS`
+### var: `INSIDE_EMACS`
                                                                  *INSIDE_EMACS*
 If Bash finds this variable in the environment when the shell starts, it assumes that the shell is running in an Emacs shell buffer and may disable line editing depending on the value of TERM.
 
-`LANG`
+### var: `LANG`
                                                                          *LANG*
 Used to determine the locale category for any category not specifically selected with a variable starting with LC_.
 
-`LC_ALL`
+### var: `LC_ALL`
                                                                        *LC_ALL*
 This variable overrides the value of LANG and any other LC_ variable specifying a locale category.
 
-`LC_COLLATE`
+### var: `LC_COLLATE`
                                                                    *LC_COLLATE*
 This variable determines the collation order used when sorting the results of filename expansion, and determines the behavior of range expressions, equivalence classes, and collating sequences within filename expansion and pattern matching (see [filename expansion]).
 
-`LC_CTYPE`
+### var: `LC_CTYPE`
                                                                      *LC_CTYPE*
 This variable determines the interpretation of characters and the behavior of character classes within filename expansion and pattern matching (see [filename expansion]).
 
-`LC_MESSAGES`
+### var: `LC_MESSAGES`
                                                                   *LC_MESSAGES*
 This variable determines the locale used to translate double-quoted strings preceded by a ‘$’ (see [locale translation]).
 
-`LC_NUMERIC`
+### var: `LC_NUMERIC`
                                                                    *LC_NUMERIC*
 This variable determines the locale category used for number formatting.
 
-`LC_TIME`
+### var: `LC_TIME`
                                                                       *LC_TIME*
 This variable determines the locale category used for data and time formatting.
 
-`LINENO`
+### var: `LINENO`
                                                                        *LINENO*
 The line number in the script or shell function currently executing. If LINENO is unset, it loses its special properties, even if it is subsequently reset.
 
-`LINES`
+### var: `LINES`
                                                                         *LINES*
 Used by the select command to determine the column length for printing selection lists. Automatically set if the checkwinsize option is enabled (see [the shopt builtin]), or in an interactive shell upon receipt of a SIGWINCH.
 
-`MACHTYPE`
+### var: `MACHTYPE`
                                                                      *MACHTYPE*
 A string that fully describes the system type on which Bash is executing, in the standard GNU cpu-company-system format.
 
-`MAILCHECK`
+### var: `MAILCHECK`
                                                                     *MAILCHECK*
 How often (in seconds) that the shell should check for mail in the files specified in the MAILPATH or MAIL variables. The default is 60 seconds. When it is time to check for mail, the shell does so before displaying the primary prompt. If this variable is unset, or set to a value that is not a number greater than or equal to zero, the shell disables mail checking.
 
-`MAPFILE`
+### var: `MAPFILE`
                                                                       *MAPFILE*
 An array variable created to hold the text read by the mapfile builtin when no variable name is supplied.
 
-`OLDPWD`
+### var: `OLDPWD`
                                                                        *OLDPWD*
 The previous working directory as set by the cd builtin.
 
-`OPTERR`
+### var: `OPTERR`
                                                                        *OPTERR*
 If set to the value 1, Bash displays error messages generated by the getopts builtin command.
 
-`OSTYPE`
+### var: `OSTYPE`
                                                                        *OSTYPE*
 A string describing the operating system Bash is running on.
 
-`PIPESTATUS`
+### var: `PIPESTATUS`
                                                                    *PIPESTATUS*
 An array variable (see [Arrays]) containing a list of exit status values from the processes in the most-recently-executed foreground pipeline (which may contain only a single command).
 
-`POSIXLY_CORRECT`
+### var: `POSIXLY_CORRECT`
                                                               *POSIXLY_CORRECT*
 If this variable is in the environment when Bash starts, the shell enters POSIX mode (see [bash POSIx mode]) before reading the startup files, as if the --posix invocation option had been supplied. If it is set while the shell is running, Bash enables POSIX mode, as if the command
 
@@ -3396,75 +3874,75 @@ If this variable is in the environment when Bash starts, the shell enters POSIX 
 
 had been executed. When the shell enters POSIX mode, it sets this variable if it was not already set.
 
-`PPID`
+### var: `PPID`
                                                                          *PPID*
 The process ID of the shell’s parent process. This variable is readonly.
 
-`PROMPT_COMMAND`
+### var: `PROMPT_COMMAND`
                                                                *PROMPT_COMMAND*
 If this variable is set, and is an array, the value of each set element is interpreted as a command to execute before printing the primary prompt ($PS1). If this is set but not an array variable, its value is used as a command to execute instead.
 
-`PROMPT_DIRTRIM`
+### var: `PROMPT_DIRTRIM`
                                                                *PROMPT_DIRTRIM*
 If set to a number greater than zero, the value is used as the number of trailing directory components to retain when expanding the \w and \W prompt string escapes (see [controlling the prompt]). Characters removed are replaced with an ellipsis.
 
-`PS0`
+### var: `PS0`
                                                                           *PS0*
 The value of this parameter is expanded like PS1 and displayed by interactive shells after reading a command and before the command is executed.
 
-`PS3`
+### var: `PS3`
                                                                           *PS3*
 The value of this variable is used as the prompt for the select command. If this variable is not set, the select command prompts with ‘#? ’
 
-`PS4`
+### var: `PS4`
                                                                           *PS4*
 The value of this parameter is expanded like PS1 and the expanded value is the prompt printed before the command line is echoed when the -x option is set (see [the set builtin]). The first character of the expanded value is replicated multiple times, as necessary, to indicate multiple levels of indirection. The default is ‘+ ’.
 
-`PWD`
+### var: `PWD`
                                                                           *PWD*
 The current working directory as set by the cd builtin.
 
-`RANDOM`
+### var: `RANDOM`
                                                                        *RANDOM*
 Each time this parameter is referenced, it expands to a random integer between 0 and 32767. Assigning a value to this variable seeds the random number generator. If RANDOM is unset, it loses its special properties, even if it is subsequently reset.
 
-`READLINE_LINE`
+### var: `READLINE_LINE`
                                                                 *READLINE_LINE*
 The contents of the Readline line buffer, for use with ‘bind -x’ (see [bash builtins]).
 
-`READLINE_MARK`
+### var: `READLINE_MARK`
                                                                 *READLINE_MARK*
 The position of the mark (saved insertion point) in the Readline line buffer, for use with ‘bind -x’ (see [bash builtins]). The characters between the insertion point and the mark are often called the region.
 
-`READLINE_POINT`
+### var: `READLINE_POINT`
                                                                *READLINE_POINT*
 The position of the insertion point in the Readline line buffer, for use with ‘bind -x’ (see [bash builtins]).
 
-`REPLY`
+### var: `REPLY`
                                                                         *REPLY*
 The default variable for the read builtin.
 
-`SECONDS`
+### var: `SECONDS`
                                                                       *SECONDS*
 This variable expands to the number of seconds since the shell was started. Assignment to this variable resets the count to the value assigned, and the expanded value becomes the value assigned plus the number of seconds since the assignment. The number of seconds at shell invocation and the current time is always determined by querying the system clock. If SECONDS is unset, it loses its special properties, even if it is subsequently reset.
 
-`SHELL`
+### var: `SHELL`
                                                                         *SHELL*
 This environment variable expands to the full pathname to the shell. If it is not set when the shell starts, Bash assigns to it the full pathname of the current user’s login shell.
 
-`SHELLOPTS`
+### var: `SHELLOPTS`
                                                                     *SHELLOPTS*
 A colon-separated list of enabled shell options. Each word in the list is a valid argument for the -o option to the set builtin command (see [the set builtin]). The options appearing in SHELLOPTS are those reported as ‘on’ by ‘set -o’. If this variable is in the environment when Bash starts up, each shell option in the list will be enabled before reading any startup files. This variable is readonly.
 
-`SHLVL`
+### var: `SHLVL`
                                                                         *SHLVL*
 Incremented by one each time a new instance of Bash is started. This is intended to be a count of how deeply your Bash shells are nested.
 
-`SRANDOM`
+### var: `SRANDOM`
                                                                       *SRANDOM*
 This variable expands to a 32-bit pseudo-random number each time it is referenced. The random number generator is not linear on systems that support /dev/urandom or arc4random, so each returned number has no relationship to the numbers preceding it. The random number generator cannot be seeded, so assignments to this variable have no effect. If SRANDOM is unset, it loses its special properties, even if it is subsequently reset.
 
-`TIMEFORMAT`
+### var: `TIMEFORMAT`
                                                                    *TIMEFORMAT*
 The value of this parameter is used as a format string specifying how the timing information for pipelines prefixed with the time reserved word should be displayed. The ‘%’ character introduces an escape sequence that is expanded to a time value or other information. The escape sequences and their meanings are as follows; the braces denote optional portions.
 
@@ -3484,17 +3962,17 @@ If this variable is not set, Bash acts as if it had the value
 
 If the value is null, no timing information is displayed. A trailing newline is added when the format string is displayed.
 
-`TMOUT`
+### var: `TMOUT`
                                                                         *TMOUT*
 If set to a value greater than zero, TMOUT is treated as the default timeout for the read builtin (see [bash builtins]). The select command (see [conditional constructs]) terminates if input does not arrive after TMOUT seconds when input is coming from a terminal.
 
 In an interactive shell, the value is interpreted as the number of seconds to wait for a line of input after issuing the primary prompt. Bash terminates after waiting for that number of seconds if a complete line of input does not arrive.
 
-`TMPDIR`
+### var: `TMPDIR`
                                                                        *TMPDIR*
 If set, Bash uses its value as the name of a directory in which Bash creates temporary files for the shell’s use.
 
-`UID`
+### var: `UID`
                                                                           *UID*
 The numeric real user id of the current user. This variable is readonly.
 
@@ -3502,7 +3980,7 @@ The numeric real user id of the current user. This variable is readonly.
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 6 Bash Features
+# /🚩 Chapter 6 Bash Features
                                                                 *Bash Features*
 
 This chapter describes features unique to Bash.
@@ -3524,7 +4002,7 @@ This chapter describes features unique to Bash.
                                                               [Contents] [Index]
 
 
-## ⚡ 6.1 Invoking Bash
+## //⚡ 6.1 Invoking Bash
                                                                 *Invoking Bash*
 
 ```sh
@@ -3614,19 +4092,19 @@ If arguments remain after option processing, and neither the -c nor the -s optio
                                                               [Contents] [Index]
 
 
-## ⚡ 6.2 Bash Startup Files
+## //⚡ 6.2 Bash Startup Files
                                                            *Bash Startup Files*
 
 This section describes how Bash executes its startup files. If any of the files exist but cannot be read, Bash reports an error. Tildes are expanded in filenames as described above under Tilde Expansion (see [tilde expansion]).
 
 Interactive shells are described in Interactive Shells.
 
-### ===🗝 Invoked as an interactive login shell, or with --login
+### //🗝 Invoked as an interactive login shell, or with --login
 When Bash is invoked as an interactive login shell, or as a non-interactive shell with the --login option, it first reads and executes commands from the file /etc/profile, if that file exists. After reading that file, it looks for `~/.bash_profile`, `~/.bash_login`, and `~/.profile`, in that order, and reads and executes commands from the first one that exists and is readable. The --noprofile option may be used when the shell is started to inhibit this behavior.
 
 When an interactive login shell exits, or a non-interactive login shell executes the exit builtin command, Bash reads and executes commands from the file `~/.bash_logout`, if it exists.
 
-### ===🗝 Invoked as an interactive non-login shell
+### //🗝 Invoked as an interactive non-login shell
 When an interactive shell that is not a login shell is started, Bash reads and executes commands from `~/.bashrc`, if that file exists. This may be inhibited by using the --norc option. The --rcfile file option will force Bash to read and execute commands from file instead of `~/.bashrc`.
 
 So, typically, your `~/.bash_profile` contains the line
@@ -3635,7 +4113,7 @@ So, typically, your `~/.bash_profile` contains the line
 
 after (or before) any login-specific initializations.
 
-### ===🗝 Invoked non-interactively
+### //🗝 Invoked non-interactively
 When Bash is started non-interactively, to run a shell script, for example, it looks for the variable BASH_ENV in the environment, expands its value if it appears there, and uses the expanded value as the name of a file to read and execute. Bash behaves as if the following command were executed:
 
     if [ -n "$BASH_ENV" ]; then . "$BASH_ENV"; fi
@@ -3644,27 +4122,27 @@ but the value of the PATH variable is not used to search for the filename.
 
 As noted above, if a non-interactive shell is invoked with the --login option, Bash attempts to read and execute commands from the login shell startup files.
 
-### ===🗝 Invoked with name sh
+### //🗝 Invoked with name sh
 If Bash is invoked with the name sh, it tries to mimic the startup behavior of historical versions of sh as closely as possible, while conforming to the POSIX standard as well.
 
 When invoked as an interactive login shell, or as a non-interactive shell with the --login option, it first attempts to read and execute commands from /etc/profile and `~/.profile`, in that order. The --noprofile option may be used to inhibit this behavior. When invoked as an interactive shell with the name sh, Bash looks for the variable ENV, expands its value if it is defined, and uses the expanded value as the name of a file to read and execute. Since a shell invoked as sh does not attempt to read and execute commands from any other startup files, the --rcfile option has no effect. A non-interactive shell invoked with the name sh does not attempt to read any other startup files.
 
 When invoked as sh, Bash enters POSIX mode after the startup files are read.
 
-### ===🗝 Invoked in POSIX mode
+### //🗝 Invoked in POSIX mode
 When Bash is started in POSIX mode, as with the --posix command line option, it follows the POSIX standard for startup files. In this mode, interactive shells expand the ENV variable and commands are read and executed from the file whose name is the expanded value. No other startup files are read.
 
-### ===🗝 Invoked by remote shell daemon
+### //🗝 Invoked by remote shell daemon
 Bash attempts to determine when it is being run with its standard input connected to a network connection, as when executed by the remote shell daemon, usually rshd, or the secure shell daemon sshd. If Bash determines it is being run in this fashion, it reads and executes commands from `~/.bashrc`, if that file exists and is readable. It will not do this if invoked as sh. The --norc option may be used to inhibit this behavior, and the --rcfile option may be used to force another file to be read, but neither rshd nor sshd generally invoke the shell with those options or allow them to be specified.
 
-### ===🗝 Invoked with unequal effective and real UID/GIDs
+### //🗝 Invoked with unequal effective and real UID/GIDs
 If Bash is started with the effective user (group) id not equal to the real user (group) id, and the -p option is not supplied, no startup files are read, shell functions are not inherited from the environment, the SHELLOPTS, BASHOPTS, CDPATH, and GLOBIGNORE variables, if they appear in the environment, are ignored, and the effective user id is set to the real user id. If the -p option is supplied at invocation, the startup behavior is the same, but the effective user id is not reset.
 
         ⬇ [Bash Conditional Expressions] ⬆ [Bash Startup Files] ⬅ [Bash Features]
                                                               [Contents] [Index]
 
 
-## ⚡ 6.3 Interactive Shells
+## //⚡ 6.3 Interactive Shells
                                                            *Interactive Shells*
 
 • |What is an Interactive Shell?|     What determines whether a shell is Interactive.
@@ -3674,7 +4152,7 @@ If Bash is started with the effective user (group) id not equal to the real user
         ⬇ [Is this Shell Interactive?] ⬅ [Interactive Shells]
                                                               [Contents] [Index]
 
-### ===🗝 6.3.1 What is an Interactive Shell?
+### //🗝 6.3.1 What is an Interactive Shell?
 An interactive shell is one started without non-option arguments, unless -s is specified, without specifying the -c option, and whose input and error output are both connected to terminals (as determined by isatty(3)), or one started with the -i option.
 
 An interactive shell generally reads from and writes to a user’s terminal.
@@ -3684,7 +4162,7 @@ The -s invocation option may be used to set the positional parameters when an in
         ⬇ [Interactive Shell Behavior] ⬆ [What is an Interactive Shell?] ⬅ [Interactive
                                                               [Contents] [Index]
 
-### ===🗝 6.3.2 Is this Shell Interactive?
+### //🗝 6.3.2 Is this Shell Interactive?
 To determine within a startup script whether or not Bash is running interactively, test the value of the ‘-’ special parameter. It contains i when the shell is interactive. For example:
 
 ```sh
@@ -3708,38 +4186,59 @@ fi
                                                               [Contents] [Index]
 
 
-## ⚡ 6.3.3 Interactive Shell Behavior
+## //⚡ 6.3.3 Interactive Shell Behavior
                                                    *Interactive Shell Behavior*
 
 When the shell is running interactively, it changes its behavior in several ways.
 
 1. Startup files are read and executed as described in |Bash Startup Files|.
+
 2. Job Control (see [job control]) is enabled by default. When job control is in effect, Bash ignores the keyboard-generated job control signals SIGTTIN, SIGTTOU, and SIGTSTP.
+
 3. Bash expands and displays PS1 before reading the first line of a command, and expands and displays PS2 before reading the second and subsequent lines of a multi-line command. Bash expands and displays PS0 after it reads a command but before executing it. See Controlling the Prompt, for a complete list of prompt string escape sequences.
+
 4. Bash executes the values of the set elements of the PROMPT_COMMAND array variable as commands before printing the primary prompt, $PS1 (see [bash variables]).
+
 5. Readline (see [command line editing]) is used to read commands from the user’s terminal.
+
 6. Bash inspects the value of the ignoreeof option to set -o instead of exiting immediately when it receives an EOF on its standard input when reading a command (see [the set builtin]).
+
 7. Command history (see [bash history facilities]) and history expansion (see [history interaction]) are enabled by default. Bash will save the command history to the file named by $HISTFILE when a shell with history enabled exits.
+
 8. Alias expansion (see [aliases]) is performed by default.
+
 9. In the absence of any traps, Bash ignores SIGTERM (see [signals]).
+
 10. In the absence of any traps, SIGINT is caught and handled (see [signals]). SIGINT will interrupt some shell builtins.
+
 11. An interactive login shell sends a SIGHUP to all jobs on exit if the huponexit shell option has been enabled (see [signals]).
+
 12. The -n invocation option is ignored, and ‘set -n’ has no effect (see [the set builtin]).
+
 13. Bash will check for mail periodically, depending on the values of the MAIL, MAILPATH, and MAILCHECK shell variables (see [bash variables]).
+
 14. Expansion errors due to references to unbound shell variables after ‘set -u’ has been enabled will not cause the shell to exit (see [the set builtin]).
+
 15. The shell will not exit on expansion errors caused by var being unset or null in ${var:?word} expansions (see [shell parameter expansion]).
+
 16. Redirection errors encountered by shell builtins will not cause the shell to exit.
+
 17. When running in POSIX mode, a special builtin returning an error status will not cause the shell to exit (see [bash POSIx mode]).
+
 18. A failed exec will not cause the shell to exit (see [bourne shell builtins]).
+
 19. Parser syntax errors will not cause the shell to exit.
+
 20. Simple spelling correction for directory arguments to the cd builtin is enabled by default (see [the description of the cdspell option to the shopt builtin in the shopt builtin]).
+
 21. The shell will check the value of the TMOUT variable and exit if a command is not read within the specified number of seconds after printing $PS1 (see [bash variables]).
+
 
         ⬇ [Shell Arithmetic] ⬆ [Interactive Shells] ⬅ [Bash Features]
                                                               [Contents] [Index]
 
 
-## ⚡ 6.4 Bash Conditional Expressions
+## //⚡ 6.4 Bash Conditional Expressions
                                  *Bash Conditional Expressions* *cmd_test* *if*
 
 Conditional expressions are used by the [[ compound command and the test and [ builtin commands. The test and [ commands determine their behavior based on the number of arguments; see the descriptions of those commands for any other command-specific actions.
@@ -3762,7 +4261,7 @@ Unless otherwise specified, primaries that operate on files follow symbolic link
 10. `-p file`  🤟  True if file exists and is a named pipe (FIFO).
 11. `-r file`  🤟  True if file exists and is readable.
 12. `-s file`  🤟  True if file exists and has a size greater than zero.
-13. `-t fd `  🤟  True if file descriptor fd is open and refers to a terminal.
+13. `-t fd `   🤟  True if file descriptor fd is open and refers to a terminal.
 14. `-u file`  🤟  True if file exists and its set-user-id bit is set.
 15. `-w file`  🤟  True if file exists and is writable.
 16. `-x file`  🤟  True if file exists and is executable.
@@ -3775,7 +4274,8 @@ Unless otherwise specified, primaries that operate on files follow symbolic link
     🤟 True if file1 and file2 refer to the same device and inode numbers.
 23. `file1 -nt file2` 
     🤟 True if file1 is newer (according to modification date) than file2, or if file1 exists and file2 does not.
-24. `file1 -ot file2` 🤟 True if file1 is older than file2, or if file2 exists and file1 does not.
+24. `file1 -ot file2` 
+    🤟 True if file1 is older than file2, or if file2 exists and file1 does not.
 25. `-o optname`  
     🤟  True if the shell option optname is enabled. The list of options appears in the escription of the -o option to the set builtin (see [the set builtin]).
 26. `-v varname`  🤟  True if the shell variable varname is set (has been assigned a value).
@@ -3794,7 +4294,7 @@ Unless otherwise specified, primaries that operate on files follow symbolic link
                                                               [Contents] [Index]
 
 
-## ⚡ 6.5 Shell Arithmetic
+## //⚡ 6.5 Shell Arithmetic
                                                              *Shell Arithmetic*
 
 The shell allows arithmetic expressions to be evaluated, as one of the shell expansions or by using the (( compound command, the let builtin, or the -i option to the declare builtin.
@@ -3832,7 +4332,7 @@ Operators are evaluated in order of precedence. Sub-expressions in parentheses a
                                                               [Contents] [Index]
 
 
-## ⚡ 6.6 Aliases
+## //⚡ 6.6 Aliases
                                                                       *Aliases*
 
 Aliases allow a string to be substituted for a word when it is used as the first word of a simple command. The shell maintains a list of aliases that may be set and unset with the alias and unalias builtin commands.
@@ -3857,7 +4357,7 @@ For almost every purpose, shell functions are preferred over aliases.
                                                               [Contents] [Index]
 
 
-## ⚡ 6.7 Arrays
+## //⚡ 6.7 Arrays
                                                                        *Arrays*
 
 Bash provides one-dimensional indexed and associative array variables. Any variable may be used as an indexed array; the declare builtin will explicitly declare an array. There is no maximum limit on the size of an array, nor any requirement that members be indexed or assigned contiguously. Indexed arrays are referenced using integers (including arithmetic expressions (see [shell arithmetic])) and are zero-based; associative arrays use arbitrary strings. Unless otherwise noted, indexed array indices must be non-negative integers.
@@ -3922,7 +4422,7 @@ The declare, local, and readonly builtins each accept a -a option to specify an 
                                                               [Contents] [Index]
 
 
-## ⚡ 6.8 The Directory Stack
+## //⚡ 6.8 The Directory Stack
                                                           *The Directory Stack*
 
 • Directory Stack Builtins      Bash builtin commands to manipulate the directory stack.
@@ -3935,7 +4435,7 @@ The contents of the directory stack are also visible as the value of the DIRSTAC
                                                               [Contents] [Index]
 
 
-## ⚡ 6.8.1 Directory Stack Builtins
+## //⚡ 6.8.1 Directory Stack Builtins
                                                      *Directory Stack Builtins*
 
 
@@ -4001,7 +4501,7 @@ dir
                                                               [Contents] [Index]
 
 
-## ⚡ 6.9 Controlling the Prompt
+## //⚡ 6.9 Controlling the Prompt
                                                        *Controlling the Prompt*
 
 Bash examines the value of the array variable PROMPT_COMMAND just before printing each primary prompt. If any elements in PROMPT_COMMAND are set and non-null, Bash executes each value, in numeric order, just as if it had been typed on the command line.
@@ -4050,7 +4550,7 @@ After the string is decoded, it is expanded via parameter expansion, command sub
                                                               [Contents] [Index]
 
 
-## ⚡ 6.10 The Restricted Shell
+## //⚡ 6.10 The Restricted Shell
                                                          *The Restricted Shell*
 
 If Bash is started with the name rbash, or the --restricted or -r option is supplied at invocation, the shell becomes restricted. A restricted shell is used to set up an environment more controlled than the standard shell. A restricted shell behaves identically to bash with the exception that the following are disallowed or not performed:
@@ -4082,7 +4582,7 @@ Modern systems provide more secure ways to implement a restricted environment, s
                                                               [Contents] [Index]
 
 
-## ⚡ 6.11 Bash POSIX Mode
+## //⚡ 6.11 Bash POSIX Mode
                                                               *Bash POSIX Mode*
 
 Starting Bash with the --posix command-line option or executing ‘set -o posix’ while Bash is running will cause Bash to conform more closely to the POSIX standard by changing the behavior to match that specified by POSIX in areas where the Bash default differs.
@@ -4091,65 +4591,124 @@ When invoked as sh, Bash enters POSIX mode after reading the startup files.
 
 The following list is what’s changed when ‘POSIX mode’ is in effect:
 
-1. Bash ensures that the POSIXLY_CORRECT variable is set.
-2. When a command in the hash table no longer exists, Bash will re-search $PATH to find the new location. This is also available with ‘shopt -s checkhash’.
-3. Bash will not insert a command without the execute bit set into the command hash table, even if it returns it as a (last-ditch) result from a $PATH search.
-4. The message printed by the job control code and builtins when a job exits with a non-zero status is ‘Done(status)’.
-5. The message printed by the job control code and builtins when a job is stopped is ‘Stopped(signame)’, where signame is, for example, SIGTSTP.
-6. Alias expansion is always enabled, even in non-interactive shells.
-7. Reserved words appearing in a context where reserved words are recognized do not undergo alias expansion.
-8. The POSIX PS1 and PS2 expansions of ‘!’ to the history number and ‘!!’ to ‘!’ are enabled, and parameter expansion is performed on the values of PS1 and PS2 regardless of the setting of the promptvars option.
-9. The POSIX startup files are executed ($ENV) rather than the normal Bash files.
-10. Tilde expansion is only performed on assignments preceding a command name, rather than on all assignment statements on the line.
-11. The default history file is ~/.sh_history (this is the default value of $HISTFILE).
-12. Redirection operators do not perform filename expansion on the word in the redirection unless the shell is interactive.
-13. Redirection operators do not perform word splitting on the word in the redirection.
-14. Function names must be valid shell names. That is, they may not contain characters other than letters, digits, and underscores, and may not start with a digit. Declaring a function with an invalid name causes a fatal syntax error in non-interactive shells.
-15. Function names may not be the same as one of the POSIX special builtins.
-16. POSIX special builtins are found before shell functions during command lookup.
-17. When printing shell function definitions (e.g., by type), Bash does not print the function keyword.
-18. Literal tildes that appear as the first character in elements of the PATH variable are not expanded as described above under Tilde Expansion.
-19. The time reserved word may be used by itself as a command. When used in this way, it displays timing statistics for the shell and its completed children. The TIMEFORMAT variable controls the format of the timing information.
-20. When parsing and expanding a ${…} expansion that appears within double quotes, single quotes are no longer special and cannot be used to quote a closing brace or other special character, unless the operator is one of those defined to perform pattern removal. In this case, they do not have to appear as matched pairs.
-21. The parser does not recognize time as a reserved word if the next token begins with a ‘-’.
-22. The ‘!’ character does not introduce history expansion within a double-quoted string, even if the histexpand option is enabled.
-23. If a POSIX special builtin returns an error status, a non-interactive shell exits. The fatal errors are those listed in the POSIX standard, and include things like passing incorrect options, redirection errors, variable assignment errors for assignments preceding the command name, and so on.
-24. A non-interactive shell exits with an error status if a variable assignment error occurs when no command name follows the assignment statements. A variable assignment error occurs, for example, when trying to assign a value to a readonly variable.
-25. A non-interactive shell exits with an error status if a variable assignment error occurs in an assignment statement preceding a special builtin, but not with any other simple command.
-26. A non-interactive shell exits with an error status if the iteration variable in a for statement or the selection variable in a select statement is a readonly variable.
-27. Non-interactive shells exit if filename in . filename is not found.
-28. Non-interactive shells exit if a syntax error in an arithmetic expansion results in an invalid expression.
-29. Non-interactive shells exit if a parameter expansion error occurs.
-30. Non-interactive shells exit if there is a syntax error in a script read with the . or source builtins, or in a string processed by the eval builtin.
-31. While variable indirection is available, it may not be applied to the ‘#’ and ‘?’ special parameters.
-32. When expanding the `‘*’` special parameter in a pattern context where the expansion is double-quoted does not treat the $* as if it were double-quoted.
-33. Assignment statements preceding POSIX special builtins persist in the shell environment after the builtin completes.
-34. The command builtin does not prevent builtins that take assignment statements as arguments from expanding them as assignment statements; when not in POSIX mode, assignment builtins lose their assignment statement expansion properties when preceded by command.
-35. The bg builtin uses the required format to describe each job placed in the background, which does not include an indication of whether the job is the current or previous job.
-36. The output of ‘kill -l’ prints all the signal names on a single line, separated by spaces, without the ‘SIG’ prefix.
-37. The kill builtin does not accept signal names with a ‘SIG’ prefix.
-38. The export and readonly builtin commands display their output in the format required by POSIX.
-39. The trap builtin displays signal names without the leading SIG.
-40. The trap builtin doesn’t check the first argument for a possible signal specification and revert the signal handling to the original disposition if it is, unless that argument consists solely of digits and is a valid signal number. If users want to reset the handler for a given signal to the original disposition, they should use ‘-’ as the first argument.
-41. trap -p displays signals whose dispositions are set to SIG_DFL and those that were ignored when the shell started.
-42. The . and source builtins do not search the current directory for the filename argument if it is not found by searching PATH.
-43. Enabling POSIX mode has the effect of setting the inherit_errexit option, so subshells spawned to execute command substitutions inherit the value of the -e option from the parent shell. When the inherit_errexit option is not enabled, Bash clears the -e option in such subshells.
-44. Enabling POSIX mode has the effect of setting the shift_verbose option, so numeric arguments to shift that exceed the number of positional parameters will result in an error message.
-45. When the alias builtin displays alias definitions, it does not display them with a leading ‘alias ’ unless the -p option is supplied.
-46. When the set builtin is invoked without options, it does not display shell function names and definitions.
-47. When the set builtin is invoked without options, it displays variable values without quotes, unless they contain shell metacharacters, even if the result contains nonprinting characters.
-48. When the cd builtin is invoked in logical mode, and the pathname constructed from $PWD and the directory name supplied as an argument does not refer to an existing directory, cd will fail instead of falling back to physical mode.
-49. When the cd builtin cannot change a directory because the length of the pathname constructed from $PWD and the directory name supplied as an argument exceeds PATH_MAX when all symbolic links are expanded, cd will fail instead of attempting to use only the supplied directory name.
-50. The pwd builtin verifies that the value it prints is the same as the current directory, even if it is not asked to check the file system with the -P option.
-51. When listing the history, the fc builtin does not include an indication of whether or not a history entry has been modified.
-52. The default editor used by fc is ed.
-53. The type and command builtins will not report a non-executable file as having been found, though the shell will attempt to execute such a file if it is the only so-named file found in $PATH.
-54. The vi editing mode will invoke the vi editor directly when the ‘v’ command is run, instead of checking $VISUAL and $EDITOR.
-55. When the xpg_echo option is enabled, Bash does not attempt to interpret any arguments to echo as options. Each argument is displayed, after escape characters are converted.
-56. The ulimit builtin uses a block size of 512 bytes for the -c and -f options.
-57. The arrival of SIGCHLD when a trap is set on SIGCHLD does not interrupt the wait builtin and cause it to return immediately. The trap command is run once for each child that exits.
-58. The read builtin may be interrupted by a signal for which a trap has been set. If Bash receives a trapped signal while executing read, the trap handler executes and read returns an exit status greater than 128.
-59. Bash removes an exited background process’s status from the list of such statuses after the wait builtin is used to obtain it.
+01.  Bash ensures that the POSIXLY_CORRECT variable is set.
+
+02.  When a command in the hash table no longer exists, Bash will re-search $PATH to find the new location. This is also available with ‘shopt -s checkhash’.
+
+03.  Bash will not insert a command without the execute bit set into the command hash table, even if it returns it as a (last-ditch) result from a $PATH search.
+
+04.  The message printed by the job control code and builtins when a job exits with a non-zero status is ‘Done(status)’.
+
+05.  The message printed by the job control code and builtins when a job is stopped is ‘Stopped(signame)’, where signame is, for example, SIGTSTP.
+
+06.  Alias expansion is always enabled, even in non-interactive shells.
+
+07.  Reserved words appearing in a context where reserved words are recognized do not undergo alias expansion.
+
+08.  The POSIX PS1 and PS2 expansions of ‘!’ to the history number and ‘!!’ to ‘!’ are enabled, and parameter expansion is performed on the values of PS1 and PS2 regardless of the setting of the promptvars option.
+
+09.  The POSIX startup files are executed ($ENV) rather than the normal Bash files.
+
+10.  Tilde expansion is only performed on assignments preceding a command name, rather than on all assignment statements on the line.
+
+11.  The default history file is ~/.sh_history (this is the default value of $HISTFILE).
+
+12.  Redirection operators do not perform filename expansion on the word in the redirection unless the shell is interactive.
+
+13.  Redirection operators do not perform word splitting on the word in the redirection.
+
+14.  Function names must be valid shell names. That is, they may not contain characters other than letters, digits, and underscores, and may not start with a digit. Declaring a function with an invalid name causes a fatal syntax error in non-interactive shells.
+
+15.  Function names may not be the same as one of the POSIX special builtins.
+
+16.  POSIX special builtins are found before shell functions during command lookup.
+
+17.  When printing shell function definitions (e.g., by type), Bash does not print the function keyword.
+
+18.  Literal tildes that appear as the first character in elements of the PATH variable are not expanded as described above under Tilde Expansion.
+
+19.  The time reserved word may be used by itself as a command. When used in this way, it displays timing statistics for the shell and its completed children. The TIMEFORMAT variable controls the format of the timing information.
+
+20.  When parsing and expanding a ${…} expansion that appears within double quotes, single quotes are no longer special and cannot be used to quote a closing brace or other special character, unless the operator is one of those defined to perform pattern removal. In this case, they do not have to appear as matched pairs.
+
+21.  The parser does not recognize time as a reserved word if the next token begins with a ‘-’.
+
+22.  The ‘!’ character does not introduce history expansion within a double-quoted string, even if the histexpand option is enabled.
+
+23.  If a POSIX special builtin returns an error status, a non-interactive shell exits. The fatal errors are those listed in the POSIX standard, and include things like passing incorrect options, redirection errors, variable assignment errors for assignments preceding the command name, and so on.
+
+24.  A non-interactive shell exits with an error status if a variable assignment error occurs when no command name follows the assignment statements. A variable assignment error occurs, for example, when trying to assign a value to a readonly variable.
+
+25.  A non-interactive shell exits with an error status if a variable assignment error occurs in an assignment statement preceding a special builtin, but not with any other simple command.
+
+26.  A non-interactive shell exits with an error status if the iteration variable in a for statement or the selection variable in a select statement is a readonly variable.
+
+27.  Non-interactive shells exit if filename in . filename is not found.
+
+28.  Non-interactive shells exit if a syntax error in an arithmetic expansion results in an invalid expression.
+
+29.  Non-interactive shells exit if a parameter expansion error occurs.
+
+30.  Non-interactive shells exit if there is a syntax error in a script read with the . or source builtins, or in a string processed by the eval builtin.
+
+31.  While variable indirection is available, it may not be applied to the ‘#’ and ‘?’ special parameters.
+
+32.  When expanding the `‘*’` special parameter in a pattern context where the expansion is double-quoted does not treat the $* as if it were double-quoted.
+
+33.  Assignment statements preceding POSIX special builtins persist in the shell environment after the builtin completes.
+
+34.  The command builtin does not prevent builtins that take assignment statements as arguments from expanding them as assignment statements; when not in POSIX mode, assignment builtins lose their assignment statement expansion properties when preceded by command.
+
+35.  The bg builtin uses the required format to describe each job placed in the background, which does not include an indication of whether the job is the current or previous job.
+
+36.  The output of ‘kill -l’ prints all the signal names on a single line, separated by spaces, without the ‘SIG’ prefix.
+
+37.  The kill builtin does not accept signal names with a ‘SIG’ prefix.
+
+38.  The export and readonly builtin commands display their output in the format required by POSIX.
+
+39.  The trap builtin displays signal names without the leading SIG.
+
+40.  The trap builtin doesn’t check the first argument for a possible signal specification and revert the signal handling to the original disposition if it is, unless that argument consists solely of digits and is a valid signal number. If users want to reset the handler for a given signal to the original disposition, they should use ‘-’ as the first argument.
+
+41.  trap -p displays signals whose dispositions are set to SIG_DFL and those that were ignored when the shell started.
+
+42.  The . and source builtins do not search the current directory for the filename argument if it is not found by searching PATH.
+
+43.  Enabling POSIX mode has the effect of setting the inherit_errexit option, so subshells spawned to execute command substitutions inherit the value of the -e option from the parent shell. When the inherit_errexit option is not enabled, Bash clears the -e option in such subshells.
+
+44.  Enabling POSIX mode has the effect of setting the shift_verbose option, so numeric arguments to shift that exceed the number of positional parameters will result in an error message.
+
+45.  When the alias builtin displays alias definitions, it does not display them with a leading ‘alias ’ unless the -p option is supplied.
+
+46.  When the set builtin is invoked without options, it does not display shell function names and definitions.
+
+47.  When the set builtin is invoked without options, it displays variable values without quotes, unless they contain shell metacharacters, even if the result contains nonprinting characters.
+
+48.  When the cd builtin is invoked in logical mode, and the pathname constructed from $PWD and the directory name supplied as an argument does not refer to an existing directory, cd will fail instead of falling back to physical mode.
+
+49.  When the cd builtin cannot change a directory because the length of the pathname constructed from $PWD and the directory name supplied as an argument exceeds PATH_MAX when all symbolic links are expanded, cd will fail instead of attempting to use only the supplied directory name.
+
+50.  The pwd builtin verifies that the value it prints is the same as the current directory, even if it is not asked to check the file system with the -P option.
+
+51.  When listing the history, the fc builtin does not include an indication of whether or not a history entry has been modified.
+
+52.  The default editor used by fc is ed.
+
+53.  The type and command builtins will not report a non-executable file as having been found, though the shell will attempt to execute such a file if it is the only so-named file found in $PATH.
+
+54.  The vi editing mode will invoke the vi editor directly when the ‘v’ command is run, instead of checking $VISUAL and $EDITOR.
+
+55.  When the xpg_echo option is enabled, Bash does not attempt to interpret any arguments to echo as options. Each argument is displayed, after escape characters are converted.
+
+56.  The ulimit builtin uses a block size of 512 bytes for the -c and -f options.
+
+57.  The arrival of SIGCHLD when a trap is set on SIGCHLD does not interrupt the wait builtin and cause it to return immediately. The trap command is run once for each child that exits.
+
+58.  The read builtin may be interrupted by a signal for which a trap has been set. If Bash receives a trapped signal while executing read, the trap handler executes and read returns an exit status greater than 128.
+
+59.  Bash removes an exited background process’s status from the list of such statuses after the wait builtin is used to obtain it.
+
 
 There is other POSIX behavior that Bash does not implement by default even when in POSIX mode. Specifically:
 
@@ -4162,7 +4721,7 @@ Bash can be configured to be POSIX-conformant by default, by specifying the --en
                                                               [Contents] [Index]
 
 
-## ⚡ 6.12 Shell Compatibility Mode
+## //⚡ 6.12 Shell Compatibility Mode
                                                      *Shell Compatibility Mode*
 
 Bash-4.0 introduced the concept of a ‘shell compatibility level’, specified as a set of options to the shopt builtin (compat31, compat32, compat40, compat41, and so on). There is only one current compatibility level – each option is mutually exclusive. The compatibility level is intended to allow users to select behavior from previous versions that is incompatible with newer versions while they migrate scripts to use current features and behavior. It’s intended to be a temporary solution.
@@ -4215,7 +4774,7 @@ The following table describes the behavior changes controlled by each compatibil
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 7 Job Control
+# /🚩 Chapter 7 Job Control
                                                                   *Job Control*
 
 This chapter discusses what job control is, how it works, and how Bash allows you to access its facilities.
@@ -4228,7 +4787,7 @@ This chapter discusses what job control is, how it works, and how Bash allows yo
                                                               [Contents] [Index]
 
 
-## ⚡ 7.1 Job Control Basics
+## //⚡ 7.1 Job Control Basics
                                                            *Job Control Basics*
 
 Job control refers to the ability to selectively stop (suspend) the execution of processes and continue (resume) their execution at a later point. A user typically employs this facility via an interactive interface supplied jointly by the operating system kernel’s terminal driver and Bash.
@@ -4261,7 +4820,7 @@ When the shell is waiting for a job or process using the wait builtin, and job c
                                                               [Contents] [Index]
 
 
-## ⚡ 7.2 Job Control Builtins
+## //⚡ 7.2 Job Control Builtins
                                                          *Job Control Builtins*
 
 bg
@@ -4334,7 +4893,7 @@ When job control is not active, the kill and wait builtins do not accept jobspec
                                                               [Contents] [Index]
 
 
-## ⚡ 7.3 Job Control Variables
+## //⚡ 7.3 Job Control Variables
                                                         *Job Control Variables*
 
 auto_resume
@@ -4345,7 +4904,7 @@ This variable controls how the shell interacts with the user and job control. If
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 8 Command Line Editing
+# /🚩 Chapter 8 Command Line Editing
                                                          *Command Line Editing*
 
 This chapter describes the basic features of the GNU command line editing interface. Command line editing is provided by the Readline library, which is used by several different programs, including Bash. Command line editing is enabled by default when using an interactive shell, unless the --noediting option is supplied at shell invocation. Line editing is also used when using the -e option to the read builtin command (see [bash builtins]). By default, the line editing commands are similar to those of Emacs. A vi-style line editing interface is also available. Line editing can be enabled at any time using the -o emacs or -o vi options to the set builtin command (see [the set builtin]), or disabled using the +o emacs or +o vi options to set.
@@ -4363,7 +4922,7 @@ This chapter describes the basic features of the GNU command line editing interf
                                                               [Contents] [Index]
 
 
-## ⚡ 8.1 Introduction to Line Editing
+## //⚡ 8.1 Introduction to Line Editing
                                                  *Introduction to Line Editing*
 
 The following paragraphs describe the notation used to represent keystrokes.
@@ -4382,7 +4941,7 @@ In addition, several keys have their own names. Specifically, DEL, ESC, LFD, SPC
                                                               [Contents] [Index]
 
 
-## ⚡ 8.2 Readline Interaction
+## //⚡ 8.2 Readline Interaction
                                                          *Readline Interaction*
 
 Often during an interactive session you type in a long line of text, only to notice that the first word on the line is misspelled. The Readline library gives you a set of commands for manipulating the text as you type it in, allowing you to just fix your typo, and not forcing you to retype the majority of the line. Using these editing commands, you move the cursor to the place that needs correction, and delete or insert the text of the corrections. Then, when you are satisfied with the line, you simply press RET. You do not have to be at the end of the line to press RET; the entire line is accepted regardless of the location of the cursor within the line.
@@ -4397,7 +4956,7 @@ Often during an interactive session you type in a long line of text, only to not
                                                               [Contents] [Index]
 
 
-## ⚡ 8.2.1 Readline Bare Essentials
+## //⚡ 8.2.1 Readline Bare Essentials
                                                      *Readline Bare Essentials*
 
 In order to enter characters into the line, simply type them. The typed character appears where the cursor was, and then the cursor moves one space to the right. If you mistype a character, you can use your erase character to back up and delete the mistyped character.
@@ -4421,7 +4980,7 @@ When you add text in the middle of a line, you will notice that characters to th
                                                               [Contents] [Index]
 
 
-## ⚡ 8.2.2 Readline Movement Commands
+## //⚡ 8.2.2 Readline Movement Commands
                                                    *Readline Movement Commands*
 
 The above table describes the most basic keystrokes that you need in order to do editing of the input line. For your convenience, many other commands have been added in addition to C-b, C-f, C-d, and DEL. Here are some commands for moving more rapidly about the line.
@@ -4440,7 +4999,7 @@ Notice how C-f moves forward a character, while M-f moves forward a word. It is 
                                                               [Contents] [Index]
 
 
-## ⚡ 8.2.3 Readline Killing Commands
+## //⚡ 8.2.3 Readline Killing Commands
                                                     *Readline Killing Commands*
 
 Killing text means to delete the text from the line, but to save it away for later use, usually by yanking (re-inserting) it back into the line. (‘Cut’ and ‘paste’ are more recent jargon for ‘kill’ and ‘yank’.)
@@ -4473,7 +5032,7 @@ Here is how to yank the text back into the line. Yanking means to copy the most-
                                                               [Contents] [Index]
 
 
-## ⚡ 8.2.4 Readline Arguments
+## //⚡ 8.2.4 Readline Arguments
                                                            *Readline Arguments*
 
 You can pass numeric arguments to Readline commands. Sometimes the argument acts as a repeat count, other times it is the sign of the argument that is significant. If you pass a negative argument to a command which normally acts in a forward direction, that command will act in a backward direction. For example, to kill text back to the start of the line, you might type ‘M-- C-k’.
@@ -4484,7 +5043,7 @@ The general way to pass numeric arguments to a command is to type meta digits be
                                                               [Contents] [Index]
 
 
-## ⚡ 8.2.5 Searching for Commands in the History
+## //⚡ 8.2.5 Searching for Commands in the History
                                         *Searching for Commands in the History*
 
 Readline provides commands for searching through the command history (see [bash history facilities]) for lines containing a specified string. There are two search modes: incremental and non-incremental.
@@ -4501,7 +5060,7 @@ Non-incremental searches read the entire search string before starting to search
                                                               [Contents] [Index]
 
 
-## ⚡ 8.3 Readline Init File
+## //⚡ 8.3 Readline Init File
                                                            *Readline Init File*
 
 Although the Readline library comes with a set of Emacs-like keybindings installed by default, it is possible to use a different set of keybindings. Any user can customize programs that use Readline by putting commands in an inputrc file, conventionally in his home directory. The name of this file is taken from the value of the shell variable INPUTRC. If that variable is unset, the default is `~/.inputrc`. If that file does not exist or cannot be read, the ultimate default is /etc/inputrc. The bind builtin command can also be used to set Readline keybindings and variables. See Bash Builtins.
@@ -4520,7 +5079,7 @@ In addition, the C-x C-r command re-reads this init file, thus incorporating any
                                                               [Contents] [Index]
 
 
-## ⚡ 8.3.1 Readline Init File Syntax
+## //⚡ 8.3.1 Readline Init File Syntax
                                                     *Readline Init File Syntax*
 
 There are only a few basic constructs allowed in the Readline init file. Blank lines are ignored. Lines beginning with a ‘#’ are comments. Lines beginning with a ‘$’ indicate conditional constructs (see [conditional init constructs]). Other lines denote variable settings and key bindings.
@@ -4740,7 +5299,7 @@ When entering the text of a macro, single or double quotes must be used to indic
                                                               [Contents] [Index]
 
 
-## ⚡ 8.3.2 Conditional Init Constructs
+## //⚡ 8.3.2 Conditional Init Constructs
                                                   *Conditional Init Constructs*
 
 Readline implements a facility similar in spirit to the conditional compilation features of the C preprocessor which allows key bindings and variable settings to be performed as the result of tests. There are four parser directives used.
@@ -4801,7 +5360,7 @@ This directive takes a single filename as an argument and reads commands and bin
                                                               [Contents] [Index]
 
 
-## ⚡ 8.3.3 Sample Init File
+## //⚡ 8.3.3 Sample Init File
                                                              *Sample Init File*
 
 Here is an example of an inputrc file. This illustrates key binding, variable assignment, and conditional syntax.
@@ -4912,7 +5471,7 @@ $endif
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4 Bindable Readline Commands
+## //⚡ 8.4 Bindable Readline Commands
                                                    *Bindable Readline Commands*
 
 • |Commands For Moving|       Moving about the line.
@@ -4932,7 +5491,7 @@ In the following descriptions, point refers to the current cursor position, and 
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.1 Commands For Moving
+## //⚡ 8.4.1 Commands For Moving
                                                           *Commands For Moving*
 
 | Keys  | function              | Notes |
@@ -4970,7 +5529,7 @@ In the following descriptions, point refers to the current cursor position, and 
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.2 Commands For Manipulating The History
+## //⚡ 8.4.2 Commands For Manipulating The History
                                         *Commands For Manipulating The History*
 
 accept-line (Newline or Return)
@@ -5025,7 +5584,7 @@ Accept the current line for return to the calling application as if a newline ha
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.3 Commands For Changing Text
+## //⚡ 8.4.3 Commands For Changing Text
                                                    *Commands For Changing Text*
 
 end-of-file (usually C-d)
@@ -5077,7 +5636,7 @@ By default, this command is unbound.
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.4 Killing And Yanking
+## //⚡ 8.4.4 Killing And Yanking
                                                           *Killing And Yanking*
 
 kill-line (C-k)
@@ -5138,7 +5697,7 @@ Rotate the kill-ring, and yank the new top. You can only do this if the prior co
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.5 Specifying Numeric Arguments
+## //⚡ 8.4.5 Specifying Numeric Arguments
                                                  *Specifying Numeric Arguments*
 
 digit-argument (M-0, M-1, … M--)
@@ -5151,7 +5710,7 @@ This is another way to specify an argument. If this command is followed by one o
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.6 Letting Readline Type For You
+## //⚡ 8.4.6 Letting Readline Type For You
                                                 *Letting Readline Type For You*
 
 complete (TAB)
@@ -5215,7 +5774,7 @@ Perform filename completion and insert the list of possible completions enclosed
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.7 Keyboard Macros
+## //⚡ 8.4.7 Keyboard Macros
                                                               *Keyboard Macros*
 
 start-kbd-macro (C-x ()
@@ -5234,7 +5793,7 @@ Print the last keboard macro defined in a format suitable for the inputrc file.
                                                               [Contents] [Index]
 
 
-## ⚡ 8.4.8 Some Miscellaneous Commands
+## //⚡ 8.4.8 Some Miscellaneous Commands
                                                   *Some Miscellaneous Commands*
 
 re-read-init-file (C-x C-r)
@@ -5322,7 +5881,7 @@ Invoke an editor on the current command line, and execute the result as shell co
                                                               [Contents] [Index]
 
 
-## ⚡ 8.5 Readline vi Mode
+## //⚡ 8.5 Readline vi Mode
                                                              *Readline vi Mode*
 
 While the Readline library does not have a full set of vi editing functions, it does contain enough to allow simple editing of the line. The Readline vi mode behaves as specified in the POSIX standard.
@@ -5335,7 +5894,7 @@ When you enter a line in vi mode, you are already placed in ‘insertion’ mode
                                                               [Contents] [Index]
 
 
-## ⚡ 8.6 Programmable Completion
+## //⚡ 8.6 Programmable Completion
                                                       *Programmable Completion*
 
 When word completion is attempted for an argument to a command for which a completion specification (a compspec) has been defined using the complete builtin (see [programmable completion builtins]), the programmable completion facilities are invoked.
@@ -5382,7 +5941,7 @@ For instance, assuming that there is a library of compspecs, each kept in a file
                                                               [Contents] [Index]
 
 
-## ⚡ 8.7 Programmable Completion Builtins
+## //⚡ 8.7 Programmable Completion Builtins
                                              *Programmable Completion Builtins*
 
 Three builtin commands are available to manipulate the programmable completion facilities: one to specify how the arguments to a particular command are to be completed, and two to modify the completion as it is happening.
@@ -5498,7 +6057,7 @@ The return value is true unless an invalid option is supplied, an attempt is mad
                                                               [Contents] [Index]
 
 
-## ⚡ 8.8 A Programmable Completion Example
+## //⚡ 8.8 A Programmable Completion Example
                                             *A Programmable Completion Example*
 
 The most common way to obtain additional completion functionality beyond the default actions complete and compgen provide is to use a shell function and bind it to a particular command using complete -F.
@@ -5578,7 +6137,7 @@ An older version of the bash_completion package is distributed with bash in the 
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 9 Using History Interactively
+# /🚩 Chapter 9 Using History Interactively
                                                   *Using History Interactively*
 
 This chapter describes how to use the GNU History Library interactively, from a user’s standpoint. It should be considered a user’s guide. For information on using the GNU History Library in other programs, see the GNU Readline Library Manual.
@@ -5591,7 +6150,7 @@ This chapter describes how to use the GNU History Library interactively, from a 
                                                               [Contents] [Index]
 
 
-## ⚡ 9.1 Bash History Facilities
+## //⚡ 9.1 Bash History Facilities
                                                       *Bash History Facilities*
 
 When the -o history option to the set builtin is enabled (see [the set builtin]), the shell provides access to the command history, the list of commands previously typed. The value of the HISTSIZE shell variable is used as the number of commands to save in a history list. The text of the last $HISTSIZE commands (default 500) is saved. The shell stores each command in the history list prior to parameter and variable expansion but after history expansion is performed, subject to the values of the shell variables HISTIGNORE and HISTCONTROL.
@@ -5608,7 +6167,7 @@ The shell allows control over which commands are saved on the history list. The 
                                                               [Contents] [Index]
 
 
-## ⚡ 9.2 Bash History Builtins
+## //⚡ 9.2 Bash History Builtins
                                                         *Bash History Builtins*
 
 Bash provides two builtin commands which manipulate the history list and history file.
@@ -5676,7 +6235,7 @@ When any of the -w, -r, -a, or -n options is used, if filename is given, then it
                                                               [Contents] [Index]
 
 
-## ⚡ 9.3 History Expansion
+## //⚡ 9.3 History Expansion
                                                             *History Expansion*
 
 The History library provides a history expansion feature that is similar to the history expansion provided by csh. This section describes the syntax used to manipulate the history information.
@@ -5703,7 +6262,7 @@ The shell allows control of the various characters used by the history expansion
                                                               [Contents] [Index]
 
 
-## ⚡ 9.3.1 Event Designators
+## //⚡ 9.3.1 Event Designators
                                                             *Event Designators*
 
 An event designator is a reference to a command line entry in the history list. Unless the reference is absolute, events are relative to the current position in the history list.
@@ -5736,7 +6295,7 @@ An event designator is a reference to a command line entry in the history list. 
                                                               [Contents] [Index]
 
 
-## ⚡ 9.3.2 Word Designators
+## //⚡ 9.3.2 Word Designators
                                                              *Word Designators*
 
 Word designators are used to select desired words from the event. A ‘:’ separates the event specification from the word designator. It may be omitted if the word designator begins with a ‘^’, ‘$’, `‘*’`, ‘-’, or ‘%’. Words are numbered from the beginning of the line, with the first word being denoted by 0 (zero). Words are inserted into the current line separated by single spaces.
@@ -5787,7 +6346,7 @@ If a word designator is supplied without an event specification, the previous co
                                                               [Contents] [Index]
 
 
-## ⚡ 9.3.3 Modifiers
+## //⚡ 9.3.3 Modifiers
                                                                     *Modifiers*
 
 After the optional word designator, you can add a sequence of one or more of the following modifiers, each preceded by a ‘:’. These modify, or edit, the word or words selected from the history event.
@@ -5830,7 +6389,7 @@ Apply the following ‘s’ or ‘&’ modifier once to each word in the event.
                                                               [Contents] [Index]
 
 
-# 🚩 Chapter 10 Installing Bash
+# /🚩 Chapter 10 Installing Bash
                                                               *Installing Bash*
 
 This chapter provides basic instructions for installing Bash on the various supported platforms. The distribution supports the GNU operating systems, nearly every version of Unix, and several non-Unix systems such as BeOS and Interix. Other independent ports exist for MS-DOS, OS/2, and Windows platforms.
@@ -5848,7 +6407,7 @@ This chapter provides basic instructions for installing Bash on the various supp
                                                               [Contents] [Index]
 
 
-## ⚡ 10.1 Basic Installation
+## //⚡ 10.1 Basic Installation
                                                            *Basic Installation*
 
 These are installation instructions for Bash.
@@ -5886,7 +6445,7 @@ You can remove the program binaries and object files from the source code direct
                                                               [Contents] [Index]
 
 
-## ⚡ 10.2 Compilers and Options
+## //⚡ 10.2 Compilers and Options
                                                         *Compilers and Options*
 
 Some systems require unusual options for compilation or linking that the configure script does not know about. You can give configure initial values for variables by setting them in the environment. Using a Bourne-compatible shell, you can do that on the command line like this:
@@ -5901,7 +6460,7 @@ The configuration process uses GCC to build Bash if it is available.
                                                               [Contents] [Index]
 
 
-## ⚡ 10.3 Compiling For Multiple Architectures
+## //⚡ 10.3 Compiling For Multiple Architectures
                                          *Compiling For Multiple Architectures*
 
 You can compile Bash for more than one kind of computer at the same time, by placing the object files for each architecture in their own directory. To do this, you must use a version of make that supports the VPATH variable, such as GNU make. cd to the directory where you want the object files and executables to go and run the configure script from the source directory (see [basic installation]). You may need to supply the --srcdir=PATH argument to tell configure where the source files are. configure automatically checks for the source code in the directory that configure is in and in ‘..’.
@@ -5917,7 +6476,7 @@ The mkclone script requires Bash, so you must have already built Bash for at lea
                                                               [Contents] [Index]
 
 
-## ⚡ 10.4 Installation Names
+## //⚡ 10.4 Installation Names
                                                            *Installation Names*
 
 By default, ‘make install’ will install into /usr/local/bin, /usr/local/man, etc. You can specify an installation prefix other than /usr/local by giving configure the option --prefix=PATH, or by specifying a value for the DESTDIR ‘make’ variable when running ‘make install’.
@@ -5928,7 +6487,7 @@ You can specify separate installation prefixes for architecture-specific files a
                                                               [Contents] [Index]
 
 
-## ⚡ 10.5 Specifying the System Type
+## //⚡ 10.5 Specifying the System Type
                                                    *Specifying the System Type*
 
 There may be some features configure can not figure out automatically, but need to determine by the type of host Bash will run on. Usually configure can figure that out, but if it prints a message saying it can not guess the host type, give it the --host=TYPE option. ‘TYPE’ can either be a short name for the system type, such as ‘sun4’, or a canonical name with three fields: ‘CPU-COMPANY-SYSTEM’ (e.g., ‘i386-unknown-freebsd4.2’).
@@ -5939,7 +6498,7 @@ See the file support/config.sub for the possible values of each field.
                                                               [Contents] [Index]
 
 
-## ⚡ 10.6 Sharing Defaults
+## //⚡ 10.6 Sharing Defaults
                                                              *Sharing Defaults*
 
 If you want to set default values for configure scripts to share, you can create a site shell script called config.site that gives default values for variables like CC, cache_file, and prefix. configure looks for PREFIX/share/config.site if it exists, then PREFIX/etc/config.site if it exists. Or, you can set the CONFIG_SITE environment variable to the location of the site script. A warning: the Bash configure looks for a site script, but not all configure scripts do.
@@ -5948,7 +6507,7 @@ If you want to set default values for configure scripts to share, you can create
                                                               [Contents] [Index]
 
 
-## ⚡ 10.7 Operation Controls
+## //⚡ 10.7 Operation Controls
                                                            *Operation Controls*
 
 configure recognizes the following options to control how it operates.
@@ -5976,7 +6535,7 @@ configure also accepts some other, not widely used, boilerplate options. ‘conf
                                                               [Contents] [Index]
 
 
-## ⚡ 10.8 Optional Features
+## //⚡ 10.8 Optional Features
                                                             *Optional Features*
 
 The Bash configure has a number of --enable-feature options, where feature indicates an optional part of Bash. There are also several --with-package options, where package is something like ‘bash-malloc’ or ‘purify’. To turn off the default use of a package, use --without-package. To configure Bash without a feature that is enabled by default, use --disable-feature.
@@ -6139,7 +6698,7 @@ The file config-top.h contains C Preprocessor ‘#define’ statements for optio
                                                               [Contents] [Index]
 
 
-# 🚩 Appendix A Reporting Bugs
+# /🚩 Appendix A Reporting Bugs
                                                                *Reporting Bugs*
 
 Please report all bugs you find in Bash. But first, you should make sure that it really is a bug, and that it appears in the latest version of Bash. The latest version of Bash is always available for FTP from ftp://ftp.gnu.org/pub/gnu/bash/.
@@ -6162,7 +6721,7 @@ Please send all reports concerning this manual to bug-bash@gnu.org.
                                                               [Contents] [Index]
 
 
-# 🚩 Appendix B Major Differences From The Bourne Shell
+# /🚩 Appendix B Major Differences From The Bourne Shell
                                       *Major Differences From The Bourne Shell*
 
 Bash implements essentially the same grammar, parameter and variable expansion, redirection, and quoting as the Bourne Shell. Bash uses the POSIX standard as the specification of how these features are to be implemented. There are some differences between the traditional Bourne shell and Bash; this section quickly details the differences of significance. A number of these differences are explained in greater depth in previous sections. This section uses the version of sh included in SVR4.2 (the last version of the historical Bourne shell) as the baseline reference.
@@ -6248,7 +6807,7 @@ Bash implements essentially the same grammar, parameter and variable expansion, 
 
 More features unique to Bash may be found in Bash Features.
 
-## ⚡ B.1 Implementation Differences From The SVR4.2 Shell
+## //⚡ B.1 Implementation Differences From The SVR4.2 Shell
 
                              *Implementation Differences From The SVR4.2 Shell*
 
@@ -6269,7 +6828,7 @@ Since Bash is a completely new implementation, it does not suffer from many of t
                                                               [Contents] [Index]
 
 
-# 🚩 Appendix C GNU Free Documentation License
+# /🚩 Appendix C GNU Free Documentation License
                                                *GNU Free Documentation License*
 
 Version 1.3, 3 November 2008
@@ -6420,7 +6979,7 @@ If your document contains nontrivial examples of program code, we recommend rele
                                                               [Contents] [Index]
 
 
-# 🚩 Appendix D Indexes
+# /🚩 Appendix D Indexes
                                                              *Index*  *Indexes*
 
 • |Index of Bash Builtin Commands|
@@ -6432,7 +6991,7 @@ If your document contains nontrivial examples of program code, we recommend rele
         ⬇ [Reserved Word Index] ⬅ [Indexes]
                                                               [Contents] [Index]
 
-## ==⚡ D.1 Index of Shell Builtin Commands
+## //⚡ D.1 Index of Shell Builtin Commands
                                      *Index*  *Index of Shell Builtin Commands*
 
 Jump to:
@@ -6580,7 +7139,7 @@ Jump to:
         ⬇ [Variable Index] ⬆ [Builtin Index] ⬅ [Indexes]
                                                               [Contents] [Index]
 
-## ==⚡ D.2 Index of Shell Reserved Words
+## //⚡ D.2 Index of Shell Reserved Words
                                        *Index*  *Index of Shell Reserved Words*
 
 Jump to:
@@ -6663,7 +7222,7 @@ Jump to:
         ⬇ [Function Index] ⬆ [Reserved Word Index] ⬅ [Indexes]
                                                               [Contents] [Index]
 
-## ==⚡ D.3 Parameter and Variable Index
+## //⚡ D.3 Parameter and Variable Index
                                         *Index*  *Parameter and Variable Index*
 
 Jump to:    |index_pav_!|   |index_pav_#|   |index_pav_$|   |index_pav_*|   |index_pav_-|
@@ -6965,7 +7524,7 @@ Jump to:    |index_pav_!|   |index_pav_#|   |index_pav_$|   |index_pav_star|   |
         ⬇ [Concept Index] ⬆ [Variable Index] ⬅ [Indexes]
                                                               [Contents] [Index]
 
-## ==⚡ D.4 Function Index
+## //⚡ D.4 Function Index
                                                       *Index*  *Function Index*
 
 Jump to:    |index_fun_A|   |index_fun_B|   |index_fun_C|   |index_fun_D|   |index_fun_E|
@@ -7175,7 +7734,7 @@ Jump to:    |index_fun_A|   |index_fun_B|   |index_fun_C|   |index_fun_D|   |ind
         ⬆ [Function Index]  ⬅ [Indexes]   
                                                               [Contents] [Index]
 
-## ==⚡ D.5 Concept Index
+## //⚡ D.5 Concept Index
                                                        *Index*  *Concept Index*
 
 Jump to:    |index_ct_A|   |index_ct_B|   |index_ct_C|   |index_ct_D|   |index_ct_E|

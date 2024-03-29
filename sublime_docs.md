@@ -430,18 +430,18 @@ The following table indicates the meaning of each badge. _Please note that the c
         Unmerged
     </li>
 </ul>
-<style>
-    .badges { list-style-type: none; padding-left: 10px; }
-    .vcs_badge { width: 24px; height: 24px; position: relative; bottom: 0px; padding-right: 8px; }
-    #badge-untracked path { fill: #aaa; }
-    #badge-modified circle { fill: #3c97dd; }
-    #badge-missing circle { fill: #d2322d; }
-    #badge-staged-added path { fill: #9dbf40; }
-    #badge-staged path { fill: #3c97dd; }
-    #badge-staged-deleted path { fill: #d2322d; }
-    #badge-unmerged path { fill: #f09642; }
-    #badge-unmerged path.stroked { stroke: #f09642; }
-</style>
+    <style>
+        .badges { list-style-type: none; padding-left: 10px; }
+        .vcs_badge { width: 24px; height: 24px; position: relative; bottom: 0px; padding-right: 8px; }
+        #badge-untracked path { fill: #aaa; }
+        #badge-modified circle { fill: #3c97dd; }
+        #badge-missing circle { fill: #d2322d; }
+        #badge-staged-added path { fill: #9dbf40; }
+        #badge-staged path { fill: #3c97dd; }
+        #badge-staged-deleted path { fill: #d2322d; }
+        #badge-unmerged path { fill: #f09642; }
+        #badge-unmerged path.stroked { stroke: #f09642; }
+    </style>
 
 When a folder contains files with multiple statuses, the badge most toward the end of the above list will override all others.
 
@@ -451,14 +451,6 @@ Status Bar   [🔗](){id=doc_status_bar}
 
 When the focussed file us containing within the working directory of a Git repository, the status bar will contain the name of the current branch, along with the number of files that are untracked, modified, staged or unmerged. The status bar element will look like:
 
-<style>
-#git_status_bar { color: rgb(64, 64, 64); background-color: rgba(171, 177, 186, 0.8); width: 150px; border-radius: 2px; text-align: center; padding: 0 0 3px 0; } 
-#branch-icon { width: 16px; height: 16px; position: relative; bottom: -3px; margin-right: 1px; } 
-#branch-icon path, 
-#branch-icon rect { fill: rgba(64, 64, 64, 0.8); } 
-#branch-icon path.stroked { stroke: rgba(64, 64, 64, 0.8); } 
-#git_status_bar .changes { color: rgb(64, 64, 64, 0.8); border: 1px solid rgba(64, 64, 64, 0.5); border-radius: 2px; font-size: 11px; padding: 0 3px 1px; position: relative; top: -1px; margin-left: 4px; opacity: 0.9; }
-</style>
 
 <svg id="branch-icon" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1;">
         <g>
@@ -469,6 +461,14 @@ When the focussed file us containing within the working directory of a Git repos
             <path d="M10,1.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"></path>
         </g>
     </svg>
+    <style>
+    #git_status_bar { color: rgb(64, 64, 64); background-color: rgba(171, 177, 186, 0.8); width: 150px; border-radius: 2px; text-align: center; padding: 0 0 3px 0; } 
+    #branch-icon { width: 16px; height: 16px; position: relative; bottom: -3px; margin-right: 1px; } 
+    #branch-icon path, 
+    #branch-icon rect { fill: rgba(64, 64, 64, 0.8); } 
+    #branch-icon path.stroked { stroke: rgba(64, 64, 64, 0.8); } 
+    #git_status_bar .changes { color: rgb(64, 64, 64, 0.8); border: 1px solid rgba(64, 64, 64, 0.5); border-radius: 2px; font-size: 11px; padding: 0 3px 1px; position: relative; top: -1px; margin-left: 4px; opacity: 0.9; }
+    </style>
 
 
 _______________________________________________________________________________

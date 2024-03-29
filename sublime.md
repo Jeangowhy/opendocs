@@ -14,7 +14,7 @@
 - Sound Image：http://soundimage.org/
 - Sound Bible（音效网站）：http://soundbible.com/
 
-# =🚩 Plugins 插件开发
+# /🚩 Plugins 插件开发
 - https://docs.sublimetext.io/guide/extensibility/plugins/
 - https://docs.sublimetext.io/reference/plugins.html
 - https://docs.sublimetext.io/reference/python_api.html
@@ -22,7 +22,7 @@
 - https://www.sublimetext.com/docs/3/api_reference.html
 - Package Control https://packagecontrol.io/docs
 
-## ==⚡ LSP-jdtls Java 语言服务器
+## //⚡ LSP-jdtls Java 语言服务器
 https://github.com/sublimelsp/LSP-jdtls
 https://download.oracle.com/java/17/archive/jdk-17.0.8_windows-x64_bin.exe
 
@@ -97,7 +97,7 @@ public class hi
 ```
 
 
-## ==⚡ Sublime API 探索
+## //⚡ Sublime API 探索
 
 将 Python 脚本放到 Sublime 安装包目录下就可以被插件管理器加载执行，可以使用以下脚本测试脚本解析器的版本及位置，并且最简单的插件只需要继承指定的类型就只可以实现：
 
@@ -580,7 +580,7 @@ show_quick_panel(items, switchable_panels, 0)
 ```
 
 
-## ==⚡ Window Panels APIs 用户界面
+## //⚡ Window Panels APIs 用户界面
 
 可以通过 API 创建用户界面，更灵活的方法还包括使用 View 创建文件视图并展示内容，Sublime Text 本来就是文字编辑工具！
 
@@ -734,7 +734,7 @@ sublime.View 提供的和用户界面相关的方法：
 
 
 
-## ==⚡ Basic Concepts
+## //⚡ Basic Concepts
 
 Plugins are Python scripts subclassing any of the `*Command` or `*Listener` classes from the sublime_plugin module.
 
@@ -878,7 +878,7 @@ In particular, the Packages/Default contains many examples of undocumented comma
 Sublime Text will reload topmost Python modules as they change (perhaps because you are editing a .py file within Packages). By contrast, Python subpackages won't be reloaded automatically, and this can lead to confusion while you're developing plugins. Generally speaking, it's best to restart Sublime Text after you've made changes to plugin files, so all changes can take effect.
 
 
-## ==⚡ Creating Package Files
+## //⚡ Creating Package Files
 - Creating Package Files https://packagecontrol.io/docs/creating_package_files
 - Submitting a Package https://packagecontrol.io/docs/submitting_a_package
 
@@ -992,7 +992,7 @@ With Sublime Text 2, all python files are compiled into .pyc files by default by
 Because of this, Package Control explicitly compiles all .py files into .pyc files, in the same directory, bypassing the __pycache__/ for Sublime Text 3. So, while normally Python 2 and Python 3 are quite different when it comes to .pyc files, Package Control works around the issue. Please note, however, that it will still be required to ship a different version of the package for Sublime Text 2 and Sublime Text 3 since they use different .pyc formats. This can be accomplished by running Create Package from Sublime Text 2 for an ST2-compatible version of the package, and running Create Package from Sublime Text 3 for an ST3-compatible version.
 
 
-## ==⚡ Menus configs
+## //⚡ Menus configs
 https://docs.sublimetext.io/guide/customization/menus.html
 
 Sublime Text provides several menus that can be modified, for example, by adding menu items.
@@ -1201,7 +1201,7 @@ Official API Documentation on the Command interface(opens new window)
 
 
 
-## ==⚡ RunSnippetCommand 插件
+## //⚡ RunSnippetCommand 插件
 
 作为一个重度 Sublime Text 用户，掌握 Plugin-host 插件机制及插件开发是非常必要的，有些稀奇古怪的想法功能都可以实现。
 
@@ -1363,7 +1363,7 @@ class RunSnippetCommand(TextCommand):
 ```
 
 
-## ⚡ SendTo ...
+## //⚡ SendTo ...
 
 ```py
 import os
@@ -1425,7 +1425,7 @@ class SendToCommand(WindowCommand):
     self.windows[index].bring_to_front()
 ```
 
-## ⚡ JumpTo ...
+## //⚡ JumpTo ...
 
 使用 SublimeText 阅读文档和写作是日常活动，特别是最近在阅读 [CPython](https://github.com/python/cpython) 以及 C# 相关开源代码及文档，Sublime 提供的跳转工具非常强大，因为会对代码文件进行符号索引，所以在已经建立索引的工程上，直接按 F12 就可以跳转到光标所在的符号定义上，对于 URL 地址，也可以通过右角菜单打开浏览器进行访问。
 
@@ -1566,7 +1566,7 @@ class JumpToCommand(TextCommand, ViewEventListener):
         print(lp, "<===>" , rp)
 ```
 
-## ==⚡ Auto focus on Hover
+## //⚡ Auto focus on Hover
 https://github.com/Jeangowhy/Origami
 
 if you want to activate a pane when mouse on hover event, set `auto_focus_on_hover` to true in the Origami preferences.
@@ -1605,7 +1605,7 @@ class TravelToPaneOnMoveCommand(sublime_plugin.EventListener, WithSettings):
 ```
 
 
-## ==⚡ LaTeX WebViewer/First Column/Index Rows
+## //⚡ LaTeX WebViewer/First Column/Index Rows
 
 Sublime Text 插件开发，以下功能于 Windows 平台 4121 版本正常使用：
 
@@ -2032,7 +2032,7 @@ class IndexRowsCommand(sublime_plugin.TextCommand):
 ```
 
 
-## ==⚡ Input handlers 用户输入处理
+## //⚡ Input handlers 用户输入处理
 - https://docs.sublimetext.io/guide/extensibility/plugins/input_handlers.html
 
 Input handlers are a mechanism to query a user for one or multiple input parameters via the Command Palette. They replace the older method of input and quick panels (Window.show_input_panel and Window.show_quick_panel) for a unified user experience in a single component.
@@ -2428,7 +2428,7 @@ class MultipleInputHandler(sublime_plugin.TextInputHandler):
         return []
 ```
 
-## ==⚡ Regions in Selection
+## //⚡ Regions in Selection
 - https://stackoverflow.com/questions/38632861/sublime-text-plugin-how-to-find-all-regions-in-selection
 - https://www.sublimetext.com/docs/3/api_reference.html
 
@@ -2524,7 +2524,7 @@ def _handle_apply_patches(self, message):
 ```
 
 
-## ==⚡ RegexpSelection
+## //⚡ RegexpSelection
 
 Regexp to Selection 插件接收用户输入的正则表达式，并选择当前文档中有匹配的内容。
 用户输入信息通过 sublime_plugin.CommandInputHandler 接口进行处理。只要用户运行插件，
@@ -2856,7 +2856,41 @@ class HistoryInputHandler(sp.ListInputHandler) :
 ```
 
 
-## ==⚡ Plugin API Reference
+## //⚡ Exm: Region Expansion
+
+根据当前首个光标位置，按 Scope Name 扩展内容选区：
+
+```py
+import sublime
+
+def RegionExpansion(increment: False):
+    view = sublime.active_window().active_view()
+    region = view.sel()[0]
+    scope = view.scope_name(region.a).split().pop()
+
+    while region.a > 0:
+        expansion = view.line(region.a-1)
+        if view.scope_name(expansion.a).find(scope) == -1:
+            break
+        region.a = expansion.a
+
+    while region.b < view.size():
+        expansion = view.line(region.b+1)
+        if view.scope_name(expansion.b).find(scope) == -1:
+            break
+        region.b = expansion.b
+
+    if increment:
+        view.sel().add(region)
+
+    print("Scope name:", scope, region)
+    return region
+```
+
+View `line()` 方法根据指定的 Region(a,b) 区间扩展到所有行，如果只给定光标点则扩展到所在行。
+
+
+## //⚡ Plugin API Reference
 - https://www.sublimetext.com/docs/3/api_reference.html
 
 ➡ **Core Components**
@@ -3606,7 +3640,7 @@ Methods Return Value    Description
 - *is_enabled(view, args)*   bool    Returns true if the command is able to be run at this time. The default implementation simply always returns True.
 
 
-# =🚩 Snippet 代码片段插件
+# /🚩 Snippet 代码片段插件
 - https://docs.sublimetext.io/guide/extensibility/snippets.html
 
 Whether you are coding or writing the next vampire best-seller, you're likely to need certain short fragments of text again and again. Use snippets to save yourself tedious typing. Snippets are smart templates that will insert text for you and adapt it to their context.
@@ -3839,7 +3873,7 @@ You can also use environment variables with substitutions:
 
 
 
-# =🚩 Syntax Definitions
+# /🚩 Syntax Definitions
 - https://docs.sublimetext.io/guide/extensibility/syntaxdefs.html
 - Syntax Definitions https://www.sublimetext.com/docs/3/syntax.html
 
@@ -3857,7 +3891,7 @@ It is highly encouraged to be used in favor of the legacy TextMate format descri
 Documentation is available at the official documentation (opens new window).
 
 
-# =🚩 Sublime Text
+# /🚩 Sublime Text
 
 安装 Sublime Text：
 
@@ -3908,7 +3942,7 @@ Ubuntu 32 bit - also available as a tarball for other Linux distributions.
 要删除 apt 存储库，请转到软件和更新 -> 其他软件。
 
 
-## ==⚡ 按需配置
+## //⚡ 按需配置
 
 Sublime Text 提供上百种配置项，Preferences - Settings 浏览查看，每项都有注解，需要什么功能就设置什么功能。
 
@@ -3918,7 +3952,7 @@ Sublime Text 提供上百种配置项，Preferences - Settings 浏览查看，�
     "translate_tabs_to_spaces": true,
 
 
-## ==⚡ Windows 资源管理器集成
+## //⚡ Windows 资源管理器集成
 
 增加文件夹右键菜单项，使用 UTF-16 LE with BOM 格式保存，因为有特殊符号，UTF-8 不会正确导入：
 
@@ -3940,7 +3974,7 @@ Windows Registry Editor Version 5.00
 @="C:\\Program Files\\Sublime Text\\sublime_text.exe \"%V\""
 ```
 
-## ==⚡ 插件源设置
+## //⚡ 插件源设置
 
 只需要在 Package Control.sublime-settings 中修改：
 
@@ -3951,7 +3985,7 @@ Windows Registry Editor Version 5.00
 换一下插件默认模块映射json即可。需要重新下载一个channel_v3.json文件。
 
 
-## ==⚡ File Indexing 文件符号索引 
+## //⚡ File Indexing 文件符号索引 
 - File Indexing http://www.sublimetext.com/blog/articles/file-indexing
 
 Sublime Text 3 的跳转功能 Goto Definition， Goto Symbol, Goto Anythig 都是基于文件索引的功能，新开的项目都会在后台执行索引的建立，如果文件较多比较消耗 CPU，特别是 Node.js 项目，其 node_modules 目录的文件可以到十万级别。如果 CPU 负载不来，可以通过以下选项设置不需要索引的目录或文件或禁止索引：
@@ -3977,7 +4011,7 @@ Sublime Text 3 的跳转功能 Goto Definition， Goto Symbol, Goto Anythig 都�
 	"translate_tabs_to_spaces": true,
 
 
-## ==⚡ Macro 功能
+## //⚡ Macro 功能
 
     [
         { "args": {"characters": "\n\n`"}, "command": "insert"},
@@ -3991,7 +4025,7 @@ Sublime Text 3 的跳转功能 Goto Definition， Goto Symbol, Goto Anythig 都�
     ]
 
 
-## ==⚡ Keyboard 快捷键大全
+## //⚡ Keyboard 快捷键大全
 
 最爱的符号定位：
 
@@ -4152,7 +4186,7 @@ Command 即 Super 键，`Control+Super+g` 与 Windows 中的 `Alt+F3` 同功能�
 
 
 
-## ==⚡ PackageControl 插件管理器安装
+## //⚡ PackageControl 插件管理器安装
 
 `ctrl+~` 键调出控制台，然后输入如下代码：
 
@@ -4232,7 +4266,7 @@ Debug 模式开启方法：将 PackageControl.sublime-settings 文件中的 debu
 
 
 
-# =🚩 Project & Build Systems
+# /🚩 Project & Build Systems
 - https://www.sublimetext.com/docs/3/projects.html
 - https://sublime.wbond.net/packages/Project%20Manager
 - http://sublime-text.readthedocs.org/en/latest/reference/build_systems.html
@@ -4418,7 +4452,7 @@ FOLDERS 配置，path 是必须的，路径可以是绝对或相对的，此外�
 - `follow_symlinks` - If symlinks should be followed when building the folder tree.
 
 
-## ==⚡ variables 内置变量
+## //⚡ variables 内置变量
 http://www.sublimetext.com/docs/3/build_systems.html#variables
 
 	$packages           The path to the Packages/ folder
@@ -4447,7 +4481,7 @@ http://www.sublimetext.com/docs/3/build_systems.html#variables
 
 
 
-## ==⚡ 可配置项
+## //⚡ 可配置项
 
 exec Target Options
 
@@ -4498,7 +4532,7 @@ A boolean that turns on word wrapping in the build system output panel.
 A string specifying the syntax file to use to highlight the build system output panel.
 
 
-## ==⚡ Custom Options
+## //⚡ Custom Options
 
 When implementing a command to act as a build system target, the command's keyword arguments are available via options in the .sublime-build file. However, certain parameter names will not work since they conflict with built-in build system functionality.
 
@@ -4517,7 +4551,114 @@ The following names will not be passed as arguments to commands. This also appli
 	windows
 
 
-## ==⚡ SQLExec
+## //⚡ Unix shebang (bash script)
+1. https://handwiki.org/wiki/Shebang_(Unix)
+2. https://www.talisman.org/~erlkonig/documents/dennis-ritchie-and-hash-bang.shtml
+
+Windows 平台通过 Msys64 移植平台使用 Linux 工具，包括 bash 脚本编程：
+
+```sh
+{
+    "shell_cmd": "./$file_name",
+    "working_dir": "$file_path",
+    "encoding":"gbk",
+
+    "selector" : "source.shell, source.ts, source.js, source.python",
+    "word_wrap": false,
+
+    "windows": {
+        // Try to run via MSYS2 shell on Windows
+        "shell_cmd": "bash -c \"./$file_name\"",
+    },
+}
+```
+
+然后，就可以象在 Linxu 系统那样在 bash 脚本中使用 shebang 执行脚本：
+
+```sh
+#!/usr/bin/env python
+#! python
+#!interpreter [optional-arg]
+
+import sys
+print("Hello Python!", sys.argv)
+```
+
+Shebang 是脚本首行的特殊注释形式 `#!`，它后面跟着一个命令，shebang 机制负责调用它，
+并且将脚本路径作为其参数传递给此命令。运行脚本时，shell 检测到 shebang 就会触发这个机制：
+
+```sh
+$ ./cli Yes!
+Hello Python! ['./cli', 'Yes!']
+```
+
+以上命令 `./cli Yes!` 等价于 `python ./cli Yes!`，这就是脚本的 shebang 机制。
+
+当然可以在脚本中硬编码参数，但不能直接像以下这样编写 shebang 注释：
+
+```sh
+#! python cli abc
+import sys
+print("Hello Python!", sys.argv)
+```
+
+Shebang 会将指定命令之后的参数当作一个字符串 "cli abc"，再跟脚本路径 "./cli"，这会导致错误：
+
+```sh
+$ ./cli
+python.exe: can't open file '/dl/pl/cli abc': [Errno 2] No such file or directory
+```
+
+要给运行的脚本指定参数，可以使用 env -S 或者 xargs 工具：
+
+1. env -S 会将其命令行后面的参数按分隔符号切割后再传给 shebang 要运行的脚本；
+2. xargs 可以将 stdin 标准输入数据转换为参数去调用指定命令，例如：`echo 'Hi' | xargs echo`；
+
+```sh
+#!/usr/bin/env -S python cli abc
+import sys
+print("Hello Python!", sys.argv)
+```
+
+运行以上脚本，可以发现 -S 后面的参数分割成 "python" "cli" "abc" 三分：
+
+```sh
+$ ./cli
+Hello Python! ['cli', 'abc', './cli']
+```
+
+Shebang 是操作系统层的机制，Shebang 始终将要运行的脚本路径作为最后一个参数传递给指定命令。
+
+![Dennis M. Ritchie (1941/9/9 - 2011/10/12)](https://pic1.zhimg.com/80/v2-8c9522dfdb51dd5854ab37b538b057e4_1440w.jpg)
+
+关于 shebang 机制的名称，Unix 与 C 语言创始人丹尼斯·里奇在其邮件列表的问答中提到，
+这个特性借鉴了伯克利 Unix UCB 会议上某人提到的一个灵感，里奇可能是首先实现它的人之一。
+至于它的名字：可能是类似于“hash-bang”的英国风描述性文字，对应 `#!` 这两个字符。
+
+    From: "Ritchie, Dennis M (Dennis)** CTR **" <dmr@research.bell-labs.com>
+    To: <erlĸonigⓐtαlismαn.org>
+
+    Date: Thu, 19 Nov 2009 18:37:37 -0600
+    Subject: RE: What do -you- call your #!<something> line?
+
+     I can't recall that we ever gave it a proper name.
+    It was pretty late that it went in--I think that I
+    got the idea from someone at one of the UCB conferences
+    on Berkeley Unix; I may have been one of the first to
+    actually install it, but it was an idea that I got
+    from elsewhere.
+
+    As for the name: probably something descriptive like
+    "hash-bang" though this has a specifically British flavor, but
+    in any event I don't recall particularly using a pet name
+    for the construction.
+
+       Regards,
+       Dennis
+
+
+
+## //⚡ SQLExec
 
 Git Clone代码到本地:
 
@@ -4599,7 +4740,7 @@ Subversion代码到本地:
 
 
 
-## ==⚡ Node.js ES6
+## //⚡ Node.js ES6
 
 `-harmony` 选项打开 node 的 ES6 特性支持，要运行 TypeScript 需要先安装解释器，一并安装 ts-node 这个直接运行 TypeScript 程序的工具。
 
@@ -4639,7 +4780,7 @@ Subversion代码到本地:
 	    }
 	}
 
-## ==⚡ julia
+## //⚡ julia
 
 	{
 		"shell_cmd": "C:/Julia-1.0.0/bin/julia.exe \"$file\"",
@@ -4650,7 +4791,7 @@ Subversion代码到本地:
 		"selector": "source.julia"
 	}
 
-## ==⚡ php
+## //⚡ php
 
 	{
 		"cmd": ["php.exe", "-f", "${file}"],
@@ -4660,7 +4801,7 @@ Subversion代码到本地:
 		"selector": "embedding.php, source.php"
 	}
 
-## ==⚡ JAVA
+## //⚡ JAVA
 
 	{
 		// "shell_cmd": "javac.exe \"$file\" && java.exe \"$file_base_name\"",
@@ -4687,7 +4828,7 @@ Subversion代码到本地:
 	}
 
 
-## ==⚡ MinGW GCC
+## //⚡ MinGW GCC
 
 	{
 		// "cmd": ["E:\CodeBlocks\MinGW\bin\gcc.exe", "$file"],
@@ -4766,7 +4907,7 @@ Subversion代码到本地:
 
 
 
-## ==⚡ C++
+## //⚡ C++
 
 	{
 		"working_dir": "$file_path",
@@ -4784,7 +4925,7 @@ Subversion代码到本地:
 	}
 
 
-## ==⚡ C# C-Sharp
+## //⚡ C# C-Sharp
 
 首先安装 .Net Core 或 .Net Framework，再配置你的 Sublime 编译工具，将 Sublime 项目保存到 DotNet 项目中，可以使用 $project_path 引用。因为 .Net Core 支持中文输出，在中文系统中指定 "encoding": "cp936" 防止控制台乱码：
 
@@ -4830,7 +4971,7 @@ Subversion代码到本地:
 	}   
 
 
-## ==⚡ Nim Language
+## //⚡ Nim Language
 
 	{
 		"cmd": ["c:\\C:\nim-1.0.0\\bin\\nim.exe", "run", "${file}"],
@@ -4854,7 +4995,7 @@ Subversion代码到本地:
 	}   
 
 
-## ==⚡ Golang
+## //⚡ Golang
 
 可以使用 margo/GoSublime 插件
 https://github.com/DisposaBoy/GoSublime
@@ -4894,7 +5035,7 @@ https://github.com/DisposaBoy/GoSublime
 
 
 
-## ==⚡ python
+## //⚡ python
 
 	{
 		"encoding": "utf-8",
@@ -4912,7 +5053,7 @@ https://github.com/DisposaBoy/GoSublime
 		]
 	}
 
-## ==⚡ windows 脚本宿主
+## //⚡ windows 脚本宿主
 
 通过 cscript.exe 和 wscript.exe 运行 VBS 或 JScript 脚本，c/w 分别表示运行环境 Console/Window
 
@@ -4923,7 +5064,7 @@ https://github.com/DisposaBoy/GoSublime
 	}
 
 
-## ==⚡ sublime 文件类型语法关联
+## //⚡ sublime 文件类型语法关联
 
 	可以通过菜单: 查看->语法 中选择 xml, 或者状态栏右下角选择xml文件类型，这样sublime text就会根据xml来显示这个文件.
 
@@ -4949,7 +5090,7 @@ https://github.com/DisposaBoy/GoSublime
 
 
 
-# =🚩 SublimeREPL 插件
+# /🚩 SublimeREPL 插件
 
 SublimeREPL 插件可以调用系统控制台，可以有输入交互，安装插件后，可以结合 Sublime 的窗口分栏功能使用：
 
@@ -4974,7 +5115,7 @@ Sublime 自带的 Console 只是 Python 命令行交互界面，也可以使用 
 
 
 
-# =🚩 Emmet Zen-Coding 插件
+# /🚩 Emmet Zen-Coding 插件
 - PyV8 Binaries - https://github.com/emmetio/pyv8-binaries#readme
 - Python 安装 V8 引擎 – https://xwsoul.com/posts/490
 - https://packagecontrol.io/packages/Emmet
@@ -4990,7 +5131,7 @@ Sublime Text 3.0 在 Windows 安装 PyV8 的版本文件夹是 pyv8-win64-p3 即
 
 
 
-## ==⚡ Expanding abbreviation
+## //⚡ Expanding abbreviation
 - https://github.com/emmetio/sublime-text-plugin#expanding-abbreviation
 
 If you used previous version of Emmet plugin, you already know how to expand abbreviations: type something like `ul>li.items*4` and hit `Tab` or `Ctrl-E`. While this approach generally works, it has lots of downsides:
@@ -5007,7 +5148,7 @@ When you start typing in Emmet-supported context (HTML, CSS, Slim etc.) Emmet de
 If you already have an abbreviation in document and you want to expand it, move caret to the end of abbreviation and invoke autocomplete (`Ctrl+Space` by default) to capture abbreviation:
 
 
-## ==⚡ Tab key doesn’t work anymore
+## //⚡ Tab key doesn’t work anymore
 - https://github.com/emmetio/sublime-text-plugin#tab-key-doesnt-work-anymore
 
 改版后不再支持 Tab 快捷键，因为副作用。非要用，可以按以下设置：
@@ -5104,7 +5245,7 @@ Emmet 提供的功能很强大，Zen-Coding 语法参考后面：
 	tab              expand_abbreviation_by_tab
 
 
-## ==⚡ Zen-Coding(Emmet) 代码生成工具
+## //⚡ Zen-Coding(Emmet) 代码生成工具
 
 editplus, sublime 都可以使用，在 sublime 上需要先安装 Emmet 插件，然后输入以下一行 zen coding 语法内容再按下 Ctrl+E 就会得到一段自动生成的代码。用>表示子节点，+表示同级节点，^表示上一级节点，方括号表示属性设置，花括号表示节点内容设置。 sublime 上还支持时间实时输入，快捷键是 Ctrl+Alt+Enter，然后在输入框中输入，编辑器实时更新所输入的内容， [Emmet 语法参考](http://emmet.io)。
 
@@ -5127,7 +5268,7 @@ editplus, sublime 都可以使用，在 sublime 上需要先安装 Emmet 插件�
 	<view class="footer"></view>
 
 
-## ==⚡ Zen-Coding 语法如下：
+## //⚡ Zen-Coding 语法如下：
 
 	E#name:   div#name      -> <div id="name"></div>
 	E.name:   div.name      -> <div class="name"></div>
@@ -5148,15 +5289,15 @@ editplus, sublime 都可以使用，在 sublime 上需要先安装 Emmet 插件�
 
 
 
-# =🚩 Node.js plugin
+# /🚩 Node.js plugin
 https://packagecontrol.io/packages/Nodejs
 
-## ==⚡ Code Completion
+## //⚡ Code Completion
 The package code completion is generated from the main Node.js libraries and global namespaces. To invoke the code completion start typing the namespace you want (For example, type fs) and then Ctrl + Space, you get this:
 
 A picture of the file system context menu
 
-## ==⚡ Node Commands
+## //⚡ Node Commands
 You can access node commands in two ways.
 
 Via the menu in Tools -> Node
@@ -5169,7 +5310,7 @@ The current commands available are (with Windows binding, other bindings are pro
 ☛ Run current script in node debug and arguments (Ctrl + Alt + D)
 ☛ Uglify Code
 
-## ==⚡ NPM Command
+## //⚡ NPM Command
 Build documentation (builds the completion files)
 Snippets
 Also included are some boilerplate snippets. They include functionality such as a http server, reading the contents of a directory, etc.
@@ -5178,7 +5319,7 @@ To access these snippets type node in your editor followed by Ctrl + Space
 
 If you have any boilerplate code you would like to see in here, get in touch.
 
-## ==⚡ Install Node.js
+## //⚡ Install Node.js
 You can install this package from Sublime Text 3 package manager. Also you can install this package manually:
 
 MacOSX
@@ -5207,7 +5348,7 @@ or manully editing your project package.json file.
 PLEASE NOTE: When your installed Node.js packages (previously mentioned) globaly, you also need to set the package node_path setting. For that, go to the Preferences -> Package Settings -> Node.js -> Settings User.
 
 
-# =🚩 SublimeCodeIntel 自动补全提示
+# /🚩 SublimeCodeIntel 自动补全提示
 
 1、SublimeText3 下载地址
 
@@ -5267,7 +5408,7 @@ ctrl+shift+space:代码提示
 上述自定义方法可以参见Preferences->Package settings->SublimeCodeIntel->Key Bindings-Default中的内容
 
 
-## ==⚡ AutoFileName 插件
+## //⚡ AutoFileName 插件
 
 在字符串中以 "/" 开头时会被 AFN 自动删除，Ctrl+Z 撤销时可以发现状态栏提示 Undo:afn delete prfixed slash。
 
@@ -5277,7 +5418,7 @@ ctrl+shift+space:代码提示
 
 
 
-# 📜 www.sublimetext.com docs
+# /📜 www.sublimetext.com docs
 
 Use wget to download all Sublime Text Docs:
 

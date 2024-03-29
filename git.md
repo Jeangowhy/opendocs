@@ -1978,6 +1978,74 @@ git config tar.tar.xz.command "xz -c"
 ```
 
 
+# git single file
+
+Git 版本控制系统允许开发人员追踪和管理项目中的文件，Git 命令可以轻松地获取远程仓库中的文件，
+以便进行修改、合并或备份。在本文中，我们将介绍如何从远程 [git] 仓库中获取单个文件。
+
+1. 克隆远程仓库
+    - - -
+
+    使用 `git clone` 命令克隆远程仓库是获取单个文件的一种常用方式，需要克隆远程仓库到本地计算机。
+
+        git clone <repository_url>
+        
+
+    其中 `<repository_url>` 是远程仓库的 URL 地址。Git clone 命令将下载整个远程仓库到本地，
+    并创建一个与远程仓库相同的文件夹。接下来，可以访问该文件夹，找到需要的文件。
+
+2. 获取单个文件
+    - - -
+
+    如果只需要单个文件而不是整个仓库，可以使用 `git archive` 命令从远程仓库中以归档格式获取文件。
+    该命令的语法如下：
+
+        git archive --remote=<repository_url> --output=<output_file> <branch_name> <file_path>
+
+    其中：  
+    – `<repository_url>` 是远程仓库的 URL 地址；  
+    – `<output_file>` 是输出文件的路径和名称；  
+    – `<branch_name>` 是要获取文件的分支名称；  
+    – `<file_path>` 是要获取的文件在仓库中的相对路径。
+
+    例如，如果我们想要获取远程仓库的 `README.md` 文件，可以执行以下命令：
+
+        git archive --remote=<repository_url> --output=README.md <branch_name> README.md
+
+    该命令将从远程仓库中获取 `README.md` 文件，并将其保存为 `README.md` 文件。
+
+    Archive 命令用于打包代码生成 zip 或者 tarball 归档，使用 git archive --remote 命令
+    可能会遇到以下问题，根据使用的 URL 协议有不同提示：
+
+        http or https   fatal: the remote end hung up unexpectedly
+        git@github.com  fatal: operation not supported by protocol
+
+    挂断（hung up）有可能是国际网络通信质量差导致的问题。
+
+    以下是以本地仓库演示：
+
+    ```sh
+    remote=file://c:/opendocs
+    out=archive_main.zip
+    git archive --output=$out --remote="$remote" main readme.md
+    7z l $out
+    ```
+
+3. 使用 Github raw URL 获取文件
+    - - -
+
+    另一种获取单个文件的方法是使用 raw URL。GitHub 和其他一些 Git 托管平台支持在浏览器中直接访问文件的原始 URL。我们可以通过导航到文件的页面并复制 URL，然后使用下载工具或浏览器下载文件。
+
+    例如，假设我们想要获取 GitHub 仓库中的 `README.md` 文件，我们可以打开该文件的页面，然后复制浏览器地址栏中的 URL。将 URL 粘贴到下载工具或浏览器中，即可下载该文件到本地。
+
+4. 使用 Git 仓库管理工具
+    - - -
+
+    除了以上方法，还可以使用一些 Git 仓库管理工具来获取单个文件。
+    这些工具通常提供一个友好的图形用户界面，使我们能够轻松地浏览仓库并选择要获取的文件。
+
+    GitHub Desktop 是一个流行 Git 仓库管理工具，提供直观的界面来克隆、管理和获取 Git 仓库中的文件。
+
 
 # git log reflog status diff 信息查询命令
 - [Useful .gitignore templates](https://github.com/github/gitignore)
