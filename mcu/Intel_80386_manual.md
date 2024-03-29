@@ -17,11 +17,15 @@ MD DATE: 2024/03/28
 指令集目录中，混入了 PART I/II/III/IV/APP 等条目，它们并不是指令，此文档将其移除。
 
 文档使用类 ctags 索引定位标签，使用 JumpTo 插件可以让光标在索引值（星号包括的内容）位置
-直接来回跳转，避免连接来回切换页面，方便快捷地查阅主题内容，注意星号包括的部分为索引标记：
+直接来回跳转，避免连接来回切换页面，方便快捷地查阅主题内容，注意星号包括的部分为索引标记。
+考虑到 Github 上的格式兼容，标记可以分拆开编写，以为 Anchor 标签不能正常使用：
 
 ```html
 <a *tb2_1* name="tb2_1"></a>
+
 ```
+
+<meta *tb2_1* /> <a name="tb2_1"></a>
 
 比如，17.1.1 Default Segment Attribute 小节讲述指令与内存分段属性，其中就提到一个概念,
 `[D-bit]`，这里使用了方括号去引用对应的内容，安装 JumpTo 插件后，光标放在引用符号 [D-bit]，
@@ -73,7 +77,7 @@ the iAPX 286 Programmer's Reference Manual.
 
 JumpTo 插件与 RegularSelection 同一代码仓库，安装指导参考 [Readme](../readme.md)。
 它们都是按“开放电子图书馆”（OpenDocs）需求编写的插件，包括此 
-[Intel 80386 CPU 编程参考手册](https://github.com/Jeangowhy/opendocs/blob/mcu/Intel_80386_manual.md)
+[Intel 80386 CPU 编程参考手册](https://github.com/Jeangowhy/opendocs/blob/main/mcu/Intel_80386_manual.md)
 都是在这些辅助工具之上进行处理、转换和阅读、快速查询使用。这里之所以强调“快速查询”，是因为知识
 的关联属性要求泛读、速读，这必然要涉及多种材料之间的切换。传统的书籍需要目录、书签，可能还配备
 读书笔记，其目的就是要人为地建立**信息的索引数据库**，这也就是图书馆电子化的意义所在：
@@ -8937,7 +8941,7 @@ Application programmers should consult the documentation provided with their ope
 Table 17-6. 80386 Exceptions
 
 | Mnemonic | Interrupt |         Description         |
-|==========|===========|=============================|
+|----------|-----------|-----------------------------|
 | #UD      |         6 | Invalid opcode              |
 | #NM      |         7 | Coprocessor not available   |
 | #DF      |         8 | Double fault                |
