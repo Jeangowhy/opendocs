@@ -8277,21 +8277,25 @@ If the instruction specifies an immediate operand, the immediate operand always 
 
 The following are the allowable instruction prefix codes:
 
->   F3H    [REP](#IC_REP) prefix (used only with string instructions)
->   F3H    [REPE/REPZ](#IC_REP) prefix (used only with string instructions
->   F2H    [REPNE/REPNZ](#IC_REP) prefix (used only with string instructions)
->   F0H    [LOCK](#IC_LOCK) prefix
+```sh
+    F3H    REP prefix (used only with string instructions)
+    F3H    REPE/REPZ prefix (used only with string instructions
+    F2H    REPNE/REPNZ prefix (used only with string instructions)
+    F0H    LOCK prefix
+```
 
 The following are the segment override prefixes:
 
->   2EH    CS segment override prefix
->   36H    SS segment override prefix
->   3EH    DS segment override prefix
->   26H    ES segment override prefix
->   64H    FS segment override prefix
->   65H    GS segment override prefix
->   66H    Operand-size override
->   67H    Address-size override
+```sh
+    2EH    CS segment override prefix
+    36H    SS segment override prefix
+    3EH    DS segment override prefix
+    26H    ES segment override prefix
+    64H    FS segment override prefix
+    65H    GS segment override prefix
+    66H    Operand-size override
+    67H    Address-size override
+```
 
 <a name="fig17_1"></a><!-- *fig17_1* -->
 
@@ -9504,8 +9508,8 @@ Opcode    Instruction          Clocks    Description
 ```
 
 > [!NOTE]
-
-is the number of leading zero bits.
+> 
+> is the number of leading zero bits.
 
 Operation
 ---------
@@ -9662,18 +9666,18 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
-
-When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
-
-    Effective Address + (4 * (BitOffset DIV 32))
-
-for a 32-bit operand size, or two bytes starting from the memory address given by:
-
-    Effective Address + (2 * (BitOffset DIV 16))
-
-for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
+> 
+> The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
+> 
+> When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
+> 
+>     Effective Address + (4 * (BitOffset DIV 32))
+> 
+> for a 32-bit operand size, or two bytes starting from the memory address given by:
+> 
+>     Effective Address + (2 * (BitOffset DIV 16))
+> 
+> for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
 * * *
 
@@ -9727,18 +9731,18 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
-
-When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
-
-    Effective Address + (4 * (BitOffset DIV 32))
-
-for a 32-bit operand size, or two bytes starting from the memory address given by:
-
-    Effective Address + (2 * (BitOffset DIV 16))
-
-for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
+> 
+> The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
+> 
+> When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
+> 
+>     Effective Address + (4 * (BitOffset DIV 32))
+> 
+> for a 32-bit operand size, or two bytes starting from the memory address given by:
+> 
+>     Effective Address + (2 * (BitOffset DIV 16))
+> 
+> for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
 * * *
 
@@ -9792,18 +9796,18 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 (or 15) are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
-
-When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
-
-    Effective Address + 4 * (BitOffset DIV 32)
-
-for a 32-bit operand size, or two bytes starting from the memory address given by:
-
-    Effective Address + 2 * (BitOffset DIV 16)
-
-for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
+> 
+> The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 (or 15) are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high-order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
+> 
+> When accessing a bit in memory, the 80386 may access four bytes starting from the memory address given by:
+> 
+>     Effective Address + 4 * (BitOffset DIV 32)
+> 
+> for a 32-bit operand size, or two bytes starting from the memory address given by:
+> 
+>     Effective Address + 2 * (BitOffset DIV 16)
+> 
+> for a 16-bit operand size. It may do so even when only a single byte needs to be accessed in order to reach the given bit. You must therefore avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
 * * *
 
@@ -9857,18 +9861,18 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
-
-When accessing a bit in memory, the processor may access four bytes starting from the memory address given by:
-
-    Effective Address + (4 * (BitOffset DIV 32))
-
-for a 32-bit operand size, or two bytes starting from the memory address given by:
-
-    Effective Address + (2 * (BitOffset DIV 16))
-
-for a 16-bit operand size. It may do this even when only a single byte needs to be accessed in order to get at the given bit. Thus the programmer must be careful to avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
+> 
+> The index of the selected bit can be given by the immediate constant in the instruction or by a value in a general register. Only an 8-bit immediate value is used in the instruction. This operand is taken modulo 32, so the range of immediate bit offsets is 0..31. This allows any bit within a register to be selected. For memory bit strings, this immediate field gives only the bit offset within a word or doubleword. Immediate bit offsets larger than 31 are supported by using the immediate bit offset field in combination with the displacement field of the memory operand. The low-order 3 to 5 bits of the immediate bit offset are stored in the immediate bit offset field, and the high order 27 to 29 bits are shifted and combined with the byte displacement in the addressing mode.
+> 
+> When accessing a bit in memory, the processor may access four bytes starting from the memory address given by:
+> 
+>     Effective Address + (4 * (BitOffset DIV 32))
+> 
+> for a 32-bit operand size, or two bytes starting from the memory address given by:
+> 
+>     Effective Address + (2 * (BitOffset DIV 16))
+> 
+> for a 16-bit operand size. It may do this even when only a single byte needs to be accessed in order to get at the given bit. Thus the programmer must be careful to avoid referencing areas of memory close to address space holes. In particular, avoid references to memory-mapped I/O registers. Instead, use the [MOV](#IC_MOV) instructions to load from or store to these addresses, and use the register form of these instructions to manipulate the data.
 
 * * *
 
@@ -9911,8 +9915,8 @@ FF  /3    CALL m16:32      5 + ts         Call to task
 注：此表在 CHM 版本混排到了以上指令码表，PDF 版本并无此混排。
 
 > [!NOTE]
-
-Values of ts are given by the following table:
+> 
+> Values of ts are given by the following table:
 
 ```sh
                              New Task
@@ -10165,8 +10169,8 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-Any far call from a 32-bit code segment to 16-bit code segments should be made from the first 64K bytes of the 32-bit code segment, since the operand-size attribute of the instruction is set to 16, thus allowing only a 16-bit return address offset to be saved.
+> 
+> Any far call from a 32-bit code segment to 16-bit code segments should be made from the first 64K bytes of the 32-bit code segment, since the operand-size attribute of the instruction is set to 16, thus allowing only a 16-bit return address offset to be saved.
 
 * * *
 
@@ -10873,12 +10877,11 @@ ELSE
    quotient := temp;
    remainder := dividend MOD (r/m);
 FI;
-
+```
 
 > [!NOTE]
-
-Divisions are unsigned. The divisor is given by the r/m operand. The dividend, quotient, and remainder use implicit registers. Refer to the table under "Description"_
-```
+> 
+> Divisions are unsigned. The divisor is given by the r/m operand. The dividend, quotient, and remainder use implicit registers. Refer to the table under "Description".
 
 Description
 -----------
@@ -11066,22 +11069,22 @@ ELSE
    quotient := temp;
    remainder := dividend MOD (r/m);
 FI;
-
+```
 
 > [!NOTE]
+> 
+> Divisions are signed. The divisor is given by the r/m operand. The dividend, quotient, and remainder use implicit registers. Refer to the table under "Description".
 
-Divisions are signed. The divisor is given by the r/m operand. The dividend, quotient, and remainder use implicit registers. Refer to the table under "Description"_
-```
 
 Description
 -----------
 
 IDIV performs a signed division. The dividend, quotient, and remainder are implicitly allocated to fixed registers. Only the divisor is given as an explicit r/m operand. The type of the divisor determines which registers to use as follows:
 
-Size     Divisor    Quotient    Remainder  Dividend
-byte     r/m8        AL           AH       AX
-word     r/m16       AX           DX       DX:AX
-dword    r/m32       EAX          EDX      EDX:EAX
+    Size     Divisor    Quotient    Remainder  Dividend
+    byte     r/m8        AL           AH       AX
+    word     r/m16       AX           DX       DX:AX
+    dword    r/m32       EAX          EDX      EDX:EAX
 
 If the resulting quotient is too large to fit in the destination, or if the division is 0, an Interrupt 0 is generated. Nonintegral quotients are truncated toward 0. The remainder has the same sign as the dividend and the absolute value of the remainder is always less than the absolute value of the divisor.
 
@@ -11138,16 +11141,16 @@ F7  /5      IMUL r/m32             9-38/12-41  EDX:EAX        := EAX * r/m dword
 
 
 > [!NOTE]
-
-The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
-
-```sh
-  Actual clock = if m <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks  
-  Actual clock = if m = 0 then 9 clocks   
-  (where m is the multiplier)
-```
-
-Add three clocks if the multiplier is a memory operand._
+> 
+> The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
+> 
+> ```sh
+>   Actual clock = if m <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks  
+>   Actual clock = if m = 0 then 9 clocks   
+>   (where m is the multiplier)
+> ```
+> 
+> Add three clocks if the multiplier is a memory operand.
 
 Operation
 ---------
@@ -11218,9 +11221,9 @@ ED        IN EAX,DX     13,pm=7*/27**     Input dword from port DX into EAX
 ```
 
 > [!NOTE]
-
-     *  If CPL <= IOPL
-    **  If CPL > IOPL or if in virtual 8086 mode
+> 
+>      *  If CPL <= IOPL
+>     **  If CPL > IOPL or if in virtual 8086 mode
 
 Operation
 ---------
@@ -11332,9 +11335,9 @@ Opcode  Instruction    Clocks         Description
 ```
 
 > [!NOTE]
-
-     *If CPL <= IOPL
-    **If CPL > IOPL or if in virtual 8086 mode
+> 
+>      * If CPL <= IOPL
+>     ** If CPL > IOPL or if in virtual 8086 mode
 
 Operation
 ---------
@@ -11433,24 +11436,24 @@ CE        INTO         ts              Interrupt 4--Protected Mode, via task gat
 ```
 
 > [!NOTE]
-
-Approximate values of ts are given by the following table:
-
-```sh
-|             |                 New Task                 |
-|-------------|------------------------------------------|
-| Old Task    |   386 TSS   |    386 TSS    |   286 TSS  |
-|             |   VM = 0    |    VM = 1     |            |
-|-------------|------------------------------------------|
-| 386         |             |               |            |
-| TSS VM=0    |     309     |      226      |     282    |
-|-------------|------------------------------------------|
-| 386         |             |               |            |
-| TSS VM=1    |     314     |      231      |     287    |
-|-------------|------------------------------------------|
-| 286         |             |               |            |
-| TSS         |     307     |      224      |     280    |
-```
+> 
+> Approximate values of ts are given by the following table:
+> 
+> ```sh
+> |             |                 New Task                 |
+> |-------------|------------------------------------------|
+> | Old Task    |   386 TSS   |    386 TSS    |   286 TSS  |
+> |             |   VM = 0    |    VM = 1     |            |
+> |-------------|------------------------------------------|
+> | 386         |             |               |            |
+> | TSS VM=0    |     309     |      226      |     282    |
+> |-------------|------------------------------------------|
+> | 386         |             |               |            |
+> | TSS VM=1    |     314     |      231      |     287    |
+> |-------------|------------------------------------------|
+> | 286         |             |               |            |
+> | TSS         |     307     |      224      |     280    |
+> ```
 
 Operation
 ---------
@@ -11934,43 +11937,30 @@ IC: Jcc -- Jump if Condition is Met
 ```sh
 Opcode         Instruction       Clocks   Description
 
-77  cb         JA rel8           7+m,3    Jump short if above (CF=0 and
-                                          ZF=0)
-73  cb         JAE rel8          7+m,3    Jump short if above or equal
-                                          (CF=0)
+77  cb         JA rel8           7+m,3    Jump short if above (CF=0 and ZF=0)
+73  cb         JAE rel8          7+m,3    Jump short if above or equal (CF=0)
 72  cb         JB rel8           7+m,3    Jump short if below (CF=1)
-76  cb         JBE rel8          7+m,3    Jump short if below or equal
-                                          (CF=1 or ZF=1)
+76  cb         JBE rel8          7+m,3    Jump short if below or equal (CF=1 or ZF=1)
 72  cb         JC rel8           7+m,3    Jump short if carry (CF=1)
 E3  cb         JCXZ rel8         9+m,5    Jump short if CX register is 0
 E3  cb         JECXZ rel8        9+m,5    Jump short if ECX register is 0
 74  cb         JE rel8           7+m,3    Jump short if equal (ZF=1)
 74  cb         JZ rel8           7+m,3    Jump short if 0 (ZF=1)
-7F  cb         JG rel8           7+m,3    Jump short if greater (ZF=0 and
-                                          SF=OF)
-7D  cb         JGE rel8          7+m,3    Jump short if greater or equal
-                                          (SF=OF)
+7F  cb         JG rel8           7+m,3    Jump short if greater (ZF=0 and SF=OF)
+7D  cb         JGE rel8          7+m,3    Jump short if greater or equal (SF=OF)
 7C  cb         JL rel8           7+m,3    Jump short if less (SF<>OF)
-7E  cb         JLE rel8          7+m,3    Jump short if less or equal
-                                          (ZF=1 and SF<>OF)
-76  cb         JNA rel8          7+m,3    Jump short if not above (CF=1 or
-                                          ZF=1)
-72  cb         JNAE rel8         7+m,3    Jump short if not above or equal
-                                          (CF=1)
+7E  cb         JLE rel8          7+m,3    Jump short if less or equal (ZF=1 and SF<>OF)
+76  cb         JNA rel8          7+m,3    Jump short if not above (CF=1 or ZF=1)
+72  cb         JNAE rel8         7+m,3    Jump short if not above or equal (CF=1)
 73  cb         JNB rel8          7+m,3    Jump short if not below (CF=0)
-77  cb         JNBE rel8         7+m,3    Jump short if not below or equal
-                                          (CF=0 and ZF=0)
+77  cb         JNBE rel8         7+m,3    Jump short if not below or equal (CF=0 and ZF=0)
 73  cb         JNC rel8          7+m,3    Jump short if not carry (CF=0)
 75  cb         JNE rel8          7+m,3    Jump short if not equal (ZF=0)
-7E  cb         JNG rel8          7+m,3    Jump short if not greater (ZF=1
-                                          or SF<>OF)
-7C  cb         JNGE rel8         7+m,3    Jump short if not greater or
-                                          equal (SF<>OF)
+7E  cb         JNG rel8          7+m,3    Jump short if not greater (ZF=1 or SF<>OF)
+7C  cb         JNGE rel8         7+m,3    Jump short if not greater or equal (SF<>OF)
 7D  cb         JNL rel8          7+m,3    Jump short if not less (SF=OF)
-7F  cb         JNLE rel8         7+m,3    Jump short if not less or equal
-                                          (ZF=0 and SF=OF)
-71  cb         JNO rel8          7+m,3    Jump short if not overflow
-                                          (OF=0)
+7F  cb         JNLE rel8         7+m,3    Jump short if not less or equal (ZF=0 and SF=OF)
+71  cb         JNO rel8          7+m,3    Jump short if not overflow (OF=0)
 7B  cb         JNP rel8          7+m,3    Jump short if not parity (PF=0)
 79  cb         JNS rel8          7+m,3    Jump short if not sign (SF=0)
 75  cb         JNZ rel8          7+m,3    Jump short if not zero (ZF=0)
@@ -11980,39 +11970,27 @@ E3  cb         JECXZ rel8        9+m,5    Jump short if ECX register is 0
 7B  cb         JPO rel8          7+m,3    Jump short if parity odd (PF=0)
 78  cb         JS rel8           7+m,3    Jump short if sign (SF=1)
 74  cb         JZ rel8           7+m,3    Jump short if zero (ZF = 1)
-0F  87 cw/cd   JA rel16/32       7+m,3    Jump near if above (CF=0 and
-                                          ZF=0)
-0F  83 cw/cd   JAE rel16/32      7+m,3    Jump near if above or equal
-                                          (CF=0)
+0F  87 cw/cd   JA rel16/32       7+m,3    Jump near if above (CF=0 and ZF=0)
+0F  83 cw/cd   JAE rel16/32      7+m,3    Jump near if above or equal (CF=0)
 0F  82 cw/cd   JB rel16/32       7+m,3    Jump near if below (CF=1)
-0F  86 cw/cd   JBE rel16/32      7+m,3    Jump near if below or equal
-                                          (CF=1 or ZF=1)
+0F  86 cw/cd   JBE rel16/32      7+m,3    Jump near if below or equal (CF=1 or ZF=1)
 0F  82 cw/cd   JC rel16/32       7+m,3    Jump near if carry (CF=1)
 0F  84 cw/cd   JE rel16/32       7+m,3    Jump near if equal (ZF=1)
 0F  84 cw/cd   JZ rel16/32       7+m,3    Jump near if 0 (ZF=1)
-0F  8F cw/cd   JG rel16/32       7+m,3    Jump near if greater (ZF=0 and
-                                          SF=OF)
-0F  8D cw/cd   JGE rel16/32      7+m,3    Jump near if greater or equal
-                                          (SF=OF)
+0F  8F cw/cd   JG rel16/32       7+m,3    Jump near if greater (ZF=0 and SF=OF)
+0F  8D cw/cd   JGE rel16/32      7+m,3    Jump near if greater or equal (SF=OF)
 0F  8C cw/cd   JL rel16/32       7+m,3    Jump near if less (SF<>OF)
-0F  8E cw/cd   JLE rel16/32      7+m,3    Jump near if less or equal (ZF=1
-                                          and SF<>OF)
-0F  86 cw/cd   JNA rel16/32      7+m,3    Jump near if not above (CF=1 or
-                                          ZF=1)
-0F  82 cw/cd   JNAE rel16/32     7+m,3    Jump near if not above or equal
-                                          (CF=1)
+0F  8E cw/cd   JLE rel16/32      7+m,3    Jump near if less or equal (ZF=1 and SF<>OF)
+0F  86 cw/cd   JNA rel16/32      7+m,3    Jump near if not above (CF=1 or ZF=1)
+0F  82 cw/cd   JNAE rel16/32     7+m,3    Jump near if not above or equal (CF=1)
 0F  83 cw/cd   JNB rel16/32      7+m,3    Jump near if not below (CF=0)
-0F  87 cw/cd   JNBE rel16/32     7+m,3    Jump near if not below or equal
-                                          (CF=0 and ZF=0)
+0F  87 cw/cd   JNBE rel16/32     7+m,3    Jump near if not below or equal (CF=0 and ZF=0)
 0F  83 cw/cd   JNC rel16/32      7+m,3    Jump near if not carry (CF=0)
 0F  85 cw/cd   JNE rel16/32      7+m,3    Jump near if not equal (ZF=0)
-0F  8E cw/cd   JNG rel16/32      7+m,3    Jump near if not greater (ZF=1
-                                          or SF<>OF)
-0F  8C cw/cd   JNGE rel16/32     7+m,3    Jump near if not greater or
-                                          equal (SF<>OF)
+0F  8E cw/cd   JNG rel16/32      7+m,3    Jump near if not greater (ZF=1 or SF<>OF)
+0F  8C cw/cd   JNGE rel16/32     7+m,3    Jump near if not greater or equal (SF<>OF)
 0F  8D cw/cd   JNL rel16/32      7+m,3    Jump near if not less (SF=OF)
-0F  8F cw/cd   JNLE rel16/32     7+m,3    Jump near if not less or equal
-                                          (ZF=0 and SF=OF)
+0F  8F cw/cd   JNLE rel16/32     7+m,3    Jump near if not less or equal (ZF=0 and SF=OF)
 0F  81 cw/cd   JNO rel16/32      7+m,3    Jump near if not overflow (OF=0)
 0F  8B cw/cd   JNP rel16/32      7+m,3    Jump near if not parity (PF=0)
 0F  89 cw/cd   JNS rel16/32      7+m,3    Jump near if not sign (SF=0)
@@ -12027,8 +12005,8 @@ E3  cb         JECXZ rel8        9+m,5    Jump short if ECX register is 0
 
 
 > [!NOTE]
-
-_The first clock count is for the true condition (branch taken); the second clock count is for the false condition (branch not taken). rel16/32 indicates that these instructions map to two; one with a 16-bit relative displacement, the other with a 32-bit relative displacement, depending on the operand-size attribute of the instruction._
+> 
+> _The first clock count is for the true condition (branch taken); the second clock count is for the false condition (branch not taken). rel16/32 indicates that these instructions map to two; one with a 16-bit relative displacement, the other with a 32-bit relative displacement, depending on the operand-size attribute of the instruction._
 
 Operation
 ---------
@@ -12130,25 +12108,25 @@ FF  /5    JMP m16:32      5 + ts          Jump via task gate
 ```
 
 > [!NOTE]
-
-Values of ts are given by the following table:
-
-```sh
-|          |           |    New Task    |           |
-|==========|===========|================|===========|
-|          |  386 TSS  |    386 TASK    |  286 TSS  |
-|          |  VM = 0   |     VM = 1     |           |
-|----------|----------------------------------------|
-| Old Task |             Via Task Gate?             |
-|----------|----------------------------------------|
-|          |  N  |  Y  |   N   |   Y    |  N     Y  |
-| 386      |     |     |       |        |           |
-| TSS VM=0 | 303 | 312 |  220  |  229   | 276   285 |
-|----------|-----|-----|------ |--------|-----------|
-| 286      |     |     |       |        |           |
-| TSS      | 301 | 310 |  218  |  227   | 274   283 |
-|----------|-----|-----|------ |--------|-----------|
-```
+> 
+> Values of ts are given by the following table:
+> 
+> ```sh
+> |          |           |    New Task    |           |
+> |==========|===========|================|===========|
+> |          |  386 TSS  |    386 TASK    |  286 TSS  |
+> |          |  VM = 0   |     VM = 1     |           |
+> |----------|----------------------------------------|
+> | Old Task |             Via Task Gate?             |
+> |----------|----------------------------------------|
+> |          |  N  |  Y  |   N   |   Y    |  N     Y  |
+> | 386      |     |     |       |        |           |
+> | TSS VM=0 | 303 | 312 |  220  |  229   | 276   285 |
+> |----------|-----|-----|------ |--------|-----------|
+> | 286      |     |     |       |        |           |
+> | TSS      | 301 | 310 |  218  |  227   | 274   283 |
+> |----------|-----|-----|------ |--------|-----------|
+> ```
 
 Operation
 ---------
@@ -12653,8 +12631,8 @@ Real Address Mode Exceptions
 
 
 > [!NOTE]
-
-These instructions are valid in Real Address Mode to allow power-up initialization for Protected Mode_
+> 
+> These instructions are valid in Real Address Mode to allow power-up initialization for Protected Mode_
 
 Virtual 8086 Mode Exceptions
 ----------------------------
@@ -12817,8 +12795,8 @@ Virtual 8086 Mode Exceptions
 
 
 > [!NOTE]
-
-The operand-size attribute has no effect on this instruction._
+> 
+> The operand-size attribute has no effect on this instruction._
 
 * * *
 
@@ -12870,8 +12848,8 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-The operand-size attribute has no effect on this instruction. This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) CR0, ... instead.
+> 
+> The operand-size attribute has no effect on this instruction. This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) CR0, ... instead.
 
 * * *
 
@@ -13198,8 +13176,8 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode
 
 > [!NOTE]
-
-The operand-size attribute has no effect on this instruction.
+> 
+> The operand-size attribute has no effect on this instruction.
 
 * * *
 
@@ -13237,8 +13215,8 @@ C7       MOV r/m32,imm32   2/2           Move immediate dword to r/m dword
 
 
 > [!NOTE]
-
-_moffs8, moffs16, and moffs32 all consist of a simple offset relative to the segment base. The 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits._
+> 
+> _moffs8, moffs16, and moffs32 all consist of a simple offset relative to the segment base. The 8, 16, and 32 refer to the size of the data. The address-size attribute of the instruction determines the size of the offset, either 16 or 32 bits._
 
 Operation
 ---------
@@ -13383,10 +13361,10 @@ Virtual 8086 Mode Exceptions
 `#GP(0)` if instruction execution is attempted
 
 > [!NOTE]
-
-The instructions must be executed at privilege level 0 or in real-address mode; otherwise, a protection exception will be raised.
-
-The reg field within the ModRM byte specifies which of the special registers in each category is involved. The two bits in the field are always 11. The r/m field specifies the general register involved.
+> 
+> The instructions must be executed at privilege level 0 or in real-address mode; otherwise, a protection exception will be raised.
+> 
+> The reg field within the ModRM byte specifies which of the special registers in each category is involved. The two bits in the field are always 11. The r/m field specifies the general register involved.
 
 * * *
 
@@ -13586,16 +13564,16 @@ F7  /4  MUL EAX,r/m32   9-38/12-41   Unsigned multiply (EDX:EAX := EAX * r/m dwo
 
 
 > [!NOTE]
-
-The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative multiplier values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
-
-```sh
-    Actual clock = if  <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks;
-
-    Actual clock = if  = 0 then 9 clocks
-```
-
-where m is the multiplier.
+> 
+> The 80386 uses an early-out multiply algorithm. The actual number of clocks depends on the position of the most significant bit in the optimizing multiplier, shown underlined above. The optimization occurs for positive and negative multiplier values. Because of the early-out algorithm, clock counts given are minimum to maximum. To calculate the actual clocks, use the following formula:
+> 
+> ```sh
+>     Actual clock = if  <> 0 then max(ceiling(log{2}(m)), 3) + 6 clocks;
+> 
+>     Actual clock = if  = 0 then 9 clocks
+> ```
+> 
+> where m is the multiplier.
 
 Operation
 ---------
@@ -13875,9 +13853,9 @@ EF        OUT DX,EAX      11,pm=5*/25**   Output dword AL to port number
 ```
 
 > [!NOTE]
-
-     *If CPL <= IOPL
-    **If CPL > IOPL or if in virtual 8086 mode_
+> 
+>      * If CPL <= IOPL
+>     ** If CPL > IOPL or if in virtual 8086 mode_
 
 Operation
 ---------
@@ -13938,9 +13916,9 @@ Opcode   Instruction     Clocks          Description
 ```
 
 > [!NOTE]
-
-     *If CPL <= IOPL
-    **If CPL > IOPL or if in virtual 8086 mode_
+> 
+>      * If CPL <= IOPL
+>     ** If CPL > IOPL or if in virtual 8086 mode
 
 Operation
 ---------
@@ -14716,8 +14694,8 @@ Virtual 8086 Mode Exceptions
 `#UD` if a repeat prefix is used before an instruction that is not in the list above; further exceptions can be generated when the string operation is executed; refer to the descriptions of the string instructions themselves
 
 > [!NOTE]
-
-Not all input/output ports can handle the rate at which the REP [INS](#IC_INS) and REP [OUTS](#IC_OUTS) instructions execute.
+> 
+> Not all input/output ports can handle the rate at which the REP [INS](#IC_INS) and REP [OUTS](#IC_OUTS) instructions execute.
 
 * * *
 
@@ -15397,8 +15375,8 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 <!-- Compatability Note -->
 > [!NOTE]
-
-The 16-bit forms of the SGDT/SIDT instructions are compatible with the 80286, if the value in the upper eight bits is not referenced. The 80286 stores 1's in these upper bits, whereas the 80386 stores 0's if the operand-size attribute is 16 bits. These bits were specified as undefined by the SGDT/SIDT instructions in the iAPX 286 Programmer's Reference Manual.
+> 
+> The 16-bit forms of the SGDT/SIDT instructions are compatible with the 80286, if the value in the upper eight bits is not referenced. The 80286 stores 1's in these upper bits, whereas the 80386 stores 0's if the operand-size attribute is 16 bits. These bits were specified as undefined by the SGDT/SIDT instructions in the iAPX 286 Programmer's Reference Manual.
 
 * * *
 
@@ -15614,8 +15592,8 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-The operand-size attribute has no effect on the operation of the instruction.
+> 
+> The operand-size attribute has no effect on the operation of the instruction.
 
 * * *
 
@@ -15666,8 +15644,8 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 > [!NOTE]
-
-This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) ..., CR0.
+> 
+> This instruction is provided for compatibility with the 80286; 80386 programs should use [MOV](#IC_MOVRS) ..., CR0.
 
 * * *
 
@@ -15949,8 +15927,8 @@ Virtual 8086 Mode Exceptions
 Same exceptions as in Real Address Mode
 
 > [!NOTE]
-
-The operand-size attribute has no effect on this instruction.
+> 
+> The operand-size attribute has no effect on this instruction.
 
 * * *
 
@@ -16883,8 +16861,8 @@ XOR                    0    M    M    --   M    0
 
 
 > [!NOTE]
-
-The terms "above" and "below" refer to the relation between two unsigned values (neither SF nor OF is tested). The terms "greater" and "less" refer to the relation between two signed values (SF and OF are tested).
+> 
+> The terms "above" and "below" refer to the relation between two unsigned values (neither SF nor OF is tested). The terms "greater" and "less" refer to the relation between two signed values (SF and OF are tested).
 
 ### Definition of Conditions
 
