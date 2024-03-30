@@ -2,6 +2,10 @@
 ============================================
 1. RegularSelection 正则多选区插件 https://www.bilibili.com/read/cv27461476
 2. Intel 80386 Reference Programmer's Manual https://pdos.csail.mit.edu/6.828/2016/readings/i386/toc.htm
+2. CIS-77 Introduction to Computer Systems http://www.c-jump.com/CIS77/CIS77syllabus.htm
+2. 國立臺灣大學 Computer Organization and Assembly Languages https://www.csie.ntu.edu.tw/~cyy/courses/assembly/12fall/news/
+3. x86 Instruction Set Reference https://github.com/fay59/x86doc
+4. Intel® Intrinsics Guide https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html
 
 <!-- └┘┌┐│─ ↑↓↕←→ ↔ ↱↰↲↳↶↷↩↪ -->
 MD DATE: 2024/03/28
@@ -87,20 +91,51 @@ JumpTo 插件与 RegularSelection 同一代码仓库，安装指导参考 [Readm
 的关联属性要求泛读、速读，这必然要涉及多种材料之间的切换。传统的书籍需要目录、书签，可能还配备
 读书笔记，其目的就是要人为地建立**信息的索引数据库**，这也就是图书馆电子化的意义所在：
 丰富的材料储备、高效的索引数据库！对于一个私有电子图书馆，拥有建立高效能的索引技术远比拥有
-成千上万 GB 数据来得更重要。拥有高效索引，整个互联网络就是电子图书存储仓库！
+成千上万 GB 数据来得更重要。拥有高效索引，整个互联网络就是电子图书存储仓库！人类大脑的工作
+模式决定了学习这件事不是轻而易举可以获得，大脑对短时接触到的东西，并不会分配大量的大脑皮层
+工作去作永久的记录，而暂时保管在海马体。在经过频繁、多次数的重复后，海马体中的临时记忆会
+逐渐在皮层发展出记忆神经网络，并随着重复的时间、次数的保持而丰富记忆神经网络。
 
-“开放电子图书馆” [OpenDocs](https://github.com/Jeangowhy/opendocs) 的一切都在以下信息技术或软件中得到满足：
+大脑中的记忆不是单独的信息，是富有联系的信号的叠加，这些叠加的成分可以是温度、情绪感觉，视觉、
+想象、触觉、味觉等等可以输入大脑中的信号，当某些信息的记忆网络越丰富，那么记忆就越牢固。这种
+现象就好像大脑在给某种信息做了一个大型的信息索引。因此，古人所说的“一目十行”并不是务虚，
+而是非常有效的学习指导。现代英语专业的泛读课程就有这种指导思想的影子：尽量快速的接触大量的
+新鲜信号，并且按经验以适当的周期重复这些信号，并且可以配合不同的环境进行，以求尽量形成丰富的
+有联系的记忆网络。这里使用信号指大脑接收到的各种感官传导到大脑的信号，不特指文字信息。
+这个重复的过程并不是机械的，而需要有深度的重试，并且要尝试解决这个过程中出现的一些难题。
+
+这种方法中的要素有以下几个：
+
+*   大量新新鲜信号，刺激海马体，形成短期记忆；
+    这时不求甚解，因为就算是盯着一个字看，大脑也不会因为你花了一个小时、两个小时而永远记得它。
+    这与大脑皮层物质结构（记忆网络）的改变有直接关系，不能一蹴而就。而是提高数量，以求远期的高效率；
+
+*   选择合适的难题，不要刻意求深度，而忽视自己的能力基础。
+    大量的难题意味着它们彼此几乎没有任何联系，这一点直接与记忆需要联系相违背。
+
+*   要尝试解决遇到的难题，不要回避。
+    新的难题可能意味着突破，是形成新知识的关系所在。在合适难度的基础上，攻克难题就是最大的收获。
+
+“开放电子图书馆” [OpenDocs](https://github.com/Jeangowhy/opendocs) 的一切都在
+以下信息技术或软件中得到满足，它们本身也具有丰富的联系（对于本人），所以这些信息早已默会，
+不言而喻：
 
 01. Sublime Text 高效的文档、编程工具，提供高效的索引跳转功能，可按需定制（JumpTo）跳转插件。
 02. Git/Github 分别是高效的版本管理、代码（文档）托管网站，Github Pages 可免费建站（静态页面）。
 03. Msys64/MinGW 移植到 Windows 平台下的、可替代 WSL 调用 Linux 通用软件的平台。
-04. GNU Info format 开源文档格式，可转换成近似文本的 Texinfo 可阅读文档，使用 [info](../info/texinfo.info) 命令或者 Emacs 阅读。这是 GNU 官方文档格式，替代旧的 MAN 格式。
+04. GNU Info format 开源文档格式，可转换成近似文本的 Texinfo 可阅读文档。
+    使用独立阅读器 [info](../info/texinfo.info) 命令或者 Emacs 阅读。
+    这是 GNU 官方文档格式，替代旧的 MAN 格式，操作更方便。
+    比如，要阅读 GNU 汇编程序文档，GNU assembler ‘as’ (GNU Binutils)，
+    就可以执行 `info as` 命令，也可以导出到文件，`info as > as.info`。
 05. Markdown 文档是简化标签的文本文档格式，简单易用，兼容 HTML，容易实现文档目录结构。
-06. [reStructuredText](../reStructuredText.rst) 纯文本标签化文档，语法功能比 [Markdown](../markdown.md) 更丰富，即标增加签约语法束。
+06. [reStructuredText](../reStructuredText.rst) 纯文本标签化文档，
+    语法功能比 [Markdown](../markdown.md) 更丰富，即标增加签约语法束。
 07. LaTeX 专业排版语言，纯文本语法元素，但不适合直接阅，适用于专业出版物的排版。
 08. Pandoc 专业的文档格式转换工具，实现多种格式的互转换。
 09. LSP - Language Server Protocol 程序语言服务器协议，为各种编程软件工作提供智提示信息。
-10. [Deno](../deno_docs_1.38.2.md) 一个 [TypeScript](../ts_docs.md) 语言运行时，非常方便地编写静态类型的脚本程序，用于辅助处理文档数据。比如 [HTML2MD](../html2md.ts) 转换脚本。
+10. [Deno](../deno_docs_1.38.2.md) 一个 [TypeScript](../ts_docs.md) 语言运行时，
+    非常方便地编写静态类型的脚本程序，用于辅助处理文档数据。比如 [HTML2MD](../html2md.ts) 转换脚本。
 11. [Bash](../bash.5.1.md) 脚本解释器、sed 流式编辑器、awk 结构化数据编辑器，常用于文档数据处理。
     比如 [combine](../combine) 这个脚本，使用 sed awk 合并文档章节文件，包括合并本地资源，
     或者公网供应的资源，例如：
@@ -117,18 +152,154 @@ JumpTo 插件与 RegularSelection 同一代码仓库，安装指导参考 [Readm
 MIT 6.828: Operating System Engineering 课程网站就是相应的 HTML 格式文档。
 此手册出版于 1987 年，属于过时文档，当然它的 x86 架构当前依然适用于入门，并且手册内容更精简，
 相比现代完全的 Intel Architecture CPU 文档，动辄几千页的内容，阅读起来压力太大。
-https://pdos.csail.mit.edu/6.828/2016/reference.html
 
-IA-32 Intel Architecture Software Developer's Manuals, Intel, 2007:
+Intel® 64 and IA-32 Architectures Software Developer’s Manual, April 2021:
 
-1. Volume I: Basic Architecture
-2. Volume 2A: Instruction Set Reference, A-M
-3. Volume 2B: Instruction Set Reference, N-Z
-4. Volume 3A: System Programming Guide, Part 1
-5. Volume 3B: System Programming Guide, Part 2
+1. Volume 1: Basic Architecture **502 pages 6.0MB**
+2. Volume 2 (2A, 2B, 2C & 2D): Instruction Set Reference, A-Z **2348 pages 21MB**
+3. Volume 3 (3A, 3B, 3C & 3D): System Programming Guide **1774 pages 20MB**
+4. Volume 4: Model-Specific Registers **490 pages 7.6MB**
 
 Intel 80386 Reference Programmer's Manual 电子文档也可以从大学公开课网站上查询得到。
-印刷版于 1986 年出版，16开，总共 421 页。
+印刷版于 1986 年出版，16开，总共 421 页。新版本的手册内容基于 Intel® 64 和 IA-32 两种
+CPU 构架，合辑有四卷，总共有 5114 页的内容，比 i386 手册大了十倍不止。文档从 1MB 容量，
+增长到 50MB 水平。官方也提供 Intel® Intrinsics Guide 指令查询工具，将指令数据集中使用
+XML 结构化文档进行记录，并通过 Web 应用界面提供指令集查询服务，最新版本文件有 6.4 MB 容量。
+https://www.intel.com/content/dam/develop/public/us/en/include/intrinsics-guide/data-3-6-7.xml
+
+CPU 发展也从 1978 年的 4-bit 4004 CPU 发展到现代的 32-bit/64-bit 多核心、高性能 CPU。
+CPU 工艺从 10000nm 发展到 10nm 以内的水平，工作主频从 KHz 水平到 GHz，是成千上万倍的提升。
+
+| 年代 |   型号   |    工艺水平    | 晶体管 |  字宽  |    内存寻址   |    运行频率    |
+|------|----------|----------------|--------|--------|---------------|----------------|
+| 1971 | 4004     | 10μm (0.001mm) | 2.3k   | 4-bit  | 12-bit (4KB)  | 108 KHz        |
+| 1972 | 8080     | 6μm (6000nm)   | 6k     | 8-bit  | 16-bit (64KB) | 0.5 - 2 MHz    |
+| 1978 | 8086     | 3μm (3000nm)   | 29k    | 16-bit | 20-bit (1MB)  | 4.77 - 10 Mhz  |
+| 1982 | 80286    | 1.5μm (1500nm) | 134k   | 32-bit | 24-bit (16MB) | 6 - 20 MHz     |
+| 1985 | 80386    | 1μm (1000nm)   | 275k   | 32-bit | 32-bit (4GB)  | 12.5 - 33 MHz  |
+| 1989 | 80486    | 1μm (1000nm)   | 1.25M  | 32-bit |               | 16 - 100 MHz   |
+| 1993 | Pentium  | 800nm          | 3.1M   | 32-bit |               | 60 - 66 MHz    |
+| 1999 | P4 / K7  | 180nm          | 9.5M   | 32-bit |               | 500 MHz - 1GHz |
+| 2003 | Athlon64 | 130-65nm       | 105.9B | 64-bit |               | 1.8 - 2.8 GHz  |
+
+不少机器长时间由 80386 处理器担当大脑的角色，比如嵌入式系统、工业电脑和航天航空等领域。
+因此英特尔在很长时间里一直生产 80386 处理器，持续到 2007 年才停产。后期的 80386 处理器
+转入 1μm 工艺制造，频率也提高到 40 MHz。
+
+An Illustrated History of Computers 
+http://www.computersciencelab.com/ComputerHistory/History.htm
+
+
+而作为移动设备的霸主，ARM 无疑是当下的学习首选，它代表的是嵌入式硬件开发的未来方向。
+例如，日本任天堂游戏公司 (Nintendo) 出品的 GameBoy Advance (GBA) 可移植的掌上游戏机，
+其主控芯片就是 32-bit ARM7tdmi CPU，主频 16.78 MHz。
+
+ARM - Advanced RISC Machines 既是一个公司的名字，也这家公司设计的一类微处理器的统称。
+ARM 设计了大量高性能、廉价、耗能低的 RISC 处理器、相关技术及软件，技术具有性能高、成本低、
+能耗小的特点，适用于多种领域，比如嵌入控制、消费/教育类多媒体、DSP 和移动式应用等。
+1991 年 ARM 公司成立于英国剑桥，主要出售芯片设计技术的授权，采用 ARM 技术知识产权 
+IP - Intellectual Property 核微处理器，即通常所说的 ARM 微处理器。作为知识产权供应商，
+ARM 本身不直接从事芯片生产，靠转让设计许可由合作公司生产各具特色的芯片，世界各大半导体
+生产商从 ARM 公司购买其设计的 ARM 微处理器核，根据各自不同的应用领域，加入适当的外围电路，
+从而形成自己的 ARM 微处理器芯片。目前，全世界有几十家大的半导体公司都使用 ARM 公司的授权，
+因此既使得 ARM 技术获得更多的第三方工具、制造、软件的支持，又使整个系统成本降低，
+使产品更容易进入市场被消费者所接受，更具有竞争力。ARM 处理器应用遍及工业控制、
+消费类电子产品、通信系统、网络系统、无线系统等各类产品市场，基于 ARM 技术的微处理器应用
+约占据 32-bit RISC 微处理器 75% 以上的市场份额，ARM 技术正在全面渗入到日常生活。
+
+国内的已有大量厂家获取得 ARM 的授权，如比较早期的华为海思，还有兼容 STM 的兆易 GigaDevice。
+主要生产厂商：TI （德州仪器）/Samsung（三星）/Freescale（飞思卡尔）/Marvell（马维尔）/Nvidia（英伟达）/ Hisilicon 华为海思。
+
+ARM 架构体系版本特点及代表芯片型号
+
+| 架构版本 |                     芯片系列                    |
+|----------|-------------------------------------------------|
+| ARMv1    | ARM1                                            |
+| ARMv2    | ARM2/ARM250/ARM3                                |
+| ARMv3    | ARM6/ARM7                                       |
+| ARMv4    | ARM8 三星 S3C44B0                               |
+| ARMv5    | ARM9 CISC +MMU 三星 S3C2410/S3C2440，Atmel 9260 |
+| ARMv6    | ARM11 CISC MMU                                  |
+| ARMv7    | 2004 年发布架构 Cortex A/R/M  A5/A7/A9/A15/A17  |
+| ARMv8    | 2011 年发布架构 Cortex-A32/A53/A78/X1           |
+| ARMv9    | 2021 年最新架构                                 |
+
+https://www.coranac.com/tonc/text/asm.htm
+
+
+指令集构架 ISA - Instruction Set Architecture 是指 CPU 上执行的所有指令集合，
+指令集包括指令（instructions）程操作数（operands），操作数用于描述指令要操作的数据。
+计算机领域说的指令，可涉及以下四个层次的内涵：
+
+1. 汇编助记符号，Assembly instruction mnemonic, describing the operation: `jmp initialize`
+2. 反汇编指令，Disassembly instruction showing an address: `jmp 0040106E`
+3. 机器码，Machine-level instruction encoding: hex EB 21 (binary 1110101100100001)
+4. 微码，Microcode that implements the correcponding operation inside the CPU.
+
+80286 CPU 开始引入保护地址模式（Protected Address Mode），以及兼容旧 x86 CPU 的虚拟
+8086 模式（Virtual 8086 Mode），还有加电时默认的实地址模式（Real-address mode）。
+
+作为首个引入保护模式的 CPU，在进入保护模式后不能像 80386 那样可以切换回来，除非断电重启。
+MIT 6.828: Operating System Engineering 课程网站提供一个非常棒的课件，图形化演示
+保护模式的转换，Protected-Mode Address Translation。指示了分布内存的两个主要步骤，
+段转译，和分页映射机制。在两年前还做过 [MIT 6.828 课程实验导读](../kernel.md)。
+https://pdos.csail.mit.edu/6.828/2016/lec/x86_translation_and_registers.pdf
+
+Ulrich Drepper 制作了一份 x86 指令编码图 x86 Instruction Encoding Cheat Sheet
+https://www.akkadia.org/drepper/x86-opcode-structure.pdf
+Understanding CPU Caches - What Every Programmer Should Know About Memory
+https://www.akkadia.org/drepper/cpumemory.pdf
+
+下图是 2016 年开始使用 Markdown 写作，《那年声明理解不了定义与初始化》一文中按照，
+Intel 64 和 IA-32 架构软件开发者手册制作的指令结构演示图表。对于多数指令，涉及内存寻址，
+ModR/M 就是用于指示如何寻址的部分，可以称之为**寻址模式码**：
+
+    +-------------------------------------------------------------------+
+    | Prefixes | Opcode |  ModR/M  |   SIB   | Displacement | Immediate |
+    +-------------------------------------------------------------------+
+         |         |         |          |           |             |
+         |         V         |          |           V             |
+         |   1, 2 or 3 bytes |          |  Address displacement   |
+         V                   |          |    1, 2 or 4 bytes      |
+    1 byte each [1], [2]     |          |       or none [3]       V
+                             |          |               Immediate data of
+    +-----------1-byte-------+-----+    |     1, 2, or 4 bytes or none [3]
+    | Mod  | Reg/Opcode|    R/M    |    |
+    +------------------------------+    | +------------1-byte------------+
+      7   6   5   4   3   2   1   0     +-| Scale|    Base   |   Index   |
+                                          +------------------------------+
+      R/M = Register/Memory                 7   6   5   4   3   2   1   0
+    
+    [1] 对于前缀部分，REX 前缀码可选的；VEX 编码信息参考手册第二卷第二章第 3 小节；
+    [2] 对于偏移和立即数部分，有少量指令可以携带 8 字节内容 (8B immediate or 8B displacement)；
+    [3] 除了操作码 Opcode 外，指令的其它部分都是可选的；
+    [4] 来源:Figure 2-1. Intel 64 and IA-32 Architectures Instruction Format
+
+对比旧版手册的图表 [Figure 17-1](#fig17_1) 80386 Instruction Format，显得更直观。
+以下是汇编指令的结构分解图表，一条经典的汇编指令格式按如下的方式编写，汇编指令可以拆解成零件：
+
+    mov word ptr es:[eax + ecx * 8 + 0x11223344], 0x12345678
+        -------- --- ---   ---  --   -----------  ----------
+           |      |   |     |    |        |            |
+           |      |   +-----|----|--------|------------|------> base
+           |      |         |    |        |            |
+           |      |         +----|--------|------------|------> index
+           |      |              |        |            |
+           |      |              +--------|------------|------> scale
+           |      |                       |            |
+           |      V                       +------------|------> displacement
+           V   segment override                        |                   
+       operand-size override                           +------> immediate
+    
+    operand-size override:  66H -- prefix   前缀码，指示操作数的大小
+         segment override:  26H -- prefix   段地址前缀
+                     base:  SIB.base  = 000 基址，和后面紧跟的二者合称为 SIB
+                    index:  SIB.index = 001 索引地址，SIB中的一部分
+                    scale:  SIB.scale = 11  比例因子，可取值 2 4 8等
+             displacement:  44 33 22 11     地址偏移值
+                immediate:  78 56 34 12     立即数，和机器码一起存放的操作数
+
+
 
 HTML 版本和 CHM 版本同源，都是通过 PDF 印刷版本转换而来，所以格式出入较大，内容与原文有出入。
 比如 1.3.3 解释指令语法表达格式的内容中，。示例内容本来是 Assembly 代码，印刷版将代码独立
@@ -1215,7 +1386,7 @@ Tables
 
 --------------------------------------------------------------------------------
 
-<a name="C01"></a>
+<a name="C01"></a> <!-- *Chapter 1* -->
 
 /Chapter 1 -- Introduction to the 80386
 =======================================
@@ -1418,7 +1589,7 @@ In many register and memory layout descriptions, certain bits are marked as unde
 
 * * *
 
-<a name="fig1_1"></a><!-- *fig1_1* -->
+<a name="fig1_1"></a><!-- *fig1_1* -->  <!-- *Figure 1-1* -->
 
 [Figure 1-1. Example Data Structure](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig1-1.gif)
 <!-- 
@@ -1518,15 +1689,15 @@ This manual uses special notation to represent sub- and super-script characters.
 /PART I APPLICATION PROGRAMMING
 ===============================
 
-- [Chapter 2 -- Basic Programming Model](#C02)
-- [Chapter 3 -- Applications Instruction Set](#C03)
+- [Chapter 2](#C02) -- Basic Programming Model
+- [Chapter 3](#C03) -- Applications Instruction Set
 
 * * *
 
 
 * * *
 
-<a name="C02"></a>
+<a name="C02"></a> <!-- *Chapter 2* -->
 
 /Chapter 2 -- Basic Programming Model
 =====================================
@@ -1655,7 +1826,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 
 [Figure 2-4](#fig2_4) graphically summarizes the data types supported by the 80386.
 
-<a name="fig2_1"></a><!-- *fig2_1* -->
+<a name="fig2_1"></a><!-- *fig2_1* -->  <!-- *Figure 2-1* -->
 
 [Figure 2-1. Two-Component Pointer](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-1.gif)
 
@@ -1680,7 +1851,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 
 * * *
 
-<a name="fig2_2"></a><!-- *fig2_2* -->
+<a name="fig2_2"></a><!-- *fig2_2* -->  <!-- *Figure 2-2* -->
 
 [Figure 2-2. Fundamental Data Types](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-2.gif)
 
@@ -1705,7 +1876,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 ```
 * * *
 
-<a name="fig2_3"></a><!-- *fig2_3* -->
+<a name="fig2_3"></a><!-- *fig2_3* -->  <!-- *Figure 2-3* -->
 
 [Figure 2-3. Bytes, Words, and Doublewords in Memory](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-3.gif)
 
@@ -1747,7 +1918,7 @@ Although bytes, words, and doublewords are the fundamental types of operands, th
 ```
 * * *
 
-<a name="fig2_4"></a><!-- *fig2_4* -->
+<a name="fig2_4"></a><!-- *fig2_4* -->  <!-- *Figure 2-4* -->
 
 [Figure 2-4. 80386 Data Types](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-4.gif)
 
@@ -1888,7 +2059,7 @@ Depending on the structure of data (e.g., the way data is parceled into one or m
 
 The processor associates a base address with each segment selected by a segment register. To address an element within a segment, a 32-bit offset is added to the segment's base address. Once a segment is selected (by loading the segment selector into a segment register), a data manipulation instruction only needs to specify the offset. Simple rules define which segment register is used to form an address when only an offset is specified.
 
-<a name="fig2_5"></a><!-- *fig2_5* -->
+<a name="fig2_5"></a><!-- *fig2_5* -->  <!-- *Figure 2-5* -->
 
 [Figure 2-5. 80386 Applications Register Set](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-5.gif)
 
@@ -1941,7 +2112,7 @@ The processor associates a base address with each segment selected by a segment 
 ```
 * * *
 
-<a name="fig2_6"></a><!-- *fig2_6* -->
+<a name="fig2_6"></a><!-- *fig2_6* -->  <!-- *Figure 2-6* -->
 
 [Figure 2-6. Use of Memory Segmentation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-6.gif)
 
@@ -1983,7 +2154,7 @@ Stack operations are facilitated by three registers:
 3.  The **stack-frame base pointer** (EBP) register. 
     The EBP is the best choice of register for accessing data structures, variables and dynamically allocated work space within the stack. EBP is often used to access elements on the stack relative to a fixed point on the stack rather than relative to the current TOS. It typically identifies the base address of the current stack frame established for the current procedure. When EBP is used as the base register in an offset calculation, the offset is calculated automatically in the current stack segment (i.e., the segment currently selected by SS). Because SS does not have to be explicitly specified, instruction encoding in such cases is more efficient. EBP can also be used to index into segments addressable via other segment registers.
 
-<a name="fig2_7"></a><!-- *fig2_7* -->
+<a name="fig2_7"></a><!-- *fig2_7* -->  <!-- *Figure 2-7* -->
 
 [Figure 2-7. 80386 Stack](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-7.gif)
 
@@ -2015,7 +2186,7 @@ The low-order 16 bits of EFLAGS is named FLAGS and can be treated as a unit. Thi
 
 The flags may be considered in three groups: the status flags, the control flags, and the systems flags. Discussion of the systems flags is delayed until Part II.
 
-<a name="fig2_8"></a><!-- *fig2_8* -->
+<a name="fig2_8"></a><!-- *fig2_8* -->  <!-- *Figure 2-8* -->
 
 [Figure 2-8. EFLAGS Register](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-8.gif)
 
@@ -2065,7 +2236,7 @@ The **instruction pointer register** (EIP) contains the offset address, relative
 
 As [Figure 2-9](#fig2_9) shows, the low-order 16 bits of EIP is named IP and can be used by the processor as a unit. This feature is useful when executing instructions designed for the 8086 and 80286 processors.
 
-<a name="fig2_9"></a><!-- *fig2_9* -->
+<a name="fig2_9"></a><!-- *fig2_9* -->  <!-- *Figure 2-9* -->
 
 [Figure 2-9. Instruction Pointer Register](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-9.gif)
 
@@ -2312,7 +2483,7 @@ The **base**, **index**, and **displacement** components may be used in any comb
 
     This combination provides efficient indexing of a two-dimensional array when the elements of the array are 2, 4, or 8 bytes wide.
 
-<a name="fig2_10"></a><!-- *fig2_10* -->
+<a name="fig2_10"></a><!-- *fig2_10* -->  <!-- *Figure 2-10* -->
 
 [Figure 2-10. Effective Address Computation](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig2-10.gif)
 
@@ -2408,7 +2579,7 @@ Table 2-2. 80386 Reserved Exceptions and Interrupts
 
 * * *
 
-<a name="C03"></a>
+<a name="C03"></a> <!-- *Chapter 3* -->
 
 /Chapter 3 Applications Instruction Set
 =======================================
@@ -2476,7 +2647,7 @@ The [XCHG](#IC_XCHG) instruction can swap two byte operands, two word operands, 
 
 [POPA](#IC_POPA) (Pop All Registers) restores the registers saved on the stack by [PUSHA](#IC_PUSHA), except that it ignores the saved value of ESP. See [Figure 3-4](#fig3_4).
 
-<a name="fig3_1"></a><!-- *fig3_1* -->
+<a name="fig3_1"></a><!-- *fig3_1* -->  <!-- *Figure 3-1* -->
 
 [Figure 3-1. PUSH](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-1.gif)
 
@@ -2501,7 +2672,7 @@ The [XCHG](#IC_XCHG) instruction can swap two byte operands, two word operands, 
 
 * * *
 
-<a name="fig3_2"></a><!-- *fig3_2* -->
+<a name="fig3_2"></a><!-- *fig3_2* -->  <!-- *Figure 3-2* -->
 
 [Figure 3-2. PUSHA](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-2.gif)
 
@@ -2560,7 +2731,7 @@ There are two classes of type conversion instructions:
 
 [MOVZX](#IC_MOVZX) (Move with Zero Extension) extends an 8-bit value to a 16-bit value and an 8- or 16-bit value to 32-bit value by inserting high-order zeros.
 
-<a name="fig3_3"></a><!-- *fig3_3* -->
+<a name="fig3_3"></a><!-- *fig3_3* -->  <!-- *Figure 3-3* -->
 
 [Figure 3-3. POP](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-3.gif)
 
@@ -2585,7 +2756,7 @@ There are two classes of type conversion instructions:
 
 * * *
 
-<a name="fig3_4"></a><!-- *fig3_4* -->
+<a name="fig3_4"></a><!-- *fig3_4* -->  <!-- *Figure 3-4* -->
 
 [Figure 3-4. POPA](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-4.gif)
 
@@ -2622,7 +2793,7 @@ There are two classes of type conversion instructions:
 
 * * *
 
-<a name="fig3_5"></a><!-- *fig3_5* -->
+<a name="fig3_5"></a><!-- *fig3_5* -->  <!-- *Figure 3-5* -->
 
 [Figure 3-5. Sign Extension](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-5.gif)
 
@@ -2869,7 +3040,7 @@ Even though this instruction can be used to divide integers by a power of two, t
 
 The code sequence in [Figure 3-9](#fig3_9) produces the same result as [IDIV](#IC_IDIV) for any M = 2^(N), where 0 < N < 32. This sequence takes about 12 to 18 clocks, depending on whether the jump is taken; if ECX contains M, the corresponding [IDIV](#IC_IDIV) ECX instruction will take about 43 clocks.
 
-<a name="fig3_6"></a><!-- *fig3_6* -->
+<a name="fig3_6"></a><!-- *fig3_6* -->  <!-- *Figure 3-6* -->
 
 [Figure 3-6. SAL and SHL](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-6.gif)
 
@@ -2890,7 +3061,7 @@ WORD, AND DOUBLEWORD OPERANDS.
 
 * * *
 
-<a name="fig3_7"></a><!-- *fig3_7* -->
+<a name="fig3_7"></a><!-- *fig3_7* -->  <!-- *Figure 3-7* -->
 
 [Figure 3-7. SHR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-7.gif)
 
@@ -2909,7 +3080,7 @@ THE RIGHT OF THE OPERAND. SHR SHIFTS IN ZEROS TO FILL THE VACATED BIT
 LOCATIONS.
 * * *
 
-<a name="fig3_8"></a><!-- *fig3_8* -->
+<a name="fig3_8"></a><!-- *fig3_8* -->  <!-- *Figure 3-8* -->
 
 [Figure 3-8. SAR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-8.gif)
 
@@ -2926,7 +3097,7 @@ LOCATIONS.
 ```
 * * *
 
-<a name="fig3_9"></a><!-- *fig3_9* -->
+<a name="fig3_9"></a><!-- *fig3_9* -->  <!-- *Figure 3-9* -->
 
 [Figure 3-9. Using SAR to Simulate IDIV](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-9.gif)
 
@@ -2976,7 +3147,7 @@ This instruction differs from [ROL](#IC_RCL) in that it treats CF as a high-orde
 
 This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order one-bit extension of the destination operand. Each low-order bit that exits from the right side of the operand moves to CF before it returns to the operand as the high-order bit on the next rotation cycle. See [Figure 3-15](#fig3_15) .
 
-<a name="fig3_10"></a><!-- *fig3_10* -->
+<a name="fig3_10"></a><!-- *fig3_10* -->  <!-- *Figure 3-10* -->
 
 [Figure 3-10. Shift Left Double](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-10.gif)
 
@@ -2993,7 +3164,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_11"></a><!-- *fig3_11* -->
+<a name="fig3_11"></a><!-- *fig3_11* -->  <!-- *Figure 3-11* -->
 
 [Figure 3-11. Shift Right Double](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-11.gif)
 
@@ -3010,7 +3181,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_12"></a><!-- *fig3_12* -->
+<a name="fig3_12"></a><!-- *fig3_12* -->  <!-- *Figure 3-12* -->
 
 [Figure 3-12. ROL](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-12.gif)
 
@@ -3023,7 +3194,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_13"></a><!-- *fig3_13* -->
+<a name="fig3_13"></a><!-- *fig3_13* -->  <!-- *Figure 3-13* -->
 
 [Figure 3-13. ROR](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-13.gif)
 
@@ -3036,7 +3207,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_14"></a><!-- *fig3_14* -->
+<a name="fig3_14"></a><!-- *fig3_14* -->  <!-- *Figure 3-14* -->
 
 [Figure 3-14. RCL](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-14.gif)
 
@@ -3049,7 +3220,7 @@ This instruction differs from [ROR](#IC_RCL) in that it treats CF as a low-order
 ```
 * * *
 
-<a name="fig3_15"></a><!-- *fig3_15* -->
+<a name="fig3_15"></a><!-- *fig3_15* -->  <!-- *Figure 3-15* -->
 
 [](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-15.gif)
 
@@ -3290,8 +3461,12 @@ Direct near [JMP](#IC_JMP). A direct [JMP](#IC_JMP) uses a relative displacement
 
 Indirect near [JMP](#IC_JMP). Indirect [JMP](#IC_JMP) instructions specify an absolute address in one of several ways:
 
-1.  The program can [JMP](#IC_JMP) to a location specified by a general register (any of EAX, EDX, ECX, EBX, EBP, ESI, or EDI). The processor moves this 32-bit value into EIP and resumes execution.
-2.  The processor can obtain the destination address from a memory operand specified in the instruction.
+1.  The program can [JMP](#IC_JMP) to a location specified by a general register 
+    (any of EAX, EDX, ECX, EBX, EBP, ESI, or EDI). The processor moves this 32-bit value into EIP and resumes execution.
+
+2.  The processor can obtain the destination address from a memory operand 
+    specified in the instruction.
+
 3.  A register can modify the address of the memory pointer to select a destination address.
 
 ### //3.5.1.2 Call Instruction
@@ -3302,8 +3477,11 @@ Indirect near [JMP](#IC_JMP). Indirect [JMP](#IC_JMP) instructions specify an ab
 
 Indirect [CALL](#IC_CALL) instructions specify an absolute address in one of these ways:
 
-1.  The program can [CALL](#IC_CALL) a location specified by a general register (any of EAX, EDX, ECX, EBX, EBP, ESI, or EDI). The processor moves this 32-bit value into EIP.
-2.  The processor can obtain the destination address from a memory operand specified in the instruction.
+1.  The program can [CALL](#IC_CALL) a location specified by a general register 
+    (any of EAX, EDX, ECX, EBX, EBP, ESI, or EDI). The processor moves this 32-bit value into EIP.
+
+2.  The processor can obtain the destination address from a memory operand 
+    specified in the instruction.
 
 ### //3.5.1.3 Return and Return-From-Interrupt Instruction
 
@@ -3375,7 +3553,7 @@ The loop instructions are conditional jumps that use a value placed in ECX to sp
 //3.5.3 Software-Generated Interrupts
 -------------------------------------
 
-The [INT n](#IC_INT), [](#IC_INT), and [BOUND](#IC_BOUND) instructions allow the programmer to specify a transfer to an interrupt service routine from within a program.
+The [INT n](#IC_INT), [INTO](#IC_INT), and [BOUND](#IC_BOUND) instructions allow the programmer to specify a transfer to an interrupt service routine from within a program.
 
 [INT n](#IC_INT) (Software Interrupt) activates the interrupt service routine that corresponds to the number coded within the instruction. The [INT](#IC_INT) instruction may specify any interrupt type. Programmers may use this flexibility to implement multiple types of internal interrupts or to test the operation of interrupt service routines. (Interrupts 0-31 are reserved by Intel.) The interrupt service routine terminates with an [IRET](#IC_IRET) instruction that returns control to the instruction that follows [INT n](#IC_INT).
 
@@ -3446,11 +3624,12 @@ At each repetition of the primitive instruction, the string operation may be sus
 
 All three prefixes causes the hardware to automatically repeat the associated string primitive until ECX=0. The differences among the repeat prefixes have to do with the second termination condition. [REPE/REPZ](#IC_REP) and [REPNE/REPNZ](#IC_REP) are used exclusively with the [SCAS](#IC_SCAS) (Scan String) and [CMPS](#IC_CMPS) (Compare String) primitives. When these prefixes are used, repetition of the next instruction depends on the zero flag (ZF) as well as the ECX register. ZF does not require initialization before execution of a repeated string instruction, because both [SCAS](#IC_SCAS) and [CMPS](#IC_CMPS) set ZF according to the results of the comparisons they make. The differences are summarized in the accompanying table.
 
-Prefix                      Termination         Termination
-Condition 1         Condition 2
-REP                           ECX = 0             (none)
-REPE/REPZ                     ECX = 0             ZF = 0
-REPNE/REPNZ                   ECX = 0             ZF = 1
+|    Prefix   | Termination | Termination |
+|-------------|-------------|-------------|
+|             | Condition 1 | Condition 2 |
+| REP         | ECX = 0     | (none)      |
+| REPE/REPZ   | ECX = 0     | ZF = 0      |
+| REPNE/REPNZ | ECX = 0     | ZF = 1      |
 
 //3.6.2 Indexing and Direction Flag Control
 -------------------------------------------
@@ -3468,9 +3647,23 @@ When ESI and EDI are used in string primitives, they are automatically increment
 
 The [MOVS](#IC_MOVS) instruction, when accompanied by the [REP](#IC_REP) prefix, operates as a memory-to-memory block transfer. To set up for this operation, the program must initialize ECX and the register pairs ESI and EDI. ECX specifies the number of bytes, words, or doublewords in the block.
 
+     31                  23                 15                7            0
+    ╔═══════════════════╪═══════════════╤═╤═╤═╤═╤═╪═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+    ║                                   │V│R│ │N│ IO│O│D│I│T│S│Z│ │A│ │P│ │C║
+    ║                                   │M│F│ │T│ PL│F│F│F│F│F│F│ │F│ │F│ │F║
+    ╚═══════════════════╪═══════════════╧╤╧╤╧═╧╤╧═╪═╧╤╧╤╧╤╧╤╧╤╧╤╧═╧╤╧═╧╤╧═╧╤╝
+      [MOVS]                                         M T     M M   M   M   M
+
 If DF=0, the program must point ESI to the first element of the source string and point EDI to the destination address for the first element. If DF=1, the program must point these two registers to the last element of the source string and to the destination address for the last element, respectively.
 
 [CMPS](#IC_CMPS) (Compare Strings) subtracts the destination string element (at ES:EDI) from the source string element (at ESI) and updates the flags AF, SF, PF, CF and OF. If the string elements are equal, ZF=1; otherwise, ZF=0. If DF=0, the processor increments the memory pointers (ESI and EDI) for the two strings. [CMPSB](#IC_CMPS) compares bytes, [MOVSW](#IC_MOVS) compares words, and [MOVSD](#IC_MOVS) compares doublewords. The segment register used for the source address can be changed with a segment override prefix while the destination segment register cannot be overridden.
+
+     31                  23                 15                7            0
+    ╔═══════════════════╪═══════════════╤═╤═╤═╤═╤═╪═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+    ║                                   │V│R│ │N│ IO│O│D│I│T│S│Z│ │A│ │P│ │C║
+    ║                                   │M│F│ │T│ PL│F│F│F│F│F│F│ │F│ │F│ │F║
+    ╚═══════════════════╪═══════════════╧╤╧╤╧═╧╤╧═╪═╧╤╧╤╧╤╧╤╧╤╧╤╧═╧╤╧═╧╤╧═╧╤╝
+      [SCAS]                                         M       M M   M   M   M
 
 [SCAS](#IC_SCAS) (Scan String) subtracts the destination string element at ES:EDI from EAX, AX, or AL and updates the flags AF, SF, ZF, PF, CF and OF. If the values are equal, ZF=1; otherwise, ZF=0. If DF=0, the processor increments the memory pointer (EDI) for the string. [SCASB](#IC_SCAS) scans bytes; [SCASW](#IC_SCAS) scans words; [SCASD](#IC_SCAS) scans doublewords. The destination segment register (ES) cannot be overridden.
 
@@ -3495,9 +3688,11 @@ The instructions in this section provide machine-language support for functions 
 
 The [ENTER](#IC_ENTER) instruction includes two parameters. The first parameter specifies the number of bytes of dynamic storage to be allocated on the stack for the routine being entered. The second parameter corresponds to the lexical nesting level (0-31) of the routine. (Note that the lexical level has no relationship to either the protection privilege levels or to the I/O privilege level.)
 
-The specified lexical level determines how many sets of stack frame pointers the CPU copies into the new stack frame from the preceding frame. This list of stack frame pointers is sometimes called the display. The first word of the display is a pointer to the last stack frame. This pointer enables a [LEAVE](#IC_LEAVE) instruction to reverse the action of the previous [ENTER](#IC_ENTER) instruction by effectively discarding the last stack frame. Example:
+The specified lexical level determines how many sets of stack frame pointers the CPU copies into the new stack frame from the preceding frame. This list of stack frame pointers is sometimes called the display. The first word of the display is a pointer to the last stack frame. This pointer enables a [LEAVE](#IC_LEAVE) instruction to reverse the action of the previous [ENTER](#IC_ENTER) instruction by effectively discarding the last stack frame. 
 
-[ENTER](#IC_ENTER) 2048,3
+Example:
+
+    [ENTER](#IC_ENTER) 2048,3
 
 Allocates 2048 bytes of dynamic storage on the stack and sets up pointers to two previous stack frames in the stack frame that [ENTER](#IC_ENTER) creates for this procedure. After [ENTER](#IC_ENTER) creates the new display for a procedure, it allocates the dynamic storage space for that procedure by decrementing ESP by the number of bytes specified in the first parameter. This new value of ESP serves as a starting point for all [PUSH](#IC_PUSH) and [POP](#IC_POP) operations within that procedure.
 
@@ -3521,51 +3716,234 @@ Block-structured high-level languages can use the lexical levels defined by [ENT
 
 1.  MAIN PROGRAM has variables at fixed locations.
 2.  PROCEDURE A can access only the fixed variables of MAIN.
-3.  PROCEDURE B can access only the variables of PROCEDURE A and MAIN. PROCEDURE B cannot access the variables of PROCEDURE C or PROCEDURE D.
-4.  PROCEDURE C can access only the variables of PROCEDURE A and MAIN. PROCEDURE C cannot access the variables of PROCEDURE B or PROCEDURE D.
-5.  PROCEDURE D can access the variables of PROCEDURE C, PROCEDURE A, and MAIN. PROCEDURE D cannot access the variables of PROCEDURE B.
+3.  PROCEDURE B can access only the variables of PROCEDURE A and MAIN. 
+    PROCEDURE B cannot access the variables of PROCEDURE C or PROCEDURE D.
+4.  PROCEDURE C can access only the variables of PROCEDURE A and MAIN. 
+    PROCEDURE C cannot access the variables of PROCEDURE B or PROCEDURE D.
+5.  PROCEDURE D can access the variables of PROCEDURE C, PROCEDURE A, and MAIN. 
+    PROCEDURE D cannot access the variables of PROCEDURE B.
 
 [ENTER](#IC_ENTER) at the beginning of the MAIN PROGRAM creates dynamic storage space for MAIN but copies no pointers. The first and only word in the display points to itself because there is no previous value for [LEAVE](#IC_LEAVE) to return to EBP. See [Figure 3-18](#fig3_18) .
 
 After MAIN calls PROCEDURE A, [ENTER](#IC_ENTER) creates a new display for PROCEDURE A with the first word pointing to the previous value of EBP (BPM for [LEAVE](#IC_LEAVE) to return to the MAIN stack frame) and the second word pointing to the current value of EBP. Procedure A can access variables in MAIN since MAIN is at level 1. Therefore the base for the dynamic storage for MAIN is at [EBP-2]. All dynamic variables for MAIN are at a fixed offset from this value. See [Figure 3-19](#fig3_19) .
 
-After PROCEDURE A calls PROCEDURE B, [ENTER](#IC_ENTER) creates a new display for PROCEDURE B with the first word pointing to the previous value of EBP, the second word pointing to the value of EBP for MAIN, and the third word pointing to the value of EBP for A and the last word pointing to the current EBP. B can access variables in A and MAIN by fetching from the display the base addresses of the respective dynamic storage areas. See [Figure 3-20](#fig3_20) . After PROCEDURE B calls PROCEDURE C, [ENTER](#IC_ENTER) creates a new display for PROCEDURE C with the first word pointing to the previous value of EBP, the second word pointing to the value of EBP for MAIN, and the third word pointing to the EBP value for A and the third word pointing to the current value of EBP. Because PROCEDURE B and PROCEDURE C have the same lexical level, PROCEDURE C is not allowed access to variables in B and therefore does not receive a pointer to the beginning of PROCEDURE B's stack frame. See [Figure 3-21](#fig3_21) .
+After PROCEDURE A calls PROCEDURE B, [ENTER](#IC_ENTER) creates a new display for PROCEDURE B with the first word pointing to the previous value of EBP, the second word pointing to the value of EBP for MAIN, and the third word pointing to the value of EBP for A and the last word pointing to the current EBP. B can access variables in A and MAIN by fetching from the display the base addresses of the respective dynamic storage areas. See [Figure 3-20](#fig3_20) . 
+
+After PROCEDURE B calls PROCEDURE C, [ENTER](#IC_ENTER) creates a new display for PROCEDURE C with the first word pointing to the previous value of EBP, the second word pointing to the value of EBP for MAIN, and the third word pointing to the EBP value for A and the third word pointing to the current value of EBP. Because PROCEDURE B and PROCEDURE C have the same lexical level, PROCEDURE C is not allowed access to variables in B and therefore does not receive a pointer to the beginning of PROCEDURE B's stack frame. See [Figure 3-21](#fig3_21) .
 
 [LEAVE](#IC_LEAVE) (Leave Procedure) reverses the action of the previous [ENTER](#IC_ENTER) instruction. The [LEAVE](#IC_LEAVE) instruction does not include any operands. [LEAVE](#IC_LEAVE) copies EBP to ESP to release all stack space allocated to the procedure by the most recent [ENTER](#IC_ENTER) instruction. Then [LEAVE](#IC_LEAVE) pops the old value of EBP from the stack. A subsequent [RET](#IC_RET) instruction can then remove any arguments that were pushed on the stack by the calling program for use by the called procedure.
 
-<a name="fig3_16"></a><!-- *fig3_16* -->
+<a name="fig3_16"></a><!-- *fig3_16* -->  <!-- *Figure 3-16* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-16.gif)
+[Figure 3-16. Formal Definition of the ENTER Instruction](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-16.gif)
 
-* * *
 
-<a name="fig3_17"></a><!-- *fig3_17* -->
+The formal definition of the ENTER instruction for all cases is given by the
+following listing. LEVEL denotes the value of the second operand.
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-17.gif)
+```asm
+    Push EBP
+    Set a temporary value FRAME_PTR := ESP
+    If LEVEL > 0 then
+        Repeat (LEVEL-1) times:
+            EBP :=EBP - 4
+            Push the doubleword pointed to by EBP
+        End repeat
+        Push FRAME_PTR
+    End if
+    EBP := FRAME_PTR
+    ESP := ESP - first operand.
+```
 
-* * *
 
-<a name="fig3_18"></a><!-- *fig3_18* -->
-
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-18.gif)
-
-* * *
-
-<a name="fig3_19"></a><!-- *fig3_19* -->
-
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-19.gif)
-
-* * *
-
-<a name="fig3_20"></a><!-- *fig3_20* -->
-
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-20.gif)
 
 * * *
 
-<a name="fig3_21"></a><!-- *fig3_21* -->
+<a name="fig3_17"></a><!-- *fig3_17* -->  <!-- *Figure 3-17* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-21.gif)
+[Figure 3-17. Variable Access in Nested Procedures](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-17.gif)
+
+```sh
+╔════════════════════════════════════════════════════════════════╗
+║ MAIN PROCEDURE (LEXICAL LEVEL 1)                               ║
+║ ╔════════════════════════════════════════════════════════╗     ║
+║ ║ PROCEDURE A (LEXICAL LEVEL 2)                          ║     ║
+║ ║ ╔══════════════════════════════════════════════════╗   ║     ║
+║ ║ ║ PROCEDURE B (LEXICAL LEVEL 3)                    ║   ║     ║
+║ ║ ╚══════════════════════════════════════════════════╝   ║     ║
+║ ║                                                        ║     ║
+║ ║ ╔══════════════════════════════════════════════════╗   ║     ║
+║ ║ ║ PROCEDURE C (LEXICAL LEVEL 3)                    ║   ║     ║
+║ ║ ║ ╔════════════════════════════════════════════╗   ║   ║     ║
+║ ║ ║ ║ PROCEDURE D (LEXICAL LEVEL 4)              ║   ║   ║     ║
+║ ║ ║ ╚════════════════════════════════════════════╝   ║   ║     ║
+║ ║ ║                                                  ║   ║     ║
+║ ║ ╚══════════════════════════════════════════════════╝   ║     ║
+║ ║                                                        ║     ║
+║ ╚════════════════════════════════════════════════════════╝     ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+```
+
+* * *
+
+<a name="fig3_18"></a><!-- *fig3_18* -->  <!-- *Figure 3-18* -->
+
+[Figure 3-18. Stack Frame for MAIN at Level 1](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-18.gif)
+
+```sh
+                                            · 31          0 ·
+                    D O                     ║               ║
+        (EBPM = EBP I F                  ┌─ ╠═══════╪═══════╣
+    VALUE FOR MAIN) R                    │  ║    OLD ESP    ║
+                    E E         DISPLAY ─┤  ╠═══════╪═══════╣◄──EBP FOR
+                    C X                  │  ║     EBPM      ║    MAIN
+                    T P                  ╞═ ╠═══════╪═══════╣
+                    I A                  │  ║               ║
+                    O N                  │  ╠═══════╪═══════╣
+                    N S         DYNAMIC ─┤  ║               ║
+                    I           STORAGE  │  ╠═══════╪═══════╣
+                    │ O                  │  ║               ║
+                    │ N                  └─ ╠═══════╪═══════╣◄──ESP
+                    │                       ║               ║
+                        ▼ 
+```
+
+* * *
+
+<a name="fig3_19"></a><!-- *fig3_19* -->  <!-- *Figure 3-19* -->
+
+[Figure 3-19. Stack Frame for Procedure A](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-19.gif)
+
+```sh
+                                     · 31          0 ·
+                    D O              ║               ║
+                    I F              ╠═══════╪═══════╣
+                    R                ║    OLD ESP    ║
+                    E E              ╠═══════╪═══════╣
+                    C X              ║     EBPM      ║
+                    T P              ╠═══════╪═══════╣
+                    I A              ║               ║
+                    O N              ╠═══════╪═══════╣
+                    N S              ║               ║
+                    I                ╠═══════╪═══════╣
+                    │ O              ║               ║
+                    │ N           ┌─ ╠═══════╪═══════╣
+                    │             │  ║     EBPM      ║
+                    ▼             │  ╠═══════╪═══════╣◄──EBP FOR A
+                         DISPLAY ─┤  ║     EBPM      ║
+                                  │  ╠═══════╪═══════╣
+    EBPA = EBP VALUE              │  ║     EBPA      ║
+    FOR PROCEDURE A               ╞═ ╠═══════╪═══════╣
+                                  │  ║               ║
+                                  │  ╠═══════╪═══════╣
+                         DYNAMIC ─┤  ║               ║
+                         STORAGE  │  ╠═══════╪═══════╣
+                                  │  ║               ║
+                                  └─ ╠═══════╪═══════╣◄──ESP
+                                     ║               ║
+                                     ·               ·
+```
+
+* * *
+
+<a name="fig3_20"></a><!-- *fig3_20* -->  <!-- *Figure 3-20* -->
+
+[Figure 3-20. Stack Frame for Procedure B at Level 3 Called from A](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-20.gif)
+
+```sh
+                                     · 31          0 ·
+                    D O              ║               ║
+                    I F              ╠═══════╪═══════╣
+                    R                ║    OLD ESP    ║
+                    E E              ╠═══════╪═══════╣
+                    C X              ║     EBPM      ║
+                    T P              ╠═══════╪═══════╣
+                    I A              ║               ║
+                    O N              ╠═══════╪═══════╣
+                    N S              ║               ║
+                    I                ╠═══════╪═══════╣
+                    │ O              ║               ║
+                    │ N              ╠═══════╪═══════╣
+                    │                ║     EBPM      ║
+                    ▼                ╠═══════╪═══════╣
+                                     ║     EBPM      ║
+                                     ╠═══════╪═══════╣
+                                     ║     EBPA      ║
+                                     ╠═══════╪═══════╣
+                                     ║               ║
+                                     ╠═══════╪═══════╣
+                                     ║               ║
+                                     ╠═══════╪═══════╣
+                                     ║               ║
+                                  ┌─ ╠═══════╪═══════╣
+                                  │  ║     EBPA      ║
+                                  │  ╠═══════╪═══════╣◄──EBP
+                                  │  ║     EBPM      ║
+                         DISPLAY ─┤  ╠═══════╪═══════╣
+                                  │  ║     EBPA      ║
+                                  │  ╠═══════╪═══════╣
+    EBPA = EBP VALUE              │  ║     EBPB      ║
+    FOR PROCEDURE B               ╞═ ╠═══════╪═══════╣
+                                  │  ║               ║
+                                  │  ╠═══════╪═══════╣
+                         DYNAMIC ─┤  ║               ║
+                         STORAGE  │  ╠═══════╪═══════╣
+                                  │  ║               ║
+                                  └─ ╠═══════╪═══════╣◄──ESP
+                                     ║               ║
+                                     ·               ·
+```
+
+* * *
+
+<a name="fig3_21"></a><!-- *fig3_21* -->  <!-- *Figure 3-21* -->
+
+[Figure 3-21. Stack Frame for Procedure C at Level 3 Called from B](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-21.gif)
+
+```sh
+                                     · 31          0 ·
+                    D O              ║               ║
+                    I F              ╠═══════╪═══════╣
+                    R                ║    OLD ESP    ║
+                    E E              ╠═══════╪═══════╣
+                    C X              ║     EBPM      ║
+                    T P              ╠═══════╪═══════╣
+                    I A              ║               ║
+                    O N              ╠═══════╪═══════╣
+                    N S              ║               ║
+                    I                ╠═══════╪═══════╣
+                    │ O              ║               ║
+                    │ N              ╠═══════╪═══════╣
+                    │                ║     EBPM      ║
+                    ▼                ╠═══════╪═══════╣
+                                     ║     EBPM      ║
+                                     ╠═══════╪═══════╣
+                                     ║     EBPA      ║
+                                     ╠═══════╪═══════╣
+                                     ║               ║
+                                     ╠═══════╪═══════╣
+                                     ║               ║
+                                     ╠═══════╪═══════╣
+                                     ║               ║
+                                  ┌─ ╠═══════╪═══════╣
+                                  │  ║     EBPA      ║
+                                  │  ╠═══════╪═══════╣◄──EBP
+                                  │  ║     EBPM      ║
+                         DISPLAY ─┤  ╠═══════╪═══════╣
+                                  │  ║     EBPA      ║
+                                  │  ╠═══════╪═══════╣
+                                  │  ║     EBPB      ║
+                                  ╞═ ╠═══════╪═══════╣
+                                  │  ║               ║
+                                  │  ╠═══════╪═══════╣
+                         DYNAMIC ─┤  ║               ║
+                         STORAGE  │  ╠═══════╪═══════╣
+                                  │  ║               ║
+                                  └─ ╠═══════╪═══════╣◄──ESP
+                                     ║               ║
+                                     ·               ·
+```
 
 * * *
 
@@ -3585,12 +3963,13 @@ The carry flag instructions are useful in conjunction with rotate-with-carry ins
 
 The direction flag control instructions are specifically included to set or clear the direction flag, DF, which controls the left-to-right or right-to-left direction of string processing. If DF=0, the processor automatically increments the string index registers, ESI and EDI, after each execution of a string primitive. If DF=1, the processor decrements these index registers. Programmers should use one of these instructions before any procedure that uses string instructions to insure that DF is set properly.
 
-Flag Control Instruction                  Effect
-[STC](#IC_STC) (Set Carry Flag)                      CF := 1
-[CLC](#IC_CLC) (Clear Carry Flag)                    CF := 0
-[CMC](#IC_CMC) (Complement Carry Flag)               CF := NOT (CF)
-[CLD](#IC_CLD) (Clear Direction Flag)                DF := 0
-[STD](#IC_STD) (Set Direction Flag)                  DF := 1
+|      Flag      |   Control Instruction   |     Effect     |
+|----------------|-------------------------|----------------|
+| [STC](#IC_STC) | (Set Carry Flag)        | CF := 1        |
+| [CLC](#IC_CLC) | (Clear Carry Flag)      | CF := 0        |
+| [CMC](#IC_CMC) | (Complement Carry Flag) | CF := NOT (CF) |
+| [CLD](#IC_CLD) | (Clear Direction Flag)  | DF := 0        |
+| [STD](#IC_STD) | (Set Direction Flag)    | DF := 1        |
 
 //3.8.2 Flag Transfer Instructions
 ----------------------------------
@@ -3609,10 +3988,21 @@ The [PUSHF](#IC_PUSHF) and [POPF](#IC_POPF) instructions are not only useful for
 
 [POPF](#IC_POPF) (Pop Flags) transfers specific bits from the word at the top of stack into the low-order byte of the flag register (see [Figure 3-23](#fig3_23)), then increments ESP by two. The variant [POPFD](#IC_POPF) transfers specific bits from the doubleword at the top of the stack into the extended flags register (the RF and VM flags are not changed, however), then increments ESP by four.
 
-<a name="fig3_22"></a><!-- *fig3_22* -->
+<a name="fig3_22"></a><!-- *fig3_22* -->  <!-- *Figure 3-22* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-22.gif)
+[Figure 3-22. LAHF and SAHF](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-22.gif)
 
+```sh
+  7    6    5    4    3    2    1    0
+╔════╦════╦════╦════╦════╦════╦════╦════╗
+║ SF ║ ZF ║ -- ║ AF ║ -- ║ PF ║ -- ║ CF ║
+╚════╩════╩════╩════╩════╩════╩════╩════╝
+```
+
+LAHF LOADS FIVE FLAGS FROM THE FLAG REGISTER INTO REGISTER AH. SAHF
+STORES THESE SAME FIVE FLAGS FROM AH INTO THE FLAG REGISTER. THE BIT
+POSITION OF EACH FLAG IS THE SAME IN AH AS IT IS IN THE FLAG REGISTER.
+THE REMAINING BITS (MARKED --) ARE RESERVED; DO NOT DEFINE.
 * * *
 
 
@@ -3632,10 +4022,27 @@ ESC (Escape) is a 5-bit sequence that begins the opcodes that identify floating 
 
 [WAIT](#IC_WAIT) (Wait) is an 80386 instruction that suspends program execution until the 80386 CPU detects that the BUSY pin is inactive. This condition indicates that the coprocessor has completed its processing task and that the CPU may obtain the results.
 
-<a name="fig3_23"></a><!-- *fig3_23* -->
+<a name="fig3_23"></a><!-- *fig3_23* -->  <!-- *Figure 3-23* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-23.gif)
+[Figure 3-23. Flag Format for PUSHF and POPF](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig3-23.gif)
 
+```sh
+                           PUSHFD/POPFD
+┌───────────────────────────────┴────────────────────────────────┐
+                                            PUSHF/POPF
+                                ┌────────────────┴───────────────┐
+ 31              23              15              7              0
+╔═══════════════╪═══════════╤═╤═╤═╤═╤════╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+║                           │V│R│ │N│ID  │O│D│I│T│S│Z│ │A│ │P│ │C║
+║0 0 0 0 0 0 0 0 0 0 0 0 0 0│ │ │0│ │    │ │ │ │ │ │ │0│ │0│ │1│ ║
+║                           │M│F│ │T│  PL│F│F│F│F│F│F│ │F│ │F│ │F║
+╚═══════════════╪═══════════╧═╧═╧═╧═╧════╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╧═╝
+```
+BITS MARKED 0 AND 1 ARE RESERVED BY INTEL. DO NOT DEFINE.
+SYSTEMS FLAGS (INCLUDING THE IOPL FIELD, AND THE VM, RF, AND IF FLAGS)
+ARE PUSHED AND ARE VISIBLE TO APPLICATIONS PROGRAMS. HOWEVER, WHEN AN
+APPLICATIONS PROGRAM POPS THE FLAGS, THESE ITEMS ARE NOT CHANGED,
+REGARDLESS OF THE VALUES POPPED INTO THEM.
 * * *
 
 
@@ -3648,15 +4055,20 @@ ESC (Escape) is a 5-bit sequence that begins the opcodes that identify floating 
 This category actually includes several distinct types of instructions. These various types are grouped together here because, if systems designers choose an unsegmented model of memory organization, none of these instructions is used by applications programmers. The instructions that deal with segment registers are:
 
 1.  Segment-register transfer instructions.
+
     *   [MOV](#IC_MOV) SegReg, ...
     *   [MOV](#IC_MOV) ..., SegReg
     *   [PUSH](#IC_PUSH) SegReg
     *   [POP](#IC_POP) SegReg
+
 2.  Control transfers to another executable segment.
+
     *   [JMP](#IC_JMP) far direct and indirect
     *   [CALL](#IC_CALL) far
     *   [RET](#IC_RET) far
+
 3.  Data pointer instructions.
+
     *   [LDS](#IC_LGS)
     *   [LES](#IC_LGS)
     *   [LFS](#IC_LGS)
@@ -3693,13 +4105,17 @@ Far [RET](#IC_RET). An intersegment [RET](#IC_RET) restores the values of both C
 
 The data pointer instructions load a pointer (consisting of a segment selector and an offset) to a segment register and a general register.
 
-[LDS](#IC_LGS) (Load Pointer Using DS) transfers a pointer variable from the source operand to DS and the destination register. The source operand must be a memory operand, and the destination operand must be a general register. DS receives the segment-selector of the pointer. The destination register receives the offset part of the pointer, which points to a specific location within the segment. Example:
+[LDS](#IC_LGS) (Load Pointer Using DS) transfers a pointer variable from the source operand to DS and the destination register. The source operand must be a memory operand, and the destination operand must be a general register. DS receives the segment-selector of the pointer. The destination register receives the offset part of the pointer, which points to a specific location within the segment. 
+
+Example:
 
 [LDS](#IC_LGS) ESI, STRING_X
 
 Loads DS with the selector identifying the segment pointed to by a STRING_X, and loads the offset of STRING_X into ESI. Specifying ESI as the destination operand is a convenient way to prepare for a string operation on a source string that is not in the current data segment.
 
-[LES](#IC_LGS) (Load Pointer Using ES) operates identically to [LDS](#IC_LGS) except that ES receives the segment selector rather than DS. Example:
+[LES](#IC_LGS) (Load Pointer Using ES) operates identically to [LDS](#IC_LGS) except that ES receives the segment selector rather than DS. 
+
+Example:
 
 [LES](#IC_LGS) EDI, DESTINATION_X
 
@@ -3751,15 +4167,15 @@ Causes the processor to place the address of the starting location of the table 
 /PART II SYSTEM PROGRAMMING
 ===========================
 
-- [Chapter 4 -- Systems Architecture](#C04)
-- [Chapter 5 -- Memory Management](#C05)
-- [Chapter 6 -- Protection](#C06)
-- [Chapter 7 -- Multitasking](#C07)
-- [Chapter 8 -- Input/Output](#C08)
-- [Chapter 9 -- Exceptions and Interrupts](#C09)
-- [Chapter 10 -- Initialization](#C10)
-- [Chapter 11 -- Coprocessing and Multiprocessing](#C11)
-- [Chapter 12 -- Debugging](#C12)
+- [Chapter 4](#C04) -- Systems Architecture
+- [Chapter 5](#C05) -- Memory Management
+- [Chapter 6](#C06) -- Protection
+- [Chapter 7](#C07) -- Multitasking
+- [Chapter 8](#C08) -- Input/Output
+- [Chapter 9](#C09) -- Exceptions and Interrupts
+- [Chapter 10](#C10) -- Initialization
+- [Chapter 11](#C11) -- Coprocessing and Multiprocessing
+- [Chapter 12](#C12) -- Debugging
 
 * * *
 
@@ -3767,7 +4183,7 @@ Causes the processor to place the address of the starting location of the table 
 
 * * *
 
-<a name="C04"></a>
+<a name="C04"></a> <!-- *Chapter 4* -->
 
 /Chapter 4 Systems Architecture
 ===============================
@@ -3810,31 +4226,58 @@ The registers designed for use by systems programmers fall into these classes:
 //4.1.1 Systems Flags
 ---------------------
 
+     31                  23                 15                7            0
+    ╔═══════════════════╪═══════════════╤═╤═╤═╤═╤═╪═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╤═╗
+    ║                                   │V│R│ │N│ IO│O│D│I│T│S│Z│ │A│ │P│ │C║
+    ║                                   │M│F│ │T│ PL│F│F│F│F│F│F│ │F│ │F│ │F║
+    ╚═══════════════════╪═══════════════╧╤╧╤╧═╧╤╧═╪═╧╤╧╤╧╤╧╤╧╤╧╤╧═╧╤╧═╧╤╧═╧╤╝
+
 The systems flags of the EFLAGS register control I/O, maskable interrupts, debugging, task switching, and enabling of virtual 8086 execution in a protected, multitasking environment. These flags are highlighted in [Figure 4-1](#fig4_1) .
 
-IF (Interrupt-Enable Flag, bit 9)
+* IF (Interrupt-Enable Flag, bit 9)
 
-Setting IF allows the CPU to recognize external (maskable) interrupt requests. Clearing IF disables these interrupts. IF has no effect on either exceptions or nonmaskable external interrupts . Refer to [Chapter 9](#C09) for more details about interrupts .
+    Setting IF allows the CPU to recognize external (maskable) interrupt requests. Clearing IF disables these interrupts. IF has no effect on either exceptions or nonmaskable external interrupts . Refer to [Chapter 9](#C09) for more details about interrupts .
 
-NT (Nested Task, bit 14)
+* NT (Nested Task, bit 14)
 
-The processor uses the nested task flag to control chaining of interrupted and called tasks. NT influences the operation of the [IRET](#IC_IRET) instruction . Refer to [Chapter 7](#C07) and [Chapter 9](#C09) for more information on nested tasks.
+    The processor uses the nested task flag to control chaining of interrupted and called tasks. NT influences the operation of the [IRET](#IC_IRET) instruction . Refer to [Chapter 7](#C07) and [Chapter 9](#C09) for more information on nested tasks.
 
-RF (Resume Flag, bit 16)
+* RF (Resume Flag, bit 16)
 
-The RF flag temporarily disables debug exceptions so that an instruction can be restarted after a debug exception without immediately causing another debug exception . Refer to [Chapter 12](#C12) for details .
+    The RF flag temporarily disables debug exceptions so that an instruction can be restarted after a debug exception without immediately causing another debug exception . Refer to [Chapter 12](#C12) for details .
 
-TF (Trap Flag, bit 8)
+* TF (Trap Flag, bit 8)
 
-Setting TF puts the processor into single-step mode for debugging. In this mode, the CPU automatically generates an exception after each instruction, allowing a program to be inspected as it executes each instruction. Single-stepping is just one of several debugging features of the 80386 . Refer to [Chapter 12](#C12) for additional information .
+    Setting TF puts the processor into single-step mode for debugging. In this mode, the CPU automatically generates an exception after each instruction, allowing a program to be inspected as it executes each instruction. Single-stepping is just one of several debugging features of the 80386 . Refer to [Chapter 12](#C12) for additional information .
 
-VM (Virtual 8086 Mode, bit 17)
+* VM (Virtual 8086 Mode, bit 17)
 
-When set, the VM flag indicates that the task is executing an 8086 program . Refer to [Chapter 14](#C14) for a detailed discussion of how the 80386 executes 8086 tasks in a protected, multitasking environment.
+    When set, the VM flag indicates that the task is executing an 8086 program . Refer to [Chapter 14](#C14) for a detailed discussion of how the 80386 executes 8086 tasks in a protected, multitasking environment.
 
-<a name="fig4_1"></a><!-- *fig4_1* -->
+<a name="fig4_1"></a><!-- *fig4_1* -->  <!-- *Figure 4-1* -->
 
-![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-1.gif)
+[Figure 4-1. System Flags of EFLAGS Register](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-1.gif)
+
+```sh
+ 31              23              15              7              0
+╔═══════════════╪═══════════╤═╤═╤╪╤═╤════╤═╤═╤═╤═╤╪╤═╤═╤═╤═╤═╤═╤═╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│V│R│▒│N│ID │O│D│I│T│S│Z│▒│A│▒│P│▒│C║
+║0 0 0 0 0 0 0 0 0 0 0 0 0 0│ │ │0│ │ │▒│▒│ │▒│▒│▒│0│▒│0│▒│1│▒║
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│M│F│▒│T│ PL│F│F│F│F│F│F│▒│F│▒│F│▒│F║
+╚═══════════════╪═══════════╧╤╧╤╧╪╧╤╧═╤══╧═╧═╧╤╧═╧╪╧═╧═╧═╧═╧═╧═╧═╝
+                             │ │   │  │       │
+        VIRTUAL 8086 MODE────┘ │   │  │       │
+              RESUME FLAG──────┘   │  │       │
+         NESTED TASK FLAG──────────┘  │       │
+      I/O PRIVILEGE LEVEL─────────────┘       │
+         INTERRUPT ENABLE─────────────────────┘
+```
+
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+[!NOTE]
+0 OR 1 INDICATES INTEL RESERVED. DO NOT DEFINE.
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
 
 //4.1.2 Memory-Management Registers
 -----------------------------------
@@ -3893,7 +4336,7 @@ CR2 is used for handling page faults when PG is set. The processor stores in CR2
 
 CR3 is used when PG is set. CR3 enables the processor to locate the page table directory for the current task . Refer to [Chapter 5](#C05) for a description of page tables and page translation.
 
-<a name="fig4_2"></a><!-- *fig4_2* -->
+<a name="fig4_2"></a><!-- *fig4_2* -->  <!-- *Figure 4-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig4-2.gif)
 
@@ -3982,7 +4425,7 @@ In addition to the chapters cited above, detailed information about each of thes
 
 * * *
 
-<a name="C05"></a>
+<a name="C05"></a> <!-- *Chapter 5* -->
 
 /Chapter 5 Memory Management
 ============================
@@ -3996,7 +4439,7 @@ These translations are performed in a way that is not visible to applications pr
 
 [Figure 5-1](#fig5_1) and the remainder of this chapter present a simplified view of the 80386 addressing mechanism. In reality, the addressing mechanism also includes memory protection features. For the sake of simplicity, however, the subject of protection is taken up in another chapter, [Chapter 6](#C06).
 
-<a name="fig5_1"></a><!-- *fig5_1* -->
+<a name="fig5_1"></a><!-- *fig5_1* -->  <!-- *Figure 5-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-1.gif)
 
@@ -4049,13 +4492,13 @@ Accessed bit: The processor sets this bit when the segment is accessed; i.e., a 
 
 Creation and maintenance of descriptors is the responsibility of systems software, usually requiring the cooperation of compilers, program loaders or system builders, and therating system.
 
-<a name="fig5_2"></a><!-- *fig5_2* -->
+<a name="fig5_2"></a><!-- *fig5_2* -->  <!-- *Figure 5-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-2.gif)
 
 * * *
 
-<a name="fig5_3"></a><!-- *fig5_3* -->
+<a name="fig5_3"></a><!-- *fig5_3* -->  <!-- *Figure 5-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-3.gif)
 
@@ -4071,13 +4514,13 @@ A descriptor table is simply a memory array of 8-byte entries that contain descr
 
 The processor locates the GDT and the current LDT in memory by means of the GDTR and LDTR registers. These registers store the base addresses of the tables in the linear address space and store the segment limits. The instructions [LGDT](#IC_LGDT) and [SGDT](#IC_SGDT) give access to the GDTR; the instructions [LLDT](#IC_LLDT) and [SLDT](#IC_SLDT) give access to the LDTR.
 
-<a name="fig5_4"></a><!-- *fig5_4* -->
+<a name="fig5_4"></a><!-- *fig5_4* -->  <!-- *Figure 5-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-4.gif)
 
 * * *
 
-<a name="fig5_5"></a><!-- *fig5_5* -->
+<a name="fig5_5"></a><!-- *fig5_5* -->  <!-- *Figure 5-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-5.gif)
 
@@ -4094,13 +4537,13 @@ Requested Privilege Level: Used by the protection mechanism. (Refer to [Chapter 
 
 Because the first entry of the GDT is not used by the processor, a selector that has an index of zero and a table indicator of zero (i.e., a selector that points to the first entry of the GDT), can be used as a null selector. The processor does not cause an exception when a segment register (other than CS or SS) is loaded with a null selector. It will, however, cause an exception when the segment register is used to access memory. This feature is useful for initializing unused segment registers so as to trap accidental references.
 
-<a name="fig5_6"></a><!-- *fig5_6* -->
+<a name="fig5_6"></a><!-- *fig5_6* -->  <!-- *Figure 5-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-6.gif)
 
 * * *
 
-<a name="fig5_7"></a><!-- *fig5_7* -->
+<a name="fig5_7"></a><!-- *fig5_7* -->  <!-- *Figure 5-7* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-7.gif)
 
@@ -4145,13 +4588,13 @@ A linear address refers indirectly to a physical address by specifying a page ta
 
 [Figure 5-9](#fig5_9) shows how the processor converts the DIR, PAGE, and OFFSET fields of a linear address into the physical address by consulting two levels of page tables. The addressing mechanism uses the DIR field as an index into a page directory, uses the PAGE field as an index into the page table determined by the page directory, and uses the OFFSET field to address a byte within the page determined by the page table.
 
-<a name="fig5_8"></a><!-- *fig5_8* -->
+<a name="fig5_8"></a><!-- *fig5_8* -->  <!-- *Figure 5-8* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-8.gif)
 
 * * *
 
-<a name="fig5_9"></a><!-- *fig5_9* -->
+<a name="fig5_9"></a><!-- *fig5_9* -->  <!-- *Figure 5-9* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-9.gif)
 
@@ -4183,13 +4626,13 @@ If P=0 in either level of page tables when an attempt is made to use a page-tabl
 
 Note that there is no present bit for the page directory itself. The page directory may be not-present while the associated task is suspended, but the operating system must ensure that the page directory indicated by the CR3 image in the TSS is present in physical memory before the task is dispatched . Refer to [Chapter 7](#C07) for an explanation of the TSS and task dispatching.
 
-<a name="fig5_10"></a><!-- *fig5_10* -->
+<a name="fig5_10"></a><!-- *fig5_10* -->  <!-- *Figure 5-10* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-10.gif)
 
 * * *
 
-<a name="fig5_11"></a><!-- *fig5_11* -->
+<a name="fig5_11"></a><!-- *fig5_11* -->  <!-- *Figure 5-11* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-11.gif)
 
@@ -4243,7 +4686,7 @@ When the 80386 is used to execute software designed for architectures that don't
 
 The architecture of the 80386 permits segments to be larger or smaller than the size of a page (4 Kilobytes). For example, suppose a segment is used to address and protect a large data structure that spans 132 Kilobytes. In a software system that supports paged virtual memory, it is not necessary for the entire structure to be in physical memory at once. The structure is divided into 33 pages, any number of which may not be present. The applications programmer does not need to be aware that the virtual memory subsystem is paging the structure in this manner.
 
-<a name="fig5_12"></a><!-- *fig5_12* -->
+<a name="fig5_12"></a><!-- *fig5_12* -->  <!-- *Figure 5-12* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-12.gif)
 
@@ -4267,7 +4710,7 @@ Memory-management software may be simpler, however, if it enforces some correspo
 
 An approach to space management that provides even further simplification of space-management software is to maintain a one-to-one correspondence between segment descriptors and page-directory entries, as [Figure 5-13](#fig5_13) illustrates. Each descriptor has a base address in which the low-order 22 bits are zero; in other words, the base address is mapped by the first entry of a page table. A segment may have any limit from 1 to 4 megabytes. Depending on the limit, the segment is contained in from 1 to 1K page frames. A task is thus limited to 1K segments (a sufficient number for many applications), each containing up to 4 Mbytes. The descriptor, the corresponding page-directory entry, and the corresponding page table can be allocated and deallocated simultaneously.
 
-<a name="fig5_13"></a><!-- *fig5_13* -->
+<a name="fig5_13"></a><!-- *fig5_13* -->  <!-- *Figure 5-13* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig5-13.gif)
 
@@ -4276,7 +4719,7 @@ An approach to space management that provides even further simplification of spa
 
 * * *
 
-<a name="C06"></a>
+<a name="C06"></a> <!-- *Chapter 6* -->
 
 /Chapter 6 Protection
 =====================
@@ -4353,7 +4796,7 @@ The protection parameters are placed in the descriptor by systems software at th
 
 When a program loads a selector into a segment register, the processor loads not only the base address of the segment but also protection information. Each segment register has bits in the invisible portion for storing base, limit, type, and privilege level; therefore, subsequent protection checks on the same segment do not consume additional clock cycles.
 
-<a name="fig6_1"></a><!-- *fig6_1* -->
+<a name="fig6_1"></a><!-- *fig6_1* -->  <!-- *Figure 6-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-1.gif)
 
@@ -4474,7 +4917,7 @@ The processor automatically evaluates the right of a procedure to access another
 
 It is not necessary to use all four privilege levels. Existing software that was designed to use only one or two levels of privilege can simply ignore the other levels offered by the 80386. A one-level system should use privilege level zero; a two-level system should use privilege levels zero and three.
 
-<a name="fig6_2"></a><!-- *fig6_2* -->
+<a name="fig6_2"></a><!-- *fig6_2* -->  <!-- *Figure 6-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-2.gif)
 
@@ -4491,7 +4934,7 @@ Instructions may load a data-segment register (and subsequently use the target s
 
 The addressable domain of a task varies as CPL changes. When CPL is zero, data segments at all privilege levels are accessible; when CPL is one, only data segments at privilege levels one through three are accessible; when CPL is three, only data segments at privilege level three are accessible. This property of the 80386 can be used, for example, to prevent applications procedures from reading or changing tables of the operating system.
 
-<a name="fig6_3"></a><!-- *fig6_3* -->
+<a name="fig6_3"></a><!-- *fig6_3* -->  <!-- *Figure 6-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-3.gif)
 
@@ -4533,7 +4976,7 @@ An executable segment whose descriptor has the conforming bit set is called a co
 
 Most code segments are not conforming. The basic rules of privilege above mean that, for nonconforming segments, control can be transferred without a gate only to executable segments at the same level of privilege. There is a need, however, to transfer control to (numerically) smaller privilege levels; this need is met by the [CALL](#IC_CALL) instruction when used with call-gate descriptors, which are explained in the next section. The [JMP](#IC_JMP) instruction may never transfer control to a nonconforming segment whose DPL does not equal CPL.
 
-<a name="fig6_4"></a><!-- *fig6_4* -->
+<a name="fig6_4"></a><!-- *fig6_4* -->  <!-- *Figure 6-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-4.gif)
 
@@ -4577,19 +5020,19 @@ For a [CALL](#IC_CALL) instruction (or for a [JMP](#IC_JMP) instruction to a con
 MAX (CPL,RPL) <= gate DPL
 target segment DPL <= CPL
 
-<a name="fig6_5"></a><!-- *fig6_5* -->
+<a name="fig6_5"></a><!-- *fig6_5* -->  <!-- *Figure 6-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-5.gif)
 
 * * *
 
-<a name="fig6_6"></a><!-- *fig6_6* -->
+<a name="fig6_6"></a><!-- *fig6_6* -->  <!-- *Figure 6-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-6.gif)
 
 * * *
 
-<a name="fig6_7"></a><!-- *fig6_7* -->
+<a name="fig6_7"></a><!-- *fig6_7* -->  <!-- *Figure 6-7* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-7.gif)
 
@@ -4622,13 +5065,13 @@ Procedures that may be called from another privilege level and that require more
 
 A call via a call gate does not check the values of the words copied onto the new stack. The called procedure should check each parameter for validity. A later section discusses how the [ARPL](#IC_ARPL), [VERR](#IC_VERR), [VERW](#IC_VERR), [LSL](#IC_LSL), and [LAR](#IC_LAR) instructions can be used to check pointer values.
 
-<a name="fig6_8"></a><!-- *fig6_8* -->
+<a name="fig6_8"></a><!-- *fig6_8* -->  <!-- *Figure 6-8* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-8.gif)
 
 * * *
 
-<a name="fig6_9"></a><!-- *fig6_9* -->
+<a name="fig6_9"></a><!-- *fig6_9* -->  <!-- *Figure 6-9* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-9.gif)
 
@@ -4789,7 +5232,7 @@ Two kinds of protection are related to pages:
 
 [Figure 6-10](#fig6_10) highlights the fields of PDEs and PTEs that control access to pages.
 
-<a name="fig6_10"></a><!-- *fig6_10* -->
+<a name="fig6_10"></a><!-- *fig6_10* -->  <!-- *Figure 6-10* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig6-10.gif)
 
@@ -4887,7 +5330,7 @@ Table 6-5. Combining Directory and Page Protection
 
 * * *
 
-<a name="C07"></a>
+<a name="C07"></a> <!-- *Chapter 7* -->
 
 /Chapter 7 Multitasking
 =======================
@@ -4943,7 +5386,7 @@ Task state segments may reside anywhere in the linear space. The only case that 
 1.  By allocating the TSS so that it does not cross a page boundary.
 2.  By ensuring that both pages are either both present or both not-present at the time of a task switch. If both pages are not-present, then the page-fault handler must make both pages present before restarting the instruction that caused the task switch.
 
-<a name="fig7_1"></a><!-- *fig7_1* -->
+<a name="fig7_1"></a><!-- *fig7_1* -->  <!-- *Figure 7-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-1.gif)
 
@@ -4968,7 +5411,7 @@ Having access to a TSS-descriptor does not give a procedure the right to read or
 
 TSS descriptors may reside only in the GDT. An attempt to identify a TSS with a selector that has TI=1 (indicating the current LDT) results in an exception.
 
-<a name="fig7_2"></a><!-- *fig7_2* -->
+<a name="fig7_2"></a><!-- *fig7_2* -->  <!-- *Figure 7-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-2.gif)
 
@@ -4991,7 +5434,7 @@ The instructions [LTR](#IC_LTR) and [STR](#IC_STR) are used to modify and read t
 
 [STR](#IC_STR) (Store task register) stores the visible portion of the task register in a general register or memory word. [STR](#IC_STR) is not privileged.
 
-<a name="fig7_3"></a><!-- *fig7_3* -->
+<a name="fig7_3"></a><!-- *fig7_3* -->  <!-- *Figure 7-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-3.gif)
 
@@ -5018,13 +5461,13 @@ A procedure that has access to a task gate has the power to cause a task switch,
 
 [Figure 7-5](#fig7_5) illustrates how both a task gate in an LDT and a task gate in the IDT can identify the same task.
 
-<a name="fig7_4"></a><!-- *fig7_4* -->
+<a name="fig7_4"></a><!-- *fig7_4* -->  <!-- *Figure 7-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-4.gif)
 
 * * *
 
-<a name="fig7_5"></a><!-- *fig7_5* -->
+<a name="fig7_5"></a><!-- *fig7_5* -->  <!-- *Figure 7-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-5.gif)
 
@@ -5217,7 +5660,7 @@ By itself, a common linear-to-physical space mapping does not enable sharing of 
 2.  By sharing LDTs. Two or more tasks can use the same LDT if the LDT selectors in their TSSs select the same LDT segment. Those LDT-resident descriptors that point into a linear space that is mapped to a common physical space permit the tasks to share physical memory. This method of sharing is more selective than sharing by the GDT; the sharing can be limited to specific tasks. Other tasks in the system may have different LDTs that do not give them access to the shared areas.
 3.  By descriptor aliases in LDTs. It is possible for certain descriptors of different LDTs to point to the same linear address space. If that linear address space is mapped to the same physical space by the page mapping of the tasks involved, these descriptors permit the tasks to share the common space. Such descriptors are commonly called "aliases". This method of sharing is even more selective than the prior two; other descriptors in the LDTs may point to distinct linear addresses or to linear addresses that are not shared.
 
-<a name="fig7_6"></a><!-- *fig7_6* -->
+<a name="fig7_6"></a><!-- *fig7_6* -->  <!-- *Figure 7-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig7-6.gif)
 
@@ -5227,7 +5670,7 @@ By itself, a common linear-to-physical space mapping does not enable sharing of 
 
 * * *
 
-<a name="C08"></a>
+<a name="C08"></a> <!-- *Chapter 8* -->
 
 /Chapter 8 Input/Output
 =======================
@@ -5309,7 +5752,7 @@ The I/O instructions [IN](#IC_IN) and [OUT](#IC_OUT)are provided to move data be
 
 [OUT](#IC_OUT)(Output to Port) transfers a byte, word, or doubleword to an output port from AL, AX, or EAX. The program can specify the number of the port using the same methods as the [IN](#IC_IN) instruction.
 
-<a name="fig8_1"></a><!-- *fig8_1* -->
+<a name="fig8_1"></a><!-- *fig8_1* -->  <!-- *Figure 8-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig8-1.gif)
 
@@ -5387,7 +5830,7 @@ If I/O map base is greater than or equal to TSS limit, the TSS segment has no I/
 
 Because the I/O permission map is in the TSS segment, different tasks can have different maps. Thus, the operating system can allocate ports to a task by changing the I/O permission map in the task's TSS.
 
-<a name="fig8_2"></a><!-- *fig8_2* -->
+<a name="fig8_2"></a><!-- *fig8_2* -->  <!-- *Figure 8-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig8-2.gif)
 
@@ -5396,7 +5839,7 @@ Because the I/O permission map is in the TSS segment, different tasks can have d
 
 * * *
 
-<a name="C09"></a>
+<a name="C09"></a> <!-- *Chapter 9* -->
 
 /Chapter 9 Exceptions and Interrupts
 ====================================
@@ -5569,11 +6012,11 @@ Debug faults for next instruction
 NMI interrupt
 LOWEST     INTR interrupt
 
-<a name="fig9_1"></a><!-- *fig9_1* -->
+<a name="fig9_1"></a><!-- *fig9_1* -->  <!-- *Figure 9-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-1.gif)
 
-<a name="fig9_2"></a><!-- *fig9_2* -->
+<a name="fig9_2"></a><!-- *fig9_2* -->  <!-- *Figure 9-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-2.gif)
 
@@ -5594,7 +6037,7 @@ The IDT may contain any of three kinds of descriptor:
 
 [Figure 9-3](#fig9_3) illustrates the format of task gates and 80386 interrupt gates and trap gates. (The task gate in an IDT is the same as the task gate already discussed in [Chapter 7](#C07).)
 
-<a name="fig9_3"></a><!-- *fig9_3* -->
+<a name="fig9_3"></a><!-- *fig9_3* -->  <!-- *Figure 9-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-3.gif)
 
@@ -5616,7 +6059,7 @@ An interrupt gate or trap gate points indirectly to a procedure which will execu
 
 The 80386 invokes an interrupt or exception handling procedure in much the same manner as it [CALL](#IC_CALL)s a procedure; the differences are explained in the following sections.
 
-<a name="fig9_4"></a><!-- *fig9_4* -->
+<a name="fig9_4"></a><!-- *fig9_4* -->  <!-- *Figure 9-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-4.gif)
 
@@ -5630,7 +6073,7 @@ Certain types of exceptions also cause an error code to be pushed on the stack. 
 
 An interrupt procedure also differs from a normal procedure in the method of leaving the procedure. The [IRET](#IC_IRET) instruction is used to exit from an interrupt procedure. [IRET](#IC_IRET) is similar to [RET](#IC_RET) except that [IRET](#IC_IRET) increments EIP by an extra four bytes (because of the flags on the stack) and moves the saved flags into the EFLAGS register. The IOPL field of EFLAGS is changed only if the CPL is zero. The IF flag is changed only if CPL <= IOPL.
 
-<a name="fig9_5"></a><!-- *fig9_5* -->
+<a name="fig9_5"></a><!-- *fig9_5* -->  <!-- *Figure 9-5* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-5.gif)
 
@@ -5665,7 +6108,7 @@ If the task switch is caused by an exception that has an error code, the process
 
 When interrupt tasks are used in an operating system for the 80386, there are actually two schedulers: the software scheduler (part of the operating system) and the hardware scheduler (part of the processor's interrupt mechanism). The design of the software scheduler should account for the fact that the hardware scheduler may dispatch an interrupt task whenever interrupts are enabled.
 
-<a name="fig9_6"></a><!-- *fig9_6* -->
+<a name="fig9_6"></a><!-- *fig9_6* -->  <!-- *Figure 9-6* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-6.gif)
 
@@ -5685,7 +6128,7 @@ With exceptions that relate to a specific segment, the processor pushes an error
 
 If the I-bit is not set, the TI bit indicates whether the error code refers to the GDT (value 0) or to the LDT (value 1). The remaining 14 bits are the upper 14 bits of the segment selector involved. In some cases the error code on the stack is null, i.e., all bits in the low-order word are zero.
 
-<a name="fig9_7"></a><!-- *fig9_7* -->
+<a name="fig9_7"></a><!-- *fig9_7* -->  <!-- *Figure 9-7* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-7.gif)
 
@@ -5930,7 +6373,7 @@ The processor makes available to the page fault handler two items of information
     3.  Whether the memory access that caused the exception was a read or write.
 *   CR2 (control register two). The processor stores in CR2 the linear address used in the access that caused the exception (see [Figure 9-9](#fig9_9)). The exception handler can use this address to locate the corresponding page directory and page table entries. If another page fault can occur during execution of the page fault handler, the handler should push CR2 onto the stack.
 
-<a name="fig9_8"></a><!-- *fig9_8* -->
+<a name="fig9_8"></a><!-- *fig9_8* -->  <!-- *Figure 9-8* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-8.gif)
 
@@ -5945,7 +6388,7 @@ The processor may access any of four segments during a task switch:
 
 A page fault can result from accessing any of these segments. In the latter two cases the exception occurs in the context of the new task. The instruction pointer refers to the next instruction of the new task, not to the instruction that caused the task switch. If the design of the operating system permits page faults to occur during task-switches, the page-fault handler should be invoked via a task gate.
 
-<a name="fig9_9"></a><!-- *fig9_9* -->
+<a name="fig9_9"></a><!-- *fig9_9* -->  <!-- *Figure 9-9* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig9-9.gif)
 
@@ -6061,7 +6504,7 @@ Two-byte SW interrupt             0-255         No
 
 * * *
 
-<a name="C10"></a>
+<a name="C10"></a> <!-- *Chapter 10* -->
 
 /Chapter 10 Initialization
 ==========================
@@ -6108,13 +6551,13 @@ All registers not mentioned above are undefined.
 
 These settings imply that the processor begins in real-address mode with interrupts disabled.
 
-<a name="fig10_1"></a><!-- *fig10_1* -->
+<a name="fig10_1"></a><!-- *fig10_1* -->  <!-- *Figure 10-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-1.gif)
 
 * * *
 
-<a name="fig10_2"></a><!-- *fig10_2* -->
+<a name="fig10_2"></a><!-- *fig10_2* -->  <!-- *Figure 10-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-2.gif)
 
@@ -6588,13 +7031,13 @@ TLB Lookup           after TLB Write
 1     0       Match if X=1         Bit X becomes 1
 1     1       (undefined)          (undefined)
 
-<a name="fig10_3"></a><!-- *fig10_3* -->
+<a name="fig10_3"></a><!-- *fig10_3* -->  <!-- *Figure 10-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-3.gif)
 
 * * *
 
-<a name="fig10_4"></a><!-- *fig10_4* -->
+<a name="fig10_4"></a><!-- *fig10_4* -->  <!-- *Figure 10-4* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig10-4.gif)
 
@@ -6618,7 +7061,7 @@ For the purposes of testing, the V bit functions as another bit of addresss. The
 
 * * *
 
-<a name="C11"></a>
+<a name="C11"></a> <!-- *Chapter 11* -->
 
 /Chapter 11 Coprocessing and Multiprocessing
 ============================================
@@ -6781,7 +7224,7 @@ In multiprocessor systems that need a cacheability signal from the CPU, it is re
 
 * * *
 
-<a name="C12"></a>
+<a name="C12"></a> <!-- *Chapter 12* -->
 
 /Chapter 12 Debugging
 =====================
@@ -6860,7 +7303,7 @@ These features make it possible to invoke a debugger that is either a separate t
 
 Six 80386 registers are used to control debug features. These registers are accessed by variants of the [MOV](#IC_MOVRS) instruction. A debug register may be either the source operand or destination operand. The debug registers are privileged resources; the [MOV](#IC_MOVRS) instructions that access them can only be executed at privilege level zero. An attempt to read or write the debug registers when executing at any other privilege level causes a general protection exception. [Figure 12-1](#fig12_1) shows the format of the debug registers.
 
-<a name="fig12_1"></a><!-- *fig12_1* -->
+<a name="fig12_1"></a><!-- *fig12_1* -->  <!-- *Figure 12-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig12-1.gif)
 
@@ -7045,17 +7488,17 @@ With prior generations of processors, this feature is used extensively for trapp
 /PART III COMPATIBILITY
 =======================
 
-- [Chapter 13 -- Executing 80286 Protected-Mode Code](#C13)
-- [Chapter 14 -- 80386 Real-Address Mode](#C14)
-- [Chapter 15 -- Virtual 8086 Mode](#C15)
-- [Chapter 16 -- Mixing 16-Bit and 32 Bit Code](#C16)
+- [Chapter 13](#C13) -- Executing 80286 Protected-Mode Code
+- [Chapter 14](#C14) -- 80386 Real-Address Mode
+- [Chapter 15](#C15) -- Virtual 8086 Mode
+- [Chapter 16](#C16) -- Mixing 16-Bit and 32 Bit Code
 
 * * *
 
 
 * * *
 
-<a name="C13"></a>
+<a name="C13"></a> <!-- *Chapter 13* -->
 
 /Chapter 13 Executing 80286 Protected-Mode Code
 ===============================================
@@ -7181,7 +7624,7 @@ This exception may occur in an 80286 program if the operating system enables pag
 
 * * *
 
-<a name="C14"></a>
+<a name="C14"></a> <!-- *Chapter 14* -->
 
 /Chapter 14 80386 Real-Address Mode
 ===================================
@@ -7222,7 +7665,7 @@ The 80386 provides a one Mbyte + 64 Kbyte memory space for an 8086 program. Segm
 
 Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via the address-size prefix); however, the value of a 32-bit address may not exceed 65535 without causing an exception. For full compatibility with 80286 real-address mode, pseudo-protection faults (interrupt 12 or 13 with no error code) occur if an effective address is generated outside the range 0 through 65535.
 
-<a name="fig14_1"></a><!-- *fig14_1* -->
+<a name="fig14_1"></a><!-- *fig14_1* -->  <!-- *Figure 14-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig14-1.gif)
 
@@ -7538,7 +7981,7 @@ The 80286 initializes the MSW register to FFF0H, but the 80386 initializes this 
 
 * * *
 
-<a name="C15"></a>
+<a name="C15"></a> <!-- *Chapter 15* -->
 
 /Chapter 15 Virtual 8086 Mode
 =============================
@@ -7612,7 +8055,7 @@ V86 tasks generate 32-bit linear addresses. While an 8086 program can only utili
 
 Unlike the 8086 and 80286, 32-bit effective addresses can be generated (via the address-size prefix); however, the value of a 32-bit address may not exceed 65,535 without causing an exception. For full compatibility with 80286 real-address mode, pseudo-protection faults (interrupt 12 or 13 with no error code) occur if an address is generated outside the range 0 through 65,535.
 
-<a name="fig15_1"></a><!-- *fig15_1* -->
+<a name="fig15_1"></a><!-- *fig15_1* -->  <!-- *Figure 15-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig15-1.gif)
 
@@ -7685,7 +8128,7 @@ The processor leaves V86 mode when an interrupt or exception occurs. There are t
 
 Systems software does not manipulate the VM flag directly, but rather manipulates the image of the EFLAGS register that is stored on the stack or in the TSS. The V86 monitor sets the VM flag in the EFLAGS image on the stack or in the TSS when first creating a V86 task. Exception and interrupt handlers can examine the VM flag on the stack. If the interrupted procedure was executing in V86 mode, the handler may need to invoke the V86 monitor.
 
-<a name="fig15_2"></a><!-- *fig15_2* -->
+<a name="fig15_2"></a><!-- *fig15_2* -->  <!-- *Figure 15-2* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig15-2.gif)
 
@@ -7727,7 +8170,7 @@ Reflecting an interrupt or exception back to the 8086 code involves the followin
 5.  When the [IRET](#IC_IRET) by the privilege-level three handler again traps to the V86 monitor, restore the return link on the privilege-level zero stack to point to the originally interrupted, privilege-level three procedure.
 6.  Execute an [IRET](#IC_IRET) so as to pass control back to the interrupted procedure.
 
-<a name="fig15_3"></a><!-- *fig15_3* -->
+<a name="fig15_3"></a><!-- *fig15_3* -->  <!-- *Figure 15-3* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig15-3.gif)
 
@@ -7865,7 +8308,7 @@ A locked instruction is guaranteed to lock only the area of memory defined by th
 
 * * *
 
-<a name="C16"></a>
+<a name="C16"></a> <!-- *Chapter 16* -->
 
 /Chapter 16 Mixing 16-Bit and 32 Bit Code
 =========================================
@@ -8028,7 +8471,7 @@ Likewise, there are three ways to cause a 32-bit procedure to execute a 16-bit c
 
 Programmers can utilize any of the preceding methods to make a [CALL](#IC_CALL) in a USE16 segment match the corresponding [RET](#IC_RET) in a USE32 segment, or to make a [CALL](#IC_CALL) in a USE32 segment match the corresponding [RET](#IC_RET) in a USE16 segment.
 
-<a name="fig16_1"></a><!-- *fig16_1* -->
+<a name="fig16_1"></a><!-- *fig16_1* -->  <!-- *Figure 16-1* -->
 
 ![](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig16-1.gif)
 
@@ -8088,14 +8531,14 @@ The interface procedures do little more than call corresponding procedures in ot
 /PART IV INSTRUCTIONS SET
 =========================
 
-- [Chapter 17 -- 80386 Instruction Set](#C17)
+- [Chapter 17](#C17) -- 80386 Instruction Set
 
 * * *
 
 
 * * *
 
-<a name="C17"></a>
+<a name="C17"></a> <!-- *Chapter 17* -->
 
 /Chapter 17 80386 Instruction Set
 =================================
@@ -8297,7 +8740,7 @@ The following are the segment override prefixes:
     67H    Address-size override
 ```
 
-<a name="fig17_1"></a><!-- *fig17_1* -->
+<a name="fig17_1"></a><!-- *fig17_1* -->  <!-- *Figure 17-1* -->
 
 [Figure 17-1. 80386 Instruction Format](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-1.gif)
 
@@ -8355,7 +8798,7 @@ The based indexed and scaled indexed forms of 32-bit addressing require the SIB 
 
 [Figure 17-2](#fig17_2) shows the formats of the ModR/M and SIB bytes. The values and the corresponding addressing forms of the ModR/M and SIB bytes are shown in Tables 17-2, 17-3, and 17-4. The 16-bit addressing forms specified by the ModR/M byte are in Table 17-2. The 32-bit addressing forms specified by ModR/M are in Table 17-3. Table 17-4 shows the 32-bit addressing forms specified by the SIB byte
 
-<a name="fig17_2"></a><!-- *fig17_2* -->
+<a name="fig17_2"></a><!-- *fig17_2* -->  <!-- *Figure 17-2* -->
 
 [Figure 17-2. ModR/M and SIB Byte Formats](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-2.gif)
 
@@ -8567,115 +9010,116 @@ The above table is followed by paragraphs labelled "Operation," "Description," "
 
 The "Opcode" column gives the complete object code produced for each form of the instruction. When possible, the codes are given as hexadecimal bytes, in the same order in which they appear in memory. Definitions of entries other than hexadecimal bytes are as follows:
 
-    /digit:
+* ➊ /digit:
 
-(digit is between 0 and 7) indicates that the ModR/M byte of the instruction uses only the r/m (register or memory) operand. The reg field contains the digit that provides an extension to the instruction's opcode.
+    (digit is between 0 and 7) indicates that the ModR/M byte of the instruction uses only the r/m (register or memory) operand. The reg field contains the digit that provides an extension to the instruction's opcode.
 
-    /r:
+* ➋ /r:
 
-indicates that the ModR/M byte of the instruction contains both a register operand and an r/m operand.
+    indicates that the ModR/M byte of the instruction contains both a register operand and an r/m operand.
 
-    cb, cw, cd, cp:
+* ➌ cb, cw, cd, cp:
 
-a 1-byte (cb), 2-byte (cw), 4-byte (cd) or 6-byte (cp) value following the opcode that is used to specify a code offset and possibly a new value for the code segment register.
+    a 1-byte (cb), 2-byte (cw), 4-byte (cd) or 6-byte (cp) value following the opcode that is used to specify a code offset and possibly a new value for the code segment register.
 
-    ib, iw, id:
+* ➍ ib, iw, id:
 
-a 1-byte (ib), 2-byte (iw), or 4-byte (id) immediate operand to the instruction that follows the opcode, ModR/M bytes or scale-indexing bytes. The opcode determines if the operand is a signed value. All words and doublewords are given with the low-order byte first.
+    a 1-byte (ib), 2-byte (iw), or 4-byte (id) immediate operand to the instruction that follows the opcode, ModR/M bytes or scale-indexing bytes. The opcode determines if the operand is a signed value. All words and doublewords are given with the low-order byte first.
 
-    +rb, +rw, +rd:
+* ➎ +rb, +rw, +rd:
 
-a register code, from 0 through 7, added to the hexadecimal byte given at the left of the plus sign to form a single opcode byte. The codes are
+    a register code, from 0 through 7, added to the hexadecimal byte given at the left of the plus sign to form a single opcode byte. The codes are
 
-      rb         rw         rd
-    AL = 0     AX = 0     EAX = 0
-    CL = 1     CX = 1     ECX = 1
-    DL = 2     DX = 2     EDX = 2
-    BL = 3     BX = 3     EBX = 3
-    AH = 4     SP = 4     ESP = 4
-    CH = 5     BP = 5     EBP = 5
-    DH = 6     SI = 6     ESI = 6
-    BH = 7     DI = 7     EDI = 7
+    | rb             | rw              | rd              |
+    | -------------- | --------------- | --------------- |
+    | AL = 0         | AX = 0          | EAX = 0         |
+    | CL = 1         | CX = 1          | ECX = 1         |
+    | DL = 2         | DX = 2          | EDX = 2         |
+    | BL = 3         | BX = 3          | EBX = 3         |
+    | AH = 4         | SP = 4          | ESP = 4         |
+    | CH = 5         | BP = 5          | EBP = 5         |
+    | DH = 6         | SI = 6          | ESI = 6         |
+    | BH = 7         | DI = 7          | EDI = 7         |
 
 ### //17.2.2.2 Instruction
 
 The "Instruction" column gives the syntax of the instruction statement as it would appear in an ASM386 program. The following is a list of the symbols used to represent operands in the instruction statements:
 
-    rel8:
+* ➊ rel8:
 
-a relative address in the range from 128 bytes before the end of the instruction to 127 bytes after the end of the instruction.
+    a relative address in the range from 128 bytes before the end of the instruction to 127 bytes after the end of the instruction.
 
-    rel16, rel32:
+* ➋ rel16, rel32:
 
-a relative address within the same code segment as the instruction assembled. rel16 applies to instructions with an operand-size attribute of 16 bits; rel32 applies to instructions with an operand-size attribute of 32 bits.
+    a relative address within the same code segment as the instruction assembled. rel16 applies to instructions with an operand-size attribute of 16 bits; rel32 applies to instructions with an operand-size attribute of 32 bits.
 
-    ptr16:16, ptr16:32:
+* ➌ ptr16:16, ptr16:32:
 
-a FAR pointer, typically in a code segment different from that of the instruction. The notation 16:16 indicates that the value of the pointer has two parts. The value to the right of the colon is a 16-bit selector or value destined for the code segment register. The value to the left corresponds to the offset within the destination segment. ptr16:16 is used when the instruction's operand-size attribute is 16 bits; ptr16:32 is used with the 32-bit attribute.
+    a FAR pointer, typically in a code segment different from that of the instruction. The notation 16:16 indicates that the value of the pointer has two parts. The value to the right of the colon is a 16-bit selector or value destined for the code segment register. The value to the left corresponds to the offset within the destination segment. ptr16:16 is used when the instruction's operand-size attribute is 16 bits; ptr16:32 is used with the 32-bit attribute.
 
-    r8:
+* ➍ r8:
 
-one of the byte registers AL, CL, DL, BL, AH, CH, DH, or BH.
+    one of the byte registers AL, CL, DL, BL, AH, CH, DH, or BH.
 
-    r16:
+* ➎ r16:
 
-one of the word registers AX, CX, DX, BX, SP, BP, SI, or DI.
+    one of the word registers AX, CX, DX, BX, SP, BP, SI, or DI.
 
-    r32:
+* ➏ r32:
 
-one of the doubleword registers EAX, ECX, EDX, EBX, ESP, EBP, ESI, or EDI.
+    one of the doubleword registers EAX, ECX, EDX, EBX, ESP, EBP, ESI, or EDI.
 
-    imm8:
+* ➐ imm8:
 
-an immediate byte value. imm8 is a signed number between -128 and +127 inclusive. For instructions in which imm8 is combined with a word or doubleword operand, the immediate value is sign-extended to form a word or doubleword. The upper byte of the word is filled with the topmost bit of the immediate value.
+    an immediate byte value. imm8 is a signed number between -128 and +127 inclusive. For instructions in which imm8 is combined with a word or doubleword operand, the immediate value is sign-extended to form a word or doubleword. The upper byte of the word is filled with the topmost bit of the immediate value.
 
-    imm16:
+* ➑ imm16:
 
-an immediate word value used for instructions whose operand-size attribute is 16 bits. This is a number between -32768 and +32767 inclusive.
+    an immediate word value used for instructions whose operand-size attribute is 16 bits. This is a number between -32768 and +32767 inclusive.
 
-    imm32:
+* ➒ imm32:
 
-an immediate doubleword value used for instructions whose operand-size attribute is 32-bits. It allows the use of a number between +2147483647 and -2147483648.
+    an immediate doubleword value used for instructions whose operand-size attribute is 32-bits. It allows the use of a number between +2147483647 and -2147483648.
 
-    r/m8:
+* ➓ r/m8:
 
-a one-byte operand that is either the contents of a byte register (AL, BL, CL, DL, AH, BH, CH, DH), or a byte from memory.
+    a one-byte operand that is either the contents of a byte register (AL, BL, CL, DL, AH, BH, CH, DH), or a byte from memory.
 
-    r/m16:
+* ⓫ r/m16:
 
-a word register or memory operand used for instructions whose operand-size attribute is 16 bits. The word registers are: AX, BX, CX, DX, SP, BP, SI, DI. The contents of memory are found at the address provided by the effective address computation.
+    a word register or memory operand used for instructions whose operand-size attribute is 16 bits. The word registers are: AX, BX, CX, DX, SP, BP, SI, DI. The contents of memory are found at the address provided by the effective address computation.
 
-    r/m32:
+* ⓬ r/m32:
 
-a doubleword register or memory operand used for instructions whose operand-size attribute is 32-bits. The doubleword registers are: EAX, EBX, ECX, EDX, ESP, EBP, ESI, EDI. The contents of memory are found at the address provided by the effective address computation.
+    a doubleword register or memory operand used for instructions whose operand-size attribute is 32-bits. The doubleword registers are: EAX, EBX, ECX, EDX, ESP, EBP, ESI, EDI. The contents of memory are found at the address provided by the effective address computation.
 
-    m8:
+* ⓭ m8:
 
-a memory byte addressed by DS:SI or ES:DI (used only by string instructions).
+    a memory byte addressed by DS:SI or ES:DI (used only by string instructions).
 
-    m16:
+* ⓮ m16:
 
-a memory word addressed by DS:SI or ES:DI (used only by string instructions).
+    a memory word addressed by DS:SI or ES:DI (used only by string instructions).
 
-    m32:
+* ⓯ m32:
 
-a memory doubleword addressed by DS:SI or ES:DI (used only by string instructions).
+    a memory doubleword addressed by DS:SI or ES:DI (used only by string instructions).
 
-    m16:16, M16:32:
+* ⓰ m16:16, M16:32:
 
-a memory operand containing a far pointer composed of two numbers. The number to the left of the colon corresponds to the pointer's segment selector. The number to the right corresponds to its offset.
+    a memory operand containing a far pointer composed of two numbers. The number to the left of the colon corresponds to the pointer's segment selector. The number to the right corresponds to its offset.
 
-    m16 & 32, m16 & 16, m32 & 32:
+* ⓱ m16 & 32, m16 & 16, m32 & 32:
 
-a memory operand consisting of data item pairs whose sizes are indicated on the left and the right side of the ampersand. All memory addressing modes are allowed. m16 & 16 and m32 & 32 operands are used by the [BOUND](#IC_BOUND) instruction to provide an operand containing an upper and lower bounds for array indices. m16 & 32 is used by [LIDT](#IC_LGDT) and [LGDT](#IC_LGDT) to provide a word with which to load the limit field, and a doubleword with which to load the base field of the corresponding Global and Interrupt Descriptor Table Registers.
+    a memory operand consisting of data item pairs whose sizes are indicated on the left and the right side of the ampersand. All memory addressing modes are allowed. m16 & 16 and m32 & 32 operands are used by the [BOUND](#IC_BOUND) instruction to provide an operand containing an upper and lower bounds for array indices. m16 & 32 is used by [LIDT](#IC_LGDT) and [LGDT](#IC_LGDT) to provide a word with which to load the limit field, and a doubleword with which to load the base field of the corresponding Global and Interrupt Descriptor Table Registers.
 
-    moffs8, moffs16, moffs32:
+* ⓲ moffs8, moffs16, moffs32:
 
-(memory offset) a simple memory variable of type BYTE, WORD, or DWORD used by some variants of the [MOV](#IC_MOV) instruction. The actual address is given by a simple offset relative to the segment base. No ModR/M byte is used in the instruction. The number shown with moffs indicates its size, which is determined by the address-size attribute of the instruction.
+    (memory offset) a simple memory variable of type BYTE, WORD, or DWORD used by some variants of the [MOV](#IC_MOV) instruction. The actual address is given by a simple offset relative to the segment base. No ModR/M byte is used in the instruction. The number shown with moffs indicates its size, which is determined by the address-size attribute of the instruction.
 
-    Sreg:
+* ⓳ Sreg:
 
-a segment register. The segment register bit assignments are ES=0, CS=1, SS=2, DS=3, FS=4, and GS=5.
+    a segment register. The segment register bit assignments are ES=0, CS=1, SS=2, DS=3, FS=4, and GS=5.
 
 ### //17.2.2.3 Clocks
 
@@ -8893,7 +9337,7 @@ The following functions are used in the algorithmic descriptions:
     
 The "Description" section contains further explanation of the instruction's operation.
 
-<a name="fig17_3"></a><!-- *fig17_3* -->
+<a name="fig17_3"></a><!-- *fig17_3* -->  <!-- *Figure 17-3* -->
 
 [Figure 17-3. Bit Offset for BIT[EAX, 21]](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-3.gif)
 
@@ -8906,7 +9350,7 @@ The "Description" section contains further explanation of the instruction's oper
                        └────────────────────BITOFFSET = 21──────────────┘
 ```
 
-<a name="fig17_4"></a><!-- *fig17_4* -->
+<a name="fig17_4"></a><!-- *fig17_4* -->  <!-- *Figure 17-4* -->
 
 [Figure 17-4. Memory Bit Indexing](https://pdos.csail.mit.edu/6.828/2016/readings/i386/fig17-4.gif)
 
@@ -10541,14 +10985,14 @@ IC: CMPS/CMPSB/CMPSW/CMPSD -- Compare String Operands
 ```sh
 Opcode    Instruction        Clocks   Description
 
-A6        CMPS m8,m8         10       Compare bytes ES:[(E)DI] (second operand) 
-                                                with   [(E)SI] (first  operand)
-A7        CMPS m16,m16       10       Compare words ES:[(E)DI] (second operand) 
-                                                with   [(E)SI] (first  operand)
+A6        CMPS m8,m8         10       Compare bytes ES:[(E)DI]  (second operand) 
+                                                with   [(E)SI]  (first  operand)
+A7        CMPS m16,m16       10       Compare words ES:[(E)DI]  (second operand) 
+                                                with   [(E)SI]  (first  operand)
 A7        CMPS m32,m32       10       Compare dwords ES:[(E)DI] (second operand) 
                                                 with    [(E)SI]  (first operand)
-A6        CMPSB              10       Compare bytes ES:[(E)DI] with DS:[SI]
-A7        CMPSW              10       Compare words ES:[(E)DI] with DS:[SI]
+A6        CMPSB              10       Compare bytes ES:[(E)DI]  with DS:[SI]
+A7        CMPSW              10       Compare words ES:[(E)DI]  with DS:[SI]
 A7        CMPSD              10       Compare dwords ES:[(E)DI] with DS:[SI]
 ```
 
@@ -14949,71 +15393,45 @@ IC: SAL/SAR/SHL/SHR -- Shift Instructions
 ```sh
 Opcode          Instruction       Clocks  Description
 
-D0   /4         SAL r/m8,1        3/7     Multiply r/m byte by 2, once
-D2   /4         SAL r/m8,CL       3/7     Multiply r/m byte by 2, CL times
-C0   /4 ib      SAL r/m8,imm8     3/7     Multiply r/m byte by 2, imm8
-                                          times
-D1   /4         SAL r/m16,1       3/7     Multiply r/m word by 2, once
-D3   /4         SAL r/m16,CL      3/7     Multiply r/m word by 2, CL times
-C1   /4 ib      SAL r/m16,imm8    3/7     Multiply r/m word by 2, imm8
-                                          times
-D1   /4         SAL r/m32,1       3/7     Multiply r/m dword by 2, once
-D3   /4         SAL r/m32,CL      3/7     Multiply r/m dword by 2, CL
-                                          times
-C1   /4 ib      SAL r/m32,imm8    3/7     Multiply r/m dword by 2, imm8
-                                          times
-D0   /7         SAR r/m8,1        3/7     Signed divide^(1) r/m byte by 2,
-                                          once
-D2   /7         SAR r/m8,CL       3/7     Signed divide^(1) r/m byte by 2,
-                                          CL times
-C0   /7 ib      SAR r/m8,imm8     3/7     Signed divide^(1) r/m byte by 2,
-                                          imm8 times
-D1   /7         SAR r/m16,1       3/7     Signed divide^(1) r/m word by 2,
-                                          once
-D3   /7         SAR r/m16,CL      3/7     Signed divide^(1) r/m word by 2,
-                                          CL times
-C1   /7 ib      SAR r/m16,imm8    3/7     Signed divide^(1) r/m word by 2,
-                                          imm8 times
-D1   /7         SAR r/m32,1       3/7     Signed divide^(1) r/m dword by 2,
-                                          once
-D3   /7         SAR r/m32,CL      3/7     Signed divide^(1) r/m dword by 2,
-                                          CL times
-C1   /7 ib      SAR r/m32,imm8    3/7     Signed divide^(1) r/m dword by 2,
-                                          imm8 times
-D0   /4         SHL r/m8,1        3/7     Multiply r/m byte by 2, once
-D2   /4         SHL r/m8,CL       3/7     Multiply r/m byte by 2, CL times
-C0   /4 ib      SHL r/m8,imm8     3/7     Multiply r/m byte by 2, imm8
-                                          times
-D1   /4         SHL r/m16,1       3/7     Multiply r/m word by 2, once
-D3   /4         SHL r/m16,CL      3/7     Multiply r/m word by 2, CL times
-C1   /4 ib      SHL r/m16,imm8    3/7     Multiply r/m word by 2, imm8
-                                          times
-D1   /4         SHL r/m32,1       3/7     Multiply r/m dword by 2, once
-D3   /4         SHL r/m32,CL      3/7     Multiply r/m dword by 2, CL
-                                          times
-C1   /4 ib      SHL r/m32,imm8    3/7     Multiply r/m dword by 2, imm8
-                                          times
-D0   /5         SHR r/m8,1        3/7     Unsigned divide r/m byte by 2,
-                                          once
-D2   /5         SHR r/m8,CL       3/7     Unsigned divide r/m byte by 2,
-                                          CL times
-C0   /5 ib      SHR r/m8,imm8     3/7     Unsigned divide r/m byte by 2,
-                                          imm8 times
-D1   /5         SHR r/m16,1       3/7     Unsigned divide r/m word by 2,
-                                          once
-D3   /5         SHR r/m16,CL      3/7     Unsigned divide r/m word by 2,
-                                          CL times
-C1   /5 ib      SHR r/m16,imm8    3/7     Unsigned divide r/m word by 2,
-                                          imm8 times
-D1   /5         SHR r/m32,1       3/7     Unsigned divide r/m dword by 2,
-                                          once
-D3   /5         SHR r/m32,CL      3/7     Unsigned divide r/m dword by 2,
-                                          CL times
-C1   /5 ib      SHR r/m32,imm8    3/7     Unsigned divide r/m dword by 2,
-                                          imm8 times
+D0   /4         SAL r/m8,1        3/7     Multiply r/m byte by 2,        once
+D2   /4         SAL r/m8,CL       3/7     Multiply r/m byte by 2,    CL times
+C0   /4 ib      SAL r/m8,imm8     3/7     Multiply r/m byte by 2,  imm8 times
+D1   /4         SAL r/m16,1       3/7     Multiply r/m word by 2,        once
+D3   /4         SAL r/m16,CL      3/7     Multiply r/m word by 2,    CL times
+C1   /4 ib      SAL r/m16,imm8    3/7     Multiply r/m word by 2,  imm8 times
+D1   /4         SAL r/m32,1       3/7     Multiply r/m dword by 2,       once
+D3   /4         SAL r/m32,CL      3/7     Multiply r/m dword by 2,   CL times
+C1   /4 ib      SAL r/m32,imm8    3/7     Multiply r/m dword by 2, imm8 times
+D0   /7         SAR r/m8,1        3/7     Signed divide^(1) r/m byte by 2,        once
+D2   /7         SAR r/m8,CL       3/7     Signed divide^(1) r/m byte by 2,    CL times
+C0   /7 ib      SAR r/m8,imm8     3/7     Signed divide^(1) r/m byte by 2,  imm8 times
+D1   /7         SAR r/m16,1       3/7     Signed divide^(1) r/m word by 2,        once
+D3   /7         SAR r/m16,CL      3/7     Signed divide^(1) r/m word by 2,    CL times
+C1   /7 ib      SAR r/m16,imm8    3/7     Signed divide^(1) r/m word by 2,  imm8 times
+D1   /7         SAR r/m32,1       3/7     Signed divide^(1) r/m dword by 2,       once
+D3   /7         SAR r/m32,CL      3/7     Signed divide^(1) r/m dword by 2,   CL times
+C1   /7 ib      SAR r/m32,imm8    3/7     Signed divide^(1) r/m dword by 2, imm8 times
+D0   /4         SHL r/m8,1        3/7     Multiply r/m byte by 2,        once
+D2   /4         SHL r/m8,CL       3/7     Multiply r/m byte by 2,    CL times
+C0   /4 ib      SHL r/m8,imm8     3/7     Multiply r/m byte by 2,  imm8 times
+D1   /4         SHL r/m16,1       3/7     Multiply r/m word by 2,        once
+D3   /4         SHL r/m16,CL      3/7     Multiply r/m word by 2,    CL times
+C1   /4 ib      SHL r/m16,imm8    3/7     Multiply r/m word by 2,  imm8 times
+D1   /4         SHL r/m32,1       3/7     Multiply r/m dword by 2,       once
+D3   /4         SHL r/m32,CL      3/7     Multiply r/m dword by 2,   CL times
+C1   /4 ib      SHL r/m32,imm8    3/7     Multiply r/m dword by 2, imm8 times
+D0   /5         SHR r/m8,1        3/7     Unsigned divide r/m byte by 2,        once
+D2   /5         SHR r/m8,CL       3/7     Unsigned divide r/m byte by 2,    CL times
+C0   /5 ib      SHR r/m8,imm8     3/7     Unsigned divide r/m byte by 2,  imm8 times
+D1   /5         SHR r/m16,1       3/7     Unsigned divide r/m word by 2,        once
+D3   /5         SHR r/m16,CL      3/7     Unsigned divide r/m word by 2,    CL times
+C1   /5 ib      SHR r/m16,imm8    3/7     Unsigned divide r/m word by 2,  imm8 times
+D1   /5         SHR r/m32,1       3/7     Unsigned divide r/m dword by 2,       once
+D3   /5         SHR r/m32,CL      3/7     Unsigned divide r/m dword by 2,   CL times
+C1   /5 ib      SHR r/m32,imm8    3/7     Unsigned divide r/m dword by 2, imm8 times
+```
 
 Not the same division as [IDIV](#IC_IDIV); rounding is toward negative infinity.
-```
 
 Operation
 ---------
@@ -15099,34 +15517,22 @@ IC: SBB -- Integer Subtraction with Borrow
 ```sh
 Opcode       Instruction       Clocks  Description
 
-1C  ib       SBB AL,imm8       2       Subtract with borrow immediate byte
-                                       from AL
-1D  iw       SBB AX,imm16      2       Subtract with borrow immediate word
-                                       from AX
-1D  id       SBB EAX,imm32     2       Subtract with borrow immediate
-                                       dword from EAX
-80  /3 ib    SBB r/m8,imm8     2/7     Subtract with borrow immediate byte
-                                       from r/m byte
-81  /3 iw    SBB r/m16,imm16   2/7     Subtract with borrow immediate word
-                                       from r/m word
-81  /3 id    SBB r/m32,imm32   2/7     Subtract with borrow immediate
-                                       dword from r/m dword
+1C  ib       SBB AL,imm8       2       Subtract with borrow immediate byte  from AL
+1D  iw       SBB AX,imm16      2       Subtract with borrow immediate word  from AX
+1D  id       SBB EAX,imm32     2       Subtract with borrow immediate dword from EAX
+80  /3 ib    SBB r/m8,imm8     2/7     Subtract with borrow immediate byte  from r/m byte
+81  /3 iw    SBB r/m16,imm16   2/7     Subtract with borrow immediate word  from r/m word
+81  /3 id    SBB r/m32,imm32   2/7     Subtract with borrow immediate dword from r/m dword
 83  /3 ib    SBB r/m16,imm8    2/7     Subtract with borrow sign-extended
-                                       immediate byte from r/m word
+                                                             immediate byte from r/m word
 83  /3 ib    SBB r/m32,imm8    2/7     Subtract with borrow sign-extended
-                                       immediate byte from r/m dword
-18  /r       SBB r/m8,r8       2/6     Subtract with borrow byte register
-                                       from r/m byte
-19  /r       SBB r/m16,r16     2/6     Subtract with borrow word register
-                                       from r/m word
-19  /r       SBB r/m32,r32     2/6     Subtract with borrow dword register
-                                       from r/m dword
-1A  /r       SBB r8,r/m8       2/7     Subtract with borrow byte register
-                                       from r/m byte
-1B  /r       SBB r16,r/m16     2/7     Subtract with borrow word register
-                                       from r/m word
-1B  /r       SBB r32,r/m32     2/7     Subtract with borrow dword register
-                                       from r/m dword
+                                                             immediate byte from r/m dword
+18  /r       SBB r/m8,r8       2/6     Subtract with borrow byte register   from r/m byte
+19  /r       SBB r/m16,r16     2/6     Subtract with borrow word register   from r/m word
+19  /r       SBB r/m32,r32     2/6     Subtract with borrow dword register  from r/m dword
+1A  /r       SBB r8,r/m8       2/7     Subtract with borrow byte register   from r/m byte
+1B  /r       SBB r16,r/m16     2/7     Subtract with borrow word register   from r/m word
+1B  /r       SBB r32,r/m32     2/7     Subtract with borrow dword register  from r/m dword
 ```
 
 Operation
@@ -15177,11 +15583,11 @@ IC: SCAS/SCASB/SCASW/SCASD -- Compare String Data
 ```sh
 Opcode  Instruction  Clocks  Description
 
-AE      SCAS m8      7       Compare bytes AL-ES:[DI], update (E)DI
-AF      SCAS m16     7       Compare words AX-ES:[DI], update (E)DI
+AE      SCAS m8      7       Compare bytes   AL-ES:[DI], update (E)DI
+AF      SCAS m16     7       Compare words   AX-ES:[DI], update (E)DI
 AF      SCAS m32     7       Compare dwords EAX-ES:[DI], update (E)DI
-AE      SCASB        7       Compare bytes AL-ES:[DI], update (E)DI
-AF      SCASW        7       Compare words AX-ES:[DI], update (E)DI
+AE      SCASB        7       Compare bytes   AL-ES:[DI], update (E)DI
+AF      SCASW        7       Compare words   AX-ES:[DI], update (E)DI
 AF      SCASD        7       Compare dwords EAX-ES:[DI], update (E)DI
 ```
 
@@ -15256,39 +15662,36 @@ IC: SETcc -- Byte Set on Condition
 ```sh
 Opcode   Instruction  Clocks  Description
 
-0F  97   SETA r/m8    4/5     Set byte if above (CF=0 and ZF=0)
-0F  93   SETAE r/m8   4/5     Set byte if above or equal (CF=0)
-0F  92   SETB r/m8    4/5     Set byte if below (CF=1)
-0F  96   SETBE r/m8   4/5     Set byte if below or equal (CF=1 or (ZF=1)
-0F  92   SETC r/m8    4/5     Set if carry (CF=1)
-0F  94   SETE r/m8    4/5     Set byte if equal (ZF=1)
-0F  9F   SETG r/m8    4/5     Set byte if greater (ZF=0 or SF=OF)
-0F  9D   SETGE r/m8   4/5     Set byte if greater or equal (SF=OF)
-0F  9C   SETL r/m8    4/5     Set byte if less (SF<>OF)
-0F  9E   SETLE r/m8   4/5     Set byte if less or equal (ZF=1 and
-                              SF<>OF)
-0F  96   SETNA r/m8   4/5     Set byte if not above (CF=1)
-0F  92   SETNAE r/m8  4/5     Set byte if not above or equal (CF=1)
-0F  93   SETNB r/m8   4/5     Set byte if not below (CF=0)
-0F  97   SETNBE r/m8  4/5     Set byte if not below or equal (CF=0 and
-                              ZF=0)
-0F  93   SETNC r/m8   4/5     Set byte if not carry (CF=0)
-0F  95   SETNE r/m8   4/5     Set byte if not equal (ZF=0)
-0F  9E   SETNG r/m8   4/5     Set byte if not greater (ZF=1 or SF<>OF)
-0F  9C   SETNGE r/m8  4/5     Set if not greater or equal (SF<>OF)
-0F  9D   SETNL r/m8   4/5     Set byte if not less (SF=OF)
-0F  9F   SETNLE r/m8  4/5     Set byte if not less or equal (ZF=1 and
-                              SF<>OF)
-0F  91   SETNO r/m8   4/5     Set byte if not overflow (OF=0)
-0F  9B   SETNP r/m8   4/5     Set byte if not parity (PF=0)
-0F  99   SETNS r/m8   4/5     Set byte if not sign (SF=0)
-0F  95   SETNZ r/m8   4/5     Set byte if not zero (ZF=0)
-0F  90   SETO r/m8    4/5     Set byte if overflow (OF=1)
-0F  9A   SETP r/m8    4/5     Set byte if parity (PF=1)
-0F  9A   SETPE r/m8   4/5     Set byte if parity even (PF=1)
-0F  9B   SETPO r/m8   4/5     Set byte if parity odd (PF=0)
-0F  98   SETS r/m8    4/5     Set byte if sign (SF=1)
-0F  94   SETZ r/m8    4/5     Set byte if zero (ZF=1)
+0F  97   SETA r/m8    4/5     Set byte if above               (CF=0 and ZF=0)
+0F  93   SETAE r/m8   4/5     Set byte if above or equal      (CF=0)
+0F  92   SETB r/m8    4/5     Set byte if below               (CF=1)
+0F  96   SETBE r/m8   4/5     Set byte if below or equal      (CF=1 or (ZF=1)
+0F  92   SETC r/m8    4/5     Set if carry                    (CF=1)
+0F  94   SETE r/m8    4/5     Set byte if equal               (ZF=1)
+0F  9F   SETG r/m8    4/5     Set byte if greater             (ZF=0 or SF=OF)
+0F  9D   SETGE r/m8   4/5     Set byte if greater or equal    (SF=OF)
+0F  9C   SETL r/m8    4/5     Set byte if less                (SF<>OF)
+0F  9E   SETLE r/m8   4/5     Set byte if less or equal       (ZF=1 and SF<>OF)
+0F  96   SETNA r/m8   4/5     Set byte if not above           (CF=1)
+0F  92   SETNAE r/m8  4/5     Set byte if not above or equal  (CF=1)
+0F  93   SETNB r/m8   4/5     Set byte if not below           (CF=0)
+0F  97   SETNBE r/m8  4/5     Set byte if not below or equal  (CF=0 and ZF=0)
+0F  93   SETNC r/m8   4/5     Set byte if not carry           (CF=0)
+0F  95   SETNE r/m8   4/5     Set byte if not equal           (ZF=0)
+0F  9E   SETNG r/m8   4/5     Set byte if not greater         (ZF=1 or SF<>OF)
+0F  9C   SETNGE r/m8  4/5     Set if not greater or equal     (SF<>OF)
+0F  9D   SETNL r/m8   4/5     Set byte if not less            (SF=OF)
+0F  9F   SETNLE r/m8  4/5     Set byte if not less or equal   (ZF=1 and SF<>OF)
+0F  91   SETNO r/m8   4/5     Set byte if not overflow        (OF=0)
+0F  9B   SETNP r/m8   4/5     Set byte if not parity          (PF=0)
+0F  99   SETNS r/m8   4/5     Set byte if not sign            (SF=0)
+0F  95   SETNZ r/m8   4/5     Set byte if not zero            (ZF=0)
+0F  90   SETO r/m8    4/5     Set byte if overflow            (OF=1)
+0F  9A   SETP r/m8    4/5     Set byte if parity              (PF=1)
+0F  9A   SETPE r/m8   4/5     Set byte if parity even         (PF=1)
+0F  9B   SETPO r/m8   4/5     Set byte if parity odd          (PF=0)
+0F  98   SETS r/m8    4/5     Set byte if sign                (SF=1)
+0F  94   SETZ r/m8    4/5     Set byte if zero                (ZF=1)
 ```
 
 Operation
@@ -15390,14 +15793,10 @@ IC: SHLD -- Double Precision Shift Left
 ```sh
 Opcode   Instruction          Clocks   Description
 
-0F  A4   SHLD r/m16,r16,imm8  3/7      r/m16 gets SHL of r/m16 concatenated
-                                       with r16
-0F  A4   SHLD r/m32,r32,imm8  3/7      r/m32 gets SHL of r/m32 concatenated
-                                       with r32
-0F  A5   SHLD r/m16,r16,CL    3/7      r/m16 gets SHL of r/m16 concatenated
-                                       with r16
-0F  A5   SHLD r/m32,r32,CL    3/7      r/m32 gets SHL of r/m32 concatenated
-                                       with r32
+0F  A4   SHLD r/m16,r16,imm8  3/7      r/m16 gets SHL of r/m16 concatenated with r16
+0F  A4   SHLD r/m32,r32,imm8  3/7      r/m32 gets SHL of r/m32 concatenated with r32
+0F  A5   SHLD r/m16,r16,CL    3/7      r/m16 gets SHL of r/m16 concatenated with r16
+0F  A5   SHLD r/m32,r32,CL    3/7      r/m32 gets SHL of r/m32 concatenated with r32
 ```
 
 Operation
@@ -15472,14 +15871,10 @@ IC: SHRD -- Double Precision Shift Right
 ```sh
 Opcode   Instruction           Clocks  Description
 
-0F  AC   SHRD r/m16,r16,imm8   3/7     r/m16 gets SHR of r/m16 concatenated
-                                       with r16
-0F  AC   SHRD r/m32,r32,imm8   3/7     r/m32 gets SHR of r/m32 concatenated
-                                       with r32
-0F  AD   SHRD r/m16,r16,CL     3/7     r/m16 gets SHR of r/m16 concatenated
-                                       with r16
-0F  AD   SHRD r/m32,r32,CL     3/7     r/m32 gets SHR of r/m32 concatenated
-                                       with r32
+0F  AC   SHRD r/m16,r16,imm8   3/7     r/m16 gets SHR of r/m16 concatenated with r16
+0F  AC   SHRD r/m32,r32,imm8   3/7     r/m32 gets SHR of r/m32 concatenated with r32
+0F  AD   SHRD r/m16,r16,CL     3/7     r/m16 gets SHR of r/m16 concatenated with r16
+0F  AD   SHRD r/m32,r32,CL     3/7     r/m32 gets SHR of r/m32 concatenated with r32
 ```
 
 Operation
@@ -15607,8 +16002,7 @@ IC: SMSW -- Store Machine Status Word
 ```sh
 Opcode      Instruction     Clocks          Description
 
-0F  01 /4   SMSW r/m16      2/3,pm=2/2      Store machine status word to EA
-                                            word
+0F  01 /4   SMSW r/m16      2/3,pm=2/2      Store machine status word to EA word
 ```
 
 Operation
@@ -15706,8 +16100,7 @@ IC: STD -- Set Direction Flag
 ```sh
 Opcode  Instruction   Clocks    Description
 
-FD      STD           2         Set direction flag so (E)SI and/or (E)DI
-                                decrement
+FD      STD           2         Set direction flag so (E)SI and/or (E)DI decrement
 ```
 
 Operation
@@ -15802,11 +16195,11 @@ IC: STOS/STOSB/STOSW/STOSD -- Store String Data
 ```sh
 Opcode  Instruction  Clocks   Description
 
-AA      STOS m8      4        Store AL in byte ES:[(E)DI], update (E)DI
-AB      STOS m16     4        Store AX in word ES:[(E)DI], update (E)DI
+AA      STOS m8      4        Store AL in byte   ES:[(E)DI], update (E)DI
+AB      STOS m16     4        Store AX in word   ES:[(E)DI], update (E)DI
 AB      STOS m32     4        Store EAX in dword ES:[(E)DI], update (E)DI
-AA      STOSB        4        Store AL in byte ES:[(E)DI], update (E)DI
-AB      STOSW        4        Store AX in word ES:[(E)DI], update (E)DI
+AA      STOSB        4        Store AL in byte   ES:[(E)DI], update (E)DI
+AB      STOSW        4        Store AX in word   ES:[(E)DI], update (E)DI
 AB      STOSD        4        Store EAX in dword ES:[(E)DI], update (E)DI
 ```
 
@@ -15942,25 +16335,20 @@ IC: SUB -- Integer Subtraction
 ```sh
 Opcode      Instruction      Clocks   Description
 
-2C  ib      SUB AL,imm8      2        Subtract immediate byte from AL
-2D  iw      SUB AX,imm16     2        Subtract immediate word from AX
+2C  ib      SUB AL,imm8      2        Subtract immediate byte from  AL
+2D  iw      SUB AX,imm16     2        Subtract immediate word from  AX
 2D  id      SUB EAX,imm32    2        Subtract immediate dword from EAX
-80  /5 ib   SUB r/m8,imm8    2/7      Subtract immediate byte from r/m byte
-81  /5 iw   SUB r/m16,imm16  2/7      Subtract immediate word from r/m word
-81  /5 id   SUB r/m32,imm32  2/7      Subtract immediate dword from r/m
-                                      dword
-83  /5 ib   SUB r/m16,imm8   2/7      Subtract sign-extended immediate byte
-                                      from r/m word
-83  /5 ib   SUB r/m32,imm8   2/7      Subtract sign-extended immediate byte
-                                      from r/m dword
-28  /r      SUB r/m8,r8      2/6      Subtract byte register from r/m byte
-29  /r      SUB r/m16,r16    2/6      Subtract word register from r/m word
-29  /r      SUB r/m32,r32    2/6      Subtract dword register from r/m
-                                      dword
-2A  /r      SUB r8,r/m8      2/7      Subtract byte register from r/m byte
-2B  /r      SUB r16,r/m16    2/7      Subtract word register from r/m word
-2B  /r      SUB r32,r/m32    2/7      Subtract dword register from r/m
-                                      dword
+80  /5 ib   SUB r/m8,imm8    2/7      Subtract immediate byte from  r/m byte
+81  /5 iw   SUB r/m16,imm16  2/7      Subtract immediate word from  r/m word
+81  /5 id   SUB r/m32,imm32  2/7      Subtract immediate dword from r/m dword
+83  /5 ib   SUB r/m16,imm8   2/7      Subtract sign-extended immediate byte from r/m word
+83  /5 ib   SUB r/m32,imm8   2/7      Subtract sign-extended immediate byte from r/m dword
+28  /r      SUB r/m8,r8      2/6      Subtract byte register from   r/m byte
+29  /r      SUB r/m16,r16    2/6      Subtract word register from   r/m word
+29  /r      SUB r/m32,r32    2/6      Subtract dword register from  r/m dword
+2A  /r      SUB r8,r/m8      2/7      Subtract byte register from   r/m byte
+2B  /r      SUB r16,r/m16    2/7      Subtract word register from   r/m word
+2B  /r      SUB r32,r/m32    2/7      Subtract dword register from  r/m dword
 ```
 
 Operation
@@ -16012,15 +16400,15 @@ IC: TEST -- Logical Compare
 ```sh
 Opcode       Instruction       Clocks   Description
 
-A8   ib      TEST AL,imm8      2        AND immediate byte with AL
-A9   iw      TEST AX,imm16     2        AND immediate word with AX
+A8   ib      TEST AL,imm8      2        AND immediate byte  with AL
+A9   iw      TEST AX,imm16     2        AND immediate word  with AX
 A9   id      TEST EAX,imm32    2        AND immediate dword with EAX
-F6   /0 ib   TEST r/m8,imm8    2/5      AND immediate byte with r/m byte
-F7   /0 iw   TEST r/m16,imm16  2/5      AND immediate word with r/m word
+F6   /0 ib   TEST r/m8,imm8    2/5      AND immediate byte  with r/m byte
+F7   /0 iw   TEST r/m16,imm16  2/5      AND immediate word  with r/m word
 F7   /0 id   TEST r/m32,imm32  2/5      AND immediate dword with r/m dword
-84   /r      TEST r/m8,r8      2/5      AND byte register with r/m byte
-85   /r      TEST r/m16,r16    2/5      AND word register with r/m word
-85   /r      TEST r/m32,r32    2/5      AND dword register with r/m dword
+84   /r      TEST r/m8,r8      2/5      AND byte register   with r/m byte
+85   /r      TEST r/m16,r16    2/5      AND word register   with r/m word
+85   /r      TEST r/m32,r32    2/5      AND dword register  with r/m dword
 ```
 
 Operation
@@ -16092,10 +16480,17 @@ Description
 
 The two-byte register or memory operand of VERR and VERW contains the value of a selector. VERR and VERW determine whether the segment denoted by the selector is reachable from the current privilege level and whether the segment is readable (VERR) or writable (VERW). If the segment is accessible, the zero flag is set to 1; if the segment is not accessible, the zero flag is set to 0. To set ZF, the following conditions must be met:
 
-*   The selector must denote a descriptor within the bounds of the table (GDT or LDT); the selector must be "defined."
-*   The selector must denote the descriptor of a code or data segment (not that of a task state segment, LDT, or a gate).
-*   For VERR, the segment must be readable. For VERW, the segment must be a writable data segment.
-*   If the code segment is readable and conforming, the descriptor privilege level (DPL) can be any value for VERR. Otherwise, the DPL must be greater than or equal to (have less or the same privilege as) both the current privilege level and the selector's RPL.
+*   The selector must denote a descriptor within the bounds of 
+    the table (GDT or LDT); the selector must be "defined."
+
+*   The selector must denote the descriptor of a code or data segment 
+    (not that of a task state segment, LDT, or a gate).
+
+*   For VERR, the segment must be readable. 
+    For VERW, the segment must be a writable data segment.
+
+*   If the code segment is readable and conforming, 
+    the descriptor privilege level (DPL) can be any value for VERR. Otherwise, the DPL must be greater than or equal to (have less or the same privilege as) both the current privilege level and the selector's RPL.
 
 The validation performed is the same as if the segment were loaded into DS, ES, FS, or GS, and the indicated access (read or write) were performed. The zero flag receives the result of the validation. The selector's value cannot result in a protection exception, enabling the software to anticipate possible segment access problems.
 
@@ -16173,14 +16568,14 @@ IC: XCHG -- Exchange Register/Memory with Register
 ```sh
 Opcode    Instruction      Clocks     Description
 
-90 + r    XCHG AX,r16      3          Exchange word register with AX
-90 + r    XCHG r16,AX      3          Exchange word register with AX
+90 + r    XCHG AX,r16      3          Exchange word  register with AX
+90 + r    XCHG r16,AX      3          Exchange word  register with AX
 90 + r    XCHG EAX,r32     3          Exchange dword register with EAX
 90 + r    XCHG r32,EAX     3          Exchange dword register with EAX
-86  /r    XCHG r/m8,r8     3          Exchange byte register with EA byte
-86  /r    XCHG r8,r/m8     3/5        Exchange byte register with EA byte
-87  /r    XCHG r/m16,r16   3          Exchange word register with EA word
-87  /r    XCHG r16,r/m16   3/5        Exchange word register with EA word
+86  /r    XCHG r/m8,r8     3          Exchange byte  register with EA byte
+86  /r    XCHG r8,r/m8     3/5        Exchange byte  register with EA byte
+87  /r    XCHG r/m16,r16   3          Exchange word  register with EA word
+87  /r    XCHG r16,r/m16   3/5        Exchange word  register with EA word
 87  /r    XCHG r/m32,r32   3          Exchange dword register with EA dword
 87  /r    XCHG r32,r/m32   3/5        Exchange dword register with EA dword
 ```
@@ -16286,31 +16681,20 @@ IC: XOR -- Logical Exclusive OR
 ```sh
 Opcode      Instruction      Clocks   Description
 
-34  ib      XOR AL,imm8      2        Exclusive-OR immediate byte to AL
-35  iw      XOR AX,imm16     2        Exclusive-OR immediate word to AX
-35  id      XOR EAX,imm32    2        Exclusive-OR immediate dword to EAX
-80  /6 ib   XOR r/m8,imm8    2/7      Exclusive-OR immediate byte to r/m
-                                      byte
-81  /6 iw   XOR r/m16,imm16  2/7      Exclusive-OR immediate word to r/m
-                                      word
-81  /6 id   XOR r/m32,imm32  2/7      Exclusive-OR immediate dword to r/m
-                                      dword
-83  /6 ib   XOR r/m16,imm8   2/7      XOR sign-extended immediate byte
-                                      with r/m word
-83  /6 ib   XOR r/m32,imm8   2/7      XOR sign-extended immediate byte
-                                      with r/m dword
-30  /r      XOR r/m8,r8      2/6      Exclusive-OR byte register to r/m
-                                      byte
-31  /r      XOR r/m16,r16    2/6      Exclusive-OR word register to r/m
-                                      word
-31  /r      XOR r/m32,r32    2/6      Exclusive-OR dword register to r/m
-                                      dword
-32  /r      XOR r8,r/m8      2/7      Exclusive-OR byte register to r/m
-                                      byte
-33  /r      XOR r16,r/m16    2/7      Exclusive-OR word register to r/m
-                                      word
-33  /r      XOR r32,r/m32    2/7      Exclusive-OR dword register to r/m
-                                      dword
+34  ib      XOR AL,imm8      2        Exclusive-OR       immediate byte   to AL
+35  iw      XOR AX,imm16     2        Exclusive-OR       immediate word   to AX
+35  id      XOR EAX,imm32    2        Exclusive-OR       immediate dword  to EAX
+80  /6 ib   XOR r/m8,imm8    2/7      Exclusive-OR       immediate byte   to r/m byte
+81  /6 iw   XOR r/m16,imm16  2/7      Exclusive-OR       immediate word   to r/m word
+81  /6 id   XOR r/m32,imm32  2/7      Exclusive-OR       immediate dword  to r/m dword
+83  /6 ib   XOR r/m16,imm8   2/7      XOR sign-extended  immediate byte with r/m word
+83  /6 ib   XOR r/m32,imm8   2/7      XOR sign-extended  immediate byte with r/m dword
+30  /r      XOR r/m8,r8      2/6      Exclusive-OR byte  register         to r/m byte
+31  /r      XOR r/m16,r16    2/6      Exclusive-OR word  register         to r/m word
+31  /r      XOR r/m32,r32    2/6      Exclusive-OR dword register         to r/m dword
+32  /r      XOR r8,r/m8      2/7      Exclusive-OR byte  register         to r/m byte
+33  /r      XOR r16,r/m16    2/7      Exclusive-OR word  register         to r/m word
+33  /r      XOR r32,r/m32    2/7      Exclusive-OR dword register         to r/m dword
 ```
 
 Operation
@@ -16367,199 +16751,202 @@ Same exceptions as in Real Address Mode; #PF(fault-code) for a page fault
 
 * * *
 
-<a name="APPA_"></a>
+<a name="APPA_"></a> <!-- *appa* -->
 
 /Appendix A -- Opcode Map
 =========================
 
 The opcode tables that follow aid in interpreting 80386 object code. Use the high-order four bits of the opcode as an index to a row of the opcode table; use the low-order four bits as an index to a column of the table. If the opcode is 0FH, refer to the two-byte opcode table and use the second byte of the opcode to index the rows and columns of that table.
 
-### Key to Abbreviations
+### // Key to Abbreviations
 
 Operands are identified by a two-character code of the form Zz. The first character, an uppercase letter, specifies the addressing method; the second character, a lowercase letter, specifies the type of operand.
 
-### Codes for Addressing Method
+### //Codes for Addressing Method
 
-A
+*   A
 
-Direct address; the instruction has no modR/M byte; the address of the operand is encoded in the instruction; no base register, index register, or scaling factor can be applied; e.g., far [JMP](#IC_JMP) (EA).
+    Direct address; the instruction has no modR/M byte; the address of the operand is encoded in the instruction; no base register, index register, or scaling factor can be applied; e.g., far [JMP](#IC_JMP) (EA).
 
-C
+*   C
 
-The reg field of the modR/M byte selects a control register; e.g., [MOV](#IC_MOVRS) (0F20, 0F22).
+    The reg field of the modR/M byte selects a control register; e.g., [MOV](#IC_MOVRS) (0F20, 0F22).
 
-D
+*   D
 
-The reg field of the modR/M byte selects a debug register; e.g., [MOV](#IC_MOVRS) (0F21,0F23).
+    The reg field of the modR/M byte selects a debug register; e.g., [MOV](#IC_MOVRS) (0F21,0F23).
 
-E
+*   E
 
-A modR/M byte follows the opcode and specifies the operand. The operand is either a general register or a memory address. If it is a memory address, the address is computed from a segment register and any of the following values: a base register, an index register, a scaling factor, a displacement.
+    A modR/M byte follows the opcode and specifies the operand. The operand is either a general register or a memory address. If it is a memory address, the address is computed from a segment register and any of the following values: a base register, an index register, a scaling factor, a displacement.
 
-F
+*   F
 
-Flags Register.
+    Flags Register.
 
-G
+*   G
 
-The reg field of the modR/M byte selects a general register; e.g., [ADD](#IC_ADD) (00).
+    The reg field of the modR/M byte selects a general register; e.g., [ADD](#IC_ADD) (00).
 
-I
+*   I
 
-Immediate data. The value of the operand is encoded in subsequent bytes of the instruction.
+    Immediate data. The value of the operand is encoded in subsequent bytes of the instruction.
 
-J
+*   J
 
-The instruction contains a relative offset to be added to the instruction pointer register; e.g., [JMP](#IC_JMP) short, [LOOP](#IC_LOOP).
+    The instruction contains a relative offset to be added to the instruction pointer register; e.g., [JMP](#IC_JMP) short, [LOOP](#IC_LOOP).
 
-M
+*   M
 
-The modR/M byte may refer only to memory; e.g., [BOUND](#IC_BOUND), [LES](#IC_LGS), [LDS](#IC_LGS), [LSS](#IC_LGS), [LFS](#IC_LGS), [LGS](#IC_LGS).
+    The modR/M byte may refer only to memory; e.g., [BOUND](#IC_BOUND), [LES](#IC_LGS), [LDS](#IC_LGS), [LSS](#IC_LGS), [LFS](#IC_LGS), [LGS](#IC_LGS).
 
-O
+*   O
 
-The instruction has no modR/M byte; the offset of the operand is coded as a word or double word (depending on address size attribute) in the instruction. No base register, index register, or scaling factor can be applied; e.g., [MOV](#IC_MOV) (A0-A3).
+    The instruction has no modR/M byte; the offset of the operand is coded as a word or double word (depending on address size attribute) in the instruction. No base register, index register, or scaling factor can be applied; e.g., [MOV](#IC_MOV) (A0-A3).
 
-R
+*   R
 
-The mod field of the modR/M byte may refer only to a general register; e.g., [MOV](#IC_MOV) (0F20-0F24, 0F26).
+    The mod field of the modR/M byte may refer only to a general register; e.g., [MOV](#IC_MOV) (0F20-0F24, 0F26).
 
-S
+*   S
 
-The reg field of the modR/M byte selects a segment register; e.g., [MOV](#IC_MOV) (8C,8E).
+    The reg field of the modR/M byte selects a segment register; e.g., [MOV](#IC_MOV) (8C,8E).
 
-T
+*   T
 
-The reg field of the modR/M byte selects a test register; e.g., [MOV](#IC_MOVRS) (0F24,0F26).
+    The reg field of the modR/M byte selects a test register; e.g., [MOV](#IC_MOVRS) (0F24,0F26).
 
-X
+*   X
 
-Memory addressed by DS:SI; e.g., [MOVS](#IC_MOVS), [CMPS](#IC_CMPS), [OUTS](#IC_OUTS), [LODS](#IC_LODS), [SCAS](#IC_SCAS).
+    Memory addressed by DS:SI; e.g., [MOVS](#IC_MOVS), [CMPS](#IC_CMPS), [OUTS](#IC_OUTS), [LODS](#IC_LODS), [SCAS](#IC_SCAS).
 
-Y
+*   Y
 
-Memory addressed by ES:DI; e.g., [MOVS](#IC_MOVS), [CMPS](#IC_CMPS), [INS](#IC_INS), [STOS](#IC_STOS).
+    Memory addressed by ES:DI; e.g., [MOVS](#IC_MOVS), [CMPS](#IC_CMPS), [INS](#IC_INS), [STOS](#IC_STOS).
 
-### Codes for Operant Type
+### //Codes for Operant Type
 
-a
+*   a
 
-Two one-word operands in memory or two double-word operands in memory, depending on operand size attribute (used only by [BOUND](#IC_BOUND))
+    Two one-word operands in memory or two double-word operands in memory, depending on operand size attribute (used only by [BOUND](#IC_BOUND))
 
-b
+*   b
 
-Byte (regardless of operand size attribute)
+    Byte (regardless of operand size attribute)
 
-c
+*   c
 
-Byte or word, depending on operand size attribute.
+    Byte or word, depending on operand size attribute.
 
-d
+*   d
 
-Double word (regardless of operand size attribute)
+    Double word (regardless of operand size attribute)
 
-p
+*   p
 
-32-bit or 48-bit pointer, depending on operand size attribute.
+    32-bit or 48-bit pointer, depending on operand size attribute.
 
-s
+*   s
 
-Six-byte pseudo-descriptor
+    Six-byte pseudo-descriptor
 
-v
+*   v
 
-Word or double word, depending on operand size attribute.
+    Word or double word, depending on operand size attribute.
 
-w
+*   w
 
-Word (regardless of operand size attribute)
+    Word (regardless of operand size attribute)
 
-### Register Codes
+### //Register Codes
 
 When an operand is a specific register encoded in the opcode, the register is identified by its name; e.g., AX, CL, or ESI. The name of the register indicates whether the register is 32-, 16-, or 8-bits wide. A register identifier of the form eXX is used when the width of the register depends on the operand size attribute; for example, eAX indicates that the AX register is used when the operand size attribute is 16 and the EAX register is used when the operand size attribute is 32.
 
-### One-Byte Opcode Map
+### //One-Byte Opcode Map
 
+```sh
        0         1         2         3         4         5         6        7        8         9         A         B         C         D         E        F
  +-----------------------------------------------------------+--------+--------+-----------------------------------------------------------+--------+--------+
- |                              [ADD](#IC_ADD)                          |  [PUSH](#IC_PUSH)  |   [POP](#IC_POP)  |                             [OR](#IC_OR)                            |  [PUSH](#IC_PUSH)  | 2-byte |
+ |                              ADD                          |  PUSH  |   POP  |                             OR                            |  PUSH  | 2-byte |
 0|---------+---------+---------+---------+---------+---------+        |        +---------+---------+---------+---------+---------+---------+        |        |
  |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   ES   |   ES   |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   CS   | escape |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                              [ADC](#IC_ADC)                          |  [PUSH](#IC_PUSH)  |   [POP](#IC_POP)  |                            [SBB](#IC_SBB)                            |  [PUSH](#IC_PUSH)  |  [POP](#IC_POP)   |
+ |                              ADC                          |  PUSH  |   POP  |                            SBB                            |  PUSH  |  POP   |
 1|---------+---------+---------+---------+---------+---------+        |        +---------+---------+---------+---------+---------+---------+        |        |
  |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   SS   |   SS   |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |   DS   |   DS   |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                              [AND](#IC_AND)                          |  SEG   |        |                            [SUB](#IC_SUB)                            |  SEG   |        |
-2|---------+---------+---------+---------+---------+---------+        |   [DAA](#IC_DAA)  +---------+---------+---------+---------+---------+---------+        |  [DAS](#IC_DAS)   |
+ |                              AND                          |  SEG   |        |                            SUB                            |  SEG   |        |
+2|---------+---------+---------+---------+---------+---------+        |   DAA  +---------+---------+---------+---------+---------+---------+        |  DAS   |
  |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =ES   |        |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =CS   |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                              [XOR](#IC_XOR)                          |  SEG   |        |                            [CMP](#IC_CMP)                            |  SEG   |        |
-3|---------+---------+---------+---------+---------+---------+        |   [AAA](#IC_AAA)  +---------+---------+---------+---------+---------+---------+        |  [AAS](#IC_AAS)   |
+ |                              XOR                          |  SEG   |        |                            CMP                            |  SEG   |        |
+3|---------+---------+---------+---------+---------+---------+        |   AAA  +---------+---------+---------+---------+---------+---------+        |  AAS   |
  |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =SS   |        |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  AL,Ib  | eAX,Iv  |  =CS   |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                               [INC](#IC_INC) general register                          |                              [DEC](#IC_DEC) general register                           |
+ |                               INC general register                          |                              DEC general register                           |
 4|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |   eSI  |  eDI   |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                               [PUSH](#IC_PUSH) general register                         |                          [POP](#IC_POP) into general register                          |
+ |                               PUSH general register                         |                          POP into general register                          |
 5|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |         |         |  [BOUND](#IC_BOUND)  |  [ARPL](#IC_ARPL)   |   SEG   |   SEG   | Operand| Address|  [PUSH](#IC_PUSH)   |  [IMUL](#IC_IMUL)   |  [PUSH](#IC_PUSH)   |  [IMUL](#IC_IMUL)   |  [INSB](#IC_INS)   | [INSW/D](#IC_INS)  | [OUTSB](#IC_OUTS)  |[OUTSW/D](#IC_OUTS) |
-6|  [PUSHA](#IC_PUSHA)  |  [POPA](#IC_POPA)   |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
+ |         |         |  BOUND  |  ARPL   |   SEG   |   SEG   | Operand| Address|  PUSH   |  IMUL   |  PUSH   |  IMUL   |  INSB   | [INSWD  | OUTSB  |[OUTSWD |
+6|  PUSHA  |  POPA   |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  |         |         |  Gv,Ma  |  Ew,Rw  |   =FS   |   =GS   |  Size  |  Size  |   Ib    | GvEvIv  |   Ib    | GvEvIv  |  Yb,DX  |  Yb,DX  | Dx,Xb  | DX,Xv  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |                    Short displacement jump of condition (Jb)                |                   Short-displacement jump on condition(Jb)                  |
 7|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |   [JO](#IC_JCC)    |   [JNO](#IC_JCC)   |   [JB](#IC_JCC)    |   [JNB](#IC_JCC)   |   [JZ](#IC_JCC)    |  [JNZ](#IC_JCC)    |   [JBE](#IC_JCC)  |  [JNBE](#IC_JCC)  |   [JS](#IC_JCC)    |   [JNS](#IC_JCC)   |   [JP](#IC_JCC)    |   [JNP](#IC_JCC)   |   [JL](#IC_JCC)    |  [JNL](#IC_JCC)    |  [JLE](#IC_JCC)   |  [JNLE](#IC_JCC)  |
+ |   JO    |   JNO   |   JB    |   JNB   |   JZ    |  JNZ    |   JBE  |  JNBE  |   JS    |   JNS   |   JP    |   JNP   |   JL    |  JNL    |  JLE   |  JNLE  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |  Immediate Grpl   |         |  Grpl   |       [TEST](#IC_TEST)        |      [XCHG](#IC_XCHG)       |                 [MOV](#IC_MOV)                   |   [MOV](#IC_MOV)   |   [LEA](#IC_LEA)   |  [MOV](#IC_MOV)   |  [POP](#IC_POP)   |
+ |  Immediate Grpl   |         |  Grpl   |       TEST        |      XCHG       |                 MOV                   |   MOV   |   LEA   |  MOV   |  POP   |
 8|---------+---------+         |         +---------+---------+--------+--------+---------+---------+---------+---------+         |         |        |        |
  |  Eb,Ib  |  Ev,Iv  |         |  Ev,Iv  |  Eb,Gb  |  Ev,Gv  |  Eb,Gb |  Ev,Gv |  Eb,Gb  |  Ev,Gv  |  Gb,Eb  |  Gv,Ev  |  Ew,Sw  |  Gv,M   |  Sw,Ew |   Ev   |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |         |              [XCHG](#IC_XCHG) word or double-word register with eAX           |         |         |  [CALL](#IC_CALL)   |         |  [PUSHF](#IC_PUSHF)  |  [POPF](#IC_POPF)   |        |        |
-9|   [NOP](#IC_NOP)   +---------+---------+---------+---------+---------+--------+--------+   [CBW](#IC_CBW)   |   [CWD](#IC_CWD)   |         |  [WAIT](#IC_WAIT)   |         |         |  [SAHF](#IC_SAHF)  |  [LAHF](#IC_LAHF)  |
+ |         |              XCHG word or double-word register with eAX           |         |         |  CALL   |         |  PUSHF  |  POPF   |        |        |
+9|   NOP   +---------+---------+---------+---------+---------+--------+--------+   CBW   |   CWD   |         |  WAIT   |         |         |  SAHF  |  LAHF  |
  |         |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |  eSI   |  eDI   |         |         |   Ap    |         |   Fv    |   Fv    |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                  [MOV](#IC_MOV)                  |  [MOVSB](#IC_MOVS)  | [MOVSW/D](#IC_MOVS) | [CMPSB](#IC_CMPS)  |[CMPSW/D](#IC_CMPS) |       [TEST](#IC_TEST)        |  [STOSB](#IC_STOS)  | [STOSW/D](#IC_STOS) |  [LODSB](#IC_LODS)  | [LODSW/D](#IC_LODS) | [SCASB](#IC_SCAS)  |[SCASW/D](#IC_SCAS) |
+ |                  MOV                  |  MOVSB  | [MOVSWD | CMPSB  |[CMPSWD |       TEST        |  STOSB  | [STOSWD |  LODSB  | [LODSWD | SCASB  |[SCASWD |
 A|---------+---------+---------+---------+         |         |        |        +---------+---------+         |         |         |         |        |        |
  |  AL,Ob  |  eAX,Ov |  Ob,AL  |  Ov,eAX |  Xb,Yb  |  Xv,Yv  |  Xb,Yb |  Xv,Yv |  AL,Ib  | eAX,Iv  |  Yb,AL  |  Yv,eAX |  AL,Xb  | eAX,Xv  |  AL,Xb |eAX,Xv  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |                       [MOV](#IC_MOV) immediate byte into byte register                 |        [MOV](#IC_MOV) immediate word or double into word or double register            |
+ |                       MOV immediate byte into byte register                 |        MOV immediate word or double into word or double register            |
 B|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |    AL   |   CL    |   DL    |   BL    |   AH    |   CH    |   DH   |   BH   |   eAX   |   eCX   |   eDX   |   eBX   |   eSP   |   eBP   |   eSI  |  eDI   |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |    Shift Grp2     |      [RET](#IC_RET) near     |   [LES](#IC_LGS)   |   [LDS](#IC_LGS)   |       [MOV](#IC_MOV)       |  [ENTER](#IC_ENTER)  |         |      [RET](#IC_RET) far      |  [INT](#IC_INT)    |  [INT](#IC_INT)    |        |        |
-C|---------+---------+---------+---------+         |         +--------+--------+         |  [LEAVE](#IC_LEAVE)  +---------+---------+         |         |  [INTO](#IC_INT)  |  [IRET](#IC_IRET)  |
+ |    Shift Grp2     |      RET near     |   LES   |   LDS   |       MOV       |  ENTER  |         |      RET far      |  INT    |  INT    |        |        |
+C|---------+---------+---------+---------+         |         +--------+--------+         |  LEAVE  +---------+---------+         |         |  INTO  |  IRET  |
  |  Eb,Ib  |  Ev,Iv  |    Iw   |         |  Gv,Mp  |  Gv,Mp  |  Eb,Ib |  Ev,Iv |  Iw,Ib  |         |   Iw    |         |   3     |  Ib     |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |               Shift Grp2              |         |         |        |        |                                                                             |
-D|---------+---------+---------+---------+   [AAM](#IC_AAM)   |   [AAD](#IC_AAD)   |        |  [XLAT](#IC_XLAT)  |                  ESC(Escape to coprocessor instruction set)                 |
+D|---------+---------+---------+---------+   AAM   |   AAD   |        |  XLAT  |                  ESC(Escape to coprocessor instruction set)                 |
  |   Eb,1  |  Ev,1   |  Eb,CL  |  Ev,CL  |         |         |        |        |                                                                             |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+-----------------------------+-------------------+-----------------+
- | [LOOPNE](#IC_LOOP)  |  [LOOPE](#IC_LOOP)  |   [LOOP](#IC_LOOP)  |  [JCXZ](#IC_JCC)   |        [IN](#IC_IN)         |       [OUT](#IC_OUT)       |   [CALL](#IC_CALL)  |             [JNP](#IC_JCC)             |        [IN](#IC_IN)         |       [OUT](#IC_OUT)       |
+ | LOOPNE  |  LOOPE  |   LOOP  |  JCXZ   |        IN         |       OUT       |   CALL  |             JNP             |        IN         |       OUT       |
 E|         |         |         |         +---------+---------+--------+--------+         +---------+---------+---------+---------+---------+--------+--------+
  |   Jb    |   Jb    |    Jb   |   Jb    |  AL,Ib  | eAX,Ib  |  Ib,AL | Ib,eAX |    Av   |   Jv    |   Ap    |   Jb    |  AL,DX  | eAX,DX  | DX,AL  | DX,eAX |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |         |         |         |   [REP](#IC_REP)   |         |         |     Unary Grp3  |         |         |         |         |         |         |[INC](#IC_INC)/[DEC](#IC_DEC) |Indirct |
-F|  [LOCK](#IC_LOCK)   |         |  [REPNE](#IC_REP)  |         |   [HLT](#IC_HLT)   |   [CMC](#IC_CMC)   +--------+--------+   [CLC](#IC_CLC)   |   [STC](#IC_STC)   |   [CLI](#IC_CLI)   |   [STI](#IC_STI)   |   [CLD](#IC_CLD)   |   [STD](#IC_STD)   |        |        |
- |         |         |         |  [REPE](#IC_REP)   |         |         |   Eb   |   Ev   |         |         |         |         |         |         |  Grp4  |  Grp5  |
+ |         |         |         |   REP   |         |         |     Unary Grp3  |         |         |         |         |         |         |INC/DEC |Indirct |
+F|  LOCK   |         |  REPNE  |         |   HLT   |   CMC   +--------+--------+   CLC   |   STC   |   CLI   |   STI   |   CLD   |   STD   |        |        |
+ |         |         |         |  REPE   |         |         |   Eb   |   Ev   |         |         |         |         |         |         |  Grp4  |  Grp5  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+```
 
-### Two-Byte Opcode Map (first byte is 0FH)
+### /Two-Byte Opcode Map (first byte is 0FH)
 
+```sh
       0         1         2         3         4         5         6        7        8         9         A         B         C         D         E        F
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |         |         |   [LAR](#IC_LAR)   |   [LSL](#IC_LSL)   |         |         |        |        |         |         |         |         |         |         |        |        |
-0|  Grp6   |  Grp7   |         |         |         |         |  [CLTS](#IC_CLTS)  |        |         |         |         |         |         |         |        |        |
+ |         |         |   LAR   |   LSL   |         |         |        |        |         |         |         |         |         |         |        |        |
+0|  Grp6   |  Grp7   |         |         |         |         |  CLTS  |        |         |         |         |         |         |         |        |        |
  |         |         |  Gw,Ew  |  Gv,Ew  |         |         |        |        |         |         |         |         |         |         |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
 1|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |   [MOV](#IC_MOVRS)   |   [MOV](#IC_MOVRS)   |   [MOV](#IC_MOVRS)   |   [MOV](#IC_MOVRS)   |   [MOV](#IC_MOVRS)   |         |   [MOV](#IC_MOVRS)  |        |         |         |         |         |         |         |        |        |
+ |   MOV   |   MOV   |   MOV   |   MOV   |   MOV   |         |   MOV  |        |         |         |         |         |         |         |        |        |
 2|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  |  Cd,Rd  |  Dd,Rd  |  Rd,Cd  |  Rd,Dd  |  Td,Rd  |         |  Rd,Td |        |         |         |         |         |         |         |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
@@ -16585,17 +16972,17 @@ F|  [LOCK](#IC_LOCK)   |         |  [REPNE](#IC_REP)  |         |   [HLT](#IC_HL
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |                      Long-displacement jump on condition (Jv)               |                 Long-displacement jump on condition (Jv)                    |
 8|---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |   [JO](#IC_JCC)    |   [JNO](#IC_JCC)   |   [JB](#IC_JCC)    |   [JNB](#IC_JCC)   |   [JZ](#IC_JCC)    |   [JNZ](#IC_JCC)   |   [JBE](#IC_JCC)  |  [JNBE](#IC_JCC)  |   [JS](#IC_JCC)    |   [JNS](#IC_JCC)   |   [JP](#IC_JCC)    |   [JNP](#IC_JCC)   |   [JL](#IC_JCC)    |   [JNL](#IC_JCC)   |   [JLE](#IC_JCC)  |  [JNLE](#IC_JCC)  |
+ |   JO    |   JNO   |   JB    |   JNB   |   JZ    |   JNZ   |   JBE  |  JNBE  |   JS    |   JNS   |   JP    |   JNP   |   JL    |   JNL   |   JLE  |  JNLE  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
  |                              Byte Set on condition (Eb)                     |         |         |         |         |         |         |        |        |
-9|---------+---------+---------+---------+---------+---------+--------+--------+  [SETS](#IC_SETCC)   |  [SETNS](#IC_SETCC)  |  [SETP](#IC_SETCC)   |  [SETNP](#IC_SETCC)  |  [SETL](#IC_SETCC)   |  [SETNL](#IC_SETCC)  |  [SETLE](#IC_SETCC) | [SETNLE](#IC_SETCC) |
- |  [SETO](#IC_SETCC)   |  [SETNO](#IC_SETCC)  |  [SETB](#IC_SETCC)   |  [SETNB](#IC_SETCC)  |  [SETZ](#IC_SETCC)   |  [SETNZ](#IC_SETCC)  |  [SETBE](#IC_SETCC) | [SETNBE](#IC_SETCC) |         |         |         |         |         |         |        |        |
+9|---------+---------+---------+---------+---------+---------+--------+--------+  SETS   |  SETNS  |  SETP   |  SETNP  |  SETL   |  SETNL  |  SETLE | SETNLE |
+ |  SETO   |  SETNO  |  SETB   |  SETNB  |  SETZ   |  SETNZ  |  SETBE | SETNBE |         |         |         |         |         |         |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |  [PUSH](#IC_PUSH)   |   [POP](#IC_POP)   |         |   [BT](#IC_BT)    |  [SHLD](#IC_SAL)   |  [SHLD](#IC_SAL)   |        |        |  [PUSH](#IC_PUSH)   |   [POP](#IC_POP)   |         |   [BTS](#IC_BTS)   |  [SHRD](#IC_SAL)   |  [SHRD](#IC_SAL)   |        |  [IMUL](#IC_IMUL)  |
+ |  PUSH   |   POP   |         |   BT    |  SHLD   |  SHLD   |        |        |  PUSH   |   POP   |         |   BTS   |  SHRD   |  SHRD   |        |  IMUL  |
 A|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  |   FS    |   FS    |         |  Ev,Gv  | EvGvIb  | EvGvCL  |        |        |   GS    |   GS    |         |  Ev,Gv  | EvGvIb  | EvGvCL  |        | Gv,Ev  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
- |         |         |   [LSS](#IC_LGS)   |   [BTR](#IC_BTR)   |   [LFS](#IC_LGS)   |   [LGS](#IC_LGS)   |      [MOVZX](#IC_MOVZX)      |         |         |  Grp-8  |   [BTC](#IC_BTC)   |   [BSF](#IC_BSF)   |   [BSR](#IC_BSR)   |      [MOVSX](#IC_MOVSX)      |
+ |         |         |   LSS   |   BTR   |   LFS   |   LGS   |      MOVZX      |         |         |  Grp-8  |   BTC   |   BSF   |   BSR   |      MOVSX      |
 B|         |         |         |         |         |         +--------+--------+         |         |         |         |         |         +-----------------+
  |         |         |   Mp    |  Ev,Gv  |   Mp    |   Mp    | Gv,Eb  | Gv,Ew  |         |         |  Ev,Ib  |  Ev,Gv  |  Gv,Ev  |  Gv,Ev  |  Gv,Eb   Gv,Ew  |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
@@ -16615,61 +17002,67 @@ E|         |         |         |         |         |         |        |        |
 F|         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  |         |         |         |         |         |         |        |        |         |         |         |         |         |         |        |        |
  +---------+---------+---------+---------+---------+---------+--------+--------+---------+---------+---------+---------+---------+---------+--------+--------+
+```
 
-### Opcodes determined by bits 5,4,3 of modR/M byte
+### //Opcodes determined by bits 5,4,3 of modR/M byte
 
+```sh
      G                       +-------+-------+-------+
      r                       |  mod  |  nnn  |  R/M  |
      o                       +-------+-------+-------+
      u
      p   000     001     010     011     100     101     110     111
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     1|  [ADD](#IC_ADD)  |  [OR](#IC_OR)   |  [ADC](#IC_ADC)  |  [SBB](#IC_SBB)  |  [AND](#IC_AND)  |  [SUB](#IC_SUB)  |  [XOR](#IC_XOR)  |  [CMP](#IC_CMP)  |
+     1|  ADD  |  OR   |  ADC  |  SBB  |  AND  |  SUB  |  XOR  |  CMP  |
       |       |       |       |       |       |       |       |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     2|  [ROL](#IC_RCL)  |  [ROR](#IC_RCL)  |  [RCL](#IC_RCL)  |  [RCR](#IC_RCL)  |  [SHL](#IC_SAL)  |  [SHR](#IC_SAL)  |       |  [SAR](#IC_SAL)  |
+     2|  ROL  |  ROR  |  RCL  |  RCR  |  SHL  |  SHR  |       |  SAR  |
       |       |       |       |       |       |       |       |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     3| [TEST](#IC_TEST)  |       |  [NOT](#IC_NOT)  |  [NEG](#IC_NEG)  |  [MUL](#IC_MUL)  | [IMUL](#IC_IMUL)  |  [DIV](#IC_DIV)  | [IDIV](#IC_IDIV)  |
+     3| TEST  |       |  NOT  |  NEG  |  MUL  | IMUL  |  DIV  | IDIV  |
       | Ib/Iv |       |       |       |AL/eAX |AL/eAX |AL/eAX |AL/eAX |
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     4|  INC  |  [DEC](#IC_DEC)  |       |       |       |       |       |       |
+     4|  INC  |  DEC  |       |       |       |       |       |       |
       |  Eb   |  Eb   |       |       |       |       |       |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     5|  [INC](#IC_INC)  |  [DEC](#IC_DEC)  | [CALL](#IC_CALL)  | [CALL](#IC_CALL)  |  [JMP](#IC_JMP)  |  [JMP](#IC_JMP)  | [PUSH](#IC_PUSH)  |       |
+     5|  INC  |  DEC  | CALL  | CALL  |  JMP  |  JMP  | PUSH  |       |
       |  Ev   |  Ev   |  Ev   |  eP   |  Ev   |  Ep   |  Ev   |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
+```
 
-### Opcodes determined by bits 5,4,3 of modR/M byte
+### //Opcodes determined by bits 5,4,3 of modR/M byte
 
+```sh
      G                       +-------+-------+-------+
      r                       |  mod  |  nnn  |  R/M  |
      o                       +-------+-------+-------+
      u
      p   000     001     010     011     100     101     110     111
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     6| [SLDT](#IC_SLDT)  |  [STR](#IC_STR)  | [LLDT](#IC_LLDT)  |  [LTR](#IC_LTR)  | [VERR](#IC_VERR)  | [VERW](#IC_VERR)  |       |       |
+     6| SLDT  |  STR  | LLDT  |  LTR  | VERR  | VERW  |       |       |
       |  Ew   |  Ew   |  Ew   |  Ew   |  Ew   |  Ew   |       |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     7| [SGDT](#IC_SGDT)  | [SIDT](#IC_SGDT)  | [LGDT](#IC_LGDT)  | [LIDT](#IC_LGDT)  | [SMSW](#IC_SMSW)  |       | [LMSW](#IC_LMSW)  |       |
+     7| SGDT  | SIDT  | LGDT  | LIDT  | SMSW  |       | LMSW  |       |
       |  Ms   |  Ms   |  Ms   |   Ms  |  Ew   |       |  Ew   |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
-     8|       |       |       |       |  [BT](#IC_BT)   |  [BTS](#IC_BTS)  |  [BTR](#IC_BTR)  |  [BTC](#IC_BTC)  |
+     8|       |       |       |       |  BT   |  BTS  |  BTR  |  BTC  |
       |       |       |       |       |       |       |       |       |
       +-------+-------+-------+-------+-------+-------+-------+-------+
+```
 
 * * *
 
 
 * * *
 
-<a name="APPB_"></a>
+<a name="APPB_"></a>  <!-- *appb* -->
 
 /Appendix B -- Complete Flag Cross-Reference
 ============================================
 
 ### Key to Codes
 
+```sh
 T     = instruction tests flag
 
 M     = instruction modifies flag
@@ -16685,130 +17078,130 @@ R     = instruction restores prior value of flag
 
 blank = instruction does not affect flag
 
-Instruction            OF   SF   ZF   AF   PF   CF   TF   IF   DF   NT   RF
-
-AAA                    --   --   --   TM   --   M
-AAD                    --   M    M    --   M    --
-AAM                    --   M    M    --   M    --
-AAS                    --   --   --   TM   --   M
-ADC                    M    M    M    M    M    TM
-ADD                    M    M    M    M    M    M
-AND                    0    M    M    --   M    0
-ARPL                             M
-BOUND
-BSF/BSR                --   --   M    --   --   --
-BT/BTS/BTR/BTC         --   --   --   --   --   M
-CALL
-CBW
-CLC                                             0
-CLD                                                            0
-CLI                                                       0
-CLTS
-CMC                                             M
-CMP                    M    M    M    M    M    M
-CMPS                   M    M    M    M    M    M              T
-CWD
-DAA                    --   M    M    TM   M    TM
-DAS                    --   M    M    TM   M    TM
-DEC                    M    M    M    M    M
-DIV                    --   --   --   --   --   --
-ENTER
-ESC
-HLT
-IDIV                   --   --   --   --   --   --
-IMUL                   M    --   --   --   --   M
-IN
-INC                    M    M    M    M    M
-INS                                                            T
-INT                                                  0              0
-INTO                   T                             0              0
-IRET                   R    R    R    R    R    R    R    R    R    T
-Jcond                  T    T    T    T    T
-JCXZ
-JMP
-LAHF
-LAR                              M
-LDS/LES/LSS/LFS/LGS
-LEA
-LEAVE
-LGDT/LIDT/LLDT/LMSW
-LOCK
-LODS                                                           T
-LOOP
-LOOPE/LOOPNE                     T
-LSL                              M
-LTR
-MOV
-MOV control, debug     --   --   --   --   --   --
-MOVS                                                           T
-MOVSX/MOVZX
-MUL                    M    --   --   --   --   M
-NEG                    M    M    M    M    M    M
-NOP
-NOT
-OR                     0    M    M    --   M    0
-OUT
-OUTS                                                           T
-POP/POPA
-POPF                   R    R    R    R    R    R    R    R    R    R
-PUSH/PUSHA/PUSHF
-RCL/RCR 1              M                        TM
-RCL/RCR count          --                       TM
-REP/REPE/REPNE
-RET
-ROL/ROR 1              M                        M
-ROL/ROR count          --                       M
-SAHF                        R    R    R    R    R
-SAL/SAR/SHL/SHR 1      M    M    M    --   M    M
-SAL/SAR/SHL/SHR count  --   M    M    --   M    M
-SBB                    M    M    M    M    M    TM
-SCAS                   M    M    M    M    M    M              T
-SET cond               T    T    T         T    T
-SGDT/SIDT/SLDT/SMSW
-SHLD/SHRD              --   M    M    --   M    M
-STC                                             1
-STD                                                            1
-STI                                                       1
-STOS                                                           T
-STR
-SUB                    M    M    M    M    M    M
-TEST                   0    M    M    --   M    0
-VERR/VERRW                       M
-WAIT
-XCHG
-XLAT
-XOR                    0    M    M    --   M    0
-
-* * *
-
+Instruction          | OF | SF | ZF | AF | PF | CF | TF | IF | DF | NT | RF |
+---------------------|----|----|----|----|----|----|----|----|----|----|----|
+AAA                  | -- | --   -- | TM   -- | M       |         |
+AAD                  | -- | M    M  | --   M  | --      |         |
+AAM                  | -- | M    M  | --   M  | --      |         |
+AAS                  | -- | --   -- | TM   -- | M       |         |
+ADC                  | M  | M    M  | M    M  | TM      |         |
+ADD                  | M  | M    M  | M    M  | M       |         |
+AND                  | 0  | M    M  | --   M  | 0       |         |
+ARPL                 |    |      M  |         |         |         |
+BOUND                |    |         |         |         |         |
+BSF/BSR              | -- | --   M  | --   -- | --      |         |
+BT/BTS/BTR/BTC       | -- | --   -- | --   -- | M       |         |
+CALL                 |    |         |         |         |         |
+CBW                  |    |         |         |         |         |
+CLC                  |    |         |         | 0       |         |
+CLD                  |    |         |         |         |      0  |
+CLI                  |    |         |         |         | 0       |
+CLTS                 |    |         |         |         |         |
+CMC                  |    |         |         | M       |         |
+CMP                  | M  | M    M  | M    M  | M       |         |
+CMPS                 | M  | M    M  | M    M  | M       |      T  |
+CWD                  |    |         |         |         |         |
+DAA                  | -- | M    M  | TM   M  | TM      |         |
+DAS                  | -- | M    M  | TM   M  | TM      |         |
+DEC                  | M  | M    M  | M    M  |         |         |
+DIV                  | -- | --   -- | --   -- | --      |         |
+ENTER                |    |         |         |         |         |
+ESC                  |    |         |         |         |         |
+HLT                  |    |         |         |         |         |
+IDIV                 | -- | --   -- | --   -- | --      |         |
+IMUL                 | M  | --   -- | --   -- | M       |         |
+IN                   |    |         |         |         |         |
+INC                  | M  | M    M  | M    M  |         |         |
+INS                  |    |         |         |         |      T  |
+INT                  |    |         |         |      0  |         | 0
+INTO                 | T  |         |         |      0  |         | 0
+IRET                 | R  | R    R  | R    R  | R    R  | R    R  | T
+Jcond                | T  | T    T  | T    T  |         |         |
+JCXZ                 |    |         |         |         |         |
+JMP                  |    |         |         |         |         |
+LAHF                 |    |         |         |         |         |
+LAR                  |    |      M  |         |         |         |
+LDS/LES/LSS/LFS/LGS  |    |         |         |         |         |
+LEA                  |    |         |         |         |         |
+LEAVE                |    |         |         |         |         |
+LGDT/LIDT/LLDT/LMSW  |    |         |         |         |         |
+LOCK                 |    |         |         |         |         |
+LODS                 |    |         |         |         |      T  |
+LOOP                 |    |         |         |         |         |
+LOOPE/LOOPNE         |    |      T  |         |         |         |
+LSL                  |    |      M  |         |         |         |
+LTR                  |    |         |         |         |         |
+MOV                  |    |         |         |         |         |
+MOV control, debug   | -- | --   -- | --   -- | --      |         |
+MOVS                 |    |         |         |         |      T  |
+MOVSX/MOVZX          |    |         |         |         |         |
+MUL                  | M  | --   -- | --   -- | M       |         |
+NEG                  | M  | M    M  | M    M  | M       |         |
+NOP                  |    |         |         |         |         |
+NOT                  |    |         |         |         |         |
+OR                   | 0  | M    M  | --   M  | 0       |         |
+OUT                  |    |         |         |         |         |
+OUTS                 |    |         |         |         |      T  |
+POP/POPA             |    |         |         |         |         |
+POPF                 | R  | R    R  | R    R  | R    R  | R    R  | R
+PUSH/PUSHA/PUSHF     |    |         |         |         |         |
+RCL/RCR 1            | M  |         |         | TM      |         |
+RCL/RCR count        | -- |         |         | TM      |         |
+REP/REPE/REPNE       |    |         |         |         |         |
+RET                  |    |         |         |         |         |
+ROL/ROR 1            | M  |         |         | M       |         |
+ROL/ROR count        | -- |         |         | M       |         |
+SAHF                 |    | R    R  | R    R  | R       |         |
+SAL/SAR/SHL/SHR 1    | M  | M    M  | --   M  | M       |         |
+SAL/SAR/SHL/SHR count| -- | M    M  | --   M  | M       |         |
+SBB                  | M  | M    M  | M    M  | TM      |         |
+SCAS                 | M  | M    M  | M    M  | M       |      T  |
+SET cond             | T  | T    T  |      T  | T       |         |
+SGDT/SIDT/SLDT/SMSW  |    |         |         |         |         |
+SHLD/SHRD            | -- | M    M  | --   M  | M       |         |
+STC                  |    |         |         | 1       |         |
+STD                  |    |         |         |         |      1  |
+STI                  |    |         |         |         | 1       |
+STOS                 |    |         |         |         |      T  |
+STR                  |    |         |         |         |         |
+SUB                  | M  | M    M  | M    M  | M       |         |
+TEST                 | 0  | M    M  | --   M  | 0       |         |
+VERR/VERRW           |    |      M  |         |         |         |
+WAIT                 |    |         |         |         |         |
+XCHG                 |    |         |         |         |         |
+XLAT                 |    |         |         |         |         |
+XOR                  | 0  | M    M  | --   M  | 0       |         |
+```
 
 * * *
 
-<a name="APPC_"></a>
+
+* * *
+
+<a name="APPC_"></a> <!-- *appc* -->
 
 /Appendix C -- Status Flag Summary
 ==================================
 
 ### Status Flags' Functions
 
-Bit  Name   Function
-
- 0   CF     Carry Flag -- Set on high-order bit carry or borrow; cleared
-            otherwise.
- 2   PF     Parity Flag -- Set if low-order eight bits of result contain
-            an even number of 1 bits; cleared otherwise.
- 4   AF     Adjust flag -- Set on carry from or borrow to the low order
-            four bits of   AL; cleared otherwise. Used for decimal
-            arithmetic.
- 6   ZF     Zero Flag -- Set if result is zero; cleared otherwise.
- 7   SF     Sign Flag -- Set equal to high-order bit of result (0 is
-            positive, 1 if negative).
-11   OF     Overflow Flag -- Set if result is too large a positive number
-            or too small a negative number (excluding sign-bit) to fit in
-            destination operand; cleared otherwise.
+| Bit | Name |  Function  |
+|-----|------|------------|
+|  0  | CF   |  Carry Flag -- Set on high-order bit carry or borrow; cleared otherwise.
+|  2  | PF   |  Parity Flag -- Set if low-order eight bits of result contain
+|     |      |  an even number of 1 bits; cleared otherwise.
+|  4  | AF   |  Adjust flag -- Set on carry from or borrow to the low order
+|     |      |  four bits of   AL; cleared otherwise. Used for decimal arithmetic.
+|  6  | ZF   |  Zero Flag -- Set if result is zero; cleared otherwise.
+|  7  | SF   |  Sign Flag -- Set equal to high-order bit of result (0 is
+|     |      |  positive, 1 if negative).
+| 11  | OF   |  Overflow Flag -- Set if result is too large a positive number
+|     |      |  or too small a negative number (excluding sign-bit) to fit in
+|     |      |  destination operand; cleared otherwise.
 
 ### Key to Codes
 
+```sh
 T     = instruction tests flag
 M     = instruction modifies flag
         (either sets or resets depending on operands)
@@ -16816,45 +17209,47 @@ M     = instruction modifies flag
 --    = instruction's effect on flag is undefined
 blank = instruction does not affect flag
 
-Instruction            OF   SF   ZF   AF   PF   CF
-AAA                    --   --   --   TM   --   M
-AAS                    --   --   --   TM   --   M
-AAD                    --   M    M    --   M    --
-AAM                    --   M    M    --   M    --
-DAA                    --   M    M    TM   M    TM
-DAS                    --   M    M    TM   M    TM
-ADC                    M    M    M    M    M    TM
-ADD                    M    M    M    M    M    M
-SBB                    M    M    M    M    M    TM
-SUB                    M    M    M    M    M    M
-CMP                    M    M    M    M    M    M
-CMPS                   M    M    M    M    M    M
-SCAS                   M    M    M    M    M    M
-NEG                    M    M    M    M    M    M
-DEC                    M    M    M    M    M
-INC                    M    M    M    M    M
-IMUL                   M    --   --   --   --   M
-MUL                    M    --   --   --   --   M
-RCL/RCR 1              M                        TM
-RCL/RCR count          --                       TM
-ROL/ROR 1              M                        M
-ROL/ROR count          --                       M
-SAL/SAR/SHL/SHR 1      M    M    M    --   M    M
-SAL/SAR/SHL/SHR count  --   M    M    --   M    M
-SHLD/SHRD              --   M    M    --   M    M
-BSF/BSR                --   --   M    --   --   --
-BT/BTS/BTR/BTC         --   --   --   --   --   M
-AND                    0    M    M    --   M    0
-OR                     0    M    M    --   M    0
-TEST                   0    M    M    --   M    0
-XOR                    0    M    M    --   M    0
+Instruction           | OF   SF   ZF |  AF   PF   CF  |
+----------------------|--------------|----------------|
+AAA                   | --   --   -- |  TM   --   M   |
+AAS                   | --   --   -- |  TM   --   M   |
+AAD                   | --   M    M  |  --   M    --  |
+AAM                   | --   M    M  |  --   M    --  |
+DAA                   | --   M    M  |  TM   M    TM  |
+DAS                   | --   M    M  |  TM   M    TM  |
+ADC                   | M    M    M  |   M   M    TM  |
+ADD                   | M    M    M  |   M   M     M  |
+SBB                   | M    M    M  |   M   M    TM  |
+SUB                   | M    M    M  |   M   M     M  |
+CMP                   | M    M    M  |   M   M     M  |
+CMPS                  | M    M    M  |   M   M     M  |
+SCAS                  | M    M    M  |   M   M     M  |
+NEG                   | M    M    M  |   M   M     M  |
+DEC                   | M    M    M  |   M   M        |
+INC                   | M    M    M  |   M   M        |
+IMUL                  | M    --   -- |  --   --    M  |
+MUL                   | M    --   -- |  --   --    M  |
+RCL/RCR 1             | M            |            TM  |
+RCL/RCR count         | --           |            TM  |
+ROL/ROR 1             | M            |             M  |
+ROL/ROR count         | --           |             M  |
+SAL/SAR/SHL/SHR 1     | M    M    M  |  --   M     M  |
+SAL/SAR/SHL/SHR count | --   M    M  |  --   M     M  |
+SHLD/SHRD             | --   M    M  |  --   M     M  |
+BSF/BSR               | --   --   M  |  --   --   --  |
+BT/BTS/BTR/BTC        | --   --   -- |  --   --    M  |
+AND                   | 0    M    M  |  --   M     0  |
+OR                    | 0    M    M  |  --   M     0  |
+TEST                  | 0    M    M  |  --   M     0  |
+XOR                   | 0    M    M  |  --   M     0  |
+```
 
 * * *
 
 
 * * *
 
-<a name="APPD_"></a>
+<a name="APPD_"></a> <!-- *appd* -->
 
 /Appendix D -- Condition Codes
 ==============================
@@ -16868,52 +17263,53 @@ XOR                    0    M    M    --   M    0
 
 (For conditional instructions Jcond, and SETcond)
 
-                                       Instruction  Condition
-Mnemonic  Meaning                      Subcode      Tested
-
-O         Overflow                     0000         OF = 1
-
-NO        No overflow                  0001         OF = 0
-
-B         Below
-NAE       Neither above nor equal      0010         CF = 1
-
-NB        Not below
-AE       Above or equal                0011         CF = 0
-
-E         Equal
-Z         Zero                         0100         ZF = 1
-
-NE        Not equal
-NZ        Not zero                     0101         ZF = 0
-
-BE        Below or equal
-NA        Not above                    0110         (CF or ZF) = 1
-
-NBE       Neither below nor equal
-NA        Above                        0111         (CF or ZF) = 0
-
-S         Sign                         1000         SF = 1
-
-NS        No sign                      1001         SF = 0
-
-P         Parity
-PE        Parity even                  1010         PF = 1
-
-NP        No parity
-PO        Parity odd                   1011         PF = 0
-
-L         Less
-NGE       Neither greater nor equal    1100         (SF xor OF) = 1
-
-NL        Not less
-GE        Greater or equal             1101         (SF xor OF) = 0
-
-LE        Less or equal
-NG        Not greater                  1110         ((SF xor OF) or ZF) = 1
-
-NLE       Neither less nor equal
-G         Greater                      1111         ((SF xor OF) or ZF) = 0
-
+```sh
+         |                           |  Instruction | Condition               |
+Mnemonic | Meaning                   |  Subcode     | Tested                  |
+---------|---------------------------|--------------|-------------------------|
+O        | Overflow                  |  0000        | OF = 1                  |
+         |                           |              |                         |
+NO       | No overflow               |  0001        | OF = 0                  |
+         |                           |              |                         |
+B        | Below                     |              |                         |
+NAE      | Neither above nor equal   |  0010        | CF = 1                  |
+         |                           |              |                         |
+NB       | Not below                 |              |                         |
+AE       |Above or equal             |  0011        | CF = 0                  |
+         |                           |              |                         |
+E        | Equal                     |              |                         |
+Z        | Zero                      |  0100        | ZF = 1                  |
+         |                           |              |                         |
+NE       | Not equal                 |              |                         |
+NZ       | Not zero                  |  0101        | ZF = 0                  |
+         |                           |              |                         |
+BE       | Below or equal            |              |                         |
+NA       | Not above                 |  0110        | (CF or ZF) = 1          |
+         |                           |              |                         |
+NBE      | Neither below nor equal   |              |                         |
+NA       | Above                     |  0111        | (CF or ZF) = 0          |
+         |                           |              |                         |
+S        | Sign                      |  1000        | SF = 1                  |
+         |                           |              |                         |
+NS       | No sign                   |  1001        | SF = 0                  |
+         |                           |              |                         |
+P        | Parity                    |              |                         |
+PE       | Parity even               |  1010        | PF = 1                  |
+         |                           |              |                         |
+NP       | No parity                 |              |                         |
+PO       | Parity odd                |  1011        | PF = 0                  |
+         |                           |              |                         |
+L        | Less                      |              |                         |
+NGE      | Neither greater nor equal |  1100        | (SF xor OF) = 1         |
+         |                           |              |                         |
+NL       | Not less                  |              |                         |
+GE       | Greater or equal          |  1101        | (SF xor OF) = 0         |
+         |                           |              |                         |
+LE       | Less or equal             |              |                         |
+NG       | Not greater               |  1110        | ((SF xor OF) or ZF) = 1 |
+         |                           |              |                         |
+NLE      | Neither less nor equal    |              |                         |
+G        | Greater                   |  1111        | ((SF xor OF) or ZF) = 0 |
+---------|---------------------------|--------------|-------------------------|
 * * *
 

@@ -653,6 +653,104 @@ echo "Hex Number: $hex_number"
 echo "Decimal Number: $dec_number"
 ```
 
+## //⚡ Exm: Clipboard and PlantUML ASCII Graph
+
+Windows 提供 clip 命令行工具用于将输入、输出重定向到剪贴板或粘贴（重定向 stdout）到其他程序中。
+PowerShell 提供了粘贴板内容读取命令，Bash 脚本中可以这样调用 `pwsh -c 'Get-Clipboard'`：
+
+```sh
+# clip < put_file_to_clipboard.txt
+echo "put string to clipboard" | clip
+echo $(pwsh -c 'Get-Clipboard')
+sleep 3
+```
+
+通过以下脚本调用 PlantUML 绘图工具，就可以拷贝以下 UML 定义转绘成 ASCII Graph 图表：
+
+```sh
+# clip < put_file_to_clipboard.txt
+# echo "put string to clipboard" | clip
+cat <<< "$(pwsh -c 'Get-Clipboard')"
+plantuml='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
+cat | java -jar "$plantuml" -txt -pipe <<<"$(pwsh -c 'Get-Clipboard')"
+sleep 3
+```
+
+另外，可以使用 Sublime Text，配置 Build System 设置，直接通过快捷键转换粘贴板上的 UML。
+以下 PlantUML_Snippet.sublime-build 配置仅供参考。获取环境变量根据操作系统不同，这里因为在
+Windows 系统上执行，使用 `%PLANTUML%` 获取环境变量。如果是 Linux 就应该使用 `$PLANTUML`。
+
+```json
+{
+    "working_dir": "$file_path",
+       "encoding":"gbk",
+      "selector" : "text.html.markdown",
+      "word_wrap": false,
+            "env": {
+                "PLANTUML": "C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar",
+                "TMPPNG": "/c/dl/tmp.png",
+            },
+        "windows": { },
+       "variants": [
+            { 
+                "name": "Test PlantUML and Clipboard", 
+               "shell_cmd": "bash -c \"ls -l '%PLANTUML%'; echo $(pwsh -c 'Get-Clipboard')\"",
+            },
+            {
+               "name": "PlantUML to ASCII",
+               "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -txt -pipe <<<$(pwsh -c 'Get-Clipboard')\""
+            },
+            {
+               "name": "PlantUML to PNG",
+               "shell_cmd": "bash -c \"echo cat | java -jar '%PLANTUML%' -png -pipe > %TMPPNG% <<<$(pwsh -c 'Get-Clipboard'); start %TMPPNG%\""
+            },
+       ]
+}
+```
+
+```uml
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+```
+
+     ,-----.                           ,---.
+     |Alice|                           |Bob|
+     `--+--'                           `-+-'
+        |    Authentication Request      |
+        |------------------------------->|
+        |                                |
+        |    Authentication Response     |
+        |<- - - - - - - - - - - - - - - -|
+        |                                |
+        |Another authentication Request  |
+        |------------------------------->|
+        |                                |
+        |Another authentication Response |
+        |<- - - - - - - - - - - - - - - -|
+     ,--+--.                           ,-+-.
+     |Alice|                           |Bob|
+     `-----'                           `---'
+
+以上 PlantUML 可以使用 ASCII Art 呈现，但是彩色图案就需要图形格式表现，例如 PNG。
+
+```uml
+@startuml
+autonumber "<b>[000]"
+Bob -> Alice : Authentication Request
+Bob <- Alice : Authentication Response
+autonumber 15 "<b>(<u>##</u>)"
+Bob -> Alice : Another authentication Request
+Bob <- Alice : Another authentication Response
+autonumber 40 10 "<font color=red><b>Message 0 "
+Bob -> Alice : Yet another authentication Request
+Bob <- Alice : Yet another authentication Response
+@enduml
+```
+
 
 # /🚩 Bash Features
 

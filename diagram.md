@@ -1,6 +1,5 @@
 
-# 阮一峰 - 科技爱好者周刊
-- [语雀- 阮一峰 - 科技爱好者周刊- 免费的在线代码编辑器](https://www.yuque.com/ruanyf/weekly/free-online-code-editor)
+# /阮一峰 - 科技爱好者周刊
 - [impress.js 幻灯片](https://github.com/impress/impress.js)
 - [reveal.js 幻灯片](https://github.com/hakimel/reveal.js)
 - [reveal.js 幻灯片 PDF](https://www.lfhacks.com/assets/revealjs.html?print-pdf)
@@ -72,34 +71,54 @@
     在线版：https://coggle.it
 
 
-# xeno-canto 
+# /xeno-canto 
 https://xeno-canto.org/contributor/NOJNUVZEHB
 https://xeno-canto.org/species/Strix-woodfordii
 
-xeno-canto 是一个公民科学项目和存储库，志愿者在其中记录、上传和注释鸟类叫声、直翅目昆虫和蝙蝠的声音。自 2005 年成立以来，他收集了来自世界各地 10,000 多个物种的超过 575,000 条录音，使其成为世界上最大的鸟类叫声收藏之一。所有录音均根据知识共享许可证之一发布，包括具有开放许可证的录音。网站上的每条记录都附有频谱图和地图上的位置数据，显示地理变化。 xeno-canto 数据已在许多（数千篇）科学论文中重复使用。该网站也是自动鸟鸣识别年度挑战赛（“BirdCLEF”）的数据来源，该挑战赛自 2014 年以来一直作为评估论坛会议和实验室的一部分进行。该网站得到了世界各地许多学术和观鸟组织的支持。 ，主要支持来自荷兰。
+xeno-canto 是一个公民科学项目和存储库，志愿者在其中记录、上传和注释鸟类叫声、直翅目昆虫和蝙蝠的声音。
+自 2005 年成立以来，他收集了来自世界各地 10,000 多个物种的超过 575,000 条录音，使其成为世界上最大
+的鸟类叫声收藏之一。所有录音均根据知识共享许可证之一发布，包括具有开放许可证的录音。网站上的每条记录
+都附有频谱图和地图上的位置数据，显示地理变化。 xeno-canto 数据已在许多（数千篇）科学论文中重复使用。
+该网站也是自动鸟鸣识别年度挑战赛（“BirdCLEF”）的数据来源，该挑战赛自 2014 年以来一直作为评估论坛
+会议和实验室的一部分进行。该网站得到了世界各地许多学术和观鸟组织的支持。 ，主要支持来自荷兰。
 
-xeno-canto 的意思是“奇怪的声音”，是一个纯声音项目，旨在突出鸟叫声，而不是图像或视频。 xeno-canto 由阿姆斯特丹自由大学数学生物学家 Bob Planqué 和物理学家 Willem-Pier Vellinga 于 2005 年 5 月 30 日推出，后者目前担任一家全球材料技术公司的顾问。该网站创建时仅记录了约 160 种鸟类，最初的目的是收集中美洲和南美洲鸟类的记录。
+xeno-canto 的意思是“奇怪的声音”，是一个纯声音项目，旨在突出鸟叫声，而不是图像或视频。 
+xeno-canto 由阿姆斯特丹自由大学数学生物学家 Bob Planqué 和物理学家 Willem-Pier Vellinga 
+于 2005 年 5 月 30 日推出，后者目前担任一家全球材料技术公司的顾问。该网站创建时仅记录了约 160 种鸟类，
+最初的目的是收集中美洲和南美洲鸟类的记录。
 
-xeno-canto 现已走向全球，其影响力已扩展到北美、非洲、亚洲，最终扩展到欧洲和澳大利亚。到 2017 年，数据收集量显着增加，包括约 9,750 种鸟类的约 360,000 条记录（占所有鸟类物种的近 90%）。然而，该收藏还远未完成。大约有 1,000 个失踪物种，而且许多物种的记录很少，这意味着它们所表现出的曲目和方言变异都缺失了。
+xeno-canto 现已走向全球，其影响力已扩展到北美、非洲、亚洲，最终扩展到欧洲和澳大利亚。到 2017 年，
+数据收集量显着增加，包括约 9,750 种鸟类的约 360,000 条记录（占所有鸟类物种的近 90%）。
+然而，该收藏还远未完成。大约有 1,000 个失踪物种，而且许多物种的记录很少，这意味着它们所
+表现出的曲目和方言变异都缺失了。
 
-xeno-canto 旨在利用互联网的力量来提高鸟叫声的普遍流行度、可访问性和知识。到目前为止，异曲录音已以多种方式使用，包括在印度航空信息系统中展示、为 STERNA 项目做出贡献，以及被纳入挪威大学数据库。制定了一些原则来帮助我们的服务保持社区驱动。这些原则包括： 任何人都可以为该项目做出贡献。用户可以上传感兴趣的鸟叫声，但文件大小有一些限制。除了上传录音之外，用户还可以撰写文章、评论录音成果、为网站贡献代码。 录音是共享的。网站实施的知识共享许可有利于共享。上传的鸟叫声可供重复使用。用户可以下载浏览时找到的单个录音或访问整个收藏数据库。 你可以尝试录音。其他用户可以将您的录音标记为 ID 不正确。然后将审查录制内容，直到社区同意为止，并且管理员将重置该标志。此过程的长度各不相同，但大多数情况下需要几天的时间。
+xeno-canto 旨在利用互联网的力量来提高鸟叫声的普遍流行度、可访问性和知识。到目前为止，异曲录音
+已以多种方式使用，包括在印度航空信息系统中展示、为 STERNA 项目做出贡献，以及被纳入挪威大学数据库。
+制定了一些原则来帮助我们的服务保持社区驱动。这些原则包括： 任何人都可以为该项目做出贡献。
+用户可以上传感兴趣的鸟叫声，但文件大小有一些限制。除了上传录音之外，用户还可以撰写文章、
+评论录音成果、为网站贡献代码。 录音是共享的。网站实施的知识共享许可有利于共享。上传的鸟叫声
+可供重复使用。用户可以下载浏览时找到的单个录音或访问整个收藏数据库。 你可以尝试录音。其他用户
+可以将您的录音标记为 ID 不正确。然后将审查录制内容，直到社区同意为止，并且管理员将重置该标志。
+此过程的长度各不相同，但大多数情况下需要几天的时间。
 
 
 
 
-# ASCII Art
+# /ASCII Art
 - [Textik - ASCII Art](https://textik.com/)
 - [ASCII Arts](https://asciiart.website/index.php?art=animals/aardvarks)
 - [Text fancy](https://textfancy.com/ascii-art/)
 - [Multiline Text Art](https://textfancy.com/multiline-text-art/)
 
-ANSI和ASCII艺术之间的主要区别是ANSI使用了颜色。ANSI和ASCII使用了相同的字体、字符映射表、工具和分辨率，但ANSI艺术可以使用两种颜色：每一个字符都可以分别设置一种背景色和一种前景色。
+ANSI和ASCII艺术之间的主要区别是ANSI使用了颜色。ANSI和ASCII使用了相同的字体、字符映射表、
+工具和分辨率，但ANSI艺术可以使用两种颜色：每一个字符都可以分别设置一种背景色和一种前景色。
 
 在 Amiga 电脑上，颜色通常用来为传统的基于线条的 ASCII 艺术作品上色，这类作品有时被称作 Amiga ANSI。
 
 而 PC 平台的艺术家们则利用阴影字符，开发出一种独特的风格。
 
-由于 ANSI 艺术对阴影字符的关注，让其在视觉上更接近于像素图像，特别是在使用较高分辨率时这种趋势更加明显。因此 ANSI 艺术常常被误认为是像素图像的一种形式而非文本图像。
+由于 ANSI 艺术对阴影字符的关注，让其在视觉上更接近于像素图像，特别是在使用较高分辨率时这种趋势
+更加明显。因此 ANSI 艺术常常被误认为是像素图像的一种形式而非文本图像。
 
 在 Unicode 流行起来后，汇集全球大量字符，创作的元素更丰富了：
 
@@ -111,27 +130,52 @@ ANSI和ASCII艺术之间的主要区别是ANSI使用了颜色。ANSI和ASCII使�
              ❚█══Text Fancy══█❚
 
 
-    Categories Faces 😃 People 💏 Animals 🐒 Nature 🍄 Food 🍰 Activity 🤸 Travel 🗽 Objects 💣 Symbols 👌 
+    Categories Faces 😃 People 💏 Animals 🐒 Nature 🍄 Food 🍰 Activity 
+    🤸 Travel 🗽 Objects 💣 Symbols 👌 
 
-    💎 👓 🕶 👔 👕 👖 🧣 🧤 🧥 🧦 👗 👘 👙 👚 👛 👜 👝 🎒 👞 👟 👠 👡 👢 👑 👒 🎩 🎓 🧢 ⛑ 💄 💍 🌂 ☂ 💼 ☠ 🛀 🛌 💌 💣 🚥 🚦 🚧 ⚓ 🕳 🛍 📿 🔪 🏺 🗺 💈 🛢 🛎 ⌛ ⏳ ⌚ ⏰ ⏱ ⏲ 🕰 🌡 🎈 🎉 🎊 🎎 🎏 🎐 🎀 🎁 🔮 🕹 🖼 🎙 🎚 🎛 📻 📱 📲 ☎ 📞 📟 📠 🔋 🔌 💻 🖥 🖨 ⌨ 🖱 🖲 💽 💾 💿 📀 🎥 🎞 📽 📺 📷 📸 📹 📼 🔍 🔎 🕯 💡 🔦 🏮 📔 📕 📖 📗 📘 📙 📚 📓 📃 📜 📄 📰 🗞 📑 🔖 🏷 💰 💸 💳 ✉ 📧 📨 📩 📤 📥 📦 📫 📪 📬 📭 📮 🗳 ✏ ✎ 🖉 ✒ 🖋 🖊 🖌 🖍 📝 📁 📂 🗂 📅 📆 🗒 🗓 📇 📈 📉 📊 📋 📌 📍 📎 🖇 📏 📐 ✂ 🗃 🗄 🗑 🔒 🔓 🔏 🔐 🔑 🗝 🔨 ⛏ ⚒ 🛠 🗡 ⚔ 🔫 🛡 🔧 🔩 ⚙ 🗜 ⚖ 🔗 ⛓ ⚗ 🔬 🔭 📡 💉 💊 🚪 🛏 🛋 🚽 🚿 🛁 🚬 ⚰ ⚱ 💘 ❤ 💓 💔 💕 💖 💗 💙 💚 💛 🧡 💜 🖤 💝 💞 💟 ❣ 💦 💨 💫 🏁 🚩 🎌 🏴 🏳 
+    💎 👓 🕶 👔 👕 👖 🧣 🧤 🧥 🧦 👗 👘 👙 👚 👛 👜 👝 🎒 👞 👟 👠 👡 👢 
+    👑 👒 🎩 🎓 🧢 ⛑ 💄 💍 🌂 ☂ 💼 ☠ 🛀 🛌 💌 💣 🚥 🚦 🚧 ⚓ 🕳 🛍 📿 
+    🔪 🏺 🗺 💈 🛢 🛎 ⌛ ⏳ ⌚ ⏰ ⏱ ⏲ 🕰 🌡 🎈 🎉 🎊 🎎 🎏 🎐 🎀 🎁 🔮 🕹 
+    🖼 🎙 🎚 🎛 📻 📱 📲 ☎ 📞 📟 📠 🔋 🔌 💻 🖥 🖨 ⌨ 🖱 🖲 💽 💾 💿 📀 🎥 
+    🎞 📽 📺 📷 📸 📹 📼 🔍 🔎 🕯 💡 🔦 🏮 📔 📕 📖 📗 📘 📙 📚 📓 📃 📜 
+    📄 📰 🗞 📑 🔖 🏷 💰 💸 💳 ✉ 📧 📨 📩 📤 📥 📦 📫 📪 📬 📭 📮 🗳 ✏ 
+    ✎ 🖉 ✒ 🖋 🖊 🖌 🖍 📝 📁 📂 🗂 📅 📆 🗒 🗓 📇 📈 📉 📊 📋 📌 📍 📎 🖇 
+    📏 📐 ✂ 🗃 🗄 🗑 🔒 🔓 🔏 🔐 🔑 🗝 🔨 ⛏ ⚒ 🛠 🗡 ⚔ 🔫 🛡 🔧 🔩 ⚙ 
+    🗜 ⚖ 🔗 ⛓ ⚗ 🔬 🔭 📡 💉 💊 🚪 🛏 🛋 🚽 🚿 🛁 🚬 ⚰ ⚱ 💘 ❤ 💓 💔 
+    💕 💖 💗 💙 💚 💛 🧡 💜 🖤 💝 💞 💟 ❣ 💦 💨 💫 🏁 🚩 🎌 🏴 🏳 
 
     Clock 
-    ⏰ 🕰 ⌚ ⏱ ⏲ ⌛ ⏳ ⧗ ⧖ 🝮 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 🕜 🕝 🕞 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦 🕧 
+    ⏰ 🕰 ⌚ ⏱ ⏲ ⌛ ⏳ ⧗ ⧖ 🝮 🕐 🕑 🕒 🕓 🕔 🕕 🕖 🕗 🕘 🕙 🕚 🕛 🕜 
+    🕝 🕞 🕟 🕠 🕡 🕢 🕣 🕤 🕥 🕦 🕧 
 
     Vehicles 
-    🚲 🛴 🛵 🏍 🚕 🚖 🚗 🚘 🚔 🚓 🚙 🚜 🚑 🚒 🏎 ⛟ 🚚 🚛 🚏 🚌 🚍 🚎 🚐 🚉 🚂 🚆 🚄 🚅 🚃 🚇 🚈 🚊 🚋 🚝 🚞 🚟 🚠 🚡 ⛴ 🚢 ⛵ 🚣 🚤 🛥 🛫 🛬 🛩 ✈ 🛧 🛪 🛨 🛦 🚁 🚀 🛸 🙬 🙭 🙮 🙯 
+    🚲 🛴 🛵 🏍 🚕 🚖 🚗 🚘 🚔 🚓 🚙 🚜 🚑 🚒 🏎 ⛟ 🚚 🚛 🚏 🚌 🚍 🚎 🚐 🚉 🚂 
+    🚆 🚄 🚅 🚃 🚇 🚈 🚊 🚋 🚝 🚞 🚟 🚠 🚡 ⛴ 🚢 ⛵ 🚣 🚤 🛥 🛫 🛬 🛩 ✈ 🛧 🛪 
+    🛨 🛦 🚁 🚀 🛸 🙬 🙭 🙮 🙯 
 
     Objects 
-    💅 🛒 🔮 💎 💍 🎀 🕯 🔦 🔔 🕭 ⌚ ⌛ ⏳ ⚿ 🗝 🔑 🔏 🔐 🔒 🔓 🎨 🎖 🎗 💊 💉 🔪 🗡 ⚔ 🔫 🥆 💣 🧨 🎃 🎁 🎂 🎈 🎉 🎊 🎬 🎭 🎫 🎞 🎟 💰 💱 💲 💳 💴 💵 💶 💷 💸 🧾 🚪 🚿 🛀 🛁 🚽 🧻 🧼 🧽 🧴 🧹 🧺 💺 🧳 🗺 🧮 🔬 🔭 🧪 🧫 ⚖ ⚗ 🧬 🧰 🧲 🔩 ⛓ 🔨 ⛏ 🔧 ⚙ ⛭ ⛮ 🗜 🧱 🧸 🎎 🕳 🎍 🏮 🎏 🎐 ⚰ ⚱ 🏺 ⚓ 🕎 📿 🧿 🜚 🧧 🧩 🧯 🧵 🧶 🧷 
+    💅 🛒 🔮 💎 💍 🎀 🕯 🔦 🔔 🕭 ⌚ ⌛ ⏳ ⚿ 🗝 🔑 🔏 🔐 🔒 🔓 🎨 🎖 🎗 💊 💉 
+    🔪 🗡 ⚔ 🔫 🥆 💣 🧨 🎃 🎁 🎂 🎈 🎉 🎊 🎬 🎭 🎫 🎞 🎟 💰 💱 💲 💳 💴 💵 💶 
+    💷 💸 🧾 🚪 🚿 🛀 🛁 🚽 🧻 🧼 🧽 🧴 🧹 🧺 💺 🧳 🗺 🧮 🔬 🔭 🧪 🧫 ⚖ ⚗ 🧬 
+    🧰 🧲 🔩 ⛓ 🔨 ⛏ 🔧 ⚙ ⛭ ⛮ 🗜 🧱 🧸 🎎 🕳 🎍 🏮 🎏 🎐 ⚰ ⚱ 🏺 ⚓ 🕎 📿 
+    🧿 🜚 🧧 🧩 🧯 🧵 🧶 🧷 
 
     Tech 
-    📱 📲 🖁 📳 📴 📵 📶 📞 ☎ ☏ 🕿 🖀 ✆ 🕻 🕼 🕽 ℡ 📟 📠 📷 📸 📹 📼 🎥 📽 🎞 🎧 🎤 🎙 📢 📣 🕫 🕬 📺 📻 📾 📡 🖩 🖨 🖧 🖳 💻 🖥 ⌨ 🖮 🖦 🖯 🖰 🖱 🖲 🕹 🎮 🎹 🎘 🎚 🎛 🖴 📀 💽 💿 🖸 💾 🖪 🖫 🖬 ✇ 🖭 🔋 🔌 
+    📱 📲 🖁 📳 📴 📵 📶 📞 ☎ ☏ 🕿 🖀 ✆ 🕻 🕼 🕽 ℡ 📟 📠 📷 📸 📹 📼 🎥 📽 
+    🎞 🎧 🎤 🎙 📢 📣 🕫 🕬 📺 📻 📾 📡 🖩 🖨 🖧 🖳 💻 🖥 ⌨ 🖮 🖦 🖯 🖰 🖱 🖲 
+    🕹 🎮 🎹 🎘 🎚 🎛 🖴 📀 💽 💿 🖸 💾 🖪 🖫 🖬 ✇ 🖭 🔋 🔌 
 
     Office 
-    📧 ✉ 🖂 🖃 🖄 🖅 🖆 📨 📤 📥 📩 📪 📫 📬 📭 📮 📦 📯 📜 📃 📄 🗎 🗏 🗐 🗅 🗆 🗇 🗈 🗉 🗊 🗋 🗌 🗍 🗒 📓 📔 📝 📒 📋 🕮 📖 📕 📗 📘 📙 📚 📰 🗞 🗟 📁 📂 🖿 🗀 🗁 🗂 🗃 🗄 📑 🔖 🔗 🗓 📅 📆 📇 ✍ 🖎 🖊 🖋 🖌 🖍 🖉 ✏ ✐ ✎ ✑ ✒ 📌 🖈 📍 📎 🖇 📏 📐 ✂ ✄ ✁ ✃ 💼 📛 💹 📈 📉 📊 🗠 
+    📧 ✉ 🖂 🖃 🖄 🖅 🖆 📨 📤 📥 📩 📪 📫 📬 📭 📮 📦 📯 📜 📃 📄 🗎 🗏 🗐 🗅 
+    🗆 🗇 🗈 🗉 🗊 🗋 🗌 🗍 🗒 📓 📔 📝 📒 📋 🕮 📖 📕 📗 📘 📙 📚 📰 🗞 🗟 📁 
+    📂 🖿 🗀 🗁 🗂 🗃 🗄 📑 🔖 🔗 🗓 📅 📆 📇 ✍ 🖎 🖊 🖋 🖌 🖍 🖉 ✏ ✐ ✎ ✑ 
+    ✒ 📌 🖈 📍 📎 🖇 📏 📐 ✂ ✄ ✁ ✃ 💼 📛 💹 📈 📉 📊 🗠 
 
     UI 
-    ≡ ⌖ ⯐ ▮ ▯ ❘ ❙ ❚ ⌶ ⌚ ⌛ ⏳ ⧗ ⧖ 🖎 ✍ ✎ ✏ ✐ 📌 🔲 🔳 🔘 🔀 🔁 🔂 🔃 🔄 🗘 🔔 🕭 🔕 ⚿ 🗝 🔑 🔏 🔐 🔒 🔓 📶 🖼 🖽 🖾 🗔 🗕 🗖 🗗 ⎚ 🗙 ⌧ 🏷 👁 🖵 🖶 🖷 🖹 🖺 🖻 🗑 🗜 🗚 🗛 🔗 ⚓ ⌘ ⏎ ⌫ ⎓ ⏚ ⏛ ⏦ ⏧ ⎏ ⎐ 🗺 🌍 🌎 🌏 🌐
+    ≡ ⌖ ⯐ ▮ ▯ ❘ ❙ ❚ ⌶ ⌚ ⌛ ⏳ ⧗ ⧖ 🖎 ✍ ✎ ✏ ✐ 📌 🔲 🔳 🔘 🔀 🔁 
+    🔂 🔃 🔄 🗘 🔔 🕭 🔕 ⚿ 🗝 🔑 🔏 🔐 🔒 🔓 📶 🖼 🖽 🖾 🗔 🗕 🗖 🗗 ⎚ 🗙 ⌧ 
+    🏷 👁 🖵 🖶 🖷 🖹 🖺 🖻 🗑 🗜 🗚 🗛 🔗 ⚓ ⌘ ⏎ ⌫ ⎓ ⏚ ⏛ ⏦ ⏧ ⎏ ⎐ 🗺 
+    🌍 🌎 🌏 🌐
 
      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ 
      ░░                                                                                  ░░
@@ -630,11 +674,13 @@ ANSI和ASCII艺术之间的主要区别是ANSI使用了颜色。ANSI和ASCII使�
 
 - GlassGiant ASCII Art http://glassgiant.com/ascii/
 
-    这个小程序可以把图片转换成 ASCII 字符艺术，一堆胡乱堆在一起的文字，数字和符号，看上去没有任何意义，直到你往后站一步去看完整的画面。它也没有什么实际的用途，只是看上去非常简洁灵巧。
+    这个小程序可以把图片转换成 ASCII 字符艺术，一堆胡乱堆在一起的文字，数字和符号，看上去没有任何意义，
+    直到你往后站一步去看完整的画面。它也没有什么实际的用途，只是看上去非常简洁灵巧。
 
 - Ascii.mastervb http://ascii.mastervb.net/
 
-    ASCII 字符艺术来源于7比特ASCII字符标准。ASCII 字符艺术曾经在 70-80 年代很流行。在那个时候，计算机系统都还是基于字符的。这个程序可以非常快地把图片转换成 ASCII 字符。
+    ASCII 字符艺术来源于7比特ASCII字符标准。ASCII 字符艺术曾经在 70-80 年代很流行。
+    在那个时候，计算机系统都还是基于字符的。这个程序可以非常快地把图片转换成 ASCII 字符。
 
 - IMG2TXT http://www.degraeve.com/img2txt.php
 
@@ -642,7 +688,8 @@ ANSI和ASCII艺术之间的主要区别是ANSI使用了颜色。ANSI和ASCII使�
 
 - picascii http://picascii.com/
 
-    它可以把图片转换成 ASCII 文本或是 HTML。要做转换，你只需要输入链接地址或是选择一张你电脑上的图片 gif/jpeg/png。
+    它可以把图片转换成 ASCII 文本或是 HTML。要做转换，你只需要输入链接地址或是选择一张你电脑上的图片 
+    gif/jpeg/png。
 
 图片转换：
 
@@ -737,8 +784,195 @@ ANSI和ASCII艺术之间的主要区别是ANSI使用了颜色。ANSI和ASCII使�
 
     EOT
 
-# PlantUML ASCII Art
+# /Unicode Combining Symbols
+
+拿 ((̵̵́ ̆͒͟˚̩̭ ̆͒)̵̵̀) 举例子，看这一坨符号有多长？答：20个字符。
+
+Unicode 编码码：
+
+1.  前面两个都是左小括号（U+28）：(
+
+2.  第 3 个 符号（U+335）叫 Combining Short Stroke Overlay（组合短连字符），效果是
+上个字符和这个字符之间会出现一个不占空间的短横线。举个例子：a̵b。
+
+3.  第 4 个 符号（U+301）叫 Combining Acute Accent（组合尖音符），用于标某些字
+符的重音用。显示效果是在它前面一个字母的顶上出现一个声调符号。使用方式如下：X́
+
+4.  第 5 个 符号又是 U+335。
+
+然后是 U+20，空格。
+
+5.  第 7 个 符号是 U+306，Combining Breve（组合短音符），开口向上的半圆弧，标在上个字母
+的上方，表示短元音用：Ŭ。
+
+6.  第 8 个 符号是 U+352，Combining Fermata（组合延音符），是用在五线谱记谱的一个特殊
+符号，标在上一个字母的上方，表示该音符延长发声。形状就像一个半圆弧中间一个圆点：B͒。
+
+7.  第 9 个 符号是 U+35F，Combining Double Macron Below（组合双下长音符）
+，就是两倍长的普通长音符，形状就像两倍长的下划线：U͟E。
+
+8.  第 10 个符号是 U+2DA，Ring Above（上圆圈）
+    这个：˚ 注意这不是一个组合字符，所以这个字符会独占一个字符的空间。
+
+9.  第 11 个符号是 U+329，Combining Vertical Line Below（组合下垂直线），
+    上一个字母下部附加上的一个短竖线：O̩。
+
+10. 第 12 个符号是 U+32D，Combining Circumflex Accent Below（组合下扬抑符），
+    在上一个字母下部附上一个^形状的符号：Ḙ。
+
+11. 第 13 个符号 U+20，空格。
+
+12. 第 14 个符号 U+306，开口向上的半圆弧（不占空间）。
+
+13. 第 15 个符号 U+352，一个半圆弧中间一个圆点（不占空间）。
+
+14. 第 16 个符号 U+29，)
+
+15. 第 17 个符号 U+335，在前一个符号上附着一个连字符。
+
+16. 第 18 个符号 U+300，Combining Grave Accent（组合重音符），
+    在上一个字母上面 出现一个`符号，方向刚好和前面的 U+301相反：X̀。
+
+17. 然后又是一个 U+335，又来一个连字符。
+
+18. 最后是 U+29，最后一个右小括号完成。
+
+这些组合在一起的符号叫组合字符(Combining character)，它们用来修饰前面的符号，一般被用来注音。
+所以它们一般不额外占用空间，而是与前面的符号占据同一空间。不是所有字符都能用输入法打出来，
+除非输入法支持输入 unicode。
+
+这样的组合符号 Ŭ，一般编辑中会作为一个字符看待，不同编辑器在用户在编辑时有不同效果。
+Sublime Text 可以通过 backlash 删除其右侧的组合符号，但是无法对组合符号进行选择操作。
+Sublime Text 字符交换功能（Edit -> Text -> Transpose）可以将组合符号交换到前或后一字符。
+比如，aeioŭ 通过交换字符，就可以将组合符号调整成 uoieă。组合符号作为修饰用字符，不同
+字体会有不同的显示效果，并且可能出现不可组合的问题。可用的组合符号可以查询 Unicode 字符集文档。
+
+1. https://www.unicode.org/faq/char_combmark.html
+1. https://www.compart.com/en/unicode/combining
+1. https://www.unicode.org/versions/Unicode6.2.0/ch02.pdf
+2. https://www.unicode.org/versions/Unicode15.1.0/ch03.pdf#G30602
+
+D52 Combining character: A character with the General Category of Combining Mark (M).
+
+• Combining characters consist of all characters with the General Category 
+values of Spacing Combining Mark (Mc), Nonspacing Mark (Mn), and Enclosing
+Mark (Me). 
+
+以下是变音组合符号表（修饰字符上或下面） Combining Diacritical Marks 
+
+0.  https://www.unicode.org/charts/PDF/U0300.pdf
+1.  Combining Diacritical Marks 112 
+    http://www.unicode-symbol.com/block/Diacriticals.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+0300 | À  | B́  | Ĉ  | D̃  | Ē  | F̅  | Ğ  | Ḣ  |
+    | U+0308 | Ä  | B̉  | C̊  | D̋  | Ě  | F̍  | G̎  | H̏  |
+    | U+0310 | A̐  | B̑  | C̒  | D̓  | E̔  | F̕  | G̖  | H̗  |
+    | U+0318 | A̘  | B̙  | C̚  | D̛  | E̜  | F̝  | G̞  | H̟  |
+    | U+0320 | A̠  | B̡  | C̢  | Ḍ  | E̤  | F̥  | G̦  | Ḩ  |
+    | U+0328 | Ą  | B̩  | C̪  | D̫  | E̬  | F̭  | G̮  | H̯  |
+    | U+0330 | A̰  | Ḇ  | C̲  | D̳  | E̴  | F̵  | G̶  | H̷  |
+    | U+0338 | A̸  | B̹  | C̺  | D̻  | E̼  | F̽  | G̾  | H̿  |
+    | U+0340 | À  | B́  | C͂  | D̓  | Ë́  | Fͅ  | G͆  | H͇  |
+    | U+0348 | A͈  | B͉  | C͊  | D͋  | E͌  | F͍  | G͎  | H͏  |
+    | U+0350 | A͐  | B͑  | C͒  | D͓  | E͔  | F͕  | G͖  | H͗  |
+    | U+0358 | A͘  | B͙  | C͚  | D͛  | E͜  | F͝  | G͞  | H͟  |
+    | U+0360 | A͠  | B͡  | C͢  | Dͣ  | Eͤ  | Fͥ  | Gͦ  | Hͧ  |
+    | U+0368 | Aͨ  | Bͩ  | Cͪ  | Dͫ  | Eͬ  | Fͭ  | Gͮ  | Hͯ  |
+
+2.  Combining Diacritical Marks Extended    31 
+    http://www.unicode-symbol.com/block/Diacriticals_Ext.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+1AB0 | A᪰  | B᪱  | C᪲  | D᪳  | E᪴  | F᪵  | G᪶  | H᪷  |
+    | U+1AB8 | A᪸  | B᪹  | C᪺  | D᪻  | E᪼  | F᪽  | G᪾  | Hᪿ  |
+    | U+1AC0 | Aᫀ  | B᫁  | C᫂  | D᫃  | E᫄  | F᫅  | G᫆  | H᫇  |
+    | U+1AC8 | A᫈  | B᫉  | C᫊  | D᫋  | Eᫌ  | Fᫍ  | Gᫎ  | H   |
+
+3.  Combining Diacritical Marks Supplement  64
+    http://www.unicode-symbol.com/block/Diacriticals_Sup.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+1DC0 | A᷀  | B᷁  | C᷂  | D᷃  | E᷄  | F᷅  | G᷆  | H᷇  |
+    | U+1DC8 | A᷈  | B᷉  | C᷊  | D᷋  | E᷌  | F᷍  | G᷎  | H᷏  |
+    | U+1DD0 | A᷐  | B᷑  | C᷒  | Dᷓ  | Eᷔ  | Fᷕ  | Gᷖ  | Hᷗ  |
+    | U+1DD8 | Aᷘ  | Bᷙ  | Cᷚ  | Dᷛ  | Eᷜ  | Fᷝ  | Gᷞ  | Hᷟ  |
+    | U+1DE0 | Aᷠ  | Bᷡ  | Cᷢ  | Dᷣ  | Eᷤ  | Fᷥ  | Gᷦ  | Hᷧ  |
+    | U+1DE8 | Aᷨ  | Bᷩ  | Cᷪ  | Dᷫ  | Eᷬ  | Fᷭ  | Gᷮ  | Hᷯ  |
+    | U+1DF0 | Aᷰ  | Bᷱ  | Cᷲ  | Dᷳ  | Eᷴ  | F᷵  | G᷶  | H᷷  |
+    | U+1DF8 | A᷸  | B᷹  | C᷺  | D᷻  | E᷼  | F᷽  | G᷾  | H᷿  |
+
+4.  Combining Diacritical Marks for Symbols 33
+    http://www.unicode-symbol.com/block/Diacriticals_For_Symbols.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+20D0 | A⃐  | B⃑  | C⃒  | D⃓  | E⃔  | F⃕  | G⃖  | H⃗  |
+    | U+20D8 | A⃘  | B⃙  | C⃚  | D⃛  | E⃜  | F⃝  | G⃞  | H⃟  |
+    | U+20E0 | A⃠  | B⃡  | C⃢  | D⃣  | E⃤  | F⃥  | G⃦  | H⃧  |
+    | U+20E8 | A⃨  | B⃩  | C⃪  | D⃫  | E⃬  | F⃭  | G⃮  | H⃯  |
+    | U+20F0 | A⃰  |     |     |     |     |     |     |     |
+
+5.  Combining Half Marks    16
+    http://www.unicode-symbol.com/block/Half_Marks.html
+
+    |   -    | 0/8 | 1/9 | 2/a | 3/b | 4/c | 5/d | 6/e | 7/f |
+    |--------|-----|-----|-----|-----|-----|-----|-----|-----|
+    | U+FE20 | A︠  | B︡  | C︢  | D︣  | E︤  | F︥  | G︦  | H︧  |
+    | U+FE28 | A︨  | B︩  | C︪  | D︫  | E︬  | F︭  | G︮  | H︯  |
+
+
+使用 Python 脚本打印这些 Unicode 符号及名称：
+
+```py
+import unicodedata
+from unicodedata import category, name
+uni = '''((̵̵́ ̆͒͟˚̩̭ ̆͒)̵̵̀)'''
+for char in list(uni):
+    print(f"%s - %s: %s" % (repr(char), category(uni[3]), name(char)))
+
+# print(repr(sys.version))
+
+# print('\n'.join([' '.join((repr(x), category(x), name(x))) for x in  list(uni)]))
+# with open('/dl/pl/out.html', 'w', encoding="utf-8") as cout:
+#     for char in [x for x in list(uni)]:
+#         cout.write(f"%s - %s: %s\n" % (repr(char), category(uni[3]), name(char)))
+```
+
+```sh
+    '(' Ps LEFT PARENTHESIS
+    '(' Ps LEFT PARENTHESIS
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    '́' Mn COMBINING ACUTE ACCENT
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    ' ' Zs SPACE
+    '̆' Mn COMBINING BREVE
+    '͒' Mn COMBINING FERMATA
+    '͟' Mn COMBINING DOUBLE MACRON BELOW
+    '˚' Sk RING ABOVE
+    '̩' Mn COMBINING VERTICAL LINE BELOW
+    '̭' Mn COMBINING CIRCUMFLEX ACCENT BELOW
+    ' ' Zs SPACE
+    '̆' Mn COMBINING BREVE
+    '͒' Mn COMBINING FERMATA
+    ')' Pe RIGHT PARENTHESIS
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    '̀' Mn COMBINING GRAVE ACCENT
+    '̵' Mn COMBINING SHORT STROKE OVERLAY
+    ')' Pe RIGHT PARENTHESIS
+```
+
+
+# /PlantUML ASCII Art
 - [PlantUML Ascii Art](https://plantuml.com/zh/ascii-art)
+- https://crashedmind.github.io/PlantUMLHitchhikersGuide/
+- https://github.com/Crashedmind/PlantUMLHitchhikersGuide
+- https://github.com/Crashedmind/PlayingWithPlantUMLSource
+- https://pdf.plantuml.net/PlantUML_Language_Reference_Guide_en.pdf
+
 
 工作目录中建立一个 sequenceDiagram.wsd, 内容如下:
 
@@ -830,6 +1064,253 @@ PlantUML 内置了一批图形符号，可以将列表打印出来：
     rectangle "Capture Information"  as CI <<$archimate/business-process>> #Business
     @enduml
 
+// Ex: Simples
+--------------------
+
+```sh
+plantuml='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
+cat | java -DPLANTUML_LIMIT_SIZE=50000 -jar "$plantuml" -txt -pipe \
+<<EOF
+@startuml
+Alice -> Alice: This is a signal to self.\nIt also demonstrates\nmultiline \ntext
+@enduml
+EOF
+```
+
+     ,-----.
+     |Alice|
+     `--+--'
+        |----.
+        |    | This is a signal to self.
+        |<---' It also demonstrates
+        |      multiline
+        |      text
+        |
+     ,--+--.
+     |Alice|
+     `-----'
+
+```sh
+plantuml='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
+cat | java -DPLANTUML_LIMIT_SIZE=50000 -jar "$plantuml" -txt -pipe \
+<<EOF
+@startuml
+participant BBBot
+actor Alice
+
+BBBot -> Alice : hello
+Alice -> BBBot : Is it ok?
+@enduml
+EOF
+```
+
+                        ,-.
+                        `-'
+                        /|\
+     ,-----.             |
+     |BBBot|            / \
+     `--+--'           Alice
+        |     hello      |
+        |--------------->|
+        |                |
+        |   Is it ok?    |
+        |<---------------|
+     ,--+--.           Alice
+     |BBBot|            ,-.
+     `-----'            `-'
+                        /|\
+                         |
+                        / \
+
+// Ex: Complex
+--------------------
+
+```sh
+plantuml='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
+# /cat | java -DPLANTUML_LIMIT_SIZE=50000 -jar "$plantuml" -txt -pipe \
+cat simple.wsd <<EOF
+@startuml
+' for OSA PUMLENTITY
+!include <aws/Common> 
+!include <awslib/AWSCommon>
+!include <awslib/General/all>
+!include <awslib/NetworkingAndContentDelivery/all>
+'!include <osa/firewall/firewall.puml> 
+
+Client(Client1, "Bob", "Apple Mac") 
+Client(Client2, "Mary", "Windows 10") 
+MobileClient(MobileClient1, "Chris", "Android Phone") 
+MobileClient(MobileClient2, "Mary", "Apple Tablet") 
+TraditionalServer(TraditionalServer1, "Server", "All info lives here")
+VPCRouter(VPCRouter, "Router", "sasfd")
+'GenericFirewall(VPCRouter, "Router", "sasfd") - not working
+InternetGateway(InternetGateway, "GateWay", "Internet Access")
+
+'FIREWALL(FIREWALL1)
+
+Client1 -up-> VPCRouter
+Client2 -up-> VPCRouter
+MobileClient1 -up-> VPCRouter
+MobileClient2 -up-> VPCRouter
+TraditionalServer1 -up-> VPCRouter
+VPCRouter -up-> InternetGateway
+
+'VPCRouter -up-> FIREWALL1
+'FIREWALL1 -up-> InternetGateway
+
+
+@enduml
+EOF
+cat | java -DPLANTUML_LIMIT_SIZE=50000 -jar "$plantuml" -txt -pipe simple.wsd
+```
+
+
+// Ex: Roles
+------------
+
+```sh
+tasklist | grep sh.exe
+plantuml='C:/jdk-14.0.2/jars/plantuml.1.2018.1.jar'
+PlantUML_Ex1 () 
+{
+    cat | java -DPLANTUML_LIMIT_SIZE=50000 -jar "$plantuml" -txt -pipe > /c/dl/pl/simple.atxt <<EOF
+@startuml
+participant Participant as  Foo
+actor       Actor as        Foo1
+boundary    Boundary as     Foo2
+control     Control as      Foo3
+entity      Entity as       Foo4
+database    Database as     Foo5
+collections Collections as  Foo6
+queue       Queue as        Foo7
+Foo -> Foo1 : To actor
+Foo -> Foo2 : To boundary
+Foo -> Foo3 : To control
+Foo -> Foo4 : To entity
+Foo -> Foo5 : To database
+Foo -> Foo6 : To collections
+Foo -> Foo7:  To queue
+@enduml
+EOF
+}
+PlantUML_Ex1
+```
+
+                                                                                                        ,.-^^-._
+                              ,-.                                                                      |-.____.-|
+                              `-'                                                                      |        |
+                              /|\              |   ,-.                                                 |        |
+     ,-----------.             |               +--{   )          ,-------.          ,------.           |        |         ,-----------.          ,-----.
+     |Participant|            / \              |   `-'           |Control|          |Entity|           '-.____.-'         |Collections|          |Queue|
+     `-----+-----'           Actor            Boundary           `-------'          `------'           Database           `-----------'          `-----'
+           |     To actor      |                 |                   |                 |                  |                     |                   |
+           |------------------>|                 |                   |                 |                  |                     |                   |
+           |                   |                 |                   |                 |                  |                     |                   |
+           |            To boundary              |                   |                 |                  |                     |                   |
+           |------------------------------------>|                   |                 |                  |                     |                   |
+           |                   |                 |                   |                 |                  |                     |                   |
+           |                   |   To control    |                   |                 |                  |                     |                   |
+           |-------------------------------------------------------->|                 |                  |                     |                   |
+           |                   |                 |                   |                 |                  |                     |                   |
+           |                   |            To entity                |                 |                  |                     |                   |
+           |-------------------------------------------------------------------------->|                  |                     |                   |
+           |                   |                 |                   |                 |                  |                     |                   |
+           |                   |                 |   To database     |                 |                  |                     |                   |
+           |--------------------------------------------------------------------------------------------->|                     |                   |
+           |                   |                 |                   |                 |                  |                     |                   |
+           |                   |                 |            To collections           |                  |                     |                   |
+           |------------------------------------------------------------------------------------------------------------------->|                   |
+           |                   |                 |                   |                 |                  |                     |                   |
+           |                   |                 |                   |     To queue    |                  |                     |                   |
+           |--------------------------------------------------------------------------------------------------------------------------------------->|
+     ,-----+-----.           Actor            Boundary           ,-------.          ,------.           Database           ,-----------.          ,-----.
+     |Participant|            ,-.              |   ,-.           |Control|          |Entity|            ,.-^^-._          |Collections|          |Queue|
+     `-----------'            `-'              +--{   )          `-------'          `------'           |-.____.-|         `-----------'          `-----'
+                              /|\              |   `-'                                                 |        |
+                               |                                                                       |        |
+                              / \                                                                      |        |
+                                                                                                       '-.____.-'
+
+// Plantuml CLI
+--------------------
+https://plantuml.com/download
+
+    Usage: java -jar plantuml.jar [options] -gui
+        (to execute the GUI)
+        or java -jar plantuml.jar [options] [file/dir] [file/dir] [file/dir]
+        (to process files or directories)
+
+    You can use the following wildcards in files/dirs:
+        *   means any characters but '\'
+        ?   one and only one character but '\'
+        **  means any characters (used to recurse through directories)
+
+    where options include:
+    -gui        To run the graphical user interface
+    -tpng       To generate images using PNG format (default)
+    -tsvg       To generate images using SVG format
+    -teps       To generate images using EPS format
+    -tpdf       To generate images using PDF format
+    -tvdx       To generate images using VDX format
+    -txmi       To generate XMI file for class diagram
+    -tscxml     To generate SCXML file for state diagram
+    -thtml      To generate HTML file for class diagram
+    -ttxt       To generate images with ASCII art
+    -tutxt      To generate images with ASCII art using Unicode characters
+    -tlatex     To generate images using LaTeX/Tikz format
+    -tlatex:nopreamble  To generate images using LaTeX/Tikz format without preamble
+    -o[utput] "dir" To generate images in the specified directory
+    -DVAR1=value    To set a preprocessing variable as if '!define VAR1 value' were used
+    -Sparam1=value  To set a skin parameter as if 'skinparam param1 value' were used
+    -r[ecurse]      recurse through directories
+    -I\path\to\file To include file as if '!include file' were used
+    -I\path\to\*.puml   To include files with pattern
+    -charset xxx    To use a specific charset (default is GBK)
+    -e[x]clude pattern  To exclude files that match the provided pattern
+    -metadata       To retrieve PlantUML sources from PNG images
+    -nometadata     To NOT export metadata in PNG/SVG generated files
+    -checkmetadata      Skip PNG files that don't need to be regenerated
+    -version        To display information about PlantUML and Java versions
+    -v[erbose]      To have log information
+    -quiet      To NOT print error message into the console
+    -debugsvek      To generate intermediate svek files
+    -h[elp]     To display this help message
+    -testdot        To test the installation of graphviz
+    -graphvizdot "exe"  To specify dot executable
+    -p[ipe]     To use stdin for PlantUML source and stdout for PNG/SVG/EPS generation
+    -encodesprite 4|8|16[z] "file"  To encode a sprite at gray level (z for compression) from an image
+    -computeurl|-encodeurl  To compute the encoded URL of a PlantUML source file
+    -decodeurl      To retrieve the PlantUML source from an encoded URL
+    -syntax     To report any syntax error from standard input without generating images
+    -language       To print the list of PlantUML keywords
+    -checkonly      To check the syntax of files without generating images
+    -failfast       To stop processing as soon as a syntax error in diagram occurs
+    -failfast2      To do a first syntax check before processing files, to fail even faster
+    -pattern        To print the list of Regular Expression used by PlantUML
+    -duration       To print the duration of complete diagrams processing
+    -nbthread N     To use (N) threads for processing
+    -nbthread auto  To use 8 threads for processing
+    -timeout N      Processing timeout in (N) seconds. Defaults to 15 minutes (900 seconds).
+    -author[s]      To print information about PlantUML authors
+    -overwrite      To allow to overwrite read only files
+    -printfonts     To print fonts available on your system
+    -enablestats    To enable statistics computation
+    -disablestats   To disable statistics computation (default)
+    -htmlstats      To output general statistics in file plantuml-stats.html
+    -xmlstats       To output general statistics in file plantuml-stats.xml
+    -realtimestats  To generate statistics on the fly rather than at the end
+    -loopstats      To continuously print statistics about usage
+    -splash     To display a splash screen with some progress bar
+    -progress       To display a textual progress bar in console
+    -pipeimageindex N   To generate the Nth image with pipe option
+    -stdlib     To print standard library info
+    -extractstdlib  To extract PlantUML Standard Library into stdlib folder
+    -filename "example.puml"    To override %filename% variable
+    -preproc        To output preprocessor text of diagrams
+    -cypher     To cypher texts of diagrams so that you can share them
+
+// Complex Diagram
+--------------------
 
 文本活动图示范：
 
@@ -959,7 +1440,8 @@ PlantUML 内置了一批图形符号，可以将列表打印出来：
                                                  / \
 
 
-# PlantUML 画图
+//PlantUML 画图
+--------------
 - [PlantUML](https://plantuml.com/zh/ascii-art)
 - [使用 Sublime + PlantUML 高效画图](https://www.cnblogs.com/codingWarrior/p/5147183.html)
 - [The Hitchhiker’s Guide to PlantUML](https://crashedmind.github.io/PlantUMLHitchhikersGuide/)
@@ -996,116 +1478,51 @@ PlantUML 是一个画图脚本语言，用它可以快速地画出：
 - Mathematic with AsciiMath or JLaTeXMath notation
 - 实体关系图 Entity Relationship diagram
 
-PlantUML 官网提供了多种类型下载文件，其中有 Eclipse 插件可以直接使用。还有 Plant​Uml​Diagrams For Sublime Text 插件，但是由于插件文档不是最新的，因此本文着重介绍如何安装并成功运行使用 Plant​Uml​Diagrams 插件。
-
-由于 PlantUML 基于 Java 开发，因此需要你的机器上装有 Java。PlantUML 的转换 plantuml.jar 包，需下载到本地并配置给 Plant​Uml​Diagrams 使用。
-
-这些软件全部是开源或共享软件，不存在版权问题，可以放心使用。
-
-- 安装 Sublime http://www.sublimetext.com/
-
-    Sublime 是个强大的可扩展的文本编辑器。进入官网下载对应操作系统下的版本安装即可。
-
-- 安装 graphviz http://graphviz.org/
-
-    graphviz 是个开源的图片渲染库。安装了这个库才能在 Windows 下实现把 PlantUML 脚本转换为图片。
-
-- 安装 PlantUML for Sublime 插件 https://github.com/jvantuyl/sublime_diagram_plugin
-
-    有了这个插件后，我们就可以在 Sublime 里写 PlantUML 脚本，然后直接通过一个快捷键生成图片。安装步骤如下
-
-    下载插件，并解压到 Sublime Packages 目录下，通过菜单打开：
-
-        Preferences -> Browse Packages ...
-
-插件目录提供了示例说明。
-
-重启 Sublime
-
-为了简化使用，可以在 Sublime 里配置个快捷键。打开 Preferences -> Key Binding - User，添加一个快捷键：
-
-    { "keys": ["alt+d"], "command": "display_diagrams"}
-
-上面的代码配置成按住 Alt + d 来生成 PlantUML 图片，你可以修改成你自己喜欢的按键。
-
-最后检验一下工作安装是否正确。
-
-打开 Sublime 输入：
-
-    Bob -> Alice : Hello, how are you
-    Alice -> Bob : Fine, thank you, and you?
-
-选中这些文本内容，按 Alt + d 会在当前工作目录下生成这个图片文件，同时自动弹出窗口显示图片。
-
-
-在Sublime Text 3安装 PlantUML 插件
-
-安装插件重新打开sublime时报错：unable to load diagram plugin, check console for details.
-
-敲击快捷键 Alt+M 时显示 No diagrams overlap selections.nothing to process.
-
-网上通常的解决办法是：修改 \Sublime Text 3\Packages\plantumlpluginDiagram.sublime-settings，其中第三行将编码方式”charset”: null改为”charset”: “UTF-8”。
-
-最简单的方法就是去查看 console 日志。
-
-点击 Sublime 菜单 View -> Show Console，分析错误 log。
-
-    Command: ['java', '-DPLANTUML_LIMIT_SIZE=50000', '-jar', 'C:\\Users\\OCEAN\\AppData\\Roaming\\Sublime Text 3\\Packages\\sublime_diagram_plugin\\diagram\\plantuml.1.2018.1.jar', '-pipe', '-tpng', '-charset', 'UTF-8']
-    Error Processing Diagram, returncode=1:
-                
-    Exception in thread Thread-873:
-    Traceback (most recent call last):
-      File "./python3.3/threading.py", line 901, in _bootstrap_inner
-      File "./python3.3/threading.py", line 858, in run
-      File "C:\Users\OCEAN\AppData\Roaming\Sublime Text 3\Packages\sublime_diagram_plugin\diagram\__init__.py", line 127, in render_and_view
-        print("%r viewing %r" % (ACTIVE_VIEWER, [d.name for d in diagram_files]))
-      File "C:\Users\OCEAN\AppData\Roaming\Sublime Text 3\Packages\sublime_diagram_plugin\diagram\__init__.py", line 127, in <listcomp>
-        print("%r viewing %r" % (ACTIVE_VIEWER, [d.name for d in diagram_files]))
-    AttributeError: 'NoneType' object has no attribute 'name'
 
 ANT Task 配置参数：
 
-|   Parameter   | Default |                                 Description                                  |
-|---------------|---------|------------------------------------------------------------------------------|
-| nbthread      | 1       | Number of thread for processing                                              |
-| graphvizDot   |         | Path of the dot executable                                                   |
-| format        | png     | Format for image generation: xmi, xmi:argo, xmi:start, eps, svg, txt, utxt   |
-| verbose       | false   | true for more logs                                                           |
-| config        |         | File config to include before all diagrams                                   |
-| charset       |         | Charset to use when reading files                                            |
-| output        |         | Output directory for generated images                                        |
-| dir           |         | Input directory to process (You can use <fileset>/<filelist> instead)        |
-| failonerror   | false   | true to fail the build if some syntax error occurs                           |
-| checkonly     | false   | true if you want to only check the syntax of files without generating images |
-| overwrite     | false   | true if you want overwrite read-only files                                   |
-| enablestats   | false   | true to enable statistics                                                    |
-| htmlstats     | false   | true to output general statistics in file plantuml-stats.html                |
-| xmlstats      | false   | true to output general statistics in file plantuml-stats.xml                 |
-| realtimestats | false   | true to generate statistics on the fly rather than at the end                |
+|   Parameter   | Default |                                 Description
+|---------------|---------|------------------------------------------------------------------------------
+| nbthread      | 1       | Number of thread for processing
+| graphvizDot   |         | Path of the dot executable
+| format        | png     | Format for image generation: xmi, xmi:argo, xmi:start, eps, svg, txt, utxt
+| verbose       | false   | true for more logs
+| config        |         | File config to include before all diagrams
+| charset       |         | Charset to use when reading files
+| output        |         | Output directory for generated images
+| dir           |         | Input directory to process (You can use <fileset>/<filelist> instead)
+| failonerror   | false   | true to fail the build if some syntax error occurs
+| checkonly     | false   | true if you want to only check the syntax of files without generating images
+| overwrite     | false   | true if you want overwrite read-only files
+| enablestats   | false   | true to enable statistics
+| htmlstats     | false   | true to output general statistics in file plantuml-stats.html
+| xmlstats      | false   | true to output general statistics in file plantuml-stats.xml
+| realtimestats | false   | true to generate statistics on the fly rather than at the end
+
 
 内置函数 Builtin functions
 
-| Name | Description | Example | Return |
-|------|-------------|---------|--------|
-| %date |Retrieve current date. You can provide an optional format for the date |%date("yyyy.MM.dd' at 'HH:mm") |Current date
-| %dirpath  |Retrieve current dirpath   |%dirpath() |Current path
-| %false    |Return always false    |%false()   |false
-| %file_exists  |Check if a file exists on the local filesystem |%file_exists("c:/foo/dummy.txt")   |true if the file exists
-| %filename |Retrieve current filename  |%filename()    |Current filename
-| %function_exists  |Check if a function exists |%function_exists("$some_function") |true if the function has been defined
-| %get_variable_value   |Retrieve some variable value   |%get_variable_value("$my_variable")    |the value of the variable
-| %getenv   |Retrieve environment variable value    |%getenv("OS")  |The value of OS variable
-| %intval   |Convert a String to Int    |%intval("42")  |42
-| %lower    |Return a lowercase string  |%lower("Hello")    |hello in that example
-| %not  |Return the logical negation of an expression   |%not(2+2==4)   |false in that example
-| %set_variable_value   |Set a global variable  |%set_variable_value("$my_variable", "some_value")  |An empty string
-| %strlen   |Calculate the length of a String   |%strlen("foo") |3 in the example
-| %strpos   |Search a substring in a string |%strpos("abcdef", "ef")    |4 (position of ef)
-| %substr   |Extract a substring. Takes 2 or 3 arguments    |%substr("abcdef", 3, 2)    |"de" in the example
-| %true |Return always true |%true()    |true
-| %upper    |Return an uppercase string |%upper("Hello")    |HELLO in that example
-| %variable_exists  |Check if a variable exists |%variable_exists("$my_variable")   |true if the variable has been defined exists
-| %version  |Return PlantUML current version    |%version() |1.2020.08 for example
+|         Name        |             Description             |               Example               |            Return            |
+|---------------------|-------------------------------------|-------------------------------------|------------------------------|
+| %date               | Retrieve current date.              | %date("yyyy.MM.dd' at 'HH:mm")      | Current date                 |
+| %dirpath            | Retrieve current dirpath            | %dirpath()                          | Current path                 |
+| %false              | Return always false                 | %false()                            | false                        |
+| %file_exists        | Check if a file exists in disk      | %file_exists("c:/foo/dummy.txt")    | true if the file exists      |
+| %filename           | Retrieve current filename           | %filename()                         | Current filename             |
+| %function_exists    | Check if a function exists          | %function_exists("$some_function")  | true if the function defined |
+| %get_variable_value | Retrieve some variable value        | %get_variable_value("$va")          | the value of the variable    |
+| %getenv             | Retrieve environment variable value | %getenv("OS")                       | The value of OS variable     |
+| %intval             | Convert a String to Int             | %intval("42")                       | 42                           |
+| %lower              | Return a lowercase string           | %lower("Hello")                     | hello in that example        |
+| %not                | Return the logical negation         | %not(2+2==4)                        | false in that example        |
+| %set_variable_value | Set a global variable               | %set_variable_value("$va", "value") | An empty string              |
+| %strlen             | Calculate the length of a String    | %strlen("foo")                      | 3 in the example             |
+| %strpos             | Search a substring in a string      | %strpos("abcdef", "ef")             | 4 (position of ef)           |
+| %substr             | Extract a substring.                | %substr("abcdef", 3, 2)             | "de" in the example          |
+| %true               | Return always true                  | %true()                             | true                         |
+| %upper              | Return an uppercase string          | %upper("Hello")                     | HELLO in that example        |
+| %variable_exists    | Check if a variable exists          | %variable_exists("$va")             | true if the variable defined |
+| %version            | Return PlantUML current version     | %version()                          | 1.2020.08 for example        |
 
 
 可以用以下命令来获得帮助:
@@ -1113,7 +1530,7 @@ ANT Task 配置参数：
     java -jar plantuml.jar -help
 
 
-# mermaid Diagram
+# /mermaid Diagram
 - mermaidjs 官网 https://mermaidjs.github.io/
 - Github 项目地址 https://github.com/knsv/mermaid
 - CDN 引用 https://unpkg.com/browse/mermaid@8.6.4/
@@ -1325,7 +1742,7 @@ Mermaid 支持多种图表的方向，语法如下：
       Bob-->>John: Jolly good!
     {{< /mermaid >}}
 
-# mermaid demos
+# /mermaid demos
 - https://mermaid-js.github.io/mermaid/#/gantt?id=comments
 
 Flowchart
@@ -1487,14 +1904,15 @@ https://mermaid-js.github.io/mermaid/#/pie
         "Iron" :  5
 
 
-# GitBook 使用教程
+# /GitBook 使用教程
 - https://www.jianshu.com/p/421cc442f06c
 - https://blog.cugxuan.cn/2018/11/16/Math/MathML-in-hexo-and-gitbook/
 
 首先先献上 我的 GitBook 地址，可以在我的 博客 导航栏处找到，下面进行相关的介绍。
 
 ## 背景
-由于之前都把零散的知识都写在 Gist 上，要查找的时候不是很系统化，所以打算挪到 GitBook 上来统一管理，而且 GitBook 写完编译后可以生成静态页面发布到博客上，逼格满满的样子。
+由于之前都把零散的知识都写在 Gist 上，要查找的时候不是很系统化，所以打算挪到 GitBook 
+上来统一管理，而且 GitBook 写完编译后可以生成静态页面发布到博客上，逼格满满的样子。
 
 GitBook 简介
 GitBook 官网 https://www.gitbook.com
@@ -1502,7 +1920,8 @@ GitBook 文档 https://github.com/GitbookIO/gitbook
 
 ## 安装 GitBook
 
-GitBook 是一个基于 Node.js 的命令行工具，下载安装 Node.js，安装完成之后，你可以使用下面的命令来检验是否安装成功。
+GitBook 是一个基于 Node.js 的命令行工具，下载安装 Node.js，安装完成之后，
+可以使用下面的命令来检验是否安装成功。
 
     $ node -v
     v7.7.1
@@ -1520,7 +1939,8 @@ GitBook 是一个基于 Node.js 的命令行工具，下载安装 Node.js，安�
 更多详情请参照 GitBook 安装文档 来安装 GitBook。
 
 ## 安装 GitBook 编辑器
-去 GitBook 官网 下载 GitBook 编辑器；如果是 Mac 用户且安装过 brew cask 的话可以使用 brew cask install gitbook-editor 命令行来安装 GitBook 编辑器。
+去 GitBook 官网 下载 GitBook 编辑器；如果是 Mac 用户且安装过 brew cask 的话可以使用 
+brew cask install gitbook-editor 命令行来安装 GitBook 编辑器。
 
 GitBook 准备工作做好之后，我们进入一个你要写书的目录，输入如下命令。
 
@@ -1530,7 +1950,8 @@ GitBook 准备工作做好之后，我们进入一个你要写书的目录，输
     info: create SUMMARY.md
     info: initialization is finished
 
-可以看到他会创建 README.md 和 SUMMARY.md 这两个文件，README.md 应该不陌生，就是说明文档，而 SUMMARY.md 其实就是书的章节目录，其默认内容如下所示：
+可以看到他会创建 README.md 和 SUMMARY.md 这两个文件，README.md 应该不陌生，就是说明文档，
+而 SUMMARY.md 其实就是书的章节目录，其默认内容如下所示：
 
     # Summary
 
@@ -1541,7 +1962,8 @@ GitBook 准备工作做好之后，我们进入一个你要写书的目录，输
 效果如下所示：
 
 
-运行该命令后会在书籍的文件夹中生成一个 `_book` 文件夹, 里面的内容即为生成的 html 文件，我们可以使用下面命令来生成网页而不开启服务器。
+运行该命令后会在书籍的文件夹中生成一个 `_book` 文件夹, 里面的内容即为生成的 html 文件，
+可以使用下面命令来生成网页而不开启服务器。
 
     gitbook build
 
@@ -1706,13 +2128,16 @@ GitBook 基本的目录结构如下所示：
 
 
 ## 插件
-GitBook 有 插件官网，默认带有 5 个插件，highlight、search、sharing、font-settings、livereload，如果要去除自带的插件， 可以在插件名称前面加 -，比如：
+
+GitBook 有 插件官网，默认带有 5 个插件，highlight、search、sharing、font-settings、
+livereload，如果要去除自带的插件， 可以在插件名称前面加 -，比如：
 
     "plugins": [
         "-search"
     ]
 
-如果要配置使用的插件可以在 book.json 文件中加入即可，比如我们添加 plugin-github，我们在 book.json 中加入配置如下即可：
+如果要配置使用的插件可以在 book.json 文件中加入即可，比如我们添加 plugin-github，
+在 book.json 中加入配置如下即可：
 
     {
         "plugins": [ "github" ],
@@ -1727,7 +2152,8 @@ GitBook 有 插件官网，默认带有 5 个插件，highlight、search、shari
 
 如果要指定插件的版本可以使用 `plugin@0.3.1`，因为一些插件可能不会随着 GitBook 版本的升级而升级。
 
-你可以执行 gitbook build 命令构建书籍，默认将生成的静态网站输出到 `_book` 目录。实际上，这一步也包含在 gitbook serve 里面，因为它们是 HTML，所以 GitBook 通过 Node.js 给你提供服务了。
+你可以执行 gitbook build 命令构建书籍，默认将生成的静态网站输出到 `_book` 目录。实际上，
+这一步也包含在 gitbook serve 里面，因为它们是 HTML，所以 GitBook 通过 Node.js 给你提供服务了。
 
 当然，build 命令可以指定路径：
 
@@ -1750,7 +2176,7 @@ serve 命令也可以指定端口：
     gitbook mobi ./ ./mybook.mobi
 
 
-# LaTex/MathJax 公式编辑
+# /LaTex/MathJax 公式编辑
 - https://www.latexstudio.net/archives/51449.html
 - https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions
 - [Mathjax与LaTex公式简介](https://www.cnblogs.com/linxd/p/4955530.html)
@@ -1760,9 +2186,12 @@ MathJax 示范：
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
 
-When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they 
+are \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
 
-Math can be displayed in the browser using MathJax or Katex. The feature can be enabled by correctly configuring the `"js"`, `"css"`, and `"markdown_extensions"` configuration fields. This allows for inline math to be included \\(\frac{\pi}{2}\\) $\pi$.
+Math can be displayed in the browser using MathJax or Katex. The feature 
+can be enabled by correctly configuring the `"js"`, `"css"`, and `"markdown_extensions"` 
+configuration fields. This allows for inline math to be included \\(\frac{\pi}{2}\\) $\pi$.
 
 Alternatively, math can be written on its own line:
 
