@@ -4274,8 +4274,8 @@ The systems flags of the EFLAGS register control I/O, maskable interrupts, debug
 ```
 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-[!NOTE]
-0 OR 1 INDICATES INTEL RESERVED. DO NOT DEFINE.
+> [!NOTE]
+> 0 OR 1 INDICATES INTEL RESERVED. DO NOT DEFINE.
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 
