@@ -2358,19 +2358,19 @@ from RAM).
     The read protection Level 2 is activated by writing 0xCC to the RDP option byte. When
     the read protection Level 2 is set:
 
-    - All protections provided by Level 1 are active.
-    - Booting from RAM or system memory bootloader is no more allowed.
-    - JTAG, SWV (single-wire viewer), ETM, and boundary scan are disabled.
-    - User option bytes can no longer be changed.
-    - When booting from Flash memory, accesses (read, erase and program) to Flash
+    – All protections provided by Level 1 are active.
+    – Booting from RAM or system memory bootloader is no more allowed.
+    – JTAG, SWV (single-wire viewer), ETM, and boundary scan are disabled.
+    – User option bytes can no longer be changed.
+    – When booting from Flash memory, accesses (read, erase and program) to Flash
     memory from user code are allowed.
 
     Memory read protection Level 2 is an irreversible operation. When Level 2 is activated,
     the level of protection cannot be decreased to Level 0 or Level 1.
 
-Note: The JTAG port is permanently disabled when Level 2 is active (acting as a JTAG fuse). As a
-consequence, boundary scan cannot be performed. STMicroelectronics is not able to
-perform analysis on defective parts on which the Level 2 protection has been set.
+> [!NOTE]: The JTAG port is permanently disabled when Level 2 is active (acting as a JTAG fuse). As a
+> consequence, boundary scan cannot be performed. STMicroelectronics is not able to
+> perform analysis on defective parts on which the Level 2 protection has been set.
 
 
                                                 <!-- *P55*/844 -->
