@@ -2368,7 +2368,8 @@ from RAM).
     Memory read protection Level 2 is an irreversible operation. When Level 2 is activated,
     the level of protection cannot be decreased to Level 0 or Level 1.
 
-> [!NOTE]: The JTAG port is permanently disabled when Level 2 is active (acting as a JTAG fuse). As a
+> [!NOTE]
+> The JTAG port is permanently disabled when Level 2 is active (acting as a JTAG fuse). As a
 > consequence, boundary scan cannot be performed. STMicroelectronics is not able to
 > perform analysis on defective parts on which the Level 2 protection has been set.
 
